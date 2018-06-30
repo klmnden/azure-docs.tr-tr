@@ -3,22 +3,23 @@ title: Abonelikler arasında Azure Etkinlik Günlüklerini Log Analytics'e topla
 description: Event Hubs'ı ve Logic Apps'i kullanarak Azure Etkinlik Günlüğü'nden verileri toplayın ve farklı bir kiracıdaki Azure Log Analytics çalışma alanına gönderin.
 services: log-analytics, logic-apps, event-hubs
 documentationcenter: ''
-author: richrundmsft
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d72d0823d78f47aed3d8690cee81f8bb00e7921d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.component: na
+ms.openlocfilehash: c2bb802213d903290a0168623d7e6a302ba0e324
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636979"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127450"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Abonelikler arasında Azure Etkinlik Günlüklerini Log Analytics'e toplama
 
@@ -129,7 +130,7 @@ Olay Hub'ı adını ve bağlantı dizesini almak için, [Event Hubs ad alanı iz
 
    |Ayar | Açıklama  |
    |:---|:---|
-   | Adı           | Mantıksal uygulamanın benzersiz adı. |
+   | Ad           | Mantıksal uygulamanın benzersiz adı. |
    | Abonelik   | Mantıksal uygulamayı içerecek olan Azure aboneliğini seçin. |
    | Kaynak Grubu | Mantıksal uygulama için var olan bir Azure kaynak grubunu seçin veya yeni grup oluşturun. |
    | Konum       | Mantıksal uygulamanızın dağıtılacağı veri merkezi bölgesini seçin. |

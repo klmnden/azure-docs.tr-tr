@@ -19,7 +19,7 @@ Temel ayarlar kullanın ve yalnızca bir abonelik seçin, bulut Kabuk üç kayna
 Dosya Paylaşımı bağladığı olarak `clouddrive` içinde `$Home` dizin. Bu tek seferlik bir işlemdir ve dosya paylaşımı sonraki oturumlarda otomatik olarak bağlar. 
 
 > [!NOTE]
-> Güvenlik için her bir kullanıcı kendi depolama hazırlamanız.  Rol tabanlı erişim denetimi (RBAC) için kullanıcıların katkıda bulunan erişimlerinin olması gerekir veya üstü.
+> Güvenlik için her bir kullanıcı kendi depolama hesabı hazırlamanız.  Rol tabanlı erişim denetimi (RBAC) için kullanıcılara katkıda bulunan erişimi veya hesap düzey depolama üstünde gerekir.
 
 Bash'te, dosya paylaşımı ayrıca sizin için otomatik olarak oluşturulduğu bir 5 GB görüntüsünü içeren veri devam ederse, `$Home` dizin. 
 

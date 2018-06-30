@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: juliako
-ms.openlocfilehash: 7fe59763162ca53ea0256d5902aeece90525f214
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 098a34aba8e5ce23f64d4bb07e3b9622aa2adb8e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655799"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110429"
 ---
 # <a name="azure-media-services-v3-preview-frequently-asked-questions"></a>Azure Media Services v3 (Önizleme) sık sorulan sorular
 
@@ -30,7 +30,7 @@ Henüz değil. Desteklenen Sdk'lardan birini kullanabilirsiniz. Öğreticiler ve
 
 Media Services ekip RUs v3 ortadan kaldırır. Ancak gerekli hizmet iş tamamlanmadı. O zamana kadar müşteriler RUs ayarlamak için Azure portal veya AMS v2 API'leri kullanmak zorunda (açıklandığı gibi [medyayı işleme ölçeklendirme](../previous/media-services-scale-media-processing-overview.md). 
 
-S3 RUs için gerekli olan **VideoAnalyzerPreset** ve **AudioAnalyzerPreset** V3 hazır.
+Kullanırken **VideoAnalyzerPreset** ve/veya **AudioAnalyzerPreset**, Media Services hesabınız için 10 S3 medya ayrılmış birimleri ayarlayın.
 
 ## <a name="does-v3-asset-have-no-assetfile-concept"></a>V3 varlık AssetFile kavram var mı?
 
@@ -56,7 +56,7 @@ Daha fazla bilgi için bkz: [filtreleme, sıralama, disk belleği](assets-concep
 
 ## <a name="how-to-retrieve-an-entity-in-media-services-v3"></a>Media Services v3 varlık alma
 
-V3 üzerinde oluşturulan yönetimi ve işlemleri işlevselliği kullanıma sunan bir birleşik API yüzeyi temel **Azure Resource Manager**. İle uyumlu olarak **Azure Resource Manager**, kaynak adları her zaman benzersizdir. Bu nedenle, herhangi bir benzersiz tanımlayıcısı dizesi (örneğin, GUID'ler), kaynak adları için kullanabilirsiniz. 
+V3 üzerinde oluşturulan yönetimi ve işlemleri işlevselliği kullanıma sunan bir birleşik API yüzeyi temel **Azure Resource Manager**. İle uyumlu olarak **Azure Resource Manager**, kaynak adları her zaman benzersizdir. Bu nedenle kaynaklarınızda benzersiz tanıtıcı dizeleri (GUID gibi) kullanabilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

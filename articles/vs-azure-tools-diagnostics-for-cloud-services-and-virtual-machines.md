@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 06/28/2018
 ms.author: mikejo
-ms.openlocfilehash: 34c667b0a594682e4d099e7bff64bfdb336b850b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2ff2a619dabd7dfabf89361172557efa4884ba12
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30292549"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110496"
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Azure Cloud Services ve sanal makineler için tanılama ayarlayın
 Bir Azure bulut hizmeti ya da sanal makineyi gidermek gerektiğinde, daha kolay Azure tanılama ayarlamak için Visual Studio'yu kullanabilirsiniz. Tanılama sistem verileri ve sanal makineler ve bulut hizmeti çalıştıran sanal makine örnekleri günlük verilerini yakalar. Tanılama veri seçtiğiniz bir depolama hesabı aktarılır. Azure'da oturum Tanılama hakkında daha fazla bilgi için bkz [Azure App Service'te Web uygulamalarını için tanılama günlüğünü etkinleştirme](app-service/web-sites-enable-diagnostic-log.md).
@@ -87,7 +87,11 @@ Visual Studio öykünücüsü dağıtmadan önce hizmet çalıştırdığınızd
    * Seçerseniz **aboneliğinizi**, kullanmak istediğiniz Azure aboneliğini seçin ve bir hesap adı girin. Azure Aboneliklerini yönetmek için seçin **hesaplarını yönetme**.
    * Seçerseniz **kimlik bilgileri'el ile girilen**, kullanmak istediğiniz Azure hesabı anahtarı ve adını girin.
 5. Görüntülemek için **tanılama Yapılandırması** iletişim kutusunda **yapılandırma**. Dışında **genel** ve **günlük dizinleri**, her sekme toplamak bir tanılama veri kaynağını temsil eder. Varsayılan **genel** sekmesinde aşağıdaki tanılama veri toplama seçeneklerini sunar: **yalnızca hatalar**, **tüm bilgileri**, ve **özel plan**. Varsayılan **yalnızca hatalar** seçenek uyarılar veya izleme iletileri aktarmaz çünkü en az miktarda depolama kullanır. **Tüm bilgileri** seçenek en bilgileri aktarır, en fazla depolama alanı kullanır ve bu nedenle, çok pahalı bir seçenektir.
-   
+
+   > [!NOTE]
+   > "MB, Disk kotası" için desteklenen minimum boyutu 4 GB'tır. Bellek dökümlerinin toplanması, ancak bu 10 GB gibi daha yüksek bir değere artırın.
+   >
+  
     ![Azure tanılama ve yapılandırma etkinleştir](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 6. Bu örnek için select **özel plan** toplanan verileri özelleştirebileceğiniz şekilde seçeneği.
 7. İçinde **MB Disk kotası** kutusunda Tanılama verileri için depolama hesabınızdaki ayırmak için ne kadar alan ayarlayabilirsiniz. Değiştirme veya varsayılan değerini kabul edin.
@@ -224,7 +228,7 @@ Bir bulut hizmeti veya sanal makine için tanılama verilerini derledik sonra g�
    | Performans sayaçları |Sanal makinede kullanılabilir herhangi bir performans sayacı hakkında veri toplar. İşletim sistemi, bellek kullanımı ve işlemci süresi gibi birçok istatistikleri dahil performans sayaçları sağlar. |WADPerformanceCountersTable |
    | Altyapı günlükleri |Tanılama Altyapısı kendisini oluşturulan günlükleri. |WADDiagnosticInfrastructureLogsTable |
    | IIS günlükleri |Kayıt web istekleri günlüğe kaydedilir. Bulut hizmetiniz bir miktarda trafiği alır, bu günlükler uzun olabilir. Toplamak ve yalnızca gerektiğinde bu verileri depolamak için iyi bir fikirdir. |İsteği başarısız oldu blob kapsayıcısı wad-IIS-failedreqlogs, bu dağıtım, rol ve örneği için bir yol altında altında kaydeder bulabilirsiniz. Tam günlükleri wad IIS logfiles altında bulabilirsiniz. Her dosya için girişler WADDirectories tablosunda oluşturulur. |
-   | Kilitlenme bilgi dökümleri |İkili bulut hizmetinizin işlemin (genellikle çalışan rolü) sağlar. |wad-crush-dumps blob container |
+   | Kilitlenme bilgi dökümleri |İkili bulut hizmetinizin işlemin (genellikle çalışan rolü) sağlar. |wad crush dökümleri blob kapsayıcısı |
    | Özel günlük dosyaları |Günlükleri, önceden tanımlanmış veri. |Depolama hesabınızı kodda özel günlük dosyalarının konumu belirtebilirsiniz. Örneğin, bir özel blob kapsayıcısını belirtebilirsiniz. |
 4. Herhangi bir türde veriler kesildi, bu verileri için arabellek boyutu artırmayı deneyebilirsiniz türü veya veri depolama hesabınıza aktarımları sanal makineden arasındaki aralığı kısaltmayı.
 5. (İsteğe bağlı) Bazen genel depolama maliyetleri azaltmak için depolama hesabından verilerini temizle.
@@ -249,7 +253,7 @@ Zaten çalışmakta olan bir bulut hizmeti ile ilgili bir sorun çalışıyoruz,
 ### <a name="to-set-up-diagnostics-for-a-running-cloud-service"></a>Çalışan bir bulut hizmeti için tanılama ayarlamak için
 1. Server Explorer'da genişletin **bulut Hizmetleri** düğümünü genişletin ve ardından rolü veya örneği (veya her ikisi de) bulmak için düğüm listesi araştırmak istediğiniz.
    
-    ![Tanılama Yapılandır](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC748913.png)
+    ![Tanılama yapılandırma](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC748913.png)
 2. Bir örnek düğümü ya da rolü düğümü için kısayol menüsünden seçin **güncelleştirme tanılama ayarları**ve ardından toplamak istediğiniz tanılama ayarlarını seçin.
    
     Yapılandırma ayarları hakkında daha fazla bilgi için bkz **tanılama veri kaynaklarını kurmak** bu makalede. Tanılama verilerini görüntüleme hakkında daha fazla bilgi için bkz **tanılama verilerini görüntülemek** bu makalede.

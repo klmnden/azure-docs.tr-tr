@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: ab6a66821905901515258842176ce24e485a54e3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061653"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110621"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – Azure SQL veritabanı, veritabanınızı yönetme
 
@@ -254,7 +254,7 @@ SQL veritabanı otomatik olarak ve herhangi bir veri kaybı olmadan veri bozulma
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>SQL Database ve SQL Server arasında veri eşitlemek nasıl?
 Bunu başarmak için birkaç yolu vardır: 
 - **[Veri eşitleme](sql-database-sync-data.md)**  – bu özellik, çift yönlü birden çok şirket içi SQL Server veritabanları ve SQL veritabanı arasında veri eşitlemek yardımcı olur. Şirket içi SQL Server veritabanları ile eşitlemek için yükleme ve eşitleme aracısı yerel bir bilgisayarda yapılandırmak ve giden TCP bağlantı noktası 1433'ü açmak gerekir.
-- **[İşlem çoğaltma](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – işlem çoğaltma ile şirket içi verilerinizi Azure SQL DB'ye yayımcı ve Azure SQL DB abone olan şirket içi ile eşitleyebilirsiniz. Şu an için yalnızca bu kurulum desteklenir. Verilerinizi şirket içi Azure SQL en az kapalı kalma süresi ile geçirme hakkında daha fazla bilgi için bkz: [kullanım işlem çoğaltma](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[İşlem çoğaltma](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – işlem çoğaltma ile şirket içi verilerinizi Azure SQL DB'ye yayımcı ve abone olan Azure SQL DB ile şirket içi eşitleyebilirsiniz. Şu an için yalnızca bu kurulum desteklenir. Verilerinizi şirket içinden Azure SQL için en az kapalı kalma süresi ile geçirme hakkında daha fazla bilgi için bkz: [kullanım işlem çoğaltma](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Hakkında bilgi edinin [SQL veritabanı](sql-database-technical-overview.md).

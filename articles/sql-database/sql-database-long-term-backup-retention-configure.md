@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0ce22cae50e70ca7232e025d4009b23d62f6a198
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f7125a18aa2496ebe8367443a67502a7a7dbac02
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649236"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128524"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL veritabanı uzun vadeli yedekleme bekletme yönetme
 
@@ -38,11 +38,11 @@ SQL veritabanına yapılandırabilirsiniz [otomatik yedeklemelerini Beklet](sql-
 
 2. Üzerinde **ilkeleri yapılandırma** sekmesinde, ayarlamak veya uzun vadeli yedekleme bekletme ilkeleri değiştirmek istediğiniz veritabanını seçin.
 
-   ![Veritabanını seçin](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
+   ![veritabanını seçin](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
 
 3. İçinde **ilkelerini yapılandırma** bölmesinde, select IF haftalık, aylık veya yıllık yedeklemelerini Beklet ve her biri için bekletme aralığını belirtin. 
 
-   ![İlkeleri yapılandırma](./media/sql-database-long-term-retention/ltr-configure-policies.png)
+   ![ilkeleri yapılandırma](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
 4. Tamamlandığında, tıklayın **Uygula**.
 
@@ -56,7 +56,7 @@ LTR İlkesi ve bu yedekleri geri yükleme ile belirli bir veritabanı için koru
 
 2. Üzerinde **kullanılabilir yedeklemeleri** sekmesinde, kullanılabilir yedekleri görmek istediğiniz veritabanını seçin.
 
-   ![Veritabanını seçin](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
+   ![veritabanını seçin](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 
 3. İçinde **kullanılabilir yedeklemeleri** bölmesinde, kullanılabilir yedekleri gözden geçirin. 
 
@@ -83,8 +83,10 @@ LTR İlkesi ve bu yedekleri geri yükleme ile belirli bir veritabanı için koru
 Aşağıdaki bölümlerde PowerShell uzun vadeli yedekleme bekletme yapılandırma, Azure SQL depolama ve Azure SQL depolama alanında bir yedekten yedeklemeleri görünümünde nasıl kullanılacağını gösterir.
 
 > [!IMPORTANT]
-> LTR V2 ilkelerini kurmak için en son AzureRM powershell kullanmanız gerekir. Geçerli sürüm [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview)Bu önizleme sürümü, yüklemek için bu komutu kullanın: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
-> Sürüm öncesi sürümünü yükleme ile ilgili yönergeler için bkz: [PowerShellGet alma Modülü](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). AzureRM powershell May 2018 yayın birkaç gün sonra gelen (olması beklenen 18/5/2018), kullanılabilir hale geldiğinde sürümünü yüklediğinizde - AllowPrelease anahtar yoksay ve aşağıdaki komutu kullanın " `Install-Module -Name AzureRM.Sql -Force`.
+> LTR V2 API aşağıdaki PowerShell sürümlerinde desteklenir:
+- [AzureRM.Sql 4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) ya da daha yeni
+- [AzureRM 6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) ya da daha yeni
+> 
 
 ### <a name="create-an-ltr-policy"></a>LTR ilkesi oluşturma
 

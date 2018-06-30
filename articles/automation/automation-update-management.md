@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3de93c06285f36353d91a66db975c0a579c1379c
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: e1bcae85c7078d817e30ec578ac12b2be13342c7
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097453"
+ms.locfileid: "37129032"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
@@ -157,11 +157,11 @@ Bir Operations Manager yönetim grubu günlük analizi ile iletişim kurduğunu 
 
 Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynakları açıklanmaktadır:
 
-| Bağlı kaynak | Destekleniyor | Açıklama |
+| Bağlı kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
-| Windows aracıları |Yes |Çözüm Windows aracılardan sistem güncelleştirmeleri hakkında bilgi toplar ve gerekli güncelleştirmeleri yüklemesini başlatır. |
-| Linux aracıları |Yes |Çözüm Linux aracılarını sistem güncelleştirmeleri hakkında bilgi toplar ve desteklenen dağıtımları gerekli güncelleştirmeleri yüklemesini başlatır. |
-| Operations Manager yönetim grubu |Yes |Çözüm, bağlı bir yönetim grubundaki aracılardan sistem güncelleştirmeleri hakkında bilgi toplar.<br/>Günlük analizi Operations Manager aracısı arasında doğrudan bağlantı gerekli değildir. Veri yönetim grubu için günlük analizi çalışma alanına iletilir. |
+| Windows aracıları |Evet |Çözüm Windows aracılardan sistem güncelleştirmeleri hakkında bilgi toplar ve gerekli güncelleştirmeleri yüklemesini başlatır. |
+| Linux aracıları |Evet |Çözüm Linux aracılarını sistem güncelleştirmeleri hakkında bilgi toplar ve desteklenen dağıtımları gerekli güncelleştirmeleri yüklemesini başlatır. |
+| Operations Manager yönetim grubu |Evet |Çözüm, bağlı bir yönetim grubundaki aracılardan sistem güncelleştirmeleri hakkında bilgi toplar.<br/>Günlük analizi Operations Manager aracısı arasında doğrudan bağlantı gerekli değildir. Veri yönetim grubu için günlük analizi çalışma alanına iletilir. |
 
 ### <a name="collection-frequency"></a>Toplama sıklığı
 
@@ -214,7 +214,7 @@ Yeni bir güncelleştirme dağıtımı oluşturmak için seçin **zamanlama gün
 |İşletim Sistemi| Seçin **Linux** veya **Windows**.|
 |Makineleri güncelleştirmek için |Kaydedilmiş bir aramayı seçin veya seçin **makine** aşağı açılan liste ve seçip tek tek makinelerden. |
 |Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin. CentOS desteklemiyor bu kutu dışı.|
-|Dışlanacak güncelleştirmeleri|Dışlanacak güncelleştirmeleri girin. Windows için KB makalesi olmadan girin **KB** öneki. Linux için paket adını girin veya bir joker karakter kullanın.  |
+|Hariç tutulacak güncelleştirmeler|Dışlanacak güncelleştirmeleri girin. Windows için KB makalesi olmadan girin **KB** öneki. Linux için paket adını girin veya bir joker karakter kullanın.  |
 |Zamanlama ayarları|Başlangıç saati seçin ve ardından ya da **kez** veya **yinelenen** yineleme için.|| Bakım penceresi |Güncelleştirmeler için belirlediğiniz dakika sayısı. Değeri 30 dakika ya da 6 saatten daha az olamaz. |
 
 ## <a name="update-classifications"></a>Güncelleştirme sınıflandırmaları
@@ -260,6 +260,8 @@ Aşağıdaki adresleri özellikle güncelleştirme yönetimi için gereklidir. B
 |*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
 
 Karma Runbook çalışanı gereken bağlantı noktaları hakkında daha fazla bilgi için bkz: [karma çalışanı rolü bağlantı noktalarını](automation-hybrid-runbook-worker.md#hybrid-worker-role).
+
+Özel durumlar tanımlarken listelenen adresler kullanılması önerilir. IP adreslerinin indirebilirsiniz [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Bu dosya, haftalık olarak güncelleştirilen ve şu anda dağıtılmış aralıklarını ve IP aralıklarını yaklaşan değişiklikleri yansıtır.
 
 ## <a name="search-logs"></a>Arama günlükleri
 

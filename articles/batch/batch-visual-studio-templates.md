@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5241c62e8b423b20477fc72c87303daf3d4ab43c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 98a5af1c0b321b7f9acf2bfd936a16d22088babf
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316758"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128869"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Batch çözümleri hızla başlatmak için Visual Studio Proje şablonları kullanın
 
@@ -439,10 +439,7 @@ Parameters.JSON ve bulduğu IF parametreleri sözlüğü olarak yükler. Birkaç
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>Azure Storage iş ve Görev çıkış Sürdür
 Batch çözümü geliştirme yararlı bir diğer araç [Azure toplu işlem dosyası kuralları][nuget_package]. Bu .NET sınıf kitaplığı (şu anda önizlemede), Batch .NET uygulamalarında kolayca depolamak ve görev çıktıları için ve Azure depolama biriminden almak için kullanın. [Azure toplu işlem iş ve görev çıktısı kalıcı](batch-task-output.md) kitaplığı ve kullanım tam bir irdelemesi içerir.
 
-### <a name="batch-forum"></a>Toplu işlem Forumu
-[Azure toplu işlem Forumu] [ forum] MSDN'de toplu ele almaktadır ve hizmet hakkında sorular sormak için iyi bir yerdir. HEAD üzerinde üzerinden faydalı "Yapışkan" gönderiler için ve Batch çözümlerinizi derleme sırasında çıktıkları anda sorularınızı gönderin.
 
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files

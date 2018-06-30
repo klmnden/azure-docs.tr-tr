@@ -3,23 +3,24 @@ title: Azure Log Analytics VM uzantısı sorunlarını giderme | Microsoft Docs
 description: Belirtiler, nedenleri ve Çözümlemesi en yaygın sorunları için günlük analizi VM uzantısı ile Windows ve Linux Azure VM'ler için açıklanmaktadır.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: d1e70d8f9fb929e3877c88fd4c1169a0c76ac2a6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: na
+ms.openlocfilehash: 700d6b2c3bcd39aed38bf75556bcdcb59d1ab78b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29394995"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128835"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Günlük analizi VM uzantısı sorunlarını giderme
 Bu makalede Windows ve Linux Microsoft Azure üzerinde çalışan sanal makineler için günlük analizi VM uzantısı ile karşılaşabilirsiniz ve bunları gidermek için olası çözümleri önerir hatalarında sorun giderme yardım sağlar.
@@ -27,7 +28,7 @@ Bu makalede Windows ve Linux Microsoft Azure üzerinde çalışan sanal makinele
 Uzantı durumunu doğrulamak için Azure Portal'da aşağıdaki adımları gerçekleştirin.
 
 1. [Azure portal](http://portal.azure.com) oturum açın.
-2. Azure portalında tıklatın **tüm hizmetleri**. Kaynak listesinde yazın **sanal makineleri**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **sanal makineleri**.
+2. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde yazın **sanal makineleri**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **sanal makineleri**.
 3. Sanal makineler listesi, bulun ve seçin.
 3. Sanal makineye tıklayın **uzantıları**.
 4. Listeden, günlük analizi uzantısı veya etkin olup olmadığını denetleyin.  Linux için aracı olarak listelenen **OMSAgentforLinux** ve Windows için aracı olarak listeleniyor **MicrosoftMonitoringAgent**.

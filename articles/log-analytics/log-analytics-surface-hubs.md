@@ -3,7 +3,7 @@ title: İzleme Azure günlük analizi ile Surface Hubs | Microsoft Docs
 description: Surface hub'larınız sağlığını izlemek ve nasıl kullanıldıkları anlamak için Surface Hub çözümü kullanın.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 525b3ced979834a956f91ef8c6f647b659ca21f1
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.component: na
+ms.openlocfilehash: dfbcdce293d6d47267892487d0760410665af94a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29179234"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130779"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surface Hubs durumlarını izlemek için günlük analizi ile izleme
 
@@ -31,7 +31,7 @@ Bu makalede, Surface Hub çözüm günlük analizi Microsoft Surface Hub cihazla
 Her Surface Hub Microsoft izleme aracısı yüklü olan. Kendi veri için günlük analizi Surface Hub'ından gönderebilir Aracısı üzerinden. Günlük dosyaları, Surface hub'ları ve misiniz okuma sonra günlük analizi için gönderilir. Cihaz hesabı içine oturum açamıyor olması durumunda Skype gösterilmiştir günlük analizi Surface Hub panosunda veya çevrimdışı olan sunucuları eşitlemiyor, Takvim sorunları gibi. Pano verileri kullanarak, çalışmıyor veya başka sorunlara sahip olduğunu ve potansiyel olarak algılanan sorunlar için düzeltmeler uygulamak aygıtlar tanımlayabilirsiniz.
 
 ## <a name="install-and-configure-the-solution"></a>Yükleyin ve yapılandırın
-Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın. Günlük analizi, Surface hub'larınız yönetmek için şunlar gerekir:
+Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın. Günlük analizi, Surface hub'larınız yönetmek için şunlar gerekir:
 
 * A [günlük analizi abonelik](https://azure.microsoft.com/pricing/details/log-analytics/) izlemek istediğiniz cihaz sayısı destekleyecek düzeyi. Günlük analizi fiyatlandırma kaç aygıtlar kaydedilir ve ne kadar veri bağlı olarak bu işlemleri değişir. Bu, Surface Hub dağıtımı planlarken dikkate istersiniz.
 

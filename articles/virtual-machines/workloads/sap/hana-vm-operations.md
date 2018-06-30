@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61369fbf864db28ee0a9415bbb87dca2a185ed43
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 59adc0bccd523818aad1feca2d0cf260f45d899c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809684"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110376"
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA üzerinde Azure işlemler Kılavuzu
 Bu belgede işletim Azure yerel sanal makinelerde (VM'ler) dağıtılan SAP HANA sistemleri için yönergeler sağlanmaktadır. Bu belge aşağıdaki içeriği içerir standart SAP belgeleri değiştirmek üzere tasarlanmamıştır:
@@ -79,7 +79,7 @@ Depolama türlerini ve SLA'ları IOPS ve depolama iş çıkarma listesi için g�
 
 ### <a name="configuring-the-storage-for-azure-virtual-machines"></a>Azure sanal makineler için depolama yapılandırma
 
-SAP HANA cihazları şirket içi için satın aldığınız şekilde uzaklığa kadar hiçbir zaman Gereci satıcı minimum depolama gereksinimleri için SAP HANA karşılandığından emin olmak gerektiğinden g/ç alt sistemleri ve özelliklerini hakkında önemli gerekiyordu. Azure altyapısı kendiniz oluşturmak gibi aynı zamanda bazı ayrıca aşağıdaki bölümlerde önerdiğimiz yapılandırma gereksinimlerini anlamak için bu gereksinimleri farkında olmalıdır. Sanal makineler yapılandırmakta olduğunuz nerede durumları için SAP HANA çalıştırmak istediğiniz veya. Bazı sorulur özelliklerine gerek sonuçta:
+Şirket içi SAP HANA cihazları satın aldığınız şekilde uzaklığa kadar hiçbir zaman Gereci satıcı minimum depolama gereksinimleri için SAP HANA karşılandığından emin olmak gerektiğinden g/ç alt sistemleri ve özelliklerini hakkında önemli gerekiyordu. Azure altyapısı kendiniz oluşturmak gibi aynı zamanda bazı ayrıca aşağıdaki bölümlerde önerdiğimiz yapılandırma gereksinimlerini anlamak için bu gereksinimleri farkında olmalıdır. Sanal makineler yapılandırmakta olduğunuz nerede durumları için SAP HANA çalıştırmak istediğiniz veya. Bazı sorulur özelliklerine gerek sonuçta:
 
 - 250 MB/sn en az 1 MB g/ç boyutlarıyla /hana/log okuma/yazma birimde etkinleştir
 - En az 400 MB/sn 16 MB ile 64 MB g/ç boyutları için /hana/data için okuma etkinlik etkinleştir

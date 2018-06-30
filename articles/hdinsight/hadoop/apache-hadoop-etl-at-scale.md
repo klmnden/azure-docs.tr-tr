@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 2f34233a68bec506d9f69426d779aee8e493d759
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9314b8ae8dceb29a9aee63ba3093ab191d4fdef3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402072"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37116301"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Ayıklama, dönüştürme ve yükleme (ETL) ölçekte
 
@@ -85,7 +85,7 @@ Veri kümeleri terabayt aralığında yüklemek için özellikle verileri bir ş
 
 * Azure ExpressRoute: Azure ExpressRoute, Azure veri merkezleri ve şirket içi altyapınızı arasında özel bağlantılar oluşturmanızı sağlar. Bu bağlantılar büyük miktarlarda veri aktarmak için güvenilir bir seçenek sağlar. Daha fazla bilgi için bkz: [Azure ExpressRoute belgeleri](../../expressroute/expressroute-introduction.md).
 
-* "Çevrimdışı" verilerin karşıya yükleyin. Kullanabileceğiniz [Azure içeri/dışarı aktarma hizmeti](../../storage/common/storage-import-export-service.md) verilerinizi bir Azure veri merkezi için sabit disk sürücülerini dağıtmayı. Verilerinizi ilk Azure Storage Bloblarında yüklenir. Daha sonra [Azure Data Factory](../../data-factory/v1/data-factory-azure-datalake-connector.md) veya [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) Azure Storage bloblarından Data Lake Store'a veri kopyalamak için aracı.
+* "Çevrimdışı" verilerin karşıya yükleyin. Kullanabileceğiniz [Azure içeri/dışarı aktarma hizmeti](../../storage/common/storage-import-export-service.md) verilerinizi bir Azure veri merkezi için sabit disk sürücülerini dağıtmayı. Verilerinizi ilk Azure Storage Bloblarında yüklenir. Daha sonra [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) veya [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) Azure Storage bloblarından Data Lake Store'a veri kopyalamak için aracı.
 
 ### <a name="azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı
 
@@ -135,7 +135,7 @@ Apache Flume, verimli bir şekilde toplanması, toplama ve büyük miktarlarda g
 
 Apache Flume Azure Hdınsight ile kullanılamaz.  Bir şirket içi Hadoop yükleme, Flume, Azure Storage Bloblarında veya Azure Data Lake Store için veri göndermek için kullanabilirsiniz.  Daha fazla bilgi için bkz: [kullanarak Apache Flume Hdınsight ile](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
-## <a name="transform"></a>Dönüştürme
+## <a name="transform"></a>Dönüşüm
 
 Veriler Seçilen konumda bulunduğunu sonra temizlemesini, onu birleştirmek veya belirli kullanım düzeni için hazırlanması gerekir.  Hive, Pig ve Spark SQL, bu tür bir iş için tüm iyi seçimlerdir.  Hdınsight üzerinde tüm desteklenir. 
 

@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: f7c3820624a4ef27e2ece4d902f2c033b6a6f48f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9b41ca1eedcf69b23557c079e018d69de9fb907c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061229"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114376"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 Önizleme hiyerarşik ad alanı
 
-Nesne depolama ölçek ve Fiyatlar, dosya sistemi performansı sağlamak Azure Data Lake Storage Gen2 Önizleme izin veren bir anahtar mekanizmadır eklenmesi bir **hiyerarşik ad alanı**. Bu nesneleri/dosya dizinleri ve iç içe alt dizinleri bir hiyerarşiye dosya sistemi, bilgisayarınızdaki düzenlenmiştir aynı şekilde düzenlenmesine için bir hesap içinde koleksiyonunu sağlar. Etkin hiyerarşik ad alanı ile Data Lake Storage Gen2 analytics motoru ve çerçeveler hakkında bilginiz dosya sistemi sematiğini ile nesne depolama düşük maliyet ve ölçeklenebilirlik sağlar.
+Nesne depolama ölçek ve fiyatlarını dosya sistemi performansı sağlamak üzere Azure Data Lake depolama Gen2 Önizleme izin veren bir anahtar eklenmesi mekanizmadır bir **hiyerarşik ad alanı**. Bu nesneleri/dosya dizinleri ve iç içe alt dizinleri bir hiyerarşiye dosya sistemi, bilgisayarınızdaki düzenlenmiştir aynı şekilde düzenlenmesine için bir hesap içinde koleksiyonunu sağlar. Etkin hiyerarşik ad alanı ile Data Lake Storage Gen2 analytics motoru ve çerçeveler hakkında bilginiz dosya sistemi sematiğini ile nesne depolama düşük maliyet ve ölçeklenebilirlik sağlar.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>Hiyerarşik ad alanı yararları
 
@@ -27,7 +27,7 @@ Nesne depolama ölçek ve Fiyatlar, dosya sistemi performansı sağlamak Azure D
 
 Aşağıdaki faydaları hiyerarşik ad blob verilerin üzerine uygulamak dosya sistemleri ile ilişkilidir:
 
-- **Atomik dizin işleme:** nesne depoları, eğik çizgi (/) nesne adı yol kesimleri belirtmek için ek bir kuralı'nu benimseme dizin hiyerarşisi yaklaşık. Bu kural başarılı şekilde nesneleri düzenlemek için çalışırken, kuralı taşıma, yeniden adlandırma veya dizinleri silme gibi eylemleri için hiçbir desteği sağlar. Gerçek dizinleri uygulamaları olası dizin düzeyinde görevleri elde etmek için tek tek bloblar milyonlarca işlemesi gerekir. Bunun aksine, hiyerarşik ad alanı, tek bir giriş (üst dizini) güncelleştirerek bu görevleri işler. 
+- **Atomik dizin işleme:** nesne depoları, eğik çizgi (/) nesne adı yol kesimleri belirtmek için ek bir kuralı'nu benimseme dizin hiyerarşisi yaklaşık. Bu kural nesneleri düzenlemek için çalışırken, kuralı taşıma, yeniden adlandırma veya dizinleri silme gibi eylemleri için hiçbir desteği sağlar. Gerçek dizinleri uygulamaları olası dizin düzeyinde görevleri elde etmek için tek tek bloblar milyonlarca işlemesi gerekir. Bunun aksine, hiyerarşik ad alanı, tek bir giriş (üst dizini) güncelleştirerek bu görevleri işler. 
 
     Bu çarpıcı iyileştirme birçok büyük veri analizi çerçeveyi özellikle önemlidir. Hive, Spark, vb. gibi araçlar genellikle çıkış geçici konuma yazma ve iş sonuç konumda yeniden adlandırın. Hiyerarşik ad bu yeniden adlandırma genellikle kendi analiz işlem daha uzun sürebilir. Daha düşük iş gecikmesi daha düşük sahip olma maliyeti (TCO) analytics iş yükleri için eşittir.
 

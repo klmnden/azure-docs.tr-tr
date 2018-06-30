@@ -3,7 +3,7 @@ title: Azure günlük analizi yönetim çözümleri ekleme | Microsoft Docs
 description: Azure yönetim çözümlerine kurallarının belirli sorunu etrafına özetlenebilir ölçümleri sağlayan mantığı, Görselleştirme ve veri alım koleksiyonudur.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6ec6dd46d28518baf6f105dd232a4b0e77a8c6f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: na
+ms.openlocfilehash: 0cffdbcaa128dce52758e4b618b93dd763961361
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29395471"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131484"
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Sunucunuzdan çalışma alanınıza Azure günlük analizi yönetim çözümleri Ekle
 
@@ -85,7 +85,7 @@ Aşağıdaki tabloda tüm çözümleri Azure portalı ve günlük analizi portal
 | [Azure ağ güvenlik grubu analizi](log-analytics-azure-networking-analytics.md)     | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
 | [Azure SQL analizi (Önizleme)](log-analytics-azure-sql.md)                                                       | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br>Başına&nbsp;düğümü&nbsp;(OMS)                                                                          | Bir Otomasyon hesabı bağlanması için günlük analizi çalışma alanınız gerektirir|
 | [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md)     | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
-|[Backup](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Insight and Analytics</li></ul>                                   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                       | Klasik bir yedekleme kasası gerektirir.<br> Azure portal/Marketi'nden eklemek kullanılamaz. |
+|[Backup](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>İçgörü ve Analiz</li></ul>                                   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                       | Klasik bir yedekleme kasası gerektirir.<br> Azure portal/Marketi'nden eklemek kullanılamaz. |
 | [Kapasite ve performans (Önizleme)](log-analytics-capacity.md)                                                   | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
 | [Değişiklik İzleme](log-analytics-change-tracking.md)                                       | <ul><li>Otomasyon ve Denetim</li></ul>                                  | Ücretsiz<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                         | Bir Otomasyon hesabı bağlanması için günlük analizi çalışma alanınız gerektirir |
 | [Kapsayıcılar](log-analytics-containers.md)                                                 | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
@@ -94,21 +94,21 @@ Aşağıdaki tabloda tüm çözümleri Azure portalı ve günlük analizi portal
 | [Anahtar Kasası Analizi](log-analytics-azure-key-vault.md)                   | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
 | [Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | Azure portal/Marketi'nden eklemek kullanılamaz. |
 | [Kötü Amaçlı Yazılım Değerlendirmesi](log-analytics-malware.md)                                            | <ul><li>Güvenlik ve Uyumluluk</li></ul>                                 | Ücretsiz<br> Tek Başına<br>Başına&nbsp;düğümü&nbsp;(OMS)                                                                           | Güvenlik ve uyumluluk çözümleri 19 Haziran 2017 sonra eklerseniz [faturalama olan düğüm başına](https://azure.microsoft.com/pricing/details/security-compliance/)ne olursa olsun, fiyatlandırma katmanı çalışma. İlk 60 gün ücretsizdir.  |
-| [Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md) <br>  | <ul><li>Insight and Analytics</li></ul>                                   | Ücretsiz<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                         | |
+| [Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md) <br>  | <ul><li>İçgörü ve Analiz</li></ul>                                   | Ücretsiz<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                         | |
 | [Office 365 Analytics (Önizleme)](../operations-management-suite/oms-solution-office-365.md)                                                       | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
 | [Güvenlik ve Denetim](../operations-management-suite/oms-security-getting-started.md)      | <ul><li>Güvenlik&nbsp;ve&nbsp;uyumluluk</li></ul>                       | Ücretsiz<br> Tek Başına<br>Başına&nbsp;düğümü&nbsp;(OMS)                                                                           | Bu çözüm güvenlik olay günlüklerini toplama gerektirir<br>Güvenlik ve uyumluluk çözümleri 19 Haziran 2017 sonra eklerseniz [faturalama olan düğüm başına](https://azure.microsoft.com/pricing/details/security-compliance/)ne olursa olsun, fiyatlandırma katmanı çalışma. İlk 60 gün ücretsizdir. |
-| [Service Fabric Analytics (Preview)](log-analytics-service-fabric.md)                     | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
-| [Hizmet eşlemesi (Önizleme)](../operations-management-suite/operations-management-suite-service-map.md) | <ul><li>Insight and Analytics</li></ul>                      | Ücretsiz<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                         | Doğu ABD, Batı Avrupa ve Batı Orta ABD kullanılabilir    |
-| [Site Recovery](../site-recovery/site-recovery-overview.md)                                                                               | <ul><li>Insight and Analytics</li></ul>                                   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                       | Klasik Site Recovery kasası gerektirir.<br> Azure portal/Marketi'nden eklemek kullanılamaz. |
+| [Service Fabric Analytics (Önizleme)](log-analytics-service-fabric.md)                     | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
+| [Hizmet eşlemesi (Önizleme)](../operations-management-suite/operations-management-suite-service-map.md) | <ul><li>İçgörü ve Analiz</li></ul>                      | Ücretsiz<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                         | Doğu ABD, Batı Avrupa ve Batı Orta ABD kullanılabilir    |
+| [Site Recovery](../site-recovery/site-recovery-overview.md)                                                                               | <ul><li>İçgörü ve Analiz</li></ul>                                   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                       | Klasik Site Recovery kasası gerektirir.<br> Azure portal/Marketi'nden eklemek kullanılamaz. |
 | [SQL Değerlendirmesi](log-analytics-sql-assessment.md)                                         | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
 | Hizmetin kapalı olduğu saatlerde Sanal Makineleri Başlatma/Durdurma<br>(Önizleme)                                              | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                         | Bir Otomasyon hesabı bağlanması için günlük analizi çalışma alanınız gerektirir |
 | [SurfaceHub](log-analytics-surface-hubs.md)                                               | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | Azure portal/Marketi'nden eklemek kullanılamaz. |
-| [System Center Operations Manager değerlendirmesi (Önizleme)](log-analytics-scom-assessment.md)  | <ul><li>Insight and Analytics</li><li>Log Analytics</li></ul>        | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
+| [System Center Operations Manager değerlendirmesi (Önizleme)](log-analytics-scom-assessment.md)  | <ul><li>İçgörü ve Analiz</li><li>Log Analytics</li></ul>        | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
 | [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md)                                                                         | <ul><li>Otomasyon ve Denetim</li></ul>                                  | Ücretsiz<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                         | Bir Otomasyon hesabı bağlanması için günlük analizi çalışma alanınız gerektirir |
 | [Güncelleştirme uyumluluğu (Önizleme)](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started)                                                             | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | Ücret ödemeden verilerin veya düğümler<br>Veri ücretsiz katmanı ucun tabi değildir.<br> Azure portal/Marketi'nden eklemek kullanılamaz. |
 | [Yükseltme Hazırlığı](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started)                                                          | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | Ücret ödemeden verilerin veya düğümler<br>Veri ücretsiz katmanı ucun tabi değildir.<br> Azure portal/Marketi'nden eklemek kullanılamaz. |
 | [VMware izleme (Önizleme)](log-analytics-vmware.md)                                | <ul><li>Insight&nbsp;ve&nbsp;analizi</li><li>Log Analytics</li></ul>   | Ücretsiz<br> Standart<br> Premium&nbsp;(OMS)<br> Başına&nbsp;GB&nbsp;(tek başına)<br> Başına&nbsp;düğümü&nbsp;(OMS)   | |
-| [Kablo verileri 2.0 (Önizleme)](log-analytics-wire-data.md)                                                                 | <ul><li>Insight and Analytics</li></ul>                                   | Ücretsiz<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                         | Doğu ABD, Batı Avrupa ve Batı Orta ABD kullanılabilir |
+| [Kablo verileri 2.0 (Önizleme)](log-analytics-wire-data.md)                                                                 | <ul><li>İçgörü ve Analiz</li></ul>                                   | Ücretsiz<br> Başına&nbsp;düğümü&nbsp;(OMS)                                                                         | Doğu ABD, Batı Avrupa ve Batı Orta ABD kullanılabilir |
 
 <sup>1</sup> *standart* ve *Premium (OMS)* fiyatlandırma katmanlarına bulunan ve yalnızca kendi günlük analizi çalışma alanı 21 Eylül 2016 önce oluşturulan müşteriler için.
 
@@ -146,13 +146,13 @@ Günlük analizi Windows aracısı ve System Center Operations Manager Aracısı
 | Uyarı Yönetimi (Nagios) |Linux |&#8226; |  |  |  |  |geldiğinde |
 | Uyarı Yönetimi (Zabbix) |Linux |&#8226; |  |  |  |  |1 dakika |
 | Uyarı Yönetimi (Operations Manager) |Windows |  |&#8226; |  |&#8226; |&#8226; |3 dakika |
-| Uygulama Öngörüler Bağlayıcısı (Önizleme) | Azure |   |   |   |   |   | bildirim |
-| Azure uygulama ağ geçidi analizi | Azure |   |   |   |   |   | bildirim |
-| Azure ağ güvenlik grubu analizi | Azure |   |   |   |   |   | bildirim |
-| Azure SQL analizi (Önizleme) |Windows |  |  |  |  |  | 10 dakika |
+| Application Insights Bağlayıcısı (Önizleme) | Azure |   |   |   |   |   | bildirim |
+| Azure Application Gateway Analytics | Azure |   |   |   |   |   | bildirim |
+| Azure Ağ Güvenlik Grubu Analizi | Azure |   |   |   |   |   | bildirim |
+| Azure SQL Analytics (Önizleme) |Windows |  |  |  |  |  | 10 dakika |
 | Kapasite Yönetimi |Windows |&#8226; |&#8226; |  |  |&#8226; |geldiğinde |
 | Kapsayıcılar | Windows ve Linux | &#8226; | &#8226; |   |   |   | 3 dakika |
-| Anahtar kasası analizi |Windows |  |  |  |  |  |bildirim |
+| Key Vault Analytics |Windows |  |  |  |  |  |bildirim |
 | Ağ Performansı İzleyicisi | Windows | &#8226; | &#8226; |   |   |   | TCP el sıkışmaları veri her 5 saniye boyunca 3 dakikada gönderilen |
 | Office 365 Analytics (Önizleme) |Windows |  |  |  |  |  |bildirim |
 | Service Fabric Analytics |Windows |  |  |&#8226; |  |  |5 dakika |
@@ -160,8 +160,8 @@ Günlük analizi Windows aracısı ve System Center Operations Manager Aracısı
 | SQL Değerlendirmesi |Windows |&#8226; |&#8226; |  |  |&#8226; |7 gün |
 | SurfaceHub |Windows |&#8226; |  |  |  |  |geldiğinde |
 | System Center Operations Manager değerlendirmesi (Önizleme) | Windows | &#8226; | &#8226; |   |   | &#8226; | yedi gün |
-| Yükseltme Analytics (Önizleme) | Windows | &#8226; |   |   |   |   | 2 gün |
-| VMware izleme (Önizleme) | Linux | &#8226; |   |   |   |   | 3 dakika |
+| Yükseltme Analizi (Önizleme) | Windows | &#8226; |   |   |   |   | 2 gün |
+| VMware İzleme (Önizleme) | Linux | &#8226; |   |   |   |   | 3 dakika |
 | Kablo Verileri |Windows (2012 R2 / 8.1 veya üzeri) |&#8226; |&#8226; |  |  |  | 1 dakika |
 
 
@@ -169,7 +169,7 @@ Günlük analizi Windows aracısı ve System Center Operations Manager Aracısı
 
 | Yönetim çözümü | Platform | Microsoft İzleme Aracısı | Operations Manager Aracısı | Azure Storage | Operations Manager gerekli? | Operations Manager Aracısı verilerinin yönetim grubu gönderilen | Toplama sıklığı |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Otomasyon karma çalışanı | Windows | &#8226; | &#8226; |   |   |   | yok |
+| Otomasyon Karma Çalışanı | Windows | &#8226; | &#8226; |   |   |   | yok |
 | Değişiklik İzleme |Windows |&#8226; |&#8226; |  |  |&#8226; |saatlik |
 | Değişiklik İzleme |Linux |&#8226; |  |  |  |  |saatlik |
 | Güncelleştirme Yönetimi | Windows |&#8226; |&#8226; |  |  |&#8226; |en az 2 kez gün ve bir güncelleştirme yüklendikten sonra 15 dakika |
@@ -178,7 +178,7 @@ Günlük analizi Windows aracısı ve System Center Operations Manager Aracısı
 
 | Yönetim çözümü | Platform | Microsoft İzleme Aracısı | Operations Manager Aracısı | Azure Storage | Operations Manager gerekli? | Operations Manager Aracısı verilerinin yönetim grubu gönderilen | Toplama sıklığı |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Kötü amaçlı yazılımdan koruma değerlendirme |Windows |&#8226; |&#8226; |  |  |&#8226; |saatlik |
+| Kötü Amaçlı Yazılım Değerlendirmesi |Windows |&#8226; |&#8226; |  |  |&#8226; |saatlik |
 | Güvenlik ve Denetim<sup>1</sup> | Windows ve Linux | Kısmi | Kısmi | Kısmi |   | Kısmi | çeşitli |
 
 <sup>1</sup> güvenlik ve denetim çözümü, Windows, Operations Manager ve Linux aracılarını günlüklerini toplayabilir. Bkz: [veri kaynakları](#data-sources) veri toplama hakkında bilgi edinmek için:
@@ -207,9 +207,9 @@ Günlük analizi Windows aracısı ve System Center Operations Manager Aracısı
 | Azure tanılama günlükleri |Windows |  |  |  |  |  |bildirim |
 | Azure tanılama ölçümleri |Windows |  |  |  |  |  |bildirim |
 | ETW |Windows |  |  |&#8226; |  |  |5 dakika |
-| IIS günlükleri |Windows |&#8226; |&#8226; |&#8226; |  |  |5 dakika |
-| Performans Sayaçları |Windows |&#8226; |&#8226; |  |  |  |Zamanlandığı gibi en az 10 saniye |
-| Performans Sayaçları |Linux |&#8226; |  |  |  |  |Zamanlandığı gibi en az 10 saniye |
+| IIS Günlükleri |Windows |&#8226; |&#8226; |&#8226; |  |  |5 dakika |
+| Performans Sayaçları |Windows |&#8226; |&#8226; |  |  |  |zamanlandığı gibi en az 10 saniye |
+| Performans Sayaçları |Linux |&#8226; |  |  |  |  |zamanlandığı gibi en az 10 saniye |
 | Syslog |Linux |&#8226; |  |  |  |  |Azure depolama biriminden: 10 dakika; aracısından: işle |
 | Windows Güvenlik olay günlükleri |Windows |&#8226; |&#8226; |&#8226; |  |  |Azure Depolama: 10 min; aracının: işle |
 | Windows Güvenlik duvarı günlükleri |Windows |&#8226; |&#8226; |  |  |  |geldiğinde |

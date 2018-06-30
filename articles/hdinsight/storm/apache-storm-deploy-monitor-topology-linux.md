@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 8b4584e9ccd17eba385f2068709f5bbaea6df20b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 53433e6a677a2576a11209075f397bb5f246b875
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019968"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129294"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Dağıtma ve Hdınsight üzerinde Apache Storm topolojilerini yönetme
 
@@ -212,7 +212,7 @@ Spout gelen seçme **Spout'lar** veya **Cıvatalar** bölümleri seçili öğe h
 
 Benzer yönetim ve izleme işlevselliği REST API'sini kullanarak gerçekleştirebilmek için Storm kullanıcı Arabirimi REST API üzerinde oluşturulmuştur. REST API, yönetmek ve Storm topolojilerini izlemek için özel araçlar oluşturmak için kullanabilirsiniz.
 
-Daha fazla bilgi için bkz: [Storm kullanıcı Arabirimi REST API](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html). Aşağıdaki bilgiler, REST API kullanarak hdınsight'ta Apache Storm özeldir.
+Daha fazla bilgi için bkz: [Storm kullanıcı Arabirimi REST API](http://storm.apache.org/releases/current/STORM-UI-REST-API.html). Aşağıdaki bilgiler, REST API kullanarak hdınsight'ta Apache Storm özeldir.
 
 > [!IMPORTANT]
 > Storm REST API internet üzerinden genel kullanıma açık değildir ve Hdınsight küme baş düğümüne SSH tüneli kullanılarak erişilebilir olmalıdır. Oluşturma ve SSH tüneli kullanma hakkında daha fazla bilgi için bkz: [kullanım SSH Ambari web kullanıcı Arabirimi, ResourceManager, kaynak, iş, Oozie ve diğer web Uı'lar erişmek için tünel](../hdinsight-linux-ambari-ssh-tunnel.md).

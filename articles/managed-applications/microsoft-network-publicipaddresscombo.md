@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: bf0ef5be609fba14ab12e1e6f9f97bc63f032aae
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d06a450595a53fdc65fba74791345abe3a1b3db4
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260569"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109578"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI öğesi
 Yeni veya var olan ortak IP adresi seçme denetimlerini grubudur.
@@ -70,14 +70,16 @@ Yeni veya var olan ortak IP adresi seçme denetimlerini grubudur.
 - İçin `zone`, yalnızca genel IP adresi için belirtilen bölge veya bölge dayanıklı genel IP adresleri kullanılabilir.
 
 ## <a name="sample-output"></a>Örnek çıktı
-Kullanıcının ortak IP adresi seçerse, aşağıdaki çıkış bekleniyor:
+Kullanıcının ortak IP adresi seçerse, denetimi aşağıdaki çıktıyı döndürür:
+
 ```json
 {
   "newOrExistingOrNone": "none"
 }
 ```
 
-Kullanıcı yeni veya var olan bir IP adresi seçerse, aşağıdaki çıkış bekleniyor:
+Kullanıcı yeni veya var olan bir IP adresi seçer, denetimi aşağıdaki çıktıyı döndürür:
+
 ```json
 {
   "name": "ip01",
@@ -87,6 +89,7 @@ Kullanıcı yeni veya var olan bir IP adresi seçerse, aşağıdaki çıkış be
   "newOrExistingOrNone": "new"
 }
 ```
+
 - Zaman `options.hideNone` olarak belirtilen **true**, `newOrExistingOrNone` yalnızca bir değeri olur **yeni** veya **varolan**.
 - Zaman `options.hideDomainNameLabel` olarak belirtilen **true**, `domainNameLabel` bildirilmedi.
 

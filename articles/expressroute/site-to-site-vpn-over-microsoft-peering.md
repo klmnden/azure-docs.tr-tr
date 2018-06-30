@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2017
 ms.author: cherylmc
-ms.openlocfilehash: 64203e2cbac1206224f0e0ad8b7d364f19ad0332
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 86e101ee78cfa709c6957c7658f103ce787a6351
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
-ms.locfileid: "26357737"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110863"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft eşlemesi üzerinde siteden siteye VPN bağlantısını yapılandırma
 
 Bu makalede, Azure sanal ağlar (Vnet'ler) ile şirket içi ağınız arasında güvenli şifreli bağlantısı ExpressRoute özel bağlantı üzerinden yapılandırmanıza yardımcı olur. Güvenli bir tünel ExpressRoute yapılandırma veri değişimi için gizlilik, yürütmeyi, Orijinallik Sertifikası ve bütünlüğü sağlar.
 
-## <a name="architecture"></a>Mimarisi
+## <a name="architecture"></a>mimarisi
 
 Microsoft, seçilen şirket içi ağlarınız ve Azure Vnet'ler arasında bir siteden siteye IPSec/IKE VPN tünel oluşturmak için eşlemesini yararlanabilirsiniz.
 
@@ -38,7 +38,7 @@ Microsoft, seçilen şirket içi ağlarınız ve Azure Vnet'ler arasında bir si
 
 Yüksek kullanılabilirlik ve artıklık için iki MSEE PE çiftleri halinde, bir expressroute bağlantı hattı birden fazla tünel yapılandırabilir ve Yük Dengeleme arasındaki tüneller etkinleştirin.
 
-  ![Yüksek kullanılabilirlik seçenekleri](./media/site-to-site-vpn-over-microsoft-peering/HighAvailability.png)
+  ![yüksek kullanılabilirlik seçenekleri](./media/site-to-site-vpn-over-microsoft-peering/HighAvailability.png)
 
 Microsoft eşlemesi üzerinden VPN tünelleri, VPN ağ geçidi kullanarak ya da Azure Marketi'nde bir uygun ağ sanal Gereci (NVA) kullanılabilir kullanarak sonlandırılabilir. Yollarını statik veya dinamik olarak şifrelenmiş tüneller üzerinden temel alınan Microsoft eşliği için rota exchange sokmadan değiştirebilir. Bu makaledeki örneklerde, dinamik olarak şifrelenmiş tüneller üzerinden önekleri değişimi için BGP (Microsoft eşlemesi oluşturmak için kullanılan BGP oturumdan farklı) kullanılır.
 
@@ -167,7 +167,7 @@ Bu örnekte, değişken bildirimleri örnek ağa karşılık gelir. Değişkenle
   "gatewayName": "vpnGw",                 // Name of the Azure VPN gateway
   "gatewaySku": "VpnGw1",                 // Azure VPN gateway SKU
   "vpnType": "RouteBased",                // type of VPN gateway
-  "sharedKey": "string",                  // shared secret needs to match with on-premise configuration
+  "sharedKey": "string",                  // shared secret needs to match with on-premises configuration
   "asnVpnGateway": 65000,                 // BGP Autonomous System number assigned to the VPN Gateway 
   "asnRemote": 65010,                     // BGP Autonmous Syste number assigned to the on-premises device
   "bgpPeeringAddress": "172.16.0.3",      // IP address of the remote BGP peer on-premises

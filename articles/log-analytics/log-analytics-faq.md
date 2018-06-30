@@ -3,7 +3,7 @@ title: Günlük analizi ile ilgili SSS | Microsoft Docs
 description: Azure günlük analizi hizmeti ile ilgili sık sorulan soruların yanıtları.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 9d34c06461ea5f264f762494d93d76f1dc1bcb3e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.component: na
+ms.openlocfilehash: eb1a60ff533e9e24f3dc80057129da47a2d9a726
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221555"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128539"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ Microsoft Azure Log Analytics hakkında sık sorulan soruların listesidir. Günlük analizi hakkında ek herhangi bir sorunuz varsa, Git [tartışma Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -79,13 +80,13 @@ Y: açıklanan adımları kullanın [yeni bir günlük uyarı oluşturma](../mon
 
 Veri toplama durduğunda için uyarı oluşturulurken ayarlayın:
 
-- **Uyarı koşulu tanımla** günlük analizi çalışma alanınız kaynak hedefi olarak belirtin.
-- **Uyarı ölçütleri** aşağıdakileri belirtin:
+- **Uyarı koşulunu tanımlama** adımında Log Analytics çalışma alanınızı kaynak hedefi olarak belirtin.
+- **Uyarı ölçütleri** alanında aşağıdakileri belirtin:
    - **Sinyal adı** seçin **özel günlük arama**.
    - **Arama sorgusu**: `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-   - **Uyarı mantığı** olan **göre** *sonuçları sayısı* ve **koşulu** olan *büyük* bir **eşiği**  , *0*
+   - **Uyarı mantığı**, **Temeli** *bir dizi sonuçtur* ve **Koşul**, *Büyüktür* bir **Eşik değeri**, *0*
    - **Süre** , *30* dakika ve **uyarı sıklığı** her *10* dakika
-- **Uyarı ayrıntılarını tanımlayın** aşağıdakileri belirtin:
+- **Uyarı ayrıntılarını tanımlama** adımında aşağıdakileri belirtin:
    - **Ad** için *veri toplama durdu*
    - **Önem derecesi**: *Uyarı*
 

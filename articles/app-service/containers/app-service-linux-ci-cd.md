@@ -4,8 +4,8 @@ description: Docker kapsayıcısı kayıt defteri kapsayıcıları için Web uyg
 keywords: Azure uygulama hizmeti, linux, docker, acr, oss
 services: app-service
 documentationcenter: ''
-author: ahmedelnably
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-ms.author: aelnably;msangapu
-ms.openlocfilehash: ac35dbd041de50ab8aae1a0fb4c00fe3917a7297
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/29/2018
+ms.author: msangapu
+ms.openlocfilehash: 0f2d4626308eed376b71f1b3df2f9e43f1b2a4f7
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30168335"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130982"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kapsayıcıları için Web uygulaması ile sürekli dağıtımı
 
@@ -54,7 +54,8 @@ Web kancası URL'si kullanarak elde [Azure CLI](https://docs.microsoft.com/cli/a
 az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
-Web kancası URL'si, aşağıdaki bitiş noktasını gerekir: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+Web kancası URL'si not edin. Sonraki bölümde gerekir.
+`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
 Elde edebilirsiniz, `publishingusername` ve `publishingpwd` yayımlama profili Azure Portalı'nı kullanarak web uygulamasını yükleyerek.
 
@@ -62,29 +63,10 @@ Elde edebilirsiniz, `publishingusername` ve `publishingpwd` yayımlama profili A
 
 ## <a name="add-a-webhook"></a>Bir Web kancası ekleme
 
-### <a name="azure-container-registry"></a>Azure Container Kayıt Defteri
+Bir Web kancası eklemek için bu kılavuzlara'ndaki adımları izleyin:
 
-1. Kayıt defteri portal sayfasında, seçin **Kancalarını**.
-2. Yeni bir Web kancası oluşturmak için seçin **Ekle**. 
-3. İçinde **Web kancası oluşturma** bölmesinde, Web kancası bir ad verin. Web kancası için URI, önceki bölümde edindiğiniz URL'sini sağlayın.
-
-Kapsayıcı görüntüsünü içeren depo kapsamını tanımlamak emin olun.
-
-![Web kancası ekran görüntüsü](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
-
-Görüntü güncelleştirdiğinizde, web uygulaması ile yeni bir imaj otomatik olarak güncelleştirilir.
-
-### <a name="docker-hub"></a>Docker Hub
-
-Docker hub'a sayfanızda seçin **Kancalarını**ve ardından **bir Web KANCASI oluşturma**.
-
-![Web kancası 1 ekleme işleminin ekran görüntüsü](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
-
-Web kancası URL'si, daha önce aldığınız URL'sini sağlayın.
-
-![Web kancası 2 ekleme işleminin ekran görüntüsü](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
-
-Görüntü güncelleştirdiğinizde, web uygulaması ile yeni bir imaj otomatik olarak güncelleştirilir.
+- [Azure kapsayıcı kayıt defteri](../../container-registry/container-registry-webhook.md) Web kancası URL'si kullanma
+- [Docker hub'ına yönelik Web kancaları](https://docs.docker.com/docker-hub/webhooks/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

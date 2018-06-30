@@ -10,17 +10,18 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: 1e7e43dc2e7ed386f8f77fd1ab186d2ff34af405
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 96eb26d6a4faf8c6907d23ebf21f2446722c913b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177008"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127102"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure Ağ Performansı İzleyicisi için fiyatlandırma değişiklikleri
 
@@ -107,8 +108,8 @@ Daha yüksek bir yüzdebirlik değeri (önceki tabloda) müşterilerine genellik
 **Hizmet uç noktası İzleyicisi'nin kullanım ücretleri nelerdir?**
 
 İçin hizmet uç noktası İzleyicisi kullanım ücretleri temel alınarak hesaplanır:
-* bağlantı sayısı
-* veri birimi
+* Bağlantı sayısı
+* Veri birimi
 
 **Bir bağlantı nedir?**
 

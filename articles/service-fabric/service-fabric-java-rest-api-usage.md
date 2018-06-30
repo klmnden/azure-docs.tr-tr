@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: bc5302b9af023b04fb6b1654ac13e9fc02e0a465
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 987959742335940dca8eb57c54d593aea90dec15
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206275"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111193"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java istemci API'ları
 
-Service Fabric istemci API'ları dağıtma ve yönetme mikro tabanlı uygulamalar ve Service Fabric kapsayıcılarında küme Azure üzerinde sağlar şirket içi, yerel geliştirme makine ya da diğer bulut. Bu makalede oluşturmak ve Service Fabric istemci REST API üstünde Service Fabric Java istemci API kullanma
+Service Fabric istemci API'ları dağıtma ve yönetme mikro uygulamaları ve Service Fabric kümesi kapsayıcılarında Azure, şirket içi, yerel geliştirme makine ya da diğer bulut temel alan sağlar. Bu makalede oluşturmak ve Service Fabric istemci REST API üstünde Service Fabric Java istemci API kullanma
 
 ## <a name="generate-the-client-code-using-autorest"></a>AutoRest kullanarak istemci kodu oluştur
 

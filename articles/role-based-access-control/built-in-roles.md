@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/06/2018
+ms.date: 06/28/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 861b4ca360ef3fb9bc752d79009570ee2cfc9ade
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 7de9700b41b08e2769ba337dcd5760fdf7ab246b
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294505"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114652"
 ---
 # <a name="built-in-roles-in-azure"></a>Azure'da yerleşik roller
 [Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcıları, grupları ve hizmet asıl adı atayabilirsiniz birkaç yerleşik rol tanımı yok. Rol atamalarını azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller, kuruluşunuzun özel ihtiyaçlarını karşılamıyorsa, kendi oluşturabileceğiniz [özel roller](custom-roles.md).
@@ -34,12 +34,12 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 | Yerleşik rolü | Açıklama |
 | --- | --- |
 | [Sahibi](#owner) | Kaynaklara erişim dahil olmak üzere her şeyi yönetmenizi sağlar. |
-| [Katkıda bulunan](#contributor) | Kaynaklara erişim hariç olmak üzere her şeyi yönetmenizi sağlar. |
+| [Katılımcı](#contributor) | Kaynaklara erişim hariç olmak üzere her şeyi yönetmenizi sağlar. |
 | [Okuyucu](#reader) | Her şeyi görüntülemenizi sağlar ancak değişiklik yapmanıza izin vermez. |
 | [AcrImageSigner](#acrimagesigner) | acr görüntüsü imzalayan |
 | [AcrQuarantineReader](#acrquarantinereader) | acr karantina veri okuyucu |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr karantina veri yazıcı |
-| [API Management hizmeti katkıda bulunan](#api-management-service-contributor) | Hizmet ve API'leri Yönet |
+| [API Management hizmeti katkıda bulunan](#api-management-service-contributor) | API Management hizmetlerini yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [API Management hizmet işleci rolü](#api-management-service-operator-role) | Hizmeti yönetebilir, ancak API'leri yönetemez |
 | [API Management hizmet okuyucu rolü](#api-management-service-reader-role) | Hizmet ve API'lere salt okunur erişim |
 | [Uygulama Öngörüler bileşen katkıda bulunan](#application-insights-component-contributor) | Application Insights bileşenlerini yönetebilir |
@@ -51,7 +51,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 | [Yedekleme katkıda bulunan](#backup-contributor) | Yedekleme hizmetini yönetmenize olanak sağlar ancak kasa oluşturma ve diğer kullanıcılara erişim verme izni sağlamaz |
 | [Yedekleme işletmeni](#backup-operator) | Yedekleme kaldırma, kasa oluşturma ve diğer kullanıcılara erişim verme dışındaki yedekleme hizmetlerini yönetmenize olanak sağlar |
 | [Yedekleme okuyucusu](#backup-reader) | Yedekleme hizmetlerini görüntüleyebilir ancak değişiklik yapamaz |
-| [Faturalama okuyucusu](#billing-reader) | Fatura veri okuma erişimi sağlar |
+| [Faturalama okuyucusu](#billing-reader) | Faturalama verilerini okumanıza izin verir |
 | [BizTalk katkıda bulunan](#biztalk-contributor) | BizTalk hizmetlerini yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [CDN uç noktası katkıda bulunan](#cdn-endpoint-contributor) | CDN uç noktalarını yönetebilir, ancak diğer kullanıcılara erişim izni veremez. |
 | [CDN uç noktası okuyucusu](#cdn-endpoint-reader) | CDN uç noktalarını görüntüleyebilir, ancak değişiklik yapamaz. |
@@ -63,10 +63,10 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 | [Klasik sanal makine Katılımcısı](#classic-virtual-machine-contributor) | Klasik sanal makineleri yönetmenizi sağlar ancak bunlara veya bağlı oldukları sanal ağ ya da depolama hesaplarına yönelik erişimi yönetme izni vermez. |
 | [ClearDB MySQL DB katkıda bulunan](#cleardb-mysql-db-contributor) | ClearDB MySQL veritabanlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Cosmos DB hesap okuyucu rolü](#cosmos-db-account-reader-role) | Azure Cosmos DB hesap verileri okuyabilir. Bkz: [DocumentDB hesabı katkıda bulunan](#documentdb-account-contributor) Azure Cosmos DB hesapları yönetmek için. |
-| [Veri Fabrikası katkıda bulunan](#data-factory-contributor) | Oluşturun ve bunların içindeki alt kaynakları yanı sıra veri fabrikaları yönetin. |
+| [Veri Fabrikası katkıda bulunan](#data-factory-contributor) | Veri fabrikalarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Data Lake Analytics Geliştirici](#data-lake-analytics-developer) | İşlerinizi göndermenize, izlemenize ve yönetmenize izin verir, ancak Data Lake Analytics hesabı oluşturmanıza veya silmenize izin vermez. |
 | [Veri Purger](#data-purger) | Analiz verilerini temizleyebilir |
-| [DevTest Labs kullanıcı](#devtest-labs-user) | Bağlandığınız, sağlar başlangıç, yeniden başlatma ve kapatma sanal makinelerinizi Azure DevTest Labs. |
+| [DevTest Labs kullanıcı](#devtest-labs-user) | Azure DevTest Labs'teki sanal makinelere bağlanmanıza, bu makineleri başlatmanıza, yeniden başlatmanıza ve kapatmanıza izin verir. |
 | [DNS bölgesi katkıda bulunan](#dns-zone-contributor) | Azure DNS'te, DNS bölgelerini ve kayıt kümelerini yönetmenize izin verir, ancak bunlara kimlerin erişebildiğini denetlemenize izin vermez. |
 | [DocumentDB hesabı katkıda bulunan](#documentdb-account-contributor) | Azure Cosmos DB hesapları yönetebilirsiniz. Azure Cosmos DB önceden DocumentDB bilinirdi. |
 | [Akıllı sistemler hesap katkıda bulunan](#intelligent-systems-account-contributor) | Akıllı Sistemler hesaplarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
@@ -88,7 +88,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 | [Zamanlayıcı İş koleksiyonları katkıda bulunan](#scheduler-job-collections-contributor) | Zamanlayıcı iş koleksiyonlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Arama hizmeti katkıda bulunan](#search-service-contributor) | Search hizmetlerini yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Güvenlik Yöneticisi](#security-admin) | Yalnızca Güvenlik Merkezi'nde: görüntülemek güvenlik ilkeleri, güvenlik durumları görüntülemek, güvenlik ilkeleri, Uyarıları görüntüle ve öneriler düzenleme, uyarısı ve öneri yok sayın |
-| [Güvenlik Yöneticisi'ni (eski)](#security-manager-legacy) | Bu eski bir roldür. Lütfen Güvenlik Yöneticisi kullanın |
+| [Güvenlik Yöneticisi](#security-manager) | Güvenlik bileşenlerini, güvenlik ilkelerini ve sanal makineleri yönetmenizi sağlar |
 | [Güvenlik okuyucusu](#security-reader) | Yalnızca Güvenlik Merkezi'nde: önerileri ve uyarılar, güvenlik ilkeleri, güvenlik durumları görüntüleyebilir ancak değişiklik yapamaz görünümü görüntüleyebilirsiniz |
 | [Site kurtarma katkıda bulunan](#site-recovery-contributor) | Kasa oluşturma ve rol atama işlemleri dışında Site Recovery hizmetini yönetmenize imkan sağlar |
 | [Site kurtarma işleci](#site-recovery-operator) | Yük devretme ve yeniden çalışma dışındaki Site Recovery yönetimi işlemlerini gerçekleştirmenize izin vermez |
@@ -105,9 +105,9 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 | [Destek isteği katkıda bulunan](#support-request-contributor) | Destek istekleri oluşturmanıza ve bunları yönetmenize olanak sağlar |
 | [Trafik Yöneticisi katkıda bulunan](#traffic-manager-contributor) | Traffic Manager profillerini yönetmenize izin verir, ancak bunlara kimlerin erişebildiğini denetlemenize izin vermez. |
 | [Kullanıcı erişimi Yöneticisi](#user-access-administrator) | Azure kaynaklarına yönelik kullanıcı erişimini yönetmenizi sağlar. |
-| [Sanal makine yönetici oturum açma](#virtual-machine-administrator-login) | -  Bu role sahip kullanıcılar, bir sanal makinede Windows yöneticisi veya Linux kök kullanıcı ayrıcalıkları ile oturum açabilir. |
-| [Sanal Makine Katılımcısı](#virtual-machine-contributor) | Sanal makineler, ancak onlara, erişimi ve sanal ağ veya depolama hesabı bağlı oldukları yönetmenize olanak tanır. |
-| [Sanal makine kullanıcı oturum açma](#virtual-machine-user-login) | Bu role sahip kullanıcılar, bir sanal makinede normal kullanıcı olarak oturum açabilir. |
+| [Sanal makine yönetici oturum açma](#virtual-machine-administrator-login) | Görünüm sanal makinelerinizde yönetici olarak oturum açın ve portal |
+| [Sanal Makine Katılımcısı](#virtual-machine-contributor) | Sanal makineleri yönetmenize izin verir ancak bu sanal makinelere veya bağlı oldukları sanal ağa ya da depolama hesaplarına erişmenize izin vermez. |
+| [Sanal makine kullanıcı oturum açma](#virtual-machine-user-login) | Görünüm sanal makineler portal ve normal bir kullanıcı olarak oturum açın. |
 | [Web planı katkıda bulunan](#web-plan-contributor) | Web siteleri için web planlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Web sitesi katkıda bulunan](#website-contributor) | Web sitelerini (web planlarını değil) yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 
@@ -178,7 +178,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Hizmet ve API'leri Yönet |
+> | **Açıklama** | API Management hizmetlerini yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 > | **Kimlik** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **Eylemler** |  |
 > | Microsoft.ApiManagement/service/* | Oluşturma ve API Management hizmeti yönetme |
@@ -383,14 +383,18 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 > | Microsoft.Network/virtualNetworks/read | Sanal ağ tanımını Al |
+> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp, hizmet tarafından kullanılan iç işlemdir. |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | İşlemin durumunu döndürür |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Koruma Kapsayıcısı üzerinde gerçekleştirilen İşlemin sonuçlarını alır. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Korumalı Öğe için Yedekleme gerçekleştirir. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Korumalı Öğeler üzerinde Gerçekleştirilen İşlemin Sonuçlarını alın. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Korumalı Öğeler üzerinde Gerçekleştirilen İşlemin durumunu döndürür. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Korumalı öğe nesne ayrıntılarını döndürür |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Korumalı öğe için sağlama anlık öğe kurtarma |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Korumalı Öğeler için Kurtarma Noktalarını alın. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Korumalı Öğeler için Kurtarma Noktalarını geri yükleyin. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Anlık öğe kurtarma için korumalı öğe iptal etme |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Bir yedekleme korumalı öğesi oluşturma |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Tüm kayıtlı kapsayıcıları döndürür |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Yedekleme işleri oluşturmak ve yönetmek |
@@ -398,36 +402,32 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | İş İşleminin Sonucunu döndürür. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Tüm iş nesneleri döndürür |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Dışarı aktarma işleri |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Dışa aktarma işi işleminin sonucunu döndürür. |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Kurtarma Hizmetleri Kasası için Yedekleme Yönetimi Meta Verilerini döndürür. |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Oluşturma ve yedekleme Yönetimi işlemlerinin sonuçlarını yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | İlke İşleminin Sonuçlarını alın. |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationStatus/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Tüm koruma ilkeleri döndürür |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Yedeklenebilir öğelerini oluşturma ve yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | Tüm Korunabilir Öğelerin listesini döndürür. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Tüm Korumalı Öğelerin listesini döndürür. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Aboneliğine ait tüm kapsayıcıları döndürür |
 > | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Özetleri korunan öğeler ve korunan sunucular için bir kurtarma Hizmetleri döndürür. |
+> | Microsoft.RecoveryServices/Vaults/certificates/write | Güncelleştirme kaynağı sertifika işlemi kaynak/kasa kimlik bilgileri sertifikası güncelleştirir. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | Daha Fazla Bilgi Al işlemi, ?vault? türündeki Azure kaynağını temsil eden nesnenin Daha Fazla Bilgi değerini alır. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/write | Daha Fazla Bilgi Al işlemi, ?vault? türündeki Azure kaynağını temsil eden nesnenin Daha Fazla Bilgi değerini alır. |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Uyarılar için kurtarma Hizmetleri kasası alır. |
+> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | Kasa alma işlemi Azure kaynak türü 'Kasası' temsil eden bir nesneyi alır |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Yeni kapsayıcıları oluşturulan getirme için bulma işlemini yönetme |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Kapsayıcı listesini yeniler |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Zaman uyumsuz olarak gönderilen işlemi için sonuç ve işlem durumunu alma işlemi işlemi kullanılabilir sonuçlar elde |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Alma işlemi kullanılabilir kapsayıcıları için bir kaynak kayıtlı kapsayıcıları alın. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Hizmet kapsayıcısı kaydetme işlemi, bir kapsayıcı kurtarma Hizmeti'ne kaydolmak için kullanılabilir. |
+> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Bir Kurtarma Hizmetleri Kasası için kullanım ayrıntılarını döndürür. |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımı yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Storage/storageAccounts/read | Depolama hesaplarının listesini döndürür veya belirtilen depolama hesabının özelliklerini alır. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Korumalı öğe için sağlama anlık öğe kurtarma |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Anlık öğe kurtarma için korumalı öğe iptal etme |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp, hizmet tarafından kullanılan iç işlemdir. |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Uyarılar için kurtarma Hizmetleri kasası alır. |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Dışa aktarma işi işleminin sonucunu döndürür. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationStatus/read |  |
-> | Microsoft.RecoveryServices/Vaults/certificates/write | Güncelleştirme kaynağı sertifika işlemi kaynak/kasa kimlik bilgileri sertifikası güncelleştirir. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="backup-reader"></a>Yedekleme Okuyucusu
@@ -472,7 +472,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Fatura veri okuma erişimi sağlar |
+> | **Açıklama** | Faturalama verilerini okumanıza izin verir |
 > | **Kimlik** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -660,7 +660,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Oluşturun ve bunların içindeki alt kaynakları yanı sıra veri fabrikaları yönetin. |
+> | **Açıklama** | Veri fabrikalarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 > | **Kimlik** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -719,7 +719,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Bağlandığınız, sağlar başlangıç, yeniden başlatma ve kapatma sanal makinelerinizi Azure DevTest Labs. |
+> | **Açıklama** | Azure DevTest Labs'teki sanal makinelere bağlanmanıza, bu makineleri başlatmanıza, yeniden başlatmanıza ve kapatmanıza izin verir. |
 > | **Kimlik** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -1103,18 +1103,19 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımı yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Security/*/read | Okuma güvenlik bileşenleri ve ilkeleri |
-> | Microsoft.Security/locations/alerts/dismiss/action | Bir güvenlik uyarısını kapatmanın |
 > | Microsoft.Security/locations/alerts/activate/action | Bir güvenlik uyarısı etkinleştir |
-> | Microsoft.Security/locations/tasks/dismiss/action | Güvenlik açısından kapatın |
+> | Microsoft.Security/locations/alerts/dismiss/action | Bir güvenlik uyarısını kapatmanın |
 > | Microsoft.Security/locations/tasks/activate/action | Güvenlik açısından etkinleştir |
+> | Microsoft.Security/locations/tasks/dismiss/action | Güvenlik açısından kapatın |
 > | Microsoft.Security/policies/write | Güvenlik İlkesi güncelleştirmeleri |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
+> | Microsoft.Management/managementGroups/read | Kimliği doğrulanmış kullanıcı için Yönetim grupları listesi. |
 
-## <a name="security-manager-legacy"></a>Güvenlik Yöneticisi'ni (eski)
+## <a name="security-manager"></a>Güvenlik Yöneticisi
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Bu eski bir roldür. Lütfen Güvenlik Yöneticisi kullanın |
+> | **Açıklama** | Güvenlik bileşenlerini, güvenlik ilkelerini ve sanal makineleri yönetmenizi sağlar |
 > | **Kimlik** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -1135,13 +1136,14 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | **Açıklama** | Yalnızca Güvenlik Merkezi'nde: önerileri ve uyarılar, güvenlik ilkeleri, güvenlik durumları görüntüleyebilir ancak değişiklik yapamaz görünümü görüntüleyebilirsiniz |
 > | **Kimlik** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **Eylemler** |  |
-> | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönetme |
-> | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımı yönetme |
-> | Microsoft.operationalInsights/workspaces/*/read | Günlük analizi verilerini görüntüleme |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
-> | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
+> | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönetme |
+> | Microsoft.operationalInsights/workspaces/*/read | Günlük analizi verilerini görüntüleme |
+> | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımı yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Security/*/read | Okuma güvenlik bileşenleri ve ilkeleri |
+> | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
+> | Microsoft.Management/managementGroups/read | Kimliği doğrulanmış kullanıcı için Yönetim grupları listesi. |
 
 ## <a name="site-recovery-contributor"></a>Site Recovery Katkıda Bulunanı
 > [!div class="mx-tableFixed"]
@@ -1221,7 +1223,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action | Sağlayıcı Yenile |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Tüm depolama sınıflandırmaları okuma |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Tüm depolama sınıflandırması eşlemeleri okuma |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Herhangi bir işi okuma |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Tüm Vcenter okuma |
 > | Microsoft.RecoveryServices/vaults/replicationJobs/* | Çoğaltma işleri oluşturmak ve yönetmek |
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Tüm ilkeleri okuma |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/failoverCommit/action | Yük devretmenin yürütülmesi kurtarma planı |
@@ -1272,7 +1274,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Tüm kurtarma Hizmetleri sağlayıcılarını okuma |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Tüm depolama sınıflandırmaları okuma |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Tüm depolama sınıflandırması eşlemeleri okuma |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Herhangi bir işi okuma |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Tüm Vcenter okuma |
 > | Microsoft.RecoveryServices/vaults/replicationJobs/read | Herhangi bir işi okuma |
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Tüm ilkeleri okuma |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Tüm kurtarma planlarını okuma |
@@ -1503,7 +1505,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | -  Bu role sahip kullanıcılar, bir sanal makinede Windows yöneticisi veya Linux kök kullanıcı ayrıcalıkları ile oturum açabilir. |
+> | **Açıklama** | Görünüm sanal makinelerinizde yönetici olarak oturum açın ve portal |
 > | **Kimlik** | 1c0163c0-47E6-4577-8991-ea5c82e286e4 |
 > | **Eylemler** |  |
 > | Microsoft.Network/publicIPAddresses/read | Bir genel ip adresi tanımını alır. |
@@ -1519,7 +1521,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Sanal makineler, ancak onlara, erişimi ve sanal ağ veya depolama hesabı bağlı oldukları yönetmenize olanak tanır. |
+> | **Açıklama** | Sanal makineleri yönetmenize izin verir ancak bu sanal makinelere veya bağlı oldukları sanal ağa ya da depolama hesaplarına erişmenize izin vermez. |
 > | **Kimlik** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Yetkilendirme okuma |
@@ -1564,7 +1566,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Bu role sahip kullanıcılar, bir sanal makinede normal kullanıcı olarak oturum açabilir. |
+> | **Açıklama** | Görünüm sanal makineler portal ve normal bir kullanıcı olarak oturum açın. |
 > | **Kimlik** | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | **Eylemler** |  |
 > | Microsoft.Network/publicIPAddresses/read | Bir genel ip adresi tanımını alır. |

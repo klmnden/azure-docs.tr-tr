@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 011eaf1a4705f9078225b9b871f81b4333b05ee8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: 1e7806e802f9b1dda16a9d5d477783663d03d416
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011103"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131795"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog veri kaynaklarında günlük analizi
 Syslog Linux için ortak bir olay günlüğü protokolüdür.  Uygulamaları yerel makinede depolanan olabilir veya bir Syslog Toplayıcıya teslim iletileri gönderir.  Linux için OMS Aracısı yüklendiğinde, aracıya iletilerini iletmek için yerel Syslog arka plan programı yapılandırır.  Aracı bu durumda günlük karşılık gelen bir kayıt OMS depoya oluşturulduğu analizi iletiyi gönderir.  
@@ -189,10 +190,10 @@ Syslog kayıtları sahip bir tür **Syslog** ve aşağıdaki tabloda özellikler
 | Bilgisayar |Olay toplandığı bilgisayar. |
 | Tesis |İleti oluşturulan sisteminin parçası tanımlar. |
 | HostIP |İleti gönderilirken sistem IP adresi. |
-| Ana bilgisayar adı |İleti gönderilirken sistem adı. |
+| ana bilgisayar adı |İleti gönderilirken sistem adı. |
 | Önem düzeyi |Olay önem derecesi. |
 | SyslogMessage |İleti metni. |
-| İşlem kimliği |İleti oluşturulan işlemin kimliği. |
+| ProcessID |İleti oluşturulan işlemin kimliği. |
 | EventTime |Tarih ve olayın oluşturulduğu saat. |
 
 ## <a name="log-queries-with-syslog-records"></a>Syslog kayıtlarla günlük sorguları

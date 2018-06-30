@@ -2,19 +2,19 @@
 title: Azure SQL veritabanı DTU tabanlı kaynak sınırlar esnek havuzlar | Microsoft Docs
 description: Bu sayfa, Azure SQL veritabanında esnek havuzlar için bazı ortak DTU tabanlı kaynak sınırları açıklar.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 08dabf1ad66f69c5e0f55aedbc2a4d0bb265a0bd
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ea912d2b2297cf64b51ea4c50b36b3847fcc1bf8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752240"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131897"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli kullanarak esnek havuzlar için kaynakları sınırları 
 
@@ -105,7 +105,7 @@ SQL Database esnek havuzlar için aşağıdaki tablolarda her hizmeti katmanın�
 ||||||||
 
 > [!IMPORTANT]
-> Birden fazla 1 TB depolama alanı Premium katmanındaki şu anda kullanılabilir aşağıdakiler dışında tüm bölgelerde: Birleşik Krallık Kuzey Batı Orta ABD, İngiltere South2, Çin, Doğu, USDoDCentral, Almanya Orta, USDoDEast, ABD kamu Güneybatı, BİZE kamu Güney Merkezi, Almanya Kuzeydoğu, Çin Kuzey, ABD kamu Doğu. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Birden fazla 1 TB depolama alanı Premium katmanındaki şu anda kullanılabilir aşağıdakiler dışında tüm bölgelerde: Batı Orta ABD, Çin, Doğu, Orta USDoDCentral, Almanya, USDoDEast, ABD kamu Güneybatı, Almanya Kuzeydoğu, ABD hükümeti Iowa, Çin Kuzey. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 Bir elastik havuzun tüm DTU’ları kullanılırsa, sorguları işlemek üzere havuzdaki her bir veritabanı eşit miktarda kaynak alır. SQL Veritabanı hizmeti, eşit dilimlerde işlem süresi sunarak veritabanları arasında kaynak paylaşım eşitliğini sağlar. Elastik havuz kaynak paylaşımı eşitliği, veritabanı başına DTU dakikası sıfır olmayan bir değere ayarlandığında her bir veritabanı için garanti edilen herhangi bir kaynak miktarına ek niteliktedir.
 

@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: a3c81d63593bb7bf268c1026064e34c3a363ef86
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.component: na
+ms.openlocfilehash: d083783fb4c648cde5d8f4ab611990f65e48a16e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34304666"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130006"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Performans İzleyicisi çözümde Azure ağ
 
@@ -205,7 +206,7 @@ Ağ Performansı İzleyicisi çözüm etkinleştirdikten sonra çözümü kutucu
 
  
 
-### <a name="drill-down-for-depth"></a>derinliği için detaya gitme 
+### <a name="drill-down-for-depth"></a>Derinliği için detaya gitme 
 
 Çözüm Panosu incelemek için çeşitli bağlantıları seçebilirsiniz ilgilendiğiniz herhangi bir alan içine daha derin aşağı. Örneğin, bir uyarı veya Panoda görünmesini bir sağlıksız ağ bağlantısı gördüğünüzde, daha fazla araştırmak için seçin. Bir sayfa belirli ağ bağlantısı için tüm alt ağ bağlantıları listeler. Kaybı, gecikme ve her alt ağ bağlantısı sistem durumunu görebilirsiniz. Hangi alt ağ bağlantısını sorunlara neden çıkışı hızlı bir şekilde bulabilirsiniz. Seçin **görüntülemek düğüm bağlantıları** sağlıksız alt ağ bağlantısı için tüm düğüm bağlantıları görmek için. Ardından, tek tek düğümü düğümü bağlantılara bakın ve sağlıksız düğüm bağlantıları bulabilirsiniz. 
 

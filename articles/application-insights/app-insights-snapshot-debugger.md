@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: mbullwin; pharring
-ms.openlocfilehash: 66339e5f5d2cc7447df0f8faf70d2d9fd45db738
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: pharring
+ms.author: mbullwin
+ms.openlocfilehash: b180c7e8d26acc86aa1d1982ace92efafa85f9ef
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37116205"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Anlık görüntü özel durumları .NET uygulamalarında hata ayıklama
 
@@ -187,7 +189,7 @@ Aşağıdaki ortamlarda desteklenir:
    }
     ```
 
-## <a name="grant-permissions"></a>İzin ver
+## <a name="grant-permissions"></a>İzinleri verme
 
 Azure abonelik sahipleri anlık görüntüleri inceleyebilirsiniz. Diğer kullanıcıların bir sahibi tarafından izin verilmesi gerekir.
 
@@ -295,7 +297,7 @@ Bir anlık görüntü oluşturulduktan sonra bir mini döküm dosyası (.dmp) di
 
 1. Uygulama hizmeti uygulamanızı Azure Portal'da açın.
 2. Tıklatın **Gelişmiş Araçlar**, veya arama **Kudu**.
-3. tıklatın **Git**.
+3. Tıklatın **Git**.
 4. İçinde **hata ayıklama konsoluna** aşağı açılan liste kutusunda **CMD**.
 5. Tıklatın **LogFiles**.
 

@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 38f7f038a803546adb83245519efc5de0c0d1599
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1c9c1e2d54ccb200ef009be3566f6da9ced01175
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045019"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111176"
 ---
 # <a name="sample-for-intent-recognition"></a>Örnek hedefi tanıma
 
@@ -23,7 +23,7 @@ ms.locfileid: "37045019"
 > Bu örnek ve diğerleri karşıdan yüklemek yönergeleri için bkz: [konuşma SDK'sı için örnek](samples.md).
 
 > [!NOTE]
-> Lütfen abonelik anahtarı edinin. Bilişsel hizmeti konuşma SDK'sı tarafından desteklenen diğer hizmetler aksine hedefi tanıma hizmetlerinin belirli abonelik anahtarı gerektirir. [Burada](https://www.luis.ai) hedefi tanıma teknolojisi hakkında ek bilgi gibi bir abonelik anahtarı alma hakkında bilgi bulabilirsiniz. Kendi abonelik anahtarı, hizmet bölge ve hedefi modelinizi örnekleri uygun yerinde AppID değiştirin.
+> Lütfen abonelik anahtarı edinin. Bilişsel hizmeti konuşma SDK'sı tarafından desteklenen diğer hizmetler aksine hedefi tanıma hizmetlerinin belirli abonelik anahtarı gerektirir. [Burada](https://www.luis.ai) hedefi tanıma teknolojisi hakkında ek bilgi gibi bir abonelik anahtarı alma hakkında bilgi bulabilirsiniz. Kendi abonelik anahtarı değiştirmek [aboneliğinizin bölge](regions.md)ve hedefi örnekleri uygun yerlerde modelinizde AppID.
 
 > [!NOTE]
 > Aşağıdaki tüm örnekler için aşağıdaki üst düzey bildirimleri yerinde olmalıdır:

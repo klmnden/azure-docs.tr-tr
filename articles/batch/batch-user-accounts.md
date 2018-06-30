@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
-ms.openlocfilehash: 1b9c0514e93fa89f8776d830ef242fc4963a6f7b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d5ec76a62b56769ee3065cac3542f5a94df4a1c6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316479"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133123"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Toplu işlemde kullanıcı hesapları görevleri Çalıştır
 
@@ -173,8 +173,8 @@ Console.WriteLine("Creating pool [{0}]...", poolId);
 // Create a pool using the cloud service configuration.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 3,                                                         
-    virtualMachineSize: "small",                                                
+    targetDedicatedComputeNodes: 3,
+    virtualMachineSize: "standard_d1_v2",
     cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));   
 
 // Add named user accounts.
@@ -313,7 +313,7 @@ Batch hizmeti sürümü 2017 01 01.4.0 önemli bir değişiklik tanıtır deği�
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated` Belirtilmemiş. | Güncelleştirme gerekmiyor                                                                                               |
+| `CloudTask.RunElevated` belirtilmemiş. | Güncelleştirme gerekmiyor                                                                                               |
 
 ### <a name="batch-java"></a>Batch Java
 
@@ -321,7 +321,7 @@ Batch hizmeti sürümü 2017 01 01.4.0 önemli bir değişiklik tanıtır deği�
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated` Belirtilmemiş. | Güncelleştirme gerekmiyor                                                                                                                     |
+| `CloudTask.withRunElevated` belirtilmemiş. | Güncelleştirme gerekmiyor                                                                                                                     |
 
 ### <a name="batch-python"></a>Batch Python
 
@@ -329,11 +329,9 @@ Batch hizmeti sürümü 2017 01 01.4.0 önemli bir değişiklik tanıtır deği�
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, burada <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin)) `                |
 | `run_elevated=False`                      | `user_identity=user`, burada <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin)) `             |
-| `run_elevated` Belirtilmemiş. | Güncelleştirme gerekmiyor                                                                                                                                  |
+| `run_elevated` belirtilmemiş. | Güncelleştirme gerekmiyor                                                                                                                                  |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-### <a name="batch-forum"></a>Toplu işlem Forumu
-
-[Azure toplu işlem Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch) MSDN'de toplu ele almaktadır ve hizmet hakkında sorular sormak için iyi bir yerdir. HEAD üzerinde üzerinden faydalı sabitlenmiş gönderiler için ve Batch çözümlerinizi derleme sırasında çıktıkları anda sorularınızı gönderin.
+* Toplu ayrıntılı bir bakış için bkz: [geliştirme büyük ölçekli paralel işlem çözümleri yığın](batch-api-basics.md).

@@ -10,12 +10,12 @@ manager: jahogg
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 75edf6dc7382a8a2ece7c25edd09aeacfe1c5189
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a6130d8440b16e5a72c939fc07f6bf32c0946418
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060068"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114301"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Azure Data Lake Storage Gen2 kullanmak URI
 
@@ -25,15 +25,7 @@ ms.locfileid: "37060068"
 
 Data Lake Storage Gen2 URI sözdizimi Data Lake Storage Gen2 varsayılan dosya sistemi olarak olacak şekilde depolama hesabınız olup olmadığına ayarlanmış üzerinde bağlıdır.
 
-Adresine istediğiniz Data Lake Storage Gen2 özellikli hesabı hesabı oluşturma sırasında varsayılan dosya sistemi olarak ayarlanır, toplu URI sözdizimi şöyledir:
-
-<pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
-
-1. **Yol**: ayrılmış bir eğik çizgi (`/`) dizin yapısını gösterimi.
-
-2. **Dosya adı**: tek tek dosyasının adı.
-
-Data Lake Storage Gen2 özellikli hesabı adresine isterseniz *değil* varsayılan dosya sistemi URI sözdizimi aşağıdaki gibidir:
+Data Lake Storage Gen2 özellikli hesabı adresine isterseniz **değil** URI sözdizimi toplu özelliktir sonra hesabı oluşturma sırasında varsayılan dosya sistemi olarak ayarlayın:
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.widows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
@@ -46,6 +38,15 @@ Data Lake Storage Gen2 özellikli hesabı adresine isterseniz *değil* varsayıl
 4. **Yollar**: ayrılmış bir eğik çizgi (`/`) dizin yapısını gösterimi.
 
 5. **Dosya adı**: tek tek dosyasının adı. Bu parametre bir dizin adresleme, isteğe bağlıdır.
+
+Ancak, adresine istediğiniz hesap hesabı oluşturma sırasında varsayılan dosya sistemi olarak ayarlanırsa, ardından URI sözdizimi toplu özelliktir:
+
+<pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
+
+1. **Yol**: ayrılmış bir eğik çizgi (`/`) dizin yapısını gösterimi.
+
+2. **Dosya adı**: tek tek dosyasının adı.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

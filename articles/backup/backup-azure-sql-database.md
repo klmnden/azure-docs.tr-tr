@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/1/2018
+ms.date: 6/29/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 4ae64fefb58840214104a4e1cb338ec404fac1a8
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 89a1df607c220e5dc12bc6263955d6e445e529bd
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235422"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37116295"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Azure SQL Server veritabanını yedekleyin
 
@@ -251,7 +251,7 @@ Kullandığınızda **Bul DBs** aracı, Azure Backup aşağıdaki işlemleri ark
 
 - yükler **AzureBackupWindowsWorkload** sanal makinede uzantı. Bir SQL veritabanı yedeklemesi aracısız bir çözümdür, diğer bir deyişle, sanal makinede yüklü uzantısıyla aracı SQL veritabanı üzerinde yüklü.
 
-- hizmet hesabı oluşturur **NT Service\AzureWLBackupPluginSvc**, sanal makinede. Tüm yedekleme ve geri yükleme işlemleri hizmet hesabı kullanın. **NT Server\AzureWLBackupPluginSvc** SQL sysadmin izinleri olması gerekir. Tüm SQL Market sanal makineleri yüklü SqlIaaSExtension ile gelir ve otomatik olarak gerekli izinleri almak için SQLIaaSExtension AzureBackupWindowsWorkload kullanır. Sanal makinenize yüklü SqlIaaSExtension sahip değil, DB bulma işlemi başarısız olursa ve hata iletisini almak **UserErrorSQLNoSysAdminMembership**. Yedekleme için sysadmin iznine eklemek için yönergeleri izleyin [Market dışı SQL VM'ler için Azure yedekleme izinleri ayarlama](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms).
+- hizmet hesabı oluşturur **NT Service\AzureWLBackupPluginSvc**, sanal makinede. Tüm yedekleme ve geri yükleme işlemleri hizmet hesabı kullanın. **NT Service\AzureWLBackupPluginSvc** SQL sysadmin izinleri olması gerekir. Tüm SQL Market sanal makineleri yüklü SqlIaaSExtension ile gelir ve otomatik olarak gerekli izinleri almak için SQLIaaSExtension AzureBackupWindowsWorkload kullanır. Sanal makinenize yüklü SqlIaaSExtension sahip değil, DB bulma işlemi başarısız olursa ve hata iletisini almak **UserErrorSQLNoSysAdminMembership**. Yedekleme için sysadmin iznine eklemek için yönergeleri izleyin [Market dışı SQL VM'ler için Azure yedekleme izinleri ayarlama](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms).
 
     ![vm ve veritabanını seçin](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -443,6 +443,10 @@ Bir veritabanını geri yüklemek için
 
 Bu yordam, verileri alternatif bir konuma geri aracılığıyla anlatılmaktadır. Veritabanı geri yüklenirken üzerine yazmak istiyorsanız bölüme atlamak [geri yüklemek ve veritabanının üzerine yaz](backup-azure-sql-database.md#restore-and-overwrite-the-database). Bu yordam, açık kurtarma Hizmetleri kasanız varsa ve geri yükleme yapılandırması menüsünde olan varsayar. Yoksa, bir bölümle Başlat [SQL veritabanını geri](backup-azure-sql-database.md#restore-a-sql-database).
 
+> [!NOTE]
+> Aynı Azure bölgesinde bir SQL Server veritabanını geri yükleyebilirsiniz ve hedef sunucu kurtarma Hizmetleri kasasına kayıtlı olması gerekir. 
+>
+
 **Server** aşağı açılır menüden kurtarma Hizmetleri kasasına kayıtlı SQL sunucuları yalnızca gösterir. İstediğiniz sunucu değilse **sunucu** listesinde, bölümüne bakın [Bul SQL server veritabanları](backup-azure-sql-database.md#discover-sql-server-databases) sunucu bulunamıyor. Keşif veritabanı işlemi sırasında herhangi bir yeni sunucu kurtarma Hizmetleri Kasası'na kaydedilir.
 
 1. İçinde **geri yükleme Yapılandırması** menüsü:
@@ -607,10 +611,40 @@ Bu bölümde, Azure sanal makinelerde çeşitli Azure Backup yönelik yönetim i
 * Bir SQL server kaydı
 
 ### <a name="monitor-jobs"></a>İşleri İzleme
+Bir kurumsal sınıf çözümü olan azure Backup, Gelişmiş yedekleme uyarıları ve hatalar için (aşağıdaki yedekleme uyarıları bölümüne bakın) bildirim sağlar. Hala belirli işler izlemek isterseniz, gereksinimi temel alan aşağıdaki seçeneklerden birini kullanabilirsiniz:
 
-Azure yedekleme, tüm yedekleme işlemleri için SQL native API'lerini kullanır. Yerel API'lerini kullanarak, tüm iş bilgilerinden getirebilirsiniz [SQL yedekleme kümesini tablo](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) msdb veritabanında. Ayrıca, Azure Backup tüm el ile Tetiklenmiş gösterir veya geçici, yedekleme işleri Portalı'nda işler. Portal Ekle kullanılabilir işler: tüm yedekleme işlemleri, geri yükleme işlemleri, kayıt yapılandırmak ve veritabanı işlemleri bulmak ve yedekleme işlemleri durdurun. Tüm zamanlanmış işler de OMS günlük analizi ile izlenebilir. Günlük analizi kullanarak işleri dağınıklığı kaldırır ve izleme ya da belirli işler filtreleme için ayrıntılı esneklik sağlar.
-
+#### <a name="using-azure-portal---recovery-services-vault-for-all-ad-hoc-operations"></a>Azure portalını kullanarak -> Kurtarma Hizmetleri kasası tüm geçici işlemleri için
+Azure tetiklenen tüm el ile yedekleme gösterir veya geçici, yedekleme işleri portalı işler. Portal Ekle kullanılabilir işler: tüm yedekleme işlemleri yapılandırmak, el ile yedekleme işlemleri, geri yükleme işlemleri, kayıt tetiklenen ve veritabanı işlemleri bulmak ve yedekleme işlemleri durdurun. 
 ![Gelişmiş Yapılandırma menüsü](./media/backup-azure-sql-database/jobs-list.png)
+
+> [!NOTE]
+> Tam da dahil olmak üzere tüm zamanlanmış yedekleme işleri fark ve günlük yedekleme portalında gösterilmez ve aşağıda açıklandığı gibi SQL Server Management Studio'yu kullanarak izlenebilir.
+>
+
+#### <a name="using-sql-server-management-studio-ssms-for-backup-jobs"></a>SQL Server Management Studio (SSMS) yedekleme işlerini kullanma
+Azure yedekleme, tüm yedekleme işlemleri için SQL native API'lerini kullanır. Yerel API'lerini kullanarak, tüm iş bilgilerinden getirebilirsiniz [SQL yedekleme kümesini tablo](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) msdb veritabanında. 
+
+Kullanabileceğiniz sorgu adı "DB1" ile belirli bir veritabanı için tüm yedekleme işleri getirmek için bir örnek olarak aşağıdaki. Özelleştirebileceğiniz sorgu daha fazla bilgi için aşağıda Gelişmiş izleme.
+```
+select CAST (
+Case type
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
+server_name,
+machine_name,
+backup_start_date,
+backup_finish_date,
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+ 
+```
 
 ### <a name="backup-alerts"></a>Yedekleme uyarıları
 

@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: bbd5e7d91e982a3dce320ea10a7fe8da435ff212
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 35860838d03d61e1145d35fd2516c1688c3bb64f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293783"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130589"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>İzleme ve Azure zaman serisi Öngörüler gecikmesini azaltmak için azaltma azaltmak
 Gelen veri miktarına, ortam yapılandırma aşarsa, gecikme veya Azure zaman serisi öngörü azaltma karşılaşabilirsiniz.
@@ -52,15 +52,15 @@ Buradan, aşağıdaki ölçümleri kullanarak uyarıları yapılandırabilirsini
 |**Giriş alınan iletileri**   | İleti sayısı tüm Event Hubs ya da IOT hub'ları olay kaynağından okuyun.        |
 |**Bayt giriş depolanan**     | Toplam boyut depolanan olayların ve sorgu için kullanılabilir. Boyutu yalnızca özellik değeri hesaplanır.        |
 |**Giriş olayları depolanan**     |   Sayısı düzleştirilmiş depolanan ve sorgu için kullanılabilir.      |
-|**Giriş alınan ileti zaman gecikmesini**    |  Olay kaynağı, sıraya alınan ileti saati ve giriş işlendiği saati arasındaki fark.      |
-|**Giriş alınan ileti sayısı gecikme**    |  Son sıraya alınan ileti sıra numarası arasındaki farkı olay kaynağı giriş işlenen ileti bölüm ve sıra sayısı.      |
+|**Giriş alınan ileti zaman gecikmesini**    |  İleti sıraya alınan olay olduğu zaman arasında saniye cinsinden kaynak ve giriş işlendiği zaman fark.      |
+|**İleti sayısı öteleme giriş alındı**    |  Son sıraya alınan ileti sıra numarası arasındaki farkı olay kaynağı giriş işlenen ileti bölüm ve sıra sayısı.      |
 
 
 ![Gecikme süresi](media/environment-mitigate-latency/latency.png)
 
-Kısıtlanan değilse, için bir değer görür *giriş alınan ileti zaman gecikmesini*, kaç dakika geride TSI gerçek saati ileti mı olduğunu bildiren isabetler (appx dizin oluşturma süresi hariç. olay kaynağı 30-60 saniye).  *Giriş alınan ileti sayısı öteleme* de kaç iletiler, arkasında belirlemenize olanak sağlayan bir değer olmalıdır.  Yakalanan için en kolay yolu, ortamınızın 's kapasite fark üstesinden olanak tanıyan bir boyut artırmaktır.  
+Kısıtlanan değilse, için bir değer görür *giriş alınan ileti zaman gecikmesini*, size TSI arkasında kaç saniye gerçek saati ileti mı olduğunu bildiren isabetler (appx dizin oluşturma süresi hariç. olay kaynağı 30-60 saniye).  *Giriş alınan ileti sayısı öteleme* de kaç iletiler, arkasında belirlemenize olanak sağlayan bir değer olmalıdır.  Yakalanan için en kolay yolu, ortamınızın 's kapasite fark üstesinden olanak tanıyan bir boyut artırmaktır.  
 
-Örneğin, bir tek birim S1 ortamınız varsa ve beş milyon ileti öteleme olup olmadığını, yakalanan için altı birimler için günde bir geçici ortamınıza boyutunu arttırabilir.  Hatta catch daha fazla sınırlandıramazsınız yukarı daha hızlı artırabilir.  Bu özellikle, olayları içinde zaten bir olay kaynağına bağlandığınızda başlangıçta bir ortam sağlamada veya karşıya yükleme çok fazla geçmiş veri toplu ortak occurance olacaktır.
+Örneğin, bir tek birim S1 ortamınız varsa ve beş milyon ileti öteleme olup olmadığını, yakalanan için altı birimler için günde bir geçici ortamınıza boyutunu arttırabilir.  Hatta catch daha fazla sınırlandıramazsınız yukarı daha hızlı artırabilir.  Yakalama süresi, özellikle bu olayları içinde zaten bir olay kaynağına bağlandığınızda başlangıçta bir ortam sağlamada veya karşıya yükleme çok fazla geçmiş veri toplu sık karşılaştıkları değil.
 
 Ayarlamak için başka bir tekniktir bir **giriş depolanan olayları** uyarı > bir eşiğinin biraz toplam ortamı kapasitenizi 2 saat boyunca =.  Bu uyarı, bir yüksek gecikme olasılığını gösterir kapasitede sürekli olup olmadığını anlamanıza yardımcı olabilir.  
 

@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 43f7f1160fa36745bcfd697d91d1b46615b99edc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 1d797df3f03e9b92569d37495310a5c162f5f981
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637523"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130937"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Veri birimi ve günlük analizi bekletmeyi denetleyerek maliyet yönetme
 Günlük analizi ölçek ve Destek toplama, dizin oluşturma ve herhangi bir kaynaktan veri günde oldukça büyük miktardaki kuruluşunuzda depolamak üzere tasarlanmış veya Azure'da dağıtılabilir.  Bu, kuruluşunuz için birincil bir sürücü olabilir, ancak maliyet verimliliği sonuçta temel sürücüsüdür. Kendi önemli bir günlük Analytisc çalışma maliyetini toplanan, veri biriminde yalnızca dayanmayan anlamak bu amaçla da seçilen plan bağlı olduğu ve ne kadar süreyle bağlı kaynaklarınızdan oluşturulan veri depolamak seçtiğiniz.  
@@ -48,7 +49,7 @@ Veri hacmi sınırlı ve yardımcı iki yolla maliyetinizi denetlemek, günlük 
 Maliyetler ne olduğunu anlamak kolaydır, büyük olasılıkla günlük analizi yaptığı son kullanım düzenlerini esas alarak.  Bunu yapmak için aşağıdaki adımları gerçekleştirin.  
 
 1. [Azure portal](http://portal.azure.com) oturum açın. 
-2. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 3. Günlük analizi abonelikleri bölmesinde çalışma alanınızı seçin ve ardından **kullanım ve tahmini maliyetleri** sol bölmesinden.<br><br> ![Kullanım ve tahmini maliyetleri sayfası](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
 
 Buradan, ay için veri biriminiz gözden geçirebilirsiniz. Alınan ve günlük analizi çalışma alanınızda korunan tüm verileri içerir.  Tıklatın **kullanım ayrıntılarını** veri birimi eğilimlerini kaynak, bilgisayarlar ve sunumu bilgilerle kullanım panoyu görüntülemek için sayfanın en üstünden. Görüntülemek ve günlük bir sınır ayarlamak için ya da bekletme süresini değiştirmek için tıklatın **veri birimi Yönetimi**.

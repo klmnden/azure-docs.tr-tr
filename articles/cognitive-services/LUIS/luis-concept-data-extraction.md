@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 8d8620a1c53037be6f1a33083f41964655a04921
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265261"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112125"
 ---
 # <a name="data-extraction"></a>Veri ayıklama
 HALUK, bir kullanıcının doğal dil utterances bilgi almak için olanak sağlar. Bilgi, programı, uygulama veya chatbot tarafından eyleme geçmek için kullanılabilmesi için bir biçimde ayıklanır.
@@ -26,7 +26,7 @@ HALUK sağlar yayımlanan verilerden [endpoint](luis-glossary.md#endpoint). **HT
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-`appID` Kullanılabilir **ayarları** , URL parçası yanı sıra, HALUK uygulama sayfası (sonra `/apps/`) ne zaman düzenlemekte bu HALUK uygulama. `subscription-key` Uygulamanızı sorgulamak için kullanılan endpoint anahtarıdır. HALUK öğrenme ederken boş yazma/başlangıç anahtarınızı kullanabilirsiniz, ancak destekleyen bir anahtar abonelik anahtarı değiştirmek önemlidir, [HALUK kullanım beklenen](luis-boundaries.md#key-limits). `timezoneOffset` Dakika birimdir.
+`appID` Kullanılabilir **ayarları** , URL parçası yanı sıra, HALUK uygulama sayfası (sonra `/apps/`) ne zaman düzenlemekte bu HALUK uygulama. `subscription-key` Uygulamanızı sorgulamak için kullanılan endpoint anahtarıdır. HALUK öğrenme ederken boş yazma/başlangıç anahtarınızı kullanabilirsiniz, ancak destekleyen bir anahtar uç noktası anahtarı değiştirmek önemlidir, [HALUK kullanım beklenen](luis-boundaries.md#key-limits). `timezoneOffset` Dakika birimdir.
 
 **HTTPS yanıt** tüm HALUK belirleyebilir amacını ve varlık bilgileri herhangi birinin geçerli yayımlanmış model tabanlı hazırlık veya üretim uç noktası içerir. URL bulundu uç nokta [HALUK] [ LUIS] Web sitesi **Yayımla** sayfası. 
 
@@ -139,7 +139,7 @@ Tüm varlıklar döndürülür **varlıklar** uç noktasından yanıt dizisi:
 ]
 ```
 
-## <a name="tokenized-entity-returned"></a>döndürülen parçalanmış varlık
+## <a name="tokenized-entity-returned"></a>Döndürülen parçalanmış varlık
 Birkaç [kültürler](luis-supported-languages.md#tokenization) varlık nesnesiyle dönmek `entity` değeri [simgeleştirilmiş](luis-glossary.md#token). Varlık nesnesinde HALUK tarafından döndürülen endIndex ve startIndex yeni, parçalanmış değerine ancak bunun yerine, ham varlık program aracılığıyla ayıklamak sırayla özgün sorguya eşleyin değil. 
 
 Örneğin, Almanca, sözcük içinde `das Bauernbrot` içine simgeleştirilmiş `das bauern brot`. Parçalanmış değeri `das bauern brot`, döndürülür ve özgün değeri program aracılığıyla startIndex ve endIndex, veren özgün sorgudaki belirlenebilir `das Bauernbrot`.
@@ -540,7 +540,7 @@ Pattern.Any varlıklardır şablonu utterances içinde kullanılan değişken uz
 ```
 
 
-## <a name="sentiment-analysis"></a>Duygu analizi
+## <a name="sentiment-analysis"></a>Yaklaşım analizi
 Düşünceleri analysis yapılandırdıysanız, HALUK json yanıt düşünceleri analiz içerir. Düşünceleri çözümleme hakkında daha fazla bilgi [metin analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) belgeleri.
 
 ### <a name="sentiment-data"></a>Düşünceleri veri

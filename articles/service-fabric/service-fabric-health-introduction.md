@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: ed1a307cb2a2613fc7701392cd7b408715f10910
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc0bb56e85c2a9cf7a458b0f6d97887d392ee65f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207307"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114325"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric sistem durumu izlemeye giriş
 Azure Service Fabric zengin, esnek ve Genişletilebilir sistem durumu değerlendirmesi ve raporlama sağlar bir sistem durumu modeli sunar. Model durumu kümeyi ve içinde çalışan hizmetleri yakın gerçek zamanlı izlenmesini sağlar. Kolayca sistem durumu bilgilerini almak ve düzeltmek olası sorunlar basamaklı ve yoğun kesintileri neden önce. Tipik modelinde Hizmetleri kendi yerel görünümleri temel alan raporları göndermek ve genel bir sağlamak için bu bilgileri de toplanır küme görünüm düzeyi.
@@ -117,7 +117,7 @@ Aşağıdaki örnek, bir küme bildirimindeki bir alıntı aynıdır. Uygulama t
 [Uygulama durumu ilkesi](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) olayları ve alt durumları toplama değerlendirmesi uygulamaları ve bunların alt öğeleri için nasıl yapılacağı açıklanır. Uygulama bildiriminde tanımlanabilir **ApplicationManifest.xml**, uygulama paketi. İlke belirtilirse, Service Fabric varlık uyarı veya hata durumu bir sistem durumu raporu ya da bir alt sahipse sağlıksız olduğunu varsayar.
 Yapılandırılabilir ilkeler şunlardır:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Uyarı sistem durumu işlemek için hata olarak sistem durumu değerlendirmesi sırasında raporlar olup olmadığını belirtir. Varsayılan: false.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Uyarı sistem durumu işlemek için hata olarak sistem durumu değerlendirmesi sırasında raporlar olup olmadığını belirtir. Varsayılan: false.
 * [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Uygulama hata olarak kabul edilmeden önce sağlıksız dağıtılmış uygulamalar toleranslı yüzdesinin üst sınırını belirtir. Bu yüzde, uygulamaları şu anda kümede dağıtılan düğüm sayısı üzerinden sağlıksız dağıtılan uygulama sayısı bölünmesiyle hesaplanır. Küçük sayıda düğüm üzerinde bir hatasını tolere için hesaplama yukarı yuvarlar. Varsayılan yüzdesi: sıfır.
 * [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Uygulamadaki tüm hizmet türleri için varsayılan sistem durumu ilkesi değiştirir varsayılan service type durum ilkesi belirtir.
 * [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Hizmet türü başına hizmet sistem durumu ilkeleri haritasını sağlar. Bu ilkelerin her belirtilen hizmet türü için varsayılan hizmet türü sistem durumu ilkeleri değiştirin. Örneğin, bir uygulama bir durum bilgisi olmayan ağ geçidi hizmet türü ve bir durum bilgisi olan altyapısı hizmet türü varsa, bunların değerlendirme için sistem durumu ilkeleri farklı şekilde yapılandırabilirsiniz. Hizmet türü bazında ilke belirttiğinizde, hizmeti konusunda daha ayrıntılı denetim kazanmadan.
@@ -201,7 +201,7 @@ Sistem Durumu verileri sistem durumu depoya göndermek için etkilenen varlık t
 * **Varlık tanımlayıcısı**. Raporu nerede uygulanan varlık tanımlar. Temel alınarak farklı [varlık türü](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
   * Küme. Yok.
-  * Düğüm. Düğüm adı (dize).
+  * düğüm. Düğüm adı (dize).
   * Uygulama. Uygulama adı (URI). Kümede dağıtılmış uygulama örneğinin adını temsil eder.
   * Hizmet. Hizmet adı (URI). Kümede dağıtılan hizmet örneğinin adını temsil eder.
   * Bölüm. Bölüm kimliği (GUID). Bölüm benzersiz tanımlayıcıyı temsil eder.

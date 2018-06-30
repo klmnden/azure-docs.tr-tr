@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
-ms.openlocfilehash: 060baa6578f8a31234a1a667e2d591b92c39a06f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 45b6c2eda77668616a7e49ecd5ea2715af3cd3ce
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264293"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111595"
 ---
 # <a name="api-v2-migration-guide"></a>API v2 Geçiş Kılavuzu
 Sürüm 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) ve [yazma](https://aka.ms/v1-authoring-api-docs) API'leri kullanım dışı. 2. sürüme geçirmek nasıl anlamak için bu kılavuzu kullanın [endpoint](https://aka.ms/luis-endpoint-apis) ve [yazma](https://aka.ms/luis-authoring-apis) API'leri. 
@@ -104,14 +104,14 @@ v2 uç nokta başarılı yanıtı:
 ```
 
 ## <a name="key-management-no-longer-in-api"></a>Artık API'sindeki anahtar yönetimi
-Abonelik anahtarı 410 GONE döndüren API'leri bırakılmıştır.
+Abonelik uç noktası anahtarı API'leri bırakılmıştır 410 GONE döndürüyor.
 
 | sürüm | yol |
 |--|--|
 |1|/luis/V1.0/prog/Subscriptions|
 |1|/ luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [Abonelik anahtarları](luis-how-to-azure-subscription.md) Azure portalında oluşturulur. Üzerinde HALUK uygulama anahtarına atamak **[Yayımla](manage-keys.md)** sayfası. Gerçek anahtar değeri bilmeniz gerek yoktur. HALUK atama yapmak için abonelik adını kullanır. 
+Azure [endpoint anahtarları](luis-how-to-azure-subscription.md) Azure portalında oluşturulur. Üzerinde HALUK uygulama anahtarına atamak **[Yayımla](manage-keys.md)** sayfası. Gerçek anahtar değeri bilmeniz gerek yoktur. HALUK atama yapmak için abonelik adını kullanır. 
 
 ## <a name="new-versioning-route"></a>Yeni sürüm yol
 V2 modeli şimdi bulunan bir [sürüm](luis-how-to-manage-versions.md). Sürüm adı rotadaki 10 karakterdir. "0,1" varsayılan sürümdür.

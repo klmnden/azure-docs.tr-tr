@@ -10,12 +10,12 @@ ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: a726779e731be2534e457ba595d93fe51c023601
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: e92c4efba29f1c40f6d4cb155974ca3a896796e5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036283"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114342"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob dosya sistemi sürücüsü (ABFS): Hadoop için adanmış bir Azure depolama sürücüsü
 
@@ -29,7 +29,7 @@ Bu nedenle, devralınmış tasarım eksiklikler WASB, gidermek için yeni Azure 
 
 ## <a name="the-azure-blob-file-system-driver"></a>Azure Blob dosya sistemi sürücüsü
 
-[Azure Data Lake Storage REST arabirimi](https://docs.microsoft.com/en-us/rest/api/datalakestorage/) Azure Blob Storage dosya sistemi sematiğini destekleyecek şekilde tasarlanmıştır. Hadoop dosya sistemi aynı zamanda aynı semantiğini desteklemek üzere tasarlanmıştır o sürücüsündeki karmaşık bir eşlemenin gereksinimi yoktur. Bu nedenle, yalnızca istemci dolgusu REST API için Azure Blob dosya sistemi sürücüsü (veya ABFS) değil.
+[Azure Data Lake Storage REST arabirimi](https://docs.microsoft.com/en-us/rest/api/storageservices/data-lake-storage-gen2) Azure Blob Storage dosya sistemi sematiğini destekleyecek şekilde tasarlanmıştır. Hadoop dosya sistemi aynı zamanda aynı semantiğini desteklemek üzere tasarlanmıştır o sürücüsündeki karmaşık bir eşlemenin gereksinimi yoktur. Bu nedenle, yalnızca istemci dolgusu REST API için Azure Blob dosya sistemi sürücüsü (veya ABFS) değil.
 
 Ancak, sürücü gerçekleştirmeniz gereken bazı işlevleri vardır:
 

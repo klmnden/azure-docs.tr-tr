@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: fe55c84964d10be971c0f1d64d2c70313098a4ee
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bf262a42751e02c939696e4c8554fc19f5a4f4bd
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215718"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111210"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Öğretici: Azure Active Directory Tümleştirme FishEye/Crucible Kantega SSO
 
@@ -133,7 +133,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/tutorial_general_400.png)
     
-7. Farklı web tarayıcısı penceresinde FishEye/Crucible içi sunucuda yönetici olarak oturum açın.
+7. Farklı web tarayıcısı penceresinde FishEye/Crucible şirket içi sunucunuza yönetici olarak oturum açın.
 
 8. Dişlisine üzerine gelin ve tıklatın **eklentileri**.
 
@@ -222,7 +222,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
     c. **Kaydet**’e tıklayın.  
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir  **Yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
@@ -261,7 +261,7 @@ Azure AD kullanıcılarının FishEye/Crucible oturum açmayı etkinleştirmek i
 
 **Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Crucible içi sunucuda yönetici olarak oturum açın.
+1. Crucible şirket içi sunucunuza yönetici olarak oturum açın.
 
 2. Dişlisine üzerine gelin ve tıklatın **kullanıcılar**.
 

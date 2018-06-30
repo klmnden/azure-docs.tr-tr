@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 147b0b9b4a3fe789544457d17fed3d29badbe12c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29937317"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113961"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Azure Market'ten bir çözüm şablonu oluşturmak için kılavuz
 Adım 1 ' tamamladıktan sonra [hesap oluşturma ve kayıt][link-acct-creation], bir Azure uyumlu çözüm şablon oluşturma işleminde size kılavuzluk [oluşturmak için teknik Önkoşullar bir Çözüm şablonu](marketplace-publishing-solution-template-creation-prerequisites.md). Biz, üzerinde birden çok VM için bir çözüm şablonu oluşturmak için adımlarda size yol gösterecek artık [yayımlama portalında] [ link-pubportal] Azure Marketi için.
@@ -40,7 +40,7 @@ Bir çözüm şablonu tüm topolojilerinin "üst öğesidir". Bir teklif/çözü
 
   Azure Market: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  Azure Portal: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
+  Azure portalı: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 * Yeni bir sürüm ekleyin.
 
 ### <a name="4-get-your-topology-versions-certified"></a>4. Sertifikalı topoloji sürümlerinizi Al
@@ -60,7 +60,7 @@ Bu belirli sürümü topolojisinin sağlamak için tüm gerekli dosyaları içer
 Bu ilgili makalelerde ilginizi çekebilir:
 
 * VM görüntüleri: [azure'da sanal makine görüntülerini hakkında](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-* VM uzantıları: [VM aracısı ve VM uzantılarına genel bakış](https://msdn.microsoft.com/library/azure/dn832621.aspx) ve [Azure VM uzantıları ve özellikleri](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+* VM uzantıları: [VM aracısı ve VM uzantılarına genel bakış](https://msdn.microsoft.com/library/azure/dn832621.aspx) ve [Azure VM uzantıları ve özellikleri](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows)
 * Azure Kaynak Yöneticisi: [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md) ve [basit bir şablon örnekleri](https://github.com/rjmax/ArmExamples)
 * Depolama hesabı kısıtlar: [izleme depolama hesabı daraltması](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) ve [Premium depolama](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 

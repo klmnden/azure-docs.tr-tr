@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287812"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114618"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Yapılandırma her zaman üzerindeki kullanılabilirlik grubu Azure VM'de el ile
 
@@ -86,7 +86,7 @@ Aşağıdaki tabloda bu öğreticiye başlamadan önce tamamlamanız gereken ön
 
    ![Küme Özellikleri](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Seçin **statik IP adresi** ve otomatik özel IP Adresleme (APIPA) aralığından kullanılabilir bir adres belirtin: için 169.254.0.1 169.254.255.254 adresi metin kutusuna. Bu örnek için herhangi bir adresi bu aralıkta kullanabilirsiniz. Örneğin, `169.254.0.1`. Ardından **Tamam**.
+3. Seçin **statik IP adresi** ve sanal makinelerinizi aynı alt ağdaki kullanılabilir bir adres belirtin.
 
 4. İçinde **küme çekirdek kaynakları** bölümünde, küme adını sağ tıklatın ve **çevrimiçine**. Daha sonra her iki kaynağın çevrimiçi olana kadar bekleyin. Küme Adı kaynağını çevrimiçi olduğunda, DC sunucusuna yeni bir AD bilgisayar hesabı ile güncelleştirir. Kullanılabilirlik grubu kümelenmiş hizmet daha sonra çalıştırmak için bu AD hesabı kullanın.
 
@@ -341,7 +341,7 @@ Bu noktada, çoğaltmalar SQL Server'ın iki örneği üzerinde kullanılabilirl
 
 ## <a name="create-an-azure-load-balancer"></a>Azure yük dengeleyici oluşturma
 
-Azure sanal makinelerde SQL Server kullanılabilirlik grubu yük dengeleyici gerektirir. Yük Dengeleyici için kullanılabilirlik grubu dinleyici IP adresini tutar. Bu bölümde Azure portalında yük dengeleyici oluşturma özetlenmektedir.
+Azure sanal makinelerde SQL Server kullanılabilirlik grubu yük dengeleyici gerektirir. Yük Dengeleyici, kullanılabilirlik grubu dinleyicileri ve Windows Server Yük devretme için IP adreslerini tutar. Bu bölümde Azure portalında yük dengeleyici oluşturma özetlenmektedir.
 
 1. Azure Portal'da, burada SQL sunucularınızı ve tıklatın Kaynak grubuna gidin **+ Ekle**.
 2. Arama **yük dengeleyici**. Microsoft tarafından yayımlanan yük dengeleyici seçin.
@@ -370,7 +370,7 @@ Azure sanal makinelerde SQL Server kullanılabilirlik grubu yük dengeleyici ger
 
 Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir araştırma oluşturmak ve Yük Dengeleme kuralları ayarlamanız gerekir. Bunlar Azure portalında yapın.
 
-### <a name="add-backend-pool"></a>Arka uç havuzu ekleme
+### <a name="add-backend-pool-for-the-availability-group-listener"></a>Kullanılabilirlik grubu dinleyicisi için arka uç havuzu ekleme
 
 1. Azure portalında kullanılabilirlik grubuna gidin. Yeni oluşturulan yük dengeleyici görmek için görünümü yenilemeniz gerekebilir.
 
@@ -416,6 +416,46 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir araştırma olu�
    | **Bağlantı Noktası** | Kullanılabilirlik grubu dinleyicisinin bağlantı noktası kullanma | 1435 |
    | **Arka uç bağlantı noktası** | Kayan IP için doğrudan sunucu dönüş ayarladığınızda, bu alan kullanılmıyor | 1435 |
    | **Araştırma** |Araştırması için belirtilen adı | SQLAlwaysOnEndPointProbe |
+   | **Oturum kalıcılığı** | Açılan liste | **Yok** |
+   | **Boşta kalma zaman aşımı** | Bir TCP bağlantısı açık tutmak için dakika | 4 |
+   | **Kayan IP (doğrudan sunucu dönüşü)** | |Etkin |
+
+   > [!WARNING]
+   > Doğrudan sunucu dönüşü oluşturma sırasında ayarlanır. Bu değer değiştirilemez.
+
+1. Tıklatın **Tamam** Yük Dengeleme kuralları ayarlamak için.
+
+### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Ön uç IP adresi için WSFC Ekle
+
+Ayrıca WSFC IP adresi yük dengeleyicide olması gerekir. 
+
+1. Portalda, yeni bir ön uç IP yapılandırması için WSFC ekleyin. WSFC küme çekirdek kaynağı için yapılandırılan IP adresi kullanın. IP adresi statik olarak ayarlayın. 
+
+1. Yük Dengeleyici tıklatın, **sistem durumu araştırmalarının**, tıklatıp **+ Ekle**.
+
+1. Sistem durumu araştırma aşağıdaki gibi ayarlayın:
+
+   | Ayar | Açıklama | Örnek
+   | --- | --- |---
+   | **Ad** | Metin | WSFCEndPointProbe |
+   | **Protokol** | TCP seçin | TCP |
+   | **Bağlantı Noktası** | Kullanılmayan bir bağlantı noktası | 58888 |
+   | **Aralık**  | Saniye cinsinden araştırma girişimleri arasındaki süre |5 |
+   | **Sağlıksız durum eşiği.** | Sağlıksız olarak kabul edilmesi bir sanal makine için oluşması gereken arka arkaya araştırma hatası sayısı  | 2 |
+
+1. Tıklatın **Tamam** durumu araştırması ayarlamak için.
+
+1. Yük Dengeleme kuralları ayarlayın. Tıklatın **Yük Dengeleme kuralları**, tıklatıp **+ Ekle**.
+
+1. Yük Dengeleme kuralları aşağıdaki gibi ayarlayın.
+   | Ayar | Açıklama | Örnek
+   | --- | --- |---
+   | **Ad** | Metin | WSFCPointListener |
+   | **Ön uç IP adresi** | Adres seçin |WSFC IP adresi yapılandırıldığında oluşturduğunuz adresi kullanın. |
+   | **Protokol** | TCP seçin |TCP |
+   | **Bağlantı Noktası** | Kullanılabilirlik grubu dinleyicisinin bağlantı noktası kullanma | 58888 |
+   | **Arka uç bağlantı noktası** | Kayan IP için doğrudan sunucu dönüş ayarladığınızda, bu alan kullanılmıyor | 58888 |
+   | **Araştırma** |Araştırması için belirtilen adı | WSFCEndPointProbe |
    | **Oturum kalıcılığı** | Açılan liste | **Yok** |
    | **Boşta kalma zaman aşımı** | Bir TCP bağlantısı açık tutmak için dakika | 4 |
    | **Kayan IP (doğrudan sunucu dönüşü)** | |Etkin |

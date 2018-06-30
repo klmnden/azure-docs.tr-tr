@@ -16,16 +16,16 @@ ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 5df4af49a6c0251161d619c358ae68eaad3c3660
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2cb29d61de43bcd2fc6f9bfb3a94af309b1c3f55
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102654"
+ms.locfileid: "37128488"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication ile oturum açma deneyimi
 > [!NOTE]
-> Bu makalede amacı tipik oturum deneyimi boyunca size yol olmaktır. Oturum açma ile veya sorunlarını gidermek için Yardım için bkz: [Azure multi-Factor Authentication sorununuz](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+> Bu makalede amacı tipik oturum deneyimi boyunca size yol olmaktır. Oturum açma ile veya sorunlarını gidermek için Yardım için bkz: [Azure multi-Factor Authentication sorununuz](multi-factor-authentication-end-user-troubleshoot.md).
 
 ## <a name="what-will-your-sign-in-experience-be"></a>Oturum açma deneyimini ne olacak?
 Oturum açma deneyimini ikinci faktörü olarak kullanmak seçtiğiniz öğeye bağlı olarak farklılık gösterir: telefon araması, bir kimlik doğrulama uygulaması veya metinleri. En iyi ne yaptığınızı açıklayan bir seçenek belirleyin:
@@ -86,7 +86,7 @@ Bazen telefon veya tercih edilen doğrulama yöntemi olarak ayarladığınız ci
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İki aşamalı doğrulamayı oturum imzalama sorunlarınız varsa, daha fazla bilgi almak [Azure multi-Factor Authentication sorununuz](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+İki aşamalı doğrulamayı oturum imzalama sorunlarınız varsa, daha fazla bilgi almak [Azure multi-Factor Authentication sorununuz](multi-factor-authentication-end-user-troubleshoot.md).
 
 Bilgi edinmek için nasıl [iki basamaklı doğrulama ayarlarınızı yönetme](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md).
 

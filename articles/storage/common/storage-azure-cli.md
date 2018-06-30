@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 68e101ebec4a90d8c0f39eedeef33d252c720ed1
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: b7cb8b1ca2f377964f3613ad8e0549418cb2abec
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737377"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131880"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Azure Storage ile Azure CLI 2.0 kullanma
 
@@ -198,9 +198,20 @@ az storage account create \
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
-
 ### <a name="set-default-azure-storage-account-environment-variables"></a>Varsayılan Azure depolama hesabı ortam değişkenlerini ayarlama
+
 Azure aboneliğinizde birden çok depolama hesabı olabilir. Tüm sonraki depolama komutlarını kullanmak için bunlardan birini seçmek için bu ortam değişkenleri ayarlayabilirsiniz:
+
+Öncelikle [az storage account keys list](/cli/azure/storage/account/keys#list) komutunu kullanarak depolama hesabı anahtarlarınızı görüntüleyin:
+
+```azurecli-interactive
+az storage account keys list \
+    --account-name <account_name> \
+    --resource-group <resource_group> \
+    --output table
+```
+
+Anahtar sahip olduğunuza göre onu ve hesap adını ortam değişkenleri olarak tanımlayabilirsiniz:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -223,7 +234,6 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 
 > [!NOTE]
 > Aşağıdaki bölümlerde tüm örneklerde, bu makalenin ayarladığınızdan emin varsayın `AZURE_STORAGE_ACCOUNT` ve `AZURE_STORAGE_ACCESS_KEY` ortam değişkenleri.
->
 
 ## <a name="create-and-manage-blobs"></a>Oluşturma ve BLOB'ları yönetme
 Azure Blob Depolama, büyük miktarlarda herhangi bir yere HTTP veya HTTPS aracılığıyla erişilebilen metin veya ikili veriler gibi yapılandırılmamış verileri depolamak için bir hizmettir. Bu bölümde, zaten Azure Blob Depolama kavramlarına alışık olduğunuz varsayılır. Ayrıntılı bilgi için bkz: [.NET kullanarak Azure Blob storage'ı kullanmaya başlama](../blobs/storage-dotnet-how-to-use-blobs.md) ve [Blob hizmeti kavramları](/rest/api/storageservices/blob-service-concepts).
@@ -241,7 +251,7 @@ az storage container create --name <container_name>
 * `blob`: BLOB'lar ortak okuma erişimi.
 * `container`: Ortak okuma ve liste erişimi kapsayıcının tamamı.
 
-Daha fazla bilgi için bkz: [kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md).
+Daha fazla bilgi için bkz. [Kapsayıcılara ve bloblara anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md).
 
 ### <a name="upload-a-blob-to-a-container"></a>Bir kapsayıcıya blob yükleme
 Azure Blob storage blok destekler, ekleme ve sayfa BLOB'ları. BLOB'ları kullanarak bir kapsayıcıya karşıya `blob upload` komutu:

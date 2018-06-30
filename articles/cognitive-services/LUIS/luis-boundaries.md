@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7f46e55e11c4eb68b515a743b0f51392ffc1269e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 52bda6a13422ce8f759c40bd454a6b15e92d7a5d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266813"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110305"
 ---
 # <a name="luis-boundaries"></a>HALUK sınırları
 HALUK birkaç sınır alanlar vardır. İlk [modeli sınır](#model-boundaries), amacı, varlıkları ve HALUK özelliklerinde denetler. İkinci alanı [kota sınırları](#key-limits) anahtar türüne göre. Sınırları üçüncü bir alandır [klavye birleşimi](#keyboard-controls) HALUK Web sitesi denetleme. Dördüncü bir alandır [world bölge eşleme](luis-reference-regions.md) Web sitesi geliştirme HALUK HALUK arasındaki [endpoint](luis-glossary.md#endpoint) API'leri. 
@@ -35,11 +35,11 @@ HALUK birkaç sınır alanlar vardır. İlk [modeli sınır](#model-boundaries),
 | [Desenler](luis-concept-patterns.md)|uygulama başına 500 desenleri.<br>Desen uzunluğu en fazla 400 karakter olabilir.<br>Deseni başına 3 Pattern.any varlıklar<br>En fazla 2 iç içe geçmiş isteğe bağlı metinleri deseninde|
 | [Pattern.Any](./luis-concept-entity-types.md)|uygulama başına 100 deseni başına 3 pattern.any varlıklar |
 | [Tümcecik listesi][phrase-list]|10 tümcecik listeleri, liste başına 5.000 öğeleri|
-| [Önceden oluşturulmuş varlıklar](./Pre-builtEntities.md) | Sınır|
+| [Önceden oluşturulmuş varlıklar](./Pre-builtEntities.md) | sınır|
 | [Normal ifade varlıkları](./luis-concept-entity-types.md)|20 varlıklar<br>500 karakter maks. Normal ifade varlık deseni|
 | [Roller](luis-concept-roles.md)|uygulama başına 300 rolleri. Varlık başına 10 rolleri|
 | **[Basit](./luis-concept-entity-types.md)| 100 varlık|
-| [Utterance][utterances] | 500 karakter|
+| [utterance][utterances] | 500 karakter|
 | [Utterances][utterances] | uygulama başına 15.000|
 | [Sürüm adı][luis-how-to-manage-versions] | alfasayısal ve süre sınırlı 10 karakter (.) |
 
@@ -56,17 +56,17 @@ Amacı ve varlık adları şu karakterleri kullanmayın:
 |`}`|Sağ süslü ayraç|
 |`[`|Sol ayraç|
 |`]`|Sağ köşeli ayraç|
-|`\`|ters eğik çizgi|
+|`\`|Ters eğik çizgi|
 
 ## <a name="key-limits"></a>Anahtar sınırları
-Geliştirme anahtarının, yazma ve uç noktası için farklı sınırları vardır. HALUK hizmeti abonelik anahtarı yalnızca son nokta sorguları için geçerlidir.
+Geliştirme anahtarının, yazma ve uç noktası için farklı sınırları vardır. HALUK hizmet uç noktası anahtarı yalnızca son nokta sorguları için geçerlidir.
 
 |Anahtar|Yazma|Uç Nokta|Amaç|
 |--|--|--|--|
 |Yazma Başlatıcı|1 milyon/ay, 5/saniye|1 bin/ay, 5/saniye|HALUK uygulamanızı yazma|
 |[Abonelik] [ pricing] - F0 - ücretsiz katmanı |geçersiz|10 bin/ay, 5/saniye|HALUK uç noktanızı sorgulama|
 |[Abonelik] [ pricing] - S0 - temel katmanı|geçersiz|50/saniye|HALUK uç noktanızı sorgulama|
-|[Düşünceleri analiz tümleştirme](publishapp.md#enable-sentiment-analysis)|geçersiz|Ücret ödemeden|Anahtar tümcecik veri ayıklama düşünceleri bilgilerini ekleme |
+|[Düşünceleri analiz tümleştirme](publishapp.md#enable-sentiment-analysis)|geçersiz|ücret ödemeden|Anahtar tümcecik veri ayıklama düşünceleri bilgilerini ekleme |
 |Konuşma tümleştirme|geçersiz|$5.50 ABD Doları/1 bin uç nokta istekleri|Metin utterance konuşulan utterance dönüştürmek ve HALUK sonuçları Döndür|
 
 ## <a name="keyboard-controls"></a>Klavye denetimleri

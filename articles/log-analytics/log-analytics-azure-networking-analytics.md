@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: na
+ms.openlocfilehash: 8a92bf7b031899ee75fbf2bb2fdfd7dced3bc1ad
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263539"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127901"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Günlük analizi çözümlerinde izleme azure ağ iletişimi
 
@@ -30,8 +31,8 @@ Günlük analizi, ağları izleme için aşağıdaki çözümleri sunar:
  * Azure uygulama ağ geçidi günlükleri
  * Azure uygulama ağ geçidi ölçümleri
 * Ağ izleme ve denetleme çözümleri bulut ağınızdaki etkinliği
-* [Traffic Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
-* Azure ağ güvenlik grubu analizi
+* [Trafik analizi](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+* Azure Ağ Güvenlik Grubu Analizi
 
 ## <a name="network-performance-monitor-npm"></a>Ağ Performans İzleyicisi'ni (NPM)
 
@@ -77,7 +78,8 @@ Günlükleri, uygulama ağ geçitleri için desteklenir:
 * ApplicationGatewayPerformanceLog
 * ApplicationGatewayFirewallLog
 
-Aşağıdaki ölçümleri uygulama ağ geçitleri için desteklenir:
+Aşağıdaki ölçümleri uygulama ağ geçitleri için desteklenir: yeniden
+
 
 * 5 dakikalık işleme
 
@@ -140,6 +142,12 @@ Herhangi bir günlük arama sayfası üzerinde sonuçları zaman, ayrıntılı s
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Günlük analizi analytics çözümde Azure ağ güvenlik grubu
 
 ![Azure ağ güvenlik grubu Analytics simgesi](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+
+> [!NOTE]
+> İşlevselliğini almıştır beri topluluk desteği için ağ güvenlik grubu analiz çözümü taşıma [trafiği Analytics](../network-watcher/traffic-analytics.md).
+> - Çözüm şimdi kullanılabilir [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) ve yakında artık Azure Marketi'nde kullanıma sunulacaktır.
+> - Çözümü kendi çalışma alanına zaten eklenmiş olan müşteriler için herhangi bir değişiklik yapmadan çalışmaya devam eder.
+> - Microsoft tanılama ayarlarını kullanarak çalışma alanınıza gönderen NSG tanılama günlüklerini desteklemeye devam eder.
 
 Günlükleri, ağ güvenlik grupları için desteklenir:
 
@@ -213,9 +221,9 @@ Güncelleştirilmiş çözümleri kullanmak için:
 
     | Onun yerine: | Kullanım: |
     | --- | --- |
-    | NetworkApplicationgateways &#124; burada OperationName "ApplicationGatewayAccess" == | AzureDiagnostics &#124; where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
-    | NetworkApplicationgateways &#124; burada OperationName "ApplicationGatewayPerformance" == | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=ApplicationGatewayPerformance |
-    | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
+    | NetworkApplicationgateways &#124; burada OperationName "ApplicationGatewayAccess" == | AzureDiagnostics &#124; burada ResourceType = "APPLICATIONGATEWAYS" ve OperationName "ApplicationGatewayAccess" == |
+    | NetworkApplicationgateways &#124; burada OperationName "ApplicationGatewayPerformance" == | AzureDiagnostics &#124; burada ResourceType "APPLICATIONGATEWAYS" ve OperationName == ApplicationGatewayPerformance = |
+    | NetworkSecuritygroups | AzureDiagnostics &#124; burada ResourceType "NETWORKSECURITYGROUPS" == |
 
    + Sonekine sahip herhangi bir alan için \_s, \_d veya \_g adı küçük harflere ilk karakter değiştirme
    + Sonekine sahip herhangi bir alan için \_adında, verileri o iç içe geçmiş alan adlarını temel alarak tek tek alanlara bölünür.

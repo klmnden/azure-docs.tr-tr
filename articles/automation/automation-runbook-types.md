@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94fbc1cf0232eaf48bb0be3c6edc0542142e4681
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7958042ccb2f55e9b6021f7d804a0dcd090695c5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196058"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109326"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation runbook türleri
 Azure Otomasyonu aşağıdaki tabloda çeşitli kısaca açıklanmıştır runbook'ları destekler.  Aşağıdaki bölümlerde zaman her kullanılacağı hakkında dikkat edilecek noktalar dahil olmak üzere her tür hakkında daha fazla bilgi verilmektedir.
@@ -44,7 +44,7 @@ Azure Otomasyonu aşağıdaki tabloda çeşitli kısaca açıklanmıştır runbo
 * Görüntüleyemez veya doğrudan grafik iş akışı tarafından oluşturulan PowerShell kodu girin. Tüm kod etkinliklerin oluşturma kodu görüntüleyebilirsiniz unutmayın.
 
 ## <a name="powershell-runbooks"></a>PowerShell runbook'ları
-PowerShell runbook'ları Windows PowerShell üzerinde temel alır.  Doğrudan Azure portalında metin düzenleyicisi kullanarak runbook'un kodu girin.  Herhangi bir çevrimdışı metin düzenleyicisi de kullanabilirsiniz ve [runbook'u içeri](http://msdn.microsoft.com/library/azure/dn643637.aspx) Azure Otomasyonu içine.
+PowerShell runbook'ları Windows PowerShell üzerinde temel alır.  Doğrudan Azure portalında metin düzenleyicisi kullanarak runbook'un kodu girin.  Herhangi bir çevrimdışı metin düzenleyicisi de kullanabilirsiniz ve [runbook'u içeri](automation-creating-importing-runbook.md) Azure Otomasyonu içine.
 
 ### <a name="advantages"></a>Avantajları
 * PowerShell iş akışı ek karmaşıklığını olmadan PowerShell kodu ile tüm karmaşık mantığı uygular. 
@@ -65,7 +65,7 @@ PowerShell runbook'ları bilinen geçerli sorunlar aşağıda verilmiştir.
 * Çok büyük miktarda veri yazma çıkış akışına aynı anda kullanmaya çalışırsa, bir PowerShell runbook başarısız olabilir.   Bu sorunu çözmek büyük nesneler ile çalışırken gerekli bilgileri kayıt çıkarma genellikle çalışabilir.  Örneğin, aşağıdakine benzer çıktısı yerine *Get-Process*, yalnızca gerekli alanları ile çıkış *Get-Process | İşlem adı, CPU seçin*.
 
 ## <a name="powershell-workflow-runbooks"></a>PowerShell iş akışı runbook'ları
-PowerShell iş akışı runbook'ları olan temel metin runbook'lar [Windows PowerShell iş akışı](automation-powershell-workflow.md).  Doğrudan Azure portalında metin düzenleyicisi kullanarak runbook'un kodu girin.  Herhangi bir çevrimdışı metin düzenleyicisi de kullanabilirsiniz ve [runbook'u içeri](http://msdn.microsoft.com/library/azure/dn643637.aspx) Azure Otomasyonu içine.
+PowerShell iş akışı runbook'ları olan temel metin runbook'lar [Windows PowerShell iş akışı](automation-powershell-workflow.md).  Doğrudan Azure portalında metin düzenleyicisi kullanarak runbook'un kodu girin.  Herhangi bir çevrimdışı metin düzenleyicisi de kullanabilirsiniz ve [runbook'u içeri](automation-creating-importing-runbook.md) Azure Otomasyonu içine.
 
 ### <a name="advantages"></a>Avantajları
 * PowerShell iş akışı kodu ile tüm karmaşık mantığı uygular.
@@ -80,7 +80,7 @@ PowerShell iş akışı runbook'ları olan temel metin runbook'lar [Windows Powe
 * PowerShell runbook'ları yalnızca yeni bir iş oluşturur başlangıç AzureAutomationRunbook cmdlet'ini kullanarak alt runbook'lar olarak eklenebilir.
 
 ## <a name="python-runbooks"></a>Python runbook'ları
-Python runbook'ları Python 2 altında derleyin.  Azure portalında metin düzenleyicisi kullanarak runbook kodu doğrudan düzenleyebilirsiniz veya herhangi bir çevrimdışı metin düzenleyicisi kullanabilirsiniz ve [runbook'u içeri](http://msdn.microsoft.com/library/azure/dn643637.aspx) Azure Otomasyonu içine.
+Python runbook'ları Python 2 altında derleyin.  Azure portalında metin düzenleyicisi kullanarak runbook kodu doğrudan düzenleyebilirsiniz veya herhangi bir çevrimdışı metin düzenleyicisi kullanabilirsiniz ve [runbook'u içeri](automation-creating-importing-runbook.md) Azure Otomasyonu içine.
 
 ### <a name="advantages"></a>Avantajları
 * Python sağlam standart kitaplığını kullanın.

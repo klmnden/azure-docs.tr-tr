@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1b6aea5152e9eb5152b400d74d834e31eb883458
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31515358"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110256"
 ---
 # <a name="api-management-access-restriction-policies"></a>API yönetim erişim kısıtlama ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -40,7 +40,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 ### <a name="policy-statement"></a>İlke bildirimi  
   
 ```xml  
-<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="True">  
+<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="true">  
     <value>Value1</value>  
     <value>Value2</value>  
 </check-header>  
@@ -54,7 +54,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 </check-header>  
 ```  
   
-### <a name="elements"></a>Öğeleri  
+### <a name="elements"></a>Öğeler  
   
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
@@ -109,13 +109,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 </policies>  
 ```  
   
-### <a name="elements"></a>Öğeleri  
+### <a name="elements"></a>Öğeler  
   
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
 |sınırını ayarlama|Kök öğesi.|Evet|  
 |api|Bir veya daha fazla ürün içinde çağrı hızı sınırı üzerinde API'leri zorunlu tuttukları için bu öğeleri ekleyin. Ürün ve API sınırları bağımsız olarak uygulanır oranı arayın. API olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik verdiyse, `id` kullanılacak ve `name` göz ardı edilir.|Hayır|  
-|işlemi|Bir veya daha fazla bir API işlemlerini bir çağrı hızı sınırı koymak için bu öğeleri ekleyin. Ürün, API ve işlem sınırları bağımsız olarak uygulanır oranı çağırın. İşlem olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik verdiyse, `id` kullanılacak ve `name` göz ardı edilir.|Hayır|  
+|işlem|Bir veya daha fazla bir API işlemlerini bir çağrı hızı sınırı koymak için bu öğeleri ekleyin. Ürün, API ve işlem sınırları bağımsız olarak uygulanır oranı çağırın. İşlem olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik verdiyse, `id` kullanılacak ve `name` göz ardı edilir.|Hayır|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
@@ -168,7 +168,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 </policies>  
 ```  
   
-### <a name="elements"></a>Öğeleri  
+### <a name="elements"></a>Öğeler  
   
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
@@ -211,7 +211,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 </ip-filter>  
 ```  
   
-### <a name="elements"></a>Öğeleri  
+### <a name="elements"></a>Öğeler  
   
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
@@ -264,20 +264,20 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 </policies>  
 ```  
   
-### <a name="elements"></a>Öğeleri  
+### <a name="elements"></a>Öğeler  
   
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
 |Kota|Kök öğesi.|Evet|  
 |api|Bir veya daha fazla ürün içinde API çağrısı kota koymak için bu öğeleri ekleyin. Ürün ve API çağrısı kotaları bağımsız olarak uygulanır. API olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik verdiyse, `id` kullanılacak ve `name` göz ardı edilir.|Hayır|  
-|işlemi|Bir veya daha fazla bir API işlemlerini çağrısı kota koymak için bu öğeleri ekleyin. Ürün, API ve işlem çağrısı kotaları bağımsız olarak uygulanır. İşlem olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik verdiyse, `id` kullanılacak ve `name` göz ardı edilir.|Hayır|  
+|işlem|Bir veya daha fazla bir API işlemlerini çağrısı kota koymak için bu öğeleri ekleyin. Ürün, API ve işlem çağrısı kotaları bağımsız olarak uygulanır. İşlem olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik verdiyse, `id` kullanılacak ve `name` göz ardı edilir.|Hayır|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
 |ad|API veya adını kota uygulandığı işlemi.|Evet|Yok|  
-|Bant genişliği|Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
+|bant genişliği|Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
 |çağrı|Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
 |yenileme dönemi|Zaman aralığını saniye olarak geçmesi kota sıfırlar.|Evet|Yok|  
   
@@ -325,7 +325,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 </policies>  
 ```  
   
-### <a name="elements"></a>Öğeleri  
+### <a name="elements"></a>Öğeler  
   
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
@@ -335,7 +335,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
-|Bant genişliği|Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
+|bant genişliği|Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
 |çağrı|Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
 |Tamamlayıcı anahtarı|Kota ilkesi için kullanılacak anahtarı.|Evet|Yok|  
 |Koşul artırma|İstek kota sayılan varsa belirten boolean ifadesi (`true`)|Hayır|Yok|  
@@ -482,7 +482,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 </choose>  
 ```  
   
-### <a name="elements"></a>Öğeleri  
+### <a name="elements"></a>Öğeler  
   
 |Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
@@ -508,7 +508,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |gerekli-sona erme-time|Boole değeri. Bir süre sonu talep belirteçte gerekip gerekmediğini belirtir.|Hayır|true|
 |gerektiren düzeni|Belirteç adını düzen, örn. "Bearer". Bu öznitelik ayarlandığında, ilke yetkilendirme üst bilgisi değeri, belirtilen düzeni bulunduğundan emin olun.|Hayır|Yok|
 |gerekli-oturum-belirteçleri|Boole değeri. Bir belirteç imzalanmasını gerekli olup olmadığını belirtir.|Hayır|true|  
-|ayırıcı|Dize. Ayırıcı belirtir (örneğin ",") birden çok değerli bir talep değerleri kümesi ayıklanması için kullanılacak.|Hayır|Yok| 
+|Ayırıcı|Dize. Ayırıcı belirtir (örneğin ",") birden çok değerli bir talep değerleri kümesi ayıklanması için kullanılacak.|Hayır|Yok| 
 |url|Burada Open ID yapılandırma meta verilerini elde edilebilir gelen kimliği yapılandırma uç noktasının URL'sini açın. Yanıt özellikleri için URL'de tanımlanan according:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Azure Active Directory için şu URL'yi kullanın: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` directory Kiracı adınız, örneğin değiştirerek `contoso.onmicrosoft.com`.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  

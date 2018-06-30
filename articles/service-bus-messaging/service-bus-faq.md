@@ -8,16 +8,16 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: df60862b6a835340534be4ed43a27267c33b64f5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: b3171ca264afdbdbddeb26eff8744ee67f336dfe
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802274"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109533"
 ---
 # <a name="service-bus-faq"></a>Hizmet Veri Yolu SSS
 
-Bu makalede, Microsoft Azure Service Bus hakkında sık sorulan bazı sorular açıklanmaktadır. Ayrıca, ziyaret edebilirsiniz [Azure destek SSS](http://go.microsoft.com/fwlink/?LinkID=185083) genel Azure fiyatlandırma ve destek bilgileri için.
+Bu makalede, Microsoft Azure Service Bus hakkında sık sorulan bazı sorular açıklanmaktadır. Ayrıca, ziyaret edebilirsiniz [Azure destek SSS](https://azure.microsoft.com/en-us/support/faq/) genel Azure fiyatlandırma ve destek bilgileri için.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Azure Service Bus hakkında genel sorular
 ### <a name="what-is-azure-service-bus"></a>Azure Service Bus nedir?
@@ -48,7 +48,7 @@ Bir kuyruk ve konu aşağıdaki özelliklerini değişmez. Varlıklarınızı sa
 
 * Bölümleme
 * Oturumlar
-* Yinelenen algılama
+* Yineleme algılama
 * Varlık express
 
 ## <a name="pricing"></a>Fiyatlandırma
@@ -56,7 +56,7 @@ Bu bölümde fiyatlandırma yapısına Service Bus hakkında sık sorulan bazı 
 
 [Service fiyatlandırma ve faturalama Bus](service-bus-pricing-billing.md) makale, Service Bus içinde fatura ölçümler açıklar. Service Bus seçenekleri fiyatlandırma hakkında ayrıntılı bilgi için bkz: [Service Bus fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Ayrıca, ziyaret edebilirsiniz [Azure desteği ile ilgili SSS](http://go.microsoft.com/fwlink/?LinkID=185083) genel Azure fiyatlandırma bilgileri için. 
+Ayrıca, ziyaret edebilirsiniz [Azure desteği ile ilgili SSS](https://azure.microsoft.com/en-us/support/faq/) genel Azure fiyatlandırma bilgileri için. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Hizmet veri yolu için nasıl ücret?
 Hizmet veri yolu fiyatlandırma hakkında tam bilgi için bkz: [Service Bus fiyatlandırma ayrıntıları][Pricing overview]. Not ettiğiniz fiyatların yanı sıra, ilişkili veri aktarımları, uygulamanızın sağlanan veri merkezi dışında çıkışı için ücretlendirilirsiniz.

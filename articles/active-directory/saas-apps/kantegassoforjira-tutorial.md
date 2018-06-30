@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ebbb61b8612418fbec37769ee56907ff99d5214a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9355af15ed8156fee5f4b3584aa3342ea40c0628
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228773"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112074"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Öğretici: Azure Active Directory Tümleştirme JIRA Kantega SSO
 
@@ -133,7 +133,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforjira-tutorial/tutorial_general_400.png)
     
-7. Farklı web tarayıcısı penceresinde, JIRA içi sunucuda yönetici olarak oturum açın.
+7. Farklı web tarayıcısı penceresinde JIRA şirket içi sunucunuza yönetici olarak oturum açın.
 
 8. Dişlisine üzerine gelin ve tıklatın **eklentileri**.
 
@@ -218,7 +218,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
     c. **Kaydet**’e tıklayın. 
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir  **Yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
@@ -258,7 +258,7 @@ Azure AD kullanıcıları için JIRA oturum açmak etkinleştirmek için bunlar�
 
 **Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
 
-1. JIRA içi sunucuda yönetici olarak oturum açın.
+1. JIRA şirket içi sunucunuza yönetici olarak oturum açın.
 
 2. Dişlisine üzerine gelin ve tıklatın **kullanıcı yönetimi**.
 

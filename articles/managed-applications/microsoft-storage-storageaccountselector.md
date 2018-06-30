@@ -11,22 +11,30 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4a18d629b959e4f1abf4ec2df28a31180efec89f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5de536a562d234a4c463c862aedffc7c7ca5228d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261046"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112295"
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Microsoft.Storage.StorageAccountSelector UI öğesi
 Yeni veya var olan depolama hesabını seçmek için bir denetim.
 
 ## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
+
+Denetimin varsayılan değerini gösterir.
+
 ![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
 
+Yeni bir depolama hesabı oluşturmak veya mevcut bir depolama hesabını seçmek kullanıcı denetimi sağlar.
+
+![Yeni Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector-new.png)
+
 ## <a name="schema"></a>Şema
+
 ```json
 {
   "name": "element1",
@@ -51,12 +59,11 @@ Yeni veya var olan depolama hesabını seçmek için bir denetim.
 ## <a name="remarks"></a>Açıklamalar
 - Belirtilmişse, `defaultValue.name` benzersizlik için otomatik olarak doğrulanır. Depolama hesabı adı benzersiz değilse, kullanıcının farklı bir ad belirtin veya mevcut bir depolama hesabını seçin.
 - İçin varsayılan değer `defaultValue.type` olan **Premium_LRS**.
-- Belirtilen olmayan herhangi bir türü `constraints.allowedTypes` gizlenir ve belirtilen olmayan herhangi bir türü `constraints.excludedTypes` gösterilir.
-`constraints.allowedTypes` ve `constraints.excludedTypes` hem isteğe bağlıdır, ancak aynı anda kullanılamaz.
+- Belirtilen olmayan herhangi bir türü `constraints.allowedTypes` gizlenir ve belirtilen olmayan herhangi bir türü `constraints.excludedTypes` gösterilir. `constraints.allowedTypes` ve `constraints.excludedTypes` hem isteğe bağlıdır, ancak aynı anda kullanılamaz.
 - Varsa `options.hideExisting` olan **doğru**, kullanıcının mevcut bir depolama hesabını seçemezsiniz. Varsayılan değer **false**.
 
-
 ## <a name="sample-output"></a>Örnek çıktı
+
 ```json
 {
   "name": "storageaccount01",

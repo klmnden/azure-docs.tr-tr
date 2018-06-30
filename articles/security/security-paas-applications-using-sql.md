@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 3e7dc4dfba001228a4d11e2b21cdeed8e7af45ac
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 054a3987cfd67fbd558fe9d4b482aac3d9b467fd
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794880"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114686"
 ---
 # <a name="securing-paas-databases-in-azure"></a>Azure PaaS veritabanlarında güvenliğini sağlama
 
@@ -79,7 +79,7 @@ Azure SQL güvenlik duvarı ve IP kısıtlamaları hakkında daha fazla bilgi i�
 ### <a name="encryption-of-data-at-rest"></a>Bekleyen verilerin şifrelenmesi
 [Saydam veri şifreleme (TDE)](https://msdn.microsoft.com/library/azure/bb934049) varsayılan olarak etkindir. TDE, SQL Server, Azure SQL Database ve Azure SQL Data Warehouse veri ve günlük dosyalarını saydam şifreler. TDE dosyalar ya da kendi yedekleme doğrudan erişim güvenliğinin korur. Bu, uygulamalarınız değiştirmeden kalan verileri şifrelemesini sağlar. TDE, her zaman etkin kalmalı; Ancak, bu normal erişim yolunu kullanarak bir saldırganın durdurmaz. TDE birçok yasalar, düzenlemeler ve çeşitli sektörün belirlenen talimatları uyması olanağı sağlar.
 
-Azure SQL TDE'nin için anahtar ilgili sorunlar yönetir. Kurtarılabilirliği emin olmak için özellikle dikkatli şirket içi izlenmelidir TDE olarak ve veritabanlarını taşıma. Daha karmaşık senaryolarda anahtarları açıkça Azure anahtar kasası Genişletilebilir anahtar yönetimi yönetilebilir (bkz [etkinleştirmek TDE SQL Server kullanarak EKM üzerinde](/security/encryption/enable-tde-on-sql-server-using-ekm)). Bu ayrıca Getir bilgisayarınızı kendi anahtarını (BYOK için) Azure anahtar kasası BYOK yeteneği sağlar.
+Azure SQL TDE'nin için anahtar ilgili sorunlar yönetir. TDE ile kurtarılabilirliği emin olmak için şirket içi özel dikkatli olunması gerekir ve veritabanlarını taşırken. Daha karmaşık senaryolarda anahtarları açıkça Azure anahtar kasası Genişletilebilir anahtar yönetimi yönetilebilir (bkz [etkinleştirmek TDE SQL Server kullanarak EKM üzerinde](/security/encryption/enable-tde-on-sql-server-using-ekm)). Bu ayrıca Getir bilgisayarınızı kendi anahtarını (BYOK için) Azure anahtar kasası BYOK yeteneği sağlar.
 
 Azure SQL sütunlar için şifreleme sağlar [her zaman şifreli](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Bu hassas sütunları yalnızca yetkili uygulamalar erişim sağlar. Bu tür bir şifreleme kullanarak SQL sorgularını eşitlik tabanlı değerlere şifrelenmiş sütunlar için sınırlar.
 

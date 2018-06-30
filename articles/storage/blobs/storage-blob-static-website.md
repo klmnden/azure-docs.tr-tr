@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: 7021a0499547818d702d14aecb9d8e451a820181
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025940"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131618"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Azure Storage (Önizleme) statik Web sitesi barındırma
 Azure Storage şimdi (Önizleme) barındırma, Azure üzerinde uygun maliyetli ve ölçeklenebilir modern web uygulamalarını dağıtmasına olanak sağlayarak statik Web sitesi sunar. Statik bir Web sitesinde, statik içerik ve JavaScript veya başka bir istemci-tarafı kodu Web sayfalarını içerir. Bunun aksine, dinamik Web siteleri sunucu tarafı kodu bağlıdır ve kullanarak barındırılan [Azure Web Apps](/app-service/app-service-web-overview.md).
@@ -43,6 +43,9 @@ Web uygulamanızda Azure Storage barındırma başlatmak için Azure Portalı'n�
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
 Statik Web sitesi etkinleştirme bir parçası oluşturulmuş "$web" kapsayıcısı web varlıklarınızı yükleyin. Bunu doğrudan Azure Portalı'nda yapabilirsiniz veya özelliklerden yararlanabilirsiniz [Azure Storage Gezgini](https://azure.microsoft.com/features/storage-explorer/) tüm dizin yapıları karşıya yüklemek için. Bir dizini belgesinde yapılandırdığınız adla eklediğinizden emin olun. Bu örnekte, belgenin "index.html" adıdır.
+
+> [!NOTE]
+> Belge adı büyük küçük harfe duyarlıdır ve bu nedenle depolama dosyasının adı tam olarak eşleşmesi gerekiyor.
 
 Son olarak, Web sitenizi test etmek için web bitiş noktasına gidin.
 

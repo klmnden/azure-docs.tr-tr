@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: deguhath
-ms.openlocfilehash: 3058678032989d71886311073513a23ac19d18f8
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a81c23d6acb79e42157ac7d804dac259723b3b0e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34838869"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114359"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Spark ile gelişmiş veri keşfi ve modelleme
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -45,7 +45,7 @@ Kullanırız modelleri Lojistik ve doğrusal regresyon, rastgele ormanları ve g
 * [Rastgele ormanlar](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) karar ağaçları ensembles şunlardır.  Bunlar overfitting riskini azaltmak için birçok karar ağaçları birleştiren. Rastgele ormanlar regresyon ve sınıflandırma için kullanılır ve kategorik özellikleri işleyebilir ve çok sınıflı sınıflandırma ayarı genişletilebilir. Bunlar özelliği ölçeklendirme gerektirmez ve sapmalar yakalamak ve etkileşimleri özelliği. Rastgele ormanlar en başarılı makine öğrenimi modellerini sınıflandırma ve regresyon biridir.
 * [Gradyan boosted ağaçları](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) olan karar ağaçları ensembles. GBTs tekrarlayarak kaybı işlevi en aza indirmek için karar ağaçları eğitmek. GBTs regresyon ve sınıflandırma için kullanılır ve kategorik özellikleri işleyebilir, özellik ölçeklendirme gerektirmez ve sapmalar yakalamak ve etkileşimleri özelliği. Bir sınıflandırma veya çoklu sınıflar ayarında de kullanılabilir.
 
-MS ve Hyperparameter kullanan örnekler modelleme tarama gösterildiğinden ikili sınıflandırma sorunu için. (Parametre taramalar olmadan) daha basit örnekler regresyon görevleri için ana konudaki sunulur. Ancak ekinde esnek net doğrusal regresyon ve MS için parametre tarama için rastgele orman regresyon ile kullanarak doğrulama da sunulur. **Esnek net** doğrusal regresyon modeli bu doğrusal olarak sığdırma L1 ve L2 ölçümleri cezai birleştirir için regularized regresyon yöntemidir [Serbest Şekil](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) ve [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization) yöntemleri.   
+MS ve Hyperparameter kullanan örnekler modelleme tarama gösterildiğinden ikili sınıflandırma sorunu için. (Parametre taramalar olmadan) daha basit örnekler regresyon görevleri için ana konudaki sunulur. Ancak ekinde esnek net doğrusal regresyon ve MS için parametre tarama için rastgele orman regresyon ile kullanarak doğrulama da sunulur. **Esnek net** doğrusal regresyon modeli bu doğrusal olarak sığdırma L1 ve L2 ölçümleri cezai birleştirir için regularized regresyon yöntemidir [Serbest Şekil](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) ve [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization)yöntemleri.   
 
 > [!NOTE]
 > Spark Mllib'i Araç Seti büyük veri kümelerinde çalışmak üzere tasarlanmıştır ancak görece küçük bir örnek (yaklaşık 30 170 K satır, yaklaşık özgün NYC dataset %0,1 kullanarak Mb) buraya kolaylık sağlamak için kullanılır. Burada verilen alıştırma verimli bir şekilde (yaklaşık 10 dakika cinsinden) 2 çalışan düğümleri ile bir Hdınsight kümesi üzerinde çalışır. Aynı kodla küçük değişiklikler, daha büyük veri bellekte önbelleğe alma ve küme boyutunu değiştirmek için uygun değişiklikleri-kümeleri, verileri işlemek için kullanılabilir.
@@ -668,7 +668,7 @@ Bu bölümdeki kod eğitmek, değerlendirmek ve lojistik regresyon modeli ile ka
 
 **ÇIKTI**
 
-Katsayısını: [0.0082065285375-0.0223675576104,-0.0183812028036, - 3.48124578069e-05-0.00247646947233,-0.00165897881503, 0.0675394837328,-0.111823113101,-0.324609912762,-0.204549780032,-1.36499216354, 0.591088507921,-0.664263411392,-1.00439726852, 3.46567827545,-3.51025855172,-0.0471341112232,-0.043521833294, 0.000243375810385, 0.054518719222]
+Katsayısını: [0.0082065285375-0.0223675576104,-0.0183812028036, - 3.48124578069e - 05,-0.00247646947233,-0.00165897881503 0.0675394837328,-0.111823113101,-0.324609912762,-0.204549780032,-1.36499216354, 0.591088507921, - 0.664263411392,-1.00439726852, 3.46567827545,-3.51025855172,-0.0471341112232,-0.043521833294, 0.000243375810385, 0.054518719222]
 
 Intercept:-0.0111216486893
 
@@ -1057,7 +1057,7 @@ Bu bölümdeki kod genişletilmiş özellikler için en iyi duruma getirme stoka
 
 **ÇIKTI**
 
-Katsayısını: [0.0141707753435,-0.0252930927087,-0.0231442517137, 0.247070902996, 0.312544147152, 0.360296120645, 0.0122079566092,-0.00456498588241,-0.0898228505177, 0.0714046248793, 0.102171263868, 0.100022455632,-0.00289545676449,-0.00791124681938, 0.54396316518,-0.536293513569, 0.0119076553369,-0.0173039244582, 0.0119632796147, 0.00146764882502]
+Katsayısını: [0.0141707753435,-0.0252930927087,-0.0231442517137, 0.247070902996, 0.312544147152, 0.360296120645, 0.0122079566092,-0.00456498588241,-0.0898228505177, 0.0714046248793, 0.102171263868, 0.100022455632,-0.00289545676449,- 0.00791124681938, 0.54396316518,-0.536293513569, 0.0119076553369,-0.0173039244582, 0.0119632796147, 0.00146764882502]
 
 Intercept: 0.854507624459
 
@@ -1126,7 +1126,7 @@ Hücre yürütülmesi için geçen süre: 25.98 saniye
 ### <a name="gradient-boosting-trees-regression"></a>Gradyan artırma ağaçları regresyon
 Bu bölümdeki kod, eğitme, değerlendirmek ve ipucu tutar NYC ücreti seyahat veriler için tahmin bir gradyan artırma ağaçları modeli kaydedin gösterilmektedir.
 
-** Eğitme ve değerlendirme **
+**Eğitme ve değerlendirme**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

@@ -127,8 +127,6 @@
           href: stream-analytics-job-diagram-with-metrics.md
         - name: Tanılama günlükleri
           href: stream-analytics-job-diagnostic-logs.md
-        - name: Kaynak durumunu denetleme
-          href: stream-analytics-resource-health.md
         - name: SELECT INTO deyimi
           href: stream-analytics-select-into.md
         - name: Olay Hub'ı alıcıları

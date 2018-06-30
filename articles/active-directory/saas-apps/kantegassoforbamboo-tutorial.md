@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: c31d1162c41ddb6d4728f74d91061f38dcfa68d8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 01b07529765a7fe68a30cfae754829fe8dbd6264
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228331"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110281"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Öğretici: Azure Active Directory Tümleştirme Bambu Kantega SSO
 
@@ -133,7 +133,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/tutorial_general_400.png)
     
-7. Farklı web tarayıcısı penceresinde, Bambu içi sunucuda yönetici olarak oturum açın.
+7. Farklı web tarayıcısı penceresinde Bambu şirket içi sunucunuza yönetici olarak oturum açın.
 
 8. Dişlisine üzerine gelin ve tıklatın **eklentileri**.
 
@@ -218,7 +218,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
     c. **Kaydet**’e tıklayın.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir  **Yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
@@ -257,7 +257,7 @@ Bambu için oturum açmak Azure AD kullanıcıları etkinleştirmek için bunlar
 
 **Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Bambu içi sunucuda yönetici olarak oturum açın.
+1. Bambu şirket içi sunucunuza yönetici olarak oturum açın.
 
 2. Dişlisine üzerine gelin ve tıklatın **kullanıcı yönetimi**.
 

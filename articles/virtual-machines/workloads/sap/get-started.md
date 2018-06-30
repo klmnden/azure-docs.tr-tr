@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f0705f2fb14bc44a7738f38bc3ef53a6359dfb4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4b3024b451ddf08b6b7ab171238ae45edbafc58a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657780"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110971"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Barındırma ve SAP iş yükü senaryoları çalıştıran için Azure'ı kullanma
 [767598]:https://launchpad.support.sap.com/#/notes/767598

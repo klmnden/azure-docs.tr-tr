@@ -3,7 +3,7 @@ title: OMS ağ geçidini kullanarak bilgisayarları bağlama | Microsoft Docs
 description: Operations Manager izlenen bilgisayarlar ve cihazlar Internet erişimi olmadığında Azure Automation ve günlük analizi hizmeti veri göndermek için OMS geçidiyle bağlayın.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: b3055e6b22e3f391c0bc3f321cd8117d55a95cf5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.component: na
+ms.openlocfilehash: ecbc88ebaaa93215f85b57becc8a643dc3e168a0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271658"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129049"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>OMS ağ geçidi'ni kullanarak Internet erişimi bilgisayarları bağlama
 Bu belge, Azure Automation ile iletişimi yapılandırmak açıklar ve günlük doğrudan olduğunda OMS ağ geçidini kullanma analizi bağlı veya izlenen Operations Manager bilgisayarları Internet erişimine sahip değildir.  OMS HTTP BAĞLAMAK komutunu kullanarak HTTP tüneli destekleyen bir HTTP iletme proxy ağ geçidi, veri toplamak ve onların adına Azure Automation ve günlük analizi gönderebilirsiniz.  
@@ -157,12 +158,12 @@ Operations Manager desteklemek için ağ geçidini kullanmak için şunlara sahi
 > Ağ geçidi için bir değer belirtmezseniz, boş değerler için tüm aracılar atılır.
 > 
 
-Operations Manager yönetim grubunuzu günlük analizi çalışma alanıyla kaydetme ilk kez kullanıyorsanız, proxy yapılandırması yönetim grubu için belirtme seçeneği Operations konsolunda kullanılabilir değil.  Yönetim grubu bu seçeneği kullanılabilir olmadan önce Hizmeti'ne başarıyla kayıtlı olması gerekir.  Netsh sistemde Operations konsolundan çalıştıran tümleştirme ve tüm yönetim sunucuları yönetim grubunda yapılandırmak için kullanarak sistem proxy yapılandırmasını güncelleştirmeniz gerekir.  
+Operations Manager yönetim grubunuzu günlük analizi çalışma alanıyla kaydetme ilk kez kullanıyorsanız, proxy yapılandırması yönetim grubu için belirtme seçeneği Operations konsolunda kullanılabilir değil.  Bu seçeneğin sağlanması için önce yönetim grubunun hizmete başarıyla kaydedilmiş olması gerekir.  Tümleştirmeyi ve yönetim grubundaki tüm yönetim sunucularını yapılandırmak için Operations konsolunu çalıştırdığınız sistemde Netsh kullanarak sistem ara sunucu yapılandırmasını güncelleştirmeniz gerekir.  
 
-1. Bir yükseltilmiş bir komut istemi açın.
+1. Yükseltilmiş bir komut istemi açın.
    a. Git **Başlat** ve türü **cmd**.
    b. Sağ **komut istemi** ve Çalıştır yönetici ** seçin.
-2. Aşağıdaki komut ve ENTER tuşuna basın **Enter**:
+2. Aşağıdaki komutu girin ve **Enter** tuşuna basın:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
@@ -257,7 +258,7 @@ Cmdlet'leri OMS ağ geçidi yapılandırma ayarlarını güncelleştirmek için 
 
 3. adımında bir hata alırsanız, modül içeri değildi. PowerShell modülü bulamıyor olduğunda hata oluşabilir. Ağ geçidi yükleme yolunda bulabilirsiniz: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
 
-| **cmdlet'i** | **Parametreler** | **Açıklama** | **Örnek** |
+| **Cmdlet'i** | **Parametreler** | **Açıklama** | **Örnek** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |Anahtar |Hizmet yapılandırmasını alır |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Anahtarı (gerekli) <br> Değer |Hizmet yapılandırma değişiklikleri |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
@@ -285,7 +286,7 @@ Aşağıdaki tabloda, olay kimlikleri ve açıklamaları OMS ağ geçidi günlü
 | 403 |Ağ hatası. Örneğin: hedef sunucuya bağlanılamıyor |
 | 100 |Genel bilgiler |
 | 101 |Hizmeti başlatıldı |
-| 102 |Hizmeti durdu |
+| 102 |Hizmet durdu |
 | 103 |Bir HTTP BAĞLAMAK komutu istemciden alınan |
 | 104 |Olmayan bir HTTP BAĞLAMAK komutu |
 | 105 |Hedef sunucuda izin verilen listesindeki değil veya hedef bağlantı noktası güvenli bağlantı noktası (443) değil <br> <br> Ağ geçidi sunucunuzda MMA aracı ve ağ geçidi ile iletişim kurmasını aracıları bağlandığını aynı günlük analizi çalışma alanına emin olun. |

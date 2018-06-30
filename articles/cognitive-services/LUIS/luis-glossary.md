@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7cfcc5b907b28a877bea57ea869e17f01aae00cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: d1b83432e925e4f6fd439ac78acfde56ad31ba52
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265396"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128411"
 ---
 # <a name="glossary"></a>Sözlük
 
@@ -70,7 +70,7 @@ Aynı [etkin sürüm](#active-version)
 
 HALUK bağlamında bir **etki alanı** bilgi alanıdır. Etki alanınızı bilgi için uygulama alan özeldir. Bu, seyahat aracı uygulaması gibi genel bir alan olabilir. Seyahat aracı uygulama yalnızca bilgi için şirketinizin belirli coğrafi konumlar, diller ve hizmetler gibi alanlarının özgü olabilir. 
 
-## <a name="endpoint"></a>uç noktası
+## <a name="endpoint"></a>Uç noktası
 
 [HALUK endpoint](https://aka.ms/luis-endpoint-apis) URL'dir sonra HALUK sorguları göndermek nerede [HALUK uygulama](#luis-app) yazılan ve yayımlanan. Uç nokta URL'sini bölge, bir uygulama kimliği yanı sıra yayımlanan uygulama içerir Uç nokta bulabilirsiniz **[Yayımla](publishapp.md)** sayfası, uygulamanızın kaynakları ve anahtarları tablo ya da, uç nokta URL'sini alabilirsiniz [uygulama bilgi al](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
@@ -82,8 +82,8 @@ Bir örnek uç nokta şuna benzer:
 |--|--|
 |bölge| [yayımlanan bölge](luis-reference-regions.md#publishing-regions) |
 |AppID | HALUK uygulama kimliği |
-|Subscriptionıd | Azure portalında oluşturulan HALUK abonelik anahtarı |
-|Q | utterance |
+|Subscriptionıd | Azure portalında oluşturulan HALUK uç noktası (abonelik) anahtarı |
+|q | utterance |
 |timezoneOffset| minutes|
 
 ## <a name="entity"></a>Varlık
@@ -110,7 +110,7 @@ Machine learning'de bir [özelliği](luis-concept-feature.md) ayırt bir ayırde
 
 Bir [hedefi](luis-concept-intent.md) bir görev ya da kullanıcının istediği gerçekleştirmek için eylem temsil eder. Bir amaç veya hedef bir uçuş kayıt, bir fatura ödeme ya da bir haber makalesi bulma gibi bir kullanıcının giriş ifade değil. HALUK hedefi tahmin tüm utterance temel alır. Varlıklar, karşılaştırma bir utterance parçalarıdır.
 
-## <a name="labeling"></a>etiketleme
+## <a name="labeling"></a>Etiketleme
 
 Etiketleme olan bir sözcük veya tümcecik amacına 's içinde ilişkilendirme işlemi [utterance](#utterance) ile bir [varlık](#entity) (datatype). 
 
@@ -175,7 +175,7 @@ Aynı [programlı anahtar](#programmatic-key), yazma anahtarına olarak yeniden 
 
 ## <a name="subscription-key"></a>Abonelik anahtarı
 
-Abonelik anahtarı HALUK hizmetle ilişkilendirilmiş anahtarıdır [Azure'da oluşturulan](luis-how-to-azure-subscription.md). Bu anahtar [anahtar yazma](#programmatic-key). Abonelik anahtarı varsa, tüm uç nokta istekler geliştirme anahtar yerine kullanılmalıdır. Geçerli abonelik anahtarınızı alt kısmındaki uç nokta URL'si içinde gördüğünüz [ **uygulama yayımlama** sayfa](publishapp.md) içinde [HALUK](luis-reference-regions.md) Web sitesi. Bu değeri **abonelik anahtarı** ad/değer çifti. 
+Abonelik anahtarı **endpoint** HALUK hizmetiyle ilişkili anahtar [Azure'da oluşturulan](luis-how-to-azure-subscription.md). Bu anahtar [anahtar yazma](#programmatic-key). Bir uç noktası anahtarı varsa, tüm uç nokta istekler geliştirme anahtar yerine kullanılmalıdır. Geçerli uç nokta anahtarınızı alt kısmındaki uç nokta URL'si içinde gördüğünüz [ **uygulama yayımlama** sayfa](publishapp.md) içinde [HALUK](luis-reference-regions.md) Web sitesi. Bu değeri **abonelik anahtarı** ad/değer çifti. 
 
 ## <a name="test"></a>test etme
 
@@ -202,7 +202,7 @@ Eğitim olan değişiklikler hakkında HALUK eğitme işlemi [etkin sürüm](#ac
 
 İçinde [toplu sınama][batch-testing], veri noktalarını utterances, uygulamanızın doğru şekilde tahmin hedef amacı/varlık varlığını temsil eder.
 
-## <a name="utterance"></a>Utterance
+## <a name="utterance"></a>utterance
 
 Bir utterance "Seattle sonraki Salı defteri 2 bilet" gibi bir doğal dil terimdir. Örnek utterances hedefi eklenir. 
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 2062ba20b09e8e42fd094fbff628f5e76b5ea00f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d234b34f7583441f496fb96d37166c5472cadb4c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225798"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Öğretici: Azure Active Directory Tümleştirme Riskware ile
 
@@ -67,7 +67,7 @@ Azure AD Riskware tümleştirilmesi yapılandırmak için yönetilen SaaS uygula
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
-    
+
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
@@ -101,7 +101,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açma iletişim kutusu](./media/riskware-tutorial/tutorial_riskware_samlbase.png)
 
 3. Üzerinde **Riskware etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
@@ -113,7 +113,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
     | ÜRETİM| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | TANITIMI| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` | 
+    | TANITIMI| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     b. İçinde **tanımlayıcısı (varlık kimliği)** metin kutusuna, bir URL yazın:
@@ -121,10 +121,10 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
     | ÜRETİM| `https://riskcloud.net/prod` |
-    | TANITIMI| `https://riskcloud.net/demo` | 
+    | TANITIMI| `https://riskcloud.net/demo` |
     |||
 
-    > [!NOTE] 
+    > [!NOTE]
     > URL değeri oturum gerçek değil. Değerin gerçek oturum açma URL'si ile güncelleştirin. Kişi [Riskware istemci destek ekibi](mailto:support@pansoftware.com.au) değeri alınamıyor.
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
@@ -137,11 +137,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 6. Üzerinde **Riskware yapılandırma** 'yi tıklatın **yapılandırma Riskware** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![Riskware yapılandırma](./media/riskware-tutorial/tutorial_riskware_configure.png) 
+    ![Riskware yapılandırma](./media/riskware-tutorial/tutorial_riskware_configure.png)
 
 7. Farklı web tarayıcısı penceresinde Riskware şirket sitenize yönetici olarak oturum açın.
 
-8. Sağ üstte tıklatın **Bakım** bakım sayfasını açın. 
+8. Sağ üstte tıklatın **Bakım** bakım sayfasını açın.
 
     ![Riskware yapılandırmaları tutmanız](./media/riskware-tutorial/tutorial_riskware_maintain.png)
 
@@ -159,16 +159,16 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     c. İçinde **açıklama** metin kutusuna, SSO için AZURE yapılandırma gibi bir açıklama yazın.
 
-    d. İçinde **tek oturum açma sayfasına** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.
+    d. İçinde **tek oturum açma sayfasına** metin kutusuna, Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyaladığınız değeri.
 
-    e. İçinde **sayfa oturum** metin değerini yapıştırın **Sign-Out URL**, Azure portalından kopyalanan.
+    e. İçinde **sayfa oturum** metin kutusuna, Yapıştır **Sign-Out URL** Azure portalından kopyaladığınız değeri.
 
-    f. İçinde **Post Form alanı** metin kutusuna, SAML SamlResponse gibi içeren Post yanıt mevcut alan adını yazın
+    f. İçinde **Post Form alanı** metin kutusuna, SAML SAMLResponse gibi içeren Post yanıt mevcut alan adını yazın
 
     g. İçinde **XML kimlik etiket adı** metin kutusuna, SAML yanıt NameID gibi benzersiz tanımlayıcısını içeren türü özniteliği.
 
     h. İndirilen açmak **meta veri Xml** meta veri dosyası sertifikadan Not Defteri'nde Azure Portal'dan kopyalayın ve yapıştırın **sertifika** metin kutusu
-    
+
     i. İçinde **tüketici URL** metin değerini yapıştırın **yanıt URL'si**, hangi destek ekibinden alın.
 
     j. İçinde **veren** metin değerini yapıştırın **tanımlayıcısı**, hangi destek ekibinden aldığınız.
@@ -176,9 +176,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     > [!Note]
     > Kişi [Riskware istemci destek ekibi](mailto:support@pansoftware.com.au) bu değerleri almak için
 
-    k. Seçin **kullanım sonrası** isteği SAML post parametre olarak geçirmek için.
+    k. Seçin **kullanım POST** onay kutusu.
 
-    l. Seçin **kullanım isteği SAML** geçirmek için SSO izin isteği SAML SP tarafından başlatılan için.
+    l. Seçin **kullanım isteği SAML** onay kutusu.
 
     m. **Kaydet**’e tıklayın.
 
@@ -213,10 +213,10 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
- 
+
 ### <a name="create-a-riskware-test-user"></a>Riskware test kullanıcısı oluşturma
 
-Azure AD kullanıcıları için Riskware oturum açmak etkinleştirmek için bunların Riskware sağlanmalıdır. Riskware içinde sağlama bir el ile bir görevdir.
+Azure AD için Riskware oturum açmalarını etkinleştirmek için bunların Riskware sağlanmalıdır. Riskware içinde sağlama bir el ile bir görevdir.
 
 **Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
 
@@ -230,8 +230,8 @@ Azure AD kullanıcıları için Riskware oturum açmak etkinleştirmek için bun
 
     ![Riskware yapılandırma kişiler](./media/riskware-tutorial/tutorial_riskware_people.png)
 
-4. Üzerinde **ayrıntıları** sekmesinde, aşağıdaki adımları gerçekleştirin:
-    
+4. Seçin **ayrıntıları** sekmesinde ve aşağıdaki adımları gerçekleştirin:
+
     ![Riskware yapılandırma ayrıntıları](./media/riskware-tutorial/tutorial_riskware_details.png)
 
     a. Seçin **kişi türü** çalışana gibi.
@@ -240,7 +240,7 @@ Azure AD kullanıcıları için Riskware oturum açmak etkinleştirmek için bun
 
     c. İçinde **Soyadı** metin kutusuna, son kullanıcı gibi adını **Simon**.
 
-5. Üzerinde **güvenlik** sekmesinde, aşağıdaki adımları gerçekleştirin:    
+5. Üzerinde **güvenlik** sekmesinde, aşağıdaki adımları gerçekleştirin:
 
     ![Riskware yapılandırma güvenlik](./media/riskware-tutorial/tutorial_riskware_security.png)
 
@@ -250,12 +250,12 @@ Azure AD kullanıcıları için Riskware oturum açmak etkinleştirmek için bun
 
     c. İçinde **parola** metin kutusuna, kullanıcının parolasını girin.
 
-6. Üzerinde **prosedürlerini** sekmesinde, aşağıdaki adımları gerçekleştirin:
+6. Üzerinde **kuruluş** sekmesinde, aşağıdaki adımları gerçekleştirin:
 
     ![Riskware yapılandırma kuruluş](./media/riskware-tutorial/tutorial_riskware_org.png)
 
-    a. Altında **prosedürlerini** bölümünde, kuruluşunuzun olarak seçin **Level1** prosedürlerini.
-    
+    a. Seçeneğini olarak **Level1** kuruluş.
+
     b. Altında **kişinin birincil çalışma alanına** bölümünde **konumu** metin kutusuna, konumunuz yazın.
 
     c. Altında **çalışan** bölümünde, select **çalışan durumu** normal ister.
@@ -266,7 +266,7 @@ Azure AD kullanıcıları için Riskware oturum açmak etkinleştirmek için bun
 
 Bu bölümde, Britta Riskware için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+![Kullanıcı rolü atayın][200]
 
 **Riskware için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 

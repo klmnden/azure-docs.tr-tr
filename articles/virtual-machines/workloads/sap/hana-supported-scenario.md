@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8927b2a32956f73e75ac7b157ebad6bf6596ea88
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 656ba21abf06ad0f079e3ce425d3221724d195d4
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063638"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113587"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA büyük örnekleri için desteklenen senaryolar
 Bu belgede HANA büyük örnekleri (HLI) için Mimari ayrıntılarını birlikte desteklenen senaryolar açıklanmaktadır.
@@ -81,17 +81,17 @@ Gerekirse, Ek NIC kartları, kendi tanımlayabilirsiniz. Ancak, var olan Nic'ler
 
 İki IP adresi atanmış birimleriyle dağıtımı gibi görünmelidir:
 
-Ethernet "A", Microsoft'a gönderilen sunucu IP havuzu adres aralığı dışında atanmış bir IP adresi olmalıdır. Bu IP adresi/etc/hosts işletim sisteminin içinde sürdürmek için kullanılır.
+- Ethernet "A", Microsoft'a gönderilen sunucu IP havuzu adres aralığı dışında atanmış bir IP adresi olmalıdır. Bu IP adresi/etc/hosts işletim sisteminin içinde sürdürmek için kullanılır.
 
-Ethernet "B" NFS iletişimi için kullanılan bir IP adresi olmalıdır. Bu nedenle, bu adresleri yapmak **değil** etc/hosts örneği, örnek trafiği Kiracı içinde izin vermek üzere saklanması gerekir.
+- Ethernet "C" NFS iletişimi için kullanılan bir IP adresi olmalıdır. Bu nedenle, bu adresleri yapmak **değil** etc/hosts örneği, örnek trafiği Kiracı içinde izin vermek üzere saklanması gerekir.
 
 Dağıtım durumlarda HANA sistem çoğaltma veya HANA genişleme, dikey yapılandırması atanan iki IP adreslerine sahip uygun değil. Yalnızca atanan iki IP adreslerine sahip olmasına ve isteyen bu tür bir yapılandırma dağıtmanız, SAP HANA üçüncü üçüncü bir IP adresi almak için Azure Hizmet Yönetimi başvurun VLAN atanmışsa. Üç NIC noktalarına atanan üç IP adreslerine sahip olmasına HANA büyük örneği birimleri için aşağıdaki kullanım kurallar geçerlidir:
 
 - Ethernet "A", Microsoft'a gönderilen sunucu IP havuzu adres aralığı dışında atanmış bir IP adresi olmalıdır. Bu nedenle bu IP adresi/etc/hosts işletim sisteminin içinde sürdürmek için kullanılacak işaretçi yok.
 
-- Ethernet "B" iletişim NFS depolama için kullanılan bir IP adresi olmalıdır. Bu nedenle bu tür adresleri etc/hosts saklanması gereken değil.
+- Ethernet "B", etc/hosts farklı örnekleri arasında iletişim için sürdürülebilmesi için özel olarak kullanılmalıdır. Bu adresler ayrıca genişleme HANA yapılandırmalarında HANA düğümler arası yapılandırmasını kullanan IP adresleri olarak güncelleştirilmesi gereken IP adresleri olacaktır.
 
-- Ethernet "C", etc/hosts farklı örnekleri arasında iletişim için sürdürülebilmesi için özel olarak kullanılmalıdır. Bu adresler ayrıca genişleme HANA yapılandırmalarında HANA düğümler arası yapılandırmasını kullanan IP adresleri olarak güncelleştirilmesi gereken IP adresleri olacaktır.
+- Ethernet "C" iletişim NFS depolama için kullanılan bir IP adresi olmalıdır. Bu nedenle bu tür adresleri etc/hosts saklanması gereken değil.
 
 - Ethernet "D", pacemaker STONITH cihaza erişmek için özel olarak kullanılmalıdır. HANA sistemi çoğaltma (HSR) yapılandırmak ve bir temel SBD aygıtı kullanarak işletim sistemi otomatik yük devretme elde etmek istediğinizde, bu gereklidir.
 

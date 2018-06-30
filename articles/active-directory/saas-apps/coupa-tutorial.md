@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 06/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 3c3fde3aefe02dd3919378d39afeff7cded763fc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 36c7bfeece12fe2bb2738e50de03ba2c8fc07bfa
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215571"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111955"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Öğretici: Azure Active Directory Tümleştirme Coupa ile
 
@@ -60,14 +60,14 @@ Azure AD Coupa tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamal
 
 **Galeriden Coupa eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi][1]
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
-    
+
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
@@ -103,21 +103,33 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açma iletişim kutusu](./media/coupa-tutorial/tutorial_coupa_samlbase.png)
 
 3. Üzerinde **Coupa etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Coupa etki alanı ve URL'leri tek oturum açma bilgileri](./media/coupa-tutorial/tutorial_coupa_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `http://<companyname>.Coupa.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.coupahost.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `<companyname>.coupahost.com`
+    > [!NOTE]
+    > Oturum açma URL'si değeri gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [Coupa istemci destek ekibi](https://success.coupa.com/Support/Contact_Us?) bu değeri alınamıyor.
 
-    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.coupahost.com/sp/ACS.saml2`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:
 
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler, gerçek oturum açma URL'si tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [Coupa istemci destek ekibi](https://success.coupa.com/Support/Contact_Us?) bu değerleri almak için. öğreticide daha sonra açıklanan meta verilerden yanıt URL değeri alırsınız.
+    | Ortam  | URL'si |
+    |:-------------|----|
+    | Korumalı Alan | `devsso35.coupahost.com`|
+    | Üretim | `prdsso40.coupahost.com`|
+    | | |
+
+    c. İçinde **yanıt URL'si** metin kutusuna, URL'yi yazın:
+
+    | Ortam | URL'si |
+    |------------- |----|
+    | Korumalı Alan | `https://devsso35.coupahost.com/sp/ACS.saml2`|
+    | Üretim | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | | |
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
@@ -130,24 +142,18 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 6. Coupa şirket sitenize yönetici olarak oturum açma.
 
 7. Git **Kurulum \> güvenlik denetimi**.
-   
+
    ![Güvenlik denetimleri](./media/coupa-tutorial/ic791900.png "güvenlik denetimleri")
 
 8. İçinde **Coupa kimlik bilgilerini kullanarak oturum** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Coupa SP meta veri](./media/coupa-tutorial/ic791901.png "Coupa SP meta verileri")
-    
-    a. Seçin **SAML kullanarak oturum**.
-    
-    b. Bilgisayarınıza Coupa meta veri dosyası indirmek için tıklayın **karşıdan yükleme ve SP meta verileri içeri aktarma**. meta veri açıp kopyalama **AssertionConsumerService dizin/URL** değeri, değerin içine yapıştırma **yanıt URL'si** metin kutusuna **Coupa etki alanı ve URL'leri** bölümü. 
-    
-    c. Tıklatın **Gözat** Azure portalından indirdiğiniz meta veriler karşıya yüklemek için.
-    
-    d. **Kaydet**’e tıklayın.
 
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    a. Seçin **SAML kullanarak oturum**.
+
+    b. Tıklatın **Gözat** Azure portalından indirdiğiniz meta veriler karşıya yüklemek için.
+
+    c. **Kaydet**’e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -180,7 +186,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
- 
+
 ### <a name="create-a-coupa-test-user"></a>Coupa test kullanıcısı oluşturma
 
 Azure AD kullanıcıların Coupa oturum etkinleştirmek için bunların Coupa sağlanmalıdır.  
@@ -192,39 +198,39 @@ Azure AD kullanıcıların Coupa oturum etkinleştirmek için bunların Coupa sa
 1. Oturum, **Coupa** yönetici olarak şirket site.
 
 2. Üstteki menüde tıklatın **Kurulum**ve ardından **kullanıcılar**.
-   
+
    ![Kullanıcıların](./media/coupa-tutorial/ic791908.png "kullanıcılar")
 
 3. **Oluştur**’a tıklayın.
-   
+
    ![Kullanıcılar oluşturma](./media/coupa-tutorial/ic791909.png "kullanıcıları oluşturun")
 
 4. İçinde **kullanıcı oluşturma** bölümünde, aşağıdaki adımları gerçekleştirin:
-   
+
    ![Kullanıcı ayrıntılarını](./media/coupa-tutorial/ic791910.png "kullanıcı ayrıntıları")
-   
+
    a. Tür **oturum açma**, **ad**, **Soyadı**, **tek oturum açma kimliği**, **e-posta** özniteliklerini bir Geçerli bir Azure Active Directory hesabı ilgili metin kutularına içine sağlamak istiyorsunuz.
 
-   b. **Oluştur**’a tıklayın.   
-   
+   b. **Oluştur**’a tıklayın.
+
    >[!NOTE]
-   >Azure Active Directory hesap sahibi etkin duruma gelmesi hesabı onaylamak için bir bağlantı içeren bir e-posta alırsınız. 
-   > 
+   >Azure Active Directory hesap sahibi etkin duruma gelmesi hesabı onaylamak için bir bağlantı içeren bir e-posta alırsınız.
+   >
 
 >[!NOTE]
->API sağlama AAD kullanıcı hesaplarına Coupa tarafından sağlanan veya herhangi diğer Coupa kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz. 
+>API sağlama AAD kullanıcı hesaplarına Coupa tarafından sağlanan veya herhangi diğer Coupa kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Britta Coupa için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+![Kullanıcı rolü atayın][200]
 
 **Coupa için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
 1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı atama][201]
 
 2. Uygulamalar listesinde **Coupa**.
 
@@ -243,13 +249,13 @@ Bu bölümde, Britta Coupa için erişim vererek, Azure çoklu oturum açma kull
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
-    
+
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim paneli Coupa parçasında tıklattığınızda, otomatik olarak Coupa uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -269,4 +275,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/coupa-tutorial/tutorial_general_201.png
 [202]: ./media/coupa-tutorial/tutorial_general_202.png
 [203]: ./media/coupa-tutorial/tutorial_general_203.png
-

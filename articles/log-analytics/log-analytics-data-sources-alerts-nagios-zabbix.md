@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: a34a4be75488aca46fe232331e4bac3e0ac414b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 240e56e3e482b81d6336f7d6d2a1f5688953ecd8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637778"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131560"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Linux için Nagios ve günlük analizi OMS aracısından Zabbix uyarılarını Topla 
 [Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan açık kaynak izleme araçları. Uyarıları bu Araçları'ndan günlük analizi ile birlikte çözümlemek için toplayabilirsiniz [diğer kaynaklardan uyarıları](log-analytics-alerts.md).  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için OMS aracısının yapılandırma açıklar.
@@ -91,7 +92,7 @@ Nagios tarafından toplanan kayıtları uyarı bir **türü** , **uyarı** ve **
 | AlertName |Uyarı adı. |
 | AlertDescription | Uyarı açıklaması. |
 | AlertState | Hizmet veya ana bilgisayar durumu.<br><br>Tamam<br>UYARI<br>AYARLAMA<br>AŞAĞI |
-| Ana bilgisayar adı | Uyarı oluşturan ana bilgisayar adı. |
+| ana bilgisayar adı | Uyarı oluşturan ana bilgisayar adı. |
 | PriorityNumber | Uyarı öncelik düzeyi. |
 | StateType | Uyarının durumunu türü.<br><br>SOFT - değil yeniden sorun.<br>Sabit - bırakıldı sorunu belirtilen kaç kez yeniden.  |
 | TimeGenerated |Uyarının oluşturulduğu tarih ve saat. |
@@ -109,7 +110,7 @@ Zabbix tarafından toplanan kayıtları uyarı bir **türü** , **uyarı** ve **
 | AlertState | Uyarı durumu.<br><br>0 - durumu güncel değil.<br>1 - durumu bilinmiyor.  |
 | AlertTypeNumber | Uyarı birden çok sorun Olay Oluştur olup olmadığını belirtir.<br><br>0 - durumu güncel değil.<br>1 - durumu bilinmiyor.    |
 | Yorumlar | Ek açıklamalar uyarı için. |
-| Ana bilgisayar adı | Uyarı oluşturan ana bilgisayar adı. |
+| ana bilgisayar adı | Uyarı oluşturan ana bilgisayar adı. |
 | PriorityNumber | Uyarının önem derecesini belirten değer.<br><br>0 - Sınıflandırılmamış<br>1 - bilgileri<br>2 - uyarı<br>3 - ortalama<br>4 - yüksek<br>5 - olağanüstü durum |
 | TimeGenerated |Uyarının oluşturulduğu tarih ve saat. |
 | TimeLastModified |Tarih ve saat uyarının durumunu en son değiştirildiği. |

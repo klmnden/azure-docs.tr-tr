@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 96de05eb8ebae85b73eaa012efdfb38ac074abf8
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850017"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110929"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory'de cihaz yönetimine giriş
 
@@ -119,7 +119,7 @@ Birden fazla bir süredir birçok kuruluş, etkinleştirmek için kendi şirket 
 
 - Kullanıcılar cihazlarını kendi Active Directory ile oturum açmak için iş veya Okul hesapları. 
 
-Genellikle, bir şirket içi ayak izini kuruluşlarla kullanan cihazları sağlamak için yöntemleri Imaging ve sık kullandıkları **System Center Configuration Manager (SCCM)** veya **Grup İlkesi (GP)** bunları yönetmek için.
+Genellikle, bir şirket içi ayak izini kuruluşlarla kullanan cihazları sağlamak için yöntemleri Imaging ve sık kullandıkları **System Center Configuration Manager (SCCM)** veya **Grup İlkesi (GP)** yönetmek için bunları.
 
 Şirket içi ortamınız varsa, AD alanını ve ayrıca Azure Active Directory tarafından sağlanan özelliklerden avantajı istiyorsanız, karma Azure AD alanına katılmış aygıtlar uygulayabilirsiniz. Her ikisi de, cihazları bunlar şirket için Active Directory ve Azure Active Directory'yi katılmış.
 

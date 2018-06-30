@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: omidm
-ms.openlocfilehash: f4380f5d6ec379d5807f697294623a672bd270ae
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8503534031dc5774e64c58edd3e158162a5a6aee
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715250"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110465"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Azure etki alanına katılmış Hadoop kümeleri planlama
 
@@ -50,7 +50,7 @@ Aşağıdaki ekran görüntüsünde contoso.com oluşturulan bir OU gösterir. B
 Hdınsight şu anda yalnızca AAD DS kümenin küme için Kerberise konuşur ana etki alanı denetleyicisi olarak destekler. AAD DS HDI erişimi etkinleştirmek için müşteri adayları sürece ancak, karmaşık diğer AD kurulumları da mümkündür.
 
 - **[Azure Active Directory etki alanı Hizmetleri (AAD-DS)](../../active-directory-domain-services/active-directory-ds-overview.md)**: Bu hizmet, Windows Server Active Directory ile tamamen uyumlu olan bir yönetilen etki alanı sağlar. Microsoft yönetmek, düzeltme eki uygulama ve etki alanında bir yüksek oranda Available(HA) Kurulum izleme ilgilenir. Etki alanı denetleyicilerinin bakımını yapmak hakkında endişelenmeden kümenizi dağıtabilirsiniz. Kullanıcılar, gruplar ve parolalar, kullanıcılardan şirket kimlik bilgilerini kullanarak kümeye oturum açmak için Azure Active Directory(AAD) [tek yönlü eşitlemeyi aad'den AAD DS], etkinleştirme eşitlenir. Daha fazla bilgi için bkz: [AAD DS kullanarak etki alanına katılmış Hdınsight yapılandırmak için kümeleri nasıl](./apache-domain-joined-configure-using-azure-adds.md).
-- **AD veya Iaas Vm'leri üzerinde AD şirket içi**: bir şirket içi AD veya daha karmaşık diğer AD varsa kurulumları etki alanınız için AD Connect ve ardından etkinleştir AAD-AD DS'de Kiracı kullanarak AAD bu kimlikleri eşitleme. Kerberos Parola karmaları kullandığından gerekecek [AAD DS üzerinde parola karma eşitlemesini etkinleştirmek](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Federasyon ile AD Federasyon Hizmetleri (ADFS) kullanıyorsanız, ADFS altyapınızı başarısız olursa, isteğe bağlı olarak parola karması eşitlemesi yedek olarak ayarlayabilirsiniz. Daha fazla bilgi için bkz: [AAD Connect eşitleme ile parola karma eşitlemesini etkinleştirmek](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). Şirket içi AD veya AD tek başına Iaas Vm'leri üzerinde kullanmak, AAD ve AAD DS olmadan HDI kümesi etki alanına katılmak için desteklenen bir yapılandırma değildir.
+- **AD veya Iaas Vm'leri üzerinde AD şirket içi**: şirket içi varsa, AD veya daha karmaşık diğer AD kurulumları etki alanınız için AD Connect ve ardından etkinleştir AAD-AD DS'de Kiracı kullanarak AAD bu kimlikleri eşitleme. Kerberos Parola karmaları kullandığından gerekecek [AAD DS üzerinde parola karma eşitlemesini etkinleştirmek](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Federasyon ile AD Federasyon Hizmetleri (ADFS) kullanıyorsanız, ADFS altyapınızı başarısız olursa, isteğe bağlı olarak parola karması eşitlemesi yedek olarak ayarlayabilirsiniz. Daha fazla bilgi için bkz: [AAD Connect eşitleme ile parola karma eşitlemesini etkinleştirmek](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). Iaas Vm'leri AAD ve AAD DS olmadan tek başına, şirket içi AD veya AD kullanarak HDI kümesi etki alanına katılmak için desteklenen bir yapılandırma değildir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Etki alanına katılmış Hdınsight kümeleri yapılandırma](apache-domain-joined-configure-using-azure-adds.md).

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 946311c42088d3a5840eb35387c8a552d3d5d70f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c1ca8146db8c5d67be53ba4e30d8ab0218aca104
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735653"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128767"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Azure Dosya Eşitleme aracısı sürüm notları (önizleme)
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Windows Server yüklemeleriniz, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürülür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilirsiniz. Dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -25,7 +25,8 @@ Azure Dosya Eşitleme aracısı aşağıdaki sürümleri destekler:
 
 | Kilometre Taşı | Aracı sürüm numarası | Sürüm tarihi | Durum |
 |----|----------------------|--------------|------------------|
-| 2 Yenile | 3.0.12.0 | 22 Mayıs 2018 | (Önerilen) sürümünü destekliyor |
+| Haziran güncelleştirme paketi | 3.0.13.0 | 29 Haziran 2018 | (Önerilen) sürümünü destekliyor |
+| 2 Yenile | 3.0.12.0 | 22 Mayıs 2018 | Desteklenen |
 | Nisan güncelleştirme paketi | 2.3.0.0 | 8 Mayıs 2018 | Desteklenen |
 | Mart güncelleştirme paketi | 2.2.0.0 | 12 Mart 2018 | Desteklenen |
 | Şubat güncelleştirme paketi | 2.1.0.0 | 28 Şubat 2018 | Desteklenen |
@@ -37,6 +38,12 @@ Azure Dosya Eşitleme aracısı aşağıdaki sürümleri destekler:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure Dosya Eşitleme aracısı güncelleştirme ilkesi
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-30130"></a>Aracı sürümü 3.0.13.0
+Aşağıdaki sürüm notları 29 Haziran 2018 yayımlanan sürümü Azure dosya eşitleme aracısı için 3.0.13.0 ' dir. 3.0.12.0 sürümü için listelenen sürüm notları yanı sıra bu notlar var.
+
+Bu sürüm aşağıdaki düzeltmeyi içerir:
+- Bir sunucu, var olan eşitleme grubuna eklenirse, eşitleme başarısız olursa yeniden ayrıştırma noktalarını sunucudaki sunucu uç nokta konumda mevcut.
 
 ## <a name="agent-version-30120"></a>Aracı sürümü 3.0.12.0
 Aşağıdaki sürüm notları (22 Mayıs 2018) sürümünden itibaren Azure dosya eşitleme aracısı için 3.0.12.0 ' dir.

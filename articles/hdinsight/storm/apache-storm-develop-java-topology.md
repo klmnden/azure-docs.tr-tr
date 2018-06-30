@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5f2a6de9737569c75e0350e2aceec19b149d9549
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 105c10423a9688300ba74874769b162e29572185
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418501"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128614"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Apache Storm topolojisini Java oluşturma
 
@@ -41,7 +41,7 @@ Bu belgedeki adımları tamamladıktan sonra Hdınsight üzerinde Apache Storm t
 
 ## <a name="configure-environment-variables"></a>Ortam değişkenlerini yapılandırma
 
-Java ve JDK yüklediğinizde aşağıdaki ortam değişkenleri ayarlayabilirsiniz. Ancak, bunlar mevcut olduğundan ve sisteminiz için doğru değerleri içerdikleri denetlemeniz gerekir.
+Java ve JDK yüklediğinizde aşağıdaki ortam değişkenleri ayarlayabilirsiniz. Ancak, bunların mevcut olup olmadığını ve sisteminiz için doğru değerleri içerip içermediğini denetlemeniz gerekir.
 
 * **JAVA_HOME** -Java Çalışma zamanı ortamı (JRE) yüklü olduğu dizine işaret etmelidir. Örneğin, bir UNIX veya Linux dağıtımlarında benzeri bir değer olması gereken `/usr/lib/jvm/java-8-oracle`. Windows'da benzeri bir değer gerekir `c:\Program Files (x86)\Java\jre1.8`
 
@@ -600,7 +600,7 @@ Topoloji ve verileri için kullanılacak bileşenleri YAML dosyası tanımlar ar
 Flux hakkında daha fazla bilgi için bkz: [Flux framework (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
 
 > [!WARNING]
-> Verilecek bir [hata (https://issues.apache.org/jira/browse/STORM-2055) ](https://issues.apache.org/jira/browse/STORM-2055) Storm 1.0.1 yüklemeniz gerekebilir bir [Storm geliştirme ortamı](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) Flux topolojileri yerel olarak çalıştırmak için.
+> Verilecek bir [hata (https://issues.apache.org/jira/browse/STORM-2055) ](https://issues.apache.org/jira/browse/STORM-2055) Storm 1.0.1 yüklemeniz gerekebilir bir [Storm geliştirme ortamı](http://storm.apache.org/releases/current/Setting-up-development-environment.html) Flux topolojileri yerel olarak çalıştırmak için.
 
 1. Taşıma `WordCountTopology.java` dosya proje dışında. Daha önce bu dosyayı topoloji tanımlı, ancak Flux ile gerekli değildir.
 
@@ -719,9 +719,9 @@ Flux hakkında daha fazla bilgi için bkz: [Flux framework (https://storm.apache
     ```
 
     > [!WARNING]
-    > Topolojiniz Storm 1.0.1 BITS kullanıyorsa, bu komut başarısız olur. Bu hatanın nedeni [ https://issues.apache.org/jira/browse/STORM-2055 ](https://issues.apache.org/jira/browse/STORM-2055). Bunun yerine, [geliştirme ortamınızda Storm yüklemek](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) ve aşağıdaki adımları kullanın:
+    > Topolojiniz Storm 1.0.1 BITS kullanıyorsa, bu komut başarısız olur. Bu hatanın nedeni [ https://issues.apache.org/jira/browse/STORM-2055 ](https://issues.apache.org/jira/browse/STORM-2055). Bunun yerine, [geliştirme ortamınızda Storm yüklemek](http://storm.apache.org/releases/current/Setting-up-development-environment.html) ve aşağıdaki adımları kullanın:
     >
-    > Varsa [Storm geliştirme ortamınızda yüklü](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), bunun yerine aşağıdaki komutları kullanın:
+    > Varsa [Storm geliştirme ortamınızda yüklü](http://storm.apache.org/releases/current/Setting-up-development-environment.html), bunun yerine aşağıdaki komutları kullanın:
     >
     > ```bash
     > mvn compile package

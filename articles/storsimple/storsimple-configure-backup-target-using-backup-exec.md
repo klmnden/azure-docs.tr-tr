@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: a28b46e10bbdd5331cc665fad3f80523b3aa8a58
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1326e4a84938c46a9e7acc10dd8ed94db708f62a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23877226"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113094"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>Yedekleme hedefi olarak StorSimple yedekleme Exec ile
 
@@ -92,8 +92,8 @@ Aşağıdaki tablolarda, cihaz modeli mimari ilk yönergeleri gösterilmektedir.
 
 | Depolama kapasitesi       | 8100          | 8600            |
 |------------------------|---------------|-----------------|
-| Yerel depolama kapasitesi | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
-| Bulut depolama kapasitesi | &gt; 200 TiB\* | &gt; 500 TiB\* |
+| Yerel depolama kapasitesi | &lt; 10 Tıb\*  | &lt; 20 Tıb\*  |
+| Bulut depolama kapasitesi | &gt; 200 Tıb\* | &gt; 500 Tıb\* |
 \* Depolama boyutu hiçbir yinelenenleri kaldırma veya sıkıştırma varsayar.
 
 **Birincil ve ikincil yedeklemeleri StorSimple kapasiteleri**
@@ -158,7 +158,7 @@ Bekletme İlkesi kapasite ve performans gereksinimlerinizi işleyebilecek şekil
 
 Her adım, aşağıdaki bölümlerde ayrıntılı olarak ele alınmıştır.
 
-### <a name="set-up-the-network"></a>Ağ kurma
+### <a name="set-up-the-network"></a>Ağı ayarlama
 
 StorSimple Azure Bulutu ile tümleşik bir çözüm olduğundan, StorSimple etkin ve Azure Bulutu çalışma bağlantısı gerektirir. Eski katmanı için daha az verileri Azure bulut depolama alanına ve bu bağlantı bulut anlık görüntüleri, yönetim ve meta veri aktarımı gibi işlemleri için kullanılır.
 
@@ -173,7 +173,7 @@ Bir adım adım StorSimple dağıtım yönergeleri için bkz: [şirket içi Stor
 
 ### <a name="deploy-backup-exec"></a>Yedekleme Exec dağıtma
 
-Backup Exec yükleme en iyi yöntemler için bkz: [Backup Exec yükleme için en iyi uygulamaları](https://www.veritas.com/support/en_US/article.000068207).
+Backup Exec yükleme en iyi yöntemler için bkz: [Backup Exec yükleme için en iyi uygulamaları](https://www.veritas.com/content/support/en_US/doc/72686287-131623464-0/v70444238-131623464).
 
 ## <a name="set-up-the-solution"></a>Çözümü ayarlama
 
@@ -251,7 +251,7 @@ Aşağıdaki örnekte, GFS döndürme kullanırız. Aşağıdaki örnekte varsay
 
 Önceki varsayımları temel alarak 26 Tıb oluşturma StorSimple katmanlı birim aylık ve yıllık tam yedeklemeler için. 5 Tıb oluşturma StorSimple katmanlı birim her artımlı günlük yedeklemeler için.
 
-| Yedekleme türü bekletme | Boyut (Tıb) | GFS çarpanı\* | Toplam Kapasite (Tıb)  |
+| Yedekleme türü bekletme | Boyut (TiB) | GFS çarpanı\* | Toplam Kapasite (Tıb)  |
 |---|---|---|---|
 | Haftalık tam | 1 | 4  | 4 |
 | Günlük artımlı | 0.5 | 20 (döngüleri eşit hafta sayısı her ay) | (2 ek kota için) 12 |
@@ -366,7 +366,7 @@ Aşağıdaki tabloda, yedekler yerel ve StorSimple diskler üzerinde çalışaca
 
 ### <a name="backup-configuration-and-capacity-requirements"></a>Yedekleme Yapılandırması ve kapasite gereksinimleri
 
-| Yedekleme türü ve bekletme | Yapılandırılan depolama | Boyut (Tıb) | GFS çarpanı | Toplam Kapasite\* (Tıb) |
+| Yedekleme türü ve bekletme | Yapılandırılan depolama | Boyut (TiB) | GFS çarpanı | Toplam Kapasite\* (Tıb) |
 |---|---|---|---|---|
 | Hafta 1 (tam ve artımlı) |Yerel disk (kısa vadeli)| 1 | 1 | 1 |
 | StorSimple hafta 2-4 |StorSimple disk (uzun süreli) | 1 | 4 | 4 |

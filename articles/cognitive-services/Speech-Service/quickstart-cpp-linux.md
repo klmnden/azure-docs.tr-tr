@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: cee70ba585f93dda3249fc5b39f25fb613b57a45
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: e5ea74f92eb91ff89f013a4ee9ef7cbe0f001db0
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753680"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111159"
 ---
 # <a name="quickstart-for-c-and-linux"></a>C++ ve Linux için hızlı başlangıç
 
@@ -78,7 +78,9 @@ Adlı bir dosyaya yerleştirin `quickstart-linux.cpp`:
 
 [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Linux/quickstart-linux/quickstart-linux.cpp#code)]
 
-Abonelik anahtarı kodda aldığınız adla değiştirin.
+> [!IMPORTANT]
+> Abonelik anahtarı aldığınız adla değiştirin. <br>
+> Değiştir [bölge](regions.md) yerine Örneğin, abonelikle ilişkili biriyle `westus` ücretsiz deneme aboneliği için.
 
 ## <a name="building"></a>Derleniyor
 

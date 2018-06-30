@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1f501981dd4b45f4d36188ef4c2aaa6cb11881a2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: f5d1cf61ca7b8d8eeaed52fc3f45f8d4847ddda9
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263762"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108697"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>HALUK uygulama için Kurumsal stratejileri
 Bu tasarım stratejileri kuruluş uygulamanız için gözden geçirin.
@@ -32,7 +32,7 @@ Tek bir uygulama yöneticisi olarak belirleyin. Gözden geçirme için önerilen
 Düzenli bir zamanlama [endpoint utterances incelenmesi](label-suggested-utterances.md) iki haftada gibi etkin öğrenme için daha sonra yeniden eğitme ve yeniden yayımlayın. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>Birden çok HALUK aynı uygulamasına tuşları atama
-HALUK uygulamanızı isabetler tek anahtarın kota izin verdiğinden, oluşturma ve HALUK uygulamaya daha fazla tuşları atama daha fazla uç noktası alırsa. Trafik Yöneticisi oluşturma veya yük dengeleyici uç noktası sorguları abonelik anahtarlarını yönetme. 
+HALUK uygulamanızı isabetler tek anahtarın kota izin verdiğinden, oluşturma ve HALUK uygulamaya daha fazla tuşları atama daha fazla uç noktası alırsa. Trafik Yöneticisi oluşturma veya yük dengeleyici uç noktası sorguları uç nokta anahtarlarını yönetme. 
 
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>Tek yapılı uygulamanızı yanlış hedefi döndüğünde
 Çok çeşitli kullanıcı utterances tahmin etmek için uygulamanızın istediyseniz uygulayın [gönderme modeli](#dispatch-tool-and-model). Tek yapılı bir uygulamasını kurup yeni odak algılama üst uygulama arasında amaçları ve alt uygulamalar arasında kafası yerine başarıyla hedefleri arasında HALUK sağlar. 

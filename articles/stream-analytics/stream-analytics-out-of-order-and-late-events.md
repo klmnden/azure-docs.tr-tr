@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f0ee486d9ff4c05269da23866edad281aa627889
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912024"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113903"
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics olay sipariş konuları
 
@@ -22,7 +22,7 @@ ms.locfileid: "30912024"
 
 Olayları bir zamana bağlı veri akışında her olayın zaman damgası atanır. Azure Stream Analytics, geliş saati ya da uygulama zamanı kullanarak, her olay için zaman damgası atar. **System.Timestamp** olaya atanan zaman damgası sütununa sahip. 
 
-Olay kaynağı ulaştığında geliş saati giriş kaynakta atanır. Kullanarak geliş saati erişebilirsiniz **EventEnqueuedTime** olay hub'ı giriş ve kullanmak için özelliği [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) blob giriş özelliği. 
+Olay kaynağı ulaştığında geliş saati giriş kaynakta atanır. Kullanarak geliş saati erişebilirsiniz **EventEnqueuedUtcTime** özelliği olay hub'ları girişleri için **IoTHub.EnqueuedTime** IOT Hub ve kullanmak için özelliği [BlobProperties.LastModified ](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) özelliği blob giriş için. 
 
 Uygulama zamanı olayı oluşturulur ve yükü parçası olduğunda atanır. Uygulama zamanına göre olayları işlemek için **zaman damgası tarafından** yan tümcesinde select sorgu. Varsa **zaman damgası tarafından** yan tümcesi etmeksizin, olayları geliş saati tarafından işlenir. 
 
@@ -111,7 +111,7 @@ Sorgu sahip olmayan bir **bölüm PartitionID tarafından** yan tümcesi ve en a
 
 Yapılandırma örneği 2 ile aynıdır. Ancak, veri bölümleri birinde yokluğu çıktı ek bir geç gerçekleşme tolerans penceresi tarafından gecikmeye yol açabilir.
 
-## <a name="handling-event-producers-with-differing-timelines"></a>Olay üreticileri farklı zaman çizelgeleri ile işleme
+## <a name="handling-event-producers-with-differing-timelines-with-substreams"></a>Olay üreticileri "alt"akışları ile farklı zaman çizelgeleri ile işleme
 Tek bir giriş olay akışı genellikle tek bir cihazı gibi birden çok olay üreticileri kaynaklanan olayları da içerir. Bu olaylar daha önce bahsedilen nedenlerden dolayı bozuk ulaşır. Olay üreticileri arasında düzensiz büyük olabilir, ancak bu senaryolarda, tek bir üretici olayların içinde düzensiz küçük (veya hatta varolmayan).
 
 Azure Stream Analytics düzen dışı olayları ilgilenmek için genel mekanizmaları sağlar. (Straggling olaylar Sistem erişmek için beklenirken), işleme gecikmeleri böyle mekanizmaları neden bırakılmış veya olayları veya her ikisi de ayarlandı.

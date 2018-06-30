@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2caf8e14407546d8a2ec7c9d18765dd10e575144
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8f273a5a2c47b25dc339fd63df127d141fe2f8e2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099351"
+ms.locfileid: "37130252"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Taslak Azure Kubernetes hizmeti (AKS) kullanın
 
@@ -58,11 +58,11 @@ Taslak kapsayıcı görüntü yerel olarak oluşturur ve ardından ya da bunlar�
 
 ### <a name="create-trust-between-aks-cluster-and-acr"></a>AKS küme ve ACR arasında güven oluşturma
 
-AKS küme ve ACR kayıt defteri arasında güven oluşturmak için Azure Active Directory Hizmeti katkıda bulunan rolü ACR depo kapsamıyla ekleyerek AKS ile kullanılan asıl değiştirin. Bunu yapmak için değiştirme aşağıdaki komutları çalıştırın _&lt;aks rg adı&gt;_ ve _&lt;aks küme adı&gt;_ adını ve kaynak grubu ile AKS küme ve _&lt;acr rg adı&gt;_ ve _&lt;acr depo adı&gt;_ , ACR kaynak grubu ve depo adı güven oluşturmak istediğiniz deposu.
+AKS küme ve ACR kayıt defteri arasında güven oluşturmak için Azure Active Directory Hizmeti katkıda bulunan rolü ACR kayıt defteri kapsamıyla ekleyerek AKS ile kullanılan asıl değiştirin. Bunu yapmak için değiştirme aşağıdaki komutları çalıştırın _&lt;aks rg adı&gt;_ ve _&lt;aks küme adı&gt;_ adını ve kaynak grubu ile AKS küme ve _&lt;acr rg adı&gt;_ ve _&lt;acr kayıt defteri adı&gt;_ , ACR kaynak grubu ve kayıt defteri adı güven oluşturmak istediğiniz kayıt defteri.
 
 ```console
 export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
-export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-repo-name> --query "id" -o tsv)
+export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-registry-name> --query "id" -o tsv)
 az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 

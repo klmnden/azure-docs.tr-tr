@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: f78dd2a28575ad8e3fa30ac9c2bbd29c7d85a78f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6c308205c5adb05f4c7e1668c67adea414020ea2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640481"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113281"
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache SSS
 Azure Redis önbelleği için sık sorulan sorular, desenleri ve en iyi yöntemler yanıtlarını öğrenin.
@@ -392,7 +392,10 @@ Bu ayarı yapılandırmak nasıl:
   > Bu yapılandırma öğesi için belirtilen değer bir *çekirdek başına* ayarı. Örneğin, 4 çekirdekli makine olması ve çalışma zamanında 200 olması minIOThreads ayarınız istiyorsanız kullanacağınız `<processModel minIoThreads="50"/>`.
   >
 
-* ASP.NET dışında kullanan [ThreadPool.SetMinThreads(...) ](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+* ASP.NET dışında ve Azure Web siteleri global.asax, [ThreadPool.SetMinThreads (...)] kullanın (https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+
+  > [!NOTE]
+  > Bu API tarafından belirtilen değer tüm AppDomain etkileyen genel bir ayardır. 4 çekirdekli makine varsa ve CPU başına 50'ye minWorkerThreads ve minIOThreads çalışma zamanı sırasında ayarlamak istediğiniz ThreadPool.SetMinThreads (200, 200) kullanırsınız.
 
 <a name="server-gc"></a>
 

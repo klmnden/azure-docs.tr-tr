@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/15/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c8f8dbc4aa32b550849ff14f3ad653311b9fab93
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5d5b2e78755d6800f61e3e4adb1769799d01dad2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265292"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111532"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure İzleyicisi iş ortağı tümleştirmeler
 | İş Ortakları |  |  |
@@ -90,7 +90,7 @@ LogicMonitor® karmaşık BT altyapısı için platform başında SaaS tabanlı 
 Çevik iş dönüştürme Moogsoft AIOps hızlandırır.
 
 Microsoft Azure otomasyon ve denetim araçları durumu Azure'de dağıtılan mikro hizmetler ve uygulamalar hakkında gerçek zamanlı bir pencere sağlayın ve tanılama ve runbook'lar için daha hızlı düzeltme düzenlemek yardımcı olur.
-Diğer üçüncü taraf araçları bir şirket içi uygulamalar penceresine ve altyapı durumu sağlar.
+Diğer üçüncü taraf araçları şirket içi uygulamalar ve altyapı durumu bir pencere sağlar.
 
 Moogsoft AIOps, var olan işlemleri ve kuruluş yapısı değiştirmeden düzeltme iş akışı olayı otomatikleştirir. 
 

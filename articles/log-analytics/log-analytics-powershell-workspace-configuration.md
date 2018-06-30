@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: powershell
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 6a3f91323a017533d2d012f1e81760396c17a643
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 375ae9a82af4a1f8a86b529b597ed479388e66dc
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179098"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129345"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>PowerShell kullanarak Log Analytics’i yönetme
 Kullanabileceğiniz [günlük analizi PowerShell cmdlet'leri](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) bir komut satırından veya bir komut dosyasının parçası olarak günlük analizi çeşitli işlevleri gerçekleştirmek için.  PowerShell ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
@@ -192,7 +193,7 @@ Azure kaynaklarını aracısız izleme için kaynakları Azure tanılama etkin v
 
 | Kaynak Türü | Günlükler | Ölçümler |
 | --- | --- | --- |
-| Application Gatewayler    | Evet | Evet |
+| Uygulama Ağ Geçitleri    | Evet | Evet |
 | Automation hesapları     | Evet | |
 | Batch hesapları          | Evet | Evet |
 | Data Lake analizi     | Evet | | 
@@ -200,11 +201,11 @@ Azure kaynaklarını aracısız izleme için kaynakları Azure tanılama etkin v
 | SQL esnek havuzu        |     | Evet |
 | Olay Hub'ı ad alanı     |     | Evet |
 | IoT Hub                |     | Evet |
-| Anahtar Kasası               | Evet | |
+| Key Vault               | Evet | |
 | Yük Dengeleyiciler          | Evet | |
 | Logic Apps              | Evet | Evet |
 | Ağ Güvenlik Grupları | Evet | |
-| Redis Önbelleği             |     | Evet |
+| Redis Cache             |     | Evet |
 | Hizmet ara         | Evet | Evet |
 | Service Bus ad alanı   |     | Evet |
 | SQL (v12)               |     | Evet |

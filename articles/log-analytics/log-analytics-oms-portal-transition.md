@@ -10,15 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: bwren
-ms.openlocfilehash: 5719dc3719739fb561626e307ee295729752c1fa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.component: na
+ms.openlocfilehash: e47e8cbd209ea34317ca9b176a2c4b0fef10a2b2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297762"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133159"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS portalı Azure'a taşıma
 OMS portalı kullandığınız için teşekkür ederiz. Biz ile destek teşvik ve yoğun olarak izleme ve yönetim hizmetlerimizle yatırım devam eder. Bir geri bildirim art arda müşterilerden heard izlemek ve şirket içi ve Azure iş yükleri yönetmek tek bir kullanıcı deneyimi gereksinimini parçasıdır. Azure portalı hub tüm Azure hizmetlerini ve zengin bir yönetim deneyimi sabitleme kaynakları, bulma kaynakları akıllı arayın ve kaynak yönetimi için etiketleme için panoları gibi özellikler ile sunar bildiğiniz. Birleştirmek ve izleme ve yönetim iş akışını kolaylaştırmak için Azure portalında içine OMS portalı yetenekleri ekleme başladı. OMS portalı özelliklerin çoğunu şimdi Azure portal parçası olan duyurmaktan Mutluluk duyuyoruz. Aslında, bazı yeni özellikler gibi trafik Yöneticisi yalnızca Azure portalında kullanılabilir. Kalan, yalnızca birkaç boşluklar vardır en işleminde Azure portalına taşınacağını hala beş çözümler olan impactful. Bu özellikler kullanmıyorsanız her şeyi Azure portalı ve daha fazla ile OMS portalında yaptığınızı gerçekleştirmek mümkün olacaktır. Zaten yapmadıysanız, Azure portalını kullanmaya bugün başlamak öneririz! 
@@ -72,7 +73,7 @@ Dönüştürme sırasında sistem her bir kullanıcı veya OMS portalında izinl
 
 | OMS portalı izni | Azure rol |
 |:---|:---|
-| SaltOkunur | Log Analytics Okuyucusu |
+| Salt okunur | Log Analytics Okuyucusu |
 | Katılımcı | Log Analytics Katkıda Bulunan |
 | Yönetici | Sahip |
 
@@ -94,7 +95,7 @@ Desteği ile [arası kaynak sorgularını](log-analytics-cross-workspace-search.
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure Ağ Güvenlik Grubu Analizi
-[Azure ağ güvenlik grubu analiz çözümü](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) değiştirilecek son başlatılan ile [trafiği Analytics](../network-watcher/traffic-analytics.md) bulut ağlarda kullanıcı ve uygulama etkinlik görünürlük sağlar. Trafik analizi, kuruluşunuzun ağ etkinliği, güvenli uygulamaları ve verileri denetim, iş yükü performansını iyileştirmek ve uyumlu kalmak yardımcı olur. 
+[Azure ağ güvenlik grubu analiz çözümü](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) değiştirilecek son başlatılan ile [trafiği Analytics](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) bulut ağlarda kullanıcı ve uygulama etkinlik görünürlük sağlar. Trafik analizi, kuruluşunuzun ağ etkinliği, güvenli uygulamaları ve verileri denetim, iş yükü performansını iyileştirmek ve uyumlu kalmak yardımcı olur. 
 
 Bu çözüm NSG akış günlüklerini analiz eder ve aşağıdaki Öngörüler sağlar.
 
@@ -105,7 +106,7 @@ Bu çözüm NSG akış günlüklerini analiz eder ve aşağıdaki Öngörüler s
 - Kötü amaçlı trafiği, Internet, uygulama veya Internet erişmeye VM'ler açık bağlantı noktalarını da dahil olmak üzere güvenlik.
 - Kapasite kullanımı, sağlama veya yetersiz kullanım üzerinden sorunları ortadan kaldırmanıza yardımcı olacak.
 
-NSG günlüklerini günlük varolan kaydedilmiş şekilde aramalar, uyarılar, panolar analizi için çalışmaya devam edecek göndermek için tanılama ayarları yararlanmaya devam edebilirsiniz. Çözüm'i zaten yüklemiş olan müşterilerin, bir uyarı kadar kullanmaya devam edebilirsiniz. Haziran 20 NSG çözüm başlangıç marketten kaldırılacak ve topluluk yoluyla kullanılabilir hale bir [Azure Hızlı Başlangıç şablonu](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
+NSG günlüklerini günlük varolan kaydedilmiş şekilde aramalar, uyarılar, panolar analizi için çalışmaya devam edecek göndermek için tanılama ayarları yararlanmaya devam edebilirsiniz. Çözüm'i zaten yüklemiş olan müşterilerin, bir uyarı kadar kullanmaya devam edebilirsiniz. Ağ güvenlik grubu analiz çözümü Haziran 20 başlangıç marketten kaldırılacak ve topluluk yoluyla kullanılabilir hale bir [Azure Hızlı Başlangıç şablonu](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bkz: [ortak sorular için günlük analizi kullanıcılar için Azure portalı OMS portalı geçiş](log-analytics-oms-portal-faq.md) OMS Portalı'ndan Azure portalına taşınacağını konusunda yönergeler için.

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/29/2018
 ms.author: jeffgilb
-ms.openlocfilehash: af820f90c5d8822dbdaa768b16360d534fd47828
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 74d888ffe28e5428b47bfc73122518c22d0f0918
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060051"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128716"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı için barındırma sunucuları ekleme
 
@@ -121,7 +121,8 @@ SQL Always On örnekleri yapılandırma ek adımlar gerektirir ve üç sanal mak
 > [!NOTE]
 > SQL bağdaştırıcısı kaynak sağlayıcısı _yalnızca_ veya daha sonra örnekler için her zaman açık SQL 2016 SP1 Enterprise destekler. Bu bağdaştırıcı yapılandırma otomatik dengeli dağıtımı gibi yeni SQL özellikleri gerektirir.
 
-Ayrıca, etkinleştirmelisiniz [otomatik dengeli](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) her kullanılabilirlik grubu SQL Server'ın her örneğinin üzerinde.
+### <a name="automatic-seeding"></a>Otomatik dengeli dağıtımı
+Etkinleştirmelisiniz [otomatik dengeli](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) her kullanılabilirlik grubu SQL Server'ın her örneğinin üzerinde.
 
 Tüm örneklerinde otomatik dengeli dağıtımı etkinleştirmek için düzenleyin ve ardından her örneği için aşağıdaki SQL komutunu çalıştırın:
 
@@ -136,6 +137,18 @@ Tüm örneklerinde otomatik dengeli dağıtımı etkinleştirmek için düzenley
 
   ```
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
+
+### <a name="configure-contained-database-authentication"></a>Kapsanan veritabanı kimlik doğrulamasını yapılandırma
+Kapsanan bir veritabanı bir kullanılabilirlik grubuna eklemeden önce kapsanan veritabanı kimlik doğrulama sunucu seçeneği 1 kullanılabilirlik grubu için bir kullanılabilirlik çoğaltması barındıran her sunucu örneği olarak ayarlandığından emin olun. Daha fazla bilgi için bkz: [veritabanı kimlik doğrulama sunucu yapılandırma seçeneği bulunan](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+
+Kapsanan veritabanı kimlik doğrulama sunucu seçeneği her örneği için ayarlamak için aşağıdaki komutları kullanın:
+
+  ```
+  EXEC sp_configure 'contained database authentication', 1
+  GO
+  RECONFIGURE
   GO
   ```
 

@@ -3,7 +3,7 @@ title: Windows bilgisayarları Azure günlük Analizi'ne bağlamak | Microsoft D
 description: Bu makalede, diğer Bulut veya şirket içi günlük analizi ile Microsoft İzleme Aracısı'nı (MMA) barındırılan Windows bilgisayarları bağlamak açıklar.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 342387edb3793358d041702eaa6d76b462aef527
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: df61ef74d95dd9305fa8d97758bf07bcb40d54a6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637421"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131395"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows bilgisayarları Azure günlük analizi hizmetine bağlanın
 
@@ -32,9 +33,9 @@ Aracı, aşağıdaki yöntemlerden biri kullanılarak yüklenebilir. Çoğu yük
 * El ile yükleme. Kurulum, komut satırından Kurulum Sihirbazı kullanılarak bilgisayarda el ile çalıştırın veya varolan bir yazılım dağıtım aracı kullanılarak dağıtılabilir.
 * Azure Otomasyonu istenen durum yapılandırması (DSC). DSC Azure Otomasyonu'nda ortamınızda dağıtılmış Windows bilgisayarları için bir komut dosyasıyla kullanma.  
 * PowerShell Betiği.
-* Şirket içi için Windows Azure yığınında çalışan sanal makineler için Resource Manager şablonu.  
+* Windows çalıştıran sanal makineler için Resource Manager şablonu Azure yığınında şirket içi.  
 
-Desteklenen yapılandırma anlamak için gözden [desteklenen Windows işletim sistemleri](log-analytics-concept-hybrid.md#supported-windows-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](log-analytics-concept-hybrid.md#network-firewall-requirements).
+Desteklenen yapılandırmayı anlamak için [desteklenen Windows işletim sistemlerini](log-analytics-concept-hybrid.md#supported-windows-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](log-analytics-concept-hybrid.md#network-firewall-requirements) inceleyin.
 
 ## <a name="obtain-workspace-id-and-key"></a>Çalışma alanı kimliği ve anahtarını alma
 Windows için Microsoft Monitoring Agent'ı yüklemeden önce, Log Analytics çalışma alanınızın kimliği ve anahtarına ihtiyacınız olacak.  Bu bilgiler, düzgün Aracısı'nı yapılandırmak ve başarıyla ticari Azure günlük analizi ve ABD devlet kurumları bulut ile iletişim kurabilmesini sağlamak için her yükleme yönteminden Kurulum sırasında gereklidir.  

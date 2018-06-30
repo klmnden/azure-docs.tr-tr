@@ -11,23 +11,26 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5d806afbfd74d68d139f494c7a5a6e871a7dae36
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 2c2553d9ffb1dfbe032385fb77e234a8b96cb239
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260603"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110074"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI öğesi
 Yeni veya var olan bir sanal ağ seçme denetimlerini grubudur.
 
 ## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
-![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
+Kullanıcı yeni bir sanal ağ seçer, kullanıcının her alt ağın adı ve adres ön eki özelleştirebilirsiniz. Alt yapılandırma isteğe bağlıdır.
 
-- Kullanıcının her alt ağın ad ve adres öneki özelleştirebileceğiniz şekilde üst Tel Çerçeve içinde yeni bir sanal ağ kullanıcı çekilmiş. Alt yapılandırma bu durumda isteğe bağlıdır.
-- Kullanıcı dağıtım şablonu gerektiren her alt ağ için mevcut bir alt eşlemeniz gerekir böylece alt Tel Çerçeve mevcut bir sanal ağ, kullanıcı çekilmiş. Alt yapılandırma bu durumda gereklidir.
+![Yeni Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+
+Kullanıcı kullanıcı mevcut bir sanal ağı seçer, dağıtım şablonu gerektiren her alt ağ için mevcut bir alt eşlemeniz gerekir. Alt yapılandırma bu durumda gereklidir.
+
+![Microsoft.Network.VirtualNetworkCombo var](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>Şema
 ```json
@@ -88,12 +91,12 @@ Yeni veya var olan bir sanal ağ seçme denetimlerini grubudur.
 - `constraints.minAddressPrefixSize` belirtilmelidir. Belirtilen değerden daha küçük bir adres alanı ile var olan tüm sanal ağları seçilemez.
 - `subnets` belirtilmesi gerekir ve `constraints.minAddressPrefixSize` her alt ağ için belirtilmelidir.
 - Yeni bir sanal ağ oluştururken, her alt ağın adres öneki göre otomatik olarak sanal ağın adres öneki ve ilgili hesaplanır `addressPrefixSize`.
-- Sanal varolan kullanırken, ağ, hiçbir alt ağ ilgili küçük `constraints.minAddressPrefixSize` seçim için kullanılamaz. Ayrıca, belirtilirse, en az içermeyen alt ağlar `minAddressCount` kullanılabilir adresler seçilemez.
-Varsayılan değer **0**. Kullanılabilir adresler bitişik olduğundan emin olmak için belirtmek **true** için `requireContiguousAddresses`. Varsayılan değer **doğru**.
+- Sanal varolan kullanırken, ağ, hiçbir alt ağ ilgili küçük `constraints.minAddressPrefixSize` seçim için kullanılamaz. Ayrıca, belirtilirse, en az olmayan alt ağlar `minAddressCount` kullanılabilir adresler seçilemez. Varsayılan değer **0**. Kullanılabilir adresler bitişik olduğundan emin olmak için belirtmek **true** için `requireContiguousAddresses`. Varsayılan değer **doğru**.
 - Varolan bir sanal ağ alt ağları oluşturma desteklenmiyor.
 - Varsa `options.hideExisting` olan **doğru**, kullanıcı varolan bir sanal ağı seçemezsiniz. Varsayılan değer **false**.
 
 ## <a name="sample-output"></a>Örnek çıktı
+
 ```json
 {
   "name": "vnet01",

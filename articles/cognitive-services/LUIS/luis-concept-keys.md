@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: v-geberr
-ms.openlocfilehash: 70bca3b181e02f42da50e827154193936544131a
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: d22b2ba332996d31b1db4ef4d095f0a4b443ba16
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263827"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109367"
 ---
 # <a name="keys-in-luis"></a>HALUK anahtarlarında
 HALUK iki anahtar kullanır: [yazma](#programmatic-key) ve [endpoint](#endpoint-key). Geliştirme anahtarı HALUK hesabınızı oluşturduğunuzda, sizin için otomatik olarak oluşturulur. HALUK uygulamanızı yayımlamak hazır olduğunuzda, gerek [uç noktası anahtarı oluşturma](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [onu atayın](Manage-keys.md#assign-endpoint-key) HALUK uygulamanıza ve [endpoint sorgu ile birlikte kullanmak](#use-endpoint-key-in-query). 
@@ -22,7 +22,7 @@ HALUK iki anahtar kullanır: [yazma](#programmatic-key) ve [endpoint](#endpoint-
 |Anahtar|Amaç|
 |--|--|
 |[Anahtar yazma](#programmatic-key)|Geliştirme, ortak çalışanların yönetme yayımlama, sürüm oluşturma|
-|[Uç noktası anahtarı](#endpoint-key)| Sorgulama|
+|[uç noktası anahtarı](#endpoint-key)| Sorgulama|
 
 HALUK uygulamalarında Yazar önemlidir [bölgeleri](luis-reference-regions.md#publishing-regions) , ayrıca istediğiniz yayımlama ve sorgu.
 
@@ -40,7 +40,7 @@ Yapmak istediğiniz zaman **üretim uç noktası sorguları**, Azure oluşturma 
 > [!CAUTION]
 > Birkaç uç nokta çağrılarında sağlar kolaylık sağlamak için birçok örnekleri yazma anahtar kullanamadı kendi [kota](luis-boundaries.md#key-limits).  
 
-## <a name="endpoint-key"></a>Uç noktası anahtarı
+## <a name="endpoint-key"></a>uç noktası anahtarı
  Gerektiğinde **üretim uç noktası sorguları**, oluşturma bir [HALUK anahtar](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) Azure portalında. Anahtar oluşturmak için kullanılan ad unutmayın, uygulamaya anahtar eklediğinizde ihtiyacınız..
 
 HALUK abonelik işlemi tamamlandıktan sonra [anahtarı eklemek](Manage-keys.md#assign-endpoint-key) üzerinde uygulamaya **Yayımla** sayfası. 
@@ -62,10 +62,10 @@ Sorgu iki stillerini HALUK uç nokta kabul eder, her ikisi de uç nokta anahtar,
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>Ocp Apim abonelik anahtar API kullanımı
 HALUK API'ları kullanmak üst `Ocp-Apim-Subscription-Key`. Üstbilgi adı hangi anahtar ve API kümesi kullandığınız göre değişmez. Üstbilgi geliştirme anahtarına yazma API'ler ayarlayın. Uç noktası kullanıyorsanız, üstbilgi için uç nokta anahtarını ayarlayın. 
 
-API'ları yazmak için uç nokta anahtar geçilemez. Bunu yaparsanız, 401 hatası - erişim reddedildi nedeniyle geçersiz abonelik anahtar alın. 
+API'ları yazmak için uç nokta anahtar geçilemez. Bunu yaparsanız, 401 hatası - erişim reddedildi nedeniyle geçersiz uç nokta anahtar alın. 
 
 ## <a name="key-limits"></a>Anahtar sınırları
-Bkz: [anahtar sınırları](luis-boundaries.md#key-limits) ve [Azure bölgeleri](luis-reference-regions.md). Geliştirme boş ve yazmak için kullanılan anahtardır. HALUK abonelik anahtarı ücretsiz katmanına sahip, ancak sizin tarafınızdan oluşturulmalı ve HALUK uygulamanızla ilişkili **Yayımla** sayfası. Yazma, ancak yalnızca son nokta sorgular için kullanılamaz.
+Bkz: [anahtar sınırları](luis-boundaries.md#key-limits) ve [Azure bölgeleri](luis-reference-regions.md). Geliştirme boş ve yazmak için kullanılan anahtardır. HALUK uç noktası anahtarı ücretsiz katmanına sahip, ancak sizin tarafınızdan oluşturulmalı ve HALUK uygulamanızla ilişkili **Yayımla** sayfası. Yazma, ancak yalnızca son nokta sorgular için kullanılamaz.
 
 Yayımlama bölgeler bölgeler yazma farklıdır. Uygulama geliştirme bölge istediğiniz yayımlama bölge ilgili oluşturduğunuzdan emin olun.
 

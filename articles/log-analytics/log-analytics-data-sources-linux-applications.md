@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: bfb9b62a8965fa1f7daf62d814665ca23491cc04
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 528274844908f9a1b2a604de42d8e84f4dc7d6f2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168291"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127360"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Günlük analizi Linux uygulamaları için performans sayaçlarını Topla 
 Bu makalede yapılandırmak için Ayrıntılar sunulmaktadır [Linux için OMS aracısının](https://github.com/Microsoft/OMS-Agent-for-Linux) belirli uygulamalar için performans sayaçları toplanamadı.  Bu makalede bulunan uygulamalar şunlardır:  
@@ -82,7 +83,7 @@ Aşağıdaki tabloda, mycimprovauth kullanmak için söz dizimi hakkında ayrın
 | Otomatik güncelleştirme *yanlış veya doğru* | mycimprovauth otomatik güncelleştirme false | Desteklemediğini kimlik doğrulama dosyasını otomatik olarak güncelleştirilecek kümeleri üzerinde yeniden başlatın veya güncelleştirin. |
 | Varsayılan *bağ adresi kullanıcı adı parolası* | mycimprovauth varsayılan 127.0.0.1 kök pwd | Varsayılan örnek MySQL OMI kimlik doğrulama dosyasını ayarlar.<br>Parola alanı düz metin olarak girilmelidir - MySQL OMI authentication dosyasındaki parola Base 64 kodlu olacaktır. |
 | silme *varsayılan veya port_num* | mycimprovauth 3308 | Belirtilen örnek ya da varsayılan olarak veya bağlantı noktası numarasına göre siler. |
-| yardım | mycimprov Yardım | Kullanılacak komutların listesini yazdırır. |
+| Yardım | mycimprov Yardım | Kullanılacak komutların listesini yazdırır. |
 | Yazdırma | mycimprov yazdırma | Yazdırır kolay bir kimlik doğrulama dosyasını MySQL OMI okuyun. |
 | port_num güncelleştirme *bağ adresi kullanıcı adı parolası* | mycimprov güncelleştirme 3307 127.0.0.1 kök pwd | Belirtilen örnek güncelleştirir veya henüz yoksa örneği ekler. |
 
@@ -116,7 +117,7 @@ Bu ayrıcalıklar aşağıdaki grant komutlarını çalıştırarak verilebilir.
 
 Günlük analizi veri göndermek Linux için OMS aracısının yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Windows ve Linux performans veri kaynaklarında günlük analizi](log-analytics-data-sources-windows-events.md) aşağıdaki tabloda sayaçlarla.
 
-| Nesne Adı | Sayaç adı |
+| Nesne Adı | Sayaç Adı |
 |:--|:--|
 | MySQL Veritabanı | Disk alanı bayt |
 | MySQL Veritabanı | Tablolar |
@@ -152,7 +153,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 Günlük analizi veri göndermek Linux için OMS aracısının yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Windows ve Linux performans veri kaynaklarında günlük analizi](log-analytics-data-sources-windows-events.md) aşağıdaki tabloda sayaçlarla.
 
-| Nesne Adı | Sayaç adı |
+| Nesne Adı | Sayaç Adı |
 |:--|:--|
 | Apache HTTP Server | Meşgul çalışanların |
 | Apache HTTP Server | Boşta çalışan |

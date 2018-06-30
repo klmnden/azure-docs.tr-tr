@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 9c4b16ec11d1990de687014c5385314f0e0c602a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: na
+ms.openlocfilehash: 47158d0c2b5a80ceae25b275836d45b63db50ff4
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30238401"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127051"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Günlük analizi Azure anahtar kasası Analytics çözümde
 
@@ -113,14 +114,14 @@ Azure anahtar kasası çözüm türünü içeren kayıtları çözümler **KeyVa
 | httpStatusCode_d |İstek tarafından döndürülen HTTP durum kodu (örneğin, *200*) |
 | id_s |İsteğin benzersiz kimliği |
 | identity_claim_appid_g | Uygulama kimliği için GUID |
-| OperationName |Açıklandığı gibi işlemin adı [Azure anahtar kasası günlüğü](../key-vault/key-vault-logging.md) |
+| operationName |Açıklandığı gibi işlemin adı [Azure anahtar kasası günlüğü](../key-vault/key-vault-logging.md) |
 | OperationVersion |İstemci tarafından istenen REST API sürümü (örneğin *2015-06-01*) |
 | requestUri_s |İsteğin URI'si |
 | Kaynak |Anahtar kasasının adı |
 | ResourceGroup |Anahtar kasasının kaynak grubu |
 | ResourceId |Azure Resource Manager Kaynak Kimliği. Anahtar kasası günlükleri için bu anahtar kasası kaynak kimliğidir. |
-| ResourceProvider |*MICROSOFT.KEYVAULT* |
-| ResourceType | *VAULTS* |
+| ResourceProvider |*MICROSOFT. KEYVAULT* |
+| ResourceType | *KASALARI* |
 | ResultSignature |HTTP durumu (örneğin, *Tamam*) |
 | ResultType |REST API isteğinin sonucunu (örneğin, *başarı*) |
 | SubscriptionId |Anahtar kasası içeren abonelik Azure abonelik kimliği |

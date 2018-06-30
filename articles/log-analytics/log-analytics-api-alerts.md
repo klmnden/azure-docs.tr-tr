@@ -4,23 +4,23 @@ description: Günlük analizi uyarı REST API, bu yer Operations Management Suit
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6987900ac2ef535fe31d4d1ecadb1a302a9c0be
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 9097ca13bf4f65db4b0924044a9c0f075e3703af
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178540"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128903"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Oluşturma ve uyarı kurallarında günlük analizi REST API ile yönetme
 Günlük analizi uyarı REST API, uyarıları Operations Management Suite (OMS) oluşturma ve yönetme olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve çeşitli örnekler ayrıntıları sağlar.
@@ -137,7 +137,7 @@ Bir zamanlama tek bir uyarı eylemi olması gerekir.  Uyarı eylemleri bir veya 
 | Section | Açıklama | Kullanım |
 |:--- |:--- |:--- |
 | Eşik |Eylem çalıştırıldığında ölçütlerini.| Her uyarı için önce veya sonra Azure için genişletilir gereklidir. |
-| Önem Derecesi |Tetiklendiğinde uyarı sınıflandırmak için kullanılan etiket.| Her uyarı için önce veya sonra Azure için genişletilir gereklidir. |
+| Severity |Tetiklendiğinde uyarı sınıflandırmak için kullanılan etiket.| Her uyarı için önce veya sonra Azure için genişletilir gereklidir. |
 | Eylem Grupları |Azure burada gerekli eylemleri belirtilen, e-postalar, SMSs, sesli aramalar, Web Kancalarını, Otomasyon runbook'ları, ITSM bağlayıcılar, vb. gibi - ActionGroup kimlikleri.| Uyarılar için Azure genişletilmiş sonra gerekli|
 | Eylemleri Özelleştirin|Standart çıktı ActionGroup select eylemler için değiştirme| İsteğe bağlı her uyarı için kullanılabilir uyarılar için Azure genişletilmiş sonra. |
 | EmailNotification |Birden çok alıcıya posta gönderin. | Uyarılar için Azure genişlettiyseniz, gerekli değil|
@@ -147,7 +147,7 @@ Bir zamanlama tek bir uyarı eylemi olması gerekir.  Uyarı eylemleri bir veya 
 > [!NOTE]
 > 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları otomatik olarak Azure için genişletilir. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
 
-#### <a name="thresholds"></a>Eşikleri
+#### <a name="thresholds"></a>Eşikler
 Bir uyarı eylem tek bir eşik olması gerekir.  Kayıtlı arama sonuçlarını arama ile ilişkili bir eylem Eşikte eşleştiğinde, başka bir işlem bu uygulamada çalıştırılır.  Böylece eşikleri içermeyen diğer türleri Eylemler ile kullanılan bir eylem yalnızca bir eşik de içerebilir.
 
 Eşikleri aşağıdaki tabloda özelliklere sahip.
@@ -182,7 +182,7 @@ Put yöntemini var olan bir eylem kimliği ile bir zamanlama için bir eşik eyl
     $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
-#### <a name="severity"></a>Önem Derecesi
+#### <a name="severity"></a>Severity
 Günlük analizi uyarılarınızı kategoriye daha kolay yönetim ve değerlendirme izin vermek için sınıflandırmak sağlar. Tanımlanan uyarı önem derecesi: bilgi, uyarı ve kritik. Bunlar Azure Uyarıları ' normalleştirilmiş önem ölçeğini eşlenir:
 
 |Günlük analizi önem düzeyi  |Azure Uyarıları önem düzeyi  |

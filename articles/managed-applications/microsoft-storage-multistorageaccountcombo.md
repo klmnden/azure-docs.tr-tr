@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4ec5a97f8655c0b5b53dea129d4648a05f6ef85
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: f5fa81d53e1728e8f566a2a39aed8311828b20c7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261165"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108714"
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Microsoft.Storage.MultiStorageAccountCombo UI öğesi
-Ortak bir önek ile başlayan adlarla, birden çok depolama hesabı oluşturmak için denetimleri grubudur.
+Ortak bir önek ile başlayan adlarla birkaç depolama hesapları oluşturmak için denetimleri grubudur.
 
 ## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
 ![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
@@ -53,14 +53,14 @@ Ortak bir önek ile başlayan adlarla, birden çok depolama hesabı oluşturmak 
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- Değeri `defaultValue.prefix` depolama hesabı adları dizisini oluşturmak için bir veya daha fazla tamsayılar ile birleştirilir. Örneğin, varsa `defaultValue.prefix` olan **foobar** ve `count` olan **2**, ardından depolama hesabı adları **foobar1** ve **foobar2** oluşturulur. Oluşturulan depolama hesabı adları için benzersizlik otomatik olarak doğrulanır.
-- Depolama hesabı adları lexicographically temel alınarak oluşturulan `count`. Örneğin, varsa `count` 10'dur ve sonra depolama hesabı adları ile 2 basamaklı tamsayılar bitiş (01, 02, 03, vs.).
+- Değeri `defaultValue.prefix` depolama hesabı adları dizisini oluşturmak için bir veya daha fazla tamsayılar ile birleştirilir. Örneğin, varsa `defaultValue.prefix` olan **sa** ve `count` olan **2**, ardından depolama hesabı adları **sa1** ve **sa2** oluşturulur. Oluşturulan depolama hesabı adları için benzersizlik otomatik olarak doğrulanır.
+- Depolama hesabı adları lexicographically temel alınarak oluşturulan `count`. Örneğin, varsa `count` 10'dur ve sonra depolama hesabı adları iki basamaklı tamsayılar (01, 02, 03) ile bitmelidir.
 - İçin varsayılan değer `defaultValue.prefix` olan **null**ve `defaultValue.type` olan **Premium_LRS**.
-- Belirtilen olmayan herhangi bir türü `constraints.allowedTypes` gizlenir ve belirtilen olmayan herhangi bir türü `constraints.excludedTypes` gösterilir.
-`constraints.allowedTypes` ve `constraints.excludedTypes` hem isteğe bağlıdır, ancak aynı anda kullanılamaz.
+- Belirtilen olmayan herhangi bir türü `constraints.allowedTypes` gizlenir ve belirtilen olmayan herhangi bir türü `constraints.excludedTypes` gösterilir. `constraints.allowedTypes` ve `constraints.excludedTypes` hem isteğe bağlıdır, ancak aynı anda kullanılamaz.
 - Depolama hesabı adları oluşturuluyor yanı sıra `count` öğesi için uygun çarpanı ayarlamak için kullanılır. Statik bir değer gibi destekleyen **2**, veya gibi başka bir öğeden dinamik bir değer `[steps('step1').storageAccountCount]`. Varsayılan değer **1**.
 
 ## <a name="sample-output"></a>Örnek çıktı
+
 ```json
 {
   "prefix": "sa",

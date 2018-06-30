@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
-ms.openlocfilehash: 4e117aa734c551f76c3602f81e3e2ebc6aa9f337
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c7ef38e2f2edaf795d3d76706afd4aa09b3b6959
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355780"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110057"
 ---
 # <a name="application-dashboard"></a>Uygulama Panosu
 Uygulama Panosu uygulamanızın tek bir bakışta izlemenizi sağlar. **Pano** uygulama adı tıklayarak bir uygulama açtığınızda görüntüler **My uygulamaları** seçin sayfasında **Pano** üst panelinden. 
@@ -69,7 +69,7 @@ Grafikte görüntülemek için bir süre seçmek için:
 2. Listeden bir süre seçin ve sonra geri oku tıklatın ![Geri oku](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) Grafik görüntülemek için.
 
 ### <a name="key-usage"></a>Anahtar kullanımı
-Uygulamanın abonelik anahtarından tüketilen isabet sayısı. Abonelik anahtarları hakkında daha fazla bilgi için bkz: [HALUK anahtarlarında](luis-concept-keys.md). 
+Uygulama uç noktası anahtarından tüketilen isabet sayısı. Uç nokta anahtarları hakkında daha fazla bilgi için bkz: [HALUK anahtarlarında](luis-concept-keys.md). 
   
 ## <a name="intent-breakdown"></a>Hedefi dökümü
 **Hedefi çözümleme** etiketli utterances veya uç noktası isabet göre hedefleri dökümünü gösterir. Bu Özet Grafiği uygulamada her amacı göreceli önemini gösterir. Fare işaretçisini bir dilim geldiğinizde hedefi adı ve etiketli utterances/uç noktanın isabetli okuma sayısının toplam sayı bu sayıyı yüzdesini temsil ettiği bakın. 

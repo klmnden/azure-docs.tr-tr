@@ -4,22 +4,23 @@ description: Günlük analizi uyarı Yönetimi çözümünde tüm uyarılar, ort
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
-ms.service: operations-management-suite
+ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: eb61a48e8c479db4742d65187b202655f29b032d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30181206"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131056"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Uyarı Yönetimi çözümüne Azure günlük analizi
 
@@ -68,9 +69,9 @@ Tıklayın **uyarı Yönetimi** açmak için kutucuğa **uyarı Yönetimi** Pano
 
 | Sütun | Açıklama |
 |:--- |:--- |
-| Kritik uyarılar |Tüm Uyarıları önem derecesi Kritik Uyarı adına göre gruplandırılır.  Bu uyarı için tüm kayıtları döndürme günlük arama çalıştırmak için bir uyarı adı tıklayın. |
-| Uyarı bildirimleri |Tüm uyarıları uyarı adına göre gruplandırılmış uyarı önem derecesi.  Bu uyarı için tüm kayıtları döndürme günlük arama çalıştırmak için bir uyarı adı tıklayın. |
-| Etkin SCOM uyarıları |Tüm uyarıları Operations Manager'dan dışındaki herhangi bir durum ile toplanan *kapalı* uyarıyı oluşturan kaynağa göre gruplandırılan. |
+| Kritik Uyarılar |Tüm Uyarıları önem derecesi Kritik Uyarı adına göre gruplandırılır.  Bu uyarı için tüm kayıtları döndürme günlük arama çalıştırmak için bir uyarı adı tıklayın. |
+| Uyarı Bildirimleri |Tüm uyarıları uyarı adına göre gruplandırılmış uyarı önem derecesi.  Bu uyarı için tüm kayıtları döndürme günlük arama çalıştırmak için bir uyarı adı tıklayın. |
+| Etkin SCOM Uyarıları |Tüm uyarıları Operations Manager'dan dışındaki herhangi bir durum ile toplanan *kapalı* uyarıyı oluşturan kaynağa göre gruplandırılan. |
 | Tüm etkin uyarıları |Tüm uyarıları uyarı adına göre gruplandırılmış herhangi bir önem derecesi. Yalnızca Operations Manager uyarıları ile herhangi bir durum dışında içeren *kapalı*. |
 
 Sağa kaydırırsanız, Pano gerçekleştirmek için tıklatabilirsiniz birkaç genel sorgular listeler bir [günlük arama](log-analytics-log-searches.md) uyarı veriler için.
@@ -89,7 +90,7 @@ Uyarı yönetimi çözümü türüne sahip herhangi bir kaydının çözümler *
 | SourceSystem |*OpsManager* |
 | AlertContext |XML biçiminde oluşturulacak uyarıya neden veri öğesi ayrıntıları. |
 | AlertDescription |Uyarı ayrıntılı bir açıklaması. |
-| AlertId |Uyarı GUID. |
+| Alertıd |Uyarı GUID. |
 | AlertName |Uyarı adı. |
 | AlertPriority |Uyarı öncelik düzeyi. |
 | AlertSeverity |Uyarı önem derecesi. |
@@ -116,8 +117,8 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan uyarı kayıtları için �
 | Uyarı &#124; burada SourceSystem "OpsManager" ve AlertState ==! = "Kapalı" ve TimeRaised > ago(24h) &#124; sayısı özetlemek SourceDisplayName tarafından count() = |Son 24 saatte oluşturulan etkin uyarılara sahip kaynaklar |
 | Uyarı &#124; burada SourceSystem "OpsManager" ve AlertSeverity == "error" ve TimeRaised == > ago(24h) ve AlertState! "Kapalı" = |Son 24 hala etkin olan saatte oluşturulan kritik uyarılar |
 | Uyarı &#124; burada SourceSystem "OpsManager" ve TimeRaised == > ago(24h) ve AlertState "Kapalı" == |Son 24 şimdi kapatılan saatte oluşturulan uyarılar |
-| Uyarı &#124; burada SourceSystem "OpsManager" ve TimeRaised == > ago(1d) &#124; sayısı özetlemek AlertSeverity tarafından count() = |Önem derecesine göre gruplandırılmış son 1 gün sırasında oluşturulan uyarılar |
-| Uyarı &#124; burada SourceSystem "OpsManager" ve TimeRaised == > ago(1d) &#124; RepeatCount desc göre sırala |Yineleme sayısına göre sıralanmış son 1 gün sırasında oluşturulan uyarılar |
+| Uyarı &#124; burada SourceSystem "OpsManager" ve TimeRaised == > ago(1d) &#124; sayısı özetlemek AlertSeverity tarafından count() = |Önem derecesine göre gruplandırılmış halde, son 1 günde oluşturulan uyarılar |
+| Uyarı &#124; burada SourceSystem "OpsManager" ve TimeRaised == > ago(1d) &#124; RepeatCount desc göre sırala |Yineleme sayısına göre sıralanmış halde, son 1 günde oluşturulan uyarılar |
 
 
 

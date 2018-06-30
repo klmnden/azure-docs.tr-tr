@@ -88,5 +88,30 @@ Kullanılabilirlik grubu dinleyicisi SQL Server kullanılabilirlik grubu dinledi
 
     b. Küme düğümlerinden birinin PowerShell betiğini çalıştırarak küme parametreleri ayarlayın.  
 
+WSFC küme IP adresi kümesi parametrelerini ayarlamak için yukarıdaki adımları yineleyin.
+
+1. WSFC küme IP adresi IP adresi adını alın. İçinde **yük devretme kümesi Yöneticisi** altında **küme çekirdek kaynakları**, bulun **sunucu adı**.
+
+1. Sağ **IP adresi**seçip **özellikleri**.
+
+1. Kopya **adı** IP adresi. Bu olabilir `Cluster IP Address`. 
+
+1. <a name="setwsfcparam"></a>Küme parametreleri PowerShell'de ayarlayın.
+    
+    a. Aşağıdaki PowerShell komut dosyası, SQL Server örnekleri birine kopyalayın. Değişkenleri ortamınız için güncelleştirin.     
+    
+    ```PowerShell
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+    $ILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+    [int]$ProbePort = <nnnnn>
+    
+    Import-Module FailoverClusters
+    
+    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    ```
+
+    b. Küme düğümlerinden birinin PowerShell betiğini çalıştırarak küme parametreleri ayarlayın.  
+
     > [!NOTE]
     > SQL Server örnekleri farklı bölgelerde bulunuyorsa, PowerShell Betiği iki kez çalıştırmanız gerekir. İlk kez kullanmak `$ILBIP` ve `$ProbePort` ilk bölgesinden. İkinci kez kullanmak `$ILBIP` ve `$ProbePort` ikinci bölgesinden. Küme ağ adı ve küme IP kaynak adı aynıdır. 

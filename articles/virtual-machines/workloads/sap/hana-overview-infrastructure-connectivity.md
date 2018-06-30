@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4741cf306aed1c86be1bc4b54fb961383e2f70bd
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4c0f5d0c5ed3814495a68d7fd49d41cec521bbd7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763774"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114567"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>SAP HANA (büyük örnekler) altyapısı ve Azure ile ilgili bağlantı 
 
@@ -129,9 +129,9 @@ Biz zaten HANA büyük örnekleri önceki bölümlerde dağıtmak için gereken 
    - VPN ve yüksek performanslı ExpressRoute ağ geçidi kullanarak ExpressRoute ile birlikte bulunma (veya daha küçük): / 27 adres bloğu
    - Diğer durumlarda: / 28 adres bloğu. Bu adres aralığı "VNet adres alanı" değerler kullanılan değerleri bir parçası olması gerekir. Bu adres aralığı Microsoft'a göndermek için gereken Azure VNet adres alanı değerleri kullanılan değerleri bir parçası olması gerekir. Bu IP adresi aralığı almak nasıl? Şirket ağı takım ya da hizmet sağlayıcısı, ağınızda kullanılan olmayan bir IP adresi aralığı sağlamalıdır. 
 
-- **Adres aralığı ER P2P bağlantısını:** bu aralıktaki IP SAP HANA büyük örneği ExpressRoute (ER) P2P bağlantınızı arasındadır. Bu IP adresi aralığı/29 olmalıdır CIDR IP adresi aralığı. Bu aralık, şirket içi veya başka bir Azure IP adres aralıklarını çakışmaması gerekir. Bu IP adresi aralığı, Azure sanal ağ ExpressRoute ağ geçidi SAP HANA büyük örnek sunucuları ile arasındaki ER bağlantı kurmak için kullanılır. Bu IP adresi aralığı almak nasıl? Şirket ağı takım ya da hizmet sağlayıcısı, ağınızda kullanılan olmayan bir IP adresi aralığı sağlamalıdır. **Bu aralığı ilk bir dağıtım için isterken Microsoft'a gönderilmesi gereken bir IP adresi aralığı**
+- **Adres aralığı ER P2P bağlantısını:** bu aralıktaki IP SAP HANA büyük örneği ExpressRoute (ER) P2P bağlantınızı arasındadır. Bu IP adresi aralığı/29 olmalıdır CIDR IP adresi aralığı. Bu aralık, şirket içi veya diğer Azure IP adres aralıklarını çakışmaması gerekir. Bu IP adresi aralığı, Azure sanal ağ ExpressRoute ağ geçidi SAP HANA büyük örnek sunucuları ile arasındaki ER bağlantı kurmak için kullanılır. Bu IP adresi aralığı almak nasıl? Şirket ağı takım ya da hizmet sağlayıcısı, ağınızda kullanılan olmayan bir IP adresi aralığı sağlamalıdır. **Bu aralığı ilk bir dağıtım için isterken Microsoft'a gönderilmesi gereken bir IP adresi aralığı**
   
-- **Sunucu IP havuzu adres aralığı:** bu IP adresi aralığı HANA büyük örnek sunucuları tek tek IP adresi atamak için kullanılır. Bir/24 önerilen alt boyutudur CIDR engelle -, ancak olabilir daha küçük bir en düşük düzeyde 64 IP adresleri sağlama. Bu aralıktan, ilk 30 IP adresleri Microsoft tarafından kullanılmak üzere ayrılmış. Bu olgu için bir aralığı boyutu seçerken eklendiğinden emin olun. Bu aralık, şirket içi veya başka bir Azure IP adresleri çakışmaması gerekir. Bu IP adresi aralığı almak nasıl? Şirket ağı takım ya da hizmet sağlayıcısı, ağınızda kullanılan olmayan bir IP adresi aralığı sağlamalıdır. Bir/24, SAP HANA azure'da (büyük örnekler) için gereken belirli IP adresleri atamak için kullanılacak (benzersiz CIDR önerilir) engelleyin. **Bu aralığı ilk bir dağıtım için isterken Microsoft'a gönderilmesi gereken bir IP adresi aralığı**
+- **Sunucu IP havuzu adres aralığı:** bu IP adresi aralığı HANA büyük örnek sunucuları tek tek IP adresi atamak için kullanılır. Bir/24 önerilen alt boyutudur CIDR engelle -, ancak olabilir daha küçük bir en düşük düzeyde 64 IP adresleri sağlama. Bu aralıktan, ilk 30 IP adresleri Microsoft tarafından kullanılmak üzere ayrılmış. Bu olgu için bir aralığı boyutu seçerken eklendiğinden emin olun. Bu aralık, şirket içi veya diğer Azure IP adresleri çakışmaması gerekir. Bu IP adresi aralığı almak nasıl? Şirket ağı takım ya da hizmet sağlayıcısı, ağınızda kullanılan olmayan bir IP adresi aralığı sağlamalıdır. Bir/24, SAP HANA azure'da (büyük örnekler) için gereken belirli IP adresleri atamak için kullanılacak (benzersiz CIDR önerilir) engelleyin. **Bu aralığı ilk bir dağıtım için isterken Microsoft'a gönderilmesi gereken bir IP adresi aralığı**
  
 Yukarıdaki IP adres aralıklarını planlama ve tanımlamak gereken ancak bunları tüm Microsoft'a iletilmesi gerekir. Yukarıdaki özetlemek için Microsoft'a adı için gereken IP adresi aralıklarını şunlardır:
 

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 12a63e65a739be08d436f8f1b53df566255b1fb1
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: ad5ef58536bb6cc7f2c754f2e5c4487a3ffe96f2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36322061"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112835"
 ---
 # <a name="publish-your-trained-app"></a>Eğitilmiş uygulamanızı yayınlama
 Derleme ve HALUK uygulamanızı test etme tamamladığınızda, yayımlayın. Uygulama yayımlandıktan sonra ilişkili tüm HTTP Yayımla Sayfası gösterilir [uç noktaları](luis-glossary.md#endpoint). Bu uç noktalar başına [bölge](luis-reference-regions.md) ve başına [anahtar](Manage-Keys.md), ardından herhangi bir istemci, chatbot veya arka uç uygulama tümleştirilmiştir. 
@@ -48,7 +48,7 @@ Düşünceleri analiz JSON bitiş noktası Yanıtla hakkında daha fazla bilgi i
 Bu özellik etkinleştirildikten sonra uygulamanızı yayımlayın. HALUK uygulamanızı yayımladığınızda, uygulama modeli konuşma hizmet hazırlamak için kendi konuşma hizmetine gönderilir. Model bilgilerinizin olduğundan **değil** dışında kendi hizmet kullanılır. 
 
 Konuşma Hazırlama işlemi kullanımını tamamlamak için kullanmak için aşağıdaki bilgiler gereklidir. [konuşma SDK](../speech-service/speech-sdk-reference.md):
-* HALUK abonelik anahtarı.
+* HALUK uç noktası anahtarı.
 * HALUK uygulama kimliği.
 * Bir uç nokta etki alanı olarak bilinir konuşma SDK'sındaki "ana bilgisayar adı" "westus.api.cognitive.microsoft.com gibi" ilk alt etki alanı burada uygulama yayımlanan bölge olduğu.
 
@@ -129,7 +129,7 @@ Bu tabloyu kolaylıkla yayımlama rota seçenekleri ve sorgu dize değerleri ile
 
 URL rota bölge ve bir uygulama kimliği ile oluşturulur Başka bölgelerde veya diğer uygulamalarla yayımlıyorsa, uç nokta URL'si bölge ve uygulama kimliği değerleri değiştirerek oluşturulabilir. 
 
-* Üretim yuvasına seçin ve **Yayımla** düğmesi. Yayımlama başarılı olduğunda HALUK uygulamanıza erişmek için görüntülenen uç nokta URL'sini kullanın. 
+* Production (Üretim) yuvasını ve ardından **Publish** (Yayımla) düğmesini seçin. Yayımlama başarılı olduğunda HALUK uygulamanıza erişmek için görüntülenen uç nokta URL'sini kullanın. 
 
 ### <a name="optional-query-string-parameters"></a>İsteğe bağlı sorgu dizesi parametreleri
 Aşağıdaki sorgu dizesi parametreleri uç nokta URL'si ile kullanılabilir:

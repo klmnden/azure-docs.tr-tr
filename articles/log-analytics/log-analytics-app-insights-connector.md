@@ -3,7 +3,7 @@ title: Azure Application Insights uygulama verileri görüntüleme | Microsoft D
 description: Performans sorunlarını tanılamak ve Application Insights ile izlenen uygulamanızla kullanıcıların ne anlamak için uygulama Öngörüler Bağlayıcısı çözüm kullanabilirsiniz.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -11,19 +11,23 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2017
+ms.topic: conceptual
+ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 854ec70c897b6a561fdec056228f82ccec3ae16c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 2312b0ed51be7079da3e53b27c269adfb761044d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186242"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131635"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Uygulama Öngörüler Bağlayıcısı yönetim çözümü (Önizleme)
 
 ![Uygulama Öngörüler simgesi](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
+
+>[!NOTE]
+> Desteği ile [arası kaynak sorgularını](log-analytics-cross-workspace-search.md), Application Insights Bağlayıcısı yönetim çözümü artık gerekli değildir ve kullanım dışı kalacaktır. Temmuz başlayarak, siz yeni Application Insights kaynaklar için günlük analizi çalışma alanları bağlamak mümkün olmaz. Varolan bağlantıları ve panolarını Kasım 2018 kadar çalışmaya devam eder. Daha fazla bilgi için bkz: [Azure'a taşıma OMS portalı](log-analytics-oms-portal-transition.md).
 
 Uygulamaları Öngörüler Bağlayıcısı çözüm, performans sorunlarını tanılamak ve ile izlenen kullanıcılar ile uygulamanızı ne anlamanıza yardımcı olur [Application Insights](../application-insights/app-insights-overview.md). Application Insights'ta geliştiriciler bkz aynı uygulama telemetri görünümlerini günlük analizi içinde kullanılabilir. Ancak, Application Insights uygulamalarınızı günlük analizi ile tümleştirdiğinizde, uygulamalarınızı görünürlüğünü işlemi ve uygulama verilerini tek bir yerde sağlayarak artar. Aynı görünümleri olan, uygulama geliştiricilerine işbirliği yardımcı olur. Sık kullanılan görünümleri algılamak ve uygulama ve platform sorunları gidermek için zaman azaltmaya yardımcı olabilir.
 
@@ -83,7 +87,7 @@ Tıklatın **Application Insights** açmak için kutucuğa **Application Insight
 
 ![Uygulama öngörüleri Panosu](./media/log-analytics-app-insights-connector/app-insights-dash02.png)
 
-Pano tabloda gösterilen Kanatlar içerir. Her dikey penceresinde belirtilen kapsam ve zaman aralığı için o dikey 's ölçütlerle eşleşen en fazla 10 öğeleri listeler. Tüm kayıtları tıkladığınızda döndüren bir günlük arama çalıştırabilirsiniz **tümünü görmek** alt dikey veya dikey başlığını tıklatın.
+Pano tabloda gösterilen Kanatlar içerir. Her dikey pencerede, dikey pencerenin belirtilen kapsam ve zaman aralığına yönelik ölçütleriyle eşleşen en fazla 10 öğe listelenir. Tüm kayıtları tıkladığınızda döndüren bir günlük arama çalıştırabilirsiniz **tümünü görmek** alt dikey veya dikey başlığını tıklatın.
 
 [!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
@@ -137,7 +141,7 @@ Uygulama Öngörüler Bağlayıcısı Kanatlar, seçili Application Insights uyg
 >[!NOTE]
 >**Application Insights Aç** Azure portalında kullanılamaz.
 
-![Application Insights Aç](./media/log-analytics-app-insights-connector/open-in-app-insights.png)
+![Application Insights'ta aç](./media/log-analytics-app-insights-connector/open-in-app-insights.png)
 
 ### <a name="sample-corrected-data"></a>Veri örnek düzeltildi
 
@@ -153,7 +157,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 Örnekleme uygulamanızı oluşturur girişleri yalnızca toplam sayısını etkiler. Ölçüm alanları örnekleme gidermek gerekmeyen **RequestDuration** veya **AvailabilityDuration** ortalama gösterilen girişleri için bu alanları göstermek için.
 
-## <a name="input-data"></a>Giriş verisi
+## <a name="input-data"></a>Giriş verileri
 
 Çözüm, aşağıdaki veri telemetri türlerini bağlı Application Insights uygulamalardan alır:
 
@@ -175,7 +179,7 @@ Bir kayıtla bir *türü* , *Applicationınsights* her giriş veri türü için 
 | --- | --- |
 | Tür | ApplicationInsights |
 | ClientIP |   |
-| TimeGenerated | Kayıt zamanı |
+| TimeGenerated | Kaydın zamanı |
 | ApplicationId | Application Insights uygulamasının izleme anahtarı |
 | ApplicationName | Application Insights adını uygulama |
 | RoleInstance | Sunucu ana bilgisayar kimliği |
@@ -189,9 +193,9 @@ Bir kayıtla bir *türü* , *Applicationınsights* her giriş veri türü için 
 | SamplingRate | Portala gönderilen SDK'sı tarafından oluşturulan telemetri yüzdesi. 0,0 100.0 aralığı. |
 | SampledCount | 100/(SamplingRate). Örneğin, 4 =&gt; % 25 |
 | IsAuthenticated | True veya false |
-| OperationID | Kimliği ilgili öğeler Portalı'nda gösterilen aynı işlemi sahip öğeler. Genellikle istek kimliği |
+| Operationıd | Kimliği ilgili öğeler Portalı'nda gösterilen aynı işlemi sahip öğeler. Genellikle istek kimliği |
 | ParentOperationID | Üst işlem kimliği |
-| OperationName |   |
+| operationName |   |
 | SessionID | İstek oluşturulduğu oturumunu benzersiz şekilde tanımlamak için GUID |
 | SourceSystem | ApplicationInsights |
 

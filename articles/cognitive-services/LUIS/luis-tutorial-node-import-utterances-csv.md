@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 09c9d4da835b7b30fd132770f9d13b33fa80a3f5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: e97dc184266bc9518ee5f909891bd97f7c71804b
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268333"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113066"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Program aracılığıyla Node.js kullanarak HALUK uygulaması oluşturma
 
@@ -111,7 +111,7 @@ Node.js bağımlılıkları NPM terminal/komut satırında yükleyin.
 ````
 
 ### <a name="change-configuration-settings"></a>Yapılandırma ayarlarını değiştirme
-Bu uygulamayı kullanmak için index.js dosyasındaki değerleri kendi abonelik anahtarınızı değiştirmek ve uygulamanızın sahip olmasını istediğiniz adı sağlamanız gerekir. Ayrıca, uygulamanın kültür ayarlayın veya sürüm numarasını değiştirin.
+Bu uygulamayı kullanmak için index.js dosyasındaki değerleri kendi uç noktası anahtarı değiştirmek ve uygulamanızın sahip olmasını istediğiniz adı sağlamanız gerekir. Ayrıca, uygulamanın kültür ayarlayın veya sürüm numarasını değiştirin.
 
 İndex.js dosyasını açın ve dosyanın üst bu değerleri değiştirin.
 
@@ -176,10 +176,10 @@ Komut dosyası tamamlandıktan sonra oturum açabildiğinizden [HALUK] [ LUIS] v
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 Bu örnek uygulama aşağıdaki HALUK API'lerini kullanır:
-- [Uygulama oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
-- [Hedefleri Ekle](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
+- [uygulama oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
+- [hedefleri Ekle](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
 - [Varlıklar ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
-- [Utterances Ekle](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
+- [utterances Ekle](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 

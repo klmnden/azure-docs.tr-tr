@@ -3,7 +3,7 @@ title: Ortamınızı Azure günlük analizi ile veri toplamak | Microsoft Docs
 description: Bu konu, veri toplamak ve şirket içi veya başka bir bulut ortamında günlük analizi ile barındırılan bilgisayarları izlemek nasıl anlamanıza yardımcı olur.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 5bf1e12c958fef0cb20eaad8cece8cadb380c196
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: na
+ms.openlocfilehash: a13c83fc0d35be1aec87cb5f2d2b19b0bf27f1bf
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235949"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133127"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Günlük analizi ile ortamınızdaki bilgisayarlardan veri toplama
 
@@ -96,7 +97,7 @@ Linux aracısı için proxy sunucusu yüklemesi sırasında belirtilir veya [yü
 Örneğin, `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Gibi özel karakterleri kullanırsanız, "@", parolanızı değeri yanlış ayrıştırılır çünkü bir proxy bağlantı hatası alıyorsunuz.  Bu sorunu çözmek için bir aracı gibi kullanarak URL Parolada kodlamak [URLDecode](https://www.urldecoder.org/).  
+> Gibi özel karakterleri kullanırsanız, "\@" parolanızı, değer yanlış ayrıştırılır çünkü bir proxy bağlantı hatası alıyorsunuz.  Bu sorunu çözmek için bir aracı gibi kullanarak URL Parolada kodlamak [URLDecode](https://www.urldecoder.org/).  
 
 ## <a name="install-and-configure-agent"></a>Yükleme ve aracı yapılandırma 
 Şirket içi bilgisayarları doğrudan Log Analytics'e ile bağlanma, gereksinimlerinize bağlı olarak farklı yöntemler kullanılarak gerçekleştirilebilir. Aşağıdaki tabloda, kuruluşunuzda en iyi çalıştığı belirlemek için her bir yöntemi vurgular.

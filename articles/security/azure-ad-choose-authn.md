@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 7e2eb9bad8c95e61d5b750cacd0724fc2536f2c5
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 01b76ea902ec92f8ab32bc00cff27b1b890ce9ff
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294118"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113111"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory karma kimlik çözümü için uygun kimlik doğrulama yöntemini seçin 
 
@@ -159,7 +159,7 @@ Aşağıdaki diyagramlarda, Azure AD karma kimlik çözümü ile kullandığın�
 |Değerlendirme|Parola karma eşitlemesi + sorunsuz SSO|Doğrudan kimlik doğrulama + sorunsuz SSO|AD FS ile Federasyon|
 |:-----|:-----|:-----|:-----|
 |Kimlik doğrulama burada oluşuyor?|Bulutta|Güvenli parola doğrulaması exchange şirket içi kimlik doğrulama Aracısı ile sonra bulutta|Şirket içi|
-|Hazırlama sisteminin ötesine şirket içi sunucu gereksinimleri nelerdir: Azure AD Connect?|None|Her ek kimlik doğrulama aracısı için bir sunucu|İki veya daha fazla AD FS sunucuları<br><br>Çevre/çevre ağında iki veya daha fazla WAP sunucuları|
+|Sağlama sistem ötesinde şirket içi sunucu gereksinimleri nelerdir: Azure AD Connect?|None|Her ek kimlik doğrulama aracısı için bir sunucu|İki veya daha fazla AD FS sunucuları<br><br>Çevre/çevre ağında iki veya daha fazla WAP sunucuları|
 |Sağlama sistem ötesinde ağ ve şirket içi Internet için gereksinimler nelerdir?|None|[Giden Internet erişimi](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start) sunucularından kimlik doğrulama aracılar çalışan|[Internet erişimi gelen](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-requirements) çevredeki WAP sunucuları<br><br>AD FS sunucuları çevredeki WAP sunucularından gelen ağ erişimi<br><br>Ağ Yükü Dengeleme|
 |Bir SSL sertifikası gereksinimi var mı?|Hayır|Hayır|Evet|
 |Bir sistem durumu izleme çözümü var mı?|Gerekli değil|Aracı durumu tarafından sağlanan [Azure Active Directory Yönetim Merkezi](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/en-us/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs)|

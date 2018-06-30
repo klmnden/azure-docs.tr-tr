@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be79f0111cb569509cb05b24c99f86d4ca9534b0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 54b2cab2ad6b1a22d35fcf0755f257063573e58b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064058"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128631"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Karma Runbook çalışanı kullanarak veri merkezi veya Bulut kaynakları otomatikleştirme
 
@@ -95,7 +95,7 @@ Bir grubu kaldırmak için ilk karma Runbook çalışanı grubunun bir üyesi da
 
 ### <a name="hybrid-worker-role"></a>Karma çalışanı rolü
 
-Karma Runbook bağlanmak ve günlük analizi ile kaydetmek çalışan için bağlantı noktası numarasını ve bu bölümde açıklanan URL'lere erişimi olmalıdır. Ek olarak bu erişimi olan [bağlantı noktaları ve Microsoft Monitoring Agent için gereken URL'leri](../log-analytics/log-analytics-agent-windows.md) günlük Analizi'ne bağlanmak için.
+Karma Runbook bağlanmak ve günlük analizi ile kaydetmek çalışan için bağlantı noktası numarasını ve bu bölümde açıklanan URL'lere erişimi olmalıdır. Ek olarak bu erişimi olan [bağlantı noktaları ve Microsoft Monitoring Agent için gereken URL'leri](../log-analytics/log-analytics-agent-windows.md) günlük Analizi'ne bağlanmak için. 
 
 Günlük analizi hizmeti ile aracı arasındaki iletişim için bir proxy sunucu kullanıyorsanız, uygun kaynaklara erişilebilir olduğundan emin olun. İnternet'e erişimi kısıtlamak için bir güvenlik duvarı kullanıyorsanız, erişimine izin vermek için güvenlik duvarını yapılandırmanız gerekir.
 
@@ -105,6 +105,8 @@ Aşağıdaki bağlantı noktası ve URL'leri otomasyon ile iletişim kurmak karm
 * Genel URL'si: *.azure-automation.net
 * ABD kamu Virginia genel URL'sini: *.azure automation.us
 * Aracı hizmeti: https://\<Workspaceıd\>.agentsvc.azure-automation.net
+
+Özel durumlar tanımlarken listelenen adresler kullanılması önerilir. IP adreslerinin indirebilirsiniz [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Bu dosya, haftalık olarak güncelleştirilen ve şu anda dağıtılmış aralıklarını ve IP aralıklarını yaklaşan değişiklikleri yansıtır.
 
 Belirli bir bölge için tanımlanmış bir Otomasyon hesabınız varsa, o bölgesel veri merkezine iletişimi kısıtlayabilirsiniz. Aşağıdaki tabloda, her bölge için DNS kaydı sağlar:
 

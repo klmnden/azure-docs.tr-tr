@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0813e0f6b51c747d033ca2c44aed21cf94c32000
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895343"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113036"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure Gelişmiş tehdit algılama
 ## <a name="introduction"></a>Giriş
@@ -42,7 +42,7 @@ Ne zaman kuruluş verilerinizin korunmasına ve güvenlik ve sistem geçici idar
 
 Azure altyapısı tesisten uygulamalara kadar milyonlarca müşteriye aynı anda hizmet verecek şekilde tasarlanmıştır ve işletmelerin güvenlik ihtiyaçlarını karşılayabilecek güvenilir bir temel sunar. Azure çok çeşitli yapılandırmak ve güvenlik, uygulama dağıtımları gereksinimlerini karşılamak için özelleştirmek için seçenekler sağlar. Bu belge, bu gereksinimleri karşılayan yardımcı olur.
 
-### <a name="abstract"></a>Soyut
+### <a name="abstract"></a>Özet
 
 Microsoft Azure teklifleri Hizmetleri aracılığıyla Gelişmiş tehdit algılama işlevselliği yerleşik Azure Active Directory, Azure Operations Management Suite (OMS) ve Azure Güvenlik Merkezi gibi. Bu koleksiyon güvenlik hizmetlerini ve özellikleri Azure dağıtımlarınızı içinde neler olduğunu anlamak için basit ve hızlı bir yol sağlar.
 
@@ -420,7 +420,7 @@ Web uygulaması güvenlik duvarı gelen web trafiği ve blokları SQL eklemeleri
 
 Web uygulaması güvenlik duvarı Azure Market yerinde kullanılabilir örneği aşağıda verilmiştir:
 
-[Barracuda Web uygulaması güvenlik duvarı, Brocade sanal Web uygulaması Güvenlik Duvarı (Brocade vWAF), Imperva SecureSphere ve ThreatSTOP IP Güvenlik Duvarı.](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)
+[Barracuda Web uygulaması güvenlik duvarı, Brocade sanal Web uygulaması Güvenlik Duvarı (Brocade vWAF), Imperva SecureSphere ve ThreatSTOP IP Güvenlik Duvarı.](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

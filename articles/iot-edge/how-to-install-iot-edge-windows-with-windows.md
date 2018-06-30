@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 0ab70de83c36ec3048d9bbf74e5a315026f02b85
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 1ae51d948fdaa5654c59549d384b784f0e87dcc3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036835"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112628"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Windows kapsayıcılarını ile kullanmak için Windows Azure IOT kenar çalışma zamanı yükleme
 
@@ -89,15 +89,37 @@ Windows Registry Editor Version 5.00
 
 ## <a name="configure-the-azure-iot-edge-security-daemon"></a>Azure IOT kenar güvenlik arka plan programı yapılandırın
 
-Arka plan programı, yapılandırma dosyasından kullanılarak yapılandırılabilir `C:\ProgramData\iotedge\config.yaml` sınır cihazı yapılandırılabilir <!--[automatically via Device Provisioning Service][lnk-dps] or--> el ile kullanarak bir [cihaz bağlantı dizesi][lnk-dcs].
+Arka plan programı, yapılandırma dosyasından kullanılarak yapılandırılabilir `C:\ProgramData\iotedge\config.yaml`.
 
-El ile yapılandırma için aygıt bağlantı dizesinde girin **sağlama:** bölümünü **config.yaml**
+Sınır cihazı kullanarak el ile yapılandırılabilir bir [cihaz bağlantı dizesi] [ lnk-dcs] veya [aygıtı sağlama hizmeti aracılığıyla otomatik olarak] [ lnk-dps].
 
-```yaml
-provisioning:
-  source: "manual"
-  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-```
+* El ile yapılandırma için açıklamadan çıkarın **el ile** sağlama modu. Değerini güncelleştirmek **device_connection_string** IOT kenar cihazınızdan bağlantı dizesiyle.
+
+   ```yaml
+   provisioning:
+     source: "manual"
+     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   # provisioning: 
+   #   source: "dps"
+   #   global_endpoint: "https://global.azure-devices-provisioning.net"
+   #   scope_id: "{scope_id}"
+   #   registration_id: "{registration_id}"
+   ```
+
+* Otomatik yapılandırma için açıklamadan çıkarın **dps** sağlama modu. Değerlerini güncelleştirin **scope_id** ve **registration_id** IOT Hub DPS örneğinizi ve IOT kenar cihazınızla TPM değerlerle. 
+
+   ```yaml
+   # provisioning:
+   #   source: "manual"
+   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   provisioning: 
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "{scope_id}"
+     registration_id: "{registration_id}"
+   ```
 
 Edge kullanarak cihaz adı alınmaya `hostname` komutu PowerShell'de ve değeri olarak ayarlamak **ana bilgisayar adı:** yapılandırma yaml içinde. Örneğin:
 
@@ -158,6 +180,8 @@ Start-Service iotedge
 
 ## <a name="verify-successful-installation"></a>Yüklemenin başarılı olduğunu doğrulamak
 
+Kullandıysanız **el ile yapılandırma** önceki bölümdeki adımları, IOT kenar çalışma zamanı başarıyla sağlandı ve aygıtınızda çalışıyor olmalıdır. Kullandıysanız **otomatik yapılandırma** adımları yeniden çalışma zamanı sizin adınıza IOT hub'ınızı ile Cihazınızı kaydetmek için bazı ek adımlar tamamlanması gerekiyor. Sonraki adımlar için bkz: [oluşturma ve sağlama benzetimli TPM sınır cihazı Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
+
 IOT kenar hizmetinin durumunu kontrol edebilirsiniz: 
 
 ```powershell
@@ -193,8 +217,8 @@ Düzgün checkout yükleme kenar çalışma zamanı sorunları yaşıyorsanız [
 
 <!-- Links -->
 [lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
-[lnk-dps]: how-to-simulate-dps-tpm.md
+[lnk-dcs]: how-to-register-device-portal.md
+[lnk-dps]: how-to-auto-provision-simulated-device-windows.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md

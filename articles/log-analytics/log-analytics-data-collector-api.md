@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/25/2018
+ms.topic: conceptual
+ms.date: 06/14/2018
 ms.author: bwren
-ms.openlocfilehash: 33b98c56cde8d4a876f217d0bbdd716d3a336260
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 1125cdb5b1cc6829345c71537582816d020edc53
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636741"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133119"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP veri toplayıcı API (genel Önizleme) ile günlük analizi veri Gönder
 Bu makalede HTTP veri toplayıcı API'sini bir REST API istemciden için günlük analizi veri göndermek için nasıl kullanılacağı gösterilmektedir.  Bu komut dosyası veya uygulama tarafından toplanan veri biçimi, bir istekte içerir ve günlük analizi tarafından yetkili bu istekte açıklar.  PowerShell, C# ve Python için örnekler verilmiştir.
@@ -60,7 +61,7 @@ HTTP veri toplayıcı API kullanmak için JavaScript nesne gösterimi (JSON) gö
 | Yetkilendirme |Yetkilendirme imzası. Makalenin sonraki bölümlerinde HMAC SHA256 üstbilgi oluşturma hakkında bilgi edinebilirsiniz. |
 | Günlük türü |Gönderiliyor veri kaydı türünü belirtin. Şu anda, yalnızca alfasayısal karakterler günlük türünü destekler. Sayısal türler veya özel karakterler desteklemez. Bu parametre için boyut sınırını 100 karakter olabilir. |
 | x-ms-date |İstek işlendi, RFC 1123 biçiminde tarih. |
-| saat oluşturulan alanı |Veri öğesinin zaman damgası içeren veri bir alanın adı. Bir alan belirtin sonra içeriği için kullanılan **TimeGenerated**. Null olmayabilir ve geçerli tarih saat içermesi gerekir. Bu alan belirtilmezse, varsayılan **TimeGenerated** ileti alınan saattir. Mesaj alanına içeriğini ISO 8601 biçimi YYYY izlemelisiniz-aa-: ssZ. |
+| saat oluşturulan alanı |Veri öğesinin zaman damgası içeren veri bir alanın adı. Bir alan belirtin sonra içeriği için kullanılan **TimeGenerated**. Bu alan belirtilmezse, varsayılan **TimeGenerated** ileti alınan saattir. Mesaj alanına içeriğini ISO 8601 biçimi YYYY izlemelisiniz-aa-: ssZ. |
 
 ## <a name="authorization"></a>Yetkilendirme
 Günlük analizi HTTP veri toplayıcı API için herhangi bir istek bir authorization üstbilgisi eklemeniz gerekir. Bir istek kimliğini doğrulamak için birincil veya ikincil anahtarı isteği yapan çalışma alanı için istekle imzalamanız gerekir. Daha sonra bu imza isteğin bir parçası geçirin.   
@@ -101,29 +102,33 @@ Sonraki bölümlerde bulunan örnekleri bir authorization üstbilgisi oluşturma
 İleti gövdesi JSON'de olması gerekir. Bu biçimde özelliği ad ve değer çiftleri ile bir veya daha fazla kayıt içermesi gerekir:
 
 ```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 Aşağıdaki biçimi kullanarak tek bir istekte birden çok kayıt toplu. Tüm kayıtları aynı kayıt türü olmalıdır.
 
 ```
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-},
-{
-"property1": "value1",
-" property 2": "value2"
-" property 3": "value3",
-" property 4": "value4"
-}
+[
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    },
+    {
+        "property 1": "value1",
+        "property 2": "value2",
+        "property 3": "value3",
+        "property 4": "value4"
+    }
+]
 ```
 
 ## <a name="record-type-and-properties"></a>Kayıt türü ve özellikleri
@@ -137,7 +142,7 @@ Bir özelliğin veri türünü tanımlamak için günlük analizi özellik adın
 |:--- |:--- |
 | Dize |_Yanları |
 | Boole |_B |
-| Çift |_D |
+| çift |_D |
 | Tarih/saat |_T |
 | GUID |_g |
 
@@ -382,7 +387,7 @@ namespace OIAPIExample
 
 ```
 
-### <a name="python-sample"></a>Python örneği
+### <a name="python-2-sample"></a>Python 2 örnek
 ```
 import json
 import requests

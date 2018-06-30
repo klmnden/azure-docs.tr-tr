@@ -2,25 +2,22 @@
 title: 'Azure Active Directory Connect: Sorunsuz çoklu oturum açma sorunlarını giderme | Microsoft Docs'
 description: Bu konu, Azure Active Directory sorunsuz çoklu oturum açma giderileceğini açıklar
 services: active-directory
-keywords: Azure AD, SSO, gerekli bileşenleri yükleme Active Directory, Azure AD Connect nedir çoklu oturum açma
-documentationcenter: ''
-author: swkrish
+author: billmath
+ms.reviewer: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 06/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 205df47c36cb1d6925e232f06c0f1355c40ae973
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4df60668f6b9aa0afb2203fa59788c47e2ffaefb
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592237"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110898"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma sorunlarını giderme
 
@@ -61,7 +58,7 @@ Gözat **Azure Active Directory** > **oturum açma işlemleri** içinde [Azure A
 
 |Oturum açma hata kodu|Oturum açma hatası nedeni|Çözüm
 | --- | --- | ---
-| 81001 | Kullanıcının Kerberos anahtarı fazla büyük. | Kullanıcı Grup üyeliklerini azaltın ve yeniden deneyin.
+| 81001 | Kullanıcının Kerberos anahtarı fazla büyük. | Kullanıcının grup üyeliklerini azaltın ve yeniden deneyin.
 | 81002 | Kullanıcının Kerberos anahtarı doğrulanamadı. | Bkz: [denetim listesi sorun giderme](#troubleshooting-checklist).
 | 81003 | Kullanıcının Kerberos anahtarı doğrulanamadı. | Bkz: [denetim listesi sorun giderme](#troubleshooting-checklist).
 | 81004 | Kerberos kimlik doğrulaması girişimi başarısız oldu. | Bkz: [denetim listesi sorun giderme](#troubleshooting-checklist).
@@ -84,6 +81,7 @@ Sorunsuz SSO sorunlarını gidermek için aşağıdaki denetim listesini kullan�
 - Kullanıcı hesabının sorunsuz SSO burada bırakıldı bir Active Directory ormanından kurulduğundan emin olun.
 - Cihazın şirket ağına bağlı olduğundan emin olun.
 - Cihazın zaman zaman Active Directory ve etki alanı denetleyicileri ile eşitlenir ve beş dakikalık olduklarından emin olun.
+- Emin `AZUREADSSOACCT` bilgisayar hesabının, etkin sorunsuz SSO istediğiniz her bir AD orman içinde mevcut ve etkin olduğunu. 
 - Cihazda mevcut Kerberos anahtarları kullanarak listesinde `klist` bir komut isteminden komutu. Çıkarılan biletleri emin `AZUREADSSOACCT` bilgisayar hesabı. Kullanıcıların Kerberos biletleri için 10 saat genellikle geçerlidir. Active Directory'de farklı ayarlara sahip olabilir.
 - Devre dışı ve sorunsuz SSO kiracınız üzerinde yeniden etkinleştirilirse, önbelleğe alınan Kerberos biletleri süresi dolmuş kadar kullanıcılar tekli oturum açma deneyimi alacak değil.
 - Mevcut Kerberos anahtarları kullanarak aygıttan Temizleme `klist purge` komut ve yeniden deneyin.

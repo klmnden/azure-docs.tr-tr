@@ -3,7 +3,7 @@ title: Toplamak ve günlük analizi içinde Azure etkinlik günlüklerini analiz
 description: Azure etkinlik günlükleri çözüm çözümlemek ve tüm Azure abonelikleri Azure etkinlik günlüğü aramak için kullanabilirsiniz.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: b6e823d9338d76a350569091d6794e3ac4a2eae9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: na
+ms.openlocfilehash: 0b05dc17fc7ba567bf633c25a080fbf56903935c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283393"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130335"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Toplamak ve günlük analizi içinde Azure etkinlik günlüklerini analiz edin
 
@@ -66,7 +67,7 @@ Diğer çoğu günlük analizi çözümleri, etkinlik günlükleri için aracıl
 
 Alanlarınızı etkinlik günlük analizi çözümü yapılandırmak için aşağıdaki adımları gerçekleştirin.
 
-1. Etkinlik günlük analizi çözümden etkinleştirmek [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) veya açıklanan işlemi kullanarak [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
+1. Etkinlik Günlüğü Analizi çözümünü [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview)'ten veya [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md) başlığı altında açıklanan işlemi kullanarak etkinleştirin.
 2. Günlük analizi çalışma alanına gidin, etkinlik günlükleri yapılandırın.
     1. Azure portalında çalışma alanınızı seçin ve ardından **Azure etkinlik günlüğü**.
     2. Her abonelik için abonelik adını tıklatın.  
@@ -85,11 +86,11 @@ Etkinlik günlüğü analiz çözümü, çalışma alanına eklediğinizde **Azu
 
 ### <a name="view-azure-activity-logs"></a>Görünüm Azure etkinliğini günlüğe kaydeder
 
-Tıklatın **Azure etkinlik günlükleri** açmak için kutucuğa **Azure etkinlik günlükleri** Pano. Pano Kanatlar aşağıdaki tabloda içerir. Her dikey penceresinde belirtilen kapsam ve zaman aralığı için o dikey 's ölçütlerle eşleşen en fazla 10 öğeleri listeler. Tıklayarak tüm kayıtları döndüren bir günlük arama çalıştırabilirsiniz **tümünü görmek** alt dikey veya dikey başlığını tıklatarak.
+Tıklatın **Azure etkinlik günlükleri** açmak için kutucuğa **Azure etkinlik günlükleri** Pano. Pano aşağıdaki tabloda gösterilen dikey pencereleri içerir. Her dikey pencerede, dikey pencerenin belirtilen kapsam ve zaman aralığına yönelik ölçütleriyle eşleşen en fazla 10 öğe listelenir. Dikey pencerenin altındaki **Tümünü göster**’e tıklayarak veya dikey pencere başlığına tıklayarak tüm kayıtları döndüren bir günlük araması yapabilirsiniz.
 
 Etkinlik günlüğü verileri yalnızca görünür *sonra* , daha önce verileri görüntüleyemezsiniz şekilde çözüme gitmek için etkinlik günlükleri yapılandırdığınız.
 
-| Dikey penceresi | Açıklama |
+| Dikey pencere | Açıklama |
 | --- | --- |
 | Azure etkinlik günlüğü girişleri | Çubuk grafik Azure etkinlik günlüğü girişi üst halinde seçtiğiniz tarih aralığını kayıt toplamlarını gösterir ve üst 10 etkinlik arayanlar listesini gösterir. Günlük aramasını çalıştırmak için çubuk grafiği tıklatın <code>AzureActivity</code>. Bu öğe için tüm etkinlik günlüğü girişleri döndüren bir günlük arama çalıştırmak için bir arayan öğesini tıklatın. |
 | Duruma göre etkinlik günlükleri | Azure etkinlik günlüğü durumu seçtiğiniz tarih aralığı için bir halka grafik gösterir. Ayrıca bir liste üst on durum kayıtların listesini gösterir. Günlük aramasını çalıştırmak için grafiği tıklatın <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Bu durum kaydı tüm etkinlik günlüğü girişlerini döndüren bir günlük arama çalıştırmak için bir durum öğesini tıklatın. |

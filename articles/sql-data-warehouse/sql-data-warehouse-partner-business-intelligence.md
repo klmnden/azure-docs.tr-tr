@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: a590e88420c712cb93989f0a8ea0255c949050ce
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 5ea201cf921514ad1438345695802a12c28bb44c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097419"
+ms.locfileid: "37131829"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL veri ambarı iş zekası ortakları
 Uçtan uca veri ambarı çözüm oluşturmak için çok çeşitli endüstri lideri araçları seçin.  Bu makalede, Azure SQL Data Warehouse destekleyen iş zekası (BI) çözümleri Microsoft iş ortağı şirketlerden vurgular.
@@ -79,7 +79,7 @@ Diğer ortaklarımızın bazıları hakkında daha fazla bilgi için bkz: [veri 
 [qlik_getstarted]:http://www.qlik.com/us/products/qlik-sense/getting-started
 
 <!--Datasheet Links-->
-<!--[birst_datasheet]:--> [clearstory_datasheet]:http://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf [dell_statistica_datasheet]:https://software.dell.com/documents/statistica-data-miner-datasheet-69284.pdf [dundas_bi_datasheet]:http://www.dundas.com/resource/getwhitepaper?whitePaperName=27-05-2016-Dundas-BI-Product-Brief-_-Embedded-Analytics%2FEckerson-Group-EBI-Report-DundasProduct-Brief.pdf [jinfonet_datasheet]:http://www.jinfonet.com/products/JReport%20Brief.pdf [logianalytics_datasheet]:https://www.logianalytics.com/datasheet/logi-info/ [looker_datasheet]:https://info.looker.com/h/i/229169578-looker-for-microsoft-azure <!--[qlik_datasheet]:http://www.qlik.com/en/resource-library/the-qlikview-product-family--> [ sisense_datasheet]:https://pages.sisense.com/rs/601-OXE-081/images/Product%20Highlights.pdf [tableau_datasheet]:http://www.tableau.com/stories/workbook/azure-sql-data <!--[targit_datasheet]:--> [yellowfin_datasheet]:http://www.yellowfinbi.com/Document.i4?DocumentId=877299
+<!--[birst_datasheet]:--> [clearstory_datasheet]:http://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf [dell_statistica_datasheet]:http://www.statsoft.com/Portals/0/Support/Download/Brochures/STATISTICA_Data_Miner.pdf [dundas_bi_datasheet]:http://www.dundas.com/resource/getwhitepaper?whitePaperName=27-05-2016-Dundas-BI-Product-Brief-_-Embedded-Analytics%2FEckerson-Group-EBI-Report-DundasProduct-Brief.pdf [jinfonet_datasheet]:http://www.jinfonet.com/products/JReport%20Brief.pdf [logianalytics_datasheet]:https://www.logianalytics.com/datasheet/logi-info/ [looker_datasheet]:https://info.looker.com/h/i/229169578-looker-for-microsoft-azure <!--[qlik_datasheet]:http://www.qlik.com/en/resource-library/the-qlikview-product-family--> [ sisense_datasheet]:https://pages.sisense.com/rs/601-OXE-081/images/Product%20Highlights.pdf [tableau_datasheet]:http://www.tableau.com/stories/workbook/azure-sql-data <!--[targit_datasheet]:--> [yellowfin_datasheet]:http://www.yellowfinbi.com/Document.i4?DocumentId=877299
 
 <!--Marketplace Links -->
 [birst_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/birst/birst/

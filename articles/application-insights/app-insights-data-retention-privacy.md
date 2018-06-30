@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/07/2017
+ms.date: 06/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 95e576eb5ce6834e67d997cde57426fd09db4e6a
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
-ms.translationtype: HT
+ms.openlocfilehash: 897671ef592ac691402a4e452f7a0baa04aa228a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099805"
+ms.locfileid: "37129066"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -126,19 +126,57 @@ Mevcut sunucularda içinde değil.
 Veri merkezleri arasında hareket ederken tüm veriler şifrelenir.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Application Insights sunucularına my uygulamasından Aktarımdaki veriler şifrelenir?
-Evet, biz web sunucuları, aygıtları ve HTTPS web sayfaları dahil olmak üzere, neredeyse tüm Sdk'lardan portalına veri göndermek için https kullanın. Tek özel durum düz HTTP web sayfalarından gönderilen verilerdir. 
+Evet, biz web sunucuları, aygıtları ve HTTPS web sayfaları dahil olmak üzere, neredeyse tüm Sdk'lardan portalına veri göndermek için https kullanın. Tek özel durum düz HTTP web sayfalarından gönderilen verilerdir.
+
+## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>Nasıl veri Application Insights'a TLS 1.2 kullanarak gönderebilirim?
+
+Application Insights Uç noktalara Aktarımdaki verileri güvenliğinin güvence altına almaya kesinlikle müşterilerin kendi uygulamanızı en az kullanacak biçimde yapılandırmak için öneririz Aktarım Katmanı Güvenliği (TLS) 1.2. TLS/Güvenli Yuva Katmanı (SSL)'ın eski sürümlerini savunmasız bulundu ve bunlar hala şu anda geriye dönük uyumluluk izin vermek için çalışırken, bunlar **önerilmez**, ve endüstri hızla destek bırakmasını taşıma Bu eski protokoller için. 
+
+[PCI güvenlik standartları Council](https://www.pcisecuritystandards.org/) ayarlanmış bir [30 Haziran 2018 son](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) eski sürümleri TLS/SSL ve yükseltme daha protokolleri güvenli hale getirmek için devre dışı bırakmak için. Uygulama/istemciler üzerinde en az iletişim kuramıyorsa eski desteği, Azure bırakır sonra TLS 1.2, değil olacaktır Application Insights'a veri gönderebilir. Hangi yaklaşımın sınamak ve uygulamanızın TLS destek doğrulamak için uygulamanızın kullandığı dil/framework yanı sıra işletim sistemi/platform bağlı olarak değişir.
+
+Açıkça sürece yalnızca TLS 1.2 kullanmak için uygulamanızın bu otomatik olarak algılamak ve olduklarında yeni daha güvenli iletişim kuralları yararlanmak izin platform düzeyi güvenlik özellikleri bölünebilir kesinlikle gerekli ayarlanması önerilmez TLS 1.3 gibi kullanılabilir. Kapsamlı denetim belirli TLS/SSL sürümleri cmdlet'e kod için denetlemek için uygulamanızın kodunun gerçekleştirme öneririz.
+
+### <a name="platformlanguage-specific-guidance"></a>Platform/dil özel yönergeler
+
+|Platform/dili | Destek | Daha Fazla Bilgi |
+| --- | --- | --- |
+| Azure Uygulama Hizmetleri  | Desteklenen yapılandırması gerekli olabilir. | Destek Nisan 2018 tanıtıldı. Duyuru için okuma [yapılandırma ayrıntılarını](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
+| Azure işlevi uygulamaları | Desteklenen yapılandırması gerekli olabilir. | Destek Nisan 2018 tanıtıldı. Duyuru için okuma [yapılandırma ayrıntılarını](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+|.NET | Desteklenen yapılandırma sürümü tarafından değişir. | .NET 4.7 ve önceki sürümler için ayrıntılı yapılandırma bilgileri için bkz [bu yönergeleri](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12).  |
+|Durum İzleyicisi | Desteklenen, yapılandırma gerekiyor | Durum İzleyicisi'ni kullanır [işletim sistemi yapılandırması](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) + [.NET Yapılandırması](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12) destek TLS 1.2.
+|Node.js |  , V10.5.0 içinde desteklenen yapılandırması gerekli olabilir. | Kullanım [resmi Node.js TLS/SSL belge](https://nodejs.org/api/tls.html) herhangi bir uygulama belirli yapılandırma için. |
+|Java | Desteklenen, TLS 1.2 JDK desteği eklenmiştir [JDK 6 güncelleştirme 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) ve [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8'i kullanır [TLS 1.2 varsayılan](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
+|Linux | Linux dağıtımları eğilimindedir güvenemeyeceklerini [OpenSSL](https://www.openssl.org) TLS 1.2 desteği.  | Denetleme [OpenSSL değişim günlüğü](https://www.openssl.org/news/changelog.html) OpenSSL sürümünüz desteklenir onaylamak için.|
+| Windows 8.0 10 | Desteklenen ve varsayılan olarak etkindir. | Hala kullandığınızı doğrulamak için [varsayılan ayarları](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 2016 | Desteklenen ve varsayılan olarak etkindir. | Hala kullandığınızı doğrulamak için [varsayılan ayarları](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 ve Windows Server 2008 R2 SP1 | , Varsayılan olarak etkin değildir ancak desteklenir. | Bkz: [Aktarım Katmanı Güvenliği (TLS) kayıt defteri ayarları](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) nasıl etkinleştirileceği hakkında ayrıntılar için sayfa.  |
+| Windows Server 2008 SP2 | TLS 1.2 desteği güncelleştirilmesi gerekiyor. | Bkz: [TLS 1.2 desteği eklemek için güncelleştirme](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) Windows Server 2008 SP2. |
+|Windows Vista | Desteklenmiyor. | Yok
+
+### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Hangi OpenSSL sürümü Linux dağıtımınız çalışıp çalışmadığını denetle
+
+Olan OpenSSL hangi sürümünün yüklü olduğunu denetlemek için Terminali açın ve çalıştırın:
+
+```terminal
+openssl version -a
+```
+
+### <a name="run-a-test-tls-12-transaction-on-linux"></a>Linux'ta TLS 1.2 işlem test çalıştırma
+
+Linux sisteminizi TLS 1.2 iletişim kurup kuramadığını görmek için temel bir ön test çalıştırmak için. Terminali açın ve çalıştırın:
+
+```terminal
+openssl s_client -connect bing.com:443 -tls1_2
+```
 
 ## <a name="personal-data-stored-in-application-insights"></a>Application Insights'ta depolanan kişisel veriler
 
-Bizim [Application Insights kişisel veriler makale](app-insights-customer-data.md) ayrıntılı bu konuda ele alınmıştır.
+Bizim [Application Insights kişisel veriler makale](app-insights-customer-data.md) ayrıntılı bu sorunu ele alınmaktadır.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Kullanıcılarım Application Insights kapatabilir miyim?
 Doğrudan yönetilemez. Kullanıcılarınızın Application Insights devre dışı bırakma çalışabilir bir anahtar sunuyoruz yok.
 
 Ancak, böyle bir özellik uygulamanızda uygulayabilirsiniz. Tüm SDK telemetri toplamayı devre dışı bırakır bir API ayarı içerir. 
-
-#### <a name="my-application-is-unintentionally-collecting-sensitive-information-can-application-insights-scrub-this-data-so-it-isnt-retained"></a>Uygulamam istemeden hassas bilgileri toplanıyor. Korunur değil için Application Insights bu verilerini temizle?
-Application Insights filtre ya da verilerinizi silin. Veri uygun şekilde yönetmek ve bu tür veriler Application Insights'a göndermekten kaçınmanız gerekir.
 
 ## <a name="data-sent-by-application-insights"></a>Application Insights tarafından gönderilen verileri
 SDK'ları platformları arasında farklılık gösterir ve yüklemek için kullanabileceğiniz birçok bileşen vardır. (Başvurmak [Application Insights - genel bakış][start].) Her bileşen farklı veri gönderir.

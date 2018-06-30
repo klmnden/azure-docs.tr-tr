@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 513d4395b1d3e631855c2f6e132d54331b3ddf8d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 8c8228b13c972c65596f0389e2fdfde585f8a742
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266354"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110322"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure trafik Yöneticisi uç noktası kota anahtarlarını yönetmek için kullanın
 Dil anlama (HALUK) tek bir anahtarın kota ötesinde uç nokta isteği Kotayı artırmak için olanak sağlar. Bu HALUK için daha fazla anahtarları oluşturarak ve bunları HALUK uygulamaya ekleyerek yapılır **Yayımla** sayfasındaki **kaynakları ve anahtarları** bölümü. 
@@ -48,13 +48,13 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Yayımla Sayfası üzerinde iki HALUK anahtarlarla ekran görüntüsü, HALUK portalı](./media/traffic-manager/luis-keys-in-luis.png)
 
-    Örnek URL'de **endpoint** sütun abonelik anahtarla bir GET isteğine bir sorgu parametresi olarak kullanır. İki yeni anahtarlar uç nokta URL'leri kopyalayın. Bunlar, bu makalenin sonraki bölümlerinde trafik Yöneticisi yapılandırmasının bir parçası olarak kullanılır.
+    Örnek URL'de **endpoint** sütun uç nokta anahtarla bir GET isteği sorgu parametresi olarak kullanır. İki yeni anahtarlar uç nokta URL'leri kopyalayın. Bunlar, bu makalenin sonraki bölümlerinde trafik Yöneticisi yapılandırmasının bir parçası olarak kullanılır.
 
 ## <a name="manage-luis-endpoint-requests-across-keys-with-traffic-manager"></a>Anahtarları Traffic Manager ile arasında HALUK uç nokta isteklerini yönet
 Trafik Yöneticisi uç noktalarınızı için yeni bir DNS erişim noktası oluşturur. Bir ağ geçidi veya proxy olarak ancak DNS düzeyinde kesinlikle hareket değil. Bu örnekte, tüm DNS kayıtları değiştirmez. Bir DNS kitaplığı belirli bu istek için doğru uç noktası almak için trafik Yöneticisi'ile iletişim kurmak için kullanır. _Her_ HALUK ilk kullanmak için hangi HALUK endpoint belirlemek için bir trafik Yöneticisi isteği gerektirir yönelik istek. 
 
 ### <a name="polling-uses-luis-endpoint"></a>Yoklama HALUK uç nokta kullanır
-Trafik Yöneticisi uç noktalar düzenli aralıklarla endpoint hala kullanılabilir olduğundan emin olmak için yoklar. Trafik Yöneticisi URL bir GET isteğiyle erişilebilir olması ve bir 200 dönmek için gereksinimlerini sorgulanan. Uç nokta URL'sini **Yayımla** sayfa yapar. Farklı bir yol ve sorgu dizesi parametreleri her abonelik anahtara sahip olduğundan, her abonelik anahtarı farklı yoklama yolu gerekiyor. Trafik Yöneticisi yoklar, her seferinde bir kota isteği maliyeti. Sorgu dizesi parametresi **q** HALUK HALUK için gönderilen utterance uç noktadır. Bir utterance göndermek yerine bu parametre, trafik Yöneticisi yoklama HALUK uç nokta günlüğe trafik yapılandırılmış Yöneticisi alınmaya çalışılırken hata ayıklama bir teknik olarak eklemek için kullanılır.
+Trafik Yöneticisi uç noktalar düzenli aralıklarla endpoint hala kullanılabilir olduğundan emin olmak için yoklar. Trafik Yöneticisi URL bir GET isteğiyle erişilebilir olması ve bir 200 dönmek için gereksinimlerini sorgulanan. Uç nokta URL'sini **Yayımla** sayfa yapar. Farklı bir yol ve sorgu dizesi parametreleri her uç nokta anahtara sahip olduğundan, her bir uç nokta anahtarın farklı yoklama yolu gerekiyor. Trafik Yöneticisi yoklar, her seferinde bir kota isteği maliyeti. Sorgu dizesi parametresi **q** HALUK HALUK için gönderilen utterance uç noktadır. Bir utterance göndermek yerine bu parametre, trafik Yöneticisi yoklama HALUK uç nokta günlüğe trafik yapılandırılmış Yöneticisi alınmaya çalışılırken hata ayıklama bir teknik olarak eklemek için kullanılır.
 
 Her HALUK bitiş kendi yolu gerektiğinden, kendi trafik Yöneticisi profili gerekir. Oluşturma işlemi profillerini yönetmek için bir [ _iç içe geçmiş_ trafik Yöneticisi](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-nested-profiles) mimarisi. Bir üst profil alt profillere işaret ve bunların arasında trafiği yönetin.
 
@@ -64,11 +64,11 @@ Trafik Yöneticisi yapılandırıldıktan sonra günlük kullanılacak yol deği
 Aşağıdaki bölümlerde biri Doğu HALUK anahtar diğeri Batı HALUK anahtarı için iki alt profili oluşturun. Bir üst profil oluşturulduktan sonra iki alt profilleri üst profiline eklenir. 
 
 ### <a name="create-the-east-us-traffic-manager-profile-with-powershell"></a>PowerShell ile Doğu ABD trafik Yöneticisi profili oluştur
-Doğu ABD trafik Yöneticisi profili oluşturmak için birkaç adım vardır: profil oluşturma, uç nokta ekleyin ve uç nokta ayarlayın. Bir Traffic Manager profilini birçok uç noktaları olabilir, ancak her bitiş noktasıyla aynı doğrulama yolu vardır. Doğu ve Batı abonelikleri HALUK uç nokta URL'lerinin bölge ve abonelik anahtarı nedeniyle farklı olduğundan, her HALUK bitiş profilinde tek bir uç noktası olması gerekir. 
+Doğu ABD trafik Yöneticisi profili oluşturmak için birkaç adım vardır: profil oluşturma, uç nokta ekleyin ve uç nokta ayarlayın. Bir Traffic Manager profilini birçok uç noktaları olabilir, ancak her bitiş noktasıyla aynı doğrulama yolu vardır. Doğu ve Batı abonelikleri HALUK uç nokta URL'lerinin bölge ve uç nokta anahtar nedeniyle farklı olduğundan, her HALUK bitiş profilinde tek bir uç noktası olması gerekir. 
 
 1. Profil oluşturma **[yeni AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** cmdlet'i
 
-    Profili oluşturmak için aşağıdaki cmdlet'i kullanın. Değiştirdiğinizden emin olun `appIdLuis` ve `subscriptionKeyLuis`. SubscriptionKey için BİZE Doğu HALUK anahtardır. Yolun HALUK uygulama kimliği ve abonelik anahtarı dahil doğru değil, trafik Yöneticisi yoklama durumu ise `degraded` trafiği yönetmek HALUK uç noktası başarıyla istenemiyor olduğundan. Değerini emin olun `q` olan `traffic-manager-east` bu değer HALUK uç nokta günlüklerine görebilmeniz için.
+    Profili oluşturmak için aşağıdaki cmdlet'i kullanın. Değiştirdiğinizden emin olun `appIdLuis` ve `subscriptionKeyLuis`. SubscriptionKey için BİZE Doğu HALUK anahtardır. Yolun HALUK uygulama kimliği ve uç nokta anahtarı dahil doğru değil, trafik Yöneticisi yoklama durumu ise `degraded` trafiği yönetmek HALUK uç noktası başarıyla istenemiyor olduğundan. Değerini emin olun `q` olan `traffic-manager-east` bu değer HALUK uç nokta günlüklerine görebilmeniz için.
 
     ```PowerShell
     $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
@@ -136,7 +136,7 @@ Batı ABD trafik Yöneticisi profili oluşturmak için aynı adımları izleyin:
 
 1. Profil oluşturma **[yeni AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet'i
 
-    Profili oluşturmak için aşağıdaki cmdlet'i kullanın. Değiştirdiğinizden emin olun `appIdLuis` ve `subscriptionKeyLuis`. SubscriptionKey için BİZE Doğu HALUK anahtardır. Yol HALUK uygulama kimliği ve abonelik anahtarı da dahil olmak üzere doğru değilse, trafik Yöneticisi yoklama durumu olan `degraded` trafiği yönetmek HALUK uç noktası başarıyla istenemiyor olduğundan. Değerini emin olun `q` olan `traffic-manager-west` bu değer HALUK uç nokta günlüklerine görebilmeniz için.
+    Profili oluşturmak için aşağıdaki cmdlet'i kullanın. Değiştirdiğinizden emin olun `appIdLuis` ve `subscriptionKeyLuis`. SubscriptionKey için BİZE Doğu HALUK anahtardır. Yol HALUK uygulama kimliği ve uç nokta anahtar dahil doğru değilse, trafik Yöneticisi yoklama durumu olan `degraded` trafiği yönetmek HALUK uç noktası başarıyla istenemiyor olduğundan. Değerini emin olun `q` olan `traffic-manager-west` bu değer HALUK uç nokta günlüklerine görebilmeniz için.
 
     ```PowerShell
     $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
@@ -152,7 +152,7 @@ Batı ABD trafik Yöneticisi profili oluşturmak için aynı adımları izleyin:
     |-RelativeDnsName|Haluk dns westus|Alt etki alanı hizmeti için budur: Haluk dns westus.trafficmanager.net|
     |-Ttl|30|Yoklama aralığı 30 saniye|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Bağlantı noktası ve protokol HALUK için HTTPS/443'tür|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Değiştir <appId> ve <subscriptionKey> kendi değerlere sahip. Bu abonelik anahtarı Doğu abonelik anahtar farklı olduğunu unutmayın|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Değiştir <appId> ve <subscriptionKey> kendi değerlere sahip. Bu uç noktası anahtarı Doğu uç noktası anahtarı farklı olduğunu unutmayın|
     
     Başarılı bir istek yanıt aldı.
 
@@ -364,7 +364,7 @@ Uç noktalar arasında trafiği yönetmek için trafik Yöneticisi DNS HALUK uç
 
 
 ## <a name="clean-up"></a>Temizleme
-İki HALUK Abonelik anahtarları, üç trafik Yöneticisi profillerinizi ve beş bu kaynakları içeren kaynak grubunu kaldırın. Bu Azure portalından gerçekleştirilir. Beş kaynakları kaynakları listeden silin. Kaynak grubunu silin. 
+İki HALUK uç nokta anahtarları, üç trafik Yöneticisi profillerinizi ve beş bu kaynakları içeren kaynak grubunu kaldırın. Bu Azure portalından gerçekleştirilir. Beş kaynakları kaynakları listeden silin. Kaynak grubunu silin. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

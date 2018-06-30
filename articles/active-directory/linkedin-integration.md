@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 06/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4b3ff0b2481b42f516d28ac17f2616685730b7d5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762379"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109595"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Microsoft uygulamaları ve Hizmetleri için LinkedIn hesap bağlantıları
 Bu makalede, Azure Active Directory (Azure AD) Yönetim Merkezi'nden kiracınız için LinkedIn hesap bağlantıları yönetmek nasıl öğrenebilirsiniz. 
@@ -53,7 +53,7 @@ LinkedIn hesabı bağlantıları işlevi tüm kiracınız için varsayılan olar
 4. Altında **LinkedIn hesap bağlantıları**:
   * Seçin **Evet** kiracınızdaki tüm kullanıcıları için LinkedIn hesap bağlantıları etkinleştirmek için
   * Seçin **seçili** LinkedIn etkinleştirmek için kullanıcılar yalnızca seçilen Kiracı bağlantılarında hesabı
-  * Seçin **Hayır** LinkedIn hesap bağlantıları tüm kullanıcılar için devre dışı bırakmak için ![etkinleştirme LinkedIn hesap bağlantıları](./media/linkedin-integration/LinkedIn-integration.png)
+  * Seçin **Hayır** LinkedIn hesap bağlantıları tüm kullanıcılar için devre dışı bırakmak için ![etkinleştirme LinkedIn hesap bağlantıları](./media/linkedin-integration/linkedin-integration.png)
 5. Seçerek bittiğinde ayarlarınızı kaydetmek **kaydetmek**.
 
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Etkinleştirmek veya devre dışı LinkedIn hesap bağlantıları için Grup İlkesi kullanarak, kuruluşunuzun Office 2016 uygulamaları
@@ -64,7 +64,7 @@ LinkedIn hesabı bağlantıları işlevi tüm kiracınız için varsayılan olar
 4. Aşağıdaki ayarlarla bir Grup İlkesi nesnesi oluşturmak: **Kullanıcı Yapılandırması** > **Yönetim Şablonları** > **Microsoft Office 2016**  >  **Çeşitli** > **Göster LinkedIn özellikleri Office uygulamalarında**.
 5. Seçin **etkin** veya **devre dışı**.
   * İlke olduğunda **etkin**, **Göster LinkedIn özellikleri Office uygulamalarında** Office 2016 Seçenekleri iletişim kutusunda bulunan ayarı etkindir. Bu ayrıca kuruluşunuzdaki kullanıcıların Office uygulamalarında LinkedIn özellikleri kullanabileceğiniz anlamına gelir.
-  * İlke olduğunda **devre dışı**, **Göster LinkedIn özellikleri Office uygulamalarında** bulunan ayarlama Office 2016 seçeneklerinde iletişim devre dışı durumuna ayarlanır ve son kullanıcılar, bu ayar değiştiremiyor. Kuruluşunuzdaki kullanıcılar, Office 2016 uygulamalarında LinkedIn özellikleri kullanamazsınız. 
+  * İlke olduğunda **devre dışı**, **Göster LinkedIn özellikleri Office uygulamalarında** bulunan ayarlama Office 2016 seçeneklerinde iletişim devre dışı durumuna ayarlanır ve son kullanıcılar, bu ayar değiştiremiyor. Kuruluşunuzdaki kullanıcılar, Office 2016 uygulamalarında LinkedIn özellikleri kullanamazsınız.
 
 Bu Grup İlkesi yalnızca yerel bilgisayar için Office 2016 uygulamaları etkiler. Bunlar LinkedIn Office 2016 uygulamalarını devre dışı bıraksanız bile kullanıcılar Office 365 boyunca profili kartları LinkedIn özelliklerini görebilir. 
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 72f5215bac9254c9e3295b2cade7b6d44d516af6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2c988f8651d0ae9a8662b502ca2ba2dbabb2defe
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637744"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37116186"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Derleme ve Azure Machine Learning ile görüntü sınıflandırma modelleri dağıtma
 
@@ -34,7 +34,7 @@ Oluşturma ve dağıtma AMLPCV Bu modelde olduğunda, aşağıdaki adımlarda si
 7. Web hizmeti dağıtımı
 8. Web hizmeti yük test etme
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) kullanılan derin öğrenme çerçevesi eğitim yerel olarak desteklenen GPU makinede gibi gerçekleştirilir ([derin veri bilimi VM öğrenme](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), ve dağıtım Azure ML Operationalization CLI kullanır.
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) kullanılan derin öğrenme çerçevesi eğitim yerel olarak desteklenen GPU makinede gibi gerçekleştirilir ([derin veri bilimi VM öğrenme](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), ve dağıtım Azure ML Operationalization CLI kullanır.
 
 Başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/vision) her modül ve sınıfı için ayrıntılı başvuru için.
 
@@ -433,7 +433,7 @@ Operationalization yayımlama modelleri ve web Hizmetleri olarak kod sürecini v
 
 Modelinizi eğitildi sonra tüketim kullanarak bir web hizmeti olarak modelin dağıtabilirsiniz [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Modellerinizi, LocalMachine ya da Azure kapsayıcı Hizmeti'ni (ACS) küme dağıtılabilir. ACS kullanarak, web hizmetiniz elle ölçeklendirme veya otomatik ölçeklendirmeyi işlevini kullanın.
 
-**Oturum ile Azure CLI**
+**Azure CLI ile oturum açın**
 
 Kullanarak bir [Azure](https://azure.microsoft.com/) hesap geçerli bir abonelik ile aşağıdaki CLI komutu kullanarak oturum açın:
 <br>`az login`

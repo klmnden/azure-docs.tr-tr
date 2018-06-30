@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dc01a775579455ae24c95ecc6f3858ce28149dea
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: cc5b4955d6bd239f99a9be0ab158ac8003f67ddf
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232547"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110530"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında bulunan oturum açma etkinlik raporundaki hata kodları
 
@@ -104,7 +104,7 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |50120|JWT üst bilgisi ile ilgili sorun var. Kiracı yöneticisine başvurun.|
 |50124|Talep Dönüşümü, geçersiz giriş parametresi içeriyor. İlke güncelleştirmek için kiracı yöneticisine başvurun.|
 |50125|Oturum açma bir parola sıfırlama veya parola kayıt girişi nedeniyle yarıda kesildi|
-|50126|Geçersiz kullanıcı adı veya parola ya da Geçersiz şirket içi kullanıcı adı veya parola.|
+|50126|Geçersiz kullanıcı adı veya parola veya geçersiz kullanıcı adı veya parola şirket içi.|
 |50127|Kullanıcının bu içeriğe erişmek için bir aracı uygulaması yüklemesi gerekiyor.|
 |50128|Geçersiz etki alanı adı - İstekte kiracıyı tanımlayan bilgiler bulunamadı veya sağlanan kimlik bilgilerinin kapsamında değil|
 |50129|Cihaz Çalışma alanına katılmamış - Cihazın kaydedilmesi için çalışma alanına katılması gerekiyor.|

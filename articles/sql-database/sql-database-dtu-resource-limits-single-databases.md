@@ -2,19 +2,19 @@
 title: Azure SQL veritabanı DTU tabanlı kaynak sınırlar tek veritabanlarını | Microsoft Docs
 description: Bu sayfa, Azure SQL veritabanında tek veritabanları için bazı ortak DTU tabanlı kaynak sınırları açıklar.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 5a7abb7d67de59ea326b5180cf94e3594cd06576
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 2d6660e1064959f2d04424ae1c3e9bc668231c92
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753396"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131330"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli kullanarak tek veritabanları için kaynak sınırları 
 
@@ -72,7 +72,7 @@ Tek veritabanları için aşağıdaki tablolarda her hizmeti katmanını ve perf
 
 
 > [!IMPORTANT]
-> Birden fazla 1 TB depolama alanı Premium katmanındaki şu anda kullanılabilir aşağıdakiler dışında tüm bölgelerde: Birleşik Krallık Kuzey Batı Orta ABD, İngiltere South2, Çin, Doğu, USDoDCentral, Almanya Orta, USDoDEast, ABD kamu Güneybatı, BİZE kamu Güney Merkezi, Almanya Kuzeydoğu, Çin Kuzey, ABD kamu Doğu. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Birden fazla 1 TB depolama alanı Premium katmanındaki şu anda kullanılabilir aşağıdakiler dışında tüm bölgelerde: Batı Orta ABD, Çin, Doğu, Orta USDoDCentral, Almanya, USDoDEast, ABD kamu Güneybatı, Almanya Kuzeydoğu, USGovIowa, Çin Kuzey. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="single-database-change-storage-size"></a>Tek veritabanı: depolama boyutunu değiştirme
 

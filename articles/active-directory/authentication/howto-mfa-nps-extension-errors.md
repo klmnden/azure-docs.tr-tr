@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 74a660f7240b9ae6138c402dbbb418bbc665dc3c
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 5f25213d8d1fbc95aa419c86ca5b780f345952ed
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098711"
+ms.locfileid: "37130208"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure çok faktörlü kimlik doğrulaması için hata iletileri NPS uzantı çözümleyin
 
@@ -96,7 +96,7 @@ Bu hatalardan biri karşılaşırsanız öneririz, [desteğine başvurun](#conta
 
 ### <a name="troubleshoot-user-accounts"></a>Kullanıcı hesaplarıyla ilgili sorunları giderme
 
-Kullanıcılarınız varsa [iki aşamalı doğrulamayı sorununuz](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md), bunları otomatik olarak tanılamak sorunları yardımcı olur. 
+Kullanıcılarınız varsa [iki aşamalı doğrulamayı sorununuz](end-user/current/multi-factor-authentication-end-user-troubleshoot.md), bunları otomatik olarak tanılamak sorunları yardımcı olur. 
 
 ### <a name="contact-microsoft-support"></a>Microsoft desteğine başvurun
 

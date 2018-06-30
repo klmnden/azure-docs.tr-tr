@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: ab07a11883b3462c4b9d0f9adab6c55e4fe49d78
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 887611f1293e276070df51ac06df51a994161ec1
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010260"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112211"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure yönetim çözümleri için veri toplama ayrıntıları
 Bu makalede bir listesini içeren [yönetim çözümleri](monitoring-solutions.md) kullanımına Microsoft'tan bağlantılarla kendi ayrıntılı belgeler.  Ayrıca, yöntemi ve günlük analizi veri koleksiyonuna sıklığını hakkında bilgiler sağlar.  Kullanılabilir farklı çözümler tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimleri anlamak için bu makaledeki bilgileri kullanabilirsiniz. 
@@ -65,9 +65,6 @@ Sütun açıklamaları aşağıdaki gibidir:
 | [Ağ Performansı İzleyicisi](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP el sıkışmaları veri her 5 saniye boyunca 3 dakikada gönderilen |
 | [Office 365 Analytics (Önizleme)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |bildirim |
 | **Yönetim çözümü** | **Platform** | **Microsoft İzleme Aracısı** | **Operations Manager Aracısı** | **Azure depolama alanı** | **Operations Manager gerekli?** | **Operations Manager Aracısı verilerinin yönetim grubu gönderilen** | **Toplama sıklığı** |
-| [Güvenlik ve Denetim](../operations-management-suite/oms-security-getting-started.md) (Syslog) | Linux | &#8226; | | |  |  | geldiğinde |
-| [Güvenlik ve Denetim](../operations-management-suite/oms-security-getting-started.md) (güvenlik olay günlüklerini) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | geldiğinde |
-| [Güvenlik ve Denetim](../operations-management-suite/oms-security-getting-started.md) (güvenlik duvarı günlüklerini) |Windows |&#8226; |&#8226; |  |  |  |geldiğinde |
 | [Service Fabric Analytics (Önizleme)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 dakika |
 | [Hizmet Eşlemesi](../operations-management-suite/operations-management-suite-service-map.md) | Windows ve Linux | &#8226; | &#8226; |  |  |  | 15 saniye |
 | [SQL Değerlendirmesi](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 gün |
