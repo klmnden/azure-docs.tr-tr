@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 06/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3950c9dfc5ff5f7ea1d170da086b4f97048ed81c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 05278ee4b0dc1f2c22f40bfcff4f9d7342017c0f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069042"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108765"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Bir sanal makine oluşturun ve Azure yığın anahtar Kasası'nı alınan bir sertifika yükleyin
 
@@ -43,8 +43,8 @@ Aşağıdaki adımlarda, bir sanal makine sertifikası göndermek için gereken 
 2. Azuredeploy.parameters.json dosyasını güncelleştirin.
 3. Şablonu dağıtma
 
->[!NOTE]
->VPN üzerinden bağlandığı sırada Azure yığın Geliştirme Seti veya bir dış istemcinin aşağıdaki adımları kullanabilirsiniz.
+> [!NOTE]
+> VPN üzerinden bağlandığı sırada Azure yığın Geliştirme Seti veya bir dış istemcinin aşağıdaki adımları kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -56,8 +56,8 @@ Aşağıdaki adımlarda, bir sanal makine sertifikası göndermek için gereken 
 
 Aşağıdaki komut dosyası .pfx biçiminde bir sertifika oluşturur, bir anahtar kasası oluşturur ve sertifika anahtar kasası gizli olarak depolar.
 
->[!IMPORTANT]
->Kullanmalısınız `-EnabledForDeployment` anahtar hataya oluşturulurken parametre. Bu parametre, anahtar kasası Azure Resource Manager şablonlarını başvurulabilir sağlar.
+> [!IMPORTANT]
+> Kullanmalısınız `-EnabledForDeployment` anahtar kasası oluşturulurken parametre. Bu parametre, anahtar kasası Azure Resource Manager şablonlarını başvurulabilir sağlar.
 
 ```powershell
 

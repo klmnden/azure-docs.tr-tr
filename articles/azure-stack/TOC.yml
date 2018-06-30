@@ -269,6 +269,8 @@
               href: azure-stack-app-service-release-notes-update-one.md
             - name: Güncelleştirme 2 sürüm notları Azure yığın uygulama hizmeti
               href: azure-stack-app-service-release-notes-update-two.md
+        - name: Ethereum dağıtma
+          href: azure-stack-ethereum.md
         - name: Market’i doldurma
           items:
             - name: Market’e genel bakış
