@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: fd63ffd312e3ac17a6376eb3c9bef8f1978e3935
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f192c2f71208f3caf8a01a18a7023763f8de63c3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333624"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113145"
 ---
 # <a name="language-understanding-faq"></a>Dil anlama SSS
 
@@ -65,9 +65,9 @@ HALUK [tokenizes](luis-glossary.md#token) utterance temel alarak [kültür](luis
 Sisteminizin değerini bakılmaksızın yüksek Puanlama amacıyla kullanmanız gerekir. Örneğin, bir puan 0,5 (% 50'den) aşağıda mutlaka HALUK düşük güvenilirlik olduğunu gelmez. Daha fazla eğitim verileri sağlayan, olasılıkla hedefinin puan artırmaya yardımcı olabilir.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>My uç noktası isabet my uygulamanın panosunda neden göremiyorum?
-Uygulamanızın panosunda toplam uç noktası isabet düzenli olarak güncelleştirilir, ancak HALUK abonelik anahtarınızı Azure portalında ilişkili ölçümleri daha sık güncelleştirilir. 
+Uygulamanızın panosunda toplam uç noktası isabet düzenli olarak güncelleştirilir, ancak Azure portalında HALUK uç nokta anahtarıyla ilişkilendirilmiş ölçümleri daha sık güncelleştirilir. 
 
-Güncelleştirilmiş uç noktası isabet panosunda görmüyorsanız, Azure portalında oturum açın ve HALUK abonelik anahtarınızı ile ilişkili kaynak bulmak ve açmak **ölçümleri** seçmek için **toplam çağrı sayısı** ölçüm. Abonelik anahtarı için birden fazla HALUK uygulaması kullandıysanız, Azure portalında ölçüm, bunu kullanan tüm HALUK uygulamalar gelen çağrıları toplam sayısını gösterir.
+Güncelleştirilmiş uç noktası isabet panosunda görmüyorsanız, Azure portalında oturum açın ve HALUK uç nokta anahtar ile ilişkili kaynak bulmak ve açmak **ölçümleri** seçmek için **toplam çağrı sayısı** ölçüm. Uç noktası anahtarı için birden fazla HALUK uygulaması kullandıysanız, Azure portalında ölçüm, bunu kullanan tüm HALUK uygulamalar gelen çağrıları toplam sayısını gösterir.
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Dün HALUK Uygulamam çalıştığı ancak bugün 403 hataları alıyorum. Uygulama değişiklik olmadı. Bunu nasıl düzeltirim? 
 Aşağıdaki [yönergeleri](#how-do-i-create-and-assign-a-luis-endpoint-key) HALUK uç noktası anahtarı oluşturmak ve uygulamaya atamak için sonraki SSS. Uç noktası için HTTP isteği değiştirmeli sonra [yeni uç nokta anahtarı kullanmak](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -115,8 +115,9 @@ Azure'da, bir kiracı bir hizmetle ilişkili kuruluş ya da istemci temsil eder.
 
 ![Azure portalında Kiracı kimliği](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
-### <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Neden olan var. my uygulamanın üzerinde daha fazla abonelik anahtarları yayımlama sayfasını uygulamaya atanan daha? 
-Her HALUK uygulama geliştirme başlangıç anahtarı yok. GA zaman çerçevesinde oluşturulan HALUK abonelik anahtarlarını ne olursa olsun uygulamaya eklediyseniz, Yayımla sayfasında görünür. Bu, GA geçiş kolaylaştırmak amacıyla yapılmıştır. Yeni HALUK abonelik anahtarlar Yayımla sayfasında görünmez. 
+<a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+### <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Neden olan var. my uygulamanın üzerinde daha fazla uç noktası anahtarları yayımlama sayfasını uygulamaya atanan daha? 
+Her HALUK uygulama geliştirme başlangıç anahtarı yok. GA zaman çerçevesinde oluşturulan HALUK uç nokta anahtarlarını ne olursa olsun uygulamaya eklediyseniz, Yayımla sayfasında görünür. Bu, GA geçiş kolaylaştırmak amacıyla yapılmıştır. Yeni HALUK uç nokta anahtarlar Yayımla sayfasında görünmez. 
 
 ## <a name="app-management"></a>Uygulama Yönetimi
 
@@ -153,7 +154,7 @@ Tahmin analize günlüğünüzün kullanıyorsanız, günlüğüne test utteranc
 ## <a name="app-notification"></a>Uygulama bildirimi
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>Kota dışında neredeyse ben bildiren bir e-posta neden mı aldınız?
-Yazma başlangıç anahtarınızı yalnızca 1000 izin uç noktası bir ay sorgular. (Ücretsiz veya Ücretli) HALUK abonelik anahtar oluşturun ve uç nokta sorguları yaparken bu anahtarı kullanın. Uç nokta sorguları bir bot veya başka bir istemci uygulamadan yapıyorsanız HALUK uç noktası anahtarı var. değiştirmeniz gerekir. 
+Yazma başlangıç anahtarınızı yalnızca 1000 izin uç noktası bir ay sorgular. HALUK uç noktası anahtarı (ücretsiz veya Ücretli) oluşturun ve uç nokta sorguları yaparken bu anahtarı kullanın. Uç nokta sorguları bir bot veya başka bir istemci uygulamadan yapıyorsanız HALUK uç noktası anahtarı var. değiştirmeniz gerekir. 
 
 ## <a name="integrating-luis"></a>HALUK tümleştirme
 
@@ -167,7 +168,7 @@ HALUK şablon seçer ve seçeneğini belirlerseniz **seçin** Şablon bölmesind
 
 ## <a name="luis-service"></a>HALUK hizmeti 
 
-### <a name="is-luis-available-on-premise-or-in-private-cloud"></a>HALUK kullanılabilir şirket içindeyse veya özel bulutta?
+### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>HALUK içi kullanılabilir olduğu veya özel bulutta?
 Hayır. 
 
 ## <a name="changes-to-the-docs"></a>Belgeleri yapılan değişiklikler
@@ -201,7 +202,7 @@ Ek yazma [API yollar](https://github.com/Microsoft/LUIS-Samples/blob/master/auth
 Videolar: 
 * [Azure Cuma yapı 2018 saat: Bilişsel hizmetler - dili (HALUK)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Yapı 2018 AI Göster - dil anlama hizmetiyle yenilikler nelerdir?](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Yapı 2018 oturum - Bot Intelligence, konuşma özellikleri ve NLU en iyi uygulamalar](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Build 2018 Session - Bot zekası, Konuşma Özellikleri ve NLU en iyi uygulamaları](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [Yapı 2018 - HALUK güncelleştirmeleri](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projeler: 

@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: seguler
-ms.openlocfilehash: 2a958ceb0b3a1db9d06d045a8161fa6cd3ef5aba
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 073d81baca7e174872806301236f547329836c45
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059935"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113485"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-storage-gen2-preview"></a>Azure Storage Bloblarında ve Data Lake Storage Gen2 Önizleme arasında veri kopyalamak için Distcp'yi kullanın
 
-Azure Data Lake Storage Gen2 Önizleme erişimi olan bir Hdınsight kümesine varsa, veri kopyalamak için Distcp'yi gibi Hadoop ekosistemi araçları kullanabilirsiniz **ve ondan** bir Data Lake Storage Gen2 özellikli içine bir Hdınsight küme depolama (WASB) hesabı. Bu makale, yönergeler Distcp'yi aracını sağlar.
+Azure Data Lake Storage Gen2 Önizleme erişimi olan bir Hdınsight kümesine varsa gibi Hadoop ekosistemi araçları kullanabilirsiniz [Distcp'yi](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) verileri kopyalamak için **ve ondan** Hdınsight küme depolama (WASB) bir veri alanına Lake depolama Gen2 özellikli hesabı. Bu makale, yönergeler Distcp'yi aracını sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure Data Lake Storage (Önizleme) özelliği etkin bir Azure depolama hesabıyla**. Bir oluşturma hakkında yönergeler için bkz: [Yapılacaklar](quickstart-create-account.md)
+* **Azure Data Lake Storage (Önizleme) özelliği etkin bir Azure depolama hesabıyla**. Bir oluşturma hakkında yönergeler için bkz: [bir Azure Data Lake Storage Gen2 Önizleme depolama hesabı oluşturma](quickstart-create-account.md)
 * **Azure Hdınsight kümesi** Data Lake Store hesabına erişimi. Bkz: [kullanım Azure Data Lake depolama Gen2 Azure Hdınsight ile kümeleri](use-hdi-cluster.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Bir Hdınsight Linux kümeden Distcp'yi kullanın
@@ -37,35 +37,35 @@ Hdınsight kümesi bir Hdınsight kümesine farklı kaynaklardan veri kopyalamak
 
 2. Azure Storage Blobları (WASB) erişim olup olmadığını doğrulayın. Şu komutu çalıştırın:
 
-        hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
+        hdfs dfs –ls wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/
 
     Çıktı depolama blobu içeriğini listesini sağlamanız gerekir.
 
 3. Benzer şekilde, Data Lake Store hesabına kümeden erişip erişemeyeceğini doğrulayın. Şu komutu çalıştırın:
 
-        hdfs dfs -ls abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/
+        hdfs dfs -ls abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/
 
     Çıktı dosyaların/klasörlerin Data Lake Store hesabındaki listesini sağlamanız gerekir.
 
 4. Verileri WASB bir Data Lake Store hesabına kopyalamak için Distcp'yi kullanın.
 
-        hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/myfolder
+        hadoop distcp wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
 
     Komut içeriğini kopyalar **/örnek/data/gutenberg/** Blob depolama alanına klasöründe **/myfolder** Data Lake Store hesabındaki.
 
 5. Benzer şekilde, Blob Storage (WASB) Data Lake Store hesabından veri kopyalamak için Distcp'yi kullanın.
 
-        hadoop distcp abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
+        hadoop distcp abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg
 
     Komut içeriğini kopyalar **/myfolder** için Data Lake Store hesabındaki **/örnek/data/gutenberg/** WASB klasöründe.
 
 ## <a name="performance-considerations-while-using-distcp"></a>Distcp'yi kullanırken performans etkenleri
 
-Distcp'yi'nin en düşük ayrıntı düzeyi tek bir dosya olduğundan, en fazla sayıda eşzamanlı kopyasını Data Lake Storage karşı iyileştirmek için en önemli parametre ayardır. Eşzamanlı kopya sayısını mappers sayısını ayarlayarak denetlenir ('M ') komut satırı parametresi. Bu parametre veri kopyalamak için kullanılan mappers üst sınırını belirtir. Varsayılan değer 20'dir.
+Distcp'yi'nin en düşük ayrıntı düzeyi tek bir dosya olduğundan, en fazla sayıda eşzamanlı kopyasını Data Lake Storage karşı iyileştirmek için en önemli parametre ayardır. Eşzamanlı kopya sayısını mappers sayısını ayarlayarak denetlenir (**m**) komut satırı parametresi. Bu parametre veri kopyalamak için kullanılan mappers üst sınırını belirtir. Varsayılan değer 20'dir.
 
 **Örnek**
 
-    hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/myfolder -m 100
+    hadoop distcp wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder -m 100
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Kullanılacak mappers sayısını nasıl belirlerim?
 
@@ -81,11 +81,11 @@ Aşağıda kullanabileceğiniz bazı yönergeler verilmiştir.
 
 Kümede 4 D14v2s düğüm varsa ve 10 farklı klasörlerden 10 TB'lık veriyi aktarmaya çalıştığınız varsayalım. Klasörlerinin her biri değişen miktarda veri içerir ve her klasördeki dosya boyutları farklıdır.
 
-* Toplam YARN bellek - gelen Ambari portal YARN bellek D14 düğümü için 96 GB olduğunu belirler. Bu nedenle, dört düğümlü küme için toplam YARN bellek şöyledir: 
+* **Toplam YARN bellek**: belirlemek YARN bellek D14 düğümü için 96 GB olduğunu gelen Ambari portal. Bu nedenle, dört düğümlü küme için toplam YARN bellek şöyledir: 
 
         YARN memory = 4 * 96GB = 384GB
 
-* Sayısı mappers - gelen Ambari portal YARN kapsayıcı boyutu D14 küme düğümü için 3072 olduğunu belirler. Bu nedenle, mappers sayısıdır:
+* **Mappers sayısı**: belirlemek YARN kapsayıcı boyutu D14 küme düğümü için 3072 olduğunu gelen Ambari portal. Bu nedenle, mappers sayısıdır:
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 

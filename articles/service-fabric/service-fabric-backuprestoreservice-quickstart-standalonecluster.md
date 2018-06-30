@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: cfbc0e6ca255bd005bb6e4cc381a9121347fe227
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9bc85cec6cb1d0e35aa71f4e1934c057dbf946d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206054"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114536"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Düzenli yedekleme ve geri yükleme Azure Service Fabric (Önizleme)
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Düzenli aralıklarla uygulama verilerinin yedeği, dağıtılmış bir uygulama
 Service Fabric aşağıdaki işlevselliği ilgili düzenli yedekleme elde etmek ve geri yükleme özelliğini için API kümesi sağlar:
 
 - (Dış) yedekleme depolama konumları karşıya yüklemek için düzenli yedeklemesi güvenilir durum bilgisi olan hizmetler ve Reliable Actors desteğiyle zamanlayın. Desteklenen depolama konumları
-    - Azure Depolama
+    - Azure Storage
     - Dosya Paylaşımı (şirket içi)
 - Yedeklemeleri listeleme
 - Bir bölümün bir geçici yedeklemeyi tetikleyin

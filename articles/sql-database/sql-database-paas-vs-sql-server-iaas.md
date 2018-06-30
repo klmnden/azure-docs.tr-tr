@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: a212a595c02a048721f1a8753b437f74f2fc4973
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 2fb5a7cbca4df0faa06864f580814f31cc2b609c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308963"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114410"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Bir bulut SQL Server seçeneği seçin: Azure SQL (PaaS) Veritabanı ya da Azure VM'lerde SQL Server (IaaS)
 
@@ -124,7 +124,7 @@ Birçok BT departmanı için, bir Hizmet Düzeyi Sözleşmesi'nin çalışma sü
 
 **SQL veritabanı yönetilen örneği** Azure SQL Database, Azure içinde hızlı bir şekilde pazara uygulamaları geçirilen bir veritabanını getirmek etkinleştirme mevcut uygulamalarına geçişini büyük ölçüde basitleştirir.
 
-**Azure Vm'lerinde çalışan SQL Server** mevcut veya yeni uygulamalarınızın büyük veritabanları gerektiren veya SQL Server veya Windows/Linux'ındaki tüm özelliklere erişmek ve zaman ve yeni bir şirket içi donanım alınırken, harcama önlemek istiyorsanız mükemmeldir. Ayrıca varolan geçirmek istediğiniz zaman iyi bir tercihtir şirket içi uygulamaların ve veritabanlarının oldukları gibi Azure'a olan-- yönetilen Azure SQL veritabanı örneğinde olduğu iyi durumda değil. Sunumu, uygulamayı ve veri katmanlarını değiştirmeniz gerekmediği için, var olan çözümünüzü yeniden yapılandırma konusunda zamandan ve bütçeden tasarruf sağlarsınız. Bunun yerine, tüm çözümlerinizin Azure'a geçişini sağlamaya ve Azure platformu tarafından gerekli kılınabilen bazı performans iyileştirmelerini gerçekleştirmeye odaklanabilirsiniz. Daha fazla bilgi için bkz. [Azure Virtual Machines'de SQL Server için En İyi Performans Uygulamaları](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
+**Azure Vm'lerinde çalışan SQL Server** mevcut veya yeni uygulamalarınızın büyük veritabanları gerektiren veya SQL Server veya Windows/Linux'ındaki tüm özelliklere erişmek ve süresi önlemek istiyorsanız ve yeni alınırken, harcama şirket içi donanım mükemmeldir. Ayrıca varolan geçirmek istediğiniz zaman iyi bir tercihtir şirket içi uygulamaların ve veritabanlarının oldukları gibi Azure'a olan-- yönetilen Azure SQL veritabanı örneğinde olduğu iyi durumda değil. Sunumu, uygulamayı ve veri katmanlarını değiştirmeniz gerekmediği için, var olan çözümünüzü yeniden yapılandırma konusunda zamandan ve bütçeden tasarruf sağlarsınız. Bunun yerine, tüm çözümlerinizin Azure'a geçişini sağlamaya ve Azure platformu tarafından gerekli kılınabilen bazı performans iyileştirmelerini gerçekleştirmeye odaklanabilirsiniz. Daha fazla bilgi için bkz. [Azure Virtual Machines'de SQL Server için En İyi Performans Uygulamaları](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
 
 ## <a name="summary"></a>Özet
 Bu makalede, SQL Database ve Azure Virtual Machines'de (VM'ler) SQL Server işlenmiş ve kararınızı etkileyebilecek genel iş teşvikleri ele alınmıştır. Aşağıda, dikkate almanız için önerilerin bir özeti sağlanmıştır:

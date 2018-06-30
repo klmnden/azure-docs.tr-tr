@@ -16,15 +16,15 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
 ms.custom: end-user
-ms.openlocfilehash: 25a51cf534afaabd6fd540d70152659fc2478e11
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 81c2323dd65ee18d42a231306840eeb65bd09313
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102754"
+ms.locfileid: "37127467"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>İki aşamalı doğrulama için ayarlarınızı yönetme
-Bu makalede, iki aşamalı doğrulama veya çok faktörlü kimlik doğrulama ayarlarını güncelleştirme hakkında sorular yanıtlanmaktadır. Hesabınızda oturum açma sorunu yaşıyor oluştuysa, [iki aşamalı doğrulamayı sorununuz](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md) sorun giderme Yardımı.
+Bu makalede, iki aşamalı doğrulama veya çok faktörlü kimlik doğrulama ayarlarını güncelleştirme hakkında sorular yanıtlanmaktadır. Hesabınızda oturum açma sorunu yaşıyor oluştuysa, [iki aşamalı doğrulamayı sorununuz](multi-factor-authentication-end-user-troubleshoot.md) sorun giderme Yardımı.
 
 ## <a name="where-to-find-the-settings-page"></a>Nerede Ayarları sayfası
 Şirketiniz Azure çok faktörlü kimlik doğrulamasını nasıl ayarladığınıza bağlı olarak, ayarlarınızı telefon numaranız gibi değiştirebileceğiniz birkaç yer vardır.
@@ -55,7 +55,7 @@ Bu bağlantıyı tıklatarak sizin için işe yaramazsa, ayrıca için alabilirs
 İkincil kimlik doğrulama telefon numaranızı yapılandırılması önemlidir.  Birincil telefon numaranızı ve mobil uygulamanızı büyük olasılıkla aynı telefonda olduğundan, ikincil bir telefon numarası telefonunuz kaybolur veya çalınırsa hesabınızda geri alma kuramaz tek yoludur.
 
 > [!NOTE]
-> Birincil telefon numaranızı erişim varsa ve hesabınıza başlarken yardıma gerek yoktur, bkz: [iki aşamalı doğrulamayı sorununuz](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md) daha fazla yardım için makale.  
+> Birincil telefon numaranızı erişim varsa ve hesabınıza başlarken yardıma gerek yoktur, bkz: [iki aşamalı doğrulamayı sorununuz](multi-factor-authentication-end-user-troubleshoot.md) daha fazla yardım için makale.  
 
 **Birincil telefon numaranızı değiştirmek için:**  
 
@@ -80,5 +80,5 @@ Kuruluş ayarlarınıza bağlı olarak belirten bir onay kutusu olabilir "için 
 Uygulamasını cihazınızdan kaldırdığınızda veya cihaz sıfırlama etkinleştirme arka uçtaki kaldırmaz. Daha fazla bilgi için bkz: [Microsoft Authenticator](../../../../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Sorun giderme ipuçları alın ve Yardım [iki aşamalı doğrulamayı sorununuz](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md)
+* Sorun giderme ipuçları alın ve Yardım [iki aşamalı doğrulamayı sorununuz](multi-factor-authentication-end-user-troubleshoot.md)
 * Ayarlanan [uygulama parolaları](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md) iki aşamalı doğrulamayı desteklemeyen uygulamalar için.

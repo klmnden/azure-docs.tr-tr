@@ -1,6 +1,6 @@
 ---
 title: Azure'da idare | Microsoft Docs
-description: Geniş işlem örnekleri dahil bulut tabanlı bilgi işlem Hizmetleri & Yukarı ve aşağı otomatik olarak uygulamanızı veya Kurumsal ihtiyaçlarını karşılamak üzere ölçeği hizmetleri hakkında bilgi edinin.
+description: Uygulamanızı veya Kurumsal ihtiyaçlarını karşılamak üzere yukarı ve aşağı ölçeklenebilen bulut tabanlı bilgi işlem hizmetleri hakkında bilgi edinin.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,230 +14,161 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c0794ebd953160c8569502db5d58c6d2b9ad892a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9c6509f25be7fe520a427e17ca1206e10f296fea
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061505"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110771"
 ---
 # <a name="governance-in-azure"></a>Azure’da idare
 
-Güvenlik bulutta iş ve nasıl önemli Azure güvenliği hakkında doğru ve güncel bilgi bulma olduğunu olduğunu biliyoruz. Çeşitli güvenlik araçları ve yetenekleri yararlanmak için uygulamalar ve hizmetler için Azure kullanmak için en iyi nedenlerinden biridir. Bu araçları ve yetenekleri güvenli Azure platformunda güvenli çözümler oluşturmak mümkün kılar yardımcı olur.
+Azure, çok sayıda güvenlik seçenekleri ve böylece kuruluşunuzun dağıtımları benzersiz gereksinimlerini karşılamak bunları denetleme olanağı sağlar.
 
-İdare dizisi daha iyi anlamanıza yardımcı olması için Müşteri'nin ve Microsoft operations perspektiften, bu makalede, "İdare içinde Azure", Microsoft Azure içinde uygulanan denetimleri yazılır idare kapsamlı bir bakış sağlar Microsoft Azure ile kullanılabilen özellikleri.
+Azure bulut idare işlerinizdeki karar verme işlemlerini, ölçüt ve ilkeleri planlama söz konusu başvuruyor, mimarisi, edinme, dağıtım, işlem ve yönetimini bulut. Azure bulut idare bir tümleşik denetim ve gözden geçirmek ve Azure platformu kullanıcıların kullanımına kuruluşlar bildiren için danışmanlık yaklaşımı sağlar. 
 
-## <a name="azure-platform"></a>Azure platformu
+Azure bulut idare yönelik bir plan oluşturmak için kişiler, işlemleri ve teknolojileri ilişkin ayrıntılı bir bakış şimdi gerçekleşmesi gerekir. Daha sonra kolaylaştırır çerçeveleri oluşturabilir tutarlı bir şekilde Azure özelliklerini kullanmak için kullanıcılar esnekliği sağlarken iş gereksinimlerini desteklemek için BT.
 
-Azure işletim sistemleri, programlama dilleri, çerçeveleri, Araçlar, veritabanları ve aygıtları geniş çapta destekleyen bir genel bulut hizmeti platformudur. Linux kapsayıcıları Dockers tümleşme çalıştırabilirsiniz; JavaScript, Python, .NET, PHP, Java ve Node.js ile uygulamalar oluşturma; Yapı geri-iOS, Android ve Windows cihazları sona erer. Azure genel bulut Hizmetleri aynı teknolojileri geliştiriciler milyonlarca destekler ve BT uzmanları zaten kullanır ve güven.
+## <a name="implementation-of-policies-processes-and-standards"></a>Uygulama ilkeleri, işlemleri ve standartları 
 
-Oluşturmanıza veya BT varlıklarına geçirmek, uygulamalar ve hizmetler ve denetimleri ile verileri korumak için bir kuruluşun yeteneklerini güvenmek bir genel bulut hizmeti sağlayıcısı bulut tabanlı varlıklarınızı güvenliği yönetmek için sağlarlar.
+Yönetim rolleri ve sorumlulukları Azure arasında bilgi güvenlik ilkeleri ve işletimsel sürekliliği uyarlamasını işleten oluşturmuştur. Azure yönetim, güvenlik ve sürekliliği yöntemler (üçüncü tarafların dahil) kendi ilgili ekipleri içinde gözlemledikten sorumludur. Ayrıca, güvenlik ilkeleri, işlemleri ve standartları ile uyumluluk da kolaylaştırır.
 
-Azure'nın altyapı tesis aynı anda milyonlarca müşteri barındırmak için uygulamalar için tasarlanmıştır ve güvenlik gereksinimlerine bağlı işletmeler karşılayabilecek güvenilir bir temel sağlar. Ayrıca, Azure, çok sayıda güvenlik seçenekleri ve kuruluşunuzun dağıtımları benzersiz gereksinimlerini karşılamak için güvenlik özelleştirebilirsiniz böylece bunları denetleme olanağı sağlar.
+### <a name="account-provisioning"></a>Hesap sağlama
 
-Bu belge, Azure idare özellikleri bu gereksinimleri karşılamak nasıl yardımcı olabileceğini anlamanıza yardımcı olur.
+Hesap hiyerarşisi tanımlama kullanırsanız ve bir şirket içinde Azure Hizmetleri için önemli bir adımdır. Bu çekirdek idare yapısıdır. Bir Kurumsal Anlaşma (Kurumsal Sözleşme) sahip olan müşteriler Departmanlar, hesapları ve abonelikleri ortamına ayırabilir.
 
-## <a name="abstract"></a>Özet
+![Hesap sağlama](./media/governance-in-azure/security-governance-in-azure-fig1.png)
 
-Microsoft Azure bulut idare bir tümleşik denetim ve gözden geçirmek ve Azure platformu kullanıcıların kullanımına kuruluşlar bildiren için danışmanlık yaklaşımı sağlar. Microsoft Azure bulut idare başvurduğu işlerinizdeki karar verme işlemlerini, ölçüt ve ilkeleri planlama mimarisi, edinme, dağıtım, işlem ve bir bulutun yönetim ilgili bilgi işlem.
+Bir Kurumsal Anlaşma yoksa kullanmayı [Azure etiketleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) hiyerarşisi tanımlamak için abonelik düzeyinde. Bir Azure aboneliği tüm kaynakları içeren temel birimidir. Ayrıca, Azure, çekirdek sayısı ve kaynakları gibi çeşitli sınırlarda tanımlar. Abonelikleri içerebilir [kaynak grupları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), kaynakları içerebilir. [Rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) ilkeler bu üç düzeyde uygulanır.
 
-Microsoft Azure bulut idare yönelik bir plan oluşturmak için kişiler, işlemleri ve teknolojileri ilişkin ayrıntılı bir bakış şu anda gerçekleşmesi ve kolaylaştırır çerçeveler oluşturmak gereken sürekli olarak son kullanıcıların sağlarken iş gereksinimlerini desteklemek için BT Microsoft Azure güçlü özelliklerini kullanma esnekliği.
+Her Kuruluş farklıdır. Kurumsal olmayan şirketler için Azure etiketleri kullanarak hiyerarşi Azure nasıl düzenlendiğini esneklik sağlar. Azure kaynaklarında dağıtmadan önce bir hiyerarşi model ve faturalama, kaynak erişimi ve karmaşıklık üzerindeki etkisini anlamak gerekir.
 
-Bu yazı, BT kaynaklarınız Microsoft Azure İdaresi yükseltilmiş bir düzeyde nasıl elde edebilirsiniz açıklar. Bu yazı, Microsoft Azure için yerleşik güvenlik ve idare özellikleri anlamanıza yardımcı olabilir.
+### <a name="subscription-controls"></a>Abonelik denetimleri
 
-Bu yazıda, idare sorunları ele ana şunlardır:
+Abonelikler, kaynak kullanımı nasıl bildirilen ve fatura belirler. Abonelikler için ayrı faturalandırma ve ödeme ayarlayabilirsiniz. Bir Azure hesabı birden fazla abonelik olabilir. Abonelikler, bir şirkette birden çok Departmanlar Azure kaynak kullanımını belirlemek için kullanılabilir.
 
-- Uygulama ilkeleri, işlemler ve yordamlar kuruluş hedefleri göredir.
-
-- Güvenlik ve kuruluş standartlarıyla sürekli uyumluluk
-
-- Uyarı verme ve izleme
-
-## <a name="implementation-of-policies-processes-and-procedures"></a>Uygulama ilkeleri, işlemler ve yordamlar 
-
-Yönetim rolleri ve sorumlulukları bilgi güvenlik ilkesi ve işletimsel sürekliliği uygulaması Azure işleten oluşturmuştur. Microsoft Azure yönetim, güvenlik ve ilgili takımlar (üçüncü tarafların dahil olmak üzere) ve güvenlik ilkeleri, işlemleri ve standartları ile gönderilmesini kolaylaştıran Uyumluluk dahilinde sürekliliği yöntemler gözlemledikten sorumludur.
-
-Gelişen faktörleri şunlardır:
-
-- Hesap Sağlama
-
-- Abonelik denetimleri
-
-- Rol tabanlı erişim denetimleri
-
-- Kaynak Yönetimi
-
-- Kaynak İzleme
-
-- Kritik kaynak denetimi
-
-- Faturalama bilgileri API erişimi
-
-- Ağ denetimleri
-
-## <a name="account-provisioning"></a>Hesap sağlama
-
-Hesap hiyerarşisi tanımlama kullanın ve Azure yapısı için büyük bir adımı şirket içinde Hizmetleri ve çekirdek idare yapısı olur. Kurumsal anlaşma ile müşteriler durumunda, müşterilerin daha fazla Departmanlar, hesapları ve son olarak, abonelikleri ortamına ayırabilir.
-
-![Hesap Sağlama](./media/governance-in-azure/security-governance-in-azure-fig1.png)
-
-Bir Kurumsal Anlaşma yoksa kullanmayı [Azure etiketleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) hiyerarşisi tanımlamak için abonelik düzeyinde. Bir Azure aboneliği tüm kaynakların bulunduğu temel birimidir. Ayrıca, Azure, çekirdek, kaynaklar, vb. sayısı gibi birkaç sınırlarda tanımlar. Abonelikleri içerebilir [kaynak grupları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), kaynakları içerebilir. [RBAC](https://docs.microsoft.com/azure/api-management/api-management-role-based-access-control) ilkeler bu üç düzeyde uygulanır.
-
-Her Kuruluş farklıdır ve kurumsal olmayan müşteriler durumunda Azure etiketleri kullanarak hiyerarşi Azure şirket içinde nasıl düzenlendiğini önemli esneklik sağlar. Microsoft Azure kaynaklarında dağıtmadan önce hiyerarşi model ve faturalama, kaynak erişimi ve karmaşıklık üzerindeki etkisini anlamak gerekir.
-
-## <a name="subscription-controls"></a>Abonelik denetimleri
-
-Abonelik, kaynak kullanımı nasıl bildirilen ve fatura denetler. Abonelikleri Kurulum ayrı faturalandırma ve ödeme için olabilir. Belirtilen önceki altında bir Azure hesabı olarak biz birden fazla abonelik olabilir. Abonelikler, bir şirkette birden çok Departmanlar Azure kaynak kullanımını belirlemek için kullanılabilir.
-
-Örneğin, bir şirket varsa BT, İK ve pazarlama departmanları ve bu Departmanlar çalıştıran farklı projelere sahip. Sanal makineler gibi Azure kaynaklarını kullanımını her departmana göre bağlı olarak, bunlar uygun şekilde fatura. Bu her bölüm Finans denetleyebilirsiniz.
+Örneğin, bir şirket olan BT, ik, ve pazarlama departmanları ve bu Departmanlar farklı projelere çalışıyor. Şirket, faturalama her bölümün kullanımı sanal makineler gibi Azure kaynakları hakkında temel alabilir. Şirket, ardından her bölüm Finans kontrol edebilirsiniz.
 
 Azure abonelikleri üç parametre kurar:
 
-- benzersiz abone kimliği
+- Benzersiz abone kimliği
 
-- Fatura konumu
+- Faturalama konumu
 
 - Kullanılabilir kaynak kümesi
 
-Tüketim sınırları, abonelik türüne bağlı olarak Microsoft zorlar karşın, bir kullanıcı için bir Microsoft hesabı kimliği, kredi kartı numarası ve Azure Hizmetleri--tam dizisi içerir.
+Bir kullanıcı için bu parametreleri bir Microsoft hesabı kimliği, kredi kartı numarası ve Azure Hizmetleri tam dizisi içerir. Microsoft kullanım sınırları, abonelik türüne bağlı olarak zorlar.
 
-Azure kayıt hiyerarşileri, hizmetleri bir Kurumsal Anlaşma içinde nasıl yapılandırıldığı tanımlayın. Enterprise Portal esnek hiyerarşileri kuruluşun benzersiz gereksinimlerine göre özelleştirilebilir dayalı bir kurumsal anlaşma ile ilişkili Azure kaynaklarına erişimi bölmek olanak tanır. Böylece ilişkili faturalama ve kaynak erişim doğru şekilde olunması hiyerarşi düzeni kuruluşun yönetim ve coğrafi yapısı eşleşmelidir.
+Azure kayıt hiyerarşileri, hizmetleri bir Kurumsal Anlaşma içinde nasıl yapılandırıldığı tanımlayın. Kurumsal Anlaşma portal, bir kuruluşun gereksinimlerine göre özelleştirilebilir esnek Hiyerarşiler dayalı bir kurumsal anlaşma ile ilişkili Azure kaynaklarına erişimi bölmek müşteriler sağlar. Hiyerarşi deseni, bir kuruluşun yönetim ve ilişkili faturalama ve kaynak erişim için hesap için coğrafi yapısı eşleşmelidir.
 
-Üç üst düzey desenleri, hesap gruplandırmaları için yönetimsel bir yapı olarak işlev, iş birimi ve coğrafi, kullanarak Departmanlar alır. Her bölüm içinde hesapları siloları fatura ve birkaç anahtar sınırları için (örneğin, sayısı VM'ler, depolama hesapları, vb.) oluşturma abonelikleri atanabilir.
+İşlev, iş birimi üç üst düzey hiyerarşi desenleri alır ve coğrafi. Departmanlar hesap gruplandırmaları için yönetimsel bir yapı ' dir. Her bölüm içinde hesapları siloları fatura ve birkaç anahtar sınırları için (örneğin, sanal makineleri ve depolama hesapları süre) oluşturma abonelikleri atanabilir.
 
 ![Abonelik denetimleri](./media/governance-in-azure/security-governance-in-azure-fig2.png)
 
 
 Bir Kurumsal Anlaşma olan kuruluşlar için Azure abonelikleri dört düzeyli bir hiyerarşiye izleyin:
 
-- Kuruluş kayıt Yöneticisi
+1. Kuruluş kayıt Yöneticisi
 
-- Bölüm Yöneticisi
+2. Bölüm Yöneticisi
 
-- hesap sahibi
+3. hesap sahibi
 
-- Hizmet yöneticisi
+4. Hizmet yöneticisi
 
 Bu hiyerarşide aşağıdaki yönetir:
 
-- Faturalama ilişkisi
+- Faturalama ilişki.
 
-- Hesap Yönetimi
+- Hesap yönetimi.
 
-- Rol tabanlı erişim denetimi (RBAC) yapılara
+- RBAC üzerinden kaynaklara erişimi.
 
-- Sınırları/sınırları
-
-- Sınırlar
+- Sınırları:
 
   - Kullanım ve fatura (teklif sayılara göre oranı kartı)
 
   - Sınırlar
 
-  - Sanal Ağ
+  - Sanal ağ
 
-- 1 AAD bağlı (1 AAD birçok aboneliği ile ilişkili)
+- Ek Azure Active Directory (Azure AD). Bir Azure AD örneğinde birçok aboneliği ile ilişkili olabilir.
 
-- Bir kurumsal kayıt hesapla ilişkili
+- Bir kurumsal kayıt hesapla ilişki.
 
-## <a name="role-based-access-controls"></a>Rol tabanlı erişim denetimleri
+### <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
 
-Azure başlangıçta yayımlandığında, bir abonelik için erişim denetimleri temel: Yöneticisi veya ortak Yöneticisi. Klasik modeli kapsanan tüm kaynaklara erişim izni Portalı'nda bir abonelikte erişim sağlar. Bu eksiklik hassas bir denetim için bir Azure kayıt düzeyi makul erişim denetimi sağlamak için abonelikleri çoğalmasıdır gerektiriyordu.
+[RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) Azure kaynaklarının ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, kullanıcıların işlerini yapmak için gereksinim duyduğu sadece erişim miktarını verebilirsiniz. Şirketler, çalışanların ihtiyaç duydukları izinleri tam vermiş odaklanmanız gerekir. Çok fazla izinler saldırganlar bir hesaba kullanıma sunar. Çok az izinleri çalışanlar verimli bir şekilde işlerini alınamıyor anlamına gelir. 
 
-![Rol tabanlı erişim denetimleri](./media/governance-in-azure/security-governance-in-azure-fig3.png)
+Kısıtlanmamış izinlerini herkes vermek yerine, Azure aboneliği veya kaynakları yalnızca belirli eylemleri izin verebilirsiniz. Örneğin, bir çalışan başka bir çalışan SQL veritabanları aynı abonelikte yönetir sırada bir Abonelikteki sanal makineleri yönetme izin vermek için RBAC kullanabilirsiniz.
 
-Bu abonelikleri çoğalmasıdır artık gerekli değildir. Rol tabanlı erişim denetimi ile standart rolleri (örneğin, "okuyucu" ve "yazıcı" karşılaşılan rollerinin) kullanıcıları atayabilirsiniz. Özel roller tanımlayabilir.
+Erişim vermek için kullanıcılara, gruplara veya belirli bir kapsamda uygulamaları rolleri atayın. Rol atamasının kapsamı, bir abonelik, bir kaynak grubu veya tek bir kaynak olabilir. Bir üst kapsamda atanan bir rolü de içerdiği alt öğelerine erişim verir. Örneğin, bir kaynak grubu erişimi olan bir kullanıcı, Web siteleri, sanal makineler ve alt ağlar gibi içerdiği tüm kaynakları yönetebilir. İçinde her abonelik, en fazla 2000 rol atamalarını oluşturabilirsiniz.
 
-[Azure rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, yalnızca kullanıcıların işlerini yapmak için gereksinim duyduğu erişim miktarını verebilirsiniz. Güvenlik odaklı şirketler çalışanlar gereksinim duydukları izinleri tam vermiş odaklanmanız gerekir. Çok fazla izinler saldırganlar bir hesaba kullanıma sunar. Çok az izinleri çalışanlar verimli bir şekilde işlerini alınamıyor anlamına gelir. Azure rol tabanlı erişim denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sunarak bu sorunu gidermeye yardımcı olur. RBAC ekibiniz içinde görevleri kurabilmeleri ve işlerini yapmak için gereksinim duydukları kullanıcılara sadece erişim miktarını verebilirsiniz yardımcı olur. Kısıtlanmamış izinlerini herkes vermek yerine, Azure aboneliği veya kaynakları yalnızca belirli eylemleri izin verebilirsiniz.
-
-Örneğin, bir çalışan başka bir SQL veritabanları aynı abonelik içindeki yönetebilirsiniz sırada bir Abonelikteki sanal makineleri yönetme izin vermek için RBAC kullanın.
-
-Azure RBAC tüm kaynak türleri için geçerli üç temel rol vardır:
+Bir rolü izinleri koleksiyonudur ve RBAC birkaç yerleşik rol yok. Aşağıdaki yerleşik roller tüm kaynak türleri için geçerlidir:
 
 - **Sahibi** temsilci başkalarına erişimi hakkı dahil olmak üzere tüm kaynaklara tam erişimi vardır.
 
 - **Katkıda bulunan** olabilir oluşturun ve tüm türlerini Azure kaynaklarını yönetmek ancak başkalarına erişim izni veremiyor.
 
-- **Okuyucu** mevcut Azure kaynaklarını görüntüleyebilirsiniz.
+- **Okuyucu** tüm Azure kaynaklarına görüntüleyebilirsiniz.
 
-Azure RBAC rollerin geri kalanı belirli Azure kaynaklarının yönetimini sağlar. Örneğin, sanal makine katılımcı rolü oluşturmak ve sanal makineleri yönetmek kullanıcının sağlar. Bunları erişimi sanal ağ veya sanal makine bağlandığı alt sağlamaz.
+Azure'da yerleşik rollerin geri kalanı belirli Azure kaynaklarının yönetimini sağlar. Örneğin, sanal makine katılımcı rolü oluşturmak ve sanal makineleri yönetmek kullanıcının sağlar. Yerleşik roller ve işlemlerini listesi için bkz: [RBAC yerleşik rolleri](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-[RBAC yerleşik rolleri](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) mevcut rolleri listeler. Her yerleşik rol kullanıcılara veren kapsam ve işlemleri belirtir.
+RBAC, Azure portalı ve Azure Resource Manager API'leri, Azure kaynaklarının yönetim işlemlerini destekler. Çoğu durumda, Azure kaynakları için veri düzeyindeki işlemleri RBAC yetkilendirilemiyor. RBAC veri işlemleri genişletilen nasıl hakkında daha fazla bilgi için bkz: [rol tanımları anlayın](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions).
 
-Kullanıcılar, gruplar ve belirli bir kapsamda uygulamalara uygun RBAC rolü atayarak erişim sağla. Rol atamasının kapsamı, bir abonelik, bir kaynak grubu veya tek bir kaynak olabilir. Bir üst kapsamda atanan bir rolü de içerdiği alt öğelerine erişim verir.
+Yerleşik roller belirli erişim ihtiyaçlarınızı karşılamıyorsa, aşağıdakileri yapabilirsiniz [özel bir rol oluşturmak](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). Yalnızca yerleşik roller gibi özel roller kullanıcılar, gruplar ve uygulamalar abonelik, kaynak grubu ve kaynak kapsam atanabilir. Kullanarak özel roller oluşturabilirsiniz [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)ve [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
-Örneğin, bir kaynak grubu erişimi olan bir kullanıcı, Web siteleri, sanal makineler ve alt ağlar gibi içerdiği tüm kaynaklar yönetebilirsiniz.
+### <a name="resource-management"></a>Kaynak yönetimi
 
-Azure RBAC Azure portalı ve Azure Resource Manager API'leri yalnızca Azure kaynaklarını yönetim işlemlerini destekler. Azure kaynakları için tüm veri düzeyi işlemleri yetkilendirilemiyor. Birisi depolama hesaplarını yönetmek için yetkilendirmek Örneğin, ancak BLOB veya bir depolama hesabı içindeki tabloları olamaz. Benzer şekilde, bir SQL veritabanı, içindeki tabloları ancak yönetilebilir.
+Azure iki dağıtım modeli sağlar: [Klasik](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) ve Azure Kaynak Yöneticisi.
 
-RBAC'nin erişimi yönetmenize nasıl yardımcı olduğu konusunda daha fazla bilgi isterseniz bkz. [Rol Tabanlı Erişim Denetimi Nedir?](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Klasik modelde bağımsız olarak her kaynak mevcut. İlgili kaynaklar gruplamak için bir yolu yoktur. Hangi kaynakların çözüm veya uygulama oluşturan ve eşgüdümlü bir yaklaşım yönetmeyi unutmayın el ile izlemek, vardır. Temel yönetim abonelik birimidir. Çok sayıda abonelikleri oluşturma için müşteri adayları bir abonelik içindeki kaynaklara ayırmanız zordur.
 
-Ayrıca [özel bir rol oluşturmak](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) yerleşik roller hiçbiri belirli erişiminizi karşılamıyorsa Azure rol tabanlı erişim denetimi (RBAC) gerekir. Özel roller kullanılarak oluşturulabilir [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure komut satırı arabirimi (CLI)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)ve [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Yalnızca yerleşik roller gibi özel roller, kullanıcılar, gruplar ve uygulamalar abonelik, kaynak grubu ve kaynak kapsamlar için atanabilir.
+Kavramı, Resource Manager dağıtım modeli içeren bir [kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Kaynak grubu, ortak bir yaşam döngüsünü paylaşan kaynaklara yönelik bir kapsayıcıdır. Çözüm için tüm kaynakları veya yalnızca bir grup olarak yönetmek istediğiniz kaynakları içerebilir. Kuruluş için önemli olan faktörleri temel alarak kaynakları kaynak gruplarına nasıl ayıracağınıza siz karar verirsiniz.
 
-Her abonelikte en fazla 2000 rol ataması verebilirsiniz.
-
-## <a name="resource-management"></a>Kaynak yönetimi
-
-Azure başlangıçta yalnızca klasik dağıtım modelini sağlamıştır. Bu modelde her kaynak bağımsız bir şekilde mevcuttu ve ilgili kaynakları gruplandırmanın bir yolu yoktu. Bunun yerine, çözümünüzü ya da uygulamanızı oluşturan kaynakları el ile izlemeniz ve eşgüdümlü bir şekilde yönetmeyi unutmamanız gerekiyordu.
-
-Bir çözümü dağıtmak için Azure portalı üzerinden ayrı ayrı her bir kaynak oluşturmak veya tüm kaynakların doğru sırada dağıtılan bir komut dosyası oluşturmak zorunda kalındı. Çözümü silmek için her bir kaynağı ayrı ayrı silmeniz gerekiyordu. İlgili kaynaklar için erişim denetimi ilkelerini kolayca uygulayamaz ve güncelleştiremezdiniz. Son olarak, kaynaklarınızı izlemenize ve faturalandırmayı yönetmenize yardımcı olacak terimlerle kaynaklara etiket uygulayamazdınız.
-
-Azure, kaynak grubu kavramını ortaya çıkaran Resource Manager’ı 2014 yılında kullanıma sundu. Kaynak grubu, ortak bir yaşam döngüsünü paylaşan kaynaklara yönelik bir kapsayıcıdır. Resource Manager dağıtım modeli çeşitli avantajlar sunar:
+Resource Manager dağıtım modeli çeşitli avantajlar sunar:
 
 - Çözümünüze yönelik tüm hizmetleri ayrı ayrı ele almak yerine grup halinde dağıtabilir, yönetebilir ve izleyebilirsiniz.
 
-- Çözümünüzü yaşam döngüsü boyunca defalarca dağıtabilir ve kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz.
+- Art arda çözümünüzü yaşam döngüsü dağıtmak ve kaynaklarınızın tutarlı bir durumda dağıtılması da size güven verir.
 
-- Kaynak grubunuzdaki tüm kaynaklara erişim denetimi uygulayabilirsiniz. Kaynak grubuna yeni kaynaklar eklendiğinde bu ilkeler otomatik olarak uygulanır.
+- Kaynak grubunuzdaki tüm kaynaklara erişim denetimini uygulayabilirsiniz. Yeni kaynaklar kaynak grubuna eklendiğinde bu ilkeleri otomatik olarak uygulanır.
 
 - Aboneliğinizdeki tüm kaynakları mantıksal olarak düzenlemek için kaynaklarınıza etiketler ekleyebilirsiniz.
 
 - Çözümünüzün altyapısını tanımlamak için JavaScript Nesne Gösterimi (JSON) kullanabilirsiniz. JSON dosyası bir Resource Manager şablonu olarak bilinir.
 
-- Doğru sırayla dağıtılmalarını sağlamak için kaynaklarınız arasındaki bağımlılıkları tanımlayabilirsiniz.
+- Doğru sırayla dağıtmış sağlamak için kaynaklarınız arasındaki bağımlılıkları tanımlayabilirsiniz.
 
-![Kaynak Yönetimi](./media/governance-in-azure/security-governance-in-azure-fig4.png)
-
-Resource Manager, kaynakları yönetim, faturalama veya doğal benzeşimi anlamlı gruplar halinde yerleştirilmesine olanak sağlar. Daha önce belirtildiği gibi Azure iki dağıtım modeline sahiptir. Önceki içinde [Klasik modeli](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model), temel yönetim birimidir aboneliği karşılaşıldı. Çok sayıda abonelikleri oluşturulmasına neden bir abonelik içindeki kaynaklara ayırmanız zordu. Resource Manager modeli ile kaynak gruplarının giriş gördük.
-
-Kaynak grubu, bir Azure çözümü için ilgili kaynakları bir arada tutan kapsayıcıdır. [Kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) çözüm için tüm kaynakları veya yalnızca bir grup olarak yönetmek istediğiniz kaynakları içerebilir. Kuruluş için önemli olan faktörleri temel alarak kaynakları kaynak gruplarına nasıl ayıracağınıza siz karar verirsiniz.
+![Resource Manager](./media/governance-in-azure/security-governance-in-azure-fig4.png)
 
 Şablonlar hakkında öneriler için bkz. [Azure Resource Manager şablonları oluşturmaya yönelik en iyi uygulamalar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
 
-Azure Resource Manager kaynakların doğru sırada oluşturulmasını sağlamak için bağımlılıkları analiz eder. Bir kaynak başka bir kaynaktaki değere bağımlıysa (diskler için depolama hesabına ihtiyaç duyan bir sanal makine gibi) bir bağımlılık ayarlayın.
+Azure Resource Manager kaynakların doğru sırada oluşturulmasını sağlamak için bağımlılıkları analiz eder. Bir kaynak (örneğin, bir sanal diskler için depolama hesabı gerek makine), başka bir kaynaktan bir değer kullanır varsa, [bir bağımlılık ayarlama](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies) şablondaki.
 
->[!Note]
->Daha fazla bilgi için bkz. [Azure Resource Manager’da bağımlılıkları tanımlama](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies).
+Ayrıca, şablonu altyapıda yapılan güncelleştirmeler için kullanabilirsiniz. Örneğin, çözümünüze bir kaynak ekleyebilir ve zaten dağıtılmış kaynaklar için yapılandırma kuralları ekleyebilirsiniz. Resource Manager şablonu kaynak zaten olan bir kaynak oluşturulmasını belirtiyorsa, yeni bir varlık oluşturmak yerine bir güncelleştirme gerçekleştirir. Yeni gibi Kaynak Yöneticisi'ni aynı duruma varlığı güncelleştirir.
 
-Ayrıca, şablonu altyapıda yapılan güncelleştirmeler için kullanabilirsiniz. Örneğin, çözümünüze bir kaynak ekleyebilir ve zaten dağıtılmış kaynaklar için yapılandırma kuralları ekleyebilirsiniz. Şablon zaten var olan bir kaynak için bir kaynak oluşturulmasını belirtiyorsa, Azure Resource Manager yeni bir varlık oluşturmak yerine bir güncelleştirme gerçekleştirir. Azure Resource Manager varlığı yeni oluşturulacak kaynak ile aynı duruma gelecek şekilde güncelleştirir.
+Kurulumunda bulunmayan yazılım yükleme gibi daha fazla işlem gerektiğinde resource Manager senaryoları için uzantılar sağlar.
 
-Kurulumunda bulunmayan yazılım yükleme gibi ek işlemlere ihtiyaç resource Manager senaryoları için uzantılar sağlar.
+### <a name="resource-tracking"></a>Kaynak İzleme
 
-## <a name="resource-tracking"></a>Kaynak İzleme
+Kuruluşunuzdaki kullanıcılar kaynakları aboneliğe eklemek gibi kaynakları uygun departmanı, müşteri ve ortam ile ilişkilendirmek daha önemli hale gelir. Meta veri kaynaklarına ekleyebilirsiniz [etiketleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags). Kaynak veya sahibi hakkında bilgi sağlamak için etiketler kullanın. Etiketler, yalnızca toplama ve kaynakları çeşitli şekillerde gruplamak, ancak geri ödeme amacıyla bu verilerin de olanak tanır.
 
-Kuruluşunuzdaki kullanıcılar kaynakları aboneliğe eklemek gibi kaynakları uygun departmanı, müşteri ve ortam ile ilişkilendirmek giderek daha çok önemli hale gelir. Meta veri kaynaklarına etiketleri üzerinden ekleyebilirsiniz. Kullandığınız [etiketleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) kaynak veya sahibi hakkında bilgi sağlamak için. Etiketleri yalnızca toplama ve kaynakları çeşitli şekillerde gruplamak, ancak bu verileri geri ödeme amaçları için kullanmak üzere etkinleştirin.
+Kaynak grupları, kaynaklar ve da, karmaşık bir koleksiyonu olduğunda etiketler kullanın. Bu varlıkları çoğu sizin için anlamlı bir şekilde görselleştirmeniz. Örneğin, kuruluşunuzda benzer bir rolü hizmet eden veya aynı departmana ait kaynakları etiketleyebilirsiniz.
 
-Karmaşık bir kaynak grubu ve kaynak koleksiyonunuz olduğunda ve bu varlıkları sizin için anlamlı bir şekilde görselleştirmeniz gerektiğinde etiketleri kullanabilirsiniz. Örneğin, kuruluşunuzda benzer görevleri üstlenen veya aynı departmana ait olan kaynakları etiketleyebilirsiniz.
+Etiketleri, kuruluşunuzdaki kullanıcılar daha sonra tanımlamak ve yönetmek zor olabilir birden fazla kaynak oluşturabilirsiniz. Örneğin, bir proje için tüm kaynakları silmek isteyebilirsiniz. Bu kaynaklar için proje etiketlenir değil, bunları el ile bulmalıdır. Etiketleme, aboneliğinizden doğan gereksiz maliyetleri azaltmanın önemli bir yoludur.
 
-Kuruluşunuzdaki kullanıcılar etiketleri kullanmadan birden fazla kaynak oluşturduğunda, bunları daha sonra tanımlamak ve yönetmek zor olabilir. Örneğin, bir proje için tüm kaynakları silmek isteyebilirsiniz. Bu kaynaklar için proje etiketlenir değil, bunları el ile bulmalıdır. Etiketleme, aboneliğinizden doğan gereksiz maliyetleri azaltmanın önemli bir yoludur.
+Kaynakların bir etiketi paylaşması için aynı kaynak grubunda bulunmaları gerekmez. Kuruluşunuzdaki tüm kullanıcıların yanlışlıkla uygulanan biraz farklı etiketler (örneğin "departman" yerine"") yerine genel etiketler kullanmasını sağlamak için kendi etiket sınıflandırmanızı oluşturabilirsiniz.
 
-Kaynakların bir etiketi paylaşması için aynı kaynak grubunda bulunmaları gerekmez. Kuruluşunuzdaki tüm kullanıcıların yanlışlıkla birbirinden kısmen farklı etiketler (örneğin “departman” yerine “depart.”) kullanmak yerine genel etiketler kullanmasını sağlamak için kendi etiket sınıflandırmanızı oluşturabilirsiniz.
+Kaynak ilkeler, kuruluşunuz için standart kurallar oluşturmanıza olanak sağlar. Kaynakları uygun değerlerle etiketlenir emin olmak için ilkeleri oluşturabilirsiniz.
 
-Kaynak ilkeler, kuruluşunuz için standart kurallar oluşturmanıza olanak sağlar. Kaynakları uygun değerlerle etiketlenir olun ilkeleri oluşturabilirsiniz.
+Azure portalından etiketli kaynakları da görüntüleyebilirsiniz. [Kullanım raporu](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) aboneliğiniz etiket adları ve değerleri içerir için bu nedenle, bölün maliyetleri etiketlere göre.
 
-> [!Note]
-> Daha fazla bilgi için bkz: [faturalama İlkesi Initiative etiketleri](../azure-policy/scripts/billing-tags-policy-init.md).
-
-Azure portalından etiketli kaynakları da görüntüleyebilirsiniz.
-
-Aboneliğinize ait [kullanım raporu](https://docs.microsoft.com/azure/billing/billing-understand-your-bill), maliyetleri etiketlere göre ayırmanızı sağlayan etiket adları ve değerler içerir.
-
-> [!Note]
-> Etiketler hakkında daha fazla bilgi için bkz: [faturalama İlkesi Initiative etiketleri](../azure-policy/scripts/billing-tags-policy-init.md).
+Etiketler hakkında daha fazla bilgi için bkz: [faturalama İlkesi Initiative etiketleri](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Etiketler için aşağıdaki sınırlamalar geçerlidir:
 
-- Her kaynak veya kaynak grubu en fazla 15 etiketi anahtar/değer çifti olabilir. Bu sınırlama kaynak grubu veya kaynak doğrudan uygulanan etiketleri yalnızca uygular. Bir kaynak grubu, her 15 etiketi anahtar/değer çiftleri sahip birçok kaynakları içerebilir.
+- Her kaynak veya kaynak grubu en fazla 15 etiketi anahtar/değer çifti olabilir. Bu sınırlama yalnızca kaynak grubu veya kaynağa doğrudan uygulanan etiketler için geçerlidir. Bir kaynak grubu, her 15 etiketi anahtar/değer çiftleri sahip birçok kaynakları içerebilir.
 
 - Etiket adı 512 karakterle sınırlıdır.
 
@@ -247,248 +178,227 @@ Etiketler için aşağıdaki sınırlamalar geçerlidir:
 
 Bir kaynak ile ilişkilendirmeniz gereken 15'ten fazla değer varsa, etiket değeri için JSON dizesi kullanın. JSON dizesindeki tek etiket anahtarına uygulanan birçok değerler içerebilir.
 
-### <a name="tags-and-billing"></a>Etiketleri ve faturalama
+#### <a name="tags-for-billing"></a>Faturalama için etiketler
 
-Etiketlerin fatura verilerinizi gruplandırmak etkinleştirin. Örneğin, birden çok VM farklı kuruluşlarda çalıştırıyorsanız, etiketleri Grup kullanım için maliyet merkezi tarafından kullanın. Etiketler, maliyetleri çalışma zamanı ortamı tarafından kategorilere ayırmak için de kullanabilirsiniz; Üretim ortamında çalışan sanal makineler için fatura kullanımı gibi.
+Etiketlerin fatura verilerinizi gruplandırmak etkinleştirin. Örneğin, farklı kuruluşlarda birden çok VM çalıştırıyorsanız, maliyet merkezi tarafından Grup kullanım etiketleri kullanın. Etiketler, maliyetleri üretim ortamında çalışan sanal makineler için fatura kullanımı gibi çalışma zamanı ortamı tarafından kategorilere ayırmak için de kullanabilirsiniz.
 
 Etiketler hakkında bilgi alabilir [Azure kaynak kullanımı ve RateCard API'leri](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview) veya kullanım virgülle ayrılmış değerler (CSV) dosyası. Kullanım dosyasını indirin [Azure hesap portalını](https://account.windowsazure.com/) veya [EA portal](https://ea.azure.com/).
 
->[!Note]
-> Faturalandırma bilgileri programlı erişim hakkında daha fazla bilgi için bkz: [Microsoft Azure kaynak tüketimini Öngörüler elde](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview). REST API işlemleri için bkz: [Azure faturalama REST API Başvurusu](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Faturalandırma bilgileri programlı erişim hakkında daha fazla bilgi için bkz: [Microsoft Azure kaynak tüketimini Öngörüler elde](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview). REST API işlemleri için bkz: [Azure faturalama REST API Başvurusu](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
 Faturalama etiketleriyle destekleyen hizmetler için kullanım CSV yüklediğinizde, etiketler etiketleri sütununda görünür.
 
-## <a name="critical-resource-controls"></a>Kritik kaynak denetimleri
+### <a name="critical-resource-controls"></a>Kritik kaynak denetimleri
 
-Kuruluşunuz için abonelik Çekirdek Hizmetleri ekler gibi bu hizmetleri iş kesintisi yaşamamak kullanılabilir olmasını sağlamak giderek daha çok önemli olur. [Kaynak kilitleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) değiştirilmesini veya silinmesini sahip olduğu uygulamalar veya Bulut altyapısı üzerinde önemli bir etkisi yüksek değerli kaynaklardaki işlemlerini kısıtlamak etkinleştirin. Kilitleri, bir abonelik, kaynak grubuna ya da kaynağa uygulayabilirsiniz. Genellikle, sanal ağlar, ağ geçitleri ve depolama hesapları gibi temel kaynaklarına kilitleri uygulayın.
+Kuruluşunuz için abonelik Çekirdek Hizmetleri ekler gibi bu hizmetleri iş kesintisi yaşamamak kullanılabilir olduğundan emin olmak daha önemli hale gelir. [Kaynak kilitleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) değiştirilmesini veya silinmesini sahip olduğu uygulamalar veya Bulut altyapısı üzerinde önemli bir etkisi yüksek değerli kaynaklardaki işlemlerini kısıtlamak etkinleştirin. Kilitleri, bir abonelik, kaynak grubuna ya da kaynağa uygulayabilirsiniz. Genellikle, sanal ağlar, ağ geçitleri ve depolama hesapları gibi temel kaynaklarına kilitleri uygulayın.
 
-Kaynak kilitleri şu anda iki değer destekler: CanNotDelete ve salt okunur. Kullanıcılar (uygun haklarıyla) hala CanNotDelete anlamına gelir okuma veya bir kaynak değiştirme ancak bunu silemezsiniz. Salt okunur, yetkili kullanıcıların silemez veya bir kaynak değiştirme olduğunu anlamına gelir.
+Kaynak kilitleri şu anda iki değer destekler: **CanNotDelete** ve **salt okunur**. **CanNotDelete** kullanıcılarla (uygun hakları) hala anlamına gelir okumak veya bir kaynak değiştirme ancak bunu silemezsiniz. **Salt okunur** yetkili kullanıcıların anlamına gelir silinemez veya bir kaynak değiştirilemez.
 
-Resource Manager kilitleri uygulamak gönderilen işlemleri oluşan yönetim düzeyi gerçekleşen işlemlerine <https://management.azure.com>. Kilitler nasıl kaynakları kendi işlevleri gerçekleştirmek kısıtlamaz. Kaynak kısıtlı değişir, ancak kaynak işlemlerinin sınırlı değildir. Örneğin, bir SQL veritabanı salt okunur kilit silme veya veritabanı değiştirme engeller, ancak bu, oluşturma, güncelleştirme veya silme verilerden veritabanındaki engellemez.
+Gönderilen işlemleri oluşan yönetim düzeyi gerçekleşen işlemleri için kaynak kilitleri Uygula <https://management.azure.com>. Kilitler nasıl kaynakları kendi işlevleri gerçekleştirmek kısıtlama yok. Kaynak kısıtlı değişir, ancak kaynak işlemlerinin sınırlı değildir. Örneğin, bir **ReadOnly** kilit bir SQL veritabanında silme veya veritabanı değiştirme engeller, ancak oluşturma, güncelleştirme ya da veritabanındaki verileri silme engellemez.
 
-Uygulama **ReadOnly** gibi görünen bazı işlemler gerektirir ek eylemleri okuma olduğundan beklenmeyen sonuçlara yol açabilir. Örneğin, yerleştirme bir **ReadOnly** kilit bir depolama hesabında anahtarları listeleme tüm kullanıcıları engeller. Yazma işlemlerini listenin döndürülen anahtarları için kullanılabilir olmadığından anahtarları işlemi bir POST isteği gerçekleştirilir.
+Uygulama **ReadOnly** gibi görünen bazı işlemler gerektirir ek eylemleri okuma olduğundan beklenmeyen sonuçlara yol açabilir. Örneğin, yerleştirme bir **ReadOnly** kilit bir depolama hesabında anahtarları listeleme tüm kullanıcıları engeller. Döndürülen anahtarları yazma işlemleri için kullanılabilir olmadığından anahtarları listeleme işlemi bir POST isteği gerçekleştirilir.
 
 ![Kritik kaynak denetimleri](./media/governance-in-azure/security-governance-in-azure-fig5.png)
 
-Başka bir örnek için bir uygulama hizmeti kaynakta bir salt okunur kilidi yerleştirme, Visual Studio Sunucu Gezgini'bu etkileşimi yazma erişimi gerektirdiğinden kaynak dosyaları görüntülenmesini engeller.
+Başka bir örneğin yerleştirme bir **ReadOnly** kilit bir Azure uygulama hizmeti kaynağına yazma erişimi bu etkileşimi gerektirmesi nedeniyle kaynak dosyalarını görüntüleme Visual Studio Sunucu Gezgini engeller.
 
-Rol tabanlı erişim denetimi farklı olarak, tüm kullanıcılar ve roller bir kısıtlama uygulamak için yönetim kilitleri kullanın. Kullanıcılar ve roller için izinleri ayarlama bilgi edinmek için [Azure rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Rol tabanlı erişim denetimi farklı olarak, tüm kullanıcılar ve roller bir kısıtlama uygulamak için yönetim kilitleri kullanın. İzinleri ayarlama bilgi edinmek için [RBAC ve Azure portalını kullanarak erişimini yönetme](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 Bir üst kapsamda kilit uyguladığınızda, kapsamı içindeki tüm kaynakların aynı kilit devralır. Daha sonra eklediğiniz bile kaynakları kilidi üst devralır. Devralmada en kısıtlayıcı kilidi önceliklidir.
 
-Oluşturmak veya yönetim kilitleri silmek için Microsoft.Authorization/ erişimi olmalıdır _veya Microsoft.Authorization/locks/_ eylemler. Yerleşik rollerden yalnızca **Sahip** ve **Kullanııcı Erişiimi Yöneticisi** bu eylemleri kullanabilir.
+Oluşturmak veya yönetim kilitleri silmek için Microsoft.Authorization/ veya Microsoft.Authorization/locks/ Eylemler erişiminiz olması gerekir. Yerleşik roller bu eylemleri yalnızca sahip ve kullanıcı erişimi Yöneticisi verilir.
 
-## <a name="api-access-to-billing-information"></a>Faturalandırma bilgileri API erişimi
+### <a name="api-access-to-billing-information"></a>Faturalandırma bilgileri API erişimi
 
 Azure faturalama API'leri kullanımı ve kaynak veri çekmek için tercih edilen veri analizi araçlarınızı kullanın. Azure kaynak kullanımı ve RateCard API'leri doğru şekilde tahmin etmek ve maliyetlerinizi yönetmenize yardımcı olabilir. API'ler bir kaynak sağlayıcısı ve Azure Resource Manager tarafından kullanıma sunulan API ailesinin bir parçası olarak uygulanır.
 
-### <a name="azure-resource-usage-api-preview"></a>Azure kaynak kullanım API'si (Önizleme)
+#### <a name="resource-usage-api-preview"></a>Kaynak kullanımı API (Önizleme)
 
 Azure kullanmak [kaynak kullanım API'si](https://msdn.microsoft.com/library/azure/mt219003) tahmini Azure tüketim verilerinizi almak için. API içerir:
 
-- **Azure rol tabanlı erişim denetimi** -yapılandırma erişim ilkeleri [Azure portal](https://portal.azure.com/) aracılığıyla veya [Azure PowerShell cmdlet'lerini](https://docs.microsoft.com/powershell/azure/overview) hangi kullanıcılar veya uygulamalar için erişim sağlayabilmek için belirtmek için Aboneliğin kullanım verileri. Arayanlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Çağıran, belirli bir Azure aboneliği kullanım verileri erişmek için faturalama Okuyucu, okuyucu, sahibi veya katkıda bulunan rolü ekleyin.
+- **RBAC**: yapılandırma erişim ilkeleri [Azure portal](https://portal.azure.com/) aracılığıyla veya [Azure PowerShell cmdlet'lerini](https://docs.microsoft.com/powershell/azure/overview) hangi kullanıcıların veya uygulamaların aboneliğin kullanım verilerine erişim elde edebilirsiniz belirtmek için. Arayanlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Çağıran, belirli bir Azure aboneliği kullanım verileri erişmek için faturalama Okuyucu, okuyucu, sahibi veya katkıda bulunan rolü ekleyin.
 
-- **Saatlik veya günlük toplamalar** - arayanlar olup Azure kullanım verilerini saatlik istedikleri aralıkları belirtebilirsiniz veya günlük aralıkları. Varsayılan günlük.
+- **Günlük veya saatlik toplamalar**: arayanlar, günlük veya saatlik aralıklarla Azure kullanım verilerini isteyip istemediğinizi belirtebilirsiniz. Varsayılan günlük.
 
-- **(Kaynak etiketleri içerir) örneği meta veri** – alma tam Kaynak URI gibi örnek düzeyi ayrıntısı (/subscriptions/ {subscrıptıon-ID} /..), kaynak grubu bilgileri ve kaynak etiketleri. Çapraz ücretlendirme kullanım örnekleri ister için bu meta veriler, belirleyici biçimde ve program aracılığıyla kullanım etiketlere göre ayırmak yardımcı olur.
+- **(Kaynak etiketleri içerir) örneği meta veri**: Get tam kaynak URI'si gibi örnek düzeyi ayrıntısı (/subscriptions/ {subscrıptıon-ID} /..), kaynak grubu bilgileri ve kaynak etiketleri. Bu meta veriler belirleyici biçimde ve program aracılığıyla etiketleriyle çapraz ücretlendirme gibi kullanım örnekleri için kullanım ayırmaya yardımcı olur.
 
-- **Kaynak meta verilerini** -kaynak ayrıntılarını ölçüm adı, ölçer kategori, ölçüm alt kategorisi, birim ve bölge gibi daha iyi ne tüketilen anlamak çağıran verin. Ayrıca Azure portalı kaynak meta verileri terminolojisi hizalamak için çalışıyoruz Azure kullanım CSV, CSV ve diğer genel kullanıma yönelik deneyimleri deneyimleri arasında verilerin bağıntısını olanak faturalama EA.
+- **Kaynak meta verilerini**: kaynak ayrıntılarını ölçüm adı, ölçüm kategori, ölçüm alt kategorisi, birim ve bölge gibi daha iyi ne tüketilen anlamak çağıran verin. Ayrıca Azure portalı kaynak meta verileri terminolojisi hizalamak için çalışıyoruz Azure kullanım CSV, faturalama CSV ve diğer genel kullanıma yönelik deneyimleri deneyimleri arasında verilerin bağıntısını yardımcı olacak EA.
 
-- **Tüm kullanım teklif türleri** – kullanım verilerini, tüm Kullandıkça Öde, MSDN, parasal taahhüt, kredi ve EA gibi türlerinde sunmak için kullanılabilir.
+- **Tüm kullanım teklif türleri**: kullanım verileri, tümü Kullandıkça Öde, MSDN, parasal taahhüt, kredi ve EA gibi türleri sunmak için kullanılabilir.
 
-**Azure kaynak RateCard API (Önizleme)**
+#### <a name="resource-ratecard-api"></a>Kaynak RateCard API
 
 Mevcut Azure kaynakları ve her biri için tahmini fiyatlandırma bilgileri listesini almak için Azure kaynak RateCard API'sini kullanın. API içerir:
 
-- **Azure rol tabanlı erişim denetimi** - Azure portalında veya hangi kullanıcıların belirtmek için Azure PowerShell cmdlet'leri aracılığıyla erişim ilkelerinizi yapılandırmak veya uygulamaları RateCard verilere erişim alabilirsiniz. Arayanlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Çağıran, belirli bir Azure aboneliği kullanım verileri erişmek için okuyucu, sahibi veya katkıda bulunan rolü ekleyin.
+- **RBAC**: Azure portal veya hangi kullanıcıların veya uygulamaların RateCard verilere erişim elde edebilirsiniz belirtmek için Azure PowerShell cmdlet'leri aracılığıyla erişim ilkelerini yapılandırın. Arayanlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Çağrıyı yapan belirli bir Azure aboneliği kullanım verileri erişmek için okuyucu, sahibi veya katkıda bulunan rolü ekleyin.
 
-- **Kullandıkça Öde, MSDN, parasal taahhüt ve kredi desteği sunar (EA desteklenmiyor)** -bu API Azure teklifi düzeyi oranı bilgi sağlar. Bu API'yi çağıran kaynak ayrıntılarını ve ücretlerin almak için teklif bilgileri geçmesi gerekir. EA teklifleri kayıt göre oranları özelleştirdikten çünkü EA oranları sağlamak şu anda kaydedemiyoruz. Kullanım ve RateCard API'leri birleşimiyle olası hale getirilen senaryolardan bazıları şunlardır:
+- **Kullandıkça Öde, MSDN, parasal taahhüt ve kredi sunar (ancak değil EA) için destek**: Bu API Azure teklifi düzeyi oranı bilgi sağlar. Bu API'yi çağıran kaynak ayrıntılarını ve ücretlerin almak için teklif bilgileri geçmesi gerekir. EA teklifleri kayıt göre oranları özelleştirdikten için EA şu anda desteklenmiyor. 
 
-- **Azure ay sırasında harcadığı** - kullanım birleşimini kullanın ve RateCard API'ları, bulut daha iyi fikir almak için bir ay sırasında harcadığı. Kullanım ve Ücret tahminleri saatlik ve günlük demet analiz edebilirsiniz.
+#### <a name="scenarios"></a>Senaryolar
 
-- **Uyarıları ayarlamak** – tahmini bulut kullanımı ve ücretleri almak ve kaynak veya parasal tabanlı uyarıları ayarlamak için kullanım ve RateCard API'lerini kullanın.
+Kullanım ve RateCard API'leri birleşimi bu senaryoları mümkün kılar:
 
-- **Fatura tahmin** – tahmini tüketim ve bulut harcamanız ve fatura fatura döneminin sonunda ne olacağını tahmin etmek için makine öğrenimi algoritmalarını uygulamak alın.
+- **Azure anlamak ay sırasında harcadığı**: kullanım birleşimini kullanın ve RateCard bulutunuzu daha iyi fikir almak için API harcamanızı ay. Saatlik ve günlük kullanımı ve Ücret tahminleri analiz edebilirsiniz.
 
-- **Analiz maliyetiyle öncesi tüketim** –, iş yükleri için Azure taşıdığınızda ne kadar faturanızı beklenen kullanımınız için olacaktır tahmin etmek için RateCard API'sini kullanın. Ayrıca var olan iş yükleri diğer Bulut veya özel bulutlara varsa, Azure ile kullanımınızı eşleştirebilirsiniz oranları Azure daha iyi kestirmek için harcadıkları. Bu tahmin teklifini Özet ve parasal taahhüt ve kredi gibi Kullandıkça Öde ötesinde farklı teklif türleri arasında karşılaştırma olanağı sağlar. API da bölgeye göre maliyet farklılıkları görme olanağı verir ve dağıtım kararları vermenize yardımcı olmak için durum maliyet çözümlemesi yapmanıza izin verir.
+- **Uyarıları ayarlamak**: RateCard API'leri ve kullanım tahmini bulut kullanımı ve ücretleri almak ve kaynak veya parasal tabanlı uyarıları ayarlamak için kullanın.
 
-- **Çözümlemeleri** -başka bir bölgede ya da başka bir Azure kaynak yapılandırması iş yüklerini çalıştırmak için daha uygun maliyetli olup olmadığını belirleyebilirsiniz. Azure kaynak maliyetleri kullanmakta olduğunuz Azure bölgesinde değişebilir.
+- **Fatura tahmin**: tahmini tüketim ve bulut harcamanız ve fatura fatura döneminin sonunda ne olacağını tahmin etmek için makine öğrenimi algoritmalarını uygulamak alın.
 
-- Başka bir Azure Teklif türü bir Azure kaynağı üzerinde daha iyi oranı sağlar, ayrıca belirleyebilirsiniz.
+- **Analiz maliyetiyle öncesi tüketim gerçekleştirmek**: Azure'a iş yüklerinizi taşıdığınızda ne kadar faturanızı beklenen kullanımınız için olacaktır tahmin etmek için RateCard API'sini kullanın. Ayrıca var olan iş yükleri diğer Bulut veya özel bulutlara varsa, Azure ile kullanımınızı eşleştirebilirsiniz oranları Azure daha iyi kestirmek için harcadıkları. Bu tahmin teklifini Özet ve parasal taahhüt ve kredi gibi Kullandıkça Öde ötesinde farklı teklif türleri arasında karşılaştırma olanağı sağlar.
 
-## <a name="networking-controls"></a>Ağ denetimleri
+- **Bir çözümlemeleri gerçekleştirmek**: başka bir bölgede ya da başka bir Azure kaynak yapılandırması iş yüklerini çalıştırmak için daha uygun maliyetli olup olmadığını belirleyebilirsiniz. Azure kaynak maliyetleri kullanmakta olduğunuz Azure bölgesinde değişebilir. Başka bir Azure Teklif türü bir Azure kaynağı üzerinde daha iyi oranı sağlar, ayrıca belirleyebilirsiniz.
 
-Kaynaklara erişimi (içinde corporation'ın ağ) iç veya dış (Internet) aracılığıyla olabilir. Yanlışlıkla kaynakları içinde yanlış yere koyun ve potansiyel olarak bunları kötü amaçlı erişime açmak, kuruluşunuzdaki kullanıcılar için kolay bir işlemdir. Olduğu gibi şirket içi / aygıtlar, kuruluşların Azure kullanıcıların doğru kararlar emin olmak için uygun denetimleri eklemelisiniz.
+### <a name="networking-controls"></a>Ağ denetimleri
+
+Kaynaklara erişimi (içinde corporation'ın ağ) iç veya dış (Internet) aracılığıyla olabilir. Yanlışlıkla kaynakları içinde yanlış yere koyun ve potansiyel olarak bunları kötü amaçlı erişime açmak, kuruluşunuzdaki kullanıcılar için kolay bir işlemdir. Şirket içi cihazları gibi kuruluşların Azure kullanıcıların doğru kararlar emin olmak için uygun denetimleri eklemeniz gerekir.
 
 ![Ağ denetimleri](./media/governance-in-azure/security-governance-in-azure-fig6.png)
 
-Abonelik Yönetimi için temel Denetim erişim sağlayan çekirdek kaynakları belirleyin. Çekirdek kaynakları oluşur:
+Abonelik Yönetimi için aşağıdaki çekirdek kaynakları erişim temel bir denetim sağlar.
 
-### <a name="network-connectivity"></a>Ağ bağlantısı
+#### <a name="network-connectivity"></a>Ağ bağlantısı
 
-[Sanal ağlar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) alt ağlar için kapsayıcı nesnelerdir. Kesinlikle gerekli olsa, uygulamaları dahili şirket kaynaklarına bağlanırken çoğunlukla kullanılır. Azure sanal ağ hizmeti, güvenli bir şekilde Azure kaynaklarını birbirlerine sanal ağlar (Vnet'ler) bağlanmanıza olanak sağlar.
+[Sanal ağlar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) alt ağlar için kapsayıcı nesnelerdir. Kesinlikle gerekli olsa, bir sanal ağ çoğunlukla uygulamaları iç şirket kaynaklarına bağlanmak için kullanılır. Azure Virtual Network service, güvenli bir şekilde Azure kaynakları ile sanal ağları birbirine olanak sağlar.
 
-Bir VNet kendi ağ bulutta gösterimidir. Bir VNet Azure bulutunun aboneliğinize adanmış mantıksal bir yalıtım ' dir. Ayrıca, sanal ağlar, şirket içi ağınıza bağlanabilir.
+Bir sanal ağ kendi ağ bulutta gösterimidir. Azure bulutunun aboneliğinize adanmış mantıksal ayırma bir sanal ağdır. Ayrıca, sanal ağlar, şirket içi ağınıza bağlanabilir.
 
 Azure sanal ağlar için özellikleri şunlardır:
 
-- **Yalıtım**: sanal ağlar birbirinden yalıtılmış. Geliştirme, test ve üretim için aynı CIDR adres bloklarını kullanan ayrı Vnet'ler oluşturabilirsiniz. Buna karşılık, ağları birbirine bağlamak ve farklı CIDR adres bloklarını kullanan birden çok sanal ağlar oluşturabilirsiniz. Bir sanal ağ birden çok alt ağa bölebilirsiniz. Azure, bir sanal ağa bağlı VM'ler ve bulut Hizmetleri rol örnekleri için dahili ad çözümlemesi sağlar. İsteğe bağlı olarak bir VNet Azure dahili ad çözümlemesi kullanmak yerine kendi DNS sunucularını kullanmak için yapılandırabilirsiniz.
+- **Yalıtım**: sanal ağlar birbirinden yalıtılmış. Geliştirme, test ve üretim için aynı CIDR adres bloklarını kullanan ayrı sanal ağlar oluşturabilirsiniz. Buna karşılık, ağları birbirine bağlamak ve farklı CIDR adres bloklarını kullanan birden çok sanal ağlar oluşturabilir. Bir sanal ağ birden çok alt ağa bölebilirsiniz. Azure, sanal bir ağa bağlı sanal makineleri ve Azure Cloud Services rol örnekleri için dahili ad çözümlemesi sağlar. İsteğe bağlı olarak bir sanal ağ Azure dahili ad çözümlemesi kullanmak yerine kendi DNS sunucularını kullanmak için yapılandırabilirsiniz.
 
-- **Internet bağlantısı**: bir sanal ağa bağlı tüm Azure sanal makineler (VM) ve bulut Hizmetleri rol örnekleri varsayılan olarak, Internet erişimi vardır. Belirli kaynaklara gelen erişim gerektiğinde de etkinleştirebilirsiniz.
+- **Internet bağlantısı**: tüm Azure sanal makineler ve sanal bir ağa bağlı bulut Hizmetleri rol örnekleri varsayılan olarak, internet erişimi vardır. Belirli kaynaklara gelen erişim gerektiğinde de etkinleştirebilirsiniz.
 
-- **Azure kaynak bağlantısı**: Bulut Hizmetleri ve sanal makineleri gibi Azure kaynaklarını aynı Vnet'e bağlı. Farklı alt ağlarda olsalar bile, kaynakları birbirlerine özel IP adresleri kullanarak bağlanabilir. Azure, yapılandırmak ve yollar yönetmek zorunda kalmamak için varsayılan alt ağlar, sanal ağlar ve şirket içi ağlar arasında yönlendirme sağlar.
+- **Azure kaynak bağlantısı**: Bulut Hizmetleri ve sanal makineleri, gibi Azure kaynakları aynı sanal ağa bağlanabilir. Farklı alt ağlarda bile olsa, kaynakları aracılığıyla özel IP adresleri, birbirlerine bağlanabilir. Azure, yapılandırmak ve yollar yönetmek zorunda kalmamak için varsayılan alt ağlar, sanal ağlar ve şirket içi ağlar arasında yönlendirme sağlar.
 
-- **VNet bağlantısı**: sanal ağlar bağlanması birbirine herhangi bir kaynak başka bir VNet ile iletişim kurmak için hiçbir sanal ağa bağlı kaynaklar etkinleştirme.
+- **Sanal ağ bağlantısı**: Sanal ağları birbirine bağlanabilir. Herhangi bir sanal ağa bağlı kaynakları sonra herhangi bir sanal ağ üzerindeki herhangi bir kaynağa iletişim kurabilir.
 
-- **Şirket içi bağlantı**: sanal ağlara bağlanabilir ağınız ve Azure arasında özel ağ bağlantıları üzerinden veya siteden siteye VPN bağlantısı üzerinden şirket içi ağlar Internet üzerinden.
+- **Şirket içi bağlantı**: ağınız ve Azure arasında özel ağ bağlantıları üzerinden veya siteden siteye sanal özel ağ (VPN) bağlantısı üzerinden şirket içi ağlar için internet üzerinden sanal ağlara bağlanabilir.
 
-- **Trafik filtreleme**: rol örneklerini ağ trafiğini VM ve bulut Hizmetleri filtre gelen ve giden kaynak IP adresi ve bağlantı noktası, hedef IP adresi ve bağlantı noktası ve protokolü tarafından.
+- **Trafik filtreleme**: ağ trafiği (gelen ve giden) sanal makineler ve bulut Hizmetleri için kaynak IP adresi ve bağlantı noktası, hedef IP adresi ve bağlantı noktası ve protokolü göre filtreleyebilirsiniz.
 
-- **Yönlendirme**: isteğe bağlı olarak, kendi yolları yapılandırmak veya bir ağ geçidi üzerinden BGP yollarını kullanarak yönlendirme Azure'un varsayılan ayarlarını geçersiz kılabilir.
+- **Yönlendirme**: isteğe bağlı olarak, kendi yolları yapılandırmak veya bir ağ geçidi üzerinden BGP yollarını kullanarak Azure yönlendirme varsayılan ayarlarını geçersiz kılabilir.
 
-## <a name="network-access-controls"></a>Ağ erişim denetimleri
+#### <a name="network-access-controls"></a>Ağ erişim denetimleri
 
-[Ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) gibi bir güvenlik duvarının ve nasıl kaynak "iletişim kurabilirsiniz için" ağ üzerinden kurallar sağlar. Nasıl üzerinde ayrıntılı denetim sağladıkları / Internet veya diğer alt ağlara aynı sanal ağ için bir alt ağ (veya sanal makine) bağlanabilir.
+[Ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (Nsg'ler) olduğu gibi bir güvenlik duvarı ve nasıl kaynak "ağ üzerinden iletişim kurabilirsiniz için" kuralları sağlar. Bunlar, bir alt ağ (veya sanal makine) Internet veya diğer alt ağlara aynı sanal ağda nasıl bağlanabilir üzerinde denetim sağlar.
 
-Ağ güvenlik grubu (NSG), Azure Sanal Ağlara (VNet) bağlı kaynaklara ağ trafiğine izin veren veya reddeden güvenlik kurallarının listesini içerir. Ağ güvenlik grupları (NSG’ler), alt ağlarla, ayrı ayrı VM’lerle (klasik) veya VM’lere bağlı ağ arabirimleri ile ilişkilendirilebilir (Resource Manager).
+Ağ güvenlik grubu izin veren veya reddeden Azure sanal ağlar için bağlı kaynaklar için ağ trafiği güvenlik kurallarının bir listesini içerir. Nsg'ler alt ağlar, tek tek sanal makineleri (Klasik) veya VM'ler (Resource Manager) bağlı tek tek ağ arabirimlerine (NIC'ler) ile ilişkili olabilir.
 
-Bir NSG bir alt ağ ile ilişkilendirildiğinde kurallar alt ağa bağlı tüm kaynaklar için geçerli olur. Bir NSG’nin bir VM veya ağ arabirimi ile ilişkilendirilmesi yoluyla da trafik kısıtlanabilir.
+Bir NSG'yi bir alt ağ ile ilişkili olduğunda, kurallar alt ağına bağlı tüm kaynaklara uygulanır. Bir NSG'yi bir VM veya NIC ile ilişkilendirme tarafından daha fazla trafiği kısıtlayabilir
 
-## <a name="security-and-continuous-compliance-with-organizational-standards"></a>Güvenlik ve kuruluş standartlarıyla sürekli uyumluluk
+## <a name="security-and-compliance-with-organizational-standards"></a>Güvenlik ve kuruluş standartlarıyla uyumluluğu
 
-Her iş farklı gereksinimleri vardır ve her iş bulut çözümleri den farklı avantajları yararlanmasını. Yine de, her tür müşteriler buluta taşıma hakkında aynı temel endişeleriniz. Denetim verilerini korumak istedikleri ve tüm saydamlık ve uyumluluk korurken güvenli ve özel tutulması için bu verilerin istedikleri.
+Her iş farklı gereksinimleri vardır ve bulut çözümleri den farklı avantajları yararlanmasını. Yine de, her tür müşteriler buluta taşıma hakkında aynı temel endişeleriniz. Müşterilere bulut sağlayıcılardan istediğinizi aşağıdaki gibidir:
 
-Müşterilere bulut sağlayıcılardan istediğinizi aşağıdaki gibidir:
+- **Verilerimizi güvenli**: BT yöneticileri kabul bulut artan veri güvenliği ve yönetim denetimini sağlayabilirsiniz. Ancak buluta geçiş bunları daha bilgisayar korsanlarının geçerli şirket içi çözümleri daha savunmasız, hala ilgilenen.
 
-- **Verilerimizi güvenli** veri güvenliği ve yönetim denetimini buluta sağlayabilir aktarımının artan sırada BT yöneticileri hala buluta geçiş bunları daha savunmasız saldırganlar, geçerli'den şirket içi bırakır, duyarlıdır çözümleri.
+- **Verilerimizi özel kalmasını**: Bulut Hizmetleri, benzersiz gizlilik zorluklar Yükselt. Şirketler altyapı giderlerinden tasarruf edersiniz ve kendi esnekliğinde geliştirmek için bulut Ara gibi bunlar Ayrıca, verilerini depolandıkları, kimin erişmekte olduğunu ve nasıl kullanıldıkları denetim kaybetme endişesi.
 
-- **Verilerimizi korumak** özel bulut Hizmetleri işletmeler için benzersiz gizlilik zorlukları Yükselt. Şirketler altyapı giderlerinden tasarruf edersiniz ve kendi esnekliğinde geliştirmek için bulut Ara gibi bunlar Ayrıca, verilerini depolandıkları, kimin erişmekte olduğunu ve nasıl kullanıldıkları denetim kaybetme endişesi.
+- **Bize denetime**: şirketler daha fazla yenilikçi çözümlerini dağıtmak için bulut yararlanarak gibi bunlar denetim verilerini kaybetmeden hakkında endişelisiniz. Yasal ve extralegal yollarla müşteri verilerine erişme kamu kurumlarının son açıklamalarına bazı CIO verilerini buluta depolamaya çok dikkatli olun.
 
-- **Bize denetime** daha fazla yenilikçi çözümlerini dağıtmak için bulut yararlanarak gibi şirket verilerini denetimini kaybetmesini hakkında çok endişe. Yasal ve çok yasal yollarla müşteri verilerine erişme kamu kurumlarının son açıklamalarına bazı CIO verilerini buluta depolamaya çok dikkatli olun.
+- **Saydamlık Yükselt**: iş karar verenler güvenlik, gizlilik ve denetim önemini anlamanız. Ancak, bağımsız olarak kendi verilerinin ne nasıl depolandığını, erişilen ve güvenli doğrulama olanağı da istedikleri.
 
-- **Saydamlık Yükselt** güvenlik, gizlilik ve denetim için iş karar verenler önemli olsa da, aynı zamanda bağımsız olarak kendi verilerinin ne nasıl depolandığını, erişilen ve güvenli doğrulama olanağı istedikleri.
+- **Uygunluğun sürdürülmesine**: şirketler kendi bulut teknolojileri kullanımını genişletme gibi gelişmesi standartları ve düzenlemelere kapsamını ve karmaşıklık devam. Şirketler, uyumluluk standartlarını karşılanması bilmeniz gerekir.
 
-- **Uygunluğun sürdürülmesine** kullanımlarını bulut teknolojileri Şirketleri Genişlet gibi gelişmesi standartları ve düzenlemelere kapsamını ve karmaşıklık devam. Şirketler, uyumluluk standartlarını karşılaması gereken ve o uyumluluk düzenlemeleri değişiklik zaman içinde değiştikçe bilmeniz gerekir.
+## <a name="security-configuration-for-monitoring-logging-and-auditing"></a>İzleme, günlüğe kaydetme ve denetim için güvenlik yapılandırması
 
-## <a name="security-configuration-monitoring-and-alerting"></a>Güvenlik Yapılandırması, izleme ve uyarma
+Azure aboneleri birden çok cihazı bulut ortamlarını yönetebilir. Bu aygıtlar, yönetim iş istasyonları, geliştirici PC'leri ve görev özel izinlere sahip bile ayrıcalıklı son kullanıcı cihazları içerebilir. 
 
-Azure aboneleri yönetim iş istasyonları, geliştirici PC’leri ve hatta göreve özel izinleri bulunan ayrıcalıklı son kullanıcı cihazları dahil birden fazla cihazda kendi bulut ortamlarını yönetebilir. Bazı durumlarda, yönetim işlevleri Azure portalı gibi web tabanlı konsollar aracılığıyla gerçekleştirilir. Diğer durumlarda, Sanal Özel Ağlar (VPN), Terminal Hizmetleri, istemci uygulaması protokolleri ya da (programlı olarak) Azure Service Management API (SMAPI) üzerinden şirket için sistemlerden Azure’a bağlantılar olabilir. Ayrıca, istemci uç noktaları ya da etki alanına katılmış veya yalıtılmış ve yönetilmeyen olabilir, tabletler veya akıllı telefonlar gibi.
+Bazı durumlarda, yönetim işlevleri Azure portalı gibi web tabanlı konsollar aracılığıyla gerçekleştirilir. Diğer durumlarda, olabilir doğrudan bağlantılar Azure için şirket içi sistemlerden VPN'ler, Terminal Hizmetleri, istemci uygulaması protokolleri veya Azure Hizmet Yönetimi API'si (SMAPI) (programlı olarak). Ayrıca, istemci uç noktaları ya da etki alanına katılmış veya yalıtılmış ve yönetilmeyen, tabletler veya akıllı telefonlar gibi olabilir.
 
-Çoklu erişim ve yönetim özellikleri zengin seçenekler sunsa da, bu değişkenlik bulut dağıtımına önemli bir risk ekleyebilir. Yönetim eylemlerini yönetmek, izlemek ve denetlemek güç olabilir. Bu değişkenlik bulut hizmetlerini yönetmek için kullanılan istemci uç noktalarına düzenlenmemiş erişim aracılığıyla güvenlik tehditlerine neden olabilir. Altyapı geliştirme ve yönetme amacıyla genel ya da kişisel iş istasyonlarını kullanmak, web’e gözatma (örneğin, su kaynağı saldırıları) ya da e-posta (örneğin, sosyal mühendislik ve kimlik avı) gibi öngörülemeyen tehdit vektörlerini açar.
+Bu değişkenlik bulut dağıtımına önemli riski ekleyebilirsiniz. Yönetme, izleme ve yönetim eylemlerini denetlemek zor olabilir. Bu değişkenlik bulut hizmetlerini yönetmek için kullanılan istemci uç noktalarına düzenlenmemiş erişim aracılığıyla güvenlik tehditlerine de ortaya çıkarabilir. Altyapı geliştirme ve yönetme amacıyla genel ya da kişisel iş istasyonlarını kullanmak, web’e gözatma (örneğin, su kaynağı saldırıları) ya da e-posta (örneğin, sosyal mühendislik ve kimlik avı) gibi öngörülemeyen tehdit vektörlerini açar.
 
-İzleme, günlüğe kaydetme ve denetim yönetim etkinliklerini takip etme ve anlamaya ilişkin bir temel sunar ancak, oluşturulan veri miktarı nedeniyle tüm eylemlerin her ayrıntısının denetlenmesi uygulanabilir olmayabilir. Ancak, yönetim ilkelerinin verimliliğini denetlemek en iyi uygulamadır.
+İzleme, günlüğe kaydetme ve Denetim izleme ve yönetim etkinlikleri anlamak için bir temel sağlar. Tüm eylemleri ayrıntısının denetimi her zaman oluşturulan veri miktarı nedeniyle uygun olmayabilir. Ancak, yönetim ilkelerinin verimliliğini denetlemek en iyi bir uygulamadır.
 
-Azure güvenlik idare yöneticiler Windows denetlemek için AD DS GPO gelen, dosya paylaşımı gibi arabirimleri. Yönetim iş istasyonlarını denetim, izleme ve günlüğe kaydetme işlemlerine dahil edin. Tüm yönetici ve geliştirici erişimini ve kullanımını izleyin.
+Azure güvenlik idare Azure Active Directory etki alanı Hizmetleri (AD DS) GPO'ları gelen, dosya paylaşımı gibi yöneticiler Windows arabirimleri denetlemenize yardımcı olabilir. Yönetim iş istasyonları, izleme, günlüğe kaydetme ve işlemleriniz içerir. Tüm yönetici ve geliştirici erişimini ve kullanımını izleyin.
 
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 
-[Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro) Aboneliklerde kaynakların güvenlik durumu merkezi bir görünümünü sağlar ve tehlike giren kaynaklarını önlemeye yardımcı öneriler sağlar. Daha ayrıntılı ilkeleri (örneğin, uygulama ilkeleri kendi duruş ele alır riske uyarlamak Kurumsal izin belirli kaynak gruplarına) etkinleştirebilirsiniz.
+[Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro) abonelikleri kaynakların güvenlik durumu merkezi bir görünümünü sağlar. Ele geçirilen kaynakları önlemeye yardımcı önerileri sağlar. Kendi duruş adresleme risk uyarlamak Kurumsal izin belirli kaynak gruplarına ilkeleri uygulama ayrıntılı ilkeleri--Örneğin, etkinleştirebilirsiniz.
 
 ![Azure Güvenlik Merkezi](./media/governance-in-azure/security-governance-in-azure-fig7.png)
 
 Güvenlik Merkezi, Azure aboneliklerinize arasında tümleşik güvenlik izleme ve ilke yönetimi sağlar, kaçabilecek tehditleri ve güvenlik çözümlerinin geniş ekosistemiyle çalışır algılamaya yardımcı olur. Etkinleştirdikten sonra [güvenlik ilkeleri](https://docs.microsoft.com/azure/security-center/security-center-policies) bir aboneliğin kaynakları için Güvenlik Merkezi olası güvenlik açıklarını tanımlamak amacıyla kaynaklarınızın güvenliğini analiz eder. Ağ yapılandırmanız ile ilgili bilgiler hemen kullanımınıza sunulur.
 
-Azure Güvenlik Merkezi, en iyi yöntem analiz ve Güvenlik İlkesi Yönetimi için Azure aboneliği içindeki tüm kaynakların bileşimini temsil eder. Bu güçlü ve kullanımı kolay araç güvenlik ekipleri ve risk engellemenize, algılamanıza ve otomatik olarak toplar ve Azure kaynaklarınızdan, ağdan ve kötü amaçlı yazılımdan gibi iş ortağı çözümlerinden güvenlik verilerini analiz eder gibi güvenlik tehditlerine karşı yanıt görevlileri sağlar programları ve güvenlik duvarları.
+Azure Güvenlik Merkezi, en iyi yöntem analiz ve Güvenlik İlkesi Yönetimi için Azure aboneliği içindeki tüm kaynakların bileşimini temsil eder. Güvenlik ekipleri ve engellemenize, algılamanıza ve otomatik olarak toplar ve Azure kaynaklarınızdan, ağdan ve kötü amaçlı yazılımdan koruma programları ve güvenlik duvarları gibi iş ortağı çözümlerinden güvenlik verilerini analiz eder gibi güvenlik tehditlerine karşı yanıt için risk görevlileri sağlar.
 
-Ayrıca, Azure Güvenlik Merkezi Microsoft ürünleri ve Hizmetleri, Microsoft dijital Suçlar birimi (DCU), Microsoft küresel tehdit bilgilerinden yararlanarak sırasında makine öğrenme ve davranış analizi dahil olmak üzere gelişmiş analizler uygular Güvenlik Yanıt Merkezi (MSRC) ve dış akışların. [Güvenlik idare](https://www.credera.com/blog/credera-site/azure-governance-part-4-other-tools-in-the-toolbox/) kapsamlı abonelik düzeyinde uygulanan veya kaynakların ilke tanımı aracılığıyla uygulanan özel ve ayrıntılı gereksinimleri daraltabilir.
+Ayrıca, Azure Güvenlik Merkezi Makine öğrenme ve davranış analizi dahil olmak üzere gelişmiş analizler uygular. Dış akışları ve küresel tehdit bilgilerinden Microsoft ürünleri ve Hizmetleri, Microsoft dijital Suçlar birimi (DCU), Microsoft Güvenlik Yanıt Merkezi (MSRC) kullanır. Uygulayabileceğiniz [güvenlik idare](https://www.credera.com/blog/credera-site/azure-governance-part-4-other-tools-in-the-toolbox/) abonelik düzeyinde kapsamlı. Veya belirli gereksinimleri aşağıya doğru daraltmak ve bunları tek tek ilke tanımı kaynaklarına uygulayabilirsiniz.
 
-Son olarak, Azure Güvenlik Merkezi bu ilkelerine bağlı olarak kaynak güvenlik durumu analiz eder ve bu ayrıntılı panolar ve kötü amaçlı yazılım algılama veya kötü amaçlı bir IP bağlantısı gibi olaylar için deneme uyarı sağlamak için kullanır.
-
->[!Note]
-> Önerileri uygulama hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'nde güvenlik önerilerini uygulama](https://docs.microsoft.com/azure/security-center/security-center-recommendations)'yı okuyun.
-
-Güvenlik Merkezi güvenlik durumlarına değerlendirmek, güvenlik önerileri sağlamak ve tehditlere karşı sizi uyarmak için sanal makinelerinizi veri toplar. Güvenlik Merkezi ilk eriştiğinizde, veri toplama, aboneliğinizin tüm sanal makinelerin etkinleştirilir. Veri toplama önerilir ancak, tarafından çevirin [veri toplamayı devre dışı bırakma](https://docs.microsoft.com/azure/security-center/security-center-faq) Güvenlik Merkezi ilkesinde.
-
-Son olarak, Azure Güvenlik Merkezi Microsoft iş ortakları ve bağımsız yazılım satıcıları yeteneklerini geliştirmek için Azure Güvenlik Merkezi'nde takılan yazılım oluşturmasına olanak tanıyan bir açık platformudur.
+Son olarak, Azure Güvenlik Merkezi bu ilkelerine bağlı olarak kaynak güvenlik durumu analiz eder ve ayrıntılı panolar ve kötü amaçlı yazılım algılama veya kötü amaçlı bir IP bağlantısı gibi olaylar için deneme uyarı sağlamak için bu bilgileri kullanır. Önerileri uygulama hakkında daha fazla bilgi için bkz: [Azure Güvenlik Merkezi'nde güvenlik önerilerini uygulama](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
 Azure Güvenlik Merkezi aşağıdaki Azure kaynakları izler:
 
 - Sanal makineler (VM'ler) (bulut Hizmetleri dahil)
 
-- Azure Sanal Ağları
+- Sanal ağlar
 
-- Azure SQL Hizmeti
+- SQL veritabanları
 
-- İş ortağı çözümleri gibi bir web uygulaması güvenlik duvarı sanal makineleri ve üzerinde Azure aboneliğinizle tümleşik [uygulama hizmeti ortamı](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme).
+- İş ortağı çözümleri gibi bir web uygulaması güvenlik duvarı sanal makineleri ve üzerinde Azure aboneliğiniz ile tümleşik [uygulama hizmeti ortamı](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme)
+
+Güvenlik Merkezi ilk eriştiğinizde, veri toplama, aboneliğinizin tüm sanal makinelerin etkinleştirilir. Veri toplama etkin tutmak ancak yapabilecekleriniz öneririz [devre dışı](https://docs.microsoft.com/azure/security-center/security-center-faq) Güvenlik Merkezi ilkesinde.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Günlük analizi yazılım geliştirme ve hizmet ekibin bilgi güvenliği ve [idare program](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) yasalarına ve düzenlemelerine konusunda açıklandığı gibi aynılarını ve kendi iş gereksinimlerini destekleyen [Microsoft Azure güven Merkezi](https://azure.microsoft.com/support/trust-center/) ve [Microsoft Güven Merkezi Uyumluluk](https://microsoft.com/en-us/trustcenter/compliance). Nasıl günlük analizi güvenlik gereksinimlerini belirlemek, güvenlik denetimleri tanımlar, yönetir ve riskleri izleyen de açıklanmaktadır vardır. Yıllık, biz gözden geçirme ilkeler, standartlar, yordamlar ve yönergeleri.
+Azure günlük analizi yazılım geliştirme ve hizmet ekibin bilgi güvenliği ve [idare program](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) kendi iş gereksinimlerini destekler. Bunu yasalarına ve düzenlemelerine konusunda açıklandığı gibi aynılarını [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) ve [Microsoft Güven Merkezi Uyumluluk](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Günlük analizi, güvenlik gereksinimleri nasıl kurar güvenlik denetimleri tanımlar ve yönetir ve izleyiciler riskleri de açıklanmıştır vardır. Yıllık, takım ilkeler, standartlar, yordamlar ve yönergeleri gözden geçirir.
 
-Her günlük analizi geliştirme ekibi üyesi resmi uygulama güvenlik eğitimi alır. Dahili olarak, sürüm denetimi sistemi yazılım geliştirme için kullanırız. Her yazılım projesi sürüm denetimi sistemi tarafından korunur.
+Her günlük analizi geliştirme ekibi üyesi resmi uygulama güvenlik eğitimi alır. Sürüm denetimi sistemi geliştirme her yazılım projesinde korunmasına yardımcı olur.
 
-Microsoft, denetlediği ve tüm Microsoft hizmetlerinde değerlendirir güvenlik ve uyumluluk bir ekip sahiptir. Bilgi güvenliği görevlileri ekip olun ve günlük analizi geliştirmek mühendislik Departmanlar ile ilişkili değildir. Güvenlik görevlileri kendi yönetim zinciri varsa ve güvenlik ve uyumluluk sağlamak üzere ürünleri ve Hizmetleri, bağımsız değerlendirmeleri yürütün.
-
-Azure bir koleksiyon başından bulutta tasarlanmış Yönetim Hizmetleri sağlar. Dağıtma ve şirket içi kaynakları yönetmek yerine, bu bileşenleri tamamen Azure'da barındırılır. Çok az yapılandırma gerektirir ve yalnızca birkaç dakikada kullanmaya başlayabilirsiniz.
-
-![Operations Manager paketi](./media/governance-in-azure/security-governance-in-azure-fig8.png)
-
-Yalnızca günlük analizi hizmetlerini çalıştırmak için bulut bunlar etkili bir şekilde şirket içi ortamınız yönetemez anlamına gelmez.
-
-Bir aracı üzerinde herhangi bir Windows put veya Linux bilgisayarda veri merkezinizi ve burada Bulut veya şirket içi Hizmetleri toplanan tüm verileri birlikte analiz edilmeden günlük analizi veri gönderir. Azure Backup ve Azure Site Recovery bulut için yedekleme ve yüksek kullanılabilirlik içindeki kaynaklar yararlanmak için kullanın.
-
-Buluttaki runbook'lar genellikle şirket içi kaynaklarınıza erişemez ancak veri merkezinizde runbook'ları barındıracak bir veya daha fazla bilgisayara bir aracı yükleyebilirsiniz. Bir runbook’u başlattığınızda yalnızca bulutta mı yoksa yerel bir çalışan olarak mı çalışacağını belirtirsiniz.
+Microsoft, denetlediği ve tüm Microsoft hizmetlerinde değerlendirir güvenlik ve uyumluluk bir ekip sahiptir. Ekip Kur bilgi güvenlik görevlileri yapın ve bunlar günlük analizi geliştirmek mühendislik Departmanlar ile ilişkili değil. Güvenlik görevlileri kendi yönetim zinciri var. Bunlar, güvenlik ve uyumluluk sağlamak üzere ürünleri ve Hizmetleri, bağımsız değerlendirmeleri yürütün.
 
 Günlük analizi çekirdek işlevselliğini Azure üzerinde çalışan hizmetleri kümesi tarafından sağlanır. Her hizmet belirli bir yönetim işlevi sağlar ve farklı hizmetleri birleştirerek farklı yönetim senaryoları elde edebilirsiniz.
 
-![Operations Manager paketi](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
+![Yönetim için Azure Hizmetleri](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Azure işlem yöneticisi, kendi işlevler yönetim çözümleri sağlayarak genişletir. [Yönetim çözümleri](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) bir veya daha fazla Yönetim Hizmetleri yararlanarak Yönetimi senaryosu uygulayan paketlenmiş mantığı kümeleridir.
+Bu Yönetim Hizmetleri bulutta tasarlanmıştır. Dağıtma ve şirket içi kaynakları yönetme içermeyen şekilde tamamen Azure üzerinde barındırılan. En az bir yapılandırmadır ve birkaç dakika içinde açık ve çalışıyor olması.
 
-![Azure işlemi yönetme](./media/governance-in-azure/security-governance-in-azure-fig10.png)
+Bir aracı herhangi bir Windows veya Linux bilgisayarda merkezinizdeki koyabilir ve günlük analizi veri gönderir. Burada, Bulut veya şirket içi Hizmetleri'nden toplanan tüm verileri birlikte çözümlenebilir. Şirket içi kaynakları için yedekleme ve yüksek kullanılabilirlik için bulut yararlanmak için Azure Backup ve Azure Site Recovery kullanın.
 
-Farklı çözümler, Microsoft'un ve iş ortakları, kolayca günlük analizi, yatırımınızı değerini artırmak için Azure aboneliğiniz ekleyebilirsiniz kullanılabilir.
+![Yönetim Hizmetleri Azure panosunda](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-Bir iş ortağı olarak, uygulama ve hizmetlerinize desteklemek ve bunları Azure Marketi veya hızlı başlangıç şablonlarından aracılığıyla kullanıcılara sağlamak üzere kendi çözümleri oluşturabilirsiniz.
+Runbook'ları bulutta genellikle, şirket içi kaynaklara erişemez, ancak runbook'ları, veri merkezinizdeki barındıracak bir veya daha çok bilgisayarda bir aracı yükleyebilirsiniz. Bir runbook'u başlattığınızda, bulutta veya yerel bir çalışan üzerinde çalışmasını isteyip istemediğinizi belirtin.
+
+Farklı çözümler, Microsoft'un ve iş ortakları, günlük analizi yatırımınızı değerini artırmak için Azure aboneliğiniz ekleyebilirsiniz kullanılabilir. Örneğin, Azure'un sunduğu [yönetim çözümleri](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)--Yönetimi senaryosu bir veya daha fazla Yönetim Hizmetleri kullanarak uygulama mantığını kümesi paketlenmiş.
+
+![Azure yönetim çözümlerine Galerisi](./media/governance-in-azure/security-governance-in-azure-fig10.png)
+
+Bir iş ortağı olarak, uygulama ve hizmetlerinize desteklemek ve bunları Azure Marketi veya hızlı başlangıç şablonlarını aracılığıyla kullanıcılara sağlamak üzere kendi çözümleri oluşturabilirsiniz.
 
 ## <a name="performance-alerting-and-monitoring"></a>Performans uyarı verme ve izleme
 
 ### <a name="alerting"></a>Uyarı
 
-Azure kaynak ölçümleri, olayları ve günlükleri izleme yöntemi uyarılar ve bir koşul belirttiğinizde bildirilmesini karşılanır.
+Uyarıları izleme Azure kaynak ölçümleri, olayları veya günlükleri bir yöntemdir. Belirttiğiniz bir koşul karşılandığında bunlar size bildirir.
 
-**Farklı Azure Hizmetleri uyarıları**
+Uyarılar dahil olmak üzere Hizmetleri kullanılabilir:
 
-Uyarılar dahil olmak üzere farklı Hizmetleri kullanılabilir:
+- **Azure Application Insights**: web test ve ölçüm Uyarıları etkinleştirir. Daha fazla bilgi için bkz: [Application Insights'ta uyarıları ayarlama](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) ve [izlemek kullanılabilirlik ve yanıt herhangi bir Web sitesinin](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
 
-- Application Insights: web testi ve ölçüm uyarılar sağlar.
+- **Günlük analizi**: etkinlik ve günlük analizi için tanılama günlükleri yönlendirilmesini sağlar. Bu ölçüm, günlük ve diğer uyarı türleri sağlar. Daha fazla bilgi için bkz: [günlük analizi uyarılarını](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).
 
->[!Note]
-> Bkz: [Application Insights'ta uyarıları ayarlama](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) ve [izlemek kullanılabilirlik ve yanıt herhangi bir Web sitesinin](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
-
-- Günlük analizi: etkinlik ve günlük analizi için tanılama günlükleri yönlendirmesini etkinleştirir ve ölçüm, günlük ve diğer uyarı türleri sağlar.
-
->[!Note]
-> Daha fazla bilgi için bkz [günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).
-
-- Azure İzleyici: ölçüm değerleri ve etkinlik günlüğü olaylarını göre uyarıları sağlar. Kullanabileceğiniz [Azure İzleyici REST API](https://msdn.microsoft.com/library/dn931943.aspx) Uyarıları yönetme.
-
->[!Note]
-> Daha fazla bilgi için bkz: [uyarıları oluşturmak için Azure portal, PowerShell veya komut satırı arabirimini kullanarak](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal).
+- **Azure İzleyici**: ölçüm değerleri ve etkinlik günlüğü olaylarını göre uyarıları sağlar. Kullanabileceğiniz [Azure İzleyici REST API](https://msdn.microsoft.com/library/dn931943.aspx) Uyarıları yönetme. Daha fazla bilgi için bkz: [uyarıları oluşturmak için Azure portal, PowerShell veya komut satırı arabirimini kullanarak](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal).
 
 ### <a name="monitoring"></a>İzleme
 
-Performans sorunlarını bulut uygulamanızda iş etkileyebilir. Birden çok birbirine bağlı bileşenleri ve sık sürümleri ile degradations herhangi bir zamanda oluşabilir. Ve kullanıcılarınızın bir uygulama geliştiriyorsanız, genellikle testinde bulamadı sorunları keşfedin. Bu hemen bilmeniz ve sorunlarını tanılamak ve araçları olması gerekir. Microsoft Azure Araçları bu sorunları tanımlamak için bir aralığı yok.
+Performans sorunlarını bulut uygulamanızda iş etkileyebilir. Birden çok birbirine bağlı bileşenleri ve sık sürümleri ile degradations herhangi bir zamanda oluşabilir. Ve kullanıcılarınızın bir uygulama geliştiriyorsanız, genellikle testinde bulamadı sorunları keşfedin. Bu sorunlar hakkında hemen bilmeniz ve tanılama ve bunları düzeltmek için Araçlar olması gerekir.
 
-**Azure bulut uygulamalarım nasıl izlerim?**
-
-Çeşitli araçlar Azure uygulamaları ve Hizmetleri izleme yoktur. Bazı özelliklerine çakışıyor. Kısmen geçmiş nedenlerle ve geliştirme ve bir uygulamanın işlemi Bulanıklaştırma nedeniyle kısmen budur.
+Çeşitli araçlar Azure uygulamaları ve Hizmetleri izleme yoktur. Bazı özelliklerine çakışıyor. Kısmen geliştirme ve bir uygulamanın işlemi Bulanıklaştırma nedeni budur.
 
 Asıl araçlar şunlardır:
 
-- **Azure İzleyici** Azure üzerinde çalışan hizmetleri izlemek için temel araçtır. Bir hizmet ve çevresindeki ortamı üretimini ilgili altyapı düzeyinde verileri sağlar. Uygulamalarınızda tüm Azure yönetiyorsanız, yukarı veya aşağı kaynaklar, Ölçek karar sonra Azure İzleyicisi, başlatmak için kullandığınız sağlar.
+- **Azure İzleyici** Azure üzerinde çalışan hizmetleri izlemek için temel bir araçtır. Bir hizmet ve çevresindeki ortamı üretimini ilgili altyapı düzeyinde verileri sağlar. Tüm uygulamalarınızda Azure ve yukarı veya aşağı kaynakları ölçeklendirmek karar verme yönetiyorsanız, Azure İzleyici başlamanıza yardımcı olabilir.
 
-- **Application Insights** geliştirme için ve bir üretim izleme çözümü olarak kullanılabilir. Uygulamanıza bir paketi yükleyerek çalışır ve bu nedenle neler olup bittiğini daha iç bir görünümünü sağlar. Verileri bağımlılıkları, özel durum izleme, anlık görüntüler, yürütme profilleri hata ayıklama yanıt sürelerini içerir. Tüm bu telemetrinin bir uygulama hata ayıklama yardımcı olması ve kullanıcıların ne ile yaptıklarını anlamanıza yardımcı olması için çözümlemek için güçlü akıllı araçlar sağlar. Bir ani artış yanıt süreleri nedeniyle bir şeyler bir uygulama veya dış bazı resourcing sorunu olup olmadığını belirtebilirsiniz. Bunu düzeltmek için Visual Studio kullanıyorsanız ve uygulama hataya neden olduğunu, kod sorunu satır sağ alınabilir.
+- **Application Insights** geliştirme için ve bir üretim izleme çözümü olarak kullanılabilir. Bu paket, uygulamanızda neler olup bittiğini daha iç bir görünümünü sağlar, böylece yükleyerek çalışır. Verileri bağımlılıkları, özel durum izleme, anlık görüntüler ve yürütme profilleri hata ayıklama yanıt sürelerini içerir. Tüm bu telemetrinin bir uygulama hata ayıklama yardımcı olması ve kullanıcıların ne ile yaptıklarını anlamanıza yardımcı olması için çözümlemek için araçlar sağlar. Bir ani artış yanıt süreleri nedeniyle bir şeyler bir uygulama veya dış bazı resourcing sorunu olup anlayabilirsiniz. Kullanırsanız, Visual Studio ve uygulama hatalı, onu giderebilmemiz kod sorunu satıra sağ gidin.
 
-- **Günlük analizi** performansı ayarlamak ve üretimde çalışan uygulamalara bakım planı için ihtiyacınız olanlar içindir. Azure'da temel alır. Toplar ve 10-15 dakikalık bir gecikme olsa birçok kaynaktan verileri toplar. Azure için bir bütünsel BT yönetim çözümü sunar şirket içi ve üçüncü taraf bulut tabanlı altyapı (örneğin, Amazon Web Hizmetleri). Daha fazla kaynakları genelinde verileri çözümlemek için daha zengin araçları tüm günlükleri karmaşık sorgular sağlar ve belirtilen koşullara proaktif olarak uyarabilir sağlar. Özel verileri sorgulamak ve onu görselleştirmek için kendi merkezi depoya bile toplayabilirsiniz.
+- **Günlük analizi** performansı ayarlamak ve üretimde çalışan uygulamalara bakım planı için ihtiyacınız olanlar içindir. Toplar ve 10-15 dakikalık bir gecikmeyle pek çok kaynaktan veri toplar. Azure için bir bütünsel BT yönetim çözümü sunar şirket içi ve üçüncü taraf bulut tabanlı altyapı (örneğin, Amazon Web Hizmetleri). Veri kaynakları arasında çözümlemek için Araçlar tüm günlükleri karmaşık sorgular sağlar ve belirtilen koşullara proaktif olarak uyarabilir sağlar. Bile, merkezi bir depoya özel verileri toplamak ve ardından sorgu ve bu verileri görselleştirin.
 
-- **System Center Operations Manager (SCOM)** yönetme ve büyük bulut yüklemeleri izleme içindir. Zaten bir yönetim aracı için Windows Server ve Hyper-V tabanlı Bulutlar şirket içi ancak aynı zamanda tümleştirileceğini ve Azure uygulamalarını yönetme gibi ile bilgi sahibi olmanız. Bunun yanı sıra, Application Insights mevcut Canlı uygulamaları yükleyebilirsiniz. Bir uygulama kullanılamaz hale gelirse, saniye cinsinden belirtir.
+- **System Center Operations Manager** yönetme ve büyük bulut yüklemeleri izleme içindir. Zaten kendisiyle tanıdık şirket içi Windows Server için bir yönetim aracı olarak olabilir ve Hyper-V bulut tabanlı, ancak ayrıca tümleştirileceğini ve Azure uygulamalarını yönetme. Bunun yanı sıra, Application Insights mevcut Canlı uygulamaları yükleyebilirsiniz. Bir uygulamayı devre dışı kalırsa, Operations Manager saniye cinsinden belirtir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [En iyi uygulamalar Azure Resource Manager şablonları oluşturmak için](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
+- [Azure Resource Manager şablonları oluşturmaya yönelik en iyi uygulamalar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices)
 
-- [Azure aboneliği idare uygulamanın örnekleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-examples).
+- [Azure aboneliği idare uygulamanın örnekleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-examples)
 
-- [Microsoft Azure kamu](https://docs.microsoft.com/azure/azure-government/).
+- [Microsoft Azure kamu](https://docs.microsoft.com/azure/azure-government/)

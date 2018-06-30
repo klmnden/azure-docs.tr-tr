@@ -4,22 +4,23 @@ description: Günlük analizi, hem Windows hem de Linux bilgisayarlarda metin do
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/27/2018
 ms.author: bwren
-ms.openlocfilehash: 28523ce3671a8104d91f04575b3e88647dde16f4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: c533d54a804ccc624246f54940ccf269361cdd7a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637081"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128682"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Günlük analizi özel günlükleri
 Günlük analizi özel günlükleri veri kaynağında Windows ve Linux bilgisayarlarda metin dosyalarından olayları toplamanızı sağlar. Birçok uygulama bilgileri Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerini yerine metin dosyaları oturum açın.  Toplandığında, her tek tek alanların kullanarak oturum açma kaydında ayrıştıramıyor [özel alanlar](log-analytics-custom-fields.md) günlük analizi özelliğidir.
@@ -173,7 +174,7 @@ Bir sorgu kullanırız *türü MyApp_CL =* toplanan günlükteki tüm kayıtlar�
 ![Hiçbir özel alanlarla günlüğü sorgusu](media/log-analytics-data-sources-custom-logs/query-01.png)
 
 ### <a name="parse-the-custom-log-entries"></a>Özel günlük girişlerini ayrıştırılamıyor
-Özel alanları tanımlamak için kullanırız *EventTime*, *kod*, *durum*, ve *ileti* alanları ve biz sorgu tarafından döndürülen kayıt farkı görebilirsiniz.
+Özel alanları tanımlamak için kullanırız *EventTime*, *kod*, *durum*, ve *ileti* alanları ve biz kayıtları farkı görebilirsiniz Bu sorgu tarafından döndürülür.
 
 ![Özel alanlarla günlüğü sorgusu](media/log-analytics-data-sources-custom-logs/query-02.png)
 

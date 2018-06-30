@@ -2,19 +2,19 @@
 title: Azure SQL Database hizmet katmanlarına - DTU | Microsoft Docs
 description: Tek hizmet katmanları ve performans düzeyleri ve depolama boyutları sağlamak için havuz veritabanları hakkında bilgi edinin.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/28/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: cf17ec616819da94678f2ae4f0f0ca283f99f629
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d6dc641123e2bf840940f6246245a89fdd792db5
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750433"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131847"
 ---
 # <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>DTU tabanlı hizmet katmanı, performans düzeyi ve depolama kaynaklarını seçme 
 
@@ -60,7 +60,7 @@ Performans düzeyleri tek veritabanları için Veritabanı İşlem Birimleri (DT
 ||||||
 
 > [!IMPORTANT]
-> Birden fazla 1 TB depolama alanı Premium katmanındaki şu anda kullanılabilir aşağıdakiler dışında tüm bölgelerde: Birleşik Krallık Kuzey Batı Orta ABD, İngiltere South2, Çin, Doğu, USDoDCentral, Almanya Orta, USDoDEast, ABD kamu Güneybatı, BİZE kamu Güney Merkezi, Almanya Kuzeydoğu, Çin Kuzey, ABD kamu Doğu. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Birden fazla 1 TB depolama alanı Premium katmanındaki şu anda kullanılabilir aşağıdakiler dışında tüm bölgelerde: Batı Orta ABD, Çin, Doğu, Orta USDoDCentral, Almanya, USDoDEast, ABD kamu Güneybatı, ABD hükümeti Iowa, Almanya Kuzeydoğu yönüne, Çin Kuzey. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -3,7 +3,7 @@ title: Azure günlük analizi olayları için IIS ve tablo depolama için BLOB s
 description: Günlük analizi tablo depolama için tanılama yazma Azure Hizmetleri için günlükleri veya blob depolamaya yazılabilir IIS günlüklerini okuyabilir.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459ef90ca1d76bada6565bfefd7b4bd1086197d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: 8f923cc081ea652c8e32d4109225044c70c8767d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23855449"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128750"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Günlük analizi olan olaylar için IIS ve Azure tablo depolaması için Azure blob storage kullanma
 
@@ -45,7 +45,7 @@ Günlük analizi'nın bu Azure tanılama günlükleri toplamak günlükleri şu 
 | Service Fabric çalışma olayları |Service Fabric düğümler |WADServiceFabricSystemEventTable |
 | Service Fabric güvenilir aktör olayları |Service Fabric düğümler |WADServiceFabricReliableActorEventTable |
 | Service Fabric güvenilir hizmeti olayları |Service Fabric düğümler |WADServiceFabricReliableServiceEventTable |
-| Windows olay günlükleri |Service Fabric düğümler <br> Virtual Machines <br> Web rolleri <br> Çalışan rolleri |WADWindowsEventLogsTable (Tablo depolama) |
+| Windows Olay günlükleri |Service Fabric düğümler <br> Virtual Machines <br> Web rolleri <br> Çalışan rolleri |WADWindowsEventLogsTable (Tablo depolama) |
 | Windows ETW günlükleri |Service Fabric düğümler <br> Virtual Machines <br> Web rolleri <br> Çalışan rolleri |WADETWEventTable (Tablo depolama) |
 
 > [!NOTE]
@@ -61,17 +61,17 @@ Bir sanal makinede Microsoft Azure Portalı'nı kullanarak olay günlüğünü v
 ### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Bir sanal makinede Azure portal ile Azure tanılama etkinleştirmek için
 1. Bir sanal makine oluşturduğunuzda VM aracısı yükleyin. Sanal makine zaten varsa, VM Aracısı zaten yüklü olduğunu doğrulayın.
 
-   * Azure portalında sanal makineye gidin **isteğe bağlı yapılandırma**, ardından **tanılama** ve **durum** için **üzerinde**.
+   * Azure portalında sanal makineye gidin **isteğe bağlı yapılandırma**, ardından **tanılama** ve **durum** için **üzerinde** .
 
      Tamamlandığında, VM yüklü ve çalışan Azure tanılama uzantısına sahiptir. Tanılama verilerinin toplanması için bu uzantıyı sorumludur.
 2. İzlemeyi etkinleştirmek ve olay günlüğü var olan bir VM yapılandırın. Tanılama VM düzeyinde etkinleştirebilirsiniz. Tanılamayı etkinleştirin ve olay günlüğünü yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-   1. VM seçin.
+   1. VM’yi seçin.
    2. Tıklatın **izleme**.
    3. Tıklatın **tanılama**.
    4. Ayarlama **durum** için **ON**.
    5. Toplamak istediğiniz her Tanılama Günlüğü'nü seçin.
-   6. **Tamam** düğmesine tıklayın.
+   6. **Tamam**’a tıklayın.
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Web rolü IIS günlüğü ve olay toplama için Azure tanılama etkinleştir
 Başvurmak [nasıl için tanılamayı etkinleştir bir bulut hizmetinde](../cloud-services/cloud-services-dotnet-diagnostics.md) Azure tanılama etkinleştirme genel adımlar için. Aşağıdaki yönergelerde bu bilgileri kullanın ve günlük analizi ile kullanılmak üzere özelleştirin.

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: f0a2ec617c71f9e86610017d3b6fa961bbd14322
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
-ms.translationtype: HT
+ms.openlocfilehash: 14e5110385667d0f2135251eef53ff20ada08444
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083095"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111261"
 ---
 # <a name="quickstart-recognize-speech-using-the-cognitive-services-speech-c-sdk"></a>Hızlı Başlangıç: Bilişsel hizmetler konuşma C# SDK kullanarak konuşma tanı
 
@@ -63,7 +63,7 @@ Bu bölümde, yeni bir platformu işlemci mimariniz eşleşen yapılandırmaya e
 
 ## <a name="add-the-sample-code"></a>Örnek kod ekleme
 
-1. İçinde `Program.cs` , Visual Studio projesi için gövdesini değiştirin `Program` aşağıdaki sınıfı. Bir hizmet için aldığınız abonelik anahtarı ve bölge Değiştir emin olun.
+1. İçinde `Program.cs` dosya Visual Studio projenizde, gövdesini değiştirin `Program` aşağıdaki sınıfı. Abonelik anahtarı kendi metninizle değiştirebilir ve değiştirme emin olun [bölge](regions.md) abonelikle ilişkili bir (örneğin, `westus` ücretsiz deneme aboneliği için).
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-csharp/Program.cs#code)]
 

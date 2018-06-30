@@ -3,22 +3,24 @@ title: Azure Resource Manager şablonları oluşturma ve bir günlük analizi ç
 description: Azure Resource Manager şablonları oluşturmak ve günlük analizi çalışma alanları yapılandırmak için kullanabilirsiniz.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
-manager: jochan
+author: mgoedtel
+manager: carmonm
 editor: ''
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
-ms.topic: article
-ms.date: 04/25/2018
-ms.author: richrund
-ms.openlocfilehash: 297f15430c64e5de3c10e6f38855664a50d11a8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: conceptual
+ms.date: 06/11/2018
+ms.author: magoedte
+ms.component: na
+ms.openlocfilehash: 6e23858bcc288b68a70750e7dbcecdf4b43b8870
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133134"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Günlük analizi Azure Resource Manager şablonları kullanarak yönetme
 Kullanabileceğiniz [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-authoring-templates.md) oluşturmak ve günlük analizi çalışma alanları yapılandırmak için. Şablonları ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
@@ -35,6 +37,16 @@ Kullanabileceğiniz [Azure Resource Manager şablonları](../azure-resource-mana
 * Azure Tanılama'yı kullanarak toplanan dizin verileri için günlük analizi yapılandırın
 
 Bu makale, bazı şablonları ile gerçekleştirebileceğiniz yapılandırmasının göstermek şablon örnekleri sağlar.
+
+## <a name="api-versions"></a>API sürümleri
+Bu örnekte kullanılan kaynaklar için API sürümü aşağıdaki tabloda listelenmektedir.
+
+| Kaynak | Kaynak türü | API sürümü |
+|:---|:---|:---|:---|
+| Çalışma alanı   | çalışma alanları    | 2017-03-15-Önizleme |
+| Arama      | savedSearches | 2017-03-15-Önizleme |
+| Veri kaynağı | veri kaynakları   | 2015-11-01-Önizleme |
+| Çözüm    | çözümler     | 2015-11-01-Önizleme |
 
 ## <a name="create-a-log-analytics-workspace"></a>Günlük analizi çalışma alanı oluşturma
 Aşağıdaki örnek, yerel makinenize şablonu kullanarak bir çalışma alanı oluşturur. JSON şablonunu çalışma alanı adı için yalnızca istemek için yapılandırılmış ve büyük olasılıkla ortamınızdaki standart bir yapılandırma olarak kullanılacak bir parametre için varsayılan bir değer belirtir.  

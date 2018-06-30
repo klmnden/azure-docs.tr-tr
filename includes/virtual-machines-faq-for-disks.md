@@ -2,18 +2,18 @@
 title: include dosyası
 description: include dosyası
 services: virtual-machines
-author: rogara
+author: roygara
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 812f11a1ced3bac765441bf66f402abb4da4bc3f
-ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.openlocfilehash: d05d6d4a8bfc4450de4881e704b0e9f7b7b4716d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35414578"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138152"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas sanal diskler ve yönetilen ve yönetilmeyen premium diskler hakkında sık sorulan sorular
 
@@ -102,7 +102,7 @@ Müşteriler kendi yönetilen diskleri bir anlık görüntüsünü ve sonra yön
 Evet, yönetilen ve yönetilmeyen diskleri desteklenir. Yönetilen diskleri yeni iş yükleri için kullanın ve geçerli iş yüklerinizi yönetilen disklere geçirmenizi öneririz.
 
 
-**128 GB disk oluşturun ve ardından 130 GB boyutunu artırın, ı sonraki disk boyutu (512 GB) ücretlendirilir?**
+**128 GB disk oluşturun ve ardından 130 GB boyutunu artırın, ı sonraki disk boyutu (256 GB) ücretlendirilir?**
 
 Evet.
 
@@ -209,11 +209,11 @@ Hayır.
 
 **Depolama hizmeti şifrelemesi, yalnızca belirli bölgelerde kullanılabilir?**
 
-Hayır. Tarafından yönetilen diskleri kullanılabildiği tüm bölgelerde kullanılabilir. Yönetilen diskleri kullanılabilir tüm genel bölgeler ve Almanya.
+Hayır. Tarafından yönetilen diskleri kullanılabildiği tüm bölgelerde kullanılabilir. Yönetilen diskleri kullanılabilir tüm genel bölgeler ve Almanya. Yalnızca Microsoft anahtarları, yönetilmeyen için ayrıca Çin'de, ancak kullanılabilir müşteri yönetilen anahtarlar.
 
 **Nasıl ı yönetilen my disk şifrelenir öğrenebilirsiniz?**
 
-Yönetilen bir disk Azure portalı, Azure CLI ve PowerShell oluşturulduğu zaman bulabilirsiniz. Saat 9 Haziran 2017 sonra ise, disk şifrelenir. 
+Yönetilen bir disk Azure portalı, Azure CLI ve PowerShell oluşturulduğu zaman bulabilirsiniz. Saat 9 Haziran 2017 sonra ise, disk şifrelenir.
 
 **10 Haziran 2017 önce oluşturulan mevcut disklerim nasıl şifreleyebilir mi?**
 

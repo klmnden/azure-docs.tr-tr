@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 665365e06ef02698c10259628f6bf2442ab8d612
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f1a1a2fa083dd1bf02132e08981d736a17a2c58f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333522"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109493"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Anahtar kasası sertifikalar ile çalışmaya başlama
 Aşağıdaki senaryolarda anahtar Kasası'nın sertifika yönetim hizmeti, ilk sertifikanızı anahtar kasanızı oluşturmak için gereken ek adımlar da dahil olmak üzere birincil kullanımlarını bazıları ana hatlarıyla gösterilir.
@@ -121,5 +121,5 @@ Not - Bu süreçte adım 3.1, bir kez bir işlemdir.
   (5) - bir birleşme ile yeni sertifika oluşturma X509, uygulamanızın tamamlandıktan, CA'ın sertifikadan.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-- [Sertifika işlemleri](/rest/api/keyvault/certificate-operations.md)
+- [Sertifika işlemleri](/rest/api/keyvault/certificate-operations)
 - [Anahtarlar, gizli diziler ve sertifikalar hakkında](about-keys-secrets-and-certificates.md)

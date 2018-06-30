@@ -1,9 +1,9 @@
 ---
 title: Günlük analizi Azure SQL analizi çözümde | Microsoft Docs
-description: Azure SQL analiz çözümü Azure SQL veritabanlarınızın yönetmenize yardımcı olur.
+description: Azure SQL analiz çözümü Azure SQL veritabanlarınızın yönetmenize yardımcı olur
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -11,24 +11,26 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: na
+ms.openlocfilehash: f57a47677f752a644975a25fa746d78bced5d766
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133121"
 ---
-# <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL veritabanı günlük analizi Azure SQL analizi (Önizleme) kullanarak izleme
+# <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Azure SQL Azure SQL analizi (Önizleme) kullanarak veritabanlarını izleme
 
 ![Azure SQL analizi simgesi](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Azure günlük analizi Azure SQL analizi çözümde toplar ve önemli SQL Azure performans ölçümleri visualizes. Çözümle topladığınız ölçümleri kullanarak özel izleme kurallarını ve uyarıları oluşturabilirsiniz. Azure SQL veritabanı izleyebilirsiniz ve esnek havuz ölçümler arasında birden çok Azure abonelikleri ve esnek havuzları ve bunları görselleştirin. Çözüm Ayrıca, uygulama yığınının her katmanda sorunlarını belirlemenize yardımcı olur.  Kullandığı [Azure tanılama ölçümleri](log-analytics-azure-storage.md) tüm Azure SQL veritabanları ve esnek havuzlar tek bir günlük analizi çalışma alanındaki hakkındaki verileri sunmak için günlük analizi görünümleri ile birlikte.
+Azure SQL analizi izleme birden çok esnek havuzlar ve abonelikler arasında ölçekte Azure SQL veritabanlarının performansını izleme çözümü bir buluttur. Toplar ve performans üstte sorun giderme için yerleşik destek ile önemli Azure SQL veritabanı performans ölçümleri visualizes. 
+
+Çözümle topladığınız ölçümleri kullanarak özel izleme kurallarını ve uyarıları oluşturabilirsiniz. Çözüm, uygulama yığınının her katmanda sorunları belirlemenize yardımcı olur. Tüm Azure SQL veritabanları ve esnek havuzlar tek bir günlük analizi çalışma alanındaki hakkındaki verileri sunmak için günlük analizi görünümleri yanı sıra Azure tanılama ölçümleri kullanır. Günlük analizi toplamak, bağıntılı ve yapılandırılmış ve yapılandırılmamış verileri görselleştirmek için yardımcı olur.
 
 Şu anda en fazla 150.000 Azure SQL veritabanları ve çalışma alanı başına 5.000 SQL esnek havuzlar Bu önizleme çözümünü destekler.
-
-Günlük analizi için bulunan diğerleri gibi Azure SQL analiz çözümü izlemenize ve Azure kaynaklarınızı durumu hakkında bildirim almak yardımcı olur; bu durumda, Azure SQL veritabanı. Microsoft Azure SQL veritabanı Azure bulutta çalışan uygulamalar için tanıdık SQL Server gibi özellikleri sağlayan bir ölçeklenebilir ilişkisel veritabanı hizmetidir. Günlük analizi toplamak, bağıntılı ve yapılandırılmış ve yapılandırılmamış verileri görselleştirmek için yardımcı olur.
 
 Gömülü video Azure SQL analiz çözümü kullanarak uygulamalı bir genel bakış ve tipik kullanım senaryoları için bkz:
 
@@ -37,39 +39,34 @@ Gömülü video Azure SQL analiz çözümü kullanarak uygulamalı bir genel bak
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
 
-Azure SQL analiz çözümü aracılarını günlük analizi hizmetine bağlanmak için kullanmaz.
-
-Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açıklanmaktadır.
+Azure SQL analizi çözüm destekleyen tanılama telemetri Azure SQL veritabanları ve esnek havuzlar için akış izleme bir buluttur. Bu aracıları günlük analizi hizmetine bağlanmak için kullanmaz gibi çözüm Windows, Linux bağlanabilirlik desteklemez veya SCOM kaynakları uyumluluk tabloda konusuna bakın.
 
 | Bağlı Kaynak | Destek | Açıklama |
 | --- | --- | --- |
+| **[Azure tanılama](log-analytics-azure-storage.md)** | **Evet** | Ölçüm ve günlük verilerini Azure günlük analizi için doğrudan Azure tarafından gönderilir. |
+| [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Günlük analizi depolama hesabından veri okuma değil. |
 | [Windows aracıları](log-analytics-windows-agent.md) | Hayır | Doğrudan Windows aracıları çözümü tarafından kullanılmaz. |
 | [Linux aracıları](log-analytics-linux-agents.md) | Hayır | Doğrudan Linux aracılarını çözümü tarafından kullanılmaz. |
 | [SCOM yönetim grubu](log-analytics-om-agents.md) | Hayır | Günlük analizi SCOM Aracısı'nı arasında doğrudan bağlantı çözümü tarafından kullanılmaz. |
-| [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Günlük analizi depolama hesabından veri okuma değil. |
-| [Azure Tanılama](log-analytics-azure-storage.md) | Evet | Ölçüm ve günlük verilerini Azure günlük analizi için doğrudan Azure tarafından gönderilir. |
-
-## <a name="prerequisites"></a>Önkoşullar
-
-- Azure aboneliği. Yoksa, için bir tane oluşturabilirsiniz [ücretsiz](https://azure.microsoft.com/free/).
-- Günlük analizi çalışma alanı. Mevcut bir kullanabilir veya yapabilecekleriniz [yeni bir tane oluşturun](log-analytics-quick-create-workspace.md) Bu çözüm kullanmaya başlamadan önce.
-- Azure SQL veritabanları ve esnek havuzlar için Azure Tanılama'yı etkinleştirmek ve [için günlük analizi verilerini gönderecek şekilde yapılandırın](../sql-database/sql-database-metrics-diag-logging.md).
 
 ## <a name="configuration"></a>Yapılandırma
 
 Azure SQL analiz çözümü, çalışma alanına eklemek için aşağıdaki adımları gerçekleştirin.
 
-1. Azure SQL analiz çözümü alanınızdan ekleyin [Azure Market](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) veya açıklanan işlemi kullanarak [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
-2. Azure portalında tıklatın **kaynak oluşturma** > **izleme + Yönetim**.  
+1. Azure SQL analiz çözümü alanınızdan ekleyin [Azure Market](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
+2. Azure portalında tıklatın **+ kaynak oluşturma**, ardından aramak **Azure SQL analizi**.  
     ![İzleme + Yönetim](./media/log-analytics-azure-sql/monitoring-management.png)
-3. İçinde **izleme + Yönetim** listesine **tümünü görmek**.
-4. İçinde **önerilen** tıklatın **daha fazla**ve ardından yeni liste bulmak **Azure SQL analizi (Önizleme)** ve seçin.  
-    ![Azure SQL analiz çözümü](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. İçinde **Azure SQL analizi (Önizleme)** alanında tıklatın **oluşturma**.  
+3. Seçin **Azure SQL analizi (Önizleme)** listeden
+4. İçinde **Azure SQL analizi (Önizleme)** alanında tıklatın **oluşturma**.  
     ![Oluşturma](./media/log-analytics-azure-sql/portal-create.png)
-6. İçinde **yeni çözüm oluşturmak** alanı çözüme eklemek istediğiniz çalışma alanını seçin ve ardından **oluşturma**.  
+5. İçinde **yeni çözüm oluşturmak** alan, yeni oluşturun veya ekleyin ve ardından istediğiniz var olan bir çalışma seçin **oluşturma**.  
     ![Çalışma alanıma Ekle](./media/log-analytics-azure-sql/add-to-workspace.png)
 
+### <a name="configure-azure-sql-databases-and-elastic-pools-to-stream-diagnostics-telemetry"></a>Azure SQL veritabanları ve esnek havuzlar akış tanılama telemetri için yapılandırın
+
+Azure SQL analiz çözümü çalışma alanınızda oluşturduktan sonra Azure SQL veritabanı ve/veya esnek havuzlar performansını izlemek için gerekir **her yapılandırın** Azure SQL veritabanı ve esnek havuz kaynak istediğiniz Çözüm için kendi tanılama telemetri akışı izlemek için.
+
+- Azure SQL veritabanları ve esnek havuzlar için Azure Tanılama'yı etkinleştirmek ve [için günlük analizi verilerini gönderecek şekilde yapılandırın](../sql-database/sql-database-metrics-diag-logging.md).
 
 ### <a name="to-configure-multiple-azure-subscriptions"></a>Birden çok Azure aboneliklerini yapılandırmak için
 
@@ -108,11 +105,11 @@ Her bir perspektif abonelik, sunucu, esnek havuz ve veritabanı düzeyi özetler
 | Kaynak türüne göre | İzlenen tüm kaynakları sayar perspektif. Ayrıntıya DTU ve GB ölçümleri özetini sağlar. |
 | Insights | Hiyerarşik ayrıntıya akıllı fikir sağlar. Akıllı ınsights hakkında daha fazla bilgi edinin. |
 | Hatalar | Veritabanlarına oldu SQL hataları içine hiyerarşik ayrıntıya sağlar. |
-| Zaman aşımları | Veritabanlarına oldu SQL zaman aşımları içine hiyerarşik ayrıntıya sağlar. |
-| Blockings | Veritabanlarına oldu SQL blockings içine hiyerarşik ayrıntıya sağlar. |
-| Veritabanı bekler | SQL bekleme istatistikleri veritabanı düzeyinde içine hiyerarşik ayrıntıya sağlar. Toplam bekleme süresi ve bekleme tür başına bekleme süresi özetlerini içerir. |
+| Zaman Aşımları | Veritabanlarına oldu SQL zaman aşımları içine hiyerarşik ayrıntıya sağlar. |
+| Durdurmalar | Veritabanlarına oldu SQL blockings içine hiyerarşik ayrıntıya sağlar. |
+| Veritabanı beklemeleri | SQL bekleme istatistikleri veritabanı düzeyinde içine hiyerarşik ayrıntıya sağlar. Toplam bekleme süresi ve bekleme tür başına bekleme süresi özetlerini içerir. |
 | Sorgu süresi | Sorgu süresi, CPU kullanımı, veri g/ç kullanımı, günlük GÇ kullanım gibi sorgu yürütme istatistikleri içine hiyerarşik ayrıntıya sağlar. |
-| Sorgu bekler | Hiyerarşik ayrıntıya bekleme kategoriye göre sorgu bekleme istatistikler sağlar. |
+| Sorgu beklemeleri | Hiyerarşik ayrıntıya bekleme kategoriye göre sorgu bekleme istatistikler sağlar. |
 
 ### <a name="intelligent-insights-report"></a>Akıllı Öngörüler raporu
 

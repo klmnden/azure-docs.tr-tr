@@ -3,7 +3,7 @@ title: Azure günlük analizi ile Active Directory çoğaltma durumunu izleme | 
 description: Active Directory çoğaltma durumunu çözüm paketi, Active Directory ortamınızı çoğaltma hatalar için düzenli olarak izler.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7707c4a1afdc42ef44a7b6f761ceb03b7e7da2f0
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.component: na
+ms.openlocfilehash: 0ccd457295584f871088bc20864ef103648f1654
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29179343"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128733"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Günlük analizi ile Active Directory çoğaltma durumunu izleme
 
@@ -31,7 +31,7 @@ Active Directory kuruluş BT ortamında anahtar bir bileşenidir. Yüksek kullan
 AD çoğaltma durumunu çözüm paketi, Active Directory ortamınızı çoğaltma hatalar için düzenli olarak izler.
 
 ## <a name="installing-and-configuring-the-solution"></a>Yükleme ve çözüm yapılandırılıyor
-Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
+Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
 
 * Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicilerinde aracıları yüklemeniz gerekir. Veya üye sunuculara aracıları yükleyene ve günlük analizi için AD çoğaltma veri göndermek için aracıları yapılandırmanız gerekir. Windows bilgisayarları için günlük analizi bağlanmak nasıl anlamak için bkz: [günlük analizi bağlanmak Windows bilgisayarlara](log-analytics-windows-agent.md). Etki alanı denetleyicinizi istediğiniz günlük Analizi'ne bağlamak için bkz: mevcut bir System Center Operations Manager ortamının bir parçası ise [Operations Manager'a günlük analizi](log-analytics-om-agents.md).
 * Active Directory çoğaltma durumunu çözümü açıklanan işlemi kullanarak günlük analizi çalışma alanınıza ekleyin [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).  Başka bir yapılandırma işlemi gerekmez.
@@ -39,7 +39,7 @@ Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
 ## <a name="ad-replication-status-data-collection-details"></a>AD çoğaltma durumu verileri toplama ayrıntıları
 Aşağıdaki tabloda, veri toplama yöntemleri ve veri AD çoğaltma durumunun nasıl toplandığını ilgili diğer ayrıntıları gösterir.
 
-| Platform | Doğrudan Aracısı | SCOM Aracısı | Azure Storage | SCOM gerekli? | Yönetim grubu gönderilen SCOM Aracısı verileri | Toplama sıklığı |
+| Platform | Doğrudan Aracı | SCOM Aracısı | Azure Storage | SCOM gerekli? | Yönetim grubu gönderilen SCOM Aracısı verileri | Toplama sıklığı |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |beş günde |
 
@@ -98,7 +98,7 @@ Kullanım ömrü kalıcı çoğaltma hatalarını tanımlayan ek olarak, ayrıca
 
 Bu büyük olasılıkla ihtiyaç duydukları çözümlemek için müdahale etmenizi böylece açıkça kalan, değil geçici hatalardır. İyi haber, bunlar henüz ömründen ulaştığınızı değil ' dir. Kısa süre içinde bu sorunları düzeltmek varsa ve *önce* ömründen ulaşmak, çoğaltma ile en az el ile müdahale yeniden başlatın.
 
-AD çoğaltma durumunu çözümü sayısını gösteren için Pano kutucuğuna daha önce belirtildiği gibi *kritik* çoğaltma hataları, ortamınızdaki (üzerinde % 100'tsl hatalarını dahil) kullanım ömrü % 75'den hatalarını tanımlanır. Bu sayı 0'da tutmak çalışmalar yapılmaktadır.
+AD çoğaltma durumunu çözümü sayısını gösteren için Pano kutucuğuna daha önce belirtildiği gibi *kritik* (hatalar dahil olmak üzere kullanım ömrü % 75'den hatalarını tanımlanır, ortamınızdaki çoğaltma hataları üzerinde % 100'tsl olan). Bu sayı 0'da tutmak çalışmalar yapılmaktadır.
 
 > [!NOTE]
 > Bir özel silinmiş öğe işareti yaşam süresi değeri ayarlanmış olsa bile bu yüzdeleri doğru güven şekilde tüm silinmiş öğe işareti yaşam süresi yüzdesini hesaplamalar, Active Directory ormanı için gerçek kullanım ömrü dayanır.
@@ -129,10 +129,10 @@ Y: bilgiler beş günde bir güncelleştirilir.
 Y: Hayır, yalnızca bir tek etki alanı denetleyicisi eklenmelidir. Günlük analizi çalışma alanınızda birden çok etki alanı denetleyicisi varsa, bunların tümünün verilerden günlük analizi için gönderilir.
 
 **S: herhangi bir etki alanı denetleyicisine günlük analizi çalışma alanıma Ekle istemiyorum. AD çoğaltma durumunu çözüm kullanabilir miyim?**
-Y: Evet. Etkinleştirmek için bir kayıt defteri anahtarının değerini ayarlayabilirsiniz. Bkz: [olmayan etki alanı denetleyicisi için günlük analizi AD veri göndermesini sağlamak için](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+C: Evet. Etkinleştirmek için bir kayıt defteri anahtarının değerini ayarlayabilirsiniz. Bkz: [olmayan etki alanı denetleyicisi için günlük analizi AD veri göndermesini sağlamak için](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **S: adı olmadığından veri toplama işlemi nedir?**
-A: AdvisorAssessment.exe
+Y: AdvisorAssessment.exe
 
 **S: ne kadar süreyle verilerinin toplanmasını sürer?**
 Y: veri toplama zamanı Active Directory ortamında boyutuna bağlıdır, ancak genellikle 15 dakikadan kısa sürer.

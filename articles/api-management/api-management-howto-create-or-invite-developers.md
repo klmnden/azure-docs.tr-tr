@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 53ed914a3890aab1dd49536856feeb8975986e00
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 3d9a4454a1b3f65b42a46a26e8d483fad83f65f6
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "33934817"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111278"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Kullanıcı hesapları Azure API Management'te yönetme
-API Yönetimi'nde, geliştiriciler API Management kullanarak kullanıma API'leri kullanıcılardır. Bu kılavuz, API'ları ve ürünlerini kullanmak için için nasıl oluşturulacağını ve geliştiricilerin davet gösterir, API Management örneği ile kendileri için kullanılabilir hale. Kullanıcı hesaplarını program aracılığıyla yönetme hakkında daha fazla bilgi için bkz: [kullanıcı varlığı](https://msdn.microsoft.com/library/azure/dn776330.aspx) belgelerinde [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) başvuru.
+API Yönetimi'nde, geliştiriciler API Management kullanarak kullanıma API'leri kullanıcılardır. Bu kılavuz, API'ları ve ürünlerini kullanmak için için nasıl oluşturulacağını ve geliştiricilerin davet gösterir, API Management örneği ile kendileri için kullanılabilir hale. Kullanıcı hesaplarını program aracılığıyla yönetme hakkında daha fazla bilgi için bkz: [kullanıcı varlığı](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) belgelerinde [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) başvuru.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -66,7 +66,7 @@ Bir kullanıcıyı engellemek için aşağıdaki adımları izleyin.
 
 ## <a name="reset-a-user-password"></a>Kullanıcı parolasını sıfırlama
 
-Program aracılığıyla kullanıcı hesapları ile çalışmak için bkz: [kullanıcı varlığı](https://msdn.microsoft.com/library/azure/dn776330.aspx) belgelerinde [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) başvuru. Belirli bir değere bir kullanıcı hesabı parolasını sıfırlamak için kullanabileceğiniz [kullanıcıyı güncelleştirmek](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) işlemi ve istenilen parola belirtin.
+Program aracılığıyla kullanıcı hesapları ile çalışmak için bkz: [kullanıcı varlığı](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) belgelerinde [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) başvuru. Belirli bir değere bir kullanıcı hesabı parolasını sıfırlamak için kullanabileceğiniz [kullanıcıyı güncelleştirmek](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) işlemi ve istenilen parola belirtin.
 
 ## <a name="next-steps"> </a>Sonraki adımlar
 Bir geliştirici hesabı oluşturulduktan sonra rolleriyle ilişkilendirmek ve ürünleri ve API'ler için abone olun. Daha fazla bilgi için bkz: [grupları oluşturma ve kullanma konusunda][How to create and use groups].

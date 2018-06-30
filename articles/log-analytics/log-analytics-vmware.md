@@ -3,7 +3,7 @@ title: Günlük analizi VMware izleme çözümünde | Microsoft Docs
 description: Nasıl VMware izlemesi çözümü günlüklerini yönetmek ve ESXi konakları izlemenize yardımcı olabilir hakkında bilgi edinin.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: c07cc3e434a178a5f6a1ea10f7dc630c3d0d548d
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.component: na
+ms.openlocfilehash: a538b23e829e309c10e745beef4fc8512c3294de
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019309"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131436"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Günlük analizi çözümüne VMware izleme (Önizleme)
 

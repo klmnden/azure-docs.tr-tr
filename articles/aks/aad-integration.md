@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 6/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 272d98613e13c1bb76c75befd6bd5e0115c32610
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
-ms.translationtype: HT
+ms.openlocfilehash: ff9f107b8cd10cdab71ba13a1925403d2d144984
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097249"
+ms.locfileid: "37128505"
 ---
 # <a name="integrate-azure-active-directory-with-aks---preview"></a>Azure Active Directory Tümleştirme AKS - Önizleme
 
@@ -59,19 +59,21 @@ Gelen Kubernetes küme içinde Web kancası belirteci kimlik doğrulaması kimli
 
 4. Azure AD uygulamaya dönmek **ayarları** > **gerekli izinleri** > **Ekle**  >   **Bir API seçin** > **Microsoft Graph** > **seçin**.
 
-  Altında **uygulama izinleri** yanına işaretleyin **dizin verilerini okuma**.
+  ![Grafik API'si seçin](media/aad-integration/graph-api.png)
+
+5. Altında **uygulama izinleri** yanına işaretleyin **dizin verilerini okuma**.
 
   ![Uygulama grafik izinleri ayarlama](media/aad-integration/read-directory.png)
 
-5. Altında **İZİNLERE TEMSİLCİ**, yanına işaretleyin **oturum açın ve kullanıcı profilini okuma** ve **dizin verilerini okuma**. Bir kez yapılır güncelleştirmelerini kaydedin.
+6. Altında **İZİNLERE TEMSİLCİ**, yanına işaretleyin **oturum açın ve kullanıcı profilini okuma** ve **dizin verilerini okuma**. Bir kez yapılır güncelleştirmelerini kaydedin.
 
   ![Uygulama grafik izinleri ayarlama](media/aad-integration/delegated-permissions.png)
 
-6. Seçin **Bitti** ve **izinler** bu adımı tamamlamak için. Geçerli hesap bir kiracı yönetici değilse, bu adımı başarısız olur
+7. Seçin **Bitti**, seçin *Microsoft Graph* API'leri listesinden seçip **izinler**. Geçerli hesap bir kiracı yönetici değilse, bu adımı başarısız olur
 
   ![Uygulama grafik izinleri ayarlama](media/aad-integration/grant-permissions.png)
 
-7. Uygulamaya dönün ve not edin **uygulama kimliği**. Bir Azure AD etkin AKS küme dağıtırken, bu değer olarak adlandırılır `Server application ID`.
+8. Uygulamaya dönün ve not edin **uygulama kimliği**. Bir Azure AD etkin AKS küme dağıtırken, bu değer olarak adlandırılır `Server application ID`.
 
   ![Uygulama Kimliği alma](media/aad-integration/application-id.png)
 
@@ -195,6 +197,12 @@ aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
 ```
 
 Tamamlandıktan sonra kimlik doğrulama belirteci önbelleğe alınır. Yalnızca zaman belirtecinin süresi doldu veya yeniden oluşturulduğunda Kubernetes yapılandırma dosyasında oturum reprompted.
+
+Başarıyla oturum açtıktan sonra bir yetkilendirme hata iletisini görüyorsanız, bir konuk (Federe bir oturum açma farklı bir dizinden kullanıyorsanız, genellikle böyledir) Azure AD içinde olduğu gibi kullanıcı, oturum açtığınız olduğunu denetleyin.
+```console
+error: You must be logged in to the server (Unauthorized)
+```
+
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

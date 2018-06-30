@@ -3,7 +3,7 @@ title: Log Analytics'te Wire Data çözümü | Microsoft Docs
 description: Sinyal verileri, Operations Manager ve Windows bağlantılı aracılar da dahil olmak üzere OMS aracılarıyla bilgisayarlardan ağ ve performans verilerini bir araya getirir. Verilerin bağıntısını sağlamanıza yardımcı olmak için ağ verileri günlük verilerinizle birleştirilir.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: magoedte
-ms.openlocfilehash: c86d1274ed46ff725c9db3093a8852fbae7f67ff
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: f44f47129a1d989422d25b7f0c5c55c1d229c07e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011450"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129015"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics'te Wire Data 2.0 (Önizleme) çözümü
 
@@ -59,9 +60,9 @@ Wire Data verilerini Microsoft Bağımlılık Aracısı'ndan alır. Bağımlıl�
 
 | **Bağlı kaynak** | **Destekleniyor** | **Açıklama** |
 | --- | --- | --- |
-| Windows aracıları | Yes | Wire Data, Windows aracı bilgisayarlarından gelen verileri analiz eder ve toplar. <br><br> [OMS Aracısı](log-analytics-windows-agent.md)'na ek olarak, Windows aracılarına Microsoft Bağımlılık Aracısı da gerekir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](../monitoring/monitoring-service-map-configure.md#supported-operating-systems). |
-| Linux aracıları | Yes | Wire Data, Linux aracı bilgisayarlarından gelen verileri analiz eder ve toplar.<br><br> [OMS Aracısı](log-analytics-quick-collect-linux-computer.md)'na ek olarak, Linux aracılarına Microsoft Bağımlılık Aracısı da gerekir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](../monitoring/monitoring-service-map-configure.md#supported-operating-systems). |
-| System Center Operations Manager yönetim grubu | Yes | Wire Data, bağlantılı bir [System Center Operations Manager yönetim grubunda](log-analytics-om-agents.md) Windows ve Linux aracılarından gelen verileri analiz eder ve toplar. <br><br> System Center Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekir. Veriler yönetim grubundan Log Analytics'e iletilir. |
+| Windows aracıları | Evet | Wire Data, Windows aracı bilgisayarlarından gelen verileri analiz eder ve toplar. <br><br> [OMS Aracısı](log-analytics-windows-agent.md)'na ek olarak, Windows aracılarına Microsoft Bağımlılık Aracısı da gerekir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](../monitoring/monitoring-service-map-configure.md#supported-operating-systems). |
+| Linux aracıları | Evet | Wire Data, Linux aracı bilgisayarlarından gelen verileri analiz eder ve toplar.<br><br> [OMS Aracısı](log-analytics-quick-collect-linux-computer.md)'na ek olarak, Linux aracılarına Microsoft Bağımlılık Aracısı da gerekir. İşletim sistemi sürümlerinin tam listesi için bkz. [Desteklenen işletim sistemleri](../monitoring/monitoring-service-map-configure.md#supported-operating-systems). |
+| System Center Operations Manager yönetim grubu | Evet | Wire Data, bağlantılı bir [System Center Operations Manager yönetim grubunda](log-analytics-om-agents.md) Windows ve Linux aracılarından gelen verileri analiz eder ve toplar. <br><br> System Center Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekir. Veriler yönetim grubundan Log Analytics'e iletilir. |
 | Azure depolama hesabı | Hayır | Wire Data verileri aracı bilgisayarlardan topladığından, Azure Depolama'dan toplayacağı veri yoktur. |
 
 Windows'da, hem System Center Operations Manager hem de Log Analytics verileri toplamak ve göndermek için Microsoft Monitoring Agent (MMA) kullanır. Bağlama göre, bu aracı System Center Operations Manager Aracısı, OMS Aracısı, Log Analytics Aracısı, MMA veya Doğrudan Aracı olarak adlandırılır. System Center Operations Manager ve Log Analytics, MMA'nın biraz farklı sürümlerini sağlar. Bu sürümlerin her biri System Center Operations Manager'a, Log Analytics'e veya her ikisine birden raporlayabilir.
@@ -81,7 +82,7 @@ Log Analytics'e bağlı bir yönetim grubuyla System Center Operations Manager k
 
 Doğrudan Aracı kullanıyorsanız, Log Analytics'e veya OMS Ağ Geçidinize bağlanması için OMS aracısının kendisini yapılandırmanız gerekir. OMS Ağ Geçidi'ni [Microsoft İndirme Merkezi](https://www.microsoft.com/download/details.aspx?id=52666)'nden indirebilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - [İçgörü ve Analiz](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) çözüm teklifi gereklidir.
 - Wire Data çözümünü önceki sürümünü kullanıyorsanız, önce o sürümü kaldırmalısınız. Ancak özgün Wire Data çözümüyle yakalanmış olan tüm veriler Wire Data 2.0'da ve günlük aramasında yine kullanılabilir.

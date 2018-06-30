@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dd867462ce3a1841aa4e2e8943f2c2619d168b08
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061752"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112329"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Gözat ve Sunucu Gezgini kullanarak depolama kaynaklarını yönetmek
 
@@ -219,7 +219,7 @@ Sorgu Oluşturucusu'nu kullanırsanız, bir tabloda görünen varlıkları küme
 1. Bitirdiğinizde, sorgu oluşturma iletişim kutusunu kapatın. Sorgu sonuç metin biçiminde bir metin kutusuna bir WCF Veri Hizmetleri filtre olarak görünür.
 1. Sorguyu çalıştırmak için yeşil üçgenle simgesini seçin.
 
-Ayrıca girerseniz filtre metin kutusundaki doğrudan bir WCF Veri Hizmetleri filtre dizesi Tablo Tasarımcısı'nda görüntülenen varlık verilerini filtre uygulayabilirsiniz. Bu tür bir dize bir SQL WHERE yan tümcesine benzer, ancak sunucuya bir HTTP isteği olarak gönderilir. Filtre dizeleri oluşturma hakkında daha fazla bilgi için bkz: [oluşturma filtre dizeleri Tablo Tasarımcısı için](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+Ayrıca girerseniz filtre metin kutusundaki doğrudan bir WCF Veri Hizmetleri filtre dizesi Tablo Tasarımcısı'nda görüntülenen varlık verilerini filtre uygulayabilirsiniz. Bu tür bir dize bir SQL WHERE yan tümcesine benzer, ancak sunucuya bir HTTP isteği olarak gönderilir. Filtre dizeleri oluşturma hakkında daha fazla bilgi için bkz: [Constructing filtre dizeleri Tablo Tasarımcısı için](https://docs.microsoft.com/azure/vs-azure-tools-table-designer-construct-filter-strings).
 
 Aşağıdaki çizimde bir geçerli filtre dizesi örneği gösterilmektedir:
 

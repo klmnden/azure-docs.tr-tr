@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: v-geberr
-ms.openlocfilehash: 4fb1a5542bb56bd853984e66198ebfbd189451f8
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ab9b9fe5c34c334fd65971f9040c8e43467aa242
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266874"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112159"
 ---
 # <a name="data-alterations"></a>Veri değişiklikleri
 HALUK öncesinde veya sırasında tahmin utterance işlemek için yöntemler sağlar. 
@@ -31,7 +31,7 @@ Uç nokta yazım düzeltmeleri çalışmak için iki params gerektirir:
 |Param|Değer|
 |--|--|
 |`spellCheck`|boole|
-|`bing-spell-check-subscription-key`|[Bing yazım denetleme API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) abonelik anahtarı|
+|`bing-spell-check-subscription-key`|[Bing yazım denetleme API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) uç noktası anahtarı|
 
 Zaman [Bing yazım denetleme API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) bir hata, özgün utterance ve düzeltilmiş utterance döndürülür tahminleri yanı sıra uç noktasından algılar.
 

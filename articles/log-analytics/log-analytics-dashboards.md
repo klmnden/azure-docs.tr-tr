@@ -3,7 +3,7 @@ title: Azure günlük analizi özel bir pano oluşturun | Microsoft Docs
 description: Bu kılavuz, günlük analizi panolar tüm kaydedilmiş günlük işlemlerinizin nasıl görselleştirebilirsiniz anlamanıza ortamınızı görüntülemek için tek bir mercek vermiş yardımcı olur.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7eaa74655b009e3154e2cc4f09d5599040ec4589
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: 7b17b23d30b15fe71dcf031ac67f0c54fc3cfe3e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010780"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129321"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Günlük analizi kullanmak için özel bir pano oluşturun
 
@@ -68,7 +68,7 @@ My Pano görünümünde tıklamanız yeterlidir **Özelleştir** girmek için ö
 ### <a name="tile-visualizations"></a>Döşeme görselleştirmeleri
 Aralarından seçim yapabileceğiniz döşeme görselleştirmeleri üç tür vardır:
 
-| grafik türü | ne yapar |
+| grafik türü | Ne yapar |
 | --- | --- |
 | ![Çubuk grafiği](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png) |Günlük arama sonuçları bir alana göre veya toplar, kaydedilmiş günlük aramanın sonuçları bir zaman çizelgesi olarak bir çubuk grafik veya bağlı olarak bir alana göre sonuçlarının bir listesini görüntüler. |
 | ![ölçüm](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Toplam günlük arama sonucu isabet döşeme içinde bir sayı olarak görüntüler. Ölçüm döşeme Eşiğe ulaşıldığında döşeme vurgular bir eşiği ayarlamanıza olanak sağlar. |

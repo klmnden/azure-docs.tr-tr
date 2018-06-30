@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: danis
-ms.openlocfilehash: eac64a5b456eb040bcb1ac01c3c86dfde0847e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 526021ca238be7bc934e639c34d3e49879279a6a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942777"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127661"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Linux sanal makineleri ile Azure özel betik uzantısı sürüm 1'i kullanın
 Özel betik uzantısı sürüm 1 indirir ve Azure sanal makinelerde betikleri çalıştırır. Bu uzantı, dağıtım sonrası yapılandırma, yazılım yükleme veya başka bir yapılandırma/yönetim görevi için yararlıdır. Azure Storage veya başka bir erişilebilir Internet konum komut dosyaları indirebilir veya uzantısı çalışma zamanına sağlayabilir. 
@@ -34,7 +34,7 @@ Bu makalede Azure clı'dan özel betik uzantısının kullanmayı ve Azure Resou
 * Sürüm 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
 * Sürüm 2 - Microsoft.Azure.Extensions.CustomScript
 
-Lütfen yeni sürümü kullanmak için yeni ve varolan dağıtımları geçin ([Microsoft.Azure.Extensions.CustomScript](\custom-script-linux.md)) yerine. Yeni sürüm içeri kayma değiştirme olması amaçlanmıştır. Bu nedenle, geçiş adı ve sürümü değiştirirken kadar kolaydır, uzantısı yapılandırmanızı değiştirmeniz gerekmez.
+Lütfen yeni sürümü kullanmak için yeni ve varolan dağıtımları geçin ([Microsoft.Azure.Extensions.CustomScript](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-linux)) yerine. Yeni sürüm içeri kayma değiştirme olması amaçlanmıştır. Bu nedenle, geçiş adı ve sürümü değiştirirken kadar kolaydır, uzantısı yapılandırmanızı değiştirmeniz gerekmez.
 
  
 
@@ -121,7 +121,7 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 | apiVersion | 2015-06-15 | tarih |
 | Yayımcı | Microsoft.OSTCExtensions | dize |
 | type | CustomScriptForLinux | dize |
-| typeHandlerVersion | 1,5 | Int |
+| typeHandlerVersion | 1,5 | int |
 | fileUris (örneğin) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (örneğin) | Python MyPythonScript.py < param1 my > | dize |
 | enableInternalDNSCheck | true | boole |

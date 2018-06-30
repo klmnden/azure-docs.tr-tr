@@ -2,7 +2,7 @@
 title: BT Hizmet Yönetimi Bağlayıcısı bağlantılarla Azure günlük analizi desteklenen | Microsoft Docs
 description: Bu makale, merkezi olarak izlemek ve ITSM iş öğelerini yönetmek için OMS günlük analizi, BT Hizmet Yönetimi Bağlayıcısı (ITSMC) ile ITSM ürünler/hizmetler bağlanma hakkında bilgi sağlar.
 documentationcenter: ''
-author: JYOTHIRMAISURI
+author: jyothirmaisuri
 manager: riyazp
 editor: ''
 ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
@@ -10,15 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 1c1c294a877a996dc0e6cb916b038dc0ca27ed5c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.component: na
+ms.openlocfilehash: 661107779b74b6e21dec01aecf6d545ec2b7a702
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061718"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131761"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM ürünler/hizmetler ile BT Hizmet Yönetimi Bağlayıcısı Bağlan
 Bu makalede, iş öğelerini merkezi olarak yönetmek için günlük analizi içinde ITSM Ürün/hizmet ve BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) arasındaki bağlantı yapılandırma hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](log-analytics-itsmc-overview.md).

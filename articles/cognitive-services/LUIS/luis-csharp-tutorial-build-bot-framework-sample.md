@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 273fca51d83f25e2657b51b68179e46f4295f92b
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b3283880ebb116e5397c38d722a0790cff414f38
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263889"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111931"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Web uygulaması HALUK şablonu için C# kullanarak Bot
 
@@ -72,7 +72,7 @@ Bot "Tebrik ulaştınız. söyleyerek yanıt verir. Belirtilmektedir: hello ".  
 
 ## <a name="connect-your-luis-app-to-the-bot"></a>Bot HALUK uygulamanızı bağlama
 
-Açık **uygulama ayarları** ve düzenleme **LuisAppId** HALUK uygulamanızı uygulama Kimliğini içeren alan. Batı ABD dışındaki bir bölgede HomeAutomation HALUK uygulamanızı oluşturduysanız, değiştirmeye ihtiyaç **LuisAPIHostName** de. **LuisAPIKey** geliştirme anahtarınızı ayarlanmış. Ücretsiz katmanı kota trafiğinizi aştığında, bu abonelik anahtarınızı değiştirin. 
+Açık **uygulama ayarları** ve düzenleme **LuisAppId** HALUK uygulamanızı uygulama Kimliğini içeren alan. Batı ABD dışındaki bir bölgede HomeAutomation HALUK uygulamanızı oluşturduysanız, değiştirmeye ihtiyaç **LuisAPIHostName** de. **LuisAPIKey** geliştirme anahtarınızı ayarlanmış. Ücretsiz katmanı kota trafiğinizi aştığında, bu uç nokta anahtarınızı değiştirin. 
 
   ![Azure HALUK uygulama Kimliğini güncelleştir](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 

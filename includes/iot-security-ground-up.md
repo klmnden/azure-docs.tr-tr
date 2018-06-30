@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: c1ba6cb5b01c86c64fd6134c592829050bbb226d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: b3525f461d0662db5bf3677f7e981bbdbc663d50
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34307558"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103652"
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Nesnelerin interneti güvenlik sıfırdan
 
 Nesnelerin interneti (IOT) işletmelere dünya çapındaki benzersiz güvenlik, gizlilik ve uyumluluk sorunları doğurur. Bu sorunları yazılım ve nasıl uygulandığı burada Uzayda Döndür geleneksel siber teknolojisi farklı olarak, sanal ve fiziksel dünyaları yakınsama ne olur IOT ilgilidir. IOT çözümleri koruma cihazları, bu cihazlar ve Bulut ve işleme ve depolama sırasında bulutta güvenli veri koruması arasında güvenli bağlantı güvenli sağlanmasını sağlama gerektirir. Bu tür işlevselliği karşı çalışan, ancak, kaynak kısıtlı cihazları, dağıtımları coğrafi dağıtılması ve aygıtları bir çözüm içinde çok sayıda değildir.
 
-Bu makalede IOT Çözüm Hızlandırıcıları güvenli ve özel bir nesnelerin interneti bulut çözümünün nasıl sağladığını açıklar. Çözüm Hızlandırıcıları eksiksiz bir uçtan uca çözüm sıfırdan her aşamada yerleşik güvenlik sunar. Microsoft, güvenli yazılım geliştirme Microsoft'un on yılları kökü yazılım mühendislik uygulama parçası olan uzun deneyimi güvenli yazılım geliştirme. Bu, güvenlik geliştirme yaşam döngüsü (SDL) bir ana bilgisayar işletimsel güvenlik güvencesi (OSA) ve Microsoft dijital Suçlar Birimi'nin, Microsoft Security Response Center ve Microsoft Malware Protection Center gibi altyapı düzeyinde güvenlik hizmetleri ile birlikte temel geliştirme metodolojisini sağlamaktır.
+Bu makalede IOT Çözüm Hızlandırıcıları güvenli ve özel bir nesnelerin interneti bulut çözümünün nasıl sağladığını açıklar. Çözüm Hızlandırıcıları eksiksiz bir uçtan uca çözüm sıfırdan her aşamada yerleşik güvenlik sunar. Microsoft, güvenli yazılım geliştirme Microsoft'un on yılları kökü yazılım mühendislik uygulama parçası olan uzun deneyimi güvenli yazılım geliştirme. Bu, güvenlik geliştirme yaşam döngüsü (SDL) bir ana bilgisayar, işletimsel güvenlik güvencesi (OSA) ve Microsoft dijital Suçlar Birimi'nin, Microsoft gibi bir altyapı düzeyinde güvenlik hizmetleri ile birlikte temel geliştirme metodolojisini sağlamaktır Güvenlik Yanıt Merkezi ve Microsoft Malware Protection Center.
 
 Sağlama yapma, bağlanma ve IOT aygıtlardan kolay ve saydam veri depolama çözümü Hızlandırıcıları benzersiz özellikler sunar ve en önemlisi, güvenli. Bu makale Azure IOT Çözüm Hızlandırıcıları güvenlik özelliklerini inceler ve güvenlik, gizlilik ve uyumluluk sorunları emin olmak için dağıtım stratejilerini ele alınmıştır.
 
@@ -33,13 +33,13 @@ Verilen güvenlik, gizlilik, saydamlık ve uyumluluk sorunları, doğru IOT çö
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>Sıfırdan güvenli altyapısı
 
-[Microsoft Cloud](https://www.microsoft.com/enterprise/microsoftcloud/default.aspx#fbid=WzBsRQi6aGk) altyapısını 127 ülkede bir milyardan fazla müşteriler destekler. Kurumsal Yazılım oluşturma ve dünyanın en büyük çevrimiçi hizmetlerin bazıları çalıştırma Microsoft'un on yılları uzun deneyimi üzerinde çizim, Microsoft Cloud Artırılmış güvenlik, gizlilik, uyumluluk ve tehdit daha yüksek düzeyde azaltma yöntemler sağlar ' den müşterilerin çoğu, kendi elde.
+[Microsoft Cloud](https://azure.microsoft.com) altyapısını 127 ülkede bir milyardan fazla müşteriler destekler. Kurumsal Yazılım oluşturma ve dünyanın en büyük çevrimiçi hizmetlerin bazıları çalıştırma Microsoft'un on yılları uzun deneyimi üzerinde çizim, Microsoft Cloud Artırılmış güvenlik, gizlilik, uyumluluk ve tehdit daha yüksek düzeyde azaltma yöntemler sağlar ' den müşterilerin çoğu, kendi elde.
 
 [Güvenlik geliştirme yaşam döngüsü (SDL)](https://www.microsoft.com/sdl/) güvenlik gereksinimlerini tüm yazılım yaşam döngüsü içine katıştırır zorunlu şirket çapında geliştirme işlemi sunar. İşletimsel etkinlikler aynı düzeyde güvenlik uygulamalarını izleyin sağlamaya yardımcı olmak için Microsoft'un işletimsel güvenlik güvencesi (OSA) işleminde düzenlendiği sıkı güvenlik yönergeleri SDL kullanır. Microsoft, üçüncü taraf denetim firmalarından uyumluluk yükümlülüklerin karşıladığından ve Microsoft Geniş güvenlik çaba mükemmel, Microsoft dijital Suçlar Birimi'nin dahil olmak üzere merkezlerinin oluşturulmasını aracılığıyla ilgilenir. devam eden doğrulama ile de çalışır, Microsoft Güvenlik Yanıt Merkezi ve Microsoft Malware Protection Center.
 
 ## <a name="microsoft-azure---secure-iot-infrastructure-for-your-business"></a>Microsoft Azure - işletmeniz için güvenli IOT altyapısı
 
-Microsoft Azure tam bulut çözüm, sürekli büyüyen bir tümleşik bulut hizmetler koleksiyonu birleştiren bir sunar — analizi, machine learning, depolama, güvenlik, ağ ve web — bir endüstri lideri taahhüdü verilerinizin gizliliğini ve koruması ile. Microsoft'un [ihlali varsayın](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) stratejisi kullanan ayrılmış bir *kırmızı takım* saldırı algılama yeteneği Azure test benzetimini yazılım güvenlik uzmanlar, ortaya çıkan tehditlere karşı korumak ve kurtarmak ihlallerinden. Microsoft'un [genel olay yanıtlama](https://www.microsoft.com/TrustCenter/Security/DesignOpSecurity) aralıksız saldırıları ve kötü amaçlı etkinliği etkilerini azaltmak için takım çalışır. Takım olay yönetimini, iletişim ve kurtarma için kurulmuş yordamları izler ve iç ve dış iş ortaklarıyla bulunabilir ve tahmin edilebilir arabirimleri kullanır.
+Microsoft Azure tam bulut çözüm, sürekli büyüyen bir tümleşik bulut hizmetler koleksiyonu birleştiren bir sunar — analizi, machine learning, depolama, güvenlik, ağ ve web — bir endüstri lideri taahhüt koruma ile ve verilerinizin. Microsoft'un [ihlali varsayın](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) stratejisi kullanan ayrılmış bir *kırmızı takım* saldırı algılama yeteneği Azure test benzetimini yazılım güvenlik uzmanlar, ortaya çıkan tehditlere karşı korumak ve kurtarmak ihlallerinden. Microsoft'un [genel olay yanıtlama](https://www.microsoft.com/TrustCenter/Security/DesignOpSecurity) aralıksız saldırıları ve kötü amaçlı etkinliği etkilerini azaltmak için takım çalışır. Takım olay yönetimini, iletişim ve kurtarma için kurulmuş yordamları izler ve iç ve dış iş ortaklarıyla bulunabilir ve tahmin edilebilir arabirimleri kullanır.
 
 Microsoft'un sistemleri sürekli izinsiz giriş algılama ve önleme, hizmet saldırı önleme, normal sızma test ve tanımlamak ve tehditlerin azaltılmasına yardımcı adli araçlar sağlar. [Çok faktörlü kimlik doğrulaması](../articles/active-directory/authentication/multi-factor-authentication.md) fazladan bir ağa erişmek son kullanıcılar için güvenlik katmanı sağlar. Ve Microsoft uygulaması ve ana bilgisayar sağlayıcısı için erişim denetimi, izleme, kötü amaçlı yazılım, güvenlik açığı taraması, düzeltme ekleri ve yapılandırma yönetimi sunar.
 

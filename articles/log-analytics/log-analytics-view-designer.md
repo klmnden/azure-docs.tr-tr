@@ -4,22 +4,23 @@ description: Günlük analizi Görünüm Tasarımcısı kullanarak Azure portal�
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 91d4efcd7fabc2f284078d752ea68778a9bd8d86
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.component: na
+ms.openlocfilehash: d900a778aa003357fb85d3e8ec8e40dee64f0f9c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752048"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131863"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Günlük analizi Görünüm Tasarımcısı kullanarak özel görünümlerini oluşturma
 Görünüm Tasarımcısı'nda kullanarak [Azure günlük analizi](log-analytics-overview.md), Azure portalında veri günlük analizi çalışma alanınızdaki görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede Görünüm Tasarımcısı ve oluşturma ve özel görünümler düzenleme yordamları genel bakış sunar.

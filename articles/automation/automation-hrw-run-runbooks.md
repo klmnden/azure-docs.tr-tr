@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32cc1a436521574917c8e52b2fa4e045d32a4f09
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dcc77d9826d91c57dc15b1abed83c2b640e73906
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062583"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110710"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Bir karma Runbook çalışanı üzerinde çalışan runbook'ları
 
@@ -77,7 +77,7 @@ Karma çalışanı grubu için bir RunAs hesabı belirtmek için aşağıdaki yo
 
 ### <a name="automation-run-as-account"></a>Automation farklı çalıştır hesabı
 
-Azure'daki kaynakların dağıtımı için otomatik yapı işleminizin bir parçası olarak, şirket içi bir görev veya grup adımı, dağıtım sırası desteklemek üzere sistemler için erişim gerektirebilir. Azure farklı çalıştır hesabını kullanarak kimlik doğrulamasını desteklemek için farklı çalıştır hesabı sertifikası yüklemeniz gerekir.
+Azure'daki kaynakların dağıtımı için otomatik yapı işleminizin bir parçası olarak, bir görev veya grup adımı, dağıtım sırası desteklemek için şirket içi sistemlere erişimi gerektirebilir. Azure farklı çalıştır hesabını kullanarak kimlik doğrulamasını desteklemek için farklı çalıştır hesabı sertifikası yüklemeniz gerekir.
 
 Aşağıdaki PowerShell runbook *verme RunAsCertificateToHybridWorker*, Azure Automation hesabınızdan farklı çalıştır sertifika verir ve indirir ve bunu bir karma yerel makine sertifika deposuna aktarır çalışan aynı hesaba bağlı. Bu adım tamamlandıktan sonra çalışan farklı çalıştır hesabını kullanarak Azure kimlik doğrulamasını başarıyla doğrular.
 

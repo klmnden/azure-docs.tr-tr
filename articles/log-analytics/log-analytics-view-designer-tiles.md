@@ -4,22 +4,23 @@ description: Günlük analizi Görünüm Tasarımcısı kullanarak veri görsell
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: ''
 ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: f341cb9430c7750909c1fc1f50c15f0620e74366
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: na
+ms.openlocfilehash: fc5dc00a05486c1f781016df63877f40d21b0205
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29947325"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131279"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Günlük analizi Görünüm Tasarımcısı döşemeleri Başvuru Kılavuzu
 Azure günlük analizi Görünüm Tasarımcısı kullanarak veri görselleştirmeleri günlük analizi çalışma alanınızdaki çeşitli sunmak Azure Portalı'nda özel görünümler oluşturabilirsiniz. Bu makalede, ayarları özel görünümlerde kullanılabilir döşeme için bir başvuru kılavuzdur.
@@ -32,7 +33,7 @@ Görünüm Tasarımcısı hakkında daha fazla bilgi için bkz:
 
 Kullanılabilir Görünüm Tasarımcısı döşeme aşağıdaki tabloda açıklanmıştır:  
 
-| Döşeme | Açıklama |
+| Kutucuk | Açıklama |
 |:--- |:--- |
 | [Sayı](#number-tile) |Sorgudan kayıt sayısı. |
 | [İki sayı](#two-numbers-tile) |İki farklı sorgular kayıtları sayar. |
@@ -93,13 +94,13 @@ Bu kutucuğu her iki farklı günlük sorgular ve etiket kayıtları sayısını
 | Açıklama |Döşeme adı altında görüntülenen metin. |
 | **Halka** | |
 | Sorgu |Halka için Çalıştır sorgu. Bir metin değeri ilk özelliğidir ve ikinci özelliği sayısal bir değerdir. Bu sorgu normalde kullandığı *ölçü* sonuçları özetlemek için anahtar sözcüğü. |
-| **Halka** |**> Center** |
+| **Halka** |**> Merkezi** |
 | Metin |Halka içindeki değeri altında görüntülenen metin. |
 | İşlem |Tek bir değer olarak özetlemek için değer özelliği üzerinde gerçekleştirilen işlem.<ul><li>Toplam: tüm kayıtları değerleri özellik değeriyle ekleyin.</li><li>Yüzdesi: Tüm kayıtları toplanan değerleriyle karşılaştırılan özellik değeri toplanan değerlerle kayıtlarından yüzdesi.</li></ul> |
-| Merkezi işleminde kullanılan sonuç değerleri |İsteğe bağlı olarak, bir veya daha fazla değer eklemek için artı işareti (+) seçin. Sorgu sonuçlarını kayıtları belirttiğiniz özellik değerleri ile sınırlıdır. Hiçbir değer eklediyseniz, tüm kayıtları sorguda dahil edilir. |
+| Merkezdeki işlemde kullanılan sonuç değerleri |İsteğe bağlı olarak, bir veya daha fazla değer eklemek için artı işareti (+) seçin. Sorgu sonuçlarını kayıtları belirttiğiniz özellik değerleri ile sınırlıdır. Hiçbir değer eklediyseniz, tüm kayıtları sorguda dahil edilir. |
 | **Halka** |**> Ek seçenekler** |
-| Renkleri |Her üç üst özellikleri için görüntülenen rengi. Belirli özellik değerleri için alternatif renkleri belirtmek için kullanın *gelişmiş renk eşleme*. |
-| Gelişmiş renk eşleme |Belirli özellik değerlerini temsil eden bir renk görüntüler. Belirttiğiniz değerle ilk üç ise, alternatif renk yerine standart bir renk görüntülenir. Özelliği ilk üç durumda değilse, renk görüntülenmez. |
+| Renkler |Her üç üst özellikleri için görüntülenen rengi. Belirli özellik değerleri için alternatif renkleri belirtmek için kullanın *gelişmiş renk eşleme*. |
+| Gelişmiş Renk Eşleme |Belirli özellik değerlerini temsil eden bir renk görüntüler. Belirttiğiniz değerle ilk üç ise, alternatif renk yerine standart bir renk görüntülenir. Özelliği ilk üç durumda değilse, renk görüntülenmez. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
 | Etkin |Veri akışı doğrulama bölme için etkinleştirilmesi gerekir, bu bağlantıyı seçin. Veriler kullanılamıyorsa, bu yaklaşımın bir alternatif mesajı sağlar. Normalde zaman görünümü yüklenir ve veriler kullanılabilir duruma geçici süresi boyunca bir ileti sağlamak için yaklaşımı kullanın. |
 | Sorgu |Veri görünümü için kullanılabilir olup olmadığını belirlemek için çalıştırın sorgu. Sorgu hiç sonuç döndürürse, ana sorgu değeri yerine bir ileti görüntülenir. |
@@ -118,7 +119,7 @@ Bu kutucuğu zaman içinde bir günlük sorgudan birden fazla seri görüntüley
 | **Çizgi grafiği** | |
 | Sorgu |Çizgi grafiği için Çalıştır sorgu. Bir metin değeri ilk özelliğidir ve ikinci özelliği sayısal bir değerdir. Bu sorgu normalde kullandığı *ölçü* sonuçları özetlemek için anahtar sözcüğü. Sorgu kullanıyorsa *aralığı* anahtar sözcüğü, x ekseni bu zaman aralığı kullanır. Sorgu kullanmıyorsa *aralığı* anahtar sözcüğü, x ekseni kullanır saatlik aralıklarla. |
 | **Çizgi grafiği** |**> Y ekseni** |
-| Logaritmik ölçek kullan |Logaritmik ölçek y ekseni için kullanmak için bu bağlantıyı seçin. |
+| Logaritmik Ölçek Kullan |Logaritmik ölçek y ekseni için kullanmak için bu bağlantıyı seçin. |
 | Birimler |Sorgu tarafından döndürülen değer birimlerini belirtin. Bu bilgiler, değer türleri gösteren grafik ve isteğe bağlı olarak değerleri dönüştürmek için etiketleri görüntülemek için kullanılır. **Birim türü** birim kategorisini belirtir ve tanımlar **geçerli birim türü** kullanılabilir değerler. Bir değer seçerseniz **dönüştürmek** gelen sayısal değerleri dönüştürülür sonra **geçerli birim** için yazın **dönüştürmek** türü. |
 | Özel Etiket |Y eksenine etiketi yanında görüntülenen metin *birim* türü. Etiket yok, yalnızca belirtilmişse *birim* türü görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
@@ -143,7 +144,7 @@ Bu kutucuğu zaman ve özetlenen bir değerle belirtme çizgisi üzerinde birden
 | Seri adı |Belirtme çizgisi değeri olarak kullanılacak seri özellik değeri. Seri sağlanırsa, sorgudaki tüm kayıtları kullanılır. |
 | İşlem |Belirtme çizgisi için tek bir değer olarak özetlemek için değer özelliği üzerinde gerçekleştirilen işlem.<ul><li>Ortalama: Tüm kayıtları değerleri ortalama.</li><li>Sayısı: Sorgu tarafından döndürülen tüm kayıtları sayısı.</li><li>En son örnek: grafikte dahil son aralığı değeri.</li><li>En fazla: En yüksek değer grafikte dahil edilen aralık.</li><li>En küçük: En düşük değer grafikte dahil edilen aralık.</li><li>Toplam: Tüm kayıtları değerleri toplamı.</li></ul> |
 | **Çizgi grafiği** |**> Y ekseni** |
-| Logaritmik ölçek kullan |Logaritmik ölçek y ekseni için kullanmak için bu bağlantıyı seçin. |
+| Logaritmik Ölçek Kullan |Logaritmik ölçek y ekseni için kullanmak için bu bağlantıyı seçin. |
 | Birimler |Sorgu tarafından döndürülen birimler için değerleri belirtin. Bu bilgiler değer türleri gösteren görüntü grafik etiketleri ve, isteğe bağlı olarak, için kullanılan değerleri dönüştürün. *Birim* türü birim kategorisini belirtir ve kullanılabilir tanımlar *geçerli birim* değerler girin. Bir değer seçerseniz *dönüştürmek*, gelen sayısal değerleri dönüştürülür *geçerli birim* için yazın *dönüştürmek* türü. |
 | Özel Etiket |Y eksenine etiketi yanında görüntülenen metin *birim* türü. Etiket yok, yalnızca belirtilmişse *birim* türü görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
@@ -161,7 +162,7 @@ Bu kutucuğu zaman ve özetlenen bir değerle belirtme çizgisi üzerinde birden
 |:--- |:--- |
 | Ad |Döşeme üstünde görüntülenen metin. |
 | Açıklama |Döşeme adı altında görüntülenen metin. |
-| İlk grafik | |
+| İlk Grafik | |
 | Gösterge |Belirtme çizgisi ilk serisinin altında görüntülenen metin. |
 | Renk |İlk serisindeki sütunlar için kullanılan rengi. |
 | Grafik sorgu |İlk seri için Çalıştır sorgu. Her zaman aralığı üzerinden kayıt sayısı grafik sütunlara göre temsil edilir. |
@@ -169,7 +170,7 @@ Bu kutucuğu zaman ve özetlenen bir değerle belirtme çizgisi üzerinde birden
 | **İkinci grafik** | |
 | Gösterge |İkinci seri için belirtme çizgisi altında görüntülenen metin. |
 | Renk |İkinci serideki sütunlar için kullanılan rengi. |
-| Grafik sorgu |İkinci seri için Çalıştır sorgu. Her zaman aralığı üzerinden kayıt sayısı grafik sütunlara göre temsil edilir. |
+| Grafik Sorgusu |İkinci seri için Çalıştır sorgu. Her zaman aralığı üzerinden kayıt sayısı grafik sütunlara göre temsil edilir. |
 | İşlem |Belirtme çizgisi için tek bir değer olarak özetlemek için değer özelliği üzerinde gerçekleştirilen işlem.<ul><li>Ortalama: Tüm kayıtları değerleri ortalama.</li><li>Sayısı: Sorgu tarafından döndürülen tüm kayıtları sayısı.</li><li>En son örnek: grafikte dahil son aralığı değeri.</li><li>En fazla: En yüksek değer grafikte dahil edilen aralık. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
 | Etkin |Veri akışı doğrulama bölme için etkinleştirilmesi gerekir, bu bağlantıyı seçin. Veriler kullanılamıyorsa, bu yaklaşımın bir alternatif mesajı sağlar. Normalde zaman görünümü yüklenir ve veriler kullanılabilir duruma geçici süresi boyunca bir ileti sağlamak için yaklaşımı kullanın. |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d8f3c0e4dec05b2ed968a3493a7cc560231e7331
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b57522933647c9d1d5518740d41b624b199a020e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215700"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110567"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Öğretici: Microsoft tarafından Confluence SAML SSO Azure Active Directory Tümleştirme
 
@@ -43,7 +43,7 @@ Microsoft Azure Active Directory hesabınıza Atlassian Confluence sunucusuyla �
 Microsoft tarafından Confluence SAML SSO ile Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- Bir Windows 64-bit sunucuda (şirket içi veya Bulut Iaas altyapı) yüklü confluence sunucu uygulaması
+- Bir Windows 64-bit sunucuda yüklü confluence sunucu uygulaması (şirket içi veya buluttaki Iaas altyapı)
 - HTTPS etkinleştirilmiş confluence sunucusudur
 - Aşağıdaki bölümüne Confluence eklentisi için desteklenen sürümleri bahsedilen unutmayın.
 - Confluence sunucu kimlik doğrulaması için Azure AD oturum açma sayfasına özellikle Internet üzerinden erişilebildiğinden ve Azure AD'den belirteç alamaz gerekir
@@ -222,11 +222,11 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
 ### <a name="creating-a-confluence-saml-sso-by-microsoft-test-user"></a>Microsoft test kullanıcı tarafından Confluence SAML SSO oluşturma
 
-Confluence için şirket içi sunucuda oturum açmak Azure AD kullanıcıları etkinleştirmek için bunların Confluence SAML SSO Microsoft tarafından sağlanmalıdır. Microsoft tarafından Confluence SAML SSO için sağlama bir el ile bir görevdir.
+Confluence şirket içi sunucuya oturum açmak Azure AD kullanıcıları etkinleştirmek için bunların Confluence SAML SSO Microsoft tarafından sağlanmalıdır. Microsoft tarafından Confluence SAML SSO için sağlama bir el ile bir görevdir.
 
 **Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Şirket içi sunucuda, Confluence yönetici olarak oturum açın.
+1. Confluence şirket içi sunucunuza yönetici olarak oturum açın.
 
 2. Dişlisine üzerine gelin ve tıklatın **kullanıcı yönetimi**.
 

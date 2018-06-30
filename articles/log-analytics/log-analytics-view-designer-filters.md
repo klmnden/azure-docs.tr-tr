@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 21b54f60286e25c410b9d51de8be122c450080d3
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.component: na
+ms.openlocfilehash: 0ad22562bd1f36bba7c0ab99fe504e82645033d3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752784"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131419"
 ---
 # <a name="filters-in-log-analytics-views"></a>Günlük analizi görünümlerinde filtreleri
 A **filtre** içinde bir [günlük analizi görüntülemek](log-analytics-view-designer.md) kullanıcıların Görünüm değiştirmeden görünümünde verileri belirli bir özellik değeri tarafından filtre olanak sağlar.  Örneğin, yalnızca belirli bir bilgisayardan veri görünümünü filtrelemek için görünümün kullanıcılar veya bilgisayarlar kümesi izin verebilir.  Birden çok özelliğe göre filtre yapmalarına izin vermek için tek bir görünümde birden çok filtre oluşturabilirsiniz.  Bu makalede bir filtre ve özel bir görünüm için bir tane ekleyin nasıl kullanılacağı açıklanmaktadır.

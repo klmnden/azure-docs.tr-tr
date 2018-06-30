@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: raynew
-ms.openlocfilehash: d58dfd482b66d90748f0ca661e56fa281c14598a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2610a331ef8ef17b319da99eb89288b59532be9f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29876024"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111507"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Yük devri ve geri fiziksel sunucuları Azure'a kopyalanan başarısız
 
@@ -114,7 +114,7 @@ Yük devretmeyi şu şekilde çalıştırın:
 
 ## <a name="reprotect-on-premises-machines-to-azure"></a>Şirket içi makineleri Azure’da yeniden koruma
 
-Veriler artık şirket içi sitenizde tekrar yerleştirilir, ancak Azure’a çoğaltılmaz. Tekrar Azure’a çoğaltmaya başlamak için şunları yapabilirsiniz:
+Veriler artık, şirket içi sitenizde olmalıdır, ancak Azure'a çoğaltılmıyor. Tekrar Azure’a çoğaltmaya başlamak için şunları yapabilirsiniz:
 
 1. Kasa > **Ayarlar** >**Çoğaltılan Öğeler** bölümünde yeniden çalışan VM’leri seçin ve **Yeniden Koru**’ya tıklayın.
 2. Çoğaltılan verileri Azure’a göndermek için kullanılan işlem sunucusunu seçin ve **Tamam**’a tıklayın.

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f69742d111555e776a968454bdc004ba171e6336
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937426"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113726"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET değişiklik akış işlemci SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -41,39 +41,10 @@ ms.locfileid: "36937426"
 
 ## <a name="release-notes"></a>Sürüm notları
 
-### <a name="stable-builds"></a>Kararlı yapılar
+### <a name="v2-builds"></a>v2 derlemeleri
 
-### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
-* Daha fazla günlük eklendi.
-* DocumentClient sızıntısı bekleyen iş tahmin birden çok kez çağrılırken sabit.
-
-### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
-* Bekleyen iş tahmininde giderir.
-
-### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
-* İstikrara yönelik iyileştirmeler.
-  * İşlemek için yol açabilecek iptal edilen görevleri sorun için düzeltme gözlemcilerin bazı bölümlerinde durduruldu.
-* El ile denetim noktası oluşturma desteği.
-* Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.21 ve üstü.
-
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* .NET standart 2.0 desteği ekler. Paket artık destekliyor `netstandard2.0` ve `net451` framework adlar.
-* Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.17.0 ve üstü.
-* Uyumlu [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) sürümleri 1.5.1 ve üstü.
-
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
-* Bir sorunu kalan çalışma tahmin hesaplanması değişiklik akışı boş veya hiçbir iş bekleyen giderir.
-* Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.13.2 ve üstü.
-
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Kalan iş akışı değişiklik işlenmek üzere bir tahmin elde etmek için bir yöntemi eklendi.
-* Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.13.2 ve üstü.
-
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
 * GA SDK'SI
-* Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.14.1 ve aşağıdaki.
-
-### <a name="pre-release-builds"></a>Yayın öncesi derlemeleri
 
 ### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
 * Aşağıdaki sorunlar çözülmüştür:
@@ -108,6 +79,39 @@ ms.locfileid: "36937426"
 * % 100 v1 API ile geriye dönük uyumlu.
 * Yeni kod tabanını.
 * Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.21.1 ve üstü.
+
+### <a name="v1-builds"></a>V1 derlemeleri
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* Daha fazla günlük eklendi.
+* DocumentClient sızıntısı bekleyen iş tahmin birden çok kez çağrılırken sabit.
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* Bekleyen iş tahmininde giderir.
+
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+* İstikrara yönelik iyileştirmeler.
+  * İşlemek için yol açabilecek iptal edilen görevleri sorun için düzeltme gözlemcilerin bazı bölümlerinde durduruldu.
+* El ile denetim noktası oluşturma desteği.
+* Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.21 ve üstü.
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+* .NET standart 2.0 desteği ekler. Paket artık destekliyor `netstandard2.0` ve `net451` framework adlar.
+* Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.17.0 ve üstü.
+* Uyumlu [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) sürümleri 1.5.1 ve üstü.
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* Bir sorunu kalan çalışma tahmin hesaplanması değişiklik akışı boş veya hiçbir iş bekleyen giderir.
+* Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.13.2 ve üstü.
+
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* Kalan iş akışı değişiklik işlenmek üzere bir tahmin elde etmek için bir yöntemi eklendi.
+* Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.13.2 ve üstü.
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* GA SDK'SI
+* Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.14.1 ve aşağıdaki.
+
 
 ## <a name="release--retirement-dates"></a>Yayın & sona erme tarihleri
 Microsoft sağlayacaktır bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş kesintisiz için bir SDK devre dışı bırakmadan önce.

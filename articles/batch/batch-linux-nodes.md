@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: abb822483253fc5fce0e76afc2628806fe4485d8
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: f3faa9e811216cc930354b76903519a66f3d3587
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801771"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128820"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch havuzlarında Linux işlem düğümlerini sağlama
 
@@ -216,12 +216,12 @@ Aşağıdaki tabloda, bu makalenin en son güncelleştirildiği kullanılabilir 
 
 | **Yayımcı** | **Teklif** | **Görüntü SKU** | **Sürüm** | **Düğüm Aracısı SKU kimliği** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| toplu iş | işleme centos73 | İşleme | en son | Batch.node.centos 7 |
-| toplu iş | işleme windows2016 | İşleme | en son | Batch.node.Windows amd64 |
+| toplu iş | işleme centos73 | işleme | en son | Batch.node.centos 7 |
+| toplu iş | işleme windows2016 | işleme | en son | Batch.node.Windows amd64 |
 | Canonical | UbuntuServer | 16.04-LTS | en son | Batch.node.ubuntu 16.04 |
 | Canonical | UbuntuServer | 14.04.5-LTS | en son | Batch.node.ubuntu 14.04 |
-| Credativ | Debian | 9 | en son | Batch.node.debian 9 |
-| Credativ | Debian | 8 | en son | Batch.node.debian 8 |
+| credativ | Debian | 9 | en son | Batch.node.debian 9 |
+| credativ | Debian | 8 | en son | Batch.node.debian 8 |
 | Microsoft reklam | linux-data-science-vm | linuxdsvm | en son | Batch.node.centos 7 |
 | Microsoft reklam | Standart veri bilimi vm | Standart veri bilimi vm | en son | Batch.node.Windows amd64 |
 | Microsoft azure batch | centos kapsayıcı | 7-4 | en son | Batch.node.centos 7 |
@@ -330,14 +330,10 @@ Python kullanarak Batch ile çalışma hakkında daha ayrıntılı bir öğretic
 ### <a name="batch-python-code-samples"></a>Batch Python kod örnekleri
 [Python kod örnekleri] [ github_samples_py] içinde [azure-batch-samples] [ github_samples] github'daki nasıl gerçekleştirileceğini Göster komut dosyalarını içerir havuz, iş ve görev oluşturma gibi ortak toplu işlemleri. [Benioku] [ github_py_readme] Python eşlik örnekleri gerekli paketleri yüklemek nasıl kullanılacağı hakkındaki ayrıntıları sahiptir.
 
-### <a name="batch-forum"></a>Batch forumu
-[Azure toplu işlem Forumu] [ forum] MSDN'de toplu ele almaktadır ve hizmet hakkında sorular sormak için iyi bir yerdir. "Okuma yararlı sabitlenmiş" yazılarını ve Batch çözümlerinizi derleme sırasında çıktıkları anda sorularınızı gönderin.
-
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [cloud_services_pricing]: https://azure.microsoft.com/pricing/details/cloud-services/
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
@@ -349,14 +345,14 @@ Python kullanarak Batch ile çalışma hakkında daha ayrıntılı bir öğretic
 [net_list_skus]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listnodeagentskus.aspx
 [net_pool_ops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.aspx
 [net_ssh_key]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.sshpublickey.aspx
-[nuget_batch_net]: https://www.nuget.org/packages/Azure.Batch/
+[nuget_batch_net]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [py_account_ops]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations
 [py_azure_sdk]: https://pypi.python.org/pypi/azure
-[py_batch_docs]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.html
+[py_batch_docs]: https://azure-sdk-for-python.readthedocs.io/batch.html
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
-[py_computenodeuser]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.models.html#azure.batch.models.ComputeNodeUser
-[py_imagereference]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.models.html#azure.batch.models.ImageReference
+[py_computenodeuser]: https://docs.microsoft.com/python/api/azure.batch.models.computenodeuser
+[py_imagereference]: https://docs.microsoft.com/python/api/azure.mgmt.batch.models.imagereference
 [py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/

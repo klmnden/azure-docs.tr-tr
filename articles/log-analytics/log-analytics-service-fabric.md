@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 879c89d21aece120888dded49ca1b2c55677635e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: na
+ms.openlocfilehash: 282b610aeb75010108a63dafe037c09180a247a1
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31595064"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131710"
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>Azure Service Fabric uygulamaları ve mikro hizmetler PowerShell ile değerlendirin
 > [!div class="op_single_selector"]
@@ -375,7 +376,7 @@ Tıklatın **Service Fabric** döşeme Service Fabric panosunu açın. Pano aşa
 
 Aşağıdaki tablo, veri toplama yöntemleri ve verileri için Service Fabric nasıl toplanır ilgili diğer ayrıntılar gösterir:
 
-| Platform | Doğrudan Aracısı | Operations Manager Aracısı | Azure Storage | Operations Manager gerekli? | Operations Manager Aracısı verilerinin yönetim grubu gönderilen | Toplama sıklığı |
+| Platform | Doğrudan Aracı | Operations Manager Aracısı | Azure Storage | Operations Manager gerekli? | Operations Manager Aracısı verilerinin yönetim grubu gönderilen | Toplama sıklığı |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |  |  | &#8226; |  |  |10 dakika |
 

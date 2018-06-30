@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: e0366e6a2403f7cea83efde35c7b3b42565a1cf2
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.component: na
+ms.openlocfilehash: 9a43774a5327536ae4fa1346ae933739ea629771
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062788"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130093"
 ---
 # <a name="data-sources-in-log-analytics"></a>Günlük analizi veri kaynaklarında
 Günlük analizi bağlı kaynaklarınızdan verilerini toplar ve günlük analizi çalışma alanınızda depolar.  Her birinden toplanan verileri yapılandırdığınız veri kaynakları tarafından tanımlanır.  Günlük analizi veri bir kayıt kümesi depolanır.  Her veri kaynağı kendi özellikler kümesini sahip her türüyle belirli bir türdeki kayıtları oluşturur.

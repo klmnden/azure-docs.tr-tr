@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b37e61763b34e320ffb4078600e08b1d32330a1
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 94d96af8db651a848ac092d1f8b85da4909427b7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709973"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110124"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Application Insights'ı kullanarak Azure AD B2C Yolculuklar kullanıcı davranışı izlemek
 
@@ -111,7 +111,7 @@ Teknik profilleri Azure AD B2C, kimlik deneyimi Framework işlevlerde kabul edil
 | JourneyContextForInsights | Application Insights'ta oturum açar ve bir bağıntı kimliği gönderir |
 | AzureInsights-SignInRequest | Oluşturur bir `SignIn` olay bir oturum açma isteği alındığında talepler kümesi ile | 
 | AzureInsights-UserSignup | Kullanıcı oturumu-up/oturum açma gezisine kaydolma seçeneğinde tetikleyen bir UserSignup olay oluşturur | 
-| AzureInsights SignInComplete | bir belirteç bağlı olan taraf uygulaması gönderildiğinde bir kimlik doğrulama işlemi başarılı şekilde tamamlandığını kaydeder | 
+| AzureInsights SignInComplete | Bir belirteç bağlı olan taraf uygulaması gönderildiğinde bir kimlik doğrulama işlemi başarılı şekilde tamamlandığını kaydeder | 
 
 Profilleri uzantısı dosyasına starter paketinden bu öğelerine ekleyerek `<ClaimsProviders>` düğümü.  Genellikle dosya adı. `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
 
@@ -280,13 +280,12 @@ Referenced using {OIDC:One of the property names below}
 
 | İste | Openıdconnect parametresi | Örnek |
 | ----- | ----------------------- | --------|
-| istemi | istemi | Yok |
+| Sor | Sor | Yok |
 | LoginHint |  login_hint | Yok |
 | DomainHint | domain_hint | Yok |
 |  MaxAge | max_age | Yok |
 | istemci kimliği | client_id | Yok |
 | Kullanıcı adı | login_hint | Yok |
-| Parola | domain_hint | Yok |
 |  Kaynak | kaynak| Yok |
 | AuthenticationContextReferences | acr_values | Yok |
 
@@ -304,11 +303,11 @@ Bir OIDC veya OAuth2 isteğinin bir parçası olarak dahil herhangi bir parametr
 https://login.microsoftonline.com/sampletenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
 
 ```
-Ekleyerek talepleri daha sonra ekleyebilirsiniz bir `Input Claim` Application Insights olayı öğesine:
+Ekleyerek talepleri daha sonra ekleyebilirsiniz bir `Input Claim` Application Insights olay öğesi. Bir olay özelliklerini {özellik: adı} sözdizimi ad özelliği olaya eklenen eklenir. Örneğin:
 
 ```
-<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="app_session" DefaultValue="{OAUTH-KV:app_session}" />
-<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="loyalty_number" DefaultValue="{OAUTH-KV:loyalty_number}" />
+<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
+<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
 ```
 
 ### <a name="other-system-claims"></a>Diğer sistem talepler

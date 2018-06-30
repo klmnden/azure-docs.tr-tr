@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.component: na
+ms.openlocfilehash: b23c170e557d019abf2b9aab8edcb74728bc872d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783171"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128784"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows ve Linux performans veri kaynaklarında günlük analizi
 Windows ve Linux performans sayaçları donanım bileşenleri, işletim sistemleri ve uygulamaların performansını bir anlayış sağlar.  Günlük analizi, performans sayaçları, uzun vadeli analiz için performans verilerini toplama ve raporlama ek olarak neredeyse gerçek zamanlı (NRT) çözümleme için sık aralıklarla toplayabilirsiniz.
@@ -37,7 +38,7 @@ Windows performans sayaçları için her performans sayacı için belirli bir ö
 | --- | --- |
 | \_Toplam |Tüm örnekleri toplamı |
 | \* |Tüm örnekler |
-| (/ &#124; / var) |Eşleşen adlandırılmış örnekleri: / veya /var |
+| (/&#124;/var) |Eşleşen adlandırılmış örnekleri: / veya /var |
 
 ### <a name="windows-performance-counters"></a>Windows performans sayaçları
 
@@ -49,7 +50,7 @@ Toplamak için yeni bir Windows performans sayacı eklemek için bu yordamı izl
 
     SQL Server performans sayaçları adlandırılmış örneklerin toplarken, tüm örnek sayaçları Başlarken adlı *MSSQL$* ve ardından örneğinin adı.  Örneğin, tüm veritabanları için adlandırılmış SQL veritabanı performans nesnesinden INST2 örneği için günlük önbelleği isabet oranı sayacı toplamak için belirtin `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
-2. Tıklatın  **+**  veya basın **Enter** sayaç listesine eklemek için.
+2. Tıklatın ** + ** veya basın **Enter** sayaç listesine eklemek için.
 3. Bir sayaç eklediğinizde, varsayılan değer 10 saniye olan kullanan kendi **örnekleme aralığı**.  Toplanan performans veri depolama gereksinimlerini azaltmak istiyorsanız bu 1800 saniye (30 dakika) daha yüksek bir değere değiştirebilirsiniz.
 4. Ekleme sayaçları bittiğinde, tıklatın **kaydetmek** yapılandırmayı kaydetmek için ekranın üstündeki düğmesi.
 
@@ -61,7 +62,7 @@ Toplamak için yeni bir Linux performans sayacı eklemek için bu yordamı izley
 
 1. Varsayılan olarak, tüm yapılandırma değişiklikleri otomatik olarak tüm aracıları için gönderilir.  Linux aracıları için bir yapılandırma dosyası için Fluentd veri toplayıcı gönderilir.  Bu dosyayı her Linux aracısında el ile değiştirmek isterseniz, kutunun işaretini *aşağıdaki yapılandırmayı Linux makinelerime Uygula* ve aşağıdaki yönergeleri izleyin.
 2. Sayaç adı metin kutusuna biçimde yazın *nesne (örnek) \counter*.  Yazmaya başladığınızda, ortak sayaçların eşleşen bir listesi sunulur.  Bir sayacı, liste veya kendi yazın ya da seçebilirsiniz.  
-3. Tıklatın  **+**  veya basın **Enter** nesne için diğer sayaçlarının listesi sayaç eklemek için.
+3. Tıklatın ** + ** veya basın **Enter** nesne için diğer sayaçlarının listesi sayaç eklemek için.
 4. Bir nesne için tüm sayaçlar aynı kullanmak **örnekleme aralığı**.  Varsayılan değer 10 saniyedir.  Toplanan performans veri depolama gereksinimlerini azaltmak istiyorsanız bu 1800 saniye (30 dakika) daha yüksek bir değerle değiştirin.
 5. Ekleme sayaçları bittiğinde, tıklatın **kaydetmek** yapılandırmayı kaydetmek için ekranın üstündeki düğmesi.
 
@@ -84,14 +85,14 @@ Bu öğe parametrelerinde aşağıdaki tabloda açıklanmıştır.
 | Parametreler | Açıklama |
 |:--|:--|
 | Nesne\_adı | Koleksiyon için nesne adı. |
-| örnek\_regex |  A *normal ifade* toplamak için hangi örnekleri tanımlama. Değer: `.*` tüm örneklerini belirtir. Yalnızca işlemci ölçümleri toplamak için \_toplam örneğini belirtmek `_Total`. Yalnızca crond veya sshd örnekleri için işlem ölçümlerini toplamak için belirtebilirsiniz: ' (crond\|sshd)'. |
-| Sayaç\_adı\_regex | A *normal ifade* hangi toplamak için (nesne için) sayaçları tanımlama. Nesne için tüm sayaçlar toplanacak belirtin: `.*`. Yalnızca takas alanı sayaçları için bellek nesnesi toplamak için örneğin, size belirtebilirsiniz:`.+Swap.+` |
+| örnek\_regex |  A *normal ifade* toplamak için hangi örnekleri tanımlama. Değer: `.*` tüm örneklerini belirtir. Yalnızca işlemci ölçümleri toplamak için \_toplam örneğini belirtmek `_Total`. Yalnızca crond veya sshd örnekleri için işlem ölçümlerini toplamak için belirtebilirsiniz: `(crond\|sshd)`. |
+| Sayaç\_adı\_regex | A *normal ifade* hangi toplamak için (nesne için) sayaçları tanımlama. Nesne için tüm sayaçlar toplanacak belirtin: `.*`. Yalnızca takas alanı sayaçları için bellek nesnesi toplamak için örneğin, size belirtebilirsiniz: `.+Swap.+` |
 | interval | Toplanan ve nesnenin sayaçları sıklığı. |
 
 
 Aşağıdaki tabloda, nesneleri ve yapılandırma dosyasında belirttiğiniz sayaçları listeler.  Ek sayaçları belirli uygulamalar için kullanılabilir olduğundan açıklandığı gibi [toplama günlük analizi Linux uygulamaları için performans sayaçları](log-analytics-data-sources-linux-applications.md).
 
-| Nesne Adı | Sayaç adı |
+| Nesne Adı | Sayaç Adı |
 |:--|:--|
 | Mantıksal Disk | % Boş Inode'lar |
 | Mantıksal Disk | % Boş alan |
@@ -117,7 +118,7 @@ Aşağıdaki tabloda, nesneleri ve yapılandırma dosyasında belirttiğiniz say
 | Bellek | Kullanılan bellek MBayt |
 | Ağ | Aktarılan toplam bayt sayısı |
 | Ağ | Alınan toplam bayt sayısı |
-| Ağ | Toplam bayt sayısı |
+| Ağ | Toplam Bayt |
 | Ağ | Aktarılan toplam paket sayısı |
 | Ağ | Alınan toplam paket sayısı |
 | Ağ | Toplam Rx hataları |
@@ -210,16 +211,16 @@ Aşağıdaki tabloda farklı performans kayıtları almak günlük arama örnekl
 | Sorgu | Açıklama |
 |:--- |:--- |
 | Perf |Tüm performans verileri |
-| Perf &#124; Burada bilgisayar "Bilgisayarım" == |Belirli bir bilgisayardaki tüm performans verileri |
+| Perf &#124; burada bilgisayar "Bilgisayarım" == |Belirli bir bilgisayardaki tüm performans verileri |
 | Perf &#124; CounterName burada "Geçerli Disk Sırası Uzunluğu" == |Belirli bir sayaç için tüm performans verileri |
-| Perf &#124; Burada ObjectName "İşlemci" ve CounterName == "% işlemci zamanı" ve InstanceName == "_Toplam" &#124; == AVGCPU özetlemek bilgisayar tarafından avg(Average) = |Tüm bilgisayarlardaki ortalama CPU kullanımı |
-| Perf &#124; CounterName burada "% işlemci zamanı" &#124;==; AggregatedValue özetlemek bilgisayar tarafından max(Max) = |Tüm bilgisayarlardaki en fazla CPU kullanımı |
-| Perf &#124; Burada ObjectName "MantıksalDisk" ve CounterName == "Geçerli Disk Sırası Uzunluğu" ve bilgisayar == "MyComputerName" &#124; == AggregatedValue özetlemek InstanceName tarafından avg(Average) = |Belirli bir bilgisayarın tüm örneklerde ortalama geçerli Disk Sırası Uzunluğu |
-| Perf &#124; CounterName burada "DiskTransfers/sn" &#124;==; AggregatedValue özetlemek yüzdebirlik (ortalama, 95) bilgisayar tarafından = |95 yüzdebirlik, Disk aktarımı/sn tüm bilgisayarlardaki |
-| Perf &#124; "% işlemci zamanı" ve InstanceName CounterName burada == "_Toplam" &#124; == AggregatedValue özetlemek bin (TimeGenerated, 1 h), bilgisayar tarafından avg(CounterValue) = |Saatlik tüm bilgisayarlardaki CPU kullanımı ortalaması |
-| Perf &#124; Burada bilgisayar "Bilgisayarım" ve CounterName startswith_cs "%" ve InstanceName == "_Toplam" &#124; == AggregatedValue özetlemek depo tarafından (TimeGenerated, 1 h), CounterName yüzdebirlik (CounterValue, 70) = | Belirli bir bilgisayar için her % yüzde sayacın saatlik 70 yüzdebirlik |
-| Perf &#124; "% işlemci zamanı" ve InstanceName CounterName burada == "_Toplam" ve bilgisayar == "Bilgisayarım" &#124; == ["min(CounterValue)"] özetlemek min(CounterValue), = ["avg(CounterValue)"] avg(CounterValue), = ["percentile75(CounterValue)"] yüzdebirlik (CounterValue, 75), = ["max(CounterValue)"] bin (TimeGenerated, 1 h), bilgisayar tarafından max(CounterValue) = |Saatlik ortalama, en az, en fazla ve 75-yüzdelik CPU kullanımı belirli bir bilgisayar için |
-| Perf &#124; Burada ObjectName == "MSSQL$ INST2: veritabanları" ve InstanceName "ana" == | Adlandırılmış SQL Server örneğinden INST2 ana veritabanı için veritabanı performans nesnesinden tüm performans verileri.  
+| Perf &#124; burada ObjectName "İşlemci" ve CounterName == "% işlemci zamanı" ile InstanceName == "_Toplam" == &#124; AVGCPU özetlemek bilgisayar tarafından avg(Average) = |Tüm bilgisayarlardaki ortalama CPU kullanımı |
+| Perf &#124; CounterName burada "% işlemci zamanı" == &#124; AggregatedValue özetlemek bilgisayar tarafından max(Max) = |Tüm bilgisayarlardaki en fazla CPU kullanımı |
+| Perf &#124; burada ObjectName "MantıksalDisk" ve CounterName == "Geçerli Disk Sırası Uzunluğu" ve bilgisayar == "MyComputerName" == &#124; AggregatedValue özetlemek InstanceName tarafından avg(Average) = |Belirli bir bilgisayarın tüm örneklerde ortalama geçerli Disk Sırası Uzunluğu |
+| Perf &#124; CounterName burada "DiskTransfers/sn" == &#124; AggregatedValue özetlemek yüzdebirlik (ortalama, 95) bilgisayar tarafından = |95 yüzdebirlik, Disk aktarımı/sn tüm bilgisayarlardaki |
+| Perf &#124; CounterName burada "% işlemci zamanı" ile InstanceName == "_Toplam" == &#124; AggregatedValue özetlemek bin (TimeGenerated, 1 h), bilgisayar tarafından avg(CounterValue) = |Saatlik tüm bilgisayarlardaki CPU kullanımı ortalaması |
+| Perf &#124; burada bilgisayar "Bilgisayarım" ve CounterName startswith_cs "%" ve InstanceName == "_Toplam" == &#124; AggregatedValue özetlemek depo tarafından (TimeGenerated, 1 h), CounterName yüzdebirlik (CounterValue, 70) = | Belirli bir bilgisayar için her % yüzde sayacın saatlik 70 yüzdebirlik |
+| Perf &#124; CounterName burada "% işlemci zamanı" ile InstanceName == "_Toplam" ve bilgisayar == "Bilgisayarım" == &#124; ["min(CounterValue)"] özetlemek min(CounterValue), = ["avg(CounterValue)"] avg(CounterValue), = ["percentile75(CounterValue)"] Yüzdelik (CounterValue, 75), = ["max(CounterValue)"] bin (TimeGenerated, 1 h), bilgisayar tarafından max(CounterValue) = |Saatlik ortalama, en az, en fazla ve 75-yüzdelik CPU kullanımı belirli bir bilgisayar için |
+| Perf &#124; burada ObjectName == "MSSQL$ INST2: veritabanları" ve InstanceName "ana" == | Adlandırılmış SQL Server örneğinden INST2 ana veritabanı için veritabanı performans nesnesinden tüm performans verileri.  
 
 
 

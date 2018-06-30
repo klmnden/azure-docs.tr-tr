@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 04/29/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c41c02acaeffa170d55f3c59f34a4b1ecae1c523
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: c4b3122984cdcb324f7b86e44a62e111d6ca0a29
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712462"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131601"
 ---
 # <a name="using-b2clogincom"></a>b2clogin.com kullanma
 
@@ -24,8 +24,8 @@ ms.locfileid: "34712462"
 >
 
 Şimdi Azure AD B2C hizmetiyle kullanma seçeneğini sahip `<YourTenantName>.b2clogin.com` kullanmak yerine `login.microsoftonline.com`.  Birçok avantaj vardır:
-* Diğer Microsoft ürünleri ile aynı tanımlama bilgisi üstbilgisi boyut sınırını artık paylaşır
-* URL'niz Microsoft yapılan tüm başvuruları kaldırabilirsiniz (değiştirebilirsiniz `<YourTenantName>.onmicrosoft.com` Kiracı kimliği ile)
+* Artık diğer Microsoft ürünleri ile aynı tanımlama bilgisi üstbilgisi boyut sınırını paylaşır.
+* URL'niz Microsoft yapılan tüm başvuruları kaldırabilirsiniz (değiştirebilirsiniz `<YourTenantName>.onmicrosoft.com` Kiracı kimliği ile). Örneğin: `https://<tenantname>.b2clogin.com/tfp/<tenantname>/<policyname>/v2.0/.well-known/openid-configuration`.
 
  B2clogin.com yararlanmak için aşağıdaki bazıları ayarlamanız gerekir:
 

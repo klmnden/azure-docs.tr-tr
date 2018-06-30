@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 0c870b0c8de648ac65bec6857bf850c2913e7aeb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 149f91f3091f08da2e54458d708a17da928c1972
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412637"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131744"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Hdınsight üzerinde Apache Storm HDFS için yazma
 
-Storm hdınsight'ta Apache Storm tarafından kullanılan HDFS uyumlu depolama verileri yazmak için nasıl kullanılacağını öğrenin. Hdınsight kullanma her ikisi de Azure depolama ve Azure Data Lake depolama HDFS uyumlu depolama. Storm sağlayan bir [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) HDFS için verileri yazar bileşeni. Bu belge, her iki tür depolama alanını HdfsBolt yazma konusunda bilgi sağlar. 
+Storm hdınsight'ta Apache Storm tarafından kullanılan HDFS uyumlu depolama verileri yazmak için nasıl kullanılacağını öğrenin. Hdınsight kullanma her ikisi de Azure depolama ve Azure Data Lake depolama HDFS uyumlu depolama. Storm sağlayan bir [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) HDFS için verileri yazar bileşeni. Bu belge, her iki tür depolama alanını HdfsBolt yazma konusunda bilgi sağlar. 
 
 > [!IMPORTANT]
 > Bu belgede kullanılan örnek topoloji Hdınsight üzerinde Storm ile dahil olan bileşenleri kullanır. Diğer Apache Storm kümeleri ile kullanıldığında Azure Data Lake Store ile çalışmak için değişiklik gerektirebilir.
@@ -33,17 +33,17 @@ Bu topoloji içeren projeyi yükleme yoluyla kullanılabilir [ https://github.co
 
 Bu projeyi derlemek için geliştirme ortamınız için aşağıdaki yapılandırma gerekir:
 
-* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ya da daha yüksek. Java 8 Hdınsight 3.5 veya daha yükseğini gerektirir.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) veya üstü. HDInsight 3.5 veya üstü için Java 8 gerekir.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
-Geliştirme iş istasyonunuza Java ve JDK yüklediğinizde aşağıdaki ortam değişkenleri ayarlayabilirsiniz. Ancak, bunlar mevcut olduğundan ve sisteminiz için doğru değerleri içerdikleri denetlemeniz gerekir.
+Dağıtım iş istasyonunuza Java ve JDK yüklerken aşağıdaki ortam değişkenleri ayarlanabilir. Ancak, bunların mevcut olup olmadığını ve sisteminiz için doğru değerleri içerip içermediğini denetlemeniz gerekir.
 
-* `JAVA_HOME` -JDK yüklendiği dizinine işaret etmelidir.
-* `PATH` -aşağıdaki yolları içermelidir:
+* `JAVA_HOME` - JDK’nın yüklendiği dizine işaret etmelidir.
+* `PATH` - aşağıdaki yolları içermelidir:
   
-    * `JAVA_HOME` (veya eşdeğer yolu).
-    * `JAVA_HOME\bin` (veya eşdeğer yolu).
+    * `JAVA_HOME` (veya eşdeğer yol).
+    * `JAVA_HOME\bin` (veya eşdeğer yol).
     * Maven'ın yüklendiği dizin.
 
 ## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>Hdınsight ile HdfsBolt kullanma
@@ -65,7 +65,7 @@ Aşağıdaki tabloda farklı senaryolar için dosya düzeni kullanma örnekleri 
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | Kümeyle ilişkili bir varsayılan olmayan (ek) Azure depolama hesabı. |
 | `adl://STORENAME/` | Küme tarafından kullanılan veri Gölü deposu kök dizini. Bu düzen küme dosya sistemi içeriyor dizininde dışında veri erişim sağlar. |
 
-Daha fazla bilgi için bkz: [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) Apache.org başvuru.
+Daha fazla bilgi için bkz: [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) Apache.org başvuru.
 
 ### <a name="example-configuration"></a>Örnek yapılandırma
 
@@ -164,7 +164,7 @@ Bu komut dosyası kullanmayı hakkında daha fazla bilgi için bkz: [özelleşti
     İstendiğinde, küme için SSH kullanıcısı oluştururken kullanılan parolayı girin. Parola yerine bir ortak anahtar kullandıysanız kullanmanız gerekebilir `-i` parametresi eşleşen özel anahtara yolunu belirtin.
    
    > [!NOTE]
-   > Kullanma hakkında daha fazla bilgi için `scp` Hdınsight ile bkz [Hdınsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+   > HDInsight ile `scp` kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Karşıya yükleme işlemi tamamlandıktan sonra SSH kullanarak Hdınsight kümesine bağlanmak için aşağıdakileri kullanın. Değiştir **kullanıcı** küme oluştururken kullandığınız SSH kullanıcı adı. **CLUSTERNAME** değerini kümenin adıyla değiştirin.
    

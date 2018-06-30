@@ -1,11 +1,11 @@
 ---
 title: Azure uygulama hizmeti Linux SSS | Microsoft Docs
 description: Azure uygulama hizmeti Linux SSS.
-keywords: Azure uygulama hizmeti, web uygulaması, SSS, linux, oss
+keywords: Azure uygulama hizmeti, web uygulaması, SSS, linux, oss, kapsayıcıları, birden çok kapsayıcı, multicontainer için web uygulaması
 services: app-service
 documentationCenter: ''
-author: ahmedelnably
-manager: cfowler
+author: yili
+manager: apurvajo
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
-ms.author: msangapu
-ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 06/26/2018
+ms.author: yili
+ms.openlocfilehash: a35f3d428674c3398497cd43465e0bd501f5c3fc
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222986"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131501"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure uygulama hizmeti Linux SSS
 
@@ -144,6 +144,35 @@ Otomatik olarak bağlantı noktası algılama sunuyoruz. Denilen bir uygulama da
 **My özel kapsayıcısında HTTPS uygulamak gerekiyor mu?**
 
 Hayır, platform paylaşılan ön uçlar HTTPS sonlandırmanın işler.
+
+## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Docker ile birden çok kapsayıcı oluşturun ve Kubernetes
+
+**Azure kapsayıcı kayıt defteri (ACR), birden çok kapsayıcı ile kullanmak için nasıl yapılandırırım?**
+
+ACR çok kapsayıcı ile kullanmak için **tüm kapsayıcı görüntüleri** aynı ACR kayıt defteri sunucu üzerinde barındırılması gerekir. Aynı kayıt defteri sunucuda olduktan sonra uygulama ayarları oluşturmak ve ardından ACR görüntü adı eklemek için Docker Compose veya Kubernetes yapılandırma dosyasını güncelleştirmek gerekir.
+
+Aşağıdaki uygulama ayarları oluşturun:
+
+- DOCKER_REGISTRY_SERVER_USERNAME
+- DOCKER_REGISTRY_SERVER_URL (tam URL, örn: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_PASSWORD (ACR Ayarları'nda yönetici erişimi etkinleştir)
+
+Yapılandırma dosyasında aşağıdaki örneğe benzer ACR görüntünüzü başvuru:
+
+```yaml
+image: <server-name>.azurecr.io/<image-name>:<tag>
+```
+
+**Nasıl Internet erişilebilir kapsayıcıdır biliyor musunuz?**
+
+- Yalnızca bir kapsayıcı erişimi açık olabilir.
+- Yalnızca bağlantı noktası 80 ve 8080 erişilebilir (gösterilen bağlantı noktaları) değil
+
+Hangi kapsayıcı öncelik sırasına göre - erişilebilen belirlemek için kurallar şunlardır:
+
+- Uygulama ayarı `WEBSITES_WEB_CONTAINER_NAME` kapsayıcı adına ayarlayın
+- Bağlantı noktası 80 veya 8080 tanımlamak için ilk kapsayıcı
+- Yukarıdakilerin hiçbiri true ise, dosyasında tanımlanan ilk kapsayıcı erişilebilir (açık)
 
 ## <a name="pricing-and-sla"></a>Fiyatlandırma ve SLA
 

@@ -1,24 +1,26 @@
 ---
-title: "IIS günlüklerini Azure günlük analizi | Microsoft Docs"
-description: "Internet Information Services (IIS), günlük dosyalarında günlük analizi tarafından toplanan kullanıcı etkinliği depolar.  Bu makalede, IIS günlüklerini koleksiyonunu ve Ayrıntılar için günlük analizi çalışma alanında oluşturdukları kayıtlarının nasıl yapılandırılacağı açıklanmaktadır."
+title: IIS günlüklerini Azure günlük analizi | Microsoft Docs
+description: Internet Information Services (IIS), günlük dosyalarında günlük analizi tarafından toplanan kullanıcı etkinliği depolar.  Bu makalede, IIS günlüklerini koleksiyonunu ve Ayrıntılar için günlük analizi çalışma alanında oluşturdukları kayıtlarının nasıl yapılandırılacağı açıklanmaktadır.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/07/2018
+ms.date: 06/12/2018
 ms.author: bwren
-ms.openlocfilehash: b8ce4e6fe6e12aa3edb81abad1589924e3e121e4
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.comopnent: na
+ms.openlocfilehash: 65320e7d3cc97a3d53fd1a00fbbeab5559c02fce
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133138"
 ---
 # <a name="iis-logs-in-log-analytics"></a>IIS günlük analizi günlüğe kaydeder
 Internet Information Services (IIS), günlük dosyalarında günlük analizi tarafından toplanan kullanıcı etkinliği depolar.  
@@ -33,10 +35,10 @@ Günlük analizi Günlükleri NCSA veya IIS yerel biçiminde toplamaz.
 
 Günlük analizi IIS günlüklerini yapılandırma [günlük analizi ayarları veri menüde](log-analytics-data-sources.md#configuring-data-sources).  Olduğundan herhangi bir yapılandırma gerekli seçerek dışında **toplamak W3C biçimi IIS günlük dosyaları**.
 
-IIS günlük toplama etkinleştirdiğinizde, her sunucuda IIS günlük aktarma ayarı yapılandırmanız gerekir öneririz.
 
 ## <a name="data-collection"></a>Veri toplama
-Günlük analizi IIS günlüğü girişlerini bağlı her kaynaktan yaklaşık her 15 dakikada toplar.  Aracı onun yerine üzerinden topladığı her olay günlüğüne kaydeder.  Aracı çevrimdışı olursa, aracıyı çevrimdışıyken olayları oluşturulmuş olsalar bile sonra günlük analizi olayları son devre dışı kaldığı toplar.
+Günlük analizi günlük her kapatıldığında ve yeni bir tane oluşturulur her Aracıdan IIS günlüğü girişlerini toplar. Bu sıklık tarafından denetlenen **günlük dosyası aktarma zamanlaması** varsayılan olarak günde bir kez olan IIS sitesi ayarlama. Örneğin, ayarları ise **saatlik**, sonra da günlük analizi günlük her saat toplar.  Ayar ise **günlük**, sonra da günlük analizi günlük 24 saatte bir toplar.
+
 
 ## <a name="iis-log-record-properties"></a>IIS günlük kaydı Özellikler
 IIS günlük kayıtlarını sahip bir tür **W3CIISLog** ve aşağıdaki tabloda özelliklere sahiptir:
@@ -71,10 +73,10 @@ Aşağıdaki tabloda IIS günlük kayıtlarını almak günlük sorguları farkl
 | Sorgu | Açıklama |
 |:--- |:--- |
 | W3CIISLog |Tüm IIS günlük kaydı. |
-| W3CIISLog &#124; Burada scStatus 500 == |Tüm IIS günlük kayıtları dönüş durumu 500 ile. |
-| W3CIISLog &#124; tarafından CIP Count() özetler |Count, IIS girişleri istemci IP adresi ile oturum açın. |
-| W3CIISLog &#124; Burada csHost "www.contoso.com" &#124; == tarafından csUriStem Count() özetler |Count, IIS URL girdilerinin konak www.contoso.com için oturum açın. |
-| W3CIISLog &#124; Bilgisayar &#124;tarafından SUM(csBytes) özetlemek; 500000 alın |Her IIS bilgisayar tarafından alınan toplam bayt sayısı. |
+| W3CIISLog &#124; burada scStatus 500 == |Tüm IIS günlük kayıtları dönüş durumu 500 ile. |
+| W3CIISLog &#124; tarafından CIP count() özetler |Count, IIS girişleri istemci IP adresi ile oturum açın. |
+| W3CIISLog &#124; burada csHost "www.contoso.com" == &#124; csUriStem tarafından count() özetler |Count, IIS URL girdilerinin konak www.contoso.com için oturum açın. |
+| W3CIISLog &#124; sum(csBytes) bilgisayar tarafından özetlemek &#124; 500000 alın |Her IIS bilgisayar tarafından alınan toplam bayt sayısı. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Diğer toplamak için günlük analizi yapılandırma [veri kaynakları](log-analytics-data-sources.md) çözümleme için.

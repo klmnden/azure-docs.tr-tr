@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 2b006976aef59c55ccb51362e05ceb4275602fd1
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ea976f7ac80f0c485320713117c9ff2b484a287b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096501"
+ms.locfileid: "37128699"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure çok faktörlü kimlik doğrulaması hakkında sık sorulan sorular
 
@@ -118,7 +118,7 @@ Lisansları satın almak ve bunları dizininde kullanıcılara atamak için Azur
 
 Neyse tüm kullanıcılarınız birden fazla doğrulama yöntemi yapılandırılmış. Kullanıcılarınıza oturum açma sayfasında farklı bir doğrulama yöntemini seçerek yeniden oturum açmayı denemesini söyleyin.
 
-Kullanıcılarınıza gösterebilir [son kullanıcı sorun giderme kılavuzu](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+Kullanıcılarınıza gösterebilir [son kullanıcı sorun giderme kılavuzu](end-user/current/multi-factor-authentication-end-user-troubleshoot.md).
 
 
 **S: Kullanıcılarım birini hesaplarında alamazsa ne yapmalıyım?**

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 340fb34c234a12f93fcfc3182ac3fd44fce324fe
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 96b23146e726b7fee86b7e449c81d7efc0073e8d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356122"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127678"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Bing yazım denetimi ile doğru sözcüklerin
 
@@ -26,8 +26,9 @@ HALUK uygulamanızla tümleştirin [Bing yazım denetleme API V7](https://azure.
 
 ![Ücretsiz anahtarı oluşturma](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
-## <a name="create-subscription-key"></a>Abonelik anahtarı oluşturma
-Ücretsiz anahtarınızı süresi varsa, bir abonelik anahtarı oluşturun.
+< bir adı "-abonelik-anahtarı oluştur" ></a>
+## <a name="create-endpoint-key"></a>Uç noktası anahtarı oluşturma
+Ücretsiz anahtarınızı süresi varsa, bir uç noktası anahtarı oluşturun.
 
 1. [Azure Portal](https://portal.azure.com)’da oturum açın. 
 
@@ -56,7 +57,7 @@ HALUK uygulamanızla tümleştirin [Bing yazım denetleme API V7](https://azure.
 10. İlk anahtarı kopyalayın. Yalnızca iki anahtarlarından birini gerekir. 
 
 ## <a name="using-the-key-in-luis-test-panel"></a>HALUK test panelinde anahtarı kullanma
-HALUK anahtarı kullanmak üzere iki yerde vardır. İlk olarak [test paneli](train-test.md#view-bing-spell-check-corrections-in-test-panel). Anahtar HALUK kaydedilmez, ancak bunun yerine oturum bir değişkendir. Bing yazım denetleme API v7 hizmeti utterance uygulamak için test paneli istediğiniz her zaman anahtar ayarlamanız gerekir. Bkz: [yönergeleri](train-test.md#view-bing-spell-check-corrections-in-test-panel) anahtarını ayarlamak için test panelinde.
+HALUK anahtarı kullanmak üzere iki yerde vardır. İlk olarak [test paneli](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Anahtar HALUK kaydedilmez, ancak bunun yerine oturum bir değişkendir. Bing yazım denetleme API v7 hizmeti utterance uygulamak için test paneli istediğiniz her zaman anahtar ayarlamanız gerekir. Bkz: [yönergeleri](interactive-test.md#view-bing-spell-check-corrections-in-test-panel) anahtarını ayarlamak için test panelinde.
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Anahtar uç noktası URL'ye ekleniyor
 Uç nokta sorgu yazım düzeltme uygulamak istediğiniz her sorgu için sorgu dizesi parametrelerinde geçirilen anahtar gerekir. HALUK çağıran bir chatbot sahip olabilir veya API HALUK uç noktası doğrudan çağırabilir. Uç nokta nasıl adlandırılır bağımsız olarak her çağrı yazım düzeltmeleri düzgün çalışması için gerekli bilgiler içermelidir.
