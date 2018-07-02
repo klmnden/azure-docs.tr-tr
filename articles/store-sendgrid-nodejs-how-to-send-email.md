@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "23873992"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>SendGrid node.js'den kullanarak e-posta gönderme
-Bu kılavuz, Azure üzerinde SendGrid e-posta hizmeti ile genel programlama görevleri gerçekleştirmek gösterilmiştir. Örnekler, Node.js API kullanılarak yazılır. Kapsamdaki senaryolar dahil **e-posta oluşturma**, **e-posta gönderme**, **eklerini ekleme**, **filtreleri kullanarak**, ve **özelliklerini güncelleştirme**. SendGrid ve e-posta gönderme hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
+Bu kılavuz, Azure üzerinde SendGrid e-posta hizmeti ile genel programlama görevleri gerçekleştirmek gösterilmiştir. Örnekler, Node.js API kullanılarak yazılır. Kapsamdaki senaryolar dahil **e-posta oluşturma**, **e-posta gönderme**, **eklerini ekleme**, **filtreleri kullanarak**ve **özelliklerini güncelleştirme**. SendGrid ve e-posta gönderme hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
 
 ## <a name="what-is-the-sendgrid-email-service"></a>SendGrid e-posta hizmeti nedir?
 SendGrid olan bir [bulut tabanlı e-posta hizmeti] güvenilir sağlayan [işleme uygun e-posta teslimi], ölçeklenebilirlik ve gerçek zamanlı analiz özel tümleştirme kolaylaştırmak esnek API'leri yanı sıra. Ortak SendGrid kullanım senaryoları şunları içerir:
@@ -162,7 +162,7 @@ Aşağıdaki örnekler altbilgi göstermek ve filtreleri İzleme'yi tıklatın:
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>Nasıl yapılır: güncelleştirme e-posta özellikleri
-Bazı e-posta özellikleri kullanılarak üzerine yazılabilir **ayarlamak * özellik*** veya kullanarak eklenmiş **ekleme*özelliği ***. Örneğin, kullanarak ek alıcılar ekleyebilirsiniz.
+Bazı e-posta özellikleri kullanılarak üzerine yazılabilir **ayarlamak*özellik*** veya kullanarak eklenmiş **ekleme*özelliği***. Örneğin, kullanarak ek alıcılar ekleyebilirsiniz.
 
     email.addTo('jeff@contoso.com');
 
