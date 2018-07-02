@@ -145,7 +145,7 @@
           href: search-faceted-navigation.md
         - name: İlgi düzeyini ayarlama
           href: 'https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index'
-        - name: Eş anlamlılar (Önizleme)
+        - name: Eş anlamlılar
           href: search-synonyms.md
     - name: Veri dizinleme
       items:
