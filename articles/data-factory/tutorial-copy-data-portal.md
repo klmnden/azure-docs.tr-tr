@@ -11,22 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/09/2018
+ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 34c78a114c1d106c400a94941aa113153383e206
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 47fc3b44719caf430edf026bf776c4e85764ad08
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30173347"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048446"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Blob depolama alanında SQL veritabanına veri kopyalama
 Bu öğreticide, Azure Data Factory kullanıcı arabirimini (UI) kullanarak bir veri fabrikası oluşturursunuz. Bu veri fabrikasındaki işlem hattı, verileri Azure Blob Depolama alanından SQL veritabanına kopyalar. Bu öğreticideki yapılandırma düzeni, dosya tabanlı bir veri deposundan ilişkisel bir veri deposuna kopyalama için geçerlidir. Kaynak ve havuz olarak desteklenen veri depolarının listesi için [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablosuna bakın.
 
 > [!NOTE]
 > - İlk kez Data Factory kullanıyorsanız bkz. [Azure Data Factory'ye giriş](introduction.md).
->
-> - Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory’nin genel kullanıma açık 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
 
 Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
@@ -104,7 +102,7 @@ Bu adımda, bir veri fabrikası oluşturacak ve veri fabrikasında bir işlem ha
     b. **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin. 
          
     Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md). 
-6. **Sürüm** bölümünde **V2 (Önizleme)** seçeneğini belirleyin.
+6. **Sürüm** bölümünde **V2**'yi seçin.
 7. **Konum** bölümünden veri fabrikası için bir konum seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan veri depoları (örneğin, Azure Depolama ve SQL Veritabanı) ve işlemler (örneğin, Azure HDInsight) başka bölgelerde olabilir.
 8. **Panoya sabitle**’yi seçin. 
 9. **Oluştur**’u seçin. 
@@ -128,74 +126,67 @@ Bu öğreticide işlem hattını oluşturmaya başlayacaksınız. Daha sonra iş
 1. **Kullanmaya başlama** sayfasında **İşlem hattı oluştur** seçeneğini belirleyin. 
 
    ![İşlem hattı oluşturma](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
-2. İşlem hattının **Özellikler** penceresinde **Ad** bölümüne işlem hattının adı için **CopyPipeline** girin.
+2. İşlem hattının **Genel** sekmesinde **Ad** alanına **CopyPipeline** yazın.
 
-    ![İşlem hattı adı](./media/tutorial-copy-data-portal/pipeline-name.png)
-3. **Etkinlikler** araç kutusunda **Veri Akışı** kategorisini genişletin ve **Kopyalama** etkinliğini araç kutusundan sürükleyip işlem hattı tasarımcı yüzeyine bırakın. 
+3. **Etkinlikler** araç kutusunda **Veri Akışı** kategorisini genişletin ve **Kopyalama** etkinliğini araç kutusundan sürükleyip işlem hattı tasarımcı yüzeyine bırakın. **Ad** için **CopyFromBlobToSql** adını belirtin.
 
     ![Kopyalama etkinliği](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
-4. **Özellikler** penceresinin **Genel** sekmesinde, etkinliğin adı olarak **CopyFromBlobToSql** değerini girin.
 
-    ![Etkinlik adı](./media/tutorial-copy-data-portal/activity-name.png)
-5. **Kaynak** sekmesine gidin. Kaynak veri kümesi oluşturmak için **+ Yeni** seçeneğini belirleyin. 
+### <a name="configure-source"></a>Kaynağı yapılandırma
 
-    ![Kaynak sekmesi](./media/tutorial-copy-data-portal/new-source-dataset-button.png)
-6. **Yeni Veri Kümesi** penceresinde **Azure Blob Depolama Alanı**’nı ve ardından **Son**’u seçin. Kaynak veriler bir Blob depolama alanında olduğundan kaynak veri kümesi olarak **Azure Blob Depolama Alanı**'nı seçmeniz gerekir. 
+1. **Kaynak** sekmesine gidin. Kaynak veri kümesi oluşturmak için **+ Yeni** seçeneğini belirleyin. 
 
-    ![Storage seçimi](./media/tutorial-copy-data-portal/select-azure-storage.png)
-7. Uygulamada **AzureBlob1** başlıklı yeni bir sekme açıldığını görebilirsiniz.
+2. **Yeni Veri Kümesi** penceresinde **Azure Blob Depolama Alanı**’nı ve ardından **Son**’u seçin. Kaynak veriler bir Blob depolama alanında olduğundan kaynak veri kümesi olarak **Azure Blob Depolama Alanı**'nı seçmeniz gerekir. 
 
-    ![AzureBlob1 sekmesi ](./media/tutorial-copy-data-portal/new-tab-azure-blob1.png)        
-8. **Özellikler** penceresinin altındaki **Genel** sekmesinde **Ad** bölümüne **SourceBlobDataset** girin.
+    ![Storage seçimi](./media/tutorial-copy-data-portal/select-azure-blob-dataset.png)
+
+3. Bu blob veri kümesi için yeni bir sekme açıldığını görürsünüz. **Özellikler** penceresinin altındaki **Genel** sekmesinde **Ad** bölümüne **SourceBlobDataset** girin.
 
     ![Veri kümesi adı](./media/tutorial-copy-data-portal/dataset-name.png)
-9. **Özellikler** penceresinin **Bağlantı** sekmesine gidin. **Bağlı hizmet** metin kutusunun yanındaki **+ Yeni** seçeneğini belirleyin. 
 
-    Bağlı hizmetler, bir veri deposunu veya işlemi veri fabrikasına bağlar. Bu durumda, depolama hesabınızı veri deposuna bağlamak için bir Depolama bağlı hizmeti oluşturmanız gerekir. Bağlı hizmet, Data Factory’nin çalışma zamanında Blob depolama alanına bağlanmak için kullandığı bağlantı bilgilerini içerir. Veri kümesi tarafından kaynak verileri içeren kapsayıcı, klasör ve dosya (isteğe bağlı) belirtilir. 
+4. **Özellikler** penceresinin **Bağlantı** sekmesine gidin. **Bağlı hizmet** metin kutusunun yanındaki **+ Yeni** seçeneğini belirleyin. 
 
-    ![Yeni bağlı hizmet düğmesi](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
-10. **Yeni Bağlı Hizmet** penceresinde aşağıdaki adımları uygulayın: 
+    ![New Linked Service (Yeni bağlı hizmet) düğmesi](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 
-    a. **Ad** bölümüne **AzureStorageLinkedService** adını girin. 
-
-    b. **Depolama hesabı adı** bölümünde depolama hesabınızı seçin.
-
-    c. Depolama hesabı bağlantısını test etmek için**Bağlantıyı sına** seçeneğini belirleyin.
-
-    d. Bağlı hizmeti kaydetmek için **Kaydet**’i seçin.
+5. **Yeni Bağlı Hizmet** penceresine **AzureStorageLinkedService** adını girin, **Depolama hesabı adı** listesinden depolama hesabınızı seçin ve **Kaydet**'i seçerek bağlı hizmeti dağıtın.
 
     ![Yeni bağlı hizmet](./media/tutorial-copy-data-portal/new-azure-storage-linked-service.png)
-11. **Dosya yolu**’nun yanındaki **Gözat** seçeneğini belirleyin.
+
+6. Bağlı hizmet oluşturulduktan sonra veri kümesi ayarlarına dönersiniz. **Dosya yolu**’nun yanındaki **Gözat** seçeneğini belirleyin.
 
     ![Dosya yolu için gözat düğmesi](./media/tutorial-copy-data-portal/file-browse-button.png)
-12. **adftutorial/input** klasörüne gidin, **emp.txt** dosyasını ve ardından **Son**'u seçin. Bunun yerine **emp.txt** dosyasına çift tıklayabilirsiniz. 
+
+7. **adftutorial/input** klasörüne gidin, **emp.txt** dosyasını ve ardından **Son**'u seçin. 
 
     ![Giriş dosyasını seçme](./media/tutorial-copy-data-portal/select-input-file.png)
-13. **Dosya biçimi** olarak **Metin biçimi**'nin ve **Sütun sınırlayıcısı** olarak da **Virgül(`,`)** değerinin ayarlandığından emin olun. Kaynak dosyada farklı satır ve sütun sınırlayıcıları kullanılıyorsa, **Dosya biçimi** için **Metin Biçimini Algıla**'yı seçebilirsiniz. Verileri Kopyala aracı sizin için dosya biçimini ve sınırlayıcıları otomatik olarak algılar. Yine de bu değerleri geçersiz kılabilirsiniz. Bu sayfadaki verilerin önizlemesini görüntülemek için **Veri önizleme** ‘yi seçin.
+
+8. **Dosya biçimi** olarak **Metin biçimi**'nin ve **Sütun sınırlayıcısı** olarak da **Virgül(`,`)** değerinin ayarlandığından emin olun. Kaynak dosyada farklı satır ve sütun sınırlayıcıları kullanılıyorsa, **Dosya biçimi** için **Metin Biçimini Algıla**'yı seçebilirsiniz. Verileri Kopyala aracı sizin için dosya biçimini ve sınırlayıcıları otomatik olarak algılar. Yine de bu değerleri geçersiz kılabilirsiniz. Bu sayfadaki verilerin önizlemesini görüntülemek için **Veri önizleme** ‘yi seçin.
 
     ![Metin biçimini algılama](./media/tutorial-copy-data-portal/detect-text-format.png)
-14. **Özellikler** penceresinin **Şema** sekmesine gidin ve **Şemayı İçeri Aktar**’ı seçin. Uygulamanın kaynak dosyada iki sütun algıladığına dikkat edin. Kaynak veri deposundaki sütunları havuz veri deposu ile eşlemek için şemayı buraya aktarmanız gerekir. Sütunları eşlemeniz gerekmiyorsa, bu adımı atlayabilirsiniz. Bu öğreticide, şemayı içeri aktarın.
+
+9. **Özellikler** penceresinin **Şema** sekmesine gidin ve **Şemayı İçeri Aktar**’ı seçin. Uygulamanın kaynak dosyada iki sütun algıladığına dikkat edin. Kaynak veri deposundaki sütunları havuz veri deposu ile eşlemek için şemayı buraya aktarmanız gerekir. Sütunları eşlemeniz gerekmiyorsa, bu adımı atlayabilirsiniz. Bu öğreticide, şemayı içeri aktarın.
 
     ![Kaynak şemayı algılama](./media/tutorial-copy-data-portal/detect-source-schema.png)  
-15. İşlem hattını içeren sekmeye gidin veya soldaki işlem hattını seçin.
 
-    ![İşlem hattı sekmesi](./media/tutorial-copy-data-portal/pipeline-tab.png)
-16. **Özellikler** penceresindeki **Kaynak Veri Kümesi**’nde **SourceBlobDataset**’in seçili olduğundan emin olun. Bu sayfadaki verilerin önizlemesini görüntülemek için **Veri önizleme** ‘yi seçin. 
+10. Şimdi işlem hattı -> **Kaynak** sekmesine gidin ve **SourceBlobDataset** öğesinin seçili olduğundan emin olun. Bu sayfadaki verilerin önizlemesini görüntülemek için **Veri önizleme** ‘yi seçin. 
     
     ![Kaynak veri kümesi](./media/tutorial-copy-data-portal/source-dataset-selected.png)
-17. **Havuz** sekmesine gidin ve havuz veri kümesi oluşturmak için **+Yeni** seçeneğini belirleyin. 
+
+### <a name="configure-sink"></a>Havuzu yapılandırma
+
+1. **Havuz** sekmesine gidin ve havuz veri kümesi oluşturmak için **+Yeni** seçeneğini belirleyin. 
 
     ![Havuz veri kümesi](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-18. **Yeni Veri Kümesi** penceresinde **Azure SQL Veritabanı**’nı seçin ve ardından **Son**’u seçin. Bu öğreticide verileri bir SQL veritabanına kopyalayacaksınız. 
+2. **Yeni Veri Kümesi** penceresinde bağlayıcıları filtrelemek için arama kutusuna "SQL" yazıp **Azure SQL Veritabanı**'nı ve ardından **Son**'u seçin. Bu öğreticide verileri bir SQL veritabanına kopyalayacaksınız. 
 
-    ![SQL veritabanı seçimi](./media/tutorial-copy-data-portal/select-azure-sql-database.png)
-19. **Özellikler** penceresinin **Genel** sekmesinde **Ad** bölümüne **OutputSqlDataset** girin. 
+    ![SQL veritabanı seçimi](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
+3. **Özellikler** penceresinin **Genel** sekmesinde **Ad** bölümüne **OutputSqlDataset** girin. 
     
     ![Çıkış veri kümesi adı](./media/tutorial-copy-data-portal/output-dataset-name.png)
-20. **Bağlantı**sekmesine gidin ve **Bağlı hizmet**’in yanındaki **+ Yeni** seçeneğini belirleyin. Bağlı hizmetle bir veri kümesi ilişkilendirilmelidir. Bağlı hizmet, Data Factory’nin çalışma zamanında SQL veritabanına bağlanmak için kullandığı bağlantı dizesini içerir. Veri kümesi, verilerin kopyalanacağı kapsayıcıyı, klasörü ve dosyayı (isteğe bağlı) belirtir. 
+4. **Bağlantı**sekmesine gidin ve **Bağlı hizmet**’in yanındaki **+ Yeni** seçeneğini belirleyin. Bağlı hizmetle bir veri kümesi ilişkilendirilmelidir. Bağlı hizmet, Data Factory’nin çalışma zamanında SQL veritabanına bağlanmak için kullandığı bağlantı dizesini içerir. Veri kümesi, verilerin kopyalanacağı kapsayıcıyı, klasörü ve dosyayı (isteğe bağlı) belirtir. 
     
     ![Bağlı hizmet](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
-21. **Yeni Bağlı Hizmet** penceresinde aşağıdaki adımları uygulayın: 
+5. **Yeni Bağlı Hizmet** penceresinde aşağıdaki adımları uygulayın: 
 
     a. **Ad** bölümüne **AzureSqlDatabaseLinkedService** girin.
 
@@ -213,160 +204,46 @@ Bu öğreticide işlem hattını oluşturmaya başlayacaksınız. Daha sonra iş
     
     ![Yeni bağlı hizmeti kaydedin](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-22. **Tablo**’da **[dbo].[emp]** seçeneğini belirleyin. 
+6. **Tablo**’da **[dbo].[emp]** seçeneğini belirleyin. 
 
     ![Tablo](./media/tutorial-copy-data-portal/select-emp-table.png)
-23. **Şema** sekmesine gidin ve **Şemayı İçeri Aktar**’ı seçin. 
+7. **Şema** sekmesine gidin ve **Şemayı İçeri Aktar**’ı seçin. 
 
     ![Şemayı içeri aktar’ı seçin](./media/tutorial-copy-data-portal/import-destination-schema.png)
-24. **ID** sütununu ve ardından **Sil**’i seçin. **ID** sütunu, SQL veritabanındaki bir kimlik sütunu olduğundan kopyalama etkinliğinin bu sütuna veri eklemesi gerekmez.
+8. **ID** sütununu ve ardından **Sil**’i seçin. **ID** sütunu, SQL veritabanındaki bir kimlik sütunu olduğundan kopyalama etkinliğinin bu sütuna veri eklemesi gerekmez.
 
     ![ID sütununu silme](./media/tutorial-copy-data-portal/delete-id-column.png)
-25. İşlem hattının bulunduğu sekmeye gidin ve **Havuz Veri Kümesi**’nde **OutputSqlDataset** seçeneğinin belirlendiğinden emin olun.
+9. İşlem hattının bulunduğu sekmeye gidin ve **Havuz Veri Kümesi**’nde **OutputSqlDataset** seçeneğinin belirlendiğinden emin olun.
 
     ![İşlem hattı sekmesi](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
-26. **Özellikler** penceresinin altındaki **Eşleme** sekmesine gidin ve **Şemaları İçeri Aktar**’ı seçin. Kaynak dosyadaki birinci ve ikinci sütunların SQL veritabanındaki **FirstName** ve **LastName** alanlarına eşlendiğini görebilirsiniz.
 
-    ![Şemaları eşleme](./media/tutorial-copy-data-portal/map-schemas.png)
-27. İşlem hattını doğrulamak için **Doğrula**'yı seçin. Doğrulama penceresini kapatmak için sağ üst köşedeki sağ oku seçin.
+### <a name="confugure-mapping"></a>Eşlemeyi yapılandırma
 
-    ![İşlem hattı doğrulama çıkışı](./media/tutorial-copy-data-portal/pipeline-validation-output.png)   
-28. Sağ üst köşede **Kod**’u seçin. İşlem hattıyla ilişkilendirilmiş JSON kodunu görürsünüz. 
+**Özellikler** penceresinin altındaki **Eşleme** sekmesine gidin ve **Şemaları İçeri Aktar**’ı seçin. Kaynak dosyadaki birinci ve ikinci sütunların SQL veritabanındaki **FirstName** ve **LastName** alanlarına eşlendiğini görebilirsiniz.
 
-    ![Kod düğmesi](./media/tutorial-copy-data-portal/code-button.png)
-29. Aşağıdaki kod parçacığına benzer JSON kodunu görürsünüz: 
+![Şemaları eşleme](./media/tutorial-copy-data-portal/map-schemas.png)
 
-    ```json
-    {
-        "name": "CopyPipeline",
-        "properties": {
-            "activities": [
-                {
-                    "name": "CopyFromBlobToSql",
-                    "type": "Copy",
-                    "dependsOn": [],
-                    "policy": {
-                        "timeout": "7.00:00:00",
-                        "retry": 0,
-                        "retryIntervalInSeconds": 20
-                    },
-                    "typeProperties": {
-                        "source": {
-                            "type": "BlobSource",
-                            "recursive": true
-                        },
-                        "sink": {
-                            "type": "SqlSink",
-                            "writeBatchSize": 10000
-                        },
-                        "enableStaging": false,
-                        "parallelCopies": 0,
-                        "cloudDataMovementUnits": 0,
-                        "translator": {
-                            "type": "TabularTranslator",
-                            "columnMappings": "Prop_0: FirstName, Prop_1: LastName"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "referenceName": "SourceBlobDataset",
-                            "type": "DatasetReference",
-                            "parameters": {}
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "referenceName": "OutputSqlDataset",
-                            "type": "DatasetReference",
-                            "parameters": {}
-                        }
-                    ]
-                }
-            ]
-        }
-    }
-    ```
+## <a name="validate-the-pipeline"></a>İşlem hattını doğrulama
+İşlem hattını doğrulamak için araç çubuğundan **Doğrula**'yı seçin.
+ 
+Sağ üstteki **Kod**'a tıklayarak işlem hattıyla ilişkili JSON kodunu görebilirsiniz.
 
-## <a name="test-run-the-pipeline"></a>İşlem hattında test çalıştırması yapma
-Yapıtları (bağlı hizmetler, veri kümeleri ve işlem hattı) Data Factory'de veya kendi Visual Studio Team Services Git deponuzda yayımlamadan önce işlem hattında test çalıştırması yapabilirsiniz. 
+## <a name="debug-and-publish-the-pipeline"></a>İşlem hattında hata ayıklama ve işlem hattını yayımlama
+Yapıtları (bağlı hizmetler, veri kümeleri ve işlem hattı) Data Factory'de veya kendi Visual Studio Team Services Git deponuzda yayımlamadan önce işlem hattında hata ayıklayabilirsiniz. 
 
-1. İşlem hattında test çalıştırması yapmak için araç çubuğunda **Test Çalıştırması**'nı seçin. Pencerenin altındaki **Çıkış** sekmesinde işlem hattı çalıştırmasının durumu görüntülenir. 
+1. İşlem hattında hata ayıklamak için araç çubuğunda **Hata Ayıkla**'yı seçin. Pencerenin altındaki **Çıkış** sekmesinde işlem hattı çalıştırmasının durumu görüntülenir. 
 
-    ![İşlem hattını test etme](./media/tutorial-copy-data-portal/test-run-output.png)
-2. Kaynak dosyadan verilerin hedef SQL veritabanına eklendiğini doğrulayın. 
-
-    ![SQL çıkışını doğrulama](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. Sol bölmede **Tümünü Yayımla**’yı seçin. Bu eylem, oluşturduğunuz varlıkları (bağlı hizmetler, veri kümeleri ve işlem hatları) Data Factory'de yayımlar.
+2. İşlem hattı başarıyla çalıştırıldıktan sonra araç çubuğunda **Tümünü Yayımla**'yı seçin. Bu eylem, oluşturduğunuz varlıkları (veri kümeleri ve işlem hatları) Data Factory'de yayımlar.
 
     ![Yayımlama](./media/tutorial-copy-data-portal/publish-button.png)
-4. **Başarıyla yayımlandı** iletisini görene kadar bekleyin. Bildirim iletilerini görmek için sol kenar çubuğunda **Bildirimleri Göster** sekmesini seçin. Bildirimler penceresini kapatmak için **Kapat**’ı seçin.
 
-    ![Bildirimleri göster](./media/tutorial-copy-data-portal/show-notifications.png)
-
-## <a name="configure-code-repository"></a>Kod deposunu yapılandırma
-Veri fabrikası yapıtlarınızla ilişkilendirilmiş kodu Visual Studio Team Services kod deposuna yayımlayabilirsiniz. Bu adımda kod deposunu oluşturursunuz.  VSTS tümleştirmesiyle görsel yazma hakkında daha fazla bilgi edinmek için bkz. [VSTS Git tümleştirmesiyle yazma](author-visually.md#author-with-vsts-git-integration).
-
-Visual Studio Team Services kod deposuyla çalışmak istemiyorsanız bu adımı atlayabilirsiniz. Önceki adımda yaptığınız gibi Data Factory’ye yayımlamaya devam edebilirsiniz. 
-
-1. Sol üst köşede **Data Factory**’yi seçin veya yanındaki aşağı oku kullanın ve **Kod Deposunu Yapılandır**’ı seçin. 
-
-    ![Kod deposunu yapılandırma](./media/tutorial-copy-data-portal/configure-code-repository-button.png)
-2. **Depo Ayarları** sayfasında aşağıdaki adımları uygulayın:
-
-    a. **Depo Türü** bölümünde **Visual Studio Team Services Git**’i seçin.
-
-    b. **Visual Studio Team Services Hesabı** bölümünde Visual Studio Team Services hesabınızı seçin.
-
-    c. **Proje Adı** bölümünde Visual Studio Team Services hesabınızdan bir proje seçin.
-
-    d. **Git deposu adı** bölümünde veri fabrikanızla ilişkilendirilecek Git deposu için **Tutorial2** girin.
-
-    e. **Mevcut Data Factory kaynaklarını depoya aktar** onay kutusunun seçili olduğundan emin olun.
-
-    f. Ayarları kaydetmek için **Kaydet**’i seçin. 
-
-    ![Depo ayarları](./media/tutorial-copy-data-portal/repository-settings.png)
-3. Depo olarak **VSTS GIT**'in seçildiğini onaylayın.
-
-    ![VSTS GIT’i seçin](./media/tutorial-copy-data-portal/vsts-git-selected.png)
-4. Web tarayıcısının ayrı bir sekmesinde **Tutorial2** deposuna gidin. İki dal görüntülenir: **adf_publish** ve **master**.
-
-    ![Master ve adf_publish dalları](./media/tutorial-copy-data-portal/initial-branches-vsts-git.png)
-5. Data Factory varlıkları için JSON dosyalarının **master** dalında yer aldığından emin olun.
-
-    ![Master dalındaki dosyalar](./media/tutorial-copy-data-portal/master-branch-files.png)
-6. JSON dosyalarının henüz **adf_publish** dalında yer almadığından emin olun. 
-
-    ![Adf_publish dalındaki dosyalar](./media/tutorial-copy-data-portal/adf-publish-files.png)
-7. **Açıklama** bölümüne işlem hattı için bir açıklama ekleyin ve araç çubuğundaki **Kaydet** seçeneğini belirleyin. 
-
-    ![İşlem hattı açıklaması](./media/tutorial-copy-data-portal/pipeline-description.png)
-8. Artık **Tutorial2** deposunda kullanıcı adınızla bir dal görüntülenir. Yaptığınız değişiklik master dalında değil sizin kendi dalınızda yer alır. Yalnızca master dalındaki varlıkları yayımlayabilirsiniz.
-
-    ![Dalınız](./media/tutorial-copy-data-portal/your-branch.png)
-9. Fare imleciyle **Eşitle** düğmesinin üzerine gelin (düğmeyi seçmeyin), değişikliklerinizi master dalıyla eşitlemek için **Değişiklikleri Gönder** onay kutusunu seçin ve **Eşitle** seçeneğini belirleyin. 
-
-    ![Değişiklikleri gönderme ve eşitleme](./media/tutorial-copy-data-portal/commit-and-sync.png)
-10. **Değişikliklerinizi eşitleyin** penceresinde aşağıdaki eylemleri uygulayın: 
-
-    a. Güncelleştirilmiş **İşlem Hatları** listesinde **CopyPipeline** öğesinin görüntülendiğinden emin olun.
-
-    b. **Eşitleme sonrasında değişiklikleri yayımla**'nın seçili olduğunu onaylayın. Bu onay kutusunu temizlediğinizde dalınızdaki değişiklikleriniz yalnızca master dalıyla eşitlenir. Data Factory’ye yayımlanmaz. Bunları daha sonra, **Yayımla** düğmesini kullanarak yayımlayabilirsiniz. Bu onay kutusunu seçtiğinizde değişiklikler öncelikle master dalı ile eşitlenir ve ardından Data Factory’ye yayımlanır.
-
-    c. **Eşitle**’yi seçin. 
-
-    ![Değişikliklerinizi eşitleyin](./media/tutorial-copy-data-portal/sync-your-changes.png)
-11. Artık, **Tutorial2** deposunun **adf_publish** dalında dosyaları görebilirsiniz. Ayrıca bu dalda Data Factory çözümünüze yönelik Azure Resource Manager şablonunu da bulabilirsiniz. 
-
-    ![Adf_publish dalındaki dosya listesi](./media/tutorial-copy-data-portal/adf-publish-files-after-publish.png)
-
+4. **Başarıyla yayımlandı** iletisini görene kadar bekleyin. Bildirim iletilerini görmek için sağ üstteki **Bildirimleri Göster**'e (zil düğmesi) tıklayın. 
 
 ## <a name="trigger-the-pipeline-manually"></a>İşlem hattını el ile tetikleme
 Bu adımda, önceki adımda yayımladığınız işlem hattını el ile tetiklersiniz. 
 
 1. Araç çubuğunda **Tetikleyici**’yi ve sonra **Şimdi Tetikle**’yi seçin. **İşlem Hattı Çalıştırma** sayfasında **Son**’u seçin.  
 
-    ![İşlem hatlarını tetikleme](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Soldaki **İzleyici** sekmesine gidin. El ile tetikleme tarafından tetiklenmiş bir işlem hattı çalıştırması görürsünüz. Etkinlik ayrıntılarını görüntülemek ve işlem hattını yeniden çalıştırmak için **Eylemler** sütunundaki bağlantıları kullanabilirsiniz.
 
     ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-copy-data-portal/monitor-pipeline.png)
@@ -378,12 +255,10 @@ Bu adımda, önceki adımda yayımladığınız işlem hattını el ile tetikler
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>İşlem hattını bir zamanlamaya göre tetikleme
 Bu zamanlamada, işlem hattı için bir zamanlayıcı tetikleyicisi oluşturacaksınız. Tetikleyici, işlem hattını saatlik veya günlük gibi belirli bir zamanlamaya göre çalıştırır. Bu örnekte, tetikleyiciyi belirtilen bitiş tarihi saatine kadar dakikada bir çalıştırılacak şekilde ayarlarsınız. 
 
-1. Soldaki **Düzenle** sekmesine gidin. 
+1. Sol üstte, izleyici sekmesinin üzerindeki **Yazar** sekmesine gidin. 
 
-    ![Düzenle sekmesi](./media/tutorial-copy-data-portal/edit-tab.png)
-2. **Tetikleyici**'yi ve **Yeni/Düzenle**'yi seçin. İşlem hattı etkin değilse işlem hattına gidin. 
+2. İşlem hattınıza gidin, araç çubuğunda **Tetikleyici**'ye tıklayıp **Yeni/Düzenle**'yi seçin. 
 
-    ![Tetikleyici seçeneği](./media/tutorial-copy-data-portal/trigger-new-edit-menu.png)
 3. **Tetikleyici Ekle** penceresinde **Tetikleyici seç**’i ve sonra **+Yeni**’yi seçin. 
 
     ![Yeni düğmesi](./media/tutorial-copy-data-portal/add-trigger-new-button.png)
@@ -414,9 +289,9 @@ Bu zamanlamada, işlem hattı için bir zamanlayıcı tetikleyicisi oluşturacak
 5. **Tetikleyici Çalıştırma Parametreleri** sayfasında uyarıyı gözden geçirin ve **Son**'u seçin. Bu örnekteki işlem hattı hiçbir parametre almaz. 
 
     ![Tetikleyici çalıştırması parametreleri](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-6. Dalınızdaki değişiklikleri master dalıyla eşitlemek için **Eşitle**'yi seçin. Varsayılan olarak, **Eşitleme sonrasında değişiklikleri yayımla** seçili durumdadır. **Eşitle**'yi seçtiğinizde güncelleştirilmiş varlıklar master dalından Data Factory'ye de yayımlanır. Yayımlama başarılı olana kadar tetikleyici etkinleştirilmez.
 
-    ![Değişikliklerinizi eşitleyin](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+6. Değişikliği yayımlamak için **Tümünü Yayımla**'ya tıklayın. 
+
 7. Tetiklenen işlem hattı çalıştırmalarını görmek için sol taraftaki **İzleyici** sekmesine gidin. 
 
     ![Tetiklenen işlem hattı çalıştırmaları](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    

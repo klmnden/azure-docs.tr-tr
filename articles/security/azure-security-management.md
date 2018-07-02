@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f5630c8cb9c0ca13210c62652f8d7f2e98f94438
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 209fdda974dee2386328da43991cc9d453e61aa7
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366656"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062174"
 ---
 # <a name="security-management-in-azure"></a>Azure’da Güvenlik Yönetimi
 Azure aboneleri yönetim iş istasyonları, geliştirici PC’leri ve hatta göreve özel izinleri bulunan ayrıcalıklı son kullanıcı cihazları dahil birden fazla cihazda kendi bulut ortamlarını yönetebilir. Bazı durumlarda, yönetim işlevleri [Azure portal](https://azure.microsoft.com/features/azure-portal/) gibi web tabanlı konsollar aracılığıyla gerçekleştirilir Diğer durumlarda, Sanal Özel Ağlar (VPN), Terminal Hizmetleri, istemci uygulaması protokolleri ya da (programlı olarak) Azure Service Management API (SMAPI) üzerinden şirket için sistemlerden Azure’a bağlantılar olabilir. Ayrıca, istemci uç noktaları ya da etki alanına katılmış veya yalıtılmış ve yönetilmeyen olabilir, tabletler veya akıllı telefonlar gibi.
@@ -155,7 +155,7 @@ Gerekli görevler için özel yerel AD DS GPO’larıyla, seçilen Azure ve bulu
 Şirket içi altyapısı bulunmaya BT ortamları için (örneği, tüm sunucular bulutta olduğundan GPO’lar için yerel bir AD DS örneğine erişimi olmayan), [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) gibi bir hizmet iş istasyonu dağıtmayı ve bakımını kolay hale getirebilir.
 
 ### <a name="stand-alone-hardened-workstation-for-management"></a>Yönetim için tek başına sağlamlaştırılmış iş istasyonu
-Tek başına sağlamlaştırılmış iş istasyonu ile, yöneticiler yönetim görevleri için kullandıkları bir PC ya da dizüstü bilgisayara ve yönetim dışı görevler için kullandıkları ayrı PC ya da dizüstü bilgisayara sahiptir. Azure hizmetlerinizi yönetmeye ayrılmış bir iş istasyonu diğer uygulamaların yüklenmesini gerektirmez. Ayrıca, [Güvenilir Platform Modülü 	](https://technet.microsoft.com/library/cc766159) (TPM) ya da benzer bir donanın düzeyi şifreleme teknolojisi cihaz kimlik doğrulamasına ve belirli saldırıların önlenmesine yardımcı olur. TPM ayrıca [BitLocker Sürücü Şifrelemesi](https://technet.microsoft.com/library/cc732774.aspx) kullanarak sistem sürücüsünün tam birim korumasını destekler.
+Tek başına sağlamlaştırılmış iş istasyonu ile, yöneticiler yönetim görevleri için kullandıkları bir PC ya da dizüstü bilgisayara ve yönetim dışı görevler için kullandıkları ayrı PC ya da dizüstü bilgisayara sahiptir. Azure hizmetlerinizi yönetmeye ayrılmış bir iş istasyonu diğer uygulamaların yüklenmesini gerektirmez. Ayrıca [Güvenilir Platform Modülü](https://technet.microsoft.com/library/cc766159) (TPM) veya benzeri donanım düzeyinde şifreleme teknolojisi yardımcılarını destekleyen iş istasyonları kullanma, cihaz kimlik doğrulaması ve belirli saldırıların önlenmesi konusunda yardımcı olur. TPM ayrıca [BitLocker Sürücü Şifrelemesi](https://technet.microsoft.com/library/cc732774.aspx) kullanarak sistem sürücüsünün tam birim korumasını destekler.
 
 (Aşağıda gösterilen) tek başına sağlamlaştırılmış iş istasyonu senaryosunda, Windows Güvenlik Duvarı (veya Microsoft dışı istemci güvenlik duvarı) RDP gibi, gelen bağlantıları engellemek üzere yapılandırılmıştır. Yönetici sağlamlaştırılmış iş istasyonunda oturum açabilir ve VPN Azure Sanal Ağı ile VPN bağlantısı oluşturduktan sonra Azure’a bağlanan bir RDP oturumu başlatabilir, kurumsal PC’de oturum açamaz ve sağlamlaştırılmış iş istasyonunun kendisine bağlanmak için RDP kullanamaz.
 
@@ -224,8 +224,8 @@ Azure bulut hizmetlerinizi, Sanal Makinelerinizi ve uygulamalarınızı yönetme
 Azure ve ilgili Microsoft hizmetlerinin yanı sıra bu belgede başvurulan belirli öğeler hakkında daha genle bilgi aşağıdaki kaynaklarda verilmiştir:
 
 * [Ayrıcalıklı Erişimi Güvenli Hale Getirme](https://technet.microsoft.com/library/mt631194.aspx) – Azure yönetimi için güveni bir iş istasyonu tasarlama ve oluşturmaya ilişkin teknik ayrıntıları alın
-* [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Security/AzureSecurity) -Azure dokusunu koruyan Azure platformu özellikleri ve Azure üzerinde çalışan iş yükleri hakkında bilgi edinin
-* [Microsoft Security Response Center](http://www.microsoft.com/security/msrc/default.aspx) --Azure ile ilgili sorunlar da dahil Microsoft güvenlik açıklarının bildirilebileceği veya [secure@microsoft.com](mailto:secure@microsoft.com) adresine e-posta yoluyla gönderilebileceği yer
+* [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure) -Azure dokusunu koruyan Azure platformu özellikleri ve Azure üzerinde çalışan iş yükleri hakkında bilgi edinin
+* [Microsoft Security Response Center](https://technet.microsoft.com/en-us/security/dn440717.aspx) --Azure ile ilgili sorunlar da dahil Microsoft güvenlik açıklarının bildirilebileceği veya [secure@microsoft.com](mailto:secure@microsoft.com) adresine e-posta yoluyla gönderilebileceği yer
 * [Azure Güvenlik Web Günlüğü](http://blogs.msdn.com/b/azuresecurity/) – Azure Güvenlik konusundaki yenilikleri takip edin
 
 <!--Image references-->

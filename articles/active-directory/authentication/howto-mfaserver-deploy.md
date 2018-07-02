@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: bd1b0f21162978496750886d32e7166c3a90922d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 130e9956702515574da47dc872b03598ca19ff29
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868305"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031702"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama
 
@@ -103,8 +103,8 @@ Artık sunucuyu indirdiğinize göre, yükleyebilir ve yapılandırabilirsiniz. 
 
 1. Yürütülebilir dosyaya çift tıklayın.
 2. Yükleme Klasörünü Seçin ekranında klasörün doğru olduğundan emin olun ve **İleri**’ye tıklayın.
-3. Yükleme tamamlandıktan sonra **Son**'a tıklayın.  Yapılandırma sihirbazı başlatılır.
-4. Yapılandırma sihirbazı karşılama ekranında **Kimlik Doğrulaması Yapılandırma Sihirbazı kullanmayı atla** seçeneğini işaretleyin ve **İleri**’ye tıklayın.  Sihirbaz kapatılır ve sunucu başlatılır.
+3. Yükleme tamamlandıktan sonra **Son**'a tıklayın. Yapılandırma sihirbazı başlatılır.
+4. Yapılandırma sihirbazı karşılama ekranında **Kimlik Doğrulaması Yapılandırma Sihirbazı kullanmayı atla** seçeneğini işaretleyin ve **İleri**’ye tıklayın. Sihirbaz kapatılır ve sunucu başlatılır.
 
    ![Bulut](./media/howto-mfaserver-deploy/skip2.png)
 
@@ -116,7 +116,7 @@ Kullanmaya başlamayı kolaylaştırmak için MFA sunucusunun kullanıcıların�
 
 Gönderdiğiniz e-posta, kullanıcılarınızı iki aşamalı doğrulama için nasıl yapılandırdığınıza göre belirlenir. Örneğin, telefon numaralarını şirket dizininden alabildiyseniz, kullanıcıların beklentilerini bilebilmesi için e-posta varsayılan telefon numaralarını içermelidir. Telefon numaralarını içeri aktarmadıysanız veya kullanıcılarınız mobil uygulamayı kullanacaksa kullanıcılara hesap kaydını tamamlama yönergelerinin sağlandığı bir e-posta gönderin. E-postaya Azure Multi-Factor Authentication Kullanıcı Portalı’nın köprü bağlantısını ekleyin.
 
-E-postanın içeriği aynı zamanda kullanıcı için ayarlanmış doğrulama yöntemine (telefonla arama, SMS veya mobil uygulama) bağlı olarak değişir.  Örneğin, kullanıcının kimlik doğrularken PIN kullanması gerekiyorsa, e-posta kullanıcıya ilk PIN’ini bildirir.  Kullanıcıların ilk doğrulama sırasında kendi PIN'lerini değiştirmesi gerekir.
+E-postanın içeriği aynı zamanda kullanıcı için ayarlanmış doğrulama yöntemine (telefonla arama, SMS veya mobil uygulama) bağlı olarak değişir. Örneğin, kullanıcının kimlik doğrularken PIN kullanması gerekiyorsa, e-posta kullanıcıya ilk PIN’ini bildirir. Kullanıcıların ilk doğrulama sırasında kendi PIN'lerini değiştirmesi gerekir.
 
 ### <a name="configure-email-and-email-templates"></a>E-posta ve e-posta şablonlarını yapılandırma
 
@@ -130,14 +130,14 @@ E-posta İçeriği sekmesinde, seçim yapabileceğiniz e-posta şablonlarını g
 
 ## <a name="import-users-from-active-directory"></a>Kullanıcıları Active Directory'den içeri aktarma
 
-Artık sunucu yüklendiğine göre kullanıcıları eklemek isteyeceksiniz. Kullanıcıları el ile oluşturmayı, Active Directory'den içe aktarmayı ya da Active Directory ile otomatik eşitleme yapılandırmayı seçebilirsiniz.
+Artık sunucu yüklendiğine göre kullanıcıları eklemek istersiniz. Kullanıcıları el ile oluşturmayı, Active Directory'den içe aktarmayı ya da Active Directory ile otomatik eşitleme yapılandırmayı seçebilirsiniz.
 
 ### <a name="manual-import-from-active-directory"></a>Active Directory'den elle içeri aktarma
 
 1. Azure MFA Sunucusu’nda, solda, **Kullanıcılar**’ı seçin.
 2. Alt kısımda, **Active Directory’den içeri aktar**’ı seçin.
-3. Artık kullanıcıları tek tek arayabilir ya da içindeki kullanıcılarla birlikte OU’lar için AD dizininde arama yapabilirsiniz.  Bu durumda kullanıcıların OU’su belirtilir.
-4. Sağ tarafta tüm kullanıcıları vurgulayın ve **İçeri Aktar**’a tıklayın.  Başarılı olduğunuzu belirten bir açılır pencere görmeniz gerekir.  İçeri aktarma penceresini kapatın.
+3. Artık kullanıcıları tek tek arayabilir ya da içindeki kullanıcılarla birlikte OU’lar için AD dizininde arama yapabilirsiniz. Bu durumda kullanıcıların OU’su belirtilir.
+4. Sağ tarafta tüm kullanıcıları vurgulayın ve **İçeri Aktar**’a tıklayın. Başarılı olduğunuzu belirten bir açılır pencere görmeniz gerekir. İçeri aktarma penceresini kapatın.
 
    ![MFA Sunucusu kullanıcı içeri aktarma](./media/howto-mfaserver-deploy/import2.png)
 
@@ -181,6 +181,10 @@ Geri yükleme gerekmesi durumunda aşağıdaki adımları takip edin:
 5. **MultiFactorAuth** hizmetini başlatın.
 
 Yeni Sunucu artık özgün yedeklenen yapılandırması ve kullanıcı verileriyle hazır ve çalışır durumdadır.
+
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL Protokollerini ve Şifre Paketlerini yönetme
+
+MFA Server sürüm 8.x veya üzerini yükledikten veya yükselttikten sonra kuruluşunuzda ihtiyaç duyulmaması halinde eski ve daha zayıf şifre paketlerinin devre dışı bırakılması veya kaldırılması önerilir. Bu görevin nasıl gerçekleştirileceği hakkında bilgiler [AD FS için SSL/TLS Protokollerini ve Şifre Paketlerini Yönetme](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) makalesine bakın
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

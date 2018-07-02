@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 6345fe89a3bf25041621213274ea0c3081848d99
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4a5e6b24bbf7cc21d40cea8e4331de98a5cc05a6
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30834427"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752155"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Log Analytics günlük araması ile toplanan verileri görüntüleme veya çözümleme
 
@@ -41,8 +41,8 @@ Bu öğreticide, Azure portalındaki Günlük Araması özelliğiyle çalışaca
 ## <a name="open-the-log-search-portal"></a>Günlük Araması portalını açma 
 Günlük Araması portalını açarak işleme başlayın.   
 
-1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
-2. Log Analytics abonelikleri bölmesinde, bir çalışma alanını ve sonra **Günlük Araması** kutucuğunu seçin.<br><br> ![Günlük Araması düğmesi](media/log-analytics-tutorial-viewdata/azure-portal-02.png)
+1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **İzleyici** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **İzleyici**'yi seçin.
+2. İzleyici gezinti menüsünde **Log Analytics**'i ve ardından bir çalışma alanını seçin
 
 ## <a name="create-a-simple-search"></a>Basit bir arama oluşturma
 Üzerinde çalışılacak bazı verileri almanın en hızlı yolu, tablodaki tüm kayıtları döndüren basit bir sorgudur.  Çalışma alanınıza bağlı Windows veya Linux istemcileriniz varsa Olay (Windows) veya Syslog (Linux) tablosunda verileriniz olur.
@@ -124,7 +124,7 @@ Perf
 Ancak tüm performans nesneleri ve sayaçları için milyonlarca kaydın döndürülmesi çok kullanışlı değildir.  Verileri filtrelemek için, yukarıda kullandığınız yöntemleri kullanabilir veya aşağıdaki sorguyu doğrudan günlük araması kutusuna yazabilirsiniz.  Bu hem Windows hem de Linux bilgisayarlar için yalnızca işlemci kullanımı kayıtlarını döndürür.
 
 ```
-Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time")
+Perf | where ObjectName == "Processor"  | where CounterName == "% Processor Time"
 ```
 
 ![İşlemci kullanımı](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
@@ -132,7 +132,9 @@ Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor T
 Bu, verileri belirli bir sayaç ile sınırlar ancak yine de özellikle kullanışlı olacak bir biçime getirmez.  Verileri bir çizgi grafikte görüntüleyebilirsiniz, ancak öncelikle Computer ve TimeGenerated özelliklerine göre gruplandırmanız gerekir.  Birden çok alan üzerinde gruplandırma yapmak için sorguyu doğrudan değiştirmeniz gerekir, bu nedenle sorguyu aşağıdaki şekilde değiştirin.  Bu, her saat için ortalama değeri hesaplamak üzere **CounterValue** özelliğindeki [ort](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) işlevini kullanır.
 
 ```
-Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated
+Perf  
+| where ObjectName == "Processor"  | where CounterName == "% Processor Time"
+| summarize avg(CounterValue) by Computer, TimeGenerated
 ```
 
 ![Performans verileri grafiği](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
@@ -140,7 +142,10 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 Veriler uygun şekilde gruplandırıldığına göre [işleme](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) işlecini ekleyerek bunları görsel bir grafikte görüntüleyebilirsiniz.  
 
 ```
-Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated | render timechart
+Perf  
+| where ObjectName == "Processor" | where CounterName == "% Processor Time" 
+| summarize avg(CounterValue) by Computer, TimeGenerated 
+| render timechart
 ```
 
 ![Çizgi grafik](media/log-analytics-tutorial-viewdata/log-analytics-portal-linechart-01.png)

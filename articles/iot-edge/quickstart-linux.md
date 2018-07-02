@@ -1,160 +1,266 @@
 ---
-title: Hızlı Başlangıç Azure IOT kenar + Linux | Microsoft Docs
-description: Bir sanal sınır aygıtında analiz çalıştırarak Azure IOT kenar deneyin
-services: iot-edge
-keywords: ''
+title: Azure IoT Edge için Hızlı Başlangıç + Linux | Microsoft Docs
+description: Bu hızlı başlangıçta, önceden derlenmiş kodu uzaktan bir IoT Edge cihazına dağıtmayı öğrenin.
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 01/11/2018
-ms.topic: article
+ms.date: 06/27/2018
+ms.topic: quickstart
 ms.service: iot-edge
-ms.openlocfilehash: a9cb627c4d8eff2226717dd675d24349730e90d5
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: MT
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 86bf28249321a705e8855de35121611b05009854
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063502"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Hızlı Başlangıç: ilk IOT kenar modülünüzün bir Linux veya Mac aygıta dağıtmak - Önizleme
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Hızlı Başlangıç: Bir Linux x64 cihazına ilk IoT Edge modülünüzü dağıtma
 
-Azure IOT kenar bulut gücünü nesnelerin interneti aygıtlarınızı taşır. Bu konuda, bulut arabirimi önceden oluşturulmuş kodu uzaktan IOT kenar cihazına dağıtmak için nasıl kullanılacağını öğrenin.
+Azure IoT Edge, bulutun gücünü Nesnelerin İnterneti cihazlarınıza taşır. Bu hızlı başlangıçta, önceden derlenmiş kodu uzaktan bir IoT Edge cihazına dağıtmak için bulut arabirimini kullanmayı öğrenin.
 
-Etkin bir Azure aboneliğiniz yoksa, oluşturma bir [ücretsiz bir hesap] [ lnk-account] başlamadan önce.
+Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 
-## <a name="prerequisites"></a>Önkoşullar
+1. Bir IoT Hub oluşturma.
+2. Bir IoT Edge cihazını IoT hub'ınıza kaydetme.
+3. IoT Edge çalışma zamanını cihazınıza yükleme ve başlatma.
+4. Bir IoT Edge cihazına uzaktan modül dağıtma.
 
-Bu Hızlı Başlangıç, bilgisayar veya sanal makine bir nesnelerin interneti aygıtı gibi kullanır. Bir IOT sınır cihazı makinenize etkinleştirmek için aşağıdaki hizmetleri gereklidir:
+![Hızlı başlangıç mimarisi][2]
 
-* Python PIP, IOT kenar çalışma zamanı yüklenemedi.
-   * Linux: `sudo apt-get install python-pip`.
-      
-      > [!Note]
-      > (Örneğin, Raspbian) belirli dağıtımları üzerinde belirli PIP paketleri yükseltmek ve ek bağımlılıklar yüklemek gerekebilir:
-      
-        ```
-        sudo pip install --upgrade setuptools pip
-        sudo apt-get install python2.7-dev libffi-dev libssl-dev
-        ```
-        
-   * MacOS: `sudo easy_install pip`.
-* IOT kenar modüllerini çalıştırmak için docker
-   * [Linux için Docker yükleme] [ lnk-docker-ubuntu] ve çalışır durumda olduğundan emin olun. 
-   * [Mac için Docker yükleme] [ lnk-docker-mac] ve çalışır durumda olduğundan emin olun. 
+Bu hızlı başlangıç, Linux bilgisayarınızı veya sanal makinenizi bir IoT Edge cihazına dönüştürür. Bu işlemin ardından Azure portalından cihazınıza bir modül dağıtabilirsiniz. Bu hızlı başlangıçta oluşturduğunuz modül; sıcaklık, nem ve basınç verileri üreten bir sensör simülasyonudur. Diğer Azure IoT Edge öğreticileri, burada iş içgörüsü için simülasyon verilerini analiz eden modüller dağıtarak yaptığınız çalışmayı temel alır. 
 
-## <a name="create-an-iot-hub-with-azure-cli"></a>Azure CLI ile IOT hub oluşturma
+Etkin bir Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][lnk-account] oluşturun.
 
-IOT hub'ı, Azure aboneliğinizde oluşturun. IOT hub'ı ücretsiz düzeyi bu hızlı başlangıç için çalışır. IOT hub'ı geçmişte kullanmış olduğunuz ve oluşturulan boş bir hub'ı zaten varsa, bu bölüm atlayın ve üzerinde Git [bir IOT kenar kaydedilecek][anchor-register]. Her abonelik yalnızca bir ücretsiz IOT hub olabilir. 
 
-1. [Azure portalında][lnk-portal] oturum açın. 
-1. Seçin **bulut Kabuk** düğmesi. 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-   ![Bulut Kabuk düğmesi][1]
+Bu hızlı başlangıçtaki birçok adımı tamamlamak için Azure CLI kullanacaksınız. Azure IoT de ek işlevleri etkinleştirmek için bir uzantıya sahiptir. 
 
-1. Bir kaynak grubu oluşturun. Aşağıdaki kod adlı bir kaynak grubu oluşturur **IoTEdge** içinde **Batı ABD** bölge:
+Azure IoT uzantısını cloud shell örneğine ekleyin.
 
-   ```azurecli
-   az group create --name IoTEdge --location westus
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
    ```
 
-1. IOT hub'ı, yeni kaynak grubu oluşturun. Aşağıdaki kod ücretsiz oluşturur **F1** adlı hub **MyIotHub** kaynak grubunda **IoTEdge**:
+## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
-   ```azurecli
-   az iot hub create --resource-group IoTEdge --name MyIotHub --sku F1 
+Hızlı başlangıç adımlarına başlamak için Azure portalında IoT Hub'ınızı oluşturun.
+![IoT Hub'ını oluşturma][3]
+
+IoT Hub’ın ücretsiz düzeyi bu hızlı başlangıç için kullanılabilir. IoT Hub'ı daha önce kullandıysanız ve oluşturulmuş ücretsiz hub'ınız varsa bu IoT hub'ını kullanabilirsiniz. Her aboneliğin yalnızca bir ücretsiz IoT hub’ı olabilir. 
+
+1. Azure Cloud Shell'de bir kaynak grubu oluşturun. Aşağıdaki kod, **Batı ABD** bölgesinde **TestResources** adında bir kaynak grubu oluşturur. Hızlı başlangıçların ve öğreticilerin tüm kaynaklarını bir gruba koyarak birlikte yönetebilirsiniz. 
+
+   ```azurecli-interactive
+   az group create --name TestResources --location westus
    ```
 
-## <a name="register-an-iot-edge-device"></a>Bir IOT sınır cihazı kaydetme
+1. Yeni kaynak grubunuzda bir IoT hub oluşturun. Aşağıdaki kod, **TestResources** kaynak grubunda ücretsiz bir **F1** hub’ı oluşturur. *{hub_name}* değerini IoT hub'ınız için benzersiz bir adla değiştirin.
 
-IOT hub ile iletişim kurabilmesi için sanal cihazınız için bir cihaz kimliği oluşturma. IOT sınır cihazları davranır ve tipik IOT cihazları farklı bir biçimde yönetilebilir olduğundan, bunun bir IOT sınır cihazı başlangıçtan itibaren olmasını bildirin. 
+   ```azurecli-interactive
+   az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
+   ```
 
-1. Azure portalında IOT hub'ına gidin.
-1. Seçin **IOT kenar (Önizleme)**.
-1. Seçin **ekleme IOT sınır cihazı**.
-1. Sanal cihazınız bir benzersiz cihaz kimliği verin
-1. Seçin **kaydetmek** Cihazınızı eklemek için.
-1. Yeni Cihazınızı aygıtları listesinden seçin. 
-1. Değeri kopyalama **bağlantı dizesi--birincil anahtar** ve kaydedin. Sonraki bölümde IOT kenar çalışma zamanı yapılandırmak için bu değeri kullanılır. 
+## <a name="register-an-iot-edge-device"></a>IoT Edge cihazı kaydetme
 
-## <a name="install-and-start-the-iot-edge-runtime"></a>Yükleyin ve IOT kenar çalışma zamanı başlatın
+Yeni oluşturulan IoT Hub'ına bir IoT Edge cihazı kaydedin.
+![Cihaz kaydetme][4]
 
-IOT kenar çalışma zamanı, tüm IOT kenar aygıtlarda dağıtılır. İki modülden oluşur. İlk olarak, IOT kenar Aracısı dağıtımı ve IOT sınır cihazı modülleri izlenmesini kolaylaştırır. İkinci olarak, IOT kenar hub IOT sınır cihazı modülleri arasında ve cihaz IOT hub'ı arasındaki iletişim yönetir. 
+IoT hub'ınızla iletişim kurabilmesi amacıyla simülasyon cihazınız için bir cihaz kimliği oluşturun. IoT Edge cihazlarının davranışları ve yönetim özellikleri tipik IoT cihazlarından farklı olduğundan bunun en başından itibaren bir IoT Edge cihazı olduğunu bildirmiş olursunuz. 
 
-IOT sınır cihazı çalıştırdığı makinede IOT kenar denetim komut dosyasını karşıdan yükleyin:
-```bash
-sudo pip install -U azure-iot-edge-runtime-ctl
-```
+1. Azure Cloud Shell'de aşağıdaki komutu girerek hub'ınızda **myEdgeDevice** adlı bir cihaz oluşturun.
 
-Çalışma zamanı IOT kenar cihaz bağlantı dizenizi önceki bölümdeki yapılandırın:
-```bash
-sudo iotedgectl setup --connection-string "{device connection string}" --nopass
-```
+   ```azurecli-interactive
+   az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
+   ```
 
-Çalışma zamanı'nı başlatın:
-```bash
-sudo iotedgectl start
-```
+1. Fiziksel cihazınızla IoT Hub'daki kimliği arasında bağlantı oluşturan cihaz bağlantı dizesini alın. 
 
-Docker IOT kenar Aracısı'nı bir modül olarak çalışıp çalışmadığını kontrol edin:
-```bash
-sudo docker ps
-```
+   ```azurecli-interactive
+   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
+   ```
 
-![Docker edgeAgent bakın](./media/tutorial-simulate-device-linux/docker-ps.png)
+1. Bağlantı dizesini kopyalayın ve kaydedin. Bu değeri bir sonraki bölümde IoT Edge çalışma zamanını yapılandırmak için kullanacaksınız. 
 
-## <a name="deploy-a-module"></a>Bir modül dağıtma
+
+## <a name="install-and-start-the-iot-edge-runtime"></a>IoT Edge çalışma zamanını yükleme ve başlatma
+
+Azure IoT Edge çalışma zamanını cihazınıza yükleyin ve başlatın. 
+![Cihaz kaydetme][5]
+
+IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Üç bileşeni vardır. **IoT Edge güvenlik daemon'u** bir Edge cihazı her başladığında çalışır ve IoT Edge aracısını çalıştırarak cihazı önyükler. **IoT Edge aracısı**, IoT Edge hub'ı dahil olmak üzere IoT Edge cihazındaki modüllerin dağıtımını ve izlenmesini kolaylaştırır. **IoT Edge hub'ı** IoT Edge cihazındaki modüller ve cihaz ile IoT Hub'ı arasındaki iletişimi yönetir. 
+
+### <a name="register-your-device-to-use-the-software-repository"></a>Yazılım deposunu kullanmak için cihazınızı kaydetme
+
+IoT Edge çalışma zamanını çalıştırmak için ihtiyacınız olan paketler, bir yazılım deposunda yönetilir. Bu depoya erişmek için IoT Edge cihazınızı yapılandırın. 
+
+Bu bölümdeki adımlar **Ubuntu 16.04** çalıştıran cihazlara yöneliktir. Diğer Linux sürümlerinde yazılım deposuna erişmek için bkz. [Azure IoT Edge çalışma zamanını Linux (x64) üzerine yükleme](how-to-install-iot-edge-linux.md) veya [Azure IoT Edge çalışma zamanını Linux (ARM32v7/armhf) üzerine yükleme](how-to-install-iot-edge-linux-arm.md).
+
+1. IoT Edge cihazı olarak kullandığınız makineye depo yapılandırmasını yükleyin.
+
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
+   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```
+
+2. Depoya erişmek için bir ortak anahtar yükleyin.
+
+   ```bash
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```
+
+### <a name="install-a-container-runtime"></a>Kapsayıcı çalışma zamanı yükleme
+
+IoT Edge çalışma zamanı, kapsayıcılardan oluşan bir kümedir ve IoT Edge cihazınıza dağıttığınız mantık, kapsayıcı olarak paketlenir. Cihazlarınızı bu bileşenlere hazır hale getirmek için bir kapsayıcı çalışma zamanı yükleyin.
+
+**apt-get** komutunu kullanın.
+
+   ```bash
+   sudo apt-get update
+   ```
+
+Kapsayıcı çalışma zamanı olan Moby uygulamasını ve CLI komutlarını yükleyin. 
+
+   ```bash
+   sudo apt-get install moby-engine
+   sudo apt-get install moby-cli   
+   ```
+
+### <a name="install-and-configure-the-iot-edge-security-daemon"></a>IoT Edge güvenlik daemon'unu yükleme ve yapılandırma
+
+Güvenlik daemon'u sistem hizmeti olarak yüklenir ve bu sayede IoT Edge çalışma zamanı cihaz her başlatıldığında çalışır. Yükleme aynı zamanda güvenlik daemon'unun cihazın donanım güvenliğiyle etkileşim kurmasını sağlayan **hsmlib** uygulamasının bir sürümünü de içerir. 
+
+1. IoT Edge Güvenlik Daemon'unu indirin ve yükleyin. 
+
+   ```bash
+   sudo apt-get update
+   sudo apt-get install iotedge
+   ```
+
+2. IoT Edge yapılandırma dosyasını açın. Korumalı bir dosya olduğu için yükseltilmiş ayrıcalıklarla erişmeniz gerekir.
+   
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+3. Cihazınızı kaydederken kopyaladığınız IoT Edge cihazı bağlantı dizesini ekleyin. **device_connection_string** değişkeninin değerini bu hızlı başlangıcın önceki bölümlerinde kopyaladığınız değerle değiştirin.
+
+4. Edge Güvenlik Daemon'unu yeniden başlatın:
+
+   ```bash
+   sudo systemctl restart iotedge
+   ```
+
+5. Edge Güvenlik Daemon'unun sistem hizmeti olarak çalışıp çalışmadığını kontrol edin:
+
+   ```bash
+   sudo systemctl status iotedge
+   ```
+
+   ![Edge Daemon'unun sistem hizmeti olarak çalıştığını görün](./media/quickstart-linux/iotedged-running.png)
+
+   Aşağıdaki komutu çalıştırarak Edge Güvenlik Daemon'u günlük dosyalarını da görebilirsiniz:
+
+   ```bash
+   journalctl -u iotedge
+   ```
+
+6. Cihazınızda çalışan modülleri görüntüleyin: 
+
+   ```bash
+   iotedge list
+   ```
+
+   ![Cihazınızda bir modülü görüntüleme](./media/quickstart-linux/iotedge-list-1.png)
+
+## <a name="deploy-a-module"></a>Modül dağıtma
+
+Azure IoT Edge cihazınızı, IoT Hub'ına telemetri verileri gönderecek bir modül dağıtmak için buluttan yönetin.
+![Cihaz kaydetme][6]
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
 ## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
-Bu hızlı başlangıç yeni bir IOT sınır cihazı oluşturan ve IOT kenar çalışma zamanı yüklü. Ardından, cihaz için değişiklik yapmak zorunda kalmadan cihazda çalıştırmak için bir IOT kenar modülü göndermek için Azure portal kullanılır. Bu durumda, gönderilen modülü öğreticileri için kullanabileceğiniz çevresel veri oluşturur. 
+Bu hızlı başlangıçta, yeni bir IoT Edge cihazı oluşturdunuz ve üzerine IoT Edge çalışma zamanını yüklediniz. Ardından, cihazda bir değişiklik yapmak zorunda kalmadan çalışacak bir IoT Edge modülünü göndermek için Azure portalını kullandınız. Bu örnekte gönderdiğiniz modül öğreticiler için kullanabileceğiniz ortam verilerini oluşturmaktadır. 
 
-Sanal cihazınız yeniden çalıştıran bilgisayarda komut istemi açın. Buluttan dağıtılan modülü IOT kenar aygıtınızda çalışır durumda olduğunu doğrulayın:
+Benzetimli cihazınızı çalıştıran bilgisayarda yeniden komut istemini açın. Buluttan dağıtılan modülün IoT Edge cihazınızda çalıştığından emin olun:
 
-```bash
-sudo docker ps
-```
+   ```bash
+   iotedge list
+   ```
 
-![Cihazınızda üç modüller görünümü](./media/tutorial-simulate-device-linux/docker-ps2.png)
+   ![Cihazınızda üç modül görüntüleme](./media/quickstart-linux/iotedge-list-2.png)
 
-TempSensor modülünden buluta gönderilen iletiler görüntüleyin:
+tempSensor modülünden gönderilen iletileri görüntüleyin:
 
-```bash
-sudo docker logs -f tempSensor
-```
+   ```bash
+   sudo iotedge logs tempSensor -f 
+   ```
+Oturum kapatma ve açma döngüsünden sonra yukarıdaki komut için *sudo* kullanılması gerekmez.
 
-![Modülünüzün verileri görüntüleme](./media/tutorial-simulate-device-linux/docker-logs.png)
+![Verileri modülünüzden görüntüleme](./media/quickstart-linux/iotedge-logs.png)
 
-Cihaz kullanarak göndermeyi telemetriyi de görüntüleyebilirsiniz [IOT hub'ı explorer aracı][lnk-iothub-explorer]. 
+Günlüğün son satırında `Using transport Mqtt_Tcp_Only` varsa sıcaklık sensörü modülü Edge Hub'ına bağlanmayı bekliyor olabilir. Modülü sonlandırıp Edge Aracısı tarafından yeniden başlatılmasını sağlayın. `sudo docker stop tempSensor` komutuyla sonlandırabilirsiniz.
+
+[IoT Hub gezginini][lnk-iothub-explorer] veya [Visual Studio Code için Azure IoT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) kullanarak cihazın gönderdiği telemetri verilerini de görüntüleyebilirsiniz. 
+
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Her modül için başlatılan Docker kapsayıcıları yanı sıra, oluşturulan sanal cihaz kaldırmak isterseniz, aşağıdaki komutu kullanın: 
+IoT Edge öğreticilerine devam etmek istiyorsanız bu hızlı başlangıçta kaydettiğiniz ve ayarladığınız cihazı kullanabilirsiniz. Cihazınızdaki yüklemeleri kaldırmak istiyorsanız aşağıdaki komutları kullanın.  
 
-```bash
-sudo iotedgectl uninstall
-```
+IoT Edge çalışma zamanını kaldırın.
 
-Oluşturduğunuz IOT Hub artık ihtiyacınız olduğunda kullanabileceğiniz [az IOT hub delete] [ lnk-delete] kaynak ve onunla ilişkili tüm aygıtları kaldırmak için komutu:
+   ```bash
+   sudo apt-get remove --purge iotedge
+   ```
 
-```azurecli
-az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
-```
+Cihazınızda oluşturulan kapsayıcıları silin. 
+
+   ```bash
+   sudo docker rm -f $(sudo docker ps -aq)
+   ```
+
+Kapsayıcı çalışma zamanını kaldırın.
+
+   ```bash
+   sudo apt-get remove --purge moby
+   ```
+
+Oluşturduğunuz Azure kaynaklarına ihtiyacınız kalmadığında aşağıdaki komutu kullanarak oluşturduğunuz kaynak grubunu ve ilgili kaynakları silebilirsiniz:
+
+   ```azurecli-interactive
+   az group delete --name TestResources
+   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir IOT kenar modülünü IOT kenar cihazına dağıtmak öğrendiniz. Böylece veri kenarına çözümleyebilirsiniz şimdi farklı türlerdeki modüllerle, Azure Hizmetleri dağıtmayı deneyin. 
+Bu hızlı başlangıç, tüm IoT Edge öğreticilerinin önkoşuludur. Azure IoT Edge'in bu verileri Edge'de iş içgörüsüne dönüştürmenize nasıl yardımcı olabileceğini öğrenmek için diğer öğreticilere devam edebilirsiniz.
 
-* [Kendi kodunuzu bir modül olarak dağıtma](tutorial-csharp-module.md)
-* [Bir modül olarak Azure işlevi dağıtma](tutorial-deploy-function.md)
-* [Azure Stream Analytics’i modül olarak dağıtma](tutorial-deploy-stream-analytics.md)
+> [!div class="nextstepaction"]
+> [Bir Azure İşlevi kullanarak sensör verilerini filtreleme](tutorial-deploy-function.md)
+
 
 
 <!-- Images -->
-[1]: ./media/quickstart/cloud-shell.png
+[0]: ./media/quickstart-linux/cloud-shell.png
+[1]: ./media/quickstart-linux/view-module.png
+[2]: ./media/quickstart-linux/install-edge-full.png
+[3]: ./media/quickstart-linux/create-iot-hub.png
+[4]: ./media/quickstart-linux/register-device.png
+[5]: ./media/quickstart-linux/start-runtime.png
+[6]: ./media/quickstart-linux/deploy-module.png
+[7]: ./media/quickstart-linux/iotedged-running.png
+[8]: ./media/tutorial-simulate-device-linux/running-modules.png
+[9]: ./media/tutorial-simulate-device-linux/sensor-data.png
+
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com

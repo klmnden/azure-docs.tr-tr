@@ -4,21 +4,23 @@ description: Azure Machine Learning'i modül olarak bir Edge cihazına dağıtma
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/12/2018
+ms.date: 06/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 248bc97c214c013d10f1839201ce2f572cb854ed
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: afc9e7c0635f9920aa3ec7c9e6012aa4e41edb9d
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631182"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062050"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning'i bir IoT Edge modülü olarak dağıtma - önizleme
 
-İş mantığınızı uygulayan kodu doğrudan IoT Edge cihazlarınıza dağıtmak için IoT Edge modüllerini kullanabilirsiniz. Bu öğretici, [Windows'da benzetimli bir cihaza Azure IoT Edge dağıtma][lnk-tutorial1-win] veya [Linux'ta benzetimli bir cihaza Azure IoT Edge dağıtma][lnk-tutorial1-lin] öğreticilerinde oluşturduğunuz benzetimli IoT Edge cihazı üzerindeki algılayıcı verilerine göre bir cihazın hata vereceğini öngören bir Azure Machine Learning modülünü dağıtmayı adım adım gösterir.
+İş mantığınızı uygulayan kodu doğrudan IoT Edge cihazlarınıza dağıtmak için IoT Edge modüllerini kullanabilirsiniz. Bu öğreticide simülasyon makinesi sıcaklık verilerini temel alarak bir cihazın arızalanacağı zamanı tahmin eden bir Azure Machine Learning modülünü dağıtma adımları açıklanmaktadır. 
+
+Bu öğreticide oluşturduğunuz Azure Machine Learning modülü, cihazınızın ürettiği ortam verilerini okur ve iletileri normal veya anormal olarak etiketler.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -28,16 +30,57 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * IoT Edge cihazınıza bir Azure Machine Learning modülü dağıtma
 > * Oluşturulan verileri görüntüleme
 
-Bu öğreticide oluşturduğunuz Azure Machine Learning modülü, cihazınızın ürettiği ortam verilerini okur ve iletileri normal veya anormal olarak etiketler.
+>[!NOTE]
+>Azure IoT Edge üzerindeki Azure Machine Learning modülleri genel önizleme sürümündedir. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Hızlı başlangıçta veya ilk öğreticide oluşturduğunuz Azure IoT Edge cihazı.
-* IoT Edge cihazınızın bağlandığı IoT hub'ının IoT Hub bağlantı dizesi.
-* Bir Azure Machine Learning hesabı. Bir hesap oluşturmak için, [Azure Machine Learning hesapları oluşturma ve Azure Machine Learning Workbench yükleme](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts) yönergelerini izleyin. Bu öğretici için çalışma ekranı uygulamasını yüklemeniz gerekmez. 
-* Makinenizdeki Azure ML için Modülü Yönetimi. Ortamınızı kurmak ve bir hesap oluşturmak için, [Model yönetimi kurulumu](../machine-learning/desktop-workbench/deployment-setup-configuration.md)'ndaki yönergeleri izleyin.
+Bu öğreticide derleyeceğiniz Machine Learning modülünü test etmek için bir IoT Edge cihazına sahip olmanız gerekir. [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md) hızlı başlangıcında yapılandırdığınız cihazı kullanabilirsiniz. 
 
 Azure Machine Learning modülü ARM işlemcilerini desteklemez.
+
+Geliştirme makinenizde aşağıdaki önkoşulların karşılandığından emin olun: 
+* Bir Azure Machine Learning hesabı. [Azure Machine Learning hesapları oluşturma ve Azure Machine Learning Workbench yükleme](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts) yönergelerini izleyin. Bu öğretici için çalışma ekranı uygulamasını yüklemeniz gerekmez. 
+* Makinenizdeki Azure ML için Modülü Yönetimi. Ortamınızı kurmak ve bir hesap oluşturmak için, [Model yönetimi kurulumu](../machine-learning/desktop-workbench/deployment-setup-configuration.md)'ndaki yönergeleri izleyin.
+
+### <a name="disable-process-identification"></a>İşlem tanımlamasını devre dışı bırakma
+
+>[!NOTE]
+>
+> Azure Machine Learning, önizleme sürümünde IoT Edge ile varsayılan olarak etkinleştirilen işlem tanımlaması güvenlik özelliğini desteklemez. 
+> Aşağıdaki adımları kullanarak bu özelliği devre dışı bırakabilirsiniz. Ancak bu süreç üretimde kullanıma uygun değildir.
+
+İşlem tanımlamasını devre dışı bırakmak için IoT Edge daemon yapılandırmasının **connect** bölümünde yer alan **workload_uri** ve **management_uri** parametreleri için IP adresini ve bağlantı noktasını belirtmeniz gerekir.
+
+Önce IP adresini alın. Komut satırına `ifconfig` yazın ve **docker0** arabiriminin IP adresini kopyalayın.
+
+IoT Edge daemon yapılandırma dosyasını düzenleyin:
+
+```cmd/sh
+sudo nano /etc/iotedge/config.yaml
+```
+
+Yapılandırmanın **connect** bölümünü güncelleştirin. Örnek:
+```yaml
+connect:
+  management_uri: "http://172.17.0.1.1:15580"
+  workload_uri: "http://172.17.0.1:15581"
+```
+
+Aynı adresleri yapılandırmanın **listen** bölümüne girin. Örnek:
+
+```yaml
+listen:
+  management_uri: "http://172.17.0.1.1:15580"
+  workload_uri: "http://172.17.0.1:15581"
+```
+
+IOTEDGE_HOST ortam değişkenini management_uri adresiyle oluşturun (Kalıcı olarak ayarlamak için `/etc/environment` yoluna ekleyin). Örneğin:
+
+```cmd/sh
+export IOTEDGE_HOST="http://172.17.0.1:15580"
+```
+
 
 ## <a name="create-the-azure-ml-container"></a>Azure ML kapsayıcısını oluşturma
 Bu bölümde eğitilen modelin dosyalarını indirecek ve bunları Azure ML kapsayıcısına dönüştüreceksiniz.
@@ -57,7 +100,7 @@ az ml service create realtime --model-file model.pkl -f iot_score.py -n machinel
 
 ### <a name="view-the-container-repository"></a>Kapsayıcı deposunu görüntüleme
 
-Kapsayıcınızın görüntüsünün başarıyla oluşturulduğundan ve makine öğrenimi ortamınızla ilişkili Azure kapsayıcı deposuna depolandığından emin olun.
+Kapsayıcınızın görüntüsünün başarıyla oluşturulduğundan ve makine öğrenimi ortamınızla ilişkili Azure Kapsayıcısı kayıt defterine depolandığından emin olun.
 
 1. [Azure portalda](https://portal.azure.com), **Tüm Hizmetler**'e gidin ve **Kapsayıcı kayıt defterleri**'ni seçin.
 2. Kayıt defterinizi seçin. Ad **mlcr** ile başlamalıdır ve Modül Yönetimini kurmak için kullandığınız kaynak grubuna, konuma ve aboneliğe aittir.
@@ -67,36 +110,34 @@ Kapsayıcınızın görüntüsünün başarıyla oluşturulduğundan ve makine �
 6. **machinelearningmodule**'u seçin
 7. Artık kapsayıcının tam görüntüsünün yoluna sahipsiniz. Bu görüntü yolunu sonraki bölüm için not edin. Biçimi şöyle olmalıdır:  **<kayit_defteri_adi>.azureacr.io/machinelearningmodule:1**
 
-## <a name="add-registry-credentials-to-your-edge-device"></a>Kayıt defteri kimlik bilgilerini Edge cihazınıza ekleme
-
-Kayıt defterinizin kimlik bilgilerini, Edge cihazınızı çalıştırdığınız bilgisayarın Edge çalışma zamanına ekleyin. Bu komut, çalışma zamanına kapsayıcıyı çekmek için erişim verir.
-
-Linux:
-   ```cmd
-   sudo iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password>
-   ```
-
-Windows:
-   ```cmd
-   iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password>
-   ```
-
-## <a name="run-the-solution"></a>Çözümü çalıştırın
+## <a name="deploy-to-your-device"></a>Cihazınıza dağıtma
 
 1. [Azure portalda](https://portal.azure.com), IoT hub'ınıza gidin.
-1. **IoT Edge (önizleme)** sayfasına gidip IoT Edge cihazınızı seçin.
+
+1. **IoT Edge** sayfasına gidip IoT Edge cihazınızı seçin.
+
 1. **Modül ayarla**’yı seçin.
+
+1. **Kayıt Defteri Ayarları** bölümünde Azure kapsayıcı kayıt defterinden kopyaladığınız kimlik bilgilerini ekleyin. 
+
+   ![Kayıt defteri kimlik bilgilerini ekleme](./media/tutorial-deploy-machine-learning/registry-settings.png)
+
 1. tempSensor modülünü daha önce IoT Edge cihazına dağıttıysanız, otomatik olarak dolabilir. Modül listenizde değilse ekleyin.
-    1. **IoT Edge Modülü Ekle**'yi seçin.
-    2. **Ad** alanına `tempSensor` girin.
-    3. **Görüntü URI'si** alanına `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` girin.
+
+    1. **Ekle**'ye tıklayıp **IoT Edge Modülü**'nü seçin.
+    2. **Ad** alanına `tempsensor` girin.
+    3. **Görüntü URI'si** alanına `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` girin.
     4. **Kaydet**’i seçin.
+
 1. Oluşturduğunuz makine öğrenimi modülünü ekleyin.
-    1. **IoT Edge Modülü Ekle**'yi seçin.
+
+    1. **Ekle**'ye tıklayıp **Azure Machine Learning Modülü**'nü seçin.
     1. **Ad** alanına `machinelearningmodule` girin
     1. **Görüntü** alanına görüntünüzün adresini girin; örneğin `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. **Kaydet**’i seçin.
+
 1. **Modül Ekle** adımına dönüp **İleri**’yi seçin.
+
 1. **Rota Belirtme** adımında, aşağıdaki JSON’u metin kutusuna kopyalayın. İlk yol, tüm Azure Machine Learning modüllerinin kullandığı uç nokta olan "amlInput" uç noktası aracılığıyla sıcaklık algılayıcısından makine öğrenimi modülüne ileti taşır. İkinci yol, makine öğrenimi modülünden IoT Hub'ına ileti taşır. Bu yolda, ''amlOutput'' tüm Azure Machine Learning modüllerinin veri çıkışı için kullandığı uç noktadır ve ''$upstream'' IoT Hub'ını gösterir.
 
     ```json
@@ -109,31 +150,92 @@ Windows:
     ```
 
 1. **İleri**’yi seçin.
-1. **Şablonu Gözden Geçirin** adımında **Gönder**’i seçin.
+
+1. **Dağıtımı Gözden Geçirin** adımında **Gönder**'i seçin.
+
 1. Cihaz ayrıntıları sayfasına dönüp **Yenile**’yi seçin.  Yeni **machinelearningmodule** modülünün **tempSensor** modülü ve IoT Edge çalışma zamanı modülleri ile birlikte çalıştığını görmelisiniz.
 
 ## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
-IoT Edge cihazınızın [IoT Hub gezginini](https://github.com/azure/iothub-explorer) veya Visual Studio Code için Azure IoT Toolkit uzantısını kullanarak gönderdiği cihazdan buluta iletilerini görüntüleyebilirsiniz.
+Her bir IoT Edge modülü tarafından oluşturulan ve IoT hub'ınıza gönderilen iletileri görüntüleyebilirsiniz.
+
+### <a name="view-data-on-your-iot-edge-device"></a>IoT Edge cihazınızdaki verileri görüntüleme
+
+IoT Edge cihazınızda her bir modülden gönderilen iletileri görüntüleyebilirsiniz. 
+
+Bu komutları bir Linux cihazında gerçekleştirirseniz yükseltilmiş izinler için `sudo` kullanmanız gerekebilir.
+
+1. IoT Edge cihazınızda tüm modülleri görüntüleyin.
+
+   ```cmd/sh
+   iotedge list
+   ```
+
+2. Belirli bir cihazdan gönderilen iletileri görüntüleyin. Önceki komutun çıktısında yer alan modül adını kullanın.
+
+   ```cmd/sh
+   iotedge logs <module_name> -f
+   ```
+
+### <a name="view-data-arriving-at-your-iot-hub"></a>IoT hub'ınıza ulaşan verileri görüntüleme
+
+IoT Hub'ınızın [IoT Hub gezginini](https://github.com/azure/iothub-explorer) veya [Visual Studio Code için Azure IoT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) kullanarak aldığı cihazdan buluta iletilerini görüntüleyebilirsiniz.
+
+Aşağıdaki adımlar, IoT hub'ınıza ulaşan cihazdan buluta iletileri izlemek için yapmanız gereken Visual Studio Code ayarlarını göstermektedir. 
 
 1. Visual Studio Code'da **IoT Hub Cihazları**'nı seçin.
+
 2. Menüden **...** öğesini, sonra **IoT Hub Bağlantı Dizesini Ayarla**'yı seçin.
 
    ![IoT Hub Cihazları diğer menüsü](./media/tutorial-deploy-machine-learning/set-connection.png)
 
 3. Sayfanın üstünde açılan metin kutusuna IoT Hub'ınız için iothubowner bağlantı dizesini girin. IoT Edge cihazınız IoT Hub Cihazları listesinde görünmelidir.
+
 4. Yeniden **...** öğesini, sonra **D2C iletisini izlemeye başla**'yı seçin.
+
 5. tempSensor her beş saniyede bir gelen iletileri gözlemleyin. İleti gövdesinde, machinelearningmodule'un true veya false değeri verdiği **anomaly** adlı bir özellik bulunur. Model başarıyla çalıştıysa, **AzureMLResponse** özelliği "OK" değerini içerir.
 
    ![İleti gövdesindeki Azure ML yanıtı](./media/tutorial-deploy-machine-learning/ml-output.png)
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme 
+
+<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+
+Bir sonraki önerilen makaleye geçecekseniz oluşturduğunuz kaynaklarla yapılandırmaları tutabilir ve yeniden kullanabilirsiniz.
+
+Geçmeyecekseniz ücret kesilmesini önlemek için yerel yapılandırmalarınızı ve bu makalede oluşturulan Azure kaynaklarını silebilirsiniz. 
+
+> [!IMPORTANT]
+> Azure kaynaklarını ve kaynak grubunu silme işlemi geri alınamaz. Silindikten sonra kaynak grubu ve içindeki tüm kaynaklar kalıcı olarak silinir. Yanlış kaynak grubunu veya kaynakları yanlışlıkla silmediğinizden emin olun. IoT Hub'ı tutmak istediğiniz kaynakların bulunduğu mevcut bir kaynak grubunda oluşturduysanız kaynak grubunu silmek yerine IoT Hub kaynağını silin.
+>
+
+Yalnızca IoT Hub'ı silmek için hub adını ve kaynak grubu adını kullanarak aşağıdaki komutu çalıştırın:
+
+```azurecli-interactive
+az iot hub delete --name MyIoTHub --resource-group TestResources
+```
+
+
+Kaynak grubunun tamamını adıyla silmek için:
+
+1. [Azure portalında](https://portal.azure.com) oturum açın ve **Kaynak grupları**’na tıklayın.
+
+2. **Ada göre filtrele...** metin kutusuna IoT Hub'ınızın bulunduğu kaynak grubunun adını girin. 
+
+3. Sonuç listesinde kaynak grubunuzun sağ tarafında **...** ve sonra **Kaynak grubunu sil**'e tıklayın.
+
+<!--
+   ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
+-->
+4. Kaynak grubunun silinmesini onaylamanız istenir. Onaylamak için kaynak grubunuzun adını tekrar yazın ve **Sil**'e tıklayın. Birkaç dakika sonra kaynak grubu ve içerdiği kaynakların tümü silinir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, Azure Machine Learning ile çalışan bir IoT Edge modülü dağıttınız. Azure IoT Edge'in verileri iş içgörüsüne çevirmenize yardımcı olabilecek diğer yollar hakkında bilgi edinmek için diğer öğreticilere geçebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Bir Azure Function'ı modül olarak dağıtma](tutorial-deploy-function.md)
+> [C# kodunu kullanarak sensör verilerini filtreleme](tutorial-csharp-module.md)
 
 <!--Links-->
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
+[lnk-tutorial1-win]: quickstart.md
+[lnk-tutorial1-lin]: quickstart-linux.md

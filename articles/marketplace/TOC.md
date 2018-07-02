@@ -7,6 +7,7 @@
 #### [AppSource ile işletmenizi büyütün](./grow-your-business-with-appsource.md)  
 ##### [Giriş Sayfanızı Oluşturma](./build-your-landing-page.md)  
 ##### [Müşteri adayı paylaşımını etkinleştirme](./enable-lead-sharing.md)  
+##### [Tercih Edilen Çözümler](./preferred-solutions.md)
 ##### [Markette GTM Avantajları](./gtm-benefits.md)  
 ##### [Microsoft ile İşletmenizi Tanıtma](./promote-your-business-with-microsoft.md)  
 #### [İşletmenizi Azure Market ile büyütme](./grow-your-business-with-azure-marketplace.md)  

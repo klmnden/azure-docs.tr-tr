@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8f477282e49104e9b034e11656ff50c2a67545f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5efb0087c8e1ea55051d8eb7b209059b3abd5c5c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195881"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062768"
 ---
 # <a name="what-is-azure-redis-cache"></a>Azure Redis Cache nedir?
 
@@ -77,6 +77,7 @@ Temel | Tek düğümlü bir önbellek. Bu katman birden fazla bellek boyutunu (2
 
 * [ASP.NET Web Uygulaması Hızlı Başlangıcı](cache-web-app-howto.md) Azure Redis Cache kullanan basit bir ASP.NET web uygulaması oluşturun.
 * [.NET Hızlı Başlangıcı](cache-dotnet-how-to-use-azure-redis-cache.md) Azure Redis Cache kullanan bir .NET uygulaması oluşturun.
+* [.NET Core Hızlı Başlangıcı](cache-dotnet-core-quickstart.md) Azure Redis Cache kullanan bir .NET Core uygulaması oluşturun.
 * [Node.js Hızlı Başlangıcı](cache-nodejs-get-started.md) Azure Redis Cache kullanan basit bir Node.js uygulaması oluşturun.
 * [Java Hızlı Başlangıcı](cache-java-get-started.md) Azure Redis Cache kullanan basit bir Java uygulaması oluşturun.
 * [Python Hızlı Başlangıcı](cache-python-get-started.md) Azure Redis Cache kullanan bir Python uygulaması oluşturun.

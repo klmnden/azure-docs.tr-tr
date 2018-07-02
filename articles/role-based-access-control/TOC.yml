@@ -1,4 +1,4 @@
-- name: Rol Tabanlı Erişim Denetimi Belgeleri
+- name: Rol tabanlı erişim denetimi belgeleri
   href: index.yml
   items: null
 - name: Genel Bakış
@@ -25,16 +25,11 @@
   items:
     - name: Rol tanımlarını anlama
       href: role-definitions.md
-    - name: Yerleşik roller
-      href: built-in-roles.md
-    - name: Kaynak sağlayıcısı işlemleri
-      href: resource-provider-operations.md
     - name: RBAC için Privileged Identity Management (PIM)
       href: pim-azure-resource.md
     - name: Azure yönetimi için koşullu erişim
       href: conditional-access-azure-management.md
 - name: Nasıl yapılır kılavuzları
-  expanded: true
   items:
     - name: Erişimi yönetme
       items:
@@ -63,3 +58,17 @@
       href: role-assignments-external-users.md
     - name: Sorun giderme
       href: troubleshooting.md
+- name: Başvuru
+  items:
+    - name: Yerleşik roller
+      href: built-in-roles.md
+    - name: Kaynak sağlayıcısı işlemleri
+      href: resource-provider-operations.md
+    - name: RBAC sınırları
+      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.resources
+    - name: Azure CLI
+      href: /cli/azure/role?view=azure-cli-latest
+    - name: REST API
+      href: /rest/api/authorization/

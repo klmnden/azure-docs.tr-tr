@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: dab9e7b4ee62624ba32b7b6b41d0dee5ac01af09
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e40283abd418552f296f7539e554e0ad5232e49a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598326"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031704"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux’ta Azure App Service’e Giriş
 
@@ -76,7 +76,7 @@ Azure portalı, yalnızca şu anda Kapsayıcılar için Web App ile kullanılabi
 
 Sanal ağ tümleştirme, Azure Active Directory/üçüncü taraf kimlik doğrulaması veya Kudu site uzantıları gibi bazı özellikler henüz kullanılamamaktadır. Bu özellikler kullanıma sunulduğunda belgelerimizi ve blogumuzu güncelleştireceğiz.
 
-Linux’ta App Service yalnızca [Temel ve Standart](https://azure.microsoft.com/pricing/details/app-service/plans/) uygulama hizmeti planlarıyla desteklenir ve [Ücretsiz veya Paylaşılan](https://azure.microsoft.com/pricing/details/app-service/plans/) katman içermez. Zaten Linux olmayan Web Apps barındıran bir App Service planında Kapsayıcılar için Web App oluşturamazsınız. Aynı zamanda Windows ve Linux uygulamalarını aynı kaynak grubunda karıştırmamayla da ilgili geçerli bir sınırlama bulunuyor.
+Linux’ta App Service yalnızca [Temel, Standart ve Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) uygulama hizmeti planlarıyla desteklenir ve [Ücretsiz veya Paylaşılan](https://azure.microsoft.com/pricing/details/app-service/plans/) katman içermez. [ASE üzerinde Linux (Yalıtılmış katman)](https://blogs.msdn.microsoft.com/appserviceteam/2018/05/07/announcing-the-linux-on-app-service-environment-public-preview/) şu an için önizleme modundadır ve üretim iş yükleri için desteklenmez. Zaten Linux dışı Web App’ler barındıran bir App Service planında Kapsayıcılar için Web App oluşturamazsınız. Windows ve Linux uygulamalarını aynı kaynak grubunda karıştırmama konusunda da bir sınır söz konusudur.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

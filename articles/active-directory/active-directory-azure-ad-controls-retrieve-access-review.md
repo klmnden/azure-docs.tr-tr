@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: c30d166335e31cdbf03283371da42fa6b7cda162
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: a2d356afd33ddd2e641c6f9bc028f235623b448b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233123"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024784"
 ---
 # <a name="retrieve-access-review-results"></a>Erişim gözden geçirmesi sonuçlarını alma
 
-Yöneticiler, bir uygulamaya atanmış grup üyeleri veya kullanıcılar için [bir erişim gözden geçirmesi oluşturmak](active-directory-azure-ad-controls-create-access-review.md) üzere Azure Active Directory’yi (Azure AD) kullanabilir.  **Genel Yönetici**, **Güvenlik Yöneticisi** veya **Güvenlik Okuyucusu** rolündeki bir kullanıcı da erişim gözden geçirmesinin sonuçlarını okuyabilir.  Bu rollerden birine kullanıcı atamak için, Ayrıcalıklı Rol Yöneticisi Azure AD PIM’yi kullanarak bir kullanıcıyı rol etkinleştirmeye uygun hale getirebilir veya Genel Yönetici, [role kalıcı olarak kullanıcı atayabilir](active-directory-users-assign-role-azure-portal.md).
+Yöneticiler, bir uygulamaya atanmış grup üyeleri veya kullanıcılar için [bir erişim gözden geçirmesi oluşturmak](active-directory-azure-ad-controls-create-access-review.md) üzere Azure Active Directory’yi (Azure AD) kullanabilir.  **Genel Yönetici**, **Kullanıcı Hesabı Yöneticisi**, **Güvenlik Yöneticisi** veya **Güvenlik Okuyucusu** rolündeki bir kullanıcı da erişim gözden geçirmesinin sonuçlarını okuyabilir.  Bu rollerden birine kullanıcı atamak için, Ayrıcalıklı Rol Yöneticisi Azure AD PIM’yi kullanarak bir kullanıcıyı rol etkinleştirmeye uygun hale getirebilir veya Genel Yönetici, [role kalıcı olarak kullanıcı atayabilir](fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="locating-an-access-review"></a>Erişim gözden geçirmesini bulma
 
@@ -46,7 +46,7 @@ Yinelenen bir erişim gözden geçirmesinin tamamlanmış bir örneğine ait son
 
 ## <a name="removing-users-from-an-access-review"></a>Bir erişim gözden geçirmesinden kullanıcı kaldırma
 
-Varsayılan olarak, silinmiş bir kullanıcı Azure AD’de 30 gün boyunca silinmiş olarak kalır ve bu süre boyunca gerekirse bir yönetici tarafından geri alınabilir.  30 gün sonra bu kullanıcı kalıcı olarak silinir.  Ayrıca, bir Genel Yönetici bu süreye ulaşılmadan önce Azure Active Directory portalını kullanarak [kısa süre önce silinmiş bir kullanıcıyı kalıcı olarak silebilir](active-directory-users-restore.md).  Bir kullanıcı kalıcı olarak silindikten sonra, bu kullanıcıya ilişkin sonraki veriler etkin erişim gözden geçirmelerinden kaldırılır.  Silinmiş kullanıcılara ilişkin denetim bilgileri, denetim günlüğünde kalır.
+Varsayılan olarak, silinmiş bir kullanıcı Azure AD’de 30 gün boyunca silinmiş olarak kalır ve bu süre boyunca gerekirse bir yönetici tarafından geri alınabilir.  30 gün sonra bu kullanıcı kalıcı olarak silinir.  Ayrıca, bir Genel Yönetici bu süreye ulaşılmadan önce Azure Active Directory portalını kullanarak [kısa süre önce silinmiş bir kullanıcıyı kalıcı olarak silebilir](fundamentals/active-directory-users-restore.md).  Bir kullanıcı kalıcı olarak silindikten sonra, bu kullanıcıya ilişkin sonraki veriler etkin erişim gözden geçirmelerinden kaldırılır.  Silinmiş kullanıcılara ilişkin denetim bilgileri, denetim günlüğünde kalır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 035deabd04b8b838e0009f2cae96b0761733897f
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: f839b05a1d97ce78601697469c982839358d6b06
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248250"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300865"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Öğretici: Log Analytics kullanarak Service Fabric’te Windows kapsayıcılarını izleme
 
@@ -31,7 +31,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
 > * Service Fabric kümeniz için Log Analytics’i yapılandırma
 > * Kapsayıcılarınızdaki ve düğümlerinizdeki günlükleri görüntülemek ve sorgulamak için bir Log Analytics çalışma alanı kullanma
-> * OMS aracısını kapsayıcı ve düğüm ölçümlerini alacak şekilde yapılandırma
+> * Log Analytics aracısını kapsayıcı ve düğüm ölçümlerini alacak şekilde yapılandırma
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce karşılamanız gereken ön koşullar şunlardır:
@@ -81,7 +81,7 @@ Bu öğreticinin ilk bölümünde [sağlanan şablonu](https://github.com/ChackD
     "omsSolution": "ServiceFabric"
     ```
 
-3. OMS Microsoft Monitoring Agent’ı sanal makine uzantısı olarak ekleyin. Sanal makine ölçek kümeleri kaynağını bulun: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* yolunda, *ServiceFabricNode* uzantısının altına şu uzantı açıklamasını ekleyin: 
+3. Microsoft Monitoring Agent’ı sanal makine uzantısı olarak ekleyin. Sanal makine ölçek kümeleri kaynağını bulun: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* yolunda, *ServiceFabricNode* uzantısının altına şu uzantı açıklamasını ekleyin: 
     
     ```json
     {
@@ -181,7 +181,7 @@ Bu öğreticinin ilk bölümünde [sağlanan şablonu](https://github.com/ChackD
     },
     ```
 
-[Burada](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json), gerektiğinde başvurmanız için bu değişikliklerin tümünü içeren (ve bu öğreticinin ilk bölümünde kullanılan) bir örnek şablon verilmiştir. Bu değişiklikler, kaynak grubunuza bir Log Analytics çalışma alanı ekler. Çalışma alanı, [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) aracısıyla yapılandırılan depolama tablolarından Service Fabric platform olaylarını alacak şekilde yapılandırılır. OMS aracısı da (Microsoft Monitoring Agent) kümenizdeki her düğüme sanal makine uzantısı olarak eklenmiştir. Böylece siz kümenizi ölçekledikçe aracı her bir makinede otomatik olarak yapılandırılır ve aynı çalışma alanına bağlanır.
+[Burada](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json), gerektiğinde başvurmanız için bu değişikliklerin tümünü içeren (ve bu öğreticinin ilk bölümünde kullanılan) bir örnek şablon verilmiştir. Bu değişiklikler, kaynak grubunuza bir Log Analytics çalışma alanı ekler. Çalışma alanı, [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) aracısıyla yapılandırılan depolama tablolarından Service Fabric platform olaylarını alacak şekilde yapılandırılır. Log Analytics aracısı da (Microsoft Monitoring Agent) kümenizdeki her düğüme sanal makine uzantısı olarak eklenmiştir. Böylece siz kümenizi ölçekledikçe aracı her bir makinede otomatik olarak yapılandırılır ve aynı çalışma alanına bağlanır.
 
 Geçerli kümenizi yükseltmek için şablonu yeni değişikliklerinizle dağıtın. Bu işlem tamamlandığında kaynak grubunuzda Log Analytics kaynaklarını görürsünüz. Küme hazır olduğunda kümeye kapsayıcılı uygulamanızı dağıtın. Sonraki adımda, kapsayıcıları izleme özelliğini ayarlayacağız.
 
@@ -191,7 +191,7 @@ Geçerli kümenizi yükseltmek için şablonu yeni değişikliklerinizle dağıt
 
 ![Kapsayıcılar çözümü ekleme](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-*Log Analytics Çalışma Alanı* için istem görüntülendiğinde kaynak grubunuzda oluşturulan çalışma alanını seçin ve **Oluştur**’a tıklayın. Bu, çalışma alanınıza bir *Kapsayıcı İzleme Çözümü* ekler ve otomatik olarak, şablon tarafından dağıtılan OMS aracısının docker günlüklerini ve istatistiklerini toplamaya başlamasını sağlar. 
+*Log Analytics Çalışma Alanı* için istem görüntülendiğinde kaynak grubunuzda oluşturulan çalışma alanını seçin ve **Oluştur**’a tıklayın. Bu, çalışma alanınıza bir *Kapsayıcı İzleme Çözümü* ekler ve otomatik olarak, şablon tarafından dağıtılan Log Analytics aracısının docker günlüklerini ve istatistiklerini toplamaya başlamasını sağlar. 
 
 *Kaynak grubunuza* geri dönün. Yeni eklenen izleme çözümünü burada görürsünüz. Bu çözüme tıklarsanız giriş sayfası, çalıştırdığınız kapsayıcı görüntülerinin sayısını size gösterir. 
 
@@ -211,11 +211,11 @@ Bu panellerden herhangi birine tıklamanız sizi görüntülenen değeri oluştu
 
 ![Kapsayıcı sorgusu](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
-## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>OMS aracısını performans sayaçlarını alacak şekilde yapılandırma
+## <a name="configure-log-analytics-agent-to-pick-up-performance-counters"></a>Log Analytics aracısını performans sayaçlarını alacak şekilde yapılandırma
 
-OMS aracısını kullanmanın diğer bir avantajı da her seferinde Azure tanılama aracısını yapılandırmak ve Resource Manager şablonuna dayalı bir yükseltme gerçekleştirmek zorunda kalmadan OMS UI deneyimi aracılığıyla almak istediğiniz performans sayaçlarını değiştirebilmenizdir. Bunu yapmak için Kapsayıcı İzleme (veya Service Fabric) çözümünüzün giriş sayfasında **OMS Çalışma Alanı**’na tıklayın.
+Log Analytics aracısını kullanmanın diğer bir avantajı da her seferinde Azure tanılama aracısını yapılandırmak ve Resource Manager şablonuna dayalı bir yükseltme gerçekleştirmek zorunda kalmadan Log Analytics arabirim deneyimi aracılığıyla almak istediğiniz performans sayaçlarını değiştirebilmenizdir. Bunu yapmak için Kapsayıcı İzleme (veya Service Fabric) çözümünüzün giriş sayfasında **OMS Çalışma Alanı**’na tıklayın.
 
-Bu sizi OMS Çalışma Alanınıza yönlendirir. Burada çözümlerinizi görüntüleyebilir, özel panolar oluşturabilir ve OMS aracısını yapılandırabilirsiniz. 
+Bu sizi Log Analytics Çalışma Alanınıza yönlendirir. Burada çözümlerinizi görüntüleyebilir, özel panolar oluşturabilir ve Log Analytics aracısını yapılandırabilirsiniz. 
 * Gelişmiş Ayarlar menüsünü açmak için **Gelişmiş Ayarlar**’a tıklayın.
 * **Bağlı Kaynaklar** > **Windows Sunucuları**’na tıklayarak *5 Windows Bilgisayarı Bağlı* ifadesini gördüğünüzden emin olun.
 * Yeni performans sayaçlarını aramak ve eklemek için **Veriler** > **Windows Performans Sayaçları**’na tıklayın. Burada, toplayabileceğiniz performans sayaçlarına ilişkin Log Analytics önerilerinin listesinin yanı sıra başka sayaçları arama seçeneğini de görürsünüz. Doğrulayın **Processor(_Total)\% İşlemci Zamanı** ve **Memory(*)\Available MBytes** sayaçlarının toplandığını doğrulayın.

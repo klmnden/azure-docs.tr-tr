@@ -23,6 +23,8 @@
       href: monitoring-data-sources.md
     - name: Azure İzleyici
       href: monitoring-overview-azure-monitor.md
+    - name: Aracılar
+      href: ../monitoring/monitoring-overview-azure-agents.md
     - name: Ölçümler
       href: monitoring-overview-metrics.md
     - name: Otomatik Ölçeklendirme

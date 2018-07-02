@@ -1,10 +1,10 @@
 ---
 title: Azure'da SQL Veritabanı ile ASP.NET uygulaması oluşturma | Microsoft Docs
-description: Azure'da çalışan ve bir SQL Veritabanı’na bağlantısı olan ASP.NET uygulamasını nasıl alabileceğinizi öğrenin.
+description: Azure'a SQL Server veritabanı ile C# ASP.NET uygulaması dağıtmayı öğrenin.
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: cfowler
 editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 06/09/2017
+ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4fd1381594c77d8bba92027fee06c08376ee903b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b08033c53185e6229e6fa368a3456749e19eb1f0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789257"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021332"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Öğretici: Azure’da SQL Veritabanı ile ASP.NET uygulaması derleme
 
@@ -44,21 +44,17 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu öğreticiyi tamamlamak için:
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
-  - **ASP.NET ve web geliştirme**
-  - **Azure geliştirme**
-
-  ![ASP.NET ve web geliştirme ile Azure geliştirme (Web ve Bulut altında)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+**ASP.NET ve web geliştirme** iş yüküyle <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>’yi yükleyin.
 
 Visual Studio’yu önceden yüklediyseniz, **Araçlar** > **Araçları ve Özellikleri Al** seçeneklerine tıklayarak Visual Studio’da iş yüklerini ekleyin.
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
-[Örnek projeyi indirin](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+<a name="-download-the-sample-projecthttpsgithubcomazure-samplesdotnet-sqldb-tutorialarchivemasterzip"></a>-[Örnek projeyi indirin](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+-
+-*dotnet-sqldb-tutorial-master.zip* dosyasını ayıklayın (sıkıştırmasını açın).
 
-*Dotnet-sqldb-tutorial-master.zip* dosyasını ayıklayın (sıkıştırmasını açın).
-
-Örnek proje, [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) kullanan temel bir [ASP.NET MVC](https://www.asp.net/mvc) CRUD (oluşturma-okuma-güncelleştirme-silme) uygulaması içerir.
+Örnek proje, [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) kullanan temel bir [ASP.NET MVC](https://www.asp.net/mvc) oluşturma-okuma-güncelleştirme-silme (CRUD) uygulaması içerir.
 
 ### <a name="run-the-app"></a>Uygulamayı çalıştırma
 
@@ -86,20 +82,20 @@ Yayımlama işlemi, ASP.NET web uygulamanızı Azure’da çalışmanız için g
 
 ### <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-**App Service Oluştur** iletişim kutusunda **Hesap ekle**’ye tıklayın ve ardından Azure aboneliğinizde oturum açın. Bir Microsoft hesabında zaten oturum açtıysanız hesabın Azure aboneliğinizi barındırdığından emin olun. Oturum açtığınız Microsoft hesabında Azure aboneliğiniz yoksa, doğru hesabı eklemek için tıklayın.
+**App Service Oluştur** iletişim kutusunda **Hesap ekle**’ye tıklayın ve ardından Azure aboneliğinizde oturum açın. Bir Microsoft hesabında zaten oturum açtıysanız hesabın Azure aboneliğinizi barındırdığından emin olun. Oturum açtığınız Microsoft hesabında Azure aboneliğiniz yoksa, doğru hesabı eklemek için tıklayın. 
+
+> [!NOTE]
+> Zaten oturum açtıysanız **Oluştur** öğesini henüz seçmeyin.
+>
+>
    
 ![Azure'da oturum açma](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
-
-Oturum açtıktan sonra bu iletişim kutusunda Azure web uygulamanız için gereken tüm kaynakları oluşturmaya hazır olursunuz.
 
 ### <a name="configure-the-web-app-name"></a>Web uygulaması adını yapılandırma
 
 Oluşturulan web uygulaması adını koruyabilir veya başka bir benzersiz adla değiştirebilirsiniz (geçerli karakterler: `a-z`, `0-9` ve `-`). Web uygulaması adı, uygulamanızın varsayılan URL'sinin bir parçası olarak kullanılır (`<app_name>.azurewebsites.net`; burada `<app_name>`, web uygulamanızın adıdır). Web uygulaması adı Azure'daki tüm uygulamalar arasında benzersiz olmalıdır. 
 
 ![App Service oluşturma iletişim kutusu](media/app-service-web-tutorial-dotnet-sqldatabase/wan.png)
-
-> [!NOTE]
-> **Oluştur**'a tıklamayın. İlk olarak, sonraki bir adımda SQL Veritabanı'nı ayarlamanız gerekir.
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -131,13 +127,9 @@ Kaynak grubunu **myResourceGroup** olarak adlandırın.
 
 Veritabanı oluşturmadan önce, bir [Azure SQL Veritabanı mantıksal sunucusuna](../sql-database/sql-database-features.md) ihtiyacınız vardır. Mantıksal sunucu, grup olarak yönetilen bir veritabanı grubu içerir.
 
-**Diğer Azure hizmetlerini keşfedin** öğesini seçin.
+**SQL Veritabanı oluştur**'a tıklayın.
 
-![Web uygulaması adını yapılandırma](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
-
-**Hizmetler** sekmesinde, **SQL Veritabanı**'nın yanındaki **+** simgesine tıklayın. 
-
-![Hizmetler sekmesinde, SQL Veritabanı'nın yanındaki + simgesine tıklayın.](media/app-service-web-tutorial-dotnet-sqldatabase/sql.png)
+![SQL Veritabanı oluşturma](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
 **SQL Veritabanını Yapılandır** iletişim kutusunda, **SQL Server**'ın yanındaki **Yeni**'ye tıklayın. 
 
@@ -164,7 +156,7 @@ Bu kullanıcı adını ve parolayı unutmayın. Daha sonra mantıksal sunucu ör
 
 ![SQL Veritabanı'nı yapılandırma](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-**App Service Oluştur** iletişim kutusunda, oluşturduğunuz kaynaklar gösterilir. **Oluştur**’a tıklayın. 
+**App Service Oluştur** iletişim kutusunda, yapılandırdığınız kaynaklar gösterilir. **Oluştur**’a tıklayın. 
 
 ![oluşturduğunuz kaynaklar](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -314,7 +306,7 @@ Artık veritabanı geçişi de dahil olmak üzere kod değişikliğiniz çalış
 
 Aynı daha önce yaptığınız gibi, projenize sağ tıklayıp **Yayımla**'yı seçin.
 
-Yayımlama sihirbazını açmak için **Ayarlar**'a tıklayın.
+Yayımlama ayarlarını açmak için **Yapılandır**'a tıklayın.
 
 ![Yayımlama ayarlarını açma](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-settings.png)
 

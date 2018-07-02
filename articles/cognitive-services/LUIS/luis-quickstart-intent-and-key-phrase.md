@@ -7,31 +7,35 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 12c306b5199da5862302c28d1690b81c6e1edb0e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 9acdfdde667d37bac5b96e4497b3e86d2cdeccb8
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264624"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063417"
 ---
-# <a name="tutorial-create-app-that-returns-keyphrases-entity-data-found-in-utterances"></a>Öğretici: Konuşmalarda bulunan keyPhrases varlığı verilerini döndüren bir uygulama oluşturma
-Bu öğreticide konuşmalardaki temel konuları ayıklamayı gösteren bir uygulama oluşturacaksınız.
+# <a name="tutorial-learn-how-to-return-data-from-keyphrase-entity"></a>Öğretici: keyPhrase varlığındaki verileri döndürme 
+Bu öğreticide konuşmalardaki temel konuları ayıklamayı gösteren bir uygulama kullanacaksınız.
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * keyPhrase varlıklarını anlama 
-> * İnsan kaynakları alanında yeni bir LUIS uygulaması oluşturma
-> * _None_ amacını ve örnek konuşmaları ekleme
+> * LUIS uygulamasını İnsan Kaynakları (İK) alanında kullanma 
 > * Konuşmadan içerik ayıklamak için keyPhrase varlığını ekleme
 > * Uygulamayı eğitme ve yayımlama
-> * LUIS JSON yanıtını görmek için uygulamanın uç noktasını sorgulama
+> * Anahtar ifadeler içeren LUIS JSON yanıtını görmek için uygulamanın uç noktasını sorgulama
 
-Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS][LUIS] hesabını kullanabilirsiniz.
+Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS](luis-reference-regions.md#publishing-regions) hesabını kullanabilirsiniz.
+
+## <a name="before-you-begin"></a>Başlamadan önce
+[Basit varlık](luis-quickstart-primary-and-secondary-data.md) öğreticisinde oluşturulan İnsan Kaynakları uygulamasına sahip değilseniz JSON verilerini [içe aktararak](create-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulama oluşturun. İçeri aktarmanız gereken uygulama [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json) Github deposunda bulunmaktadır.
+
+Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `keyphrase` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. 
 
 ## <a name="keyphrase-entity-extraction"></a>keyPhrase varlığı ayıklama
-Temel konu, önceden oluşturulmuş **keyPhrase** varlığı tarafından sağlanır. Bu varlık, konuşmadaki temel konuyu döndürür
+Temel konu, önceden oluşturulmuş **keyPhrase** varlığı tarafından sağlanır. Bu varlık, konuşmadaki temel konuyu döndürür.
 
 Aşağıdaki konuşmalarda anahtar ifade örnekleri gösterilmektedir:
 
@@ -40,65 +44,54 @@ Aşağıdaki konuşmalarda anahtar ifade örnekleri gösterilmektedir:
 |Is there a new medical plan with a lower deductible offered next year? (Önümüzdeki yıl daha düşük kesintili yeni bir sağlık planı sunuluyor mu?)|"lower deductible" (daha düşük kesinti)<br>"new medical plan" (yeni sağlık planı)<br>"year" (yıl)|
 |Is vision therapy covered in the high deductible medical plan? (Göz tedavisi daha yüksek kesintili sağlık planına dahil mi?)|"high deductible medical plan" (yüksek kesintili sağlık planı)<br>"vision therapy" (göz tedavisi)|
 
-Sohbet botunuz konuşmadaki bir sonraki adımı belirlerken ayıklanan diğer tüm varlıklara ek olarak bu değerleri de kullanabilir.
-
-## <a name="download-sample-app"></a>Örnek uygulamayı indirin
-[İnsan Kaynakları](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) uygulamasını indirin ve *.json uzantılı bir dosyaya kaydedin. Bu örnek uygulama çalışan yan hakları, kuruluş şemaları ve fiziksel varlıklarla ilgili konuşmaları tanır.
-
-## <a name="create-a-new-app"></a>Yeni bir uygulama oluşturma
-1. [LUIS][LUIS] web sitesinde oturum açın. LUIS uç noktalarının yayımlanmasını istediğiniz [bölgede][LUIS-regions] oturum açtığınızdan emin olun.
-
-2. [LUIS][LUIS] web sitesinde **Import new app** (Yeni uygulama içeri aktar) öğesini seçerek bir önceki bölümde indirdiğiniz İnsan Kaynakları uygulamasını içeri aktarın. 
-
-    [![](media/luis-quickstart-intent-and-key-phrase/app-list.png "Uygulama listesi sayfasının ekran görüntüsü")](media/luis-quickstart-intent-and-key-phrase/app-list.png#lightbox)
-
-3. **Import new app** (Yeni uygulama içeri aktar) iletişim kutusunda uygulamaya `Human Resources with Key Phrase entity` adını verin. 
-
-    ![Create new app (Yeni uygulama oluştur) iletişim kutusunun görüntüsü](./media/luis-quickstart-intent-and-key-phrase/import-new-app-inline.png)
-
-    Uygulama oluşturma işlemi tamamlandıktan sonra LUIS amaç listesini gösterir.
-
-    [![](media/luis-quickstart-intent-and-key-phrase/intents-list.png "Intents (Amaçlar) listesi sayfasının ekran görüntüsü")](media/luis-quickstart-intent-and-key-phrase/intents-list.png#lightbox)
+İstemci uygulamanız konuşmanın bir sonraki adımını belirlemek için bu değerleri diğer ayıklanan varlıklarla birlikte kullanabilir.
 
 ## <a name="add-keyphrase-entity"></a>keyPhrase varlığını ekleme 
 Konuşmaların konusunu ayıklamak için önceden oluşturulmuş keyPhrase varlığını ekleyin.
 
-1. Sol menüden **Entities** (Varlıklar) öğesini seçin.
+1. İnsan Kaynakları uygulamanızın LUIS sisteminin **Build** (Derleme) bölümünde olduğundan emin olun. Sağ taraftaki menü çubuğunun en üstünde bulunan **Build** (Derleme) ifadesini seçerek bu bölüme geçebilirsiniz. 
 
-    [ ![Build (Derleme) bölümünün sol tarafındaki gezinti bölmesinde vurgulanmış Entities (Varlıklar) öğesinin ekran görüntüsü](./media/luis-quickstart-intent-and-key-phrase/select-entities.png)](./media/luis-quickstart-intent-and-key-phrase/select-entities.png#lightbox)
+    [ ![Sağ taraftaki menü çubuğunun en üstünde bulunan Build (Derleme) ifadesi vurgulanmış LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png)](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png#lightbox)
 
-2. **Manage prebuilt entities** (Önceden oluşturulan varlıkları yönet) öğesini seçin.
+2. Sol menüden **Entities** (Varlıklar) öğesini seçin.
 
-    [ ![Entities (Varlıklar) listesi açılan iletişim kutusu ekran görüntüsü](./media/luis-quickstart-intent-and-key-phrase/manage-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/manage-prebuilt-entities.png#lightbox)
+    [ ![Build (Derleme) bölümünün sol tarafındaki gezinti bölmesinde vurgulanmış Entities (Varlıklar) öğesinin ekran görüntüsü](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities-button.png#lightbox)
 
-3. Açılan iletişim kutusunda **keyPhrase** öğesini ve ardından **Done** (Bitti) öğesini seçin. 
+3. **Manage prebuilt entities** (Önceden oluşturulan varlıkları yönet) öğesini seçin.
 
-    [ ![Entities (Varlıklar) listesi açılan iletişim kutusu ekran görüntüsü](./media/luis-quickstart-intent-and-key-phrase/add-or-remove-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/add-or-remove-prebuilt-entities.png#lightbox)
+    [ ![Entities (Varlıklar) listesi açılan iletişim kutusu ekran görüntüsü](./media/luis-quickstart-intent-and-key-phrase/hr-manage-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-manage-prebuilt-entities.png#lightbox)
+
+4. Açılan iletişim kutusunda **keyPhrase** öğesini ve ardından **Done** (Bitti) öğesini seçin. 
+
+    [ ![Entities (Varlıklar) listesi açılan iletişim kutusu ekran görüntüsü](./media/luis-quickstart-intent-and-key-phrase/hr-add-or-remove-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-add-or-remove-prebuilt-entities.png#lightbox)
 
     <!-- TBD: asking Carol
     You won't see these entities labeled in utterances on the intents pages. 
     -->
+5. Sol menüden **Intents** (Amaçlar) öğesini ve ardından **Utilities.Confirm** amacını seçin. keyPhrase varlığı birkaç konuşmada etiketlenmiştir. 
+
+    [ ![keyPhrases etiketli konuşmalarla Utilities.Confirm amacının ekran görüntüsü](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
-LUIS eğitilene kadar bu değişiklikten haberdar olmaz. 
+Uygulamanın yeni `keyphrase` sürümünün eğitilmesi gerekir.  
 
 1. LUIS web sitesinin sağ üst kısmından **Train** (Eğitim) düğmesini seçin.
 
-    ![Vurgulanmış Train (Eğitim) düğmesinin ekran görüntüsü](./media/luis-quickstart-intent-and-key-phrase/train-button-expanded.png)
+    ![Uygulamayı eğitme](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
 
 2. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde eğitim tamamlanmış olur.
 
-    ![Eğitim başarılı bildirim çubuğunun ekran görüntüsü ](./media/luis-quickstart-intent-and-key-phrase/trained-inline.png)
+    ![Eğitim başarılı oldu](./media/luis-quickstart-intent-and-key-phrase/trained.png)
 
 ## <a name="publish-app-to-endpoint"></a>Uygulamayı uç noktasına yayımlama
 
 1. Sağ üst gezinti bölmesinde **Publish** (Yayımla) öğesini seçin.
 
-    ![Publish (Yayımla) düğmesi genişletilmiş Entity (Varlık) sayfasının ekran görüntüsü ](./media/luis-quickstart-intent-and-key-phrase/publish-expanded.png)
+    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "Publish to production slot (Üretim yuvasında yayımla) düğmesi vurgulanmış Yayımlama sayfasının ekran görüntüsü")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
 
 2. Production (Üretim) yuvasını ve ardından **Publish** (Yayımla) düğmesini seçin.
 
-    [![](media/luis-quickstart-intent-and-key-phrase/publish-to-production-inline.png "Publish to production slot (Üretim yuvasında yayımla) düğmesi vurgulanmış Yayımlama sayfasının ekran görüntüsü")](media/luis-quickstart-intent-and-key-phrase/publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "Publish to production slot (Üretim yuvasında yayımla) düğmesi vurgulanmış Yayımlama sayfasının ekran görüntüsü")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
 
 3. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde yayımlama işlemi tamamlanmış olur.
 
@@ -106,39 +99,98 @@ LUIS eğitilene kadar bu değişiklikten haberdar olmaz.
 
 1. **Publish** (Yayımla) sayfasının en altında bulunan **endpoint** (uç nokta) bağlantısını seçin. Bu eylem adres çubuğunda uç nokta URL'sinin bulunduğu başka bir tarayıcı penceresi açar. 
 
-    ![Uç nokta URL'si vurgulanmış Publish (Yayımla) sayfası ekran görüntüsü](media/luis-quickstart-intent-and-key-phrase/endpoint-url-inline.png )
+    ![Uç nokta URL'si vurgulanmış Publish (Yayımla) sayfası ekran görüntüsü](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png )
 
-2. Adres çubuğundaki URL'nin sonuna gidip `Is there a new medical plan with a lower deductible offered next year?` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. 
+2. Adres çubuğundaki URL'nin sonuna gidip `does form hrf-123456 cover the new dental benefits and medical plan` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. 
 
 ```
 {
-  "query": "Is there a new medical plan with a lower deductible offered next year?",
+  "query": "does form hrf-123456 cover the new dental benefits and medical plan",
   "topScoringIntent": {
     "intent": "FindForm",
-    "score": 0.216838628
+    "score": 0.9300641
   },
+  "intents": [
+    {
+      "intent": "FindForm",
+      "score": 0.9300641
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.0359598845
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0141798034
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.0112197418
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00507669244
+    },
+    {
+      "intent": "None",
+      "score": 0.00238501839
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00202810857
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00102957746
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.0008688423
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 3.557994E-05
+    }
+  ],
   "entities": [
     {
-      "entity": "lower deductible",
-      "type": "builtin.keyPhrase",
-      "startIndex": 35,
-      "endIndex": 50
+      "entity": "hrf-123456",
+      "type": "HRF-number",git 
+      "startIndex": 10,
+      "endIndex": 19
     },
     {
-      "entity": "new medical plan",
+      "entity": "new dental benefits",
       "type": "builtin.keyPhrase",
-      "startIndex": 11,
-      "endIndex": 26
+      "startIndex": 31,
+      "endIndex": 49
     },
     {
-      "entity": "year",
+      "entity": "medical plan",
       "type": "builtin.keyPhrase",
-      "startIndex": 65,
-      "endIndex": 68
+      "startIndex": 55,
+      "endIndex": 66
+    },
+    {
+      "entity": "hrf",
+      "type": "builtin.keyPhrase",
+      "startIndex": 10,
+      "endIndex": 12
+    },
+    {
+      "entity": "-123456",
+      "type": "builtin.number",
+      "startIndex": 13,
+      "endIndex": 19,
+      "resolution": {
+        "value": "-123456"
+      }
     }
   ]
 }
 ```
+
+Kullanıcı form ararken formu bulmak için gerekli olandan daha fazla bilgi sağladı. Ek bilgiler **builtin.keyPhrase** olarak döndürüldü. İstemci uygulaması bu ek bilgileri kullanarak "Would you like to talk to a Human Resource representative about new dental benefits" (Yeni diş tedavisi kapsamları hakkında bilgi almak için bir İnsan Kaynakları temsilcisiyle konuşmak ister misiniz?") gibi bir ek soru sorabilir veya "More information about new dental benefits or medical plan." (Yeni diş tedavisi avantajları veya sağlık planı hakkında daha fazla bilgi.) gibi ek seçeneklerin yer aldığı bir menü sunabilir.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Bu LUIS uygulaması hangi işlemleri gerçekleştirdi?
 keyPhrase varlığı algılama özelliğine sahip bu uygulama, doğal dil sorgusu amacı tanımladı ve temel konuyu içeren ayıklanmış verileri döndürdü. 
@@ -156,6 +208,3 @@ LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu ka
 > [!div class="nextstepaction"]
 > [Yaklaşım ve amaç tahmini döndüren bir uygulama oluşturma](luis-quickstart-intent-and-sentiment-analysis.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

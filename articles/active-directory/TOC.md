@@ -186,12 +186,6 @@
 ### [Başlarken](manage-apps/plan-an-application-integration.md)
 ### [SaaS uygulama tümleştirmesi öğreticileri](saas-apps/tutorial-list.md)
 
-
-### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
-#### [Anlık görüntü raporları oluşturma](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
-#### [Sürekli raporlamayı yapılandırma](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Özel günlük ayrıştırıcı kullanma](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-
 ### [SaaS uygulamalarına kullanıcı hazırlama ve hazırlamayı kaldırma](active-directory-saas-app-provisioning.md) 
 #### [Uygulama tümleştirmesi öğreticileri](saas-apps/tutorial-list.md) 
 #### [SCIM etkin uygulamalara otomatik sağlama](manage-apps/use-scim-to-provision-users-and-groups.md) 

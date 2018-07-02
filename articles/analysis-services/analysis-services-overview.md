@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/05/2018
+ms.date: 06/21/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 52695ba495b088d30a5ee039d3e24eb274957bff
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 07768dbc8beb7a851d442e9e0c3e7538bf12b766
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234565"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937946"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
 
@@ -31,7 +31,7 @@ Azure portalında, birkaç dakikada [sunucu oluşturabilirsiniz](analysis-servic
 
 **Video:** Azure Otomasyonu’nu kullanarak sunucu oluşturmayı nasıl hızlandırabileceğiniz hakkında daha fazla bilgi almak için [Dağıtımı otomatik hale getirme](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) bölümüne göz atın.
 
-Azure Analysis Services, birçok Azure hizmetiyle tümleştirildiğinden gelişmiş analiz çözümleri oluşturmanıza olanak tanır. [Azure Active Directory](../active-directory/active-directory-whatis.md) ile tümleştirme, önemli verilerinize güvenli, rol tabanlı erişim sağlar. Verileri modele yükleyen bir etkinlik ekleyerek [Azure Data Factory](../data-factory/introduction.md) işlem hatlarıyla tümleştirin. Özel kodla modellerde basit düzenlemeler yapmak için [Azure Otomasyonu](../automation/automation-intro.md) ve [Azure İşlevleri](../azure-functions/functions-overview.md) kullanılabilir. 
+Azure Analysis Services, birçok Azure hizmetiyle tümleştirildiğinden gelişmiş analiz çözümleri oluşturmanıza olanak tanır. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) ile tümleştirme, önemli verilerinize güvenli, rol tabanlı erişim sağlar. Verileri modele yükleyen bir etkinlik ekleyerek [Azure Data Factory](../data-factory/introduction.md) işlem hatlarıyla tümleştirin. Özel kodla modellerde basit düzenlemeler yapmak için [Azure Otomasyonu](../automation/automation-intro.md) ve [Azure İşlevleri](../azure-functions/functions-overview.md) kullanılabilir. 
 
 ## <a name="the-right-tier-when-you-need-it"></a>İhtiyacınız olduğunda doğru katman
 
@@ -72,39 +72,41 @@ Bu katman, kullanıcı eşzamanlılığının elastik olmasını gerektiren ve h
 
 ## <a name="availability-by-region"></a>Bölgelere göre kullanılabilirlik
 
-Azure Analysis Services, dünyanın dört bir yanındaki bölgelerde desteklenir. Modellerinizi birkaç bölgedeki yedekli sunuculara dağıtarak [yüksek kullanılabilirliği](analysis-services-bcdr.md) güvence altına alın. Desteklenen katmanlar ve sorgu çoğaltmaları, seçtiğiniz bölgeye bağlıdır. 
+Azure Analysis Services, dünyanın dört bir yanındaki bölgelerde desteklenir. Desteklenen planların ve sorgu çoğaltmalarının kullanılabilirliği, seçtiğiniz bölgeye bağlıdır. Plan ve sorgu çoğaltması kullanılabilirliği ihtiyaca ve bölgelerde bulunan kaynaklara göre değişebilir. 
 
 ### <a name="americas"></a>Kuzey ve Güney Amerika
 
-|Bölge  | Desteklenen katmanlar | Sorgu çoğaltmaları |
+|Bölge  | Desteklenen planlar | Sorgu çoğaltmaları (yalnızca Standart planlar) |
 |---------|---------|:---------:|
 |Güney Brezilya     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Orta Kanada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Doğu ABD     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|Doğu ABD 2     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|Doğu ABD 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
 |Orta Kuzey ABD     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Orta ABD     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|Orta ABD     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Orta Güney ABD     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Batı Orta ABD   |     B1, B2, S0, S1, S2, S4, D1    |    7     |
-|Batı ABD     |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
-|Batı ABD 2    |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    1     |
+|Batı Orta ABD   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|Batı ABD     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|Batı ABD 2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
 
 ### <a name="europe"></a>Avrupa
 
-|Bölge  | Desteklenen katmanlar | Sorgu çoğaltmaları |
+|Bölge  | Desteklenen planlar | Sorgu çoğaltmaları (yalnızca Standart planlar) |
 |---------|---------|:---------:|
-|Kuzey Avrupa     |    B1, B2, S0, S1, S2, S4, D1      |    1     |
+|Kuzey Avrupa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Birleşik Krallık Güney   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Batı Avrupa     |    B1, B2, S0, S1, S2, S4, S8, S9, D1      |    7     |
+|Batı Avrupa     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
 
 ### <a name="asia-pacific"></a>Asya Pasifik 
 
-|Bölge  | Desteklenen katmanlar | Sorgu çoğaltmaları |
+|Bölge  | Desteklenen planlar | Sorgu çoğaltmaları (yalnızca Standart planlar) |
 |---------|---------|:---------:|
 |Avustralya Güneydoğu     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japonya Doğu  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Güneydoğu Asya     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   3      |
+|Güneydoğu Asya     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
 |Batı Hindistan     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+
+Standart katmandaki \* S8, S9 planları bir sorgu çoğaltmasını destekler.
 
 ## <a name="scale-to-your-needs"></a>Gereksinimlerinize göre ölçeklendirin
 
@@ -116,7 +118,7 @@ Sunucunuzu yükseltin, indirin veya duraklatın. Azure portalını kullanın ve 
 
 Ölçek genişletme ile istemci sorguları bir sorgu havuzundaki birden çok *sorgu çoğaltması* arasında dağıtılır. Sorgu çoğaltmaları, tablo modellerinizin eşitlenmiş kopyalarını içerir. Sorgu iş yükü dağıtılarak, yüksek sorgu iş yükleri sırasında yanıt süreleri azaltılabilir. İstemci sorgularının işleme işlemlerinden olumsuz yönde etkilenmediğinden emin olmak için, model işleme işlemleri sorgu havuzundan ayrılabilir. 
 
-En fazla yedi ek sorgu çoğaltması (sizin sunucunuzla birlikte toplam sekiz) ile bir sorgu havuzu oluşturabilirsiniz. Havuzunuzda sahip olabileceğiniz sorgu çoğaltmalarının sayısı, seçtiğiniz bölgeye bağlıdır. Sorgu çoğaltmaları, sunucunuzun bölgesi dışına yayılamaz. Sorgu çoğaltmaları, sunucunuzla aynı fiyattan faturalandırılır.
+En fazla yedi ek sorgu çoğaltması (sizin sunucunuzla birlikte toplam sekiz) ile bir sorgu havuzu oluşturabilirsiniz. Havuzunuzda sahip olabileceğiniz sorgu çoğaltmalarının sayısı, seçtiğiniz plana ve bölgeye bağlıdır. Sorgu çoğaltmaları, sunucunuzun bölgesi dışına yayılamaz. Sorgu çoğaltmaları, sunucunuzla aynı fiyattan faturalandırılır.
 
 Katmanları değiştirirken yaptığınız gibi, sorgu çoğaltmalarını gereksinimlerinize göre genişletebilirsiniz. Genişletmeyi portalda veya REST API'leri kullanarak yapılandırın. Daha fazla bilgi için bkz. [Azure Analysis Services ölçeğini genişletme](analysis-services-scale-out.md).
 
@@ -148,7 +150,7 @@ Azure Analysis Services Güvenlik Duvarı, kurallarda belirtilen IP adresleri d�
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
 
-Kullanıcı kimlik doğrulaması, [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md) tarafından işlenir. Kullanıcılar oturum açarken veritabanına rol tabanlı erişim ile bir kuruluş hesabı kimliği kullanır. Kullanıcı kimlikleri, sunucunun içinde bulunduğu abonelik için varsayılan Azure Active Directory’nin üyesi olmalıdır. Daha fazla bilgi edinmek için bkz. [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md).
+Kullanıcı kimlik doğrulaması, [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) tarafından işlenir. Kullanıcılar oturum açarken veritabanına rol tabanlı erişim ile bir kuruluş hesabı kimliği kullanır. Kullanıcı kimlikleri, sunucunun içinde bulunduğu abonelik için varsayılan Azure Active Directory’nin üyesi olmalıdır. Daha fazla bilgi edinmek için bkz. [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md).
 
 ### <a name="data-security"></a>Veri güvenliği
 

@@ -51,6 +51,29 @@
       href: ../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json
 - name: Platform ve altyapı
   items:
+    - name: Altyapı güvenliği
+      href: azure-security-infrastructure.md
+      items:
+        - name: Fiziksel güvenlik
+          href: azure-physical-security.md
+        - name: Kullanılabilirlik
+          href: azure-infrastructure-availability.md
+        - name: Bileşenler ve sınırlar
+          href: azure-infrastructure-components.md
+        - name: Ağ mimarisi
+          href: azure-infrastructure-network.md
+        - name: Üretim ağı
+          href: azure-production-network.md
+        - name: SQL Veritabanı
+          href: azure-infrastructure-sql.md
+        - name: İşlemler
+          href: azure-infrastructure-operations.md
+        - name: İzleme
+          href: azure-infrastructure-monitoring.md
+        - name: Bütünlük
+          href: azure-infrastructure-integrity.md
+        - name: Veri koruma
+          href: azure-protection-of-customer-data.md
     - name: Microsoft Kötü Amaçlı Yazılımdan Korunma
       href: azure-security-antimalware.md
     - name: IaaS güvenliği

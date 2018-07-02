@@ -9,7 +9,7 @@
 
 3. Cihazınızda ayarlamak istediğiniz dili seçmeniz istenecektir. Dili belirtip **Enter** tuşuna basın.
 
-4. Verilen seri konsol menüsünde **tam erişimle oturum açmak** için 1 seçeneğini belirleyin.
+4. Verilen seri konsol menüsünde **Tam erişimle oturum açmak** için 1 seçeneğini belirleyin.
      Cihazınız için en düşük gerekli ağ ayarlarını yapılandırmak için 5-12 arası adımları tamamlayın. **Bu yapılandırma adımları, cihazın etkin denetleyicisinde gerçekleştirilmelidir.** Seri konsol menüsü, bant iletisindeki denetleyici durumunu belirtir. Etkin denetleyiciye bağlı değilseniz, bağlantıyı kesip etkin denetleyiciye bağlayın.
 
 5. Komut istemine parolanızı yazın. Varsayılan cihaz parolası **Password1**’dir.

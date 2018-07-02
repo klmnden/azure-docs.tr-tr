@@ -35,6 +35,10 @@
   items:
     - name: Varlıklar
       href: assets-concept.md
+    - name: İçerik koruma
+      items:
+        - name: Genel Bakış
+          href: content-protection-overview.md
     - name: Encoding
       items:
         - name: Genel Bakış
@@ -69,6 +73,10 @@
           href: job-input-from-http-how-to.md
         - name: Yerel bir dosyadan - .NET
           href: job-input-from-local-file-how-to.md
+    - name: İçerik koruma
+      items:
+        - name: AES-128 - .NET ile
+          href: protect-with-aes128.md
 - name: Başvuru
   items:
     - name: OpenAPI Belirtimi (Swagger)
@@ -87,6 +95,12 @@
       href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: Olay şemaları
       href: media-services-event-schemas.md
+    - name: DRM lisans şemaları
+      items:
+        - name: PlayReady lisans şablonu
+          href: playready-license-template-overview.md
+        - name: Widevine lisans şablonu
+          href: widevine-license-template-overview.md
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası

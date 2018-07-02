@@ -1,0 +1,48 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Rol tabanlı erişim denetimi belgeleri
+metadata:
+  document_id: 
+  title: Azure’da rol tabanlı erişim denetimi (RBAC) belgeleri | Microsoft Docs
+  description: Azure kaynaklarına erişebilen kişileri, bu kişilerin bu kaynaklarla yapabileceklerini ve erişebildikleri alanları yönetmek için rol tabanlı erişim denetimi (RBAC) hakkında bilgi edinin.
+  services: active-directory
+  author: rolyon
+  manager: mtillman
+  ms.service: role-based-access-control
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/15/2018
+  ms.author: rolyon
+  ms.openlocfilehash: 2d49a0ad4393582439511e5454041a2478cea961
+  ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 06/29/2018
+  ms.locfileid: "37115043"
+abstract:
+  description: Rol tabanlı erişim denetimi (RBAC), Azure’daki kaynaklara yönelik ayrıntılı erişim yönetimi sağlayan bir sistemdir. RBAC kullanarak ekibiniz içinde görevleri ayırabilir, bu işlere gerek duyan kişilere sadece erişim miktarını verebilirsiniz.
+  aside:
+    image:
+      alt: 
+      height: 112
+      src: media/index/video-thumb-get-started.png
+      width: 200
+    title: Azure erişimini kilitleme (1:16)
+    href: https://www.youtube.com/embed/FKBoWWKRnvI
+    width: 200
+sections:
+- title: 5 dakikalık hızlı başlangıçlar
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Kullanıcıya erişim izni verme</a>
+- title: Adım adım öğreticiler
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Gruba erişim izni verme - PowerShell</a>
+    - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Özel rol oluşturma - PowerShell</a>
+    - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Özel rol oluşturma - CLI</a>

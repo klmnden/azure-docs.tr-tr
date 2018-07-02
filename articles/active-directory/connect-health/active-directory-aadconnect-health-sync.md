@@ -14,17 +14,17 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff8be88e23d57545a9926df366289c6ba264886
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a3801573f3ffe3a0941f3941cf33e516f4f1b614
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30229957"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961647"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect eşitlemesini Azure AD Connect Health ile izleme
 Aşağıdaki belgeler Azure AD Connect Health ile Azure AD Connect’in (Eşitleme) izlenmesine özgüdür.  Azure Connect Health ile AD FS'yi izleme hakkında bilgi almak için bkz. [Azure AD Connect Health'i AD FS ile kullanma](active-directory-aadconnect-health-adfs.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](active-directory-aadconnect-health-adds.md).
 
-![Eşitleme için Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/sync-blade.png)
+![Eşitleme için Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/syncsnapshot.png)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>Eşitleme için Azure AD Connect Health uyarıları
 Eşitleme için Azure AD Connect Health Uyarıları bölümünde etkin uyarıların listesi sağlanmıştır. Her uyarı için ilgili bilgiler, çözüm adımları ve ilgili belgelere yönelik bağlantılar verilmiştir. Etkin veya çözümlenmiş bir uyarıyı seçtiğinizde, alarmı çözümlemek için uygulayabileceğiniz adımların ve ek belgelere yönelik bağlantıların yanı sıra ek bilgiler içeren yeni bir dikey pencere görürsünüz. Ayrıca, geçmişte çözümlenen uyarılara ilişkin geçmiş verileri de görüntüleyebilirsiniz.
@@ -98,15 +98,18 @@ Her kategori ayrıntılı olarak incelendiğinde ilgili kategoride hata içeren 
 ### <a name="error-details"></a>Hata Ayrıntıları
 Hataların ayrıntılı görünümünde aşağıdaki veriler bulunur
 
+* Vurgulanmış çakışan öznitelik
 * Dahil olan *AD Nesnesi* için tanımlayıcılar
 * Dahil olan *Azure AD Nesnesi* tanımlayıcıları (geçerli olduğunda)
 * Hata açıklaması ve düzeltme yolu
-* İlgili makaleler
 
-![Eşitleme Hata Raporu Ayrıntıları](./media/active-directory-aadconnect-health-sync/errorreport04.png)
+![Eşitleme Hata Raporu Ayrıntıları](./media/active-directory-aadconnect-health-sync/duplicateAttributeSyncError.png)
 
 ### <a name="download-the-error-report-as-csv"></a>Hata raporunu CSV olarak indirme
 "Dışarı aktar" düğmesini seçerek tüm hataların tüm ayrıntılarını içeren bir CSV dosyası indirebilirsiniz.
+
+### <a name="diagnose-and-remediate-sync-errors"></a>Eşitleme hatalarını tanılama ve düzeltme 
+Kullanıcı Kaynak Bağlantısı güncelleştirmesiyle ilgili yinelenen öznitelik eşitleme hatası senaryosunda düzeltmeyi doğrudan portalda gerçekleştirebilirsiniz. [Yinelenen öznitelik eşitleme hatalarını tanılama ve düzeltme](active-directory-aadconnect-health-diagnose-sync-errors.md) hakkında daha fazla bilgi edinin
 
 ## <a name="related-links"></a>İlgili bağlantılar
 * [Eşitleme sırasında karşılaşılan Hataları giderme](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)

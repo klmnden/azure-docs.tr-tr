@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde güvenliği izleme | Microsoft Docs
 description: Bu makale, Azure Güvenlik Merkezi'nde izleme özelliklerini kullanmaya başlamanıza yardımcı olur.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2018
-ms.author: yurid
-ms.openlocfilehash: 330a12f851ef0191adc4dc46102b798f1b752589
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/26/2018
+ms.author: terrylan
+ms.openlocfilehash: dc362306e20b4d39aa73a552e47cbcbd3037edbd
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777722"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063400"
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik durumunu izleme
 Bu makale, ilkelerle uyumluluğu izlemek için Azure Güvenlik Merkezi'ndeki izleme özelliklerini kullanmanıza yardımcı olur.
@@ -32,107 +32,13 @@ Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-policie
 
 Önerileri uygulama hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'nde güvenlik önerilerini uygulama](security-center-recommendations.md)'yı okuyun.
 
-**Önleme** bölümünde kaynaklarınızın güvenlik durumunu izleyebilirsiniz. Aşağıdaki örnekte, her bir kaynağın kutucuğunda (İşlem, Ağ, Depolama ve veriler ile Uygulama) tanımlanan toplam sorun sayısının olduğunu görebilirsiniz.
+**Kaynak sistem durumu izleme** bölümünde kaynaklarınızın güvenlik durumunu izleyebilirsiniz. Aşağıdaki örnekte, her bir kaynağın kutucuğunda (İşlem ve Uygulamalar, Ağ, Veri güvenliği, Kimlik ve erişim) tanımlanan toplam sorun sayısının olduğunu görebilirsiniz.
 
 ![Kaynaklar güvenlik durumu kutucuğu](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
 
-### <a name="monitor-compute"></a>İzleyici işlemi
-**Bilgisayar** kutucuğuna tıkladığınızda, üç sekme görünür:
-
-- **Genel Bakış**: izleme ve öneriler.
-- **VM’ler ve Bilgisayarlar**: Tüm sanal makineleri ve geçerli güvenlik durumlarını listeler.
-- **Cloud Services**: Güvenlik Merkezi tarafından izlenen tüm web ve çalışan rollerinin listesi.
-
-![Sanal makine tarafından eksik sistem güncelleştirmesi](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
-
-Her sekmede birden fazla bölüm olabilir ve her bölümde, sorunu çözmek üzere önerilen adımlarla ilgili daha fazla ayrıntı görmek için ayrı ayrı seçenekler belirleyebilirsiniz.
-
-#### <a name="monitoring-recommendations"></a>İzleme önerileri
-Bu bölüm, otomatik hazırlaması başlatılmış sanal makinelerin ve bilgisayarların toplam sayısıyla bunların geçerli durumlarını gösterir. Bu örnekte şu öneri mevcuttur: **Aracı sistem durumu sorunlarını izleme**.  Bu öneriyi seçin.
-
-![Aracı sistem durumu sorunlarını izleme](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
-
-**Aracı sistem durumu sorunlarını izleme** açılır. Güvenlik Merkezi'nin başarılı bir şekilde izleyemediği VM'ler ve bilgisayarlar listelenir. Ayrıntılı bilgi için bir VM'yi veya bilgisayarı seçin. **İZLEME DURUMU**, Güvenlik Merkezi’nin izlemeyi neden yapamadığını belirtir. **İZLEME DURUMU** değerleri, açıklamaları ve çözüm adımlarının listesi için bkz. [Güvenlik Merkezi sorun giderme kılavuzu](security-center-troubleshooting-guide.md#monitoring-agent-health-issues).
-
-#### <a name="recommendations"></a>Öneriler
-Bu bölümde, Azure Güvenlik Merkezi’nin izlediği [her bir sanal makine ve bilgisayar için bir öneri](security-center-virtual-machine-recommendations.md) kümesi bulunur. İlk sütunda öneriler listelenmiştir. İkinci sütunda, bu önerinin etkilediği sanal makinelerin ve bilgisayarların toplam sayısı gösterilmiştir. Üçüncü sütunda, aşağıdaki ekran görüntüsünde gösterildiği gibi sorunun önem derecesi belirtilmiştir.
-
-![Sanal makine önerileri](./media/security-center-monitoring/security-center-monitoring-fig2-sep2017.png)
-
-> [!NOTE]
-> **Ağ topolojisi listesinin** **Ağ Durumu** penceresinde yalnızca en az bir genel uç nokta içeren sanal makineler gösterilir.
->
-
-Her öneride, tıkladıktan sonra gerçekleştirebileceğiniz bir eylemler kümesi bulunur. Örneğin, **Eksik sistem güncelleştirmeleri**’ne tıklarsanız, eksik düzeltme eklerine sahip sanal makineler ve bilgisayarlar ile eksik güncelleştirmelerin önem derecesi, aşağıdaki ekran görüntüsündeki gibi bir liste halinde görüntülenir:
-
-![Sanal makineler için eksik sistem güncelleştirmeleri](./media/security-center-monitoring/security-center-monitoring-fig9-sep2017.png)
-
-**Eksik sistem güncelleştirmeleri**, kritik güncelleştirmelerin biri Windows ve diğeri de Linux için olmak üzere iki grafik biçiminde özetini sunar. İkinci bölümde, aşağıdaki bilgileri içeren bir tablo vardır:
-
-* **AD**: Eksik güncelleştirmenin adıdır.
-* **VM’LER VE BİLGİSAYARLARIN SAYISI**: Bu güncelleştirmenin eksik olduğu VM'ler ve bilgisayarların toplam sayısı.
-* **DURUM**: Önerinin geçerli durumu:
-  * **Açık**: Öneri henüz ele alınmadı.
-  * **Devam Ediyor**: Öneri şu anda bu kaynaklara uygulanıyor; sizin bir eylem yapmanıza gerek yok.
-  * **Çözüldü**: Öneri daha önce tamamlandı. (Sorun çözüldüğünde girdi soluklaşır).
-* **ÖNEM DERECESİ**: Belirli bir önerinin önem derecesini açıklar:
-  * **Yüksek**: Anlamlı bir kaynakta (uygulama, sanal makine veya ağ güvenlik grubu) güvenlik açığı var ve ilgilenilmesi gerekiyor.
-  * **Orta**: Bir işlemi tamamlamak veya bir güvenlik açığını ortadan kaldırmak için kritik olmayan adımlar veya ek adımlar gerekiyor.
-  * **Düşük**: Bir güvenlik açığının ele alınması gerekiyor ancak hemen ilgilenilmesi gerekmiyor. (Varsayılan olarak, düşük öneriler sunulmaz ancak bunları görüntülemek istiyorsanız düşük öneriler filtresini kullanabilirsiniz.)
-
-Öneri ayrıntılarını görüntülemek için listeden eksik güncelleştirmenin adına tıklayın.
-
-![Belirli bir sanal makine için eksik sistem güncelleştirmeleri](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
-
-> [!NOTE]
-> Buradaki güvenlik önerileri, **Öneriler** seçeneğindekilerle aynıdır. Önerileri çözümleme hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'nde güvenlik önerilerini uygulama](security-center-recommendations.md)'yı okuyun. Bu yalnızca sanal makineler ve bilgisayarlar için değil, **Kaynak Durumu** kutucuğunda kullanılabilen tüm kaynaklar için geçerlidir.
->
-
-#### <a name="unmonitored-vms"></a>İzlenmeyen VM’ler
-VM, Microsoft Monitoring Agent uzantısını çalıştırmıyorsa, Güvenlik Merkezi tarafından izlenmez. VM’nin, OMS doğrudan aracısı veya SCOM aracısı gibi zaten yüklü bir yerel aracısı olabilir. Güvenlik Merkezi’nde tam olarak desteklenmediğinden, bu aracılara sahip VM’ler izlenmeyen olarak tanımlanır. Güvenlik Merkezi’nin tüm özelliklerinden tam olarak faydalanmak için, Microsoft Monitoring Agent uzantısı gereklidir.
-
-Uzantıyı, zaten yüklü olan yerel aracıya ek olarak izlenmeyen VM’de yükleyebilirsiniz. İki aracıyı da aynı çalışma alanına bağlayarak aynı şekilde yapılandırın. Bu, Güvenlik Merkezi’nin Microsoft Monitoring Agent uzantısıyla etkileşim kurup veri toplamasını sağlar.  Microsoft Monitoring Agent uzantısını nasıl yükleyeceğiniz hakkında yönergeler için bkz. [VM uzantısını etkinleştir](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
-
-Güvenlik Merkezi’nin otomatik hazırlama için başlatılan VM’leri ve bilgisayarları başarılı bir şekilde izleyememe nedenleri hakkında daha fazla bilgi edinmek için bkz. [Aracı durumu sorunlarını izleme](security-center-troubleshooting-guide.md#monitoring-agent-health-issues).
-
-#### <a name="vms--computers-section"></a>VM’ler ve bilgisayarlar bölümü
-Sanal makineler ve bilgisayarlar bölümü, tüm sanal makineler ve bilgisayarlarla ilgili önerilere bir genel bakış sağlar. Her sütun, aşağıdaki ekran görüntüsünde gösterildiği gibi bir dizi öneriyi temsil eder:
-
-![Tüm sanal makinelere ve önerilere genel bakış](./media/security-center-monitoring/security-center-monitoring-fig5-sep2017.png)
-
-Bu listede açıklandığı gibi bu listede gösterilen dört tür simge vardır:
-
-![simge1](./media/security-center-monitoring/security-center-monitoring-icon1.png) Azure olmayan bilgisayar.
-
-![simge2](./media/security-center-monitoring/security-center-monitoring-icon2.png) Azure Resource Manager sanal makinesi.
-
-![simge3](./media/security-center-monitoring/security-center-monitoring-icon3.png) Azure Klasik sanal makinesi.
-
-![simge4](./media/security-center-monitoring/security-center-monitoring-icon4.png) VM'ler yalnızca görüntülenen abonelik parçası olan çalışma alanından tanımlanır. Buna diğer aboneliklere ait ancak bu çalışma alanına bildirimde bulunan sanal makineler, SCOM doğrudan aracısıyla yüklenen ve kaynak kimliği olmayan VM’ler dahildir.
-
-Her önerinin altında görüntülenen simge, ilgilenilmesi gereken sanal makineler ve bilgisayarların hızla tanımlamanıza yardımcı olur. Bu ekranda hangi seçenekleri göreceğinizi seçmek için **Filtre** seçeneğini de kullanabilirsiniz.
-
-![Filtre](./media/security-center-monitoring/security-center-monitoring-fig6-sep2017.png)
-
-Önceki örnekte, bir sanal makinenin uç nokta koruması ile ilgili kritik bir önerisi vardır. Sanal makine hakkında daha fazla bilgi edinmek için sanal makineye tıklayın:
-
-![Sanal makine güvenlik ayrıntıları](./media/security-center-monitoring/security-center-monitoring-fig7-sep2017.png)
-
-Burada sanal makine veya bilgisayar için güvenlik ayrıntılarını görürsünüz. En altta, sorunlar için önerilen eylemleri ve sorunların önem derecesini görebilirsiniz.
-
-#### <a name="cloud-services-section"></a>Bulut hizmetleri bölümü
-Bulut hizmetleri için işletim sistemi sürümü güncel olmadığında aşağıdaki ekran görüntüsünde gösterildiği gibi bir öneri oluşturulur:
-
-![Bulut hizmetlerinin sistem durumu](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
-
-Öneri gördüğünüz bir senaryoda (önceki örnek için geçerli bir durum değildir), işletim sistemi sürümünü güncelleştirmek için önerideki adımları izlemeniz gerekir. Bir güncelleştirme mevcut olduğunda uyarı alırsınız (sorunun önem derecesine bağlı olarak kırmızı veya turuncu). WebRole1 (web uygulamanızı IIS’e otomatik olarak dağıtarak Windows Server çalıştırır) veya WorkerRole1 (web uygulamanızı IIS’e otomatik olarak dağıtarak Windows Server çalıştırır) satırlarında bu uyarıya tıkladığınızda aşağıdaki ekran görüntüsünde gösterildiği gibi bu öneriye ilişkin daha fazla ayrıntı görürsünüz:
-
-![Bulut hizmeti ayrıntıları](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
-
-Bu öneriyle ilgili daha kesin bir açıklama görmek için **AÇIKLAMA** sütunu altındaki **İşletim sistemi sürümünü güncelleştir**’e tıklayın.
-
-![Bulut hizmeti önerileri](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
+### <a name="monitor-compute--apps"></a>İşlem ve uygulamaları izleme
+Daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde makinelerinizi ve uygulamalarınızı koruma](security-center-virtual-machine-recommendations.md).
 
 ### <a name="monitor-virtual-networks"></a>Sanal ağları izleme
 **Ağ** kutucuğuna tıkladığınızda, **Ağ** dikey penceresi aşağıdaki ekran görüntüsünde gösterildiği gibi daha fazla ayrıntıyla açılır:
@@ -184,9 +90,9 @@ Bu topoloji görünümünde, ilk düzeyde [sanal ağlar](../virtual-network/virt
 
 Bu dikey pencerenin en altında, daha önce açıklanana benzer şekilde bu sanal makine için öneriler bulunur. Daha fazla bilgi edinmek ya da gerekli güvenlik denetimini veya yapılandırmasını uygulamak için bir öneriye tıklayabilirsiniz.
 
-### <a name="monitor-storage--data"></a>Depolama ve verileri izleme
+### <a name="monitor-data-security"></a>Veri güvenliğini izleme
 
-**Önleme** bölümünde **Depolama ve veriler**’e tıkladığınızda, **Veri Kaynakları** bölümünü SQL ve Depolama’ya yönelik önerilerle birlikte açılır. Ayrıca, veritabanının genel sağlık durumu için [öneriler](security-center-sql-service-recommendations.md) içerir. Depolama şifrelemesi hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'ndeki Azure depolama hesabı için şifrelemeyi etkinleştirme](security-center-enable-encryption-for-storage-account.md) bölümünü okuyun.
+**Önleme** bölümünde **Veri güvenliği**’ne tıkladığınızda, **Veri Kaynakları** bölümünü SQL ve Depolama’ya yönelik önerilerle birlikte açılır. Ayrıca, veritabanının genel sağlık durumu için [öneriler](security-center-sql-service-recommendations.md) içerir. Depolama şifrelemesi hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'ndeki Azure depolama hesabı için şifrelemeyi etkinleştirme](security-center-enable-encryption-for-storage-account.md) bölümünü okuyun.
 
 ![Veri Kaynakları](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
@@ -208,19 +114,9 @@ Bu öneriyle ilgilenmek için veritabanına tıkladığınızda, **Denetim ve Te
 
 Denetimi etkinleştirmek için **Denetim** seçeneğinin altında **AÇIK**'ı seçin.
 
-### <a name="monitor-applications"></a>Uygulamaları izleme
+### <a name="monitor-identity--access"></a>Kimliği ve erişimi izleme
 
-Azure iş yükünüzün, sunulan web bağlantı noktaları (TCP bağlantı noktaları 80 ve 443) ile [sanal makinelerde](../azure-resource-manager/resource-manager-deployment-model.md) (Azure Resource Manager ile oluşturulmuştur) bulunan uygulamaları varsa Güvenlik Merkezi, olası güvenlik sorunlarını tanımlamak ve düzeltme adımları önermek için bunları izleyebilir. **Uygulamalar** kutucuğuna tıkladığınızda, **Uygulama önerileri** bölümünde bir dizi öneriyle birlikte **Uygulamalar** bölümü açılır. Ayrıca konak ve IP/etki alanı başına uygulama dökümüyle WAF çözümünün yüklenmiş olup olmadığını gösterir:
-
-![Uygulamaların güvenlik durumu](./media/security-center-monitoring/security-center-monitoring-fig8-sep2017.png)
-
-Diğer önerilerde yaptığınız gibi, sorun ve sorunun nasıl düzeltileceği hakkında daha fazla ayrıntı görmek için öneriye tıklayabilirsiniz. Aşağıdaki şekilde gösterilen örnekte, güvenli olmayan bir web uygulaması olarak tanımlanan bir uygulama bulunur. Güvenli kabul edilmeyen uygulamayı seçtiğinizde, aşağıdaki seçenek kullanılabilir:
-
-![Ayrıntılar](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
-
-Burada bu uygulamaya ilişkin tüm önerilerin bir listesi bulunur. **Web uygulaması güvenlik duvarı ekleyin** önerisine tıkladığınızda aşağıdaki ekran görüntüsünde gösterildiği gibi bir web uygulaması güvenlik duvarını (WAF) yüklemenize yönelik seçenekleri içeren **Web Uygulaması Güvenlik Duvarı Ekleme** bölümü açılır.
-
-![Web Uygulaması Güvenlik Duvarı Ekleme iletişim kutusu](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
+Daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde kimliği ve erişimi izleme](security-center-identity-access.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Bu makalede, Azure Güvenlik Merkezi'nde izleme işlevlerini nasıl kullanacağınız hakkında bilgi edindiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:

@@ -1,6 +1,6 @@
 ---
-title: Azure AD'de izinler | Microsoft Docs
-description: Azure Active Directory'deki kapsamları, izinleri ve bunların kullanımını öğrenin
+title: Azure Active Directory’de izinleri yönetme | Microsoft Docs
+description: Azure Active Directory'deki izinleri ve bunların kullanımını öğrenin.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,24 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/20/2017
+ms.date: 06/25/2018
 ms.author: celested
-ms.reviewer: justhu
+ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 749253d6a082bcdc2b80c5984f20c4b8c4039ad0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 786757293e2ad2c47f80745f6bdd9bb5a65add80
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156900"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936964"
 ---
-# <a name="permissions-in-azure-ad"></a>Azure AD'de izinler
-Azure Active Directory (Azure AD), hem OAuth hem de OpenID Connect (OIDC) akışlarında izinleri yaygın olarak kullanır. Uygulamanız Azure AD'den bir erişim belirteci aldığında, bu belirteç uygulamanızın belirli bir kaynakla ilgili olarak sahip olduğu izinleri (kapsamlar olarak da bilinir) açıklayan talepler içerir. Bu durum kaynağın yetkilendirmesini kolaylaştırır çünkü yalnızca belirtecinizin çağırdığınız API için uygun izni içerip içermediğini denetlemesi yeterli olur. 
+# <a name="permissions-in-azure-active-directory"></a>Azure Active Directory'deki izinler
+
+Azure Active Directory (Azure AD), hem OAuth hem de OpenID Connect (OIDC) akışlarında izinleri yaygın olarak kullanır. Uygulamanız Azure AD'den bir erişim belirteci aldığında, bu belirteç uygulamanızın belirli bir kaynakla ilgili olarak sahip olduğu izinleri açıklayan talepler içerir. Kapsamlar olarak da bilinen izinler, kaynağın yalnızca belirteçte uygulamanın çağırdığı API için uygun izni içerip içermediğini denetlemesi gerektiğinden kaynağın yetkilendirmesini kolaylaştırır. 
 
 ## <a name="types-of-permissions"></a>İzin türleri
+
 Azure AD iki tür izin tanımlar: 
 * **Temsilci izinleri** - Oturum açmış kullanıcının olduğu uygulamalar tarafından kullanılır. Bu uygulamalar için, kullanıcı veya yönetici uygulamanın istediği onayları verir ve uygulamaya API çağrıları yaparken oturum açmış kullanıcı adına işlem yapması için temsilci izni verilir. API'yi bağlı olarak, kullanıcı doğrudan API'ye onay veremeyebilir ve bunun yerine [bir yöneticinin "yönetici onayı" sağlaması gerekebilir.](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
-* **Uygulama izinleri** - Oturum açmış kullanıcı olmadan çalıştırılan uygulamalar tarafından kullanılır; örneğin, arka plan hizmetleri veya daemon programları olarak çalıştırılan uygulamalar böyledir. Uygulama izinleri yalnızca [yönetici tarafından verilebilir](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) çünkü normalde bunlar çok güçlü izinlerdir ve kullanıcı sınırlarının ötesindeki verilere veya aslında yöneticilerin kullanımıyla kısıtlanmış olabilecek verilere erişim izin verebilir. 
+* **Uygulama izinleri** - Oturum açmış kullanıcı olmadan çalıştırılan uygulamalar tarafından kullanılır; örneğin, arka plan hizmetleri veya daemon programları olarak çalıştırılan uygulamalar böyledir. Uygulama izinleri yalnızca [yönetici tarafından verilebilir](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) çünkü normalde bunlar güçlü izinlerdir ve kullanıcı sınırlarının ötesindeki verilere veya aslında yöneticilerin kullanımıyla kısıtlanmış olabilecek verilere erişim izin verebilir. 
 
 Etkili izinler, uygulamanızın API istekleri yaparken sahip olacağı izinlerdir. 
 
@@ -55,14 +57,14 @@ Azure AD'deki izinlerin bir dizi özelliği vardır ve bu özellikler kullanıc�
 
 | Özellik adı | Açıklama | Örnek | 
 | --- | --- | --- |
-| Kimlik | Bu izni benzersiz olarak tanımlayan GUID değeri. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
-| IsEnabled | Bu kapsamın kullanılabilir olup olmadığını gösterir. | true | 
-| Tür | Bu iznin kullanıcı onayı veya yönetici onayı gerektirip gerektirmediğini gösterir. | Kullanıcı | 
-| AdminConsentDescription | Bu, yönetici onayı deneyimleri sırasında yöneticilere gösterilen açıklamadır | Uygulamanın kullanıcı posta kutularındaki e-postayı okumasına izin verir. | 
-| AdminConsentDisplayName | Bu, yönetici onayı deneyimi sırasında yöneticilere gösterilen kolay addır. | Kullanıcı postasını okuma | 
-| UserConsentDescription | Bu, kullanıcı onayı deneyimi sırasında kullanıcılara gösterilen açıklamadır. |  Uygulamanın, posta kutunuzdaki e-postalarınızı okumasına izin verir. | 
-| UserConsentDisplayName | Bu, kullanıcı onayı deneyimi sırasında kullanıcılara gösterilen kolay addır. | Postalarınızı okuma | 
-| Değer | Bu, OAuth 2.0 yetkilendirme akışları sırasında izni tanımlamak için kullanılan dizedir. Tam izin adı oluşturmak için Uygulama Kimliği URI dizesiyle birleştirilebilir. | `Mail.Read` | 
+| `ID` | Bu izni benzersiz olarak tanımlayan GUID değeridir. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
+| `IsEnabled` | Bu iznin kullanılabilir olup olmadığını gösterir. | true | 
+| `Type` | Bu iznin kullanıcı onayı veya yönetici onayı gerektirip gerektirmediğini gösterir. | Kullanıcı | 
+| `AdminConsentDescription` | Yönetici onayı deneyimleri sırasında yöneticilere gösterilen açıklamadır | Uygulamanın kullanıcı posta kutularındaki e-postayı okumasına izin verir. | 
+| `AdminConsentDisplayName` | Yönetici onayı deneyimi sırasında yöneticilere gösterilen kolay addır. | Kullanıcı postasını okuma | 
+| `UserConsentDescription` | Kullanıcı onayı deneyimi sırasında kullanıcılara gösterilen açıklamadır. |  Uygulamanın, posta kutunuzdaki e-postalarınızı okumasına izin verir. | 
+| `UserConsentDisplayName` | Kullanıcı onayı deneyimi sırasında kullanıcılara gösterilen kolay addır. | Postalarınızı okuma | 
+| `Value` | OAuth 2.0 yetkilendirme akışları sırasında izni tanımlamak için kullanılan dizedir. `Value`, tam izin adı oluşturmak için Uygulama Kimliği URI dizesiyle birleştirilebilir. | `Mail.Read` | 
 
 ## <a name="types-of-consent"></a>Onay türleri
 Azure AD'deki uygulamalar gerekli kaynaklara veya API'lere erişim kazanmak için onaya bağımlıdır. Uygulamanızın başarılı olabilmesi için tanıyor olması gereken çeşitli onay türleri vardır. İzinleri tanımlıyorsanız, kullanıcıların uygulamanıza veya API'nize nasıl erişim kazanacağını da anlamalısınız.
@@ -70,31 +72,38 @@ Azure AD'deki uygulamalar gerekli kaynaklara veya API'lere erişim kazanmak içi
 * **Statik kullanıcı onayı** - Uygulamanızın etkileşimli çalışmak istediği kaynağı belirttiğinizde [OAuth 2.0 yetkilendirme akışı](/azure/active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) sırasında otomatik olarak gerçekleşir. Statik kullanıcı onayı senaryosunda, uygulamanızın gereken tüm izinleri Azure portalındaki uygulama yapılandırmasında zaten belirtmiş olması gerekir. Kullanıcı (veya uygun olduğunda yönetici) bu uygulamaya onay vermezse, Azure AD kullanıcının şu anda onay vermesini ister. 
 
     Statik bir API kümesine erişim isteyen bir Azure AD uygulamasını kaydetme hakkında daha fazla bilgi edinin.
-* **Dinamik kullanıcı onayı** - v2 Azure AD uygulama modelinin bir özelliğidir. Bu senaryoda, uygulamanız [v2 uygulamaları için OAuth 2.0 yetkilendirme akışı](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent) içinde ihtiyacı olan bir dizi kapsam ister. Kullanıcı henüz onaylamadıysa, bu aşamada onaylaması istenir. [Dinamik onay hakkında daha fazla bilgi edinin](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
+* **Dinamik kullanıcı onayı** - v2 Azure AD uygulama modelinin bir özelliğidir. Bu senaryoda, uygulamanız [v2 uygulamaları için OAuth 2.0 yetkilendirme akışı](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent) içinde ihtiyacı olan bir dizi izin ister. Kullanıcı henüz onaylamadıysa, bu aşamada onaylaması istenir. [Dinamik onay hakkında daha fazla bilgi edinin](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
 
     > [!NOTE]
-    > Dinamik onay kullanışlı olabilir ama yönetici onayı gerektiren izinlerde çok zorluk çıkarabilir çünkü yönetici onayı deneyimi, onay zamanında söz konusu izinleri bilmiyor olacaktır. Ayrıcalıklı yönetici kapsamlarına ihtiyacınız varsa, uygulamanızın bunları Azure Portal'da kaydetmesi gerekir.
+    > Dinamik onay kullanışlı olabilir ama yönetici onayı gerektiren izinlerde çok zorluk çıkarabilir çünkü yönetici onayı deneyimi, onay zamanında söz konusu izinleri bilmiyor olacaktır. Ayrıcalıklı yönetici izinlerine ihtiyacınız varsa, uygulamanızın bunları Azure Portal'da kaydetmesi gerekir.
   
-* **Yönetici onayı** - Uygulamanızın bazı yüksek ayrıcalıklı izinlere erişmeye ihtiyacı olması durumunda gereklidir. Bu, uygulamalara veya kullanıcılara kuruluşunuzun yüksek ayrıcalıklı verilerine erişme yetkisi verilmeden önce yöneticilerin bazı ek denetimler yapabilmesini sağlar. [Yönetici onayı verme hakkında daha fazla bilgi edinin](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+* **Yönetici onayı** - Uygulamanızın bazı yüksek ayrıcalıklı izinlere erişmeye ihtiyacı olması durumunda gereklidir. Yönetici onayı, uygulamalara veya kullanıcılara kuruluşunuzun yüksek ayrıcalıklı verilerine erişme yetkisi verilmeden önce yöneticilerin bazı ek denetimler yapabilmesini sağlar. [Yönetici onayı verme hakkında daha fazla bilgi edinin](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
-## <a name="best-practices"></a>En iyi yöntemler
+## <a name="best-practices"></a>En iyi uygulamalar
 
-### <a name="resource-best-practices"></a>Kaynaklarla ilgili en iyi yöntemler
-API'leri kullanıma sunan kaynaklar, kesinlikle korudukları verilere veya eylemlere özgü izinler tanımlamalıdır. Bu yöntem, istemcilerin ihtiyaçları olmayan verilere erişmemesini ve kullanıcıların hangi verilere onay verdikleri konusunda bilgi sahibi olmasını sağlamaya yardımcı olur.
+### <a name="client-best-practices"></a>İstemci en iyi uygulamaları
 
-Kaynaklar `Read` ve `ReadWrite` izinlerini ayrı ayrı ve açıkça tanımlamalıdır. 
+- Yalnızca uygulamanızın ihtiyacı olan izinleri isteyin. Aşırı fazla izinleri olan uygulamaların güvenliği aşıldığında, kullanıcı verilerini açığa çıkarma riski doğar.
+- Uygulamanızın desteklediği senaryoya göre temsilci izinleri ve uygulama izinleri arasında seçim yapın. 
+    - Kullanıcı adına çağrı yapılıyorsa her zaman temsilci izinlerini kullanın.
+    - Uygulama izinlerini yalnızca uygulama etkileşimli değilse ve herhangi bir kullanıcının adına çağrı yapmıyorsa kullanın. Uygulama izinleri yüksek ayrıcalıklara sahiptir ve yalnızca gerçekten gerekli olduğunda kullanılmalıdır.
+- v2.0 uç noktasını temel alan bir uygulama kullandığınızda, yönetici onayı gibi senaryoların doğru şekilde çalışması için statik izinleri (uygulama kaydınızda belirtilenler) çalışma zamanında istenen dinamik izinlerin (kodda belirtilen ve yetkilendirme isteğinizde sorgu parametresi olarak gönderilen) üst kümesi olarak belirleyin.
 
-Kaynaklar, kullanıcı sınırlarının ötesinde veri erişimine olanak tanıyan tüm izinleri `Admin` izinleri olarak işaretlemelidir. 
+### <a name="resourceapi-best-practices"></a>Kaynak/API en iyi yöntemleri
 
-Kaynaklar `Subject.Permission[.Modifier]` adlandırma desenine uymalıdır; burada `Subject` kullanılabilir veri türüne karşılık gelir, `Permission` kullanıcının veriler üzerinde gerçekleştirebileceği eyleme karşılık gelir ve `Modifier` başka bir iznin özelleştirilmiş durumlarını açıklamak için isteğe bağlı olarak kullanılır. Örnek: 
-* Mail.Read - Kullanıcıların postayı okumasına izin verir. 
-* Mail.ReadWrite - Kullanıcıların postayı yazmasına veya okumasına izin verir.
-* Mail.ReadWrite.All - Yöneticinin veya kullanıcının kuruluştaki tüm postaya erişmesine izin verir.
+- API'leri kullanıma sunan kaynaklar, korudukları verilere veya eylemlere özgü izinler tanımlamalıdır. Bu en iyi yöntemin uygulanması, istemcilerin ihtiyaçları olmayan verilere erişmemesini ve kullanıcıların hangi verilere onay verdikleri konusunda bilgi sahibi olmasını sağlamaya yardımcı olur.
+- Kaynaklar `Read` ve `ReadWrite` izinlerini ayrı ayrı ve açıkça tanımlamalıdır.
+- Kaynaklar, kullanıcı sınırlarının ötesinde veri erişimine olanak tanıyan tüm izinleri `Admin` izinleri olarak işaretlemelidir.
+- Kaynakların `Subject.Permission[.Modifier]` adlandırma modelini kullanması gerekir:
+    - `Subject`, kullanılabilir durumdaki veri türünü belirtir,
+    - `Permission`, kullanıcının bu verilerle gerçekleştirebileceği eylemi belirtir ve 
+    - `Modifier`, isteğe bağlı olarak başka bir iznin özelleştirmelerini açıklamak için kullanılır. 
+    
+    Örnek: 
+    * Mail.Read - Kullanıcıların postayı okumasına izin verir.
+    * Mail.ReadWrite - Kullanıcıların postayı yazmasına veya okumasına izin verir.
+    * Mail.ReadWrite.All - Yöneticinin veya kullanıcının kuruluştaki tüm postaya erişmesine izin verir.
 
-### <a name="client-best-practices"></a>İstemciyle ilgili en iyi yöntemler
-Yalnızca uygulamanıza gereken kapsamlar için izin isteyin. Aşırı fazla izinleri olan uygulamaların güvenliği aşıldığında, kullanıcı verilerini açığa çıkarma riski doğar.
-
-İstemciler aynı uygulamadan uygulama izinleri ve temsilci izinleri istememelidir. Bunun sonucunda ayrıcalık yükseltmesi ortaya çıkabilir ve kullanıcının kendi izinlerinin yetmediği verilere erişim kazanması söz konusu olabilir. 
 
 
 

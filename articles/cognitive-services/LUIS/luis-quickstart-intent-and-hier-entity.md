@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 03/27/2018
+ms.date: 06/22/2018
 ms.author: v-geberr
-ms.openlocfilehash: 2547407126943161ba604fa2f5e80b9186cae57e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 5fb93ebbd2da02df0c2cdf0d19ed282aeafe9473
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266507"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335569"
 ---
 # <a name="tutorial-create-app-that-uses-hierarchical-entity"></a>Öğretici: Hiyerarşik varlık kullanan bir uygulama oluşturma
 Bu öğreticide, bağlama bağlı ilgili veri parçalarını nasıl bulacağınızı gösteren bir uygulama oluşturacaksınız. 
@@ -22,140 +22,111 @@ Bu öğreticide, bağlama bağlı ilgili veri parçalarını nasıl bulacağın�
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Hiyerarşik varlıkları ve bağlamsal olarak öğrenilen alt öğeleri anlama 
-> * Bookflight amacını kullanarak seyahat alanı için yeni bir LUIS uygulaması oluşturma
-> * _None_ amacını ve örnek konuşmaları ekleme
+> * LUIS uygulamasını İnsan Kaynakları (İK) alanında kullanma 
 > * Çıkış ve varış alt öğelerine sahip konum hiyerarşik varlığını ekleme
 > * Uygulamayı eğitme ve yayımlama
 > * Hiyerarşik alt öğeleri içeren LUIS JSON yanıtını görmek için uygulamanın uç noktasını sorgulama 
 
 Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS][LUIS] hesabına ihtiyacınız olacak.
 
+## <a name="before-you-begin"></a>Başlamadan önce
+[Liste varlıkları](luis-quickstart-intent-and-list-entity.md) öğreticisinde oluşturulan İnsan Kaynakları uygulamasına sahip değilseniz JSON verilerini [içe aktararak](create-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulama oluşturun. İçeri aktarmanız gereken uygulama [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github deposunda bulunmaktadır.
+
+Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `hier` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. 
+
 ## <a name="purpose-of-the-app-with-this-entity"></a>Bu varlığa sahip uygulamanın amacı
-Bu uygulama, bir kullanıcının uçak bileti almak isteyip istemediğini belirler. Kullanıcı metni içindeki konumları, çıkış şehrini ve varış şehrini belirlemek için hiyerarşik varlığı kullanır. 
+Bu uygulama bir çalışanın hangi kaynak konumdan (bina ve ofis) hangi hedef konuma (bina ve ofis) taşınacağını belirler. Konuşma içindeki konumları belirlemek için hiyerarşik varlığı kullanır. 
 
 İki veri parçası şu özelliklere sahip olduğundan hiyerarşik varlık bu veri türü için iyi bir seçimdir:
 
-* İkisi de genellikle şehir veya havaalanı kodu olarak belirtilen konum verisidir.
-* Genellikle çıkış ve varış şehrini belirleyebilmek için sözcüklerin etrafında benzersiz sözcük seçenekleri bulunur. Bu sözcüklere şunlar dahildir: to, headed toward, from, leaving (şehrine, doğru gidiyorum, şehrinden, ayrılıyorum).
+* Konuşma bağlamında birbiriyle ilişkilidir.
+* Her bir konumu belirtmek için belirli bir sözcük kullanır. Bu sözcüklere örnekler şunlardır: from/to, leaving/headed to, away from/toward (çıkış/varış, ayrılıyor/gidiyor, kaynaktan/hedefe doğru)
 * Konumların ikisi de genelde aynı konuşmada bulunur. 
 
 **Hiyerarşik** varlığın amacı, bağlama bağlı olarak konuşma içindeki ilgili verileri bulmaktır. Aşağıdaki konuşmaya bir göz atın:
 
 ```JSON
-1 ticket from Seattle to Cairo`
+mv Jill Jones from a-2349 to b-1298
 ```
-
-Konuşmada iki konum belirtilmiştir. Biri çıkış şehri olan Seattle, diğeri ise varış şehri olan Kahire. Uçak bileti almak için bu iki şehir de önemlidir. Basit varlıklar kullanılarak bulunmalarının yanı sıra birbiriyle ilgilidir ve genelde aynı konuşmada yer alacaktır. Bu nedenle ikisinin de **"Konum"** hiyerarşik varlığının alt öğeleri olarak gruplanması mantıklıdır. 
-
-Uygulamanın makine öğrenmesi varlıkları olarak çıkış ve varış şehirleri etiketli örnek konuşmalara ihtiyacı vardır. Bu LUIS uygulamasına varlıkların, konuşmaların hangi bölümünde olduğunu, hangi uzunlukta olduğunu ve etrafındaki kelimeleri öğretir. 
-
-## <a name="app-intents"></a>Uygulama amaçları
-Amaçlar, kullanıcı isteklerinin kategorileridir. Bu uygulamada iki amaç vardır: BookFlight ve None. [None](luis-concept-intent.md#none-intent-is-fallback-for-app) amacı, uygulama haricindeki bir durumu belirtmek için kullanılır.  
-
-## <a name="hierarchical-entity-is-contextually-learned"></a>Hiyerarşik varlık, bağlamsal olarak öğrenilir 
-Varlığın amacı, konuşma içindeki metnin bölümlerini bulmak ve kategorilere ayırmaktır. [Hiyerarşik](luis-concept-entity-types.md) varlık, kullanım bağlamına bağlı bir üst öğe-alt öğe varlığıdır. Bir kişi, `to` ve `from` kullanımına göre bir konuşma içindeki çıkış ve varış şehirlerini belirleyebilir. Bu, bağlamsal kullanıma bir örnektir.  
-
-Bu Seyahat uygulaması için LUIS çıkış ve varış konumlarını standart rezervasyon oluşturacak ve ilgili alanları dolduracak şekilde ayıklar. LUIS konuşmalarda farklı sözcükler, kısaltmalar ve argo kullanılmasına izin verir. 
-
-Kullanıcıların konuşmalarına basit örnekler şunlardır:
-
-```
-Book a flight to London for next Monday
-2 tickets from Dallas to Dublin this weekend
-Researve a seat from New York to Paris on the first of April
-```
-
-Konuşmaların kısaltılmış veya argo sürümleri şunlardır:
-
-```
-LHR tomorrow
-SEA to NYC next Monday
-LA to MCO spring break
-```
+Konuşmada `a-2349` ve `b-1298` olmak üzere iki konum belirtilmiştir. Harfin bina adına, sayının da bu bina içindeki ofislere karşılık geldiğini düşünün. Veri parçalarının konuşmadan ayıklanması gerektiğinden ve birbirleriyle ilişkili olduğundan ikisinin de `Locations` hiyerarşik varlığının alt öğeleri olarak gruplanmış olması normaldir. 
  
-Hiyerarşik varlık, çıkış ve varış konumuyla eşleşir. Hiyerarşik varlığın alt öğelerinden yalnızca bir tanesi (çıkış veya varış) mevcut olduğunda da ayıklama işlemi gerçekleştirilir. Bir veya birden fazla öğenin ayıklanması için tüm alt öğelerin bulunması gerekmez. 
+Hiyerarşik varlığın alt öğelerinden yalnızca bir tanesi (çıkış veya varış) mevcut olduğunda da ayıklama işlemi gerçekleştirilir. Bir veya birden fazla öğenin ayıklanması için tüm alt öğelerin bulunması gerekmez. 
 
-## <a name="what-luis-does"></a>LUIS tarafından gerçekleştirilen işlemler
-Konuşmadaki amaç ve varlıklar tanımlandıktan, [ayıklandıktan](luis-concept-data-extraction.md#list-entity-data) ve [uç noktadan](https://aka.ms/luis-endpoint-apis) JSON biçiminde döndürüldükten sonra LUIS görevini tamamlamış olur. Arama uygulaması veya sohbet botu bu JSON yanıtını alıp tasarlanma amacına uygun olarak isteği gerçekleştirir. 
+## <a name="remove-prebuilt-number-entity-from-app"></a>Uygulamadaki önceden oluşturulmuş sayı varlığını kaldırma
+Konuşmanın tamamını görmek ve hiyerarşik alt öğeleri işaretlemek için önceden oluşturulmuş sayı varlığını geçici olarak kaldırın.
 
-## <a name="create-a-new-app"></a>Yeni bir uygulama oluşturma
-1. [LUIS][LUIS] web sitesinde oturum açın. LUIS uç noktalarının yayımlanmasını istediğiniz [bölgede][LUIS-regions] oturum açtığınızdan emin olun.
+1. İnsan Kaynakları uygulamanızın LUIS sisteminin **Build** (Derleme) bölümünde olduğundan emin olun. Sağ taraftaki menü çubuğunun en üstünde bulunan **Build** (Derleme) ifadesini seçerek bu bölüme geçebilirsiniz. 
 
-2. [LUIS][LUIS] web sitesinde **Create new app** (Yeni uygulama oluştur) öğesini seçin.  
+    [ ![Sağ taraftaki menü çubuğunun en üstünde bulunan Build (Derleme) ifadesi vurgulanmış LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
 
-    [![](media/luis-quickstart-intent-and-hier-entity/app-list.png "Uygulama listesi sayfasının ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/app-list.png#lightbox)
+2. Sol menüden **Entities** (Varlıklar) öğesini seçin.
 
-3. Açılan iletişim kutusuna `MyTravelApp` adını girin. 
+    [ ![Sol menüde Entities (Varlıklar) düğmesi vurgulanmış LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-app.png "Create new app (Yeni uygulama oluştur) açılan iletişim kutusunun ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/create-new-app.png#lightbox)
 
-4. İşlem tamamlandıktan sonra uygulamalar **Intents** (Amaçlar) sayfasını ve **None** (Yok) amacını gösterir. 
+3. Listedeki sayı varlığının sağ tarafındaki üç nokta (...) simgesini seçin. **Sil**’i seçin. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/intents-page-none-only.png "Yalnızca None (Yok) amacına sahip Intents (Amaçlar) listesinin ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/intents-page-none-only.png#lightbox)
+    [ ![Önceden oluşturulmuş Sayı varlığı için silme düğmesi vurgulanmış LUIS uygulaması varlık listesi sayfasının ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
 
-## <a name="create-a-new-intent"></a>Yeni amaç oluşturma
 
-1. **Intents** (Amaçlar) sayfasında **Create new intent** (Yeni amaç oluştur) öğesini seçin. 
+## <a name="add-utterances-to-findform-intent"></a>FindForm amacına konuşma ekleme
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-intent-button.png "Create new intent (Yeni amaç oluştur) düğmesi vurgulanmış Intents (Amaçlar) listesinin ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/create-new-intent-button.png#lightbox)
+1. Sol menüden **Intents** (Amaçlar) öğesini seçin.
 
-2. Yeni amaç adı olarak `BookFlight` girin. Bu amacın kullanıcı uçak bileti almak istediğinde seçilmesi gerekir.
+    [ ![Sol menüde Intents (Amaçlar) düğmesi vurgulanmış LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png#lightbox)
 
-    Bu amacı oluşturarak tanımlamak istediğiniz birincil bilgi kategorisini oluşturmuş olursunuz. Bu kategoriye bir ad verdiğinizde LUIS sorgu sonuçlarını kullanan başka uygulamalar da uygun bir yanıt bulmak veya ilgili eylemi gerçekleştirmek için bu kategorinin adını kullanabilir. LUIS bu soruları yanıtlamaz, yalnızca doğal dilde sorulan bilgi türünü tanımlar. 
+2. Amaç listesinden **MoveEmployee** girişini seçin.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-intent.png "Create new intent (Yeni amaç oluştur) açılan iletişim kutusunun ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/create-new-intent.png#lightbox)
+    [ ![Sol menüde MoveEmployee amacı vurgulanmış LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png)](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png#lightbox)
 
-3. `BookFlight` amacına kullanıcının sormasını beklediğiniz birkaç konuşma girin; örneğin:
+3. Aşağıdaki örnek konuşmaları ekleyin:
 
-    | Örnek konuşmalar|
+    |Örnek konuşmalar|
     |--|
-    |Book 2 flights from Seattle to Cairo next Monday (Önümüzdeki Pazartesi günü Seattle'dan Kahire'ye 2 uçak bileti al)|
-    |Reserve a ticket to London tomorrow (Yarınki Londra uçuşuna bir bilet al)|
-    |Schedule 4 seats from Paris to London for April 1 (1 Nisan'daki Paris-Londra uçuşuna 4 kişilik bilet al)|
+    |Move John W. Smith **to** a-2345 (John W. Smith'i a-2345'e taşıyın)|
+    |Direct Jill Jones **to** b-3499 (Jill Jones'u b-3499'a yönlendirin)|
+    |Organize the move of x23456 **from** hh-2345 **to** e-0234 (x23456 numaralı ofisin hh-2345'ten e-0234'e taşınmasını organize edin)|
+    |Begin paperwork to set x12345 **leaving** a-3459 **headed to** f-34567 (a-3459'dan f-34567'ye geçen x12345 için gerekli evrakları hazırlayın)|
+    |Displace 425-555-0000 **away from** g-2323 **toward** hh-2345 (425-555-0000 numaralı hattı g-2323'ten hh-2345'e yönlendirin)|
 
-    [![](media/luis-quickstart-intent-and-hier-entity/enter-utterances-on-intent.png "BookFlight amaç sayfasında konuşma girme bölümünün gösterildiği ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/enter-utterances-on-intent.png#lightbox)
+    [Liste varlığı](luis-quickstart-intent-and-list-entity.md) öğreticisinde bir çalışan ad, e-posta adresi, dahili telefon, cep telefonu numarası veya ABD federal sosyal güvenlik numarası ile tanımlanabiliyordu. Bu çalışan numaraları konuşmalarda kullanılmaktadır. Yukarıdaki örnek konuşmalarda kaynak ve hedef konumlar kalın yazı tipiyle gösterilen farklı biçimlere sahiptir. Yalnızca birkaç konuşmada bilinçli olarak hedefler belirtilmiştir. Bu durum, LUIS uygulamasının kaynak belirtilmediğinde bu konumların konuşmadaki yerini anlamasına yardımcı olmaktadır.
 
-## <a name="add-utterances-to-none-intent"></a>None amacına konuşma ekleme
+    [ ![MoveEmployee amacındaki yeni konuşmaları gösteren LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+     
 
-LUIS uygulamasının **None** (Yok) amacında şu an için bir konuşma mevcut değildir. **None** amacında uygulanın yanıtlamasını istemediğiniz konuşmaların bulunması gerekir. Bu bölümü boş bırakmayın. 
+## <a name="create-a-location-entity"></a>Konum varlığı oluşturma
+LUIS uygulamasının konuşmalardaki kaynak ve hedef konumları etiketleyerek konumun ne olduğunu anlaması gerekir. Konuşmayı belirteç (ham) görünümünde görmek isterseniz konuşmaların üzerinde çubukta yer alan **Entities View** (Varlık Görünümü) denetimini seçin. Anahtarı açık duruma getirdikten sonra denetim **Tokens View** (Belirteç Görünümü) olarak etiketlenir.
 
-1. Sol panelden **Intents** (Amaçlar) öğesini seçin. 
+1. `Displace 425-555-0000 away from g-2323 toward hh-2345` konuşmasının içinde `g-2323` sözcüğünü seçin. En üstte bir metin kutusu bulunan açılan menü görüntülenir. `Locations` metin kutusuna varlık adını girip açılan menüden **Create new entity** (Yeni varlık oluştur) öğesini seçin. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/select-intents-from-bookflight-intent.png "Intents (Amaçlar) düğmesinin vurgulanmış olduğu BookFlight amaç sayfası")](media/luis-quickstart-intent-and-hier-entity/select-intents-from-bookflight-intent.png#lightbox)
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Amaç sayfasında yeni varlık oluşturma ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
-2. **None** (Yok) amacını seçin. Kullanıcının girebileceği ancak uygulamanızla ilgili olmayan üç konuşma girin:
+2. Açılır pencerede **Hierarchical** (Hiyerarşik) varlık türünü ve `Origin` ile `Destination` alt varlıkları seçin. **Done** (Bitti) öğesini seçin.
 
-    | Örnek konuşmalar|
-    |--|
-    |Cancel! (İptal!)|
-    |Good bye (Güle güle)|
-    |What is going on? (Neler oluyor?)|
+    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Yeni Location (Konum) varlığı için varlık oluşturma açılır iletişim kutusunun ekran görüntüsü")
 
-## <a name="when-the-utterance-is-predicted-for-the-none-intent"></a>Konuşmanın None (Yok) amacına uygun olduğu tahmin edildiğinde
-LUIS çağrı uygulamanızda (sohbet botu gibi) LUIS, bir konuşma için **None** (Yok) amacını döndürdüğünde kullanıcının konuşmayı sonlandırmak isteyip istemediğini sorabilir. Kullanıcının konuşmayı sonlandırmak istememesi durumunda bot devam etme talimatları verebilir. 
+3. LUIS, terimin çıkış mı, varış mı yoksa ikisi dışında bir değer mi olduğunu bilmediğinden `g-2323` etiketi `Locations` olarak işaretlenir. `g-2323` öğesini ve ardından **Locations** (Konumlar) girişini seçip sağ taraftaki menüden `Origin` öğesini seçin.
 
-Varlıklar **None** (Yok) amacı içinde çalışır. En yüksek puanlı amacın **None** (Yok) olması ancak sohbet botunuz için anlamlı olan bir varlık ayıklanması halinde sohbet botunuz müşterinin amacına odaklanan bir soru yöneltebilir. 
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Konum varlığı alt öğesini değiştirmek için varlık etiketleme açılır iletişim kutusunun ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
-## <a name="create-a-location-entity-from-the-intent-page"></a>Intent (Amaç) sayfasından bir konum varlığı oluşturma
-İki amaçta da konuşma bulunduğuna göre artık LUIS uygulamasının konumun ne olduğunu anlaması gerekiyor. `BookFlight` amacına dönün ve aşağıdaki adımları izleyerek konuşma içindeki şehir adını etiketleyin (işaretleyin):
+5. Konuşmadaki binayı ve ofisi seçtikten sonra Locations (Konumlar) öğesini ve ardından sağdaki menüden `Origin` veya `Destination` öğesini seçerek diğer konuşmalardaki konumları etiketleyin. Tüm konumlar etiketlendikten sonra **Tokens View** (Belirteç Görünümü) desen gibi görünmeye başlar. 
 
-1. Sol panelde **Intents** (Amaçlar) öğesini seçerek `BookFlight` amacına dönün.
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Konuşmalarda etiketlenmiş olan Locations (Konumlar) varlığının ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
-2. Amaç listesinden `BookFlight` öğesini seçin.
+## <a name="add-prebuilt-number-entity-to-app"></a>Uygulamaya önceden oluşturulmuş sayı varlığı ekleme
+Önceden oluşturulmuş sayı varlığını uygulamaya tekrar ekleyin.
 
-3. `Book 2 flights from Seattle to Cairo next Monday` konuşmasının içinde `Seattle` sözcüğünü seçin. En üstünde yeni varlık oluşturmak kullanabileceğiniz bir metin kutusu bulunan açılan menü görüntülenir. `Location` metin kutusuna varlık adını girip açılan menüden **Create new entity** (Yeni varlık oluştur) öğesini seçin. 
+1. Sol gezinti menüsünden **Entities** (Varlıklar) öğesini seçin.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png "BookFlight amaç sayfası, seçilen metinden yeni varlık oluşturma adımının ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png#lightbox)
+    [ ![Sol gezinti bölmesinde vurgulanmış Entities (Varlıklar) düğmesinin ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png#lightbox)
 
-4. Açılır pencerede **Hierarchical** (Hiyerarşik) varlık türünü ve `Origin` ile `Destination` alt varlıkları seçin. **Done** (Bitti) öğesini seçin.
+2. **Manage prebuilt entities** (Önceden oluşturulan varlıkları yönet) düğmesini seçin.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png "Yeni Location (Konum) varlığı için varlık oluşturma açılır iletişim kutusunun ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png#lightbox)
+    [ ![Manage prebuilt entities (Önceden oluşturulan varlıkları yönet) düğmesi vurgulanmış Entities (Varlıklar) listesinin ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png#lightbox)
 
-    LUIS, terimin çıkış mı, varış mı yoksa ikisi dışında bir değer mi olduğunu bilmediğinden `Seattle` etiketi `Location` olarak işaretlenir. `Seattle` öğesini ve ardından Location (Konum) girişini seçip sağ taraftaki menüden `Origin` öğesini seçin.
+3. Önceden oluşturulmuş varlık listesinden **sayıyı** ve ardından **Done** (Bitti) öğesini seçin.
 
-5. Varlık oluşturuldu ve bir konuşma etiketlendi. Şimdi şehir adını, ardından Location (Konum) girişini, ardından da sağ taraftaki menüden `Origin` veya `Destination` öğesini seçerek diğer şehirleri etiketleyin.
-
-    [![](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png "Varlık seçimi için konuşma metni seçilmiş Bookflight varlığının ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png#lightbox)
+    ![Önceden oluşturulmuş varlıklar iletişim kutusunda sayının seçildiğini gösteren ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
 LUIS uygulaması eğitilene kadar amaçlar ve varlıklar (model) üzerinde yapılan değişiklikleri bilemez. 
@@ -173,8 +144,6 @@ Sohbet botunda veya başka bir uygulamada LUIS tahmini almak için uygulamayı y
 
 1. LUIS web sitesinin sağ üst kısmından **Publish** (Yayımla) düğmesini seçin. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/publish.png "Publish (Yayımla) düğmesi vurgulanmış Bookflight amacının ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/publish.png#lightbox)
-
 2. Production (Üretim) yuvasını ve ardından **Publish** (Yayımla) düğmesini seçin.
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Publish to production slot (Üretim yuvasında yayımla) düğmesi vurgulanmış Yayımlama sayfasının ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
@@ -186,41 +155,114 @@ Sohbet botunda veya başka bir uygulamada LUIS tahmini almak için uygulamayı y
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png "Uç nokta URL'si vurgulanmış Publish (Yayımla) sayfası ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png#lightbox)
 
-2. Adres çubuğundaki URL'nin sonuna gidip `1 ticket to Portland on Friday` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `BookFlight` amacını hiyerarşik varlık ayıklanmış şekilde döndürmelidir.
+2. Adres çubuğundaki URL'nin sonuna gidip `Please relocation jill-jones@mycompany.com from x-2345 to g-23456` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `MoveEmployee` amacını hiyerarşik varlık ayıklanmış şekilde döndürmelidir.
 
-```
+```JSON
 {
-  "query": "1 ticket to Portland on Friday",
+  "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
   "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.9998226
+    "intent": "MoveEmployee",
+    "score": 0.9966052
   },
   "intents": [
     {
-      "intent": "BookFlight",
-      "score": 0.9998226
+      "intent": "MoveEmployee",
+      "score": 0.9966052
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0325253047
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.006137873
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.00462633232
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00415637763
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.00382325822
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00249120337
     },
     {
       "intent": "None",
-      "score": 0.221926212
+      "score": 0.00130756292
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00119622645
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 1.26910036E-05
     }
   ],
   "entities": [
     {
-      "entity": "portland",
-      "type": "Location::Destination",
-      "startIndex": 12,
-      "endIndex": 19,
-      "score": 0.564448953
+      "entity": "jill - jones @ mycompany . com",
+      "type": "Employee",
+      "startIndex": 18,
+      "endIndex": 41,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
+    },
+    {
+      "entity": "x - 2345",
+      "type": "Locations::Origin",
+      "startIndex": 48,
+      "endIndex": 53,
+      "score": 0.8520272
+    },
+    {
+      "entity": "g - 23456",
+      "type": "Locations::Destination",
+      "startIndex": 58,
+      "endIndex": 64,
+      "score": 0.974032
+    },
+    {
+      "entity": "-2345",
+      "type": "builtin.number",
+      "startIndex": 49,
+      "endIndex": 53,
+      "resolution": {
+        "value": "-2345"
+      }
+    },
+    {
+      "entity": "-23456",
+      "type": "builtin.number",
+      "startIndex": 59,
+      "endIndex": 64,
+      "resolution": {
+        "value": "-23456"
+      }
     }
   ]
 }
 ```
 
-## <a name="what-has-this-luis-app-accomplished"></a>Bu LUIS uygulaması hangi işlemleri gerçekleştirdi?
-Yalnızca iki amaca ve bir hiyerarşik varlığa sahip olan bu uygulama, doğal dil sorgu varlığını tanımladı ve ayıklanan verileri döndürdü. 
+## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>Her konum için normal ifade kullanmak mümkün mü?
+Evet, kaynak ve hedef rollerle bir normal ifade oluşturup desen içinde kullanabilirsiniz.
 
-Sohbet botunuz artık `BookFlight` birincil eylemini ve konuşmada bulunan konum bilgilerini belirlemek için yeterli bilgiye sahip. 
+Bu örnekteki konumlarda `a-1234` gibi bir veya iki harf, kısa çizgi ve 4 ya da 5 basamaklı sayı kullanılan bir biçim kullanılmıştır. Bu veriler her bir konum için bir role sahip olan normal ifade varlığı olarak tanımlanabilir. Roller, desenlerle birlikte kullanılabilir. Bu konuşmaları temel alan desenler oluşturduktan sonra konum biçimi için bir normal ifade oluşturup desenlere ekleyebilirsiniz. <!-- Go to this tutorial to see how that is done -->
+
+## <a name="what-has-this-luis-app-accomplished"></a>Bu LUIS uygulaması hangi işlemleri gerçekleştirdi?
+Yalnızca birkaç amaca ve bir hiyerarşik varlığa sahip olan bu uygulama, doğal dil sorgu varlığını tanımladı ve ayıklanan verileri döndürdü. 
+
+Sohbet botunuz artık `MoveEmployee` birincil eylemini ve konuşmada bulunan konum bilgilerini belirlemek için yeterli bilgiye sahip. 
 
 ## <a name="where-is-this-luis-data-used"></a>Bu LUIS verileri nerede kullanılır? 
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve varlık verilerini alarak bir sonraki adımı gerçekleştirebilir. LUIS, bot veya çağrı uygulaması için programlama işini gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
@@ -231,11 +273,6 @@ LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu ka
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"] 
 > [Liste varlığı eklemeyi öğrenin](luis-quickstart-intent-and-list-entity.md) 
-
-Sayıları ayıklamak için **number** [önceden oluşturulmuş varlığını](luis-how-to-add-entities.md#add-prebuilt-entity) ekleyin. 
-
-Tarih bilgilerini ayıklamak için **datetimeV2** [önceden oluşturulmuş varlığını](luis-how-to-add-entities.md#add-prebuilt-entity) ekleyin.
-
 
 <!--References-->
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

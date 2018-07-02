@@ -1,6 +1,6 @@
 ---
-title: HDInsight'ta R Server ile çalışmaya başlama - Azure | Microsoft Docs
-description: HDInsight kümesi üzerinde R Server içeren bir Apache Spark oluşturma ve küme üzerinde bir R betiği gönderme hakkında bilgi edinin.
+title: HDInsight'ta ML Services ile çalışmaya başlama - Azure | Microsoft Docs
+description: HDInsight kümesi üzerinde ML Services içeren bir Apache Spark oluşturma ve küme üzerinde bir R betiği gönderme hakkında bilgi edinin.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -13,19 +13,18 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/23/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: d6910ab257312626ca25126721410edeed6cdeae
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: efc7ada12f722b0447712594de496e933bde3d36
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411490"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053441"
 ---
-# <a name="get-started-with-r-server-cluster-on-azure-hdinsight"></a>Azure HDInsight üzerinde R Server kümesini kullanmaya başlama
+# <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Azure HDInsight'ta ML Services ile çalışmaya başlama
 
-Azure HDInsight, HDInsight kümenizle tümleştirilecek bir R Server seçeneği içerir. Bu seçenek, R betiklerinin dağıtılmış hesaplamaları çalıştırmak için Spark ve MapReduce kullanmasına olanak tanır. Bu makalede, HDInsight kümesinde R Server oluşturmayı öğreneceksiniz. Ardından dağıtılmış R hesaplamalarında Spark kullanımını gösteren R betiğini çalıştırmayı öğreneceksiniz.
-
+Azure HDInsight, ML Services kümesi oluşturmanızı sağlar. Bu seçenek, R betiklerinin dağıtılmış hesaplamaları çalıştırmak için Spark ve MapReduce kullanmasına olanak tanır. Bu makalede, HDInsight kümesi üzerinde bir ML Services kümesi oluşturma ve ardından dağıtılmış R hesaplamaları için Spark kullanmayı gösteren bir R betiği çalıştırma hakkında bilgi alacaksınız.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -53,13 +52,13 @@ Azure HDInsight, HDInsight kümenizle tümleştirilecek bir R Server seçeneği 
 
 4. **Küme türü**’nü seçin, ardından **Küme yapılandırması** bölümünde aşağıdaki değerleri ayarlayın:
 
-    * **Küme Türü**: R Server
+    * **Küme Türü**: ML Services
 
     * **İşletim Sistemi**: Linux
 
-    * **Sürüm**: R Server 9.1 (HDI 3.6). Kullanılabilir R Server sürümlerinin sürüm notları [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-r-server#r-server-91) sitesinde bulunabilir.
+    * **Sürüm**: ML Server 9.3 (HDI 3.6). ML Server 9.3 sürüm notlarına [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-machine-learning-server) adresinden ulaşabilirsiniz.
 
-    * **R Server için R Studio topluluk sürümü**: Tarayıcı tabanlı bu IDE, kenar düğümüne varsayılan olarak yüklenir. Yüklememeyi tercih ederseniz, onay kutusunun işaretini kaldırın. Yüklemeyi seçerseniz, RStudio Server oturum açma sayfasına erişim URL'si, oluşturulan kümenizin portal uygulaması dikey penceresinde bulunur.
+    * **ML Server için R Studio topluluk sürümü**: Tarayıcı tabanlı bu IDE, kenar düğümüne varsayılan olarak yüklenir. Yüklememeyi tercih ederseniz, onay kutusunun işaretini kaldırın. Yüklemeyi seçerseniz, RStudio Server oturum açma sayfasına erişim URL'si, oluşturulan kümenizin portal uygulaması dikey penceresinde bulunur.
 
         ![Küme temel ayrıntıları](./media/r-server-get-started/clustertypeconfig.png)
 
@@ -81,11 +80,11 @@ Azure HDInsight, HDInsight kümenizle tümleştirilecek bir R Server seçeneği 
 
 HDInsight kümenizin parçası olarak RStudio Server Community Edition’ı yüklemeyi seçerseniz, aşağıdaki iyi yöntemden birini kullanarak RStudio oturum açma bölümüne erişebilirsiniz:
 
-* **1. Seçenek** - Aşağıdaki URL’ye gidin (burada **CLUSTERNAME**, oluşturduğunuz R Server kümesinin adıdır):
+* **1. Seçenek** - Aşağıdaki URL’ye gidin (burada **CLUSTERNAME**, oluşturduğunuz ML Services kümesinin adıdır):
 
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
-* **2. Seçenek** - Azure portalında, **Hızlı bağlantılar** bölümünde **R Server Panoları**’na tıklayarak R Server kümesini açın.
+* **2. Seçenek** - Azure portalında, **Hızlı bağlantılar** bölümünde **ML Services Panoları**’na tıklayarak ML Services kümesini açın.
 
      ![HDInsight depolama hesabı ayarlarını belirleme](./media/r-server-get-started/dashboard-quick-links.png)
 
@@ -175,9 +174,9 @@ ScaleR işlevlerini kullanarak bir iş gönderebilirsiniz. Bir işi çalıştır
 <a name="connect-to-edge-node"></a>
 ## <a name="connect-to-the-cluster-edge-node"></a>Küme kenar düğümüne bağlanma
 
-Bu bölümde, SSH kullanarak bir R Server HDInsight kümesinin kenar düğümüne nasıl bağlanılacağını öğreneceksiniz. SSH kullanımı hakkında bilgi edinmek için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Bu bölümde, SSH kullanarak bir ML Services HDInsight kümesinin kenar düğümüne nasıl bağlanılacağını öğreneceksiniz. SSH kullanımı hakkında bilgi edinmek için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-R Server küme kenar düğümüne bağlanmak için SSH komutu şöyledir:
+ML Services küme kenar düğümüne bağlanmak için SSH komutu şöyledir:
 
    `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
 
@@ -194,15 +193,15 @@ Bağlantı kurulduktan sonra aşağıdakine benzer bir isteme ulaşırsınız:
     sshuser@ed00-myrclu:~$
 
 <a name="use-r-console"></a>
-## <a name="use-the-r-server-console"></a>R Server konsolunu kullanma
+## <a name="use-the-r-console"></a>R konsolunu kullanma
 
 1. R konsolunu başlatmak için SSH oturumunda aşağıdaki komutu kullanın:  
 
         R
 
-2. Diğer bilgilere ek olarak, R Server sürümünü içeren bir çıktı görmeniz gerekir.
+2. Diğer bilgilere ek olarak, ML Server sürümünü içeren bir çıktı görmeniz gerekir.
     
-3. `>` isteminde R kodunu girebilirsiniz. HDInsight üzerinde R Server, Hadoop ile kolayca etkileşim kurup dağıtılmış hesaplamaları çalıştırmanıza olanak tanıyan paketler içerir. Örneğin, HDInsight kümesinin varsayılan dosya sisteminin kökünü görüntülemek için aşağıdaki komutu kullanın:
+3. `>` isteminde R kodunu girebilirsiniz. HDInsight üzerinde ML Services, Hadoop ile kolayca etkileşim kurup dağıtılmış hesaplamaları çalıştırmanıza olanak tanıyan paketler içerir. Örneğin, HDInsight kümesinin varsayılan dosya sisteminin kökünü görüntülemek için aşağıdaki komutu kullanın:
 
         rxHadoopListFiles("/")
 
@@ -216,11 +215,11 @@ Bağlantı kurulduktan sonra aşağıdakine benzer bir isteme ulaşırsınız:
 
 ## <a name="automated-cluster-creation"></a>Otomatik küme oluşturma
 
-Azure Resource Manager şablonlarını, SDK’yı ve PowerShell’i kullanarak HDInsight için R Server kümesi oluşturma işlemini otomatikleştirebilirsiniz.
+SDK’yı ve PowerShell’i kullanarak HDInsight için ML Services kümesi oluşturma işlemini otomatikleştirebilirsiniz.
 
-* Azure Kaynak Yönetimi şablonu kullanarak R Server kümesi oluşturmak için bkz. [HDInsight için R Server kümesi dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
-* .NET SDK kullanarak R Server kümesi oluşturmak için bkz. [.NET SDK kullanarak HDInsight’ta Linux tabanlı kümeler oluşturma.](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-* Powershell kullanarak R Server kümesi oluşturmak için [Azure PowerShell kullanarak HDInsight kümeleri oluşturma](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md) başlıklı makaleye bakın.
+<!---* To create an ML Server cluster using an Azure Resource Management template, see [Deploy an R Server for HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).--->
+* .NET SDK kullanarak ML Services kümesi oluşturmak için bkz. [.NET SDK kullanarak HDInsight’ta Linux tabanlı kümeler oluşturma.](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+* Powershell kullanarak ML Services kümesi oluşturmak için [Azure PowerShell kullanarak HDInsight kümeleri oluşturma](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md) başlıklı makaleye bakın.
 
 ## <a name="delete-the-cluster"></a>Küme silme
 
@@ -232,10 +231,10 @@ HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gere
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, Azure HDInsight üzerinde yeni bir R Server kümesinin nasıl oluşturulacağını ve bir SSH oturumundan R konsolunu kullanmanın temel adımlarını öğrendiniz. Aşağıdaki makalelerde HDInsight üzerinde R Server’ı yönetme ve R Server ile çalışma için diğer yöntemler açıklanmaktadır:
+Bu makalede, Azure HDInsight üzerinde yeni bir ML Services kümesinin nasıl oluşturulacağını ve bir SSH oturumundan R konsolunu kullanmanın temel adımlarını öğrendiniz. Aşağıdaki makalelerde HDInsight üzerinde ML Services’ı yönetme ve ML Services ile çalışma için diğer yöntemler açıklanmaktadır:
 
 * [Visual Studio için R Araçları’ndan iş gönderme](r-server-submit-jobs-r-tools-vs.md)
-* [HDInsight üzerinde R Server kümesini yönetme](r-server-hdinsight-manage.md)
-* [HDInsight üzerinde R Server kümesini kullanıma hazır hale getirme](r-server-operationalize.md)
-* [HDInsight üzerinde R Server kümesi için işlem bağlamı seçenekleri](r-server-compute-contexts.md)
-* [HDInsight üzerinde R Server kümesi için Azure Depolama seçenekleri](r-server-storage.md)
+* [HDInsight üzerinde ML Services kümesini yönetme](r-server-hdinsight-manage.md)
+* [HDInsight üzerinde ML Services kümesini kullanıma hazır hale getirme](r-server-operationalize.md)
+* [HDInsight üzerinde ML Services kümesi için işlem bağlamı seçenekleri](r-server-compute-contexts.md)
+* [HDInsight üzerinde ML Services kümesi için Azure Depolama seçenekleri](r-server-storage.md)

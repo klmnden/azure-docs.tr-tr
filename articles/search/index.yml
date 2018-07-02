@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/01/2018
   ms.author: heidist
-  ms.openlocfilehash: ac99a23ede3a8adbf60d210b74f642ce4b0131a4
-  ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+  ms.openlocfilehash: 286bce88dabe71c64d499687e6d6c758f17f60a5
+  ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 05/10/2018
-  ms.locfileid: "33943187"
+  ms.lasthandoff: 06/29/2018
+  ms.locfileid: "37099601"
 abstract:
   description: Azure Search kullanarak özel ve heterojen içerikler üzerinde kurumsal arama çözümü oluşturmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; aratılabilir içeriği, çeşitli senaryolarda basitten gelişmişe söz dizimleri kullanılarak sorgulanabilen tek bir hızlı dizinde toplamayı gösterir. <p/><b>Yeni bilişsel arama önizlemesi.</b> Dizinleme işlem hattına AI destekli algoritmalar bağlamak için yayın öncesi REST API’sini kullanın. Yapılandırılmamış ham içeriği bir Azure Arama dizininde aranabilir içeriğe dönüştürmek için verileri ayıklayın ve doğal dil ile görüntü işlemlerini çağırın. <p/><a href="/azure/search/cognitive-search-quickstart-blob">Kaynaklar ve örnek veriler</a> ile çalışmaya başlayın veya <a href="/azure/search/cognitive-search-concept-intro">Kavramlar</a> bölümünden daha fazla bilgi edinin.
   aside:
@@ -62,6 +62,7 @@ sections:
     - html: <a href="/azure/search/search-indexer-tutorial">.NET ile Azure SQL Veritabanı içeriğini dizinleme</a>
     - html: <a href="/azure/search/search-semi-structured-data">REST ile Azure Blob depolama alanında yarı yapılandırılmış verileri dizinleme</a>
     - html: <a href="/azure/search/search-synonyms-tutorial-sdk">Eşdeğer terimler için döndürme sonuçlarına eş anlamlı sözcükler ekleme</a>
+    - html: <a href="/azure/search/search-autocomplete-tutorial">.NET ile bir arama kutusuna otomatik tamamlama ekleme</a>
     - html: <a href="/azure/search/search-get-started-portal">Dizinleme ve sorgu testi için portalı kullanma</a>
 - title: Başvuru
   items:

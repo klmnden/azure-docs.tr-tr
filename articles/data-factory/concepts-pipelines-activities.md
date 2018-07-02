@@ -11,29 +11,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 564ed357a838e5e0c3e6db869eefafb7925e155b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 001fefef900a0dd468f8deb8d705c308d8149f71
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261509"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055219"
 ---
-# <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory’de işlem hatları ve etkinlikler 
+# <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory’de işlem hatları ve etkinlikler
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - GA](v1/data-factory-create-pipelines.md)
-> * [Sürüm 2 - Önizleme](concepts-pipelines-activities.md)
+> * [Sürüm 1](v1/data-factory-create-pipelines.md)
+> * [Geçerli sürüm](concepts-pipelines-activities.md)
 
 Bu makale, Azure Data Factory’de işlem hatlarını ve etkinlikleri anlamanıza ve veri hareketi ile veri işleme senaryolarınız için uçtan uca veri odaklı iş akışları oluşturmak amacıyla bunları nasıl kullanacağınızı anlamanıza yardımcı olur.
 
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık 1. sürümünü kullanıyorsanız bkz. [Data Factory sürüm 1'de işlem hatları](v1/data-factory-create-pipelines.md).
-> 
-> Bu makalede, [Azure Data Factory'ye Giriş](introduction.md) ve [hızlı başlangıç öğreticisini](quickstart-create-data-factory-powershell.md) okuduğunuz kabul edilir.
-
 ## <a name="overview"></a>Genel Bakış
-Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattı, bir araya geldiğinde bir görev gerçekleştiren mantıksal etkinlik grubudur. Örneğin, bir işlem hattı günlük verilerini alıp temizleyen ve sonra günlük verilerini analiz etmek üzere bir HDInsight kümesinde Spark işi başlatan bir dizi etkinlik içerebilir. İşlem hattının avantajı, etkinliklerin her birini tek tek yönetmek yerine bir küme olarak yönetmenize olanak tanımasıdır. Örneğin, etkinlikleri bağımsız olarak dağıtmak ve zamanlamak yerine işlem hattını dağıtabilir ve zamanlayabilirsiniz.  
+Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattı, bir araya geldiğinde bir görev gerçekleştiren mantıksal etkinlik grubudur. Örneğin, bir işlem hattı günlük verilerini alıp temizleyen ve sonra günlük verilerini analiz etmek üzere bir HDInsight kümesinde Spark işi başlatan bir dizi etkinlik içerebilir. İşlem hattının avantajı, etkinliklerin her birini tek tek yönetmek yerine bir küme olarak yönetmenize olanak tanımasıdır. Örneğin, etkinlikleri bağımsız olarak dağıtmak ve zamanlamak yerine işlem hattını dağıtabilir ve zamanlayabilirsiniz.
 
 Bir işlem hattındaki etkinlikler, verilerinizde gerçekleştirilecek eylemleri tanımlar. Örneğin, kopyalama etkinliğini kullanarak şirket içi SQL Server’dan Azure Blob Depolama’ya veri kopyalayabilirsiniz. Ardından bir Azure HDInsight kümesinde Hive betiği çalıştıran bir Hive etkinliği kullanıp blob depolamadaki verileri işleyerek/dönüştürerek çıktı verileri üretebilirsiniz. Son olarak, ikinci bir kopyalama etkinliği kullanarak üzerinde iş zekası (BI) raporlama çözümlerinin oluşturulduğu bir Azure SQL Veri Ambarı’na çıktı verilerini kopyalayabilirsiniz.
 
@@ -64,7 +59,7 @@ Veri dönüştürme etkinliği | İşlem ortamı
 [Saklı Yordam](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Veri Ambarı veya SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 
-Daha fazla bilgi için [veri dönüştürme etkinlikleri](transform-data.md) makalesine bakın. 
+Daha fazla bilgi için [veri dönüştürme etkinlikleri](transform-data.md) makalesine bakın.
 
 ## <a name="control-activities"></a>Denetim etkinlikleri
 Aşağıdaki denetim akışı etkinlikleri desteklenir:
@@ -73,20 +68,20 @@ Denetim etkinliği | Açıklama
 ---------------- | -----------
 [İşlem Hattı Yürütme Etkinliği](control-flow-execute-pipeline-activity.md) | İşlem Hattı Yürütme etkinliği bir Data Factory işlem hattının başka bir işlem hattını çağırmasını sağlar.
 [ForEachActivity](control-flow-for-each-activity.md) | ForEach Etkinliği, işlem hattınızda yinelenen bir denetim akışını tanımlar. Bu etkinlik bir koleksiyon üzerinde yinelemek için kullanılır ve bir döngüde belirtilen etkinlikleri yürütür. Bu etkinliğin döngü uygulaması, programlama dillerindeki Foreach döngü yapısına benzer.
-[WebActivity](control-flow-web-activity.md) | Web Etkinliği bir Data Factory işlem hattından özel bir REST uç noktasını çağırmak için kullanılabilir. Etkinlik tarafından kullanılacak ve erişilecek veri kümelerini ve bağlı hizmetleri geçirebilirsiniz. 
-[Arama Etkinliği](control-flow-lookup-activity.md) | Arama Etkinliği herhangi bir dış kaynaktan bir record/ table name/ değerini okumak veya aramak için kullanılabilir. Sonraki etkinliklerde bu çıktıya daha fazla başvurulabilir. 
-[Meta Veri Alma Etkinliği](control-flow-get-metadata-activity.md) | GetMetadata etkinliği, Azure Data Factory içindeki herhangi bir verinin meta verilerini almak için kullanılabilir. 
+[WebActivity](control-flow-web-activity.md) | Web Etkinliği bir Data Factory işlem hattından özel bir REST uç noktasını çağırmak için kullanılabilir. Etkinlik tarafından kullanılacak ve erişilecek veri kümelerini ve bağlı hizmetleri geçirebilirsiniz.
+[Arama Etkinliği](control-flow-lookup-activity.md) | Arama Etkinliği herhangi bir dış kaynaktan bir record/ table name/ değerini okumak veya aramak için kullanılabilir. Sonraki etkinliklerde bu çıktıya daha fazla başvurulabilir.
+[Meta Veri Alma Etkinliği](control-flow-get-metadata-activity.md) | GetMetadata etkinliği, Azure Data Factory içindeki herhangi bir verinin meta verilerini almak için kullanılabilir.
 [Bitiş Etkinliği](control-flow-until-activity.md) | Programlama dillerindeki Do-Until döngü yapısına benzer bir Do-Until döngüsü uygular. Etkinlikle ilişkilendirilmiş olan koşul doğru sonucunu verene kadar bir dizi etkinliği döngüsel olarak yürütür. Data Factory'de bitiş etkinliği için bir zaman aşımı değeri belirtebilirsiniz.
 [If Koşulu Etkinliği](control-flow-if-condition-activity.md) | If Koşulu, doğru veya yanlış sonucunu vermesi temelinde dallanmak için kullanılabilir. If Koşulu etkinliği, programlama dilerindeki If deyimiyle aynı işlevselliği sağlar. Koşul `true` sonucunu verdiğinde bir dizi etkinliği, `false` sonucu verdiğinde ise başka bir dizi etkinliği değerlendirmeye alır.
-[Bekleme Etkinliği](control-flow-wait-activity.md) | İşlem hattında Bekleme etkinliğini kullandığınızda, işlem hattı izleyen etkinlikleri yürütmeye devam etmeden önce belirtilen süre kadar bekler. 
+[Bekleme Etkinliği](control-flow-wait-activity.md) | İşlem hattında Bekleme etkinliğini kullandığınızda, işlem hattı izleyen etkinlikleri yürütmeye devam etmeden önce belirtilen süre kadar bekler.
 
 ## <a name="pipeline-json"></a>İşlem Hattı JSON
-JSON biçiminde işlem hattı şöyle tanımlanır: 
+JSON biçiminde işlem hattı şöyle tanımlanır:
 
 ```json
 {
     "name": "PipelineName",
-    "properties": 
+    "properties":
     {
         "description": "pipeline description",
         "activities":
@@ -114,7 +109,7 @@ Yürütme etkinlikleri [veri taşıma](#data-movement-activities) ve [veri dön�
 ```json
 {
     "name": "Execution Activity Name",
-    "description": "description", 
+    "description": "description",
     "type": "<ActivityType>",
     "typeProperties":
     {
@@ -142,7 +137,7 @@ ilke | Etkinliğin çalışma zamanı davranışını etkileyen ilkeler. Bu öze
 dependsOn | Bu özellik etkinlik bağımlılıklarını ve sonraki etkinliklerin önceki etkinliklere ne kadar bağımlı olduğunu tanımlamak için kullanılır. Daha fazla bilgi için bkz. [Etkinlik bağımlılığı](#activity-dependency) | Hayır
 
 ### <a name="activity-policy"></a>Etkinlik ilkesi
-İlkeler bir etkinliğin çalışma zamanı davranışını etkiler ve yapılandırma seçenekleri sunar. Etkinlik İlkeleri yalnızca yürütme etkinlikleri için kullanılabilir. 
+İlkeler bir etkinliğin çalışma zamanı davranışını etkiler ve yapılandırma seçenekleri sunar. Etkinlik İlkeleri yalnızca yürütme etkinlikleri için kullanılabilir.
 
 ### <a name="activity-policy-json-definition"></a>Etkinlik ilkesi JSON tanımı
 
@@ -160,7 +155,8 @@ dependsOn | Bu özellik etkinlik bağımlılıklarını ve sonraki etkinliklerin
          "policy": {
             "timeout": "00:10:00",
             "retry": 1,
-            "retryIntervalInSeconds": 60
+            "retryIntervalInSeconds": 60,
+            "secureOutput": true
          }
         }
       ],
@@ -175,6 +171,7 @@ JSON adı | Açıklama | İzin Verilen Değerler | Gerekli
 timeout | Çalıştırılacak etkinliğinin zaman aşımını belirtir. | Timespan | Hayır. Varsayılan zaman aşımı süresi 7 gündür.
 retry | En fazla yeniden deneme sayısı | Tamsayı | Hayır. Varsayılan değer 0'dır
 retryIntervalInSeconds | Yeniden deneme girişimleri arasında saniye cinsinden gecikme | Tamsayı | Hayır. Varsayılan değer 20 saniyedir
+secureOutput | true olarak ayarlandığında etkinlik çıkışı güvenli olarak kabul edilir ve izleme amacıyla günlüğe alınmaz. | Boole | Hayır. Varsayılan değer false’tur.
 
 ### <a name="control-activity"></a>Denetim etkinliği
 Denetim etkinlikleri aşağıdaki üst düzey yapıya sahiptir:
@@ -182,7 +179,7 @@ Denetim etkinlikleri aşağıdaki üst düzey yapıya sahiptir:
 ```json
 {
     "name": "Control Activity Name",
-    "description": "description", 
+    "description": "description",
     "type": "<ActivityType>",
     "typeProperties":
     {
@@ -195,14 +192,14 @@ Denetim etkinlikleri aşağıdaki üst düzey yapıya sahiptir:
 
 Etiket | Açıklama | Gerekli
 --- | ----------- | --------
-ad | Etkinliğin adı. Etkinliğin gerçekleştirdiği eylemi temsil eden bir ad belirtin.<br/><ul><li>En fazla karakter sayısı: 55</li><li>Bir harf, sayı veya alt çizgi (_) ile başlamalıdır</li><li>Şu karakterler kullanılamaz: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Yes</li><ul> 
+ad | Etkinliğin adı. Etkinliğin gerçekleştirdiği eylemi temsil eden bir ad belirtin.<br/><ul><li>En fazla karakter sayısı: 55</li><li>Bir harf, sayı veya alt çizgi (_) ile başlamalıdır</li><li>Şu karakterler kullanılamaz: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Yes</li><ul>
 açıklama | Etkinliğin ne olduğunu veya ne için kullanıldığını açıklayan metin | Yes
 type | Etkinliğin türü. Farklı etkinlik türleri için [veri taşıma etkinlikleri](#data-movement-activities), [veri dönüştürme etkinlikleri](#data-transformation-activities) ve [denetim etkinlikleri](#control-activities) bölümlerine bakın. | Yes
 typeProperties | typeProperties bölümündeki özellikler her bir etkinlik türüne bağlıdır. Bir etkinliğin tür özelliklerini görmek için önceki bölümde verilen etkinlik bağlantılarına tıklayın. | Hayır
 dependsOn | Bu özellik Etkinlik Bağımlılığını ve sonraki etkinliklerin önceki etkinliklere ne kadar bağımlı olduğunu tanımlamak için kullanılır. Daha fazla bilgi için bkz. [etkinlik bağımlılığı](#activity-dependency). | Hayır
 
 ### <a name="activity-dependency"></a>Etkinlik bağımlılığı
-Etkinlik Bağımlılığı, sonraki etkinliklerin önceki etkinliklere nasıl bağımlı olduğunu tanımlar ve sonraki görevi yürütmeye devam edilip edilmeyeceğine yönelik koşulu belirler. Bir etkinlik farklı bağımlılık koşullarıyla daha önceki bir veya birden çok etkinliğe bağımlı olabilir. 
+Etkinlik Bağımlılığı, sonraki etkinliklerin önceki etkinliklere nasıl bağımlı olduğunu tanımlar ve sonraki görevi yürütmeye devam edilip edilmeyeceğine yönelik koşulu belirler. Bir etkinlik farklı bağımlılık koşullarıyla daha önceki bir veya birden çok etkinliğe bağımlı olabilir.
 
 Farklı bağımlılık koşulları şunlardır: Başarılı, Başarısız, Atlandı, Tamamlandı.
 
@@ -218,7 +215,7 @@ Farklı bağımlılık koşulları şunlardır: Başarılı, Başarısız, Atlan
 ```json
 {
     "name": "PipelineName",
-    "properties": 
+    "properties":
     {
         "description": "pipeline description",
         "activities": [
@@ -293,7 +290,7 @@ Aşağıdaki örnek işlem hattında, **Etkinlikler** bölümünde **Kopyalama**
       }
     ]
   }
-} 
+}
 ```
 Aşağıdaki noktalara dikkat edin:
 
@@ -350,17 +347,17 @@ Aşağıdaki noktalara dikkat edin:
 
 **TypeProperties** bölümü her bir dönüştürme etkinliği için farklıdır. Bir dönüştürme etkinliği için desteklenen tür özellikleri hakkında bilgi edinmek için [Veri dönüştürme etkinlikleri](#data-transformation-activities) içindeki dönüştürme etkinliklerine tıklayın.
 
-Bu işlem hattını oluşturmak üzere izlenecek tam yol için bkz. [Öğretici: Spark kullanarak veri dönüştürme](tutorial-transform-data-spark-powershell.md). 
+Bu işlem hattını oluşturmak üzere izlenecek tam yol için bkz. [Öğretici: Spark kullanarak veri dönüştürme](tutorial-transform-data-spark-powershell.md).
 
 ## <a name="multiple-activities-in-a-pipeline"></a>Bir işlem hattında birden çok etkinlik
-Önceki iki örnekte işlem hatları yalnızca bir etkinlik içeriyordu. Bir işlem hattında birden fazla etkinliğiniz olabilir. Bir işlem hattında birden fazla etkinlik varsa ve sonraki etkinlikler önceki etkinliklere bağımlı değilse, etkinlikler paralel olarak çalışabilir. 
+Önceki iki örnekte işlem hatları yalnızca bir etkinlik içeriyordu. Bir işlem hattında birden fazla etkinliğiniz olabilir. Bir işlem hattında birden fazla etkinlik varsa ve sonraki etkinlikler önceki etkinliklere bağımlı değilse, etkinlikler paralel olarak çalışabilir.
 
-Sonraki etkinliklerin önceki etkinliklere nasıl bağımlı olduğunu tanımlayan ve sonraki görevi yürütmeye devam edilip edilmeyeceğine yönelik koşulu belirleyen [etkinlik bağımlılığını](#activity-dependency) kullanarak iki etkinliği zincirleyebilirsiniz. Bir etkinlik farklı bağımlılık koşullarıyla daha önceki bir veya daha çok etkinliğe bağımlı olabilir. 
+Sonraki etkinliklerin önceki etkinliklere nasıl bağımlı olduğunu tanımlayan ve sonraki görevi yürütmeye devam edilip edilmeyeceğine yönelik koşulu belirleyen [etkinlik bağımlılığını](#activity-dependency) kullanarak iki etkinliği zincirleyebilirsiniz. Bir etkinlik farklı bağımlılık koşullarıyla daha önceki bir veya daha çok etkinliğe bağımlı olabilir.
 
 ## <a name="scheduling-pipelines"></a>İşlem hatlarını zamanlama
-İşlem hatları tetikleyiciler tarafından zamanlanır. Farklı türde tetikleyiciler vardır (işlem hatlarının duvar saat zamanlamasıyla tetiklenmesine olanak tanıyan zamanlayıcı tetikleyici ve işlem hatlarını talep üzerine tetikleyen el ile tetikleyici). Tetikleyiciler hakkında daha fazla bilgi için [işlem hattı yürütme ve tetikleyicileri](concepts-pipeline-execution-triggers.md) makalesine bakın. 
+İşlem hatları tetikleyiciler tarafından zamanlanır. Farklı türde tetikleyiciler vardır (işlem hatlarının duvar saat zamanlamasıyla tetiklenmesine olanak tanıyan zamanlayıcı tetikleyici ve işlem hatlarını talep üzerine tetikleyen el ile tetikleyici). Tetikleyiciler hakkında daha fazla bilgi için [işlem hattı yürütme ve tetikleyicileri](concepts-pipeline-execution-triggers.md) makalesine bakın.
 
-Tetikleyicinizin bir işlem hattı çalıştırmasını başlatması için tetikleyici tanımındaki belirli işlem hattının işlem hattı başvurusunu eklemeniz gerekir. İşlem hatları ve tetikleyiciler n-m ilişkisine sahiptir. Birden çok tetikleyici tek bir işlem hattını, bir tetikleyici de birden fazla işlem hattını başlatabilir. Tetikleyici tanımlandıktan sonra işlem hattını tetiklemesini başlatmak için tetikleyiciyi başlatmanız gerekir. Tetikleyiciler hakkında daha fazla bilgi için [işlem hattı yürütme ve tetikleyicileri](concepts-pipeline-execution-triggers.md) makalesine bakın. 
+Tetikleyicinizin bir işlem hattı çalıştırmasını başlatması için tetikleyici tanımındaki belirli işlem hattının işlem hattı başvurusunu eklemeniz gerekir. İşlem hatları ve tetikleyiciler n-m ilişkisine sahiptir. Birden çok tetikleyici tek bir işlem hattını, bir tetikleyici de birden fazla işlem hattını başlatabilir. Tetikleyici tanımlandıktan sonra işlem hattını tetiklemesini başlatmak için tetikleyiciyi başlatmanız gerekir. Tetikleyiciler hakkında daha fazla bilgi için [işlem hattı yürütme ve tetikleyicileri](concepts-pipeline-execution-triggers.md) makalesine bakın.
 
 Örneğin, "MyCopyPipeline" işlem hattımı başlatmak istediğim "Tetikleyici A" adlı zamanlayıcı tetikleyiciye sahip olduğumu varsayalım. Tetikleyiciyi aşağıdaki örnekte gösterildiği gibi tanımlayın:
 
@@ -391,7 +388,7 @@ Tetikleyicinizin bir işlem hattı çalıştırmasını başlatması için tetik
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Etkinliklerle işlem hatları oluşturmaya yönelik adım adım yönergeler için aşağıdaki öğreticilere bakın: 
+Etkinliklerle işlem hatları oluşturmaya yönelik adım adım yönergeler için aşağıdaki öğreticilere bakın:
 
 - [Kopyalama etkinliği içeren işlem hattı oluşturma](quickstart-create-data-factory-powershell.md)
 - [Veri dönüştürme etkinliğine sahip işlem hattı oluşturma](tutorial-transform-data-spark-powershell.md)

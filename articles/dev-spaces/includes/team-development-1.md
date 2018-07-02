@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 41418cb908f2bf149a3d0087728652b44cd6b19e
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 2a6118bd23c6e8319ad4fa26a266948a4dad1b9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825559"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939201"
 ---
 Şu ana kadar uygulamanızın kodunu uygulama üzerinde çalışan tek geliştiriciymişsiniz gibi çalıştırıyordunuz. Bu bölümde, Azure Dev Spaces’ın ekip geliştirmesini nasıl kolaylaştırdığını öğreneceksiniz:
 * Paylaşılan bir geliştirme alanında veya gerektiğinde ayrı geliştirme alanlarında çalışarak bir geliştirici ekibinin aynı ortamda çalışmasını sağlayın.
@@ -56,13 +56,15 @@ webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-c
 
 Alan sütunu, her iki hizmetin de `default` adlı bir alanda çalıştığını gösterir. Genel URL’yi açıp web uygulamasına giden herkes, her iki hizmet üzerinden de çalışan, önceden yazmış olduğunuz kod yolunu çağırır. Şimdi `mywebapi` geliştirmeye devam istediğinizi varsayalım. Nasıl kod değişiklikleri yapabilir ve bunları test edebilir, öte yandan da geliştirme ortamını kullanan diğer geliştiricilerin işlemini kesintiye uğratmazsınız? Bunu yapmak için kendi alanınızı ayarlarsınız.
 
-### <a name="create-a-space"></a>Alan oluşturma
+### <a name="create-a-dev-space"></a>Geliştirme alanı oluşturma
 Kendi `mywebapi` sürümünüzü `default` dışında bir alanda çalıştırmak için, aşağıdaki komutu kullanarak kendi alanınızı oluşturabilirsiniz:
 
 ``` 
-azds space create --name scott
+azds space select --name scott
 ```
+
+Sorulduğunda **üst geliştirme alanı** olarak `default` seçin. Bu, yeni `default/scott` alanımızın `default` alanından türetileceğini gösterir. Bu durumun test sırasında bize nasıl yardımcı olacağını birazdan göreceksiniz. 
 
 Yukarıdaki örnekte, iş arkadaşlarım bunun benim çalıştığım alan olduğunu anlayabilsin diye yeni alan için kendi adımı kullandım; ancak siz buna istediğiniz adı verebilir ve anlamı konusunda da esnek olabilirsiniz; örn. 'sprint4' veya 'demo.'
 
-Geliştirme ortamındaki tüm alanların listesini görmek için `azds space list` komutunu çalıştırın. Şu anda seçili alanın yanında bir yıldız işareti (*) görüntülenir. Sizin durumunuzda, oluşturulduğu anda otomatik olarak 'scott' adlı alan seçildi. İstediğiniz zaman `azds space select` komutuyla başka bir alan seçebilirsiniz.
+Geliştirme ortamındaki tüm alanların listesini görmek için `azds space list` komutunu çalıştırın. Şu anda seçili alanın yanında bir yıldız işareti (*) görüntülenir. Sizin durumunuzda, oluşturulduğu anda otomatik olarak 'default/scott' adlı alan seçildi. İstediğiniz zaman `azds space select` komutuyla başka bir alan seçebilirsiniz.

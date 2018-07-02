@@ -1,6 +1,6 @@
 ---
 title: RBAC ve Azure portalı kullanarak erişimi yönetme | Microsoft Docs
-description: Rol tabanlı erişim denetimi (RBAC) ve Azure portalı kullanarak kullanıcı, grup ve uygulama erişimini yönetmeyi öğrenin. Buna erişim listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
+description: Rol tabanlı erişim denetimi (RBAC) ve Azure portalı kullanarak kullanıcı, grup ve uygulama erişimini yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8f2c77a366c96455016894c042868d080551bc6a
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 0aec1f50225bea25d5f68289c22ccc7b69703f7a
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295873"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317955"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>RBAC ve Azure portalı kullanarak erişimi yönetme
 

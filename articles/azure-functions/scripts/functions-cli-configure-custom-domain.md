@@ -13,19 +13,19 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 06/01/2017
+ms.date: 06/26/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d2efd0891cb0010aac6135ce190ad77667f78efd
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 7d3fc71bc53e85fa7555dbee5ee79b3f06f27fe8
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843995"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960347"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Özel bir etki alanını işlev uygulaması ile eşleme
 
-Bu örnek betik, ilgili kaynaklarıyla birlikte bir işlev uygulaması oluşturur ve sonra onu `www.<yourdomain>` ile eşler. Özel bir etki alanına eşlemek için işlev uygulamanızın bir tüketim planı değil App Service planı içinde oluşturulmuş olması gerekir. Azure İşlevleri yalnızca bir A kaydı kullanarak özel etki alanına eşlemeyi destekler.
+Bu örnek betik, ilgili kaynaklarıyla birlikte bir işlev uygulaması oluşturur ve sonra onu `www.<yourdomain>` ile eşler. İşlev uygulamanız bir [App Service planında](../functions-scale.md#app-service-plan) olduğunda CNAME veya A kaydı kullanılarak özel etki alanı eşleyebilirsiniz. [Tüketim planındaki](../functions-scale.md#consumption-plan) işlev uygulamalarında yalnızca CNAME seçeneği desteklenir.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

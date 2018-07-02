@@ -9,27 +9,24 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/09/2018
+ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: d2f1d089c6a08a1dc90f82fd9d1c3cb2b6f6dc0a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 504f025edef79b310249c29665198438a326881a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30171817"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052010"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Veri Kopyalama aracını kullanarak Azure Blob depolama alanında SQL veritabanına veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Sürüm 1 - Genel kullanıma sunuldu](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Sürüm 2 - Önizleme](tutorial-copy-data-tool.md)
+> * [Sürüm 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Geçerli sürüm](tutorial-copy-data-tool.md)
 
 Bu öğreticide, Azure portalını kullanarak bir veri fabrikası oluşturursunuz. Sonra, Veri Kopyalama aracını kullanarak bir Azure Blob depolamadaki verileri bir SQL veritabanına kopyalarsınız. 
 
 > [!NOTE]
 > Azure Data Factory kullanmaya yeni başlıyorsanız bkz. [Azure Data Factory'ye giriş](introduction.md).
->
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory’nin genel kullanıma açık 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
-
 
 Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
@@ -106,7 +103,7 @@ Bu adımları uygulayarak Blob depolama alanınızı ve SQL veritabanınızı ö
          
     Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).
 
-5. **Sürüm** bölümünde **V2 (Önizleme)** sürümünü seçin.
+5. **Sürüm** bölümünde **V2**'yi seçin.
 6. **Konum** bölümünde veri fabrikasının konumunu seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikanız tarafından kullanılan veri depoları (örneğin, Azure Depolama ve SQL Veritabanı) ve işlemler (örneğin, Azure HDInsight) başka konumlarda ve bölgelerde olabilir.
 7. **Panoya sabitle**’yi seçin. 
 8. **Oluştur**’u seçin.
@@ -126,84 +123,80 @@ Bu adımları uygulayarak Blob depolama alanınızı ve SQL veritabanınızı ö
 2. **Özellikler** sayfasındaki **Görev adı** bölümüne **CopyFromBlobToSqlPipeline** adını girin. Sonra **İleri**’yi seçin. Data Factory kullanıcı arabirimi, belirtilen görev adına sahip bir işlem hattı oluşturur. 
 
     ![Özellikler sayfası](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
-3. **Kaynak veri deposu** sayfasında **Azure Blob Depolama**’yı ve ardından **İleri**’yi seçin. Kaynak veriler bir Blob depolama alanında bulunur. 
+3. **Kaynak veri deposu** sayfasında aşağıdaki adımları tamamlayın:
 
-    ![Kaynak veri deposu sayfası](./media/tutorial-copy-data-tool/source-data-store-page.png)
-4. **Azure Blob Depolama hesabı belirtin** sayfasında aşağıdaki adımları gerçekleştirin:
+    a. Bağlantı eklemek için **+ Yeni bağlantı oluştur**'a tıklayın
 
-    a. **Bağlantı adı** bölümüne **AzureStorageLinkedService** adını girin.
+    ![Yeni kaynak olarak bağlantılı hizmet](./media/tutorial-copy-data-tool/new-source-linked-service.png)
 
-    b. **Depolama hesabı adı** açılan listesinden depolama hesabınızın adını seçin.
+    b. Galeriden **Azure Blob Depolama**'yı ve ardından **İleri**'yi seçin.
 
-    c. **İleri**’yi seçin. 
+    ![Blob kaynağını seçin](./media/tutorial-copy-data-tool/select-blob-source.png)
 
-    ![Depolama hesabını belirtme](./media/tutorial-copy-data-tool/specify-blob-storage-account.png)
+    c. **Yeni Bağlı Hizmet** sayfasında **Depolama hesabı adı** listesinden depolama hesabınızı ve ardından **Son**'u seçin.
 
-    Bağlı hizmetler, bir veri deposunu veya işlemi veri fabrikasına bağlar. Bu durumda, depolama hesabınızı veri deposuna bağlamak için bir depolama bağlı hizmeti oluşturmanız gerekir. Bağlı hizmet, Data Factory’nin çalışma zamanında Blob depolama alanına bağlanmak için kullandığı bağlantı bilgilerini içerir. Veri kümesi tarafından kaynak verileri içeren kapsayıcı, klasör ve dosya (isteğe bağlı) belirtilir. 
+    ![Azure depolama hesabını yapılandırın](./media/tutorial-copy-data-tool/configure-azure-storage.png)
 
-5. **Girdi dosyasını veya klasörünü seçin** sayfasında aşağıdaki adımları uygulayın:
+    d. Kaynak olarak yeni oluşturulan bağlantılı hizmeti seçin ve **İleri**'ye tıklayın.
+
+    ![Kaynak olarak bağlantılı hizmeti seçin](./media/tutorial-copy-data-tool/select-source-linked-service.png)
+
+4. **Girdi dosyasını veya klasörünü seçin** sayfasında aşağıdaki adımları uygulayın:
     
-    a. **adfv2tutorial/input** klasörüne göz atın.
+    a. **Göz at**'a tıklayarak **adfv2tutorial/input** klasörüne gidin, **inputEmp.txt** dosyasını seçin ve **Seç**'e tıklayın.
 
-    b. **inputEmp.txt** dosyasını seçin.
+    ![Girdi dosyası veya klasörü seçin](./media/tutorial-copy-data-tool/specify-source-path.png)
 
-    c. **Seç** seçeneğini belirleyin. Alternatif olarak, **inputEmp.txt** dosyasına çift tıklayabilirsiniz.
+    b. Sonraki adıma geçmek için **İleri**'ye tıklayın.
 
-    d. **İleri**’yi seçin. 
-
-    ![Girdi dosyası veya klasörü seçin](./media/tutorial-copy-data-tool/choose-input-file-folder.png)
-
-6. **Dosya biçimi ayarları** sayfasında aracın sütun ve satır sınırlayıcılarını otomatik olarak belirlediğine dikkat edin. **İleri**’yi seçin. Ayrıca, bu sayfada verilerin önizlemesini yapabilir ve giriş verilerinin şemasını görüntüleyebilirsiniz. 
+5. **Dosya biçimi ayarları** sayfasında aracın sütun ve satır sınırlayıcılarını otomatik olarak belirlediğine dikkat edin. **İleri**’yi seçin. Ayrıca, bu sayfada verilerin önizlemesini yapabilir ve giriş verilerinin şemasını görüntüleyebilirsiniz. 
 
     ![Dosya biçimi ayarları](./media/tutorial-copy-data-tool/file-format-settings-page.png)
-7. **Hedef veri deposu** sayfasında **Azure SQL Veritabanı** öğesini seçip **İleri**’yi seçin.
+6. **Hedef veri deposu** sayfasında aşağıdaki adımları tamamlayın:
 
-    ![Hedef veri deposu](./media/tutorial-copy-data-tool/destination-data-storage-page.png)
-8. **Azure SQL veritabanını belirtin** sayfasında aşağıdaki adımları uygulayın: 
+    a. Bağlantı eklemek için **+ Yeni bağlantı oluştur**'a tıklayın
 
-    a. **Bağlantı adı** bölümüne **AzureSqlDatabaseLinkedService** adını girin.
+    ![Yeni havuza bağlı hizmet](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
 
-    b. **Sunucu adı** bölümünde SQL Server örneğinizi seçin.
+    b. Galeriden **Azure Blob Depolama**'yı ve ardından **İleri**'yi seçin.
 
-    c. **Veritabanı adı** bölümünde SQL veritabanınızı seçin.
+    ![Azure SQL veritabanını seçme](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
 
-    d. **Kullanıcı adı** bölümüne kullanıcının adını girin.
+    c. **Yeni Bağlı Hizmet** sayfasında açılır listeden sunucunuzun ve veritabanınızın adını seçip kullanıcı adı ve parolayı belirttikten sonra **Son**'u seçin.    
 
-    e. **Parola** bölümüne kullanıcının parolasını girin.
+    ![Azure SQL veritabanını yapılandırma](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
-    f. **İleri**’yi seçin. 
+    d. Kaynak olarak yeni oluşturulan bağlantılı havuz hizmetini seçin ve **İleri**'ye tıklayın.
 
-    ![SQL veritabanını belirtme](./media/tutorial-copy-data-tool/specify-azure-sql-database.png)
+    ![Havuza bağlı hizmeti seçin](./media/tutorial-copy-data-tool/select-sink-linked-service.png)
 
-    Bağlı hizmetle bir veri kümesi ilişkilendirilmelidir. Bağlı hizmet, Data Factory’nin çalışma zamanında SQL veritabanına bağlanmak için kullandığı bağlantı dizesini içerir. Veri kümesi, verilerin kopyalanacağı kapsayıcıyı, klasörü ve dosyayı (isteğe bağlı) belirtir.
+7. **Tablo eşleme** sayfasında **[dbo].[emp]** tablosunu seçip **İleri**’yi seçin. 
 
-9. **Tablo eşleme** sayfasında **[dbo].[emp]** tablosunu seçip **İleri**’yi seçin. 
+    ![Tablo eşleme](./media/tutorial-copy-data-tool/table-mapping.png)
+8. **Şema eşleme** sayfasında, girdi dosyasındaki birinci ve ikinci sütunun **emp** tablosundaki **FirstName** ve **LastName** sütunuyla eşlendiğine dikkat edin. **İleri**’yi seçin.
 
-    ![Tablo eşleme](./media/tutorial-copy-data-tool/table-mapping-page.png)
-10. **Şema eşleme** sayfasında, girdi dosyasındaki birinci ve ikinci sütunun **emp** tablosundaki **FirstName** ve **LastName** sütunuyla eşlendiğine dikkat edin.
-
-    ![Şema eşleme sayfası](./media/tutorial-copy-data-tool/schema-mapping-page.png)
-11. **Ayarlar** sayfasında **İleri**’yi seçin. 
-
-    ![Ayarlar sayfası](./media/tutorial-copy-data-tool/settings-page.png)
-12. **Özet** sayfasında ayarları gözden geçirin ve **İleri**’yi seçin.
+    ![Şema eşleme sayfası](./media/tutorial-copy-data-tool/schema-mapping.png)
+9. **Ayarlar** sayfasında **İleri**’yi seçin. 
+10. **Özet** sayfasında ayarları gözden geçirin ve **İleri**’yi seçin.
 
     ![Özet sayfası](./media/tutorial-copy-data-tool/summary-page.png)
-13. **Dağıtım** sayfasında, işlem hattını (görev) izlemek için **İzleyici**’yi seçin.
+11. **Dağıtım** sayfasında, işlem hattını (görev) izlemek için **İzleyici**’yi seçin.
 
     ![Dağıtım sayfası](./media/tutorial-copy-data-tool/deployment-page.png)
-14. Soldaki **İzleyici** sekmesinin otomatik olarak seçildiğine dikkat edin. **Eylemler** sütunu, etkinlik çalıştırması ayrıntılarını görüntüleme ve işlem hattını yeniden çalıştırma bağlantılarını içerir. Listeyi yenilemek için **Yenile**’yi seçin. 
+12. Soldaki **İzleyici** sekmesinin otomatik olarak seçildiğine dikkat edin. **Eylemler** sütunu, etkinlik çalıştırması ayrıntılarını görüntüleme ve işlem hattını yeniden çalıştırma bağlantılarını içerir. Listeyi yenilemek için **Yenile**’yi seçin. 
 
-    ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-copy-data-tool/monitor-pipeline-runs.png)
-15. İşlem hattı çalıştırmalarıyla ilişkili etkinlik çalıştırmalarını görüntülemek için **Eylemler** sütunundaki **Etkinlik Çalıştırmalarını Görüntüle** bağlantısını seçin. İşlem hattında yalnızca bir etkinlik (kopyalama etkinliği) olduğundan tek bir girdi görürsünüz. Kopyalama işlemiyle ilgili ayrıntılar için **Eylemler** sütunundaki **Ayrıntılar** bağlantısını (gözlük simgesi) seçin. **İşlem Hattı Çalıştırmaları** görünümüne dönmek için üstteki **İşlem hatları** bağlantısını seçin. Görünümü yenilemek için **Yenile**’yi seçin. 
+    ![İşlem hattı çalıştırmalarını izleme](./media/tutorial-copy-data-tool/pipeline-monitoring.png)
+13. İşlem hattı çalıştırmalarıyla ilişkili etkinlik çalıştırmalarını görüntülemek için **Eylemler** sütunundaki **Etkinlik Çalıştırmalarını Görüntüle** bağlantısını seçin. Kopyalama işlemiyle ilgili ayrıntılar için **Eylemler** sütunundaki **Ayrıntılar** bağlantısını (gözlük simgesi) seçin. **İşlem Hattı Çalıştırmaları** görünümüne dönmek için üstteki **İşlem hatları** bağlantısını seçin. Görünümü yenilemek için **Yenile**’yi seçin. 
 
-    ![Etkinlik çalıştırmalarını izleme](./media/tutorial-copy-data-tool/monitor-activity-runs.png)
-16. Düzenleyici moduna geçmek için soldaki **Düzenle** sekmesini seçin. Düzenleyici kullanılarak araç üzerinden oluşturulan bağlı hizmetleri, veri kümelerini ve işlem hatlarını güncelleştirebilirsiniz. Düzenleyicide açık olan varlığın JSON kodunu görüntülemek için **Kod**’u seçin. Bu varlıkları Data Factory kullanıcı arabiriminde düzenlemeyle ilgili ayrıntılar için [bu öğreticinin Azure portalı sürümüne](tutorial-copy-data-portal.md) bakın.
+    ![Etkinlik çalıştırmalarını izleme](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-    ![Düzenleyici sekmesi](./media/tutorial-copy-data-tool/edit-tab.png)
-17. Verilerin SQL veritabanınızdaki **emp** tablosuna eklendiğini doğrulayın.
+    ![Etkinlik ayrıntılarını kopyalama](./media/tutorial-copy-data-tool/copy-execution-details.png)
+
+14. Verilerin SQL veritabanınızdaki **emp** tablosuna eklendiğini doğrulayın.
 
     ![SQL çıkışını doğrulama](./media/tutorial-copy-data-tool/verify-sql-output.png)
+
+15. Düzenleyici moduna geçmek için soldaki **Yazar** sekmesini seçin. Düzenleyici kullanılarak araç üzerinden oluşturulan bağlı hizmetleri, veri kümelerini ve işlem hatlarını güncelleştirebilirsiniz. Bu varlıkları Data Factory kullanıcı arabiriminde düzenlemeyle ilgili ayrıntılar için [bu öğreticinin Azure portalı sürümüne](tutorial-copy-data-portal.md) bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu örnekteki işlem hattı, bir Blob depolama alanındaki verileri bir SQL veritabanına kopyalar. Şunları öğrendiniz: 

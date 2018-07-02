@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 05/22/2018
+ms.date: 6/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 90e351992e08459040012a4d53f7e793ea35a8b5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c89b03baccc7e20ae945da154fbd78d5d0dac376
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645166"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311040"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Öğretici: SSMS kullanarak ilk Azure SQL veritabanınızı tasarlama
 
@@ -86,9 +86,7 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
 8. **Ek Depolama** seçeneğini kullanmak için önizleme koşullarını kabul edin. 
 
    > [!IMPORTANT]
-   > - Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
-   > - Premium katmanında 1 TB’tan fazla depolama alanı, şu bölgeler dışındaki tüm bölgelerde kullanılabilir: UK Kuzey, Orta Batı ABD, UK Güney 2, Çin Doğu, USDoDCentral, Almanya Orta, USDoDEast, US Gov Güneybatı, US Gov Orta Güney, Almanya Kuzeydoğu, Çin Kuzey, US Gov Doğu. Kullanılabilirliğin genişletilmesi planlanmaktadır. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   >
+   > Premium katmanında 1 TB’tan fazla depolama alanı, şu an için şu bölgeler dışındaki tüm bölgelerde kullanılabilir: UK Kuzey, Orta Batı ABD, UK Güney 2, Çin Doğu, USDoDCentral, Almanya Orta, USDoDEast, US Gov Güneybatı, US Gov Orta Güney, Almanya Kuzeydoğu, Çin Kuzey, US Gov Doğu. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
 
 9. Sunucu katmanını, DTU'ların sayısını ve depolama alanı miktarını seçtikten sonra **Uygula**’ya tıklayın.  
 
@@ -179,7 +177,7 @@ Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsin
 Aşağıdaki diyagramda bu tabloların birbirleriyle nasıl ilişkili olduğu gösterilmektedir. Bu tablolardan bazıları başka tablolardaki sütunlara başvurur. Örneğin Öğrenci tablosu, **Kişi** tablosundaki **Kişi Kimliği** sütununa başvurur. Bu öğreticideki tabloların birbirleriyle ilişkisini anlamak için diyagram üzerinde çalışın. Etkili veritabanı tabloları oluşturmaya ilişkin ayrıntılı bir bakış için bkz. [Etkili veritabanı tabloları oluşturma](https://msdn.microsoft.com/library/cc505842.aspx). Veri türleri seçme hakkında bilgi için bkz. [Veri türleri](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
 
 > [!NOTE]
-> Tablolarınızı oluşturup tasarlamak için [SQL Server Management Studio’daki tablo tasarımcısını](https://msdn.microsoft.com/library/hh272695.aspx) da kullanabilirsiniz. 
+> Tablolarınızı oluşturup tasarlamak için [SQL Server Management Studio’daki tablo tasarımcısını](https://docs.microsoft.com/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools) da kullanabilirsiniz. 
 
 ![Tablo ilişkileri](./media/sql-database-design-first-database/tutorial-database-tables.png)
 

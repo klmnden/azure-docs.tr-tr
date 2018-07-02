@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "23874034"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Php'den SendGrid e-posta hizmetini kullanma
@@ -35,7 +35,7 @@ SendGrid olan bir [bulut tabanlı e-posta hizmeti] güvenilir sağlayan [işleme
 * Müşteri sorguları iletme
 * Uygulamanızdan e-posta bildirimleri
 
-Daha fazla bilgi için bkz: [https://sendgrid.com][https://sendgrid.com].
+Daha fazla bilgi için bkz: [ https://sendgrid.com ] [ https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid hesabı oluşturma
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -47,7 +47,7 @@ SendGrid Azure PHP uygulamada kullanarak gerektiren hiçbir özel yapılandırma
 SMTP ya da SendGrid tarafından sağlanan Web API kullanarak e-posta gönderebilirsiniz.
 
 ### <a name="smtp-api"></a>SMTP API
-SendGrid SMTP API kullanarak e-posta göndermek için kullanmak *Swift kullanılmasının*, PHP uygulamalarından e-postaları göndermek için bileşen tabanlı bir kitaplığı. İndirebilirsiniz *Swift kullanılmasının* kitaplığından [http://swiftmailer.org/download] [ http://swiftmailer.org/download] v5.3.0 (kullanmak [Oluşturucu] Swift yüklemek için Kullanılmasının). E-posta kitaplığı ile gönderme içerir örneklerini oluşturmaya <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_kullanılmasının</span>, ve <span class="auto-style2">Swift\_iletisi </span> uygun özelliklerini ayarlama ve çağırma sınıfları <span class="auto-style2">Swift\_Mailer::send</span> yöntemi.
+SendGrid SMTP API kullanarak e-posta göndermek için kullanmak *Swift kullanılmasının*, PHP uygulamalarından e-postaları göndermek için bileşen tabanlı bir kitaplığı. İndirebilirsiniz *Swift kullanılmasının* kitaplığından [ http://swiftmailer.org/download ] [ http://swiftmailer.org/download] v5.3.0 (kullanmak [Oluşturucu] Swift kullanılmasının yüklemek için). E-posta kitaplığı ile gönderme içerir örneklerini oluşturmaya <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_kullanılmasının</span>, ve <span class="auto-style2">Swift\_iletisi </span> uygun özelliklerini ayarlama ve çağırma sınıfları <span class="auto-style2">Swift\_Mailer::send</span> yöntemi.
 
     <?php
      include_once "vendor/autoload.php";
@@ -385,7 +385,7 @@ SendGrid e-posta hizmeti temel bilgileri öğrendiğinize göre daha fazla bilgi
 
 * SendGrid belgeleri: <https://sendgrid.com/docs>
 * SendGrid PHP kitaplığı: <https://github.com/sendgrid/sendgrid-php>
-* SendGrid özel teklif Azure müşteriler: <https://sendgrid.com/windowsazure.html>
+* SendGrid özel teklif Azure müşteriler için: <https://sendgrid.com/windowsazure.html>
 
 Daha fazla bilgi için Ayrıca bkz. [PHP Geliştirici Merkezi](/develop/php/).
 
@@ -397,5 +397,5 @@ Daha fazla bilgi için Ayrıca bkz. [PHP Geliştirici Merkezi](/develop/php/).
 [curl function]: http://php.net/curl
 [bulut tabanlı e-posta hizmeti]: https://sendgrid.com/email-solutions
 [işleme uygun e-posta teslimi]: https://sendgrid.com/transactional-email
-[sendgrid php Kitaplığı]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
+[sendgrid php kitaplığı]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
 [Oluşturucu]: https://getcomposer.org/download/

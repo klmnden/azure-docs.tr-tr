@@ -11,25 +11,22 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 23d4afffbe108d439dd53d95ed81f7d9fc4246ef
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 4df392ec7e100ef0efcbb3876079710a6b9ca4fb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284587"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048035"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Veri Kopyalama aracını kullanarak veri kopyalama 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Sürüm 2 - Önizleme](quickstart-create-data-factory-copy-data-tool.md)
+> * [Sürüm 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Geçerli sürüm](quickstart-create-data-factory-copy-data-tool.md)
 
 Bu hızlı başlangıçta Azure portalını kullanarak bir veri fabrikası oluşturursunuz. Sonra, Veri Kopyalama aracını kullanarak Azure Blob depolama alanındaki bir klasörde bulunan verileri başka bir klasöre kopyalarsınız. 
 
 > [!NOTE]
 > Azure Data Factory'yi kullanmaya yeni başlıyorsanız, bu hızlı başlangıçtaki işlemleri gerçekleştirmeden önce [Azure Data Factory'ye giriş](data-factory-introduction.md) konusuna bakın. 
->
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Hizmetin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
-
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
@@ -52,7 +49,7 @@ Bu hızlı başlangıçta Azure portalını kullanarak bir veri fabrikası oluş
    - **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin.   
          
    Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
-4. **Sürüm** için **V2 (Önizleme)** öğesini seçin.
+4. **Sürüm** bölümünde **V2**'yi seçin.
 5. **Konum** için, veri fabrikasının konumunu seçin. 
 
    Bu listede yalnızca desteklenen konumlar görüntülenir. Data Factory tarafından kullanılan veri depoları (Azure Depolama ve Azure SQL Veritabanı gibi) ve işlemler (Azure HDInsight gibi) başka konumlarda veya bölgelerde olabilir.
@@ -85,7 +82,7 @@ Bu hızlı başlangıçta Azure portalını kullanarak bir veri fabrikası oluş
 
     ![Galeriden blob depolamayı seçin](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-    c. **Azure Blob depolama hesabı belirtin** sayfasında, **Depolama hesabı adı** listesinden depolama hesabınızı ve sonra **İleri**’yi seçin. 
+    c. **Azure Blob depolama hesabı belirtin** sayfasında, **Depolama hesabı adı** listesinden depolama hesabınızı ve sonra **Son**’u seçin. 
 
    ![Azure Blob depolama hesabını yapılandırın](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 

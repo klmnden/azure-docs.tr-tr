@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: b1e7fa441dc52a647828c7d3785f09533af06fd0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42be14569215af7ee98a540c2a86cef2b2a028e4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651550"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034084"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -76,7 +76,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hub-name -o table
+az iot hub show-connection-string --hub-name $hubname -o table
 
 ```
 
@@ -260,14 +260,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdaki görevleri gerçekleştirerek cihazınız ile IoT hub’ınız arasında durum bilgilerini nasıl eşitleyebileceğinizi öğrendiniz:
-
-> [!div class="checklist"]
-> * Bir IoT hub oluşturun ve kimlik kayıt defterine bir test cihazı ekleyin.
-> * Durum bilgilerini simülasyon cihazınıza göndermek için istenen özellikleri kullanın.
-> * Simülasyon cihazınızdan toplanan durum bilgilerini almak için bildirilen özellikleri kullanın.
-
-Cihaz ikizlerini kullanarak üretici yazılımı güncelleştirme işlemi uygulamayı öğrenmek için bir sonraki öğreticiye geçin.
+Bu öğreticide, cihazınız ile IoT hub’ınız arasında durum bilgilerini nasıl eşitleyebileceğinizi öğrendiniz. Cihaz ikizlerini kullanarak üretici yazılımı güncelleştirme işlemi uygulamayı öğrenmek için bir sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-[IoT hub’ınızla bağlantıyı test etmek için bir sanal cihaz kullanma](tutorial-connectivity.md)
+[Cihaz yazılımı güncelleştirme işlemi gerçekleştirme](tutorial-firmware-update.md)

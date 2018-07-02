@@ -1,7 +1,9 @@
-- name: Soru-Cevap Oluşturma nedir?
-  href: Overview/overview.md
+- name: Soru-Cevap Oluşturma Belgeleri
+  href: index.yml
 - name: Genel Bakış
   items:
+    - name: Soru-Cevap Oluşturma nedir?
+      href: Overview/overview.md
     - name: Desteklenen diller
       href: Overview/languages-supported.md
 - name: Hızlı Başlangıçlar

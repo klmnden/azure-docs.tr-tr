@@ -12,17 +12,26 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 85dc16b07b72f2e8c1ed00fb5dd25288b985ae21
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 576558f7ab3ae9a0e3ceebb65d19f689b4836022
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603052"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958825"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager genel bakış
-Uygulamanızın altyapısı genellikle bir sanal makine, depolama hesabı, sanal ağ veya web uygulaması, veritabanı, veritabanı sunucusu ya da 3. taraf hizmetler gibi birçok bileşenden meydana gelir.  Bu bileşenleri ayrı varlıklar olarak değerlendirmez, bunun yerine bunları tek bir varlığın ilgili ve birbirine bağımlı parçaları olarak kabul edersiniz. Bunları gruplar halinde dağıtmak, yönetmek ve izlemek isteyebilirsiniz. Azure Resource Manager, çözümünüzdeki kaynaklar ile gruplar halinde çalışmanıza olanak sağlar. Çözümünüzdeki tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Resource Manager kaynaklarınızı dağıttıktan sonra yönetmenize yardımcı olmak için güvenlik, denetleme ve etiketleme özellikleri sunar. 
+Uygulamanızın altyapısı genellikle bir sanal makine, depolama hesabı, sanal ağ veya web uygulaması, veritabanı, veritabanı sunucusu ya da üçüncü taraf hizmetler gibi birçok bileşenden meydana gelir. Bu bileşenleri ayrı varlıklar olarak değerlendirmez, bunun yerine bunları tek bir varlığın ilgili ve birbirine bağımlı parçaları olarak kabul edersiniz. Bunları gruplar halinde dağıtmak, yönetmek ve izlemek isteyebilirsiniz. Azure Resource Manager, çözümünüzdeki kaynaklar ile gruplar halinde çalışmanıza olanak sağlar. Çözümünüzdeki tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Resource Manager kaynaklarınızı dağıttıktan sonra yönetmenize yardımcı olmak için güvenlik, denetleme ve etiketleme özellikleri sunar. 
+
+## <a name="consistent-management-layer"></a>Tutarlı yönetim katmanı
+Resource Manager; Azure PowerShell, Azure CLI, Azure portalı, REST API’si ve istemci SDK'ları ile gerçekleştirdiğiniz görevler için tutarlı bir yönetim katmanı sunar. Azure portalındaki tüm özellikler Azure PowerShell, Azure CLI, Azure REST API'leri ve istemci SDK'ları üzerinden de kullanılabilir. İlk olarak API'lerle başlatılan işlevler 180 gün içinde portalda kullanıma sunulacaktır.
+
+Sizin için en uygun olan araçları ve API'leri kullanın. Tümü aynı özelliklere sahiptir ve aynı sonuçları sunar.
+
+Aşağıdaki görüntüde tüm araçların aynı Azure Resource Manager API’si ile nasıl etkileşimde bulunduğu gösterilmektedir. API, istekleri kimlik doğrulamasından geçiren ve yetkilendiren Resource Manager hizmetine iletir. Resource Manager da bu istekleri ilgili kaynak sağlayıcılarına yönlendirir.
+
+![Resource Manager istek modeli](./media/resource-group-overview/consistent-management-layer.png)
 
 ## <a name="terminology"></a>Terminoloji
 Azure Resource Manager’ı kullanmaya yeni başladıysanız bilmiyor olabileceğiniz bazı terimler vardır.
@@ -45,13 +54,6 @@ Resource Manager çeşitli avantajlar sunar:
 * Aynı etiketi paylaşan bir kaynak grubunun maliyetlerini görüntüleyerek kuruluşunuzun faturalarına açıklık getirebilirsiniz.  
 
 Resource Manager çözümlerinizi dağıtmanın ve yönetmenin yeni bir yolunu sunar. Önceki dağıtım modelini kullandıysanız ve değişiklikler hakkında bilgi edinmek isterseniz, bkz. [Resource Manager dağıtımını ve klasik dağıtımı anlama](resource-manager-deployment-model.md)
-
-## <a name="consistent-management-layer"></a>Tutarlı yönetim katmanı
-Resource Manager; Azure PowerShell, Azure CLI, Azure portalı, REST API’si ve geliştirme araçları ile gerçekleştirdiğiniz görevler için tutarlı bir yönetim katmanı sunar. Tüm araçlar ortak işlem kümesini kullanmaktadır. İşinize en çok yarayan araçları kullanabilir ve kafa karışıklığı yaşamadan araçlar arasında geçiş yapabilirsiniz. 
-
-Aşağıdaki görüntüde tüm araçların aynı Azure Resource Manager API’si ile nasıl etkileşimde bulunduğu gösterilmektedir. API, istekleri kimlik doğrulamasından geçiren ve yetkilendiren Resource Manager hizmetine iletir. Resource Manager da bu istekleri ilgili kaynak sağlayıcılarına yönlendirir.
-
-![Resource Manager istek modeli](./media/resource-group-overview/consistent-management-layer.png)
 
 ## <a name="guidance"></a>Rehber
 Çözümleriniz üzerinde çalışırken aşağıdaki önerilerden yararlanarak Resource Manager’dan tam anlamıyla yararlanabilirsiniz.
@@ -227,7 +229,7 @@ Bazı durumlarda, kaynaklara erişen bir kod ya da komut dosyası çalıştırma
 Kullanıcıların kritik kaynakları silmesini ve değiştirmesini önlemek için bunları açıkça kilitleyebilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager ile kaynakları kilitleme](resource-group-lock-resources.md).
 
 ## <a name="activity-logs"></a>Etkinlik günlükleri
-Resource Manager bir kaynağı oluşturan, değiştiren veya silen tüm işlemleri günlüğe kaydeder. Sorun giderme sırasında bir hata bulmak veya kuruluşunuzdaki kullanıcının bir kaynağı nasıl değiştirdiğini izlemek için etkinlik günlüklerini kullanabilirsiniz. Günlükleri görmek için bir kaynak grubunun **Ayarlar** dikey penceresindeki **Etkinlik günlükleri** öğesini seçin. İşlemi hangi kullanıcının başlattığı dahil olmak üzere, filtreleri çok sayıda farklı değere göre filtreleyebilirsiniz. Etkinlik günlükleri ile çalışma hakkında daha fazla bilgi için bkz. [Azure kaynaklarını yönetmek için etkinlik günlüklerini görüntüleme](resource-group-audit.md).
+Resource Manager bir kaynağı oluşturan, değiştiren veya silen tüm işlemleri günlüğe kaydeder. Sorun giderme sırasında bir hata bulmak veya kuruluşunuzdaki kullanıcının bir kaynağı nasıl değiştirdiğini izlemek için etkinlik günlüklerini kullanabilirsiniz. İşlemi hangi kullanıcının başlattığı dahil olmak üzere, filtreleri çok sayıda farklı değere göre filtreleyebilirsiniz. Etkinlik günlükleri ile çalışma hakkında daha fazla bilgi için bkz. [Azure kaynaklarını yönetmek için etkinlik günlüklerini görüntüleme](resource-group-audit.md).
 
 ## <a name="customized-policies"></a>Özelleştirilmiş ilkeler
 Resource Manager kaynaklarınızı yönetmek üzere özelleştirilmiş ilkeler oluşturmanıza olanak tanır Oluşturduğunuz ilke türleri çeşitli senaryolar içerebilir. Kaynaklar üzerinde bir adlandırma kuralı uygulayabilir, hangi kaynak türlerinin ve örneklerinin dağıtılabileceğini sınırlayabilir veya hangi bölgelerin bir kaynak türünü barındırabileceğini sınırlayabilirsiniz. Faturaları bölümlere göre düzenlemek için kaynaklar üzerinde bir etiket değeri olmasını isteyebilirsiniz. Aboneliğinizin maliyetlerini düşürmeye ve tutarlılık sağlanmasına yardımcı olmak üzere ilkeler oluşturabilirsiniz. 
@@ -255,7 +257,7 @@ Oluşturabileceğiniz birçok ilke türü daha vardır. Daha fazla bilgi için b
 ## <a name="sdks"></a>SDK’lar
 Azure SDK'ları birden çok dil ve platform için kullanılabilir. Bu dil uygulamalarının her biri ekosistem paket yöneticisi ve GitHub üzerinden kullanılabilir.
 
-Açık Kaynak SDK depolarımız aşağıda verilmiştir. Geri bildirimler, sorunlar ve çekme isteklerini memnuniyetle karşılıyoruz.
+Açık Kaynak SDK depoları aşağıda verilmiştir.
 
 * [.NET için Azure SDK](https://github.com/Azure/azure-sdk-for-net)
 * [Java için Azure Yönetim Kitaplıkları](https://github.com/Azure/azure-sdk-for-java)

@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 03/29/2018
+ms.date: 06/26/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1e8647e34da3d34946a4f6ac298017f6d4c99de6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b718ed505babd2df6487aecd3a87f17590aef2b9
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265369"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061256"
 ---
 # <a name="tutorial-create-app-that-uses-simple-entity"></a>Öğretici: Örnek varlık kullanan bir uygulama oluşturma
 Bu öğreticide **Simple** (Basit) varlığını kullanarak konuşmadan makine öğrenmesi verilerini ayıklamayı gösteren bir uygulama oluşturacaksınız.
@@ -22,125 +22,110 @@ Bu öğreticide **Simple** (Basit) varlığını kullanarak konuşmadan makine �
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Basit varlıkları anlama 
-> * SendMessage varlığı ile iletişim alanı için yeni bir LUIS uygulaması oluşturma
-> * _None_ amacını ve örnek konuşmaları ekleme
-> * Konuşmadaki ileti içeriğini ayıklamak için basit varlık ekleme
+> * İnsan Kaynakları (İK) alanında yeni bir LUIS uygulaması oluşturma 
+> * Uygulamadan iş ayıklamak için basit bir varlık ekleme
 > * Uygulamayı eğitme ve yayımlama
 > * LUIS JSON yanıtını görmek için uygulamanın uç noktasını sorgulama
+> * İş sözcüklerinin sinyalini güçlendirmek için tümcecik listesi ekleme
+> * Uygulamayı eğitip yayımlama ve uç noktayı yeniden sorgulama
 
-Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS][LUIS] hesabına ihtiyacınız olacak.
+Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS](luis-reference-regions.md#luis-website) hesabına ihtiyacınız olacak.
+
+## <a name="before-you-begin"></a>Başlamadan önce
+[Hiyerarşik varlık](luis-quickstart-intent-and-hier-entity.md) öğreticisinde oluşturulan İnsan Kaynakları uygulamasına sahip değilseniz JSON verilerini [içe aktararak](create-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulama oluşturun. İçeri aktarmanız gereken uygulama [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github deposunda bulunmaktadır.
+
+Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `simple` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar.  
 
 ## <a name="purpose-of-the-app"></a>Uygulamanın amacı
-Bu uygulama, bir konuşmadaki verileri nasıl çekeceğinizi göstermektedir. Bir sohbet botundan alınmış olan aşağıdaki konuşmaya bir göz atın:
+Bu uygulama, bir konuşmadaki verileri nasıl çekeceğinizi göstermektedir. Bir sohbet botundan alınmış olan aşağıdaki konuşmalara bir göz atın:
 
-```JSON
-Send a message telling them to stop
-```
+|Konuşma|Ayıklanabilir iş adı|
+|:--|:--|
+|I want to apply for the new accounting job. (Yeni muhasebe işine başvurmak istiyorum.)|accounting (muhasebe)|
+|Please submit my resume for the engineering position. (Lütfen özgeçmişimi mühendislik pozisyonu için değerlendirmek üzere gönderin.)|engineering (mühendislik)|
+|Fill out application for job 123456 (123456 numaralı iş için başvuru yapın)|123456|
 
-Amaç ileti göndermektir. Konuşmanın önemli verileri, iletinin kendisidir: `telling them to stop`.  
+Bu öğretici, iş adını ayıklamak için yeni bir varlık ekler. Belirli bir iş numarasını ayıklama özelliği normal ifade [öğreticisinde](luis-quickstart-intents-regex-entity.md) gösterilmiştir. 
 
 ## <a name="purpose-of-the-simple-entity"></a>Basit varlığın amacı
-Basit varlığın amacı, LUIS uygulamasına iletinin ne olduğunu ve konuşmanın hangi bölümünde bulunabileceğini öğretmektir. Konuşmanın ileti olan bölümü, sözcük seçimine ve konuşma uzunluğuna göre konuşmadan konuşmaya değişiklik gösterebilen iletidir. LUIS uygulamasının tüm amaçlardaki konuşmaların herhangi birinde bulunabilecek iletilerin örneklerine ihtiyacı vardır.  
+Bu LUIS uygulamasındaki basit varlığın amacı, LUIS uygulamasına iş adının ne olduğunu ve konuşmanın hangi bölümünde bulunabileceğini öğretmektir. Konuşmanın iş olan bölümü, sözcük seçimine ve konuşma uzunluğuna göre konuşmadan konuşmaya değişiklik gösterebilen iletidir. LUIS uygulamasının tüm amaçlardaki konuşmaların herhangi birinde bulunabilecek işlerin örneklerine ihtiyacı vardır.  
 
-Bu basit uygulama için ileti, konuşmanın sonunda olacaktır. 
+İş adı isim, fiil veya birden fazla kelimeden oluşan bir tümcecik olabileceğinden belirlemek zordur. Örnek:
 
-## <a name="create-a-new-app"></a>Yeni bir uygulama oluşturma
-1. [LUIS][LUIS] web sitesinde oturum açın. LUIS uç noktalarının yayımlanmasını istediğiniz bölgede oturum açtığınızdan emin olun.
+|İşler|
+|--|
+|engineer (mühendis)|
+|software engineer (yazılım mühendisi)|
+|senior software engineer (kıdemli yazılım mühendisi)|
+|engineering team lead (mühendislik ekibi lideri) |
+|air traffic controller (hava trafik kontrolörü)|
+|motor vehicle operator (motorlu araç operatörü)|
+|ambulance driver (ambulans şoförü)|
+|tender (ihale sorumlusu)|
+|extruder (ekstrüder)|
+|millwright (değirmenci)|
 
-2. [LUIS][LUIS] web sitesinde **Create new app** (Yeni uygulama oluştur) öğesini seçin.  
+Bu LUIS uygulamasında birden fazla amaçta iş adları bulunmaktadır. LUIS, bu sözcükleri tüm amaçların konuşmalarında etiketleyerek işin ne olduğu ve konuşmaların hangi bölümünde yer aldığı konusunda daha fazla bilgi edinir.
 
-    ![LUIS uygulamalarının listesi](./media/luis-quickstart-primary-and-secondary-data/app-list.png)
+## <a name="create-job-simple-entity"></a>Basit bir iş varlığı oluşturma
 
-3. Açılan iletişim kutusuna `MyCommunicator` adını girin. 
+1. İnsan Kaynakları uygulamanızın LUIS sisteminin **Build** (Derleme) bölümünde olduğundan emin olun. Sağ taraftaki menü çubuğunun en üstünde bulunan **Build** (Derleme) ifadesini seçerek bu bölüme geçebilirsiniz. 
 
-    ![LUIS uygulamalarının listesi](./media/luis-quickstart-primary-and-secondary-data/create-new-app-dialog.png)
+    [ ![Sağ taraftaki menü çubuğunun en üstünde bulunan Build (Derleme) ifadesi vurgulanmış LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
-4. İşlem tamamlandıktan sonra uygulamalar **Intents** (Amaçlar) sayfasını ve **None** (Yok) amacını gösterir. 
+2. **Intents** (Amaçlar) sayfasında **ApplyForJob** amacını seçin. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/intents-list.png "LUIS Intents (Amaçlar) sayfası ve None (Yok) amacının ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/intents-list.png#lightbox)
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png "'ApplyForJob' amacı vurgulanmış şekilde LUIS ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png#lightbox)
 
-## <a name="create-a-new-intent"></a>Yeni amaç oluşturma
+3. `I want to apply for the new accounting job` konuşmasında `accounting` öğesini seçin, açılır menünün en üst kısmına `Job` yazın ve ardından açılır menüden **Create new entity** (Yeni varlık oluştur) girişini seçin. 
 
-1. **Intents** (Amaçlar) sayfasında **Create new intent** (Yeni amaç oluştur) öğesini seçin. 
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "'ApplyForJob' amacı seçilmiş ve varlık oluşturma adımları vurgulanmış LUIS ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
-    [![](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png "Create new intent (Yeni amaç oluştur) düğmesi vurgulanmış LUIS uygulamasının ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png#lightbox)
+4. Açılır pencerede varlığın adını ve türünü doğrulayıp **Done** (Bitti) öğesini seçin.
 
-2. Yeni amaç adı olarak `SendMessage` girin. Bu amacın kullanıcı ileti göndermek istediğinde seçilmesi gerekir.
+    ![İş adı ve basit türü görünen basit varlık oluşturma açılır iletişim kutusu](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-    Bu amacı oluşturarak tanımlamak istediğiniz birincil bilgi kategorisini oluşturmuş olursunuz. Bu kategoriye bir ad verdiğinizde LUIS sorgu sonuçlarını kullanan başka uygulamalar da uygun bir yanıt bulmak veya ilgili eylemi gerçekleştirmek için bu kategorinin adını kullanabilir. LUIS bu soruları yanıtlamaz, yalnızca doğal dilde sorulan bilgi türünü tanımlar. 
+5. `Submit resume for engineering position` konuşmasında engineering kelimesini İş varlığı olarak etiketleyin. engineering kelimesini seçin ve açılır menüden Job (İş) girişini seçin. 
 
-    ![Amaç adı olarak SendMessage yazın](./media/luis-quickstart-primary-and-secondary-data/create-new-intent-popup-dialog.png)
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Etiketlenen iş varlığı vurgulanmış LUIS ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
-3. `SendMessage` amacına kullanıcının sormasını beklediğiniz yedi konuşma girin; örneğin:
+    Tüm konuşmalar etiketlendi ancak beş konuşma, LUIS'e işle ilgili sözcükler ve tümcecikler hakkında eğitim vermek için yeterli değildir. Sayı değeri içeren işler normal ifade varlığı kullandığından daha fazla örneğe ihtiyaçları yoktur. Sözcük veya tümcecik olan işler için en az 15 tane daha örnek gerekir. 
 
-    | Örnek konuşmalar|
-    |--|
-    |Reply with I got your message, I will have the answer tomorrow (İletinizi aldım, yarın dönüş yapacağım yazarak yanıtla)|
-    |Send message of When will you be home? (Eve ne zaman geliyorsun? iletisini gönder)|
-    |Text that I am busy (Meşgul olduğumu yaz)|
-    |Tell them that it needs to be done today (Bugün yapılması gerektiğini söyle)|
-    |IM that I am driving and will respond later (Araç kullandığımı ve daha sonra yanıtlayacağımı yaz)|
-    |Compose message to David that says When was that? (David'e O ne zamandı? yazan bir ileti gönder)|
-    |say greg hello (Greg'e selam söyle)|
+6. Daha fazla konuşma ekleyin ve iş sözcüklerini veya tümceciklerini **Job** (İş) varlığı olarak etiketleyin. Bir işe alma hizmeti için kullanılan iş türleri tüm alanlar için ortaktır. İşlerin belirli bir sektörle ilgili olmasını istiyorsanız iş sözcüklerinin bu durumu yansıtması gerekir. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png "LUIS uygulamasına girilmiş konuşmaların ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/enter-utterances-on-intent-page.png#lightbox)
+    |Konuşma|İş varlığı|
+    |:--|:--|
+    |I'm applying for the Program Manager desk in R&D (Ar-Ge bölümündeki Program Yöneticisi pozisyonu için başvuru yapıyorum)|Program Manager (Program Yöneticisi)|
+    |Here is my line cook application. (Şef başvurumu gönderiyorum.)|şef|
+    |My resume for camp counselor is attached. (Kamp Danışmanı özgeçmişim ektedir.)|camp counselor (kamp danışmanı)|
+    |This is my c.v. for administrative assistant. (Yönetici asistanı özgeçmişim budur.)|administrative assistant (yönetici asistanı)|
+    |I want to apply for the management job in sales. (Satış departmanındaki yönetim işi için başvuru yapmak istiyorum.)|management, sales (yönetim, satış)|
+    |This is my resume for the new accounting position. (Yeni muhasebe pozisyonu için özgeçmişimi ilginize sunarım.)|accounting (muhasebe)|
+    |My application for barback is included. (Barmenlik başvurum ektedir.)|barback (barmenlik)|
+    |I'm submitting my application for roofer and framer. (Çatı ve doğrama işleri için başvurumu gönderiyorum.)|roofer, framer (çatı, doğrama)|
+    |My c.v. for bus driver is here. (Otobüs şoförü başvurumu iletiyorum.)|bus driver (otobüs şoförü)|
+    |I'm a registered nurse. (Sertifikalı bir hemşireyim.) Here is my resume. (Özgeçmişim burada.)|registered nurse (sertifikalı hemşire)|
+    |I would like to submit my paperwork for the teaching position I saw in the paper. (Gazetede gördüğüm öğretmenlik pozisyonu için gerekli belgelerimi göndermek istiyorum.)|teaching (öğretmenlik)|
+    |This is my c.v. for the stocker post in fruits and vegetables. (Meyve ve sebze stok görevlisi ilanı için özgeçmişimi iletiyorum.)|stocker (stok görevlisi)|
+    |Apply for tile work. (Döşeme işleri için başvuruyorum.)|tile (döşeme)|
+    |Attached resume for landscape architect. (Peyzaj mimarı ilanı için özgeçmişimi ekte gönderiyorum.)|landscape architect (peyzaj mimarı)|
+    |My curriculum vitae for professor of biology is enclosed. (Biyoloji öğretmenliği için özgeçmişimi ekte bulabilirsiniz.)|professor of biology (biyoloji öğretmenliği)|
+    |I would like to apply for the position in photography. (Fotoğrafçılık alanındaki pozisyon için başvuruda bulunmak istiyorum.)|photography (fotoğrafçılık)|git 
 
-## <a name="add-utterances-to-none-intent"></a>None amacına konuşma ekleme
-
-LUIS uygulamasının **None** (Yok) amacında şu an için bir konuşma mevcut değildir. **None** amacında uygulanın yanıtlamasını istemediğiniz konuşmaların bulunması gerekir. Bu bölümü boş bırakmayın. 
-    
-1. Sol panelden **Intents** (Amaçlar) öğesini seçin. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-intent-link.png "\"Intents\" (Amaçlar) düğmesi vurgulanmış LUIS uygulamasının ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/select-intent-link.png#lightbox)
-
-2. **None** (Yok) amacını seçin. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-none-intent.png "None (Yok) amacının seçilmesini gösteren ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/select-none-intent.png#lightbox)
-
-3. Kullanıcının girebileceği ancak uygulamanızla ilgili olmayan üç konuşma girin. **None** (Yok) konuşmalarına iyi örnekler:
-
-    | Örnek konuşmalar|
-    |--|
-    |Cancel! (İptal!)|
-    |Good bye (Güle güle)|
-    |What is going on? (Neler oluyor?)|
-    
-    Sohbet botu gibi LUIS çağrı uygulamanızda LUIS, bir konuşma için **None** (Yok) amacını döndürdüğünde kullanıcının konuşmayı sonlandırmak isteyip istemediğini sorabilir. Kullanıcının konuşmayı sonlandırmak istememesi durumunda bot devam etme talimatları verebilir. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png "LUIS uygulamasına None (Yok) amacı için girilmiş konuşmaların ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/utterances-for-none-intent.png#lightbox)
-
-## <a name="create-a-simple-entity-to-extract-message"></a>İleti ayıklamak için basit bir varlık oluşturma 
+## <a name="label-entity-in-example-utterances-for-getjobinformation-intent"></a>GetJobInformation amacı için konuşmalarda varlığı etiketleme
 1. Sol menüden **Intents** (Amaçlar) öğesini seçin.
 
-    ![Intents (Amaçlar) bağlantısını seçin](./media/luis-quickstart-primary-and-secondary-data/select-intents-from-none-intent.png)
+2. Amaç listesinden **GetJobInformation** girişini seçin. 
 
-2. Amaç listesinden `SendMessage` öğesini seçin.
+3. Örnek konuşmalardaki işleri etiketleyin:
 
-    ![SendMessage amacını seçin](./media/luis-quickstart-primary-and-secondary-data/select-sendmessage-intent.png)
+    |Konuşma|İş varlığı|
+    |:--|:--|
+    |Is there any work in databases? (Veritabanı alanında iş var mı?)|veritabanları|
+    |Looking for a new situation with responsibilities in accounting (Muhasebe alanında yeni bir iş arayışım mevcut)|accounting (muhasebe)|
+    |What positions are available for senior engineers? (Kıdemli mühendisler için uygun olan pozisyonlar hangileri?)|senior engineers (kıdemli mühendisler)|
 
-3. `Reply with I got your message, I will have the answer tomorrow` konuşması içinde ileti gövdesinin ilk sözcüğünü (`I`) ve ileti gövdesinin son sözcüğünü (`tomorrow`) seçin. İletinin tüm sözcükleri seçilir ve en üstünde metin kutusu olan bir açılan menü görüntülenir.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png "Konuşmada ileti için seçilen sözcüklerin ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/select-words-in-utterance.png#lightbox)
-
-4. Metin kutusuna varlık adı olarak `Message` yazın.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png "Kutuya varlık adının yazıldığı ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/enter-entity-name-in-box.png#lightbox)
-
-5. Açılan menüden **Create new entity** (Yeni varlık oluştur) öğesini seçin. Varlığın amacı, iletinin gövdesi olan metni çekmektir. Bu LUIS uygulamasında metin, konuşmanın sonundadır ancak konuşma ve ileti herhangi bir uzunlukta olabilir. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/create-message-entity.png "Konuşmadan yeni varlık oluşturma ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/create-message-entity.png#lightbox)
-
-6. Açılır pencerede varsayılan varlık türü **Simple** (Basit), varlık adı ise `Message` olarak belirtilmiştir. Bu ayarları değiştirmeden **Done** (Bitti) öğesini seçin.
-
-    ![Varlık türünü doğrulama](./media/luis-quickstart-primary-and-secondary-data/entity-type.png)
-
-7. Varlık oluşturulduğuna ve bir konuşma etiketlendiğine göre artık diğer konuşmaları bu varlıkla etiketleyebilirsiniz. Bir konuşmayı ve ardından iletinin ilk ve son sözcüklerini seçin. Açılan menüde `Message` varlığını seçin. İleti, varlıkta etiketlenmiş duruma gelir. Devam ederek kalan konuşmalardaki tüm ileti tümceciklerini etiketleyin.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png "Tüm konuşmalardaki iletilerin etiketlendiğini gösteren ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/all-labeled-utterances.png#lightbox)
-
-    Konuşmaların varsayılan görünümü, **Entities view** (Varlıklar görünümü) olarak belirlenmiştir. Konuşmaların üzerindeki **Entities view** (Varlıklar görünümü) denetimini seçin. **Tokens view** (Belirteçler görünümü) bölümünde konuşma metni görüntülenir. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png "Tokens view (Belirteçler görünümü) bölümünde konuşmaları gösteren ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/tokens-view-of-utterances.png#lightbox)
+    Başka örnek konuşmalar da vardır ancak bunlarda işle ilgili sözcük mevcut değildir.
 
 ## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
 LUIS uygulaması eğitilene kadar amaçlar ve varlıklar (model) üzerinde yapılan değişiklikleri bilemez. 
@@ -169,48 +154,227 @@ Sohbet botunda veya başka bir uygulamada LUIS tahmini almak için uygulamayı y
 
 [![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Uç nokta vurgulanmış Publish (Yayımla) sayfası ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
 
-Bu eylem adres çubuğunda uç nokta URL'sinin bulunduğu başka bir tarayıcı penceresi açar. Adres çubuğundaki URL'nin sonuna gidip `text I'm driving and will be 30 minutes late to the meeting` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `SendMessage` konuşmaları döndürmelidir.
+Bu eylem adres çubuğunda uç nokta URL'sinin bulunduğu başka bir tarayıcı penceresi açar. Adres çubuğundaki URL'nin sonuna gidip `Here is my c.v. for the programmer job` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `ApplyForJob` konuşmaları döndürmelidir.
 
-```
+```JSON
 {
-  "query": "text I'm driving and will be 30 minutes late to the meeting",
+  "query": "Here is my c.v. for the programmer job",
   "topScoringIntent": {
-    "intent": "SendMessage",
-    "score": 0.987501
+    "intent": "ApplyForJob",
+    "score": 0.9826467
   },
   "intents": [
     {
-      "intent": "SendMessage",
-      "score": 0.987501
+      "intent": "ApplyForJob",
+      "score": 0.9826467
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0218927357
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.007849265
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00349470088
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.00348804821
     },
     {
       "intent": "None",
-      "score": 0.111048922
+      "score": 0.00319909188
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00222647213
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00211193133
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00172086991
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00138010911
     }
   ],
   "entities": [
     {
-      "entity": "i ' m driving and will be 30 minutes late to the meeting",
-      "type": "Message",
-      "startIndex": 5,
-      "endIndex": 58,
-      "score": 0.162995353
+      "entity": "programmer",
+      "type": "Job",
+      "startIndex": 24,
+      "endIndex": 33,
+      "score": 0.5230502
     }
   ]
 }
 ```
 
+## <a name="names-are-tricky"></a>Adlar kafa karıştırıcı olabilir
+LUIS uygulaması yüksek güven derecesiyle doğru amacı buldu ve iş adını ayıkladı ancak adlar kafa karıştırıcı olabilir. `This is the lead welder paperwork` konuşmasını deneyin.  
+
+Aşağıdaki JSON kodunda LUIS doğru amaç olan `ApplyForJob` yanıt vermektedir ancak `lead welder` iş adını ayıklamamıştır. 
+
+```JSON
+{
+  "query": "This is the lead welder paperwork.",
+  "topScoringIntent": {
+    "intent": "ApplyForJob",
+    "score": 0.468558252
+  },
+  "intents": [
+    {
+      "intent": "ApplyForJob",
+      "score": 0.468558252
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0102701457
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.009442534
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00639619166
+    },
+    {
+      "intent": "None",
+      "score": 0.005859333
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.005087704
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00315379258
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00259344373
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00193389168
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.000420796918
+    }
+  ],
+  "entities": []
+}
+```
+
+Ad herhangi bir şey olabileceğinden LUIS, sinyali güçlendirecek bir tümcecik listesi olması halinde varlıkları daha doğru bir şekilde tahmin edebilir.
+
+## <a name="to-boost-signal-add-jobs-phrase-list"></a>Sinyali güçlendirmek için iş tümcecik listesi ekleme
+LUIS-Samples Github deposundaki [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) dosyasını açın. Bu listede binin üzerinde iş sözcüğü ve tümceciği vardır. Listede size anlamlı gelen iş sözcüklerini bulun. İstediğiniz sözcükler ve tümcecikler listede değilse ekleyin.
+
+1. LUIS uygulamasının **Build** (Derleme) bölümünde **Improve app performance** (Uygulama performansını geliştir) kısmındaki **Phrase lists** (Tümcecik listeleri) girişini seçin.
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png "Phrase lists (Tümcecik listeleri) sol gezinti düğmesi vurgulanmış ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png#lightbox)
+
+2. **Create new phrase list** (Yeni tümcecik listesi oluştur) öğesini seçin. 
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png "Create new phrase list (Yeni tümcecik listesi oluştur) düğmesi vurgulanmış ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png#lightbox)
+
+3. Yeni tümcecik listesine `Jobs` adını verin ve jobs-phrase-list.csv dosyasındaki listeyi kopyalayıp **Values** (Değerler) metin kutusuna yapıştırın. Enter'a basın. 
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Create new phrase list (Yeni tümcecik listesi oluştur) iletişim kutusu açılmış ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+
+    Tümcecik listesine daha fazla sözcük eklemek istiyorsanız, önerilen kelimeleri gözden geçirin ve ilgili olanları ekleyin. 
+
+4. Tümcecik listesini etkinleştirmek için **Save** (Kaydet) öğesini seçin.
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Create new phrase list (Yeni tümcecik listesi oluştur) iletişim kutusu ve tümcecik listesindeki değerler kutusunda sözcükler bulunan ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+
+5. Tümcecik listesini kullanmak için uygulamayı tekrar [eğitin](#train-the-luis-app) ve [yayımlayın](#publish-the-app-to-get-the-endpoint-URL).
+
+6. Uç noktayı aynı konuşmayla yeniden sorgulayın: `This is the lead welder paperwork.`
+
+    JSON yanıtı ayıklanan varlığı içerir:
+
+    ```JSON
+    {
+        "query": "This is the lead welder paperwork.",
+        "topScoringIntent": {
+            "intent": "ApplyForJob",
+            "score": 0.920025647
+        },
+        "intents": [
+            {
+            "intent": "ApplyForJob",
+            "score": 0.920025647
+            },
+            {
+            "intent": "GetJobInformation",
+            "score": 0.003800706
+            },
+            {
+            "intent": "Utilities.StartOver",
+            "score": 0.00299335527
+            },
+            {
+            "intent": "MoveEmployee",
+            "score": 0.0027167045
+            },
+            {
+            "intent": "None",
+            "score": 0.00259556063
+            },
+            {
+            "intent": "FindForm",
+            "score": 0.00224019377
+            },
+            {
+            "intent": "Utilities.Stop",
+            "score": 0.00200693542
+            },
+            {
+            "intent": "Utilities.Cancel",
+            "score": 0.00195913855
+            },
+            {
+            "intent": "Utilities.Help",
+            "score": 0.00162656687
+            },
+            {
+            "intent": "Utilities.Confirm",
+            "score": 0.0002851904
+            }
+        ],
+        "entities": [
+            {
+            "entity": "lead welder",
+            "type": "Job",
+            "startIndex": 12,
+            "endIndex": 22,
+            "score": 0.8295959
+            }
+        ]
+    }
+    ```
+
+## <a name="phrase-lists"></a>Tümcecik listeleri
+Tümcecik listesini eklemek, listedeki sözcüklerin sinyalini güçlendirdi ancak tam eşleşme olarak **kullanılmadı**. Tümcecik listesinde ilk sözcüğü `lead` olan birden fazla işin yanı sıra `welder` işi de mevcut ancak `lead welder` işi mevcut değil. İşler için tümcecik listesi eksik olabilir. Düzenli olarak [uç nokta konuşmalarını gözden geçirin](label-suggested-utterances.md) ve bulduğunuz diğer iş sözcüklerini tümcecik listenize ekleyin. Ardından yeniden eğitin ve yeniden yayımlayın.
+
 ## <a name="what-has-this-luis-app-accomplished"></a>Bu LUIS uygulaması hangi işlemleri gerçekleştirdi?
-Yalnızca iki amaca ve bir varlığa sahip olan bu uygulama, doğal dil sorgu varlığını tanımladı ve ileti verilerini döndürdü. 
+Basit bir amaca ve tümcecik listesine sahip olan bu uygulama, doğal dil sorgu varlığını tanımladı ve ileti verilerini döndürdü. 
 
-JSON sonucu, 0,987501 puanla en yüksek puanlı amacın `SendMessage` olduğunu göstermektedir. Tüm puanlar 1 ile 0 arasındadır ve 1'e yakın olan puanlar daha iyidir. `None` amacının puanı 0,111048922 olarak belirtilmiştir ve sıfıra çok daha yakındır. 
-
-İleti verilerinin türü `Message`, değeri ise `i ' m driving and will be 30 minutes late to the meeting` olmuştur. 
-
-Sohbet botunuz artık `SendMessage` birincil eylemini ve bu eylemin parametrelerinden biri olan ileti metnini belirlemek için yeterli bilgiye sahip. 
+Sohbet botunuz artık iş başvurusu yapma birincil eylemini ve bu eylemin parametrelerinden biri olan başvurulan işi belirlemek için yeterli bilgiye sahip. 
 
 ## <a name="where-is-this-luis-data-used"></a>Bu LUIS verileri nerede kullanılır? 
-LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve varlık verilerini alarak iletiyi üçüncü taraf bir API üzerinden iletebilir. Bot veya çağrı uygulaması için başka programlama seçenekleri varsa LUIS bu görevleri gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
+LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve varlık verilerini alarak iş bilgilerini üçüncü taraf bir API üzerinden bir İnsan Kaynakları temsilcisine iletebilir. Bot veya çağrı uygulaması için başka programlama seçenekleri varsa LUIS bu görevleri gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunu yapmak için uygulama listesinde uygulama adının yanındaki üç nokta menüsüne (...) tıklayıp **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
@@ -218,8 +382,4 @@ LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu ka
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Hiyerarşik varlık eklemeyi öğrenin](luis-quickstart-intent-and-hier-entity.md)
-
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+> [Önceden oluşturulmuş keyphrase varlığı eklemeyi öğrenin](luis-quickstart-intent-and-key-phrase.md)

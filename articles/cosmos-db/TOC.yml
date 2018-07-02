@@ -118,8 +118,6 @@ items:
                         href: sql-api-java-get-started.md
                       - name: Node.js
                         href: sql-api-nodejs-get-started.md
-                      - name: C++
-                        href: sql-api-cpp-get-started.md
                   - name: Web uygulaması oluşturma
                     items:
                       - name: .NET
@@ -144,10 +142,6 @@ items:
                     href: local-emulator.md
                   - name: Sertifikaları dışarı aktarma
                     href: local-emulator-export-ssl-certificates.md
-              - name: 6 - İşlevler ile tümleştirme
-                items:
-                  - name: HTTP tetikleyicisi
-                    href: tutorial-functions-http-trigger.md
           - name: Örnekler
             items:
               - name: Azure CLI
@@ -350,26 +344,14 @@ items:
                 href: gremlin-support.md
           - name: Öğreticiler
             items:
-              - name: 1 - Oluştur
-                href: tutorial-develop-graph-dotnet.md
-              - name: 2 - Sorgulama
+              - name: 1 - Sorgulama
                 href: tutorial-query-graph.md
-              - name: 3 - Global olarak dağıtma
-                href: tutorial-global-distribution-graph.md
           - name: Nasıl Yapılır Kılavuzları
             items:
               - name: Grafik bölümleme
                 href: graph-partitioning.md
               - name: Depolama Gezgini’nin kullanımını yönetme
                 href: storage-explorer.md
-              - name: Tümleştirme
-                items:
-                  - name: Spark GraphX’e bağlanma
-                    href: spark-connector-graph.md
-          - name: Başvuru
-            items:
-              - name: .NET
-                href: graph-sdk-dotnet.md
           - name: Kaynaklar
             items:
               - name: Depolama Gezgini’nin kullanımını yönetme

@@ -50,8 +50,12 @@
           href: use-distcp.md
         - name: Azure Data Factory kullanarak Data Lake Storage Gen2'ye veri kopyalama
           href: ../../data-factory/load-azure-data-lake-storage-gen2.md
-    - name: Azure DataBricks'e bağlanma
+    - name: Azure DataBricks’e bağlanma
       href: 'https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html'
+- name: Başvuru
+  items:
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2'
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası

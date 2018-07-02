@@ -1,42 +1,42 @@
 ---
-title: Azure IoT Edge Python modülü | Microsoft Docs
-description: Python kodu ile bir IoT Edge modülü oluşturma ve edge cihazına dağıtma
+title: Azure IoT Edge Python öğreticisi | Microsoft Docs
+description: Bu öğreticide Python koduyla IoT Edge modülü oluşturma ve bir Edge cihazına dağıtma adımları gösterilmektedir
+services: iot-edge
 author: shizn
-manager: ''
+manager: timlt
 ms.author: xshi
-ms.date: 03/18/2018
+ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
-services: iot-edge
-ms.openlocfilehash: 88d772306cb9e67216b380aa885284ebedc77b5f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.custom: mvc
+ms.openlocfilehash: 884237a851461fe3d7a48708d221909804760ceb
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632117"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063131"
 ---
-# <a name="develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device---preview"></a>Python IoT Edge modülü geliştirme ve sanal cihazınıza dağıtma - önizleme
+# <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Öğretici: Python IoT Edge modülü geliştirme ve sanal cihazınıza dağıtma
 
-İş mantığınızı uygulayan kodu doğrudan IoT Edge cihazlarınıza dağıtmak için IoT Edge modüllerini kullanabilirsiniz. Bu öğreticide, sensör verilerini filtreleyen bir IoT Edge modülü oluşturma ve dağıtma işlemlerinin adımları açıklanmaktadır. [Windows][lnk-tutorial1-win] veya [Linux][lnk-tutorial1-lin]’ta sanal makinede Azure IoT Edge’i dağıtma öğreticilerinde oluşturduğunuz sanal IoT Edge cihazını kullanırsınız. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:    
+İş mantığınızı uygulayan kodu doğrudan IoT Edge cihazlarınıza dağıtmak için IoT Edge modüllerini kullanabilirsiniz. Bu öğreticide, algılayıcı verilerini filtreleyen bir IoT Edge modülü oluşturma ve dağıtma işlemlerinin adımları açıklanmaktadır. [Windows][lnk-quickstart-win]'ta veya [Linux][lnk-quickstart-lin]'ta sanal bir cihaza Azure IoT Edge dağıtma hızlı başlangıçlarında oluşturduğunuz sanal IoT Edge cihazınızı kullanacaksınız. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:    
 
 > [!div class="checklist"]
 > * Visual Studio Code kullanarak IoT Edge Python modülü oluşturma
-> * Visual Studio Code ve Docker kullanarak bir docker görüntüsü oluşturma ve kayıt defterinize yayımlama 
+> * Visual Studio Code ve Docker kullanarak bir Docker görüntüsü oluşturma ve bunu kayıt defterinizde yayımlama 
 > * Modüle IoT Edge cihazınıza dağıtma
 > * Oluşturulan verileri görüntüleme
 
 
-Bu öğreticide oluşturduğunuz IoT Edge modülü, cihazınız tarafından oluşturulan sıcaklık verilerini filtreler. Yalnızca sıcaklık belirtilen bir eşiğin üzerindeyse ileti yukarı akışını gönderir. Edge’deki bu tür bir analiz, bulutta iletilen ve depolanan veri miktarını azaltmak için yararlıdır. 
+Bu öğreticide oluşturacağınız IoT Edge modülü, cihazınız tarafından oluşturulan sıcaklık verilerini filtreler. İletileri yalnızca sıcaklık belirtilen bir eşiğin üzerindeyse yukarı yönde gönderir. Bu tür bir analiz, buluta iletilen ve bulutta depolanan veri miktarını azaltmak için yararlıdır. 
 
-> [!IMPORTANT]
-> Şu anda Python modülü yalnızca amd64 Linux kapsayıcılarında çalıştırılabilir; Windows kapsayıcılarında veya ARM tabanlı kapsayıcılarda çalıştırılamaz. 
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturun.
+
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Hızlı başlangıçta veya ilk öğreticide oluşturduğunuz Azure IoT Edge cihazı.
-* IoT Edge cihazı için birincil anahtar bağlantı dizesi.  
+* Hızlı başlangıçta [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md) için oluşturduğunuz Azure IoT Edge cihazı.
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Visual Studio Code için Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [Visual Studio Code için Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Visual Studio Code için Python uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
 * Visual Studio Code içeren aynı bilgisayarda [Docker](https://docs.docker.com/engine/installation/). Community Edition (CE) bu öğretici için yeterlidir. 
 * [Python](https://www.python.org/downloads/).
@@ -56,36 +56,61 @@ Bu öğretici için Docker ile uyumlu herhangi bir kayıt defteri kullanabilirsi
 
 ## <a name="create-an-iot-edge-module-project"></a>IoT Edge modülü projesi oluşturma
 Aşağıdaki adımlarda, Visual Studio Code ve Azure IoT Edge uzantısını kullanarak IoT Edge Python modülünün nasıl oluşturulduğu gösterilmektedir.
-1. Visual Studio Code’da, VS Code tümleşik terminalini açmak için **Görünüm** > **Tümleşik Terminal**’i seçin.
-2. Tümleşik terminalde, **cookiecutter** yüklemek (veya güncelleştirmek) için aşağıdaki komutu girin (bunun sanal bir ortamda veya aşağıda gösterildiği gibi bir kullanıcı yüklemesi olarak yapılmasını öneririz):
+
+### <a name="create-a-new-solution"></a>Yeni çözüm oluşturma
+
+Üzerine ekleme yapabileceğiniz bir Python çözümü oluşturmak için **cookiecutter** Python paketini kullanın. 
+
+1. Visual Studio Code'da, VS Code ile tümleşik terminali açmak için **Görünüm** > **Tümleşik Terminal**'i seçin.
+
+2. Tümleşik terminalde aşağıdaki komutu kullanarak VS Code'da Edge çözüm şablonunu oluşturmak için yararlanacağınız **cookiecutter** paketini yükleyin (veya güncelleştirin):
 
     ```cmd/sh
     pip install --upgrade --user cookiecutter
     ```
 
-3. Yeni modül için bir proje oluşturun. Aşağıdaki komut, kapsayıcı deponuzla birlikte **FilterModule** adlı proje klasörünü oluşturur. Azure kapsayıcı kayıt defterini kullanıyorsanız `image_repository` parametresi `<your container registry name>.azurecr.io/filtermodule` biçiminde olmalıdır. Geçerli çalışma klasörüne aşağıdaki komutu girin:
+3. VS Code komut paletini açmak için **View (Görünüm)** > **Command Palette (Komut Paleti)** öğesini seçin. 
 
-    ```cmd/sh
-    cookiecutter --no-input https://github.com/Azure/cookiecutter-azure-iot-edge-module module_name=FilterModule image_repository=<your container registry address>/filtermodule
-    ```
+4. Komut paletinde **Azure: Sign in** komutunu yazıp çalıştırdıktan sonra yönergeleri izleyerek Azure hesabınızda oturum açın. Oturumu önceden açtıysanız bu adımı atlayabilirsiniz.
+
+5. Komut paletinde **Azure IoT Edge: New IoT Edge solution** komutunu yazıp çalıştırın. Komut paletinde çözümünüzü oluşturmak için aşağıdaki bilgileri girin: 
+
+   1. Çözümü oluşturmak istediğiniz klasörü seçin. 
+   2. Çözümünüz için bir ad girin veya varsayılan **EdgeSolution** adını kabul edin.
+   3. Modül şablonu olarak **Python Module** girişini seçin. 
+   4. Modülünüze **PythonModule** adını verin. 
+   5. İlk modülünüz için görüntü deposu olarak önceki bölümde oluşturduğunuz Azure Container Registry bileşenini belirtin. **localhost:5000** yerine kopyaladığınız oturum açma sunucusu değerini yazın. Dizenin son hali **\<kayıt adı\>.azurecr.io/pythonmodule** ifadesine benzer olmalıdır.
  
-4. **Dosya** > **Klasörü Aç**’ı seçin.
-5. **FilterModule** klasörüne göz atın ve **Klasör Seç**’e tıklayarak VS Code’da projeyi açın.
-6. VS Code gezgininde **main.py** dosyasına tıklayıp dosyayı açın.
-7. **FilterModule** ad alanının en üst kısmında `json` kitaplığını içeri aktarın:
+VS Code penceresi IoT Edge çözümü çalışma alanınızı yükler. **modules** klasörü, dağıtım bildirimi şablon dosyası ve **.env** dosyası bulunur. 
+
+### <a name="add-your-registry-credentials"></a>Kayıt defteri kimlik bilgilerinizi ekleme
+
+Ortam dosyası, kapsayıcı deponuzun kimlik bilgilerini depolar ve bu bilgileri IoT Edge çalışma zamanı ile paylaşır. Çalışma zamanı, özel görüntülerinizi IoT Edge cihazına çekmek için bu kimlik bilgilerine ihtiyaç duyar. 
+
+1. VS Code gezgininde **.env** dosyasını açın. 
+2. Alanları Azure kapsayıcı kayıt defterinizden kopyaladığınız **kullanıcı adı** ve **parola** değerleriyle güncelleştirin. 
+3. Bu dosyayı kaydedin. 
+
+### <a name="update-the-module-with-custom-code"></a>Modülü özel kodla güncelleştirme
+
+Her şablonda, **tempSensor** modülündeki sensör simülasyon verilerini alıp IoT Hub'a yönlendiren örnek kod bulunur. Bu bölümde pythonModule modülünün iletileri göndermeden analiz etmesini sağlayan kodu ekleyeceksiniz. 
+
+1. VS Code gezgininde **modules** > **PythonModule** > **main.py** girişini açın.
+
+2. **main.py** dosyasının en üst kısmından `json` kitaplığını içeri aktarın.
 
     ```python
     import json
     ```
 
-8. Genel sayaçlar bölümüne `TEMPERATURE_THRESHOLD`, `RECEIVE_CALLBACKS` ve `TWIN_CALLBACKS` öğesini ekleyin. Sıcaklık eşiği, verilerin IoT Hub’a gönderilmesi için, ölçülen sıcaklığın aşması gereken değeri ayarlar.
+3. Genel sayaçlar bölümüne `TEMPERATURE_THRESHOLD` ve `TWIN_CALLBACKS` değişkenlerini ekleyin. Sıcaklık eşiği, verilerin IoT Hub’a gönderilmesi için, ölçülen makine sıcaklığının aşması gereken değeri ayarlar.
 
     ```python
     TEMPERATURE_THRESHOLD = 25
-    TWIN_CALLBACKS = RECEIVE_CALLBACKS = 0
+    TWIN_CALLBACKS = 0
     ```
 
-9. `receive_message_callback` işlevini aşağıdaki içerikle güncelleştirin.
+4. `receive_message_callback` işlevini aşağıdaki kod ile değiştirin:
 
     ```python
     # receive_message_callback is invoked when an incoming message arrives on the specified 
@@ -97,142 +122,149 @@ Aşağıdaki adımlarda, Visual Studio Code ve Azure IoT Edge uzantısını kull
         message_buffer = message.get_bytearray()
         size = len(message_buffer)
         message_text = message_buffer[:size].decode('utf-8')
-        print("    Data: <<<{}>>> & Size={:d}".format(message_text, size))
+        print ( "    Data: <<<%s>>> & Size=%d" % (message_text, size) )
         map_properties = message.properties()
         key_value_pair = map_properties.get_internals()
-        print("    Properties: {}".format(key_value_pair))
+        print ( "    Properties: %s" % key_value_pair )
         RECEIVE_CALLBACKS += 1
-        print("    Total calls received: {:d}".format(RECEIVE_CALLBACKS))
+        print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
         data = json.loads(message_text)
         if "machine" in data and "temperature" in data["machine"] and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
             map_properties.add("MessageType", "Alert")
-            print("Machine temperature {} exceeds threshold {}".format(data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
+            print("Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
         hubManager.forward_event_to_output("output1", message, 0)
         return IoTHubMessageDispositionResult.ACCEPTED
     ```
 
-10. Yeni `device_twin_callback` işlevini ekleyin. İstenen özellikler güncelleştirildiğinde bu işlev çağrılır.
+5. `module_twin_callback` adlı yeni bir işlev ekleyin. İstenen özellikler güncelleştirildiğinde bu işlev çağrılır.
 
     ```python
-    # device_twin_callback is invoked when twin's desired properties are updated.
-    def device_twin_callback(update_state, payload, user_context):
+    # module_twin_callback is invoked when twin's desired properties are updated.
+    def module_twin_callback(update_state, payload, user_context):
         global TWIN_CALLBACKS
         global TEMPERATURE_THRESHOLD
-        print("\nTwin callback called with:\nupdateStatus = {}\npayload = {}\ncontext = {}".format(update_state, payload, user_context))
+        print ( "\nTwin callback called with:\nupdateStatus = %s\npayload = %s\ncontext = %s" % (update_state, payload, user_context) )
         data = json.loads(payload)
         if "desired" in data and "TemperatureThreshold" in data["desired"]:
             TEMPERATURE_THRESHOLD = data["desired"]["TemperatureThreshold"]
         if "TemperatureThreshold" in data:
             TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]
         TWIN_CALLBACKS += 1
-        print("Total calls confirmed: {:d}\n".format(TWIN_CALLBACKS))
+        print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
     ```
 
-11. `HubManager` sınıfında, yeni eklediğiniz `device_twin_callback` işlevini başlatmak için `__init__` yöntemine yeni bir satır ekleyin.
+6. `HubManager` sınıfında, yeni eklediğiniz `module_twin_callback` işlevini başlatmak için `__init__` yöntemine yeni bir satır ekleyin.
 
     ```python
     # sets the callback when a twin's desired properties are updated.
-    self.client.set_device_twin_callback(device_twin_callback, self)
+    self.client.set_module_twin_callback(module_twin_callback, self)
     ```
 
+7. Bu dosyayı kaydedin.
 
-12. Bu dosyayı kaydedin.
+## <a name="build-your-iot-edge-solution"></a>IoT Edge çözümünüzü derleyin
 
-## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Docker görüntüsü oluşturma ve bunu kayıt defterinize yayımlama
+Bir önceki bölümde bir IoT Edge çözümü oluşturdunuz ve PythonModule modülüne makine sıcaklığının kabul edilebilir eşiğin altında olduğunu bildiren iletileri filtreleyecek kodu eklediniz. Şimdi çözümü kapsayıcı görüntüsü olarak derlemeniz ve kapsayıcı kayıt defterine göndermeniz gerekiyor. 
 
-1. VS Code tümleşik terminale aşağıdaki komutu girerek Docker’da oturum açın: 
+1. Modül görüntüsünü ACR'ye gönderebilmek için Visual Studio Code tümleşik terminaline aşağıdaki komutu girerek Docker oturumu açın: 
      
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
-   Oluşturduğunuz zaman Azure kapsayıcı kayıt defterinizden kopyaladığınız kullanıcı adını, parolayı ve oturum açma sunucusunu kullanın.
+   Birinci bölümde Azure Container Registry'den kopyaladığınız kullanıcı adını, parolayı ve oturum açma sunucusunu kullanın. Veya Azure portalındaki kaydınızın **Erişim anahtarları** bölümünden tekrar alın.
 
-2. VS Code gezgininde **module.json** dosyasına sağ tıklayın ve **IoT Edge modülü Docker görüntüsü derle ve gönder** seçeneğine tıklayın. VS Code penceresinin üst kısmındaki açılır kutuda, kapsayıcı platformunuzu (örneğin, Linux kapsayıcı için **amd64**) seçin. VS Code, `main.py` öğesini ve gerekli bağımlılıkları kapsayıcılı hale getirir, daha sonra bunu belirttiğiniz kapsayıcı kayıt defterine gönderir. Görüntüyü ilk kez derlemeniz birkaç dakika sürebilir.
+2. VS Code gezgininde IoT Edge çözüm çalışma alanınızdaki **deployment.template.json** dosyasını açın. 
 
-3. VS Code tümleşik terminalinde etiketle tam kapsayıcı görüntü adresini alabilirsiniz. Derleme ve gönderme tanımı hakkında daha fazla bilgi için `module.json` dosyasına bakabilirsiniz.
+   Bu dosya `$edgeAgent` için iki modül dağıtma komutu verir: Cihaz verilerinin simülasyonunu yapan **tempSensor** ve **PythonModule**. `PythonModule.image`, görüntünün Linux amd64 sürümüne göre ayarlanmıştır. Dağıtım bildirimleri hakkında daha fazla bilgi edinmek için bkz. [IoT Edge modüllerinin kullanılmasını, yapılandırılmasını ve yeniden kullanılmasını anlama](module-composition.md).
 
-## <a name="add-registry-credentials-to-edge-runtime"></a>Edge çalışma zamanına kayıt defteri kimlik bilgileri ekleme
-Kayıt defterinizin kimlik bilgilerini, Edge cihazınızı çalıştırdığınız bilgisayarın Edge çalışma zamanına ekleyin. Bu kimlik bilgileri, kapsayıcıyı çekmek için çalışma zamanı erişimi sağlar. 
+   Bu dosyada kayıt defteri kimlik bilgileriniz de bulunur. Şablon dosyasında kullanıcı adı ve parola değerlerinin yerine yer tutucular kullanılmıştır. Dağıtım bildirimini oluşturduğunuzda alanlar **.env** dosyasına eklediğiniz değerlerle güncelleştirilir. 
 
-- Windows için şu komutu çalıştırın:
-    
-    ```cmd/sh
-    iotedgectl login --address <your container registry address> --username <username> --password <password> 
-    ```
-
-- Linux için şu komutu çalıştırın:
-    
-    ```cmd/sh
-    sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
-    ```
-
-## <a name="run-the-solution"></a>Çözümü çalıştırın
-
-1. [Azure portalında](https://portal.azure.com) IoT hub'ınıza gidin.
-2. **IoT Edge (önizleme)** sayfasına gidip IoT Edge cihazınızı seçin.
-3. **Modülleri Ayarlama**'yı seçin. 
-2. **tempSensor** modülünün otomatik olarak doldurulup doldurulmadığını denetleyin. Doldurulmadıysa, eklemek için aşağıdaki adımları kullanın:
-    1. **IoT Edge Modülü Ekle**'yi seçin.
-    2. **Ad** alanına `tempSensor` girin.
-    3. **Görüntü URI'si** alanına `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` girin.
-    4. Diğer ayarları değiştirmeden bırakın ve **Kaydet**'e tıklayın.
-9. Önceki bölümlerde oluşturduğunuz **filterModule** modülünü ekleyin. 
-    1. **IoT Edge Modülü Ekle**'yi seçin.
-    2. **Ad** alanına `filterModule` girin.
-    3. **Görüntü URI'si** alanına görüntünüzün adresini girin; örneğin `<your container registry address>/filtermodule:0.0.1-amd64`. Tam görüntü adresi, önceki bölümde bulunabilir.
-    4. Modül ikizini düzenleyebilmeniz için **Etkinleştir** kutusunu işaretleyin. 
-    5. Modül ikizinin metin kutusundaki JSON’ı, aşağıdaki JSON ile değiştirin: 
-
-        ```json
-        {
-           "properties.desired":{
-              "TemperatureThreshold":25
-           }
-        }
-        ```
- 
-    6. **Kaydet**’e tıklayın.
-10. **İleri**’ye tıklayın.
-11. **Rota Belirtme** adımında, aşağıdaki JSON’u metin kutusuna kopyalayın. Modüller tüm iletileri Edge çalışma zamanına yayımlar. Çalışma zamanındaki bildirim kuralları, iletilerin akış yerini tanımlar. Bu öğreticide iki rota gerekir. Birinci rota, sıcaklık sensöründen gelen iletileri, **FilterMessages** işleyicisi ile yapılandırdığınız uç noktası olan "input1" uç noktası aracılığıyla filtre modülüne taşır. İkinci rota, iletileri filtre modülünden IoT Hub'a taşır. Bu rotada `upstream`, Edge Hub'a iletileri IoT Hub'a göndermesini bildiren özel bir hedeftir. 
-
+3. Dağıtım bildirimine PythonModule modül ikizini ekleyin. Aşağıdaki JSON içeriğini `moduleContent` bölümünün en altına, `$edgeHub` modül ikizinin arkasına ekleyin: 
     ```json
-    {
-       "routes":{
-          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterModule/inputs/input1\")",
-          "filterToIoTHub":"FROM /messages/modules/filterModule/outputs/output1 INTO $upstream"
-       }
-    }
+        "PythonModule": {
+            "properties.desired":{
+                "TemperatureThreshold":25
+            }
+        }
     ```
 
-4. **İleri**’ye tıklayın.
-5. **Şablonu Gözden Geçirme** adımında **Gönder**’e tıklayın. 
-6. IoT Edge cihaz ayrıntıları sayfasına dönün ve **Yenile**’ye tıklayın. **tempSensor** modülü ve **IoT Edge çalışma zamanı** ile birlikte çalışan yeni **filtermodule** modülünü görürsünüz. 
+4. Bu dosyayı kaydedin.
+
+5. VS Code gezgininde **deployment.template.json** dosyasına sağ tıklayıp **Build IoT Edge solution** (IoT Edge çözümü oluştur) öğesini seçin. 
+
+Visual Studio Code uygulamasına çözümünüzü derleme komutu verdiğinizde dağıtım şablonundaki bilgileri alır ve yeni bir **config** klasöründe bir `deployment.json` dosyası oluşturur. Ardından tümleşik terminalde `docker build` ve `docker push` komutlarını çalıştırır. Bu iki komut kodunuzu derler, Python kodunuzla kapsayıcı oluşturur ve bunu çözümü başlatırken belirttiğiniz kapsayıcı kayıt defterine gönderir. 
+
+VS Code tümleşik terminalinde çalışan `docker build` komutunda tam kapsayıcı görüntüsü adresini ve etiketi görebilirsiniz. Görüntü adresi `module.json` dosyasından **\<depo\>:\<sürüm\>-\<platform\>** biçiminde derlenir. Bu öğretici için **registryname.azurecr.io/pythonmodule:0.0.1-amd64** şeklinde olmalıdır.
+
+## <a name="deploy-and-run-the-solution"></a>Çözümü dağıtma ve çalıştırma
+
+Python modülünüzü bir IoT Edge cihazına dağıtmak için hızlı başlangıçlarda yaptığınız gibi Azure portalını kullanabilirsiniz ancak dilerseniz modülleri Visual Studio Code içinden de dağıtıp izleyebilirsiniz. Aşağıdaki bölümlerde önkoşullarda listelenen VS Code için Azure IoT Edge uzantısı kullanılmaktadır. Uzantıyı önceden yüklemediyseniz bu adımda yükleyebilirsiniz. 
+
+1. **View (Görünüm)** > **Command Palette (Komut Paleti)** öğesini seçerek VS Code komut paletini açın.
+
+2. **Azure: Sign in** komutunu arayıp çalıştırın. Azure hesabınızda oturum açmak için yönergeleri izleyin. 
+
+3. Komut paletinde **Azure IoT Hub: Select IoT Hub** komutunu arayıp çalıştırın. 
+
+4. IoT hub'ınızı içeren aboneliği ve ardından erişmek istediğiniz IoT hub'ı seçin.
+
+5. VS Code gezgininde **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünü seçin. 
+
+6. IoT Edge cihazınızın adına sağ tıklayıp **Create Deployment for IoT Edge device** (IoT Edge cihazı için dağıtım oluştur) öğesini seçin. 
+
+7. PythonModule modülünü içeren çözüm klasörüne gidin. **config** klasörünü açıp **deployment.json** dosyasını seçin. **Select Edge Deployment Manifest** (Edge Dağıtım Bildirimini Seç) öğesine tıklayın.
+
+8. **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünü yenileyin. Yeni **PythonModule** ile **TempSensor** modülü ve **$edgeAgent** ile **$edgeHub** bileşenlerinin çalıştığını görmeniz gerekir. 
 
 ## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
-IoT Edge cihazınızdan IoT hub'ınıza cihazdan buluta gönderilen iletileri izlemek için:
-1. Azure IoT Toolkit uzantısını IoT hub'ınızın bağlantı dizesiyle yapılandırın: 
-    1. **Görünüm** > **Gezgin** seçeneğini belirleyerek VS Code gezginini açın. 
-    3. Gezginde **IOT HUB CİHAZLARI**’na ve ardından **...** düğmesine tıklayın. **IoT Hub Bağlantı Dizesi Ayarla** seçeneğine tıklayın ve açılır pencerede IoT Edge cihazınızın bağlandığı IoT hub için bağlantı dizesini girin. 
+1. IoT hub'a gelen verileri izlemek için **...** simgesine tıklayıp **Start Monitoring D2C Messages** (D2C İletilerini İzlemeye Başla) öğesini seçin.
+2. Belirli bir cihazın D2C iletilerini izlemek için listeden cihaza sağ tıklayıp **Start Monitoring D2C Messages** (D2C İletilerini İzlemeye Başla) öğesini seçin.
+3. Verileri izlemeyi durdurmak için komut paletinden **Azure IoT Hub: Stop monitoring D2C message** komutunu seçin. 
+4. Modül ikizini görüntülemek veya güncelleştirmek için listeden modüle sağ tıklayıp **Edit module twin** (Modül ikizini düzenle) öğesini seçin. Modül ikizini güncelleştirmek için ikiz JSON dosyasını kaydedip düzenleyici alanına sağ tıklayın ve **Update Module Twin** (Modül İkizini Güncelleştir) öğesini seçin.
+5. Docker günlüklerini görüntülemek isterseniz VS Code için [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) uygulamasını yükleyebilir ve çalışan modüllerinizi Docker gezgininde yerel olarak bulabilirsiniz. Tümleşik terminalde görüntülemek için bağlam menüsünde **Show Logs** (Günlükleri Göster) öğesine tıklayın. 
 
-        Bağlantı dizesini bulmak için, Azure portalında IoT hub’ınız için kutucuğa tıklayın ve **Paylaşılan erişim ilkeleri**’ne tıklayın. **Paylaşılan erişim ilkeleri** penceresinde **iothubowner** ilkesine tıklayın ve **iothubowner** penceresindeki IoT Hub bağlantı dizesini kopyalayın.   
+## <a name="clean-up-resources"></a>Kaynakları temizleme 
 
-1. IoT hub'da gelen verileri izlemek için, **Görünüm** > **Komut Paleti** seçeneğini belirleyin ve **IoT: D2C iletisini izlemeye başlama** menü komutunu arayın. 
-2. Verileri izlemeyi durdurmak için **IoT: D2C iletisini izlemeyi durdur** menü komutunu kullanın. 
+<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+
+Bir sonraki önerilen makaleye geçecekseniz oluşturduğunuz kaynaklarla yapılandırmaları tutabilir ve yeniden kullanabilirsiniz.
+
+Geçmeyecekseniz ücret kesilmesini önlemek için yerel yapılandırmalarınızı ve bu makalede oluşturulan Azure kaynaklarını silebilirsiniz. 
+
+> [!IMPORTANT]
+> Azure kaynaklarını ve kaynak grubunu silme işlemi geri alınamaz. Silindikten sonra kaynak grubu ve içindeki tüm kaynaklar kalıcı olarak silinir. Yanlış kaynak grubunu veya kaynakları yanlışlıkla silmediğinizden emin olun. IoT Hub'ı tutmak istediğiniz kaynakların bulunduğu mevcut bir kaynak grubunda oluşturduysanız kaynak grubunu silmek yerine IoT Hub kaynağını silin.
+>
+
+Yalnızca IoT Hub'ı silmek için hub adını ve kaynak grubu adını kullanarak aşağıdaki komutu çalıştırın:
+
+```azurecli-interactive
+az iot hub delete --name MyIoTHub --resource-group TestResources
+```
+
+
+Kaynak grubunun tamamını adıyla silmek için:
+
+1. [Azure portalında](https://portal.azure.com) oturum açın ve **Kaynak grupları**’na tıklayın.
+
+2. **Ada göre filtrele...** metin kutusuna IoT Hub'ınızın bulunduğu kaynak grubunun adını girin. 
+
+3. Sonuç listesinde kaynak grubunuzun sağ tarafında **...** ve sonra **Kaynak grubunu sil**'e tıklayın.
+
+4. Kaynak grubunun silinmesini onaylamanız istenir. Onaylamak için kaynak grubunuzun adını tekrar yazın ve **Sil**'e tıklayın. Birkaç dakika sonra kaynak grubu ve içerdiği kaynakların tümü silinir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, IoT Edge cihazınız tarafından oluşturulan ham verileri filtreleme kodunu içeren bir IoT Edge modülü oluşturdunuz. Azure IoT Edge’in verileri edge’de iş içgörüsüne dönüştürmenize yardımcı olabilecek diğer yollar hakkında bilgi edinmek için aşağıdaki öğreticilerden herhangi biriyle devam edebilirsiniz.
+Bu öğreticide IoT Edge cihazınız tarafından üretilen ham verileri filtrelemek için kod içeren bir IoT Edge modülü oluşturdunuz. Azure IoT Edge'in verileri iş içgörüsüne dönüştürmenize yardımcı olabilecek diğer yollar hakkında bilgi edinmek için aşağıdaki öğreticilerden birine devam edebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Modül olarak Azure İşlevi dağıtma](tutorial-deploy-function.md)
-> [Modül olarak Azure Stream Analytics dağıtma](tutorial-deploy-stream-analytics.md)
+> [Azure Function'ı modül olarak dağıtma](tutorial-deploy-function.md)
+> [Azure Stream Analytics'i modül olarak dağıtma](tutorial-deploy-stream-analytics.md)
 
 
 <!-- Links -->
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
+[lnk-quickstart-win]: quickstart.md
+[lnk-quickstart-lin]: quickstart-linux.md
 
 <!-- Images -->
 [1]: ./media/tutorial-csharp-module/programcs.png

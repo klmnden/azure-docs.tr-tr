@@ -61,13 +61,13 @@
           href: backup-mabs-protection-matrix.md
         - name: Yükleme veya yükseltme
           items:
-            - name: Azure portalında Azure Backup Sunucusu iş yükleri hazırlama
+            - name: Azure Backup Sunucusu’nu yükleme
               href: backup-azure-microsoft-azure-backup.md
-            - name: Azure Backup Sunucusu’na depolama alanı ekleme
+            - name: Depolama ekleme
               href: backup-mabs-add-storage.md
-            - name: Azure Backup Sunucusu’nu v.2 sürümüne yükseltme
+            - name: v.2’ye yükseltme
               href: backup-mabs-upgrade-to-v2.md
-            - name: Azure Backup Sunucusu için katılımsız yükleme
+            - name: Katılımsız yükleme
               href: backup-mabs-unattended-install.md
         - name: İş yüklerini koruma
           items:

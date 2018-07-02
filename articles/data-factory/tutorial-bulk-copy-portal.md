@@ -11,21 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 440b07b494b34db7ff3fcdf5d5ac830b165c339d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c42f7257b4b4077cc719c57e3136505f766e654c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30173292"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046842"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory kullanarak birden çok tabloyu toplu olarak kopyalama
 Bu öğreticide **Azure SQL Veritabanından Azure SQL Veri Ambarı'na birkaç tabloyu kopyalama** işlemi gösterilmektedir. Aynı düzeni diğer kopyalama senaryolarında da uygulayabilirsiniz. Örneğin, SQL Server/Oracle’dan Azure SQL Veritabanı/Veri Ambarı/Azure Blob’a tablo kopyalama, Blob’dan Azure SQL Veritabanı tablolarına farklı yollar kopyalama.
 
 > [!NOTE]
 > - Azure Data Factory kullanmaya yeni başlıyorsanız bkz. [Azure Data Factory'ye giriş](introduction.md).
-> - Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 belgeleri](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
 
 Yüksek düzeyde, bu öğretici aşağıdaki adımları içerir:
 
@@ -93,7 +92,7 @@ Hem SQL Veritabanı hem de SQL Veri Ambarı için Azure hizmetlerinin SQL sunucu
       - **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin.   
          
       Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
-4. **Sürüm** için **V2 (Önizleme)** öğesini seçin.
+4. **Sürüm** için **V2**'yi seçin.
 5. Data factory için **konum** seçin. Data Factory V2 şu anda Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerinde veri fabrikası oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 6. **Panoya sabitle**’yi seçin.     
 7. **Oluştur**’a tıklayın.
@@ -103,7 +102,7 @@ Hem SQL Veritabanı hem de SQL Veri Ambarı için Azure hizmetlerinin SQL sunucu
 9. Oluşturma işlemi tamamlandıktan sonra, resimde gösterildiği gibi **Data Factory** sayfasını görürsünüz.
    
     ![Data factory giriş sayfası](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
-10. Data Factory kullanıcı arabirimi uygulamasını ayrı bir sekmede açmak için **Geliştir ve İzle** kutucuğuna tıklayın.
+10. Data Factory kullanıcı arabirimi uygulamasını ayrı bir sekmede açmak için **Author & Monitor** (Oluştur ve İzle) kutucuğuna tıklayın.
 11. **Başlarken** sayfasında, aşağıdaki resimde gösterildiği gibi sol bölmede bulunan **Düzenle** sekmesine geçin:  
 
     ![Başlarken sayfası](./media/tutorial-bulk-copy-portal/get-started-page.png)
@@ -111,18 +110,18 @@ Hem SQL Veritabanı hem de SQL Veri Ambarı için Azure hizmetlerinin SQL sunucu
 ## <a name="create-linked-services"></a>Bağlı hizmetler oluşturma
 Veri depolarınızı ve işlemlerinizi veri fabrikasına bağlamak için bağlı hizmetler oluşturursunuz. Bağlı hizmetler, Data Factory hizmetinin çalışma zamanında veri deposuna bağlanmak için kullandığı bağlantı bilgilerini içerir. 
 
-Bu öğreticide, Azure SQL Veritabanı, Azure SQL Veri Ambarı ve Azure Blob Depolama Alanı veri depolarınızı veri fabrikanıza bağlarsınız. Azure SQL Veritabanı, kaynak veri deposudur. Azure SQL Veri Ambarı, havuz/hedef veri deposudur. Azure Blob Depolama Alanı, PolyBase kullanılarak veriler SQL Veri Ambarı'na yüklenmeden önce verilerin hazırlanmasıdır. 
+Bu öğreticide, Azure SQL Veritabanı, Azure SQL Veri Ambarı ve Azure Blob Depolama veri depolarınızı veri fabrikanıza bağlarsınız. Azure SQL Veritabanı, kaynak veri deposudur. Azure SQL Veri Ambarı, havuz/hedef veri deposudur. Azure Blob Depolama, PolyBase kullanılarak veriler SQL Veri Ambarı'na yüklenmeden önce verilerin hazırlanması için kullanılır. 
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Kaynak Azure SQL Veritabanı bağlı hizmetini oluşturma
 Bu adımda, Azure SQL veritabanınızı veri fabrikasına bağlamak için bağlı bir hizmet oluşturursunuz. 
 
 1. Pencerenin en altından **Bağlantılar**’a ve sonra araç çubuğunda **+ Yeni**’ye tıklayın. 
 
-    ![Yeni bağlı hizmet düğmesi](./media/tutorial-bulk-copy-portal/new-linked-service-button.png)
-2. **Yeni Bağlı Hizmet** penceresinde **Azure SQL Veritabanı**’nı seçip **Devam**’a tıklayın. 
+    ![New Linked Service (Yeni bağlı hizmet) düğmesi](./media/tutorial-bulk-copy-portal/new-linked-service-button.png)
+2. **New Linked Service** (Yeni Bağlı Hizmet) penceresinde **Azure SQL Veritabanı**’nı seçip **Devam**’a tıklayın. 
 
     ![Azure SQL Veritabanı’nı seçin](./media/tutorial-bulk-copy-portal/select-azure-sql-database.png)
-3. **Yeni Bağlı Hizmet** penceresinde aşağıdaki adımları izleyin: 
+3. **New Linked Service** (Yeni Bağlı Hizmet) penceresinde aşağıdaki adımları izleyin: 
 
     1. **Ad** için **AzureSqlDatabaseLinkedService** adını girin. 
     2. **Sunucu adı** için Azure SQL sunucunuzu seçin.
@@ -137,8 +136,8 @@ Bu adımda, Azure SQL veritabanınızı veri fabrikasına bağlamak için bağl�
 ### <a name="create-the-sink-azure-sql-data-warehouse-linked-service"></a>Havuz Azure SQL Veri Ambarı bağlı hizmetini oluşturma
 
 1. **Bağlantılar** sekmesinde, araç çubuğundaki **+ Yeni** düğmesine tekrar tıklayın. 
-2. **Yeni Bağlı Hizmet** penceresinde **Azure SQL Veri Ambarı**’nı seçip **Devam**’a tıklayın. 
-3. **Yeni Bağlı Hizmet** penceresinde aşağıdaki adımları izleyin: 
+2. **New Linked Service** (Yeni Bağlı Hizmet) penceresinde **Azure SQL Veri Ambarı**’nı seçip **Devam**’a tıklayın. 
+3. **New Linked Service** (Yeni Bağlı Hizmet) penceresinde aşağıdaki adımları izleyin: 
 
     1. **Ad** için **AzureSqlDWLinkedService** adını girin. 
     2. **Sunucu adı** için Azure SQL sunucunuzu seçin.
@@ -152,8 +151,8 @@ Bu adımda, Azure SQL veritabanınızı veri fabrikasına bağlamak için bağl�
 Bu öğreticide Azure Blob depolamayı daha iyi bir kopyalama performansı için PolyBase’i etkinleştiren geçici bir hazırlama alanı olarak kullanırsınız.
 
 1. **Bağlantılar** sekmesinde, araç çubuğundaki **+ Yeni** düğmesine tekrar tıklayın. 
-2. **Yeni Bağlı Hizmet** penceresinde **Azure Blob Depolama**’yı seçip **Devam**’a tıklayın. 
-3. **Yeni Bağlı Hizmet** penceresinde aşağıdaki adımları izleyin: 
+2. **New Linked Service** (Yeni Bağlı Hizmet) penceresinde **Azure Blob Depolama**’yı seçip **Devam**’a tıklayın. 
+3. **New Linked Service** (Yeni Bağlı Hizmet) penceresinde aşağıdaki adımları izleyin: 
 
     1. **Ad** için **AzureStorageLinkedService** adını girin. 
     2. **Depolama hesabı adı** için **Azure Depolama hesabınızı** seçin.
@@ -163,9 +162,9 @@ Bu öğreticide Azure Blob depolamayı daha iyi bir kopyalama performansı için
 ## <a name="create-datasets"></a>Veri kümeleri oluşturma
 Bu öğreticide, verilerin depolandığı konumu belirten kaynak ve havuz veri kümelerini oluşturacaksınız. 
 
-AzureSqlDatabaseDataset giriş veri kümesi, AzureSqlDatabaseLinkedService'e işaret eder. Bağlı hizmet, veritabanına bağlanmaya yönelik bağlantı dizesini belirtir. Veri kümesi, kaynak verileri içeren veritabanı ve tablonun adını belirtir. 
+**AzureSqlDatabaseDataset** giriş veri kümesi, **AzureSqlDatabaseLinkedService**'e işaret eder. Bağlı hizmet, veritabanına bağlanmaya yönelik bağlantı dizesini belirtir. Veri kümesi, kaynak verileri içeren veritabanı ve tablonun adını belirtir. 
 
-AzureSqlDWDataset çıkış veri kümesi AzureSqlDWLinkedService'e işaret eder. Bağlı hizmet, veri ambarına bağlanmaya yönelik bağlantı dizesini belirtir. Veri kümesi, verilerin kopyalandığı hedef veritabanı ve tabloyu belirtir. 
+**AzureSqlDWDataset** çıkış veri kümesi **AzureSqlDWLinkedService**'e işaret eder. Bağlı hizmet, veri ambarına bağlanmaya yönelik bağlantı dizesini belirtir. Veri kümesi, verilerin kopyalandığı hedef veritabanı ve tabloyu belirtir. 
 
 Bu öğreticide, kaynak ve hedef SQL tabloları veri kümesi tanımında sabit kodlanmamıştır. Bunun yerine, ForEach etkinliği tablonun adını çalışma zamanında Kopyalama etkinliğine geçirir. 
 
@@ -179,7 +178,6 @@ Bu öğreticide, kaynak ve hedef SQL tabloları veri kümesi tanımında sabit k
     ![Azure SQL Veritabanı’nı seçin](./media/tutorial-bulk-copy-portal/select-azure-sql-database-dataset.png)
 3. En alttaki Özellikler penceresinde, **Ad** olarak **AzureSqlDatabaseDataset** girin.
 
-    ![Kaynak veri kümesi adı](./media/tutorial-bulk-copy-portal/source-dataset-general.png)
 4. **Bağlantı** sekmesine geçin ve aşağıdaki adımları uygulayın: 
 
     1. **Bağlı hizmet** için **AzureSqlDatabaseLinkedService** hizmetini seçin.
@@ -193,14 +191,21 @@ Bu öğreticide, kaynak ve hedef SQL tabloları veri kümesi tanımında sabit k
 1. Sol bölmedeki **+ (artı)** düğmesine ve **Veri Kümesi**'ne tıklayın. 
 2. **Yeni Veri Kümesi** penceresinde **Azure SQL Veri Ambarı**’nı seçin ve **Son**’a tıklayın. **AzureSqlDWTable1** başlıklı yeni bir sekme görüyor olmalısınız. 
 3. En alttaki Özellikler penceresinde, **Ad** olarak **AzureSqlDWDataset** girin.
-4. **Bağlantı** sekmesine geçin ve **Bağlı hizmet** için **AzureSqlDatabaseLinkedService** seçeneğini belirleyin.
-5. **Parametreler** sekmesine geçin ve **+ Yeni**’ye tıklayın.
+5. **Parametreler** sekmesine geçin, **+ Yeni**'ye tıklayın ve parametre adı olarak **DWTableName** girin. Bu adı sayfadan kopyalayıp yapıştırırken **DWTableName** komutunun sonunda **boşluk karakteri olmadığından** emin olun. 
 
-    ![Kaynak veri kümesi bağlantı sayfası](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Parametre adı olarak **DWTableName** girin. Bu adı sayfadan kopyalayıp yapıştırırken **DWTableName** komutunun sonunda **boşluk karakteri olmadığından** emin olun. 
-7. **Parametreli özellikler** bölümünde, **tableName** özelliği için `@{dataset().DWTableName}` girin. Veri kümesinin **tableName** özelliği, **DWTableName** parametresine bağımsız değişken olarak geçirilen değere ayarlanır. ForEach etkinliği bir tablo listesi boyunca yinelenir ve birer birer Kopyalama etkinliğine geçirilir. 
-   
-    ![Parametre adı](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)
+    ![Kaynak veri kümesi bağlantı sayfası](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter.png)
+
+6. **Bağlantı** sekmesine geçin, 
+
+    a. **Bağlı hizmet** için **AzureSqlDatabaseLinkedService** hizmetini seçin.
+
+    b. **Tablo** için **Düzenle** seçeneğini belirtin, tablo adı giriş kutusuna tıklayın ve altındaki **Dinamik içerik ekle** bağlantısına tıklayın. 
+    
+    ![Parametre adı](./media/tutorial-bulk-copy-portal/table-name-parameter.png)
+
+    c. **Dinamik İçerik Ekle** sayfasında **Parametreler** bölümünde bulunan ve en iyi ifade metin kutusunu `@dataset().DWTableName` ile otomatik olarak dolduran **DWTAbleName** öğesine ve ardından **Son**'a tıklayın. Veri kümesinin **tableName** özelliği, **DWTableName** parametresine bağımsız değişken olarak geçirilen değere ayarlanır. ForEach etkinliği bir tablo listesi boyunca yinelenir ve tabloları birer birer Kopyalama etkinliğine geçirir. 
+
+    ![Veri kümesi parametresi derleyici](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
 
 ## <a name="create-pipelines"></a>İşlem hattı oluşturma
 Bu öğreticide, iki işlem hattı oluşturursunuz: **IterateAndCopySQLTables** ve **GetTableListAndTriggerCopyData**. 
@@ -217,63 +222,65 @@ Bu öğreticide, iki işlem hattı oluşturursunuz: **IterateAndCopySQLTables** 
 1. Sol bölmede, **+ (artı)** düğmesine ve sonra da **İşlem Hattı**’na tıklayın.
 
     ![Yeni işlem hattı menüsü](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-2. Özellikler penceresinde, işlem hattının adını **IterateAndCopySQLTables** olarak değiştirin. 
+2. **Genel** sekmesinde ad için **IterateAndCopySQLTables** girişini belirtin. 
 
-    ![İşlem hattı adı](./media/tutorial-bulk-copy-portal/first-pipeline-name.png)
 3. **Parametreler** sekmesine geçin ve aşağıdaki eylemleri gerçekleştirin: 
 
     1. **+ Yeni** öğesine tıklayın. 
     2. **name** parametresi için **tableList** girin.
-    3. **Tür** olarak **Object** seçin.
+    3. **Tür** için **Dizi**'yi seçin.
 
         ![İşlem hattı parametresi](./media/tutorial-bulk-copy-portal/first-pipeline-parameter.png)
-4. **Etkinlikler** araç kutusunda **Yineleme ve Koşullar**’ı genişletin ve **ForEach** etkinliğini sürükleyerek işlem hattı tasarım yüzeyine bırakın. Ayrıca, **Etkinlikler** araç kutusunda etkinlikler için arama yapabilirsiniz. En alttaki **Özellikler** penceresinde, **Ad** olarak **IterateSQLTables** girin. 
+4. **Etkinlikler** araç kutusunda **Yineleme ve Koşullar**’ı genişletin ve **ForEach** etkinliğini sürükleyerek işlem hattı tasarım yüzeyine bırakın. Ayrıca, **Etkinlikler** araç kutusunda etkinlikler için arama yapabilirsiniz. 
 
-    ![ForEach etkinliği adı](./media/tutorial-bulk-copy-portal/for-each-activity-name.png)
-5. **Ayarlar** sekmesine geçin ve **Öğeler** için `@pipeline().parameters.tableList` değerini girin.
+    a. En alttaki **Genel** sekmesinde, **Ad** olarak **IterateSQLTables** girin. 
+
+    b. **Ayarlar** sekmesine geçin, **Öğeler** giriş kutusuna ve ardından altındaki **Dinamik içerik ekle** bağlantısına tıklayın. 
 
     ![ForEach etkinliği ayarları](./media/tutorial-bulk-copy-portal/for-each-activity-settings.png)
-6. **ForEach** etkinliğine bir alt etkinlik eklemek için, ForEach etkinliğine **çift tıklayın** (veya) **Düzenle (kalem simgesi)** öğesine tıklayın. Etkinliğin eylem bağlantılarını görmek için o etkinliği seçmeniz gerekir. 
 
-    ![ForEach etkinliği adı](./media/tutorial-bulk-copy-portal/edit-for-each-activity.png)
-7. **Etkinlikler** araç çubuğunda **Veri Akışı**'nı genişletin, **Kopyalama** etkinliğini sürükleyip işlem hattı tasarım yüzeyine bırakın ve Özellikler penceresinde adı **CopyData** olarak değiştirin. En üstteki içerik haritası menüsüne dikkat edin. IterateAndCopySQLTable işlem hattı adı ve IterateSQLTables ise ForEach etkinliği adıdır. Tasarımcı, etkinlik kapsamdadır. ForEach düzenleyicisinden yeniden işlem hattı düzenleyicisine geçmek için, içerik haritası menüsündeki bağlantıya tıklayın. 
+    c. **Dinamik İçerik Ekle** sayfasında Sistem Değişkenleri ve İşlevleri bölümünü daraltın, **Parametreler** bölümünde bulunan en iyi ifade metin kutusunu `@pipeline().parameter.tableList` ile otomatik olarak dolduran **tableList** öğesine ve ardından **Son**'a tıklayın. 
+
+    ![Foreach parametresi derleyici](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
+    
+    d. **Etkinlikler** sekmesine geçin, **Etkinlik ekle**'ye tıklayarak **ForEach** etkinliğine bir alt etkinlik ekleyin.
+
+5. **Etkinlikler** araç kutusunda **DataFlow**’u genişletin ve **Kopyalama** etkinliğini sürükleyerek işlem hattı tasarımcısının yüzeyine bırakın. En üstteki içerik haritası menüsüne dikkat edin. IterateAndCopySQLTable işlem hattı adı ve IterateSQLTables ise ForEach etkinliği adıdır. Tasarımcı, etkinlik kapsamdadır. ForEach düzenleyicisinden yeniden işlem hattı düzenleyicisine geçmek için, içerik haritası menüsündeki bağlantıya tıklayın. 
 
     ![ForEach içinde kopyalama](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
-8. **Kaynak** sekmesine geçin ve aşağıdaki adımları izleyin:
+6. **Kaynak** sekmesine geçin ve aşağıdaki adımları izleyin:
 
     1. **Kaynak Veri Kümesi** olarak **AzureSqlDatabaseDataset** seçin. 
     2. **Kullanıcı Sorgusu** için **Sorgu** seçeneğini belirtin. 
-    3. **Sorgu** için aşağıdaki SQL sorgusunu girin.
+    3. **Sorgu** giriş kutusuna tıklayın -> aşağıdaki **Dinamik içerik ekle**'yi seçin -> **Sorgu** için aşağıdaki ifadeyi girin -> **Son**'u seçin.
 
         ```sql
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
         ![Kopyalama kaynak ayarları](./media/tutorial-bulk-copy-portal/copy-source-settings.png)
-9. **Havuz** sekmesine geçin ve aşağıdaki adımları izleyin: 
+7. **Havuz** sekmesine geçin ve aşağıdaki adımları izleyin: 
 
     1. **Havuz Veri Kümesi** olarak **AzureSqlDWDataset** seçin.
+    2. DWTableName parametresinin değeri için giriş kutusuna tıklayın -> aşağıdaki **Dinamik içerik ekle**'yi seçin, betik olarak `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` ifadesini girin -> **Son**'u seçin.
     2. **Polybase Ayarları**'nı genişletin ve **Polybase'e izin ver**'i seçin. 
     3. **Tür varsayılanını kullan** seçeneğini temizleyin. 
-    4. **Temizleme Betiği** için aşağıdaki SQL betiğini girin. 
+    4. **Temizleme Betiği** giriş kutusuna tıklayın -> aşağıdaki **Dinamik içerik ekle**'yi seçin -> betik için aşağıdaki ifadeyi girin -> **Son**'u seçin. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
 
         ![Kopyalama havuz ayarları](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
-10. **Parametreler** sekmesine geçin, **DWTableName** parametresini içeren **Havuz Veri Kümesi** bölümünü görmek için gerekirse ekranı aşağı kaydırın. Bu parametrenin değerini `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` olarak ayarlayın.
 
-    ![Kopyalama havuz parametreleri](./media/tutorial-bulk-copy-portal/copy-sink-parameters.png)
-11. **Ayarlar** sekmesine geçin ve aşağıdaki adımları uygulayın: 
+8. **Ayarlar** sekmesine geçin ve aşağıdaki adımları uygulayın: 
 
     1. **Hazırlamayı Etkinleştir** için **True** değerini seçin.
     2. **Depo Hesabı Bağlı Hizmeti** için **AzureStorageLinkedService** hizmetini seçin.
 
         ![Hazırlamayı etkinleştirme](./media/tutorial-bulk-copy-portal/copy-sink-staging-settings.png)
-12. İşlem hattı ayarlarını doğrulamak için **Doğrula**'ya tıklayın. Doğrulama hatası olmadığından emin olun. **İşlem Hattı Doğrulama Raporu**'nu kapatmak için **>>** seçeneğine tıklayın.
 
-    ![İşlem hattı doğrulama raporu](./media/tutorial-bulk-copy-portal/first-pipeline-validation-report.png)
+9. İşlem hattı ayarlarını doğrulamak için üst işlem hattı araç çubuğunda **Doğrula**’ya tıklayın. Doğrulama hatası olmadığından emin olun. **İşlem Hattı Doğrulama Raporu**'nu kapatmak için **>>** seçeneğine tıklayın.
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>GetTableListAndTriggerCopyData işlem hattını oluşturma
 
@@ -287,7 +294,6 @@ Bu işlem hattı iki adım gerçekleştirir:
     ![Yeni işlem hattı menüsü](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
 2. Özellikler penceresinde, işlem hattının adını **GetTableListAndTriggerCopyData** olarak değiştirin. 
 
-    ![İşlem hattı adı](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
 3. **Etkinlikler** araç kutusunda **Genel**’i genişletin, bir **Arama** etkinliğini sürükleyerek işlem hattı tasarımcısının yüzeyine bırakın ve aşağıdaki adımları uygulayın:
 
     1. **Ad** olarak **LookupTableList** girin. 
@@ -315,7 +321,7 @@ Bu işlem hattı iki adım gerçekleştirir:
     2. **Gelişmiş** bölümünü genişletin. 
     3. **Parametreler** bölümünde **+ Yeni** öğesine tıklayın. 
     4. **name** parametresi için **tableList** girin.
-    5. **value** parametresi için `@activity('LookupTableList').output.value` girin. Arama etkinliğinden gelen sonuç listesini ikinci işlem hattına giriş olarak ayarlarsınız. Sonuç listesinde yer alan tabloların içerdiği verilerin hedefe kopyalanması gerekir. 
+    5. DEĞER giriş kutusuna tıklayın -> altındaki **Dinamik içerik ekle**'yi seçin -> tablo adı değeri olarak `@activity('LookupTableList').output.value` girin -> **Son**' seçin. Arama etkinliğinden gelen sonuç listesini ikinci işlem hattına giriş olarak ayarlarsınız. Sonuç listesinde yer alan tabloların içerdiği verilerin hedefe kopyalanması gerekir. 
 
         ![İşlem hattı yürütme etkinliği - ayarlar sayfası](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 7. İşlem Hattı Yürütme etkinliğinin sol tarafındaki Arama etkinliğine eklenmiş olan **yeşil kutuyu** sürükleyerek, **Arama** etkinliğini **İşlem Hattı Yürütme** etkinliğine **bağlayın**.
@@ -323,17 +329,13 @@ Bu işlem hattı iki adım gerçekleştirir:
     ![Arama ve İşlem Hattı Yürütme etkinliklerini bağlama](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
 8. İşlem hattını doğrulamak için araç çubuğundaki **Doğrula**'ya tıklayın. Doğrulama hatası olmadığından emin olun. **İşlem Hattı Doğrulama Raporu**'nu kapatmak için **>>** seçeneğine tıklayın.
 
-    ![İkinci işlem hattı - doğrulama raporu](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. Varlıkları (veri kümeleri, işlem hatları, vb.) Data Factory hizmetine yayımlamak için **Tümünü Yayımla**’ya tıklayın. Yayımlama başarılı olana kadar bekleyin. 
-
-    ![Yayımla düğmesi](./media/tutorial-bulk-copy-portal/publish.png)
+9. Varlıkları (veri kümeleri, işlem hatları, vb.) Data Factory hizmetine yayımlamak için pencerenin üst tarafındaki **Tümünü Yayımla**’ya tıklayın. Yayımlama başarılı olana kadar bekleyin. 
 
 ## <a name="trigger-a-pipeline-run"></a>İşlem hattı çalıştırmasını tetikleme
 
-1. **GetTableListAndTriggerCopyData** sekmesinin etkin olduğunu onaylayın. 
-2. **Tetikle**’ye ve sonra da **Şimdi Tetikle**’ye tıklayın. 
+**GetTableListAndTriggerCopyData** işlem hattına gidin, **Tetikle**'ye ve ardından **Şimdi Tetikle**'ye tıklayın. 
 
-    ![Şimdi tetikle](./media/tutorial-bulk-copy-portal/trigger-now.png)
+![Şimdi tetikle](./media/tutorial-bulk-copy-portal/trigger-now.png)
 
 ## <a name="monitor-the-pipeline-run"></a>İşlem hattı çalıştırmasını izleme
 

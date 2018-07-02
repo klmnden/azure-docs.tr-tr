@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 89f5391cfbfd85f9f0715a8c7d288cc3981cc618
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ae0247df0bbde07e755bd910bca08b8703969cec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237014"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047284"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory'ye giriş 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-introduction.md)
-> * [Sürüm 2 - Önizleme](introduction.md)
+> * [Sürüm 1](v1/data-factory-introduction.md)
+> * [Geçerli sürüm](introduction.md)
 
 Büyük veri dünyasında ham ve düzensiz veriler genellikle ilişkisel, ilişkisel olmayan ve diğer depolama sistemlerinde depolanır. Ancak, ham veriler kendi başlarına analiz uzmanlarına, veri bilimcilerine veya iş karar mekanizmalarına anlamlı bilgiler sağlamak için uygun bağlama veya anlama sahip değildir. 
 
@@ -40,9 +40,6 @@ Azure Data Factory, bu tür veri senaryolarını çözen platformdur. *Bulutta v
 Ayrıca çıktı verilerini iş zekası (BI) uygulamalarının kullanması için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilirsiniz. Sonuç olarak, Azure Data Factory sayesinde ham veriler daha iyi iş kararları için anlamlı veri depoları ve veri gölleri halinde düzenlenebilir.
 
 ![Data Factory'nin üstten görünümü](media/introduction/big-picture.png)
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız bkz. [Data Factory sürüm 1'e giriş](v1/data-factory-introduction.md).
 
 ## <a name="how-does-it-work"></a>Nasıl çalışır?
 Azure Data Factory’deki işlem hatları (veri odaklı iş akışları) genellikle aşağıdaki dört adımı gerçekleştirir:
@@ -92,7 +89,7 @@ Bağlı hizmetler Data Factory’de iki amaçla kullanılır:
 - Etkinlik yürütülmesini barındırabilen **işlem kaynağını** temsil etmek için. Örneğin, HDInsightHive etkinliği bir HDInsight Hadoop kümesinde yürütülür. Dönüştürme etkinlikleri ve desteklenen işlem ortamlarının listesi için [veri dönüştürme](transform-data.md) makalesine bakın.
 
 ### <a name="triggers"></a>Tetikleyiciler
-Tetikleyiciler, bir işlem hattı çalıştırmasının başlatılması gereken zamanı belirleyen işlem birimini temsil eder. Farklı etkinlik türleri için farklı tetikleyici türleri vardır. Data Factory, önizleme için duvar saati zamanlayıcı tetikleyicisini destekliyor. 
+Tetikleyiciler, bir işlem hattı çalıştırmasının başlatılması gereken zamanı belirleyen işlem birimini temsil eder. Farklı etkinlik türleri için farklı tetikleyici türleri vardır.
 
 ### <a name="pipeline-runs"></a>İşlem hattı çalıştırmaları
 İşlem hattı çalıştırması, işlem hattı yürütme örneğidir. İşlem hattı çalıştırmaları örneği genelde bağımsız değişkenlerin işlem hatlarında tanımlanan parametrelere iletilmesiyle oluşturulur. Bağımsız değişkenler el ile veya tetikleyici tanımı içinde geçirilebilir.
@@ -124,8 +121,8 @@ Data Factory yalnızca Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerinde kull
 
 Örneğin, Azure HDInsight kümesi ve Azure Machine Learning gibi işlem ortamlarınızın Batı Avrupa bölgesinde çalıştığını varsayalım. Doğu ABD veya Doğu ABD 2’de bir Azure Data Factory örneği oluşturup geliştirebilir ve bunu Batı Avrupa’daki işlem ortamlarınızda iş zamanlamak için kullanabilirsiniz. Data Factory'nin işlem ortamınızda işi tetiklemesi birkaç milisaniye alsa da, bilgi işlem ortamınızda işin çalıştırılma süresi değişmez.
 
-## <a name="compare-with-version-2"></a>Sürüm 2 ile karşılaştırma
-Data Factory hizmetinin 1 ve 2 numaralı sürümleri arasındaki farkların listesi için bkz. [Sürüm 1 ile karşılaştırma](compare-versions.md). 
+## <a name="compare-with-version-1"></a>Sürüm 1 ile karşılaştırma
+Data Factory geçerli sürümü ile 1 numaralı sürümleri arasındaki farkların listesi için bkz. [Sürüm 1 ile karşılaştırma](compare-versions.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki araçlardan/SDK’lardan birini kullanarak Data Factory işlem hattı oluşturmaya başlayın: 

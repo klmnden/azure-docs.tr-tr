@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 1dffceb629df5d0197bfc8ac66120df3912d70b1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7f6357c5b0be12c18797e82b73bd05af42888aa0
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603785"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752342"
 ---
 # <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
@@ -165,7 +165,7 @@ Azure portalında genel amaçlı v2 bir depolama hesabı oluşturmak için aşa�
 1. Azure portalında sol taraftaki menüyü genişleterek hizmet menüsünü açın ve **Tüm hizmetler**'i seçin. Ardından **Depolama** bölümüne inin ve **Depolama hesapları**'nı seçin. Açılan **Depolama Hesapları** penceresinde **Ekle**'yi seçin.
 2. Depolama hesabınız için bir ad girin.
 3. **Hesap türü** alanını, **StorageV2 (genel amaçlı v2)** olarak ayarlayın.
-4. **Çoğaltma** alanını, **Yerel Olarak Yedekli Depolama (LRS)** olarak bırakın. Alternatif olarak, **Bölgesel olarak yedekli depolama (ZRS Önizlemesi)**, **Coğrafi olarak yedekli depolama (GRS)** veya **Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)** seçeneklerinden birini de belirleyebilirsiniz.
+4. **Çoğaltma** alanını, **Yerel Olarak Yedekli Depolama (LRS)** olarak bırakın. Alternatif olarak, **Bölgesel olarak yedekli depolama (ZRS) (önizleme)**, **Coğrafi olarak yedekli depolama (GRS)** veya **Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)** seçeneklerinden birini de belirleyebilirsiniz.
 5. Şu alanları varsayılan değerlerinde bırakın: **Dağıtım modeli**, **Performans**, **Güvenli aktarım gerekli**.
 6. Depolama hesabını oluşturmak istediğiniz aboneliği seçin.
 7. **Kaynak grubu** bölümünde **Var olanı kullan**’ı seçin, ardından önceki bölümde oluşturduğunuz kaynak grubunu seçin.
@@ -186,7 +186,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
 ```
 
-Bölgesel olarak yedekli depolama (ZRS Önizlemesi), coğrafi olarak yedekli depolama (GRS) veya okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) ile genel amaçlı v2 depolama hesabı oluşturmak için, aşağıdaki tabloda dilediğiniz değeri **SkuName** parametresinin yerine yerleştirin. 
+Bölgesel olarak yedekli depolama (ZRS) (önizleme), coğrafi olarak yedekli depolama (GRS) veya okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) ile genel amaçlı v2 depolama hesabı oluşturmak için, aşağıdaki tabloda dilediğiniz değeri **SkuName** parametresinin yerine yerleştirin. 
 
 |Çoğaltma seçeneği  |SkuName parametresi  |
 |---------|---------|
@@ -219,13 +219,7 @@ Bölgesel olarak yedekli depolama (ZRS Önizlemesi), coğrafi olarak yedekli dep
 
 ---
 
-> [!NOTE]
-> [Bölgesel olarak yedekli depolama](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) şu anda önizleme aşamasındadır ve yalnızca aşağıdaki konumlarda kullanılabilir:
->    - ABD Doğu 2
->    - ABD Orta
->    - Fransa Orta (Bu bölge şu anda önizleme aşamasındadır. Erişim istemek için bkz. [Azure Kullanılabilirlik Alanları destekli Microsoft Azure önizlemesi artık Fransa’da kullanılabilir](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france).)
-    
-Farklı çoğaltma türleri hakkında daha fazla bilgi edinmek içi bkz. [Depolama çoğaltma seçenekleri](storage-redundancy.md).
+Kullanılabilir çoğaltma seçenekleri hakkında daha fazla bilgi için bkz. [Depolama çoğaltma seçenekleri](storage-redundancy.md).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

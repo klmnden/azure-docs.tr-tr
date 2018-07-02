@@ -1,11 +1,11 @@
 - name: Görüntü İşleme Belgeleri
   href: index.yml
 - name: Genel Bakış
+  expanded: true
   items:
     - name: Görüntü İşleme nedir?
       href: Home.md
-- name: Hızlı Başlangıçlar
-  expanded: true
+- name: API Hızlı Başlangıçları
   items:
     - name: Özet
       href: QuickStarts/quickstart-summary.md
@@ -97,6 +97,16 @@
           href: QuickStarts/ruby-thumb.md
         - name: Yazdırılan metni ayıklama
           href: QuickStarts/ruby-print-text.md
+- name: SDK Hızlı başlangıçları
+  items:
+    - name: 'C#'
+      items:
+        - name: Resim çözümleme
+          href: quickstarts-sdk/csharp-analyze-sdk.md
+        - name: Küçük resim oluşturma
+          href: quickstarts-sdk/csharp-thumb-sdk.md
+        - name: El yazısı metni ayıklama
+          href: quickstarts-sdk/csharp-hand-text-sdk.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: İlk Görüntü İşleme uygulamaları

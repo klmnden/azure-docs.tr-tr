@@ -1,5 +1,5 @@
 ---
-title: Azure Kapsayıcılar için Web App uygulamasını kullanarak çok kapsayıcılı (önizleme) uygulama oluşturma
+title: Kapsayıcılar için Web App uygulamasında çok kapsayıcılı (önizleme) uygulama oluşturma
 description: Docker Compose ve Kubernetes yapılandırma dosyalarını bir WordPress ve MySQL uygulamasıyla birlikte kullanarak Azure'da birden fazla kapsayıcı kullanmayı öğrenin.
 keywords: azure uygulama hizmeti, web uygulaması, linux, docker, compose, çok kapsayıcılı, kapsayıcı, kubernetes
 services: app-service
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 05/02/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 61158af0bc978665c3d914c8de3376b8f5d5c69f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 43a3fa271a1958c99bd3dd597c73de2d77bb1bfd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651518"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751923"
 ---
-# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Öğretici: Kapsayıcılar için Web App uygulamasında çok kapsayıcılı (önizleme) uygulama oluşturma
+# <a name="tutorial-create-a-multicontainer-preview-app-in-web-app-for-containers"></a>Öğretici: Kapsayıcılar için Web App uygulamasında çok kapsayıcılı (önizleme) uygulama oluşturma
 
 [Kapsayıcılar için Web App](app-service-linux-intro.md), Docker görüntülerini esnek bir şekilde kullanmanızı sağlar. Bu öğreticide WordPress ve MySQL kullanarak çok kapsayıcılı bir uygulama oluşturmayı öğreneceksiniz.
 
@@ -511,7 +511,7 @@ WordPress, Redis sunucusuna bağlanır. Bağlantı **durumu** aynı sayfada gör
 
 Bu bölümde birden fazla kapsayıcı dağıtmak için Kubernetes yapılandırması kullanmayı öğreneceksiniz. Yukarıda yer alan [kaynak grubu](#create-a-resource-group) ve [App Service planı](#create-an-azure-app-service-plan) oluşturma adımlarını tamamladığınızdan emin olun. Adımların çoğu Compose bölümüyle benzerlik gösterdiğinden yapılandırma dosyası sizin için birleştirilmiştir.
 
-### <a name="supported-kubernetes-options-for-multi-container"></a>Çoklu kapsayıcı için desteklenen Kubernetes seçenekleri
+### <a name="supported-kubernetes-options-for-multicontainer"></a>Çoklu kapsayıcı için desteklenen Kubernetes seçenekleri
 
 * args
 * command
@@ -649,7 +649,7 @@ Uygulama ayarı oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgi
 ]
 ```
 
-### <a name="create-a-multi-container-app-kubernetes"></a>Çok kapsayıcılı uygulama oluşturma (Kubernetes)
+### <a name="create-a-multicontainer-app-kubernetes"></a>Çok kapsayıcılı uygulama oluşturma (Kubernetes)
 
 Yerel komut istemi terminalinizde [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutunu kullanarak `myResourceGroup` kaynak grubunda ve `myAppServicePlan` App Service planında çok kapsayıcılı bir [web uygulaması](app-service-linux-intro.md) oluşturun. _\<app_name>_ yerine benzersiz bir uygulama adı girmeyi unutmayın.
 

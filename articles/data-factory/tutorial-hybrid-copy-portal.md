@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: e21c08d418022430400ff14baedc1759d2d16069
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 27e7d6f22678bf33ffd81fb34472fe4add3f9a15
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30171572"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045484"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Verileri şirket içi SQL Server veritabanından Azure Blob depolamaya kopyalama
 Bu öğreticide, Azure Data Factory kullanıcı arabirimini (UI) kullanarak verileri şirket içi bir SQL Server veritabanından Azure Blob depolama alanına kopyalayan bir veri fabrikası işlem hattı oluşturursunuz. Verileri şirket içi ile bulut veri depoları arasında taşıyan, şirket içinde barındırılan bir tümleştirme çalışma zamanı oluşturup kullanabilirsiniz.
 
 > [!NOTE]
-> Bu makale, şu anda önizleme sürümünde olan Azure Data Factory sürüm 2 için geçerlidir. Data Factory’nin genel kullanıma açık 1. sürümünü kullanıyorsanız bkz. [Data Factory sürüm 1 için belgeler](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-> 
 > Bu makale, Data Factory’ye giriş konusunda ayrıntılı bilgi sağlamaz. Daha fazla bilgi için bkz. [Data Factory'ye giriş](introduction.md). 
 
 Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
@@ -128,21 +126,21 @@ Bu adımda, bir veri fabrikası oluşturacak ve veri fabrikasında bir işlem ha
    
    ![Yeni veri fabrikası oluşturma](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
 3. **Yeni veri fabrikası** sayfasında **Ad** bölümüne **ADFTutorialDataFactory** girin. 
-      
+   
      ![Yeni veri fabrikası sayfası](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
- 
-   Veri fabrikasının adı *genel olarak benzersiz* olmalıdır. Ad alanı için aşağıdaki hata iletisini görürseniz veri fabrikasının adını değiştirin (örneğin, adınızADFTutorialDataFactory). Data Factory yapıtlarının adlandırma kuralları için bkz.[Data Factory adlandırma kuralları](naming-rules.md).
-  
+
+Veri fabrikasının adı *genel olarak benzersiz* olmalıdır. Ad alanı için aşağıdaki hata iletisini görürseniz veri fabrikasının adını değiştirin (örneğin, adınızADFTutorialDataFactory). Data Factory yapıtlarının adlandırma kuralları için bkz.[Data Factory adlandırma kuralları](naming-rules.md).
+
    ![Yeni veri fabrikasının adı](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
 4. Veri fabrikasını oluşturmak istediğiniz Azure **aboneliğinizi** seçin.
 5. **Kaynak Grubu** için aşağıdaki adımlardan birini uygulayın:
-     
+   
       - **Var olanı kullan**’ı seçin ve ardından açılır listeden var olan bir kaynak grubu belirleyin.
 
       - **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin.
-         
+        
     Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).
-6. **Sürüm** bölümünde **V2 (Önizleme)** seçeneğini belirleyin.
+6. **Sürüm** bölümünde **V2**'yi seçin.
 7. **Konum** bölümünde veri fabrikasının konumunu seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Data Factory tarafından kullanılan veri depoları (örneğin, Depolama ve SQL Veritabanı) ve işlemler (örneğin, Azure HDInsight) başka bölgelerde olabilir.
 8. **Panoya sabitle**’yi seçin. 
 9. **Oluştur**’u seçin.
@@ -160,42 +158,55 @@ Bu adımda, bir veri fabrikası oluşturacak ve veri fabrikasında bir işlem ha
 1. **Kullanmaya başlama** sayfasında **İşlem hattı oluştur** seçeneğini belirleyin. Sizin için otomatik olarak bir işlem hattı oluşturulur. İşlem hattının ağaç görünümünde yer aldığını ve düzenleyicisinin açık olduğunu görürsünüz. 
 
    ![Başlayalım sayfası](./media/tutorial-hybrid-copy-portal/get-started-page.png)
+
 2. **Özellikler** penceresinin altındaki **Genel** sekmesinde **Ad** bölümüne **SQLServerToBlobPipeline** adını girin.
 
    ![İşlem hattı adı](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
+
 3. **Etkinlikler** araç kutusunda **Veri Akışı**’nı genişletin. **Kopyalama** etkinliğini kopyalayıp işlem hattı tasarım yüzeyine bırakın. Etkinliğin adını **CopySqlServerToAzureBlobActivity** olarak ayarlayın.
 
    ![Etkinlik adı](./media/tutorial-hybrid-copy-portal/copy-activity-name.png)
+
 4. **Özellikler** penceresinde **Kaynak** sekmesine gidin ve **+ Yeni**’yi seçin.
 
    ![Kaynak sekmesi](./media/tutorial-hybrid-copy-portal/source-dataset-new-button.png)
+
 5. **Yeni Veri Kümesi** penceresinde **SQL Server**’ı arayın. **SQL Server**’ı ve ardından **Son**’u seçin. **SqlServerTable1** başlıklı yeni bir sekme görürsünüz. Ayrıca, soldaki ağaç görünümünde **SqlServerTable1** veri kümesini görürsünüz. 
 
    ![SQL Server seçimi](./media/tutorial-hybrid-copy-portal/select-sql-server.png)
+
 6. **Özellikler** penceresinin altındaki **Genel** sekmesinde **Ad** bölümüne **SqlServerDataset** adını girin.
-    
+
    ![Kaynak veri kümesi adı](./media/tutorial-hybrid-copy-portal/source-dataset-name.png)
+
 7. **Bağlantı** sekmesine gidip **+ Yeni**’yi seçin. Bu adımda, kaynak veri deposuna (SQL Server veritabanı) yönelik bir bağlantı oluşturursunuz. 
 
    ![Kaynak veri kümesine bağlantı](./media/tutorial-hybrid-copy-portal/source-connection-new-button.png)
-8. **Yeni Bağlı Hizmet** penceresinde **Yeni Integration Runtime**’ı seçin. Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zamanı oluşturur ve SQL Server veritabanını içeren bir şirket içi makine ile ilişkilendirirsiniz. Şirket içinde barındırılan tümleştirme çalışma zamanı, makinenizdeki SQL Server veitabanınızdaki verileri Blob depolama alanına kopyalayan bileşendir. 
+
+8. **Yeni Bağlı Hizmet** penceresinde **Name** olarak **SqlServerLinkedService** girin. **Tümleştirme çalışma zamanı aracılığıyla bağlan** için **Yeni**'yi seçin. Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zamanı oluşturur ve SQL Server veritabanını içeren bir şirket içi makine ile ilişkilendirirsiniz. Şirket içinde barındırılan tümleştirme çalışma zamanı, makinenizdeki SQL Server veitabanınızdaki verileri Blob depolama alanına kopyalayan bileşendir. 
 
    ![Yeni tümleştirme çalışma zamanı](./media/tutorial-hybrid-copy-portal/new-integration-runtime-button.png)
+
 9. **Tümleştirme Çalışma Zamanı Kurulumu** penceresinde **Özel Ağ**’ı seçip **İleri**’yi seçin. 
 
    ![Özel ağ seçimi](./media/tutorial-hybrid-copy-portal/select-private-network.png)
+
 10. Tümleştirme çalışma zamanı için bir ad girin ve **İleri**’yi seçin.
-    
+
     ![Tümleştirme çalışma zamanı adı](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
+
 11. **1. Seçenek: Hızlı kurulum** bölümünde **Bu bilgisayarda hızlı kurulumu başlatmak için buraya tıklayın** seçeneğini belirleyin. 
 
     ![Hızlı kurulum bağlantısı](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+
 12. **Integration Runtime (Şirket İçinde Barındırılan) Hızlı Kurulum** penceresinde **Kapat**’ı seçin. 
 
     ![Integration runtime (şirket içinde barındırılan) hızlı kurulum](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-13. Web tarayıcısında, **Tümleştirme Çalışma Zamanı Kurulumu** penceresinde **Son**’u seçin. 
 
-    ![Tümleştirme çalışma zamanı kurulumu](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
+13. **Yeni Bağlı Hizmet** penceresinde **Tümleştirme çalışma zamanı ile bağlan** bölümünde yukarıda oluşturulan **Tümleştirme Çalışma Zamanı**'nın seçili olduğundan emin olun. 
+
+    ![](./media/tutorial-hybrid-copy-portal/select-integration-runtime.png)
+
 14. **Yeni Bağlı Hizmet** penceresinde aşağıdaki adımları uygulayın:
 
     a. **Ad** bölümüne **SqlServerLinkedService** adını girin.
@@ -212,9 +223,10 @@ Bu adımda, bir veri fabrikası oluşturacak ve veri fabrikasında bir işlem ha
 
     g. **Bağlantıyı sına**’yı seçin. Data Factory’nin oluşturduğunuz şirket içinde barındırılan tümleştirme çalışma zamanı aracılığıyla SQL Server veritabanınıza bağlanabildiğini onaylamak için bu adımı uygulayın.
 
-    h. Bağlı hizmeti kaydetmek için **Kaydet**’i seçin.
+    h. Bağlı hizmeti kaydetmek için **Son**’u seçin.
 
-       ![Yeni bağlı hizmet ayarları](./media/tutorial-hybrid-copy-portal/sql-server-linked-service-settings.png)
+       
+
 15. Kaynak veri kümesinin açık olduğu pencereye dönmeniz gerekir. **Özellikler** penceresinin **Bağlantı** sekmesinde aşağıdaki adımları uygulayın: 
 
     a. **Bağlı hizmet** bölümünde **SqlServerLinkedService**’i gördüğünüzü onaylayın.
@@ -222,21 +234,27 @@ Bu adımda, bir veri fabrikası oluşturacak ve veri fabrikasında bir işlem ha
     b. **Tablo**’da **[dbo].[emp]** seçeneğini belirleyin.
 
     ![Kaynak veri kümesi bağlantı bilgileri](./media/tutorial-hybrid-copy-portal/source-dataset-connection.png)
+
 16. **SQLServerToBlobPipeline**’ı içeren sekmeye gidin veya ağaç görünümünden **SQLServerToBlobPipeline**’ı seçin. 
 
     ![İşlem hattı sekmesi](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+
 17. **Özellikler** penceresinin altındaki **Havuz** sekmesine gidin ve **+ Yeni**’yi seçin. 
 
     ![Havuz sekmesi](./media/tutorial-hybrid-copy-portal/sink-dataset-new-button.png)
+
 18. **Yeni Veri Kümesi** penceresinde **Azure Blob Depolama Alanı**’nı seçin. Ardından **Son**’u seçin. Veri kümesi için yeni bir sekme açıldığını görürsünüz. Ayrıca, veri kümesini ağaç görünümünde de görebilirsiniz. 
 
     ![Blob depolama seçimi](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
+
 19. **Ad** bölümüne **AzureBlobDataset** adını girin.
 
     ![Havuz veri kümesi adı](./media/tutorial-hybrid-copy-portal/sink-dataset-name.png)
+
 20. **Özellikler** penceresinin altındaki **Bağlantı** sekmesine gidin. **Bağlı hizmet**’in yanından **+ Yeni**’yi seçin. 
 
-    ![Yeni bağlı hizmet düğmesi](./media/tutorial-hybrid-copy-portal/new-storage-linked-service-button.png)
+    ![New Linked Service (Yeni bağlı hizmet) düğmesi](./media/tutorial-hybrid-copy-portal/new-storage-linked-service-button.png)
+
 21. **Yeni Bağlı Hizmet** penceresinde aşağıdaki adımları uygulayın:
 
     a. **Ad** bölümüne **AzureStorageLinkedService** adını girin.
@@ -248,28 +266,39 @@ Bu adımda, bir veri fabrikası oluşturacak ve veri fabrikasında bir işlem ha
     d. **Kaydet**’i seçin.
 
     ![Depolama bağlı hizmeti ayarları](./media/tutorial-hybrid-copy-portal/azure-storage-linked-service-settings.png) 
-22.  Havuz veri kümesinin açık olduğu pencereye dönmeniz gerekir. **Bağlantı** sekmesinde aşağıdaki adımları uygulayın: 
 
-        a. **Bağlı hizmet** bölümünde **AzureStorageLinkedService**’in seçildiğini onaylayın.
+22. Havuz veri kümesinin açık olduğu pencereye dönmeniz gerekir. **Bağlantı** sekmesinde aşağıdaki adımları uygulayın: 
 
-        b. **Dosya yolu**’nun **klasör** bölümü için **adftutorial/fromonprem** yolunu girin. Çıktı klasörü adftutorial kapsayıcısında mevcut değilse Data Factory tarafından otomatik olarak oluşturulur.
+       a. **Bağlı hizmet** bölümünde **AzureStorageLinkedService**’in seçildiğini onaylayın.
 
-        c. **Dosya yolu**’nun **dosya adı** bölümü için `@CONCAT(pipeline().RunId, '.txt')` adını girin.
+       b. **Dosya yolu**'nun **klasör**/ **Dizin** bölümüne **adftutorial/fromonprem** yazın. Çıktı klasörü adftutorial kapsayıcısında mevcut değilse Data Factory tarafından otomatik olarak oluşturulur.
 
-     ![Havuz veri kümesine bağlantı](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
+       c. **Dosya yolu**'nun **dosya adı** bölümü için **Dinamik içerik ekle**'yi seçin.   
+
+    ![Dinamik dosya adı değeri](./media/tutorial-hybrid-copy-portal/file-name.png)
+
+       d. `@CONCAT(pipeline().RunId, '.txt')` ekleyip **Son**'u seçin. Bu işlemin ardından dosya PipelineRunID.txt olarak yeniden adlandırılır. 
+
+    ![Dosya adını çözümlemek için dinamik ifade](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
+
+    ![Havuz veri kümesine bağlantı](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
+
 23. İşlem hattının açık olduğu sekmeye gidin veya ağaç görünümünde işlem hattını seçin. **Havuz Veri Kümesi** bölümünde **AzureBlobDataset**’in seçili olduğunu onaylayın. 
 
     ![Havuz veri kümesi seçildi](./media/tutorial-hybrid-copy-portal/sink-dataset-selected.png)
+
 24. İşlem hattı ayarlarını doğrulamak için işlem hattının araç çubuğunda **Doğrula**’yı seçin. **İşlem Hattı Doğrulama Raporu**'nu kapatmak için **Kapat**’ı seçin. 
 
     ![İşlem hattını doğrulama](./media/tutorial-hybrid-copy-portal/validate-pipeline.png)
+
 25. Oluşturduğunuz varlıkları Data Factory’de yayımlamak için **Tümünü Yayımla**’yı seçin.
 
     ![Yayımla düğmesi](./media/tutorial-hybrid-copy-portal/publish-button.png)
+
 26. **Yayımlama başarılı** yazan açılan pencereyi görene kadar bekleyin. Yayımlama durumunu denetlemek için soldaki **Bildirimleri Göster** bağlantısını seçin. Bildirim penceresini kapatmak için **Kapat**’ı seçin. 
 
     ![Yayımlama başarılı](./media/tutorial-hybrid-copy-portal/publishing-succeeded.png)
-    
+
 
 ## <a name="trigger-a-pipeline-run"></a>İşlem hattı çalıştırmasını tetikleme
 Araç çubuğunda işlem hattı için **Tetikleyici**’yi ve sonra **Şimdi Tetikle**’yi seçin.
@@ -286,15 +315,9 @@ Araç çubuğunda işlem hattı için **Tetikleyici**’yi ve sonra **Şimdi Tet
     ![Etkinlik çalıştırmalarını izleme](./media/tutorial-hybrid-copy-portal/activity-runs.png)
 
 ## <a name="verify-the-output"></a>Çıktıyı doğrulama
-İşlem hattı, `adftutorial` blob kapsayıcısında *fromonprem* adlı çıktı klasörünü otomatik olarak oluşturur. Çıktı klasöründe *dbo.emp.txt* dosyasını gördüğünüzü onaylayın. 
+İşlem hattı, `adftutorial` blob kapsayıcısında *fromonprem* adlı çıktı klasörünü otomatik olarak oluşturur. Çıktı klasöründe *[pipeline().RunId].txt* dosyasını gördüğünüzü onaylayın. 
 
-1. Çıktı klasörünü görmek için, Azure portalındaki **adftutorial** kapsayıcı penceresinde **Yenile**’yi seçin.
-
-    ![Oluşturulan çıktı klasörü](media/tutorial-hybrid-copy-portal/fromonprem-folder.png)
-2. Klasör listesinde `fromonprem` seçeneğini belirleyin. 
-3. `dbo.emp.txt` adlı bir dosya gördüğünüzü onaylayın.
-
-    ![Çıktı dosyası](media/tutorial-hybrid-copy-portal/fromonprem-file.png)
+![Çıkış dosyası adını onaylama](./media/tutorial-hybrid-copy-portal/sink-output.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

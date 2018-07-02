@@ -1,123 +1,123 @@
 ---
-title: Azure IOT Hub cihaz hizmet sağlama genel bakış | Microsoft Docs
-description: Azure IOT Hub ve cihaz sağlama hizmeti ile cihaz sağlamayı açıklar
+title: Azure IoT Hub Cihazı Sağlama Hizmeti’ne Genel Bakış | Microsoft Docs
+description: Bu makale Azure’da Cihaz Sağlama Hizmeti ve IoT Hub ile cihaz sağlamayı açıklar
 author: nberdy
 ms.author: nberdy
 ms.date: 12/05/2017
-ms.topic: conceptual
+ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 45f47a553f94da2759c4db2b79c8ef5a1b42b8e8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: bad33376b9457eff25e3407c8e480cf7c0078a1d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630253"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316423"
 ---
-# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaz sağlama hizmeti ile hazırlama cihazları
-Microsoft Azure tümleşik genel bulut Hizmetleri tüm IOT çözüm ihtiyaçlarınız için zengin bir dizi sağlar. IOT Hub cihaz hizmeti sağlama IOT zero touch, yalnızca zaman sağ IOT hub'ına insan etkileşimi gerektirmeden sağlama etkinleştiren müşteriler sağlamak için milyonlarca aygıtların güvenli ve ölçeklenebilir etkinleştirme Hub için bir yardımcı hizmetidir şekilde.
+# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Cihazı Sağlama Hizmeti ile cihaz sağlama
+Microsoft Azure, tüm IoT çözüm ihtiyaçlarınız için zengin bir tümleşik genel bulut hizmetleri kümesi sağlar. IoT Hub Cihazı Sağlama Hizmeti doğru IoT hub’a, kullanıcı müdahalesi gerektirmeden tam zamanında sağlama olanağı sunan bir yardımcı hizmettir. Bu sayede müşteriler milyonlarca cihazı güvenli ve ölçeklenebilir bir şekilde sağlayabilir.
 
-## <a name="when-to-use-device-provisioning-service"></a>Cihaz sağlama hizmeti kullanmak ne zaman
-Aygıt hizmeti sağlama bağlı ve IOT Hub'ına aşağıdaki gibi yapılandırılmış alma aygıtları için mükemmel bir seçim olduğu birçok sağlama senaryo vardır:
+## <a name="when-to-use-device-provisioning-service"></a>Cihaz Sağlama Hizmeti’ni kullanma zamanı
+Cihaz Sağlama Hizmeti’nin cihazları IoT Hub’a bağlamak ve yapılandırmak için ideal bir seçenek olduğu birçok sağlama senaryosu vardır. Örneğin:
 
-* Zero touch cmdlet'e kod IOT Hub bağlantı bilgilerini (ilk kurulum) fabrikada olmadan tek bir IOT çözüm sağlama
-* Cihazlar arasında çok sayıda hub Dengeleme yükleme
-* Aygıtların satış işlem verilere (çoklu müşteri Mimarisi) dayalı kendi sahibinin IOT çözüm bağlanma
-* Kullanım örneği (Çözüm yalıtım) bağlı olarak belirli bir IOT çözüm aygıtları bağlanma
-* Bir cihaz IOT hub'ına en düşük gecikme (coğrafi-parçalama) ile bağlanma
-* Yeniden sağlama aygıt değişikliği dayalı.
-* (X.509 sertifikalarını bağlanmak için kullanmadığınızda) IOT Hub'ına bağlanmak için aygıt tarafından kullanılan anahtarların alınıyor
+* IoT Hub bağlantı bilgilerini fabrikada sabit kodlamaya gerek kalmadan tek bir IoT çözümüne dokunma olmadan sağlama (ilk kurulum)
+* Birden fazla hub’da cihazlar için yük dengeleme
+* Cihazları satış işlemi verilerine göre cihaz sahibinin IoT çözümüne bağlama (çoklu kiracı)
+* Cihazları kullanım durumuna göre belirli bir IoT çözümüne bağlama (çözüm yalıtımı)
+* Bir cihazı en düşük gecikme süresine sahip IoT hub’a bağlama (coğrafi parçalama)
+* Cihazdaki bir değişikliğe göre yeniden sağlama
+* Cihaz tarafından IoT Hub’a bağlanmak için kullanılan anahtarları değiştirme (bağlanmak için X.509 sertifikaları kullanılmadığında)
 
 ## <a name="behind-the-scenes"></a>Arka planda
-Önceki bölümde listelenen tüm senaryoları yapılabilir zero touch ile aynı akışını sağlama için sağlama hizmetini kullanarak. El ile adımlar sağlama geleneksel birçoğu cihaz sağlama IOT cihazları dağıtmak ve el ile hata riskini azaltmak için gereken süreyi azaltmak üzere hizmetiyle otomatik değildir. Sağlanan bir aygıtı almak için arka planda neler olup bittiğini bir açıklaması verilmiştir. İlk adım el ile aşağıdaki adımların tümünü otomatik değildir.
+Önceki bölümde listelenen senaryoların tümü aynı akışta dokunma olmadan sağlama için sağlama hizmeti kullanılarak gerçekleştirilebilir. Cihaz Sağlama Hizmeti ile geleneksel yöntemlerde sağlama sürecinde gerçekleştirilen el ile yapılan adımların birçoğu otomatik hale getirilerek IoT cihazlarını dağıtma süresi kısaltılmakta ve el ile gerçekleştirilen işlem kaynaklı hata riski düşürülmektedir. Aşağıdaki bölümde bir cihazın sağlanması için arka planda gerçekleştirilen işlemler açıklanmaktadır. İlk adım el ile, sonraki adımların tümü ise otomatik olarak gerçekleştirilmektedir.
 
 ![Temel sağlama akışı](./media/about-iot-dps/dps-provisioning-flow.png)
 
-1. Aygıt üreticisi cihaz kayıt bilgileri Azure portalında kayıt listesine ekler.
-2. Cihaz fabrikada ayarlamak sağlama Hizmeti uç noktası ile iletişim kurar. Cihaz kimliğini kanıtlamak için tanımlama bilgilerini sağlama hizmeti geçirir.
-3. Kayıt kimliği ve anahtarı nonce bir sınama kullanarak kayıt liste girdisi karşı doğrulayarak sağlama hizmeti cihazın kimliğini doğrular ([Güvenilir Platform Modülü'nü](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)) veya standart X.509 doğrulama () X.509).
-4. Sağlama hizmeti bir IOT hub cihaz kaydeder ve cihazın doldurur [twin durumu istenen](../iot-hub/iot-hub-devguide-device-twins.md).
-5. IOT hub cihaz kimlik bilgileri sağlama hizmetine döndürür.
-6. Sağlama hizmeti cihaza IOT hub bağlantı bilgilerini döndürür. Cihaz IOT hub'ına doğrudan veri göndermeye şimdi başlayabilirsiniz.
-7. Cihaz IOT hub'ına bağlanır.
-8. Cihaz IOT hub, cihaz çiftine istenen durumu alır.
+1. Cihaz üreticisi, cihaz kayıt bilgilerini Azure portalındaki kayıt listesine ekler.
+2. Cihaz, fabrikada belirlenen sağlama hizmeti uç noktasıyla iletişime geçer. Cihaz, kimliğini kanıtlamak için kimlik bilgilerini sağlama hizmetine iletir.
+3. Sağlama hizmeti bir kerelik anahtar kullanarak ([Güvenilir Platform Modülü](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)) veya standart X.509 doğrulamasıyla (X.509) cihaz kimliğini ve anahtarını kayıt listesi girişiyle doğrulayarak cihazın kimliğini doğrular.
+4. Sağlama hizmeti cihazı bir IoT hub’a kaydeder ve cihazın [istenen ikiz durumunu](../iot-hub/iot-hub-devguide-device-twins.md) gösterir.
+5. IoT hub, cihazın kimlik bilgilerini sağlama hizmetine döndürür.
+6. Sağlama hizmeti IoT hub bağlantı bilgilerini cihaza döndürür. Cihaz artık doğrudan IoT hub’a veri göndermeye başlayabilir.
+7. Cihaz IoT hub’a bağlanır.
+8. Cihaz IoT hub’daki cihaz ikizinden istenen durumu alır.
 
 ## <a name="provisioning-process"></a>Sağlama işlemi
-Aygıt hizmeti sağlama bağımsız olarak yapılabilir bir bölümü aldığı bir aygıtı dağıtım sürecinde iki ayrı adım vardır:
+Bir cihazın dağıtım işleminde Cihaz Sağlama Hizmeti’nin rol aldığı ve ayrı ayrı gerçekleştirilebilen iki farklı adım vardır:
 
-* **Üretim adım** hangi cihaz oluşturulur ve fabrikada hazırlanan içinde ve
-* **Bulut Kurulum adım** aygıt hizmeti sağlama sağlama otomatik için yapılandırıldığı içinde.
+* Fabrikada cihazın oluşturulduğu ve hazırlandığı **üretim adımı** ve
+* Cihaz Sağlama Hizmeti’nin otomatik sağlama için yapılandırıldığı **bulut kurulumu adımı**.
 
-Her iki adımları var olan üretim ve dağıtım işlemleri ile sorunsuz bir şekilde uygun. Aygıt hizmeti sağlama bile çok fazla cihaza bağlantı bilgilerini almak için el ile iş ile ilgili bazı dağıtım işlemlerini basitleştirir.
+Bu adımların ikisi de mevcut üretim ve dağıtım işlemlerine sorunsuz olarak eklenebilir. Cihaz Sağlama Hizmeti, bağlantı bilgilerinin cihaza eklenmesi için el ile gerçekleştirilen çok sayıda adımın yer aldığı bazı dağıtım işlemlerini de kolaylaştırır.
 
-### <a name="manufacturing-step"></a>Üretim adım
-Bu adım, tüm üretim satırda ne olduğu hakkında bağlıdır. Bu adımda dahil edilen roller Silikon Tasarımcısı, Silikon üreticisi, Tümleştirici ve/veya aygıtın son üreticisine bulunur. Bu adım, donanım oluşturma ile ilgilidir.
+### <a name="manufacturing-step"></a>Üretim adımı
+Bu adım, üretim hattında gerçekleştirilen işlemleri kapsar. Bu adımda bulunan roller silikon tasarımcısı, silikon üreticisi, tümleştirici ve/veya cihazın son üreticisidir. Bu adım, donanımı oluşturmayla ilgilidir.
 
-Aygıt hizmeti sağlama üretim işlemindeki yeni adım sunmaz; Bunun yerine, ilk yazılım ve (ideal) HSM cihaza yükler varolan adım içine bağlar. Açık mı sırasında kendi bağlantı bilgisi/IOT çözüm atamayı almak için sağlama hizmeti çağrıları için bu adımda bir cihaz kimliği oluşturma yerine cihaz yalnızca sağlama hizmeti bilgilerle programlanmış.
+Cihaz Sağlama Hizmeti, üretim işlemlerine yeni bir adım eklemez, bunun yerine ilk yazılımın ve (ideal olarak) HSM bileşeninin cihaza yüklendiği mevcut adıma bağlanır. Bu adımda cihaz kimliği oluşturma yerine cihaz, sağlama hizmeti bilgileriyle programlanarak açıldığında bağlantı bilgilerini/IoT çözümü atamasını almak üzere sağlama hizmetini araması sağlanır.
 
-Ayrıca bu adımda, cihaz dağıtıcı/tanımlayıcı önemli bilgiler ile işleci üreticisi sağlar. Bu, tüm cihazlar bir TPM onay anahtarını ortak kısmını her TPM aygıttan ayıklanması için cihaz dağıtıcı/işleci tarafından sağlanan bir imzalama sertifikası üretilen bir X.509 sertifikası olduğunu onayladıktan olarak basit olabilir. Bu hizmetler günümüzde birçok Silikon üreticileri tarafından sunulur.
+Ayrıca bu adımda üretici cihaz dağıtıcısına/operatöre kimlik anahtarı bilgilerini iletir. Bu bilgilerin sağlanması, tüm cihazların cihaz dağıtıcısı/operatörü tarafından sağlanan imzalama sertifikası ile oluşturulmuş olan bir X.509 sertifikasına sahip olduğunun onaylanması kadar basit veya her bir TPM cihazından TPM onay anahtarının genel bölümünün ayıklanması kadar karmaşık olabilir. Bu hizmetler günümüzde birçok silikon üreticisi tarafından sunulmaktadır.
 
-### <a name="cloud-setup-step"></a>Bulut Kurulum adım
-Bu adım, uygun otomatik sağlama için bulut yapılandırılıyor hakkında bağlıdır. Genellikle iki tür kullanıcı bulut Kurulum adımında dahil olan: aygıtları nasıl (aygıt işleci) başlangıçta ayarlanması gereken bilen birisi ve başka birinin nasıl IOT hub'ları arasında (Çözüm işleci) Bölünecek aygıtlardır bilen.
+### <a name="cloud-setup-step"></a>Bulut kurulumu adımı
+Bu adımda bulut, uygun otomatik sağlama için yapılandırılır. Bulut kurulumu adımında genellikle iki tür kullanıcı vardır. Cihazların ilk kurulumunun nasıl olması gerektiğini bilen bir kullanıcı (cihaz operatörü) ve cihazların IoT hub’larına nasıl dağıtılması gerektiğini bilen bir kullanıcı (çözüm operatörü).
 
-Sağlama tek seferlik bir ilk kurulum gerçekleşmelidir yoktur ve bu görev genelde çözüm operatör tarafından işlenir. Sağlama hizmet yapılandırıldıktan sonra kullanım örneği değiştirilmediği sürece değiştirilecek yok.
+Sağlama süresinde genellikle çözüm operatörü tarafından gerçekleştirilen tek seferlik bir kurulum adımı vardır. Sağlama hizmeti yapılandırıldıktan sonra kullanım örneği değiştirilmediği sürece değiştirilmesi gerekmez.
 
-Otomatik sağlama için hizmet yapılandırıldıktan sonra cihazları kaydetmeye hazırlanmalıdır. Bu adım kimin aygıtları, istenen yapılandırma bilir ve kendi IOT hub için arama geldiğinde sağlama hizmeti düzgün şekilde aygıtın kimliğine onaylar emin olmanızı sorumlu aygıt işleci tarafından gerçekleştirilir. Cihaz işleci üreticisinden tanımlayıcı anahtar bilgileri alır ve kayıt listesine ekler. Yeni girişler eklendiğinde veya varolan girişleri aygıtlar hakkında en son bilgilerle güncelleştirildi kayıt listesine sonraki güncelleştirmeler olabilir.
+Hizmet otomatik sağlama için yapılandırıldıktan sonra cihaz kaydına hazır duruma getirilmesi gerekir. Bu adım, cihazların istenen yapılandırmasını bilen ve IoT hub’ını arayan cihazın kimliğinin sağlama hizmeti tarafından uygun şekilde kanıtlayacağından emin olma konusunda yetkili olan cihaz operatörü tarafından gerçekleştirilir. Cihaz operatörü tanımlama anahtarını üreticiden alır ve kayıt listesine ekler. Yeni girişlerin eklenmesi veya var olan girişlerin cihazlar hakkındaki en son bilgilerle güncelleştirmesi nedeniyle kayıt listesinde daha sonradan güncelleştirme yapılabilir.
 
-## <a name="registration-and-provisioning"></a>Kayıt ve hazırlama
-*Sağlama* terimi kullanılır endüstri bağlı olarak çeşitli şeyler anlamına gelir. IOT cihazları kendi bulut çözümü için sağlama bağlamında, sağlama iki bölümden oluşan bir işlemdir:
+## <a name="registration-and-provisioning"></a>Kayıt ve sağlama
+*Sağlama*, terimin kullanıldığı sektöre bağlı olarak farklı anlamlara gelebilir. IoT cihazlarını bulut çözümlerine sağlama bağlamında sağlama işlemi iki bölümden oluşan bir işlemdir:
 
-1. İlk bölümü, cihaz kaydederek cihaz IOT çözüm arasındaki ilk bağlantı saptamaktır.
-2. İkinci bölümü cihazın kayıtlı çözümünün belirli gereksinimlerine göre uygun yapılandırma uygulanıyor.
+1. İlk bölüm, cihazı kaydederek cihaz ile IoT çözümü arasındaki ilk bağlantıyı kurmaktır.
+2. İkinci bölüm ise kaydedildiği çözümün gereksinimlerine bağlı olarak cihaz uygun yapılandırmanın uygulanmasıdır.
 
-Her iki bu iki adımı yalnızca tamamladıktan sonra size aygıt tam olarak sağlandıktan söyleyebilirsiniz. Bazı bulut Hizmetleri yalnızca IOT çözüm uç cihazlara kayıt sağlama işleminin ilk adımı sağlar ancak başlangıç yapılandırmasını sağlamaz. Aygıt hizmeti sağlama ve cihaz için sağlama bir deneyim sağlamak için her iki adımın otomatikleştirir.
+Bu adımların ikisi de tamamlandıktan sonra cihazın tam olarak sağlandığını söylemek mümkündür. Bazı bulut hizmetleri cihazları IoT çözümü uç noktasına kaydedip ilk yapılandırmayı gerçekleştirmeyerek sağlama işleminin yalnızca ilk bölümünü tamamlar. Cihaz Sağlama Hizmeti, bu adımların ikisini de otomatikleştirerek cihaz için sorunsuz bir sağlama deneyimi sağlar.
 
-## <a name="features-of-the-device-provisioning-service"></a>Hizmet sağlama özellikleri
-Aygıt hizmeti sağlama sağlama cihazlar için ideal yapan birçok özelliğe sahiptir.
+## <a name="features-of-the-device-provisioning-service"></a>Cihaz Sağlama Hizmeti’nin özellikleri
+Cihaz Sağlama Hizmeti sahip olduğu birçok özellik sayesinde cihaz sağlama için ideal bir çözümdür.
 
-* **Kanıtlama güvenli** X.509 ve TPM tabanlı kimlikleri için desteği.
-* **Kayıt listesi** aygıtları/grupların bir kayıt noktada aygıtların tam kayıt içeren. Kayıt listesi, bunu kaydeder ve herhangi bir zamanda güncelleştirilebilir sonra cihazın istenen yapılandırma hakkında bilgi içerir.
-* **Birden çok ayırma ilkeleri** nasıl IOT hub'ları senaryolarınızı desteklemek için cihazları cihaz hizmeti sağlama atar denetlemek için.
-* **İzleme ve tanılama günlüklerini** her şeyi düzgün çalıştığından emin olmak için.
-* **Çok hub Destek** birden fazla IOT hub'ına aygıtları atamak cihaz sağlama hizmeti sağlar. Cihaz sağlama hizmeti için hub birden çok Azure abonelikleri arasında iletişim kurabilirsiniz.
-* **Çapraz bölge desteği** IOT hub'ları diğer bölgelerdeki aygıtları atamak cihaz sağlama hizmeti sağlar.
+* **Güvenli kanıtlama**: Hem X.509 hem de TPM tabanlı kimlikler için destek.
+* **Kayıt listesi**: Bir noktada kaydedilebilecek cihazların/cihaz gruplarının tam kaydını içerir. Kayıt listesi, kaydedilen cihazın istenen yapılandırması hakkında bilgi içerir ve istenen zamanda güncelleştirilebilir.
+* **Birden fazla ayırma ilkesi**: Cihaz Sağlama Hizmeti’nin senaryolarınızı destekleme amacıyla cihazları IoT hub’larına atama biçimini kontrol etmenizi sağlar.
+* **İzleme ve tanılama günlüğü**: Her şeyin düzgün çalıştığından emin olmanızı sağlar.
+* **Çoklu hub desteği**: Cihaz Sağlama Hizmeti’nin cihazları birden fazla IoT hub’a atamasını sağlar. Cihaz Sağlama Hizmeti birden fazla Azure aboneliğindeki hub’larla iletişim kurabilir.
+* **Bölgeler arası destek**: Cihaz Sağlama Hizmeti’nin cihazları diğer bölgelerdeki IoT hub’lara atamasını sağlar.
 
-Kavramları ve cihaz sağlamayı de dahil edilen özellikler hakkında daha fazla bilgiyi [aygıt kavramları](concepts-device.md), [hizmeti kavramları](concepts-service.md), ve [güvenlik kavramları](concepts-security.md).
+[Cihaz kavramları](concepts-device.md), [hizmet kavramları](concepts-service.md) ve [güvenlik kavramları](concepts-security.md) bölümlerinde cihaz sağlamayla ilgili kavramlar ve özellikler hakkında daha fazla bilgi edinebilirsiniz.
 
-## <a name="cross-platform-support"></a>Platformlar arası desteği
-Cihaz sağlama hizmeti, tüm Azure IOT Hizmetleri gibi çeşitli işletim sistemleri ile platformlar arası çalışır. Azure teklifleri açık kaynak SDK'ları içinde çeşitli [diller](https://github.com/Azure/azure-iot-sdks) kolaylaştırmak için bağlanan cihazların hizmetini ve yönetme. Aygıt hizmeti sağlama cihazları bağlamak için aşağıdaki protokollerini destekler:
+## <a name="cross-platform-support"></a>Platformlar arası destek
+Diğer tüm Azure IoT hizmetleri gibi Cihaz Sağlama Hizmeti de birden fazla işletim sistemi üzerinde çalışma desteği sunar. Azure, cihazların bağlanmasını ve hizmetin yönetilmesini kolaylaştırmak amacıyla birçok [dilde](https://github.com/Azure/azure-iot-sdks) açık kaynak SDK’ları sunar. Cihaz Sağlama Hizmeti, cihaz bağlantısı için aşağıdaki protokolleri destekler:
 
 * HTTPS
 * AMQP
-* AMQP websockets üzerinden
+* Web yuvaları üzerinden AMQP
 * MQTT
-* Websockets üzerinden MQTT
+* Web yuvaları üzerinden MQTT
 
-Aygıt hizmeti sağlama, yalnızca hizmet işlemleri için HTTPS bağlantılarını destekler.
+Cihaz Sağlama Hizmeti, hizmet işlemleri için yalnızca HTTPS bağlantılarını destekler.
 
 ## <a name="regions"></a>Bölgeler
-Cihaz sağlama hizmet birçok bölgede kullanılamıyor. Var olan ve yeni güncelleştirilmiş listesini duyurdu bölgeler adresinde tüm hizmetleri korumak [Azure bölgeleri](https://azure.microsoft.com/regions/). Aygıt hizmeti sağlama kullanılabilir olduğu görebilirsiniz [Azure durum](https://azure.microsoft.com/status/) sayfası.
+Cihaz Sağlama Hizmeti birçok bölgede kullanılabilir. Tüm hizmetler için mevcut ve yeni duyurulan bölgelerin güncel listesi [Azure Bölgeleri](https://azure.microsoft.com/regions/) sayfasında yer almaktadır. Cihaz Sağlama Hizmeti’nin kullanılabilirliğini [Azure Durumu](https://azure.microsoft.com/status/) sayfasından kontrol edebilirsiniz.
 
 > [!NOTE]
-> Cihaz sağlama genel ve bir konuma bağlı hizmetidir. Ancak, aygıt hizmeti sağlama profiliyle ilişkili meta veri yer alacağı bir bölge belirtmeniz gerekir.
+> Cihaz Sağlama Hizmeti konumdan bağımsız, genel bir hizmettir. Ancak Cihaz Sağlama Hizmeti profilinizle ilişkili meta verilerin saklanacağı bir bölge belirtmeniz gerekir.
 
 ## <a name="availability"></a>Kullanılabilirlik
-Biz % 99,9 korumak aygıt hizmeti sağlama ve hizmet düzeyi sözleşmesi için [SLA okuma](https://azure.microsoft.com/support/legal/sla/iot-hub/). [Azure SLA](https://azure.microsoft.com/support/legal/sla/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
+Cihaz Sağlama Hizmeti için %99,9 Hizmet Düzeyi Sözleşmesi mevcuttur, [SLA’yı okuyabilirsiniz](https://azure.microsoft.com/support/legal/sla/iot-hub/). [Azure SLA](https://azure.microsoft.com/support/legal/sla/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
 
 ## <a name="quotas"></a>Kotalar
-Her Azure aboneliği IOT çözümünüzün kapsamını etkileyebilir yerinde varsayılan kota sınırları vardır. Geçerli bir abonelik başına temelinde sağlama 10 cihaz Hizmetleri abonelik başına sınırlıdır.
+Her Azure aboneliği varsayılan kota sınırları içerir ve bu sınırlar, IoT çözümünüzün kapsamını etkileyebilir. Abonelik başına geçerli sınır, 10 Cihaz Sağlama Hizmeti/abonelik şeklindedir.
 
 Kota sınırları hakkındaki diğer ayrıntılar için:
 
 * [Azure Aboneliği Hizmet Sınırları](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>İlgili Azure bileşenleri
-Cihaz sağlama hizmeti ile Azure IOT Hub cihaz sağlamayı otomatikleştirir. Daha fazla bilgi edinmek [IOT hub'ı](https://docs.microsoft.com/azure/iot-hub/).
+Cihaz Sağlama Hizmeti, cihaz sağlamayı Azure IoT Hub ile otomatikleştirir. [IoT Hub](https://docs.microsoft.com/azure/iot-hub/) hakkında daha fazla bilgi edinin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık Azure IOT cihazları hazırlamaya genel bakış var. Sonraki adım, bir uçtan uca bir IOT senaryosu denemektir.
+Artık Azure’da IoT cihazlarını sağlama hakkında genel bilgilere sahipsiniz. Bir sonraki adımda uçtan uca bir IoT senaryosunu tamamlamayı deneyeceksiniz.
 > [!div class="nextstepaction"]
-> [IOT Hub cihaz sağlama hizmetini Azure portalıyla ayarlama](quick-setup-auto-provision.md)
-> [oluşturma ve sağlama bir sanal cihaz](quick-create-simulated-device.md)
-> [sağlama cihaz ayarlama](tutorial-set-up-device.md)
+> [Azure portalıyla IoT Hub Cihazı Sağlama Hizmetini ayarlama](quick-setup-auto-provision.md)
+> [Simülasyon cihazı oluşturma ve sağlama](quick-create-simulated-device.md)
+> [Cihazı sağlama için ayarlama](tutorial-set-up-device.md)

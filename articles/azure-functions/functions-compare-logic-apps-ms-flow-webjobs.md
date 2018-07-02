@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 04/09/2018
 ms.author: tdykstra
 ms.custom: mvc
-ms.openlocfilehash: 6df97a40be7bf1c437c5228006d114ace768f8ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9b9ef150a86a754d4ed328184eb02c1937008b7b
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157382"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028872"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, İşlevler ve Web İşleri karşılaştırması
 
@@ -50,7 +50,7 @@ Aşağıdaki tablo, belirli bir tümleştirme için Flow'un mu yoksa Logic Apps'
 | Tasarım Aracı |Tarayıcı içi ve mobil uygulama, yalnızca kullanıcı arabirimi |Tarayıcı içi ve [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Cod görünümü](../logic-apps/logic-apps-author-definitions.md) sağlanır |
 | Uygulama Yaşam Döngüsü Yönetimi (ALM) |Üretim dışı ortamlarda tasarlayıp test edin, hazır olduğunuzda üretime geçirin. |DevOps: [Azure Kaynak Yönetimi](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)'nde kaynak denetimi, test, destek, otomasyon ve yönetilebilirlik |
 | Yönetici Deneyimi |Flow Ortamlarını ve Veri Kaybı Önleme (DLP) ilkelerini yönetme, lisansları izleme [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Kaynak Gruplarını, Bağlantıları, Erişim Yönetimini ve Günlüğe Kaydetmeyi Yönetme[https://portal.azure.com](https://portal.azure.com) |
-| Güvenlik |Office 365 Güvenlik ve Uyumluluk denetim günlükleri, Veri Kaybı Önleme (DLP), gizli veriler için [bekleyen verileri şifreleme](https://wikipedia.org/wiki/Data_at_rest#Encryption) vs. |Azure'un güvenlik güvencesi: [Azure Güvenliği](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), [denetim günlükleri](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), ve dahası. |
+| Güvenlik |Office 365 Güvenlik ve Uyumluluk denetim günlükleri, Veri Kaybı Önleme (DLP), gizli veriler için [bekleyen verileri şifreleme](https://wikipedia.org/wiki/Data_at_rest#Encryption) vs. |Azure'un güvenlik güvencesi: [Azure Güvenliği](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), [denetim günlükleri](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), ve dahası. |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Azure İşlevleri ve Azure Logic Apps karşılaştırması
 

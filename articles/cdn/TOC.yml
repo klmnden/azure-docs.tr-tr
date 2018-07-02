@@ -91,6 +91,8 @@
           href: cdn-resource-health.md
         - name: Davranışı kurallarla geçersiz kılma
           href: cdn-rules-engine.md
+        - name: Traffic Manager’ı kullanma
+          href: cdn-traffic-manager.md
     - name: Çözümleme
       href: cdn-log-analysis.md
       items:

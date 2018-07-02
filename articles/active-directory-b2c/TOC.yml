@@ -157,6 +157,8 @@
           href: b2clogin.md
         - name: Geçerlilik süresi geçişi kullanma
           href: basic-age-gating.md
+        - name: Doğrudan oturum açma
+          href: direct-signin.md
     - name: Kimlik Deneyimi Altyapısı
       items:
         - name: Özel ilkeler

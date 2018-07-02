@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 13d350950e91d771b7b4b2310a788537c4c36bd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5ae6ba28ba448591d58cc3963f5df9a563997ab0
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642402"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959554"
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Hızlı Başlangıç: Azure’a bir Java Service Fabric güvenilir hizmetler uygulaması dağıtma
 Azure Service Fabric; mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
@@ -120,13 +120,13 @@ Sisteminizde sertifikayı içeri aktarmak için size en rahat gelen yöntemi kul
 
 Service Fabric programlama modellerini kullandığından, sertifika parmak izinin uygulamanıza eklenmesi gerekiyor. 
 
-1. Sertifikanızın parmak izinin, güvenli bir kümede çalışırken ```Voting/VotingApplication/ApplicationManiest.xml``` dosyasında olması gerekir. Sertifikanın parmak izini ayıklamak için aşağıdaki komutu çalıştırın.
+1. Sertifikanızın parmak izinin, güvenli bir kümede çalışırken `Voting/VotingApplication/ApplicationManifest.xml` dosyasında olması gerekir. Sertifikanın parmak izini ayıklamak için aşağıdaki komutu çalıştırın.
 
     ```bash
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. ```Voting/VotingApplication/ApplicationManiest.xml``` konumunda, aşağıdaki kod parçacığını **ApplicationManifest** etiketi altına ekleyin. **X509FindValue** önceki adımdaki parmak izi olmalıdır (noktalı virgül olmamalı). 
+2. `Voting/VotingApplication/ApplicationManifest.xml` dosyasında, aşağıdaki kod parçacığını **ApplicationManifest** etiketi altına ekleyin. **X509FindValue** önceki adımdaki parmak izi olmalıdır (noktalı virgül olmamalı). 
 
     ```xml
     <Certificates>

@@ -6,12 +6,12 @@ description: Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 59c4a6144e704b5cd8b29f66b88d563957b1a8f3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: afc3a6036e8d006f8c5f2a1de35037db2b38a70a
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031507"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083388"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -5746,6 +5746,32 @@ Service Fabric SDK’sı ve Araçları </h3>
                                                 </p>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Service Fabric CLI’sını indirin</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Veritabanı Geçiş Araçları </h3>
+                                                <p>
+                                                    <a href="https://aka.ms/dma">Data Migration Yardımcısı (DMA)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://aka.ms/ssma">SQL Server Geçiş Yardımcısı (SSMA)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://aka.ms/dea-tool">Veritabanı Yükseltme Deneyimi Yardımcısı (DEA)</a>
                                                 </p>
                                             </div>
                                         </div>

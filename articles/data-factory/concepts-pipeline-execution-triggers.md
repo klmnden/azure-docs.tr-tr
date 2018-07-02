@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293488"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048647"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı çalıştırma ve tetikleyiciler
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-scheduling-and-execution.md)
-> * [Sürüm 2 - Önizleme](concepts-pipeline-execution-triggers.md)
+> * [Sürüm 1](v1/data-factory-scheduling-and-execution.md)
+> * [Geçerli sürüm](concepts-pipeline-execution-triggers.md)
 
-Azure Data Factory sürüm 2'de _işlem hattı çalıştırması_, bir işlem hattı yürütme örneğini tanımlar. Örneğin, 08.00, 09.00 ve 10.00'da çalışan bir işlem hattınız olduğunu kabul edelim. Bu durumda, işlem hattının üç ayrı çalıştırması (işlem hattı çalıştırması) olacaktır. Her işlem hattı çalıştırması benzersiz bir işlem hattı çalıştırma kimliğine sahiptir. Çalıştırma kimliği, belirli bir işlem hattı çalıştırmasını benzersiz bir şekilde tanımlayan GUID’dir. 
+Azure Data Factory'de _işlem hattı çalıştırması_, bir işlem hattı yürütme örneğini tanımlar. Örneğin, 08.00, 09.00 ve 10.00'da çalışan bir işlem hattınız olduğunu kabul edelim. Bu durumda, işlem hattının üç ayrı çalıştırması (işlem hattı çalıştırması) olacaktır. Her işlem hattı çalıştırması benzersiz bir işlem hattı çalıştırma kimliğine sahiptir. Çalıştırma kimliği, belirli bir işlem hattı çalıştırmasını benzersiz bir şekilde tanımlayan GUID’dir. 
 
 İşlem hattı çalıştırmaları örneği genelde bağımsız değişkenlerin işlem hatlarında tanımladığınız parametrelere iletilmesiyle oluşturulur. İşlem hattını el ile veya bir _tetikleyici_ kullanarak çalıştırabilirsiniz. Bu makalede her iki işlem hattı çalıştırma yöntemiyle ilgili ayrıntılı bilgiler yer almaktadır.
-
-> [!NOTE]
-> Bu makale, şu anda önizleme sürümünde olan Azure Data Factory sürüm 2 için geçerlidir. Genel kullanıma açık Data Factory sürüm 1’i kullanıyorsanız bkz. [Azure Data Factory sürüm 1'de zamanlama ve yürütme](v1/data-factory-scheduling-and-execution.md).
 
 ## <a name="manual-execution-on-demand"></a>El ile yürütme (isteğe bağlı)
 Bir işlem hattının el ile yürütülmesine _isteğe bağlı_ yürütme de denir.
@@ -136,7 +133,7 @@ Eksiksiz bir örnek için bkz. [Hızlı başlangıç: .NET SDK kullanarak veri f
 > .NET SDK kullanarak Azure İşlevleri'nden, kendi web hizmetlerinizden Data Factory işlem hatları çağırma gibi işlemler yapabilirsiniz.
 
 <h2 id="triggers">Yürütme tetikleme</h2>
-Tetikleyiciler, işlem hattı çalıştırmasını yürütmenin bir diğer yoludur. Tetikleyiciler, bir işlem hattı çalıştırmasının başlatılması gereken zamanı belirleyen işlem birimini temsil eder. Data Factory şu anda iki tür tetikleyiciyi destekler:
+Tetikleyiciler, işlem hattı çalıştırmasını yürütmenin bir diğer yoludur. Tetikleyiciler, bir işlem hattı çalıştırmasının başlatılması gereken zamanı belirleyen işlem birimini temsil eder. Data Factory şu anda üç tetikleyici türünü desteklemektedir:
 
 - Zamanlama tetikleyicisi: Bir işlem hattını duvar saati zamanlamasıyla çağıran bir tetikleyici.
 

@@ -7,14 +7,14 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 06/22/2018
 ms.author: hux
-ms.openlocfilehash: d6279a308bc4539184cca37c1343afe8725eca7f
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 3f1dfa09c0f123d20a7be043aa8d0033a5b6bd72
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248308"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335780"
 ---
 # <a name="azure-storage-account-options"></a>Azure Depolama hesabı seçenekleri
 
@@ -76,32 +76,27 @@ Blob depolama hesapları, GPv2 hesaplarındaki tüm blok blobu özelliklerini de
 
 > [!NOTE]
 > Blob Storage hesapları yalnızca blok ve ilave bloblarını destekler, sayfa bloblarını desteklemez.
+>
+> Microsoft, çoğu senaryoda Blob depolama hesaplarındansa genel amaçlı v2 depolama hesaplarının kullanılmasını önerir.
 
 ## <a name="recommendations"></a>Öneriler
 
 Depolama hesapları hakkında daha fazla bilgi için bkz. [Azure depolama hesapları hakkında](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Yalnızca blok veya ekleme blobu depolamayı gerektiren uygulamalarda katmanlı depolamanın farklı fiyat modelinden yararlanmak için GPv2 depolama hesapları kullanılması önerilir. Bununla birlikte, aşağıdaki gibi belirli senaryolar için GPv1 kullanmak isteyebilirsiniz:
+En son blok veya ekleme blobu özelliklerini gerektiren uygulamalarda katmanlı depolamanın farklı fiyat modelinden yararlanmak için GPv2 depolama hesapları kullanılması önerilir. Bununla birlikte, aşağıdaki gibi belirli senaryolar için GPv1 kullanmak isteyebilirsiniz:
 
 * Hala klasik dağıtım modelini kullanmanız gerekiyor. GPv2 ve Blob depolama hesapları yalnızca Azure Resource Manager dağıtım modeli aracılığıyla kullanılabiliyor.
-
 * Yüksek hacimlerde işlemler yapıyor veya coğrafi çoğaltma bant genişliği kullanıyorsunuz, bunların ikisi de GPv2 ve Blob depolama hesaplarında GPv1’e göre daha pahalı ve ayrıca düşük maliyetli GB depolamadan yararlanmak için yeterli depolama alanınız yok.
-
 * 2014-02-14 tarihinden önceki [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) sürümünü veya 4.x’ten düşük bir istemci kitaplığı sürümü ile kullanmanız ve uygulamanızı güncelleştirememeniz.
 
 ## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
 Tüm depolama hesapları, blob depolama için her blobun katmanını temel alan bir fiyatlandırma modelini kullanır. Bir depolama hesabını kullanırken aşağıdaki fatura değerlendirmeleri geçerlidir:
 
 * **Depolama maliyetleri**: Depolanan veri miktarına ek olarak, veri depolamanın maliyeti depolama katmanına bağlı olarak değişir. Katmanın erişim sıklığı düştükçe gigabayt başına ücret de azalır.
-
 * **Veri erişimi maliyetleri**: Katmanın erişimi sıklığı düştükçe veri erişimi ücretleri artar. Seyrek erişimli depolama ve arşiv depolama katmanındaki verilerde, okuma işlemleri için erişilen gigabayt veri başına ücretlendirilirsiniz.
-
 * **İşlem maliyetleri**: Tüm katmanlarda, erişim sıklığı düştükçe artan bir işlem başına ücret uygulanır.
-
 * **Coğrafi Çoğaltma veri aktarımı maliyetleri**: Bu ücret, GRS ve RA-GRS dahil olmak üzere yalnızca coğrafi çoğaltma yapılandırılmış hesaplara uygulanır. Coğrafi çoğaltma veri aktarımı gigabayt başına ücret doğurur.
-
 * **Giden veri aktarımı maliyetleri**: Giden veri aktarımları (bir Azure bölgesinin dışına aktarılan veriler), genel amaçlı depolama hesapları ile tutarlı şekilde gigabayt başına esaslı olarak bant genişliği kullanımı için fatura doğurur.
-
 * **Depolama katmanını değiştirme**: Hesap depolama katmanını seyrek erişimliden sık erişimliye değiştirmek, depolama hesabında mevcut tüm verilerin okunmasına eşit bir ücret doğurur. Ancak, hesap depolama katmanını sık erişilenden seyrek erişilene değiştirmek, tüm verileri seyrek erişilen katmana yazma (yalnızca GPv2 hesapları) maliyetine eşit bir ücret yansıtır.
 
 > [!NOTE]
@@ -156,7 +151,7 @@ Bu ayar tüm depolama hesabına uygulandığından aşağıdaki örneklerde eri�
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Depolama hesabınıza gitmek için, **Tüm kaynaklar**’ı ve ardından depolama hesabınızı seçin.
+2. Depolama hesabınıza gitmek için: **Tüm kaynaklar**’ı ve ardından depolama hesabınızı seçin.
 
 3. Ayarlar bölümünde **Yapılandırma**’ya tıklayın.
 
@@ -205,7 +200,6 @@ Her iki durumda da birinci öncelik GPv2 depolama hesabında depolanan verilerin
 GPv2 depolama hesabına depolanan verilerin depolama ve erişim maliyetini tahmin etmek için var olan kullanım modelinizi değerlendirmeniz ya da beklenen kullanım modelinizi tahmin etmeniz gerekir. Genel olarak, şunları bilmek istersiniz:
 
 * Depolama tüketiminiz – Ne kadar veri depolanıyor ve bu aylık olarak nasıl değişiyor?
-
 * Depolama erişim modelleriniz - Hesaptan ne kadar veri okunuyor ve hesaba ne kadar veri yazılıyor (yeni veriler dahil)? Veri erişimi için kaç tane işlem kullanılıyor ve bunlar ne tür işlemler?
 
 ## <a name="monitoring-existing-storage-accounts"></a>Var olan depolama hesaplarını izleme
@@ -256,10 +250,9 @@ GPv1 depolama hesaplarının işlem maliyetlerini tahmin etmek için işlemden/A
 
 Storage Analytics bir depolama hesabından okunan ve depolama hesabına yazılan veri miktarını belirtmese de, işlem ölçümleri tablosuna bakılarak bu değer kabaca tahmin edilebilir. İşlem ölçüm tablosundaki bir API’nin tüm girişleri için *'TotalIngress'* toplamı, ilgili API’nin toplam giriş verileri miktarını bayt cinsinden belirtir. Benzer şekilde, *'TotalEgress'* toplamı toplam çıkış verileri miktarını bayt cinsinden belirtir.
 
-Blob depolama hesaplarına ilişkin veri erişimi maliyetlerini hesaplamak için işlemleri iki gruba ayırmanız gerekir.
+Blob depolama hesaplarına ilişkin veri erişimi maliyetlerini tahmin etmek için işlemleri iki gruba ayırmanız gerekir:
 
 * Depolama hesabından alınan veri miktarı birincil olarak *'GetBlob'* ve *'CopyBlob'* işlemleri için *'TotalEgress'* toplamına bakılarak tahmin edilebilir.
-
 * Depolama hesabına yazılan veri miktarı birincil olarak *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* ve *'AppendBlock'* işlemleri için *'TotalIngress'* toplamına bakılarak tahmin edilebilir.
 
 Blob depolama hesaplarında coğrafi çoğaltma veri aktarımı maliyeti de bir GRS veya RA-GRS depolama hesabı kullanılırken yazılan veri miktarı tahmini kullanılarak hesaplanabilir.

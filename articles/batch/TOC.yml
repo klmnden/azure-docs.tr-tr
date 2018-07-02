@@ -178,8 +178,8 @@
   items:
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Batch forumu
-      href: 'https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch'
+    - name: Batch Topluluğu
+      href: 'https://github.com/Azure/Batch'
     - name: Batch Shipyard
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blog

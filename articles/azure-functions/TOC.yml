@@ -138,9 +138,11 @@
         - name: İşlevleri test etme
           href: functions-test-a-function.md
         - name: Yerel olarak geliştirme ve hata ayıklama
-          href: functions-run-local.md
+          href: functions-develop-local.md
         - name: Visual Studio geliştirme
           href: functions-develop-vs.md
+        - name: Çekirdek Araçlar geliştirme
+          href: functions-run-local.md
         - name: Bağlantıları yönetme
           href: manage-connections.md
         - name: Hata işleme

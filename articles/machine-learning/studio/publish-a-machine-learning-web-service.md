@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 86e018a3f8eedecbb60614b0f1226b088ebb18fc
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0f22f22d40410b258b3945d9e78938384ce64767
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837941"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128413"
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Azure Machine Learning web hizmeti dağıtma
 Azure Machine Learning, derleme, test ve Tahmine dayalı analitik çözümleri dağıtmanızı sağlar.
@@ -187,8 +187,8 @@ Web hizmeti güncelleştirmek için bir model program aracılığıyla yeniden e
 [Eğitim denemenizi oluşturma]: #create-a-training-experiment
 [Tahmine dayalı bir deneme Dönüştür]: #convert-the-training-experiment-to-a-predictive-experiment
 [Bir web hizmeti olarak dağıtma]: #deploy-it-as-a-web-service
-[Yeni]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[Klasik]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[Yeni]: #deploy-the-predictive-experiment-as-a-new-web-service
+[Klasik]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

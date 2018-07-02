@@ -3,7 +3,7 @@ title: Azure Data Factory ile birden fazla tabloyu artımlı olarak kopyalama | 
 description: Bu öğreticide, değişim verileri şirket içi SQL Server veritabanındaki birden çok tablodan Azure SQL veritabanına artımlı olarak kopyalayan bir Azure Data Factory işlem hattı oluşturacaksınız.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
-ms.author: jingwang
-ms.openlocfilehash: 399e132f0a28ffc6b60e3d757afff5aae60f7674
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: c35d267acfd1778e80605cdfe9eec0edbb18a281
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052853"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server’daki birden fazla tablodan Azure SQL veritabanı’na artımlı olarak veri yükleme
 Bu öğreticide, değişim verileri şirket içi SQL Server’daki birden çok tablodan Azure SQL Veritabanına yükleyen bir Azure veri fabrikası işlem hattı oluşturacaksınız.    
@@ -36,9 +37,6 @@ Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
 > * Kaynak tablolarına veri ekleyin veya bu verileri güncelleştirin.
 > * İşlem hattını yeniden çalıştırın ve izleyin.
 > * Son sonuçları gözden geçirin.
-
-> [!NOTE]
-> Bu makale, şu anda önizleme sürümünde olan Azure Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 belgeleri](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
 
 ## <a name="overview"></a>Genel Bakış
 Bu çözümü oluşturmak için önemli adımlar şunlardır: 
@@ -304,7 +302,7 @@ Bu adımda, şirket içi SQL Server veritabanınızı veri fabrikasına bağlars
 2. **Yeni Bağlı Hizmet** penceresinde **SQL Server**’ı seçip **Devam**’a tıklayın. 
 
     ![SQL Server'ı seçin](./media/tutorial-incremental-copy-multiple-tables-portal/select-sql-server.png)
-3. **Yeni Bağlı Hizmet** penceresinde aşağıdaki adımları izleyin:
+3. **New Linked Service** (Yeni Bağlı Hizmet) penceresinde aşağıdaki adımları izleyin:
 
     1. **Ad** için **SqlServerLinkedService** adını girin. 
     2. **Tümleştirme çalışma zamanı aracılığıyla bağlan** için **MySelfHostedIR** seçeneğini belirleyin. Bu **önemli** bir adımdır. Varsayılan tümleştirme çalışma zamanı bir şirket içi veri deposuna bağlanamaz. Daha önce oluşturduğunuz şirket içinde barındırılan tümleştirme çalışma zamanını kullanın. 
@@ -324,8 +322,8 @@ Son adımda, kaynak SQL Server veritabanınızı veri fabrikasına bağlamak iç
 1. **Bağlantılar** penceresinde **Tümleştirme Çalışma Zamanları** sekmesinden **Bağlı Hizmetler** sekmesine geçip **+ Yeni**’ye tıklayın.
 
     ![Yeni Bağlı Hizmet düğmesi](./media/tutorial-incremental-copy-multiple-tables-portal/new-sql-server-linked-service-button.png)
-2. **Yeni Bağlı Hizmet** penceresinde **Azure SQL Veritabanı**’nı seçip **Devam**’a tıklayın. 
-3. **Yeni Bağlı Hizmet** penceresinde aşağıdaki adımları izleyin:
+2. **New Linked Service** (Yeni Bağlı Hizmet) penceresinde **Azure SQL Veritabanı**’nı seçip **Devam**’a tıklayın. 
+3. **New Linked Service** (Yeni Bağlı Hizmet) penceresinde aşağıdaki adımları izleyin:
 
     1. **Ad** için **AzureSqlDatabaseLinkedService** adını girin. 
     3. **Sunucu adı** alanına açılan listeden Azure SQL Server’ınızın adını seçin. 
@@ -369,16 +367,25 @@ Bu adımda veri kaynağı, veri hedefi ve eşiğin depolanacağı yeri temsil ed
 3. Web tarayıcısında veri kümesinin yapılandırılması için yeni bir sekme açıldığını görürsünüz. Ayrıca, ağaç görünümünde de bir veri kümesi görürsünüz. Alttaki Özellikler penceresinin **Genel** sekmesinde, **Ad** için **SinkDataset** adını girin.
 
    ![Havuz Veri Kümesi - genel](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
-4. Özellikler penceresinin **Bağlantı** sekmesine geçin ve **Bağlı hizmet** için **AzureSqlLinkedService** hizmetini seçin. 
-
-   ![Havuz Veri Kümesi - bağlantı](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
-5. Özellikler penceresinin **Parametreler** sekmesine geçin ve aşağıdaki adımları uygulayın: 
+4. Özellikler penceresinin **Parametreler** sekmesine geçin ve aşağıdaki adımları uygulayın: 
 
     1. **Parametre oluştur/güncelleştir** bölümünde **+ Yeni**’ye tıklayın. 
     2. **Ad** alanına **SinkTableName**, **tür** alanına **String** değerini girin. Bu veri kümesi, **SinkTableName** değerini bir parametre olarak alır. SinkTableName parametresi, çalışma zamanında dinamik olarak işlem hattı tarafından ayarlanır. İşlem hattındaki ForEach etkinliği, tablo adlarının bir listesi üzerinden yinelenir ve her yinelemede tablo adını bu veri kümesine geçirir.
-    3. **Parametreleştirilebilir özellikler** bölümünde, **tableName** özelliği için `@{dataset().SinkTableName}` girin. Veri kümesinin **tableName** özelliğini başlatmak için **SinkTableName** parametresine geçirilen değeri kullanırsınız. 
-
+   
        ![Havuz Veri Kümesi - özellikler](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+5. Özellikler penceresinin **Bağlantı** sekmesine geçin ve **Bağlı hizmet** için **AzureSqlLinkedService** hizmetini seçin. **Table** özelliği için **Dinamik içerik ekle**'ye tıklayın. 
+
+   ![Havuz Veri Kümesi - bağlantı](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
+    
+    
+6. **Parametreler** bölümünde **SinkTableName** girişini seçin
+   
+   ![Havuz Veri Kümesi - bağlantı](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
+
+   
+ 7. **Son**'a tıkladıktan sonra tablo adı olarak **@dataset().SinkTableName** ifadesini görürsünüz.
+   
+   ![Havuz Veri Kümesi - bağlantı](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
 ### <a name="create-a-dataset-for-a-watermark"></a>Eşik için veri kümesi oluşturma
 Bu adımda üst eşik değerini depolamak için bir veri kümesi oluşturacaksınız. 
@@ -644,7 +651,7 @@ VALUES
     ]
     ```
 
-## <a name="monitor-the-pipeline"></a>İşlem hattını izleme
+## <a name="monitor-the-pipeline-again"></a>İşlem hattını yeniden izleme
 
 1. Soldaki **İzleyici** sekmesine geçin. **El ile tetikleme** yoluyla tetiklenen işlem hattı çalıştırmasını görürsünüz. Listeyi yenilemek için **Yenile** düğmesine tıklayın. **Eylemler** sütunundaki bağlantılar, işlem hattı çalıştırmasıyla ilişkili etkinlik çalıştırmalarını görüntülemenize ve işlem hattını yeniden çalıştırmanıza imkan tanır. 
 
