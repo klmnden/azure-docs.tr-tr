@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 02c3a3d996fa253cf56e551a37e098639bf73533
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: ab5d6c531b08a13d465811d68a07e07e9fb0167c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32151952"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109469"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Kullanıcı kaydı ve ürün aboneliği nasıl
 Temsilci seçme, geliştirici oturum-açma/kaydolma ve abonelik Geliştirici Portalı'nda yerleşik işlevini kullanarak aksine ürünlere işlemek için varolan Web sitenizi kullanmanıza olanak sağlar. Bu kullanıcı verileri kendi ve özel bir biçimde adımları doğrulama gerçekleştirmek Web sitenizi sağlar.
@@ -65,7 +65,7 @@ Oluşturmanıza gerek artık **temsilci endpoint**. Çeşitli eylemleri gerçekl
    * Yukarıdaki hesaplanan karma değerini karşılaştırmak **SIG** sorgu parametresi. İki karmalar eşleşiyorsa, sonraki adıma geçin, aksi takdirde isteği reddeder.
 3. Sign-ın/oturum-yukarı için bir istek aldığını onaylayın: **işlemi** sorgu parametresi ayarlanacak "**Signın**".
 4. Kullanıcının kullanıcı Arabirimi olmadan oturum içinde veya kaydolma sunması
-5. Kullanıcı kaydolduğunuz ise karşılık gelen bir hesap için API Management'te oluşturmanız gerekir. [Bir kullanıcı oluşturun] API Management REST API ile. Bunu yaparken, kullanıcı kimliği, kullanıcı deposunda olan aynı veya, izlemek bir kimlik olarak ayarlayın emin olun.
+5. Kullanıcı kaydolduğunuz ise karşılık gelen bir hesap için API Management'te oluşturmanız gerekir. [Bir kullanıcı oluşturmak] API Management REST API ile. Bunu yaparken, kullanıcı kimliği, kullanıcı deposunda olan aynı veya, izlemek bir kimlik olarak ayarlayın emin olun.
 6. Ne zaman kullanıcı başarıyla kimlik doğrulaması:
    
    * [bir çoklu oturum açma (SSO) belirteci iste] API Management REST API aracılığıyla
@@ -174,8 +174,8 @@ Temsilci seçme hakkında daha fazla bilgi için aşağıdaki videoya bakın:
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
 [bir çoklu oturum açma (SSO) belirteci iste]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[Bir kullanıcı oluşturun]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[Ürün abonelik için REST API çağırma]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[Bir kullanıcı oluşturmak]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
+[Ürün abonelik için REST API çağırma]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
 [aşağıda sağlanan örnek kod]: #delegate-example-code
 

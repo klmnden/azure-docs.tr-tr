@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd1bb6117c0360e67783434c980c56b5f6ae7f9f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636615"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110255"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarları, gizli ve sertifikaları hakkında
 Azure anahtar kasası, depolamak ve Microsoft Azure ortamı içindeki şifreleme anahtarları kullanmak kullanıcıların sağlar. Anahtar kasası birden çok anahtar türleri ve algoritmaları destekler ve yüksek değerli anahtarlar için donanım güvenlik modülleri (HSM) kullanılmasına olanak verir. Ayrıca, anahtar kasası gizli güvenli bir şekilde kullanıcıları sağlar. Gizli sınırlı boyutu sekizli hiçbir belirli semantiği ile nesneleridir. Anahtar kasası, anahtarları ve gizli anahtarları üzerine inşa ve otomatik yenileme özelliği eklemek sertifikalarını da destekler.
@@ -172,7 +172,7 @@ Azure anahtar kasası anahtar nesneler üzerinde aşağıdaki işlemleri destekl
 -   **Yedekleme**: korumalı bir form anahtarında dışa aktarır.  
 -   **Geri yükleme**: daha önce yedeklenen anahtarı alır.  
 
-Daha fazla bilgi için bkz: [anahtar işlemleri](/rest/api/keyvault/key-operations.md)  
+Daha fazla bilgi için bkz: [anahtar işlemleri](/rest/api/keyvault/key-operations).  
 
 Bir anahtar Azure anahtar kasası oluşturulduktan sonra aşağıdaki şifreleme işlemleri anahtarı kullanılarak gerçekleştirilebilir:  
 
@@ -281,7 +281,7 @@ Aşağıdaki izinleri, asıl başına temelinde, bir kasadaki gizli erişim dene
 -   *silme*: gizli anahtarı silme  
 -   *tüm*: tüm izinleri  
 
-Gizli anahtarlarla çalışma hakkında daha fazla bilgi için bkz: [gizli anahtar işlemleri](/rest/api/keyvault/secret-operations.md).  
+Gizli anahtarlarla çalışma hakkında daha fazla bilgi için bkz: [gizli anahtar işlemleri](/rest/api/keyvault/secret-operations).  
 
 ###  <a name="BKMK_SecretTags"></a> Gizli etiketleri  
 Ek uygulamaya özgü meta veriler etiketleri formunda belirtebilirsiniz. Azure anahtar kasası her biri olan 256 karakterlik bir ad ve 256 karakter değeri en fazla 15 etiketlerini destekler.  
@@ -376,7 +376,7 @@ Aşağıdaki tabloda, anahtar kullanım ilkesi anahtar etkili anahtar işlemleri
 |**X509 anahtar kullanımı bayrakları**|**Anahtar kasası anahtar ops**|**Varsayılan davranış**|
 |----------|--------|--------|
 |DataEncipherment|Şifreleme, şifre çözme| Yok |
-|DecipherOnly|Şifre çözme| Yok  |
+|DecipherOnly|şifre çözme| Yok  |
 |DigitalSignature|oturum, doğrulayın| Anahtar kasası varsayılan sertifika oluşturma zamanında kullanım belirtimi olmadan | 
 |EncipherOnly|şifrele| Yok |
 |KeyCertSign|oturum, doğrulayın|Yok|
@@ -443,9 +443,9 @@ Otomatik yenileme için bir sertifika ilkesi ayarlarsanız, bir bildirim aşağ�
 
 ## <a name="additional-information-for-certificates"></a>Sertifikalar için ek bilgiler
 
-- [Sertifikalar ve ilkeleri](/rest/api/keyvault/certificates-and-policies.md)
-- [Sertifika verenler](/rest/api/keyvault/certificate-issuers.md)
-- [Sertifika kişiler](/rest/api/keyvault/certificate-contacts.md)
+- [Sertifikalar ve ilkeleri](/rest/api/keyvault/certificates-and-policies)
+- [Sertifika verenler](/rest/api/keyvault/certificate-issuers)
+- [Sertifika kişiler](/rest/api/keyvault/certificate-contacts)
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6c46ada7fc95d5789512f8f7c7842852e6a86b69
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: d608378f9b3ff3179f9e37ef13f88c65a645d018
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249415"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112995"
 ---
-# <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Azure DNS ve trafik Yöneticisi kullanarak olağanüstü durum kurtarma
+# <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Azure DNS ve Traffic Manager kullanarak olağanüstü durum kurtarma
 
 Olağanüstü durum kurtarma uygulama işlevselliğinin ciddi kaybından kurtarma odaklanır. Bir olağanüstü durum kurtarma çözümü seçmek için iş ve teknoloji sahipleri öncelikle bir felaket sırasında gibi - gerekli kullanılamıyor, sınırlı işlevsellik ya da Gecikmeli kullanılabilirlik aracılığıyla kısmen kullanılabilir işlevsellik düzeyine belirlemeniz gerekir veya tam olarak kullanılabilir.
 Çoğu Kurumsal müşteriler bir uygulama veya altyapı düzeyi yük devretme karşı dayanıklılık için bölgeli mimari seçim. Müşteriler, yük devretme ve yedek mimarisi aracılığıyla yüksek kullanılabilirlik elde etmek için rtifika çeşitli yaklaşımlar seçebilirsiniz. Popüler yaklaşımlar bazıları şunlardır:
@@ -59,7 +59,7 @@ DNS DNS genellikle genel ve dış veri merkezine olduğundan ve hiçbir bölge v
 
 DNS'de, bu makalede sağlanan çözüm tartışmak için yaygın olarak kullanılan bazı kavramları anlamak önemlidir:
 - **DNS A kaydı** – A kayıtlarını olan bir IPv4 adresi için bir etki alanına gelin işaretçileri. 
-- **CNAME veya Canonical adı** -bu kayıt türü için başka bir DNS kaydı işaret etmek için kullanılır. CNAME, IP adresini içeren kaydı için bir IP yanıt ancak bunun yerine işaretçi yanıt vermiyor. 
+- **CNAME veya Canonical adı** -bu kayıt türü için başka bir DNS kaydı işaret etmek için kullanılır. CNAME, IP adresini içeren kaydı için bir IP adresi ancak bunun yerine işaretçi yanıt vermiyor. 
 - **Yönlendirme ağırlıklı** – bir hizmet uç noktalarına ağırlık ilişkilendirmek ve atanan ağırlıklarını göre trafiği dağıtmak seçebilirsiniz. Bu yönlendirme yöntemi için dört trafik yönlendirme mekanizmaları Traffic Manager içindeki kullanılabilir biridir. Daha fazla bilgi için bkz: [ağırlıklı yönlendirme yöntemi](../traffic-manager/traffic-manager-routing-methods.md#weighted).
 - **Öncelik yönlendirme** – öncelik yönlendirme uç noktaları sistem durumu denetimleri dayanır. Varsayılan olarak, Azure trafik Yöneticisi tüm trafiğe en yüksek öncelik uç noktasına gönderir ve başarısızlık veya olağanüstü durum sırasında Traffic Manager trafik ikincil uç noktasına yönlendirir. Daha fazla bilgi için bkz: [öncelik yönlendirme yöntemi](../traffic-manager/traffic-manager-routing-methods.md#priority).
 

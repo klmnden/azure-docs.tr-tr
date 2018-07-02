@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 ms.openlocfilehash: a5f07d02bfe4032d77a17e5972b88f6530125f28
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "27534864"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Azure ile SendGrid kullanarak e-posta gönderme
@@ -34,7 +34,7 @@ SendGrid olan bir [bulut tabanlı e-posta hizmeti] güvenilir sağlayan [işleme
 * İletme müşteri sorgular.
 * Gelen e-postaları işleniyor.
 
-Daha fazla bilgi için ziyaret [https://sendgrid.com](https://sendgrid.com) veya SendGrid'ın [C# Kitaplığı] [ sendgrid-csharp] GitHub depo.
+Daha fazla bilgi için ziyaret [ https://sendgrid.com ](https://sendgrid.com) veya SendGrid'ın [C# Kitaplığı] [ sendgrid-csharp] GitHub depo.
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid hesabı oluşturma
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -43,7 +43,7 @@ Daha fazla bilgi için ziyaret [https://sendgrid.com](https://sendgrid.com) veya
 [SendGrid NuGet paketi](https://www.nuget.org/packages/Sendgrid) SendGrid API'sini almanın ve uygulamanızı tüm bağımlılıkları ile yapılandırmak için çok kolay yoludur. NuGet Microsoft Visual Studio 2015 ile birlikte bulunan bir Visual Studio uzantısı gerekir ve bu düzeyin yüklemek ve kitaplıklar ve Araçlar güncelleştirmek kolaylaştırır.
 
 > [!NOTE]
-> Visual Studio Visual Studio 2015'ten önceki bir sürümünü çalıştırıyorsanız, NuGet yüklemek için ziyaret edin [http://www.nuget.org](http://www.nuget.org), tıklatıp **Nuget'i Yükle** düğmesi.
+> Visual Studio Visual Studio 2015'ten önceki bir sürümünü çalıştırıyorsanız, NuGet yüklemek için ziyaret edin [ http://www.nuget.org ](http://www.nuget.org), tıklatıp **Nuget'i Yükle** düğmesi.
 >
 >
 
