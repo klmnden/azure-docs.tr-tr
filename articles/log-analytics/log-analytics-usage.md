@@ -3,7 +3,7 @@ title: Log Analytics'te veri kullanımını çözümleme | Microsoft Belgeleri
 description: Log Analytics’e ne kadar veri gönderileceğini değerlendirmek ve nelerin öngörülemez artışlara neden olabileceğini belirlemek için Log Analytics’te Kullanım ve tahmini maliyet panosunu kullanın.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 9a9c898cf0f2e0b1387bbc2ac18b5009838d138b
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
-ms.translationtype: HT
+ms.component: na
+ms.openlocfilehash: d02c3ad3e1ca2812049608cad2eacced3686dad3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317312"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128573"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
 Log Analytics, toplanan veri miktarı, verileri hangi kaynakların gönderdiği ve gönderilen farklı veri türleri hakkındaki bilgileri içerir.  Veri kullanımını gözden geçirmek ve analiz etmek için **Log Analytics Kullanımı** panosunu kullanın. Panoda her çözüm tarafından ne kadar veri toplandığı ve bilgisayarlarınızın ne kadar veri gönderdiği gösterilir.
@@ -47,7 +48,7 @@ Log Analytics, toplanan veri miktarı, verileri hangi kaynakların gönderdiği 
 
 ### <a name="to-work-with-usage-data"></a>Kullanım verileriyle çalışma
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure Portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 3. Log Analytics çalışma alanlarınızın listesinde, bir çalışma alanı seçin.
 4. Sol bölmedeki listeden **Kullanım ve tahmini maliyetler**’i seçin.
 5. **Kullanım ve tahmini maliyetler** panosunda, **Zaman: Son 24 saat** değerini seçerek zaman aralığı üzerinde değişiklik yapabilir ve zaman aralığını değiştirebilirsiniz.<br><br> ![zaman aralığı](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
