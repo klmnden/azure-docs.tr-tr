@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/01/2018
   ms.author: heidist
-  ms.openlocfilehash: 286bce88dabe71c64d499687e6d6c758f17f60a5
-  ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+  ms.openlocfilehash: 7c03fba9071225453b059d6bcaf9cac1be9a9f02
+  ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 06/29/2018
-  ms.locfileid: "37099601"
+  ms.lasthandoff: 07/02/2018
+  ms.locfileid: "37341833"
 abstract:
   description: Azure Search kullanarak özel ve heterojen içerikler üzerinde kurumsal arama çözümü oluşturmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; aratılabilir içeriği, çeşitli senaryolarda basitten gelişmişe söz dizimleri kullanılarak sorgulanabilen tek bir hızlı dizinde toplamayı gösterir. <p/><b>Yeni bilişsel arama önizlemesi.</b> Dizinleme işlem hattına AI destekli algoritmalar bağlamak için yayın öncesi REST API’sini kullanın. Yapılandırılmamış ham içeriği bir Azure Arama dizininde aranabilir içeriğe dönüştürmek için verileri ayıklayın ve doğal dil ile görüntü işlemlerini çağırın. <p/><a href="/azure/search/cognitive-search-quickstart-blob">Kaynaklar ve örnek veriler</a> ile çalışmaya başlayın veya <a href="/azure/search/cognitive-search-concept-intro">Kavramlar</a> bölümünden daha fazla bilgi edinin.
   aside:
@@ -71,6 +71,6 @@ sections:
     className: cardsD
     items:
     - title: Diller
-      html: <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Yönetim)</a></p><p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (Yönetim)</a></p>
+      html: <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Yönetim)</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.search">Python (Yönetim)</a></p>
     - title: REST
       html: <p><a href="/rest/api/searchservice">Hizmet API Başvurusu</a></p><p><a href="/rest/api/searchmanagement">API Başvurusunu Yönetme</a></p>

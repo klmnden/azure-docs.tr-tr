@@ -21,6 +21,20 @@
           href: quickstart-csharp-languages.md
         - name: Metinlerdeki cümle uzunluklarını alma
           href: quickstart-csharp-sentences.md
+    - name: Başlayın
+      items:
+        - name: Metin çevirme
+          href: quickstart-go-translate.md
+        - name: Metin betiği dönüştürme
+          href: quickstart-go-transliterate.md
+        - name: Metinden dili tanımlama
+          href: quickstart-go-detect.md
+        - name: Alternatif çeviriler edinme
+          href: quickstart-go-dictionary.md
+        - name: Desteklenen dilleri alma
+          href: quickstart-go-languages.md
+        - name: Metinlerdeki cümle uzunluklarını alma
+          href: quickstart-go-sentences.md
     - name: Java
       items:
         - name: Metin çevirme

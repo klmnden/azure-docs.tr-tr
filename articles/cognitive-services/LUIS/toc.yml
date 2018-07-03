@@ -192,11 +192,11 @@
         - name: Toplu test ile doğruluğu iyileştirme
           href: luis-tutorial-batch-testing.md
     - name: Uygulamanızı yayımlama
-      href: PublishApp.md
+      href: luis-how-to-publish-app.md
     - name: Önceden oluşturulmuş modelleri kullanma
       items:
         - name: Önceden oluşturulmuş varlıklar kullanma
-          href: Pre-builtEntities.md
+          href: luis-prebuilt-entities.md
         - name: Önceden oluşturulmuş etki alanları kullanma
           href: luis-how-to-use-prebuilt-domains.md
         - name: Önceden oluşturulmuş Cortana uygulamasını kullanma
@@ -208,7 +208,7 @@
         - name: Anahtar oluşturma
           href: luis-how-to-azure-subscription.md
         - name: LUIS’e anahtar ekleme
-          href: Manage-Keys.md
+          href: luis-how-to-manage-keys.md
         - name: PowerShell ile uç nokta kullanımını görüntüleme
           href: luis-how-to-manage-from-cloud-shell.md
         - name: Sürümleri yönetme
@@ -283,6 +283,10 @@
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Android'
         - name: Node.js
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Node.js'
+        - name: Başlayın
+          href: 'https://aka.ms/luis-sdk-go'
+        - name: Java
+          href: 'https://aka.ms/luis-java-sdk'
         - name: Python
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Python'
         - name: .Net Uç Noktası
