@@ -89,6 +89,12 @@
       href: /powershell/module/azurerm.eventgrid
     - name: REST
       href: /rest/api/eventgrid
+    - name: Şablon kaynakları
+      items:
+        - name: Olay abonelikleri
+          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+        - name: Konu başlıkları
+          href: /azure/templates/microsoft.eventgrid/topics
     - name: SDK’lar
       href: sdk-overview.md
     - name: Abonelik şeması

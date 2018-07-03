@@ -169,94 +169,104 @@
           href: log-analytics-agent-linux-support.md
     - name: Çözümleri kullanma
       items:
-        - name: Çözümlere genel bakış
-          href: log-analytics-add-solutions.md
+        - name: Çözümleri yükleme
+          href: ../monitoring/monitoring-solutions.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Çözüm envanteri
+          href: ../monitoring/monitoring-solutions-inventory.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: Hedef çözümler
           href: ../monitoring/monitoring-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Azure etkinlik günlükleri
+        - name: Çözüm kılavuzları
           items:
-            - name: Analiz
-              href: log-analytics-activity.md
-            - name: Abonelikler arasında toplama
-              href: log-analytics-activity-logs-subscriptions.md
-        - name: AD Değerlendirmesi
-          href: log-analytics-ad-assessment.md
-        - name: AD Çoğaltma Durumu
-          href: log-analytics-ad-replication-status.md
-        - name: Aracı Durumu
-          href: ../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Uyarı yönetimi
-          href: log-analytics-solution-alert-management.md
-        - name: Application Insights Bağlayıcısı
-          href: log-analytics-app-insights-connector.md
-        - name: Azure SQL Analytics
-          href: log-analytics-azure-sql.md
-        - name: Azure Web Apps Analytics
-          href: log-analytics-azure-web-apps-analytics.md
-        - name: Kapasite ve performans
-          href: log-analytics-capacity.md
-        - name: Değişiklik İzleme
-          href: log-analytics-change-tracking.md
-        - name: Kapsayıcılar
-          href: log-analytics-containers.md
-        - name: DNS Analizi
-          href: log-analytics-dns.md
-        - name: BT Hizmet Yönetimi Bağlayıcısı
-          href: log-analytics-itsmc-overview.md
-          items:
-            - name: BT Hizmet Yönetimi bağlantıları
-              href: log-analytics-itsmc-connections.md
-        - name: Key Vault
-          href: log-analytics-azure-key-vault.md
-        - name: Logic Apps B2B İletileri
-          items:
-            - name: Logic Apps B2B İletileri çözümü
-              href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
-            - name: Logic Apps B2B özel izleme şeması
-              href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Ağ Analizi
-          href: log-analytics-azure-networking-analytics.md
-        - name: Ağ Performansı İzleyicisi
-          items:
-            - name: Çözüme genel bakış
-              href: log-analytics-network-performance-monitor.md
-            - name: Performans İzleyicisi
-              href: log-analytics-network-performance-monitor-performance-monitor.md
-            - name: Hizmet Uç Noktası
-              href: log-analytics-network-performance-monitor-service-endpoint.md
-            - name: ExpressRoute
-              href: log-analytics-network-performance-monitor-expressroute.md
-            - name: Fiyatlandırma
-              href: log-analytics-network-performance-monitor-pricing-faq.md
-        - name: Office 365
-          href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: SCOM Durumu Denetimi
-          href: log-analytics-scom-assessment.md
-        - name: Güvenlik Denetimi
-          href: ../security-center/security-center-intro.md
-        - name: Azure PowerShell ile Service Fabric
-          href: log-analytics-service-fabric.md
-          items:
-            - name: Azure Resource Manager ile Service Fabric
-              href: log-analytics-service-fabric-azure-resource-manager.md
-        - name: Hizmet Eşlemesi
-          href: ../monitoring/monitoring-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: SQL Durumu Denetimi
-          href: log-analytics-sql-assessment.md
-        - name: Surface Hub
-          href: log-analytics-surface-hubs.md
-        - name: Güncelleştirme Yönetimi
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: VMware
-          href: log-analytics-vmware.md
-        - name: Windows Analizi
-          items:
-            - name: Güncelleştirme Uyumluluğu
-              href: 'https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started'
-            - name: Yükseltme Hazırlığı
-              href: 'https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started'
-        - name: Kablo Verileri
-          href: log-analytics-wire-data.md
+            - name: Azure etkinlik günlükleri
+              items:
+                - name: Analiz
+                  href: log-analytics-activity.md
+                - name: Abonelikler arasında toplama
+                  href: log-analytics-activity-logs-subscriptions.md
+            - name: AD Değerlendirmesi
+              href: log-analytics-ad-assessment.md
+            - name: AD Çoğaltma Durumu
+              href: log-analytics-ad-replication-status.md
+            - name: Aracı Durumu
+              href: ../monitoring/monitoring-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: Uyarı yönetimi
+              href: log-analytics-solution-alert-management.md
+            - name: Application Insights Bağlayıcısı
+              href: log-analytics-app-insights-connector.md
+            - name: Azure SQL Analytics
+              href: log-analytics-azure-sql.md
+            - name: Azure Web Apps Analytics
+              href: log-analytics-azure-web-apps-analytics.md
+            - name: Kapasite ve performans
+              href: log-analytics-capacity.md
+            - name: Değişiklik İzleme
+              href: log-analytics-change-tracking.md
+            - name: Kapsayıcılar
+              href: log-analytics-containers.md
+            - name: DNS Analizi
+              href: log-analytics-dns.md
+            - name: BT Hizmet Yönetimi Bağlayıcısı
+              href: log-analytics-itsmc-overview.md
+              items:
+                - name: BT Hizmet Yönetimi bağlantıları
+                  href: log-analytics-itsmc-connections.md
+            - name: Key Vault
+              href: log-analytics-azure-key-vault.md
+            - name: Logic Apps B2B İletileri
+              items:
+                - name: Logic Apps B2B İletileri çözümü
+                  href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
+                - name: Logic Apps B2B özel izleme şeması
+                  href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: Ağ Analizi
+              href: log-analytics-azure-networking-analytics.md
+            - name: Ağ Performansı İzleyicisi
+              items:
+                - name: Çözüme genel bakış
+                  href: log-analytics-network-performance-monitor.md
+                - name: Performans İzleyicisi
+                  href: log-analytics-network-performance-monitor-performance-monitor.md
+                - name: Hizmet Uç Noktası
+                  href: log-analytics-network-performance-monitor-service-endpoint.md
+                - name: ExpressRoute
+                  href: log-analytics-network-performance-monitor-expressroute.md
+                - name: Fiyatlandırma
+                  href: log-analytics-network-performance-monitor-pricing-faq.md
+            - name: Office 365
+              href: ../monitoring/monitoring-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: SCOM Durumu Denetimi
+              href: log-analytics-scom-assessment.md
+            - name: Güvenlik Denetimi
+              href: ../security-center/security-center-intro.md
+            - name: Azure PowerShell ile Service Fabric
+              href: log-analytics-service-fabric.md
+              items:
+                - name: Azure Resource Manager ile Service Fabric
+                  href: log-analytics-service-fabric-azure-resource-manager.md
+            - name: Hizmet Eşlemesi
+              items:
+                - name: Kullanım
+                  href: ../monitoring/monitoring-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
+                - name: Yapılandırma
+                  href: ../monitoring/monitoring-service-map-configure.md?toc=%2fazure%2flog-analytics%2ftoc.json
+                - name: Operations Manager ile tümleştirme
+                  href: ../monitoring/monitoring-service-map-scom.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: SQL Durumu Denetimi
+              href: log-analytics-sql-assessment.md
+            - name: Surface Hub
+              href: log-analytics-surface-hubs.md
+            - name: Güncelleştirme Yönetimi
+              href: ../automation/automation-update-management.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: VMware
+              href: log-analytics-vmware.md
+            - name: Windows Analizi
+              items:
+                - name: Güncelleştirme Uyumluluğu
+                  href: 'https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started'
+                - name: Yükseltme Hazırlığı
+                  href: 'https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started'
+            - name: Kablo Verileri
+              href: log-analytics-wire-data.md
     - name: Geliştirme
       items:
         - name: PowerShell cmdlet'leri

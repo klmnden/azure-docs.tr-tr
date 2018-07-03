@@ -1,6 +1,5 @@
 # Genel Bakış
-## [Operations Management Suite nedir?](operations-management-suite-overview.md)
-## [OMS mimarisi](operations-management-suite-architecture.md)
+## [Aracı İzleme](../monitoring/index.md)
 
 # başlarken
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
@@ -13,8 +12,6 @@
 
 ## Çözümleme
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [İzleme ürünleri karşılaştırma](operations-management-suite-monitoring-product-comparison.md)
-### [Uyarıları yönetme](operations-management-suite-monitoring-alerts.md)
 ## Otomatikleştirme
 ### [Azure Otomasyonu’na genel bakış](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -68,12 +65,7 @@
 ### [En iyi uygulamalar](../monitoring/monitoring-solutions-best-practices.md)
 
 ## Yönetim senaryoları
-### [Runbook'tan analiz verileri toplama](operations-management-suite-runbook-datacollect.md)
-
-## [OMS ile tümleştirme](operations-management-suite-integration.md)
-
-# Başvuru
-## [SDK](operations-management-suite-sdk.md)
+### [Runbook'tan analiz verileri toplama](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

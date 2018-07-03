@@ -113,9 +113,14 @@
           href: how-to-manage-dps-with-cli.md
         - name: Sağlama Hizmeti API’lerine erişimi denetleme
           href: how-to-control-access.md
-    - name: IoT Edge cihazı hazırlama
-      href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
-      maintainContext: true
+    - name: IoT Edge cihazları hazırlama
+      items:
+        - name: Linux
+          href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+          maintainContext: true
+        - name: Windows
+          href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+          maintainContext: true
     - name: Kanıtlama mekanizmasını SDK ile kullanma
       href: use-hsm-with-sdk.md
     - name: Geliştirme için SDK araçlarını kullanma
