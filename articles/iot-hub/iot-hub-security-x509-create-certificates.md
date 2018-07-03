@@ -1,42 +1,38 @@
 ---
 title: X.509 sertifikaları oluşturmak için PowerShell kullanma | Microsoft Docs
-description: X.509 sertifikaları yerel olarak oluşturup X.509 etkinleştirmek için PowerShell kullanma sanal bir ortamda Azure IOT hub'ınızdaki güvenlik temel.
-services: iot-hub
-documentationcenter: ''
+description: X.509 sertifikaları yerel olarak oluşturup X.509 etkinleştirmek için PowerShell kullanma, sanal bir ortamda Azure IOT hub'ınızdaki güvenlik temel.
 author: dsk-2015
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: dkshir
-ms.openlocfilehash: 656799c76a87870a19018849dbeffea3b12a356e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d0063ff79a0bda88fffb486f03286f6784ece7fa
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34637608"
 ---
-# <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>CA tarafından imzalanmış X.509 sertifikalarını yönetmek için PowerShell komut dosyaları
+# <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>CA imzalı X.509 sertifikalarını yönetmek için PowerShell betikleri
 
-İle başlamak X.509 Sertifika tabanlı güvenlik IOT Hub'ında gerektirir bir [X.509 Sertifika zinciri](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), tüm ara sertifikaların Yaprak sertifikası kadar yanı sıra kök sertifikası içerir. Bu *nasıl* kılavuzda anlatılmaktadır, örnek PowerShell komut dosyalarıyla kullanan [OpenSSL](https://www.openssl.org/) oluşturmak ve X.509 sertifikaları imzalamak için. Bu adımların gerçek dünya işleminde üretim sırasında gerçekleşecek beri bu kılavuzu yalnızca deneme kullanmanızı öneririz. Azure IOT hub'ı kullanarak güvenlik benzetimini yapmak için bu sertifikaları kullanacak *X.509 sertifikası kimlik doğrulaması*. Bu kılavuzdaki adımları sertifikaları Windows makinenizde yerel olarak oluşturun. 
+IOT hub'ında X.509 sertifikası tabanlı güvenlik ile başlaması gerekir bir [X.509 Sertifika zinciri](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), tüm ara sertifikaları yaprak sertifikayı gönderinizi yanı sıra, kök sertifikasını içerir. Bu *nasıl* Kılavuzu size yol gösterir, örnek PowerShell komut dosyalarıyla kullanan [OpenSSL](https://www.openssl.org/) oluşturmak ve X.509 sertifikaları imzalamak için. Bu adımların birçoğunun üretim gerçek dünyada süreci sırasında gerçekleştirilecek bu yana bu kılavuzu yalnızca deneme kullanmanızı öneririz. Bu sertifikalar, Azure IOT hub'ı kullanarak güvenlik benzetimini yapmak için kullanabileceğiniz *X.509 sertifika kimlik doğrulaması*. Bu kılavuzdaki adımları sertifikaları, Windows makinenizde yerel olarak oluşturun. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu öğretici, OpenSSL ikili dosyaları edindiğiniz varsayar. Ya da olabilir
-    - OpenSSL kaynak kodunu indirebilir ve ikili dosyaları, makinenizde yapı veya 
-    - herhangi bir yükleyip [üçüncü taraf OpenSSL ikili](https://wiki.openssl.org/index.php/Binaries), örneğin, gelen [SourceForge bu projede](https://sourceforge.net/projects/openssl/).
+Bu öğreticide, OpenSSL ikili dosyaları edindiğiniz varsayılır. Şunlardan birini yapabilirsiniz
+    - OpenSSL kaynak kodunu indirebilir ve makinenizde, ikili dosyaları oluşturmak veya 
+    - indirin ve yükleyin [üçüncü taraf OpenSSL ikili](https://wiki.openssl.org/index.php/Binaries), örneğin, gelen [SourceForge bu projede](https://sourceforge.net/projects/openssl/).
 
 <a id="createcerts"></a>
 
 ## <a name="create-x509-certificates"></a>X.509 sertifikaları oluşturma
-Aşağıdaki adımlar, yerel olarak X.509 kök sertifikalarını oluşturmak nasıl bir örneği gösterir. 
+Aşağıdaki adımlar, yerel olarak X.509 kök sertifikaları oluşturmaya ilişkin bir örnek gösterir. 
 
-1. Farklı bir PowerShell penceresi açın bir *yönetici*.  
-   **Not:** , bu PowerShell içinde kendisi değil PowerShell ISE, Visual Studio Code veya temel alınan PowerShell konsolunu sarmalamak diğer araçları açmanız gerekir.  Konsol olmayan kullanarak tabanlı PowerShell neden olur `openssl` asılı aşağıdaki komutları.
+1. Olarak bir PowerShell penceresi açın bir *yönetici*.  
+   **Not:** bunu PowerShell'de kendisi, değil PowerShell ISE, Visual Studio Code veya temel alınan PowerShell konsolunu kaydırma diğer araçları açmanız gerekir.  Konsolunu olmayan kullanarak tabanlı PowerShell sonuçlanır `openssl` asılı aşağıdaki komutları.
 
-2. Çalışma dizinine gidin. Genel değişkenler ayarlamak için aşağıdaki betiği çalıştırın. 
+2. Çalışma dizininize gidin. Genel değişkenleri ayarlamak için aşağıdaki betiği çalıştırın. 
     ```PowerShell
     $openSSLBinSource = "<full_path_to_the_binaries>\OpenSSL\bin"
     $errorActionPreference    = "stop"
@@ -58,7 +54,7 @@ Aşağıdaki adımlar, yerel olarak X.509 kök sertifikalarını oluşturmak nas
     # Whether to use ECC or RSA.
     $useEcc                     = $true
     ```
-3. Çalışma dizininizi OpenSSL ikili dosyaları kopyalar ve ortam değişkenlerini ayarlar aşağıdaki betiği çalıştırın:
+3. Çalışma dizininizin OpenSSL ikili dosyaları kopyalar ve ortam değişkenlerini ayarlar aşağıdaki betiği çalıştırın:
 
     ```PowerShell
     function Initialize-CAOpenSSL()
@@ -80,7 +76,7 @@ Aşağıdaki adımlar, yerel olarak X.509 kök sertifikalarını oluşturmak nas
     }
     Initialize-CAOpenSSL
     ```
-4. Ardından, bir sertifika olup olmadığını tarafından belirtilen arar aşağıdaki betiği çalıştırın *konu adı* zaten yüklendi ve OpenSSL makinenizde doğru olup olmadığını yapılandırılmış:
+4. Ardından, bir sertifika olup olmadığını tarafından belirtilen arayan aşağıdaki betiği çalıştırın *konu adı* zaten yüklüyse ve olup OpenSSL makinenizde düzgün şekilde yapılandırılır:
     ```PowerShell
     function Get-CACertBySubjectName([string]$subjectName)
     {
@@ -119,9 +115,9 @@ Aşağıdaki adımlar, yerel olarak X.509 kök sertifikalarını oluşturmak nas
 
 <a id="createcertchain"></a>
 
-## <a name="create-x509-certificate-chain"></a>X.509 sertifikası zinciri oluşturmak
-Örneğin, bir kök CA sertifikası zinciri oluşturmak "CN = Azure IOT kök CA'ın" Bu örnek, aşağıdaki PowerShell betiğini çalıştırarak kullandığını. Bu komut dosyası ayrıca Windows işletim sistemi sertifika deponuza güncelleştirmeleri, sertifika dosyaları çalışma dizininizi de oluşturur. 
-    1. Aşağıdaki komut dosyası için otomatik olarak imzalanan sertifika, oluşturmak için bir PowerShell işlev oluşturur bir verilen *konu adı* ve yetkilisi imzalama. 
+## <a name="create-x509-certificate-chain"></a>X.509 Sertifika zinciri oluşturun
+Kök CA sertifikası zinciri oluşturmak, örneğin, "CN = Azure IOT kök CA'ın" Bu örnek, aşağıdaki PowerShell betiğini çalıştırarak kullandığını. Bu betik, ayrıca Windows işletim sistemi sertifika deponuza güncelleştirmeleri, sertifika dosyalarını çalışma dizininizde de oluşturur. 
+    1. Aşağıdaki komut dosyası için kendinden imzalı bir sertifika oluşturmak için bir PowerShell işlevi oluşturur. bir verilen *konu adı* ve yetkilisi imzalama. 
     ```PowerShell
     function New-CASelfsignedCertificate([string]$commonName, [object]$signingCert, [bool]$isASigner=$true)
     {
@@ -157,7 +153,7 @@ Aşağıdaki adımlar, yerel olarak X.509 kök sertifikalarını oluşturmak nas
         write (New-SelfSignedCertificate @selfSignedArgs)
     }
     ``` 
-    2. Aşağıdaki PowerShell işlevi OpenSSL ikili dosyalarının yanı sıra önceki işlevi kullanarak ara X.509 sertifikaları oluşturur. 
+    2. Aşağıdaki PowerShell işlevi OpenSSL ikili dosyaların yanı sıra önceki işlevi kullanarak ara X.509 sertifikaları oluşturur. 
     ```PowerShell
     function New-CAIntermediateCert([string]$commonName, [Microsoft.CertificateServices.Commands.Certificate]$signingCert, [string]$pemFileName)
     {
@@ -192,15 +188,15 @@ Aşağıdaki adımlar, yerel olarak X.509 kök sertifikalarını oluşturmak nas
         Write-Host "Success"
     }    
     ```
-    Bu komut dosyası adlı bir dosya oluşturur *RootCA.cer* çalışma dizini içinde. 
-    4. Son olarak, komutunu çalıştırarak X.509 sertifikası zinciri oluşturmak için yukarıdaki PowerShell işlevlerini kullanan `New-CACertChain` PowerShell penceresinde. 
+    Bu betik, adlı bir dosya oluşturur. *RootCA.cer* çalışma dizininizdeki. 
+    4. Son olarak, komutunu çalıştırarak X.509 Sertifika zinciri oluşturmak için yukarıdaki PowerShell işlevleri kullanın `New-CACertChain` , PowerShell penceresinde. 
 
 
 <a id="signverificationcode"></a>
 
 ## <a name="proof-of-possession-of-your-x509-ca-certificate"></a>X.509 CA sertifikanızın kanıtını
 
-Bu komut dosyası gerçekleştirir *kanıtı olarak elinde* X.509 sertifikası için akışı. 
+Bu betik gerçekleştirir *kavram, elinde* X.509 sertifikanızın akış. 
 
 Masaüstünüzde PowerShell penceresinde aşağıdaki kodu çalıştırın:
    
@@ -225,16 +221,16 @@ Masaüstünüzde PowerShell penceresinde aşağıdaki kodu çalıştırın:
    New-CAVerificationCert "<your verification code>"
    ```
 
-Bu kod, belirtilen konu adıyla adlı bir dosya CA tarafından imzalanmış bir sertifika oluşturur. *VerifyCert4.cer* çalışma dizini içinde. Bu sertifika dosyasını, bu CA'ın (diğer bir deyişle, özel anahtarı) imzalama iznine sahip IOT hub'ınıza doğrulamak yardımcı olur.
+Bu kod, belirtilen konu adıyla adlı bir dosya CA tarafından imzalanmış bir sertifika oluşturur. *VerifyCert4.cer* çalışma dizininizdeki. Bu sertifika dosyasını bu CA'ın (diğer bir deyişle, özel anahtarı) imzalama iznine sahip IOT hub'ınıza doğrulama yardımcı olur.
 
 
 <a id="createx509device"></a>
 
 ## <a name="create-leaf-x509-certificate-for-your-device"></a>Cihazınız için yaprak X.509 sertifikası oluşturma
 
-Bu bölümde, bir yaprak aygıt sertifikası ve karşılık gelen sertifika zinciri oluşturur bir PowerShell betiğini kullanabilirsiniz gösterir. 
+Bu bölümde, bir yaprak cihazı sertifikası ve karşılık gelen bir sertifika zinciri oluşturur bir PowerShell Betiği kullanabileceğinizi gösterir. 
 
-Yerel makinenizde PowerShell penceresinde, bu cihaz için CA imzalı X.509 sertifikası oluşturmak için aşağıdaki betiği çalıştırın:
+Yerel makinenizde PowerShell penceresinde, bu cihaz için bir CA imzalı X.509 sertifikası oluşturmak için aşağıdaki betiği çalıştırın:
 
    ```PowerShell
    function New-CADevice([string]$deviceName, [string]$signingCertSubject=$_rootCertSubject)
@@ -276,14 +272,14 @@ Yerel makinenizde PowerShell penceresinde, bu cihaz için CA imzalı X.509 serti
    }
    ```
 
-Ardından çalıştırın `New-CADevice "<yourTestDevice>"` Cihazınızı oluşturmak için kullanılan kolay ad, bir PowerShell penceresinde kullanarak. CA'ın özel anahtar parolası istendiğinde, "123" girin. Bu oluşturur bir  _<yourTestDevice>.pfx_ çalışma dizininizi dosyasında.
+Ardından çalıştırın `New-CADevice "<yourTestDevice>"` PowerShell pencerenize kullanarak Cihazınızı oluşturmak için kullanılan kolay ad. CA'ın özel anahtarı parolası için istem görüntülendiğinde, "123" girin. Bu, oluşturur bir  _<yourTestDevice>.pfx_ çalışma dizininizde dosya.
 
 ## <a name="clean-up-certificates"></a>Sertifikaları temizle
 
-Başlangıç çubuğunda veya **ayarları** uygulaması, arayın ve seçin **bilgisayar sertifikalarını yönetmek**. Tarafından verilen tüm sertifikaları kaldırın ** Azure IOT CA TestOnly ***. Bu sertifikalar, aşağıdaki üç konumda olması gerekir: 
+Başlat çubuğunda veya **ayarları** uygulaması, arayın ve seçin **bilgisayar sertifikalarını yönetme**. Tarafından verilen tüm sertifikaları kaldırın ** Azure IOT CA TestOnly ***. Bu sertifikalar, aşağıdaki üç konumda mevcut olmalıdır: 
 
 * Sertifikalar - Yerel bilgisayar > kişisel > Sertifikalar
 * Sertifikalar - Yerel bilgisayar > güvenilen kök sertifika yetkilileri > Sertifikalar
 * Sertifikalar - Yerel bilgisayar > ara sertifika yetkilileri > Sertifikalar
 
-   ![Azure IOT CA TestOnly sertifikaları kaldırın](./media/iot-hub-security-x509-create-certificates/cleanup.png)
+   ![Azure IOT TestOnly CA sertifikalarını kaldırma](./media/iot-hub-security-x509-create-certificates/cleanup.png)

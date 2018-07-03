@@ -1,28 +1,35 @@
-### <a name="prerequisites"></a>Ön koşullar
-* Bir Azure hesabı; oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free)
-* Bir [Azure Blob Storage hesabı](../articles/storage/common/storage-create-storage-account.md) depolama hesabı adı ve erişim anahtarını dahil olmak üzere. Bu bilgiler, Azure Portal'da depolama hesabı özelliklerinde listelenir. Daha fazla bilgi edinin [Azure Storage](../articles/storage/common/storage-introduction.md).
+---
+title: include dosyası
+description: include dosyası
+services: logic-apps
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 05/21/2018
+ms.author: estfan
+ms.custom: include file
+ms.openlocfilehash: 6e95d456c5eb981a29400057cfd58faa419060fc
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34677956"
+---
+1. Bağlantı bilgileri sorulduğunda, bu ayrıntıları sağlayın:
 
-Azure Blob Storage hesabınıza bir mantıksal uygulama kullanmadan önce Azure Blob Storage hesabınıza bağlanın. Kolayca Azure portalındaki mantıksal uygulama içinde bunu yapabilirsiniz.  
+   *Gerekli*
 
-Aşağıdaki adımları kullanarak Azure Blob Storage hesabınıza bağlanın:  
+   | Özellik | Değer | Açıklama | 
+   |----------|-------|-------------| 
+   | Bağlantı Adı | <*Bağlantı adı*> | Adı, bağlantı oluşturmak için | 
+   | Depolama Hesabı | <*Depolama hesabı*> | Listeden depolama hesabınızı seçin. | 
+   ||| 
 
-1. Bir mantıksal uygulama oluşturun. Logic Apps Tasarımcısı'nda bir tetikleyici ekleyin ve ardından bir eylem ekleyin. Seçin **Göster Microsoft yönetilen API'ler** açılır listesinde ve ardından arama kutusuna "blob" girin. Eylemlerden birini seçin:  
-   
-    ![Azure Blob Depolama bağlantısı oluşturma adım](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)  
-2. Daha önce Azure depolama herhangi bir bağlantısı oluşturmadıysanız, bağlantı ayrıntılarını istenir:   
-   
-    ![Azure Blob Depolama bağlantısı oluşturma adım](./media/connectors-create-api-azureblobstorage/connection-details.png)  
-3. Depolama hesabı ayrıntılarını girin. Bir yıldız işareti özelliklerle gereklidir.
-   
-   | Özellik | Ayrıntılar |
-   | --- | --- |
-   | Bağlantı adı * |Bağlantınız için herhangi bir ad girin. |
-   | Azure depolama hesabı adı * |Depolama hesabı adı girin. Depolama hesabı adı, Azure portalında depolama özellikleri'nde görüntülenir. |
-   | Azure depolama hesabı erişim tuşu * |Depolama hesabı anahtarı girin. Erişim tuşları Azure portalında depolama özellikleri görüntülenir. |
-   
-    Bu kimlik bilgileri, mantıksal uygulamanızı bağlanmak ve verilerinize erişmek üzere yetkilendirmek için kullanılır. 
-4. **Oluştur**’u seçin.
-5. Bağlantıyı oluşturan dikkat edin. Şimdi, mantıksal uygulamanızı diğer adımlarla devam edin: 
-   
-    ![Azure Blob Depolama bağlantısı oluşturma adım](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
+   Örneğin:
+
+   ![Bağlantı oluşturma](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
+
+2. İşiniz bittiğinde **Oluştur**’u seçin.
+
+3. Bağlantınızı oluşturduktan sonra devam [bir tetikleyici ekleme](#add-trigger) veya [Eylem Ekle](#add-action).
 

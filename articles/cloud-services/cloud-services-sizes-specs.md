@@ -1,6 +1,6 @@
 ---
-title: Sanal makine boyutları için Azure bulut hizmetlerini | Microsoft Docs
-description: Başka bir sanal makine boyutları (ve kimlikler) için Azure bulut hizmeti web ve çalışan rolleri listeler.
+title: Sanal makine boyutları için Azure bulut Hizmetleri | Microsoft Docs
+description: Farklı sanal makine boyutları (ve kimlikleri) için Azure bulut hizmeti web ve çalışan rolleri listeler.
 services: cloud-services
 documentationcenter: ''
 author: Thraka
@@ -14,40 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: bde4347c487be8986c72435172b18c10effa0690
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 490fd248cdd14858e2ca71f94dcb9dbaa5726f9c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34608823"
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services boyutları
-Bu konu, kullanılabilir boyutları ve bulut Hizmeti rol örnekleri (web rolleri ve çalışan rolleri) için seçenekleri açıklar. Ayrıca, bu kaynakları kullanmayı planlarken dikkat edilmesi gereken dağıtımında dikkat edilecek noktalar sağlar. İçine bir kimliği her boyutuna sahip, [hizmet tanımı dosyası](cloud-services-model-and-package.md#csdef). Fiyatlar her boyutu için kullanılabilir [Cloud Services fiyatlandırması](https://azure.microsoft.com/pricing/details/cloud-services/) sayfası.
+Bu konuda sunulan boyutlar ve bulut Hizmeti rol örnekleri (web rolleri ve çalışan rolleri) için seçenekler açıklanmaktadır. Ayrıca, bu kaynakları kullanmayı planlarken dikkat edilmesi gereken dağıtım konuları sağlar. Her boyut, içine girdiğiniz Kimliğine sahip, [Hizmet tanım dosyası](cloud-services-model-and-package.md#csdef). Her boyut için fiyatlar kullanılabilir [bulut Hizmetleri fiyatlandırması](https://azure.microsoft.com/pricing/details/cloud-services/) sayfası.
 
 > [!NOTE]
-> İlgili Azure sınırları görmek için bkz: [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md)
+> İlgili Azure sınırları görmek için bkz: [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md)
 >
 >
 
-## <a name="sizes-for-web-and-worker-role-instances"></a>Web ve çalışan rolü örnekleri için Boyutlar
+## <a name="sizes-for-web-and-worker-role-instances"></a>Web ve çalışan rolü örnekleri için boyutları
 Azure'da birden fazla standart boyut seçeneği vardır. Bu boyutlarla ilgili önemli noktalardan bazıları şunlardır:
 
 * D Serisi VM'ler, daha yüksek işlem gücüne ve geçici süreli disk performansına ihtiyaç duyan uygulamaları çalıştıracak şekilde tasarlanmıştır. D Serisi VM'ler daha hızlı işlemcilere, daha yüksek bellek-çekirdek oranına ve geçici disk için katı hal sürücüsüne (SSD) sahiptir. Ayrıntılı bilgi için Azure blogundaki [Yeni D Serisi Sanal Makine Boyutları](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) duyurusunu inceleyin.
-* Dv3-serisi, Dv2 serisi, özgün D-serisi için bir devamı olarak geliştirilen, daha güçlü bir CPU özellikleri. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Yeni nesil 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemciyi temel alır ve Intel Turbo Boost Technology 2.0 ile 3,1 GHz'e varan hızlara çıkabilir. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
+* Dv3 serisi, Dv2 serisi, orijinal D serisinin devamı, daha güçlü bir CPU'ya sahiptir. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Yeni nesil 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemciyi temel alır ve Intel Turbo Boost Technology 2.0 ile 3,1 GHz'e varan hızlara çıkabilir. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
 * En fazla belleği sunan G Serisi VM'ler, Intel Xeon E5 V3 ailesi işlemcilere sahip ana bilgisayarlarda çalışır.
-* A-series VM'ler çeşitli donanım türleri ve işlemciler üzerinde dağıtılabilir. Çalışan örneğin üzerinde dağıtılmış donanım bağımsız olarak tutarlı işlemci performans sağlamak için donanımı, temel boyutu azaltılır. Bu boyutun dağıtıldığı fiziksel donanımı belirlemek için Sanal Makinenin içinden sanal donanımı sorgulayın.
+* A serisi VM'ler, çeşitli donanım türleri ve işlemciler üzerinde dağıtılabilir. Boyutu üzerinde dağıtıldığı donanımdan bağımsız olarak çalışan örneğe tutarlı işlemci performansı sunmak için donanım, göre kısıtlanır. Bu boyutun dağıtıldığı fiziksel donanımı belirlemek için Sanal Makinenin içinden sanal donanımı sorgulayın.
 * A0 boyutunun fiziksel donanım üzerindeki abone sayısı planlanandan fazladır. Yalnızca bu boyutta diğer müşteri dağıtımları, çalışan iş yükünüzün performansını etkileyebilir. Göreli performans aşağıda beklenen temel düzey olarak belirtilmiştir ve %15 oranında değişiklik gösterebilir.
 
-Sanal makinenin boyutu, fiyatlandırmayı etkiler. Boyut, sanal makinenin işlem, bellek ve depolama kapasitesini de etkiler. Depolama maliyetleri, depolama hesabında kullanılan sayfa sayısına göre ayrıca hesaplanır. Ayrıntılar için bkz [Cloud Services fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/cloud-services/) ve [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
+Sanal makinenin boyutu, fiyatlandırmayı etkiler. Boyut, sanal makinenin işlem, bellek ve depolama kapasitesini de etkiler. Depolama maliyetleri, depolama hesabında kullanılan sayfa sayısına göre ayrıca hesaplanır. Ayrıntılar için bkz [bulut Hizmetleri fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/cloud-services/) ve [Azure depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
 
 Aşağıdaki önemli noktalar boyut konusunda karar vermenize yardımcı olabilir:
 
-* A8-A11 ve H Serisi boyutlar *yoğun işlem gücü kullanımlı örnekler* olarak da bilinir. Bu boyutları çalıştıran donanım; yüksek performanslı bilgi işlem (HPC) kümesi uygulamaları, modellemeler ve simülasyonlar gibi yoğun işlem ve ağ kullanımlı uygulamalar için tasarlanmış ve iyileştirilmiştir. A8-A11 Serisinde, Intel Xeon E5-2670 @ 2,6 GHZ, H Serisinde ise Intel Xeon E5-2667 v3 @ 3,2 GHz işlemciler kullanılmaktadır. Ayrıntılı bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [yüksek performanslı işlem VM boyutları](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Dv3 serisi, Dv2 serisi, D-serisi, G serisi, daha hızlı CPU talep, daha iyi yerel disk performans ya da daha yüksek bellek taleplerini sahip uygulamalar için idealdir. Bu seçenekler birçok kurumsal sınıf uygulama için güçlü bir bileşim sunar.
-* Azure veri merkezlerindeki fiziksel ana bilgisayarlardan bazıları A5 – A11 gibi daha büyük sanal makine boyutlarını desteklemeyebilir. Sonuç olarak, hata iletisi görebilirsiniz **sanal makine {makine adı} yapılandırılamadı** veya **sanal makine {makine adı} oluşturulamadı** zaman mevcut bir sanal makine yeni bir boyuta yeniden boyutlandırma; 16 Nisan 2013 önce; oluşturulan bir sanal ağda yeni bir sanal makine oluşturma veya var olan yeni bir sanal makine ekleme bulut hizmeti. Bkz: [hata: "sanal makine yapılandırma başarısız oldu"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) her dağıtım senaryosu için geçici çözümler için Destek Forumu üzerinde.
+* A8-A11 ve H Serisi boyutlar *yoğun işlem gücü kullanımlı örnekler* olarak da bilinir. Bu boyutları çalıştıran donanım; yüksek performanslı bilgi işlem (HPC) kümesi uygulamaları, modellemeler ve simülasyonlar gibi yoğun işlem ve ağ kullanımlı uygulamalar için tasarlanmış ve iyileştirilmiştir. A8-A11 Serisinde, Intel Xeon E5-2670 @ 2,6 GHZ, H Serisinde ise Intel Xeon E5-2667 v3 @ 3,2 GHz işlemciler kullanılmaktadır. Ayrıntılı bilgi ve bu boyutları kullanırken dikkat edilmesi gereken noktalar için bkz. [yüksek performanslı işlem VM boyutları](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Dv3 serisi, Dv2 serisi, D serisi, G serisi, daha hızlı CPU'ya ihtiyaç duyan, daha iyi yerel disk performansı veya yüksek bellek taleplerine sahip uygulamalar için uygundur. Bu seçenekler birçok kurumsal sınıf uygulama için güçlü bir bileşim sunar.
+* Azure veri merkezlerindeki fiziksel ana bilgisayarlardan bazıları A5 – A11 gibi daha büyük sanal makine boyutlarını desteklemeyebilir. Sonuç olarak, hata iletisini görebilirsiniz **{makine adı} sanal makine yapılandırılamadı** veya **{makine adı} sanal makine oluşturulamadı** mevcut bir sanal makine için yeni boyut; yeniden boyutlandırma sırasında 16 Nisan 2013'ten önce oluşturulan bir sanal ağda yeni bir sanal makine oluşturma; veya mevcut bir bulut hizmeti için yeni bir sanal makine ekleme. Bkz: [hata: "sanal makine yapılandırılamadı"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) her dağıtım senaryosu için geçici çözümler için destek Forumundaki.
 * Ayrıca aboneliğiniz, belirli boyut ailelerinde dağıtabileceğiniz çekirdek sayısını da sınırlıyor olabilir. Artırmak istediğini kotalar için Azure Desteği'ne başvurun.
 
 ## <a name="performance-considerations"></a>Performansla ilgili önemli noktalar
-Kavram, Azure işlem birimi (Azure SKU'ları üzerinde işlem (CPU) performans karşılaştırma bir yol sağlamak üzere ACU) oluşturduk ve SKU performansınızı yetecek kadar büyük olasılıkla olan tanımlamak için gerekiyor.  ACU şu anda Küçük (Standard_A1) VM'de 100 olarak standart haline getirilmiş ve diğer tüm SKU'lar, standart bir karşılaştırmalı testte sunabilecekleri yaklaşık hıza göre derecelendirilmiştir.
+Kavram, Azure işlem birimi (bilgi işlem (CPU) performansını Azure SKU'ları arasında karşılaştırma bir yol sağlamak üzere ACU) açısından oluşturduk ve SKU performansınızı karşılamak büyük olasılıkla olan tanımlaması gerekir.  ACU şu anda Küçük (Standard_A1) VM'de 100 olarak standart haline getirilmiş ve diğer tüm SKU'lar, standart bir karşılaştırmalı testte sunabilecekleri yaklaşık hıza göre derecelendirilmiştir.
 
 > [!IMPORTANT]
 > ACU yalnızca rehberlik etme amacı taşımaktadır. İş yükünüzle aldığınız sonuçlar farklılık gösterebilir.
@@ -78,24 +79,24 @@ Aşağıdaki tablolarda boyutlara ve sundukları kapasiteye yer verilmiştir.
 * Depolama kapasitesi GiB veya 1024^3 bayt cinsinden gösterilmiştir. GB (1000^3 bayt) ile ölçülen diskleri GiB (1024^3 bayt) ile ölçülen disklerle karşılaştırırken GiB cinsinden verilen kapasite rakamlarının daha küçük görünebileceğini unutmayın. Örneğin: 1023 GiB = 1098,4 GB
 * Disk aktarım hızı, saniye başına giriş/çıkış işlemi sayısı (IOPS) ve MB/sn (MB/sn = 10^6 bayt/sn) üzerinden ölçülür.
 * Veri diskleri önbelleğe alınmış veya alınmamış modlarda çalışabilir. Önbelleğe alınmış veri diski işlemi için ana bilgisayar önbelleği **SaltOkunur** veya **OkuYaz** moduna ayarlanır. Önbelleğe alınmamış veri diski işlemi için ana bilgisayar önbelleği **Yok** moduna ayarlanır.
-* Maksimum ağ bant genişliği, VM türü başına ayrılan ve atanan toplam maksimum bant genişliğidir. Maksimum bant genişliği, yeterli ağ kapasitesinin mevcut olduğundan emin olarak doğru VM'i seçme konusunda yardımcı olur. Düşük, Orta, yüksek ve çok yüksek arasında taşırken uygun şekilde verimliliğini artırır. Gerçek ağ performansı, ağ ve uygulama yüklerinin yanı sıra uygulama ağ ayarları gibi birçok faktöre bağlıdır.
+* Maksimum ağ bant genişliği, VM türü başına ayrılan ve atanan toplam maksimum bant genişliğidir. Maksimum bant genişliği, yeterli ağ kapasitesinin mevcut olduğundan emin olarak doğru VM'i seçme konusunda yardımcı olur. Düşük, Orta, yüksek ve çok yüksek arasında geçiş yapıldığında aktarım hızı buna göre artar. Gerçek ağ performansı, ağ ve uygulama yüklerinin yanı sıra uygulama ağ ayarları gibi birçok faktöre bağlıdır.
 
 ## <a name="a-series"></a>A Serisi
-| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama: Gib'den       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama: GiB       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0,768        | 20                   | 1/düşük |
-| Küçük           | 1         | 1,75         | 70                   | 1/orta |
-| Orta          | 2         | 3,5          | 135                  | 1/orta |
-| Büyük           | 4         | 7            | 285                  | 2/yüksek |
-| ExtraLarge      | 8         | 14           | 605                  | 4/yüksek |
-| A5              | 2         | 14           | 135                  | 1/orta |
-| A6              | 4         | 28           | 285                  | 2/yüksek |
-| A7              | 8         | 56           | 605                  | 4/yüksek |
+| Küçük           | 1         | 1,75         | 225                  | 1/orta |
+| Orta          | 2         | 3,5          | 490                  | 1/orta |
+| Büyük           | 4         | 7            | 1000                 | 2/yüksek |
+| ExtraLarge      | 8         | 14           | 2040                 | 4/yüksek |
+| A5              | 2         | 14           | 490                  | 1/orta |
+| A6              | 4         | 28           | 1000                 | 2/yüksek |
+| A7              | 8         | 56           | 2040                 | 4/yüksek |
 
 ## <a name="a-series---compute-intensive-instances"></a>A Serisi - Yoğun işlem gücü kullanımlı örnekler
-Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [yüksek performanslı işlem VM boyutları](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Bilgi ve bu boyutları kullanırken dikkat edilmesi gereken noktalar için bkz. [yüksek performanslı işlem VM boyutları](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama: Gib'den       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama: GiB       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | A8*             |8          | 56           | 1817                 | 2/yüksek |
 | A9*             |16         | 112          | 1817                 | 4/çok yüksek |
@@ -106,7 +107,7 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 
 ## <a name="av2-series"></a>Av2 Serisi
 
-| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): Gib'den       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): GiB       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_A1_v2  | 1         | 2            | 10                   | 1/orta                 |
 | Standard_A2_v2  | 2         | 4            | 20                   | 2/orta                 |
@@ -118,7 +119,7 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 
 
 ## <a name="d-series"></a>D Serisi
-| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): Gib'den       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): GiB       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1     | 1         | 3,5          | 50                   | 1/orta |
 | Standard_D2     | 2         | 7            | 100                  | 2/yüksek |
@@ -130,7 +131,7 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 | Standard_D14    | 16        | 112          | 800                  | 8/çok yüksek |
 
 ## <a name="dv2-series"></a>Dv2 Serisi
-| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): Gib'den       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): GiB       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1_v2  | 1         | 3,5          | 50                   | 1/orta |
 | Standard_D2_v2  | 2         | 7            | 100                  | 2/yüksek |
@@ -141,11 +142,11 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 | Standard_D12_v2 | 4         | 28           | 200                  | 4/yüksek |
 | Standard_D13_v2 | 8         | 56           | 400                  | 8/yüksek |
 | Standard_D14_v2 | 16        | 112          | 800                  | 8/aşırı yüksek |
-| İçin Standard_D15_v2 | 20        | 140          | 1000                | 8/aşırı yüksek |
+| İşler için standart_d15_v2 | 20        | 140          | 1000                | 8/aşırı yüksek |
 
 ## <a name="dv3-series"></a>Dv3 serisi
 
-| Boyut            | CPU çekirdekleri | Bellek: GiB   | Geçici depolama (SSD): Gib'den       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB   | Geçici depolama (SSD): GiB       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_D2_v3  | 2         | 8             | 50                   | 2/orta |
 | Standard_D4_v3  | 4         | 16            | 100                  | 2/yüksek |
@@ -156,7 +157,7 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 
 ## <a name="ev3-series"></a>Ev3 serisi
 
-| Boyut            | CPU çekirdekleri | Bellek: GiB   | Geçici depolama (SSD): Gib'den       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB   | Geçici depolama (SSD): GiB       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_E2_v3  | 2         | 16            | 50                   | 2/orta |
 | Standard_E4_v3  | 4         | 32            | 100                  | 2/yüksek |
@@ -167,20 +168,20 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 
 
 ## <a name="g-series"></a>G Serisi
-| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): Gib'den       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): GiB       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1/yüksek |
 | Standard_G2     | 4         | 56           | 768                  |2/yüksek |
 | Standard_G3     | 8         | 112          | 1536                |4/çok yüksek |
 | Standard_G4     | 16        | 224          | 3072                |8/aşırı yüksek |
-| Standard_G5     | 32        | 448          | 6144                |8/aşırı yüksek |
+| İşler için standart_g5     | 32        | 448          | 6144                |8/aşırı yüksek |
 
 ## <a name="h-series"></a>H Serisi
-Azure H Serisi sanal makineler, moleküler modelleme ve hesaplamalı akışkanlar dinamiği gibi üst düzey işlem hesaplama gereksinimlerine hitap eden yeni nesil yüksek performanslı bilgi işlem VM'leridir. Bu 8 ve 16 çekirdek VM'ler DDR4 bellek ve yerel SSD tabanlı depolama özelliklerine sahip Intel Haswell E5-2667 V3 işlemci teknolojisi oluşturulmuştur.
+Azure H Serisi sanal makineler, moleküler modelleme ve hesaplamalı akışkanlar dinamiği gibi üst düzey işlem hesaplama gereksinimlerine hitap eden yeni nesil yüksek performanslı bilgi işlem VM'leridir. Bu 8 ve 16 çekirdek VM'ler, Intel Haswell E5-2667 V3 işlemci teknolojisini DDR4 bellek ve yerel SSD tabanlı depolama oluşturulur.
 
 H Serisi önemli miktarda CPU gücünün yanı sıra, FDR InfiniBand ile düşük gecikmeli RDMA ağ iletişimi için farklı seçeneklere ek olarak yoğun bellek kullanımlı işlem gereksinimlerini için çok sayıda bellek yapılandırması sunar.
 
-| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): Gib'den       | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | CPU çekirdekleri | Bellek: GiB  | Geçici depolama (SSD): GiB       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_H8     | 8         | 56           | 1000                 | 8/yüksek |
 | Standard_H16    | 16        | 112          | 2000                 | 8/çok yüksek |
@@ -191,10 +192,10 @@ H Serisi önemli miktarda CPU gücünün yanı sıra, FDR InfiniBand ile düşü
 
 \*RDMA özellikli
 
-## <a name="configure-sizes-for-cloud-services"></a>Bulut Hizmetleri için boyutlarını yapılandırma
-Tarafından açıklanan hizmet modeli bir parçası olarak bir rol örneği için sanal makine boyutu belirtebilirsiniz [hizmet tanımı dosyası](cloud-services-model-and-package.md#csdef). Rol boyutu CPU çekirdekleri, bellek kapasitesi ve çalışan bir örneğine ayrılan yerel dosya sistemi boyutunu sayısını belirler. Uygulamanızın kaynak gereksinimi temel alan rol boyutunu seçin.
+## <a name="configure-sizes-for-cloud-services"></a>Boyutlar Cloud Services için yapılandırma
+Hizmet modeli tarafından açıklanan bir parçası olarak bir rol örneği sanal makine boyutunu belirtebilirsiniz [Hizmet tanım dosyası](cloud-services-model-and-package.md#csdef). Rol boyutu CPU çekirdekleri, bellek kapasitesini ve çalışan bir örneğe ayrılmış yerel dosya sistemi boyutunu belirler. Uygulamanızın kaynak gereksinimi temel alan rol boyutu seçin.
 
-Rol boyutunu ayarlama örneği [Standard_D2](#general-purpose-d) Web rol örneği için:
+Rol boyutunu ayarlamak için bir örnek aşağıdadır [işler için standart_d2](#general-purpose-d) Web rol örneği için:
 
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2">
@@ -204,15 +205,15 @@ Rol boyutunu ayarlama örneği [Standard_D2](#general-purpose-d) Web rol örneğ
 
 ## <a name="changing-the-size-of-an-existing-role"></a>Mevcut bir rolü boyutunu değiştirme
 
-İş yükü değişiklikleri veya kullanılabilir hale yeni VM boyutları yapısını rolünüze boyutunu değiştirmek isteyebilirsiniz. Bunu yapmak için VM boyutu, hizmet tanımı dosyasında (yukarıda gösterildiği gibi) değiştirme, bulut hizmetinizin yeniden paketleyin ve dağıtın. VM boyutları doğrudan portal veya PowerShell değiştirmek mümkün değil.
+İş yükü değişiklikleri veya yeni VM boyutları kullanılabilir doğasını rolünüz boyutunu değiştirmek isteyebilirsiniz. Bunu yapmak için (yukarıda gösterildiği gibi), hizmet tanımı dosyasında VM boyutunu değiştirin, bulut hizmetinizi yeniden paketleyin ve dağıtabilirsiniz. VM boyutları, doğrudan portal veya PowerShell üzerinden değiştirmek mümkün değildir.
 
 >[!TIP]
-> (Ör. farklı VM boyutları farklı ortamlarda rolünüz için kullanmak isteyebilirsiniz VS üretim test). Yapmanın bir yolu bu birden çok hizmet tanımı (.csdef) dosyaları, projenizdeki oluşturmaktır sonra farklı bir bulut ortamı başına hizmet paketleri CSPack aracını kullanarak, otomatik derleme sırasında oluşturun. Öğeleri bir bulut Hizmetleri paketi ve bunların nasıl oluşturulacağı hakkında daha fazla bilgi için bkz: [hizmetleri modeli bulut nedir ve nasıl ı paket onu?](cloud-services-model-and-package.md)
+> (Örn. farklı VM boyutları farklı ortamlarda rolünüz için kullanmak isteyebilirsiniz. Test ve üretim). Yapmanın bir yolu bu birden fazla hizmet tanımı (.csdef) dosyaları, projenizdeki oluşturmaktır CSPack aracını kullanarak otomatik derleme sırasında'da hizmet paketleri her ortam farklı bulut oluşturun. Öğeleri bir bulut Hizmetleri paketi ve bunların nasıl oluşturulacağı hakkında daha fazla bilgi için bkz: [hizmetleri modeli bulut nedir ve nasıl miyim paketi bunu?](cloud-services-model-and-package.md)
 >
 >
 
-## <a name="get-a-list-of-sizes"></a>Boyutlarının listesini al
-Boyutlarının listesini almak için PowerShell veya REST API'sini kullanabilirsiniz. REST API belgelenen [burada](https://msdn.microsoft.com/library/azure/dn469422.aspx). Tüm boyutları kullanılabilir için bulut hizmetlerini listeleyecek bir PowerShell komut kodudur. 
+## <a name="get-a-list-of-sizes"></a>Boyutlarının listesini alın
+Boyutlarının listesini almak için PowerShell veya REST API'yi kullanabilirsiniz. REST API belgelenen [burada](https://msdn.microsoft.com/library/azure/dn469422.aspx). Cloud Services için tüm boyutları getirelim listeler bir PowerShell komutu kodudur. 
 
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
