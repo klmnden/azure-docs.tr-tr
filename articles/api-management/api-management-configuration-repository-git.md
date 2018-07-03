@@ -1,6 +1,6 @@
 ---
-title: API Management hizmetiniz Git - Azure kullanarak yapılandırma | Microsoft Docs
-description: Kaydet ve Git kullanarak API Management hizmeti yapılandırmanızı yapılandırma hakkında bilgi edinin.
+title: API Yönetimi hizmetiniz, Git - Azure kullanarak yapılandırma | Microsoft Docs
+description: Kaydet ve Git kullanarak, API Management hizmet yapılandırmasını öğrenin.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,81 +13,81 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 0165de82850c0c80052564c5f31a5e5cf5effb11
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 7342e0fe69cf3c82ec82bf1a864e7325449fff22
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938317"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342261"
 ---
-# <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Kaydet ve Git kullanarak API Management hizmeti yapılandırmanızı yapılandırma
+# <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Kaydet ve Git kullanarak API Management hizmet yapılandırmanızı yapılandırma
 
-Her API Management hizmet örneği yapılandırma ve hizmet örneği için meta veriler hakkında bilgi içeren bir yapılandırma veritabanı tutar. Değişiklikleri hizmet örneği için Azure Portalı'ndaki bir ayarı değiştirmek, bir PowerShell cmdlet'ini kullanarak veya bir REST API çağrısı yapma yapılabilir. Bu yöntemleri ek olarak, Git kullanarak, hizmet yönetim senaryoları gibi etkinleştirme örneği hizmetinizi yönetebilirsiniz:
+Her API Management hizmet örneği, hizmet örneği için meta verileri ve yapılandırma hakkında bilgi içeren bir yapılandırma veritabanı tutar. Azure portalında bir ayarı değiştirmek, bir PowerShell cmdlet'i kullanılarak veya bir REST API çağrısı yaparak hizmet örneği için değişiklik yapılamaz. Bu yöntemlerin yanı sıra Git kullanarak, hizmet yönetim senaryoları gibi etkinleştirme, hizmet örneği yapılandırmanızı yönetebilirsiniz:
 
-* Yapılandırma sürüm oluşturma - karşıdan yüklemek ve hizmetinizi farklı sürümlerini depolamak
-* Yapılandırma değişiklikleri toplu - hizmetinizi yerel deponuzun birden fazla bölümü değişiklik ve değişikliklerin sunucu tek bir işlem ile tümleştirme
-* Tanıdık Git araç zinciri ve iş akışı - Git araçları ve zaten aşina iş akışlarını kullanma
+* Yapılandırma sürümü oluşturma - indirin ve hizmet yapılandırmanızı farklı sürümlerini depolamanıza
+* Yapılandırma değişiklikleri toplu - hizmet yapılandırmanızı yerel deponuzda birden fazla bölümü değişiklik ve değişiklikleri tekrar sunucuya tek bir işlem ile tümleştirin
+* Tanıdık Git araç zinciri ve iş akışı - Git araçları ve, zaten alışık olduğunuz iş akışlarını kullanma
 
-Aşağıdaki diyagram, API Management hizmet örneği yapılandırmak için çeşitli yollar özetini gösterir.
+Aşağıdaki diyagram, API Management hizmet örneğinizin yapılandırmak için farklı yollarına genel bakış gösterilir.
 
-![Git yapılandırın][api-management-git-configure]
+![Git'i yapılandırma][api-management-git-configure]
 
-Azure portalı, PowerShell cmdlet'leri ve REST API kullanarak hizmetinize değişiklikler yaptığınızda, hizmet yapılandırma veritabanı kullanarak yönettiğiniz `https://{name}.management.azure-api.net` diyagram sağ tarafta gösterildiği gibi endpoint. Diyagram sol tarafındaki hizmeti yapılandırmanızı Git kullanarak nasıl yönetebileceğinizi gösterir ve hizmetiniz için Git deposu bulunan `https://{name}.scm.azure-api.net`.
+Azure portalı, PowerShell cmdlet'leri ve REST API kullanarak hizmetinize değişiklik yaptığınızda, hizmet yapılandırma veritabanını kullanarak yönettiğiniz `https://{name}.management.azure-api.net` sağ tarafında diyagramda gösterildiği gibi uç nokta. Diyagramın sol tarafında hizmet yapılandırmanızı Git kullanarak nasıl yönetebileceğinizi gösterir ve hizmetiniz için Git deposu konumu `https://{name}.scm.azure-api.net`.
 
-Aşağıdaki adımlarda, Git kullanarak, API Management hizmet örneğinizin yönetimine genel bir bakış sunulmaktadır.
+Aşağıdaki adımlar, Git kullanarak API Management hizmet örneğinizin yönetmeye genel bakış sağlar.
 
 1. Hizmet erişim Git yapılandırması
-2. Git deponuz hizmeti yapılandırma veritabanına kaydedin
-3. Yerel makinenizde Git deposuna kopyalama
-4. En son depoyu yerel makinenize aşağıya doğru çekin ve tamamlama ve anında iletme değişiklikleri, deposuna geri
-5. Hizmet yapılandırma veritabanınıza, depodaki değişikliklerden dağıtma
+2. Hizmet yapılandırma veritabanınızda Git deponuza Kaydet
+3. Git deposunu yerel makinenize kopyalayın
+4. En son depoyu yerel makinenize aşağı çeker ve işlemeyi ve göndermeyi değişiklikleri deponuza geri
+5. Hizmet yapılandırma veritabanına değişiklikleri deponuza dağıtma
 
-Bu makalede etkinleştirmek ve hizmet yapılandırmasını yönetmek için Git nasıl kullanılacağını açıklar ve dosya ve klasörleri Git deposu için bir başvuru sağlar.
+Bu makalede, etkinleştirmek ve hizmet yapılandırmanızı yönetmek için Git'i kullanın açıklar ve dosya ve klasörleri Git deposundaki bir başvuru sağlar.
 
 ## <a name="access-git-configuration-in-your-service"></a>Hizmet erişim Git yapılandırması
 
-Git yapılandırma ayarlarını görüntülemek ve yapılandırmak için tıklayabilirsiniz **güvenlik** menü gidin **yapılandırma deposu** sekmesi.
+Görüntüleme ve Git yapılandırma ayarlarınızı yapılandırmak için tıklayabilirsiniz **güvenlik** menü gidin **yapılandırma deposu** sekmesi.
 
 ![GIT etkinleştir][api-management-enable-git]
 
 > [!IMPORTANT]
-> Özellikleri deposunda saklanır ve onun geçmişinde dek kalacak şekilde, tanımlı değil tüm gizli devre dışı bırakın ve Git erişim yeniden etkinleştirin. Özellikler, doğrudan ilke deyimlerinde depolamaya zorunda kalmamak için gizli tüm API yapılandırması ve ilkeleri de dahil olmak üzere sabit dize değerlerini yönetmek için güvenli bir yerde sağlar. Daha fazla bilgi için bkz: [özelliklerinin Azure API Management ilkeleri nasıl kullanılacağını](api-management-howto-properties.md).
+> Özellikler depoda saklanan ve kendi geçmişinde dek devam eder, tanımlanmayan herhangi bir gizli anahtar, devre dışı bırakın ve Git erişimini yeniden etkinleştirin. Sabit dize değerleri, bunları doğrudan ilke deyimlerinde depolamak zorunda kalmamak için gizli dizileri, tüm API configuration ve ilkeleri gibi yönetmek için güvenli bir yerde özellikleri sağlar. Daha fazla bilgi için [özelliklerini Azure API Management ilkelerini kullanma](api-management-howto-properties.md).
 > 
 > 
 
-Etkinleştirme veya REST API kullanarak Git erişimini devre dışı bırakma hakkında daha fazla bilgi için bkz: [etkinleştirmek veya devre dışı REST API kullanarak Git erişim](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
+REST API kullanarak Git erişimini devre dışı bırakma veya etkinleştirme hakkında daha fazla bilgi için bkz: [etkinleştirmek veya devre dışı REST API kullanarak Git erişim](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Git deposuna hizmet yapılandırmasını kaydetmek için
 
-Depoyu kopyalama önce ilk adımı, hizmet yapılandırması geçerli durumunu depoya tasarruf etmektir. Tıklatın **depoya kaydedin**.
+Depoyu kopyalama önce ilk adımı, hizmet yapılandırması geçerli durumunu depoya tasarruf etmektir. Tıklayın **depoya Kaydet**.
 
-Onay ekranda istediğiniz değişiklikleri yapın ve tıklatın **Tamam** kaydetmek için.
+Onay ekranında istediğiniz değişiklikleri yapın ve tıklayın **Tamam** kaydetmek için.
 
-Birkaç dakika sonra yapılandırma kaydedilir ve son yapılandırma değişikliği ve hizmet yapılandırmasını ve depo arasındaki son eşitleme saati ve tarihi dahil olmak üzere depo yapılandırma durumu görüntülenir.
+Birkaç dakika sonra yapılandırma kaydedilir ve tarih ve saat son yapılandırma değişikliği ve hizmet yapılandırması ve depo arasındaki son eşitleme dahil olmak üzere depo yapılandırma durumu görüntülenir.
 
-Yapılandırma deposu kaydedildikten sonra kopyalanabilir.
+Yapılandırmayı depoya kaydedildikten sonra kopyalanabilir.
 
-REST API kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için bkz: [REST API kullanarak anlık görüntü yürütme yapılandırma](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
+REST API kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için bkz: [REST API kullanarak anlık görüntü işleme yapılandırma](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Depoyu yerel makinenize kopyalamak için
 
-Bir depo kopyalamak için URL deponuz, bir kullanıcı adı ve parola gerekir. Kullanıcı adı ve diğer kimlik bilgilerini almak için tıklayın **erişim kimlik bilgilerini** sayfanın üstüne yakın.  
+Bir depoyu kopyalamak için URL'yi deponuzu, bir kullanıcı adı ve parola gerekir. Kullanıcı adı ve diğer kimlik bilgilerini almak için tıklayın **erişim kimlik bilgilerini** sayfanın üstüne yakın.  
  
-Bir parola oluşturmak için öncelikle emin **süre sonu** istenen sona erme tarihini ve saatini ayarlayın ve ardından **Generate**.
+Bir parola oluşturmak için öncelikle emin **bitiş** istenen sona erme tarihi ve saati ayarlayın ve ardından **Oluştur**.
 
 > [!IMPORTANT]
-> Bu parolayı not edin. Bu sayfayı çıktıktan sonra parolayı yeniden görüntülenmez.
+> Bu parolayı not edin. Bu sayfadan çıktıktan sonra parolayı yeniden görüntülenmez.
 > 
 
-Aşağıdaki örnekler Git Bash aracından kullanmak [Windows için Git](http://www.git-scm.com/downloads) ancak bilginiz herhangi bir Git aracını kullanabilirsiniz.
+Aşağıdaki örneklerde Git Bash aracından [Git için Windows](http://www.git-scm.com/downloads) ancak bilginiz herhangi bir Git aracı kullanabilirsiniz.
 
-Git aracınızı istenen klasöründe açın ve Azure portalı tarafından sağlanan komutunu kullanarak uygulamanızı yerel makinenizde git deposuna kopyalamak için aşağıdaki komutu çalıştırın.
+Git aracı istenen klasöründe ve git deposunu Azure portalı tarafından sağlanan komutu kullanarak yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
 
 ```
 git clone https://bugbashdev4.scm.azure-api.net/
 ```
 
-Kullanıcı adı ve istendiğinde parolayı belirtin.
+Kullanıcı adı ve parola istendiğinde sağlar.
 
 Herhangi bir hata alırsanız, değiştirmeyi deneyin, `git clone` kullanıcı adı ve parola, aşağıdaki örnekte gösterildiği gibi içerecek şekilde komutu.
 
@@ -95,36 +95,36 @@ Herhangi bir hata alırsanız, değiştirmeyi deneyin, `git clone` kullanıcı a
 git clone https://username:password@bugbashdev4.scm.azure-api.net/
 ```
 
-Bu bir hata sağlıyorsa, URL komutun parola bölümü kodlama deneyin. Bunu yapmak için bir hızlı yoludur Visual Studio'yu açın ve aşağıdaki komutu yürütün **komut penceresi**. Açmak için **komut penceresi**, herhangi bir çözüm veya proje Visual Studio'da açın (veya yeni bir boş konsol uygulaması oluşturun) ve seçin **Windows**, **hemen** gelen **Hata ayıklama** menüsü.
+Bu hata sağlıyorsa, komut parola kısmı kodlama URL'si deneyin. Bunu yapmanın hızlı bir yolu olan Visual Studio'yu açın ve aşağıdaki komutu yürütün **komut penceresi**. Açmak için **komut penceresi**, herhangi bir çözüm veya proje Visual Studio'da açın (veya yeni bir boş bir konsol uygulaması oluşturun) ve **Windows**, **hemen** gelen **Hata ayıklama** menüsü.
 
 ```
 ?System.NetWebUtility.UrlEncode("password from the Azure portal")
 ```
 
-Kodlanmış parolayı git komutu oluşturmak için kullanıcı adını ve depo konumu ile birlikte kullanın.
+Kodlanmış parolayı git komutu oluşturmak için kullanıcı adı ve depo konumu ile birlikte kullanın.
 
 ```
 git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 ```
 
-Depo klonlanmış sonra görüntülemek ve, yerel dosya sistemi ile çalışır. Daha fazla bilgi için bkz: [dosya ve klasör yapısı yerel Git deposu başvuru](#file-and-folder-structure-reference-of-local-git-repository).
+Depo kopyalandı sonra görüntüleyebilir ve yerel dosya sisteminize çalışma. Daha fazla bilgi için [dosya ve klasör yerel Git deposu başvuru yapısı](#file-and-folder-structure-reference-of-local-git-repository).
 
-## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>En güncel hizmet örneği yapılandırmasıyla yerel deponuza güncelleştirmek için
+## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Yerel deponuz ile en son hizmet örneği yapılandırmanızı güncelleştirmek için
 
-API Management hizmet örneği Azure portalında veya REST API kullanarak değişiklik yaparsanız, en son değişikliklerle yerel deponuza güncelleştirme yapabilmeniz için önce bu değişiklikleri depoya kaydetmeniz gerekir. Bunu yapmak için tıklatın **Kaydet yapılandırma deposu için** üzerinde **yapılandırma deposu** Azure portalında sekmesini tıklatın ve ardından yerel deponuza aşağıdaki komutu yürütün.
+API Management hizmet örneğinizin Azure portalı veya REST API'yi kullanarak değişiklik yaparsanız, yerel deponuzu en son değişikliklerle güncelleştirmek için önce bu değişiklikleri depoya kaydetmeniz gerekir. Bunu yapmak için tıklatın **depoya kaydetme yapılandırma** üzerinde **yapılandırma deposu** Azure portalında sekmesine tıklayın ve ardından yerel deponuzda aşağıdaki komutu yürütün.
 
 ```
 git pull
 ```
 
-Çalıştırmadan önce `git pull` için yerel deponuza klasörde olduğundan emin olun. Yalnızca tamamladıysanız `git clone` komutu, sonra da dizini aşağıdaki gibi bir komutu çalıştırarak, deposuna değiştirmeniz gerekir.
+Çalıştırmadan önce `git pull` yerel deponuzu klasörde olduğundan emin olun. Yalnızca tamamladıysanız `git clone` komut sonra dizini aşağıdaki gibi bir komut çalıştırarak deponuza değiştirmeniz gerekir.
 
 ```
 cd bugbashdev4.scm.azure-api.net/
 ```
 
-## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Değişiklikleri, Yerel Depodaki sunucu deposuna göndermek için
-Değişiklikler yerel depodan sunucu depoya göndermek üzere değişikliklerinizi kaydetmek ve bunları sunucu depoya gönderme. Değişikliklerinizi uygulamak için Git komut aracını açın, yerel deponuza dizinine geçin ve aşağıdaki komutları verin.
+## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Değişiklikleri yerel deponuzdan sunucu depoya göndermek için
+Değişiklikleri yerel depodan sunucu depoya göndermek için değişikliklerinizi işleyin ve ardından bunları sunucu depoya gerekir. Değişikliklerinizi kaydetmek için Git komut aracını açın, yerel deponuzun dizinine geçin ve aşağıdaki komutları çalıştırın.
 
 ```
 git add --all
@@ -137,48 +137,48 @@ Tüm işlemeleri sunucuya göndermek için aşağıdaki komutu çalıştırın.
 git push
 ```
 
-## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>API Management hizmet örneği için hizmet yapılandırma değişikliklerini dağıtmak için
+## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Hizmet yapılandırma değişiklikleri için API Management hizmet örneği dağıtmak için
 
-Yerel değişikliklerinizi kaydedilen ve sunucu havuzuna gönderilen sonra API Management hizmet örneğiniz dağıtabilirsiniz.
+Yerel değişikliklerinizi kaydedilmiş ve sunucu deposuna gönderilen sonra API Management hizmet örneğinizin dağıtabilirsiniz.
 
-REST API kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için bkz: [dağıtmak Git değişiklikleri REST API kullanarak yapılandırma veritabanına](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
+REST API kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için bkz: [dağıtma Git REST API kullanarak yapılandırma veritabanına değişiklikleri](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
 
-## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Yerel Git deposu dosya ve klasör yapısı başvurusu
+## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Dosya ve klasör yapısını başvurusunu yerel Git deposu
 
-Dosya ve klasörlerin yerel git deposu içinde hizmet örneği hakkında yapılandırma bilgileri içerir.
+Dosya ve klasörleri yerel git deposunu hizmet örneği hakkında yapılandırma bilgilerini içerir.
 
 | Öğe | Açıklama |
 | --- | --- |
-| kök API management klasörü |Hizmet örneği için en üst düzey yapılandırmayı içerir |
-| API klasörü |Hizmet örneği API'lerinde için yapılandırmayı içerir |
+| kök API Yönetimi klasörü |Hizmet örneği için en üst düzey yapılandırmayı içerir |
+| API'leri klasörü |Hizmet örneği API'leri için yapılandırmayı içerir |
 | grupları klasörü |Hizmet örneği gruplarında için yapılandırmayı içerir |
-| ilkeleri klasörü |Hizmet örneği ilkelerinde içerir |
-| portalStyles klasörü |Hizmet örneği Geliştirici Portalı özelleştirmeleri için yapılandırmayı içerir |
-| Ürünler klasörü |Hizmet örneği ürünleri için yapılandırmayı içerir |
-| Şablonlar klasörü |E-posta şablonlarını hizmet örneği için yapılandırmayı içerir |
+| ilkeleri klasörü |Hizmet örneği ilkeleri içerir. |
+| portalStyles klasörü |Geliştirici portal özelleştirmeleri hizmet örneği için yapılandırmayı içerir |
+| ürünleri klasörü |Hizmet örneği ürünleri için yapılandırmayı içerir |
+| Şablonları klasörü |E-posta şablonları hizmet örneği için yapılandırmayı içerir |
 
-Her klasör bir veya daha fazla içerebilir ve bazı durumlarda bir veya daha fazla klasör, örneğin her API, ürün veya grup için bir klasör durumda. Her klasördeki dosyalar, klasör adı tarafından açıklanan varlık türü için özeldir.
+Her klasör, bir veya daha fazla dosya içerebilir ve bazı durumlarda bir veya daha fazla klasör, örneğin her API, ürün veya grup için bir klasör durumlarda. Her klasördeki dosyaları, klasör adına göre açıklanan varlık türü için özeldir.
 
 | Dosya türü | Amaç |
 | --- | --- |
 | json |İlgili varlık hakkında yapılandırma bilgileri |
-| HTML |Genellikle Geliştirici Portalı'nda görüntülenen varlık hakkında açıklamaları |
+| HTML |Genellikle Geliştirici portalında gösterilen bir varlık ile ilgili açıklamalar |
 | xml |İlke deyimleri |
 | CSS |Geliştirici Portalı özelleştirme için stil sayfaları |
 
-Bu dosyalar oluşturulabilir, silinen, düzenlenemez ve yerel dosya sisteminde yönetilen ve dağıtılan değişiklikleri yeniden API Management hizmet örneği.
+Bu dosyalar oluşturulabilir, silindi, düzenlenebilir ve yerel dosya sisteminizde yönetilen ve dağıtılan değişiklikleri yeniden API Management hizmet örneğinizin.
 
 > [!NOTE]
-> Aşağıdaki varlıklar Git deposunda yer almayan ve Git kullanılarak yapılandırılamaz.
+> Aşağıdaki varlıkların Git deposunda yer almayan ve Git kullanılarak yapılandırılamaz.
 > 
 > * Kullanıcılar
 > * Abonelikler
 > * Özellikler
-> * Geliştirici Portalı varlıkları stilleri dışında
+> * Geliştirici Portalı varlıkları dışında stilleri
 > 
 
-### <a name="root-api-management-folder"></a>Kök API management klasörü
-Kök `api-management` klasörünü içeren bir `configuration.json` şu biçimde hizmet örneği hakkında üst düzey bilgileri içeren dosya.
+### <a name="root-api-management-folder"></a>Kök API Yönetimi klasörü
+Kök `api-management` klasörünü içeren bir `configuration.json` hizmet örneği şu biçimde hakkında üst düzey bilgileri içeren dosya.
 
 ```json
 {
@@ -198,65 +198,65 @@ Kök `api-management` klasörünü içeren bir `configuration.json` şu biçimde
 
 İlk dört ayarları (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled`, ve `UserRegistrationTermsConsentRequired`) eşlemek için aşağıdaki ayarları **kimlikleri** sekmesinde **güvenlik** bölümü.
 
-| Kimlik ayarı | Eşler |
+| Kimliği ayarlama | Eşleyen |
 | --- | --- |
-| RegistrationEnabled |**Anonim kullanıcılar oturum açma sayfasına yeniden yönlendir** onay kutusu |
-| UserRegistrationTerms |**Kullanıcı Kaydolma kullanım koşullarını** metin kutusu |
-| UserRegistrationTermsEnabled |**Kullanım koşulları kaydolma sayfasında göster** onay kutusu |
+| RegistrationEnabled |**Anonim kullanıcıları oturum açma sayfasına yönlendir** onay kutusu |
+| UserRegistrationTerms |**Kullanıcı kaydı kullanım koşullarını** metin kutusu |
+| UserRegistrationTermsEnabled |**Kullanım koşullarını kaydolma sayfasında göster** onay kutusu |
 | UserRegistrationTermsConsentRequired |**Onay gerektiren** onay kutusu |
 
 Sonraki dört ayarları (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, ve `DelegationValidationKey`) eşlemek için aşağıdaki ayarları **temsilci** sekmesinde **güvenlik** bölümü.
 
-| Temsilci ayarı | Eşler |
+| Temsilci ayarı | Eşleyen |
 | --- | --- |
-| DelegationEnabled |**Oturum açma ve kaydolma temsilci** onay kutusu |
-| DelegationUrl |**Temsilci uç nokta URL'si** metin kutusu |
-| DelegatedSubscriptionEnabled |**Temsilci ürün aboneliği** onay kutusu |
-| DelegationValidationKey |**Doğrulama anahtarı temsilci** metin kutusu |
+| DelegationEnabled |**Oturum açma ve kaydolma temsilcisi** onay kutusu |
+| DelegationUrl |**Temsilci seçme uç nokta URL'si** metin kutusu |
+| DelegatedSubscriptionEnabled |**Ürün aboneliği temsilcisi** onay kutusu |
+| DelegationValidationKey |**Temsilci seçme doğrulama anahtarı** metin kutusu |
 
-Son ayar `$ref-policy`, hizmet örneği için genel ilke deyimleri dosyası eşleştirir.
+Son ayar `$ref-policy`, hizmet örneği için genel ilke deyimlerini dosyanın eşleştirir.
 
-### <a name="apis-folder"></a>API klasörü
-`apis` Klasörü her API aşağıdaki öğeleri içeren hizmet örneği için bir klasör içerir.
+### <a name="apis-folder"></a>API'leri klasörü
+`apis` Klasörü her API'SİNDE aşağıdaki öğeleri içeren hizmet örneği için bir klasör içerir.
 
-* `apis\<api name>\configuration.json` -Bu API için yapılandırması ve arka uç hizmeti URL'si ve işlemler hakkında bilgi içerir. Bu çağrı için olsaydı, döndürülür, aynı bilgilerdir [belirli bir API alma](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) ile `export=true` içinde `application/json` biçimi.
-* `apis\<api name>\api.description.html` -Bu API açıklaması ve karşılık gelen `description` özelliği [API varlık](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` -Bu klasörde `<operation name>.description.html` API işlemlerinde Eşle dosyaları. Her dosya eşleştiren API tek bir işlemde açıklamasını içerir `description` özelliği [işlemi varlık](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) REST API'sindeki.
+* `apis\<api name>\configuration.json` -Bu API için yapılandırması ve arka uç hizmeti URL'sini ve işlemleri hakkındaki bilgileri içerir. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir API'yi alın](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) ile `export=true` içinde `application/json` biçimi.
+* `apis\<api name>\api.description.html` -Bu API açıklaması ve karşılık gelen `description` özelliği [API varlığı](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` -Bu klasörde `<operation name>.description.html` API'sindeki işlemlerle eşlenir dosyaları. Her dosya tek bir işlemde eşleştiren API açıklamasını içerir `description` özelliği [işlemi varlık](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) REST API'de.
 
 ### <a name="groups-folder"></a>grupları klasörü
-`groups` Klasörü, hizmet örneği içinde tanımlanan her grup için bir klasör içerir.
+`groups` Klasörü hizmet örneğinde tanımlanan her grup için bir klasör içerir.
 
-* `groups\<group name>\configuration.json` -Bu grup için bir yapılandırmadır. Bu çağrı için olsaydı, döndürülür, aynı bilgilerdir [belirli bir grup alma](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) işlemi.
-* `groups\<group name>\description.html` -Bu grubun açıklaması ve karşılık gelen `description` özelliği [Grup varlık](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
+* `groups\<group name>\configuration.json` -Bu grup için bir yapılandırmadır. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir grup alma](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) işlemi.
+* `groups\<group name>\description.html` -Bu grubun açıklamasını ve karşılık gelen `description` özelliği [Grup varlık](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
 
 ### <a name="policies-folder"></a>ilkeleri klasörü
-`policies` Klasörü hizmet Örneğiniz için ilke ifadeleri içerir.
+`policies` Klasörü hizmet örneğinizin ilke ifadeleri içerir.
 
-* `policies\global.xml` -Hizmet Örneğiniz için genel kapsamda tanımlanan ilkeleri içerir.
-* `policies\apis\<api name>\` -API kapsamda tanımlanan tüm ilkeler varsa, bu klasörde yer alır.
-* `policies\apis\<api name>\<operation name>\` Klasör - işlemi kapsamında tanımlı tüm ilkeler varsa, bu klasörde yer alır `<operation name>.xml` her işlem için ilke deyimleri eşleme dosyaları.
-* `policies\products\` -Ürün kapsamda tanımlanan tüm ilkeler varsa, bunlar içeren bu klasörde yer alan `<product name>.xml` her ürün için ilke deyimleri eşleme dosyaları.
+* `policies\global.xml` -Hizmet örneğinizin genel kapsamda tanımlanan ilkeleri içerir.
+* `policies\apis\<api name>\` -API kapsamında tanımlanan tüm ilkeler varsa, bu klasörde yer alır.
+* `policies\apis\<api name>\<operation name>\` klasörü - işlemi kapsamında tanımlanan tüm ilkeler varsa, bu klasörde yer alır `<operation name>.xml` her işlem için ilke bildirimlerine eşleme dosyaları.
+* `policies\products\` -Ürün kapsamında tanımlanan tüm ilkeler varsa, bunlar içeren bu klasörde yer `<product name>.xml` her ürün için ilke bildirimlerine eşleme dosyaları.
 
 ### <a name="portalstyles-folder"></a>portalStyles klasörü
-`portalStyles` Klasörü, Geliştirici Portalı özelleştirmeleri hizmet örneği için yapılandırma ve stil sayfalarını içerir.
+`portalStyles` Klasörü Geliştirici portal özelleştirmeleri hizmet örneği için yapılandırma ve stil sayfalarını içerir.
 
 * `portalStyles\configuration.json` -Geliştirici Portalı tarafından kullanılan stil sayfaları adlarını içerir
-* `portalStyles\<style name>.css` -Her `<style name>.css` dosyasını içeren Geliştirici Portalı için stiller (`Preview.css` ve `Production.css` varsayılan olarak).
+* `portalStyles\<style name>.css` -Her `<style name>.css` dosyasını içeren Geliştirici Portalı stillerini (`Preview.css` ve `Production.css` varsayılan olarak).
 
-### <a name="products-folder"></a>Ürünler klasörü
-`products` Klasörü, hizmet örneği içinde tanımlanan her ürün için bir klasör içerir.
+### <a name="products-folder"></a>ürünleri klasörü
+`products` Klasörü hizmet örneğinde tanımlanan her ürün için bir klasör içerir.
 
-* `products\<product name>\configuration.json` -Bu ürün için bir yapılandırmadır. Bu çağrı için olsaydı, döndürülür, aynı bilgilerdir [belirli bir ürün almak](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) işlemi.
-* `products\<product name>\product.description.html` -Bu ürünün açıklaması ve karşılık gelen `description` özelliği [ürün varlığı](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) REST API'sindeki.
+* `products\<product name>\configuration.json` -Bu ürün için yapılandırmadır. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir ürün almak](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) işlemi.
+* `products\<product name>\product.description.html` -Bu ürün açıklamasını ve karşılık gelen `description` özelliği [ürün varlığı](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) REST API'de.
 
 ### <a name="templates"></a>templates
-`templates` İçeren klasör için yapılandırma [e-posta şablonları](api-management-howto-configure-notifications.md) hizmet örneği.
+`templates` Klasörde yapılandırmasını [e-posta şablonları](api-management-howto-configure-notifications.md) hizmet örneği.
 
-* `<template name>\configuration.json` -Bu e-posta şablonu için bir yapılandırmadır.
+* `<template name>\configuration.json` -e-posta şablonu yapılandırması budur.
 * `<template name>\body.html` -e-posta şablonunun gövdesini budur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Hizmet örneğinizi yönetmenin başka yolları hakkında daha fazla bilgi için bkz:
+Hizmet örneğinizi yönetmek için diğer yöntemler hakkında daha fazla bilgi için bkz:
 
 * Hizmet örneğinizi aşağıdaki PowerShell cmdlet'lerini kullanarak yönetme
   * [Hizmet dağıtımı PowerShell cmdlet başvurusu](https://msdn.microsoft.com/library/azure/mt619282.aspx)

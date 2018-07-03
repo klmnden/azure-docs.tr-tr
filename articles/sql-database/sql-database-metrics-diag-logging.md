@@ -1,119 +1,120 @@
 ---
-title: Azure SQL veritabanı ölçümleri ve tanılama günlükleri | Microsoft Docs
-description: Kaynak kullanımı, bağlantı ve sorgu yürütme istatistikleri depolamak için Azure SQL veritabanını yapılandırma hakkında bilgi edinin.
+title: Azure SQL veritabanı ölçümleri ve tanılama günlüğünü | Microsoft Docs
+description: Kaynak kullanımı, bağlantı ve sorgu yürütme istatistikleri depolamak için Azure SQL veritabanı yapılandırma hakkında bilgi edinin.
 services: sql-database
 documentationcenter: ''
-author: veljko-msft
+author: Danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vvasic
-ms.openlocfilehash: c9126080db4d8091b672a9250c68a5c5590e10c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650188"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346034"
 ---
-# <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database ölçümleri ve tanılama günlükleri 
-Azure SQL veritabanı yayma ölçümleri ve tanılama daha kolay izleme günlükleri. SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:
+# <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri 
+Azure SQL veritabanı, ölçümleri ve tanılama yayabilir izlemeyi kolaylaştırmak için günlükleri. SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:
 
-* **Azure depolama**: telemetri küçük bir fiyat için çok büyük miktarda arşivlemek için kullanılır.
-* **Azure Event Hubs**: SQL veritabanı telemetri özel izleme çözümü veya etkin işlem hatları ile tümleştirmek için kullanılır.
-* **Azure günlük analizi**: Giden kutusu izleme çözümünü raporlama, uyarı ve yetenekleri Azaltıcı için kullanılır. Bu bir [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) özelliğidir
+* **Azure depolama**: maliyetlerle çok sayıda küçük için telemetri arşivleme için kullanılır.
+* **Azure Event Hubs**: SQL veritabanı telemetrisini özel izleme çözümünüz veya yoğun işlem hatlarıyla tümleştirmek için kullanılır.
+* **Azure Log Analytics**: Raporlama, uyarı ve azaltma özelliklerine sahip bir kullanıma hazır izleme çözümü için kullanılır. Bu bir [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) özelliğidir
 
     ![Mimari](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="enable-logging"></a>Günlü kaydını etkinleştir
 
-Ölçümleri ve Tanılama Günlüğü varsayılan olarak etkinleştirilmedi. Etkinleştirme ve ölçümleri ve aşağıdaki yöntemlerden birini kullanarak oturum tanılama yönetebilirsiniz:
+Ölçümler ve günlüğe kaydetme Tanılama, varsayılan olarak etkinleştirilmedi. Etkinleştirin ve ölçümleri ve Tanılama Günlüğü aşağıdaki yöntemlerden birini kullanarak Yönet:
 
 - Azure portalına
 - PowerShell
 - Azure CLI
-- Azure monitör REST API'si 
+- Azure İzleyici REST API 
 - Azure Resource Manager şablonu
 
-Ölçümleri ve tanılama günlükleri etkinleştirdiğinizde, burada seçilen verileri toplanır Azure kaynak belirtmeniz gerekir. Kullanılabilir seçenekler şunlardır:
+Ölçümleri ve tanılama günlüğünü etkinleştirdiğinizde, seçilen verilerin toplandığı bir Azure kaynak belirtmeniz gerekir. Kullanılabilir seçenekler şunlardır:
 
 - Log Analytics
 - Event Hubs
 - Depolama 
 
-Yeni bir Azure kaynak sağlama veya var olan bir kaynak seçin. Depolama kaynağı seçtikten sonra hangi verileri toplamak için belirtmeniz gerekir. Kullanılabilir seçenekler şunlardır:
+Yeni bir Azure kaynak sağlayın veya mevcut bir kaynağı seçin. Depolama kaynağı seçtikten sonra hangi verileri toplamak için belirtmeniz gerekir. Kullanılabilir seçenekler şunlardır:
 
-- [Tüm ölçümleri](sql-database-metrics-diag-logging.md#all-metrics): içeren DTU yüzdesi, DTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma ve yüzde başarılı/başarısız/engellenen Güvenlik Duvarı bağlantılarını, oturumlar yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi ve XTP depolama yüzdesi.
+- [Tüm ölçümleri](sql-database-metrics-diag-logging.md#all-metrics): içeren DTU yüzdesi, DTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma ve yüzde başarılı/başarısız/engellenen güvenlik duvarı bağlantıları, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi ve XTP depolama yüzdesi.
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): CPU kullanımı ve sorgu süresi gibi sorgu çalışma zamanı istatistikleri hakkında bilgiler içerir.
-- [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): ne sorgularınızı, CPU, günlük ve KİLİTLEME gibi beklediğini bildirir sorgu bekleme İstatistikler hakkında bilgi içerir.
-- [Hataları](sql-database-metrics-diag-logging.md#errors-dataset): Bu veritabanında oldu SQL hatalar hakkında bilgi içerir.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): hakkında ne kadar bir veritabanı zaman harcanan farklı bekleme türlerinde bekleyen bilgileri içerir.
-- [Zaman aşımları](sql-database-metrics-diag-logging.md#time-outs-dataset): bir veritabanı üzerinde gerçekleşen zaman aşımları hakkında bilgiler içerir.
-- [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): bir veritabanı üzerinde gerçekleşen olayları engelleme hakkında bilgi içerir.
-- [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Akıllı Öngörüler içerir. [Akıllı Insights hakkında daha fazla bilgi](sql-database-intelligent-insights.md).
+- [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): ne sorgularınızı, CPU, günlük ve KİLİTLEME gibi beklediğini bildirir sorgu bekleme istatistikleri hakkında bilgiler içerir.
+- [Hataları](sql-database-metrics-diag-logging.md#errors-dataset): Bu veritabanı üzerinde gerçekleşen SQL hatalar hakkında bilgi içerir.
+- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): bir veritabanı hakkında ne kadar zaman harcanan farklı bekleme türleri üzerinde bekleyen bilgileri içerir.
+- [Zaman aşımları](sql-database-metrics-diag-logging.md#time-outs-dataset): bir veritabanı üzerinde gerçekleşen zaman aşımları hakkındaki bilgileri içerir.
+- [Blokları](sql-database-metrics-diag-logging.md#blockings-dataset): bir veritabanı üzerinde gerçekleşen olayları engelleme hakkında bilgi içerir.
+- [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Intelligent Insights'ı içerir. [Akıllı İçgörüler hakkında daha fazla bilgi](sql-database-intelligent-insights.md).
 - **Denetim** / **SQLSecurityAuditEvents**: şu anda kullanılamıyor.
 
-Olay hub'ları veya depolama hesabı seçerseniz, bir bekletme ilkesi belirtebilirsiniz. Bu ilke seçilen zaman süresinden daha eski olan verileri siler. Günlük analizi belirtirseniz, bekletme ilkesi seçilen fiyatlandırma katmanını bağlıdır. Daha fazla bilgi için bkz: [günlük analizi fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/). 
+Olay hub'ları veya bir depolama hesabı seçerseniz, bekletme ilkesi belirtebilirsiniz. Bu ilke, seçilen zaman süresinden daha eski olan verileri siler. Log Analytics belirtirseniz, bekletme ilkesi seçili fiyatlandırma katmanına bağlıdır. Daha fazla bilgi için [Log Analytics fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
-Günlük kaydını etkinleştirmek ve çeşitli Azure Hizmetleri tarafından desteklenen ölçümleri ve günlük kategorileri anlama hakkında bilgi edinmek için okumanızı öneririz: 
+Günlük kaydını etkinleştirmek ve çeşitli Azure Hizmetleri tarafından desteklenen Ölçümler ve günlük kategorileri anlama hakkında bilgi edinmek için okumanızı öneririz: 
 
-* [Microsoft Azure ölçümlerini genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Azure tanılama günlükleri'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
+* [Microsoft azure'da ölçümlere genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+* [Azure tanılama günlüklerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
 
 ### <a name="azure-portal"></a>Azure portalına
 
-1. Portalda ölçümleri ve tanılama günlükleri toplamayı etkinleştirmek için SQL veritabanınız veya esnek havuz sayfasına gidin ve ardından **tanılama ayarları**.
+1. Portalında ölçümleri ve tanılama günlükleri toplamayı etkinleştirmek için SQL veritabanı veya elastik havuz sayfasına gidin ve ardından **tanılama ayarları**.
 
-   ![Azure portalında etkinleştir](./media/sql-database-metrics-diag-logging/enable-portal.png)
+   ![Azure portalında etkinleştirin](./media/sql-database-metrics-diag-logging/enable-portal.png)
 
-2. Yeni oluşturabilir veya varolan tanılama ayarları hedef ve telemetri seçerek düzenleyebilirsiniz.
+2. Yeni oluştur veya hedef ve telemetri seçerek mevcut tanılama ayarları düzenleyin.
 
    ![Tanılama ayarları](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
 
 ### <a name="powershell"></a>PowerShell
 
-Ölçümleri ve PowerShell kullanarak günlüğü Tanılama'yı etkinleştirmek için aşağıdaki komutları kullanın:
+Ölçümleri ve tanılama PowerShell kullanarak etkinleştirmek için aşağıdaki komutları kullanın:
 
-- Tanılama günlüklerinin bir depolama hesabındaki depolama etkinleştirmek için bu komutu kullanın:
+- Tanılama günlükleri bir depolama hesabında depolama etkinleştirmek için bu komutu kullanın:
 
    ```powershell
    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
-   Depolama hesabı depolama hesabı için kaynak kimliği günlükleri göndermek istediğiniz kimliğidir.
+   Depolama hesabı kimliği kaynak depolama hesabı için günlükleri göndermek istediğiniz kimliğidir.
 
-- Tanılama günlüklerini bir olay hub'ına akışını etkinleştirmek için bu komutu kullanın:
+- Tanılama günlükleri Olay hub'ına akışını etkinleştirmek için bu komutu kullanın:
 
    ```powershell
    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
-   Azure Service Bus kural kimliği bu biçiminde bir dize şöyledir:
+   Azure Service Bus kural kimliği şu biçime sahip bir dizedir:
 
    ```powershell
    {service bus resource ID}/authorizationrules/{key name}
    ``` 
 
-- Günlük analizi çalışma alanı için gönderen tanılama günlüklerini etkinleştirmek için bu komutu kullanın:
+- Log Analytics çalışma alanına gönderme tanılama günlüklerini etkinleştirmek için bu komutu kullanın:
 
    ```powershell
    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
-- Günlük analizi çalışma alanınız kaynak Kimliğini aşağıdaki komutu kullanarak elde edebilirsiniz:
+- Log Analytics çalışma alanınızın kaynak Kimliğini aşağıdaki komutu kullanarak elde edebilirsiniz:
 
    ```powershell
    (Get-AzureRmOperationalInsightsWorkspace).ResourceId
    ```
 
-Birden çok çıktı seçenekleri etkinleştirmek için bu parametreler birleştirebilirsiniz.
+Birden çok çıkış seçeneği etkinleştirmek için şu parametreleri birleştirebilirsiniz.
 
 ### <a name="to-configure-multiple-azure-resources"></a>Birden çok Azure kaynaklarını yapılandırmak için
 
-Birden çok abonelik desteklemek için PowerShell komut dosyasını kullanın [PowerShell kullanarak etkinleştirmek Azure kaynak ölçümleri günlük](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
+Birden çok abonelik desteklemek için PowerShell betiğini kullanın. [kaynak ölçümleri günlük kaydı etkinleştirmek için Azure PowerShell kullanarak](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
 
-Çalışma alanı kaynak kimliği sağlayın &lt;$WSID&gt; (çalışma alanına birden çok kaynaklardan tanılama veri göndermesini etkinleştir-AzureRMDiagnostics.ps1) komut dosyası yürütülürken bir parametre olarak. Çalışma alanı kimliği almak için &lt;$WSID&gt; olan Tanılama verileri göndermek istediğinizi için değiştirmek &lt;subID&gt; abonelik kimliği ile Değiştir &lt;RG_NAME&gt; kaynak grubu adı ve değiştirme &lt;WS_NAME&gt; aşağıdaki komut dosyası çalışma ada sahip.
+Çalışma alanı kaynak Kimliğini sağlamanız &lt;$WSID&gt; (çalışma alanına birden çok kaynaklardan Tanılama verileri Gönder için Enable-AzureRMDiagnostics.ps1) betiği yürütülürken, bir parametre olarak. Çalışma alanı kimliği almak için &lt;$WSID&gt; değiştirin, Tanılama verileri göndermek istediğiniz için &lt;Subıd&gt; abonelik kimliği ile değiştirin &lt;RG_NAME&gt; ile kaynak grubu adı değiştirin &lt;WS_NAME&gt; aşağıdaki betiğindeki çalışma alanı adı ile.
 
 - Birden çok Azure kaynaklarını yapılandırmak için aşağıdaki komutları kullanın:
 
@@ -124,35 +125,35 @@ Birden çok abonelik desteklemek için PowerShell komut dosyasını kullanın [P
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Ölçümleri ve tanılama Azure CLI kullanarak günlüğü etkinleştirmek için aşağıdaki komutları kullanın:
+Ölçümleri ve tanılama Azure CLI'yı kullanarak günlük kaydı etkinleştirmek için aşağıdaki komutları kullanın:
 
-- Tanılama günlüklerinin bir depolama hesabındaki depolama etkinleştirmek için bu komutu kullanın:
+- Tanılama günlükleri bir depolama hesabında depolama etkinleştirmek için bu komutu kullanın:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
    ```
 
-   Depolama hesabı depolama hesabı için kaynak kimliği günlükleri göndermek istediğiniz kimliğidir.
+   Depolama hesabı kimliği kaynak depolama hesabı için günlükleri göndermek istediğiniz kimliğidir.
 
-- Tanılama günlüklerini bir olay hub'ına akışını etkinleştirmek için bu komutu kullanın:
+- Tanılama günlükleri Olay hub'ına akışını etkinleştirmek için bu komutu kullanın:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
    ```
 
-   Hizmet veri yolu kural kimliği bu biçiminde bir dize şöyledir:
+   Service Bus kural kimliği şu biçime sahip bir dizedir:
 
    ```azurecli-interactive
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- Günlük analizi çalışma alanı için gönderen tanılama günlüklerini etkinleştirmek için bu komutu kullanın:
+- Log Analytics çalışma alanına gönderme tanılama günlüklerini etkinleştirmek için bu komutu kullanın:
 
    ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
    ```
 
-Birden çok çıktı seçenekleri etkinleştirmek için bu parametreler birleştirebilirsiniz.
+Birden çok çıkış seçeneği etkinleştirmek için şu parametreleri birleştirebilirsiniz.
 
 ### <a name="rest-api"></a>REST API
 
@@ -160,87 +161,87 @@ Konusunu okuyun [Azure İzleyici REST API'sini kullanarak tanılama ayarlarını
 
 ### <a name="resource-manager-template"></a>Resource Manager şablonu
 
-Konusunu okuyun [Resource Manager şablonu kullanarak kaynak oluşturmada tanılama ayarları etkinleştirmek](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
+Konusunu okuyun [Resource Manager şablonu kullanarak kaynak oluşturma sırasında tanılama ayarlarını etkinleştirme](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
 
-## <a name="stream-into-log-analytics"></a>Günlük analizi akışa 
-SQL veritabanı ölçümleri ve tanılama günlükleri akışı günlük analizi yerleşik kullanarak **için günlük analizi Gönder** portalında seçeneği. PowerShell cmdlet'leri, Azure CLI veya Azure İzleyici REST API'si aracılığıyla tanılama ayarını kullanarak, günlük analizi de etkinleştirebilirsiniz.
+## <a name="stream-into-log-analytics"></a>Log Analytics ile Stream 
+SQL veritabanı ölçümleri ve tanılama günlükleri akışa Log Analytics'e yerleşik kullanarak **Log Analytics'e gönderme** portalında seçeneği. Log Analytics PowerShell cmdlet'leri, Azure CLI veya Azure İzleyici REST API aracılığıyla bir tanılama ayarını kullanarak da etkinleştirebilirsiniz.
 
 ### <a name="installation-overview"></a>Yüklemeye genel bakış
 
-SQL veritabanı Donanma izleme günlük analizi ile basit bir işlemdir. Üç adım gerekli değildir:
+SQL veritabanı fleet izleme Log Analytics ile basit bir işlemdir. Üç adım gereklidir:
 
-1. Günlük analizi kaynağı oluşturun.
+1. Log Analytics kaynağını oluşturun.
 
-2. Kayıt ölçümleri ve tanılama günlüklerini veritabanlarına oluşturduğunuz günlük analizi kaynak yapılandırın.
+2. Kayıt ölçümleri ve tanılama günlükleri için veritabanları, oluşturduğunuz Log Analytics kaynağını yapılandırın.
 
-3. Yükleme **Azure SQL analizi** günlük analizi Galerisi'nde çözüm.
+3. Yükleme **Azure SQL Analytics** çözüm galerisinden Log analytics'te.
 
-### <a name="create-a-log-analytics-resource"></a>Günlük analizi kaynak oluşturma
+### <a name="create-a-log-analytics-resource"></a>Log Analytics kaynak oluştur
 
-1. Seçin **kaynak oluşturma** soldaki menüde.
+1. Seçin **kaynak Oluştur** sol taraftaki menüden.
 
 2. Seçin **izleme + Yönetim**.
 
 3. **Log Analytics**’i seçin.
 
-4. Gerekli ek bilgileri içeren günlük analizi formu doldurun: çalışma alanı adı, abonelik, kaynak grubu, konum ve fiyatlandırma katmanı.
+4. Log Analytics formunu gerekli olan ek bilgilerle doldurun: çalışma alanı adı, abonelik, kaynak grubu, konum ve fiyatlandırma katmanı.
 
    ![Log Analytics](./media/sql-database-metrics-diag-logging/log-analytics.png)
 
-### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>Kayıt ölçümleri ve tanılama günlüklerine veritabanlarını yapılandırın
+### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>Veritabanlarını kayıt ölçümleri ve tanılama günlükleri için yapılandırma
 
-Azure portalı üzerinden nerede veritabanları kendi ölçümleri kaydı yapılandırmak için en kolay yoludur. Portalda, SQL veritabanı kaynağınızın gidip seçin **tanılama ayarları**. 
+Azure portalı üzerinden burada veritabanlarını kendi ölçümleri kaydı yapılandırmak için en kolay yoludur. Portalda, SQL veritabanı kaynağınızın gidip seçin **tanılama ayarları**. 
 
-### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>Galeriden SQL analiz çözümü yükleyin
+### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>Galeriden SQL Analytics çözümünü yükleme
 
-1. Günlük analizi kaynak oluşturmak ve verilerinizi içine akan sonra SQL analiz çözümü yükleyin. Yan menüde giriş sayfasında seçin **Çözümleri Galerisi**. Galeride seçin **Azure SQL analizi** çözümü ve select **Ekle**.
+1. Log Analytics kaynağını oluşturun ve verilerinizi içine akar sonra SQL Analytics çözümünü yükleyin. Giriş sayfasında yan menü seçin **çözüm Galerisi**. Galeride seçin **Azure SQL Analytics** çözümünün yanı sıra, select **Ekle**.
 
    ![İzleme çözümü](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. Giriş sayfası, **Azure SQL analizi** döşeme görüntülenir. SQL analizi panosunu açmak için bu kutucuğu seçin.
+2. Giriş sayfanızda **Azure SQL Analytics** kutucuk görünür. SQL Analytics panosunu açmak için bu kutucuğu seçin.
 
-### <a name="use-the-sql-analytics-solution"></a>SQL analiz çözümü kullanın
+### <a name="use-the-sql-analytics-solution"></a>SQL Analytics çözümünü kullanın
 
-SQL analizi SQL veritabanı kaynak hiyerarşisi aracılığıyla taşımanızı sağlar hiyerarşik bir Pano ' dir. SQL analiz çözümü kullanmayı öğrenmek için bkz: [SQL analiz çözümü kullanarak İzleyici SQL veritabanı](../log-analytics/log-analytics-azure-sql.md).
+SQL Analytics, SQL veritabanı kaynak hiyerarşisi aracılığıyla taşımanıza izin veren bir hiyerarşik bir panodur. SQL Analytics çözümünü kullanma konusunda bilgi almak için bkz: [SQL Analytics çözümünü kullanarak SQL veritabanını izleme](../log-analytics/log-analytics-azure-sql.md).
 
-## <a name="stream-into-event-hubs"></a>Olay hub'ları akışa
+## <a name="stream-into-event-hubs"></a>Event hubs'ta Stream
 
-SQL veritabanı ölçümleri ve tanılama günlükleri akışı Event Hubs'a yerleşik kullanarak **bir olay hub'ına akış** portalında seçeneği. PowerShell cmdlet'leri, Azure CLI veya Azure İzleyici REST API'si aracılığıyla tanılama ayarını kullanarak Service Bus kural kimliği de etkinleştirebilirsiniz. 
+SQL veritabanı ölçümleri ve tanılama günlükleri akışa Event Hubs'a yerleşik kullanarak **Stream olay hub'ına** portalında seçeneği. PowerShell cmdlet'lerini, Azure CLI veya Azure İzleyici REST API aracılığıyla bir tanılama ayarını kullanarak, Service Bus kural kimliği de etkinleştirebilirsiniz. 
 
-### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>Olay hub ' günlükleri ölçümleri ve tanılama yapmanız gerekenler
-Seçili verileri Event Hubs'a akışı sonra Gelişmiş izleme senaryoları etkinleştirmek için bir adım daha yaklaşarak artık demektir. Event Hubs bir olay ardışık düzeni için ön kapı görevi görür. Veriler bir event hub'ına toplandıktan sonra dönüştürülmüş ve tüm gerçek zamanlı analiz sağlayıcısı veya toplu işlem/depolama bağdaştırıcısı kullanılarak depolanır. Olay hub'ları bu olayların tüketilmesinden akışı üretim ayrıştırır. Bu şekilde, olay tüketicileri olayları kendi zamanlamalarında erişebilir. Event Hubs hakkında daha fazla bilgi için bkz:
+### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>Olay hub'ları, ölçümleri ve tanılama özellikli yapmanız gerekenler günlüğe kaydeder
+Seçili verileri, Event Hubs'a akış sonra Gelişmiş izleme senaryoları etkinleştirmek için bir adım daha yaklaştınız olursunuz. Event Hubs bir olay ardışık düzeni için ön kapı görevi görür. Veri bir olay hub'ına toplandıktan sonra dönüştürülmüş ve herhangi bir gerçek zamanlı analiz sağlayıcısı veya toplu işleme/depolama bağdaştırıcısı kullanılarak depolanır. Olay hub'ları akışı üretimlerini bu olayların üretim ayırır. Bu şekilde, olay tüketicileri olaylara kendi zamanlamalarında erişebilir. Event Hubs hakkında daha fazla bilgi için bkz:
 
 - [Azure Event Hubs nedir?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Event Hubs kullanmaya başlayın](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 
-Akış özelliği kullanabilir birkaç şekilde şunlardır:
+Akış özelliği kullanabileceğinize birkaç yolu vardır:
 
-* **Power BI sık yolu veri akış tarafından hizmet durumu görüntülemek**. Event Hubs, akış analizi ve Power BI'ı kullanarak Azure hizmetlerinizi ölçümleri ve tanılama verilerinizi yakın gerçek zamanlı Öngörüler kolayca dönüştürebilirsiniz. Akış analizi ve bir çıkış olarak kullanmak üzere Power BI ile işlem verilerini olay hub'ı ayarlamak nasıl genel bakış için bkz [akış analizi ve Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
+* **Hot yol verilerini Power bı'a akış tarafından hizmet durumu görüntüleme**. Event Hubs, Stream Analytics ve Power BI'ı kullanarak Azure hizmetlerinizi ölçümleri ve tanılama verilerinizi neredeyse gerçek zamanlı Öngörüler kolayca dönüştürebilirsiniz. Verileri işlemek, çıktı olarak kullanmak üzere Power BI ve Stream Analytics ile nasıl bir olay hub'ı ayarladınız genel bakış için bkz. [Stream Analytics ve Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
 
-* **Akış günlükleri üçüncü taraf günlüğe kaydetme ve telemetri akışlara**. Olay hub'ları akış kullanarak farklı üçüncü taraf izleme ve günlük analizi çözümleriyle ölçümleri ve tanılama günlükleri alabilirsiniz. 
+* **Üçüncü taraf günlüğe kaydetme ve telemetri akışlarını günlüklerine Stream**. Event Hubs akış kullanarak, farklı üçüncü taraf izleme ve günlük analizi çözümleriyle, ölçümleri ve tanılama günlüklerini alabilirsiniz. 
 
-* **Bir özel telemetri ve günlüğe kaydetme platformu yapı**. Zaten bir özel olarak geliştirilmiş telemetri platform veya bir derleme dikkate alarak, yüksek düzeyde ölçeklenebilir yayımlama yapısını abonelik Event Hubs, esnek tanılama günlüklerini alma olanak sağlar. Bkz: [bir küresel ölçekli telemetri platform olay hub'ları kullanarak Dan Rosanova'nın kılavuzuna](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+* **Özel telemetri ve günlüğe kaydetme platform derleme**. Zaten bir ürettikleri telemetri platformu varsa veya bir oluşturma dikkate yüksek düzeyde ölçeklenebilir Yayımla-doğasını abone ol olay hub'ları esnek bir şekilde tanılama günlükleri alma olanak tanır. Bkz: [Dan Rosanova'nın küresel ölçekli bir telemetri platform Event Hubs kullanarak Kılavuzu](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
-## <a name="stream-into-storage"></a>Akış depolama alanına
+## <a name="stream-into-storage"></a>Stream depolamaya
 
-SQL veritabanı ölçümleri ve tanılama günlükleri depolanabilir depolama yerleşik kullanarak **bir depolama hesabı arşive** portalında seçeneği. PowerShell cmdlet'leri, Azure CLI veya Azure İzleyici REST API'si aracılığıyla tanılama ayarını kullanarak depolama daha da etkinleştirebilirsiniz.
+SQL veritabanı ölçümleri ve tanılama günlüklerini depolanabilir depolamada yerleşik kullanarak **bir depolama hesabında arşivle** portalında seçeneği. Ayrıca, depolama PowerShell cmdlet'lerini, Azure CLI veya Azure İzleyici REST API aracılığıyla bir tanılama ayarını kullanarak etkinleştirebilirsiniz.
 
 ### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>Depolama hesabında şema ölçümleri ve tanılama günlükleri
 
-Ölçümleri ve tanılama günlükleri toplamayı ayarladıktan sonra bir depolama kapsayıcısı ilk veri satırı kullanılamadığında, seçtiğiniz depolama hesabı oluşturulur. Bu BLOB'ları yapıdır:
+Ölçümleri ve tanılama günlükleri toplamayı ayarlama sonra ilk veri satırı kullanılamadığında, seçilen depolama hesabında bir depolama kapsayıcısı oluşturulur. Bu bloblarda yapısı şöyledir:
 
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ databases/{database_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
     
-Veya daha basit bir şekilde:
+Veya daha basit:
 
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Örneğin, bir blob adı tüm ölçümünün olabilir:
+Örneğin, tüm ölçümler için bir blob adı aşağıdaki gibi olabilir:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -252,9 +253,9 @@ Esnek havuz verileri kaydetmek istiyorsanız, blob adı biraz farklıdır:
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-### <a name="download-metrics-and-logs-from-storage"></a>İndirme ölçümleri ve depolama biriminden günlükleri
+### <a name="download-metrics-and-logs-from-storage"></a>Ölçüm ve günlükleri Depolama'dan indirme
 
-Bilgi edinmek için nasıl [depolama biriminden ölçümleri ve tanılama günlüklerini indirin](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
+Bilgi edinmek için nasıl [depolamadan ölçümleri ve tanılama günlüklerini indirin](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
 
 ## <a name="metrics-and-logs-available"></a>Ölçümleri ve günlük yok
 
@@ -262,197 +263,197 @@ Bilgi edinmek için nasıl [depolama biriminden ölçümleri ve tanılama günl�
 
 |**Kaynak**|**Ölçümler**|
 |---|---|
-|Database|DTU yüzdesi DTU kullanıldığında, DTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma yüzdesi, başarılı/başarısız/engellenen Güvenlik Duvarı bağlantılarını, oturumlar yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi, XTP depolama yüzdesi ve kilitlenmeleri |
-|Esnek havuz|eDTU yüzde eDTU kullanıldığında, eDTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma yüzdesi, oturumlar yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi, depolama sınırı, XTP depolama yüzdesi |
+|Database|DTU yüzdesi DTU kullanıldığında, DTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma yüzdesi, başarılı/başarısız/engellenen güvenlik duvarı bağlantıları, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi, XTP depolama yüzdesi ve kilitlenmeler |
+|Esnek havuz|eDTU yüzdesi eDTU kullanıldığında, eDTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma yüzdesi, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi, depolama sınırı, XTP depolama yüzdesi |
 |||
 
 ### <a name="query-store-runtime-statistics"></a>Query Store çalışma zamanı istatistikleri
 
 |Özellik|Açıklama|
 |---|---|
-|Tenantıd|Kiracı kimliğinizi|
+|Kiracı kimliği|Kiracı kimliğiniz|
 |SourceSystem|Her zaman: Azure|
-|TimeGenerated [UTC]|Günlük kaydedilirken zaman damgası.|
+|TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
-|ResourceProvider|Kaynak sağlayıcısının adı. Her zaman: MICROSOFT. SQL|
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL|
 |Kategori|Kategori adı. Her zaman: QueryStoreRuntimeStatistics|
 |OperationName|İşlemin adı. Her zaman: QueryStoreRuntimeStatisticsEvent|
 |Kaynak|Kaynağın adı.|
 |ResourceType|Kaynak türünün adı. Her zaman: Sunucuları/veritabanları|
 |SubscriptionId|Abonelik veritabanının ait GUID.|
 |ResourceGroup|Veritabanının ait kaynak grubunun adı.|
-|LogicalServerName_s|Veritabanının ait sunucunun adıdır.|
-|ElasticPoolName_s|Veritabanı varsa ait esnek havuz adı.|
+|LogicalServerName_s|Veritabanının ait olduğu sunucu adı.|
+|ElasticPoolName_s|Veritabanı varsa ait elastik havuzunun adı.|
 |DatabaseName_s|Veritabanının adı.|
 |ResourceId|Kaynak URI'si.|
 |query_hash_s|Karma sorgu.|
 |query_plan_hash_s|Sorgu planı karması.|
 |statement_sql_handle_s|Deyim sql tanıtıcısı.|
-|interval_start_time_d|Datetimeoffset aralığının 1900 1 1 sayısı başlatın.|
-|interval_end_time_d|Son datetimeoffset 1900 1 1 sayısı aralığı.|
-|logical_io_writes_d|Mantıksal g/ç yazmaları toplam sayısı.|
-|max_logical_io_writes_d|Mantıksal bir g/ç sayısı üst sınırı yürütme başına yazar.|
+|interval_start_time_d|Aralığın datetimeoffset işareti 1900-1-1'den başlatın.|
+|interval_end_time_d|Son datetimeoffset 1900-1-1'den tıklarının sayısını zaman aralığı.|
+|logical_io_writes_d|Mantıksal bir g/ç yazmaları toplam sayısı.|
+|max_logical_io_writes_d|Mantıksal bir g/ç sayısı en fazla yürütme yazar.|
 |physical_io_reads_d|Fiziksel GÇ Okuma toplam sayısı.|
-|max_physical_io_reads_d|Mantıksal bir g/ç sayısı üst sınırı yürütme başına okur.|
-|logical_io_reads_d|Mantıksal g/ç okuma toplam sayısı.|
-|max_logical_io_reads_d|Mantıksal bir g/ç sayısı üst sınırı yürütme başına okur.|
+|max_physical_io_reads_d|Mantıksal bir g/ç sayısı en fazla yürütme okur.|
+|logical_io_reads_d|Mantıksal bir g/ç okuma toplam sayısı.|
+|max_logical_io_reads_d|Mantıksal bir g/ç sayısı en fazla yürütme okur.|
 |execution_type_d|Yürütme türü.|
-|count_executions_d|Sorgu yürütmeleri sayısı.|
-|cpu_time_d|Mikrosaniye cinsinden sorgu tarafından kullanılan toplam CPU süresi.|
-|max_cpu_time_d|En fazla CPU süresi tüketici tarafından mikrosaniye cinsinden tek bir yürütme.|
+|count_executions_d|Sorgunun yürütmelerinin sayısı.|
+|cpu_time_d|Mikrosaniye cinsinden sorgu tarafından kullanılan toplam CPU zamanı.|
+|max_cpu_time_d|Maksimum CPU süresi tüketici tarafından tek bir yürütme mikrosaniye cinsinden.|
 |dop_d|Paralellik derecesi toplamı.|
-|max_dop_d|Maksimum paralellik derecesi tek yürütme için kullanılır.|
-|rowcount_d|Döndürülen satırların toplam sayısı.|
+|max_dop_d|Tek yürütme için kullanılan çalıştırılır. paralellik derecesini maks.|
+|rowcount_d|Toplam satır sayısı döndürüldü.|
 |max_rowcount_d|En fazla tek yürütme döndürülen satır sayısı.|
-|query_max_used_memory_d|KB kullanılan bellek toplam miktarı.|
-|max_query_max_used_memory_d|Max KB tek bir yürütme tarafından kullanılan bellek miktarıdır.|
+|query_max_used_memory_d|KB kullanılan bellek miktarı.|
+|max_query_max_used_memory_d|Tek bir yürütme KB tarafından kullanılan bellek miktarı en yüksek.|
 |duration_d|Mikrosaniye cinsinden toplam yürütme süresi.|
-|max_duration_d|Tek bir yürütme maksimum yürütme süresi.|
+|max_duration_d|En fazla yürütme zamanı tek bir yürütme.|
 |num_physical_io_reads_d|Fiziksel okuma toplam sayısı.|
-|max_num_physical_io_reads_d|En fazla fiziksel okuma başına yürütme sayısı.|
-|log_bytes_used_d|Kullanılan günlük bayt toplam miktarı.|
-|max_log_bytes_used_d|En fazla yürütme başına kullanılan günlük bayt miktarı.|
-|query_id_d|Query Store sorguda kimliği.|
+|max_num_physical_io_reads_d|En fazla yürütme başına fiziksel okuma sayısı.|
+|log_bytes_used_d|Kullanılan günlük baytı toplam miktarı.|
+|max_log_bytes_used_d|En fazla yürütme kullanılan günlük bayt miktarı.|
+|query_id_d|Query Store sorgu kimliği.|
 |plan_id_d|Query Store planında kimliği.|
 
-Daha fazla bilgi edinmek [Query Store çalışma zamanı istatistik verileri](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Daha fazla bilgi edinin [Query Store çalışma zamanı istatistik verileri](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 ### <a name="query-store-wait-statistics"></a>Query Store bekleme istatistikleri
 
 |Özellik|Açıklama|
 |---|---|
-|Tenantıd|Kiracı kimliğinizi|
+|Kiracı kimliği|Kiracı kimliğiniz|
 |SourceSystem|Her zaman: Azure|
-|TimeGenerated [UTC]|Günlük kaydedilirken zaman damgası.|
+|TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
-|ResourceProvider|Kaynak sağlayıcısının adı. Her zaman: MICROSOFT. SQL|
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL|
 |Kategori|Kategori adı. Her zaman: QueryStoreWaitStatistics|
 |OperationName|İşlemin adı. Her zaman: QueryStoreWaitStatisticsEvent|
 |Kaynak|Kaynağın adı|
 |ResourceType|Kaynak türünün adı. Her zaman: Sunucuları/veritabanları|
 |SubscriptionId|Abonelik veritabanının ait GUID.|
 |ResourceGroup|Veritabanının ait kaynak grubunun adı.|
-|LogicalServerName_s|Veritabanının ait sunucunun adıdır.|
-|ElasticPoolName_s|Veritabanı varsa ait esnek havuz adı.|
+|LogicalServerName_s|Veritabanının ait olduğu sunucu adı.|
+|ElasticPoolName_s|Veritabanı varsa ait elastik havuzunun adı.|
 |DatabaseName_s|Veritabanının adı.|
 |ResourceId|Kaynak URI'si.|
 |wait_category_s|Bekleme kategorisi.|
-|is_parameterizable_s|Sorgunun parametrelenebilir değil.|
-|statement_type_s|İfade türü.|
-|statement_key_hash_s|Deyim anahtar karması.|
+|is_parameterizable_s|Sorgu parametrelenebilir gereklidir.|
+|statement_type_s|Deyim türü.|
+|statement_key_hash_s|Deyimi anahtar karması.|
 |exec_type_d|Yürütme türü.|
-|total_query_wait_time_ms_d|Belirli bekleme kategorisine sorgusunun toplam bekleme süresi.|
-|max_query_wait_time_ms_d|Belirli bekleme kategorisine tek tek yürütmesinde sorgusunun en fazla bekleme süresi.|
+|total_query_wait_time_ms_d|Belirli bir bekleme kategoriye sorgunun toplam bekleme süresi.|
+|max_query_wait_time_ms_d|Belirli bir bekleme kategorisi üzerinde tek tek yürütme sorgunun maksimum bekleme süresi.|
 |query_param_type_d|0|
-|query_hash_s|Karma sorgu Deposu'nda sorgu.|
-|query_plan_hash_s|Sorgu planı karma sorgu Deposu'nda.|
-|statement_sql_handle_s|Sorgu Deposu'nda deyim tanıtıcısı.|
-|interval_start_time_d|Datetimeoffset aralığının 1900 1 1 sayısı başlatın.|
-|interval_end_time_d|Son datetimeoffset 1900 1 1 sayısı aralığı.|
-|count_executions_d|Sorgu yürütmeleri sayısı.|
-|query_id_d|Query Store sorguda kimliği.|
+|query_hash_s|Query Store içinde karma sorgu.|
+|query_plan_hash_s|Sorgu planı Query Store karma değeri.|
+|statement_sql_handle_s|Query Store içinde deyim tanıtıcı.|
+|interval_start_time_d|Aralığın datetimeoffset işareti 1900-1-1'den başlatın.|
+|interval_end_time_d|Son datetimeoffset 1900-1-1'den tıklarının sayısını zaman aralığı.|
+|count_executions_d|Sorgu yürütme sayısı.|
+|query_id_d|Query Store sorgu kimliği.|
 |plan_id_d|Query Store planında kimliği.|
 
-Daha fazla bilgi edinmek [Query Store bekleyin istatistik verileri](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Daha fazla bilgi edinin [Query Store bekleme istatistikleri veri](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
-### <a name="errors-dataset"></a>Veri kümesi hataları
+### <a name="errors-dataset"></a>Hataları veri kümesi
 
 |Özellik|Açıklama|
 |---|---|
-|Tenantıd|Kiracı kimliğinizi|
+|Kiracı kimliği|Kiracı kimliğiniz|
 |SourceSystem|Her zaman: Azure|
-|TimeGenerated [UTC]|Günlük kaydedilirken zaman damgası.|
+|TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
-|ResourceProvider|Kaynak sağlayıcısının adı. Her zaman: MICROSOFT. SQL|
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL|
 |Kategori|Kategori adı. Her zaman: hataları|
 |OperationName|İşlemin adı. Her zaman: ErrorEvent|
 |Kaynak|Kaynağın adı|
 |ResourceType|Kaynak türünün adı. Her zaman: Sunucuları/veritabanları|
 |SubscriptionId|Abonelik veritabanının ait GUID.|
 |ResourceGroup|Veritabanının ait kaynak grubunun adı.|
-|LogicalServerName_s|Veritabanının ait sunucunun adıdır.|
-|ElasticPoolName_s|Veritabanı varsa ait esnek havuz adı.|
+|LogicalServerName_s|Veritabanının ait olduğu sunucu adı.|
+|ElasticPoolName_s|Veritabanı varsa ait elastik havuzunun adı.|
 |DatabaseName_s|Veritabanının adı.|
 |ResourceId|Kaynak URI'si.|
-|İleti|Hata iletisi düz metin.|
+|İleti|Düz metin hata iletisi.|
 |user_defined_b|Kullanıcı tanımlı hata bitidir.|
 |error_number_d|Hata kodu.|
 |Severity|Hata önem derecesi.|
 |state_d|Hata durumu.|
-|query_hash_s|Başarısız sorgu varsa karmasını sorgu.|
-|query_plan_hash_s|Başarısız sorgu varsa sorgu planı karması.|
+|query_hash_s|Sorgu karması varsa başarısız sorgu.|
+|query_plan_hash_s|Sorgu planı karması varsa başarısız sorgu.|
 
-Daha fazla bilgi edinmek [SQL Server hata iletileri](https://msdn.microsoft.com/library/cc645603.aspx).
+Daha fazla bilgi edinin [SQL Server hata iletileri](https://msdn.microsoft.com/library/cc645603.aspx).
 
 ### <a name="database-wait-statistics-dataset"></a>Veritabanı bekleme istatistikleri veri kümesi
 
 |Özellik|Açıklama|
 |---|---|
-|Tenantıd|Kiracı kimliğinizi|
+|Kiracı kimliği|Kiracı kimliğiniz|
 |SourceSystem|Her zaman: Azure|
-|TimeGenerated [UTC]|Günlük kaydedilirken zaman damgası.|
+|TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
-|ResourceProvider|Kaynak sağlayıcısının adı. Her zaman: MICROSOFT. SQL|
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL|
 |Kategori|Kategori adı. Her zaman: DatabaseWaitStatistics|
 |OperationName|İşlemin adı. Her zaman: DatabaseWaitStatisticsEvent|
 |Kaynak|Kaynağın adı|
 |ResourceType|Kaynak türünün adı. Her zaman: Sunucuları/veritabanları|
 |SubscriptionId|Abonelik veritabanının ait GUID.|
 |ResourceGroup|Veritabanının ait kaynak grubunun adı.|
-|LogicalServerName_s|Veritabanının ait sunucunun adıdır.|
-|ElasticPoolName_s|Veritabanı varsa ait esnek havuz adı.|
+|LogicalServerName_s|Veritabanının ait olduğu sunucu adı.|
+|ElasticPoolName_s|Veritabanı varsa ait elastik havuzunun adı.|
 |DatabaseName_s|Veritabanının adı.|
 |ResourceId|Kaynak URI'si.|
 |wait_type_s|Bekleme türünün adı.|
-|start_utc_date_t [UTC]|Süresi başlangıç zamanı ölçülür.|
-|end_utc_date_t [UTC]|Ölçülen dönem bitiş saati.|
-|delta_max_wait_time_ms_d|Max beklenen süre yürütme başına|
-|delta_signal_wait_time_ms_d|Toplam sinyal bekleme süresi.|
-|delta_wait_time_ms_d|Dönemdeki toplam bekleme süresi.|
-|delta_waiting_tasks_count_d|Bekleyen görev sayısı.|
+|start_utc_date_t [UTC]|Dönem başlangıç zamanı ölçülür.|
+|end_utc_date_t [UTC]|Ölçülen dönemi bitiş saati.|
+|delta_max_wait_time_ms_d|En fazla beklenen süre yürütme başına|
+|delta_signal_wait_time_ms_d|Sinyal toplam bekleme süresi.|
+|delta_wait_time_ms_d|Dönemi içindeki toplam bekleme süresi.|
+|delta_waiting_tasks_count_d|Bekleyen Görevler sayısı.|
 
-Daha fazla bilgi edinmek [veritabanı bekleme istatistikleri](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
-### <a name="time-outs-dataset"></a>Zaman aşımları veri kümesi
+### <a name="time-outs-dataset"></a>Zaman aşımlarını veri kümesi
 
 |Özellik|Açıklama|
 |---|---|
-|Tenantıd|Kiracı kimliğinizi|
+|Kiracı kimliği|Kiracı kimliğiniz|
 |SourceSystem|Her zaman: Azure|
-|TimeGenerated [UTC]|Günlük kaydedilirken zaman damgası.|
+|TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
-|ResourceProvider|Kaynak sağlayıcısının adı. Her zaman: MICROSOFT. SQL|
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL|
 |Kategori|Kategori adı. Her zaman: zaman aşımı|
 |OperationName|İşlemin adı. Her zaman: TimeoutEvent|
 |Kaynak|Kaynağın adı|
 |ResourceType|Kaynak türünün adı. Her zaman: Sunucuları/veritabanları|
 |SubscriptionId|Abonelik veritabanının ait GUID.|
 |ResourceGroup|Veritabanının ait kaynak grubunun adı.|
-|LogicalServerName_s|Veritabanının ait sunucunun adıdır.|
-|ElasticPoolName_s|Veritabanı varsa ait esnek havuz adı.|
+|LogicalServerName_s|Veritabanının ait olduğu sunucu adı.|
+|ElasticPoolName_s|Veritabanı varsa ait elastik havuzunun adı.|
 |DatabaseName_s|Veritabanının adı.|
 |ResourceId|Kaynak URI'si.|
 |error_state_d|Hata durum kodu.|
-|query_hash_s|Karma, varsa sorgu.|
-|query_plan_hash_s|Varsa planı karma sorgu.|
+|query_hash_s|Karma değeri varsa sorgulayın.|
+|query_plan_hash_s|Sorgu planı karma varsa.|
 
 ### <a name="blockings-dataset"></a>Blockings veri kümesi
 
 |Özellik|Açıklama|
 |---|---|
-|Tenantıd|Kiracı kimliğinizi|
+|Kiracı kimliği|Kiracı kimliğiniz|
 |SourceSystem|Her zaman: Azure|
-|TimeGenerated [UTC]|Günlük kaydedilirken zaman damgası.|
+|TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
-|ResourceProvider|Kaynak sağlayıcısının adı. Her zaman: MICROSOFT. SQL|
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL|
 |Kategori|Kategori adı. Her zaman: blokları|
 |OperationName|İşlemin adı. Her zaman: BlockEvent|
 |Kaynak|Kaynağın adı|
 |ResourceType|Kaynak türünün adı. Her zaman: Sunucuları/veritabanları|
 |SubscriptionId|Abonelik veritabanının ait GUID.|
 |ResourceGroup|Veritabanının ait kaynak grubunun adı.|
-|LogicalServerName_s|Veritabanının ait sunucunun adıdır.|
-|ElasticPoolName_s|Veritabanı varsa ait esnek havuz adı.|
+|LogicalServerName_s|Veritabanının ait olduğu sunucu adı.|
+|ElasticPoolName_s|Veritabanı varsa ait elastik havuzunun adı.|
 |DatabaseName_s|Veritabanının adı.|
 |ResourceId|Kaynak URI'si.|
 |lock_mode_s|Sorgu tarafından kullanılan kilit modu.|
@@ -460,19 +461,19 @@ Daha fazla bilgi edinmek [veritabanı bekleme istatistikleri](https://docs.micro
 |blocked_process_filtered_s|İşlem raporu XML engellendi.|
 |duration_d|Mikrosaniye cinsinden süresi kilit.|
 
-### <a name="intelligent-insights-dataset"></a>Akıllı Öngörüler veri kümesi
-Daha fazla bilgi edinmek [akıllı Öngörüler günlük biçimi](sql-database-intelligent-insights-use-diagnostics-log.md).
+### <a name="intelligent-insights-dataset"></a>Intelligent Insights veri kümesi
+Daha fazla bilgi edinin [Intelligent Insights günlük biçimi](sql-database-intelligent-insights-use-diagnostics-log.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Günlük kaydını etkinleştirmek ve çeşitli Azure Hizmetleri tarafından desteklenen ölçümleri ve günlük kategorileri anlama hakkında bilgi edinmek için okuyun:
+Günlük kaydını etkinleştirmek ve çeşitli Azure Hizmetleri tarafından desteklenen Ölçümler ve günlük kategorileri anlama hakkında bilgi edinmek için:
 
- * [Microsoft Azure ölçümlerini genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
- * [Azure tanılama günlükleri'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+ * [Microsoft azure'da ölçümlere genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+ * [Azure tanılama günlüklerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
 
-Olay hub'ları hakkında bilgi edinmek için okuyun:
+Event Hubs hakkında bilgi edinmek için:
 
 * [Azure Event Hubs nedir?](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Event Hubs kullanmaya başlayın](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-Depolama hakkında daha fazla bilgi için bkz: nasıl yapılır [depolama biriminden ölçümleri ve tanılama günlüklerini indirin](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
+Depolama hakkında daha fazla bilgi için bkz. nasıl [ölçümleri ve tanılama günlüklerini Depolama'dan indirme](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

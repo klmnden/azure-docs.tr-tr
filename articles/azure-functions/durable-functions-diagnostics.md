@@ -1,6 +1,6 @@
 ---
-title: Dayanıklı işlevlerinde - Azure tanılama
-description: Azure işlevleri için dayanıklı işlevleri uzantılı sorunları tanılamak öğrenin.
+title: Dayanıklı işlevler - Azure tanılama
+description: Azure işlevleri için dayanıklı işlevler uzantısını sorunları tanılamayı öğrenin.
 services: functions
 author: cgillum
 manager: cfowler
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4829ea88e0b6507159c192c111acf8ec7e5088e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ce5acda7e2beca1f3d6367708d5b96a5275b2c7f
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764024"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340710"
 ---
-# <a name="diagnostics-in-durable-functions-azure-functions"></a>Tanılama dayanıklı işlevlerinde (Azure işlevleri)
+# <a name="diagnostics-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) hizmetinde tanılama
 
-İle ilgili sorunları tanılamak için birkaç seçenek vardır [dayanıklı işlevleri](durable-functions-overview.md). Bu seçeneklerden bazısı normal işlevler için aynıdır ve bazıları dayanıklı işlevleri için benzersizdir.
+Sorunları tanılamak için birkaç seçenek vardır [dayanıklı işlevler](durable-functions-overview.md). Bu seçeneklerden bazısı için normal işlevleri aynıdır ve bunlardan bazıları dayanıklı işlevler için benzersizdir.
 
 ## <a name="application-insights"></a>Application Insights
 
-[Application Insights](../application-insights/app-insights-overview.md) tanılama ve Azure işlevleri izleme yapmak için önerilen yoldur. Aynı dayanıklı işlevleri için geçerlidir. İşlevi uygulamanıza Application Insights yararlanmak nasıl genel bakış için bkz: [İzleyici Azure işlevleri](functions-monitoring.md).
+[Application Insights](../application-insights/app-insights-overview.md) tanılama ve Azure işlevleri'nde İzleme yapmak için önerilen yoldur. Aynı dayanıklı işlevler için geçerlidir. İşlev uygulamanızda Application Insights kullanmayı genel bakış için bkz. [İzleyici Azure işlevleri](functions-monitoring.md).
 
-Azure işlevleri dayanıklı uzantısı da yayar *olayları izleme* bir orchestration uçtan uca yürütmeyi izlemesini izin verir. Bu bulunabilir ve kullanarak sorgulanan [uygulama Öngörüler Analytics](../application-insights/app-insights-analytics.md) Azure portalında aracı.
+Azure işlevleri dayanıklı uzantısı da yayan *olayları izleme* düzenleme uçtan uca yürütmeyi izlemesini izin verir. Bunlar bulunabilir ve kullanarak sorgulanan [Application Insights Analytics](../application-insights/app-insights-analytics.md) Azure portalında aracı.
 
 ### <a name="tracking-data"></a>İzleme verileri
 
-Her yaşam döngüsü olay orchestration örneğinin yazılması bir izleme olayı neden **izlemeleri** Application Insights koleksiyonu. Bu olay içeren bir **customDimensions** çeşitli alanlarıyla yükü.  Alan adları tüm $a ile `prop__`.
+Orchestration örneğinin her bir yaşam döngüsü olay yazılması bir izleme olayına neden olmadan **izlemeleri** Application ınsights'ta koleksiyonu. Bu olay içeren bir **customDimensions** yüke sahip çeşitli alanları.  Alan adları tüm $a ile `prop__`.
 
-* **hubName**:, düzenlemelerin çalışan görev hub'ın adı.
-* **appName**: işlevi uygulamasının adı. Bu, aynı Application Insights örnek paylaşımı birden çok işlev uygulamalarının olduğunda yararlıdır.
-* **slotName**: [dağıtım yuvası](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/) geçerli işlev uygulaması çalıştığı içinde. Bu sürüm için dağıtım yuvaları, düzenlemelerin yararlanan durumunda faydalı olur.
+* **hubName**:, düzenlemeleri çalışan görev hub'ının adı.
+* **appName**: işlev uygulamasının adı. Aynı Application Insights örneği paylaşımı birden fazla işlev uygulamasına sahip olduğunda bu kullanışlıdır.
+* **slotName**: [dağıtım yuvası](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/) çalıştığı geçerli işlev uygulaması içinde. Sürümü için dağıtım yuvaları, düzenlemeleri yararlanan bu kullanışlıdır.
 * **functionName**: orchestrator veya etkinlik işlevin adı.
-* **functionType**: işlevi türü gibi **Orchestrator** veya **etkinlik**.
-* **InstanceId**: orchestration örneğinin benzersiz kimliği.
-* **Durum**: örneğinin yaşam döngüsü yürütme durumu. Geçerli değerler şunlardır:
-    * **Zamanlanmış**: işlevi çalıştırılmak üzere zamanlandı ancak henüz çalıştıran başlamadığı.
-    * **Başlatılan**: işlevi çalışmaya başladı ancak henüz henüz beklemenin veya tamamlandı.
-    * **Beklemenin**: orchestrator bazı iş zamanlanmış ve tamamlanmasını bekliyor.
+* **functionType**: işlevin türü gibi **Orchestrator** veya **etkinlik**.
+* **InstanceId**: düzenleme örneğinin benzersiz kimliği.
+* **Durum**: örneği yaşam döngüsü yürütme durumu. Geçerli değerler şunlardır:
+    * **Zamanlanmış**: işlev yürütme için zamanlandı ancak çalışan henüz başlamadı.
+    * **Başlatılan**: işlev çalıştırma başlatıldı ancak henüz henüz bekleniyor veya tamamlandı.
+    * **Bekleniyor**: orchestrator bazı işleri zamanlanmış ve tamamlanmasını bekliyor.
     * **Dinleme**: orchestrator için bir dış olay bildirimi dinliyor.
-    * **Tamamlanan**: işlevi başarıyla tamamlandı.
+    * **Tamamlanan**: işlev başarıyla tamamlandı.
     * **Başarısız**: işlev bir hata ile başarısız oldu.
-* **neden**: izleme olayla ilişkili ek veriler. Örneğin, bir dış olay bildirimi için bekliyor. bir örneği varsa, bu alan için bekleyen olay adını gösterir. Bir işlev başarısız olursa, bu hata ayrıntılarını içerir.
-* **isReplay**: izleme olayı için olup olmadığını belirten Boolean değer yeniden yürütme.
-* **extensionVersion**: dayanıklı görev uzantısı'nın sürümü. Bu özellikle önemli uzantısı'nda olası hataları bildirilirken verilerdir. Bir güncelleştirme çalışırken ortaya çıkarsa uzun süre çalışan örnekleri birden çok sürümü bildirebilir. 
-* **sequenceNumber**: bir olay için yürütme sıra numarası. Olayları yürütme zamanına göre sıralamak için zaman damgası yardımcı birlikte. *Bu sayı her zaman zaman damgası tarafından ilk sıralama önemlidir örneği çalışırken, ana bilgisayar yeniden başlatılırsa sıfıra sıfırlama sonra sequenceNumber olacağını unutmayın.*
+* **neden**: izleme olay ile ilişkili ek veriler. Örneğin, bir örneği için bir dış olay bildirimi bekliyorsa, bu alan için bekleyen olay adını gösterir. Bir işlev başarısız olursa, bu hata ayrıntılarını içerir.
+* **isReplay**: izleme olayı için uygun olup olmadığını gösteren Boole değeri yeniden yürütme.
+* **extensionVersion**: dayanıklı görev uzantısı sürümü. Bu özellikle önemli veri uzantısı'nda olası hataları raporlama olur. Bir güncelleştirme çalışırken ortaya çıkarsa, uzun süre çalışan örnekleri birden çok sürümü bildirebilir. 
+* **sequenceNumber**: bir olay için yürütme sıra numarası. Birlikte olayları yürütme zamanına göre sıralamak için zaman damgası yardımcı olur. *Bu sayı örneği çalışırken, her zaman damgası tarafından sıralamanız önemlidir konak yeniden başlatılırsa sıfıra sıfırlama sonra sequenceNumber olacağını unutmayın.*
 
 İzleme verilerini Application Insights'a yayılan ayrıntı yapılandırılabilir `logger` bölümünü `host.json` dosya.
 
@@ -67,14 +67,24 @@ Her yaşam döngüsü olay orchestration örneğinin yazılması bir izleme olay
 }
 ```
 
-Varsayılan olarak, tüm izleme olaylarını gösterilen. Veri birimi ayarlayarak azaltılabilir `Host.Triggers.DurableTask` için `"Warning"` veya `"Error"` ; bu durumda olayları izleme yalnızca olağanüstü durumlar için yayınlaması.
+Varsayılan olarak, tüm olmayan replay izleme olaylar gönderilir. Ayarlayarak veri hacmi azaltılabilir `Host.Triggers.DurableTask` için `"Warning"` veya `"Error"` durumda olayları izleme yalnızca olağanüstü durumlar için yayılan.
+
+Ayrıntılı düzenleme yeniden yürütme olayları yayınlama etkinleştirmek için `LogReplayEvents` ayarlanabilir `true` içinde `host.json` altında dosya `durableTask` gösterildiği gibi:
+
+```json
+{
+    "durableTask": {
+        "logReplayEvents": true
+    }
+}
+```
 
 > [!NOTE]
-> Varsayılan olarak, Application Insights telemetri verileri çok sık yayma önlemek için Azure işlevleri çalışma zamanı tarafından örneklenen. Bu izleme bilgilerini kısa bir süre içinde birçok yaşam döngüsü olaylar meydana geldiğinde kaybolmasına neden olabilir. [Azure işlevleri izleme makale](functions-monitoring.md#configure-sampling) bu davranışı yapılandırmak açıklanmaktadır.
+> Varsayılan olarak, Application Insights telemetri verileri çok sık yayma önlemek için Azure işlevleri çalışma zamanı tarafından örneklenir. Bu izleme bilgileri kısa bir süre içinde birçok yaşam döngüsü olaylar meydana geldiğinde kaybolmasına neden olabilir. [Azure işlevleri izleme makale](functions-monitoring.md#configure-sampling) bu davranışı yapılandırmak açıklanmaktadır.
 
 ### <a name="single-instance-query"></a>Tek örnek sorgu
 
-Geçmiş izleme verilerini tek bir örneği için aşağıdaki sorguyu gösterir [Hello dizisi](durable-functions-sequence.md) işlev düzenleme. Kullanılarak yazılmış [uygulama Öngörüler sorgu dili (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Bu nedenle, yalnızca yeniden yürütme yürütme filtreleri *mantıksal* yürütme yolu gösterilir. Olayları göre sıralayarak sipariş edilen `timestamp` ve `sequenceNumber` sorguda gösterildiği gibi: 
+Geçmiş izleme verilerini tek bir örneği için aşağıdaki sorguyu gösterir [Hello dizisi](durable-functions-sequence.md) işlev düzenleme. Kullanılarak yazılmış [Application Insights sorgu dili (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Yalnızca yeniden yürütme yürütme filtreler *mantıksal* yürütme yolu gösterilir. Olayları göre sıralayarak sıralanabileceği `timestamp` ve `sequenceNumber` sorguda gösterildiği gibi: 
 
 ```AIQL
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
@@ -87,20 +97,20 @@ traces
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
 | extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
-| where isReplay == false
+| where isReplay != true
 | where instanceId == targetInstanceId
 | sort by timestamp asc, sequenceNumber asc
 | project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
 ```
 
-Artan düzende yürütme süresi göre sıralanmış tüm etkinlik işlevler de dahil olmak üzere, orchestration yürütme yolunu gösteren olayları izleme listesi sonucudur.
+Artan düzende yürütme zamanına göre sıralanmış tüm etkinlik işlevler dahil olmak üzere, orchestration yürütme yolunu gösteren olayları izleme listesi sonucudur.
 
-![Uygulama Öngörüler sorgu](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+![Application Insights sorgu](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
 
 
-### <a name="instance-summary-query"></a>Örnek Özet sorgusu
+### <a name="instance-summary-query"></a>Özet sorgu örneği
 
-Aşağıdaki sorgu, belirtilen zaman aralığı içinde çalıştırılan tüm orchestration örneklerinin durumunu görüntüler.
+Aşağıdaki sorgu, belirtilen zaman aralığında çalıştırılan tüm düzenleme örneklerinin durumunu görüntüler.
 
 ```AIQL
 let start = datetime(2017-09-30T04:30:00);
@@ -112,18 +122,18 @@ traces
 | extend state = tostring(customDimensions["prop__state"])
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
 | extend output = tostring(customDimensions["prop__output"])
-| where isReplay == false
+| where isReplay != true
 | summarize arg_max(timestamp, *) by instanceId
 | project timestamp, instanceId, functionName, state, output, appName = cloud_RoleName
 | order by timestamp asc
 ```
-Örnek kimlikleri listesini ve bunların geçerli çalışma zamanı durumu sonucudur.
+Örnek kimlikleri listesini ve geçerli çalışma zamanı durumlarını sonucudur.
 
-![Uygulama Öngörüler sorgu](media/durable-functions-diagnostics/app-insights-single-summary-query.png)
+![Application Insights sorgu](media/durable-functions-diagnostics/app-insights-single-summary-query.png)
 
 ## <a name="logging"></a>Günlüğe kaydetme
 
-Orchestrator günlükleri doğrudan bir orchestrator işlevinden yazarken yeniden yürütme davranışı göz önünde bulundurmanız önemlidir. Örneğin, aşağıdaki orchestrator işlevi göz önünde bulundurun:
+Orchestrator günlükleri doğrudan bir orchestrator işlevden yazarken yeniden yürütme davranışını akılda tutulması önemlidir. Örneğin, aşağıdaki orchestrator işlevi göz önünde bulundurun:
 
 #### <a name="c"></a>C#
 
@@ -158,7 +168,7 @@ module.exports = df(function*(context){
 });
 ```
 
-Sonuçta elde edilen günlük verilerini aşağıdaki gibi bir şeyi aramak için geçiyor:
+Sonuçta elde edilen günlük verilerini aşağıdaki gibi görünmesini geçiyor:
 
 ```txt
 Calling F1.
@@ -174,9 +184,9 @@ Done!
 ```
 
 > [!NOTE]
-> F1, F2 ve F3 çağırmak günlüklerde talep olsa da, bu işlevler yalnızca olduğunu unutmayın *gerçekten* karşılaştı ilk kez çağrılır. Yeniden yürütme sırasında gerçekleşecek sonraki çağrılar atlanır ve çıkışları orchestrator mantığı yeniden oynatılır.
+> F1, F2 ve F3 çağırmak için günlüklerde talep olsa da bu işlevleri yalnızca unutmayın *gerçekten* karşılaşılan ilk kez çağrılır. Yeniden yürütme sırasında gerçekleşen sonraki çağrılar atlanır ve çıkışları orchestrator mantığını yeniden yürütülmesi.
 
-Yalnızca yeniden yürütme olmayan yürütülmesine oturum istiyorsanız, günlük eksikse koşullu ifade yazabilirsiniz `IsReplaying` olan `false`. Yukarıdaki örnekte, ancak bu kez yeniden yürütme denetimleri ile göz önünde bulundurun.
+Yeniden yürütme olmayan yürütülmesine yalnızca günlüğe kaydetmek istediğiniz, yalnızca şu durumlarda günlüğü için bir koşullu ifade yazabilirsiniz `IsReplaying` olduğu `false`. Yukarıdaki örnekte, ancak bu sefer yeniden yürütme denetimleri göz önünde bulundurun.
 
 ```cs
 public static async Task Run(
@@ -192,7 +202,7 @@ public static async Task Run(
     log.Info("Done!");
 }
 ```
-Bu değişiklikle günlük çıktı aşağıdaki gibidir:
+Bu değişiklik, günlük çıktısı aşağıdaki gibidir:
 
 ```txt
 Calling F1.
@@ -206,7 +216,7 @@ Done!
 
 ## <a name="custom-status"></a>Özel durumu
 
-Özel orchestration durumu, orchestrator işlevi için bir özel durum değeri ayarlamanıza olanak tanır. Bu durum HTTP durum sorgusu API sağlanır veya `DurableOrchestrationClient.GetStatusAsync` API. Özel orchestration durum daha zengin orchestrator işlevler için izlemeyi etkinleştirir. Örneğin, orchestrator işlev kodu içerebilir `DurableOrchestrationContext.SetCustomStatus` uzun süre çalışan işlemi için ilerleme durumunu güncelleştirmek için çağrıları. Bir web sayfası veya diğer dış sistem gibi bir istemci, HTTP durum sorgu API'leri daha zengin ilerleme durumu bilgileri için düzenli aralıklarla sorgulayabilir. Kullanarak bir örnek `DurableOrchestrationContext.SetCustomStatus` aşağıda verilmiştir:
+Özel düzenleme durumu orchestrator işleviniz için bir özel durum değeri ayarlamanıza olanak tanır. Bu durum HTTP durum sorgusu API sağlanan veya `DurableOrchestrationClient.GetStatusAsync` API. Özel düzenleme durumu orchestrator işlevleri için daha zengin izleme sağlar. Örneğin, orchestrator işlev kodu içerebilir `DurableOrchestrationContext.SetCustomStatus` uzun süre çalışan işlemin ilerleme durumunu güncelleştirmek için çağırır. Bir web sayfası veya diğer dış sistem gibi bir istemci, HTTP durum sorgusu API'leri daha zengin ilerleme bilgisi için düzenli aralıklarla sorgulayabilir. Bir örnek kullanarak `DurableOrchestrationContext.SetCustomStatus` aşağıda verilmiştir:
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
@@ -221,7 +231,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
 }
 ```
 
-Orchestration çalışırken, dış istemcilere bu özel durum getirebilirsiniz:
+Düzenleme devam ederken, dış istemcilere bu özel durum getirebilirsiniz:
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances/instance123
@@ -242,29 +252,29 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 ```
 
 > [!WARNING]
->  Bir Azure Table Storage sütuna sığmayacak kadar gerektiği için özel durum yükü UTF-16 JSON metnin 16 KB ile sınırlıdır. Daha büyük yük gerekirse harici depolama kullanabilirsiniz.
+>  Bir Azure tablo depolama sütuna sığamayacak kadar olması gerektiğinden, özel durum yükü 16 KB olarak UTF-16 JSON metnini sınırlıdır. Daha büyük yükü gerekiyorsa, dış depolama kullanabilirsiniz.
 
 ## <a name="debugging"></a>Hata ayıklama
 
-Hata ayıklama işlevi kodu doğrudan azure işlevleri destekler ve aynı destekleyen taşır İleri dayanıklı İşlevler, Azure'da çalışan olup olmadığını veya yerel olarak. Ancak, hata ayıklama sırasında dikkat edilmesi gereken birkaç davranışları vardır:
+İşlev kodu doğrudan hata ayıklama azure işlevleri destekler ve aynı destekleyen taşır İleri dayanıklı işlevler için yerel olarak mı Azure'da çalışan bakılmaksızın. Ancak, hata ayıklama sırasında dikkat edilmesi gereken bazı davranışları vardır:
 
-* **Yeniden yürütme**: Orchestrator işlevleri düzenli olarak yeniden yürütme yeni girişler alındığında. Tek bir yani *mantıksal* bir orchestrator işlevi yürütülmesi sonuçlanabilir birden çok kez aynı kesme noktası basarsa özellikle erken işlev kodu ayarlanmışsa.
-* **Await**: her bir `await` olduğu karşılaştı, onu denetim dayanıklı görev Framework dağıtıcısıyla verir. Bu özellikle ilk kez ise `await` bırakıldı ilişkili görev, karşılaşılan, *hiçbir zaman* sürdürüldü. Görev hiçbir zaman sürdürür çünkü atlama *üzerinden* bekleme (Visual Studio'da F10) gerçekte mümkün değildir. Bir görev tekrarlanır zaman üzerinden atlama yalnızca çalışır.
-* **Zaman aşımları Mesajlaşma**: dayanıklı işlevleri iletileri sürücü yürütmesi orchestrator işlevler ve etkinlik işlevleri için dahili olarak kullanır. Çoklu VM ortamında, uzun süre için hata ayıklama içine çiğnemekten yinelenen yürütme kaynaklanan ileti almak başka bir VM neden olabilir. Bu davranış yalnızca normal sıra tetikleyici işlevlerini de var, ancak sıraları uygulama ayrıntılarını olduğundan bu bağlamda noktası önemlidir.
+* **Yeniden yürütme**: Orchestrator işlevleri düzenli olarak yeniden yeni girişler alındığında. Tek bir başka bir deyişle *mantıksal* orchestrator işlevin yürütülmesini neden birden çok kez aynı kesme noktasına ulaşma özellikle erken işlev kodu ayarlanmışsa olur.
+* **Await**: her bir `await` olan karşılaştı, bu denetim dayanıklı görev Framework dağıtıcısıyla verir. Bu özellikle ilk kez ise `await` olmuştur karşılaştı, ilişkili bir görevdir *hiçbir zaman* sürdürüldü. Görev hiçbir zaman sürdürür olduğundan, Adımlama *üzerinden* await (Visual Studio'da F10) gerçekte mümkün değildir. Bir görevi yeniden üzerinden Adımlama yalnızca olduğunda çalışır.
+* **Zaman aşımları Mesajlaşma**: dayanıklı işlevler kuyruk iletileri sürücü yürütülmesini orchestrator işlevler hem etkinlik işlevleri için dahili olarak kullanır. Bir çoklu VM ortamında, uzun süre için hata ayıklama içine bozucu yinelenen yürütülmesine neden, ileti almak başka bir VM neden olabilir. Bu davranış yalnızca normal kuyruk tetikleyicisi işlevlerini de var, ancak bir uygulama ayrıntısı kuyrukları olduğundan bu bağlamda tablonuzu önemlidir.
 
 > [!TIP]
-> Kesme noktaları, yalnızca yeniden yürütme olmayan yürütülmesine bölün isterseniz ayarı seçtiğinizde, o sonları eksikse koşullu kesme noktası ayarlayabilirsiniz `IsReplaying` olan `false`.
+> Kesme noktaları, yalnızca yeniden yürütme olmayan yürütülmesine kesmek istiyorsanız ayarlarken, bu sonu yalnızca şu durumlarda bir koşullu kesme noktası ayarlayabilirsiniz. `IsReplaying` olduğu `false`.
 
 ## <a name="storage"></a>Depolama
 
-Varsayılan olarak, dayanıklı işlevleri durumu Azure depolama alanında depolar. Bu gibi araçları kullanılarak, düzenlemelerin durumunu incelemek anlamına gelir [Microsoft Azure Storage Gezgini](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+Varsayılan olarak, dayanıklı işlevler durumu Azure Depolama'da depolar. Bu gibi araçları kullanarak, düzenlemeleri durumunu incelemek anlamına gelir [Microsoft Azure Depolama Gezgini](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
 ![Azure Depolama Gezgini ekran görüntüsü](media/durable-functions-diagnostics/storage-explorer.png)
 
-Bu, bir düzenleme olabilir tam olarak hangi durumunu görmek için hata ayıklama için faydalıdır. Sıralarındaki iletileri de incelenmesi hangi iş bekleyen olduğunu öğrenmek için (veya bazı durumlarda takılmış).
+Bu, bir düzenleme olabilir tam olarak hangi durumu görmek için hata ayıklama için kullanışlıdır. Sıralarındaki iletileri de incelenebilir hangi iş Beklemede öğrenin (veya bazı durumlarda takılı).
 
 > [!WARNING]
-> Tablo depolama yürütme geçmişini görmek kullanışlı olsa da, bu tabloda herhangi bir bağımlılığı almaktan kaçının. Dayanıklı işlevleri uzantısı geliştikçe değişebilir.
+> Tablo depolama yürütme geçmişini görmek kullanışlı olsa da, bu tabloyu temel bağımlılığın alma kaçının. Dayanıklı işlevler uzantısını geliştikçe değişebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

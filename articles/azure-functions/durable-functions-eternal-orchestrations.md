@@ -1,6 +1,6 @@
 ---
-title: Eternal düzenlemelerin dayanıklı işlevlerinde - Azure
-description: Azure işlevleri için dayanıklı işlevleri uzantısını kullanarak eternal düzenlemelerin uygulama öğrenin.
+title: Dayanıklı işlevler - Azure, dış düzenlemeler
+description: Dış düzenlemeler, Azure işlevleri için dayanıklı işlevler uzantısını kullanarak uygulamayı öğrenin.
 services: functions
 author: cgillum
 manager: cfowler
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f42526430599e47e673d359433e91b4687cbeb9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0af61ec3b22692402697df5331df80ca044759b5
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763759"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340670"
 ---
-# <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Eternal düzenlemelerin dayanıklı işlevlerinde (Azure işlevleri)
+# <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) içinde dış düzenlemeler
 
-*Eternal düzenlemelerin* asla sona orchestrator işlevlerdir. Kullanmak istediğinizde yararlı oldukları [dayanıklı işlevleri](durable-functions-overview.md) toplayıcısını ve sonsuz bir döngüde gerektiren her senaryo için.
+*Dış düzenlemeler* hiçbir zaman son orchestrator işlevlerdir. Kullanmak istediğiniz zaman yararlı oldukları [dayanıklı işlevler](durable-functions-overview.md) toplayıcısını ve sonsuz bir döngüye gerektiren herhangi bir senaryo için.
 
 ## <a name="orchestration-history"></a>Orchestration geçmişi
 
-İçinde anlatıldığı gibi [denetim noktası oluşturma ve yeniden yürütme](durable-functions-checkpointing-and-replay.md), dayanıklı görev Framework her işlevi orchestration geçmişini izler. Bu geçmiş yeni çalışması zamanlamak orchestrator işlevi devam sürekli sürece artar. Orchestrator işlevi sonsuz döngüye girer ve sürekli olarak iş zamanlamaları, bu geçmişi oldukça büyük büyümesine ve önemli performans sorunlarına neden olabilir. *Eternal orchestration* kavram, bu tür sorunları sonsuz döngüler gereken uygulamalar için azaltmak için tasarlanmıştır.
+İçinde anlatıldığı gibi [denetim noktası oluşturma ve yeniden yürütme](durable-functions-checkpointing-and-replay.md), dayanıklı görev Framework her işlev düzenleme geçmişini izler. Bu geçmiş, yeni iş zamanlamak orchestrator işlevi devam sürekli olarak sürece büyür. Orchestrator işlevi bir sonsuz döngüye giriyor ve sürekli işleri zamanlar, bu geçmiş oldukça büyük büyütün ve önemli performans sorunlarına neden olabilir. *Dış düzenleme* kavramı, bu tür sonsuz döngüler gerek duyan uygulamalar için sorunları gidermek için tasarlanmıştır.
 
-## <a name="resetting-and-restarting"></a>Sıfırlamak ve yeniden başlatma
+## <a name="resetting-and-restarting"></a>Sıfırlama ve yeniden başlatma
 
-Sonsuz döngüler kullanmak yerine, orchestrator işlevleri durumlarına çağırarak sıfırlama [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) yöntemi. Bu yöntem, yeni giriş için orchestrator işlevi nesil hale tek bir JSON seri hale getirilebilir parametre alır.
+Sonsuz döngüler kullanmak yerine, orchestrator işlevleri durumlarına çağırarak sıfırlama [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) yöntemi. Bu yöntem, yeni giriş için orchestrator işlevi nesil olur tek bir JSON seri hale getirilebilir parametre alır.
 
-Zaman `ContinueAsNew` çağrılır, kendisine sonlandırılır önce bir ileti örneği enqueues. İleti, yeni giriş değeri örneğiyle yeniden başlatır. Aynı örnek kimliği tutulur, ancak orchestrator işlevin geçmişi etkili bir şekilde kesilir.
+Zaman `ContinueAsNew` çağrılırsa örneği kaybolmamasının kendisine çıkana önce bir ileti. İleti, yeni giriş değerine sahip örnek yeniden başlatır. Aynı örnek Kimliğine tutulur, ancak orchestrator işlevin geçmişi etkili bir şekilde kesildi.
 
 > [!NOTE]
-> Dayanıklı görev Framework aynı örnek kimliği korur ancak dahili olarak yeni bir oluşturur *yürütme kimliği* tarafından sıfırlama orchestrator işlevi için `ContinueAsNew`. Bu yürütme kimliği genellikle dışarıdan gösterilmez, ancak orchestration yürütme hata ayıklama sırasında bilmenizi yararlı olabilir.
+> Dayanıklı görev Framework aynı örnek Kimliğine tutar ancak dahili olarak yeni bir oluşturur *yürütme kimliği* tarafından sıfırlanır orchestrator işlevi için `ContinueAsNew`. Bu yürütme kimliği genellikle harici olarak gösterilmez, ancak orchestration yürütme hata ayıklaması hakkında bilmek de yararlı olabilir.
 
 > [!NOTE]
 > `ContinueAsNew` Yöntemi henüz JavaScript'te kullanılabilir değil.
 
 ## <a name="periodic-work-example"></a>Periyodik iş örneği
 
-Bir kullanım örneği eternal düzenlemelerin için düzenli iş süresiz olarak yapması gereken kodudur.
+Dış düzenlemeler için bir kullanım örneği süresiz olarak düzenli iş yapması gereken kod değil.
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -60,41 +60,15 @@ public static async Task Run(
 }
 ```
 
-Bu örnek Zamanlayıcı tetiklenen bir işlev arasındaki fark, bir zamanlamaya göre temizleme tetikleyici burada kez dayalı olmayan ' dir. Örneğin, her saat bir işlev yürüten CRON zamanlama, 1: 00'de, 2:00, 3:00 yürütecek vb. ve çakışma sorunla potansiyel olarak çalışabilir. Temizleme 30 dakikadan uzun sürerse Bu örnekte, ancak daha sonra onu 1: 00'de, 2:30 ' zamanlanacak 4:00, vb. ve hiçbir çakışma olasılığı vardır.
+Bu örnek ve Zamanlayıcı ile tetiklenen bir işlev arasındaki fark, bir zamanlamaya göre temizleme tetikleyici burada kez dayalı olmayan ' dir. Örneğin, saatte bir işlevi yürüten bir CRON zamanlama, 1: 00'da, 2:00, 3:00 yürütecek vb. ve çakışma bir sorunla karşılaşırsanız potansiyel olarak çalışabilir. Temizleme 30 dakika sürer, bu örnekte, ancak daha sonra 1: 00'da, 2:30, zamanlanacak 4:00, vb. ve hiçbir çakışma olasılığı yoktur.
 
-## <a name="counter-example"></a>Sayaç örneği
+## <a name="exit-from-an-eternal-orchestration"></a>Dış düzenleme Çık
 
-Basitleştirilmiş bir örneği burada verilmiştir bir *sayaç* dinler işlevi *artırma* ve *azaltma* sonsuza kadar olaylar.
+Bir düzenleyici işlevi sonunda tamamlaması gereken sonra yapmanız gereken tek şey *değil* çağrı `ContinueAsNew` ve çıkış işlevi sağlar.
 
-```csharp
-[FunctionName("SimpleCounter")]
-public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
-{
-    int counterState = context.GetInput<int>();
-
-    string operation = await context.WaitForExternalEvent<string>("operation");
-
-    if (operation == "incr")
-    {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
-    }
-    
-    context.ContinueAsNew(counterState);
-}
-```
-
-## <a name="exit-from-an-eternal-orchestration"></a>Bir eternal orchestration Çık
-
-Bir orchestrator işlevi sonunda tamamlaması gereken sonra yapmanız gereken tek şey *değil* çağrısı `ContinueAsNew` ve çıkış işlevi sağlar.
-
-Sonsuz bir döngüde ve durdurulması gerekiyor orchestrator işlevidir kullanırsanız [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) durdurmak için yöntem. Daha fazla bilgi için bkz: [örnek Yönetimi](durable-functions-instance-management.md).
+Bir düzenleyici işlevi sonsuz bir döngüye ve durdurulması gerekir, kullanın [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) durdurmak için yöntemi. Daha fazla bilgi için [örnek Yönetimi](durable-functions-instance-management.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Singleton düzenlemelerin uygulamak öğrenin](durable-functions-singletons.md)
+> [Tekil düzenlemeler uygulamayı öğrenin](durable-functions-singletons.md)

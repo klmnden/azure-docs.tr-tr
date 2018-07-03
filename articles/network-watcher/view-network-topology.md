@@ -1,6 +1,6 @@
 ---
-title: Azure sanal ağ topolojisi görüntülemek | Microsoft Docs
-description: Bir sanal ağ ve kaynakları arasındaki ilişkileri kaynakları görüntülemek öğrenin.
+title: Azure sanal ağ topolojisini görüntüleme | Microsoft Docs
+description: Kaynakları bir sanal ağ ve kaynakları arasındaki ilişkiler görüntülemeyi öğrenin.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,53 +14,55 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 6ef165ddc481bf84c6189635e36b97eb9518261e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 1725a3d6a4eb82ca57078f648efa14866d2fe390
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077895"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "35982047"
 ---
-# <a name="view-the-topology-of-an-azure-virtual-network"></a>Bir Azure sanal ağ topolojisini görüntülemek
+# <a name="view-the-topology-of-an-azure-virtual-network"></a>Bir Azure sanal ağ topolojisini görüntüleme
 
-Bu makalede, Microsoft Azure sanal ağı ve kaynakları arasındaki ilişkileri kaynakları görüntülemek nasıl öğrenin. Örneğin, bir sanal ağ alt ağlar içeriyor. Alt ağlar kaynaklar, Azure sanal makineler (VM) gibi içerir. Sanal makineleri bir veya daha fazla ağ arabirimine sahip. Her alt ağ, bir ağ güvenlik grubu ve için ilişkili bir yol tablosu sahip olabilir. Azure Ağ İzleyicisi topoloji yeteneğini tüm kaynakları bir sanal ağ içinde bir sanal ağ ve kaynakları arasındaki ilişkileri kaynaklara ilişkili kaynakları görüntülemek etkinleştirir.
+Bu makalede, Microsoft Azure sanal ağı ve kaynakları arasındaki ilişkiler kaynakların nasıl öğrenin. Örneğin, bir sanal ağ alt ağları içerir. Alt ağlar, Azure sanal makineler (VM) gibi kaynakları içerir. VM'ler, bir veya daha fazla ağ arabirimine sahip. Her alt ağ bir ağ güvenlik grubu ve ilişkili bir yol tablosu olabilir. Azure Ağ İzleyicisi topolojisi yeteneğini tüm kaynakları bir sanal ağ kaynaklara bir sanal ağ ve kaynakları arasındaki ilişkiler ilişkili kaynakları görüntülemek sağlar.
 
-Kullanabileceğiniz [Azure portal](#azure-portal), [Azure CLI](#azure-cli), veya [PowerShell](#powershell) bir topolojisini görüntülemek için.
+Kullanabileceğiniz [Azure portalında](#azure-portal), [Azure CLI](#azure-cli), veya [PowerShell](#powershell) bir topolojiyi görüntülemek için.
 
-## <a name = "azure-portal"></a>Görünüm topolojisi - Azure portalı
+## <a name = "azure-portal"></a>Azure portalı - topolojisini görüntüleme
 
-1. İçine oturum [Azure portal](https://portal.azure.com) gerekli olan bir hesap ile [izinleri](required-rbac-permissions.md).
-2. Üstte sol alt köşe portalı, select **tüm hizmetleri**.
-3. İçinde **tüm hizmetleri** filtre kutusu, girin *Ağ İzleyicisi*. Zaman **Ağ İzleyicisi** göründüğü sonuçlarında seçin.
-4. Seçin **topoloji**. Bir topoloji oluşturmak için topoloji oluşturmak istediğiniz sanal ağ var. aynı bölgede bir Ağ İzleyicisi gerektirir. Sanal ağ için bir topolojiyi oluşturmak istediğiniz bulunduğu bölgede etkin bir Ağ İzleyicisi yoksa, ağ izleyicileri otomatik olarak sizin için tüm bölgelerde oluşturulur. Ağ izleyicileri adlı bir kaynak grubunda oluşturulan **NetworkWatcherRG**.
-5. Kaynak grubu, bir sanal ağ topolojisini, görüntülemek istediğiniz aboneliği seçin ve ardından sanal ağ seçin. Aşağıdaki resimde, bir topoloji adlı bir sanal ağ için gösterilen *MyVnet*, kaynak grubunda adlı *MyResourceGroup*:
+1. Oturum [Azure portalında](https://portal.azure.com) gerekli olan bir hesapla [izinleri](required-rbac-permissions.md).
+2. Köşe seçin Portalı'nın sol üst köşesindeki, **tüm hizmetleri**.
+3. İçinde **tüm hizmetleri** filtre kutusu, girin *Ağ İzleyicisi*. **Ağ İzleyicisi**, sonuçlarda görüntülendiğinde onu seçin.
+4. Seçin **topolojisi**. Bir topoloji oluşturma topolojisini oluşturmak istediğiniz sanal ağın içinde bulunduğu aynı bölgede bir Ağ İzleyicisi gerektirir. Bir topoloji için oluşturmak istediğiniz sanal ağ bölgesinde etkin bir Ağ İzleyicisi yoksa, Ağ İzleyicisi otomatik olarak sizin için tüm bölgelerde oluşturulur. Ağ izleyicileri adlı bir kaynak grubunda oluşturulan **NetworkWatcherRG**.
+5. Bir abonelik topolojisini, görüntülemek istediğiniz bir sanal ağın kaynak grubu seçin ve ardından sanal ağ'ı seçin. Aşağıdaki resimde, bir topoloji adlı bir sanal ağ için gösterilen *MyVnet*, adlı kaynak grubunda *MyResourceGroup*:
 
     ![Topolojiyi görüntüle](./media/view-network-topology/view-topology.png)
 
-    Önceki resimde gördüğünüz gibi sanal ağ üç alt ağ içerir. Bir alt ağda dağıtılmış bir VM sahiptir. VM ekli bir ağ arabirimi ve için ilişkili ortak bir IP adresi vardır. Diğer iki alt ağ için ilişkili bir yol tablosu var. Her yol tablosu iki yol içerir. Bir alt ağ için ilişkili bir ağ güvenlik grubu vardır. Kaynaklar için topoloji bilgilerini gösterilen yalnızca: - aynı kaynak grubunu ve bölge içinde *myVnet* sanal ağ. Örneğin, bir kaynak grubunda dışındaki mevcut bir ağ güvenlik grubu *MyResourceGroup*, ağ güvenlik grubu için bir alt ağda ilişkili olsa bile, gösterilmeyen *MyVnet* sanal ağ .
-        -İçinde ya da, içindeki kaynaklara ilişkili *myVnet* sanal ağ. Örneğin, bir alt ağ veya ağ arabirimi ile ilişkili olmayan bir ağ güvenlik grubu *myVnet* sanal ağ değil gösterilen, ağ güvenlik grubu olsa bile *MyResourceGroup* kaynak grubu.
+    Önceki resimde görebileceğiniz gibi sanal ağ üç alt ağ içerir. Bir alt ağ içinde dağıtılan bir sanal makine var. VM olarak bağlanmış bir ağ arabirimi ve ilişkili bir genel IP adresi vardır. Diğer iki alt avantajlarla ilişkili bir yol tablosu var. Her bir yol tablosu iki yolları içerir. Bir alt ağ ile ilişkili ağ güvenlik grubu vardır. Topoloji bilgilerini olan kaynaklar için yalnızca gösterilmektedir:
+    
+    - Aynı kaynak grubunda ve bölgede içinde *myVnet* sanal ağ. Örneğin, bir kaynak grubunda dışındaki mevcut bir ağ güvenlik grubu *MyResourceGroup*, bir alt ağda ilişkili ağ güvenlik grubu olsa bile, gösterilmiyor *MyVnet* sanal ağ .
+    - İçinde ya da kaynaklara, içine ilişkili *myVnet* sanal ağ. Örneğin, bir alt ağ veya ağ arabirimi ile ilişkili olmayan bir ağ güvenlik grubu *myVnet* sanal ağ göremiyorsanız, ağ güvenlik grubu olmasa dahi *MyResourceGroup* kaynak grubu.
 
-    Aşağıdaki resimde gösterilen dağıttıktan sonra oluşturulan sanal ağ için topolojidir **yönlendirme trafiği ağ sanal gereç komut dosyası örneği üzerinden**, hangi kullanarak dağıtabilirsiniz [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), veya [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+  Resimde gösterilen dağıttıktan sonra oluşturduğunuz sanal ağı için topolojidir **yönlendirme trafiği ağ sanal Gereci betik örneği-**, kullanarak dağıtabileceğiniz [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), veya [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-6. Seçin **karşıdan topoloji** görüntü svg biçiminde düzenlenebilir bir dosya olarak indirmek için.
+6. Seçin **indirme topolojisi** svg biçiminde düzenlenebilir bir dosya olarak kullanmak üzere görüntüyü indirmek için.
 
-Diyagramda gösterildiği kaynaklar sanal ağda ağ bileşenlerinin bir alt kümesidir. Örneğin, bir ağ güvenlik grubu gösterilmese içindeki güvenlik kuralları şemada gösterilmez. Diyagramda Ayrıştırılan değil de, satırları iki ilişki birini temsil eden: *kapsama* veya *ilişkili*. Sanal ağ ve kaynakları arasındaki ilişki türünü kaynaklarında tam listesini görmek için topolojisiyle oluşturmak [PowerShell](#powershell) veya [Azure CLI](#azure-cli).
+Aşağıdaki diyagramda gösterilen bir alt kümesi sanal ağda ağ bileşenleri kaynaklardır. Örneğin, bir ağ güvenlik grubu gösterilmese içindeki güvenlik kuralları şemada gösterilmez. Diyagramda Ayrıştırılan değil de, satırları iki ilişkisi birini temsil eder: *kapsama* veya *ilişkili*. Sanal ağ ve kaynakları arasındaki ilişki türü kaynakları tam listesini görmek için topoloji ile oluşturmak [PowerShell](#powershell) veya [Azure CLI](#azure-cli).
 
-## <a name = "azure-cli"></a>Topolojisi - Azure CLI görüntüleyin
+## <a name = "azure-cli"></a>Topolojiyi - Azure CLI görüntülemek
 
-Aşağıdaki adımlarda komutları çalıştırabilirsiniz:
-- Seçerek Azure bulut Kabuğu'nda **deneyin** üst sağına herhangi bir komutu. Azure bulut Kabuk önceden ve hesabınızla kullanmak üzere yapılandırılmış ortak Azure Araçları olduğundan boş bir etkileşimli kabuk ' dir.
-- CLI bilgisayarınızdan çalıştırarak. CLI bilgisayarınızdan çalıştırırsanız, bu makaledeki adımları Azure CLI Sürüm 2.0.31 gerektiren veya sonraki bir sürümü. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
+İzleyen adımları komutları çalıştırabilirsiniz:
+- Azure Cloud shell'de seçerek, **deneyin** üst sağında herhangi bir komutu. Azure Cloud Shell'i yüklenmiştir ve Kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmış yaygın Azure Araçları ücretsiz bir etkileşimli kabuktur.
+- CLI'yı bilgisayarınızdan çalıştırarak. CLI'yı bilgisayarınızdan çalıştırırsanız, bu makaledeki adımlarda, Azure CLI Sürüm 2.0.31 gerektirir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
 
 Kullandığınız hesabın gerekli olmalıdır [izinleri](required-rbac-permissions.md).
 
-1. Ağ İzleyici için bir topolojiyi oluşturmak istediğiniz sanal ağ ile aynı bölgede zaten varsa, 3. adıma atlayın. Ağ İzleyicisi ile içerecek şekilde bir kaynak grubu oluşturmak [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek, kaynak grubunu oluşturur *eastus* bölge:
+1. Bir topoloji için oluşturmak istediğiniz sanal ağ ile aynı bölgede Ağ İzleyicisi zaten varsa, 3. adımına geçin. Ağ İzleyicisi ile içerecek bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnekte kaynak grubu oluşturulmaktadır *eastus* bölgesi:
 
     ```azurecli-interactive
     az group create --name NetworkWatcherRG --location eastus
     ```
 
-2. Ağ İzleyicisi ile oluşturma [az Ağ İzleyicisi'ni yapılandırma](/cli/azure/network/watcher#az-network-watcher-configure). Aşağıdaki örnek, bir Ağ İzleyicisi oluşturur *eastus* bölge:
+2. Ağ İzleyicisi ile oluşturma [az Ağ İzleyicisi'ni yapılandırma](/cli/azure/network/watcher#az-network-watcher-configure). Aşağıdaki örnek, bir Ağ İzleyicisi oluşturur *eastus* bölgesi:
 
     ```azurecli-interactive
     az network watcher configure \
@@ -69,31 +71,31 @@ Kullandığınız hesabın gerekli olmalıdır [izinleri](required-rbac-permissi
       --enabled true
     ```
 
-3. Topolojisiyle görüntülemek [az Ağ İzleyicisi Göster-topolojisi](/cli/azure/network/watcher#az-network-watcher-show-topology). Aşağıdaki örnekte bir kaynak grubu için topoloji görünümleri *MyResourceGroup*:
+3. İle topolojiyi görüntülemek [az network watcher show-topology](/cli/azure/network/watcher#az-network-watcher-show-topology). Aşağıdaki örnekte adlı bir kaynak grubu için topoloji görünümleri *MyResourceGroup*:
 
     ```azurecli-interactive
     az network watcher show-topology --resource-group MyResourceGroup
     ```
 
-    Topoloji bilgilerini aynı kaynak grubunda kaynaklar için döndürülen yalnızca *MyResourceGroup* kaynak grubu ve Ağ İzleyicisi'ni aynı bölgede. Örneğin, bir kaynak grubunda dışındaki mevcut bir ağ güvenlik grubu *MyResourceGroup*, ağ güvenlik grubu için bir alt ağda ilişkili olsa bile, gösterilmeyen *MyVnet* sanal ağ .
+    Aynı kaynak grubu içindeki kaynaklar için yalnızca topoloji bilgilerini döndürülen *MyResourceGroup* kaynak grubunu ve aynı bölgede Ağ İzleyicisi. Örneğin, bir kaynak grubunda dışındaki mevcut bir ağ güvenlik grubu *MyResourceGroup*, bir alt ağda ilişkili ağ güvenlik grubu olsa bile, gösterilmiyor *MyVnet* sanal ağ .
 
-  Daha fazla bilgi edinmek [ilişkileri](#relationhips) ve [özellikleri](#properties) döndürülen çıkışı. İçin bir topolojiyi görüntülemek için mevcut bir sanal ağa sahip değilseniz, kullanarak bir tane oluşturabilirsiniz [trafiği ağ sanal gereç aracılığıyla yönlendirmek](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) komut dosyası örneği. Topoloji diyagramı görüntülemek ve düzenlenebilir bir dosyasını karşıdan yüklemek için kullanmak [portal](#azure-portal).
+  Daha fazla bilgi edinin [ilişkileri](#relationhips) ve [özellikleri](#properties) döndürülen çıktı. İçin bir topolojiyi görüntülemek için mevcut bir sanal ağınız yoksa, kullanarak bir tane oluşturabilirsiniz [ağ sanal Gereci trafiği yönlendirme](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) betik örneği. İçinde düzenlenebilir bir dosya indirin ve topoloji diyagramı görüntülemek için kullanın [portalı](#azure-portal).
 
-## <a name = "powershell"></a>Görünüm topolojisi - PowerShell
+## <a name = "powershell"></a>Topolojisini görüntüleme - PowerShell
 
-Aşağıdaki adımlarda komutları çalıştırabilirsiniz:
-- Seçerek Azure bulut Kabuğu'nda **deneyin** üst sağına herhangi bir komutu. Azure bulut Kabuk önceden ve hesabınızla kullanmak üzere yapılandırılmış ortak Azure Araçları olduğundan boş bir etkileşimli kabuk ' dir.
-- PowerShell bilgisayarınızdan çalıştırarak. PowerShell bilgisayarınızdan çalıştırırsanız, bu makaledeki adımları sürümünü 5.7.0 gerektiren veya üzeri AzureRm modülü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+İzleyen adımları komutları çalıştırabilirsiniz:
+- Azure Cloud shell'de seçerek, **deneyin** üst sağında herhangi bir komutu. Azure Cloud Shell'i yüklenmiştir ve Kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmış yaygın Azure Araçları ücretsiz bir etkileşimli kabuktur.
+- PowerShell kullanarak bilgisayarınızdan çalıştırarak. PowerShell bilgisayarınızdan çalıştırırsanız, bu makaledeki adımlarda sürümü 5.7.0 gerekir veya üzeri AzureRm modülü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
 Kullandığınız hesabın gerekli olmalıdır [izinleri](required-rbac-permissions.md).
 
-1. Ağ İzleyici için bir topolojiyi oluşturmak istediğiniz sanal ağ ile aynı bölgede zaten varsa, 3. adıma atlayın. Ağ İzleyicisi ile içerecek şekilde bir kaynak grubu oluşturmak [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). Aşağıdaki örnek, kaynak grubunu oluşturur *eastus* bölge:
+1. Bir topoloji için oluşturmak istediğiniz sanal ağ ile aynı bölgede Ağ İzleyicisi zaten varsa, 3. adımına geçin. Ağ İzleyicisi ile içerecek bir kaynak grubu oluşturma [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). Aşağıdaki örnekte kaynak grubu oluşturulmaktadır *eastus* bölgesi:
 
     ```azurepowershell-interactive
     New-AzureRmResourceGroup -Name NetworkWatcherRG -Location EastUS
     ```
 
-2. Ağ İzleyicisi ile oluşturma [yeni AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher). Aşağıdaki örnek, bir Ağ İzleyicisi eastus bölgede oluşturur:
+2. Ağ İzleyicisi ile oluşturma [yeni AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher). Aşağıdaki örnekte eastus bölgede Ağ İzleyicisi oluşturur:
 
     ```azurepowershell-interactive
     New-AzureRmNetworkWatcher `
@@ -101,7 +103,7 @@ Kullandığınız hesabın gerekli olmalıdır [izinleri](required-rbac-permissi
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. Ağ İzleyicisi örneğiyle almak [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher). Aşağıdaki örnek, bir Ağ İzleyicisi Doğu ABD bölgesinde alır:
+3. Ağ İzleyicisi örneğiyle almak [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher). Aşağıdaki örnek, Doğu ABD bölgesinde bir Ağ İzleyicisi alır:
 
     ```azurepowershell-interactive
     $nw = Get-AzurermResource `
@@ -111,7 +113,7 @@ Kullandığınız hesabın gerekli olmalıdır [izinleri](required-rbac-permissi
       -ResourceGroupName $nw.ResourceGroupName
     ```
 
-4. Bir topolojisiyle almak [Get-AzureRmNetworkWatcherTopology](/powershell/module/azurerm.network/get-azurermnetworkwatchertopology). Aşağıdaki örnek adlı kaynak grubundaki sanal ağ için bir topolojiyi alır *MyResourceGroup*:
+4. Bir topoloji ile alma [Get-AzureRmNetworkWatcherTopology](/powershell/module/azurerm.network/get-azurermnetworkwatchertopology). Aşağıdaki örnekte adlı kaynak grubunda bir sanal ağ için bir topolojiyi alır *MyResourceGroup*:
 
     ```azurepowershell-interactive
     Get-AzureRmNetworkWatcherTopology `
@@ -119,32 +121,32 @@ Kullandığınız hesabın gerekli olmalıdır [izinleri](required-rbac-permissi
       -TargetResourceGroupName MyResourceGroup
     ```
 
-   Topoloji bilgilerini aynı kaynak grubunda kaynaklar için döndürülen yalnızca *MyResourceGroup* kaynak grubu ve Ağ İzleyicisi'ni aynı bölgede. Örneğin, bir kaynak grubunda dışındaki mevcut bir ağ güvenlik grubu *MyResourceGroup*, ağ güvenlik grubu için bir alt ağda ilişkili olsa bile, gösterilmeyen *MyVnet* sanal ağ .
+   Aynı kaynak grubu içindeki kaynaklar için yalnızca topoloji bilgilerini döndürülen *MyResourceGroup* kaynak grubunu ve aynı bölgede Ağ İzleyicisi. Örneğin, bir kaynak grubunda dışındaki mevcut bir ağ güvenlik grubu *MyResourceGroup*, bir alt ağda ilişkili ağ güvenlik grubu olsa bile, gösterilmiyor *MyVnet* sanal ağ .
 
-  Daha fazla bilgi edinmek [ilişkileri](#relationhips) ve [özellikleri](#properties) döndürülen çıkışı. İçin bir topolojiyi görüntülemek için mevcut bir sanal ağa sahip değilseniz, kullanarak bir tane oluşturabilirsiniz [trafiği ağ sanal gereç aracılığıyla yönlendirmek](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) komut dosyası örneği. Topoloji diyagramı görüntülemek ve düzenlenebilir bir dosyasını karşıdan yüklemek için kullanmak [portal](#azure-portal).
+  Daha fazla bilgi edinin [ilişkileri](#relationhips) ve [özellikleri](#properties) döndürülen çıktı. İçin bir topolojiyi görüntülemek için mevcut bir sanal ağınız yoksa, kullanarak bir tane oluşturabilirsiniz [ağ sanal Gereci trafiği yönlendirme](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) betik örneği. İçinde düzenlenebilir bir dosya indirin ve topoloji diyagramı görüntülemek için kullanın [portalı](#azure-portal).
 
 ## <a name="relationships"></a>İlişkiler
 
-Tüm kaynakların bir topolojisinde döndürülen başka bir kaynağa ilişkinin aşağıdaki türlerden biri vardır:
+Bir topolojide döndürülen tüm kaynakları başka bir kaynağa ilişkisinin aşağıdaki türlerinden biri vardır:
 
 | İlişki türü | Örnek                                                                                                |
 | ---               | ---                                                                                                    |
-| Kapsama       | Bir sanal ağ alt ağını içeriyor. Bir alt ağ bir ağ arabirimi içerir.                            |
-| İlişkili        | Bir ağ arabirimine bir VM ile ilişkilidir. Bir ortak IP adresi, bir ağ arabirimine ilişkilidir. |
+| Kapsama       | Bir sanal ağ, bir alt ağı içeriyor. Bir alt ağ bir ağ arabirimi içerir.                            |
+| İlişkili        | Bir ağ arabiriminin VM ile ilişkilidir. Genel bir IP adresi, bir ağ arabirimi ile ilişkilidir. |
 
 ## <a name="properties"></a>Özellikler
 
-Tüm kaynakların bir topolojisinde döndürülen aşağıdaki özelliklere sahiptir:
+Bir topolojide döndürülen tüm kaynakları, aşağıdaki özelliklere sahiptir:
 
 - **Ad**: kaynak adı
-- **Kimliği**: kaynak URI'si.
-- **Konum**: kaynak bulunmaktadır Azure bölgesi.
-- **İlişkileri**: başvurulan nesne ilişkilerini listesi. Her bir ilişkilendirme aşağıdaki özelliklere sahiptir:
-    - **AssociationType**: alt nesne ve üst arasındaki ilişkiyi başvuruyor. Geçerli değerler *içerir* veya *ilişkilendirilmiş*.
+- **Kimliği**: Kaynak URI.
+- **Konum**: kaynak var. Azure bölgesi.
+- **İlişkilendirmeleri**: başvurulan nesnenin ilişkilerini listesi. Her bir ilişkilendirme aşağıdaki özelliklere sahiptir:
+    - **AssociationType**: alt nesneye ve üst arasındaki ilişkiyi başvuruyor. Geçerli değerler *içerir* veya *ilişkilendirilmiş*.
     - **Ad**: başvurulan kaynağın adı.
-    - **ResourceId**:-association'ında başvurulan kaynak URI'si.
+    - **ResourceId**:-ilişkilendirmeyi başvurulan kaynak URI.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bilgi nasıl [için veya bir VM ağ trafiği filtre sorunu tanılamak](diagnose-vm-network-traffic-filtering-problem.md) Ağ İzleyicisi'nin IP akış kullanarak yetenek doğrulayın
-- Bilgi edinmek için nasıl [bir VM'den gelen ağ trafiğini yönlendirme sorunu tanılamak](diagnose-vm-network-routing-problem.md) Ağ İzleyicisi'nin sonraki atlama özelliğini kullanma
+- Bilgi edinmek için nasıl [bir ağ trafik filtresi sorununu ya da bir VM'den tanılama](diagnose-vm-network-traffic-filtering-problem.md) kullanarak Ağ İzleyicisi'nin IP akışını doğrulayın özelliği
+- Bilgi nasıl [bir VM'den bir ağ trafiği yönlendirme sorunu tanılama](diagnose-vm-network-routing-problem.md) Ağ İzleyicisi'nin sonraki atlama özelliğini kullanma

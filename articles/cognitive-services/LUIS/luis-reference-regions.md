@@ -1,7 +1,7 @@
 ---
-title: Dil anlama (HALUK) bölgeleri | Microsoft Docs
+title: Language Understanding (LUIS) bölgeleri | Microsoft Docs
 titleSuffix: Azure
-description: Bu makalede HALUK Web sitesi, Azure abonelikleri ve world bölgeler için HALUK bölgelerin listesini içerir.
+description: Bu makale, LUIS Web sitesi, Azure abonelikleri ve dünya bölgeleri için LUIS bölgelerin listesini içerir.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -10,34 +10,34 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: v-geberr
-ms.openlocfilehash: 86a20770178707f72cf2991ca08b6b98eaeaf0cf
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d81fbc03689788066fb9275523a5e96647117c58
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36237289"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346464"
 ---
-# <a name="regions-and-keys"></a>Bölgeler ve anahtarları
+# <a name="regions-and-keys"></a>Bölgeler ve anahtarlar
 
-HALUK uygulamanızı yayınlama bölge, bölge veya Azure HALUK uç noktası anahtarı oluşturduğunuzda, Azure Portalı'nda belirttiğiniz bir konuma karşılık gelir. Olduğunda, [uygulama yayımlama](./PublishApp.md), HALUK anahtar ile ilişkili bölge için bir uç nokta URL'sini otomatik olarak oluşturur. Birden fazla bölgeye HALUK uygulama yayımlamak için bölge başına en az bir anahtar gerekir. 
+LUIS uygulamanızı yayımladığınız bölge, bölge veya Azure portalında bir Azure LUIS uç noktası anahtarı oluştururken belirttiğiniz konuma karşılık gelir. Olduğunda, [uygulama yayımlama](./luis-how-to-publish-app.md), LUIS otomatik olarak bir anahtar ile ilişkili bölge için uç nokta URL'si oluşturur. Birden fazla bölgeye LUIS uygulaması yayımlamak için bölge başına en az bir anahtar gerekir. 
 
-## <a name="luis-website"></a>HALUK Web sitesi
-Bölgeye göre üç HALUK Web siteleri, vardır. Yazar ve aynı bölgede yayımlayın. 
+## <a name="luis-website"></a>LUIS Web sitesi
+Bölgeye göre üç LUIS Web siteleri, vardır. Yazar ve aynı bölgede yayımlama gerekir. 
 
 |LUIS|Bölge|
 |--|--|
-|[www.luis.ai][www.luis.ai]|ABD<br>değil Avrupa<br>Avustralya için değil|
+|[www.luis.ai][www.luis.ai]|ABD<br>Avrupa'değil<br>Avustralya'değil|
 |[AU.luis.ai][au.luis.ai]|Avustralya|
 |[EU.luis.ai][eu.luis.ai]|Avrupa|
 
 
 ## <a name="publishing-regions"></a>Yayımlama bölgeleri
 
-Oluşturulan HALUK uygulamaları https://www.luis.ai tüm uç noktaları için yayımlanan [Avrupa](#publishing-to-europe) ve [Avustralya](#publishing-to-australia) bölgeleri. 
+LUIS uygulamalar üzerinde oluşturulan https://www.luis.ai tüm uç noktalar için yayımlanan [Avrupa](#publishing-to-europe) ve [Avustralya](#publishing-to-australia) bölgeleri. 
 
-Geliştirme bölge uygulama yalnızca bir karşılık gelen yayımlanabilir bölge yayımlayın. Uygulamanız şu anda yanlış yazma bölgeye ise, uygulama verme ve yayımlama bölgeniz için doğru geliştirme bölge aktarın. 
+Yazma bölgesi uygulama yalnızca bir karşılık gelen yayımlanabilir bölge yayımlayın. Uygulamanız şu anda geliştirme yanlış bölgede ise, uygulamayı dışarı aktarma ve yayımlama bölgeniz için doğru yazma bölgesini almak. 
 
- Genel bölge | Bölge yazma | Yayımlama & bölge sorgulama   |   HALUK Web sitesi | Uç noktası URL'si biçimi   |
+ Genel bölge | Yazma bölgesi | Yayımlama & bölgesi sorgulama   |   LUIS Web sitesi | Uç nokta URL'si biçimi   |
 |-----|------|------|------|------|
 | Asya | Batı ABD| Doğu Asya     | [www.luis.ai][www.luis.ai] |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Asya | Batı ABD| Güneydoğu Asya     | [www.luis.ai][www.luis.ai] |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
@@ -52,18 +52,18 @@ Geliştirme bölge uygulama yalnızca bir karşılık gelen yayımlanabilir böl
 | Kuzey Amerika | Batı ABD | Batı ABD 2    | [www.luis.ai][www.luis.ai] |  https://westus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
 | Güney Amerika | Batı ABD | Güney Brezilya     | [www.luis.ai][www.luis.ai] |  https://brazilsouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 
-## <a name="publishing-to-europe"></a>Avrupa için yayımlama
+## <a name="publishing-to-europe"></a>Avrupa yayımlama
 
-Uygulamaların HALUK oluşturduğunuz Avrupa bölgeler yayımlamak için https://eu.luis.ai yalnızca. Avrupa bölgede başka bir anahtar kullanarak her yerden yayımlama girişiminde HALUK bir uyarı iletisi görüntüler. Bunun yerine, kullanın https://eu.luis.ai. Oluşturulma HALUK uygulamaları [ https://eu.luis.ai ] [ eu.luis.ai] diğer bölgeler için otomatik olarak geçirme. Dışarı aktarma ve geçirmek için HALUK uygulama alın.
+Uygulamaları LUIS oluşturduğunuz Avrupa bölgelerine yayımlamak için https://eu.luis.ai yalnızca. LUIS, herhangi bir başka Avrupa bölgesinde bir anahtar kullanarak yayımlamak çalışırsanız, bir uyarı iletisi görüntüler. Bunun yerine, https://eu.luis.ai. LUIS uygulama oluşturulma [ https://eu.luis.ai ] [ eu.luis.ai] diğer bölgelere otomatik olarak geçirilmez. Dışarı aktarma ve ardından geçirmek için LUIS uygulaması alın.
 
-## <a name="publishing-to-australia"></a>Avustralya için yayımlama
+## <a name="publishing-to-australia"></a>Avustralya yayımlama
 
-Uygulamaların HALUK oluşturduğunuz Avustralya bölgeler yayımlamak için https://au.luis.ai yalnızca. Avustralya bölgede başka bir anahtar kullanarak her yerden yayımlama girişiminde HALUK bir uyarı iletisi görüntüler. Bunun yerine, kullanın https://au.luis.ai. Oluşturulma HALUK uygulamaları [ https://au.luis.ai ] [ au.luis.ai] diğer bölgeler için otomatik olarak geçirme. Dışarı aktarma ve geçirmek için HALUK uygulama alın.
+Avustralya bölgeleri için yayımlamak için LUIS uygulamaları oluşturmanız https://au.luis.ai yalnızca. LUIS, herhangi bir başka Avustralya bölgesinde bir anahtar kullanarak yayımlamak çalışırsanız, bir uyarı iletisi görüntüler. Bunun yerine, https://au.luis.ai. LUIS uygulama oluşturulma [ https://au.luis.ai ] [ au.luis.ai] diğer bölgelere otomatik olarak geçirilmez. Dışarı aktarma ve ardından geçirmek için LUIS uygulaması alın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Önceden oluşturulmuş varlık başvurusu](./luis-reference-prebuilt-entities.md)
+> [Önceden oluşturulmuş varlıklar başvurusu](./luis-reference-prebuilt-entities.md)
 
  [www.luis.ai]: https://www.luis.ai
  [au.luis.ai]: https://au.luis.ai

@@ -1,6 +1,6 @@
 ---
-title: Dayanıklı işlevleri uzantısı ve örnekler - Azure yükleyin
-description: Dayanıklı işlevleri uzantısı için Azure işlevleri, portal geliştirme veya Visual Studio geliştirme için nasıl yükleneceğini öğrenin.
+title: Dayanıklı işlevler uzantısını ve örnekleri - Azure'ı yükleme
+description: Dayanıklı işlevler uzantısını portal geliştirme veya Visual Studio geliştirme için Azure işlevleri için yüklemeyi öğrenin.
 services: functions
 author: cgillum
 manager: cfowler
@@ -14,172 +14,172 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4dd4bbb9c382b772f8f60b259844e7e471ec73e3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6ed8265a0b1a014ad15a6bb42fabb6003fb6a775
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762362"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37343032"
 ---
-# <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Dayanıklı işlevleri uzantısı ve örnekleri (Azure işlevleri) yükleyin
+# <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Örnekler (Azure işlevleri) ve dayanıklı işlevler uzantısını yükleme
 
-[Dayanıklı işlevleri](durable-functions-overview.md) uzantısı Azure işlevleri için NuGet paketi sağlanan [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Bu makalede, paket ve örnekler için aşağıdaki geliştirme ortamlarını kümesi nasıl yükleneceği gösterilmektedir:
+[Dayanıklı işlevler](durable-functions-overview.md) uzantısı Azure işlevleri için NuGet paketi sağlanan [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Bu makalede, paket ve örnekler için aşağıdaki geliştirme ortamları kümesi nasıl yükleneceği gösterilmektedir:
 
 * Visual Studio 2017 (C# için önerilir) 
-* Visual Studio Code (JavaScript için önerilir)
+* Visual Studio kod (JavaScript için önerilir)
 * Azure portalına
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
 
-Visual Studio şu anda sağlam işlevleri kullanan uygulamalar geliştirmek için en iyi deneyimi sağlar.  İşlevlerinizi yerel olarak çalıştırın ve Azure'a de yayımlanabilir. Boş bir proje veya bir örnek işlevler kümesi ile başlayabilirsiniz.
+Visual Studio şu anda dayanıklı işlevler kullanan uygulamalar geliştirmek için en iyi deneyimi sağlar.  İşlevlerinizi yerel olarak çalıştırılabilir ve Azure'a yayımlanabilir. Boş bir proje veya örnek işlevler kümesi ile başlayabilirsiniz.
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-* Yükleme [en son sürümünü Visual Studio](https://www.visualstudio.com/downloads/) (sürüm 15.3 veya daha büyük). Dahil **Azure geliştirme** Kurulum seçeneklerinizi iş yükü.
+* Yükleme [Visual Studio'nun en son sürümünü](https://www.visualstudio.com/downloads/) (sürüm 15.3 veya üzeri). Dahil **Azure geliştirme** iş yükü, Kurulum Seçenekleri.
 
-### <a name="start-with-sample-functions"></a>Örnek işlevleriyle Başlat 
+### <a name="start-with-sample-functions"></a>Örnek işlevleri ile Başlat 
 
-1. Karşıdan [Visual Studio için örnek uygulama .zip dosyasını](https://azure.github.io/azure-functions-durable-extension/files/VSDFSampleApp.zip). Örnek Proje zaten sahip olduğu NuGet başvuru eklemeniz gerekmez.
-2. Yükleme ve çalıştırma [Azure Storage öykünücüsü](https://docs.microsoft.com/azure/storage/storage-use-emulator) 5.2 veya sonraki bir sürümü. Alternatif olarak, güncelleştirme *local.appsettings.json* gerçek Azure Storage bağlantı dizelerini dosyasıyla.
-3. Proje içinde Visual Studio 2017 açın. 
-4. Örneği çalıştırmak yönergeler için başlayın [işlev zincirleme - Hello dizisi örnek](durable-functions-sequence.md). Örnek, yerel olarak çalıştırmak veya Azure'a yayımlanmalıdır.
+1. İndirme [Visual Studio için örnek uygulamayı .zip dosyasını](https://azure.github.io/azure-functions-durable-extension/files/VSDFSampleApp.zip). Örnek Proje zaten sahip olduğu NuGet başvuru eklemeniz gerekmez.
+2. Yükleme ve çalıştırma [Azure Storage öykünücüsü](https://docs.microsoft.com/azure/storage/storage-use-emulator) 5.2 veya sonraki bir sürümü. Alternatif olarak, güncelleştirme *local.appsettings.json* gerçek Azure depolama bağlantı dizeleri içeren dosya.
+3. Projeyi Visual Studio 2017'de açın. 
+4. Örneği çalıştırmak yönergeler için başlayan [Function zincirleme - Hello dizisi örnek](durable-functions-sequence.md). Örnek, yerel olarak çalıştırmak veya Azure'da yayımlanan.
 
 ### <a name="start-with-an-empty-project"></a>Boş bir proje ile Başlat
  
-Örnek ile başlatma için olduğu gibi aynı yönergeleri izleyin, ancak indirmek yerine aşağıdaki adımları uygulayın *.zip* dosyası:
+Örnek ile başlayan olduğu gibi aynı yönergeleri izleyin, ancak indirmek yerine aşağıdaki adımları uygulayın *.zip* dosyası:
 
 1. Bir işlev uygulaması projesi oluşturun.
-2. Aşağıdaki NuGet paketi başvurusu kullanmak için arama *NuGet paketlerini Yönet* ve bunu projeye ekleyin: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.4.0 (denetleyin *dahil et* için Bu paket için arama yapın)
+2. Aşağıdaki NuGet paketi başvurusu kullanarak arama *NuGet paketlerini Yönet* ve projeye ekleyin: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.5.0
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
-Visual Studio Code tüm önemli platformlar - Windows, macOS ve Linux kapsayan bir yerel geliştirme deneyimi sağlar.  İşlevlerinizi yerel olarak çalıştırılabilir ve Azure'a da yayınlanacak. Boş bir proje veya bir örnek işlevler kümesi ile başlayabilirsiniz.
+Visual Studio Code, başlıca platformların tümüne - Windows, macOS ve Linux ele alındığı bir yerel geliştirme deneyimi sağlar.  İşlevlerinizi yerel olarak çalıştırın ve ayrıca Azure'da yayımlanabilmesi. Boş bir proje veya örnek işlevler kümesi ile başlayabilirsiniz.
 
 ### <a name="prerequisites"></a>Önkoşullar
 
 * Yükleme [en son sürümünü Visual Studio Code](https://code.visualstudio.com/Download) 
 
-* "Azure işlevleri çekirdek araçlarını yükleme" altında adresindeki yönergeleri [koduna ve test yerel olarak Azure işlevleri](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
+* "Azure işlevleri çekirdek araçları yükleyin" altında adresindeki yönergeleri [kod ve yerel olarak test Azure işlevleri](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
 
     >[!IMPORTANT]
     > Azure işlevleri Çapraz Platform Araçları zaten varsa, bunları kullanılabilir en son sürüme güncelleştirin.
 
     >[!IMPORTANT]
-    >JavaScript dayanıklı işlevlerde sürümünü gerektirir Azure işlevleri çekirdek araçların 2.x.
+    >Dayanıklı işlevler javascript'teki sürüm gerektirir, Azure işlevleri çekirdek araçları 2.x.
 
-*  Bir Windows makinesinde varsa, yüklemek ve çalıştırmak [Azure Storage öykünücüsü](https://docs.microsoft.com/azure/storage/storage-use-emulator) 5.2 veya sonraki bir sürümü. Alternatif olarak, güncelleştirme *local.appsettings.json* gerçek Azure depolama bağlantısı ile dosya. 
+*  Bir Windows makinede mevcut değilse, yükleyin ve çalıştırın [Azure Storage öykünücüsü](https://docs.microsoft.com/azure/storage/storage-use-emulator) 5.2 veya sonraki bir sürümü. Alternatif olarak, güncelleştirme *local.appsettings.json* gerçek Azure depolama bağlantılı dosya. 
 
 
-### <a name="start-with-sample-functions"></a>Örnek işlevleriyle Başlat
+### <a name="start-with-sample-functions"></a>Örnek işlevleri ile Başlat
 
 #### <a name="c"></a>C#
 
-1. Kopya [dayanıklı işlevleri depo](https://github.com/Azure/azure-functions-durable-extension.git).
+1. Kopya [dayanıklı işlevler depo](https://github.com/Azure/azure-functions-durable-extension.git).
 2. Makinenize gidin [C# kod örnekleri klasörü](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx). 
-3. Bir komut aşağıdakini çalıştırarak Azure işlevleri dayanıklı uzantısını yükleyin komut istemi / terminal penceresi:
+3. Azure işlevleri dayanıklı uzantısı aşağıdaki bir komut çalıştırarak yükleme istemi / terminal penceresi:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
-4. Bir komut aşağıdakini çalıştırarak Azure işlevleri Twilio uzantısını yükleyin komut istemi / terminal penceresi:
+4. Aşağıdaki komutta çalıştırarak Azure işlevleri Twilio uzantısı yükleme istemi / terminal penceresi:
 
     ```bash
     func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta5
     ```
-5. Azure Storage öykünücüsü veya güncelleştirme çalışması *local.appsettings.json* gerçek Azure depolama bağlantı dizesini içeren dosya.
-6. Visual Studio kodda projeyi açın. 
-7. Örneği çalıştırmak yönergeler için başlayın [işlev zincirleme - Hello dizisi örnek](durable-functions-sequence.md). Örnek, yerel olarak çalıştırmak veya Azure'a yayımlanmalıdır.
-8. Proje komutta komut istemi / terminal aşağıdaki komutu çalıştırarak işe başlayın:
+5. Azure Storage öykünücüsü veya güncelleştirme çalıştırması *local.appsettings.json* gerçek Azure depolama bağlantı dizesi içeren dosya.
+6. Visual Studio Code'da projeyi açın. 
+7. Örneği çalıştırmak yönergeler için başlayan [Function zincirleme - Hello dizisi örnek](durable-functions-sequence.md). Örnek, yerel olarak çalıştırmak veya Azure'da yayımlanan.
+8. Aşağıdaki komutu komut istemi / terminal çalıştırarak proje başlatın:
     ```bash
     func host start
     ```
 
 #### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
 
-1. Kopya [dayanıklı işlevleri depo](https://github.com/Azure/azure-functions-durable-extension.git).
-2. Makinenize gidin [JavaScript örnekler klasörü](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript). 
-3. Bir komut aşağıdakini çalıştırarak Azure işlevleri dayanıklı uzantısını yükleyin komut istemi / terminal penceresi:
+1. Kopya [dayanıklı işlevler depo](https://github.com/Azure/azure-functions-durable-extension.git).
+2. Makinenize gidin [JavaScript örnekler klasörüne](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript). 
+3. Azure işlevleri dayanıklı uzantısı aşağıdaki bir komut çalıştırarak yükleme istemi / terminal penceresi:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
-4. Bir komut aşağıdakini çalıştırarak npm paketler geri komut istemi / terminal penceresi:
+4. Aşağıdaki komutta çalıştırarak npm paketlerini geri yükleme istemi / terminal penceresi:
     
     ```bash
     npm install
     ``` 
-5. Güncelleştirme *local.appsettings.json* gerçek Azure depolama bağlantı dizesini içeren dosya.
-6. Visual Studio kodda projeyi açın. 
-7. Örneği çalıştırmak yönergeler için başlayın [işlev zincirleme - Hello dizisi örnek](durable-functions-sequence.md). Örnek, yerel olarak çalıştırmak veya Azure'a yayımlanmalıdır.
-8. Proje komutta komut istemi / terminal aşağıdaki komutu çalıştırarak işe başlayın:
+5. Güncelleştirme *local.appsettings.json* gerçek Azure depolama bağlantı dizesi içeren dosya.
+6. Visual Studio Code'da projeyi açın. 
+7. Örneği çalıştırmak yönergeler için başlayan [Function zincirleme - Hello dizisi örnek](durable-functions-sequence.md). Örnek, yerel olarak çalıştırmak veya Azure'da yayımlanan.
+8. Aşağıdaki komutu komut istemi / terminal çalıştırarak proje başlatın:
     ```bash
     func host start
     ```
 
 ### <a name="start-with-an-empty-project"></a>Boş bir proje ile Başlat
  
-1. Komut istemi / terminal işlevi uygulamanızı barındıracak klasöre gidin.
-2. Bir komut aşağıdakini çalıştırarak Azure işlevleri dayanıklı uzantısını yükleyin komut istemi / terminal penceresi:
+1. Komut istemi / terminal işlev uygulamanızı barındıracak klasöre gidin.
+2. Aşağıdaki komutta çalıştırarak Azure işlevleri dayanıklı uzantıyı yükleme istemi / terminal penceresi:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 3. Aşağıdaki komutu çalıştırarak bir işlev uygulaması projesi oluşturun:
 
     ```bash
     func init
     ``` 
-4. Azure Storage öykünücüsü veya güncelleştirme çalışması *local.appsettings.json* gerçek Azure depolama bağlantı dizesini içeren dosya.
-5. Ardından, aşağıdaki komutu çalıştırarak yeni bir işlev oluşturun ve sihirbazın adımlarını izleyin:
+4. Azure Storage öykünücüsü veya güncelleştirme çalıştırması *local.appsettings.json* gerçek Azure depolama bağlantı dizesi içeren dosya.
+5. Ardından, aşağıdaki komutu çalıştırarak yeni bir işlev oluşturun ve sihirbaz adımlarını izleyin:
 
     ```bash
     func new
     ```
     >[!IMPORTANT]
-    > Şu anda sağlam işlevi şablon yok ancak desteklenen seçeneklerden birini başlatın ve sonra kodu değiştirin. Başvuru için örnekleri kullanın [Orchestration istemci](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/HttpStart), [Orchestration tetikleyici](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence), ve [etkinlik tetikleyici](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence).
+    > Şu anda sağlam bir işlev şablonu kullanılabilir olmayan ancak desteklenen seçeneklerinden biri ile başlayın ve ardından kodu değiştirin. Örnekler için başvurmak [düzenleme istemcisi](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/HttpStart), [düzenleme tetikleyici](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence), ve [etkinlik tetikleyici](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence).
 
-6. Visual Studio kodda proje klasörünü açın ve şablon kodu değiştirerek devam edin. 
-7. Proje komutta komut istemi / terminal aşağıdaki komutu çalıştırarak işe başlayın:
+6. Visual Studio Code'da proje klasörü açın ve şablon kodunu değiştirerek devam edin. 
+7. Aşağıdaki komutu komut istemi / terminal çalıştırarak proje başlatın:
     ```bash
     func host start
     ```
 
 ## <a name="azure-portal"></a>Azure portalına
 
-İsterseniz, dayanıklı işlevleri geliştirme için Azure portalını kullanabilirsiniz.
+Tercih ederseniz, dayanıklı işlevler geliştirme için Azure portalını kullanabilirsiniz.
 
    > [!NOTE]
-   > JavaScript dayanıklı işlevlerde henüz portalda kullanılabilir değildir.
+   > JavaScript içinde dayanıklı işlevler henüz portalda kullanılabilir değildir.
 
-### <a name="create-an-orchestrator-function"></a>Bir orchestrator işlevi oluşturma
+### <a name="create-an-orchestrator-function"></a>Bir düzenleyici işlevi oluşturma
 
-1. En yeni bir işlev uygulaması oluşturmak [functions.azure.com](https://functions.azure.com/signin).
+1. En yeni işlev uygulaması oluşturma [functions.azure.com](https://functions.azure.com/signin).
 
-2. İşlev uygulaması yapılandırma [2.0 çalışma zamanı sürümü kullanmak](set-runtime-version.md).
+2. İşlev uygulaması için yapılandırma [2.0 çalışma zamanı sürümünü kullanan](set-runtime-version.md).
 
-   Dayanıklı işlevleri uzantısı 1.X çalışma zamanı hem 2.0 çalışma zamanı çalışır, ancak Azure Portal şablonları yalnızca 2.0 çalışma zamanı hedeflendiğinde kullanılabilir.
+   Dayanıklı işlevler uzantısını 1.X çalışma zamanı hem 2.0 çalışma zamanı üzerinde çalışır, ancak Azure portalında şablonları yalnızca 2.0 çalışma zamanı hedeflendiğinde kullanılabilir.
 
-3. Seçerek yeni bir işlev oluşturun **"özel işlevinizi oluşturun."** .
+3. Seçerek yeni bir işlev oluşturma **"kendi özel işlevinizi oluşturun."** .
 
-4. Değişiklik **dil** için **C#**, **senaryo** için **dayanıklı işlevleri** seçip **dayanıklı işlevleri Http Başlatıcı -C#** şablonu.
+4. Değişiklik **dil** için **C#**, **senaryo** için **dayanıklı işlevler** seçip **dayanıklı işlevler Http Başlatıcısı -C#** şablonu.
 
-5. Altında **yüklü uzantıları**, tıklatın **yüklemek** uzantısı NuGet.org karşıdan yüklemek için. 
+5. Altında **uzantılar yüklü değil**, tıklayın **yükleme** NuGet.org adresinden uzantısı indirilemedi. 
 
-6. Yükleme tamamlandıktan sonra orchestration istemci işlevi – oluşturma işlemine devam edin **"HttpStart"** seçerek oluşturulmuş **dayanıklı işlevleri Http Starter - C#** şablonu.
+6. Yükleme tamamlandıktan sonra bir düzenleme istemci işlevinin – oluşturma işlemine devam etmek **"HttpStart"** seçerek oluşturulan **dayanıklı işlevler Http Başlatıcısı - C#** şablonu.
 
-7. Şimdi, bir düzenleme işlevi oluşturmak **"HelloSequence"** gelen **dayanıklı işlevleri Orchestrator:-C#** şablonu.
+7. Şimdi bir düzenleme işlevi oluşturun **"HelloSequence"** gelen **dayanıklı işlevler Düzenleyicisi - C#** şablonu.
 
-8. Ve son işlev çağrılmaz **"Merhaba"** gelen **dayanıklı işlevleri etkinliği:-C#** şablonu.
+8. Ve son işlevi çağrılacak **"Hello"** gelen **dayanıklı işlevler etkinliği - C#** şablonu.
 
 9. Git **"HttpStart"** işlev ve URL'sini kopyalayın.
 
-10. Postman veya cURL dayanıklı işlevi çağırmak için kullanın. Test etmeden önce URL ile değiştirin **{functionName}** orchestrator işlevi adla - **HelloSequence**.  Hiçbir veri gerekli değildir, yalnızca POST fiil kullanın. 
+10. Dayanıklı işlevi çağırmak için Postman veya cURL kullanın. Test etmeden önce URL'yi değiştirin **{functionName}** orchestrator işlevi adıyla - **HelloSequence**.  Hiçbir veri gereklidir, POST edimi kullanmanız yeterlidir. 
 
     ```bash
     curl -X POST https://{your function app name}.azurewebsites.net/api/orchestrators/HelloSequence
     ```
 
-11. Ardından, çağıran **"statusQueryGetUri"** endpoint ve dayanıklı işlevinin geçerli durumunu görebilirsiniz
+11. Ardından, arama **"statusQueryGetUri"** uç nokta ve dayanıklı işlevinin geçerli durumunu görebilirsiniz
 
     ```json
         {
@@ -191,7 +191,7 @@ Visual Studio Code tüm önemli platformlar - Windows, macOS ve Linux kapsayan b
         }
     ```
 
-12. Arama devam **"statusQueryGetUri"** durumu alıncaya kadar endpoint **"Tamamlandı"** 
+12. Arama devam **"statusQueryGetUri"** durum olana kadar uç nokta **"Tamamlandı"** 
 
     ```json
     {
@@ -207,9 +207,9 @@ Visual Studio Code tüm önemli platformlar - Windows, macOS ve Linux kapsayan b
         }
     ```
 
-Tebrikler! İlk dayanıklı işlevinizi Azure Portalı'nda da çalışır durumda!
+Tebrikler! Dayanıklı ilk işlevinizi, Azure Portalı'nda hazır ve çalışır durumda!
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Örnek zincirleme işlevi çalıştırma](durable-functions-sequence.md)
+> [Zincirleme örneği işlevi çalıştırın](durable-functions-sequence.md)

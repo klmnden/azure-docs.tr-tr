@@ -1,6 +1,6 @@
 ---
-title: Metin konuşma hakkında | Microsoft Docs
-description: Konuşma metin API özelliklerine genel bakış.
+title: Konuşmayı metne dönüştürme hakkında | Microsoft Docs
+description: Konuşmayı metne dönüştürme API'si özelliklerine genel bakış.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -10,45 +10,45 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2eee1c6f9158f128ed5ffe575f8f498f1d3eb5e9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 42552fa09f0a433cf12b92e11531303a0d1bd6bb
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355690"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346520"
 ---
-# <a name="about-the-speech-to-text-api"></a>Konuşma metin API hakkında
+# <a name="about-the-speech-to-text-api"></a>Konuşmayı metne dönüştürme API'si
 
-**Metin konuşma** API *transcribes* , uygulamanızın görüntülenen kullanıcıya veya olarak görev metne ses akışları giriş komutu. API'ler, bir SDK istemci kitaplığı (için desteklenen platformlar ve diller) veya bir REST API kullanılabilir.
+**Konuşmayı metne dönüştürme** API *dönüştürür* uygulamanızı görüntülemek için kullanıcı veya olarak alacak bir metne ses akışları giriş komutu. API'ler bir SDK'sı istemci kitaplığı (için desteklenen platformlar ve diller için) veya bir REST API ile kullanılabilir.
 
-**Metin konuşma** API aşağıdaki özellikleri sunar:
+**Konuşmayı metne dönüştürme** API'si aşağıdaki özellikleri sunar:
 
-- Konuşma tanıma teknolojisi Microsoft'tan Gelişmiş — aynı Cortana, Office ve diğer Microsoft ürünleri tarafından kullanılır.
+- Konuşma tanıma teknolojisini Microsoft Gelişmiş — Cortana, Office ve diğer Microsoft ürünleri tarafından kullanılan aynı.
 
-- Gerçek zamanlı sürekli tanıma. **Metin konuşma** kullanıcıların gerçek zamanlı metne ses transcribe olanak sağlar. Ayrıca, o ana kadarki tanınan sözcüklerin Ara sonuçların alma destekler. Hizmet, konuşma sonu otomatik olarak tanır. Kullanıcılar, büyük/küçük harf ve noktalama işaretleri, maskeleme uygunsuz metin ve metin normalleştirme dahil olmak üzere ek biçimlendirme seçenekleri de seçebilirsiniz.
+- Gerçek zamanlı sürekli tanıma. **Konuşmayı metne dönüştürme** kullanıcıların gerçek zamanlı olarak metne ses özelliği sağlar. Şu ana kadar tanınan bir kelimelerin Ara sonuçlar alma destekler. Hizmet, konuşma sonu otomatik olarak tanır. Kullanıcılar ayrıca büyük/küçük harf ve noktalama işaretleri, maskeleme küfür ve ters metin normalleştirme dahil olmak üzere ek biçimlendirme seçenekleri tercih edebilirsiniz.
 
-- En iyi duruma getirilmiş **metin konuşma** etkileşimli, konuşma için sonuçları ve yazdırma senaryoları. 
+- En iyi duruma getirilmiş **Konuşmayı metne dönüştürme** etkileşimli, konuşma, sonuçları ve dikte senaryoları. 
 
-- Birden çok Portekizce birçok konuşulan dilde desteği. Desteklenen dillerin her tanıma modunda tam listesi için bkz: [desteklenen diller](supported-languages.md#speech-to-text).
+- Pek çok konuşulan dil ve diyalektler desteği. Her tanıma modunda desteklenen dillerin tam listesi için bkz. [desteklenen diller](supported-languages.md#speech-to-text).
 
-- Özelleştirilmiş dil ve uygulamanızı konuşarak, ortam ve özel sözlük kullanıcılarınızın şekilde uyarlamak için akustik modeller.
+- Ortamı ve konuşma yolu gibi kullanıcılarınızın özel etki alanı sözlük, uygulamanıza uyarlayabilirsiniz. Bu nedenle dil ve akustik modeller, özelleştirilmiş.
 
-- Doğal dil anlama. İle tümleştirme yoluyla [dil anlama](https://docs.microsoft.com/azure/cognitive-services/luis/) (HALUK), türetilen hedefleri ve varlıkları konuşma. Kullanıcılar, uygulamanızın sözlük bilmek zorunda değilsiniz ancak kendi sözcükleri istediklerini tanımlayabilirsiniz.
+- Doğal dil anlama. İle tümleştirme yoluyla [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS), türetilebilir amaç ve varlıkları konuşma içeriğinden. Kullanıcılar, uygulamanızın sözlük bilmeniz gerekmez, ancak kendi kelimelerinizle istediğini tanımlayabilirsiniz.
 
 ## <a name="api-capabilities"></a>API özellikleri
 
-Bazı yetenekleri **metin konuşma** API REST kullanılabilir değildir. Aşağıdaki tabloda API'sine erişim her yöntem yeteneklerini özetler.
+Bazı özelliklerini **Konuşmayı metne dönüştürme** API'si, REST kullanılabilir değildir. Aşağıdaki tabloda, her API erişimi yöntemi yeteneklerini özetler.
 
 | Kullanım örneği | REST | SDK’lar |
 |-----|-----|-----|----|
-| Bir komutu (Uzunluk < 15 s); gibi kısa bir utterance transcribe Ara sonuç yok | Evet | Evet |
-| Uzun utterance (> 15 s) transcribe | Hayır | Evet |
-| İsteğe bağlı Ara sonuçlarla ses akışını transcribe | Hayır | Evet |
-| Konuşmacı hedefleri HALUK aracılığıyla anlama | yok\* | Evet |
+| Bir komut (uzunluğu < 15 s); gibi kısa bir utterance özelliği geçici bir sonuç yok | Evet | Evet |
+| Konuşmaların daha uzun bir utterance (> 15 sn) | Hayır | Evet |
+| İsteğe bağlı Ara sonuçlarla Akış ses özelliği | Hayır | Evet |
+| Konuşmacı ıntents aracılığıyla LUIS anlama | Yok\* | Evet |
 
-\* *HALUK hedefleri ve varlıkları ayrı bir HALUK abonelik kullanarak elde edilebilir. Bu abonelik, SDK HALUK sizin için çağırın ve konuşma transcriptions yanı sıra varlık ve amacı sonuçları sağlar. REST API'si ile HALUK çağırabilirsiniz kendinize hedefleri ve varlıkları HALUK aboneliğinizle türetilir.*
+\* *LUIS amaç ve varlıkları kullanarak ayrı bir LUIS aboneliği türetilebilir. Bu abonelikle SDK LUIS çağırmanızı ve konuşma döküm yanı sıra, varlık ve amacını sonuçlar sağlar. REST API ile LUIS çağırabilirsiniz kendiniz amaç ve varlıkları LUIS aboneliğinizle türetmek için.*
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Konuşma deneme aboneliğinizi Al](https://azure.microsoft.com/try/cognitive-services/)
-* [C# Konuşma tanıması bkz.](quickstart-csharp-windows.md)
+* [C# ' de Konuşma tanıma öğrenin](quickstart-csharp-windows.md)

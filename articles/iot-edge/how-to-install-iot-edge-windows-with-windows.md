@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Edge ile Windows kapsayıcıları Windows yükleme | Microsoft Docs
-description: Azure IOT kenar yükleme yönergeleri Windows Windows kapsayıcılarla
+title: Azure IOT Edge üzerinde Windows ile Windows kapsayıcıları yükleme | Microsoft Docs
+description: Azure IOT Edge yükleme yönergeleri Windows ile Windows kapsayıcıları
 author: kgremban
 manager: timlt
 ms.reviewer: veyalla
@@ -9,43 +9,43 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 1ae51d948fdaa5654c59549d384b784f0e87dcc3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: b2878f9d7aa32b2502487cdc081896e5ba306af1
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112628"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346385"
 ---
-# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Windows kapsayıcılarını ile kullanmak için Windows Azure IOT kenar çalışma zamanı yükleme
+# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Windows kapsayıcıları ile kullanmak için Windows Azure IOT Edge çalışma zamanını yükleyin
 
-Azure IOT kenar çalışma zamanı, tüm IOT kenar aygıtlarda dağıtılır. Üç bileşeni vardır. **IOT kenar güvenlik arka plan programı** sağlar ve güvenlik standartları sınır cihazı üzerinde korur. Arka plan programı her önyüklemede başlatır ve cihazın IOT kenar Aracısı'nı başlatarak bootstraps. **IOT kenar Aracısı** dağıtım ve kenar IOT hub'ı dahil sınır cihazı modülleri izlenmesini kolaylaştırır. **IoT Edge hub'ı** IoT Edge cihazındaki modüller ve cihaz ile IoT Hub'ı arasındaki iletişimi yönetir.
+Azure IOT Edge çalışma zamanı, tüm IOT Edge cihazlarında dağıtılır. Üç bileşeni vardır. **IOT Edge güvenlik arka plan programı** sağlar ve sınır cihazı güvenlik standartlarını korur. Arka plan programı, her önyükleme başlar ve cihazın IOT Edge Aracısı'nı başlatarak bootstraps. **IOT Edge Aracısı** dağıtım ve IOT Edge hub'ı dahil olmak üzere sınır cihazı, modülleri izlenmesini kolaylaştırır. **IoT Edge hub'ı** IoT Edge cihazındaki modüller ve cihaz ile IoT Hub'ı arasındaki iletişimi yönetir.
 
-Bu makalede, Windows x64 (AMD/Intel) Azure IOT kenar çalışma zamanı yükleme adımlarını listeler sistem. 
+Bu makalede Azure IOT Edge çalışma zamanı, Windows x64 (AMD/Intel) yüklemek için adımları listelenmektedir sistem. 
 
-Windows Destek şu anda önizlemede değil.
+Windows Destek şu anda Önizleme aşamasındadır.
 
-## <a name="supported-windows-versions"></a>Desteklenen Windows sürümlerine
-Azure IOT Edge Windows kapsayıcıları kullanılabilir:
-  * Windows 10/IOT Kurumsal/Nisan 2018 IOT çekirdek Güncelleştirmesi (yapı 17134).
+## <a name="supported-windows-versions"></a>Desteklenen Windows sürümleri
+Azure IOT Edge Windows kapsayıcıları ile birlikte kullanılabilir:
+  * Windows 10/IOT Enterprise/IOT Core ile Nisan 2018 Güncelleştirmesi (derleme 17134).
   * Windows Server 1803
 
 ## <a name="install-the-container-runtime"></a>Kapsayıcı çalışma zamanı yükleme 
 
 >[!NOTE]
->Windows IOT Core üzerinde kapsayıcı altyapısı yükleme için adımları izleyin [IOT çekirdek aygıt makale sağlamak] [ lnk-iot-core] ve yönergelerle devam edin.
+>Windows IOT Core üzerinde kapsayıcı altyapısı yükleme için adımları izleyin [IOT Core cihazı makale sağlama] [ lnk-iot-core] ve sonra aşağıdaki yönergeleri ile devam edin.
 
-Azure IOT kenar kullanır bir [OCI uyumlu] [ lnk-oci] kapsayıcı çalışma zamanı (örneğin, Docker). Kullanabileceğiniz [Windows için Docker] [ lnk-docker-for-windows] geliştirme ve test etme için. 
+Azure IOT Edge dayanır bir [OCI uyumlu] [ lnk-oci] kapsayıcı çalışma zamanı (örneğin, Docker). Kullanabileceğiniz [için Docker Windows] [ lnk-docker-for-windows] geliştirme ve test için. 
 
-**Windows için Docker olduğundan emin olun [Windows kapsayıcılar kullanmak üzere yapılandırılmış][lnk-docker-config]**
+**Docker için Windows olduğundan emin olun [Windows kapsayıcıları kullanacak şekilde yapılandırılmış][lnk-docker-config]**
 
-## <a name="install-the-azure-iot-edge-security-daemon"></a>Azure IOT kenar güvenlik arka plan programı yükleme
+## <a name="install-the-azure-iot-edge-security-daemon"></a>Azure IOT Edge güvenlik Daemon'ı yükleme
 
 >[!NOTE]
->Lisans Koşulları'nı (lisans dizininde) paketleri bulunan Azure IOT kenar yazılım paketleri tabidir. Lütfen paketini kullanarak önce lisans koşullarını okuyun. Yükleme ve kullanım paketi bu koşulları kabul meydana gelir. Lisans koşullarını kabul etmiyorsanız, paket kullanmayın.
+>Azure IOT Edge yazılım paketlerini (lisans dizininde) paketleri bulunan lisans koşullarına tabidir. Paket kullanarak önce lisans koşullarını okuyun. Bu koşulları kabul etmeniz, yükleme ve kullanım paket oluşturur. Lisans koşullarını kabul etmiyorsanız, paket kullanmayın.
 
-### <a name="download-the-edge-daemon-package-and-install"></a>Edge arka plan programı paketini indirin ve yükleyin
+### <a name="download-the-edge-daemon-package-and-install"></a>Edge arka plan programının paket indirip yükleyin
 
-Bir yönetici PowerShell penceresinde aşağıdaki komutları çalıştırın:
+Bir yönetici PowerShell penceresinde aşağıdaki komutları yürütün:
 
 ```powershell
 Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
@@ -56,7 +56,7 @@ $env:Path += ";C:\ProgramData\iotedge"
 SETX /M PATH "$env:Path"
 ```
 
-(Bir IOT core kenar cihazda bu adımı atlayabilirsiniz) kullanarak vcruntime yükleyin:
+(Bir IOT core Edge cihazında bu adımı atlayabilirsiniz) vcruntime kullanarak yükleyin:
 
 ```powershell
 Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
@@ -76,7 +76,7 @@ Hizmet tarafından kullanılan bağlantı noktaları için güvenlik duvarı öz
 New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
 ```
 
-Oluşturma bir **iotedge.reg** dosya aşağıdaki içeriğe ve alma için Windows kayıt defteri çift veya kullanarak `reg import iotedge.reg` komutu:
+Oluşturma bir **iotedge.reg** dosya aşağıdaki içeriğe ve alma Windows kayıt defterine çift veya kullanarak `reg import iotedge.reg` komutu:
 
 ```
 Windows Registry Editor Version 5.00
@@ -87,13 +87,13 @@ Windows Registry Editor Version 5.00
 "TypesSupported"=dword:00000007
 ```
 
-## <a name="configure-the-azure-iot-edge-security-daemon"></a>Azure IOT kenar güvenlik arka plan programı yapılandırın
+## <a name="configure-the-azure-iot-edge-security-daemon"></a>Azure IOT Edge güvenlik Daemon'ı yapılandırma
 
-Arka plan programı, yapılandırma dosyasından kullanılarak yapılandırılabilir `C:\ProgramData\iotedge\config.yaml`.
+Arka plan programı, yapılandırma dosyası kullanılarak yapılandırılabilir `C:\ProgramData\iotedge\config.yaml`.
 
-Sınır cihazı kullanarak el ile yapılandırılabilir bir [cihaz bağlantı dizesi] [ lnk-dcs] veya [aygıtı sağlama hizmeti aracılığıyla otomatik olarak] [ lnk-dps].
+Sınır cihazı kullanarak el ile yapılandırılabilir bir [cihaz bağlantı dizesini] [ lnk-dcs] veya [otomatik olarak cihaz sağlama hizmeti aracılığıyla] [ lnk-dps].
 
-* El ile yapılandırma için açıklamadan çıkarın **el ile** sağlama modu. Değerini güncelleştirmek **device_connection_string** IOT kenar cihazınızdan bağlantı dizesiyle.
+* El ile yapılandırma için açıklama durumundan çıkarın **el ile** sağlama modu. Değerini güncelleştirin **device_connection_string** IOT Edge cihazınızdan bağlantı dizesiyle.
 
    ```yaml
    provisioning:
@@ -107,7 +107,7 @@ Sınır cihazı kullanarak el ile yapılandırılabilir bir [cihaz bağlantı di
    #   registration_id: "{registration_id}"
    ```
 
-* Otomatik yapılandırma için açıklamadan çıkarın **dps** sağlama modu. Değerlerini güncelleştirin **scope_id** ve **registration_id** IOT Hub DPS örneğinizi ve IOT kenar cihazınızla TPM değerlerle. 
+* Otomatik yapılandırma için açıklama durumundan çıkarın **dps** sağlama modu. Güncelleştirin **scope_id** ve **regıstratıon_ıd** IOT hub'ı DPS örneğiniz ile TPM ile IOT Edge cihazınız değerlerle. 
 
    ```yaml
    # provisioning:
@@ -121,7 +121,7 @@ Sınır cihazı kullanarak el ile yapılandırılabilir bir [cihaz bağlantı di
      registration_id: "{registration_id}"
    ```
 
-Edge kullanarak cihaz adı alınmaya `hostname` komutu PowerShell'de ve değeri olarak ayarlamak **ana bilgisayar adı:** yapılandırma yaml içinde. Örneğin:
+Edge kullanarak cihaz adı alınmaya `hostname` değeri olarak ayarlayın ve komutu PowerShell'de **ana bilgisayar adı:** yapılandırma yaml içinde. Örneğin:
 
 ```yaml
   ###############################################################################
@@ -136,33 +136,35 @@ Edge kullanarak cihaz adı alınmaya `hostname` komutu PowerShell'de ve değeri 
   hostname: "edgedevice-1"
 ```
 
-Ardından, biz IP adresi verin ve için bağlantı noktası gerekir **workload_uri** ve **management_uri** içinde **bağlanın:** yapılandırma bölümü.
+Ardından, IP adresi verin ve için bağlantı noktası **workload_uri** ve **management_uri** içinde **bağlanın:** ve **dinleme:** bölümleri yapılandırma.
 
-IP adresi için girin `ipconfig` PowerShell penceresinde ve IP adresini seçin **vEthernet (nat)** arabirim (IP adresi, sisteminizdeki farklı olabilir) aşağıdaki örnekte gösterildiği gibi:  
+IP adresiniz almak için girin `ipconfig` , PowerShell penceresinde ve IP adresini kopyalayın **vEthernet (nat)** arabirimi (IP adresi sisteminize farklı olabilir) aşağıdaki örnekte gösterildiği gibi:  
 
 ![nat][img-nat]
 
+Güncelleştirme **workload_uri** ve **management_uri** içinde **bağlanın:** yapılandırma dosyasının. Değiştirin **\<GATEWAY_ADDRESS\>** kopyaladığınız IP adresine sahip. 
+
 ```yaml
 connect:
-  management_uri: "http://172.29.240.1:15580"
-  workload_uri: "http://172.29.240.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Aynı adresleri girin **dinleme:** yapılandırma bölümü. Örneğin:
+Aynı adresi girin **dinleme:** ağ geçidi adresi IP adresinizi kullanarak yapılandırma bölümü.
 
 ```yaml
 listen:
-  management_uri: "http://172.29.240.1:15580"
-  workload_uri: "http://172.29.240.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-PowerShell penceresinde bir ortam değişkeni oluşturma **IOTEDGE_HOST** ile **management_uri** adresi, örneğin:
+PowerShell penceresinde, bir ortam değişkenini oluşturmak **IOTEDGE_HOST** ile **management_uri** adresi.
 
 ```powershell
-[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://172.29.240.1:15580")
+[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
 ```
 
-Son olarak, olun **ağ:** altında ayarı **moby_runtime:** uncommented ve kümesine **nat**
+Son olarak, olun **ağ:** bölümündeki **moby_runtime:** açıklamalar ve kümesine **nat**
 
 ```yaml
 moby_runtime:
@@ -180,9 +182,9 @@ Start-Service iotedge
 
 ## <a name="verify-successful-installation"></a>Yüklemenin başarılı olduğunu doğrulamak
 
-Kullandıysanız **el ile yapılandırma** önceki bölümdeki adımları, IOT kenar çalışma zamanı başarıyla sağlandı ve aygıtınızda çalışıyor olmalıdır. Kullandıysanız **otomatik yapılandırma** adımları yeniden çalışma zamanı sizin adınıza IOT hub'ınızı ile Cihazınızı kaydetmek için bazı ek adımlar tamamlanması gerekiyor. Sonraki adımlar için bkz: [oluşturma ve sağlama benzetimli TPM sınır cihazı Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
+Kullandıysanız **el ile yapılandırma** adımlar önceki bölümde, IOT Edge çalışma zamanı başarıyla sağlanmış ve cihazınız üzerinde olmalıdır. Kullandıysanız **otomatik yapılandırma** adımları çalışma zamanı ile sizin adınıza IOT hub'ınıza Cihazınızı kaydetmek için bazı ek adımları tamamlaması gerekir. Sonraki adımlar için bkz: [oluşturma ve sağlama Windows sanal bir TPM Edge cihazında](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
 
-IOT kenar hizmetinin durumunu kontrol edebilirsiniz: 
+IOT Edge hizmetinin durumu kontrol edebilirsiniz: 
 
 ```powershell
 Get-Service iotedge
@@ -209,7 +211,7 @@ iotedge list
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Düzgün checkout yükleme kenar çalışma zamanı sorunları yaşıyorsanız [sorun giderme] [ lnk-trouble] sayfası.
+Düzgün bir şekilde, kullanıma alma yükleme Edge çalışma zamanı ile ilgili sorunlar yaşıyorsanız [sorun giderme] [ lnk-trouble] sayfası.
 
 
 <!-- Images -->

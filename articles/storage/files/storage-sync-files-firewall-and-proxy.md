@@ -1,6 +1,6 @@
 ---
 title: Azure dosya eşitleme şirket içi güvenlik duvarı ve proxy ayarları | Microsoft Docs
-description: Azure dosya eşitleme içi ağ yapılandırması
+description: Azure dosya eşitleme şirket ağ yapılandırması
 services: storage
 documentationcenter: ''
 author: fauhse
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 5014c8204b6b6da539a41aaa3308d8787fb517a7
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 7d86082abb6412072af44a6b2d794bcf536fa18d
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738539"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342735"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure Dosya Eşitleme proxy’si ve güvenli duvarı ayarları
-Azure dosya eşitleme Azure dosyalara çok siteli eşitleme ve bulut özelliklerini katmanlama etkinleştirilmesi, şirket içi sunucularınızı bağlanır. Bu nedenle, bir şirket içi sunucu internet'e bağlı olmalıdır. Bir BT yöneticisi, Azure bulut hizmetlerine erişmek sunucu için en iyi yolu karar vermeniz gerekir.
+Azure dosya eşitleme, şirket içi sunucularınızı Azure çok siteli eşitleme ve bulut katmanlaması özellikleri etkinleştirme dosyaları'na bağlanır. Bu nedenle, bir şirket içi sunucu internet'e bağlanması gerekir. Bir BT yöneticisi Azure bulut hizmetlerine erişmek sunucu için en iyi yolu karar vermeniz gerekir.
 
-Bu makalede belirli gereksinimleri ve başarıyla ve güvenli bir şekilde Azure dosya eşitleme sunucunuza bağlanmak kullanılabilir seçenekler hakkında bilgi sağlar.
+Bu makalede belirli gereksinimleri ve başarıyla ve güvenli bir şekilde Azure dosya eşitleme için sunucunuza bağlanmak kullanılabilir seçenekler hakkında Öngörüler sağlar.
 
 > [!Important]
-> Azure dosya eşitleme henüz güvenlik duvarları ve sanal ağlar için bir depolama hesabı desteklemiyor. 
+> Azure dosya eşitleme henüz güvenlik duvarları ve sanal ağlar için bir depolama hesabı desteklemez. 
 
 ## <a name="overview"></a>Genel Bakış
-Azure dosya eşitleme, Windows Server, Azure dosya paylaşımı ve diğer Azure hizmetleriyle birkaç eşitleme grubunuzdaki açıklandığı gibi veri eşitlemesine izin arasında orchestration hizmeti olarak görev yapar. Azure dosya düzgün çalışması eşitleme için sunucularınızı aşağıdaki Azure Hizmetleri ile iletişim kurmak için yapılandırmanız gerekir:
+Azure dosya eşitleme, Windows Server, Azure dosya paylaşımınızı ve birden fazla Azure hizmetini eşitleme grubunuz içinde anlatıldığı gibi veri eşitlemesine izin arasında bir düzenleme hizmeti işlevi görür. Azure dosya düzgün çalışması eşitleme için sunucularınızı aşağıdaki Azure Hizmetleri ile iletişim kurmak için yapılandırmanız gerekir:
 
 - Azure Storage
 - Azure Dosya Eşitleme
@@ -38,40 +38,48 @@ Azure dosya eşitleme, Windows Server, Azure dosya paylaşımı ve diğer Azure 
 - Kimlik doğrulama hizmetleri
 
 > [!Note]  
-> Windows Server'da Azure dosya eşitleme Aracısı bulut giden trafiği bir güvenlik duvarı açısından dikkate alınması gereken yalnızca elde etmeyle sonuçları Hizmetleri için tüm istekleri başlatır. <br /> Hiçbir Azure hizmeti Azure dosya eşitleme aracısı için bir bağlantı başlatır.
+> Azure dosya eşitleme aracısını Windows Server, bulut hizmetlerine giden trafik bir güvenlik duvarı açısından dikkate alınması gereken yalnızca etmeyle sonucunda, tüm istekleri başlatır. <br /> Bir Azure hizmeti, Azure dosya eşitleme aracısının bağlantısı başlatır.
 
 
 ## <a name="ports"></a>Bağlantı Noktaları
-Azure dosya eşitleme dosya verileri ve meta verileri yalnızca HTTPS üzerinden taşır ve olması açmak için giden bağlantı noktası 443 gerektirir.
-Sonuç olarak tüm trafiği şifrelenir.
+Azure dosya eşitleme dosya verileri ve meta verileri yalnızca HTTPS üzerinden geçer ve olması açmak için giden bağlantı noktası 443 gerektirir.
+Sonuç olarak tüm trafik de şifrelenir.
 
-## <a name="networks-and-special-connections-to-azure"></a>Ağlar ve Azure özel bağlantıları
-Azure dosya eşitleme Aracısı ilgili özel kanalları gibi bir gereksinimi yoktur [ExpressRoute](../../expressroute/expressroute-introduction.md), Azure vs.
+## <a name="networks-and-special-connections-to-azure"></a>Ağ ve Azure ile özel bağlantılar
+Azure dosya eşitleme aracısının ilgili özel kanallar gibi bir gereksinimi yoktur [ExpressRoute](../../expressroute/expressroute-introduction.md), vb. azure'a.
 
-Azure dosya eşitleme otomatik olarak bant genişliği, gecikme süresi gibi çeşitli ağ özellikleri uyarlama yanı sıra ince ayar yapmak için yönetici denetim sunan Azure içine ulaşma izin herhangi araçlarla çalışır. Tüm özellikleri şu anda kullanılabilir. Aracılığıyla belirli bir davranışı yapılandırmak istiyorsanız,'ın bize bildirin [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670).
+Azure dosya eşitleme bulunamazsınız kullanılabilir azure'a otomatik olarak uyum sağlamak için bant genişliği, gecikme süresi gibi çeşitli ağ özellikleri hem de ince ayar yapmak için yönetici denetim teklifi erişim sağlayan bir çalışma yürütürüz. Tüm özellikler şu anda kullanılabilir. Belirli bir davranışı yapılandırmak istiyorsanız, bize [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670).
 
 ## <a name="proxy"></a>Ara sunucu
-Azure dosya eşitleme, şu anda makine genelinde proxy ayarlarını destekler. Bu proxy ayarını Azure dosya eşitleme Aracısı saydam aynıdır sunucusunun tüm trafik, bu proxy üzerinden yönlendirilir.
+Azure dosya eşitleme uygulamaya özgü ve makine genelindeki proxy ayarlarını destekler.
 
-Uygulamaya özgü proxy ayarları şu anda geliştirilme aşamasındadır ve Azure dosya eşitleme Aracısı'nın gelecekteki bir sürümde desteklenmez. Bu, özellikle Azure dosya eşitleme trafiği için bir proxy yapılandırılmasına izin verir.
+Sunucusunun tüm trafiğin proxy üzerinden yönlendirilmesini gibi makine genelindeki proxy ayarları Azure dosya eşitleme aracısı için saydamdır.
+
+Uygulamaya özgü proxy ayarları Azure dosya eşitleme trafiği için özel bir ara sunucu yapılandırmasını sağlar. Uygulamaya özgü proxy ayarları 3.0.12.0 Aracı sürüm veya üstü ve aracı yükleme sırasında veya Set-StorageSyncProxyConfiguration PowerShell cmdlet'i kullanılarak yapılandırılabilir.
+
+Uygulamaya özel proxy ayarlarını yapılandırmak için PowerShell komutları:
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
+```
 
 ## <a name="firewall"></a>Güvenlik duvarı
-Önceki bölümde belirtildiği gibi bağlantı noktası 443 gereksinimlerini olmasını giden açın. Datacenter, şube veya bölgenizde ilkelerine bağlı olarak, daha fazla trafik belirli etki alanları için bu bağlantı noktası üzerinden kısıtlama istenen gerekli veya olabilir.
+Bir önceki bölümde belirtildiği gibi bağlantı noktası 443 gereksinimlerini olmasını giden açın. Veri Merkezi, dal veya bölgenizde ilkelerine bağlı olarak, daha fazla trafik Bu bağlantı noktası üzerinden belirli etki alanlarına erişimi kısıtlama istenen gerekli veya olabilir.
 
-Aşağıdaki tabloda, iletişim için gereken etki alanları açıklanmaktadır:
+Aşağıdaki tabloda iletişim için gereken etki alanları açıklanmaktadır:
 
 | Hizmet | Etki alanı | Kullanım |
 |---------|----------------|------------------------------|
-| **Azure Resource Manager** | https://management.azure.com | Tüm kullanıcı çağrısıyla (PowerShell) ilk sunucu kayıt çağrısı dahil olmak üzere bu URL için/üzerinden gider. |
-| **Azure Active Directory** | https://login.windows.net | Azure Resource Manager çağrıları kimliği doğrulanmış bir kullanıcı tarafından yapılması gerekir. Başarılı olması için bu URL kullanıcı kimlik doğrulaması için kullanılır. |
-| **Azure Active Directory** | https://graph.windows.net/ | Azure dosya eşitleme dağıtma bir parçası olarak bir hizmet sorumlusu aboneliğinin Azure Active Directory'de oluşturulur. Bu URL için kullanılır. Bu asıl hakları Azure dosya eşitleme hizmeti için en az bir dizi için temsilci seçme için kullanılır. Azure dosya eşitleme ilk kurulumu yapan kullanıcının kimliği doğrulanmış bir kullanıcı abonelik sahibi ayrıcalıklarına sahip olması gerekir. |
-| **Azure Depolama** | &ast;. core.windows.net | Sunucunun bir dosya yüklediğinde, ardından sunucu bu veri taşıma daha verimli bir şekilde doğrudan depolama hesabındaki Azure dosya paylaşımına konuşurken gerçekleştirir. Sunucu yalnızca hedeflenen dosya paylaşımı erişimi veren bir SAS anahtarı sahiptir. |
-| **Azure dosya eşitleme** | &ast;.one.microsoft.com | İlk sunucu kayıttan sonra sunucu bu bölgede Azure dosya eşitleme hizmet örneği için bölgesel bir URL alır. Sunucunun URL'sini doğrudan ve verimli bir şekilde kendi eşitleme işleme örneğiyle iletişim kurmak için kullanabilirsiniz. |
+| **Azure Resource Manager** | https://management.azure.com | İlk sunucu kayıt çağrısı dahil olmak üzere bu URL için/aracılığıyla (PowerShell gibi) herhangi bir kullanıcının çağrısına gider. |
+| **Azure Active Directory** | https://login.windows.net | Azure Resource Manager çağrıları kimliği doğrulanmış bir kullanıcı tarafından yapılması gerekir. Başarılı olması için bu URL'yi, kullanıcı kimlik doğrulaması için kullanılır. |
+| **Azure Active Directory** | https://graph.windows.net/ | Azure dosya eşitleme dağıtımı bir parçası olarak, aboneliğin Azure Active Directory'de Hizmet sorumlusu oluşturulur. Bu URL için kullanılır. Bu asıl hakları Azure dosya eşitleme hizmeti için en az bir dizi için temsilci seçme için kullanılır. Azure dosya eşitleme'nin ilk kurulum gerçekleştiren kullanıcı kimliği doğrulanmış bir kullanıcı abonelik sahibi ayrıcalıklara sahip olması gerekir. |
+| **Azure Depolama** | &ast;. core.windows.net | Sunucu bir dosya yüklediğinde, ardından sunucu, veri taşıma daha verimli bir şekilde doğrudan depolama hesabındaki Azure dosya paylaşımına konuşurken gerçekleştirir. Sunucuda yalnızca için hedeflenen dosya paylaşımına erişim veren bir SAS anahtarı var. |
+| **Azure dosya eşitleme** | &ast;.one.microsoft.com | İlk sunucu kayıt sonrasında sunucu bu bölgede Azure dosya eşitleme hizmeti örneği için bölgesel bir URL alır. Sunucu URL'sini doğrudan ve verimli bir şekilde eşitlendiğini işleme örneğiyle iletişim kurmak için kullanabilirsiniz. |
 
 > [!Important]
-> Trafiğine izin verirken &ast;. one.microsoft.com, daha fazlasını eşitleme hizmeti trafiğini sunucudan mümkün. Alt etki alanları altında pek çok daha fazla Microsoft hizmetleri vardır.
+> Trafiğe izin verirken &ast;. one.microsoft.com, daha fazlasını eşitleme hizmeti trafiğini sunucudan mümkün. Alt etki alanları altında kullanılabilen pek çok daha fazla Microsoft hizmetleri vardır.
 
-Varsa &ast;. one.microsoft.com çok geniş, yalnızca Azure dosyaları eşitleme hizmetinin açık bölgesel örnekleri sağlayarak sunucu iletişimi sınırlayabilirsiniz. Seçmek için hangi örnekler depolama eşitleme için dağıttıktan ve sunucu kaydedildi hizmeti bölgeyi temel bağlıdır. Bu sunucu için izin vermeniz bölgedir. Yakında yeni iş sürekliliği özellikleri etkinleştirmek için daha fazla URL olacaktır. 
+Varsa &ast;. one.microsoft.com çok geniş, yalnızca açık bölgesel Azure dosya eşitleme hizmeti örneklerini vererek sunucu iletişimi sınırlayabilirsiniz. Seçmek için hangi örnekleri için dağıttıktan ve sunucunun kayıtlı depolama eşitleme hizmeti bölgesine bağlıdır. Bu sunucu için izin vermeniz gerekir bölgedir. Yakında yeni iş sürekliliği özellikleri etkinleştirmek için daha fazla URL olacaktır. 
 
 | Bölge | Azure dosya eşitleme bölgesel uç nokta URL'si |
 |--------|---------------------------------------|
@@ -84,13 +92,13 @@ Varsa &ast;. one.microsoft.com çok geniş, yalnızca Azure dosyaları eşitleme
 | Batı ABD | https://kailani.one.microsoft.com |
 
 > [!Important]
-> Bu ayrıntılı güvenlik duvarı kurallarını tanımlarsanız, bu belgede sık sık kontrol edin ve güvenlik duvarı ayarlarınızı eski ya da eksik URL listelerinde nedeniyle hizmet kesintilerine uğramaması için güvenlik duvarı kurallarını güncelleştirin.
+> Bu ayrıntılı bir güvenlik duvarı kuralları tanımlarsanız, bu belgenin sık sık kontrol edin ve güvenlik duvarı ayarlarınızı güncel olmayan veya eksik URL listelerinde nedeniyle hizmet kesintilerinden kaçınmak için güvenlik duvarı kurallarını güncelleştir.
 
-## <a name="summary-and-risk-limitation"></a>Özet ve risk sınırlama
-Bu belgedeki daha önceki listeleri kurduğu şu anda Azure dosya eşitleme URL'leri içerir. Güvenlik duvarları onlardan yanıtları yanı sıra bu etki alanları için giden trafiğe izin verecek şekilde olması gerekir. Güncelleştirilmiş bu listesini tutmak Microsoft içindedir.
+## <a name="summary-and-risk-limitation"></a>Summary ve risk sınırlama
+Bu belgedeki listeleri, Azure dosya eşitleme şu anda iletişim kuran URL'leri içerir. Güvenlik duvarları, bunlardan alınan yanıtları yanı sıra bu etki alanlarına giden trafiğe izin verecek şekilde mümkün olması gerekir. Microsoft, bu liste güncelleştirildi tutmak çalışır.
 
-Güvenlik duvarı kuralları kısıtlama etki alanının ayarlanmasında güvenliğini artırmak için bir ölçü olabilir. Bu güvenlik duvarı yapılandırmaları kullandıysanız, bir URL'leri eklenebilir ve zaman içinde değişmesi gerektiğini göz önünde bulundurmanız gerekir. Bu nedenle bir değişiklik Yönetimi işlemini bir Azure dosya eşitleme Aracısı sürümünden en son Aracısı dağıtımını test üzerinde başka bir parçası olarak bu belgedeki tabloları denetleyin akıllıca ölçüsüdür. Bu şekilde güvenlik duvarınızın en son aracı etki alanları trafiğine izin verecek şekilde yapılandırıldığından emin olmanız gerekir.
+Güvenlik duvarı kuralları kısıtlama etki alanının ayarlanmasında güvenliğini artırmak için bir ölçü olabilir. Bu güvenlik duvarı yapılandırmaları kullandıysanız, biri URL'leri eklenebilir ve zaman içinde değişmesi gerektiğini aklınızda bulundurun gerekir. Bu nedenle en son aracı dağıtımını test üzerinde başka bir değişiklik Yönetimi işlemini bir Azure dosya eşitleme Aracısı sürümünden bir parçası olarak bu belgedeki tabloları denetleyin akıllıca ölçümüdür. Bu şekilde güvenlik duvarınızı etki alanlarına en son aracıyı izin verecek şekilde yapılandırıldığından emin olun gerektirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Bir Azure dosya eşitleme dağıtımını planlama](storage-sync-files-planning.md)
+- [Bir Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md)
 - [Azure dosya eşitleme (Önizleme) dağıtma](storage-sync-files-deployment-guide.md)

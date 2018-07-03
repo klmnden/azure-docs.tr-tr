@@ -1,6 +1,6 @@
 ---
 title: Sanal ağ geçidi ve Azure Ağ İzleyicisi - REST kullanarak bağlantı sorunlarını giderme | Microsoft Docs
-description: Bu sayfayı sanal ağ geçitleri ve Azure Ağ İzleyicisi'ni kullanarak REST bağlantılarla nasıl giderileceği açıklanmaktadır
+description: Bu sayfa, sanal ağ geçitleri ve REST kullanarak Azure Ağ İzleyicisi bağlantı sorunlarını gidermek açıklanmaktadır
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 35762d5781d5437a25eaf9942e50f60846ae1ae2
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2c65b595e4c56b8c69d38a6e2f30ae8e57bba3f4
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779150"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344113"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Sanal ağ geçidi ve Azure Ağ İzleyicisi'ni kullanarak bağlantı sorunlarını giderme
 
@@ -30,35 +30,35 @@ ms.locfileid: "32779150"
 > - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
-Ağ kaynaklarınızı Azure anlamak için ilgili olarak Ağ İzleyicisi çok sayıda özellik sağlar. Bu özelliklerin biri kaynak sorun giderme. Kaynak sorun giderme portalı, PowerShell, CLI veya REST API çağrılabilir. Çağrıldığında, Ağ İzleyicisi bir sanal ağ geçidi veya bağlantı durumunu inceler ve bulduklarını döndürür.
+Ağ İzleyicisi, ağ kaynaklarınıza azure'da anlamak için bağlantılı olarak çok sayıda özellik sağlar. Bu özelliklerin biri kaynak sorunlarını giderme. Kaynak sorun giderme portalı, PowerShell, CLI veya REST API çağrılabilir. Çağrıldığında, Ağ İzleyicisi, bir sanal ağ geçidi veya bağlantı durumunu inceler ve bulguları döndürür.
 
-Bu makalede kaynak sorun giderme için şu anda kullanılabilir farklı yönetim görevleri yoluyla alır.
+Bu makalede kaynak sorun giderme için şu anda kullanılabilir olan farklı yönetim görevleri alır.
 
-- [**Bir sanal ağ geçidi sorun giderme**](#troubleshoot-a-virtual-network-gateway)
+- [**Bir sanal ağ geçidi sorunlarını giderme**](#troubleshoot-a-virtual-network-gateway)
 - [**Bir bağlantı sorunlarını giderme**](#troubleshoot-connections)
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-ARMclient PowerShell kullanarak REST API'sini çağırmak için kullanılır. ARMClient bulundu üzerinde adresindeki chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)
+ARMclient, PowerShell kullanarak REST API'sini çağırmak için kullanılır. ARMClient bulunur, chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)
 
-Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) bir Ağ İzleyicisi oluşturmak için.
+Bu senaryo, zaten uyguladığınız adımları varsayar [Ağ İzleyicisi oluşturma](network-watcher-create.md) Ağ İzleyicisi oluşturmak için.
 
-Desteklenen ağ geçidi türleri ziyaret listesi [desteklenen ağ geçidi türleri](network-watcher-troubleshoot-overview.md#supported-gateway-types).
+Desteklenen ağ geçidi türleri ziyaret listesini [desteklenen ağ geçidi türleri](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
 ## <a name="overview"></a>Genel Bakış
 
-Ağ İzleyicisi sorunlarını giderme özelliği sağlar sanal ağ geçitlerini ve bağlantılarla ortaya çıkan sorunları giderme. Sorun giderme kaynak için bir istek yapıldığında, günlükleri sorguladığınızda ve sahip denetlenir. İnceleme tamamlandığında, sonuçları döndürülür. Sorun giderme API istekleri uzun çalışan bir sonuca dönmek için birden çok dakika sürebilir isteklerin. Günlükler, depolama hesabındaki bir kapsayıcıda depolanır.
+Ağ İzleyicisi sorun giderme olanağı sağlayan bağlantılar ve sanal ağ geçitleri ile ortaya çıkan sorunları giderme. Sorun giderme kaynak için bir istek yapıldığında, günlükleri sorgulamak ve inceledi. İnceleme işlemi tamamlandıktan sonra sonuçlar döndürülür. Sorun giderme API istek uzun süren istekleri, bir sonuç döndürmek için birden çok dakika sürebilir. Günlükler, depolama hesabında bir kapsayıcıda depolanır.
 
-## <a name="log-in-with-armclient"></a>Oturum ARMClient oturum
+## <a name="log-in-with-armclient"></a>Oturum ARMClient oturum açın
 
 ```PowerShell
 armclient login
 ```
 
-## <a name="troubleshoot-a-virtual-network-gateway"></a>Bir sanal ağ geçidi sorun giderme
+## <a name="troubleshoot-a-virtual-network-gateway"></a>Bir sanal ağ geçidi sorunlarını giderme
 
 
-### <a name="post-the-troubleshoot-request"></a>Sorun giderme isteği gönderme
+### <a name="post-the-troubleshoot-request"></a>Sorun giderme isteği gönderin
 
 Aşağıdaki örnek, bir sanal ağ geçidi durumunu sorgular.
 
@@ -82,15 +82,15 @@ $requestBody = @"
 "@
 
 
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" -verbose
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" $requestBody -verbose
 ```
 
-Bu işlem uzun olduğundan çalıştıran, sonuç yanıt üst bilgi aşağıdaki yanıtta gösterildiği gibi döndürülür için işlemi ve URI sorgulamak için URI:
+Bu işlem uzun olduğundan çalıştıran, URI aşağıdaki yanıtında gösterilen yanıt üst bilgisinde sonuç döndürülmeden için işlemi ve URI'nı sorgulamak için:
 
-**Önemli değerleri**
+**Önemli değerler**
 
-* **Azure AsyncOperation** -URI sorgu zaman uyumsuz işlemi gidermek için bu özelliği içeriyor
-* **Konum** -bu özellik, işlem tamamlandığında, sonuçları nerede URI içerir.
+* **Azure-AsyncOperation** -URI sorgu zaman uyumsuz işlemi sorun giderme için bu özelliği içeriyor
+* **Konum** -bu özellik, işlem tamamlandığında sonuçları nerede URI içerir
 
 ```
 HTTP/1.1 202 Accepted
@@ -110,15 +110,15 @@ Date: Thu, 12 Jan 2017 18:32:01 GMT
 null
 ```
 
-### <a name="query-the-async-operation-for-completion"></a>Sorgu tamamlanması için zaman uyumsuz işlemi
+### <a name="query-the-async-operation-for-completion"></a>Sorgu tamamlama için zaman uyumsuz işlem
 
-Aşağıdaki örnekte görüldüğü gibi işlemlerini URI sorgu işlemi ilerleme durumu için kullanın:
+Sorgu işlemleri URI işlemin ilerlemesi için aşağıdaki örnekte görüldüğü gibi kullanın:
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
 ```
 
-İşlemi sürerken yanıtı gösterir **devam ediyor** aşağıdaki örnekte görüldüğü gibi:
+İşlem devam ederken, yanıt gösterilmiştir **Inprogress** aşağıdaki örnekte görüldüğü gibi:
 
 ```json
 {
@@ -136,13 +136,13 @@ armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-000
 
 ### <a name="retrieve-the-results"></a>Sonuçları Al
 
-Durumu döndürülür sonra **başarılı**, sonuçları almak için URI operationResult üzerinde bir GET yöntemini çağırın.
+Durum döndürülür sonra **başarılı**, sonuçları almak için URI operationResult üzerinde bir GET yöntemi çağırın.
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
 ```
 
-Aşağıdaki yanıtlar bir ağ geçidi sorun giderme sonuçlarını sorgulanırken döndürülen tipik bir düşürülmüş yanıtında bir örnektir. Bkz: [sonuçlarını anlama](#understanding-the-results) yanıt özelliklerinde anlamı hakkında açıklama almak için.
+Aşağıdaki yanıtlar bir ağ geçidi sorunlarını giderme sonuçlarını sorgulanırken döndürülen tipik düzeyi düşürülmüş bir yanıt bir örnektir. Bkz: [sonuçlarını anlama](#understanding-the-results) yanıt özelliklerinde anlamı hakkında açıklama almak için.
 
 ```json
 {
@@ -210,18 +210,18 @@ $requestBody = @{
 }
 
 }
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 "
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 $requestBody"
 ```
 
 > [!NOTE]
-> Sorun giderme işlemi, bağlantı ve karşılık gelen alt ağ geçitleri üzerinde paralel olarak çalıştırılamaz. İşlemi, önceki kaynağı çalıştırılmadan önce tamamlamanız gerekir.
+> Sorun giderme işlemi paralel olarak bir bağlantı ve karşılık gelen, ağ geçitleri üzerinde çalıştırılamaz. İşlem, önceki kaynak çalıştırılmadan önce tamamlamanız gerekir.
 
-Bu yanıt üstbilgisinde uzun süre çalışan bir işlem olduğundan işlem ve sonuç URI'sini sorgulamak için URI aşağıdaki yanıtta gösterildiği gibi verilir:
+Bu yanıt üst bilgisi bir uzun süre çalışan işlemde olduğundan işlemi ve sonuç için URI'nı sorgulamak için URI şu yanıt olarak gösterildiği gibi verilir:
 
-**Önemli değerleri**
+**Önemli değerler**
 
-* **Azure AsyncOperation** -URI sorgu zaman uyumsuz işlemi gidermek için bu özelliği içeriyor
-* **Konum** -bu özellik, işlem tamamlandığında, sonuçları nerede URI içerir.
+* **Azure-AsyncOperation** -URI sorgu zaman uyumsuz işlemi sorun giderme için bu özelliği içeriyor
+* **Konum** -bu özellik, işlem tamamlandığında sonuçları nerede URI içerir
 
 ```
 HTTP/1.1 202 Accepted
@@ -241,15 +241,15 @@ Date: Thu, 12 Jan 2017 18:32:01 GMT
 null
 ```
 
-### <a name="query-the-async-operation-for-completion"></a>Sorgu tamamlanması için zaman uyumsuz işlemi
+### <a name="query-the-async-operation-for-completion"></a>Sorgu tamamlama için zaman uyumsuz işlem
 
-Aşağıdaki örnekte görüldüğü gibi işlemlerini URI sorgu işlemi ilerleme durumu için kullanın:
+Sorgu işlemleri URI işlemin ilerlemesi için aşağıdaki örnekte görüldüğü gibi kullanın:
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/843b1c31-4717-4fdd-b7a6-4c786ca9c501?api-version=2016-03-30"
 ```
 
-İşlemi sürerken yanıtı gösterir **devam ediyor** aşağıdaki örnekte görüldüğü gibi:
+İşlem devam ederken, yanıt gösterilmiştir **Inprogress** aşağıdaki örnekte görüldüğü gibi:
 
 ```json
 {
@@ -265,17 +265,17 @@ armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-000
 }
 ```
 
-Aşağıdaki yanıtlar bağlantı sorunlarını giderme sonuçlarını sorgulanırken döndürülen tipik bir yanıt gösterilebilir.
+Aşağıdaki yanıtlar bağlantı sorunlarını giderme sonuçlarını sorgulanırken döndürülen yanıt tipik örnekleridir.
 
 ### <a name="retrieve-the-results"></a>Sonuçları Al
 
-Durumu döndürülür sonra **başarılı**, sonuçları almak için URI operationResult üzerinde bir GET yöntemini çağırın.
+Durum döndürülür sonra **başarılı**, sonuçları almak için URI operationResult üzerinde bir GET yöntemi çağırın.
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/843b1c31-4717-4fdd-b7a6-4c786ca9c501?api-version=2016-03-30"
 ```
 
-Aşağıdaki yanıtlar bağlantı sorunlarını giderme sonuçlarını sorgulanırken döndürülen tipik bir yanıt gösterilebilir.
+Aşağıdaki yanıtlar bağlantı sorunlarını giderme sonuçlarını sorgulanırken döndürülen yanıt tipik örnekleridir.
 
 ```json
 {
@@ -322,12 +322,12 @@ is a transient state while the Azure platform is being updated.",
 }
 ```
 
-## <a name="understanding-the-results"></a>Sonuçları anlama
+## <a name="understanding-the-results"></a>Sonuçlarını anlama
 
-Eylem metin sorunun nasıl çözümleneceği hakkında genel kılavuzluk sağlar. Bir eylem için sorunu gerçekleştirilebiliyorsa bir bağlantı ile ek yönergeler sağlanır. Durumda hiçbir ek yönergeler bulunduğu bir destek servis talebi açmaya url yanıt sağlar.  Yanıt ve dahil edilen nedir özellikleri hakkında daha fazla bilgi için ziyaret [Ağ İzleyicisi sorun giderme genel bakış](network-watcher-troubleshoot-overview.md)
+Eylem metin sorunu hakkında genel rehberlik sağlar. Bir eylem sorununu gerçekleştirilebiliyorsa bir bağlantı ile ek yönergeler sağlanır. Bu durumda hiçbir ek yönergeler olduğunda, bir destek olayı açmak için URL'yi isteğin yanıtını verir.  Yanıt ve dahil edilen nedir özellikleri hakkında daha fazla bilgi için ziyaret [Ağ İzleyicisi sorun giderme genel bakış](network-watcher-troubleshoot-overview.md)
 
-Azure depolama hesaplarından dosyaları indirme ile ilgili yönergeler için bkz [.NET kullanarak Azure Blob storage'ı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kullanılabilir başka bir Depolama Gezgini aracıdır. Aşağıdaki bağlantıda Depolama Gezgini hakkında daha fazla bilgi şurada bulunabilir: [Depolama Gezgini](http://storageexplorer.com/)
+Azure depolama hesaplarından dosyaları indirme ile ilgili yönergeler için başvurmak [.NET kullanarak Azure Blob depolamayı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kullanılabilen başka bir Depolama Gezgini aracıdır. Aşağıdaki bağlantıda Depolama Gezgini hakkında daha fazla bilgi burada bulunabilir: [Depolama Gezgini](http://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu Dur VPN bağlantısı ayarları değiştirilmiş olup [ağ güvenlik grupları yönet](../virtual-network/manage-network-security-group.md) söz konusu olabilecek ağ güvenlik grubu ve güvenlik kuralları izlemek için.
+Ayarları durdurma VPN bağlantısının değiştirilmiş olup [ağ güvenlik grupları yönet](../virtual-network/manage-network-security-group.md) söz konusu olabilecek ağ güvenlik grubu ve güvenlik kuralları izlemek için.

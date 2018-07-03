@@ -1,6 +1,6 @@
 ---
-title: HALUK tahminleri - Azure geliştirmek için bir ifade listesini kullanarak Öğreticisi | Microsoft Docs
-description: Bu öğreticide bir HALUK uygulamasına tümcecik listeye ekleyin ve puanı geliştirme bakın.
+title: LUIS tahminleri - Azure geliştirmek için bir ifade listesini kullanarak Öğreticisi | Microsoft Docs
+description: Bu öğreticide, bir LUIS uygulaması için bir ifade listesi ekleyin ve score geliştirme konusuna bakın.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -9,48 +9,48 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: feb8acb674fd2dc62b62c26da6a6b42515f30242
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 9f12d9e8c9ee2038e7841cd05bb438421a5a8984
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265980"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345354"
 ---
-# <a name="tutorial-add-phrase-list-to-improve-predictions"></a>Öğretici: tahminleri artırmak için tümcecik listeye ekleyin
-Bu öğreticide hedefi puanları doğruluğunu artırmak ve varlıklar için bir birbirinin yerine ekleyerek (anlamlıları) ile aynı anlamı olan sözcükler tanımlamak [tümcecik liste özelliğini](./luis-concept-feature.md).
+# <a name="tutorial-add-phrase-list-to-improve-predictions"></a>Öğretici: Öngörüler geliştirmek için ifade listesi ekleme
+Bu öğreticide, hedefi puanları doğruluğunu artırmak ve varlıkları bir birbirinin yerine ekleyerek (eş anlamlılar) aynı anlama sahip sözcükleri tanımlama [tümcecik liste özelliğini](./luis-concept-feature.md).
 
 > [!div class="checklist"]
-* Yeni bir uygulama içeri aktarın  
+* Yeni bir uygulamayı içeri aktarma  
 * Bilinen utterance sorgu uç noktası 
-* Sorgu noktayla _bilinmeyen_ utterance
-* Bilinmeyen utterance puan artırmak için tümcecik listeye ekleyin
-* Varlık tümcecik listesi kullanırken doğrulayın
+* Uç nokta ile sorgu _bilinmeyen_ utterance
+* Bilinmeyen utterance puanını artırmak için ifade listesi ekleme
+* Varlık ifade listesi kullanırken bulunamazsa doğrulayın
 
-Bu makalede, ücretsiz bir gereksinim duyduğunuz [HALUK] [ LUIS] HALUK uygulamanızı yazmak için hesap.
+Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS][LUIS] hesabına ihtiyacınız olacak.
 
-## <a name="import-a-new-app"></a>Yeni bir uygulama içeri aktarın
-1. Karşıdan [örnek HALUK uygulama] [ LuisSampleApp] Bu öğretici için tasarlanmıştır. Sonraki adımda kullanır. 
+## <a name="import-a-new-app"></a>Yeni bir uygulamayı içeri aktarma
+1. İndirme [örnek LUIS uygulaması] [ LuisSampleApp] Bu öğretici için tasarlanmıştır. Sonraki adımda kullanır. 
 
-2. Bölümünde açıklandığı gibi [bir uygulama oluşturmak](Create-new-app.md#import-new-app), içine indirilen dosyayı içeri [HALUK] [ LUIS] yeni bir uygulama olarak Web sitesi. Uygulama adı "Benim tümcecik listesi." öğreticidir Hedefleri, varlıkları ve utterances sahiptir. 
+2. Bölümünde anlatıldığı gibi [uygulama oluşturma](Create-new-app.md#import-new-app), içine indirdiğiniz dosyayı içeri [LUIS] [ LUIS] yeni bir uygulama olarak Web sitesi. Uygulama adı "My tümcecik listesi." öğreticidir Bunun amacı, varlıkları ve konuşma sahiptir. 
 
-3. [Tren](luis-how-to-train.md) uygulamanızı. Denenip ayarlanana kadar yapamazsınız [etkileşimli olarak test](interactive-test.md#interactive-testing) içinde [HALUK] [ LUIS] Web sitesi. 
+3. [Train](luis-how-to-train.md) uygulamanızı. Bunu eğitildi kadar yapamazsınız [etkileşimli olarak test](interactive-test.md#interactive-testing) içinde [LUIS] [ LUIS] Web sitesi. 
 
-4. Üzerinde [Yayımla](PublishApp.md) sayfasında, **dahil tüm tahmin hedefi puanları** onay kutusu. Onay kutusu seçili olduğunda, tüm hedefleri döndürülür. Onay kutusu temizlendiğinde, yalnızca üst hedefi döndürülür. 
+4. Üzerinde [Yayımla](luis-how-to-publish-app.md) sayfasında **INCLUDE tüm hedefi puanları tahmin** onay kutusu. Onay kutusu işaretli olduğunda tüm hedefleri döndürülür. Onay kutusunun işareti kaldırıldığında, yalnızca üst hedefi döndürülür. 
 
-5. [Yayımlama](PublishApp.md) uygulama. Uygulama yayımlama HTTPS uç noktasını kullanarak test etmenizi sağlar. 
+5. [Yayımlama](luis-how-to-publish-app.md) uygulama. Uygulama yayımlama HTTPS uç noktasını kullanarak test etmenizi sağlar. 
 
-## <a name="test-a-trained-utterance"></a>Eğitilmiş utterance test
-Uygulama zaten bilir bir utterance sorgulamak için yayımlanan uç noktasını kullanın. HALUK zaten utterance bildiği için puan yüksektir ve varlık algıladı.
+## <a name="test-a-trained-utterance"></a>Eğitilen utterance test
+Uygulama zaten bildiği bir utterance sorgulamak için yayımlanan uç noktayı kullanın. LUIS utterance bildiğinden, puan yüksektir ve varlık algılandı.
 
-1. Üzerinde [dil anlama (HALUK)] [ LUIS] Web sitesi, **Yayımla** sayfasında yeni uygulama için uç nokta URL'sini seçin **kaynakları ve anahtarları**bölümü. 
+1. Üzerinde [Language Understanding (LUIS)] [ LUIS] Web sitesi, **Yayımla** sayfasında yeni bir uygulama için uç nokta URL'sini **kaynakları ve anahtarları**bölümü. 
 
     ![Uç nokta URL'sini yayımlama](./media/luis-tutorial-interchangeable-phrase-list/luis-publish-url.png)
 
-2. Tarayıcıda, URL'nin sonunda sonra aşağıdaki sorguyu eklemek `q=`.
+2. Tarayıcıda, URL'nin sonunda sonra aşağıdaki sorgu Ekle `q=`.
 
     `I want a computer replacement`
 
-    Uç nokta aşağıdaki JSON ile yanıt verir:
+    Uç nokta, aşağıdaki JSON ile yanıt verir:
     
     ```JSON
     {
@@ -93,23 +93,23 @@ Uygulama zaten bilir bir utterance sorgulamak için yayımlanan uç noktasını 
     }
     ```
 
-    Uygulama ile bu utterance eğitilmiş çünkü 0.973 hedefi puanı ve 0.846 varlık algılama puanı yüksektir. Hedefi sayfasında HALUK uygulama utterance bulunduğu **GetHardware**. Utterance's metin `computer`, olarak etiketli **donanım** varlık. 
+    Uygulama ile bu utterance ayarlandığından 0.973 hedefi puanı ve 0.846 varlık algılama puanı yüksektir. LUIS uygulaması hedefi sayfasında utterance bulunduğu **GetHardware**. Utterance'nın metin `computer`, olarak etiketlenmiş **donanım** varlık. 
     
-    |Durum|Word| Hedefi puanı | Varlık puanı |
+    |Durum|Word| Intent puanı | Varlık puanı |
     |--|--|--|--|
     |Eğitilen| istediğiniz | 0.973 | 0.846 |
     
     
-## <a name="test-an-untrained-utterance"></a>Eğitimsiz utterance test
-Tarayıcıda, uygulama zaten bilmiyor bir utterance ile aynı yayımlanan uç nokta sorgu için kullanın:
+## <a name="test-an-untrained-utterance"></a>Bir deneyimsiz utterance test
+Tarayıcıda, uygulama zaten bilmez bir utterance ile sorgu aynı yayımlanan uç noktaya kullanın:
 
 `I require a computer replacement`
 
-Bu utterance önceki utterance eşanlamlısı kullanır:
+Bu utterance eşanlamlısı önceki utterance birini kullanır:
 
-| Eğitilmiş word | Eğitimsiz eş anlamlı |
+| Eğitilen bir sözcük | Deneyimsiz eş anlamlı |
 |--|--|
-| istediğiniz | Gerektirir |
+| istediğiniz | gerektirir |
 
 Uç nokta yanıt şöyledir:
 
@@ -146,61 +146,61 @@ Uç nokta yanıt şöyledir:
 }
 ```
 
-| Durum | Word | Hedefi puanı | Varlık puanı |
+| Durum | Word | Intent puanı | Varlık puanı |
 |--|--|--|--|
 | Eğitilen| istediğiniz | 0.973 | 0.846 |
-| Eğitimsiz| Gerektirir | 0.840 | - |
+| Deneyimsiz| gerektirir | 0.840 | - |
 
-Eğitimsiz utterance hedefi puan etiketli utterance düşük olduğundan HALUK tümce dilbilgisi açısından aynı olduğunu bilir. Ancak HALUK utterances aynı anlama sahip bilmiyor. Ayrıca, tümcecik listesi olmadan **donanım** varlık bulunamadı.
+LUIS cümlenin bakımından aynı olduğunu bildiğinden deneyimsiz utterance hedefi puanı, etiketlenmiş utterance düşüktür. Ancak LUIS konuşma aynı anlamlara sahip olduğunu bilmez. Ayrıca, ifade listesi olmadan **donanım** varlık bulunamadı.
 
-HALUK öğretmek gerekir *istediğiniz* ve *gerektiren* bir sözcük birden fazla anlama sahip olabilir çünkü bu uygulama etki alanında aynı şeyi anlamına gelir. 
+LUIS öğretin gerekir *istediğiniz* ve *gerektiren* bir sözcüğün birden fazla anlamı olabileceği için bu uygulama etki alanında aynı şeyi anlamına gelir. 
 
-## <a name="improve-the-score-of-untrained-utterance-with-phrase-list"></a>Tümcecik listesiyle eğitimsiz utterance puanı geliştirmek 
+## <a name="improve-the-score-of-untrained-utterance-with-phrase-list"></a>Tümcecik listesiyle deneyimsiz utterance puanı geliştirin 
 1. Ekleme bir [tümcecik listesi](luis-how-to-add-features.md) adlı özellik **istediğiniz** değeriyle `want`ve ardından **Enter**.
 
     > [!TIP]
-    > Her sözcük veya tümcecik sonra seçin **Enter** anahtarı. Sözcük veya tümcecik eklenen **tümceyi liste değerleri** imleci kalarak kutusunda **değeri** kutusu. Bu özellik ile hızlı bir şekilde birden fazla değer girebilirsiniz.
+    > Her sözcüğün veya tümceciğin sonra seçin **Enter** anahtarı. Bir sözcük veya tümcecik eklenir **tümcecik liste değerleri** imleç kalarak kutusunda **değer** kutusu. Bu özellik ile hızlı bir şekilde birçok değer girebilirsiniz.
 
-2. HALUK önerir sözcükler görüntülemek için seçin **önerilir**. 
+2. LUIS önerir sözcük görüntülemek için seçin **önerilir**. 
 
     ![Değerler önerilir](./media/luis-tutorial-interchangeable-phrase-list/recommend.png)
 
-3. Tüm sözcükleri ekleyin. Varsa `require` olan isteğe bağlı olarak önerilen listede olmayan, gerekli bir değer ekleyin. 
+3. Tüm sözcükler ekleyin. Varsa `require` olan isteğe bağlı olarak önerilen listede olmayan, gerekli bir değer olarak ekleyin. 
 
-4. Bu sözcükleri eş anlamlıları olduğundan tutmak *birbirinin yerine* ayarlama ve ardından **kaydetmek**.
+4. Bu sözcükler eş anlamlılar olduğundan, tutmak *birbirinin yerine* ayarlama ve ardından **Kaydet**.
 
     ![Tümcecik liste değerleri](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
 
-5. Üst gezinti çubuğunda seçin **eğitmek** uygulama Eğitilecek ancak onu yayımlama. Şimdi iki modelleri vardır. İki model değerleri karşılaştırabilirsiniz.
+5. Üst gezinti çubuğunda **eğitme** uygulama geliştirmek için ancak bu yayımlama. Artık iki modeli vardır. İki modelleri değerlerde karşılaştırabilirsiniz.
 
-## <a name="compare-the-phrase-list-model-to-the-published-model"></a>Yayımlanan modeli tümcecik listesi modeline Karşılaştır
-Bu uygulamada, yayımlanan modeli ile anlamlıları eğitildi değil. Yalnızca şu anda düzenlenen modeli eş anlamlıları tümcecik listesini içerir. Modeli karşılaştırmak için kullanmak [etkileşimli sınama](interactive-test.md#interactive-testing). 
+## <a name="compare-the-phrase-list-model-to-the-published-model"></a>Yayımlanan model ifade listesi modele karşılaştırın
+Bu uygulamada, yayımlanan modeli ile eşanlamlı eğitim almamış. Yalnızca şu anda düzenlenen modeli eş anlamlıları ifade listesi içerir. Modeli karşılaştırmak için kullanın [etkileşimli test](interactive-test.md#interactive-testing). 
 
-1. Açık **Test** bölmesinde, aşağıdaki utterance girin:
+1. Açık **Test** bölmesinde aşağıdaki utterance girin:
 
     `I require a computer replacement`
 
-2. İnceleme panelini açmak için seçin **incele**. 
+2. İnceleme panelini açmak için seçin **inceleyin**. 
 
-    ![Select inceleyin.](./media/luis-tutorial-interchangeable-phrase-list/inspect-button.png)
+    ![Select inceleyin](./media/luis-tutorial-interchangeable-phrase-list/inspect-button.png)
 
-3. Yeni tümcecik listesi modeline yayımlanan modeli karşılaştırmak için seçin **ile karşılaştırın yayımlanan**.
+3. Yeni ifade listesi modeline yayımlanan model Karşılaştırılacak seçin **Karşılaştır yayımlanan**.
 
-    ![İnceleme karşı geçerli yayımlanan](./media/luis-tutorial-interchangeable-phrase-list/inspect.png)
+    ![İnceleme geçerli yayımlanan](./media/luis-tutorial-interchangeable-phrase-list/inspect.png)
 
-Tümcecik listesi, utterance artan doğruluğunu ekledikten sonra ve **donanım** varlık bulundu. 
+Utterance artan doğruluğunu tümcecik listesi ekledikten sonra ve **donanım** varlık bulundu. 
 
-|Durum | Tümcecik listesi| Hedefi puanı | Varlık puanı |
+|Durum | İfade listesi| Intent puanı | Varlık puanı |
 |--|--|--|--|
 | Yayımlanma | - | 0,84 | - |
-| Şu anda düzenleme |✔| 0.92 | Tanımlanan donanım varlık |
+| Şu anda düzenleme |✔| 0.92 | Tanımlanmış donanım varlık |
 
 > [!TIP]
-> * Kullanarak [etkileşimli test](interactive-test.md#interactive-testing), yayımlanan, yayımladıktan sonra yapılan değişiklikleri eğitilen modele karşılaştırabilirsiniz. 
-> * Kullanarak [Endpoint test](PublishApp.md#test-your-published-endpoint-in-a-browser), tam HALUK yanıt JSON görüntüleyebilirsiniz. 
+> * Kullanarak [etkileşimli test](interactive-test.md#interactive-testing), yayımlanan yayımladıktan sonra yapılan değişiklikleri eğitilen modele karşılaştırabilirsiniz. 
+> * Kullanarak [uç noktasını sınama](luis-how-to-publish-app.md#test-your-published-endpoint-in-a-browser), LUIS tepki JSON görüntüleyebilirsiniz. 
 
-## <a name="get-the-entity-score-with-the-endpoint-test"></a>Uç nokta test ile varlık puan Al
-Varlık puan görüntülemek için [modele yayımlama](PublishApp.md) ve uç nokta sorgulayabilirsiniz. 
+## <a name="get-the-entity-score-with-the-endpoint-test"></a>Uç nokta sınamaya varlık puan Al
+Varlık puanı görüntülemek için [modeli yayımlama](luis-how-to-publish-app.md) ve uç noktasını sorgulayın. 
 
 `I require a computer replacement`
 
@@ -245,21 +245,21 @@ Varlık puan görüntülemek için [modele yayımlama](PublishApp.md) ve uç nok
 }
 ```
 
-**Donanım** varlık 0.595 tümcecik listesiyle puanı gösterir. Tümcecik listesi var önce varlık algılanmadı. 
+**Donanım** varlığı ifade listesi ile 0.595 puanı gösterir. İfade listesi var önce varlık algılanmadı. 
 
-|Durum | Tümcecik listesi| Hedefi puanı | Varlık puanı |
+|Durum | İfade listesi| Intent puanı | Varlık puanı |
 |--|--|--|--|
 | Yayımlanma | - | 0,84 | - |
 | Şu anda düzenleme |✔| 0.92 | 0.595 |
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Artık gerektiğinde HALUK uygulamayı silin. Bunu yapmak için uygulama adının sağ tarafındaki üç nokta menüsüne (...) uygulama listesinde seçin **silmek**. Açılan iletişim kutusunda **Delete uygulama?** seçin **Tamam**.
+İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunu yapmak için uygulama listesinde uygulama adının yanındaki üç nokta menüsüne (...) tıklayıp **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Uç nokta sorgusuyla utterance tahmin al](luis-get-started-cs-get-intent.md)
+> [Uç nokta sorgusuyla utterance öngörü Al](luis-get-started-cs-get-intent.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 [LuisFeatures]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature

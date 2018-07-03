@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: SQL Java API, SDK & kaynakları | Microsoft Docs'
-description: SQL Java API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB SQL Java SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
+title: 'Azure Cosmos DB: SQL Java API, SDK ve kaynakları | Microsoft Docs'
+description: Tüm SQL Java API ve yayın tarihleri, sona erme tarihlerini ve her bir Azure Cosmos DB SQL Java SDK'sı sürümü arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
 services: cosmos-db
 author: rnagpal
 manager: kfile
@@ -9,20 +9,20 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/16/2018
-ms.author: khdang
+ms.date: 06/29/2018
+ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 352fa562a09d343d4a01b94343a60e3f6610c73f
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: d7d00d6236b601d145be03e6086bec2d72faafcd
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097174"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344946"
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API için Azure Cosmos DB Java SDK: sürüm notları ve kaynakları
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API'si için Azure Cosmos DB Java SDK: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET değişiklik besleme](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET değişiklik akışı](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -31,150 +31,157 @@ ms.locfileid: "37097174"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Kaynak Sağlayıcısı](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Bulkexecutor'a - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulkexecutor'a - Java](sql-api-sdk-bulk-executor-java.md)
 
-SQL API Java SDK'sını zaman uyumlu işlemler destekler. Zaman uyumsuz desteği kullanmak [SQL API zaman uyumsuz Java SDK'sını](sql-api-sdk-async-java.md). 
+SQL API Java SDK'sı, zaman uyumlu işlemler destekler. Zaman uyumsuz desteği kullanan [SQL API Async Java SDK'sı](sql-api-sdk-async-java.md). 
 
 <table>
 
-<tr><td>**SDK yükleme**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
+<tr><td>**SDK'sını indirme**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
 <tr><td>**API belgeleri**</td><td>[Java API başvuru belgeleri](/java/api/com.microsoft.azure.documentdb)</td></tr>
 
-<tr><td>**SDK katkıda bulunan**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**SDK'sı için katkıda bulunan**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 
 <tr><td>**Kullanmaya başlama**</td><td>[Java SDK'sı ile çalışmaya başlama](sql-api-java-get-started.md)</td></tr>
 
 <tr><td>**Web uygulaması Öğreticisi**</td><td>[Azure Cosmos DB ile Web uygulaması geliştirme](sql-api-java-application.md)</td></tr>
 
-<tr><td>**Minimum desteklenen çalışma zamanı**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**En düşük desteklenen çalışma zamanı**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
 
+### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
+* Eklenen akış yük devretme desteği.
+* Özel meta verileri desteği eklendi.
+* Geliştirilmiş oturum işleme mantığı.
+* Bölüm anahtar aralığı önbellekte bir hata düzeltildi.
+* Doğrudan modda NPE düzeltildi.
+
 ### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
 * Benzersiz dizin için destek eklendi.
-* Akış seçeneklerinde devamlılık belirteci boyutunu sınırlamak için destek eklendi.
-* Bir hata Json serileştirmesi (zaman damgası) sabit.
-* Bir hata Json serileştirmesi (numaralandırma) sabit.
-* Com.fasterxml.jackson.core:jackson databind 2.9.5 için yükseltilmiş bağımlılığı.
+* Akış seçenekleri devamlılık belirteci boyutunu sınırlamak için destek eklendi.
+* Json serileştirme (zaman damgası) bir hata düzeltildi.
+* Json serileştirme (enum) bir hata düzeltildi.
+* Bağımlılık com.fasterxml.jackson.core:jackson databind 2.9.5 için yükseltildi.
 
 ### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
-* Geliştirilmiş bağlantı için doğrudan modu havuzu.
-* Önceden getirme geliştirme orderby olmayan çapraz bölüm sorgusu için iyileştirilmiştir.
+* Geliştirilmiş bağlantı havuzu için doğrudan modu.
+* Önceden getirme geliştirme orderby olmayan çapraz bölüm sorgusunun için İyileştirildi.
 * Geliştirilmiş UUID oluşturma.
-* Geliştirilmiş oturum tutarlılığı mantığı.
+* Geliştirilmiş oturum tutarlılık mantığı.
 * Multipolygon desteği eklendi.
-* Bölüm anahtarı aralığının istatistikleri koleksiyonu için desteği eklendi.
-* Bir hata bölgeli desteği sabit.
+* Bölüm anahtar aralığı istatistikleri koleksiyonu için destek eklendi.
+* Çok bölgeli desteği düzeltildi.
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
-* Json seri hale getirme performansı.
-* Bu SDK sürümü Merkezi'nden Azure Cosmos DB öykünücüsü kullanılabilir en son sürümünü gerektirir https://aka.ms/cosmosdb-emulator.
+* Json seri hale getirme performansı İyileştirildi.
+* Bu SDK sürüm Merkezi'nden Azure Cosmos DB Emulator kullanılabilir en son sürümünü gerektirir. https://aka.ms/cosmosdb-emulator.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
-* Microsoft arkadaş kitaplıkları için iç değişiklikleri.
+* İç değişiklik Microsoft arkadaş kitaplıkları.
 
 ### <a name="a-name11301130"></a><a name="1.13.0"/>1.13.0
-* Tek bir bölüm anahtarı aralıkları okuma bir sorun düzeltilmiştir.
-* Bir sorun ResourceId içinde sabit, ayrıştırma kısa adları veritabanıyla etkiler.
-* Anahtar kodlaması için bölüm tarafından bir sorunu neden sabit.
+* Tek bölüm anahtar aralığı okuma bir sorun düzeltildi.
+* ResourceId içinde bir sorun düzeltildi, ayrıştırma, veritabanı kısa adları ile etkiler.
+* Anahtar kodlaması için bölüm tarafından bir sorunu neden düzeltildi.
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
-* Bölüm bölmelerini işlenirken istemek için Kritik hata düzeltmeleri.
-* Bir sorun güçlü ve BoundedStaleness tutarlılık düzeyleri ile düzeltilmiştir.
+* İşleme sırasında bölüm bölmelerini istemek için Kritik hata düzeltmeleri.
+* Güçlü ve BoundedStaleness tutarlılık düzeyleri ile bir sorun düzeltildi.
 
 ### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
 * Yeni bir tutarlılık düzeyi için destek eklendi ConsistentPrefix çağrılır.
-* Oturum modu koleksiyonunda okuma hatanın düzeltildiğini.
+* Koleksiyon oturumu modunda okuma bir hata düzeltildi.
 
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
-* Etkin bölümlenmiş koleksiyonuyla desteği 2.500 RU/sn düşük ve 100 RU/sn artışlarla ölçeklendirin.
-* Bazı sorgular NullRef özel durum neden yerel derlemede hatanın düzeltildiğini.
+* Etkin desteği ile bölümlenmiş koleksiyonu olarak düşük 2.500 RU/sn ve 100 RU/sn artışlarla ölçeklendirme.
+* Bazı sorgularda NullRef özel durum neden yerel derlemedeki bir hata düzeltildi.
 
 ### <a name="a-name196196"></a><a name="1.9.6"/>1.9.6
-* Özel durumlar sorgular için ağ geçidi modunda neden olabilir sorgu altyapısı yapılandırma hatanın düzeltildiğini.
-* "Sahip kaynak bulunamadı" için bir özel durum isteklerinin koleksiyonu oluşturulduktan hemen sonra neden olabilecek oturum kapsayıcısında birkaç düzeltilen.
+* Ağ geçidi modunda sorguları için özel durumlar neden olabilecek sorgu altyapısı yapılandırmasında bir hata düzeltildi.
+* Koleksiyon oluşturulduktan hemen sonra istekleri için bir "sahibi kaynak bulunamadı" özel neden olabilecek oturumu kapsayıcıdaki bazı hatalar düzeltildi.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Toplama sorguları (sayısı, MIN, MAX, toplam ve ortalama) desteği eklendi. Bkz: [toplama Destek](sql-api-sql-query.md#Aggregates).
-* Akış değişiklik desteği eklendi.
-* Koleksiyon kota bilgileri RequestOptions.setPopulateQuotaInfo aracılığıyla desteği eklendi.
-* Saklı yordam komut dosyası günlük RequestOptions.setScriptLoggingEnabled aracılığıyla desteği eklendi.
-* Kısıtlama hataları karşılaşıldığında DirectHttps modunda sorgu burada kilitlenebilir hatanın düzeltildiğini.
-* Bir hatayı oturum tutarlılığı modunda sabit.
-* İstek oranı yüksek olduğunda bu NullReferenceException içinde HttpContext neden olabilecek bir hatanın düzeltildiğini.
-* DirectHttps modu performansı geliştirildi.
+* Toplama sorguları (sayısı, MIN, MAX, toplam ve ortalama) için destek eklendi. Bkz: [toplama Destek](sql-api-sql-query.md#Aggregates).
+* Değişiklik akışı desteği eklendi.
+* RequestOptions.setPopulateQuotaInfo aracılığıyla kota bilgilerin toplanması için destek eklendi.
+* Saklı yordam betik günlüğü RequestOptions.setScriptLoggingEnabled desteği eklendi.
+* Burada DirectHttps modunda sorgu azaltma hataları ile karşılaşıldığında sarkabilir bir hata düzeltildi.
+* Oturum tutarlılığı modunda bir hata düzeltildi.
+* İstek hızı yüksek olduğunda, NullReferenceException HttpContext içinde neden olabilir bir hata düzeltildi.
+* DirectHttps modunun performansı İyileştirildi.
 
 ### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
-* ConnectionPolicy.setProxy() API ile eklenen basit istemci örnek tabanlı proxy desteği.
-* Düzgün kapatma DocumentClient örneğine eklenen DocumentClient.close() API.
-* Sorgu performansı doğrudan bağlantı modu, ağ geçidi yerine yerel derleme sorgu planı türetme tarafından geliştirilmiş.
-* Ayarlama FAIL_ON_UNKNOWN_PROPERTIES = false böylece kullanıcılar kendi POJO'ya JsonIgnoreProperties tanımlamak gerek kalmaz.
-* Günlüğe kaydetme, SLF4J kullanılacak işlenmiş.
-* Birkaç diğer tutarlılık okuyucusunda düzeltilen.
+* ConnectionPolicy.setProxy() API'si ile eklenen basit istemci proxy örneği tabanlı desteği.
+* Düzgün kapatmayı DocumentClient örneğine eklenen DocumentClient.close() API.
+* Ağ geçidi yerine yerel derleme sorgu planı türeterek doğrudan bağlantı moduna sorgu performansı geliştirildi.
+* Ayarlama FAIL_ON_UNKNOWN_PROPERTIES = false, böylece kullanıcılar kendi POJO'ya JsonIgnoreProperties tanımlamanız gerekmez.
+* SLF4J kullanmak için UIMap'e yeniden işlenmiş günlüğe kaydetmeyi'ı seçin.
+* Tutarlılık okuyucusunda bazı hatalar düzeltildi.
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
-* Doğrudan bağlantı modunda bağlantı sızıntıları önlemek için bağlantı Yönetimi'nde hata sabit.
-* Bir hata, burada NullReferenece özel durum atabilir üst sorguda sabit.
-* İç önbellekler için ağ çağrı sayısını azaltarak performansı.
-* Eklenen durum kodu, ActivityID ve daha iyi sorun giderme için DocumentClientException, istek URI'si.
+* Doğrudan bağlantı modunda bağlantı sızıntılarını önlemek için bağlantı yönetiminde bir hata düzeltildi.
+* TOP sorgusu burada NullReferenece özel durum oluşturabildiğini varsaymasını düzeltildi.
+* İç önbellekler için ağ çağrısı sayısını azaltarak performansı İyileştirildi.
+* ActivityID ve daha iyi sorun giderme DocumentClientException istek URI'SİNDE eklenen durum kodu.
 
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
-* Kararlılık bağlantı Yönetimi'nde bir sorun düzeltilmiştir.
+* Bağlantı yönetiminde kararlılık için bir sorun düzeltildi.
 
 ### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
-* BoundedStaleness tutarlılık düzeyi desteği eklendi.
-* Bölümlenmiş koleksiyonlar için CRUD işlemleri için doğrudan bağlantı desteği eklendi.
-* SQL veritabanıyla sorgulama içinde hatanın düzeltildiğini.
-* Bir hata burada oturum belirteci yanlış ayarlanmış olabilir oturumu önbelleğinde sabit.
+* BoundedStaleness tutarlılık düzeyi için destek eklendi.
+* Bölümlenmiş koleksiyonlar için CRUD işlemleri için doğrudan bağlantı için destek eklendi.
+* Bir veritabanını SQL ile sorgulama içinde bir hata düzeltildi.
+* Oturum belirteci yanlış yere ayarlanabilir oturum önbelleğinde bir hata düzeltildi.
 
 ### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
-* Bölüm paralel sorgular çapraz eklenen desteği.
-* ÜST/ORDER BY sorguları bölümlenmiş koleksiyonlar için desteği eklendi.
-* Güçlü tutarlılık desteği eklendi.
+* Çapraz bölüm paralel sorgular için eklenen destek.
+* ÜST/ORDER BY sorguları bölümlenmiş koleksiyonlar için destek eklendi.
+* Güçlü tutarlılık için destek eklendi.
 * Doğrudan bağlantı kullanırken ad tabanlı istekleri için destek eklendi.
-* Tüm istek yeniden denemeler arasında tutarlı kalmasını ActivityID yapmak sabit.
-* Aynı ada sahip bir koleksiyon yeniden oturum önbelleğini ilgili bir hata sabit.
-* Eklenen Çokgen ve LineString İlkesi coğrafı uzamsal sorguları için dizin oluşturma koleksiyonunu belirten sırasında veri türleri.
-* Giderilen sorunlar Java 1.8 için Java belge ile.
+* ActivityID tüm istek yeniden denemeler arasında tutarlı kalmasını sağlamak sabit.
+* Aynı ada sahip bir koleksiyon tekrar oluşturulurken oturum önbelleğiyle ilgili bir hata düzeltildi.
+* Eklenen Çokgen ve dizin oluşturma ilkesi şirketin coğrafı uzamsal sorgular için koleksiyon belirtirken LineString veri türleri.
+* Java 1.8 için Java Doc birlikte sorunlar düzeltildi.
 
 ### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
-* Bir hata tek bölüm koleksiyonları önbelleğe ve anahtar istekleri bölüm fazladan fetch olmamasını PartitionKeyDefinitionMap içinde sabit.
-* Yanlış bölüm anahtarı değerini sağlandığında değil denemeye hatanın düzeltildiğini.
+* Tek bölüm koleksiyonlarını önbellek ve ek getirme önemli istekleri bölümleme yapmamaya PartitionKeyDefinitionMap içinde bir hata düzeltildi.
+* Bir hatalı bölüm anahtarı değeri sağlandığında yeniden olmayan bir hata düzeltildi.
 
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
-* Bölgeli veritabanı hesaplarını desteği eklendi.
-* En fazla yeniden deneme girişimleri ve en fazla yeniden deneme bekleme süresi özelleştirmek için seçenekleri daraltılmış istekleriyle otomatik yeniden desteği eklendi.  RetryOptions ve ConnectionPolicy.getRetryOptions() bakın.
-* Kullanım dışı IPartitionResolver özel bölümleme kod tabanlı. Lütfen bölümlenmiş koleksiyonlar, daha yüksek depolama ve işleme için kullanın.
+* Çoklu bölge veritabanı hesapları için destek eklendi.
+* Otomatik yeniden deneme seçenekleri en fazla yeniden deneme girişimleri ve en fazla yeniden deneme bekleme süresini özelleştirmek için daraltılmış istekler için destek eklendi.  RetryOptions ve ConnectionPolicy.getRetryOptions() bakın.
+* Kullanım dışı IPartitionResolver özel bölümleme kod temel. Lütfen daha yüksek depolama ve aktarım hızı için bölümlenmiş koleksiyonları kullanın.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
-* Hız sınırı için eklenen yeniden deneme ilkesi desteği.  
+* Oran sınırlandırma için eklenen yeniden deneme ilkesi desteği.  
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
-* Belgeler için ek süre dinamik (TTL) desteği.
+* Belgeler için eklenen zaman canlı (TTL) desteği.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
-* Uygulanan [bölümlenmiş koleksiyonlar](partition-data.md) ve [kullanıcı tanımlı performans düzeyleri](performance-levels.md).
+* Uygulanan [bölümlenmiş koleksiyonları](partition-data.md) ve [kullanıcı tanımlı performans düzeyleri](performance-levels.md).
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
-* Bir hata küçük diğer SDK'ları ile tutarlı olacak şekilde endian karma değerleri oluşturmak için HashPartitionResolver sabit.
+* Diğer SDK'ları ile tutarlı olmasını endian karma değerleri oluşturmak için HashPartitionResolver içinde bir hata düzeltildi.
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
-* Karma & aralığı Ekle Bölüm parçalama uygulamalarla arasında birden çok bölüm yardımcı olmak için Çözümleyicileri.
+* Karma & aralığı Ekle Çözümleyicileri parçalara ayırma uygulamaları ile birden çok bölümde yardımcı olmak üzere bölümleme.
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 * Upsert uygulayın. Upsert özelliğini desteklemek için eklenen yeni upsertXXX yöntemleri.
-* Temel kimlik yönlendirme uygulayın. Genel API değişiklik, tüm değişiklikleri iç.
+* Kimlik tabanlı yönlendirme uygulayın. Genel API değişiklik, tüm değişiklikleri iç.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
-* Diğer SDK ile hizalama sürüm numarası getirilecek yayın atlandı
+* Sürüm numarası diğer SDK'lar ile uyumlu duruma getirmek için sürüm atlandı
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Destekler Jeo-uzamsal dizin
-* ID özelliği tüm kaynaklar için doğrular. Kaynaklar için kimlikleri içeremez?, /, #, \, karakter veya boşluk ile bitmelidir.
-* Yeni Üstbilgi "dizini dönüştürme ilerleme durumu" için ResourceResponse ekler.
+* Jeo-uzamsal dizin destekler
+* Tüm kaynaklar için kimlik özelliği doğrular. Kaynaklar için kimlikleri içeremez?, /, #, \, karakterler veya boşluk ile bitmelidir.
+* Yeni üst bilgi "dizin dönüştürme ilerleme durumu" için ResourceResponse ekler.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * V2 dizin oluşturma ilkesini uygular
@@ -183,14 +190,14 @@ SQL API Java SDK'sını zaman uyumlu işlemler destekler. Zaman uyumsuz desteği
 * GA SDK'SI
 
 ## <a name="release-and-retirement-dates"></a>Yayın ve sona erme tarihleri
-Microsoft sağlayacaktır bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş kesintisiz için bir SDK devre dışı bırakmadan önce.
+Sağlar; Microsoft bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş hafifletmek için bir SDK'yı devre dışı bırakmadan önce.
 
-Yeni özellikler ve işlevsellik ve en iyi duruma getirme geçerli SDK'sı yalnızca eklenir, olduğundan bu nedenle önerilir, her zaman en son SDK sürüme erken mümkün olduğunca yükseltmeniz.
+Geçerli SDK'sı yalnızca eklenen yeni özellikler ve işlevsellik ve en iyi duruma getirme, olduğundan bu nedenle önerilir, her zaman en son SDK sürümüne erken mümkün olduğunca yükseltmeniz.
 
-Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir istek hizmeti tarafından reddedilir.
+Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm istekleri hizmet tarafından reddedilir.
 
 > [!WARNING]
-> Java için SQL SDK'sı tüm sürümleri sürümden önceki **1.0.0** üzerinde Çekildi **29 Şubat 2016**.
+> Java için SQL SDK'sının sürümden önceki tüm sürümler **1.0.0** kullanımdan kaldırılmıştır **29 Şubat 2016**.
 > 
 > 
 
@@ -198,10 +205,11 @@ Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir is
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
-| [1.16.1](#1.16.1) |16 May 2018 |--- |
+| [1.16.2](#1.16.2) |29 Haziran 2018'e |--- |
+| [1.16.1](#1.16.1) |16 Mayıs 2018 |--- |
 | [1.16.0](#1.16.0) |15 Mart 2018 |--- |
-| [1.15.0](#1.15.0) |14 Kas 2017 |--- |
-| [1.14.0](#1.14.0) |28 Eki 2017 |--- |
+| [1.15.0](#1.15.0) |14 Kasım 2017 |--- |
+| [1.14.0](#1.14.0) |28 Ekim 2017 |--- |
 | [1.13.0](#1.13.0) |25 Ağustos 2017 |--- |
 | [1.12.0](#1.12.0) |11 Temmuz 2017 |--- |
 | [1.11.0](#1.11.0) |10 Mayıs 2017 |--- |
@@ -237,5 +245,5 @@ Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir is
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Cosmos DB hakkında daha fazla bilgi için bkz: [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hizmet sayfası.
+Cosmos DB hakkında daha fazla bilgi için bkz: [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hizmeti sayfası.
 

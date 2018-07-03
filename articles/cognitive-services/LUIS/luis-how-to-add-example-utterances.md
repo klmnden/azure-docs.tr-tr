@@ -1,7 +1,7 @@
 ---
-title: Örnek utterances HALUK uygulamaları ekleme | Microsoft Docs
+title: Örnek konuşma LUIS uygulamaları ekleme | Microsoft Docs
 titleSuffix: Azure
-description: Dil anlama (HALUK) uygulamalarında utterances eklemeyi öğrenin.
+description: Language Understanding (LUIS) uygulamalarında konuşma eklemeyi öğrenin.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -10,175 +10,175 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 74a4b77bd9823e5462eecd438cf4c1d863e79892
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 80ccedc7299836cae689edd8a277a7c6d23befa7
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300647"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345065"
 ---
-# <a name="add-example-utterances-and-label-with-entities"></a>Örnek utterances ve varlıklarla etiket ekleme
+# <a name="add-example-utterances-and-label-with-entities"></a>Örnek konuşma ve varlık etiketi Ekle
 
-Örnek utterances metin kullanıcı sorular veya komutları gösterilebilir. Dil anlama (HALUK) öğretmeyi eklemeniz gerekir [örnek utterances](luis-concept-utterance.md) için bir [hedefi](luis-concept-intent.md).
+Örnek konuşma metin kullanıcı sorularınız ya da komutları örnekleridir. Language Understanding (LUIS) öğretmeyi eklemeniz gerekir [örnek konuşma](luis-concept-utterance.md) için bir [hedefi](luis-concept-intent.md).
 
-Genellikle, bir örnek utterance amacına için ilk olarak ekleyin ve ardından hedefi sayfasında varlıkları ve etiket utterances oluşturun. Varlıkları ilk yerine oluşturacak olup [varlıkları ekleyin](luis-how-to-add-entities.md).
+Genellikle, bir amaç için önce bir örnek utterance ekleyin ve varlıkları ve etiket konuşma niyetini sayfada oluşturup. Varlıkları ilk yerine oluşturacak olup [varlık Ekle](luis-how-to-add-entities.md).
 
-## <a name="add-an-utterance"></a>Bir utterance ekleyin
-Bir hedefi sayfasında beklediğiniz, kullanıcılardan gibi ilgili örnek utterance girin `book 2 adult business tickets to Paris tomorrow on Air France` hedefi adı ve ENTER tuşuna basın altındaki metin kutusuna. 
+## <a name="add-an-utterance"></a>Bir utterance Ekle
+Beklediğiniz kullanıcılarınızdan gelen gibi bir ilgili örnek utterance hedefi bir sayfaya girin `book 2 adult business tickets to Paris tomorrow on Air France` metin kutusuna aşağıdaki hedefi adını ve Enter tuşuna basın. 
  
 >[!NOTE]
->HALUK tüm utterances küçük harflere dönüştürür.
+>LUIS tüm konuşma küçük harfe dönüştürür.
 
-![Vurgulanan utterance ile ekran görüntüsü, hedefleri Ayrıntılar sayfası](./media/luis-how-to-add-example-utterances/add-new-utterance-to-intent.png) 
+![Vurgulanan utterance ile ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-example-utterances/add-new-utterance-to-intent.png) 
 
-Utterances geçerli amacı için utterances listesine eklenir. 
+Konuşma geçerli amaç için konuşma listesine eklenir. 
 
-## <a name="ignoring-words-and-punctuation"></a>Sözcük ve noktalama yoksayılıyor
-Belirli bir sözcük veya örnek utterance noktalama yoksaymak istiyorsanız, kullanmak bir [düzeni](luis-concept-patterns.md#pattern-syntax) ile _Yoksay_ sözdizimi. 
+## <a name="ignoring-words-and-punctuation"></a>Sözcükleri ve noktalama işaretleri yoksayılıyor
+Belirli sözcükleri ya da örnek utterance, noktalama işareti yok saymak istiyorsanız, kullanan bir [deseni](luis-concept-patterns.md#pattern-syntax) ile _Yoksay_ söz dizimi. 
 
-## <a name="add-simple-entity-label"></a>Basit varlık etiketi ekleyin
-Aşağıdaki yordamda oluşturun ve aşağıdaki utterance hedefi sayfasında özel varlıkları etiketi:
+## <a name="add-simple-entity-label"></a>Basit varlık etiketi Ekle
+Aşağıdaki yordamda, oluşturun ve aşağıdaki utterance hedefi sayfasında özel varlıklarda etiketi:
 
 ```
 book me 2 adult business tickets to Paris tomorrow on Air France
 ```
 
-1. "Hava Fransa" basit bir varlık olarak etiketlemek için utterance seçin.
+1. Basit bir varlık olarak etiketlemek için utterance "Hava Fransa" seçin.
 
     > [!NOTE]
-    > Varlık etiketi kelimeleri seçerken:
-    > * Yalnızca tek bir sözcük için bunu seçin. 
-    > * İki veya daha fazla sözcük kümesi için başında, ardından kümesinin sonunda seçin.
+    > Bunları varlıklar olarak etiketlemek için sözcükleri seçerken:
+    > * Yalnızca tek bir sözcük, onu seçin. 
+    > * İki veya daha fazla sözcük kümesi için başında ve sonunda kümesi, ardından seçin.
 
-2. Görüntülenen varlık açılan kutusunda için var olan bir varlık seçin veya yeni bir varlık ekleyin. Yeni bir varlık eklemek için metin kutusuna adını yazın ve ardından **yeni varlık oluşturma**. 
+2. Görüntülenen varlık açılan kutusunda için var olan bir varlığa seçin veya yeni varlık ekleyin. Yeni bir varlık eklemek için metin kutusuna adını yazın ve ardından **yeni varlık Oluştur**. 
  
-    ![Ekran görüntüsü, hedefleri Ayrıntıları sayfası, Basit varlık seçeneği vurgulanmış etiketleme](./media/luis-how-to-add-example-utterances/create-airline-simple-entity.png)
+    ![Ekran görüntüsü, hedefleri Ayrıntıları sayfası, varlığın seçeneğinin vurgulandığı etiketleme](./media/luis-how-to-add-example-utterances/create-airline-simple-entity.png)
 
-3. İçinde **varlık türünü oluşturmak istiyor musunuz?** açılan iletişim kutusunda, varlık adı doğrulayın ve Basit varlık türü seçin ve ardından **Bitti**.
+3. İçinde **ne tür bir varlık oluşturmak istiyorsunuz?** açılır iletişim kutusunda varlık adını doğrulayın ve basit bir varlık türü seçin ve ardından **Bitti**.
 
     ![Onay iletişim kutusunun görüntüsü](./media/luis-how-to-add-example-utterances/create-simple-airline-entity.png)
 
-    Bkz: [veri ayıklama](luis-concept-data-extraction.md#simple-entity-data) Basit varlık JSON sorgu yanıtı uç noktasından ayıklanıyor hakkında daha fazla bilgi edinmek için. Basit varlık deneyin [Hızlı Başlangıç](luis-quickstart-primary-and-secondary-data.md) basit bir varlık kullanma hakkında daha fazla bilgi için.
+    Bkz: [veri ayıklama](luis-concept-data-extraction.md#simple-entity-data) JSON sorgu yanıtı uç noktasından Basit varlık ayıklama hakkında daha fazla bilgi edinmek için. Varlığın deneyin [hızlı](luis-quickstart-primary-and-secondary-data.md) tek bir varlığın kullanma hakkında daha fazla bilgi için.
 
 
-## <a name="add-list-entity-and-label"></a>Liste varlık ve etiket ekleme
-Liste varlık sisteminizde (tam metinle eşleşen) bir sabit, kapalı ilgili sözcükler kümesini temsil eder. 
+## <a name="add-list-entity-and-label"></a>Liste varlığı ve etiket ekleme
+Liste varlık (tam metni eşleşen) sabit, kapalı küme ilgili bir kelimelerin sisteminizde temsil eder. 
 
-İçecekler listesi varlığı için iki normalleştirilmiş değerlere sahip olabilir: su ve soda pop. Eş anlamlıları her normalleştirilmiş bir adı vardır. Su için eş anlamlı sözcükleri H20, gaz, düz var. Soda pop için eş anlamlı sözcükleri ulaşılacak durumlardır, cola, ginger şunlardır. Varlık oluşturduğunuzda tüm değerleri bilmek zorunda değilsiniz. Eş anlamlıları ile gerçek kullanıcı utterances gözden geçirdikten sonra daha ekleyebilirsiniz.
+İçecekler listesi varlık için iki normalleştirilmiş değerlere sahip olabilir: su ve soda açılır. Eş Anlamlılar her normalleştirilmiş bir adı vardır. Su için H20, doğalgaz, düz eşanlamlıdır. Soda pop için eş anlamlı sözcükler Meyve, cola ginger olan. Bir varlık oluşturduğunuzda tüm değerleri bilmeniz gerekmez. Daha fazla, eş anlamlı sözcüklerle gerçek kullanıcı konuşma gözden geçirdikten sonra ekleyebilirsiniz.
 
-|Normalleştirilmemiş bir ad|Eş anlamlılar|
+|Normalleştirilmiş adı|Eş anlamlılar|
 |--|--|
-|Su|H20, gaz, düz|
-|Soda pop|Ulaşılacak durumlardır, cola, ginger|
+|Su|H20 gaz, düz|
+|Soda pop|Meyve, cola ginger|
 
-Yeni bir liste varlık hedefi sayfasından oluştururken, belirgin olmayabilir iki şey yaparsınız. İlk olarak, ilk liste öğesi ekleyerek yeni bir liste oluşturuyorsunuz. İkinci olarak, ilk liste öğesi, sözcük veya tümcecik utterance seçili ile adlandırılır. Bu varlık sayfasından daha sonra değiştirebilirsiniz, ancak liste öğesinin adı için istediğiniz sözcüğü bulunan bir utterance seçmek için daha hızlı olabilir.
+Yeni bir liste varlığı hedefi sayfasından oluştururken, belirgin olmayabilir iki şeyler yapıyor. İlk olarak, ilk liste öğesinin ekleyerek yeni bir liste oluşturuyorsunuz. İkinci olarak, ilk liste öğesinin bir sözcük veya tümcecik utterance seçtiğiniz ile adlandırılır. Varlık sayfasından daha sonra değiştirebilirsiniz, ancak liste öğesinin adını istediğiniz kelimesi olan bir utterance seçmek için daha hızlı olabilir.
 
-Örneğin, listesini oluşturmak istemeniz durumunda türleri içki ve, word seçili `h2o` varlık oluşturmak için utterance adı olduğu h20, tek bir öğe listesi olurdu. Daha genel bir ad istediyseniz, daha genel adı kullanan bir utterance seçmeniz gerekir. 
+Örneğin, içecek ve türleri listesini oluşturmak istiyorsanız sözcük seçili `h2o` utterance varlığı oluşturmak için h20 adı olan bir öğe listesine sahip. Daha genel bir ad istediyseniz, daha genel adı kullanan bir utterance seçmeniz gerekir. 
 
-1. Utterance içinde listesindeki ilk öğedir word seçin, ardından listesinin adı metin kutusuna girin ve sonra seçin **yeni varlık oluşturma**.   
+1. Utterance içinde listesindeki ilk öğedir word seçin, sonra listenin adı metin kutusuna girin ve sonra seçin **yeni varlık Oluştur**.   
 
-    ![Ekran görüntüsü, hedefleri Ayrıntıları sayfası, vurgulanmış yeni varlık oluştur](./media/luis-how-to-add-example-utterances/create-drink-list-entity.png)
+    ![Ekran görüntüsü, hedefleri Ayrıntıları sayfası, vurgulanan yeni varlık oluştur](./media/luis-how-to-add-example-utterances/create-drink-list-entity.png)
 
-2. İçinde **varlık türünü oluşturmak istiyor musunuz?** iletişim kutusunda, bu liste öğesinin anlamlıları ekleyin. İçki listesinde su öğe için ekleme `h20`, `perrier`, ve `waters`seçip **Bitti**. Liste eş anlamlıları belirteci düzeyinde uymadığı için "sularında" eklenir dikkat edin. Listede değilse İngilizce kültürün bu nedenle word düzeyinde düzeyidir "sularında" "su" Not matched. 
+2. İçinde **ne tür bir varlık oluşturmak istiyorsunuz?** iletişim kutusunda, bu liste öğesinin eş anlamlı sözcükler ekleyin. Su öğe için bir içecek liste Ekle `h20`, `perrier`, ve `waters`seçip **Bitti**. Liste eş anlamlılar belirteç düzeyinde sağlandığından, "sularında" eklenen dikkat edin. Listede değilse İngilizce kültürüne bu nedenle word düzeyinde düzeyidir "sularında" "su" için karşılaştırılamıyor. 
 
-    ![İletişim kutusu oluşturmak istediğiniz ne varlık türünü işleminin ekran görüntüsü](./media/luis-how-to-add-example-utterances/drink-list-ddl.png)
+    ![İletişim kutusu oluşturmak istiyorsanız ne varlık türünü ekran görüntüsü](./media/luis-how-to-add-example-utterances/drink-list-ddl.png)
 
-    Yalnızca bir içki türünün, su İçecekler listesi vardır. Daha fazla içki türleri diğer utterances etiketleme veya varlıktan düzenleyerek ekleyebilirsiniz **varlıklar** sol gezinti bölmesinde. [Düzenleme](luis-how-to-add-entities.md#add-list-entities) varlıkları ek öğelere karşılık gelen eş anlamlıları ile girme seçenekleri sağlar ya da [alma](luis-how-to-add-entities.md#import-list-entity-values) bir listesi. 
+    İçecekler oluşan bu liste, su yalnızca bir içecek türü vardır. Daha fazla içecek türü diğer konuşma etiketleme veya varlıktan düzenleme ekleyebilirsiniz **varlıkları** sol gezinti bölmesinde. [Düzenleme](luis-how-to-add-entities.md#add-list-entities) varlıkları size ek öğeleriyle ilgili eş anlamlılar girme seçenekleri veya [alma](luis-how-to-add-entities.md#import-list-entity-values) bir liste. 
 
-    Bkz: [veri ayıklama](luis-concept-data-extraction.md#list-entity-data) listesi varlıklar JSON sorgu yanıtı uç noktasından ayıklanıyor hakkında daha fazla bilgi edinmek için. Deneyin [Hızlı Başlangıç](luis-quickstart-intent-and-list-entity.md) listesi varlığı kullanma hakkında daha fazla bilgi için.
+    Bkz: [veri ayıklama](luis-concept-data-extraction.md#list-entity-data) JSON sorgu yanıtı uç noktasından listesi varlık ayıklama hakkında daha fazla bilgi edinmek için. Deneyin [hızlı](luis-quickstart-intent-and-list-entity.md) liste varlığı kullanma hakkında daha fazla bilgi için.
 
-## <a name="add-synonyms-to-the-list-entity"></a>Eş anlamlıları listesi varlık ekleme 
-Bir eş anlamlı sözcük veya tümcecik utterance seçerek listesi varlık ekleyin. Listesinde varlık ve eklemek istediğiniz bir içki varsa `agua` eş su için adımları izleyin:
+## <a name="add-synonyms-to-the-list-entity"></a>Liste varlığı için eş anlamlı sözcükler ekleme 
+Eşanlamlısı utterance içinde bir sözcük veya tümcecik seçerek için liste varlığı ekleyin. Varlık listesinde ve eklemek istediğiniz bir içecek varsa `agua` su eşanlamlısı, adımları izleyin:
 
-Utterance içinde eşanlamlı word gibi seçin `aqua` su için liste varlık adı açılan listede gibi seçip **bol**seçeneğini belirleyip **eş anlamlı ayarlamak**, sonra listeden seçin Bu gibi eşanlamlı öğesi **su**.
+Utterance eş anlamlı sözcük gibi seçin `aqua` su için liste varlık adı aşağı açılan listesinde, aşağıdaki gibi seçip **bol**, ardından **eş anlamlı ayarlamak**, listeyi seçin olduğu gibi ile eşanlamlıdır öğesi **su**.
 
-![Ekran görüntüsü, hedefleri Ayrıntıları sayfası, Create vurgulanmış yeni bir eş anlamlı](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+![İle vurgulanmış yeni bir eş anlamlı Oluştur ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
 
-## <a name="create-new-item-for-list-entity"></a>Liste varlık için yeni öğe oluşturun
-Sözcük veya tümcecik utterance seçerek var olan bir liste varlığı için yeni bir öğe oluşturun. Liste ve eklemek istediğiniz bir içki varsa `tea` yeni bir öğe adımları izleyin:
+## <a name="create-new-item-for-list-entity"></a>Liste varlığı için yeni öğe oluşturun
+Bir sözcük veya tümcecik içinde utterance seçerek var olan bir liste varlığı için yeni bir öğe oluşturun. Liste ve eklemek istediğiniz bir içecek varsa `tea` yeni bir öğe adımları izleyin:
 
-Utterance içinde yeni liste öğesi için word gibi seçin `tea`, liste varlık adı açılan listede gibi seçin **bol**seçeneğini belirleyip **yeni eşanlamlısı oluşturma**. 
+Utterance içinde yeni bir liste öğesi için word gibi seçin `tea`, liste varlık adı aşağı açılan listesinde, aşağıdaki gibi seçin **bol**, ardından **yeni bir eş anlamlı oluşturma**. 
 
 ![Yeni liste öğesi ekleme işleminin ekran görüntüsü](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
 
-Word şimdi mavi renkte vurgulanır. Word getirirseniz, liste öğesi adı Çay gibi gösteren bir etiket görüntüler.
+Word artık mavi renkle vurgulanır. Word'ün gelin, liste öğesi adı Çay gibi gösteren bir etiket görüntüler.
 
-![Yeni liste öğesi etiketinin ekran görüntüsü](./media/luis-how-to-add-example-utterances/list-entity-item-name-tag.png)
+![Yeni liste öğesi etiketi ekran görüntüsü](./media/luis-how-to-add-example-utterances/list-entity-item-name-tag.png)
 
-## <a name="wrap-entities-in-composite-label"></a>Bileşik etiketinde varlıklar sarmalama
-Bileşik varlıklar oluşturulur **varlıklar**. Hedefi sayfasından Bileşik varlık oluşturulamıyor. Bileşik varlık oluşturulduktan sonra bir utterance hedefi sayfasında içindeki varlıkların kayabilir. 
+## <a name="wrap-entities-in-composite-label"></a>Bileşik etiketinde varlıkları Kaydır
+Bileşik varlıklar öğesinden oluşturulur **varlıkları**. Intent sayfasından bileşik bir varlık oluşturulamıyor. Bileşik varlık oluşturulduktan sonra bir utterance hedefi sayfasında, varlık sarabilirsiniz. 
 
-Utterance varsayılarak `book 2 tickets from Seattle to Cairo`, bir tek üst varlık bileşik utterance varlık bilgileri biletleri (2), kaynak (Seattle) ve hedef sayısı (Kahire) konumları döndürebilirsiniz. 
+Utterance varsayılarak `book 2 tickets from Seattle to Cairo`, tek üst varlıkta bir bileşik utterance varlık bilgilerini biletleri (2), (Seattle) kaynak ve hedef sayısı (Cairo) konumları döndürebilir. 
 
-Aşağıdaki adımları [adımları](luis-how-to-add-entities.md#add-prebuilt-entity) eklemek için **numarası** önceden oluşturulmuş varlık. Varlık oluşturulduktan sonra `2` utterance etiketli bir varlık olduğunu gösteren mavi olduğunda. Önceden oluşturulmuş varlıklar HALUK göre etiketlenir. Ekleyemez veya önceden oluşturulmuş varlık etiketi tek utterance kaldırın. Yalnızca eklemek veya önceden oluşturulmuş tüm etiketleri ekleyerek veya önceden oluşturulmuş varlık uygulamadan kaldırarak kaldırın.
+Aşağıdaki adımları [adımları](luis-how-to-add-entities.md#add-prebuilt-entity) eklemek için **numarası** önceden oluşturulmuş varlık. Varlık oluşturulduktan sonra `2` utterance etiketli bir varlık olduğunu gösteren, mavi olan. Önceden oluşturulmuş varlıklarla LUIS ile etiketlenir. Ekleyemez veya önceden oluşturulmuş varlık etiketi tek bir utterance kaldırın. Yalnızca ekleyebilir veya önceden oluşturulmuş tüm etiketleri ekleyerek veya uygulamayı önceden oluşturulmuş varlık kaldırarak kaldırın.
 
 Aşağıdaki adımları [adımları](#add-hierarchical-entity-and-label) oluşturmak için bir **konumu** hiyerarşik varlık. Örnek utterance kaynak ve hedef konumların etiketleyin. 
 
-Bileşik bir varlık varlıkları sarmalamadan önce tüm alt varlıkları vurgulanmıştır mavi, bunlar utterance etiketli anlamına emin olun.
+Bileşik bir varlıkta varlıkları sarmalamadan önce tüm alt varlıklar vurgulanır bunlar utterance etiketlenmiş anlamına gelir, mavi emin olun.
 
-1. Tek tek varlıklar bileşik sarmalamak için Bileşik varlık utterance ilk etiketli varlığı seçin. Örnek utterance içinde `book 2 tickets from Seattle to Cairo`, 2 sayısı ilk varlıktır. Bu seçim için seçenekleri gösteren açılan listesi görüntülenir.
+1. Tek tek varlıklarla bileşik sarmak için bileşik bir varlık için utterance ilk etiketli varlık seçin. Örnek utterance içinde `book 2 tickets from Seattle to Cairo`, 2 sayısı ilk varlıktır. Bu seçim seçenekleri gösteren bir açılan listesi görüntülenir.
 
-    ![Seçilen numarası ve açılan seçenekleri vurgulanan ekran görüntüsü](./media/luis-how-to-add-example-utterances/wrap-1.png)
+    ![Seçilen numarası ve açılan seçenekleri vurgulanmış ekran görüntüsü](./media/luis-how-to-add-example-utterances/wrap-1.png)
 
-2. Seçin **sarmalamak Bileşik varlık** aşağı açılan listeden. 
+2. Seçin **kaydırma Bileşik varlık** aşağı açılan listeden. 
 
-    ![Bileşik varlık sarma Bileşik varlık vurgulanmış kaydırma için aşağı açılan seçeneklerinin ekran görüntüsü](./media/luis-how-to-add-example-utterances/wrap-2.png)
+    ![Bileşik varlık kaydırma ile vurgulanmış bileşik varlıkta sarmalama için aşağı açılan seçeneklerinin ekran görüntüsü](./media/luis-how-to-add-example-utterances/wrap-2.png)
 
-3. Bileşik varlık son sözcük seçin. Bu örnek utterance içinde "Location::Destination (Kahire temsil eder)" seçin. Yeşil bir çizgi şimdi tüm sözcükleri altında varlık olmayan sözcükler bileşik olan utterance dahil olmak üzere olduğunu.
+3. Son sözcüğü Bileşik varlık seçin. Bu örnekte utterance içinde "(Cairo temsil eden) Location::Destination" seçin. Yeşil çizginin artık tüm sözcükleri altında varlık olmayan sözcükler bileşik olan utterance kullanmaktadır.
 
     ![Vurgulanan numarasıyla BookFlight hedefi ekran sayfası](./media/luis-how-to-add-example-utterances/wrap-composite.png)
 
-4. Bileşik varlık adı açılan listeden seçin. Bu örnekte, **TicketOrder**.
+4. Bileşik varlık adı, aşağı açılan listeden seçin. Bu örnekte, olan **TicketOrder**.
 
-    ![Aşağı açılan listesinde vurgulanan Bileşik varlık adı ile Bileşik varlık, sözcük kaydırma işleminin ekran görüntüsü](./media/luis-how-to-add-example-utterances/wrap-4.png)
+    ![Aşağı açılan listede vurgulanmış Bileşik varlık adı ile bileşik varlıkla sözcük kaydırma işleminin ekran görüntüsü](./media/luis-how-to-add-example-utterances/wrap-4.png)
 
-    Varlıkları doğru kaydırma yeşil bir çizgi deyimin tamamını altında olur.
+    Varlıkları doğru Kaydır yeşil bir çizgi deyimin tamamını altında olur.
 
-    ![Vurgulanan bileşik varlığı ile utterance ekran görüntüsü](./media/luis-how-to-add-example-utterances/wrap-5.png)
+    ![Utterance bileşik varlıkla vurgulanmış ekran görüntüsü](./media/luis-how-to-add-example-utterances/wrap-5.png)
 
-    Bkz: [veri ayıklama](luis-concept-data-extraction.md#composite-entity-data) Bileşik varlık JSON sorgu yanıtı uç noktasından ayıklanıyor hakkında daha fazla bilgi edinmek için. Bileşik varlık deneyin [öğretici](luis-tutorial-composite-entity.md) Bileşik varlık kullanma hakkında daha fazla bilgi için.
+    Bkz: [veri ayıklama](luis-concept-data-extraction.md#composite-entity-data) JSON sorgu yanıtı uç noktasından Bileşik varlık ayıklama hakkında daha fazla bilgi edinmek için. Bileşik varlık deneyin [öğretici](luis-tutorial-composite-entity.md) bileşik bir varlık kullanma hakkında daha fazla bilgi için.
 
 ## <a name="add-hierarchical-entity-and-label"></a>Hiyerarşik varlık ve etiket ekleme
-Bir kategori bağlam öğrenmeli ve kavramsal olarak ilgili varlıkların buna hiyerarşik bir varlıktır. Aşağıdaki örnekte, kaynak ve hedef konumları varlık içerir. 
+Hiyerarşik bir varlık, bağlamsal öğrenilen ve kavramsal olarak ilişkili varlıkları kategorisidir. Aşağıdaki örnekte, kaynak ve hedef konumları varlık içerir. 
 
-Utterance içinde `Book 2 tickets from Seattle to Cairo`, Seattle kaynak konumu ve Kahire hedef konumu. Her sözcük sırasını ve utterance word seçenek bağlam farklı ve öğrenilen konumdur.
+Utterance içinde `Book 2 tickets from Seattle to Cairo`, Seattle kaynak konumu ve Cairo hedef konumu. Her kelime sırasını ve sözcük seçenek utterance bağlamsal olarak farklı ve öğrenilen konumdur.
 
-1. Hedefi sayfasında utterance "Seattle" seçin ve sonra varlık adı girin ' konumu ve ardından **yeni varlık oluşturma**.
+1. Hedefi sayfasında utterance "Seattle" seçin ve ardından varlık adını girin ' konum tıklayın ve ardından **yeni varlık Oluştur**.
 
     ![İletişim kutusunun ekran görüntüsü, oluşturma hiyerarşik varlık etiketleme](./media/luis-how-to-add-example-utterances/create-hier-ent-1.png)
 
-2. Açılan iletişim kutusunda için hiyerarşik seçin **varlık türü**, ardından ekleyin `Origin` ve `Destination` alt ve ardından olarak **Bitti**.
+2. Açılan iletişim kutusunda için hiyerarşik seçin **varlık türü**, eklersiniz `Origin` ve `Destination` alt tıklayın ve ardından olarak **Bitti**.
 
-    ![Vurgulanan ToLocation varlığıyla ekran görüntüsü, hedefleri Ayrıntılar sayfası](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
+    ![Vurgulanan ToLocation varlıkla ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
 
-3. Utterance Word'de ile üst hiyerarşik varlık etiketli. Bir alt varlık word atamanız gerekir. Utterance hedefi sayfaya dönün. Word ' ü seçin sonra oluşturduğunuz varlık adı açılan listeden seçin ve menü doğru alt varlık seçmeniz için sağa izleyin.
+3. Utterance sözcüğü üst hiyerarşik varlıkla etiketlendi. Word'ün bir alt varlığına atamanız gerekir. Utterance için hedefi sayfaya dönün. Word ' ü seçin sonra oluşturduğunuz varlık adı aşağı açılan listeden seçin ve sağa doğru alt varlığı seçmeniz için menü izleyin.
 
-    ![Vurgulanan ToLocation varlığıyla ekran görüntüsü, hedefleri Ayrıntılar sayfası](./media/luis-how-to-add-example-utterances/label-tolocation.png)
+    ![Vurgulanan ToLocation varlıkla ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-example-utterances/label-tolocation.png)
 
     >[!CAUTION]
-    >Tek bir uygulamada tüm varlıklar arasında alt varlık adlarının benzersiz olması gerekir. Alt varlıkları aynı ada sahip iki farklı hiyerarşik varlık içerebilir. 
+    >Tek bir uygulamada tüm varlıklar üzerinde alt varlık adlarının benzersiz olması gerekir. Alt varlıklar aynı ada sahip iki farklı hiyerarşik varlıklar içerebilir. 
 
-    Bkz: [veri ayıklama](luis-concept-data-extraction.md#hierarchical-entity-data) hiyerarşik varlık JSON sorgu yanıtı uç noktasından ayıklanıyor hakkında daha fazla bilgi edinmek için. Hiyerarşik varlık deneyin [Hızlı Başlangıç](luis-quickstart-intent-and-hier-entity.md) hiyerarşik bir varlık kullanma hakkında daha fazla bilgi için.
+    Bkz: [veri ayıklama](luis-concept-data-extraction.md#hierarchical-entity-data) JSON sorgu yanıtı uç noktasından hiyerarşik varlık ayıklama hakkında daha fazla bilgi edinmek için. Hiyerarşik varlık deneyin [hızlı](luis-quickstart-intent-and-hier-entity.md) hiyerarşik bir varlık kullanma hakkında daha fazla bilgi için.
 
 
-## <a name="remove-entity-labels-from-utterances"></a>Varlık etiketleri utterances Kaldır
-Bir utterance hedefi sayfasında makine öğrenilen varlık etiketleri kaldırabilirsiniz. Varlık makine öğrenilen değilse, bir utterance kaldırılamaz. Bir makine öğrenilen varlık utterance kaldırmanız gerekirse, tüm uygulama varlığı silmeniz gerekir. 
+## <a name="remove-entity-labels-from-utterances"></a>Varlık etiketleri konuşma kaldırın
+Hedefi sayfasında bir utterance makine öğrenilen varlık etiketleri kaldırabilirsiniz. Varlık makine öğrenilen değilse, bir utterance kaldırılamaz. Utterance bir makine öğrenilen varlık kaldırmanız gerekirse, tüm uygulamadan varlığı silmek gerekir. 
 
-Bir utterance bir makine öğrenilen varlık etiketi kaldırmak için utterance varlığı seçin. Ardından **Etiketi Kaldır** varlık açılan kutusunda görüntülenir.
+Bir utterance makine öğrenilen varlık etiketi kaldırmak için utterance varlığı seçin. Ardından **Etiketi Kaldır** varlık açılan kutusunda görünür.
 
-![Vurgulanan etiket kaldırma ile ekran görüntüsü, hedefleri Ayrıntılar sayfası](./media/luis-how-to-add-example-utterances/remove-label.png) 
+![Ekran görüntüsü, hedefleri Ayrıntıları sayfası, vurgulanan Etiketi Kaldır](./media/luis-how-to-add-example-utterances/remove-label.png) 
 
-## <a name="add-prebuilt-entity-label"></a>Önceden oluşturulmuş varlık etiketi ekleyin
-Önceden oluşturulmuş varlıklar HALUK uygulamanıza eklerseniz, bu varlıklarla etiket utterances gerek yoktur. Önceden oluşturulmuş varlıkları ve bunları ekleme hakkında daha fazla bilgi için bkz: [varlıkları ekleyin](luis-how-to-add-entities.md#add-prebuilt-entity).
+## <a name="add-prebuilt-entity-label"></a>Önceden oluşturulmuş varlık etiketi Ekle
+LUIS uygulamanızı önceden oluşturulmuş varlıklarla eklerseniz, bu varlıklarla etiket konuşma gerekmez. Önceden oluşturulmuş varlıklar ve bunları nasıl ekleyeceğinizi hakkında daha fazla bilgi için bkz: [varlık Ekle](luis-how-to-add-entities.md#add-prebuilt-entity).
 
-## <a name="add-regular-expression-entity-label"></a>Normal ifade varlık etiketi ekleyin
-Normal ifade varlıkları HALUK uygulamanıza eklerseniz, bu varlıklarla etiket utterances gerek yoktur. Normal ifade varlıkları ve bunları ekleme hakkında daha fazla bilgi için bkz: [varlıkları ekleyin](luis-how-to-add-entities.md#add-regular-expression-entities).
+## <a name="add-regular-expression-entity-label"></a>Normal ifade varlık etiketi Ekle
+LUIS uygulamanızı normal ifade varlıkları eklerseniz, bu varlıklarla etiket konuşma gerekmez. Normal ifade varlıkları ve bunları nasıl ekleyeceğinizi hakkında daha fazla bilgi için bkz: [varlık Ekle](luis-how-to-add-entities.md#add-regular-expression-entities).
 
-## <a name="create-a-pattern-from-an-utterance"></a>Bir utterance bir düzeni oluşturma
-Bkz: [Ekle düzeni hedefi veya varlık sayfasında mevcut utterance gelen](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
+## <a name="create-a-pattern-from-an-utterance"></a>Bir utterance bir düzen oluşturma
+Bkz: [hedefi veya varlık sayfasında mevcut utterance Ekle deseni](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
-## <a name="add-patternany-entity-label"></a>Pattern.Any varlık etiketi ekleyin
-HALUK uygulamanıza pattern.any varlıklar eklerseniz, bu varlıklarla utterances etiketi olamaz. Bunlar yalnızca düzenleri geçerli olur. Pattern.any varlıkları ve bunları ekleme hakkında daha fazla bilgi için bkz: [varlıkları ekleyin](luis-how-to-add-entities.md#add-patternany-entities).
+## <a name="add-patternany-entity-label"></a>Pattern.Any varlık etiketi Ekle
+LUIS uygulamanızı pattern.any varlıkları eklerseniz, bu varlıklarla konuşma etiketi olamaz. Bunlar yalnızca desenleri geçerli olur. Pattern.any varlıkları ve bunları nasıl ekleyeceğinizi hakkında daha fazla bilgi için bkz: [varlık Ekle](luis-how-to-add-entities.md#add-patternany-entities).
 
 <!--
 Fix this - moved to luis-how-to-add-intents.md - how ?
@@ -193,9 +193,9 @@ Fix this - moved to luis-how-to-add-intents.md - how ?
 ## Reassign utterances
 
 -->
-## <a name="train-your-app-after-changing-model-with-utterances"></a>Uygulamanızı utterances modeliyle değiştirdikten sonra eğitme
-Eklemek, düzenlemek veya utterances, kaldırdıktan sonra [eğitmek](luis-how-to-train.md) ve [yayımlama](PublishApp.md) uygulamanız için uç nokta sorguları etkilemek yaptığınız değişiklikleri. 
+## <a name="train-your-app-after-changing-model-with-utterances"></a>Konuşma modeliyle değiştirdikten sonra uygulamanızı eğitin
+Eklemek, düzenlemek ve kaldırmak, konuşma sonra [eğitme](luis-how-to-train.md) ve [yayımlama](luis-how-to-publish-app.md) uygulamanız için uç nokta sorguları etkilemek yaptığınız değişiklikleri. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Şimdi oluşturmak, hedefleri utterances etiketleme sonra bir [Bileşik varlık](luis-how-to-add-entities.md).
+Konuşma, hedefleri olarak etiketleme sonra artık oluşturabileceğiniz bir [Bileşik varlık](luis-how-to-add-entities.md).

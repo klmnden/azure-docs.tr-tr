@@ -1,6 +1,6 @@
 ---
-title: Analizi - Azure Application Insights güçlü arama aracını kullanarak | Microsoft Docs
-description: 'Analizi, Application Insights, güçlü tanılama arama aracını kullanma. '
+title: Analytics - Azure Application Insights'ın güçlü bir arama aracı kullanarak | Microsoft Docs
+description: "Analytics, Application Insights'ın güçlü tanılama arama araç kullanımı "
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -11,124 +11,124 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 07/02/2018
 ms.reviewer: danha
 ms.author: mbullwin
-ms.openlocfilehash: 7f8f49cf88bda8e485d2365281c13680ef796196
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: aa86e2f3b1fb147ab167c948475a5207693143c2
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295528"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341571"
 ---
-# <a name="using-analytics-in-application-insights"></a>Application Insights'ta Analytics kullanma
-[Analytics](app-insights-analytics.md) güçlü arama özelliğidir [Application Insights](app-insights-overview.md). Bu sayfaları günlük analizi sorgu dili açıklanmaktadır.
+# <a name="using-analytics-in-application-insights"></a>Application Insights Analytics kullanma
+[Analytics](app-insights-analytics.md) güçlü arama özelliğidir [Application Insights](app-insights-overview.md). Bu sayfalar, Log Analytics sorgu dili açıklanmaktadır.
 
-* **[Tanıtım videosunu izleyin](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
-* **[Benzetimli verilerimizi Analytics sürücüde test](https://analytics.applicationinsights.io/demo)**  uygulamanızı veriler Application Insights'a henüz değil gönderiliyorsa.
+* **[Tanıtım videosunu izlemek](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Test sürüşü Analytics sanal veri çubuğunda](https://analytics.applicationinsights.io/demo)**  uygulamanızın verilerini Application Insights'a henüz değil gönderiliyorsa.
 
 ## <a name="open-analytics"></a>Açık analizi
-Giriş kaynağının, uygulamanızın Application ınsights'ta, Analytics'ı tıklatın.
+Uygulamanızın giriş kaynaktan Application ınsights, Analytics tıklayın.
 
-![Portal.Azure.com açın, Application Insights kaynağınıza açın ve analizi'ı tıklatın.](./media/app-insights-analytics-using/001.png)
+![Portal.Azure.com açın, Application Insights kaynağınızı açın ve analiz tıklayın.](./media/app-insights-analytics-using/001.png)
 
-Satır içi öğretici neler yapabileceğiniz hakkında fikir edinmek sağlar.
+Satır içi öğreticiyi ne yapabileceğiniz hakkında bazı fikirler verir.
 
 Var olan bir [burada daha kapsamlı Turu](app-insights-analytics-tour.md).
 
-## <a name="query-your-telemetry"></a>Telemetrinizi sorgu
-### <a name="write-a-query"></a>Bir sorgu yazın
-![Şema görüntüleme](./media/app-insights-analytics-using/150.png)
+## <a name="query-your-telemetry"></a>Telemetrinizi sorgulayın
+### <a name="write-a-query"></a>Bir sorgu yazma
+![Şema görüntüle](./media/app-insights-analytics-using/150.png)
 
-Sol tarafta listelenen tablolardan herhangi birini adları ile başlar (veya [aralığı](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/range-operator) veya [UNION](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/union-operator) işleçleri). Kullanım `|` bir kanalı oluşturmak için [işleçleri](https://docs.loganalytics.io/docs/Learn/References/Useful-operators). 
+Sol tarafta listelenen tablolardan adları ile başlayan (veya [aralığı](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/range-operator) veya [birleşim](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/union-operator) işleçleri). Kullanım `|` bir işlem hattı oluşturmak için [işleçleri](https://docs.loganalytics.io/docs/Learn/References/Useful-operators). 
 
-IntelliSense işleçler ve kullanabileceğiniz ifade öğeleri ister. Bilgi simgesini tıklatın (veya CTRL + ARA ÇUBUĞU tuşlarına basın) daha uzun bir açıklama ve her öğesinin nasıl kullanılacağını örnekleri alınamadı.
+IntelliSense, işleçler ve kullanabileceğiniz ifade öğeleri ile ister. Bilgi simgesine tıklayın (veya CTRL + boşluk tuşlarına basın) daha uzun bir açıklama ve her bir öğesinin kullanımına dair örnekler almak için.
 
 Bkz: [Analytics dil Turu](app-insights-analytics-tour.md) ve [dil başvurusu](app-insights-analytics-reference.md).
 
-### <a name="run-a-query"></a>Sorgu çalıştırma
-![Bir sorgu çalıştırılarak](./media/app-insights-analytics-using/130.png)
+### <a name="run-a-query"></a>Bir sorgu çalıştırın
+![Bir sorgu çalıştırma](./media/app-insights-analytics-using/130.png)
 
-1. Sorguda tek satır sonları kullanabilirsiniz.
-2. İmleci içinde veya sorguyu çalıştırmak istediğiniz sonuna yerleştirin.
-3. Sorgunuz zaman aralığını denetleyin. (Bunu değiştirmek veya kendi dahil ederek geçersiz kılma [ `where...timestamp...` ](https://docs.loganalytics.io/docs/Learn/Tutorials/Date-and-time-operations) yan tümcesinde, sorgunuzu.)
+1. Bir sorgu tek bir satır sonları kullanabilirsiniz.
+2. İçinde veya çalıştırmak istediğiniz sorguyu sonunda imleci yerleştirin.
+3. Zaman aralığı sorgunuzun denetleyin. (Bunu değiştirebilir veya kendi ekleyerek bunu geçersiz kılmasına [ `where...timestamp...` ](https://docs.loganalytics.io/docs/Learn/Tutorials/Date-and-time-operations) yan tümcesinde sorgunuzu.)
 3. Sorguyu çalıştırmak için Git'i tıklatın.
-4. Boş satırlar sorgunuzda koymayın. Boş satırlar ile ayırarak bir sorgu sekmede birkaç ayrılmış sorguları kullanmaya devam edebilir. İmleç olan sorguyu çalıştırır.
+4. Boş satırlar sorgunuzda yerleştirmeyin. Boş satır ile ayırarak birden çok ayrılmış sorguları bir sorgu sekmesinde tutabilirsiniz. İmleç sahip sorgu çalıştırır.
 
-### <a name="save-a-query"></a>Bir sorguyu kaydetme
-![Bir sorguyu kaydetme](./media/app-insights-analytics-using/140.png)
+### <a name="save-a-query"></a>Bir sorguyu Kaydet
+![Sorgu kaydetme](./media/app-insights-analytics-using/140.png)
 
 1. Geçerli sorgu dosyasını kaydedin.
-2. Kaydedilmiş sorgu dosyasını açın.
+2. Kaydedilmiş bir sorgu dosyasını açın.
 3. Yeni bir sorgu dosyası oluşturun.
 
 ## <a name="see-the-details"></a>Ayrıntıları görün
-Herhangi bir satırın özelliklerini tam listesini görmek için sonuçları genişletin. Daha fazla yapılandırılmış değer - örneğin olan herhangi bir özelliği, özel boyutları veya listeleyen bir özel durum yığını genişletebilirsiniz.
+Sonuçları özelliklerinin tam listesini görmek için herhangi bir satırın genişletin. Daha fazla yapılandırılmış değeri - örneğin olan herhangi bir özelliği, özel boyutlar veya listeleyen bir özel durum yığını da genişletebilirsiniz.
 
-![Bir satır genişletin](./media/app-insights-analytics-using/070.png)
+![Bir satırı Genişlet](./media/app-insights-analytics-using/070.png)
 
 ## <a name="arrange-the-results"></a>Sonuçları düzenleyin
-Sıralama, filtre, sayfalara bölme ve Grup sorgudan döndürülen sonuçları.
+Sıralama, filtreleme, sayfalandırma ve grup, sorgunun döndürdüğü sonuçları.
 
 > [!NOTE]
-> Sıralama, gruplandırma ve tarayıcıda filtreleme sorgunuzu yeniden çalıştırmayın. Bunlar yalnızca son sorgu tarafından döndürülen sonuçları yeniden düzenleyin. 
+> Sıralama, gruplandırma ve filtreleme tarayıcıda sorgunuzu yeniden çalıştırmayın. Bunlar yalnızca son sorgunuz tarafından döndürülen sonuçları yeniden düzenleyin. 
 > 
-> Sonuçların döndürülmesini önce sunucuda bu görevleri gerçekleştirmek için sorgunuzu ile yazma [sıralama](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator), [özetlemek](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) ve [burada](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) işleçler.
+> Sonuç döndürmeden önce sunucu bu görevleri gerçekleştirmek için ile sorgunuzu yazma [sıralama](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator), [özetlemek](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) ve [burada](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) işleçleri.
 > 
 > 
 
-Bkz, onları yeniden sıralamak için sütun üst bilgileri sürükleyin ve bunların kenarlıklarını sürükleyerek sütunları yeniden boyutlandırmak için istediğiniz sütunları seçin.
+Görmek için bunları yeniden düzenlemek için sütun üst bilgilerini sürükleyin ve kendi kenarlıklarını sürükleyerek sütunları yeniden boyutlandırmak istediğiniz sütunları seçin.
 
-![Sütunları düzenleme](./media/app-insights-analytics-using/030.png)
+![Sütunları Düzenle](./media/app-insights-analytics-using/030.png)
 
-### <a name="sort-and-filter-items"></a>Sıralama ve filtreleme öğeleri
-Sonuçları head bir sütunun tıklayarak sıralayın. Başka bir şekilde sıralamak için tekrar tıklatın ve üçüncü tıklatın özgün sorgu tarafından döndürülen sıralama için dönmek için zaman.
+### <a name="sort-and-filter-items"></a>Öğeleri sıralama ve filtreleme
+Sonuçlarınızı sütunun baş tıklayarak sıralayın. Başka bir şekilde sıralamak için tekrar tıklayın ve bir üçüncü tıklayın özgün sıralama sorgunuz tarafından döndürülen şekilde geri dönmek için zaman.
 
 Aramanızı daraltmak için filtre simgesini kullanın.
 
 ![Sütunları sıralama ve filtreleme](./media/app-insights-analytics-using/040.png)
 
 ### <a name="group-items"></a>Öğeleri gruplandırma
-Birden fazla sütuna göre sıralamak için gruplandırma kullanın. İlk olarak etkinleştirmeniz ve sütun üst bilgileri tablonun üstündeki alanına sürükleyin.
+Birden fazla sütuna göre sıralamak için gruplandırma kullanın. Öncelikle bu özelliği etkinleştirmeniz ve sütun üst bilgilerini yukarıdaki tabloya bir alana sürükleyin.
 
 ![Grup](./media/app-insights-analytics-using/060.png)
 
-### <a name="missing-some-results"></a>Bazı sonuçları eksik mi?
+### <a name="missing-some-results"></a>Bazı sonuçlar eksik?
 
-Beklediğiniz tüm sonuçları görmüyorsanız düşünüyorsanız, birkaç olası nedeni vardır.
+Beklediğiniz sonuçları görmediğiniz düşünüyorsanız, birkaç olası nedeni vardır.
 
-* **Zaman aralığı filtresi**. Varsayılan olarak, yalnızca son 24 saat sonuçları görürsünüz. Kaynak tablolardan alınan sonuçları aralığını sınırlar otomatik bir filtre yok. 
+* **Zaman aralığı filtresi**. Varsayılan olarak, yalnızca son 24 saat sonuçlarını göreceksiniz. Kaynak tablolardan alınan sonuçları aralığını sınırlayan bir otomatik filtre yoktur. 
 
-    Bununla birlikte, zaman aralığını değiştirebilirsiniz açılan menüsünü kullanarak filtre.
+    Ancak, zaman aralığını değiştirebilirsiniz. aşağı açılan menüyü kullanarak filtreleyin.
 
-    Ya da kendi ekleyerek otomatik aralık geçersiz kılabilirsiniz [ `where  ... timestamp ...` yan tümcesi](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) sorgunuzu içine. Örneğin:
+    Veya kendi ekleyerek otomatik aralığını geçersiz kılabilirsiniz [ `where  ... timestamp ...` yan tümcesi](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) sorgunuzu içine. Örneğin:
 
     `requests | where timestamp > ago('2d')`
 
-* **Sonuç sınırı**. Yaklaşık 10 k satır portaldan döndürülen sonuçlar üzerinde bir sınırı yoktur. Sınırın gidin, bir uyarı gösterir. Bu durumda, sonuçlarınızı tablosundaki sıralama her zaman, tüm gerçek ilk veya son sonuçları göstermeyecektir. 
+* **Sonuç sınırı**. Şirket portalı'ndan döndürülen sonuçlar yaklaşık 10 k satırlık bir sınır yoktur. Limitini gidin, bir uyarı gösterir. Bu durumda, sonuçlarınızı tabloda sıralama her zaman, tüm gerçek ilk veya son sonuçlar gösterilmez. 
 
-    Sınır basarsa önlemek için iyi bir uygulamadır. Zaman aralığı filtresi veya işleçleri gibi kullanın:
+    Sınır ulaşmaktan kaçınmak için iyi bir uygulamadır. Zaman aralığı filtresini kullanın veya gibi işleçler kullanın:
 
-  * [zaman damgası tarafından ilk 100](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
-  * [100 alın](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
-  * [Özetle ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
+  * [İlk 100 zaman damgası tarafından](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
+  * [100 Al](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
+  * [Özetleme ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
   * [Burada zaman damgası > ago(3d)](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
 
-(10'dan fazla k satırları istiyorsunuz? Kullanmayı [sürekli verme](app-insights-export-telemetry.md) yerine. Analytics alınırken ham verileri yerine analiz için tasarlanmıştır.)
+(10'dan fazla bin satır istiyorsunuz? Kullanmayı [sürekli dışarı aktarma](app-insights-export-telemetry.md) yerine. Analytics ham verileri yerine analiz için tasarlanmıştır.)
 
 ## <a name="diagrams"></a>Diyagramlar
-İstediğiniz diyagram türünü seçin:
+Diyagram istediğiniz türü seçin:
 
 ![Bir diyagram türü seçin](./media/app-insights-analytics-using/230.png)
 
-Sağ türlerinin birkaç sütun varsa, x ve y eksenleri ve bir sütun sonuçlarına göre bölme boyutlarının seçebilirsiniz.
+Doğru türlerinde birden çok sütununuz varsa, x ve y eksenleri ve sonuçlarına göre bölmek için Boyutlar sütunu seçebilirsiniz.
 
-Varsayılan olarak, sonuçlar başlangıçta tablo olarak görüntülenir ve diyagram el ile seçin. Ancak kullanabilirsiniz [yönergesi işleme](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) bir diyagram seçmek için bir sorgu sonunda.
+Varsayılan olarak, sonuçlar başlangıçta tablo olarak görüntülenir ve diyagram el ile seçin. Ancak, kullanabileceğiniz [işleme yönergesi](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) sonunda bir diyagram seçmek için bir sorgu.
 
 ### <a name="analytics-diagnostics"></a>Analytics tanılama
 
 
-Bir timechart üzerinde ani ani veya verilerinizi adımda ise satır vurgulanan noktasında görebilirsiniz. Bu Analytics tanılama ani değişiklik filtre özellikleri bileşimini belirledi gösterir. Üzerine filtre daha fazla ayrıntı almak ve filtrelenmiş sürümü görmek için tıklatın. Bu değişikliği neyin neden olduğunu belirlemenize yardımcı olabilir. 
+Bir zaman grafiğini üzerinde ani bir değişiklik veya verilerinizi adımda ise bir vurgulanan satırın noktasında görebilirsiniz. Bu analiz tanılama özelliklerinin ani değişiklik filtre belirlediği gösterir. Noktası üzerindeki filtre daha fazla ayrıntı alalım ve filtrelenmiş sürümü görmek için tıklayın. Bu değişikliğin nedenini belirlemenize yardımcı olabilir. 
 
 [Analytics Tanılama hakkında daha fazla bilgi edinin](app-insights-analytics-diagnostics.md)
 
@@ -136,91 +136,91 @@ Bir timechart üzerinde ani ani veya verilerinizi adımda ise satır vurgulanan 
 ![Analytics tanılama](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Panoya sabitle
-Bir diyagram veya tablo birine sabitleyebilirsiniz, [panolar paylaşılan](app-insights-dashboards.md) -PIN tıklamanız yeterlidir. 
+Bir diyagram veya tablo birine sabitleyebilirsiniz, [paylaşılan panolar](app-insights-dashboards.md) -PIN tıklamanız yeterlidir. 
 
-![PIN'ı tıklatın](./media/app-insights-analytics-using/pin-01.png)
+![PIN'i tıklatın.](./media/app-insights-analytics-using/pin-01.png)
 
-Bu, performans veya web hizmetlerinizi kullanımını izlemenize yardımcı olması için bir Pano birlikte geçirdiğinizde, diğer ölçümleri yanında oldukça karmaşık bir analiz dahil edebilirsiniz, anlamına gelir. 
+Bu durum, performans veya web hizmetlerinizi kullanımını izlemenize yardımcı olması için bir Pano birlikte yerleştirdiğinizde, diğer ölçümlerin yanı sıra oldukça karmaşık bir analiz, içerebilir, anlamına gelir. 
 
-Dört veya daha az sütun varsa Pano tabloya sabitleyebilirsiniz. Yalnızca üst yedi satır görüntülenir.
+Dört veya daha az sütun varsa Tablo panoya sabitleyebilirsiniz. Yalnızca üst yedi satırlar görüntülenir.
 
 ### <a name="dashboard-refresh"></a>Pano yenileme
-Panosuna sabitlediğiniz grafik sorgu yaklaşık olarak saatte yeniden çalıştırarak otomatik olarak yenilenir. Yenile düğmesini tıklatabilirsiniz.
+Panoya sabitlenmiş grafik sorgu yaklaşık saatte yeniden çalıştırarak otomatik olarak yenilenir. Yenile düğmesine de tıklayabilirsiniz.
 
 ### <a name="automatic-simplifications"></a>Otomatik basitleştirme
 
-Belirli bir panoya Sabitle basitleştirme grafiğe uygulanır.
+Panoya sabitleme belirli basitleştirme grafiğe uygulanır.
 
-**Kısıtlama süresi:** sorgular son 14 gün için otomatik olarak sınırlı. Sorgunuz içeriyorsa gibi aynı etkisidir `where timestamp > ago(14d)`.
+**Kısıtlama süresi:** sorgular için son 30 gün içinde otomatik olarak sınırlı. Sorgunuz gibi içeriyorsa etkisi aynıdır `where timestamp > ago(30d)`.
 
-**Bin sayısı kısıtlaması:** çok ayrık depo (genellikle bir çubuk grafiği) sahip bir grafik görüntüler, daha az doldurulan depo otomatik olarak gruplandırılır "diğer" tek bir depo. Örneğin, bu sorgu:
+**Depo sayısı kısıtlaması:** çok parçalı depo (genellikle bir çubuk grafik) sahip bir grafiği görüntüler, küçük doldurulmuş depo otomatik olarak gruplandırılır "diğerleri" tek bir depo. Örneğin, bu sorgu:
 
     requests | summarize count_search = count() by client_CountryOrRegion
 
-analytics'te şöyle görünür:
+Analytics'te şuna benzer:
 
-![İle uzun tail grafik](./media/app-insights-analytics-using/pin-07.png)
+![Uzun kuyruklu grafik](./media/app-insights-analytics-using/pin-07.png)
 
-Ancak bir panoya Sabitle, şöyle görünür:
+Ancak, bir panoya sabitlemek, şöyle görünür:
 
-![İle sınırlı depo grafik](./media/app-insights-analytics-using/pin-08.png)
+![Sınırlı depo ile grafik](./media/app-insights-analytics-using/pin-08.png)
 
 ## <a name="export-to-excel"></a>Excel'e Aktar
-Bir sorgu çalıştırdıktan sonra bir .csv dosyası indirebilirsiniz. Tıklatın **Excel'e,**.
+Bir sorgu çalıştırdıktan sonra bir .csv dosyası indirebilirsiniz. Tıklayın **Excel'e Aktar**.
 
 ## <a name="export-to-power-bi"></a>Power BI’a aktarma
-İmleç sorguda koyun ve seçin **verme, Power BI**.
+Bir sorguda imleci yerleştirin ve seçin **dışarı aktarma, Power BI**.
 
-![Power BI Analytics'ten dışarı aktarma](./media/app-insights-analytics-using/240.png)
+![Analytics'ten Power BI'a aktarma](./media/app-insights-analytics-using/240.png)
 
-Power BI'da sorgu çalıştırın. Bir zamanlamaya göre yenilemek için ayarlayabilirsiniz.
+Sorguyu Power BI'da çalıştırırsınız. Bir zamanlamaya göre yenilemek için ayarlayabilirsiniz.
 
-Power BI sayesinde, çok çeşitli kaynaklardan verileri bir araya getirme panolar oluşturabilirsiniz.
+Power BI ile çok çeşitli kaynaklardan verileri bir araya getiren panolar oluşturabilirsiniz.
 
 [Power BI için dışarı aktarma hakkında daha fazla bilgi edinin](app-insights-export-power-bi.md)
 
 ## <a name="deep-link"></a>Ayrıntılı bağlantı
 
-Bir bağlantı altında **verme, paylaşım bağlantı** , başka bir kullanıcıya gönderebilirsiniz. Kullanıcının sağlanan [, kaynak grubuna erişim](app-insights-resources-roles-access-control.md), sorgu Analytics Arabiriminde açılır.
+Altında bir bağlantı alma **dışarı aktarma, bağlantıyı paylaş** , başka bir kullanıcıya gönderebilirsiniz. Kullanıcının sağlanan [, kaynak grubuna erişim](app-insights-resources-roles-access-control.md), sorguyu analiz Arabiriminde açılır.
 
-(Sonra sorgu metnini bağlantıdaki görünür "? q =" gzip sıkıştırılmış ve base-64 kodlamalı. Kullanıcılara sağlamak derin bağlantılar oluşturmak üzere kod yazabilirsiniz. Bununla birlikte, Kod Analizi çalıştırmak için önerilen yöntem kullanmaktır [REST API](https://dev.applicationinsights.io/).)
+(Sonra sorgu metni bağlantıdaki görünen "? q =" gzip sıkıştırılmış ve base-64 kodlamalı. Kullanıcılara sağlayan ayrıntılı bağlantılar oluşturmak için kod yazabilirsiniz. Ancak, Kod Analizi çalıştırmak için önerilen yöntem kullanmaktır [REST API](https://dev.applicationinsights.io/).)
 
 
 ## <a name="automation"></a>Otomasyon
 
-Kullanım [veri erişim REST API](https://dev.applicationinsights.io/) analitik sorguları çalıştırmak için. [Örneğin](https://dev.applicationinsights.io/apiexplorer/query?appId=DEMO_APP&apiKey=DEMO_KEY&query=requests%0A%7C%20where%20timestamp%20%3E%3D%20ago%2824h%29%0A%7C%20count) (PowerShell kullanarak):
+Kullanım [veri erişimi REST API'si](https://dev.applicationinsights.io/) analiz sorguları çalıştırmak için. [Örneğin](https://dev.applicationinsights.io/apiexplorer/query?appId=DEMO_APP&apiKey=DEMO_KEY&query=requests%0A%7C%20where%20timestamp%20%3E%3D%20ago%2824h%29%0A%7C%20count) (PowerShell kullanarak):
 
 ```PS
 curl "https://api.applicationinsights.io/beta/apps/DEMO_APP/query?query=requests%7C%20where%20timestamp%20%3E%3D%20ago(24h)%7C%20count" -H "x-api-key: DEMO_KEY"
 ```
 
-Analytics UI, REST API otomatik olarak herhangi bir zaman damgası sınırlama sorgularınızı için eklemez. Kendi where-büyük yanıtları alma önlemek için yan tümcesi eklemeyi unutmayın.
+Analytics kullanıcı Arabirimi farklı olarak, REST API otomatik olarak herhangi bir zaman damgası sınırlama sorgularınıza eklemez. Kendi where-büyük yanıtları girmeyi önlemek açısından yan tümcesi eklemeyi unutmayın.
 
 
 
 ## <a name="import-data"></a>Veri içeri aktarma
 
-Bir CSV dosyasından veri içeri aktarabilirsiniz. Tablolarla, telemetrisinden katılabilirsiniz statik verileri içeri tipik bir kullanımdır. 
+Verileri bir CSV dosyasından içeri aktarabilirsiniz. Tablolarla, telemetri katılabilir statik verileri içeri tipik bir kullanımdır. 
 
-Örneğin, kimliği doğrulanmış kullanıcılar, telemetri bir diğer ad veya karıştırılmış kimliğe göre belirlenirse, diğer adlar için gerçek adlarını eşleyen bir tablo içe aktarılamadı. Bir birleştirme isteği telemetriyi gerçekleştirerek Analytics raporlarda gerçek adlarına göre kullanıcılar tanımlayabilirsiniz.
+Örneğin, kimliği doğrulanmış kullanıcılar telemetrinizi bir diğer ad veya karıştırılmış kimliği tanımlanırsa, diğer adlar gerçek adlarını eşleyen tablo içe aktaramadı. İstek telemetrisi üzerinde birleştirme gerçekleştirerek, kullanıcıların gerçek adlarını analiz raporları tarafından tanımlayabilirsiniz.
 
-### <a name="define-your-data-schema"></a>Veri şemanızı tanımlayın
+### <a name="define-your-data-schema"></a>Kendi veri şemasını tanımla
 
-1. Tıklatın **ayarları** (sol üst) ve ardından **veri kaynakları**. 
-2. Yönergeleri izleyerek bir veri kaynağı ekleyin. En az 10 satır içermelidir veri örneği sağlamanız istenir. Sonra şema de düzeltin.
+1. Tıklayın **ayarları** (sol üstteki) ve ardından **veri kaynakları**. 
+2. Yönergeleri izleyerek bir veri kaynağı ekleyin. En az 10 satırlar içermelidir verileri bir örneğini sağlamanız istenir. Sonra şema de düzeltin.
 
-Bundan sonra tek tek tablolar almak için kullanabileceğiniz bir veri kaynağı tanımlar.
+Bu, daha sonra tek tek tablolar içeri aktarmak için kullanabileceğiniz bir veri kaynağı tanımlar.
 
 ### <a name="import-a-table"></a>Tablo alma
 
-1. Veri kaynağı tanımınız listeden açın.
-2. "Karşıya Yükle" seçeneğini tıklatın ve tablo karşıya yüklemek için yönergeleri izleyin. Bu nedenle otomatikleştirmek kolay ve bu bir REST API çağrısı içerir. 
+1. Veri kaynağı tanımınız açın.
+2. "Karşıya Yükle" seçeneğini tıklatın ve tablo karşıya yüklemek için yönergeleri izleyin. Bu REST API çağrısı içerir ve bu nedenle otomatik hale getirmek kolay. 
 
-Tablonuz analitik sorguları kullanmak için kullanıma sunulmuştur. Analizleri görünür 
+Tablonuz, artık analiz sorguları kullanmak için kullanılabilir. Analytics'te görünür 
 
 ### <a name="use-the-table"></a>Tabloyu kullanın
 
-Şimdi veri kaynağı tanımınız varsayın `usermap`, ve iki alan olduğunu `realName` ve `user_AuthenticatedId`. `requests` Da tablolu adında bir alan `user_AuthenticatedId`, bunları katılmaya kolaydır:
+Veri kaynağı tanımınız çağrılır varsayalım `usermap`, ve iki alan olduğunu `realName` ve `user_AuthenticatedId`. `requests` Tablo adında bir alan da sahip `user_AuthenticatedId`, onlara katılmanız kolaydır:
 
 ```AIQL
 
@@ -228,11 +228,11 @@ Tablonuz analitik sorguları kullanmak için kullanıma sunulmuştur. Analizleri
     | where notempty(user_AuthenticatedId) | take 10
     | join kind=leftouter ( usermap ) on user_AuthenticatedId 
 ```
-Ortaya çıkan tabloda istekleri başka bir sütuna sahip `realName`.
+Elde edilen tabloda istekleri başka bir sütuna sahip `realName`.
 
 ### <a name="import-from-logstash"></a>LogStash alma
 
-Kullanırsanız [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html), günlüklerinizi sorgulamak için Analytics kullanabilirsiniz. Kullanım [veri analizi kanallar eklentisi](https://github.com/Microsoft/logstash-output-application-insights). 
+Kullanırsanız [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html), Analytics, günlükleri sorgulamak için kullanabilirsiniz. Kullanım [veri Analytics'e geçirir. eklentisini](https://github.com/Microsoft/logstash-output-application-insights). 
 
 ## <a name="video"></a>Video
 

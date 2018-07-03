@@ -1,6 +1,6 @@
 ---
-title: Kimlik doğrulaması, kaydolma, parola sıfırlama Azure Active Directory B2C'de | Microsoft Docs
-description: Oturumu-up/oturum açma sahip bir web uygulamasının nasıl oluşturulacağını, profil düzenleme ve parola sıfırlama ve Azure Active Directory B2C kullanarak.
+title: Kimlik doğrulaması, kaydolma, parola Azure Active Directory B2C'de sıfırlama | Microsoft Docs
+description: Oturumu-kaydolma/oturum açma sahip bir web uygulaması oluşturma, profil düzenleme ve Azure Active Directory B2C kullanarak parola sıfırlama.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -10,52 +10,54 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ec106b46097f9a35b9e41e08de4c18339f1b28f0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 090e85df2f4315e6a31d5f9da38483f7ec00be22
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710415"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345014"
 ---
-# <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Azure Active Directory B2C kaydolma, oturum açma profili düzenleme ve parola sıfırlama ile bir ASP.NET web uygulaması oluşturma
+# <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Azure Active Directory B2C kaydolma, oturum açma, profil düzenleme ve parola sıfırlama ile ASP.NET web uygulaması oluşturma
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 
 > [!div class="checklist"]
-> * Web uygulamanızı Azure AD B2C kimlik özellik ekleme
-> * Azure AD B2C dizininizde web uygulamanızı kaydetme
-> * Kullanıcı oturumu-up/oturum açma, profil düzenleme ve web uygulamanız için parola sıfırlama ilkesi oluşturma
+> * Web uygulamanızı Azure AD B2C kimlik özellikleri ekleyin
+> * Web uygulamanızı Azure AD B2C dizininizde kaydetme
+> * Bir kullanıcı oturumu açma kaydolma/oturum açma, profil düzenleme ve web uygulamanız için parola sıfırlama ilkesi oluşturma
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Bir Azure hesabına B2C Kiracınızın bağlanmanız gerekir. Ücretsiz bir Azure hesabı oluşturabilirsiniz [burada](https://azure.microsoft.com/).
-- Gereksinim duyduğunuz [Microsoft Visual Studio](https://www.visualstudio.com/) görüntülemek ve örnek kod değiştirmek için veya benzer bir program.
+- B2C Kiracınızın bir Azure hesabına bağlamanız gerekir. Ücretsiz Azure hesabı oluşturabilirsiniz [burada](https://azure.microsoft.com/).
+- Gereksinim duyduğunuz [Microsoft Visual Studio](https://www.visualstudio.com/) veya benzer bir program görüntüleyebilir ve örnek kodu değiştirin.
 
-## <a name="create-an-azure-ad-b2c-directory"></a>Azure AD B2C dizini oluşturma
+## <a name="create-an-azure-ad-b2c-tenant"></a>Azure AD B2C kiracısı oluşturma
 
-Azure AD B2C'yi kullanabilmek için önce dizin veya kiracı oluşturmanız gerekir. Bir dizin, tüm kullanıcıların, uygulamaları, grupları ve daha fazlası için bir kapsayıcıdır. Zaten yoksa, bu kılavuza devam etmeden önce bir B2C dizini oluşturun.
+Azure AD B2C kullanabilmeniz için bir kiracı oluşturmanız gerekir. Bir kiracının tüm kullanıcılar, uygulamaları, gruplar ve daha fazlası için bir kapsayıcıdır. Zaten yoksa, bu kılavuzda devam etmeden önce bir B2C kiracısı oluşturun.
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
 > [!NOTE]
 > 
-> B2C Kiracı Azure aboneliğinize bağlanmak için gerekir. Seçtikten sonra **oluşturma**seçin **Azure Aboneliğim bağlantı var olan bir Azure AD B2C Kiracısına** seçeneğini ve ardından **Azure AD B2C Kiracısı** açılan, ilişkilendirmek istediğiniz Kiracı seçin.
+> Azure AD B2C kiracınızı Azure aboneliğinize bağlanmak gerekir. Seçtikten sonra **Oluştur**seçin **Azure Aboneliğimi bağlantı var olan bir Azure AD B2C Kiracısına** seçeneğini ve ardından **Azure AD B2C Kiracısı** seçin, açılan menü Kiracı ilişkilendirmek istediğiniz.
 
 ## <a name="create-and-register-an-application"></a>Oluşturma ve bir uygulamayı kaydetme
 
-Ardından, oluşturma ve uygulama B2C dizininizde kaydetmeniz gerekir. Bu, Azure AD B2C uygulamanız ile güvenli bir şekilde iletişim kurması için gereken bilgileri sağlar. 
+Ardından, oluşturmak ve uygulamayı Azure AD B2C kiracınıza kaydetmek gerekir. Bu, Azure AD B2C, uygulamanız ile güvenli bir şekilde iletişim kurması için gereken bilgileri sağlar. 
+
+Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin. Şimdi daha önce oluşturduğunuz Kiracı kullanıyor olması gerekir.
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
-İşiniz bittiğinde, uygulamanızın ayarlarını bir API ve yerel bir uygulamaya gerekir.
+İşiniz bittiğinde, uygulama ayarlarında, bir API hem yerel bir uygulama gerekir.
 
 ## <a name="create-policies-on-your-b2c-tenant"></a>B2C kiracınızın ilkeleri oluşturma
 
-Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu kod örneği üç kimlik deneyimi içerir: **kaydolma ve oturum açma**, **düzenleme profil**, ve **parola sıfırlama**.  Her tür için [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md) tanımlanan şekilde bir ilke oluşturmanız gerekir. Her ilke için bir görünen ad özniteliği ya da talep seçin ve ilkeniz adı daha sonra kullanmak için aşağı kopyalamak için emin olun.
+Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu kod örneği, üç kimlik deneyimi içerir: **kaydolma ve oturum açma**, **düzenleme profili**, ve **parola sıfırlama**.  Her tür için [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md) tanımlanan şekilde bir ilke oluşturmanız gerekir. Her ilke için görünen ad özniteliği veya talep seçin ve daha sonra kullanmak için ilkenizin adını aşağı kopyalamak için emin olun.
 
-### <a name="add-your-identity-providers"></a>Kimlik sağlayıcısı ekleyin
+### <a name="add-your-identity-providers"></a>Kimlik sağlayıcılarınızı Ekle
 
-Ayarlarınızı seçin **kimlik sağlayıcıları** ve kullanıcı adı kayıt ya da e-posta'i seçin.
+Ayarlarınızı seçin **kimlik sağlayıcıları** ve kullanıcı adı kayıt ya da e-posta kaydolabilirsiniz.
 
 ### <a name="create-a-sign-up-and-sign-in-policy"></a>Kaydolma ve oturum açma ilkesi oluşturma
 
@@ -79,11 +81,11 @@ Bu öğretici için kod [GitHub](https://github.com/Azure-Samples/active-directo
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Örnek kodu indirdikten sonra başlamak için Visual Studio .sln dosyasını açın. Çözüm dosyası iki proje içerir: `TaskWebApp` ve `TaskService`. `TaskWebApp` kullanıcı ile etkileşime giren MVC bir web uygulamasıdır. `TaskService`, uygulamanın, her kullanıcının yapılacaklar listesini depolayan arka uç web API'sidir. Bu makalede yalnızca `TaskWebApp` uygulaması ele alınacaktır. Nasıl yapılandıracağınızı öğrenmek için `TaskService` Azure AD B2C kullanarak bkz [.NET web API'si öğreticimizi](active-directory-b2c-devquickstarts-api-dotnet.md).
+Örnek kodu indirdikten sonra başlamak için Visual Studio .sln dosyasını açın. Çözüm dosyası iki proje içerir: `TaskWebApp` ve `TaskService`. `TaskWebApp` kullanıcı ile etkileşime giren MVC web uygulamasıdır. `TaskService`, uygulamanın, her kullanıcının yapılacaklar listesini depolayan arka uç web API'sidir. Bu makalede yalnızca `TaskWebApp` uygulaması ele alınacaktır. Nasıl oluşturulacağını öğrenmek için `TaskService` Azure AD B2C kullanarak bkz [.NET web API Öğreticisi](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## <a name="update-code-to-use-your-tenant-and-policies"></a>Kiracı ve ilkelerini kullanmak için kodu güncelleştirme
 
-Örneğimiz, tanıtım kiracımızın ilkelerini ve istemci kimliğini kullanacak şekilde yapılandırılmıştır. Kendi Kiracı bağlanmak için açmanız gerekir `web.config` içinde `TaskWebApp` proje ve aşağıdaki değerleri değiştirin:
+Örneğimiz, tanıtım kiracımızın ilkelerini ve istemci kimliğini kullanacak şekilde yapılandırılmıştır. Kendi kiracınıza bağlamak için açmanız gerekir `web.config` içinde `TaskWebApp` proje ve aşağıdaki değerleri değiştirin:
 
 * kiracı adınızla `ida:Tenant`
 * Web uygulamanızın kimliği ile `ida:ClientId`
@@ -93,35 +95,35 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 * "Parola Sıfırlama" ilkenizin adıyla `ida:ResetPasswordPolicyId`
 
 ## <a name="launch-the-app"></a>Uygulamayı başlatın
-Gelen Visual Studio içinde uygulamasını başlatın. Yapılacaklar listesi sekmesine gidin ve URl olduğuna dikkat edin: https://login.microsoftonline.com/ *YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*.....
+Öğesinden, Visual Studio içinde uygulamayı başlatın. Yapılacaklar listesi sekmesine gidin ve URL'sini Not: https://login.microsoftonline.com/ *YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*.....
 
-E-posta adresi veya kullanıcı adı kullanarak uygulama için kaydolun. Çıkışı, oturum sonra yeniden oturum açın ve profil düzenleme veya parola sıfırlama. Oturumu kapatın ve farklı bir kullanıcı olarak oturum açın. 
+E-posta adresi veya kullanıcı adı kullanarak uygulamaya kaydoluyor. Çıkışı, oturum sonra yeniden oturum açın ve profili düzenlemek veya parolayı sıfırlayın. Oturumu kapatın ve farklı bir kullanıcı olarak oturum açın. 
 
-## <a name="add-social-idps"></a>Sosyal IDPs Ekle
+## <a name="add-social-idps"></a>Sosyal Idp'yi Ekle
 
-Şu anda kullanarak uygulamayı yalnızca kullanıcının kaydolma ve oturum açma destekler **yerel hesaplar**; B2C dizininizde depolanan hesapları, bir kullanıcı adı ve parola kullanın. Azure AD B2C kullanarak diğer için destek ekleyebilmesi **kimlik sağlayıcıları** (IDPs) herhangi birini kodunuzu değiştirmeden.
+Şu anda kullanarak uygulamayı yalnızca kullanıcı kaydolma ve oturum açma destekler **yerel hesaplar**; B2C dizininizde saklanan hesapları, kullanıcı adı ve parolayı kullanın. Azure AD B2C'yi kullanarak desteği diğer ekleyebilirsiniz **kimlik sağlayıcıları** (IDP) değiştirmeden herhangi bir kod.
 
-Sosyal IDPs uygulamanıza eklemek için bu makaleler ayrıntılı yönergeleri izleyerek başlayın. Desteklemek istediğiniz her IDP için bu sistemde bir uygulamayı kaydetme ve bir istemci kimliği elde gerekir
+Sosyal Idp'yi uygulamanıza eklemek için şu makalelere ayrıntılı yönergeleri takip ederek başlayın. Desteklemek istediğiniz her bir IDP için bu sistemde bir uygulamayı kaydetme ve bir istemci kimliği almak gerekiyor
 
 * [Facebook bir IDP ayarlayın](active-directory-b2c-setup-fb-app.md)
-* [Google bir IDP ayarlayın](active-directory-b2c-setup-goog-app.md)
+* [Google bir IDP ayarlayın.](active-directory-b2c-setup-goog-app.md)
 * [Amazon bir IDP ayarlayın](active-directory-b2c-setup-amzn-app.md)
 * [LinkedIn bir IDP ayarlayın](active-directory-b2c-setup-li-app.md)
 
-B2C dizininize kimlik sağlayıcıları ekledikten sonra açıklandığı gibi her yeni IDPs eklemek için üç ilkenizi Düzenle [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md). İlkelerinizi kaydettikten sonra uygulamayı yeniden çalıştırın.  Oturum açma eklenen yeni IDPs görmeniz gerekir ve kaydolma seçenekleri her kimliğinizi karşılaştığında.
+Kimlik sağlayıcıları B2C dizininizi ekledikten sonra açıklandığı gibi her yeni IDP içerecek şekilde ilkelerinizi üç Düzenle [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md). İlkelerinizi kaydettikten sonra uygulamayı yeniden çalıştırın.  Oturum açma eklenen yeni IDP görmeniz gerekir ve her kimliğinizi kaydolma seçenekleri deneyimleri.
 
-İlkelerinizle denemeler ve örnek uygulamanızı üzerindeki etkisini gözlemleyin. Ekleyebilir veya IDPs kaldırmak, uygulamanın talep değiştirmek veya kaydolma özniteliklerini değiştirebilirsiniz. İlkeleri ve kimlik doğrulama isteklerini OWIN nasıl birbirine bağlayan görene kadar deneyin.
+Uygulamanızın ilkelerini deneyebilir ve örnek uygulamanızı üzerindeki etkisini inceleyin. Ekleme veya Idp'yi kaldırmak, uygulama taleplerini yönetmek veya kaydolma özniteliklerini değiştirebilirsiniz. İlkeleri ve kimlik doğrulama isteklerini OWIN nasıl birbirine bağlayın görene kadar denemeler yapın.
 
 ## <a name="sample-code-walkthrough"></a>Örnek kod gözden geçirme
-Aşağıdaki bölümlerde, örnek uygulama kodu nasıl yapılandırıldığını gösterir. Bu kılavuz olarak gelecekte uygulama geliştirmede kullanabilir.
+Aşağıdaki bölümlerde örnek uygulama kodu nasıl yapılandırıldığını gösterir. Bu, gelecekte uygulama geliştirme kılavuz olarak kullanabilirsiniz.
 
 ### <a name="add-authentication-support"></a>Kimlik doğrulama desteği ekleme
 
-Artık uygulamanızı Azure AD B2C kullanmak için yapılandırabilirsiniz. Uygulamanız, Openıd Connect kimlik doğrulama istekleri göndererek Azure AD B2C ile iletişim kurar. İstekleri ilkesini belirterek yürütmek için uygulamanızı istediği kullanıcı deneyimi dikte. Microsoft'un OWIN Kitaplığı'ı, bu istekleri göndermek, ilkeleri yürütmek, kullanıcı oturumları ve daha fazlasını yönetmek için kullanabilirsiniz.
+Artık uygulamanızı Azure AD B2C'yi kullanacak şekilde yapılandırabilirsiniz. Uygulamanızın Openıd Connect kimlik doğrulaması istek göndererek Azure AD B2C ile iletişim kurar. İstekleri ilkeyi belirterek yürütmek için uygulamanızı istediği kullanıcı deneyimini dikte. Microsoft OWIN Kitaplığı'ı, bu istekleri göndermek, ilkeleri yürütmek, kullanıcı oturumları ve daha fazlasını yönetmek için kullanabilirsiniz.
 
 #### <a name="install-owin"></a>OWIN yükleme
 
-Başlamak için Visual Studio Paket Yöneticisi konsolu kullanılarak OWIN ara yazılımı NuGet paketlerini projeye ekleyin.
+Başlamak için Visual Studio Paket Yöneticisi Konsolu'nu kullanarak OWIN ara yazılımı NuGet paketleri projeye ekleyin.
 
 ```Console
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -151,9 +153,9 @@ public partial class Startup
 
 #### <a name="configure-the-authentication-middleware"></a>Kimlik doğrulaması ara yazılımını yapılandırma
 
-Dosyayı açmak `App_Start\Startup.Auth.cs` ve uygulamanıza `ConfigureAuth(...)` yöntemi. Sağladığınız içinde parametreleri `OpenIdConnectAuthenticationOptions` uygulamanız için Azure AD B2C ile iletişim kurmak için koordinatları olarak hizmet. Belirli parametreleri belirtmezseniz, varsayılan değeri kullanır. Örneğin, biz belirtmeyin `ResponseType` örnekte, böylece varsayılan değer `code id_token` Azure AD B2C giden her istekte kullanılır.
+Dosyayı açmak `App_Start\Startup.Auth.cs` ve uygulama `ConfigureAuth(...)` yöntemi. İçinde sağladığınız parametreler `OpenIdConnectAuthenticationOptions` uygulamanızı Azure AD B2C ile iletişim kurmak için koordinatları işlevi görür. Belirli bir parametre belirtmezseniz, varsayılan değeri kullanır. Örneğin, biz belirtmeyin `ResponseType` örnekte, böylece varsayılan değer `code id_token` her bir giden istek Azure AD B2C için kullanılır.
 
-Tanımlama bilgisi kimlik doğrulamasını kurmanız gerekir. Openıd Connect ara yazılım, başka şeylerin kullanıcı oturumlarını korumak için tanımlama bilgilerini kullanır.
+Tanımlama bilgisi kimlik doğrulamasını kurmanız gerekir. Openıd Connect ara yazılımını, başka şeylerin yanında kullanıcı oturumlarını korumak için tanımlama bilgileri kullanır.
 
 ```CSharp
 // App_Start\Startup.Auth.cs
@@ -203,13 +205,13 @@ public partial class Startup
 }
 ```
 
-İçinde `OpenIdConnectAuthenticationOptions` geri çağırma işlevleri Openıd Connect ara yazılım tarafından alınan belirli bildirimleri için bir dizi yukarıdaki tanımlarız. Bu davranışların kullanarak tanımlanan bir `OpenIdConnectAuthenticationNotifications` nesne ve içine depolanmış `Notifications` değişkeni. Bizim örnek olay bağlı olarak üç farklı geri aramalar tanımlayın.
+İçinde `OpenIdConnectAuthenticationOptions` Openıd Connect ara yazılım tarafından alınan belirli bildirimleri için geri çağırma işlevleri bir dizi yukarıdaki tanımlarız. Bu davranışların kullanılarak bildirilen bir `OpenIdConnectAuthenticationNotifications` nesne ve içinde depolanan `Notifications` değişkeni. Örneğimizde, olaya bağlı olarak üç farklı geri çağırmaları tanımlarız.
 
 ### <a name="using-different-policies"></a>Farklı ilkelerini kullanma
 
-`RedirectToIdentityProvider` Bildirim Azure AD B2C'ye bir istek yapıldığında tetiklenir. Geri arama işlevinde `OnRedirectToIdentityProvider`, biz başka bir ilke kullanmak istiyorsanız, biz giden çağrısında denetleyin. Parola sıfırlama yapın veya bir profili düzenlemek için varsayılan "Kaydolma veya oturum açma" ilke yerine İlkesi parola sıfırlama gibi ilgili İlkesi kullanmanız gerekir.
+`RedirectToIdentityProvider` Bildirim, Azure AD B2C'ye bir istek yapıldığında tetiklenir. Geri çağırma işlevi olarak `OnRedirectToIdentityProvider`, farklı bir ilke kullanmak istiyorsanız şu giden çağrısında denetleyin. Parola sıfırlama yapabilir veya bir profili düzenlemek için ilgili ilkeyi gibi parola sıfırlama İlkesi yerine varsayılan "Kaydolma veya oturum açma" ilkesini kullanmanız gerekir.
 
-Bir kullanıcı parolasını sıfırlama veya profil düzenleme istediğinde Örneğimizde, biz biz OWIN bağlamına kullanmayı tercih ilkesi ekleyin. Aşağıdakileri yaparak yapılabilir:
+Örneğimizde, bir kullanıcı parolasını sıfırlama veya profili düzenlemek istediğinde OWIN bağlamına kullanmayı tercih ederiz İlkesi ekleyeceğiz. Aşağıdakileri yaparak, yapılabilir:
 
 ```CSharp
     // Let the middleware know you are trying to use the edit profile policy
@@ -240,11 +242,11 @@ private Task OnRedirectToIdentityProvider(RedirectToIdentityProviderNotification
 
 ### <a name="handling-authorization-codes"></a>Yetkilendirme kodları işleme
 
-`AuthorizationCodeReceived` Bildirim bir yetkilendirme kodu alındığında tetiklenir. Openıd Connect ara yazılımı için erişim belirteçleri değiş tokuşu kodlarını desteklemez. Bir geri çağırma işlevini belirteç kodunu el ile değiştirebilir. Daha fazla bilgi için lütfen bakmak [belgelerine](active-directory-b2c-devquickstarts-web-api-dotnet.md) , açıklar nasıl.
+`AuthorizationCodeReceived` Bildirimi bir yetkilendirme kodu geldiğinde tetiklenir. Openıd Connect ara yazılımını alışverişi kodları için erişim belirteçleri desteklemez. Bir geri çağırma işlevi belirteç kodunu el ile değiştirebilir. Daha fazla bilgi için lütfen bakmak [belgeleri](active-directory-b2c-devquickstarts-web-api-dotnet.md) bilgiler veren nasıl.
 
 ### <a name="handling-errors"></a>Hataları işleme
 
-`AuthenticationFailed` Bildirim kimlik doğrulama başarısız olduğunda tetiklenir. İstediğiniz gibi kendi geri çağırma yönteminde hataları işleyebilir. Hata kodu denetle ancak eklemelisiniz `AADB2C90118`. "Kaydolma veya oturum açma" ilke yürütülmesi sırasında kullanıcı seçin fırsatına sahip bir **parolanızı mı unuttunuz?** bağlantı. Bu durumda, uygulamanızı parolası sıfırlama ilkesini kullanmayı bir istek olmalısınız belirten bu hata kodu uygulamanızı Azure AD B2C gönderir.
+`AuthenticationFailed` Bildirim kimlik doğrulama başarısız olduğunda tetiklenir. İstediğiniz gibi geri çağırma yöntemi hataları başa çıkabilir. Ancak bir denetleyin hata kodu eklemelisiniz `AADB2C90118`. "Kaydolma veya oturum açma" ilkesini yürütülmesi sırasında seçme fırsatı kullanıcının bir **parolanızı mı unuttunuz?** bağlantı. Bu durumda, Azure AD B2C, uygulamanız uygulamanızı parola sıfırlama ilkesini bunun yerine bir isteğin yapmalısınız belirten bu hata kodu gönderir.
 
 ```CSharp
 /*
@@ -274,11 +276,11 @@ private Task OnAuthenticationFailed(AuthenticationFailedNotification<OpenIdConne
 }
 ```
 
-### <a name="send-authentication-requests-to-azure-ad"></a>Azure AD kimlik doğrulama isteklerini gönderme
+### <a name="send-authentication-requests-to-azure-ad"></a>Azure AD ile kimlik doğrulama istekleri gönderme
 
-Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak Azure AD B2C ile iletişim kurmak için düzgün şekilde yapılandırılmıştır. OWIN kimlik doğrulama iletileri hazırlayın, Azure AD B2C gelen belirteçleri doğrulamak ve kullanıcı oturumu koruyarak ayrıntılarını yönetir. Kalan tek şey her kullanıcının akış başlatmak için.
+Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak Azure AD B2C ile iletişim kurmak için düzgün şekilde yapılandırılmıştır. OWIN kimlik doğrulama iletilerinde kaynaklı, Azure AD B2C belirteçleri doğrulama ve kullanıcı oturumunun bakımını yapma işlemlerinin ayrıntılarını yönetir. Kalan tek şey her kullanıcının akışını başlatmak için.
 
-Bir kullanıcı seçtiğinde **oturum yukarı/oturum açma**, **Düzenle profili**, veya **parola sıfırlama** web uygulamasında ilişkili eylemin çağrılması `Controllers\AccountController.cs`:
+Bir kullanıcı seçtiğinde **oturum yukarı/oturum açma**, **profili Düzenle**, veya **parolayı Sıfırla** web uygulamasında ilişkili eylemin çağrılması `Controllers\AccountController.cs`:
 
 ```CSharp
 // Controllers\AccountController.cs
@@ -335,7 +337,7 @@ public void ResetPassword()
 }
 ```
 
-OWIN, uygulama kullanıcıdan çıkışı imzalamak için de kullanabilirsiniz. İçinde `Controllers\AccountController.cs` sunuyoruz:
+OWIN, uygulama kullanıcının oturum açmak için de kullanabilirsiniz. İçinde `Controllers\AccountController.cs` sunuyoruz:
 
 ```CSharp
 // Controllers\AccountController.cs
@@ -355,7 +357,7 @@ public void SignOut()
 }
 ```
 
-Kullanabileceğiniz bir ilke açıkça çağırma yanı sıra bir `[Authorize]` kullanıcı imzalı değilse bir ilke yürütür etiketinde denetleyicilerinizi. Açık `Controllers\HomeController.cs` ve ekleme `[Authorize]` talep denetleyicisine etiketi.  Son ilke yapılandırılan OWIN seçer `[Authorize]` etiketi isabet.
+Kullanabileceğiniz bir ilke açıkça çağırma yanı sıra bir `[Authorize]` kullanıcı imzalı değilse, bir ilke yürüten denetleyicilerinizi etiketinde. Açık `Controllers\HomeController.cs` ve ekleme `[Authorize]` talep denetleyiciye etiketi.  Son ilke yapılandırılmış OWIN seçer `[Authorize]` etiketi isabet.
 
 ```CSharp
 // Controllers\HomeController.cs
@@ -367,11 +369,11 @@ public ActionResult Claims()
   ...
 ```
 
-### <a name="display-user-information"></a>Kullanıcı bilgilerini görüntüleme
+### <a name="display-user-information"></a>Kullanıcı bilgilerini görüntüle
 
-Openıd Connect kullanarak kullanıcıların kimlik doğrulaması sırasında Azure AD B2C kimliği belirteci içeren uygulamaya döndürür. **talep**. Bu, kullanıcı hakkında onaylamalardır. Uygulamanızı kişiselleştirmek için talep kullanabilirsiniz.
+Openıd Connect kullanarak kullanıcıların kimlik doğrulaması sırasında Azure AD B2C kimlik belirteci içeren uygulamaya döndürür. **talep**. Bu kullanıcı hakkındaki onaylardır. Talepler, uygulamanızı kişiselleştirmek için kullanabilirsiniz.
 
-`Controllers\HomeController.cs` dosyasını açın. Denetleyicilerinizi, kullanıcı talepleri erişim `ClaimsPrincipal.Current` güvenlik sorumlusu nesnesi.
+`Controllers\HomeController.cs` dosyasını açın. Kullanıcı taleplerini denetleyicilerinizi erişebilirsiniz `ClaimsPrincipal.Current` güvenlik sorumlusu nesnesi.
 
 ```CSharp
 // Controllers\HomeController.cs
@@ -385,4 +387,4 @@ public ActionResult Claims()
 }
 ```
 
-Aynı şekilde, uygulamanızın alan talep erişebilir.  Uygulama aldığı tüm talepler listesinin, üzerinde kullanılabilir **talep** sayfası.
+Aynı şekilde, uygulamanın aldığı herhangi bir talep erişebilirsiniz.  Uygulamanın aldığı tüm taleplerin listesi için kullanılabilir **talep** sayfası.

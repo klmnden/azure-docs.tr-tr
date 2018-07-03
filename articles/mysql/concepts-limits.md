@@ -1,6 +1,6 @@
 ---
-title: MySQL için Azure veritabanındaki sınırlamaları
-description: Bu makalede, MySQL, bağlantı ve depolama altyapısı seçenekleri sayısı gibi Azure veritabanındaki sınırlamalar açıklanır.
+title: MySQL için Azure veritabanı'nda sınırlamaları
+description: Bu makalede, bağlantı ve depolama altyapısı seçenekleri sayısı gibi bir MySQL için Azure veritabanı'nda sınırlamalar açıklanır.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,21 +8,21 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 2fc224445f89a0b0b4afdc0ef1d0eb1b25b45f36
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.date: 06/30/2018
+ms.openlocfilehash: 1fd5905b8ea3f87fe6cfc2a830b73b8120a717dd
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309928"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341486"
 ---
-# <a name="limitations-in-azure-database-for-mysql"></a>MySQL için Azure veritabanındaki sınırlamaları
-Aşağıdaki bölümlerde, kapasite, depolama altyapısı desteği, ayrıcalık desteği, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır. Ayrıca bkz. [genel sınırlamaları](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) MySQL veritabanı altyapısı için geçerlidir.
+# <a name="limitations-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda sınırlamaları
+Aşağıdaki bölümlerde, kapasitesi, depolama altyapısı desteği, destek ayrıcalığına, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır. Ayrıca bkz: [genel kısıtlamalar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) MySQL veritabanı altyapısı için geçerlidir.
 
-## <a name="maximum-connections"></a>En fazla bağlantı
-Fiyatlandırma katmanı ve vCores başına bağlantısı sayısı aşağıdaki gibidir: 
+## <a name="maximum-connections"></a>Bağlantı sayısı üst sınırı
+Fiyatlandırma katmanı ve sanal çekirdek başına bağlantıları sayısı aşağıdaki gibidir: 
 
-|**Fiyatlandırma Katmanı**|**vCore(s)**| **En fazla bağlantı**|
+|**Fiyatlandırma Katmanı**|**Sanal çekirdek**| **En fazla bağlantı sayısı**|
 |---|---|---|
 |Temel| 1| 50|
 |Temel| 2| 100|
@@ -36,13 +36,13 @@ Fiyatlandırma katmanı ve vCores başına bağlantısı sayısı aşağıdaki g
 |Bellek için İyileştirilmiş| 8| 2500|
 |Bellek için İyileştirilmiş| 16| 5000|
 
-Bağlantı sınırı aştıklarında, aşağıdaki hata iletisini alabilirsiniz:
-> 1040 (08004). hata: Çok fazla bağlantı
+Bağlantı sınırı aştıklarında aşağıdaki hata iletisini alabilirsiniz:
+> 1040 (08004). hata: Çok fazla sayıda bağlantı
 
 ## <a name="storage-engine-support"></a>Depolama altyapısı desteği
 
 ### <a name="supported"></a>Desteklenen
-- [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
+- [Innodb](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
 - [BELLEK](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
 ### <a name="unsupported"></a>Desteklenmiyor
@@ -54,36 +54,39 @@ Bağlantı sınırı aştıklarında, aşağıdaki hata iletisini alabilirsiniz:
 ## <a name="privilege-support"></a>Ayrıcalık desteği
 
 ### <a name="unsupported"></a>Desteklenmiyor
-- DBA rolünün: pek çok sunucu parametreleri ve ayarları yanlışlıkla sunucu performansının düşmesine neden veya DBMS ACID özelliklerini negate. Bu nedenle, bir ürün düzeyinde SLA ve hizmet bütünlüğü korumak için bu hizmet DBA rolünün kullanıma sunmuyor. Yeni bir veritabanı örneği oluşturulduğunda bu oluşturulur, varsayılan kullanıcı hesabı yönetilen veritabanı örneğinde DDL ve DML deyimleri çoğunu gerçekleştirmek bu kullanıcının sağlar. 
+- DBA rol: birçok sunucu parametreleri ve ayarları yanlışlıkla sunucu performansının düşmesine neden veya DBMS ACID özelliklerini negate. Bu nedenle, bir ürün düzeyinde SLA ve hizmet bütünlüğü korumak için bu hizmeti DBA rol kullanıma sunmuyor. Yeni bir veritabanı örneği oluşturulduğunda bu oluşturulur, varsayılan kullanıcı hesabı, veritabanı yönetilen örneğine DDL ve DML deyimleri çoğunu gerçekleştirmek bu kullanıcı sağlar. 
 - Süper ayrıcalık: benzer şekilde [Süper ayrıcalık](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) de sınırlıdır.
 
 ## <a name="data-manipulation-statement-support"></a>Veri işleme ifadesi desteği
 
 ### <a name="supported"></a>Desteklenen
-- `LOAD DATA INFILE` desteklenir, ancak `[LOCAL]` parametresi belirtilen ve bir UNC yolu (Azure storage'ı SMB bağlanan) yönlendirilmiş.
+- `LOAD DATA INFILE` desteklenir, ancak `[LOCAL]` parametresi belirtilen ve bir UNC yolu (Azure depolama bağlı SMB) yönlendirilir.
 
 ### <a name="unsupported"></a>Desteklenmiyor
 - `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>İşlev sınırlamaları
 
-### <a name="scale-operations"></a>Ölçek işlemleri
-- Temel fiyatlandırma katmanlarına gelen ve giden dinamik ölçeklendirme şu anda desteklenmiyor.
-- Sunucu depolama boyutunu azaltmak desteklenmiyor.
+### <a name="scale-operations"></a>Ölçeklendirme işlemleri
+- Temel fiyatlandırma katmanları gelen ve giden dinamik ölçeklendirme şu anda desteklenmiyor.
+- Sunucu depolama boyutunu küçültme desteklenmiyor.
 
-### <a name="server-version-upgrades"></a>Sunucu sürüm yükseltme
-- Ana veritabanı altyapısı sürümleri arasında otomatik geçiş şu anda desteklenmiyor.
+### <a name="server-version-upgrades"></a>Sunucu sürümü yükseltme
+- Ana veritabanı altyapısı sürümleri arasında otomatik geçişi şu anda desteklenmiyor.
 
 ### <a name="point-in-time-restore"></a>belirli bir noktaya geri yükleme
-- PITR özelliğini kullanırken, yeni sunucu dayanır sunucusu olarak aynı yapılandırmaya sahip oluşturulur.
-- Silinen bir sunucuya geri yüklenmesi desteklenmez.
+- PITR özelliğini kullanırken, yeni sunucuya bağlı olduğu sunucusuyla aynı yapılandırmaları ile oluşturulur.
+- Silinen bir sunucuya geri yükleme desteklenmiyor.
+
+### <a name="vnet-service-endpoints"></a>Sanal ağ hizmet uç noktaları
+- Yalnızca genel amaçlı ve bellek için iyileştirilmiş sunucuları için sanal ağ hizmet uç noktaları desteğidir.
 
 ### <a name="subscription-management"></a>Abonelik yönetimi
-- Önceden oluşturulmuş sunucuları abonelik ve kaynak grubu arasında dinamik olarak taşıma şu anda desteklenmiyor.
+- Önceden oluşturulmuş sunucuları, abonelik ve kaynak grubu üzerinde dinamik olarak taşıma şu anda desteklenmiyor.
 
-## <a name="current-known-issues"></a>Geçerli bilinen sorunlar
-- Bağlantı kurulduktan sonra MySQL server örneği yanlış sunucu sürümünü görüntüler. Doğru sunucu örneği altyapısı sürümü almak için `select version();` komutu.
+## <a name="current-known-issues"></a>Bilinen geçerli sorunlar
+- Bağlantı kurulduktan sonra MySQL sunucu örneğinde yanlış sunucu sürümünü görüntüler. Doğru sunucu örneği altyapı sürümü almak için kullanın `select version();` komutu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Her hizmet katmanında nelerin kullanılabildiğini](concepts-pricing-tiers.md)
-- [Desteklenen MySQL veritabanı sürümleri](concepts-supported-versions.md)
+- [MySQL veritabanı için desteklenen sürümler](concepts-supported-versions.md)

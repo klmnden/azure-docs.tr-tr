@@ -1,7 +1,7 @@
 ---
-title: Düzeni şablonları HALUK uygulamaları ekleme | Microsoft Docs
+title: Desen şablonları LUIS uygulamaları ekleme | Microsoft Docs
 titleSuffix: Azure
-description: Tahmin doğruluğunu artırmak için dil anlama (HALUK) uygulamalarında düzeni şablonları eklemeyi öğrenin.
+description: Language Understanding (LUIS) uygulamalarında tahmin doğruluğunu artırmak için desen şablonları eklemeyi öğrenin.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -10,131 +10,131 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 68c0ea1fd3f2e60e0adec631f33c8bd09a3d9960
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 9dd23fd5f8a0024f127b71160899d10042037a66
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35356389"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346017"
 ---
-# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Tahmin doğruluğunu artırmak için desenleri ekleme
-Uç nokta utterances HALUK uygulama aldıktan sonra kullanmak [kavram](luis-concept-patterns.md) sözcük sırasını ve word seçim içindeki bir desenle ortaya utterances tahmin doğruluğunu artırmak için desenleri. Kullanım düzenleri [varlıklar](luis-concept-entity-types.md) ve belirli bir desene sözdizimini kullanarak veri ayıklamak için kullanıcı rolleri. 
+# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Nasıl tahmin doğruluğunu artırmak için düzenleri ekleyin
+Bir LUIS uygulaması konuşma uç noktası aldıktan sonra kullanmak [kavramı](luis-concept-patterns.md) sözcük sırasını ve sözcük seçim içindeki bir desenle açığa konuşma için tahmin doğruluğunu artırmak için desenleri. Kullanım desenlerini [varlıkları](luis-concept-entity-types.md) ve belirli bir desene söz dizimini kullanarak verileri ayıklamak için kullanıcı rolleri. 
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Desen oluşturmak için şablon utterance Ekle
-1. Şirket adını seçerek uygulamanızı açın **My uygulamaları** sayfasında ve ardından **desenleri** sol panelinde, altında **uygulama performansı**.
+1. Adını seçerek uygulamanızı açın **uygulamalarım** sayfasında ve ardından **desenleri** sol bölmede altında **uygulama performansını**.
 
-    ![Desenler listesinin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/patterns-1.png)
+    ![Desen listesinin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 
-2. Desen doğru hedefini seçin. 
+2. Desen için doğru hedefini seçin. 
 
-    ![Hedefini seçin](./media/luis-how-to-model-intent-pattern/patterns-2.png)
+    ![Hedefi seçin](./media/luis-how-to-model-intent-pattern/patterns-2.png)
 
-3. Şablon metin kutusuna şablon utterance yazın ve Enter seçin. Varlık adı girmek istediğiniz zaman doğru deseni varlık sözdizimini kullanın. Varlık sözdizimi ile başlayan `{`. Varlıkları görüntüler listesi. Doğru varlığı seçin ve ardından Enter seçin. 
+3. Şablon metin şablonu utterance yazın ve Enter'ı seçin. Varlık adı girmek istediğiniz zaman doğru deseni varlık sözdizimini kullanın. Varlık sözdizimi ile başlayan `{`. Varlıklar görüntüler listesi. Doğru varlığı seçin ve ardından Enter'ı seçin. 
 
-    ![Varlık düzeni için ekran görüntüsü](./media/luis-how-to-model-intent-pattern/patterns-3.png)
+    ![Varlık deseni için ekran görüntüsü](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Varlığınız bir rolü içeriyorsa, tek bir iki nokta rolüyle belirtmek `:`, varlık adı sonra gibi `{Location:Origin}`. Varlıkların rollerin listesini bir liste görüntüler. Rolü seçin ve ardından Enter seçin. 
+    Varlığınız bir rol varsa, tek bir iki nokta rolüyle belirtmek `:`, varlık adı sonra gibi `{Location:Origin}`. Rolleri varlıkların listesini bir liste görüntüler. Rolü seçin ve ardından Enter'ı seçin. 
 
     ![Rolü içeren varlığın ekran görüntüsü](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
-    Doğru varlık seçtikten sonra düzeni girmeyi tamamladığınızda ve ardından Enter seçin. Girme desenleri bittiğinde [eğitmek](luis-how-to-train.md) uygulamanızı.
+    Doğru varlık seçtikten sonra deseni girdikten ve ardından Enter'ı seçin. Girme desenleri, işiniz bittiğinde [eğitme](luis-how-to-train.md) uygulamanızı.
 
-    ![Her iki varlık türlerini girilen desenle ekran görüntüsü](./media/luis-how-to-model-intent-pattern/patterns-5.png)
+    ![Girilen deseninin her iki türdeki varlık ile ekran görüntüsü](./media/luis-how-to-model-intent-pattern/patterns-5.png)
 
 ## <a name="search-patterns"></a>Arama desenleri
-Arama bazı verilen metni içeren desenleri bulmanızı sağlar.  
+Arama, bazı belirli bir metni içeren kalıpları bulmasına olanak tanır.  
 
 1. Büyüteç simgesini seçin.
 
-    ![Ekran görüntüsü, desenleri sayfasıyla vurgulanan arama Aracı simgesi](./media/luis-how-to-model-intent-pattern/search-icon.png)
+    ![Arama aracı simgesinin vurgulandığı ekran görüntüsü, desenleri sayfası](./media/luis-how-to-model-intent-pattern/search-icon.png)
 
-    Arama metni desenleri listenin en sağ üst köşedeki arama kutusuna yazın ve Enter seçin. Arama metninizi dahil olmak üzere desenleri görüntülemek için desenleri listesi güncelleştirildi.
+    Arama metni desenleri listenin en sağ üst köşedeki arama kutusuna yazın ve Enter tuşuna basın. Desenler liste yalnızca arama metninizi dahil olmak üzere desenlerini görüntülemek için güncelleştirilir.
 
-    ![Vurgulanan arama kutusuna arama metni ekran görüntüsü, desenleri sayfası](./media/luis-how-to-model-intent-pattern/search-text.png)
+    ![Vurgulanan arama kutusundaki arama metnini, ekran düzenleri sayfası](./media/luis-how-to-model-intent-pattern/search-text.png)
 
-    Aramayı iptal etmek ve desenler tam listesini geri yükleme için yazdığınız arama metni silin.
+    Aramayı iptal et ve desenleri tam listesini geri yükleme için yazdığınız arama metni silin.
 
 <!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
 
 ## <a name="edit-a-pattern"></a>Bir desen Düzenle
-1. Bir desen düzenlemek için bu deseni çizgi sağ ucunda üç noktaya (...) simgesini seçin, sonra seçin **Düzenle**. 
+1. Bir desen düzenlemek için bu deseni için satırın sağ ucunda üç nokta (...) simgesini seçin ve ardından **Düzenle**. 
 
-    ![Desen satırda menü öğesi olarak Düzenle ekran görüntüsü](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
+    ![Menü öğesi deseni satır Düzenle ekran görüntüsü](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
 
-2. Herhangi bir değişiklik metin kutusuna girin. İşiniz bittiğinde, select girin. Düzenleme desenleri bittiğinde [eğitmek](luis-how-to-train.md) uygulamanızı.
+2. Herhangi bir değişiklik metin kutusuna girin. İşiniz bittiğinde, select girin. Düzenleme düzenlerini, işleminiz tamamlandığında [eğitme](luis-how-to-train.md) uygulamanızı.
 
     ![Desen düzenleme işleminin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/edit-pattern.png)
 
-## <a name="reassign-individual-pattern-to-different-intent"></a>Farklı bir hedefi için tek tek düzeni yeniden atama
+## <a name="reassign-individual-pattern-to-different-intent"></a>Farklı bir amaç için ayrı ayrı desen yeniden atama
 
-Farklı bir hedefi için tek bir desen yeniden atamak için desen metnin sağına hedefi liste kutusunu seçin ve farklı bir hedefi seçin.
+Farklı bir hedefi tek bir desen yeniden atamak için desen metnin sağına hedefi liste kutusunu seçin ve farklı bir hedefi seçin.
 
-![Farklı bir hedefi için tek tek düzeni yeniden atama işleminin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/reassign-individual-pattern.png)
+![Farklı bir amaç için ayrı ayrı desen yeniden atama ekran görüntüsü](./media/luis-how-to-model-intent-pattern/reassign-individual-pattern.png)
 
-## <a name="reassign-several-patterns-to-different-intent"></a>Farklı bir hedefi birkaç desenlerini yeniden atama
+## <a name="reassign-several-patterns-to-different-intent"></a>Farklı bir hedefi için çeşitli desenlerden yeniden atama
 
-Farklı bir hedefi birkaç desenlerini yeniden atamak için her düzeni solundaki onay kutusunu işaretleyin veya üst onay kutusunu seçin. **Yeniden hedefi** seçeneği, araç çubuğundaki görüntüler. Desenler için doğru hedefini seçin. 
+Farklı bir hedefi için çeşitli desenlerden yeniden atamak için her desen solundaki onay kutusunu işaretleyin veya üst onay kutusunu işaretleyin. **Yeniden atama hedefi** seçeneği, araç çubuğundaki görüntüler. Desenler için doğru hedefini seçin. 
 
-![Farklı bir hedefi birkaç desenlerini yeniden atama işleminin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/reassign-many-patterns.png)
+![Farklı bir hedefi için çeşitli desenlerden yeniden atama ekran görüntüsü](./media/luis-how-to-model-intent-pattern/reassign-many-patterns.png)
 
-## <a name="delete-a-single-pattern"></a>Tek bir desen Sil
+## <a name="delete-a-single-pattern"></a>Tek bir düzeni Sil
 
-1. Bir desen silmek için bu deseni çizgi sağ ucunda üç noktaya (...) simgesini seçin, ardından seçin **silmek**. 
+1. Bir desen silmek için bu deseni için satırın sağ ucunda üç nokta (...) simgesini seçin ve ardından **Sil**. 
 
-    ![Utterance ekran görüntüsü, Sil](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
+    ![Utterance Sil ekran görüntüsü](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
 
-2. Seçin **Tamam** silme işlemini onaylayın.
+2. Seçin **Tamam** silme işlemini onaylamak için.
 
     ![Ekran görüntüsü, silme onayı](./media/luis-how-to-model-intent-pattern/confirm-delete.png)
 
-## <a name="delete-several-patterns"></a>Birkaç desenleri Sil
+## <a name="delete-several-patterns"></a>Çeşitli desenlerden Sil
 
-1. Birkaç desenleri silmek için her düzeni solundaki onay kutusunu işaretleyin veya üst onay kutusunu seçin. **Silmek desenleri (s)** seçeneği, araç çubuğundaki görüntüler. Seçin **silmek desenleri (s)**.  
+1. Çeşitli desenlerden silmek için her desen solundaki onay kutusunu işaretleyin veya üst onay kutusunu işaretleyin. **Sil (s) desenlerini** seçeneği, araç çubuğundaki görüntüler. Seçin **Sil (s) desenlerini**.  
 
-    ![Birkaç desenleri silme işleminin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/delete-many-patterns.png)
+    ![Çeşitli desenlerden silme işleminin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/delete-many-patterns.png)
 
-2. **Silmek desenleri** onay iletişim kutusu görüntülenir. Seçin **Tamam** silme işlemini bitirmek için.
+2. **Sil desenleri** onay iletişim kutusu görüntülenir. Seçin **Tamam** silme işlemini tamamlamak için.
 
-    ![Birkaç desenleri silme işleminin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![Çeşitli desenlerden silme işleminin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
-## <a name="filter-pattern-list-by-entity"></a>Varlık tarafından filtre düzeni listesi
+## <a name="filter-pattern-list-by-entity"></a>Varlık tarafından filtre deseni listesi
 
-Belirli bir varlık tarafından desenleri listesini filtrelemek için seçin **varlık filtreleri** desenleri üstündeki araç içinde. 
+Desenlerinin listesi tarafından belirli bir varlığa filtre uygulamak için seçim **varlık filtreleri** desenleri üstündeki araç çubuğundan. 
 
-![Varlık tarafından desenleri filtreleme işleminin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/filter-entities-1.png)
+![Varlık tarafından desenleri filtreleme ekran görüntüsü](./media/luis-how-to-model-intent-pattern/filter-entities-1.png)
 
-Filtre uygulandıktan sonra varlık adı araç çubuğunun altında görüntülenir. 
+Filtre uygulandıktan sonra varlık adı araç çubuğunun altında görünür. 
 
-## <a name="filter-pattern-list-by-intent"></a>Amacına göre filtre düzeni listesi
+## <a name="filter-pattern-list-by-intent"></a>Filtre deseni listeyi hedefi
 
-Belirli bir hedefi tarafından desenleri listesini filtrelemek için seçin **hedefi filtreler** desenleri üstündeki araç çubuğunda. 
+Belirli bir hedefi tarafından desenleri listesini filtrelemek için seçin **amaç filtreleri** desenleri üstündeki araç çubuğundan. 
 
-![Desenler amacına göre filtreleme işleminin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/filter-intents-1.png)
+![Hedefi tarafından desenleri filtreleme ekran görüntüsü](./media/luis-how-to-model-intent-pattern/filter-intents-1.png)
 
-Filtre uygulandıktan sonra hedefi ad araç çubuğunun altında görüntülenir. 
+Filtre uygulandıktan sonra hedefi adı araç çubuğunun altında görünür. 
 
-## <a name="remove-entity-or-intent-filter"></a>Varlık veya hedefi filtre Kaldır
-Desen listesinden filtre uygulandığında varlık veya hedefi adı araç çubuğu altında görüntülenir. Filtreyi kaldırmak için bir ad seçin.
+## <a name="remove-entity-or-intent-filter"></a>Varlık veya hedefi Filtreyi Kaldır
+Desen listesinin filtre uygulandığında varlık veya hedefi adı araç çubuğu altında görünür. Filtreyi kaldırmak için bir ad seçin.
 
-![Varlık tarafından filtre uygulanmış desenleri ekran görüntüsü](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![Varlık tarafından filtrelenen desenlerinin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
 Filtre kaldırılır ve tüm desenleri görüntüler. 
 
-## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>Varolan utterance hedefi veya varlık sayfasında düzeni ekleme
-Her iki var olan bir utterance bir desen oluşturabilirsiniz **hedefi** veya **varlık** sayfası. Herhangi bir amaç veya varlık sayfadaki tüm utterances utterance düzeyi seçenekleri erişimi gibi sağlama sağ sütun bir listede görüntülenen **Düzenle**, **silmek**, ve **düzeniolarakEkle**.
+## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>Desen hedefi veya varlık sayfasında mevcut utterance ekleyin
+Her iki mevcut bir utterance desen oluşturabilirsiniz **hedefi** veya **varlık** sayfası. Herhangi bir amaç veya varlık sayfadaki tüm konuşma utterance düzeyi seçenekleri erişimi gibi sağlama sağ sütunla bir listesinde görüntülenen **Düzenle**, **Sil**, ve **deseniolarakEkle**.
 
-1. Utterance seçili satırını, utterance sağındaki üç nokta (...)'i seçip seçin **düzeni olarak Ekle**.
+1. Utterance seçili satırını, utterance sağındaki üç nokta (...)'i seçip seçin **deseni olarak Ekle**.
 
-    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Seçenekler menüsünden vurgulanmış Ekle düzendeki utterances tablosunun ekran görüntüsü")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Konuşma Tablo Ekle düzendeki Seçenekler menüsünde vurgulanmış ekran görüntüsü")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
-2. Desen göre değiştirmek [sözdizimi kurallarına](luis-concept-patterns.md#pattern-syntax). Seçtiğiniz utterance varlıklarıyla sahipse, bu zaten doğru sözdizimine sahip düzeninde varlıklardır.
+2. Şunlara göre desenini değiştirir [sözdizimi kurallarına](luis-concept-patterns.md#pattern-syntax). Seçtiğiniz utterance varlıklarla sahipse, bu zaten doğru sözdizimi desende varlıklardır.
 
-    ![Varlık tarafından filtre uygulanmış desenleri ekran görüntüsü](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
+    ![Varlık tarafından filtrelenen desenlerinin ekran görüntüsü](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
 
-## <a name="train-your-app-after-changing-model-with-patterns"></a>Model desenlerle değiştirdikten sonra uygulamanızın eğitme
-Ekleme, düzenleme, kaldırmak veya bir desen yeniden atama sonra [eğitmek](luis-how-to-train.md) ve [yayımlama](PublishApp.md) uygulamanız için uç nokta sorguları etkilemek yaptığınız değişiklikleri. 
+## <a name="train-your-app-after-changing-model-with-patterns"></a>Model desenleri ile değiştirdikten sonra uygulamanızı eğitin
+Sonra ekleme, düzenleme, kaldırmak veya bir desen yeniden atama [eğitme](luis-how-to-train.md) ve [yayımlama](luis-how-to-publish-app.md) uygulamanız için uç nokta sorguları etkilemek yaptığınız değişiklikleri. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bilgi nasıl [bir desen yapı](luis-tutorial-pattern.md) bir pattern.any ve roller ile.
-* Bilgi edinmek için nasıl [eğitmek](luis-how-to-train.md) uygulamanızı.
+* Bilgi nasıl [desen yapı](luis-tutorial-pattern.md) bir pattern.any ve roller ile.
+* Bilgi nasıl [eğitme](luis-how-to-train.md) uygulamanızı.

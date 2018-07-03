@@ -1,6 +1,6 @@
 ---
-title: Azure vm'lerinde SAP ile çalışmaya başlama | Microsoft Docs
-description: Microsoft Azure sanal makineleri (VM'ler) üzerinde çalışan SAP çözümleri hakkında bilgi edinin
+title: Azure vm'lerde SAP kullanmaya başlama | Microsoft Docs
+description: Microsoft Azure sanal makineler'de (VM) üzerinde çalışan SAP çözümleri hakkında bilgi edinin
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b3024b451ddf08b6b7ab171238ae45edbafc58a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f7d1a6d78b3d50fd48b7378e0b0ed179e69ac79e
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110971"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346085"
 ---
-# <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Barındırma ve SAP iş yükü senaryoları çalıştıran için Azure'ı kullanma
+# <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Barındırma ve SAP iş yükü senaryoları çalıştırmak için Azure'ı kullanma
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -295,193 +295,193 @@ ms.locfileid: "37110971"
 [xplat-cli]:../../../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
-Microsoft Azure, SAP hazır bulut iş ortağı olarak seçerek, güvenilir bir şekilde senaryoları ve görev kritik SAP iş yükleri ölçeklenebilir, uyumlu ve işletme kanıtlanmış platformda çalıştırabilir.  Azure’un sunduğu ölçeklenebilirlik, esneklik ve maliyet tasarrufu olanaklarından yararlanın. Microsoft ve SAP arasındaki genişletilmiş ortaklığı ile Azure - geliştirme ve test ve üretim senaryolarında arasında SAP uygulamaları çalıştırabilir ve tam olarak desteklenmektedir. SAP S4/HANA, SAP BI, Windows'da Linux, SAP HANA SQL SAP NetWeaver biz, kapsamdaki vardır.
+Microsoft Azure, SAP kullanılmaya hazır bir bulut iş ortağı olarak seçerek, senaryoları ve görev açısından kritik SAP iş yüklerini ölçeklenebilir, uyumlu ve kurumsal düzeyde kendini kanıtlamış platformunda güvenilir bir şekilde çalıştırmak kullanabilirsiniz.  Azure’un sunduğu ölçeklenebilirlik, esneklik ve maliyet tasarrufu olanaklarından yararlanın. Microsoft ve SAP arasındaki Genişletilmiş iş ortaklığı ile SAP uygulama yelpazesini - azure'da geliştirme/test ve üretim senaryolarında çalıştırabilir ve tam olarak desteklenir. SAP Netweaver'dan SAP S4/HANA, SAP BI, Linux için Windows, SAP HANA'dan SQL'e, karşılıyoruz.
 
-Azure üzerinde farklı DBMS SAP NetWeaver senaryolarıyla barındırma yanı sıra, farklı barındırabilir Azure SAP BI gibi diğer SAP iş yükü senaryoları. SAP NetWeaver dağıtımları Azure yerel sanal makinelerde ilgili belgeleri "SAP NetWeaver Azure sanal makinelerde." bölümünde bulunabilir
+SAP NetWeaver farklı DBMS Azure senaryolarla barındırma yanı sıra, farklı barındırabilirsiniz Azure üzerinde SAP BI gibi diğer SAP iş yükü senaryoları. Azure yerel sanal makinelerinde SAP NetWeaver dağıtımları ile ilgili belgeler, "Azure sanal makinelerinde SAP NetWeaver." bölümünde bulunabilir
 
-Azure SAP HANA yararlanır SAP iş yükü karşılamak için CPU ve bellek kaynakları boyutunda sürekli büyüyen yerel Azure sanal makine teklifleri sahiptir. Bu alan hakkında daha fazla bilgi için SAP HANA Azure sanal makineler üzerinde bölümünde belgeleri arayın."
+Azure'da SAP HANA yararlanır SAP iş yükü karşılamak için CPU ve bellek kaynaklarının boyutu hiç olmadığı kadar büyüyor yerel Azure sanal makine teklifler bulunur. Bu alanda daha fazla bilgi için Azure sanal Makineler'de SAP HANA bölümünde belgeleri arayın."
 
-SAP HANA Azure benzersizliğini Azure dışında rekabet ayarlar benzersiz bir teklifidir. Daha fazla bellek ve CPU kaynak SAP HANA, Azure teklifleri içeren SAP senaryoları yoğun barındırma müşteri kullanımını etkinleştirmek için 20 TB'ye kadar (60 TB genişleme) bellek gerektiren SAP HANA dağıtımlarını yürüten amacıyla tam donanım ayrılmış S/4HANA veya diğer SAP HANA iş yükü. SAP HANA Azure (büyük örnekler) ile ilgili bu benzersiz Azure çözüm SAP uygulama katmanı veya yerel Azure sanal makinelerinde barındırılan iş yükü donanımlar Orta katmanı ile ayrılmış tam donanım SAP HANA çalıştırmanıza olanak sağlar. Bu çözüm, çeşitli belgelerde "SAP HANA azure'da (büyük örnekler)." bölümünde belgelenen   
+Benzersiz SAP HANA için Azure, Azure dışında yarışma ayarlar benzersiz bir tekliftir. Daha fazla bellek ve CPU kaynağı zorlu SAP HANA, Azure teklifleri içeren SAP senaryoları barındırma müşteri kullanımını etkinleştirmek için 20 TB'a kadar (60 TB ölçek genişletme) için bellek gerektiren SAP HANA dağıtımlarını yürüten amacıyla çıplak bilgisayar donanım ayrılmış. S/4HANA veya diğer SAP HANA iş yükü. Bu benzersiz Azure çözüm SAP hana (büyük örnekler) Azure üzerinde SAP HANA SAP uygulama katmanında veya yerel Azure sanal Makineler'de barındırılan iş yükü donanımlar orta katman ile özel bir çıplak bilgisayar donanım çalıştırmanıza olanak tanır. Bu çözüm, çeşitli belgelerde "SAP HANA (büyük örnekler) azure'da." bölümünde belgelenmiştir   
 
-SAP iş yükü Azure senaryolarda barındırma kimlik tümleştirme ve çoklu oturum açma farklı SAP bileşenleri Azure etkinlik dizinine ve SAP SaaS kullanma gereksinimleri de oluşturabilir veya PaaS sunar. Bu tümleştirme ve çoklu oturum açma senaryoları Azure Active Directory (AAD) ve SAP varlıklarla listesini açıklanmıştır ve bölümünde belgelenen "AAD SAP kimlik tümleştirme ve çoklu oturum açma."
+Azure'da SAP iş yükü senaryoları barındırma kimlik tümleştirmesi ve çoklu oturum açma Azure Activity Directory farklı SAP bileşenleri ile SAP SaaS gereksinimlerini de oluşturabilir veya PaaS sunar. Söz konusu tümleştirmesi ve çoklu oturum açma senaryoları ile Azure Active Directory (AAD) ve SAP varlık listesini açıklanmış ve bölümünde belgelenen "AAD SAP kimlik tümleştirmesi ve çoklu oturum açma."
 
 
-## <a name="sap-hana-on-sap-hana-on-azure-large-instances"></a>SAP HANA üzerinde SAP HANA azure'da (büyük örnekleri)
+## <a name="sap-hana-on-sap-hana-on-azure-large-instances"></a>SAP HANA (büyük örnekler) Azure üzerinde SAP HANA
 
-### <a name="overview-and-architecture-of-sap-hana-on-azure-large-instances"></a>Genel bakış ve SAP HANA azure'da (büyük örnekler) mimarisi
-Başlık: Genel bakış ve SAP HANA azure'da (büyük örnekler) mimarisi
+### <a name="overview-and-architecture-of-sap-hana-on-azure-large-instances"></a>Genel bakış ve SAP hana (büyük örnekler) azure'da bir mimari
+Başlık: Genel bakış ve SAP hana (büyük örnekler) azure'da bir mimari
 
-Özet: Bu mimari ve Teknik Dağıtım Kılavuzu, Azure (büyük örnekler) Azure ile ilgili yeni SAP HANA üzerinde SAP dağıtmanıza yardımcı olacak bilgiler sağlar. Özel Kurulum SAP çözümleri, ancak ilk ve devam eden işlemler yerine yararlı bilgiler kapsayan kapsamlı bir kılavuz olması amaçlanmamıştır. SAP HANA (veya alanını kaplamak birçok SAP destek Not) yüklenmesiyle ilgili SAP belgelerine yerine. Genel bir bakış sağlar ve SAP HANA (büyük örnekler) Azure üzerinde Yükleme ek ayrıntılar sağlar.
+Özet: Bu mimari ve Teknik Dağıtım Kılavuzu, yeni SAP HANA (büyük örnekler) azure'da Azure üzerinde SAP dağıtmanıza yardımcı olacak bilgiler sağlar. SAP çözümlerini, ancak bunun yerine yararlı bilgiler ilk dağıtımı ve devam eden işlemler için özel kurulum kapsayan kapsamlı bir kılavuz olarak tasarlanmamıştır. SAP HANA (veya alan kapsayan çok sayıda SAP destek Not) yüklemeyle ilgili SAP belgelerindeki yerine. Bu genel bir bakış sağlar ve SAP HANA (büyük örnekler) Azure üzerinde yüklenmesi ek ayrıntılar sağlar.
 
-Güncelleştirilmiş: Ekim 2017
+Güncelleştirme: Ekim 2017
 
-[Bu kılavuz burada bulunabilir.](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Bu kılavuza buradan ulaşabilirsiniz](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="infrastructure-and-connectivity-to-sap-hana-on-azure-large-instances"></a>Altyapı ve SAP HANA azure'da (büyük örnekler) bağlantısı
-Başlık: Altyapısı ve Azure (büyük örnekler) üzerinde SAP HANA bağlanma
+### <a name="infrastructure-and-connectivity-to-sap-hana-on-azure-large-instances"></a>Altyapı ve SAP HANA (büyük örnekler) azure'da bağlantısı
+Başlık: Altyapı ve SAP HANA (büyük örnekler) azure'da bağlantısı
 
-Özet: azure'da (büyük örnekler) SAP HANA satın, arasında Microsoft Kurumsal hesap ekibi sonlandırılır sonra uygun bağlantı sağlamak için çeşitli ağ yapılandırmaları gereklidir.  Bu belge aşağıdaki ile paylaşılacak olan bilgileri özetler bilgisi gereklidir. Bu belge, hangi bilgilerin toplanmasını ve hangi yapılandırma komut çalıştırılacak sahip olduğunuz özetlenmektedir.
+Özet: SAP HANA (büyük örnekler) azure'da satın siz ve Microsoft Kurumsal hesap ekibinin arasında sonlandırıldıktan sonra uygun bağlantı sağlamak için çeşitli ağ yapılandırmaları gereklidir.  Bu belgede aşağıdakiler ile paylaşılacak olan bilgileri özetler bilgisi gereklidir. Bu belge, hangi bilgilerin toplanması gereken ve yapılandırma betiklerini çalıştırılacak olan açıklanmaktadır.
 
-Güncelleştirilmiş: Ekim 2017
+Güncelleştirme: Ekim 2017
 
-[Bu kılavuz burada bulunabilir.](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Bu kılavuza buradan ulaşabilirsiniz](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="install-sap-hana-in-sap-hana-on-azure-large-instances"></a>SAP HANA SAP HANA azure'da (büyük örnekler) yükleyin
-Başlık: Azure (büyük örnekler) üzerinde SAP HANA SAP HANA yükleyin
+### <a name="install-sap-hana-in-sap-hana-on-azure-large-instances"></a>SAP HANA (büyük örnekler) azure'da SAP hana yükleyin
+Başlık: SAP HANA (büyük örnekler) Azure üzerinde SAP HANA yükleyin
 
-Özet: Bu belgede Azure büyük Örneğinizde SAP HANA yüklemek için kurulum yordamları özetlemektedir.
+Özet: Bu belgede, Azure büyük örnek SAP HANA yüklemek için kurulum yordamları özetlemektedir.
 
-Güncelleştirilmiş: Temmuz 2017
+Güncelleştirme: Temmuz 2017
 
-[Bu kılavuz burada bulunabilir.](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Bu kılavuza buradan ulaşabilirsiniz](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>SAP HANA (büyük örnekler) azure'da yüksek kullanılabilirlik ve olağanüstü durum kurtarma
-Başlık: Yüksek kullanılabilirlik ve olağanüstü durum kurtarma SAP HANA azure'da (büyük örnekleri)
+### <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>SAP hana (büyük örnekler) azure'da yüksek kullanılabilirlik ve olağanüstü durum kurtarma
+Başlık: Yüksek kullanılabilirlik ve olağanüstü durum kurtarma (büyük örnekler) Azure üzerinde SAP hana
 
-Özet: Yüksek kullanılabilirlik (HA) ve olağanüstü durum kurtarma (DR) kritik SAP HANA Azure (büyük örnekler) sunucuları üzerinde çalışan önemli yönlerinden markalarıdır. SAP, sistem Tümleştirici ve/veya Microsoft düzgün mimari ve sizin için HA/DR stratejisi sağ uygulamak için çalışmak üzere alma kullanıcının. Kurtarma noktası hedefi (RPO) ve kurtarma süresi hedefi (RTO), ortamınız için belirli gibi önemli noktalar dikkate alınmalıdır.  Bu belge, tercih edilen düzeyde HA ve DR etkinleştirme seçeneklerinizi açıklar.
+Özet: Yüksek kullanılabilirlik (HA) ve olağanüstü durum kurtarma (DR), görev açısından kritik SAP HANA (büyük örnekler) Azure sunucuları üzerinde çalışan önemli yönlerini olan. SAP, sistem entegratörü ve/veya Microsoft düzgün Mimar ve sağ HA/DR stratejisi uygulayabilir çalışmak önemlidir. Kurtarma noktası hedefi (RPO) ve kurtarma süresi hedefi (RTO), sizin ortamınıza özgü gibi önemli noktalar dikkate alınmalıdır.  Bu belge, HA ve DR dilediğiniz düzeye etkinleştirme seçeneklerinizi açıklar.
 
-Güncelleştirilmiş: Ekim 2017
+Güncelleştirme: Ekim 2017
 
-[Bu belge burada bulunabilir](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Bu belge buradan ulaşabilirsiniz](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="troubleshooting-and-monitoring-of-sap-hana-on-azure-large-instances"></a>SAP HANA Azure (büyük örnekler) ile ilgili izleme ve sorun giderme
-Başlık: Sorun giderme ve SAP HANA (büyük örnekler) azure'da izleme
+### <a name="troubleshooting-and-monitoring-of-sap-hana-on-azure-large-instances"></a>Sorun giderme ve SAP hana (büyük örnekler) azure'da izleme
+Başlık: Sorun giderme ve SAP hana (büyük örnekler) azure'da izleme
 
-Özet: Bu kılavuz, Azure ortamına, SAP HANA izlenmesini oluşturulmasında yararlı yanı sıra ek sorun giderme bilgileri bilgileri kapsar.
+Özet: Bu kılavuz, Azure ortamında SAP HANA izleme oluşturulmasında yararlı yanı sıra ek bilgiler sorun giderme bilgilerini kapsar.
 
-Güncelleştirilmiş: Ekim 2017
+Güncelleştirme: Ekim 2017
 
-[Bu belge burada bulunabilir](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Bu belge buradan ulaşabilirsiniz](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="sap-hana-on-azure-virtual-machines"></a>Azure Sanal Makinelerde SAP HANA
 
-### <a name="getting-started-with-sap-hana-on-azure"></a>SAP HANA Azure üzerinde ile çalışmaya başlama
-Başlık: Azure vm'lerinde SAP HANA el ile yüklenmesi Hızlı Başlangıç Kılavuzu
+### <a name="getting-started-with-sap-hana-on-azure"></a>Azure'da SAP HANA ile çalışmaya başlama
+Başlık: Azure vm'lerde SAP hana el ile yükleme Hızlı Başlangıç Kılavuzu
 
-Özet: Bu Hızlı Başlangıç Kılavuzu, bir tek örnekli SAP HANA sistemi SAP NetWeaver 7.5 ve SAP HANA SP12 Azure vm'lerinde el ile yükleme tarafından ayarlamak için yardımcı olur. Kılavuzu okuyucu sanal makine ya da Azure portal veya Powershell/CLI json şablonları kullanma seçeneğiniz de dahil olmak üzere aracılığıyla sanal ağlar dağıtma gibi Azure Iaas temel kavramları hakkında bilgi sahibi olduğunu varsayar. Ayrıca okuyucu SAP HANA, SAP NetWeaver ve şirket içi yükleme konusunda bilgi sahibi olduğunu beklenir.
+Özet: Bu Hızlı Başlangıç Kılavuzu, bir tek örnek SAP HANA sistemi SAP NetWeaver 7.5 ve SAP HANA SP12 Azure vm'lerde el ile yükleme tarafından ayarlamak için yardımcı olur. Kılavuzu okuyucu Azure Iaas temel bilgileri gibi sanal makine veya sanal ağlar Azure portal veya Powershell/CLI gibi json şablonları kullanma seçeneği aracılığıyla dağıtma hakkında bilgi sahibi olduğunu varsayar. Ayrıca okuyucu SAP HANA, SAP NetWeaver ve şirket içi yükleme ile ilgili bilgi sahibi olduğunu beklenmektedir.
 
-Güncelleştirilmiş: Haziran 2017
+Güncelleştirme: Haziran 2017
 
-[Bu kılavuz burada bulunabilir.](hana-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Bu kılavuza buradan ulaşabilirsiniz](hana-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="s4hana-sap-cal-deployment-on-azure"></a>Azure üzerinde S/4HANA SAP CAL dağıtımı
-Başlık: SAP S/4HANA veya BW/4HANA azure'da dağıtmak
+### <a name="s4hana-sap-cal-deployment-on-azure"></a>S/4hana'yı Azure üzerindeki SAP CAL dağıtım
+Başlık: SAP S/4HANA veya BW/4hana'yı azure'da dağıtın
 
-Özet: SAP S/4HANA SAP bulut Gereci kitaplığını kullanarak azure'da dağıtımı göstermek için bu kılavuzu yardımcı olur. SAP bulut Gereci kitaplığı, Azure üzerinde SAP uygulamaları dağıtmanıza olanak tanıyan SAP tarafından bir hizmettir. Kılavuzda dağıtımı adım adım açıklanmaktadır.
+Özet: Bu kılavuz, SAP S/4HANA, SAP Cloud Appliance Library kullanarak azure'da dağıtımını göstermek için yardımcı olur. SAP Cloud Appliance Library, Azure üzerinde SAP uygulamaları dağıtmanıza olanak tanıyan SAP tarafından bir hizmettir. Kılavuzda, dağıtım adım adım açıklanmaktadır.
 
-Güncelleştirilmiş: Haziran 2017
+Güncelleştirme: Haziran 2017
 
-[Bu kılavuz burada bulunabilir.](cal-s4h.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Bu kılavuza buradan ulaşabilirsiniz](cal-s4h.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="high-availability-of-sap-hana-in-azure-virtual-machines"></a>SAP HANA Azure sanal makinelerde yüksek kullanılabilirliği
-Başlık: Azure sanal makinelerde SAP HANA yüksek kullanılabilirliği
+### <a name="high-availability-of-sap-hana-in-azure-virtual-machines"></a>Azure sanal makineler'de SAP hana yüksek kullanılabilirlik
+Başlık: Azure sanal makineler'de SAP hana yüksek kullanılabilirlik
 
-Özet: Bu kılavuz size SUSE 12 işletim sistemi ve SAP HANA HANA sistem çoğaltma otomatik yük devretme ile uyum sağlamak için yüksek kullanılabilirlik yapılandırması yol gösterir. Kılavuzu SUSE ve Azure sanal makineleri için geçerlidir. Kılavuzu henüz Red Hat veya tam veya özel Bulut veya diğer Azure dışı ortak bulut dağıtımlarını geçerli değildir.
+Özet: Bu kılavuzda, HANA sistem çoğaltma otomatik yük devretme ile uyum sağlamak için SUSE 12 işletim sistemi ve SAP HANA yüksek kullanılabilirlik yapılandırması üzerinden yol gösterir. Kılavuzu, SUSE ve Azure sanal makineler için özeldir. Kılavuzu henüz Red Hat veya çıplak veya özel Bulut veya diğer Azure dışı genel bulut dağıtımları geçerli değildir.
 
-Güncelleştirilmiş: Haziran 2017
+Güncelleştirme: Haziran 2017
 
-[Bu kılavuz burada bulunabilir.](sap-hana-high-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Bu kılavuza buradan ulaşabilirsiniz](sap-hana-high-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="sap-hana-backup-overview-on-azure-vms"></a>SAP HANA Azure vm'lerinde yedeklemeye genel bakış
-Başlık: Yedekleme SAP HANA için Azure sanal makineler üzerinde Kılavuzu
+### <a name="sap-hana-backup-overview-on-azure-vms"></a>Azure vm'lerde SAP HANA yedeklemesine genel bakış
+Başlık: Azure sanal Makineler'de SAP HANA yedekleme Kılavuzu
 
-Özet: Bu kılavuzda SAP HANA Azure sanal makinelerde çalışan yedekleme olasılıkları hakkında temel bilgiler sağlar.
+Özet: Bu kılavuzda, Azure sanal Makineler'de SAP HANA çalıştırmayı yedekleme olanaklar hakkında temel bilgiler sağlanır.
 
-Güncelleştirilmiş: Mart 2017
+Güncelleştirme: Mart 2017
 
-[Bu kılavuz burada bulunabilir.](sap-hana-backup-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Bu kılavuza buradan ulaşabilirsiniz](sap-hana-backup-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="sap-hana-file-level-backup-on-azure-vms"></a>Azure vm'lerinde SAP HANA dosya düzeyinde yedekleme
-Başlık: depolama anlık görüntü tabanlı SAP HANA yedekleme
+### <a name="sap-hana-file-level-backup-on-azure-vms"></a>Azure vm'lerde SAP HANA dosya düzeyi yedekleme
+Başlık: depolama anlık görüntülerine dayalı SAP HANA yedeklemesi
 
-Özet: Bu kılavuzda SAP HANA Azure sanal makinelerde çalışan Azure Vm'lerde anlık görüntü tabanlı yedeklemeleri kullanma hakkında bilgi sağlar.
+Özet: Bu kılavuzda, Azure sanal Makineler'de SAP HANA çalıştırırken anlık görüntü tabanlı yedeklemelerin Azure Vm'lerinde kullanma hakkında bilgi sağlanır.
 
-Güncelleştirilmiş: Mart 2017
+Güncelleştirme: Mart 2017
 
-[Bu kılavuz burada bulunabilir.](sap-hana-backup-file-level.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-### <a name="sap-hana-snapshot-based-backups-on-azure-vms"></a>SAP HANA tabanlı anlık görüntüsü yedekleri Azure vm'lerinde
-Başlık: Dosya düzeyinde bir SAP HANA Azure yedekleme
-
-Özet: Bu kılavuzda SAP HANA dosya düzeyinde yedekleme SAP HANA Azure sanal makinelerde çalışan kullanma hakkında bilgi sağlar.
-
-Güncelleştirilmiş: Mart 2017
-
-[Bu kılavuz burada bulunabilir.](sap-hana-backup-storage-snapshots.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Bu kılavuza buradan ulaşabilirsiniz](sap-hana-backup-file-level.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
-## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>Azure sanal makinelerinde dağıtılan SAP NetWeaver
+### <a name="sap-hana-snapshot-based-backups-on-azure-vms"></a>Azure vm'lerde SAP HANA tabanlı anlık görüntü yedeklemeleri
+Başlık: SAP HANA dosya düzeyi Azure yedekleme
 
-### <a name="deploy-sap-ides-system-on-windows-and-sql-server-through-sap-cal-on-azure"></a>Windows ve SQL Server aracılığıyla Azure üzerinde SAP CAL SAP IDE sistemi dağıtma
-Başlık: Microsoft Azure SUSE Linux VM'ler üzerinde SAP NetWeaver test etme
+Özet: Bu kılavuzda Azure sanal Makineler'de SAP HANA çalıştırmayı SAP HANA dosya düzeyi yedekleme kullanma hakkında bilgi sağlar.
 
-Özet: Bu belgede Windows ve SAP bulut Gereci kitaplığını kullanarak Azure SQL Server'da göre bir SAP IDE sisteminin dağıtımı açıklanmaktadır. SAP bulut uygulaması kitaplığı Azure üzerinde SAP ürünleri dağıtımını izin veren bir SAP hizmetidir. Bu belge, adım adım bir SAP IDE sistemi dağıtımıyla gider. Microsoft Azure üzerinde SAP bulut uygulaması üzerinden dağıtılabilir birkaç diğer düzine uygulamalar için yalnızca bir örnek IDE sistemidir.
+Güncelleştirme: Mart 2017
 
-Güncelleştirilmiş: Haziran 2017
-
-[Bu kılavuz burada bulunabilir.](cal-ides-erp6-erp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Bu kılavuza buradan ulaşabilirsiniz](sap-hana-backup-storage-snapshots.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
-### <a name="quickstart-guide-for-netweaver-on-suse-linux-on-azure"></a>SUSE Linux Azure üzerinde NetWeaver için Hızlı Başlangıç Kılavuzu
-Başlık: Microsoft Azure SUSE Linux VM'ler üzerinde SAP NetWeaver test etme
+## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>Dağıtılan Azure sanal Makineler'de SAP NetWeaver
 
-Özet: Bu makalede çeşitli Microsoft Azure SUSE Linux sanal makineleri (VM'ler) SAP NetWeaver çalıştırırken göz önünde bulundurmanız gerekenler açıklanmaktadır. SAP NetWeaver resmi olarak SUSE Linux sanal makineleri Azure üzerinde desteklenir. Linux sürümleri, SAP çekirdek sürümler ve diğer ayrıntıları ilgili tüm ayrıntıları SAP Not 1928533 bulunabilir "Azure SAP uygulamaları: desteklenen ürünleriyle ve Azure VM türler".
+### <a name="deploy-sap-ides-system-on-windows-and-sql-server-through-sap-cal-on-azure"></a>Windows ve SQL Server ile Azure üzerinde SAP CAL üzerinde SAP IDES sistemi dağıtma
+Başlık: Microsoft Azure SUSE Linux vm'lerde SAP NetWeaver test etme
 
-Güncelleştirilmiş: Eylül 2016
+Özet: Bu belgede, Windows ve SQL Server SAP Cloud Appliance Library kullanarak azure'da temel bir SAP IDES sisteminin dağıtımı açıklanmaktadır. SAP bulut Gereci kitaplığı Azure üzerinde SAP ürünleri dağıtımını izin veren bir SAP hizmetidir. Bu belgede, adım adım bir SAP IDES sisteminin dağıtımı gider. Yalnızca Microsoft Azure üzerinde SAP bulut Gereci aracılığıyla dağıtılan birden fazla diğer düzine uygulamalar için örnek IDE'ler sistemidir.
 
-[Bu kılavuz burada bulunabilir.](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Güncelleştirme: Haziran 2017
+
+[Bu kılavuza buradan ulaşabilirsiniz](cal-ides-erp6-erp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+
+### <a name="quickstart-guide-for-netweaver-on-suse-linux-on-azure"></a>Azure'da SUSE Linux'ta NetWeaver için Hızlı Başlangıç Kılavuzu
+Başlık: Microsoft Azure SUSE Linux vm'lerde SAP NetWeaver test etme
+
+Özet: Bu makalede, Microsoft Azure SUSE Linux sanal makinelerinde (VM'ler) SAP NetWeaver çalıştırırken dikkate alınması gereken çeşitli şeyler açıklanmaktadır. Resmi Azure SUSE Linux Vm'lerde SAP NetWeaver desteklenir. Linux sürümleri, SAP çekirdek sürümlerini ve diğer ayrıntıları ile ilgili tüm ayrıntıları SAP notu 1928533 bulunabilir "azure'da SAP uygulamaları: desteklenen ürünler ve Azure VM türleri".
+
+Güncelleştirme: Eylül 2016
+
+[Bu kılavuza buradan ulaşabilirsiniz](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planlama ve uygulama
-Başlık: Azure sanal makineleri planlama ve uygulama SAP NetWeaver için
+Başlık: Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
 
-Özet: SAP NetWeaver Azure sanal makinelerde çalışan hakkında düşünürsek bu belgeyi Kılavuzu başlamak ise. Bu planlama ve Uygulama Kılavuzu, bir var olan veya planlanan SAP NetWeaver tabanlı sistem bir Azure sanal makineleri ortama dağıtılabilir olup olmadığını değerlendirmek yardımcı olur. İncelemede birden fazla SAP NetWeaver dağıtım senaryosuna ek olarak Azure’a özgü SAP yapılandırmalarına yer verilmiştir. Kağıt listeler ve gerek duyduğunuz tüm gerekli yapılandırma bilgilerini karma SAP yatay çalıştırmak için SAP/Azure tarafında açıklar. IaaS üzerindeki SAP NetWeaver tabanlı sistemlerde yüksek kullanılabilirliği sağlamanız için gerekli önlemler de incelenmiştir.
+Özet: Azure sanal Makineler'de SAP NetWeaver çalıştırma hakkında düşünmek, bu belge ile başlaması kılavuzudur. Bu planlama ve Uygulama Kılavuzu bir mevcut veya planlanan SAP NetWeaver tabanlı sisteminizin bir Azure sanal makineleri ortamına dağıtılıp dağıtılamayacağını değerlendirmenize yardımcı olur. İncelemede birden fazla SAP NetWeaver dağıtım senaryosuna ek olarak Azure’a özgü SAP yapılandırmalarına yer verilmiştir. Kağıt listeler ve size gereken tüm gerekli yapılandırma bilgileri karma SAP ortamı çalıştırmak için SAP/Azure tarafında açıklar. IaaS üzerindeki SAP NetWeaver tabanlı sistemlerde yüksek kullanılabilirliği sağlamanız için gerekli önlemler de incelenmiştir.
 
-Güncelleştirilmiş: Haziran 2017
+Güncelleştirme: Haziran 2017
 
-[Bu kılavuz burada bulunabilir.][planning-guide]
+[Bu kılavuza buradan ulaşabilirsiniz][planning-guide]
 
-### <a name="high-availability-configurations-of-sap-netweaver-in-azure-vms"></a>SAP NetWeaver Azure VM'de yüksek kullanılabilirlik yapılandırmaları
-Başlık: Azure sanal makinelerini yüksek kullanılabilirlik için SAP NetWeaver
+### <a name="high-availability-configurations-of-sap-netweaver-in-azure-vms"></a>Azure vm'lerde SAP NetWeaver'ın yüksek kullanılabilirlik yapılandırmaları
+Başlık: Azure sanal makinelerinde SAP NetWeaver için yüksek kullanılabilirlik
 
-Özet: Bu belgede, Azure Resource Manager dağıtım modelini kullanarak azure'da yüksek kullanılabilirlik SAP sistemlerini dağıtmak için uygulayabileceğiniz adımlar biz kapsar. Biz bu ana görevlerinde ilerlemenizde. Belgede, biz nasıl tek---bir hata noktası bileşenleri gibi gelişmiş iş uygulama programlama (ABAP) SAP merkezi Hizmetleri (ASCS) tanımlayan / SAP merkezi Hizmetleri (SCS) ve veritabanı yönetim sistemi (DBMS) ve yedek bileşenlerin SAP gibi Uygulama sunucusu Azure Vm'lerde çalıştırılırken korumalı geçmeye. Bir yükleme ve bir Windows Server Yük Devretme Kümelemesi küme ve SUSE Linux Enterprise Server küme çerçevesi azure'da yüksek kullanılabilirlik SAP sisteminin yapılandırma hakkında adım adım bir örneği gösterilmiştir ve bu belgede gösterilen.
+Özet: Bu belgede, Azure Resource Manager dağıtım modelini kullanarak yüksek kullanılabilirlik SAP sistemlerini azure'a dağıtmak için attığınız adımlar biz karşılarız. Önemli görevleri inceleyeceğiz. Belgede, biz nasıl tek---bir hata noktası bileşenleri gibi gelişmiş iş uygulaması programlama (ABAP) SAP Central Hizmetleri (ASCS) açıklayan / SAP gibi SAP Central Hizmetleri (SCS) ve veritabanı yönetim sistemi (DBMS) ve yedekli bileşenler Uygulama sunucusu, Azure Vm'lerinde çalışan korunacak seçeceğiz. Yükleme ve yüksek kullanılabilirlik SAP sistemine bir Windows Server Yük Devretme Kümelemesi küme ve azure'daki SUSE Linux Enterprise Server küme çerçevesi yapılandırmasını adım adım bir örnek gösterilmiştir ve bu belgede gösterilen.
 
-Güncelleştirilmiş: Ekim 2017
+Güncelleştirme: Ekim 2017
 
-[Bu kılavuz burada bulunabilir.][ha-guide-get-started]
+[Bu kılavuza buradan ulaşabilirsiniz][ha-guide-get-started]
 
-### <a name="realizing-multi-sid-deployments-of-sap-netweaver-in-azure-vms"></a>SAP NetWeaver Azure VM'de çoklu SID dağıtımları kullanıldıklarını
+### <a name="realizing-multi-sid-deployments-of-sap-netweaver-in-azure-vms"></a>Azure vm'lerde SAP NetWeaver gerçekleştirilmiş çoklu SID dağıtımları
 Başlık: bir SAP NetWeaver çoklu SID yapılandırması oluştur
 
-Özet: Bu belgede Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik belgeye bir ektir. Eylül 2016'da sunulan azure'da yeni işlevselliği nedeniyle Azure VM'ler çifti birden fazla SAP NetWeaver ASCS/SCS örneğinin dağıtmak mümkündür. Bu tür bir yapılandırma ile yüksek oranda kullanılabilir SAP NetWeaver yapılandırmaları hayata geçirmek için dağıtmak için gereken VM'lerin sayısını azaltabilir. Kılavuzu gibi çoklu SID yapılandırmaları Kurulum açıklar.
+Özet: Bu belgede Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik belgeye bir ektir. Eylül 2016'da tanıtılan azure'da yeni işlevsellik nedeniyle, birden çok SAP NetWeaver ASCS/SCS örneği bir çift Azure Vm'leri dağıtmak mümkündür. Bu tür bir yapılandırma ile yüksek oranda kullanılabilir SAP NetWeaver yapılandırmaları faydalanmanın dağıtmak için gereken VM sayısını azaltabilirsiniz. Kılavuzu gibi çoklu SID yapılandırmaları kurulumunu açıklar.
 
-Güncelleştirilmiş: Aralık 2016
+Güncelleştirme: Aralık 2016
 
-[Bu kılavuz burada bulunabilir.](high-availability-multi-sid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Bu kılavuza buradan ulaşabilirsiniz](high-availability-multi-sid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Azure VM'ler, SAP NetWeaver dağıtımı
-Başlık: SAP NetWeaver Azure sanal makineler dağıtımı
+### <a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Azure vm'lerde SAP NetWeaver'ın dağıtımı
+Başlık: Azure sanal makineler dağıtım için SAP NetWeaver
 
-Özet: Bu belgede Azure’daki sanal makinelerde SAP NetWeaver yazılımlarını dağıtmak için gerekli yordam bilgileri verilmiştir. Bu incelemede yer alan üç belirli dağıtım senaryosunda SAP için Azure İnceleme Uzantılarını etkinleştirme talimatlarına ve SAP için Azure İzleme Uzantıları sorun giderme önerilerine yer verilmiştir. Bu yazı, planlama ve Uygulama Kılavuzu okuduğunuz varsayılır.
+Özet: Bu belgede Azure’daki sanal makinelerde SAP NetWeaver yazılımlarını dağıtmak için gerekli yordam bilgileri verilmiştir. Bu incelemede yer alan üç belirli dağıtım senaryosunda SAP için Azure İnceleme Uzantılarını etkinleştirme talimatlarına ve SAP için Azure İzleme Uzantıları sorun giderme önerilerine yer verilmiştir. Bu incelemede planlama ve uygulama kılavuzunu okuduğunuz varsayılmaktadır.
 
-Güncelleştirilmiş: Haziran 2017
+Güncelleştirme: Haziran 2017
 
-[Bu kılavuz burada bulunabilir.][deployment-guide]
+[Bu kılavuza buradan ulaşabilirsiniz][deployment-guide]
 
 ### <a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>DBMS Dağıtım Kılavuzu
-Başlık: Azure sanal makineleri DBMS dağıtım SAP NetWeaver için
+Başlık: Azure sanal makineleri DBMS dağıtım için SAP NetWeaver
 
-Özet: Bu incelemede SAP ile birlikte çalışması gereken DBMS sistemleri için planlama ve uygulama bilgilerine yer verilmiştir. İlk bölümde genel konular listelenmiş ve sunulmuştur. Sonraki bölümler ise Azure’da SAP tarafından desteklenen farklı DBMS dağıtımları ele alınmıştır. Sunulan farklı DBMS SQL Server, SAP ana ve Oracle ' dir. Bu belirli bölümlerinde, SAP sistemleri Azure üzerinde bu DBMS birlikte çalışmadığı zaman hesabıyla sahip konuları ele alınmıştır. Farklı DBMS çözümlerinin Azure’da desteklediği yedekleme ve yüksek kullanılabilirlik yöntemleri gibi konular, SAP uygulamalarının kullanımıyla bağlantılı olarak incelenmiştir.
+Özet: Bu incelemede SAP ile birlikte çalışması gereken DBMS sistemleri için planlama ve uygulama bilgilerine yer verilmiştir. İlk bölümde genel konular listelenmiş ve sunulmuştur. Sonraki bölümler ise Azure’da SAP tarafından desteklenen farklı DBMS dağıtımları ele alınmıştır. SQL Server, SAP ASE ve Oracle yer verilen DBMS var. Bu belirli bölümlerinde, SAP sistemlerini Azure'a DBMS ile birlikte çalıştırılıyorsa için hesabına sahip konuları ele alınmıştır. Farklı DBMS çözümlerinin Azure’da desteklediği yedekleme ve yüksek kullanılabilirlik yöntemleri gibi konular, SAP uygulamalarının kullanımıyla bağlantılı olarak incelenmiştir.
 
-Güncelleştirilmiş: Haziran 2017
+Güncelleştirme: Haziran 2017
 
-[Bu kılavuz burada bulunabilir.][dbms-guide]
+[Bu kılavuza buradan ulaşabilirsiniz][dbms-guide]
 
 ### <a name="using-azure-site-recovery-for-sap-workload"></a>Azure Site RECOVERY'yi kullanarak SAP iş yükü için
-Başlık: SAP NetWeaver: Azure Site Recovery ile olağanüstü durum kurtarma çözümü oluşturma
+Başlık: SAP NetWeaver: Azure Site Recovery ile bir olağanüstü durum kurtarma çözümü oluşturma
 
-Özet: Bu belgede olağanüstü durum kurtarma senaryolarına işleme amacıyla Azure Site kurtarma hizmetleri nasıl kullanılabileceğini biçimini tanımlar. Azure Site kurtarma Hizmetleri kullanarak bir şirket içi SAP yatay için Azure olağanüstü durum kurtarma konumu olarak kullanıldığı durumlarda. Belgede açıklanan başka bir işlemleri Azure (A2A) olağanüstü durum kurtarma durumu ve Azure Site Recovery ile nasıl yönetilir senaryodur.  
+Özet: Bu belgede, olağanüstü durum kurtarma senaryolarını işleme amacıyla Azure Site Recovery hizmetleri nasıl kullanılabileceğini biçimini tanımlar. Azure Site Recovery Services ile bir şirket içi SAP ortamı için Azure olağanüstü durum kurtarma konumunuz olarak kullanıldığı durumlarda. Başka bir senaryo belgede açıklanan Aure Azure (A2A) olağanüstü durum kurtarma çalışması ve Azure Site Recovery ile nasıl yönetilir ' dir.  
 
-Güncelleştirilmiş: Ağustos 2017
+Güncelleştirme: Ağustos 2017
 
-[Bu kılavuz burada bulunabilir.](http://aka.ms/asr-sap)
+[Bu kılavuza buradan ulaşabilirsiniz](http://aka.ms/asr-sap)

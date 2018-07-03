@@ -1,5 +1,5 @@
 ---
-title: Azure Batch Transcription API | Azure Microsoft Docs
+title: Azure Batch tanıma API'si | Azure Microsoft Docs
 description: Örnekler
 services: cognitive-services
 author: PanosPeriorellis
@@ -9,27 +9,27 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: cf58f676be52aa16ce6de59c3566613c7ee9276d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 9dd7479ae95f74123d9b762e42ec95e8dbf25818
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084091"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346459"
 ---
-# <a name="batch-transcription"></a>Toplu transcription
+# <a name="batch-transcription"></a>Toplu iş transkripsiyonu
 
-Toplu transcription ses büyük miktarda kullanım örnekleri için idealdir. Ses dosyaları gösterin ve zaman uyumsuz modda transcriptions geri almak Geliştirici sağlar.
+Batch tanıma, ses büyük miktarda kullanım örnekleri için idealdir. Bu ses dosyalarının olduğu noktaya ve döküm zaman uyumsuz modda dönmek Geliştirici sağlar.
 
-## <a name="batch-transcription-api"></a>Toplu transcription API
+## <a name="batch-transcription-api"></a>Batch tanıma API'si
 
-Toplu transcription API yukarıdaki senaryoyu mümkün kılar. Zaman uyumsuz konuşma metin transcription yanı sıra ek özellikler sunar.
+Batch tanıma API'si, yukarıdaki senaryoyu mümkün kılar. Zaman uyumsuz konuşma metin tanıma birlikte ek özellikler sunar.
 
 > [!NOTE]
-> Toplu transcription API genellikle ses saatlik binlerce birikmesini çağrı merkezleri için idealdir. API yangın & unut felsefesi ses kayıtlarını büyük miktarda transcribe kolay hale getirir.
+> Batch tanıma API'si, genellikle saatlik ses binlerce accumulate çağrı merkezleri için idealdir. API'nin yangın & unut felsefesi ses kayıtlarını büyük hacimli konuşmaların daha kolay hale getirir.
 
 ### <a name="supported-formats"></a>Desteklenen biçimler
 
-Toplu transcription API Merkezi ile ilgili tüm çevrimdışı çağrısı senaryoları için de facto olur ve tüm ilişkili biçimleri için destek sağlayan amaçlar. Şu anda desteklenen biçimler:
+Çevrimdışı çağrı senaryoları ile ilgili center de kaybolmayacaktır olur ve tüm ilgili biçimleri için destek sunmak için Batch transkripsiyonu API amaçlar. Şu anda desteklenen biçimler:
 
 Ad| Kanal  |
 ----|----------|
@@ -38,7 +38,7 @@ MP3 |  Stereo  |
 WAV |   Mono   |
 WAV |  Stereo  |
 
-Stereo ses akışları için sırasında transcription sol ve sağ kanal toplu transcription bölün. Sonuç ile iki JSON dosyaları her tek bir kanaldan oluşturulur. Zaman damgaları utterance başına sıralı son dökümü oluşturmak geliştiricinin etkinleştirin. Aşağıdaki JSON örnek bir kanal çıktısını gösterir.
+Stereo ses akışları için Batch döküm sırasında transkripsiyonu sol ve sağ kanal bölecektir. Sonuç ile iki JSON dosyaları her tek bir kanaldan oluşturulur. Zaman damgaları utterance başına bir sıralı son döküm oluşturmak Geliştirici etkinleştirin. Aşağıdaki JSON örneği, bir kanal çıktısını gösterir.
 
 ```json
        {
@@ -56,28 +56,28 @@ Stereo ses akışları için sırasında transcription sol ve sağ kanal toplu t
 ```
 
 > [!NOTE]
-> Toplu transcription API transcriptions, durum ve ilişkili sonuçları isteyen bir REST hizmeti kullanıyor. .NET temel alır ve dış bağımlılıkları yok. Sonraki bölümde, nasıl kullanıldığı açıklanmaktadır.
+> Batch tanıma API'si, döküm, durum ve ilişkili sonuçları istenirken bir REST hizmeti kullanıyor. API, herhangi bir dilde kullanılabilir. Sonraki bölümde, nasıl kullanıldığı açıklanır.
 
 ## <a name="authorization-token"></a>Yetkilendirme belirteci
 
-Birleşik konuşma hizmetinin tüm özellikleri ile bir abonelik anahtarı oluşturmak kullanıcı gerektiği [Azure portal](https://portal.azure.com). Ayrıca, bir API anahtarı konuşma Portalı'ndan elde edilmesi gerekir. Bir API anahtarı oluşturmak için adımlar:
+Birleşik konuşma hizmeti tüm özellikleri ile bir abonelik anahtarı oluşturmak kullanıcı gereksinimleriniz değiştikçe [Azure portalında](https://portal.azure.com). Ayrıca, bir API anahtarı konuşma tanıma Portalı'ndan elde edilmesi gerekir. Bir API anahtarı oluşturmak için bu adımları:
 
 1. Oturum https://customspeech.ai.
 
-2. Tıklayın.
+2. Abonelikler'e tıklayın.
 
-3. Seçeneğini tıklatın `Generate API Key`.
+3. Seçeneğe tıklayın `Generate API Key`.
 
-    ![Karşıya yükleme görünümü](media/stt/Subscriptions.jpg)
+    ![Karşıya yükleme görüntüle](media/stt/Subscriptions.jpg)
 
-4. Kopyalayın ve bu anahtar örnek istemci kodu yapıştırın.
+4. Kopyalayın ve bu anahtarın aşağıdaki örnekte istemci kodu yapıştırın.
 
 > [!NOTE]
-> Ardından özel bir model kullanmayı planlıyorsanız, bu model Kimliğini çok gerekir. Bu uç noktası Ayrıntılar görünümü ancak bu modelin ayrıntılarını tıklattığınızda, alabilirsiniz model kimliği bulma uç noktası kimliği ya da dağıtım olmadığını unutmayın
+> Ardından, özel bir model kullanmayı planlıyorsanız, bu modeli kimliği çok gerekir. Bu uç noktası ayrıntıları görüntüle ancak bu modelin ayrıntıları tıkladığınızda almak model Kimliğini bulma uç noktası kimliği ya da dağıtım olmadığına dikkat edin
 
 ## <a name="sample-code"></a>Örnek kod
 
-API'si kullanan oldukça kolaydır. Aşağıdaki örnek kod bir abonelik anahtar ve veren tasarrufludur kod parçacığında gösterildiği aşağıdaki kodu olarak bir taşıyıcı belirteci edinmek geliştirici bir API anahtarı özelleştirilmiş olması gerekir:
+API'si kullanan oldukça oldukça kolaydır. Bir abonelik anahtarı ve buna karşılık olarak aşağıdaki kod parçacığı bir taşıyıcı belirteç almak Geliştirici sağlayan bir API anahtarı ile özelleştirilmesi gereken aşağıdaki örnek kodları gösterir:
 
 ```cs
     public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
@@ -94,7 +94,7 @@ API'si kullanan oldukça kolaydır. Aşağıdaki örnek kod bir abonelik anahtar
         }
 ```
 
-Belirteç alındıktan sonra Geliştirici transcription gerektiren ses dosyası işaret eden SAS URI'sini belirtin gerekir. Kod kalan yalnızca durum tekrarlanan ve sonuçları görüntüler.
+Belirteç alındıktan sonra Geliştirici transkripsiyonu isteyen bir ses dosyasına işaret eden SAS URI'sini belirtin gerekir. Kodun geri kalanını yalnızca durum yinelenir ve sonuçları görüntüler.
 
 ```cs
    static async Task TranscribeAsync()
@@ -153,28 +153,28 @@ Belirteç alındıktan sonra Geliştirici transcription gerektiren ses dosyası 
 ```
 
 > [!NOTE]
-> Yukarıdaki kod parçacığında belirtilen abonelik Azure portalında oluşturduğunuz Speech(Preview) kaynak anahtarından anahtardır. Özel konuşma hizmet kaynaktan alınan anahtarlar çalışmaz.
+> Yukarıdaki kod parçacığında geçen abonelik anahtarı, Azure portalında oluşturduğunuz Speech(Preview) kaynaktan anahtardır. Özel konuşma hizmeti kaynaktan alınan anahtarlar çalışmaz.
 
 
-Ses nakil ve transcription durumunu almak için zaman uyumsuz Kurulum dikkat edin. Oluşturulan istemci NET Http istemci olur. Var. bir `PostTranscriptions` ses dosyası ayrıntılarını göndermek için yöntem ve bir `GetTranscriptions` sonuçları almak için yöntem. `PostTranscriptions` bir işleyici döner ve `GetTranscriptions` yöntemi transcription durumu elde etmek için bir tanıtıcı oluşturmak için bu tanıtıcısı kullanıyor.
+Ses gönderme ve döküm durumu almak için zaman uyumsuz Kurulum dikkat edin. Oluşturulan istemci, bir .NET Http istemcidir. Var. bir `PostTranscriptions` ses dosyası ayrıntıları, gönderme yöntemi ve bir `GetTranscriptions` sonuçlarını almak için yöntemi. `PostTranscriptions` bir tanıtıcı döndürür ve `GetTranscriptions` yöntemi transkripsiyonu durumunu almak için bir tanıtıcı oluşturmak için bu tutamacı kullanıyor.
 
-Geçerli örnek kodu, hiçbir özel modelleri belirtmiyor. Hizmet, dosyaları çoğaltmaya için temel modelleri kullanır. Kullanıcı modelleri belirtin isterse bir modelIDs kullanım ve dil modeli için aynı yöntemine geçirebilirsiniz. 
+Geçerli örnek kod, herhangi bir özel modelleri belirtmiyor. Hizmet, dosyaları fotoğrafını için temel modelleri kullanır. Kullanıcı modelleri belirtin isterse bir modelIDs akustik ve dil modeli için aynı yönteme geçirebilirsiniz. 
 
-Bir taban çizgisi kullanmak istediğiniz değil, bir model kimliği için kullanım ve dil modelleri geçmesi gerekir.
+Bir taban çizgisi değil kullanıyorsanız, bir model kimliği için hem akustik ve dil modellerini geçmesi gerekir.
 
 > [!NOTE]
-> Taban çizgisi için temel modelleri uç noktalarına bildirmek transcription kullanıcı yok. Kullanıcının özel modelleri kullanmak isterse kendisinin uç noktaları kimlikleri olarak sağlamak üzere olurdu [örnek](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Kullanıcı bir temel dil modeliyle akustik temel kullanmak isterse sonra kendisinin yalnızca özel modelinin uç noktası kimliği bildirmeniz gerekir Dahili sistemimizde (Akustik veya dil olması) iş ortağı temel model şekil ve, transcription isteği gerçekleştirmek için kullanın.
+> Şunun için taban çizgisi temel modelleri uç noktalarına bildirmek döküm kullanıcı yok. Kullanıcı özel modelleri kullanmak istiyorsa yaptığı uç noktaları kimlikleri sağlamanız gerekir [örnek](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Kullanıcı bir akustik temeli ile temel bir dil modeli kullanmak istiyorsa ardından kendisi yalnızca özel modelin uç noktası kimliği bildirmeniz gerekir Dahili olarak sistemimiz (Akustik veya dil olması) iş ortağı temel modelinin ölçeğini şekil ve, döküm isteği yerine getirmek için kullanın.
 
 ### <a name="supported-storage"></a>Desteklenen depolama
 
-Şu anda desteklenen tek depolama Azure blob ' dir.
+Şu anda desteklenen tek Azure blob depolamadır.
 
-## <a name="downloading-the-sample"></a>Örnek indirme
+## <a name="downloading-the-sample"></a>Örneği indirme
 
-Burada gösterilen örnek açıktır [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+Burada görüntülenen örnek açıktır [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> Ses dosyası artı 2-3 dakika yükünü süresi için eşit bir zaman aralığı, genellikle bir ses transcription gerektirir.
+> Genellikle bir ses tanıma, ses dosyası artı 2-3 dakika yükü süre eşit bir zaman aralığı gerektirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

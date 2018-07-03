@@ -1,19 +1,22 @@
-Aşağıdaki tabloda, IOT Hub cihaz hizmeti sağlama kaynaklara uygulamak sınırları listelenmektedir:
+Aşağıdaki tabloda, IOT Hub cihazı sağlama hizmeti kaynakları için geçerli olan sınırlar listelenmektedir:
 
 | Kaynak | Sınır |
 | --- | --- |
-| En fazla cihaz hizmetleri sağlama Azure abonelik başına | 10 |
-| Kayıtları maksimum sayısı | 10,000 |
-| Kayıtlar maksimum sayısı | 10,000 |
-| En fazla sayıda kayıt grubu | 100 |
-| En çok sayıda CA | 10 |
+| En fazla cihaz sağlama hizmetlerini Azure aboneliği başına | 10 |
+| Kayıtları sayısı | 500,000 |
+| En fazla kayıt sayısı | 500,000 |
+| Kayıt grupları sayısı | 100 |
+| CAs sayısı | 25 |
 
 > [!NOTE]
-> Sizinle iletişim [Microsoft Support](https://azure.microsoft.com/support/options/) aboneliğinizde örneklerinin sayısını artırmak için.
+> Sizinle iletişim [Microsoft Support](https://azure.microsoft.com/support/options/) aboneliğinizdeki örneği sayısını artırmak için.
 
-Aşağıdaki kotalar aşıldığında aygıtı sağlama hizmeti istek kısıtlar:
+> [!NOTE]
+> Sizinle iletişim [Microsoft Support](https://azure.microsoft.com/support/options/) kayıtları ve sağlama hizmetinizi kayıtları sayısını artırabilirsiniz.
+
+Aşağıdaki kotalar aşıldığında cihaz sağlama hizmeti istekleri kısıtlar:
 
 | Kısıtlama | Hizmet başına değer |
 | --- | --- |
-| İşlemler | 100/dak |
-| Cihaz kayıtları | 100/dak |
+| İşlemler | 100/dk |
+| Cihaz kayıtları | 100/dk |

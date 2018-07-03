@@ -14,22 +14,22 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: d1dec6f2da4f6fcbeb38585fc6a1cfcd9d622c4a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d89170f796355b734facc5e08ad1815a2b865d49
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764596"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342101"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure işlevleri için Host.JSON başvurusu
 
-*Host.json* meta veri dosyası, bir işlev uygulaması için tüm işlevleri etkileyen genel yapılandırma seçenekleri içerir. Bu makalede, kullanılabilir ayarlar listelenmiştir. JSON şema altındadır http://json.schemastore.org/host.
+*Host.json* meta veri dosyası, tüm işlevler bir işlev uygulaması için etkileyen genel yapılandırma seçenekleri içerir. Bu makalede, kullanılabilir ayarlar listelenmiştir. JSON şemasını altındadır http://json.schemastore.org/host.
 
-Diğer genel yapılandırma seçenekleri vardır [uygulama ayarları](functions-app-settings.md) ve [local.settings.json](functions-run-local.md#local-settings-file) dosya.
+Diğer genel yapılandırma seçeneği yoktur [uygulama ayarları](functions-app-settings.md) ve [local.settings.json](functions-run-local.md#local-settings-file) dosya.
 
 ## <a name="sample-hostjson-file"></a>Örnek host.json dosyası
 
-Aşağıdaki örnek *host.json* dosya belirtilen tüm olası seçeneği vardır.
+Aşağıdaki örnek *host.json* dosyası belirtilen tüm olası seçeneklerin sahiptir.
 
 ```json
 {
@@ -101,11 +101,11 @@ Aşağıdaki örnek *host.json* dosya belirtilen tüm olası seçeneği vardır.
 }
 ```
 
-Aşağıdaki bölümlerde, bu makalenin en üst düzey her bir özellik açıklanmaktadır. Tüm aksi belirtilmedikçe isteğe bağlıdır.
+Bu makalenin aşağıdaki bölümlerde, her bir üst düzey özellik açıklanmaktadır. Tümü aksi belirtilmediği sürece isteğe bağlıdır.
 
-## <a name="aggregator"></a>toplayıcısı
+## <a name="aggregator"></a>Toplayıcı
 
-Kaç tane işlev çağrılarını belirtir ne zaman bir araya getirilir [için Application Insights ölçümleri hesaplama](functions-monitoring.md#configure-the-aggregator). 
+Kaç tane işlev çağrılarını belirtir ne zaman toplanan [ölçümler için Application Insights hesaplama](functions-monitoring.md#configure-the-aggregator). 
 
 ```json
 {
@@ -119,13 +119,13 @@ Kaç tane işlev çağrılarını belirtir ne zaman bir araya getirilir [için A
 |Özellik |Varsayılan  | Açıklama |
 |---------|---------|---------| 
 |batchSize|1000|En fazla istek sayısını toplanacak.| 
-|flushTimeout|00:00:30|En uzun süre toplam süre.| 
+|flushTimeout|00:00:30|En uzun süreyi toplanacak dönem.| 
 
-İşlev çağrılarını toplanan ilk iki sınırları ulaşıldı.
+İşlev çağrılarını sınırlar ilk iki zaman toplanan ulaşıldı.
 
 ## <a name="applicationinsights"></a>Applicationınsights
 
-Denetimleri [Application Insights örnekleme özelliği](functions-monitoring.md#configure-sampling).
+Denetimleri [Application ınsights'ta örnekleme özelliği](functions-monitoring.md#configure-sampling).
 
 ```json
 {
@@ -145,7 +145,7 @@ Denetimleri [Application Insights örnekleme özelliği](functions-monitoring.md
 
 ## <a name="durabletask"></a>durableTask
 
-Yapılandırma ayarları [dayanıklı işlevleri](durable-functions-overview.md).
+İçin yapılandırma ayarlarını [dayanıklı işlevler](durable-functions-overview.md).
 
 ```json
 {
@@ -159,39 +159,45 @@ Yapılandırma ayarları [dayanıklı işlevleri](durable-functions-overview.md)
     "MaxConcurrentOrchestratorFunctions": 10,
     "AzureStorageConnectionStringName": "AzureWebJobsStorage",
     "TraceInputsAndOutputs": false,
+    "LogReplayEvents": false,
     "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "EventGridKeySettingName":  "EventGridKey"
+    "EventGridKeySettingName":  "EventGridKey",
+    "EventGridPublishRetryCount": 3,
+    "EventGridPublishRetryInterval": "00:00:30"
   }
 }
 ```
 
-Görev hub adları bir harfle başlamalı ve yalnızca harf ve sayılardan oluşur. Belirtilmezse, bir işlev uygulaması için varsayılan görev hub adı. **DurableFunctionsHub**. Daha fazla bilgi için bkz: [görev hub](durable-functions-task-hubs.md).
+Görev hub adları bir harf ile başlamalı ve yalnızca harf ve sayı oluşur. Belirtilmezse, varsayılan görev hub adı bir işlev uygulaması için olan **DurableFunctionsHub**. Daha fazla bilgi için [görev hubs](durable-functions-task-hubs.md).
 
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------|
-|hubName|DurableFunctionsHub|Alternatif [görev hub](durable-functions-task-hubs.md) adları kullanılabilir birden çok dayanıklı işlevleri uygulamaları birbirinden ayırmak için aynı depolama arka ucu kullanıyorsanız bile.|
-|ControlQueueBatchSize|32|Aynı anda Denetim sıradan çıkarmak için iletilerinin sayısı.|
-|bölüm sayısı |4|Denetim sıranın bölüm sayısı. 1 ile 16 arasında bir pozitif tamsayı olması olabilir.|
-|ControlQueueVisibilityTimeout |5 dakika|Kuyruktan çıkarıldı denetim iletileri görünürlük zaman aşımı.|
-|WorkItemQueueVisibilityTimeout |5 dakika|Kuyruktan çıkarıldı çalışma öğesi kuyruk iletileri görünürlük zaman aşımı.|
-|MaxConcurrentActivityFunctions |Geçerli makineye işlemci sayısını x 10|Bir tek ana bilgisayar örneği üzerinde eşzamanlı olarak işlenebilecek etkinlik işlevleri maksimum sayısı.|
-|MaxConcurrentOrchestratorFunctions |Geçerli makineye işlemci sayısını x 10|Bir tek ana bilgisayar örneği üzerinde eşzamanlı olarak işlenebilecek etkinlik işlevleri maksimum sayısı.|
-|AzureStorageConnectionStringName |AzureWebJobsStorage|Temel alınan Azure depolama kaynaklarını yönetmek için kullanılan Azure depolama bağlantı dizesi uygulama ayarı adı.|
-|TraceInputsAndOutputs |false|İzleme girişleri ve çıkışları işlev çağrılarını tutulmayacağını gösteren bir değer. Varsayılan davranış işlevi yürütme olayları izleme serileştirilmiş girişleri ve çıkışları işlev çağrıları için bayt sayısı eklemektir. Bu girişleri ve çıkışları günlükleri fazla büyümesini veya günlükleri için hassas bilgileri yanlışlıkla açığa olmadan nasıl göründüğünü hakkında en düşük miktarda bilgiyi sağlar. Bu özellik tüm içeriğini işlevi girişleri ve çıkışları oturum varsayılan işlevi günlüğü ayarlanması true neden olur.|
-|EventGridTopicEndpoint ||Bir Azure olay kılavuz özel konu uç nokta URL'si. Bu özellik ayarladığınızda, orchestration yaşam döngüsü bildirim olayları Bu uç noktaya yayınlanır.|
-|EventGridKeySettingName ||Azure olay kılavuz özel konu ile kimlik doğrulaması için kullanılan anahtarı içeren uygulama ayarı adı `EventGridTopicEndpoint`.
+|HubName|DurableFunctionsHub|Alternatif [görev hub](durable-functions-task-hubs.md) adları kullanılabilir birden çok dayanıklı işlevler uygulamaları birbirinden ayırmak için aynı depolama arka ucu kullansalar bile.|
+|ControlQueueBatchSize|32|Aynı anda Denetim sıradan çıkarmak için ileti sayısı.|
+|PartitionCount |4|Denetim sıranın bölüm sayısı. 1 ile 16 arasında pozitif bir tamsayı olabilir.|
+|ControlQueueVisibilityTimeout |5 dakika|Sıradan çıkarılan denetim iletileri görünebilirlik zaman aşımı.|
+|WorkItemQueueVisibilityTimeout |5 dakika|Sıradan çıkarılan iş öğesi kuyruk iletileri görünebilirlik zaman aşımı.|
+|MaxConcurrentActivityFunctions |Geçerli makinede işlemci sayısını x 10|Tek bir ana bilgisayar örneği üzerinde eşzamanlı olarak işlenebilecek etkinlik işlevlerini maksimum sayısı.|
+|MaxConcurrentOrchestratorFunctions |Geçerli makinede işlemci sayısını x 10|Tek bir ana bilgisayar örneği üzerinde eşzamanlı olarak işlenebilecek etkinlik işlevlerini maksimum sayısı.|
+|AzureStorageConnectionStringName |AzureWebJobsStorage|Temel alınan Azure depolama kaynaklarını yönetmek için kullanılan Azure depolama bağlantı dizesini içeren uygulama ayarının adı.|
+|TraceInputsAndOutputs |false|İzleme girişleri ve çıkışları işlev çağrılarının gösteren bir değer. İşlev yürütme olayları izleme kullanırken varsayılan davranış, sıralanmış girişler ve çıkışlar işlev çağrıları için bayt sayısı dahil sağlamaktır. Bu, giriş ve çıkış günlükleri fazla büyümesini veya yanlışlıkla günlükleri için hassas bilgileri gösterme olmadan nasıl göründüğünü hakkında en düşük miktarda bilgiyi sağlar. Bu özellik tüm içeriğini işlev giriş ve çıkışları oturum için varsayılan işlevi günlüğe kaydetme ayarlanması true neden olur.|
+|LogReplayEvents|false|Düzenleme yeniden yürütme olayların Application Insights'a yazılıp yazılmayacağını belirten bir değer.|
+|EventGridTopicEndpoint ||Bir Azure Event Grid özel konusu uç nokta URL'si. Bu özelliği ayarlandığında düzenleme yaşam döngüsü bildirim olayları Bu uç noktaya yayınlanır. Bu özellik, uygulama ayarları çözümleme destekler.|
+|EventGridKeySettingName ||Azure Event Grid özel konusu ile kimlik doğrulaması için kullanılan anahtarı içeren uygulama ayarının adı `EventGridTopicEndpoint`.|
+|EventGridPublishRetryCount|0|Olay Kılavuzu konu başlığında yayımlamaya yeniden denemek için kaç kez başarısız olur.|
+|EventGridPublishRetryInterval|5 dakika|Yeniden deneme aralığı içinde Event Grid yayımlama *SS* biçimi.|
 
-Bunların çoğu, performansı iyileştirmek için bulunur. Daha fazla bilgi için bkz: [performansı ve ölçeği](durable-functions-perf-and-scale.md).
+Bunların çoğu, performansı iyileştirmek için olan. Daha fazla bilgi için [performansı ve ölçeği](durable-functions-perf-and-scale.md).
 
-## <a name="eventhub"></a>EventHub
+## <a name="eventhub"></a>eventHub
 
-Yapılandırma ayarları [olay hub'ı Tetikleyicileri ve bağlamaları](functions-bindings-event-hubs.md).
+İçin yapılandırma ayarlarını [olay hub'ı Tetikleyicileri ve bağlamaları](functions-bindings-event-hubs.md).
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## <a name="functions"></a>işlevler
 
-İş konak çalışacak işlevlerin listesi. Boş bir dizi tüm işlevleri çalıştırmak anlamına gelir. Kullanılmaya yalnızca [yerel olarak çalışan](functions-run-local.md). İşlev uygulamalarında kullanma *function.json* `disabled` bu özellikte yerine özelliği *host.json*.
+Proje ana bilgisayar çalıştırılan işlevlerin listesi. Boş bir dizi tüm işlevleri çalıştırma anlamına gelir. Kullanılmak üzere tasarlanmış yalnızca [yerel olarak çalışan](functions-run-local.md). İşlev uygulamaları'nda *function.json* `disabled` bu özellikte yerine özellik *host.json*.
 
 ```json
 {
@@ -201,7 +207,7 @@ Yapılandırma ayarları [olay hub'ı Tetikleyicileri ve bağlamaları](function
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Tüm İşlevler için zaman aşımı süresini gösterir. Tüketim planları, geçerli aralık 1 saniye için 10 dakika arasıdır. ve 5 dakika varsayılan değerdir. Uygulama hizmeti planları, bir sınır yoktur ve hiçbir zaman aşımı belirten varsayılan değeri null.
+Tüm İşlevler için zaman aşımı süresini gösterir. Tüketim planları, geçerli aralık 1 saniye için 10 dakika olan ve varsayılan değer 5 dakikadır. App Service planları, sınırı yoktur ve hiçbir zaman aşımı belirten varsayılan değeri null.
 
 ```json
 {
@@ -211,7 +217,7 @@ Tüm İşlevler için zaman aşımı süresini gösterir. Tüketim planları, ge
 
 ## <a name="healthmonitor"></a>Durum İzleme
 
-Yapılandırma ayarları [ana bilgisayar sistem durumu İzleyicisi](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+İçin yapılandırma ayarlarını [konak sistem durumu İzleyicisi](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
 
 ```
 {
@@ -229,21 +235,21 @@ Yapılandırma ayarları [ana bilgisayar sistem durumu İzleyicisi](https://gith
 |---------|---------|---------| 
 |enabled|true|Özellik etkinleştirilip etkinleştirilmediği. | 
 |healthCheckInterval|10 saniye|Düzenli arka plan sistem arasındaki zaman aralığını denetler. | 
-|healthCheckWindow|2 dakika|İle birlikte kullanılan kayan bir zaman penceresi `healthCheckThreshold` ayarı.| 
-|healthCheckThreshold|6|Bir ana bilgisayar geri dönüşüm başlatılmadan önce en fazla kaç kez sistem durumu denetimi başarısız olabilir.| 
-|counterThreshold|0,80|Eşik değer, bir performans sayacı sağlıksız olarak kabul edilir.| 
+|healthCheckWindow|2 dakika|İle birlikte kullanılan kayan zaman penceresini `healthCheckThreshold` ayarı.| 
+|healthCheckThreshold|6|En fazla kaç kez, bir konak geri dönüştürme başlatılmadan önce sistem durumu denetimi başarısız olabilir.| 
+|counterThreshold|0,80|Eşik, bir performans sayacı sağlıksız olarak kabul edilir.| 
 
 ## <a name="http"></a>http
 
-Yapılandırma ayarları [http Tetikleyicileri ve bağlamaları](functions-bindings-http-webhook.md).
+İçin yapılandırma ayarlarını [http Tetikleyicileri ve bağlamaları](functions-bindings-http-webhook.md).
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## <a name="id"></a>id
 
-Bir iş ana bilgisayar için benzersiz kimlik. Küçük harf GUID çizgilerle kaldırılabilir. Yerel olarak çalıştırırken gereklidir. Azure işlevleri çalışırken bir kimlik takdirde otomatik olarak oluşturulur `id` atlanır.
+Bir proje konak için benzersiz kimliği. Tireler ile küçük harf GUID kaldırılabilir. Yerel olarak çalışan gereklidir. Azure işlevleri'nde çalışırken, bir kimliği otomatik olarak, oluşturulan `id` atlanır.
 
-Bir depolama hesabı birden çok işlev uygulama arasında paylaşıyorsanız, her işlev uygulaması farklı bir sahip olduğundan emin olun `id`. Atlayabilirsiniz `id` özelliği veya elle her işlevi uygulamanın `id` için farklı bir değer. Zamanlayıcı tetikleyicisi depolama kilidi olacağını yalnızca bir zamanlayıcı örneğini birden çok örneklerine giden bir işlev uygulaması ölçeklendirir olduğunda emin olmak için kullanır. İki işlev uygulamalarının aynı paylaşıyorsanız `id` ve her bir zamanlayıcı tetikleyicisi kullanan, yalnızca bir zamanlayıcı çalışır.
+Birden fazla işlev uygulaması arasında bir depolama hesabını paylaşmak, her işlev uygulaması farklı olduğundan emin olun `id`. Atlayabilirsiniz `id` özelliği veya her işlevi uygulamanın el ile ayarlamanız `id` için farklı bir değer. Zamanlayıcı tetikleyicisi depolama kilidi olacağına dair yalnızca bir zamanlayıcı örneği birden çok örneği için bir işlev uygulaması kullanıma ölçeklendirildiğinde emin olmak için kullanır. İki işlev uygulamaları aynı paylaşıyorsa `id` ve her bir zamanlayıcı tetikleyicisi kullanan, tek bir zamanlayıcı çalışır.
 
 
 ```json
@@ -254,7 +260,7 @@ Bir depolama hesabı birden çok işlev uygulama arasında paylaşıyorsanız, h
 
 ## <a name="logger"></a>Günlükçü
 
-Tarafından yazılan günlükleri için filtreleme denetimleri bir [ILogger nesne](functions-monitoring.md#write-logs-in-c-functions) veya [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
+Tarafından yazılan günlükler için filtreleme denetimlerini bir [ILogger nesne](functions-monitoring.md#write-logs-in-c-functions) ya da [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
 ```json
 {
@@ -274,24 +280,24 @@ Tarafından yazılan günlükleri için filtreleme denetimleri bir [ILogger nesn
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------| 
 |categoryFilter|yok|Kategoriye göre filtreleme belirtir| 
-|defaultLevel|Bilgi|Belirtilen olmayan herhangi bir kategori için `categoryLevels` dizisindeki, bu düzeyde ve yukarıdaki günlükleri Application Insights'a gönderme.| 
-|categoryLevels|yok|Her kategori için Application Insights'a gönderme için en küçük günlük düzeyini belirten bir dizi kategoriler. Burada belirtilen kategori ile aynı değer ile başlayan tüm kategorileri denetler ve uzun değerleri daha önceliklidir. Yukarıdaki örnekteki *host.json* dosya, "Host.Aggregator" günlüğü ile başlayan tüm kategorileri `Information` düzeyi. "Ana" gibi "Host.Executor" ile başlayan diğer tüm kategorileri oturum `Error` düzeyi.| 
+|defaultLevel|Bilgi|Belirtilen değil tüm kategorileri için `categoryLevels` dizi, bu düzeyde ve yukarıdaki günlükleri Application Insights'a Gönder.| 
+|categoryLevels|yok|Her kategori için Application Insights'a gönderme için en düşük günlük düzeyi belirtir kategoriler dizisi. Burada belirtilen kategori aynı değeri ile başlayan tüm kategorileri denetler ve daha uzun değerleri önceliklidir. Yukarıdaki örnekte *host.json* dosyası günlüğüne "Host.Aggregator" ile başlayan tüm kategorileri `Information` düzeyi. "Ana" gibi "Host.Executor" ile başlayan diğer tüm kategorileri oturum `Error` düzeyi.| 
 
 ## <a name="queues"></a>Kuyruklar
 
-Yapılandırma ayarları [depolama queue Tetikleyicileri ve bağlamaları](functions-bindings-storage-queue.md).
+İçin yapılandırma ayarlarını [depolama kuyruğu Tetikleyicileri ve bağlamaları](functions-bindings-storage-queue.md).
 
 [!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
-## <a name="servicebus"></a>ServiceBus
+## <a name="servicebus"></a>serviceBus
 
-Yapılandırma ayarı [Service Bus Tetikleyicileri ve bağlamaları](functions-bindings-service-bus.md).
+Bir yapılandırma ayarı için [Service Bus Tetikleyicileri ve bağlamaları](functions-bindings-service-bus.md).
 
 [!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
 ## <a name="singleton"></a>singleton
 
-Singleton kilitleme davranışı için yapılandırma ayarları. Daha fazla bilgi için bkz: [GitHub sorunu singleton desteği hakkında](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
+Singleton kilit davranışı için yapılandırma ayarları. Daha fazla bilgi için [GitHub sorunu tekil desteği hakkında daha fazla](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
 {
@@ -307,15 +313,15 @@ Singleton kilitleme davranışı için yapılandırma ayarları. Daha fazla bilg
 
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------| 
-|lockPeriod|00:00:15|İşlev düzeyi kilitleri gerçekleştirilecek için süre. Kilitler Otomatik yenilemeyi.| 
-|listenerLockPeriod|00:01:00|Dinleyici kilitleri gerçekleştirilecek için süre.| 
-|listenerLockRecoveryPollingInterval|00:01:00|Bir dinleyici kilidi başlangıçta alınan uygulanamadı ise dinleyicisi kilit kurtarma için kullanılan zaman aralığı.| 
-|lockAcquisitionTimeout|00:01:00|En uzun süreyi çalışma zamanı bir kilit dener.| 
-|lockAcquisitionPollingInterval|yok|Kilit alma denemesi arasındaki zaman aralığı.| 
+|lockPeriod|00:00:15|İşlev düzeyi kilit için geçen süre. Kilitler otomatik olarak yenilenecek.| 
+|listenerLockPeriod|00:01:00|Dinleyici kilit alınması için dönem.| 
+|listenerLockRecoveryPollingInterval|00:01:00|Başlangıçta bir dinleyici kilidi aldıysanız uygulanamadı dinleyici kilit kurtarma için kullanılan zaman aralığı.| 
+|lockAcquisitionTimeout|00:01:00|En uzun süreyi çalışma zamanı kilit dener.| 
+|lockAcquisitionPollingInterval|yok|Kilidi alma girişimi arasındaki zaman aralığı.| 
 
 ## <a name="tracing"></a>İzleme
 
-Yapılandırma ayarları kullanarak oluşturduğunuz günlükleri için bir `TraceWriter` nesnesi. Bkz: [C# günlük](functions-reference-csharp.md#logging) ve [Node.js günlük](functions-reference-node.md#writing-trace-output-to-the-console). 
+Yapılandırma ayarlarını kullanarak oluşturduğunuz günlükleri için bir `TraceWriter` nesne. Bkz: [C# günlüğü](functions-reference-csharp.md#logging) ve [Node.js günlük](functions-reference-node.md#writing-trace-output-to-the-console). 
 
 ```json
 {
@@ -328,12 +334,12 @@ Yapılandırma ayarları kullanarak oluşturduğunuz günlükleri için bir `Tra
 
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------| 
-|consoleLevel|bilgileri|Konsol günlüğe kaydetme için izleme düzeyi. Seçenekler şunlardır: `off`, `error`, `warning`, `info`, ve `verbose`.|
-|fileLoggingMode|debugOnly|Dosya günlük için izleme düzeyi. Seçenekler `never`, `always`, `debugOnly`.| 
+|consoleLevel|bilgi|Konsol günlüğü için izleme düzeyi. Seçenekler şunlardır: `off`, `error`, `warning`, `info`, ve `verbose`.|
+|fileLoggingMode|debugOnly|Dosya günlüğü için izleme düzeyi. Seçenekler `never`, `always`, `debugOnly`.| 
 
 ## <a name="watchdirectories"></a>watchDirectories
 
-Bir dizi [kod dizinleri paylaşılan](functions-reference-csharp.md#watched-directories) , izlenen değişiklikleri.  Bu dizinleri kodda değiştirildiğinde, değişiklikleri işlevlerinizi tarafından toplanmış olduğunu sağlar.
+Bir dizi [kod dizinlerini paylaşılan](functions-reference-csharp.md#watched-directories) , izlenen değişiklikleri.  Bu dizinler kod değiştirildiğinde, değişiklikleri işlevleriniz tarafından seçilir, sağlar.
 
 ```json
 {
@@ -344,7 +350,7 @@ Bir dizi [kod dizinleri paylaşılan](functions-reference-csharp.md#watched-dire
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Host.json dosyasını güncelleştirme öğrenin](functions-reference.md#fileupdate)
+> [Host.json dosya güncelleştirme hakkında bilgi edinin](functions-reference.md#fileupdate)
 
 > [!div class="nextstepaction"]
-> [Bkz. ortam değişkenleri içindeki genel ayarları](functions-app-settings.md)
+> [Ortam değişkenleri içindeki genel ayarlara bakın](functions-app-settings.md)

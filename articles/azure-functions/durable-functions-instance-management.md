@@ -1,6 +1,6 @@
 ---
-title: Dayanıklı işlevleri - Azure durumlarda yönetme
-description: Azure işlevleri için dayanıklı işlevleri uzantısı durumlarda yönetmeyi öğrenin.
+title: Dayanıklı işlevler - Azure örneklerini yönetme
+description: Azure işlevleri için dayanıklı işlevler uzantısını durumlarda yönetmeyi öğrenin.
 services: functions
 author: cgillum
 manager: cfowler
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3c6602bdd90c82568a50ad7354d7abb7c6a472ae
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 5cb3ccbc949f8250101fab6cb7899b859149fdfd
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287757"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341101"
 ---
-# <a name="manage-instances-in-durable-functions-azure-functions"></a>Dayanıklı işlevleri (Azure işlevleri) durumlarda yönetme
+# <a name="manage-instances-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) örneklerini yönetme
 
-[Dayanıklı işlevleri](durable-functions-overview.md) orchestration örnekleri başlatılabilir, sonlandırıldı, sorgulanan ve bildirim olayları gönderilir. Tüm örnek Yönetimi yapılır kullanarak [bağlama orchestration istemci](durable-functions-bindings.md). Bu makalede her örnek yönetim işlemi ayrıntılara gider.
+[Dayanıklı işlevler](durable-functions-overview.md) düzenleme örnekleri başlatıldı, sona erdi, sorgulanabilen ve gönderilen bildirim olayları. Tüm örnek Yönetimi yapılır kullanarak [düzenleme istemcisi bağlama](durable-functions-bindings.md). Bu makalede, her örnek yönetim işleminin ayrıntılarına gider.
 
-## <a name="starting-instances"></a>Başlangıç örnekleri
+## <a name="starting-instances"></a>Örnekleri başlatılıyor
 
-[StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) yöntemi [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) bir orchestrator işlevinin yeni bir örneğini başlatır. Bu sınıfın örnekleri edinilen kullanarak `orchestrationClient` bağlama. Bu yöntem enqueues işlevi belirtilen adda kullanır başlangıcı tetikler denetim kuyruğa bir ileti dahili olarak, `orchestrationTrigger` tetiklemek bağlama. 
+[StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) metodunda [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) bir düzenleyici işlevi yeni bir örneğini başlatır. Bu sınıfın örnekleri satın alınabilir kullanarak `orchestrationClient` bağlama. Bu yöntem kaybolmamasının ardından başlangıcını kullanan belirtilen ada sahip bir işlev tetikler denetim kuyruğuna bir ileti dahili olarak `orchestrationTrigger` bağlama tetikleyin. 
 
-Düzenleme işlemi başlatıldığında görev tamamlar. Düzenleme işlemi 30 saniye içinde başlamanız gerekir. Daha uzun sürerse bir `TimeoutException` oluşturulur. 
+Düzenleme işlemi başlatıldığında görev tamamlanır. Düzenleme işlemi, 30 saniye içinde başlamanız gerekir. Daha uzun sürerse bir `TimeoutException` oluşturulur. 
 
 Parametreleri [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) aşağıdaki gibidir:
 
-* **Ad**: zamanlamak için orchestrator işlevinin adı.
-* **Giriş**: orchestrator işlev giriş olarak iletilmesi gereken herhangi bir JSON seri hale getirilebilir veri.
-* **InstanceId**: (isteğe bağlı) benzersiz kimliği örneği. Belirtilmezse, bir rastgele örnek kimliği oluşturulur.
+* **Ad**: zamanlamak için orchestrator işlevin adı.
+* **Giriş**: orchestrator işleve giriş olarak geçirilmelidir herhangi bir JSON seri hale getirilebilir veri.
+* **InstanceId**: örneğinin (isteğe bağlı) benzersiz kimliği. Bir rastgele örnek kimliği belirtilmezse oluşturulur.
 
-Basit bir C# örnek aşağıda verilmiştir:
+Basit bir C# örneği aşağıda verilmiştir:
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
@@ -51,7 +51,7 @@ public static async Task Run(
 }
 ```
 
-.NET olmayan diller için işlevi çıktı bağlama yeni örnekleri başlatmak için kullanılabilir. Bu durumda, yukarıdaki üç parametre alanları olan herhangi bir JSON serileştirilebilir nesnenin kullanılabilir. Örneğin, aşağıdaki JavaScript işlevi göz önünde bulundurun:
+.NET diller için işlev çıktı bağlamasını yeni örnekleri başlatmak için kullanılabilir. Bu durumda, yukarıdaki üç parametre alan sahip herhangi bir JSON seri hale getirilebilir nesne kullanılabilir. Örneğin, aşağıdaki JavaScript işlevi göz önünde bulundurun:
 
 ```js
 module.exports = function (context, input) {
@@ -67,28 +67,29 @@ module.exports = function (context, input) {
 ```
 
 > [!NOTE]
-> Örnek kimliği için rastgele bir tanımlayıcı kullanmanızı öneririz Bu, orchestrator işlevleri arasında birden çok VM ölçeklendirme eşit yük dağıtımı sağlamaya yardımcı olur. Rastgele olmayan örneği kimlikleri kullanmak için uygun kimliği dış bir kaynaktan gelmelidir veya uygularken saattir [singleton orchestrator](durable-functions-singletons.md) düzeni.
+> Rastgele bir tanımlayıcı örnek kimliği için kullanmanızı öneririz Bu, orchestrator işlevleri arasında birden çok VM'yi ölçeklendirme eşit yük dağıtım sağlamaya yardımcı olur. Rastgele olmayan örnek kimlikleri kullanmak için uygun kimliği bir dış kaynaktan gelmelidir veya uygularken zamandır [singleton orchestrator](durable-functions-singletons.md) deseni.
 
 ## <a name="querying-instances"></a>Örnekleri sorgulama
 
-[GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) yöntemi [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıfı orchestration örneği durumunu sorgular. Bu alan bir `instanceId` (gerekli) `showHistory` (isteğe bağlı) ve `showHistoryOutput` (isteğe bağlı) parametre olarak. Varsa `showHistory` ayarlanır `true`, yanıt yürütme geçmişini içerir. Varsa `showHistoryOutput` ayarlanır `true` yürütme geçmişini etkinlik çıkışları de içerir. Yöntemi, aşağıdaki özelliklere sahip bir nesne döndürür:
+[GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) metodunda [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıfı düzenleme örneği durumunu sorgular. Bu alan bir `instanceId` (gerekli) `showHistory` (isteğe bağlı) ve `showHistoryOutput` (isteğe bağlı) parametre olarak. Varsa `showHistory` ayarlanır `true`, yanıt yürütme geçmişini içerir. Varsa `showHistoryOutput` ayarlanır `true` etkinlik çıktıları yürütme geçmişini de içerecektir. Yöntemi, aşağıdaki özelliklere sahip bir nesne döndürür:
 
 * **Ad**: orchestrator işlevin adı.
-* **InstanceId**: orchestration örnek kimliği (aynı olmalıdır `instanceId` giriş).
-* **CreatedTime**: orchestrator işlevi başladığı çalıştıran zaman.
-* **LastUpdatedTime**: zaman orchestration son belirttiğinizde.
-* **Giriş**: JSON değeri olarak işlevinin giriş.
-* **CustomStatus**: özel orchestration durum JSON biçiminde. 
-* **Çıktı**: işlevi (işlev tamamladıysa) JSON değer olarak çıktı. Bu özellik, orchestrator işlevi başarısız oldu, hata ayrıntıları dahil edilir. Orchestrator işlevi sonlandırıldı, bu özellik sonlandırma sağlanan nedeni (varsa) içerir.
-* **RuntimeStatus**: şu değerlerden biri:
+* **InstanceId**: örnek kimliği düzenleme (aynı olmalıdır `instanceId` giriş).
+* **Oluşturulma zamanı**: zaman, çalışan başlatıldığında Düzenleyici işlevi.
+* **LastUpdatedTime**: zaman düzenleme son denetim noktası oluşturuldu.
+* **Giriş**: işlev bir JSON değeri olarak giriş.
+* **CustomStatus**: JSON biçimindeki özel düzenleme durumu. 
+* **Çıkış**:, (işlev Tamamlandı durumunda) bir JSON değeri olarak işlevin çıktısı. Bu özellik orchestrator işlevi başarısız oldu, hata ayrıntıları içerir. Bu özellik orchestrator işlevi sonlandırıldı, belirtilen sonlandırma nedenini (varsa) içerecektir.
+* **RuntimeStatus**: Aşağıdaki değerlerden biri:
+    * **Bekleyen**: örneği zamanlandı ancak çalışan henüz başlatılmadı.
     * **Çalışan**: örnek çalışmaya başladı.
-    * **Tamamlanan**: örneği normal şekilde tamamlandı.
-    * **ContinuedAsNew**: örnek kendisi ile yeni bir geçmiş yeniden başlatıldı. Bu geçici bir durumdur.
+    * **Tamamlanan**: örnek normal olarak tamamlandı.
+    * **ContinuedAsNew**: örnek kendisi ile yeni bir geçmiş başlatıldı. Bu geçici bir durumdur.
     * **Başarısız**: örnek bir hata ile başarısız oldu.
-    * **Sonlandırılmış**: örnek beklenmedik şekilde sona erdirildi.
-* **Geçmiş**: orchestration yürütme geçmişini. Bu alan yalnızca, doldurulur `showHistory` ayarlanır `true`.
+    * **Sonlandırılan**: örneği beklenmedik şekilde sonlandırıldı.
+* **Geçmiş**: yürütme geçmişini düzenleme. Bu alan yalnızca, doldurulur `showHistory` ayarlanır `true`.
     
-Bu yöntem `null` örneği mevcut değil veya çalışan henüz başlatılmadı.
+Bu yöntem döndürür `null` örneği mevcut değil veya çalışan henüz başlatılmadı.
 
 ```csharp
 [FunctionName("GetStatus")]
@@ -102,7 +103,7 @@ public static async Task Run(
 ```
 ## <a name="querying-all-instances"></a>Tüm örnekleri sorgulama
 
-Kullanabileceğiniz `GetStatusAsync` orchestration hepsinin durumları sorgulamak için yöntem. Herhangi bir parametre almaz veya geçirebilirsiniz bir `CancellationToken` iptal etmek istemeniz durumunda nesne. Yöntemi aynı özellikleri nesneleriyle döndürür `GetStatusAsync` onu dışında parametreleri yöntemiyle geçmişi iade değil. 
+Kullanabileceğiniz `GetStatusAsync` tüm düzenleme örneklerinin durumları sorgulamak için yöntemi. Hiçbir parametre almaz veya geçirebilirsiniz bir `CancellationToken` iptal etmek istemeniz durumunda nesne. Yöntemi aynı özelliklere sahip nesneleri döndürür `GetStatusAsync` yöntemi dışında parametrelerle geçmişi döndürmez. 
 
 ```csharp
 [FunctionName("GetAllStatus")]
@@ -119,9 +120,9 @@ public static async Task Run(
 }
 ```
 
-## <a name="terminating-instances"></a>Sonlandırma örnekleri
+## <a name="terminating-instances"></a>Sondaki örnekleri
 
-Çalışan bir orchestration örneği kullanarak sonlandırılabilir [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) yöntemi [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıfı. İki parametreler bir `instanceId` ve `reason` günlükleri ve örnek durum yazılır dize. Sonlandırılmış bir örneği sonraki ulaştığında hemen sonra çalışmayı durdurur `await` zaten açık değilse, nokta veya hemen sonlandırılacak bir `await`. 
+Çalışan bir düzenleme örneği kullanarak sonlandırılabilir [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) yöntemi [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıfı. İki parametreler bir `instanceId` ve `reason` günlüklerine ve örnek durum yazılacak dize. Sonraki ulaştığında hemen sonra çalışan sonlandırılan bir örneği durdurur `await` zaten açık değilse, nokta veya hemen sonlandırılacak bir `await`. 
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -135,11 +136,11 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Örnek sonlandırma şu anda dağıtılmaz. Etkinlik işlevler ve alt düzenlemelerin tamamlanma olup onları adlı orchestration örneği sonlandırıldı bağımsız olarak çalışır.
+> Örnek sonlandırma şu anda dağıtılmaz. Etkinlik işlevleri ve alt düzenlemeleri tamamlama olup bunları adlı düzenleme örneği sonlandırıldı bağımsız olarak çalışır.
 
-## <a name="sending-events-to-instances"></a>Olayları örneklerine gönderme
+## <a name="sending-events-to-instances"></a>Örneklerine olayları gönderme
 
-Olay bildirimleri kullanarak örnekleri çalıştırmak için gönderilebilir [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) yöntemi [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıfı. Bu olaylar işleyebilir örnekleri olan bir çağrı bekleyen o [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). 
+Olay bildirimleri kullanarak örnekleri çalıştırmak için gönderilebilir [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) yöntemi [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıfı. Bu olayları işleyebilir örnekleri olan bir çağrı bekleyen o [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). 
 
 Parametreleri [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) aşağıdaki gibidir:
 
@@ -161,25 +162,25 @@ public static Task Run(
 ```
 
 > [!WARNING]
-> Belirtilen orchestration örneği yok ise *kimliği örneği* veya örnek belirtilen değil bekliyorsa *olay adı*, olay iletisi göz ardı edilir. Bu davranış hakkında daha fazla bilgi için bkz: [GitHub sorunu](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+> Belirtilen orchestration örneği yok ise *kimliği örnek* veya örneği belirtilen beklemiyorsa *olay adı*, olay iletisi göz ardı edilir. Bu davranış hakkında daha fazla bilgi için bkz. [GitHub sorunu](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-## <a name="wait-for-orchestration-completion"></a>Orchestration tamamlanmasını bekleyin
+## <a name="wait-for-orchestration-completion"></a>Orchestration tamamlanmasını bekle
 
-[DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıf düzenlemenizi sağlayan bir [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) fiili çıktıyı bir orchestration örnekten zaman uyumlu olarak almak için kullanılan bir API. Varsayılan değer 10 saniye olan yöntemini kullanır `timeout` ve 1 saniye için `retryInterval` zaman bunlar ayarlı değil.  
+[DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıfı kullanıma sunan bir [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) zaman uyumlu bir düzenleme örneğinden gerçek çıkış almak için kullanılan API. 10 saniye boyunca varsayılan değerini kullanmaktadır `timeout` ve 1 saniyeye `retryInterval` olduğunda bunlar ayarlanmadı.  
 
-Bu API kullanımı gösterilmiştir HTTP tetikleyicisi işlevi örnek aşağıda verilmiştir:
+Bu API kullanımı gösterilmiştir HTTP tetikleyici işlevi bir örnek aşağıda verilmiştir:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
-İşlev 2 saniyelik zaman aşımı ve 0,5 ikinci yeniden deneme aralığı kullanarak aşağıdaki satırla çağrılabilir:
+İşlevi, 2 saniyelik zaman aşımı ve 0,5 saniyelik yeniden deneme aralığı kullanarak aşağıdaki satırla çağrılabilir:
 
 ```bash
     http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
 ```
 
-Orchestration örneğinden yanıt almak için gereken zamana bağlı olarak iki durum vardır:
+Orchestration örneğinden yanıt almak için gereken süreyi bağlı olarak iki durum vardır:
 
-1. Tanımlanan zaman aşımı süresi içinde (Bu durumda 2 saniye) orchestration örnekleri tamamlamak, yanıtı zaman uyumlu olarak teslim gerçek orchestration örnek çıktı:
+1. Tanımlanan zaman aşımı süresi içinde (Bu örnekte 2 saniye) orchestration örnekleri tamamlamak, yanıtı zaman uyumlu olarak sunulan gerçek düzenleme örnek çıktı:
 
     ```http
         HTTP/1.1 200 OK
@@ -195,7 +196,7 @@ Orchestration örneğinden yanıt almak için gereken zamana bağlı olarak iki 
         ]
     ```
 
-2. Orchestration örnekleri tanımlı zaman aşımı süresi içinde (Bu durumda 2 saniye) tamamlayamıyor, yanıt bir açıklanan varsayılan **HTTP API URL bulma**:
+2. Tanımlanan zaman aşımı süresi içinde (Bu örnekte 2 saniye) orchestration örnekleri tamamlanamıyor, yanıt bir açıklanan varsayılan **HTTP API URL'si bulma**:
 
     ```http
         HTTP/1.1 202 Accepted
@@ -215,24 +216,24 @@ Orchestration örneğinden yanıt almak için gereken zamana bağlı olarak iki 
     ```
 
 > [!NOTE]
-> Web kancası URL'leri biçimi çalıştırdığınız Azure işlevleri ana bilgisayarın hangi sürümünün bağlı olarak değişebilir. Önceki örnekte için Azure işlevleri 2.0 ana bilgisayardır.
+> Web kancası URL'leri biçimi, Azure işlevleri ana bilgisayarın hangi sürümünün kullanmakta olduğunuz bağlı olarak farklı olabilir. Önceki örnek için Azure işlevleri 2.0 ana bilgisayardır.
 
 ## <a name="retrieving-http-management-webhook-urls"></a>HTTP Yönetim Web kancası URL'lerini alma
 
-Dış sistemler dayanıklı işlev aracılığıyla açıklanan varsayılan yanıt parçası olan Web kancası URL'ler ile iletişim kurabilir [HTTP API URL bulma](durable-functions-http-api.md). Ancak, Web kancası URL'leri da programlı olarak orchestration istemci veya bir etkinlik işlevinde erişilebilen [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) yöntemi [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)sınıfı. 
+Dış sistemler açıklanan varsayılan yanıtın bir parçası olan Web kancası URL'ler aracılığıyla dayanıklı işlevler ile iletişim kurabilir [HTTP API URL'si bulma](durable-functions-http-api.md). Ancak, Web kancası URL'leri da programlı olarak düzenleme istemcisi ya da bir etkinlik işlevi erişilebilir [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) yöntemi [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)sınıfı. 
 
 [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) bir parametreye sahiptir:
 
 * **InstanceId**: örneğinin benzersiz kimliği.
 
-Yöntem örneği döndürür [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) aşağıdaki dize özelliklere sahip:
+Yöntem bir örneğini döndürür [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) aşağıdaki dize özelliklere sahip:
 
-* **Kimliği**: orchestration örnek kimliği (aynı olmalıdır `InstanceId` giriş).
-* **StatusQueryGetUri**: orchestration örneğinin durumu URL'si.
-* **SendEventPostUri**: orchestration örneğinin "olursa olay" URL'si.
-* **TerminatePostUri**: orchestration örneğinin "sonlandırmak" URL.
+* **Kimliği**: örnek kimliği düzenleme (aynı olmalıdır `InstanceId` giriş).
+* **StatusQueryGetUri**: düzenleme örneğinin durumu URL'si.
+* **SendEventPostUri**: düzenleme örneğinin "raise olay" URL'si.
+* **TerminatePostUri**: düzenleme örneği "sonlandırma" URL'si.
 
-Etkinlik işlevleri örneği gönderebilir [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) izlemek veya bir orchestration olaylarına yükseltmek için dış sistemler için:
+Etkinlik işlevleri örneği gönderebilir [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) izlemek veya bir düzenleme için bir olay için harici sistemlere bağlanma:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -255,4 +256,4 @@ public static void SendInstanceInfo(
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [HTTP API'leri örneği için yönetim kullanmayı öğrenin](durable-functions-http-api.md)
+> [Örneğin yönetim HTTP API'lerini kullanmayı öğrenin](durable-functions-http-api.md)

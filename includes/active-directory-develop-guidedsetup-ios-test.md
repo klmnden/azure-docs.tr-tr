@@ -1,28 +1,28 @@
-## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>İOS uygulamanızdan Microsoft grafik API'si sorgulanırken test
+## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>İOS uygulamanızın içinden Microsoft Graph API'si sorgulanırken test
 
-Benzetici kodu çalıştırmak için basın **komutu** + **R**.
+Benzetici kodu çalıştırmak için basın **komut** + **R**.
 
-![Benzetici uygulamanızı test edin](media/active-directory-develop-guidedsetup-ios-test/iostestscreenshot.png)
+![Simülatörde uygulamanızı test edin](media/active-directory-develop-guidedsetup-ios-test/iostestscreenshot.png)
 
-Test etmek hazır olduğunuzda, seçin **Microsoft Graph API çağrısı**. İstendiğinde, kullanıcı adı ve parola girin.
+Test için hazır olduğunuzda **Microsoft Graph API çağrısı**. İstendiğinde kullanıcı adınızı ve parolanızı girin.
 
-### <a name="provide-consent-for-application-access"></a>Uygulama erişimi için izin sağlayın
-Uygulamanız için oturum ilk kez profilinizi erişmek için ve oturum açmak için uygulama izin vermek için onay vermeniz istenir:
+### <a name="provide-consent-for-application-access"></a>Uygulama erişimi için rıza sağlamanın
+Uygulamanıza oturum ilk kez profilinizi erişmek ve oturum açmak için uygulama izin vermek için onay vermeniz istenir:
 
-![Uygulama erişimi için onayınızı sağlayın](media/active-directory-develop-guidedsetup-ios-test/iosconsentscreen.png)
+![Uygulama erişimi için izninizi sağlayın](media/active-directory-develop-guidedsetup-ios-test/iosconsentscreen.png)
 
-### <a name="view-application-results"></a>Uygulama sonuçları görüntüleme
-Oturum açtıktan sonra Microsoft Graph API çağrısı tarafından döndürülen kullanıcı profil bilgilerinizi görmelisiniz **günlüğü** bölümü. 
+### <a name="view-application-results"></a>Uygulama sonuçlarını görüntüle
+Oturum açtıktan sonra Microsoft Graph API çağrısı tarafından döndürülen kullanıcı profili bilgilerinize görmelisiniz **günlüğü** bölümü. 
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Kapsamlar ve temsilci izinleri hakkında daha fazla bilgi
 
-Microsoft Graph API gerektiriyor **user.read** kullanıcı profilini okuma için kapsamı. Bu kapsam, varsayılan olarak kayıt portalı üzerinde kayıtlı her uygulama otomatik olarak eklenir. Diğer Microsoft Graph için API'leri yanı sıra, arka uç sunucusu için özel API'leri ek kapsamlar gerektirebilir. Microsoft Graph API gerektiriyor **Calendars.Read** kullanıcının takvimleri listelemek için kapsam.
+Microsoft Graph API'sini gerektirir **user.read** kapsamı, bir kullanıcının profilini okuma için. Bu kapsam kayıt portalı üzerinde kayıtlı her uygulamada varsayılan olarak otomatik olarak eklenir. Diğer Microsoft Graph API'leri yanı sıra özel API'ler, arka uç sunucusu için ek kapsamlarla gerektirebilir. Microsoft Graph API'sini gerektirir **Calendars.Read** kullanıcının takvimleri listelemek için kapsam.
 
-Bir uygulama bağlamında kullanıcının takvimleri erişmek için eklemeniz **Calendars.Read** izin uygulama kayıt bilgileri için temsilci. Ardından, ekleyin **Calendars.Read** için kapsam **acquireTokenSilent** çağırın. 
+Bir uygulama bağlamında kullanıcının takvimler erişmek için ekleme **Calendars.Read** izin uygulama kayıt bilgileri için temsilci. Ardından, ekleme **Calendars.Read** için kapsam **acquireTokenSilent** çağırın. 
 
 >[!NOTE]
->Kapsam sayısı arttıkça, kullanıcı için ek onayları istenebilir.
+>Kapsamların sayısı arttıkça, kullanıcı için ek bir onayları istenebilir.
 
 <!--end-collapse-->
 

@@ -1,6 +1,6 @@
 ---
-title: Dil anlama (HALUK) API'si hizmeti için Sözlük | Microsoft Docs
-description: Terimler sözlüğü açıklanmaktadır HALUK API hizmetiyle çalışacak şekilde karşılaşabileceğiniz.
+title: Language Understanding (LUIS) API'si hizmeti için terimler sözlüğü | Microsoft Docs
+description: Terimler sözlüğü açıklanmaktadır LUIS API'si hizmeti ile çalışırken karşılaşabileceğiniz.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -9,30 +9,30 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: d1b83432e925e4f6fd439ac78acfde56ad31ba52
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3016d1318d031494057f4a8ce61af37576a7c4f2
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128411"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346816"
 ---
 # <a name="glossary"></a>Sözlük
 
-## <a name="active-version"></a>Etkin sürüm
+## <a name="active-version"></a>Etkin sürümü
 
-Etkin HALUK sürüm model değişiklikleri alan sürümdür. İçinde [HALUK](luis-reference-regions.md) Web sitesi, etkin sürümü olmayan bir sürüm olarak değişiklik yapmak istiyorsanız, önce bu sürüm etkin olarak ayarlamak için ihtiyacınız. 
+Etkin LUIS sürüm model değişiklikleri alan sürümdür. İçinde [LUIS](luis-reference-regions.md) Web sitesi, etkin bir sürüm değil bir sürüm olarak yapmanız gerekiyorsa, önce o sürümü etkin olarak ayarlanacak. 
 
 ## <a name="authoring"></a>Yazma
 
-Yazma yeteneğidir oluşturmak, yönetmek ve dağıtmak bir [HALUK uygulama](#luis-app), her iki kullanarak [HALUK](luis-reference-regions.md) Web sitesi veya [API'lerini geliştirme](https://aka.ms/luis-authoring-api). 
+Yazımı yolunda oluşturma, yönetme ve dağıtma olanağı bir [LUIS uygulaması](#luis-app), ya da [LUIS](luis-reference-regions.md) Web sitesi veya [yazma API'leri](https://aka.ms/luis-authoring-api). 
 
 ## <a name="authoring-key"></a>Anahtar yazma
 
-Daha önce "Programmatic" anahtarı adı. Uygulama yazmak için kullanılır. Üretim düzeyi endpoint sorgular için kullanılmaz. Daha fazla bilgi için bkz: [anahtar sınırları](luis-boundaries.md#key-limits).   
+Daha önce "Programlama" anahtar adı. Uygulama yazmak için kullanılır. Üretim düzeyinde uç nokta sorgular için kullanılmaz. Daha fazla bilgi için [anahtar sınırları](luis-boundaries.md#key-limits).   
 
-## <a name="batch-test-json-file"></a>Toplu iş metin JSON dosyası
+## <a name="batch-test-json-file"></a>Toplu metin JSON dosyası
 
-Toplu iş dosyasını bir JSON dizisidir. Dizideki her öğe üç özelliklere sahiptir: `text`, `intent`, ve `entities`. `entities` Bir dizi bir özelliktir. Dizi boş olabilir. Varsa `entities` dizi boş değil, varlıkları doğru bir şekilde tanımlamak gerekiyor.
+Toplu iş dosyası, bir JSON dizisidir. Dizideki her öğe üç özelliğe sahiptir: `text`, `intent`, ve `entities`. `entities` Bir dizi bir özelliktir. Dizi, boş olabilir. Varsa `entities` varlıkları doğru şekilde belirlemek gereken, dizi, boş değil.
 
 ```JSON
 [
@@ -60,154 +60,154 @@ Toplu iş dosyasını bir JSON dizisidir. Dizideki her öğe üç özelliklere s
 
 ## <a name="collaborator"></a>Ortak çalışanı
 
-Bir ortak çalışanı değil [sahibi](#owner) uygulamasının, ancak ekleme, düzenleme ve silme hedefleri, varlıklar, utterances için aynı izinleri vardır.
+Bir ortak çalışanı değil [sahibi](#owner) uygulamanın, ancak ekleme, düzenleme ve silme amacı, varlıkları, konuşma için aynı izinlere sahip.
 
 ## <a name="currently-editing"></a>Şu anda düzenleme
 
-Aynı [etkin sürüm](#active-version)
+Aynı [etkin sürümü](#active-version)
 
 ## <a name="domain"></a>Etki alanı
 
-HALUK bağlamında bir **etki alanı** bilgi alanıdır. Etki alanınızı bilgi için uygulama alan özeldir. Bu, seyahat aracı uygulaması gibi genel bir alan olabilir. Seyahat aracı uygulama yalnızca bilgi için şirketinizin belirli coğrafi konumlar, diller ve hizmetler gibi alanlarının özgü olabilir. 
+LUIS bağlamında bir **etki alanı** bilgi alanıdır. Etki alanınız, Bilgi Bankası uygulama bölgesine özeldir. Bu, seyahat aracı uygulaması gibi genel bir alan olabilir. Bir seyahat aracı uygulaması belirli alanlara yalnızca belirli coğrafi konumlar, diller ve Hizmetleri gibi şirketinizin bilgi olabilir. 
 
 ## <a name="endpoint"></a>Uç noktası
 
-[HALUK endpoint](https://aka.ms/luis-endpoint-apis) URL'dir sonra HALUK sorguları göndermek nerede [HALUK uygulama](#luis-app) yazılan ve yayımlanan. Uç nokta URL'sini bölge, bir uygulama kimliği yanı sıra yayımlanan uygulama içerir Uç nokta bulabilirsiniz **[Yayımla](publishapp.md)** sayfası, uygulamanızın kaynakları ve anahtarları tablo ya da, uç nokta URL'sini alabilirsiniz [uygulama bilgi al](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+[LUIS uç nokta](https://aka.ms/luis-endpoint-apis) URL'dir sonra LUIS sorguları gönderdiğinizde burada [LUIS uygulaması](#luis-app) yazılan ve yayımlandı. Yayımlanmış uygulama ve bunun yanı sıra uygulama kimliği bölge uç nokta URL'sini içerir Uç nokta bulabilirsiniz **[Yayımla](luis-how-to-publish-app.md)** , kaynaklar ve anahtarları tablo ya da uygulama sayfası, uç nokta URL'sini alabilirsiniz [uygulama bilgi al](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
-Bir örnek uç nokta şuna benzer:
+Örnek uç nokta şu şekilde görünür:
 
 `https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionID>&verbose=true&timezoneOffset=0&q=<utterance>`
 
-|Sorgu dizesi parametresi|açıklama|
+|QueryString parametresi|açıklama|
 |--|--|
 |bölge| [yayımlanan bölge](luis-reference-regions.md#publishing-regions) |
-|AppID | HALUK uygulama kimliği |
-|Subscriptionıd | Azure portalında oluşturulan HALUK uç noktası (abonelik) anahtarı |
+|Uygulama Kimliği | LUIS uygulama kimliği |
+|Subscriptionıd | Azure portalında oluşturulan LUIS (abonelik) uç noktası anahtarı |
 |q | utterance |
 |timezoneOffset| minutes|
 
 ## <a name="entity"></a>Varlık
 
-[Varlıkları](luis-concept-entity-types.md) önemli sözcüklerdir [utterances](luis-concept-utterance.md) ilgili bilgileri açıklamak [hedefi](luis-concept-intent.md), ve bazen için önemli olduğunu. Bir varlık temelde datatype HALUK içinde değil. 
+[Varlıkları](luis-concept-entity-types.md) önemli sözcüklerdir [konuşma](luis-concept-utterance.md) ilgili bilgileri açıklayan [hedefi](luis-concept-intent.md), ve bazen için gerekli olan. Veri türü LUIS, aslında bir varlıktır. 
 
 ## <a name="f-measure"></a>F ölçümü
 
-İçinde [toplu sınama][batch-testing], testin doğruluğu ölçüsü.
+İçinde [toplu test][batch-testing], testin doğruluğu ölçüsü.
 
-## <a name="false-negative"></a>False negatif (TN)
+## <a name="false-negative"></a>Hatalı negatif (TN)
 
-İçinde [toplu sınama][batch-testing], veri noktalarını, uygulamanızı yanlış tahmin hedef amacı/varlık yokluğu utterances temsil eder.
+İçinde [toplu test][batch-testing], konuşma, uygulamanızı yanlış tahmin edilen hedef hedefi/varlık olmaması veri noktalarını temsil eder.
 
-## <a name="false-positive"></a>Yanlış pozitif (TP)
+## <a name="false-positive"></a>Hatalı pozitif sonuç (TP)
 
-İçinde [toplu sınama][batch-testing], veri noktalarını utterances, uygulamanızı yanlış tahmin hedef amacı/varlık varlığını temsil eder.
+İçinde [toplu test][batch-testing], veri noktalarının konuşma, uygulamanızı yanlış tahmin edilen hedef hedefi/varlık varlığını temsil eder.
 
 ## <a name="features"></a>Özellikleri
 
-Machine learning'de bir [özelliği](luis-concept-feature.md) ayırt bir ayırdedici nitelik ya da sisteminizi gözlemleyen veri özniteliği.
+Machine learning'de bir [özellik](luis-concept-feature.md) bir ayırt edici nitelik veya sisteminizin gözlemler veri özniteliği.
 
 ## <a name="intent"></a>Hedefi
 
-Bir [hedefi](luis-concept-intent.md) bir görev ya da kullanıcının istediği gerçekleştirmek için eylem temsil eder. Bir amaç veya hedef bir uçuş kayıt, bir fatura ödeme ya da bir haber makalesi bulma gibi bir kullanıcının giriş ifade değil. HALUK hedefi tahmin tüm utterance temel alır. Varlıklar, karşılaştırma bir utterance parçalarıdır.
+Bir [hedefi](luis-concept-intent.md) bir görev veya eylem gerçekleştirmek isteyen kullanıcı temsil eder. Bir amaç veya hedefin bir uçuştaki kayıt, fatura ödeme veya haber makalesinin bulma gibi bir kullanıcının giriş, ifade olduğundan. LUIS hedefi tahmin tüm utterance üzerinde temel alır. Varlıklar, buna karşılık olarak bir utterance parçalarıdır.
 
 ## <a name="labeling"></a>Etiketleme
 
-Etiketleme olan bir sözcük veya tümcecik amacına 's içinde ilişkilendirme işlemi [utterance](#utterance) ile bir [varlık](#entity) (datatype). 
+Bir sözcük veya tümcecik bir amaç'ın içinde ilişkilendirme işlemi olduğundan etiketleme [utterance](#utterance) ile bir [varlık](#entity) (veri türü). 
 
-## <a name="luis-app"></a>HALUK uygulama
+## <a name="luis-app"></a>LUIS uygulaması
 
-Doğal dil işleme dahil etmek için bir eğitilen veri modeli HALUK uygulamadır [hedefleri](#intent), [varlıklar](#entity)ve etiketli [utterances](#utterance).
+Bir LUIS uygulaması için doğal dil işleme dahil olmak üzere bir eğitilen veri modeli, [hedefleri](#intent), [varlıkları](#entity)ve etiketli [konuşma](#utterance).
 
 ## <a name="owner"></a>Sahibi
 
-Her uygulamanın uygulama oluşturulan kişi olan bir sahip vardır. Sahibi ekleyebilir [ortak](#collaborator).
+Her uygulamanın, uygulamayı oluşturan kişi olan bir sahip vardır. Sahibi ekleyebilir [ortak çalışanlar](#collaborator).
 
-## <a name="pattern"></a>Desenler
-Önceki deseni özelliği ile değiştirilir [desenleri](luis-concept-patterns.md). Modelleri daha az eğitim örnekleri sağlayarak tahmin doğruluğunu artırmak için kullanın. 
+## <a name="pattern"></a>Desenleri
+Önceki deseni özelliği ile değiştirilir [desenleri](luis-concept-patterns.md). Desenler, daha az eğitim örnekleri sağlayarak tahmin doğruluğunu artırmak için kullanın. 
 
-## <a name="phrase-list"></a>Tümcecik listesi
+## <a name="phrase-list"></a>İfade listesi
 
-A [tümcecik listesi](luis-concept-feature.md#what-is-a-phrase-list-feature) değerlerin aynı sınıfa ait olan ve benzer şekilde (örneğin, şehirler veya ürün adlarını) değerlendirilmesi gerekir (kelimeler ve ifadeler) bir grubu kapsar. Birbirinin yerine bir liste eş anlamlıları kabul edilir. 
+A [tümcecik listesi](luis-concept-feature.md#what-is-a-phrase-list-feature) aynı sınıfa ait benzer şekilde (örneğin, şehirler ya da ürün adlarını) işlenmesi gereken değerleri (sözcük ve tümcecikleri) bir grup içerir. Değiştirilebilir bir listesi, eş anlamlı sözcükler kabul edilir. 
 
-## <a name="prebuilt-domains"></a>Önceden oluşturulmuş bir etki alanı
+## <a name="prebuilt-domains"></a>Önceden oluşturulmuş etki alanı
 
-A [önceden oluşturulmuş bir etki alanı](luis-how-to-use-prebuilt-domains.md) ev Otomasyon (HomeAutomation) veya Restoran ayırmaları (RestaurantReservation) gibi belirli bir etki alanı için yapılandırılmış bir HALUK uygulama. Hedefleri, utterances ve varlıkları bu etki alanı için yapılandırılır. 
+A [önceden oluşturulmuş etki alanı](luis-how-to-use-prebuilt-domains.md) ev Otomasyonu (HomeAutomation) ya da Restoran ayırmalar (RestaurantReservation) gibi belirli bir etki alanı için yapılandırılmış bir LUIS uygulaması. Hedefleri, konuşma ve varlıklar, bu etki alanı için yapılandırılır. 
 
 ## <a name="prebuilt-entity"></a>Önceden oluşturulmuş varlık
 
-A [önceden oluşturulmuş varlık](pre-builtentities.md) HALUK genel türleri sayısı, URL ve e-posta gibi bilgileri sağlayan bir varlıktır. Uygulamanıza önceden oluşturulmuş bir varlık eklemek için seçin. 
+A [önceden oluşturulmuş varlık](luis-prebuilt-entities.md) LUIS, genel türleri sayısı, URL ve e-posta gibi bilgileri sağlayan bir varlıktır. Uygulamanız için önceden oluşturulmuş bir varlık eklemek seçin. 
 
-## <a name="precision"></a>Duyarlılık
-İçinde [toplu sınama][batch-testing], duyarlık (pozitif Tahmine dayalı olarak da bilinir) olan alınan utterances arasında ilgili utterances kesir.
+## <a name="precision"></a>Duyarlık
+İçinde [toplu test][batch-testing], duyarlık (pozitif Tahmine dayalı olarak da bilinir) olan alınan konuşma arasında ilgili konuşma bölümü.
 
-## <a name="programmatic-key"></a>Programsal anahtarı
+## <a name="programmatic-key"></a>Programlı anahtarı
 
-İçin yeniden adlandırılmış [anahtar yazma](#authoring-key). 
+Olarak yeniden adlandırıldı [anahtar yazma](#authoring-key). 
 
 ## <a name="publish"></a>Yayımlama
 
-Bir HALUK yapmadan anlamına gelir yayımlama [etkin sürüm](#active-version) hazırlık veya üretim kullanılabilir [endpoint](#endpoint).  
+Bir LUIS yapma anlamına gelir yayımlama [etkin sürüm](#active-version) hazırlama veya üretim kullanılabilir [uç nokta](#endpoint).  
 
 ## <a name="quota"></a>Kota
 
-HALUK kotası ise sınırlandırılmasıdır [Azure aboneliği katmanı](https://aka.ms/luis-price-tier). HALUK kota hem istekleri / saniye (HTTP durum 429) ve toplam istek (HTTP durum 403) aydaki sınırlı olabilir. 
+LUIS kotası ise SORUMLULUĞUN [Azure aboneliği katmanı](https://aka.ms/luis-price-tier). Her iki istek / saniye (HTTP durum 429) ve toplam istek (HTTP durum 403) ayda LUIS kota sınırlı olabilir. 
 
 ## <a name="recall"></a>Geri çağırma
-İçinde [toplu sınama][batch-testing], geri çağırma (duyarlılık da bilinir), genelleştirmek HALUK yeteneği. 
+İçinde [toplu test][batch-testing], geri çağırma (duyarlılık da bilinir), genelleştirmek LUIS olanağıdır. 
 
-## <a name="semantic-dictionary"></a>Anlam sözlük
-Bir anlam sözlük tümcecik listesi sayfası yanı sıra listesi varlık sayfası üzerinde sağlanır. Anlam sözlük geçerli kapsamına göre sözcüklerin öneriler sağlar.
+## <a name="semantic-dictionary"></a>Anlam sözlüğü
+İfade listesi sayfası yanı sıra listesi varlık sayfası üzerinde bir anlam sözlük sağlanır. Anlam sözlük bir kelimelerin geçerli kapsamda önerileri sağlar.
 
-## <a name="sentiment-analysis"></a>Düşünceleri çözümleme
-Düşünceleri analizini sağlar tarafından sağlanan utterances pozitif veya negatif değerleri [metin analizi](https://azure.microsoft.com/services/cognitive-services/text-analytics/). 
+## <a name="sentiment-analysis"></a>Yaklaşım analizi
+Yaklaşım analizi pozitif veya negatif değerleri tarafından sağlanan bir konuşma sağlayan [metin analizi](https://azure.microsoft.com/services/cognitive-services/text-analytics/). 
 
 ## <a name="speech-priming"></a>Konuşma Hazırlama işlemi
 
-Konuşma Hazırlama işlemi, konuşma hizmetinin HALUK modelinizi primed izin verir. Bkz: [konuşma Hazırlama işlemi etkinleştir ](publishapp.md#enable-speech-priming).
+Konuşma Hazırlama işlemi aracılığıyla LUIS modelinize primed, konuşma hizmeti sağlar. Bkz: [konuşma Hazırlama işlemi etkinleştirmek ](luis-how-to-publish-app.md#enable-speech-priming).
 
 ## <a name="spelling-correction"></a>Yazım denetimi
 
-Yayımla sayfasında etkinleştir [Bing yazım denetleyicisi](publishapp.md#enable-bing-spell-checker) tahmin önce utterances yanlış yazılmış sözcüklerin düzeltmek için. 
+Yayımlama sayfasında etkinleştir [Bing yazım denetleyicisi](luis-how-to-publish-app.md#enable-bing-spell-checker) önce tahmin uzunluğu yanlış yazılan sözcükleri düzeltmek için. 
 
 ## <a name="starter-key"></a>Başlangıç anahtarı
 
-Aynı [programlı anahtar](#programmatic-key), yazma anahtarına olarak yeniden adlandırıldı.
+Aynı [programlı anahtarı](#programmatic-key), yazma anahtarı olarak yeniden adlandırıldı.
 
 ## <a name="subscription-key"></a>Abonelik anahtarı
 
-Abonelik anahtarı **endpoint** HALUK hizmetiyle ilişkili anahtar [Azure'da oluşturulan](luis-how-to-azure-subscription.md). Bu anahtar [anahtar yazma](#programmatic-key). Bir uç noktası anahtarı varsa, tüm uç nokta istekler geliştirme anahtar yerine kullanılmalıdır. Geçerli uç nokta anahtarınızı alt kısmındaki uç nokta URL'si içinde gördüğünüz [ **uygulama yayımlama** sayfa](publishapp.md) içinde [HALUK](luis-reference-regions.md) Web sitesi. Bu değeri **abonelik anahtarı** ad/değer çifti. 
+Abonelik anahtarı **uç nokta** LUIS hizmeti ile ilişkilendirilen anahtar [Azure'da oluşturduğunuz](luis-how-to-azure-subscription.md). Bu anahtarı değil [anahtar yazma](#programmatic-key). Bir uç noktası anahtarı varsa, tüm uç nokta istekleri yazma anahtarı yerine kullanılmalıdır. Uç nokta URL'SİNİN sonuna içinde geçerli uç nokta anahtarınızı görebilirsiniz [ **uygulama yayımlama** sayfa](luis-how-to-publish-app.md) içinde [LUIS](luis-reference-regions.md) Web sitesi. Bu değeri **abonelik anahtarı** ad/değer çifti. 
 
-## <a name="test"></a>test etme
+## <a name="test"></a>Test
 
-[Sınama](interactive-test.md#test-your-app) HALUK uygulama sonuçları bir utterance için HALUK geçirme ve JSON görüntüleme anlamına gelir.
+[Test](interactive-test.md#test-your-app) sonuçları bir utterance LUIS için geçirme ve JSON görüntüleme LUIS uygulaması anlamına gelir.
 
 ## <a name="timezoneoffset"></a>Saat dilimi uzaklığı
 
-Uç nokta timezoneOffset içerir. Bu datetimeV2 ekleyip istediğiniz dakika sayısıdır önceden oluşturulmuş varlık. Utterance ise, örneğin, "ne zaman şimdi nedir?", döndürülen datetimeV2 geçerli istemci isteği zamanı. İstemci isteği bir bot veya bot ait kullanıcı ile aynı değil başka bir uygulama geliyorsa bot ve kullanıcı uzaklığı geçirmelisiniz. 
+Uç nokta timezoneOffset içerir. Bu ekleyin veya datetimeV2 kaldırmak istediğiniz dakika sayısıdır önceden oluşturulmuş varlık. Utterance Örneğin, "ne zaman artık sağlıyor?", döndürülen datetimeV2 istemci isteği için geçerli zaman ise. Bir bot veya botunuzun ait kullanıcı ile aynı değil başka bir uygulama, istemci istek geliyorsa, bot ve kullanıcı uzaklığı geçmelidir. 
 
-Bkz: [önceden oluşturulmuş datetimeV2 varlığın saat dilimini değiştir](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
+Bkz: [önceden oluşturulmuş datetimeV2 varlığın saat dilimini değiştirme](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
 ## <a name="token"></a>Belirteç
-Varlık etiketli en küçük birim belirtecidir. Simgeleştirme uygulamanın üzerinde temel [kültür](luis-supported-languages.md#tokenization).
+Bir belirteç varlık etiketli en küçük birimdir. Simgeleştirme uygulamanın üzerinde temel [kültür](luis-supported-languages.md#tokenization).
 
-## <a name="train"></a>Tren
+## <a name="train"></a>Eğitme
 
-Eğitim olan değişiklikler hakkında HALUK eğitme işlemi [etkin sürüm](#active-version) son eğitim itibaren.
+Eğitim olan herhangi bir değişiklik hakkında LUIS eğitiminde işleminin [etkin sürüm](#active-version) son eğitim itibaren.
 
-## <a name="true-negative"></a>Doğru negatif (TN)
+## <a name="true-negative"></a>TRUE negatif (TN)
 
-İçinde [toplu sınama][batch-testing], veri noktalarını, uygulamanızı doğru şekilde tahmin hedef amacı/varlık yokluğu utterances temsil eder.
+İçinde [toplu test][batch-testing], konuşma, uygulamanızın doğru şekilde tahmin edilen hedef hedefi/varlık olmaması veri noktalarını temsil eder.
 
-## <a name="true-positive"></a>Doğru pozitif (TP)
+## <a name="true-positive"></a>Gerçek pozitif sonuç (TP)
 
-İçinde [toplu sınama][batch-testing], veri noktalarını utterances, uygulamanızın doğru şekilde tahmin hedef amacı/varlık varlığını temsil eder.
+İçinde [toplu test][batch-testing], veri noktalarının konuşma, uygulamanızın doğru şekilde tahmin edilen hedef hedefi/varlık varlığını temsil eder.
 
-## <a name="utterance"></a>utterance
+## <a name="utterance"></a>Utterance
 
-Bir utterance "Seattle sonraki Salı defteri 2 bilet" gibi bir doğal dil terimdir. Örnek utterances hedefi eklenir. 
+Bir utterance, "Seattle sonraki Salı kitap 2 bilet" gibi doğal dil bir terimdir. Örnek konuşma ıntent'e eklenir. 
 
 ## <a name="version"></a>Sürüm
 
-Bir HALUK [sürüm](luis-how-to-manage-versions.md) HALUK uygulama kimliği ve yayımlanan uç ile ilişkili bir özel veri model. Her HALUK uygulamanın en az bir sürüme sahip.
+Bir LUIS [sürüm](luis-how-to-manage-versions.md) LUIS uygulama kimliği ve yayımlanan uç noktası ile ilişkili bir özel veri modeli. Her LUIS uygulaması en az bir sürüm var.
 
 [batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

@@ -3,36 +3,41 @@ title: Azure Güvenlik Merkezi'nde Olayları ve Uyarıları Araştırma | Micros
 description: Bu belge Azure Güvenlik Merkezi'ndeki araştırma özelliğini kullanarak güvenlik olaylarını ve uyarılarını araştırmanıza yardımcı olur.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
-ms.openlocfilehash: bab7b64a1635639991d639fb838b7118e234aa5b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.date: 06/29/2018
+ms.author: terrylan
+ms.openlocfilehash: 010c641c247552a8994c9d1c945cd585148fadf9
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776491"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340799"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'nde Olayları ve Uyarıları Araştırma (Önizleme)
 Bu belge Azure Güvenlik Merkezi'ndeki araştırma özelliğini kullanarak güvenlik olaylarını ve uyarılarını araştırmanıza yardımcı olur.
 
 ## <a name="what-is-investigation-in-security-center"></a>Güvenlik Merkezi'ndeki araştırma özelliği nedir?
 Güvenlik Merkezi'ndeki araştırma özelliği olası bir [güvenlik olayını](https://docs.microsoft.com/azure/security-center/security-center-incident) önceliklendirmenizi, kapsamını anlamanızı ve kök nedenini tespit etmenizi sağlar.
- 
+
 Bu özelliğin amacı, araştırmakta olduğunuz olayla ilgili bulunan tüm varlıklar ([güvenlik uyarıları](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), kullanıcılar, bilgisayarlar ve olaylar) arasında bağlantı kurarak araştırma sürecini kolaylaştırmaktır.  Güvenlik Merkezi bunu ilgili verilerle ilgili varlıklar arasında bağlantı kurarak ve bu bağlantıyı nesneler arasında gezinmenize ve ilgili bilgileri görselleştirmenize yardımcı olan bir canlı grafik kullanarak gerçekleştirir.
+
+> [!NOTE]
+> [Özel uyarılar](security-center-custom-alert.md) Güvenlik Merkezi'nin araştırma özelliği desteklenmez.
+>
+>
 
 
 ## <a name="how-investigation-works"></a>Araştırma özelliği nasıl çalışır?
 Araştırma özelliği araştırma panosunun ortasında bulunan bir grafikten oluşur. Graf her zaman belirli bir varlığa odaklanmış durumdadır ve bu varlıkla ilgili olan diğer varlıkları gösterir. Varlık bir güvenlik uyarısı, kullanıcı, bilgisayar veya olay olabilir.
- 
+
 ![Eşleme](./media/security-center-investigation/security-center-investigation-fig1.png)
 
 Kullanıcı grafik üzerindeki öğelere tıklayarak bir varlıktan diğerine geçebilir. Graf seçilen varlığı ve onunla ilgili varlıkları otomatik olarak merkeze alır. Seçimin ardından ilgili olmayan varlıklar grafikten kaldırılabilir.
@@ -43,7 +48,7 @@ Araştırma yolu, kullanıcı farklı varlıklarda gezinirken araştırma bağla
 ![Yol](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Genel bilgiler
-Sekmeler, grafikte yer alan bir varlıkla ilgili ek bilgileri gösterir. **Bilgi** sekmesi varlıkla ilgili farklı bilgi kaynaklarından toplanmış olan genel bilgileri gösterir. 
+Sekmeler, grafikte yer alan bir varlıkla ilgili ek bilgileri gösterir. **Bilgi** sekmesi varlıkla ilgili farklı bilgi kaynaklarından toplanmış olan genel bilgileri gösterir.
 
 ![Genel bilgiler](./media/security-center-investigation/security-center-investigation-fig3.png)
 
@@ -71,7 +76,7 @@ Bir olay yalnızca kullanıcı belirli bir uyarı için **Araştırma başlat** 
 
 ### <a name="timeline"></a>Zaman çizelgesi
 
-Grafta yer verilen verilerin çoğu ve çeşitli sekmeler belirli bir zaman aralığı için geçerlidir. Bu zaman kapsamı, grafiğin sol üst kısmında yer alan zaman kapsamı seçici ile ayarlanır. Araştırmacı zaman kapsamını farklı yöntemlerle belirleyebilir. 
+Grafta yer verilen verilerin çoğu ve çeşitli sekmeler belirli bir zaman aralığı için geçerlidir. Bu zaman kapsamı, grafiğin sol üst kısmında yer alan zaman kapsamı seçici ile ayarlanır. Araştırmacı zaman kapsamını farklı yöntemlerle belirleyebilir.
 
 ![Zaman çizelgesi](./media/security-center-investigation/security-center-investigation-fig7.png)
 
@@ -103,7 +108,7 @@ Araştırmanızı bir güvenlik olayı veya bir uyarıdan başlatabilirsiniz. Be
 
     ![Araştırma panosu](./media/security-center-investigation/security-center-investigation-fig9.png)
 
-Bu noktadan bu olayla ilgili varlıkları araştırabilir ve her biriyle ilgili ayrıntılı araştırma gerçekleştirebilirsiniz. 
+Bu noktadan bu olayla ilgili varlıkları araştırabilir ve her biriyle ilgili ayrıntılı araştırma gerçekleştirebilirsiniz.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Bu belgede Güvenlik Merkezi'ndeki araştırma özelliğini nasıl kullanacağınızı öğrendiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
@@ -111,7 +116,6 @@ Bu belgede Güvenlik Merkezi'ndeki araştırma özelliğini nasıl kullanacağı
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Güvenlik Merkezi’nde uyarıları yönetme ve güvenlik olaylarına yanıt vermeyi öğrenin.
 * [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md). Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Farklı güvenlik uyarısı türleri hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi Sorun Giderme Kılavuzu](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Güvenlik Merkezi’nde sık karşılaşılan sorunları gidermeyi öğrenin. 
+* [Azure Güvenlik Merkezi Sorun Giderme Kılavuzu](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Güvenlik Merkezi’nde sık karşılaşılan sorunları gidermeyi öğrenin.
 * [Azure Güvenlik Merkezi SSS](security-center-faq.md). Hizmet kullanımı ile ilgili sık sorulan soruları bulun.
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/). Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun.
-

@@ -1,6 +1,6 @@
 ---
-title: Teklileri dayanıklı işlev - Azure
-description: Teklileri dayanıklı Functons uzantısı'nda Azure işlevlerinin için nasıl kullanılacağı.
+title: Dayanıklı işlevler - Azure için teklileri
+description: Teklileri dayanıklı Functons uzantısı'nda Azure işlevleri için kullanma
 services: functions
 author: cgillum
 manager: cfowler
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ea8b5db946d6b35ea4583d9170ec36e5f95e16cd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 71c0cebf676d29308fe9f4942350ae96d3bedcf6
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29972560"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340840"
 ---
-# <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton orchestrators dayanıklı işlevlerinde (Azure işlevleri)
+# <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) içindeki tekil düzenleyicileri
 
-Arka plan işleri veya aktör stili düzenlemelerin, genellikle yalnızca bir örneğini sağlamak zorunda için belirli bir orchestrator aynı anda çalıştırılır. Bu yapılabilir [dayanıklı işlevleri](durable-functions-overview.md) belirli bir atayarak kimliği için bir orchestrator onu oluştururken örneği.
+Arka plan işleri ya da aktör stili düzenlemeler, genellikle yalnızca bir örneğini sağlamak gereken belirli bir orchestrator aynı anda çalışır. Bu yapılabilir [dayanıklı işlevler](durable-functions-overview.md) belirli bir atayarak kimliği bir orchestrator için onu oluştururken örneği.
 
 ## <a name="singleton-example"></a>Tek örnek
 
-Aşağıdaki C# örnek bir singleton arka plan işi orchestration oluşturan bir HTTP tetikleyicisi işlevi gösterir. Bu yalnızca bir örneğini belirtilen örneği için bir kimlik var. kodu sağlar
+Aşağıdaki C# örneği, bir singleton arka plan iş düzenleme oluşturan bir HTTP tetikleyici işlevi gösterir. Bu yalnızca bir örneği belirtilen örnek kimliği için mevcut kodu sağlar.
 
 ```cs
 [FunctionName("HttpStartSingle")]
@@ -58,11 +58,14 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-Varsayılan olarak, GUID rastgele ID'lerini örneği oluşturulur. Ancak bu durumda, örnek kimliği rota verileri URL'den geçirilir. Kod çağrıları [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) belirtilen Kimliğe sahip bir örneği zaten çalışıp çalışmadığını denetlemek için. Aksi takdirde, bu kimliğe sahip bir örneğinin oluşturulduğu
+Varsayılan olarak, GUID rastgele Kimlikleridir örneği oluşturulur. Ancak bu durumda, örnek kimliği rota verileri URL'den geçirilir. Kod çağrıları [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) belirtilen Kimliğe sahip bir örneği zaten çalışıp çalışmadığını denetlemek için. Aksi takdirde, bu kimliğe sahip bir örneği oluşturulur
 
-Orchestrator işlevi uygulama ayrıntılarını gerçekten önemli değildir. Başlatır ve tamamlandığında normal orchestrator işlev olabilir ya da devamlı çalıştıran biri olabilir (diğer bir deyişle, bir [Eternal Orchestration](durable-functions-eternal-orchestrations.md)). En önemli nokta yalnızca hiç bir örneğinin aynı anda çalışıyor olmasıdır.
+> [!NOTE]
+> Bu örnekte, olası bir yarış durumu yoktur. İki örneğini **HttpStartSingle** iki farklı oluşturulabilir tekli olan diğer üzerine yazar örnekleri aynı anda yürütme sonucu. Gereksinimlerinize bağlı olarak, bu istenmeyen yan etkileri olabilir. Bu nedenle, hiçbir iki isteği Bu tetikleyici işlevi eşzamanlı olarak yürütebilir sağlamak önemlidir.
+
+Uygulama ayrıntılarını orchestrator işlevi gerçekten önemli değil. Başlatan ve tamamlanan bir normal orchestrator işlevi olabilir veya sürekli çalışan bir olabilir (diğer bir deyişle, bir [dış düzenleme](durable-functions-eternal-orchestrations.md)). Aynı anda çalışan yalnızca bir örneğine olan önemli noktasıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Alt düzenlemelerin çağrı öğrenin](durable-functions-sub-orchestrations.md)
+> [Alt düzenlemeleri çağırma hakkında bilgi edinin](durable-functions-sub-orchestrations.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure diskleri AKS ile kullanma
-description: Azure diskleri AKS ile kullanma
+title: AKS ile Azure disklerini kullanma
+description: AKS ile Azure disklerini kullanma
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cfad5ebd1212df03cee86b71340d8a73c2594f57
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8aea56017d38b57d36f5f1d42e2d4e9ed1d809e5
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096102"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346102"
 ---
-# <a name="volumes-with-azure-disks"></a>Azure diskleri birimlerle
+# <a name="volumes-with-azure-disks"></a>Azure diskleri ile birimleri
 
-Kapsayıcı tabanlı uygulamalara erişmek ve bir dış veri birimdeki veriler kalıcı hale getirmek çoğunlukla gerekir. Azure diskleri bu dış veri deposu olarak kullanılabilir. Bir Azure Kubernetes hizmet (AKS) kümesindeki Kubernetes birimi olarak Azure bir diski kullanarak bu makale ayrıntıları.
+Kapsayıcı tabanlı uygulamalar genellikle erişmek ve bir dış veri birimdeki veriler kalıcı hale getirmek gerekir. Azure diskleri bu dış veri deposu olarak kullanılabilir. Bu makalede Azure Kubernetes Service (AKS) kümesi içinde bir Kubernetes birimi olarak bir Azure diskinin kullanarak ayrıntıları verilmektedir.
 
-Kubernetes birimleri hakkında daha fazla bilgi için bkz: [Kubernetes birimleri][kubernetes-volumes].
+Kubernetes birimleri hakkında daha fazla bilgi için bkz. [Kubernetes birimleri][kubernetes-volumes].
 
-## <a name="create-an-azure-disk"></a>Azure diski oluşturun
+## <a name="create-an-azure-disk"></a>Bir Azure diskinin oluşturma
 
-Azure tarafından yönetilen bir disk Kubernetes toplu olarak takma önce disk AKS bulunmalıdır **düğümü** kaynak grubu. Kaynak grubu adı ile alma [az kaynak Göster] [ az-resource-show] komutu.
+Kubernetes birimi olarak Azure tarafından yönetilen bir disk bağlamadan önce disk AKS bulunmalıdır **düğüm** kaynak grubu. Kaynak grubu adını alın [az resource show] [ az-resource-show] komutu.
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
@@ -32,9 +32,9 @@ $ az resource show --resource-group myResourceGroup --name myAKSCluster --resour
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Kullanım [az disketi] [ az-disk-create] Azure diski oluşturmak için komutu.
+Kullanım [az disk oluşturma] [ az-disk-create] Azure disk oluşturmak için komutu.
 
-Güncelleştirme `--resource-group` kaynak grubu adı ile toplanan son adımda ve `--name` için tercih ettiğiniz bir ad.
+Güncelleştirme `--resource-group` toplanan son adımda, kaynak grubu adını ve `--name` tercih ettiğiniz bir adı.
 
 ```azurecli-interactive
 az disk create \
@@ -44,17 +44,19 @@ az disk create \
   --query id --output tsv
 ```
 
-Disk oluşturulduktan sonra aşağıdakine benzer bir çıktı görmeniz gerekir. Bu değer diski takma kullanıldığında disk kimliğidir.
+Disk oluşturulduktan sonra aşağıdakine benzer bir çıktı görmeniz gerekir. Disk takılamadı sırasında kullanılan disk kimliği değerdir.
 
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
+> [!NOTE]
+> Azure yönetilen diskler için belirli bir boyut SKU tarafından faturalandırılır. Bu SKU'ları 32GiB S4 veya P4 diskleri ile arasındadır 4TiB S50 veya P50 disk için. Ayrıca, aktarım hızı ve IOPS performansı bir Premium yönetilen disk bağlıdır AKS kümesindeki düğümlere örnek boyutu ve SKU. Bkz: [fiyatlandırma ve yönetilen diskler performansını][managed-disk-pricing-performance].
 
 ## <a name="mount-disk-as-volume"></a>Disk birimi olarak bağlama
 
-Azure diski birim kapsayıcı spec yapılandırarak, pod bağlayın.
+Azure disk birimi kapsayıcı spec yapılandırarak pod bağlayın.
 
-Adlı yeni bir dosya oluşturun `azure-disk-pod.yaml` aşağıdaki içeriğe sahip. Güncelleştirme `diskName` yeni oluşturulan disk adını ve `diskURI` disk kimliğiyle Ayrıca, not edin `mountPath`, Azure diskin pod bağlı yolun olduğu.
+Adlı yeni bir dosya oluşturun `azure-disk-pod.yaml` aşağıdaki içeriğe sahip. Güncelleştirme `diskName` yeni oluşturulan disk adı ile ve `diskURI` disk kimliğiyle Ayrıca, Not `mountPath`, burada Azure disk bağlı pod yolu olduğu.
 
 ```yaml
 apiVersion: v1
@@ -82,7 +84,7 @@ Kubectl pod oluşturmak için kullanın.
 kubectl apply -f azure-disk-pod.yaml
 ```
 
-Artık takılı olduğu bir Azure diski ile çalışan bir pod sahip `/mnt/azure`.
+Artık takılı olduğu bir Azure diskinin ile çalışan bir pod sahip `/mnt/azure`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -94,6 +96,7 @@ Azure diskleri kullanarak Kubernetes birimleri hakkında daha fazla bilgi edinin
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
 [az-disk-list]: /cli/azure/disk#az_disk_list

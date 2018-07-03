@@ -1,21 +1,21 @@
 ---
-title: Azure Site RECOVERY'yi kullanarak korumadan diskleri Dışla | Microsoft Docs
+title: Diskleri Azure Site Recovery ile korumanın dışında tutma | Microsoft Docs
 description: VMware’den Azure’a VM disklerinin çoğaltma işleminden nasıl ve neden hariç tutulacağı açıklanmaktadır.
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/01/2018
 ms.author: nisoneji
-ms.openlocfilehash: 59c8d38d94604a9950693d6bb73b6263f9cdb23b
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 6a0b8891e25a764ecd0430696e155b2bd8e06e13
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285099"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342615"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>VMware’den Azure’a geçi senaryolarında diskleri çoğaltmanın dışında tutma
 
-Bu makalede, VMware Vm'lerini Azure'a çoğaltırken diskleri Dışla açıklar. Bu dışında tutma, kullanılan çoğaltma bant genişliğini iyileştirebilir veya bu gibi disklerin kullandığı hedef tarafı kaynakları iyileştirebilir. Diskleri Hyper-V için hariç hakkında bilgi gerekiyorsa, okuma [bu makalede](hyper-v-exclude-disk.md)
+Bu makalede, VMware Vm'lerini Azure'a çoğaltırken diskleri dışarıda açıklar. Bu dışında tutma, kullanılan çoğaltma bant genişliğini iyileştirebilir veya bu gibi disklerin kullandığı hedef tarafı kaynakları iyileştirebilir. Hyper-V için diskleri hariç hakkında bilgiye ihtiyacınız varsa, okuma [bu makalede](hyper-v-exclude-disk.md)
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -50,7 +50,7 @@ Azure Site Recovery portalından bir sanal makineyi korumak için [Çoğaltmayı
 
 >[!NOTE]
 >
-> * Yalnızca Mobility hizmetinin zaten yüklü olduğu diskleri dışarıda tutabilirsiniz. Mobility hizmeti yalnızca, çoğaltma etkinleştirildikten sonra gönderim mekanizması kullanılarak yüklendiğinden Mobility hizmetini elle yüklemeniz gerekir.
+> * Yalnızca Mobility hizmeti zaten yüklü vm'lerde diskleri dışarıda tutabilirsiniz. Mobility hizmeti, ancak çoğaltma etkinleştirildikten sonra gönderim mekanizması kullanılarak yüklendiğinden Mobility hizmetini elle yüklemeniz gerekir.
 > * Yalnızca temel diskler çoğaltma dışı bırakılabilir. İşletim sistemi veya dinamik diskler dışarıda tutulamaz.
 > * Çoğaltmayı etkinleştirdikten sonra, diskleri çoğaltma ekleyemez veya kaldıramazsınız. Disk eklemek veya dışarıda tutmak istiyorsanız, makinenin korumasını devre dışı bırakmanız ve ardından yeniden etkinleştirmeniz gerekir.
 > * Bir uygulamanın çalışması için gerekli olan bir diski hariç tutarsanız, Azure'a yük devretme gerçekleştirildikten sonra, çoğaltılan uygulamanın çalışabilmesi için diski Azure'da el ile oluşturmanız gerekir. Alternatif olarak, makinenin yük devri esnasında diski oluşturmak için Azure otomasyonunu bir kurtarma planıyla tümleştirebilirsiniz.

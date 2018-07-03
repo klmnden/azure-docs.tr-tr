@@ -1,6 +1,6 @@
 ---
-title: HALUK uygulamalarınızı planlama | Microsoft Docs
-description: İlgili uygulamayı hedefleri ve varlıkları anahat ve ardından uygulama planlarınızı dil anlama akıllı Hizmetleri (HALUK içinde) oluşturun.
+title: LUIS uygulamalarınızı planlama | Microsoft Docs
+description: İlgili uygulamayı amaç ve varlıkları anahat ve uygulama planlarınızı Language Understanding Intelligent Services (LUIS içinde) oluşturun.
 services: cognitive-services
 author: DeniseMak
 manager: hsalama
@@ -9,86 +9,86 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 7aec5d5b90ac7145ce9f337ec74c590b4b88c6b1
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c67a2c16077c9033b52a909360b21cb7f88a5a9d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266371"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344997"
 ---
-# <a name="plan-your-luis-app"></a>HALUK uygulamanızı planlama
+# <a name="plan-your-luis-app"></a>LUIS uygulamanızı planlama
 
-İçinde HALUK oluşturmaya başlamadan önce uygulamanızın planlama önemlidir. Anahat veya olası amaçları ve uygulamanızın etki alanına özgü konusunda ilgili varlıklar şeması hazırlayın.  
+LUIS oluşturmaya başlamadan önce uygulamanızı planlama önemlidir. Anahat veya olası hedefleri ve uygulamanızın etki alanına özel konuya ilgili varlıkların şema hazırlayın.  
 
 ## <a name="identify-your-domain"></a>Etki alanınızı tanımlayın
-HALUK uygulama bir etki alanına özgü konu ortalanır.  Örneğin, kayıt biletleri, uçuşlar, Oteller ve kiralık araba gerçekleştiren bir seyahat uygulama olabilir. Başka bir uygulama kullanan, uygunluk çaba izleme ve hedeflerini ayarlama ile ilgili içerik sağlayabilir. 
+Bir LUIS uygulaması bir etki alanına özgü konu ortalanır.  Örneğin, kayıt biletleri, uçuşlar, Oteller ve kiralama otomobiller gerçekleştiren bir seyahat uygulaması olabilir. Başka bir uygulama, uygulama, uygunluk çalışmalarını izlemeyi ve hedeflerini ayarlama ilgili içerik sağlayabilir. 
 
 > [!TIP]
-> HALUK sunar [önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md) birçok yaygın senaryolar için.
-> Önceden oluşturulmuş bir etki alanına bir başlangıç noktası olarak uygulamanız için kullanabileceğiniz olmadığını denetleyin.
+> LUIS sunar [önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md) birçok yaygın senaryo için.
+> Önceden oluşturulmuş bir etki alanı bir başlangıç noktası olarak uygulamanız için kullanıp kullanamayacağını denetleyin.
 
 ## <a name="identify-your-intents"></a>Hedefleri tanımlayın
-Düşünün [hedefleri](luis-concept-intent.md) uygulamanızın görev için önemli olan. Bir seyahat uygulamayla bir uçuş kitap ve kullanıcının hedefte hava durumu denetlemek için işlevleri örneği atalım. Bu eylemler için "BookFlight" ve "GetWeather" hedefleri tanımlayabilirsiniz. Daha fazla işlevlere sahip daha karmaşık bir uygulama, daha fazla amacı vardır ve bunları dikkatle çok belirli olmaması amacıyla tanımlamanız gerekir. Örneğin, "BookFlight" ve "BookHotel" ayrı hedefleri olması gerekebilir, ancak "BookInternationalFlight" ve "BookDomesticFlight" çok benzer olabilir.
+Düşünün [hedefleri](luis-concept-intent.md) uygulamanızın görev için önemli. Bir kitap ve kullanıcının hedefteki hava durumunu denetlemek için işlevleri ile bir seyahat uygulaması örneği ele alalım. Bu eylemler için "BookFlight" ve "GetWeather" ıntents tanımlayabilirsiniz. Daha karmaşık bir daha fazla işlev uygulaması, daha fazla amacı sahiptir ve bunları özenle çok belirli olmaması için tanımlamanız gerekir. Örneğin, "BookFlight" ve "BookHotel" ayrı ıntents olması gerekebilir, ancak "BookInternationalFlight" ve "BookDomesticFlight" çok benzer olabilir.
 
 > [!NOTE]
-> Yalnızca en iyi uygulamadır, uygulamanızın işlevleri gerçekleştirmek gerektiği kadar amaçlar. Çok fazla hedefleri tanımlarsanız, utterances doğru sınıflandırmak HALUK için daha zor olur. Çok tanımlarsanız birkaç, bunlar olabilir üst üste seçeceğine şekilde genel.
+> Yalnızca kullanmak için en iyi bir uygulamadır uygulamanızın işlevleri gerçekleştirmek gerektiği kadar amacı. Çok fazla ıntents tanımlarsanız, konuşma doğru sınıflandırmak LUIS için daha zor hale gelir. Çok tanımlarsanız birkaç, bunlar olabilir çakıştığı için farklı şekilde genel.
 
 
 ## <a name="identify-your-entities"></a>Varlıklarınızı tanımlayın
-Bir uçuş kitap için hedef, tarih, hava yolu, bilet kategori gibi bazı bilgiler gerekir ve sınıf seyahat. Bunlar olarak ekleyebileceğiniz [varlıklar](luis-concept-entity-types.md) amacına işlemi gerçekleştirmek için önemli olduğundan. 
+Bir kitap için hedef, tarih, havayolu, bilet kategorisi gibi bazı bilgiler gerekiyor ve seyahat sınıfı. Bu dosyaların ekleyebilirsiniz [varlıkları](luis-concept-entity-types.md) bir işlemi gerçekleştirmek için önemli olduğundan. 
 
-Uygulamanızda kullanmak için hangi varlıkların karar verirken, farklı türdeki nesneler arasındaki ilişkileri yakalamak için varlık türlerini olduğunu aklınızda bulundurun. [HALUK varlıklarda](luis-concept-entity-types.md) farklı türleri hakkında daha fazla ayrıntı sağlar.
+Uygulamanızda kullanmak için hangi varlıkları belirlerken, farklı nesne türleri arasındaki ilişkileri yakalamak için varlıkların olduğunu aklınızda bulundurun. [LUIS varlıklarda](luis-concept-entity-types.md) farklı türleri hakkında daha fazla ayrıntı sağlar.
 
 ### <a name="simple-entity"></a>Basit varlık
 Bir varlığın tek bir kavramı açıklanmaktadır.
 
-![Basit varlık](./media/luis-plan-your-app/simple-entity.png)
+![varlığın](./media/luis-plan-your-app/simple-entity.png)
 
-Bkz: [veri ayıklama](luis-concept-data-extraction.md#simple-entity-data) Basit varlık JSON sorgu yanıtı uç noktasından ayıklanıyor hakkında daha fazla bilgi edinmek için. Basit varlık deneyin [Hızlı Başlangıç](luis-quickstart-primary-and-secondary-data.md) basit bir varlık kullanma hakkında daha fazla bilgi için.
+Bkz: [veri ayıklama](luis-concept-data-extraction.md#simple-entity-data) JSON sorgu yanıtı uç noktasından Basit varlık ayıklama hakkında daha fazla bilgi edinmek için. Varlığın deneyin [hızlı](luis-quickstart-primary-and-secondary-data.md) tek bir varlığın kullanma hakkında daha fazla bilgi için.
 
 ### <a name="hierarchical-entity"></a>Hiyerarşik varlık
-Hiyerarşik bir varlık özel türünde bir **basit** varlık; üst-alt ilişkisi formunda bir kategori ve üyeleri tanımlama.
+Özel bir tür hiyerarşik bir varlıktır bir **basit** varlık; üst-alt ilişkisi biçiminde bir kategori ve üyelerini tanımlama.
 
 ![hiyerarşik varlık](./media/luis-plan-your-app/hierarchical-entity.png)
 
-Bkz: [veri ayıklama](luis-concept-data-extraction.md#hierarchical-entity-data) hiyerarşik varlık JSON sorgu yanıtı uç noktasından ayıklanıyor hakkında daha fazla bilgi edinmek için. Hiyerarşik varlık deneyin [Hızlı Başlangıç](luis-quickstart-intent-and-hier-entity.md) hiyerarşik bir varlık kullanma hakkında daha fazla bilgi için.
+Bkz: [veri ayıklama](luis-concept-data-extraction.md#hierarchical-entity-data) JSON sorgu yanıtı uç noktasından hiyerarşik varlık ayıklama hakkında daha fazla bilgi edinmek için. Hiyerarşik varlık deneyin [hızlı](luis-quickstart-intent-and-hier-entity.md) hiyerarşik bir varlık kullanma hakkında daha fazla bilgi için.
 
 ### <a name="composite-entity"></a>Bileşik varlık
-Bileşik bir varlık, bir bütün bölümlerini form ait diğer varlıkların yapılır. 
+Bileşik bir varlık, bir bütün bölümleri form ait diğer varlıkların yapılır. 
 
 ![Bileşik varlık](./media/luis-plan-your-app/composite-entity.png)
 
-Bkz: [veri ayıklama](luis-concept-data-extraction.md#composite-entity-data) Bileşik varlık JSON sorgu yanıtı uç noktasından ayıklanıyor hakkında daha fazla bilgi edinmek için. Bileşik varlık deneyin [öğretici](luis-tutorial-composite-entity.md) Bileşik varlık kullanma hakkında daha fazla bilgi için.
+Bkz: [veri ayıklama](luis-concept-data-extraction.md#composite-entity-data) JSON sorgu yanıtı uç noktasından Bileşik varlık ayıklama hakkında daha fazla bilgi edinmek için. Bileşik varlık deneyin [öğretici](luis-tutorial-composite-entity.md) bileşik bir varlık kullanma hakkında daha fazla bilgi için.
 
 ### <a name="prebuilt-entity"></a>Önceden oluşturulmuş varlık
-HALUK sağlar [önceden oluşturulmuş varlıklar](Pre-builtEntities.md) karşılaşılan ister için `Number`, anahtarların bir bilet sırayla sayısı için kullanabilirsiniz.
+LUIS sağlar [önceden oluşturulmuş varlıklarla](luis-prebuilt-entities.md) ister genel türleri için `Number`, anahtarların bir bilet sırada sayısı için kullanabilirsiniz.
 
 ![Sayı önceden oluşturulmuş varlık](./media/luis-plan-your-app/number-entity.png)
 
-Bkz: [veri ayıklama](luis-concept-data-extraction.md#prebuilt-entity-data) normal ifade varlıkları JSON sorgu yanıtı uç noktasından ayıklanıyor hakkında daha fazla bilgi edinmek için. 
+Bkz: [veri ayıklama](luis-concept-data-extraction.md#prebuilt-entity-data) normal ifade varlıkları JSON sorgu yanıtı uç noktasından ayıklama hakkında daha fazla bilgi edinmek için. 
 
-### <a name="list-entity"></a>Liste varlık 
-Açıkça belirtilmiş bir değer listesi bir liste varlıktır. Her değer bir veya daha fazla anlamlıları oluşur. Seyahat uygulamada havaalanı adlarını göstermek için bir liste varlık oluşturmak isteyebilirsiniz.
+### <a name="list-entity"></a>Liste varlığı 
+Açıkça belirtilen bir liste değerlerinin bir listesini varlıktır. Her değer bir veya birden çok eş anlamlılar oluşur. Bir seyahat uygulamasında havaalanı adları göstermek için bir liste varlığı seçebilirsiniz.
 
-![Liste varlık](./media/luis-plan-your-app/list-entity.png)
+![Liste varlığı](./media/luis-plan-your-app/list-entity.png)
 
-Bkz: [veri ayıklama](luis-concept-data-extraction.md#list-entity-data) listesi varlıklar JSON sorgu yanıtı uç noktasından ayıklanıyor hakkında daha fazla bilgi edinmek için. Deneyin [Hızlı Başlangıç](luis-quickstart-intent-and-list-entity.md) listesi varlığı kullanma hakkında daha fazla bilgi için.
+Bkz: [veri ayıklama](luis-concept-data-extraction.md#list-entity-data) JSON sorgu yanıtı uç noktasından listesi varlık ayıklama hakkında daha fazla bilgi edinmek için. Deneyin [hızlı](luis-quickstart-intent-and-list-entity.md) liste varlığı kullanma hakkında daha fazla bilgi için.
 
 ### <a name="regular-expression-entity"></a>Normal ifade varlık
-Bir normal ifade varlık bir regex ifadesi temelinde utterance veri ayıklamak HALUK sağlar.
+Bir normal ifade varlık, bir normal ifade ifadeye göre bir utterance verileri ayıklamak LUIS sağlar.
 
 ![Normal ifade varlık](./media/luis-plan-your-app/regex-entity.png)
 
-Bkz: [veri ayıklama](luis-concept-data-extraction.md#regular-expression-entity-data) normal ifade varlıkları JSON sorgu yanıtı uç noktasından ayıklanıyor hakkında daha fazla bilgi edinmek için. Deneyin [Hızlı Başlangıç](luis-quickstart-intents-regex-entity.md) bir normal ifade varlık kullanma hakkında daha fazla bilgi için.
+Bkz: [veri ayıklama](luis-concept-data-extraction.md#regular-expression-entity-data) normal ifade varlıkları JSON sorgu yanıtı uç noktasından ayıklama hakkında daha fazla bilgi edinmek için. Deneyin [hızlı](luis-quickstart-intents-regex-entity.md) bir normal ifade varlık kullanma hakkında daha fazla bilgi için.
 
-## <a name="after-getting-endpoint-utterances"></a>Uç nokta utterances aldıktan sonra
-Tahmin geliştirmelerle uygulamak uç nokta utterances uygulamanızı aldıktan sonra planlama [etkin öğrenme](label-suggested-utterances.md), [tümceyi listeleri](luis-concept-feature.md), ve [desenleri](luis-concept-patterns.md). 
+## <a name="after-getting-endpoint-utterances"></a>Konuşma uç noktası aldıktan sonra
+Tahmin geliştirmelerle uygulamak uygulamanızı konuşma uç noktası aldıktan sonra plan [etkin olarak öğrenmeye](label-suggested-utterances.md), [tümcecik listeleri](luis-concept-feature.md), ve [desenleri](luis-concept-patterns.md). 
 
 ### <a name="patternany-entity"></a>Pattern.Any varlık
-Patterns.Any bir yer tutucudur yalnızca kullanılan değişken uzunlukta bir [deseninin](luis-concept-patterns.md) burada varlık başlar ve biter işaretlemek için şablon utterance. Şablon utterances uygun [uygun sözdizimi](luis-concept-patterns.md#pattern-syntax) varlıkları ve yoksayılabilir metin tanımlamak için.
+Patterns.Any bir yer tutucudur kullanılan yalnızca değişken uzunluklu bir [deseninin](luis-concept-patterns.md) varlık burada başlar ve biter işaretlemek için şablon utterance. Şablon konuşma uygun [doğru sözdizimi](luis-concept-patterns.md#pattern-syntax) varlıkları ve Ignorable metin tanımlamak için.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bkz: [ilk dil anlama akıllı Hizmetleri (HALUK) uygulamanızı oluşturma] [ luis-get-started-create-app] HALUK uygulama oluşturmak nasıl hızlı bir kılavuz için.
+* Bkz: [Language Understanding Intelligent Services (LUIS) ilk uygulamanızı oluşturma] [ luis-get-started-create-app] LUIS uygulaması oluşturma Hızlı Kılavuz.
 
 [luis-get-started-create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app

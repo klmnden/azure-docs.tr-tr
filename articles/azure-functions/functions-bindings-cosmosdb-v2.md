@@ -1,13 +1,13 @@
 ---
-title: İşlevler için Azure Cosmos DB bağlamaları 2.x (Önizleme)
-description: Azure Cosmos DB Tetikleyicileri ve bağlamaları Azure işlevlerinde nasıl kullanılacağını anlayın.
+title: İşlevleri için Azure Cosmos DB bağlamaları 2.x (Önizleme)
+description: Azure Cosmos DB Tetikleyicileri ve bağlamaları Azure işlevleri'nde nasıl kullanılacağını anlayın.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
-keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem sunucusuz mimarisi
+keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz mimari
 ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: e40ba6bcfa1b6247f62849626d4a7803a76362a1
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 7fab0b5b6bd2093b3a1113a509243e4ba49c30b8
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234878"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342394"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 2.x (Önizleme)
 
@@ -28,36 +28,36 @@ ms.locfileid: "35234878"
 > * [Sürüm 1 - Genel Kullanım](functions-bindings-cosmosdb.md)
 > * [Sürüm 2 - Önizleme](functions-bindings-cosmosdb-v2.md)
 
-Bu makale ile nasıl çalışılacağını açıklar [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) Azure işlevlerinde bağlamaları 2.x. Tetiklemek, giriş ve Azure Cosmos DB bağlantılarında çıktı Azure işlevleri destekler.
+Bu makalede ile nasıl çalışılacağı açıklanmaktadır [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) Azure işlevleri'nde bağlamaları 2.x. Tetiklemek, giriş ve çıktı bağlaması Azure Cosmos DB için Azure işlevleri destekler.
 
 > [!NOTE]
-> Bu makalede içindir [Azure işlevleri sürüm 2.x](functions-versions.md), Önizleme'de olduğu.  Bu bağlamaların işlevlerde kullanma hakkında bilgi için 1.x, bkz: [Azure işlevleri için Azure Cosmos DB bağlamaları 1.x](functions-bindings-cosmosdb.md).
+> Bu makalede içindir [Azure işlevleri sürüm 2.x](functions-versions.md), Önizleme aşamasında olduğu.  Bu bağlamaları işlevlerini kullanma hakkında daha fazla bilgi için 1.x bkz [Azure işlevleri için Azure Cosmos DB bağlamaları 1.x](functions-bindings-cosmosdb.md).
 >
-> Bu bağlama DocumentDB ilk olarak adlandırılıyordu. İşlevler sürümünde 2.x, tetikleyici, bağlamaları ve paketin tüm Cosmos DB adlandırılır.
+> Bu bağlama başlangıçta DocumentDB olarak adlandırılıyordu. İşlevleri sürüm 2.x, tetikleyici, bağlamalar ve paket tüm Cosmos DB adlandırılır.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="packages---functions-2x"></a>Paketler - 2.x işlevleri
 
-Azure Cosmos DB bağlamaları için işlevleri sürüm 2.x içinde verilmiştir [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) NuGet paketi, sürüm 3.x. Kaynak kodu bağlamaları için konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) GitHub depo.
+Azure Cosmos DB bağlamaları için işlevleri sürüm 2.x altında sağlanmıştır [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) NuGet paketi sürüm 3.x. Bağlamaları için kaynak kodu konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) GitHub deposu.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>Tetikleyici
 
-Azure Cosmos DB tetikleyici kullanır [Azure Cosmos DB Değiştir Akış](../cosmos-db/change-feed.md) eklemeleri için dinlenecek ve bölümler üzerinden yapılan güncelleştirmeler. Değişiklik akış ekler ve güncelleştirmeler, değil silme yayımlar.
+Azure Cosmos DB tetikleyicisi kullanan [Azure Cosmos DB değişiklik akışı](../cosmos-db/change-feed.md) ekler dinlemek ve bölümler arasında güncelleştirmeler. Değişiklik akışı, ekler ve güncelleştirme, silme değil yayımlar.
 
 ## <a name="trigger---example"></a>Tetikleyici - örnek
 
 Dile özgü örneğe bakın:
 
 * [C#](#trigger---c-example)
-* [C# betik (.csx)](#trigger---c-script-example)
+* [C# betiği (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 [Tetikleyici örnekler atla](#trigger---attributes)
 
-### <a name="trigger---c-example"></a>Tetikleyici - C# örnek
+### <a name="trigger---c-example"></a>Tetikleyici - C# örneği
 
 Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) ekler veya güncelleştirir belirtilen veritabanı ve koleksiyonu olduğunda çağrılır.
 
@@ -92,9 +92,9 @@ namespace CosmosDBSamplesV2
 
 [Tetikleyici örnekler atla](#trigger---attributes)
 
-### <a name="trigger---c-script-example"></a>Tetikleyici - C# kod örneği
+### <a name="trigger---c-script-example"></a>Tetikleyici - C# betiği örneği
 
-Aşağıdaki örnek, bağlama Cosmos DB tetikleyici gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. Cosmos DB kayıtları değiştirildiğinde işlevi günlük iletisi yazar.
+Aşağıdaki örnek, bağlama bir Cosmos DB tetikleyicisi gösterir. bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanan. Cosmos DB kayıt değiştirildiğinde işlevi günlük iletisi yazar.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -111,7 +111,7 @@ Veri bağlama işte *function.json* dosyası:
 }
 ```
 
-C# betik kod aşağıdaki gibidir:
+C# betik kodunu şu şekildedir:
  
 ```cs 
     #r "Microsoft.Azure.Documents.Client"
@@ -132,7 +132,7 @@ C# betik kod aşağıdaki gibidir:
 
 ### <a name="trigger---javascript-example"></a>Tetikleyici - JavaScript örneği
 
-Aşağıdaki örnek, bağlama Cosmos DB tetikleyici gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. Cosmos DB kayıtları değiştirildiğinde işlevi günlük iletisi yazar.
+Aşağıdaki örnek, bağlama bir Cosmos DB tetikleyicisi gösterir. bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanan. Cosmos DB kayıt değiştirildiğinde işlevi günlük iletisi yazar.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -163,7 +163,7 @@ JavaScript kod aşağıdaki gibidir:
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) özniteliği.
 
-Özniteliğin Oluşturucusu koleksiyon adı ve veritabanı adını alır. Bu ayarlar ve yapılandırabileceğiniz diğer özellikler hakkında daha fazla bilgi için bkz: [tetikleyici - yapılandırma](#trigger---configuration). Burada bir `CosmosDBTrigger` yöntemi imza özniteliği örnekte:
+Özniteliğin oluşturucusu, koleksiyon adı ve veritabanı adını alır. Bu ayarlar ve yapılandırabileceğiniz diğer özellikleri hakkında daha fazla bilgi için bkz. [tetikleyici - yapılandırma](#trigger---configuration). İşte bir `CosmosDBTrigger` özniteliği örnek bir yöntem imzası:
 
 ```csharp
     [FunctionName("DocumentUpdates")]
@@ -176,57 +176,57 @@ JavaScript kod aşağıdaki gibidir:
     }
 ```
 
-Tam bir örnek için bkz: [tetikleyici - C# örnek](#trigger---c-example).
+Tam bir örnek için bkz. [tetikleyici - C# örneği](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Tetikleyici - yapılandırma
 
-Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `CosmosDBTrigger` özniteliği.
+Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini açıklayan *function.json* dosya ve `CosmosDBTrigger` özniteliği.
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**type** || ayarlanmalıdır `cosmosDBTrigger`. |
-|**direction** || ayarlanmalıdır `in`. Bu parametre, Azure portalında tetikleyici oluşturduğunuzda otomatik olarak ayarlanır. |
-|**Adı** || Belge değişikliklerle listesini temsil eden işlevi kod içinde kullanılan değişken adı. | 
-|**ConnectionStringSetting**|**ConnectionStringSetting** | İzlenmekte olan Azure Cosmos DB hesabınıza bağlanmak için kullanılan bağlantı dizesi içeren bir uygulama ayarı adı. |
-|**databaseName**|**databaseName**  | İzlenmekte olan derlemesiyle Azure Cosmos DB veritabanının adı. |
-|**collectionName** |**collectionName** | İzlenmekte olan koleksiyon adı. |
-|**LeaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (İsteğe bağlı) Kira koleksiyonunu tutan hizmeti ile bağlantı dizesi içeren bir uygulama ayarı adı. Ayarlandığında değil, `connectionStringSetting` değeri kullanılır. Bu parametre, bağlama portalda oluşturulduğunda otomatik olarak ayarlanır. Bağlantı dizesi kiraları koleksiyon için yazma izinlerine sahip olmalıdır.|
-|**LeaseDatabaseName** |**LeaseDatabaseName** | (İsteğe bağlı) Kira depolamak için kullanılan koleksiyonunu tutan veritabanının adı. Değil olarak ayarlandığında, değeri `databaseName` ayarı kullanılır. Bu parametre, bağlama portalda oluşturulduğunda otomatik olarak ayarlanır. |
-|**LeaseCollectionName** | **LeaseCollectionName** | (İsteğe bağlı) Kira depolamak için kullanılan koleksiyon adı. Değil olarak ayarlandığında, değerin `leases` kullanılır. |
-|**CreateLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (İsteğe bağlı) Ayarlandığında `true`, önceden var olmayan kiraları koleksiyonu otomatik olarak oluşturulur. Varsayılan değer `false`. |
-|**LeasesCollectionThroughput**| **LeasesCollectionThroughput**| (İsteğe bağlı) İstek kiraları koleksiyonu oluşturulduğunda atamak için birimi miktarını tanımlar. Bu ayarı yalnızca kullanılan olduğunda, `createLeaseCollectionIfNotExists` ayarlanır `true`. Bu parametre, bağlama oluşturulduğunda portal kullanılarak otomatik olarak ayarlanır.
-|**LeaseCollectionPrefix**| **LeaseCollectionPrefix**| (İsteğe bağlı) Ayarlandığında, bir önek etkili bir şekilde iki ayrı Azure aynı kira koleksiyonu farklı önekleri kullanarak paylaşmak işlevlere izin verme, bu işlev için kira koleksiyonundaki oluşturulan kiraları ekler.
-|**FeedPollDelay**| **FeedPollDelay**| (İsteğe bağlı) Geçerli sonra tüm değişiklikler kümesi, bu, milisaniye cinsinden bir bölüm akışta yeni değişiklikleri için yoklama arasında gecikme tanımladığında boşaltmış. 5000 (5 saniye) varsayılandır.
-|**LeaseAcquireInterval**| **LeaseAcquireInterval**| (İsteğe bağlı) Ayarlandığında, bunu, milisaniye cinsinden aralığı bölümleri bilinen konak örnekler arasında eşit olarak dağıtılmış, işlem için bir görevi devre dışı kazandırın tanımlar. 13000 (13 saniye) varsayılandır.
-|**LeaseExpirationInterval**| **LeaseExpirationInterval**| (İsteğe bağlı) Ayarlandığında, bunu, milisaniye cinsinden kira bir bölüm temsil eden bir kira alınır aralığı tanımlar. Kira bu aralıkta yenilenmezse süresi dolacak şekilde neden olur ve bölüm sahipliğini başka bir örneğine taşınır. 60000 (60 saniye) varsayılandır.
-|**LeaseRenewInterval**| **LeaseRenewInterval**| (İsteğe bağlı) Ayarlandığında, bunu, milisaniye cinsinden tüm kira yenileme aralığı şu anda bir örneği tarafından tutulan bölümler için tanımlar. 17000 (17 saniye) varsayılandır.
-|**CheckpointFrequency**| **CheckpointFrequency**| (İsteğe bağlı) Ayarlandığında, bunu, milisaniye cinsinden kira denetim noktaları arasındaki süreyi tanımlar. Başarılı işlev çağrısı sonra her zaman bir varsayılandır.
-|**MaxItemsPerInvocation**| **MaxItemsPerInvocation**| (İsteğe bağlı) Ayarlandığında, maksimum işlev çağrısı alınan öğeleri özelleştirir.
+|**type** || Ayarlanmalıdır `cosmosDBTrigger`. |
+|**direction** || Ayarlanmalıdır `in`. Azure portalında tetikleyicisi oluşturduğunuzda bu parametre otomatik olarak ayarlanır. |
+|**Adı** || Değişken adı değişikliklerle belgelerin listesini temsil eden bir işlev kodunu kullanılır. | 
+|**connectionStringSetting**|**ConnectionStringSetting** | İzlenmekte olan Azure Cosmos DB hesabına bağlanmak için kullanılan bağlantı dizesi içeren bir uygulama ayarı adı. |
+|**databaseName**|**DatabaseName**  | İzlenmekte olan toplama ile Azure Cosmos DB veritabanının adı. |
+|**collectionName** |**CollectionName** | İzlenmekte olan koleksiyonun adı. |
+|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (İsteğe bağlı) Kira koleksiyonu içeren hizmete yönelik bağlantı dizesini içeren bir uygulama ayarı adı. Ne zaman ayarlanmadı, `connectionStringSetting` değeri kullanılır. Bu parametre, portalda bağlama oluşturulduğunda otomatik olarak ayarlanır. Bağlantı dizesini kiralarını koleksiyonuna yazma izinlerine sahip olmalıdır.|
+|**leaseDatabaseName** |**LeaseDatabaseName** | (İsteğe bağlı) Kiraları depolamak için kullanılan koleksiyonu içeren veritabanının adı. Ne zaman ayarlı değil, değerini `databaseName` ayarı kullanılır. Bu parametre, portalda bağlama oluşturulduğunda otomatik olarak ayarlanır. |
+|**leaseCollectionName** | **LeaseCollectionName** | (İsteğe bağlı) Kiraları depolamak için kullanılan koleksiyonun adı. Ne zaman ayarlı değil, değer `leases` kullanılır. |
+|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (İsteğe bağlı) Ayarlandığında `true`, kiralarını koleksiyonuna zaten mevcut değilse otomatik olarak oluşturulur. Varsayılan değer `false`. |
+|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (İsteğe bağlı) Kiralarını koleksiyonuna oluşturulduğunda atamak için istek birimi miktarı tanımlar. Bu ayar yalnızca kullanılan yaparken önemlidir `createLeaseCollectionIfNotExists` ayarlanır `true`. Bu parametre, portalı kullanarak bağlama oluşturulduğunda otomatik olarak ayarlanır.
+|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (İsteğe bağlı) Ayarlandığında, bir önek etkili bir şekilde iki ayrı Azure aynı kira koleksiyonu farklı önekler kullanarak paylaşmak işlevlere izin verme, bu işlev için kira koleksiyonu oluşturulan kiraları ekler.
+|**feedPollDelay**| **FeedPollDelay**| (İsteğe bağlı) Kümesi, milisaniye cinsinden gecikme bir bölüm akışın yeni değişiklikleri için yoklama arasında tanımlar, tüm geçerli değişiklikleri boşaltılır. 5000 (5 saniye) varsayılandır.
+|**leaseAcquireInterval**| **LeaseAcquireInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden aralığı bölümler bilinen barındırma örnekleri arasında eşit olarak dağıtılmış, işlem için bir görev başlatabilir tanımlar. 13000 (13 saniye) varsayılandır.
+|**leaseExpirationInterval**| **LeaseExpirationInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden kira bir bölüm temsil eden bir kira alınmış aralığı tanımlar. Kira bu aralıkta yenilenmezse, süresi dolacak şekilde neden olur ve bölüm sahipliğini başka bir örneğine taşınır. 60000 (60 saniye) varsayılandır.
+|**leaseRenewInterval**| **LeaseRenewInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden geçerli bir örnek tarafından tutulan bölümler için tüm kira yenileme aralığı tanımlar. 17000 (17 saniye) varsayılandır.
+|**checkpointFrequency**| **CheckpointFrequency**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden kira kontrol noktaları arasındaki süreyi tanımlar. Başarılı işlev çağrısından sonra her zaman bir varsayılandır.
+|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (İsteğe bağlı) Ayarlandığında, işlev çağrısı alınan öğeleri en uzun süreyi özelleştirir.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Tetikleyici - kullanım
 
-Tetikleyici depolamak için kullanır ikinci bir koleksiyon gerektirir _kiraları_ bölümler üzerinden. İzlenmekte olan koleksiyonu ve kiraları içeren koleksiyonu çalışmak tetikleyici için kullanılabilir olmalıdır.
+Tetikleyici depolamak için kullandığı ikinci bir koleksiyon gerektirir _kiraları_ bölümler üzerinden. İzlenmekte olan toplama hem kiraları içeren koleksiyonu tetikleyicinin çalışma için kullanılabilir olmalıdır.
 
 >[!IMPORTANT]
-> Birden çok işlevleri Cosmos DB tetikleyici aynı koleksiyon için kullanmak üzere yapılandırıldıysa, işlevlerin her biri bir adanmış kira koleksiyonu kullanın veya farklı bir belirtin `LeaseCollectionPrefix` her işlevi için. Aksi takdirde işlevleri yalnızca biri tetiklenir. Öneki hakkında daha fazla bilgi için bkz: [yapılandırma bölümü](#trigger---configuration).
+> Birden çok işlevleri Cosmos DB tetikleyicisi aynı koleksiyon için kullanmak üzere yapılandırıldıysa, bu işlevlerin her biri adanmış kira koleksiyonu kullanın veya farklı bir belirtin `LeaseCollectionPrefix` bulunabilir. Aksi takdirde, yalnızca bir işlev tetiklenir. Önek hakkında daha fazla bilgi için bkz. [yapılandırma bölümü](#trigger---configuration).
 
-Tetikleyici belgeyi güncelleştirilmiş ya da eklenen, onu yalnızca belge sunar göstermez. Güncelleştirmeleri ve eklemeleri farklı şekilde ele almanız gerekir, zaman damgası alanları ekleme veya güncelleştirme uygulayarak bunu yapabilirsiniz.
+Tetikleyici, bir belge güncelleştirildi veya eklenen belge yalnızca sağladığı göstermiyor. Güncelleştirmeler ve ekler farklı şekilde işlemek istiyorsanız, zaman damgası alanları ekleme veya güncelleştirme uygulayarak yapabilirsiniz.
 
 ## <a name="input"></a>Girdi
 
-Azure Cosmos DB giriş bağlaması bir veya daha fazla Azure Cosmos DB belgeleri alır ve bunları işlevinin giriş parametresi olarak geçirir. Belge kimliği veya sorgu parametreleri işlevi çağırır tetikleyiciye bağlı belirlenebilir. 
+Azure Cosmos DB giriş bağlama, bir veya daha fazla Azure Cosmos DB belgelerini alır ve bunları işlevin giriş parametresi geçirir. Belge kimliği veya sorgu parametreleri işlevi çağıran bir tetikleyiciye bağlı olarak belirlenebilir. 
 
 >[!NOTE]
-> Yok Azure Cosmos DB girdisi kullanın veya bir Cosmos DB hesabında MongoDB API kullanıyorsanız bağlamaları çıktı. Veri bozulması mümkündür.
+> Azure Cosmos DB giriş veya çıktı bağlaması MongoDB API'si bir Cosmos DB hesabı kullanıyorsanız, kullanmayın. Veri bozulması olabilir.
 
-## <a name="input---examples"></a>Giriş - örnekleri
+## <a name="input---examples"></a>Giriş - örnekler
 
-Tek bir belgenin bir kimlik değeri belirterek okuma dile özgü örneklere bakın:
+Tek bir belgenin kimlik değerini belirterek okuma dile özgü örneklere bakın:
 
 * [C#](#input---c-examples)
-* [C# betik (.csx)](#input---c-script-examples)
+* [C# betiği (.csx)](#input---c-script-examples)
 * [JavaScript](#input---javascript-examples)
 * [F#](#input---f-examples)
 
@@ -234,14 +234,14 @@ Tek bir belgenin bir kimlik değeri belirterek okuma dile özgü örneklere bak�
 
 ### <a name="input---c-examples"></a>Giriş - C# örnekleri
 
-Bu bölüm, aşağıdaki örneklerde içerir:
+Bu bölüm aşağıdaki örnekleri içerir:
 
-* [Sıra tetikleyici, JSON Kimliğinden Ara](#queue-trigger-look-up-id-from-json-c)
-* [HTTP tetikleyicisi, Sorgu dizesinden kimliği arama](#http-trigger-look-up-id-from-query-string-c)
-* [HTTP tetikleyicisi, rota verilerinden kimliği arama](#http-trigger-look-up-id-from-route-data-c)
-* [HTTP tetikleyicisi, SqlQuery kullanarak rota verilerinden kimliği arama](#http-trigger-look-up-id-from-route-data-using-sqlquery-c)
-* [HTTP tetiklemek, SqlQuery kullanarak birden çok belge Al](#http-trigger-get-multiple-docs-using-sqlquery-c)
-* [HTTP tetiklemek, DocumentClient kullanarak birden çok belge Al](#http-trigger-get-multiple-docs-using-documentclient-c)
+* [Kuyruk tetikleyicisi, JSON Kimliğinden Ara](#queue-trigger-look-up-id-from-json-c)
+* [HTTP tetikleyicisi, Sorgu dizesinden Kimliği Ara](#http-trigger-look-up-id-from-query-string-c)
+* [HTTP tetikleyicisi, rota verilerinden Kimliği Ara](#http-trigger-look-up-id-from-route-data-c)
+* [HTTP tetikleyicisi, SqlQuery kullanarak rota verilerinden Kimliği Ara](#http-trigger-look-up-id-from-route-data-using-sqlquery-c)
+* [HTTP tetikleyicisi, SqlQuery kullanarak birden çok belgeleri edinin](#http-trigger-get-multiple-docs-using-sqlquery-c)
+* [HTTP tetikleyicisi, DocumentClient kullanarak birden çok belgeleri edinin](#http-trigger-get-multiple-docs-using-documentclient-c)
 
 Örnekler için basit bir başvuru `ToDoItem` türü:
 
@@ -258,9 +258,9 @@ namespace CosmosDBSamplesV2
 
 [Giriş örnekleri atla](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-json-c"></a>Sıra tetikleyici, JSON (C#) Kimliğinden Ara
+#### <a name="queue-trigger-look-up-id-from-json-c"></a>Kuyruk tetikleyicisi, JSON (C#) Kimliğinden Ara
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) tek bir belgenin alır. İşlevi bir JSON nesnesi içeren bir kuyruk iletisi tarafından tetiklenir. Sıra tetikleyici JSON adlı bir nesnesine ayrıştırır `ToDoItemLookup`, aramak için Kimliğini içerir. Kimliği almak için kullanılan bir `ToDoItem` belgeden belirtilen veritabanı ve koleksiyonu.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , tek bir belge alır. İşlev bir JSON nesnesi içeren bir kuyruk iletisi tarafından tetiklenir. Kuyruk tetikleyicisi JSON adlı bir nesne ayrıştırır `ToDoItemLookup`, aramak üzere bir kimlik içerir. Kimliği almak için kullanılan bir `ToDoItem` belge belirtilen veritabanı ve koleksiyonu.
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -307,9 +307,9 @@ namespace CosmosDBSamplesV2
 
 [Giriş örnekleri atla](#input---attributes)
 
-#### <a name="http-trigger-look-up-id-from-query-string-c"></a>HTTP tetikleyicisi, kimliği Ara Sorgu dizesinden (C#)
+#### <a name="http-trigger-look-up-id-from-query-string-c"></a>HTTP tetikleyicisi, kimliği arama Sorgu dizesinden (C#)
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) tek bir belgenin alır. İşlev aramak için Kimliğini belirtmek için bir sorgu dizesi kullanan bir HTTP isteği tarafından tetiklenir. Kimliği almak için kullanılan bir `ToDoItem` belgeden belirtilen veritabanı ve koleksiyonu.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , tek bir belge alır. İşlevi, aranacak kimliği belirtmek için bir sorgu dizesi kullanan bir HTTP isteği tarafından tetiklenir. Kimliği almak için kullanılan bir `ToDoItem` belge belirtilen veritabanı ve koleksiyonu.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -351,9 +351,9 @@ namespace CosmosDBSamplesV2
 
 [Giriş örnekleri atla](#input---attributes)
 
-#### <a name="http-trigger-look-up-id-from-route-data-c"></a>HTTP tetikleyicisi, kimliği Ara rota verilerinden (C#)
+#### <a name="http-trigger-look-up-id-from-route-data-c"></a>HTTP tetikleyicisi, kimliği bir ara rota verilerinden (C#)
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) tek bir belgenin alır. İşlev kullandığı aramak için Kimliğini belirtmek için verileri yönlendiren bir HTTP isteği tarafından tetiklenir. Kimliği almak için kullanılan bir `ToDoItem` belgeden belirtilen veritabanı ve koleksiyonu.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , tek bir belge alır. İşlevi, kullandığı veri aramak için kimliği belirtmek için yol bir HTTP isteği tarafından tetiklenir. Kimliği almak için kullanılan bir `ToDoItem` belge belirtilen veritabanı ve koleksiyonu.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -395,11 +395,11 @@ namespace CosmosDBSamplesV2
 
 [Giriş örnekleri atla](#input---attributes)
 
-#### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-c"></a>HTTP tetikleyicisi, SqlQuery (C#) kullanarak rota verilerinden kimliği arama
+#### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-c"></a>HTTP tetikleyicisi, SqlQuery (C#) kullanarak rota verilerinden Kimliği Ara
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) tek bir belgenin alır. İşlev kullandığı aramak için Kimliğini belirtmek için verileri yönlendiren bir HTTP isteği tarafından tetiklenir. Kimliği almak için kullanılan bir `ToDoItem` belgeden belirtilen veritabanı ve koleksiyonu. 
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , tek bir belge alır. İşlevi, kullandığı veri aramak için kimliği belirtmek için yol bir HTTP isteği tarafından tetiklenir. Kimliği almak için kullanılan bir `ToDoItem` belge belirtilen veritabanı ve koleksiyonu. 
 
-Örnek bir bağlama ifadesinde kullanmayı gösterir `SqlQuery` parametresi. Rota veri geçirebilirsiniz `SqlQuery` , ancak şu anda gösterildiği gibi parametre [sorgu dizesi değerlerini geçiremezsiniz](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
+Örnek bir bağlama ifadesinde kullanma işlemini gösterir `SqlQuery` parametresi. Rota verilerini geçirebilirsiniz `SqlQuery` ancak şu anda, gösterildiği gibi parametre [sorgu dizesi değerlerini geçirilemez](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 
 ```cs
@@ -438,9 +438,9 @@ namespace CosmosDBSamplesV2
 
 [Giriş örnekleri atla](#input---attributes)
 
-#### <a name="http-trigger-get-multiple-docs-using-sqlquery-c"></a>HTTP tetiklemek, SqlQuery (C#) kullanarak birden çok belge Al
+#### <a name="http-trigger-get-multiple-docs-using-sqlquery-c"></a>HTTP tetikleyicisi, SqlQuery (C#) kullanarak birden çok belgeleri edinin
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) belgelerin listesini alır. İşlevi bir HTTP isteği tarafından tetiklenir. Sorguyu belirtilen `SqlQuery` öznitelik özelliği.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , belgelerin listesini alır. İşlevi, bir HTTP isteği tarafından tetiklenir. Sorguyu belirtilen `SqlQuery` özelliği özniteliği.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -480,9 +480,9 @@ namespace CosmosDBSamplesV2
 
 [Giriş örnekleri atla](#input---attributes)
 
-#### <a name="http-trigger-get-multiple-docs-using-documentclient-c"></a>HTTP tetiklemek, DocumentClient (C#) kullanarak birden çok belge Al
+#### <a name="http-trigger-get-multiple-docs-using-documentclient-c"></a>HTTP tetikleyicisi, DocumentClient (C#) kullanarak birden çok belgeleri edinin
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) belgelerin listesini alır. İşlevi bir HTTP isteği tarafından tetiklenir. Kod kullanan bir `DocumentClient` belgelerin listesini okumak için Azure Cosmos DB bağlama tarafından sağlanan örneği. `DocumentClient` Örneği yazma işlemleri için de kullanılabilirdi.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , belgelerin listesini alır. İşlevi, bir HTTP isteği tarafından tetiklenir. Kod bir `DocumentClient` belgelerin listesini okumak için Azure Cosmos DB'ye bağlama tarafından sağlanan örneği. `DocumentClient` Örneği yazma işlemleri için de kullanılabilir.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -541,18 +541,35 @@ namespace CosmosDBSamplesV2
 
 [Giriş örnekleri atla](#input---attributes)
 
-### <a name="input---c-script-examples"></a>Giriş - C# kod örnekleri
+### <a name="input---c-script-examples"></a>Giriş - C# betik örnekleri
 
-Bu bölüm, çeşitli kaynaklardan bir kimlik değeri belirterek tek bir belgenin okuma aşağıdaki örneklerde içerir:
+Bu bölüm aşağıdaki örnekleri içerir:
 
-* Sıra Tetikleyici Kimliği Ara sıra iletisi
-* Sıra Tetikleyici Kimliği Ara sıra iletisi, SqlQuery kullanma
+* [Kuyruk tetikleyicisi, dizeden Kimliği Ara](#queue-trigger-look-up-id-from-string-c-script)
+* [Tetikleyici kuyruk, SqlQuery kullanarak birden çok belgeleri edinin](#queue-trigger-get-multiple-docs-using-sqlquery-c-script)
+* [HTTP tetikleyicisi, Sorgu dizesinden Kimliği Ara](#http-trigger-look-up-id-from-query-string-c-script)
+* [HTTP tetikleyicisi, rota verilerinden Kimliği Ara](#http-trigger-look-up-id-from-route-data-c-script)
+* [HTTP tetikleyicisi, SqlQuery kullanarak birden çok belgeleri edinin](#http-trigger-get-multiple-docs-using-sqlquery-c-script)
+* [HTTP tetikleyicisi, DocumentClient kullanarak birden çok belgeleri edinin](#http-trigger-get-multiple-docs-using-documentclient-c-script)
+
+İçin basit bir HTTP tetikleyici örneklere bakın `ToDoItem` türü:
+
+```cs
+namespace CosmosDBSamplesV2
+{
+    public class ToDoItem
+    {
+        public string Id { get; set; }
+        public string Description { get; set; }
+    }
+}
+```
 
 [Giriş örnekleri atla](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-queue-message-c-script"></a>Sıra Tetikleyici Kimliği Ara sıra iletisi (C# kod)
+#### <a name="queue-trigger-look-up-id-from-string-c-script"></a>Kuyruk tetikleyicisi, kimliği arama dizesinden (C# betik)
 
-Cosmos DB giriş bağlamasında aşağıdaki örnekte bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. İşlev tek bir belgenin okur ve belgenin metin değeri güncelleştirir.
+Aşağıdaki örnek, bir Cosmos DB giriş bağlama gösterir. bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanan. İşlevi, tek bir belge okur ve belgenin metin değerini güncelleştirir.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -570,7 +587,7 @@ Veri bağlama işte *function.json* dosyası:
 ```
 [Yapılandırma](#input---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
-C# betik kod aşağıdaki gibidir:
+C# betik kodunu şu şekildedir:
 
 ```cs
     using System;
@@ -584,11 +601,11 @@ C# betik kod aşağıdaki gibidir:
 
 [Giriş örnekleri atla](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-queue-message-using-sqlquery-c-script"></a>Sıra tetikleyici, SqlQuery (C# betiği) kullanılarak kimliği kuyruk iletisi Ara
+#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>Tetikleyici kuyruk, SqlQuery (C# betik) kullanarak birden çok belgeleri edinin
 
-Aşağıdaki örnek, bir Azure Cosmos DB giriş bağlamasında gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. Sorgu parametrelerini özelleştirmek için bir sıra tetikleyici kullanarak bir SQL sorgusu tarafından belirtilen birden çok belge işlevi alır.
+Aşağıdaki örnek, bir Azure Cosmos DB giriş bağlama gösterir. bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanan. İşlevi, belirtilen sorgu parametrelerini özelleştirmek için bir kuyruk tetikleyicisi kullanarak bir SQL sorgusu tarafından birden çok belge alır.
 
-Bir parametre sırası tetikleyici sağlar `departmentId`. Bir kuyruk iletisi, `{ "departmentId" : "Finance" }` Finans departmanı için tüm kayıtları döndürür. 
+Kuyruk tetikleyicisi parametre sağlar `departmentId`. Bir kuyruk iletisinin `{ "departmentId" : "Finance" }` Finans departmanı için tüm kayıtları döndürür. 
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -606,7 +623,7 @@ Veri bağlama işte *function.json* dosyası:
 
 [Yapılandırma](#input---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
-C# betik kod aşağıdaki gibidir:
+C# betik kodunu şu şekildedir:
 
 ```csharp
     public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
@@ -625,18 +642,278 @@ C# betik kod aşağıdaki gibidir:
 
 [Giriş örnekleri atla](#input---attributes)
 
-### <a name="input---javascript-examples"></a>Giriş - JavaScript örnekleri
+#### <a name="http-trigger-look-up-id-from-query-string-c-script"></a>HTTP tetikleyicisi, arama (C# betik) Sorgu dizesinden kimliği
 
-Bu bölüm, çeşitli kaynaklardan bir kimlik değeri belirterek tek bir belgenin okuma aşağıdaki örneklerde içerir:
+Aşağıdaki örnekte gösterildiği bir [C# betik işlevi](functions-reference-csharp.md) , tek bir belge alır. İşlevi, aranacak kimliği belirtmek için bir sorgu dizesi kullanan bir HTTP isteği tarafından tetiklenir. Kimliği almak için kullanılan bir `ToDoItem` belge belirtilen veritabanı ve koleksiyonu.
 
-* Sıra Tetikleyici Kimliği Ara sıra iletisi
-* Sıra Tetikleyici Kimliği Ara sıra iletisi, SqlQuery kullanma
+İşte *function.json* dosyası:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{Query.id}"
+    }
+  ],
+  "disabled": true
+}
+```
+
+C# betik kodunu şu şekildedir:
+
+```cs
+using System.Net;
+
+public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    if (toDoItem == null)
+    {
+         log.Info($"ToDo item not found");
+    }
+    else
+    {
+        log.Info($"Found ToDo item, Description={toDoItem.Description}");
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
 
 [Giriş örnekleri atla](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-queue-message-javascript"></a>Sıra Tetikleyici Kimliği Ara sıra iletisi (JavaScript)
+#### <a name="http-trigger-look-up-id-from-route-data-c-script"></a>HTTP tetikleyicisi, arama (C# betik) rota verilerinden kimliği
 
-Cosmos DB giriş bağlamasında aşağıdaki örnekte bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlev tek bir belgenin okur ve belgenin metin değeri güncelleştirir.
+Aşağıdaki örnekte gösterildiği bir [C# betik işlevi](functions-reference-csharp.md) , tek bir belge alır. İşlevi, kullandığı veri aramak için kimliği belirtmek için yol bir HTTP isteği tarafından tetiklenir. Kimliği almak için kullanılan bir `ToDoItem` belge belirtilen veritabanı ve koleksiyonu.
+
+İşte *function.json* dosyası:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route":"todoitems/{id}"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{id}"
+    }
+  ],
+  "disabled": false
+}
+```
+
+C# betik kodunu şu şekildedir:
+
+```cs
+using System.Net;
+
+public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    if (toDoItem == null)
+    {
+         log.Info($"ToDo item not found");
+    }
+    else
+    {
+        log.Info($"Found ToDo item, Description={toDoItem.Description}");
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+[Giriş örnekleri atla](#input---attributes)
+
+#### <a name="http-trigger-get-multiple-docs-using-sqlquery-c-script"></a>HTTP tetikleyicisi, SqlQuery (C# betik) kullanarak birden çok belgeleri edinin
+
+Aşağıdaki örnekte gösterildiği bir [C# betik işlevi](functions-reference-csharp.md) , belgelerin listesini alır. İşlevi, bir HTTP isteği tarafından tetiklenir. Sorguyu belirtilen `SqlQuery` özelliği özniteliği.
+
+İşte *function.json* dosyası:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "toDoItems",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in",
+      "sqlQuery": "SELECT top 2 * FROM c order by c._ts desc"
+    }
+  ],
+  "disabled": false
+}
+```
+
+C# betik kodunu şu şekildedir:
+
+```cs
+using System.Net;
+
+public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoItem> toDoItems, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    foreach (ToDoItem toDoItem in toDoItems)
+    {
+        log.Info(toDoItem.Description);
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+[Giriş örnekleri atla](#input---attributes)
+
+#### <a name="http-trigger-get-multiple-docs-using-documentclient-c-script"></a>HTTP tetikleyicisi, DocumentClient (C# betik) kullanarak birden çok belgeleri edinin
+
+Aşağıdaki örnekte gösterildiği bir [C# betik işlevi](functions-reference-csharp.md) , belgelerin listesini alır. İşlevi, bir HTTP isteği tarafından tetiklenir. Kod bir `DocumentClient` belgelerin listesini okumak için Azure Cosmos DB'ye bağlama tarafından sağlanan örneği. `DocumentClient` Örneği yazma işlemleri için de kullanılabilir.
+
+İşte *function.json* dosyası:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "client",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "inout"
+    }
+  ],
+  "disabled": false
+}
+```
+
+C# betik kodunu şu şekildedir:
+
+```cs
+#r "Microsoft.Azure.Documents.Client"
+
+using System.Net;
+using Microsoft.Azure.Documents.Client;
+using Microsoft.Azure.Documents.Linq;
+
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, DocumentClient client, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
+    string searchterm = req.GetQueryNameValuePairs()
+        .FirstOrDefault(q => string.Compare(q.Key, "searchterm", true) == 0)
+        .Value;
+
+    if (searchterm == null)
+    {
+        return req.CreateResponse(HttpStatusCode.NotFound);
+    }
+
+    log.Info($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
+    IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
+        .Where(p => p.Description.Contains(searchterm))
+        .AsDocumentQuery();
+
+    while (query.HasMoreResults)
+    {
+        foreach (ToDoItem result in await query.ExecuteNextAsync())
+        {
+            log.Info(result.Description);
+        }
+    }
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+[Giriş örnekleri atla](#input---attributes)
+
+### <a name="input---javascript-examples"></a>Giriş - JavaScript örnekleri
+
+Bu bölüm, çeşitli kaynaklardan bir kimliği değerini belirterek tek bir belge okuma aşağıdaki örnekleri içerir:
+
+* [Kuyruk tetikleyicisi, JSON Kimliğinden Ara](#queue-trigger-look-up-id-from-string-javascript)
+* [HTTP tetikleyicisi, Sorgu dizesinden Kimliği Ara](#http-trigger-look-up-id-from-query-string-javascript)
+* [HTTP tetikleyicisi, rota verilerinden Kimliği Ara](#http-trigger-look-up-id-from-route-data-javascript)
+* [Tetikleyici kuyruk, SqlQuery kullanarak birden çok belgeleri edinin](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
+
+[Giriş örnekleri atla](#input---attributes)
+
+#### <a name="queue-trigger-look-up-id-from-json-javascript"></a>Kuyruk tetikleyicisi, JSON (JavaScript) Kimliğinden Ara
+
+Aşağıdaki örnek, bir Cosmos DB giriş bağlama gösterir. bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanan. İşlevi, tek bir belge okur ve belgenin metin değerini güncelleştirir.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -648,7 +925,7 @@ Veri bağlama işte *function.json* dosyası:
     "collectionName": "MyCollection",
     "id" : "{queueTrigger_payload_property}",
     "partitionKey": "{queueTrigger_payload_property}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",     
+    "connectionStringSettingStringSetting": "MyAccount_COSMOSDB",     
     "direction": "in"
 },
 {
@@ -677,11 +954,128 @@ JavaScript kod aşağıdaki gibidir:
 
 [Giriş örnekleri atla](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-queue-message-using-sqlquery-javascript"></a>Sıra Tetikleyici Kimliği Ara sıra iletisi, SqlQuery (JavaScript) kullanarak
+#### <a name="http-trigger-look-up-id-from-query-string-javascript"></a>HTTP tetikleyicisi, kimliği arama Sorgu dizesinden (JavaScript)
 
-Aşağıdaki örnek, bir Azure Cosmos DB giriş bağlamasında gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. Sorgu parametrelerini özelleştirmek için bir sıra tetikleyici kullanarak bir SQL sorgusu tarafından belirtilen birden çok belge işlevi alır.
+Aşağıdaki örnekte gösterildiği bir [JavaScript işlevi](functions-reference-node.md) , tek bir belge alır. İşlevi, aranacak kimliği belirtmek için bir sorgu dizesi kullanan bir HTTP isteği tarafından tetiklenir. Kimliği almak için kullanılan bir `ToDoItem` belge belirtilen veritabanı ve koleksiyonu.
 
-Bir parametre sırası tetikleyici sağlar `departmentId`. Bir kuyruk iletisi, `{ "departmentId" : "Finance" }` Finans departmanı için tüm kayıtları döndürür. 
+İşte *function.json* dosyası:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{Query.id}"
+    }
+  ],
+  "disabled": true
+}
+```
+
+JavaScript kod aşağıdaki gibidir:
+
+```javascript
+module.exports = function (context, req, toDoItem) {
+    context.log('JavaScript queue trigger function processed work item');
+    if (!toDoItem)
+    {
+        context.log("ToDo item not found");
+    }
+    else
+    {
+        context.log("Found ToDo item, Description=" + toDoItem.Description);
+    }
+
+    context.done();
+};
+```
+
+[Giriş örnekleri atla](#input---attributes)
+
+#### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>HTTP tetikleyicisi, kimliği bir ara rota verilerinden (JavaScript)
+
+Aşağıdaki örnekte gösterildiği bir [JavaScript işlevi](functions-reference-node.md) , tek bir belge alır. İşlevi, aranacak kimliği belirtmek için bir sorgu dizesi kullanan bir HTTP isteği tarafından tetiklenir. Kimliği almak için kullanılan bir `ToDoItem` belge belirtilen veritabanı ve koleksiyonu.
+
+İşte *function.json* dosyası:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route":"todoitems/{id}"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{id}"
+    }
+  ],
+  "disabled": false
+}
+```
+
+JavaScript kod aşağıdaki gibidir:
+
+```cs
+module.exports = function (context, req, toDoItem) {
+    context.log('JavaScript queue trigger function processed work item');
+    if (!toDoItem)
+    {
+        context.log("ToDo item not found");
+    }
+    else
+    {
+        context.log("Found ToDo item, Description=" + toDoItem.Description);
+    }
+
+    context.done();
+};
+```
+
+[Giriş örnekleri atla](#input---attributes)
+
+#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>Tetikleyici kuyruk, SqlQuery (JavaScript) kullanarak birden çok belgeleri edinin
+
+Aşağıdaki örnek, bir Azure Cosmos DB giriş bağlama gösterir. bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanan. İşlevi, belirtilen sorgu parametrelerini özelleştirmek için bir kuyruk tetikleyicisi kullanarak bir SQL sorgusu tarafından birden çok belge alır.
+
+Kuyruk tetikleyicisi parametre sağlar `departmentId`. Bir kuyruk iletisinin `{ "departmentId" : "Finance" }` Finans departmanı için tüm kayıtları döndürür. 
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -718,7 +1112,7 @@ JavaScript kod aşağıdaki gibidir:
 
 ### <a name="input---f-examples"></a>Giriş - F # örnekleri
 
-Cosmos DB giriş bağlamasında aşağıdaki örnekte bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanır. İşlev tek bir belgenin okur ve belgenin metin değeri güncelleştirir.
+Aşağıdaki örnek, bir Cosmos DB giriş bağlama gösterir. bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanan. İşlevi, tek bir belge okur ve belgenin metin değerini güncelleştirir.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -736,7 +1130,7 @@ Veri bağlama işte *function.json* dosyası:
 
 [Yapılandırma](#input---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
-F # kod aşağıdaki gibidir:
+F # kodu şu şekildedir:
 
 ```fsharp
     (* Change input document contents using Azure Cosmos DB input binding *)
@@ -745,7 +1139,7 @@ F # kod aşağıdaki gibidir:
     inputDocument?text <- "This has changed."
 ```
 
-Bu örnek gerektiren bir `project.json` belirten dosyası `FSharp.Interop.Dynamic` ve `Dynamitey` NuGet bağımlılıklar:
+Bu örnekte gerektiren bir `project.json` belirten dosyası `FSharp.Interop.Dynamic` ve `Dynamitey` NuGet bağımlılıklarını:
 
 ```json
 {
@@ -760,64 +1154,64 @@ Bu örnek gerektiren bir `project.json` belirten dosyası `FSharp.Interop.Dynami
 }
 ```
 
-Eklemek için bir `project.json` dosya için bkz: [F # paket Yönetimi](functions-reference-fsharp.md#package).
+Eklemek için bir `project.json` bkz [F # paket Yönetimi](functions-reference-fsharp.md#package).
 
 ## <a name="input---attributes"></a>Giriş - öznitelikleri
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) özniteliği.
 
-Özniteliğin Oluşturucusu koleksiyon adı ve veritabanı adını alır. Bu ayarlar ve yapılandırabileceğiniz diğer özellikler hakkında daha fazla bilgi için bkz: [yapılandırma bölümü aşağıdaki](#input---configuration). 
+Özniteliğin oluşturucusu, koleksiyon adı ve veritabanı adını alır. Bu ayarlar ve yapılandırabileceğiniz diğer özellikleri hakkında daha fazla bilgi için bkz. [aşağıdaki yapılandırma bölümüne](#input---configuration). 
 
-## <a name="input---configuration"></a>Girişi - yapılandırma
+## <a name="input---configuration"></a>Giriş - yapılandırma
 
-Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `CosmosDB` özniteliği.
+Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini açıklayan *function.json* dosya ve `CosmosDB` özniteliği.
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**type**     || ayarlanmalıdır `cosmosDB`.        |
-|**direction**     || ayarlanmalıdır `in`.         |
-|**Adı**     || İşlevinde belgeyi temsil bağlama parametresinin adı.  |
-|**databaseName** |**databaseName** |Belge içeren veritabanı.        |
-|**collectionName** |**collectionName** | Belge içeren koleksiyonu adı. |
-|**Kimliği**    | **Kimlik** | Alınacak belge kimliği. Bu özelliği destekleyen [ifadeleri bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns). Her ikisi de ayarlamazsanız **kimliği** ve **sqlQuery** özellikleri. Bunlardan herhangi birinin ayarlamazsanız, tüm koleksiyon alınır. |
-|**sqlQuery**  |**SqlQuery**  | Birden çok belge almak için kullanılan bir Azure Cosmos DB SQL sorgusu. Bu örnekte olduğu gibi çalışma zamanı bağlamaları özelliğini destekler: `SELECT * FROM c where c.departmentId = {departmentId}`. Her ikisi de ayarlamazsanız **kimliği** ve **sqlQuery** özellikleri. Bunlardan herhangi birinin ayarlamazsanız, tüm koleksiyon alınır.|
-|**ConnectionStringSetting**     |**ConnectionStringSetting**|Azure Cosmos DB bağlantı dizesi içeren uygulama ayarı adı.        |
-|**PartitionKey**|**PartitionKey**|Arama için bölüm anahtarı değerini belirtir. Bağlama parametreler içerebilir.|
+|**type**     || Ayarlanmalıdır `cosmosDB`.        |
+|**direction**     || Ayarlanmalıdır `in`.         |
+|**Adı**     || İşlevinde belgeyi temsil eden bağlama parametresinin adı.  |
+|**databaseName** |**DatabaseName** |Belge içeren veritabanı.        |
+|**collectionName** |**CollectionName** | Belgeyi içeren koleksiyon adı. |
+|**Kimliği**    | **Kimlik** | Alınacak belgenin kimliği. Bu özelliği destekleyen [ifadeleri bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns). Her ikisi de ayarlamamanız **kimliği** ve **sqlQuery** özellikleri. Tek ayarlamazsanız, tüm koleksiyon alınır. |
+|**sqlQuery**  |**SqlQuery**  | Birden çok belge almak için kullanılan bir Azure Cosmos DB SQL sorgusu. Bu örnekte olduğu gibi çalışma zamanı bağlamaları özelliği destekler: `SELECT * FROM c where c.departmentId = {departmentId}`. Her ikisi de ayarlamamanız **kimliği** ve **sqlQuery** özellikleri. Tek ayarlamazsanız, tüm koleksiyon alınır.|
+|**connectionStringSetting**     |**ConnectionStringSetting**|Azure Cosmos DB bağlantı dizenizi içeren uygulama ayarının adı.        |
+|**partitionKey**|**PartitionKey**|Arama için bölüm anahtarı değeri belirtir. Bağlama parametrelerinde içerebilir.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>Giriş - kullanım
 
-İşlev başarıyla çıktığında, C# ve F # işlevleri adlandırılmış giriş parametreleri aracılığıyla giriş belgeye yapılan değişiklikler otomatik olarak kalıcıdır. 
+İşlev başarıyla çıktığında, C# ve F # işlevleri aracılığıyla adlandırılmış giriş parametreleri giriş belgesi yapılan tüm değişiklikler otomatik olarak kalır. 
 
-JavaScript işlevleri güncelleştirmeleri otomatik olarak işlevi çıkış duruma getirilmez. Bunun yerine, kullanın `context.bindings.<documentName>In` ve `context.bindings.<documentName>Out` güncelleştirme yapmak için. Bkz: [JavaScript örnek](#input---javascript-example).
+JavaScript işlevleri'nde güncelleştirmeleri otomatik olarak işlevi çıkıştan sonra duruma getirilmez. Bunun yerine, `context.bindings.<documentName>In` ve `context.bindings.<documentName>Out` güncelleştirmeleri yapmak. Bkz: [JavaScript örnek](#input---javascript-example).
 
 ## <a name="output"></a>Çıktı
 
-Sağlar bağlama Azure Cosmos DB çıktı yeni bir belge bir Azure Cosmos DB veritabanına yazar. 
+Azure Cosmos DB çıkış sağlar bağlaması yeni bir belge bir Azure Cosmos DB veritabanına yazın. 
 
 >[!NOTE]
-> Yok Azure Cosmos DB girdisi kullanın veya bir Cosmos DB hesabında MongoDB API kullanıyorsanız bağlamaları çıktı. Veri bozulması mümkündür.
+> Azure Cosmos DB giriş veya çıktı bağlaması MongoDB API'si bir Cosmos DB hesabı kullanıyorsanız, kullanmayın. Veri bozulması olabilir.
 
-## <a name="output---example"></a>Çıktı - örnek
+## <a name="output---examples"></a>Çıkış - örnekler
 
-Dile özgü örneğe bakın:
+Dile özgü örneklere bakın:
 
 * [C#](#output---c-examples)
-* [C# betik (.csx)](#output---c-script-examples)
+* [C# betiği (.csx)](#output---c-script-examples)
 * [JavaScript](#output---javascript-examples)
 * [F#](#output---f-examples)
 
-Ayrıca bkz. [giriş örnek](#input---c-examples) kullanan `DocumentClient`.
+Ayrıca bkz: [giriş örnek](#input---c-examples) kullanan `DocumentClient`.
 
 [Çıkışı örnekleri atla](#output---attributes)
 
 ### <a name="ouput---c-examples"></a>Çıkış - C# örnekleri
 
-Bu bölüm, aşağıdaki örneklerde içerir:
+Bu bölüm aşağıdaki örnekleri içerir:
 
-* Sıra tetikleyici, bir belge yazma
-* Sıra tetikleyici, IAsyncCollector kullanarak yazma belgeleri
+* Kuyruk tetikleyicisi, bir belge yazma
+* Kuyruk tetikleyicisi yazma docs IAsyncCollector kullanma
 
 Örnekler için basit bir başvuru `ToDoItem` türü:
 
@@ -834,9 +1228,9 @@ namespace CosmosDBSamplesV2
 
 [Çıkışı örnekleri atla](#output---attributes)
 
-#### <a name="queue-trigger-write-one-doc-c"></a>Sıra tetikleyici, bir belge yazma (C#)
+#### <a name="queue-trigger-write-one-doc-c"></a>Kuyruk tetikleyicisi, bir belge yazma (C#)
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) kuyruk depolama biriminden iletisinde sağlanan verileri kullanarak bir veritabanı için bir belge ekleyen.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) kuyruk depolama iletisinden sağlanan verileri kullanarak bir veritabanına bir belge ekleyen.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -867,9 +1261,9 @@ namespace CosmosDBSamplesV2
 
 [Çıkışı örnekleri atla](#output---attributes)
 
-#### <a name="queue-trigger-write-docs-using-iasynccollector-c"></a>Sıra tetikleyici, IAsyncCollector (C#) kullanarak yazma belgeleri
+#### <a name="queue-trigger-write-docs-using-iasynccollector-c"></a>Kuyruk tetikleyicisi yazma docs IAsyncCollector (C#) kullanma
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) bir kuyruk iletisi JSON sağlanan verileri kullanarak, bir veritabanına belgeleri topluluğu ekleyen.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) bir kuyruk iletisi JSON sağlanan verileri kullanarak bir veritabanına bir belge koleksiyonu ekleyen.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -904,9 +1298,18 @@ namespace CosmosDBSamplesV2
 
 [Çıkışı örnekleri atla](#output---attributes)
 
-### <a name="output---c-script-examples"></a>Çıktı - C# kod örnekleri
+### <a name="output---c-script-examples"></a>Çıkış - C# betik örnekleri
 
-Aşağıdaki örnek, bağlama Azure Cosmos DB çıktı gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. İşlevi, JSON şu biçimde alan sıra için bir sıra giriş bağlama kullanır:
+Bu bölüm aşağıdaki örnekleri içerir:
+
+* Kuyruk tetikleyicisi, bir belge yazma
+* Kuyruk tetikleyicisi yazma docs IAsyncCollector kullanma
+
+[Çıkışı örnekleri atla](#output---attributes)
+
+#### <a name="queue-trigger-write-one-doc-c-script"></a>Kuyruk tetikleyicisi, bir belge yazma (C# betik)
+
+Aşağıdaki örnek, bir Azure Cosmos DB çıktı bağlama gösterir. bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanan. İşlevi, JSON alan şu biçimde bir kuyruk için bir kuyruk giriş bağlama kullanır:
 
 ```json
 {
@@ -916,7 +1319,7 @@ Aşağıdaki örnek, bağlama Azure Cosmos DB çıktı gösterir bir *function.j
 }
 ```
 
-İşlev, her kayıt için şu biçimde Azure Cosmos DB belgeleri oluşturur:
+İşlevi Azure Cosmos DB belgeleri her kayıt için aşağıdaki biçimde oluşturur:
 
 ```json
 {
@@ -943,7 +1346,7 @@ Veri bağlama işte *function.json* dosyası:
 
 [Yapılandırma](#output---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
-C# betik kod aşağıdaki gibidir:
+C# betik kodunu şu şekildedir:
 
 ```cs
     #r "Newtonsoft.Json"
@@ -966,13 +1369,70 @@ C# betik kod aşağıdaki gibidir:
     }
 ```
 
-Birden çok belge oluşturmak için bağlayabilirsiniz `ICollector<T>` veya `IAsyncCollector<T>` burada `T` desteklenen türlerden biri.
+#### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Kuyruk tetikleyicisi yazma docs IAsyncCollector kullanma
+
+Birden çok belge oluşturmak için adlarınıza bağlayabileceğiniz `ICollector<T>` veya `IAsyncCollector<T>` burada `T` desteklenen türlerden biridir.
+
+Bu örnek için basit bir ifade eder `ToDoItem` türü:
+
+```cs
+namespace CosmosDBSamplesV2
+{
+    public class ToDoItem
+    {
+        public string Id { get; set; }
+        public string Description { get; set; }
+    }
+}
+```
+
+Function.json dosyası aşağıda verilmiştir:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "toDoItemsIn",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "todoqueueforwritemulti",
+      "connectionStringSetting": "AzureWebJobsStorage"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "toDoItemsOut",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+C# betik kodunu şu şekildedir:
+
+```cs
+using System;
+
+public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
+
+    foreach (ToDoItem toDoItem in toDoItemsIn)
+    {
+        log.Info($"Description={toDoItem.Description}");
+        await toDoItemsOut.AddAsync(toDoItem);
+    }
+}
+```
 
 [Çıkışı örnekleri atla](#output---attributes)
 
-### <a name="output---javascript-examples"></a>Çıktı - JavaScript örnekleri
+### <a name="output---javascript-examples"></a>Çıkış - JavaScript örnekleri
 
-Aşağıdaki örnek, bağlama Azure Cosmos DB çıktı gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlevi, JSON şu biçimde alan sıra için bir sıra giriş bağlama kullanır:
+Aşağıdaki örnek, bir Azure Cosmos DB çıktı bağlama gösterir. bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanan. İşlevi, JSON alan şu biçimde bir kuyruk için bir kuyruk giriş bağlama kullanır:
 
 ```json
 {
@@ -982,7 +1442,7 @@ Aşağıdaki örnek, bağlama Azure Cosmos DB çıktı gösterir bir *function.j
 }
 ```
 
-İşlev, her kayıt için şu biçimde Azure Cosmos DB belgeleri oluşturur:
+İşlevi Azure Cosmos DB belgeleri her kayıt için aşağıdaki biçimde oluşturur:
 
 ```json
 {
@@ -1027,9 +1487,9 @@ JavaScript kod aşağıdaki gibidir:
 
 [Çıkışı örnekleri atla](#output---attributes)
 
-### <a name="output---f-examples"></a>Çıktı - F # örnekleri
+### <a name="output---f-examples"></a>Çıkış - F # örnekleri
 
-Aşağıdaki örnek, bağlama Azure Cosmos DB çıktı gösterir bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanır. İşlevi, JSON şu biçimde alan sıra için bir sıra giriş bağlama kullanır:
+Aşağıdaki örnek, bir Azure Cosmos DB çıktı bağlama gösterir. bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanan. İşlevi, JSON alan şu biçimde bir kuyruk için bir kuyruk giriş bağlama kullanır:
 
 ```json
 {
@@ -1039,7 +1499,7 @@ Aşağıdaki örnek, bağlama Azure Cosmos DB çıktı gösterir bir *function.j
 }
 ```
 
-İşlev, her kayıt için şu biçimde Azure Cosmos DB belgeleri oluşturur:
+İşlevi Azure Cosmos DB belgeleri her kayıt için aşağıdaki biçimde oluşturur:
 
 ```json
 {
@@ -1065,7 +1525,7 @@ Veri bağlama işte *function.json* dosyası:
 ```
 [Yapılandırma](#output---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
-F # kod aşağıdaki gibidir:
+F # kodu şu şekildedir:
 
 ```fsharp
     open FSharp.Interop.Dynamic
@@ -1088,7 +1548,7 @@ F # kod aşağıdaki gibidir:
           address = employee?address }
 ```
 
-Bu örnek gerektiren bir `project.json` belirten dosyası `FSharp.Interop.Dynamic` ve `Dynamitey` NuGet bağımlılıklar:
+Bu örnekte gerektiren bir `project.json` belirten dosyası `FSharp.Interop.Dynamic` ve `Dynamitey` NuGet bağımlılıklarını:
 
 ```json
 {
@@ -1103,13 +1563,13 @@ Bu örnek gerektiren bir `project.json` belirten dosyası `FSharp.Interop.Dynami
 }
 ```
 
-Eklemek için bir `project.json` dosya için bkz: [F # paket Yönetimi](functions-reference-fsharp.md#package).
+Eklemek için bir `project.json` bkz [F # paket Yönetimi](functions-reference-fsharp.md#package).
 
-## <a name="output---attributes"></a>Çıktı - öznitelikleri
+## <a name="output---attributes"></a>Çıkış - öznitelikleri
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) özniteliği.
 
-Özniteliğin Oluşturucusu koleksiyon adı ve veritabanı adını alır. Bu ayarlar ve yapılandırabileceğiniz diğer özellikler hakkında daha fazla bilgi için bkz: [çıktı - yapılandırma](#output---configuration). Burada bir `CosmosDB` yöntemi imza özniteliği örnekte:
+Özniteliğin oluşturucusu, koleksiyon adı ve veritabanı adını alır. Bu ayarlar ve yapılandırabileceğiniz diğer özellikleri hakkında daha fazla bilgi için bkz. [çıkışı - yapılandırma](#output---configuration). İşte bir `CosmosDB` özniteliği örnek bir yöntem imzası:
 
 ```csharp
     [FunctionName("QueueToDocDB")]        
@@ -1121,32 +1581,32 @@ Eklemek için bir `project.json` dosya için bkz: [F # paket Yönetimi](function
     }
 ```
 
-Tam bir örnek için bkz: [çıktısı - C# örnek](#output---c-example).
+Tam bir örnek için bkz. [çıkış - C# örneği](#output---c-example).
 
-## <a name="output---configuration"></a>Çıktı - yapılandırma
+## <a name="output---configuration"></a>Çıkış - yapılandırma
 
-Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `CosmosDB` özniteliği.
+Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini açıklayan *function.json* dosya ve `CosmosDB` özniteliği.
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**type**     || ayarlanmalıdır `cosmosDB`.        |
-|**direction**     || ayarlanmalıdır `out`.         |
-|**Adı**     || İşlevinde belgeyi temsil bağlama parametresinin adı.  |
-|**databaseName** | **databaseName**|Belgenin oluşturulduğu koleksiyonu içeren veritabanı.     |
-|**collectionName** |**collectionName**  | Belgenin oluşturulduğu koleksiyon adı. |
-|**CreateIfNotExists**  |**CreateIfNotExists**    | Yoksa koleksiyon oluşturulduğunda olup olmadığını gösteren bir Boole değeri. Varsayılan değer *false* yeni koleksiyonları etkileri maliyet ayrılmış işleme ile oluşturulduğundan. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
-|**PartitionKey**|**PartitionKey** |Zaman `CreateIfNotExists` true ise, oluşturulan koleksiyonu için bölüm anahtar yolu tanımlar.|
-|**CollectionThroughput**|**CollectionThroughput**| Zaman `CreateIfNotExists` true ise, tanımlar [işleme](../cosmos-db/set-throughput.md) oluşturulan koleksiyonu.|
-|**ConnectionStringSetting**    |**ConnectionStringSetting** |Azure Cosmos DB bağlantı dizesi içeren uygulama ayarı adı.        |
+|**type**     || Ayarlanmalıdır `cosmosDB`.        |
+|**direction**     || Ayarlanmalıdır `out`.         |
+|**Adı**     || İşlevinde belgeyi temsil eden bağlama parametresinin adı.  |
+|**databaseName** | **DatabaseName**|Belge oluşturulduğu koleksiyonu içeren veritabanı.     |
+|**collectionName** |**CollectionName**  | Belge oluşturulduğu koleksiyonun adı. |
+|**Createıfnotexists**  |**Createıfnotexists**    | Mevcut değilse, koleksiyonun oluşturulup oluşturulmayacağını belirten bir Boole değeri. Varsayılan değer *false* etkileri maliyet ayrılmış işleme ile yeni Koleksiyonlar oluşturulduğundan. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
+|**partitionKey**|**PartitionKey** |Zaman `CreateIfNotExists` true ise, oluşturulan koleksiyon için bölüm anahtarı yolunu tanımlar.|
+|**collectionThroughput**|**CollectionThroughput**| Zaman `CreateIfNotExists` true ise, tanımlar [aktarım hızı](../cosmos-db/set-throughput.md) oluşturulan koleksiyon.|
+|**connectionStringSetting**    |**ConnectionStringSetting** |Azure Cosmos DB bağlantı dizenizi içeren uygulama ayarının adı.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="output---usage"></a>Çıktı - kullanım
+## <a name="output---usage"></a>Çıkış - kullanım
 
-Çıktı parametresi, işlevinde yazdığınızda, varsayılan olarak, bir belge veritabanınızda oluşturulur. Bu belge otomatik olarak oluşturulan GUID belge kimliği olarak sahiptir. Belirterek, belge kimliği çıktı belgesinin belirtebilirsiniz `id` özelliği JSON nesnesinde çıktı parametresi geçirildi. 
+Çıkış parametresi işlevinizde yazdığınızda varsayılan olarak, veritabanınızdaki bir belge oluşturulur. Bu belge otomatik olarak oluşturulan bir GUID belge kimliğinin sahiptir. Çıkış belgesinin Belge Kimliğini belirterek belirtebilirsiniz `id` JSON nesnesi özelliği için çıkış parametresi geçirildi. 
 
 > [!Note]  
-> Var olan bir belgeyi Kimliğini belirttiğinizde, yeni çıktı belgenin üzerine. 
+> Var olan bir belgeyi kimliği belirttiğinizde, yeni çıkış belgesi tarafından üzerine. 
 
 ## <a name="exceptions-and-return-codes"></a>Özel durumlar ve dönüş kodları
 
@@ -1157,10 +1617,10 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Cosmos DB tetikleyicisi kullanan bir hızlı başlangıç gidin](functions-create-cosmos-db-triggered-function.md)
+> [Bir Cosmos DB tetikleyicisi kullanan bir hızlı başlangıca gidin](functions-create-cosmos-db-triggered-function.md)
 
 > [!div class="nextstepaction"]
-> [Cosmos DB ile bilgisayar sunucusuz veritabanı hakkında daha fazla bilgi edinin](..\cosmos-db\serverless-computing-database.md)
+> [Bilgi işlem Cosmos DB ile sunucusuz veritabanı hakkında daha fazla bilgi edinin](..\cosmos-db\serverless-computing-database.md)
 
 > [!div class="nextstepaction"]
 > [Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)

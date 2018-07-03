@@ -1,10 +1,27 @@
+---
+title: include dosyası
+description: include dosyası
+services: billing
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 07/02/2018
+ms.author: jroth
+ms.custom: include file
+ms.openlocfilehash: f47654d056a26f5a58b1ccc2c200f774bee1f19f
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37348210"
+---
 | Kaynak | Varsayılan Sınır | Üst Sınır |
 | --- | --- | --- |
 | [Abonelik](../articles/billing-buy-sign-up-azure-subscription.md) başına VM |Bölge başına 10.000 <sup>1</sup> |Bölge başına 10.000 |
 | [Abonelik](../articles/billing-buy-sign-up-azure-subscription.md) başına toplam VM çekirdeği sayısı |Bölge başına 20<sup>1</sup> | Desteğe başvurun |
 | Bir [abonelikteki](../articles/billing-buy-sign-up-azure-subscription.md) seri (Dv2, F vb.) çekirdeği başına VM |Bölge başına 20<sup>1</sup> | Desteğe başvurun |
 | Abonelik başına [ortak yönetici](../articles/billing-add-change-azure-subscription-administrator.md) sayısı |Sınırsız |Sınırsız |
-| Abonelik başına [depolama hesabı](../articles/storage/common/storage-create-storage-account.md) sayısı |200 |200<sup>2</sup> |
+| [Depolama hesapları](../articles/storage/common/storage-create-storage-account.md) her Abonelikteki bölge başına |200 |200<sup>2</sup> |
 | Abonelik başına [Kaynak Grubu](../articles/azure-resource-manager/resource-group-overview.md) |980 |980 |
 | Abonelik başına [Kullanılabilirlik Kümesi](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |Bölge başına 2.000 |Bölge başına 2.000 |
 | Resource Manager API'si Okuma İşlemleri |Saatte 15.000 |Saatte 15.000 |

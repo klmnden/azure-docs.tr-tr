@@ -1,9 +1,26 @@
+---
+title: include dosyası
+description: include dosyası
+services: service-bus-messaging
+author: sethmanheim
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 06/29/2018
+ms.author: sethm
+ms.custom: include file
+ms.openlocfilehash: 503a1db726483709c351ac9861c5d54913de55d3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37132016"
+---
 Azure'da Service Bus mesajlaşma varlıklarını kullanmaya başlamak için öncelikle Azure'da benzersiz olan bir ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar.
 
 Ad alanı oluşturmak için:
 
 1. [Azure portalında][Azure portal] oturum açın.
-2. Portalın sol gezinti bölmesinde **+ Kaynak oluştur**'a tıklayın, ardından **Kurumsal Tümleştirme**'ye ve sonra **Service Bus**'a tıklayın.
+2. Portalın sol gezinti bölmesinde **+ Kaynak oluştur**'a tıklayın, ardından **Tümleştirme**'ye ve sonra **Service Bus**'a tıklayın.
 3. **Ad alanı oluştur** iletişim kutusunda bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
 4. Ad alanı adının kullanılabilir durumda olduğundan emin olduktan sonra fiyatlandırma katmanını (Temel, Standart veya Premium) seçin.
 5. **Abonelik** alanında, ad alanı oluşturmak için kullanmak istediğiniz bir Azure aboneliği seçin.
@@ -14,9 +31,10 @@ Ad alanı oluşturmak için:
 8. **Oluştur**’a tıklayın. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
 
 ### <a name="obtain-the-management-credentials"></a>Yönetim kimlik bilgilerini alma
+
 Yeni bir ad alanı oluşturulduğunda, her biri ad alanının tüm yönleri üzerinde tam denetim veren ilişkili bir çift birincil ve ikincil anahtara sahip bir ilk Paylaşılan Erişim İmzası (SAS) kuralı otomatik olarak oluşturulur. Sıradan göndericiler ve alıcılar için daha kısıtlı haklar içeren başka kurallar oluşturmaya yönelik bilgileri [Service Bus kimlik doğrulama ve yetkilendirme](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) konusunda bulabilirsiniz. İlk kuralı kopyalamak için aşağıdaki adımları takip edin: 
 
-1.  **Tüm kaynaklar**’a ve sonra yeni oluşturulan ad alanı adına tıklayın.
+1. **Tüm kaynaklar**’a ve sonra yeni oluşturulan ad alanı adına tıklayın.
 2. Ad alanı penceresinde **Paylaşılan erişim ilkeleri**'ne tıklayın.
 3. **Paylaşılan erişim ilkeleri** ekranında **RootManageSharedAccessKey** seçeneğine tıklayın.
    

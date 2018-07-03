@@ -1,6 +1,6 @@
 ---
-title: Azure IOT kenar Linux'ta yüklemek nasıl | Microsoft Docs
-description: ARM32 Linux'ta Azure IOT kenar yükleme yönergeleri
+title: Linux üzerinde Azure IOT Edge yükleme | Microsoft Docs
+description: ARM32 üzerinde Linux üzerinde Azure IOT Edge yükleme yönergeleri
 author: kgremban
 manager: timlt
 ms.reviewer: veyalla
@@ -9,29 +9,29 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 2f25faa6957f9a8a42e64829e62506ae2add13ae
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 320eef05faec6b3e399e5a1289e3ee076823c921
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096167"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346323"
 ---
-# <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Azure IOT kenar çalışma zamanı (ARM32v7/armhf) Linux'ta yükleme
+# <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta yükleme
 
-Azure IOT kenar çalışma zamanı, tüm IOT kenar aygıtlarda dağıtılır. Üç bileşeni vardır. **IOT kenar güvenlik arka plan programı** sağlar ve güvenlik standartları sınır cihazı üzerinde korur. Arka plan programı her önyüklemede başlatır ve cihazın IOT kenar Aracısı'nı başlatarak bootstraps. **IOT kenar Aracısı** dağıtım ve kenar IOT hub'ı dahil sınır cihazı modülleri izlenmesini kolaylaştırır. **IoT Edge hub'ı** IoT Edge cihazındaki modüller ve cihaz ile IoT Hub'ı arasındaki iletişimi yönetir.
+Azure IOT Edge çalışma zamanı, tüm IOT Edge cihazlarında dağıtılır. Üç bileşeni vardır. **IOT Edge güvenlik arka plan programı** sağlar ve sınır cihazı güvenlik standartlarını korur. Arka plan programı, her önyükleme başlar ve cihazın IOT Edge Aracısı'nı başlatarak bootstraps. **IOT Edge Aracısı** dağıtım ve IOT Edge hub'ı dahil olmak üzere sınır cihazı, modülleri izlenmesini kolaylaştırır. **IoT Edge hub'ı** IoT Edge cihazındaki modüller ve cihaz ile IoT Hub'ı arasındaki iletişimi yönetir.
 
-Bu makale Azure IOT kenar çalışma zamanı Linux ARM32v7/armhf sınır cihazı (örneğin, Raspberry Pi'yi) yüklemek için adımları listeler.
+Bu makalede, Azure IOT Edge çalışma zamanı bir Linux ARM32v7/armhf Edge cihazda (örneğin, Raspberry Pi) yüklemek için adımları listelenir.
 
 >[!NOTE]
->Linux yazılım depoları paketlerinde bulunan her paket Lisans Koşulları'nı tabidir (/ usr/paylaşmak/doc/*paket adı*). Paket kullanarak önce lisans koşullarını okuyun. Yükleme ve kullanım paketi bu koşulları kabul meydana gelir. Lisans koşullarını kabul etmiyorsanız, paket kullanmayın.
+>Linux yazılım depoları paketlerinde her pakette yer alan lisans koşullarına tabidir (/ usr/paylaşım/doc/*paket adı*). Paket kullanarak önce lisans koşullarını okuyun. Bu koşulları kabul etmeniz, yükleme ve kullanım paket oluşturur. Lisans koşullarını kabul etmiyorsanız, paket kullanmayın.
 
 ## <a name="install-the-container-runtime"></a>Kapsayıcı çalışma zamanı yükleme
 
-Azure IOT kenar kullanır bir [OCI uyumlu] [ lnk-oci] kapsayıcı çalışma zamanı (örneğin, Docker). Docker CE/EE kenar aygıtınızda yüklü zaten varsa, geliştirme ve Azure IOT Edge ile test etme için kullanmaya devam edebilirsiniz. 
+Azure IOT Edge dayanır bir [OCI uyumlu] [ lnk-oci] kapsayıcı çalışma zamanı (örneğin, Docker). Docker CE/EE Edge cihazınıza yüklenen zaten varsa, geliştirme ve test amacıyla Azure IOT Edge ile kullanmaya devam edebilirsiniz. 
 
-Üretim senaryoları için kullanmanız önerilir [Moby tabanlı] [ lnk-moby] aşağıda sağlanan altyapısı. Bu resmi olarak Azure IOT Edge desteklenen yalnızca kapsayıcı altyapısıdır. Docker CE/EE kapsayıcı görüntüleri Moby çalışma zamanı ile tam uyumludur.
+Üretim senaryoları için kullanmanız önerilir [Moby tabanlı] [ lnk-moby] aşağıda sağlanan altyapısı. Bu, Azure IOT Edge ile resmi olarak desteklenen tek kapsayıcı altyapısıdır. Docker CE/EE kapsayıcı görüntülerini Moby çalışma zamanı ile tamamen uyumludur.
 
-Aşağıdaki komutları moby altyapısı ve komut satırı arabirimi (CLI) yükleyin. CLI geliştirme için kullanışlıdır ancak üretim dağıtımları için isteğe bağlı değildir.
+Aşağıdaki komutları moby altyapısı hem de komut satırı arabirimi (CLI) yükleyin. CLI, geliştirme için kullanışlıdır ancak üretim dağıtımları için isteğe bağlı değildir.
 
 ```cmd/sh
 
@@ -49,7 +49,7 @@ sudo apt-get install -f
 
 ```
 
-## <a name="install-the-iot-edge-security-daemon"></a>IOT kenar güvenlik arka plan programı yükleme
+## <a name="install-the-iot-edge-security-daemon"></a>IOT Edge güvenlik Daemon'ı yükleme
 
 ```cmd/sh
 # You can copy the entire text from this code block and 
@@ -65,21 +65,46 @@ curl -L https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -
 sudo apt-get install -f
 ```
 
-## <a name="configure-the-azure-iot-edge-security-daemon"></a>Azure IOT kenar güvenlik arka plan programı yapılandırın
+## <a name="configure-the-azure-iot-edge-security-daemon"></a>Azure IOT Edge güvenlik Daemon'ı yapılandırma
 
-Arka plan programı, yapılandırma dosyasından kullanılarak yapılandırılabilir `/etc/iotedge/config.yaml` sınır cihazı yapılandırılabilir <!--[automatically via Device Provisioning Service][lnk-dps] or--> el ile kullanarak bir [cihaz bağlantı dizesi][lnk-dcs].
 
-El ile yapılandırma için aygıt bağlantı dizesinde girin **sağlama** bölümünü **config.yaml**
+Arka plan programı, yapılandırma dosyası kullanılarak yapılandırılabilir `/etc/iotedge/config.yaml`. Dosya yazma korumalı varsayılan olarak, düzenlemek için yükseltilmiş izinlere ihtiyaç duyabilirsiniz.
 
-```yaml
-provisioning:
-  source: "manual"
-  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+```bash
+sudo nano /etc/iotedge/config.yaml
 ```
 
-*Dosya yazma korumalı varsayılan olarak, kullanmanız gerekebilir `sudo` düzenlemek için. Örneğin `sudo nano /etc/iotedge/config.yaml`*
+Sınır cihazı kullanarak el ile yapılandırılabilir bir [cihaz bağlantı dizesini] [ lnk-dcs] veya [otomatik olarak cihaz sağlama hizmeti aracılığıyla] [ lnk-dps].
 
-Yapılandırmada sağlama bilgilerini girdikten sonra arka plan programı yeniden başlatın:
+* El ile yapılandırma için açıklama durumundan çıkarın **el ile** sağlama modu. Değerini güncelleştirin **device_connection_string** IOT Edge cihazınızdan bağlantı dizesiyle.
+
+   ```yaml
+   provisioning:
+     source: "manual"
+     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   # provisioning: 
+   #   source: "dps"
+   #   global_endpoint: "https://global.azure-devices-provisioning.net"
+   #   scope_id: "{scope_id}"
+   #   registration_id: "{registration_id}"
+   ```
+
+* Otomatik yapılandırma için açıklama durumundan çıkarın **dps** sağlama modu. Güncelleştirin **scope_id** ve **regıstratıon_ıd** IOT hub'ı DPS örneğiniz ile TPM ile IOT Edge cihazınız değerlerle. 
+
+   ```yaml
+   # provisioning:
+   #   source: "manual"
+   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   provisioning: 
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "{scope_id}"
+     registration_id: "{registration_id}"
+   ```
+
+Yapılandırmada sağlama bilgilerini girdikten sonra Daemon programını yeniden başlatın:
 
 ```cmd/sh
 sudo systemctl restart iotedge
@@ -87,7 +112,9 @@ sudo systemctl restart iotedge
 
 ## <a name="verify-successful-installation"></a>Yüklemenin başarılı olduğunu doğrulamak
 
-IOT kenar arka plan programı kullanarak durumunu denetleyebilirsiniz:
+Kullandıysanız **el ile yapılandırma** adımlar önceki bölümde, IOT Edge çalışma zamanı başarıyla sağlanmış ve cihazınız üzerinde olmalıdır. Kullandıysanız **otomatik yapılandırma** adımları çalışma zamanı ile sizin adınıza IOT hub'ınıza Cihazınızı kaydetmek için bazı ek adımları tamamlaması gerekir. Sonraki adımlar için bkz: [oluşturma ve sağlama Linux sanal makinesinde sanal bir TPM Edge cihazı](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
+
+IOT Edge arka plan programı kullanarak durumu denetleyebilirsiniz:
 
 ```cmd/sh
 systemctl status iotedge
@@ -107,11 +134,11 @@ sudo iotedge list
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Düzgün checkout yükleme kenar çalışma zamanı sorunları yaşıyorsanız [sorun giderme] [ lnk-trouble] sayfası.
+Düzgün bir şekilde, kullanıma alma yükleme Edge çalışma zamanı ile ilgili sorunlar yaşıyorsanız [sorun giderme] [ lnk-trouble] sayfası.
 
 <!-- Links -->
-[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
-[lnk-dps]: how-to-simulate-dps-tpm.md
+[lnk-dcs]: how-to-register-device-portal.md
+[lnk-dps]: how-to-auto-provision-simulated-device-linux.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md

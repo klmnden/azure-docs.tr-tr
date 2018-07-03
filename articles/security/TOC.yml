@@ -215,6 +215,16 @@
           href: ./blueprints/pci-dss-requirement-11-testing.md
         - name: Gereksinim 12 - İlke
           href: ./blueprints/pci-dss-requirement-12-policy.md
+    - name: UK NHS
+      items:
+        - name: Veri analizi
+          href: ./blueprints/uknhs-analytics-overview.md
+        - name: Veri ambarı
+          href: ./blueprints/uknhs-datawarehouse-overview.md
+        - name: IaaS web uygulaması
+          href: ./blueprints/uknhs-iaaswa-overview.md
+        - name: PaaS web uygulaması
+          href: ./blueprints/uknhs-paaswa-overview.md
     - name: UK-OFFICIAL
       href: ./blueprints/uk-official-three-tier-applications-overview.md
       items:

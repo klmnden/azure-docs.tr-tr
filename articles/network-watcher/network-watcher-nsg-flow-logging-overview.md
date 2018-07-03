@@ -1,6 +1,6 @@
 ---
-title: Giriş akışı günlüğü için ağ güvenlik grupları ile Azure Ağ İzleyicisi | Microsoft Docs
-description: Bu makalede Azure Ağ İzleyicisinin NSG akış günlükleri özelliğinin nasıl kullanılacağı açıklanmaktadır.
+title: Giriş akış günlüğe kaydetme için ağ güvenlik grupları ile Azure Ağ İzleyicisi | Microsoft Docs
+description: Bu makalede, Azure Ağ İzleyicisi, NSG akış günlükleri özelliğinin nasıl kullanılacağı açıklanmaktadır.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: c6a24fbca37d6aa1d775a70c708a139dfb70b813
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ae4edb82fa5e192a30d297dae82199bb7efca0c2
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182434"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344980"
 ---
-# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Akış günlüğü ağ güvenlik grupları için giriş
+# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Ağ güvenlik grupları için akış günlüğü giriş
 
-Ağ güvenlik grubu (NSG) akış günlükleri, bir NSG giriş ve çıkış IP trafiğinin hakkındaki bilgileri görüntülemek izin veren bir Ağ İzleyicisi özelliğidir. Akış günlükleri json biçiminde yazılır ve başına kural olarak, akış uygulandığı ağ arabirimi (NIC), 5-tanımlama grubu hakkında bilgi akışını (kaynak/hedef IP, kaynak/hedef bağlantı noktası ve protokol) giden ve gelen akışları Göster ve trafiği olup olmadığı izin verilen veya reddedilen.
+Ağ güvenlik grubu (NSG) akış günlüklerini NSG üzerinden giriş ve çıkış IP trafiğini hakkındaki bilgileri görüntülemek izin veren bir Ağ İzleyicisi'nin bir özelliğidir. Akış günlüklerini json biçiminde yazılır ve giden ve gelen akış Göster Kural başına temel akışı uygulandığı ağ arabirimi (NIC), 5 demet bilgi (kaynak/hedef IP, kaynak/hedef bağlantı noktası ve protokol) akışla ilgili ve trafiği olup olmadığını izin verilen veya reddedilen.
 
-![Akış günlükleri genel bakış](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
+![Akış günlüklerine genel bakış](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
-Hedef Nsg'ler akış günlükleri, ancak bunlar değil aynı diğer günlükler görüntülenir. Akış günlükleri yalnızca bir depolama hesabında depolanır ve aşağıdaki örnekte gösterilen günlük yolu izleyin:
+Hedef Nsg akış günlükleri, ancak bunlar değil aynı diğer günlükleri olarak görüntülenir. Akış günlükleri yalnızca bir depolama hesabında depolanır ve aşağıdaki örnekte gösterilen günlük yolunu izleyin:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-Diğer günlükler için görülen aynı bekletme ilkeleri, akış günlüklerine uygulanır. 1 günden günlük bekletme ilkesi 365 gün olarak ayarlayabilirsiniz. Bekletme ilkesi ayarlanmazsa günlükler süresiz olarak saklanır.
+Akış günlüklerini diğer günlükler için görülen aynı bekletme ilkeleri uygulayın. 1 günden 2147483647 gün için günlük bekletme ilkesi ayarlayabilirsiniz. Bekletme ilkesi ayarlanmazsa günlükler süresiz olarak saklanır.
 
 ## <a name="log-file"></a>Günlük dosyası
 
 Akış günlükleri aşağıdaki özellikleri içerir:
 
 * **zaman** - olayın günlüğe yazıldığı zaman zaman
-* **SistemKimliği** -ağ güvenlik grubu kaynak kimliği
-* **Kategori** -olay kategorisi. Her zaman kategorisidir **NetworkSecurityGroupFlowEvent**
-* **ResourceId** -kaynak NSG kimliği
+* **Systemıd** -ağ güvenlik grubu kaynak kimliği
+* **Kategori** -olayın kategorisi. Her zaman kategorisidir **NetworkSecurityGroupFlowEvent**
+* **ResourceId** -kaynak kimliğini nsg
 * **operationName** -her zaman NetworkSecurityGroupFlowEvents
-* **Özellikler** -akışının özellikleri koleksiyonu
-    * **Sürüm** -akış günlüğü olay şeması sürüm numarası
-    * **Akışlar** -akışları koleksiyonu. Bu özelliği farklı kurallar için birden fazla varlık içeriyor
-        * **Kural** -kural akışları listelenmiş
-            * **Akışlar** -akışları koleksiyonu
-                * **Mac** -burada akış toplandı VM için NIC MAC adresi
-                * **flowTuples** -virgülle ayrılmış biçimde akış tanımlama grubu için birden çok özellik içeren bir dize
-                    * **Zaman damgası** -akış UNIX dönem biçiminde oluştuğunda bu zaman damgası değerdir
+* **özellikleri** -flow özelliklerini koleksiyonu
+    * **Sürüm** -akış günlüğü olay şeması sürümü sayısı
+    * **Akışlar** -akış koleksiyonu. Bu özelliği farklı kuralları için birden fazla varlık içeriyor
+        * **Kural** -kural akışlar listelenen
+            * **Akışlar** -akış koleksiyonu
+                * **Mac** -burada akış toplandı sanal makine için NIC MAC adresi
+                * **flowTuples** -virgülle ayrılmış biçimde akış demet için birden çok özelliği içeren bir dize
+                    * **Zaman damgası** -flow UNIX dönem biçiminde oluştuğunda zaman damgasını değerdir
                     * **Kaynak IP** -kaynak IP
                     * **Hedef IP** -hedef IP
                     * **Kaynak bağlantı noktası** -kaynak bağlantı noktası
-                    * **Hedef bağlantı noktası** -hedef bağlantı noktası
-                    * **Protokol** -Akış Protokolü. Geçerli değerler **T** TCP için ve **U** UDP için
-                    * **Trafik akışı** -trafik akış yönü. Geçerli değerler **ı** gelen ve **O** için giden.
-                    * **Trafik** - trafiğine izin verilen veya reddedilen olup olmadığını. Geçerli değerler **A** izin ve **D** reddedildi için.
+                    * **Hedef bağlantı noktası** -' % s'hedef bağlantı noktası
+                    * **Protokol** -akışın protokol. Geçerli değerler **T** TCP için ve **U** UDP
+                    * **Trafik akışı** -trafik akış yönü. Geçerli değerler **miyim** gelen ve **O** için giden.
+                    * **Trafik** - trafiğe izin verilen veya reddedilen olup olmadığını. Geçerli değerler **A** için izin verilen ve **D** için reddedildi.
 
-Aşağıdaki akış günlüğü örneği metindir. Gördüğünüz gibi önceki bölümde açıklanan özellik listesi izleyin birden çok kayıt vardır.
+Aşağıdaki metni, bir akış günlüğü örneğidir. Gördüğünüz gibi önceki bölümde açıklanan özellik listesi izleyen birden çok kayıt vardır.
 
 > [!NOTE]
 > Değerler **flowTuples* özelliği olan bir virgülle ayrılmış listesi.
@@ -102,6 +102,6 @@ Aşağıdaki akış günlüğü örneği metindir. Gördüğünüz gibi önceki 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Akış günlükleri etkinleştirme hakkında bilgi edinmek için [NSG etkinleştirme akışı günlük](network-watcher-nsg-flow-logging-portal.md).
-- NSG günlüğe kaydetme hakkında daha fazla bilgi için bkz: [günlük analizi için ağ güvenlik grupları (Nsg'ler)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- Trafiğin izin verilen veya bir VM'den/VM'ye reddedildi olup olmadığını belirlemek için bkz: [bir VM ağ trafiği filtre sorunu tanılamak](diagnose-vm-network-traffic-filtering-problem.md)
+- Akış günlüklerini etkinleştirme hakkında bilgi için bkz: [etkinleştirme NSG akış günlüğü](network-watcher-nsg-flow-logging-portal.md).
+- NSG günlüğe kaydetme hakkında daha fazla bilgi için bkz: [Log analytics için ağ güvenlik grupları (Nsg'ler)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Trafiğin izin verilen veya için veya bir VM'den reddedildi olup olmadığını belirlemek için bkz: [bir VM ağ trafik filtresi sorununu tanılama](diagnose-vm-network-traffic-filtering-problem.md)

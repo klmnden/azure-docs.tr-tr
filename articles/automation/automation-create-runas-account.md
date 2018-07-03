@@ -1,5 +1,5 @@
 ---
-title: Azure Automation farklı çalıştır hesapları oluşturun
+title: Azure Otomasyonu farklı çalıştır hesapları oluşturun
 description: Bu makalede, Otomasyon hesabınızı güncelleştirme ve PowerShell ile ya da portaldan Farklı Çalıştır hesapları oluşturma işlemi açıklanmaktadır.
 services: automation
 ms.service: automation
@@ -9,17 +9,17 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c9180b3f6bf6b151909ab681d0f33bc6b3583ce0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3f6f2768e13e85edb8a314359fef0b0312a8e84d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714672"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344912"
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Farklı Çalıştır hesaplarıyla Otomasyon hesabı kimlik doğrulamasını güncelleştirme 
 Mevcut Otomasyon hesabınızı Azure portalından güncelleştirebilir veya aşağıdaki durumlarda PowerShell kullanabilirsiniz:
 
-* Bir Otomasyon hesabı oluşturdunuz, ancak Farklı Çalıştır hesabı oluşturmayı reddettiniz.
+* Bir Otomasyon hesabı oluşturduğunuz ancak farklı çalıştır hesabı oluşturmayın.
 * Resource Manager kaynaklarını yönetmek için bir Otomasyon hesabı zaten kullanıyorsunuz ve runbook kimlik doğrulaması için Farklı Çalıştır hesabını içerecek şekilde güncelleştirmek istiyorsunuz.
 * Klasik kaynakları yönetmek için bir Otomasyon hesabı zaten kullanıyorsunuz ve yeni bir hesap oluşturup runbook’larınızı ve varlıklarınızı ona geçirmek yerine Klasik Farklı Çalıştır hesabını kullanacak şekilde güncelleştirmek istiyorsunuz.   
 
@@ -52,7 +52,7 @@ Betik parametreleri için gerekli olan *SubscriptionID*, *ResourceGroup* ve *Aut
 ### <a name="required-permissions-to-update-your-automation-account"></a>Otomasyon hesabınızı güncelleştirmek için gereken izinler
 Otomasyon hesabını güncelleştirmek isterseniz bu konuyu tamamlamak için gereken aşağıdaki özel ayrıcalıklara ve izinlere sahip olmanız gerekir.   
  
-* AD kullanıcı hesabınızın Microsoft.Automation kaynakları için katılımcı rolü eşdeğer izinlere sahip bir rol makalesinde ana hatlarıyla eklenmeli [Azure automation'da rol tabanlı erişim denetimi](automation-role-based-access-control.md#contributor).  
+* AD kullanıcı hesabınızın gibi Microsoft.Automation kaynaklarındaki katkıda bulunan rolüne eşdeğer izinlere sahip bir role makalesinde açıklandığı eklenmelidir [Azure automation'da rol tabanlı erişim denetimi](automation-role-based-access-control.md#contributor).  
 * Azure AD kiracınızdaki yönetici olmayan kullanıcıların [AD uygulamalarını kaydedebilmesi için](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) Azure AD kiracısının **Kullanıcı ayarları** sayfasındaki **Kullanıcılar uygulamaları kaydedebilir** seçeneği **Evet** olarak ayarlanmış olmalıdır. Uygulama kayıtları ayarı **Hayır** olarak ayarlanırsa bu işlemi gerçekleştiren kullanıcının, Azure AD’de genel yönetici olması gerekir.
 
 Aboneliğin genel yönetici/ortak yönetici rolüne eklenmeden önce aboneliğin Active Directory örneğine üye değilseniz Active Directory’ye konuk olarak eklenirsiniz. Bu durumda, “Oluşturma izniniz yok…” iletisini alırsınız. uyarısını **Otomasyon Hesabı Ekle** dikey penceresinde görürsünüz. İlk olarak genel yönetici/ortak yönetici rolüne eklenen kullanıcılar aboneliğin Active Directory örneğinden kaldırılabilir ve tekrar eklenerek Active Directory’de tam bir Kullanıcı haline getirilebilir. Bu durumu doğrulamak için Azure portalındaki **Azure Active Directory** bölmesinde **Kullanıcılar ve gruplar**’ı, **Tüm kullanıcılar**’ı seçin ve belirli bir kullanıcıyı seçtikten sonra **Profil**’i seçin. Kullanıcı profili altındaki **Kullanıcı türü** özniteliğinin **Konuk** olmaması gerekir.
@@ -272,19 +272,19 @@ Bu PowerShell betiği aşağıdaki yapılandırmalar için destek içerir:
 
 Betik başarıyla yürütüldükten sonra aşağıdakilere dikkat edin:
 * Otomatik olarak imzalanan bir ortak sertifika (.cer dosyası) ile Klasik Farklı Çalıştır hesabı oluşturduysanız, betik bu hesabı oluşturup bilgisayarınızdaki geçici dosya klasörüne, PowerShell oturumunu yürütmek için kullandığınız *%USERPROFILE%\AppData\Local\Temp* kullanıcı profili altında kaydeder.
-* Kurumsal ortak sertifika (.cer file) ile bir Klasik Farklı Çalıştır hesabı oluşturduysanız bu sertifikayı kullanın. Yönergeleri izleyin [yönetim API sertifikası Azure portalına](../azure-api-management-certs.md)ve ardından kullanarak Klasik dağıtım kaynaklarla kimlik bilgisi yapılandırmasını doğrulamak [örnek kimlik doğrulaması için kod Azure Klasik dağıtım kaynaklarla](automation-verify-runas-authentication.md#classic-run-as-authentication). 
+* Kurumsal ortak sertifika (.cer file) ile bir Klasik Farklı Çalıştır hesabı oluşturduysanız bu sertifikayı kullanın. Yönergelerini izleyin [Azure portalında yönetim API sertifikayı yükleme](../azure-api-management-certs.md)ve ardından kullanarak Klasik dağıtım kaynakları ile kimlik bilgisi yapılandırmasını doğrulamak [kimlik doğrulaması için kod örneği Azure Klasik dağıtım kaynakları ile](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Klasik Farklı Çalıştır hesabı *oluşturmadıysanız*, Resource Manager kaynakları kimlik doğrulaması yapmak ve kimlik bilgisi yapılandırmasını doğrulamak için [Service Management kaynakları ile kimlik doğrulamaya yönelik örnek kodu](automation-verify-runas-authentication.md#automation-run-as-authentication) kullanın.
 
 ## <a name="limiting-run-as-account-permissions"></a>Farklı Çalıştır hesabı izinleri sınırlama
 
-Azure Automation kaynaklarına karşı Otomasyon hedefleme denetlemek için farklı çalıştır hesabı varsayılan olarak abonelikte katılımcı hakları verilir. RunAs hizmet sorumlusu neler yapabileceğinizi kısıtlamak gerekiyorsa, hesabı için abonelik katkıda bulunan rolünden kaldırmak ve belirtmek istediğiniz kaynak grupları Katılımcısı olarak ekleyin.
+Kaynaklarda Azure Otomasyonu'nda Otomasyon hedefleyen kontrol etmek için farklı çalıştır hesabı varsayılan olarak abonelikte katılımcı hakları verilir. RunAs hizmet sorumlusu yapabileceklerini sınırlamak gerekiyorsa, hesabı aboneliğe katkıda bulunan rolünden kaldırmak ve belirtmek istediğiniz kaynak grupları için katkıda bulunan olarak ekleyin.
 
-Azure portalında seçin **abonelikleri** ve Otomasyon hesabınızda abonelik seçin. Seçin **erişim denetimi (IAM)** ve Automation hesabınız için hizmet sorumlusu arayın (gibi görünüyor \<AutomationAccountName\>_unique tanımlayıcısı). Hesabını seçin ve tıklatın **kaldırmak** abonelikten kaldırmak için.
+Azure portalında **abonelikleri** ve Otomasyon hesabınızın aboneliği seçin. Seçin **erişim denetimi (IAM)** ve Automation hesabınız için hizmet sorumlusu arayın (gibi görünüyor \<AutomationAccountName\>_unique tanımlayıcı). Hesabı seçin ve tıklayın **Kaldır** abonelikten kaldırmak için.
 
 ![Abonelik Katkıda Bulunanlar](media/automation-create-runas-account/automation-account-remove-subscription.png)
 
-Hizmet sorumlusu bir kaynak grubuna eklemek için kaynak grubu seçin ve portal Azure'da seçin **erişim denetimi (IAM)**. Seçin **Ekle**, bu açılır **izinleri eklemek** sayfası. İçin **rol**seçin **katkıda bulunan**. İçinde **seçin** metin kutusunda, farklı çalıştır hesabı için hizmet asıl adını yazın ve listeden seçin. Değişiklikleri kaydetmek için **Kaydet**’e tıklayın. Bu, Azure Automation farklı çalıştır hizmet asıl erişim vermek istediğiniz kaynakları grupları için gerçekleştirin.
+Hizmet sorumlusu bir kaynak grubuna eklemek için Azure portal ve select kaynak grubunu seçin **erişim denetimi (IAM)**. Seçin **Ekle**, bu açılır **izinleri eklemek** sayfası. İçin **rol**seçin **katkıda bulunan**. İçinde **seçin** metin kutusuna farklı çalıştır hesabı için hizmet sorumlusu adını yazın ve listeden seçin. Değişiklikleri kaydetmek için **Kaydet**’e tıklayın. Bu, Azure Otomasyonu Garklı Çalıştır hizmet sorumlusu erişimi vermek istediğiniz kaynak grupları için gerçekleştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hizmet sorumluları hakkında daha fazla bilgi için bkz: [uygulama ve hizmet sorumlusu nesneleri](../active-directory/active-directory-application-objects.md).
-* Sertifikalar ve Azure hizmetleri hakkında daha fazla bilgi için bkz: [Azure Cloud Services sertifikalarına genel bakış](../cloud-services/cloud-services-certs-create.md).
+* Hizmet sorumluları hakkında daha fazla bilgi için bkz. [uygulama nesneleri ve hizmet sorumlusu nesneleri](../active-directory/active-directory-application-objects.md).
+* Sertifikalar ve Azure hizmetleri hakkında daha fazla bilgi için bkz. [Azure Cloud Services sertifikalarına genel bakış](../cloud-services/cloud-services-certs-create.md).

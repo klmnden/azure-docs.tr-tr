@@ -1,6 +1,6 @@
 ---
-title: Azure HALUK uygulamalardaki utterances | Microsoft Docs
-description: Utterances dil anlama akıllı hizmet (HALUK) uygulamalarında ekleyin.
+title: Azure'da LUIS uygulamalarında konuşma | Microsoft Docs
+description: Konuşma, Language Understanding Intelligent Service (LUIS) uygulamaları ekleme.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,68 +9,68 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 66a23876eebe177c767b20f60f86891c35da3385
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 9b8556a30169561488a7b46f93af87b31e049e7a
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301871"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345517"
 ---
-# <a name="utterances-in-luis"></a>HALUK utterances
+# <a name="utterances-in-luis"></a>LUIS, konuşma
 
-**Utterances** yorumlamak için uygulamanız gereken kullanıcıdan giriş. Hedefleri ve varlıkları onlardan ayıklamak için HALUK eğitmek için her amaç için farklı girişleri çeşitli yakalamak önemlidir. Etkin öğrenme ya da yeni utterances üzerinde eğitmek etmeden işlemi HALUK sunar makineye öğrenilen Intelligence için gereklidir.
+**Konuşma** yorumlamak için uygulamanız gereken kullanıcıdan giriş. Amaç ve varlıkları bunları ayıklanacak LUIS eğitmek için birçok farklı giriş her amaç için yakalamak önemlidir. Etkin öğrenme veya işlemi yeni konuşma üzerinde eğitmek doğurduğu LUIS sağlayan makine öğrenilen zekasından gereklidir.
 
-Kullanıcılar girer düşündüğünüz tümcecikleri toplayın. Aynı anlama gelir ancak oluşturulan utterances farklı sözcük uzunluğu ve word yerleştirme içerir. 
+Kullanıcıların girer düşündüğünüz tümcecikleri toplayın. Aynı anlama gelir, ancak oluşturulan konuşma farklı sözcük uzunluğu ve sözcük yerleştirme dahil. 
 
-## <a name="how-to-choose-varied-utterances"></a>Değiştirilen utterances seçme
-Ne zaman ilk başlamanıza tarafından [örnek utterances ekleme] [ add-example-utterances] HALUK modelinize göz önünde bulundurmanız bazı ilkeler aşağıda verilmiştir.
+## <a name="how-to-choose-varied-utterances"></a>Çeşitli konuşma seçme
+Ne zaman önce başlamanıza tarafından [örnek Konuşma ekleme] [ add-example-utterances] LUIS modelinize göz önünde bulundurmanız bazı ilkeler aşağıda verilmiştir.
 
-### <a name="utterances-arent-always-well-formed"></a>Utterances her zaman iyi biçimlendirilmiş değil
-"Bana Paris bilet kitap" veya bir parçasını "Kayıt" gibi bir cümle gibi bir cümle olabilir ya da "Paris uçuş."  Kullanıcıları, genellikle yazım yapar. Uygulamanızı planlarken, kullanıcı girişi için HALUK geçirmeden önce yazım olup olmadığına göz önünde bulundurun. [Bing yazım denetleme API] [ BingSpellCheck] HALUK ile tümleşir. Yayımladığınızda Bing yazım denetleme API'si için bir dış anahtarla HALUK uygulamanızı ilişkilendirebilirsiniz. Onay kullanıcı utterances yazım değil, yazım hatalarını ve yazım hatalarını içeren utterances üzerinde HALUK eğitmek.
+### <a name="utterances-arent-always-well-formed"></a>Konuşma her zaman iyi biçimlendirilmiş değil
+"Bana Paris bilet kitap" veya "Kayıt" gibi bir cümle bir parçasını gibi bir cümle olabilir ya da "Paris uçuş."  Kullanıcılar, yazım hatalarını genellikle yapın. Uygulamanızı planlarken, kullanıcı girişi için LUIS iletmeden önce yazım olup olmadığını göz önünde bulundurun. [Bing yazım denetimi API'si] [ BingSpellCheck] LUIS ile tümleşir. Uygulamayı yayımladığınızda, Bing yazım denetimi API'si için bir dış anahtarla LUIS uygulamanızı ilişkilendirebilirsiniz. Onay kullanıcı konuşma yazım değil, yazım hatalarını ve yazım hatalarını içeren konuşma üzerinde LUIS eğitme.
 
-### <a name="use-the-representative-language-of-the-user"></a>Kullanıcının temsilcisi dilini kullanma
-Utterances seçerken, bir ortak terimini veya tümceciğini olduğunu düşündüğünüz istemci uygulamanızı tipik kullanıcıya olmayabilir unutmayın. Etki alanı deneyimi olmayabilir. Bu nedenle terimleri veya Uzman olan bir kullanıcı yalnızca diyor tümcecikleri kullanırken dikkatli olun.
+### <a name="use-the-representative-language-of-the-user"></a>Kullanıcı Temsilcisi dili kullanın
+Konuşma seçerken, bir ortak terimini veya tümceciğini olduğunu düşündüğünüz, istemci uygulamasının tipik bir kullanıcı olmayabileceğini unutmayın. Etki alanı deneyimi olmayabilir. Bu nedenle koşulları ya da tümcelere konusunda uzman olan bir kullanıcı yalnızca diyor kullanırken dikkatli olun.
 
-### <a name="choose-varied-terminology-as-well-as-phrasing"></a>İfade yanı sıra çeşitli terminolojisi seçin
-Değiştirilen cümle desenleri oluşturmak üzere çabalarına yaptığınız olsa bile, bazı sözlük hala yinelenir bulacaksınız.
+### <a name="choose-varied-terminology-as-well-as-phrasing"></a>Yapılar yanı sıra çeşitli terimler seçin
+Değiştirilen cümle desenleri oluşturma işlemleri yaparsanız bile bazı sözlük hala yinelenir bulabilirsiniz.
 
-Bu örnek utterances alın:
+Bu örnek konuşma uygulayın:
 ```
 how do I get a computer?
 Where do I get a computer?
 I want to get a computer, how do I go about it?
 When can I have a computer? 
 ```
-Burada, çekirdek terimi "bilgisayar" değil değişmesi. Bunlar, masaüstü bilgisayar, dizüstü bilgisayar, iş istasyonu veya hatta yalnızca makine diyebilirsiniz. HALUK akıllıca bağlam anlamlıları oluşturur, ancak eğitim utterances oluşturduğunuzda, bunları değiştirmek hala daha iyi olur.
+Burada, çekirdek terimi "bilgisayar" değil değiştirilen. Bunlar, masaüstü bilgisayar, dizüstü bilgisayar, iş istasyonu veya hatta yalnızca makine diyebilirsiniz. LUIS akıllıca eş anlamlılar bağlamdan çıkarır, ancak eğitim konuşma oluşturduğunuzda, bunları farklı yine de daha iyi olur.
 
-## <a name="example-utterances-in-each-intent"></a>Her amacı, örnek utterances
-Her amacı örnek utterances, en az 10-15 olmalıdır. Tüm örnek utterances olmayan amacına varsa, HALUK eğitmek mümkün olmaz. Bir veya çok az örnek utterances ile amacına varsa, HALUK doğru şekilde hedefi tahmin değil. 
+## <a name="example-utterances-in-each-intent"></a>Her amacı, örnek konuşma
+Her amacı örnek konuşma, en az 10 ila 15 olmalıdır. Tüm örnek konuşma sahip olmayan bir hedefi varsa LUIS eğitmek mümkün olmayacaktır. Bir veya daha çok az sayıda örnek Konuşma ile bir hedefi varsa LUIS doğru şekilde amacını tahmin değil. 
 
-## <a name="add-small-groups-of-10-15-utterances-for-each-authoring-iteration"></a>Her yazma yineleme için 10-15 utterances küçük grupları Ekle
-Modelin her yinelemede utterances büyük miktarlarda eklemeyin. Utterances onlarca miktarlarında ekleyin. [Tren](luis-how-to-train.md), [yayımlama](publishapp.md), ve [test](interactive-test.md) yeniden.  
+## <a name="add-small-groups-of-10-15-utterances-for-each-authoring-iteration"></a>10-15 konuşma yazma her yineleme için küçük grupları Ekle
+Modelin her yinelemede konuşma büyük bir miktarını eklemeyin. Konuşma onlarca miktarları içinde ekleyin. [Train](luis-how-to-train.md), [yayımlama](luis-how-to-publish-app.md), ve [test](interactive-test.md) yeniden.  
 
-HALUK dikkatle seçili utterances etkili modelleriyle oluşturur. Çok fazla utterances ekleme, karışıklığı oluşturduğundan değerli değil.  
+LUIS, etkin dikkatli bir şekilde seçili olan konuşma modelleriyle oluşturur. Çok fazla konuşma eklemek, karışıklığı getirdiği için yararlı değildir.  
 
-Birkaç utterances ile sonra başlatmak daha iyi [endpoint utterances gözden](label-suggested-utterances.md) doğru hedefi tahmin ve varlık ayıklama için.
+Ardından birkaç Konuşma ile başlatmak iyidir [konuşma uç noktası gözden](label-suggested-utterances.md) doğru hedefi tahmin ve varlık ayıklama için.
 
-## <a name="ignoring-words-and-punctuation"></a>Sözcük ve noktalama yoksayılıyor
-Belirli bir sözcük veya örnek utterance noktalama yoksaymak istiyorsanız, kullanmak bir [düzeni](luis-concept-patterns.md#pattern-syntax) ile _Yoksay_ sözdizimi. 
+## <a name="ignoring-words-and-punctuation"></a>Sözcükleri ve noktalama işaretleri yoksayılıyor
+Belirli sözcükleri ya da örnek utterance, noktalama işareti yok saymak istiyorsanız, kullanan bir [deseni](luis-concept-patterns.md#pattern-syntax) ile _Yoksay_ söz dizimi. 
 
-## <a name="training-utterances"></a>Eğitim utterances
+## <a name="training-utterances"></a>Eğitim konuşma
 Eğitim belirleyici: utterance tahmin sürümleri veya uygulamalar arasında biraz farklı.
 
-## <a name="testing-utterances"></a>Utterances test etme 
+## <a name="testing-utterances"></a>Konuşma test etme 
 
-Geliştiriciler kendi HALUK uygulamayı gerçek trafiği ile uç noktasına utterances göndererek test başlamanız gerekir. Bu utterances amaçları ve varlıklarla performansını artırmak için kullanılan [gözden utterances](label-suggested-utterances.md). HALUK Web sitesi bölmesinde test gönderilen testler uç noktası aracılığıyla gönderilmez ve bu nedenle active öğrenme katkıda değil. 
+Geliştiriciler, konuşma uç noktaya göndererek gerçek trafiği ile kendi LUIS uygulama testi başlamanız gerekir. Bu konuşma ile varlıkları ve hedefleri performansını artırmak için kullanılan [gözden geçirin, konuşma](label-suggested-utterances.md). Testler bölmesinde test LUIS Web sitesi ile gönderilen uç noktası aracılığıyla gönderilmez ve bu nedenle etkin olarak öğrenmeye katkıda bulunmuyor. 
 
-## <a name="review-utterances"></a>Utterances gözden geçirin
-Modelinizi eğitilen, yayımlanan ve alıcı sonra [endpoint](luis-glossary.md#endpoint) sorguları, [utterances gözden](label-suggested-utterances.md) HALUK tarafından önerilen. HALUK amacını veya varlık düşük puanlarını sahip uç nokta utterances seçer. 
+## <a name="review-utterances"></a>Konuşma gözden geçirin
+Modelinizi eğitilen, yayımlanmış ve alıcı sonra [uç nokta](luis-glossary.md#endpoint) sorgular [konuşma gözden](label-suggested-utterances.md) LUIS tarafından önerilen. LUIS hedefi veya varlık için düşük puanlar olan konuşma uç noktası seçer. 
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 Gözden geçirme [en iyi uygulamalar](luis-concept-best-practices.md) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bkz: [örnek utterances ekleme] [ add-example-utterances] kullanıcı utterances anlamak için HALUK uygulama eğitim hakkında bilgi için.
+Bkz: [örnek Konuşma ekleme] [ add-example-utterances] kullanıcı konuşma anlamak için bir LUIS uygulaması eğitim hakkında bilgi.
 
 [add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-example-utterances
 [BingSpellCheck]: https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text

@@ -1,6 +1,6 @@
 ---
-title: Hedefleri HALUK uygulamaları ekleme | Microsoft Docs
-description: Kullanıcı isteklerini anlamak ve düzgün şekilde tepki uygulamalar yardımcı olmak için hedefleri eklemek için dil anlama (HALUK) kullanın.
+title: Hedef LUIS uygulamaları ekleme | Microsoft Docs
+description: Intents kullanıcı isteklerini anlamak ve düzgün bir şekilde tepki uygulamaların eklemek için Language Understanding (LUIS) kullanın.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,48 +9,48 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
 ms.service: cognitive-services
-ms.openlocfilehash: 6e013e994a3bcb60c3104aa10cd7bad1535706f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f004a0a1726ca6c513e2cb4c137f82ae40e31a01
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355763"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344336"
 ---
-# <a name="manage-intents"></a>Hedefleri yönetme 
-Ekleme [hedefleri](luis-concept-intent.md) HALUK uygulamanıza soru veya aynı amaçları sahip komutları grupları tanımlayın. 
+# <a name="manage-intents"></a>Intents yönetme 
+Ekleme [hedefleri](luis-concept-intent.md) LUIS uygulamanızı sorularınız ya da aynı amaçları olan komutları gruplarını tanımlamak için. 
 
-Ekleme ve gelen, hedefleri yönetme **hedefleri** sayfasında, kullanılabilir **hedefleri** HALUK'ın sol panelinde. 
+Ekleme ve yönetme, amaçlardan tutun **hedefleri** sayfasında, kullanılabilir **hedefleri** LUIS'ın sol panelde. 
 
-Aşağıdaki yordam TravelAgent uygulamada "Bookflight" hedefi ekleneceği gösterilmektedir.
+Aşağıdaki yordam TravelAgent uygulamada "Bookflight" hedefi ekleme göstermektedir.
 
 ## <a name="add-intent"></a>Hedefi ekleyin
 
-1. Uygulamanız (örneğin, TravelAgent) adını tıklayarak açın **My uygulamaları** sayfasında ve ardından **hedefleri** sol panelinde. 
-2. Üzerinde **hedefleri** sayfasında, **yeni amacı oluşturma**.
+1. Uygulamanız (örneğin, TravelAgent) adını tıklayarak açın **uygulamalarım** sayfasında ve ardından **hedefleri** sol bölmesinde. 
+2. Üzerinde **hedefleri** sayfasında **yeni hedefi oluşturma**.
 
-    ![Hedefleri listesi](./media/luis-how-to-add-intents/IntentsList.png)
-3. İçinde **yeni amacı oluşturma** iletişim kutusu, amacı "BookFlight" olarak adlandırın ve tıklatın türü **Bitti**.
+    ![Intents listesi](./media/luis-how-to-add-intents/IntentsList.png)
+3. İçinde **yeni hedefi oluşturma** iletişim kutusu, amacı "BookFlight" adını verin ve tıklayın türü **Bitti**.
 
     ![Hedefi ekleyin](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    Yeni eklenen hedefinin hedefi Ayrıntıları sayfasında [utterances eklemek](#add-an-utterance-on-intent-page).
+    Yeni eklenen hedefinin hedefi ayrıntıları sayfasındaki [Konuşma ekleme](#add-an-utterance-on-intent-page).
 
-## <a name="rename-intent"></a>Hedefi yeniden adlandırma
+## <a name="rename-intent"></a>Amacı yeniden adlandır
 
-1. Üzerinde **hedefi** sayfasında, yeniden adlandırma simgesini ![yeniden adlandırmak hedefi](./media/luis-how-to-add-intents/Rename-Intent-btn.png) hedefi adının yanındaki. 
+1. Üzerinde **hedefi** sayfasında, yeniden adlandırma simgesi ![amacı Yeniden Adlandır](./media/luis-how-to-add-intents/Rename-Intent-btn.png) hedefi adının yanında. 
 
-2. Üzerinde **hedefi** sayfasında, geçerli hedefi adı bir iletişim kutusu gösterilir. Hedefi adını düzenleyin ve ENTER tuşuna basın. Yeni bir ad kaydedilmiş ve hedefi sayfasında görüntülenir.
+2. Üzerinde **hedefi** sayfasında, geçerli hedefi adı iletişim kutusunda gösterilir. Hedefi adı düzenleyin ve enter tuşuna basın. Yeni bir ad kaydedildi ve hedefi sayfasında görüntülenir.
 
     ![Hedefi Düzenle](./media/luis-how-to-add-intents/EditIntent-dialogbox.png)
 
 ## <a name="delete-intent"></a>Hedefi silme
-Hiçbiri hedefi dışında bir amaç silerken, tüm utterances Yok'a hedefi eklemeyi seçebilirsiniz. Silerek yerine utterances taşımanız gerekirse, bu yararlıdır.   
+Hiçbiri hedefi dışında bir amaç silerken konuşma hiçbiri hedefi eklemek seçebilirsiniz. Konuşma silerek yerine taşımanız gerekirse, bu yararlıdır.   
 
-1. Üzerinde **hedefi** sayfasında, **silme hedefi** hedefi adının yanındaki düğmesi. 
+1. Üzerinde **hedefi** sayfasında **silme hedefi** hedefi adının yanındaki düğmeyi. 
 
     ![Hedefi düğmesi silme](./media/luis-how-to-add-intents/DeleteIntent.png)
 
-2. Onay iletişim kutusunda "Tamam" düğmesini tıklatın.
+2. Onay iletişim kutusunda "Tamam" düğmesine tıklayın.
 
 <!--
     TBD: waiting for confirmation about which delete dialog is going to be in //BUILD
@@ -61,86 +61,86 @@ Hiçbiri hedefi dışında bir amaç silerken, tüm utterances Yok'a hedefi ekle
 
 ## <a name="add-an-utterance-on-intent-page"></a>Hedefi sayfasında bir utterance ekleyin
 
-Hedefi sayfasında beklediğiniz, kullanıcılardan gibi ilgili utterance girin `book 2 adult business tickets to Paris tomorrow on Air France` hedefi adı ve ENTER tuşuna basın altındaki metin kutusuna. 
+Beklediğiniz kullanıcılarınızdan gelen gibi ilgili bir utterance hedefi sayfasında girin `book 2 adult business tickets to Paris tomorrow on Air France` metin kutusuna aşağıdaki hedefi adını ve Enter tuşuna basın. 
  
 >[!NOTE]
->HALUK tüm utterances küçük harflere dönüştürür.
+>LUIS tüm konuşma küçük harfe dönüştürür.
 
-![Vurgulanan utterance ile ekran görüntüsü, hedefleri Ayrıntılar sayfası](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
+![Vurgulanan utterance ile ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
-Utterances geçerli amacı için utterances listesine eklenir. Bir utterance eklendikten sonra [herhangi bir varlık etiketi](luis-how-to-add-example-utterances.md) utterances içinde ve [eğitmek](luis-how-to-train.md) uygulamanızı. 
+Konuşma geçerli amaç için konuşma listesine eklenir. Bir utterance eklendikten sonra [herhangi bir varlık etiketi](luis-how-to-add-example-utterances.md) konuşma içinde ve [eğitme](luis-how-to-train.md) uygulamanızı. 
 
-## <a name="create-a-pattern-from-an-utterance"></a>Bir utterance bir düzeni oluşturma
-Bkz: [Ekle düzeni hedefi veya varlık sayfasında mevcut utterance gelen](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
+## <a name="create-a-pattern-from-an-utterance"></a>Bir utterance bir düzen oluşturma
+Bkz: [hedefi veya varlık sayfasında mevcut utterance Ekle deseni](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
-## <a name="edit-an-utterance-on-intent-page"></a>Bir utterance hedefi sayfasında Düzenle
+## <a name="edit-an-utterance-on-intent-page"></a>Hedefi sayfasında bir utterance Düzenle
 
-Bir utterance düzenlemek için bu utterance çizgi sağ ucunda üç noktaya (...) simgesini seçin ve ardından **Düzenle**. Metin değiştirme sonra klavyedeki Enter tuşuna basın.
+Bir utterance düzenlemek için bu utterance satırının sağındaki üç nokta (...) simgesini seçin ve ardından **Düzenle**. Metin değiştirme sonra klavyedeki Enter tuşuna basın.
 
-![Vurgulanan üç noktaya simgesiyle ekran görüntüsü, hedefleri Ayrıntılar sayfası](./media/luis-how-to-add-intents/edit-utterance.png) 
+![Ekran görüntüsü, hedefleri Ayrıntıları sayfası, vurgulanan üç nokta simgesi](./media/luis-how-to-add-intents/edit-utterance.png) 
 
-## <a name="reassign-utterances-on-intent-page"></a>Hedefi sayfasında utterances yeniden atama
-Bir veya daha fazla utterances amacı, başka bir amaç için atayarak değiştirebilirsiniz. 
+## <a name="reassign-utterances-on-intent-page"></a>Konuşma niyetini sayfasında yeniden atama
+Bir veya daha fazla konuşma amacı, başka bir amaç için atama yoluyla değiştirebilirsiniz. 
 
-Tek bir utterance utterance's satırın sağ uç farklı bir hedefi için yeniden atamak için doğru hedefi adı altında seçin **hedefi etiketli** sütun. Utterance geçerli amacı 's utterance listesinden kaldırılır. 
+Tek bir utterance utterance ait satır sonuna doğru farklı bir amaç için yeniden atamak için doğru hedefi adı altında seçin **hedefi etiketli** sütun. Utterance geçerli amaç 's utterance listesinden kaldırılır. 
 
-![Bir utterance's amacıyla Seçili Labeled hedefi sütununun altında ekran BookFlight hedefi sayfası](./media/luis-how-to-add-intents/reassign-1-utterance.png)
+![Seçili Labeled hedefi sütununun altında bir utterance'nın amacı, ekran BookFlight hedefi sayfası](./media/luis-how-to-add-intents/reassign-1-utterance.png)
 
-Birkaç utterances amacı değiştirmek için utterances solundaki onay kutularını seçin ve ardından **yeniden hedefi**. Doğru hedefi listeden seçin.
+Çeşitli konuşma amacı değiştirmek için konuşma solundaki onay kutularını seçin ve ardından **yeniden atama hedefi**. Doğru amaç listeden seçin.
 
-![İşaretli utterance ve yeniden atama hedefi düğmesi vurgulanmış hedefi sayfasıyla BookFlight, ekran görüntüsü](./media/luis-how-to-add-intents/delete-several-utterances.png) 
+![İşaretli bir utterance ve yeniden atama hedefi düğmesi vurgulanmış ekran görüntüsü, BookFlight hedefi sayfası](./media/luis-how-to-add-intents/delete-several-utterances.png) 
 
-## <a name="delete-utterances-on-intent-page"></a>Hedefi sayfasında utterances Sil
+## <a name="delete-utterances-on-intent-page"></a>Konuşma niyetini sayfasında Sil
 
-Bir utterance silmek için bu utterance çizgi sağ ucunda üç noktaya (...) simgesini seçin ve ardından **silmek**. Utterance listesi ve HALUK uygulama kaldırılır.
+Bir utterance silmek için bu utterance satırının sağındaki üç nokta (...) simgesini seçin ve ardından **Sil**. Utterance listesi ve LUIS uygulaması kaldırılır.
 
-![Vurgulanan Sil seçeneğiyle ekran görüntüsü, hedefleri Ayrıntılar sayfası](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
+![Sil seçeneğinin vurgulandığı ile ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 
-Birkaç utterances silmek için:
+Çeşitli konuşma silmek için:
 
-1. Utterances solundaki onay kutularını seçin ve ardından **silmek utterances (s)**. 
+1. Konuşma solundaki onay kutularını seçin ve ardından **Sil (s) konuşma**. 
 
-    ![Ekran görüntüsü, hedefleri Ayrıntıları sayfası, utterances denetlenir ve utterance(s) düğmesi vurgulanmış Sil](./media/luis-how-to-add-intents/delete-several-utterances.png)
+    ![Ekran görüntüsü, hedefleri Ayrıntıları sayfası, konuşma, iade ve utterance(s) düğmesi vurgulanmış Sil](./media/luis-how-to-add-intents/delete-several-utterances.png)
 
-2. Seçin **Bitti** içinde **silmek utterances?** açılan iletişim.
+2. Seçin **Bitti** içinde **konuşma Sil?** açılır iletişim kutusu.
 
-## <a name="search-in-utterances-on-intent-page"></a>Hedefi sayfasında utterances içinde arama
-Bir amacı, metin (kelimeler ve ifadeler) içeren utterances için arama yapabilirsiniz. Örneğin, belirli bir sözcük içeren bir hata görebilirsiniz ve bu belirli word dahil tüm örnekler bulmak istediğiniz. 
+## <a name="search-in-utterances-on-intent-page"></a>Konuşma niyetini sayfasında içinde arama
+Bir amaca, metin (sözcük ve tümcecikleri) içeren konuşma için arama yapabilirsiniz. Örneğin, belirli bir sözcüğün içeren bir hata görebilirsiniz ve bu belirli bir sözcüğün dahil tüm örnekleri bulmak istediğiniz. 
 
 1. Araç çubuğunda Büyüteç simgesini seçin.
 
-    ![Ekran görüntüsü, hedefleri sayfasıyla vurgulanmış Büyüteç arama simgesi](./media/luis-how-to-add-intents/magnifying-glass.png)
+    ![Ekran görüntüsü, hedefleri sayfası Büyüteç vurgulanan arama simgesini](./media/luis-how-to-add-intents/magnifying-glass.png)
 
-2. Arama metin kutusuna görünür. Sözcük veya tümcecik utterances listenin en sağ üst köşedeki arama kutusuna yazın. Utterances arama metninizi içeren utterances görüntülemek için güncelleştirmeleri listeleyin. 
+2. Arama metin kutusu görünür. Konuşma listenin en sağ üst köşedeki arama kutusuna bir sözcük veya tümcecik yazın. Konuşma arama metninizi içeren konuşma görüntülemek için güncelleştirmeleri listeleyin. 
 
-    ![Arama metin kutusuna vurgulanmış olan ekran görüntüsü, hedefleri sayfası](./media/luis-how-to-add-intents/search-textbox.png)
+    ![Vurgulanan arama metin kutusuna ekran görüntüsü, hedefleri sayfası](./media/luis-how-to-add-intents/search-textbox.png)
 
-    Aramayı iptal etmek ve utterances tam listesini geri yükleme için yazdığınız arama metni silin. Arama metin kutusuna kapatmak için araç çubuğunda Büyüteç simgesine yeniden seçin.
+    Aramayı iptal et ve konuşma tam listesini geri yükleme için yazdığınız arama metni silin. Arama metin kutusuna kapatmak için araç çubuğunda Büyüteç simgesini yeniden seçin.
 
-## <a name="prediction-discrepancy-errors-on-intent-page"></a>Hedefi sayfadaki tahmin tutarsızlık hataları
-Bir utterance amacına içinde seçilen amacını ve tahmin puanı arasında bir farklılık olabilir. HALUK puanı etrafında kırmızı kutu ile bu farklılık gösterir. 
+## <a name="prediction-discrepancy-errors-on-intent-page"></a>Hedefi sayfasında tahmin tutarsızlık hataları
+Bir hedefi olarak bir utterance seçili amaç ve tahmin puanı arasında bir tutarsızlık olabilir. LUIS çevresinde puanı ile bu farklılık gösterir. 
 
 ![Vurgulanan tahmin tutarsızlık puanı BookFlight hedefi ekran sayfası](./media/luis-how-to-add-intents/score-discrepancy.png) 
 
-## <a name="filter-by-intent-prediction-discrepancy-errors-on-intent-page"></a>Filtre ölçütü hedefi sayfadaki hedefi tahmin tutarsızlık hataları
-Yalnızca bir hedefi tahmin tutarsızlık ile utterances utterance listesine filtre uygulamak için gelen geçiş **Tümünü Göster** için **yalnızca hatalar** araç. 
+## <a name="filter-by-intent-prediction-discrepancy-errors-on-intent-page"></a>Hedefi tahmin tutarsızlık hataları hedefi sayfasında göre filtreleme
+Yalnızca bir hedefi tahmin tutarsızlık ile Konuşma utterance listesini filtrelemek için değiştirin **Tümünü Göster** için **yalnızca hataları** araç. 
 
 ## <a name="filter-by-entity-type-on-intent-page"></a>Hedefi sayfasında varlık türüne göre filtrele
-Kullanım **varlık filtreleri** utterances varlık tarafından filtre uygulamak için araç çubuğunda açılır. 
+Kullanım **varlık filtreleri** konuşma varlığa filtre uygulamak için araç çubuğundaki açılır. 
 
-![Varlık Türü Filtresi vurgulanmış olan ekran görüntüsü, hedefleri sayfası](./media/luis-how-to-add-intents/filter-by-entities.png) 
+![Ekran görüntüsü, hedefleri sayfasıyla vurgulanmış varlık türü filtresi](./media/luis-how-to-add-intents/filter-by-entities.png) 
 
-Filtreyi kaldırmak için bu sözcük veya tümceciği araç çubuğunun altında mavi filtre kutusuyla seçin.  
+Filtreyi kaldırmak için bu sözcük veya tümceciği araç çubuğunun altında mavi bir filtre kutusu seçin.  
 <!-- TBD: waiting for ux fix - bug in ux of prebuit entity number -- when filtering by it, it doesn't show the list -->
 
-## <a name="switch-to-token-view-on-intent-page"></a>Hedefi sayfasında belirteci görünümüne geç
-İki durumlu **belirteçleri görüntüle** varlık türü adları yerine belirteçleri görüntülemek için. De kullanabilirsiniz klavyede **denetim + E** görünümüne geçiş yapmak için. 
+## <a name="switch-to-token-view-on-intent-page"></a>Hedefi sayfasında belirteci görünümüne geçin
+İki durumlu **belirteçleri görünümü** varlık türü adları yerine belirteçler görüntülemek için. De kullanabilirsiniz klavyede **denetim + E** görünüme geçiş için. 
 
-![Ekran görüntüsü, BookFlight amacıyla, belirteç vurgulanmış görünümü](./media/luis-how-to-add-intents/toggle-tokens-view.png)
+![Belirteç görünümle vurgulanmış ekran görüntüsü, BookFlight hedefi](./media/luis-how-to-add-intents/toggle-tokens-view.png)
 
-## <a name="train-your-app-after-changing-model-with-intents"></a>Hedefleri modeliyle değiştirdikten sonra uygulamanızı eğitme
-Eklemek, düzenlemek veya hedefleri, kaldırdıktan sonra [eğitmek](luis-how-to-train.md) ve [yayımlama](PublishApp.md) uygulamanız için uç nokta sorguları etkilemek yaptığınız değişiklikleri. 
+## <a name="train-your-app-after-changing-model-with-intents"></a>Intents modeliyle değiştirdikten sonra uygulamanızı eğitin
+Ekleme, düzenleme veya kaldırma amacı, sonra [eğitme](luis-how-to-train.md) ve [yayımlama](luis-how-to-publish-app.md) uygulamanız için uç nokta sorguları etkilemek yaptığınız değişiklikleri. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uygulamanıza hedefleri eklendikten sonra sonraki göreviniz eklemeye başlamak için olan [örnek utterances](luis-how-to-add-example-utterances.md) eklediğiniz amaçlar için. 
+Intents uygulamanıza ekledikten sonra sonraki göreviniz eklemeye başlamak için olan [örnek konuşma](luis-how-to-add-example-utterances.md) eklediğiniz hedefleri için. 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 06/29/2018
 ms.author: terrylan
-ms.openlocfilehash: f950b6fef575e9dc2d637c17ba40b6f504d1f227
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 326b07a18b07f15850e0283ad51a05b42c1ef0ab
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284786"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341322"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki Özel Uyarı Kuralları (Önizleme)
 Bu belge, Azure Güvenlik Merkezi'nde özel uyarı kuralları oluşturmanıza yardımcı olur.
@@ -31,7 +31,7 @@ Güvenlik Merkezi'nde bir tehdit veya şüpheli etkinlik gerçekleştiğinde tet
 Güvenlik Merkezi'ndeki özel uyarı kuralları, ortamınızdan toplanmış olan verilerle yeni güvenlik uyarıları tanımlamanızı sağlar. Sorgu oluşturabilir, bu sorguların sonuçlarını özel kuralın ölçütü olarak kullanabilir ve ölçütler karşılandığında kuralın yürütülmesini sağlayabilirsiniz. Özel sorgularınızı oluşturmak için bilgisayarların güvenlik olaylarını, iş ortağı güvenlik çözümü günlüklerini veya API'ler kullanılarak toplanan verileri kullanabilirsiniz.
 
 > [!NOTE]
-> Özel uyarı depolamak için seçtiğiniz çalışma alanında yazma izni.
+> Özel uyarılar, Güvenlik Merkezi'nin içinde desteklenmez [araştırma özelliği](security-center-investigation.md).
 >
 >
 
@@ -52,7 +52,14 @@ Güvenlik Merkezi'ndeki özel uyarı kuralları, ortamınızdan toplanmış olan
 5.  **Açıklama** alanına bu kuralın amacını belirten kısa bir açıklama yazın.
 6.  **Güvenlik** alanında ihtiyaçlarınıza uygun önem derecesini (Yüksek, Orta, Düşük) seçin.
 7.  **Abonelik** alanında kuralın uygulanacağı aboneliği seçin.
-8.  Bu kuralda izlemek istediğiniz çalışma alanını seçin **çalışma** alan ve **arama sorgusu** alan, sonuçları elde etmek için kullanmak istediğiniz sorgu. Özel uyarı depolamak için seçtiğiniz çalışma alanında yazma izni. Sorgunun sonucu uyarıyı tetikler. Geçerli bir sorgu yazdığınızda bu alanın sağ köşesinde yeşil renkli onay işareti görünür:
+8.  Bölümünde bu kuralla izlemek istediğiniz çalışma alanını seçin **çalışma** alan ve **arama sorgusu** alanında da sonuçları almak için kullanmak istediğiniz sorgu.
+
+    > [!NOTE]
+    > Özel Uyarınız depolamak için seçtiğiniz çalışma alanında yazma izni.
+    >
+    >
+
+    Sorgunun sonucu uyarıyı tetikler. Geçerli bir sorgu yazdığınızda bu alanın sağ köşesinde yeşil renkli onay işareti görünür:
 
     ![Sorgu](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 

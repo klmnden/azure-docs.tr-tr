@@ -1,6 +1,6 @@
 ---
-title: SQL veritabanları Azure yığında kullanarak | Microsoft Docs
-description: SQL veritabanları Azure yığını ve hızlı adımlar SQL Server Kaynak sağlayıcısı bağdaştırıcısı dağıtmak için bir hizmet olarak nasıl dağıtabileceğini öğrenin.
+title: Azure Stack'te SQL veritabanlarını kullanma | Microsoft Docs
+description: Azure Stack ve hızlı adımları SQL Server Kaynak sağlayıcısı bağdaştırıcısını dağıtmak için bir hizmet olarak SQL veritabanlarını nasıl dağıtılacağı hakkında bilgi edinin.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,93 +11,89 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/02/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e1505761a0bd1ea9dabdd0b2cbab7af902198311
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: d830a9c07890bde3c7d9e482e904ba3cbf5bfffe
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938341"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344929"
 ---
-# <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>SQL Server Kaynak sağlayıcısı Azure yığında dağıtma
+# <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Azure Stack'te SQL Server Kaynak sağlayıcısı dağıtma
 
-SQL veritabanları Azure yığın hizmet olarak kullanıma sunmak için Azure yığın SQL Server Kaynak sağlayıcısı kullanın. SQL kaynak sağlayıcısı, bir Windows Server 2016 Server Core sanal makinede (VM) bir hizmet olarak çalışır.
+SQL veritabanları Azure Stack hizmet olarak kullanıma sunmak için Azure Stack SQL Server Kaynak Sağlayıcısı'nı kullanın. SQL kaynak sağlayıcısı, bir hizmet olarak Windows Server 2016 Server Core sanal makinede (VM) çalışır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure yığın SQL kaynak sağlayıcısı dağıtmadan önce karşılanması gereken birkaç önkoşul vardır. Bu gereksinimleri karşılamak için VM ayrıcalıklı uç noktasına erişebildiğinden bir bilgisayarda aşağıdaki adımları tamamlayın:
+Azure Stack SQL kaynak sağlayıcısını dağıtmadan önce karşılanması gereken birkaç önkoşul vardır. Bu gereksinimleri karşılamak için VM ayrıcalıklı uç noktasına erişebildiğinden bir bilgisayarda aşağıdaki adımları tamamlayın:
 
-- Bunu zaten bunu yapmadıysanız [Azure yığın kaydetmek](.\azure-stack-registration.md) Azure Market öğesi indirebilmesi için Azure ile.
-- Gerekli Windows Server çekirdek VM yükleyerek Azure yığın Market eklemek **Windows Server 2016 Datacenter - Sunucu Çekirdeği** görüntü. Bir komut dosyası oluşturmak için de kullanabilirsiniz bir [Windows Server 2016 görüntü](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). Komut dosyasını çalıştırdığınızda Çekirdeği seçeneğini seçtiğinizden emin olun.
+- Bunu zaten bunu yapmadıysanız [Azure Stack kayıt](.\azure-stack-registration.md) Azure Market öğeleri indirebilmesi Azure ile.
+- Azure ve Azure Stack PowerShell modülleri yüklemelisiniz. Bu yükleme sistem wher üzerinde çalışır. Bu sistem, .NET çalışma zamanının en son sürümünü içeren bir Windows 10 veya Windows Server 2016 görüntüsü olması gerekir. Bkz: [Azure Stack için PowerShell yükleme](.\azure-stack-powershell-install.md).
+- Gerekli Windows Server core VM için Azure Stack marketini indirerek ekleme **Windows Server 2016 Datacenter - Sunucu Çekirdeği** görüntü. 
 
   >[!NOTE]
-  >Bir güncelleştirme yüklemeniz gerekiyorsa, tek bir MSU paket yerel bağımlılık yolunda yerleştirebilirsiniz. Birden fazla MSU dosya bulunursa, SQL kaynak sağlayıcısı yükleme başarısız olur.
+  >Bir güncelleştirme yüklemeniz gerekiyorsa, tek bir MSU paket yerel bağımlılık yolunda yerleştirebilirsiniz. Birden fazla MSU dosyası bulunamazsa SQL kaynak sağlayıcısı yüklemesi başarısız olur.
 
-- SQL kaynak sağlayıcısı ikili indirin ve içeriğini geçici bir dizine ayıklayın ayıklayıcısı çalıştırın. Kaynak sağlayıcısı bir minimum karşılık gelen Azure yapı yığınına sahiptir. Kullanmakta olduğunuz Azure yığın sürümü için doğru ikili yüklediğinizden emin olun.
+- İkili SQL kaynak Sağlayıcısı'nı indirin ve geçici bir dizine içeriğini ayıklamak için ayıklayıcısı çalıştırın. Kaynak sağlayıcısı bir minimum karşılık gelen Azure yapı yığınına sahiptir. Kullanmakta olduğunuz Azure Stack sürümü için doğru ikili indirdiğinizden emin olun.
 
-    |Azure yığın sürümü|SQL RP sürümü|
+    |Azure Stack sürümü|SQL RP sürümü|
     |-----|-----|
-    |Sürüm 1804 (1.0.180513.1)|[SQL RP sürüm 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
-    |Sürüm 1802 (1.0.180302.1)|[SQL RP sürüm 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
-    |Sürüm 1712 (1.0.180102.3, 1.0.180103.2 veya 1.0.180106.1 (tümleşik sistemler için))|[SQL RP sürüm 1.1.14.0](https://aka.ms/azurestacksqlrp1712)|
+    |Sürüm 1804 (1.0.180513.1)|[SQL RP 1.1.24.0 sürümü](https://aka.ms/azurestacksqlrp1804)
+    |Sürüm 1802 (1.0.180302.1)|[SQL RP 1.1.18.0 sürümü](https://aka.ms/azurestacksqlrp1802)|
+    |Sürüm 1712 (1.0.180102.3, 1.0.180103.2 veya 1.0.180106.1 (tümleşik sistemleri için))|[SQL RP 1.1.14.0 sürümü](https://aka.ms/azurestacksqlrp1712)|
     |     |     |
 
 ### <a name="certificates"></a>Sertifikalar
 
-Yalnızca tümleşik sistemleri yüklemeleri için. İsteğe bağlı PaaS sertifikaları bölümünde anlatılan SQL PaaS PKI sertifikası sağlamalısınız [Azure yığın dağıtım PKI gereksinimleri](.\azure-stack-pki-certs.md#optional-paas-certificates). .Pfx dosyasını tarafından belirtilen konuma yerleştirin **DependencyFilesLocalPath** parametresi.
+_Tümleşik sistemler yüklemeleri_. İsteğe bağlı PaaS sertifikaları bölümünde açıklanan SQL PaaS PKI sertifikasını sağlamalısınız [Azure Stack dağıtım PKI gereksinimleri](.\azure-stack-pki-certs.md#optional-paas-certificates). .Pfx dosyası tarafından belirtilen konuma yerleştirin **DependencyFilesLocalPath** parametresi. Bir sertifika ASDK sistemler için sağlamaz.
 
 ## <a name="deploy-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı dağıtma
 
-Yüklü tüm Önkoşullar kurduktan sonra çalıştırmak **DeploySqlProvider.ps1** SQL kaynak sağlayıcısı dağıtmak için komut dosyası. DeploySqlProvider.ps1 komut dosyası Azure yığın sürümünüz için yüklediğiniz SQL kaynak sağlayıcısı ikili bir parçası olarak ayıklanır.
+Tümünde Önkoşullar kendinizi çalıştırılmak **DeploySqlProvider.ps1** SQL kaynak sağlayıcısı dağıtma için betiği. DeploySqlProvider.ps1 betiği, Azure Stack sürümünüz için indirdiğiniz SQL kaynak sağlayıcısı ikili bir parçası olarak ayıklanır.
 
-> [!IMPORTANT]
-> Komut dosyası kullanmakta olduğunuz sistemi yüklü .NET çalışma zamanı en son sürümü Windows 10 veya Windows Server 2016 sistemiyle olmalıdır.
+SQL kaynak sağlayıcısı dağıtmak için açık bir **yeni** yükseltilmiş bir PowerShell konsol penceresi ve SQL kaynak sağlayıcısı ikili dosyaları ayıkladığınız dizine geçin. Zaten yüklenmiş olan PowerShell modülleri tarafından kaynaklanan olası sorunları önlemek için yeni bir PowerShell penceresi kullanmanızı öneririz.
 
-SQL kaynak sağlayıcısı dağıtmak için açık bir **yeni** yükseltilmiş PowerShell konsol penceresinde ve SQL kaynak sağlayıcısı ikili dosyaları ayıkladığınız dizine geçin. Önceden yüklenen PowerShell modülleri tarafından neden olası sorunları önlemek için yeni bir PowerShell penceresi kullanmanızı öneririz.
+Aşağıdaki görevleri tamamlar DeploySqlProvider.ps1 betiği çalıştırın:
 
-Aşağıdaki görevleri tamamlar DeploySqlProvider.ps1 komut dosyasını çalıştırın:
-
-- Sertifikaları ve diğer yapıları depolama hesabı Azure yığında yükler.
-- Galeri kullanarak SQL veritabanlarını dağıtabilmek için Galeri paketleri yayımlar.
+- Sertifikaları ve diğer yapıtları Azure Stack'te bir depolama hesabına yükler.
+- Galeriyi kullanarak SQL veritabanlarını ucunuzun galeri paketleri yayımlar.
 - Barındırma sunucuları dağıtmak için bir galeri paketi yayımlar.
-- İndirilen ve SQL kaynak Sağlayıcısı'nı yükler Windows Server 2016 çekirdek görüntü kullanarak bir VM dağıtır.
-- Kaynak sağlayıcınız VM eşler yerel bir DNS kaydı kaydeder.
-- Kaynak sağlayıcısı ile yerel Azure Resource Manager işleci ve kullanıcı hesapları için kaydeder.
-- İsteğe bağlı olarak, tek bir Windows Server güncelleştirme sırasında kaynak sağlayıcısı yükleme yükler.
+- İndirilen ve SQL kaynak Sağlayıcısı'nı yükleyen Windows Server 2016 temel görüntüyü kullanarak bir VM dağıtır.
+- Kaynak sağlayıcınızı VM eşler yerel bir DNS kaydı kaydeder.
+- Kaynak sağlayıcınız ile yerel Azure Resource Manager operatörü ve kullanıcı hesapları için kaydeder.
+- İsteğe bağlı olarak, kaynak sağlayıcı yüklemesi sırasında tek bir Windows Server güncelleştirme yükler.
 
 > [!NOTE]
-> SQL kaynak sağlayıcısı dağıtımı başladığında, **system.local.sqladapter** kaynak grubu oluşturulur. Bu kaynak grubu için dört gerekli dağıtımlarda son 75 dakika kadar sürebilir.
+> SQL kaynak sağlayıcısı dağıtım başladığında, **system.local.sqladapter** kaynak grubu oluşturulur. Bu, gerekli dağıtımlarda bu kaynak grubu için son 75 dakika kadar sürebilir.
 
 ### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parametreleri
 
-Komut satırından aşağıdaki parametreleri belirtebilirsiniz. Bunu yapmazsanız veya hiçbir parametre doğrulaması başarısız olursa, gerekli parametreler sağlamanız istenir.
+Komut satırından aşağıdaki parametreleri belirtebilirsiniz. Yoksa veya herhangi bir parametre doğrulaması başarısız olursa, gerekli parametreleri sağlamanız istenir.
 
-| Parametre adı | Açıklama | Açıklama veya varsayılan değer |
+| Parametre adı | Açıklama | Açıklama veya varsayılan değeri |
 | --- | --- | --- |
-| **CloudAdminCredential** | Bulut Yöneticisi, ayrıcalıklı endpoint erişmek için gerekli kimlik bilgileri. | _Gerekli_ |
-| **AzCredential** | Azure yığın hizmet yönetici hesabı için kimlik bilgileri. Azure yığın dağıtmak için kullanılan kimlik bilgilerini kullanın. | _Gerekli_ |
-| **VMLocalCredential** | SQL kaynak sağlayıcısının VM yerel yönetici hesabı için kimlik bilgileri. | _Gerekli_ |
-| **PrivilegedEndpoint** | IP adresi veya ayrıcalıklı uç noktanın DNS adı. |  _Gerekli_ |
-| **DependencyFilesLocalPath** | Sertifika .pfx dosyasının bu dizinde yerleştirilmelidir. | _İsteğe bağlı_ (_zorunlu_ tümleşik sistemler için) |
-| **DefaultSSLCertificatePassword** | .Pfx sertifika parolası. | _Gerekli_ |
-| **MaxRetryCount** | Bir hata olduğunda her işlemini yeniden denemek istiyor sayısı.| 2 |
+| **CloudAdminCredential** | Ayrıcalıklı uç nokta erişmek için gerekli bulut Yöneticisi kimlik bilgileri. | _Gerekli_ |
+| **AzCredential** | Azure Stack hizmet yönetici hesabının kimlik bilgileri. Azure Stack dağıtmak için kullanılan kimlik bilgilerini kullanın. | _Gerekli_ |
+| **VMLocalCredential** | SQL kaynak sağlayıcısı VM yerel yönetici hesabı için kimlik bilgileri. | _Gerekli_ |
+| **PrivilegedEndpoint** | Ayrıcalıklı uç noktasının DNS adı veya IP adresi. |  _Gerekli_ |
+| **DependencyFilesLocalPath** | Yalnızca tümleşik sistemler için sertifika .pfx dosyanızı bu dizine yerleştirilmelidir. İsteğe bağlı olarak bir Windows güncelleştirmesi MSU paket buraya kopyalayabilirsiniz. | _İsteğe bağlı_ (_zorunlu_ tümleşik sistemler için) |
+| **DefaultSSLCertificatePassword** | .Pfx sertifika için parola. | _Gerekli_ |
+| **MaxRetryCount** | Her işlem bir hata olursa yeniden denemek istiyor sayısı.| 2 |
 | **RetryDuration** | Saniye cinsinden yeniden denemeler arasındaki zaman aşımı aralığı. | 120 |
 | **Kaldırma** | (Aşağıdaki notlara bakın) ilişkili tüm kaynakları ve kaynak sağlayıcısını kaldırır. | Hayır |
-| **DebugMode** | Otomatik temizleme hatasında engeller. | Hayır |
-
->[!NOTE]
-> SKU'ları portalında görünür olması için bir saat sürebilir. SKU dağıtılmış ve çalışır olana kadar bir veritabanı oluşturulamıyor.
+| **DebugMode** | Otomatik temizleme başarısız engeller. | Hayır |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Özel bir komut dosyası kullanarak SQL kaynak sağlayıcısı dağıtma
 
-Kaynak sağlayıcısı dağıtırken herhangi bir el ile yapılandırma ortadan kaldırmak için aşağıdaki komut dosyası özelleştirebilirsiniz. Varsayılan hesap bilgilerini ve parolaları Azure yığın dağıtımınız için gerektiği gibi değiştirin.
+Kaynak sağlayıcısı dağıtırken herhangi bir el ile yapılandırma ortadan kaldırmak için aşağıdaki betiği özelleştirebilirsiniz. Varsayılan hesap bilgilerini ve parolaları Azure Stack dağıtımınız için gereken şekilde değiştirin.
 
 ```powershell
-# Install the AzureRM.Bootstrapper module and set the profile.
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module  -Name AzureStack -RequiredVersion 1.3.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
@@ -124,8 +120,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Change to the directory If folder where you extracted the installation files.
-# Then adjust the endpoints.
+# Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
 . $tempDir\DeploySQLProvider.ps1 `
     -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
@@ -136,20 +131,18 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
  ```
 
-Kaynak Sağlayıcı yükleme komut dosyası sona erdiğinde, en son güncelleştirmeleri görebildiğinizden emin olmak için tarayıcınızı yenileyin.
+Kaynak Sağlayıcı yükleme betiği sona erdiğinde, en son güncelleştirmeleri gördüğünüz emin olmak için tarayıcınızı yenileyin.
 
-## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Azure yığın Portalı'nı kullanarak dağıtımı doğrulama
+## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Azure Stack portalını kullanarak dağıtımı doğrulama
 
-Aşağıdakileri kullanabilirsiniz adımları doğrulayın SQL kaynak sağlayıcısı başarıyla dağıtılır.
+Aşağıdaki kullanabileceğiniz adımları SQL kaynak sağlayıcısı başarıyla dağıtıldığından emin olun.
 
-1. Yönetim portalında Hizmet Yöneticisi olarak oturum açın.
+1. Yönetim portalına Hizmet Yöneticisi olarak oturum açın.
 2. Seçin **kaynak grupları**.
 3. Seçin **sistem.\< Konum\>.sqladapter** kaynak grubu.
-4. İletinin altında **dağıtımları**, sonraki ekran görüntüsünde gösterilen olmalıdır **4 başarılı**.
+4. Kaynak grubu genel bakış için Özet sayfasında, hiçbir dağıtımları başarısız olmalıdır.
 
-      ![SQL kaynak sağlayıcısı dağıtımını doğrulayın](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-
-5. Altında kaynak sağlayıcısı dağıtım hakkında daha ayrıntılı bilgi alabileceğiniz **ayarları**. Seçin **dağıtımları** gibi bilgileri almak için: durum, zaman damgası ve her dağıtım süre.
+      ![SQL kaynak sağlayıcısı, dağıtımı doğrulama](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
