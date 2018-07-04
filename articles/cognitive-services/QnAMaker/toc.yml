@@ -118,6 +118,8 @@
       href: glossary.md
 - name: Kaynaklar
   items:
+    - name: Bölgesel Kullanılabilirlik
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/'
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Fiyatlandırma

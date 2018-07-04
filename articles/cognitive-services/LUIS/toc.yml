@@ -136,7 +136,7 @@
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Uygulamanızı planlama
-      href: Plan-your-app.md
+      href: luis-how-plan-your-app.md
     - name: Yeni bir uygulama başlatma
       href: Create-new-app.md
     - name: Model Oluşturma
@@ -200,7 +200,7 @@
         - name: Önceden oluşturulmuş etki alanları kullanma
           href: luis-how-to-use-prebuilt-domains.md
         - name: Önceden oluşturulmuş Cortana uygulamasını kullanma
-          href: Cortana-Prebuilt-App.md
+          href: luis-how-to-cortana-prebuilt-app.md
     - name: LUIS uygulamanızı yönetme
       items:
         - name: Panoyu kullanma
@@ -309,6 +309,8 @@
       href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
     - name: Metin Analizi
       href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+    - name: Tanıyıcı Metni
+      href: 'https://github.com/Microsoft/Recognizers-Text'
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası

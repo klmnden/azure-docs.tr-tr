@@ -5,7 +5,6 @@
 ### Vitrinler  
 #### [AppSource ile Azure Market'i karşılaştırma](./comparing-appsource-azure-marketplace.md)  
 #### [AppSource ile işletmenizi büyütün](./grow-your-business-with-appsource.md) 
-#### [Tercih Edilen Çözümler](./preferred-solutions.md)
 ##### [Giriş Sayfanızı Oluşturma](./build-your-landing-page.md)  
 ##### [Müşteri adayı paylaşımını etkinleştirme](./enable-lead-sharing.md)  
 ##### [Markette GTM Avantajları](./gtm-benefits.md)  
@@ -19,17 +18,17 @@
 ### Markette vitrinlerde Yayımlama  
 #### [Çözümünüz için Liste Türünü Belirleme](./determine-your-listing-type.md)  
 #### [Markette vitrinlerde Yayımcı olma](./become-publisher.md)  
-#### [Liste Türüne Göre Gereksinimler](./listing-type-requirements.md)  
+#### [Liste Türüne Göre Gereksinimler](./listing-type-requirements.md) 
+#### [Tercih Edilen Çözümler](./preferred-solutions.md) 
 
 ### Yayımlama Denetim Listeleri  
 #### [AppSource için Yayımlama Denetim Listesi](./publishing-checklist-appsource.md)  
 #### [Azure Market'te Yayımlama Denetim Listesi](./publishing-checklist-azure-marketplace.md)  
 
 ### Destek  
-#### [AppSource Desteği](./support-appsource.md)  
-#### [Azure Market Desteği](./support-azure-marketplace.md)  
+#### [Azure Market ve AppSource desteği](./support-azure-marketplace.md)  
 
-### Kılavuzlar  
+### Yayımlama Kılavuzları  
 #### [Azure Market Danışmanlık Hizmetleri](consulting-services.md)  
 #### [Azure Market SaaS uygulaması teknik yayımlama kılavuzu](marketplace-saas-applications-technical-publishing-guide.md) 
 

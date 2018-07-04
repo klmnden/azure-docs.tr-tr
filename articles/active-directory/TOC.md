@@ -83,8 +83,8 @@
 ## [Grupları ve üyeleri yönetme](fundamentals/active-directory-manage-groups.md)
 ### Grupları yönetme
 #### [Azure Portal](fundamentals/active-directory-groups-create-azure-portal.md)
-#### [Graph için Azure AD PowerShell (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Graph için Azure AD PowerShell (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
 ### [Grup üyelerini yönetme](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [Grup sahiplerini yönetme](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Grup üyeliğini yönetme](fundamentals/active-directory-groups-membership-azure-portal.md)
@@ -99,13 +99,13 @@
 ### [Office 365 gruplarının süre sonlarını ayarlama](active-directory-groups-lifecycle-azure-portal.md)
 ### [Gruplar için bir adlandırma ilkesini zorlama](groups-naming-policy.md)
 ### [Tüm grupları görüntüleme](fundamentals/active-directory-groups-view-azure-portal.md)
-### [SaaS uygulamalarına grup erişimi ekleme](active-directory-accessmanagement-group-saasapps.md)
+### [SaaS uygulamalarına grup erişimi ekleme](users-groups-roles/groups-saasapps.md)
 ### [Silinen bir Office 365 grubunu geri yükleme](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Grup ayarlarını yönetme](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Gelişmiş kurallar oluşturma
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
-### [Self servis gruplarını kurma](active-directory-accessmanagement-self-service-group-management.md)
-### [Sorun giderme](active-directory-accessmanagement-troubleshooting.md)
+### [Self servis gruplarını kurma](users-groups-roles/groups-self-service-management.md)
+### [Sorun giderme](users-groups-roles/groups-troubleshooting.md)
 
 ## [Raporları yönetme](active-directory-reporting-azure-portal.md)
 ### [Oturum açma etkinliği](active-directory-reporting-activity-sign-ins.md)
@@ -363,7 +363,7 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Özel etki alanı adları
 #### [Hızlı Başlangıç](fundamentals/add-custom-domain.md)
-#### [Özel etki alanı adı ekleme](active-directory-domains-manage-azure-portal.md)
+#### [Özel etki alanı adı ekleme](users-groups-roles/domains-manage.md)
 ### [Dizininizi yönetme](fundamentals/active-directory-administer.md)
 ### [Bir dizini silme](directory-delete-howto.md)
 ### [Birden fazla dizin](active-directory-licensing-directory-independence.md)
@@ -381,12 +381,12 @@
 
 ## Kaynaklara temsilci erişimi
 ### [Yönetici rolü üyelerini görüntüleme](directory-manage-roles-portal.md)
-### [Yönetici rolleri](active-directory-assign-admin-roles-azure-portal.md)
+### [Yönetici rolleri](users-groups-roles/directory-assign-admin-roles.md)
 #### [Kullanıcıya yönetici rolü atama](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Üye ve konuk kullanıcı izinlerini karşılaştırma](fundamentals/users-default-permissions.md)
 ### [Yönetici rolü güvenliğini artırma](admin-roles-best-practices.md)  
-#### [Acil durum erişimi yönetici hesapları oluşturma](active-directory-admin-manage-emergency-access-accounts.md)
-### [Yönetim birimleri](active-directory-administrative-units-management.md)
+#### [Acil durum erişimi yönetici hesapları oluşturma](users-groups-roles/directory-emergency-access.md)
+### [Yönetim birimleri](users-groups-roles/directory-administrative-units.md)
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
 
 ## Erişim gözden geçirmeleri
@@ -406,6 +406,7 @@
 #### Hızlı Başlangıçlar
 ##### [Bulut uygulaması MFA başına yapılandırma](active-directory-conditional-access-app-based-mfa.md)
 ##### [Kullanım koşullarının kabul edilmesini gerektirme](active-directory-conditional-access-tou.md)
+##### [Oturum riski algılandığında erişimi engelleme](active-directory-conditional-access-app-sign-in-risk.md)
 #### Öğreticiler
 ##### [Klasik MFA ilkesini geçirme](active-directory-conditional-access-migration-mfa.md)
 #### Kavramlar

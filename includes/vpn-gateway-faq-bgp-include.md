@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 93698df0e1684b469b6e2a03e6681499949aab6d
-ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.openlocfilehash: c6c67f6f1500ee90a1e0e4a04309f3f7aa2f6d05
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35414612"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36338331"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP tüm Azure VPN Gateway SKU'larında destekleniyor mu?
 Hayır, BGP Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** ve **HighPerformance** VPN ağ geçitlerinde desteklenir. **Temel** SKU DESTEKLENMEZ.
@@ -23,6 +23,9 @@ Hayır, BGP yalnızca Rota Temelli VPN Gateway’lerinde desteklenir.
 
 ### <a name="can-i-use-private-asns-autonomous-system-numbers"></a>Özel ASN’ler (Otonom Sistem Numaralarını) kullanabilir miyim?
 Evet, kendi ortak ASN’lerinizi veya özel ASN’lerinizi hem şirket içi ağlarda, hem de Azure sanal ağlarda kullanabilirsiniz.
+
+### <a name="can-i-use-32-bit-asns-autonomous-system-numbers"></a>32 bit ASN’ler (Otonom Sistem Numaraları) kullanabilir miyim?
+Hayır, Azure VPN Gateway’ler şu anda 16 bit ASN’leri destekler.
 
 ### <a name="are-there-asns-reserved-by-azure"></a>Azure tarafından ayrılan bir ASN var mı?
 Evet, aşağıdaki ASN’ler iç ve dış eşlemeler için Azure tarafından ayrılmıştır:

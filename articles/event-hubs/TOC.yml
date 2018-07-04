@@ -60,6 +60,20 @@
       href: event-hubs-dotnet-framework-getstarted-send.md
     - name: .NET Framework kullanarak olayları alma
       href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+    - name: Kafka için Event Hubs
+      items:
+        - name: Kafka ekosistemleri için Event Hubs’a genel bakış
+          href: event-hubs-for-kafka-ecosystem-overview.md
+        - name: Kafka etkin Event Hubs oluşturma
+          href: event-hubs-create-kafka-enabled.md
+        - name: Kafka ekosistemi için Event Hubs’a akış oluşturma
+          href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+        - name: Event Hubs ile Kafka MirrorMaker öğreticisi
+          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: Event Hubs ile Apache Flink öğreticisi
+          href: event-hubs-kafka-flink-tutorial.md
+        - name: Event Hubs ile Akka Streams öğreticisi
+          href: event-hubs-kafka-akka-streams-tutorial.md
     - name: Kullanılabilir API’ler
       href: event-hubs-api-overview.md
       items:

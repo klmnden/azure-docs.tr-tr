@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 08ff4b2190b26471d7b1ac1850ce89f889b8c256
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 10ccb80dd74606d2ad40ab5d7993aed8cd71725e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814739"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329680"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Sertifika imzalama isteği dosyası oluşturma
 Apple Anında İletilen Bildirim Servisi (APNS), anında iletme bildirimlerinizi doğrulamak için sertifikaları kullanır. Bildirim gönderip almak için gereken bildirim sertifikasını oluşturacak bu talimatları uygulayın. Bu kavramlarla ilgili daha fazla bilgi için resmi [Apple Anında İletilen Bildirim Servisi](http://go.microsoft.com/fwlink/p/?LinkId=272584) belgelerine bakın.

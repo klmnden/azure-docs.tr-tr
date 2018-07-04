@@ -45,19 +45,21 @@
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
 - name: Kaynaklar
   items:
+    - name: Bing Yazım Denetimi API’si analizleri
+      href: bing-spell-check-stats.md
     - name: SSS
       href: bing-spell-check-resource-faq.md
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/bing-api'
-    - name: Desteklenen diller
-      href: bing-spell-check-supported-languages.md
-    - name: Bing Yazım Denetimi API’si analizleri
-      href: bing-spell-check-stats.md
     - name: Abonelik anahtarı
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api'
+    - name: Desteklenen diller
+      href: bing-spell-check-supported-languages.md
     - name: Deneyin!
       href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'

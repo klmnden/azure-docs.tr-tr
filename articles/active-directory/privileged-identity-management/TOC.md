@@ -1,12 +1,9 @@
 # Genel Bakış
-## [Güvenli ayrıcalıklı erişim](active-directory-securing-privileged-access.md)
 ## [Azure AD PIM nedir?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Güvenli ayrıcalıklı erişim](../admin-roles-best-practices.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [PIM’deki dizin rolleri](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Azure Kaynakları için PIM](azure-pim-resource-rbac.md)
 ## [PIM onayı iş akışı](azure-ad-pim-approval-workflow.md)
-## [Roller](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-
-
 
 # başlarken
 ## [Abonelik gereksinimleri](subscription-requirements.md)
@@ -46,16 +43,8 @@
 ### [Erişim değerlendirmesini bitirme](pim-resource-roles-complete-access-review.md)
 
 # SSS
-## Dizin rolleri için PIM
 ## Kaynak rolleri için PIM
 ### [Atama Türleri](pim-resource-roles-eligible-visibility.md)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory)
-
-# İlgili
-## [Azure Active Directory](/azure/active-directory/)
-## [Rol Tabanlı Access Control](../../role-based-access-control/overview.md)
-# Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

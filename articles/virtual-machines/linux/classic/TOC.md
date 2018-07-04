@@ -4,7 +4,7 @@
 ## [SSS](faq-classic.md)
 
 # Başlarken
-## [Azure portalı ile Linux VM oluşturma](createportal-classic.md)
+## [Linux VM oluşturma](createportal-classic.md)
 
 # Nasıl yapılır
 ## İşlem
