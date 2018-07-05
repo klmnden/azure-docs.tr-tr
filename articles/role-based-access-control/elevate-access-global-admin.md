@@ -9,22 +9,22 @@ editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/29/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0004390264ed0c22adbdc0de5e20150c7946dc4b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 0abf0a5971435fc3842a93e79d39468cba5c74da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347168"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445220"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>İçin Azure Active Directory'de genel yönetici erişimini yükseltme
 
-Eğer bir [genel yönetici](../active-directory/active-directory-assign-admin-roles-azure-portal.md#company-administrator) Azure Active Directory'de (Azure AD), aşağıdakileri yapmak istediğinizde zamanlar olabilir:
+Eğer bir [genel yönetici](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) Azure Active Directory'de (Azure AD), aşağıdakileri yapmak istediğinizde zamanlar olabilir:
 
 - Kullanıcı erişimini kaybettiğinde, bir Azure aboneliğine erişim kazanabilmesi
 - Başka bir kullanıcı veya kendiniz bir Azure aboneliğine erişim

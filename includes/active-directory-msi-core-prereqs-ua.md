@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: 106c4796bde838e28b91771454e971f9999194e1
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37116556"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436620"
 ---
-MSI değilseniz, kullanıma [yönetilen hizmet Kimliği'ne genel bakış](~/articles/active-directory/managed-service-identity/overview.md), ve **gözden geçirmeyi unutmayın [sistem tarafından atanan ve kullanıcı tarafından atanan bir MSI arasındaki farkı](~/articles/active-directory/managed-service-identity/overview.md#how-does-it-work)** . Bir Azure hesabınız yoksa [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.
+MSI ile bilmiyorsanız, kullanıma [yönetilen hizmet Kimliği'ne genel bakış](~/articles/active-directory/managed-service-identity/overview.md), ve **gözden geçirdiğinizden emin olun [sistem tarafından atanan ve kullanıcı tarafından atanan bir MSI arasındaki farkı](~/articles/active-directory/managed-service-identity/overview.md#how-does-it-work)** . Azure hesabınız yoksa, [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.

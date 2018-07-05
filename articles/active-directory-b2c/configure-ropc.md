@@ -1,47 +1,47 @@
 ---
-title: Azure Active Directory B2C'de kaynak sahibi parolası kimlik bilgileri akışını yapılandırma | Microsoft Docs
-description: Azure AD B2C'de kaynak sahibi parolası kimlik bilgileri akışını yapılandırmayı öğrenin.
+title: Azure Active Directory B2C'de kaynak sahibi parola kimlik bilgileri akışı yapılandırma | Microsoft Docs
+description: Azure AD B2C'de kaynak sahibi parola kimlik bilgileri akışı yapılandırmayı öğrenin.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 073af4a57d55eb8b2f3608482159b57c7b408f3b
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 5d68f8fe28b7f029d19a0ed0c03e5324c32f29c0
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102753"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446818"
 ---
-# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C'de kaynak sahibi parolası kimlik bilgileri akışı Yapılandır
+# <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C'de kaynak sahibi parola kimlik bilgileri akışı yapılandırma
 
-Kaynak sahibi parolası kimlik bilgileri (ROPC) akış olduğu gibi kullanıcı kimliği ve parolası kimliği belirteci, erişim belirteci ve bir yenileme belirteci geçerli kimlik bilgileri olarak da bilinen bağlı olan taraf uygulama alış verişleri bir OAuth standart kimlik doğrulama akışı olur. 
+Kaynak sahibi parola kimlik bilgilerini (ROPC) akışı bir OAuth standart kimlik doğrulama akışı, burada gibi kullanıcı kimliği ve parola kimlik belirteci, erişim belirteci ve yenileme belirteci için geçerli kimlik bilgileri olarak da bilinen bağlı olan taraf uygulaması birbiriyle değiştirir olur. 
 
 > [!NOTE]
 > Bu özellik önizlemede.
 
 Azure Active Directory (Azure AD) B2C'de, aşağıdaki seçenekleri desteklenir:
 
-- **Native Client**: kimlik doğrulaması sırasında kullanıcı etkileşimi kod bir kullanıcı tarafı cihazda çalıştığında gerçekleşir. Cihaz, Android gibi yerel bir işletim sisteminde çalışır veya JavaScript gibi bir tarayıcıda çalışan bir mobil uygulama olabilir.
-- **Ortak istemci akışı**: yalnızca bir uygulama tarafından toplanan kullanıcı kimlik gönderilir API çağrısında. Kimlik bilgileri uygulamanın gönderilmez.
-- **Yeni Talep ekleme**: kimliği belirteç içerikleri, yeni talepleri eklemek için değiştirilebilir. 
+- **Yerel istemci**: kimlik doğrulaması sırasında kullanıcı etkileşimi kod, kullanıcı tarafı cihazda çalıştığında gerçekleşir. Cihazın Android gibi yerel bir işletim sistemi çalıştıran veya JavaScript gibi bir tarayıcıda çalışan mobil bir uygulama olabilir.
+- **Genel istemci akışı**: yalnızca bir uygulama tarafından toplanan kullanıcı kimlik gönderilir, API çağrısı. Uygulamanın kimlik bilgilerini gönderilmez.
+- **Yeni Talep ekleyin**: kimlik belirteci içeriği, yeni bir talep eklemek için değiştirilebilir. 
 
-Aşağıdaki akış desteklenmez:
+Aşağıdaki akışlara ait desteklenmez:
 
-- **Sunucudan sunucuya**: kimlik koruması sistemi çağıran (yerel istemci) etkileşim bir parçası olarak toplanan güvenilir bir IP adresi gerekiyor. Bir sunucu tarafı API çağrısında yalnızca sunucunun IP adresi kullanılır. Kimlik doğrulamaları başarısız dinamik bir eşik aşılırsa kimlik koruması sistemi saldırgan yinelenen bir IP adresi tanımlayabilir.
-- **Gizli istemci akışı**: uygulama istemci kimliği doğrulandı, ancak uygulama gizli anahtarı doğrulanmamış.
+- **Sunucudan sunucuya**: kimlik koruma sistemi arayandan (yerel istemci) etkileşim bir parçası olarak toplanan güvenilir bir IP adresi gerekiyor. Bir sunucu tarafı API çağrısı, sunucunun IP adresi kullanılır. Başarısız kimlik doğrulama bir Dinamik Eşik aşılırsa, kimlik koruma sistemi yinelenen bir IP adresi bir saldırgan olarak tanımlayabilir.
+- **Gizli istemci akışı**: uygulama istemci kimliği doğrulanır, ancak uygulama gizli anahtarı doğrulanmamış.
 
 ##  <a name="create-a-resource-owner-policy"></a>Kaynak sahibi ilkesi oluşturma
 
-1. Azure portalında Azure AD B2C kiracınızın genel yönetici olarak oturum açın.
-2. Azure AD B2C kiracınızın geçiş yapmak için portalın sağ üst köşesinde B2C dizini seçin.
+1. Azure portalında Azure AD B2C kiracınızın genel Yöneticisi olarak oturum açın.
+2. Azure AD B2C kiracınıza geçiş yapmak için portalın sağ üst köşedeki B2C dizinini seçin.
 3. Altında **ilkeleri**seçin **kaynak sahibi ilkeleri**.
-4. İlke için bir ad sağlayın *ROPC_Auth*ve ardından **uygulama talepleri**.
-5. Uygulamanız için gibi gereksinim uygulama talepleri seçmek *görünen adı*, *e-posta adresi*, ve *kimlik sağlayıcısı*.
+4. İlke için bir ad sağlayın *ROPC_Auth*ve ardından **uygulama taleplerini**.
+5. Uygulamanız için aşağıdaki gibi ihtiyacınız uygulama taleplerini seçin *görünen ad*, *e-posta adresi*, ve *kimlik sağlayıcısı*.
 6. **Tamam**’ı ve ardından **Oluştur**’u seçin.
 
    Ardından, bu örnek gibi bir uç nokta görürsünüz:
@@ -52,17 +52,17 @@ Aşağıdaki akış desteklenmez:
 ## <a name="register-an-application"></a>Bir uygulamayı kaydetme
 
 1. B2C ayarlarında seçin **uygulamaları**ve ardından **Ekle**.
-2. Uygulama için bir ad girin *ROPC_Auth_app*.
-3. Seçin **Hayır** için **Web uygulaması/Web API**ve ardından **Evet** için **Native client**.
-4. Bunlar ve ardından gibi diğer tüm değerler bırakın **oluşturma**.
-5. Yeni uygulama seçin ve daha sonra kullanmak için uygulama kimliği unutmayın.
+2. Uygulama için bir ad girmeniz *ROPC_Auth_app*.
+3. Seçin **Hayır** için **Web uygulaması/Web API'sini**ve ardından **Evet** için **yerel istemci**.
+4. Bunlar ve ardından gibi diğer tüm değerler bırakın **Oluştur**.
+5. Yeni uygulamayı seçin ve daha sonra kullanmak için uygulama Kimliğini not edin.
 
-## <a name="test-the-policy"></a>İlkeyi test etme
+## <a name="test-the-policy"></a>Test İlkesi
 
-Bir API çağrısı oluşturmak için sık kullanılan API geliştirme uygulamanızın kullanın ve ilkeniz hata ayıklamak için yanıt gözden geçirin. Böyle bir çağrı POST isteğinin gövdesi olarak aşağıdaki tablodaki bilgilerle oluşturun:
-- Değiştir  *\<yourtenant.onmicrosoft.com >* B2C kiracınızın adı.
-- Değiştir  *\<B2C_1A_ROPC_Auth >* kaynak sahibi parolası kimlik bilgileri ilkeniz tam adı.
-- Değiştir  *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* kaydınızı uygulama kimliği ile.
+API çağrısında oluşturmak için sık kullanılan API geliştirme uygulamanızı kullanın ve yanıt ilkenizi hata ayıklamak için gözden geçirin. Bunun gibi bir çağrı POST isteğinin gövdesi olarak aşağıdaki tabloda bulunan bilgilerle oluşturun:
+- Değiştirin  *\<yourtenant.onmicrosoft.com >* B2C kiracınızın adı.
+- Değiştirin  *\<B2C_1A_ROPC_Auth >* kaynak sahibi parola kimlik bilgilerini ilkenizin tam ada sahip.
+- Değiştirin  *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* kaydınızı'ndan uygulama kimliği.
 
 `https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
 
@@ -70,12 +70,12 @@ Bir API çağrısı oluşturmak için sık kullanılan API geliştirme uygulaman
 | --- | ----- |
 | kullanıcı adı | leadiocl@outlook.com |
 | password | Passxword1 |
-| grant_type | password |
+| grant_type değeri | password |
 | scope | openıd \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
 | response_type | belirteç id_token |
 
-*Client_id* uygulama kimliği olarak daha önce not ettiğiniz değerdir *Offline_access* bir yenileme belirteci almak istiyorsanız, isteğe bağlıdır. 
+*Client_id* uygulama kimliği olarak daha önce not ettiğiniz değer *Offline_access* bir yenileme belirteci almak istiyorsanız isteğe bağlıdır. 
 
 Fiili POST isteği aşağıdaki gibi görünür:
 
@@ -88,7 +88,7 @@ username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=o
 ```
 
 
-Başarılı yanıt çevrimdışı erişim ile aşağıdaki gibi görünür:
+Çevrimdışı erişim ile başarılı bir yanıt aşağıdaki örnekteki gibi görünür:
 
 ```
 { 
@@ -100,27 +100,27 @@ Başarılı yanıt çevrimdışı erişim ile aşağıdaki gibi görünür:
 } 
 ```
 
-## <a name="redeem-a-refresh-token"></a>Bir yenileme belirteci kullanın
+## <a name="redeem-a-refresh-token"></a>Bir yenileme belirteci kullanma
 
-Burada istek gövdesi olarak aşağıdaki tablodaki bilgilerle gösterilene benzer bir POST çağrısına oluşturun:
+Burada aşağıdaki tablodaki bilgileri istek gövdesi olarak gösterilene benzer bir POST çağrısına oluşturun:
 
 `https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
 
 | Anahtar | Değer |
 | --- | ----- |
-| grant_type | refresh_token |
+| grant_type değeri | refresh_token |
 | response_type | id_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
 | kaynak | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
-*Client_id* ve *kaynak* uygulama kimliği olarak daha önce not ettiğiniz değerleri *Refresh_token* daha önce bahsedilen kimlik doğrulaması çağrısında alınan bir belirteç.
+*Client_id* ve *kaynak* uygulama kimliği olarak daha önce not ettiğiniz değerleri *Refresh_token* daha önce bahsedilen kimlik doğrulaması çağrısında alınan belirtecidir.
 
-## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Tercih edilen yerel SDK'sı ile nasıl uygulanacağını veya uygulama kimlik doğrulama kullanın
+## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Tercih edilen yerel SDK'sı ile uygulama veya uygulama kimlik doğrulaması kullanma
 
-Azure AD B2C uygulaması ortak istemci kaynak sahibi parolası kimlik bilgileri için OAuth 2.0 standartları karşılar ve çoğu istemci SDK'ları ile uyumlu olması gerekir. Bu akış yaygın, AppAuth iOS ve Android için AppAuth üretimde Test ettiğimiz. En son bilgiler için bkz: [yerel uygulama SDK'sı OAuth 2.0 ve uygulama modern en iyi yöntemler Openıd Connect](https://appauth.io/).
+Azure AD B2C uygulaması genel istemci kaynak sahibi parola kimlik bilgileri için OAuth 2.0 standartları karşılar ve çoğu istemci SDK'ları ile uyumlu olması gerekir. Bu akış kapsamlı bir şekilde, AppAuth iOS ve Android için AppAuth'yla üretimde Test ettiğimiz. En son bilgiler için bkz. [yerel uygulama SDK'sı için OAuth 2.0 ve modern en iyi yöntemleri uygulayarak Openıd Connect](https://appauth.io/).
 
-Azure AD B2C, github'dan ile kullanılmak üzere yapılandırılmış çalışan örnekleri indirin [Android için](https://aka.ms/aadb2cappauthropc) ve [iOS için](https://aka.ms/aadb2ciosappauthropc).
+Github, Azure AD B2C ile kullanmak için yapılandırılan çalışma örnekleri indirin [Android](https://aka.ms/aadb2cappauthropc) ve [iOS için](https://aka.ms/aadb2ciosappauthropc).
 
 
 

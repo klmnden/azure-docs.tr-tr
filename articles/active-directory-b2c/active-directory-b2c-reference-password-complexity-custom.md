@@ -1,39 +1,39 @@
 ---
-title: Parola karmaşıklığını Azure Active Directory B2C özel ilkelerinde | Microsoft Docs
-description: Parolalar karmaşıklık gereksinimlerini özel İlkesi'nde yapılandırılır.
+title: Parola karmaşıklığı özel ilkeleri Azure Active Directory B2C | Microsoft Docs
+description: Parola karmaşıklık gereksinimlerini özel ilkede yapılandırılır.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6ad205167477715713b58fe06a771c3e683f5c04
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ed0001d8d88a2604e3128a4d5f7a365aeb7b00b1
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712173"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440800"
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>Parola karmaşıklığını özel ilkeleri yapılandırma
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Bu makalede, parola karmaşıklığını nasıl çalıştığını Gelişmiş bir açıklama ve Azure AD B2C özel ilkelerini kullanma etkindir.
+Bu makalede, parola karmaşıklığını nasıl çalıştığına ilişkin gelişmiş bir açıklama ve özel Azure AD B2C ilkeleri kullanılarak etkinleştirilir.
 
-## <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: parolaların karmaşıklık gereksinimlerini yapılandırabilirsiniz
+## <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: parola karmaşıklık gereksinimlerini yapılandırma
 
-Azure Active Directory B2C (Azure AD B2C) destekleyen bir hesap oluşturulurken bir son kullanıcı tarafından sağlanan parola karmaşıklık gereksinimlerini değiştirme.  Varsayılan olarak, Azure AD B2C kullanır **güçlü** parolalar.  Azure AD B2C da müşterilerin kullanabileceğiniz parolaların karmaşıklık denetlemek için yapılandırma seçeneklerini destekler.  Bu makalede, parola karmaşıklığını özel ilkelerinde nasıl yapılandırılacağı hakkında alınmaktadır.  Kullanmak da mümkündür [parola karmaşıklığını yerleşik ilkeleri yapılandırma](active-directory-b2c-reference-password-complexity.md).
+Azure Active Directory B2C (Azure AD B2C) destekleyen bir hesabı oluştururken bir son kullanıcı tarafından sağlanan parola karmaşıklık gereksinimleri değiştirme.  Varsayılan olarak, Azure AD B2C kullanır **güçlü** parola.  Azure AD B2C, ayrıca müşteriler parola karmaşıklığı denetlemek için yapılandırma seçeneklerini destekler.  Bu makalede, parola karmaşıklığını özel ilkeleri yapılandırma hakkında konuşuyor.  Kullanmak da mümkündür [parola karmaşıklığını yerleşik ilkeleri yapılandırma](active-directory-b2c-reference-password-complexity.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bölümünde açıklandığı gibi bir yerel hesap oturumu-up/oturum açmayı tamamlamak için yapılandırılmış bir Azure AD B2C kiracısı [Başlarken](active-directory-b2c-get-started-custom.md).
+Bölümünde anlatıldığı gibi yerel bir hesap oturumu açma kaydolma/oturum açma, tamamlamak için yapılandırılmış bir Azure AD B2C kiracısı [Başlarken](active-directory-b2c-get-started-custom.md).
 
 ## <a name="how-to-configure-password-complexity-in-custom-policy"></a>Parola karmaşıklığını özel ilke yapılandırma
 
-Parola karmaşıklığını özel ilke yapılandırmak için özel ilkeniz genel yapısını içermelidir bir `ClaimsSchema`, `Predicates`, ve `InputValidations` öğesi içinde `BuildingBlocks`.
+Parola karmaşıklığını özel ilke yapılandırmak için özel ilkeniz genel yapısını içermelidir bir `ClaimsSchema`, `Predicates`, ve `InputValidations` öğe içinde `BuildingBlocks`.
 
 ```XML
   <BuildingBlocks>
@@ -43,15 +43,15 @@ Parola karmaşıklığını özel ilke yapılandırmak için özel ilkeniz genel
   </BuildingBlocks>
 ```
 
-Bu öğelerin amacını aşağıdaki gibidir:
+Bu öğeleri amacı aşağıdaki gibidir:
 
-- Her `Predicate` öğesi true veya false döndürür bir temel dize doğrulama denetimi tanımlar.
-- `InputValidations` Öğeye sahip bir veya daha fazla `InputValidation` öğeleri.  Her `InputValidation` bir dizi kullanılarak oluşturulan `Predicate` öğeleri. Bu öğe boolean toplamalar işlemleri yapmanıza olanak tanır (benzer şekilde `and` ve `or`).
-- `ClaimsSchema` Hangi talep doğrulandığı tanımlar.  Bunun ardından tanımlayan `InputValidation` bu talep doğrulamak için kullanılan kural.
+- Her `Predicate` öğesi true veya false değeri döndüren bir temel dize doğrulama denetimi tanımlar.
+- `InputValidations` Öğeye sahip bir veya daha fazla `InputValidation` öğeleri.  Her `InputValidation` bir dizi kullanarak oluşturulan `Predicate` öğeleri. Bu öğe Boole toplamalar yapmanıza olanak tanır (benzer şekilde `and` ve `or`).
+- `ClaimsSchema` Hangi talep Doğrulanmakta olan tanımlar.  Bunun ardından tanımlayan `InputValidation` bu talebi doğrulamak için kullanılan kural.
 
 ### <a name="defining-a-predicate-element"></a>Bir koşul öğesi tanımlama
 
-Koşulları iki yöntem türlerine sahip: IsLengthRange veya MatchesRegex. Şimdi her örneği gözden geçirin.  İlk normal bir ifade eşleştirmek için kullanılan MatchesRegex örneği gerekir.  Bu örnekte, bu sayıları içeren dizeyle eşleşir.
+Koşullar sahip iki yöntem tür: IsLengthRange veya MatchesRegex. Her bir örneği gözden geçirelim.  İlk normal bir ifadeyle eşleşen için kullanılan MatchesRegex örneği sahibiz.  Bu örnekte, bu sayıları içeren dizeyle eşleşir.
 
 ```XML
       <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
@@ -61,7 +61,7 @@ Koşulları iki yöntem türlerine sahip: IsLengthRange veya MatchesRegex. Şimd
       </Predicate>
 ```
 
-Sonraki şimdi IsLengthRange örneği gözden geçirin.  Bu yöntem, minimum ve maksimum dize uzunluğu alır.
+Sonraki IsLengthRange örneği gözden geçirelim.  Bu yöntem, minimum ve maksimum dize uzunluğunu alır.
 
 ```XML
       <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
@@ -72,11 +72,11 @@ Sonraki şimdi IsLengthRange örneği gözden geçirin.  Bu yöntem, minimum ve 
       </Predicate>
 ```
 
-Kullanım `HelpText` özniteliği denetimi başarısız olursa, son kullanıcılar için bir hata iletisi sağlayın.  Bu dize kullanarak yerelleştirilebilir [dil özelleştirme özelliği](active-directory-b2c-reference-language-customization.md).
+Kullanım `HelpText` denetimi başarısız olursa, son kullanıcılar için bir hata iletisi sağlamak için özniteliği.  Bu dize kullanarak yerelleştirilebilen [dil özelleştirme özelliği](active-directory-b2c-reference-language-customization.md).
 
-### <a name="defining-an-inputvalidation-element"></a>Bir InputValidation öğesi tanımlama
+### <a name="defining-an-inputvalidation-element"></a>InputValidation öğesi tanımlama
 
-Bir `InputValidation` toplamı olan `PredicateReferences`. Her `PredicateReferences` sırayla true olmalıdır `InputValidation` başarılı olması için.  Bununla birlikte, içinde `PredicateReferences` olarak adlandırılan bir öznitelik öğesi kullanım `MatchAtLeast` belirtmek için kaç tane `PredicateReference` denetimleri true döndürmelidir.  İsteğe bağlı olarak tanımlayan bir `HelpText` hata iletisi geçersiz kılmak için öznitelik tanımlanan `Predicate` başvurduğu öğeleri.
+Bir `InputValidation` birleştirilmesinden oluşan olan `PredicateReferences`. Her `PredicateReferences` doğru sırada olmalıdır `InputValidation` başarılı olması için.  Bununla birlikte, içinde `PredicateReferences` öğesi kullanımı olarak adlandırılan bir öznitelik `MatchAtLeast` belirtmek için kaç `PredicateReference` denetimleri true döndürmelidir.  İsteğe bağlı olarak tanımlayan bir `HelpText` özniteliği hata iletisi geçersiz kılmak için tanımlanan `Predicate` ona başvuran öğeler.
 
 ```XML
       <InputValidation Id="PasswordValidation">
@@ -94,7 +94,7 @@ Bir `InputValidation` toplamı olan `PredicateReferences`. Her `PredicateReferen
 
 ### <a name="defining-a-claimsschema-element"></a>ClaimsSchema öğesi tanımlama
 
-Talep türleri `newPassword` ve `reenterPassword` adları değiştirmeyin şekilde özel olarak kabul edilir.  Kullanıcı arabirimini kullanıcıyı doğrulayan doğru bunlar üzerinde temel hesabı oluşturma sırasında parolalarını reentered `ClaimType` öğeleri.  Aynı bulmak için `ClaimType` starter paketinde TrustFrameworkBase.xml öğeleri bakın.  Bu örnekte yenilikler Biz bu öğeleri tanımlamak için geçersiz kılma emin olup bir `InputValidationReference`. `ID` Bu yeni öğesinin özniteliği işaret eden `InputValidation` tanımladığımız öğesi.
+Talep türleri `newPassword` ve `reenterPassword` adlarını değiştirmeyin bu nedenle özel olarak kabul edilir.  Kullanıcı arabirimini kullanıcıyı doğrulayan doğru bunlar üzerinde temel hesap oluşturma sırasında parolalarını reentered `ClaimType` öğeleri.  Aynı bulmak için `ClaimType` başlangıç Pack TrustFrameworkBase.xml öğeleri bakın.  Bu örnekte yenilikler Biz bu öğeleri tanımlamak için geçersiz olan bir `InputValidationReference`. `ID` Özniteliği, bu yeni işaret eden `InputValidation` tanımladığımız öğesi.
 
 ```XML
     <ClaimsSchema>
@@ -107,19 +107,19 @@ Talep türleri `newPassword` ve `reenterPassword` adları değiştirmeyin şekil
     </ClaimsSchema>
 ```
 
-### <a name="putting-it-all-together"></a>Tüm bir araya getirme
+### <a name="putting-it-all-together"></a>Hepsini birleştirme
 
-Bu örnek gösterir tüm parçaları birlikte çalışma ilkesi oluşturmak için uygun nasıl.  Bu örneği kullanmak için:
+Bu örnek gösterir parçaların birlikte çalışma ilkesi oluşturmak için nasıl uyumlu bir şekilde.  Bu örneği kullanmak için:
 
-1. Önkoşul'ndaki yönergeleri izleyin [Başlarken](active-directory-b2c-get-started-custom.md) karşıdan yüklemek, yapılandırmak ve TrustFrameworkBase.xml ve TrustFrameworkExtensions.xml karşıya yükleyin
+1. Önkoşul yönergeleri [Başlarken](active-directory-b2c-get-started-custom.md) indirmek için yapılandırma ve TrustFrameworkBase.xml ve TrustFrameworkExtensions.xml karşıya yükleyin
 1. Bu bölümde örnek içeriği kullanarak bir SignUporSignIn.xml dosyası oluşturun.
-1. SignUporSignIn.xml değiştirme güncelleştirme `yourtenant` Azure AD B2C Kiracı adınız ile.
-1. Son SignUporSignIn.xml ilke dosyası yükleyin.
+1. SignUporSignIn.xml değiştirerek güncelleştirme `yourtenant` Azure AD B2C Kiracı adınızla.
+1. SignUporSignIn.xml ilke dosyasını en son karşıya yükleyin.
 
-Bu örnek, PIN parolalar için doğrulama ve güçlü parolalar için bir tane içerir:
+Bu örnek, bir doğrulama PIN parolaları için diğeri de güçlü parolalar içerir:
 
-- Ara `PINpassword`. Bu `InputValidation` öğesi bir PIN herhangi bir uzunluktaki doğrular.  İçinde başvurulmadığı için şu anda kullanılmaz `InputValidationReference` öğesi içinde `ClaimType`. 
-- Ara `PasswordValidation`. Bu `InputValidation` öğesi doğrular parola 8-16 karakter, simge veya ve büyük harf, küçük harf, rakam, 4, 3 içerir.  İçinde başvurulan `ClaimType`.  Bu nedenle, bu kural Bu ilkede zorlanan.
+- Aranacak `PINpassword`. Bu `InputValidation` öğesi herhangi bir uzunlukta bir PIN doğrular.  İçinde başvurulmadığı için şu anda kullanılmaz `InputValidationReference` öğe içinde `ClaimType`. 
+- Aranacak `PasswordValidation`. Bu `InputValidation` öğeyi doğrular parola 8-16 karakter ve 3 / 4 büyük harf, küçük harf, sayı içeren veya semboller.  İçinde başvurulan `ClaimType`.  Bu nedenle, bu kural Bu ilkede zorlanmasını.
 
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>

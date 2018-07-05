@@ -1,53 +1,53 @@
 ---
-title: Azure Active Directory B2C kullanıcı arabirimi (UI) özelleştirme | Microsoft Docs
-description: Azure Active Directory B2C kullanıcı arabirimi (UI) özelleştirme özellikleri hakkındaki bir konu.
+title: Azure Active Directory B2C'de kullanıcı arabirimi (UI) özelleştirme | Microsoft Docs
+description: Azure Active Directory B2C'de kullanıcı arabirimi (UI) özelleştirme özelliklerle ilgili bir konu.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 00f1dc8c9cffbff240f96fed3d2f09888c041301
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 385c13194063761d6449fafa49714d8627f6c6fc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754595"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447062"
 ---
-# <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Azure AD B2C kullanıcı arabirimini (UI) özelleştirme
+# <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Azure AD B2C'yi kullanıcı arabirimini (UI) özelleştirme
 
-Kullanıcı deneyimi uygulama kullanıma yönelik bir müşteri dönüştürmektir.  Müşteri, marka Görünüm ve yapısını ile kullanıcı deneyimleri hazırlayın tarafından temel artar. Azure Active Directory B2C (Azure AD B2C) kaydolma, oturum açma profili düzenleme özelleştirmenize olanak tanır ve parola sıfırlama piksel mükemmel denetimiyle sayfaları.
+Kullanıcı deneyimi bir müşterinin karşılaştığı uygulama üst düzey öneme sahiptir.  Müşterinizin markanızı Görünüm ve yapısını kullanıcı deneyimleri oluşturmak yoluyla müşteri tabanınızı büyütün. Azure Active Directory B2C sıfırlama, kusursuz kalitede denetimiyle sayfaları ve (Azure AD B2C) kaydolma, oturum açma, profil düzenleme özelleştirmenize olanak sağlar.
 
 > [!NOTE]
-> Bu makalede açıklanan sayfası kullanıcı Arabirimi özelleştirme özelliğini tek ilke oturum açma, eşlik eden parola sıfırlama sayfası ve doğrulama için e-postaları geçerli değildir.  Bu özellikleri kullanan [şirket markası özelliğini](../active-directory/fundamentals/customize-branding.md) yerine.
+> Bu makalede açıklanan sayfa UI özelleştirmesi özelliği yalnızca ilkesi oturum açma, eşlik eden parola sıfırlama sayfasının ve doğrulama için e-postaları uygulanmaz.  Bu özellikleri kullanan [şirket markası özelliğini](../active-directory/fundamentals/customize-branding.md) yerine.
 >
-> Benzer şekilde, bir kullanıcı intiates, bir düzenleme profili İlkesi *önce* oturum açma kullanıcı kullanılarak özelleştirilebilir bir sayfaya yönlendirilir [şirket markası özelliğini](../active-directory/fundamentals/customize-branding.md).
+> Benzer şekilde, bir kullanıcı intiates, bir profil düzenleme ilkesinin *önce* oturum açma kullanıcı kullanılarak özelleştirilebilir bir sayfaya yönlendirilir [şirket markası özelliğini](../active-directory/fundamentals/customize-branding.md).
 
-Bu makalede aşağıdaki konuları içerir:
+Bu makalede, aşağıdaki konular ele alınmaktadır:
 
-* Sayfanın UI Özelleştirme özelliği.
-* HTML içeriğini sayfası kullanıcı Arabirimi özelleştirme özelliği ile kullanmak için Azure Blob depolama alanına yüklemek için kullanılan bir araçtır.
-* Azure AD B2C tarafından geçişli stil sayfaları (CSS) kullanarak özelleştirebileceğiniz kullanılan kullanıcı Arabirimi öğeleri.
-* Bu özelliği kullanan olduğunda en iyi yöntemler.
+* Sayfa UI özelleştirmesi özelliği.
+* HTML içerik sayfası kullanıcı Arabirimi özelleştirme özelliği ile kullanmak için Azure Blob depolama alanına yüklemek bir araç.
+* Geçişli stil sayfaları (CSS) kullanarak özelleştirebileceğiniz Azure AD B2C tarafından kullanılan kullanıcı Arabirimi öğeleri.
+* Bu özelliği denemek en iyi uygulamalar.
 
-## <a name="the-page-ui-customization-feature"></a>Sayfanın UI Özelleştirme özelliği
+## <a name="the-page-ui-customization-feature"></a>Sayfa UI özelleştirmesi özelliği
 
-Görünüm ve yapısını müşteri kaydolma, oturum açma (Not markalama için ilgili özel durumlar için yukarıdaki bakın), parola sıfırlama ve profil düzenleme özelleştirebilirsiniz sayfaları (yapılandırarak [ilkeleri](active-directory-b2c-reference-policies.md)). Uygulama ve Azure AD B2C tarafından sunulan sayfaları arasında gezinme edilirken, müşterilerinizin sorunsuz bir deneyim kullanır.
+Görünüm ve yapısını müşteri kaydolma, oturum açma (Not markalama için ilgili özel durumlar için yukarıya bakın), parola sıfırlama ve profil düzenleme özelleştirebileceğiniz sayfaları (yapılandırarak [ilkeleri](active-directory-b2c-reference-policies.md)). Müşterilerinizin uygulamanızı ve Azure AD B2C tarafından sunulan sayfaları arasında gezinme sorunsuz bir deneyim elde edersiniz.
 
-Burada kullanıcı Arabirimi seçenekleri, Azure AD B2C kullanan kullanıcı Arabirimi özelleştirme için basit ve modern bir yaklaşım diğer hizmetler farklı.
+Burada kullanıcı Arabirimi seçenekleri, Azure AD B2C tarafından UI özelleştirmesi basit ve modern bir yaklaşım diğer hizmetlerden farklı.
 
-İşte nasıl çalışır?: Azure AD B2C, müşterinizin tarayıcıda kodu çalıştırır ve adlı modern bir yaklaşım kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](http://www.w3.org/TR/cors/).  Çalışma zamanında, ilkede belirttiğiniz URL'den içeriği yüklenir. Farklı sayfaları için farklı URL'ler belirtebilirsiniz. Azure AD B2C ' eklenen bir HTML parçasını, URL'den yüklenen içeriğe birleştirilen sonra müşterinize sayfası görüntülenir. Tüm yapmanız gereken şöyledir:
+Çalışma şekli şöyledir: Azure AD B2C kod müşterinizin tarayıcıda çalışan ve modern bir yaklaşımı adlı kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](http://www.w3.org/TR/cors/).  Çalışma zamanında, bir ilkede belirttiğiniz URL'den içerik yüklendi. Farklı sayfalar için farklı URL'ler belirtebilirsiniz. İçerik yüklendi, URL ile Azure AD B2C'den eklenen bir HTML parçasını birleştirildikten sonra sayfa müşterinize görüntülenir. Tek yapmak için ihtiyacınız olan:
 
-1. Doğru biçimlendirilmiş HTML5 ile boş bir içerik oluşturma `<div id="api"></div>` öğesi bulunan bir yerde `<body>`. Bu öğe işaretleri Azure AD B2C içerik nerede eklenir.
-1. Bir HTTPS uç noktası, içerik ana bilgisayar (izin verilen CORS'yi). Her ikisini de almak ve seçenekleri istek yöntemleri CORS yapılandırırken etkinleştirilmelidir unutmayın.
-1. CSS Azure AD B2C ekler kullanıcı Arabirimi öğeleri stilini belirlemek için kullanın.
+1. İyi biçimlendirilmiş HTML5 boş ile içerik oluşturma `<div id="api"></div>` öğesi herhangi bir yerde bulunan `<body>`. Bu öğe işaretleri Azure AD B2C içeriği burada eklenir.
+1. İçeriğinizi bir HTTPS uç noktası ana bilgisayar (izin verilen CORS ile). Her ikisini de almak ve CORS yapılandırırken seçenekleri istek yöntemleri etkinleştirilmelidir unutmayın.
+1. CSS stil ekleyen Azure AD B2C kullanıcı Arabirimi öğeleri için kullanın.
 
-### <a name="a-basic-example-of-customized-html"></a>Özelleştirilmiş HTML temel örneği
+### <a name="a-basic-example-of-customized-html"></a>Özelleştirilmiş HTML basit bir örneği
 
-Aşağıdaki örnek, bu özelliği test etmek için kullanabileceğiniz en basit bir HTML içeriktir. Kullanım [Yardımcısı aracı](active-directory-b2c-reference-ui-customization-helper-tool.md) karşıya yükleyin ve bu içerik, Azure Blob Depolama alanında yapılandırın. Ardından temel, stilize olmayan düğmeleri & form alanlarını her sayfada görüntülenen ve işlevsel olduğunu doğrulayın.
+Aşağıdaki örnek, bu özelliği test etmek için kullanabileceğiniz en temel HTML içeriktir. Kullanım [Yardımcısı aracı](active-directory-b2c-reference-ui-customization-helper-tool.md) karşıya yüklemek ve Azure Blob Depolama alanınızda bu içeriği yapılandırmak için. Ardından temel, stilize olmayan düğmeler ve form alanlarını her sayfada görüntülenen ve işlevsel olduğunu doğrulayın.
 
 ```HTML
 <!DOCTYPE html>
@@ -61,21 +61,21 @@ Aşağıdaki örnek, bu özelliği test etmek için kullanabileceğiniz en basit
 </html>
 ```
 
-## <a name="test-out-the-ui-customization-feature"></a>UI Özelleştirme özelliği test
+## <a name="test-out-the-ui-customization-feature"></a>UI Özelleştirme özelliği test etme
 
-Bizim örnek HTML ve CSS içeriğini kullanarak kullanıcı Arabirimi özelleştirme özelliği denemek mi istiyorsunuz?  Biz sağladığınız [Yardımcısı aracı](active-directory-b2c-reference-ui-customization-helper-tool.md) yükler ve Azure Blob Depolama alanınızda örnek içeriği yapılandırır.
+Bizim örnek HTML ve CSS içeriği kullanarak kullanıcı Arabirimi özelleştirme özelliği denemek ister misiniz?  Biz sağladığınız [Yardımcısı aracı](active-directory-b2c-reference-ui-customization-helper-tool.md) yükler ve Azure Blob Depolama alanınızda örnek içerik yapılandırır.
 
 > [!NOTE]
-> Herhangi bir yere UI içeriğinizi barındırabilir: web sunucularında, CDN'ler, AWS S3, dosya paylaşım sistemleri, vs. İçerik CORS'yi genel kullanıma açık bir HTTPS uç noktası üzerinde barındırılıyorsa sürece hazırsınız. Azure Blob Depolama yalnızca yalnızca tanım amaçlıdır kullanıyoruz.
+> Herhangi bir kullanıcı Arabirimi içeriğinizi barındırabilirsiniz: web sunucuları, CDN, AWS S3, dosya paylaşımı sistemleri, vb. üzerinde. CORS'yi etkinleştirerek barındırılan içerik genel kullanıma açık bir HTTPS uç noktasında olduğu sürece, hazırsınız demektir. Azure Blob Depolama yalnızca yalnızca tanım amaçlıdır kullanıyoruz.
 >
 
 ## <a name="the-ui-fragments-embedded-by-azure-ad-b2c"></a>Azure AD B2C tarafından katıştırılmış UI parçaları
 
-Aşağıdaki bölümlerde Azure AD B2C birleştirir HTML5 parçaları listesinde `<div id="api"></div>` öğesi bulunan, içeriği. **Bu parçasının HTML 5 içeriğinizi koymayın.** Azure AD B2C hizmetiyle bunlarda çalışma zamanında ekler. Bu parçasının kendi geçişli stil sayfaları (CSS) tasarlarken başvuru olarak kullanabilirsiniz.
+Azure AD B2C birleştirir HTML5 parçaları aşağıdaki bölümlerde listelenmiştir `<div id="api"></div>` öğesi, içeriğinizi bulunur. **Bu parçaları, HTML 5 içeriğinizi eklemeyin.** Azure AD B2C hizmeti bunları çalışma zamanında ekler. Bu parçaları kullanarak kendi geçişli stil sayfaları (CSS) tasarlarken referans olarak kullanın.
 
-### <a name="fragment-inserted-into-the-identity-provider-selection-page"></a>"Kimlik sağlayıcısı seçimi sayfaya" eklenen parçası
+### <a name="fragment-inserted-into-the-identity-provider-selection-page"></a>"Kimlik sağlayıcısı seçim sayfası" eklenen parçası
 
-Bu sayfa kullanıcı kaydolma veya oturum açma sırasında seçebileceği kimlik sağlayıcıları listesini içerir. Bu düğme, Facebook ve Google + veya yerel hesaplar (e-posta adresi veya kullanıcı adına göre) gibi sosyal kimlik sağlayıcıları içerir.
+Bu sayfa kullanıcı kaydolma veya oturum açma sırasında seçebileceği kimlik sağlayıcılarının bir listesini içerir. Bu düğmeler, Facebook ve Google + veya yerel hesaplar (e-posta adresi veya kullanıcı adına göre) gibi sosyal kimlik sağlayıcılarını içerir.
 
 ```HTML
 <div id="api" data-name="IdpSelections">
@@ -99,9 +99,9 @@ Bu sayfa kullanıcı kaydolma veya oturum açma sırasında seçebileceği kimli
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-local-account-sign-up-page"></a>"Yerel hesap kayıt sayfasına" eklenen parçası
+### <a name="fragment-inserted-into-the-local-account-sign-up-page"></a>"Yerel hesap kaydolma sayfası" eklenen parçası
 
-Bu sayfa bir e-posta adresi veya bir kullanıcı adı göre kaydolma yerel hesap için bir form içerir. Form, metin giriş kutusuna, parola giriş kutusu, radyo düğmesi, tek seçimlik açılan kutuları ve çoklu seçim onay kutuları gibi farklı giriş denetimlerini içerebilir.
+Bu sayfa, bir e-posta adresi veya kullanıcı adına göre bir form için yerel hesap kaydolma içerir. Form, metin girişi kutusunu, parola girişi kutusu, radyo düğmesi, tekli seçim açılır kutuları ve çoklu seçim onay kutuları gibi farklı giriş denetimleri içerebilir.
 
 ```HTML
 <div id="api" data-name="SelfAsserted">
@@ -214,13 +214,13 @@ Bu sayfa bir e-posta adresi veya bir kullanıcı adı göre kaydolma yerel hesap
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>"Sosyal hesabı kayıt sayfasına" eklenen parçası
+### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>"Sosyal hesap kaydolma sayfası" eklenen parçası
 
-Bu sayfa, Facebook veya Google + gibi sosyal kimlik sağlayıcısından var olan bir hesabı kullanarak kaydolmak görünebilir.  Kayıt formunu kullanarak son kullanıcıdan ek bilgileri toplanması gereken olduğunda kullanılır. Bu sayfa (önceki bölümde gösterilmiştir) yerel hesap kayıt sayfasına parola giriş alanları dışında benzerdir.
+Bu sayfa, var olan bir hesap Facebook veya Google + gibi bir sosyal kimlik sağlayıcısı kullanarak kaydolmak görünebilir.  Kayıt formunu kullanarak son kullanıcıdan ek bilgileri toplanması gereken olduğunda kullanılır. Bu sayfa (önceki bölümde gösterilen) yerel hesap kaydolma sayfası parola giriş alanları dışında benzerdir.
 
-### <a name="fragment-inserted-into-the-unified-sign-up-or-sign-in-page"></a>"Birleşik kayıt veya oturum açma sayfasına" eklenen parçası
+### <a name="fragment-inserted-into-the-unified-sign-up-or-sign-in-page"></a>"Birleşik kaydolma veya oturum açma sayfasına" eklenen parçası
 
-Bu sayfa, hem kaydolma ve oturum açma Facebook veya Google + veya yerel hesaplar gibi sosyal kimlik sağlayıcıları kullanan müşteriler, işler.
+Bu sayfa hem kaydolma ve oturum açma Facebook veya Google + veya yerel hesaplar gibi sosyal kimlik sağlayıcıları kullanan müşterilerin işler.
 
 ```HTML
 <div id="api" data-name="Unified">
@@ -271,9 +271,9 @@ Bu sayfa, hem kaydolma ve oturum açma Facebook veya Google + veya yerel hesapla
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-multi-factor-authentication-page"></a>"Çok faktörlü kimlik doğrulama sayfasına" eklenen parçası
+### <a name="fragment-inserted-into-the-multi-factor-authentication-page"></a>"Çok faktörlü kimlik doğrulaması sayfasına" eklenen parçası
 
-Bu sayfada, kullanıcıların telefon numaralarına (metin veya sesli kullanarak) kaydolma veya oturum açma sırasında doğrulayabilirsiniz.
+Bu sayfada, kullanıcıların kaydolma veya oturum açma sırasında (metin ya da ses kullanarak) kendi telefon numaralarını doğrulayabilirsiniz.
 
 ```HTML
 <div id="api" data-name="Phonefactor">
@@ -315,7 +315,7 @@ Bu sayfada, kullanıcıların telefon numaralarına (metin veya sesli kullanarak
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-error-page"></a>"Hata sayfası" eklenen parçası
+### <a name="fragment-inserted-into-the-error-page"></a>"Hata sayfasına" eklenen parçası
 
 ```HTML
 <div id="api" class="error-page-content" data-name="GlobalException">
@@ -330,11 +330,11 @@ Bu sayfada, kullanıcıların telefon numaralarına (metin veya sesli kullanarak
 </div>
 ```
 
-## <a name="localizing-your-html-content"></a>HTML içeriğinizi yerelleştirme
+## <a name="localizing-your-html-content"></a>HTML içerik yerelleştirme
 
-HTML içeriğinizi yerelleştirme için iki yolu vardır. Açmak için tek yönlü olduğu [dil özelleştirme](active-directory-b2c-reference-language-customization.md). Bu özelliği etkinleştirmek sağlayan Open ID Connect parametre iletmek Azure AD B2C `ui-locales`, uç noktanız için.  İçeriğinize dile özgü özelleştirilmiş HTML sayfaları sağlamak için bu parametreyi kullanabilirsiniz.
+HTML, içeriği yerelleştirmek için iki yolu vardır. Açmak için bir yolu olan [dil özelleştirme](active-directory-b2c-reference-language-customization.md). Bu özellik çalışabilmelerini Open ID Connect parametresi iletmek için Azure AD B2C `ui-locales`, uç noktanıza.  İçerik sunucunuzu Bu parametre, dile özgü olan özelleştirilmiş HTML sayfalarını sağlamak için kullanabilirsiniz.
 
-Alternatif olarak, farklı yerlerde kullanılan bölgesel ayarına göre içerik isteyecek. CORS etkin uç noktanızı içinde belirli diller için içeriği barındırmak için bir klasör yapısı ayarlayabilirsiniz. Joker karakter değeri kullanırsanız, doğru olanı çağırmanız `{Culture:RFC5646}`.  Örneğin, bu özel sayfanızı URI olduğunu varsayın:
+Alternatif olarak, farklı konumlardan kullanılan yerel ayarları temel alarak içerik çekin. CORS özellikli uç noktanızı içinde belirli diller için ana içerik için bir klasör yapısı ayarlayabilirsiniz. Joker karakter değeri kullanırsanız, sizi doğru olanı ararız `{Culture:RFC5646}`.  Örneğin, bu, özel sayfa URI'si olduğunu varsayın:
 
 ```
 https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
@@ -344,15 +344,15 @@ Sayfanın yükleyebilir `fr`. Sayfanın HTML ve CSS içerik çeker, gelen çekiy
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="things-to-remember-when-building-your-own-content"></a>Bunları kendi içeriğinizi oluştururken unutmayın
+## <a name="things-to-remember-when-building-your-own-content"></a>Kendi içeriğinizi oluştururken bunları unutmayın
 
-Sayfa UI Özelleştirme özelliğini kullanmayı planlıyorsanız, aşağıdaki en iyi uygulamaları gözden geçirin:
+Sayfa UI Özelleştirme özelliği kullanmayı planlıyorsanız, aşağıdaki en iyi yöntemleri gözden geçirin:
 
-* Yoksa, Azure AD B2C'ın varsayılan içeriği Kopyala ve onu değiştirme girişimi. HTML5 içeriğinizi sıfırdan oluşturmak ve varsayılan içerik referans olarak kullanmak için en iyisidir.
-* Güvenlik nedenleriyle, biz, içeriği tüm JavaScript dahil etmenize izin vermez. Gerekenler çoğu kutu dışı kullanılabilir olması gerekir. Aksi takdirde, kullanın [kullanıcı sesi](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) yeni işlevsellik istemek için.
-* Tarayıcı sürümleri desteklenir:
-  * Internet Explorer 11, 10, sınır
+* Yoksa, Azure AD B2C'in varsayılan içeriği kopyalayın ve bunu değiştirme girişimi. HTML5 içeriğinizi sıfırdan oluşturmak ve varsayılan içerik referans olarak kullanmak için en iyisidir.
+* Güvenlik nedenleriyle, biz, içeriğinizi herhangi bir JavaScript dahil etmenize izin vermez. İhtiyacınız olanlar birçok hazır bulunması gerekir. Aksi takdirde, kullanın [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) yeni işlevsellik istemek için.
+* Desteklenen tarayıcı sürümleri:
+  * Internet Explorer 11, 10, Edge
   * Internet Explorer 9, 8 için sınırlı destek
-  * Google Chrome 42.0 ve üstü
-  * Mozilla Firefox 38.0 ve üstü
-* İçerme emin olun `<form>` bu Azure AD B2C eklenen HTML tarafından oluşturulan gönderme işlemleri ile müdahale gibi HTML etiketleri.
+  * Google Chrome 42.0 ve üzeri
+  * Mozilla Firefox 38.0 ve üzeri
+* Eklemezseniz emin olun `<form>` etiketleri, HTML, Azure AD B2C eklenen HTML tarafından oluşturulan sonrası işlemleri uğratacağı gibi.

@@ -1,6 +1,6 @@
 ---
 title: Oluşturma Kafka etkin Azure Event Hubs | Microsoft Docs
-description: Oluşturma bir Kafka Azure portalını kullanarak Azure Event Hubs ad etkin
+description: Oluşturma bir Kafka, Azure portalını kullanarak Azure Event Hubs ad alanı etkin
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -10,56 +10,56 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: shvija
-ms.openlocfilehash: 4f1d21be3c19dfbc764485fea47b6d4cb2171b3c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7a05a89fdf99efb6470ee9c8695f349cf22b8ebb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942553"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442136"
 ---
 # <a name="create-kafka-enabled-event-hubs"></a>Oluşturma Kafka etkin olay hub'ları
 
-Azure Event Hubs, saniye başına milyonlarca olayı alır ve gerçek zamanlı analiz ve görselleştirme için düşük gecikme süresi ve yüksek verimlilik sağlar (PaaS) hizmet olarak Platform akış büyük bir veri ' dir.
+Azure Event Hubs, büyük bir akış platformu olarak saniye başına milyonlarca olayı alır ve gerçek zamanlı analiz ve görselleştirme için düşük gecikme ve yüksek performans sağlayan bir hizmet (PaaS) veri.
 
-Azure Event Hubs Kafka ekosistemlerini için bir uç nokta sağlar. Bu uç noktaya yerel olarak anlamak, olay hub'ları ad alanı sağlayan [Apache Kafka](https://kafka.apache.org/intro) ileti protokolü ve API'leri. Bu özellik ile Protokolü istemcileriniz değiştirme veya kendi kümeleri çalıştıran Kafka konularda olduğu gibi Event Hubs ile iletişim kurabilir. Event Hubs Kafka ekosistemlerini desteklediği için [Apache Kafka sürümleri 1.0](https://kafka.apache.org/10/documentation.html) ve daha sonra.
+Kafka ekosistemlerini için Azure Event Hubs ile bir uç nokta sağlar. Event Hubs ad alanınızın yerel olarak anlamak Bu uç noktayı etkinleştirir [Apache Kafka](https://kafka.apache.org/intro) iletisi protokolü ve API'ler. Bu özellik sayesinde ile Kafka konularını Protokolü istemcilerinize değiştirme veya kendi kümelerini çalıştırmak gibi event hubs ile iletişim kurabilir. Event Hubs için Kafka ekosistemlerini destekler [Apache Kafka sürümleri 1.0](https://kafka.apache.org/10/documentation.html) ve daha sonra.
 
-Bu makalede bir olay hub'ları ad alanı oluşturma ve bağlantı alma dizesi Kafka Kafka uygulamalara bağlanmak için gereken etkin olay hub'ları.
+Bu makalede bir Event Hubs ad alanı oluşturma ve Kafka özellikli bir olay hub'ları Kafka uygulamalarına bağlanmak için gerekli bağlantı dizesini alın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bir Azure aboneliğiniz yoksa oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) başlamadan önce.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 
-## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Oluşturma olay hub'ları ad alanı bir Kafka etkin
+## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Oluşturma bir Kafka Event Hubs ad alanı etkin
 
-1. Oturum [Azure portal][Azure portal], tıklatıp **kaynak oluşturma** en üst ekranın sol.
+1. Oturum [Azure portalında][Azure portal], tıklatıp **kaynak Oluştur** , ekranın sol üst köşesindeki.
 
-2. Event Hubs için arama ve burada gösterilen seçenekleri seçin:
+2. Event Hubs için arama yapın ve burada gösterilen Seçenekler'i seçin:
     
-    ![Olay hub'ları için Portalı'nda arama](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
+    ![Event Hubs için portalda da arayabilirsiniz.](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. **Ad alanı oluşturma**, göre benzersiz bir ad sağlamak ve ad Kafka etkinleştirin. **Oluştur**’a tıklayın.
+3. Benzersiz bir ad belirtin ve ad alanı üzerinde Kafka etkinleştirin. **Oluştur**’a tıklayın.
     
     ![Ad alanı oluşturma](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
  
-4. Ad alanı, üzerinde oluşturulduktan sonra **ayarları** sekmesini tıklatın, **paylaşılan erişim ilkeleri** bağlantı dizesini almak için.
+4. Ad alanı, üzerinde oluşturulduktan sonra **ayarları** sekmesini tıklatın **paylaşılan erişim ilkeleri** bağlantı dizesini almak için.
 
-    ![Paylaşılan Erişim İlkeleri'ni tıklatın](./media/event-hubs-create/create-event-hub7.png)
+    ![Paylaşılan erişim ilkeleri](./media/event-hubs-create/create-event-hub7.png)
 
-5. Varsayılan seçebilirsiniz **RootManageSharedAccessKey**, veya yeni bir ilke ekleme. İlke adını ve bağlantı dizesini kopyalayın. 
+5. Varsayılan seçebilirsiniz **RootManageSharedAccessKey**, ya da yeni bir ilke ekleyin. İlke adına tıklayın ve bağlantı dizesini kopyalayın. 
     
     ![Bir ilke seçin](./media/event-hubs-create/create-event-hub8.png)
  
-6. Bu bağlantı dizesi Kafka uygulama yapılandırmanıza ekleyebilirsiniz.
+6. Bu bağlantı dizesini Kafka uygulama yapılandırmanıza ekleyin.
 
-Şimdi, Event Hubs'a Kafka protokolünü kullanan, uygulamalardan olaylarını akışını sağlayabilirsiniz.
+Şimdi, Event Hubs'a Kafka protokolünü kullanan uygulamalarınızdan olayları akışını yapabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Event Hubs hakkında daha fazla bilgi için aşağıdaki bağlantıları ziyaret edin:
+Event Hubs hakkında daha fazla bilgi için şu bağlantıları ziyaret edin:
 
-* [Olay hub'ları bir akışa, Kafka uygulamalardan](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-* [Kafka ekosistemi için olay hub'ları hakkında bilgi edinin](event-hubs-for-kafka-ecosystem-overview.md)
-* [Olay hub'ları hakkında bilgi edinin](event-hubs-what-is-event-hubs.md)
+* [Kafka uygulamalarınızdan Event hubs'ta Stream](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+* [Kafka ekosistemi için Event Hubs hakkında bilgi edinin](event-hubs-for-kafka-ecosystem-overview.md)
+* [Event Hubs hakkında bilgi edinin](event-hubs-what-is-event-hubs.md)
 
 
 [Azure portal]: https://portal.azure.com/

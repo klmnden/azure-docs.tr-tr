@@ -1,6 +1,6 @@
 ---
 title: Ad için Grup İlkesi ayarları Office 365 grupları Azure Active Directory'de (Önizleme) | Microsoft Docs
-description: Office 365 grupları Azure Active Directory'de (Önizleme) için sona erme kurma
+description: Azure Active Directory (Önizleme) içinde Office 365 grupları için sona erme kurma
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,71 +14,71 @@ ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: fb4f43dd85f887fa051aaa8050ddf6b37313e376
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 71367737a1364925f49c79f5c9562989752d26bc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594559"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37450354"
 ---
-# <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Office 365 grupları Azure Active Directory'de (Önizleme) için adlandırma ilkesini zorunlu kılma
+# <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Azure Active Directory (Önizleme) içinde Office 365 grupları için bir adlandırma ilkesini zorlama
 
-Oluşturulan veya kullanıcılarınız tarafından düzenlenmiş Office 365 grupları için tutarlı adlandırma kurallarını zorlamak için bir Grup İlkesi Azure Active Directory'de (Azure AD), kiracılar için adlandırma ayarlayın. Örneğin, bir grup üyeliği, coğrafi bölge işlevi iletişim kurmak için adlandırma ilkesini kullanabilir veya grup oluşturan kişiyi. Adres Defteri'ni gruplarında kategorilere ayırma yardımcı olmak için adlandırma İlkesi'ni de kullanabilirsiniz. Grup adları ve diğer adları kullanılmasını belirli kelimeleri engellemek için ilke kullanabilirsiniz.
+Oluşturduğunuz veya düzenlediğiniz kullanıcılarınız tarafından Office 365 grupları için tutarlı adlandırma kuralları zorlamak için ilke Azure Active Directory (Azure AD) kiracılarınız için bir adlandırma ayarlayın. Örneğin, bir grup üyeliği, coğrafi bölgeyi işlevi iletişim kurmak için adlandırma ilkesi kullanabilir veya grup oluşturan. Kullanıcının adres defterinde grupları kategorilere ayırmaya yardımcı olacak adlandırma İlkesi'ni de kullanabilirsiniz. Belirli sözcükleri grubu adları ve diğer adları kullanılmasını engellemek için ilke kullanabilirsiniz.
 
 > [!IMPORTANT]
-> Office 365 grupları adlandırma ilkesi Preview sürümünü kullanarak bir veya daha fazla Office 365 grupların üyesi olan her benzersiz bir kullanıcı için Azure Active Directory Premium P1 lisansları veya Azure AD temel eğitim lisansı gerektirir.
+> Office 365 grupları adlandırma ilkesi preview kullanarak bir veya daha fazla Office 365 gruplarının üyesi olan her benzersiz kullanıcının Azure AD temel EDU lisansları veya Azure Active Directory Premium P1 lisansı gerektirir.
 
-Oluşturma veya düzenleme (örneğin, Outlook, Microsoft Teams, SharePoint, Exchange veya Planlayıcısı) iş yüklerinde oluşturulan grupları adlandırma ilkesi uygulanır. Grup adı ve grup diğer adı için uygulanır. Azure AD'de adlandırma ilkenizi ayarlayın ve varolan bir Exchange Grup İlkesi adlandırma varsa, ilke adlandırma Azure AD uygulanır.
+Adlandırma ilkesi oluşturma ve düzenleme (örneğin, Outlook, Microsoft Teams, SharePoint, Exchange veya Planner) iş yüklerinde oluşturulan grupların uygulanır. Grup adı ve grup diğer adı için uygulanır. Azure AD'de, adlandırma ilkesi ayarlayın ve varolan bir Exchange Grup adlandırma ilkesi varsa, Azure AD adlandırma ilkesi uygulanır.
 
 ## <a name="naming-policy-features"></a>Adlandırma ilkesi özellikleri
-Office 365 grupları için adlandırma ilke iki farklı şekillerde uygulayabilir:
+Office 365 grupları için adlandırma ilkesi iki farklı şekillerde uygulayabilir:
 
--   **Önek sonek adlandırma ilkesi** önekleri veya sonra otomatik olarak gruplarınızı adlandırma kuralı zorlamak için eklenen sonekleri tanımlayabilirsiniz (örneğin, grup adı'nda "GRP\_JAPONYA\_grubum\_ Mühendislik", GRP\_JAPONYA\_ öneki ve \_mühendislik soneki olan). 
+-   **Önek sonek adlandırma ilkesi** ön eklerin veya soneklerin sonra otomatik olarak gruplarınızı üzerinde bir adlandırma kuralı uygulamak için eklenen tanımlayabilirsiniz (örneğin, grup adı olarak "GRP\_JAPONYA\_grubunuza\_ Mühendisliğe"GRP\_JAPONYA\_ öneki ve \_mühendislik soneki olan). 
 
--   **Özel engellenen sözcükleri** (örneğin "CEO, bordro, HR") kullanıcılar tarafından oluşturulan grupları engellenmesi kuruluşunuza engellenen sözcükler belirli bir dizi karşıya yükleyebilirsiniz.
+-   **Özel engellenen sözcük** kullanıcılar (örneğin "CEO, bordro, ik") tarafından oluşturulan grupları engellenmesi, kuruluşunuz için engellenen sözcük belirli bir dizi karşıya yükleyebilirsiniz.
 
 ### <a name="prefix-suffix-naming-policy"></a>Önek sonek adlandırma ilkesi
 
-Genel adlandırma kuralı 'Önek [GroupName] sonek' yapısıdır. Birden çok önek ve sonek tanımlayabilirsiniz, ancak yalnızca [GroupName] tek bir örneğini ayarına sahip olabilir. Ön ekler veya sonekleri sabit dizeler veya kullanıcı öznitelikleri gibi olabilir \[departmanı\] , yerine grubu oluşturmayı kullanıcının göre. İzin verilen toplam birleştirilmiş, önek ve sonek dizeler için karakter sayısı 53 karakterdir. 
+Adlandırma kuralı genel yapısını 'Öneki [GroupName] soneki' dir. Birden çok önek ve sonek tanımlayabilirsiniz, ancak yalnızca ayar [GroupName] bir örneği olabilir. Ön eklerin veya soneklerin sabit dizeler ya da kullanıcı öznitelikleri gibi olabilir \[departmanı\] , yerine grubu oluşturan kullanıcıya göre. Toplam izin verilen en fazla karakter birleştirilmiş, önek ve sonek dizeleri 53 karakterdir. 
 
-Önek ve sonek grup adı ve grup diğer desteklenen özel karakterleri içerebilir. Grup diğer desteklenmeyen herhangi bir karakteri öneki veya soneki hala grup adı'uygulanır, ancak Grup diğer adından kaldırıldı. Bu sınırlama nedeniyle, önek ve sonek grubun adını uygulanan Grup diğer uygulanan gördüğünüzden farklı olabilir. 
+Önek ve sonek grubu adı ve grup diğer adının desteklenen özel karakterler içerebilir. Grup diğer desteklenmeyen herhangi bir karakter önek veya sonek olarak hala uygulanan Grup adı ', ancak Grup diğer addan kaldırıldı. Bu kısıtlama nedeniyle, önek ve sonek grubun adını uygulanan Grup diğer adının için uygulanan farklı olabilir. 
 
 #### <a name="fixed-strings"></a>Sabit Dizeler
 
-Dizeleri tarama ve grupları genel adres listesinde ve Grup iş yüklerinin sol gezinti bağlantıları ayırt daha kolay hale getirmek için kullanabilirsiniz. Gibi bazı ortak önekleri sözcükler ' Grp\_adı ', '\#adı ','\_adı '
+Dizeleri tarama ve genel adres listesinde ve sol gezinti bağlantıları grubu iş yükü gruplarını birbirinden daha kolay hale getirmek için kullanabilirsiniz. Bazı ortak ön ekleri gibi anahtar sözcükler ' Grp\_adı ', '\#adı ','\_adı '
 
 #### <a name="user-attributes"></a>Kullanıcı öznitelikleri
 
-Yardımcı olabilecek özniteliklerini kullanabilirsiniz ve kullanıcılarınızın hangi departmanı, office veya grubunun oluşturulduğu coğrafi bölge tanımlar. Örneğin, adlandırma ilkenizi olarak tanımlarsanız `PrefixSuffixNamingRequirement = “GRP [GroupName] [Department]”`, ve `User’s department = Engineering`, bir uygulanan Grup adı "GRP grubum mühendislik." olması Desteklenen Azure AD öznitelikleri \[departmanı\], \[şirket\], \[Office\], \[Eyaletveİl\], \[CountryOrRegion \], \[Başlık\]. Desteklenmeyen kullanıcı özniteliklerini sabit dizeler olarak kabul edilir; Örneğin, "\[postalCode\]". Uzantı öznitelikleri ve özel öznitelikler desteklenmez.
+Yardımcı olabilecek öznitelikleri kullanabilirsiniz ve kullanıcılarınızın departmanı, office veya grubunun oluşturulduğu coğrafi bölgeyi tanımlar. Örneğin, adlandırma ilkenizi olarak tanımlarsanız `PrefixSuffixNamingRequirement = “GRP [GroupName] [Department]”`, ve `User’s department = Engineering`, bir uygulanan Grup adı "GRP grubum Engineering" gelebilir Desteklenen Azure AD öznitelikleri \[departmanı\], \[şirket\], \[Office\], \[Eyaletveİl\], \[CountryOrRegion \], \[Başlık\]. Desteklenmeyen kullanıcı öznitelikleri, sabit dize olarak kabul edilir; Örneğin, "\[postalCode\]". Uzantı öznitelikleri ve özel öznitelikler desteklenmez.
 
-Kuruluşunuzdaki tüm kullanıcılar için doldurulan değerleri olan ve uzun değerlere sahip öznitelikleri kullanma öznitelikleri kullanmanızı öneririz.
+Kuruluşunuzdaki tüm kullanıcılar için doldurulmuş değerler ve uzun değerli öznitelikleri kullanmayın öznitelikleri kullanmanızı öneririz.
 
-### <a name="custom-blocked-words"></a>Özel engellenen sözcükler
+### <a name="custom-blocked-words"></a>Özel engellenen sözcük
 
-Engellenen sözcük listesini grup adları ve diğer adları engellenmesi bir virgülle ayrılmış bir listesidir. Hiçbir alt dize aramalar gerçekleştirilir. Grup adı ve bir veya daha fazla özel engellenen sözcükler arasında tam bir eşleşme hata tetiklemek için gereklidir. Engellenen bir sözcük 'sınıf' olsa bile, kullanıcılar 'Sınıfı' gibi sık kullanılan sözcük kullanabilmesi için alt dize arama gerçekleştirilen değil.
+Tümce grubu adları ve diğer adları engellediği için virgülle ayrılmış bir liste engellenen sözcük listesidir. Hiçbir alt dize arama gerçekleştirilir. Grup adı ve bir veya daha fazla özel engellenen bir kelimelerin arasında bir tam eşleşme başarısız tetiklemek için gereklidir. Engellenen bir sözcük 'sınıf' olsa bile kullanıcılar 'Class' gibi ortak kelimeler kullanabilirsiniz, böylece alt dize araması yapılamaz.
 
-Word listesi kurallarını engellendi:
-- Engellenen sözcükler büyük küçük harfe duyarlı değildir.
-- Bir kullanıcı bir grup adı bir parçası olarak engellenen bir sözcük girdiğinde, engellenen word ile bir hata iletisi görürler.
-- Engellenen sözcükleri hiçbir karakter kısıtlamaları vardır.
-- Engellenen sözcükler listesinde yapılandırılabilir 5000 tümcecikleri üst sınır yoktur. 
+Engellenen sözcük listesi kuralları:
+- Engellenen bir sözcük büyük/küçük harfe duyarlı değildir.
+- Bir kullanıcı grubu adı bir parçası olarak engellenen bir sözcük girdiğinde, engellenen sözcük içeren bir hata iletisi görürler.
+- Engellenen bir sözcük hiçbir karakter kısıtlamaları vardır.
+- Engellenen bir sözcük listesinde yapılandırılabilir 5000 tümcecikleri üst sınır yoktur. 
 
 ### <a name="administrator-override"></a>Yönetici geçersiz kılma
 
-Seçili Yöneticiler bu ilkelerden tüm Grup iş yükleri ve uç noktaları, böylece engellenen sözcükleri kullanarak grupları oluşturabilirsiniz ve kendi adlandırma kuralları ile muaf. Yönetici rolleri İlkesi adlandırma grubundan muaf tutulan listesi verilmiştir.
+Seçili yöneticileri bu ilkeleri, tüm Grup iş yükleri ve uç noktaları, böylece bunlar engellenen sözcük kullanarak gruplar oluşturabilir ve kendi adlandırma kuralları ile muaf tutulabilir. Muaf tutulan gruptan adlandırma ilkesinin yönetici rolleri listesi verilmiştir.
 
 - Genel yönetici
 - İş ortağı Katman 1 destek
 - İş ortağı Katman 2 Destek
-- Kullanıcı Hesap Yöneticisi
+- Kullanıcı hesabı yöneticisi
 - Dizin yazıcılar
 
-## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>Bir adlandırma ilkesi yapılandırmak için PowerShell cmdlet'lerini yükleyin
+## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>Bir adlandırma ilkesini yapılandırmak için PowerShell cmdlet'leri yükleme
 
-Grafik için Windows PowerShell modülü için Azure Active Directory PowerShell herhangi bir eski sürümü kaldırın ve yüklemek mutlaka [grafiği - genel Önizleme sürümü 2.0.0.137 için Azure Active Directory PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) çalıştırmadan önce PowerShell komutları. 
+Graf için Windows PowerShell modülü için Azure Active Directory PowerShell herhangi bir eski sürümünü kaldırın ve yüklemek mutlaka [Grafı - genel Önizleme sürümü 2.0.0.137 için Azure Active Directory PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) çalıştırmadan önce PowerShell komutları. 
 
 1. Windows PowerShell uygulamasını yönetici olarak açın.
-2. AzureADPreview daha önceki sürümlerini kaldırın.
+2. AzureADPreview önceki sürümlerini kaldırın.
   
   ````
   Uninstall-Module AzureADPreview
@@ -88,23 +88,23 @@ Grafik için Windows PowerShell modülü için Azure Active Directory PowerShell
   ````
   Install-Module AzureADPreview
   ````
-Güvenilmeyen bir depo erişme hakkında istenirse, yazın **Y**. Yeni modülün yüklemek birkaç dakika sürebilir.
+Güvenilmeyen bir depoya erişme hakkında istenirse türü **Y**. Bu yeni modülünü yüklemek birkaç dakika sürebilir.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Azure AD PowerShell kullanarak bir kiracı için ilke adlandırma grubunu yapılandırma
+## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Azure AD PowerShell kullanarak bir kiracı için adlandırma ilkesinin grubu yapılandırma
 
-1. Bilgisayarınızda Windows PowerShell penceresini açın. Yükseltilmiş ayrıcalıklar olmadan açabilirsiniz.
+1. Bilgisayarınızda bir Windows PowerShell penceresi açın. Yükseltilmiş ayrıcalıklar olmadan açabilirsiniz.
 
-2. Cmdlet'leri çalıştırmak hazırlamak için aşağıdaki komutları çalıştırın.
+2. Bu cmdlet'leri çalıştırmak hazırlamak için aşağıdaki komutları çalıştırın.
   
   ````
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-  İçinde **hesabınızda oturum** yönetici hesabınız ve parolanız hizmetinize bağlamak ve seçmek için açılır ve ekran girin **oturum**.
+  İçinde **hesabınızda oturum** yönetici hesabı ve parola hizmetinize bağlanmak ve seçmek için açılır, ekran girin **oturum**.
 
-3. Adımları [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](active-directory-accessmanagement-groups-settings-cmdlets.md) bu Kiracı için Grup ayarları oluşturmak için.
+3. Bağlantısındaki [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](users-groups-roles/groups-settings-cmdlets.md) bu Kiracı için Grup ayarları oluşturmak için.
 
-### <a name="view-the-current-settings"></a>Geçerli ayarları görüntülemek
+### <a name="view-the-current-settings"></a>Geçerli ayarları görüntüleyebilir
 
 1. Geçerli ayarları görüntülemek için geçerli adlandırma ilkesi getirin.
   
@@ -118,40 +118,40 @@ Güvenilmeyen bir depo erişme hakkında istenirse, yazın **Y**. Yeni modülün
   $Setting.Values
   ````
   
-### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Özel engellenen sözcükleri ve adlandırma ilkesi ayarlama
+### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Özel engellenen sözcükler ve adlandırma ilkesi ayarlama
 
-1. Grup adı önekleri ve sonekleri Azure AD PowerShell'de ayarlayın.
+1. Grup adı önek ve sonek Azure AD PowerShell'de ayarlayın.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
   ````
   
-2. Kısıtlamak istediğiniz özel engellenen sözcükler ayarlayın. Aşağıdaki örnek, kendi özel sözcükleri nasıl ekleyebileceğiniz gösterilmektedir.
+2. Sınırlamak istediğiniz özel engellenen sözcük ayarlayın. Aşağıdaki örnekte, kendi özel sözcükler nasıl ekleyebileceğiniz gösterilmektedir.
   
   ````
   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
   ````
   
-3. Aşağıdaki örnekte etkili, gibi için yeni ilke için ayarları kaydedin.
+3. Aşağıdaki örnekte, gibi kullanılabilmesi için yeni ilke için ayarları kaydedin.
   
   ````
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
   ````
   
-Bu kadar. Adlandırma ilkenizi ayarlayın ve engellenen sözcüklerinizi eklenen.
+Bu kadar. Adlandırma ilkenizi ve engellenen kelimeleriniz eklendi.
 
-## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Özel engellenen sözcüklerin listesini içeri veya dışarı
+## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Özel engellenen sözcüklerin listesi içeri veya dışarı aktarma
 
-Daha fazla bilgi için bkz: [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](active-directory-accessmanagement-groups-settings-cmdlets.md).
+Daha fazla bilgi için bkz [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](users-groups-roles/groups-settings-cmdlets.md).
 
-Burada, birden çok engellenen sözcük dışarı aktarmak için bir PowerShell komut dosyası örneği verilmiştir:
+Birden çok engellenen sözcük dışarı aktarmak için bir PowerShell Betiği örneği aşağıda verilmiştir:
 
 ````
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
 ````
 
-Birden çok engellenen sözcük almak için PowerShell Betiği örnek aşağıda verilmiştir:
+Birden çok engellenen sözcük içeri aktarmak için PowerShell Betiği bir örnek aşağıda verilmiştir:
 
 ````
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
@@ -169,40 +169,40 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ## <a name="naming-policy-experiences-across-office-365-apps"></a>Office 365 uygulamalarında adlandırma ilkesi deneyimleri
 
-Ne zaman bir kullanıcı bir Office 365 uygulamasında bir grup oluşturur, Azure AD'de bir grup adlandırma ilkesi ayarladıktan sonra bunlar bakın: 
+Bir kullanıcı grubu bir Office 365 uygulama oluşturduğunda, Azure AD'de bir grup adlandırma ilkesi ayarladıktan sonra görürler: 
 
-* Grup adı kullanıcı türlerinde olan en kısa sürede Önizleme (ile önek ve sonek) adlandırma ilkenize göre adı A
-* Kullanıcı engellenen sözcükler girerse, engellenen sözcükler kaldırabilmeniz için bunlar bir hata iletisi görürsünüz.
+* Grup adı, kullanıcı türleri olan en kısa sürede Önizleme adlandırma ilkenizle (önek ve sonek) göre adı A
+* Kullanıcı, engellenen bir sözcük girerse, bunlar engellenen sözcük kaldırabilmeniz için bir hata iletisi görürler.
 
 İş yükü | Uyumluluk
 ----------- | -------------------------------
-Azure Active Directory portalları | Kullanıcı oluşturma veya bir grup düzenlerken Grup adını yazdığında Azure AD portalı ve erişim paneli portal adlandırma ilkesi adı gösterir. Bir kullanıcı özel engellenen word girdiğinde, böylece kullanıcı kaldırılacağına engellenen word ile bir hata iletisi görüntülenir.
-Outlook Web Access (OWA) | Kullanıcı grubu adını ya da grup diğer yazdığında outlook Web Access adlandırma ilkesini gösteren adı zorunlu. Bir kullanıcı özel engellenen word girdiğinde, böylece kullanıcı kaldırmadan bir hata iletisi engellenen Word'ün yanı sıra kullanıcı arabiriminde gösterilir.
-Outlook Masaüstü | Outlook Desktop'ta oluşturulan grupları adlandırma ilkesi ayarları ile uyumlu değildir. Outlook masaüstü uygulaması zorlanan grup adı önizlemesi henüz göstermez ve kullanıcı grubu adı girdiğinde özel engellenen word hata döndürmez. Ancak, adlandırma ilkesini oluştururken veya bir Grup düzenleme otomatik olarak uygulanır ve grup adı veya diğer özel engellenen sözcükleri varsa kullanıcılar hata iletilerine bakın.
-Microsoft Teams | Microsoft Teams kullanıcı bir ekip adı girdiğinde ilkesi adı adlandırma grubunu gösterir. Bir kullanıcı özel engellenen word girdiğinde, böylece kullanıcı kaldırabilirsiniz engellenen Word'ün yanı sıra bir hata iletisi gösterilir.
-SharePoint  |  Kullanıcı türleri bir site adı veya e-posta adresi grup, SharePoint adlandırma ilkesi adı görüntülenir. Kullanıcıyı kaldırmak için bir kullanıcı özel engellenen bir word olan bir hata iletisi girdiğinde, engellenen word ile birlikte gösterilir.
-Microsoft Stream | Microsoft Stream kullanıcı grubu adı veya Grup e-posta diğer adını yazdığında ilkesi adı adlandırma grubunu gösterir. Bir kullanıcı özel engellenen word girdiğinde, kullanıcıyı kaldırmak için bir hata iletisi engellenen word ile gösterilir.
-Outlook iOS ve Android uygulaması | Outlook uygulamalarında oluşturulan grupları yapılandırılmış adlandırma ilkesiyle uyumlu değildir. Outlook mobil uygulama adlandırma ilkesi adı önizlemesi henüz göstermez ve kullanıcı grubu adı girdiğinde özel engellenen word hata döndürmez. Ancak, adlandırma ilkesi Oluştur/Düzenle tıklatıldığında otomatik olarak uygulanır ve grup adı veya diğer özel engellenen sözcükleri varsa kullanıcılar hata iletilerine bakın.
-Mobil uygulama grupları | Grupları mobil uygulamasında oluşturulan grupları adlandırma ilkesiyle uyumlu değildir. Mobil uygulama grupları adlandırma İlkesi'nin önizlemesini göstermez ve kullanıcı grup adı girdiğinde özel engellenen word hata döndürmez. Ancak adlandırma ilkesini oluştururken veya bir Grup düzenleme otomatik olarak uygulanır ve kullanıcıların Grup adı veya diğer özel engellenen sözcükleri varsa uygun hatalarla gösterilir.
-Planner | Planlayıcısı adlandırma ilkesiyle uyumlu. Planlayıcısı adlandırma ilkesi Önizleme plan adı girerken gösterir. Bir kullanıcı özel engellenen word girdiğinde, plan oluştururken bir hata iletisi gösterilir.
-Dynamics 365 müşteri katılım için | Dynamics 365 müşteri katılım için adlandırma ilkesiyle uyumlu. Kullanıcı grubu adı veya Grup e-posta diğer adını yazdığında Dynamics 365 adlandırma ilkesi adı görüntülenir. Kullanıcı bir özel engellenen sözcük girdiğinde, kullanıcıyı kaldırmak için bir hata iletisi engellenen word ile gösterilir.
-Okul veri eşitleme (SDS) | İlke adlandırma ile SDS oluşturulan grupları uyumlu, ancak adlandırma ilkesi otomatik olarak uygulanmaz. Önek ve sonek için gruplar oluşturulur ve SDS için karşıya gereken sınıf adları eklemek SDS Yöneticiler sahiptir. Grup oluşturma veya düzenleme Aksi halde başarısız olur.
-Outlook müşteri Yöneticisi'ni (OCM) | Outlook müşteri Outlook müşteri Yöneticisi'nde oluşturduğunuz Grup otomatik olarak uygulanan adlandırma ilkesiyle uyumlu yöneticisidir. Özel bir engellenen word algılanırsa, grup oluşturma OCM'deki engellenir ve OCM uygulamayı kullanarak kullanıcı engellendi.
-Sınıf uygulama | Sınıf uygulamasında oluşturulan grupları adlandırma ilkesiyle uyumlu ancak adlandırma ilkesi otomatik olarak uygulanmaz ve bir sınıf adı yazarken, adlandırma ilkesi Önizleme kullanıcılara gösterilen değil. Kullanıcılar, önek ve sonek ile zorlanan sınıf grup adı girmeniz gerekir. Değilse, sınıf grubu oluşturun veya işlemi başarısız hatalarla düzenleyin.
-Power BI | Power BI çalışma alanları adlandırma ilkesiyle uyumlu.    
-Yammer | Yammer için Azure Active Directory hesaplarıyla oturum bir kullanıcı bir grup oluşturduğunda veya bir grup adı düzenler, grup adı İlkesi adlandırma ile uyumlu. Bu, hem Office 365 bağlı gruplar ve diğer tüm Yammer grupları için geçerlidir.<br>Bir Office 365 bağlı grubu adlandırma ilkesi yerinde önce oluşturulduysa, grup adı adlandırma ilkeleri otomatik olarak izlenmez. Bir kullanıcı grubu adı düzenlediğinde, önek ve sonek eklemeniz istenir.
-StaffHub  | StaffHub takımlar adlandırma ilkesi izlemeyin ancak temel alınan Office 365 grubunu desteklemez. StaffHub takım adı sonekleri ve önekleri uygulanmaz ve özel engellenen sözcükleri denetlemez. Ancak StaffHub önek ve sonek uygulamak ve engellenen sözcükleri temel Office 365 gruptan kaldırır.
-Exchange PowerShell | Exchange PowerShell cmdlet'leri adlandırma ilkesiyle uyumlu. Kullanıcılar Grup adı ve grup diğer adı (mailNickname) adlandırma ilkesi izlemeyin ilgili hata iletilerini önerilen önek ve sonek ve özel engellenen sözcükleri alır.
-Azure Active Directory PowerShell cmdlet'leri | Azure Active Directory PowerShell cmdlet'lerini, ilke adlandırma ile uyumludur. Kullanıcılar Grup adları ve grup diğer adlandırma kuralı izlemeyin ilgili hata iletilerini önerilen önek ve sonek ve özel engellenen sözcükleri alır.
-Exchange yönetici merkezini | Exchange yönetici merkezini İlkesi adlandırma ile uyumludur. Kullanıcılar Grup adı ve grup diğer adlandırma kuralı izlemeyin ilgili hata iletilerini önerilen önek ve sonek ve özel engellenen sözcükleri alır.
-Office 365 Yönetim Merkezi | Office 365 Yönetim Merkezi ilke adlandırma ile uyumludur. Ne zaman bir kullanıcı oluşturur veya düzenlemeleri grup adlarını adlandırma ilkesi otomatik olarak uygulanır ve özel engellenen sözcük girdiğinizde kullanıcılar uygun hataları alırsınız. Office 365 Yönetim Merkezi adlandırma ilkesi önizlemesi henüz göstermez ve kullanıcı grubu adı girdiğinde özel engellenen word hata döndürmez.
+Azure Active Directory portalları | Kullanıcı, grup adını oluştururken ya da bir grubu düzenleme yazdığında Azure AD erişim paneli portalı ve adlandırma zorlanan ilke adını gösterir. Bir kullanıcı özel engellenen bir sözcük girdiğinde, böylece kullanıcı kaldırabilirsiniz engellenen sözcük içeren bir hata iletisi görüntülenir.
+Outlook Web Access (OWA) | Kullanıcı grubu adı ya da grup diğer adının yazdığında, outlook Web Access adlandırma ilkesi gösterir adı zorunlu. Bir kullanıcı özel engellenen bir sözcük girdiğinde, kullanıcı kaldırabilirsiniz, böylece bir hata iletisi engellenen sözcük yanı sıra kullanıcı Arabirimi gösterilir.
+Outlook Masaüstü | Outlook Masaüstü oluşturulan grupların adlandırma ilkesi ayarları ile uyumlu olması gerekir. Outlook masaüstü uygulaması henüz Önizleme uygulanan Grup adının göstermez ve kullanıcı grubu adı girdiğinde özel engellenen sözcük hata döndürmez. Ancak, adlandırma ilkesi oluştururken veya düzenlerken bir grubu otomatik olarak uygulanır ve grup adını ya da diğer özel engellenen sözcük yoksa, kullanıcılar hata iletilerini görmek.
+Microsoft Teams | Microsoft Teams zorlanan ilke adı, kullanıcı bir takım adı girdiğinde adlandırma grubu gösterir. Bir kullanıcı özel engellenen bir sözcük girdiğinde, böylece kullanıcı kaldırabilirsiniz engellenen sözcük yanı sıra bir hata iletisi gösterilir.
+SharePoint  |  SharePoint site bir kullanıcı türleri ad veya e-posta adresi Grup adlandırma zorlanan ilke adını gösterir. Kullanıcıyı kaldırmak için bir kullanıcı özel engellenen bir sözcük olan bir hata iletisi girdiğinde, engellenen bir sözcük ile birlikte gösterilir.
+Microsoft Stream | Microsoft Stream, kullanıcı grubu adı ya da Grup e-posta diğer adı yazdığında zorlanan ilke adı adlandırma gösterir. Bir kullanıcı özel engellenen bir sözcük girdiğinde, kullanıcıyı kaldırmak için engellenen bir sözcük ile bir hata iletisi gösterilir.
+Outlook iOS ve Android uygulaması | Outlook uygulamalarında oluşturulan grupları yapılandırılmış adlandırma ilkesi ile uyumlu olması gerekir. Outlook mobil uygulamasının henüz adlandırma zorlanan ilke adı önizlemesiyle göstermez ve kullanıcı grubu adı girdiğinde özel engellenen sözcük hata döndürmez. Ancak, adlandırma ilkesi Oluştur/Düzenle'ye tıkladığınızda otomatik olarak uygulanır ve grup adını ya da diğer özel engellenen sözcük yoksa, kullanıcılar hata iletilerini görmek.
+Mobil uygulama grupları | Grupları mobil uygulamasında oluşturulan grupların adlandırma ilkesi ile uyumlu olması gerekir. Mobil uygulama grupları Önizleme adlandırma ilkesinin göstermez ve kullanıcı grubu adı girdiğinde özel engellenen sözcük hata döndürmez. Ancak adlandırma ilkesi oluştururken veya düzenlerken bir grubu otomatik olarak uygulanır ve kullanıcı grubu adı veya diğer özel engellenen sözcük varsa uygun hatalarla sunulur.
+Planner | Planner adlandırma ilkesi ile uyumludur. Plan adı girerken, Planner adlandırma ilkesi Önizleme gösterir. Bir kullanıcı özel engellenen bir sözcük girdiğinde, planı oluşturulurken bir hata iletisi gösterilir.
+Dynamics 365 müşteri katılımı için | Dynamics 365 müşteri katılımı için adlandırma ilkesi ile uyumludur. Kullanıcı grubu adı ya da Grup e-posta diğer adı yazdığında Dynamics 365 adlandırma zorlanan ilke adını gösterir. Kullanıcıyı kaldırmak için bir hata iletisi, kullanıcı özel engellenen bir sözcük girdiğinde, engellenen bir sözcük ile gösterilir.
+School Data Sync'i (SDS) | SDS ile oluşturulan grupların adlandırma ilkesi ile uyumlu, ancak adlandırma ilkesi otomatik olarak uygulanmaz. SDS yöneticilerinin, önek ve sonek gruplarının oluşturulması ve ardından SDS için karşıya gerekir sınıf adları eklemek vardır. Grup oluşturma veya düzenleme, aksi takdirde başarısız olur.
+Outlook Customer Manager'a (OCM) | Outlook Customer Manager, Outlook Customer Manager'a oluşturduğunuz gruba otomatik olarak uygulanan adlandırma ilkesi ile uyumludur. Özel engellenen bir sözcük algılanırsa, grup oluşturma OCM'deki engellenir ve kullanıcı OCM uygulama kullanımından engellenir.
+Classroom uygulaması | Classroom uygulamasında oluşturulan grupların adlandırma ilkesiyle uyumlu ancak adlandırma ilkesi otomatik olarak uygulanmaz ve bir sınıf grup adı girerken, adlandırma ilkesi Önizleme kullanıcılara gösterilen değil. Kullanıcılar, önek ve sonek zorlanan classroom grup adıyla girmeniz gerekir. Aksi halde classroom grubu oluşturma veya düzenleme hatalarla işlemi başarısız.
+Power BI | Power BI çalışma alanları adlandırma ilkesi ile uyumlu olması gerekir.    
+Yammer | Azure Active Directory hesaplarıyla Yammer'a açan bir kullanıcı bir grup oluşturur ya da bir grup adı düzenler adlandırma ilkesinin grup adı uyacaktır. Bu, hem Office 365 bağlı grupları ve diğer tüm Yammer grupları için geçerlidir.<br>Grup adı otomatik olarak bir Office 365 bağlı Grup adlandırma ilkesi yerinde önce oluşturulduysa adlandırma ilkeleri izlenmez. Bir kullanıcı grubu adı düzenlediğinde öneki ve soneki eklemeniz istenir.
+StaffHub  | StaffHub takımlar adlandırma ilkesi izlemeyin, ancak temel alınan Office 365 grubu yok. StaffHub takım adı bir önek ve sonek geçerli değildir ve özel engellenen sözcükler için denetlemez. Ancak StaffHub önek ve sonek geçerli ve engellenen bir sözcük temel alınan bir Office 365 grubundan kaldırır.
+Exchange PowerShell | Exchange PowerShell cmdlet'leri adlandırma ilkesi ile uyumlu olması gerekir. Grup adı ve grup diğer adının (mailNickname) adlandırma ilkesi izlerseniz yoksa, kullanıcılar önerilen önek ve sonek ve özel engellenen sözcükler için uygun hata iletileri alır.
+Azure Active Directory PowerShell cmdlet'leri | Azure Active Directory PowerShell cmdlet'lerini adlandırma ilkesi ile uyumlu olması gerekir. Kullanıcılar grubu adları ve grup diğer adının adlandırma kuralını takip etmiyorsa önerilen önek ve sonek ve özel engellenen sözcükler için uygun hata iletilerini alır.
+Exchange yönetici merkezini | Exchange yönetici merkezini adlandırma ilkesi ile uyumludur. Grup adı ve grup diğer adının adlandırma kuralı izlerseniz yoksa, kullanıcılar önerilen önek ve sonek ve özel engellenen sözcükler için uygun hata iletileri alır.
+Office 365 Yönetim Merkezi | Office 365 Yönetim Merkezi ilke adlandırma ile uyumludur. Ne zaman bir kullanıcı oluşturur veya düzenlemeleri grup adlarını adlandırma ilkesi otomatik olarak uygulanır ve bunlar özel engellenen sözcük girdiğinizde kullanıcılar uygun hataları alırsınız. Office 365 Yönetim Merkezi önizlemesi adlandırma ilkesi henüz göstermez ve kullanıcı grubu adı girdiğinde özel engellenen sözcük hataları dönmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makaleler Azure AD grupları hakkında ek bilgiler sağlar.
+Bu makaleler, Azure AD grupları hakkında ek bilgi sağlar.
 
-* [Var olan grupları bakın](active-directory-groups-view-azure-portal.md)
-* [Office 365 grupları için süre sonu ilkesi](active-directory-groups-lifecycle-azure-portal.md)
-* [Bir grubu ayarlarını yönetme](active-directory-groups-settings-azure-portal.md)
-* [Bir grubun üyelerini yönetmek](active-directory-groups-members-azure-portal.md)
-* [Bir grubun üyeliğini yönetme](active-directory-groups-membership-azure-portal.md)
-* [Bir gruptaki kullanıcılar için dinamik kurallarını yönet](active-directory-groups-dynamic-membership-azure-portal.md)
+* [Var olan grupları bakın](fundamentals/active-directory-groups-view-azure-portal.md)
+* [Office 365 gruplarının süre sonu ilkesi](active-directory-groups-lifecycle-azure-portal.md)
+* [Bir grubun ayarlarını yönetme](fundamentals/active-directory-groups-settings-azure-portal.md)
+* [Grup üyelerini Yönet](fundamentals/active-directory-groups-members-azure-portal.md)
+* [Bir grubun üyeliğini yönetme](fundamentals/active-directory-groups-membership-azure-portal.md)
+* [Gruptaki kullanıcılar için dinamik kurallarını yönetme](active-directory-groups-dynamic-membership-azure-portal.md)

@@ -10,13 +10,13 @@ ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: 55814f5515649e0fc6d646d3580f281fd9ec37a5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37116590"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435081"
 ---
 | Kategori | Sınır |
 | --- | --- |
-| Yönetilen kimlikleri atanan kullanıcı | <ul><li>Ne zaman kullanıcı oluşturma izin ver atanan yönetilen kimlikleri, yalnızca alfasayısal karakterler (0-9, a-z, A-Z) ve tire (-) desteklenir. Ayrıca, ad 24 karakter uzunluğunda atama düzgün çalışması için VM/VMSS için sınırlı olmalıdır.</li><li>Yönetilen kimlik sanal makine uzantısını kullanarak, desteklenen sınırı 32 kullanıcı tarafından yönetilen kimlikleri atanan olur.  Yönetilen kimlik sanal makine uzantısı desteklenen sınırı kimlikleri atanan 512 kullanıcıdır.</li>|
+| Kullanıcı tarafından atanmış yönetilen kimlikler | <ul><li>Ne zaman kullanıcı oluşturmaya izin ver atanmış yönetilen kimlikleri yalnızca alfasayısal karakterler (0-9, a-z, A-Z) ve tire (-) desteklenir. Ayrıca, ad 24 karakterden uzun atama düzgün çalışması için VM/VMSS için sınırlı olmalıdır.</li><li>Yönetilen kimlik sanal makine uzantısı aracılığıyla, desteklenen sınırı 32 kullanıcı tarafından yönetilen kimlikleri atanan olur.  Yönetilen kimlik sanal makine uzantısı, desteklenen sınırı 512 kullanıcı tarafından atanan kimliklerle ' dir.</li>|
 

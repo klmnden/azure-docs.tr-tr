@@ -1,130 +1,134 @@
 ---
-title: Azure Cosmos DB sağlama verimliliğini | Microsoft Docs
-description: Azure Cosmos DB containsers, koleksiyonları, grafikler ve tablolar için sağlanan işleme ayarlanacağını öğrenin.
+title: Azure Cosmos DB için sağlama aktarım hızı | Microsoft Docs
+description: Azure Cosmos DB containsers, koleksiyonlar, grafikler ve tablolar için sağlanan aktarım hızı ayarlama konusunda bilgi edinin.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: d8b7ed593fcd307e6709c17bafbcb5a22661dc83
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285782"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444282"
 ---
-# <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Ayarlama ve Azure Cosmos DB kapsayıcıları ve veritabanı için işleme alma
+# <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Azure Cosmos DB kapsayıcıları ve veritabanı için aktarım hızı alma ve ayarlama
 
-Azure portalını kullanarak veya istemci SDK'ları kullanarak, bir Azure Cosmos DB kapsayıcısı veya bir dizi kapsayıcıları için işleme ayarlayabilirsiniz. Üretilen iş kapsayıcıları kümesi için hazırlarken bu tüm kapsayıcıları sağlanan işleme paylaşır. Tek tek kapsayıcıları için sağlama işleme için belirli bir kapsayıcıya işleme ayırma garanti. Öte yandan, bir veritabanı için işleme sağlama veritabanına ait tüm kapsayıcıları arasında verimliliği paylaşmanıza olanak tanır. Bir Azure Cosmos DB veritabanı içinde işleme ayrılmış kapsayıcıları yanı sıra işleme paylaşan kapsayıcıları kümesi olabilir. 
+Azure portalını kullanarak veya istemci SDK'ları kullanarak, bir Azure Cosmos DB kapsayıcısı veya bir dizi kapsayıcıları için aktarım hızı ayarlayabilirsiniz. 
 
-Üzerinde sağlanan işleme bağlı olarak, Azure Cosmos DB onu büyüdükçe kaldırıldığından ve bölmelerini/rebalances verilerinizi bölümler barındırmak için fiziksel bölümleri ayırır.
+**Bir kapsayıcının aktarım hızını sağlama:** kapsayıcıları kümesi için aktarım hızı sağladığınızda, sağlanan aktarım hızı tüm kapsayıcıların paylaşın. Tek tek kapsayıcılar için sağlama aktarım hızı, belirli bir kapsayıcı için aktarım hızının ayırma garanti eder. Olarak RU/sn tek tek kapsayıcı düzeyinde atarken kapsayıcıları oluşturulabilir *sabit* veya *sınırsız*. Sabit boyutlu kapsayıcıların üst sınırı 10 GB ve 10.000 RU/sn aktarım hızıdır. Sınırsız bir kapsayıcı oluşturmak için en düşük aktarım hızı, 1.000 RU/sn belirtmeniz gerekir ve bir [bölüm anahtarı](partition-data.md). Verilerinizi birden çok bölümler arasında bölünmesi gerekebilir olduğundan, yüksek bir kardinalite (100 milyonlarca ayrı değer) sahip bir bölüm anahtarı seçmek gereklidir. Birçok farklı değerlere sahip bir bölüm anahtarı'nı seçerek, kapsayıcı/tablo/grafik ve isteklerini aynı şekilde Azure Cosmos DB tarafından ölçeklendirilebilir emin olun. 
 
-Olarak RU/sn tek tek kapsayıcı düzeyinde atarken kapsayıcıları oluşturulabilir *sabit* veya *sınırsız*. Sabit boyutlu kapsayıcıların üst sınırı 10 GB ve 10.000 RU/sn aktarım hızıdır. Sınırsız bir kapsayıcı oluşturmak için en düşük işleme 1.000 RU/s belirtmeniz gerekir ve bir [bölüm anahtarı](partition-data.md). Verilerinizin birden çok bölüm arasında bölünmesi gerekebilir olduğundan, yüksek kardinalite (100 farklı değerleri milyonlarca) sahip bir bölüm anahtarı almak gereklidir. Birçok farklı değerlere sahip bir bölüm anahtarı seçerek tablo/kapsayıcı/grafik ve istekleri hep Azure Cosmos DB tarafından Genişletilebilir emin olun. 
+**Bir kapsayıcı veya bir veritabanı kümesinin sağlama aktarım hızı:** sağlama aktarım hızı bir veritabanı için aktarım hızı o veritabanına ait tüm kapsayıcıları arasında paylaşmanızı sağlar. Bir Azure Cosmos DB veritabanında, kapsayıcılar, adanmış aktarım hızı yanı sıra aktarım hızını paylaşır kapsayıcıları kümesi olabilir. Bu kümeye ait olan kapsayıcıları RU/sn kapsayıcıları kümesi atarken değerlendirilir *sınırsız* kapsayıcılar ve bölüm anahtarı belirtmeniz gerekir.
 
-Bu kümeye ait kapsayıcıları RU/sn kapsayıcıları kümesi boyunca atarken davranılır *sınırsız* kapsayıcıları ve bölüm anahtarı belirtmeniz gerekir.
+Sağlanan aktarım hızına göre Azure Cosmos DB büyüdükçe, kapsayıcılar ve Gruplama/rebalances verilerinizi bölümler arasında barındırmak için fiziksel bölümlere ayırır. Kapsayıcı ve veritabanı düzeyi aktarım hızı sağlama ayrı teklifleri ve ya da bunların arasında geçiş gerektiren geçirme kaynaktan hedef veri. Yeni bir veritabanı veya yeni bir koleksiyon oluşturun ve ardından verileri kullanarak geçirmek için anlamına gelir [toplu Yürütücü Kitaplığı](bulk-executor-overview.md) veya [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). Aşağıdaki görüntüde, farklı düzeylerde sağlama aktarım hızı gösterilmiştir:
 
-![İstek birimleri ayrı kapsayıcıları ve kapsayıcıları kümesi için sağlama](./media/request-units/provisioning_set_containers.png)
+![İstek birimleri için ayrı kapsayıcıları ve kapsayıcıları kümesi sağlama](./media/request-units/provisioning_set_containers.png)
 
-Bu makalede, Azure Cosmos DB hesap için farklı düzeylerde işleme yapılandırmak için gerekli adımları açıklanmaktadır. 
+Sonraki bölümlerde, aktarım hızı, Azure Cosmos DB hesabı için farklı düzeylerde yapılandırmak için gereken adımları öğreneceksiniz. 
 
-## <a name="provision-throughput-by-using-azure-portal"></a>Azure portalını kullanarak hazırlama işleme
+## <a name="provision-throughput-by-using-azure-portal"></a>Azure portalını kullanarak hazırlama aktarım hızı
 
-### <a name="provision-throughput-for-a-container-collectiongraphtable"></a>Bir kapsayıcı (grafik/koleksiyonu/tablosu) için sağlama işleme
+### <a name="provision-throughput-for-a-container-collectiongraphtable"></a>Bir kapsayıcı (koleksiyon/grafik/tablo) için sağlama aktarım hızı
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.  
-2. Sol gezinti seçin **tüm kaynakları** ve Azure Cosmos DB hesabınızı bulabilirsiniz.  
-3. Bir kapsayıcı (koleksiyon, grafik, tablo) veya var olan bir kapsayıcı için güncelleştirme işleme oluşturulurken verimlilik yapılandırabilirsiniz.  
-4. Bir kapsayıcı oluşturulurken verimlilik atamak için açın **Veri Gezgini** dikey penceresinde ve select **yeni koleksiyon** (yeni bir grafik, diğer API'leri için yeni bir tablo)  
-5. Formu doldurun **topluluk Ekle** dikey. Alanlar bu dikey penceresinde aşağıdaki tabloda açıklanmıştır:  
+2. Sol gezinti bölmesinde seçin **tüm kaynakları** ve Azure Cosmos DB hesabınızı bulun.  
+3. Bir kapsayıcı (koleksiyon, grafik, tablo) veya var olan bir kapsayıcı için güncelleştirme aktarım hızı oluşturulurken, aktarım hızını yapılandırabilirsiniz.  
+4. Kapsayıcı oluşturulurken aktarım hızı atamak için açık **Veri Gezgini** dikey penceresinde ve select **yeni koleksiyon** (yeni bir grafik, diğer API'ler için yeni bir tablo)  
+5. Formu doldurun **koleksiyon Ekle** dikey penceresi. Bu dikey pencerede alanları aşağıdaki tabloda açıklanmıştır:  
 
    |**Ayar**  |**Açıklama**  |
    |---------|---------|
-   |Veritabanı kimliği  |  Veritabanınızı tanımlamak için benzersiz bir ad sağlayın. Veritabanı, bir veya daha fazla koleksiyonların mantıksal bir kapsayıcısıdır. Veritabanı adı 1 ila 255 karakterden oluşmalı, boşlukla bitmemeli ve şu karakterleri içermemelidir: /, \\, # ve ?. |
-   |Koleksiyon kimliği  | Koleksiyonunuz tanımlamak için benzersiz bir ad sağlayın. Koleksiyon kimliği karakter gereksinimleri, veritabanı adlarına ilişkin karakter gereksinimleri ile aynıdır. |
-   |Depolama kapasitesi   | Bu değer, veritabanı depolama kapasitesini temsil eder. Tek bir koleksiyon için işleme sağlanırken, depolama kapasitesi olabilir **sabit (10 GB)** veya **sınırsız**. Sınırsız depolama kapasitesi, verileriniz için bir bölüm anahtarı ayarlamanızı gerektirir.  |
-   |Aktarım hızı   | Her bir koleksiyon ve veritabanı işleme saniye başına istek birimleri olabilir.  Sabit depolama kapasitesi en düşük işleme 400 istek birimleri (RU/s) saniye başına, sınırsız depolama için kapasite ve minimum verimlilik 1000 RU/s için ayarlanır.|
+   |Veritabanı kimliği  |  Veritabanınızı tanımlamak için benzersiz bir ad belirtin. Veritabanı, bir veya daha fazla koleksiyonların mantıksal bir kapsayıcıdır. Veritabanı adı 1 ila 255 karakterden oluşmalı, boşlukla bitmemeli ve şu karakterleri içermemelidir: /, \\, # ve ?. |
+   |Koleksiyon kimliği  | Koleksiyonunuz tanımlamak için benzersiz bir ad belirtin. Koleksiyon kimliği karakter gereksinimleri, veritabanı adlarına ilişkin karakter gereksinimleri ile aynıdır. |
+   |Depolama kapasitesi   | Bu değer, veritabanının depolama kapasitesini temsil eder. Depolama kapasitesi, tek bir koleksiyon için aktarım hızı sağlanırken olabilir **sabit (10 GB)** veya **sınırsız**. Sınırsız depolama kapasitesi, verileriniz için bir bölüm anahtarı ayarlamanızı gerektirir.  |
+   |Aktarım hızı   | Her bir koleksiyon ve veritabanı aktarım hızını saniye başına istek birimi olabilir.  Sabit depolama kapasitesi için en düşük aktarım hızı 400 istek birimi (RU/sn) saniyede, için sınırsız depolama kapasitesi, en düşük aktarım hızı 1000 RU/s olarak ayarlanır.|
 
-6. Bu alanlar için değerleri girdikten sonra Seç **Tamam** ayarları kaydetmek için.  
+6. Bu alanlar için değerleri girin, sonra seçin **Tamam** ayarları kaydetmek için.  
 
-   ![Bir koleksiyon için kümesi işleme](./media/set-throughput/set-throughput-for-container.png)
+   ![Bir koleksiyon için aktarım hızı ayarlama](./media/set-throughput/set-throughput-for-container.png)
 
-7. Var olan bir kapsayıcı için işleme güncelleştirmek için veritabanı ve kapsayıcısını genişletin ve ardından **ayarları**. Yeni pencerede yeni işleme değeri yazın ve ardından **kaydetmek**.  
+7. Var olan bir kapsayıcı için aktarım hızı güncelleştirmek için veritabanı ve kapsayıcısı'nı genişletin ve ardından **ayarları**. Yeni pencerede, yeni aktarım hızı değeri yazın ve ardından **Kaydet**.  
 
-   ![Bir koleksiyon için güncelleştirme işleme](./media/set-throughput/update-throughput-for-container.png)
+   ![Bir koleksiyon için güncelleştirme aktarım hızı](./media/set-throughput/update-throughput-for-container.png)
 
-### <a name="provision-throughput-for-a-set-of-containers-or-at-the-database-level"></a>Kapsayıcıların veya veritabanı düzeyinde kümesi için sağlama işleme
-
-1. [Azure Portal](https://portal.azure.com) oturum açın.  
-2. Sol gezinti seçin **tüm kaynakları** ve Azure Cosmos DB hesabınızı bulabilirsiniz.  
-3. Var olan bir veritabanı için bir veritabanı veya güncelleştirme işleme oluşturulurken verimlilik yapılandırabilirsiniz.  
-4. Bir veritabanı oluşturulurken verimlilik atamak için açık **Veri Gezgini** dikey penceresinde ve select **yeni veritabanı**  
-5. Dolgu **veritabanı kimliği** değeri, onay **sağlama verimlilik** seçeneği ve üretilen iş değerini yapılandırın. Bir veritabanı en düşük işleme değerle 50.000 sağlanabilir RU/s.  
-
-   ![İşleme yeni veritabanı seçeneği ile ayarlama](./media/set-throughput/set-throughput-with-new-database-option.png)
-
-6. Üretilen iş için varolan bir veritabanını güncelleştirmek için veritabanı ve kapsayıcısını genişletin ve ardından **ölçek**. Yeni pencerede yeni işleme değeri yazın ve ardından **kaydetmek**.  
-
-   ![Bir veritabanı için güncelleştirme işleme](./media/set-throughput/update-throughput-for-database.png)
-
-### <a name="provision-throughput-for-a-set-of-containers-as-well-as-for-an-individual-container-in-a-database"></a>Bir veritabanında tek tek bir kapsayıcı için de kapsayıcıları kümesi için sağlama işleme
+### <a name="provision-throughput-for-a-set-of-containers-or-at-the-database-level"></a>Kapsayıcılar veya veritabanı düzeyinde bir kümesi için sağlama aktarım hızı
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.  
-2. Sol gezinti seçin **tüm kaynakları** ve Azure Cosmos DB hesabınızı bulabilirsiniz.  
-3. Bir veritabanı oluşturun ve verimlilik atayın. Açık **Veri Gezgini** dikey penceresinde ve select **yeni veritabanı**  
-4. Dolgu **veritabanı kimliği** değeri, onay **sağlama verimlilik** seçeneği ve üretilen iş değerini yapılandırın. Bir veritabanı en düşük işleme değerle 50.000 sağlanabilir RU/s.  
+2. Sol gezinti bölmesinde seçin **tüm kaynakları** ve Azure Cosmos DB hesabınızı bulun.  
+3. Mevcut bir veritabanı için bir veritabanı veya güncelleştirme aktarım hızı oluşturulurken, aktarım hızını yapılandırabilirsiniz.  
+4. Bir veritabanı oluşturulurken aktarım hızı atamak için açık **Veri Gezgini** dikey penceresinde ve select **yeni veritabanı**  
+5. Dolgu **veritabanı kimliği** değeri, onay **sağlama aktarım hızı** seçenek ve aktarım hızı değerini yapılandırın. Bir veritabanı en düşük aktarım hızı değeriyle 50.000 sağlanabilir RU/sn.  
 
-   ![İşleme yeni veritabanı seçeneği ile ayarlama](./media/set-throughput/set-throughput-with-new-database-option.png)
+   ![Yeni veritabanı seçeneği ile aktarım hızı ayarlama](./media/set-throughput/set-throughput-with-new-database-option.png)
 
-5. Ardından, yukarıdaki adım oluşturduğunuz veritabanı içinde bir koleksiyon oluşturun. Bir koleksiyon oluşturmak için veritabanını sağ tıklatın ve **yeni koleksiyon**.  
+6. Aktarım hızı için varolan bir veritabanını güncelleştirmek için veritabanı ve kapsayıcısı'nı genişletin ve ardından **ölçek**. Yeni pencerede, yeni aktarım hızı değeri yazın ve ardından **Kaydet**.  
 
-6. İçinde **topluluk Ekle** dikey penceresinde, koleksiyon için bir ad girin ve bölüm anahtarı. İsteğe bağlı olarak, bir işleme değer atamama seçerseniz, belirli bir kapsayıcıya için işleme sağlayabilir, veritabanına atanan verimlilik koleksiyona paylaşılan.  
+   ![Bir veritabanı için güncelleştirme aktarım hızı](./media/set-throughput/update-throughput-for-database.png)
 
-   ![İsteğe bağlı olarak işleme için kapsayıcı ayarlama](./media/set-throughput/optionally-set-throughput-for-the-container.png)
+### <a name="provision-throughput-for-a-set-of-containers-as-well-as-for-an-individual-container-in-a-database"></a>Sağlama aktarım hızı için de bir kapsayıcının bir veritabanında olduğu gibi kapsayıcılar kümesi
 
-## <a name="considerations-when-provisioning-throughput"></a>Üretilen iş sağlama ilgili önemli noktalar
+1. [Azure Portal](https://portal.azure.com) oturum açın.  
+2. Sol gezinti bölmesinde seçin **tüm kaynakları** ve Azure Cosmos DB hesabınızı bulun.  
+3. Veritabanı oluşturma ve aktarım hızı için atayın. Açık **Veri Gezgini** dikey penceresinde ve select **yeni veritabanı**  
+4. Dolgu **veritabanı kimliği** değeri, onay **sağlama aktarım hızı** seçenek ve aktarım hızı değerini yapılandırın. Bir veritabanı en düşük aktarım hızı değeriyle 50.000 sağlanabilir RU/sn.  
 
-Bir işleme ayırma stratejinize yardımcı bazı noktalar karar aşağıda verilmiştir.
+   ![Yeni veritabanı seçeneği ile aktarım hızı ayarlama](./media/set-throughput/set-throughput-with-new-database-option.png)
 
-Üretilen iş düzeyinde (yani kapsayıcıları kümesi için) veritabanını aşağıdaki durumlarda sağlama göz önünde bulundurun:
+5. Sonraki adımda oluşturduğunuz veritabanı içinde bir koleksiyon oluşturun. Bir koleksiyon oluşturmak için veritabanını sağ tıklatın ve **yeni koleksiyon**.  
 
-* Üretilen iş bazılarını veya tümünü arasında paylaşabilir kapsayıcıları bir düzine veya daha fazla sayıda varsa.  
+6. İçinde **koleksiyon Ekle** dikey penceresinde, koleksiyon için bir ad girin ve bölüm anahtarı. İsteğe bağlı olarak, aktarım hızı değerinde atamamayı seçerseniz, bu belirli bir kapsayıcı için aktarım hızı sağlayabilirsiniz, veritabanına atanan aktarım hızı koleksiyona paylaşılır.  
 
-* Iaas barındırılan sanal makineleri veya şirket içi (örneğin, NoSQL veya ilişkisel veritabanları) için Azure Cosmos DB çalıştırmak ve birçok kapsayıcıları için tasarlanmış bir tek Kiracı veritabanından ne zaman geçirdiğiniz.  
+   ![İsteğe bağlı olarak kapsayıcı için aktarım hızı ayarlama](./media/set-throughput/optionally-set-throughput-for-the-container.png)
 
-* Veritabanı düzeyinde havuza alınmış verimlilik kullanarak iş yüklerinde planlanmamış ani göz önünde bulundurun istiyorsanız.  
+## <a name="considerations-when-provisioning-throughput"></a>Aktarım hızı sağlama durumlarda dikkat edilmesi gerekenler
 
-* Tek bir kapsayıcısı üzerinde ayarı verimlilik yerine kümesi veritabanı kapsayıcılara boyunca toplam verimlilik hale getirmek.
+Aşağıda bir aktarım hızı ayırma stratejinize yardımcı olacak bazı önemli noktalar karar verilmiştir.
 
-Aşağıdaki durumlarda tek tek bir kapsayıcı, üretilen iş sağlama göz önünde bulundurun:
+### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>Veritabanı düzeyinde aktarım sağlama durumları
 
-* Daha az sayıda Azure Cosmos DB kapsayıcıları varsa.  
+Aktarım hızı (yani bir dizi kapsayıcıları için) veritabanı düzeyinde aşağıdaki durumlarda sağlamayı göz önünde bulundurun:
 
-* Garantili verimlilik destekli bir SLA tarafından verilen bir kapsayıcı almak istiyorsanız.
+* Aktarım hızı bazı veya tamamı paylaşabildiğini kapsayıcıları bir düzine ya da daha fazla sayıda varsa.  
 
-## <a name="throughput-ranges"></a>Üretilen iş aralıkları
+* Ne zaman Iaas tarafından barındırılan sanal makineleri veya şirket içi (örneğin, NoSQL veya ilişkisel veritabanları için) Azure Cosmos DB'ye çalıştırın ve çok sayıda kapsayıcı olması için tasarlanmış bir tek kiracılı veritabanı geçiriliyor.  
 
-Aşağıdaki tabloda, üretilen iş için kapsayıcıları kullanılabilir listelenmektedir:
+* Havuza alınmış aktarım hızı veritabanı düzeyinde kullanarak iş yüklerini planlanmamış artış dikkate alınması gereken istiyorsanız.  
+
+* Ayar kapsayıcısında aktarım hızını yerine bir tek tek, toplam üretilen iş kapsayıcıları veritabanı içinde bir dizi hale getirmek istiyorsanız.
+
+### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>Kapsayıcı düzeyinde aktarım sağlama durumları
+
+Aşağıdaki durumlarda bir kapsayıcının aktarım hızı sağlama göz önünde bulundurun:
+
+* Azure Cosmos DB kapsayıcıları daha az sayıda varsa.  
+
+* SLA ile desteklenen belirli bir kapsayıcıda, garantili aktarım hızı almak istiyorsanız.
+
+## <a name="throughput-ranges"></a>Aktarım aralığı
+
+Kapsayıcılar için kullanılabilir aktarım hızı aşağıdaki tabloda listelenmektedir:
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
             <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>Tek bir bölüm kapsayıcısı</strong></p></td>
-            <td valign="top"><p><strong>Bölümlenmiş kapsayıcısı</strong></p></td>
+            <td valign="top"><p><strong>Tek bölüm kapsayıcı</strong></p></td>
+            <td valign="top"><p><strong>Bölünmüş kapsayıcı</strong></p></td>
             <td valign="top"><p><strong>Kapsayıcıları kümesi</strong></p></td>
         </tr>
         <tr>
-            <td valign="top"><p>En düşük işleme</p></td>
-            <td valign="top"><p>saniye başına 400 istek birimleri</p></td>
-            <td valign="top"><p>saniye başına 1000 istek birimleri</p></td>
-            <td valign="top"><p>saniye başına 50.000 istek birimleri</p></td>
+            <td valign="top"><p>En düşük aktarım hızı</p></td>
+            <td valign="top"><p>400 istek birimi / saniye</p></td>
+            <td valign="top"><p>saniye başına 1000 istek birimi</p></td>
+            <td valign="top"><p>50. 000'istek birimi / saniye</p></td>
         </tr>
         <tr>
-            <td valign="top"><p>En yüksek verimlilik</p></td>
-            <td valign="top"><p>saniye başına 10.000 istek birimleri</p></td>
+            <td valign="top"><p>En fazla aktarım hızı</p></td>
+            <td valign="top"><p>10.000 istek birimi / saniye</p></td>
             <td valign="top"><p>Sınırsız</p></td>
             <td valign="top"><p>Sınırsız</p></td>
         </tr>
@@ -133,9 +137,10 @@ Aşağıdaki tabloda, üretilen iş için kapsayıcıları kullanılabilir liste
 
 <a id="set-throughput-sdk"></a>
 
-## <a name="set-throughput-by-using-sql-api-for-net"></a>.NET için SQL API'yi kullanarak kümesi işleme
+## <a name="set-throughput-by-using-sql-api-for-net"></a>.NET için SQL API'yi kullanarak aktarım hızı ayarlama
 
-SQL API'nin .NET SDK kullanarak tek bir kapsayıcı için saniye başına 3000 istek birimleri ile bir kapsayıcı oluşturmak için bir kod parçacığı aşağıda verilmiştir:
+### <a name="set-throughput-at-the-container-level"></a>Kapsayıcı düzeyinde aktarım hızı ayarlama
+SQL API .NET SDK'sını kullanarak tek bir kapsayıcı için saniyede 3000 istek birimleri ile bir kapsayıcı oluşturmak için kod parçacığı aşağıda verilmiştir:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -148,7 +153,9 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-Sağlama 100.000 için bir kod parçacığı aşağıda verilmiştir saniye başına birim kapsayıcıları SQL API'nin .NET SDK kullanarak bir dizi arasında iste:
+### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>Aktarım hızı ayarlama, kapsayıcıları veya veritabanı düzeyinde bir grup için
+
+Kod parçacığı için sağlama 100.000 İşte saniye başına istek birimi bir SQL API .NET SDK kullanarak kapsayıcıları kümesi arasında:
 
 ```csharp
 // Provision 100,000 RU/sec at the database level. 
@@ -175,9 +182,9 @@ dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
 await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
 ```
 
-Üretilen iş için bir ayırma modeli Azure Cosmos DB çalıştırır. Diğer bir deyişle, işleme miktarı faturalandırılır *ayrılmış*ne olursa olsun, üretilen işi ne kadarının etkin olduğundan, *kullanılan*. Uygulamanızı olarak kullanıcının, kolayca ölçeklendirilebilir sayısı yukarı ve aşağı yük, veri ve kullanım desenlerini değişiklik ayrılmış RUs üzerinden SDK'ları veya kullanarak [Azure Portal](https://portal.azure.com).
+Azure Cosmos DB, aktarım hızı için bir ayırma modeli üzerinde çalışır. Diğer bir deyişle, aktarım hızı miktarı faturalandırılır *ayrılmış*bakılmaksızın, aktarım hızının ne kadar etkin olduğu *kullanılan*. Uygulamanızı kullanıcının, kolayca ölçeklendirme yapabilen sayısı yukarı ve aşağı yük, verileri ve kullanım desenleri değişiklik ayrılmış RU SDK'ları veya kullanarak [Azure portalı](https://portal.azure.com).
 
-Her kapsayıcı veya kapsayıcıları, kümesi eşlenmiş bir `Offer` kaynak, sağlanan işleme hakkındaki meta verileri olan Azure Cosmos veritabanı. Kapsayıcı için ilgili teklif kaynak bakarak, ardından yeni işleme değeri ile güncelleştirme ayrılmış işleme değiştirebilirsiniz. .NET SDK kullanarak saniye başına 5.000 istek birimi için bir kapsayıcı verimini değiştirmek için bir kod parçacığı aşağıda verilmiştir. Üretilen iş değiştirdikten sonra var olan Azure portal pencereleri gösterilmeye değiştirilen üretilen iş için yenilemeniz gerekir. 
+Her kapsayıcı veya kapsayıcılar, bir dizi eşlenmiş bir `Offer` Azure Cosmos DB'de sağlanan aktarım hızı hakkında meta veriler içeren, kaynak. Ayrılmış aktarım hızı, bir kapsayıcı için karşılık gelen teklif kaynak bakarak, daha sonra yeni aktarım hızı değeriyle güncelleştirme değiştirebilirsiniz. .NET SDK kullanarak saniye başına istek birimleri 5.000 bir kapsayıcının aktarım hızını değiştirmek için kod parçacığı aşağıda verilmiştir. Aktarım hızı değiştirdikten sonra var olan Azure portal pencereleri gösterilecek değişen aktarım hızı için yenilemeniz gerekir. 
 
 ```csharp
 // Fetch the resource to be updated
@@ -194,13 +201,13 @@ offer = new OfferV2(offer, 5000);
 await client.ReplaceOfferAsync(offer);
 ```
 
-Üretilen iş değiştirdiğinizde, kapsayıcı kullanılabilirliğini veya kapsayıcıları, kümesi üzerinde etkisi yoktur. Genellikle yeni ayrılmış işleme yeni işleme, uygulama üzerinde saniye içinde etkili olur.
+Aktarım hızı değiştirdiğinizde kapsayıcınızı kullanılabilirliğini veya kapsayıcılar, bir dizi herhangi bir etkisi yoktur. Genellikle yeni ayrılmış aktarım hızı uygulamasında yeni aktarım hızı, saniye içinde etkili olur.
 
 <a id="set-throughput-java"></a>
 
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>Java için SQL API'yi kullanarak tarafından üretilen işi ayarlamak için
+## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>Java için SQL API'sini kullanarak aktarım hızını ayarlamak için
 
-Aşağıdaki kod parçacığını geçerli işleme alır ve 500 RU/s değiştirir. Tam bir kod örneği için bkz: [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) github'da dosya. 
+Aşağıdaki kod parçacığı, geçerli işleme alır ve 500 RU/s olarak değiştirir. Bir kod örneği için bkz. [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) github'da dosya. 
 
 ```Java
 // find offer associated with this collection
@@ -219,11 +226,11 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>MongoDB API'nin GetLastRequestStatistics komutunu kullanarak işleme al
+## <a id="GetLastRequestStatistics"></a>MongoDB API GetLastRequestStatistics komutunu kullanarak aktarım hızı alma
 
-Özel bir komut MongoDB API destekler *getLastRequestStatistics*, belirtilen işlem için istek ücret alma.
+MongoDB API'sini destekleyen özel bir komut *getLastRequestStatistics*, belirtilen işlem için istek ücretleri almak için.
 
-Örneğin, Mongo kabuğunu isteği ücreti doğrulamak istediğiniz işlemi yürütün.
+Örneğin, Mongo Kabuğu'nda istek ücreti doğrulamak istediğiniz işlemi yürütün.
 ```
 > db.sample.find()
 ```
@@ -240,36 +247,36 @@ Ardından, komutu yürütün *getLastRequestStatistics*.
 }
 ```
 
-Uygulamanızın gerektirdiği ayrılmış işleme miktarı tahmin etmek için bir yöntem olduğu uygulamanız tarafından kullanılan bir temsili öğesi karşı normal işlemleri çalıştırılması ile ilişkili istek birimi ücret kaydetmek ve sayısını tahmin etme Operations saniyede gerçekleştirmek beklenir.
+Uygulamanız tarafından kullanılan temsili bir ögeye tipik işlemlerin çalıştırmayla ilgili istek birimi ücretine ek olarak kaydedin ve ardından sayısını tahmin etmek için ayrılmış aktarım hızı uygulamanız için gereken miktarı tahmin etmek için bir yöntem olan işlemleri gerçekleştirmek saniyede beklenir.
 
 > [!NOTE]
-> Hangi boyutu ve Dizinli Özellikler sayısı bakımından önemli ölçüde farklılık gösterecektir öğesi türleriniz varsa, her ilişkilendirilmiş geçerli işlem istek birimi ücret kayıt *türü* tipik öğesi.
+> Her ilişkilendirilmiş geçerli işlemi istek birimi ücreti, boyutu ve dizini oluşturulmuş özellik sayısı bakımından önemli ölçüde farklılık gösterir öğesi türleriniz varsa, ardından kayıt *türü* tipik öğesi.
 > 
 > 
 
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>MongoDB API portal ölçümleri kullanarak işleme alma
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>MongoDB API portal ölçümleri kullanarak aktarım hızı alma
 
-En basit yolu MongoDB API veritabanınızı kullanmak için bir iyi isteğinin birim ücretleri kestirmek [Azure portal](https://portal.azure.com) ölçümleri. İle *istek sayısı* ve *isteği ücret* grafikler, kaç tane istek birimleri her işlem harcayan ve kaç tane istek birimleri bunlar tüketen birbirine göre tahmini alabilirsiniz.
+MongoDB API'si veritabanınızı kullanmak için iyi bir talep tahmin birimi ücreti almak için en basit yolu [Azure portalında](https://portal.azure.com) ölçümleri. İle *istek sayısı* ve *istek yükü* grafikleri, kaç tane istek birimleri her işlemin kullandığı ve kaç tane istek birimleri kullandıkları diğerine göre tahmini elde edebilirsiniz.
 
 ![MongoDB API portal ölçümleri][1]
 
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API aşan ayrılmış işleme sınırları
-Tüketim oranını sağlanan işleme hızının altına düşene kadar bir kapsayıcı veya kapsayıcıları kümesi için sağlanan işleme aşan uygulamalar oranı sınırlı olur. Bir hızını sınırlama ortaya çıktığında, arka uç istekle sona erer bir `16500` hata kodu - `Too Many Requests`. Varsayılan olarak, MongoDB API otomatik olarak en fazla 10 kez döndürmeden önce yeniden deneme bir `Too Many Requests` hata kodu. Birçok alıyorsanız `Too Many Requests` hata kodları, ya da yeniden deneme mantığı, uygulamanızın hata yordamları işleme ekleme düşünmek isteyebilirsiniz veya [kapsayıcı sağlanan verimliliğini artırmak](set-throughput.md).
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API'sindeki ayrılmış aktarım hızı sınırlarını aşma
+Tüketim oranı sağlanan aktarım hızının altına düşene kadar bir kapsayıcı veya bir dizi kapsayıcı için sağlanan aktarım hızı aşan uygulamaları oranı sınırlı olur. Bir oran sınırlama ortaya çıktığında, arka uç istekle sona erecek bir `16500` hata kodu - `Too Many Requests`. Varsayılan olarak, MongoDB API'sini otomatik olarak en fazla 10 kez döndürmeden önce yeniden deneme bir `Too Many Requests` hata kodu. Çoğu alıyorsanız `Too Many Requests` hata kodları eklemek ya da bir yeniden deneme mantığı, uygulamanızın hata işleme rutinleri düşünmek isteyebilirsiniz veya [kapsayıcı için sağlanan aktarım hızı artırmak](set-throughput.md).
 
-## <a name="throughput-faq"></a>Üretilen iş ile ilgili SSS
+## <a name="throughput-faq"></a>Aktarım hızı ile ilgili SSS
 
-**My verimlilik değerinden 400 RU/s ayarlayabilir miyim?**
+**My aktarım hızını 400 RU/s olarak ayarlayabilir miyim?**
 
-400 RU/s (1000 RU/s bölümlenmiş kapsayıcıları için en düşük gereksinimdir) Cosmos DB tek bölüm kapsayıcılarında kullanılabilir en düşük işleme ' dir. İstek birimleri 100 RU/s aralıklarla ayarlanmış, ancak işleme 100 RU/s veya herhangi bir değer 400 RU/s küçük olacak şekilde ayarlanamaz. Geliştirmek ve Cosmos DB sınamak için uygun maliyetli bir yöntem arıyorsanız, ücretsiz kullanabileceğiniz [Azure Cosmos DB öykünücüsü](local-emulator.md), hangi hiçbir ücret yerel olarak dağıtabilirsiniz. 
+400 RU/sn (1000 RU/sn bölümlenmiş kapsayıcılar için en düşük değer) Cosmos DB tek bölüm kapsayıcılarına kullanılabilir en düşük aktarım hızıdır. Birimleri 100 RU/sn aralığı ayarlanmış, ancak aktarım hızı için 100 RU/sn veya herhangi bir değer 400 RU/sn daha küçük olacak şekilde ayarlanamaz isteyin. Geliştirip test Cosmos DB için uygun maliyetli bir yöntem arıyorsanız, ücretsiz kullanabilirsiniz [Azure Cosmos DB öykünücüsü'nü](local-emulator.md), hiçbir ücret ödemeden yerel olarak dağıtabileceğiniz. 
 
-**MongoDB API kullanarak verimlilik nasıl ayarlarım?**
+**Aktarım hızı MongoDB API'sini kullanarak nasıl ayarlayabilirim?**
 
-Üretilen iş ayarlamak için MongoDB API uzantısı yok. SQL API kullanan gösterildiği gibi önerilir [.NET için SQL API'yi kullanarak üretilen işi ayarlamak için](#set-throughput-sdk).
+Aktarım hızı ayarlamak için MongoDB API'si uzantısı yok. SQL API'si gösterildiği zamanlayıcısının [.NET için SQL API'sini kullanarak aktarım hızını ayarlamak için](#set-throughput-sdk).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Üretilen iş ve istek birimleri tahmin etme hakkında bilgi edinmek için [istek birimleri & Azure Cosmos DB performansı tahmin etme](request-units.md)
+* Aktarım hızı ve istek birimlerinin tahmin etme hakkında bilgi edinmek için [istek birimleri ve Azure Cosmos DB'de aktarım tahmin etme](request-units.md)
 
-* Sağlama ve devam eden planet ölçekli Cosmos DB ile hakkında daha fazla bilgi için bkz: [bölümleme ve Cosmos DB ile ölçeklendirme](partition-data.md).
+* Sağlama ve Cosmos DB ile devam eden dünya ölçeğinde hakkında daha fazla bilgi için bkz: [bölümleme ve ölçeklendirme ile Cosmos DB](partition-data.md).
 
 [1]: ./media/set-throughput/api-for-mongodb-metrics.png

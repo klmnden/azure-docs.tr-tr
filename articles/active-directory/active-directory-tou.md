@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/18/2018
+ms.date: 06/29/2018
 ms.author: rolyon
-ms.openlocfilehash: 2919ce1d7c57b7a92420ac11b61503caa1fdd3b0
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: HT
+ms.openlocfilehash: f22190d81d8ffbb91e9573974d93d4b1ad35af18
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36267566"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444353"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede Azure AD Kullanım Koşullarını kullanmaya nasıl başlayacağınız açıklanmaktadır.
@@ -36,7 +36,7 @@ Azure AD Kullanım Koşulları aşağıdakileri yapmanızı sağlar:
 - Kullanım Koşullarınızı kabul etmemiş olan kullanıcıları listeleyin.
 - Kullanım Koşulları etkinlikleriyle ilgili bir denetim günlüğü görüntüleyin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Azure AD Kullanım Koşullarını kullanmak ve yapılandırmak için şunlara sahip olmalısınız:
 
 - Azure AD Premium P1, P2, EMS E3 veya EMS E5 aboneliği.
@@ -48,7 +48,7 @@ Azure AD Kullanım Koşullarını kullanmak ve yapılandırmak için şunlara sa
 
 ## <a name="terms-of-use-document"></a>Kullanım koşulları belgesi
 
-Azure AD Kullanım Koşulları, içerik sunmak için PDF biçimini kullanır. Bu PDF dosyası, kullanıcıların oturum açtığı sırada son kullanıcı sözleşmelerini toplamanıza olanak sağlayan herhangi bir içerik (örneğin mevcut sözleşme belgeleri) olabilir. PDF'te önerilen yazı tipi boyutu 24'tür.
+Azure AD Kullanım Koşulları, içerik sunmak için PDF biçimini kullanır. PDF dosyasının, örneğin mevcut sözleşme belgeleri, son kullanıcı oturum sırasında kullanıcı sözleşmelerini toplamanıza olanak sağlayan herhangi bir içerik olabilir. PDF'te önerilen yazı tipi boyutu 24'tür.
 
 ## <a name="add-terms-of-use"></a>Kullanım Koşulları ekleme
 Kullanım Koşulları belgenize son şeklini verdikten sonra, bunları eklemek için aşağıdaki yordamı kullanın.
@@ -98,7 +98,7 @@ Kullanım Koşulları dikey penceresinin kabul eden ve reddeden kullanıcı say�
     ![Denetim Olayı](media/active-directory-tou/accepted-tou.png)
 
 ## <a name="view-audit-logs"></a>Denetim günlüklerini görüntüleme
-Daha fazla etkinlik görüntülemek isterseniz Azure AD Kullanım Koşulları denetim günlüklerini inceleyebilirsiniz. Her kullanıcı izni denetim günlüklerinde 30 gün boyunca depolanan bir etkinliği tetikler. Bu günlükleri portalda görüntüleyebilir veya .csv dosyası olarak indirebilirsiniz.
+Daha fazla etkinlik görüntülemek isterseniz Azure AD Kullanım Koşulları denetim günlüklerini inceleyebilirsiniz. Her kullanıcı onayı 30 gün saklanan bir olay denetim günlüklerinde tetikler. Bu günlükleri portalda görüntüleyebilir veya .csv dosyası olarak indirebilirsiniz.
 
 Denetim günlüklerini kullanmaya başlamak için aşağıdaki yordamı kullanın:
 
@@ -115,7 +115,7 @@ Denetim günlüklerini kullanmaya başlamak için aşağıdaki yordamı kullanı
 1. Ayrıca **İndir**'e tıklayarak bilgileri yerel olarak kullanmak üzere bir .csv dosyasında indirebilirsiniz.
 
 ## <a name="what-terms-of-use-looks-like-for-users"></a>Kullanım Koşullarının kullanıcılara görünüşü
-Bir Kullanım Koşulları belgesi oluşturup uygulandığında kapsam dahilindeki kullanıcılar oturum açma sırasında aşağıdaki ekranı görür.
+Bir kullanım koşulları belgesi oluşturulup uygulandığında sonra kapsam dahilindeki kullanıcılar, oturum açma sırasında aşağıdaki ekranı görürsünüz.
 
 ![Denetim Olayı](media/active-directory-tou/user-tou.png)
 
@@ -126,7 +126,7 @@ Aşağıdaki ekranda Kullanım Koşulları belgesinin mobil cihazlarda nasıl g�
 ### <a name="how-users-can-review-their-terms-of-use"></a>Kullanıcılar kendi Kullanım Koşullarını nasıl gözden geçirebilir?
 Kullanıcılar, kabul ettikleri kullanım koşullarını gözden geçirip incelemek için aşağıdaki yordamı kullanabilir.
 
-1. [https://myapps.microsoft.com](https://myapps.microsoft.com) adresinde oturum açın.
+1. Oturum [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
 1. Sağ üst köşede adınıza tıklayın ve açılır menüden **Profil**'i seçin.
 
@@ -157,7 +157,7 @@ Aşağıdaki yordamı kullanarak eski Kullanım Koşullarını silebilirsiniz:
 Varsayılan olarak, silinmiş bir kullanıcı Azure AD'de 30 gün boyunca silinmiş durumda kalır ve bu süre boyunca gerekirse bir yönetici tarafından geri alınabilir.  30 gün sonra bu kullanıcı kalıcı olarak silinir.  Ayrıca, bir Genel yönetici bu süreye ulaşılmadan önce Azure Active Directory portalını kullanarak [kısa süre önce silinmiş bir kullanıcıyı kalıcı olarak silebilir](fundamentals/active-directory-users-restore.md).  Bir kullanıcı kalıcı olarak silindikten sonra, bu kullanıcıya ilişkin sonraki veriler etkin Kullanım Koşullarından kaldırılır.  Silinmiş kullanıcılara ilişkin denetim bilgileri, denetim günlüğünde kalır.
 
 ## <a name="policy-changes"></a>İlke değişiklikleri
-Koşullu erişim ilkeleri hemen etkili olur. Bu durum gerçekleştiğinde, yönetici "üzgün bulutlar" veya "Azure AD belirteç sorunları" ile karşılaşmaya başlar. Yöneticinin yeni ilkeyi karşılamak için oturumu kapatıp yeniden oturum açması gerekir.
+Koşullu erişim ilkeleri hemen etkili olur. Bu durumda, yönetici "Üzgün Bulutlar" veya "Azure AD belirteç sorunları" görmek başlatılır. Yönetici, oturumu kapatın ve yeni ilkeyi karşılamak için yeniden oturum açın.
 
 >[!IMPORTANT]
 > Aşağıdaki durumlarda kapsam dahilindeki kullanıcıların yeni bir ilkeyi karşılamak için oturumu kapatıp yeniden oturum açmaları gerekir:
@@ -167,10 +167,10 @@ Koşullu erişim ilkeleri hemen etkili olur. Bu durum gerçekleştiğinde, yöne
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 **S: Kullanıcının Kullanım Koşullarını kabul edip etmediğini veya ne zaman kabul ettiğini nasıl görebilirim?**</br>
-C: Kullanım Koşullarınızın yanında kabul edilenler bölümündeki sayıya tıklayabilirsiniz.  Daha fazla bilgi için bkz. [Kabul edenleri ve reddedenleri görüntüleme](#view-who-has-accepted-and-declined).  Ayrıca, Kullanım Koşullarını kabul eden bir kullanıcı da denetim günlüğüne yazılır. Sonuçları görmek için Azure AD denetim günlüğünde arama yapabilirsiniz.  
+Y: üzerinde koşulları kullanım dikey penceresinin altındaki sayıya tıklayın **kabul edilen**. Ayrıca, görüntülemek veya kabul etkinlik denetim günlüklerinde arama. Daha fazla bilgi için [kabul ve reddedilen olan Görünüm](#view-who-has-accepted-and-declined) ve [denetim günlüklerini görüntüle](#view-audit-logs).
 
-**S: Kullanım Koşulları değiştirilirse kullanıcıların tekrar kabul etmesi gerekir mi?**</br>
-C: Evet, bir yönetici Kullanım Koşullarının hükümlerini değiştirebilir ve bu durumda yeni hükümlerin yeniden kabul edilmesi gerekir.
+**S: kullanım koşulları değiştirirseniz kullanıcıların yeniden kabul etmesini gerektiriyor mu?**</br>
+C: Evet, bir yönetici kullanım koşullarının değiştirebilir ve kullanıcıların yeni koşulları yeniden kabul etmesini gerektirmek olmasını gerektirir.
 
 **S: Bir Kullanım Koşulları belgesi birden çok dili destekleyebilir mi?**</br>
 C: Evet.  Şu anda bir yöneticinin tek bir Kullanım Koşulları belgesi için yapılandırabileceği 18 farklı dil mevcuttur. 
@@ -179,13 +179,16 @@ C: Evet.  Şu anda bir yöneticinin tek bir Kullanım Koşulları belgesi için 
 C: Kullanım Koşulları oturum açma deneyimi sırasında tetiklenir.
 
 **S: Kullanım Koşullarını hangi uygulamalara hedefleyebilirim?**</br>
-C: Modern kimlik doğrulaması kullanarak kurumsal uygulamalar üzerinde bir koşullu erişim ilkesi oluşturabilirsiniz.  Daha fazla bilgi için bkz. [Kurumsal uygulamalar](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
+C: Modern kimlik doğrulaması kullanarak kurumsal uygulamalar üzerinde bir koşullu erişim ilkesi oluşturabilirsiniz.  Daha fazla bilgi için bkz. [Kurumsal uygulamalar](./manage-apps/view-applications-portal.md).
 
 **S: Belirli bir kullanıcı veya uygulamaya birden çok Kullanım Koşulları belgesi ekleyebilir miyim?**</br>
 C: Evet, bu grup veya uygulamaları hedefleyen birden çok koşullu erişim ilkesi oluşturarak bunu gerçekleştirebilirsiniz. Birden çok Kullanım Koşulları belgesinin kapsamında olan bir kullanıcı, bunları tek tek kabul eder.
  
 **S: Bir kullanıcı Kullanım Koşullarını reddederse ne olur?**</br>
-C: Kullanıcının uygulamaya erişimi engellenir. Kullanıcının erişim sağlamak için tekrar oturum açıp kullanım koşullarını kabul etmesi gerekir.
+C: Kullanıcının uygulamaya erişimi engellenir. Kullanıcı yeniden oturum açın ve erişmek için koşulları kabul etmesi gerekir.
+ 
+**S: kullanım koşulları daha önce kabul edildi unaccept mümkün mü?**</br>
+Y: yapabilecekleriniz [gözden geçirme, daha önce kullanım koşullarını kabul](#how-users-can-review-their-terms-of-use), ancak şu anda unaccept bir yolu yoktur.
  
 **S: Bilgiler ne kadar süreyle depolanır?**</br>
 C: Kullanıcı sayıları ve Kullanım Koşullarını kabul eden/reddeden kullanıcılar, Kullanım Koşulları özelliğini kullandığınız süre boyunca depolanır. Denetim günlükleri 30 gün süreyle depolanır.

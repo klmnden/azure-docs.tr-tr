@@ -1,6 +1,6 @@
 ---
-title: Azure Stream Analytics işlerine yukarı ve aşağı doğru ölçeklendirme
-description: Bu makalede, akış analizi işi giriş veri bölümlendirme, sorgu ayarlama ve iş akış birimleri ayarlama ölçeklendirme açıklar.
+title: Azure Stream Analytics işlerinde ve ölçeklendirme
+description: Bu makalede, Stream Analytics işi giriş verileri bölümleme sorguyu ayarlamayı ve ayarlama iş akış birimleri ölçeklendirme açıklar.
 services: stream-analytics
 author: JSeb225
 ms.author: jeanb
@@ -9,41 +9,42 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34652551"
 ---
-# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Bir Azure akış analizi işi verimliliğini artırmak için ölçeklendirme
-Bu makalede akış analizi işleri verimliliğini artırmak için bir akış analizi sorgu ince ayar gösterilmektedir. İşinizi daha yüksek yükü işlemek ve daha fazla sistem kaynakları (örneğin, daha fazla bant genişliği, daha fazla CPU kaynaklarını, daha fazla bellek) yararlanmak için ölçeklendirmek için aşağıdaki kılavuzu kullanın.
-Önkoşul olarak, aşağıdaki makaleler okuma gerekebilir:
+# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Azure Stream Analytics işi verimliliğini artırmak için ölçeklendirme
+Bu makalede, Streaming Analytics işlerini verimliliğini artırmak için bir Stream Analytics sorgu nasıl ayarlanacağını gösterir. İşinizi daha yüksek bir yükü işlemek ve daha fazla sistem kaynakları (örneğin, daha fazla bant genişliği, daha fazla CPU kaynaklarının, daha fazla bellek) yararlanmak için ölçeklendirmek için aşağıdaki kılavuzu kullanabilirsiniz.
+Bir önkoşul olarak bu makaleleri okuyun gerekebilir:
 -   [Akış Birimlerini anlama ve ayarlama](stream-analytics-streaming-unit-consumption.md)
 -   [Paralelleştirilebilir işleri oluşturma](stream-analytics-parallelization.md)
 
-## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>1 – sorgunuzu giriş bölümler kendiliğinden tam paralelleştirilebilir durumdur
-Sorgunuz giriş bölümler kendiliğinden tam paralelleştirilebilir ise, aşağıdaki adımları izleyin:
-1.  Kullanarak utandırıcı derecede paralel olacak şekilde sorgunuzu Yazar **bölüm tarafından** anahtar sözcüğü. Utandırıcı derecede paralel işi bölümünde daha fazla ayrıntı görmek [bu sayfadaki](stream-analytics-parallelization.md).
-2.  Sorgunuzda kullanılan çıkış türlerine bağlı olarak bazı ya da olmayabilir paralelleştirilebilir, çıktı veya daha fazla utandırıcı derecede paralel olarak yapılandırması gerekir. Örneğin, SQL, SQL DW ve Powerbı çıkışları paralelleştirilebilir değildir. Çıkış için çıkış havuzunun göndermeden önce her zaman birleştirilir. BLOB'lar, tablolar, ADLS, hizmet veri yolu, paralel birkaç ve Azure işlevi otomatik olarak ölçeklendirin. CosmosDB ve olay hub'ı PartitionKey yapılandırması ile eşleşecek şekilde ayarlanmış olması gerekiyor **bölüm tarafından** alan (genellikle PartitionID). Olay hub'ı için aynı zamanda tüm girişleri ve bölümler arasında çapraz üzerinden önlemek için tüm çıkışları için bölümlerin sayısı eşleştirmek için fazladan dikkat edin. 
-3.  Sorgunuzu ile çalıştırmak **6 SU** (tek bir bilgi işlem düğümü tam kapasitesini olmayan) maksimum ulaşılabilir verim ölçmek için ve kullanıyorsanız **GROUP BY**, kaç tane grupları (kardinalite) iş yapabilirsiniz ölçmek işler. Sistem kaynak sınırlarını basarsa iş genel belirtileri aşağıda verilmiştir.
-    - SU % kullanımı üzerinde % 80 ölçümüdür. Bu bellek kullanımı yüksek olduğunu gösterir. Bu ölçüm artırmak için katkıda bulunan Etkenler açıklanan [burada](stream-analytics-streaming-unit-consumption.md). 
-    -   Çıkış zaman damgası duvar saati süresi göre dönmeden. Sorgu mantığınızı bağlı olarak, çıktı zaman damgası duvar saati süresi mantığı uzaklığı olabilir. Ancak, kabaca aynı hızında ilerleme. Çıkış zaman damgası başka ve bunun arkasında dönmeden, sistem overworking bir gösterge olur. Aşağı Akış çıkışı havuz azaltma veya yüksek CPU kullanımı sonucu olabilir. İki ayırt zor olabilir CPU kullanımı ölçümü şu anda sağlamaz.
-        - Sorun havuz azaltma nedeniyle ise, çıktı bölümleri sayısını artırmak (ve ayrıca iş tam olarak paralelleştirilebilir tutmak için bölüm girişi), gerekebilir veya (örneğin CosmosDB için birim istek sayısı) havuz kaynaklarının miktarını artırın.
-    - İş şemada yoktur bir bölüm biriktirme listesi olay ölçüm her giriş için başına. Biriktirme listesi olay ölçüm artmaya devam ederse, bu da sistem kaynağı (ya da havuz çıkış azaltma veya yüksek CPU nedeniyle) kısıtlı bir göstergesidir.
-4.  6 SU iş ulaşıp ulaşamadığını sınırları belirledikten sonra belirli bölüm "etkin" yapar eğme herhangi bir veri yok varsayılarak daha fazla SUs ekledikçe, doğrusal olarak iş işlem kapasitesini tahmin
+## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>1 – sorgunuzu giriş bölümler arasında tam olarak kendiliğinden paralelleştirilebilir olduğu
+Sorgunuzu giriş bölümler arasında tam olarak kendiliğinden paralelleştirilebilir ise, aşağıdaki adımları izleyebilirsiniz:
+1.  Utandırıcı derecede paralel olarak kullanarak sorgunuzu yazma **PARTITION BY** anahtar sözcüğü. Daha fazla bilgi utandırıcı derecede Paralel işler bölümünde [bu sayfadaki](stream-analytics-parallelization.md).
+2.  Sorguda kullanılan çıkış türlerine bağlı olarak, bazı ya da olmayabilir paralelleştirilebilir, çıkış veya daha fazla utandırıcı derecede paralel olarak yapılandırması gerekir. Örneğin, SQL ve SQL DW Powerbı çıkışları paralelleştirilebilir değildir. Çıktı, çıkış havuzuna göndermeden önce her zaman birleştirilir. Bloblar, tablolar, ADLS, Service Bus ve Azure işlevi otomatik olarak paralelleştirildi. CosmosDB ve olay hub'ı PartitionKey yapılandırması ile eşleşecek şekilde ayarlanmış olması gerekiyor **PARTITION BY** alan (genellikle PartitionID). Olay hub'ı için aynı zamanda tüm girişleri ve bölümler arasında çapraz üzerinden önlemek için tüm çıktılar için bölüm sayısı eşleşecek şekilde ek dikkat edin. 
+3.  Sorgunuzu ile çalıştırmak **6 SU** (tek bir bilgi işlem düğümü tam kapasitesini olmayan) en fazla ulaşılabilir aktarım hızını ölçmek için ve kullanıyorsanız **GROUP BY**, kaç grupları (kardinalite) iş için ölçün tanıtıcı. Sistem kaynak sınırlarını ulaşma iş genel belirtileri aşağıda verilmiştir.
+    - SU % utilization ölçümünü üzerinde % 80'idir. Bu, bellek kullanımı yüksek olduğunu gösterir. Bu ölçüm bir artış için katkıda bulunan faktörleri açıklanan [burada](stream-analytics-streaming-unit-consumption.md). 
+    -   Çıkış zaman damgası duvar saati süresi açısından dönülüyor. Sorgu mantığınızı bağlı olarak çıkış zaman damgası duvar saati süresi mantıksal uzaklığı olabilir. Ancak, yaklaşık aynı fiyattan ilerleme. Çıkış zaman damgası başka ve bunun arkasında geride kalıyor sistem overworking bir gösterge yoktur. Bu, aşağı akış çıkış havuzu kısıtlama veya yüksek CPU kullanımı bir sonucu olabilir. İki ayırt etmek zor olabilir, böylece CPU kullanım ölçümü şu anda sunmaz.
+        - Havuz kapasitesi azaltıldığı sorunu mevcutsa, çıkış bölüm sayısını artırmak (ve aynı zamanda işin tam olarak paralelleştirilebilir tutmak bölümler giriş), gerekebilir veya kaynak, havuz (örneğin CosmosDB için istek birimi sayısı) miktarını artırın.
+    - İş diyagramında var. bir bölüm biriktirme listesi olay ölçüm her bir giriş için. Biriktirme listesi olay ölçümü artmaya devam ederse, sistem kaynağı (veya çıkış havuzu kısıtlama veya yüksek CPU nedeniyle) kısıtlı bir göstergesi de olabilir.
+4.  6 SU iş ulaşıp ulaşamadığını sınırları belirledikten sonra belirli bölüm "sıcak" yapan, herhangi bir veri dengesizliği yoksa varsayılarak daha fazla SUs ekledikçe, doğrusal olarak işin işlem kapasitesini tahmin
 
 > [!NOTE]
-> Akış birimleri sağ sayısını seçin: her 6 SU eklenen için Stream Analytics işleme düğümü oluşturduğundan, bölümleri düğümler arasında eşit olarak dağıtılabilir giriş bölüm sayısı bölenini düğüm sayısı olmak en iyisidir.
-> Örneğin, 6 ölçülen SU işini 4 MB elde edebileceğiniz/s işleme hızı ve giriş bölümü sayınız 4. İşinizi yaklaşık 8 MB/sn işleme hızını elde etmek için 12 SU veya 16 MB/sn elde etmek için 24 SU ile çalıştırmayı seçebilirsiniz. Ardından zaman hangi değere iş işlevi, giriş oranının olarak SU sayıyı artırmaya karar verebilirsiniz.
+> Doğru sayıda akış birimi seçin: Stream Analytics, eklenen her 6 SU için bir işlem düğümü oluşturduğundan, bölümleri düğümler arasında eşit olarak dağıtılabilir bir bölen giriş bölüm sayısı, düğüm sayısını olmak en iyisidir.
+> Örneğin, 6 ölçülen SU iş elde edebileceğiniz 4 MB/s işleme hızı ve, giriş bölüm sayısı olan 4. Yaklaşık 8 MB/sn işleme hızını elde etmek için 12 SU veya 16 MB/sn elde etmek için 24 SU işinizi çalıştırmayı seçebilirsiniz. Ardından işin hangi değere giriş oranınız işlevi olarak SU sayıyı artırmak ne zaman karar verebilirsiniz.
 
 
-## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Durum sorgunuzu utandırıcı derecede paralel değilse 2 -.
-Sorgunuz utandırıcı derecede paralel değilse, aşağıdaki adımları izleyebilirsiniz.
-1.  Başlangıç içermeyen bir sorgu ile **bölüm tarafından** ilk karmaşıklık bölümlenmesini önlemeye ve sorgunuzu olarak en fazla yük ölçmek için 6 SU ile çalıştırmak için [durum 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions).
-2.  Üretilen iş vadede beklenen yük elde edebilirsiniz, yapılır. Alternatif olarak, SU ve 1 SU senaryonuz için çalışır SU en az sayıda öğrenmek için 3 çalıştıran aynı iş ölçmek seçebilirsiniz.
-3.  İstenen verimlilik elde etmek, onu olmayan birden çok adımı zaten varsa ve sorgudaki her adımı için 6 SU tahsis sorgunuzu Mümkünse, içine birden çok adımı bölüneceği deneyin. Örneğin "Ölçeklendirme" seçeneğinde 18 SU tahsis 3 adımları varsa.
-4.  Böyle bir iş çalışırken, Stream Analytics her adım ayrılmış 6 SU kaynaklarla kendi düğümde koyar. 
-5.  Yük hedef hala elde yapmadıysanız, kullanmayı deneyebilir **bölüm tarafından** yakın adımları girdisi başlatılıyor. İçin **GROUP BY** doğal olarak bölümlenebilir olmayabilir işleci, yerel/global toplama düzeni bir bölümlenmiş gerçekleştirmek için kullanabileceğiniz **GROUP BY** bir bölümlenmemiş tarafından izlenen **GROUP BY** . Saymak istiyorsanız, örneğin, her Ücretli Stand 3 dakikada bir ve veri hacmi giderek kaç araba ötesindedir olan 6 SU tarafından işlenebilir.
+## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>2 - sorgunuzu utandırıcı derecede paralel değilse durumu.
+Sorgunuzu utandırıcı derecede paralel değilse, aşağıdaki adımları izleyebilirsiniz.
+1.  Başlangıç içermeyen bir sorgu ile **PARTITION BY** ilk karmaşıklığı bölümlenmesini önlemeye ve en fazla yükü olarak ölçmek için 6 SU ile sorguyu çalıştırmak için [vaka 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions).
+2.  Beklenen yük, üretilen iş terimini elde edebileceğiniz ise gerçekleştirilir. Alternatif olarak, ölçü 3 SU ve 1 SU, en az senaryonuz için uygun SU sayısını öğrenmek için çalışan aynı iş tercih edebilirsiniz.
+3.  İstenen aktarım hızı elde etmek, olmayan birden çok adım zaten varsa ve her adımında sorgu en fazla 6 SU ayırma sorgunuzu Mümkünse, birden çok adımı ayırmak deneyin. Örneğin "Ölçeklendir" seçeneğini 18 SU ayırma 3 adımda varsa.
+4.  Böyle bir iş çalışırken, Stream Analytics her adım adanmış 6 SU kaynaklarla kendi düğüme yerleştirir. 
+5.  Hala yük hedef elde yapmadıysanız, kullanmayı deneyebilir **PARTITION BY** girişi yakın adımlardan başlatılıyor. İçin **GROUP BY** doğal olarak bölümlenebilir olmayabilir işleci, bir bölümlenmiş gerçekleştirmek için yerel/genel toplama düzeni kullanabilirsiniz **GROUP BY** bir bölümlenmemiş tarafından izlenen **Gruplandır** . Saymak istiyorsanız, örneğin, her Ücretli standına 3 dakikada bir ve veri hacmi giderek kaç otomobiller beklenenin ötesine olduğu 6 SU tarafından işlenebilir.
 
 Sorgu:
 
@@ -56,98 +57,32 @@ Sorgu:
     FROM Step1
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 
-Yukarıdaki sorguda, bölüm başına Ücretli Stand başına araba sayım ve sayı tüm bölümler birlikte ekleme.
+Yukarıdaki sorguda, bölüm başına Ücretli standına başına otomobiller sayım ve sayı tüm bölümleri birbirine ekleme.
 
-Bölümlenmiş, adım, her bir bölüm için bir kez 6 SU, her bölüm 6 sahip tahsis SU her bölüm kendi işlem düğümünde yerleştirilebilecek maksimum olduğundan.
+En fazla 6 SU, 6 sahip her bölüm, adımın her bölüm için bölümlenmiş sonra tahsis SU her bölüm kendi işlem düğümünde yerleştirilebilir en olduğundan.
 
 > [!Note]
-> Sorgunuz bölümlenmiş, ek SU çok adımları sorguda ekleme her zaman üretilen işi artırabilir değil. Performans elde etmek için bir yerel/global toplama düzeni kullanan ilk adımları birimde yukarıda 5. adımda açıklandığı gibi azaltmak için yoludur.
+> Sorgunuzu bölümlenemez, ek SU çok adımları sorguda ekleme her zaman aktarım hızı artırabilir değil. Performans elde etmek için bir yol yukarıda 5. adımda açıklandığı gibi yerel/genel toplama desenini kullanarak ilk adımlarında birimde azaltmaktır.
 
-## <a name="case-3---you-are-running-lots-of-independent-queries-in-a-job"></a>Durum 3 - bir işi bağımsız sorgular çok sayıda çalışan.
-Belirli ISV kullanmak için olduğu daha tek bir işlemde birden çok kiracıdan verileri işlemek için ekonomik, durumlarda, her bir kiracı için ayrı girişleri ve çıkışları kullanarak, oldukça birkaç (örneğin 20) çalışan bitebilir tek bir İşte bağımsız sorgular. Her tür alt sorgu ait yük görece küçük varsayılır. Bu durumda, aşağıdaki adımları izleyebilirsiniz.
-1.  Bu durumda, kullanmayın **bölüm tarafından** sorgu
-2.  Olay hub'ı kullanıyorsanız, giriş bölüm sayısı 2 olası en düşük değerini azaltın.
-3.  Sorgu ile 6 SU çalıştırın. İş sistem kaynak sınırlarını basarsa kadar her alt sorgu için beklenen yükü ile bu tür sayıda alt sorgulara mümkün olduğunca ekleyin. Başvurmak [durum 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) böyle bir durumda belirtiler için.
-4.  Yukarıdaki ölçülen alt sorgu sınırı devreyi sonra yeni bir iş alt sorgu eklemeye başlayın. Bir bağımsız olan sorgu sayısını işlevi olarak çalıştırmak için iş sayısı eğme yük yok varsayılarak oldukça doğrusal olmalıdır. Ardından sunmak istediğiniz Kiracı sayısı bir işlevi olarak çalıştırmanız gereken kaç tane 6 SU işleri tahmin.
-5.  Başvuru veri JOIN sorgularını ile kullanırken, UNION girişleri birlikte, aynı başvurusu verilerle katılmadan önce olaylarını gerekirse bölünmesi gerekir. Aksi takdirde, her başvuru veri birleştirme büyük olasılıkla bellek kullanımını gereksiz yere blowing bellekte başvuru verilerin bir kopyasını tutar.
+## <a name="case-3---you-are-running-lots-of-independent-queries-in-a-job"></a>Durum 3 - bağımsız sorgular çok sayıda bir işi çalışıyor.
+Belirli bir ISV kullanmak için olduğu daha tek bir işlemde birden çok kiracıdan gelen veriyi işlemek için ekonomik, servis talepleri, her bir kiracı için ayrı giriş ve çıkışları kullanarak, (örneğin 20) oldukça az sayıda çalışan sonlandırabiliriz tek bir İşte bağımsız sorgular. Her tür alt sorgu ait yük göreceli olarak küçüktür varsayılır. Bu durumda, aşağıdaki adımları izleyebilirsiniz.
+1.  Bu durumda, kullanmayın **PARTITION BY** sorgu
+2.  Olay hub'ı kullanıyorsanız giriş bölüm sayısı 2 olası en düşük değerini azaltın.
+3.  Sorgu 6 SU ile çalıştırın. İş, sistem kaynak sınırlarını ulaşma kadar her alt sorgu için beklenen yükü ile mümkün olduğu kadar alt ekleyin. Başvurmak [vaka 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) için böyle bir durumda belirtileri.
+4.  Yukarıda ölçülen alt sınırı karşılaştınız demektir sonra alt sorgu yeni bir projeye ekleme başlatın. İşlev bağımsız sorgularının sayısı olarak çalıştırılacak işlerin sayısı eğme herhangi bir yüke sahip değilseniz varsayılarak oldukça doğrusal olmalıdır. 6 kaç SU işleri kiracılara hizmet vermek için istediğiniz sayıda bir işlev çalıştırmak için gereken tahmini.
+5.  Başvuru veri JOIN sorgularını ile kullanırken, birleşim girişleri birlikte aynı başvuru verilerini katılmadan önce olay gerekirse bölünmesi gerekir. Aksi takdirde, her başvuru veri birleştirme, büyük olasılıkla bellek kullanımını serbest gereksiz yere blowing bellekte başvuru verilerinin bir kopyasını tutar.
 
 > [!Note] 
-> Her bir iş koymak için kaç tane kiracılar?
-> Bu sorgu deseni genellikle çok sayıda alt sorgulara sahiptir ve çok büyük ve karmaşık topolojisinde sonuçlanır. İşin denetleyicisi büyük bir topoloji işleyebilen olmayabilir. Altın kural, 3 SU ve 6 SU işleri için 1 SU işinin altında 40 kiracılar ve 60 kiracılar kalır. Denetleyici kapasitesini aşıldığında işi başarıyla başlatılmaz.
+> Her bir iş koymak için kaç adet kiracıyı?
+> Bu sorgu deseni genellikle çok sayıda alt sorgular sahiptir ve çok büyük ve karmaşık topolojisinde sonuçlanır. Denetleyici işin büyük bir topoloji işlemek mümkün olmayabilir. Bir kural karşısında, altında 40 kiracıları 1 SU işi için kalın ve SU 3 ve 6 SU işleri için 60 Kiracı. Denetleyici kapasitesi aşıldığında işi başarıyla başlatılmaz.
 
 
-## <a name="an-example-of-stream-analytics-throughput-at-scale"></a>Stream Analytics verimlilik ölçekte örneği
-Nasıl Stream Analytics işlerini ölçeklendirme anlamanıza yardımcı olmak için biz Raspberry Pi'yi aygıt girişten dayalı bir denemeyi gerçekleştirilir. Bu deneme birden çok akış birimleri ile bölümleri verimini etkisini görmek bize.
-
-Bu senaryoda, cihaz algılayıcı verilerini (istemciler) olay hub'ına gönderir. Analytics akış verileri işler ve bir uyarı ya da istatistikleri çıkış olarak başka bir olay hub'ına gönderir. 
-
-İstemcinin JSON biçiminde algılayıcı verileri gönderir. Veri çıkışı da JSON biçimindedir. Veri şöyle görünür:
-
-    {"devicetime":"2014-12-11T02:24:56.8850110Z","hmdt":42.7,"temp":72.6,"prss":98187.75,"lght":0.38,"dspl":"R-PI Olivier's Office"}
-
-Aşağıdaki sorgu ışık kapalı olduğunda bir uyarı göndermek için kullanılır:
-
-    SELECT AVG(lght), "LightOff" as AlertText
-    FROM input TIMESTAMP BY devicetime 
-    PARTITION BY PartitionID
-    WHERE lght< 0.05 GROUP BY TumblingWindow(second, 1)
-
-### <a name="measure-throughput"></a>Ölçü işleme
-
-Bu bağlamda verimlilik Sabit sürede akış analizi tarafından işlenen giriş veri miktarıdır. (Biz 10 dakika cinsinden ölçülen.) Giriş verileri için en iyi işleme verimliliği elde etmek için veri akış girişine ve sorgu bölümlenmiş. Biz dahil **COUNT()** kaç tane giriş olaylarını işlenen ölçmek için sorgu. İşi yalnızca giriş olaylarını gelen beklediği değil emin olmak için her bir bölümü giriş olay hub'ın yaklaşık 300 MB ile giriş verilerini önceden.
-
-Aşağıdaki tabloda, biz akış birim sayısını artar ve karşılık gelen bölüm olay hub ' sayar gördüğümüz sonuçlarını gösterir.  
-
-<table border="1">
-<tr><th>Giriş bölümleri</th><th>Çıktı bölümleri</th><th>Akış Birimleri</th><th>Aralıksız üretilen
-</th></td>
-
-<tr><td>12</td>
-<td>12</td>
-<td>6</td>
-<td>4.06 MB/sn</td>
-</tr>
-
-<tr><td>12</td>
-<td>12</td>
-<td>12</td>
-<td>8.06 MB/sn</td>
-</tr>
-
-<tr><td>48</td>
-<td>48</td>
-<td>48</td>
-<td>38.32 MB/sn</td>
-</tr>
-
-<tr><td>192</td>
-<td>192</td>
-<td>192</td>
-<td>172.67 MB/sn</td>
-</tr>
-
-<tr><td>480</td>
-<td>480</td>
-<td>480</td>
-<td>454.27 MB/sn</td>
-</tr>
-
-<tr><td>720</td>
-<td>720</td>
-<td>720</td>
-<td>609.69 MB/sn</td>
-</tr>
-</table>
-
-Ve aşağıdaki grafikte bir görsel olarak SUs ve üretilen iş arasındaki ilişkiyi gösterir.
-
-![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Yardım alın
 Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)
+* [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)

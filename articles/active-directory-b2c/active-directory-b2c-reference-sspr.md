@@ -1,41 +1,41 @@
 ---
-title: Self Servis parola sıfırlama Azure Active Directory B2C'de | Microsoft Docs
-description: Self Servis parola sıfırlama için Azure Active Directory B2C uygulamasında müşterilerinizin ayarlanacağı gösterilmiştir
+title: Self Servis parola sıfırlama Azure Active Directory B2C | Microsoft Docs
+description: Self Servis parola sıfırlama için Azure Active Directory B2C, müşterilerinizin ayarlama işlemi gösterilmektedir
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ea8b23618b382f557340643afd62e56932bbfb2d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: 3612e10df12e2b18f32caae55bdd83b12a4e24a6
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712105"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37450310"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Self Servis parola sıfırlama müşterileriniz için ayarlama
-Self Servis parola sıfırlama özelliği ile parolalarını kendi yerel hesaplar için kaydolduktan müşterilerinizin sıfırlayabilirsiniz. Özellikle, uygulamanızın düzenli olarak kullanan müşteriler milyonlarca varsa bu destek ekibiniz üzerindeki yük önemli ölçüde azaltır. Şu anda doğrulanmış e-posta adresini kullanarak yalnızca desteklenen kurtarma yöntemidir.
+Self Servis parola sıfırlama özelliği ile yerel hesaplar için RMS'ye kaydolup, müşteriler kendi parolalarını sıfırlayabilir. Özellikle, uygulamanızın düzenli olarak kullanan müşteriler milyonlarca varsa bu destek ekibinize üzerindeki yükü önemli ölçüde azaltır. Şu anda doğrulanmış e-posta adresi kullanarak yalnızca desteklenen kurtarma yöntemidir.
 
 > [!NOTE]
-> Bu makalede Self Servis parola için geçerli bir oturum açma ilkesi bağlamında kullanılan sıfırlama. Tam olarak özelleştirilebilir parola sıfırlama ilkeleri uygulamanızdan çağrılan gerekirse bkz [bu makalede](active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
+> Bu makale uygulanır Self Servis parola sıfırlama bir oturum açma ilkesi bağlamında kullanılan. Uygulamanızdan çağrılan tamamen özelleştirilebilir bir parola sıfırlama ilkelerini ihtiyaç duyarsanız bkz [bu makalede](active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
 > 
 > 
 
-Varsayılan olarak, Self Servis parola dizininize yok sıfırlama açık. Etkinleştirmek için aşağıdaki adımları kullanın:
+Varsayılan olarak, Self Servis parola dizin yok sıfırlama açık. Etkinleştirmek için aşağıdaki adımları kullanın:
 
-1. Oturum [Azure portal](https://portal.azure.com/) Abonelik Yöneticisi olarak. Aynı iş veya Okul hesabı veya dizin oluşturmak için kullanılan aynı Microsoft hesabını budur.
+1. Oturum [Azure portalında](https://portal.azure.com/) Abonelik Yöneticisi olarak. Aynı iş veya Okul hesabı ya da dizin oluşturmak için kullandığınız aynı Microsoft hesabıyla budur.
 2. Açık **Azure Active Directory** (Gezinti çubuğundaki sol tarafta).
 4. Ayarlama **Self Servis parola sıfırlama etkin** için **tüm**. 
-5. Tıklatın **kaydetmek** sayfanın üst kısmındaki. İşiniz bittiğinde!
+5. Tıklayın **Kaydet** sayfanın üstünde. Hazırsınız!
 
-Test etmek için bir kimlik sağlayıcısı yerel hesaplarına sahip tüm oturum açma ilkesinde "Şimdi Çalıştır" özelliğini kullanın. Yerel hesap oturum açma (burada, bir e-posta adresi ve parola veya kullanıcı adı ve parola girin) tıklatın sayfa **hesabınıza erişemiyor?** müşteri deneyimini doğrulanamadı.
+Test etmek için bir kimlik sağlayıcısı olarak yerel hesaplarına sahip tüm oturum açma ilkesinde "Şimdi Çalıştır" özelliğini kullanın. Yerel hesap oturum açma (burada, bir e-posta adresi ve parola veya kullanıcı adı ve parola girin) tıklatın sayfasında **hesabınıza erişemiyor?** müşteri deneyimini doğrulayın.
 
 > [!NOTE]
-> Self Servis parola sıfırlama sayfalarını kullanarak özelleştirilebilir [şirket markası özelliğini](../active-directory/customize-branding.md).
+> Self Servis parola sıfırlama sayfaları kullanarak özelleştirilebilir [şirket markası özelliğini](../active-directory/fundamentals/customize-branding.md).
 > 
 > 
 

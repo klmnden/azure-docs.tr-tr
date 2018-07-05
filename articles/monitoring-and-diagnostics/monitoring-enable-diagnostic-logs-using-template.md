@@ -1,6 +1,6 @@
 ---
-title: Otomatik olarak bir Resource Manager şablonu kullanarak tanılama ayarlarını etkinleştirin
-description: Tanılama günlüklerinize Event hubs'a akışla aktarmak veya bir depolama hesabında depolamak sağlayacak tanılama ayarları oluşturmak için Resource Manager şablonu kullanmayı öğrenin.
+title: Otomatik olarak bir Resource Manager şablonu kullanarak tanılama ayarlarını etkinleştirme
+description: Resource Manager şablonu, tanılama günlüklerinin Event Hubs'a akış veya bunları bir depolama hesabında depolamanıza olanak tanıyacaktır tanılama ayarları oluşturmak için kullanmayı öğrenin.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,34 +8,34 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 6c202afaca893609d41384ee8302b0c4c6c4a6f6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a69cefc3c9363c0e8378a90c44d6a466780402b1
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263397"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434496"
 ---
-# <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Resource Manager şablonu kullanarak kaynak oluşturma sırasında otomatik olarak tanılama ayarlarını etkinleştirin
-Bu makalede biz nasıl kullanabileceğinizi gösterir. bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) oluşturulduğunda bir kaynakta tanılama ayarlarını yapılandırmak için. Bu, tanılama günlüklerini ve Event Hubs, bir depolama hesabında arşivleme veya bir kaynak oluşturulduğunda için günlük analizi göndererek ölçümlere akış otomatik olarak başlatılmasını sağlar.
+# <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Otomatik olarak bir Resource Manager şablonu kullanarak kaynak oluşturma sırasında tanılama ayarlarını etkinleştirme
+Bu makalede size nasıl kullanabileceğinizi gösterir. bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) oluşturulduğunda kaynak tanılama ayarlarını yapılandırmak için. Bu, otomatik olarak tanılama günlükleri ve ölçümleri Event Hubs, bunları bir depolama hesabında arşivlemek veya bir kaynak oluşturulduğunda bunları Log Analytics'e göndermek için akış başlatmanıza olanak sağlar.
 
-Resource Manager şablonu kullanarak tanılama günlüklerini etkinleştirme yöntemi kaynak türüne bağlıdır.
+Resource Manager şablonu kullanarak tanılama günlüklerini etkinleştirme yöntemini kaynak türüne bağlıdır.
 
-* **İşlem olmayan** kaynakları (örneğin, ağ güvenlik grupları, Logic Apps Otomasyonu) kullanmak [tanılama bu makalede açıklanan ayarlarını](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
-* **İşlem** (WAD/LAD tabanlı) kaynakları kullanmak [WAD/LAD yapılandırma dosyasını bu makalede açıklanan](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* **İşlem dışı** kaynakları (örneğin, ağ güvenlik grupları, Logic Apps, Otomasyon) [bu makalede açıklanan tanılama ayarları](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
+* **İşlem** (WAD/LAD tabanlı) kaynakları [WAD/LAD yapılandırma dosyası bu makalede açıklanan](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
-Bu makalede her iki yöntemi kullanarak tanılama yapılandırma açıklanmaktadır.
+Bu makalede şu yöntemlerden birini kullanarak tanılama yapılandırma açıklanmaktadır.
 
 Temel adımlar aşağıdaki gibidir:
 
-1. Bir şablonu kaynak oluşturmak ve tanılama etkinleştirmek nasıl açıklayan bir JSON dosyası olarak oluşturun.
+1. Bir şablon kaynağı oluşturma ve tanılamayı etkinleştirme açıklayan bir JSON dosyası olarak oluşturun.
 2. [Herhangi bir dağıtım yöntemi kullanarak şablonu dağıtmak](../azure-resource-manager/resource-group-template-deploy.md).
 
-Aşağıdaki işlem dışı ve işlem kaynakları için oluşturmak için gereken şablon JSON dosyası örneği sunuyoruz.
+Aşağıda bir örnek işlem olmayan ve işlem kaynakları için oluşturmak istediğiniz şablon JSON dosyasının sunuyoruz.
 
-## <a name="non-compute-resource-template"></a>İşlem olmayan kaynak şablonu
-İşlem dışı kaynaklar için iki işlem yapmanız gerekir:
+## <a name="non-compute-resource-template"></a>Kaynak dışı işlem şablonu
+İşlem olmayan kaynaklar için iki işlem gerçekleştirmesi gerekir:
 
-1. Depolama hesabı adı, olay hub'ı yetkilendirme kuralı kimliği ve/veya günlük analizi çalışma alanı kimliği (tanılama günlüklerini arşivleme Event hubs'a günlükler akış ve/veya günlükleri göndermek için günlük analizi depolama hesabında etkinleştirmek) için parametreleri blob parametreleri ekleyin.
+1. Parametre blob depolama hesabı adı, olay hub'ı yetkilendirme kuralı kimliği ve/veya Log Analytics çalışma alanı kimliği (tanılama günlüklerini arşivleme günlüklerinin Event Hubs'a akışını ve/veya günlükleri Log Analytics'e gönderirken bir depolama hesabında etkinleştirme) için parametreleri ekleyin.
    
     ```json
     "settingName": {
@@ -69,13 +69,13 @@ Aşağıdaki işlem dışı ve işlem kaynakları için oluşturmak için gereke
       }
     }
     ```
-2. Tanılama günlüklerini etkinleştirmek istediğiniz kaynak kaynakları dizisinde bir kaynak türü ekleyin `[resource namespace]/providers/diagnosticSettings`.
+2. Tanılama günlüklerini etkinleştirmek istediğiniz kaynak kaynakları dizi türünde bir kaynak ekleyin `[resource namespace]/providers/diagnosticSettings`.
    
     ```json
     "resources": [
       {
         "type": "providers/diagnosticSettings",
-        "name": "Microsoft.Insights/[parameters('settingName')]",
+        "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
@@ -111,9 +111,9 @@ Aşağıdaki işlem dışı ve işlem kaynakları için oluşturmak için gereke
     ]
     ```
 
-Tanılama ayarını özellikleri blob izleyen [bu makalede açıklanan biçimde](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Ekleme `metrics` özelliği, sağlanan bu aynı çıktıları kaynak ölçümleri de göndermenizi etkinleştirecek [kaynak Azure İzleyici ölçümleri destekleyen](monitoring-supported-metrics.md).
+Aşağıdaki özellikler blob için tanılama ayarını [bu makalede açıklanan biçimde](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Ekleme `metrics` özelliği de kaynak ölçümleri koşuluyla bu aynı çıktıları göndermek edebileceksiniz [kaynak Azure İzleyici ölçümleri destekliyor](monitoring-supported-metrics.md).
 
-Aşağıda, bir mantıksal uygulama oluşturan ve olay hub'ları ve depolama hesabındaki depolama akışı kapatır tam bir örnek verilmiştir.
+Mantıksal uygulama oluşturan ve olay hub'larına ve bir depolama hesabında depolama akışı kapatır tam bir örnek aşağıda verilmiştir.
 
 ```json
 
@@ -205,7 +205,7 @@ Aşağıda, bir mantıksal uygulama oluşturan ve olay hub'ları ve depolama hes
       "resources": [
         {
           "type": "providers/diagnosticSettings",
-          "name": "Microsoft.Insights/[parameters('settingName')]",
+          "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],
@@ -247,20 +247,20 @@ Aşağıda, bir mantıksal uygulama oluşturan ve olay hub'ları ve depolama hes
 ```
 
 ## <a name="compute-resource-template"></a>Kaynak şablonu işlem
-İşlem kaynak üzerinde tanılamayı etkinleştirmek için örneğin bir sanal makine ya da Service Fabric kümesi, gerekir:
+Bir işlem kaynağı tanılamayı etkinleştirmek için örneğin bir sanal makine veya Service Fabric kümesi, gerekir:
 
-1. Azure tanılama uzantısını VM kaynak tanımına ekleyin.
-2. Bir depolama hesabı ve/veya olay hub'ı bir parametre olarak belirtin.
-3. WADCfg XML dosyasının içeriğini tüm XML karakterleri düzgün kaçış XMLCfg özelliği ekleyin.
+1. Azure tanılama uzantısı, VM kaynak tanımına ekleyin.
+2. Bir parametre olarak bir depolama hesabı ve/veya olay hub'ı belirtin.
+3. WADCfg XML dosyasının içeriği doğru tüm XML karakterleri kaçış XMLCfg özelliğindeki ekleyin.
 
 > [!WARNING]
-> Bu son adım sağ almak zor olabilir. [Bu makaleye bakın](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) tanılama yapılandırma şeması kaçışlı ve doğru biçimlendirilmiş değişkenleri böler bir örnek.
+> Bu son adım, doğru almak zor olabilir. [Bu makaleye bakın](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) kaçış ve düzgün biçimlendirilmiş değişkenlere tanılama yapılandırma şeması ayıran bir örnek.
 > 
 > 
 
-Örnekler dahil olmak üzere tüm işlem açıklanan [bu belgedeki](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Örnekler de dahil olmak üzere sürecin tamamı açıklanan [bu belgedeki](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Azure tanılama günlükleri hakkında daha fazla bilgi](monitoring-overview-of-diagnostic-logs.md)
-* [Akış olay hub'ları için Azure tanılama günlükleri](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Stream Event hubs'a, Azure tanılama günlükleri](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 

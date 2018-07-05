@@ -1,6 +1,6 @@
 ---
-title: Kimlik Yönetimi abonelikleri - Azure ayrıcalıklı | Microsoft Docs
-description: Abonelik ve lisans yönetimi ve Azure AD Privileged Identity Management kiracınızda kullanma gereksinimleri açıklanır
+title: Privileged Identity Management abonelikler - Azure | Microsoft Docs
+description: Abonelik ve lisans gereksinimleri için kiracınızda Azure AD Privileged Identity Management'ı kullanmaya ve yönetmeye açıklar
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,55 +11,55 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: protection
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a83b1b32bc7c1ba8dcfb0e96b11540253903a01f
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: b4322ab5c90b04cf4eb0591e97e5e026664a2769
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085156"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442381"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Azure Active Directory Privileged Identity Management abonelik gereksinimleri
 
-Azure AD Privileged Identity Management kullanılabilir Azure ad Premium P2 sürümünün bir parçası olarak. P2 ve nasıl Premium P1 karşılaştırır diğer özellikleri hakkında daha fazla bilgi için bkz: [Azure Active Directory sürümleri](../active-directory-editions.md).
+Azure AD Privileged Identity Management kullanılabilir Azure AD Premium P2 sürümü bir parçası olarak. P2 ve nasıl Premium P1 karşılaştırır, diğer özellikler hakkında daha fazla bilgi için bkz. [Azure Active Directory sürümleri](../active-directory-editions.md).
 
 >[!NOTE]
-Azure Active Directory (Azure AD) Privileged Identity Management önizlemede olduğunda, hizmeti denemek bir kiracı için herhangi bir lisans denetim vardı.  Azure AD Privileged Identity Management genel kullanılabilirlik ulaştı, bir deneme aboneliği veya Ücretli abonelik aralık 2016 sonrasında Privileged Identity Management kullanmaya devam etmek Kiracı için mevcut olması gerekir.
+Azure Active Directory (Azure AD) Privileged Identity Management Önizleme aşamasında olan, hizmeti denemek bir kiracı için hiçbir lisans denetim vardı.  Azure AD Privileged Identity Management'a genel kullanılabilirlik ulaştı, deneme veya Ücretli aboneliği için Kiracı, Privileged Identity Management aralık 2016'dan sonra kullanmaya devam etmek mevcut olması gerekir.
   
 
-## <a name="confirm-your-trial-or-paid-subscription"></a>Deneme aboneliği veya Ücretli aboneliğinizi onaylayın
+## <a name="confirm-your-trial-or-paid-subscription"></a>Deneme veya Ücretli aboneliğinizi doğrulayın
 
-Abonelik satın veya kuruluşunuzun bir deneme sürümü olup emin değilseniz, olup olmadığını kiracınızda bir abonelik Azure Active Directory modülü için Windows PowerShell V1 dahil komutlarını kullanarak kontrol edebilirsiniz. 
+Aboneliği satın aldığı veya kuruluşunuzun bir deneme sürümü olup emin değilseniz, bulunup bulunmadığını kiracınızdaki bir aboneliği Azure Active Directory modülü için Windows PowerShell V1'de bulunan komutları kullanarak kontrol edebilirsiniz. 
 1. Bir PowerShell penceresi açın.
-2. Girin `Connect-MsolService` kiracınızda bir kullanıcı olarak kimlik doğrulaması için.
+2. Girin `Connect-MsolService` kiracınızdaki bir kullanıcı olarak kimlik doğrulaması için.
 3. Girin `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`.
 
-Bu komut kiracınızda Aboneliklerin listesini alır. Döndürülen satır varsa, Azure AD Premium P2 deneme, satın alma bir Azure AD Premium P2 aboneliği veya Azure AD Privileged Identity Management kullanmak için EMS E5 abonelik edinmeniz gerekir.  Bir deneme ve Azure AD Privileged Identity Management kullanarak başlangıç almak için okuma [Azure AD Privileged Identity Management ile çalışmaya başlama](../active-directory-privileged-identity-management-getting-started.md).
+Bu komut, kiracınızdaki Aboneliklerin listesini alır. Döndürülen satır varsa, bir Azure AD Premium P2 aboneliği veya Azure AD Privileged Identity Management'ı kullanmak için EMS E5 aboneliği bir Azure AD Premium P2 deneme satın almak gerekir.  Bir deneme sürümü ve Azure AD Privileged Identity Management'ı kullanmaya başlayın almak için okuma [Azure AD Privileged Identity Management ile çalışmaya başlama](../active-directory-privileged-identity-management-getting-started.md).
 
-Bu komut bir satır döndürürse hangi SkuPartNumber "AAD_PREMIUM_P2" veya "EMSPREMIUM" ve IsTrial "True" ise, bu Azure AD Premium P2 deneme kiracısı'nda mevcut olduğunu gösterir.  Ardından abonelik durumunu etkin değil ve satın alma bir Azure AD Premium P2 ya da EMS E5 aboneliğiniz yoksa, bir Azure AD Premium P2 aboneliği veya Azure AD Privileged Identity Management kullanmaya devam etmek için EMS E5 abonelik satın almalısınız.
+Bu komut bir satır döndürürse hangi SkuPartNumber "AAD_PREMIUM_P2" veya "EMSPREMIUM" ve IsTrial "True" ise, bu kiracıda mevcut bir Azure AD Premium P2 deneme sürümü olduğunu gösterir.  Sonra abonelik durumu etkin değil ve bir Azure AD Premium P2 veya EMS E5 aboneliği satın almak zorunda kalmazsınız, bir Azure AD Premium P2 aboneliği veya Azure AD Privileged Identity Management'ı kullanmaya devam etmek için EMS E5 aboneliği satın almalısınız.
 
-Azure AD Premium P2 aracılığıyla kullanılabilen bir [Microsoft Enterprise sözleşmesi](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), [açık toplu lisans programı](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)ve [bulut çözüm sağlayıcıları program](https://partner.microsoft.com/en-US/cloud-solution-provider). Azure ve Office 365 aboneleri de Azure AD Premium P2 çevrimiçi satın alabilirsiniz.  Azure AD Premium fiyatlandırma ve çevrimiçi sipariş konusunda daha fazla bilgi bulunabilir [Azure Active Directory fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure AD Premium P2 aracılığıyla bir [Microsoft Kurumsal anlaşması](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), [açık Toplu Lisanslama programı](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)ve [bulut çözüm sağlayıcıları program](https://partner.microsoft.com/en-US/cloud-solution-provider). Azure ve Office 365 aboneleri, Azure AD Premium P2 çevrimiçi da satın alabilir.  Azure AD Premium fiyatlandırma ve çevrimiçi sipariş et hakkında daha fazla bilgi şu adreste bulunabilir: [Azure Active Directory fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>Azure AD Privileged Identity Management kiracısında kullanılamıyor
+## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>Azure AD Privileged Identity Management kiracısında mevcut değil
 
-Azure AD Privileged Identity Management artık kullanılabilir kiracınızda varsa:
-- Önizlemede olan ve Azure AD Premium P2 abonelik ya da EMS E5 abonelik satın değil, kuruluşunuz Azure AD Privileged Identity Management kullanıyordu.
-- Kuruluşunuz Azure AD Premium P2 ya da EMS süresi dolan E5 deneme vardı.
-- Kuruluşunuz süresi satın alınan bir abonelik vardı.
+Azure AD Privileged Identity Management artık kiracınızda kullanılabilir olacak varsa:
+- Önizleme aşamasında olan ve Azure AD Premium P2 aboneliği veya EMS E5 aboneliği satın değil, kuruluşunuz Azure AD Privileged Identity Management kullanıyordu.
+- Kuruluşunuzun bir Azure AD Premium P2 ya da EMS süresi E5 deneme sürümü vardı.
+- Kuruluşunuz, süresi dolan satın alınan bir Aboneliğim vardı.
 
-Bir Azure AD Premium P2 abonelik ya da EMS E5 abonelik süresi dolduğunda veya bir Azure AD Privileged Identity Management önizlemede kullanarak kuruluş Azure AD Premium P2 ya da EMS E5 aboneliği edinmek değil:
+Bir Azure AD Premium P2 aboneliği veya EMS E5 aboneliği sona erdiğinde veya bir önizlemede Azure AD Privileged Identity Management kullanan kuruluş Azure AD Premium P2 veya EMS E5 aboneliği edinmek değil:
 
-- Azure AD rol kalıcı rol atamalarını etkilenmeyecek.
-- Bu Azure AD Privileged Identity Management uzantısı'nda Azure portal yanı sıra grafik API'si cmdlet'leri ve Azure AD Privileged Identity Management PowerShell arabirimleri kullanıcıların ayrıcalıklı rolleri etkinleştirmesine, ayrıcalıklı yönetmek için kullanılabilir erişim veya ayrıcalıklı rolleri erişim incelenmesi gerçekleştirin.
-- Bu kullanıcılar ayrıcalıklı rollerini etkinleştirebilir olarak Azure AD rollerin uygun rol atamalarını kaldırılacak.
-- Tüm Azure AD rolleri devam eden erişim incelenmesi sona erer ve Azure AD Privileged Identity Management yapılandırma ayarları kaldırılır.
-- Azure AD Privileged Identity Management, artık rol atama değişiklikleri e-posta gönderir.
+- Azure AD rollerine kalıcı rol atamaları etkilenmez.
+- Bu Azure AD Privileged Identity Management uzantısı'nda Azure portalı, yanı sıra Graph API cmdlet'leri ve Azure AD Privileged Identity Management PowerShell arabirimleri kullanıcıların ayrıcalıklı rolleri etkinleştirmesine, ayrıcalıklı yönetmek için kullanılabilir erişim gözden geçirmeleri ayrıcalıklı rolleri gerçekleştirmek veya erişin.
+- Bu kullanıcılar ayrıcalıklı rolleri etkinleştirmesine mümkün Azure AD rolleri, uygun rol atamaları kaldırılacak.
+- Azure AD rolleri tüm devam eden bir erişim gözden geçirmelerini sona erecek ve Azure AD Privileged Identity Management yapılandırma ayarları kaldırılır.
+- Azure AD Privileged Identity Management, e-postaları artık rol atama değişiklikleri gönderir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure AD Privileged Identity Management ile çalışmaya başlama](../active-directory-privileged-identity-management-getting-started.md)
-- [Azure AD Privileged Identity Management rollerinde](../active-directory-privileged-identity-management-roles.md)
+- [Azure AD Privileged Identity Management içinde rol](../active-directory-privileged-identity-management-roles.md)

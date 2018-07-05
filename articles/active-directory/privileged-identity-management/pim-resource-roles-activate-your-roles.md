@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management kullanarak rolleri Azure kaynakları için etkinleştirme | Microsoft Docs
+title: Privileged Identity Management'ı kullanarak Azure kaynakları için rol etkinleştirme | Microsoft Docs
 description: PIM rolleri etkinleştirmeyi açıklar.
 services: active-directory
 documentationcenter: ''
@@ -7,47 +7,47 @@ author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 30032229c3c24a7f7450b3f590ed1d3acd18b47d
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: d2f61f1ebdd473a24115c7774801f5b7694f224f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233140"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443214"
 ---
-# <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management kullanarak rolleri Azure kaynakları için etkinleştirme
-Ayrıcalıklı Kimlik Yönetimi (PIM) Azure kaynakları için rol etkinleştirme içinde yeni bir deneyim sunar. Uygun Rol üyeleri etkinleştirme gelecekteki bir tarih ve saat için zamanlayabilirsiniz. Bunlar ayrıca belirli etkinleştirme süresi (yöneticiler tarafından yapılandırılmış) maksimum içinde seçebilirsiniz. Daha fazla bilgi için bkz: [etkinleştirmek veya Azure AD Privileged Identity Management rollerinde devre dışı bırakma](../active-directory-privileged-identity-management-how-to-activate-role.md).
+# <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management'ı kullanarak Azure kaynakları için rollerini etkinleştir
+Privileged Identity Management (PIM) Azure kaynakları için rol etkinleştirme içinde yeni bir deneyim sağlanıyor. Uygun Rol üyeleri için bir gelecek tarih ve saat etkinleştirme zamanlayabilirsiniz. Bunlar, belirli etkinleştirme süresi üst sınırı (yönetici tarafından yapılandırılır) içinde de seçebilirsiniz. Daha fazla bilgi için [etkinleştirmek veya Azure AD Privileged Identity Management içinde rol devre dışı bırakma](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ## <a name="activate-roles"></a>Rollerini etkinleştir
-Gözat **My rolleri** sol bölmede bölümü. Seçin **etkinleştirme** , etkinleştirmek istediğiniz bir rol.
+Gözat **rollerim** sol bölmedeki bölümü. Seçin **etkinleştirme** etkinleştirmek istediğiniz rolü için.
 
-!["Uygun roller" sekmesinde "Rolleri My" bölmesi.](media/azure-pim-resource-rbac/rbac-roles.png)
+!["Uygun roller" sekmesinde bulunan "Rollerim" bölmesi.](media/azure-pim-resource-rbac/rbac-roles.png)
 
-Gelen **etkinleştirmeleri** menüsünden başlangıç tarihini girin ve rolünü etkinleştirmek için saat. İsteğe bağlı olarak, etkinleştirme süresini azaltmak (rolü etkin olduğu süre uzunluğu) ve gerekirse bir gerekçe girin. Ardından, seçin **etkinleştirme**.
+Gelen **etkinleştirmeleri** menüsünde, başlangıç tarihini girin ve rol etkinleştirme süresi. İsteğe bağlı olarak, etkinleştirme süresini azaltmak (Rol etkin olduğu süre uzunluğu) ve gerekirse bir gerekçe girin. Ardından, **etkinleştirme**.
 
-Başlangıç tarihi ve saati değiştirilmez, rol saniye içinde etkinleştirilir. İçinde **My rolleri** bölmesinde, bir başlık iletisi gösterilir rol etkinleştirmesi için kuyruğa alındı. Bu iletiyi temizlemek için Yenile düğmesini seçin.
+Başlangıç tarihi ve saati değiştirilmez, rol saniyeler içinde etkinleştirilir. İçinde **rollerim** bölmesinde, bir başlık iletisi gösteren bir rol etkinleştirme için sıraya alındı. Bu ileti temizlemek için Yenile düğmesini seçin.
 
-![Bir başlık iletisi ve onay bekliyor hakkında bir bildirim "Rolleri my" bölmesi](media/azure-pim-resource-rbac/rbac-activate-notification.png)
+![Bir başlık iletisi ve bekleyen bir onay hakkında bir bildirim ile "Rollerim" bölmesi](media/azure-pim-resource-rbac/rbac-activate-notification.png)
 
-Bekleyen isteği etkinleştirme gelecekteki bir tarih ve zaman için planlandıysa görünür **bekleyen istekler** sol bölmenin sekmesi. Rol etkinleştirme artık gerekli değilse, istek seçerek iptal edebilirsiniz **iptal** düğmesi.
+Bekleyen istek etkinleştirme gelecekteki bir tarih ve saat için planlandıysa görünür **bekleyen istekler** sol bölmenin sekmesi. Rol etkinleştirme artık gerekli değilse, istek seçerek iptal edebilirsiniz **iptal** düğmesi.
 
 ![Bekleyen istekler "İptal" düğmelerle listesi](media/azure-pim-resource-rbac/rbac-activate-pending.png)
 
 
-## <a name="apply-just-enough-administration-practices"></a>Yalnızca yeterli yönetim uygulamalarından Uygula
+## <a name="apply-just-enough-administration-practices"></a>Yeterli yönetim uygulamaları Uygula
 
-Kaynak rol atamalarınızı ile yalnızca yetecek kadar Yönetim (JEA) en iyi yöntemler kullanarak Azure kaynakları ile PIM basit bir işlemdir. Kullanıcı ve Grup üyeleri ile Azure Abonelikleriniz veya kaynak grupları atamalarını kendi mevcut rol ataması azaltılmış bir kapsamda etkinleştirebilirsiniz. 
+Yeterli yönetim (JEA) en iyi uygulamalar, kaynak rol atamaları kullanarak Azure kaynakları için PIM ile basit bir işlemdir. Kullanıcı ve Grup üyeleri atamaları Azure Abonelikleriniz veya kaynak grupları ile birlikte, mevcut rol ataması azaltılmış bir kapsamda etkinleştirebilirsiniz. 
 
-Arama sayfasından yönetmeniz gereken bağımlı kaynak bulunamıyor.
+Arama sayfasından yönetmeniz gereken alt kaynak bulun.
 
-![Bir kaynak seçme](media/azure-pim-resource-rbac/azure-resources-02.png)
+![Bir kaynak seçmeyi](media/azure-pim-resource-rbac/azure-resources-02.png)
 
-Seçin **My rolleri** sol bölmeden ve etkinleştirmek için uygun rolü seçin. Atama türü **devralınan** rolü abonelik yerine kaynak grubuna atandığından.
+Seçin **rollerim** sol bölmeden ve etkinleştirmek için uygun rolü seçin. Atama türü **devralınan** rol abonelik yerine kaynak grubuna atandığından.
 
-![Vurgulanan atama türüyle uygun rol atamalarını listesi](media/azure-pim-resource-rbac/my-roles-02.png)
+![Uygun rol atamaları, vurgulanan atama türü listesi](media/azure-pim-resource-rbac/my-roles-02.png)

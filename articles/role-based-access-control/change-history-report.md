@@ -1,6 +1,6 @@
 ---
-title: Azure RBAC değişiklikleri etkinlik günlükleri görüntüleme | Microsoft Docs
-description: Son 90 gün için rol tabanlı erişim denetimi (RBAC) değişikliklerin etkinlik günlüklerini görüntüle.
+title: Azure'da RBAC değişiklikler için etkinlik günlüklerini görüntüleme | Microsoft Docs
+description: Rol tabanlı erişim denetimi (RBAC) değişikliklerin Son 90 güne ait etkinlik günlüklerini görüntüleme.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,27 +8,27 @@ manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c82c24c6d652a65f5ba851de66a1f2fe595a46a5
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 10e0df78d75763dfcf8636983c9f9092b78b9c3b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293396"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437662"
 ---
-# <a name="view-activity-logs-for-rbac-changes"></a>RBAC değişiklikleri etkinlik günlüklerini görüntüle
+# <a name="view-activity-logs-for-rbac-changes"></a>RBAC değişiklikler için etkinlik günlüklerini görüntüleme
 
-Bazen, rol tabanlı erişim denetimi (RBAC) değişiklikler hakkındaki bilgileri gibi denetim ya da sorun giderme amacıyla için gerekir. Birisi yapar değişiklikleri rol atamalarını veya rol tanımları aboneliklerinizi içinde dilediğiniz zaman değişiklikleri günlüğe [Azure etkinlik günlüğü](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Son 90 gün için tüm RBAC değişiklikleri görmek için etkinlik günlükleri görüntüleyebilirsiniz.
+Bazen, rol tabanlı erişim denetimi (RBAC) değişiklikler hakkında bilgiler gibi denetim ve sorun giderme amacıyla gerekir. Birisi yapar değişiklikleri rol atamaları veya rol tanımları, Abonelikleriniz dahilindeki dilediğiniz zaman değişiklikleri günlüğe [Azure etkinlik günlüğü](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Son 90 gün için tüm RBAC değişiklikleri görmek için etkinlik günlüklerini görüntüleyebilirsiniz.
 
 ## <a name="operations-that-are-logged"></a>Günlüğe kaydedilen işlemleri
 
-Etkinlik günlüğüne RBAC güvenlikle ilgili işlemler şunlardır:
+Etkinlik günlüğüne RBAC ile ilgili işlemler şunlardır:
 
 - Rol ataması oluştur
 - Rol atamasını sil
@@ -37,11 +37,11 @@ Etkinlik günlüğüne RBAC güvenlikle ilgili işlemler şunlardır:
 
 ## <a name="azure-portal"></a>Azure portalına
 
-Başlamak için en kolay yolu, Azure portal ile etkinlik günlükleri görüntülemektir. Aşağıdaki ekran görüntüsünde rol ataması ve rol tanımı işlemleri görüntülemek için filtre uygulanmış bir etkinlik günlüğü örneği gösterilmektedir. Ayrıca, bir CSV dosyası olarak günlükleri indirmek için bir bağlantı içerir.
+Başlamanın en kolay yolu, Azure portalı ile etkinlik günlükleri görüntülemektir. Aşağıdaki ekran görüntüsünde, rol ataması ve rol tanımı işlemleri görüntülemek için filtre uygulanmış bir etkinlik günlüğü örneği gösterilmektedir. CSV dosyası olarak günlükleri indirmek için bağlantıyı da içerir.
 
-![Etkinlik günlükleri using the portal - ekran görüntüsü](./media/change-history-report/activity-log-portal.png)
+![Etkinlik günlüklerini kullanarak portalı - ekran görüntüsü](./media/change-history-report/activity-log-portal.png)
 
-Etkinlik günlüğü portalında birkaç filtreleri sahiptir. RBAC ilgili filtreleri şunlardır:
+Portalda etkinlik günlüğü birkaç filtreleri sahiptir. RBAC ile ilgili filtreleri şunlardır:
 
 |Filtre  |Değer  |
 |---------|---------|
@@ -49,13 +49,13 @@ Etkinlik günlüğü portalında birkaç filtreleri sahiptir. RBAC ilgili filtre
 |İşlem     | <ul><li>Rol ataması oluştur</li> <li>Rol atamasını sil</li> <li>Özel rol tanımı oluştur veya güncelleştir</li> <li>Özel rol tanımını sil</li></ul>      |
 
 
-Etkinlik günlükleri hakkında daha fazla bilgi için bkz: [etkinlik günlüğünde olayları görüntülemek](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+Etkinlik günlükleri hakkında daha fazla bilgi için bkz. [etkinlik günlüğünde olayları görüntüleme](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell ile etkinlik günlükleri görüntülemek için kullanın [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) komutu.
+Azure PowerShell ile etkinlik günlüklerini görüntülemek için kullanın [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) komutu.
 
-Bu komut, son yedi gün için bir Abonelikteki tüm rol atama değişiklikleri listeler:
+Bu komut, bir abonelikte son yedi güne ait tüm rol atama değişiklikleri listeler:
 
 ```azurepowershell
 Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
@@ -67,7 +67,7 @@ Bu komut, son yedi gün için bir kaynak grubundaki tüm rol tanımı değişikl
 Get-AzureRmLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
-Bu komut tüm rol ataması ve son yedi gün için bir abonelik rol tanımı değişiklikleri listeler ve sonuçları bir liste görüntüler:
+Bu komut tüm rol ataması ve son yedi güne ait bir abonelik rol tanımı değişiklikleri listeler ve sonuçları bir listede görüntüler:
 
 ```azurepowershell
 Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
@@ -92,15 +92,15 @@ Properties              :
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Azure CLI ile etkinlik günlükleri görüntülemek için kullanın [az İzleyici etkinlik günlüğü listesi](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) komutu.
+Azure CLI ile etkinlik günlüklerini görüntülemek için kullanın [az İzleyici etkinlik günlüğü listesi](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) komutu.
 
-Bu komut, başlangıç zamanından bu yana bir kaynak grubunda etkinlik günlükleri listeler:
+Bu komut, bir kaynak grubundaki etkinlik günlükleri başlangıç zamanından bu yana listeler:
 
 ```azurecli
 az monitor activity-log list --resource-group pharma-sales-projectforecast --start-time 2018-04-20T00:00:00Z
 ```
 
-Bu komut, etkinlik günlükleri için yetkilendirme kaynak sağlayıcısı başlangıç zamanından bu yana listeler:
+Bu komut, başlangıç zamanından bu yana yetkilendirme kaynak sağlayıcısı için etkinlik günlüklerini listeler:
 
 ```azurecli
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
@@ -108,26 +108,26 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Azure günlük analizi](../log-analytics/log-analytics-overview.md) toplamak ve tüm Azure kaynakları için RBAC değişiklikleri analiz etmek için kullanabileceğiniz başka bir araçtır. Günlük analizi aşağıdaki faydaları vardır:
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md) toplamak ve tüm Azure kaynaklarınız için RBAC değişiklikleri analiz etmek için kullanabileceğiniz başka bir araçtır. Log Analytics, aşağıdaki faydaları vardır:
 
-- Karmaşık sorgular ve mantığı yazma
-- Uyarılar, Power BI ve diğer araçlarla tümleştirme
-- Daha uzun bekletme dönemleri verilerini kaydetme
-- Güvenlik, sanal makine ve özel gibi diğer günlükleriyle çapraz başvuru
+- Karmaşık sorgular ve mantıksal yazma
+- Uyarılar, Power BI ve diğer araçlar ile tümleştirme
+- Uzun saklama süreleri için verileri kaydetme
+- Güvenlik, sanal makine ve özel gibi diğer günlükleri ile çapraz başvuru
 
 Başlamak için temel adımlar şunlardır:
 
-1. [Günlük analizi çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
+1. [Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
 
-1. [Etkinlik günlüğü analiz çözümü yapılandırmak](../log-analytics/log-analytics-activity.md#configuration) çalışma alanınız için.
+1. [Etkinlik günlüğü analizi çözümü yapılandırma](../log-analytics/log-analytics-activity.md#configuration) çalışma alanınız için.
 
-1. [Etkinlik günlükleri görüntülemek](../log-analytics/log-analytics-activity.md#using-the-solution). Etkinlik günlüğü analizi Genel Bakış sayfasına gitmek için hızlı bir yolu **günlük analizi** seçeneği.
+1. [Etkinlik günlüklerini görüntüleme](../log-analytics/log-analytics-activity.md#using-the-solution). Etkinlik Log Analytics'e Genel Bakış sayfasına gitmek için hızlı bir yolu **Log Analytics** seçeneği.
 
-   ![Günlük analizi seçeneği portalında](./media/change-history-report/azure-log-analytics-option.png)
+   ![Log Analytics portalı seçeneğinde](./media/change-history-report/azure-log-analytics-option.png)
 
-1. İsteğe bağlı olarak kullanmak [günlük arama](../log-analytics/log-analytics-log-search.md) sayfa veya [Advanced Analytics portalı](https://docs.loganalytics.io/docs/Learn) sorgulamak ve günlükleri görüntülemek için. Bu iki seçenek hakkında daha fazla bilgi için bkz: [günlük arama sayfası veya Advanced Analytics portalı](../log-analytics/log-analytics-log-search-portals.md).
+1. İsteğe bağlı olarak [günlük araması](../log-analytics/log-analytics-log-search.md) sayfası veya [Gelişmiş analiz portalını](https://docs.loganalytics.io/docs/Learn) sorgulamak ve günlükleri görüntülemek için. Bu iki seçenek hakkında daha fazla bilgi için bkz: [günlük araması sayfasını veya Gelişmiş analiz portalını](../log-analytics/log-analytics-log-search-portals.md).
 
-Aşağıda, hedef kaynak sağlayıcısı tarafından düzenlenen yeni rol atamalarını döndüren bir sorgu verilmiştir:
+Hedef kaynak sağlayıcısı tarafından düzenlenmiş olan yeni rol atamaları döndüren bir sorgu aşağıda verilmiştir:
 
 ```
 AzureActivity
@@ -136,7 +136,7 @@ AzureActivity
 | summarize count(), makeset(Caller) by TargetResourceAuthProvider
 ```
 
-Aşağıda, grafikte görüntülenen rol atama değişiklikleri döndüren bir sorgu verilmiştir:
+Rol atama değişikliklerinin bir grafikte görüntülenen döndüren bir sorgu aşağıda verilmiştir:
 
 ```
 AzureActivity

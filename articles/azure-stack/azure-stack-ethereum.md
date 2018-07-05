@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 6/28/2018
+ms.date: 07/03/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: fb870cbfbc233725752b3d97fc0ad048a7c14040
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341741"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446984"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum blok zinciri çözüm şablonları
 
@@ -69,7 +69,7 @@ Consortium lider şablonu ağ ilk üyenin ayak izini yapılandırır.
     ADMINUSERNAME | Dağıtılan her VM'nin yönetici kullanıcı adı | 1 - 64 karakter | gethadmin
     ADMINPASSWORD (kimlik doğrulaması türü = parola)| Dağıtılan sanal makinelerin her biri için yönetici hesabının parolası. Parola aşağıdaki gereksinimleri 3 içermelidir: 1 büyük harf karakter, 1 küçük harf, 1 sayı ve 1 özel karakter. <br />Tüm VM'lerin aynı parolayı başlangıçta olsa da, parola sağladıktan sonra değiştirebilirsiniz.|12 - 72 karakter|
     ADMINSSHKEY (kimlik doğrulaması türü sshPublicKey =) | Uzaktan oturum açma için kullanılan güvenli Kabuk anahtarı. | |
-    GENESISBLOCK | Özel genesis blok temsil eden JSON dizesi. | |
+    GENESISBLOCK | Özel genesis blok temsil eden JSON dizesi.  Bu parametre için bir değer belirterek isteğe bağlıdır. | |
     ETHEREUMACCOUNTPSSWD | Ethereum hesabının güvenliğini sağlamak için kullanılan yönetici parolası. | |
     ETHEREUMACCOUNTPASSPHRASE | Ethereum hesapla ilişkili özel anahtarı oluşturmak için kullanılan parola. | |
     ETHEREUMNETWORKID | Consortium ağ kimliği. | 999,999,999 ile 5 arasındaki herhangi bir değer kullanın | 72

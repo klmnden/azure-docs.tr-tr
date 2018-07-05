@@ -1,68 +1,68 @@
 ---
-title: Bul ve Privileged Identity Management'ı kullanarak Azure kaynaklarınızı yönetmek | Microsoft Docs
-description: PIM kullanarak Azure kaynaklarınızı korumak açıklar.
+title: Keşfetmek ve Privileged Identity Management'ı kullanarak Azure kaynaklarını yönetmek | Microsoft Docs
+description: PIM kullanarak Azure kaynaklarını korumak nasıl açıklar.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 563c7f24ec4045b46d5bdcf0dc267dbdda2d5a5e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: aca218a33d148e9f53f405f9cda98a701a7443cc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234480"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442534"
 ---
-# <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Bul ve Privileged Identity Management'ı kullanarak Azure kaynaklarınızı yönetmek
+# <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Bulma ve Privileged Identity Management'ı kullanarak Azure kaynaklarını yönetme
 
-Bul ve Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kullandığınızda, Azure kaynaklarınızı yönetmek hakkında bilgi edinin. Bu bilgiler zaten yönetici kaynakları korumak için PIM kullanan kuruluşlar ve üretim kaynakları güvenli hale getirmek için arayan abonelik sahipleri için yararlı olabilir.
+Bulma ve Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kullandığınızda, Azure kaynaklarını yönetme hakkında bilgi edinin. Bu bilgiler zaten yönetici kaynakları korumak için PIM kullanan kuruluşlar ve üretim kaynaklarını arayan bir abonelik sahipleri için yararlı olabilir.
 
-Azure kaynakları için ilk PIM ayarladığınızda, bulmak ve PIM ile korunacak kaynakların seçmek gerekir. PIM ile yönetebileceğiniz kaynakları sayısına bir sınır yoktur. Ancak, en kritik (üretim) kaynaklarınızı ile başlamanızı öneririz.
+Azure kaynakları için PIM ayarlamanız, bulmak ve PIM ile korunacak kaynakların seçmek gerekir. PIM ile yönetebileceğiniz kaynakları sayısı sınırı yoktur. Ancak, en kritik (üretim) kaynaklarınız ile başlamanızı öneririz.
 
 > [!NOTE]
-> Yalnızca aramak ve PIM kullanarak yönetmek için abonelik kaynakları seçin. Bir abonelik PIM yönetirken abonelik alt kaynakları da yönetebilirsiniz.
+> Yalnızca bulup PIM kullanarak yönetmek için abonelik kaynaklarını seçin. Bir abonelikte PIM yönetirken, abonelik alt kaynakları da yönetebilirsiniz.
 
 ## <a name="discover-resources"></a>Kaynakları bulma
 
-Azure portalında Git **Privileged Identity Management** bölmesi. Soldaki menüde içinde **Yönet** bölümünde, select **Azure kaynaklarını**.
+Azure portalında Git **Privileged Identity Management** bölmesi. Soldaki menüde içinde **Yönet** bölümünden **Azure kaynaklarını**.
 
 !["Privileged Identity Management - Azure kaynaklarını" bölmesi](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
 
-Önce ilk kez PIM için Azure kaynaklarını kullanıyorsanız yönetmek için kaynakları bulmak için bulma işlemini çalıştırın. İçinde **kaynakları bulmak** bölmesinde, **kaynakları bulmak** bulma deneyimini Başlat düğmesi.
+Azure kaynakları için PIM kullanarak ilk kez buysa, yönetilecek kaynakları bulmak için bulma işlemini çalıştırın. İçinde **kaynakları bulmak** bölmesinde **kaynakları bulmak** bulma deneyimini başlatmak için düğme.
 
-!["Kaynakları bulmak" bölmesi](media/azure-pim-resource-rbac/aadpim_first_run_discovery.png)
+!["Kaynakları Bul" bölmesi](media/azure-pim-resource-rbac/aadpim_first_run_discovery.png)
 
-Kuruluşunuzdaki başka bir kaynak veya dizin yönetici PIM kullanarak bir Azure kaynağı zaten yönetme ya da bir kaynak için uygun rol atama varsa, liste görünümü görüntülenir **kaynakları bulmak veya etkinleştirme bir devam etmek için uygun rol ataması**. 
+Kuruluşunuzdaki başka bir kaynak veya dizin Yöneticisi PIM kullanarak bir Azure kaynağı zaten yönetme ya da bir uygun rol ataması için bir kaynak varsa, liste görünümü iletiyi görüntüler **kaynakları bulun veya etkinleştirme bir devam etmek için uygun rol atamasını**. 
 
 !["Kaynakları Bul" düğmesini "ayrıcalıklı Kimlik Yöneticisi'nde - Azure kaynaklarını" bölmesi](media/azure-pim-resource-rbac/aadpim_discover_eligible_not_active.png)
 
-Seçtiğinizde, **kaynakları bulmak** düğmesini tıklatın, yönetebileceğiniz Aboneliklerin listesini üstteki menüden olup olmadığını veya bölmesinde ortasında görünür. Vurgulanan abonelikleri zaten PIM tarafından korunur.
+Seçtiğinizde, **kaynakları bulmak** düğmesi, üstteki menüden olup olmadığını veya bölmenin ortasında yönetebileceğiniz aboneliklerin listesi görüntülenir. Vurgulanan abonelikleri zaten PIM tarafından korunur.
 
 > [!NOTE]
-> Başka bir kaynak yönetici yönetilen bir abonelik ayarlanır sonra PIM ayarları kaldırmasını önlemek için abonelik yönetilmeyen olamaz.
+> PIM ayarları, yönetilen bir abonelik ayarlanır sonra kaldırma başka bir kaynak yöneticisi önlemek için abonelik yönetilmeyen olamaz.
 
-!["Azure kaynaklarını - bulma" bölmesi](media/azure-pim-resource-rbac/aadpim_discovery_some_selected.png)
+!["Azure kaynakları - bulma" bölmesi](media/azure-pim-resource-rbac/aadpim_discovery_some_selected.png)
 
-İçinde **kaynak** sütun, farenizi PIM ile korumak istediğiniz bir abonelik üzerine getirin. Ardından, kaynak adı solundaki onay kutusunu seçin. Aynı anda birden çok abonelik seçebilirsiniz.
+İçinde **kaynak** sütun, PIM ile korumak istediğiniz bir abonelik üzerine fare getirin. Ardından, kaynak adının sol tarafındaki onay kutusunu seçin. Aynı anda birden çok abonelik seçebilirsiniz.
 
-!["Azure kaynaklarını - bulma" kaynaklarında listesi bölmesi](media/azure-pim-resource-rbac/aadpim_discovery_all_selected.png)
+!["Azure kaynakları - bulma" kaynak listesini bölmesi](media/azure-pim-resource-rbac/aadpim_discovery_all_selected.png)
 
-Üst menüde ekleme işlemini başlatmak için seçin **kaynak yönetmek**.
+Üst menüde, ekleme işlemini başlatmak için seçin **kaynak yönetme**.
 
-!["Azure kaynaklarını - bulma" "kaynak Yönet" düğmesini bölmesi](media/azure-pim-resource-rbac/aadpim_discovery_click_manage.png)
+!["Azure kaynakları - bulma" "kaynak yönetme" düğmesini bölmesi](media/azure-pim-resource-rbac/aadpim_discovery_click_manage.png)
 
-Seçili kaynakları artık PIM tarafından yönetilir. Bulma ekranında sağ üst köşesinde, kapatmaya seçin **X**. Yönetme PIM ayarları ve üst kısmındaki menüde atama üyeleri başlamak için **Privileged Identity Management - Azure kaynaklarını** bölmesinde, **yenileme** düğmesi.
+Seçilen kaynaklara artık PIM tarafından yönetiliyor. Bulma ekranında sağ üst köşede, kapatmak için seçin **X**. PIM ayarları yönetme ve üst kısmındaki menüde atama üyeleri başlamak için **Privileged Identity Management - Azure kaynaklarını** bölmesinde **Yenile** düğmesi.
 
-![Üstteki menüde "Privileged Identity Management - Azure kaynaklarını", "Yenile" düğmesini bölmesi](media/azure-pim-resource-rbac/aadpim_discovery_resources_refresh.png)
+![Üst menü "Privileged Identity Management - Azure kaynaklarını", "Yenile" düğmesini bölmesi](media/azure-pim-resource-rbac/aadpim_discovery_resources_refresh.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Rol ayarlarını yapılandırma](pim-resource-roles-configure-role-settings.md)
-- [PIM rolleri atama](pim-resource-roles-assign-roles.md)
+- [PIM Rolleri Ata](pim-resource-roles-assign-roles.md)

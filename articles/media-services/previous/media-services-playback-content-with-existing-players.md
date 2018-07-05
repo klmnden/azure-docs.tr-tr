@@ -1,6 +1,6 @@
 ---
-title: Kayıttan yürütme için varolan oynatıcıları içeriğinizi - Azure kullanın | Microsoft Docs
-description: Bu konu mevcut oynatıcıları listeler içeriğinizi kayıttan yürütmek üzere kullanabilirsiniz.
+title: Mevcut oynatıcılarda oynatma için içeriğinizi - Azure kullanın | Microsoft Docs
+description: Bu konu, mevcut oynatıcılarda listeler içeriğinizi kayıttan yürütmek üzere kullanabilirsiniz.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/02/2018
 ms.author: juliako
-ms.openlocfilehash: a64d32747371aab2bd927e53c5d43e30de9108f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3fe82b98163182c73a144b72da371e8aa195e8cf
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788483"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435866"
 ---
-# <a name="playing-your-content-with-existing-players"></a>Varolan oyuncularla içeriğinizi oynatma
-Azure Media Services, kesintisiz akış, HTTP canlı akış ve MPEG-Dash gibi birçok popüler akış biçimlerine destekler. Bu konu, akışları test etmek için kullanabileceğiniz varolan oynatıcıları işaret eder.
+# <a name="playing-your-content-with-existing-players"></a>İçeriğinizi mevcut oynatıcılarda oynatma
+Azure Media Services, kesintisiz akış, HTTP canlı akış ve MPEG-Dash gibi birçok popüler akış biçimlerinde destekler. Bu konuda, akışlarınız test etmek için kullanabileceğiniz mevcut oynatıcılarda işaret eder.
 
 ### <a name="the-azure-portal-media-services-content-player"></a>Azure portal medya Hizmetleri içerik Oynatıcısı
-**Azure** portalı, videonuzu test etmek için kullanabileceğiniz bir içerik oynatıcı sağlar.
+**Azure** portal, videonuzu test etmek için kullanabileceğiniz bir içerik oynatıcı sağlar.
 
-Üzerinde istediğiniz videoya tıklayın (, olduğundan emin olun [yayımlanan](media-services-portal-publish.md)) tıklatıp **Yürüt** portalın altındaki düğmesini.
+İstediğiniz videoya tıklayın (, olduğundan emin olun [yayımlanan](media-services-portal-publish.md)) tıklayıp **Play** portalın alt kısmındaki düğmesi.
 
 Bazı dikkate alınması gereken noktalar vardır:
 
@@ -36,7 +36,7 @@ Bazı dikkate alınması gereken noktalar vardır:
 ![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Azure Media Player
-Kullanım [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) kayıttan yürütme için aşağıdaki biçimlerden birinde, içerik (düz veya korumalı):
+Kullanım [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) kayıttan yürütme için aşağıdaki biçimlerden birinde içerik (açık ya da korumalı):
 
 * Kesintisiz Akış
 * MPEG DASH
@@ -44,29 +44,27 @@ Kullanım [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplay
 * Aşamalı MP4
 
 ### <a name="flash-player"></a>Flash Player
-#### <a name="aes-encrypted-with-token"></a>AES ile şifrelenmiş belirteci ile
+#### <a name="aes-encrypted-with-token"></a>AES şifreli belirteciyle
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
 ### <a name="silverlight-players"></a>Silverlight oynatıcıları
-#### <a name="monitoring"></a>İzleme
-[http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
 
-#### <a name="playready-with-token"></a>PlayReady belirteci ile
+#### <a name="playready-with-token"></a>Belirteci ile PlayReady
 [http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
 
-### <a name="dash-players"></a>TİRE oynatıcıları
+### <a name="dash-players"></a>DASH oynatıcılar
 [http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
 
 [http://dashif.org](http://dashif.org)
 
 ### <a name="other"></a>Diğer
-HLS da URL'leri test etmek için:
+HLS ayrıca URL'leri test etmek için:
 
-* **Safari** bir iOS cihazına veya
-* **3ivx HLS Player** Windows.
+* **Safari** bir iOS cihazında veya
+* **3ivx HLS Player** Windows üzerinde.
 
 ## <a name="developing-video-players"></a>Video oynatıcı geliştirme
-Kendi oynatıcıları geliştirme hakkında daha fazla bilgi için bkz: [video oynatıcı geliştirme](media-services-develop-video-players.md)
+Oyuncuların kendi geliştirme hakkında daha fazla bilgi için bkz: [video oynatıcılar geliştirme](media-services-develop-video-players.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

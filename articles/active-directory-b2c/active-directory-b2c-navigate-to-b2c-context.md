@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C B2C kiracınızda geçiş | Microsoft Docs
+title: Azure Active Directory B2C'de bir B2C kiracısına geçiş | Microsoft Docs
 description: Active Directory B2C kiracınızın bağlamına geçiş yapma.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 4/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 234dabe6da7f50e6102b79743f89e7bd81d55ed2
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9b8ff03ff90a0962a6a890cf7cc99e7134559b7f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709997"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442984"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Azure AD B2C kiracınıza geçiş yapma
 

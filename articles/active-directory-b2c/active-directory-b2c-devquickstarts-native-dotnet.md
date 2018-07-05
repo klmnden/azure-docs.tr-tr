@@ -1,24 +1,24 @@
 ---
-title: Kimlik doğrulaması, kaydolma, Azure Active Directory B2C profilinde Düzenle | Microsoft Docs
-description: Oturum açma, kaydolma, içeren bir Windows Masaüstü uygulamasının nasıl oluşturulacağını ve Azure Active Directory B2C kullanarak profil yönetimi.
+title: Kimlik doğrulaması, kayıt, profili Azure Active Directory B2C, Düzenle | Microsoft Docs
+description: Ve profil Yönetimi Azure Active Directory B2C kullanarak oturum açma, kaydolma, içeren bir Windows masaüstü uygulaması oluşturmayı öğrenin.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 980d554d96796a673db13bb369337d90088e8a75
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: bd504beabbb126db2cd90ac010dbc2757e571185
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711078"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441908"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: bir Windows masaüstü uygulaması oluşturma
-Azure Active Directory (Azure AD) B2C kullanarak masaüstü uygulamanızı birkaç adımda güçlü Self Servis kimlik yönetimi özellikleri ekleyebilirsiniz. Bu makalede kullanıcı kaydı, oturum açma ve profil yönetimini kapsayan .NET Windows Presentation Foundation (WPF) "Yapılacaklar listesi" uygulamasının nasıl oluşturulacağını gösterir. Uygulama bir kullanıcı adı veya e-posta kullanarak kaydolma ve oturum açma için destek içerir. Facebook ve Google gibi sosyal hesaplarını kullanarak, kaydolma ve oturum açma için destek yer alacaktır.
+Azure Active Directory (Azure AD) B2C'yi kullanarak masaüstü uygulamanızı birkaç adımda güçlü Self Servis kimlik yönetimi özellikleri ekleyebilirsiniz. Bu makale, kullanıcı oturum açma, kaydolma ve profil yönetimini kapsayan .NET Windows Presentation Foundation (WPF) "Yapılacaklar listesi" uygulamasının nasıl oluşturulacağını gösterir. Uygulama, bir kullanıcı adı veya e-posta kullanarak kaydolma ve oturum açma desteği içerecektir. Facebook ve Google gibi sosyal medya hesaplarını kullanarak, kaydolma ve oturum açma desteği de içerecektir.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Azure AD B2C dizini alma
 Azure AD B2C'yi kullanabilmek için önce dizin veya kiracı oluşturmanız gerekir.  Dizin; tüm kullanıcılarınız, uygulamalarınız, gruplarınız ve daha fazlası için bir kapsayıcıdır. Henüz yoksa devam etmeden önce bu kılavuzda [bir B2C dizini oluşturun](active-directory-b2c-get-started.md).
@@ -26,12 +26,12 @@ Azure AD B2C'yi kullanabilmek için önce dizin veya kiracı oluşturmanız gere
 ## <a name="create-an-application"></a>Uygulama oluşturma
 Ardından B2C dizininizde uygulama oluşturmanız gerekir. Bu, uygulamanız ile güvenli şekilde iletişim kurması için gereken bilgileri Azure AD'ye verir. Bir uygulama oluşturmak için [bu talimatları](active-directory-b2c-app-registration.md) izleyin.  Şunları yaptığınızdan emin olun:
 
-* Dahil bir **yerel istemci** uygulamadaki.
-* Kopya **yeniden yönlendirme URI'si** `urn:ietf:wg:oauth:2.0:oob`. Bu URL, bu kod örneği için varsayılan URL'dir.
+* Dahil bir **yerel istemci** uygulama.
+* Kopyalama **yeniden yönlendirme URI'si** `urn:ietf:wg:oauth:2.0:oob`. Bu URL, bu kod örneği için varsayılan URL'dir.
 * Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Buna daha sonra ihtiyacınız olacak.
 
 ## <a name="create-your-policies"></a>İlkelerinizi oluşturma
-Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu kod örneği üç kimlik deneyimi içerir: kaydolma, oturum açın ve profil düzenleme. Bölümünde açıklandığı gibi her tür için bir ilke oluşturmak gereken [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Üç ilkeyi oluştururken şunları yaptığınızdan emin olun:
+Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu kod örneği, üç kimlik deneyimi içerir: kaydolma, oturum açın ve profillerini düzenleyebilir. Açıklandığı gibi her tür için bir ilke oluşturmak gereken [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Üç ilkeyi oluştururken şunları yaptığınızdan emin olun:
 
 * Kimlik sağlayıcılar dikey penceresinde **Kullanıcı Kimliği ile kayıt** veya **E-posta ile kayıt** yöntemini seçin.
 * Kaydolma ilkenizde, **Görünen ad** ve diğer kaydolma özniteliklerini seçin.
@@ -51,22 +51,22 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 Tamamlanan uygulama aynı zamanda [.zip dosyası olarak](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) veya aynı deponun `complete` dalı üzerinde de kullanılabilir.
 
-Örnek kodu indirdikten sonra başlamak için Visual Studio .sln dosyasını açın. `TaskClient` Projedir kullanıcı ile etkileşime giren WPF masaüstü uygulaması. Bu öğreticinin amaçları doğrultusunda, arka uç görev web API'si, her kullanıcının yapılacaklar listesini depolayan Azure üzerinde barındırılan çağırır.  Web API'si oluşturma gerekmez, biz zaten çalışıyor olması.
+Örnek kodu indirdikten sonra başlamak için Visual Studio .sln dosyasını açın. `TaskClient` Kullanıcının etkileşime WPF masaüstü uygulaması projesidir. Bu öğreticinin amaçları doğrultusunda, arka uç görev web API'si, her kullanıcının yapılacaklar listesini depolayan Azure üzerinde barındırılan çağırır.  Web API'si oluşturma gerekmez, biz zaten çalışıyor olması.
 
-Nasıl bir web API güvenli bir şekilde istekleri Azure AD B2C kullanarak kimlik doğrulaması bilgi edinmek için kullanıma [web API Başlarken makale](active-directory-b2c-devquickstarts-api-dotnet.md).
+Web API'si güvenli bir şekilde istekleri Azure AD B2C kullanarak kimliğini nasıl bilgi edinmek için kullanıma [web API'si ile çalışmaya başlama makale](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## <a name="execute-policies"></a>İlkeleri yürütme
-Uygulamanız, bunlar HTTP isteğinin bir parçası çalıştırmak için istediğiniz ilkeyi belirtin kimlik doğrulama iletileri göndererek Azure AD B2C ile iletişim kurar. .NET Masaüstü uygulamaları için OAuth 2.0 kimlik doğrulama ileti gönderme, ilkeleri yürütmek için Önizleme Microsoft kimlik doğrulama kitaplığı (MSAL) kullanın ve web API çağırma belirteçleri almak.
+## <a name="execute-policies"></a>İlkeleri yürütün
+Uygulamanızı, HTTP isteğinin bir parçası olarak çalıştırmak istediğiniz ilkeyi belirtin kimlik doğrulaması iletiler göndererek Azure AD B2C ile iletişim kurar. .NET Masaüstü uygulamaları için OAuth 2.0 kimlik doğrulama iletileri, ilkeleri yürütmek için Microsoft kimlik doğrulama kitaplığı (MSAL) önizleme kullanın ve web API'lerini çağırma belirteçleri almak.
 
 ### <a name="install-msal"></a>MSAL yükleyin
-MSAL için ekleme `TaskClient` Visual Studio Paket Yöneticisi konsolunu kullanarak proje.
+Ekleme için MSAL `TaskClient` Visual Studio Paket Yöneticisi konsolunu kullanarak bir proje.
 
 ```
 PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
 ### <a name="enter-your-b2c-details"></a>B2C bilgilerinizi girme
-Dosyayı açmak `Globals.cs` ve her özellik değerleri kendinizinkilerle değiştirin. Bu sınıf genelinde kullanılan `TaskClient` yaygın olarak kullanılan başvuru değerleri.
+Dosyayı açmak `Globals.cs` ve her bir özellik değerlerini kendi değerlerinizle değiştirin. Bu sınıf genelinde kullanılan `TaskClient` için yaygın olarak kullanılan başvuru değeri.
 
 ```csharp
 public static class Globals
@@ -87,7 +87,7 @@ public static class Globals
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### <a name="create-the-publicclientapplication"></a>PublicClientApplication oluşturma
-MSAL birincil sınıfı `PublicClientApplication`. Bu sınıf, uygulamanızın Azure AD B2C sistemde temsil eder. Uygulama initalizes bir örneğini oluştururken `PublicClientApplication` içinde `MainWindow.xaml.cs`. Bu pencere kullanılabilir.
+MSAL, birincil sınıf `PublicClientApplication`. Bu sınıf, uygulamanızı Azure AD B2C sistemde temsil eder. Uygulama initalizes örneğini oluşturduğunuzda `PublicClientApplication` içinde `MainWindow.xaml.cs`. Bu pencerenin kullanılabilir.
 
 ```csharp
 protected async override void OnInitialized(EventArgs e)
@@ -104,8 +104,8 @@ protected async override void OnInitialized(EventArgs e)
     ...
 ```
 
-### <a name="initiate-a-sign-up-flow"></a>Kaydolma akışı başlatma
-Bir kullanıcı yukarı işaretlerine seçtiğinde, oluşturduğunuz kaydolma ilkeyi kullanan bir kaydolma akışı başlatmak istediğinizi. MSAL kullanarak, yalnızca çağırmanız `pca.AcquireTokenAsync(...)`. Geçirdiğiniz için parametreleri `AcquireTokenAsync(...)` hangi belirteci aldığınız, kimlik doğrulama isteği ve daha fazlasını kullanılan ilkeyi belirleyin.
+### <a name="initiate-a-sign-up-flow"></a>Bir kayıt akışını başlatmak
+Bir kullanıcı yukarı işaretlerine seçtiğinde, oluşturduğunuz kaydolma İlkesi kullanan bir kaydolma akış başlatma istiyorsunuz. MSAL kullanarak çağrı `pca.AcquireTokenAsync(...)`. İçin geçirdiğiniz parametreler `AcquireTokenAsync(...)` hangi belirteci alırsınız, kimlik doğrulama isteği ve daha fazla kullanılan ilke belirleyin.
 
 ```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
@@ -156,7 +156,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ```
 
 ### <a name="initiate-a-sign-in-flow"></a>Oturum açma akışını başlatmak
-Kaydolma akış başlatmak aynı şekilde oturum açma akışını başlatabilirsiniz. Bir kullanıcı oturum açtığında, oturum açma ilkesini kullanarak bu kez MSAL, aynı çağrısı yapın:
+Kayıt bir akışı başlatan aynı şekilde oturum açma akışını başlatabilirsiniz. Bir kullanıcı oturum açtığında, oturum açma İlkesi kullanarak bu süre MSAL, aynı çağrı yapın:
 
 ```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
@@ -170,8 +170,8 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
         ...
 ```
 
-### <a name="initiate-an-edit-profile-flow"></a>Bir profili Düzenle akışı başlatma
-Yeniden düzenleme profili İlkesi aynı şekilde çalıştırabilirsiniz:
+### <a name="initiate-an-edit-profile-flow"></a>Profili Düzenle akış başlatma
+Yeniden aynı biçimde bir profil Düzenleme İlkesi yürütebilirsiniz:
 
 ```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
@@ -184,10 +184,10 @@ private async void EditProfile(object sender, RoutedEventArgs e)
                     Globals.editProfilePolicy);
 ```
 
-Bu durumların tümünde, MSAL bir belirteç içine ya da döndürür `AuthenticationResult` veya bir özel durum oluşturur. MSAL belirteci Al her zaman kullanabilirsiniz `AuthenticationResult.User` UI gibi uygulama kullanıcı verilerini güncelleştirmek için nesne. ADAL ayrıca uygulamanın diğer bölümlerinde kullanmak için belirteç önbelleğe alır.
+Bu durumların tümünde, MSAL belirteç ya da döndürür `AuthenticationResult` veya bir özel durum oluşturur. MSAL belirteci Al her zaman kullanabileceğiniz `AuthenticationResult.User` uygulamada, kullanıcı Arabirimi gibi kullanıcı verileri güncelleştirmek için nesne. ADAL belirteç kullanılmak üzere uygulamanın diğer bölümlerini de önbelleğe alır.
 
-### <a name="check-for-tokens-on-app-start"></a>Uygulama başlangıç belirteçleri denetleyin
-MSAL, kullanıcının oturum açma durumunu izlemek için de kullanabilirsiniz.  Bu uygulamada bile bunların uygulamayı kapatın ve yeniden açın sonra oturum açmış durumda kalmak için kullanıcı istiyoruz.  Geri içinde `OnInitialized` geçersiz kılma, MSAL'ın kullanmak `AcquireTokenSilent` yöntemi olup olmadığını denetlemek için önbelleğe alınmış belirteçleri:
+### <a name="check-for-tokens-on-app-start"></a>Uygulama başlangıç menüsünde belirteçleri denetle
+MSAL, kullanıcının oturum açma durumunu izlemek için de kullanabilirsiniz.  Bu uygulamada, kullanıcının sonra bile, uygulamayı kapatın ve yeniden açın, oturum açmış durumda kalma istiyoruz.  Geri içinde `OnInitialized` geçersiz kılmak, MSAL'ın kullanın `AcquireTokenSilent` yöntemi olup olmadığını denetlemek için önbelleğe alınan belirteçleri:
 
 ```csharp
 AuthenticationResult result = null;
@@ -225,8 +225,8 @@ catch (MsalException ex)
 }
 ```
 
-## <a name="call-the-task-api"></a>Görev API çağrısı
-Şimdi MSAL ilkeleri yürütün ve belirteçleri almak için kullandığınız.  Bir görev API'sini çağırmak için bu belirteçleri kullanmak istediğinizde, MSAL'ın yeniden kullanabilirsiniz `AcquireTokenSilent` yöntemi olup olmadığını denetlemek için önbelleğe alınmış belirteçleri:
+## <a name="call-the-task-api"></a>' % S'görev API'si çağırma
+MSAL, ilkeleri yürütün ve belirteçleri almak için artık kullandınız.  Bir görev API'si çağırma için bu belirteçleri kullanmak istediğinizde, MSAL'ın yeniden kullanabilirsiniz `AcquireTokenSilent` yöntemi olup olmadığını denetlemek için önbelleğe alınan belirteçleri:
 
 ```csharp
 private async void GetTodoList()
@@ -271,7 +271,7 @@ private async void GetTodoList()
     ...
 ```
 
-Zaman çağrısı `AcquireTokenSilentAsync(...)` başarılı olur ve bir belirteç önbelleğinde bulunan, belirtece eklediğiniz `Authorization` HTTP isteği üstbilgisi. Görev web API, kullanıcının yapılacaklar listesini okuma isteği kimlik doğrulaması için bu üstbilgiyi kullanır:
+Zaman çağrısı `AcquireTokenSilentAsync(...)` başarılı olur ve önbellekte bir belirteç bulunana, belirtece eklediğiniz `Authorization` HTTP isteği üstbilgisi. Görev web API'si, bu üst bilgi, kullanıcının yapılacaklar listesini okuma isteği kimlik doğrulaması için kullanır:
 
 ```csharp
     ...
@@ -284,7 +284,7 @@ Zaman çağrısı `AcquireTokenSilentAsync(...)` başarılı olur ve bir belirte
 ```
 
 ## <a name="sign-the-user-out"></a>Kullanıcı Oturumu Kapat
-Son olarak, kullanıcı seçtiğinde uygulama ile bir kullanıcının oturumunu sona erdirmek için MSAL kullanabilirsiniz **oturumu**.  MSAL kullanırken, bu belirteç önbelleği belirteçlerinden tümünün temizleyerek gerçekleştirilir:
+Son olarak, kullanıcı seçtiğinde uygulaması ile bir kullanıcının oturumunu sona erdirmek için MSAL kullanabilirsiniz **oturumunuzu**.  MSAL kullanarak, bu belirteç önbellekten belirteçlerinin tümü temizleyerek gerçekleştirilir:
 
 ```csharp
 private void SignOut(object sender, RoutedEventArgs e)
@@ -306,22 +306,22 @@ private void SignOut(object sender, RoutedEventArgs e)
 ```
 
 ## <a name="run-the-sample-app"></a>Örnek uygulamayı çalıştırma
-Son olarak, yapı ve örnek çalıştırın.  Bir e-posta adresi veya kullanıcı adı kullanarak uygulama için kaydolun. Oturumu kapatın ve aynı kullanıcı olarak yeniden oturum açın. Bu kullanıcının profilini düzenleyin. Oturumu kapatın ve farklı bir kullanıcı kullanarak kaydolun.
+Son olarak, derleme ve örneği çalıştırın.  Bir e-posta adresi veya kullanıcı adı kullanarak uygulamaya kaydoluyor. Oturumu kapatın ve aynı kullanıcı olarak yeniden oturum açın. Bu kullanıcının profilini düzenleyin. Oturumu kapatın ve farklı bir kullanıcı kullanarak kaydolun.
 
-## <a name="add-social-idps"></a>Sosyal IDPs Ekle
-Şu anda, uygulama yalnızca kullanıcı kaydolma ve oturum kullanan açma destekler **yerel hesaplar**. Bunlar, bir kullanıcı adı ve parola kullanan B2C dizininizde depolanan hesaplarıdır. Azure AD B2C kullanarak kodunuzu değiştirmeden diğer kimlik sağlayıcılardan (IDPs) için destek ekleyebilirsiniz.
+## <a name="add-social-idps"></a>Sosyal Idp'yi Ekle
+Şu anda, uygulamayı yalnızca kullanıcı kaydolma ve oturum kullanan açma destekler **yerel hesaplar**. Bunlar, bir kullanıcı adı ve parola kullanan B2C dizininizde saklanan hesaplarıdır. Azure AD B2C'yi kullanarak kodunuzu değiştirmeden diğer kimlik sağlayıcı (IDP) için destek ekleyebilirsiniz.
 
-Sosyal IDPs uygulamanıza eklemek için bu makaleler ayrıntılı yönergeleri izleyerek başlayın. Desteklemek istediğiniz her IDP için bu sistemde bir uygulamayı kaydetme ve bir istemci kimliği elde gerekir
+Sosyal Idp'yi uygulamanıza eklemek için şu makalelere ayrıntılı yönergeleri takip ederek başlayın. Desteklemek istediğiniz her bir IDP için bu sistemde bir uygulamayı kaydetme ve bir istemci kimliği almak gerekiyor
 
 * [Facebook bir IDP ayarlayın](active-directory-b2c-setup-fb-app.md)
-* [Google bir IDP ayarlayın](active-directory-b2c-setup-goog-app.md)
+* [Google bir IDP ayarlayın.](active-directory-b2c-setup-goog-app.md)
 * [Amazon bir IDP ayarlayın](active-directory-b2c-setup-amzn-app.md)
 * [LinkedIn bir IDP ayarlayın](active-directory-b2c-setup-li-app.md)
 
-B2C dizininize kimlik sağlayıcıları ekledikten sonra her yeni IDPs eklemek için üç ilkenizi açıklandığı gibi düzenlemeniz gerekir [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md). İlkelerinizi kaydettikten sonra uygulamayı yeniden çalıştırın. Oturum açma eklenen yeni IDPs görmeniz gerekir ve kaydolma seçenekleri her kimliğinizi karşılaştığında.
+Kimlik sağlayıcıları B2C dizininizi ekledikten sonra her yeni IDP içerecek şekilde ilkelerinizi üç açıklandığı gibi Düzenle gerek [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md). İlkelerinizi kaydettikten sonra uygulamayı yeniden çalıştırın. Oturum açma eklenen yeni IDP görmeniz gerekir ve her kimliğinizi kaydolma seçenekleri deneyimleri.
 
-İlkelerinizle denemeler ve örnek uygulamanızı etkileri gözlemleyin. Ekleyebilir veya IDPs kaldırmak, uygulamanın talep değiştirmek veya kaydolma özniteliklerini değiştirebilirsiniz. İlkeleri, kimlik doğrulama isteklerini ve MSAL nasıl birbirine bağlayan görene kadar deneyin.
+Uygulamanızın ilkelerini deneyebilir ve örnek uygulamanızı etkilerini gözlemleyin. Ekleme veya Idp'yi kaldırmak, uygulama taleplerini yönetmek veya kaydolma özniteliklerini değiştirebilirsiniz. İlkeleri ve kimlik doğrulama isteklerini MSAL nasıl birbirine bağlayın görene kadar denemeler yapın.
 
-Tamamlanan örnek, başvuru için [bir .zip dosyası olarak sağlanan](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Aynı zamanda GitHub'dan kopyalayabilirsiniz:
+Tamamlanan örnek, başvuru için [.zip dosyası olarak sağlanan](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Aynı zamanda GitHub'dan kopyalayabilirsiniz:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```

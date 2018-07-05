@@ -1,6 +1,6 @@
 ---
-title: Arşiv Azure tanılama günlükleri
-description: Azure tanılama günlüklerinize bir depolama hesabı, uzun vadeli bekletme için arşiv öğrenin.
+title: Azure tanılama günlüklerini arşivleme
+description: Azure tanılama günlükleriniz bir depolama hesabında uzun süreli saklama için Arşivlemeyi öğreneceksiniz.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: d48828c8d2ec439f389fe4eddabb59599cc1680b
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 99f150b2c62331a63e5bd4377f51fd11359628ab
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752835"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436037"
 ---
-# <a name="archive-azure-diagnostic-logs"></a>Arşiv Azure tanılama günlükleri
+# <a name="archive-azure-diagnostic-logs"></a>Azure tanılama günlüklerini arşivleme
 
-Bu makalede, biz arşivlemek için Azure portal, PowerShell cmdlet'leri, CLI veya REST API nasıl kullanabileceğinizi gösterir, [Azure tanılama günlüklerini](monitoring-overview-of-diagnostic-logs.md) depolama hesabındaki. Bu seçenek, tanılama günlüklerinize denetim, statik çözümleme veya yedekleme için bir isteğe bağlı bekletme ilkesi ile korumak istiyorsanız kullanışlıdır. Depolama hesabı ayarı yapılandıran kullanıcı her iki aboneliğin uygun RBAC erişime sahip olduğu sürece günlükleri yayma kaynak ile aynı abonelikte olması gerekmez.
+Bu makalede, biz arşivlemek için Azure portalı, PowerShell cmdlet'leri, CLI veya REST API'sini nasıl kullanabileceğinizi gösterir, [Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md) bir depolama hesabında. Bu seçenek, Denetim, statik analiz veya yedekleme için bir isteğe bağlı bekletme ilkesi ile tanılama günlüklerini tutmak istiyorsanız yararlıdır. Ayarı yapılandıran kullanıcının her iki abonelik için uygun RBAC erişimine sahip olduğu sürece, günlükleri yayan kaynak ile aynı abonelikte olması depolama hesabı yok.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Başlamadan önce şunları gerçekleştirmeniz [depolama hesabı oluşturma](../storage/storage-create-storage-account.md) tanılama günlüklerinize arşiv. Böylece daha iyi İzleme verilerine erişimi denetleyebilirsiniz içine depolanmış, diğer izleme olmayan verilere sahip varolan bir depolama hesabı kullanmamanızı öneririz. Ayrıca bir depolama hesabına tanılama ölçümleri ve etkinlik günlüğü arşivleme, ancak onu merkezi bir konumda tüm izleme verilerini korumak için tanılama günlükleri de bu depolama hesabını kullanmak için anlamlı olabilir. Kullandığınız depolama hesabı, genel amaçlı depolama hesabı, blob storage hesabı olması gerekir.
+Başlamadan önce yapmanız [depolama hesabı oluşturma](../storage/storage-create-storage-account.md) tanılama günlüklerinizi arşiv. İçinde depolanır, bu sayede daha iyi İzleme verilerine erişimi denetleyebilir, diğer izleme olmayan veriler içeren mevcut bir depolama hesabını kullanmamanızı öneririz. Ayrıca bir depolama hesabına tanılama ölçümleri ve Etkinlik günlüğünü arşivleme, ancak, tüm izleme verilerini merkezi bir konumda tutmak için de tanılama günlükleriniz için bu depolama hesabı kullanmak mantıklı olabilir.
 
 > [!NOTE]
->  Şu anda arşivleyemezsiniz verileri bir depolama hesabı, güvenli bir sanal ağ.
+>  Şu anda arşivlenemiyor verileri bir depolama hesabı, güvenli bir sanal ağda.
 
 ## <a name="diagnostic-settings"></a>Tanılama ayarları
 
-Aşağıdaki yöntemlerden birini kullanarak tanılama günlüklerinize arşivlemek için ayarladığınız bir **tanılama ayarını** belirli bir kaynak için. Kaynağın tanılama ayarını kategorilerini günlükleri ve hedef için (depolama hesabı, olay hub'ları ad alanı veya günlük analizi) gönderilen ölçüm verileri tanımlar. Ayrıca her bir günlük kategorisi ve ölçüm verileri bir depolama hesabında depolanan olayları için bekletme ilkesi (tutulacağı gün sayısı) tanımlar. Bir bekletme ilkesi sıfır olarak ayarlanırsa, bu günlüğü kategori olaylar (yani, sonsuza kadar söylemeniz) süresiz olarak depolanır. Bir bekletme ilkesi, aksi takdirde herhangi bir sayıda gün 1 ile 2147483647 arasında olabilir. [Daha fazla bilgiyi burada tanılama ayarları hakkında](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Bekletme ilkeleri uygulanan başına günlük, olduğundan, ilke (UTC) dışında tutma sunulmuştur gün günlüklerinden gün sonunda silinir. Örneğin, bir günlük bir Bekletme İlkesi nesneniz varsa, günün bugün başında dünden önceki gün günlüklerinden silinecek. Silme işlemi gece yarısı UTC ancak günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir Not başlar. 
+Aşağıdaki yöntemlerden birini kullanarak, tanılama günlüklerini arşivleme için ayarlamanız bir **tanılama ayarını** belirli bir kaynak için. Bir kaynağın tanılama ayarını günlükleri ve ölçüm verileri bir hedefe (depolama hesabı, Event Hubs ad alanı veya Log Analytics) gönderilen kategorileri tanımlar. Ayrıca her bir kategori günlük ve ölçüm verileri bir depolama hesabında depolanan olayları için bekletme ilkesi (saklanacağı gün sayısı) tanımlar. Bir bekletme ilkesi, sıfır olarak ayarlanırsa, olay günlüğü kategori için (yani, sonsuza kadar söylemek) süresiz olarak depolanır. Bir bekletme ilkesi, aksi takdirde herhangi bir sayıda gün 1 ile 2147483647 arasında olabilir. [Daha fazla tanılama ayarları hakkında](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silinecektir. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar. 
 
 > [!NOTE]
 > Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
@@ -37,31 +37,31 @@ Aşağıdaki yöntemlerden birini kullanarak tanılama günlüklerinize arşivle
 >
 >
 
-## <a name="archive-diagnostic-logs-using-the-portal"></a>Portalı kullanarak arşiv tanılama günlükleri
+## <a name="archive-diagnostic-logs-using-the-portal"></a>Portalı kullanarak tanılama günlüklerini arşivleme
 
-1. Portal, Azure izleyicisine gidin ve tıklayın **tanılama ayarları**
+1. Portal, Azure İzleyicisi'ne gidin ve tıklayarak **tanılama ayarları**
 
-    ![Azure İzleyicisi İzleme bölümü](media/monitoring-archive-diagnostic-logs/diagnostic-settings-blade.png)
+    ![Azure İzleyicisi İzleme](media/monitoring-archive-diagnostic-logs/diagnostic-settings-blade.png)
 
-2. İsteğe bağlı olarak kaynak grubu veya kaynak türü listeyi filtrelemek sonra tanılama ayarını ayarlamak istediğiniz kaynak'ı tıklatın.
+2. İsteğe bağlı olarak kaynak grubu veya kaynak türe göre listeyi filtreleyin ve kaynağın tanılama ayarını ayarlamak istediğiniz'i tıklatın.
 
-3. Hiçbir ayar kaynağı varsa, sizden istenir bir ayar oluşturmak için seçtiğiniz. "Tanılamayı açın."'i tıklatın
+3. Hiçbir ayar kaynağı varsa, istenen bir ayar oluşturmak için seçtiğiniz. "Tanılamayı Aç" tıklayın
 
-   ![Tanılama ayarını - ayar Ekle](media/monitoring-archive-diagnostic-logs/diagnostic-settings-none.png)
+   ![Tanılama ayarını - mevcut hiçbir ayar Ekle](media/monitoring-archive-diagnostic-logs/diagnostic-settings-none.png)
 
-   Kaynak üzerinde var olan ayarları varsa, bu kaynak üzerinde zaten yapılandırılmış ayarları listesini görürsünüz. "Tanılama ayarını Ekle" yi tıklatın.
+   Kaynakta mevcut ayarları varsa, bu kaynakta zaten yapılandırılmış ayarların bir listesini görürsünüz. "Tanılama ayarı Ekle" ye tıklayın
 
-   ![Tanılama ayarını ayarlar varolan - Ekle](media/monitoring-archive-diagnostic-logs/diagnostic-settings-multiple.png)
+   ![Tanılama ayarını - var olan ayarları Ekle](media/monitoring-archive-diagnostic-logs/diagnostic-settings-multiple.png)
 
-3. Ayarı, bir ad verin ve için kutuyu **verme depolama hesabına**, bir depolama hesabı seçin. İsteğe bağlı olarak, bu günlükler kullanarak korumak için gün sayısını ayarlayın **bekletme (gün)** kaydırıcılar. Sıfır gün bekletme günlükleri süresiz olarak depolar.
+3. Ayarı, bir ad verin ve kutusunu işaretlemeniz **depolama hesabına dışarı aktarma**, ardından depolama hesabını seçin. İsteğe bağlı olarak, bu günlükleri kullanarak saklanacağı gün sayısını ayarlayın **bekletme (gün)** kaydırıcıları. Bekletme günü sayısının sıfır günlükler süresiz olarak depolar.
 
-   ![Tanılama ayarını ayarlar varolan - Ekle](media/monitoring-archive-diagnostic-logs/diagnostic-settings-configure.png)
+   ![Tanılama ayarını - var olan ayarları Ekle](media/monitoring-archive-diagnostic-logs/diagnostic-settings-configure.png)
 
 4. **Kaydet**’e tıklayın.
 
-Birkaç dakika sonra yeni bir ayar bu kaynak için ayarları listesi görüntülenir ve yeni olay verilerini oluşturulan hemen bu depolama hesabına tanılama günlüklerini arşivlenir.
+Birkaç dakika sonra yeni ayar, bu kaynak için ayarların listesi görüntülenir ve oluşturulan yeni olay verilerini hemen sonra bu depolama hesabına tanılama günlükleri arşivlenir.
 
-## <a name="archive-diagnostic-logs-via-azure-powershell"></a>Azure PowerShell aracılığıyla arşiv tanılama günlükleri
+## <a name="archive-diagnostic-logs-via-azure-powershell"></a>Azure PowerShell aracılığıyla tanılama günlüklerini arşivleme
 
 ```
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
@@ -70,13 +70,13 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
 | ResourceId |Evet |Kaynağın tanılama ayarını ayarlamak istediğiniz kaynak kimliği. |
-| StorageAccountId |Hayır |Tanılama günlüklerini kaydedilmesi gereken depolama hesabının kaynak kimliği. |
-| Kategoriler |Hayır |Etkinleştirmek için günlük kategorileri virgülle ayrılmış listesi. |
-| Etkin |Evet |Tanılama etkin veya bu kaynağa devre dışı olup olmadığını gösteren bir Boole değeri. |
-| RetentionEnabled |Hayır |Bir bekletme ilkesi bu kaynakta etkin olmadığını gösteren bir Boole değeri. |
-| RetentionInDays |Hayır |Kendisi için olayları 1 ile 2147483647 arasında korunması gereken gün sayısı. Sıfır değeri günlükleri süresiz olarak depolar. |
+| StorageAccountId |Hayır |Tanılama günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
+| Kategoriler |Hayır |Günlük kategorileri etkinleştirmek için virgülle ayrılmış listesidir. |
+| Etkin |Evet |Tanılama etkin veya bu kaynak üzerinde devre dışı olup olmadığını gösteren bir Boole değeri. |
+| RetentionEnabled |Hayır |Bir bekletme ilkesi bu kaynak üzerinde etkin olmadığını belirten bir Boole değeri. |
+| Retentionındays |Hayır |Kendisi için olayları 1 ile 2147483647 arasında korunması gereken gün sayısı. Sıfır değeri, günlükler süresiz olarak depolar. |
 
-## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Azure CLI 2.0 aracılığıyla arşiv tanılama günlükleri
+## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Azure CLI 2.0 ile tanılama günlüklerini arşivleme
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -94,33 +94,33 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-Ek kategoriler tanılama günlük olarak geçirilen JSON dizisine sözlükler ekleyerek ekleyebileceğiniz `--logs` parametresi.
+Tanılama günlüğüne olarak geçirilen JSON dizisi sözlükleri ekleyerek ek kategori ekleyebilirsiniz `--logs` parametresi.
 
-`--resource-group` Bağımsız değişken, yalnızca gerekli olduğunda `--storage-account` bir nesne kimliği değil Depolama için tanılama günlükleri arşivlemek için tam belgeleri için bkz [CLI komut başvurusu](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+`--resource-group` Bağımsız değişken, yalnızca gerekli if `--storage-account` bir nesne kimliği değil. Depolama için tanılama günlüklerini arşivleme tüm belgeler için bkz. [CLI komut başvurusu](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
-## <a name="archive-diagnostic-logs-via-the-rest-api"></a>REST API aracılığıyla arşiv tanılama günlükleri
+## <a name="archive-diagnostic-logs-via-the-rest-api"></a>REST API aracılığıyla tanılama günlüklerini arşivleme
 
-[Bu belgede bakın](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) Azure İzleyici REST API'sini kullanarak tanılama ayarlama nasıl ayarlanacağı hakkında bilgi için.
+[Bu belgeye bakın](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) bir tanılama ayarı Azure İzleyici REST API'sini kullanarak nasıl ayarlanacağı hakkında bilgi.
 
-## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Tanılama günlüklerini depolama hesabındaki şeması
+## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Tanılama günlüklerinin depolama hesabındaki şema
 
-Arşivleme kurduktan sonra bir depolama kapsayıcısı etkinleştirdiğiniz günlük kategorilerden birini olay oluştuktan hemen sonra depolama hesabı oluşturulur. Kapsayıcı içinde BLOB'ları, tanılama günlüklerini ve etkinlik günlüğü arasında aynı biçimde izleyin. Bu BLOB'ları yapıdır:
-
-> Öngörüler - günlükleri-{günlük kategori adı} / ResourceId = / ABONELİKLERİ / {abonelik kimliği} /RESOURCEGROUPS/ {kaynak grubu adı} /PROVIDERS/ {kaynak sağlayıcı adı} / {kaynak türü} / {kaynak adı} / y = {dört basamaklı sayısal year} / m = {iki basamaklı sayısal month} / d = {iki basamaklı sayısal günü} / h = {iki basamaklı 24 saatlik hour}/m=00/PT1H.json
-
-Veya daha basit bir şekilde
-
-> Öngörüler - günlükleri-{günlük kategori adı} / ResourceId = / {kaynak kimliği} / y = {dört basamaklı sayısal year} / m = {iki basamaklı sayısal month} / d = {iki basamaklı sayısal günü} / h = {iki basamaklı 24 saatlik hour}/m=00/PT1H.json
-
-Örneğin, bir blob adı olabilir:
-
-> insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUP/TESTNSG/y=2016/m=08/d=22/h=18/m=00/PT1H.json
-
-Her PT1H.json blobu, blob URL’sinde belirtilen saat (örneğin, h=12) içinde gerçekleşen bir JSON olay blobu içerir. Mevcut saat boyunca, olaylar meydana geldikçe PT1H.json dosyasına eklenir. Dakika değeri (m 00 =) her zaman tanılama günlük olayları tek tek bloblar saat başına ayrılmış bu yana 00.
-
-PT1H.json dosya içinde her olay bu biçim aşağıdaki "kayıtlar" dizisinde depolanır:
+Arşiv kurduktan sonra bir olay etkinleştirdiğiniz günlük kategorileri birinde oluşur oluşmaz depolama hesabında bir depolama kapsayıcısı oluşturulur. Aşağıda gösterildiği gibi etkinlik ve tanılama günlükleri arasında adlandırma kuralını kapsayıcı içindeki blobları izleyin:
 
 ```
+insights-logs-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/RESOURCEGROUPS/{resource group name}/PROVIDERS/{resource provider name}/{resource type}/{resource name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
+
+Örneğin, bir blob adı aşağıdaki gibi olabilir:
+
+```
+insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUP/TESTNSG/y=2016/m=08/d=22/h=18/m=00/PT1H.json
+```
+
+Her PT1H.json blobu, blob URL’sinde belirtilen saat (örneğin, h=12) içinde gerçekleşen bir JSON olay blobu içerir. Mevcut saat boyunca, olaylar meydana geldikçe PT1H.json dosyasına eklenir. Dakika değeri (m = 00) her zaman 00, tanılama günlük olayları saat başına bloblara ayrılmış sonra.
+
+PT1H.json dosyasına içinde her olay şu biçimi takip "kayıt" dizisinde depolanır:
+
+``` JSON
 {
     "records": [
         {
@@ -145,17 +145,17 @@ PT1H.json dosya içinde her olay bu biçim aşağıdaki "kayıtlar" dizisinde de
 
 | Öğe adı | Açıklama |
 | --- | --- |
-| time |Olay işleme olay karşılık gelen isteği Azure hizmeti tarafından oluşturulan zaman damgası. |
-| resourceId |Etkilenen kaynağının kaynak kimliği. |
+| time |Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
+| resourceId |Etkilenen kaynak kaynak kimliği. |
 | operationName |İşlemin adı. |
-| category |Olay günlüğü kategori. |
-| properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (yani sözlük). |
+| category |Olay günlüğü kategorisi. |
+| properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (yani, sözlük). |
 
 > [!NOTE]
-> Özellikleri ve bu özellikleri kullanımını kaynak bağlı olarak değişebilir.
+> Özellikleri ve bu özelliklerini kullanımını kaynağa bağlı olarak değişebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [BLOB'ları çözümleme için karşıdan yükle](../storage/storage-dotnet-how-to-use-blobs.md)
-* [Bir olay hub'ları ad alanına akış tanılama günlükleri](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Blobları analiz için indirin](../storage/storage-dotnet-how-to-use-blobs.md)
+* [Bir Event Hubs ad alanı için Stream tanılama günlükleri](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Tanılama günlükleri hakkında daha fazla bilgi](monitoring-overview-of-diagnostic-logs.md)

@@ -1,17 +1,17 @@
 ---
-title: Hyper-V çoğaltma Azure Site kurtarma ikincil site mimarisinin | Microsoft Docs
+title: Hyper-V çoğaltması Azure Site recovery'de ikincil site arası mimari | Microsoft Docs
 description: Bu makalede, Azure Site Recovery ile ikincil System Center VMM sitesine şirket içi Hyper-V VM’lerini çoğaltma mimarisine genel bir bakış sunulmaktadır.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 39a397edd17327a91882535fbd00222a4ae4dddc
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 11c80a1e1fa0d5afbb70eddd5adcd272d12f1c74
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894305"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437867"
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>İkincil bir siteye Hyper-V çoğaltma
 
@@ -20,7 +20,7 @@ Bu makalede, Azure portalından [Azure Site Recovery](site-recovery-overview.md)
 
 ## <a name="architectural-components"></a>Mimari bileşenler
 
-Aşağıdaki tablo ve grafik ikincil bir siteye Hyper-V çoğaltma için kullanılan bileşenler üst düzey bir görünümünü sağlar.
+Aşağıdaki tablo ve grafik bir ikincil siteye Hyper-V çoğaltma için kullanılan bileşenleri üst düzey bir görünümünü sağlar.
 
 **Bileşen** | **Gereksinim** | **Ayrıntılar**
 --- | --- | ---
@@ -29,28 +29,28 @@ Aşağıdaki tablo ve grafik ikincil bir siteye Hyper-V çoğaltma için kullan�
 **Hyper-V sunucusu** |  Birincil ve ikincil VMM bulutlarında bir veya daha fazla Hyper-V konak sunucusu. | Verilerin, Kerberos veya sertifika kimlik doğrulaması kullanılarak, LAN ya da VPN üzerinden birincil ve ikincil Hyper-V ana bilgisayar sunucuları arasında çoğaltılması gerekir.  
 **Hyper-V VM’leri** | Hyper-V ana bilgisayar sunucusunda. | Kaynak ana bilgisayar sunucusunda çoğaltmak istediğiniz en az bir VM olması gerekir.
 
-**Şirket içi şirket içi mimarisi**
+**Şirket içinden şirket içine mimarisi**
 
 ![Şirket içinden şirket içine](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
 
 ## <a name="replication-process"></a>Çoğaltma işlemi
 
-1. İlk çoğaltma tetiklendiğinde bir [Hyper-V VM anlık görüntü](https://technet.microsoft.com/library/dd560637.aspx) anlık görüntü alınmaz.
-2. VM üzerindeki sanal sabit disklere çoğaltılmış tek tek, ikincil konum için ' dir.
-3. İlk çoğaltma işlemi devam ederken disk değişimi meydana gelirse 
-4. İlk çoğaltma tamamlandığında, değişim çoğaltması başlar. Hyper-V çoğaltma çoğaltma İzleyicisi değişiklikleri Hyper-V çoğaltma günlükleri (.hrl) izler. Bu günlük dosyaları disklerle aynı klasörde yer alır. Her diskin ikincil konuma gönderilen bir ilişkili .hrl dosyası vardır. İlk çoğaltma sırasında anlık görüntü ve günlük dosyaları disk kaynaklarını kullanır.
+1. İlk çoğaltma tetiklendiğinde bir [Hyper-V VM anlık görüntüsü](https://technet.microsoft.com/library/dd560637.aspx) anlık görüntü alınır.
+2. Birer birer çoğaltılır, ikincil konumda VM üzerindeki sanal sabit diskleri olan.
+3. İlk çoğaltma devam ederken disk değişiklikleri meydana gelirse, Hyper-V çoğaltma çoğaltma İzleyicisi bu değişiklikleri Hyper-V çoğaltma günlükleri (.hrl) izler. Bu günlük dosyaları disklerle aynı klasörde yer alır. Her diskin ikincil konuma gönderilir bir ilişkili .hrl dosyası vardır. İlk çoğaltma sırasında anlık görüntü ve günlük dosyaları disk kaynaklarını kullanır.
+4. İlk çoğaltma tamamlandığında VM anlık görüntüsü silinir ve değişiklik çoğaltması başlar.
 5. Günlükteki değişim disk değişiklikleri eşitlenir ve üst diske birleştirilir.
 
 
 ## <a name="failover-and-failback-process"></a>Yük devretme ve yeniden çalışma işlemi
 
-- Üzerinde tek bir makine başarısız veya birden çok makinelerin yük devretme düzenlemek için kurtarma planları oluşturabilirsiniz.
+- Tek bir makine üzerinden yük devredebilir veya kurtarma planları, birden çok makinenin yük devretmelerini düzenlemek üzere oluşturun.
 - Şirket içi siteler arasında planlanmış veya planlanmamış bir yük devretme çalıştırabilirsiniz. Planlı bir yük devretme çalıştırırsanız, veri kaybı olmaması için kaynak VM’ler kapatılır.
-    - Yük devretme makineler ikincil konumdaki korunmayan sonra ikincil bir siteye planlanmamış yük devretme gerçekleştirin
+    - Sonra ikincil konumdaki makineler ikincil bir siteye planlanmamış bir yük devretme gerçekleştirirseniz korumalı değildir.
     - Planlı bir yük devretme gerçekleştirdiyseniz, işlemden sonra ikincil konumdaki makineler korunur.
-- İlk yük devretme çalıştıktan sonra iş yükü çoğaltma VM erişme başlatmak için yürütün.
-- Ayrıca birincil konumda yeniden kullanılabilir duruma geldiğinde, geri başarısız olabilir.
-    - Birincil ikincil sitedeki çoğaltma işlemi başlatma için geriye doğru çoğaltma Başlat. Ters çoğaltma sanal makineleri korumalı bir duruma getirir, ancak ikincil veri merkezi hala etkin konumdur.
+- İlk yük devretme çalıştıktan sonra kopya VM'deki iş yüküne erişmeye başlamak için kaydedin.
+- Birincil konum yeniden kullanılabilir olduğunda siteyi yeniden çalıştırabilirsiniz.
+    - İkincil siteden birincil siteye çoğaltmaya başlamak için çoğaltmayı tersine çevirme, başlatma. Ters çoğaltma sanal makineleri korumalı bir duruma getirir, ancak ikincil veri merkezi hala etkin konumdur.
     - Birincil siteyi yeniden etkin konum durumuna getirmek için ikincil siteden birincil siteye planlı yük devretme başlatır ve arkasından başka bir ters çoğaltma gerçekleştirirsiniz.
 
 
@@ -58,4 +58,4 @@ Aşağıdaki tablo ve grafik ikincil bir siteye Hyper-V çoğaltma için kullan�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 
-İzleyin [Bu öğretici](hyper-v-vmm-disaster-recovery.md) VMM Bulutları arasında Hyper-V çoğaltmayı etkinleştirmek için.
+İzleyin [Bu öğreticide](hyper-v-vmm-disaster-recovery.md) VMM bulutlarının arasında Hyper-V çoğaltma işlemini etkinleştirmek istiyorsanız.

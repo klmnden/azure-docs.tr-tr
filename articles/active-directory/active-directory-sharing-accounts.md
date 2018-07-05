@@ -1,6 +1,6 @@
 ---
 title: Azure AD kullanarak hesapları paylaşma | Microsoft Docs
-description: Nasıl Azure Active Directory hesapları şirket içi uygulamalar ve tüketici bulut Hizmetleri için güvenli bir şekilde paylaşmak kuruluşların açıklar.
+description: Azure Active Directory kuruluş hesapları şirket içi uygulamalar ve tüketici bulut Hizmetleri için güvenli bir şekilde paylaşmak nasıl sağladığını açıklar.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,64 +14,64 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 7a58fca716389f35db7312948674e86b3104fe62
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: c8d7f1f5b793fcb684e9896bb93213a23d489860
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308005"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448552"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD ile hesapları paylaşma
 ## <a name="overview"></a>Genel Bakış
-Bazen kuruluşlar için genellikle iki durumda olur birden çok kişinin tek kullanıcı adı ve parola kullanmanız gerekebilir:
+Bazen kuruluşlar genellikle iki durumda gerçekleşir birden çok kişi için tek bir kullanıcı adı ve parolası kullanmanız gerekebilir:
 
-* Her kullanıcı için bir benzersiz oturum açma ve parola gerektiren uygulamalar erişirken olup şirket içi uygulamalar veya tüketici bulut hizmetlerini (örneğin, şirket sosyal medya hesapları).
-* Çok kullanıcılı ortamlar oluştururken. Kurulum, yönetim ve kurtarma etkinliklerini çekirdek için kullanılan ve ayrıcalıkları yükselten tek, yerel bir hesap olabilir. Örneğin, Office 365 veya Salesforce kök hesabı için yerel "Genel yönetici" hesap.
+* Her kullanıcı için benzersiz bir oturum açma ve parola gerektiren uygulamalar erişirken olup şirket içi uygulamaları veya tüketici bulut Hizmetleri (örneğin, Kurumsal sosyal medya hesapları).
+* Çok kullanıcılı ortamlar oluşturulurken. Yükseltilmiş ayrıcalıklara ve Kurulum, yönetim ve kurtarma etkinliklerini çekirdek için kullanılan tek, yerel bir hesap olabilir. Örneğin, Office 365 veya Salesforce kök hesabı için yerel "Genel yönetici" hesabı.
 
-Geleneksel olarak, bu hesapların kimlik (kullanıcı adı ve parola) doğru kişilere dağıtma veya birden çok güvenilen aracı bunları erişebildiği paylaşılan bir konumda depolamak tarafından paylaşılır.
+Geleneksel olarak, bu hesapların kimlik bilgilerini (kullanıcı adı ve parola) doğru kişilere dağıtma veya onları, birden çok güvenilen aracı bunları erişebildiği paylaşılan bir konumda depolamasını tarafından paylaşılır.
 
-Geleneksel paylaşım modelinin birkaç sakıncaları vardır:
+Geleneksel paylaşım modeli birkaç engelleri vardır:
 
-* Yeni uygulamalarına erişimini etkinleştirme erişmesi gereken kimlik bilgilerini herkese dağıtmak gerektirir.
-* Paylaşılan her uygulamanın kendi benzersiz birden çok kimlik bilgileri kümesini hatırlamak kullanıcıların paylaşılan kimlik bilgileri kümesi gerektirebilir. Kullanıcılar birçok kimlik bilgilerini Hatırla gerektiğinde, riskli uygulamalar çözümlemelere riskini artırır. (örneğin, parolaları yazma).
-* Uygulamaya kimlerin erişebileceğini bildiremez.
-* Kimlerin olduğunu bildiremez *erişilen* bir uygulama.
-* Uygulama erişimi kaldırmak istediğinizde, kimlik bilgilerini güncelleştirin ve bunları bu uygulamaya erişim gerektiren herkese dağıtmanız gerekir.
+* Yeni uygulama erişimini etkinleştirme erişmesi gereken kimlik bilgilerini herkese dağıtabilirsiniz gerektirir.
+* Paylaşılan her uygulama kendi benzersiz bir kümeye Paylaşılan kimlik bilgileri, kullanıcıların birden fazla kimlik bilgilerini Hatırla gerek gerektirebilir. Birçok kimlik bilgilerini hatırlamanız kullanıcılar varsa, bunlar için riskli uygulamalar başvurmadan riskini artırır. (örneğin, parola yazmak).
+* Bir uygulamaya kimlerin erişebildiğini bildiremez.
+* Kimlerin bildiremez *erişilen* bir uygulama.
+* Bir uygulamaya erişimini kaldırmak istediğinizde, kimlik bilgilerini güncelleştirin ve herkesin bu uygulamaya erişmesi için bunları yeniden dağıtmanız gerekir.
 
-## <a name="azure-active-directory-account-sharing"></a>Azure Active Directory hesabı paylaşımı
-Azure AD, bu dezavantajları ortadan kaldıran paylaşılan hesaplarını kullanmak için yeni bir yaklaşım sağlar.
+## <a name="azure-active-directory-account-sharing"></a>Azure Active Directory hesabı paylaşma
+Azure AD, bu engelleri ortadan kaldıran için paylaşılan hesaplarını kullanarak yeni bir yaklaşım sağlar.
 
-Azure AD yönetici kullanıcı erişim paneli kullanılarak ve çoklu oturum açma en iyi türünü seçmek erişebilir hangi uygulamaların bu uygulama için uygun yapılandırır. Bu türlerinden birini *çoklu oturum parola tabanlı açma*, Azure AD bu uygulama için oturum açma işlemi sırasında "Aracısı" bir tür olarak davranmasına izin verir.
+Azure AD Yöneticisi, bir kullanıcının erişim panelini kullanarak ve çoklu oturum açma en iyi türünü seçmek erişebildiği hangi uygulamaların bu uygulama için uygun yapılandırır. Bu türlerinden birini *parola tabanlı çoklu-oturum açma*, Azure AD bu uygulama için oturum açma işlemi sırasında bir "aracıda" türü olarak davranmasına izin verir.
 
-Kullanıcılar kendi Kurumsal hesap ile bir kez oturum açın. Bu hesap bir düzenli olarak, masaüstü veya e-posta erişmek için kullandıkları aynıdır. Bul ve atanmış olan uygulamalara erişin. Paylaşılan hesaplarıyla, bu uygulamaların listesini herhangi bir sayıda Paylaşılan kimlik bilgileri içerebilir. Son kullanıcı, unutmayın veya bunlar kullanıyor olabilecek çeşitli hesaplar yazmak zorunda değildir.
+Kullanıcılar kuruluş hesabını ile bir kez oturum. Bu hesabın düzenli olarak, masaüstü veya e-posta erişmek için kullandıkları aynı olduğundan. Bulma ve atanmış olan uygulamalara. Paylaşılan hesaplar ile paylaşılan kimlik bilgilerini herhangi bir sayıda bu uygulamaların listesini içerebilir. Son kullanıcı aklınızda tutun veya, kullandıkları çeşitli hesaplarına yazmak gerekmez.
 
-Paylaşılan hesapları yalnızca gözetim artırmak ve kullanılabilirliği artıran, bunlar Ayrıca, güvenliği artırmak. Kullanıcıların kimlik bilgilerini kullanmak için gerekli izinlere sahip paylaşılan parola görmüyorum, ancak bunun yerine parola kimlik doğrulaması bağımsızlıklar akışının bir parçası kullanmak için izin almak. Ayrıca, bazı parola SSO uygulamaları Azure AD ile düzenli aralıklarla rollover (güncelleştirme) parolaları kullanma seçeneği sunar. Sistem, hangi hesap güvenliği artırır büyük ve karmaşık parolalar kullanır. Yönetici, kolayca vermek veya erişimi iptal hesabına erişim izni olanların ve kimin, geçmişte bir uygulamaya bilir.
+Paylaşılan hesaplar yalnızca gözetim artırmak ve kullanılabilirliği artıran, bunlar da güvenliğinizi artırın. Kimlik bilgilerini kullanmak için gerekli izinlere sahip kullanıcılar, paylaşılan parola görmüyorsanız, ancak yerine parolayı bir düzenlenmiş kimlik doğrulama akışının bir parçası kullanmak için izin almak. Ayrıca, bazı parola SSO uygulamaları düzenli aralıklarla (güncelleştirme) geçişi parolaları Azure AD'ye kullanma seçeneği sunar. Sistem, büyük ve karmaşık parolalar, hesap güvenliği artırır kullanır. Administrator, kolayca vermek veya erişimi iptal bir uygulamaya kimin hesabın erişimi olduğunu ve kimlerin erişilen, geçmişte bilir.
 
-Azure AD destekleyen paylaşılan hesapları herhangi Enterprise Mobility Suite (EMS), Premium veya Basic lisanslı kullanıcılar, oturum açma parolası tek uygulamalarının tüm türlerine. Önceden tümleştirilmiş uygulamaların uygulama galerisinde binlerce hesaplarını paylaşabilir ve kendi parola kimlik doğrulaması uygulamayla ekleyebilirsiniz [özel SSO uygulamaları](manage-apps/configure-single-sign-on-portal.md).
+Tüm Enterprise Mobility Suite (EMS), Premium veya Basic destekler paylaşılan hesapları Azure AD lisansına sahip kullanıcılar, tüm oturum açma parolası tek uygulama türleri arasında. Kendi parola kimlik doğrulaması uygulamayla ekleyebilirsiniz ve hesaplar için binlerce önceden tümleştirilmiş uygulamalar uygulama galerisinde paylaşabilir [özel SSO uygulamaları](manage-apps/configure-single-sign-on-portal.md).
 
-Hesap paylaşımını etkinleştir azure AD özellikleri içerir:
+Hesabı paylaşmasını sağlayan azure AD özellikleri şunlardır:
 
 * [Parola çoklu oturum açma](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
-* Oturum açma parolası tek Aracısı
-* [Grup ataması](active-directory-accessmanagement-self-service-group-management.md)
-* Özel parola uygulamalar
+* Oturum açma parolası tek aracı
+* [Grup ataması](users-groups-roles/groups-self-service-management.md)
+* Özel parola uygulamaları
 * [Uygulama kullanım Pano/raporları](active-directory-passwords-get-insights.md)
 * Son kullanıcı erişimi portalları
-* [Uygulama proxy'si](manage-apps/application-proxy.md)
+* [Uygulama Ara sunucusu](manage-apps/application-proxy.md)
 * [Active Directory Marketi](https://azure.microsoft.com/marketplace/active-directory/all/)
 
-## <a name="sharing-an-account"></a>Bir hesap paylaşımı
-Bir hesabı paylaşmak için Azure AD kullanmak için aktarmanız gerekir:
+## <a name="sharing-an-account"></a>Bir hesap paylaşma
+Bir hesabı paylaşmak için Azure AD kullanmak için yapmanız:
 
-* Bir uygulama eklemek [uygulama Galerisi](https://azure.microsoft.com/marketplace/active-directory/) veya [özel uygulama](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
-* Uygulaması parola çoklu oturum açma (SSO) için yapılandırma
-* Kullanım [grup tabanlı atama](active-directory-accessmanagement-group-saasapps.md) ve paylaşılan bir kimlik bilgisi girin seçeneğini belirleyin
-* İsteğe bağlı: Facebook, Twitter ve LinkedIn, gibi bazı uygulamalarda, seçeneğini etkinleştirebilirsiniz [Azure AD parola toplama-üzerinden otomatik](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
+* Uygulama ekleme [uygulama Galerisi](https://azure.microsoft.com/marketplace/active-directory/) veya [özel uygulama](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
+* Uygulama parolası çoklu oturum açma (SSO) için yapılandırma
+* Kullanım [grup tabanlı atama](users-groups-roles/groups-saasapps.md) ve paylaşılan bir kimlik bilgisi girin seçeneğini belirleyin
+* İsteğe bağlı: Facebook, Twitter ve LinkedIn gibi bazı uygulamalarda, seçeneğini etkinleştirebilirsiniz [Azure AD'ye otomatik parola devretme toplama](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
-Da paylaşılan hesabınızı çok faktörlü kimlik doğrulama (MFA) ile daha güvenli hale getirebilirsiniz (hakkında daha fazla bilgi [uygulamalarını Azure AD ile güvenli hale getirme](authentication/concept-mfa-whichversion.md)) ve uygulama kullanarak erişimi olanların yönetme olanağı devredebilirsiniz [Azure AD Self Servis](active-directory-accessmanagement-self-service-group-management.md) Grup Yönetimi.
+Da paylaşılan hesabınız multi-Factor Authentication (MFA) ile daha güvenli hale getirebilirsiniz (daha fazla bilgi edinin [Azure AD ile uygulamaları güvenli hale getirme](authentication/concept-mfa-whichversion.md)) ve kullanarakuygulamayakimlerinerişebildiğiniyönetmeolanağıdevredebilirsiniz.[ Azure AD Self Servis](users-groups-roles/groups-self-service-management.md) Grup Yönetimi.
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
 * [Koşullu erişim ile uygulamaları koruma](active-directory-conditional-access-azure-portal.md)
-* [Self Servis Grup Yönetimi/SSAA](active-directory-accessmanagement-self-service-group-management.md)
+* [Self Servis Grup Yönetimi/SSAA](users-groups-roles/groups-self-service-management.md)
 

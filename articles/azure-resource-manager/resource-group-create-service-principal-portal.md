@@ -1,6 +1,6 @@
 ---
 title: Portalda Azure uygulama kimliği oluşturma | Microsoft Docs
-description: Yeni Azure Active Directory uygulaması ve Azure Kaynak Yöneticisi'nde rol tabanlı erişim denetimi ile kaynaklara erişimi yönetmek için kullanılabilir hizmet sorumlusu nasıl oluşturulacağını açıklar.
+description: Yeni Azure Active Directory uygulaması ve Azure Resource Manager rol tabanlı erişim denetimi ile kaynaklara erişimi yönetmek için kullanılan hizmet sorumlusu oluşturmayı açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,65 +13,65 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a8784a8e29e65d8abea566b5a2bf41a2ae6cadf0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359637"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441582"
 ---
-# <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Bir Azure Active Directory Uygulama ve kaynaklarına erişebilir hizmet sorumlusu oluşturmak için Portal kullanın
+# <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Bir Azure Active Directory uygulaması ve kaynaklara erişebilen hizmet sorumlusu oluşturmak için portalı kullanma
 
-Erişmek veya kaynak değiştirmek için gereken kodu varsa, Azure Active Directory (AD) uygulama ayarlamanız gerekir. AD uygulaması için gerekli izinleri atayın. Bu yaklaşım kendi izinlerinizi farklı uygulama kimliği için izinler atayabilirsiniz çünkü uygulama kendi kimlik bilgileri altında çalışan için tercih edilir. Normalde, bu izinler tam olarak uygulamaya gereken izinlerle sınırlı olur.
+Erişim ya da kaynakları değiştirmek için gereken kodu varsa, Azure Active Directory (AD) uygulama ayarlamanız gerekir. AD uygulamasına'de gerekli izinleri atayın. Bu yaklaşım, kendi izinlerinizi farklı uygulama kimliğine izin atayabilirsiniz olmadığından, uygulama kendi kimlik bilgileriniz altında çalışan için tercih edilir. Normalde, bu izinler tam olarak uygulamaya gereken izinlerle sınırlı olur.
 
-Bu makalede, portal üzerinden bu adımların nasıl gerçekleştirileceğini gösterir. Uygulama yalnızca bir kuruluş içinde çalıştırmak için burada hedeflenen bir tek kiracılı uygulama odaklanır. Genellikle tek Kiracı uygulamalar, kuruluşunuzun içinde çalışan satır iş kolu uygulamaları için kullanılır.
+Bu makalede, portal üzerinden bu adımların nasıl gerçekleştirileceğini gösterir. Tek kiracılı bir uygulama yalnızca bir kuruluş içinde çalıştırmak için uygulamayı nerede yöneliktir odaklanır. Genellikle tek kiracılı uygulamalar kuruluşunuzda çalışan satır iş kolu uygulamaları için kullanırsınız.
 
 > [!IMPORTANT]
 > Hizmet sorumlusu oluşturmak yerine, uygulama kimliğiniz için Azure AD Yönetilen Hizmet Kimliği kullanmayı göz önünde bulundurun. Azure AD MSI, Azure Active Directory'nin kod için kimlik oluşturmayı basitleştiren ve genel önizleme aşamasında olan bir özelliğidir. Kodunuz Azure AD MSI desteği olan bir hizmette çalıştırılıyorsa ve Azure Active Directory kimlik doğrulamasını destekleyen kaynaklara erişiyorsa, Azure AD MSI sizin için daha iyi bir seçenektir. Azure AD MSI hakkında daha fazla bilgi edinmek ve şu anda bunu hangi hizmetlerin desteklediğini öğrenmek için bkz. [Azure kaynakları için Yönetilen Hizmet Kimliği](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="required-permissions"></a>Gerekli izinler
 
-Bu makalede tamamlamak için bir uygulamayı Azure AD kiracınıza ile kaydetmek için yeterli izinlere sahip ve Azure aboneliğinizde bir rolü uygulamaya atamanız gerekir. Şimdi bu adımları gerçekleştirmek için doğru izinlere sahip olduğunuzdan emin olun.
+Bu makaleyi tamamlamak için bir uygulama ile Azure AD kiracınızı kaydetmek için yeterli izinlere sahip ve Azure aboneliğinizde uygulama rolü atayın. Şimdi bu adımları gerçekleştirmek için doğru izinlere sahip olduğunuzdan emin olun.
 
-### <a name="check-azure-active-directory-permissions"></a>Azure Active Directory izinlerini denetleyin
+### <a name="check-azure-active-directory-permissions"></a>Azure Active Directory izinlerini denetleme
 
 1. **Azure Active Directory**'yi seçin.
 
    ![azure active directory'yi seçme](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-1. Azure Active Directory'de seçin **kullanıcı ayarlarını**.
+1. Azure Active Directory’de **Kullanıcı ayarları**’nı seçin.
 
    ![kullanıcı ayarlarını seçin](./media/resource-group-create-service-principal-portal/select-user-settings.png)
 
-1. Denetleme **uygulama kayıtlar** ayarı. Varsa kümesine **Evet**, yönetici olmayan kullanıcıların AD uygulamaları kaydolabilir. Bu ayar, Azure AD kiracısı içinde herhangi bir kullanıcı bir uygulama kaydedebilirsiniz anlamına gelir. Geçebilirsiniz [denetleyin Azure abonelik izinleri](#check-azure-subscription-permissions).
+1. Denetleme **uygulama kayıtları** ayarı. Varsa kümesine **Evet**, yönetici olmayan kullanıcılar, AD uygulamalarını kaydedebilir. Bu ayar, Azure AD kiracısı içindeki herhangi bir kullanıcının bir uygulamayı kaydedebileceği anlamına gelir. Geçebilirsiniz [denetleyin Azure abonelik izinleri](#check-azure-subscription-permissions).
 
    ![Uygulama kayıtları görüntüle](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Ayar uygulama kayıtlar ayarlanmış ise **Hayır**, yalnızca [genel Yöneticiler](../active-directory/active-directory-assign-admin-roles-azure-portal.md) uygulamaları kaydedebilirsiniz. Hesabınıza bir Azure AD Kiracı yönetici olup olmadığını denetleyin. Seçin **genel bakış** ve kullanıcı bilgilerinizi bakın. Hesabınız için kullanıcı rolü atanmış, ancak uygulama kayıt ayarı (önceki adımdaki) yönetici kullanıcılara sınırlıdır, yöneticinize ya da atamak, size, genel Yönetici rolüne veya kullanıcıların uygulamaları kaydetmek isteyin.
+1. Uygulama kayıtları ayarı ayarlanırsa **Hayır**, yalnızca [genel Yöneticiler](../active-directory/users-groups-roles/directory-assign-admin-roles.md) uygulamalar kaydolabilir. Hesabınız Azure AD kiracısı için yönetici olup olmadığını denetleyin. Seçin **genel bakış** ve kullanıcı bilgilerinizi bakın. Hesabınız için kullanıcı rolü atanmış, ancak uygulama kayıt ayarının (önceki adımdaki) yönetici kullanıcıyla sınırlıdır, ya da yöneticinizi atamak, size, genel Yönetici rolüne ya da uygulamaları kaydetme olanağı isteyin.
 
    ![Kullanıcı Bul](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
-### <a name="check-azure-subscription-permissions"></a>Azure abonelik izinlerinizi denetleyin
+### <a name="check-azure-subscription-permissions"></a>Azure aboneliği izinlerini denetleyin
 
-Azure aboneliğinizde, hesabınızın olması gerekir `Microsoft.Authorization/*/Write` bir AD uygulamasını bir role atamak için erişim. Bu eylem aracılığıyla verilen [sahibi](../role-based-access-control/built-in-roles.md#owner) rol veya [kullanıcı erişimi Yöneticisi](../role-based-access-control/built-in-roles.md#user-access-administrator) rol. Hesabınızı atanırsa **katkıda bulunan** rolü, yeterli izniniz yok. Hizmet sorumlusu rol atama çalışılırken bir hata alırsınız.
+Azure aboneliğinizde, hesabınızın olması gerekir `Microsoft.Authorization/*/Write` bir AD uygulamasını bir role atamak için erişim. Bu eylemin izni, [Sahip](../role-based-access-control/built-in-roles.md#owner) rolüyle veya [Kullanıcı Erişimi Yöneticisi](../role-based-access-control/built-in-roles.md#user-access-administrator) rolüyle verilir. Hesabınızı atanırsa **katkıda bulunan** rolü, yeterli izniniz yok. Hizmet sorumlusu, rol atama çalışılırken bir hata alırsınız.
 
 Abonelik izinlerinizi denetlemek için:
 
-1. Sağ üst köşedeki hesabınızı seçin ve Seç **izinlerimi**.
+1. Sağ üst köşedeki hesabınızı seçin ve seçin **İzinlerim**.
 
    ![Kullanıcı izinleri seçin](./media/resource-group-create-service-principal-portal/select-my-permissions.png)
 
-1. Aşağı açılan listeden aboneliği seçin. Seçin **ayrıntılarını Bu abonelik için tam erişim görüntülemek için buraya tıklayın**.
+1. Aşağı açılan listeden aboneliği seçin. Seçin **tam erişim görüntülemek için burayı tıklatın, bu abonelik için ayrıntılı**.
 
    ![Kullanıcı Bul](./media/resource-group-create-service-principal-portal/view-details.png)
 
-1. Atanan rollerinizi görüntülemek ve bir AD uygulamasını bir role atamak için yeterli izinlere sahip olup belirleyin. Aksi durumda, kullanıcı erişimi Yöneticisi rolüne eklemek için abonelik yöneticinize başvurun. Aşağıdaki görüntüde, kullanıcıya kullanıcının yeterli izinlere sahip anlamına gelir sahibi rolüne atanır.
+1. Atanmış olan rolleri görüntülemek ve bir AD uygulamasını bir role atamak için yeterli izinlere sahip olup olmadığını belirler. Aksi durumda, kullanıcı erişimi yöneticisi rolü eklemek için abonelik yöneticinize başvurun. Aşağıdaki görüntüde, kullanıcının kullanıcı yeterli izne sahip olduğu anlamına gelir sahip rolü atanır.
 
    ![izinleri göster](./media/resource-group-create-service-principal-portal/view-user-role.png)
 
-## <a name="create-an-azure-active-directory-application"></a>Azure Active Directory Uygulama oluşturma
+## <a name="create-an-azure-active-directory-application"></a>Bir Azure Active Directory uygulaması oluşturma
 
-1. Oturum açtığınızda Azure hesabınız üzerinden [Azure portal](https://portal.azure.com).
+1. Üzerinden Azure hesabınızla oturum [Azure portalında](https://portal.azure.com).
 1. **Azure Active Directory**'yi seçin.
 
    ![azure active directory'yi seçme](./media/resource-group-create-service-principal-portal/select-active-directory.png)
@@ -84,13 +84,13 @@ Abonelik izinlerinizi denetlemek için:
 
    ![uygulama ekleme](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Uygulama için bir ad ve URL sağlayın. Oluşturmak istediğiniz uygulama türü olarak **Web uygulaması / API**'yi seçin. Kimlik bilgilerini oluşturulamıyor bir [yerel uygulama](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); bu nedenle, türü için otomatik uygulama çalışmaz. Değerleri ayarladıktan sonra Seç **oluşturma**.
+1. Uygulama için bir ad ve URL sağlayın. Oluşturmak istediğiniz uygulama türü olarak **Web uygulaması / API**'yi seçin. Kimlik bilgileri oluşturulamıyor bir [yerel uygulama](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); bu nedenle, türü için otomatik uygulama çalışmaz. Değerleri ayarladıktan sonra seçin **Oluştur**.
 
    ![uygulamayı adlandırma](./media/resource-group-create-service-principal-portal/create-app.png)
 
 Uygulamanızı oluşturdunuz.
 
-## <a name="get-application-id-and-authentication-key"></a>Uygulama kimliği ile kimlik doğrulama anahtarı alma
+## <a name="get-application-id-and-authentication-key"></a>Uygulama kimliği ve kimlik doğrulama anahtarını alma
 
 Programlamayla oturum açılırken, uygulamanızın kimliği ve kimlik doğrulama anahtarı gerekir. Bu değerleri almak için aşağıdaki adımları kullanın:
 
@@ -134,19 +134,19 @@ Programlamayla oturum açılırken, kimlik doğrulama isteğinizle birlikte kira
 
    ![kiracı kimliği](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
 
-## <a name="assign-application-to-role"></a>Uygulama rolü atayın
+## <a name="assign-application-to-role"></a>Uygulama rolü atama
 
-Aboneliğinizde kaynaklara erişmek için bir rol uygulamaya atamanız gerekir. Uygulama için doğru izinlere rolünü karar verin. Kullanılabilir rolleri hakkında bilgi edinmek için [RBAC: yerleşik roller](../role-based-access-control/built-in-roles.md).
+Aboneliğinizdeki kaynaklara erişmek için uygulamaya bir rol atamanız gerekir. Uygulama için doğru izinlere rolünü karar verin. Kullanılabilir roller hakkında bilgi edinmek için [RBAC: yerleşik roller](../role-based-access-control/built-in-roles.md).
 
-Abonelik, kaynak grubu ya da kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam devralınan izinleri. Örneğin, bir kaynak grubu için okuyucu rolüne uygulamaya ekleme kaynak grubu ve içerdiği tüm kaynaklar okuyabilir anlamına gelir.
+Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam için izinler devralınmıştır. Örneğin, bir kaynak grubu için okuyucu rolüne uygulamaya ekleme kaynak grubunu ve içerdiği tüm kaynakları okuyun anlamına gelir.
 
-1. Uygulamaya atamak istediğiniz kapsam düzeyine gidin. Örneğin, abonelik kapsamında bir rol atamak için seçin **abonelikleri**. Bunun yerine, bir kaynak grubu veya kaynak seçebilirsiniz.
+1. Uygulamayı atamak istediğiniz kapsam düzeyine gidin. Örneğin abonelik kapsamında bir rol atamak için seçin **abonelikleri**. Bunun yerine, bir kaynak grubu veya kaynak seçebilirsiniz.
 
-   ![Abonelik seç](./media/resource-group-create-service-principal-portal/select-subscription.png)
+   ![Abonelik seçin](./media/resource-group-create-service-principal-portal/select-subscription.png)
 
-1. Belirli bir abonelik (kaynak grubu veya kaynak) uygulama atamak için seçin.
+1. Belirli bir abonelikte (kaynak grubu veya kaynak) uygulama atamak için seçin.
 
-   ![atama için abonelik seçin](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
+   ![Abonelik atama için seçin](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
 
 1. Seçin **erişim denetimi (IAM)**.
 
@@ -154,19 +154,19 @@ Abonelik, kaynak grubu ya da kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha
 
 1. **Add (Ekle)** seçeneğini belirleyin.
 
-   ![Select ekleme](./media/resource-group-create-service-principal-portal/select-add.png)
+   ![Ekle'yi seçin](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. Uygulamaya atamak istediğiniz rolü seçin. Aşağıdaki resimde gösterildiği **okuyucu** rol.
+1. Uygulamayı atamak istediğiniz rolü seçin. Aşağıdaki görüntüde **okuyucu** rol.
 
-   ![Rol Seç](./media/resource-group-create-service-principal-portal/select-role.png)
+   ![rol seçin](./media/resource-group-create-service-principal-portal/select-role.png)
 
-1. Varsayılan olarak, Azure Active Directory uygulamaları kullanılabilir seçenekleri görüntülenmiyor. Uygulamanızı bulmak için bunu arama alanındaki adı sağlamanız gerekir. Bunu seçin.
+1. Varsayılan olarak, Azure Active Directory uygulamaları kullanılabilir seçenekleri görüntülenmiyor. Uygulamanızı bulmak için arama alanına bu adı sağlamanız gerekir. Bunu seçin.
 
-   ![uygulamayı arayın](./media/resource-group-create-service-principal-portal/search-app.png)
+   ![Uygulama arayın](./media/resource-group-create-service-principal-portal/search-app.png)
 
-1. Seçin **kaydetmek** rol atama tamamlamak için. Listenin uygulamanızda bu kapsam için bir rolüne atanan kullanıcıların bakın.
+1. Seçin **Kaydet** rol atama tamamlanması. Bu kapsam için bir role atanmış kullanıcı listesinde uygulamanızı görürsünüz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Çok kiracılı uygulamayı kurmak için bkz: [Geliştirici Kılavuzu'na yetkilendirme Azure Kaynak Yöneticisi API'si ile](resource-manager-api-authentication.md).
+* Bir çok kiracılı uygulamayı kurmak için bkz: [Azure Resource Manager API ile yetkilendirme için Geliştirici Kılavuzu](resource-manager-api-authentication.md).
 * Güvenlik ilkeleri belirtme hakkında bilgi edinmek için [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).  
-* Verilen veya kullanıcılar için reddedilen kullanılabilir eylemler listesi için bkz: [Azure Resource Manager kaynak sağlayıcısı işlemleri](../role-based-access-control/resource-provider-operations.md).
+* Verilen veya engellenen kullanıcılara kullanılabilir eylemleri listesi için bkz. [Azure Resource Manager kaynak sağlayıcısı işlemleri](../role-based-access-control/resource-provider-operations.md).

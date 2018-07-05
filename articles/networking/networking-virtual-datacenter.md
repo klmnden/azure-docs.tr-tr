@@ -1,6 +1,6 @@
 ---
-title: 'Microsoft Azure sanal Datacenter: Bir ağ perspektif | Microsoft Docs'
-description: Sanal veri merkezinizde Azure oluşturmayı öğrenin
+title: Azure sanal veri merkezi - ağ perspektifi
+description: Azure sanal veri merkezinizde oluşturmayı öğrenin
 services: networking
 author: tracsman
 manager: rossort
@@ -11,356 +11,356 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: a62d52e30b04b525dc8ff685ed6c3033d6029542
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2c8ca8bcce43596d521fa9c81438ac6a16f6dcdf
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942454"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445390"
 ---
-# <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Microsoft Azure sanal Datacenter: Ağ perspektifi
-**Microsoft Azure**: hızlı hareket, tasarruf, şirket içi uygulamaları ve verileri tümleştirme
+# <a name="azure-virtual-datacenter-a-network-perspective"></a>Azure sanal veri merkezi: Ağ perspektifi
+**Microsoft Azure**: daha hızlı ilerlemenize, para tasarrufu, şirket içi uygulamaları ve verileri tümleştirin
 
 ## <a name="overview"></a>Genel Bakış
-Azure uygulamalarını şirket içi geçirme, hatta önemli değişiklikler (bir yaklaşım "kaldırın ve shift" denir), güvenli ve ekonomik altyapısının yararlarını kuruluşların sağlar. Ancak, en iyi çeviklik bulut ile mümkün kılmak için kuruluşlar Azure özelliklerinden yararlanmak için kendi mimarileri gelişmesi. Microsoft Azure hiper ölçekli hizmetler ve altyapı, Kurumsal düzeydeki özellikleri ve güvenilirlik ve karma bağlantı için birçok seçenek sunar. Müşteriler, Internet üzerinden veya özel ağ bağlantısı sağlayan Azure ExpressRoute ile bu bulut hizmetlerine erişmek seçebilirsiniz. Microsoft Azure platformu sorunsuz bir şekilde altyapılarını bulutunu oluşturmak ve genişletmek için çok katmanlı mimarileri olanak tanır. Ayrıca, Microsoft iş ortakları, güvenlik hizmetleri ve Azure'da çalışması için optimize sanal gereçler sunarak gelişmiş özellikler sağlar.
+Şirket içi uygulamaları azure'a geçirme, hatta önemli değişiklikler ("lift- and -shift"olarak bilinen yaklaşım), kuruluşların güvenli ve ekonomik bir altyapının avantajlarından sağlar. Ancak, çevikliği en iyi bulut ile mümkün kılmak için kuruluşlar Azure özelliklerinden yararlanmak için kendi mimarilerini evrim Geçiren. Microsoft Azure, Hiper ölçekli hizmetler ve altyapı, Kurumsal düzeydeki özellikleri ve güvenilirlik ve karma bağlantı için birçok seçenek sunar. Müşteriler, Internet üzerinden veya özel ağ bağlantısı sağlayan Azure ExpressRoute ile bu bulut hizmetlerine erişmek seçebilirsiniz. Microsoft Azure platformu, müşterilerin sorunsuz bir şekilde altyapılarını buluta genişletin ve çok katmanlı mimariler oluşturun olanak tanır. Ayrıca, Microsoft iş ortaklarının güvenlik hizmetleri ve Azure'da çalıştırmak için iyileştirilmiş sanal Gereçleri sunarak gelişmiş özellikler sunar.
 
-Bu makalede n tüm buluta taşıma hakkında düşünürken, birçok müşterilerin karşılaştığı desenleri ve mimari ölçek, performans ve güvenlik sorunları çözmek için kullanılan tasarımları genel bakış sağlar. Farklı Kuruluş BT rolleri yönetim içine sığması nasıl bir genel bakış ve sistem İdaresi ayrıca güvenlik gereksinimleri için Vurgu ile ele alınan ve en iyi duruma getirme maliyeti.
+Bu makalede hep beraber buluta geçme konusunda düşünürken birçok müşterilerin karşılaştığı desenleri ve mimari ölçek, performans ve güvenlik sorunlarını çözmek için kullanılan tasarımlarına genel bir bakış sağlar. Farklı Kuruluş BT rolleri yönetime sığması nasıl bir genel bakış ve sistemin idare da açıklanan güvenlik gereksinimlerine Vurgu ile ve en iyi duruma getirme maliyeti.
 
-## <a name="what-is-a-virtual-data-center"></a>Sanal veri merkezi nedir?
-Erken gün içinde bulut çözümleri ortak spektrumun içinde ana bilgisayar tek, nispeten yalıtılmış uygulamalar için tasarlanmıştır. Bu yaklaşım da birkaç yıldır çalışmıştır. Ancak, bulutun avantajlarını çözümleri belirgin hale geldi ve birden çok büyük ölçekli iş yüklerini olan ve adresleme güvenlik, güvenilirlik, performans, bulut üzerinde barındırılan dağıtımların bir maliyetlerinin veya daha fazla bölgeler bulut hizmetinin yaşam döngüsü boyunca önemli hale geldi.
+## <a name="what-is-a-virtual-data-center"></a>Bir sanal veri merkezi nedir?
+Erken gün içinde bulut çözümleri genel spektrumda konak tek, nispeten yalıtılmış uygulamalar için tasarlanmıştır. Bu yaklaşım da birkaç yıldır çalışmıştır. Ancak, bulut avantajlarını çözümleri belirgin hale geldi ve birden çok büyük ölçekli iş yüklerini ve adresleme güvenlik, güvenilirlik, performans, bulut üzerinde barındırılan dağıtımların bir maliyetlerinin artmasından veya daha fazla bölge yaşam döngüsü boyunca önemli hale geldi Bulut hizmeti.
 
-Aşağıdaki bulut dağıtım diyagramı (sarı kutusu) iş yüklerinde güvenlik açıkları (kırmızı kutu) ve en iyi duruma getirme ağ sanal Gereçleri yer bazı örnekler gösterilmektedir.
+Aşağıdaki bulut dağıtım diyagramı (sarı kutusu) iş yüklerinde (kırmızı kutu) güvenlik açıklarını ve en iyi duruma getirme ağ sanal Gereçleri yer bazı örnekler gösterilmektedir.
 
 [![0]][0]
 
-Sanal veri merkezi (vDC), kurumsal iş yüklerinin ve büyük ölçekli uygulamalar genel bulutta destekleme olduğunda ortaya çıkan sorunları uğraşmanız gereken desteklemek için ölçeklendirme için bu gerekliliğini gelen doğdu.
+Sanal veri merkezi (vDC), kurumsal iş yükleri ve genel bulutta büyük ölçekli uygulamaları destekleyen olduğunda ortaya çıkan sorunları başa çıkmanıza gerek destekleyecek biçimde ölçeklendirilen için bu seçeneği kadar yaratma düşüncesinden.
 
-VDC yalnızca uygulama iş yükleri bulut ancak aynı zamanda ağ, güvenlik, yönetim ve altyapı (örneğin, DNS ve Dizin Hizmetleri) değil. Genellikle ayrıca bir şirket içi ağ veya veri merkezi dön özel bir bağlantı sağlar. Giderek daha fazla iş yüklerini Azure'a taşımak gibi bu iş yükleri yerleştirilir nesneleri ve destekleyici altyapının yapılandırmanızda önemlidir. Dikkatle kaynakları nasıl yapılandırıldığı hakkında düşünmeye "bağımsız veri akışı, güvenlik modelleri ve uyumluluk sorunları ayrı olarak yönetilmelidir iş yükü Adaları" yüzlerce artışı önleyebilirsiniz.
+VDC yalnızca uygulama iş yüklerini bulut ancak Ayrıca ağ, güvenlik, yönetim ve altyapı (örneğin, DNS ve Dizin Hizmetleri) değil. Genellikle de bir şirket içi ağ ya da veri merkezine dön özel bir bağlantı sağlar. Giderek daha fazla iş yüklerini Azure'a taşırken, destekleyici altyapı ve bu iş yükleri yerleştirilir nesneleri dikkat etmeniz önemlidir. Kaynakları nasıl yapılandırılmıştır hakkında dikkatle düşünmeye "bağımsız veri akışı, güvenlik modelleri ve uyumluluk sorunları ile ayrı olarak yönetilmelidir iş yükü Adaları" yüzlerce çoğalan önleyebilirsiniz.
 
-Sanal veri merkezi temelde ortak destekleyici İşlevler, özellikler ve altyapı ile ayrı ancak ilgili varlıklar koleksiyonudur. İş yüklerinizi tümleşik bir vDC görüntüleyerek, Ölçek, bileşeni ve veri akış merkezileşmeyi, daha kolay işlemleri, yönetim ve uyumluluk denetimleri yanı sıra ile en iyi duruma getirilmiş güvenlik ekonomileri nedeniyle daha az maliyet sağlarsınız.
+Bir sanal veri merkezi aslında farklı ancak ilişkili varlıklarla ortak destekleyici İşlevler, özellikler ve altyapı bir koleksiyonudur. İş yüklerinizi tümleşik bir vDC görüntüleyerek, ekonomik ölçeklendirmenin, bileşen ve veri akışı merkezileştirme, birlikte daha kolay işlemler, yönetim ve uyumluluk denetimleri ile en iyi duruma getirilmiş güvenlik nedeniyle daha az maliyet hayata geçirebilirsiniz.
 
 > [!NOTE]
-> VDC olduğunu anlamak önemlidir **değil** ayrık Azure ürün, ancak çeşitli özellikleri ve yetenekleri tam gereksinimlerinizi karşılayacak şekilde birleşimi. vDC kaynakları ve bulutta becerilerini en üst düzeye çıkarmak için bir iş yükleri ve Azure kullanımı hakkında düşünmeye yoludur. Sanal DC bu nedenle bir modüler kuruluş roller ve sorumluluklar uyarak Azure BT Hizmetleri oluşturmak nasıl bir yaklaşımdır.
+> VDC olduğunu anlamak önemlidir **değil** ayrı bir Azure ürün, ancak çeşitli özellikleri ve yetenekleri tam gereksinimlerinizi karşılayacak şekilde birleşimi. vDC kaynakları ve bulutta yeteneklerini en üst düzeye çıkarmak için iş yüklerinizi ve Azure kullanım hakkında düşünmeye yoludur. Sanal DC bu nedenle bir modüler BT hizmetlerini azure'da kuruluş rolleri ve sorumlulukları uyarak oluşturmak nasıl bir yaklaşımdır.
 
-VDC iş yüklerini ve uygulamaları Azure içine aşağıdaki senaryolar için alma kuruluşların yardımcı olabilir:
+VDC aşağıdaki senaryolar için iş yüklerini ve uygulamaları azure'a elde etmesine yardımcı olabilir:
 
--   Birden çok ilişkili iş yüklerinin barındırma
--   Bir şirket içi ortamına geçirme iş yüklerini azure'a
--   Paylaşılan veya merkezi güvenliği ve erişim gereksinimleri iş yüklerinde uygulama
--   DevOps ve merkezi BT büyük bir kuruluş için uygun şekilde karıştırma
+-   Birden fazla ilgili iş yüklerini barındırma
+-   Şirket içi ortamdan geçirme iş yüklerini azure'a
+-   Paylaşılan veya merkezi sürüm denetimi güvenlik ve erişim gereksinimlerini iş yüklerinde uygulama
+-   DevOps ve BT merkezi büyük bir kuruluş için uygun şekilde karıştırma
 
-VDC, avantajları kilidini açmak için anahtarıdır (hub ve bağlı bileşen) merkezi bir topoloji Azure özelliklerinin bir karışımını: [Azure VNet][VNet], [Nsg'ler][NSG], [VNet eşlemesi][VNetPeering], [kullanıcı tanımlı yolları (UDR)][UDR]ve Azure kimlikle [rol temel erişim denetimi (RBAC)][RBAC].
+VDC, avantajları kilidini açmak için anahtardır (hub ve bağlı bileşenler) merkezi bir topoloji Azure özelliklerinin bir karışımını: [Azure VNet][VNet], [Nsg'ler] [ NSG], [VNet eşlemesi][VNetPeering], [kullanıcı tanımlı yollar (UDR)][UDR]ve Azure kimliğiyle [rolü tabanı Erişim denetimi (RBAC)][RBAC].
 
-## <a name="who-needs-a-virtual-data-center"></a>Sanal bir veri merkezi gerek duyan?
-Birkaç Azure iş yüklerinin birden çok taşınması gereken herhangi bir Azure müşteriye ortak kaynakları kullanma hakkında düşünmekten yararlı olabilir. Büyüklük bağlı olarak, bir vDC oluşturmak için kullanılan bileşenleri ve desenler kullanılarak hatta tek tek uygulamalar yararlı olabilir.
+## <a name="who-needs-a-virtual-data-center"></a>Bir sanal veri merkezi gerek duyan?
+Birkaç iş yüklerinin azure'a birden çok taşımak için gereken herhangi bir Azure müşterisi ortak kaynakları kullanma hakkında düşünmeye yararlanabilir. Ölçeğine bağlı olarak, bir vDC oluşturmak için kullanılan bileşenler ve düzenleri kullanarak hatta tek tek uygulamalar yararlı olabilir.
 
-Kuruluşunuzda bir merkezi BT, ağ güvenliği varsa ve/veya uyumluluk takım/departmanı, vDC İlkesi noktaları, vergi, ayrımı zorlamak ve uygulama vermiş kadar özgürlük ve gereksinimlerinize uygun olarak denetim ekipleri karşın temel alınan ortak bileşenlerinin bütünlüğünü sağlamak sağlayabilir.
+Kuruluşunuzda merkezi bir BT, ağ, güvenlik varsa ve/veya uyumluluk takım/departman, bir vDC yardımcı uygulama ekipleri kadar özgürlüğünü sırasında ortak bileşenler'ın bütünlüğünü sağlamak ve ilke noktaları, görev ayrımı prensibini uygulamak olabilir ve gereksinimlerinize uygun olarak denetleyebilirsiniz.
 
-DevOps için aradığınız kuruluşlar, Azure kaynaklarının yetkili cep sağlamak ve (ortak bir aboneliğe abonelik veya kaynak grubu) grubu içindeki toplam denetime sahip, ancak ağ ve güvenlik sınırları VNet ve kaynak grubu bir hub bir merkezi ilke tarafından tanımlandığı şekilde uyumlu kalmasını sağlamak için vDC kavramları kullanabilirler.
+DevOps için isteyen kuruluşlar, Azure kaynaklarınızın yetkili fotogerçekçi sağlamak ve bu gruba (ortak bir abonelikte ya da abonelik veya kaynak grubu), ancak ağ toplam denetimine sahip olduklarından emin olmak için vDC kavramları kullanabiliyor ve Merkez sanal ağı ve kaynak grubunda bir merkezi ilke tarafından tanımlanan güvenlik sınırları sürdürün.
 
-## <a name="considerations-on-implementing-a-virtual-data-center"></a>Sanal bir veri merkezi uygulama konusunda dikkat edilecek noktalar
-VDC tasarlarken dikkate alınması gereken birkaç bileşendirler sorunlar vardır:
+## <a name="considerations-on-implementing-a-virtual-data-center"></a>Bir sanal veri merkezi uygulama konusunda dikkat edilmesi gerekenler
+VDC tasarlarken dikkate alınması gereken birkaç pivotal sorunlar vardır:
 
 -   Kimlik ve Dizin Hizmetleri
 -   Güvenlik altyapısı
--   Bulut için bağlantı
--   Bağlantı bulut içinde
+-   Bulut bağlantısı
+-   Bulut içindeki bağlantı
 
 ##### <a name="identity-and-directory-service"></a>*Kimlik ve dizin hizmeti*
-Kimlik ve Dizin Hizmetleri olan temel bir yönü, tüm veri merkezleri, her iki şirket içi ve bulut. Kimlik, erişim ve yetkilendirme hizmetleri vDC içinde tüm yönlerini ilgilidir. Yalnızca yetkili kullanıcılar ve işlemlerin Azure hesabınızı ve kaynaklarınızı erişim sağlamaya yardımcı olmak için Azure kimlik doğrulaması için çeşitli türlerde kimlik bilgilerini kullanır. Bunlar, (Azure hesabınıza erişmeniz için) parolalar, şifreleme anahtarları, dijital imzalar ve sertifikaları içerir. [*Azure çok faktörlü kimlik doğrulaması* (MFA)] [ MFA] Azure hizmetlerine erişmek için güvenlik ek katmanıdır. Azure MFA sağlar kolay doğrulama seçeneklerini aralıklı güçlü kimlik doğrulaması — telefon araması, SMS mesajı veya mobil uygulama bildirimi — ve müşteriler tercih yöntemini seçmenize olanak sağlar.
+Kimlik ve Dizin Hizmetleri, temel bir yönü, tüm veri merkezleri, hem şirket içi ve bulut. Kimlik, erişim ve yetkilendirme hizmetleri vDC içinde tüm yönlerini ilgilidir. Yalnızca yetkili kullanıcıların ve işlemleri Azure hesabınızı ve kaynaklara erişim sağlamak için Azure kimlik doğrulaması için birden fazla kimlik bilgilerini kullanır. Bunlar, (Azure hesabı için) parolalar, şifreleme anahtarlarını, dijital imzalar ve sertifikalar içerir. [*Azure multi-Factor Authentication* (MFA)] [ MFA] Azure hizmetlerine erişmek için güvenlik ek katmanıdır. Azure MFA, güçlü kimlik doğrulaması ile çeşitli kolay doğrulama seçenekleri sağlar: telefon araması, SMS mesajı veya mobil uygulama bildirimi — ve tercih ettikleri yöntemi seçme özgürlüğü tanıyın.
 
-Büyük bir kuruluş tek tek kimlik yönetimi, kimlik doğrulama, yetkilendirme, rolleri ve ayrıcalıkları içinde veya vDC açıklar bir kimlik yönetimi işlem tanımlanması gerekir. Bu işlem hedefleri, maliyet, kapalı kalma süresi ve yinelenen manuel görevleri yükünü azaltırken güvenlik ve verimliliği artırmak için olmalıdır.
+Ayrı kimlik yönetimini, kimlik doğrulaması, yetkilendirme, roller ve ayrıcalıkları içinde veya arasında vDC açıklayan bir Kimlik Yönetimi işlemi tanımlamak büyük bir kurumsal gerekir. Bu işlem amaçlarını, maliyet, kapalı kalma süresi ve yinelenen manuel görevleri yükünü azaltırken, güvenlik ve verimliliğini artırmak için olmalıdır.
 
-Kuruluşlar/farklı satırı-in-işletmeler için (LOB'lar) Hizmetleri zorlu bir karışımını gerektirebilir ve çalışanlar genellikle farklı projelerle söz konusu olduğunda farklı roller sahiptir. VDC farklı takımlar her iyi yönetimini çalıştıran sistemlere almak için belirli bir rol tanımları arasında iyi iş Birliği gerektirir. Matris ve sorumlulukları, erişim hakları çok karmaşık olabilir. VDC Identity management aracılığıyla gerçekleştirilir [ *Azure Active Directory* (AAD)] [ AAD] ve rol tabanlı erişim denetimi (RBAC).
+Kuruluşlar/Hizmetleri farklı satır-ın-işletmeler (LOB) için ihtiyaç duyulan bir karışımını gerektirebilir ve çalışanların genellikle farklı projeleriyle söz konusu olduğunda farklı rollere sahip. VDC her iyi idareye çalıştıran sistemlere almak için belirli bir rol tanımları farklı ekipler arasında daha iyi işbirliği gerektirir. Sorumlulukları ve erişim hakları matrisini son derece karmaşık olabilir. VDC Identity Management'ta aracılığıyla gerçekleştirilir [ *Azure Active Directory* (AAD)] [ AAD] ve rol tabanlı Access Control (RBAC).
 
-Bir dizin hizmeti, bulma, yönetme, yönetme ve gündelik öğeleri ve ağ kaynakları düzenleme için bir paylaşılan bilgileri altyapısıdır. Bu kaynaklar, birimler, klasörleri, dosyaları, yazıcılar, kullanıcılar, gruplar, cihazları ve diğer nesneleri içerebilir. Ağ üzerindeki her bir kaynağın bir nesne dizin sunucusu tarafından kabul edilir. Bir kaynak hakkında bilgi, bu kaynak veya nesne ile ilişkili öznitelikleri koleksiyonu olarak depolanır.
+Bir dizin hizmeti, bulma, yönetme, yönetme ve gündelik öğeleri ve ağ kaynaklarını düzenleme için bir paylaşılan bilgileri altyapısıdır. Bu kaynaklar, birimler, klasörler, dosyaları, yazıcılar, kullanıcılar, gruplar, cihazları ve diğer nesneleri içerebilir. Ağ üzerindeki her bir kaynak dizin sunucusu tarafından bir nesne olarak kabul edilir. Bir kaynak hakkında bilgiler, ilgili kaynağın veya nesne ile ilişkili öznitelikleri koleksiyonu olarak depolanır.
 
-Oturum açma için Azure Active Directory (AAD üzerinde) tüm Microsoft online iş hizmetlerini kullanır ve diğer kimlik gerekiyor. Azure Active Directory, temel dizin hizmetleri, gelişmiş kimlik yönetimi ve uygulama erişim yönetimi özelliklerini bir araya getiren kapsamlı bir kimlik ve erişim yönetimi bulut çözümüdür. AAD ile şirket içi Active tek oturum açma için tüm bulut tabanlı ve yerel olarak barındırılan (şirket içi) etkinleştirmek için dizin tümleştirilebilir uygulamalar. Şirket içi Active Directory kullanıcı özniteliklerini otomatik olarak AAD'ye eşitlenebilir.
+Tüm Microsoft online iş Hizmetleri, oturum açma için Azure Active Directory (AAD üzerinde) kullanan ve diğer kimlik gerekiyor. Azure Active Directory, temel dizin hizmetleri, gelişmiş kimlik yönetimi ve uygulama erişim yönetimi özelliklerini bir araya getiren kapsamlı bir kimlik ve erişim yönetimi bulut çözümüdür. AAD ile şirket içi Active çoklu oturum açma için tüm bulut tabanlı ve yerel olarak barındırılan (şirket içi) etkinleştirmek için dizin tümleştirilebilir uygulamalar. Şirket içi Active Directory kullanıcı öznitelikleri, AAD için otomatik olarak eşitlenebilir.
 
-Tek bir genel yönetici vDC tüm izinleri atamak için gerekli değildir. Bunun yerine her belirli bölüm (ya da Grup kullanıcılar veya dizin hizmetindeki Hizmetleri) vDC içinde kendi kaynaklarını yönetmek için gerekli izinlere sahip olabilirler. İzinleri yapılandırma Dengeleme gerektirir. Çok fazla izinler performans verimliliği engel ve çok az veya gevşek izinleri güvenlik riskleri artırabilirsiniz. Azure rol tabanlı erişim denetimi (RBAC) vDC kaynaklar için ayrıntılı erişim yönetimi sunarak bu sorunu gidermek için yardımcı olur.
+Tek bir genel yönetici, bir vDC tüm izinleri atamak için gerekli değildir. Bunun yerine her belirli bir bölüm (ya da grup kullanıcı ya da dizin hizmetinde Hizmetleri) bir vDC içinde kendi kaynaklarını yönetmek için gerekli izinlere sahip olabilir. İzinleri yapılandırma Dengeleme gerektirir. Çok fazla İznim performans verimliliği engel ve çok az veya gevşek izinleri, güvenlik risklerini artırabilir. Azure rol tabanlı erişim denetimi (RBAC) vDC kaynakları için ayrıntılı erişim yönetimi sunarak bu sorunu gidermek için yardımcı olur.
 
 ##### <a name="security-infrastructure"></a>*Güvenlik altyapısı*
-Bir vDC bağlamında güvenlik altyapısı çoğunlukla vDC'ın belirli bir sanal ağ kesimindeki trafiği ayrımı ilgili ve giriş ve çıkış denetleme vDC akar. Azure dağıtımlar arasında yetkisiz ve istenmeyen trafiği engelleyen çok kiracılı mimariyi temel alır, sanal ağ (VNet) yalıtım kullanarak, erişim denetim listeleri (ACL'ler), yük dengeleyicileri ve trafik akışını ilkeleri ile birlikte IP filtreleri. İç ağ trafiğini ağ adresi çevirisi (NAT) dış trafiğinden ayırır.
+Güvenlik altyapısı, bir vDC bağlamında çoğunlukla vDC'ın belirli bir sanal ağ kesimindeki trafiği ayrımı ilgili ve vDC giriş ve çıkış denetlemek nasıl akar. Azure dağıtımlar arasında yetkisiz ve istenmeyen trafiği engeller çok kiracılı mimarisini temel alır, erişim denetimi listeleri (ACL'ler), yük Dengeleyiciler ve IP filtreleri, trafik akış ilkeleri ile birlikte kullanarak sanal ağ (VNet) yalıtım. Ağ adresi çevirisi (NAT), iç ağ trafiğini dış trafikten ayırır.
 
-Azure doku Kiracı İş yükleri için altyapı kaynakları ayırır ve sanal makineleri (VM'ler) iletişimi yönetir. Azure hiper yönetici VM'ler arasında bellek ve işlem ayrımı zorunlu kılan ve güvenli bir şekilde yollar ağ trafiği için konuk işletim sistemi kiracılar.
+Azure dokusunu altyapı kaynaklarını Kiracı iş yüklerini ayırır ve sanal makineleri (VM'ler) iletişimi yönetir. Azure hiper Yöneticisi VM'ler arasında bellek ve işlem ayrımı yapılmasını zorunlu kılan ve yollarını trafiği konuk işletim sistemi kiracılarına güvenli bir şekilde ağ.
 
-##### <a name="connectivity-to-the-cloud"></a>*Bulut için bağlantı*
-VDC müşteriler, iş ortakları ve/veya iç kullanıcılar için Hizmetleri sunmak için dış ağlarla bağlantısı gerekir. Bu genellikle yalnızca internet, aynı zamanda şirket içi ağlar ve veri merkezlerine bağlantı anlamına gelir.
+##### <a name="connectivity-to-the-cloud"></a>*Bulut bağlantısı*
+VDC müşteriler, iş ortakları ve/veya iç kullanıcılar için hizmet sunmak için dış ağ ile bağlantı gerekir. Bu genellikle bağlantı yalnızca İnternet'e, aynı zamanda şirket içi ağlar ve veri merkezlerine anlamına gelir.
 
-Müşteriler ne denetlemek için güvenlik ilkelerini oluşturabilirsiniz ve belirli vDC barındırılan nasıl için/Internet'ten erişilebilir (ile filtreleme ve trafiğini incelemesi) ağ sanal Gereçleri kullanma ve özel ilkeleri ve (kullanıcı tanımlı Yönlendirme ve ağ güvenlik grupları) filtreleme ağ yönlendirme hizmetleri.
+Müşteriler ne denetlemek için güvenlik ilkelerini oluşturabilirsiniz ve belirli vDC barındırılan nasıl için/Internet'ten erişilebilir ağ sanal Gereçleri (trafik filtreleme ve İnceleme ile) kullanarak ve özel yönlendirme ilkeleri ve filtreleme (Ağ Hizmetleri Kullanıcı tanımlı Yönlendirme ve ağ güvenlik grupları).
 
-Kuruluşlar çoğunlukla VDC şirket içi veri merkezleri veya diğer kaynaklara bağlanmak gerekir. Azure ve şirket içi ağlar arasındaki bağlantıyı, bu nedenle etkili bir mimari tasarlarken önemli en boy olur. İşletmenin vDC ve şirket arasındaki bir bağlantısı oluşturmak için iki farklı yol vardır: transit Internet üzerinden ve/veya özel doğrudan bağlantılar.
+Kuruluşlar genellikle şirket içi veri merkezleri ve diğer kaynaklara VDC bağlanmanız gerekir. Azure ve şirket içi ağlar arasında bağlantı, bu nedenle etkili bir mimari tasarlarken önemli bir yönü olur. Kuruluşların Azure'da vDC ve şirket arasındaki bir bağlantısı oluşturmak için iki farklı yol vardır: Internet üzerinden ve/veya özel doğrudan bağlantılar tarafından geçiş.
 
-Bir [ **Azure siteden siteye VPN** ] [ VPN] bir bağlantı şirket içi ağlar ve güvenli şifreli bağlantıları (IPSec/IKE tüneli) kurulan vDC arasında Internet üzerinden hizmetidir. Azure siteden siteye bağlantı oluşturmak hızlı, esnek ve tüm bağlantıları Internet üzerinden bağlandıkları herhangi başka tedarik gerektirmez.
+Bir [ **Azure siteden siteye VPN** ] [ VPN] bir iç bağlantı şirket içi ağ arasında Internet üzerinden hizmetidir ve güvenli aracılığıyla kurulan vDC şifrelenir bağlantılar (IPSec/IKE tüneller). Esnek, hızlı oluşturmak Azure siteden siteye bağlantı ve tüm bağlantıları Internet üzerinden bağlandıkları herhangi başka bir tedarik gerektirmez.
 
-[**ExpressRoute** ] [ ExR] vDC ve şirket içi ağlar arasında özel bağlantılar oluşturmanızı sağlayan bir Azure bağlantısı hizmetidir. ExpressRoute bağlantıları değil genel Internet üzerinden gidin ve daha yüksek güvenlik, güvenilirlik ve tutarlı gecikme süresi ile birlikte yüksek hızları (en fazla 10 GB/sn) sunar. ExpressRoute müşteriler özel bağlantıları ile ilişkili uyumluluk kuralları faydaları elde edebilirsiniz ExpressRoute olarak VDC için çok kullanışlıdır.
+[**ExpressRoute** ] [ ExR] vDC ve şirket içi ağlar arasında özel bağlantılar oluşturmanızı sağlayan bir Azure bağlantısı hizmetidir. ExpressRoute bağlantıları değil genel Internet üzerinden gidin ve daha yüksek güvenlik, güvenilirlik ve tutarlı bir gecikme süresi ile birlikte yüksek hız (en fazla 10 GB/sn) sunar. ExpressRoute müşterilere uyumluluk kuralları ile özel bağlantılar ilişkili avantajlarını elde edebilirsiniz ExpressRoute olarak VDC için çok yararlı olur.
 
-ExpressRoute bağlantılarını dağıtma ile bir ExpressRoute servis sağlayıcı çekici içerir. Hızla başlamanıza gerek müşteriler, bu başlangıçta siteden siteye VPN vDC arasında bağlantı kurmak için kullanılacak ortak olan şirket içi kaynakları ve ExpressRoute bağlantısı geçirme.
+ExpressRoute bağlantıları dağıtımı, bir ExpressRoute hizmet sağlayıcısı ile ilgi çekici içerir. Hızlıca başlamak için ihtiyacınız olan müşteriler, başlangıçta vDC arasında bağlantı kurmak için siteden siteye VPN kullanımı yaygındır şirket içi kaynaklara ve ardından ExpressRoute bağlantısı geçirin.
 
-##### <a name="connectivity-within-the-cloud"></a>*Bağlantı bulut içinde*
-[Sanal ağlar] [ VNet] ve [VNet eşlemesi] [ VNetPeering] temel ağ bağlantısı vDC içinde hizmetleridir. Bir sanal ağ yalıtım vDC kaynaklar için doğal bir sınır garanti eder ve farklı sanal ağlar aynı Azure bölgesinde içinde veya hatta bölgeler arasında intercommunication VNet eşlemesi sağlar. VNet içinde ve sanal ağlar arasındaki trafik denetimi erişim denetim listeleri belirtilen güvenlik kuralları kümesi eşleşmesi gerekir ([ağ güvenlik grubu][NSG]), [ağ sanal Gereçleri][NVA]ve özel yönlendirme tabloları ([UDR][UDR]).
+##### <a name="connectivity-within-the-cloud"></a>*Bulut içindeki bağlantı*
+[Sanal ağlar] [ VNet] ve [VNet eşlemesi] [ VNetPeering] temel ağ bağlantısı bir vDC içinde hizmetleridir. Bir sanal ağ yalıtım vDC kaynaklar için doğal bir sınır garanti eder ve intercommunication aynı Azure bölgesindeki veya hatta farklı bölgelerdeki farklı sanal ağlar arasında VNet eşlemesi sağlar. Trafik denetimi içinde bir sanal ağ arasında sanal ağlar erişim denetim listeleri belirtilen güvenlik kural kümesinin eşleşmesi gerekir ([ağ güvenlik grubu][NSG]), [ağ sanal Gereçleri ] [ NVA]ve özel yönlendirme tablolarını ([UDR][UDR]).
 
 ## <a name="virtual-data-center-overview"></a>Sanal veri merkezi genel bakış
 
 ### <a name="topology"></a>Topoloji
-Sanal veri merkezi içinde tek bir Azure bölgesi hub ve bağlı bileşen modeli genişletilmiş
+Tek bir Azure bölgesindeki sanal veri merkezi modeli hub ve bağlı bileşenler genişletilmiş
 
 [![1]][1]
 
-Hub denetleyen ve farklı bölgelere arasında giriş ve/veya çıkış trafiği inceler merkezi bölgedir: Internet, şirket içi ve bağlı bileşen. Hub ve bağlı bileşen topolojisi BT departmanı yetersizliğini ve etkilenme olasılığını azaltırken merkezi bir konumda güvenlik ilkelerini zorlamak için etkili bir yol sağlar.
+Hub denetleyen ve farklı bölgeler arasında giriş ve/veya çıkış trafiği inceleyen merkezi bölgedir: Internet, şirket içi ve bağlı bileşenler. Hub ve bağlı bileşen topolojisi BT departmanı, yanlış yapılandırma ve etkilenme olasılığını azaltırken merkezi bir konumda güvenlik ilkelerini zorlamak için etkili bir yol sağlar.
 
-Hub'a bağlı bileşen tarafından tüketilen ortak hizmet bileşenleri içerir. Ortak merkezi hizmetlerinin bazı tipik örnekler şunlardır:
+Hub uçlar tarafından ortak hizmet bileşenleri içerir. Yaygın yönetim hizmeti bazı tipik örnekler şunlardır:
 
--   Kullanıcı kimlik doğrulaması üçüncü tarafların iş yükleri erişim spoke almadan önce güvenilmeyen ağlara erişim için gerekli Windows Active Directory altyapınızla (ilgili ADFS hizmeti)
--   Erişim kaynakları şirket içi ve Internet'te bağlı bileşen iş yükü için adlandırma çözümlemek için bir DNS hizmeti
--   Çoklu oturum açma iş yükleri üzerinde uygulamak için bir PKI altyapısı
--   Internet ve bağlı bileşen arasında akış denetimi (TCP/UDP)
--   Şirket içi ve bağlı bileşen arasında akış denetimi
--   İsterseniz, akış denetimi ve başka bir uç arasında
+-   Kullanıcı kimlik doğrulaması üçüncü tarafların uç iş yükleri erişim almadan önce güvenilmeyen ağlara erişim için gereken Windows Active Directory altyapınızla (ilgili ADFS hizmeti)
+-   Uçlar, şirket kaynaklarına erişim ve İnternet'te iş yükü için adlandırma çözümlemek için DNS hizmeti
+-   Çoklu oturum açma iş yüklerinde uygulamak için bir PKI altyapısı
+-   Uçlar ve Internet arasında akış denetimi (TCP/UDP)
+-   Şirket içi ve uç arasında akış denetimi
+-   İsterseniz, Denetim ve başka bir uç arasında akış
 
-VDC birden fazla bağlı bileşen arasında paylaşılan hub altyapısını kullanarak genel maliyeti azaltır.
+VDC birden çok uçlar arasında paylaşılan hub altyapıyı kullanarak genel maliyeti azaltır.
 
-Her bağlı bileşen rol konak farklı türlerde iş yükleri için olabilir. Bağlı bileşen modüler bir yaklaşım için yinelenebilir dağıtımlara sağlayabilirsiniz (örneğin, geliştirme ve test, kullanıcı kabul testi, ön üretim ve üretim) aynı iş yüklerinin. Bağlı bileşen kurabilmeleri ve farklı gruplar (örneğin, DevOps gruplar), kuruluşunuzdaki etkinleştirmek için de kullanılabilir. Bir bağlı bileşen içinde temel iş yükü veya katmanı arasındaki trafik denetimi ile karmaşık çok katmanlı iş yükleri dağıtmak mümkündür.
+Konak farklı türde iş yükleri için her uç rolünü olabilir. Uçlar için yinelenebilir dağıtımlara modüler bir yaklaşım de sağlayabilirsiniz (örneğin, geliştirme ve test, kullanıcı kabul testi, ön üretim ile üretim) iş yüklerinin aynı. Uçlar, ayırmak ve farklı gruplar kuruluşunuzdaki (örneğin, DevOps grupları) etkinleştirmek için de kullanılabilir. Bir bileşen temel iş yükü veya karmaşık çok katmanlı iş yüklerinde Katmanlar arasındaki trafik denetimi ile dağıtmak mümkündür.
 
-##### <a name="subscription-limits-and-multiple-hubs"></a>Abonelik sınırlarını ve birden çok hub'ları
-Azure üzerinde bir türü ne olursa olsun, her bileşen bir Azure aboneliği dağıtılır. Farklı Azure abonelikleri Azure bileşenlerinde yalıtım erişim ve yetkilendirme farklı düzeyleri ayarlama gibi farklı LOB'lar gereksinimlerini karşılayabilen.
+##### <a name="subscription-limits-and-multiple-hubs"></a>Abonelik limitleri ve birden çok hub'ları
+Azure'da bir türü ne olursa olsun, her bileşen bir Azure aboneliğinde dağıtılır. Fark yaratan yetkilendirme ve erişim düzeyleri ayarlama gibi farklı LOB'lar, gereksinimlerini karşılayan bir yalıtım, farklı Azure aboneliklerinde Azure bileşenleri.
 
-Her BT sistemi olduğu gibi olsa da, platformlar sınırları tek bir vDC sayıda bağlı bileşen, ölçeği artırabilirsiniz. Hub dağıtımı kısıtlamaları ve sınırları olan belirli bir Azure aboneliği için bağlı (örneğin, VNet eşlemeler - max sayısını görmek [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları] [ Limits] Ayrıntılar için). Burada sınırları bir sorun olabilir durumlarda mimarisi ölçeklendirebilirsiniz kadar hub ve bağlı bileşen oluşan bir küme için bir tek hub-bağlı bileşen modelini genişleterek daha fazla. Bir veya daha fazla Azure bölgelerindeki çok sayıda hub VNet eşlemesi, ExpressRoute veya siteden siteye VPN kullanarak birbirine bağlanabilir.
+Her BT sistemi olduğu gibi olmasına rağmen platformları sınırları tek bir vDC uçlar, çok sayıda ölçeklendirme yapabilir. Hub dağıtımı kısıtlamaları ve sınırları olan belirli bir Azure aboneliği için bağlı (örneğin, sanal ağ eşleme - max bir sayısı bkz [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar] [ Limits] Ayrıntılar için). Burada sınırları bir sorun olabilir durumlarda mimari ölçeklendirebilirsiniz kadar hub ve bağlı bileşenler kümesi için tek bir hub-uçlardan modeli genişleterek daha fazla. Bir veya daha fazla Azure bölgesinde, birden çok hub'ları, VNet eşlemesi, ExpressRoute veya siteden siteye VPN kullanarak birbirine bağlanabilir.
 
 [![2]][2]
 
-Çok sayıda hub giriş maliyeti ve yönetim çaba sisteminin artırır ve yalnızca ölçeklenebilirlik tarafından hizalı (örnek: sistem sınırlarını veya artıklık) ve bölgesel çoğaltma (örnekler: son kullanıcı performans veya olağanüstü durum kurtarma). Senaryolarda gerektiren çok sayıda hub, tüm hub'lara Hizmetleri işletimsel kolaylaştırmak için aynı kümesi sunmak çalışmalarımızı.
+Birden çok hub'a maliyet ve yönetim eforunu sisteminin artırır ve yalnızca ölçeklenebilirlik tarafından hizalı (örnekler: sistem sınırlarını ya da yedekliliği) ve bölgesel çoğaltma (örnekler: son kullanıcı performans veya olağanüstü durum kurtarma). Senaryolarda birden çok hub'ları, tüm hub'ları gerektiren hizmetler için işletimsel bir kolayca aynı kümesi sunmak için çaba göstermelisiniz.
 
-##### <a name="interconnection-between-spokes"></a>Bağlı bileşen arasında bağlantısı
-Tek bir bağlı bileşen içinde karmaşık çok katmanları iş yükleri uygulamak mümkündür. Çok katmanlı yapılandırmaları aynı sanal ağ alt ağ (her katman için bir tane) kullanan ve Nsg'ler kullanarak akışları filtreleme uygulanabilir.
+##### <a name="interconnection-between-spokes"></a>Uçlar arasında bağlantısı
+İçinde tek bir bileşen, karmaşık çok katmanları iş yüklerini uygulamak da mümkündür. Çok katmanlı yapılandırmaları aynı sanal ağda alt ağlar (her katman için bir tane) kullanarak ve Nsg'ler kullanarak akışları filtreleme uygulanabilir.
 
-Öte yandan, bir Mimarı birden çok sanal ağlar arasında çok katmanlı bir iş yükü dağıtmak isteyebilirsiniz. VNet eşlemesi kullanarak, bağlı bileşen diğer bağlı bileşen aynı hub ya da farklı hub bağlanabilir. Bu senaryonun genel bir örnek veritabanı farklı bir spoke (VNet) içinde dağıtılırken uygulama işleme sunucularının bir spoke (VNet) olduğu durumdur. Bu durumda, VNet eşlemesi ile bağlı bileşen birbirine ve böylece hub'ı aracılığıyla transiting kaçınmak kolaydır. Hub atlayarak önemli güvenlik veya hub'ı yalnızca bulunabilecek noktaları denetimini atla değil emin olmak için bir mimari ve güvenlik inceledikten gerçekleştirilmesi gerekir.
+Öte yandan, bir Mimarı, çok katmanlı iş yükü birden çok sanal ağlarda dağıtmak isteyebilirsiniz. VNet eşlemesi kullanarak uçlar aynı hub veya hub'ları farklı diğer uçlara bağlanabilirsiniz. Bu senaryonun tipik bir örnek veritabanı farklı bir bileşen (VNet) içinde dağıtılırken uygulama işleme sunucuları bir bileşen (VNet) içinde olduğu durumdur. Bu durumda, VNet eşlemesi ile uçlar birbiriyle bağlantılı ve böylece hub'ı aracılığıyla i yapılandırmamız kaçınmak kolaydır. Hub'ı atlama önemli güvenlik veya hub'ı yalnızca bulunabilecek noktaları denetimini atlama değil emin olmak için dikkatli bir mimari ve güvenlik incelemesini gerçekleştirilmesi gerekir.
 
 [![3]][3]
 
-Bağlı bileşen da hub'ı olarak davranan bir spoke birbirine bağlanabilir. Bu yaklaşımın iki düzeyli hiyerarşisi oluşturur: spoke (düzey 0) daha yüksek düzeydeki alt bağlı bileşen (düzey 1) hiyerarşi hub'ını haline gelir. Ya da Internet veya şirket içi ağ genişletme ulaşmak için merkezi hub trafiği iletmek vDC, bağlı bileşen gerekir. Bir hub iki düzeyde mimarisiyle basit hub bağlı ilişki yararları kaldırır karmaşık yönlendirme tanıtır.
+Uçlar aynı zamanda bir merkez olarak davranan bir bileşen için birbirine bağlanabilir. Bu yaklaşımın iki düzeyli bir hiyerarşi oluşturur: uç daha yüksek düzeyde (düzeyi 0) hiyerarşinin daha düşük uçlar (düzey 1) hub haline gelir. VDC uçlar, şirket içi ağ veya internet çıkış ulaşmak için merkezi hub trafiği iletmek gerekir. İki düzeyi hub'ının bir mimariyle basit merkez-uç ilişki avantajlarını kaldırır karmaşık yönlendirme sunar.
 
-Azure karmaşık topolojiler olanak sağlasa da, temel ilkeler vDC kavram Yinelenebilirlik ve Basitlik biridir. Yönetim çabasını en aza indirmek için basit hub bağlı önerilen vDC referans mimarisi tasarımdır.
+Azure karmaşık topolojiler olanak tanısa da, temel ilkeler vDC kanıtı Yinelenebilirlik ve Basitlik biridir. Yönetim çabasını en aza indirmek için önerilen vDC başvuru mimarisi basit merkez-uç tasarım olur.
 
 ### <a name="components"></a>Bileşenler
-Sanal veri merkezi dört temel bileşen türü yapılır: **altyapı**, **Çevre ağları**, **iş yükleri**, ve **izleme**.
+Bir sanal veri merkezi dört temel bileşen türleri oluşur: **altyapı**, **Çevre ağları**, **iş yükleri**, ve **izleme**.
 
-Her bileşen türü çeşitli Azure özellikleri ve kaynakları oluşur. VDC birden çok bileşenleri türleri ve aynı bileşen türü birden çok varyasyonları örneklerini yapılır. Örneğin, farklı uygulamaların temsil birçok farklı, mantıksal olarak ayrılmış iş yükü örnekleri olabilir. Sonuçta vDC oluşturmak için bu farklı bileşeni türlerinin ve örneklerinin'nı kullanın.
+Her bileşen türü, çeşitli Azure özellikleri ve kaynakları oluşur. Bir vDC bileşenleri birden çok ve aynı bileşen türü birden çok çeşitleri örneklerini oluşur. Örneğin, farklı uygulamalar temsil eden birçok farklı, mantıksal olarak ayrı bir iş yükü örneği olabilir. Sonuçta vDC oluşturmak için bu farklı bileşen türlerini ve örnekleri'nı kullanın.
 
 [![4]][4]
 
-VDC önceki üst düzey mimarisini hub bağlı bileşen topolojisi farklı bölgelerde kullanılır farklı bileşen türleri gösterir. Diyagram mimarisi çeşitli kısımlarını altyapı bileşenlerini gösterir.
+VDC önceki üst düzey mimarisi hub uçlar topolojisinin farklı bölgelerde kullanılan farklı bileşen türlerini gösterir. Diyagramda mimarinin çeşitli bölümleri altyapı bileşenleri gösterilmektedir.
 
-Bir (için bir şirket içi DC'ye veya vDC) iyi bir uygulama erişim hakları ve ayrıcalıkları grup tabanlı olmalıdır. Erişim ilkeleri ekipleri ve yapılandırma hataları en aza içinde yardımları genelinde tutarlı bir şekilde koruma grupları ile ilgili, tek tek kullanıcılar yerine yardımcı olur. Atama ve kullanıcıların ve uygun gruplardan kaldırma belirli bir kullanıcı ayrıcalıkları güncel tutulmasına yardımcı olur.
+Bir iyi (şirket içi DC'ye veya vDC için) erişim haklarını ve ayrıcalıklarını grup tabanlı olmalıdır. Erişim ilkeleri, takımda ve yardımlar yapılandırma hataları en aza indirir, tutarlı bir şekilde koruma grupları ile ilgili, bireysel kullanıcılar yerine yardımcı olur. Belirli bir kullanıcının ayrıcalıkları güncel tutarak, atama ve kullanıcıların ve uygun gruplardan kaldırma yardımcı olur.
 
-Her rol grubunu hangi Grup hangi iş yükü ile ilişkili olduğunu belirlemek kolaylaşır adları benzersiz bir önek olması gerekir. Örneğin, bir kimlik doğrulama hizmeti barındıran bir iş yükü adlı grupları olabilir *AuthServiceNetOps, AuthServiceSecOps, AuthServiceDevOps ve AuthServiceInfraOps.* Benzer şekilde merkezi rol veya rolleri belirli bir hizmeti ile ilgili değil, "Corp" ile başlayan için *CorpNetOps* örneğin.
+Her rol grubu benzersiz bir önek hangi gruba hangi iş yükü ile ilişkilendirilmiş olduğunu tanımlamak kolaylaştıran adlarına sahip olmalıdır. Örneğin, bir kimlik doğrulama hizmetini barındıran bir iş yükü adlı grup olabilir *AuthServiceNetOps, AuthServiceSecOps AuthServiceDevOps ve AuthServiceInfraOps.* Benzer şekilde "Corp" ile başlar, rolleri veya belirli bir hizmete ilgili olmayan rollerin merkezi için *CorpNetOps* örneğin.
 
-Birçok kuruluş aşağıdaki grupların çeşitlemesi rolleri önemli bir dökümünü sağlamak için kullanın:
+Çoğu kuruluş, önemli bir rol dökümünü sağlamak için aşağıdaki grupların bir değişim kullanın:
 
--   *Merkezi BT grubu (Corp)* (örneğin, ağ ve güvenlik) altyapı bileşenlerini denetlemek için sahiplik haklarına sahiptir ve bu nedenle abonelikte katılımcı rolünüz (ve hub denetime sahip) gerekir ve bağlı bileşen katkıda bulunan haklarına ağ. Büyük kuruluş sık'Bu yönetim sorumlulukları gibi birden çok ekibin arasında bölme; bir ağ işlemlerini (CorpNetOps) grubu (odaklanılan özel ağ üzerinde) ve güvenlik işlemleri (CorpSecOps) grubu (için güvenlik duvarı ve güvenlik ilkesini sorumlu). Bu belirli bir durumda, iki farklı gruplar bu özel roller atama için oluşturulması gerekir.
--   *Geliştirme & test (AppDevOps) grubu* (uygulamalarına veya hizmetlerine) iş yükleri dağıtmak için sorumluluk sahiptir. Bu grup, sanal makine katkıda bulunan rolü Iaas dağıtımları ve/veya bir veya daha fazla PaaS katkıda bulunanlar rolleri alır (bkz [Azure rol tabanlı erişim denetimi için yerleşik roller][Roles]). İsteğe bağlı olarak geliştirme ve test takım güvenlik ilkeleri (Nsg'ler) ve hub veya belirli bir bağlı bileşen içinde yönlendirme ilkeleri (UDR) üzerinde görünürlük olması gerekebilir. Bu nedenle, iş yükleri için katkıda bulunan rollerinin yanı sıra bu grubun Ayrıca ağ okuyucu rolü gerekir.
--   *İşlem ve bakımı grubu (CorpInfraOps veya AppInfraOps)* üretim iş yükleri yönetme sorumluluğunu sahip. Bu grup, aboneliği katkıda bulunan herhangi bir üretim aboneliğiniz iş yükleri üzerinde olması gerekir. Bunlar üretim ortamında olası yapılandırma sorunlarını çözmek için bir ek yükseltme destek ekibi grubunun rolüne sahip abonelik katkıda bulunan üretim ve merkezi hub abonelik gerekiyorsa bazı kuruluşlar da değerlendirebilir.
+-   *Merkezi BT grubu (Corp)* (örneğin, ağ ve güvenlik) altyapı bileşenlerini denetlemek için sahiplik haklarına sahiptir ve bu nedenle, abonelik üzerinde katkıda bulunan rolüne sahip (ve hub'ın denetiminiz) gerekir ve Uçlar, ağ Katılımcısı hakları. Büyük kuruluş sık bu yönetim sorumlulukları gibi birden çok ekipler arasında yukarı split; bir ağ işlemlerini (CorpNetOps) grubu (odaklanılan özel ağ üzerinde) ve güvenlik işlemleri (CorpSecOps) grubu (güvenlik duvarı ve güvenlik ilkesi için sorumlu). Bu belirli durumda, iki farklı gruplar bu özel rol ataması için oluşturulması gerekir.
+-   *Geliştirme & test (AppDevOps) grubu* (uygulamalarına veya hizmetlerine) iş yükleri dağıtmak için bir sorumluluğu vardır. Bu grup, sanal makine Katılımcısı rolü Iaas dağıtımları ve/veya bir veya daha fazla PaaS katkıda bulunanın rolleri alır (bkz [Azure rol tabanlı erişim denetimi için yerleşik roller][Roles]). İsteğe bağlı olarak geliştirme ve test takımı, güvenlik ilkeleri (Nsg'ler) ve hub veya belirli bir bileşen içinde yönlendirme ilkeleri (UDR) görünürlük sağlamak gerekebilir. Bu nedenle, iş yükleri için katkıda bulunan rollerine ek olarak bu Grup Ayrıca ağ okuyucu rolü gerekir.
+-   *Çalışmasından ve korunmasından grubu (CorpInfraOps veya AppInfraOps)* üretim iş yüklerini yönetme sorumluluğunu sahip. Bu grup, herhangi bir üretim aboneliğinizi iş yükleri üzerinde bir abonelik katkıda bulunanı olmanız gerekir. Bir ek yükseltme desteği takım grubu rolüne sahip abonelik katkıda bulunanı merkezi hub aboneliği, üretim ve üretim olası yapılandırma sorunlarını çözmek için ihtiyaç duydukları, bazı kuruluşlar da değerlendirebilir ortam.
 
-VDC hub'ı yönetme merkezi BT grupları için oluşturulan grupları iş yükü düzeyinde karşılık gelen gruplarınız şekilde yapılandırılmıştır. Hub kaynakları yönetmeye ek olarak yalnızca merkezi BT grupları dış erişim ve abonelik en üst düzey izinlerini denetlemek gerçekleştirebilir. Ancak, iş yükü grupları kaynakları ve merkezi BT üzerinde bağımsız olarak kendi sanal izinlerini denetlemek gerçekleştirebilir.
+VDC hub'ı yönetme merkezi BT grupları için oluşturulan grupları iş yükü düzeyinde karşılık gelen gruplarınız şekilde yapılandırılmıştır. Hub'ı kaynakları yönetmenin yanı sıra yalnızca merkezi BT grupları dış erişim ve üst düzey izinleri abonelik üzerinde denetimi mümkün olacaktır. Ancak, iş yükü grupları kaynakları ve merkezi BT üzerinde bağımsız olarak, VNet izinlerini denetlemek hazırdır.
 
-VDC güvenli bir şekilde birden çok proje farklı satırı-in-işletmeler arasında (LOB'lar) barındırmak için bölümlenmiş gerekir. Tüm projeleri farklı yalıtılmış ortamlara (geliştirme, UAT, üretim) gerektirir. Her bu ortamlar için ayrı Azure abonelikleri doğal yalıtımı sağlar.
+VDC güvenli bir şekilde birden çok proje farklı satır-ın-işletmeler arasında (LOB) barındırmak için bölümlenmiş olması gerekir. Tüm projeler farklı yalıtılmış ortamlara (geliştirme, UAT, üretim) gerektirir. Bu ortamların her biri için ayrı Azure Abonelikleri, doğal yalıtımı sağlar.
 
 [![5]][5]
 
-Önceki diyagramda, bir kuruluşun projeleri, kullanıcılar, gruplar ve Azure bileşenleri dağıtıldığı ortamlar arasındaki ilişkiyi gösterir.
+Önceki şemada, bir kuruluşun projeleri, kullanıcıları, grupları ve Azure bileşenlerini dağıtıldığı ortamların arasındaki ilişkiyi gösterir.
 
-Genellikle, BT, bir ortam (veya katman) birden çok uygulama, dağıtılan ve yürütülen bir sistemdir. Büyük kuruluşlar kullanmak bir geliştirme ortamı (değişiklikler ilk olarak yapılan ve test) ve bir üretim ortamında (ne son kullanıcılar kullanın). Bu ortamlarda, genellikle birkaç hazırlık ortamları bunları aşamalı dağıtımı (ürün) izin verecek şekilde BETWEEN, test ve sorun oluşması durumunda geri alma ile ayrılır. Dağıtım mimarilerinin büyük ölçüde farklılık, ancak genellikle basic (Geliştirme) geliştirme sırasında başlayıp (üretim) üretim sırasında işlemi hala izlenir.
+Buna genellikle BT, bir ortam (veya katman) birden çok uygulama, dağıtılan ve çalıştırılan bir sistemdir. Büyük kuruluşlar, bir geliştirme ortamı kullanın (değişiklikler ilk olarak yapılan ve test) ve bir üretim ortamına (son kullanıcıların ne kullanın). Bu ortamlarda, genellikle birden çok hazırlık ortamları arasında bunları aşamalı dağıtımı (ürün) izin vermek için test ve sorun oluşması durumunda geri alma ile ayrılır. Dağıtım mimarisi önemli ölçüde farklılık, ancak genellikle (Geliştirme) geliştirme için başlangıç ve bitiş üretimde (üretim) temel işlemi hala izlenir.
 
-Çok katmanlı ortamlar bu tür için ortak bir mimarisini DevOps (geliştirme ve test etme), UAT (hazırlama) ve üretim ortamlarını oluşur. Kuruluşlar, tek veya birden çok Azure AD kiracılarıyla erişim ve bu ortamlara hakları tanımlamak için yararlanabilirsiniz. Önceki diyagramda söz konusu iki yerde farklı gösterilmektedir Azure AD kiracılarıyla kullanılır: DevOps ve UAT ve üretim için özel olarak diğer için bir tane.
+Bu tür bir çok katmanlı ortamlar için yaygın bir mimari, DevOps (geliştirme ve test), UAT (hazırlama) ve üretim ortamlarında oluşur. Kuruluşlar, tek veya birden çok Azure AD kiracılarıyla erişim ve bu ortamların haklarını tanımlamak için yararlanabilirsiniz. Önceki diyagramda bir servis talebi burada iki farklı gösterilmektedir Azure AD kiracılarıyla kullanılır: biri DevOps ve UAT, diğeri üretim için özel olarak.
 
-Varlığı farklı Azure AD kiracılar ortamlar arasında ayrım zorlar. Aynı kullanıcı grubunu (örneğin, merkezi BT) gereken farklı bir kullanarak kimlik doğrulaması farklı bir AD Kiracı erişmek için URI roller veya bir projenin DevOps veya üretim ortamları izinleri değiştirin. Farklı ortamlar erişmek için farklı kullanıcı kimlik doğrulaması varlığını olası kesintileri ve insan hataları neden diğer sorunları azaltır.
+Varlık farklı Azure AD kiracılar, ortamlar arasında ayrım zorlar. Aynı kullanıcı grubunu (örneğin, merkezi BT) gerekli kullanarak farklı bir kimlik doğrulaması farklı bir AD kiracınıza erişim URI roller veya bir projenin DevOps veya üretim ortamları izinlerini değiştirin. Farklı ortamlar erişmek için farklı kullanıcı kimlik doğrulama varlığı, olası kesintileri ve insan hataları nedeniyle diğer sorunları azaltır.
 
-#### <a name="component-type-infrastructure"></a>Bileşen türü: altyapısı
-Bu bileşen türü destekleyici altyapının çoğunu bulunduğu olur. Ayrıca Burada, merkezi BT, güvenlik ve/veya uyumluluk ekipler, çoğu zaman.
+#### <a name="component-type-infrastructure"></a>Bileşen türü: altyapı
+Destekleyici altyapının çoğunu yer aldığı bu bileşeni türüdür. Ayrıca Burada, merkezi BT, güvenlik ve/veya uyumluluk ekipleri harcama zamanlarının çoğunu.
 
 [![6]][6]
 
-Altyapı bileşenlerini arası vDC'in farklı bileşenleri arasında bir bağlantı sağlayın ve hub ve bağlı bileşen yok. Yönetme ve altyapı bileşenleri koruma sorumluluğunu genelde Orta atanan BT ve/veya güvenlik ekibine.
+Altyapı bileşenlerini bir vDC farklı bileşenleri arasında bir bağlantısı sağlamak ve hub ve bağlı bileşenler mevcuttur. Yönetmeye ve korumaya altyapı bileşenleri için sorumluluk genellikle Orta için atanan BT ve/veya güvenlik ekibi.
 
-BT altyapı grubu, birincil görevleri kuruluş genelinde IP adresi şema tutarlılığı garanti için biridir. Özel IP adres alanı tutarlı olacak şekilde vDC ihtiyaçları için atanan ve şirket içi ağlarınız Atanan özel IP adresleri ile çakışan değil.
+BT altyapısı ekibin birincil görevlerinden birini ve kuruluş genelinde IP adresi şemaları tutarlılığını garanti sağlamaktır. Özel IP adresi alanı tutarlı olmasını vDC ihtiyaçları için atanan ve şirket içi ağlarınızı atanmış özel IP adresleriyle çakışan değil.
 
-Şirket içi sınır yönlendiricileri veya Azure ortamlarda NAT IP adresi çakışmalarını önleyebilirsiniz olsa da, altyapı bileşenlerinizi zorluklar ekler. Yönetim basitliği IP sorunları işlemek için NAT kullanarak önerilen bir çözüm değildir şekilde vDC, anahtar amaçlarını biridir.
+Şirket içi uç yönlendiricileri ya da Azure ortamlarını NAT IP adresi çakışmaları vermemesine zorluk, altyapı bileşenleri için ekler. Yönetim basitliğinin IP kaygıları işlemek için NAT'ı kullanarak önerilen bir çözüm değildir vDC, anahtar amaçlarını biridir.
 
-Altyapı bileşenlerini aşağıdaki işlevselliği içerir:
+Altyapı bileşenlerini aşağıdaki işlevleri içerir:
 
--   [**Kimlik ve Dizin Hizmetleri**][AAD]. Her kaynak türü azure'da erişimi dizin hizmetinde depolanan kimlik tarafından denetlenir. Dizin hizmeti yalnızca kullanıcılar listesi, aynı zamanda kaynaklara erişim hakkı belirli bir Azure aboneliğinin depolar. Bu hizmetler yalnızca bulut bulunabilir veya Active Directory'de depolanan şirket içi kimlik ile eşitlenebilir.
--   [**Sanal ağ**][VPN]. Sanal ağlar vDC ana bileşenlerinin biridir ve trafik yalıtımı sınır Azure platformunda oluşturmanızı sağlar. Tek veya birden çok sanal ağ kesimleri, her biri belirli bir IP ağ öneki (alt ağ), bir sanal ağ oluşur. Sanal ağ nerede Iaas sanal makineleri ve PaaS Hizmetleri özel iletişim kurup bir iç çevre alanı tanımlar. Sanal makineleri (ve PaaS Hizmetleri) bir sanal ağ sanal makineleri doğrudan iletişim olamaz (ve PaaS Hizmetleri) farklı bir sanal ağ, her iki sanal ağlar aynı abonelik kapsamında aynı müşteri tarafından oluşturulan olsa bile. Yalıtım müşteri sanal makineleri sağlar önemli bir özelliktir ve iletişim bir sanal ağ içindeki özel kalır.
--   [**UDR**][UDR]. Bir sanal ağ trafiğini, varsayılan sistem yönlendirme tablosuna dayalı tarafından yönlendirilir. Bir kullanıcı tanımlamak, ağ yöneticilerinin özel bir yönlendirme tablosu sistem yönlendirme tablosu davranışını üzerine ve sanal ağ içinde bir iletişim yolu tanımlamak için bir veya daha fazla alt ağlara ilişkilendirebilirsiniz yoldur. Belirli özel VM'ler ve/veya ağ sanal Gereçleri ve yük dengeleyici hub ve bağlı bileşen mevcut yoluyla spoke aktarım gelen o çıkış trafiği Udr'ler varlığını güvence altına alır.
--   [**NSG**][NSG]. Bir ağ güvenlik grubu, trafik IP kaynakları, hedef IP, protokolleri, IP kaynak bağlantı noktaları ve IP hedef bağlantı noktalarına filtreleme gibi davranan güvenlik kuralları listesidir. NSG bir alt ağ, bir Azure VM veya her ikisi ile ilişkili bir sanal NIC kartı uygulanabilir. Nsg'ler hub ve bağlı bileşen doğru akış denetimi uygulamak için gereklidir. NSG tarafından karşılanan güvenlik düzeyini hangi bağlantı noktalarını açmanız ve hangi amaçla bir işlev değil. Müşteriler, ana bilgisayar tabanlı güvenlik duvarları gibi IPtables veya Windows Güvenlik Duvarı ek VM başına filtrelerle uygulamalıdır.
--   [**DNS**][DNS]. VDC Vnet'lerdeki kaynaklar ad çözümlemesi DNS yoluyla sağlanır. Azure DNS hizmetleri her ikisi için de sağlar [ortak][DNS] ve [özel] [ PrivateDNS] ad çözümlemesi. Özel bölgeler bir sanal ağ içinde hem de sanal ağlar arasındaki ad çözümlemesi sağlar. Sanal ağlar aynı bölgede aynı zamanda bölgeler ve abonelikler arasında özel bölgeler yalnızca aralık olabilir. Ortak çözüm için Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlamanın Azure DNS DNS etki alanı için bir barındırma hizmeti sağlar. Etki alanlarınızı Azure'da barındırarak DNS kayıtlarınızı diğer Azure hizmetlerinde kullandığınız kimlik bilgileri, API’ler, araçlar ve faturalarla yönetebilirsiniz.
--   [**Abonelik** ] [ SubMgmt] ve [ **kaynak grubu Yönetim**][RGMgmt]. Bir abonelik birden çok kaynak grupları oluşturmak için doğal bir sınır tanımlar. Bir Abonelikteki kaynakların kaynak grupları adlı mantıksal kapsayıcılarında birlikte birleştirilir. Kaynak grubu vDC kaynakları düzenlemek için mantıksal bir grubu temsil eder.
--   [**RBAC**][RBAC]. RBAC, kullanıcıların yalnızca belirli bir alt kümesi eylemler için sınırlamanıza izin vererek belirli Azure kaynaklarına erişim hakkı birlikte harita Kurumsal rol için mümkündür. RBAC ile kullanıcılar, gruplar ve ilgili kapsam içinde uygulamalar için uygun rolü atayarak erişim izni verebilir. Rol atamasının kapsamı, bir Azure aboneliği, bir kaynak grubu veya tek bir kaynak olabilir. RBAC devralma izin verir. Bir üst kapsamda atanan bir rolü de içerdiği alt öğelerine erişim verir. RBAC kullanarak, görevlerini kurabilmeleri ve işlerini yapmak için gereksinim duydukları kullanıcılara sadece erişim miktarını verebilirsiniz. Örneğin, bir çalışan başka bir SQL veritabanları aynı abonelik içinde yönetebilirsiniz sırada bir Abonelikteki sanal makineleri yönetme izin vermek için RBAC kullanın.
--   [**VNet eşlemesi**][VNetPeering]. VDC altyapısı oluşturmak için kullanılan temel VNet eşlemesi, iki sanal ağlar (Vnet'ler) bağlanan bir mekanizma üzerinden Azure veri merkezi ağı veya bölgeler arasında Azure dünya çapında omurga kullanarak aynı bölgede özelliğidir.
+-   [**Kimlik ve Dizin Hizmetleri**][AAD]. Azure'daki her kaynak türü için erişim, dizin hizmetinde depolanan bir kimlik tarafından denetlenir. Dizin hizmeti, yalnızca kullanıcıların listesini, aynı zamanda kaynaklara erişim haklarını belirli bir Azure aboneliğinde depolar. Bu hizmetler, yalnızca bulutta yer alan bulunabilir veya Active Directory'de depolanan şirket içi kimlik ile eşitlenebilir.
+-   [**Sanal ağ**][VPN]. Sanal ağlar, bir vDC ana bileşenleri biridir ve trafik yalıtımı sınır Azure platformunda oluşturmanıza olanak sağlar. Bir sanal ağ, tek bir veya birden çok sanal ağ kesimleri, her biri belirli IP ağ öneki (alt ağ) oluşur. Sanal ağ, burada Iaas sanal makineleri ve PaaS Hizmetleri özel iletişim kurabilmesi için bir iç çevre alan tanımlar. VM'ler (ve PaaS Hizmetleri) bir sanal ağ, sanal makinelere doğrudan kuramıyor.%nÇözüm (ve PaaS Hizmetleri) farklı bir sanal ağ, her iki sanal ağ aynı abonelik altında aynı müşteri tarafından oluşturulmuş olsa bile. Yalıtım müşteri Vm'leri sağlar önemli bir özelliktir ve bir sanal ağ içindeki özel iletişimin kalır.
+-   [**UDR**][UDR]. Bir sanal ağdaki trafik, varsayılan sistem yönlendirme tablosuna dayalı olarak yönlendirilir. Bir kullanıcıyı tanımlamak, ağ yöneticilerinin özel bir yönlendirme tablosu sistem yönlendirme tablosu davranışı üzerine ve sanal ağ içindeki bir iletişim yolunun tanımlamak için bir veya daha fazla alt ağlara ilişkilendirebilirsiniz yoldur. Udr'ler varlığını belirli özel sanal makineler ve/veya ağ sanal Gereçleri ve yük Dengeleyiciler hub ve bağlı bileşenler mevcut yoluyla uç aktarım öğesinden bu çıkış trafiği garanti eder.
+-   [**NSG**][NSG]. Bir ağ güvenlik grubu trafik IP kaynakları, hedef IP, protokolleri, IP kaynak bağlantı noktaları ve IP hedef bağlantı noktaları üzerinde filtreleme gibi davranan güvenlik kuralları bir listesidir. NSG alt ağa, bir Azure VM veya her ikisi ile ilişkili bir sanal NIC kartı uygulanabilir. Nsg'ler, hub ve bağlı bileşenler doğru akış denetimi uygulamak için gereklidir. Bir işlevin hangi bağlantı noktalarını açmanız ve hangi amaçla NSG tarafından gösterilen güvenlik düzeyidir. Müşteriler, ek VM başına filtrelerle ana bilgisayar tabanlı güvenlik duvarları gibi IPtables veya Windows Güvenlik Duvarı'nı uygulamalıdır.
+-   [**DNS**][DNS]. Bir vDC vnet'lerdeki kaynaklar ad çözümlemesi DNS üzerinden sağlanır. Azure DNS hizmeti hem de sunar [genel][DNS] ve [özel] [ PrivateDNS] ad çözümlemesi. Özel alanları, bir sanal ağdaki ve sanal ağlar arasında ad çözümleme sağlar. Yalnızca aralık özel bölgeleri aynı bölgede ancak bölgeler ve abonelikler arasında sanal ağlar arasında olabilir. Genel bir çözüm için Azure DNS, Microsoft Azure altyapısı kullanılarak ad çözümlemesi olanağı sağlayan bir DNS etki alanı, barındırma hizmeti sağlar. Etki alanlarınızı Azure'da barındırarak DNS kayıtlarınızı diğer Azure hizmetlerinde kullandığınız kimlik bilgileri, API’ler, araçlar ve faturalarla yönetebilirsiniz.
+-   [**Abonelik** ] [ SubMgmt] ve [ **Kaynak Grup Yönetimi**][RGMgmt]. Bir abonelik, Azure'da birden çok kaynak gruplarını oluşturmak için doğal bir sınır tanımlar. Bir Abonelikteki kaynakları kaynak gruplarına adlı mantıksal kapsayıcılarda birlikte birleştirilir. Kaynak grubu, bir vDC kaynakları düzenlemek için bir mantıksal grubu temsil eder.
+-   [**RBAC**][RBAC]. RBAC aracılığıyla Kimliğinizi, böylece kullanıcıların yalnızca belirli bir alt işlemlerin için kısıtlamak belirli Azure kaynaklarına erişim hakları yanı sıra harita Kurumsal rol için mümkündür. RBAC ile kullanıcılara, gruplara ve uygulamalara uygun kapsam içinde uygun role atayarak erişim verebilirsiniz. Rol atamasının kapsamı, bir Azure aboneliği, bir kaynak grubu veya tek bir kaynak olabilir. RBAC izinlerinin devralma sağlar. Atanmış bir üst kapsamda bir rol, ayrıca içerdiği alt öğeleri için erişim verir. RBAC kullanarak, görevleri ayırmak ve işlerini yapmak için ihtiyaçları olan kullanıcılara sadece erişim miktarını verin. Örneğin, aynı abonelik içinde başka bir SQL veritabanlarını yönetebilir, ancak bir Abonelikteki sanal makineleri yönetme bir çalışanın izin vermek için RBAC kullanın.
+-   [**VNet eşlemesi**][VNetPeering]. VDC altyapısını oluşturmak için kullanılan temel özellik, Azure veri merkezi ağı veya bölgeler arasında Azure dünya çapında omurga kullanarak aracılığıyla aynı bölgedeki sanal ağ eşleme, iki sanal ağ (Vnet) bağlanan bir mekanizma değildir.
 
 #### <a name="component-type-perimeter-networks"></a>Bileşen türü: Çevre ağları
-[Çevre ağı] [ DMZ] bileşenleri (çevre ağı olarak da bilinir) şirket içi veya fiziksel veri merkezi ağlarını, Internet'ten herhangi bağlantısı ile ağ bağlantısı sağlamak izin verir. Burada, ağ ve güvenlik muhtemelen çoğu zaman, ekipler de olabilir.
+[Çevre ağı] [ DMZ] bileşenleri (çevre ağı olarak da bilinir), şirket içinde veya fiziksel veri merkezi ağlarını, Internet'ten herhangi bir bağlantı ile ağ bağlantısı sağlamak sağlar. Ayrıca, ağ ve güvenlik takımlarınızın olasılığı zamanlarının çoğunu burada harcama olur.
 
-Gelen paket Kimlikleri ve IP'leri, güvenlik duvarı gibi hub'ında güvenlik Gereçleri bağlı bileşen arka uç sunucuların ulaşmadan önce akışına. Internet'e bağlı paketler iş yükleri de çevre ağındaki güvenlik Gereçleri ilke zorlaması, denetleme ve denetim amacıyla, ağ ayrılmadan önce akışına.
+Gelen paket güvenlik duvarı, Kimlikleri ve IPS gibi hub'ındaki güvenlik Gereçleri üzerinden uçlar arka uç sunucular ulaşmadan önce akış. İnternet'e bağlı iş yüklerini paketleri ayrıca ilke zorlaması, inceleme ve denetim amacıyla, çevre ağındaki güvenlik Gereçleri üzerinden ağ ayrılmadan önce akış.
 
 Çevre ağ bileşenleri aşağıdaki özellikleri sağlar:
 
 -   [Sanal ağlar][VNet], [UDR][UDR], [NSG][NSG]
--   [Ağ sanal gereç][NVA]
+-   [Ağ sanal Gereci][NVA]
 -   [Yük Dengeleyici][ALB]
 -   [Uygulama ağ geçidi][AppGW] / [WAF][WAF]
 -   [Genel IP'ler][PIP]
 
-Genellikle, Orta BT ve güvenlik ekiplerinden gereksinim tanımı ve Çevre ağları işlemlerini sorumluluğu.
+Genellikle, merkezi BT ve güvenliği ekiplerinin gereksinim tanımı ve çevre ağ işlemleri için sorumluluk.
 
 [![7]][7]
 
-Önceki diyagramda iki çevreyi erişimi olan zorlama hub'ı yerleşik hem de Internet ve bir şirket içi ağ gösterir. Tek bir hub Internet çevre ağına LOB'lar, Web uygulaması Güvenlik Duvarı (WAFs) ve/veya güvenlik duvarları birden çok grupları kullanarak çok sayıda desteklemek üzere ölçeği artırabilirsiniz.
+Önceki şemada, hub'ı yerleşik hem de İnternet'e ve bir şirket içi ağ erişimi olan iki duvarlar uygulanması gösterilmektedir. Tek bir hub internet çevre ağına LOB Web uygulaması güvenlik duvarları (Waf) ve/veya güvenlik duvarlarını birden çok grupları kullanarak, çok sayıda desteklemek üzere ölçeklendirilebilir.
 
-[**Sanal ağlar** ] [ VNet] hub genellikle farklı türde filtreleme ve trafik için veya NVAs, WAFs ve Azure üzerinden internet'ten inceleniyor hizmetlerini barındırmak için birden çok alt ağa sahip bir VNet üzerine inşa edilmiştir Uygulama ağ geçidi.
+[**Sanal ağlar** ] [ VNet] hub genellikle, farklı filtreleme ve trafiği Nva'lar Waf'ler ve Azure ile internet'ten ya da hizmetlerin türü barındırmak için birden çok alt ağ ile sanal ağ temel alınarak oluşturulmuştur Uygulama ağ geçitleri.
 
-[**UDR** ] [ UDR] UDR kullanarak, müşterilerin dağıtabilir güvenlik duvarları, Kimlikleri/IP'leri ve diğer sanal gereçler ve ağ trafiğini yönlendirmek güvenlik sınırı ilke zorlaması için bu güvenlik Gereçleri aracılığıyla Denetim ve denetleme. Udr'ler hub ve bağlı bileşen trafiği belirli özel VM'ler, ağ sanal Gereçleri ve vDC tarafından kullanılan yük dengeleyici transits güvence altına almak için oluşturulabilir. Doğru sanal gereçler VM'ler spoke yoldaki yerleşik kaynaklandığı bu trafiği garanti etmek için bir UDR spoke alt ağlarında sonraki atlama olarak iç yük dengeleyici ön uç IP adresini ayarlayarak ayarlanması gerekir. İç yük dengeleyicisi sanal gereçler (yük dengeleyici arka uç havuzu) için iç trafiği dağıtır.
+[**UDR** ] [ UDR] kullanarak UDR, müşterilerin dağıtabilir güvenlik duvarları, IDs/IPS ve diğer sanal Gereçleri ve ağ trafiğini yönlendirme için güvenlik sınırı ilke zorlaması, bu güvenlik Gereçleri üzerinden denetimi ve İnceleme. Udr, hub'ı hem de trafiği belirli bir özel sanal makineler, ağ sanal Gereçleri ve vDC tarafından kullanılan yük dengeleyicileri aracılığıyla transits garanti uçlar oluşturulabilir. Bu trafiğin uç Aktarımdaki yerleşik vm'lerden doğru sanal Gereçleri için oluşturulan sağlamak için bir UDR uç alt ağları sonraki atlama iç yük dengeleyici ön uç IP adresi ayarlayarak ayarlanması gerekir. İç load balancer sanal Gereçleri (yük dengeleyici arka uç havuzu) iç trafiği dağıtır.
 
 [![8]][8]
 
-[**Ağ sanal Gereçleri** ] [ NVA] hub'ı, çevre ağı ile internet erişimi normalde güvenlik duvarları ve/veya Web uygulaması Güvenlik Duvarı (WAFs) bir gruba yönetilir.
+[**Ağ sanal Gereçleri** ] [ NVA] hub'ında çevre ağı ile internet erişimi normalde güvenlik duvarları ve/veya Web uygulaması güvenlik duvarları (Waf) bir gruba yönetilir.
 
-Bu uygulamalar çeşitli güvenlik açıkları ve olası güvenlik açıklarına yaşar eğilimindedir ve farklı LOB'lar yaygın olarak birçok web uygulaması kullanın. Web uygulamaları güvenlik duvarları, genel bir Güvenlik Duvarı'den daha fazla derinlemesine web uygulamaları (HTTP/HTTPS) saldırıları algılamak için kullanılan ürün için özel bir köpek ' dir. Gelenek güvenlik duvarı teknolojisi ile karşılaştırıldığında, WAFs iç web sunucularını tehditlere karşı korumak için belirli özellik kümesine sahip.
+Bu uygulamalar, çeşitli güvenlik açıkları ve olası açıklardan yararlanmaya karşı etkilese eğilimindedir ve farklı LOB'lar yaygın olarak birçok web uygulamaları kullanın. Web uygulamaları güvenlik duvarları ürün daha derinlemesine daha genel bir güvenlik duvarı, web uygulamaları (HTTP/HTTPS) saldırıları algılamak için kullanılan özel bir türü var. Waf'ler yılda güvenlik duvarı teknolojisi ile karşılaştırıldığında, iç web sunucuları tehditlere karşı korumak için belirli özellikler kümesi vardır.
 
-Bir güvenlik duvarı grubu art arda bağlı bileşen içinde barındırılan iş yüklerini korumak için güvenlik kuralları kümesi ile aynı ortak yönetim altında çalışan güvenlik duvarı bir grubudur ve erişimi denetleme içi ağlar. Bir güvenlik duvarı grubu daha az WAF ile karşılaştırıldığında yazılım özelleştirilmiş sahiptir, ancak filtre ve herhangi bir türde çıkış ve giriş trafiği incelemek için kapsamlı uygulama kapsama sahip. Güvenlik Duvarı grupları ağ sanal Azure marketi'ndeki kullanılabilir olan uygulamaları (NVAs) aracılığıyla Azure'da normal olarak uygulanır.
+Bir güvenlik duvarı Grup güvenlik duvarları dağıtımınızla uçlar barındırılan iş yüklerini korumak için güvenlik kuralları kümesi ile aynı ortak yönetim altında çalışma grubudur ve erişimi denetlemek için şirket ağları. Bir güvenlik duvarı Grup küçük bir WAF ile karşılaştırıldığında yazılım özelleştirilmiş sahiptir, ancak filtrelemek ve herhangi bir türde çıkış ve giriş trafiği incelemek için geniş uygulama kapsamı vardır. Güvenlik Duvarı grupları, normalde ağ sanal, Azure Market'te kullanıma sunulan Gereçleri (Nva) üzerinden Azure'da uygulanır.
 
-Internet üzerinde trafiği için bir dizi NVAs kullanmak için önerilen ve trafik kaynaklanan için başka bir şirket içi. Hiçbir güvenlik çevre ağ trafiği iki küme arasındaki sağladığı gibi her ikisi için yalnızca bir kümesini NVAs kullanarak bir güvenlik riski oluşturur. Ayrı NVAs kullanarak denetim güvenlik kuralları karmaşıklığını azaltır ve hangi kuralları hangi gelen ağ isteğine karşılık gelen temizleyin kolaylaştırır.
+Internet'ten kaynaklanan trafik için bir Nva kümesi kullanmak için önerilen ve kaynaklanan trafik için başka şirket içi. Ağ trafiğinin iki kümesi arasında hiçbir güvenlik çevresi sağlayan tek bir Nva kümesi için her ikisini de kullanarak bir güvenlik riski aynıdır. Ayrı nva'larını kullanarak güvenlik kurallarının denetlenmesine karmaşıklığı azaltır ve hangi gelen ağ isteğine hangi kuralları karşılık geldiğini belirlemeyi kolaylaştırır.
 
-En büyük kuruluşlar birden çok etki alanı yönetin. Azure DNS, belirli bir etki alanı için DNS kayıtlarını barındırmak için kullanılabilir. Örnek olarak, Azure dış yük dengeleyici (veya WAFs) sanal IP adresi (VIP) bir Azure DNS kaydının A kaydı kaydedilebilir.
+En büyük kuruluşlar birden çok etki alanlarını yönetme. Azure DNS, belirli bir etki alanı için DNS kayıtlarını barındırmak için kullanılabilir. Örnek olarak, Azure dış yük dengeleyici (veya Waf'ler) sanal IP adresi (VIP) bir Azure DNS kaydının bir kayıttaki kaydedilebilir.
 
-[**Azure yük dengeleyici** ] [ ALB] Azure yük dengeleyici yüksek oranda kullanılabilir bir gelen trafiği yükü dengelenmiş bir kümede tanımlanmış hizmet örnekleri arasında dağıtabilirsiniz katman 4 (TCP, UDP) hizmeti sunar. Yük Dengeleyici ön uç noktalarından (genel IP uç noktaları veya özel IP uç noktaları) gönderilen trafiğin ile veya olmadan adres çevirisi arka uç IP adresi havuzu (örnekler olan; kümesi için yeniden dağıtılabilir Ağ sanal Gereçleri veya VM'ler).
+[**Azure Load Balancer** ] [ ALB] Azure load balancer, gelen trafiği yükü dengelenmiş bir kümede tanımlanmış hizmet örnekleri arasında dağıtabilirsiniz katman 4 (TCP, UDP) hizmeti, bir yüksek kullanılabilirlik sağlar. Yük dengeleyiciye ön uç noktalarından (genel IP uç noktaları veya özel IP uç noktalarını) gönderilen trafik ile veya olmadan adres çevirisi bir dizi arka uç IP adresi havuzu (örnekler alınıyor; yeniden dağıtılabilir Ağ sanal Gereçleri veya Vm'leri).
 
-Azure yük dengeleyici sistem durumunu da çeşitli sunucu örnekleri araştırma ve sağlıksız örneğine trafiği göndermeye yük dengeleyici yanıt bir araştırma başarısız olduğunda durdurulur. VDC içinde bir dış yük dengeleyici varlığını (örneğin, NVAs trafiği Bakiye) hub ve bağlı bileşen (çok katmanlı uygulaması farklı VM'ler arasındaki trafiği Dengeleme gibi görevleri gerçekleştirmek için) sunuyoruz.
+Azure Load Balancer de çeşitli sunucu örneklerinin sistem durumu araştırma ve bir araştırma yanıt veremediğinde yük dengeleyici sağlıksız örneğine trafik gönderen durdurur. Bir vDC içinde bir dış yük dengeleyici varlığını (örneğin, trafiği Nva'lar için Bakiye) hub ve bağlı bileşenler (çok katmanlı bir uygulamanın farklı VM'ler arasındaki trafiği Dengeleme gibi görevleri gerçekleştirmek için) sunuyoruz.
 
-[**Uygulama ağ geçidi** ] [ AppGW] Microsoft Azure uygulama ağ geçidi olan uygulama teslim Denetleyicisi'ni (ADC) sağlayan ayrılmış bir sanal uygulama bir hizmet olarak çeşitli katman 7 Yük Dengeleme sunumu Uygulamanız için özellikleri. Uygulama ağ geçidi için CPU yoğunluklu SSL sonlandırma boşaltarak web grubu verimliliği en iyi duruma getirme imkan tanır. Ayrıca, gelen trafiğin “hepsini bir kez deneme” yaklaşımıyla dağıtımı, tanımlama bilgisi tabanlı oturum benzeşimi, URL’yi yol tabanlı yönlendirme ve tek bir uygulama ağ geçidi arkasında birden fazla web sitesi barındırma gibi diğer 7. katman yönlendirme özelliklerini sağlar. Application gateway WAF SKU’su kapsamında bir web uygulaması güvenlik duvarı da (WAF) sağlanır. Bu SKU ortak web Güvenlik Açıkları ve açıkları web uygulamaları için koruma sağlar. Application Gateway; İnternet'e yönelik ağ geçidi, yalnızca dahili ağ geçidi veya bu ikisinin bir birleşimi olarak yapılandırılabilir. 
+[**Uygulama ağ geçidi** ] [ AppGW] Microsoft Azure Application Gateway olduğu adanmış bir sanal gereç uygulama teslim denetleyicisi (ADC) sağlayan bir hizmet olarak sunan çeşitli katman 7 Yük Dengeleme Uygulamanız için özellikleri. CPU yoğun SSL sonlandırması yükünü application gateway'e boşaltarak web grubu üretkenliğini iyileştirme olanağı tanır. Ayrıca, gelen trafiğin “hepsini bir kez deneme” yaklaşımıyla dağıtımı, tanımlama bilgisi tabanlı oturum benzeşimi, URL’yi yol tabanlı yönlendirme ve tek bir uygulama ağ geçidi arkasında birden fazla web sitesi barındırma gibi diğer 7. katman yönlendirme özelliklerini sağlar. Application gateway WAF SKU’su kapsamında bir web uygulaması güvenlik duvarı da (WAF) sağlanır. Bu SKU için web uygulamalarını yaygın web güvenlik açıklarına ve açıklardan yararlanmaya karşı koruma sağlar. Application Gateway; İnternet'e yönelik ağ geçidi, yalnızca dahili ağ geçidi veya bu ikisinin bir birleşimi olarak yapılandırılabilir. 
 
-[**Genel IP'ler** ] [ PIP] bazı Azure özellikleri etkinleştirmek, hizmet uç noktalar kaynağınıza internet'ten erişilmesine izin veren genel bir IP adresi ile ilişkilendirilecek. Bu uç nokta iç adresi ve bağlantı noktası Azure sanal ağı üzerinde trafiği yönlendirmek için ağ adresi çevirisi (NAT) kullanır. Bu yol, sanal ağa geçirmek dış trafiği için birincil yoludur. Genel IP adresleri, hangi trafik geçirilen ve nasıl ve nerede açın sanal ağ çevrilir belirlemek için yapılandırılabilir.
+[**Genel IP'ler** ] [ PIP] bazı Azure özellikleri, hizmet uç noktaları, kaynak için internet'ten erişilmesine izin veren genel bir IP adresini ilişkilendirmek etkinleştirin. Bu uç nokta, iç adresi ve bağlantı noktası Azure sanal ağındaki trafiği yönlendirmek için ağ adresi çevirisi (NAT) kullanır. Bu yol, sanal ağa geçirmeniz dış trafiği için birincil yoludur. Genel IP adresleri, hangi trafiğin geçirilir ve nasıl ve nerede sanal ağı açın çevrilir belirlemek için yapılandırılabilir.
 
 #### <a name="component-type-monitoring"></a>Bileşen türü: izleme
-İzleme bileşenleri görünürlük ve tüm diğer bileşenleri türlerinden uyarı sağlar. Tüm takımların bileşenleri için izlemeyi erişimi olması gerekir ve Hizmetleri erişime sahip. Merkezi yardım masasına veya işlemleri takımlar varsa, bu bileşenler tarafından sağlanan verilere erişim tümleşik gerekir.
+İzleme bileşenleri, görünürlük ve tüm diğer bileşenleri türlerinden uyarılar sağlar. Tüm takımlar için bileşenleri izlemeye erişimi olması gereken ve Hizmetleri erişime sahip. Merkezi Yardım Masası veya işlem ekipleri varsa bu bileşenleri tarafından sağlanan verilere erişim tümleşik olması gerekir.
 
-Günlüğe kaydetme ve Hizmetleri Azure davranışını izlemek için izleme farklı türlerde Azure sunar kaynaklarını barındırılan. İdare ve azure'da iş yüklerini denetime bağlı değil yalnızca üzerinde toplama günlük verilerini, aynı zamanda belirli bildirilen olaylara dayanarak tetikleyici eylemleri yeteneği olur.
+Günlüğe kaydetme ve izleme hizmetleri Azure davranışını izlemek için farklı türde Azure tekliflerini kaynakları barındıran. İdare ve azure'daki iş yüklerinin denetimi tabanlı bir günlük veri yalnızca üzerinde toplama, aynı zamanda belirli bildirilen etkinliklere göre eylem tetikleyici özelliği değildir.
 
-[**Azure İzleyici** ] [ Monitor] -Azure ayrı ayrı bir spesifik rol ya da görev İzleme alanı gerçekleştirmek birden fazla hizmet içeriyor. Birlikte, bu hizmetleri toplama, çözümleme ve uygulamanız ve bunları destekleyen Azure kaynaklarını telemetrisinden işlevi gören için kapsamlı bir çözüm sunar. Karma bir ortamı izleme sağlamak için kritik şirket içi kaynakları izlemek için de çalışabilir. Araçlar ve kullanılabilir verileri anlamak, uygulamanız için tam bir izleme stratejisi geliştirme ilk adımdır.
+[**Azure İzleyici** ] [ Monitor] -Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir. Bu hizmetler birlikte, uygulamanız için telemetri verilerini toplama, analiz etme ve bu verilere göre eylemde bulunmaya ilişkin kapsamlı bir çözüm ve bunları destekleyen Azure kaynaklarını sunar. Karma bir izleme ortamı sağlamak için kritik şirket içi kaynakları izlemek için de çalışır. Kullanılabilir olan araç ve verilerin anlaşılması, uygulamanız için eksiksiz bir izleme stratejisi geliştirmenin ilk adımıdır.
 
-Azure günlükleri başlıca iki türde vardır:
+Azure'da günlükleri başlıca iki türde vardır:
 
--   [**Etkinlik günlükleri** ] [ ActLog] ("İşlem günlüğü" olarak da bilinir) Azure aboneliğindeki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Bu günlükler aboneliklerinizi denetim düzlemi olayları bildirin. Her Azure kaynak denetim günlüklerini oluşturur.
+-   [**Etkinlik günlükleri** ] [ ActLog] ("İşlem günlüğü" olarak da bilinir) Azure aboneliğindeki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Bu günlükler, Abonelikleriniz için Denetim düzlemi olayları bildirin. Her bir Azure kaynak denetim günlüklerini üretir.
 
--   [**Azure tanılama günlüklerini** ] [ DiagLog] olan bu kaynakla ilgili zengin, sık sık veri sağlayan bir kaynak tarafından oluşturulan günlükleri. Bu günlükler içeriğini kaynak türüne göre değişir.
+-   [**Azure tanılama günlükleri** ] [ DiagLog] olan bu kaynağın işlemiyle ilgili zengin, sık sık veri sağlayan bir kaynak tarafından oluşturulan günlükleri. Bu günlüklerin içeriği kaynak türüne göre değişir.
 
 [![9]][9]
 
-Bir vDC, Nsg'ler günlükleri, özellikle bu bilgileri izlemek son derece önemlidir:
+Bir vDC içinde Nsg'ler günlükleri, özellikle bu bilgileri izlemek son derece önemlidir:
 
--   [**Olay günlükleri**][NSGLog]: hangi NSG kuralları VM'ler ve örnek rolleriniz MAC adresine dayalı uygulanır hakkında bilgi sağlar.
--   [**Sayaç günlükleri**][NSGLog]: her NSG kural reddetmek veya trafiğine izin vermek üzere yürütüldü kaç kez izler.
+-   [**Olay günlükleri**][NSGLog]: hangi NSG kuralları Vm'lere ve örnek rollerinizin MAC adresini temel alarak uygulanmış bilgiler sağlar.
+-   [**Sayaç günlükleri**][NSGLog]: her bir NSG kuralı, trafiğine izin vermek veya reddetmek için yürütüldü kaç kez izler.
 
-Tüm günlükler, Denetim, statik çözümleme veya yedekleme amacıyla Azure depolama hesaplarında depolanabilir. Günlükler, bir Azure depolama hesabında depolanır, müşteriler çerçeveler farklı türlerini kullanan almak için hazırla, çözümlemek ve durumunu ve bulut kaynaklarına durumunu bildirmek için bu verileri görselleştirin.
+Tüm günlükleri, Denetim, statik analiz veya yedekleme amacıyla Azure depolama hesaplarında depolanabilir. Günlükleri bir Azure depolama hesabında depolanır, müşteriler farklı türde çerçeveleri kullanın alma, hazırlama, analiz ve durumunu ve bulut kaynakları durumunu raporlamak için bu verileri görselleştirin.
 
-Büyük ölçekli işletmeler, şirket içi sistemleri izleme için standart bir çerçeve almış olması ve bulut dağıtımları tarafından oluşturulan günlükleri tümleştirmek için bu framework genişletebilirsiniz. İster kuruluş bulutta tüm günlük tutmak için [günlük analizi] [LogAnalytics] harika bir seçenektir. Günlük analizi bulut tabanlı bir hizmet olarak uygulandığından, hazır ve çalışır hızlı bir şekilde minimal yatırım altyapı hizmetleri ile sağlayabilirsiniz. Günlük analizi, ayrıca, varolan yönetim yatırımlarınızı buluta genişletmek için System Center Operations Manager gibi System Center bileşenleri ile tümleştirebilirsiniz.
+Büyük kuruluşlar, şirket içi sistemleri izlemek için standart bir çerçeve almış olması ve bulut dağıtımları tarafından oluşturulan günlükleri tümleştirmek için bu çerçeve genişletebilirsiniz. [Log Analytics] [LogAnalytics] istediğiniz kuruluşlar, bulutta tüm günlük tutmak için harika bir seçimdir. Log Analytics, bulut tabanlı bir hizmet olarak uygulandığından, çalışmaya hızlıca altyapı hizmetleri için çok az yatırım ile sağlayabilirsiniz. Log Analytics, mevcut yönetim yatırımlarınızın buluta genişletmek için System Center Operations Manager gibi System Center bileşenleri ile de tümleştirebilirsiniz.
 
-Günlük analizi yardımcı toplamak, bağıntılı, arama ve işletim sistemleri, uygulamalar ve altyapı bulut bileşenleri tarafından oluşturulan günlük ve performans verilerini hareket azure'da bir hizmettir. Müşterilerin vDC içinde iş yükleri arasında tüm kayıtları çözümlemek için tümleşik arama ve özel panolar kullanarak gerçek zamanlı operasyonel Öngörüler verir.
+Log Analytics, yardımcı olur toplayın, ilişkilendirin, arayın ve işletim sistemleri, uygulamalar ve altyapı bulut bileşenleri tarafından oluşturulan günlük ve performans verileri üzerinde işlem azure'da bir hizmettir. Bu müşteriler, bir vDC, iş yükleriniz arasında tüm kayıtları çözümlemek için tümleşik arama ve özel panoları kullanarak gerçek zamanlı operasyonel içgörüler sunar.
 
-[Ağ Performans İzleyicisi'ni (NPM)] [ NPM] çözüm OMS içinde ayrıntılı ağ bilgileri için Azure ağlar ve şirket içi ağlarda, tek bir görünümünü de dahil olmak üzere uçtan, sağlayabilir. ExpressRoute ve kamu hizmetleri için belirli monitörlerle.
+[Ağ Performansı İzleyicisi'ni (NPM)] [ NPM] çözümü OMS içinde ayrıntılı ağ bilgileri-Azure ağları ile şirket içi ağlar tek bir görünüm dahil olmak üzere uca, sağlayabilir. ExpressRoute ve kamu hizmetleri için belirli izleyicilerde.
 
 #### <a name="component-type-workloads"></a>Bileşen türü: iş yükleri
-İş yükü, gerçek uygulama ve hizmetlerinize bulunduğu bileşenleridir. Burada, uygulama geliştirme çoğu zaman, ekipler de olabilir.
+İş yükü gerçek uygulamalarınızı ve hizmetlerinizi bulunduğu bileşenlerdir. Ayrıca, uygulama geliştirme takımlarınızın zamanlarının çoğunu burada harcama olur.
 
-İş yükünün olanaklar gerçekten sonsuzdur. Birkaç olası iş yükü türleri şunlardır:
+Gerçek anlamda iş yükü olasılıklar sınırsızdır. Olası iş yükü türleri birkaçı şunlardır:
 
 **İç iş KOLU uygulamaları**
 
-İş kolu satır, bir kuruluşun devam eden işlem kritik bilgisayar uygulamaları uygulamalardır. İş KOLU uygulamaları, bazı ortak özelliklere sahiptir:
+İş kolu satır, bir kuruluşun devam eden işlemi kritik bilgisayar uygulamaları uygulamalardır. LOB uygulamaları, bazı ortak özelliklere sahiptir:
 
--   **Etkileşimli**. İş KOLU uygulamaları doğası gereği etkileşimli: veriler girilir ve sonuç/raporları döndürülür.
--   **Veri tabanlı**. İş KOLU uygulamaları veritabanları veya diğer depolama için sık erişimli yoğun verilerdir.
--   **Tümleşik**. Uygulamaları teklif tümleştirme diğer sistemlerle içinde veya kuruluş dışından LOB.
+-   **Etkileşimli**. LOB uygulamaları doğası gereği etkileşimli: veriler girilir ve sonuç/reports döndürülür.
+-   **Veri odaklı**. LOB veri kullanımı yoğun veritabanları veya diğer depolama için sık erişimli uygulamalardır.
+-   **Tümleşik**. Uygulamaları teklif tümleştirme içinde veya kuruluş dışındaki diğer sistemlerle LOB.
 
-**Müşteri Web sitelerini (Internet veya dahili e yönelik) karşılıklı** internetle etkileşimde çoğu uygulamayı web siteleridir. Azure Iaas VM'de veya bir web sitesini çalıştırmak için özelliği sunan bir [Azure Web Apps] [ WebApps] site (PaaS). Azure Web uygulamaları vDC spoke Web uygulamaları dağıtımını izin sanal ağlar ile tümleştirmeyi destekler. VNET Tümleştirmesi ile dahili kullanıma yönelik web siteleri bakıldığında uygulamalarınız için bir Internet uç nokta kullanıma kopyalaması gerekmeyen özel dışındaki Internet yönlendirilebilir adreslerden özel sanal ağınızı aracılığıyla kaynaklara kullanın.
+**Müşteri Web sitelerini (Internet veya dahili e yönelik) yan yana** internetle etkileşimde çoğu uygulama, web siteleridir. Azure Iaas VM'de veya bir web sitesi çalıştırmak yeteneği sunar bir [Azure Web Apps] [ WebApps] site (PaaS). Azure Web Apps, Web uygulamaları dağıtımını, bir vDC uç izin veren sanal ağlar ile tümleştirmeyi destekler. VNET Tümleştirmesi ile iç kullanıma yönelik web siteleri bakarak, uygulamalarınız için bir Internet uç noktanın kullanıma kopyalaması gerekmez kaynakları aracılığıyla özel ağınızdan özel olmayan Internet yönlendirilebilir adresleri kullanın.
 
-**Büyük veri analizi** veri çok büyük bir birime ölçeği gerektiğinde veritabanları düzgün ölçeği değil. Hadoop teknoloji dağıtılmış sorgular çok sayıda düğümü üzerinde paralel olarak çalıştırmak için bir sistem sunar. Müşterilerin Iaas Vm'si veya PaaS veri iş yüklerini çalıştırmaya yönelik seçeneği sahip ([Hdınsight][HDI]). Hdınsight bağlı bileşen vDC, kümede dağıtılabilir, konum tabanlı bir sanal ağ dağıtma destekler.
+**Büyük veri analizi** veri çok büyük bir birime ölçeği gerektiğinde, veritabanları düzgün bir şekilde ölçeği değil. Hadoop teknoloji, çok sayıda düğümü üzerinde paralel olarak dağıtılmış sorguları çalıştırmak için bir sistem sunar. Müşterilerin Iaas Vm'leri veya PaaS veri iş yüklerini çalıştırmaya yönelik seçeneği vardır ([HDInsight][HDI]). HDInsight, konum tabanlı bir Vnet'te dağıtma destekler, vDC, uçtaki bir kümeye de dağıtılabilir.
 
-**Olaylar ve ileti**
-[Azure Event Hubs] [ EventHubs] toplar, dönüştüren ve milyonlarca etkinliği depolayan bir hiper ölçek telemetri alım hizmetidir. Olarak dağıtılmış bir akış platform, düşük gecikme süresi ve yapılandırılabilir zaman bekletme, Azure'da telemetri oldukça büyük miktardaki alma ve bu verileri birden çok uygulamalardan Okuma olanak sağlar. Event Hubs ile tek bir akış gerçek zamanlı ve toplu tabanlı ardışık düzen destekleyebilir.
+**Olayları ve mesajlaşma**
+[Azure Event Hubs] [ EventHubs] toplayan, dönüştüren ve depolayan milyonlarca olayı bir hiper ölçekli bir telemetri alma hizmetidir. Dağıtılan bir akış platformu, düşük gecikme süresi ve Azure'a büyük hacimli telemetri alımı ve verilerin birden çok uygulamalardan Okuma olanak sağlayan yapılandırılabilir saklama süresi sunar. Event Hubs'ı tek bir akışın, hem gerçek zamanlı hem de toplu işlem tabanlı işlem hatlarını destekleyebilir.
 
-İleti hizmeti uygulamalar ve hizmetler arasında yüksek oranda güvenilir bir bulut aracılığıyla uygulanabilir [Azure Service Bus] [ ServiceBus] teklifleri zaman uyumsuz ile birlikte istemci ve sunucu arasında Mesajlaşma aracılı yapılandırılmış ilk olarak ilk çıkar (FIFO) Mesajlaşma ve yayımlama/abonelik yetenekleri.
+Yüksek oranda güvenilir bir bulut Mesajlaşma hizmetidir uygulamalar ve hizmetler arasında aracılığıyla uygulanabilir [Azure Service Bus] [ ServiceBus] teklifler zaman uyumsuz ileti istemci ve sunucu arasında aracılı yapılandırılmış ilk-giren ilk çıkar (FIFO) Mesajlaşma ve yayımlama/abone olma özelliklerinin yanı sıra.
 
 [![10]][10]
 
 ### <a name="multiple-vdc"></a>Birden çok vDC
-Şu ana kadar bu makalede temel bileşenleri ve esnek bir vDC katkıda mimarisi açıklayan bir tek vDC odaklanan. Azure yük dengeleyici, NVAs, kullanılabilirlik kümeleri, diğer mekanizmaları birlikte ölçek kümeleri gibi Azure özellikleri düz SLA düzeyleri üretim hizmetlerinizi oluşturmanıza olanak sağlayan bir sistem katkıda bulunun.
+Şu ana kadar bu makalede temel bileşenleri ve esnek bir vDC katkıda mimarisi açıklayan, tek bir vDC odaklanıyor. Azure yük dengeleyici, nva'ları, kullanılabilirlik kümeleri, başka mekanizmalar birlikte, Ölçek kümeleri gibi Azure özellikleri, düz SLA düzeyleri üretim hizmetlerinizi oluşturmanıza olanak tanıyan bir sistem katkıda bulunur.
 
-Ancak, tek bir vDC tek bir bölge içinde barındırılan ve tüm bu bölge etkileyebilecek önemli kesinti savunmasızdır. Yüksek SLA elde etmek istediğiniz müşterilerin dağıtımları farklı bölgelerde yerleştirilen iki (veya daha fazla) VDC aynı projesinin hizmetleriyle korumanız gerekir.
+Ancak, tek bir vDC tek bir bölgede barındırılır ve bu bölgenin tamamını etkileyebilir ana kesintiye neden savunmasızdır. Farklı bölgelerde yerleştirilen VDC iki (veya daha fazla), aynı projede dağıtımları hizmetleriyle korumak yüksek SLA elde etmek istediğiniz müşteriler gerekir.
 
-SLA sorunları ek olarak, burada birden çok VDC dağıtma mantıklı birkaç yaygın senaryo vardır:
+SLA'sı sorunları ek olarak, birden çok VDC dağıtma yarayacak yerde birkaç yaygın senaryo vardır:
 
 -   Bölge/genel durum
 -   Olağanüstü Durum Kurtarma
--   DC arasındaki trafiği yönlendir mekanizması
+-   DC arasında trafiği yöneltmektir mekanizması
 
 #### <a name="regionalglobal-presence"></a>Bölge/genel durum
-Azure veri merkezleri, dünya çapında çok sayıda bölgelerde yok. Birden çok Azure veri merkezlerinde seçerken, müşterilerin iki ilgili faktörleri göz önünde bulundurmanız gereken: coğrafi uzaklıklar ve gecikme süresi. Müşteriler VDC vDC ve en iyi kullanıcı deneyimi sunmak için son kullanıcıların arasındaki uzaklığı arasındaki coğrafi uzaklığı değerlendirmeniz gerekir.
+Azure veri merkezleri, dünya çapındaki çok sayıda bölgede bulunur. Birçok Azure veri merkezinde seçerken, müşterilerin iki ilgili faktörler göz önünde bulundurmanız gerekir: coğrafi uzaklıkları ve gecikme süresi. VDC vDC ve en iyi kullanıcı deneyimini sunmak için son kullanıcılar arasındaki uzaklığı arasındaki coğrafi uzaklıktan değerlendirmek müşterilerin gerekmektedir.
 
-VDC barındırıldığı Azure bölgesi da gerekir, kuruluşunuzun altında faaliyet yasal dairesi tarafından kurulan yasal düzenleme gereksinimlerine uygun olması.
+VDC barındırıldığı Azure bölgesi de kuruluşunuz altında çalıştığı yasal dairesi tarafından kurulan Mevzuat gereksinimlerini karşılaması için gerekir.
 
 #### <a name="disaster-recovery"></a>Olağanüstü Durum Kurtarma
-Bir olağanüstü durum kurtarma planı uyarlamasını kesinlikle ilgilenen iş yükü türüne ve farklı VDC arasında iş yükünü durumunu eşitleme özelliği ilişkilidir. İdeal olarak, müşterilerin çoğu uygulama verilerinin hızlı yük devretme mekanizması uygulamak için iki farklı VDC içinde çalışan dağıtımlar arasında eşitlemek istediğiniz. Çoğu uygulama için gecikme süresi duyarlıdır ve veri eşitlemesine olası zaman aşımı ve gecikme neden.
+Bir olağanüstü durum kurtarma planının uygulanması önemle endişe iş yükü türüne ve iş yükü durumu farklı VDC arasında eşitleme olanağı ilişkilidir. İdeal olarak, müşterilerin çoğu hızlı yük devretme mekanizması uygulamak için iki farklı VDC içinde çalışan dağıtımlar arasında uygulama verilerini eşitleme istiyorsunuz. Çoğu uygulama için gecikme süresi duyarlıdır ve veri eşitlemesine olası zaman aşımı ve gecikme neden.
 
-Eşitleme veya farklı VDC uygulamaların sinyal izleme bunların arasındaki iletişimi gerektirir. Farklı bölgelerdeki iki VDC üzerinden bağlı olması gerekir:
+Eşitleme ya da farklı VDC uygulamaların sinyal izleme aralarında iletişim gerektirir. Farklı bölgelerdeki iki VDC üzerinden bağlanabilir:
 
--   VNet eşlemesi - VNet eşlemesi bağlanabilir hub'ları bölgeler arasında
--   ExpressRoute aynı expressroute bağlantı hattı vDC hub'ları bağlıyken eşliği özel
--   birden çok ExpressRoute bağlantı hatları, şirket omurga bağlı ve ExpressRoute bağlantı hatları için vDC kafes bağlı
--   Her Azure bölgesindeki vDC hub'larınız arasında siteden siteye VPN bağlantıları
+-   Sanal ağ eşleme - VNet eşlemesi bağlanabilir hub'ları bölgeler arasında
+-   ExpressRoute özel vDC hub'ları aynı ExpressRoute bağlantı hattına bağlı olduğunuzda eşleme
+-   Şirket, omurgası yoluyla bağlı birden çok ExpressRoute bağlantı hatları ve ExpressRoute bağlantı hatlarına bağlı, bir vDC mesh
+-   Her Azure bölgesinde vDC hubs'ınız arasında siteden siteye VPN bağlantıları
 
-Genellikle VNet eşlemesi veya ExpressRoute bağlantıları tercih edilen yüksek bant genişliği ve tutarlı gecikme nedeniyle Microsoft omurga transiting zaman sistemdir.
+Genellikle VNet eşlemesi ya da ExpressRoute bağlantıları, Microsoft omurga i yapılandırmamız, daha yüksek bant genişliği ve tutarlı bir gecikme nedeniyle tercih edilen mekanizması mevcuttur.
 
-Farklı bölgelerde bulunan iki (veya daha fazla) farklı VDC arasında dağıtılan bir uygulama doğrulamak için hiçbir Sihirli tarif yoktur. Müşteriler gecikme süresi ve bant genişliği bağlantıları ve hedef zaman uyumlu veya zaman uyumsuz veri çoğaltma uygun olup olmadığını ve hangi, iş yükleri için en iyi kurtarma süresi hedefi (RTO) olabilir doğrulamak için ağ niteliğe testleri çalıştırmanız gerekir.
+Farklı bölgelerde bulunan iki (veya daha fazla) farklı VDC arasında dağıtılan bir uygulama doğrulamak için magic tarifi yoktur. Müşteriler gecikme süresi ve bant genişliği bağlantıları ve hedef zaman uyumlu veya zaman uyumsuz veri çoğaltmayı uygun olup olmadığını ve hangi iş yükleriniz için en iyi kurtarma süresi hedefi (RTO) olabilir doğrulamak için ağ nitelik testleri çalıştırmanız gerekir.
 
-#### <a name="mechanism-to-divert-traffic-between-dc"></a>DC arasındaki trafiği yönlendir mekanizması
-Başka bir DC'ye trafiği gelen yönlendir için etkili bir teknik DNS temel alır. [Azure Traffic Manager] [ TM] içinde belirli bir vDC en uygun ortak uç nokta için son kullanıcı trafiği yönlendirmek için etki alanı adı sistemi (DNS) mekanizması kullanır. Araştırmalar, üzerinden trafik Yöneticisi düzenli aralıklarla farklı VDC ortak uç noktalarını hizmetinin durumunu denetler ve bu uç başarısız olması durumunda, bu otomatik olarak ikincil vDC yönlendirir.
+#### <a name="mechanism-to-divert-traffic-between-dc"></a>DC arasında trafiği yöneltmektir mekanizması
+Başka bir DC'ye içinde trafiği gelen yöneltmektir için bir etkili teknik DNS temel alır. [Azure Traffic Manager] [ TM] en uygun genel bir uç nokta son kullanıcı trafiğini belirli bir vDC yönlendirmek için etki alanı adı sistemi (DNS) mekanizmasını kullanır. Araştırmalar aracılığıyla Traffic Manager hizmeti sistem durumunu farklı VDC içinde ortak Uç noktalara düzenli olarak denetler ve bu Uç noktalara hata durumunda, bu otomatik olarak ikincil vDC için yönlendirir.
 
-Trafik Yöneticisi Azure genel Uç noktalara çalışır ve, örneğin, Denetim/yönlendir uygun vDC Azure Vm'leri ve Web uygulamaları için trafiği için kullanılabilir. Trafik Yöneticisi bile bir tüm Azure bölgesi başarısızlığı karşısında esnektir ve birkaç ölçüte (örneği için belirli bir vDC veya istemci için en düşük ağ gecikmesini ile vDC seçerek hizmetinde hatası) göre farklı VDC içinde hizmet uç noktaları için kullanıcı trafiğinin dağıtımını denetleyebilirsiniz.
+Traffic Manager, Azure genel Uç noktalara çalışır ve, örneğin, Denetim/yöneltmektir uygun vDC trafiği Azure VM'ler ile Web uygulamaları için kullanılabilir. Traffic Manager karşılaşıldığında bile bir Azure bölgesinin tamamını başarısızlığı esnektir ve hizmet uç noktalarına (örneğin, başarısız bir hizmetin belirli bir vDC veya vDC seçme içinde çeşitli ölçütlere göre farklı VDC kullanıcı trafiğinin dağıtımını denetleyebilirsiniz en düşük ağ gecikme süresiyle istemci için).
 
 ### <a name="conclusion"></a>Sonuç
-Sanal veri merkezi bir veri merkezi geçiş için ölçeklenebilir mimari maliyetlerini azaltır ve sistem yönetimini basitleştirme, bulut kaynak kullanımını en üst düzeye çıkarır oluşturmak için özellikleri ve yetenekleri bileşimini kullanır buluta yaklaşımdır. VDC kavram hub'ında ortak paylaşılan hizmetler sağlamayı ve bağlı bileşen içinde belirli uygulamalar/iş yükleri vererek bir hub'a bağlı bileşen topolojisi temel alır. VDC şirket rolleri, burada farklı Departmanlar (Merkezi BT, DevOps, işlem ve bakımı) birlikte her rolleri ve görevleri belirli bir listesiyle birlikte çalışacak yapısını eşleşir. VDC "Kaldırın ve Shift" geçiş için gereksinimleri karşılıyor ancak aynı zamanda yerel bulut dağıtımları için birçok avantaj sağlar.
+Sanal veri merkezi bir veri merkezi geçişi maliyetlerini düşürerek ve sistem yönetimini basitleştirir, bulut kaynak kullanımını en üst düzeye çıkarır Azure'da ölçeklenebilir bir mimari oluşturmak için özellikleri ve yetenekleri bir birleşimini kullanan buluta yaklaşımdır. VDC kavramı hub'ında ortak paylaşılan hizmetler sağlama ve uçlar belirli uygulamaları/iş yükleri vererek bir hub uçlar topolojisini temel alır. VDC şirket rolleri, burada farklı departmanlara (Merkezi BT, DevOps, işlem ve bakım), her rol ve görevleri belirli bir liste ile çalışılmasını yapısını eşleşir. VDC "Lift and Shift" Geçiş gereksinimleri karşılayan, ancak aynı zamanda yerel bulut dağıtımlarını birçok avantaj sağlar.
 
 ## <a name="references"></a>Başvurular
-Aşağıdaki özellikler, bu belgede ele alınan. Daha fazla bilgi için bağlantılar'ı tıklatın.
+Aşağıdaki özellikler, bu belgede ele alınan. Daha fazla bilgi için bağlantılar'a tıklayın.
 
 | | | |
 |-|-|-|
 |Ağ Özellikleri|Yük Dengeleme|Bağlantı|
-|[Azure sanal ağlar][VNet]</br>[Ağ güvenlik grupları][NSG]</br>[NSG günlüklerini][NSGLog]</br>[Kullanıcı tanımlı yönlendirme][UDR]</br>[Ağ sanal Gereçleri][NVA]</br>[Genel IP adresleri][PIP]</br>[DNS]|[Azure yük dengeleyici (L3) ][ALB]</br>[Uygulama ağ geçidi (L7) ][AppGW]</br>[Web uygulaması güvenlik duvarı][WAF]</br>[Azure trafik Yöneticisi][TM] |[VNet eşlemesi][VNetPeering]</br>[Sanal özel ağ][VPN]</br>[ExpressRoute][ExR]
+|[Azure sanal ağları][VNet]</br>[Ağ güvenlik grupları][NSG]</br>[NSG günlüklerini][NSGLog]</br>[Kullanıcı tanımlı yönlendirme][UDR]</br>[Ağ sanal Gereçleri][NVA]</br>[Genel IP adresleri][PIP]</br>[DNS]|[Azure yük dengeleyici (L3) ][ALB]</br>[Uygulama ağ geçidi (L7) ][AppGW]</br>[Web uygulaması güvenlik duvarı][WAF]</br>[Azure Traffic Manager][TM] |[VNet eşlemesi][VNetPeering]</br>[Sanal özel ağ][VPN]</br>[ExpressRoute][ExR]
 |Kimlik</br>|İzleme</br>|En İyi Uygulamalar</br>|
-|[Azure Active Directory][AAD]</br>[Çok faktörlü kimlik doğrulaması][MFA]</br>[Rol tabanlı erişim denetimleri][RBAC]</br>[Varsayılan AAD rolleri][Roles] |[Azure İzleyicisi][Monitor]</br>[Etkinlik günlükleri][ActLog]</br>[Tanılama günlükleri][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br>[Ağ Performansı İzleyicisi][NPM]|[En iyi yöntemler Çevre ağları][DMZ]</br>[Abonelik Yönetimi][SubMgmt]</br>[Kaynak grubu Yönetim][RGMgmt]</br>[Azure abonelik limitleri][Limits] |
+|[Azure Active Directory][AAD]</br>[Çok faktörlü kimlik doğrulaması][MFA]</br>[Rol temel erişim denetimleri][RBAC]</br>[Varsayılan AAD rolleri][Roles] |[Azure İzleyici][Monitor]</br>[Etkinlik günlükleri][ActLog]</br>[Tanılama günlükleri][DiagLog]</br>[Microsoft Operations Management Suite'e][OMS]</br>[Ağ Performansı İzleyicisi][NPM]|[En iyi Çevre ağları][DMZ]</br>[Abonelik Yönetimi][SubMgmt]</br>[Kaynak Grup Yönetimi][RGMgmt]</br>[Azure abonelik limitleri][Limits] |
 |Diğer Azure Hizmetleri|
-|[Azure Web uygulamaları][WebApps]</br>[Hdınsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
+|[Azure Web Apps][WebApps]</br>[Hdınsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
- - Araştır [VNet eşlemesi][VNetPeering], vDC hub ve bağlı bileşen tasarımları için underpinning teknolojisi
- - Uygulama [AAD] [ AAD] kullanmaya başlamak için [RBAC] [ RBAC] araştırması
- - Bir abonelik ve kaynak yönetim modeli geliştirmek ve RBAC yapısı gereksinimlerini karşılamak için model ve kuruluşunuzun ilkeleri. En önemli etkinlik planlama. Yeniden düzenlemeyi, birleşmeler, yeni ürün satırlar, vb. için pratik, kadar planlayın.
+ - Keşfedin [VNet eşlemesi][VNetPeering], vDC merkez ve uç tasarımları için taşlarından teknolojisi
+ - Uygulama [AAD] [ AAD] kullanmaya başlamak için [RBAC] [ RBAC] keşfetme
+ - Bir abonelik ve kaynak yönetim modeli geliştirmek ve RBAC yapısı gereksinimlerini karşılamak için model ve kuruluşunuzun ilkeleri. En önemli etkinlik planlamaktadır. Yeniden düzenlemeyi, birleşmeler, yeni ürün satırlar gibi şeyler için kullanışlı, artacak planlayın.
 
 <!--Image References-->
-[0]: ./media/networking-virtual-datacenter/redundant-equipment.png "bileşen çakışma örnekleri" 
-[1]: ./media/networking-virtual-datacenter/vdc-high-level.png "hub ve bağlı bileşen vDC üst düzey örneği"
-[2]: ./media/networking-virtual-datacenter/hub-spokes-cluster.png "hub ve bağlı bileşen kümesi"
-[3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "spoke spoke"
+[0]: ./media/networking-virtual-datacenter/redundant-equipment.png "bileşeni çakışma örnekleri" 
+[1]: ./media/networking-virtual-datacenter/vdc-high-level.png "merkez ve uç vDC üst düzey bir örnek"
+[2]: ./media/networking-virtual-datacenter/hub-spokes-cluster.png "hub ve bağlı bileşenler kümesi"
+[3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "uç uç"
 [4]: ./media/networking-virtual-datacenter/vdc-block-level-diagram.png "blok düzeyinde vDC diyagramı"
-[5]: ./media/networking-virtual-datacenter/users-groups-subsciptions.png "kullanıcılar, gruplar, abonelikleri ve projeleri"
+[5]: ./media/networking-virtual-datacenter/users-groups-subsciptions.png "kullanıcıları, grupları, abonelikleri ve projeleri"
 [6]: ./media/networking-virtual-datacenter/infrastructure-high-level.png "üst düzey altyapı diyagramı"
 [7]: ./media/networking-virtual-datacenter/highlevel-perimeter-networks.png "üst düzey altyapı diyagramı"
 [8]: ./media/networking-virtual-datacenter/vnet-peering-perimeter-neworks.png "VNet eşlemesi ve Çevre ağları"
-[9]: ./media/networking-virtual-datacenter/high-level-diagram-monitoring.png "izleme için üst düzey diyagramı"
-[10]: ./media/networking-virtual-datacenter/high-level-workloads.png "iş yükü için üst düzey diyagramı"
+[9]: ./media/networking-virtual-datacenter/high-level-diagram-monitoring.png "izleme için yüksek düzey bir diyagramı"
+[10]: ./media/networking-virtual-datacenter/high-level-workloads.png "iş yükü için yüksek düzey bir diyagramı"
 
 <!--Link References-->
 [Limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits

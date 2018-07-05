@@ -1,8 +1,8 @@
 ---
-title: Azure Active Directory koşullu erişimin bir taban çizgisi koruma nedir? -Önizleme | Microsoft Docs
-description: Azure Active Directory ortamınızda etkin güvenlik temel düzeyde en az sahip temel koruması nasıl sağlar öğrenin.
+title: Bir temel koruma Azure Active Directory koşullu erişim nedir? -Önizleme | Microsoft Docs
+description: Nasıl temel koruma, Azure Active Directory ortamında etkin güvenlik temel düzeyde en az sahip olmasını sağlar. öğrenin.
 services: active-directory
-keywords: uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+keywords: uygulamalar, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2018
+ms.date: 07/02/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 86b57a82573760ac73975e851b2bb4caf769845b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 1e7eb3a0098dc27b6f3c47d8d4848b2b9b5f7e61
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308569"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447549"
 ---
-# <a name="what-is-baseline-protection---preview"></a>Taban çizgisi koruma nedir? -Önizleme  
+# <a name="what-is-baseline-protection---preview"></a>Temel koruma nedir? -Önizleme  
 
-Geçen yıl içinde kimlik saldırıları % 300 artırmıştır. Ortamınızı gitgide artan saldırılara karşı korumak için Azure Active Directory (Azure AD) temel koruma adı verilen yeni bir özellik sunmaktadır. Taban çizgisi koruması olan bir dizi önceden tanımlanmış [koşullu erişim ilkeleri](active-directory-conditional-access-azure-portal.md). Bu ilkelerin en az tüm Azure AD sürümlerinde etkin güvenlik temel düzeyde olmasını sağlamak için hedeftir. 
+Geçen yıl içinde kimlik saldırıları 300 oranında artırmıştır. Ortamınızı sürekli artan saldırılarına karşı korumak için Azure Active Directory (Azure AD) temel koruma adlı yeni bir özellik sunar. Temel koruması olan bir dizi önceden tanımlanmış [koşullu erişim ilkeleri](active-directory-conditional-access-azure-portal.md). Bu ilkelerin en az Azure AD tüm sürümlerinde etkin güvenlik temel düzeyde olmasını sağlamak için hedeftir. 
 
-Bu makalede, Azure Active Directory'de temel koruma genel bir bakış sağlar.
+Bu makalede, Azure Active Directory'de temel koruma genel bir bakış sunulmaktadır.
 
 
  
-## <a name="require-mfa-for-admins"></a>Yöneticiler için MFA gerekir
+## <a name="require-mfa-for-admins"></a>Yöneticiler için MFA gerektirme
 
-Kullanıcılara ayrıcalıklı hesaplara erişim ortamınız için sınırsız erişimi vardır. Bu hesaplara sahip güç nedeniyle, bunları özel dikkatli düşünmelisiniz. Ayrıcalıklı hesapların korumasını geliştirmek için bir ortak oturum açma için kullanıldığında daha güçlü bir form Hesap doğrulama gerektirecek şekilde yöntemidir. Azure Active Directory'de, çok faktörlü kimlik doğrulaması (MFA) isteyerek daha güçlü bir hesap doğrulama alabilirsiniz.  
+Kullanıcılara ayrıcalıklı hesaplara erişim ortamınıza sınırsız erişimi vardır. Bu hesaplara sahip güç nedeniyle, bunları özel dikkatli düşünmelisiniz. Ayrıcalıklı hesapların geliştirmek için bir ortak oturum açma için kullanıldığında, daha güçlü bir form Hesap doğrulama gerektirecek şekilde yöntemidir. Azure Active Directory'ye multi factor authentication (MFA) zorunlu daha güçlü bir hesap doğrulama alabilirsiniz.  
 
-**Yöneticiler için MFA'ya gerek** aşağıdaki dizin roller için MFA gerektiren bir temel ilke: 
+**Yöneticiler için mfa'yı gerekli** şu dizin rolleri için MFA gerektiren bir temel ilke: 
 
 - Genel yönetici  
 
@@ -51,29 +51,29 @@ Kullanıcılara ayrıcalıklı hesaplara erişim ortamınız için sınırsız e
 
 ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/01.png)
 
-Bu temel ilke kullanıcılar ve gruplar dışlamak için seçenek sunar. Bir dışarıda bırakmak isteyebilirsiniz *[Acil Durum erişimi yönetici hesabı](active-directory-admin-manage-emergency-access-accounts.md)* , değil kilitli dışında Kiracı emin olmak için.
+Bu temel ilke kullanıcıları ve grupları Dışla seçeneği sağlar. Biri hariç tutmak isteyebileceğiniz *[Acil Durum erişimi yönetici hesabı](users-groups-roles/directory-emergency-access.md)* , kilitli dışında Kiracı emin olmak için.
 
 
-## <a name="enable-a-baseline-policy"></a>Taban çizgisi ilkesini etkinleştir 
+## <a name="enable-a-baseline-policy"></a>Temel ilke etkinleştir 
 
-Temel ilkeler önizlemede olsa da, bunlar etkinleştirilmedi varsayılan olarak gelir. Etkinleştirmek istiyorsanız, bir ilke el ile etkinleştirmeniz gerekir. Bu özellik genel kullanılabilirlik ulaştı hemen etkinleştirildi varsayılan ilkelerdir. Planlanan davranış değişikliği sahip neden etkinleştirmek ve bir ilke durumunu ayarlamak için üçüncü bir seçenek devre dışı bırakmak için ayrıca nedeni: **İlkesi gelecekte otomatik etkinleştir**. Bu seçeneği belirterek Microsoft ilke etkinleştirme karar vermenize olanak tanır.      
+Temel ilkeleri önizlemede olsa da, bunlar varsayılan olarak etkin. El ile etkinleştirmek istiyorsanız bir İlkesi'ni etkinleştirmeniz gerekir. Bu özellik genel kullanılabilirlik ulaştı hemen sonra varsayılan olarak etkinleştirilen ilkelerdir. Planlanan davranış değişikliği etkinleştirmek ve bir ilke durumunu ayarlamak için üçüncü bir seçenek devre dışı bırakmak için ayrıca sahip olmasının nedeni nedeni: **ilke gelecekte otomatik olarak etkinleştir**. Bu seçeneği belirterek, bir ilkeyi etkinleştirmek ne zaman karar Microsoft olanak tanır.      
 
 
 **Bir taban çizgisi ilkesini etkinleştirmek için:**  
 
-1. Oturum [Azure portal](https://portal.azure.com) genel yönetici, güvenlik veya koşullu erişim yönetici olarak.
+1. Oturum [Azure portalında](https://portal.azure.com) genel yönetici, güvenlik yöneticisi veya koşullu erişim Yöneticisi olarak.
 
-2. İçinde **Azure portal**, sol gezinti çubuğu üzerinde tıklatın **Azure Active Directory**.
+2. İçinde **Azure portalında**, sol gezinti tıklatın **Azure Active Directory**.
 
     ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/02.png)
 
-3. Üzerinde **Azure Active Directory** sayfasında **Yönet** 'yi tıklatın **koşullu erişim**.
+3. Üzerinde **Azure Active Directory** sayfasında **güvenlik** bölümünde **koşullu erişim**.
 
-    ![Koşullu erişim](./media/active-directory-conditional-access-baseline-protection/03.png)
+    ![Koşullu erişim](./media/active-directory-conditional-access-baseline-protection/05.png)
 
-4. İlkeler listesinde ile başlayan bir İlkesi'ni **temel ilke:**. 
+4. İlkeler listesinde ile başlayan bir ilkeye tıklayın **temel ilke:**. 
 
-5. İlkeyi etkinleştirmek için **ilkeyi hemen kullanmak**.
+5. İlkeyi etkinleştirmek için tıklayın **ilkeyi hemen kullan**.
 
 6. **Kaydet**’e tıklayın. 
  
@@ -84,19 +84,19 @@ Temel ilkeler önizlemede olsa da, bunlar etkinleştirilmedi varsayılan olarak 
 
 ## <a name="what-you-should-know"></a>Bilmeniz gerekenler 
 
-Özel koşullu erişim ilkelerini yönetme bir Azure AD Premium lisansı gerektirir, ancak temel ilkeleri, Azure ad tüm sürümlerinde kullanılabilir.     
+Özel koşullu erişim ilkelerini yönetme bir Azure AD Premium lisansı gerektirir, ancak temel ilkeleri Azure AD tüm sürümlerinde kullanılabilir.     
 
-Taban çizgisi ilkesine dahil directory rolleri en yüksek ayrıcalıklı bir Azure AD rolleridir. 
+Temel ilkeye dahil Dizin rolleri en yüksek ayrıcalıklı bir Azure AD rolleridir. 
 
-Komut dosyalarınızı kullanılan hesapları ayrıcalıklı, değiştirmelisiniz [yönetilen hizmet kimliği (MSI)](./managed-service-identity/overview.md) veya [hizmet sorumluları sertifikalarla](../azure-resource-manager/resource-group-authenticate-service-principal.md). Geçici bir çözüm olarak, belirli kullanıcı hesaplarını temel ilkesinden hariç tutabilirsiniz. 
+Komut dosyalarınızda kullanılan hesapları ayrıcalıklı, değiştirmelisiniz [yönetilen hizmet kimliği (MSI)](./managed-service-identity/overview.md) veya [hizmet sorumluları sertifikalarla](../azure-resource-manager/resource-group-authenticate-service-principal.md). Geçici bir çözüm, belirli kullanıcı hesaplarını temel ilkesinden hariç tutabilirsiniz. 
 
-POP, IMAP, eski Office masaüstü istemcisi gibi eski kimlik doğrulama akışı temel ilkeleri uygulanır. 
+Temel ilkeleri POP, IMAP, eski Office masaüstü istemcisi gibi eski bir kimlik doğrulama akışları için geçerlidir. 
 
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Koşullu erişim ilkesini yapılandırma hakkında bilmek istiyorsanız [Azure Active Directory'de koşullu erişimi kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md).
+Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [Azure Active Directory'de koşullu erişim ile çalışmaya başlama](active-directory-conditional-access-azure-portal-get-started.md).
 
-Ortamınız için koşullu erişim ilkelerini yapılandırma için hazır olup olmadığını görmek [Azure Active Directory'de koşullu erişim için en iyi uygulamaları](active-directory-conditional-access-best-practices.md). 
+Ortamınız için koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz [Azure Active Directory'de koşullu erişim için en iyi yöntemler](active-directory-conditional-access-best-practices.md). 

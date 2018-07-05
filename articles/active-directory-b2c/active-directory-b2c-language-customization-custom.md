@@ -1,32 +1,32 @@
 ---
-title: Azure Active Directory B2C özel ilkelerinde dil özelleştirme | Microsoft Docs
-description: Nasıl kullanacağınızı öğrenin özel ilkeler birden çok dil için içeriği yerelleştirme.
+title: Dil özelleştirme özel ilkeleri Azure Active Directory B2C | Microsoft Docs
+description: Nasıl kullanacağınızı öğrenin birden çok dil için özel ilkeler, içeriği yerelleştirmek.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c8deabd4d0a4126365b014875624525d5b1f3063
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6269ac65e5db20521346d5312bcbadd0905c36e2
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711765"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440573"
 ---
-# <a name="language-customization-in-custom-policies"></a>Özel ilkelerinde dil özelleştirme
+# <a name="language-customization-in-custom-policies"></a>Dil özelleştirme, özel ilkeler
 
 > [!NOTE]
-> Bu özellik genel önizlemede değil.
+> Bu özellik genel Önizleme aşamasındadır.
 > 
 
-Özel ilkelerinde dil özelleştirme yerleşik ilkeleri olduğu gibi aynı şekilde çalışır.  Yerleşik bkz [belgelerine](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-language-customization) nasıl bir dil parametreleri ve tarayıcı ayarlarını göre seçilir içinde davranışı açıklar.
+Dil özelleştirme özel ilkeleri yerleşik ilkeleri olduğu gibi çalışır.  Yerleşik bkz [belgeleri](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-language-customization) nasıl bir dil parametreleri ve tarayıcı ayarlarını göre seçilir, davranışı açıklar.
 
 ## <a name="enable-supported-languages"></a>Etkinleştirme desteklenen diller
-Kullanıcı arabirimi yerel ayarlar belirtilmedi ve bu dillerden biri için kullanıcının tarayıcısına ister, desteklenen diller kullanıcıya gösterilir.  
+Kullanıcı arabirimi yerel belirtilmedi ve bu dillerden biri için kullanıcının tarayıcıyı ister, desteklenen diller için kullanıcıya gösterilir.  
 
 Desteklenen diller tanımlanmış `<BuildingBlocks>` şu biçimde:
 
@@ -41,19 +41,19 @@ Desteklenen diller tanımlanmış `<BuildingBlocks>` şu biçimde:
 </BuildingBlocks>
 ```
 
-Varsayılan dil ve desteklenen dilleri yerleşik ilkelerinde olduğu gibi aynı şekilde davranır.
+Varsayılan dil ve desteklenen dilleri, yerleşik ilkeleri gibi aynı şekilde davranır.
 
 ## <a name="enable-custom-language-strings"></a>Özel dil dizeleri etkinleştir
 
-Özel dil Dizeler oluşturma iki adımı gerektirir:
-1. Düzen `<ContentDefinition>` sayfanın istenen diller için bir kaynak kimliği belirtmek
+Özel dil dizeleri oluşturmak için iki adım gerekir:
+1. Düzen `<ContentDefinition>` sayfanın istediğiniz dil için kaynak kimliği belirlemek
 2. Oluşturma `<LocalizedResources>` içinde karşılık gelen kimlikleri, `<BuildingBlocks>`
 
-Koyabilirsiniz göz önünde bulundurmanız bir `<ContentDefinition>` ve `<BuildingBlock>` uzantısı dosyanıza veya, devralan tüm ilkelerinizi olmayacağı değişiklikleri mi istediğinize bağlı olarak bağlı olan ilke dosyası.
+Koyabilirsiniz akılda tutulması bir `<ContentDefinition>` ve `<BuildingBlock>` hem, uzantı dosyası ya da değişiklikleri tüm türetilen ilkelerinizi olabileceği için istediğinize bağlı olarak bağlı olan ilke dosyası.
 
 ### <a name="edit-the-contentdefinition-for-the-page"></a>Sayfa için ContentDefinition Düzenle
 
-Her bir sayfa için yerelleştirme istediğiniz belirleyebilirsiniz `<ContentDefinition>` her dil kodunu aramak için hangi Türkçe kaynaklar.
+Her sayfa için Yerelleştirmek istediğiniz belirleyebilirsiniz `<ContentDefinition>` her dil kodunu aramak için hangi dil kaynakları.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -64,12 +64,12 @@ Her bir sayfa için yerelleştirme istediğiniz belirleyebilirsiniz `<ContentDef
 </ContentDefinition>
 ```
 
-Bu örnekte, Fransızca (fr) ve İngilizce (TR) özel dizeleri birleşik kayıt veya oturum açma sayfasına eklenir.  `LocalizedResourcesReferenceId` Her `LocalizedResourcesReference` kendi yerel ayar ile aynıdır, ancak herhangi bir dize kimliği olarak kullanabilir  Her dil ve sayfa birleşimi için karşılık gelen oluşturmak zorunda `<LocalizedResources>` aşağıda gösterildiği.
+Bu örnekte, Fransızca (fr) ve İngilizce (TR) özel dizeleri birleşik kaydolma veya oturum açma sayfasına eklenir.  `LocalizedResourcesReferenceId` Her `LocalizedResourcesReference` kendi yerel ayar ile aynıdır, ancak herhangi bir dize kimliği olarak kullanabilir  Her dil ve sayfa birleşimi için karşılık gelen oluşturmak zorunda `<LocalizedResources>` aşağıda gösterilmektedir.
 
 
 ### <a name="create-the-localizedresources"></a>LocalizedResources oluşturma
 
-Geçersiz kılmalarınızın bulunan, `<BuildingBlocks>` ve bir `<LocalizedResources>` her bir sayfa ve dil için belirttiğiniz `<ContentDefinition>` her sayfa için.  Her geçersiz kılma olarak belirtilen bir `<LocalizedString>` aşağıdaki örnekteki gibi böyle:
+Geçersiz kılmaları bulunan, `<BuildingBlocks>` ve bir `<LocalizedResources>` her bir sayfasını ve dil için belirttiğiniz `<ContentDefinition>` her sayfa için.  Her bir geçersiz kılma olarak belirtilen bir `<LocalizedString>` aşağıdaki örnekte olduğu gibi:
 
 ```XML
 <BuildingBlocks>
@@ -90,6 +90,6 @@ Geçersiz kılmalarınızın bulunan, `<BuildingBlocks>` ve bir `<LocalizedResou
 
 Dize öğeleri sayfada dört tür vardır:
 
-**ClaimsProvider** -etiketleri, kimlik sağlayıcısı (Facebook, Google, Azure AD vb.) için **ClaimType** -etiketleri, öznitelikleri ve bunların karşılık gelen için Yardım metni veya alan doğrulama hataları **UxElement** - diğer dize düğmeleri, bağlantılar veya metin gibivarsayılanolarakvarolanöğelerisayfada**ErrorMessage** -Form doğrulama hata iletileri
+**ClaimsProvider** -(Facebook, Google, vb. Azure AD) kimlik sağlayıcılarınızın etiketlerini **ClaimType** -etiketler, öznitelikleri ve bunlara karşılık gelen için Yardım metni veya alan doğrulama hatalarını **UxElement** - diğer dize düğmeler, bağlantılar veya metin gibivarsayılanolarakvarolanöğelerisayfada**ErrorMessage** -Form doğrulama hatası iletileri
 
-Emin `StringId`s eşleşen sayfa için karşıya yükleme doğrulamasını ilke tarafından engellendi bu geçersiz kılmaları aksi kullanıyorsanız.  
+Emin `StringId`s karşıya yükleme sırasında doğrulama İlkesi tarafından engellendi bu geçersiz kılmaları aksi kullanmakta olduğunuz sayfayı eşleşen.  

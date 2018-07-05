@@ -1,70 +1,70 @@
 ---
-title: Azure Analysis Services yönetme | Microsoft Docs
-description: Bir Analysis Services sunucusuna Azure yönetmeyi öğrenin.
+title: Azure Analysis Services'ı yönetme | Microsoft Docs
+description: Bir Azure Analysis Services sunucusu'nı yönetmeyi öğrenin.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a589a75c1d8c353c7e8dabc508904282e28cf371
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fa5eeaad6ec98bb7ce725e1bf4c977cb2d5398a6
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597697"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448620"
 ---
-# <a name="manage-analysis-services"></a>Çözümleme Hizmetleri yönetme
-Azure'da bir Analysis Services sunucusuna oluşturduktan sonra hemen veya süre yol gerçekleştirmeniz gereken bazı yönetim görevleri olabilir. Örneğin, sunucunuz modellerinde erişim veya sunucunuzun sistem durumu izleme kimin yenileme veri işlemeyi çalıştırın. Bazı yönetim görevleri, Azure portalında, diğerleri de SQL Server Management Studio (SSMS), yalnızca gerçekleştirilebilir ve bazı görevler ya da gerçekleştirilebilir.
+# <a name="manage-analysis-services"></a>Analysis Services'ı yönetme
+Azure'da bir Analysis Services sunucusuna oluşturduktan sonra hemen veya süre yol gerçekleştirmeniz gereken bazı yönetim görevleri olabilir. Örneğin, kimlerin sunucunuzdaki modelleri erişmek veya sunucunuzun sistem durumunu izleyin, yenileme veri işleme çalıştırın. Bazı yönetim görevlerini yalnızca diğer SQL Server Management Studio (SSMS), Azure portalında gerçekleştirilebilir ve bazı görevler de gerçekleştirilebilir.
 
 ## <a name="azure-portal"></a>Azure portalına
-[Azure portal](http://portal.azure.com/) , oluşturmak ve sunucuları silin, sunucu kaynaklarını izlemek, boyutunu değiştirmek ve sunucularınızın kimlerin erişebileceğini yönetmek yerdir.  Bazı sorunlar yaşıyorsanız, ayrıca bir destek isteği gönderebilirsiniz.
+[Azure portalında](http://portal.azure.com/) Burada, oluşturma ve sunucuları silin, sunucu kaynaklarını izleyebilir, boyutunu değiştirmek, ve sunucularınıza kimlerin erişebildiğini yönetmek.  Bazı sorunlar yaşıyorsanız, bir destek isteği gönderebilirsiniz.
 
 ![Azure'da sunucu adını alma](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
-Azure'da sunucunuza bağlanma yalnızca bir sunucu örneği veya kendi kuruluşunuzdaki bağlanma gibi olur. SSMS verileri işlemek gibi gerçekleştirdiğiniz görevlerin çoğunu gerçekleştirmek veya bir işleme betiği oluşturmak, rolleri yönetebilir ve PowerShell kullanın.
+Azure'da, sunucuya bağlamak için yalnızca kendi kuruluşunuzda bir sunucu örneğine bağlanma gibi aynıdır. SSMS verileri işlemek gibi aynı görevlerin çoğunu gerçekleştirmek veya bir işleme betiği oluşturmak, rolleri yönetme ve PowerShell kullanın.
   
 ![SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
 
-### <a name="download-and-install-ssms"></a>SSMS yükleyip
-Tüm almak için en son özellikleri ve Azure Analysis Services sunucusuna bağlanırken en yumuşak deneyimi SSMS en son sürümünü kullandığınızdan emin olun. 
+### <a name="download-and-install-ssms"></a>SSMS indirip
+Azure Analysis Services sunucunuza bağlanma sırasında tüm yeni özelliklere ve en yumuşak deneyimi almak için en son SSMS sürümünü kullandığınızdan emin olun. 
 
 [SQL Server Management Studio'yu indirme](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ### <a name="to-connect-with-ssms"></a>SSMS ile bağlanma
- SSMS, sunucunuza ilk kez bağlanmadan önce kullanırken, kullanıcı adınızı Analysis Services Yöneticiler grubunda bulunduğundan emin olun. Daha fazla bilgi için bkz: [sunucu yöneticileri](#server-administrators) bu makalenin ilerisinde yer.
+ SSMS, sunucunuza ilk kez bağlanmadan önce kullanırken, kullanıcı adınızı Analysis Services yöneticileri grubunda bulunduğundan emin olun. Daha fazla bilgi için bkz. [sunucu yöneticileri](#server-administrators) bu makalenin ilerleyen bölümlerinde.
 
 1. Bağlanmadan önce sunucu adını almanız gerekir. **Azure portalı** > sunucu > **Genel Bakış** > **Sunucu adı** menüsünde sunucu adını kopyalayın.
    
     ![Azure'da sunucu adını alma](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. SSMS içinde > **Object Explorer**, tıklatın **Bağlan** > **Analysis Services**.
-3. İçinde **sunucuya Bağlan** iletişim kutusu, sunucu adının, sonra da Yapıştır **kimlik doğrulaması**, aşağıdaki kimlik doğrulama türlerinden birini seçin:   
+2. SSMS > **Nesne Gezgini**'nde **Bağlan** > **Analysis Services**'e tıklayın.
+3. İçinde **sunucuya Bağlan** iletişim kutusu, yapıştırma sunucu adını, sonra da **kimlik doğrulaması**, aşağıdaki kimlik doğrulama türlerinden birini seçin:   
     > [!NOTE]
-    > Kimlik doğrulama türü **Active Directory - MFA desteğiyle Evrensel**, önerilir.
+    > Kimlik doğrulama türü, **Active Directory - MFA desteğiyle Evrensel**, önerilir.
 
     > [!NOTE]
-    > Bir Microsoft Account, Live ID, Yanoo, Gmail, vb. oturum açarsanız parola alanı boş bırakın. Bağlan'ı tıklattıktan sonra için bir parola istenir.
+    > Bir Microsoft Account, Live ID, Yanoo, Gmail, vb. oturum imzalarsanız parola alanını boş bırakın. Bağlan'a tıkladıktan sonra bir parola istenir.
 
     **Windows kimlik doğrulaması** Windows etki alanı\kullanıcı adı ve parola bilgileriniz kullanılacak.
 
-    **Active Directory parola kimlik doğrulaması** kurumsal bir hesap kullanmak için. Örneğin, ne zaman bir etki bağlanma bilgisayar katıldı.
+    **Active Directory parola kimlik doğrulaması** bir kurumsal hesap kullanılacak. Örneğin, ne zaman bir etki bağlanma bilgisayar katıldı.
 
-    **Active Directory - Evrensel MFA desteğiyle** kullanmak için [etkileşimli olmayan veya çok faktörlü kimlik doğrulaması](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory - MFA desteğiyle Evrensel** kullanılacak [etkileşimli olmayan veya çok faktörlü kimlik doğrulaması](../sql-database/sql-database-ssms-mfa-authentication.md). 
    
-    ![SSMS bağlanma](./media/analysis-services-manage/aas-manage-connect-ssms.png)
+    ![SSMS'de bağlanma](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
-## <a name="server-administrators-and-database-users"></a>Sunucu yöneticileri ve veritabanı kullanıcısı
-Azure Analysis Services içinde kullanıcılar, Yöneticiler ve veritabanı kullanıcılarını iki tür vardır. Her iki tür kullanıcı Azure Active Directory'yi olmalıdır ve kurumsal e-posta adresi veya UPN ile belirtilmelidir. Daha fazla bilgi edinmek için bkz. [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md).
+## <a name="server-administrators-and-database-users"></a>Sunucu yöneticileri ve veritabanı kullanıcıları
+Azure Analysis Services'de kullanıcı, Yöneticiler ve veritabanı kullanıcıları iki türü vardır. Her iki tür kullanıcı Azure Active Directory'de olması gerekir ve kuruluş e-posta adresi veya UPN ile belirtilmelidir. Daha fazla bilgi edinmek için bkz. [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md).
 
 
 ## <a name="troubleshooting-connection-problems"></a>Bağlantı sorunlarını giderme
-Sorunlarla karşılaşırsanız, SSMS, kullanarak bağlanırken, oturum açma önbelleğini temizlemek gerekebilir. Hiçbir şey önbelleğe diske. Önbelleği temizlemek için kapatın ve bağlanma işlemi başlatın. 
+Sorunlarla karşılaşırsanız, SSMS kullanarak bağlanma, oturum açma önbelleğini temizlemeniz gerekebilir. Hiçbir şey önbelleğe diske. Önbelleği temizlemek için kapatın ve connect işlemini yeniden başlatın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tablo modeli yeni sunucunuza zaten dağıttıysanız yapmadıysanız, iyi bir zamandır sunulmuştur. Daha fazla bilgi için bkz. [Azure Analysis Services’a Dağıtma](analysis-services-deploy.md).
+Yeni sunucunuz için zaten bir tablosal model dağıtmadıysanız, artık iyi bir zamandır. Daha fazla bilgi için bkz. [Azure Analysis Services’a Dağıtma](analysis-services-deploy.md).
 
-Sunucunuza bir model dağıttıktan sonra bir istemci veya tarayıcı kullanarak bağlanmak hazırsınız. Daha fazla bilgi için bkz: [veri Azure Analysis Services sunucusundan alma](analysis-services-connect.md).
+Sunucunuz için bir model dağıttıysanız, istemci veya tarayıcı kullanarak bağlanmak hazırsınız. Daha fazla bilgi için bkz. [veri Azure Analysis Services sunucusundan alma](analysis-services-connect.md).
 

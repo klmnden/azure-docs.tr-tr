@@ -1,80 +1,80 @@
 ---
-title: Bir erişim incelemesi başlatma | Microsoft Docs
-description: Azure Privileged Identity Management uygulaması ile ayrıcalıklı kimlikleri için bir erişim gözden geçirme oluşturmayı öğrenin.
+title: Erişim gözden geçirmesi başlatma | Microsoft Docs
+description: Azure Privileged Identity Management uygulaması ile ayrıcalıklı kimlikleri için erişim gözden geçirmesi oluşturmayı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a4ef91f7055db8f202e3a4e48375427c85964781
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 28a998647dacdf57390638b8ce1629a76077b450
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020956"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446903"
 ---
-# <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management bir erişim incelemesi başlatma
-Kullanıcılar ayrıcalıklı artık gerekmeyen erişimi olan, rol atamaları "eski" olur. Bu eski rol atamaları, ayrıcalıklı rol ile ilişkili riski azaltmak için yöneticileri veya genel yöneticileri düzenli olarak kullanıcılara verilen rolleri gözden geçirmek için admins sormak için erişim incelemeler oluşturmanız gerekir. Bu belgede Azure AD Privileged Identity Management (PIM) erişim gözden geçirme başlangıç adımları kapsar.
+# <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management'ta erişim gözden geçirmesi başlatma
+Kullanıcılar artık ihtiyacınız yoksa erişim ayrıcalıklı, rol atamaları "eski" olur. Bu eski rol atamaları, ayrıcalıklı rol ile ilişkili riski azaltmak için yöneticileri veya genel yöneticileri düzenli olarak kullanıcılara verilen rolleri gözden geçirmek için yöneticileri istemek için erişim gözden geçirmeleri oluşturmanız gerekir. Bu belge, Azure AD Privileged Identity Management (PIM) erişim gözden geçirmesi başlatma adımlarını kapsar.
 
 ## <a name="start-an-access-review"></a>Erişim incelemesi başlat
 > [!NOTE]
-> Azure portalı panonuza PIM uygulama eklemediyseniz, adımlara bakın [Azure Privileged Identity Management ile çalışmaya başlama](active-directory-privileged-identity-management-getting-started.md)
+> Azure portalında panonuza PIM uygulama eklemediyseniz adımlara bakın [Azure Privileged Identity Management ile çalışmaya başlama](active-directory-privileged-identity-management-getting-started.md)
 > 
 > 
 
-PIM uygulama ana sayfasından erişim gözden geçirme başlatmak için üç yolu vardır:
+PIM uygulama ana sayfasından erişim gözden geçirmesi başlamanın üç yolu vardır:
 
-* **Erişim incelemeler** > **Ekle**
+* **Erişim gözden geçirmeleriyle** > **Ekle**
 * **Rolleri** > **gözden geçirme** düğmesi
-* Rol listesinden gözden geçirilmesi için belirli bir rol seçin > **gözden geçirme** düğmesi
+* Rolleri listeden geçirilecek özel rolü seçin > **gözden geçirme** düğmesi
 
-Tıkladığınızda **gözden** düğmesini **erişim incelemesi başlatma** dikey penceresi görünür. Bu dikey pencerede, oluşturacağız gözden bir ad ve süre sınırı yapılandırmak, gözden geçirmek ve gözden geçirme işlemini gerçekleştirecek karar vermek için bir rol seçin.
+Tıkladığınızda **gözden** düğmesi **erişim değerlendirmesi başlatma** dikey penceresi görünür. Bu dikey pencerede, yedekleyeceksiniz gözden geçirme adı ve süre sınırı ile yapılandırmak için gözden geçirin ve kimin gözden geçirmeyi gerçekleştirip karar vermek için bir rol seçin.
 
-![-Ekran görüntüsü bir erişim incelemesi başlatma][1]
+![Erişim gözden geçirmesi - ekran görüntüsü Başlat][1]
 
-### <a name="configure-the-review"></a>Gözden geçirme yapılandırın
-Bir erişim gözden geçirme oluşturmak için ad ve bir başlangıç ve bitiş tarihi ayarlamanız gerekir.
+### <a name="configure-the-review"></a>Gözden geçirmeyi yapılandırma
+Erişim gözden geçirmesi oluşturma için adlandırın ve bir başlangıç ve bitiş tarihi ayarlamak gerekir.
 
 ![Gözden geçirme - ekran görüntüsü yapılandırma][2]
 
-Kullanıcıları için tamamlamak yeterince uzun gözden geçirme uzunluğu olun. Bitiş tarihinden önce son varsa, her zaman gözden erken durdurabilirsiniz.
+Gözden geçirmeyi tamamlamak, kullanıcılar için yeterince uzun uzunluğunu olun. Bitiş tarihinden önce son, erken gözden her zaman durdurabilirsiniz.
 
 ### <a name="choose-a-role-to-review"></a>Gözden geçirmek için bir rol seçin
-Her gözden geçirme sadece tek bir rol üzerinde odaklanmıştır. Belirli bir rol dikey penceresinden erişim gözden geçirme başlattığınız sürece, bir rolü artık seçim gerekir.
+Her gözden geçirme, yalnızca bir rol üzerinde odaklanır. Erişim gözden geçirmesi özel rol dikey penceresinden çalışmaya sürece, bir rol şimdi seçmek gerekir.
 
-1. Gidin **rol üyeliğini gözden geçirin**
+1. Gidin **rol üyeliğini gözden geçirme**
    
     ![Gözden geçirme rol üyeliğini - ekran görüntüsü][3]
 2. Listeden bir rol seçin.
 
-### <a name="decide-who-will-perform-the-review"></a>Gözden geçirme işlemini gerçekleştirecek karar verin
-Bir gözden geçirme gerçekleştirmek için üç seçenek vardır. Gözden geçirme tamamlamak için başka birine atayabilir, kendiniz yapabileceğiniz veya kendi access gözden her kullanıcının olabilir.
+### <a name="decide-who-will-perform-the-review"></a>Kimin gözden geçirmeyi gerçekleştirip karar verin
+Bir gözden geçirme gerçekleştirmeye yönelik üç seçenek vardır. Gözden geçirmeyi tamamlamak için başka bir kişiye atayabilirsiniz, kendinize yapabileceğiniz veya her kullanıcının kendi erişimini gözden geçirmek olabilir.
 
-1. Gidin **gözden geçirenler seçin**
+1. Gidin **Gözden Geçiren seçin**
    
-    ![Gözden geçirenler - ekran görüntüsü seçin][4]
+    ![Gözden Geçiren - ekran görüntüsü seçin][4]
 2. Seçeneklerden birini seçin:
    
-   * **Select İnceleme**: erişim gerek duyan bilmiyorsanız bu seçeneği kullanın. Bu seçenek ile tamamlamak için bir kaynak sahibi veya grup yöneticisi gözden geçirme atayabilirsiniz.
-   * **Bana**: erişim iş nasıl gözden geçirir önizlemek veya olamaz kişilerin adına gözden geçirmek istediğiniz istiyorsanız kullanışlıdır.
-   * **Üyeleri kendilerini gözden**: kendi rol atamalarını gözden kullanıcınız için bu seçeneği kullanın.
+   * **Select Gözden Geçiren**: erişim gerek duyan bilmiyorsanız bu seçeneği kullanın. Bu seçenek belirtilmişse, gözden geçirmeyi tamamlamak için bir kaynak sahibi veya grup yöneticisi atayabilirsiniz.
+   * **Bana**: nasıl iş erişim gözden geçirmeleri Önizleme veya olamaz kişilerin adına gözden geçirmek istediğiniz istiyorsanız yararlıdır.
+   * **Üyeleri gözden kendilerini**: kullanıcılar kendi rol atamalarını gözden geçirmek için bu seçeneği kullanın.
 
-### <a name="start-the-review"></a>İncelemesi başlatma
-Son olarak, kullanıcılar erişimleri onaylıyorsanız bir gerekçe sağlamasını gerektiren seçeneğiniz vardır. Gözden geçirme açıklamasını isterseniz ekleyin ve seçin **Başlat**.
+### <a name="start-the-review"></a>Değerlendirmesi başlatma
+Son olarak, kullanıcılar kendi erişim'i onaylarsanız bir neden sağlamasını istemek için seçeneğiniz vardır. İsterseniz, gözden geçirme açıklaması ekleyin ve seçin **Başlat**.
 
-Kullanıcılarınız kendileri için bekleyen bir erişim gözden geçirme olduğunu biliyor ve bunları Göster izin emin olun [erişim incelemesi gerçekleştirme](active-directory-privileged-identity-management-how-to-perform-security-review.md).
+Kullanıcılarınız kendileri için bekleyen bir erişim gözden geçirmesi olduğunu biliyor ve bunları Göster olanak sağlayın [erişim gözden geçirmesi gerçekleştirme](active-directory-privileged-identity-management-how-to-perform-security-review.md).
 
-## <a name="manage-the-access-review"></a>Erişim gözden geçirme yönetme
-Gözden geçirenler kendi incelemeler erişim incelemeler bölümünde Azure AD PIM panosunda tamamlarken ilerleme durumunu izleyebilirsiniz. Erişim hakları yok kadar dizinde değiştirilecek [gözden tamamlandıktan](active-directory-privileged-identity-management-how-to-complete-review.md).
+## <a name="manage-the-access-review"></a>Erişim gözden geçirmesi yönetme
+Gözden geçirenler, Azure AD PIM Panoda erişim gözden geçirmeleri bölümünde incelemelerde tamamladıkça, ilerleme durumunu izleyebilirsiniz. Erişim hakları dizine kadar değiştirilecek [gözden geçirme tamamlandıktan](active-directory-privileged-identity-management-how-to-complete-review.md).
 
-Değerlendirme süresi bitene kadar gözden tamamlamak için kullanıcılara anımsatmak veya erişim incelemeler bölümünden erken gözden durdurun.
+Değerlendirme süresi bitene kadar gözden geçirmelerini tamamlamak için kullanıcılara hatırlatın veya erken erişim gözden geçirmeleri bölümünden gözden geçirmesini durdur.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="pim-table-of-contents"></a>PIM İçindekiler

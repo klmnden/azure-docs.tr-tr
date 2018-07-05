@@ -5,17 +5,17 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d8ee78ecb253e0b29fd0c2fee2388195c8aa6918
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5007e18db0af40621ab4b30a16d705d3a5b3915c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596847"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443826"
 ---
-# <a name="create-relationships"></a>İlişkiler oluşturma
+# <a name="create-relationships"></a>İlişki oluşturma
 
 Bu derste, verileri içeri aktarıp farklı tablolar arasında yeni ilişkiler oluşturduğunuzda otomatik olarak oluşturulan ilişkileri doğrularsınız. İlişki, iki tablo arasında kurulan ve bu tablolardaki verilerin nasıl bağıntılı olması gerektiğini belirleyen bir bağlantıdır. Örneğin, DimProduct tablosu ile DimProductSubcategory tablosu arasında, her ürünün bir alt kategoriye ait olması temelinde bir ilişki mevcuttur. Daha fazla bilgi edinmek için bkz. [İlişkiler](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
   

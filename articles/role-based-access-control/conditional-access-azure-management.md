@@ -1,5 +1,5 @@
 ---
-title: Azure yönetim Azure Active Directory'de koşullu erişim ile yönetme
+title: Azure yönetim erişimi Azure Active Directory'de koşullu erişim ile yönetme
 description: Azure yönetim erişimi yönetmek için koşullu erişim Azure AD'de kullanma hakkında bilgi edinin.
 services: active-directory
 documentationcenter: ''
@@ -9,32 +9,32 @@ editor: skwan
 ms.assetid: 0adc8b11-884e-476c-8c43-84f9bf12a34b
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/22/2017
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: dcf701c15ee20b7d9aeea65f3d06b794006a5202
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 083cb4eb84746f4a61b51f3573a0bf66110fe1ee
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203939"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435057"
 ---
-# <a name="manage-access-to-azure-management-with-conditional-access"></a>Azure Yönetim için koşullu erişim ile yönetme
+# <a name="manage-access-to-azure-management-with-conditional-access"></a>Koşullu erişim ile Azure yönetim erişimi yönetme
 
-Koşullu erişim Azure Active Directory'de (Azure AD) uygulamaları, belirttiğiniz belirli koşullara göre bulut erişimi denetler. Erişime izin vermek için izin verme veya engelleme İlkesi gereksinimleri desteklemediğini karşılandığından göre erişimi koşullu erişim ilkeleri oluşturun. 
+Azure Active Directory'de (Azure AD) koşullu erişim, bulut uygulamaları, belirttiğiniz belirli koşullara göre erişimi denetler. Erişime izin vermek için izin verme veya engelleme olup olmadığını ilkesinde gereksinimlerin karşılanıp karşılanmadığından dayalı olarak erişimi koşullu erişim ilkeleri oluşturun. 
 
-Genellikle, bulut uygulamalarınıza erişimi denetlemek için koşullu erişim kullanın. İlkeleri, belirli koşullar (örneğin, oturum açma risk, konum veya aygıt) göre Azure yönetim erişimi denetlemek için ve çok faktörlü kimlik doğrulaması gibi gereksinimleri zorlamak için de ayarlayabilirsiniz.
+Genellikle, bulut uygulamalarınıza erişimi denetlemek için koşullu erişim kullanın. İlkeleri, Azure Yönetim (örneğin, oturum açma riski, konum veya cihaz) belirli koşullara göre erişimi denetlemek için ve çok faktörlü kimlik doğrulaması gibi gereksinimleri uygulamak için de ayarlayabilirsiniz.
 
-Azure Yönetim için bir ilke oluşturmak için seçtiğiniz **Microsoft Azure Management** altında **bulut uygulamaları** ilkenin uygulanacağı uygulama seçerken.
+Azure yönetimi için bir ilke oluşturmak için seçtiğiniz **Microsoft Azure Management** altında **bulut uygulamaları** ilkenin uygulanacağı uygulamaya seçerken.
 
 ![Azure yönetimi için koşullu erişim](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-Oluşturduğunuz ilke Klasik Azure portalı, Azure portal, Azure Resource Manager sağlayıcısı, Klasik dahil olmak üzere tüm Azure yönetim uç noktaları için hizmet yönetim API'leri ve Azure PowerShell uygulanır.
+Oluşturduğunuz ilke, hizmet yönetim API'leri ve Azure PowerShell Klasik Azure portalı, Azure portalı, Azure Resource Manager sağlayıcısı, Klasik dahil olmak üzere tüm Azure yönetim uç uygulanır.
 
 > [!CAUTION]
-> Koşullu erişim anladığınızdan emin olmak için Azure yönetim erişimi yönetmek üzere bir ilke ayarlamadan önce çalışır. Portal kendi erişimini engelleme koşulları oluşturmayın emin olun.
+> Koşullu erişim anladığınızdan emin olun Azure yönetim erişimi yönetmek için bir ilke ayarlamadan önce çalışır. Kendi portal erişimini engelleyebilecek koşullar oluşturmayın emin olun.
 
-Ayarlama ve koşullu erişim kullanma konusunda daha fazla bilgi için bkz: [Azure Active Directory'de koşullu erişim](../active-directory/active-directory-conditional-access-azure-portal.md).
+Ayarlanmış ve koşullu erişim kullanma hakkında daha fazla bilgi için bkz. [Azure Active Directory'de koşullu erişim](../active-directory/active-directory-conditional-access-azure-portal.md).

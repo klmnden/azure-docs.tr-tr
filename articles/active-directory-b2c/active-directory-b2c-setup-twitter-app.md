@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 6/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dad35f26496306558a6e0105db86321c497a8306
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: d44ea5afca15519fee1bc8a4ebd6c2ba1f36d760
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343029"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448637"
 ---
 # <a name="provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts-using-azure-ad-b2c"></a>Tüketiciler için Azure AD B2C kullanarak Twitter hesabıyla kaydolma ve oturum açma sağlayın
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) B2C'de kimlik sağlayıcısı olarak twitter'�
 1. Git [Twitter uygulamaları](https://apps.twitter.com/) ve kimlik bilgilerinizle oturum açın.
 2. Tıklayın **yeni uygulama oluştur**.
 3. Formda sağlamak için bir değer **adı**, **açıklama**, ve **Web sitesi**.
-4. İçin **geri çağırma URL'si**, girin `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Değiştirdiğinizden emin olun **{tenant}** kiracınızın adı (örneğin, contosob2c.onmicrosoft.com) ve {Policyıd} ilke kimliğinizle (örneğin, b2c_1_policy).  Bu geri çağırma URL'si tümü küçük harf olması gerekir. Bir geri çağırma URL'si için Twitter oturum açma kullanan tüm ilkeleri eklemeniz gerekir. Kullandığınızdan emin olun `b2clogin.com` yerine ` login.microsoftonline.com` uygulamanızda kullanıyorsanız.
+4. İçin **geri çağırma URL'si**, girin `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Değiştirdiğinizden emin olun **{tenant}** kiracınızın adı (örneğin, contosob2c.onmicrosoft.com) ile ve **{Policyıd}** ilke kimliğinizle (örneğin, b2c_1_policy).  **Geri çağırma URL'si tümü küçük harf olması gerekir.** Bir geri çağırma URL'si için Twitter oturum açma kullanan tüm ilkeleri eklemeniz gerekir. Kullandığınızdan emin olun `b2clogin.com` yerine ` login.microsoftonline.com` uygulamanızda kullanıyorsanız.
 5. Onay kutusunu kabul etmeniz **Geliştirici sözleşmesi** tıklatıp **kendi Twitter uygulamanızı oluşturun**.
 6. Uygulama oluşturulduktan sonra listeden, select seçin **ayarları** sekmesine ve ardından **ayarlarını güncelleştirme**.
 7. Seçin **anahtarlar ve erişim belirteçleri** sekmesi.

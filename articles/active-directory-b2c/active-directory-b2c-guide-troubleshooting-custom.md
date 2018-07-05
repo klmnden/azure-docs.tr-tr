@@ -1,77 +1,77 @@
 ---
-title: Azure Active Directory B2C içinde özel ilke sorunlarını giderme | Microsoft Docs
-description: Azure Active Directory B2C özel ilkelerle çalışırken hataları çözmek yaklaşımlar hakkında bilgi edinin.
+title: Azure Active Directory B2C'de özel ilke sorunlarını giderme | Microsoft Docs
+description: Özel ilkeleri Azure Active Directory B2C ile çalışırken hataları çözmeye yaklaşımlar hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 22e7bc7bd275769f78ac2e482cb1af11e9404222
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 61f2dfcada0f7e03d8043d9b8f1b6dadf7027c8b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709623"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441174"
 ---
-# <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C özel ilkeleri ve kimlik deneyimi Framework sorun giderme
+# <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C özel ilkeleri ve kimlik deneyimi çerçevesi sorunlarını giderme
 
-Azure Active Directory B2C kullanıyorsanız (Azure AD B2C) özel ilkeler, ilke dil XML biçiminde kimlik deneyimi Framework ayarlama zorluklar deneyimi.  Özel ilkeler yazmak öğrenme yeni bir dil öğrenme gibi olabilir. Bu makalede, biz araçları açıklamak ve hızlı bir şekilde Yardım ipuçları bulmak ve sorunları çözün. 
+Azure Active Directory B2C kullanıyorsanız (Azure AD B2C) özel ilkeler, ilke dil XML biçiminde kimlik deneyimi çerçevesi ayarlama zorluklar yaşayabilir.  Özel ilkeler yazmak learning yeni bir dil öğrenme gibi olabilir. Bu makalede, araçlar açıklanmaktadır ve hızlı bir şekilde yardımcı olacak ipuçları keşfedin ve sorunları çözün. 
 
 > [!NOTE]
-> Bu makalede, Azure AD B2C özel ilke yapılandırma sorunlarını gidermeye üzerine odaklanır. Bağlı olan taraf uygulaması veya kendi kimlik kitaplığı adresi değil.
+> Bu makalede, Azure AD B2C özel ilke yapılandırmasıyla ilgili sorunları giderme üzerinde odaklanır. Bağlı taraf uygulaması veya kendi kimlik kitaplık ele almaz.
 
 ## <a name="xml-editing"></a>XML düzenleme
 
-Özel ilkelerini ayarlama en sık karşılaşılan hata yanlış olan XML biçimli. İyi bir XML Düzenleyicisi neredeyse gereklidir. İyi bir XML Düzenleyicisi XML yerel olarak görüntüler, içerik renk kodları, Ortak terimleri doldurur, XML öğeleri dizini tutar ve şemasıyla doğrulayabilirsiniz. İki bizim sık kullanılan XML düzenleyicileri şunlardır:
+Özel ilkeleri ayarlama en yaygın hata yanlış olan XML biçimli. İyi bir XML Düzenleyicisi neredeyse gereklidir. İyi bir XML Düzenleyicisi XML yerel görüntüler, içerik renk kodları, yaygın terimlerin doldurur, XML öğeleri dizini tutan ve şema ile doğrulayabilirsiniz. İki bizim sık kullanılan XML Düzenleyicisi şunlardır:
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Not Defteri'ni ++](https://notepad-plus-plus.org/)
 
-XML dosyanızı karşıya yüklemeden önce XML Şeması doğrulama hataları tanımlar. Başlangıç paketi kök klasöründe XML şema tanımı TrustFrameworkPolicy_0.3.0.0.xsd alın. XML düzenleyicinizi belgelerinde daha fazla bilgi aramak *XML araçları* ve *XML doğrulama*.
+XML dosyanızı karşıya yüklemeden önce XML şema doğrulama hataları tanımlar. Başlangıç paketi kök klasöründe bulunan XML şema tanımı TrustFrameworkPolicy_0.3.0.0.xsd alın. XML düzenleyicinizi belgelerinde daha fazla bilgi için Aranan *XML araçları* ve *XML doğrulama*.
 
-XML kuralları gözden yararlı bulabilirsiniz. Azure AD B2C algıladığı hataları biçimlendirme XML reddeder. Bazen, hatalı biçimlendirilmiş XML yanıltıcı hata iletileri neden olabilir.
+XML kuralları incelenmesi yararlı bulabilirsiniz. Azure AD B2C, algıladığı hataları biçimlendirme, XML reddeder. Bazen, hatalı biçimlendirilmiş XML yanıltıcı bir hata iletileri neden olabilir.
 
-## <a name="upload-policies-and-policy-validation"></a>İlkeleri ve ilke doğrulaması karşıya yükle
+## <a name="upload-policies-and-policy-validation"></a>İlkeleri ve ilke doğrulaması karşıya yükleyin
 
- XML dosya karşıya yükleme doğrulaması otomatik olarak yapılır. Çoğu hatalara karşıya yükleme başarısız olmasına neden olabilir. Doğrulama karşıya yüklemekte olduğunuz ilke dosyası içerir. Ayrıca, dosyaları karşıya yükleme dosyasını (bağlı olan taraf ilke dosyası, uzantıları dosyası ve temel dosyanın) başvuruyor zinciri içerir. 
+ XML dosyasını karşıya yükleme doğrulaması otomatiktir. Çoğu hataya karşıya yükleme başarısız olmasına neden olur. Doğrulama karşıya yüklemekte olduğunuz ilke dosyası içerir. Ayrıca, dosyaları karşıya yükleme dosyası (bağlı olan taraf ilke dosyası, dosya uzantıları ve temel dosya) başvuruyor zincirini içerir. 
  
- Sık karşılaşılan doğrulama hataları aşağıda verilmiştir.
+ Sık karşılaşılan doğrulama hataları arasında şunlar yer alır.
 
-Hata parçacığını: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
-* ClaimType değeri yanlış yazılmış veya şemada yok.
-* ClaimType değerleri en az bir ilke dosyalarında tanımlanmalıdır. 
+Hata kod parçacığı: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
+* ClaimType değeri yanlış veya içinde şema yok.
+* ClaimType değerleri dosyaları ilkesinde en az biri tanımlanmalıdır. 
     Örneğin, ` <ClaimType Id="socialIdpUserId">`
-* ClaimType uzantıları dosyasında tanımlı, ancak ayrıca temel dosyanın TechnicalProfile değerindeki kullanılır, temel dosyanın karşıya bir hatayla sonuçlanır.
+* ClaimType uzantıları dosyasında tanımlanır, ancak ayrıca temel dosya TechnicalProfile değerindeki kullanılır, temel dosyanın karşıya hatayla sonuçlanır.
 
-Hata parçacığını: `...makes a reference to a ClaimsTransformation with id...`
-* Hatanın nedeni ClaimType hata aynı olması.
+Hata kod parçacığı: `...makes a reference to a ClaimsTransformation with id...`
+* Hatanın nedenlerini ClaimType hata aynı olabilir.
 
-Hata parçacığını: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
-* Tenantıd değeri onay **\<TrustFrameworkPolicy\>** ve **\<BasePolicy\>** öğeleri eşleşen hedef Azure AD B2C kiracınızın.  
+Hata kod parçacığı: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+* Tenantıd değerini onay **\<TrustFrameworkPolicy\>** ve **\<BasePolicy\>** öğeleri eşleşen hedef Azure AD B2C kiracınızı.  
 
-## <a name="troubleshoot-the-runtime"></a>Çalışma zamanı sorun giderme
+## <a name="troubleshoot-the-runtime"></a>Çalışma zamanı sorunlarını giderme
 
-* Kullanım `Run Now` ve `https://jwt.io` ilkelerinizi bağımsız olarak, web veya mobil uygulamanızı test etmek için. Bu Web sitesine bir bağlı olan taraf uygulaması gibi davranır. İçeriği, JSON Web Token (Azure AD B2C İlkesi tarafından oluşturulan JWT) görüntüler. Kimlik deneyimi Framework bir test uygulaması oluşturmak için aşağıdaki değerleri kullanın:
+* Kullanım `Run Now` ve `https://jwt.io` ilkelerinizi bağımsız olarak, web veya mobil uygulamanızı test etmek için. Bu Web sitesine bir bağlı taraf uygulaması gibi davranır. Bu içeriği, JSON Web Token (Azure AD B2C ilkeniz tarafından oluşturulan JWT) görüntüler. Kimlik deneyimi Çerçevesi ' bir test uygulaması oluşturmak için aşağıdaki değerleri kullanın:
     * Ad: TestApp
-    * Web uygulaması/Web API: Hayır
+    * Web uygulaması/Web API'si: Hayır
     * Yerel istemci: Hayır
 
-* İstemci tarayıcısına ve Azure AD B2C arasında ileti alışverişi izlemek için kullanımı [Fiddler](http://www.telerik.com/fiddler). Kullanıcı Yolculuğunuzun orchestration adımlarınızı nerede başarısız bir gösterge size yardımcı olabilir.
+* Azure AD B2C'yi ve istemci tarayıcısı arasında ileti alışverişi izlemek için kullanımı [Fiddler](http://www.telerik.com/fiddler). Bir gösterge kullanıcı yolculuğunuza düzenleme adımlarınızı nerede başarısız olduğunu size yardımcı olabilir.
 
-* İçinde **geliştirme modunu**, kullanın **Application Insights** kimlik deneyimi Framework kullanıcı Yolculuğunuzun etkinliğini izlemek için. İçinde **geliştirme modunu**, kimlik deneyimi Framework ve kimlik sağlayıcısı, API tabanlı hizmetler, Azure AD B2C kullanıcı dizini ve Azure çok / multi-Factor-Authentication gibi diğer hizmetler gibi teknik profillerini tarafından tanımlanan çeşitli talep sağlayıcıları arasında taleplerin exchange görebilirsiniz.  
+* İçinde **geliştirme modu**, kullanın **Application Insights** yolculuğunuza kimlik deneyimi çerçevesi kullanıcı etkinliğini izlemek için. İçinde **geliştirme modu**, talepler kimlik deneyimi çerçevesi ve API tabanlı Hizmetleri, kimlik sağlayıcıları gibi teknik profiller tarafından tanımlanan çeşitli talep sağlayıcıları arasında alışverişi görebilirsiniz Azure AD B2C kullanıcı dizini ve diğer hizmetleri Azure çok-faktörlü kimlik doğrulaması ister.  
 
 ## <a name="recommended-practices"></a>Önerilen uygulamalar
 
-**Birden fazla sürümünü senaryolarınızı tutun. Uygulamanız ile projesinde gruplandırın.** Temel, uzantıları ve bağlı olan taraf dosyaları birbirlerine doğrudan bağımlı. Bir grup olarak kaydedin. Yeni özellikler, ilkeler eklendikçe ayrı çalışma sürümleri tutun. Aşama çalışma sürümlerinde kendi dosya sistemi ile etkileşim uygulama kodu.  Uygulamalarınızın birçok farklı bağlı olan taraf ilkelerinde Kiracı çağırabilir. Bunlar, Azure AD B2C ilkelerden bekledikleri talep bağımlı hale gelebilir.
+**Birden çok sürümünü senaryolarınızı tutun. Uygulamanızla bir projedeki gruplandırın.** Temel, uzantıları ve bağlı olan taraf dosyaları birbirine doğrudan bağlıdır. Bir grup olarak kaydedin. İlkelerinizi için yeni özellikler eklendikçe ayrı çalışma sürümleri tutun. Aşama çalışma sürümlerinde kendi dosya sistemi ile etkileşim uygulama kodu.  Uygulamalarınızın birçok farklı bağlı olan taraf ilkeleri bir kiracıdaki çağırabilir. Bunlar, Azure AD B2C ilkelerinizi bekledikleri talepleri bağımlı olabilir.
 
-**Geliştirme ve bilinen kullanıcı Yolculuklar teknik profilleriyle sınayın.** Teknik profillerini kurmak için test edilmiş başlangıç paketi ilkelerini kullanın. Bunları ayrı olarak kendi kullanıcı Yolculuklar dahil önce test edin.
+**Geliştirin ve teknik yolculuklarından bilinen kullanıcı profilleriyle test edin.** Teknik, profilleri ayarlama, test edilmiş başlangıç paketi ilkelerini kullanın. Kendi kullanıcı yolculuklarından birleştirmek önce bunları ayrı ayrı test.
 
-**Geliştirme ve test edilmiş teknik profilleriyle kullanıcı Yolculuklar sınayın.** Bir kullanıcı gezisine orchestration adımları artımlı olarak değiştirin. Aşamalı olarak hedeflenen senaryolarınızı oluşturun.
+**Geliştirme ve test edilmiş teknik profiline sahip kullanıcı yolculuklarından test edin.** Kullanıcı yolculuğu düzenleme adımlarını artımlı olarak değiştirin. Aşamalı olarak hedeflenen senaryolarınızı oluşturun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Github'da, [active-directory-b2c-custom-policy-starterpack] indirin (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip dosyası.
+* Github'da [active-directory-b2c-custom-policy-starterpack] indirin (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip dosyası.

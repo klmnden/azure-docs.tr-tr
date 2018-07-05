@@ -1,39 +1,39 @@
 ---
-title: Güvenli ASP.NET çağrı Azure Active Directory B2C API web | Microsoft Docs
-description: .NET Web uygulaması oluşturma ve bir web çağırmak nasıl Azure Active Directory B2C ve OAuth 2.0 erişim belirteçleri kullanarak API.
+title: Çağrı güvenli bir ASP.NET web API'si, Azure Active Directory B2C | Microsoft Docs
+description: Bir .NET Web uygulaması derleme ve bir web çağırmak nasıl Azure Active Directory B2C ve OAuth 2.0 erişim belirteçleri kullanarak API.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 39603cf103a8ff2656c76843aeae36b17936d13a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 0fd00672e53d0b0148b70b364df5959ced1e554a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712411"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442467"
 ---
-# <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: bir .NET web uygulamasından .NET web API'si çağırma
+# <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: .NET web uygulamasından .NET web API'si çağırma
 
-Azure AD B2C kullanarak web uygulamaları ve web API'leri için güçlü kimlik yönetimi özellikleri ekleyebilirsiniz. Bu makalede erişim belirteçleri ve bir .NET yapma çağrıları .NET "Yapılacaklar listesi" web uygulamasından web API'si istemek nasıl anlatılmaktadır.
+Azure AD B2C'yi kullanarak web uygulamalarınız ve web API'leri için güçlü kimlik yönetimi özellikleri ekleyebilirsiniz. Bu makalede, erişim belirteçleri ve bir .NET yapma çağrıları bir "Yapılacaklar listesi".NET web uygulamasından web API'si isteği anlatılmaktadır.
 
-Bu makalede, oturum açma, kaydolma nasıl uygulanacağını ve profil Yönetimi Azure AD B2C ile kapsamaz. Kullanıcının kimliği zaten doğrulanmış sonra web API'leri çağırmaya odaklanır. Henüz yapmadıysanız, aşağıdakileri yapmalısınız:
+Bu makalede, oturum açma, kaydolma nasıl uygulanacağını ve profil yönetimi ile Azure AD B2C kapsamaz. Kullanıcının zaten kimliği doğrulandıktan sonra web API'leri çağırmaya odaklanır. Henüz yapmadıysanız, şunları yapmalısınız:
 
 * Kullanmaya başlama bir [.NET web uygulaması](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 * Kullanmaya başlama bir [.NET web API'si](active-directory-b2c-devquickstarts-api-dotnet.md)
 
 ## <a name="prerequisite"></a>Önkoşul
 
-Bir web çağıran bir web uygulaması oluşturmak için API, gerekir:
+Web çağıran bir web uygulamasının API'sini gerekir:
 
-1. [Bir Azure AD B2C kiracısı oluşturma](active-directory-b2c-get-started.md).
-2. [Bir web kayıt API](active-directory-b2c-app-registration.md#register-a-web-api).
-3. [Bir web uygulaması kaydetmek](active-directory-b2c-app-registration.md#register-a-web-app).
-4. [İlkeleri Ayarla](active-directory-b2c-reference-policies.md).
+1. [Bir Azure AD B2C kiracısı oluşturmayı](active-directory-b2c-get-started.md).
+2. [Web kaydetme API](active-directory-b2c-app-registration.md#register-a-web-api).
+3. [Bir web uygulaması kaydetme](active-directory-b2c-app-registration.md#register-a-web-app).
+4. [İlkeleri ayarlama](active-directory-b2c-reference-policies.md).
 5. [Web uygulaması web kullanma izni vermek API](active-directory-b2c-access-tokens.md#publishing-permissions).
 
 > [!IMPORTANT]
@@ -48,16 +48,16 @@ Bu öğretici için kod [GitHub](https://github.com/Azure-Samples/active-directo
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Örnek kodu indirdikten sonra başlamak için Visual Studio .sln dosyasını açın. Çözüm dosyası iki proje içerir: `TaskWebApp` ve `TaskService`. `TaskWebApp` kullanıcı ile etkileşime giren bir MVC bir web uygulamasıdır. `TaskService`, uygulamanın, her kullanıcının yapılacaklar listesini depolayan arka uç web API'sidir. Bu makalede yapı kapsamaz `TaskWebApp` web uygulaması veya `TaskService` web API'si. Azure AD B2C kullanarak .NET web uygulaması oluşturmayı öğrenmek için bkz: bizim [.NET web uygulaması Öğreticisi](active-directory-b2c-devquickstarts-web-dotnet-susi.md). .NET web API'si Azure AD B2C kullanarak güvenliği oluşturma konusunda bilgi almak için bkz: bizim [.NET web API'si Öğreticisi](active-directory-b2c-devquickstarts-api-dotnet.md).
+Örnek kodu indirdikten sonra başlamak için Visual Studio .sln dosyasını açın. Çözüm dosyası iki proje içerir: `TaskWebApp` ve `TaskService`. `TaskWebApp` kullanıcı ile etkileşime giren bir MVC web uygulamasıdır. `TaskService`, uygulamanın, her kullanıcının yapılacaklar listesini depolayan arka uç web API'sidir. Bu makalede derlenmesini kapsamaz `TaskWebApp` web uygulaması veya `TaskService` web API'si. Azure AD B2C kullanarak .NET web uygulaması oluşturmayı öğrenmek için bkz. bizim [.NET web uygulaması Öğreticisi](active-directory-b2c-devquickstarts-web-dotnet-susi.md). .NET web API'si Azure AD B2C kullanılarak güvende tutulan oluşturmayı öğrenmek için bkz. bizim [.NET web API Öğreticisi](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ### <a name="update-the-azure-ad-b2c-configuration"></a>Azure AD B2C yapılandırmasını güncelleştirme
 
-Örneğimiz, tanıtım kiracımızın ilkelerini ve istemci kimliğini kullanacak şekilde yapılandırılmıştır. Kendi Kiracı kullanmak istiyorsanız:
+Örneğimiz, tanıtım kiracımızın ilkelerini ve istemci kimliğini kullanacak şekilde yapılandırılmıştır. Kendi kiracınızı kullanmak istiyorsanız:
 
 1. `TaskService` projesinde `web.config` öğesini açın ve şu değerleri değiştirin:
 
     * kiracı adınızla `ida:Tenant`
-    * `ida:ClientId` web API uygulama Kimliğinizle
+    * `ida:ClientId` web API uygulamanızın kimliği ile
     * "Kaydolma veya Oturum açma" ilkenizin adıyla `ida:SignUpSignInPolicyId`
 
 2. `TaskWebApp` projesinde `web.config` öğesini açın ve şu değerleri değiştirin:
@@ -71,13 +71,13 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 
 
-## <a name="requesting-and-saving-an-access-token"></a>İsteme ve bir erişim belirteci kaydetme
+## <a name="requesting-and-saving-an-access-token"></a>İsteme ve bir erişim belirteci kaydediliyor
 
-### <a name="specify-the-permissions"></a>İzinleri belirtin
+### <a name="specify-the-permissions"></a>İzinleri belirtme
 
-Web API çağrısı yapmak için (oturumu-up/oturum açma ilkeniz kullanarak) kullanıcı kimlik doğrulaması gerekir ve [bir erişim belirteci almak](active-directory-b2c-access-tokens.md) Azure AD B2C'ndan. Bir erişim belirteci almak için erişim belirteci vermek istediğiniz izinleri belirtin. İzinleri belirtilen `scope` isteği yaptığınızda parametresi `/authorize` uç noktası. Örneğin, uygulama kimliği URI'si kaynak uygulamanın "Okuma" izni olan bir erişim belirteci alması için `https://contoso.onmicrosoft.com/tasks`, kapsam olacaktır `https://contoso.onmicrosoft.com/tasks/read`.
+Web API'sine çağrı yapmak için (oturumu-kaydolma/oturum açma ilkenizin kullanarak) kullanıcının kimliğini doğrulamak gerekir ve [bir erişim belirteci alma](active-directory-b2c-access-tokens.md) Azure AD B2C'den. Bir erişim belirteci almak için erişim belirteci vermek istediğiniz izinleri belirtin. İzinleri belirtilen `scope` için isteğinde bulunduğunda parametre `/authorize` uç noktası. Örneğin, kaynak uygulamanın uygulama kimliği URI'si "Okuma" iznine sahip bir erişim belirteci almak için `https://contoso.onmicrosoft.com/tasks`, kapsamı olacaktır `https://contoso.onmicrosoft.com/tasks/read`.
 
-Bizim örnek kapsamını belirtmek için dosyayı açmak `App_Start\Startup.Auth.cs` ve tanımlayın `Scope` OpenIdConnectAuthenticationOptions değişkeni.
+Örneğimizde kapsamını belirtmek için dosyayı açmak `App_Start\Startup.Auth.cs` ve tanımlama `Scope` OpenIdConnectAuthenticationOptions değişkeninde.
 
 ```CSharp
 // App_Start\Startup.Auth.cs
@@ -94,9 +94,9 @@ Bizim örnek kapsamını belirtmek için dosyayı açmak `App_Start\Startup.Auth
 }
 ```
 
-### <a name="exchange-the-authorization-code-for-an-access-token"></a>Bir erişim belirteci yetkilendirme kodu değişimi
+### <a name="exchange-the-authorization-code-for-an-access-token"></a>Exchange için bir erişim belirteci yetkilendirme kodu
 
-Bir kullanıcı kaydı veya oturum açma deneyimi tamamlandıktan sonra uygulamanızı Azure AD B2C ' bir yetkilendirme kodu alırsınız. OWIN Openıd Connect Ara kodunu depolar, ancak bir erişim belirteci için exchange değil. Kullanabileceğiniz [MSAL Kitaplığı](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) değişikliği yapmak için. Bir yetkilendirme kodu alındığında Örneğimizde, biz bildirimi geri araması Openıd Connect Ara yapılandırılmış. Geri arama, bir belirteç kodunu exchange ve belirteç önbelleğe kaydetmek için MSAL kullanın.
+Bir kullanıcı kaydolma veya oturum açma deneyimi tamamlandıktan sonra uygulamanızı Azure AD B2C'den bir yetkilendirme kodu alırsınız. Ara yazılımlar OWIN Openıd Connect kodunu depolar, ancak bir erişim belirteci için exchange değil. Kullanabileceğiniz [MSAL Kitaplığı](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) değişikliği yapmak için. Bir yetkilendirme kodu alındığında Örneğimizde, biz bir bildirim geri çağırması Openıd Connect ara yazılımını yapılandırılmış. Geri çağırma içinde bir belirteç kodunu exchange ve belirteç önbelleğe kaydetmek için MSAL kullanın.
 
 ```CSharp
 /*
@@ -121,11 +121,11 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 
 ## <a name="calling-the-web-api"></a>Web API'si çağırma
 
-Bu bölümde sırasında alınan simgesinin nasıl kullanılacağına ilişkin anlatılmaktadır oturumu-up/oturum açma web API'si erişmek için Azure AD B2C ile.
+Bu bölümde ele alınmaktadır sırasında alınan belirteç kullanma oturumu-kaydolma/oturum açma web API'sine erişmek için Azure AD B2C ile.
 
-### <a name="retrieve-the-saved-token-in-the-controllers"></a>Denetleyicileri kaydedilmiş belirteçte alma
+### <a name="retrieve-the-saved-token-in-the-controllers"></a>Denetleyicileri kaydedilmiş belirteci alma
 
-`TasksController` Web API ile iletişim kurmasını ve okuma, oluşturun ve görevleri silme API'sine HTTP istekleri göndermek için sorumludur. API Azure AD B2C tarafından korumalı olduğundan, ilk ve Yukarıdaki adımda kaydettiğiniz belirtecini almak gerekir.
+`TasksController` Web API'si ile iletişim kurmak ve okuma, oluşturma ve görevleri silme API'sine HTTP istekleri göndermek için sorumludur. Azure AD B2C tarafından API korumalı olduğundan, ilk ve Yukarıdaki adımda kaydettiğiniz belirteci almak gerekir.
 
 ```CSharp
 // Controllers\TasksController.cs
@@ -150,9 +150,9 @@ private async void acquireToken(String[] scope)
 }
 ```
 
-### <a name="read-tasks-from-the-web-api"></a>Web API görevlerini okuma
+### <a name="read-tasks-from-the-web-api"></a>Web API'si görevlerini okuyun
 
-Bir belirteç sahip olduğunuzda, HTTP iliştirebilirsiniz `GET` içindeki istek `Authorization` güvenli bir şekilde çağırmak için üstbilgi `TaskService`:
+Bir belirteç varsa, HTTP için iliştirebilirsiniz `GET` içinde istek `Authorization` güvenli bir şekilde çağırmak için üst bilgi `TaskService`:
 
 ```CSharp
 // Controllers\TasksController.cs
@@ -176,11 +176,11 @@ public async Task<ActionResult> Index()
 
 ```
 
-### <a name="create-and-delete-tasks-on-the-web-api"></a>Oluşturma ve web API görevleri silme
+### <a name="create-and-delete-tasks-on-the-web-api"></a>Oluşturma ve web API'si görevleri silme
 
-Gönderdiğiniz aynı düzeni uygular `POST` ve `DELETE` önbellekten erişim belirteci almak için MSAL kullanarak API, web istekleri.
+Gönderdiğiniz aynı deseni takip `POST` ve `DELETE` istekleri Web API'sine, önbellekten erişim belirteci almak için MSAL kullanarak.
 
 ## <a name="run-the-sample-app"></a>Örnek uygulamayı çalıştırma
 
-Son olarak, yapı ve her iki uygulamaları çalıştırın. Kaydolma ve oturum açın ve oturum açmış kullanıcı için Görevler oluşturun. Oturumu kapatın ve farklı bir kullanıcı olarak oturum açın. Bu kullanıcı için Görevler oluşturun. API, aldığı belirtecinden kullanıcının kimliğini ayıkladığı için görevlerin kullanıcı başına API üzerinde nasıl olduğuna dikkat edin. Ayrıca kapsamlarla yürütmeyi deneyin. "Yazma" ve bir görev eklemeyi deneyin iznini kaldırın. Yeni kapsam değiştirme her zaman aşımına uğrar imzalamak emin olun.
+Son olarak, derleme ve her iki uygulama çalıştırın. Kaydolma ve oturum açın ve oturum açmış kullanıcı için Görevler oluşturun. Oturumu kapatın ve farklı bir kullanıcı olarak oturum açın. Bu kullanıcı için Görevler oluşturun. API, aldığı belirtecinden kullanıcının kimliğini ayıkladığı için görevlerin'ın kullanıcı başına depolanmasına API üzerinde nasıl olduğuna dikkat edin. Ayrıca, kapsamlar ile yürütmeyi deneyin. "Yazma" ve sonra bir görev eklemeyi deneyin izni kaldırın. Yalnızca kapsamını değiştirmek, her zaman aşımına oturum emin olun.
 

@@ -1,64 +1,64 @@
 ---
-title: Azure Active Directory B2C özel ilkelerinde gidermek için application Insights | Microsoft Docs
-description: Kurulum özel ilkeler yürütülmesini izlemek için Application Insights nasıl.
+title: Azure Active Directory B2C özel ilkelerinde sorunlarını gidermek için application Insights | Microsoft Docs
+description: Kurulum özel ilkeler yürütülmesini izlemek için Application ınsights'ı öğrenin.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ef39ea51fb7d12e27ce689d01517c520ab6d8684
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e4b33552c4b070164b55a84f1d8586422aced2f8
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710609"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446682"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Günlükleri toplama
 
-Bu makalede, böylece özel ilkelerinizi sorunları tanılama günlüklerini Azure AD B2C ' toplanması için adımları sağlar.
+Bu makalede, böylece özel ilkeleriniz ile sorunları tanılamak günlükleri Azure AD B2C'den toplanması için adımları sağlar.
 
 >[!NOTE]
->Burada açıklanan ayrıntılı etkinlik günlükleri şu anda tasarlanmış **yalnızca** özel ilkeler geliştirmeye yardımcı olmak için. Geliştirme modunu üretimde kullanmayın.  Geliştirme sırasında gönderilen ve kimlik sağlayıcılardan gelen tüm talepler günlüklerini toplayın.  Üretimde kullandıysanız, geliştirici PII (özel olarak tanımlanabilen bilgiler) sahip oldukları App Insights günlüğünde toplanan sorumluluğunu varsayar.  Bu ayrıntılı günlükler yalnızca ilke yerleştirildiği olduğunda toplanır **geliştirme MODUNU**.
+>Burada açıklanan ayrıntılı etkinlik günlükleri şu anda tasarlanmıştır **yalnızca** özel ilkeler geliştirmede yardımcı olacak. Geliştirme modunda, üretim ortamında kullanmayın.  Geliştirme sırasında gönderilen ve kimlik sağlayıcılardan gelen tüm talepler günlükleri toplayın.  Üretim ortamında kullandıysanız, PII (özel olarak tanımlanabilir bilgiler) sahip oldukları App Insights günlüğünde toplanan sorumluluğunu Geliştirici varsayar.  Şirket ilkesi yerleştirildiğinde bu ayrıntılı günlükleri yalnızca toplanır **geliştirme modu**.
 
 
 ## <a name="use-application-insights"></a>Application Insights kullanın
 
-Azure AD B2C, Application Insights'a veri göndermek için bir özelliği destekler.  Application Insights özel durumlar tanılama ve uygulama performans sorunlarını görselleştirmek için bir yol sağlar.
+Azure AD B2C'yi, Application Insights'a veri göndermek için bir özelliği destekler.  Application Insights özel durumları tanılama ve uygulama performası sorunlarını görselleştirmek için bir yol sağlar.
 
-### <a name="setup-application-insights"></a>Kurulum Application Insights
+### <a name="setup-application-insights"></a>Application Insights'ı kurma
 
-1. [Azure Portal](https://portal.azure.com) gidin. Kiracısı'nda, Azure aboneliğinizle (Azure AD B2C kiracısına değil) olduğundan emin olun.
-1. Tıklatın **+ yeni** sol taraftaki gezinti menüsünde.
-1. Aramak ve seçmek **Application Insights**, ardından **oluşturma**.
-1. Formu tamamlayıp tıklatın **oluşturma**. Seçin **genel** için **uygulama türü**.
-1. Kaynak oluşturulduktan sonra Application Insights kaynağı açın.
-1. Bul **özellikleri** sol menü ve onu tıklayın.
-1. Kopya **izleme anahtarını** ve için sonraki bölüme kaydedin.
+1. [Azure Portal](https://portal.azure.com) gidin. Kiracıda (Azure AD B2C kiracınızı değil) Azure aboneliğinizle olduğundan emin olun.
+1. Tıklayın **+ yeni** sol taraftaki gezinti menüsünde.
+1. Arayın ve seçin **Application Insights**, ardından **Oluştur**.
+1. Formu tamamlayıp tıklayın **Oluştur**. Seçin **genel** için **uygulama türü**.
+1. Kaynak oluşturulduktan sonra Application Insights kaynağını açın.
+1. Bulma **özellikleri** sol menü ve onu tıklayın.
+1. Kopyalama **izleme anahtarını** ve için sonraki bölüme kaydedin.
 
-### <a name="set-up-the-custom-policy"></a>Özel ilke ayarla
+### <a name="set-up-the-custom-policy"></a>Özel İlkesi ayarlama
 
 1. RP dosyasını (örneğin, SignUpOrSignin.xml) açın.
-1. Aşağıdaki öznitelikler eklemek `<TrustFrameworkPolicy>` öğe:
+1. Aşağıdaki öznitelikleri eklemek `<TrustFrameworkPolicy>` öğesi:
 
   ```XML
   DeploymentMode="Development"
   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
   ```
 
-1. Zaten yoksa, bir alt düğüm eklemek `<UserJourneyBehaviors>` için `<RelyingParty>` düğümü. Hemen sonra bulunmalıdır `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
-2. Bir alt öğesi olarak aşağıdaki düğüm eklemek `<UserJourneyBehaviors>` öğesi. Değiştirdiğinizden emin olun `{Your Application Insights Key}` ile **izleme anahtarını** gelen Application Insights önceki bölümde edindiğiniz.
+1. Zaten yoksa, bir alt düğüm ekleyin `<UserJourneyBehaviors>` için `<RelyingParty>` düğümü. Hemen sonra yer almalıdır `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
+2. Bir alt öğesi olarak aşağıdaki düğüm ekleme `<UserJourneyBehaviors>` öğesi. Değiştirdiğinizden emin olun `{Your Application Insights Key}` ile **izleme anahtarını** Application ınsights'ı önceki bölümde edindiğiniz.
 
   ```XML
   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
   ```
 
-  * `DeveloperMode="true"` en yüksek hacim rakamlarına kısıtlanmış ancak geliştirme için işleme ardışık düzeninden telemetri iyi hızlandırmak için Applicationınsights söyler.
-  * `ClientEnabled="true"` Sayfa görünümü ve istemci tarafı hataları (gerekli) izlemek için Applicationınsights istemci tarafı komut dosyası gönderir.
-  * `ServerEnabled="true"` Varolan UserJourneyRecorder JSON özel bir olay Application Insights'a gönderir.
+  * `DeveloperMode="true"` en yüksek miktarlarda kısıtlanmış ancak geliştirme için telemetri işleme ardışık düzeninden iyi hızlandırmak için Applicationınsights söyler.
+  * `ClientEnabled="true"` Sayfa görünümü ve istemci tarafı hataları (gerekli) izleme Applicationınsights istemci tarafı komut gönderir.
+  * `ServerEnabled="true"` Mevcut UserJourneyRecorder JSON özel olay Application Insights'a gönderir.
 Örnek:
 
   ```XML
@@ -81,37 +81,37 @@ Azure AD B2C, Application Insights'a veri göndermek için bir özelliği destek
 
 3. İlke karşıya yükleyin.
 
-### <a name="see-the-logs-in-application-insights"></a>Application Insights günlüklerine bakın
+### <a name="see-the-logs-in-application-insights"></a>Application ınsights günlüklerine bakın
 
 >[!NOTE]
-> Olduğundan yeni günlükler Application ınsights'ta görmek için kısa bir gecikme (beş dakikadan daha az).
+> Yeni Application Insights günlüklerine görebilmek için önce kısa bir gecikme (beş dakikadan daha kısa) yoktur.
 
-1. Oluşturduğunuz Application Insights kaynağını açma [Azure portal](https://portal.azure.com).
+1. Oluşturduğunuz Application Insights kaynağını açma [Azure portalında](https://portal.azure.com).
 1. İçinde **genel bakış** menüsünde tıklatın **Analytics**.
 1. Application Insights'ta yeni bir sekme açın.
-1. Burada bir listesidir günlükleri görmek için kullanabileceğiniz sorgular
+1. İşte bir listesi sorguların günlükleri görmek için kullanabilirsiniz
 
 | Sorgu | Açıklama |
 |---------------------|--------------------|
-İzlemeler | Tüm Azure AD B2C tarafından oluşturulan günlükler bakın |
-İzlemeler \| olduğu zaman damgası > ago(1d) | Tüm son gündür Azure AD B2C tarafından oluşturulan günlükler bakın
+izlemeleri | Tüm Azure AD B2C tarafından oluşturulan günlükler |
+izlemeleri \| nerede zaman damgası > ago(1d) | Tüm son günü için Azure AD B2C tarafından oluşturulan günlükler
 
-Girişleri uzun olabilir.  Daha ayrıntılı bir bakış için CSV'ye aktarın.
+Girişleri uzun olabilir.  CSV'ye dışarı aktarmak için daha yakından bakın.
 
-Analiz aracı hakkında daha fazla bilgiyi [burada](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
-
->[!NOTE]
->Topluluk kimlik geliştiricilere yardımcı olmak için bir kullanıcı gezisine Görüntüleyici geliştirmiştir.  Bu değil Microsoft tarafından desteklenir ve kesin olarak kullanılabilir hale-değil.  Application Insights örneğinden okur ve gezisine olayları kullanıcı iyi yapılandırılmış bir görünümünü sağlar.  Kaynak kodu alın ve kendi çözümde dağıtın.
-
-Application Insights olayları okur Görüntüleyicisi sürümü bulunduğu [burada](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
+Analiz aracı hakkında daha fazla bilgi [burada](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
 >[!NOTE]
->Burada açıklanan ayrıntılı etkinlik günlükleri şu anda tasarlanmış **yalnızca** özel ilkeler geliştirmeye yardımcı olmak için. Geliştirme modunu üretimde kullanmayın.  Geliştirme sırasında gönderilen ve kimlik sağlayıcılardan gelen tüm talepler günlüklerini toplayın.  Üretimde kullandıysanız, geliştirici PII (özel olarak tanımlanabilen bilgiler) sahip oldukları App Insights günlüğünde toplanan sorumluluğunu varsayar.  Bu ayrıntılı günlükler yalnızca ilke yerleştirildiği olduğunda toplanır **geliştirme MODUNU**.
+>Topluluk kimlik geliştiricilerin yardımcı olmak için bir kullanıcı yolculuğu Görüntüleyici geliştirmiştir.  Bu değil Microsoft tarafından desteklenen ve kesin olarak kullanıma sunulan-olduğu.  Application Insights örneğinizin okur ve yolculuğu olayları kullanıcı iyi yapılandırılmış bir görünümünü sağlar.  Kaynak kodu edinmenizi ve kendi çözümünüzü dağıtabilirsiniz.
 
-[Desteklenmeyen özel ilkesi örnekleri ve ilgili araçlar için Github depo](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
+Uygulama anlayışları'ndan olayları okur Görüntüleyicisi sürümünü bulunduğu [burada](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
+
+>[!NOTE]
+>Burada açıklanan ayrıntılı etkinlik günlükleri şu anda tasarlanmıştır **yalnızca** özel ilkeler geliştirmede yardımcı olacak. Geliştirme modunda, üretim ortamında kullanmayın.  Geliştirme sırasında gönderilen ve kimlik sağlayıcılardan gelen tüm talepler günlükleri toplayın.  Üretim ortamında kullandıysanız, PII (özel olarak tanımlanabilir bilgiler) sahip oldukları App Insights günlüğünde toplanan sorumluluğunu Geliştirici varsayar.  Şirket ilkesi yerleştirildiğinde bu ayrıntılı günlükleri yalnızca toplanır **geliştirme modu**.
+
+[Desteklenmeyen özel ilkesi örnekleri ve ilgili araçlar için Github deposu](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 
 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Application Insights'ı nasıl kimlik deneyimi kendi kimlik sunmak için temel alınan B2C çalışır Framework deneyimlerini anlamanıza yardımcı olması için verileri keşfedin.
+Application Insights'ı nasıl kendi kimlik sunmak için temel alınan B2C çalışır kimlik deneyimi çerçevesi deneyimlerini anlamanıza yardımcı olması için verileri araştırın.

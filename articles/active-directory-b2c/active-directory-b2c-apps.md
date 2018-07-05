@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu1
 ms.component: B2C
-ms.openlocfilehash: 63bf3725eddd14d665e51427a65a339116ceb09b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: d306d27f448ab9dd95e891b81f27b69e11f05495
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710092"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442075"
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: Uygulama türleri
 Azure Active Directory (Azure AD) B2C, çeşitli modern uygulama mimarilerine yönelik kimlik doğrulamasını destekler. Bunların tümü [OAuth 2.0](active-directory-b2c-reference-protocols.md) veya [OpenID Connect](active-directory-b2c-reference-protocols.md) endüstri standardı protokollerine dayalıdır. Bu belgede kısaca, tercih ettiğiniz dilden veya platformdan bağımsız olarak oluşturabileceğiniz uygulama türleri açıklanmaktadır. [Uygulama oluşturmaya başlamadan](active-directory-b2c-overview.md) önce üst düzey senaryoları anlamanıza da yardımcı olur.
@@ -38,8 +38,7 @@ Her uygulamanın etkileşimini benzer bir üst düzey deseni izler:
 5. Kaynak sunucu, erişim izni verilebileceğini doğrulamak için güvenlik belirtecini doğrular.
 6. Uygulama, güvenlik belirtecini düzenli aralıklarla yeniler.
 
-<!-- TODO: Need a page for libraries to link to -->
-Bu adımlar, oluşturduğunuz uygulama türüne göre biraz değişebilir.
+<!-- TODO: Need a page for libraries to link to --> Bu adımlar biraz oluşturduğunuz uygulama türüne göre değişebilir.
 
 ## <a name="web-apps"></a>Web uygulamaları
 Azure AD B2C, bir sunucuda barındırılan ve tarayıcı aracılığıyla erişilen web uygulamalarında (.NET, PHP, Java, Ruby, Python ve Node.js dahil) tüm kullanıcı deneyimleri için [OpenID Connect](active-directory-b2c-reference-protocols.md)'i destekler. Buna oturum açma, kaydolma ve profil yönetimi dahildir. OpenID Connect'e ilişkin Azure AD B2C uygulamasında web uygulamanız, Azure AD'ye kimlik doğrulaması istekleri sağlayarak bu kullanıcı deneyimlerini başlatır. İstek sonucu `id_token` şeklindedir. Bu güvenlik belirteci, kullanıcının kimliğini temsil eder. Ayrıca kullanıcı hakkındaki bilgileri talep biçiminde sağlar:

@@ -1,6 +1,6 @@
 ---
 title: Azure Linux VM boyutları - HPC | Microsoft Docs
-description: Linux yüksek performanslı bilgi işlem azure'da sanal makineler için kullanılabilir farklı boyutlarını listeler. Vcpu, veri diskleri ve NIC yanı sıra bu serideki boyutları için depolama üretilen iş ve ağ bant sayısı hakkında bilgi listeler.
+description: Farklı Linux yüksek performanslı Azure sanal makinelere bilgi işlem için kullanılabilir boyutları listeler. Vcpu, veri diskleri ve NIC yanı sıra bu serideki boyutları için depolama aktarım hızı ve ağ bant sayısı hakkında bilgiler listelenir.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: a24cb03cd30b212650a36cd5ac40977de5eea11e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 441e99b86e9560d47af8ea18a2633e3f37a05e94
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34653850"
 ---
-# <a name="high-performance-compute-virtual-machine-sizes"></a>Yüksek performanslı işlem sanal makine boyutları
+# <a name="high-performance-compute-virtual-machine-sizes"></a>Yüksek performanslı bilgi işlem, sanal makine boyutları
 
 [!INCLUDE [virtual-machines-common-sizes-hpc](../../../includes/virtual-machines-common-sizes-hpc.md)]
 
@@ -32,55 +33,55 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="mpi"></a>MPI 
 
-Yalnızca Intel MPI 5.x sürümleri desteklenir. Sonraki sürümlerinde (2017, 2018) Intel MPI çalışma zamanı kitaplığı Azure Linux RDMA sürücüleri ile uyumlu değil.
+Yalnızca Intel MPI 5.x sürümler desteklenir. Sonraki sürümlerinde (2017, 2018) Intel MPI çalışma zamanı kitaplığı, Azure Linux RDMA sürücüleri ile uyumlu değildir.
 
 
 ### <a name="distributions"></a>Dağıtımlar
  
-Bir işlem yoğunluklu VM RDMA bağlantısı destekleyen Azure Market görüntülerini birinden dağıtın:
+Yoğun işlem gücü kullanımlı VM görüntüleri Azure Market'te RDMA bağlantısı destekler birinden dağıtın:
   
-* **Ubuntu** -Ubuntu Server 16.04 LTS. RDMA sürücüleri VM yapılandırın ve Intel MPI indirmek için Intel ile kaydedin:
+* **Ubuntu** -Ubuntu Server 16.04 LTS. VM'de RDMA sürücüleri yapılandırın ve Intel MPI indirmek için Intel ile kaydedin:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **SUSE Linux Enterprise Server** -SLES 12 HPC, SLES 12 SP3 HPC (Premium), SLES 12 SP3 SP1 HPC, SLES 12 için SP1 için HPC (Premium). RDMA sürücülerinin yüklü olduğunu ve Intel MPI paketleri VM dağıtılmaz. Aşağıdaki komutu çalıştırarak MPI yükleyin:
+* **SUSE Linux Enterprise Server** -SLES 12 SP3 HPC, SLES 12 için HPC (Premium), SLES 12 için SP3 SP1 için HPC, SLES 12 SP1 için HPC (Premium). RDMA sürücüleri yüklenir ve Intel MPI paketler VM'de dağıtılır. MPI, aşağıdaki komutu çalıştırarak yükleyin:
 
   ```bash
   sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
   ```
     
-* **CentOS tabanlı HPC** -CentOS tabanlı 6.5 HPC veya sonraki bir sürümünü (H-seri için sürüm 7.1 veya üzeri önerilir). RDMA sürücüler ve Intel MPI 5.1 VM yüklenir.  
+* **CentOS tabanlı HPC** -6.5 HPC CentOS tabanlı veya sonraki bir sürümü (sürüm 7.1 veya sonraki sürümleri için H-serisi, önerilir). RDMA sürücüleri ve Intel MPI 5.1 sanal makinede yüklü.  
  
   > [!NOTE]
-  > CentOS tabanlı HPC görüntülerinde çekirdek güncelleştirmeleri de devre dışı **yum** yapılandırma dosyası. Linux RDMA sürücüleri RPM paket olarak dağıtılır ve çekirdek güncelleştirdiyseniz sürücü güncelleştirmelerini çalışmayabilir nedeni budur.
+  > CentOS tabanlı HPC görüntülerinde de çekirdek güncelleştirmeler devre dışı bırakıldı **yum** yapılandırma dosyası. Linux RDMA sürücüleri bir RPM paket olarak dağıtılır ve çekirdek güncelleştirildiyse, sürücü güncelleştirmelerini çalışmayabilir nedeni budur.
   > 
  
 ### <a name="cluster-configuration"></a>Küme yapılandırması 
     
-Ek sistem yapılandırması, kümelenmiş sanal makinelerin MPI işlerini çalıştırmak için gereklidir. Örneğin, VM'lerin bir kümede işlem düğümleri arasında güven oluşturmanız gerekir. Tipik ayarları için bkz: [MPI uygulamaları çalıştırmak için Linux RDMA küme ayarlama](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Ek sistem yapılandırması, kümelenmiş VM'ler üzerinde MPI işlerini çalıştırma için gereklidir. Örneğin, üzerinde bir VM kümesi, işlem düğümleri arasında bir güven gerekir. Normal ayarları için bkz: [MPI uygulamalarını çalıştırmak için bir Linux RDMA kümesi ayarlama](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ### <a name="network-topology-considerations"></a>Ağ topolojisi hakkında önemli noktalar
-* RDMA özellikli Linux VM'ler üzerinde Azure, Eth1 RDMA ağ trafiği için ayrılmış. Herhangi bir Eth1 ayarı veya bu ağa başvuran yapılandırma dosyasında herhangi bir bilgiyi değiştirmeyin. Eth0 normal Azure ağ trafiği için ayrılır.
+* RDMA özellikli azure'da Linux VM'ler üzerinde Eth1 RDMA ağ trafiği için ayrılmış. Eth1 ayarları veya bu ağa başvuran yapılandırma dosyasındaki bilgileri değiştirmeyin. Eth0 normal Azure ağ trafiği için ayrılmış.
 
-* Azure RDMA ağ adres alanı 172.16.0.0/16 ayırır. 
+* Azure'da RDMA ağ adres alanı 172.16.0.0/16 ayırır. 
 
 
 ## <a name="using-hpc-pack"></a>HPC Pack kullanma
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), Microsoft'un ücretsiz HPC küme ve iş yönetimi çözümü, işlem yoğunluklu örnekler Linux ile kullanmanız için bir seçenek değil. HPC Pack Destek'ın en son sürümlerine işlem bir Windows Server baş düğümü tarafından yönetilen Azure vm'lerinde dağıtılan düğümleri üzerinde çalışmak için birkaç Linux dağıtımları. Intel MPI çalıştıran RDMA özellikli Linux işlem düğümleri ile HPC Pack zamanlayabilir ve Linux MPI RDMA ağ erişim uygulamaları çalıştırın. Bkz: [Linux işlem düğümlerini Azure bir HPC Pack kümesindeki kullanmaya başlama](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), Microsoft'un ücretsiz HPC küme ve iş yönetim çözümü, yoğun işlem gücü kullanımlı örnekler Linux ile kullanabilmeniz için bir seçenektir. HPC Pack desteği en son sürümleri üzerinde çalışmak üzere çeşitli Linux dağıtımları Windows Server baş düğümü tarafından yönetilen Azure vm'lerinde dağıtılan bilgi işlem düğümü. Intel MPI çalıştıran RDMA özellikli Linux işlem düğümleriyle HPC Pack zamanlayabilir ve Linux MPI RDMA ağ erişen uygulamalar çalıştırın. Bkz: [azure'da HPC Pack kümesinde Linux işlem düğümleri kullanmaya başlama](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-## <a name="other-sizes"></a>Diğer boyutlara
+## <a name="other-sizes"></a>Diğer boyutları
 - [Genel amaçlı](sizes-general.md)
 - [İşlem için iyileştirilmiş](sizes-compute.md)
 - [Bellek için iyileştirilmiş](sizes-memory.md)
 - [Depolama için iyileştirilmiş](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
-
+- [Önceki nesil](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Dağıtma ve RDMA Linux üzerinde işlem yoğunluklu boyutları kullanarak başlamak için bkz: [MPI uygulamaları çalıştırmak için Linux RDMA küme ayarlama](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+- Dağıtma ve Linux'ta RDMA ile yoğun işlem gücü kullanımlı boyutlar başlamak için bkz: [MPI uygulamalarını çalıştırmak için bir Linux RDMA kümesi ayarlama](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-- Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları üzerinde işlem performans karşılaştırmanıza yardımcı olur.
+- Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları arasında işlem performansını karşılaştırmanıza yardımcı olabilir.
 
 
 

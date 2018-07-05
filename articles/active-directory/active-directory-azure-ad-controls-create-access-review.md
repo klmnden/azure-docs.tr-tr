@@ -1,6 +1,6 @@
 ---
-title: Bir grubu üyeleri veya Azure AD ile bir uygulamaya erişimi olan kullanıcılar için bir erişim gözden geçirme oluşturma | Microsoft Docs
-description: Bir grubu üyeleri veya bir uygulamaya erişimi olan kullanıcılar için bir erişim gözden geçirme oluşturmayı öğrenin.
+title: Bir grup veya kullanıcıları Azure AD ile bir uygulamaya erişimi olan üyeleri için erişim gözden geçirmesi oluştur | Microsoft Docs
+description: Üyeleri bir grup veya uygulamaya erişimi olan kullanıcılar için erişim gözden geçirmesi oluşturmayı öğrenin.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -9,71 +9,71 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 20f238a7d8a3882f2a126c900e04ecf7be613be5
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 853d8f09a94e46db218553500a50dc4ef1ec3d23
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084986"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448280"
 ---
-# <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD ile bir erişim gözden geçirme Grup üyeleri veya uygulama erişimi oluşturma
+# <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD ile uygulama erişimi ve Grup üyeleri erişim gözden geçirmesi oluşturma
 
-Kullanıcılar artık gerekmeyen erişim sahibi, erişim atamalarını "eski" olur. Eski erişim atamalarını ile ilişkili riskini azaltmak için Yöneticiler Azure Active Directory (Azure AD) Grup üyeleri veya bir uygulamaya atanan kullanıcılar için bir erişim gözden geçirme oluşturmak için kullanabilirsiniz. Yinelenen erişim incelemeler oluşturma zaman kazandıran olabilir. Uygulama erişimi veya bir grubun üyesi olan kullanıcıları düzenli olarak gözden ihtiyacınız varsa, bu incelemeler sıklığını tanımlayabilirsiniz. Bu senaryolar hakkında daha fazla bilgi için bkz: [kullanıcı erişimini yönetme](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md) ve [Konuk erişimi yönetme](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md). 
+Erişim atamalarını kullanıcıların erişimi artık gerekmeyen "eski" olur. Eski erişim atamalarını ile ilişkili riski azaltmak için Yöneticiler Azure Active Directory (Azure AD) grubu üyeleri veya bir uygulamaya atanan kullanıcılar için erişim gözden geçirmesi oluşturmak için kullanabilirsiniz. Yinelenen erişim gözden geçirmesi oluşturma zamandan tasarruf olabilir. Düzenli olarak bir uygulama erişimi veya bir grubun üyesi olan kullanıcıları gözden geçirmek gerekiyorsa, bu incelemeleri sıklığını da tanımlayabilirsiniz. Bu senaryolar hakkında daha fazla bilgi için bkz. [kullanıcı erişimini yönetme](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md) ve [konuk erişimini yönetme](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md). 
 
 ## <a name="create-an-access-review"></a>Erişim gözden geçirmesi oluştur
 
-1. Bir genel yönetici veya kullanıcı hesabı yönetici Git [erişim incelemeleri sayfa](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)seçip **programlar**.
+1. Bir genel yönetici veya kullanıcı hesabı yöneticisi, Git [erişim gözden geçirmeleri sayfasına](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)seçip **programlar**.
 
-2. Oluşturmak istediğiniz erişim gözden geçirme denetimi tutan programı seçin. **Varsayılan Program** her zaman mevcut değil veya farklı bir program oluşturabilirsiniz. Örneğin, bir program her uyumluluk girişimi sahip olmayı seçebilirsiniz veya İş hedefi.
+2. Oluşturmak istediğiniz erişim gözden geçirme denetim tutan programı seçin. **Varsayılan Program** her zaman mevcut değil ya da başka bir program oluşturabilirsiniz. Örneğin, bir program için her uyumluluk girişim sahip olmayı seçebilirsiniz veya İş hedefi.
 
-3. Programında seçin **denetimleri**ve ardından **Ekle** bir denetim eklemek için.
+3. Bir program içindeki seçin **denetimleri**ve ardından **Ekle** bir denetim eklemek için.
 
-4. Adı erişim gözden geçirme. İsteğe bağlı olarak, gözden geçirme bir açıklama girin. Ad ve açıklama gözden geçirenlere gösterilir.
+4. Erişim gözden geçirmesi adı. İsteğe bağlı olarak, gözden geçirme bir açıklama girin. Ad ve açıklama gözden geçirenlere gösterilmektedir.
 
-5. Başlangıç tarihini ayarlayın. Varsayılan olarak, bir erişim gözden geçirme bir kez meydana gelir, aynı oluşturulduğunda başlar ve bir ay içinde sona erer. Başlangıç değiştirebilir ve çok sayıda gün istiyor ancak bir erişim sağlamak için bitiş tarihi başlangıç gelecekte ve son gözden geçirin.
+5. Başlangıç tarihini ayarlayın. Varsayılan olarak, erişim gözden geçirmesi bir kez gerçekleşir, aynı oluşturulduğunda başlar ve bir ay içinde sonlandırır. Başlangıç değiştirebilirsiniz ve istediğiniz sayıda gün ancak erişim sağlamak için bitiş tarihi başlangıç gelecekte ve son gözden geçirin.
 
-6. Erişim gözden geçirme yinelenen yapmak için haftalık, aylık, üç aylık veya yıllık olarak bir kez sıklığını değiştirmek ve kaç gün her gözden geçirme yinelenen serisinin geçirenlerin girişi için açık olacaktır tanımlamak için kaydırıcıyı veya metin kutusunu kullanın. Örneğin, için ayarlayabileceğiniz için en uzun süre incelemeler çakışan önlemek için 27 gün aylık bir gözden geçirme gerekir. 
+6. Erişim gözden geçirme yineleme yapmak için haftalık, aylık, üç aylık veya yıllık bir kez gelen sıklığını değiştirmek ve kaç gün yinelenen serisinin her gözden geçirenlerin girişi için açık olacaktır tanımlamak için kaydırıcı veya metin kutusunu kullanın. İçin kümesi için örneğin, en uzun süre aylık gözden geçirme 27 gün incelemeleri çakışan kaçınmaktır. 
 
-7.  Yinelenen erişim gözden geçirme serisinin 3 şekilde bitebilir: sürekli incelemeler süresiz olarak, belirli bir tarih kadar veya tanımlı bir yineleme sayısı tamamlandıktan sonra başlatmak için çalışır. Belirli bir tarihte sona ermesini sağlayacak biçimde seri Ayarları'nda tarih değiştirerek, başka bir kullanıcı hesabının yönetici veya başka bir genel yönetici oluşturulduktan sonra durdurabilirsiniz.
+7.  Yinelenen erişim gözden geçirme serisini 3 şekilde sonlandırabilirsiniz: süresiz olarak, belirli bir tarihe kadar veya tanımlanan sayıda yineleme tamamlandıktan sonra incelemeleri başlatmak için sürekli olarak çalışmasını. Böylece, belirli bir tarihte sona serisi tarih ayarları değiştirerek, başka bir kullanıcı hesabı yöneticisi veya başka bir genel yönetici oluşturulduktan sonra durdurabilirsiniz.
 
-8. Erişim incelemeleri, uygulamaya atanan kullanıcılar veya bir grubun üyeleri için olabilir. Daha fazla kimin üyeleridir (veya uygulamaya atanan), üyeleri olan tüm kullanıcıların gözden geçirme yerine veya uygulamaya kimlerin erişimi gözden geçirme gözden yalnızca konuk kullanıcıların erişimini kapsamını belirleyebilirsiniz.
+8. Erişim gözden geçirmeleri, bir grubun üyesi veya bir uygulamaya atanmış kullanıcılar olabilir. Daha fazla kimin üyeleri (veya uygulamaya atanmış), gözden geçirme üyeleri olan tüm kullanıcılar yerine veya uygulamaya olan erişimi gözden geçirme gözden yalnızca konuk kullanıcılar erişim kapsamını belirleyebilirsiniz.
 
-9. Kapsamdaki tüm kullanıcılar gözden geçirmek için bir veya daha fazla kişileri seçin. Ya da kendi access gözden üyeleri olan seçebilirsiniz. Kaynak grubu ise, Grup sahiplerinin gözden geçirmek isteyebilirsiniz. Ayrıca, erişim onayladığınızda gözden geçirenler nedeni sağlamak isteyebilirsiniz.
+9. Kapsamdaki tüm kullanıcıları gözden geçirmek için bir veya daha fazla kişi seçin. Veya kendi erişim gözden üyelere sahip seçebilirsiniz. Kaynak grubuysa Grup sahiplerinin gözden geçirmek isteyebilirsiniz. Ayrıca bunlar erişim onayladığınızda gözden geçirenler bir neden sağlamanız gerekebilir.
 
-10. Gözden Geçirme tamamlandığında sonuçları el ile uygulamak isterseniz tıklayın **Başlat**.  Aksi halde, sonraki bölümde otomatik olarak gözden yapılandırılmasını açıklamaktadır uygulayın.
+10. Gözden Geçirme tamamlandığında sonuçları el ile uygulamak isterseniz tıklayın **Başlat**.  Aksi halde, sonraki bölümde otomatik olarak gözden geçirmeyi yapılandırma açıklanmaktadır uygulayın.
 
-### <a name="configuring-an-access-review-with-auto-apply"></a>Bir erişim gözden geçirme auto-apply ile yapılandırma
+### <a name="configuring-an-access-review-with-auto-apply"></a>Erişim gözden geçirmesi auto-apply ile yapılandırma
 
-1.  Tamamlandıktan sonra ayarları ve etkinleştirme otomatik sonuçları kaynağa uygulamak için menüsünü genişletin. 
+1.  Tamamlanmasından sonra ayarları ve etkinleştirme otomatik sonuçları kaynağına uygulamak için menüsünü genişletin. 
 
-2.  Burada kullanıcılar değil gözden geçirenin gözden geçirme süresi içinde durumlarda engelleme/kullanıcının sürekli erişim onaylama üzerinde sistemin öneri (etkinse) alın, erişimleri değiştirmeden bırakın ya da kaldırma erişim gözden geçirme sağlayabilirsiniz, erişim. Kullanıcının erişimini kaldırılacak son gözden geçirenin karar verme, ise bu gözden geçirenler tarafından el ile – incelendi kullanıcılar etkilemez.
+2.  Burada kullanıcıları değil incelenen Gözden Geçiren tarafından gözden geçirme süresi içinde durumlarda, reddetme/kullanıcının sürekli erişim onaylama üzerinde (etkinse) sistemin öneri alın, erişimleri değiştirmeden bırakın veya kaldırın erişim gözden geçirmesi olabilir, erişim. Kullanıcının erişim kaldırılacak son gözden geçirenin karar verme, gözden geçirenler tarafından el ile – incelendi kullanıcılar etkilemez.
 
-3.  Önerileri gözden geçirenler yanıt yapılacak seçeneğini etkinleştirmek için Gelişmiş Ayarları'nı genişletin ve Göster önerileri etkinleştirin.
+3.  Gözden Geçiren yanıt öneriler alın seçeneğini etkinleştirmek için Gelişmiş Ayarları'nı genişletin ve Show önerilerini etkinleştirmek.
  
-4.  Son olarak, tıklatın **Başlat**.
+4.  Son olarak, tıklayın **Başlat**.
 
-Seçimlerinizi tamamlama ayarlarını bağlı bağlı olarak, otomatik olacak uygulama yürütülebilir gözden 's bitiş tarihi veya gözden geçirme el ile durdurun, sonra. Gözden geçirme durumunu ara durumları uygulanıyor gibi üzerinden tamamlandı değiştirecek ve son olarak uygulanan durumuna. Varsa, Grup üyeliğini veya uygulama ataması birkaç dakika içinde kaldırılmakta olan reddedilen kullanıcıları görmek beklemeniz gerekir.
+Tamamlama ayarlarını üzerinde yaptığınız seçimlere bağlı olarak, otomatik olacak uygulama incelemesinin bitiş tarihi veya el ile ne zaman gözden geçirmeyi durdurmak sonra yürütülür. Gözden geçirme durumu tamamlandı uygulama gibi ara durumları arasında değişir ve son durumuna uygulandı. Reddedilen kullanıcılar varsa, Grup üyeliğini veya uygulama ataması birkaç dakika içinde kaldırılmakta olan görmeyi beklemelisiniz.
 
 
-## <a name="manage-the-access-review"></a>Erişim gözden geçirme yönetme
+## <a name="manage-the-access-review"></a>Erişim gözden geçirmesi yönetme
 
-Kısa süre içinde gözden başladıktan sonra varsayılan olarak, Azure AD gözden geçirenlere bir e-posta gönderir. Azure AD e-posta Gönder biçimlendirmemesini seçerseniz, bir erişim gözden geçirme tamamlanmalarını bekliyor gözden geçirenlere bildirmek emin olun. Nasıl yapılır yönergeleri Göster [erişim gözden](active-directory-azure-ad-controls-perform-access-review.md). Gözden geçirilecek kendi access gözden geçirmek konuklar için ise, bunları nasıl yönergelerini Göster [kendi access gözden](active-directory-azure-ad-controls-perform-access-review.md).
+İnceleme kısa bir süre içinde başladıktan sonra varsayılan olarak, Azure AD için gözden geçirenler bir e-posta gönderir. Erişim gözden geçirmesi tamamlanmalarını bekliyor gözden geçirenlere bildirmek e-posta gönderin, Azure AD almamayı tercih ederseniz unutmayın. Nasıl yapılır yönergeleri Göster [erişimi incele](active-directory-azure-ad-controls-perform-access-review.md). Gözden geçirme kendi erişimini gözden geçirmek, konuklar için ise, bunları nasıl yapılır yönergeleri Göster [kendi erişim gözden geçirme](active-directory-azure-ad-controls-perform-access-review.md).
 
-Gözden geçirenler konuklar bazıları, yalnızca bunlar zaten kendi daveti kabul ettiğiniz, konukların e-posta aracılığıyla bildirilir.
+Yalnızca bunlar zaten davetini kabul ettiğiniz, Konuklar, gözden geçirenlerin bazıları Konukları varsa, e-posta aracılığıyla bildirilir.
 
-Bir dizi erişim incelemeler yönetmek için erişim gözden geçirme sürecinden gidin **denetimleri**, ve yaklaşan oluşum zamanlanmış incelemeler içinde bulmak ve bitiş tarihi düzenlemek veya kaldıracak ekleyin veya gözden geçirenler uygun şekilde Kaldır. 
+Erişim gözden geçirmeleri, bir dizi yönetmek için erişim gözden geçirmesinden gidin **denetimleri**, ve zamanlanmış incelemelerde yaklaşan yinelemesi Bul ve bitiş tarihi Düzenle veya kaldıracak ekleme/gözden geçirenler uygun şekilde kaldırma. 
 
-Gözden geçirenler kendi incelemeleri Azure AD Panosu'nda tamamlarken ilerleme durumunu izleyebilirsiniz **erişim incelemeleri** bölümü. Erişim hakları yok kadar dizinde değiştirilir [gözden tamamlandı](active-directory-azure-ad-controls-complete-access-review.md).
+Gözden geçirenler Azure AD'ye panosunda bulunan kendi incelemeler tamamlandı olarak ilerleme durumunu izleyebilir **erişim gözden geçirmeleri** bölümü. Erişim hakları dizine kadar değişen [gözden geçirme tamamlandığında](active-directory-azure-ad-controls-complete-access-review.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir erişim gözden geçirme başladığında, Azure AD erişim incelemek için onları isteyen bir e-posta gözden geçirenler otomatik olarak gönderir. Bir kullanıcı bir e-posta gelmedi, bunları nasıl yönergelerini gönderebilirsiniz [erişim gözden](active-directory-azure-ad-controls-perform-access-review.md). 
+Erişim gözden geçirmesi başlatıldığında, Azure AD erişim gözden geçirmek için isteyen bir e-posta gözden geçirenler otomatik olarak gönderir. Bir kullanıcı bir e-posta almadıysanız, bunları nasıl yapılır yönergeleri gönderebilirsiniz [erişimi incele](active-directory-azure-ad-controls-perform-access-review.md). 
 
-Bu tek seferlik bir gözden geçirme ise, sonra erişim değerlendirme süresi sona erer veya yönetici erişim gözden geçirme durdurur sonra adımları [erişim gözden geçirme tamamlamak](active-directory-azure-ad-controls-complete-access-review.md) bakın ve sonuçları uygulamak için.  
+Bu tek seferlik bir gözden geçirme ise, ardından yönetici erişim gözden geçirmesi durdurur veya erişim incelemesi süresi bittikten sonra adımları [erişim değerlendirmesi tamamlama](active-directory-azure-ad-controls-complete-access-review.md) bakın ve sonuçları uygulamak için.  
 
-Bu gözden geçirme serisi ise, ardından gidin **geçmişini gözden** tamamlanmış erişim gözden geçirme seçmek için erişim gözden geçirme serisi sayfasında.  Yaklaşan incelemeler altında listelenir **zamanlanmış gözden**, burada süre, Düzen ve ekleyebilir veya bireysel incelemeler için gözden geçirenleri Kaldır.
+Bu gözden geçirme serisini ise, ardından gidin **gözden geçirme geçmişi** tamamlanmış erişim incelemesi seçmek için erişim gözden geçirme serisini sayfasında,.  Yaklaşan incelemeleri, altında listelenir **zamanlanmış gözden geçirme**, burada süresini Düzenle ve ekleyebilir veya bireysel incelemeleri için gözden geçirenler kaldırın.

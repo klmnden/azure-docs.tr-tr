@@ -1,6 +1,6 @@
 ---
-title: Arşiv Azure etkinlik günlüğü
-description: Bir depolama hesabı, uzun vadeli bekletme için Azure etkinlik günlüğü arşivleyebilirsiniz.
+title: Azure Etkinlik günlüğünü arşivleme
+description: Azure etkinlik günlüğünüzü bir depolama hesabında uzun süreli saklama için arşivleme.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,39 +8,39 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 508b2f615819f20a717065d8fff25beff64957d5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0f3f2347dd277cb155bf5edf3f8c30da34788b65
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263438"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437768"
 ---
-# <a name="archive-the-azure-activity-log"></a>Arşiv Azure etkinlik günlüğü
-Bu makalede, biz arşivlemek için Azure portal, PowerShell cmdlet'leri veya platformlar arası CLI nasıl kullanabileceğinizi gösterir, [ **Azure etkinlik günlüğü** ](monitoring-overview-activity-logs.md) depolama hesabındaki. Bu seçenek, Denetim, statik çözümleme veya yedekleme (ile bekletme ilkesi üzerinde tam denetim) 90 gün daha uzun süre, etkinlik günlüğü korumak istiyorsanız kullanışlıdır. Yalnızca, olayları 90 gün boyunca Koru gerek isterseniz daha az, etkinlik günlüğü olaylarını arşivleme etkinleştirmeden Azure platform 90 gün boyunca tutulur bu yana bir depolama hesabına arşivleme ayarlamanız gerekmez.
+# <a name="archive-the-azure-activity-log"></a>Azure Etkinlik günlüğünü arşivleme
+Bu makalede, biz arşivlemek için Azure portalı, PowerShell cmdlet'leri veya platformlar arası CLI nasıl kullanabileceğinizi gösterir, [ **Azure etkinlik günlüğü** ](monitoring-overview-activity-logs.md) bir depolama hesabında. Etkinlik günlüğünüzü 90 günden uzun (ile bekletme ilkesini üzerinde tam denetim) denetim, statik analiz veya yedekleme korumak istiyorsanız, bu seçenek kullanışlıdır. Yalnızca olaylarınızı 90 gün boyunca Beklet gerekir ya da daha az, etkinlik günlüğü olaylarını arşivleme etkinleştirmeden Azure platformunda 90 gün boyunca bekletilir olduğundan bir depolama hesabına arşivleme ayarlamak ihtiyacınız yoktur.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Başlamadan önce şunları gerçekleştirmeniz [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) etkinlik günlüğü arşiv. Böylece daha iyi İzleme verilerine erişimi denetleyebilirsiniz içine depolanmış, diğer izleme olmayan verilere sahip varolan bir depolama hesabı kullanmamanızı öneririz. Tanılama günlüklerini ve ölçümler bir depolama hesabına arşivlemeye çalışıyorsunuz, ancak, merkezi bir konumda tüm izleme verilerini korumak için etkinlik günlüğü de bu depolama hesabını kullanmak için anlamlı olabilir. Kullandığınız depolama hesabı, genel amaçlı depolama hesabı, blob storage hesabı olması gerekir. Depolama hesabı ayarı yapılandıran kullanıcı her iki aboneliğin uygun RBAC erişime sahip olduğu sürece günlükleri yayma abonelik ile aynı abonelikte olması gerekmez.
+Başlamadan önce yapmanız [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) etkinlik günlüğünüzü arşiv. İçinde depolanır, bu sayede daha iyi İzleme verilerine erişimi denetleyebilir, diğer izleme olmayan veriler içeren mevcut bir depolama hesabını kullanmamanızı öneririz. Ayrıca Tanılama günlükleri ve ölçümler bir depolama hesabına arşivleme, Bununla birlikte, tüm izleme verilerini merkezi bir konumda tutmak için etkinlik günlüğü de bu depolama hesabını kullanmak için mantıklı olabilir. Ayarı yapılandıran kullanıcının her iki abonelik için uygun RBAC erişimine sahip olduğu sürece, günlükleri yayan ile aynı abonelikte olması depolama hesabı yok.
 
 > [!NOTE]
->  Şu anda arşivleyemezsiniz verileri bir depolama hesabı, güvenli bir sanal ağ.
+>  Şu anda arşivlenemiyor verileri bir depolama hesabı, güvenli bir sanal ağda.
 
-## <a name="log-profile"></a>Günlük profili
-Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğü arşivlemek için ayarladığınız **günlük profili** aboneliği. Günlük profili depolanan ya da akışı olayları ve çıkışları türünü tanımlar — depolama hesabı ve/veya olay hub'ı. Ayrıca bir depolama hesabında depolanan olayları için bekletme ilkesi (tutulacağı gün sayısı) tanımlar. Bekletme İlkesi sıfır olarak ayarlanırsa, olaylar süresiz olarak depolanır. Aksi takdirde, bu 1 ile 2147483647 arasında herhangi bir değere ayarlanabilir. Bekletme ilkeleri uygulanan başına günlük, olduğundan, ilke (UTC) dışında tutma sunulmuştur gün günlüklerinden gün sonunda silinir. Örneğin, bir günlük bir Bekletme İlkesi nesneniz varsa, günün bugün başında dünden önceki gün günlüklerinden silinecek. Silme işlemi gece yarısı UTC ancak günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir Not başlar. [Daha fazla bilgiyi hakkında günlük profilleri burada](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
+## <a name="log-profile"></a>Günlük profilini
+Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğünü arşivleme için ayarlamanız **günlük profilini** aboneliği. Günlük profilini depolanan veya akış olayları ve çıkışları türünü tanımlar — depolama hesabı ve/veya olay hub'ı. Ayrıca bir depolama hesabında depolanan olayları için bekletme ilkesi (saklanacağı gün sayısı) tanımlar. Bekletme İlkesi, sıfır olarak ayarlanırsa, olayları süresiz olarak depolanır. Aksi takdirde, bu 1 ile 2147483647 arasında herhangi bir değere ayarlanabilir. Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silinecektir. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar. [Daha fazla günlük hakkında burada profilleri](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
 
-## <a name="archive-the-activity-log-using-the-portal"></a>Portalı kullanarak Etkinlik günlüğü
-1. Portalı'nda tıklatın **etkinlik günlüğü** sol taraftaki gezinti bağlantısı. Etkinlik günlüğü için bir bağlantı görmüyorsanız tıklatın **tüm hizmetleri** ilk bağlantı.
+## <a name="archive-the-activity-log-using-the-portal"></a>Portalı kullanarak Etkinlik günlüğünü arşivleme
+1. Portalında **etkinlik günlüğü** sol taraftaki gezinti bağlantısı. Etkinlik günlüğü için bir bağlantı görmüyorsanız, tıklayın **tüm hizmetleri** ilk bağlantı.
    
     ![Etkinlik günlüğü dikey penceresine gidin](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. Dikey pencerenin üstündeki **verme**.
+2. Dikey pencerenin en üstünde tıklayın **dışarı**.
    
-    ![Dışa Aktar düğmesini tıklatın](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
-3. Görüntülenen dikey penceresinde, onay kutusunu için **dışarı aktarma bir depolama hesabına** ve bir depolama hesabı seçin.
+    ![Dışarı Aktar düğmesini tıklatın](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+3. Açılan dikey pencerede kutusunu işaretlemeniz **dışarı aktarmak için bir depolama hesabı** ve bir depolama hesabı seçin.
    
-    ![Bir depolama hesabı ayarlama](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
-4. Kaydırıcı veya metin kutusunu kullanarak, depolama hesabınızı etkinlik günlüğü olaylarını tutulmalıdır gün sayısı tanımlayın. Verilerinizi süresiz olarak kalıcı'u depolama hesabına sahip tercih ederseniz, bu sayı sıfır olarak ayarlayın.
+    ![Bir depolama hesabı](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
+4. Kaydırıcı veya metin kutusunu kullanarak, depolama hesabınızdaki etkinlik günlüğü olaylarını tutulmalıdır gün (0 ila 365) sayısını tanımlayın. Verilerinizi süresiz olarak kalıcı'u depolama hesabına sahip olmasını isterseniz, bu sayı sıfır olarak ayarlayın. Daha fazla 365 gün sayısını girin gerekiyorsa, aşağıda açıklanan PowerShell veya CLI yöntemleri kullanın.
 5. **Kaydet**’e tıklayın.
 
-## <a name="archive-the-activity-log-via-powershell"></a>Arşiv PowerShell aracılığıyla etkinlik günlüğü
+## <a name="archive-the-activity-log-via-powershell"></a>PowerShell aracılığıyla Etkinlik günlüğünü arşivleme
 
    ```powershell
    # Settings needed for the new log profile
@@ -59,12 +59,12 @@ Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğü arşivlemek i�
 
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
-| StorageAccountId |Evet |Kaynak Kimliği depolama hesabının etkinlik günlükleri kaydedilmesi gerekir. |
-| Konumlar |Evet |Etkinlik günlüğü olaylarını toplamak istediğiniz bölgeler virgülle ayrılmış listesi. Tüm bölgelerin bir listesi için aboneliği kullanarak görüntüleyebileceğiniz `(Get-AzureRmLocation).Location`. |
-| retentionInDays |Hayır |Hangi olayların tutulacağını için 1 ile 2147483647 arasında gün sayısı. Sıfır değeri günlükleri süresiz olarak depolar (sürekli). |
-| Kategoriler |Hayır |Toplanması gereken olay kategorileri virgülle ayrılmış listesi. Olası değerler şunlardır: yazma, silme ve eylem.  Sağlanmazsa, ardından tüm olası değerler kabul edilir |
+| StorageAccountId |Evet |Etkinlik günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
+| Konumlar |Evet |Etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin virgülle ayrılmış listesi. Tüm bölgelerin listesi için aboneliği kullanarak görüntüleyebileceğiniz `(Get-AzureRmLocation).Location`. |
+| Retentionındays |Hayır |Hangi olayların tutulacağını, 1 ile 2147483647 arasında bir gün sayısı. Sıfır değeri günlükler süresiz olarak depolar (sonsuz). |
+| Kategoriler |Hayır |Virgülle ayrılmış liste toplanması gereken olay kategorileri. Olası değerler şunlardır: yazma, silme ve eylem.  Sağlanmazsa, ardından tüm olası değerler kabul edilir |
 
-## <a name="archive-the-activity-log-via-cli"></a>Arşiv CLI yoluyla etkinlik günlüğü
+## <a name="archive-the-activity-log-via-cli"></a>CLI aracılığıyla Etkinlik günlüğünü arşivleme
 
    ```azurecli-interactive
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --storage-account-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>"
@@ -73,30 +73,30 @@ Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğü arşivlemek i�
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
 | ad |Evet |Günlük profilinin adı. |
-| Depolama hesap kimliği |Evet |Kaynak Kimliği depolama hesabının etkinlik günlükleri kaydedilmesi gerekir. |
-| Konumları |Evet |Etkinlik günlüğü olaylarını toplamak istediğiniz bölgeler boşlukla ayrılmış listesi. Tüm bölgelerin bir listesi için aboneliği kullanarak görüntüleyebileceğiniz `az account list-locations --query [].name`. |
-| gün |Evet |Hangi olayların tutulacağını için 1 ile 2147483647 arasında gün sayısı. Sıfır değeri günlükleri süresiz olarak depolar (sürekli).  Sıfır ise, ardından etkin parametresi ayarlanmalıdır true. |
-|enabled | Evet |TRUE veya False.  Etkinleştirmek veya bekletme ilkesini devre dışı bırakmak için kullanılır.  TRUE ise gün parametresi 0'dan büyük bir değer olmalıdır.
-| kategoriler |Evet |Toplanması gereken olay kategorileri boşlukla ayrılmış listesi. Olası değerler şunlardır: yazma, silme ve eylem. |
+| Depolama hesabı kimliği |Evet |Etkinlik günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
+| konumları |Evet |Boşlukla ayrılmış etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin listesi. Tüm bölgelerin listesi için aboneliği kullanarak görüntüleyebileceğiniz `az account list-locations --query [].name`. |
+| gün |Evet |Hangi olayların tutulacağını, 1 ile 2147483647 arasında bir gün sayısı. Sıfır değeri günlükler süresiz olarak depolar (sonsuz).  Sıfır ise, ardından etkin parametresi ayarlanmalıdır true. |
+|enabled | Evet |TRUE veya False.  Bekletme İlkesi devre dışı bırakmak veya etkinleştirmek için kullanılır.  TRUE ise gün parametresi 0'dan büyük bir değer olması gerekir.
+| kategoriler |Evet |Boşlukla ayrılmış toplanması gereken olay kategorilerinin listesi. Olası değerler şunlardır: yazma, silme ve eylem. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>Etkinlik günlüğü depolama şeması
-Arşivleme kurduktan sonra bir etkinlik günlüğü olay oluştuktan hemen sonra bir depolama kapsayıcısı depolama hesabında oluşturulur. Kapsayıcı içinde BLOB'ları, tanılama günlüklerini ve etkinlik günlüğü arasında aynı biçimde izleyin. Bu BLOB'ları yapıdır:
-
-> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
-> 
-> 
-
-Örneğin, bir blob adı olabilir:
-
-> insights-Operational-Logs/Name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.JSON
-> 
-> 
-
-Her bir PT1H.json blob JSON blobu blob URL'SİNDE belirtilen saat içinde gerçekleşen olayların içerir (örneğin h = 12). Mevcut saat boyunca, olaylar meydana geldikçe PT1H.json dosyasına eklenir. Dakika değeri (m 00 =) her zaman etkinlik günlüğü olaylarını tek tek bloblar saat başına ayrılmış bu yana 00.
-
-PT1H.json dosya içinde her olay bu biçim aşağıdaki "kayıtlar" dizisinde depolanır:
+Arşiv ayarlamış olduğunuz sonra bir etkinlik günlüğü olayı oluşur oluşmaz depolama hesabında bir depolama kapsayıcısı oluşturulur. Aşağıda gösterildiği gibi etkinlik ve tanılama günlükleri arasında adlandırma kuralını kapsayıcı içindeki blobları izleyin:
 
 ```
+insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
+
+Örneğin, bir blob adı aşağıdaki gibi olabilir:
+
+```
+insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
+```
+
+Her PT1H.json blobu blob URL'SİNDE belirtilen saat içinde gerçekleşen olayların JSON blobu içerir (örneğin h = 12). Mevcut saat boyunca, olaylar meydana geldikçe PT1H.json dosyasına eklenir. Dakika değeri (m = 00) her zaman 00, etkinlik günlüğü olayları saat başına bloblara ayrılmış sonra.
+
+PT1H.json dosyasına içinde her olay şu biçimi takip "kayıt" dizisinde depolanır:
+
+``` JSON
 {
     "records": [
         {
@@ -155,28 +155,28 @@ PT1H.json dosya içinde her olay bu biçim aşağıdaki "kayıtlar" dizisinde de
 
 | Öğe adı | Açıklama |
 | --- | --- |
-| time |Olay işleme olay karşılık gelen isteği Azure hizmeti tarafından oluşturulan zaman damgası. |
-| resourceId |Etkilenen kaynağının kaynak kimliği. |
+| time |Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
+| resourceId |Etkilenen kaynak kaynak kimliği. |
 | operationName |İşlemin adı. |
 | category |Eylem kategorisi örn. Yazma, okuma, eylem. |
-| resultType |Sonuç türü örn. Başarılı, başarısız, Başlat |
+| resultType |Sonuç türü örn. Başarılı, başarısız, başlangıç |
 | resultSignature |Kaynak türüne bağlıdır. |
 | durationMs |Milisaniye cinsinden işlem süresi |
-| callerIpAddress |İşlem, UPN Talebi veya kullanılabilirliğine göre SPN talep yürüttü kullanıcının IP adresi. |
-| correlationId |Genellikle bir GUID dize biçiminde. Bir correlationıd değeri paylaşan olayları aynı uber eyleme ait. |
-| identity |Yetkilendirme ve talep tanımlayan JSON blobu. |
-| Yetkilendirme |BLOB olay RBAC özelliklerinin. Genellikle "eylem", "rol" ve "scope" özellikleri içerir. |
-| düzey |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı" |
-| location |Bölge konumu gerçekleştiği (veya genel). |
-| properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (yani sözlük). |
+| callerIpAddress |İşlem, UPN Talebi veya SPN talep kullanılabilirliğine göre gerçekleştiren kullanıcının IP adresi. |
+| correlationId |Genellikle bir GUID dize biçiminde. Bir Correlationıd paylaşan olayları aynı uber eyleme ait. |
+| identity |Yetkilendirme ve talep açıklayan JSON blob. |
+| Yetkilendirme |BLOB RBAC özelliklerinin olay. Genellikle, "action", "rolü" ve "scope" özelliklerini içerir. |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error"Uyarı",", "Bilgilendirici" ve "Ayrıntılı" |
+| location |Bölge oluştuğu konumu (veya genel). |
+| properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (yani, sözlük). |
 
 > [!NOTE]
-> Özellikleri ve bu özellikleri kullanımını kaynak bağlı olarak değişebilir.
+> Özellikleri ve bu özelliklerini kullanımını kaynağa bağlı olarak değişebilir.
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [BLOB'ları çözümleme için karşıdan yükle](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-* [Akış Event hubs'a etkinlik günlüğü](monitoring-stream-activity-logs-event-hubs.md)
+* [Blobları analiz için indirin](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+* [Etkinlik günlüğünün Event Hubs'a Stream](monitoring-stream-activity-logs-event-hubs.md)
 * [Etkinlik günlüğü hakkında daha fazla bilgi](monitoring-overview-activity-logs.md)
 

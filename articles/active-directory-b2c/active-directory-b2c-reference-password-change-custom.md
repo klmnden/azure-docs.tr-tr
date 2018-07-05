@@ -1,38 +1,38 @@
 ---
-title: Azure Active Directory B2C Self Servis parola değişikliği | Microsoft Docs
-description: Azure Active Directory B2C içinde tüketicileriniz için Self Servis parola değişikliği kurma gösteren bir konu.
+title: Azure Active Directory B2C'de Self Servis parola değişimi | Microsoft Docs
+description: Azure Active Directory B2C'de tüketicileriniz için Self Servis parola değişimi ayarlamak nasıl yazılacağını gösteren bir konu.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/05/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5474f469c6271a0c1348004664ead8b190de08c7
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 028d10b5c005be2db7cfd9c5ca5210ab55f0592a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34709147"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448144"
 ---
-# <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C: parola değiştirme özel ilkelerini yapılandırın.  
+# <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C: parola değiştirme özel ilkeleri yapılandırın.  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Parola değişikliği özelliğiyle (yerel hesaplar kullanarak) oturum açmış tüketicilere parolalarını açıklandığı gibi e-posta doğrulama ile bunların kimlik doğrulamasını kanıtlamak gerek kalmadan değiştirebilirsiniz [Self Servis parola sıfırlama akış.](active-directory-b2c-reference-sspr.md) Tüketici alır zamanına göre oturumun süresi dolarsa akış için parola değiştirme, kullanıcı yeniden oturum açmanız istenir. 
+Parola değişikliği özelliğiyle tüketici oturum açma (yerel hesaplar kullanarak) parolalarını açıklandığı gibi e-posta doğrulama tarafından olmadıklarına kanıtlamak gerek kalmadan değiştirebilirsiniz [Self Servis parola sıfırlama akış.](active-directory-b2c-reference-sspr.md) Tüketici alır zaman oturumu sona ererse akış için parola değiştirme, kullanıcı yeniden oturum açmanız istenir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bölümünde açıklandığı gibi bir yerel hesap oturumu-up/oturum açmayı tamamlamak için yapılandırılmış bir Azure AD B2C kiracısı [Başlarken](active-directory-b2c-get-started-custom.md).
+Bölümünde anlatıldığı gibi yerel bir hesap oturumu açma kaydolma/oturum açma, tamamlamak için yapılandırılmış bir Azure AD B2C kiracısı [Başlarken](active-directory-b2c-get-started-custom.md).
 
 ## <a name="how-to-configure-password-change-in-custom-policy"></a>Parola değiştirme özel ilke yapılandırma
 
 Parola değiştirme özel ilkesindeki yapılandırmak için güven framework uzantıları ilkenizde aşağıdaki değişiklikleri yapın, 
 
-## <a name="define-a-claimtype-oldpassword"></a>ClaimType 'EskiParola' tanımlayın
+## <a name="define-a-claimtype-oldpassword"></a>Bir ClaimType 'oldPassword' tanımlayın
 
-Genel yapısı, özel ilkeniz içermelidir bir `ClaimsSchema`ve yeni bir tanımlama `ClaimType` aşağıdaki olarak ' EskiParola' 
+Genel, özel ilkeniz yapısını içermelidir bir `ClaimsSchema`ve yeni bir tanımlama `ClaimType` olarak aşağıdaki ' oldPassword' 
 
 ```XML
   <BuildingBlocks>
@@ -47,20 +47,20 @@ Genel yapısı, özel ilkeniz içermelidir bir `ClaimsSchema`ve yeni bir tanıml
   </BuildingBlocks>
 ```
 
-Bu öğelerin amacını aşağıdaki gibidir:
+Bu öğeleri amacı aşağıdaki gibidir:
 
-- `ClaimsSchema` Hangi talep doğrulandığı tanımlar.  Bu durumda, 'eski parola' doğrulanacak. 
+- `ClaimsSchema` Hangi talep Doğrulanmakta olan tanımlar.  Bu durumda, 'eski parola' doğrulanır. 
 
-## <a name="add-a-password-change-claims-provider-with-its-supporting-elements"></a>Parola değişikliği Talep sağlayıcı destekleyen öğeleri ile ekleme
+## <a name="add-a-password-change-claims-provider-with-its-supporting-elements"></a>Destekleyici öğeleri ile bir parola değişikliği talep sağlayıcısı Ekle
 
-Parola değiştirme Talep sağlayıcı
+Parola değiştirme talep sağlayıcısı olur
 
-1. Eski parola karşı kullanıcı kimlik doğrulaması
-2. Ve 'yeni parola' 'Yeni Parolayı Onayla' eşleşiyorsa, bu değer B2C veri deposunda depolanır ve bu nedenle parolası başarıyla değiştirildi. 
+1. Kullanıcı eski parolayı karşı kimlik doğrulaması
+2. Ve 'yeni parola', 'Yeni Parolayı Onayla' eşleşiyorsa, bu değer, B2C veri deposunda depolanır ve bu nedenle parolası başarıyla değiştirildi. 
 
 ![görüntü](images/passwordchange.jpg)
 
-Aşağıdaki Talep sağlayıcı uzantıları ilkeniz ekleyin. 
+Aşağıdaki talep sağlayıcısı uzantıları ilkenizi ekleyin. 
 
 ```XML
 <ClaimsProviders>
@@ -148,25 +148,25 @@ Aşağıdaki Talep sağlayıcı uzantıları ilkeniz ekleyin.
 
 
 
-### <a name="add-the-application-ids-to-your-custom-policy"></a>Özel ilkeniz uygulama kimlikleri Ekle
+### <a name="add-the-application-ids-to-your-custom-policy"></a>Özel ilkenizi uygulama kimlikleri ekleme
 
-Uygulama kimlikleri uzantıları dosyasına ekleyin (`TrustFrameworkExtensions.xml`):
+Uygulama kimlikleri uzantıları dosyaya ekleyin (`TrustFrameworkExtensions.xml`):
 
-1. Uzantıları dosyasında (TrustFrameworkExtensions.xml) öğesi bulunamıyor `<TechnicalProfile Id="login-NonInteractive">` ve `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
+1. Öğesi (TrustFrameworkExtensions.xml) uzantıları dosyasında bulma `<TechnicalProfile Id="login-NonInteractive">` ve `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
 
-2. Tüm örneklerinin yerine `IdentityExperienceFrameworkAppId` açıklandığı gibi kimlik deneyimi Framework uygulamanın uygulama Kimliğine sahip [Başlarken](active-directory-b2c-get-started-custom.md). Örnek aşağıda verilmiştir:
+2. Tüm örneklerinin yerine `IdentityExperienceFrameworkAppId` açıklandığı gibi kimlik deneyimi çerçevesi uygulamasının uygulama kimliği ile [Başlarken](active-directory-b2c-get-started-custom.md). Örnek aşağıda verilmiştir:
 
    ```
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 
-3. Tüm örneklerinin yerine `ProxyIdentityExperienceFrameworkAppId` açıklandığı gibi Proxy kimlik deneyimi Framework uygulamanın uygulama Kimliğine sahip [Başlarken](active-directory-b2c-get-started-custom.md).
+3. Tüm örneklerinin yerine `ProxyIdentityExperienceFrameworkAppId` açıklandığı Proxy kimlik deneyimi çerçevesi uygulamasının uygulama kimliği ile [Başlarken](active-directory-b2c-get-started-custom.md).
 
 4. Uzantıları dosyanızı kaydedin.
 
 
 
-## <a name="create-a-password-change-user-journey"></a>Parola değişikliği kullanıcı gezisine oluşturma
+## <a name="create-a-password-change-user-journey"></a>Parola değişikliği kullanıcı yolculuğu oluşturma
 
 ```XML
  <UserJourneys>
@@ -194,24 +194,24 @@ Uygulama kimlikleri uzantıları dosyasına ekleyin (`TrustFrameworkExtensions.x
   </UserJourneys>
 ```
 
-Tamamladığınızda uzantısının değiştirme. Kaydet ve bu dosyayı karşıya yükleyin. Tüm Doğrulamalar başarıyla emin olun.
+İşiniz uzantısının değiştirme. Kaydet ve bu dosyayı karşıya yükleyin. Tüm Doğrulamalar başarıyla emin olun.
 
 
 
 ## <a name="create-a-relying-party-rp-file"></a>Bir bağlı olan taraf (RP) dosyası oluşturun
 
-Ardından, oluşturduğunuz kullanıcı gezisine başlatır bağlı olan taraf (RP) dosyasını güncelleştirin:
+Ardından, oluşturduğunuz kullanıcı yolculuğu başlatan bağlı olan taraf (RP) dosyasını güncelleştirin:
 
-1. Çalışma dizininizi ProfileEdit.xml kopyası. Sonra (örneğin, PasswordChange.xml) yeniden adlandırın.
-2. Yeni dosya ve güncelleştirme açmak `PolicyId` için öznitelik `<TrustFrameworkPolicy>` benzersiz bir değere sahip. İlkeniz (örneğin, PasswordChange) adıdır.
-3. Değiştirme `ReferenceId` özniteliğini `<DefaultUserJourney>` eşleşecek şekilde `Id` (örneğin, PasswordChange) oluşturulan yeni kullanıcı gezisine biri.
-4. Yaptığınız değişiklikleri kaydedin ve dosyayı karşıya yükleyin.
-5. Azure portalında, yüklediğiniz, özel ilke sınamak için ilke dikey penceresine gidin ve ardından **Şimdi Çalıştır**.
-
-
+1. Çalışma dizininizde ProfileEdit.xml kopyalanmasına. Ardından, dosyayı (örneğin, PasswordChange.xml) yeniden adlandırın.
+2. Yeni bir dosya açıp güncelleştirme `PolicyId` özniteliğini `<TrustFrameworkPolicy>` benzersiz bir değere sahip. İlkenizi (örneğin, PasswordChange) adıdır.
+3. Değiştirme `ReferenceId` özniteliğini `<DefaultUserJourney>` eşleştirilecek `Id` (örneğin, PasswordChange) oluşturduğunuz yeni kullanıcı yolculuğunun.
+4. Yaptığınız değişiklikleri kaydedin ve ardından dosyayı karşıya yükleyin.
+5. Azure portalında, karşıya yüklediğiniz özel bir ilkeyi test etmek için ilke dikey penceresine gidin ve ardından **Şimdi Çalıştır**.
 
 
-## <a name="link-to-password-change-sample-policy"></a>Parola değişikliği örnek İlkesi'ne bağlama
+
+
+## <a name="link-to-password-change-sample-policy"></a>Parola değişikliği örnek ilkesine yönelik bağlantı
 
 Örnek ilke bulabilirsiniz [burada](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change). 
 

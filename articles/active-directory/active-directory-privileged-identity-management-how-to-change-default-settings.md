@@ -7,42 +7,42 @@ author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4557457e28a9a9b8bcd7f5c3bda40fbba8cdd24b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9735023fa8aefe942892fc10d5f186cca62ab6be
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233314"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446930"
 ---
-# <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management'ın rol etkinleştirme ayarlarını yönetme
-Ayrıcalıklı Rol Yöneticisi Azure AD Privileged Identity Management (PIM) uygun rol ataması etkinleştirme bir kullanıcı deneyimini değiştirme gibi kuruluşlarındaki özelleştirebilirsiniz.
+# <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management içinde rol etkinleştirme ayarlarını yönetme
+Ayrıcalıklı Rol Yöneticisi, Azure AD Privileged Identity Management (PIM) uygun rol atamasını etkinleştirme bir kullanıcı deneyimi değiştirme gibi kuruluşlarındaki özelleştirebilirsiniz.
 
-## <a name="manage-the-role-activation-settings"></a>Rol etkinleştirme ayarlarını yönet
-1. Git [Azure portal](https://portal.azure.com) seçip **Azure AD Privileged Identity Management** panodan uygulama.
-2. Seçin **yönetmek ayrıcalıklı rolleri** > **ayarları** > **ayrıcalıklı rolleri**.
-3. Rolü ayarlarını seçin, yönetmek istediğiniz.
+## <a name="manage-the-role-activation-settings"></a>Rol etkinleştirme ayarlarını yönetme
+1. Git [Azure portalında](https://portal.azure.com) seçip **Azure AD Privileged Identity Management** panodan uygulama.
+2. Seçin **ayrıcalıklı rollerimi Yönet** > **ayarları** > **ayrıcalıklı rolleri**.
+3. Rol ayarlarını seçin, yönetmek istediğiniz.
 
-Her rol için Ayarları sayfasında, ayarları yapılandırabileceğiniz bir dizi vardır. Bu ayarlar yalnızca uygun yönetici, değil kalıcı yönetici sahip kullanıcıların etkiler.
+Her rol için Ayarlar sayfasında, ayarları yapılandırabileceğiniz bir dizi vardır. Bu ayarlar, yalnızca uygun Yöneticiler, kalıcı olmayan yönetici kullanıcılar etkiler.
 
-**Etkinleştirme**: süresi dolmadan önce bir rol etkin kalmasını saat cinsinden süre. Bu, 1 ila 72 saat arasında olabilir.
+**Etkinleştirme**: süresi dolmadan önce rol etkin kaldığından saat olarak süre. Bu, 1 ile 72 saat arasında olabilir.
 
-**Bildirimleri**: rol etkinleştirdikten admins onaylayan Sistem e-posta gönderir olup olmadığını seçebilirsiniz. Bu, yetkisiz veya aykırı etkinleştirmeleri algılamak için yararlı olabilir.
+**Bildirimleri**: Sistem yöneticileri rol etkinleştirmiş onaylayan e-postaları gönderen olup olmadığını seçin. Bu, yetkisiz veya aykırı etkinleştirmeleri algılamak için yararlı olabilir.
 
-**Olay/istek anahtarı**: rolleri etkinleştirdiğinizde bilet numarası eklemek için uygun yöneticilerinin kullanmamayı seçebilirsiniz. Rol erişim denetimleri gerçekleştirdiğinizde bu yararlı olabilir.
+**Olay/istek anahtarı**: uygun yöneticilerinin, rollerine etkinleştirdikleri bir bilet numarası eklemek isteyip istemediğinizi seçin. Rol erişim denetimleri gerçekleştirdiğinizde bu yararlı olabilir.
 
-**Çok faktörlü kimlik doğrulaması**: kullanıcılar kendi rolleri etkinleştirilebilmesi MFA ile kullanıcıların kimliğini doğrulamak gerekli verilip verilmeyeceğini seçebilirsiniz. Yalnızca bu kez her bir rolü etkinleştirmemek her zaman oturum doğrulamak sahiptirler. MFA etkinleştirdiğinizde göz önünde bulundurmanız iki ipuçları şunlardır:
+**Çok faktörlü kimlik doğrulaması**: rollerinin etkinleştirilebilmesi MFA ile kullanıcıların kimlik doğrulamasını gerektir verilip verilmeyeceğini seçebilirsiniz. Bunlar yalnızca bu kez her bir rolü etkinleştirmemek her zaman oturum doğrulamanız gerekir. Mfa'yı etkinleştirdiğinizde akılda tutulması gereken iki ipuçları şunlardır:
 
-* E-postaları için Microsoft hesabına sahip kullanıcıların (genellikle @outlook.com, ancak her zaman) için Azure MFA kaydedilemiyor. Microsoft hesabı olan kullanıcılar için rol atamak istiyorsanız, bunları kalıcı yönetici yapın veya bu rol için MFA devre dışı bırakmak gerekir.
-* MFA için üst düzey ayrıcalıklı rolleri Azure AD için devre dışı bırakamazsınız ve Office365. Bu, bu rolleri dikkatle korunması için bir güvenlik özelliğidir:  
+* Microsoft hesapları için e-posta adreslerini sahip kullanıcılar (genellikle @outlook.com, ama her zaman kullanılmaz) Azure MFA için kaydedilemiyor. Microsoft hesabı olan kullanıcılar için rol atamak istiyorsanız, bunları kalıcı yönetici yapmak veya o rol için mfa'yı devre dışı bırakmak gerekir.
+* MFA yüksek ayrıcalıklı rolleri için Azure AD için devre dışı bırakamazsınız ve Office365. Bu, bu rolleri dikkatli bir şekilde korunması için bir güvenlik özelliğidir:  
   
   * Uygulama yöneticisi
-  * Uygulama Proxy sunucusu Yöneticisi
+  * Uygulama Ara sunucusu Yöneticisi
   * Faturalama yöneticisi  
   * Uyumluluk yöneticisi  
   * CRM Hizmet Yöneticisi
@@ -58,9 +58,9 @@ Her rol için Ayarları sayfasında, ayarları yapılandırabileceğiniz bir diz
   * Güvenlik yöneticisi  
   * SharePoint yöneticisi  
   * Skype Kurumsal yöneticisi  
-  * Kullanıcı Hesap Yöneticisi  
+  * Kullanıcı hesabı yöneticisi  
 
-MFA ile PIM kullanma hakkında daha fazla bilgi için bkz: [gerektiren MFA nasıl](active-directory-privileged-identity-management-how-to-require-mfa.md).
+MFA PIM ile kullanma hakkında daha fazla bilgi için bkz. [gerektiren mfa'yı nasıl](active-directory-privileged-identity-management-how-to-require-mfa.md).
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
 

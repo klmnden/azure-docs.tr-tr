@@ -1,74 +1,74 @@
 ---
-title: Azure Active Directory B2C'de özel ilkeler kullanarak LinkedIn OAuth2 kimlik sağlayıcısı olarak ekleme | Microsoft Docs
-description: Özel ilkeler ve OAuth2 protokolü kullanarak bir LinkedIn uygulamasını ayarlama hakkında nasıl yapılır makalesi.
+title: LinkedIn OAuth2 kimlik sağlayıcısı olarak Azure Active Directory B2C'de özel ilkeler kullanarak ekleyin | Microsoft Docs
+description: Özel ilkeler ve OAuth2 protokolünü kullanarak bir LinkedIn uygulama ayarlama hakkında bir nasıl yapılır makalesi.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 889264dc06d1a6f10713ff5fcd7ff644c113bb45
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 334f696d79cf801facf7c5301b2240b69f7134f7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752325"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444387"
 ---
-# <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: LinkedIn özel ilkeler kullanarak bir kimlik sağlayıcısı ekleyin
+# <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: Özel ilkeler kullanarak LinkedIn kimlik sağlayıcısı olarak Ekle
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Bu makalede kullanarak oturum açma LinkedIn hesabı kullanıcıları için etkinleştirmek gösterilmiştir [özel ilkeler](active-directory-b2c-overview-custom.md).
+Bu makalede bir LinkedIn hesabıyla kullanıcıları için oturum açma kullanarak etkinleştirmek gösterilmektedir [özel ilkeler](active-directory-b2c-overview-custom.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bölümündeki adımları tamamlamanız [özel ilkelerini kullanmaya başlama](active-directory-b2c-get-started-custom.md) makalesi.
+Bölümündeki adımları tamamlamanız [özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md) makalesi.
 
-## <a name="step-1-create-a-linkedin-account-application"></a>1. adım: LinkedIn hesap uygulama oluşturma
-Azure Active Directory B2C, kimlik sağlayıcısı LinkedIn kullanmak için (Azure AD B2C) LinkedIn uygulama oluşturmalı ve doğru parametreleri sağlayın. Bir LinkedIn uygulaması giderek kaydedebilirsiniz [LinkedIn kayıt sayfasına](https://www.linkedin.com/start/join).
+## <a name="step-1-create-a-linkedin-account-application"></a>1. adım: bir LinkedIn hesabı uygulaması oluşturma
+LinkedIn Azure Active Directory B2C'de kimlik sağlayıcısı olarak kullanmak için (Azure AD B2C), LinkedIn uygulama oluşturmalı ve doğru parametreleri sağlayın. Bir LinkedIn uygulama giderek kaydedebilirsiniz [LinkedIn kayıt sayfasına](https://www.linkedin.com/start/join).
 
-1. Git [LinkedIn Uygulama Yönetimi](https://www.linkedin.com/secure/developer?newapp=) Web sitesi, LinkedIn hesabı kimlik bilgilerinizle oturum açın ve ardından **uygulama oluştur**.
+1. Git [LinkedIn Uygulama Yönetimi](https://www.linkedin.com/secure/developer?newapp=) Web sitesi, LinkedIn hesabı kimlik bilgilerinizle oturum açın ve ardından **uygulama oluşturma**.
 
-    ![LinkedIn hesap - uygulama oluşturma](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app1.png)
+    ![LinkedIn hesabı - uygulama oluşturma](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app1.png)
 
-2. Üzerinde **yeni bir uygulama oluşturmak** sayfasında, aşağıdakileri yapın:
+2. Üzerinde **yeni bir uygulama oluşturma** sayfasında, aşağıdakileri yapın:
 
-    a. Türü, **şirket adı**, bir açıklayıcı **adı** şirket için ve bir **açıklama** yeni uygulamanızın.
+    a. Tür, **şirket adı**, açıklayıcı bir **adı** şirket için ve bir **açıklama** yeni uygulama.
 
     b. Karşıya yükleme, **uygulama logosu**.
 
     c. Seçin bir **uygulama kullanımı**.
 
-    d. İçinde **Web sitesi URL'si** kutusunda, yapıştırma **https://login.microsoftonline.com**.
+    d. İçinde **Web sitesi URL'si** kutusu, yapıştırma **https://login.microsoftonline.com**.
 
-    e. Türü, **iş e-posta** adresi ve **iş telefonu** numarası.
+    e. Tür, **iş e-posta** adresi ve **iş telefonu** sayı.
 
-    f. Sayfanın alt kısmındaki okuyun ve kullanım koşullarını kabul edin ve ardından **gönderme**.
+    f. Sayfanın en altında okuyun ve kullanım koşullarını kabul edin ve ardından **Gönder**.
 
-    ![LinkedIn hesap - uygulama özelliklerini yapılandırma](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app2.png)
+    ![LinkedIn hesabı - uygulama özelliklerini yapılandırma](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app2.png)
 
-3. Seçin **kimlik doğrulaması**ve ardından Not **istemci kimliği** ve **gizli** değerleri.
+3. Seçin **kimlik doğrulaması**ve ardından unutmayın **istemci kimliği** ve **gizli** değerleri.
 
-4. İçinde **yönlendirme URL'si yetkili** kutusunda, yapıştırma **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Yerine {*Kiracı*} Kiracı adınız (örneğin, contosob2c.onmicrosoft.com) sahip. HTTPS şeması kullandığınızdan emin olun. 
+4. İçinde **yeniden yönlendirme URL'lerini yetkili** kutusu, yapıştırma **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Yerine {*Kiracı*} Kiracı adınızın (örneğin, contosob2c.onmicrosoft.com). HTTPS şeması kullandığınızdan emin olun. 
 
     ![LinkedIn hesabı - yetkili kümesi yeniden yönlendirme URL'leri](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 
     >[!NOTE]
-    >Gizli bir önemli güvenlik kimlik bilgisidir. Bu gizli kimseyle paylaşmayın değil veya uygulamanızla dağıtabilirsiniz.
+    >Gizli bir önemli güvenlik kimlik bilgisidir. Değil Bu gizli dizi kimseyle paylaşmayın veya uygulamanızla birlikte dağıtmayın.
 
 5. **Add (Ekle)** seçeneğini belirleyin.
 
 6. Seçin **ayarları**, değiştirme **uygulama durumu** için **canlı**ve ardından **güncelleştirme**.
 
-    ![LinkedIn hesabı - uygulamanın durumunu ayarla](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app4.png)
+    ![LinkedIn hesabı - uygulama durumunu ayarla](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app4.png)
 
-## <a name="step-2-add-your-linkedin-application-key-to-azure-ad-b2c"></a>2. adım: Azure AD B2C'ye LinkedIn uygulama anahtarınızı ekleme
-LinkedIn hesaplarıyla federasyon güven Azure AD B2C uygulama adına LinkedIn hesabına istemci gizli anahtarı gerektirir. Azure AD B2C kiracınızda LinkedIn uygulama gizli anahtarı depolamak için aşağıdakileri yapın:  
+## <a name="step-2-add-your-linkedin-application-key-to-azure-ad-b2c"></a>2. adım: Azure AD B2C'ye, LinkedIn uygulama anahtarı ekleme
+LinkedIn hesaplarının ile federasyon güven Azure AD B2C'yi uygulama adına LinkedIn hesabı istemci gizli anahtarı gerektirir. Azure AD B2C kiracınızda LinkedIn uygulama gizli anahtarı depolamak için aşağıdakileri yapın:  
 
-1. Azure AD B2C kiracınızda seçin **B2C ayarlarını** > **kimlik deneyimi Framework**.
+1. Azure AD B2C kiracınızı seçin **B2C ayarlarını** > **kimlik deneyimi çerçevesi**.
 
-2. Kiracınızda kullanılabilir anahtarlarını görüntülemek için seçin **İlkesi anahtarları**.
+2. Kiracınızda kullanılabilir anahtarlarını görüntülemek için seçin **ilke anahtarları**.
 
 3. **Add (Ekle)** seçeneğini belirleyin.
 
@@ -77,20 +77,20 @@ LinkedIn hesaplarıyla federasyon güven Azure AD B2C uygulama adına LinkedIn h
 5. İçinde **adı** kutusuna **B2cRestClientCertificate**.  
     Önek *B2C_1A_* otomatik olarak eklenebilir.
 
-6. İçinde **gizli** kutusuna, LinkedIn uygulama parolanızı girin [uygulama kayıt portalı](https://apps.dev.microsoft.com).
+6. İçinde **gizli** kutusuna, gelen LinkedIn uygulama gizli anahtarı girin [uygulama kayıt portalı](https://apps.dev.microsoft.com).
 
 7. İçin **anahtar kullanımı**seçin **şifreleme**.
 
 8. **Oluştur**’u seçin. 
 
-9. Oluşturduğunuz olduğunu onaylayın `B2C_1A_LinkedInSecret`anahtarı.
+9. Oluşturduğunuzu doğrulayın `B2C_1A_LinkedInSecret`anahtarı.
 
 ## <a name="step-3-add-a-claims-provider-in-your-extension-policy"></a>3. adım: bir talep sağlayıcı uzantısı ilkenizde ekleme
-LinkedIn hesabını kullanarak oturum açmalarını istiyorsanız, bir talep sağlayıcısı olarak LinkedIn tanımlamanız gerekir. Diğer bir deyişle, Azure AD B2C iletişim kurduğu uç noktaları belirtmeniz gerekir. Uç noktaları Azure AD B2C tarafından belirli bir kullanıcı kimliği doğrulanmış olduğunu doğrulamak için kullanılan talep kümesi sağlar.
+LinkedIn hesabını kullanarak oturum açmalarını istiyorsanız, bir talep sağlayıcısı olarak LinkedIn tanımlamanız gerekir. Diğer bir deyişle, Azure AD B2C ile iletişim kurabilen bitiş noktası belirtmeniz gerekir. Uç noktaları, Azure AD B2C tarafından belirli bir kullanıcı yapıldığını doğrulamak için kullanılan bir talepler kümesi sağlar.
 
-LinkedIn ekleyerek bir talep sağlayıcısı olarak tanımlayan bir `<ClaimsProvider>` İlkesi uzantısının düğümünde:
+LinkedIn ekleyerek bir talep sağlayıcısı olarak tanımlayan bir `<ClaimsProvider>` ilke uzantısının düğümünde:
 
-1. Çalışma dizininizi açın *TrustFrameworkExtensions.xml* uzantı ilke dosyası. 
+1. Çalışma dizininizde açın *TrustFrameworkExtensions.xml* uzantı ilke dosyası. 
 
 2. Arama `<ClaimsProviders>` öğesi.
 
@@ -141,31 +141,31 @@ LinkedIn ekleyerek bir talep sağlayıcısı olarak tanımlayan bir `<ClaimsProv
     </ClaimsProvider>
     ```
 
-4. Değiştir *client_id* LinkedIn uygulamanın istemci kimliğini değerle
+4. Değiştirin *client_id* LinkedIn uygulama istemci kimliğinizi değeriyle
 
 5. Dosyayı kaydedin.
 
-## <a name="step-4-register-the-linkedin-account-claims-provider"></a>4. adım: LinkedIn hesap talep sağlayıcısını Kaydet
-Kimlik sağlayıcısı'nı ayarlama. Ancak, henüz windows oturum açma kayıt olması veya hiçbirinde kullanılabilir değil. LinkedIn hesabı kimlik sağlayıcısı, kullanıcı eklemelisiniz artık `SignUpOrSignIn` kullanıcı gezisine.
+## <a name="step-4-register-the-linkedin-account-claims-provider"></a>4. adım: LinkedIn hesabı talep sağlayıcısı kaydetme
+Kimlik sağlayıcısını ayarlama. Ancak, henüz kaydolma veya oturum açma windows hiçbirinde kullanılamaz. LinkedIn hesabı kimlik sağlayıcısı, kullanıcıya eklemelisiniz artık `SignUpOrSignIn` kullanıcı yolculuğu.
 
-### <a name="step-41-make-a-copy-of-the-user-journey"></a>4.1. adım: kullanıcı gezisine bir kopyasını oluşturun
-Kullanıcı gezisine kullanılabilir yapmak için var olan bir kullanıcı gezisine şablonunun bir kopyasını oluşturun ve LinkedIn kimlik sağlayıcısı ekleyin:
+### <a name="step-41-make-a-copy-of-the-user-journey"></a>4.1. adım: kullanıcı yolculuğu bir kopyasını
+Kullanıcı yolculuğu kullanılabilir hale getirmek için var olan bir kullanıcı yolculuğu şablonunun bir kopyasını oluşturun ve ardından LinkedIn kimlik sağlayıcısı ekleyin:
 
 >[!NOTE]
->Kopyaladığınız varsa `<UserJourneys>` ilkenizin için temel dosyanın öğesinden *TrustFrameworkExtensions.xml* uzantı dosyası, bu bölümü atlayabilirsiniz.
+>Kopyaladığınız varsa `<UserJourneys>` öğesini ilkenizin için temel dosyasından *TrustFrameworkExtensions.xml* uzantı dosyası, bu bölümü atlayabilirsiniz.
 
 1. Temel dosya ilkenizin (örneğin, TrustFrameworkBase.xml) açın.
 
-2. Arama `<UserJourneys>` öğesi, tüm içeriğini seçin `<UserJourney>` düğümünü ve ardından **Kes** seçili metni panoya taşımak için.
+2. Arama `<UserJourneys>` öğesi içeriğinin tamamını seçmek `<UserJourney>` düğümüne tıklayın ve ardından **Kes** seçili metni panoya taşımak için.
 
-3. Uzantı dosyası (örneğin, TrustFrameworkExtensions.xml) açın ve arama `<UserJourneys>` öğesi. Öğe yoksa, ekleyin.
+3. Uzantı dosyası (örneğin, TrustFrameworkExtensions.xml) açın ve arama `<UserJourneys>` öğesi. Öğe yoksa, bunu ekleyin.
 
-4. Tüm içeriğini yapıştırın `<UserJourney>` 2. adımda panoya içine taşıdığınız düğümü `<UserJourneys>` öğesi.
+4. Tüm içeriğini yapıştırın `<UserJourney>` içine 2. adımda panoya taşınan düğümü `<UserJourneys>` öğesi.
 
 ### <a name="step-42-display-the-button"></a>4.2. adım: Ekran "button"
-`<ClaimsProviderSelections>` Öğesi talep sağlayıcısı seçme seçenekleri ve bunların sırası listesini tanımlar. `<ClaimsProviderSelection>` Düğümdür kaydolma veya oturum açma sayfasında bir kimlik sağlayıcısı düğmesini benzer. Eklerseniz bir `<ClaimsProviderSelection>` düğümü LinkedIn hesabı, yeni bir düğme için bir kullanıcı sayfada adlandırıldığını olduğunda görüntülenir. Bu öğe eklemek için aşağıdakileri yapın:
+`<ClaimsProviderSelections>` Öğe talep sağlayıcısı seçme seçenekleri ve bunların sırası listesini tanımlar. `<ClaimsProviderSelection>` Düğümüdür kaydolma veya oturum açma sayfasında bir kimlik sağlayıcısı düğmesi benzer. Eklerseniz bir `<ClaimsProviderSelection>` sayfasında bir kullanıcı gölünüzdeki attığında bir LinkedIn hesabıyla yeni düğme düğümü görüntülenir. Bu öğe eklemek için aşağıdakileri yapın:
 
-1. Arama `<UserJourney>` içeren düğümü `Id="SignUpOrSignIn"` kopyaladığınız kullanıcı gezisine içinde.
+1. Arama `<UserJourney>` içeren düğüm `Id="SignUpOrSignIn"` kopyaladığınız kullanıcı giden.
 
 2. Bulun `<OrchestrationStep>` içeren düğüm `Order="1"`.
 
@@ -175,10 +175,10 @@ Kullanıcı gezisine kullanılabilir yapmak için var olan bir kullanıcı gezis
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
     ```
 
-### <a name="step-43-link-the-button-to-an-action"></a>4.3. adım: Bağlantı için bir eylem düğmesi
-Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. Eylem, bu durumda, bir belirteç almak için LinkedIn hesabıyla iletişim kurmak Azure AD B2C içindir. Düğme, LinkedIn hesap talep sağlayıcısı teknik profili bağlayarak bir eyleme bağlantı:
+### <a name="step-43-link-the-button-to-an-action"></a>4.3. adım: düğme için eylem bağlantı
+Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. Eylem, bu durumda, bir belirteç almak için LinkedIn hesabıyla iletişim kurmak için Azure AD B2C içindir. Düğme, LinkedIn hesabı talep sağlayıcısı teknik profil bağlayarak bir eyleme bağlantı:
 
-1. Arama `<OrchestrationStep>` içeren düğümü `Order="2"` içinde `<UserJourney>` düğümü.
+1. Arama `<OrchestrationStep>` içeren düğüm `Order="2"` içinde `<UserJourney>` düğümü.
 
 2. İçinde `<ClaimsExchanges>` öğesi, aşağıdaki XML parçacığını ekleyin:
 
@@ -188,32 +188,32 @@ Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. E
 
     >[!NOTE]
     >* Emin `Id` , aynı değere sahip `TargetClaimsExchangeId` önceki bölümde.
-    >* Emin `TechnicalProfileReferenceId` önceki (LinkedIn-OAuth) oluşturulan kimliği teknik profiline ayarlanır.
+    >* Emin `TechnicalProfileReferenceId` kimliği, önceki (LinkedIn-OAuth) oluşturduğunuz teknik profiline ayarlanır.
 
-## <a name="step-5-upload-the-policy-to-your-tenant"></a>5. adım: ilke kiracınız için karşıya yükleme
-1. İçinde [Azure portal](https://portal.azure.com), geçiş [bağlamı Azure AD B2C kiracınızın](active-directory-b2c-navigate-to-b2c-context.md)ve ardından **Azure AD B2C**.
+## <a name="step-5-upload-the-policy-to-your-tenant"></a>5. adım: ilke kiracınıza karşıya yükleyin.
+1. İçinde [Azure portalında](https://portal.azure.com), geçiş [Azure AD B2C kiracınızın bağlamında](active-directory-b2c-navigate-to-b2c-context.md)ve ardından **Azure AD B2C**.
 
-2. Seçin **kimlik deneyimi Framework**.
+2. Seçin **kimlik deneyimi çerçevesi**.
 
 3. Seçin **tüm ilkeleri**.
 
-4. Seçin **karşıya İlkesi**.
+4. Seçin **karşıya yükleme İlkesi**.
 
-5. Seçin **varsa ilkesi üzerine** onay kutusu.
+5. Seçin **ilke varsa üzerine** onay kutusu.
 
-6. Karşıya yükleme *TrustFrameworkBase.xml* ve *TrustFrameworkExtensions.xml* dosyaları ve doğrulama geçirirler emin olun.
+6. Karşıya yükleme *TrustFrameworkBase.xml* ve *TrustFrameworkExtensions.xml* dosyaları ve doğrulamasını geçmesi emin olun.
 
-## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>6. adım: Test Şimdi Çalıştır kullanarak özel İlkesi
-1. Seçin **Azure AD B2C ayarlarını**ve ardından **kimlik deneyimi Framework**.
+## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>6. adım: Test Şimdi Çalıştır kullanarak özel ilke
+1. Seçin **Azure AD B2C ayarlarını**ve ardından **kimlik deneyimi çerçevesi**.
 
     >[!NOTE]
-    >Çalışma şimdi Kiracı'preregistered için en az bir uygulama için gereklidir. Uygulamaları kaydetmek öğrenmek için Azure AD B2C bkz [başlama](active-directory-b2c-get-started.md) makale veya [uygulama kaydı](active-directory-b2c-app-registration.md) makale.
+    >Çalıştırma artık Kiracı'da önceden kayıtlı için en az bir uygulama gerektirir. Azure AD B2C uygulamaları kaydetme hakkında bilgi için bkz [başlama](active-directory-b2c-get-started.md) makale veya [uygulama kaydı](active-directory-b2c-app-registration.md) makalesi.
 
-2. Açık **B2C_1A_signup_signin**, karşıya ve ardından bağlı olan taraf (RP) özel ilkesini **Şimdi Çalıştır**.  
-    Artık LinkedIn hesabını kullanarak oturum açabilir olması gerekir.
+2. Açık **B2C_1A_signup_signin**, yüklenmiş ve ardından bağlı olan taraf (RP) özel ilke **Şimdi Çalıştır**.  
+    Şimdi LinkedIn hesabını kullanarak oturum açabilir olmalıdır.
 
-## <a name="step-7-optional-register-the-linkedin-account-claims-provider-to-the-profile-edit-user-journey"></a>7. adım: (İsteğe bağlı) kaydı LinkedIn hesabı profil düzenleme kullanıcı gezisine sağlayıcısına talepleri
-LinkedIn hesabı kimlik sağlayıcısı eklemek isteyebilirsiniz, `ProfileEdit` kullanıcı gezisine. Kullanılabilir, yineleme "Adım 4." gezisine kullanıcı yapma Bu süre, select `<UserJourney>` içeren düğümü `Id="ProfileEdit"`. Kaydetme, karşıya yükleme ve ilkeniz test.
+## <a name="step-7-optional-register-the-linkedin-account-claims-provider-to-the-profile-edit-user-journey"></a>7. adım: (İsteğe bağlı) kaydı LinkedIn hesabı sağlayıcısına profil düzenleme kullanıcı yolculuğunun talep
+LinkedIn hesabı kimlik sağlayıcısına eklemek isteyebilirsiniz, `ProfileEdit` kullanıcı yolculuğu. Kullanılabilir, yineleme "4. adım." yolculuğu kullanıcı yapma Bu kez, select `<UserJourney>` içeren düğüm `Id="ProfileEdit"`. Kaydetme, karşıya yükleme ve ilkeniz test.
 
-## <a name="optional-download-the-complete-policy-files"></a>(İsteğe bağlı) Tam ilke dosyaları indirme
-Tamamlandıktan sonra [özel ilkelerini kullanmaya başlama](active-directory-b2c-get-started-custom.md) gözden geçirme, öneririz, kendi özel ilke dosyalarını kullanarak senaryonuz derleme. Başvuru için sağladık [örnek ilke dosyaları](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-li-app).
+## <a name="optional-download-the-complete-policy-files"></a>(İsteğe bağlı) Tüm ilke dosyalarını indirme
+Tamamladıktan sonra [özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md) izlenecek yol, öneririz senaryonuz kendi özel ilke dosyalarını kullanarak oluşturun. Referans olması açısından sağladık [örnek ilke dosyaları](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-li-app).

@@ -14,12 +14,12 @@ ms.date: 07/02/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: e8aaf828d366db0f008e842ba1b0f76907aa8791
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 39f7d69482845af48b1dce8c2e51f4acf77bf4fb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347151"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448069"
 ---
 # <a name="view-all-members-of-an-administrator-role-in-azure-active-directory"></a>Azure Active Directory'de Yönetici rolü tüm üyeleri görüntüleyin
 
@@ -45,5 +45,5 @@ Bir rolün üyeleri görüntülenirken seçin **açıklama** rol ataması taraf�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bizimle paylaşmayı rahatça [Azure AD yönetim rolleri Forumu](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Rolleri ve Yönetici rolü atama hakkında daha fazla bilgi için bkz. [yönetici rolleri atama](active-directory-assign-admin-roles-azure-portal.md).
+* Rolleri ve Yönetici rolü atama hakkında daha fazla bilgi için bkz. [yönetici rolleri atama](users-groups-roles/directory-assign-admin-roles.md).
 * Varsayılan kullanıcı izinleri için bkz. bir [varsayılan Konuk ve üye kullanıcı izinlerini karşılaştırma](./fundamentals/users-default-permissions.md).

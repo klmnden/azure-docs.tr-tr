@@ -1,61 +1,61 @@
 ---
-title: Azure Active Directory B2C bölge kullanılabilirliği & veri residency | Microsoft Docs
-description: Azure Active Directory B2C kiracılar türlerinde konu.
+title: Bölge kullanılabilirliği ve veri yerleşikliğinin yanı sıra Azure Active Directory B2C | Microsoft Docs
+description: Azure Active Directory B2C kiracıları türlerinde bir konu.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: add7c49d8efaec0fddf057c454b4f01aec5df1ce
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 7c0348dad507b118af542c1bbc47f6ceb88ae7be
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709606"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443061"
 ---
-# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Bölge kullanılabilirliği & veri residency
-Bölge kullanılabilirliği ve veri residency Azure geri kalanından farklı Azure AD B2C'ye uygulamak iki çok farklı kavram olmasıdır. Bu makalede, bu iki kavram arasındaki farkları açıklamaktadır ve nasıl Azure Azure AD B2C ile uygulandıkları karşılaştırın.
+# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Bölge kullanılabilirliği ve veri yerleşikliği
+Bölge kullanılabilirliği ve veri yerleşikliği Azure AD B2C'ye Azure geri kalanından farklı uygulanan çok farklı kavramları vardır. Bu makalede, bu iki konsepti arasındaki farkları açıklar ve nasıl Azure ve Azure AD B2C uygulandıkları karşılaştırın.
 
 ## <a name="summary"></a>Özet
-Azure AD B2C olan **genel olarak kullanılabilir dünya çapında** için seçeneğiyle **Amerika Birleşik Devletleri ya da Avrupa veri residency**.
+Azure AD B2C **sunuldu dünya çapında** için seçeneğiyle **Amerika Birleşik Devletleri veya Avrupa veri yerleşikliği**.
 
 ## <a name="concepts"></a>Kavramlar
-* **Bölge kullanılabilirliği** hizmet kullanılabilir olduğu için başvuruyor.
-* **Veri residency** kullanıcı verilerinin depolandığı anlamına gelir.
+* **Bölge kullanılabilirliği** hizmet kullanılabilir olduğu için ifade eder.
+* **Veri yerleşikliği** kullanıcı verilerinin depolandığı anlamına gelir.
 
 ## <a name="region-availability"></a>Bölge kullanılabilirliği
-Azure AD B2C, dünya çapında Azure genel bulut kullanılabilir. 
+Azure AD B2C, tüm dünyada Azure genel bulut kullanılabilir. 
 
-Bu kullanılabilirlik veri residency ile eşleştiği en diğer Azure Hizmetleri izleyin modelden farklıdır. Her iki Azure'nın bu örneklerde görebilirsiniz [tarafından ürünleri kullanılabilir bölge](https://azure.microsoft.com/regions/services/) sayfa ve [Active Directory B2C fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+Bu kullanılabilirlik veri yerleşimi ile eşleştiği çoğu diğer Azure hizmetlerini izleme modelden farklıdır. Hem Azure'nın bu örneklerde gördüğünüz [tarafından ürünleri kullanılabilir bölge](https://azure.microsoft.com/regions/services/) sayfası ve [Active Directory B2C fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 ## <a name="data-residency"></a>Veri yerleşikliği
-Azure AD B2C, Amerika Birleşik Devletleri veya Avrupa kullanıcı verilerini depolar.
+Azure AD B2C kullanıcı verilerini Amerika Birleşik Devletleri veya Avrupa içinde depolar.
 
-Veri residency hangi ülke/bölge seçili göre belirlenir zaman [Azure AD B2C kiracısı oluşturma](active-directory-b2c-get-started.md).
+Veri yerleşikliği hangi ülke/bölge seçili göre belirlenir, [Azure AD B2C kiracısı oluşturma](active-directory-b2c-get-started.md).
 
-![Önizleme Kiracı ekran görüntüsü](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
+![Önizleme kiracısı ekran görüntüsü](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
 
-Amerika Birleşik Devletleri aşağıdaki ülkelerde/bölgelerde için veri bulunur:
+Şu ülkeler/bölgeler için ABD verileri yer:
 
 > Amerika Birleşik Devletleri, Kanada, Kosta Rika, Dominik Cumhuriyeti, El Salvador, Guatemala, Meksika, Panama, Porto Riko ve Trinidad ve Tobago
 
-Veri Avrupa'da aşağıdaki ülkelerde/bölgelerde bulunur:
+Veriler aşağıdaki ülkelerde/bölgelerde Avrupa'da bulunur:
 
 > Cezayir, Avusturya, Azerbaycan, Bahreyn, Belarus, Belçika, Bulgaristan, Hırvatistan, Kıbrıs, Çek Cumhuriyeti, Danimarka, Mısır, Estonya, Finlandiya, Fransa, Almanya, Yunanistan, Macaristan, İzlanda, İrlanda, İsrail, İtalya, Ürdün, Kazakistan, Kenya, Kuveyt, Lativa, Lübnan, Liechtenstein, Lituania, Lüksemburg, Makedonya (EYC), Malta, Karadağ, Fas, Hollanda, Nijerya, Norveç, Umman, Pakistan, Polonya, Portekiz, Katar, Romanya, Rusya, Suudi Arabistan, Sırbistan, Slovakya, Slovenya, Güney Afrika, İspanya, İsveç, İsviçre, Tunus, Türkiye, Ukrayna, Birleşik Arap Emirlikleri ve İngiltere.
 
-Kalan ülkelerde/bölgelerde listeye eklenen sürecinde ' dir.  Şimdilik, Azure AD B2C ülkelerde/bölgelerde yukarıdaki birini seçerek kullanmaya devam edebilirsiniz.
+Diğer ülkeler/bölgeler listeye eklenen sürecinde olan.  Şu an için Azure AD B2C ülkeler/bölgeler yukarıdaki seçerek kullanmaya devam edebilirsiniz.
 
-> Afganistan, Arjantin, Avustralya, Brezilya, Şili, Kolombiya, Ekvator, Hong Kong ÖİB, Hindistan, Endonezya, Irak, Japonya, Kore, Malezya, Yeni Zelanda, Paraguay, Peru, Filipin, Singapur, Sri Lanka, Tayvan, Tayland, Uruguay ve Venezuela.
+> Afganistan, Arjantin, Avustralya, Brezilya, Şili, Kolombiya, Ekvador, Hong Kong ÖİB, Hindistan, Endonezya, Irak, Japonca, Kore, Malezya, Yeni Zelanda, Paraguay, Peru, Filipinler, Singapur, Sri Lanka, Tayvan, Tayland, Uruguay ve Venezuela.
 
 ## <a name="preview-tenant"></a>Önizleme kiracısı
-Azure AD B2C'ın Önizleme dönemi boyunca B2C Kiracı oluşturduysanız olasıdır, **Kiracı türü** diyor **Önizleme Kiracı**. Bu durumda, yalnızca geliştirme ve test amaçlıdır ve üretim uygulamaları için değil, Kiracı kullanmanız gerekir.
+Azure AD B2C'in Önizleme dönemi boyunca bir B2C kiracısı oluşturduysanız, büyük olasılıkla, uygulamanızın **Kiracı türü** diyor **Önizleme kiracısı**. Bu durumda, kiracınıza yalnızca geliştirme ve test amaçlıdır ve üretim uygulamaları için kullanmanız gerekir.
 
 > [!IMPORTANT]
-> Üretim ölçeği B2C Kiracı Önizleme B2C Kiracı hiçbir geçiş yolu yoktur. Önizleme B2C Kiracı sildiğinizde ve bir üretim ölçeği B2C Kiracı aynı etki alanı adı ile yeniden oluşturmanız bilinen vardır Not verir. Farklı bir etki alanı adı ile bir üretim ölçeği B2C Kiracı oluşturmanız gerekir.
+> Üretim ölçeği-B2C kiracısına bir B2C kiracısı preview sürümünden geçiş yolu yoktur. Bir önizleme B2C kiracısı silmek ve bir üretim ölçeği-B2C kiracısı aynı etki alanı adıyla yeniden oluştur olduğu bilinen Not verir. Farklı bir etki alanı adıyla bir üretim ölçeği-B2C kiracısı oluşturma gerekir.
 
 
-![Önizleme Kiracı ekran görüntüsü](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
+![Önizleme kiracısı ekran görüntüsü](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)

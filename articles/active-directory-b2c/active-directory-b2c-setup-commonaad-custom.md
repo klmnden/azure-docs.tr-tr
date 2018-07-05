@@ -1,36 +1,36 @@
 ---
-title: Azure Active Directory B2C'de özel ilkelerini kullanarak çok kiracılı Azure AD kimlik sağlayıcısı ekleyin | Microsoft Docs
-description: Özel ilkeler - Azure Active Directory B2C kullanarak çok kiracılı Azure AD kimlik sağlayıcısı ekleyin.
+title: Azure Active Directory B2C'de özel ilkeleri kullanarak çok kiracılı Azure AD kimlik sağlayıcısı Ekle | Microsoft Docs
+description: Özel ilkeleri - Azure Active Directory B2C kullanarak bir çok kiracılı Azure AD kimlik sağlayıcısı ekleyin.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/14/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 83a2ce5d885a446713470c92fc3a638d37d4517d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2a8a23245a17c9a80c70860588a8312dbbb5e926
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34709232"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446102"
 ---
-# <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: özel ilkelerini kullanarak çok kiracılı Azure AD kimlik sağlayıcısı için oturum açmak kullanıcılara izin ver
+# <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: özel ilkeleri kullanarak çok kiracılı Azure AD kimlik sağlayıcısı için oturum açmasına izin ver
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Bu makalede, oturum açma kullanılarak Azure Active Directory (Azure AD) çok Kiracı bitiş noktası kullanan kullanıcılar etkinleştirme gösterilmektedir [özel ilkeler](active-directory-b2c-overview-custom.md). Bu kullanıcılar her bir kiracı için teknik bir sağlayıcı yapılandırmadan Azure AD B2C oturum için birden çok Azure AD kiracılarıyla izin verir. Ancak, bu kiracılar hiçbirinde üyeleri Konuk **almayacak** oturum açmak kullanabilirsiniz. Bunun için gerekecek [ayrı ayrı her bir kiracı yapılandırma](active-directory-b2c-setup-aad-custom.md).
+Bu makalede, oturum açma kullanılarak Azure Active Directory (Azure AD) çok Kiracı uç noktası kullanan kullanıcılar için etkinleştirme işlemini göstermektedir [özel ilkeler](active-directory-b2c-overview-custom.md). Bu, kullanıcıların Azure AD B2C'ye her Kiracı için teknik bir sağlayıcı yapılandırması olmadan oturum açmak için birden çok Azure AD kiracısından sağlar. Ancak, bu kiracının tüm üyeleri Konuk **yapmamayı** oturum açmak kullanabilirsiniz. Bunun için gerekecek [tek tek her Kiracı yapılandırma](active-directory-b2c-setup-aad-custom.md).
 
 >[!NOTE]
-> "Contoso.com" kuruluş için kullandığımız Azure AD kiracısı ve Azure AD B2C kiracısı'nda aşağıdaki yönergeleri olarak "fabrikamb2c.onmicrosoft.com".
+> "Contoso.com" kuruluş için kullandığımız Azure AD kiracısı ve aşağıdaki yönergeler, Azure AD B2C kiracısı olarak "fabrikamb2c.onmicrosoft.com".
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bölümündeki adımları tamamlamanız [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md) makalesi.
+Bölümündeki adımları tamamlamanız [özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md) makalesi.
 
-Bu adımlar şunları içerir:
+Bu adımlar şunlardır:
      
 1. Bir Azure Active Directory B2C oluşturma (Azure AD B2C) Kiracı.
 1. Bir Azure AD B2C uygulaması oluşturuluyor.    
@@ -38,56 +38,56 @@ Bu adımlar şunları içerir:
 1. Anahtarları ayarlama. 
 1. Başlangıç paketi ayarlama.
 
-## <a name="step-1-create-a-multi-tenant-azure-ad-app"></a>1. Adım Çok kiracılı Azure AD uygulaması oluştur
+## <a name="step-1-create-a-multi-tenant-azure-ad-app"></a>1. Adım Çok kiracılı Azure AD uygulaması oluşturma
 
-Oturum açma çok kiracılı Azure AD uç noktası kullanan kullanıcılar etkinleştirmek için Azure AD kiracılarıyla birinde kayıtlı bir çok kiracılı uygulamanızın olması gerekir. Bu makalede, Azure AD B2C kiracınızda bir çok kiracılı Azure AD uygulaması oluşturmak nasıl göstereceğiz. Oturum açma, çok kiracılı Azure AD uygulaması kullanımı ile kullanıcılar için daha sonra etkinleştirin.
+Çok kiracılı Azure AD uç noktası kullanan kullanıcılar için oturum açma etkinleştirmek için çok kiracılı bir uygulama, Azure AD kiracılarıyla birinde kayıtlı olması gerekir. Bu makalede, Azure AD B2C kiracınızda Azure AD çok kiracılı bir uygulama oluşturulacağını göstereceğiz. Oturum açma, çok kiracılı bir Azure AD uygulaması genelindeki kullanıcılar için daha sonra etkinleştirin.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-1. Üst çubuğunda hesabınızı seçin. Gelen **Directory** listesinde, Azure AD uygulaması (fabrikamb2c.onmicrosoft.com) kaydetmek için Azure AD B2C kiracısı seçin.
-1. Seçin **daha fazla hizmet** sol bölmesinde ve "Uygulama kayıtlar" için arama
+1. Üst çubuğunda, hesabınızı seçin. Gelen **dizin** listesinde, Azure AD uygulaması (fabrikamb2c.onmicrosoft.com) kaydetmek için Azure AD B2C kiracınızı seçin.
+1. Seçin **diğer hizmetler** sol bölme ve "Uygulama kayıtları" için arama
 1. **Yeni uygulama kaydı**’nı seçin.
 1. Uygulamanız için bir ad girin (örneğin, `Azure AD B2C App`).
 1. Uygulama türü için **Web uygulaması / API** öğesini seçin.
-1. İçin **oturum açma URL'si**, aşağıdaki URL'yi girin nerede `yourtenant` Azure AD B2C kiracınızın adıyla değiştirilen (`fabrikamb2c.onmicrosoft.com`):
+1. İçin **oturum açma URL'si**, aşağıdaki URL'yi girin. burada `yourtenant` Azure AD B2C kiracınızın adı tarafından değiştirilir (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
-    >"Yourtenant" değeri, tüm küçük harfli olması gerektiğini **oturum açma URL'si**.
+    >"Yourtenant" değeri, harflerden oluşmalıdır **oturum açma URL'si**.
 
     ```
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Uygulama Kimliği kaydedilemiyor
-1. Yeni oluşturulan uygulaması'nı seçin.
-1. Altında **ayarları** dikey penceresinde, select **özellikleri**.
-1. Ayarlama **çoklu kiralanan** için **Evet**.
-1. Altında **ayarları** dikey penceresinde, select **anahtarları**.
-1. Yeni bir anahtar oluşturun ve kaydedin. Sonraki bölümde yer alan adımları de kullanır.
+1. Uygulama kimliğini kaydedin
+1. Yeni oluşturduğunuz uygulamayı seçin.
+1. Altında **ayarları** dikey penceresinde **özellikleri**.
+1. Ayarlama **çok kiracılı** için **Evet**.
+1. Altında **ayarları** dikey penceresinde **anahtarları**.
+1. Yeni bir anahtar oluşturun ve kaydedin. Sonraki bölümde yer alan adımları olarak kullanır.
 
-## <a name="step-2-add-the-azure-ad-key-to-azure-ad-b2c"></a>2. Adım Azure AD B2C için Azure AD anahtarı Ekle
+## <a name="step-2-add-the-azure-ad-key-to-azure-ad-b2c"></a>2. Adım Azure AD anahtarı Azure AD B2C'ye ekleyin.
 
-Azure AD B2C ayarlarında uygulama anahtarı kaydetmeniz gerekir. Bunu yapmak için:
+Azure AD B2C ayarlarında uygulama anahtarı kayıt olmanız gerekir. Bunu yapmak için:
 
-1. Azure AD B2C için ayarları menüsüne gidin
-1. Tıklayın **kimlik deneyimi Framework** > **İlkesi anahtarları**.
+1. Azure AD B2C ayarları menüsüne gidin
+1. Tıklayarak **kimlik deneyimi çerçevesi** > **ilke anahtarları**.
 1. Seçin **+ Ekle**.
-1. Bu seçenekler girin veya seçin:
+1. Seçin veya bu seçenekler girin:
    * Seçin **el ile**.
-   * İçin **adı**, Azure AD Kiracı adı ile eşleşen bir ad seçin (örneğin, `AADAppSecret`).  Önek `B2C_1A_` anahtarınızı adına otomatik olarak eklenir.
-   * Uygulama anahtarınızı Yapıştır **gizli** kutusu.
+   * İçin **adı**, Azure AD Kiracı adınızın eşleşen bir ad seçin (örneğin, `AADAppSecret`).  Önek `B2C_1A_` anahtarınızı adına otomatik olarak eklenir.
+   * Uygulama anahtarınızı yapıştırın **gizli** kutusu.
    * Seçin **imza**.
 1. **Oluştur**’u seçin.
-1. Anahtar oluşturduğunuz onaylayın `B2C_1A_AADAppSecret`.
+1. Anahtar oluşturduğunuzu doğrulayın `B2C_1A_AADAppSecret`.
 
-## <a name="step-3-add-a-claims-provider-in-your-base-policy"></a>3. Adım Bir talep sağlayıcı temel ilkenizde ekleme
+## <a name="step-3-add-a-claims-provider-in-your-base-policy"></a>3. Adım Temel, ilkede bir talep Sağlayıcı Ekle
 
-Azure AD kullanarak oturum açmalarını istiyorsanız, bir talep sağlayıcısı olarak Azure AD tanımlamanız gerekir. Diğer bir deyişle, Azure AD B2C ile iletişim kuracak bir uç nokta belirtmeniz gerekir. Uç nokta Azure AD B2C tarafından belirli bir kullanıcı kimliği doğrulanmış olduğunu doğrulamak için kullanılan talep kümesini sağlar. 
+Azure AD kullanarak oturum açmalarını istiyorsanız, bir talep sağlayıcısı olarak Azure AD tanımlamanız gerekir. Diğer bir deyişle, Azure AD B2C ile iletişim kuracak bir uç nokta belirtmeniz gerekir. Uç nokta Azure AD B2C tarafından belirli bir kullanıcı yapıldığını doğrulamak için kullanılan bir talepler kümesi sağlar. 
 
-Azure AD ile ekleyerek bir talep sağlayıcısı olarak Azure AD tanımlayabilirsiniz `<ClaimsProvider>` ilkenizin uzantısı dosyasında düğümü:
+Azure AD'ye ekleyerek bir talep sağlayıcısı olarak Azure AD'ye tanımlayabilirsiniz `<ClaimsProvider>` uzantısının ilkenizin düğümünde:
 
 1. Uzantı dosyası (TrustFrameworkExtensions.xml) çalışma dizininizi açın.
-1. Bul `<ClaimsProviders>` bölümü. Yoksa, kök düğümü ekleyin.
-1. Yeni bir ekleme `<ClaimsProvider>` şekilde düğümü:
+1. Bulma `<ClaimsProviders>` bölümü. Yoksa, kök düğümü ekleyin.
+1. Yeni bir `<ClaimsProvider>` gösterildiği gibi düğüm:
 
 ```XML
 <ClaimsProvider>
@@ -140,97 +140,97 @@ Azure AD ile ekleyerek bir talep sağlayıcısı olarak Azure AD tanımlayabilir
 </ClaimsProvider>
 ```
 
-1. Altında `<ClaimsProvider>` düğümü için değeri güncelleştirin `<Domain>` diğer kimlik sağlayıcılardan ayırt etmek için kullanılan benzersiz bir değer.
-1. Altında `<TechnicalProfile>` düğümü için değeri güncelleştirin `<DisplayName>`. Bu değer, oturum açma düğmesine oturum açma ekranında görüntülenir.
-1. Değeri güncelleştirme `<Description>`.
-1. Ayarlama `<Item Key="client_id">` için Azure AD mulity Kiracı uygulama kaydı uygulama kimliği.
+1. Altında `<ClaimsProvider>` düğümünün değerini güncelleştirin `<Domain>` diğer kimlik sağlayıcılardan ayırmak için kullanılan benzersiz bir değer.
+1. Altında `<TechnicalProfile>` düğümünün değerini güncelleştirin `<DisplayName>`. Bu değer, oturum açma ekranında oturum açın düğmesinde görüntülenir.
+1. Değerini güncelleştirin `<Description>`.
+1. Ayarlama `<Item Key="client_id">` için Azure AD Kiracı mulity uygulama kaydı uygulama kimliği.
 
-### <a name="step-31-restrict-access-to-a-specific-list-of-azure-ad-tenants"></a>Adım 3.1 belirli Azure AD kiracılar listesini erişimi kısıtlama
+### <a name="step-31-restrict-access-to-a-specific-list-of-azure-ad-tenants"></a>Adım 3.1 belirli bir Azure AD kiracılarıyla listesi erişimi kısıtlama
 
 > [!NOTE]
-> Kullanarak `https://sts.windows.net` değeri olarak **ValidTokenIssuerPrefixes** tüm Azure AD kullanıcıların uygulamanıza oturum izin verir.
+> Kullanarak `https://sts.windows.net` değeri olarak **ValidTokenIssuerPrefixes** tüm Azure AD kullanıcılarının uygulamanızda oturum açmak izin verir.
 
-Geçerli belirteç verenler listesini güncelleştirmek ve belirli kullanıcılar oturum açma Azure AD kiracılarıyla listesine erişimi kısıtlama gerekir. Değerleri almak için her özel meta verileri oluşturmayı inceler gerekecektir gelen kullanıcınız istediğiniz Azure AD kiracılarıyla oturum açın. Veri biçimi şu şekilde görünür: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, burada `yourAzureADtenant` , Azure AD Kiracı adınız (contoso.com veya diğer Azure AD kiracısı).
-1. Tarayıcınızı açın ve meta veri URL'sine gidin.
-1. Tarayıcıda 'dağıtımcı' nesnesi için konum ve değerini kopyalayın. Aşağıdaki gibi görünmelidir: `https://sts.windows.net/{tenantId}/`.
-1. Değeri yapıştırın `ValidTokenIssuerPrefixes` anahtarı. Virgül kullanarak aralarına tarafından birden çok ekleyebilirsiniz. Bunun bir örneğini XML yukarıdaki örnekte bırakılmıştır.
+Geçerli bir belirteç verenler listesini güncelleştirmek ve belirli kullanıcıların oturum açma Azure AD kiracılarıyla listesine erişimi gerekir. Değerlerini almak için meta veriler her özel bir ara gerekecektir gelen kullanıcıların istediğiniz Azure AD kiracılarıyla oturum açın. Veri biçimi aşağıdaki gibi görünür: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`burada `yourAzureADtenant` , Azure AD Kiracı adı (contoso.com veya diğer Azure AD kiracısı).
+1. Tarayıcınızı açın ve meta verileri URL'sine gidin.
+1. Tarayıcı için 'Issuer' nesnesi bakın ve değerini kopyalayın. Aşağıdaki gibi görünmelidir: `https://sts.windows.net/{tenantId}/`.
+1. Değerini yapıştırın `ValidTokenIssuerPrefixes` anahtarı. Bunları virgülle ayırarak birden fazla ekleyebilirsiniz. Bunun bir örneği XML yukarıdaki örnekte bırakılmıştır.
 
 ## <a name="step-4-register-the-azure-ad-account-claims-provider"></a>4. Adım. Azure AD hesabı talep sağlayıcısını Kaydet
 
-### <a name="step-41-make-a-copy-of-the-user-journey"></a>Adım 4.1 kullanıcı gezisine bir kopyasını olun
+### <a name="step-41-make-a-copy-of-the-user-journey"></a>Kullanıcı yolculuğu bir kopyasını adım 4.1 olun
 
-Artık Azure AD kimlik sağlayıcısı, kullanıcı Yolculuklar birine eklemeniz gerekir. Bu noktada, kimlik sağlayıcısı ayarlandı, ancak oturumu-up/oturum açma ekranları hiçbirinde kullanılabilir değil.
+Şimdi, Azure AD kimlik sağlayıcısı, kullanıcı yolculuklarından birini eklemeniz gerekir. Bu noktada, kimlik sağlayıcısı ayarlandı, ancak oturumu-kaydolma/oturum açma ekranları hiçbirinde kullanılabilir değil.
 
-Kullanılabilir hale getirmek için var olan bir şablonu kullanıcı gezisine tekrarı oluşturur ve ardından değiştirin ayrıca Azure AD kimlik sağlayıcısı sahiptir:
+Kullanılabilir hale getirmek için biz varolan bir şablonu kullanıcı yolculuğu bir kopyasını oluşturun ve ayrıca Azure AD kimlik sağlayıcısına sahip olacak şekilde değiştirmek:
 
 1. Temel dosya ilkenizin (örneğin, TrustFrameworkBase.xml) açın.
-1. Bul `<UserJourneys>` öğesi ve kopyalama tüm `<UserJourney>` içeren düğüm `Id="SignUpOrSignIn"`.
-1. Uzantı dosyası (örneğin, TrustFrameworkExtensions.xml) açın ve Bul `<UserJourneys>` öğesi. Öğe yoksa, ekleyin.
-1. Tüm Yapıştır `<UserJourney>` bir alt öğesi olarak kopyaladığınız düğümü `<UserJourneys>` öğesi.
-1. Yeni kullanıcı gezisine Kimliğini yeniden adlandırın (örneğin, olarak yeniden adlandırın `SignUpOrSignUsingAzureAD`). 
+1. Bulma `<UserJourneys>` öğenin ve tüm kopyalama `<UserJourney>` içeren düğüm `Id="SignUpOrSignIn"`.
+1. Uzantı dosyası (örneğin, TrustFrameworkExtensions.xml) açın ve bulun `<UserJourneys>` öğesi. Öğe yoksa bir tane ekleyin.
+1. Tüm yapıştırın `<UserJourney>` alt öğesi olarak kopyaladığınız düğüm `<UserJourneys>` öğesi.
+1. Yeni kullanıcı yolculuğu kimliği yeniden adlandırın (örneğin, Yeniden Adlandır `SignUpOrSignUsingAzureAD`). 
 
-### <a name="step-42-display-the-button"></a>Adım 4.2 görünen "button"
+### <a name="step-42-display-the-button"></a>"Button" Adım 4.2 görüntüleme
 
-`<ClaimsProviderSelection>` Öğesidir bir oturumu-up/oturum açma ekranında bir kimlik sağlayıcısı düğmesini benzer. Eklerseniz bir `<ClaimsProviderSelection>` öğesi Azure AD için yeni bir düğme görüntülenir sayfasında bir kullanıcı adlandırıldığını olduğunda. Bu öğe eklemek için:
+`<ClaimsProviderSelection>` Öğedir oturumu-kaydolma/oturum açma ekranı bir kimlik sağlayıcısının düğmesine benzer. Eklerseniz bir `<ClaimsProviderSelection>` öğesi Azure AD için yeni bir düğme gösterilir sayfasında bir kullanıcı gölünüzdeki olduğunda. Bu öğe eklemek için:
 
-1. Bul `<OrchestrationStep>` içeren düğüm `Order="1"` , oluşturduğunuz kullanıcı gezisine içinde.
+1. Bulma `<OrchestrationStep>` içeren düğüm `Order="1"` , oluşturduğunuz kullanıcı giden.
 1. Aşağıdakileri ekleyin:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="AzureADExchange" />
     ```
 
-1. Ayarlama `TargetClaimsExchangeId` uygun bir değere. Aynısına başkalarının aşağıdaki öneririz:  *\[ClaimProviderName\]Exchange*.
+1. Ayarlama `TargetClaimsExchangeId` uygun değeri. Başkalarının aynı kuralı aşağıdaki öneririz:  *\[ClaimProviderName\]Exchange*.
 
-### <a name="step-43-link-the-button-to-an-action"></a>Adım 4.3 bağlantı için bir eylem düğmesi
+### <a name="step-43-link-the-button-to-an-action"></a>Adım 4.3 bağlantı bir eyleme düğme
 
-Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. Eylem, bu durumda, bir belirteç almak için Azure AD ile iletişim kurmak Azure AD B2C içindir. Düğme, Azure AD talep sağlayıcısı teknik profili bağlayarak bir eyleme bağlantı:
+Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. Eylem, bu durumda, bir belirteç almak için Azure AD ile iletişim kurmak için Azure AD B2C içindir. Düğme, Azure AD talep sağlayıcısı teknik profil bağlayarak bir eyleme bağlantı:
 
-1. Bul `<OrchestrationStep>` içeren `Order="2"` içinde `<UserJourney>` düğümü.
+1. Bulma `<OrchestrationStep>` içeren `Order="2"` içinde `<UserJourney>` düğümü.
 1. Aşağıdakileri ekleyin:
 
     ```XML
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
     ```
 
-1. Güncelleştirme `Id` ile aynı değere sahip `TargetClaimsExchangeId` önceki bölümde.
-1. Güncelleştirme `TechnicalProfileReferenceId` teknik profili kimliği için oluşturduğunuz önceki (ortak-AAD).
+1. Güncelleştirme `Id` aynı değere sahip `TargetClaimsExchangeId` önceki bölümde.
+1. Güncelleştirme `TechnicalProfileReferenceId` teknik profil Kimliğine önceki (ortak-AAD) oluşturulur.
 
 ## <a name="step-5-create-a-new-rp-policy"></a>5. adım: yeni bir RP ilkesi oluşturma
 
-Şimdi yeni oluşturduğunuz kullanıcı gezisine başlatacaktır bağlı olan taraf (RP) dosyasını güncelleştirmeniz gerekir:
+Artık oluşturduğunuz kullanıcı yolculuğu başlatacak bağlı olan taraf (RP) dosyasını güncelleştirmeniz gerekir:
  
-1. Çalışma dizininizi SignUpOrSignIn.xml bir kopyasını oluşturun ve yeniden adlandırın (örneğin, SignUpOrSignInWithAAD.xml için yeniden adlandırmadan).  
-1. Yeni dosya ve güncelleştirme açmak `PolicyId` için öznitelik `<TrustFrameworkPolicy>` benzersiz bir değerle (örneğin, SignUpOrSignInWithAAD). Bu, ilkenin adı olacaktır (örneğin, B2C\_1A\_SignUpOrSignInWithAAD). 
-1. Değiştirme `ReferenceId` özniteliğini `<DefaultUserJourney>` (SignUpOrSignUsingAzureAD) oluşturulan yeni kullanıcı gezisine Kimliğini eşleşecek şekilde. 
+1. Çalışma dizininizde bir kopyasını SignUpOrSignIn.xml olun ve yeniden adlandırın (örneğin, bu SignUpOrSignInWithAAD.xml için Yeniden Adlandır).  
+1. Yeni bir dosya açıp güncelleştirme `PolicyId` özniteliğini `<TrustFrameworkPolicy>` benzersiz bir değerle (örneğin, SignUpOrSignInWithAAD). Bu ilke adı olacaktır (örneğin, B2C\_1A\_SignUpOrSignInWithAAD). 
+1. Değiştirme `ReferenceId` özniteliğini `<DefaultUserJourney>` (SignUpOrSignUsingAzureAD) oluşturduğunuz yeni kullanıcı yolculuğu kimliği eşleştirmek için. 
 1. Yaptığınız değişiklikleri kaydedin ve dosyayı karşıya yükleyin. 
 
-## <a name="step-6-upload-the-policy-to-your-tenant"></a>6. adım: ilke kiracınız için karşıya yükleme
+## <a name="step-6-upload-the-policy-to-your-tenant"></a>6. adım: ilke kiracınıza karşıya yükleyin.
 
-1. İçinde [Azure portal](https://portal.azure.com), geçiş [bağlamı Azure AD B2C kiracınızın](active-directory-b2c-navigate-to-b2c-context.md)ve ardından **Azure AD B2C**.
-1. Seçin **kimlik deneyimi Framework**.
+1. İçinde [Azure portalında](https://portal.azure.com), geçiş [Azure AD B2C kiracınızın bağlamında](active-directory-b2c-navigate-to-b2c-context.md)ve ardından **Azure AD B2C**.
+1. Seçin **kimlik deneyimi çerçevesi**.
 1. Seçin **tüm ilkeleri**.
-1. Seçin **karşıya İlkesi**.
-1. Seçin **varsa ilkesi üzerine** onay kutusu.
-1. Karşıya yükleme `TrustFrameworkExtensions.xml` dosyasını ve RP dosyasını (örneğin `SignUpOrSignInWithAAD.xml`) ve doğrulama geçirirler emin olun.
+1. Seçin **karşıya yükleme İlkesi**.
+1. Seçin **ilke varsa üzerine** onay kutusu.
+1. Karşıya yükleme `TrustFrameworkExtensions.xml` dosyasını ve RP dosyasını (örneğin `SignUpOrSignInWithAAD.xml`) ve bunların doğrulama geçirmek emin olun.
 
-## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>7. adım: Test Şimdi Çalıştır kullanarak özel İlkesi
+## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>7. adım: Test Şimdi Çalıştır kullanarak özel ilke
 
-1. Seçin **Azure AD B2C ayarlarını**ve ardından **kimlik deneyimi Framework**.
+1. Seçin **Azure AD B2C ayarlarını**ve ardından **kimlik deneyimi çerçevesi**.
     > [!NOTE]
-    > Çalışma şimdi Kiracı'preregistered için en az bir uygulama için gereklidir. Uygulamaları kaydetmek öğrenmek için Azure AD B2C bkz [başlama](active-directory-b2c-get-started.md) makale veya [uygulama kaydı](active-directory-b2c-app-registration.md) makale.
+    > Çalıştırma artık Kiracı'da önceden kayıtlı için en az bir uygulama gerektirir. Azure AD B2C uygulamaları kaydetme hakkında bilgi için bkz [başlama](active-directory-b2c-get-started.md) makale veya [uygulama kaydı](active-directory-b2c-app-registration.md) makalesi.
 
-1. Karşıya yüklediğiniz bağlı olan taraf (RP) özel İlkesi'ni açın (*B2C\_1A\_SignUpOrSignInWithAAD*) ve ardından **Şimdi Çalıştır**.
-1. Artık Azure AD hesabı kullanarak oturum açabilir olması gerekir.
+1. Karşıya yüklediğiniz bağlı olan taraf (RP) özel bir ilkeyi açın (*B2C\_1A\_SignUpOrSignInWithAAD*) ve ardından **Şimdi Çalıştır**.
+1. Şimdi Azure AD hesabını kullanarak oturum açabilir olmalıdır.
 
-## <a name="optional-step-8-register-the-azure-ad-account-claims-provider-to-the-profile-edit-user-journey"></a>(İsteğe bağlı) 8. adım: Profil düzenleme kullanıcı gezisine Azure AD hesabı talep sağlayıcısını Kaydet
+## <a name="optional-step-8-register-the-azure-ad-account-claims-provider-to-the-profile-edit-user-journey"></a>(İsteğe bağlı) 8. adım: Azure AD hesabı talep sağlayıcısı profil düzenleme kullanıcı yolculuğu için kaydolun
 
-Azure AD hesabı kimlik sağlayıcısı eklemek isteyebilirsiniz, `ProfileEdit` kullanıcı gezisine. Kullanıcı gezisine kullanılabilmesi için 6. adım 4 yineleyin. Bu süre, select `<UserJourney>` içeren düğümü `Id="ProfileEdit"`. Kaydetme, karşıya yükleme ve ilkeniz test.
+Azure AD hesabı kimlik sağlayıcısına eklemek isteyebilirsiniz, `ProfileEdit` kullanıcı yolculuğu. Kullanıcı yolculuğu kullanılabilir hale getirmek için 6. adımları 4 yineleyin. Bu kez, select `<UserJourney>` içeren düğüm `Id="ProfileEdit"`. Kaydetme, karşıya yükleme ve ilkeniz test.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-İlgili sorunları tanılamak için okuma [sorun giderme](active-directory-b2c-troubleshoot-custom.md).
+Sorunları tanılamak için hakkında bilgi edinin: [sorun giderme](active-directory-b2c-troubleshoot-custom.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Geri bildirim sağlayın [ AADB2CPreview@microsoft.com ](mailto:AADB2CPreview@microsoft.com).
+Geri bildirim sağlamak [ AADB2CPreview@microsoft.com ](mailto:AADB2CPreview@microsoft.com).

@@ -1,6 +1,6 @@
 ---
-title: Bilgi Bankası'GenerateAnswer API yanı sıra meta veri kullanın | Microsoft Docs
-description: Meta verilerini GenerateAnswer API'si ile kullanma
+title: Bilgi Bankası'GenerateAnswer API yanı sıra meta verileri kullanın | Microsoft Docs
+description: Meta verileri GenerateAnswer API'si ile kullanma
 services: cognitive-services
 author: pchoudhari
 manager: rsrikan
@@ -9,60 +9,60 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: pchoudh
-ms.openlocfilehash: 94e3632884d7033971ff1c45b455afb9a09ee798
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 8ad51edde1fc90329e908f8150aadcbf4f401126
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35356042"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448229"
 ---
-# <a name="using-metadata-and-the-generateanswer-api"></a>Meta veri ve GenerateAnswer API kullanma
+# <a name="using-metadata-and-the-generateanswer-api"></a>Meta veri ve GenerateAnswer API'sini kullanarak
 
-QnA Maker meta veriler, anahtar/değer çiftleri biçiminde soru/yanıt kümelerinizi eklemenizi sağlar. Bu bilgiler, kullanıcı sorgularının sonuçlarını filtreleme, belirli sonuçları arttırma ve izleme görüşmeleri kullanılabilecek ek bilgileri depolamak gibi çeşitli şekillerde kullanılabilir. Daha fazla bilgi için bkz: [Bilgi Bankası](../Concepts/knowledge-base.md).
+Soru-cevap Oluşturucu meta verileri anahtar/değer çiftleri biçiminde soru/yanıt kümelerinizi eklemenizi sağlar. Bu bilgiler, kullanıcı sorgularının sonuçlarını filtreleme, belirli sonuçları artırma ve izleme konuşmalardaki kullanılabilecek ek bilgileri depolamak gibi çeşitli şekillerde kullanılabilir. Daha fazla bilgi için [Bilgi Bankası](../Concepts/knowledge-base.md).
 
-## <a name="qna-entity"></a>QnA varlık
+## <a name="qna-entity"></a>Soru-cevap varlık
 
-İlk nasıl QnA Maker soru/yanıt verilerini depolayan anlamak önemlidir. Aşağıdaki çizimde bir QnA varlık gösterir:
+İlk soru-cevap Oluşturucu'nın soru/yanıt verileri nasıl depoladı anlamak önemlidir. Soru-cevap varlık aşağıda gösterilmiştir:
 
-![QnA varlık](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
+![Soru-cevap varlık](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
 
-Her QnA varlık bir benzersiz ve kalıcı kimliği vardır. Kimliği, güncelleştirmelerinin belirli bir QnA varlık olması için kullanılabilir.
+Her bir soru-cevap varlık benzersiz ve kalıcı bir kimliğe sahip Kimlik, belirli bir soru-cevap varlığa güncelleştirmeler yapmak için kullanılabilir.
 
 ## <a name="generateanswer-api"></a>GenerateAnswer API
 
-Soru/yanıt kümesinden en iyi eşleşmeyi almak için bir kullanıcı sorusu ile Bilgi Bankası sorgulamak için Bot veya uygulamanızdaki GenerateAnswer API kullanın.
+Soru/yanıt kümesinden en iyi eşleşmeyi almak için bir kullanıcı soru ile bilgi bankanızı sorgulamak için robot veya uygulamada GenerateAnswer API kullanın.
 
 ### <a name="generateanswer-endpoint"></a>GenerateAnswer uç noktası
 
-Bilgi Bankası ' nda herhangi birinden yayımladıktan sonra [QnA Maker portal](https://www.qnamaker.ai), veya kullanarak [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), GenerateAnswer uç noktanızı ayrıntılarını alabilirsiniz.
+Bilgi Bankası ' nden ya da yayımladıktan sonra [soru-cevap Oluşturucu portalı](https://www.qnamaker.ai), veya bu adı kullanıyor [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), GenerateAnswer uç noktanızı ayrıntılarını alabilirsiniz.
 
 Uç nokta ayrıntılarını almak için:
 1. Oturum [ https://www.qnamaker.ai ](https://www.qnamaker.ai).
-2. İçinde **My Bilgi Bankası**, tıklayın **görünümü kodu** , Bilgi Bankası için.
-![My Bilgi Bankası](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+2. İçinde **My bilgi bankalarından**, tıklayarak **kodu görüntüle** bilgi bankanızı için.
+![My bilgi bankalarından](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 3. GenerateAnswer uç nokta ayrıntılarını alın.
 
-![uç nokta ayrıntıları](../media/qnamaker-how-to-metadata-usage/view-code.png)
+![uç noktası ayrıntıları](../media/qnamaker-how-to-metadata-usage/view-code.png)
 
-Ayrıca, uç nokta ayrıntılarını alabilirsiniz **ayarları** , Bilgi Bankası sekmesinde.
+Ayrıca, uç nokta ayrıntılarını alabilirsiniz **ayarları** bilgi bankanızı sekmesi.
 
 ### <a name="generateanswer-request"></a>GenerateAnswer isteği
 
-Bir HTTP POST isteği ile GenerateAnswer çağırın. GenerateAnswer çağrısının nasıl gerçekleştireceğini örnek kod için bkz: [quickstarts](../quickstarts/csharp.md).
+Bir HTTP POST isteği ile GenerateAnswer çağırırsınız. Nasıl GenerateAnswer çağrılacağını gösteren örnek kod için bkz: [hızlı başlangıçlar](../quickstarts/csharp.md).
 
-- **İstek URL**: https://{QnA Maker endpoint} /knowledgebases/ {Bilgi Bankası kimliği} / generateAnswer
+- **İstek URL'si**: https://{QnA Oluşturucu uç nokta} /knowledgebases/ {Bilgi Bankası kimliği} / generateAnswer
 
 - **İstek parametreleri**: 
-    - **Bilgi Bankası kimliği** (dize): Bilgi Bankası için GUID.
-    - **QnAMaker endpoint** (dize): Azure aboneliğinizde dağıtılan uç noktasının ana bilgisayar adı.
-- **İstek üstbilgileri**
-    - **Content-Type** (dize): API için gönderilen gövdesinin medya türü.
-    - **Yetkilendirme** (dize): uç nokta anahtarınızı.
+    - **Bilgi Bankası kimliği** (dize): bilgi bankanızı için GUID.
+    - **QnAMaker uç nokta** (dize): Azure aboneliğinizde dağıtılmış uç nokta konak adı.
+- **İstek üst bilgileri**
+    - **İçerik türü** (dize): API'ye gönderilen gövdenin medya türü.
+    - **Yetkilendirme** (dize): uç nokta anahtarınızı (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **İstek gövdesi**
-    - **Soru** (dize): Bilgi Bankası'karşı Sorgulanacak kullanıcının soru.
-    - **üst** (isteğe bağlı, tamsayı): çıktıda dereceli sonuç sayısı. Varsayılan değer 1'dir.
-    - **UserId** (isteğe bağlı, dize): kullanıcıyı tanımlamak için benzersiz bir kimliği. Bu kimliği sohbet günlüklerine kaydedilir.
-    - **strictFilters** (isteğe bağlı, dize): belirtilmişse, yalnızca belirtilen metadata sahip yanıtlar döndürülecek QnA Maker söyler. Daha fazla bilgi için aşağıya bakın.
+    - **Soru** (dize): bilgi bankanızı karşı Sorgulanacak kullanıcının soru.
+    - **üst** (isteğe bağlı tamsayı): çıktıda dereceli sonuç sayısı. Varsayılan değer 1'dir.
+    - **UserId** (isteğe bağlı, dize): bir kullanıcıyı tanımlamak için benzersiz bir kimliği. Bu kimliği, sohbet günlüklerine kaydedilir.
+    - **strictFilters** (isteğe bağlı, dize): Bu seçenek belirtilmişse, yalnızca belirtilen meta verilerine de sahip yanıtlarını döndürmek için soru-cevap Oluşturucu bildirir. Daha fazla bilgi için aşağıya bakın.
     ```json
     {
         "question": "qna maker and luis",
@@ -78,15 +78,15 @@ Bir HTTP POST isteği ile GenerateAnswer çağırın. GenerateAnswer çağrısı
 
 ### <a name="generateanswer-response"></a>GenerateAnswer yanıt
 
-- **Yanıt 200** -başarılı bir çağrı soru sonucunu döndürür. Yanıt aşağıdaki alanları içerir:
-    - **yanıtlar** -puanı sıralamasını, sırasına göre azalan düzende sıralanmış kullanıcı sorgusu için yanıtlar listesi.
-        - **puan**: 0 ile 100 arasında bir derecelendirme puan.
-        - **sorular**: kullanıcı tarafından sağlanan sorular.
-        - **Kaynak**: kendisinden yanıt ayıklanan veya Bilgi Bankası'nda kaydedilmiş kaynağının adı.
+- **200 yanıt** -başarılı bir çağrı soru sonucunu döndürür. Yanıt aşağıdaki alanları içerir:
+    - **yanıtlar** -puanı sıralama, azalan düzende sıralanmış kullanıcı sorgunun yanıtlarını listesi.
+        - **puan**: 0 ile 100 arasında bir derecelendirme puanı.
+        - **sorular**: kullanıcı tarafından sağlanan soru.
+        - **Kaynak**: içinden yanıt ayıklanır veya Bilgi Bankası'ndaki kaydedilen kaynağının adı.
         - **meta veri**: Yanıtla ilişkili meta verileri.
             - Ad: meta veri adı. (string, maksimum uzunluk: 100, gerekli)
             - değer: meta veri değeri. (string, maksimum uzunluk: 100, gerekli)
-        - **Kimliği**: yanıt atanmış benzersiz bir kimliği.
+        - **Kimliği**: yanıt atanmış bir benzersiz kimliği.
     ```json
     {
         "answers": [
@@ -111,15 +111,15 @@ Bir HTTP POST isteği ile GenerateAnswer çağırın. GenerateAnswer çağrısı
 
 ## <a name="metadata-example"></a>Meta veri örneği
 
-Göz önünde bulundurun Hyderabad Restoran SSS veri altında. Meta veri dişli simgesine tıklayarak, Bilgi Bankası'na ekleyin.
+Göz önünde bulundurun Hyderabad içinde restoranlar için SSS veri altında. Meta veri dişli simgesine tıklayarak, Bilgi Bankası'na ekleyin.
 
-![meta verileri ekleme](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
+![meta veri ekleme](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
-### <a name="filter-results-with-strictfilters"></a>Filtre strictFilters ile sonuçları
+### <a name="filter-results-with-strictfilters"></a>StrictFilters ile sonuçlarını filtreleme
 
-Kullanıcı Soru "Ne zaman bu otel Kapat mu?" göz önünde bulundurun. amacı "Paradise." Restoran için burada kapsanan
+Kullanıcı Soru "Olduğunda bu otel Kapat mu?" göz önünde bulundurun. Burada amaç "Paradise." Restoran için kapsanıyor
 
-Sonuçları yalnızca Restoran için "Paradise" gerekli olduğundan, bir filtre GenerateAnswer çağrısında "Restoran adı", meta veriler üzerinde aşağıdaki gibi ayarlayabilirsiniz.
+Sonuçları yalnızca Restoran için "Paradise" gerekli olduğundan, bir filtre GenerateAnswer çağrısında meta verileri "Restoran Name" gibi ayarlayabilirsiniz.
 
 ```json
 {
@@ -134,7 +134,7 @@ Sonuçları yalnızca Restoran için "Paradise" gerekli olduğundan, bir filtre 
 ```
 
 ### <a name="keep-context"></a>Bağlam tutun
-GenerateAnswer yanıtı gibi eşleşen soru/yanıt kümesinin karşılık gelen meta veri bilgileri içerir.
+Yanıta GenerateAnswer gibi eşleşen soru/yanıt kümesinin karşılık gelen meta veri bilgilerini içerir.
 
 ```json
 {
@@ -162,7 +162,7 @@ GenerateAnswer yanıtı gibi eşleşen soru/yanıt kümesinin karşılık gelen 
 }
 ```
 
-Bu bilgiler daha sonra görüşmeleri kullanmak için önceki konuşma bağlamında kaydetmek için kullanılabilir. 
+Bu bilgiler sonraki konuşmalardaki kullanmak için önceki konuşma bağlamında kaydetmek için kullanılabilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

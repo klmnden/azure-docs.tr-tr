@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs üretilen iş birimleri otomatik olarak ölçeklendirin | Microsoft Docs
-description: Otomatik olarak üretilen iş birimleri ölçeklendirmek için bir ad alanında otomatik Şişir etkinleştir
+title: Azure Event Hubs işleme birimleri otomatik olarak ölçeklendirme | Microsoft Docs
+description: Otomatik şişme, işleme birimleri otomatik olarak ölçeklendirmek için bir ad alanında etkinleştirin.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,52 +12,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 20ee0e6cff2a07cbd62a79799eada5708c7a0f07
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 46ed6acc14356221eaf24b03dfa37dc4c76efcbc
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28018618"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434649"
 ---
-# <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Azure Event Hubs üretilen iş birimleri otomatik olarak ölçeklendirin
+# <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Azure Event Hubs işleme birimleri otomatik olarak ölçeklendirme
 
-Azure Event Hubs platform akış yüksek düzeyde ölçeklenebilir bir veridir. Bu nedenle, Event Hubs kullanımı genellikle hizmeti kullanmak başlattıktan sonra artırır. Bu tür kullanımı, olay hub'ları ölçeklendirme ve daha büyük aktarım hızlarıyla işlemek için önceden belirlenmiş üretilen iş birimleri yükseltmeyi gerektirir. *Otomatik Şişir* olay hub'larını özelliği kullanım gereksinimlerini karşılamak için işleme birimlerinin sayısı otomatik olarak ölçeklendirir. Üretilen iş birimleri artırma engeller senaryoları, azaltma:
+Azure Event Hubs akış platformu yüksek düzeyde ölçeklenebilir bir veridir. Bu nedenle, Event Hubs kullanımı genellikle başlattıktan sonra hizmeti kullanmak üzere artırır. Önceden tanımlanmış artan tür kullanımı gerektirir [üretilen iş birimleri](event-hubs-features.md#throughput-units) Event Hubs ölçeklendirip daha büyük aktarım hızlarını işleyebilme. **Otomatik şişme** özellik Event Hubs'ın otomatik olarak ölçeklendirilebilir üretilen iş birimi sayısını artırarak, kullanım karşılaması gerekir. Üretilen iş birimleri artırma engeller azaltma senaryoları, burada:
 
-* Veri giriş hızları kümesi üretilen iş birimleri aşıyor.
-* Veri çıkışı isteği oranlarının kümesi üretilen iş birimleri aşıyor.
+* Veri giriş hızlarını kümesi işleme birimleri en fazla.
+* Veri çıkışı istek hızları kümesi işleme birimleri en fazla.
 
-## <a name="how-auto-inflate-works"></a>Otomatik Şişir nasıl çalışır
+## <a name="how-auto-inflate-works"></a>Otomatik şişme nasıl çalışır
 
-Olay hub'ları trafiği işleme birimleri tarafından denetlenir. Tek bir işleme birimi giriş ve çıkış miktarı iki kez saniyede 1 MB sağlar. Standart bir olay hub'ları 1-20 işleme birimleri ile yapılandırılabilir. Otomatik Şişir en düşük gerekli işleme birimleri ile küçük Başlat olanak sağlar. Özellik sonra otomatik olarak üretilen iş birimleri trafiğinizi artış bağlı olarak, gereken maksimum sınırı ölçeklendirir. Otomatik Şişir aşağıdaki avantajları sağlar:
+Olay hub'ları trafiği tarafından denetlenir [üretilen iş birimleri](event-hubs-features.md#throughput-units). Tek bir işleme birimi, giriş ve çıkış miktarı iki kez saniyede 1 MB sağlar. Standart event hubs, 1-20 üretilen iş birimleri ile yapılandırılabilir. Otomatik şişme seçtiğiniz minimum gerekli işleme birimleri ile küçükten başlayabilir olanak tanır. Özellik sonra otomatik olarak üretilen iş birimleri, trafik bağlı olarak gereken üst sınırı için ölçeklendirir. Otomatik şişme, aşağıdaki faydaları sağlar:
 
-- Küçük başlayın ve büyüdükçe ölçeği için verimli bir ölçeklendirme mekanizması.
-- Otomatik olarak belirtilen üst sınıra sorunları azaltma olmadan ölçeklendirin.
-- Daha fazla ölçeklendirme üzerinden ne zaman denetimi olarak ve ölçek için ne kadar denetler.
+- Küçükten başlayabilir ve büyüdükçe ölçeklendirin ' için etkili bir ölçeklendirme mekanizması.
+- Belirtilen üst sınıra azaltma sorunları olmadan otomatik olarak ölçeklendirin.
+- Daha fazla ölçeklendirme üzerinden zaman denetlemek için ve ne kadar ölçeklendirmek için denetler.
 
-## <a name="enable-auto-inflate-on-a-namespace"></a>Bir ad otomatik Şişir etkinleştir
+## <a name="enable-auto-inflate-on-a-namespace"></a>Otomatik şişme ad alanınızdaki etkinleştir
 
-Etkinleştirmek veya otomatik Şişir bir olay hub'ları ad aşağıdaki yöntemlerden birini kullanarak devre dışı bırakın:
+Etkinleştirebilir veya otomatik şişme bir Event Hubs ad alanı üzerinde aşağıdaki yöntemlerden birini kullanarak devre dışı bırakın:
 
-1. [Azure portal](https://portal.azure.com).
-2. Bir Azure Resource Manager şablonu.
+- [Azure portalında](https://portal.azure.com).
+- Bir [Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
 
-### <a name="enable-auto-inflate-through-the-portal"></a>Portal etkinleştirme otomatik Şişir
+### <a name="enable-auto-inflate-through-the-portal"></a>Otomatik şişme portal aracılığıyla etkinleştirme
 
-Bir olay hub'ları ad alanı oluştururken otomatik Şişir özelliğini etkinleştirebilirsiniz:
+Otomatik şişme özelliği, bir Event Hubs ad alanını oluştururken etkinleştirebilirsiniz:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
-Bu seçeneği etkinleştirdiğinizde, üretilen iş birimleri küçük başlayın ve kullanımınızı artış gerektiği ölçeği. Enflasyon için üst sınır hemen fiyatlandırma, işleme birimleri saat başına kullanılan sayısına bağlı olan etkilemez.
+Bu seçenek etkinleştirildiğinde, işleme birimleri ile küçükten başlayabilir ve kullanım artışı gereksinimleriniz değiştikçe ölçeği artırma. Üst sınırını Enflasyon hemen fiyatlandırması, saat başına kullanılan aktarım hızı birimi sayısı bağımlı olduğu etkilemez.
 
-Otomatik Şişir-kullanarak da etkinleştirebilirsiniz **ölçek** portal ayarları bölmesinde seçeneği:
+Otomatik şişme kullanarak etkinleştirebilirsiniz **ölçek** portalında ayarlar bölmesini seçeneği:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
 
-### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak otomatik Şişir etkinleştir
+### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Otomatik Şişme bir Azure Resource Manager şablonu kullanarak etkinleştirin
 
-Bir Azure Resource Manager şablon dağıtımı sırasında otomatik Şişir etkinleştirebilirsiniz. Örneğin, `isAutoInflateEnabled` özelliğine **true** ve `maximumThroughputUnits` 10.
+Bir Azure Resource Manager şablon dağıtımı sırasında otomatik şişme etkinleştirebilirsiniz. Örneğin, `isAutoInflateEnabled` özelliğini **true** ayarlayıp `maximumThroughputUnits` 10. Örneğin:
 
 ```json
 "resources": [
@@ -100,7 +100,7 @@ Bir Azure Resource Manager şablon dağıtımı sırasında otomatik Şişir etk
     ]
 ```
 
-Tam şablon için bkz: [olay hub'ı oluşturma ad alanı ve Şişir etkinleştir](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) github'da şablonu.
+Tam şablon için bkz: [oluşturma Event Hubs ad alanı ve Şişir etkinleştir](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) github'da şablonu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

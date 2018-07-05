@@ -1,6 +1,6 @@
 ---
 title: Azure Otomasyonu runbook’una bir JSON nesnesi geçirme
-description: Nasıl bir JSON nesnesi olarak runbook parametreleri geçirme
+description: Nasıl bir JSON nesnesi olarak bir runbook için parametreler
 services: automation
 ms.service: automation
 ms.component: process-automation
@@ -9,22 +9,22 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-keywords: PowerShell runbook, json, azure Otomasyonu
-ms.openlocfilehash: b0eaa13baa3e787db14e7a6f915018c3a4f280a1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+keywords: PowerShell, runbook, json, azure Otomasyonu
+ms.openlocfilehash: 9fa60a56ecbff802e69e01e038bb45c7a6639873
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193059"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435776"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Azure Otomasyonu runbook’una bir JSON nesnesi geçirme
 
-Bir runbook'ta bir JSON dosyası geçirmek istediğiniz verileri depolamak yararlı olabilir.
-Örneğin, tüm bir runbook'a geçirmek için istediğiniz parametreleri içeren bir JSON dosyası oluşturabilirsiniz.
-Bunu yapmak için JSON bir dizeye dönüştürmek ve içeriğini runbook'a geçirmeden önce bu dize bir PowerShell nesnesine dönüştürmek sahip.
+Bir runbook'ta bir JSON dosyası betiğine geçirmek istediğiniz verileri depolamak için yararlı olabilir.
+Örneğin, tüm bir runbook'a geçirmek istediğiniz parametreler içeren bir JSON dosyası oluşturabilirsiniz.
+Bunu yapmak için JSON bir dizeye Dönüştür ve içeriğini runbook'a geçirmeden önce bu dize bir PowerShell nesnesine dönüştürmek sahip.
 
-Bu örnekte, çağıran bir PowerShell komut dosyası oluşturacağız [başlangıç AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) runbook'a JSON içeriği geçirme bir PowerShell runbook'u başlatın.
-PowerShell runbook geçirildi JSON öğesinden VM için parametreler alınırken bir Azure VM başlatır.
+Bu örnekte, çağıran bir PowerShell komut dosyası oluşturacağız [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) JSON içeriği runbook'a geçirerek bir PowerShell runbook'u başlatın.
+PowerShell runbook parametreleri geçirilen JSON VM için almaya bir Azure VM'yi yeniden başlatır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
@@ -32,11 +32,11 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 * Azure aboneliği. Henüz bir aboneliğiniz yoksa [MSDN abone avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ya da <a href="/pricing/free-account/" target="_blank">[ücretsiz hesap için kaydolabilirsiniz](https://azure.microsoft.com/free/).
 * Runbook’u tutacak ve Azure kaynaklarında kimlik doğrulamasını yapacak bir [Automation hesabı](automation-sec-configure-azure-runas-account.md).  Bu hesabın sanal makineyi başlatma ve durdurma izni olmalıdır.
 * Azure sanal makinesi. Bu makineyi durdurup başlatacağımız için makinenin üretime yönelik bir VM olmaması gerekir.
-* Azure Powershell yerel makine üzerinde yüklü. Bkz: [yükleyin ve Azure Powershell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) Azure PowerShell alma hakkında bilgi için.
+* Azure Powershell, yerel bir makinede yüklü. Bkz: [yüklemek ve Azure Powershell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) Azure PowerShell edinme hakkında bilgi için.
 
 ## <a name="create-the-json-file"></a>JSON dosyası oluşturun
 
-Bir metin dosyasına aşağıdaki sınama yazın ve kaydedileceği `test.json` yerel bilgisayarınızdaki herhangi bir yerde.
+Bir metin dosyasına şu test yazın ve kaydedileceği `test.json` yerel bilgisayarınızda bir yerde.
 
 ```json
 {
@@ -47,12 +47,12 @@ Bir metin dosyasına aşağıdaki sınama yazın ve kaydedileceği `test.json` y
 
 ## <a name="create-the-runbook"></a>Runbook oluşturma
 
-"Test-Json" Azure Automation adlı yeni bir PowerShell runbook oluşturun.
-Yeni bir PowerShell runbook oluşturulacağını öğrenmek için bkz: [ilk PowerShell runbook'um](automation-first-runbook-textual-powershell.md).
+"Test-Json" Azure automation'da adlı yeni bir PowerShell runbook oluşturun.
+Yeni bir PowerShell runbook'u oluşturma konusunda bilgi almak için bkz: [ilk PowerShell runbook'um](automation-first-runbook-textual-powershell.md).
 
-JSON verileri kabul etmek için runbook giriş parametresi olarak bir nesne almanız gerekir.
+JSON verilerini kabul etmek için runbook giriş parametresi olarak bir nesne gerçekleştirmeniz gerekir.
 
-Runbook ardından JSON içinde tanımlanan özellikleri kullanabilirsiniz.
+Runbook daha sonra JSON biçiminde tanımlanan özellikleri kullanabilirsiniz.
 
 ```powershell
 Param(
@@ -74,26 +74,30 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
 
  Kaydedin ve bu runbook Otomasyon hesabınızda yayımlayın.
 
-## <a name="call-the-runbook-from-powershell"></a>Runbook Powershell'den çağırın
+## <a name="call-the-runbook-from-powershell"></a>Powershell'den runbook'u çağırma
 
-Artık Azure PowerShell kullanarak yerel makineden runbook çağırabilirsiniz.
+Artık Azure PowerShell kullanarak yerel makinenizde runbook çağırabilirsiniz.
 Aşağıdaki PowerShell komutlarını çalıştırın:
 
-1. Azure'da oturum açın:
+1. Azure'da oturum açma:
    ```powershell
    Connect-AzureRmAccount
    ```
     Azure kimlik bilgilerinizi girmeniz istenir.
-1. JSON dosyasının içeriğini almak ve bir dizeye dönüştürün:
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** için bir diğer ad sunulmuştur **Connect-AzureRMAccount**. Ne zaman kitaplığınızı arama öğe görmüyorsanız, **Connect-AzureRMAccount**, kullanabileceğiniz **Add-AzureRmAccount**, veya Otomasyon hesabınızda modüllerinizi güncelleştirebilirsiniz.
+
+1. JSON dosyasının içeriği almak ve bir dizeye dönüştürün:
     ```powershell
     $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
     ```
-    `JsonPath` JSON dosyasının kaydedildiği yoludur.
-1. Dize içeriği Dönüştür `$json` bir PowerShell nesnesi için:
+    `JsonPath` JSON dosyasını kaydettiğiniz yoludur.
+1. Dize içeriklerini dönüştürme `$json` bir PowerShell nesnesi için:
    ```powershell
    $JsonParams = @{"json"=$json}
    ```
-1. Parametre için bir karma tablosu oluşturma `Start-AzureRmAutomationRunbook`:
+1. Parametre için bir karma tablo oluşturma `Start-AzureRmAutomationRunbook`:
    ```powershell
    $RBParams = @{
         AutomationAccountName = 'AATest'
@@ -102,7 +106,7 @@ Aşağıdaki PowerShell komutlarını çalıştırın:
         Parameters = $JsonParams
    }
    ```
-   Değerini ayarlama fark `Parameters` JSON dosyası değerleri içeren PowerShell nesnesi için. 
+   Değerini ayarlayarak fark `Parameters` JSON dosyasından değerleri içeren bir PowerShell nesnesine. 
 1. Runbook’u başlatma
    ```powershell
    $job = Start-AzureRmAutomationRunbook @RBParams
@@ -112,7 +116,7 @@ Runbook VM başlatmak için JSON dosyasından değerleri kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bir metin düzenleyicisiyle PowerShell ve PowerShell iş akışı runbook'ları düzenleme hakkında daha fazla bilgi için bkz: [Azure Otomasyonu'nda metinsel runbook'lar düzenleme](automation-edit-textual-runbook.md) 
-* Daha fazla hakkında oluşturma ve runbook'ları içeri aktarma bilgi edinmek için [oluşturma veya bir Azure Otomasyonu runbook'u içeri aktarma](automation-creating-importing-runbook.md)
+* PowerShell ve PowerShell iş akışı runbook'ları ile bir metin düzenleyicisini düzenleme hakkında daha fazla bilgi edinmek için [Azure Otomasyonu, metinsel runbook'ları düzenleme](automation-edit-textual-runbook.md) 
+* Daha fazla hakkında oluşturma ve runbook'ları içeri aktarma bilgi edinmek için [oluşturma veya Azure automation'da bir runbook içeri aktarma](automation-creating-importing-runbook.md)
 
 

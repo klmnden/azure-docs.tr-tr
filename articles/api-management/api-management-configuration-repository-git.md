@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 7342e0fe69cf3c82ec82bf1a864e7325449fff22
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 87381a27a59d6719f4bfff9ed367598932c1985c
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342261"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436412"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Kaydet ve Git kullanarak API Management hizmet yapılandırmanızı yapılandırma
 
@@ -226,7 +226,7 @@ Son ayar `$ref-policy`, hizmet örneği için genel ilke deyimlerini dosyanın e
 ### <a name="groups-folder"></a>grupları klasörü
 `groups` Klasörü hizmet örneğinde tanımlanan her grup için bir klasör içerir.
 
-* `groups\<group name>\configuration.json` -Bu grup için bir yapılandırmadır. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir grup alma](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) işlemi.
+* `groups\<group name>\configuration.json` -Bu grup için bir yapılandırmadır. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir grup alma](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) işlemi.
 * `groups\<group name>\description.html` -Bu grubun açıklamasını ve karşılık gelen `description` özelliği [Grup varlık](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
 
 ### <a name="policies-folder"></a>ilkeleri klasörü
@@ -246,7 +246,7 @@ Son ayar `$ref-policy`, hizmet örneği için genel ilke deyimlerini dosyanın e
 ### <a name="products-folder"></a>ürünleri klasörü
 `products` Klasörü hizmet örneğinde tanımlanan her ürün için bir klasör içerir.
 
-* `products\<product name>\configuration.json` -Bu ürün için yapılandırmadır. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir ürün almak](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) işlemi.
+* `products\<product name>\configuration.json` -Bu ürün için yapılandırmadır. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir ürün almak](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get) işlemi.
 * `products\<product name>\product.description.html` -Bu ürün açıklamasını ve karşılık gelen `description` özelliği [ürün varlığı](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) REST API'de.
 
 ### <a name="templates"></a>templates

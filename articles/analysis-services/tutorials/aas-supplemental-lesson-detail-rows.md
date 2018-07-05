@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6e15788992e66fdb8e742b290e5bcf5bce8d20fb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 626258488afec4b3c3f025ae85bd3b5866aa0cf3
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596109"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443986"
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Ek ders - Ayrıntı Satırları
 
@@ -25,19 +25,19 @@ Bu dersin tahmini tamamlanma süresi: **10 dakika**
 Bu ek ders bir tablo modelleme öğreticisinin parçasıdır. Bu ek dersteki görevleri gerçekleştirmeden önce tüm önceki dersleri tamamlamış veya bir Adventure Works İnternet Satışları örnek model projesini tamamlamış olmanız gerekir.  
   
 ## <a name="whats-the-issue"></a>Sorun nedir?
-Ayrıntı satırları ifade eklemeden önce InternetTotalSales ölçü ayrıntıları bakalım.
+Ayrıntı satırları ifadesi eklemeden önce Internettotalsales ölçü ayrıntılarını da gözden geçirelim.
 
 1.  SSDT’de **Model** menüsü > **Excel'de çözümleme**’ye tıklayarak Excel'i açın ve boş bir PivotTable oluşturun.
   
-2.  **PivotTable Alanları**’nda FactInternetSales tablosundaki **InternetTotalSales** ölçüsünü **Değerler**, DimDate tablosundaki **CalendarYear** ölçüsünü **Sütunlar**, **EnglishCountryRegionName** ölçüsünü **Satırlar**’a ekleyin. Özet bir toplanmış sonuçları bölgeler ve yıl InternetTotalSales ölçünün gelen şimdi sağlar. 
+2.  **PivotTable Alanları**’nda FactInternetSales tablosundaki **InternetTotalSales** ölçüsünü **Değerler**, DimDate tablosundaki **CalendarYear** ölçüsünü **Sütunlar**, **EnglishCountryRegionName** ölçüsünü **Satırlar**’a ekleyin. PivotTable artık bölge ve yıla göre Internettotalsales ölçü gelen bir toplu sonuçları verir. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. PivotTable'da bir yıl ve bölge adı için toplu değere çift tıklayın. Avustralya ve 2014 yıl değeri. Verileri (yararlı olmayan verileri) içeren yeni bir sayfa açılır.
+3. PivotTable'da bir yıl ve bölge adı için toplu değere çift tıklayın. Avustralya ve 2014 yılının için değer. Verileri (yararlı olmayan verileri) içeren yeni bir sayfa açılır.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-Burada amaç InternetTotalSales ölçü toplanmış sonucu katkıda veri satırları ve sütunları içeren bir tablo değil. Bunu yapmak için bir ölçü özelliği olarak bir ayrıntı satırları ifadesi ekleyin.
+Buradaki amaç, Internettotalsales ölçü toplu sonucuna katkıda bulunan veri satırları ve sütunları içeren bir tablodur. Bunu yapmak için ölçünün bir özelliği ayrıntı satırları ifadesi ekleyin.
 
 ## <a name="add-a-detail-rows-expression"></a>Ayrıntı Satırları İfadesi ekleme
 

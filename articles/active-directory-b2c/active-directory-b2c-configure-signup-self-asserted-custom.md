@@ -1,38 +1,38 @@
 ---
-title: Oturum özel ilkelerinde değiştirebilir ve kendi sağlayıcı uygulanan yapılandırma | Microsoft Docs
-description: Kaydolun ve kullanıcı girişini yapılandırmak bir kılavuz ekleme talepleri
+title: Özel ilkeleri ayarlama oturum değiştirebilir ve kendi kendine sağlayıcısı onaylanan yapılandırma | Microsoft Docs
+description: Kaydolun ve kullanıcı girişi yapılandırmak bir kılavuz ekleme talepleri
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9d8f644e819ceb83f0b436789d6d8610ed01f6a6
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 1a949007750ae9607ac31f02d23e39204b9f58e4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34710806"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440510"
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: yeni talep eklemek ve kullanıcı girişi yapılandırmak için yukarı oturum değiştirin.
+# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: yeni talep ekleyin ve kullanıcı girişi yapılandırmak için yukarı oturum değiştirin.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Bu makalede, yeni bir kullanıcı tarafından sağlanan giriş (talep) kaydolma kullanıcı Yolculuğunuzun ekleyeceksiniz.  Giriş bir açılır liste yapılandırma yapar ve gerekli olduğunda tanımlayın.
+Bu makalede, kayıt kullanıcı yolculuğunuza yeni bir kullanıcı tarafından sağlanan giriş (talep) ekleyeceksiniz.  Giriş bir açılan yapılandıracak ve gerekirse tanımlayın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Makalesindeki adımları [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md).  Kaydolma devam etmeden önce yeni bir yerel hesap için kaydolma/oturum açma kullanıcı gezisine test edin.
+* Makaledeki adımları tamamlayabilmeniz [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md).  Devam etmeden önce yeni bir yerel hesap kaydolma için kaydolma/oturum açma kullanıcı yolculuğu test edin.
 
 
-İlk veri toplama, kullanıcılardan kaydolma/signın elde edilir.  Ek talepleri daha sonra Profil düzenleme kullanıcı Yolculuklar toplanabilir. Azure AD B2C doğrudan kullanıcıdan etkileşimli olarak toplayacağını zaman kimlik deneyimi çerçevesi kullanır, `selfasserted provider`. Bu sağlayıcı kullanılan herhangi bir zamanda aşağıdaki adımları uygulayın.
+Kullanıcılarınızdan gelen ilk veri toplama kaydolma/oturum açma elde edilir.  Ek talep daha sonra Profil düzenleme kullanıcı yolculuklarından toplanabilir. Etkileşimli kullanıcı doğrudan Azure AD B2C bilgi toplayan zaman kimlik deneyimi çerçevesi kullanan kendi `selfasserted provider`. Bu sağlayıcı kullanılan herhangi bir zamanda aşağıdaki adımları uygulayın.
 
 
-## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a>Talep, görünen adını ve kullanıcı giriş türünü tanımlayın
-Kendi şehrini kaldırmasını sağlar.  Aşağıdaki öğeyi ekleyin `<ClaimsSchema>` TrustFrameworkBase ilke dosyası öğesinde:
+## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a>Talep, görünen adını ve kullanıcı girişi türü tanımlayın
+Kullanıcıdan kendi şehri olanak tanır.  Şu öğeye eklemek `<ClaimsSchema>` TrustFrameworkBase ilkesi dosyasında öğe:
 
 ```xml
 <ClaimType Id="city">
@@ -42,13 +42,13 @@ Kendi şehrini kaldırmasını sağlar.  Aşağıdaki öğeyi ekleyin `<ClaimsSc
   <UserInputType>TextBox</UserInputType>
 </ClaimType>
 ```
-Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İçin tam bir şema, başvurmak **kimlik deneyimi Framework Teknik Başvuru Kılavuzu**.  Bu kılavuz başvuru bölümünde yakında yayımlanacaktır.
+Burada talep özelleştirmek için yapabileceğiniz ek seçenek vardır.  Tam bir şema için başvurmak **kimlik deneyimi çerçevesi Teknik Başvuru Kılavuzu**.  Bu kılavuz, başvuru bölümüne yakında yayımlanacaktır.
 
-* `<DisplayName>` Kullanıcı dönük tanımlayan bir dize *etiketi*
+* `<DisplayName>` kullanıcıya yönelik tanımlayan bir dizedir *etiketi*
 
-* `<UserHelpText>` gerekenden anlamasına yardımcı olur
+* `<UserHelpText>` kullanıcının gerektiğini anlamak yardımcı olur.
 
-* `<UserInputType>` Aşağıdaki dört seçenekten aşağıda vurgulanan:
+* `<UserInputType>` Aşağıdaki dört seçenekleri aşağıda vurgulanan:
     * `TextBox`
 ```xml
 <ClaimType Id="city">
@@ -59,7 +59,7 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
 </ClaimType>
 ```
 
-    * `RadioSingleSelectduration` -Tek seçim zorlar.
+    * `RadioSingleSelectduration` -Tek bir seçim zorlar.
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -73,9 +73,9 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
 </ClaimType>
 ```
 
-    * `DropdownSingleSelect` -Yalnızca geçerli değer seçimine izin verir.
+    * `DropdownSingleSelect` -Yalnızca geçerli değer seçimini sağlar.
 
-![Aşağı açılan seçeneği ekran görüntüsü](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![Açılan seçeneğinin ekran görüntüsü](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 
 ```xml
@@ -92,9 +92,9 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
 ```
 
 
-* `CheckboxMultiSelect` İçin bir veya daha fazla değer seçimine izin verir.
+* `CheckboxMultiSelect` İçin bir veya daha fazla değer seçimini sağlar.
 
-![Çoklu seçeneğinin ekran görüntüsü](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![Çoklu seçim yapılabilen seçenek ekran görüntüsü](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 
 ```xml
@@ -110,7 +110,7 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
 </ClaimType>
 ```
 
-## <a name="add-the-claim-to-the-sign-upsign-in-user-journey"></a>Oturum açma için talep ekleme yukarı/kullanıcı gezisine oturum
+## <a name="add-the-claim-to-the-sign-upsign-in-user-journey"></a>Oturum açma için talep eklemek yukarı/kullanıcı yolculuğunda oturum
 
 1. Talep olarak ekleme bir `<OutputClaim ClaimTypeReferenceId="city"/>` TechnicalProfile için `LocalAccountSignUpWithLogonEmail` (TrustFrameworkBase ilke dosyasında bulunur).  Bu TechnicalProfile SelfAssertedAttributeProvider kullandığına dikkat edin.
 
@@ -149,7 +149,7 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
   </TechnicalProfile>
   ```
 
-2. Talep AAD UserWriteUsingLogonEmail için ekleme bir `<PersistedClaim ClaimTypeReferenceId="city" />` kullanıcıdan topladıktan sonra talep AAD dizinine yazılacak. Dizinde talep gelecekte kullanım için kalıcı olmayan tercih ediyorsanız bu adımı atlayabilirsiniz.
+2. Talep AAD UserWriteUsingLogonEmail ekleme bir `<PersistedClaim ClaimTypeReferenceId="city" />` kullanıcıdan topladıktan sonra talep AAD dizinine yazılacak. Dizinde talep gelecekte kullanım için kalmayacak tercih ederseniz bu adımı atlayabilirsiniz.
 
   ```xml
   <!-- Technical profiles for local accounts -->
@@ -185,7 +185,7 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
   </TechnicalProfile>
   ```
 
-3. Farklı bir kullanıcı oturum açtığında, dizinden okuma TechnicalProfile için talep ekleme bir `<OutputClaim ClaimTypeReferenceId="city" />`
+3. Talep Directory'den bir kullanıcı olarak oturum açtığında okuyan TechnicalProfile ekleme bir `<OutputClaim ClaimTypeReferenceId="city" />`
 
   ```xml
   <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
@@ -213,7 +213,7 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
   </TechnicalProfile>
   ```
 
-4. Ekleme `<OutputClaim ClaimTypeReferenceId="city" />` bu talep belirteci başarılı kullanıcı gezisine sonra uygulama gönderilir şekilde RP ilkeyi SignUporSignIn.xml dosya.
+4. Ekleme `<OutputClaim ClaimTypeReferenceId="city" />` bu talep, başarılı kullanıcı yolculuğu sonra belirteçte uygulamaya gönderilen SignUporSignIn.xml RP ilkeye dosya.
 
   ```xml
   <RelyingParty>
@@ -235,17 +235,17 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
   </RelyingParty>
   ```
 
-## <a name="test-the-custom-policy-using-run-now"></a>"Şimdi Çalıştır" kullanarak özel ilkeyi test etme
+## <a name="test-the-custom-policy-using-run-now"></a>"Şimdi Çalıştır" kullanarak özel bir ilkeyi test etme
 
-1. Açık **Azure AD B2C dikey** gidin **kimlik deneyimi Framework > özel ilkeleri**.
-2. Karşıya yüklenen ve'ı tıklatın özel ilkeyi seçin **Şimdi Çalıştır** düğmesi.
-3. Bir e-posta adresi kullanarak kaydolabilirsiniz olması gerekir.
+1. Açık **Azure AD B2C dikey** gidin **kimlik deneyimi Çerçevesi > özel ilkeleri**.
+2. Yüklenmiş ve'ı tıklatın özel bir ilkeyi seçin **Şimdi Çalıştır** düğmesi.
+3. Bir e-posta adresi kullanarak kaydolma olması gerekir.
 
 Test modunda kaydolma ekran şuna benzer görünmelidir:
 
 ![Değiştirilen kayıt seçeneğinin ekran görüntüsü](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-  Belirtece uygulamanız şimdi içerecektir `city` aşağıda gösterildiği gibi talep
+  Belirtece uygulamanız artık içerecektir `city` aşağıda gösterildiği gibi talep
 ```json
 {
   "exp": 1493596822,
@@ -266,18 +266,18 @@ Test modunda kaydolma ekran şuna benzer görünmelidir:
 }
 ```
 
-## <a name="optional-remove-email-verification-from-signup-journey"></a>İsteğe bağlı: Kaydolma gezisine gelen Kaldır e-posta doğrulama
+## <a name="optional-remove-email-verification-from-signup-journey"></a>İsteğe bağlı: E-posta doğrulaması kaydolma yolculuğu Kaldır
 
-E-posta doğrulama atlamak için ilke Yazar kaldırmayı seçebilirsiniz `PartnerClaimType="Verified.Email"`. E-posta adresi gerekli ancak, "Gerekli olmadıkça" doğrulanmadı = true kaldırılır.  Bu seçenek, kullanım durumları için uygun olup olmadığını dikkatlice!
+E-posta doğrulama işlemini atlamak için ilke Yazar kaldırmayı seçebilirsiniz `PartnerClaimType="Verified.Email"`. E-posta adresi gerekiyor ancak, "Gerekmedikçe" doğrulanmadı = true kaldırılır.  Bu seçenek, kullanım durumları için doğru seçenek olup olmadığını dikkatlice!
 
-E-posta, varsayılan olarak etkindir doğrulandı `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` başlangıç paketi TrustFrameworkBase ilke dosyasında:
+E-posta, varsayılan olarak etkindir doğrulandı `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` başlangıç paketi TrustFrameworkBase ilkesi dosyasında:
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Akışlar için yeni talep sosyal hesap oturum açma, aşağıda listelenen TechnicalProfiles değiştirerek ekleyin. Kullanıcı verileri Bulucu alternativeSecurityId kullanarak okuyup yazmak için bunlar sosyal ve Federasyon hesap oturumu açma tarafından kullanılır.
+Yeni akışlar Talep'i sosyal hesap oturum açma bilgileri için aşağıda listelenen TechnicalProfiles değiştirerek ekleyin. Bulucu alternativeSecurityId kullanarak kullanıcı verilerini okuyup yazmak için bu hesabı sosyal ve Federasyon oturum açma bilgileri tarafından kullanılır.
 ```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

@@ -1,45 +1,45 @@
 ---
-title: Privileged Identity Management rollerinde Azure kaynak için onay iş akışı | Microsoft Docs
-description: Azure kaynakları için onay iş akışı işlemini açıklar.
+title: Privileged Identity Management, Azure kaynak rolleri için onay iş akışı | Microsoft Docs
+description: Azure kaynakları için onay iş akışı işlemi açıklanmaktadır.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: de15a02e706ec7f7b4cff0af303ea30fc87b8f34
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 42b0a8f94ff09b308a579b962bc99c4796c73c2e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233776"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443044"
 ---
-# <a name="approval-workflow-for-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management rollerinde Azure kaynak için onay iş akışı
+# <a name="approval-workflow-for-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management, Azure kaynak rolleri için onay iş akışı
 
-Onay iş akışı ile ayrıcalıklı Kimlik Yönetimi (PIM), Azure kaynak rolleri için Yöneticiler daha fazla koruyabilir veya kritik kaynaklara erişimi kısıtlama. Diğer bir deyişle, Yöneticiler, rol atamaları etkinleştirmek için onay gerektirebilirsiniz. 
+Onay iş akışı ile Privileged Identity Management (PIM), Azure kaynak rolleri için Yöneticiler daha fazla koruyabilir veya kritik kaynaklara erişimi kısıtlayın. Diğer bir deyişle, yöneticileri, rol atamalarını etkinleştirmek için onay isteyebilir. 
 
-Azure kaynak rolleri için benzersiz bir kaynak hiyerarşinin kavramdır. Bu hiyerarşide aşağı üst kaynak nesneden rol atamalarını üst kapsayıcı içindeki tüm alt kaynaklarına devralma sağlar. 
+Azure kaynak rolleri için benzersiz bir kaynak hiyerarşisinin kavramdır. Bu hiyerarşi üst kapsayıcı içindeki tüm alt kaynaklar için rol atamalarını aşağı üst kaynak nesneden devralınmasını sağlar. 
 
-Örneğin: Bob, bir kaynak yöneticisi, Contoso abonelik sahibi rolünde Alice uygun bir üye olarak atamak için PIM kullanır. Bu atama ile Alice bir uygun kaynak grubu Contoso abonelik alt kapsayıcılara sahibidir. Alice ayrıca bir uygun tüm kaynaklar (örneğin, sanal makineler) abonelik her kaynak grubu sahibi. 
+Örneğin: Bob, bir kaynak yöneticisi, uygun bir üye olarak Esra'nın Contoso abonelik sahibi rolüne atamak için PIM kullanır. Bu atama ile Esra'nın Contoso Abonelikteki tüm kaynak grubu kapsayıcıları bir uygun sahibidir. Gamze ayrıca bir uygun tüm kaynakları (sanal makineler gibi) abonelik her bir kaynak grubu içinde sahibidir. 
 
-Contoso abonelikte üç kaynak grubu yok varsayalım: Fabrikam Test, Fabrikam Geliştirici ve Fabrikam üretim. Bu kaynak gruplarının her biri tek bir sanal makine içeriyor.
+Contoso abonelikte üç kaynak grubunuz yok varsayalım: Fabrikam Test, Fabrikam geliştirme ve Fabrikam ürün. Bu kaynak gruplarının her biri tek bir sanal makine içeriyor.
 
-PIM ayarları, her bir kaynak rolü için yapılandırılır. Atamaları aksine bu ayarlar değil devralınan ve kesinlikle Kaynak rolü için geçerlidir. [Uygun atamaları ve kaynak görünürlük hakkında daha fazla bilgiyi](pim-resource-roles-eligible-visibility.md).
+PIM ayarları, her bir kaynağın rolünü için yapılandırılır. Atamaları aksine bu ayarları yok devralınır ve kesinlikle Kaynak rolü için geçerlidir. [Uygun atamalar ve Kaynak görünürlüğü hakkında daha fazla bilgiyi](pim-resource-roles-eligible-visibility.md).
 
-Bu örnekle devam edersek: Bob Contoso abonelik isteği onay sahibi roldeki tüm üyelerin etkinleştirilecek gerektirecek şekilde PIM kullanır. Fabrikam üretim kaynak grubundaki kaynaklar korunmasına yardımcı olmak için Bob Ayrıca bu kaynağın sahibine rolünün üyeleri için onay gerektirir. Fabrikam Test ve Fabrikam Geliştirici sahibi rollerinde, etkinleştirme için onay gerektirmez.
+Örneğiyle devam etmesini: Bob PIM Contoso abonelik isteği onay sahibi roldeki tüm üyeleri etkinleştirilmesini istemek için kullanır. Fabrikam Prod kaynak grubundaki kaynakları korumak için Bob Ayrıca bu kaynağın sahip rolünün üyeleri için onay gerektirir. Fabrikam Test ve geliştirme Fabrikam sahip roller, etkinleştirme için onay gerekmez.
 
-Alice'i Contoso abonelik için sahip rolünü etkinleştirme istediğinde onaylayıcı onaylayabilir veya aynen rolünde etkinleştirilmeden önce her isteği reddedecek gerekir. Alice karar verirse [kendi etkinleştirme kapsam](pim-resource-roles-activate-your-roles.md#apply-just-enough-administration-practices) Fabrikam üretim kaynak grubuna onaylayıcı onaylamak veya bu istek çok erişimi engellemeniz gerekir. Ancak Alice birini veya her ikisini Fabrikam Test ya da Fabrikam geliştirici kendi etkinleştirme kapsam karar verirse, onayı gerekli değildir.
+Alice Contoso abonelik için sahip rolünü etkinleştirme isteğinde bulunduğunda, bir onaylayan onaylayabilir veya o roldeki etkinleştirilmeden önce her bir isteği reddetmek gerekir. Alice karar verirse [her etkinleştirme kapsam](pim-resource-roles-activate-your-roles.md#apply-just-enough-administration-practices) Fabrikam Prod kaynak grubunu, bir onaylayan gerekir onaylayın veya çok bu isteği reddedin. Ancak, Esra'nın Fabrikam Test veya geliştirme Fabrikam biri veya her ikisi için her etkinleştirme kapsam karar verirse, onayı gerekli değildir.
 
-Onay iş akışı bir rolün tüm üyeleri için gerekli olmayabilir. Burada, kuruluşunuzun bir Azure aboneliği çalışacak bir uygulamanın geliştirilmesi yardımcı olacak birkaç sözleşme ilişkilendirir anlaşır bir senaryo düşünün. Kaynak yönetici olarak onay gerekli uygun erişim sağlamak için çalışanların istiyor, ancak sözleşme ilişkilendirilmiş onay istemeniz gerekir. Sözleşme ilişkilendirilmiş yalnızca bir için onay iş akışını yapılandırmak için çalışanlara atanan role aynı izinlere sahip bir özel rolü oluşturabilirsiniz. Bu özel rolü etkinleştirmek için onay gerektirebilirsiniz. [Özel rolleri hakkında daha fazla bilgi](pim-resource-roles-custom-role-policy.md).
+Onay iş akışı, bir rolün tüm üyeleri için gerekli olmayabilir. Burada, kuruluşunuzun bir Azure aboneliğinde çalıştırılan uygulamanın geliştirilmesine yardımcı olmak için birkaç sözleşme ilişkilendirir hires bir senaryo düşünün. Bir kaynak yöneticisi, gerekli onay uygun erişim sağlamak için çalışanların istediğiniz, ancak sözleşme ilişkilendirir onay istemelisiniz. Onay iş akışı için yalnızca sözleşme ilişkilendirir yapılandırmak için atanmış çalışanlara rolle aynı izinlere sahip bir özel rol oluşturabilirsiniz. Bu özel rolü etkinleştirmek için onay gerektirebilir. [Özel roller hakkında daha fazla bilgi](pim-resource-roles-custom-role-policy.md).
 
-Onay iş akışını yapılandırmak ve kimlerin onaylamak veya istekleri reddetmesini belirtmek için aşağıdaki yordamları kullanın.
+Onay iş akışını yapılandırın ve kimler onaylayabilir veya istekleri reddetme belirtmek için aşağıdaki yordamları kullanın.
 
 ## <a name="require-approval-to-activate"></a>Etkinleştirmek için onay gerektir
 
@@ -47,61 +47,61 @@ Onay iş akışını yapılandırmak ve kimlerin onaylamak veya istekleri reddet
 
    ![Seçilen kaynak "Azure kaynaklarını" bölmesi](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
 
-2. Sol bölmeden seçin **rol ayarlarını**.
+2. Sol bölmeden **rol ayarları**.
 
 3. İçin arama yapın ve bir rol seçin ve ardından **Düzenle** ayarlarını değiştirmek için.
 
-   !["Düzenle" düğmesine işleci rolü](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_view_settings.png)
+   !["Düzenle" düğmesine operatörü rolü için](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_view_settings.png)
 
-4. İçinde **etkinleştirme** bölümünde, select **etkinleştirmek için onay iste** onay kutusu.
+4. İçinde **etkinleştirme** bölümünden **etkinleştirmek için onay gerektir** onay kutusu.
 
-   !["Etkinleştirme" bölümünü rol ayarları](media/azure-pim-resource-rbac/aadpim_rbac_settings_require_approval_checkbox.png)
+   ![Rol ayarları "Etkinleştirme" bölümü](media/azure-pim-resource-rbac/aadpim_rbac_settings_require_approval_checkbox.png)
 
 ## <a name="specify-approvers"></a>Onaylayanlar belirtin
 
-Tıklatın **seçin onaylayanlar** açmak için **bir kullanıcı veya Grup Seç** bölmesi.
+Tıklayın **onaylayanları seçin** açmak için **bir kullanıcı veya Grup Seç** bölmesi.
 
 >[!NOTE]
->En az bir kullanıcı veya grup ayarı güncelleştirmek için seçmeniz gerekir. Hiçbir varsayılan onaylayanlar vardır.
+>En az bir kullanıcı veya grup ayarını güncelleştirmek için seçmeniz gerekir. Hiçbir varsayılan onaylayanlar vardır.
 
-Kaynak Yöneticileri kullanıcıların ve grupların herhangi bir birleşimini onaylayanlar listesine ekleyebilirsiniz. 
+Kaynak yöneticileri, kullanıcıları ve grupları herhangi bir birleşimini onaylayanlar listesine ekleyebilirsiniz. 
 
-![Seçili bir kullanıcı "bir kullanıcı veya Grup Seç" bölmesiyle](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_select_approvers.png)
+![Kullanıcı tarafından seçilen bir "bir kullanıcı veya Grup Seç" bölmesi](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_select_approvers.png)
 
-## <a name="request-approval-to-activate"></a>Etkinleştirmek için onay iste
+## <a name="request-approval-to-activate"></a>Etkinleştirmek için onay isteyin
 
-Onay isteyen bir üye etkinleştirmek için izlemeniz gereken yordam etkisi yoktur. [Bir rolü etkinleştirmek için adımları gözden](pim-resource-roles-activate-your-roles.md).
+Onay isteme üyesi etkinleştirmek için izlemeniz gereken yordam üzerinde hiçbir etkisi olmaz. [Bir rolü etkinleştirmek için adımları gözden](pim-resource-roles-activate-your-roles.md).
 
-Onay gerektiren bir rolü etkinleştirmesi üyesi istenen ve rol artık gerekli değildir, üye PIM isteği iptal edebilirsiniz.
+Onay gerektiren bir rolü etkinleştirmesi üyesi istenen ve rol artık gerekli değildir, üye PIM isteğini iptal edebilirsiniz.
 
-İptal etmek için PIM ve Seç gözatın **isteklerim**. Seçin ve isteği bulun **iptal**.
+İptal etmek için PIM ve seçin için Gözat **isteklerim**. Seçin ve istek bulun **iptal**.
 
 !["İsteklerim" bölmesi](media/azure-pim-resource-rbac/aadpim_rbac_role_approval_request_pending.png)
 
-## <a name="approve-or-deny-a-request"></a>Onaylamak veya bir isteği reddedecek
+## <a name="approve-or-deny-a-request"></a>Onaylayın veya reddedin isteği
 
-Onaylamak veya bir isteği reddetmek için onaylayan listesinin bir üyesi olması gerekir. 
+Onaylayın veya bir isteği reddetmek için onaylayan listesinin bir üyesi olmalıdır. 
 
-1. PIM içinde seçin **isteklerini onaylama** soldaki menüden sekmesinden ve istek bulun.
+1. PIM içinde seçin **istekleri onaylama** sol menüde sekmesinden ve istek bulun.
 
-   !["İsteklerini onaylama" bölmesi](media/azure-pim-resource-rbac/aadpim_rbac_approve_requests_list.png)
+   !["İstekleri onaylama" bölmesi](media/azure-pim-resource-rbac/aadpim_rbac_approve_requests_list.png)
 
-2. İstek'i seçin, bir gerekçe kararı ve seçin **Onayla** veya **reddetme**. İstek sonra çözümlenir.
+2. İstek, bir kullanıcının bir gerekçe kararı seçip **Onayla** veya **Reddet**. İstek ardından çözülür.
 
-   ![Seçilen istek ayrıntılı bilgilerle birlikte](media/azure-pim-resource-rbac/aadpim_rbac_approve_request_approved.png)
+   ![Seçilen istek ayrıntılı bilgileri](media/azure-pim-resource-rbac/aadpim_rbac_approve_request_approved.png)
 
-## <a name="workflow-notifications"></a>İş akışı bildirimleri
+## <a name="workflow-notifications"></a>İş akışı bildirimlerini
 
-İş akışı bildirimleri hakkında bazı unsurlar şunlardır:
+İş akışı bildirimlerini hakkında bazı bilgiler şunlardır:
 
-- Bir rol için bir istek gözden olduğunda tüm üyeleri onaylayan listesi, e-posta ile bildirilir. E-posta bildirimleri onaylayan burada onaylama veya reddetme isteğine, doğrudan bir bağlantı içerir.
-- İstekleri onaylar veya reddeder listenin ilk üye tarafından çözümlenir. 
-- Onaylayıcı isteğini yanıtladığında onaylayan listesinin tüm üyeleri eylemini bildirilir. 
-- Onaylanan bir üye kendi rolünde etkin olduğunda kaynak yöneticileri bildirilir. 
+- Bir rol için bir isteği, gözden geçirme olduğunda tüm üyelerinin onaylayan listesini e-posta ile bildirilir. E-posta bildirimleri onaylayan burada onaylama veya reddetme isteğini doğrudan bir bağlantı içerir.
+- İstekleri onaylar veya reddeder listenin ilk üyesi tarafından çözümlenir. 
+- Bir onaylayan isteği yanıtladığında onaylayan listenin tüm üyelerini eylemi bildirilir. 
+- Onaylanan bir üyenin içindeki rollerine etkin olduğunda, kaynak yöneticileri bildirilir. 
 
 >[!Note]
->Onaylanan bir üye etkin olmamalıdır düşündüğü bir kaynak yönetici etkin rol ataması PIM içinde kaldırabilirsiniz. Onaylayan listesi üyesi olmadığı sürece kaynak yöneticileri, bekleyen istek bildirilmez olsa da görüntüleyebilir ve bekleyen istekler PIM görüntüleyerek tüm kullanıcıların bekleyen istekleri iptal. 
+>Onaylanan bir üyenin etkin olmamalıdır düşündüğü bir kaynak yöneticisi PIM'de etkin bir rol atamasını kaldırabilir. Onaylayan listesini üyesi olduğu sürece kaynak yöneticileri, bekleyen istek bildirilmez olsa da, görüntüleyebilir ve bekleyen istekler PIM görüntüleyerek bekleyen tüm kullanıcıların istekleri iptal et. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Benzersiz kullanıcı gruplarını PIM ayarlarını uygula](pim-resource-roles-custom-role-policy.md)
+[PIM ayarları benzersiz kullanıcı gruplarına uygulanır.](pim-resource-roles-custom-role-policy.md)

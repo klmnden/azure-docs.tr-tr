@@ -1,6 +1,6 @@
 ---
-title: Akış Event hubs'a Azure etkinlik günlüğü
-description: Olay hub'ları için Azure etkinlik günlüğü akış öğrenin.
+title: Azure etkinlik günlüğünün Event Hubs'a Stream
+description: Azure etkinlik günlüğünün Event Hubs'a akışını yapma hakkında bilgi edinin.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,58 +8,58 @@ ms.topic: conceptual
 ms.date: 03/02/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 1f1a131d4e0cf900d04acc9730b04e1375f396a6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 45352c1cf4aca9043c23bbe12e94ba770a38c01b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264308"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436714"
 ---
-# <a name="stream-the-azure-activity-log-to-event-hubs"></a>Akış Event hubs'a Azure etkinlik günlüğü
-Akış [Azure etkinlik günlüğü](monitoring-overview-activity-logs.md) yakın gerçek zamanlı olarak ya da herhangi bir uygulama için:
+# <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure etkinlik günlüğünün Event Hubs'a Stream
+Akış [Azure etkinlik günlüğü](monitoring-overview-activity-logs.md) neredeyse gerçek zamanlı olarak ya da herhangi bir uygulama için:
 
-* Yerleşik kullanarak **verme** portalında seçeneği
-* Azure PowerShell cmdlet'leri aracılığıyla bir günlük profilinde Azure Service Bus kural kimliği veya Azure CLI etkinleştirme
+* Yerleşik kullanarak **dışarı** portalında seçeneği
+* Azure PowerShell cmdlet'leri aracılığıyla bir günlük profili Azure Service Bus kural kimliği veya Azure CLI'yı etkinleştirme
 
 ## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>Etkinlik günlüğü ve olay hub'ları ile yapabilecekleriniz
-Burada, etkinlik günlüğü için akış özelliği kullanabilir iki yolu bulunmaktadır:
+Etkinlik günlüğü için akış özelliği kullanabileceğinize iki yolu vardır:
 
-* **Üçüncü taraf günlüğe kaydetme ve telemetri sistemlerde akışına**: zaman içinde Azure Event Hubs akış üçüncü taraf Sıem'lerden etkinlik günlüğü kanal ve analiz çözümleri oturum mekanizması olur.
-* **Bir özel telemetri ve günlüğe kaydetme platformu yapı**: zaten bir özel olarak geliştirilmiş telemetri platform veya bir oluşturma konusunda planlayın, yüksek düzeyde ölçeklenebilir yayımlama yapısını abonelik Event Hubs esnek etkinlik günlüğü alma olanak sağlar. Daha fazla bilgi için bkz: [bir küresel ölçekli telemetri platform olay hub'ları kullanma hakkında Dan Rosanova'nın video](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+* **Üçüncü taraf günlüğe kaydetme ve telemetri sistemleriyle Stream**: zaman içinde Azure Event Hubs akış etkinlik günlüğünüzü üçüncü taraf Sıem'lerden kanal oluşturarak ve analiz çözümleri oturum için bir mekanizma olur.
+* **Özel telemetri ve günlüğe kaydetme platform derleme**: zaten ürettikleri telemetri platformu varsa veya biri oluşturma hakkında düşünmeye olan yüksek düzeyde ölçeklenebilir Yayımla-doğasını abone ol olay hub'ları esnek etkinlik günlüğü alma olanak sağlar. Daha fazla bilgi için [küresel ölçekli bir telemetri platform Event Hubs'ı kullanma hakkında video Dan Rosanova'nın](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
-## <a name="enable-streaming-of-the-activity-log"></a>Etkinlik günlüğü akışı etkinleştir
-Etkinlik günlüğü program aracılığıyla veya portal aracılığıyla akış etkinleştirebilirsiniz. Her iki durumda da, bir olay hub'ları ad alanı ve bu ad alanı için bir paylaşılan erişim ilkesi seçin. İlk yeni etkinlik günlüğü olay gerçekleştiğinde bir olay hub'Öngörüler-günlükleri-operationallogs adı ile bu ad alanında oluşturulur. 
+## <a name="enable-streaming-of-the-activity-log"></a>Etkinlik günlüğü akışını etkinleştir
+Programlama yoluyla veya portal aracılığıyla etkinlik günlüğü akışını etkinleştirebilirsiniz. Her iki durumda da bir Event Hubs ad alanı ve bu ad alanı için bir paylaşılan erişim ilkesi seçin. İlk yeni etkinlik günlüğü olay gerçekleştiğinde bir olay hub'ı ınsights-günlükleri-operationallogs adı ile o ad alanında oluşturulur. 
 
-Bir olay hub'ları ad alanı yoksa, öncelikle bir oluşturmanız gerekir. Daha önce bu olay hub'ları ad etkinlik günlüğü olaylarını akışı, daha önce oluşturduğunuz olay hub'ı yeniden kullanılabilir. 
+Bir Event Hubs ad alanı yoksa, öncelikle bir oluşturmanız gerekir. Daha önce bu Event Hubs ad alanı için etkinlik günlüğü olayları akış, daha önce oluşturduğunuz olay hub'ı yeniden kullanılabilir. 
 
-Paylaşılan Erişim İlkesi akış mekanizmaya sahip izinleri tanımlar. Günümüzde, Event Hubs'a akış gerektirir **Yönet**, **Gönder**, ve **dinleme** izinleri. Oluşturma veya olay hub'ları ad alanı altında Azure portalında için paylaşılan erişim ilkeleri değiştirmek için **yapılandırma** sekmesinde olay hub'ları ad alanınız için. 
+Paylaşılan Erişim İlkesi akış mekanizması olan izni tanımlar. Bugün, Event Hubs'a akış gerektirir **Yönet**, **Gönder**, ve **dinleme** izinleri. Oluşturma veya değiştirme altında Azure portalında Event Hubs ad alanı için paylaşılan erişim ilkeleri **yapılandırma** Event Hubs ad alanınız için sekmesinde. 
 
-Değişikliği yapan kullanıcının akış dahil etmek için etkinlik günlüğü günlük profilini güncelleştirmek için bu olay hub'ları yetkilendirme kuralı ListKey izni olmalıdır. Her iki aboneliğin uygun RBAC erişimi ayarı yapılandıran kullanıcının sahip olduğu sürece günlükleri, yayma abonelik ile aynı abonelikte olması olay hub'ları ad alanı yok.
+Etkinlik günlüğü günlük profilini akış içerecek şekilde güncelleştirmek için değişikliği yapan kullanıcının bu Event hubs'ı yetkilendirme kuralı ListKey izni olmalıdır. Event Hubs ad alanı ayarı yapılandıran kullanıcının her iki abonelik için uygun RBAC erişimine sahip olduğu sürece, günlükleri yayan aboneliği ile aynı abonelikte olması gerekmez.
 
 ### <a name="via-the-azure-portal"></a>Azure portalı üzerinden
-1. Gözat **etkinlik günlüğü** kullanarak bölüm **tüm hizmetleri** portalın sol tarafındaki arama.
+1. Gözat **etkinlik günlüğü** kullanarak bölümü **tüm hizmetleri** portalın sol tarafındaki arama.
    
-   ![Etkinlik günlüğü Hizmetleri portalında listesinden seçme](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Seçin **verme** günlük üstündeki düğmesi.
+   ![Etkinlik günlüğü Portalı'ndaki Hizmetler listesinden seçme](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
+2. Seçin **dışarı** günlüğü üstünde düğme.
    
    ![Portalda Dışarı Aktar](./media/monitoring-stream-activity-logs-event-hubs/export.png)
 
-   Önceki görünümünde etkinlik günlüğü görüntülerken uygulanan filtre ayarlarını dışa aktarma ayarlarınızı etkilemez gerektiğini unutmayın. Yalnızca, etkinlik günlüğü Portalı aracılığıyla göz atarken bkz filtreleme için izinlerdir.
-3. Görüntülenen bölümünde **tüm bölgelere**. Belirli bölgeler seçmeyin.
+   Etkinlik günlüğü önceki görünümünde görüntülerken, uyguladığınız filtresi ayarları dışarı aktarma ayarlarınıza göre herhangi bir etkisi gerektiğini unutmayın. Etkinlik günlüğünüzü portalında atarken bkz yalnızca filtrelemesinde olanlardır.
+3. Görüntülenen bölümde, seçin **tüm bölgeler**. Belirli bölgelerde seçmeyin.
    
-   ![Bölüm dışarı aktarma](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+   ![Dışarı aktarma bölümü](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
 
    > [!WARNING]  
-   > Herhangi bir şey dışında seçerseniz **tüm bölgelere**, almayı beklediğiniz anahtar olayları kaçırılması. Etkinlik günlüğü genel (Bölgesel olmayan) günlük olduğundan, çoğu olayları ilişkili bir bölgesi yoktur. 
+   > Dışında herhangi bir şey seçeneğini belirlerseniz **tüm bölgeler**, almayı beklediğiniz anahtar olayları kaçırmayın. Etkinlik günlüğüne genel bir (Bölgesel olmayanlar) günlük olduğundan, çoğu olayları kendileriyle ilişkilendirilmiş bir bölgeye sahip değildir. 
    >
 
-4. Seçin **kaydetmek** bu ayarları kaydetmek için. Ayarları, aboneliğinizi hemen uygulanır.
-5. Birden fazla aboneliğiniz varsa, bu eylemi yineleyin ve aynı olay hub'ına tüm verileri gönder.
+4. Seçin **Kaydet** bu ayarları kaydedin. Ayarlar aboneliğinize hemen uygulanır.
+5. Birden fazla aboneliğiniz varsa, bu eylemi yineleyin ve tüm verileri aynı olay hub'ına gönderir.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell cmdlet'leri
-Bir günlük profili zaten varsa, önce varolan günlük profilini kaldırın ve yeni bir günlük profili oluşturmak gerekir.
+Günlük profilini zaten varsa önce mevcut günlük profilini kaldırın ve ardından yeni bir günlük profili oluşturmak gerekir.
 
-1. Kullanım `Get-AzureRmLogProfile` günlük profili olup olmadığını belirlemek için.  Bir günlük profili mevcut değilse bulun *adı* özelliği.
+1. Kullanım `Get-AzureRmLogProfile` günlük profili var olmadığını belirleyin.  Günlük profilini mevcut değilse bulun *adı* özelliği.
 2. Kullanım `Remove-AzureRmLogProfile` değerini kullanarak günlük profilini kaldırmak için *adı* özelliği.
 
     ```powershell
@@ -78,15 +78,15 @@ Bir günlük profili zaten varsa, önce varolan günlük profilini kaldırın ve
    $eventHubNamespace = "<event hub namespace>"
 
    # Build the service bus rule Id from the settings above
-   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespaceName/authorizationrules/RootManageSharedAccessKey"
+   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/RootManageSharedAccessKey"
 
    Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
 
 ### <a name="via-azure-cli"></a>Azure CLI
-Bir günlük profili zaten varsa, önce varolan günlük profilini kaldırın ve yeni bir günlük profili oluşturmak gerekir.
+Günlük profilini zaten varsa önce mevcut günlük profilini kaldırın ve ardından yeni bir günlük profili oluşturmak gerekir.
 
-1. Kullanım `az monitor log-profiles list` günlük profili olup olmadığını belirlemek için.
+1. Kullanım `az monitor log-profiles list` günlük profili var olmadığını belirleyin.
 2. Kullanım `az monitor log-profiles delete --name "<log profile name>` değerini kullanarak günlük profilini kaldırmak için *adı* özelliği.
 3. Kullanım `az monitor log-profiles create` yeni bir günlük profili oluşturmak için:
 
@@ -94,11 +94,11 @@ Bir günlük profili zaten varsa, önce varolan günlük profilini kaldırın ve
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-## <a name="consume-the-log-data-from-event-hubs"></a>Olay hub'ları günlük verilerini kullanma
-Etkinlik günlüğü için şemayı kullanılabilir [Azure etkinlik günlüğü ile abonelik etkinliğini İzle](monitoring-overview-activity-logs.md). Her bir olaydır adlı JSON BLOB'ları bir dizi *kayıtları*.
+## <a name="consume-the-log-data-from-event-hubs"></a>Event Hubs günlük verilerini kullanma
+Etkinlik günlüğü için şema kullanılabilir [Azure etkinlik günlüğü ile abonelik etkinliğini İzle](monitoring-overview-activity-logs.md). JSON bloblarını adlı bir dizide her olaydır *kayıtları*.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Arşiv depolama hesabı etkinlik günlüğü](monitoring-archive-activity-log.md)
-* [Azure etkinlik günlüğü bakış okuma](monitoring-overview-activity-logs.md)
-* [Etkinlik günlüğü olaya dayanarak bir uyarı ayarlama](insights-auditlog-to-webhook-email.md)
+* [Bir depolama hesabı için Etkinlik günlüğünü arşivleme](monitoring-archive-activity-log.md)
+* [Azure etkinlik günlüğüne genel bakış okuyun](monitoring-overview-activity-logs.md)
+* [Bir etkinlik günlüğü olayı temel alan bir uyarı ayarlama](insights-auditlog-to-webhook-email.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Ekleme veya Azure yönetici abonelik rolleri değiştirme | Microsoft Docs
-description: Azure ortak yönetici, Hizmet Yöneticisi ve Hesap Yöneticisi ekleme veya değiştirme açıklar
+title: Azure yönetici abonelik rollerini ekleme veya değiştirme | Microsoft Docs
+description: Ekleme veya Azure ortak yönetici, Hizmet Yöneticisi ve Hesap Yöneticisi değiştirme açıklar
 services: ''
 documentationcenter: ''
 author: genlin
@@ -13,120 +13,104 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 06/14/2018
 ms.author: genli
-ms.openlocfilehash: 09c2badf6116dd36add6cccc82486d7f5b8f8697
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: HT
+ms.openlocfilehash: 97210c0d9dba9c4130b1da9ad17a257ff1d81b42
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069161"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37450277"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ekleme veya Azure aboneliği yöneticileri değiştirme
 
-Azure Klasik abonelik yöneticileri ve Azure [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md) Azure kaynaklarına erişimi yönetmek için iki sistemleri:
+Azure kaynaklarına erişimi yönetmek için uygun yönetici rolüne sahip olmalıdır. Bu makalede, ekleme veya değiştirme abonelik düzeyinde bir kullanıcı için yönetici rolünü açıklar.
 
-* Klasik abonelik yöneticisi rollerini teklif temel erişim yönetimi ve Hesap Yöneticisi, Hizmet Yöneticisi ve ortak Yöneticiler içerir.
-    * Yeni bir Azure aboneliği için kaydolduğunuzda, hesabınızın varsayılan olarak Hesap Yöneticisi ve Hizmet Yöneticisi ayarlanır.
-    * Ortak yönetici işaretinden sonra eklenebilir.
-* RBAC ayrıntılı erişim yönetimi birçok yerleşik roller, kapsam ve özel roller esnekliğini sunar, daha yeni bir sistemdir.
-    * Ancak, yalnızca RBAC rolleri ve hiçbir Klasik abonelik yönetici rollerine sahip kullanıcılar Azure Klasik dağıtımlar yönetemezsiniz.
+## <a name="what-administrator-role-do-i-use"></a>Yönetici rolü kullanabilirim?
 
-Daha iyi denetim sağlamak ve erişim yönetimini basitleştirmek için tüm erişim yönetimi ihtiyaçları için RBAC kullanmanızı öneririz. Mümkünse, varolan erişim ilkeleri RBAC kullanarak yeniden yapılandırmanız önerilir. 
+Azure, birçok farklı rol yok. Kaynaklara erişimi yönetmek için Klasik Abonelik Yöneticisi rolleri, Hizmet Yöneticisi ve ortak yönetici veya rol tabanlı erişim denetimi (RBAC) adı verilen yeni bir yetkilendirme sistemine gibi kullanabilirsiniz. Daha iyi denetim sağlamak ve erişim yönetimini basitleştirmek için tüm erişim yönetimi gereksinimleriniz için RBAC kullanmanızı öneririz. Mümkünse, RBAC kullanarak var olan erişim ilkelerini yeniden yapılandırmanız önerilir. Daha fazla bilgi için [rol tabanlı erişim denetimi (RBAC) nedir](../role-based-access-control/overview.md) ve [farklı rolleri Azure anlamak](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 <a name="add-an-admin-for-a-subscription"></a>
 
-## <a name="add-an-rbac-owner-admin-for-a-subscription-in-azure-portal"></a>Azure portalında bir abonelik için RBAC sahip yönetici ekleme 
+## <a name="add-an-rbac-owner-for-a-subscription-in-azure-portal"></a>Azure portalında RBAC sahibi aboneliği ekleme 
 
-Birisi Azure aboneliği hizmet yönetimi için yönetici olarak eklemek için bunları RBAC sahip rolünü aboneliğine verin. Sahip rolü atanmış ve diğer aboneliklere erişim ayrıcalığına sahip değil Bu Abonelikteki kaynakları yönetebilir.
+Birisi Azure aboneliğiniz için yönetici olarak eklemek için bunları atayın [sahibi](../role-based-access-control/built-in-roles.md#owner) abonelik kapsamında rol (RBAC rolü). Sahip rolüne atanan ve diğer aboneliklere erişimi ayrıcalığına sahip değil Bu Abonelikteki kaynakları yönetebilir.
 
 1. Ziyaret [ **abonelikleri** Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Erişim vermek istediğiniz aboneliği seçin.
-3. Seçin **Ekle**  
-   (Ekle düğmesini eksikse, izinleri eklemek için izniniz yok.)
-4. Seçin **erişim denetimi (IAM)** menüde.
+3. **Add (Ekle)** seçeneğini belirleyin.
+   (Ekle düğmesini eksikse, izinler eklemek için izniniz yok.)
+4. Seçin **erişim denetimi (IAM)** listesinde.
 5. İçinde **rol** kutusunda **sahibi**. 
-6. İçinde **atamak için erişim** kutusunda **Azure AD kullanıcı, Grup veya uygulama**. 
-7. İçinde **seçin** sahibi olarak eklemek istediğiniz kullanıcının e-posta adresini yazın. Kullanıcıyı seçin ve ardından **kaydetmek**.
+6. İçinde **erişim Ata** kutusunda **Azure AD kullanıcı, Grup veya uygulama**. 
+7. İçinde **seçin** sahip olarak eklemek istediğiniz kullanıcının e-posta adresini yazın. Kullanıcıyı seçin ve ardından **Kaydet**.
 
-    ![Seçili sahip rolünü gösteren ekran görüntüsü](./media/billing-add-change-azure-subscription-administrator/add-role.png)
+    ![Seçili sahip rolü gösteren ekran görüntüsü](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-Bu temsilci başkalarına erişimi hakkı dahil olmak üzere tüm kaynaklara kullanıcı tam erişim sağlar. Bir kaynak grubu gibi farklı bir kapsamda erişim vermek için bu kapsamı için IAM menü ziyaret edin. 
+Bu, tüm kaynaklara temsilci erişimi başkalarına hakkı dahil olmak üzere kullanıcı tam erişim sağlar. Bir kaynak grubu gibi farklı bir kapsamda erişmenizi sağlayacak ziyaret **erişim denetimi (IAM)** dikey penceresinde bu kapsamı için.
 
-## <a name="add-or-change-co-administrator"></a>Ekleme veya ortak yöneticiyi değiştirme
+## <a name="add-or-change-co-administrator"></a>Ekleme veya ortak yönetici değiştirme
 
-Yalnızca bir sahip bir ortak yönetici eklenebilir. Rolleri katkıda bulunan ve okuyucu gibi diğer kullanıcılarla ortak yönetici olarak eklenemez.
+Yalnızca bir [sahibi](../role-based-access-control/built-in-roles.md#owner) ortak yönetici olarak eklenebilir. Rolleri gibi diğer kullanıcılarla [katkıda bulunan](../role-based-access-control/built-in-roles.md#contributor) ve [okuyucu](../role-based-access-control/built-in-roles.md#reader) ortak Yöneticiler olarak eklenemez.
 
 > [!TIP]
-> Yalnızca kullanıcının Azure Klasik dağıtımları yönetmek gerekirse "Sahip" hesabı ortak yönetici olarak eklemeniz gerekir. Diğer amaçlar için RBAC kullanmanızı öneririz.
+> Yalnızca Azure Klasik dağıtımlarını yönetmek kullanıcının erişmesi gerekiyorsa sahibi ortak yönetici olarak eklemeniz gerekir. Diğer amaçlar için RBAC kullanmanızı öneririz.
 
-1. Henüz yapmadıysanız, birisi üstten yönergeleri izleyerek sahibi olarak ekleyin.
-2. **Sağ** sahibi kullanıcı, yeni eklediğiniz ve ardından **ortak yönetici olarak Ekle**. Görmüyorsanız, **ortak yönetici olarak Ekle** seçeneği, sayfayı yenileyin veya başka bir Internet tarayıcısı deneyin. 
+1. Henüz yapmadıysanız, birisi yukarıdaki yönergeleri izleyerek bir sahibi olarak ekleyin.
+2. **Sağ** sahip kullanıcı, yeni eklediğiniz ve ardından **ortak yönetici olarak Ekle**. Görmüyorsanız, **ortak yönetici olarak Ekle** seçeneği, sayfayı yenileyin veya başka bir Internet tarayıcısı deneyin. 
 
     ![Ortak yönetici ekler ekran görüntüsü](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
-    Ortak yönetici izni kaldırmak için **sağ** seçin ve "Ortak Yöneticisi" kullanıcı **kaldırmak ortak yönetici**.
+    Ortak yönetici izni kaldırmak için **sağ** seçin ve ortak yönetici kullanıcı **ortak yöneticiyi kaldırmak**.
 
     ![Ortak yönetici kaldırır ekran görüntüsü](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
 
 <a name="change-service-administrator-for-a-subscription"></a>
 
-## <a name="change-the-service-administrator-for-an-azure-subscription"></a>Bir Azure aboneliği için Hizmet Yöneticisi değiştirme
+## <a name="change-the-service-administrator-for-an-azure-subscription"></a>Bir Azure aboneliğine yönelik hizmet yöneticisini değiştiremez
 
-Yalnızca Hesap Yöneticisi bir aboneliği için Hizmet Yöneticisi değiştirebilirsiniz. Oturum açtığınızda varsayılan olarak, Hizmet Yöneticisi olarak Hesap Yöneticisi aynıdır. Hizmet Yöneticisi başka bir kullanıcı tarafından değiştirilirse, Hesap Yöneticisi Azure portalına erişim kaybeder. Ancak, Hesap Yöneticisi hizmet Yöneticisi geri kendilerini değiştirmek için her zaman hesap Merkezi'ni kullanabilirsiniz.
+Yalnızca Hesap Yöneticisi, bir aboneliği için Hizmet Yöneticisi olarak değiştirebilirsiniz. Oturum açtığınızda varsayılan olarak, Hizmet Yöneticisi hesap yöneticisi olarak aynıdır. Hizmet Yöneticisi başka bir kullanıcı tarafından değiştirilirse, Hesap Yöneticisi Azure Portalı'na erişimi kaybeder. Ancak, Hesap Yöneticisi hizmet Yöneticisi geri kendilerini değiştirmek için her zaman hesap merkezi kullanabilirsiniz.
 
-1. Senaryonuz denetleyerek desteklendiğinden emin olun [hizmet yöneticileri değiştirmek için sınırları](#limits).
-1. Oturum [hesap Merkezi'nde](https://account.windowsazure.com/subscriptions) hesap yöneticisi olarak.
+1. Senaryonuz denetimi tarafından desteklenen emin [hizmet yöneticileri değiştirmek için sınırları](#limits).
+1. Oturum [hesap Merkezi](https://account.windowsazure.com/subscriptions) hesap yöneticisi olarak.
 1. Bir abonelik seçin.
-1. Sağ tarafta seçin **Düzenle abonelik ayrıntıları**.
+1. Sağ tarafta seçin **Abonelik Ayrıntıları Düzenle**.
 
-    ![Hesap Merkezi'nde Düzenle abonelik düğmesini gösteren ekran görüntüsü](./media/billing-add-change-azure-subscription-administrator/editsub.png)
-1. İçinde **Hizmet Yöneticisi** kutusuna, yeni Hizmet Yöneticisi'nin e-posta adresi girin.
+    ![Hesap Merkezi'nde abonelik Düzenle düğmesini gösteren ekran görüntüsü](./media/billing-add-change-azure-subscription-administrator/editsub.png)
+1. İçinde **Hizmet Yöneticisi** kutusunda, yeni bir Hizmet Yöneticisi e-posta adresini girin.
 
     ![Hizmet Yöneticisi e-posta değiştirmek için kutusunu gösteren ekran görüntüsü](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
 <a name="limits"></a>
 
-### <a name="limitations-for-changing-service-administrators"></a>Hizmet yöneticileri değiştirmek için sınırlamalar
+### <a name="limitations-for-changing-service-administrators"></a>Hizmet yöneticileri değiştirmeye ilişkin sınırlamalar
 
-* Her abonelik, Azure AD dizini ile ilişkilidir. Abonelik ile ilişkili dizine bulmak için Git [ **abonelikleri**](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), dizin görmek için bir abonelik seçin.
-* Bir iş veya Okul hesabıyla oturum açmış durumdaysanız, Hizmet Yöneticisi olarak, kuruluşunuzdaki diğer hesapları ekleyebilirsiniz. Örneğin, abby@contoso.com ekleyebilirsiniz bob@contoso.com olarak Hizmet Yöneticisi ekleyemezsiniz, ancak john@notcontoso.com sürece john@notcontoso.com contoso.com Directory'de durum vardır. İş veya Okul hesaplarıyla oturum imzalı kullanıcılar Hizmet Yöneticisi olarak Microsoft Account kullanıcıları eklemeye devam edebilirsiniz.
+* Her abonelik bir Azure AD dizini ile ilişkilidir. Aboneliği ile ilişkili dizini bulunacak Git [ **abonelikleri**](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), ardından dizini görmek için bir abonelik seçin.
+* Bir iş veya Okul hesabıyla oturum açtıysanız, Hizmet Yöneticisi olarak kuruluşunuzdaki diğer hesapları ekleyebilirsiniz. Örneğin, abby@contoso.com ekleyebilirsiniz bob@contoso.com olarak Hizmet Yöneticisi, ancak ekleyemez john@notcontoso.com sürece john@notcontoso.com contoso.com dizinde faaliyet. İş veya Okul hesaplarıyla oturum açmış kullanıcıların, Microsoft Account kullanıcılarını Hizmet Yöneticisi olarak eklemeye devam edebilirsiniz.
 
-  | Oturum açma yöntemi | Microsoft Account user SA olarak eklensin mi? | SA ile aynı kuruluşta bir iş veya Okul hesabı eklensin mi? | SA olarak farklı bir kuruluşta bir iş veya Okul hesabı eklensin mi? |
+  | Oturum açma yöntemi | Microsoft Account user Hizmet Yöneticisi olarak eklensin mi? | İş veya Okul hesabı aynı kuruluşta Hizmet Yöneticisi olarak eklensin mi? | İş veya Okul hesabı, farklı bir kuruluşun Hizmet Yöneticisi olarak eklensin mi? |
   | --- | --- | --- | --- |
   |  Microsoft Hesabı |Evet |Hayır |Hayır |
   |  İş veya Okul hesabı |Evet |Evet |Hayır |
 
-## <a name="change-the-account-administrator-for-an-azure-subscription"></a>Bir Azure aboneliği için Hesap Yöneticisi değiştirme
+## <a name="change-the-account-administrator-for-an-azure-subscription"></a>Bir Azure aboneliğine yönelik hesap yöneticisi değiştirme
 
-Hesap Yöneticisi başlangıçta Azure aboneliği için kaydolup ve abonelik faturalama sahibi olarak sorumlu olan kullanıcıdır. Bir aboneliğin Hesap Yöneticisi değiştirmek için bkz: [başka bir hesap için bir Azure aboneliği sahipliğini aktarma](billing-subscription-transfer.md).
+Hesap Yöneticisi başlangıçta Azure aboneliğine kaydolduğu ve faturalandırma abonelik sahibi olarak sorumlu olan kullanıcıdır. Bir aboneliğin Hesap Yöneticisi değiştirmek için bkz [bir Azure aboneliğinin sahipliğini başka bir hesaba](billing-subscription-transfer.md).
 
 <a name="check-the-account-administrator-of-the-subscription"></a>
 
 **Emin değil hesap yöneticisi olan?** Şu adımları uygulayın:
 
 1. Ziyaret [ **abonelikleri** Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Denetleyin ve altında aramak istediğiniz aboneliği seçin **ayarları**.
+1. Kontrol edin ve ardından altına bakın istediğiniz aboneliği seçin **ayarları**.
 1. Seçin **özellikleri**. Aboneliğin Hesap Yöneticisi görüntülenen **Hesap Yöneticisi** kutusu.  
-
-## <a name="types-of-classic-subscription-admins"></a>Klasik abonelik yöneticileri türleri
-
- Hesap Yöneticisi, Hizmet Yöneticisi ve ortak yönetici üç azure'da Klasik Abonelik Yöneticisi rolleri türleridir. Azure için kaydolmak için kullandığınız hesap Hesap Yöneticisi ve Hizmet Yöneticisi otomatik olarak ayarlanır. Sonra ek ortak Yöneticiler eklenebilir. Aşağıdaki tabloda, bu üç yönetici rolleri arasındaki tam farklar açıklanmaktadır. 
-
-> [!TIP]
-> Daha iyi denetim ve ayrıntılı erişim yönetimi için Azure rol tabanlı erişim denetimi (birden çok role eklenecek kullanıcıların veren RBAC), kullanmanızı öneririz. Daha fazla bilgi için bkz: [Azure Active Directory rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
-
-| Klasik abonelik yöneticisi | Sınır | Açıklama |
-| --- | --- | --- |
-| Hesap Yöneticisi (AA) |Azure hesabı başına 1 |Azure aboneliği için kaydolup ve erişimi için yetkilendirilmiş kullanıcı budur [hesap Merkezi'nde](https://account.azure.com/Subscriptions) ve çeşitli yönetim görevlerini gerçekleştirebilirsiniz. Bunlar, yeni abonelikler oluşturun, aboneliklerinizi iptal edin, bir abonelik için faturalama değiştirin ve Hizmet Yöneticisi değiştirmek çalışabilme içerir. Kavramsal olarak, Hesap Yöneticisi abonelik faturalama sahibidir. RBAC, hesap yöneticinize bir rolü atanmamış.|
-| Hizmet Yöneticisi (SA) |Azure abonelik başına 1 |Bu rol hizmetleri yönetmeye yetkilidir [Azure portal](https://portal.azure.com). Varsayılan olarak, yeni bir abonelik için Hesap Yöneticisi ayrıca hizmet yöneticisidir. RBAC, hizmet yöneticisine abonelik kapsamda sahip rolünü verilir.|
-| Ortak yönetici (CA) |Abonelik başına 200 |Bu rol Hizmet Yöneticisi ile aynı erişim ayrıcalıklarına sahiptir, ancak aboneliklerin Azure dizinleriyle ilişkisini değiştiremez. RBAC, abonelik kapsamında ortak yönetici için sahip rolünü verilir.|
 
 ## <a name="learn-more-about-resource-access-control-and-active-directory"></a>Kaynak erişim denetimi ve Active Directory hakkında daha fazla bilgi edinin
 
-* Microsoft Azure'da kaynak erişiminin nasıl denetlendiğini hakkında daha fazla bilgi için bkz: [azure'da kaynak erişimini anlama](../role-based-access-control/rbac-and-directory-admin-roles.md).
-* Azure Active Directory hakkında daha fazla bilgi için bkz: [Azure aboneliklerinin Azure Active Directory ile ilişkili](../active-directory/active-directory-how-subscriptions-associated-directory.md) ve [Azure Active Directory'de yönetici rolleri atama](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
+* RBAC hakkında daha fazla bilgi için bkz: [rol tabanlı erişim denetimi (RBAC) nedir?](../role-based-access-control/overview.md)
+* Azure'da tüm rolleri hakkında daha fazla bilgi edinmek için [farklı rolleri Azure anlamak](../role-based-access-control/rbac-and-directory-admin-roles.md).
+* Azure Active Directory hakkında daha fazla bilgi için bkz. [Azure aboneliklerinin Azure Active Directory ile ilişkisi](../active-directory/active-directory-how-subscriptions-associated-directory.md) ve [Azure Active Directory'de yönetici rolleri atama](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 
-Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

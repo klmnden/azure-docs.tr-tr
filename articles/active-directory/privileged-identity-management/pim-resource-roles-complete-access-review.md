@@ -1,63 +1,63 @@
 ---
-title: Privileged Identity Management'ı kullanarak Azure kaynakları için bir erişim gözden geçirme tamamlayın | Microsoft Docs
-description: Azure kaynakları için bir erişim gözden geçirme tamamlamak açıklar.
+title: Privileged Identity Management'ı kullanarak Azure kaynakları için erişim gözden geçirmesi tamamlama | Microsoft Docs
+description: Azure kaynakları için erişim gözden geçirmesi tamamlama açıklar.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2e6556d3bac386bff26f9a5ce8f599e099fdb6c4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: e21d0240469a9c775e610c97f98c073b8f83ce8e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233810"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442214"
 ---
-# <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management'ı kullanarak Azure kaynakları için bir erişim gözden geçirme tamamlayın
-Ayrıcalıklı rol Yöneticiler ayrıcalıklı erişim sonra gözden geçirebileceğiniz bir [güvenlik incelemesi başlatıldıysa](pim-resource-roles-start-access-review.md). Azure kaynakları için ayrıcalıklı Kimlik Yönetimi (PIM) otomatik olarak erişimleri gözden geçirmek için kullanıcıların ister bir e-posta gönderir. Bir kullanıcı bir e-posta almazsa, onlara yönergeleri gönderebilirsiniz [güvenlik incelemesi gerçekleştirme](pim-resource-roles-perform-access-review.md).
+# <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management'ı kullanarak Azure kaynakları için erişim değerlendirmesi tamamlama
+Ayrıcalıklı rol yöneticileri, ayrıcalıklı erişim sonra gözden geçirebileceğiniz bir [güvenlik incelemesi çalışmaya](pim-resource-roles-start-access-review.md). Azure kaynakları için Privileged Identity Management (PIM) otomatik olarak kullanıcıların erişimini gözden geçirmek için kullanıcıların ister bir e-posta gönderir. Bir kullanıcı bir e-posta almazsa, bunları yönergeleri gönderebilirsiniz [güvenlik incelemesi gerçekleştirme](pim-resource-roles-perform-access-review.md).
 
-Güvenlik değerlendirme süresi bittikten sonra veya tüm kullanıcılar kendi kendini gözden bitirdikten sonra gözden geçirme yönetmek ve sonuçları görmek için bu makaledeki adımları izleyin.
+Güvenlik incelemesi süresi bittikten sonra veya tüm kullanıcılar, kendi kendini gözden bitirdikten sonra gözden geçirme yönetmek ve sonuçları görmek için bu makaledeki adımları izleyin.
 
-## <a name="manage-security-reviews"></a>Güvenlik değerlendirmeleri yönetme
-1. [Azure Portal](https://portal.azure.com/) gidin. Panoda seçip **Azure kaynaklarını** uygulama.
+## <a name="manage-security-reviews"></a>Güvenlik incelemeleri yönetme
+1. [Azure Portal](https://portal.azure.com/) gidin. Panoda, ardından **Azure kaynaklarını** uygulama.
 
 2. Kaynağınızı seçin.
 
-3. Seçin **erişim incelemeler** bölümü.
+3. Seçin **erişim gözden geçirmeleriyle** Pano bölümü.
 ![Erişim gözden geçirmeleri](media/azure-pim-resource-rbac/rbac-access-review-home-list.png)
 
-4. Yönetmek istediğiniz erişim gözden geçirme seçin.
+4. Yönetmek istediğiniz erişim gözden geçirmesi seçin.
 
-Erişim gözden geçirme ayrıntı dikey bu gözden geçirme yönetmek için birkaç seçenek vardır. Seçenekler şunlardır:
+Erişim gözden geçirmesi ayrıntıları dikey penceresinde, gözden geçirme yönetmek için birkaç seçenek vardır. Seçenekleri aşağıdaki gibidir:
 
-![Bir gözden geçirme yönetmek için Seçenekler](media/azure-pim-resource-rbac/rbac-access-review-menu.png)
+![Bir gözden geçirme yönetimi seçenekleri](media/azure-pim-resource-rbac/rbac-access-review-menu.png)
 
 ### <a name="stop"></a>Durdur
-Bitiş tarihi tüm erişim değerlendirmeleri sahip, ancak kullanabileceğiniz **durdurmak** erken bitirme düğmesi. Bu süreye göre gözden tamamlamadınız tüm kullanıcılar gözden durdurduktan sonra son mümkün olmayacaktır. Durdurulmuş sonra bir gözden geçirme yeniden başlatılamıyor.
+Tüm erişim gözden geçirmeleri bir bitiş tarihi vardır, ancak kullanabileceğiniz **Durdur** düğmesini erken tamamlayın. Bu süreye göre gözden geçirmelerini tamamlamadınız tüm kullanıcılar gözden durdurduktan sonra bitirmek mümkün olmayacaktır. Durdurulmuş sonra bir gözden geçirme yeniden başlatılamıyor.
 
 ### <a name="reset"></a>Sıfırla
-Üzerinde yapılan tüm kararlar kaldırmak için bir erişim gözden geçirme sıfırlayabilirsiniz. Bir erişim gözden geçirme sıfırladınız sonra tüm kullanıcılar olarak işaretlenmiş yeniden gözden geçirilmeyen. 
+Üzerinde yapılan tüm kararları kaldırmak için erişim gözden geçirmesi sıfırlayabilirsiniz. Erişim gözden geçirmesi sıfırladık sonra tüm kullanıcılar olarak işaretlenmiş yeniden gözden geçirilmeyen. 
 
 ### <a name="apply"></a>Uygula
-Bir erişim gözden geçirme işlemi tamamlandıktan sonra kullanmak **Uygula** gözden sonucunu uygulamak için düğmesi. Bir kullanıcının erişimi incelemede reddedildiyse, bu adım, rol ataması kaldırır.  
+Erişim gözden geçirmesi tamamlandığında, kullanın **Uygula** gözden geçirme sonucunu uygulamak için düğme. İncelemede kullanıcı erişimi reddedildiyse, bu adım, rol ataması kaldırır.  
 
 ### <a name="delete"></a>Sil
-İncelemede daha ilgileniyor değil, silin. **Silmek** düğmesini gözden geçirme PIM uygulamasını kaldırır.
+İncelemede daha ilgileniyor olmayan değilse silebilirsiniz. **Sil** düğmesini gözden PIM uygulamadan kaldırır.
 
 ## <a name="results"></a>Sonuçlar
-Üzerinde **sonuçları** sekmesinde, görüntüleme ve İnceleme sonuçlarınızı bir listesini indirir. 
+Üzerinde **sonuçları** sekmesinde görüntüleyin ve sonuçlarını gözden geçirme listesini indirin. 
 ![Sonuçları sekmesi](media/azure-pim-resource-rbac/rbac-access-review-results.png)
 
 ## <a name="reviewers"></a>Gözden Geçirenler
-Görüntüleyin ve var olan erişim incelemeniz gözden geçirenleri ekleme. Gözden geçirenler geçirmeyi tamamlamak için şu aralıklarla uyar.
+Görüntüleyebilir ve mevcut erişim gözden geçirmeniz için gözden geçirenleri ekleyin. Geçirmeyi tamamlamak için gözden geçirenler hatırlatın.
 ![Gözden geçirenler ekleme](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
 
 

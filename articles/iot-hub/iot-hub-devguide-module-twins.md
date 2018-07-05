@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Hub modülü çiftlerini anlama | Microsoft Docs
-description: Geliştirici Kılavuzu - kullanım modülü çiftlerini IOT Hub ve aygıtlarınızın arasında durumu ve yapılandırma verileri eşitlemek için
+title: Azure IOT hub'ı modül ikizlerini anlama | Microsoft Docs
+description: Geliştirici Kılavuzu - IOT Hub ve cihazlarınız arasında durum ve yapılandırma verilerini eşitlemek için modül ikizlerini kullanma
 author: chrissie926
 manager: ''
 ms.service: iot-hub
@@ -8,49 +8,49 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 71d762b6f1c199db17058ac107aad7a0b3260ae7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8f567ba43c1657783f9898863aef980627800481
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633504"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436328"
 ---
-# <a name="understand-and-use-module-twins-in-iot-hub"></a>Anlama ve IOT hub'ında modülü çiftlerini kullanın
+# <a name="understand-and-use-module-twins-in-iot-hub"></a>Anlama ve IOT Hub'ında modül ikizlerini kullanma
 
-Bu makalede okuduğunuz varsayılır [anlamak ve IOT hub'da cihaz çiftlerini kullanmak] [ lnk-devguide-device-twins] ilk. IOT Hub ' her bir cihaz kimliği altında en fazla 20 modülü kimlikleri oluşturabilirsiniz. Her bir modül kimliği örtük olarak bir modül çifti oluşturur. Çok cihaz çiftlerini, modül çiftlerini meta verileri, yapılandırmaları ve koşullar dahil olmak üzere Modül durumu bilgilerini depolamak JSON belgelerini benzer. Azure IOT Hub, IOT Hub'ına bağlanan her modül için modülü twin tutar. 
+Bu makalede okuduğunuz varsayılır [anlamak ve IOT Hub'ında cihaz ikizlerini kullanma] [ lnk-devguide-device-twins] ilk. IOT Hub'ında her bir cihaz kimliği altında en fazla 20 modülü kimlikleri oluşturabilirsiniz. Her bir modül kimliği, bir modül ikizi örtük olarak oluşturur. Cihaz ikizlerini çok benzer, modül ikizlerini meta veriler, yapılandırmalar ve koşullar dahil olmak üzere modülün durum bilgilerini depolayan JSON belgelerdir. Azure IOT Hub, IOT Hub'ına bağladığınız her bir modül için bir modül ikizi tutar. 
 
-Cihaz tarafında, IOT Hub cihaz SDK'ları, her IOT hub'ı bağımsız bir bağlantı açar modülleri oluşturma olanak tanır. Bu, Cihazınızda farklı bileşenler için ayrı ad alanları kullanmanıza olanak sağlar. Örneğin, üç farklı algılayıcılar bir satış makine gerekir. Her algılayıcı şirketinizdeki farklı Departmanlar tarafından denetlenir. Her algılayıcı için bir modül oluşturabilirsiniz. Bu şekilde, her bölüm yalnızca işleri veya doğrudan yöntemleri bunlar çakışmalarını ve kullanıcı hatalarını önleme denetimi algılayıcı gönderebilir.
+Cihaz tarafında, IOT Hub cihazı SDK'ları olanak tanır, her IOT hub'ı bağımsız bir bağlantı açar modülleri oluşturabilir. Bu, Cihazınızda farklı bileşenleri için ayrı ad alanları kullanmanıza olanak sağlar. Örneğin, üç farklı algılayıcılar bir satış makine var. Her algılayıcı, şirketinizdeki farklı Departmanlar tarafından denetlenir. Her algılayıcı için bir modül oluşturabilirsiniz. Bu şekilde, her bölüm yalnızca bunlar çakışmalar veya kullanıcı hatalarından kaçınmak denetimi algılayıcı için işler veya doğrudan yöntemler göndermek kullanabilirsiniz.
 
- Modül kimliği ve modülü twin cihaz kimliği ve cihaz çifti olarak ancak daha hassas bir ayrıntı düzeyi aynı yetenekleri sağlar. İşletim sistemi veya yapılandırma ve koşullar için bu bileşenlerin her birini yalıtmak için birden çok bileşen yönetme bellenim aygıtları aygıtları esasında özellikli cihazların yüksekse bu ayrıntı düzeyi sağlar. Modül kimliği ve modül çiftlerini sorunları yönetim ayrılması modüler yazılım bileşenleri sahip IOT cihazları ile çalışırken sağlar. Modül twin genel kullanılabilirlik tarafından modülü twin düzeyinde tüm cihaz çifti işlevlerini destekleyen en hedefleyin. 
+ Modül kimliği ve modül ikizi cihaz kimliği ve cihaz ikizi ancak daha iyi tanecikli aynı özellikleri sağlar. Cihazlar veya üretici yazılımı cihazları yapılandırma ve koşullar için bu bileşenlerin her birini yalıtmak için birden çok bileşen yönetme işletim sistemlerinde olduğu gibi bu daha iyi tanecikli özellikli cihazlarda sağlar. Modül kimliği ve modül ikizlerini yönetim ayrımı nettir modüler yazılım bileşenleri IOT cihazları ile çalışırken sağlar. Biz, modül ikizi genel kullanılabilirlik tarafından modül ikizi düzeyinde tüm cihaz ikizi işlevselliği destekleyen en hedeflenir. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Bu makalede açıklanır:
 
-* Modül twin yapısını: *etiketleri*, *istenen* ve *özellikleri bildirilen*.
-* Modüller ve arka uçları modülü çiftlerini üzerinde gerçekleştirebileceğiniz işlemler.
+* Modül ikizi yapısını: *etiketleri*, *istenen* ve *bildirilen özellikler*.
+* Modüller ve arka uçları modül ikizlerini üzerinde gerçekleştirebileceğiniz işlemler.
 
-Başvurmak [cihaz bulut iletişimi Kılavuzu] [ lnk-d2c-guidance] bildirilen özellikleri, cihaz bulut iletilerini veya karşıya dosya yükleme kullanma konusunda yönergeler için.
-Başvurmak [bulut-cihaz iletişimi Kılavuzu] [ lnk-c2d-guidance] istenen özellikler, doğrudan yöntemleri veya Bulut-cihaz iletilerini kullanma konusunda yönergeler için.
+Başvurmak [CİHAZDAN buluta iletişim Kılavuzu] [ lnk-d2c-guidance] bildirilen özellikleri, CİHAZDAN buluta iletileri ya da karşıya dosya yükleme kullanma yönergeleri için.
+Başvurmak [bulut buluttan cihaza iletişim Kılavuzu] [ lnk-c2d-guidance] istenen özellikler, doğrudan yöntemler ve bulut-cihaz iletilerini kullanma yönergeleri için.
 
-## <a name="module-twins"></a>Modül çiftlerini
-Modül çiftlerini modülü ile ilgili bilgileri depolar:
+## <a name="module-twins"></a>Modül ikizlerini
+Modül ikizlerini modülü ile ilgili bilgileri depolar:
 
 * IOT Hub ve cihaz modülleri modülü koşullar ve yapılandırma eşitlemek için kullanabilirsiniz.
-* Çözüm arka ucu sorgu ve uzun süre çalışan hedef için kullanabileceğiniz işlemleri.
+* Çözüm arka ucu, sorgu ve uzun süre çalışan hedef için kullanabileceğiniz işlemleri.
 
-Karşılık gelen bir modül twin yaşam döngüsü bağlı [modül kimliği][lnk-identity]. Modülleri çiftlerini örtük olarak oluşturulur ve bir modül kimliği oluşturulduğunda veya IOT hub'da silinmiş silinir.
+Modül ikizi yaşam döngüsü karşılık gelen bağlı [modülü kimlik][lnk-identity]. Modül ikizlerini örtük olarak oluşturulur ve bir modül kimliği oluşturulduğunda veya IOT Hub'ında silinmiş silinir.
 
-Bir modül twin içeren bir JSON belgesi şöyledir:
+Modül ikizi içeren bir JSON belgesidir:
 
-* **Etiketleri**. Çözüm arka ucu JSON belgesinin bir bölümünü okuma ve yazma. Etiketler cihaz modüllerinde görünür değildir. Etiketler amacı sorgulamak için ayarlanır.
-* **Özellikler istenen**. Modül yapılandırması veya koşulları eşitlemek için bildirilen özellikleriyle birlikte kullanılır. Modül uygulama okuyabilir ve çözüm arka ucu istenen özellikleri ayarlayabilirsiniz. Modül uygulama ayrıca istenen özelliklerinde değişiklik bildirimleri alabilirsiniz.
-* **Özellikler bildirilen**. Modül yapılandırması veya koşulları eşitlemek için istediğiniz özellikleri ile birlikte kullanılır. Modül uygulama bildirilen özellikleri ayarlayabilirsiniz ve çözüm arka ucu okuyabilir ve bunları sorgulayabilirsiniz.
-* **Modül kimlik özellikleri**. Modül twin JSON belgesi kökündeki saklanan karşılık gelen bir modül kimliği salt okunur özelliklerinden içeren [kimlik kayıt defteri][lnk-identity].
+* **Etiketleri**. Çözüm arka ucu, okuma ve yazma JSON belgesinin bölümü. Etiketler, cihazdaki modüller için görünür değildir. Etiketler, amacı sorgulama için ayarlanır.
+* **İstenen özellikleri**. Modül yapılandırması veya koşulları eşitlemek için bildirilen özellikleriyle birlikte kullanılır. Modül uygulama okuyabilirsiniz ve çözüm arka ucu, istenen özellikleri ayarlayabilirsiniz. Modülü uygulama, ayrıca değişiklik bildirimleri istenen özellikleri alabilir.
+* **Bildirilen özellikler**. Modül yapılandırması veya koşulları eşitlemek için istenen özellikleri ile birlikte kullanılır. Modül uygulama bildirilen özellikleri ayarlayabilirsiniz ve çözüm arka ucu okuyun ve bunları sorgulayabilirsiniz.
+* **Modülü kimlik özellikleri**. Modül ikizi JSON belgesinin kök saklanan karşılık gelen bir modül kimliği salt okunur özelliklerini içeren [kimlik kayıt defteri][lnk-identity].
 
 ![][img-module-twin]
 
-Aşağıdaki örnek, bir modül twin JSON belgesi gösterir:
+Aşağıdaki örnek, bir modül ikizi JSON belgesini gösterir:
 
 ```json
 {
@@ -97,18 +97,18 @@ Aşağıdaki örnek, bir modül twin JSON belgesi gösterir:
 }
 ```
 
-Kök nesnesinde modül kimliği özelliklerdir ve kapsayıcı nesneleri için `tags` ve her ikisi de `reported` ve `desired` özellikleri. `properties` Kapsayıcısı bazı salt okunur öğeleri içerir (`$metadata`, `$etag`, ve `$version`) açıklanan [modülü twin meta veri] [ lnk-module-twin-metadata] ve [ İyimser eşzamanlılık] [ lnk-concurrency] bölümler.
+Kapsayıcı nesneleri için ve kök nesne modülü kimlik özelliklerdir `tags` ve her ikisi de `reported` ve `desired` özellikleri. `properties` Kapsayıcı bazı salt okunur öğeleri içerir (`$metadata`, `$etag`, ve `$version`) açıklanan [modül ikizi meta verileri] [ lnk-module-twin-metadata] ve [ İyimser eşzamanlılık] [ lnk-concurrency] bölümler.
 
-### <a name="reported-property-example"></a>Bildirilen özelliği örneği
-Önceki örnekte modülü twin içeren bir `batteryLevel` modülü uygulama tarafından bildirilen özelliği. Bu özellik, sorgu ve son bildirilen pil düzeyi temelinde modülleri üzerinde çalıştırmak mümkün kılar. Diğer örnekler modülü uygulama raporlama modülü özelliklerini veya bağlantı seçenekleri içerir.
+### <a name="reported-property-example"></a>Bildirilen özellik örneği
+Önceki örnekte, modül ikizi içeren bir `batteryLevel` modülü uygulama tarafından bildirilen özellik. Bu özellik, sorgu ve son bildirilen pil düzeyini temel alan modüller işlem mümkün kılar. Diğer örnekler modülü uygulama raporlama modülü özellikleri veya bağlantı seçenekleri içerir.
 
 > [!NOTE]
-> Bildirilen özellikler çözüm arka ucu bir özelliğin bilinen son değerini nerede ilgilendiği senaryoları basitleştirin. Kullanım [cihaz bulut iletilerini] [ lnk-d2c] çözüm arka ucu zaman serisi gibi zaman damgalı olaylar dizisini biçiminde modülü telemetri işlemek gerekiyorsa.
+> Bildirilen özellikler, çözüm arka ucu bir özelliğin son bilinen değer burada ilgilendiği senaryoları basitleştirin. Kullanım [CİHAZDAN buluta iletileri] [ lnk-d2c] çözüm arka ucu modülü telemetri zaman serisi gibi zaman damgalı olaylar dizisini biçiminde işlemek gerekiyorsa.
 
-### <a name="desired-property-example"></a>İstenen özelliği örneği
-Önceki örnekte, `telemetryConfig` modülü twin istenen ve bildirilen özellikler çözüm arka ucu ve modül uygulama tarafından bu modül için telemetri yapılandırma eşitlemek için kullanılır. Örneğin:
+### <a name="desired-property-example"></a>İstenen özellik örneği
+Önceki örnekte, `telemetryConfig` modül ikizi istenen ve bildirilen özellikleri modülü uygulama ve çözüm arka ucu ile bu modül için telemetri yapılandırma eşitlemek için kullanılır. Örneğin:
 
-1. Çözüm arka ucu istenen özelliği istenen yapılandırma değeri ayarlar. İstenen özellik kümesine sahip belge kısmı şöyledir:
+1. Çözüm arka ucu, istenen yapılandırma değeri ile istenen özelliği ayarlar. İstenen özellik kümesine sahip bir belge bölümü aşağıda verilmiştir:
 
     ```json
     ...
@@ -121,7 +121,7 @@ Kök nesnesinde modül kimliği özelliklerdir ve kapsayıcı nesneleri için `t
     ...
     ```
 
-2. Modül uygulama hemen bağlıysa değişiklik ya da ilk yeniden bağlanma sırasında bildirilir. Modül uygulama daha sonra güncelleştirilmiş yapılandırmayı raporlar (veya bir hata koşulu kullanarak `status` özelliği). Bildirilen özellikleri kısmı şöyledir:
+2. Modül uygulamayı hemen bağlıysa değişiklik veya ilk yeniden bildirilir. Modül uygulama daha sonra güncelleştirilmiş yapılandırmayı raporlar (veya bir hata koşulunu kullanarak `status` özelliği). Bildirilen özellikler bölümü aşağıda verilmiştir:
 
     ```json
     ...
@@ -135,18 +135,18 @@ Kök nesnesinde modül kimliği özelliklerdir ve kapsayıcı nesneleri için `t
     ...
     ```
 
-3. Çözüm arka ucu yapılandırma işleminin sonuçlarını birçok modül arasında göre izleyebilirsiniz [sorgulama] [ lnk-query] modülü çiftlerini.
+3. Çözüm arka ucu yapılandırma işlemi sonuçlarını birçok modülleri arasında göre izleyebilirsiniz [sorgulama] [ lnk-query] modül ikizlerini.
 
 > [!NOTE]
-> Önceki kod parçacıkları örnek, bir modül yapılandırması ve durumunu kodlamak için bir yol okunabilmesi için en iyi duruma getirilmiş verilebilir. Modül twin istenen ve modül çiftlerini özelliklerinde rapor için IOT hub'ı belirli bir şema getirmez.
+> Yukarıdaki örnek, bir modül yapılandırması ve durumunu kodlama yollarından biri okunabilirlik için en iyi duruma getirilmiş parçacıklarıdır. Modül ikizi istenen ve modül ikizlerini özelliklerinde bildirilen IOT hub'ı belirli bir şemaya uygulamaz.
 > 
 > 
 
-## <a name="back-end-operations"></a>Arka plan işlemleri
-Çözüm arka ucu HTTPS kullanıma sunulan aşağıdaki atomik işlemleri kullanarak modülü twin çalıştırır:
+## <a name="back-end-operations"></a>Arka uç işlemleri
+Çözüm arka ucu kullanarak HTTPS sunulan aşağıdaki atomik işlemler, modül ikizi çalışır:
 
-* **Modül twin Kimliğine göre almak**. Bu işlem, etiketler ve istenen ve bildirilen sistem özellikleri dahil olmak üzere modülü twin belgeyi döndürür.
-* **Kısmen modülü twin güncelleştirme**. Bu işlem, etiket veya modülü çiftine istenen özellikler kısmen güncelleştirmek çözüm arka ucu sağlar. Kısmi güncelleştirmeyi ekler veya herhangi bir özellik güncelleştirmeleri bir JSON belgesi olarak ifade edilir. Özelliklerini ayarlamak `null` kaldırılır. Aşağıdaki örnek yeni bir istenen özellik değeri ile oluşturur `{"newProperty": "newValue"}`, var olan değerini geçersiz kılar `existingProperty` ile `"otherNewValue"`ve kaldırır `otherOldProperty`. Herhangi bir değişiklik mevcut istenen özellikleri veya etiketleri oluşturulur:
+* **Modül ikizi Kimliğe göre Al**. Bu işlem, etiketler ve istenen ve bildirilen sistem özellikleri dahil olmak üzere modül ikizi belgeyi döndürür.
+* **Modül ikizi kısmen güncelleştirmek**. Bu işlem, etiketler ya da bir modül ikizi istenen özelliği kısmen güncelleştirmek çözüm arka ucu sağlar. Kısmi güncelleştirmeyi ekler veya güncelleştirir herhangi bir özelliği bir JSON belgesi olarak ifade edilir. Özelliklerini ayarlamak `null` kaldırılır. Aşağıdaki örnek yeni bir istenen özellik değeriyle oluşturur `{"newProperty": "newValue"}`, mevcut değerini geçersiz kılar `existingProperty` ile `"otherNewValue"`ve kaldırır `otherOldProperty`. Başka bir değişiklik, mevcut istenen özellikleri veya etiketleri oluşturulur:
 
     ```json
     {
@@ -162,30 +162,30 @@ Kök nesnesinde modül kimliği özelliklerdir ve kapsayıcı nesneleri için `t
     }
     ```
 
-* **İstenen Özellikleri Değiştir**. Bu işlem tamamen varolan tüm istenen özellikler üzerine ve yeni bir JSON belgesi için alternatif çözüm arka ucu sağlayan `properties/desired`.
-* **Etiketleri değiştirmek**. Bu işlem tamamen varolan tüm etiketleri üzerine ve yeni bir JSON belgesi için alternatif çözüm arka ucu sağlayan `tags`.
-* **Twin bildirimlerin**. Bu işlem twin değiştirildiğinde bildirim almak çözüm arka ucu sağlar. Bunu yapmak için IOT çözümünüzün bir rota oluşturmak ve veri kaynağı eşit ayarlamak için gereken *twinChangeEvents*. Varsayılan olarak, hiçbir twin bildirimler gönderilir, diğer bir deyişle, bu tür bir yollar önceden mevcut. Değişiklik hızı çok yüksekse, veya diğer nedenlerle iç hataları gibi IOT hub'ı tüm değişiklikleri içeren tek bir bildirim gönderebilirsiniz. Bu nedenle, uygulamanızın güvenilir denetim ve tüm ara durumlarıyla ilgili günlük gerekirse, cihaz bulut iletilerini kullanmanız gerekir. Özellikler ve gövde twin bildirim iletisi içerir.
+* **İstenen özellikleri değiştirin**. Bu işlemi tamamen mevcut tüm istenen özellikleri üzerine ve yeni bir JSON belgesi için alternatif çözüm arka ucu sağlar `properties/desired`.
+* **Etiketleri değiştirin**. Bu işlemi tamamen tüm mevcut etiketlerin üzerine yazarsınız ve yeni bir JSON belgesi için alternatif çözüm arka ucu sağlar `tags`.
+* **İkiz bildirimlerin**. Bu işlem ikizi değiştirildiğinde bildirim almak çözüm arka ucu sağlar. Bunu yapmak için IOT çözümünüzün yönlendirme oluşturma ve veri kaynağı eşit ayarlamak için gereken *twinChangeEvents*. Varsayılan olarak, hiçbir ikizi bildirimler gönderilir, diğer bir deyişle, bu tür bir yol önceden mevcut. Değişim oranı çok yüksek olup olmadığını veya iç hatalar gibi diğer nedenlerle, IOT hub'ı tüm değişiklikleri içeren tek bir bildirim gönderebilir. Bu nedenle, uygulamanızın güvenilir denetim ve tüm ara durumlarını günlük gerekiyorsa, CİHAZDAN buluta iletileri kullanmanız gerekir. İkiz bildirim iletisi, özellikleri ve gövdesini içerir.
 
     - Özellikler
 
     | Ad | Değer |
     | --- | --- |
     $content-türü | uygulama/json |
-    $iothub-enqueuedtime |  Zaman zaman bildirim gönderildi |
-    $iothub-ileti-kaynak | twinChangeEvents |
+    $iothub-enqueuedtime |  Bildirim zaman gönderildiği zaman |
+    $iothub-message-kaynak | twinChangeEvents |
     $content-kodlama | UTF-8 |
     deviceId | Cihaz kimliği |
     Modül kimliği | Modül kimliği |
-    hubName | IOT hub'ının adı |
+    HubName | IOT hub'ı adı |
     operationTimestamp | [ISO8601] işleminin zaman damgası |
     ıothub ileti şeması | deviceLifecycleNotification |
     opType | "replaceTwin" veya "updateTwin" |
 
-    İleti sistemi özelliklerini öneki ile `'$'` simgesi.
+    İleti sistemi özellikleri önekiyle `'$'` simgesi.
 
     - Gövde
         
-    Bu bölüm bir JSON biçiminde tüm twin değişiklikleri içerir. Bir düzeltme eki aynı biçimi kullanır, farkı olan tüm twin bölümleri içerebilir: etiketleri, properties.reported, properties.desired ve "$metadata" öğeleri içerir. Örneğin,
+    Bu bölüm, JSON biçiminde tüm ikizi değişiklikleri içerir. Bir düzeltme eki aynı biçimi kullanır, farkı olan tüm ikizi bölümleri içerebilir: etiketler, properties.reported, properties.desired ve "$metadata" öğeleri içerir. Örneğin,
 
     ```json
     {
@@ -206,29 +206,29 @@ Kök nesnesinde modül kimliği özelliklerdir ve kapsayıcı nesneleri için `t
     }
     ```
 
-Önceki tüm işlemleri destekleyen [iyimser eşzamanlılık] [ lnk-concurrency] ve gerektiren **ServiceConnect** tanımlandığı şekilde izin [güvenlik] [ lnk-security] makalesi.
+Önceki tüm işlemleri destekleyen [iyimser eşzamanlılık] [ lnk-concurrency] ve gerekli **ServiceConnect** tanımlandığı gibi izni [güvenlik] [ lnk-security] makalesi.
 
-Bu işlemlerin yanı sıra çözüm arka ucu yapabilirsiniz:
+Bu işlemlere ek olarak çözüm arka ucu şunları yapabilir:
 
-* SQL benzeri kullanarak modülü çiftlerini sorgulamak [IOT hub'ı sorgu dili][lnk-query].
+* Modül ikizlerini kullanarak SQL benzeri sorgu [IOT Hub sorgu dili][lnk-query].
 
 ## <a name="module-operations"></a>Modül işlemleri
-Modül uygulama aşağıdaki atomik işlemleri kullanarak modülü twin üzerinde çalışır:
+Modül uygulama aşağıdaki atomik işlemleri kullanarak modül ikizi üzerinde çalışır:
 
-* **Modül twin almak**. Bu işlem için şu anda bağlı Modülü (etiketleri ve istenen ve bildirilen sistem özellikleri dahil) modülü twin belgeyi döndürür.
-* **Kısmen bildirilen özellikleri güncelleştirmek**. Bu işlem şu anda bağlı modülü bildirilen özelliklerini kısmi güncelleştirilmesini sağlar. Bu işlem çözümü istenen özelliklerinin kısmi güncelleştirme son kullanımları geri aynı JSON güncelleştirme biçimi kullanır.
-* **İstenen özelliklerde gözlemlemek**. Şu anda bağlı modülü bunlar gerçekleştiğinde istenen özellikleri için güncelleştirmeler bildirilmesini seçebilirsiniz. Modül aynı formun çözüm arka ucu tarafından yürütülen Güncelleştirmesi (kısmi veya tam değiştirme) alır.
+* **Modül ikizi almak**. Bu işlem için şu anda bağlı Modülü (etiketler ve istenen ve bildirilen sistem özellikleri dahil) modül ikizi belgeyi döndürür.
+* **Kısmen bildirilen özellikleri güncelleştirmek**. Bu işlem şu anda bağlı modülü bildirilen özelliklerinin kısmi güncelleştirme sağlar. Bu işlem, çözüm istenen özellikler kısmen güncelleştirmek için kullandığı uç geri JSON güncelleştirme biçimini kullanır.
+* **İstenen özellikleri gözlemleyin**. Şu anda bağlı modülü, İstenen özelliklerde yapılan güncelleştirmelerin gerçekleştiğinde bildirim almak seçebilirsiniz. Modül, formun çözüm arka ucu tarafından yürütülen Güncelleştirmesi (kısmi veya tam değiştirme) alır.
 
-Önceki tüm işlemleri gerektiren **ModuleConnect** tanımlandığı şekilde izin [güvenlik] [ lnk-security] makalesi.
+Önceki tüm işlemleri gerektiren **ModuleConnect** tanımlandığı gibi izni [güvenlik] [ lnk-security] makalesi.
 
-[Azure IOT cihaz SDK'ları] [ lnk-sdks] kolaylaştıran birçok diller ve platformlar önceki işlemlerinden kullanın.
+[Azure IOT cihaz SDK'ları] [ lnk-sdks] birçok dilleri ve platformları önceki işlemlerle kolaylaştırır.
 
-## <a name="tags-and-properties-format"></a>Etiketleri ve özellikleri biçimi
-Etiketler, istenen özellikleri ve bildirilen özellikleri JSON nesnelerinin aşağıdaki kısıtlamalarla şunlardır:
+## <a name="tags-and-properties-format"></a>Etiketler ve Özellikler biçimi
+Aşağıdaki kısıtlamalarla JSON nesneleri, etiketler ve istenen özellikler bildirilen özellikleri şunlardır:
 
-* JSON nesnelerinin tüm anahtarları büyük küçük harfe duyarlı 64 baytı UTF-8 UNICODE dizeleri içindedir. Karakter hariç UNICODE denetim karakterleri (kesimleri C0 ve C1) izin verilen ve `'.'`, `' '`, ve `'$'`.
-* JSON nesnelerinin tüm değerleri aşağıdaki JSON türde olabilir: boolean, sayı, dize, nesne. Diziler izin verilmiyor. Tamsayı değeri en fazla 4503599627370495 ve tamsayılar için en düşük değer-4503599627370496.
-* Etiketler, istenen ve bildirilen özellikleri tüm JSON nesnelerinin maksimum derinliği 5 olabilir. Örneğin, aşağıdaki nesne geçerli değil:
+* Tüm JSON nesneleri büyük/küçük harfe 64 baytın UTF-8 UNICODE dizelerini anahtarlarıdır. İzin verilen karakterleri UNICODE denetim karakterlerini (segmentler C0 ve C1) hariç tutmak ve `'.'`, `' '`, ve `'$'`.
+* JSON nesneleri tüm değerleri aşağıdaki JSON türde olabilir: boolean, sayı, dize, nesne. Diziler izin verilmez. Tamsayılar için maksimum değer 4503599627370495 ve tamsayılar için en düşük değer-4503599627370496.
+* Etiketler, istenen ve bildirilen özellikler tüm JSON nesneleri 5 en yüksek derinliği olabilir. Örneğin, aşağıdaki nesne geçerli değil:
 
     ```json
     {
@@ -250,15 +250,15 @@ Etiketler, istenen özellikleri ve bildirilen özellikleri JSON nesnelerinin aş
     }
     ```
 
-* Tüm dize değeri uzunluğu en fazla 4 KB olabilir.
+* Tüm dize değerleri, uzunluğu en fazla 4 KB olabilir.
 
-## <a name="module-twin-size"></a>Modül twin boyutu
-IOT hub'ı zorlayan bir 8KB boyutu sınırlaması her ilgili toplam değerlerinin `tags`, `properties/desired`, ve `properties/reported`, salt okunur öğeleri hariç.
-Boyutu UNICODE denetim karakterleri (kesimleri C0 ve C1) hariç tüm karakterleri sayma tarafından hesaplanır ve dize sabitleri dışında olan alanları.
-IOT hub'ı bir hata ile bu belgelerin sınırı üstünde boyutunu artırır tüm işlemleri reddeder.
+## <a name="module-twin-size"></a>Modül ikizi boyutu
+IOT hub'ı zorunlu bir 8 KB'lık boyut sınırlaması ilgili toplam değerlerinin her `tags`, `properties/desired`, ve `properties/reported`, salt okunur öğeleri hariç.
+UNICODE denetim karakterlerini (segmentler C0 ve C1) hariç tüm karakter sayılarak boyutu hesaplanır ve dize sabitleri dışında olan alanları.
+IOT Hub ile ilgili bir hata bu belgelerin üst sınırı boyutunu artırır tüm işlemleri reddeder.
 
-## <a name="module-twin-metadata"></a>Modül twin meta verileri
-IOT hub'ı son güncelleştirme modülü çiftine her bir JSON nesnesi için zaman damgasını istenen ve Özellikler bildirilen korur. Zaman damgaları UTC biçimindedir ve kodlanmış [ISO8601] biçimi `YYYY-MM-DDTHH:MM:SS.mmmZ`.
+## <a name="module-twin-metadata"></a>Modül ikizi meta verileri
+IOT Hub, zaman damgası son güncelleştirme her JSON nesnesi, modül ikizi için istenen ve bildirilen özellikler oluşturur. Zaman damgaları UTC biçiminde ve kodlanmış [ISO8601] biçimi `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 Örneğin:
 
 ```json
@@ -306,20 +306,20 @@ IOT hub'ı son güncelleştirme modülü çiftine her bir JSON nesnesi için zam
 }
 ```
 
-Bu bilgiler, Nesne anahtarları kaldırmak güncelleştirmeleri korumak için her düzeyde (yalnızca JSON yapısındaki bırakır) tutulur.
+Bu bilgiler, Nesne anahtarları kaldırma güncelleştirmeleri korumak için her düzeyde (yalnızca JSON yapısı Yapraklar) tutulur.
 
 ## <a name="optimistic-concurrency"></a>İyimser eşzamanlılık
-Etiketler, istenen ve tüm destek iyimser eşzamanlılık özellikleri bildirdi.
-Etiketler göre bir ETag sahip [RFC7232], etiketin JSON gösterimi temsil eden. Tutarlılık sağlamak için Etag'ler çözüm arka ucu koşullu güncelleştirme işlemlerini kullanabilirsiniz.
+Etiketler, istenen ve tüm destek iyimser eşzamanlılık bildirilen özellikler.
+Etikete göre bir ETag sahip [RFC7232], etiketin JSON gösterimi, temsil eder. Tutarlılık sağlamak için Etag'ler çözüm arka ucu koşullu güncelleştirme işlemlerini kullanabilirsiniz.
 
-Modül twin istenen ve Özellikler rapor Etag'ler gerekmez, ancak sahip bir `$version` artımlı olması garanti değeri. Benzer şekilde bir ETag öğesine Sürüm güncelleştirme tarafın güncelleştirmeleri tutarlılığı zorlamak için kullanılabilir. Örneğin, bir modül uygulaması bildirilen bir özellik ya da istenen bir özellik için çözüm arka ucu için.
+Modül ikizi istenen ve bildirilen özellikler Etag'ler yoktur, ancak sahip bir `$version` artımlı olması garanti değeri. Benzer şekilde bir ETag öğesine sürümü güncelleştirme tarafça güncelleştirmeleri tutarlılığını zorlamak için kullanılabilir. Örneğin, bir modül uygulaması bildirilen özellik veya istenen özelliği için çözüm arka ucu için.
 
-Bir gözlemci Aracı (örneğin, İstenen özelliklerde Gözlemleme modülü uygulama) alma işleminin sonucu bir güncelleştirme bildirimi arasındaki diğerleriyle mutabık kılmak sürümleri de yararlı olur. [Aygıt yeniden bağlanmayı akış] bölümünde [lnk-yeniden bağlanma] daha fazla bilgi sağlar. 
+Gözlemci Aracı (örneğin, istenen özellikleri gözleme modülü uygulama) alma işleminin sonucu bir güncelleştirme bildirimi arasındaki yarışa hazır mutabık kılmanız gerekir sürümleri de yararlıdır. ' % S'bölümü [cihaz yeniden akış] [lnk-yeniden bağlanma] daha fazla bilgi sağlar. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede açıklanan kavramları bazıları denemek için aşağıdaki IOT hub'ı öğreticileri bakın:
+Bu makalede açıklanan kavramları bazıları denemek için aşağıdaki öğreticilerde IOT Hub bakın:
 
-* [.NET yedekleme ve .NET aygıt kullanarak IOT hub'ı modülü kimlik ve modül çifti ile çalışmaya başlama][lnk-module-twin-tutorial]
+* [.NET arka ucu ve cihaz .NET kullanarak IOT hub'ı modül kimlik ve modül ikizi ile çalışmaya başlama][lnk-module-twin-tutorial]
 
 <!-- links and images -->
 

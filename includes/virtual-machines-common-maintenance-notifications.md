@@ -2,70 +2,72 @@
 title: include dosyası
 description: include dosyası
 services: virtual-machines
-author: zivraf
+author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: zivr
+ms.date: 07/02/2018
+ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 9666a8fde808981dd798ff712b96a7c620c9003a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 782c855ff6d28f2cd96a87893ebf74023472badc
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958903"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437986"
 ---
-## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Portalda bakım için zamanlanmış görünüm VM'ler
+## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Portalda bakım için zamanlanmış Vm'leri görüntüleme
 
-Planlı bakım wave zamanlanmış ve bildirimler gönderilir sonra yaklaşan Bakımı wave tarafından etkilenen sanal makinelerin listesini görebilirsiniz. 
+Bir planlı bakım dalgası zamanlanmış sonra gelecek bakım dalgasından etkilenen sanal makinelerin listesini görebilirsiniz. 
 
-Azure Portalı'nı kullanın ve bakım için zamanlanmış VM'ler arayın.
+Azure portalını kullanın ve bakım için zamanlanmış Vm'leri arayın.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Sol gezinti bölmesinde tıklatın **sanal makineleri**.
+2. Sol gezinti bölmesinde tıklayın **sanal makineler**.
 
-3. Sanal makineler bölmesinde **sütunları** düğmesi kullanılabilir sütunlar listesi açın.
+3. Sanal makineler bölmesinden **sütunları** düğmesi kullanılabilir sütunlar listesini açın.
 
-4. Seçin ve aşağıdaki sütunlar ekleyin:
+4. Seçin ve aşağıdaki sütunları ekleyin:
 
-   **Bakım** -VM için bakım durumunu gösterir. Olası değerler şunlardır:
+   **Bakım**: Bakım durumu için VM gösterir. Olası değerler şunlardır:
       
       | Değer | Açıklama |
       |-------|-------------|
-      | Şimdi başlayın | VM, bakımı sizin başlatmanıza imkan tanıyan self servis bakım penceresindedir. Nasıl bakım, VM başlatmak aşağıya bakın | 
-      | Zamanlanmış | VM, size başlatma seçeneği sunulmayan bir bakım için zamanlanır. Bu görünümde otomatik zamanlanmış penceresini seçerek veya VM tıklatarak bakım penceresi öğrenin | 
-      | Tamamlandı | Başarıyla başlatıldı ve VM üzerinde bakım tamamlandı. | 
-      | Atlandı| Bakımı başlatmayı seçtiniz ancak işlem başarısız oldu. Self Servis Bakım seçeneğini kullanmanız mümkün olmaz. VM, Azure tarafından zamanlanmış bakım aşamasında başlatılması gerekir. | 
+      | Şimdi başlayın | Bakım kendiniz başlatmak sağlayan Self Servis bakım penceresinde vm'dir. Sanal makinenizde bakım başlatma konusunda aşağıya bakın. | 
+      | Zamanlanmış | VM, size başlatma seçeneği sunulmayan bir bakım için zamanlanır. Bakım - bu görünümde veya VM'ye tıklayarak zamanlanmış penceresini seçerek bakım penceresi öğrenebilirsiniz. | 
+      | Zaten güncelleştirildi | Sanal makinenizin zaten güncelleştirilmiş ve şu anda başka bir eylem gerekli değildir. | 
+      | Daha sonra yeniden deneyin | Bakım başarısız oldu başlattınız. Daha sonraki bir zamanda Self Servis Bakım seçeneğini kullanmanız mümkün olacaktır. | 
+      | Şimdi yeniden deneyin | Daha önce başarısız bir kendi kendine başlatılan bakım yeniden deneyebilir. | 
 
-   **Bakım profesyonel etkin** -Vm'leriniz kendi kendine Bakımı başlatabilirsiniz zaman penceresini gösterir.
+   **Bakım - Self Servis pencere**: Bakım kendi Vm'lerinizde başlayabilirsiniz zaman penceresi gösterilir.
    
-   **Bakım zamanlanmış** -Azure VM'yi bakım tamamlamak için yeniden başlattığınızda zaman penceresini gösterir. 
+   **Bakım - zamanlanmış pencere**: Azure sanal makinenizin bakım tamamlamak için bakımını yaparken zaman penceresini gösterir. 
 
 
 
+## <a name="notification-and-alerts-in-the-portal"></a>Bildirim ve Portalı'nda uyarılar
 
-## <a name="notification-and-alerts-in-the-portal"></a>Bildirim ve Portalı'nda uyarıları
-
-Azure, abonelik sahibi ve ikincil sahipler grubu için bir e-posta göndererek planlı bakım için bir zamanlama iletişim kurar. Azure etkinlik günlüğü uyarıları oluşturarak bu iletişim için ek alıcılar ve kanalları ekleyebilirsiniz. Daha fazla bilgi için bkz. [Azure etkinlik günlüğü ile abonelik etkinliğini izleme] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+Azure aboneliğine sahip ve ikincil sahipler gruba e-posta göndererek planlı bakım için zamanlama iletişim kurar. Azure etkinlik günlüğü uyarıları oluşturarak, bu iletişim için ek alıcılar ve kanallar ekleyebilirsiniz. Daha fazla bilgi için bkz. [Azure etkinlik günlüğü ile abonelik etkinliğini izleme] (.. / articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Soldaki menüde seçin **İzleyici**. 
-3. İçinde **İzleyicisi - etkinlik günlüğü** bölmesinde, **uyarıları**.
-4. İçinde **İzleyicisi - uyarıları** bölmesinde tıklatın **+ Ekle etkinliği günlük uyarı**.
-5. Bilgileri tamamlayın **etkinlik günlüğü uyarı Ekle** sayfasında ve kümesinde aşağıdaki emin olun **ölçütleri**: **türü**: Bakım **durum**: Tüm (ayarlanmamış durumu etkin veya çözümlenmiş) **düzeyi**: tüm
+2. Soldaki menüde **İzleyici**. 
+3. İçinde **İzleyici - uyarılar (Klasik)** bölmesinde tıklayın **+ etkinlik günlüğü uyarısı Ekle**.
+5. Bilgileri tamamlayın **etkinlik günlüğü uyarısı Ekle** kümesinde aşağıdaki emin olun ve sayfa **ölçütleri**:
+   - **Olay kategorisi**: Hizmet durumu
+   - **Hizmetleri**: sanal makine ölçek kümeleri ve sanal makineler
+   - **Tür**: planlı bakım 
     
-Etkinlik günlüğü uyarılarının nasıl yapılandırılacağı hakkında daha fazla bilgi edinmek için [etkinlik günlüğü uyarı oluşturma](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
+Etkinlik günlüğü uyarılarının nasıl yapılandırılacağı hakkında daha fazla bilgi edinmek için [etkinlik günlüğü uyarıları oluşturma](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md).
     
     
-## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Bakım portalından VM'yi Başlat
+## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Portaldan vm'nizde Bakımı Başlat
 
-VM ayrıntıları bakarken bakım ile ilgili daha fazla ayrıntı görmeye olacaktır.  
-VM'yi bir planlı bakım wave eklenirse VM Ayrıntılar görünümü üst kısmında, yeni bir bildirim Şerit eklenir. Ayrıca, mümkün olduğunda bakım başlatmak için yeni bir seçenek eklenir. 
+Sanal makine ayrıntıları bakarken bakımı ile ilgili daha fazla ayrıntı mümkün olacaktır.  
+Sanal makinenize bir planlı bakım dalgası içinde yer alıyorsa, VM Ayrıntılar görünümü üst kısmında yeni bir bildirim Şerit eklenir. Ayrıca, mümkünse bakım başlatmak için yeni bir seçenek eklendi. 
 
 
-Bakım bildirim planlı bakım Bakım Sayfası daha fazla ayrıntı görmek için tıklayın. Buradan, yapabilirsiniz **bakımını Başlat** VM üzerinde.
+Bakım bildirimi planlı bakım hakkında daha fazla ayrıntı içeren koruma sayfasını görmek için tıklayın. Buradan, şunları yapabilecek **Bakımı Başlat** vm'nizde.
 
-Bakım başladıktan sonra sanal makinenin yeniden başlatılması ve Bakım durumu birkaç dakika içinde sonucu yansıtacak şekilde güncelleştirilir.
+Bakım başlattıktan sonra sanal makine korunur ve Bakım durumu birkaç dakika içinde sonucu yansıtacak şekilde güncelleştirilir.
 
-Bakım başlayabileceğiniz penceresi Kaçırıldı, VM'yi Azure tarafından yeniden başlatılacak zaman penceresi görmeye devam edersiniz. 
+Self Servis penceresi Kaçırıldı, VM'niz Azure tarafından korunur, pencerenin görmeye devam edersiniz. 

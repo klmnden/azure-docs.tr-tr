@@ -1,6 +1,6 @@
 ---
-title: Analytics HTTP veri toplayıcı API oturum | Microsoft Docs
-description: Günlük analizi HTTP veri toplayıcı API REST API'si çağırabilirsiniz herhangi bir istemciden günlük analizi depoya POST JSON verilerini eklemek için kullanabilirsiniz. Bu makalede API kullanmayı açıklar ve farklı programlama dillerini kullanarak veri yayımlama örnekleri vardır.
+title: Günlük analizi HTTP veri toplayıcı API'si | Microsoft Docs
+description: POST JSON verileri REST API çağrısı herhangi bir istemciden Log Analytics deposuna eklemek için Log Analytics HTTP veri toplayıcı API'sini kullanabilirsiniz. Bu makalede API'SİNİN nasıl kullanılacağı açıklanır ve farklı programlama dillerini kullanarak veri yayımlama örnekleri vardır.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,34 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 07/03/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 1125cdb5b1cc6829345c71537582816d020edc53
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a2aab89bcd550cc2b1dcc4f980f09b5c1e0e9464
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133119"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436388"
 ---
-# <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP veri toplayıcı API (genel Önizleme) ile günlük analizi veri Gönder
-Bu makalede HTTP veri toplayıcı API'sini bir REST API istemciden için günlük analizi veri göndermek için nasıl kullanılacağı gösterilmektedir.  Bu komut dosyası veya uygulama tarafından toplanan veri biçimi, bir istekte içerir ve günlük analizi tarafından yetkili bu istekte açıklar.  PowerShell, C# ve Python için örnekler verilmiştir.
+# <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP veri toplayıcı API'sini (genel Önizleme) ile Log Analytics veri Gönder
+Bu makalede REST API istemcisinden Log Analytics'e veri göndermek için HTTP veri toplayıcı API'sini kullanmayı gösterir.  Bu betik ya da uygulama tarafından toplanan verileri biçimlendirme, bir isteğe ekleyin ve bu istek Log Analytics tarafından yetkilendirilmiş olması açıklar.  PowerShell, C# ve Python için örnek verilmiştir.
 
 > [!NOTE]
-> Günlük analizi HTTP veri toplayıcı API Genel önizlemede değil.
+> Log Analytics HTTP veri toplayıcı API'sini genel Önizleme aşamasındadır.
 
 ## <a name="concepts"></a>Kavramlar
-HTTP veri toplayıcı API'sini bir REST API'si çağırabilirsiniz herhangi bir istemciden için günlük analizi veri göndermek için kullanabilirsiniz.  Bu runbook olabilir Azure Otomasyonu'nda yönetim toplar Azure veya başka bir bulut ya da verileri birleştirmek ve verileri çözümlemek için günlük analizi kullanan bir alternatif yönetim sistemi olabilir.
+Bir REST API'sine çağrı yapmadan herhangi bir istemciden Log Analytics'e veri göndermek için HTTP veri toplayıcı API'sini kullanabilirsiniz.  Bu runbook olabilir yönetim toplar Azure Automation'da Azure veya başka bir bulut ya da verileri birleştirmek ve verileri çözümlemek için Log Analytics kullanan bir alternatif yönetim sistemi olabilir.
 
-Günlük analizi depodaki tüm verileri belirli bir kayıt türü içeren bir kayıt olarak depolanır.  HTTP veri toplayıcı API'sine JSON içinde birden çok kayıt olarak göndermek için verilerinizi biçimlendirin.  Veri gönderdiğinde, tek bir kaydın depo istek yükünde her kayıt için oluşturulur.
+Log Analytics deposunda tüm verileri, belirli bir kayıt türü içeren bir kayıt olarak depolanır.  HTTP veri toplayıcı API'si için birden çok kayıt JSON olarak göndermek için veri biçimi.  Veri gönderdiğinde, depo istek yükü her kayıt için tek bir kayıt oluşturulur.
 
 
 ![HTTP veri toplayıcı genel bakış](media/log-analytics-data-collector-api/overview.png)
 
 
 
-## <a name="create-a-request"></a>Bir isteği oluşturun
-HTTP veri toplayıcı API kullanmak için JavaScript nesne gösterimi (JSON) göndermek için verileri içeren bir POST isteği oluşturun.  Sonraki üç tablolarda her istek için gerekli olan öznitelikler listelenir. Biz her özniteliği makalenin sonraki bölümlerinde daha ayrıntılı açıklanmıştır.
+## <a name="create-a-request"></a>Bir isteği oluştur
+HTTP veri toplayıcı API'sini kullanmak için JavaScript nesne gösterimi (JSON) gönderilecek verileri içeren bir POST isteği oluşturun.  Sonraki üç tablolarda her istek için gerekli olan öznitelikler listelenir. Her bir öznitelik makalenin ilerleyen bölümlerinde daha ayrıntılı olarak açıklanmaktadır.
 
 ### <a name="request-uri"></a>İstek URI'si
 | Öznitelik | Özellik |
@@ -51,30 +51,30 @@ HTTP veri toplayıcı API kullanmak için JavaScript nesne gösterimi (JSON) gö
 ### <a name="request-uri-parameters"></a>İstek URI parametreleri
 | Parametre | Açıklama |
 |:--- |:--- |
-| CustomerID |Günlük analizi çalışma alanı için benzersiz tanımlayıcı. |
+| CustomerID |Log Analytics çalışma alanı için benzersiz tanımlayıcı. |
 | Kaynak |API kaynak adı: / api/günlükleri. |
-| API Sürümü |Bu istekle kullanmak için API sürümü. Şu anda, 2016-04-01 değil. |
+| API Sürümü |Bu istekle kullanılacak API sürümü. Şu anda bu 2016-04-01 olur. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 | Üst bilgi | Açıklama |
 |:--- |:--- |
-| Yetkilendirme |Yetkilendirme imzası. Makalenin sonraki bölümlerinde HMAC SHA256 üstbilgi oluşturma hakkında bilgi edinebilirsiniz. |
-| Günlük türü |Gönderiliyor veri kaydı türünü belirtin. Şu anda, yalnızca alfasayısal karakterler günlük türünü destekler. Sayısal türler veya özel karakterler desteklemez. Bu parametre için boyut sınırını 100 karakter olabilir. |
-| x-ms-date |İstek işlendi, RFC 1123 biçiminde tarih. |
-| saat oluşturulan alanı |Veri öğesinin zaman damgası içeren veri bir alanın adı. Bir alan belirtin sonra içeriği için kullanılan **TimeGenerated**. Bu alan belirtilmezse, varsayılan **TimeGenerated** ileti alınan saattir. Mesaj alanına içeriğini ISO 8601 biçimi YYYY izlemelisiniz-aa-: ssZ. |
+| Yetkilendirme |Yetkilendirme imzası. Makalenin sonraki bölümlerinde bir HMAC SHA256 üst bilgisi oluşturma hakkında okuyabilirsiniz. |
+| Günlük türü |Gönderiliyor verileri kayıt türünü belirtin. Şu anda yalnızca alfasayısal karakterler günlük türünü destekler. Sayısal veya özel karakterleri desteklemez. Bu parametre için boyut sınırı 100 karakterdir. |
+| x-ms-tarih |İstek işlendiği, RFC 1123 biçiminde tarih. |
+| saat oluşturulan alanı |Zaman damgası veri öğesinin içerdiği verileri bir alanın adı. Bir alanı belirtmeniz sonra içeriği için kullanılan **TimeGenerated**. Bu alan belirtilmezse, varsayılan **TimeGenerated** ileti alınan zamandır. Mesaj alanına içeriğini ISO 8601 biçimi YYYY izlemelidir-aa-ssZ. |
 
 ## <a name="authorization"></a>Yetkilendirme
-Günlük analizi HTTP veri toplayıcı API için herhangi bir istek bir authorization üstbilgisi eklemeniz gerekir. Bir istek kimliğini doğrulamak için birincil veya ikincil anahtarı isteği yapan çalışma alanı için istekle imzalamanız gerekir. Daha sonra bu imza isteğin bir parçası geçirin.   
+Log Analytics HTTP veri toplayıcı API'sini yapılan tüm istekleri bir yetkilendirme üst bilgisi içermesi gerekir. Bir isteğin kimliğini doğrulamak için birincil veya ikincil anahtarı isteği yapan çalışma alanı için istekle oturum açmanız gerekir. Ardından, bu imza, isteğin bir parçası geçirin.   
 
-Authorization üstbilgisi biçimi şöyledir:
+Yetkilendirme üst bilgisi biçimi şu şekildedir:
 
 ```
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*Workspaceıd* günlük analizi çalışma alanı için benzersiz tanıtıcıdır. *İmza* olan bir [karma tabanlı ileti kimlik doğrulama kodu (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) istekten oluşturulan ve kullanılarak hesaplanan [SHA256 algoritmasını](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Ardından, onu Base64 kodlaması kullanarak kodlayın.
+*Çalışma alanı kimliği* Log Analytics çalışma alanı için benzersiz tanımlayıcı. *İmza* olduğu bir [karma tabanlı ileti kimlik doğrulama kodu (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) istekten oluşturulur ve ardından kullanarak hesaplanan [SHA256 algoritmasını](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Daha sonra bunu Base64 kodlaması kullanarak kodlayın.
 
-Kodlanacak şu biçimi kullanın **SharedKey** imza dizesi:
+Kodlamak için bu biçimi kullanmak **SharedKey** imza dize:
 
 ```
 StringToSign = VERB + "\n" +
@@ -84,22 +84,22 @@ StringToSign = VERB + "\n" +
                   "/api/logs";
 ```
 
-İmza dize örneği şöyledir:
+Bir imza dize örneği şöyledir:
 
 ```
 POST\n1024\napplication/json\nx-ms-date:Mon, 04 Apr 2016 08:00:00 GMT\n/api/logs
 ```
 
-İmza dize olduğunda, üzerinde UTF-8 kodlu dize HMAC SHA256 algoritmasını kullanarak kodlamak ve sonucu Base64 olarak kodlayın. Şu biçimi kullanın:
+İmza dize olduğunda, UTF-8 olarak kodlanmış dize üzerinde HMAC SHA256 algoritmasını kullanarak kodlamak ve ardından sonucu olarak Base64 kodlama. Bu biçimi kullanın:
 
 ```
 Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ```
 
-Sonraki bölümlerde bulunan örnekleri bir authorization üstbilgisi oluşturmanıza yardımcı olması için örnek koduna sahip.
+Örnekler sonraki bölümlerde, bir yetkilendirme üst bilgisi oluşturmanıza yardımcı olması için örnek kod vardır.
 
 ## <a name="request-body"></a>İstek gövdesi
-İleti gövdesi JSON'de olması gerekir. Bu biçimde özelliği ad ve değer çiftleri ile bir veya daha fazla kayıt içermesi gerekir:
+İletisinin gövdesini JSON biçiminde olmalıdır. Bu biçimde bir veya daha fazla özellik ad ve değer çiftlerini kayıtlarla içermesi gerekir:
 
 ```
 [
@@ -112,7 +112,7 @@ Sonraki bölümlerde bulunan örnekleri bir authorization üstbilgisi oluşturma
 ]
 ```
 
-Aşağıdaki biçimi kullanarak tek bir istekte birden çok kayıt toplu. Tüm kayıtları aynı kayıt türü olmalıdır.
+Aşağıdaki biçimi kullanarak tek bir istekte birden çok kayıt toplu iş. Tüm kayıtlarda aynı kayıt türü olmalıdır.
 
 ```
 [
@@ -132,13 +132,13 @@ Aşağıdaki biçimi kullanarak tek bir istekte birden çok kayıt toplu. Tüm k
 ```
 
 ## <a name="record-type-and-properties"></a>Kayıt türü ve özellikleri
-Günlük analizi HTTP veri toplayıcı API'si aracılığıyla veri gönderdiğinde, özel bir kayıt türü tanımlarsınız. Şu anda, diğer veri türleri ve çözümleri tarafından oluşturulan mevcut kayıt türleri veri yazamıyor. Günlük analizi gelen verileri okur ve girdiğiniz değerleri veri türlerini eşleşen özelliklere oluşturur.
+Günlük analizi HTTP veri toplayıcı API'si aracılığıyla veri gönderdiğinde, özel bir kayıt türü tanımlarsınız. Şu anda, diğer veri türleri ve çözümler tarafından oluşturulan mevcut kayıt türlerinin veri yazamıyor. Log Analytics, gelen verileri okur ve ardından girdiğiniz değer veri türleri eşleşen özelliklere oluşturur.
 
-Her istek için günlük analizi API içermelidir bir **günlük türü** kayıt türü için bir ad ile üstbilgisi. Sonek **_CL** otomatik olarak eklenir adı için özel bir günlük diğer günlük türlerinden ayırt etmek için girin. Örneğin adını girin, **MyNewRecordType**, günlük analizi türüyle bir kayıt oluşturur **MyNewRecordType_CL**. Bu, kullanıcı tarafından oluşturulan tür adları ve bunlar geçerli veya gelecek Microsoft çözümlerinde sevk arasında çakışmalar olduğundan emin olun yardımcı olur.
+Log Analytics API'sine yapılan her isteği içermelidir bir **günlük türü** üstbilgiyle kayıt türünün adı. Sonek **_CL** otomatik olarak eklenir adı için özel bir günlük günlük diğer türlerden ayırt etmek için bilgi girin. Örneğin adını girin, **MyNewRecordType**, Log Analytics ile tür kayıt oluşturur **MyNewRecordType_CL**. Bu kullanıcı tarafından oluşturulan tür adları hem de geçerli veya gelecek Microsoft çözümleri sevk arasında çakışmalar olduğundan emin olun yardımcı olur.
 
-Bir özelliğin veri türünü tanımlamak için günlük analizi özellik adına bir sonek ekler. Bir özellik boş bir değer içeriyorsa, özelliği bulunan ve bu kaydı bulunmaz. Bu tablo karşılık gelen sonek ve özellik veri türünü listeler:
+Bir özelliğin veri türünü tanımlamak için Log Analytics için özellik adını bir sonek ekler. Bir özellik null bir değer içeriyorsa, bu kayıt özelliği dahil edilmez. Bu tabloda, karşılık gelen sonek ve özellik verilerinin türü listelenmiştir:
 
-| Özellik veri türü | Sonek |
+| Özellik verilerinin türü | Sonek |
 |:--- |:--- |
 | Dize |_Yanları |
 | Boole |_B |
@@ -146,74 +146,74 @@ Bir özelliğin veri türünü tanımlamak için günlük analizi özellik adın
 | Tarih/saat |_T |
 | GUID |_g |
 
-Yeni kayıt için kayıt türü zaten var olup üzerinde her bir özellik için günlük analizi kullanır veri türüne bağlıdır.
+İster yeni kayıt için kayıt türü zaten var. her bir özellik için Log Analytics kullanan veri türüne bağlıdır.
 
-* Kayıt türü mevcut değilse yeni bir günlük analizi oluşturur. Günlük analizi JSON tür çıkarımı yeni kayıt için her bir özellik için veri türünü belirlemek için kullanır.
-* Kayıt türü var olan özelliğe göre yeni bir kayıt oluşturmak günlük analizi çalışır. İçin veri türü yeni kayıttaki özelliğinde eşleşmiyor ve varolan türüne dönüştürülemiyor veya kayıt mevcut olmayan bir özellik varsa, günlük analizi ilgili son ekine sahip yeni bir özellik oluşturur.
+* Kayıt türü yoksa yeni bir Log Analytics oluşturur. Log Analytics'e JSON tür çıkarımı yeni kayıt için her bir özellik için veri türünü belirlemek için kullanır.
+* Kayıt türü mevcut değilse mevcut özelliklerine bağlı olarak yeni bir kayıt oluşturmak Log Analytics çalışır. Yeni kayıttaki bir özellik için veri türü eşleşmiyor ve mevcut türüne dönüştürülemiyor veya kayıt mevcut olmayan bir özellik varsa, Log Analytics ilgili sonekine sahip yeni bir özellik oluşturur.
 
-Örneğin, bir kayıt üç özellik ile bu gönderimi giriş oluşturursunuz **number_d**, **boolean_b**, ve **string_s**:
+Örneğin, bu gönderme giriş üç özellik ile bir kayıt oluşturacak **number_d**, **boolean_b**, ve **string_s**:
 
 ![Kayıt örneği 1](media/log-analytics-data-collector-api/record-01.png)
 
-Ardından tüm değerleri dize olarak biçimlendirilmiş bu sonraki giriş gönderdiyseniz özellikleri değişmediği. Bu değerler var olan veri türüne dönüştürülebilir:
+Bu sonraki giriş ardından tüm değerleri dize olarak biçimlendirilmiş gönderdiyseniz özelliklerini değiştirmemesi. Bu değerler, mevcut veri türlerine dönüştürülebilir:
 
 ![Örnek kaydı 2](media/log-analytics-data-collector-api/record-02.png)
 
-Ancak, günlük analizi yeni özellikleri oluşturur. ardından bu sonraki gönderme yaptıysanız, **boolean_d** ve **string_d**. Bu değerleri dönüştürülemiyor:
+Ancak, ardından bu sonraki gönderim yaptıysanız, Log Analytics yeni özellikleri oluşturacak **boolean_d** ve **string_d**. Bu değerleri dönüştürülemez:
 
 ![Örnek kayıt 3](media/log-analytics-data-collector-api/record-03.png)
 
-Kayıt türü oluşturulmadan önce şu girdiyi sonra gönderdiyseniz, günlük analizi üç özellik ile bir kayıt oluşturacak **başarı sayısı**, **boolean_s**, ve **string_s**. Bu giriş, her ilk değeri bir dize olarak biçimlendirilmiş:
+Kayıt türü oluşturulmadan önce şu girişi, ardından gönderdiyseniz, Log Analytics üç özellik bir kayıt oluşturacak **başarı sayısı**, **boolean_s**, ve **string_s**. Bu girdiye her ilk değeri bir dize olarak biçimlendirilmiş:
 
 ![Örnek kayıt 4](media/log-analytics-data-collector-api/record-04.png)
 
 ## <a name="data-limits"></a>Veri sınırları
-Günlük analizi veri toplama API gönderilen veriler etrafında bazı kısıtlamalar vardır.
+Log Analytics veri toplama API'si gönderilen veriler etrafında bazı kısıtlamalar vardır.
 
-* Günlük analizi veri toplayıcı API post başına en fazla 30 MB. Tek bir posta için boyut sınırı budur. Tek bir veri gönderme, 30 MB aşıyor, küçük boyutlu öbekleri kadar veri bölme ve eşzamanlı olarak gönderin.
-* En fazla 32 KB sınırını alan değerleri için. Alan değeri 32 KB'den büyükse, verileri kesilecek.
-* Önerilen alanı sayısı için belirli bir türde 50'dir. Kullanılabilirlik ve arama deneyimi perspektifinden pratik sınır budur.  
+* Log Analytics Veri Toplayıcı API'sini gönderi başına en fazla 30 MB. Tek bir gönderi için boyut sınırı budur. Tek bir veri gönderirseniz 30 MB aşıyor, daha küçük boyutlu öbeklere verileri bölün ve eşzamanlı olarak gönderin.
+* En fazla 32 KB sınırını alan değerleri için. Alan değeri, 32 KB'den büyükse, verileri kesilecek.
+* Verilen tür için alanları önerilen en yüksek sayısını 50'dir. Bu, bir kullanılabilirlik ve arama deneyimi açısından pratik bir sınırdır.  
 
 ## <a name="return-codes"></a>Dönüş kodları
-HTTP durum kodu 200 istek işleme için alındı anlamına gelir. Bu işlemin başarıyla tamamlandığını belirtir.
+HTTP durum kodu 200 istek işleme için alındı anlamına gelir. Bu işlem başarıyla tamamlandığını gösterir.
 
-Bu tabloda tamamını hizmet döndürebilir durum kodları listelenmektedir:
+Bu tabloda eksiksiz hizmet döndürebilir durum kodları listelenmiştir:
 
 | Kod | Durum | Hata kodu | Açıklama |
 |:--- |:--- |:--- |:--- |
-| 200 |Tamam | |İsteği başarıyla kabul edildi. |
+| 200 |Tamam | |İstek başarıyla kabul edildi. |
 | 400 |Hatalı istek |InactiveCustomer |Çalışma alanı kapatıldı. |
 | 400 |Hatalı istek |InvalidApiVersion |Belirtilen API sürümü, hizmet tarafından tanınmadı. |
 | 400 |Hatalı istek |InvalidCustomerId |Belirtilen çalışma alanı kimliği geçersiz. |
-| 400 |Hatalı istek |InvalidDataFormat |Geçersiz JSON gönderildi. Yanıt gövdesi hatanın nasıl düzeltileceği hakkında daha fazla bilgi içerebilir. |
-| 400 |Hatalı istek |InvalidLogType |Kapsanan özel karakter veya sayı belirtilen günlük türü. |
+| 400 |Hatalı istek |InvalidDataFormat |Geçersiz JSON gönderildi. Yanıt gövdesi, hatanın nasıl düzeltileceği hakkında daha fazla bilgi içerebilir. |
+| 400 |Hatalı istek |InvalidLogType |Kapsanan özel karakterler veya sayısal değerleri belirtilen günlük türü. |
 | 400 |Hatalı istek |MissingApiVersion |API sürümü belirtilmedi. |
 | 400 |Hatalı istek |MissingContentType |İçerik türü belirtilmedi. |
 | 400 |Hatalı istek |MissingLogType |Gerekli değer günlük türü belirtilmedi. |
-| 400 |Hatalı istek |UnsupportedContentType |İçerik türü ayarlanmadı **uygulama/json**. |
+| 400 |Hatalı istek |UnsupportedContentType |İçerik türü değil olarak ayarlandı **application/json**. |
 | 403 |Yasak |InvalidAuthorization |Hizmet, isteğin kimliğini doğrulayamadı. Çalışma alanı kimliği ve bağlantı anahtarı geçerli olduğunu doğrulayın. |
-| 404 |Bulunamadı | | Sağlanan URL yanlış ya da istek çok büyük. |
-| 429 |Çok Fazla İstek | | Hizmet hesabınızdan veri hacmi yüksek yaşıyor. Lütfen isteği daha sonra yeniden deneyin. |
+| 404 |Bulunamadı | | Sağlanan URL yanlış veya isteği çok büyük. |
+| 429 |Çok Fazla İstek | | Hizmet hesabınızdan veri hacmi yüksek yaşıyor. Lütfen istek daha sonra yeniden deneyin. |
 | 500 |İç Sunucu Hatası |UnspecifiedError |Hizmet bir iç hatayla karşılaştı. Lütfen isteği yeniden deneyin. |
 | 503 |Hizmet Kullanılamıyor |ServiceUnavailable |Hizmet isteklerini almak şu anda kullanılamıyor. Lütfen isteğinizi yeniden deneyin. |
 
 ## <a name="query-data"></a>Verileri sorgulama
-Günlük analizi HTTP veri toplayıcı API, arama ile kayıt tarafından gönderilen verileri sorgulayamadı **türü** eşit olan **LogType** , belirttiğiniz değer eklenmiş olan **_CL**. Örneğin, kullandığınız **MyCustomLog**, tüm kayıtları döndürecekti sonra **türü MyCustomLog_CL =**.
+Log Analytics HTTP veri toplayıcı API'sini, arama ile kayıt tarafından gönderilen veri **türü** eşit olan **LogType** , belirttiğiniz değer eklenmiş olan **_CL**. Örneğin, kullandıysanız **MyCustomLog**, tüm kayıtları döndürecekti sonra **türü MyCustomLog_CL =**.
 
 >[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), sonra da yukarıdaki sorguda şu şekilde değiştirir.
+> Çalışma alanınız için yükseltildiyse [yeni Log Analytics sorgu diline](log-analytics-log-search-upgrade.md), yukarıdaki sorguda, şu şekilde değiştirilmesi gerekir.
 
 > `MyCustomLog_CL`
 
-## <a name="sample-requests"></a>Örnek istek
-Sonraki bölümlerde, farklı programlama dillerini kullanarak günlük analizi HTTP veri toplayıcı API veri göndermek nasıl örnekleri bulabilirsiniz.
+## <a name="sample-requests"></a>Örnek istekler
+Sonraki bölümlerde, farklı programlama dillerini kullanarak Log Analytics HTTP veri toplayıcı API'sini kullanarak veri göndermek nasıl örnekleri bulabilirsiniz.
 
-Her bir örnek için yetkilendirme üst bilgisi için değişkenleri ayarlamak için bu adımları uygulayın:
+Her örnek için yetkilendirme üst bilgisi için değişkenleri ayarlamak için aşağıdaki adımları uygulayın:
 
-1. Azure portalında günlük analizi çalışma alanınız bulun.
-2. Seçin **Gelişmiş ayarları** ve ardından **bağlı kaynakları**.
-2. Sağındaki **çalışma alanı kimliği**Kopyala simgesini seçin ve kimlik değeri olarak yapıştırın **Müşteri Kimliği** değişkeni.
-3. Sağındaki **birincil anahtar**Kopyala simgesini seçin ve kimlik değeri olarak yapıştırın **paylaşılan anahtar** değişkeni.
+1. Azure portalında Log Analytics çalışma alanınızın bulun.
+2. Seçin **Gelişmiş ayarlar** ardından **bağlı kaynakları**.
+2. Sağındaki **çalışma alanı kimliği**, Kopyala simgesini seçin ve ardından kimlik değeri olarak yapıştırın **Müşteri Kimliği** değişkeni.
+3. Sağındaki **birincil anahtar**, Kopyala simgesini seçin ve ardından kimlik değeri olarak yapıştırın **paylaşılan anahtar** değişkeni.
 
 Alternatif olarak, günlük türü ve JSON verilerini değişkenleri değiştirebilirsiniz.
 
@@ -279,7 +279,6 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
         -sharedKey $sharedKey `
         -date $rfc1123date `
         -contentLength $contentLength `
-        -fileName $fileName `
         -method $method `
         -contentType $contentType `
         -resource $resource
@@ -387,7 +386,7 @@ namespace OIAPIExample
 
 ```
 
-### <a name="python-2-sample"></a>Python 2 örnek
+### <a name="python-2-sample"></a>Python 2 örneği
 ```
 import json
 import requests
@@ -471,4 +470,4 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Kullanım [günlük arama API](log-analytics-log-search-api.md) günlük analizi depodan veri alınamadı.
+- Kullanım [günlük arama API'si](log-analytics-log-search-api.md) Log Analytics depodan veri alınamadı.

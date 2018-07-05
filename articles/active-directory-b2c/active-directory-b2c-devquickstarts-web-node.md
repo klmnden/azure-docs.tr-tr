@@ -1,27 +1,27 @@
 ---
-title: Azure Active Directory B2C, bir Node.js web uygulamasına oturum açma ekleme | Microsoft Docs
-description: Azure Active Directory B2C ile kullanıcılar oturum açtığında bir Node.js web uygulaması oluşturma.
+title: Azure Active Directory B2C'de bir Node.js web uygulamasına oturum açma ekleme | Microsoft Docs
+description: Azure Active Directory B2C ile kullanıcılar oturum açtığında bir Node.js web uygulaması derleme yapma.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/10/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b9c589f8bf8189961f88a6ae1d66f1fd9e17e9bc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ee8dab24d53c7f3563d741ff74e49b0b87cda6da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711119"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442517"
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: Node.js web uygulamasına oturum açma ekleme
 
 **Passport**, Node.js için kimlik doğrulama ara yazılımıdır. Esnek ve modüler özellikteki Passport, Express tabanlı veya Restify web uygulamasına sorunsuz bir şekilde yüklenebilir. Bir dizi kapsamlı strateji; bir kullanıcı adı ve parola, Facebook, Twitter ve daha fazlası ile kimlik doğrulamasını destekler.
 
-Azure Active Directory (Azure AD), bu modülü yükleyin ve ardından Azure AD ekleyin `passport-azure-ad` eklentisi.
+Azure Active Directory (Azure AD), bu modülü yükleyin ve ardından Azure AD'ye ekleme `passport-azure-ad` eklenti.
 
 Şunları yapmanız gerekir:
 

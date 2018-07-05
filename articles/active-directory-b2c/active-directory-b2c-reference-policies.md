@@ -1,36 +1,36 @@
 ---
-title: Azure Active Directory B2C yerleşik ilkeleri | Microsoft Docs
-description: Azure Active Directory B2C Genişletilebilir ilke çerçevesini ve çeşitli ilke türleri oluşturma konusunda konu.
+title: Yerleşik ilkeleri Azure Active Directory B2C | Microsoft Docs
+description: Azure Active Directory B2C'in Genişletilebilir ilke çerçevesi ve çeşitli ilke türleri oluşturma konusunda konu.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 840de51f2aeff2c14cba0f90fe9072ba7ceb7fcf
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5c89f39b2f94309ea3d99230f5265d834c7093d9
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712122"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444841"
 ---
-# <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: Yerleşik ilkeleri
+# <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: Yerleşik ilkeler
 
 
-Azure Active Directory (Azure AD) B2C Genişletilebilir ilke hizmet çekirdek gücünü çerçevedir. İlkeleri tam olarak açıklayan tüketici kimlik deneyimi gibi kaydolma, oturum açma ve profil düzenleme. Örneği için bir kayıt ilkesi, aşağıdaki ayarları yapılandırarak davranışları denetlemenize olanak sağlar:
+Azure Active Directory (Azure AD) B2C'in Genişletilebilir ilke çerçevesi hizmet çekirdek gücünü ' dir. İlkeleri tam olarak açıklayan tüketici kimlik deneyimleri gibi kaydolma, oturum açma ve profil düzenleme. Örneğin, bir kaydolma İlkesi, aşağıdaki ayarları yapılandırarak davranışları denetlemenize olanak tanır:
 
-* Tüketiciler uygulama için kaydolmak için kullanabileceğiniz hesap türleri (facebook sosyal hesapları) ya da e-posta adresleri gibi yerel hesaplar
-* Kayıt sırasında tüketiciden toplanacak öznitelikleri (örneğin, ad, posta kodu ve ayakkabı boyut)
+* Tüketiciler, uygulama için kaydolmak için kullanabileceğiniz hesap türleri (Facebook gibi sosyal medya hesapları) veya e-posta adresleri gibi yerel hesaplar
+* Kayıt sırasında tüketiciden toplanacak öznitelikleri (örneğin, ad, posta kodu ve ayakkabı)
 * Azure çok faktörlü kimlik doğrulaması
 * Tüm kayıt sayfaları Görünüm ve yapısını
-* Bir belirteç talep olarak bildirimleri) bilgileri (uygulama sonlandığında Çalıştırma İlkesi zaman alır
+* (Bu talep bir belirteç olarak bildirimleri) bilgi uygulama bittiğinde çalıştırma İlkesi zaman alır
 
-Kiracınızda farklı türlerde birden çok ilke oluşturup, bunları gerektiği gibi uygulamalarınızda kullanabilirsiniz. İlkeler, uygulamalar arasında yeniden kullanılabilir. Bu esneklik, geliştiricilerin tanımlama ve tüketici kimlik deneyimi ile en az veya kendi kodunda değişiklik değiştirme sağlar.
+Kiracınızda farklı türlerde birden çok ilke oluşturup bunları gerektiği şekilde uygulamalarınızda kullanabilirsiniz. İlkeler, uygulamalar arasında yeniden kullanılabilir. Bu esnekliğin geliştiriciler tanımlayabilir ve tüketici kimlik deneyimi değişikliğiyle veya hiç değişiklik kendi kodunda değişiklik sağlar.
 
-İlkeleri basit Geliştirici arabirimi aracılığıyla kullanılabilir. Uygulamanız (bir ilke parametre istekte geçirme) standart bir HTTP kimlik doğrulaması isteği kullanarak bir ilke tetikler ve yanıt olarak özelleştirilmiş bir belirteç alır. Örneğin, bir kayıt ilkesi çağırma istekleri ve oturum açma ilke çağırmak istekleri arasındaki tek fark "p" sorgu dizesi parametresi kullanılan ilke adı şudur:
+İlkeleri bir basit Geliştirici arabirimi aracılığıyla kullanılabilir. Uygulamanız bir ilke (bir ilke parametresi istekte geçirerek), standart HTTP kimlik doğrulaması isteği'ni kullanarak tetikler ve yanıt olarak özelleştirilmiş bir belirteç alır. Örneğin, bir kaydolma İlkesi çağırma istekleri ve oturum açma ilke çağırmak istekleri arasındaki tek fark "p" sorgu dizesi parametresi kullanılan ilke adı şöyledir:
 
 ```
 
@@ -62,15 +62,15 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Kaydolma veya oturum açma ilkesi oluşturma
 
-Bu ilke, her iki tüketici kaydolma ve oturum açma deneyimlerini tek bir yapılandırmasına sahip işler. Tüketiciler, bağlam bağlı olarak doğru yolu (kaydolma veya oturum açma) aşağı gerektiriyordu. Ayrıca, uygulama başarılı oturum ups veya oturum açma işlemleri almaz belirteçleri içeriğini açıklar.  Kod örneği için **oturum açma veya kaydolma** ilke [kullanılabilir burada](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Bu ilke üzerinden kullanmanız önerilir bir **kaydolma** İlkesi veya bir **oturum açma** ilkesi.  
+Bu ilke, tek bir yapılandırma ile hem de tüketici kaydolma ve oturum açma deneyimlerini işler. Tüketiciler, bağlama bağlı olarak doğru yolunu (kaydolma veya oturum açma) gerektiriyordu. Ayrıca, başarılı kaydolma veya oturum açma sırasında uygulamanın alacağı belirteçlerin içeriğini açıklar.  Bir kod örneği için **kaydolma veya oturum açma** ilke [buradan kullanılabilir](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Üzerinden bu ilkeyi kullanmak önerilir bir **kaydolma** İlkesi veya **oturum** ilkesi.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
-## <a name="create-a-sign-up-policy"></a>Kayıt ilkesi oluşturma
+## <a name="create-a-sign-up-policy"></a>Kaydolma ilkesi oluşturma
 
 [!INCLUDE [active-directory-b2c-create-sign-up-policy](../../includes/active-directory-b2c-create-sign-up-policy.md)]
 
-## <a name="create-a-sign-in-policy"></a>Bir oturum açma ilkesi oluşturma
+## <a name="create-a-sign-in-policy"></a>Oturum açma ilkesi oluşturma
 
 [!INCLUDE [active-directory-b2c-create-sign-in-policy](../../includes/active-directory-b2c-create-sign-in-policy.md)]
 
@@ -84,23 +84,23 @@ Bu ilke, her iki tüketici kaydolma ve oturum açma deneyimlerini tek bir yapıl
 
 ## <a name="preview-policies"></a>Önizleme ilkeleri
 
-Şu yeni özellikler yayın gibi bunlardan bazıları varolan ilkeleri kullanılamayabilir.  Bu ilkeler İST girdikten sonra eski sürümleri aynı türde en son değiştirme planlıyoruz  Varolan ilkelerinizi değişmez ve bu yeni özelliklerden yararlanmak için yeni ilkeler oluşturacağınız gerekecektir.
+Yeni özellikler yayınlayabilir gibi bunlardan bazıları mevcut ilkeleri kullanılabilir olmayabilir.  Bu ilkeler büyüyecek girdikten sonra eski sürümleri aynı türde en son değiştirin planlıyoruz  Mevcut ilkelerinizi değişmez ve bu yeni özelliklerden yararlanmak için yeni ilkeler oluşturacağınız gerekecektir.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Bir kayıt veya oturum açma ilkesi bir parola sıfırlama İlkesi ile nasıl bağlanır?
-Oluştururken bir **oturum açma veya kaydolma** İlkesi (yerel hesaplar için), gördüğünüz bir **unuttunuz parola?** bağlantı deneyimi ilk sayfasında. Bu bağlantıyı tıklatarak otomatik olarak tetikleyici bir parola sıfırlama İlkesi değil. 
+### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Bir kaydolma veya oturum açma ilkesi bir parola sıfırlama İlkesi ile nasıl bağlantı kurarım?
+Oluştururken bir **kaydolma veya oturum açma** ilkesiyle (yerel hesaplar için), gördüğünüz bir **parolanızı mı unuttunuz?** bağlantı deneyimi'nın ilk sayfasında. Bu bağlantıya tıkladığınızda otomatik olarak tetikleyici bir parola sıfırlama İlkesi yoktur. 
 
-Bunun yerine, hata kodu **`AADB2C90118`** uygulamanıza döndürülür. Bu hata kodu belirli parolası sıfırlama ilkesini çağırarak işlemek uygulamanız gerekir. Daha fazla bilgi için bir [ilkeleri bağlama yaklaşımı gösteren örnek](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+Bunun yerine, hata kodu **`AADB2C90118`** uygulamanıza döndürülür. Bu hata kodu belirli bir parola sıfırlama İlkesi çağırarak işlemek uygulamanız gerekir. Daha fazla bilgi için bir [ilkeleri bağlama yaklaşımı gösteren örnek](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
-### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Bir kayıt veya oturum açma ilkesi veya bir kayıt ilkesi ve bir oturum açma ilkesi kullanmalıyım?
-Kullanmanızı öneririz bir **oturum açma veya kaydolma** ilkesine göre bir **kaydolma** İlkesi ve bir **oturum açma** ilkesi.  
+### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Kaydolma veya oturum açma ilkesi veya bir kaydolma İlkesi ve bir oturum açma ilkesi kullanmalıyım?
+Kullanmanızı öneririz bir **kaydolma veya oturum açma** ilkesine göre bir **kaydolma** İlkesi ve bir **oturum** ilkesi.  
 
-**Oturum açma veya kaydolma** ilkesine sahip daha fazla Özellikler **oturum açma** ilkesi. Ayrıca, sayfa UI Özelleştirme kullanmanıza olanak tanır ve yerelleştirme için daha iyi destek sahiptir. 
+**Kaydolma veya oturum açma** ilkeye sahip daha fazla özellik **oturum** ilkesi. Ayrıca, sayfa UI özelleştirmesi kullanmanıza olanak sağlar ve yerelleştirme için daha iyi destek sağlıyor. 
 
-**Oturum açma** ilkelerinizi yerelleştirme gerekmiyorsa, yalnızca markalama için ikincil özelleştirme özellikleri gerekir ve parola ilkesi önerilir yerleşik sıfırlama.
+**Oturum** ilkelerinizi yerelleştirmeniz gerekmiyorsa, yalnızca markalar için küçük özelleştirme becerileri ve parola ilkesi önerilir yerleşik sıfırlama.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Belirteç, oturum ve tek oturum açma yapılandırması](active-directory-b2c-token-session-sso.md)
-* [E-posta doğrulama tüketici kaydolma sırasında devre dışı bırak](active-directory-b2c-reference-disable-ev.md)
+* [Belirteç, oturum ve çoklu oturum açma yapılandırması](active-directory-b2c-token-session-sso.md)
+* [Tüketicinin kaydolma sırasında e-posta doğrulamayı devre dışı bırakma](active-directory-b2c-reference-disable-ev.md)
 

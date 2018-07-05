@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Genomics: sorun giderme kılavuzu | Microsoft Docs'
+title: 'Microsoft Genomiks: sorun giderme kılavuzu | Microsoft Docs'
 titleSuffix: Azure
 description: Sorun giderme stratejileri hakkında daha fazla bilgi edinin
 keywords: sorun giderme, hata, hata ayıklama
@@ -12,69 +12,68 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 04/13/2018
-ms.openlocfilehash: 18761c02cc423affe7b1050700e560b1f0b0594d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d3991bdbcd9c3dcd08572dc92cc75aaebb02b133
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34627373"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
-Bu genel bakışta, Microsoft Genomics hizmetini kullanırken sık karşılaşılan sorunları gidermek üzere stratejilerini açıklar. Genel SSS bkz [sık sorulan sorular](frequently-asked-questions-genomics.md). 
+Bu genel bakış, Microsoft Genomics hizmeti kullanırken sık karşılaşılan sorunları gidermek üzere stratejilerini açıklar. Bkz: Genel SSS [sık sorulan sorular](frequently-asked-questions-genomics.md). 
 
 
-## <a name="how-do-i-check-my-job-status"></a>My işi durumunu denetleme nasıl?
-Çağırarak, iş akışının durumunu kontrol edebilirsiniz `msgen status` komut satırından gösterildiği gibi. 
+## <a name="how-do-i-check-my-job-status"></a>İş durumumu nasıl kontrol edebilirim?
+Çağırarak, akışınızın durumunu kontrol edebilirsiniz `msgen status` komut satırından gösterildiği gibi. 
 
 ```
 msgen status -u URL -k KEY -w ID [-f CONFIG] 
 ```
 
 Üç gerekli bağımsız değişkenleri şunlardır:
-* URL - API için taban URI
-* ANAHTAR - Genomics hesabınız için erişim anahtarı. 
+* Adresa URL – API için ana URI
+* ANAHTARI - Genomiks hesabı için erişim anahtarı'nı tıklatın. 
 * Kimliği - iş akışı kimliği
 
-URL ve anahtarı bulmak için Azure Portalı'na gidin ve Genomics hesap sayfanıza açın. Altında **Yönetim** başlığını seçin **erişim anahtarları**. Burada, API URL'si ve erişim tuşlarınızı bulun.
+URL'sini ve ANAHTARINI bulmak için Azure portalına gidin ve Genomiks hesabı sayfanızı açın. Altında **Yönetim** başlığı seçin **erişim anahtarları**. Burada, hem API URL'sine ve erişim tuşlarınızı bulun.
 
-Alternatif olarak, doğrudan anahtarı ve URL girmek yerine config dosya yolu içerebilir. Yapılandırma dosyası yanı sıra komut satırından bu bağımsız değişkenler dahil ederseniz, komut satırı bağımsız değişkenleri öncelik gerektiğine dikkat edin. 
+Alternatif olarak, doğrudan URL'sini ve ANAHTARINI girmek yerine yapılandırma dosyasının yolu içerebilir. Yapılandırma dosyası yanı sıra komut satırında bu bağımsız değişkenler dahil ederseniz, komut satırı bağımsız değişkenleri öncelik gerektiğine dikkat edin. 
 
-Çağırdıktan sonra `msgen status`, kullanıcı dostu bir ileti, iş akışı başarılı olup olmadığını açıklayan veya iş başarısızlık nedeni vermiş görüntülenir. 
+Arama sonra `msgen status`, kullanıcı dostu bir ileti, iş akışı başarılı olup olmadığını açıklayan veya iş başarısızlık nedeni vererek görüntülenir. 
 
 
-## <a name="get-more-information-about-my-workflow-status"></a>İş akışı Durumum hakkında daha fazla bilgi alın
+## <a name="get-more-information-about-my-workflow-status"></a>İş akışı durum hakkında daha fazla bilgi edinin
 
-Neden bir işi olmayan başarılı hakkında daha fazla bilgi almak için iş akışı sırasında oluşturulan günlük dosyalarını gözden geçirebilirsiniz. Çıktı kapsayıcısında görmelisiniz bir `[youroutputfilename].logs.zip` klasör.  Bu klasör unzipping, aşağıdaki öğeleri görürsünüz:
+Neden bir işi başarılı değil hakkında daha fazla bilgi almak için iş akışı sırasında üretilen günlük dosyalarını keşfedebilirsiniz. Çıkış kapsayıcısında görmelisiniz bir `[youroutputfilename].logs.zip` klasör.  Bu klasör açma sırasında aşağıdaki öğeleri görürsünüz:
 
-* outputFileList.txt - iş akışı sırasında oluşturulan çıkış dosyaları listesi
+* outputFileList.txt - iş akışı sırasında oluşturulan çıktı dosyaları listesi
 * StandardError.txt - Bu dosya boş olur.
-* StandardOutput.txt - iş akışının en üst düzey günlük içerir. 
+* StandardOutput.txt - iş akışının en üst düzey günlük kaydı içerir. 
 * GATK günlük dosyalarını - diğer tüm dosyalarda `logs` klasörü
 
-`standardoutput.txt` Dosya neden akışınızı başarılı olmadı, iş akışının daha fazla alt düzey bilgiler içerir olarak belirlemek başlatmak için iyi bir yerdir. 
+`standardoutput.txt` Dosya neden akışınızı başarılı olmadı, iş akışının alt düzey daha fazla bilgi içeren belirlemek başlatmak için iyi bir yerdir. 
 
-## <a name="common-issues-and-how-to-resolve-them"></a>Sık karşılaşılan sorunları ve bunların nasıl çözüleceği
-Bu bölümde kısaca genel sorunları ve bunların nasıl çözüleceği vurgular.
+## <a name="common-issues-and-how-to-resolve-them"></a>Sık karşılaşılan sorunları ve bunların nasıl çözüleceğine
+Bu bölümde kısaca sık karşılaşılan sorunları ve bunların nasıl çözüleceğine vurgular.
 
-### <a name="fastq-files-are-unmatched"></a>Fastq dosyaları eşleşmeyen
-Fastq dosyaları yalnızca sondaki /1 veya örnek tanımlayıcıda /2 farklı olmalıdır. Eşleşmeyen FASTQ dosyaları yanlışlıkla gönderdiyseniz çağrılırken aşağıdaki hata iletileri görebilirsiniz `msgen status`.
+### <a name="fastq-files-are-unmatched"></a>Eşleşmeyen Fastq dosyası
+Fastq dosyası yalnızca sondaki /1 veya örnek tanımlayıcıda /2 farklı olmalıdır. Eşleşmeyen FASTQ dosyası yanlışlıkla gönderdiyseniz çağrılırken aşağıdaki hata iletilerini görebilirsiniz `msgen status`.
 * `Encountered an unmatched read`
 * `Error reading a FASTQ file, make sure the input files are valid and paired correctly` 
 
-Bu sorunu çözmek için iş akışına gönderilen fastq dosyaları gerçekten olup olmadığını gözden eşlenmiş bir küme. 
+Bu sorunu çözmek için iş akışı gönderdiniz fastq dosyası gerçekten varsa gözden eşleşen kümesi. 
 
 
-### <a name="error-uploading-bam-file-output-blob-already-exists-and-the-overwrite-option-was-set-to-false"></a>.Bam dosya karşıya yükleme hatası oluştu. Çıktı blob zaten var ve üzerine yazma seçeneği False olarak ayarlayın.
-Ayarlayamadı hata iletisini görürseniz, `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, çıkış klasörü zaten aynı ada sahip bir çıktı dosyası içeriyor.  Varolan çıktı dosyasını silin veya config dosyasında üzerine yaz seçeneğini etkinleştirin. Ardından, iş akışını yeniden gönderin.
+### <a name="error-uploading-bam-file-output-blob-already-exists-and-the-overwrite-option-was-set-to-false"></a>.Bam dosya karşıya yükleme hatası. Çıktı blobu zaten var ve üzerine yazma seçeneği False olarak ayarlanmış.
+Aşağıdaki hata iletisini görürseniz `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, çıktı klasörü zaten aynı ada sahip bir çıktı dosyası içeriyor.  Mevcut çıkış dosyasını silmek ya da yapılandırma dosyasında üzerine yaz seçeneğini etkinleştirin. Daha sonra iş akışınızı yeniden gönderin.
 
-### <a name="when-to-contact-microsoft-genomics-support"></a>Ne zaman Microsoft Genomics desteğe başvurun
+### <a name="when-to-contact-microsoft-genomics-support"></a>Ne zaman Genomics Microsoft desteğine başvurun
 Aşağıdaki hata iletilerinden görürseniz, bir iç hata oluştu. 
 
 * `Error locating input files on worker machine`
 * `Process management failure`
 
-İş akışını yeniden göndermeyi deneyin. İş hataları yaşamaya devam ederseniz veya diğer herhangi bir sorunuz varsa, Azure portalından Microsoft Genomics desteğe başvurun.
-
-![Azure Portal'da desteğine başvurun](./media/troubleshooting-guide/genomics-contact-support.png "Azure Portal'daki desteğe başvurun")
+İş akışınızı yeniden göndermeyi deneyin. İş hataları devam ederseniz veya diğer herhangi bir sorunuz varsa, Azure portalında Microsoft Genomiks desteğe başvurun. Bir destek talebi göndermek nasıl hakkında daha fazla bilgi bulunabilir [burada](file-support-ticket-genomics.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede ve Microsoft Genomics hizmeti ile ilgili genel sorunları gidermek nasıl öğrendiniz. Daha fazla bilgi ve daha fazla Genel SSS için bkz: [sık sorulan sorular](frequently-asked-questions-genomics.md). 
+Bu makalede, siz ve Microsoft Genomics hizmeti ile ilgili yaygın sorunları gidermek nasıl öğrendiniz. Daha fazla bilgi ve daha Genel SSS için bkz. [sık sorulan sorular](frequently-asked-questions-genomics.md). 

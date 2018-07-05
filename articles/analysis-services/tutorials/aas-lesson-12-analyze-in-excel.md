@@ -5,17 +5,17 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 729156636795fce3355ab1474fdfcb9337296ddd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1e487f6778c45e554f95489e62ac2dedd01ee3f0
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596932"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442973"
 ---
-# <a name="analyze-in-excel"></a>Excel'de Çözümle
+# <a name="analyze-in-excel"></a>Excel'de çözümleme
 
 Bu derste, Excel’de çözümleme özelliğini kullanarak Microsoft Excel’i açar, model çalışma alanı ile otomatik bir bağlantı oluşturur ve çalışma sayfasına otomatik olarak bir PivotTable eklersiniz. Excel’de çözümleme özelliği, modelinizi dağıtmadan önce model tasarımınızın etkililiğini test etmenin hızlı ve kolay bir yolunu sağlamak üzere tasarlanmıştır. Bu derste herhangi bir veri çözümlemesi yapmayacaksınız. Dersin amacı, model yazarı olarak model tasarımınızı test etmek için kullanabileceğiniz araçları tanımanızı sağlamaktır.   
   

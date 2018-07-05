@@ -1,22 +1,22 @@
 ---
 title: Hyper-V’den Azure’a Azure Site Recovery dağıtım planlayıcısı | Microsoft Docs
-description: Bu makalede Site Recovery dağıtımı Planlayıcısı foro Hyper-V için Azure çoğaltmanın çalışması öğretir.
+description: Bu makalede Azure çoğaltması için Site Recovery dağıtım Planlayıcısı foro Hyper-V çalıştıran öğretir.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: nisoneji
-ms.openlocfilehash: 0293ace13dbcd30988ce571c60f2d7c6a338e779
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 870b8d501db4a31bf7a822bd9c86965bdfa224e4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287499"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447627"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V’den Azure’a Azure Site Recovery dağıtım planlayıcısını çalıştırma
 
-Site Recovery çalıştırabilirsiniz dağıtım Planlayıcısı komut satırı aracı (ASRDeploymentPlanner.exe) herhangi bir bu dört modu: 
+Çalıştırabileceğiniz Site Recovery dağıtım Planlayıcısı komut satırı aracını (ASRDeploymentPlanner.exe) aşağıdaki dört modun herhangi birinde içinde: 
 -   [Sanal makine (VM) listesini alma](#get-vm-list-for-profiling-hyper-v-vms)
 -   [Profil](#profile-hyper-v-vms)
 -   [Rapor oluşturma](#generate-report)
@@ -40,7 +40,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 | -User | Hyper-V konağı veya Hyper-V kümesine bağlanmak için gereken kullanıcı adı. Kullanıcının yönetici erişimi olmalıdır.|
 | -ServerListFile | Profili oluşturulacak VM’leri içeren sunucuların listesinin bulunduğu dosya. Dosya yolu mutlak veya göreli olabilir. Bu dosya her satırda aşağıdakilerden birini içermelidir:<ul><li>Hyper-V konak adı veya IP adresi</li><li>Hyper-V küme adı veya IP adresi</li></ul><br>**Örnek:** ServerList.txt dosyası aşağıdaki sunucuları içerir:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(İsteğe bağlı) Bu işlem sırasında oluşturulan verileri depolamak için evrensel adlandırma kuralı (UNC) veya yerel dizin yolu. Bir ad belirtilmemişse, varsayılan dizin olarak geçerli yolun altındaki “ProfiledData” adlı dizin kullanılır.|
-|-OutputFile| (İsteğe bağlı) Hyper-V sunucularından alınan VM'lerin listesini dosyasıyla kaydedilir. Bir ad belirtilmezse, ayrıntılar VMList.txt dosyasında depolanır.  Profili gerekmeyen VM'ler kaldırdıktan sonra profil oluşturmayı başlatmak için bu dosyayı kullanın.|
+|-OutputFile| (İsteğe bağlı) Hyper-V sunucularından alınan VM'lerin listesini içeren dosya kaydedilmiş kalır. Bir ad belirtilmezse, ayrıntılar VMList.txt dosyasında depolanır.  Profili gerekmeyen VM'ler kaldırdıktan sonra profil oluşturmayı başlatmak için bu dosyayı kullanın.|
 |-Password|(İsteğe bağlı) Hyper-V konağına bağlanmak için gereken parola. Bunu bir parametre olarak belirtmezseniz komutu çalıştırdığında belirtmeniz istenir.|
 
 ### <a name="getvmlist-discovery"></a>GetVMList bulma
@@ -56,7 +56,7 @@ Dilerseniz profilini el ile oluşturmak istediğiniz sanal makinelerin kolay adl
 
 #### <a name="store-the-list-of-vms-in-a-file"></a>VM'lerin listesini bir dosyada depolama
 ```
-ASRDeploymentPlanner.exe -Operation GetVMlist -ServerListFile “E:\Hyper-V_ProfiledData\ServerList.txt" -User Hyper-VUser1 -OutputFile "E:\Hyper-V_ProfiledData\VMListFile.txt"
+ASRDeploymentPlanner.exe -Operation GetVMlist -ServerListFile "E:\Hyper-V_ProfiledData\ServerList.txt" -User Hyper-VUser1 -OutputFile "E:\Hyper-V_ProfiledData\VMListFile.txt"
 ```
 
 #### <a name="store-the-list-of-vms-at-the-default-location--directory-path"></a>VM'lerin listesini varsayılan konumda (-Dizin yolu) depolama
@@ -94,7 +94,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Sanallaştırma|Sanallaştırma türü (VMware veya Hyper-V).|
 |-Directory|(İsteğe Bağlı) Profil oluşturma sırasında oluşturulan profil oluşturma verilerini depolamak için UNC veya yerel dizin yolu. Bir ad belirtilmemişse, geçerli yol altındaki ProfiledData adlı dizin varsayılan dizin olarak kullanılır.|
 |-Password|(İsteğe bağlı) Hyper-V konağına bağlanmak için gereken parola. Bunu bir parametre olarak belirtmezseniz komutu çalıştırdığında belirtmeniz istenir.|
-|-StorageAccountName|(İsteğe bağlı) Şirket içinden Azure’a veri çoğaltma için ulaşılabilir aktarım hızını bulmak için depolama hesabı adı. Araç, aktarım hızını hesaplamak için test verilerini bu depolama hesabına yükler. Depolama hesabı genel amaçlı v1 olmalıdır (GPv1) yazın.|
+|-StorageAccountName|(İsteğe bağlı) Şirket içinden Azure’a veri çoğaltma için ulaşılabilir aktarım hızını bulmak için depolama hesabı adı. Araç, aktarım hızını hesaplamak için test verilerini bu depolama hesabına yükler. Depolama hesabı Genel amaçlı v1 (GPv1) türünde olmalıdır.|
 |-StorageAccountKey|(İsteğe bağlı) Depolama hesabına erişmek için kullanılan anahtar. Azure portalı > **Depolama hesapları** > *Depolama hesabı adı* > **Ayarlar** > **Erişim Anahtarları** > **Anahtar1** (veya klasik depolama hesabı için birincil erişim anahtarı) seçeneğine gidin.|
 |-Ortam|(İsteğe bağlı) Azure depolama hesabı için hedef ortamınız. Şu üç değerden herhangi birini alabilir: AzureCloud, AzureUSGovernment veya AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef bölgeniz Azure ABD Kamu veya Azure Çin olduğunda ilgili parametreyi kullanın.|
 
@@ -128,22 +128,22 @@ Profil oluşturma komutu, profil oluşturma dizininde birkaç dosya oluşturur. 
 
 #### <a name="profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>30 günlük sanal makine profili oluşturma ve şirket içinden Azure’a aktarım hızını bulma
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile 30 -User Contoso\HyperVUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation StartProfiling -virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile 30 -User Contoso\HyperVUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 #### <a name="profile-vms-for-15-days"></a>15 günlük sanal makine profili oluşturma
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  15  -User contoso\HypreVUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile  15  -User contoso\HypreVUser1
 ```
 
 #### <a name="profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Aracın hızlı bir testine yönelik 60 dakikalık VM profili oluşturma
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60 -User Contoso\HyperVUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -NoOfMinutesToProfile 60 -User Contoso\HyperVUser1
 ```
 
 #### <a name="profile-vms-for-2-hours-for-a-proof-of-concept"></a>Kavram kanıtı için VM’lerin 2 saatlik profilini oluşturma
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfHoursToProfile 2 -User Contoso\HyperVUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -NoOfHoursToProfile 2 -User Contoso\HyperVUser1
 ```
 
 ### <a name="considerations-for-profiling"></a>Profil oluşturma ile ilgili önemli noktalar
@@ -152,7 +152,7 @@ Aracın çalıştığı sunucu yeniden başlatılırsa veya kilitlenmişse ya da
 
 Depolama hesabı adı ve anahtarı geçirildiğinde, araç profil oluşturma işleminin son adımında aktarım hızını ölçer. Profil oluşturma tamamlanmadan önce araç kapatılırsa, aktarım hızı hesaplanmaz. Raporu oluşturmadan önce aktarım hızını bulmak için, komut satırı konsolundan GetThroughput işlemini çalıştırabilirsiniz. Aksi takdirde, oluşturulan rapor aktarım hızı bilgilerini içermez.
 
-Azure Site Recovery, iSCSI ve geçişli disklere sahip sanal makineleri desteklemiyor. Aracı algılayabilir ve VM'ler için bağlı iSCSI ve geçişli diskler profil.
+Azure Site Recovery, iSCSI ve geçiş disklerine sahip VM'lerin desteklememektedir. Araç, algılamak ve Vm'lere eklenmiş iSCSI ve geçiş disklerine profil.
 
 ## <a name="generate-a-report"></a>Rapor oluşturma
 Araç, rapor çıktısı olarak makro özellikli bir Microsoft Excel dosyası (XLSM dosyası) oluşturur. Bu dosya tüm dağıtım önerilerini özetler. Rapor, DeploymentPlannerReport_*benzersiz sayısal tanımlayıcı*.xlsm olarak adlandırılıp belirtilen dizine yerleştirilir.
@@ -192,39 +192,39 @@ Araç, varsayılan olarak 1.000 VM'ye kadar profil ve rapor oluşturmak üzere y
 ### <a name="examples"></a>Örnekler
 #### <a name="generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Profili oluşturulan veriler yerel sürücüde olduğunda raporu varsayılan değerlerle oluşturma
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"
 ```
 
 #### <a name="generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Profili oluşturulan veriler uzak bir sunucuda olduğunda rapor oluşturma
 Uzak dizin üzerinde okuma/yazma erişiminiz olmalıdır.
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “\\PS1-W2K12R2\Hyper-V_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "\\PS1-W2K12R2\Hyper-V_ProfiledData" -VMListFile "\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt"
 ```
 
 #### <a name="generate-a-report-with-a-specific-bandwidth-that-you-will-provision-for-the-replication"></a>Çoğaltma için sağlayacağınız belirli bir bant genişliğine sahip bir rapor oluşturma
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt” -Bandwidth 100
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt" -Bandwidth 100
 ```
 
 #### <a name="generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Varsayılan yüzde 30 değeri yerine yüzde 5 büyüme faktörü ile rapor oluşturma 
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt" -GrowthFactor 5
 ```
 
 #### <a name="generate-a-report-with-a-subset-of-profiled-data"></a>Profili oluşturulan verilerin bir alt kümesi ile rapor oluşturma
 Örneğin, 30 günlük profili oluşturulmuş verilerinizin olduğunu ve raporu yalnızca 20 gün için oluşturduğunuzu varsayalım.
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
+ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt" -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
 #### <a name="generate-a-report-for-a-5-minute-rpo"></a>5 dakikalık bir RPO için rapor oluşturma
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -DesiredRPO 5
 ```
 
 #### <a name="generate-a-report-for-the-south-india-azure-region-with-indian-rupee-and-a-specific-offer-id"></a>Güney Hindistan Azure bölgesi için Hindistan Rupisi ve belirli bir teklif kimliğini içeren rapor oluşturma
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
 
 
@@ -276,14 +276,14 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughput |
 |-Sanallaştırma|Sanallaştırma türü (VMware veya Hyper-V).|
 |-Directory|(İsteğe bağlı) Profili oluşturulan verilerin (profil oluşturma sırasında oluşturulan dosyalar) depolandığı UNC veya yerel dizin yolu. Bu veriler, rapor oluşturmak için gereklidir. Bir ad belirtilmemişse, geçerli yol altındaki ProfiledData adlı dizin varsayılan dizin olarak kullanılır.|
-| -StorageAccountName | Şirket içinden Azure’a veri çoğaltma için kullanılan bant genişliğini bulmak için depolama hesabı adı. Araç, kullanılan bant genişliğini bulmak için test verilerini bu depolama hesabına yükler. Depolama hesabı genel amaçlı v1 olmalıdır (GPv1) yazın.|
+| -StorageAccountName | Şirket içinden Azure’a veri çoğaltma için kullanılan bant genişliğini bulmak için depolama hesabı adı. Araç, kullanılan bant genişliğini bulmak için test verilerini bu depolama hesabına yükler. Depolama hesabı Genel amaçlı v1 (GPv1) türünde olmalıdır.|
 | -StorageAccountKey | Depolama hesabına erişmek için kullanılan depolama hesabı anahtarı. Azure portalı > **Depolama hesapları** > *depolama hesabı adı* > **Ayarlar** > **Erişim Anahtarları** > **Anahtar1** seçeneğine gidin.|
 | -VMListFile | Kullanılan bant genişliğini hesaplamak için profili oluşturulacak sanal makinelerin listesini içeren dosya. Dosya yolu mutlak veya göreli olabilir. Hyper-V için, GetVMList işleminin çıkış dosyası bu dosyadır. El ile hazırlıyorsanız, dosyada bir sunucu adı ya da IP adresi ve sonra VM adı (her satırı \ ile ayrılan) bulunmalıdır. Dosyada belirtilen VM adı, Hyper-V konağındaki VM adıyla aynı olmalıdır.<br><br>**Örnek:** VMList.txt dosyası aşağıdaki sanal makineleri içerir:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Ortam|(İsteğe bağlı) Azure depolama hesabı için hedef ortamınız. Şu üç değerden herhangi birini alabilir: AzureCloud, AzureUSGovernment veya AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef Azure bölgeniz Azure ABD Kamu veya Azure Çin’deyse ilgili parametreyi kullanın.|
 
 ### <a name="example"></a>Örnek
 ```
-ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory E:\Hyp-erV_ProfiledData -VMListFile E:\Hyper-V_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 ### <a name="throughput-considerations"></a>Aktarım hızı konusunda dikkat edilmesi gerekenler

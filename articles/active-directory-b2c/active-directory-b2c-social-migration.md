@@ -1,39 +1,39 @@
 ---
-title: Azure Active Directory B2C sosyal kimliklerini kullanıcılarla geçirme | Microsoft Docs
-description: Grafik API'sini kullanarak Azure AD B2C içine sosyal kimlikleri kullanıcılarla geçişini üzerinde temel kavramlar açıklanmaktadır.
+title: Azure Active Directory B2C, sosyal medya kimliklerinden kullanıcıları geçirme | Microsoft Docs
+description: Sosyal medya kimliklerinden Graph API'sini kullanarak Azure AD B2C kullanıcıları geçişini üzerinde temel kavramlar açıklanmaktadır.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7c83afba1f027771b3407aecf94fefffdc951664
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: b9378face28b4d053dcd5f01b8f87126457cf339
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710568"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445152"
 ---
-# <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: sosyal kimlikleri kullanıcılarla geçirme
-Kimlik sağlayıcınızı Azure AD B2C'ye geçirmek planlama yaparken, sosyal kimlikleri kullanıcılarla geçirmek gerekebilir. Bu makalede, var olan sosyal kimlikleri hesapları gibi geçirmek açıklanmaktadır: Azure AD B2C Facebook, LinkedIn, Microsoft ve Google hesaplar. Bu geçiş daha az yaygın olan ancak bu makale Federasyon kimlikleri için de geçerlidir.
+# <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: sosyal medya kimliklerinden kullanıcıları geçirme
+Kimlik sağlayıcınız Azure AD B2C'ye geçirmek planlama yaparken, sosyal medya kimliklerinden kullanıcıları geçirme gerekebilir. Bu makalede gibi mevcut sosyal kimlikleri hesapları geçirme açıklanmaktadır: Azure AD B2C'ye Facebook ve LinkedIn, Microsoft ve Google hesapları. Bu geçiş daha az yaygın olan ancak bu makale Federasyon kimlikleri için de geçerlidir.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu makalede, bir kullanıcı geçiş makaleyi devamıdır ve sosyal kimliği geçişini odaklanır. Başlamadan önce okuyun [kullanıcı geçişi](active-directory-b2c-user-migration.md).
+Bu makalede, bir kullanıcı geçiş makalesini devamıdır ve sosyal kimlik geçişi üzerinde odaklanır. Başlamadan önce okumanız [kullanıcı geçişi](active-directory-b2c-user-migration.md).
 
 ## <a name="social-identities-migration-introduction"></a>Sosyal kimlikleri geçiş giriş
 
-* Azure AD B2C'de içinde **yerel hesaplar** oturum açma adları (kullanıcı adı veya e-posta adresi) depolanır `signInNames` kullanıcı kaydındaki koleksiyonu. `signInNames` Birini veya birkaçını içeriyor `signInName` kullanıcı için oturum açma adları belirtin kaydeder. Her oturum açma adı Kiracı arasında benzersiz olması gerekir.
+* Azure AD B2C'yi de **yerel hesaplar** oturum açma adları (kullanıcı adı veya e-posta adresi) depolanır `signInNames` kullanıcı kaydındaki koleksiyonu. `signInNames` Birini veya daha fazlasını içeren `signInName` kullanıcı için oturum açma adlarını kaydeder. Her oturum açma adı, bir kiracıda benzersiz olması gerekir.
 
-* **Sosyal hesapları** kimlikleri depolanır `userIdentities` koleksiyonu. Girişi belirtir `issuer` (kimlik sağlayıcı adı) facebook.com gibi ve `issuerUserId`, dağıtımcı için benzersiz kullanıcı tanımlayıcısı olduğu. `userIdentities` Özniteliği sosyal hesap türünü ve sosyal kimlik sağlayıcısından benzersiz kullanıcı tanımlayıcısını belirtin bir veya daha fazla Userıdentity kayıtları içerir.
+* **Sosyal medya hesaplarını** kimlikleri depolanır `userIdentities` koleksiyonu. Giriş belirtir `issuer` (kimlik sağlayıcı adı) facebook.com gibi ve `issuerUserId`, dağıtımcı için benzersiz kullanıcı tanımlayıcısı olan. `userIdentities` Özniteliği sosyal hesap türünü ve sosyal kimlik sağlayıcısından alınan benzersiz kullanıcı tanımlayıcısını belirten bir veya daha fazla Userıdentity kayıtları içerir.
 
-* **Yerel hesap sosyal kimlikle birleştirmek**. Belirtildiği gibi yerel hesap oturum açma adları ve sosyal hesap kimlikleri farklı öznitelikler depolanır. `signInNames` olan yerel hesabı için kullanılan, while `userIdentities` sosyal hesabı. Tek bir Azure AD B2C hesap bir yerel hesap, yalnızca sosyal hesabı olabilir veya bir kullanıcı kaydındaki sosyal kimliğe sahip bir yerel hesap birleştirebilirsiniz. Bu davranış, bir kullanıcının yerel hesabı credential(s) oturum veya sosyal kimliklerle imzalayabilirsiniz sırada tek bir hesap yönetmenize olanak sağlar.
+* **Yerel hesap sosyal kimlik ile birleştirerek**. Belirtildiği gibi yerel hesap oturum açma adları ve sosyal hesap kimlikleri farklı öznitelikler depolanır. `signInNames` olan yerel hesabı için kullanılan, while `userIdentities` sosyal hesap için. Tek bir Azure AD B2C hesabı yalnızca yerel hesap, yalnızca sosyal hesap olabilir veya bir kullanıcı kaydındaki sosyal kimlik yerel bir hesap birleştirin. Bu davranış, bir kullanıcının yerel hesabı credential(s) oturum veya sosyal kimliklerle oturum sırasında tek bir hesap yönetmenize olanak sağlar.
 
-* `UserIdentity` Tür - Azure AD B2C kiracısı bir sosyal hesabı kullanıcı kimliğini hakkında bilgiler içerir:
+* `UserIdentity` Tür - Azure AD B2C kiracısı bir sosyal hesap kullanıcının kimlik bilgilerini içerir:
     * `issuer` Kullanıcı tanımlayıcısı facebook.com gibi verilen kimlik sağlayıcısı dize gösterimi.
-    * `issuerUserId` Base64 biçiminde sosyal kimlik sağlayıcısı tarafından kullanılan benzersiz kullanıcı tanımlayıcısı.
+    * `issuerUserId` Base64 biçimindeki sosyal kimlik sağlayıcısı tarafından kullanılan benzersiz kullanıcı tanımlayıcısı.
 
     ```JSON
     "userIdentities": [{
@@ -43,35 +43,35 @@ Bu makalede, bir kullanıcı geçiş makaleyi devamıdır ve sosyal kimliği ge�
     ]
     ```
 
-* Kimlik sağlayıcısı bağlı olarak **sosyal kullanıcı kimliği** uygulama ya da geliştirme hesap başına belirli bir kullanıcı için benzersiz bir değerdir. Sosyal sağlayıcısı tarafından daha önce atanmış aynı uygulama kimliği ile Azure AD B2C ilkesini yapılandırın. Veya aynı geliştirme hesaptaki başka bir uygulama.
+* Kimlik sağlayıcısına bağlı olarak **sosyal kullanıcı kimliği** uygulama ya da geliştirme hesap başına belirli bir kullanıcı için benzersiz bir değerdir. Sosyal sağlayıcılar tarafından daha önce atanan aynı uygulama kimliği ile Azure AD B2C ilkesi yapılandırın. Veya başka bir uygulama geliştirme hesabın aynısını içinde.
 
-## <a name="use-graph-api-to-migrate-users"></a>Kullanıcıları geçirmek için grafik API'sini kullanın
-Aracılığıyla Azure AD B2C kullanıcı hesabı oluşturma [grafik API'si](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Grafik API'si ile iletişim kurmak için bir hizmet hesabı yönetici ayrıcalıklarına sahip olmalıdır. Azure AD içinde bir uygulama ve Azure ad kimlik doğrulama kaydedin. Uygulama kimlik bilgileridir. uygulama kimliği ve uygulama gizli anahtarı. Uygulama, grafik API'sini çağırmak için bir kullanıcı değil, olarak kendisini görür. Adım 1'ndaki yönergeleri izleyin [kullanıcı geçişi](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) makalesi.
+## <a name="use-graph-api-to-migrate-users"></a>Kullanıcıları geçirme için Graph API'sini kullanın
+Azure AD B2C kullanıcı hesabı aracılığıyla oluşturma [Graph API'si](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Graph API ile iletişim kurmak için öncelikle bir hizmet hesabı yönetici ayrıcalıklarına sahip olması gerekir. Azure AD'de bir uygulama ve kimlik doğrulaması Azure AD'ye kaydedin. Uygulama kimlik bilgileridir. uygulama kimliği ve uygulama gizli anahtarı. Uygulama, kendisini, Graph API'sini çağırmak için bir kullanıcı değil, olarak görür. Adım 1'ndaki yönergeleri izleyin [kullanıcı geçişi](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) makalesi.
 
-## <a name="required-properties"></a>Gerekli özellikleri
-Aşağıdaki liste, bir kullanıcı oluştururken gerekli özellikleri gösterir.
+## <a name="required-properties"></a>Gerekli özellikler
+Aşağıdaki listede, bir kullanıcı oluşturduğunuzda, gerekli olan özellikleri gösterir.
 * **accountEnabled** - true
-* **displayName** -kullanıcının adres defterinde görüntülenecek ad.
+* **displayName** -kullanıcının adres defterinde kullanıcı için görüntülenecek ad.
 * **passwordProfile** -kullanıcı için parola profil. 
 
 > [!NOTE]
-> Yalnızca (yerel hesap kimlik bilgileri olmadan) sosyal hesabı için parola hala belirtmeniz gerekir. Azure AD B2C sosyal hesaplar için belirttiğiniz parola yok sayar.
+> Yalnızca (yerel hesap kimlik bilgileri olmadan) sosyal hesap için parolayı yine de belirtmeniz gerekir. Azure AD B2C, sosyal hesaplar için belirttiğiniz parolayı yok sayar.
 
-* **userPrincipalName** -kullanıcı asıl adı (someuser@contoso.com). Kullanıcı asıl adı doğrulanmış etki alanlarından biri Kiracı için içermelidir. UPN belirtmek için yeni GUID değeri ile Birleştir oluşturmak `@` ve Kiracı adı.
+* **userPrincipalName** -kullanıcı asıl adı (someuser@contoso.com). Kullanıcı asıl adı bir doğrulanmış etki alanları için Kiracı içermelidir. UPN belirtmek için yeni GUID değeri ile Birleştir oluşturmak `@` ve Kiracı adı.
 * **mailNickname** -kullanıcı için posta diğer adı. Bu değer, userPrincipalName için kullandığınız aynı kimliği olabilir. 
-* **signInNames** -kullanıcı için oturum açma adları belirten bir veya daha fazla SignInName kaydeder. Her oturum açma adı şirket/Kiracı arasında benzersiz olması gerekir. Yalnızca sosyal hesabı için bu özellik boş bırakılabilir.
-* **userIdentities** -hesap türü ve sosyal kimlik sağlayıcısından benzersiz kullanıcı tanımlayıcısı sosyal belirten bir veya daha fazla Userıdentity kaydeder.
-* [isteğe bağlı] **otherMails** - yalnızca, sosyal hesabının kullanıcının e-posta adresleri 
+* **signInNames** -kullanıcı oturum açma adlarını belirten bir veya daha fazla SignInName kaydeder. Her oturum açma adı şirket/Kiracı benzersiz olmalıdır. Yalnızca sosyal hesap için bu özellik boş bırakılabilir.
+* **userIdentities** -sosyal belirten bir veya daha fazla Userıdentity kayıtları hesap türü ve sosyal kimlik sağlayıcısından alınan benzersiz kullanıcı tanımlayıcısı.
+* [isteğe bağlı] **otherMails** - yalnızca sosyal hesap kullanıcının e-posta adresleri 
 
-Daha fazla bilgi için bkz: [grafik API'si başvurusu](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+Daha fazla bilgi için bkz: [Graph API Başvurusu](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
-## <a name="migrate-social-account-only"></a>(Yalnızca) sosyal hesabını geçirme
-Yerel hesap kimlik bilgileri olmadan yalnızca, sosyal hesabı oluşturmak için. Grafik API'si için HTTPS POST isteği gönderin. İstek gövdesini oluşturmaya sosyal hesabı kullanıcı özelliklerini içerir. En azından gerekli özelliklerini belirtmeniz gerekir. 
+## <a name="migrate-social-account-only"></a>Sosyal hesap (yalnızca) geçirme
+Yerel hesap kimlik bilgileri olmadan yalnızca sosyal hesap oluşturmak için. Graph API'si için HTTPS POST isteği gönderin. İstek gövdesi, oluşturulacak sosyal hesap kullanıcı özelliklerini içerir. En azından gerekli özelliklerini belirtmeniz gerekir. 
 
 
 **YAYINLA**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
-Aşağıdaki form verileri gönder: 
+Aşağıdaki form verileri gönderme: 
 
 ```JSON
 {
@@ -97,12 +97,12 @@ Aşağıdaki form verileri gönder:
     "userPrincipalName": "c8c3d3b8-60cf-4c76-9aa7-eb3235b190c8@tenant-name.onmicrosoft.com"
 }
 ```
-## <a name="migrate-social-account-with-local-account"></a>Yerel hesap sosyal hesabıyla geçirme
-Sosyal kimliklerle birleşik bir yerel hesap oluşturmak için. Grafik API'si için HTTPS POST isteği gönderin. İstek gövdesini oluşturmaya sosyal hesabı kullanıcı özelliklerini içerir. En azından gerekli özelliklerini belirtmeniz gerekir. 
+## <a name="migrate-social-account-with-local-account"></a>Sosyal hesap yerel hesapla geçirme
+Sosyal kimliklerle birleşik bir yerel hesap oluşturmak için. Graph API'si için HTTPS POST isteği gönderin. İstek gövdesi, oluşturulacak sosyal hesap kullanıcı özelliklerini içerir. En azından gerekli özelliklerini belirtmeniz gerekir. 
 
 **YAYINLA**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
-Form verileri gönder: 
+Form verileri gönderme: 
 
 ```JSON
 {
@@ -134,25 +134,25 @@ Form verileri gönder:
 ```
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
-### <a name="how-can-i-know-the-issuer-name"></a>Verenin adı nasıl öğrenebilirim?
-Verenin adı veya kimlik sağlayıcı adı ilkenizde yapılandırılır. Değeri belirtmek üzere bilmiyorsanız `issuer`, bu yordamı izleyin:
-1. Sosyal hesaplardan biriyle oturum oturum
-2. JWT belirtecinden kopyalama `sub` değeri. `sub` Genellikle kullanıcının nesne kimliği Azure AD B2C içerir. Veya Azure portalından kullanıcının özelliklerini açın ve nesne kimliği kopyalayın.
-3. Açık [Azure AD Graph Explorer'a](https://graphexplorer.azurewebsites.net)
-4. Yöneticiniz oturum açın. N
-5. GET isteğini çalıştırın. UserObjectId kopyaladığınız kullanıcı kimliği ile değiştirin. **AL** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
-6. Bulun `userIdentities` öğesi Azure AD B2C JSON dönüş içinde.
+### <a name="how-can-i-know-the-issuer-name"></a>Veren adı nasıl öğrenebilirim?
+Veren adı veya kimlik sağlayıcı adı, ilkede yapılandırılır. Değeri belirtmek için bilmiyorsanız `issuer`, bu yordamı izleyin:
+1. Sosyal hesaplarından birini bilgilerinizle oturum açın
+2. JWT belirtecini Kopyala `sub` değeri. `sub` Genellikle kullanıcının nesne kimliği Azure AD B2C'yi içerir. Veya Azure portalından kullanıcının özelliklerini açın ve nesne kimliği kopyalayın.
+3. Açık [Azure AD Graph Gezgini](https://graphexplorer.azurewebsites.net)
+4. Yöneticiniz bilgilerinizle oturum açın. N
+5. GET isteğini takip çalıştırın. UserObjectId kopyaladığınız kullanıcı kimliği ile değiştirin. **AL** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
+6. Bulun `userIdentities` Azure AD B2C JSON dönüş içinde öğe.
 7. [İsteğe bağlı] Kod çözme isteyebilirsiniz `issuerUserId` değeri.
 
 > [!NOTE]
-> B2C Kiracı için yerel bir B2C Kiracı yöneticisi hesabı kullanın. Hesap adı sözdizimi admin@tenant-name.onmicrosoft.com.
+> B2C kiracısı için yerel bir B2C Kiracı yönetici hesabı kullanın. Hesap adı sözdizimi admin@tenant-name.onmicrosoft.com.
 
-### <a name="is-it-possible-to-add-social-identity-to-an-existing-local-account"></a>Var olan bir yerel hesap sosyal kimlik eklemek mümkün mü?
+### <a name="is-it-possible-to-add-social-identity-to-an-existing-local-account"></a>Sosyal kimlik için var olan bir yerel hesap eklemek mümkündür?
 Evet. Yerel hesap oluşturulduktan sonra sosyal kimlik ekleyebilirsiniz. HTTPS PATCH isteği çalıştırın. UserObjectId güncelleştirmek istediğiniz kullanıcı kimliği ile değiştirin. 
 
 **DÜZELTME EKİ** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
-Form verileri gönder: 
+Form verileri gönderme: 
 
 ```JSON
 {
@@ -165,12 +165,12 @@ Form verileri gönder:
 }
 ```
 
-### <a name="is-it-possible-to-add-multiple-social-identities"></a>Birden çok sosyal kimlikleri eklemek mümkün mü?
-Evet. Tek bir Azure AD B2C hesap için birden fazla sosyal kimlikleri ekleyebilirsiniz. HTTPS PATCH isteği çalıştırın. Kullanıcı kimliği ile userObjectId Değiştir 
+### <a name="is-it-possible-to-add-multiple-social-identities"></a>Birden çok sosyal kimlik eklemek mümkündür?
+Evet. Birden çok sosyal kimlikler için tek bir Azure AD B2C hesabı ekleyebilirsiniz. HTTPS PATCH isteği çalıştırın. UserObjectId kullanıcı kimliği ile değiştirin. 
 
 **DÜZELTME EKİ** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
-Form verileri gönder: 
+Form verileri gönderme: 
 
 ```JSON
 {
@@ -188,15 +188,15 @@ Form verileri gönder:
 ```
 
 ## <a name="optional-user-migration-application-sample"></a>[İsteğe bağlı] Kullanıcı Geçiş uygulama örneği
-[V2 örnek uygulamasını indirme ve çalıştırma](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration). Örnek uygulaması V2 dahil olmak üzere, sahte kullanıcı verilerinizi içeren bir JSON dosyası kullanır: yerel hesap, sosyal hesabı ve tek hesap, yerel & Sosyal kimliği.  JSON dosyasının düzenlemek için açın `AADB2C.UserMigration.sln` Visual Studio çözümü. İçinde `AADB2C.UserMigration` Proje Aç `UsersData.json` dosya. Dosya kullanıcı varlıkları listesini içerir. Her kullanıcı varlık aşağıdaki özelliklere sahiptir:
-* **signInName** - yerel hesap, oturum açmak için e-posta adresi
+[V2 örnek uygulamasını indirme ve çalıştırma](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration). V2 örnek uygulamasını dahil olmak üzere, işlevsiz kullanıcı verilerinizi içeren bir JSON dosyası kullanır: yerel hesap, sosyal hesap ve tek hesap, yerel ve sosyal kimlikleri.  JSON dosyasını düzenlemek için açın `AADB2C.UserMigration.sln` Visual Studio çözümü. İçinde `AADB2C.UserMigration` projesini açarsanız `UsersData.json` dosya. Dosyayı kullanıcı varlıkların bir listesini içerir. Her kullanıcı varlığı, aşağıdaki özelliklere sahiptir:
+* **signInName** - yerel hesap, oturum açma e-posta adresi
 * **displayName** -kullanıcının görünen adı
 * **firstName** -kullanıcının adı
-* **Soyadı** -kullanıcının Soyadı
-* **Parola** yerel hesap, kullanıcının parolasını (olabilir boş)
-* **veren** - sosyal hesabının, kimlik sağlayıcısı adı
-* **issuerUserId** - sosyal hesabının, sosyal kimlik sağlayıcısı tarafından kullanılan benzersiz bir kullanıcı tanımlayıcısı. Değer, düz metin olarak olmalıdır. Örnek uygulaması, bu değer base64 ile kodlar.
-* **e-posta** sosyal hesabı yalnızca (olmayan birleştirilmiş), kullanıcı için e-posta adresi
+* **Soyadı** -son kullanıcının adı
+* **Parola** yerel hesabı için kullanıcının parolasını (boş olabilir)
+* **veren** - sosyal hesap, kimlik sağlayıcısının adı
+* **issuerUserId** - sosyal hesap, sosyal kimlik sağlayıcısı tarafından kullanılan benzersiz kullanıcı tanımlayıcısı. Düz metin olarak değer olmalıdır. Örnek uygulama, bu değer Base64 kodlar.
+* **e-posta** sosyal hesap yalnızca (değil birleştirilmiş), kullanıcı için e-posta adresi
 
 ```JSON
 {
@@ -234,6 +234,6 @@ Form verileri gönder:
 ```
 
 > [!NOTE]
-> Örnek UsersData.json dosyasında verilerinizle güncelleştirmezseniz, oturum örnek yerel hesap kimlik bilgilerine sahip ancak sosyal hesap örnekleriyle açma. Sosyal hesaplarınızı geçirmek için gerçek veriler sağlar.
+> Örnek UsersData.json dosyasında verilerinizle güncelleştirmezseniz örnek yerel hesap kimlik bilgileri ile ancak bir sosyal hesap örnekleriyle oturum. Sosyal medya hesaplarını geçirmek için gerçek veriler sağlar.
 
-Daha fazla bilgi için örnek uygulamayı kullanma hakkında [Azure Active Directory B2C: Kullanıcı Geçişi](active-directory-b2c-user-migration.md)
+Daha fazla bilgi edinmek için örnek uygulama kullanma, bkz [Azure Active Directory B2C: Kullanıcı Geçişi](active-directory-b2c-user-migration.md)

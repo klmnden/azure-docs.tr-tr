@@ -1,38 +1,38 @@
 ---
 title: Kullanım raporlama API örnekleri ve Azure Active Directory B2C tanımlarında | Microsoft Docs
-description: Kılavuzu ve kullanıcıları, kimlik doğrulamaları ve çok faktörlü kimlik doğrulamaları Azure AD B2C kiracısı üzerinde raporları almayı örnekleri.
+description: Kılavuz ve kullanıcılar, kimlik doğrulaması ve multi-Factor Authentication Azure AD B2C kiracısı üzerinde raporları almayı örnekler.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dc7f18e29367a3979a2650a87465366d9727cff6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 544b0618f9135b684846c42bb7edeb37cf599883
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711639"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445543"
 ---
-# <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Raporlama API'si aracılığıyla Azure AD B2C kullanım raporlarında erişme
+# <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Azure AD B2C raporlama API'si üzerinden kullanım raporlarında erişme
 
-Azure Active Directory B2C (Azure AD B2C) kullanıcı oturum açma ve Azure multi-Factor Authentication göre kimlik doğrulaması sağlar. Kimlik doğrulaması uygulama ailenizin son kullanıcılar için kimlik sağlayıcıları sağlanır. Kiracı, kaydettirmek için kullanılan sağlayıcıları ve kimlik doğrulama sayısını türüne göre kayıtlı kullanıcıların sayısını bildiğinizde gibi sorulara cevap verebilirsiniz.
-* Kimlik sağlayıcısı (örneğin, bir Microsoft ya da LinkedIn hesabı) her tür kaç kullanıcının son 10 gün içinde kayıtlı?
-* Çok faktörlü kimlik doğrulaması kullanarak kaç kimlik doğrulamaları son bir ayda başarıyla tamamladınız mı?
-* Kaç tane oturum bileşen tabanlı kimlik doğrulamaları bu ay tamamlandığını? Gün başına? Uygulama başına?
-* Azure AD B2C Kiracı etkinlik beklenen aylık maliyetini nasıl tahmin edebilirsiniz?
+Azure Active Directory B2C (Azure AD B2C), kullanıcı oturum açma ve Azure multi-Factor Authentication göre kimlik doğrulaması sağlar. Kimlik doğrulaması uygulama ailenize son kullanıcılar için kimlik sağlayıcılar sağlanır. Kiracı, bunlar kaydetmek için kullanılan sağlayıcılar ve kimlik doğrulama sayısını türü tarafından kaydedilen kullanıcı sayısını bildiğinizde, aşağıdaki gibi sorulara yanıt verebilir:
+* Son 10 gün içinde (örneğin, Microsoft veya LinkedIn hesabı) kimlik sağlayıcısının her türden kaç kullanıcının kayıtlı?
+* Multi-Factor Authentication kullanarak kaç kimlik doğrulamaları geçen ay başarıyla tamamladınız mı?
+* Bu ay kaç oturum-tabanlı kimlik doğrulamaları tamamlandı? Gün başına? Uygulama başına?
+* Azure AD B2C kiracısı etkinliğim beklenen aylık maliyeti nasıl tahmin edebilirsiniz?
 
-Bu makalede, kullanıcılar, Faturalanabilir oturum bileşen tabanlı kimlik doğrulamaları ve çok faktörlü kimlik doğrulamaları sayısına göre fatura etkinliğine bağlı raporları odaklanır.
+Bu makalede, kullanıcı, Faturalanabilir oturum-tabanlı kimlik doğrulaması ve multi-Factor Authentication sayısına göre faturalandırma etkinliğini bağlı raporlar odaklanır.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Başlamadan önce bölümündeki adımları tamamlamanız gerekir [Azure AD API'leri raporlama erişmek için Önkoşullar](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Bir uygulama oluşturmak, bir gizlilik elde ve erişim izni Azure AD B2C kiracınızın raporları hakkı. *Komut dosyası bash* ve *Python betiği* örnekler da sağlanmıştır burada. 
+Başlamadan önce bölümündeki adımları tamamlamanız gerekir [Azure AD raporlama API'lerini erişmek için Önkoşullar](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Bir uygulama oluşturmak için bir gizli dizi elde ve erişim izni hakları Azure AD B2C kiracınızın raporlar. *Bash betiği* ve *Python betiğini* örnekleri burada da sunulmaktadır burada. 
 
 ## <a name="powershell-script"></a>PowerShell betiği
-Bu komut dosyasını kullanarak dört kullanım raporları oluşturulmasını gösterir `TimeStamp` parametre ve `ApplicationId` Filtresi.
+Bu betik kullanarak dört kullanım raporlarını oluşturmayı gösterir. `TimeStamp` parametresi ve `ApplicationId` filtre.
 
 ```powershell
 # This script will require the Web Application and permissions setup in Azure Active Directory
@@ -96,33 +96,33 @@ if ($oauth.access_token -ne $null) {
 ```
 
 
-## <a name="usage-report-definitions"></a>Kullanım Raporu tanımları
-* **tenantUserCount**: Kiracı son 30 gün içinde gün başına kimlik sağlayıcısı türü tarafından kullanıcıların sayısı. (İsteğe bağlı olarak, bir `TimeStamp` filtre geçerli tarih için belirtilen bir tarihten itibaren kullanıcı sayısına sağlar). Rapor sağlar:
+## <a name="usage-report-definitions"></a>Kullanım rapor tanımları
+* **tenantUserCount**: Kiracı tarafından her gün son 30 gün içinde kimlik sağlayıcısının türünü kullanıcıların sayısı. (İsteğe bağlı olarak, bir `TimeStamp` filtresi geçerli tarihin belirtilen tarihten itibaren kullanıcı sayısıyla sağlar). Raporu sağlar:
   * **TotalUserCount**: tüm kullanıcı nesnelerinin sayısı.
-  * **OtherUserCount**: Azure Active Directory Kullanıcıları (Azure AD B2C kullanıcılara değil) sayısı.
-  * **LocalUserCount**: Azure AD B2C kullanıcı hesaplarının sayısı kimlik bilgileriyle Azure AD B2C kiracısı yerel oluşturuldu.
+  * **OtherUserCount**: Azure Active Directory kullanıcı (Azure AD B2C kullanıcıları değil) sayısı.
+  * **LocalUserCount**: Azure AD B2C kullanıcı hesabı sayısı kimlik bilgileriyle Azure AD B2C kiracısı için yerel oluşturulur.
 
-* **AlternateIdUserCount**: Azure AD B2C kullanıcı sayısını kayıtlı olan dış kimlik sağlayıcısı (örneğin, Facebook, bir Microsoft hesabı veya başka bir Azure Active Directory Kiracı da denir bir `OrgId`).
+* **AlternateIdUserCount**: Azure AD B2C kullanıcı sayısı ile dış kimlik sağlayıcısı kayıtlı (örneğin, Facebook, Microsoft hesabı veya başka bir Azure Active Directory kiracısı, ayrıca olarak adlandırılan bir `OrgId`).
 
-* **b2cAuthenticationCountSummary**: Özet Faturalanabilir kimlik doğrulamaları gün ve kimlik doğrulama akışı türü tarafından son 30 gün boyunca günlük sayısı.
+* **b2cAuthenticationCountSummary**: günlük sayısını gün ve kimlik doğrulama akışı bir tür tarafından son 30 gün içindeki Faturalanabilir kimlik doğrulama özeti.
 
-* **b2cAuthenticationCount**: kimlik doğrulamaları bir süre içinde sayısı. Son 30 gün varsayılandır.  (İsteğe bağlı: Başlangıç ve bitiş `TimeStamp` parametreleri tanımlayan belirli bir zaman dilimi.) Çıktı içerir `StartTimeStamp` (Bu Kiracı için etkinliğin en erken tarihi) ve `EndTimeStamp` (son güncelleştirme).
+* **b2cAuthenticationCount**: kimlik doğrulamaları bir süre içinde sayısı. Son 30 gün varsayılandır.  (İsteğe bağlı: Başlangıç ve bitiş `TimeStamp` parametreleri tanımlayan belirli bir süre.) Çıktı içerir `StartTimeStamp` (Bu Kiracı için etkinlik en erken tarihi) ve `EndTimeStamp` (son güncelleştirme).
 
-* **b2cMfaRequestCountSummary**: gün ve türüne (SMS veya sesli) göre çok faktörlü kimlik doğrulama günlük sayısını özeti.
+* **b2cMfaRequestCountSummary**: günlük sayısını gün ve (SMS veya sesli) türüne göre çok faktörlü kimlik doğrulama özeti.
 
 
 ## <a name="limitations"></a>Sınırlamalar
-Kullanıcı sayısı verileri 48 için 24 saatte bir yenilenir. Kimlik doğrulamaları günde birkaç kez güncelleştirilir. Kullanırken `ApplicationId` filtre, bir boş rapor yanıt olabilir aşağıdaki koşullardan biri nedeniyle:
-  * Uygulama Kimliği Kiracı içinde yok. Doğru olduğundan emin olun.
-  * Uygulama kimliği var, ancak hiçbir veri raporlama döneminde bulunamadı. Tarih/saat parametrelerinizi inceleyin.
+Kullanıcı sayısı veriler için 24 48 saatte bir yenilenir. Kimlik doğrulamaları günde birkaç kez güncelleştirilir. Kullanırken `ApplicationId` filtre, bir boş rapor yanıt olabilir aşağıdaki koşullardan biri nedeniyle:
+  * Kiracıda uygulama kimliği yok. Doğru olduğundan emin olun.
+  * Uygulama kimliği var, ancak raporlama dönemi içindeki hiçbir veri bulunamadı. Tarih/saat parametrelerinizi inceleyin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-### <a name="monthly-bill-estimates-for-azure-ad"></a>Azure AD için aylık faturanızı tahmin eder
-İle birleştirildiğinde [en güncel Azure AD B2C kullanılabilir fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-b2c/), günlük, haftalık ve aylık Azure tüketim tahmin edebilirsiniz.  Genel maliyeti etkileyebilecek Kiracı davranış değişiklikleri planlarken tahmini özellikle yararlı olur. Gerçek maliyetlerini gözden geçirebilirsiniz, [Azure aboneliğine bağlı](active-directory-b2c-how-to-enable-billing.md).
+### <a name="monthly-bill-estimates-for-azure-ad"></a>Azure AD için aylık faturanızda tahminleri
+İle birlikte kullanıldığında [en güncel Azure AD B2C kullanılabilir fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-b2c/), günlük, haftalık ve aylık Azure tüketim tahmin edebilirsiniz.  Genel maliyeti etkileyebilecek Kiracı davranışında değişiklik için planlama yaparken, tahmini özellikle yararlıdır. Gerçek maliyetlerini gözden geçirebilirsiniz, [bağlı bir Azure aboneliği](active-directory-b2c-how-to-enable-billing.md).
 
 ### <a name="options-for-other-output-formats"></a>Diğer çıkış biçimleri için seçenekleri
-Aşağıdaki kod örnekleri JSON, bir ad değeri listesi ve XML Çıkış göndermeyi gösterir:
+Aşağıdaki kod örnekleri, JSON, adı değeri listesi ve XML çıkışı göndermek gösterir:
 ```powershell
 # to output to JSON use following line in the PowerShell sample
 $myReport.Content | Out-File -FilePath name-your-file.json -Force

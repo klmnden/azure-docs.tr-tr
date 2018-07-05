@@ -1,86 +1,86 @@
 ---
-title: Sayfanın UI Özelleştirme Yardımcısı Azure Active Directory B2C aracında | Microsoft Docs
-description: Azure Active Directory B2C sayfası kullanıcı Arabirimi özelleştirme özelliğindeki göstermek için kullanılan bir yardımcı aracıdır.
+title: Sayfa UI özelleştirmesi Yardımcısı aracı, Azure Active Directory B2C | Microsoft Docs
+description: Azure Active Directory B2C sayfa UI özelleştirmesi özelliği göstermek için kullanılan bir yardımcı araç.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d57b8d43b2302a18b9df89eacc8ffd20d1742075
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 18f921fb718aeb7ae4add2836fbb6ffabd66668f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712003"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445067"
 ---
-# <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: sayfası kullanıcı arabirimi (UI) özelleştirme özelliğini göstermek için kullanılan yardımcı aracı
-Bu makalede bir yardımcı olan [ana UI Özelleştirme makalesi](active-directory-b2c-reference-ui-customization.md) Azure Active Directory (Azure AD) B2C içinde. Aşağıdaki adımları sayfası kullanıcı Arabirimi özelleştirme özelliğini sağladık örnek HTML ve CSS içerik kullanarak çalışma açıklar.
+# <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: sayfa kullanıcı arabirimi (UI) özelleştirme özelliği göstermek için kullanılan bir yardımcı aracı
+Bu makale için bir yardımcı olan [ana kullanıcı Arabirimi özelleştirme makalesi](active-directory-b2c-reference-ui-customization.md) Azure Active Directory (Azure AD) B2C'de. Aşağıdaki adımlar, bizim sağladığımız örnek HTML ve CSS içeriği kullanarak sayfa UI özelleştirmesi özelliği çalışma açıklanmaktadır.
 
 ## <a name="get-an-azure-ad-b2c-tenant"></a>Bir Azure AD B2C kiracısı edinme
-Herhangi bir şey özelleştirebilmeniz gerekecektir [bir Azure AD B2C kiracısı edinme](active-directory-b2c-get-started.md) zaten yoksa.
+Herhangi bir şey özelleştirmeden önce gerekecektir [bir Azure AD B2C kiracısı edinme](active-directory-b2c-get-started.md) zaten yoksa.
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Kaydolma veya oturum açma ilkesi oluşturma
-Sunulmuştur örnek içeriği customze iki sayfaları için kullanılabilir bir [kaydolma veya oturum açma ilkesini](active-directory-b2c-reference-policies.md): [birleştirilmiş oturum açma sayfası](active-directory-b2c-reference-ui-customization.md) ve [kendi kendine sürülen öznitelikler sayfasını](active-directory-b2c-reference-ui-customization.md). Zaman [kaydolma veya oturum açma ilkesi oluşturma](active-directory-b2c-reference-policies.md#create-a-sign-up-or-sign-in-policy), yerel hesap (e-posta adresi), Facebook, Google ve Microsoft eklemek **kimlik sağlayıcıları**. Bizim örnek HTML içeriğini kabul yalnızca IDPs bunlar.  İsterseniz, bu IDPs kümesini de ekleyebilirsiniz.
+Örnek içerik sunulmuştur vault'un iki sayfaları için kullanılabilir bir [kaydolma veya oturum açma ilkesi](active-directory-b2c-reference-policies.md): [birleştirilmiş oturum açma sayfası](active-directory-b2c-reference-ui-customization.md) ve [otomatik olarak onaylanan öznitelikler sayfasını](active-directory-b2c-reference-ui-customization.md). Zaman [kaydolma veya oturum açma ilkenizin oluşturma](active-directory-b2c-reference-policies.md#create-a-sign-up-or-sign-in-policy), yerel bir hesap (e-posta adresi), Facebook, Google ve Microsoft ekleme **kimlik sağlayıcıları**. Bu bizim örnek HTML içeriğini kabul edileceği yalnızca Idp'yi vardır.  İsterseniz bu Idp'yi kümesini de ekleyebilirsiniz.
 
 ## <a name="register-an-application"></a>Bir uygulamayı kaydetme
-Etmeniz [bir uygulamayı kaydetme](active-directory-b2c-app-registration.md) B2C kiracınızda ilkeniz yürütmek için kullanılabilir. Uygulamanızı kaydolduktan sonra aslında kaydolma ilkenizde çalıştırmak için kullanabileceğiniz birkaç seçeneğiniz vardır:
+Şunları yapmanız gerekir [bir uygulamayı kaydetme](active-directory-b2c-app-registration.md) B2C kiracınızda ilkenizi yürütmek için kullanılabilir. Uygulamanızı kaydettikten sonra kaydolma ilkenizde çalıştırdığı için kullanabileceğiniz birkaç seçenek vardır:
 
-* Hızlı Başlangıç uygulamaları "kullanmaya başlayın" bölümünde listelenen Azure AD B2C birini yapı [oturum ayarlama ve tüketicilerinizin uygulamanıza oturum](active-directory-b2c-overview.md).
-* Önceden derlenmiş kullanmak [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) uygulama. Playground kullanmayı seçerseniz, bir uygulama B2C kiracınızın kullanarak kaydetmelisiniz **yeniden yönlendirme URI'si** `https://aadb2cplayground.azurewebsites.net/`.
-* Kullanım **Şimdi Çalıştır** ilkenizde düğmesinde [Azure portal](https://portal.azure.com/).
+* Azure AD B2C'in hızlı başlangıç uygulamaları "kullanmaya başlayın" bölümünde listelenen birini yapı [oturum ayarlama ve tüketicilerinizin uygulamanıza oturum açma](active-directory-b2c-overview.md).
+* Önceden oluşturulmuş kullanın [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) uygulama. Oyun alanı kullanmayı seçerseniz, bir uygulama kullanarak B2C kiracınıza kaydetmeniz gerekir **yeniden yönlendirme URI'si** `https://aadb2cplayground.azurewebsites.net/`.
+* Kullanım **Şimdi Çalıştır** ilkenizde düğmesinde [Azure portalında](https://portal.azure.com/).
 
-## <a name="customize-your-policy"></a>İlkeniz özelleştirme
-İlkeniz görünümünü özelleştirmek için önce belirli kuralları Azure AD B2C kullanarak HTML ve CSS dosyaları oluşturmanız gerekir. Azure AD B2C erişebilmesi için statik içerik genel kullanıma açık bir konuma karşıya yükleyebilirsiniz. Bu, kendi özel web sunucusu, Azure Blob Storage, Azure içerik teslim ağı veya tüm diğer statik kaynak barındırma sağlayıcı olabilir. Yalnızca içeriğiniz HTTPS üzerinden kullanılabilir ve CORS kullanarak erişilebilir gereksinimleridir. Statik içeriğinizi web üzerinde açığa sonra bu konuma gelin ve o içeriği müşterilerinize sunmak için ilkeniz düzenleyebilirsiniz. [Ana UI Özelleştirme makalesi](active-directory-b2c-reference-ui-customization.md) ayrıntılı olarak Azure AD B2C özelleştirme özelliğinin nasıl çalıştığı açıklanmaktadır.
+## <a name="customize-your-policy"></a>İlkenizi özelleştirme
+Görünümünü ilkenizin özelleştirmek için ilk olarak Azure AD B2C'yi belirli kuralları kullanılarak HTML ve CSS dosyaları oluşturmanız gerekir. Azure AD B2C erişebilmesi için statik içerik genel kullanıma açık bir konuma karşıya yükleyebilirsiniz. Bu, kendi özel web sunucusu, Azure Blob Depolama, Azure Content Delivery Network veya diğer tüm statik kaynak barındırma sağlayıcılarına olabilir. Yalnızca içeriğiniz HTTPS üzerinden kullanılabilir ve CORS kullanarak erişilebilir gereksinimleridir. Statik içerik web üzerinde kullanıma sunulan sonra bu konuma gelin ve o içeriği müşterilerinize sunmak için ilkenizi düzenleyebilirsiniz. [Ana kullanıcı Arabirimi özelleştirme makalesi](active-directory-b2c-reference-ui-customization.md) ayrıntılı olarak Azure AD B2C'yi özelleştirme özelliğinin nasıl çalıştığı açıklanmaktadır.
 
-Bu öğreticinin amaçları doğrultusunda zaten bazı örnek içeriği oluşturulan artık ve Azure Blob Depolama alanında barındırılan. Örnek çok basit tema özelleştirmesinde kurgusal şirketimizin, "Wingtip Toys" içeriktir. Kendi ilkesinde denemek için aşağıdaki adımları izleyin:
+Bu öğreticinin amaçları doğrultusunda, biz zaten bazı örnek içerik oluşturduğunuz ve Azure Blob Depolama alanında barındırılan. Örnek, kurgusal şirketimizin, "Wingtip Toys" çok temel bir özelleştirme temadaki içeriktir. Kendi ilkesinde denemek için aşağıdaki adımları izleyin:
 
-1. Oturum kiracınız için [Azure portal](https://portal.azure.com/) ve B2C özellikleri dikey penceresine gidin.
-2. Tıklatın **oturum açma veya kaydolma ilkeleri**, İlkesi'ni tıklatın ve Düzenle'yi tıklatın (örneğin, "b2c\_1\_oturum\_yukarı\_oturum\_içinde").
-3. Tıklatın **sayfa UI özelleştirme** ve ardından **Unified kaydolma veya oturum açma sayfası**.
-4. İki durumlu **kullanım özel sayfa** geçiş **Evet**. İçinde **özel sayfa URI** alanına, `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. **Tamam**’a tıklayın.
-5. Tıklatın **yerel hesap kayıt sayfasına**. İki durumlu **özel şablonu kullan** geçiş **Evet**. İçinde **özel sayfa URI** alanına, `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.
-6. İçin aynı adımı tekrarlayın **sosyal hesap kayıt sayfası**.
-   Tıklatın **Tamam** iki kez UI Özelleştirme dikey pencereleri kapatın.
+1. Oturum kiracınıza [Azure portalında](https://portal.azure.com/) ve B2C özellikleri dikey penceresine gidin.
+2. Tıklayın **oturum açma veya kaydolma ilkeleri'ni**, ilkenizin'a tıklayın ve Düzenle'yi tıklatın (örneğin, "b2c\_1\_oturum\_yukarı\_oturum\_içinde").
+3. Tıklayın **sayfa UI özelleştirmesini** ardından **birleşik kaydolma veya oturum açma sayfası**.
+4. İki durumlu **özel sayfa kullan** geçin **Evet**. İçinde **özel sayfa URI'si** alanına `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. **Tamam**’a tıklayın.
+5. Tıklayın **yerel hesap kaydolma sayfası**. İki durumlu **özel şablon kullan** geçin **Evet**. İçinde **özel sayfa URI'si** alanına `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.
+6. İçin aynı adımı tekrarlayın **sosyal hesap kaydolma sayfası**.
+   Tıklayın **Tamam** iki kez UI Özelleştirme dikey pencereleri kapatın.
 7. **Kaydet**’e tıklayın.
 
-Şimdi, özelleştirilmiş ilke deneyebilirsiniz. İstediğiniz, ancak kısaca tıklayabilirsiniz kendi uygulamanız veya Azure AD B2C playground kullanabilirsiniz **Şimdi Çalıştır** ilke dikey penceresinde komutu. Aşağı açılan kutusunda uygulamanızı seçin ve uygun yeniden yönlendirme URI'sini belirtin. Tıklatın **Şimdi Çalıştır** düğmesi. Yeni bir tarayıcı sekmesi açar ve yerinde yeni içerikle, uygulamanız için kaydolan kullanıcı deneyimi aracılığıyla çalıştırabilirsiniz!
+Şimdi, özelleştirilmiş ilke deneyebilirsiniz. İstediğiniz, ancak kısaca tıklayabilirsiniz kendi uygulamanız veya Azure AD B2C playground kullanabilirsiniz **Şimdi Çalıştır** ilke dikey penceresinde komutu. Aşağı açılan kutusunda uygulamanızı seçin ve uygun yeniden yönlendirme URI'Sİ'ı seçin. Tıklayın **Şimdi Çalıştır** düğmesi. Yeni bir tarayıcı sekmesi açar ve yerinde yeni içerikle uygulamanız için kaydolmaya yönelik kullanıcı deneyimi çalıştırabilirsiniz!
 
-## <a name="upload-the-sample-content-to-azure-blob-storage"></a>Örnek içeriğine Azure Blob depolama alanına karşıya yükle
-Sayfa içeriğini barındırmak için Azure Blob Storage kullanmak istiyorsanız, kendi depolama hesabı oluşturma ve dosyalarınızı karşıya yüklemek için sunduğumuz B2C yardımcı aracı kullanın.
+## <a name="upload-the-sample-content-to-azure-blob-storage"></a>Azure Blob depolama alanına örnek içeriği karşıya yükleme
+Sayfa içeriğinizi barındırmak için Azure Blob Depolama kullanmak istiyorsanız, kendi depolama hesabı oluşturma ve dosyalarınızı karşıya yüklemek için B2C Yardımcısı aracımızı kullanın.
 
 ### <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Tıklatın **+ yeni** > **veri + depolama** > **depolama hesabı**. Bir Azure Blob Storage hesabı oluşturmak için Azure aboneliği gerekir. Ücretsiz deneme sırasında yukarı imzalayabilirsiniz [Azure Web sitesi](https://azure.microsoft.com/pricing/free-trial/).
-3. Sağlayan bir **adı** depolama hesabı (örneğin, "contoso") ve için uygun seçimleri çekme **fiyatlandırma katmanı**, **kaynak grubu** ve **abonelik**. Bilgisayarınızda yüklü olduğundan emin olun **başlangıç panosuna Sabitle** iade seçeneği. **Oluştur**’a tıklayın.
-4. Panosuna geri dönün ve yeni oluşturduğunuz depolama hesabı'nı tıklatın.
-5. İçinde **Özet** 'yi tıklatın **kapsayıcıları**ve ardından **+ Ekle**.
-6. Sağlayan bir **adı** seçin ve kapsayıcı (örneğin, "b2c") için **Blob** olarak **erişim türüne**. **Tamam**’a tıklayın.
-7. Listede görünür, oluşturduğunuz kapsayıcı **BLOB'lar** dikey. Kapsayıcı URL yazma; Örneğin, bunu şuna benzemelidir `https://contoso.blob.core.windows.net/b2c`. Kapat **BLOB'lar** dikey.
-8. Depolama hesabı dikey penceresinde **anahtarları** ve değerlerini yazma **depolama hesabı adı** ve **birincil erişim anahtarını** alanları.
+2. Tıklayın **+ yeni** > **veri + depolama** > **depolama hesabı**. Bir Azure Blob Depolama hesabının oluşturulacağı bir Azure aboneliği gerekir. Ücretsiz bir deneme sürümü'kurmak oturum [Azure Web sitesi](https://azure.microsoft.com/pricing/free-trial/).
+3. Sağlayan bir **adı** depolama hesap (örneğin, "contoso") ve çekme için uygun seçimleri **fiyatlandırma katmanı**, **kaynak grubu** ve  **Abonelik**. Sahip olduğunuzdan emin olun **başlangıç panosuna Sabitle** teslim seçeneği. **Oluştur**’a tıklayın.
+4. Başlangıç panosuna geri dönün ve yeni oluşturduğunuz depolama hesabına tıklayın.
+5. İçinde **özeti** bölümünde **kapsayıcıları**ve ardından **+ Ekle**.
+6. Sağlayan bir **adı** seçin ve kapsayıcı (örneğin, "b2c") için **Blob** olarak **erişim türü**. **Tamam**’a tıklayın.
+7. Listede görünür, oluşturduğunuz kapsayıcı **Blobları** dikey penceresi. Kapsayıcı URL'si yazabilirsiniz. Örneğin, benzer şekilde görünmelidir `https://contoso.blob.core.windows.net/b2c`. Kapat **Blobları** dikey penceresi.
+8. Depolama hesabı dikey penceresinde tıklayın **anahtarları** ve değerlerini yazma **depolama hesabı adı** ve **birincil erişim anahtarı** alanları.
 
 > [!NOTE]
-> **Birincil erişim anahtarını** önemli güvenlik kimlik bilgileri.
+> **Birincil erişim anahtarı** bir önemli güvenlik kimlik bilgisidir.
 > 
 > 
 
-### <a name="download-the-helper-tool-and-sample-files"></a>Yardımcı aracı ve örnek dosyalarını indirme
-İndirebilirsiniz [.zip dosyası olarak Azure Blob Storage yardımcı aracı ve örnek dosyalar](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip) veya Github'dan kopyalayın:
+### <a name="download-the-helper-tool-and-sample-files"></a>Yardımcısı aracı ve örnek dosyalarını indirme
+İndirebileceğiniz [.zip dosyası olarak Azure Blob Depolama Yardımcısı aracı ve örnek dosyaları](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip) veya Github'dan kopyalayabilirsiniz:
 
 ```
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-Bu depo içeren bir `sample_templates\wingtip` örnek HTML, CSS ve görüntüleri içeren dizini. Bu şablonlar, kendi Azure Blob Storage hesabı başvurmak HTML dosyaları düzenlemeniz gerekir. Açık `unified.html` ve `selfasserted.html` ve tüm örneklerini Değiştir `https://localhost` önceki adımda yazdığınız kendi kapsayıcı URL'si ile. Bu durumda, HTML etki alanı altında Azure AD tarafından sunulacak çünkü HTML dosyalarının mutlak yolunda kullanmalısınız `https://login.microsoftonline.com`.
+Bu depo içeren bir `sample_templates\wingtip` örnek HTML, CSS ve resim içeren dizin. Kendi Azure Blob Depolama hesabınızı başvurmak bu şablonları için HTML dosyalarını düzenlemek gerekir. Açık `unified.html` ve `selfasserted.html` ve tüm örneklerini `https://localhost` önceki adımda yazdığınız kendi kapsayıcınızı URL'si ile. Bu durumda, HTML etki alanındaki Azure AD tarafından hizmet verilecek çünkü HTML dosyaları mutlak yolu kullanmalısınız `https://login.microsoftonline.com`.
 
-### <a name="upload-the-sample-files"></a>Örnek dosya karşıya yükleme
-Aynı Havuzda sıkıştırmasını `B2CAzureStorageClient.zip` çalıştırıp `B2CAzureStorageClient.exe` içinde dosya. Bu program yalnızca depolama hesabınıza belirttiğiniz dizindeki tüm dosyaları karşıya yükleme ve bu dosyaları için CORS erişimi etkinleştirin. Yukarıdaki adımları izlediyseniz, HTML ve CSS dosyaları depolama hesabınıza şimdi işaret. Depolama hesabınızın adını önündeki bir parçası olduğunu unutmayın `blob.core.windows.net`; Örneğin, `contoso`. İçerik doğru bir şekilde erişmek deneyerek yüklendiğini doğrulayabilirsiniz `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` bir tarayıcıdan. Aynı zamanda [ http://test-cors.org/ ](http://test-cors.org/) içeriği artık CORS'yi olduğundan emin olmak için. (Ara "XHR durumu: 200" sonuç.)
+### <a name="upload-the-sample-files"></a>Örnek dosyalarını karşıya yükleme
+Aynı depoda sıkıştırmasını `B2CAzureStorageClient.zip` çalıştırıp `B2CAzureStorageClient.exe` içinde dosya. Bu program yalnızca depolama hesabınıza belirttiğiniz dizindeki tüm dosyaları karşıya yükleme ve bu dosyaları CORS erişimini etkinleştirin. Yukarıdaki adımları izlediyseniz, HTML ve CSS dosyaları artık depolama hesabınıza işaret edecek. Depolama hesabınızın adını önünde bir parçası olduğunu unutmayın `blob.core.windows.net`; Örneğin, `contoso`. İçeriği doğru erişmeye çalışarak yüklendiğini doğrulayabilirsiniz `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` bir tarayıcıdan. Ayrıca [ http://test-cors.org/ ](http://test-cors.org/) içeriği artık CORS'un etkin olduğundan emin olmak için. (Ara "XHR durumu: 200" Sonuçta.)
 
-### <a name="customize-your-policy-again"></a>İlkeniz, yeniden özelleştirme
-Örnek içeriğine kendi depolama hesabınıza yüklediğiniz, ona başvurmak için kaydolma ilkeniz düzenlemeniz gerekir. Yer alan adımları yineleyin ["ilkenizi özelleştirmek"](#customize-your-policy) yukarıdaki kendi depolama hesabının URL'leri kullanarak bu kez bölüm. Örneğin, konumunu, `unified.html` dosya olacaktır `<url-of-your-container>/wingtip/unified.html`.
+### <a name="customize-your-policy-again"></a>İlkenizi yeniden özelleştirme
+Örnek içerik kendi depolama hesabınıza yüklediğiniz, buna başvuruda bulunma kaydolma ilkenizde düzenlemeniz gerekir. Bölümündeki adımları tekrar ["ilkenizin özelleştirme"](#customize-your-policy) yukarıdaki kendi depolama hesabının URL'leri kullanarak şu bölüm. Örneğin, konumunu, `unified.html` dosya olacak `<url-of-your-container>/wingtip/unified.html`.
 
-Kullanabileceğiniz artık **Şimdi Çalıştır** düğmesini veya ilkeniz tekrar yürütmek için kendi uygulamanızı. Sonuç neredeyse tam olarak aynı--, kullanılan görünmelidir aynı örnek HTML ve CSS her iki durumda da. Ancak, ilkelerinizi kendi örneğini Azure Blob Storage şimdi başvuruyor ve dosyaları yeniden olarak Lütfen karşıya yükleyin ve düzenlemek boş. HTML ve CSS özelleştirme hakkında daha fazla bilgi için bkz [ana UI Özelleştirme makalesi](active-directory-b2c-reference-ui-customization.md).
+Artık **Şimdi Çalıştır** düğme veya kendi uygulamanızı ilkenizi tekrar yürütün. Sonuç neredeyse aynı--kullanmış görünmelidir aynı örnek HTML ve CSS her iki durumda da. Ancak, ilkelerinizi kendi örneğini Azure Blob Depolama şimdi başvuruyor ve düzenleyin ve dosyaları yeniden olarak Lütfen karşıya yüklemek ücretsizdir. HTML ve CSS özelleştirme hakkında daha fazla bilgi için [ana kullanıcı Arabirimi özelleştirme makalesi](active-directory-b2c-reference-ui-customization.md).
 

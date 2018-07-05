@@ -5,27 +5,27 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 03/19/2018
+ms.date: 06/19/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 3267f649e360c512a5523ce1d5948719a1969934
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4bec8c8ea29c10b8c0d0351a41ebc9183bb45d4f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32297595"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449520"
 ---
 ## <a name="deployment-considerations"></a>Dağıtma konuları
 
-* N-serisi VM'ler kullanılabilirlik için bkz: [bölgeye göre ürünleri](https://azure.microsoft.com/regions/services/).
+* N serisi Vm'lerde kullanılabilirliği için bkz: [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/regions/services/).
 
-* N-serisi VM'ler yalnızca Resource Manager dağıtım modelinde dağıtılabilir.
+* N serisi sanal makineler yalnızca Resource Manager dağıtım modelinde dağıtılabilir.
 
-* Azure için kendi diskleri destekleyen depolama türünde N-serisi VM'ler farklı. Yalnızca NC ve NV VM'ler standart Disk Depolama (HDD) tarafından desteklenen VM diskleri destekler. NCv2, ND ve NCv3 VM'ler yalnızca Premium Disk Depolama (SSD) tarafından desteklenen VM diskleri destekler.
+* N serisi sanal makineler, Azure depolama disklerini için destekledikleri türünde farklılık gösterir. NC ve NV VM'ler yalnızca standart Disk Depolama (HDD) tarafından desteklenen VM disklerini destekler. NCv2 ND ve NCv3 VM'ler yalnızca Premium Disk depolamayı (SSD) tarafından desteklenen VM disklerini destekler.
 
-* Birden fazla birkaç N-serisi sanal makineleri dağıtmak istiyorsanız, Kullandıkça Öde aboneliğine veya diğer satın alma seçenekleri göz önünde bulundurun. [Ücretsiz Azure hesabı](https://azure.microsoft.com/free/) kullanıyorsanız, yalnızca sınırlı sayıda Azure işlem çekirdeği kullanabilirsiniz.
+* Birkaç taneden fazla N serisi sanal makineler dağıtmak istiyorsanız, bir Kullandıkça Öde aboneliğine veya diğer satın alma seçeneklerini göz önünde bulundurun. [Ücretsiz Azure hesabı](https://azure.microsoft.com/free/) kullanıyorsanız, yalnızca sınırlı sayıda Azure işlem çekirdeği kullanabilirsiniz.
 
-* Azure aboneliğinizde (her bölge) çekirdeğini Kotayı artırmak ve NC, NCv2, NCv3, ND veya NV çekirdekleri ayrı Kotayı artırmak gerekebilir. Bir kota artışı isteği göndermek üzere [bir çevrimiçi müşteri destek isteği açma](../articles/azure-supportability/how-to-create-azure-support-request.md) herhangi bir ücret alınmaz. Varsayılan sınır abonelik kategoriye göre farklılık gösterebilir.
+* (Bölge başına), Azure aboneliğinizdeki çekirdek kotasını artırmak ve NC, NCv2, NCv3, ND veya NV çekirdek için ayrı Kotayı artırmak gerekebilir. Bir kota artırım talebinde bulunmak [bir çevrimiçi müşteri destek isteği açın](../articles/azure-supportability/how-to-create-azure-support-request.md) ücret olmadan. Varsayılan sınır, abonelik kategorisine bağlı olarak değişiklik gösterebilir.
 
 
 

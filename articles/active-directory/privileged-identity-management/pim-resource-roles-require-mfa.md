@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management'ı kullanarak Azure kaynaklarında Azure çok faktörlü kimlik doğrulamasını zorunlu | Microsoft Docs
+title: Azure multi-Factor Authentication, Privileged Identity Management'ı kullanarak Azure kaynaklarında zorunlu | Microsoft Docs
 description: Bu belge, PIM kaynaklar için çok faktörlü kimlik doğrulamasını etkinleştirmek açıklar.
 services: active-directory
 documentationcenter: ''
@@ -10,56 +10,56 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 0c50a17b651fc1fb5d49915da5da4a37d40a0d3e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 21f6fef214f27630ff0eadc39e1e26c9c344f353
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260072"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444741"
 ---
-# <a name="enforce-azure-multi-factor-authentication-in-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management'ı kullanarak Azure çok faktörlü kimlik doğrulaması Azure kaynaklarında zorla
+# <a name="enforce-azure-multi-factor-authentication-in-azure-resources-by-using-privileged-identity-management"></a>Azure multi-Factor Authentication, Privileged Identity Management'ı kullanarak Azure kaynaklarında zorla
 
-Kaynak yöneticileri ve kimlik yöneticileri kritik Azure altyapısı zaman sınırlı üyelik ve tam zamanı erişimi ile korumak Azure kaynak rolleri için ayrıcalıklı Kimlik Yönetimi (PIM) sağlar. Ayrıca, PIM iki farklı senaryolar için Azure multi-Factor Authentication isteğe bağlı zorunluluğu sağlar.
+Azure kaynak rolleri için Privileged Identity Management (PIM) kaynak yöneticileri ve kimlik yöneticileri zamana bağlı üyelik ve tam zamanında erişim kritik Azure altyapısını koruma sağlar. Ayrıca, iki farklı senaryolar için Azure multi-Factor Authentication isteğe bağlı zorlama PIM sağlar.
 
 ## <a name="require-multi-factor-authentication-to-activate"></a>Multi-Factor Authentication'ı etkinleştirmek gerekli
 
-Kaynak yöneticileri etkinleştirebilmek için önce Azure çok faktörlü kimlik doğrulama çalıştırmak uygun rolü üyelerinin gerektirebilir. Bu işlem, etkinleştirme kim makul kesin olarak oldukları söyleyin isteyen kullanıcının sağlar. Kullanıcı hesabının tehlikede, bu seçenek zorlamayı durumlarda kritik kaynaklara korur. 
+Kaynak yöneticileri etkinleştirilebilmesi Azure multi-Factor Authentication'ı çalıştırmak uygun rolü üyelerinin isteyebilir. Bu işlem, etkinleştirme kim makul kesin olarak söyledikleri isteyen kullanıcı sağlar. Kullanıcı hesabının tehlikede, bu seçenek zorlamayı durumlarda kritik kaynaklara korur. 
 
-Bu gereksinim zorlamak için yönetilen kaynaklar listesinden bir kaynak seçin. Gelen [genel bakış Panosu'na](pim-resource-roles-overview-dashboards.md), ekranın sağ alt bölümünde rollerinde listesinden bir rol seçin.
+Bu gereksinim zorlamak için yönetilen kaynakları listesinden bir kaynak seçin. Gelen [genel bakış Panosu'nu](pim-resource-roles-overview-dashboards.md), ekranın sağ alt bölümünde roller listesinden bir rol seçin.
 
-Ayrıca, rol ayarlarını herhangi birinden alabileceğiniz **rolleri** veya **rol ayarlarını** sol bölmedeki sekmeleri.
+Ayrıca, rol ayarları araçtan alabileceğiniz **rolleri** veya **rol ayarları** sol bölmede sekme.
 
 >[!Note]
->Sol bölmede seçenekler gri olması ve sayfanın en üstündeki "Etkinleştirilebilmesi için uygun rollere sahip" bildiren bir başlık görüyorsanız, etkin bir yönetici değilsiniz. Bu, gerektiği anlamına gelir [etkinleştirme](pim-resource-roles-activate-your-roles.md) devam etmeden önce.
+>Sol bölmede seçenekler gri renkte ve sayfanın üst kısmında "Etkinleştirilebilmesi için uygun roller sahip" belirten bir başlık görüyorsanız, etkin bir Yöneticisi değilsiniz. Bu, gerektiği anlamına gelir [etkinleştirme](pim-resource-roles-activate-your-roles.md) devam etmeden önce.
 
-!["Rol" ve "Rol ayarları" sekmeleri ](media/azure-pim-resource-rbac/aadpim_rbac_manage_a_role_v2.png)
+!["Rolleri" ve "Rol ayarları" sekmeler ](media/azure-pim-resource-rbac/aadpim_rbac_manage_a_role_v2.png)
 
-Bir rolün üyeliğini görüntülemek için seçin **rol ayarlarını** çubuğundan açmak için ekranın üstünde **rol ayarı ayrıntısı**.
+Bir rolün üyeliğini görüntülemek için seçin **rol ayarları** çubuğundan açmak için ekranın üst kısmındaki **rol ayarı ayrıntıları**.
 
-Rol ayarlarını değiştirmek için seçin **Düzenle** üstündeki düğmesi.
+Rol ayarlarını değiştirmek için seçin **Düzenle** üstünde düğme.
 
-Bölümünde altında **etkinleştirme**, onay kutusunu işaretleyin **gerektiren çok faktörlü kimlik doğrulamasını etkinleştirme**. Daha sonra **Kaydet**’e tıklayın.
+Bölümünde altında **etkinleştirme**, onay kutusunu işaretleyin **etkinleştirme multi-Factor Authentication iste**. Daha sonra **Kaydet**’e tıklayın.
 
 ![Etkinleştirme yapılırken Multi-Factor Authentication'ı gerekli kılın](media/azure-pim-resource-rbac/aadpim_rbac_require_mfa.png)
 
-## <a name="require-multi-factor-authentication-on-assignment"></a>Atama üzerinde çok faktörlü kimlik doğrulaması gerektirir
+## <a name="require-multi-factor-authentication-on-assignment"></a>Atamada multi-Factor Authentication iste
 
-Bazı durumlarda, bir kaynak yöneticisi (örneğin bir gün) kısa bir süre için role üye atama isteyebilirsiniz. Bu durumda, etkinleştirme isteği atanan üyeleri gerek yoktur. Üye kendi rol ataması kullandığında zaten atanmış olan andan rolündeki etkin olduğu Bu senaryoda, çok faktörlü kimlik doğrulaması PIM zorunlu kılamaz.
+Bazı durumlarda, bir kaynak yöneticisi (örneğin bir gün) kısa bir süre için bir role üye atamak isteyebilirsiniz. Bu durumda, etkinleştirme isteği atanan üyeleri gerek yoktur. Üye kendi rol ataması kullandığında zaten atanmış olan şu rolden etkin olduğu Bu senaryoda, multi-Factor Authentication PIM zorunlu kılamaz.
 
-Atama gerçekleşmesine kaynak yöneticisi kim olduklarını söyleyin olduğundan emin olmak için atamada çok faktörlü kimlik doğrulamasını zorunlu kılabilir.
+Atama yerine getirmesini Kaynak Yöneticisi kimin söyledikleri olduğundan emin olmak için atamada multi-Factor Authentication zorunlu kılabilir.
 
-Aynı rol ayarı ayrıntıları ekranından, kutuyu **doğrudan atamada çok faktörlü kimlik doğrulaması iste**.
+Aynı rol ayarı ayrıntıları ekranından, onay kutusunu için **doğrudan atamada multi-Factor Authentication iste**.
 
-![Doğrudan atamada çok faktörlü kimlik doğrulaması gerektirir](media/azure-pim-resource-rbac/aadpim_rbac_require_mfa_on_assignment.png)
+![Doğrudan atamada multi-Factor Authentication iste](media/azure-pim-resource-rbac/aadpim_rbac_require_mfa_on_assignment.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Etkinleştirmek için onay iste](pim-resource-roles-approval-workflow.md)
+[Etkinleştirmek için onay gerektir](pim-resource-roles-approval-workflow.md)
 
 [Denetim günlüğü nasıl kullanma](pim-resource-roles-use-the-audit-log.md)
 

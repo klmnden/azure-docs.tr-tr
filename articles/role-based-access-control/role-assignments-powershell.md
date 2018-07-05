@@ -1,6 +1,6 @@
 ---
 title: RBAC ve Azure PowerShell kullanarak erişimini yönetme | Microsoft Docs
-description: Kullanıcılar, gruplar ve uygulamalar, rol tabanlı erişim denetimi (RBAC) ve Azure PowerShell kullanarak erişimi yönetmek üzere öğrenin. Bu erişim listesinde, erişim ve erişimi kaldırmak nasıl içerir.
+description: Kullanıcılar, gruplar ve rol tabanlı erişim denetimi (RBAC) ve Azure PowerShell kullanarak uygulamalar için erişimi yönetmeyi öğrenin. Buna erişimi listeleme, erişim verme ve erişimi kaldırma işlemleri dahildir.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,35 +8,35 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1b75443f442affea2f1010605bb9aa330043336a
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: dcc324f3b6c5153b294719ff8939aed8a3e82b1c
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319592"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436845"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>RBAC ve Azure PowerShell kullanarak erişimini yönetme
 
-[Rol tabanlı erişim denetimi (RBAC)](overview.md) Azure kaynaklarına erişimi yönetme yoludur. Bu makalede, kullanıcılar, gruplar ve RBAC ve Azure PowerShell kullanarak uygulamalar için erişim yönetme açıklanmaktadır.
+[Rol tabanlı erişim denetimi (RBAC)](overview.md), Azure'daki kaynaklara erişimi yönetmek için kullanılan sistemdir. Bu makalede, kullanıcıları, grupları ve RBAC ve Azure PowerShell kullanarak uygulamalar için erişimi nasıl yönetileceği açıklanmaktadır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Erişimi yönetmek için aşağıdakilerden biri gerekir:
 
-* [PowerShell Azure bulut Kabuğu](/azure/cloud-shell/overview)
+* [Azure Cloud shell'de PowerShell](/azure/cloud-shell/overview)
 * [Azure PowerShell](/powershell/azure/install-azurerm-ps)
 
-## <a name="list-roles"></a>Liste rolleri
+## <a name="list-roles"></a>Rolleri listeleme
 
-### <a name="list-all-available-roles"></a>Kullanılabilir tüm roller listesinde
+### <a name="list-all-available-roles"></a>Tüm kullanılabilir roller listesinden
 
-Atama için uygun ve için bunlar erişim izni verme, işlemleri incelemek için kullanabileceğiniz listesi RBAC rollere [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+Atama için kullanılabilir ve, bunlar erişim verin, işlemleri denetlemek için kullanabileceğiniz listesi RBAC rolleri için [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
 
 ```azurepowershell
 Get-AzureRmRoleDefinition | FT Name, Description
@@ -58,7 +58,7 @@ Automation Operator                               Automation Operators are able 
 
 ### <a name="list-a-specific-role"></a>Belirli bir rol listesi
 
-Belirli bir rol listelemek için kullanın [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+Belirli bir rolü listelemek için kullanın [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
 
 ```azurepowershell
 Get-AzureRmRoleDefinition <role name>
@@ -77,9 +77,9 @@ NotActions       : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/
 AssignableScopes : {/}
 ```
 
-### <a name="list-a-specific-role-in-json-format"></a>Belirli bir rol JSON biçiminde listesi
+### <a name="list-a-specific-role-in-json-format"></a>Belirli bir rolü JSON biçiminde listeleyin
 
-Belirli bir rol JSON biçiminde listelemek için kullanın [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+Belirli bir rolü JSON biçiminde listelemek için kullanın [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
 
 ```azurepowershell
 Get-AzureRmRoleDefinition <role name> | ConvertTo-Json
@@ -142,13 +142,13 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 ...
 ```
 
-## <a name="list-access"></a>Liste erişim
+## <a name="list-access"></a>Erişimi listeleme
 
-RBAC, liste erişim için rol atamalarını listeleyin.
+Liste erişim, RBAC, rol atamalarını listeleyin.
 
 ### <a name="list-role-assignments-at-a-specific-scope"></a>Belirli bir kapsamda listesi rol atamaları
 
-Belirtilen abonelik, kaynak grubu ya da kaynak için tüm rol atamalarını görebilirsiniz. Örneğin, tüm etkin atamaları bir kaynak grubu görmek için kullanmak [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Belirtilen abonelik, kaynak grubu veya kaynak için rol atamalarını görebilirsiniz. Örneğin, tüm etkin atamalar bir kaynak grubu için görmek için kullanmak [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 ```azurepowershell
 Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>
@@ -170,9 +170,9 @@ RoleDefinitionName : Virtual Machine Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
 ```
 
-### <a name="list-role-assignments-for-a-user"></a>Bir kullanıcı için rol atamalarını listesi
+### <a name="list-role-assignments-for-a-user"></a>Bir kullanıcının rol atamalarını listeleme
 
-Belirtilen bir kullanıcıya atanmış olan tüm rolleri listelemek için kullanın [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Belirli bir kullanıcıya atanmış olan tüm rolleri listelemek için kullanın [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 ```azurepowershell
 Get-AzureRmRoleAssignment -SignInName <user email>
@@ -186,7 +186,7 @@ RoleDefinitionName : BizTalk Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
 ```
 
-Belirtilen bir kullanıcıya atanmış olan tüm rolleri ve kullanıcının ait olduğu gruplarına atanır rollerini listelemek için kullanın [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Belirli bir kullanıcıya atanmış olan tüm rolleri ve kullanıcının ait olduğu gruplara atanan rollerini listelemek için kullanın [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 ```azurepowershell
 Get-AzureRmRoleAssignment -SignInName <user email> -ExpandPrincipalGroups
@@ -196,9 +196,9 @@ Get-AzureRmRoleAssignment -SignInName <user email> -ExpandPrincipalGroups
 Get-AzureRmRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
-### <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Klasik Hizmet Yöneticisi ve ortak Yöneticiler listesi rol atamaları
+### <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Klasik Hizmet Yöneticisi ve ortak yönetici için rol atamalarını listelemek
 
-Rol atamaları Klasik Abonelik Yöneticisi ve ortak yöneticiler listesinden, kullanmak için [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Klasik Abonelik Yöneticisi ve ortak yönetici için rol atamalarını listesinde, kullanmak için [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 ```azurepowershell
 Get-AzureRmRoleAssignment -IncludeClassicAdministrators
@@ -206,29 +206,29 @@ Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="grant-access"></a>Erişim verme
 
-RBAC, erişim vermek için bir rol ataması oluşturun.
+RBAC'de erişim vermek için bir rol ataması oluşturmanız gerekir.
 
 ### <a name="search-for-object-ids"></a>Nesne kimlikleri için arama
 
-Rol atamak için nesnenin (kullanıcı, Grup veya uygulama) ve kapsamını tanımlamak gerekir.
+Bir rol atamak için hem nesne (kullanıcı, Grup veya uygulama) ve kapsamını tanımlamak gerekir.
 
-Abonelik kimliği bilmiyorsanız, içinde bulabilirsiniz **abonelikleri** Azure portal veya dikey penceresinde kullanabileceğiniz [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Abonelik kimliği bilmiyorsanız, içinde bulabilirsiniz **abonelikleri** dikey penceresinde Azure portalını veya kullanabileceğiniz [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
-Nesne kimliği için Azure AD grubundaki almak için [Get-AzureRmADGroup](/powershell/module/azurerm.resources/get-azurermadgroup):
+Bir Azure AD grubu nesne kimliği almak için kullanın [Get-AzureRmADGroup](/powershell/module/azurerm.resources/get-azurermadgroup):
 
 ```azurepowershell
 Get-AzureRmADGroup -SearchString <group name in quotes>
 ```
 
-Azure AD hizmet sorumlusu veya uygulama için nesne kimliği almak için [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
+Bir Azure AD hizmet sorumlusu veya uygulamanın nesne Kimliğini almak için kullanın [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
 
 ```azurepowershell
 Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 ```
 
-### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Bir abonelik kapsamında bir uygulama için bir rol ataması oluşturma
+### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Bir abonelik kapsamda bir uygulama için bir rol ataması oluşturun
 
-Abonelik kapsamında bir uygulamaya erişim vermek için kullanın [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
+Abonelik kapsamında bir uygulamaya erişim vermek [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
 
 ```azurepowershell
 New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
@@ -248,7 +248,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Bir kaynak grubu kapsamda bir kullanıcının bir rol ataması oluşturun
+### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Bir kaynak grubu kapsamında bir rol ataması için bir kullanıcı oluşturma
 
 Kaynak grubu kapsamındaki bir kullanıcı için erişim vermek için kullanın [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
 
@@ -274,7 +274,7 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>Bir kaynak kapsamda bir rol ataması için bir grup oluşturun
 
-Kaynak kapsamdaki bir gruba erişim vermek için kullanın [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
+Kaynak kapsamda bir gruba erişim vermek için kullanın [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
 
 ```azurepowershell
 New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
@@ -303,9 +303,9 @@ ObjectType         : Group
 CanDelegate        : False
 ```
 
-## <a name="remove-access"></a>Erişimi kaldır
+## <a name="remove-access"></a>Erişimi kaldırma
 
-RBAC, erişimi kaldırmak için bir rol ataması kullanarak Kaldır [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
+RBAC, erişimi kaldırmak için rol ataması kullanarak kaldırmanız [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
@@ -317,6 +317,6 @@ PS C:\> Remove-AzureRmRoleAssignment -SignInName alain@example.com -RoleDefiniti
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Öğretici: RBAC ve Azure PowerShell kullanarak bir grup erişim](tutorial-role-assignments-group-powershell.md)
+- [Öğretici: RBAC ve Azure PowerShell kullanarak bir gruba erişim](tutorial-role-assignments-group-powershell.md)
 - [Öğretici: Azure PowerShell kullanarak özel bir rol oluşturma](tutorial-custom-role-powershell.md)
 - [Azure PowerShell ile kaynakları yönetme](../azure-resource-manager/powershell-azure-resource-manager.md)

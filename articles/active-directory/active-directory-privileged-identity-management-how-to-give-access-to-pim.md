@@ -1,56 +1,56 @@
 ---
-title: Privileged Identity Management - Azure için erişim vermek nasıl | Microsoft Docs
-description: Azure Active Directory Privileged Identity Management uzantısı ile kullanıcıları için roller PIM yönetilebilir eklemeyi öğrenin.
+title: Privileged Identity Management - Azure için erişim verme | Microsoft Docs
+description: Azure Active Directory Privileged Identity Management uzantısı ile kullanıcılara rollerini PIM yönetebilmeniz eklemeyi öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: efbfcdd1a50069a943fc57da9d402e4cc7c408ed
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8d52469e11ac508ee8b353311f6040ac9d6f2e4e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260568"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447158"
 ---
-# <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management yönetmek için erişim verme
-Azure AD Privileged Identity Management (PIM) bir kuruluş için otomatik olarak etkinleştirir genel yönetici rol atamalarını ve PIM erişimi alın. Hiç kimsenin yazma erişimi varsayılan olarak, ancak başka genel yöneticiler de dahil olmak üzere alır. Diğer genel Yöneticiler, güvenlik yöneticileri ve güvenlik okuyucuları Azure AD PIM salt okuma erişimi var. PIM için erişim vermek için ilk kullanıcı başkalarına atayabilirsiniz **ayrıcalıklı Rol Yöneticisi** rol.
+# <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management'ı yönetmek için erişim verme
+Azure AD Privileged Identity Management (PIM) bir kuruluş için otomatik olarak sağlayan bir genel yönetici rolü atamalarını ve PIM erişimi alın. Başka hiç kimse yazma erişimi varsayılan olarak, ancak diğer genel yöneticileri dahil alır. Diğer genel Yöneticiler, güvenlik yöneticileri ve güvenlik okuyucuları Azure AD PIM salt okunur erişimi vardır. PIM erişimi verme, ilk kullanıcı başkalarına atayabilirsiniz **ayrıcalıklı Rol Yöneticisi** rol.
 
 > [!NOTE]
-> Azure AD PIM yönetme Azure MFA gerektirir. Microsoft hesapları için Azure MFA kaydedilemiyor olduğundan, bir Microsoft hesabıyla oturum açan bir kullanıcı Azure AD PIM erişemiyor.
+> Azure MFA, Azure AD PIM yönetme gerektirir. Microsoft hesapları için Azure MFA kaydını yapamıyorum olduğundan, bir Microsoft hesabıyla oturum açtığında bir kullanıcıyı Azure AD PIM erişemez.
 > 
 > 
 
-Her zaman en az iki kullanıcılar ayrıcalıklı Rol Yöneticisi rolünde bir kullanıcı kilitli durumda veya kullanıcıların hesap silindi emin olun.
+Her zaman en az iki kullanıcı bir ayrıcalıklı Rol Yöneticisi rolünde bir kullanıcı kilitli durumda veya bunların hesap silindiğinde emin olun.
 
-## <a name="give-another-user-access-to-manage-pim"></a>PIM yönetmek için başka bir kullanıcı erişimi verin
-1. Oturum [Azure portal](https://portal.azure.com/) seçip **Azure AD Privileged Identity Management** Panoda uygulama.
-2. Seçin **yönetmek ayrıcalıklı rolleri** > **ayrıcalıklı Rol Yöneticisi** > **Ekle**.
+## <a name="give-another-user-access-to-manage-pim"></a>PIM yönetmek için başka bir kullanıcı erişimi verme
+1. Oturum [Azure portalında](https://portal.azure.com/) seçip **Azure AD Privileged Identity Management** Panoda uygulama.
+2. Seçin **ayrıcalıklı rollerimi Yönet** > **ayrıcalıklı Rol Yöneticisi** > **Ekle**.
    
-    ![Ayrıcalıklı rol yöneticileri - ekran görüntüsü ekleme][1]
-3. Yönetilen Kullanıcı Ekle dikey, 1. adım zaten tamamlanmış olur. 2. adımı seçin **kullanıcı seçin** eklemek istediğiniz kullanıcıyı arayın.
+    ![Ayrıcalıklı rol yöneticileri - ekran görüntüsü Ekle][1]
+3. Yönetilen Kullanıcı Ekle dikey, 1. adım zaten tamamlandı. 2. adımı seçin **Seçili kullanıcılar** eklemek istediğiniz kullanıcıyı arayın.
    
-    ![Kullanıcılar - ekran görüntüsü seçin][2]
-4. Arama sonuçlarından kullanıcıyı seçin ve'ı tıklatın **Bitti**.
-5. Tıklatın **Tamam** seçiminizi kaydetmek için. Seçtiğiniz kullanıcı ayrıcalıklı rol Yöneticiler listesinde görünür.
+    ![Kullanıcılar - ekran görüntüsü][2]
+4. Arama sonuçlarından kullanıcı seçin ve tıklayın **Bitti**.
+5. Tıklayın **Tamam** seçiminizi kaydetmek için. Seçtiğiniz kullanıcı ayrıcalıklı rol yöneticileri listesinde görünür.
    
-   * Yeni bir rol birine atamak olduğunda, bunlar otomatik olarak uygun rolünü etkinleştirmek için ayarlanır. Roldeki kalıcı hale getirmek istiyorsanız, kullanıcı listesinde'ı tıklatın. Seçin **izin olun** kullanıcı bilgileri menüsünde.
+   * Birine yeni rol atamanız olduğunda, bunlar otomatik uygun rolü etkinleştirmek için ayarlanır. Bunları rolde kalıcı hale getirmek isterseniz, kullanıcı listesinde'e tıklayın. Seçin **kalıcı yap** kullanıcı bilgileri menüsünde.
 6. Kullanıcı bağlantı gönderme [Azure AD Privileged Identity Management ile çalışmaya başlama](active-directory-privileged-identity-management-getting-started.md).
 
 ## <a name="remove-another-users-access-rights-for-managing-pim"></a>PIM yönetmek için başka bir kullanıcının erişim haklarını kaldır
-Biri ayrıcalıklı rol yöneticisi rolünden kaldırmadan önce her zaman atanmış iki kullanıcı çıkarılsın emin olun.
+Biri ayrıcalıklı rol yönetici rolünden kaldırmadan önce her zaman Ayrıca iki kullanıcı atanmış hala olacaktır emin olun.
 
-1. PIM panosunda rolüne tıklayın **ayrıcalıklı Rol Yöneticisi**.  Şu anda bu roldeki kullanıcılar listesi görüntülenir.
+1. PIM Panoda role tıklayın **ayrıcalıklı Rol Yöneticisi**.  Bu roldeki kullanıcılar listesi görüntülenir.
 2. Kullanıcı listesinde kullanıcı tıklayın.
-3. Tıklayın **kaldırmak**.  Bir onay iletisi ile sunulur.
-4. Tıklatın **Evet** kullanıcı rolünden kaldırmak için.
+3. Tıklayarak **Kaldır**.  Size bir onay iletisi gösterilir.
+4. Tıklayın **Evet** kullanıcı rolünden kaldırmak için.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar

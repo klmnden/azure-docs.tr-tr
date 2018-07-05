@@ -12,30 +12,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 8fd70380dbb88f379789e1a4730934dcd38cac5a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4f74b0f90795362d3e509fdbd33e5f358227f147
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29393227"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436880"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>.NET Framework kullanarak Azure Event Hubs’dan olay alma
 
 ## <a name="introduction"></a>Giriş
 
-Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir.
+Azure Event Hubs, büyük miktarlarda bağlı cihazlarınız ve uygulamalarınız olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir.
 
-Bu öğreticide, **[Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]**’nı kullanarak bir olay hub’ından iletiler alan .NET Framework konsol uygulamasını yazma işlemi gösterilmektedir. .NET Framework kullanarak olayları göndermek için [.NET Framework kullanarak Azure Event Hubs’a olay gönderme](event-hubs-dotnet-framework-getstarted-send.md) makalesine bakın veya soldaki içindekiler bölümünden uygun gönderme diline tıklayın.
+Bu öğreticide, **[Olay İşleyicisi Ana Bilgisayarı][Event Processor Host]**’nı kullanarak bir olay hub’ından iletiler alan .NET Framework konsol uygulamasını yazma işlemi gösterilmektedir. .NET Framework kullanarak olayları göndermek için [.NET Framework kullanarak Azure Event Hubs’a olay gönderme](event-hubs-dotnet-framework-getstarted-send.md) makalesine bakın veya soldaki içindekiler bölümünden uygun gönderme diline tıklayın.
 
-[Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost], olay hub’larına ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu olay hub’larına ait alma olaylarını basitleştiren bir .NET sınıfıdır. [Olay İşleyicisi Ana Bilgisayarı][Event Processor Host]’nı kullanarak, farklı düğümlerde barındırıldığında bile birden çok alıcı arasında olayları bölebilirsiniz. Bu örnek, tek alıcı için [Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]'nın nasıl kullanıldığını göstermektedir. [Olay işleme ölçeğini genişletme][Scale out Event Processing with Event Hubs] örneği, birden çok alıcıyla [Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]'nın nasıl kullanılacağını göstermektedir.
+[Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost], olay hub’larına ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu olay hub’larına ait alma olaylarını basitleştiren bir .NET sınıfıdır. Olay işlemcisi konağı kullanarak olayları birden çok alıcı arasında farklı düğümlerde barındırıldığında bile bölebilirsiniz. Bu örnek, tek alıcı için olay işlemcisi konağı kullanmayı gösterir. [Ölçeği genişletilmiş olay işleme] [ Scale out Event Processing with Event Hubs] örnek ile birden çok alıcı olay işlemcisi konağı kullanmayı gösterir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
-* [Microsoft Visual Studio 2015 veya üzeri](http://visualstudio.com). Bu öğreticideki ekran görüntülerinde Visual Studio 2017 kullanılır.
+* [Microsoft Visual Studio 2017 veya daha yüksek](http://visualstudio.com).
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir hesap oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
@@ -46,15 +46,19 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız ger
 
 [Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]'nı kullanabilmeniz için bir [Azure Depolama hesabınızın][Azure Storage account] olması gerekir:
 
-1. Oturum [Azure portal][Azure portal], tıklatıp **kaynak oluşturma** en üst ekranın sol.
+1. Oturum [Azure portalında][Azure portal], tıklatıp **kaynak Oluştur** , ekranın sol üst köşesindeki.
+
 2. **Depolama** ve ardından **Depolama hesabı**’na tıklayın.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
+
 3. İçinde **depolama hesabı oluşturma** bölmesinde, depolama hesabı için bir ad yazın. Bir Azure aboneliği, kaynak grubu ve kaynağın oluşturulacağı konumu seçin. Sonra **Oluştur**’a tıklayın.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+
 4. Depolama hesabı listesinde, yeni oluşturulan depolama hesabına tıklayın.
-5. Depolama hesabı bölmesinde **erişim anahtarları**. **key1** değerini bu öğreticide daha sonra kullanmak üzere kopyalayın.
+
+5. Depolama hesabı bölmesinden **erişim anahtarları**. **key1** değerini bu öğreticide daha sonra kullanmak üzere kopyalayın.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
@@ -168,7 +172,7 @@ Tebrikler! Olay İşleyicisi Ana Bilgisayarı’nı kullanarak bir olay hub’ı
 
 Olay hub’ını oluşturan ve veri gönderip alan çalışan bir uygulama oluşturduğunuza göre aşağıdaki bağlantıları ziyaret ederek daha fazla bilgi alabilirsiniz:
 
-* [Olay İşlemcisi Konağı][Event Processor Host]
+* [Olay işlemcisi konağı genel bakış][Event Processor Host]
 * [Event Hubs'a genel bakış][Event Hubs overview]
 * [Event Hubs ile ilgili SSS](event-hubs-faq.md)
 
@@ -179,10 +183,10 @@ Olay hub’ını oluşturan ve veri gönderip alan çalışan bir uygulama oluş
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[EventProcessorHost]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Event Hubs overview]: event-hubs-about.md
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Event Hubs Programming Guide]: event-hubs-programming-guide.md
 [Azure Storage account]:../storage/common/storage-create-storage-account.md
-[Event Processor Host]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Event Processor Host]: event-hubs-event-processor-host.md
 [Azure portal]: https://portal.azure.com

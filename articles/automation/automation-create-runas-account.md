@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3f6f2768e13e85edb8a314359fef0b0312a8e84d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: a29379492f4ffd662244c3e42de321f47be13d9f
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344912"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436990"
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Farklı Çalıştır hesaplarıyla Otomasyon hesabı kimlik doğrulamasını güncelleştirme 
 Mevcut Otomasyon hesabınızı Azure portalından güncelleştirebilir veya aşağıdaki durumlarda PowerShell kullanabilirsiniz:
@@ -248,6 +248,9 @@ Bu PowerShell betiği aşağıdaki yapılandırmalar için destek içerir:
         Write-Host -ForegroundColor red       $UploadMessage
     }
     ```
+
+    > [!IMPORTANT]
+    > **Add-AzureRmAccount** için bir diğer ad sunulmuştur **Connect-AzureRMAccount**. Ne zaman kitaplığınızı arama öğe görmüyorsanız, **Connect-AzureRMAccount**, kullanabileceğiniz **Add-AzureRmAccount**, veya Otomasyon hesabınızda modüllerinizi güncelleştirebilirsiniz.
 
 2. Bilgisayarınızda **Windows PowerShell**’i yükseltilmiş kullanıcı haklarına sahip **Başlat** ekranından başlatın.
 3. Yükseltilmiş komut satırı kabuğundan, 1. adımda oluşturduğunuz komut dosyasını içeren klasöre gidin.  

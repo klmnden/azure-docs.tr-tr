@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5cbad33bf98e4138b94916a8f87cc7e34901b3da
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9a3b969af861d6fb750b8aad666f2e1dfb7c8a3d
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595667"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447294"
 ---
 # <a name="deploy-a-model-from-ssdt"></a>SSDT’den model dağıtma
 Azure aboneliğinizde bir sunucu oluşturduktan sonra, aboneliğinize bir tablo modeli dağıtmaya hazır olursunuz. Üzerinde çalışmakta olduğunuz bir tablo modeli projesini derleyip dağıtmak için SQL Server Veri Araçları’nı (SSDT) kullanabilirsiniz. 
@@ -30,13 +30,13 @@ Başlamak için gerekli olanlar:
 > 
 > 
 
-## <a name="get-the-server-name"></a>Sunucu adını Al
+## <a name="get-the-server-name"></a>Sunucu adını alma
 
 **Azure portalı** > sunucu > **Genel Bakış** > **Sunucu adı** menüsünde sunucu adını kopyalayın.
    
 ![Azure'da sunucu adını alma](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
-## <a name="to-deploy-from-ssdt"></a>SSDT dağıtmak için
+## <a name="to-deploy-from-ssdt"></a>SSDT'den dağıtmak için
 
 1. SSDT > **Çözüm Gezgini** menüsünde projeye sağ tıklayın > **Özellikler**’e tıklayın. Ardından **Dağıtım** > **Sunucu** alanına sunucu adını yapıştırın.   
    
