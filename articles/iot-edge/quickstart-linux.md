@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 86bf28249321a705e8855de35121611b05009854
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 27e5b7fed227248d9d60c8ede460c9ecc65ca52d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063502"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096283"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Hızlı Başlangıç: Bir Linux x64 cihazına ilk IoT Edge modülünüzü dağıtma
 
@@ -171,8 +171,10 @@ Güvenlik daemon'u sistem hizmeti olarak yüklenir ve bu sayede IoT Edge çalı�
 6. Cihazınızda çalışan modülleri görüntüleyin: 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+
+   Oturum kapatma ve açma döngüsünden sonra yukarıdaki komut için *sudo* kullanılması gerekmez.
 
    ![Cihazınızda bir modülü görüntüleme](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -190,8 +192,9 @@ Bu hızlı başlangıçta, yeni bir IoT Edge cihazı oluşturdunuz ve üzerine I
 Benzetimli cihazınızı çalıştıran bilgisayarda yeniden komut istemini açın. Buluttan dağıtılan modülün IoT Edge cihazınızda çalıştığından emin olun:
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+   Oturum kapatma ve açma döngüsünden sonra yukarıdaki komut için *sudo* kullanılması gerekmez.
 
    ![Cihazınızda üç modül görüntüleme](./media/quickstart-linux/iotedge-list-2.png)
 

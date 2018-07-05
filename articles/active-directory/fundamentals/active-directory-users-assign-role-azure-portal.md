@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: 7ed564d5954841f96109568b33183908d25bb8be
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: ec30f1507bfa45c29709a7f4b7dc1e91aa25ca57
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939559"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440757"
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de kullanıcılara yönetici rolü atama
 Bu makalede Azure Active Directory'de (Azure AD) kullanıcılara yönetici rolü atamayı adımları açıklanmaktadır. Kuruluşunuza yeni kullanıcı ekleme hakkında daha fazla bilgi için bkz. [Azure Active Directory'ye yeni kullanıcı ekleme](../add-users-azure-active-directory.md). Eklenen kullanıcılar varsayılan olarak yönetici izinlerine sahip olmaz ancak bu kullanıcılara herhangi bir zamanda roller atayabilirsiniz.
@@ -30,7 +30,7 @@ Bu makalede Azure Active Directory'de (Azure AD) kullanıcılara yönetici rolü
 
     ![Kullanıcı yönetimini açma](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 
-3. Seçilen kullanıcı için **Dizin rolü**'nü, **Rol ekle**'yi ve ardından **Dizin rolleri** listesinden **Koşullu erişim yöneticisi** gibi uygun yönetici rollerini seçin. Yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolleri atama](../active-directory-assign-admin-roles-azure-portal.md). 
+3. Seçilen kullanıcı için **Dizin rolü**'nü, **Rol ekle**'yi ve ardından **Dizin rolleri** listesinden **Koşullu erişim yöneticisi** gibi uygun yönetici rollerini seçin. Yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolleri atama](../users-groups-roles/directory-assign-admin-roles.md). 
 
     ![Bir kullanıcıyı role atama](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 

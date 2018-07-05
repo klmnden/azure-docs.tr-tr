@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 05/22/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, 23113853-34f2-4f
-ms.openlocfilehash: d815bf3fa4b63f12ac9f0d871e353e872a5aca25
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: c5d09e03eb79d89604cba6d9533051bb9b50ce90
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699980"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084850"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Visual Studio kullanarak ilk işlevinizi oluşturma
 
@@ -95,5 +95,4 @@ Projenizi yayımlayabilmeniz için önce Azure aboneliğinizde bir işlev uygula
 HTTP ile tetiklenen basit bir işlevi kullanarak C# işlev uygulaması oluşturup yayımlamak için Visual Studio’yu kullandınız.
 
 * [Diğer hizmetlerle tümleşen giriş ve çıkış bağlamalarının nasıl ekleneceğini öğrenin.](functions-develop-vs.md#add-bindings)
-* [Azure İşlevleri Temel Araçları kullanarak yerel test ve hata ayıklama hakkında daha fazla bilgi edinin.](functions-run-local.md#vs-debug)
 * [.NET sınıfı kitaplıkları olarak işlev geliştirme hakkında daha fazla bilgi edinin](functions-dotnet-class-library.md).

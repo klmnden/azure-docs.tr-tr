@@ -3,7 +3,7 @@ title: Azure Log Analytics ile şirketi içi Linux bilgisayarlardan veri toplama
 description: Linux için Log Analytics aracısını dağıtmayı ve bu işletim sisteminden Log Analytics ile veri toplamayı etkinleştirmeyi öğrenin.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -15,12 +15,13 @@ ms.topic: quickstart
 ms.date: 04/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: af385a7cbf97ff15156cc78c77f8b54e2f79badb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: aca8ee7305f919068733dfa3cb636a0f9bad7b05
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637642"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127178"
 ---
 # <a name="collect-data-from-linux-computer-hosted-in-your-environment"></a>Ortamınızda barındırılan Linux bilgisayarından verileri toplama
 [Azure Log Analytics](log-analytics-overview.md), doğrudan fiziksel veya sanal Linux bilgisayarlarınızdan ve ortamınızdaki diğer kaynaklardan verileri ayrıntılı analiz ve bağıntı için tek bir depoda toplayabilir.  Bu hızlı başlangıçta birkaç kolay adımda Linux bilgisayarınızı nasıl yapılandırabileceğiniz ve veri toplayabileceğiniz gösterilmektedir.  Azure Linux VM’leri için [Azure Sanal Makineler hakkında veri toplama](log-analytics-quick-collect-azurevm.md) konusuna bakın.  

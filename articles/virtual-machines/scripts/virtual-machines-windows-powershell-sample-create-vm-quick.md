@@ -3,7 +3,7 @@ title: Azure PowerShell Betiği Örneği - Windows Sanal Makinesi Oluşturma | M
 description: Azure PowerShell Betiği Örneği - Windows Sanal Makinesi Oluşturma
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b50751f5cdad18a0584032e1ef2dcd325b0c77ac
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0b8b26123929c7c47203e7a0ecc7486d489fb9ab
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657814"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098432"
 ---
 # <a name="create-a-virtual-machine-with-powershell"></a>PowerShell ile sanal makine oluşturma
 
@@ -35,7 +35,7 @@ Bu betik Windows Server 2016 çalıştıran bir Azure Sanal Makinesi oluşturur.
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-windows-vm-quick.ps1 "Create VM")]
 
-## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
+## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
 Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 

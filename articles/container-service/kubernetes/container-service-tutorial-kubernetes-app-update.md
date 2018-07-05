@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f54179329b521cc861e90f023ff0b010b7ce1f75
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 81f2302df5740b482f03a4a724d2899734579949
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164974"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096868"
 ---
 # <a name="update-an-application-in-kubernetes"></a>Kubernetes'te uygulama güncelleştirme
 
@@ -100,7 +100,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 ## <a name="deploy-update-application"></a>Güncelleştirilmiş uygulamayı dağıtma
 
-En uzun çalışma süresini sağlamak için uygulama podunun birden çok örneğinin çalıştırılması gerekir. Bu yapılandırmayı [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu ile doğrulayın.
+En uzun çalışma süresini sağlamak için uygulama podunun birden çok örneğinin çalıştırılması gerekir. Bu yapılandırmayı [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) komutu ile doğrulayın.
 
 ```bash
 kubectl get pod
@@ -123,13 +123,13 @@ azure-vote-front görüntüsünü çalıştıran birden çok podunuz yoksa, `azu
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Uygulamayı güncelleştirmek için [kubectl set](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set) komutunu kullanın. `<acrLoginServer>` öğesini, kapsayıcı kayıt defterinizin oturum açma sunucusu veya ana bilgisayar adıyla güncelleştirin.
+Uygulamayı güncelleştirmek için [kubectl set](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set) komutunu kullanın. `<acrLoginServer>` öğesini, kapsayıcı kayıt defterinizin oturum açma sunucusu veya ana bilgisayar adıyla güncelleştirin.
 
 ```azurecli-interactive
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Dağıtımı izlemek için [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutunu kullanın. Güncelleştirilmiş uygulama dağıtıldığında, podlarınız sonlandırılır ve yeni kapsayıcı görüntüsüyle yeniden oluşturulur.
+Dağıtımı izlemek için [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) komutunu kullanın. Güncelleştirilmiş uygulama dağıtıldığında, podlarınız sonlandırılır ve yeni kapsayıcı görüntüsüyle yeniden oluşturulur.
 
 ```azurecli-interactive
 kubectl get pod

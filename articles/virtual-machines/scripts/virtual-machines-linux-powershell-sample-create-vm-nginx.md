@@ -3,7 +3,7 @@ title: Azure PowerShell Betiği Örneği - NGINX | Microsoft Docs
 description: Azure PowerShell Betiği Örneği - NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b4887c6486aeeaae202e8f772aca13814ff175b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a43680a2e1089210d849dcc66dcc57056704dd2d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654037"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098195"
 ---
 # <a name="create-an-nginx-vm-with-powershell"></a>PowerShell ile NGINX sanal makinesi oluşturma
 
@@ -35,7 +35,7 @@ Bu betik bir Azure Sanal Makinesi oluşturur ve Azure Sanal Makinesi Özel Betik
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.ps1 "Create VM NGINX")]
 
-## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
+## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
 Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 

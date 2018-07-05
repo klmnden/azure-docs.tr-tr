@@ -3,7 +3,7 @@ title: Azure PowerShell Betiği Örneği - WordPress | Microsoft Docs
 description: Azure PowerShell Betiği Örneği - WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ba1138d4c26b7fbcdda50b2f4ba45745a018e855
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b19c03fea7f376a5a16a2eb77e3ebf1cc8189bb6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655863"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098371"
 ---
 # <a name="create-a-wordpress-vm-with-powershell"></a>PowerShell ile WordPress sanal makinesi oluşturma
 
-Bu betik bir sanal makine oluşturur ve sonra Azure Sanal Makinesi özel betik uzantısını kullanarak WordPress yükler. Betiği çalıştırdıktan sonra `http://<public IP of VM>/wordpress` adresindeki WordPress yapılandırma sitesine erişebilirsiniz. 
+Bu betik bir sanal makine oluşturur ve sonra Azure Sanal Makinesi özel betik uzantısını kullanarak WordPress yükler. Betiği çalıştırdıktan sonra `http://<public IP of VM>/wordpress` adresindeki WordPress yapılandırma sitesine erişebilirsiniz.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -35,7 +35,7 @@ Bu betik bir sanal makine oluşturur ve sonra Azure Sanal Makinesi özel betik u
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.ps1 "Create VM WordPress")]
 
-## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
+## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
 Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 

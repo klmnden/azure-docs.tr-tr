@@ -3,7 +3,7 @@ title: Azure CLI Betik Örneği - WordPress ile Linux VM Oluşturma | Microsoft 
 description: Azure CLI Betik Örneği - WordPress ile Linux VM Oluşturma
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 76b113167690d04af73cce9ffc208090b9c2328f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3427f53293cb23ec4596c32456d5f156d7065b44
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653374"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096119"
 ---
 # <a name="create-a-vm-with-wordpress"></a>WordPress ile VM oluşturma
 
-Bu betik bir sanal makine oluşturur ve sonra Azure Sanal Makinesi özel betik uzantısını kullanarak WordPress yükler. Betiği çalıştırdıktan sonra `http://<public IP of VM>/wordpress` adresindeki WordPress yapılandırma sitesine erişebilirsiniz. 
+Bu betik bir sanal makine oluşturur ve sonra Azure Sanal Makinesi özel betik uzantısını kullanarak WordPress yükler. Betiği çalıştırdıktan sonra `http://<public IP of VM>/wordpress` adresindeki WordPress yapılandırma sitesine erişebilirsiniz.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -35,11 +35,11 @@ Bu betik bir sanal makine oluşturur ve sonra Azure Sanal Makinesi özel betik u
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.sh "Quick Create VM")]
 
-## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
+## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
 Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

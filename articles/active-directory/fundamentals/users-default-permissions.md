@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-ms.openlocfilehash: 991feaa61a73d5ac96159fbd6a7dd1fdd420fd3c
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: e2571a6854d2c3de2425547b69c5435286182ef7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291421"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448161"
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Azure Active Directory'deki varsayılan kullanıcı izinleri
 
@@ -50,8 +50,8 @@ Abonelikler | Tüm abonelikleri okuma<br>Hizmet Planı Üyesini etkinleştirme |
 
 İzin | Ayar açıklaması
 ---------- | ------------
-Güvenlik grubu oluşturma olanağı | Bu seçenek Hayır olarak ayarlanırsa kullanıcılar güvenlik grubu oluşturamaz. Genel Yöneticiler ve Kullanıcı Hesabı Yöneticileri, güvenlik grubu oluşturmaya devam edebilir. Nasıl yapılacağını öğrenmek için bkz. [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../active-directory-accessmanagement-groups-settings-cmdlets.md).
-Office 365 grubu oluşturma olanağı | Bu seçenek Hayır olarak ayarlanırsa kullanıcılar Office 365 grubu oluşturamaz. Bu seçeneğin Bazı olarak ayarlanması belirli bir kullanıcı kümesinin Office 365 grubu oluşturmasını sağlar. Genel Yöneticiler ve Kullanıcı Hesabı Yöneticileri, Office 365 grubu oluşturma iznine sahip olmaya devam eder. Nasıl yapılacağını öğrenmek için bkz. [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../active-directory-accessmanagement-groups-settings-cmdlets.md).
+Güvenlik grubu oluşturma olanağı | Bu seçenek Hayır olarak ayarlanırsa kullanıcılar güvenlik grubu oluşturamaz. Genel Yöneticiler ve Kullanıcı Hesabı Yöneticileri, güvenlik grubu oluşturmaya devam edebilir. Nasıl yapılacağını öğrenmek için bkz. [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-cmdlets.md).
+Office 365 grubu oluşturma olanağı | Bu seçenek Hayır olarak ayarlanırsa kullanıcılar Office 365 grubu oluşturamaz. Bu seçeneğin Bazı olarak ayarlanması belirli bir kullanıcı kümesinin Office 365 grubu oluşturmasını sağlar. Genel Yöneticiler ve Kullanıcı Hesabı Yöneticileri, Office 365 grubu oluşturma iznine sahip olmaya devam eder. Nasıl yapılacağını öğrenmek için bkz. [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-cmdlets.md).
 Azure AD yönetim portalına erişimi sınırlayın | Bu seçenek Hayır olarak ayarlanırsa kullanıcılar Azure Active Directory portalına erişemez.
 Diğer kullanıcıları okuma olanağı | Bu ayar yalnızca PowerShell ile kullanılabilir. Bu seçenek $false olarak ayarlanırsa yönetici olmayan kullanıcıların dizindeki kullanıcı bilgilerini okuması engellenir. Bu ayar Exchange Online gibi diğer Microsoft hizmetlerindeki kullanıcı bilgilerinin okunmasını önlemez. Bu ayar özel durumlar için tasarlanmıştır ve $false olarak ayarlanması önerilmez.
 

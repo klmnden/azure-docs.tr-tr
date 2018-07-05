@@ -9,21 +9,21 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.devlang: java
 ms.topic: sample
-ms.date: 02/08/2018
+ms.date: 06/18/2018
 ms.author: sngun
-ms.openlocfilehash: 90b6ac48373056d5a4bec13c79574336bab73c51
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: eafc05d825535fe1a0c13dd52823b4e59499fb91
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839940"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113665"
 ---
 # <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API'si için Zaman Uyumsuz Java örnekleri
 
 > [!div class="op_single_selector"]
 > * [.NET Örnekleri](sql-api-dotnet-samples.md)
 > * [Java Örnekleri](sql-api-java-samples.md)
-> * [Zaman Uyumsuz Java Örnekleri](sql-api-async-java-samples.md)
+> * [Async Java Örnekleri](sql-api-async-java-samples.md)
 > * [Node.js Örnekleri](sql-api-nodejs-samples.md)
 > * [Python Örnekleri](sql-api-python-samples.md)
 > * [Azure Kod Örneği Galerisi](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)

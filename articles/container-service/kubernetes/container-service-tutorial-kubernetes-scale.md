@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f643c09f00b23cd14e85e83ed0cf7ab7a13c7646
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 478c6dcaa6afd67742df91366021c6186fc1427e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162832"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098541"
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Kubernetes pod’larını ve altyapısını ölçeklendirme
 
@@ -39,7 +39,7 @@ Bu adımları tamamlamadıysanız ve takip etmek istiyorsanız, [Öğretici 1 �
 
 ## <a name="manually-scale-pods"></a>Pod’ları el ile ölçeklendirme
 
-Şu ana kadar hem Azure Vote ön ucu hem de Redis örneği tek bir çoğaltma dağıtıldı. Doğrulamak [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutunu çalıştırın.
+Şu ana kadar hem Azure Vote ön ucu hem de Redis örneği tek bir çoğaltma dağıtıldı. Doğrulamak [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) komutunu çalıştırın.
 
 ```azurecli-interactive
 kubectl get pods
@@ -53,13 +53,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-[kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) komutunu kullanarak `azure-vote-front` dağıtımında pod’ların sayısını el ile değiştirin. Bu örnek, sayısı 5’e yükseltir.
+[kubectl scale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale) komutunu kullanarak `azure-vote-front` dağıtımında pod’ların sayısını el ile değiştirin. Bu örnek, sayısı 5’e yükseltir.
 
 ```azurecli-interactive
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-[kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutunu çalıştırarak Kubernetes’in pod’ları oluşturduğunu doğrulayın. Yaklaşık bir dakika sonra ek pod’lar çalışır:
+[kubectl get pods](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) komutunu çalıştırarak Kubernetes’in pod’ları oluşturduğunu doğrulayın. Yaklaşık bir dakika sonra ek pod’lar çalışır:
 
 ```azurecli-interactive
 kubectl get pods
@@ -91,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-Aşağıdaki örnek, `azure-vote-front` dağıtımındaki pod’ların sayısını otomatik olarak ölçeklendirmek için [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) komutunu kullanır. Burada CPU kullanımı %50’yi aşarsa, otomatik ölçeklendirici, pod’ların sayısını üst sınır olan 10’a yükseltir.
+Aşağıdaki örnek, `azure-vote-front` dağıtımındaki pod’ların sayısını otomatik olarak ölçeklendirmek için [kubectl autoscale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale) komutunu kullanır. Burada CPU kullanımı %50’yi aşarsa, otomatik ölçeklendirici, pod’ların sayısını üst sınır olan 10’a yükseltir.
 
 
 ```azurecli-interactive

@@ -3,7 +3,7 @@ title: Azure CLI Betik Örneği - Linux VM Oluşturma | Microsoft Docs
 description: Azure CLI Betik Örneği - Linux VM Oluşturma
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 645689f5bd79a30f57842af8672f24634eda471b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1ab176e8d3e01816f0d4840b6164604500c334e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653238"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096654"
 ---
 # <a name="create-a-fully-configured-virtual-machine"></a>Tam olarak yapılandırılmış bir sanal makine oluşturma
 
@@ -35,11 +35,11 @@ Bu betik, Ubuntu işletim sistemi ile bir Azure Sanal Makinesi oluşturur. Beti�
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-detailed/create-vm-detailed.sh "Quick Create VM")]
 
-## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
+## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
 Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: c505f5c737b0e37e74bf136211aa0baca006658c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 62c2ebcdd3c40fd5204e20e4e15b0af784804ff0
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166149"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100479"
 ---
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Linux kapsayıcıları için Kubernetes kümesi dağıtma
 
@@ -83,7 +83,7 @@ kubectl’i Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Kümenize bağlantıyı doğrulamak için [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutunu kullanarak küme düğümleri listesini alın.
+Kümenize bağlantıyı doğrulamak için [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) komutunu kullanarak küme düğümleri listesini alın.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -166,7 +166,7 @@ spec:
     app: azure-vote-front
 ```
 
-Uygulamayı çalıştırmak için [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) komutunu kullanın.
+Uygulamayı çalıştırmak için [kubectl create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) komutunu kullanın.
 
 ```azurecli-interactive
 kubectl create -f azure-vote.yml
@@ -185,7 +185,7 @@ service "azure-vote-front" created
 
 Uygulama çalıştırıldığında, uygulama ön ucunu İnternet üzerinden kullanıma sunan bir [Kubernetes hizmeti](https://kubernetes.io/docs/concepts/services-networking/service/) oluşturulur. Bu işlemin tamamlanması birkaç dakika sürebilir. 
 
-İlerleme durumunu izlemek için [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutunu `--watch` bağımsız değişkeniyle birlikte kullanın.
+İlerleme durumunu izlemek için [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) komutunu `--watch` bağımsız değişkeniyle birlikte kullanın.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch

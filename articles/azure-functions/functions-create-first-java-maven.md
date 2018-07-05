@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/15/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f9b8046e0fb730f55dbdacf567869ae88df2a524
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: df3c64938cfc5835fd9eb2f0bbed0135b611347f
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600604"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341530"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Java ve Maven (Önizleme) ile ilk işlevinizi oluşturma
 
@@ -114,7 +114,7 @@ public class Function {
 Yeni oluşturulan proje klasörünün dizinine geçerek Maven ile işlevi derleyin ve çalıştırın:
 
 ```
-cd fabrikam-function
+cd fabrikam-functions
 mvn clean package 
 mvn azure-functions:run
 ```
@@ -172,7 +172,7 @@ Dağıtım tamamlandığında, Azure işlev uygulamanıza erişmek için kullana
 Azure’da çalışan işlev uygulamasını `cURL` kullanarak test edin. Önceki adımdan kendi işlev uygulamanız için dağıtılan URL ile eşleşmek üzere aşağıdaki örnekten URL’yi değiştirmeniz gerekir.
 
 ```
-curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w '\n' https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
 ```Output

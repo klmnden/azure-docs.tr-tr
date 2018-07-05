@@ -2,19 +2,19 @@
 title: Azure’da Kubernetes öğreticisi - Uygulamayı güncelleştirme
 description: AKS öğreticisi - Uygulamayı güncelleştirme
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 97d8c4bd179edc59d97914f86e2aa139681e739a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934065"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101159"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Öğretici: Azure Kubernetes Hizmeti’nde (AKS) bir uygulamayı güncelleştirme
 
@@ -27,8 +27,6 @@ Bu yedi parçalı öğreticinin altıncı bölümünde, örnek Azure Vote uygula
 > * Güncelleştirilmiş kapsayıcı görüntüsü oluşturma
 > * Kapsayıcı görüntüsünü Azure Container Registry’ye gönderme
 > * Güncelleştirilmiş kapsayıcı görüntüsünü dağıtma
-
-Sonraki öğreticilerde Kubernetes kümesini izlemek için Log Analytics yapılandırılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 

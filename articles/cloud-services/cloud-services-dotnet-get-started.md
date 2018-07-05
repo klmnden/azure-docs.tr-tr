@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7860af5dea41ce00739b592c5409fe5a1a05383b
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160030"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342302"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
 
@@ -291,7 +291,7 @@ Visual Studio kullanıcı arabirimini kullanılarak yapılandırdığınız rol 
 
     ![Ayarlar adımı](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    **Gelişmiş** sekmesindeki varsayılan ayarlar bu öğretici için uygundur. Gelişmiş sekmesi hakkında bilgi için bkz. [Azure Uygulaması Yayımlama Sihirbazı](http://msdn.microsoft.com/library/hh535756.aspx).
+    **Gelişmiş** sekmesindeki varsayılan ayarlar bu öğretici için uygundur. Gelişmiş sekmesi hakkında bilgi için bkz. [Azure Uygulaması Yayımlama Sihirbazı](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard).
 4. **Özet** adımında **Yayımla** öğesine tıklayın.
 
     ![Özet adımı](./media/cloud-services-dotnet-get-started/pubsummary.png)
