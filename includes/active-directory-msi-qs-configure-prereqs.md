@@ -1,1 +1,1 @@
-MSI değilseniz, kullanıma [yönetilen hizmet Kimliği'ne genel bakış](../articles/active-directory/msi-overview.md). Bir Azure hesabınız yoksa [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.
+MSI ile bilmiyorsanız, kullanıma [yönetilen hizmet Kimliği'ne genel bakış](../articles/active-directory/msi-overview.md). Azure hesabınız yoksa, [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.

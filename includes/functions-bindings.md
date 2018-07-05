@@ -1,4 +1,4 @@
-Aşağıdaki tabloda Azure işlevleri çalışma zamanı ana iki sürümleri desteklenir bağlamaları gösterir.
+Azure işlevleri çalışma zamanı ana iki sürümleri desteklenir bağlamaları aşağıdaki tabloda gösterilmektedir.
 
 | Tür | 1.x | 2.x | Tetikleyici | Girdi | Çıktı |  
 | ---- | :-: | :-: | :------: | :---: | :----: |
@@ -10,10 +10,10 @@ Aşağıdaki tabloda Azure işlevleri çalışma zamanı ana iki sürümleri des
 | [Dış tablo](../articles/azure-functions/functions-bindings-external-table.md)<sup>2</sup>  |✔|| |✔|✔|  
 | [HTTP](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔<sup>1</sup>|✔| |✔|
 | [Microsoft Graph<br/>Excel tabloları](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
-| [Microsoft Graph<br/>OneDrive dosyaları](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
-| [Microsoft Graph<br/>Outlook e-posta](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
+| [Microsoft Graph<br/>OneDrive dosyalarını](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
+| [Microsoft Graph<br/>Outlook e-postası](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
 | [Microsoft Graph<br/>olayları](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
-| [Microsoft Graph<br/>kimlik doğrulama belirteçleri](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
+| [Microsoft Graph<br/>kimlik doğrulama belirteçlerini](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
 | [Mobile Apps](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔|✔| |✔|✔|  
 | [Notification Hubs](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
 | [Kuyruk depolama](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔<sup>1</sup>|✔| |✔|  
@@ -24,6 +24,6 @@ Aşağıdaki tabloda Azure işlevleri çalışma zamanı ana iki sürümleri des
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 | [Web kancaları](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔||✔| |✔|
   
-<sup>1</sup> 2.x içinde HTTP, Zamanlayıcı ve Azure Storage dışındaki tüm bağlamaları kayıtlı olması gerekir. Bkz: [kaydetmek bağlama uzantıları](../articles/azure-functions/functions-triggers-bindings.md#register-binding-extensions).
+<sup>1</sup> 2.x'i, HTTP, Zamanlayıcı ve Azure depolama dışındaki tüm bağlamaları kayıtlı olması gerekir. Bkz: [kaydetme bağlama uzantıları](../articles/azure-functions/functions-triggers-bindings.md#register-binding-extensions).
 
-<sup>2</sup> Experimental &mdash; desteklenen ve gelecekte durdurulmuş.
+<sup>2</sup> Deneysel &mdash; desteklenmez ve gelecekte durdurulmuş.

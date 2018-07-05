@@ -1,6 +1,6 @@
 ---
-title: Windows Azure bulut Kabuğu'nda Basitleştirilmiş yeni-AzureRMVM cmdlet'ini kullanarak VM oluşturma | Microsoft Docs
-description: Azure bulut Kabuğu'nda Basitleştirilmiş yeni-AzureRMVM cmdlet ile Windows sanal makineler oluşturmak hızlı bir şekilde öğrenin.
+title: Windows Azure Cloud Shell'de New-AzureRMVM cmdlet'i Basitleştirilmiş kullanarak VM oluşturma | Microsoft Docs
+description: Azure Cloud shell'de Basitleştirilmiş New-AzureRMVM cmdlet'i ile Windows sanal makineler oluşturmak hızlı bir şekilde öğrenin.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,15 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: a44c9ec9270e4ba76f0ff367e039f5ef72eb04a5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ede8fab67c04eb7ce8d26280de2d1563b6cc8ad2
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435678"
 ---
-# <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Bulut Kabuğu'nda Basitleştirilmiş yeni-AzureRMVM cmdlet ile Windows sanal makine oluşturma 
+# <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Cloud shell'de Basitleştirilmiş New-AzureRMVM cmdlet'i ile Windows sanal makine oluşturma 
 
-[New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet, PowerShell kullanarak yeni bir VM oluşturmak için parametreler basitleştirilmiş bir dizi ekledi. Bu konuda PowerShell'in Azure bulut Kabuğu'nda yeni bir VM oluşturmak için önceden yüklenmiş yeni-AzureVM cmdlet en son sürümü ile nasıl kullanılacağı gösterilmektedir. Akıllı varsayılanları kullanarak tüm gerekli kaynakları otomatik olarak oluşturan bir Basitleştirilmiş parametre kümesi kullanacağız. 
+[New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet'i, PowerShell kullanarak yeni bir VM oluşturmak için parametreler basitleştirilmiş bir dizi ekledi. Bu konuda, PowerShell'in Azure Cloud Shell'de önceden yeni bir VM oluşturmak için New-AzureVM cmdlet'ini en son sürümü ile nasıl kullanılacağı gösterilmektedir. Otomatik olarak akıllı varsayılanları kullanarak tüm gerekli kaynakları oluşturan Basitleştirilmiş parametre kümesi kullanacağız. 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -35,7 +36,7 @@ PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, 
 
 ## <a name="create-the-vm"></a>Sanal makine oluşturma
 
-Kullanabileceğiniz [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) Azure Marketi'nden Windows Server 2016 Datacenter görüntüsü kullanarak dahil Akıllı varsayılanları ile bir VM oluşturmak için cmdlet'i. New-AzureRMVM ile kullanabileceğiniz yalnızca **-ad** parametre ve kullanacağınız bu değer tüm kaynak adları. Bu örnekte, **-Name** parametresini *myVM* olarak ayarlayacağız. 
+Kullanabileceğiniz [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) dahil Azure Market'te Windows Server 2016 Datacenter görüntüsü kullanarak akıllı varsayılanlar ile bir VM oluşturmak için cmdlet'i. New-AzureRMVM ile kullanabileceğiniz yalnızca **-adı** parametresi ve kullanacağınız değeri tüm kaynak adları için. Bu örnekte, **-Name** parametresini *myVM* olarak ayarlayacağız. 
 
 Cloud Shell’de **PowerShell**’in seçili olduğundan emin olun ve aşağıdakileri yazın:
 
@@ -45,11 +46,11 @@ New-AzureRMVm -Name myVM
 
 VM için bir kullanıcı adı ve parola oluşturmanız istenir. Bu bilgiler bu konunun ilerleyen bölümlerinde VM’ye bağlanırken kullanılır. Parola 12-123 karakter uzunluğunda olmalıdır ve şu dört karmaşıklık gereksiniminden en az üçünü karşılamalıdır: Bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter.
 
-VM’yi ve ilişkili kaynakları oluşturmak bir dakika sürer. Tamamlandığında, [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet’ini kullanarak oluşturulan tüm kaynakları görebilirsiniz.
+VM’yi ve ilişkili kaynakları oluşturmak bir dakika sürer. İşiniz bittiğinde, kullanılarak oluşturulan tüm kaynakları görebilirsiniz [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet'i.
 
 ```azurepowershell-interactive
-Find-AzureRmResource `
-    -ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
+Get-AzureRmResource `
+    -ResourceGroupName myVMResourceGroup | Format-Table Name
 ```
 
 ## <a name="connect-to-the-vm"></a>VM’ye bağlanma
@@ -63,14 +64,14 @@ Get-AzureRmPublicIpAddress `
     -ResourceGroupName myVMResourceGroup | Select IpAddress
 ```
 
-Yerel makinenizde bir komut istemi açın ve kullanmak **mstsc** yeni VM ile Uzak Masaüstü oturumu başlatmak için komutu. &lt;publicIPAddress&gt; ifadesini, sanal makinenizin IP adresiyle değiştirin. İstendiğinde, VM’niz oluşturulurken belirlediğiniz kullanıcı adını ve parolayı girin.
+Yerel makinenizde bir komut istemi açın ve kullanmak **mstsc** yeni VM'NİZLE bir Uzak Masaüstü oturumu başlatmak için komut. &lt;publicIPAddress&gt; ifadesini, sanal makinenizin IP adresiyle değiştirin. İstendiğinde, VM’niz oluşturulurken belirlediğiniz kullanıcı adını ve parolayı girin.
 
 ```
 mstsc /v:<publicIpAddress>
 ```
-## <a name="specify-different-resource-names"></a>Farklı kaynak adları belirtin
+## <a name="specify-different-resource-names"></a>Farklı kaynak adlarını belirtin
 
-Kaynaklar için daha açıklayıcı adlar da sağlar ve bunları otomatik olarak oluşturulan çözümlenmedi. Size yeni bir kaynak grubu dahil olmak üzere yeni VM için birden fazla kaynak burada adlandırdığınız örneği aşağıdadır.
+Kaynakların daha açıklayıcı adlar da sağlar ve bunları otomatik olarak oluşturulan çözümlenmedi. Size yeni bir kaynak grubu da dahil olmak üzere yeni VM için birden fazla kaynak yeri Adlandırdığınız bir örnek aşağıdadır.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
