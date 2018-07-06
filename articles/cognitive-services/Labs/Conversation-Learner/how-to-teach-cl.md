@@ -1,7 +1,7 @@
 ---
-title: Konuşma öğrenen - Microsoft Bilişsel hizmetler öğretmeyi nasıl | Microsoft Docs
+title: Konuşma Öğrenici - Microsoft Bilişsel hizmetler ile öğretmeyi nasıl | Microsoft Docs
 titleSuffix: Azure
-description: Konuşma öğrenen ile öğretmek öğrenin.
+description: Konuşma Öğrenici ile öğretin öğrenin.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,68 +10,68 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 639fea64fc8eeb2c1f6e6240c4eb26efc68febbd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 06fd547ff87263b660e697693c65d9ac1a907628
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353969"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866734"
 ---
-# <a name="how-to-teach-with-conversation-learner"></a>Konuşma öğrenen ile öğretmeyi nasıl 
+# <a name="how-to-teach-with-conversation-learner"></a>Konuşma Öğrenici ile öğretme 
 
-Bu belgede ne konuşma öğrenen farkındadır ve nasıl öğrenir açıklar sinyalleri açıklanmaktadır.  
+Bu belge, ne konuşma Öğrenici farkındadır ve nasıl öğrenir açıklar sinyalleri açıklar.  
 
-Öğretme iki ayrı adımları ayrılmış: Varlık ayıklama ve eylem seçimi.
+Öğretim iki ayrı adımlar ayrılmış: Varlık ayıklama ve eylem seçimi.
 
 ## <a name="entity-extraction"></a>Varlık ayıklama
 
-Konuşma öğrenen perde arkasında kullanan [HALUK](https://www.luis.ai) varlık ayıklama için.  Konuşma öğrenen varlık ayıklama deneyimini uygulandığı HALUK, varsa.
+Konuşma Öğrenici, perde kullanan [LUIS](https://www.luis.ai) varlık ayıklama için.  Konuşma Öğrenici, varlık ayıklama deneyimi LUIS ile biliyorsanız uygular.
 
-Varlık ayıklama modelleri farkında *içerik* ve *bağlamı* kullanıcı utterance içinde.  Örneğin, "Seattle" word bir utterance şehirde olarak gibi etiketli "Seattle hava durumu nedir?", varlık ayıklama içeriği ("Seattle") "Popülasyon, Seattle", gibi başka bir utterance şehirde olarak algılamayı yeteneğine sahip olsa bile utterances çok farklıdır.  "Francis sayılabilir ancak" varsa, yeni bir önceden görünmeyen adı "Kümesiyle bir görüşme deneme" gibi benzer bir bağlamda tanınan sonra buna karşılık, adı "Zamanlaması toplantı olan Francis sayılabilir ancak" olarak kabul edilmemiş.  Machine learning oluşturur içeriği, içerik veya her ikisini de katılmak ne zaman eğitim örnekleri üzerinde temel.
+Varlık ayıklama modelleri haberdar *içeriği* ve *bağlam* kullanıcı utterance içinde.  Örneğin, "Seattle" sözcüğü bir utterance şehirde olarak gibi etiketli "Seattle hava durumu nedir", varlık ayıklama aynı içeriğin ("Seattle") "Popülasyon Seattle", gibi başka bir utterance şehirde olarak tanıma özellikli bile Konuşma çok farklıdır.  "Francis" varsa yeni daha önce görünmeyen bir adı "Bir toplantı ayarlama ile bir kez deneme" gibi benzer bir bağlamda tanınan sonra buna karşılık, adı "Schedule bir toplantı Francis ile" olarak kabul edilmemiş.  Machine learning çıkarsar olduğunda içeriği, içerik veya her ikisi de katılmak eğitim örnekleri üzerinde temel.
 
-Şu anda, varlık ayıklama yalnızca geçerli utterance içeriğini bilmez.  (Aşağıda) Eylem Seçimi önceki sistem açar, önceki kullanıcı etkinleştirir ya da daha önce tanınan varlıklar gibi iletişim geçmişi farkında değil.  Sonuç olarak, varlık ayıklama davranışını "tüm utterances arasında paylaşılıyor".  Örneğin, "Apple istiyorum" kullanıcı utterance "bir kullanıcı utterance varlık türü"Ulaşılacak durumlardır"olarak etiketlenmiş Apple" varsa, varlık ayıklama modeli ("Apple istiyorum") bu utterance "Apple"ulaşılacak durumlardır"etiketli" her zaman gerekir bekler.
+Şu anda, varlık ayıklama yalnızca geçerli utterance içeriğini farkındadır.  (Aşağıda) Eylem Seçimi önceki sistem kapatır, önceki kullanıcı etkinleştirir ya da daha önce tanınan varlıklar gibi iletişim geçmişi farkında değil.  Sonuç olarak, varlık ayıklama davranışını "tüm konuşma arasında paylaşılan".  Örneğin, "Apple istiyorum" kullanıcı utterance "Apple" bir kullanıcı utterance varlık türünde "Meyve" olarak etiketlenmiş varsa, varlık ayıklama modeli bu utterance ("Apple istiyorum") "Apple"Meyve"etiketlenmiş" her zaman olmalıdır bekler.
 
-Varlık ayıklama beklendiği gibi çalışmaz, olası çözümler aşağıda verilmiştir:
+Varlık ayıklama beklendiği gibi davranmıyorsa, olası çözümler aşağıda verilmiştir:
 
-- Daha fazla eğitim örnekleri--özellikle tipik varlık bağlamı (sözcükler çevreleyen) veya özel durumları ortaya örnekler eklemek için denemek için ilk şey.
-- Bir eylem için bir "Beklenen varlık" özelliğini eklemeyi uygunsa düşünün.  Öğretici beklenen varlıkların daha ayrıntılı bilgi için bkz.
-- El ile işleme eklemek mümkün olmakla birlikte `EntityExtractionCallback` , sisteminizin geliştikçe makine öğrenme içinde geliştirmeleri faydalanacağı değil çünkü kodu kullanarak varlıkları ayıklamak için bu az önerilen yaklaşımdır.
+- Denemeniz gereken ilk şey daha fazla eğitim örnek--özellikle tipik varlık bağlamı (sözcük çevreleyen) veya özel durumları Göster örnekler eklemektir.
+- Uygun durumlarda bir eylem için bir "Beklenen varlık" özelliği eklemeyi göz önünde bulundurun.  Öğretici beklenen varlıklarda daha fazla ayrıntı için bkz.
+- El ile işleme eklemek mümkünken `EntityExtractionCallback` Bu, sistem geliştikçe machine learning'e yönelik geliştirmeler faydalanacağı değil çünkü kod kullanarak varlıkları ayıklamak için bu en az önerilen yaklaşımdır.
 
 ## <a name="action-selection"></a>Eylem Seçimi
 
-Eylem Seçimi konuşma geçmişi giriş olarak tüm alan yinelenen bir sinir ağı kullanır.  Bu nedenle, eylem seçimi, önceki kullanıcı utterances, varlık değerleri ve sistem utterances farkındadır durum bilgisi olan bir işlemdir.  
+Eylem Seçimi giriş olarak konuşma geçmişinizi tüm alan yinelenen bir sinir ağı kullanır.  Bu nedenle, eylem seçimi, önceki kullanıcı konuşma, varlık değerlerini ve sistem konuşma kullanan bir durum bilgisi olan bir işlemdir.  
 
-Bazı sinyalleri doğal olarak learning işlem tarafından tercih edilen.  Diğer bir deyişle, konuşma öğrenen daha "tercih edilen" sinyalleri kullanarak bir eylem seçimi kararı açıklayabilir, çıkarır; başaramazsa, daha az "tercih edilen" sinyalleri kullanır.
+Bazı sinyaller doğal olarak learning işlem tarafından tercih edilir.  Diğer bir deyişle, konuşma Öğrenici daha "tercih edilen" sinyalleri kullanarak bir eylem seçimi kararı açıklayabilir ise çalışır; erişilemiyorsa, daha az "tercih edilen" sinyaller kullanır.
 
-Konuşma öğrenen ve hangilerinin eylem seçimi tarafından kullanılan tüm sinyaller gösteren bir tablo aşağıda verilmiştir.  Kullanıcı utterances sipariş word Not göz ardı edilir.
+Konuşma Öğrenici ve hangilerinin eylem seçimi tarafından kullanılan tüm sinyaller gösteren bir tablo aşağıda verilmiştir.  Sipariş içinde kullanıcı konuşma word Not göz ardı edilir.
 
 Sinyal | Tercih (1 en çok tercih edilen =) | Notlar
 --- | --- | --- 
-Önceki ardından sistem eylemi | 1 | 
-Geçerli sırayla varlıklar sunma | 1 | 
+Önceki sırayla sistem eylemi | 1 | 
+Geçerli sırayla varlıklar sunar | 1 | 
 Bu ilk Aç olup olmadığını | 1 |
-Geçerli kullanıcı utterance sözcüklerin tam eşleşme | 2 | 
+Geçerli kullanıcı utterance sözcükleri tam eşleşme | 2 | 
 Geçerli kullanıcı utterance benzer anlamı sözcükleri | 3 | 
-Önceki önce sistem işlemleri Aç | 4 |
-Geçerli Aç önce tasarrufludur varlıklar var | 4 | 
-Geçerli önce kullanıcı utterances Aç | 5 | 
+Sistem işlemleri önce önceki Aç | 4 |
+Geçerli bırakma önce kapatır varlıkları sunmak | 4 | 
+Geçerli bırakma önce kullanıcı konuşma | 5 | 
 
-Eylem Seçimi sistem işlemleri--metin, kart içeriği veya API adı veya davranışı--yalnızca sistem eylemi kimliğini içeriğini öncelikli dikkat edin.  Sonuç olarak, bir eylem içeriğini değiştirme eylemi seçimi modeli davranışını değiştirmez.
+Eylem Seçimi sistem işlemleri--metin, kartı içeriği veya API adı veya davranış--yalnızca kimlik sistemi eylemin içeriğini almaz unutmayın.  Sonuç olarak, bir eylem içeriğini değiştirme eylemi seçim modeli davranışını değiştirmez.
 
-Ayrıca, varlık içeriği/değerleri Not kullanılır--yalnızca varlığı/roller.
+Ayrıca, varlık içeriği/değerleri Not kullanılır--yalnızca varlık/roller.
 
-Eylem Seçimi beklendiği gibi çalışmaz, olası çözümler aşağıda verilmiştir:
+Eylem Seçimi beklendiği gibi davranmıyorsa, olası çözümler aşağıda verilmiştir:
 
-- Daha fazla tren iletişim kutuları, özellikle eylem seçimi için dikkat ödeme hangi sinyalleri göstermeye iletişim kutuları ekleyin.  Eylem Seçimi bir sinyal başka bir tercih, örneğin, tercih edilen sinyal aynı durumda olan ve çeşitli diğer sinyaller gösteren örnekleri verin.  Bazı sıraları öğrenmek için eğitim iletişim kutuları sayıda sürebilir.
-- "Gerekli" ve "eylemi tanımları varlıklara adayını" ekleyin.  Bu sınırları eylemleri kullanılabilir ve hızlı iş kuralları ve bazı sağduyunuzu desenler için yararlı olabilir. 
+- Daha fazla train iletişim kutuları, özellikle hangi sinyalleri eylem seçimi için dikkat ödeme gösteren iletişim kutularını ekleyin.  Eylem Seçimi bir sinyal diğerine tercih, örneğin, aynı durumda olmasından tercih edilen sinyal ve değişen diğer sinyaller gösteren örnekler verin.  Bazı dizileri öğrenmek için eğitim iletişim kutuları birkaç alabilir.
+- "Required" ve "eylem tanımları varlıklara eleyerek" ekleyin.  Bu sınırları eylemleri mevcuttur ve hızlı iş kuralları ve bazı sağduyunuzu desenleri için yararlı olabilir. 
 
 ## <a name="updates-to-models"></a>Modelleri güncelleştirmeleri
 
-Eklemek veya bir varlık, eylem veya tren iletişim kullanıcı arabiriminde, düzenlemek istediğiniz zaman bu yeniden varlık ayıklama modeli ve eylem seçimi modeli eğitmek için bir istek oluşturur.  Bu istek bir sırasına yerleştirilir ve yeniden eğitim zaman uyumsuz olarak yapılır.  Yeni bir model kullanılabilir olduğunda, bu noktadan başlayarak varlık ayıklama ve eylem seçimi için kullanılır.  Yeniden eğitim bu işlem genellikle yaklaşık 5 saniye sürer ancak model karmaşıksa ya da yük eğitim hizmeti üzerinde yüksek ise daha uzun olabilir.
+Ekleme veya bir varlık, eylem veya train iletişim kullanıcı arabiriminde, düzenlemek istediğiniz zaman bu hem varlık ayıklama modeli ve eylem seçimi modeli yeniden eğitme isteği oluşturur.  Bu isteği bir kuyruğa yerleştirilir ve yeniden eğitim zaman uyumsuz olarak gerçekleştirilir.  Yeni bir modeli kullanılabilir olduğunda, o noktadan itibaren başlayarak varlık ayıklama ve eylem seçimi için kullanılır.  Bu yeniden eğitim işlemi genellikle yaklaşık 5 saniye sürer, ancak modelin karmaşık olup olmadığını veya eğitim hizmet üzerindeki yükü yüksekse uzun olabilir.
 
-Eğitim zaman uyumsuz olarak yapıldığından, yaptığınız düzenlemeler hemen yansıtılmıyor mümkündür.  Varlık ayıklama veya eylem seçimi son 5-10 saniye içinde yaptığınız değişikliklere göre beklendiği gibi çalışmaz, bu neden olabilir.
+Eğitim zaman uyumsuz olarak yapıldığı için yaptığınız düzenlemeleri hemen yansıtılmıyor mümkündür.  Varlık ayıklama ya da eylem seçimi son 5-10 saniye içinde yaptığınız değişikliklere göre beklendiği gibi davranmıyorsa, bu neden olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Varsayılan değerler ve sınırlar](./cl-values-and-boundaries.md)
+> [Varsayılan değerleri ve sınırlar](./cl-values-and-boundaries.md)

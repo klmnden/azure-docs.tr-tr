@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 9dd23fd5f8a0024f127b71160899d10042037a66
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 26fb9c6349b46e0c920506c39ba53b26f215d330
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346017"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867197"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Nasıl tahmin doğruluğunu artırmak için düzenleri ekleyin
 Bir LUIS uygulaması konuşma uç noktası aldıktan sonra kullanmak [kavramı](luis-concept-patterns.md) sözcük sırasını ve sözcük seçim içindeki bir desenle açığa konuşma için tahmin doğruluğunu artırmak için desenleri. Kullanım desenlerini [varlıkları](luis-concept-entity-types.md) ve belirli bir desene söz dizimini kullanarak verileri ayıklamak için kullanıcı rolleri. 
@@ -57,7 +57,7 @@ Arama, bazı belirli bir metni içeren kalıpları bulmasına olanak tanır.
 <!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
 
 ## <a name="edit-a-pattern"></a>Bir desen Düzenle
-1. Bir desen düzenlemek için bu deseni için satırın sağ ucunda üç nokta (...) simgesini seçin ve ardından **Düzenle**. 
+1. Bir desen düzenlemek için üç noktayı seçin (***...*** ) bu deseni için satırın sağ ucunda düğmesine ve ardından **Düzenle**. 
 
     ![Menü öğesi deseni satır Düzenle ekran görüntüsü](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
 
@@ -79,7 +79,7 @@ Farklı bir hedefi için çeşitli desenlerden yeniden atamak için her desen so
 
 ## <a name="delete-a-single-pattern"></a>Tek bir düzeni Sil
 
-1. Bir desen silmek için bu deseni için satırın sağ ucunda üç nokta (...) simgesini seçin ve ardından **Sil**. 
+1. Bir desen silmek için üç noktayı seçin (***...*** ) bu deseni için satırın sağ ucunda düğmesine ve ardından **Sil**. 
 
     ![Utterance Sil ekran görüntüsü](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
 
@@ -123,7 +123,7 @@ Filtre kaldırılır ve tüm desenleri görüntüler.
 ## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>Desen hedefi veya varlık sayfasında mevcut utterance ekleyin
 Her iki mevcut bir utterance desen oluşturabilirsiniz **hedefi** veya **varlık** sayfası. Herhangi bir amaç veya varlık sayfadaki tüm konuşma utterance düzeyi seçenekleri erişimi gibi sağlama sağ sütunla bir listesinde görüntülenen **Düzenle**, **Sil**, ve **deseniolarakEkle**.
 
-1. Utterance seçili satırını, utterance sağındaki üç nokta (...)'i seçip seçin **deseni olarak Ekle**.
+1. Utterance seçilen satırdaki üç noktayı seçin (***...*** ) düğmesini utterance sağında ve **deseni olarak Ekle**.
 
     [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Konuşma Tablo Ekle düzendeki Seçenekler menüsünde vurgulanmış ekran görüntüsü")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 

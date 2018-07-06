@@ -1,63 +1,65 @@
 ---
-title: "Azure portalında çok faktörlü kimlik doğrulaması gerektiren bir Klasik ilke geçirme | Microsoft Docs"
-description: "Bu makalede, Azure portalında çok faktörlü kimlik doğrulaması gerektiren bir Klasik ilke geçirmek gösterilmiştir."
+title: Azure portalında çok faktörlü kimlik doğrulaması gerektiren bir Klasik ilke geçişi | Microsoft Docs
+description: Bu makalede, Azure portalında çok faktörlü kimlik doğrulaması gerektiren bir Klasik ilke geçirme gösterilmektedir.
 services: active-directory
-keywords: "uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim"
-documentationcenter: 
+keywords: uygulamalar, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 77484dc3773736ea15c39ede5f9d49b6b694d960
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 6190a8ee90855223779751373bf16ca3db0fe761
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37872746"
 ---
-# <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Azure portalında çok faktörlü kimlik doğrulaması gerektiren bir Klasik ilke geçirme 
+# <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Azure portalında çok faktörlü kimlik doğrulaması gerektiren bir Klasik ilke geçişi 
 
-Bu makalede gerektiren klasik bir ilke geçirmek nasıl gösterilmektedir **çok faktörlü kimlik doğrulaması** bir bulut uygulaması için. Bir önkoşul olmamasına karşın, okumanızı öneririz [Azure portalında Klasik ilkelerine](active-directory-conditional-access-migration.md) Klasik ilkelerinizi geçişi başlatmadan önce.
+Bu makale gerektiren bir Klasik ilke geçirme **çok faktörlü kimlik doğrulaması** bulut uygulaması için. Bir önkoşul olmamasına karşın, okumanızı öneririz [Azure portalında Klasik ilkeleri geçirme](active-directory-conditional-access-migration.md) , Klasik ilkeleri geçirme işlemine başlamadan önce.
 
 
  
 ## <a name="overview"></a>Genel Bakış 
 
-Bu makalede senaryoda gerektiren klasik bir ilke geçirmek nasıl gösterir **çok faktörlü kimlik doğrulaması** bir bulut uygulaması için. 
+Bu makaledeki senaryoda gerektiren bir Klasik ilke geçirme gösterilmektedir **çok faktörlü kimlik doğrulaması** bulut uygulaması için. 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
 
 
 Geçiş işlemi aşağıdaki adımlardan oluşur:
 
-1. [Klasik İlkesi](#open-a-classic-policy) almak için yapılandırma ayarları.
-2. Yeni bir Klasik ilkeniz değiştirmek için Azure AD koşullu erişim ilkesi. 
-3. Klasik ilkeyi devre dışı bırakır.
+1. [Klasik ilke açın](#open-a-classic-policy) yapılandırma ayarlarını almak için.
+2. Yeni bir Azure AD koşullu erişim ilkesi Klasik ilkeniz değiştirilecek. 
+3. Klasik ilke devre dışı bırakın.
 
 
 
-## <a name="open-a-classic-policy"></a>Klasik İlkesi'ni açın
+## <a name="open-a-classic-policy"></a>Klasik ilke açın
 
-1. İçinde [Azure portal](https://portal.azure.com), sol gezinti çubuğu üzerinde tıklatın **Azure Active Directory**.
+1. İçinde [Azure portalında](https://portal.azure.com), sol gezinti tıklatın **Azure Active Directory**.
 
     ![Azure Active Directory](./media/active-directory-conditional-access-migration-mfa/01.png)
 
-2. Üzerinde **Azure Active Directory** sayfasında **Yönet** 'yi tıklatın **koşullu erişim**.
+2. Üzerinde **Azure Active Directory** sayfasında **Yönet** bölümünde **koşullu erişim**.
 
     ![Koşullu erişim](./media/active-directory-conditional-access-migration-mfa/02.png)
 
-3. İçinde **Yönet** 'yi tıklatın **Klasik ilkeleri (Önizleme)**.
+3. İçinde **Yönet** bölümünde **Klasik ilkeleri (Önizleme)**.
 
     ![Klasik ilkeler](./media/active-directory-conditional-access-migration-mfa/12.png)
 
-4. Klasik ilkeleri listesinde gerektirir İlkesi'ni **çok faktörlü kimlik doğrulaması** bir bulut uygulaması için.
+4. Klasik ilkeleri listesinde gerektiren ilkeye tıklayın **çok faktörlü kimlik doğrulaması** bulut uygulaması için.
 
     ![Klasik ilkeler](./media/active-directory-conditional-access-migration-mfa/13.png)
 
@@ -65,55 +67,53 @@ Geçiş işlemi aşağıdaki adımlardan oluşur:
 ## <a name="create-a-new-conditional-access-policy"></a>Yeni bir koşullu erişim ilkesi oluşturma
 
 
-1. İçinde [Azure portal](https://portal.azure.com), sol gezinti çubuğu üzerinde tıklatın **Azure Active Directory**.
+1. İçinde [Azure portalında](https://portal.azure.com), sol gezinti tıklatın **Azure Active Directory**.
 
     ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
 
-2. Üzerinde **Azure Active Directory** sayfasında **Yönet** 'yi tıklatın **koşullu erişim**.
+2. Üzerinde **Azure Active Directory** sayfasında **Yönet** bölümünde **koşullu erişim**.
 
     ![Koşullu erişim](./media/active-directory-conditional-access-migration/02.png)
 
 
 
-3. Üzerinde **koşullu erişim** sayfasını açmak için **yeni** üstteki araç çubuğunda sayfasını tıklatın **Ekle**.
+3. Üzerinde **koşullu erişim** sayfasında açmak için **yeni** sayfasında, üstteki araç çubuğunda tıklatın **Ekle**.
 
     ![Koşullu erişim](./media/active-directory-conditional-access-migration/03.png)
 
-4. Üzerinde **yeni** sayfasında **adı** metin kutusuna, ilkeniz için bir ad yazın.
+4. Üzerinde **yeni** sayfasında **adı** metin ilkeniz için bir ad yazın.
 
     ![Koşullu erişim](./media/active-directory-conditional-access-migration/29.png)
 
-5. İçinde **atamaları** 'yi tıklatın **kullanıcılar ve gruplar**.
+5. İçinde **atamaları** bölümünde **kullanıcılar ve gruplar**.
 
     ![Koşullu erişim](./media/active-directory-conditional-access-migration/05.png)
 
-    a. Klasik ilkede seçilen tüm kullanıcılar varsa, tıklatın **tüm kullanıcılar**. 
+    a. Tüm kullanıcıları seçtiyseniz Klasik ilkeniz varsa tıklayın **tüm kullanıcılar**. 
 
     ![Koşullu erişim](./media/active-directory-conditional-access-migration/35.png)
 
-    b. Klasik ilkenizde seçili gruplarınız varsa, tıklatın **kullanıcıları ve grupları seçin**ve ardından gerekli kullanıcılar ve Gruplar'ı seçin.
+    b. Klasik ilkeniz seçili grupları varsa, tıklayın **kullanıcıları ve grupları seçin**ve ardından gerekli kullanıcılar ve Gruplar'ı seçin.
 
     ![Koşullu erişim](./media/active-directory-conditional-access-migration/36.png)
 
-    c. Dışlanan gruplarınız varsa, tıklatın **hariç** sekmesini ve ardından gerekli kullanıcılar ve Gruplar'ı seçin. 
+    c. Dışlanan grupları varsa, tıklayın **hariç** sekmesini ve sonra gerekli kullanıcıları ve grupları seçin. 
 
     ![Koşullu erişim](./media/active-directory-conditional-access-migration/37.png)
 
-6. Üzerinde **yeni** sayfasını açmak için **bulut uygulamaları** sayfasında **atama** 'yi tıklatın **bulut uygulamaları**.
-
-    ![Koşullu erişim](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
+6. Üzerinde **yeni** sayfasında açmak için **bulut uygulamaları** sayfasında **atama** bölümünde **bulut uygulamaları**.
 
 8. Üzerinde **bulut uygulamaları** sayfasında, aşağıdaki adımları gerçekleştirin:
 
     ![Koşullu erişim](./media/active-directory-conditional-access-migration/08.png)
 
-    a. Tıklatın **uygulamaları**.
+    a. Tıklayın **uygulamaları Seç**.
 
     b. **Seç**'e tıklayın.
 
-    c. Üzerinde **seçin** sayfasında, bulut uygulamanızı seçin ve ardından **seçin**.
+    c. Üzerinde **seçin** sayfasında bulut uygulamanızı seçin ve ardından **seçin**.
 
-    d. Üzerinde **bulut uygulamaları** sayfasında, **Bitti**.
+    d. Üzerinde **bulut uygulamaları** sayfasında **Bitti**.
 
 
 
@@ -121,22 +121,22 @@ Geçiş işlemi aşağıdaki adımlardan oluşur:
 
     ![Koşullu erişim](./media/active-directory-conditional-access-migration/26.png)
 
-    a. İçinde **erişim denetimleri** 'yi tıklatın **Grant**.
+    a. İçinde **erişim denetimleri** bölümünde **Grant**.
 
     ![Koşullu erişim](./media/active-directory-conditional-access-migration/27.png)
 
-    b. Üzerinde **Grant** sayfasında, **erişim izni verme**ve ardından **çok faktörlü kimlik doğrulaması gerektiren**.
+    b. Üzerinde **Grant** sayfasında **erişim ver**ve ardından **çok faktörlü kimlik doğrulaması gerektiren**.
 
     c. **Seç**'e tıklayın.
 
 
-10. Tıklatın **üzerinde** ilkeniz etkinleştirmek için.
+10. Tıklayın **üzerinde** ilkenizi etkinleştirmek için.
 
     ![Koşullu erişim](./media/active-directory-conditional-access-migration/30.png)
 
 
 
-## <a name="disable-the-classic-policy"></a>Klasik Bu ilkeyi devre dışı
+## <a name="disable-the-classic-policy"></a>Klasik ilke devre dışı bırak
 
 Klasik ilkeniz devre dışı bırakmak için **devre dışı** içinde **ayrıntıları** görünümü.
 
@@ -146,9 +146,9 @@ Klasik ilkeniz devre dışı bırakmak için **devre dışı** içinde **ayrınt
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Klasik ilke geçişi hakkında daha fazla bilgi için bkz: [Azure portalında Klasik ilkelerine](active-directory-conditional-access-migration.md).
+- Klasik ilke geçişi hakkında daha fazla bilgi için bkz. [Azure portalında Klasik ilkeleri geçirme](active-directory-conditional-access-migration.md).
 
 
-- Koşullu erişim ilkesini yapılandırma hakkında bilmek istiyorsanız [Azure Active Directory'de koşullu erişimi kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md).
+- Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektiren](active-directory-conditional-access-app-based-mfa.md).
 
-- Ortamınız için koşullu erişim ilkelerini yapılandırma için hazır olup olmadığını görmek [Azure Active Directory'de koşullu erişim için en iyi uygulamaları](active-directory-conditional-access-best-practices.md). 
+- Ortamınız için koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz [Azure Active Directory'de koşullu erişim için en iyi yöntemler](active-directory-conditional-access-best-practices.md). 

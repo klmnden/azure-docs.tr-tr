@@ -1,66 +1,66 @@
 ---
-title: Azure Machine Learning için Python paketlerini
-description: Azure Machine Learning kullanıcılar için kullanılabilir python paketlerini hakkında bilgi edinin.
+title: Azure Machine Learning Python paketleri
+description: Azure Machine Learning kullanıcıların kullanımına python paketleri hakkında bilgi edinin.
 ms.service: machine-learning
-ms.component: studio
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jmartens
 author: j-martens
 ms.date: 05/07/2018
-ms.openlocfilehash: 7a8f9e9d757aaab04706dd3b7dc2b962b3a04130
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 36322c5fde7c992faa830fe272971b53fbf10211
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833276"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37872726"
 ---
-# <a name="python-packages-for-azure-machine-learning"></a>Azure Machine Learning için Python paketlerini
+# <a name="python-packages-for-azure-machine-learning"></a>Azure Machine Learning Python paketleri
 
-Hakkında bilgi edinin Microsoft Azure Machine Learning için özel Python paketlerini. Diğer açık kaynak ya da üçüncü taraf paketleri, ancak özel paketleri, kod karşı bir hizmet veya yorumlayıcılar sağlayan bir bilgisayarda çalıştırmanız gerekir, Python kullanmak için bir arada bu kitaplıkları ve işlevlerini kullanabilirsiniz.
+Azure Machine Learning için Microsoft'un özel Python paketlerini öğrenin. Birlikte diğer açık kaynak veya üçüncü taraf paketleri olan, ancak özel paketler, kod karşı bir hizmet veya yorumlayıcılarını sağlayan bir bilgisayarda çalıştırmanız gerekir, Python'ı kullanmak için bu kitaplıkları ve işlevleri kullanabilirsiniz.
 
-Azure Machine Learning paketleri **Azure Machine Learning için Python PIP yüklenebilir uzantıları** veri bilimcilerine ve AI geliştiricilerin hızla oluşturmak ve yüksek oranda doğru machine learning ve derin öğrenme dağıtmak etkinleştirme çeşitli etki alanlarına modeller.
+Azure Machine Learning paketleri **Python kolayca yüklenebilir uzantıları Azure Machine Learning için** veri bilimcileri ve yapay ZEKA geliştiricilerine hızla oluşturmak ve yüksek oranda doğru makine öğrenimi ve derin öğrenme dağıtmak etkinleştirme çeşitli etki alanlarına modeller.
 
 <a name="amlpcv"></a>
-## <a name="azure-ml-package-for-computer-vision"></a>Azure ML paketi için bilgisayar görme
+## <a name="azure-ml-package-for-computer-vision"></a>Görüntü işleme için Azure ML paketi
 
-Azure ML paketiyle bilgisayar görme için oluşturabileceğiniz, ince ayarını yapmanız dağıtmak derin öğrenme modelleri görüntü sınıflandırma için nesne algılama ve görüntü benzerlik.
+Görüntü işleme için Azure ML paketi ile oluşturabileceğiniz, ince ayarını yapmanız ve nesne algılama, görüntü sınıflandırması için ayrıntılı öğrenme modelleri dağıtma ve görüntü benzerlik.
 
 Bu paket için sonraki adımları deneyin:
-1. [Karşıdan](https://aka.ms/aml-packages/vision/download) paket.
-1. Okuma [belgeleri yüklemek](https://aka.ms/aml-packages/vision).
-1. [Derleme ve bilgisayar görme modeli dağıtma](how-to-build-deploy-image-classification-models.md) Jupyter not defteri ile.
-1. Paket keşfedin [başvuru belgelerini](https://aka.ms/aml-packages/vision).
+1. [İndirme](https://aka.ms/aml-packages/vision/download) paket.
+1. Okuma [docs yükleme](https://aka.ms/aml-packages/vision).
+1. [Derleme ve dağıtma bir görüntü işleme modelinizle](how-to-build-deploy-image-classification-models.md) Jupyter not defteri ile.
+1. Paket keşfedin [başvuru belgeleri](https://aka.ms/aml-packages/vision).
 
 <a name="amlpf"></a>
-## <a name="azure-ml-package-for-forecasting"></a>Tahmin için Azure ML paketi
+## <a name="azure-ml-package-for-forecasting"></a>Azure ML tahmin için paket
 
-Tahmin için Azure ML paketi ile oluşturma ve dağıtma zaman serisi tahmin modelleri için finansal ve senaryoları tahmin isteğe bağlı.
+Tahmin için Azure ML paketi ile oluşturma ve dağıtma zaman serisi tahmin modellerinin için finansal ve Talep tahmini senaryoları.
 
 Bu paket için sonraki adımları deneyin:
-1. [Karşıdan](https://aka.ms/aml-packages/forecasting/download) paket.
-1. Okuma [belgeleri yüklemek](https://aka.ms/aml-packages/forecasting).
-1. [Derleme ve bir tahmin modeli dağıtma](how-to-build-deploy-forecast-models.md) Jupyter not defteri ile.
-1. Paket keşfedin [başvuru belgelerini](https://aka.ms/aml-packages/forecasting).
+1. [İndirme](https://aka.ms/aml-packages/forecasting/download) paket.
+1. Okuma [docs yükleme](https://aka.ms/aml-packages/forecasting).
+1. [Derleme ve dağıtma bir tahmin modeli](how-to-build-deploy-forecast-models.md) Jupyter not defteri ile.
+1. Paket keşfedin [başvuru belgeleri](https://aka.ms/aml-packages/forecasting).
 
 <a name="amlpta"></a>
 ## <a name="azure-ml-package-for-text-analytics"></a>Metin analizi için Azure ML paketi
 
-Metin analizi için Azure ML paketi ile derin learning modellerini metin Sınıflandırma, özel varlık ayıklama ve word katıştırma metin oluşturabilirsiniz.
+Metin analizi için Azure ML paketi ile metin metin Sınıflandırma, özel bir varlık ayıklama ve sözcük katıştırmak için derin öğrenme modelleri oluşturabilirsiniz.
 
 Bu paket için sonraki adımları deneyin:
-1. [Karşıdan](https://aka.ms/aml-packages/text/download) paket.
-1. Okuma [belgeleri yüklemek](https://aka.ms/aml-packages/text).
-1. [Derleme ve bir metin sınıflandırma model dağıtma](how-to-build-deploy-text-classification-models.md) Jupyter not defteri ile.
-1. Paket keşfedin [başvuru belgelerini](https://aka.ms/aml-packages/text).
+1. [İndirme](https://aka.ms/aml-packages/text/download) paket.
+1. Okuma [docs yükleme](https://aka.ms/aml-packages/text).
+1. [Derleme ve dağıtma metin sınıflandırma modeli](how-to-build-deploy-text-classification-models.md) Jupyter not defteri ile.
+1. Paket keşfedin [başvuru belgeleri](https://aka.ms/aml-packages/text).
 
 <a name="amlrealtimeai"></a>
 ## <a name="amlrealtimeai-fpga-acceleration"></a>amlrealtimeai (FPGA hızlandırma)
 
-Azure Machine Learning donanım hızlandırmasını paket, veri bilimcilerine ve AI geliştiriciler can featurize görüntülerle ResNet 50 quantized sürümü, bu özellikleri temel sınıflandırıcı eğitmek ve modelleri için dağıtmak bir [alan programlanabilir Kapı diziler (FPGA)](concept-accelerate-with-fpgas.md) son derece düşük gecikme süresi inferencing için Azure üzerinde.
+Azure Machine Learning donanım hızlandırma paket, veri bilimcileri ve yapay ZEKA geliştiriciler can özellik kazandırın görüntülerle ResNet-50 quantized bir sürümü ile bu özelliklere göre sınıflandırıcılar eğitmek ve sonra model için bir [programlanabilir alan Kapı dizileri (FPGA)](concept-accelerate-with-fpgas.md) azure'da son derece düşük gecikme süresi çıkarım için.
 
 Bu paket için sonraki adımları deneyin:
-1. [Karşıdan](https://aka.ms/aml-real-time-ai-package) paket.
-1. Okuma [belgeleri yüklemek](reference-fpga-package-overview.md).
-1. [Bir model için bir FPGA dağıtmak](how-to-deploy-fpga-web-service.md).
+1. [İndirme](https://aka.ms/aml-real-time-ai-package) paket.
+1. Okuma [docs yükleme](reference-fpga-package-overview.md).
+1. [Model için bir FPGA dağıtma](how-to-deploy-fpga-web-service.md).
 
