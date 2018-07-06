@@ -1,9 +1,9 @@
 ---
 title: Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme | Microsoft Docs
-description: Bu belge, Azure Güvenlik Merkezi'nde öneriler, Azure kaynaklarınızı korumanıza ve güvenlik ilkeleriyle uyumlu kalın nasıl yardımcı aracılığıyla açıklanmaktadır.
+description: Bu belge Azure Güvenlik Merkezi'nde öneriler, Azure kaynaklarınızı korumanıza ve güvenlik ilkelerine uygun kalın nasıl yardımcı aracılığıyla size yol gösterir.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,107 +12,134 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
-ms.author: terrylan
-ms.openlocfilehash: 72070f46309adb526901192752fe421a3846398b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 04/07/2018
+ms.author: rkarlin
+ms.openlocfilehash: 7bb7f36338fe117a3e31834570b3ee5c3ae1b83b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364259"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856442"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme
-Bu belge, Azure kaynaklarınızı korumanıza yardımcı olmak için Azure Güvenlik Merkezi'nde öneriler kullanmak nasıl aracılığıyla açıklanmaktadır.
+Bu belge, Azure kaynaklarınızı korumanıza yardımcı olması için Azure Güvenlik Merkezi'nde öneriler kullanma hakkında bilgi vermektedir.
 
 > [!NOTE]
-> Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır.  Bu belge hakkında adım adım kılavuz değildir.
+> Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır.  Bu belgede, adım adım bir kılavuz değildir.
 >
 >
 
-## <a name="what-are-security-recommendations"></a>Güvenlik önerileri nelerdir?
+## <a name="what-are-security-recommendations"></a>Güvenlik önerilerini nelerdir?
 Güvenlik Merkezi düzenli aralıklarla Azure kaynaklarınızın güvenlik durumunu çözümler. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde öneriler oluşturur. Gerekli denetimlerin yapılandırılması işlemi boyunca öneriler size rehberlik eder.
 
 ## <a name="implementing-security-recommendations"></a>Güvenlik önerilerini uygulama
 ### <a name="set-recommendations"></a>Ayarlama önerileri
-İçinde [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md), getirmeyi öğrenin:
+İçinde [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md), şunların nasıl yapıldığını öğrenirsiniz:
 
 * Güvenlik ilkeleri yapılandırın.
-* Veri koleksiyonunu Aç.
+* Veri toplamayı etkinleştir.
 * Güvenlik ilkenizin bir parçası olarak görmek için hangi önerilerin seçin.
 
-Geçerli ilke önerileri Merkezi sistem güncelleştirmeleri, temel kurallar, kötü amaçlı yazılım programları etrafında [ağ güvenlik grubu](../virtual-network/security-overview.md) alt ağlar ve ağ arabirimleri, SQL veritabanı denetimi, SQL veritabanında saydam veri şifrelemesi web uygulaması güvenlik duvarı ve.  [Güvenlik ilkelerini ayarlama](security-center-policies.md) her öneri seçeneği açıklamasını sağlar.
+Geçerli ilke önerileri Merkezi sistem güncelleştirmeleri, temel kurallar, kötü amaçlı yazılımdan koruma programları etrafında [ağ güvenlik grupları](../virtual-network/security-overview.md) alt ağları ve ağ arabirimleri, SQL veritabanı denetimi, SQL veritabanı saydam veri şifrelemesi, ve web uygulaması güvenlik duvarları.  [Güvenlik ilkelerini ayarlama](security-center-policies.md) her öneri seçeneği açıklamasını sağlar.
 
-### <a name="monitor-recommendations"></a>İzleyici önerileri
-Bir güvenlik ilkesi tanımladıktan sonra, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak için kaynaklarınızın güvenlik durumunu analiz eder. **Önerileri** altında döşeme **genel bakış** Güvenlik Merkezi tarafından tanımlanan önerileri toplam sayısı bildiğiniz sağlar.
+### <a name="monitor-recommendations"></a>İzleme önerileri
+Bir güvenlik ilkesi tanımladıktan sonra, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak için kaynaklarınızın güvenlik durumunu analiz eder. **Önerileri** altında kutucuğuna **genel bakış** Güvenlik Merkezi tarafından tanımlanan öneriler toplam sayısı bildiğiniz sağlar.
 
-![Öneriler döşeme][1]
+![Öneriler kutucuğu][1]
 
-Her öneri ayrıntılarını görmek için seçin **önerileri döşeme** altında **genel bakış**. **Öneriler** açar.
+Her önerinin ayrıntıları görmek için seçin **önerileri kutucuğuna** altında **genel bakış**. **Öneriler** açılır.
 
 ![Filtre önerileri][2]
 
 Öneriler her satırın belirli bir öneriyi temsil ettiği bir tablo biçiminde gösterilir. Bu tablonun sütunlarının şunlardır:
 
-* **Açıklama**: öneri ve bunu çözmek için yapılması gerekenler açıklanmaktadır.
-* **Kaynak**: Bu öneri uygulandığı kaynakları listeler.
+* **Açıklama**: öneri ve çözmek için yapılması gerekenler açıklanmaktadır.
+* **Kaynak**: Bu önerinin geçerli olduğu kaynakları listeler.
 * **Durum**: önerinin geçerli durumu açıklar:
-  * **Açık**: öneri henüz ele kurmadı.
-  * **Devam eden**: öneri şu anda kaynaklara uygulanıyor ve herhangi bir işlem yapmanız gerekmez.
-  * **Çözümlenen**: öneri zaten tamamlandı (Bu durumda, satır gri renkte görüntülenir).
+  * **Açık**: öneri henüz ele edilmemiş.
+  * **Devam eden**: öneri şu anda kaynaklara uygulanıyor ve herhangi bir işlem yapmanıza gerek yoktur.
+  * **Çözümlenen**: öneri zaten tamamlandı (Bu durumda, çizgi gri renkte görüntülenir).
 * **ÖNEM DERECESİ**: Belirli bir önerinin önem derecesini açıklar:
-  * **Yüksek**: bir güvenlik açığı (örneğin, bir uygulama, bir VM veya bir ağ güvenlik grubu) anlamlı bir kaynakta var ve dikkat gerektiriyor.
-  * **Orta**: bir güvenlik açığı var ve kritik olmayan veya ek adımları da ortadan kaldırmak için veya bir işlemin tamamlanması için gerekli.
-  * **Düşük**: bir güvenlik açığı bulunduğunu ele alınması gerekiyor ancak hemen ilgilenilmesi gerekmiyor. (Varsayılan olarak, düşük öneriler sunulan değil, ancak bunları görüntülemek istiyorsanız düşük öneriler filtresini kullanabilirsiniz.)
+  * **Yüksek**: bir güvenlik açığı anlamlı bir kaynakta (örneğin, bir uygulama, bir VM veya ağ güvenlik grubu) ile var ve ilgilenilmesi gerekiyor.
+  * **Orta**: bir güvenlik açığı var ve kritik olmayan veya ek adımlar bunu ortadan kaldırmak için veya bir işlemi tamamlamak için gerekli.
+  * **Düşük**: mevcut olan bir güvenlik açığının ele alınması gerekiyor ancak hemen ilgilenilmesi gerekmiyor. (Varsayılan olarak, düşük öneriler almazsınız ancak bunları görüntülemek istiyorsanız düşük öneriler filtresini kullanabilirsiniz.)
 
-Aşağıdaki tabloda kullanılabilir öneriler ve onu uygularsanız, her biri yaptığı anlamanıza yardımcı olması için bir başvuru olarak kullanın.
+Aşağıdaki tabloda kullanılabilir öneriler ve uygulamanız durumunda her birinin yaptığı anlamanıza yardımcı olması için bir başvuru olarak kullanın.
 
 > [!NOTE]
-> Anlamak istediğiniz [Klasik ve Resource Manager dağıtım modellerinde](../azure-classic-rm.md) Azure kaynakları için.
+> Öğrenmek istediğiniz [Klasik ve Resource Manager dağıtım modellerinde](../azure-classic-rm.md) Azure kaynakları için.
 >
 >
 
 | Öneri | Açıklama |
 | --- | --- |
-| [Abonelikler için veri toplamayı etkinleştirin](security-center-enable-data-collection.md) |Her aboneliklerinizi ve tüm Azure sanal makineleri (VM'ler) ve Azure olmayan bilgisayarlar için veri koleksiyonu güvenlik ilkesinde Aç önerir. |
-| [Güvenlik yapılandırmalarını düzeltme](security-center-remediate-os-vulnerabilities.md) |Önerilen güvenlik yapılandırma kuralları ile işletim sistemi yapılandırmalarını örneğin hizalamak, parolaların kaydedilmesine izin verme önerir. |
-| [Sistem güncelleştirmelerini uygulayın](security-center-apply-system-updates.md) |Windows ve Linux VM'ler ve bilgisayarlar için eksik sistem güvenlik ve kritik güncelleştirmeler dağıtmanızı önerir. |
-| [Bir sadece zaman içinde geçerli ağ erişim denetimi](security-center-just-in-time.md) | Yalnızca süresi VM erişimi uygulamanızı önerir. Özellik önizlemededir zaman yalnızca ve Güvenlik Merkezi'nin standart katmanında kullanılabilir. Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md). |
+| [Abonelikler için veri toplamayı etkinleştirin](security-center-enable-data-collection.md) |Her abonelik sayınıza ve tüm Azure sanal makineleri (VM'ler) ve Azure olmayan bilgisayarlar için güvenlik ilkesinde veri toplamayı kapatma önerir. |
+| [Güvenlik yapılandırmalarını düzeltme](security-center-remediate-os-vulnerabilities.md) |İşletim sistemi yapılandırmalarınızı önerilen güvenlik yapılandırması kurallarını, örneğin hizalama, parolaların kaydedilmesine izin verme önerir. |
+| [Sistem güncelleştirmelerini uygulayın](security-center-apply-system-updates.md) |Windows ve Linux sanal makineleri ve bilgisayarlar için eksik sistem güvenliği güncelleştirmelerini ve kritik güncelleştirmeleri dağıtmanızı önerir. |
+| [Just-ın-Time geçerli ağ erişim denetimi](security-center-just-in-time.md) | Tam zamanında VM erişimini uygulanmasını önerir. Yalnızca zaman özellik önizlemededir ve Güvenlik Merkezi'nin standart katmanında kullanılabilir. Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md). |
 | [Sistem güncelleştirmelerinden sonra yeniden başlatın](security-center-apply-system-updates.md#reboot-after-system-updates) |Sistem güncelleştirmelerini uygulama işlemini tamamlamak için VM’yi yeniden başlatmanızı önerir. |
-| [Web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md) |Web uç noktaları için web uygulaması Güvenlik Duvarı (WAF) dağıtmak önerir. WAF öneri açık gelen web bağlantı noktaları (80,443) içeren bir ilişkili ağ güvenlik grubu olan tüm genel kullanıma yönelik IP'si için (örnek düzeyinde IP veya yük dengeli IP) gösterilir. </br>Güvenlik Merkezi, uygulama hizmeti ortamı ve sanal makineler üzerinde web uygulamalarınızı hedefleyen saldırılara karşı korumaya yardımcı olmak için bir WAF sağlamasını önerir. Uygulama hizmeti ortamı (ana) olan bir [Premium](https://azure.microsoft.com/pricing/details/app-service/) hizmet planı seçeneği Azure App Service, güvenli bir şekilde Azure App Service uygulamalarını çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlar. Ana hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı belgeleri](../app-service/environment/intro.md).</br>Varolan WAF dağıtımlarınız için bu uygulamaları ekleyerek, birden çok web uygulamasına Güvenlik Merkezi'nde koruyabilirsiniz. |
-| [Uygulama korumasını sonlandırma](security-center-add-web-application-firewall.md#finalize-application-protection) |Bir WAF yapılandırmasını tamamlamak için trafiği WAF Gereci yönlendirilmesi gerekir. Bu öneri aşağıdaki gerekli Kurulum değişiklikleri tamamlar. |
-| [Yeni Nesil Güvenlik Duvarı ekleme](security-center-add-next-generation-firewall.md) |Bir Microsoft iş ortağı güvenlik korumaları artırmak için İleri nesil Güvenlik Duvarı (NGFW) eklemek önerir. |
-| [Trafiği yalnızca NGFW aracılığıyla yönlendirme](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) |Gelen trafik, VM, NGFW üzerinden zorla ağ güvenlik grubu (NSG) kurallarını yapılandırmak önerir. |
+| [Web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md) |Web uç noktaları için web uygulaması Güvenlik Duvarı (WAF) dağıtmanızı önerir. Bir WAF öneri, bir giden açık web bağlantı noktaları (80,443) ile ilişkili ağ güvenlik grubu olan tüm genel kullanıma yönelik IP için (örnek düzeyi IP veya yük dengeli IP) gösterilir. </br>Güvenlik Merkezi, sanal makinelerde ve App Service ortamında web uygulamalarınızı hedefleyen saldırılara karşı korumaya yardımcı olmak için bir WAF sağlamanızı önerir. App Service ortamı (ASE) olan bir [Premium](https://azure.microsoft.com/pricing/details/app-service/) hizmet planı seçeneği Azure App Service, Azure App Service uygulamalarını güvenli olarak çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlar. ASE hakkında daha fazla bilgi için bkz: [App Service ortamı belgeleri](../app-service/environment/intro.md).</br>Var olan WAF dağıtımlarınız için bu uygulamaları ekleyerek, birden çok web uygulaması Güvenlik Merkezi'nde koruyabilirsiniz. |
+| [Uygulama korumasını sonlandırma](security-center-add-web-application-firewall.md#finalize-application-protection) |Bir WAF yapılandırmasını tamamlamak için WAF gerecine trafiği gelmesi gerekir. Bu öneriyi şu gerekli Kurulum değişiklikleri tamamlar. |
+| [Yeni Nesil Güvenlik Duvarı ekleme](security-center-add-next-generation-firewall.md) |Bir Microsoft iş ortağından, güvenlik korumaları artırmak için bir sonraki Generation Firewall (NGFW) eklemenizi önerir. |
+| [Trafiği yalnızca NGFW aracılığıyla yönlendirme](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) |Önerir, NGFW aracılığıyla sanal makinenize gelen trafiği zorlamak ağ güvenlik grubu (NSG) kurallarını yapılandırın. |
 | [Endpoint Protection’ı yükleyin](security-center-install-endpoint-protection.md) |VM’lere (yalnızca Windows VM’leri) kötü amaçlı yazılımdan koruma programları sağlamanızı önerir. |
-| [Ağ güvenlik grupları alt ağları veya sanal makinelerde etkinleştir](security-center-enable-network-security-groups.md) |Nsg'ler alt ağları veya VM'ler etkinleştirmenizi önerir. |
-| [Uç nokta Internet'e aracılığıyla erişimi kısıtlama](security-center-restrict-access-through-internet-facing-endpoints.md) |İçin Nsg'ler gelen trafik kurallarını yapılandırmak önerir. |
-| [SQL sunucularında denetim ve tehdit algılamayı etkinleştirme](security-center-enable-auditing-on-sql-servers.md) |Azure SQL sunucuları için Denetim ve tehdit algılama Aç önerir. (Yalnızca azure SQL Hizmeti. Sanal makinelerde çalışan SQL içermez.) |
-| [SQL veritabanlarında denetim ve tehdit algılamayı etkinleştirme](security-center-enable-auditing-on-sql-databases.md) |Azure SQL veritabanı için Denetim ve tehdit algılama Aç önerir. (Yalnızca azure SQL Hizmeti. Sanal makinelerde çalışan SQL içermez.) |
-| [SQL veritabanlarını saydam veri şifreleme etkinleştir](security-center-enable-transparent-data-encryption.md) |SQL veritabanları için şifrelemeyi etkinleştirmek önerir. (Yalnızca azure SQL Hizmeti.) |
-| [VM Aracısını etkinleştirin](security-center-enable-vm-agent.md) |Hangi VM’lerin VM Aracısı gerektirdiğini görmenizi sağlar. VM Aracısı sanal makineler için sağlama düzeltme eki tarama, tarama temel ve kötü amaçlı yazılımdan koruma programları yüklü olması gerekir. VM Aracısı, Azure Marketi’nden dağıtılan VM’ler için varsayılan olarak yüklüdür. [VM Aracısı ve Uzantılar – 2. Kısım](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) makalesinde VM Aracısının nasıl yüklendiğine ilişkin bilgiler verilmektedir. |
+| [Alt ağlar veya sanal makinelerde ağ güvenlik gruplarını etkinleştirme](security-center-enable-network-security-groups.md) |Nsg'leri alt ağlara veya sanal makineleri üzerinde etkinleştirmenizi önerir. |
+| [Internet'e yönelik uç noktalarla erişimi sınırlama](security-center-restrict-access-through-internet-facing-endpoints.md) |Nsg'ler için gelen trafik kuralları yapılandırma önerir. |
+| [SQL sunucularında denetim ve tehdit algılamayı etkinleştirme](security-center-enable-auditing-on-sql-servers.md) |Azure SQL sunucuları için Denetim ve tehdit algılamayı etkinleştirmek önerir. (Yalnızca azure SQL Hizmeti. Sanal makineler üzerinde çalışan SQL dahil değildir.) |
+| [SQL veritabanlarında denetim ve tehdit algılamayı etkinleştirme](security-center-enable-auditing-on-sql-databases.md) |Azure SQL veritabanı için Denetim ve tehdit algılamayı etkinleştirmek önerir. (Yalnızca azure SQL Hizmeti. Sanal makineler üzerinde çalışan SQL dahil değildir.) |
+| [SQL veritabanlarında saydam veri şifrelemesini etkinleştirme](security-center-enable-transparent-data-encryption.md) |SQL veritabanları için şifreleme etkinleştirmenizi önerir. (Yalnızca azure SQL Hizmeti.) |
+| [VM Aracısını etkinleştirin](security-center-enable-vm-agent.md) |Hangi VM’lerin VM Aracısı gerektirdiğini görmenizi sağlar. VM Aracısı sağlama düzeltme eki tarama, temel tarama ve kötü amaçlı yazılımdan koruma programları Vm'lerde yüklü olmalıdır. VM Aracısı, Azure Marketi’nden dağıtılan VM’ler için varsayılan olarak yüklüdür. [VM Aracısı ve Uzantılar – 2. Kısım](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) makalesinde VM Aracısının nasıl yüklendiğine ilişkin bilgiler verilmektedir. |
 | [Disk şifrelemesi uygulayın](security-center-apply-disk-encryption.md) |Azure Disk Şifrelemesi kullanarak VM’nizi şifrelemenizi önerir (Windows ve Linux VM’leri). Şifreleme hem işletim sistemi hem de VM’nizin üzerindeki veri birimleri için önerilir. |
-| [Güvenlik ilgili kişi bilgilerini belirtin](security-center-provide-security-contact-details.md) |Güvenlik sağlamasını önerir bilgi her aboneliğiniz için başvurun. Bir e-posta adresi ve telefon numarası iletişim bilgileridir. Bilgi güvenliği ekibimiz kaynaklarınızı riske atılması bulursa sizinle iletişim kurmak için kullanılır. |
-| [İşletim sistemi sürümünü güncelleştirme](security-center-update-os-version.md) |İşletim sistemi (OS) sürümü kullanılabilir en son sürümüne bulut hizmetiniz için işletim sistemi ailesi için güncelleştirme önerir.  Bulut hizmetleri hakkında daha fazla bilgi için bkz: [bulut hizmetlerine genel bakış](../cloud-services/cloud-services-choose-me.md). |
+| [Güvenlik ilgili kişi bilgilerini belirtin](security-center-provide-security-contact-details.md) |Güvenlik sağlamanızı önerir bilgileri her bir aboneliğinizde başvurun. Bir e-posta adresi ve telefon numarası iletişim bilgileridir. Bilgileri güvenlik ekibimizin kaynaklarınızın tehlikede olduğunu tespit olursa sizinle iletişim kurmak için kullanılır. |
+| [İşletim sistemi sürümünü güncelleştirme](security-center-update-os-version.md) |İşletim sistemi (OS) sürümünü bulut hizmetinize kullanılabilir en son sürümü için işletim sistemi ailesi için güncelleştirmeniz önerir.  Bulut hizmetleri hakkında daha fazla bilgi için bkz. [Cloud Services'e genel bakış](../cloud-services/cloud-services-choose-me.md). |
 | [Güvenlik açığı değerlendirmesi yüklü değil](security-center-vulnerability-assessment-recommendations.md) |Sanal makinenize bir güvenlik açığı değerlendirme çözümü yüklemenizi önerir. |
 | [Güvenlik açıklarını düzeltin](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |VM’nize yüklü güvenlik açığı değerlendirme çözümü tarafından algılanan sistem ve uygulama güvenlik açıklarını görmenizi sağlar. |
-| [Azure depolama hesabı için şifrelemeyi etkinleştir](security-center-enable-encryption-for-storage-account.md) | Rest verileri için Azure depolama hizmeti şifrelemesi etkinleştirmenizi önerir. Azure depolama alanına yazılır ve alma önce şifresini çözer verileri şifreleyerek depolama hizmeti şifreleme (SSE) çalışır. SSE yalnızca Azure Blob hizmeti için şu anda kullanılabilir değil ve blok blobları, sayfa bloblarını kullanılabilir ve ekleme blobları. Daha fazla bilgi için bkz: [bekleyen veri için depolama hizmeti şifrelemesi](../storage/common/storage-service-encryption.md).</br>SSE yalnızca Resource Manager depolama hesaplarında desteklenir. |
-
+| [Azure depolama hesabı için şifrelemeyi etkinleştirme](security-center-enable-encryption-for-storage-account.md) | Bekleyen veri için Azure depolama hizmeti şifrelemesi etkinleştirmenizi önerir. Azure depolama alanına yazılır ve alma önce şifrelerini çözer, verileri şifreleyerek depolama hizmeti şifrelemesi (SSE) çalışır. SSE, şu anda yalnızca Azure Blob hizmeti için kullanılabilir ve blok blobları, sayfa blobları için kullanılabilir ve ekleme blobları. Daha fazla bilgi için bkz. [bekleyen veriler için depolama hizmeti şifrelemesi](../storage/common/storage-service-encryption.md).</br>SSE, yalnızca Resource Manager depolama hesaplarında desteklenir. |
+| App Service yalnızca HTTPS üzerinden erişilebilir olmalıdır | App Service'in erişim HTTPS üzerinden sınırı, yalnızca, önerir. |
+| Web uygulaması için Web yuvalarını devre dışı bırakılmalıdır| Web uygulamaları içinde Web yuvaları kullanımını dikkatle gözden geçirin önerir.  Web yuvaları Protokolü farklı güvenlik tehdidi türlerine savunmasızdır. |
+| Web uygulamanız için özel etki alanları kullanın | Bir web uygulaması kimlik avı gibi genel saldırılara ve DNS ile ilgili diğer saldırılara karşı korumak için özel etki alanları kullanmanızı önerir. |
+| Web uygulaması için IP kısıtlamalarını yapılandırma | Uygulamanıza erişmek için izin verilen IP adreslerinin bir listesi tanımladığınız önerir.  IP kısıtlamaları kullanımı, bir web uygulaması genel saldırılara karşı korur. |
+| Tüm izin verme ('* ') uygulamanıza erişmek için kaynaklar | WEBSITE_LOAD_CERTIFICATES parametre ayarladığınız değil önerir '*'. Parametre ayarı '*' tüm sertifikalar, web uygulamaları kişisel sertifika deposuna yüklenecektir anlamına gelir.  Site çalışma zamanında tüm sertifikalara erişim gerektiğini olası olmadığından bu en düşük öncelik ilkesini kötüye neden olabilir. |
+| CORS her kaynağın uygulamanıza erişmesine izin vermemelidir | Web uygulamanızla etkileşim kurmak yalnızca gerekli etki alanlarına izin önerir. Kaynak kaynak paylaşımı (CORS) tüm etki alanları web uygulamanıza erişmek izin vermemelisiniz. |
+| Kullanım en son .NET Framework Web uygulaması için desteklenir. | En son .NET Framework sürümü için en son güvenlik sınıflarını kullanmanızı önerir. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz. |
+| Web uygulaması için desteklenen en son Java sürümünü kullanın | En son güvenlik sınıfları için en son Java sürümünü kullanmanızı önerir. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz. |
+| Web uygulaması için desteklenen en son PHP sürümünü kullanın | En son güvenlik sınıfları için en son PHP sürümünü kullanmanızı önerir. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz. |
+| [Web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md) |Web uç noktaları için web uygulaması Güvenlik Duvarı (WAF) dağıtmanızı önerir. Bir WAF öneri, bir giden açık web bağlantı noktaları (80,443) ile ilişkili ağ güvenlik grubu olan tüm genel kullanıma yönelik IP için (örnek düzeyi IP veya yük dengeli IP) gösterilir.</br></br>Güvenlik Merkezi, sanal makinelerde ve App Service ortamında web uygulamalarınızı hedefleyen saldırılara karşı korumaya yardımcı olmak için bir WAF sağlamanızı önerir. App Service ortamı (ASE) olan bir [Premium](https://azure.microsoft.com/pricing/details/app-service/) hizmet planı seçeneği Azure App Service, Azure App Service uygulamalarını güvenli olarak çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlar. ASE hakkında daha fazla bilgi için bkz: [App Service ortamı belgeleri](../app-service/environment/intro.md).</br></br>Var olan WAF dağıtımlarınız için bu uygulamaları ekleyerek, birden çok web uygulaması Güvenlik Merkezi'nde koruyabilirsiniz. |
+| [Uygulama korumasını sonlandırma](security-center-add-web-application-firewall.md#finalize-application-protection) |Bir WAF yapılandırmasını tamamlamak için WAF gerecine trafiği gelmesi gerekir. Bu öneriyi şu gerekli Kurulum değişiklikleri tamamlar. |
+| Web uygulaması için desteklenen en son Node.js sürümünü kullanın | En son güvenlik sınıfları için en son Node.js sürümünü kullanmanızı önerir. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz. |
+| CORS her kaynağın işlev uygulamanıza erişmek izin vermemelidir | Web uygulamanızla etkileşim kurmak yalnızca gerekli etki alanlarına izin önerir. Kaynak kaynak paylaşımı (CORS) tüm etki alanlarının işlev uygulamanıza erişmek izin vermemelisiniz. |
+| İşlev uygulaması için özel etki alanları kullanın | Bir işlev uygulaması, kimlik avı gibi genel saldırılara ve DNS ile ilgili diğer saldırılara karşı korumak için özel etki alanları kullanmanızı önerir. |
+| İşlev uygulaması için IP kısıtlamalarını yapılandırma | Uygulamanıza erişmek için izin verilen IP adreslerinin bir listesi tanımladığınız önerir. IP kısıtlamaları kullanımını bir işlev uygulaması genel saldırılara karşı korur. |
+| İşlev uygulaması yalnızca HTTPS üzerinden erişilebilir olmalıdır | İşlev uygulamaları, erişim HTTPS üzerinden sınırı, yalnızca, önerir. |
+| Uzaktan hata ayıklama için işlev uygulaması kapatılmalıdır | Bunu kullanmak artık ihtiyacınız yoksa işlev uygulaması için hata ayıklamasını kapatma önerir. Uzaktan hata ayıklama, gelen bağlantı noktası üzerinde bir işlev uygulaması açılmasını gerektirir. |
+| İşlev uygulaması için Web yuvalarını devre dışı bırakılmalıdır | İşlev uygulamaları içinde Web yuvaları kullanımını dikkatle gözden geçirin önerir. Web yuvaları Protokolü farklı güvenlik tehdidi türlerine savunmasızdır. |
+| Aboneliğinizde birden çok sahip belirleyin | Yönetici erişimi fazlalığı sağlamak için birden fazla abonelik sahibi belirlemeniz önerir. |
+| Aboneliğinizde en fazla 3 sahipleri belirleyin | Güvenliği aşılmış bir sahip tarafından ihlal olasılığını azaltmak için 3'ten az abonelik sahipleri belirlemek önerir. |
+| Aboneliğinizi sahip izinleri olan hesaplar için mfa'yı etkinleştirme | Hesapları veya kaynak ihlalini önlemek için yönetici ayrıcalıkları olan tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirmenizi önerir. |
+| Aboneliğinizde yazma izinleri olan hesaplar için mfa'yı etkinleştirme | Hesapları veya kaynak ihlalini önlemek için yazma ayrıcalıklarına sahip tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirmenizi önerir. |
+| Aboneliğinizde Okuma izinleri olan hesaplar için mfa'yı etkinleştirme | Hesapları veya kaynak ihlalini önlemek için okuma ayrıcalıklarına sahip tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirmenizi önerir. |
+| Okuma izinleri olan dış hesapları aboneliğinizden kaldırın | İzlenmeyen erişimi engellemek için aboneliğinizden okuma ayrıcalıklarına sahip dış hesapların kaldırmanızı önerir. |
+| Yazma izinleri olan dış hesapları aboneliğinizden kaldırın | İzlenmeyen erişimi engellemek için aboneliğinizden yazma ayrıcalıklarına sahip dış hesapların kaldırmanızı önerir. |
+| Sahip izinleri olan dış hesapları aboneliğinizden kaldırın | Sahibi izinleri olan dış hesapları aboneliğinizden izlenmeyen erişimi engellemek için kaldırmanızı önerir. |
+| Kullanım dışı bırakılmış hesapları abonelikten Kaldır | Önerir kaldırdığınız hesapları aboneliklerinizden kullanım dışı. |
+| Sahip izinleri ile kullanım dışı bırakılmış hesapları abonelikten Kaldır | Önerir kaldırdığınız aboneliklerinizden sahip izinleri ile hesapları kullanım dışı. |
 Filtre uygulayabilir ve öneriler yok sayın.
 
-1. Seçin **filtre** üzerinde **önerileri** dikey. **Filtre** dikey penceresi açılır ve görmek istediğiniz önem ve durum değerleri seçin.
+1. Seçin **filtre** üzerinde **önerileri** dikey penceresi. **Filtre** dikey penceresi açılır ve görmek istediğiniz önem ve durum değerleri seçin.
 
-2. Bir öneri uygulanamaz olarak belirlerseniz, öneri yok sayın ve görünümünüzü dışında filtre. Bir öneri kapatmanın iki yolu vardır. Tek yönlü bir öğeye sağ tıklayın ve ardından vermektir **atla**. Diğeri, bir öğenin üzerine getirin, sağ tarafta görüntülenen ve ardından üç noktaya tıklayın **atla**. Kapatıldı önerileri tıklatarak görüntüleyebileceğiniz **filtre**ve ardından seçerek **çıkarıldı**.
+2. Bir öneri geçerli olmadığını belirlerseniz, öneri kapatın ve ardından dışında verilerinizin görünümünü filtrelemek. Bir öneri kapatmanın iki yolu vardır. Bir öğeye sağ tıklayın ve ardından yollarından biri olduğunu **atla**. Diğeri ise bir öğenin üzerine gelin, sağda görüntülenir ve ardından üç noktaya tıklayın **atla**. Tıklayarak kapatılmış önerileri görüntüleyebilirsiniz **filtre**seçip **çıkarıldı**.
 
-    ![Öneri yok sayın][3]
+    ![Öneri Kapat][3]
 
-### <a name="apply-recommendations"></a>Önerileri geçerlidir
-Tüm önerileri gözden geçirdikten sonra bir önce uygulamanız karar verebilirsiniz. Hangi önerileri değerlendirmek için ana parametre önce uygulanması gereken şekilde önem derecesi kullanmanızı öneririz.
+### <a name="apply-recommendations"></a>Önerileri uygulama
+Tüm önerileri gözden geçirdikten sonra bir önce uygulamanız karar verebilirsiniz. Hangi önerileri değerlendirmek için ana parametresi ilk uygulanması gereken şekilde önem derecesi kullanmanızı öneririz.
 
-Öneriler yukarıdaki tabloda, bir öneri seçin ve bir öneri uygulamak nasıl bir örnek olarak size yol.
+Öneriler yukarıdaki tabloda, bir öneri seçin ve bir öneri uygulamak nasıl bir örnek olarak yol.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu belgede, Güvenlik Merkezi'nde güvenlik önerilerini giriş yaptınız. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
+Bu belgede, Güvenlik Merkezi'nde güvenlik önerilerini yaptınız. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) — Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkeleri yapılandırmayı öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) — Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Yönetme ve Azure Güvenlik Merkezi'nde güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md) — yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.

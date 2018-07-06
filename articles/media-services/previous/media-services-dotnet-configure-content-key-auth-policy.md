@@ -1,6 +1,6 @@
 ---
-title: Media Services .NET SDK kullanarak bir içerik anahtarı yetkilendirme ilkesini yapılandırma | Microsoft Docs
-description: Media Services .NET SDK kullanarak içerik anahtarının yetkilendirme ilkesini yapılandırma hakkında bilgi edinin.
+title: Media Services .NET SDK'sını kullanarak bir içerik anahtarı yetkilendirme ilkesini yapılandırma | Microsoft Docs
+description: Media Services .NET SDK'sını kullanarak bir içerik anahtarı yetkilendirme ilkesini yapılandırmayı öğrenin.
 services: media-services
 documentationcenter: ''
 author: mingfeiy
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: ed919d8ac9bf88e8a9385930cafaf7b2bc4d2143
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 531b90b905df8549846c6027fe547521d16cf082
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788819"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868509"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dinamik şifreleme: içerik anahtarı yetkilendirme ilkesini yapılandırma
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dinamik şifreleme: bir içerik anahtarı yetkilendirme ilkesini yapılandırma
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Genel Bakış
- Gelişmiş Şifreleme Standardı (AES ile) 128-bit şifreleme anahtarları kullanılarak korumalı MPEG-DASH, kesintisiz akış ve HTTP canlı akışı (HLS) akışlar sunmanıza olanak Azure Media Services kullanabilirsiniz veya [PlayReady dijital hak yönetimi (DRM) ](https://www.microsoft.com/playready/overview/). Media Services ile Widevine DRM ile şifrelenmiş DASH akışları sunabilir. PlayReady ve Widevine, ortak şifreleme (ISO/IEC 23001-7 CENC) belirtimi uyarınca şifrelenir.
+ Azure Media Services, 128 bit şifreleme anahtarları kullanılarak Gelişmiş Şifreleme Standardı (AES ile) korumalı MPEG-DASH, kesintisiz akış ve HTTP canlı akışı (HLS) akışlar sunmanıza olanak kullanabilirsiniz veya [PlayReady dijital hak yönetimi (DRM) ](https://www.microsoft.com/playready/overview/). Media Services ile Widevine DRM ile şifrelenmiş DASH akışları teslim edebilirsiniz. PlayReady ve Widevine, ortak şifreleme (ISO/IEC 23001-7 CENC) belirtimi uyarınca şifrelenir.
 
-Media Services kendisinden şifrelenmiş içerik yürütmek için PlayReady/Widevine lisansları veya AES anahtarları istemcileri elde edebilirsiniz bir anahtar/lisans teslimat hizmeti de sağlar.
+Media Services, kendisinden şifrelenmiş içeriği yürütmek için PlayReady/Widevine lisansları veya AES anahtarları istemciler elde edebilirsiniz bir anahtar/lisans teslim hizmeti de sağlar.
 
-Media Services'ın bir varlık şifrelemek isterseniz, bir şifreleme anahtarı (CommonEncryption veya EnvelopeEncryption) ilişkilendirilecek varlıkla gerekir. Daha fazla bilgi için bkz: [oluşturma ContentKeys .NET ile](media-services-dotnet-create-contentkey.md). Ayrıca Yetkilendirme İlkeleri (Bu makalede anlatıldığı gibi) anahtar için yapılandırmanız gerekir.
+Media Services'ın bir varlık şifrelemek isterseniz, bir şifreleme anahtarı (CommonEncryption veya EnvelopeEncryption) ilişkilendirilecek varlıkla gerekir. Daha fazla bilgi için [.NET ile ContentKeys oluşturma](media-services-dotnet-create-contentkey.md). (Bu makalede anlatıldığı gibi) anahtar yetkilendirme ilkelerini yapılandırmak gerekir.
 
-Bir akış player tarafından istendiğinde Media Services belirtilen anahtarı dinamik olarak içeriğinizi AES veya DRM şifreleme kullanarak şifrelemek için kullanır. Akış şifresini çözmek için player anahtar anahtar teslim hizmetinden ister. Kullanıcı anahtarı alınamadı yetkilendirilip yetkilendirilmediğini belirlemek için hizmet anahtar için belirtilen yetkilendirme ilkelerini değerlendirir.
+Bir akışa bir oynatıcı tarafından istendiğinde Media Services dinamik olarak içeriğinizi AES veya DRM şifreleme kullanarak şifrelemek için belirtilen anahtar kullanır. Akış şifresini çözmek için player anahtar anahtar teslim hizmetinden ister. Kullanıcı anahtarı almak için yetki verilip verilmediğini belirlemek için anahtar için belirtilen Yetkilendirme İlkeleri hizmet tarafından değerlendirilir.
 
-Media Services, anahtar isteğinde bulunan kullanıcıların kimlik doğrulamasını yapmanın birden çok yöntemini destekler. İçerik anahtarı yetkilendirme ilkesini bir veya daha fazla yetkilendirme sınırlamaları olabilir. Açık veya belirteç kısıtlama seçeneklerdir. Belirteç kısıtlamalı ilkenin beraberinde bir güvenlik belirteci hizmeti (STS) tarafından verilmiş bir belirteç bulunmalıdır. Media Services basit bir web belirteç belirteçleri destekler ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) biçimi ve JSON Web Token ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)) biçimi.
+Media Services, anahtar isteğinde bulunan kullanıcıların kimlik doğrulamasını yapmanın birden çok yöntemini destekler. İçerik anahtarı yetkilendirme ilkesinin bir veya daha fazla yetkilendirme kısıtlaması olabilir. Seçenekler şunlardır: açık veya belirteç kısıtlaması. Belirteç kısıtlamalı ilkenin beraberinde bir güvenlik belirteci hizmeti (STS) tarafından verilmiş bir belirteç bulunmalıdır. Media Services, basit web belirteci belirteçleri destekler ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) biçimi ve JSON Web Token ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)) biçimi.
 
-Media Services STS sağlamaz. Özel bir STS oluşturun veya Azure erişim denetimi hizmeti sorunu belirteçleri kullanın. STS, belirteç kısıtlamasına yapılandırma dosyasında (Bu makalede anlatıldığı gibi) belirtilen belirtilen anahtarı ve sorunu talepleri imzalı bir belirteç oluşturmak için yapılandırılmalıdır. Belirtecin geçerli olduğu ve içerik anahtarı için yapılandırılmış talep belirteci eşleştiğinden, Media Services anahtar teslim hizmeti istemcisi için şifreleme anahtarını döndürür.
+Media Services, STS sağlamaz. Özel STS oluşturma ya da Azure Access Control Service sorunu belirteçleri kullanın. STS belirteci kısıtlama yapılandırmada (Bu makalede anlatıldığı gibi) belirtilen belirtilen anahtarı ve sorunu talepleri ile imzalanmış bir belirteç oluşturmak için yapılandırılmalıdır. Belirteç geçerliyse ve belirteçteki talepler içerik anahtarı için yapılandırılanlarla eşleşen, Media Services anahtar dağıtımı hizmetiyle şifreleme anahtarının istemciye döndürür.
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 - [JWT belirteci kimlik doğrulaması](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-- [Azure Media Services OWIN MVC tabanlı uygulama Azure Active Directory ile tümleştirme ve JWT talepleri temelinde içerik anahtar teslim kısıtla](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
+- [Azure Media Services OWIN MVC tabanlı bir uygulamayı Azure Active Directory ile tümleştirin ve içerik anahtar teslim JWT taleplere göre kısıtlama](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
 
 ### <a name="some-considerations-apply"></a>Bazı önemli noktalar geçerlidir
-* Media Services hesabınız oluşturulduğunda hesabınıza “Durdurulmuş” durumda bir varsayılan akış uç noktası eklenir. İçeriğinizi akış başlatmak ve dinamik paketleme ve dinamik şifreleme yararlanmak için akış uç noktanızı "Çalışır" durumda olması gerekir. 
-* Varlığınızı Uyarlamalı bit hızlı MP4s ya da Uyarlamalı bit hızlı kesintisiz akış dosyaları içermelidir. Daha fazla bilgi için bkz: [bir varlık kodla](media-services-encode-asset.md).
+* Media Services hesabınız oluşturulduğunda hesabınıza “Durdurulmuş” durumda bir varsayılan akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için akış uç noktanızı "Çalışıyor" durumunda olması gerekir. 
+* Varlığınız bir dizi hızı Uyarlamalı MP4 veya uyarlamalı bit hızlı kesintisiz akış dosyaları içermelidir. Daha fazla bilgi için [bir varlığı kodlama](media-services-encode-asset.md).
 * Karşıya yükleme ve varlıklarınızı AssetCreationOptions.StorageEncrypted seçeneğini kullanarak kodlayın.
-* Aynı ilke yapılandırma gerektiren birden çok içerik anahtarı oluşturmayı planlıyorsanız, bir tek yetkilendirme ilkesi oluşturun ve birden çok içerik anahtarı ile yeniden öneririz.
-* Anahtar teslim hizmeti ContentKeyAuthorizationPolicy ve ilişkili nesnelerini (ilkesi seçenekleri ve kısıtlamaları) 15 dakika için önbelleğe alır. ContentKeyAuthorizationPolicy oluşturun ve bir belirteç kısıtlamasına kullanmak için test ve ardından ilkeyi açık kısıtlama güncelleştirmek için belirtin. Bu işlem İlkesi açık sürümüne ilke anahtarları önce yaklaşık 15 dakika sürer.
+* Aynı ilke yapılandırmasını gerektiren birden çok içerik anahtarı kullanmayı planlıyorsanız, tek bir yetkilendirme ilkesi oluşturma ve birden çok içerik anahtarı ile yeniden öneririz.
+* Anahtar dağıtımı hizmetiyle ContentKeyAuthorizationPolicy ve ilgili nesneleri (ilkesi seçenekleri ve kısıtlamaları) 15 dakika için önbelleğe alır. ContentKeyAuthorizationPolicy oluşturabilir ve sonra ilke için açık kısıtlama güncelleştirme belirteç kısıtlamasına kullanın ve test için belirtin. Bu işlem, ilke açık sürümüne ilke anahtarları önce yaklaşık 15 dakika sürer.
 * Varlığınızın teslim ilkesini ekler veya güncelleştirirseniz, varsa mevcut bulucuyu silip yeni bir bulucu oluşturmanız gerekir.
-* Şu anda, aşamalı indirme şifrelenemiyor.
-* Akış uç noktası bir Media Services joker karakter olarak denetim öncesi yanıt CORS 'Access-Control-Allow-Origin' üstbilgi değerini ayarlar '\*'. Bu değer Azure Media Player, Roku ve JWPlayer ve diğerleri de dahil olmak üzere de çoğu oyuncularla, çalışır. "İçerecek şekilde" kimlik bilgileri moduyla kendi dashjs XMLHttpRequest joker izin vermediği için dashjs kullanan bazı oynatıcıları ancak çalışmıyor "\*" 'Access-Control-Allow-Origin' değeri olarak. Tek bir etki alanı istemcinizden barındırıyorsanız dashjs içinde bu sınırlamaya geçici Media Services ön yanıt üstbilgisinde bu etki alanı belirtebilirsiniz. Yardım için destek bileti Azure portalı üzerinden açın.
+* Şu anda, ilerlemeli indirmeler şifrelenemiyor.
+* Bir Media Services akış uç noktası, joker karakter olarak ön yanıt CORS 'Access-Control-Allow-Origin' üst bilgisi değeri ayarlar. '\*'. Bu değer, Azure Media Player, Roku ve JWPlayer ve diğerleri dahil olmak üzere de çoğu oyuncuları ile çalışır. Kimlik bilgilerini modunda "ekleme" olarak, kendi dashjs içinde XMLHttpRequest joker izin vermez çünkü dashjs kullanan bazı oyuncuların ancak çalışmıyor "\*" 'Access-Control-Allow-Origin' değeri olarak. Tek bir etki alanı istemcinizden barındırıyorsanız ön yanıt üst bilgisinde dashjs içinde bu sınırlama için bir geçici çözüm olarak, Media Services, etki alanı belirtebilirsiniz. Yardım için Azure portalından bir destek bileti açın.
 
 ## <a name="aes-128-dynamic-encryption"></a>AES-128 dinamik şifreleme
 ### <a name="open-restriction"></a>Açık kısıtlama
-Açık sınırlama Sistem anahtarı anahtar istekte herkes sunar anlamına gelir. Bu kısıtlama sınama amacıyla yararlı olabilir.
+Açık kısıtlama Sistem anahtarı bir anahtar istekte herkese sunar anlamına gelir. Bu kısıtlama, sınama amacıyla yararlı olabilir.
 
 Aşağıdaki örnek, bir açık yetkilendirme ilkesi oluşturur ve içerik anahtarı ekler:
 ```csharp
@@ -96,9 +96,9 @@ Aşağıdaki örnek, bir açık yetkilendirme ilkesi oluşturur ve içerik anaht
 ```
 
 ### <a name="token-restriction"></a>Belirteç kısıtlama
-Bu bölümde, bir içerik anahtarı yetkilendirme ilkesi oluşturun ve içerik anahtarı ile ilişkilendirmek açıklar. Yetkilendirme İlkesi, kullanıcı anahtarı alma yetkisi olup olmadığını belirlemek için hangi Yetkilendirme gereksinimlerin karşılanması gerekir açıklar. Örneğin, doğrulama anahtarı listesi belirteci ile imzalandığı anahtar içeriyor mu?
+Bu bölümde, bir içerik anahtarı yetkilendirme ilkesi oluşturma ve içerik anahtarıyla ilişkilendirmek açıklar. Yetkilendirme İlkesi, kullanıcı anahtarı almak için yetkili olup olmadığını belirlemek için hangi Yetkilendirme gereksinimleri karşılanmalıdır açıklar. Örneğin, doğrulama anahtar listesi belirteç birlikte imzalandığı anahtar içeriyor mu?
 
-Belirteç kısıtlamasına seçeneği yapılandırmak için belirtecin yetkilendirme gereksinimlerini tanımlamak için bir XML kullanmanız gerekir. Belirteç kısıtlamasına yapılandırma XML için aşağıdaki XML Şeması uygun olmalıdır:
+Belirteç kısıtlamasına seçeneği yapılandırmak için belirtecin yetkilendirme gereksinimlerini tanımlamak için bir XML kullanmanız gerekir. Belirteç kısıtlamasına yapılandırma XML aşağıdaki XML şemaya uygun olmalıdır:
 ```csharp
 #### Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
@@ -148,10 +148,10 @@ Belirteç kısıtlamasına seçeneği yapılandırmak için belirtecin yetkilend
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 ```
-Belirteç kısıtlanmış İlkesi yapılandırdığınızda, birincil doğrulama anahtarı, veren ve İzleyici parametreleri belirtmeniz gerekir. Birincil doğrulama anahtar belirteci ile imzalandığı anahtarı içerir. Verici belirtecini veren STS ' dir. Kaynak belirteci erişimini yetkilendirir veya (bazen kapsam denir) İzleyici belirteç amacı açıklanır. Media Services anahtar teslim hizmeti, bu değerleri belirteci şablon değerleri eşleştiğini doğrular.
+Belirteç kısıtlamalı ilkenin yapılandırdığınızda, birincil doğrulama anahtarı, veren ve İzleyici parametrelerini belirtmeniz gerekir. Birincil doğrulama anahtarı belirteç birlikte imzalandığı anahtarını içerir. Belirteci veren STS veren olur. Belirtecin amacı (kapsam olarak da adlandırılır) İzleyici açıklayan veya kaynak belirteci erişimini yetkilendirir. Media Services anahtar dağıtımı hizmetiyle belirtecindeki bu değerleri şablon değerleri eşleştiğini doğrular.
 
-.NET için Media Services SDK'sı kullandığınızda, kısıtlama belirteci üretmek için TokenRestrictionTemplate sınıfını kullanabilirsiniz.
-Aşağıdaki örnek, bir belirteç kısıtlamasına bir yetkilendirme ilkesi oluşturur. Bu örnekte, istemci imzalama anahtarı (VerificationKey), bir belirteç verenin ve gerekli talepleri içeren bir belirteç sunması gerekir.
+.NET için Media Services SDK'sı kullandığınızda, TokenRestrictionTemplate sınıfı kısıtlama belirtecini oluşturmak için kullanabilirsiniz.
+Aşağıdaki örnek, bir belirteç kısıtlamasına bir yetkilendirme ilkesi oluşturur. Bu örnekte, istemci bir imzalama anahtarı (VerificationKey), belirteci veren ve gerekli talepleri içeren bir belirteç sunması gerekir.
 ```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
@@ -215,7 +215,7 @@ Anahtar yetkilendirme ilkesi için kullanılan belirteç kısıtlamasına dayal�
     TokenRestrictionTemplate tokenTemplate =
         TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-    // Generate a test token based on the the data in the given TokenRestrictionTemplate.
+    // Generate a test token based on the data in the given TokenRestrictionTemplate.
     // Note, you need to pass the key id Guid because we specified 
     // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
     Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
@@ -228,14 +228,14 @@ Anahtar yetkilendirme ilkesi için kullanılan belirteç kısıtlamasına dayal�
 ```
 
 ## <a name="playready-dynamic-encryption"></a>PlayReady dinamik şifreleme
-Korumalı içeriği kayıttan yürütmek bir kullanıcı çalıştığında zorlamak için PlayReady DRM çalışma zamanı istediğiniz kısıtlamaları ve hakları yapılandırmak için Media Services kullanabilirsiniz. 
+Korumalı içeriği kayıttan yürütme bir kullanıcı çalıştığında zorlamak için PlayReady DRM çalışma zamanının istediğiniz kısıtlamaları ve haklarını yapılandırması için Media Services'ı kullanabilirsiniz. 
 
-İçeriğinizi PlayReady ile koruduğunuzda, Yetkilendirme ilkesinde belirtmek için gereken şeyleri tanımlayan bir XML dizesi biri [PlayReady lisans şablonu](media-services-playready-license-template-overview.md). .NET için Media Services SDK PlayReadyLicenseResponseTemplate ve PlayReadyLicenseTemplate sınıfları, PlayReady lisans şablonu tanımlamanıza yardımcı olur.
+PlayReady ile içeriğinizi korumanıza, yetkilendirme ilkenizde belirtmeniz gerekir şeylerden biri olduğunu tanımlayan bir XML dizesi [PlayReady lisans şablonu](media-services-playready-license-template-overview.md). .NET için Media Services SDK PlayReadyLicenseResponseTemplate ve PlayReadyLicenseTemplate sınıfları, PlayReady lisans şablonu tanımlama yardımcı olur.
 
-İçeriğinizi PlayReady ve Widevine ile şifrelemek öğrenmek için bkz: [kullanım PlayReady ve/veya Widevine dinamik ortak şifreleme](media-services-protect-with-playready-widevine.md).
+PlayReady ve Widevine içeriğinizi şifrelemek öğrenmek için bkz. [kullanım PlayReady ve/veya Widevine dinamik ortak şifreleme](media-services-protect-with-playready-widevine.md).
 
 ### <a name="open-restriction"></a>Açık kısıtlama
-Açık sınırlama Sistem anahtarı anahtar istekte herkes sunar anlamına gelir. Bu kısıtlama sınama amacıyla yararlı olabilir.
+Açık kısıtlama Sistem anahtarı bir anahtar istekte herkese sunar anlamına gelir. Bu kısıtlama, sınama amacıyla yararlı olabilir.
 
 Aşağıdaki örnek, bir açık yetkilendirme ilkesi oluşturur ve içerik anahtarı ekler:
 
@@ -391,7 +391,7 @@ Belirteç kısıtlamasına seçeneği yapılandırmak için belirtecin yetkilend
 
 Anahtar yetkilendirme ilkesi için kullanılan belirteç kısıtlamasına dayalı bir test belirteci almak için bkz: "[Test belirteci](#test-token)" bölümü. 
 
-## <a id="types"></a>ContentKeyAuthorizationPolicy tanımlarken kullanılan türleri
+## <a id="types"></a>ContentKeyAuthorizationPolicy tanımlarken kullanılan türler
 ### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
 
 ```csharp
@@ -415,7 +415,7 @@ Anahtar yetkilendirme ilkesi için kullanılan belirteç kısıtlamasına dayal�
     }
 ```
 
-### <a id="TokenType"></a>tokenType
+### <a id="TokenType"></a>TokenType
 
 ```csharp
     public enum TokenType
@@ -433,5 +433,5 @@ Anahtar yetkilendirme ilkesi için kullanılan belirteç kısıtlamasına dayal�
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-İçerik anahtarının yetkilendirme ilkesini yapılandırmış, bkz: [bir varlık teslim ilkesini yapılandırma](media-services-dotnet-configure-asset-delivery-policy.md).
+İçerik anahtarının yetkilendirme ilkesini yapılandırdıktan sonra bkz. [varlık teslim ilkesi yapılandırma](media-services-dotnet-configure-asset-delivery-policy.md).
 

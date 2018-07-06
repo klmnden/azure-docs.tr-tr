@@ -10,48 +10,48 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 42471687e0a56ff0bacf5c9effecb0e2466b4690
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f2d0b009c4451a4108222ac7aa7954ba6dd86699
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593600"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869016"
 ---
-# <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Self Servis parola sıfırlama Azure AD derin Dalış
+# <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Self Servis parola sıfırlama Azure AD derinlemesine bakış
 
-Self Servis parola (SSPR) iş nasıl sıfırlama? Bu seçenek arabiriminde anlamı nedir? Azure Active Directory (Azure AD) SSPR hakkında daha fazla bilgi için okumaya devam edin.
+Self Servis parola, (SSPR) iş nasıl sıfırlansın mı? Bu seçenek arabiriminin ne demektir? Azure Active Directory (Azure AD) SSPR hakkında daha fazla bilgi için okumaya devam edin.
 
-## <a name="how-does-the-password-reset-portal-work"></a>Parola portalı iş nasıl sıfırlama?
+## <a name="how-does-the-password-reset-portal-work"></a>Parola, portal iş nasıl sıfırlansın mı?
 
-Bir kullanıcı için çıktığında parola sıfırlama portalını, bir iş akışı belirlemek için başlayacağı zamana devre dışı:
+Bir kullanıcı görünümüne döndüğünde parola sıfırlama portalı, belirlemek için bir iş akışı başlatılır:
 
-   * Nasıl sayfa yerelleştirilmiş?
-   * Kullanıcı hesabı geçerli mi?
-   * Hangi kuruluş için kullanıcının ait?
+   * Sayfa yerelleştirilmiş ne olmalıdır?
+   * Kullanıcı hesabının geçerli mi?
+   * Hangi kuruluş için kullanıcıya ait?
    * Kullanıcının parolasını yönetildiği?
-   * Kullanıcı bu özelliği kullanmak için lisanslanır?
+   * Kullanıcı bu özelliği kullanmak için mudur?
 
-Parola arkasındaki mantığı hakkında bilgi edinmek için aşağıdaki adımları okuma sıfırlama sayfasına:
+Sıfırlama sayfası parola ardındaki mantığı hakkında bilgi edinmek için aşağıdaki adımları okuyun:
 
 1. Kullanıcının seçtiği **hesabınıza erişemiyor** doğrudan giden veya bağlantı [ https://aka.ms/sspr ](https://passwordreset.microsoftonline.com).
-   * Tarayıcı bölgesel ayarına göre deneyimi uygun dili işlenir. Parola sıfırlama deneyimi Office 365 destekleyen aynı dile yerelleştirilmiştir.
-2. Kullanıcı bir kullanıcı kimliği girer ve bir güvenlik kodu geçirir.
+   * Tarayıcı yerel ayarına bağlı, deneyime uygun dilde işlenir. Parola sıfırlama deneyiminde, Office 365'in desteklediği aynı dilde yerelleştirilmiş olan.
+2. Kullanıcı, kullanıcı Kimliğini girer ve captcha geçirir.
 3. Azure AD, kullanıcının aşağıdaki denetimleri yaparak bu özelliği kullanabilmek için olduğunu doğrular:
-   * Kullanıcı bu özelliği etkin olup olmadığını denetler ve Azure AD sahip lisansı atanmış.
-     * Kullanıcı Bu özellik etkinleştirildiğinde ya da içermiyor atanmış bir lisansa sahip, kullanıcının parolasını sıfırlamak için kendi yöneticisine başvurun istenir.
-   * Kullanıcı hakkına sahip denetimleri hesaplarında Yönetici İlkesi uygun olarak tanımlanan verileri sınama.
-     * Ardından bu ciddi bir şekilde ilkesi yalnızca bir sınama gerektiriyorsa, kullanıcı için en az bir yönetici İlkesi tarafından etkinleştirilen zorluklar tanımlanan uygun veri sahip olmasını sağlar.
-       * Kullanıcı sınaması yapılandırılmamışsa, kullanıcı parolasını sıfırlamayı kendi yöneticisine başvurmanız önerilir.
-     * Ardından bu ciddi bir şekilde İlkesi iki zorluk gerektiriyorsa, kullanıcı için en az iki Yönetici İlkesi tarafından etkinleştirilen zorluklar tanımlanan uygun veri sahip olmasını sağlar.
-       * Kullanıcı sınaması yapılandırılmamışsa, kullanıcı parolasını sıfırlamayı kendi yöneticisine başvurmanız önerilir.
-   * Kullanıcının parolası olup olmadığını görmek için denetimleri şirket içinde (Federasyon, geçiş kimlik doğrulaması veya Eşitlenen parola karması) yönetilir.
-     * Daha sonra geri yazma dağıtılır ve kullanıcının parolasını yönetilen şirket içi ise, kullanıcı kimliğini ve parolasını sıfırlamak için devam etmesine izin verilir.
-     * Geri yazma dağıtılmadığı ve kullanıcının parolasını yönetilen şirket içi ise, ardından kullanıcının parolasını sıfırlamak için kendi yöneticisine başvurun istenir.
-4. Kullanıcının parolasını başarıyla sıfırlayamazsınız olduğunu belirlenirse kullanıcı sıfırlama işlemi boyunca yönlendirilir.
+   * Kullanıcı bu özelliği etkin olup olmadığını denetler ve Azure AD'yi sahip lisansı atandı.
+     * Kullanıcı olmayan bu özelliğin etkinleştirilmesini veya atanmış bir lisansı olması, kullanıcı parolalarını sıfırlamak için yönetici ile iletişime geçin istenir.
+   * Kullanıcı hakkına sahip denetimleri hesabını yönetici ilkesine uygun olarak tanımlanan veri meydan okuyun.
+     * Ardından, ciddi bir şekilde ilkesi yalnızca bir sınama gerektiriyorsa, kullanıcı için en az bir yönetici İlkesi tarafından etkinleştirilen zorlukların tanımlanan uygun veri sahip olmasını sağlar.
+       * Kullanıcı sınaması yapılandırılmamışsa, kullanıcı parolalarını sıfırlamak için kendi yöneticisine başvurmanız önerilir.
+     * Ardından, ciddi bir şekilde İlkesi iki aşama gerektiriyorsa, kullanıcı tanımlı en az iki Yönetici İlkesi tarafından etkinleştirilen zorlukların uygun veri sahip olmasını sağlar.
+       * Kullanıcı sınaması yapılandırılmamışsa, kullanıcı parolalarını sıfırlamak için kendi yöneticisine başvurmanız önerilir.
+   * Kullanıcının parolası olup olmadığını görmek için denetimleri şirket içinde (Federal, geçişli kimlik doğrulaması veya parola karması eşitlenmiş) yönetilir.
+     * Geri yazma dağıtılır ve yönetilen şirket kullanıcı parolasının ise, kullanıcının kimliğini doğrulamak ve kullanıcının parolasını sıfırlamak için devam izin verilmez.
+     * Kullanıcının parolasını sıfırlamak için yönetici iletişim kurması istenir daha sonra yönetilen şirket içi geri yazma dağıtılmadığı ve kullanıcının parolasını ise.
+4. Kullanıcı başarıyla parolalarını sıfırlayabilir olduğunu belirlenirse kullanıcı sıfırlama işlemini destekli.
 
 ## <a name="authentication-methods"></a>Kimlik doğrulama yöntemleri
 
-SSPR etkinleştirilirse, en az bir kimlik doğrulama yöntemleri için aşağıdaki seçeneklerden birini seçmeniz gerekir. Bu seçenekler için "geçitleri" adlandırılan bazen duyduğunuz Kullanıcılarınızın daha fazla esneklik en az iki kimlik doğrulama yöntemi seçmeniz önerilir.
+SSPR etkinleştirilirse, kimlik doğrulama yöntemleri için aşağıdaki seçeneklerden en az birini seçmeniz gerekir. Bu seçenekler "kapılarını" anılan bazen işittiğiniz Böylece kullanıcılarınızın daha fazla esnekliğe sahip en az iki kimlik doğrulama yöntemi seçin önemle öneririz.
 
 * Email
 * Cep telefonu
@@ -60,57 +60,57 @@ SSPR etkinleştirilirse, en az bir kimlik doğrulama yöntemleri için aşağıd
 
 ![Kimlik doğrulaması][Authentication]
 
-### <a name="what-fields-are-used-in-the-directory-for-the-authentication-data"></a>Hangi alanların dizinde için kimlik doğrulama verileri kullanılır?
+### <a name="what-fields-are-used-in-the-directory-for-the-authentication-data"></a>Hangi alanların dizin için kimlik doğrulama verilerini kullanılır?
 
-* **Ofis telefonu**: ofis telefonu karşılık gelir.
-    * Kullanıcılar bu alan kendilerini ayarlanamıyor. Bir yönetici tarafından tanımlanması gerekir.
-* **Cep telefonu**: (herkese görünür) kimlik doğrulama telefon veya cep telefonu (herkese görünür) karşılık gelen.
-    * Hizmeti için kimlik doğrulama telefon ilk arar ve ardından kimlik doğrulama telefon ise cep telefonu geri döner yok.
-* **Alternatif e-posta adresi**: kimlik doğrulama e-posta (herkese görünür) veya alternatif e-posta karşılık gelir.
-    * Hizmet kimlik doğrulama e-posta için önce arar ve geri alternatif e-posta için başarısız olur.
+* **Ofis telefonu**: ofis telefonu için karşılık gelir.
+    * Kullanıcılar bu alan kendilerini ayarlayamıyor. Bir yönetici tarafından tanımlanması gerekir.
+* **Cep telefonu**: (herkese görünür) kimlik doğrulama telefonu veya cep telefonu (herkese görünür) karşılık gelir.
+    * Hizmet için kimlik doğrulama telefonu önce arar ve ardından ise kimlik doğrulama telefonu, cep telefonu geri döner yok.
+* **Alternatif e-posta adresi**: kimlik doğrulama e-posta (herkese görünür) ya da alternatif e-posta karşılık gelir.
+    * Hizmet kimlik doğrulama e-posta için önce arar ve ardından geri alternatif e-posta için başarısız olur.
 
-Varsayılan olarak, yalnızca bulut öznitelikleri ofis telefonu ve cep telefonu kimlik doğrulama verileri için şirket içi dizininizden bulut dizininiz için eşitlenir.
+Varsayılan olarak, yalnızca bulut öznitelikleri ofis telefonu ve cep telefonu kimlik doğrulama verileri şirket içi dizininizden bulut dizininizle eşitlenir.
 
-Bunlar, yönetici etkin olduğundan ve gerektiren kimlik doğrulama yöntemlerini mevcut verileri varsa kullanıcılar yalnızca parolalarını sıfırlayabilir.
+Bunlar yönetici etkin olduğundan ve gerektiren kimlik doğrulama yöntemlerini mevcut verileriniz varsa, kullanıcılar yalnızca parolasını sıfırlayabilirsiniz.
 
-Kullanıcıların cep telefonu numaralarına dizinde görünür olmasını istemiyorsanız, ancak bunlar hala parola sıfırlama için kullanmak istediğiniz, Yöneticiler bu dizinde doldurmanız gerekir değil. Kullanıcıların sonra doldurmak kendi **kimlik doğrulama telefon** aracılığıyla özniteliği [parola sıfırlama kayıt portalı](https://aka.ms/ssprsetup). Yöneticiler kullanıcı profili için bu bilgiyi görebilir, ancak başka bir yerde yayınlanmadı.
+Kullanıcıların kendi cep telefonu numarası dizinde görünür olmasını istemediğiniz, ancak bunlar yine de parola sıfırlama için kullanmak istiyorsanız, Yöneticiler bu dizinde doldurmanız gerekir değil. Kullanıcılar sonra doldurmanız, **kimlik doğrulama telefonu** aracılığıyla özniteliği [parola sıfırlama kayıt portalı](https://aka.ms/ssprsetup). Yöneticiler, kullanıcının profilinde bu bilgiyi görebilir, ancak başka bir yayımlanmaz.
 
-### <a name="the-number-of-authentication-methods-required"></a>Gereken kimlik doğrulama yöntemleri sayısı
+### <a name="the-number-of-authentication-methods-required"></a>Gerekli kimlik doğrulama yöntemleri sayısı
 
-Bu seçenek kullanılabilen kimlik doğrulama yöntemleri veya bir kullanıcı sıfırlama veya kilidini açma parolasını gidip aracılığıyla ağ geçitleri minimum sayısını belirler. Bir veya iki için ayarlanabilir.
+Bu seçenek kullanılabilir kimlik doğrulama yöntemleri veya ağ geçitleri bir kullanıcı sıfırlama veya kilidini açma parolasını geçmesi gereken en düşük sayısını belirler. Bir veya iki ayarlanabilir.
 
-Kullanıcılar, yönetici bu kimlik doğrulama yöntemini etkinleştirirse daha fazla kimlik doğrulama yöntemleri sağlamak seçebilirsiniz.
+Kullanıcılar yöneticinin, kimlik doğrulama yöntemi sağlar. daha fazla kimlik doğrulama yöntemleri sağlamanız seçebilirsiniz.
 
-Bir kullanıcıya kayıtlı gerekli en düşük yöntemleri yoksa yönlendirmez yönetici parolasını sıfırlama isteği için bir hata sayfası görürler.
+Bir kullanıcının kayıtlı gerekli en düşük yöntemleri yoksa bunları yönetici parolasını sıfırlama isteğinde yönlendiren bir hata sayfası görürler.
 
-#### <a name="change-authentication-methods"></a>Kimlik doğrulama yöntemlerini değiştirme
+#### <a name="change-authentication-methods"></a>Kimlik doğrulama yöntemleri değiştirme
 
-Sıfırlama veya kilidini yalnızca bir gerekli kimlik doğrulama yöntemini sahip bir ilke ile başlatırsanız, kayıtlı ve iki yöntem için ne olacağını değiştirme?
+Sıfırlama veya kilidini yalnızca bir gerekli kimlik doğrulama yöntemi için olan bir ilke ile başlatırsanız, kayıtlı ve iki yöntem için ne olacağını değiştirmek?
 
-| Kayıtlı yöntemleri sayısı | Gerekli yöntemleri sayısı | Sonuç |
+| Kayıtlı yöntemleri sayısı | Gereken yöntemlerin sayısı | Sonuç |
 | :---: | :---: | :---: |
-| 1 veya daha fazla | 1 | **Mümkün** sıfırlamak veya kilidini açmak için |
-| 1 | 2 | **%S** sıfırlamak veya kilidini açmak için |
-| 2 veya daha fazla | 2 | **Mümkün** sıfırlamak veya kilidini açmak için |
+| 1 veya daha fazla | 1 | **Mümkün** sıfırlama veya kilidini açmak için |
+| 1 | 2 | **%S** sıfırlama veya kilidini açmak için |
+| 2 veya daha fazla | 2 | **Mümkün** sıfırlama veya kilidini açmak için |
 
-Bir kullanıcının kullandığı kimlik doğrulama yöntemlerini türlerini değiştirirseniz, kullanılabilir veri miktarına yoksa SSPR kullanabilmek için kullanıcıların yanlışlıkla durabilir.
+Bir kullanıcı kullandığı kimlik doğrulama yöntemlerini türlerini değiştirirseniz, veri kullanılabilir en az miktarda yoksa SSPR kullanabilmek için kullanıcıların yanlışlıkla durabilir.
 
 Örnek: 
-1. Özgün ilke gereken iki kimlik doğrulama yöntemleri ile yapılandırılır. Yalnızca ofis telefon numarası ve güvenlik sorularını kullanır. 
-2. Yönetici güvenlik sorularını artık kullanılacak ilkesini değiştirir, ancak bir cep telefonu ve alternatif bir e-posta kullanılmasına izin verir.
-3. Alternatif e-posta alanları doldurulur ve cep telefonu olmayan kullanıcıların parolalarını sıfırlayamazsınız.
+1. Özgün ilkenin gereken iki kimlik doğrulama yöntemleri ile yapılandırılır. Bu, yalnızca ofis telefon numarası ve güvenlik sorularını kullanır. 
+2. Yönetici güvenlik sorularını artık kullanılacak ilkeyi değiştirir, ancak bir cep telefonu ve alternatif e-posta kullanımına izin verir.
+3. Cep telefonu ve alternatif e-posta alanları doldurulmuş olmayan kullanıcıların parolalarını sıfırlayamaz.
 
-### <a name="how-secure-are-my-security-questions"></a>My güvenlik soruları ne kadar güvenli mi?
+### <a name="how-secure-are-my-security-questions"></a>Güvenlik sorularımı ne kadar güvenli?
 
-Güvenlik soruları kullanırsanız, bunları başka bir yöntem ile birlikte kullanmanızı öneririz. Bazı kişiler başka bir kullanıcının soruların yanıtlarını biliyor olabilirsiniz için güvenlik soruları diğer yöntemlerinden daha az güvenli olabilir.
+Güvenlik sorularını kullanıyorsanız, bunları başka bir yöntem ile birlikte kullanmanızı öneririz. Bazı kişiler, başka bir kullanıcının soruların yanıtlarını biliyor olabilirsiniz güvenlik sorularını diğer yöntemlerinden daha az güvenli olabilir.
 
 > [!NOTE] 
-> Güvenlik soruları dizininde bir kullanıcı nesnesi üzerinde özel olarak ve güvenli bir şekilde depolanır ve kullanıcılar tarafından kayıt sırasında yalnızca yanıtlanması. Okuma veya kullanıcının soru veya yanıt değiştirmek bir yöneticinin bir yolu yoktur.
+> Güvenlik sorularını dizindeki kullanıcı nesnesinin üzerinde özel ve güvenli bir şekilde depolanır ve yalnızca kullanıcıların kayıt sırasında yanıtlanması gereken. Bir yöneticinin okuyun veya bir kullanıcının soru veya yanıt değiştirmek hiçbir yolu yoktur.
 >
 
 ### <a name="security-question-localization"></a>Güvenlik sorusu yerelleştirme
 
-İzleyen tüm önceden tanımlanmış sorular Office 365 dilleri tam kümesine yerelleştirilmiş ve kullanıcının tarayıcı bölgesel ayarına göre:
+İzleyin ve önceden tanımlanmış sorulara Office 365 dilleri tam kümesine yerelleştirilmiş olduğunu ve kullanıcının tarayıcı yerel ayarını temel alır:
 
 * İlk eşiniz/partneriniz ile hangi şehirde tanıştınız?
 * Anneniz ile babanız hangi şehirde tanıştı?
@@ -126,7 +126,7 @@ Güvenlik soruları kullanırsanız, bunları başka bir yöntem ile birlikte ku
 * En sevdiğiniz yemek nedir?
 * Anneannenizin adı ve soyadı nedir?
 * Annenizin ikinci adı nedir?
-* En büyük kardeşinizin Doğum günü ay ve yıl nedir? (örn. Kasım 1985)
+* En büyük kardeşinizin doğduğu ay ve yıl nedir? (örn. Kasım 1985)
 * En büyük kardeşinizin ikinci adı nedir?
 * Dedenizin adı ve soyadı nedir?
 * En küçük kardeşinizin ikinci adı nedir?
@@ -150,98 +150,98 @@ Güvenlik soruları kullanırsanız, bunları başka bir yöntem ile birlikte ku
 
 ### <a name="custom-security-questions"></a>Özel güvenlik soruları
 
-Özel güvenlik soruları farklı yerel ayarlar için yerelleştirilmiş değil. Yönetici kullanıcı arabiriminde girerken kullanıcının tarayıcı yerel farklı olsa bile, tüm özel soruları aynı dilde görüntülenir. Yerelleştirilmiş soruları gerekiyorsa, önceden tanımlanmış soruları kullanmanız gerekir.
+Özel güvenlik soruları farklı yerel ayarlar için yerelleştirilmiş değil. Yönetici kullanıcı arabiriminde girerken kullanıcının tarayıcı yerel farklı olsa bile, tüm özel sorular aynı dilde görüntülenir. Yerelleştirilmiş sorular ihtiyacınız varsa, önceden tanımlanmış soruları kullanmanız gerekir.
 
 Bir özel Güvenlik sorusu uzunluğu en fazla 200 karakter olabilir.
 
-Parola sıfırlama portalı ve soruları farklı bir yerelleştirilmiş görüntülemek için dil Ekle "? mkt =<Locale>" parola sonuna yerelleştirme için İspanyolca aşağıdaki örnek URL sıfırlama [ https://passwordreset.microsoftonline.com/?mkt=es-us ](https://passwordreset.microsoftonline.com/?mkt=es-us).
+Parola sıfırlama portalı ve sorular farklı bir yerelleştirilmiş görüntülemek için dil Ekle "? mkt =<Locale>" yerelleştirme İspanyolca için aşağıdaki örnek ile URL sonuna parola sıfırlama [ https://passwordreset.microsoftonline.com/?mkt=es-us ](https://passwordreset.microsoftonline.com/?mkt=es-us).
 
 ### <a name="security-question-requirements"></a>Güvenlik sorusu gereksinimleri
 
-* En az yanıt karakter sınırı üç karakterdir.
-* En büyük yanıt karakter sınırı 40 karakter olabilir.
-* Kullanıcılar, aynı soruyu birden fazla kez yanıt veremiyor.
-* Kullanıcılar, birden fazla soru aynı yanıt sağlayamaz.
-* Herhangi bir karakter kümesi sorular ve yanıtlar Unicode karakterleri dahil olmak üzere, tanımlamak için kullanılabilir.
-* Tanımlanmış soru sayısını kaydetmek için gereken soru sayısına eşit veya daha büyük olmalıdır.
+* En az yanıt karakter sınırı, üç karakter olabilir.
+* En yüksek yanıt karakter sınırı, 40 karakter değil.
+* Kullanıcılar, aynı soruyu bir kereden fazla yanıt veremiyor.
+* Kullanıcılar, aynı birden fazla soru yanıtı sağlayamaz.
+* Herhangi bir karakter kümesi, soruları ve yanıtları Unicode karakterleri dahil olmak üzere, tanımlamak için kullanılabilir.
+* Tanımlanan sorusu kaydetmek için gereken soru sayısına eşit veya daha büyük olmalıdır.
 
 ## <a name="registration"></a>Kayıt
 
-### <a name="require-users-to-register-when-they-sign-in"></a>Kullanıcılar oturum açtığında kullanıcıların
+### <a name="require-users-to-register-when-they-sign-in"></a>Oturum açarken kaydolmalarını iste
 
-Bu seçeneği etkinleştirmek için bunlar uygulamaları için Azure AD kullanarak oturum açarsanız parola sıfırlama kayıt işlemini tamamlamak parola sıfırlama için etkin bir kullanıcı vardır. Buna aşağıdakiler dahildir:
+Bu seçeneği etkinleştirmek için uygulamaları Azure AD kullanarak oturum, parola sıfırlama kaydı tamamlamak parola sıfırlama için etkinleştirilmiş kullanıcıyı sahiptir. Buna aşağıdakiler dahildir:
 
 * Office 365
 * Azure portalına
 * Erişim Paneli
-* Federasyon uygulamalarına
+* Federasyon uygulamaları
 * Azure AD kullanarak özel uygulamalar
 
-Kayıt gerektiren devre dışı bırakıldığında, kullanıcılar yine de el ile kişi bilgileri kaydedebilirsiniz. Ya da ziyaret edebilirsiniz [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup) veya seçin **parola sıfırlama için kaydetme** altında bağlantı **profil** erişim paneli sekmesindedir.
+Kayıt gerektiren devre dışı bırakıldığında, kullanıcılara kişi bilgileri yine de el ile kaydedebilirsiniz. Bunlar ya da ziyaret edebilirsiniz [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup) veya **parola sıfırlama için kaydolma** altında bağlantı **profili** erişim panelinde sekmesi.
 
 > [!NOTE]
-> Kullanıcılar kapatmak parola sıfırlama kayıt Portalı'nı seçerek **iptal** veya penceresini kapatarak. Ancak, kayıt işlemi tamamlanana kadar oturum her zaman kaydı istenir.
+> Kullanıcılar, parola sıfırlama kayıt portalı seçerek kapatabilir **iptal** veya penceresini kapatarak. Ancak kullanıcılar, kayıt işlemini tamamlayana kadar oturum her zaman kaydı istenir.
 >
-> Bunlar zaten açtıysanız bu kullanıcının bağlantıyı kesin değildir.
+> Bu, zaten oturum açmış kullanıcının bağlantı sonu gelmez.
 
-### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Kullanıcıların kendi kimlik bilgilerini yeniden onayladıktan istenir önce geçmesi gereken gün sayısını ayarlayın
+### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Kullanıcıların kendi kimlik doğrulama bilgilerini yeniden onaylamasını istemeden önce geçen gün sayısını ayarla
 
-Bu seçenek ayarlama ve kimlik doğrulama bilgilerini reconfirming arasındaki süreyi belirler ve yalnızca etkinleştirirseniz, kullanılabilir **oturum açarken kullanıcıların** seçeneği.
+Bu seçenek ayarlama ve kimlik doğrulama bilgilerini reconfirming arasındaki süreyi belirler ve yalnızca etkinleştirirseniz, kullanılabilir **oturum açarken kaydolmalarını iste** seçeneği.
 
-Geçerli değerler 0 ile 730 gün "0" Kullanıcıların hiçbir zaman kendi kimlik bilgilerini yeniden onayladıktan istenir anlamına gelir.
+Geçerli değerler 0 ile 730 gün "0" Kullanıcıların kendi kimlik doğrulama bilgilerini yeniden onaylamasını hiçbir zaman istenir anlamına gelir.
 
 ## <a name="notifications"></a>Bildirimler
 
 ### <a name="notify-users-on-password-resets"></a>Parola sıfırlamayı kullanıcılara bildir
 
-Bu seçenek belirlenirse, **Evet**, sonra da, parola sıfırlama kullanıcı parolalarını değiştirildi bildiren bir e-posta alır. E-posta SSPR portalı Azure AD içinde dosyada olan birincil ve alternatif e-postaları gönderilir. Hiç kimse bu sıfırlanmasını bildirilir olay.
+Bu seçenek ayarlanırsa **Evet**, sonra da, parola sıfırlama kullanıcının parolasını değiştirdiğinden emin bildiren bir e-posta alır. E-posta, Azure AD'de dosya olan birincil veya alternatif e-postaları için SSPR portalı gönderilir. Başka hiç kimse bu sıfırlama bildirim olayı.
 
-### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Tüm Yöneticiler diğer yöneticilerin kullanıcıların parolalarını sıfırladığınızda bildir
+### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Diğer yöneticiler parolalarını sıfırladığında tüm yöneticilere bildir
 
-Bu seçenek belirlenirse, **Evet**, ardından *tüm yöneticiler* Azure AD içinde dosya kendi birincil e-posta adresine bir e-posta alırsınız. E-posta bunları SSPR kullanarak başka bir yönetici parolasını değişmiş olduğunu bildirir.
+Bu seçenek ayarlanırsa **Evet**, ardından *tüm yöneticilerin* Azure AD'de dosya çubuğunda, birincil e-posta adresine bir e-posta alırsınız. E-posta bunları SSPR'ı kullanarak başka bir yönetici parolasını değiştirdiğinden bildirir.
 
-Örnek: Bir ortamda dört Yöneticiler vardır. Yönetici bir SSPR kullanarak kendi parolasını sıfırlar. Yöneticiler B, C ve D bunları parola sıfırlama uyarıları bir e-posta alır.
+Örnek: Bir ortamda dört yöneticileri vardır. Bir yönetici, SSPR'ı kullanarak kullanıcının parolasını sıfırlar. B ve C D yöneticilerin, parola sıfırlama uyaran bir e-posta alırsınız.
 
 ## <a name="on-premises-integration"></a>Şirket içi tümleştirme
 
-Yükleme, yapılandırma ve Azure AD Connect etkinleştirirseniz, şirket içi tümleştirmeler için aşağıdaki ek seçeneğiniz vardır. Bu seçenekler griyse sonra geri yazma düzgün yapılandırılmamış. Daha fazla bilgi için bkz: [parola geri yazma yapılandırma](howto-sspr-writeback.md#configure-password-writeback).
+Yükleme, yapılandırma ve Azure AD Connect etkinleştirmek, şirket içi tümleştirmeler aşağıdaki ek seçenekleri sunulmaktadır. Bu seçenekler gri, daha sonra geri yazma düzgün şekilde yapılandırılmadı. Daha fazla bilgi için [parola geri yazmayı yapılandırmayla](howto-sspr-writeback.md#configure-password-writeback).
 
 ![Geri yazma][Writeback]
 
-Bu sayfa bir hızlı geçerli yapılandırmasını temel alarak aşağıdaki iletilerinden biri görüntülenir şirket içi geri yazma istemcinin durumu sağlar:
+Bu sayfa bir hızlı geçerli yapılandırmanız temelinde şu iletilerden biri görüntülenir şirket içi geri yazma istemcinin durumu sağlar:
 
 * Şirket içi geri yazma istemciniz çalışır durumda.
-* Azure AD çevrimiçi olduğundan ve şirket içi geri yazma istemciniz bağlanır. Ancak, Azure AD Connect yüklü olan sürümü güncel değil gibi görünüyor. Göz önünde bulundurun [yükseltme Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) önemli hata düzeltmeleri ve en son bağlantı özellikleri olmasını sağlamak için.
-* Ne yazık ki, Azure AD Connect yüklü olan sürümü güncel olduğundan biz şirket içi geri yazma istemci durumunuzu denetlenemiyor. [Azure AD Connect yükseltme](./../connect/active-directory-aadconnect-upgrade-previous-version.md) bağlantı durumunuzu denetlemek için.
-* Ne yazık ki, şirket içi geri yazma istemciniz şu an bağlanamıyoruz gibi görünüyor. [Azure AD Connect sorun giderme](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) bağlantı geri yüklemek için.
-* Ne yazık ki, parola geri yazma düzgün yapılandırılmamış olduğundan, şirket içi geri yazma istemciye bağlanamıyoruz. [Parola geri yazma yapılandırma](howto-sspr-writeback.md#configure-password-writeback) bağlantı geri yüklemek için.
-* Ne yazık ki, şirket içi geri yazma istemciniz şu an bağlanamıyoruz gibi görünüyor. Bu bizim uçtaki geçici sorunlardan dolayı olabilir. Sorun devam ederse [sorun giderme Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) bağlantı geri yüklemek için.
+* Azure AD, çevrimiçi ve şirket içi geri yazma istemcinize bağlı. Ancak, Azure AD Connect'in yüklü sürümü güncel değil gibi görünüyor. Göz önünde bulundurun [Azure AD Connect'i yükseltmeniz](./../connect/active-directory-aadconnect-upgrade-previous-version.md) son bağlantı özelliklerinden ve önemli hata düzeltmelerinden olmasını sağlamak için.
+* Ne yazık ki, size Azure AD Connect'in yüklü sürümü güncel olmadığından, şirket içi geri yazma istemcinizin durumunu denetleyemiyor. [Azure AD Connect'e yükseltmenin](./../connect/active-directory-aadconnect-upgrade-previous-version.md) bağlantı durumunuzu denetleyebilmek için.
+* Ne yazık ki şirket içi geri yazma istemcinize şu anda bağlanamıyoruz gibi görünüyor. [Azure AD Connect sorun giderme](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) bağlantı geri yüklemek için.
+* Ne yazık ki, parola geri yazma düzgün şekilde yapılandırılmadı çünkü şirket içi geri yazma istemcinize bağlanamıyoruz. [Parola geri yazmayı yapılandırın](howto-sspr-writeback.md#configure-password-writeback) bağlantı geri yüklemek için.
+* Ne yazık ki şirket içi geri yazma istemcinize şu anda bağlanamıyoruz gibi görünüyor. Bu, bizim son geçici sorunlar nedeniyle olabilir. Sorun devam ederse [sorun giderme Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) bağlantı geri yüklemek için.
 
-### <a name="write-back-passwords-to-your-on-premises-directory"></a>Şirket içi dizininize parolaları geri Yaz
+### <a name="write-back-passwords-to-your-on-premises-directory"></a>Parolalar şirket içi dizininize geri yazmak
 
-Bu denetim, parola geri yazma bu dizin için etkin olup olmadığını belirler. Geri yazma açıksa, şirket içi geri yazma hizmetinin durumunu gösterir. Bu parola geri yazma'nın Azure AD Connect'i yeniden yapılandırmak zorunda kalmadan geçici olarak devre dışı bırakmak istiyorsanız kullanışlıdır.
+Bu denetim, bu dizin için parola geri yazma özelliğinin etkin olup olmadığını belirler. Geri yazma açıksa, şirket içi geri yazma hizmetinin durumunu gösterir. Bu, parola geri yazma'nın Azure AD Connect'i yeniden yapılandırmak zorunda kalmadan geçici olarak devre dışı bırakmak istiyorsanız kullanışlıdır.
 
-* Anahtar ayarlanmışsa **Evet**sonra geri yazma etkinleştirilmiş ve birleştirilmiş, geçiş kimlik doğrulaması veya parola karma eşitlenen kullanıcılar parolalarını sıfırlayamazsınız.
-* Anahtar ayarlanmışsa **Hayır**sonra geri yazma özelliğini devre dışı bırakılır ve birleştirilmiş, geçiş kimlik doğrulaması veya parola karma eşitlenen kullanıcılar parolalarını sıfırlama mümkün değildir.
+* Anahtar ayarlanırsa **Evet**geri yazma sonra etkinleştirilir ve birleştirilmiş, geçişli kimlik doğrulaması veya parola karması eşitlenmiş kullanıcılar parolalarını sıfırlayabilir.
+* Anahtar ayarlanırsa **Hayır**sonra geri yazmayı devre dışı bırakıldı ve birleştirilmiş, geçişli kimlik doğrulaması veya parola karması eşitlenmiş kullanıcılar parolalarını sıfırlayabilir değildir.
 
-### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Kullanıcıların parolalarını sıfırlamadan hesaplarının kilidini izin ver
+### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Kullanıcıların parolalarını sıfırlamadan hesapların kilidini açmak için
 
-Bu denetim, parola sıfırlama portalı ziyaret eden kullanıcılar parolalarını sıfırlamasına gerek kalmadan şirket içi Active Directory hesaplarının kilidini açmak için seçeneği verilmelidir olup olmadığını belirler. Parola sıfırlama gerçekleştirdiğinde, varsayılan olarak, Azure AD hesaplarının kilidini açar. Bu iki işlem ayırmak için bu ayarı kullanın. 
+Bu denetim seçeneği kullanıcının parolasını sıfırlamak zorunda kalmadan, şirket içi Active Directory hesaplarını kilidini açmak için parola sıfırlama portalını ziyaret eden kullanıcılara verilmesi gerektiğini olup olmadığını belirler. Parola sıfırlama gerçekleştirdiğinde, varsayılan olarak, Azure AD hesaplarının kilidini açar. Bu iki işlemi birbirinden ayırmak için bu ayarı kullanın. 
 
-* Varsa kümesine **Evet**, sonra da kullanıcıların parolalarını sıfırlama ve hesabın kilidini açma veya parola sıfırlama gerek kalmadan hesaplarının kilidini seçeneği sunulur.
-* Varsa kümesine **Hayır**, ardından kullanıcıları olan yalnızca bir birleşik parola sıfırlama gerçekleştirebilir ve hesap kilidini açma işlemi.
+* Varsa kümesine **Evet**, sonra da kullanıcıların parolalarını sıfırlama ve hesabın kilidini açma veya parolayı sıfırlamak zorunda kalmadan hesaplarının kilidini seçeneği sunulur.
+* Varsa kümesine **Hayır**, ardından kullanıcıları olan yalnızca bir birleşik bir parola sıfırlama gerçekleştirebilir ve hesap kilidini açma işlemi.
 
-## <a name="how-does-password-reset-work-for-b2b-users"></a>Parola iş B2B kullanıcıları için nasıl sıfırlama?
-Parola sıfırlama ve değişiklik tüm işletmeden işletmeye (B2B) yapılandırmaları üzerinde tam olarak desteklenir. B2B kullanıcı parola sıfırlama aşağıdaki üç durumda desteklenir:
+## <a name="how-does-password-reset-work-for-b2b-users"></a>Parola, iş B2B kullanıcıları için nasıl sıfırlansın mı?
+Parola sıfırlama ve değiştirme, tüm işletmeler arası (B2B) yapılandırmaları üzerinde tam olarak desteklenir. B2B kullanıcı parola sıfırlama, aşağıdaki üç durumda desteklenir:
 
-   * **Mevcut bir Azure AD Kiracı İş ortağı kuruluşla kullanıcılardan**: var olan bir Azure AD kiracısı ile ortaklık kuruluş varsa, biz *bu Kiracı'ne olursa olsun parola sıfırlama ilkelerinin etkinleştirildiğinden dikkate*. İş amacıyla parola sıfırlama için iş ortağı kuruluşun yalnızca Azure AD SSPR'yi etkin olduğundan emin olun gerekir. Office 365 müşterileri için ek ücret yoktur ve içindeki adımları izleyerek etkinleştirilebilir bizim [parola yönetimini kullanmaya başlama](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) Kılavuzu.
-   * **Üzerinden oturum açan kullanıcıların** Self Servis kaydolma: kuruluş, kullanılan ile ortaklık varsa [Self Servis kaydolma](../active-directory-self-service-signup.md) Kiracı alınacağı özellik, biz kayıtlı e-posta ile parola sıfırlama olanak sağlayacak.
-   * **B2B kullanıcılar**: yeni kullanılarak oluşturulan tüm yeni B2B kullanıcılar [Azure AD B2B yetenekleri](../active-directory-b2b-what-is-azure-ad-b2b.md) parolalarını davet işlemi sırasında kayıtlı e-posta ile mümkün olacaktır.
+   * **Mevcut bir Azure AD kiracısı ile bir iş ortağı kuruluştan kullanıcılar**: mevcut bir Azure AD kiracısı ile ortaklık kuruluşta varsa biz *her parola sıfırlama ilkeleri, Kiracı üzerinde etkin dikkate*. Çalışmak için parola sıfırlama için iş ortağı kuruluşun yalnızca Azure AD SSPR etkin olduğundan emin olmak gerekir. Office 365 müşterileri için ek ücret yoktur ve adımları izleyerek etkinleştirilebilir bizim [parola yönetimini kullanmaya başlama](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) Kılavuzu.
+   * **Aracılığıyla kaydolun kullanıcılar** Self Servis kayıt: kuruluş, kullanılan ile işbirliği yapıyoruz, [Self Servis kayıt](../users-groups-roles/directory-self-service-signup.md) biz kayıtlı e-posta ile parola sıfırlama bildirmek, bir kiracıda oturum alınacağı özellik.
+   * **B2B kullanıcıları**: yeni kullanılarak oluşturulan tüm yeni B2B kullanıcıları [Azure AD B2B özellikleri](../active-directory-b2b-what-is-azure-ad-b2b.md) davet etme işlemi sırasında kayıtlı e-posta ile kullanıcıların parolalarını sıfırlamalarına mümkün olacaktır.
 
-Bu senaryoyu test etmek için şu adrese gidin http://passwordreset.microsoftonline.com bu iş ortağı kullanıcıların biri ile. Bunlar bir alternatif e-posta veya tanımlanan kimlik doğrulama e-posta varsa, parola beklendiği gibi çalışır sıfırlayın.
+Bu senaryoyu test etmek için şuraya gidin: http://passwordreset.microsoftonline.com biri olan bu iş ortağı kullanıcılar. Bir alternatif e-posta veya tanımlanan kimlik doğrulama e-posta oluşturulduysa parola beklendiği gibi çalıştığını sıfırlayın.
 
 > [!NOTE]
-> Konuk erişimi olanlar Hotmail.com, Outlook.com ya da diğer kişisel e-posta adresleri gibi Azure AD kiracınız için verilmiş Microsoft hesapları Azure AD SSPR'yi kullanmanız mümkün değildir. İçinde bulunan bilgileri kullanarak parolalarını sıfırlamak ihtiyaç duydukları [olamaz oturum açtığınızda Microsoft hesabınızı](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) makalesi.
+> Bu Hotmail.com, Outlook.com veya diğer kişisel e-posta adresleri gibi Azure AD kiracınıza Konuk erişim verilmiş Microsoft hesapları Azure AD SSPR kullanabilmek için değildir. Bulunan bilgileri kullanarak parolalarını sıfırlamak ihtiyaç duydukları [olamaz oturum açtığınızda Microsoft hesabınızı](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) makalesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -261,4 +261,4 @@ Aşağıdaki makaleler, Azure AD aracılığıyla parola sıfırlama konusunda e
 * [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "Kullanılabilir Azure AD kimlik doğrulama yöntemleri ve gereken miktar"
-[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-writeback-running.png "Tümleştirme parola geri yazma yapılandırmasını ve sorun giderme bilgileri şirket içi"
+[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-writeback-running.png "Şirket içi tümleştirme parola geri yazmayı yapılandırma ve sorun giderme bilgileri"

@@ -1,6 +1,6 @@
 ---
-title: Azure bulut kabuğuna genel bakış | Microsoft Docs
-description: Azure bulut Kabuk genel bakış.
+title: Azure Cloud shell'e genel bakış | Microsoft Docs
+description: Azure Cloud shell'e genel bakış.
 services: ''
 documentationcenter: ''
 author: jluk
@@ -14,94 +14,94 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 72338a4c168b4d3b7c918fbb16758724f73fefc2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4ee02bc2a1956994da0ba49a24eefabf9608565c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29844114"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856469"
 ---
-# <a name="overview-of-azure-cloud-shell"></a>Azure bulut Kabuk genel bakış
-Azure bulut Kabuk Azure kaynaklarını yönetmek için etkileşimli, tarayıcı erişilebilir bir kabuk ' dir.
-Çalışma şeklinize uygun kabuk deneyimi seçme esnekliğini size sağlar.
+# <a name="overview-of-azure-cloud-shell"></a>Azure Cloud shell'e genel bakış
+Azure Cloud Shell'i Azure kaynaklarını yönetmek için etkileşimli ve tarayıcı erişilebilir bir kabuktur.
+Bu, çalışma biçiminize en uygun kabuk deneyimini seçme esnekliği sağlar.
 Linux kullanıcıları Bash deneyimini, Windows kullanıcıları ise PowerShell’i tercih edebilir.
 
-Bu düğme kullanarak shell.azure.com deneyin.
+Bu düğmeyi kullanarak shell.azure.com deneyin.
 
-[![](https://shell.azure.com/images/launchcloudshell.png "Azure bulut Kabuğu'nu başlatın")](https://shell.azure.com)
+[![](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell'i Başlat")](https://shell.azure.com)
 
-Bulut Kabuk simgesini kullanarak Azure portalından deneyin.
+Cloud Shell simgesini kullanarak Azure portalından deneyin.
 
 ![Portal başlatma](media/overview/portal-launch-icon.png)
 
 ## <a name="features"></a>Özellikler
-### <a name="browser-based-shell-experience"></a>Kabuk tarayıcı tabanlı deneyimi
-Bulut Kabuk aklınızda Azure yönetim görevleri ile yerleşik bir tarayıcı tabanlı komut satırı deneyimi erişmesini sağlar.
-Bir yalnızca bulut yolla yerel makineden untethered çalışması için Dengeleme bulut Kabuk sağlayabilir.
+### <a name="browser-based-shell-experience"></a>Tarayıcı tabanlı kabuk deneyimi
+Cloud Shell, Azure yönetim görevlerini aklınızda ile oluşturulmuş bir tarayıcı tabanlı komut satırı deneyimi erişim sağlar.
+Bir şekilde yalnızca bulut yerel makineden untethered çalışmanız yararlanarak Cloud Shell sağlayabilir.
 
-### <a name="choice-of-preferred-shell-experience"></a>Tercih edilen Kabuğu deneyiminin seçimi
-Windows kullanıcıları bulut Kabuğu'nda (Önizleme) PowerShell kullanabilirsiniz, ancak Linux kullanıcıları Kabuk aşağı açılır listeden bulut Kabuk Bash'te kullanabilirsiniz.
+### <a name="choice-of-preferred-shell-experience"></a>Tercih edilen bir kabuk deneyimi seçimi
+Windows kullanıcıları (Önizleme) Cloud Shell'de PowerShell kullanabilirsiniz, ancak Linux kullanıcıları Kabuk açılan menüden Cloud Shell'deki Bash hizmetinde kullanabilirsiniz.
 
-![Bulut Kabuğu'nda bash](media/overview/overview-bash-pic.png)
+![Cloud Shell'de bash](media/overview/overview-bash-pic.png)
 
-![PowerShell bulut Kabuğu (Önizleme)](media/overview/overview-ps-pic.png)
+![(Önizleme) Cloud shell'de PowerShell](media/overview/overview-ps-pic.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>Kimliği doğrulanmış ve yapılandırılmış Azure iş istasyonu
-Yaygın komut satırı araçları ve dil desteği gelecektir bulut Kabuk Microsoft tarafından yönetilir. Bulut Kabuk de güvenli bir şekilde otomatik olarak anlık kaynaklarınıza erişmek için Azure CLI 2.0 veya Azure PowerShell cmdlet'leri aracılığıyla için kimliğini doğrular.
+Cloud Shell'i Microsoft tarafından yönetiliyorsa, popüler komut satırı araçları ve dil desteği ile gelecektir. Cloud Shell'i de güvenli bir şekilde otomatik olarak Azure CLI 2.0 veya Azure PowerShell cmdlet'leri aracılığıyla kaynaklarınıza hızlı erişim için kimlik doğrulaması yapar.
 
-Tam araç listesini görüntülemek [Bash deneyimi](features.md#tools) ve [PowerShell (Önizleme) deneyimi.](features-powershell.md#tools)
+Tamamını görüntülemek [Araçlar listesi.](features.md#tools)
 
 ### <a name="multiple-access-points"></a>Birden çok erişim noktası
-Bulut Kabuk alanından kullanılabilen esnek bir araçtır:
+Cloud Shell'i gelen kullanılabilen esnek bir araçtır:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Azure CLI 2.0 "Deneyin" belgeleri](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
+* [Azure CLI 2.0 belgelerine "Deneyin"](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 * [Azure mobil uygulaması](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [VS Code Azure hesabı uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-microsoft-azure-files-storage"></a>Microsoft Azure dosyaları depolama birimini bağlayın
-Bulut Kabuk makine geçicidir ve bir Azure dosyaları paylaşımı olarak bağlanmasını gerektiren `clouddrive` dosyalarınızı kalıcı hale getirmek için.
+### <a name="connect-your-microsoft-azure-files-storage"></a>Microsoft Azure dosya depolama bağlama
+Cloud Shell makine geçicidir ve takılamadı için bir Azure dosya paylaşımı gerektiren `clouddrive` dosyalarınızı kalıcı hale getirmek için.
 
-Bir kaynak oluşturmak için bulut Kabuk ister ilk başlatılırken grubu, depolama hesabı ve Azure dosyaları sizin adınıza paylaşır. Bu tek seferlik bir adımdır ve tüm oturumları için otomatik olarak eklenir. Tek bir dosya paylaşımı eşlenebilir ve Bash ve PowerShell bulut Kabuğu (Önizleme) tarafından kullanılır.
+Bir kaynak oluşturmak için cloud Shell ister ilk başlatma sırasında sizin adınıza grubu, depolama hesabı ve Azure dosyaları paylaşın. Bu tek seferlik bir adımdır ve tüm oturumları için otomatik olarak eklenir. Tek bir dosya paylaşımı eşlenebilir ve hem Bash hem PowerShell Cloud shell'de (Önizleme) tarafından kullanılır.
 
-#### <a name="create-new-storage"></a>Yeni depolama alanı oluşturma
+#### <a name="create-new-storage"></a>Yeni depolama oluşturma
 ![](media/overview/basic-storage.png)
 
-Bir yerel olarak yedekli depolama (LRS) hesabı ve Azure dosya paylaşımı sizin adınıza oluşturulabilir. Her ikisi de kullanmayı seçerseniz Azure dosya paylaşımı Bash ve PowerShell ortamları için kullanılır. Normal depolama ücretleri.
+Yerel olarak yedekli depolama (LRS) hesabı ve Azure dosyaları paylaşım sizin adınıza oluşturulabilir. Her ikisini birden kullanmayı tercih ederseniz, Azure dosyaları paylaşım hem Bash hem PowerShell ortamlar için kullanılır. Normal depolama ücretleri.
 
-Üç kaynakları sizin adınıza oluşturulacak:
+Sizin adınıza üç kaynak oluşturulacak:
 1. Kaynak grubu adı: `cloud-shell-storage-<region>`
 2. Adlı depolama hesabı: `cs<uniqueGuid>`
 3. Adlı dosya paylaşımı: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
-> Bulut Kabuk bash'te da bir varsayılan 5 GB disk yansımasını oluşturur `$Home`. SSH anahtarları gibi $Home dizininizdeki tüm dosyalara, bağlı Azure dosya paylaşımında depolanan kullanıcı disk görüntünüzdeki kalıcıdır. Dosyaları, $Home dizin ve bağlı Azure dosya paylaşımı kaydedilirken en iyi yöntemleri uygulayın.
+> Cloud Shell'deki bash hizmetinde aynı zamanda bir varsayılan 5 GB'lik bir disk yansımasını oluşturur `$Home`. Bağlı Azure dosya paylaşımınızı depolanan kullanıcı disk görüntünüze $Home dizininizin SSH anahtarları gibi tüm dosyalarda kalıcıdır. Dosyaları, $Home dizininizin ve bağlı Azure dosya paylaşımı kaydedilirken en iyi yöntemleri uygulayın.
 
-#### <a name="use-existing-resources"></a>Var olan kaynakları kullanın
+#### <a name="use-existing-resources"></a>Var olan kaynakları kullan
 ![](media/overview/advanced-storage.png)
 
-Gelişmiş bir seçenek bulut Kabuğu mevcut kaynaklarla ilişkilendirmek için sağlanır.
-"Göster Gelişmiş ayarları" depolama Kurulum isteminde tıklatın ek seçenekleri göstermek için.
+Cloud Shell mevcut kaynaklara ilişkilendirmek için Gelişmiş bir seçenek sağlanır.
+Depolama Kurulum isteminde "Show Gelişmiş ayarları"'a tıklayın. ek seçenekleri görmek için.
 
 > [!Note]
-> Bırakmalar önceden atanmış bulut Kabuk bölge ve GRS/LRS/ZRS depolama hesapları için filtrelenir.
+> Açılır menüleri kullanarak, önceden atanmış Cloud Shell bölgesi ve GRS/LRS/ZRS depolama hesapları için filtrelenir.
 
-[Öğrenin bulut Kabuk depolama hakkında Azure dosya paylaşımları güncelleştirme ve karşıya yükleme ve indirme dosyaları.](persisting-shell-storage.md)
+[Bilgi Cloud Shell depolama hakkında dosyaları Azure dosya paylaşımlarını güncelleştiriliyor ve karşıya yükleme ve indirme.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Kavramlar
-* Bir oturum başına üzerinde kullanıcı başına sağlanan geçici bir ana bilgisayarda bulut Kabuk çalıştırır
-* Bulut Kabuk etkileşimli etkinliği olmadan 20 dakika sonra zaman aşımına uğradı
-* Bulut Kabuk takılması Azure dosya paylaşımının gerektirir
-* Bulut Kabuk aynı Azure dosya paylaşımı için Bash ve PowerShell kullanır
-* Bulut Kabuk atanmış bir makine her kullanıcı hesabı
-* Dosya paylaşımınızı tutulan 5GB görüntüsünü kullanarak $Home bash devam ettirir
-* İzinler normal Linux kullanıcı Bash olarak ayarlanır
+* Cloud Shell'i bir başına-oturum, kullanıcı başına sağlanan geçici bir konak üzerinde çalışır
+* Cloud Shell'de etkileşimli bir etkinliği olmayan 20 dakika sonra zaman aşımına uğruyor
+* Cloud Shell'i Azure dosya paylaşımını bağlanmasını gerektirir.
+* Hem Bash hem PowerShell için cloud Shell aynı Azure dosya paylaşımını kullanır
+* Cloud Shell'de bir makine kullanıcı hesabı başına atanır
+* Cloud Shell'i kullanarak dosya paylaşımınızdaki tutulan bir 5 GB'lık görüntü $Home devam ettirir.
+* Bash normal Linux kullanıcı olarak izinleri ayarlayın
 
-Özellikleri hakkında daha fazla bilgi [bulut Kabuğu'nda Bash](features.md) ve [PowerShell bulut Kabuğu (Önizleme)](features-powershell.md).
+Özellikleri hakkında daha fazla bilgi edinin [Cloud Shell'de Bash](features.md) ve [(Önizleme) Cloud shell'de PowerShell](features-powershell.md).
 
 ## <a name="pricing"></a>Fiyatlandırma
-Bulut Kabuk barındıran makine, bir önkoşul bağlı Azure dosya paylaşımı ile ücretsizdir. Normal depolama ücretleri.
+Cloud Shell barındıran makine önkoşul bağlı bir Azure dosya paylaşımının ile ücretsiz olarak kullanılabilir. Normal depolama ücretleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Bulut Kabuk hızlı başlangıcı bash](quickstart.md) <br>
-[PowerShell içinde bulut Kabuğu (Önizleme) hızlı başlangıç](quickstart-powershell.md)
+[Bash cloud Shell hızlı başlangıçta](quickstart.md) <br>
+[PowerShell Cloud Shell'i (Önizleme) hızlı](quickstart-powershell.md)

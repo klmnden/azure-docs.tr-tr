@@ -1,6 +1,6 @@
 ---
-title: İç içe geçmiş sanallaştırma Azure Virtual Machines'de etkinleştirme | Microsoft Docs
-description: İç içe geçmiş sanallaştırma Azure Virtual Machines'de etkinleştirme
+title: Azure sanal Makineler'de iç içe sanallaştırmayı etkinleştirmek nasıl | Microsoft Docs
+description: Azure sanal Makineler'de iç içe sanallaştırmayı etkinleştirme
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -11,30 +11,30 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 0648a7555cb94543dadf5d73e0187927a90f5b5a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3b606fc78327035e135e0f037288a817171385dd
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526527"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857953"
 ---
-# <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>İç içe geçmiş sanallaştırma Azure VM'deki etkinleştirme
+# <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM'de iç içe sanallaştırmayı etkinleştirme
 
-İç içe geçmiş sanallaştırma Azure sanal makineleri Dv3 ve Ev3 serinin desteklenir. Bu özelliği geliştirme, test, eğitim ve tanıtım ortamları gibi senaryolarını büyük esneklik sağlar. 
+İç içe sanallaştırma, Azure sanal makinelerini Dv3 ve Ev3 serisi desteklenir. Bu özellik, geliştirme, test, eğitim ve tanıtım ortamları gibi senaryoları destekleyen büyük esneklik sağlar. 
 
-Azure VM'de iç içe geçmiş sanallaştırma etkinleştirme ve yapılandırma, Konuk sanal makine için Internet bağlantısı üzerinden bu makalede adımlar.
+Tüm Dv3 ve Ev3 serisi sanal makineler, ek yapılandırma gerekmeden iç içe sanallaştırma desteği.  Bu makalede adımları Hyper-V Azure sanal makinesinde etkinleştiriliyor ve Konuk sanal makinenin Internet bağlantısı yapılandırma.
 
-## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Bir Dv3 veya Ev3 serisi Azure VM oluşturma
+## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Bir Dv3 ya da Ev3 serisi Azure VM oluşturma
 
-Yeni bir Windows Server 2016 Azure VM oluşturun ve Dv3 veya Ev3 serisinden bir boyutu seçin. Bir konuk sanal makine taleplerini desteklemek için büyük bir boyutu seçin emin olun. Bu örnekte, bir D3_v3 boyutu Azure VM kullanıyoruz. 
+Yeni bir Windows Server 2016 Azure VM oluşturma ve Dv3 ya da Ev3 serisinden bir boyut seçin. Konuk sanal makine taleplerini destekleyecek kadar büyük bir boyut seçtiğinizden emin olun. Bu örnekte, bir Azure VM D3_v3 boyutu kullanıyoruz. 
 
-Bölgesel Dv3 veya Ev3 serisi sanal makinelerin kullanılabilirliğini görüntüleyebilirsiniz [burada](https://azure.microsoft.com/regions/services/).
+Bölgesel kullanılabilirlik Dv3 ya da Ev3 serisi sanal makinelerin görüntüleyebilirsiniz [burada](https://azure.microsoft.com/regions/services/).
 
 >[!NOTE]
 >
->Yeni bir sanal makine oluşturma hakkında ayrıntılı yönergeler için bkz: [oluşturma ve Azure PowerShell modülü ile Windows sanal makineleri yönetme](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
+>Yeni bir sanal makine oluşturma konusunda ayrıntılı yönergeler için bkz: [oluşturma ve Azure PowerShell modülü ile Windows sanal makineleri yönetme](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
     
-## <a name="connect-to-your-azure-vm"></a>Azure VM'nize bağlanmak
+## <a name="connect-to-your-azure-vm"></a>Azure sanal Makinenize bağlanın
 
 Sanal makine ile bir uzak masaüstü bağlantısı oluşturun.
 
@@ -46,17 +46,17 @@ Sanal makine ile bir uzak masaüstü bağlantısı oluşturun.
 
 4. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Bağlantıya devam etmek için **Evet** veya **Devam**’a tıklayın.
 
-## <a name="enable-the-hyper-v-feature-on-the-azure-vm"></a>Azure VM'de Hyper-V özelliğini etkinleştir
-Bu ayarları yapılandırabilirsiniz el ile veya yapılandırma otomatikleştirmek için bir PowerShell komut dosyası sağladık.
+## <a name="enable-the-hyper-v-feature-on-the-azure-vm"></a>Azure VM üzerindeki Hyper-V özelliğini etkinleştir
+Bu ayarları yapılandırabileceğiniz el ile veya yapılandırma otomatikleştirmek için bir PowerShell komut dosyası sağladık.
 
-### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Seçenek 1: iç içe geçmiş sanallaştırma yapılandırmak için bir PowerShell betiğini kullanın.
-İç içe geçmiş bir Windows Server 2016 konak sanallaştırmayı etkinleştirmek için bir PowerShell Betiği kullanılabilir [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Komut dosyası, önkoşulları denetler ve iç içe geçmiş sanallaştırma Azure VM'de yapılandırır. Azure VM yeniden yapılandırmayı tamamlamak gereklidir. Bu komut diğer ortamlarda çalışabilir ancak garanti edilmez. İç içe geçmiş sanallaştırma Azure üzerinde çalışan bir canlı video Tanıtımı ile Azure blog gönderisine göz atın! https://aka.ms/AzureNVblog.
+### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>1. seçenek: iç içe sanallaştırma yapılandırmak için bir PowerShell betiğini kullanın.
+Bir Windows Server 2016 konağında iç içe sanallaştırmayı etkinleştirmek için bir PowerShell Betiği edinilebilir [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Betik, önkoşulları denetler ve sonra Azure sanal makinesinde iç içe sanallaştırma yapılandırır. Yapılandırmayı tamamlamak Azure VM yeniden başlatma gereklidir. Bu betik, diğer ortamlarda çalışabilir ancak garanti edilmez. Azure üzerinde çalışan iç içe sanallaştırma üzerinde canlı video gösterimi ile Azure blog gönderisine göz atın! https://aka.ms/AzureNVblog.
 
-### <a name="option-2-configure-nested-virtualization-manually"></a>Seçenek 2: iç içe geçmiş sanallaştırma el ile yapılandırma
+### <a name="option-2-configure-nested-virtualization-manually"></a>2. seçenek: iç içe sanallaştırma el ile yapılandırma
 
-1. Azure VM'de, bir yönetici olarak PowerShell'i açın. 
+1. Azure sanal makinesinde PowerShell'i yönetici olarak açın. 
 
-2. Yönetim Araçları ve Hyper-V özelliğini etkinleştirin.
+2. Hyper-V özelliğini ve Yönetim Araçları'nı etkinleştirin.
 
     ```powershell
     Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart
@@ -64,16 +64,16 @@ Bu ayarları yapılandırabilirsiniz el ile veya yapılandırma otomatikleştirm
 
     >[!WARNING] 
     >
-    >Bu komut Azure VM'yi yeniden başlatır. RDP bağlantınızı yeniden başlatma işlemi sırasında kaybedersiniz.
+    >Bu komut, Azure VM'yi yeniden başlatır. RDP bağlantınız yeniden başlatma işlemi sırasında kaybedersiniz.
     
-3. Azure VM yeniden başlatıldıktan sonra RDP kullanarak VM için yeniden bağlanın.
+3. Azure VM yeniden başlatıldıktan sonra RDP kullanarak VM'nize bağlanın.
 
-## <a name="set-up-internet-connectivity-for-the-guest-virtual-machine"></a>Konuk sanal makine için internet bağlantısı ayarlama
-Konuk sanal makine için yeni bir sanal ağ bağdaştırıcısı oluşturun ve Internet bağlantısını etkinleştirmek için NAT ağ geçidi yapılandırın.
+## <a name="set-up-internet-connectivity-for-the-guest-virtual-machine"></a>Konuk sanal makinesi için internet bağlantısı ayarlama
+Konuk sanal makine için yeni bir sanal ağ bağdaştırıcısı oluşturmak ve Internet bağlantısını etkinleştirmek için NAT ağ geçidi yapılandırın.
 
-### <a name="create-a-nat-virtual-network-switch"></a>Bir NAT sanal ağ anahtarı oluşturma
+### <a name="create-a-nat-virtual-network-switch"></a>NAT sanal ağ anahtarı oluşturma
 
-1. Azure VM'de, bir yönetici olarak PowerShell'i açın.
+1. Azure sanal makinesinde PowerShell'i yönetici olarak açın.
    
 2. Bir iç anahtar oluşturun.
 
@@ -81,7 +81,7 @@ Konuk sanal makine için yeni bir sanal ağ bağdaştırıcısı oluşturun ve I
     New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
     ```
 
-3. Anahtar özelliklerini görüntülemek ve yeni bağdaştırıcısı İfındex dikkat edin.
+3. Anahtar özelliklerini görüntülemek ve yeni bağdaştırıcı ifIndex dikkat edin.
 
     ```powershell
     Get-NetAdapter
@@ -91,24 +91,24 @@ Konuk sanal makine için yeni bir sanal ağ bağdaştırıcısı oluşturun ve I
 
     >[!NOTE] 
     >
-    >Yeni oluşturduğunuz sanal anahtarı için "İfındex" not edin.
+    >Yeni oluşturduğunuz sanal anahtar "ifIndex" not alın.
     
-4. Bir IP adresi için NAT ağ geçidi oluşturun.
+4. Ağ geçidi için NAT IP adresi oluşturun.
     
 Ağ geçidini yapılandırmak için ağınız hakkında bazı bilgiler gereklidir:    
-  * IPADDRESS - NAT ağ geçidi IP sanal ağ alt ağı için varsayılan ağ geçidi adresi olarak kullanılacak IPv4 veya IPv6 adresini belirtir. Genel form a.b.c.1 (örneğin, "192.168.0.1") olur. Son Konum, genellikle (önek uzunluğuna göre).1 olmak zorunda değildir ancak. Genellikle bir RFC 1918 özel ağ adres alanı kullanmanız gerekir. 
-  * PrefixLength - alt ağ önek uzunluğu (alt ağ maskesi) yerel alt ağ boyutunu tanımlar. Alt ağ önek uzunluğu 0 ile 32 arasında bir tamsayı değeri olacaktır. 0 tüm internet eşleyen, 32 yalnızca bir eşlenen IP olanak tanır. 24 ortak değerleri arasında kaç IP'leri bağlı olarak 12 NAT bağlı olması gerekir Ortak PrefixLength 24 olur - bu, 255.255.255.0 alt ağ maskesidir.
-  * InterfaceIndex - **İfındex** önceki adımda oluşturduğunuz sanal anahtarın arabirim dizinidir. 
+  * IP adresi - sanal ağ alt ağ için varsayılan ağ geçidi adresi olarak kullanılacak IPv4 veya IPv6 adresi NAT ağ geçidi IP belirtir. Genel form a.b.c.1 (örneğin, "192.168.0.1") ' dir. Son konum da genellikle (ön eki uzunluğa göre).1 olması gerekmez ancak. Genellikle, RFC 1918 özel ağ adres alanı kullanmanız gerekir. 
+  * PrefixLength - alt ağ önek uzunluğunun yerel alt ağ boyutu (alt ağ maskesi) tanımlar. Alt ağ önek uzunluğu 0 ile 32 arasında bir tamsayı değeri olur. 0 tüm internet eşlemek, 32 yalnızca eşlenen bir IP çalıştırmasına olanak tanır. 24 ortak değerleri arasında 12 kaç IP'ler bağlı olarak gereken NAT için eklenecek Ortak PrefixLength 24--bir alt ağ maskesi 255.255.255.0 budur.
+  * InterfaceIndex - **İfındex** arabirim önceki adımda oluşturduğunuz sanal anahtarın dizinidir. 
 
     ```powershell
     New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 13
     ```
 
-### <a name="create-the-nat-network"></a>NAT ağ oluşturma
+### <a name="create-the-nat-network"></a>NAT ağını oluşturma
 
 Ağ geçidini yapılandırmak için ağ ve NAT ağ geçidi hakkında bilgi sağlamanız gerekir:
-  * Ad - NAT ağın adı budur. 
-  * InternalIPInterfaceAddressPrefix - NAT alt ağ öneki hem üstten NAT ağ geçidi IP öneki, hem de NAT alt ağ önek uzunluğu üstten açıklar. Genel form a.b.c.0/NAT alt ağ önek uzunluğu olacaktır. 
+  * Ad - Bu, NAT ağını adı. 
+  * InternalIPInterfaceAddressPrefix - hem yukarıdaki NAT ağ geçidi IP öneki, hem de yukarıdaki NAT alt ağ önek uzunluğunun NAT alt ağ ön eki açıklar. Genel form, alt ağ önek uzunluğu a.b.c.0/NAT olacaktır. 
 
 PowerShell'de, yeni bir NAT ağ oluşturun.
 ```powershell
@@ -116,9 +116,9 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 ```
 
 
-## <a name="create-the-guest-virtual-machine"></a>Konuk sanal makine oluşturma
+## <a name="create-the-guest-virtual-machine"></a>Konuk sanal makinesi oluşturma
 
-1. Hyper-V Yöneticisi'ni açın ve yeni bir sanal makine oluşturun. Sanal makineyi oluşturduğunuz yeni iç ağda kullanmak için yapılandırın.
+1. Hyper-V Yöneticisi'ni açın ve yeni bir sanal makine oluşturun. Oluşturduğunuz yeni iç ağa kullanılacak sanal makineyi yapılandırın.
     
     ![NetworkConfig](./media/virtual-machines-nested-virtualization/configure-networking.png)
     
@@ -126,55 +126,55 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
     
     >[!NOTE] 
     >
-    >VM yüklemek bir işletim sistemi yükleme medyası gerekir. Bu durumda Windows 10 Enterprise kullanıyoruz.
+    >VM'ye yüklemek bir işletim sistemi için yükleme medyası gerekir. Bu örnekte Windows 10 Enterprise kullanıyoruz.
 
-## <a name="assign-an-ip-address-to-the-guest-virtual-machine"></a>Konuk sanal makineye bir IP adresi atayın
+## <a name="assign-an-ip-address-to-the-guest-virtual-machine"></a>Konuk sanal makineye bir IP adresi atama
 
-Konuk sanal makineye el ile statik bir IP adresi Konuk sanal makinede ayarlama veya Azure VM IP adresini dinamik olarak atamak için DHCP yapılandırma, bir IP adresi atayabilirsiniz.
+Konuk sanal makineye el ile Konuk sanal makinede statik bir IP adresi ayarlama veya IP adresi dinamik olarak atamak için Azure sanal makinesinde DHCP yapılandırma, bir IP adresi atayabilirsiniz.
 
-###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>Seçenek 1: dinamik olarak Konuk sanal makineye bir IP adresi atamak için DHCP yapılandırma
+###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>1. seçenek: dinamik olarak Konuk sanal makineye bir IP adresi atamak için DHCP yapılandırma
 DHCP ana bilgisayar sanal makine dinamik adres ataması için yapılandırmak için aşağıdaki adımları izleyin.
 
-#### <a name="install-dchp-server-on-the-azure-vm"></a>DHCP sunucusu Azure VM olanağına yükle
+#### <a name="install-dchp-server-on-the-azure-vm"></a>Azure sanal makinesine DHCP sunucusu yükleme
 
-1. Sunucu Yöneticisi'ni açın. Panoda tıklatın **rol ve Özellik Ekle**. Ekle roller ve Özellikler Sihirbazı görünür.
+1. Sunucu Yöneticisi'ni açın. Panosunda **rol ve Özellik Ekle**. Rol ve Özellik Ekleme Sihirbazı görünür.
   
-2. Sihirbazı'nda tıklatın **sonraki** sunucu rollerini sayfasında kadar.
+2. Sihirbazı ' **sonraki** sunucu rolleri sayfası kadar.
   
-3. Seçmek için tıklatın **DHCP sunucusu** onay kutusunu tıklatın **Özellik Ekle**ve ardından **sonraki** Sihirbazı tamamlanana kadar.
+3. Seçmek için tıklatın **DHCP sunucusu** onay kutusuna tıklayın **Özellik Ekle**ve ardından **sonraki** sihirbaz tamamlanana kadar.
   
 4. **Yükle**'ye tıklayın.
 
-#### <a name="configure-a-new-dhcp-scope"></a>Yeni bir DHCP kapsamı yapılandırılması
+#### <a name="configure-a-new-dhcp-scope"></a>Yeni bir DHCP kapsamı yapılandırın
 
 1. DHCP Yöneticisi'ni açın.
   
-2. Gezinti bölmesinde, sunucu adını genişletin, sağ tıklatın **IPv4**, tıklatıp **yeni kapsam**. Yeni Kapsam Sihirbazı'nı görüntülendikten sonra **sonraki**.
+2. Gezinti bölmesinde, sunucu adını genişletin, sağ **IPv4**, tıklatıp **yeni kapsam**. Yeni Kapsam Sihirbazı'nı görüntülendikten sonra **sonraki**.
   
 3. Kapsam için bir ad ve açıklama girin ve tıklayın **sonraki**.
   
-4. Bir IP aralığı DCHP sunucunuz için (örneğin, 192.168.0.100 için 192.168.0.200) tanımlayın.
+4. Bir IP aralığı DHCP sunucunuz için (örneğin, 192.168.0.100 için 192.168.0.200) tanımlayın.
   
-5. Tıklatın **sonraki** varsayılan ağ geçidi sayfa kadar. Varsayılan ağ geçidi olarak daha önce (örneğin, 192.168.0.1) oluşturduğunuz IP adresi girin.
+5. Tıklayın **sonraki** varsayılan ağ geçidi sayfasının kadar. Daha önce (örneğin, 192.168.0.1) oluşturduğunuz IP adresini varsayılan ağ geçidi olarak girin.
   
-6. Tıklatın **sonraki** sihirbaz tamamlanana kadar tüm varsayılan değerler, bırakarak ardından **son**.
+6. Tıklayın **sonraki** sihirbaz tamamlanana kadar tüm varsayılan değerleri bırakın ardından **son**.
     
-### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Seçenek 2: Statik bir IP adresi Konuk sanal makineye el ile ayarlayın.
-Dinamik olarak Konuk sanal makineye bir IP adresi atamak için DHCP yapılandırmadıysanız, statik IP adresi ayarlamak için aşağıdaki adımları izleyin.
+### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>2. seçenek: Konuk sanal makinede statik bir IP adresi el ile ayarlayın.
+Dinamik olarak Konuk sanal makineye bir IP adresi atamak için DHCP yapılandırmadıysanız, statik bir IP adresi ayarlamak için aşağıdaki adımları izleyin.
 
-1. Azure VM'de, bir yönetici olarak PowerShell'i açın.
+1. Azure sanal makinesinde PowerShell'i yönetici olarak açın.
 
-2. Konuk sanal makineye sağ tıklayın ve Bağlan'ı tıklatın.
+2. Konuk sanal makineye sağ tıklayın ve Bağlan'a tıklayın.
 
-3. Konuk sanal makinede oturum açın.
+3. Konuk sanal makinesinde oturum açın.
 
 4. Konuk sanal makinede ağ ve Paylaşım Merkezi'ni açın.
 
-5. Ağ bağdaştırıcısı önceki bölümde oluşturduğunuz NAT ağ aralıkta bir adres için yapılandırın.
+5. Ağ bağdaştırıcısı için önceki bölümde oluşturduğunuz NAT ağ aralıkta bir adres yapılandırın.
 
 Bu örnekte 192.168.0.0/24 aralıkta bir adres kullanır.
 
 ## <a name="test-connectivity-in-guest-virtual-machine"></a>Konuk sanal makinesinde bağlantı testi
 
-Konuk sanal makinede tarayıcınızı açın ve bir web sayfasına gidin.
+Konuk sanal makinede, tarayıcınızı açın ve bir web sayfasına gidin.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)

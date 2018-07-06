@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9ec396e8a1ad36e85e1291995345ca1de24668d0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: d814bed6f126cb3b81d85c4e797a22d2ac22ddfb
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128069"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856214"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge için genel sorunlar ve çözümler
 
@@ -23,24 +23,24 @@ Ortamınızda Azure IoT Edge’i kullanma konusunda sorun yaşarsanız, sorun gi
 
 Bir sorunla karşılaştığınızda, cihaza gelen ve cihazdan giden iletileri ve kapsayıcı günlüklerini gözden geçirerek IoT Edge cihazınızın durumu hakkında daha fazla bilgi edinin. Bilgi toplamak için bu bölümdeki komutları ve araçları kullanın. 
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>IOT kenar Güvenlik Yöneticisi'ni ve günlüklerinin durumunu kontrol edin:
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>IOT Edge Güvenlik Yöneticisi'ni ve onun günlüklerini durumunu kontrol edin:
 
 Linux üzerinde:
-- IOT kenar Güvenlik Yöneticisi'nin durumunu görüntülemek için:
+- IOT Edge Güvenlik Yöneticisi'nin durumunu görüntülemek için:
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-- IOT kenar Güvenlik Yöneticisi'nin günlükleri görüntülemek için:
+- IOT Edge Güvenlik Yöneticisi'nin günlükleri görüntülemek için:
 
     ```bash
     sudo journalctl -u iotedge -f
     ```
 
-- Ayrıntılı günlükleri IOT kenar Güvenlik Yöneticisi'nin görüntülemek için:
+- Ayrıntılı günlükleri, IOT Edge Güvenlik Yöneticisi'ni daha fazla bilgi görüntülemek için:
 
-   - İotedge arka plan programı ayarlarını düzenleyin:
+   - İotedge arka plan programı ayarları düzenleyin:
 
       ```bash
       sudo systemctl edit iotedge.service
@@ -53,7 +53,7 @@ Linux üzerinde:
       Environment=IOTEDGE_LOG=edgelet=debug
       ```
     
-   - IOT kenar güvenlik arka plan programı yeniden başlatın:
+   - IOT Edge güvenlik Daemon'unu yeniden başlatın:
     
       ```bash
       sudo systemctl cat iotedge.service
@@ -62,13 +62,13 @@ Linux üzerinde:
       ```
 
 Windows'da:
-- IOT kenar Güvenlik Yöneticisi'nin durumunu görüntülemek için:
+- IOT Edge Güvenlik Yöneticisi'nin durumunu görüntülemek için:
 
    ```powershell
    Get-Service iotedge
    ```
 
-- IOT kenar Güvenlik Yöneticisi'nin günlükleri görüntülemek için:
+- IOT Edge Güvenlik Yöneticisi'nin günlükleri görüntülemek için:
 
    ```powershell
    # Displays logs from today, newest at the bottom.
@@ -80,10 +80,10 @@ Windows'da:
    sort-object @{Expression="TimeCreated";Descending=$false}
    ```
 
-### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>IOT kenar Güvenlik Yöneticisi çalışmıyor, yaml yapılandırma dosyanızı doğrulayın.
+### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>IOT Edge Güvenlik Yöneticisi çalışmıyor, yaml yapılandırma dosyanızı doğrulayın.
 
 > [!WARNING]
-> YAML dosyaları sekmeleri identation içeremez. 2 alanları kullanın.
+> YAML dosyaları sekmeler identation içeremez. Bunun yerine 2 alanları kullanın.
 
 Linux üzerinde:
 
@@ -97,17 +97,17 @@ Windows'da:
    notepad C:\ProgramData\iotedge\config.yaml
    ```
 
-### <a name="check-container-logs-for-issues"></a>Sorunları için kapsayıcı günlükleri denetleyin
+### <a name="check-container-logs-for-issues"></a>Kapsayıcı günlüklerini sorunlar için denetleyin
 
-IOT kenar güvenlik arka plan programı çalışıyor sonra sorunlarını algılayacak şekilde kapsayıcıların günlüklerine bakın. Dağıttığınız kapsayıcılarla başlayın, sonra IoT Edge çalışma zamanını oluşturan şu kapsayıcılara bakın: Edge Aracısı ve Edge Hub’ı. Edge Aracısı günlükleri genellikle her bir kapsayıcının yaşam döngüsü hakkında bilgi sağlar. Edge Hub’ı günlükleri, mesajlaşma ve yönlendirme hakkında bilgi sağlar. 
+IOT Edge güvenlik arka plan programı çalışır duruma geçtikten sonra sorunları algılamak için kapsayıcılarının günlüklerine bakın. Dağıttığınız kapsayıcılarla başlayın, sonra IoT Edge çalışma zamanını oluşturan şu kapsayıcılara bakın: Edge Aracısı ve Edge Hub’ı. Edge Aracısı günlükleri genellikle her bir kapsayıcının yaşam döngüsü hakkında bilgi sağlar. Edge Hub’ı günlükleri, mesajlaşma ve yönlendirme hakkında bilgi sağlar. 
 
    ```cmd
    iotedge logs <container name>
    ```
 
-### <a name="view-the-messages-going-through-the-edge-hub"></a>Edge hub'ı aracılığıyla giden iletiler görüntüleyin
+### <a name="view-the-messages-going-through-the-edge-hub"></a>Edge hub'ı aracılığıyla giden iletileri görüntüleyin
 
-Edge hub'ı aracılığıyla giden iletiler görüntüleyin ve edgeAgent ve edgeHub çalışma zamanı kapsayıcılardan cihaz özellikleri güncelleştirmeleri ayrıntılı günlükleri ile ilişkin Öngörüler toplayabilir. Bu kapsayıcılara ayrıntılı günlükleri etkinleştirmek için ayarlanmış `RuntimeLogLevel` ortam değişkeni: 
+Edge hub'ı aracılığıyla giden iletileri görüntüleyin ve edgeAgent ve edgeHub çalışma zamanı kapsayıcılarındaki ayrıntılı günlüklerle cihaz özellikleri güncelleştirmelerine ilişkin Öngörüler toplayın. Bu kapsayıcıların ayrıntılı günlüklerini etkinleştirmek için ayarlanmış `RuntimeLogLevel` ortam değişkeni: 
 
 Linux üzerinde:
     
@@ -123,22 +123,22 @@ Windows'da:
 
 IoT Hub ile IoT Edge cihazları arasında gönderilmekte olan iletileri de denetleyebilirsiniz. Visual Studio Code için [Azure IoT Araç Seti](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) uzantısını kullanarak bu iletileri görüntüleyin. Daha fazla yardım için bkz. [Azure IoT ile geliştirme sürecinde kullanışlı araç](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
-### <a name="restart-containers"></a>Kapsayıcıları yeniden başlatın
+### <a name="restart-containers"></a>Kapsayıcılar'ı yeniden başlatın
 Bilgi iletilerini ve günlükleri araştırdıktan sonra kapsayıcıları yeniden başlatmayı deneyebilirsiniz:
 
 ```
 iotedge restart <container name>
 ```
 
-IOT kenar çalışma zamanı kapsayıcıları yeniden başlatın:
+IOT Edge çalışma zamanı kapsayıcılarındaki yeniden başlatın:
 
 ```
 iotedge restart edgeAgent && iotedge restart edgeHub
 ```
 
-### <a name="restart-the-iot-edge-security-manager"></a>IOT kenar Güvenlik Yöneticisi'ni yeniden başlatın
+### <a name="restart-the-iot-edge-security-manager"></a>IOT Edge Güvenlik Yöneticisi'ni yeniden başlatın
 
-Sorun hala kalıcı ise IOT kenar Güvenlik Yöneticisi'ni yeniden başlatmayı deneyebilirsiniz.
+Sorunu hala kalıcı yapma, IOT Edge Güvenlik Yöneticisi'ni yeniden başlatmayı deneyebilirsiniz.
 
 Linux üzerinde:
 
@@ -199,30 +199,30 @@ Bir kapsayıcı çalıştırılamıyor ve Edge Aracısı günlükleri, 403 hatas
 Edge Aracısı'nın bir modülün görüntüsüne erişme izinleri yoktur. 
 
 ### <a name="resolution"></a>Çözüm
-Kayıt defteri kimlik bilgilerinizi Dağıtım bildiriminizi doğru belirtildiğinden emin olun
+Kayıt defteri kimlik bilgileriniz, dağıtım bildiriminde doğru belirtildiğinden emin olun
 
-## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>IOT kenar güvenlik arka plan programı geçersiz bir ana bilgisayar adı ile başarısız oluyor
+## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>IOT Edge güvenlik arka plan programı, geçersiz bir ana bilgisayar adı ile başarısız oluyor
 
-Komut `sudo journalctl -u iotedge` başarısız oluyor ve aşağıdaki iletiyi yazdırır: 
+Komut `sudo journalctl -u iotedge` başarısız oluyor ve aşağıdaki iletiyi yazdırmaz: 
 
 ```output
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
 ```
 
 ### <a name="root-cause"></a>Kök neden
-IOT kenar çalışma zamanı yalnızca ana bilgisayar adları 64 karakterden kısa destekleyebilir. Bu genellikle fiziksel makineler için bir sorun değildir, ancak bir sanal makinede çalışma zamanı ayarlarken ortaya çıkabilir. Otomatik olarak oluşturulan ana bilgisayar adları, Azure'da barındırılan Windows sanal makineleri için özel olarak, uzun olma eğilimindedir. 
+IOT Edge çalışma zamanı yalnızca ana bilgisayar adları 64 karakterden kısa destekleyebilir. Bu genellikle fiziksel makineler için bir sorun değildir, ancak çalışma zamanında bir sanal makineyi ayarladığınızda ortaya çıkabilir. Ana bilgisayar adları, Azure'da barındırılan Windows sanal makineleri için otomatik olarak oluşturulan, özellikle uzun olma eğilimindedir. 
 
 ### <a name="resolution"></a>Çözüm
-Bu hatayı gördüğünüzde, sanal makinenin DNS adı yapılandırarak ve Kurulum komut ana bilgisayar adı olarak DNS adı ayarlama çözebilirsiniz.
+Bu hatayı gördüğünüzde, sanal makinenin DNS adını yapılandırarak ve ardından Kurulum komutu, konak adı olarak DNS adını ayarlar çözebilirsiniz.
 
-1. Azure portalında sanal makinenize Genel Bakış sayfasına gidin. 
-2. Seçin **yapılandırma** DNS adı altında. Sanal makineniz zaten yapılandırılmış bir DNS adı varsa, yeni bir yapılandırma gerekmez. 
+1. Azure portalında, sanal makinenizin Genel Bakış sayfasına gidin. 
+2. Seçin **yapılandırma** DNS adı altında. Sanal makineniz yapılandırılan DNS adı zaten varsa, yeni bir yapılandırma gerekmez. 
 
    ![DNS adı yapılandırma](./media/troubleshoot/configure-dns.png)
 
-3. İçin bir değer girin **DNS ad etiketi** seçip **kaydetmek**.
+3. İçin bir değer girin **DNS ad etiketi** seçip **Kaydet**.
 4. Biçiminde olmalıdır yeni bir DNS adı kopyalamanız  **\<DNSnamelabel\>.\< vmlocation\>. cloudapp.azure.com**.
-5. Sanal makinenin içinde IOT kenar çalışma zamanı, DNS adı ile ayarlamak için aşağıdaki komutu kullanın:
+5. Sanal makinenin içinde IOT Edge çalışma zamanı, DNS adı ile ayarlamak için aşağıdaki komutu kullanın:
 
    - Linux üzerinde:
 
@@ -236,5 +236,37 @@ Bu hatayı gördüğünüzde, sanal makinenin DNS adı yapılandırarak ve Kurul
       notepad C:\ProgramData\iotedge\config.yaml
       ```
 
+## <a name="stability-issues-on-resource-constrained-devices"></a>Kaynaktaki kararlılık sorunlarını cihazları kısıtlı 
+Özellikle, ağ geçidi olarak kullanıldığında Raspberry Pi gibi kısıtlı cihazlarda kararlılık sorunlarla karşılaşabilirsiniz. Edge hub'ı modülü bellek durumlar dışında belirtileri içerir, aşağı akış cihazları bağlanılamıyor veya cihazın telemetri gönderme birkaç saat sonra durdurur.
+
+### <a name="root-cause"></a>Kök neden
+Edge çalışma zamanı bir parçası olan edge hub'ı varsayılan olarak performans için iyileştirilmiştir ve büyük boyutta bellek ayırmaya çalışır. Bu kısıtlı edge cihazlar için ideal değildir ve kararlılık sorunlara neden olabilir.
+
+### <a name="resolution"></a>Çözüm
+İçin edge hub'ı bir ortam değişkenini ayarlamak **OptimizeForPerformance** için **false**. Bunu yapmanın iki yolu vardır:
+
+Kullanıcı arabiriminde: Portalı'nda *cihaz ayrıntıları*->*modülleri ayarlama*->*Gelişmiş Edge çalışma zamanı ayarları Yapılandır*, ortam oluşturma adlı değişken *OptimizeForPerformance* ayarlanmış *false* için *Edge hub'ı*.
+
+![optimizeforperformance][img-optimize-for-perf]
+
+Dağıtım bildirimi içinde:
+
+```json
+  "edgeHub": {
+    "type": "docker",
+    "settings": {
+      "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+      "createOptions": <snipped>
+    },
+    "env": {
+      "OptimizeForPerformance": {
+          "value": "false"
+      }
+    },
+```
+
 ## <a name="next-steps"></a>Sonraki adımlar
 IoT Edge platformunda bir hata bulduğunuzu düşünüyor musunuz? Lütfen gelişmeye devam edebilmemiz için [bir sorun gönderin](https://github.com/Azure/iotedge/issues). 
+
+<!-- Images -->
+[img-optimize-for-perf]: ./media/troubleshoot/OptimizeForPerformanceFalse.png

@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cc5b4955d6bd239f99a9be0ab158ac8003f67ddf
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 8892f9a2699d18fbaf9161ffb01906a071ab2243
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110530"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856765"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında bulunan oturum açma etkinlik raporundaki hata kodları
 
@@ -75,6 +75,7 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |50008|SAML onayı eksik veya belirteçte yanlış yapılandırılmış. Federasyon sağlayıcınıza başvurun.|
 |50010|Belirteç hedef kitlesi yapılandırılmadığından uygulama için doğrulaması başarısız oldu. Uygulama sahibine başvurun|
 |50011|Yanıt adresi eksik, yanlış yapılandırılmış veya uygulama için yapılandırılan yanıt adresleriyle eşleşmiyor. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application) sayfasında listelenen çözümü deneyin. Hala sorun görüyorsanız uygulama sahibine veya uygulama yöneticisine başvurun|
+|50012| Bu kimlik doğrulamasının başarısız gösteren bir genel hata iletisidir. Bu, eksik veya geçersiz kimlik bilgileri veya istek talepleri gibi nedenlerle ortaya çıkabilir. Doğru kimlik bilgilerini ve talepleri ile istek gönderilir emin olun. |
 |50013|Onay çeşitli nedenlerden dolayı geçersiz: Belirteci veren, geçerli zaman aralığı içinde api sürümü ile eşleşmiyor -süresi dolmuş -yanlış biçimlendirilmiş - Onaydaki yenileme belirteci birincil yenileme belirteci değil.|
 |50017|Sertifika doğrulaması aşağıdaki nedenlerden dolayı başarısız oldu:<ul><li>Güvenilir sertifika listesinde verme sertifikası bulunamıyor</li><li>Beklenen CrlSegment bulunamıyor</li><li>Güvenilir sertifika listesinde verme sertifikası bulunamıyor</li><li>Delta CRL dağıtım noktası, karşılık gelen bir CRL dağıtım noktası olmadan yapılandırılmış</li><li>Zaman aşımı sorunu nedeniyle geçerli CRL segmentleri alınamıyor</li><li>CRL indirilemiyor</li></ul>Kiracı yöneticisine başvurun.|
 |50020|Kullanıcı yetkisiz - Sürüm sorunu nedeniyle belirteçler verilemiyor - Veren adı belirtilmemiş - Veren adı ile ilgili sorunlar var (null -max uzunluk). Uygulama sahibine başvurun|
@@ -104,7 +105,7 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |50120|JWT üst bilgisi ile ilgili sorun var. Kiracı yöneticisine başvurun.|
 |50124|Talep Dönüşümü, geçersiz giriş parametresi içeriyor. İlke güncelleştirmek için kiracı yöneticisine başvurun.|
 |50125|Oturum açma bir parola sıfırlama veya parola kayıt girişi nedeniyle yarıda kesildi|
-|50126|Geçersiz kullanıcı adı veya parola veya geçersiz kullanıcı adı veya parola şirket içi.|
+|50126|Geçersiz kullanıcı adı veya parola ya da geçersiz şirket içi kullanıcı adı veya parola.|
 |50127|Kullanıcının bu içeriğe erişmek için bir aracı uygulaması yüklemesi gerekiyor.|
 |50128|Geçersiz etki alanı adı - İstekte kiracıyı tanımlayan bilgiler bulunamadı veya sağlanan kimlik bilgilerinin kapsamında değil|
 |50129|Cihaz Çalışma alanına katılmamış - Cihazın kaydedilmesi için çalışma alanına katılması gerekiyor.|
@@ -173,7 +174,9 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |81001|Kullanıcının Kerberos anahtarı fazla büyük. Bu durum, kullanıcı çok fazla grupta ise ve sonuç olarak Kerberos bileti çok fazla grup üyeliği içeriyorsa gerçekleşebilir. Kullanıcının grup üyeliklerini azaltın ve yeniden deneyin.|
 |81005|Kimlik Doğrulaması Paketi Desteklenmiyor|
 |81007|Kiracı Sorunsuz SSO için etkinleştirilmedi|
-
+|90014| Bir protokol iletisi için gerekli bir alan eksik, uygulama sahibine başvurun. Uygulama sahibi bu durumda, oturum açma isteği için gerekli tüm parametreleri olduğundan emin olun. 
+|90072| Hesabın kiracıda bir dış kullanıcı olarak önce eklenmesi gerekir. Oturum kapatma ve yeniden farklı bir Azure AD ile oturum açma hesabı.|
+|90094| Grant yönetici izinleri gerektirir. Bu uygulama için rıza sağlamanın Kiracı yöneticinize başvurun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

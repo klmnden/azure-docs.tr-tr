@@ -1,6 +1,6 @@
 ---
-title: Azure bulut Kabuk kısıtlamaları | Microsoft Docs
-description: Azure bulut Kabuk sınırlamaları genel bakış
+title: Azure Cloud Shell sınırlamaları | Microsoft Docs
+description: Azure Cloud Shell sınırlamaları genel bakış
 services: azure
 documentationcenter: ''
 author: jluk
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 15e3dd11c371e0b23d5b506da9d824e1409fd359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 135496e17ae884db580922aa31f6824b2e7fd934
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31590530"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855993"
 ---
-# <a name="limitations-of-azure-cloud-shell"></a>Azure bulut Kabuk sınırlamaları
+# <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell sınırlamaları
 
-Azure bulut Kabuk aşağıdaki bilinen sınırlamalara sahiptir:
+Azure Cloud Shell, aşağıdaki bilinen sınırlamalara sahiptir:
 
 ## <a name="general-limitations"></a>Genel sınırlamalar
 
-### <a name="system-state-and-persistence"></a>Sistem durumu ve sürdürme
+### <a name="system-state-and-persistence"></a>Sistem durumu ve kalıcılığı
 
-Bulut Kabuk oturumunuz sağlar makine geçicidir ve oturumunuz için 20 dakika etkin değil sonra geri dönüştürüldüğünde. Bulut Kabuk Azure dosya paylaşımının bağlanmasını gerektirir. Sonuç olarak, aboneliğiniz bulut Kabuk erişmek için depolama kaynakları ayarlamak kurabilmesi gerekir. Diğer konular şunlardır:
+Cloud Shell oturumunuzu sağlayan makine geçicidir ve oturumunuz için 20 dakika etkin olduktan sonra dönüştürülmeden. Cloud Shell'i Azure dosya paylaşımını bağlanmasını gerektirir. Sonuç olarak, aboneliğiniz Cloud shell'e erişim için depolama kaynaklarını ayarlama mümkün olması gerekir. Dikkat edilecek diğer noktalar şunlardır:
 
-* Takılı depolamayla yalnızca değişiklikleri içinde `clouddrive` dizin kaldı. Bash içinde `$Home` dizin de kalıcı.
-* Azure dosya paylaşımları takılı yalnızca içinden, [bölgeye atanan](persisting-shell-storage.md#mount-a-new-clouddrive).
-  * Bash'te, çalıştırmak `env` olarak ayarlayın, bölgenizdeki bulmak için `ACC_LOCATION`.
+* Takılı depolamayla değişikliklerini içinde `$Home` dizin kalıcı olur.
+* Azure dosya paylaşımlarını yalnızca içinde bağlanabilir, [bölgeye atanan](persisting-shell-storage.md#mount-a-new-clouddrive).
+  * Bash hizmetinde çalıştırma `env` yap bölgenizi bulmak için `ACC_LOCATION`.
 
 ### <a name="browser-support"></a>Tarayıcı desteği
 
-Bulut Kabuğu'nu Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox ve Apple Safari en son sürümlerini destekler. Safari özel modunda desteklenmiyor.
+Cloud Shell'i Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox ve Safari Apple'nın en son sürümlerini destekler. Safari özel modda desteklenmez.
 
 ### <a name="copy-and-paste"></a>Kopyala ve Yapıştır
 
@@ -45,42 +45,54 @@ Bulut Kabuğu'nu Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Moz
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Belirli bir kullanıcı için yalnızca bir kabuk etkin olabilir
 
-Kullanıcılar yalnızca başlatma Kabuk bir tür aynı anda ya da **Bash** veya **PowerShell**. Bununla birlikte, Bash veya PowerShell aynı anda çalışan birden çok örneği olabilir. Hangi oturumlarına sonlandırır Bash veya PowerShell nedenleri arasında bulut Kabuğu'nu yeniden başlatmak için değiştirme.
+Kullanıcılar yalnızca başlatabilir bir kabuk türünü bir kerede ya da **Bash** veya **PowerShell**. Ancak, Bash veya PowerShell aynı anda çalışan birden çok örneği olabilir. Hangi mevcut oturumlarını sonlandırır Bash veya PowerShell nedenleri arasında yeniden başlatmak için Cloud Shell değiştirme.
 
 ### <a name="usage-limits"></a>Kullanım sınırları
 
-Bulut Kabuk etkileşimli kullanım durumları için tasarlanmıştır. Sonuç olarak, tüm uzun süre çalışan etkileşimli olmayan oturumlar uyarmadan sonlandırılır.
+Cloud Shell'de etkileşimli kullanım durumları için tasarlanmıştır. Sonuç olarak, herhangi bir uzun süre çalışan etkileşimli olmayan oturum uyarı vermeden sonlandırılır.
 
 ## <a name="bash-limitations"></a>Bash sınırlamaları
 
 ### <a name="user-permissions"></a>Kullanıcı izinleri
 
-İzinler, sudo erişimi olmadan normal kullanıcı olarak ayarlanır. Dışında herhangi bir yüklemesi, `$Home` dizin kalıcı değildir.
+İzinleri, sudo erişimi olmadan normal kullanıcı olarak ayarlanır. Dışında herhangi bir yükleme, `$Home` dizin kalıcı değil.
 
 ### <a name="editing-bashrc"></a>.Bashrc düzenleme
 
-Bunun yapılması .bashrc düzenleme beklenmeyen hatalara bulut Kabuğu'nda neden olabilir. uyarı alın.
+Bunun yapılması, .bashrc düzenleme beklenmeyen hatalar Cloud Shell'de neden olabileceği zaman uyarı alın.
 
 ## <a name="powershell-limitations"></a>PowerShell sınırlamaları
 
-### <a name="slow-startup-time"></a>Yavaş başlangıç zamanı
+### <a name="azuread-module-name"></a>`AzureAD` Modül adı
 
-Azure bulut Kabuğu (Önizleme) PowerShell Önizleme sırasında başlatmak için 60 saniye sürebilir.
+`AzureAD` Modül adı şu anda `AzureAD.Standard.Preview`, modül aynı işlevselliği sağlar.
 
-### <a name="no-home-directory-persistence"></a>No $Home dizin kalıcılığı
+### <a name="sqlserver-module-functionality"></a>`SqlServer` modül işlevi
 
-Yazılan veri `$Home` herhangi bir uygulama tarafından (gibi: git, VIM ve diğerleri) PowerShell oturumlarında devam etmez. Geçici bir çözüm için [Burada gördüğünüz](troubleshooting.md#powershell-troubleshooting).
+`SqlServer` Cloud Shell'de dahil modülü PowerShell Core yalnızca yayın öncesi desteği içeriyor. Özellikle, `Invoke-SqlCmd` henüz kullanıma sunulmamıştır.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Azure sürücüsünden oluşturduğunuzda varsayılan dosya konumu:
 
-PowerShell cmdlet'lerini kullanarak, kullanıcılar dosyaları Azure sürücüsü altında oluşturulamıyor. Kullanıcıların yeni dosyaları VIM veya nano, gibi diğer araçları kullanarak oluşturduğunuzda dosyalar varsayılan olarak C:\Users klasörüne kaydedilir. 
+PowerShell cmdlet'lerini kullanarak, kullanıcılar Azure sürücüsü altındaki dosyaları oluşturulamıyor. Kullanıcıların yeni dosyaları vim veya nano gibi diğer araçları kullanarak oluşturduğunuzda, dosyalar için kaydedilir `$HOME` varsayılan olarak. 
 
 ### <a name="gui-applications-are-not-supported"></a>GUI uygulamaları desteklenmez.
 
-Kullanıcı bir Windows iletişim kutusu gibi oluşturacak bir komut çalıştırırsa `Connect-AzureAD` veya `Connect-AzureRmAccount`, bir görür bir hata iletisi gibi: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Kullanıcı bir Windows iletişim kutusu gibi oluşturacak bir komut çalıştırıyorsa `Connect-AzureAD` veya `Connect-AzureRmAccount`, bir gördüğü hata iletisi gibi: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+
+### <a name="tab-completion-crashes-psreadline"></a>Sekme tamamlama PSReadline kilitleniyor
+
+Emacs için kullanıcının EditMode PSReadline olarak ayarlanırsa, kullanıcı görüntüleme aracılığıyla sekme tamamlama, tüm olanakları dener ve pencere boyutunu görüntüleme olanakları depolayamayacak kadar PSReadline kilitlenir.
+
+### <a name="large-gap-after-displaying-progress-bar"></a>İlerleme çubuğunu görüntüleme sonra geniş boşluk
+
+Kullanıcı bir ilerleme çubuğu, böyle bir sekme görüntüler bir eylem gerçekleştirirse içinde çalışırken Tamamlanıyor `Azure:` sürücü imleç düzgün ayarlanmamıştır ve ilerleme çubuğu daha önce olduğu boşluk görünür mümkündür.
+
+### <a name="random-characters-appear-inline"></a>Satır içi rastgele karakterler görünür
+
+İmleç konumu dizisi kodları, örneğin `5;13R`, kullanıcı girişi görünebilir.  Karakterler el ile kaldırılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bulut Kabuk sorunlarını giderme](troubleshooting.md) <br>
+[Cloud Shell'i sorunlarını giderme](troubleshooting.md) <br>
 [Bash için hızlı başlangıç](quickstart.md) <br>
 [PowerShell için hızlı başlangıç](quickstart-powershell.md)

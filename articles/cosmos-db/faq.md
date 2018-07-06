@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: c1ddb6beec3f7c41fa49f62a3ed9baa17c515fbd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 30ebe4f990dc65e53c34673f0948d3aa2240385c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445526"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859709"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB ile ilgili SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB ile ilgili temel bilgiler
@@ -136,12 +136,16 @@ SQL API'si için örnekleri [.NET](sql-api-dotnet-samples.md), [Java](https://gi
 Evet, SQL API'si, şema tanımları veya ipuçları olmadan rastgele JSON belgelerinin depolamak uygulamalar sağlar. Veriler, Azure Cosmos DB SQL sorgu arabirimi yoluyla sorgu için hemen kullanılabilir.  
 
 ### <a name="does-the-sql-api-support-acid-transactions"></a>SQL API'si, ACID işlemlerini destekler mi?
-Evet, SQL API'si, JavaScript saklı yordamları ve Tetikleyicileri olarak ifade edilen belgeler arası işlemleri destekler. İşlemler her bir koleksiyonun içindeki tek bir bölüm için kapsamlı ve "tümü veya hiçbiri," olarak, ACID semantiği ile yürütülen diğer eş zamanlı yürütme kodları ve kullanıcı isteklerinden. Sunucu tarafı JavaScript uygulama kodunun yürütülmesini özel durumlar oluşursa işlemin tümü geri alınır. İşlemler hakkında daha fazla bilgi için bkz. [programı işlemleri veritabanına](programming.md#database-program-transactions).
+Evet, SQL API'si, JavaScript saklı yordamları ve Tetikleyicileri olarak ifade edilen belgeler arası işlemleri destekler. İşlemler her bir kapsayıcı içindeki tek bir bölüm için kapsamlı ve "tümü veya hiçbiri," olarak, ACID semantiği ile yürütülen diğer eş zamanlı yürütme kodları ve kullanıcı isteklerinden. Sunucu tarafı JavaScript uygulama kodunun yürütülmesini özel durumlar oluşursa işlemin tümü geri alınır. İşlemler hakkında daha fazla bilgi için bkz. [programı işlemleri veritabanına](programming.md#database-program-transactions).
 
-### <a name="what-is-a-collection"></a>Koleksiyon nedir?
-Bir koleksiyon, belge ve bunların ilişkili JavaScript uygulama mantığının bir gruptur. Faturalanabilir bir varlık koleksiyonudur burada [maliyet](performance-levels.md) kullanılan depolama ve aktarım hızı tarafından belirlenir. Koleksiyonlar bir veya daha fazla bölümleri veya sunucuları kapsayabilir ve neredeyse sınırsız miktarda depolama veya işlemeyi işleyebilecek şekilde ölçeklendirilebilir.
+### <a name="what-is-a-container"></a>Bir kapsayıcı nedir?
+Bir grup belgeleri ve bunların ilişkili JavaScript uygulama mantığının bir kapsayıcıdır. Faturalanabilir bir varlık kapsayıcıdır burada [maliyet](performance-levels.md) kullanılan depolama ve aktarım hızı tarafından belirlenir. Kapsayıcılar, bir veya daha fazla bölümleri veya sunucuları kapsayabilir ve neredeyse sınırsız miktarda depolama veya işlemeyi işleyebilecek şekilde ölçeklendirilebilir. 
 
-Ayrıca Azure Cosmos DB için fatura varlık koleksiyonlarıdır. Her koleksiyon sağlanan aktarım hızına göre saatlik olarak faturalandırılır ve kullanılan depolama alanı. Daha fazla bilgi için [Azure Cosmos DB fiyatlandırma](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+* SQL ve MongoDB API hesabı, kapsayıcı bir koleksiyona eşler. 
+* Cassandra ve tablo API'si hesapları için bir kapsayıcı bir tabloya eşler. 
+* Gremlin API hesapları için bir kapsayıcı için bir grafik eşler. 
+
+Ayrıca Azure Cosmos DB için fatura varlıkları kapsayıcılardır. Her kapsayıcı, sağlanan aktarım hızına göre saatlik olarak faturalandırılır ve da kullanılan depolama alanı. Daha fazla bilgi için [Azure Cosmos DB fiyatlandırma](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Veritabanı nasıl oluşturulur?
 Kullanarak veritabanları oluşturabilirsiniz [Azure portalında](https://portal.azure.com)anlatılan şekilde [koleksiyon ekleyin](create-sql-api-dotnet.md#create-collection), bir'ın [Azure Cosmos DB SDK'ları](sql-api-sdk-dotnet.md), veya [REST API'leri](/rest/api/cosmos-db/). 
@@ -170,7 +174,7 @@ Toplu belgeleri Azure Cosmos DB'ye aşağıdaki yollardan biriyle ekleme:
 * Bölümünde anlatıldığı gibi veri geçiş aracı [Azure Cosmos DB için veritabanı geçiş aracı](import-data.md).
 * Saklı yordamlar, açıklandığı [Azure Cosmos DB için sunucu tarafı JavaScript programlama](programming.md).
 
-### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>Kurulum yavaş dizinleme kullanılacak Koleksiyonum sahibim, Sorgularım beklenen sonuçları döndürmeyen görüyorum. 
+### <a name="i-have-setup-my-container-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>Kurulum yavaş dizinleme kullanılacak my kapsayıcı sahibim, Sorgularım beklenen sonuçları döndürmeyen görüyorum. 
 Yavaş dizin, dizin oluşturma bölümünde açıklandığı gibi bu davranışlara neden olabilir. Tüm uygulamalar için tutarlı bir dizin her zaman kullanmalısınız. 
 
 
@@ -185,7 +189,7 @@ Bu JavaScript sınırlamasıdır. JavaScript IEEE 754 belirtildiği gibi çift d
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Burada izinleri nesne hiyerarşisinde izin veriliyor mu?
 
-İzinler ResourceTokens kullanarak oluşturma koleksiyon düzeyinde ve alt öğelerini (örneğin, belgeler, ekleri) izin verilir. Bu veritabanını bir izin oluşturmak çalışan gelir veya hesap düzeyi şu anda verilmez.
+İzinler ResourceTokens kullanarak oluşturma kapsayıcı düzeyinde ve alt öğelerini (örneğin, belgeler, ekleri) izin verilir. Bu veritabanını bir izin oluşturmak çalışan gelir veya hesap düzeyi şu anda verilmez.
 
 
 ## <a name="develop-against-the-api-for-mongodb"></a>MongoDB için API karşı geliştirin

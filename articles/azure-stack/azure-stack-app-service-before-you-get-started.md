@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/05/2018
 ms.author: anwestg
-ms.openlocfilehash: 660532118549a23416f4c0571845ec3517cb1b5b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 22901374988f6654bc1fb282315db81bb17c815f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436227"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857874"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack üzerinde App Service ile çalışmaya başlamadan önce
 
@@ -204,26 +204,26 @@ Azure Resource Manager şablonunu kullandığınızda, kullanıcılar zaten olu�
 
 1. FileShareOwner ve FileShareUser hesaplarını oluşturmak için aşağıdaki komutları çalıştırın. Değiştirin `<password>` kendi değerlerinizle.
 
-``` DOS
-net user FileShareOwner <password> /add /expires:never /passwordchg:no
-net user FileShareUser <password> /add /expires:never /passwordchg:no
-```
+   ``` DOS
+   net user FileShareOwner <password> /add /expires:never /passwordchg:no
+   net user FileShareUser <password> /add /expires:never /passwordchg:no
+   ```
 
 2. Aşağıdaki WMIC komutları çalıştırarak süresiz olarak hesaplar için parolaları ayarlayın:
 
-``` DOS
-WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
-WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
-```
+   ``` DOS
+   WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
+   WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+   ```
 
 3. FileShareUsers ve FileShareOwners yerel gruplarını oluşturun ve bunları Birinci adımdaki hesapları ekleyin:
 
-``` DOS
-net localgroup FileShareUsers /add
-net localgroup FileShareUsers FileShareUser /add
-net localgroup FileShareOwners /add
-net localgroup FileShareOwners FileShareOwner /add
-```
+   ``` DOS
+   net localgroup FileShareUsers /add
+   net localgroup FileShareUsers FileShareUser /add
+   net localgroup FileShareOwners /add
+   net localgroup FileShareOwners FileShareOwner /add
+   ```
 
 ### <a name="provision-the-content-share"></a>İçerik paylaşımı sağlama
 

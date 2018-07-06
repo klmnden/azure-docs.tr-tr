@@ -1,6 +1,6 @@
 ---
-title: Depolama/Data Lake Store - Azure Hdınsight'ta Apache Storm yazma | Microsoft Docs
-description: Apache Storm için Hdınsight HDFS uyumlu depolama alanına yazmak için nasıl kullanılacağını öğrenin. Azure Storage veya Azure Data Lake Store için Hdınsight HDFS comptabile depolama sağlar. Bu belge ve ilişkili örnek HdfsBolt bileşen Hdınsight kümesinde bir Storm varsayılan depolama alanına yazmak için nasıl kullanılabileceğini gösterir.
+title: Depolama/Data Lake Store - Azure HDInsight için Apache Storm yazma | Microsoft Docs
+description: Apache Storm, HDInsight için HDFS uyumlu depolama alanına yazılacak kullanmayı öğrenin. Azure depolama veya Azure Data Lake Store için HDInsight HDFS comptabile depolama sağlar. Bu belge ve ilişkili örnek, HDInsight kümesinde Storm varsayılan depolama alanına yazılacak HdfsBolt bileşeni'nın nasıl kullanılabileceğini gösterir.
 services: hdinsight
 documentationcenter: na
 author: Blackmist
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 149f91f3091f08da2e54458d708a17da928c1972
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 95dea2896bf1d116a14d8b51ada9e17f186d4373
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131744"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856265"
 ---
-# <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Hdınsight üzerinde Apache Storm HDFS için yazma
+# <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>HDFS'ye HDInsight üzerinde Apache Storm yazma
 
-Storm hdınsight'ta Apache Storm tarafından kullanılan HDFS uyumlu depolama verileri yazmak için nasıl kullanılacağını öğrenin. Hdınsight kullanma her ikisi de Azure depolama ve Azure Data Lake depolama HDFS uyumlu depolama. Storm sağlayan bir [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) HDFS için verileri yazar bileşeni. Bu belge, her iki tür depolama alanını HdfsBolt yazma konusunda bilgi sağlar. 
+Storm, HDInsight üzerinde Apache Storm tarafından kullanılan HDFS uyumlu depolama verileri yazmak amacıyla kullanmayı öğrenin. HDInsight her ikisini birden kullanabilir Azure depolama ve Azure Data Lake depolama HDFS uyumlu depolama. Storm sağlayan bir [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) verileri HDFS'ye Yazar bileşeni. Bu belge, HdfsBolt ya da depolama türüne yazmaya bilgi sağlar. 
 
 > [!IMPORTANT]
-> Bu belgede kullanılan örnek topoloji Hdınsight üzerinde Storm ile dahil olan bileşenleri kullanır. Diğer Apache Storm kümeleri ile kullanıldığında Azure Data Lake Store ile çalışmak için değişiklik gerektirebilir.
+> Bu belgede kullanılan örnek topoloji HDInsight üzerinde Storm ile birlikte gelen bileşenleri kullanır. Bu, diğer Apache Storm kümeleri ile kullanıldığında Azure Data Lake Store ile çalışmak için değişiklik gerektirebilir.
 
 ## <a name="get-the-code"></a>Kodu alma
 
-Bu topoloji içeren projeyi yükleme yoluyla kullanılabilir [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
+Bu topoloji içeren proje yükleme yoluyla kullanılabilir [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
 
-Bu projeyi derlemek için geliştirme ortamınız için aşağıdaki yapılandırma gerekir:
+Bu projeyi derlemek için aşağıdaki yapılandırma için geliştirme ortamınızı gerekir:
 
 * [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) veya üstü. HDInsight 3.5 veya üstü için Java 8 gerekir.
 
@@ -46,30 +46,30 @@ Dağıtım iş istasyonunuza Java ve JDK yüklerken aşağıdaki ortam değişke
     * `JAVA_HOME\bin` (veya eşdeğer yol).
     * Maven'ın yüklendiği dizin.
 
-## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>Hdınsight ile HdfsBolt kullanma
+## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>HDInsight ile HdfsBolt kullanma
 
 > [!IMPORTANT]
-> Hdınsight üzerinde Storm ile HdfsBolt kullanmadan önce önce bir betik eylemi içine gerekli jar dosyalarını kopyalamak için kullanmanız gerekir `extpath` Storm için. Daha fazla bilgi için bkz: [küme yapılandırma](#configure) bölümü.
+> HDInsight üzerinde Storm ile HdfsBolt kullanmadan önce ilk betik eylemi içine gerekli jar dosyalarını kopyalamak için kullanmalısınız `extpath` Storm için. Daha fazla bilgi için [küme yapılandırma](#configure) bölümü.
 
-HdfsBolt HDFS için yazma öğrenmek için sağladığınız dosya düzenini kullanır. Hdınsight ile aşağıdaki düzenleri birini kullanın:
+HdfsBolt HDFS'ye yazma anlamak için sağladığınız dosya şeması kullanır. HDInsight ile aşağıdaki düzenlerden birini kullanın:
 
-* `wasb://`: Bir Azure depolama hesabıyla kullanılır.
+* `wasb://`: Bir Azure depolama hesabı ile kullanılır.
 * `adl://`: Azure Data Lake Store ile kullanılır.
 
-Aşağıdaki tabloda farklı senaryolar için dosya düzeni kullanma örnekleri sağlar:
+Aşağıdaki tabloda farklı senaryolar için dosya düzeni kullanma örnekleri verilmiştir:
 
 | Düzeni | Notlar |
 | ----- | ----- |
-| `wasb:///` | Bir Azure depolama hesabı blob kapsayıcısında varsayılan depolama hesabıdır |
-| `adl:///` | Varsayılan depolama hesabı, Azure Data Lake Store dizinindedir. Küme oluşturma sırasında Data Lake Store'da kümenin HDFS kök dizini belirtin. Örneğin, `/clusters/myclustername/` dizin. |
-| `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | Kümeyle ilişkili bir varsayılan olmayan (ek) Azure depolama hesabı. |
-| `adl://STORENAME/` | Küme tarafından kullanılan veri Gölü deposu kök dizini. Bu düzen küme dosya sistemi içeriyor dizininde dışında veri erişim sağlar. |
+| `wasb:///` | Bir Azure depolama hesabındaki bir blob kapsayıcısını varsayılan depolama hesabıdır |
+| `adl:///` | Varsayılan depolama hesabı, Azure Data Lake Store dizinindedir. Küme oluşturma sırasında Data Lake Store kümenin HDFS kök dizini belirtin. Örneğin, `/clusters/myclustername/` dizin. |
+| `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | Kümeyle ilişkilendirilmiş varsayılan olmayan (ek) Azure depolama hesabı. |
+| `adl://STORENAME/` | Küme tarafından kullanılan Data Lake Store kökü. Bu düzen, küme dosya sistemini içeren dizininin dışında bulunan verilere erişmesini sağlar. |
 
-Daha fazla bilgi için bkz: [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) Apache.org başvuru.
+Daha fazla bilgi için [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) Apache.org başvuru.
 
 ### <a name="example-configuration"></a>Örnek yapılandırma
 
-Aşağıdaki YAML yapılan bir alıntı olan `resources/writetohdfs.yaml` örnekte bulunan dosyası. Bu dosya, Storm topolojisini kullanarak tanımlar [Flux](https://storm.apache.org/releases/1.1.0/flux.html) Apache Storm için çerçevesi.
+Aşağıdaki YAML kitabından olan `resources/writetohdfs.yaml` örnek dosya. Bu dosya, Storm topolojisi kullanan tanımlar [Flux](https://storm.apache.org/releases/1.1.2/flux.html) Apache Storm için bir çerçeve.
 
 ```yaml
 components:
@@ -127,82 +127,82 @@ bolts:
 
 Aşağıdaki öğeler bu YAML tanımlar:
 
-* `syncPolicy`: Dosyaları synched/Temizlenen Dosya sistemine olduğunda tanımlar. Bu örnekte, her 1000 diziler.
-* `fileNameFormat`: Dosyaları yazarken kullanmak için yolu ve dosya adı deseni tanımlar. Bu örnekte, yolun bir filtre kullanarak çalışma zamanında sağlanır ve dosya uzantısının `.txt`.
-* `recordFormat`: Yazılmış dosyaları iç biçimini tanımlar. Bu örnekte, alanlar virgülle ayrılan `|` karakter.
-* `rotationPolicy`: Dosyalarını döndürmek ne zaman tanımlar. Bu örnekte, hiçbir döndürme gerçekleştirilir.
-* `hdfs-bolt`: Önceki bileşenleri için yapılandırma parametreleri kullanan `HdfsBolt` sınıfı.
+* `syncPolicy`: Eşitlenmiş/Temizlenen Dosya sistemine dosya olduğunda tanımlar. Bu örnekte, her 1000 tanımlama grubu.
+* `fileNameFormat`: Dosya yazılırken kullanılacak yol ve dosya adı deseni tanımlar. Bu örnekte, bir filtre kullanarak çalışma zamanında sağlanan yol ve dosya uzantısı `.txt`.
+* `recordFormat`: Yazılmış olan dosyalar iç biçimini tanımlar. Bu örnekte, alanlar tarafından sınırlandırılmıştır `|` karakter.
+* `rotationPolicy`: Dosyalarını döndürmek ne zaman tanımlar. Bu örnekte, hiçbir dönüş gerçekleştirilir.
+* `hdfs-bolt`: Yapılandırma parametreleri olarak önceki bileşenleri'ni kullanan `HdfsBolt` sınıfı.
 
-Flux framework hakkında daha fazla bilgi için bkz: [ https://storm.apache.org/releases/1.1.0/flux.html ](https://storm.apache.org/releases/1.1.0/flux.html).
+Flux çerçevesi hakkında daha fazla bilgi için bkz. [ https://storm.apache.org/releases/1.1.0/flux.html ](https://storm.apache.org/releases/1.1.0/flux.html).
 
 ## <a name="configure-the-cluster"></a>Kümeyi yapılandırma
 
-Varsayılan olarak, Hdınsight üzerinde Storm HdfsBolt Storm'ın sınıf yolunda Azure Storage veya Data Lake Store ile iletişim kurmak için kullandığı bileşenlerinin içermez. Bu bileşenler eklemek için aşağıdaki betik eylemi kullanın `extlib` kümenizdeki Storm için dizin:
+Varsayılan olarak, HDInsight üzerinde Storm HdfsBolt Storm'ın sınıf Azure Depolama'da veya Data Lake Store ile iletişim kurmak için kullandığı bileşenlerinin içermez. Bu bileşenleri eklemek için aşağıdaki betik eylemi kullanın `extlib` kümenizdeki Storm için dizin:
 
-* Betik URI: `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
-* Uygulamak için düğümleri: Nimbus, yönetici
-* Parametreler: yok
+* Betik URI'si: `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
+* Uygulamak için düğümleri: Nimbus, gözetmen
+* Parametreleri: yok
 
-Bu komut dosyası kullanmayı hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemleri kullanılarak](./../hdinsight-hadoop-customize-cluster-linux.md) belge.
+Bu betik, kümesi ile kullanma hakkında daha fazla bilgi için bkz: [özelleştirme HDInsight kümelerini betik eylemlerini kullanarak](./../hdinsight-hadoop-customize-cluster-linux.md) belge.
 
-## <a name="build-and-package-the-topology"></a>Derleme ve topoloji paket
+## <a name="build-and-package-the-topology"></a>Derlemek ve paketlemek topolojisi
 
-1. Örnek projesinden indirmeniz [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) geliştirme ortamınız için.
+1. Adresinden örnek projesini indirin [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) geliştirme ortamınıza.
 
-2. Bir komut istemi, terminal veya kabuk oturumundan, indirilen proje kökündeki dizinlere Değiştir. Derleme ve topoloji paket için aşağıdaki komutu kullanın:
+2. Bir komut istemi, terminal veya kabuk oturumundan, indirilen projedeki kök dizin değiştirin. Derleme ve topoloji paketlemek için aşağıdaki komutu kullanın:
    
         mvn compile package
    
-    Paketleme ve yapı tamamlandıktan sonra adlı yeni bir dizin yok `target`, adlı bir dosyayı içeren `StormToHdfs-1.0-SNAPSHOT.jar`. Bu dosya derlenmiş topoloji içerir.
+    Derleme ve paketleme işlemi tamamlandıktan sonra adlı yeni bir dizin yok `target`, adlı dosyayı içeren `StormToHdfs-1.0-SNAPSHOT.jar`. Bu dosya, derlenmiş topolojiyi içerir.
 
-## <a name="deploy-and-run-the-topology"></a>Dağıtma ve topoloji çalıştırma
+## <a name="deploy-and-run-the-topology"></a>Dağıtıp topolojisine çalıştırın
 
-1. Topoloji Hdınsight kümesine kopyalamak için aşağıdaki komutu kullanın. Değiştir **kullanıcı** küme oluştururken kullandığınız SSH kullanıcı adı. **CLUSTERNAME** değerini kümenin adıyla değiştirin.
+1. HDInsight küme topolojisini kopyalamak için aşağıdaki komutu kullanın. Değiştirin **kullanıcı** ile kümeyi oluştururken SSH kullanıcı adı. **CLUSTERNAME** değerini kümenin adıyla değiştirin.
    
         scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs-1.0-SNAPSHOT.jar
    
-    İstendiğinde, küme için SSH kullanıcısı oluştururken kullanılan parolayı girin. Parola yerine bir ortak anahtar kullandıysanız kullanmanız gerekebilir `-i` parametresi eşleşen özel anahtara yolunu belirtin.
+    İstendiğinde, küme için SSH kullanıcısı oluştururken kullandığınız parolayı girin. Parola yerine bir ortak anahtar kullandıysanız, kullanmanız gerekebilir `-i` parametresini kullanarak eşleşen özel anahtarı için yolu belirtin.
    
    > [!NOTE]
    > HDInsight ile `scp` kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Karşıya yükleme işlemi tamamlandıktan sonra SSH kullanarak Hdınsight kümesine bağlanmak için aşağıdakileri kullanın. Değiştir **kullanıcı** küme oluştururken kullandığınız SSH kullanıcı adı. **CLUSTERNAME** değerini kümenin adıyla değiştirin.
+2. Karşıya yükleme işlemi tamamlandıktan sonra SSH kullanarak HDInsight kümesine bağlanmak için aşağıdakileri kullanın. Değiştirin **kullanıcı** ile kümeyi oluştururken SSH kullanıcı adı. **CLUSTERNAME** değerini kümenin adıyla değiştirin.
    
         ssh USER@CLUSTERNAME-ssh.azurehdinsight.net
    
-    İstendiğinde, küme için SSH kullanıcısı oluştururken kullanılan parolayı girin. Parola yerine bir ortak anahtar kullandıysanız kullanmanız gerekebilir `-i` parametresi eşleşen özel anahtara yolunu belirtin.
+    İstendiğinde, küme için SSH kullanıcısı oluştururken kullandığınız parolayı girin. Parola yerine bir ortak anahtar kullandıysanız, kullanmanız gerekebilir `-i` parametresini kullanarak eşleşen özel anahtarı için yolu belirtin.
    
    Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Bağlantı kurulduktan sonra adında bir dosya oluşturmak için aşağıdaki komutu kullanın `dev.properties`:
+3. Bağlantı kurulduktan sonra adlı bir dosya oluşturmak için aşağıdaki komutu kullanın `dev.properties`:
 
         nano dev.properties
 
-4. Aşağıdaki metni içeriğini kullanmak `dev.properties` dosyası:
+4. Aşağıdaki metni içeriğini kullanın `dev.properties` dosyası:
 
         hdfs.write.dir: /stormdata/
         hdfs.url: wasb:///
 
     > [!IMPORTANT]
-    > Bu örnek, kümenizi varsayılan depolama alanı olarak Azure Storage hesabı kullandığını varsayar. Kümenizi Azure Data Lake Store kullanıyorsa kullanın `hdfs.url: adl:///` yerine.
+    > Bu örnek, kümenizi varsayılan depolama alanı olarak Azure depolama hesabı kullandığını varsayar. Kümenizi Azure Data Lake Store kullanıyorsa, kullanın `hdfs.url: adl:///` yerine.
     
-    Dosyayı kaydetmek için kullanın __Ctrl + X__, ardından __Y__ve son olarak __Enter__. Data Lake deposu URL'si ve veri yazılır dizin adı bu dosyadaki değerlerini ayarlayın.
+    Dosyayı kaydetmek için kullanın __Ctrl + X__, ardından __Y__ve son olarak __Enter__. Bu dosyadaki değerleri, Data Lake store URL'sini ve veri yazılır dizin adını ayarlayın.
 
 3. Topoloji başlatmak için aşağıdaki komutu kullanın:
    
         storm jar StormToHdfs-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /writetohdfs.yaml --filter dev.properties
 
-    Bu komut kümenin Nimbus düğümü göndererek Flux framework kullanarak topolojisi başlatır. Topoloji tarafından tanımlanan `writetohdfs.yaml` jar bulunan dosyası. `dev.properties` Dosya filtre olarak geçirilir ve dosyada bulunan değerleri topolojisi tarafından salt okunurdur.
+    Bu komut kümenin Nimbus düğümüne göndererek Flux framework kullanarak topolojisini başlatır. Topoloji tarafından tanımlanan `writetohdfs.yaml` içinde jar dosyası. `dev.properties` Dosya, filtre olarak geçirilir ve dosyada bulunan değerleri topoloji tarafından okunur.
 
-## <a name="view-output-data"></a>Çıktı verilerini görüntüleme
+## <a name="view-output-data"></a>Çıkış verileri görüntüle
 
 Verileri görüntülemek için aşağıdaki komutu kullanın:
 
     hdfs dfs -ls /stormdata/
 
-Bu topoloji tarafından oluşturulan dosyaların listesi görüntülenir.
+Bu topoloji tarafından oluşturulan dosyaların bir listesi görüntülenir.
 
-Aşağıdaki listede, önceki komutları tarafından döndürülen veri örneğidir:
+Aşağıdaki listede, önceki komut tarafından döndürülen veri örneğidir:
 
     Found 30 items
     -rw-r-----+  1 sshuser sshuser       488000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-0-1488568403092.txt
@@ -213,7 +213,7 @@ Aşağıdaki listede, önceki komutları tarafından döndürülen veri örneği
 
 ## <a name="stop-the-topology"></a>Topolojiyi durdurma
 
-Durdurulana kadar Storm topolojileri çalıştırmak veya küme silinir. Topoloji durdurmak için aşağıdaki komutu kullanın:
+Storm topolojileri durdurulana kadar çalıştırın veya küme silinir. Topoloji durdurmak için aşağıdaki komutu kullanın:
 
     storm kill hdfswriter
 
@@ -223,5 +223,5 @@ Durdurulana kadar Storm topolojileri çalıştırmak veya küme silinir. Topoloj
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Storage ve Azure Data Lake Store yazma için Storm kullanmayı öğrendiniz, diğer bulma [örnekler için Hdınsight Storm](apache-storm-example-topology.md).
+Azure depolama ve Azure Data Lake Store yazma Storm kullanmayı öğrendiniz, diğer bulma [örnekleri HDInsight için Storm](apache-storm-example-topology.md).
 

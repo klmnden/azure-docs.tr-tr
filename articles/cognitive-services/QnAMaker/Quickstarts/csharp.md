@@ -1,6 +1,6 @@
 ---
-title: Microsoft QnA Maker API (V4) - Azure Bilişsel hizmetler için C# hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Microsoft Çeviricisi metin API Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlayın.
+title: C# Hızlı Başlangıç için Microsoft soru-cevap Oluşturucu API'si (V4) - Azure Bilişsel hizmetler | Microsoft Docs
+description: Microsoft Translator metin çevirisi API'si, Azure üzerinde Microsoft Bilişsel hizmetler kullanarak hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get başlayın.
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
@@ -9,49 +9,49 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 15f0415819bc0ae51e8160bb2b4a12c409b13baa
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 4bcc52547b5610bcb8dfa9b0cc56b2afc40e3c32
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301352"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866092"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Microsoft QnA Maker C# ile API için hızlı başlangıç 
+# <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Microsoft soru-cevap Oluşturucu API'si ile C# için hızlı başlangıç 
 <a name="HOLTop"></a>
 
-Bu makalede nasıl kullanılacağı gösterilmektedir [Microsoft QnA Maker API](../Overview/overview.md) aşağıdakileri yapmak için C# ile.
+Bu makalede nasıl kullanılacağını gösterir [Microsoft soru-cevap Oluşturucu API'si](../Overview/overview.md) aşağıdakileri yapmak için C# ile.
 
 - [Yeni Bilgi Bankası oluşturun.](#Create)
 - [Var olan bir Bilgi Bankası güncelleştirin.](#Update)
-- [Oluşturmak veya Bilgi Bankası güncelleştirmek için bir istek durumunu alın.](#Status)
-- [Var olan bir Bilgi Bankası yayımlayın.](#Publish)
-- [Var olan bir Bilgi Bankası içeriğini değiştirin.](#Replace)
-- [Bilgi Bankası içeriğini indirin.](#GetQnA)
-- [Bilgi Bankası kullanarak bir soru yanıtlarını alın.](#GetAnswers)
+- [Oluşturulacak veya güncelleştirilecek bir Bilgi Bankası isteğinin durumunu alın.](#Status)
+- [Var olan bir Bilgi Bankası yayımlama.](#Publish)
+- [Var olan bir Bilgi Bankası içerikleri değiştirin.](#Replace)
+- [Bilgi Bankası içerikleri indirin.](#GetQnA)
+- [Bilgi Bankası'nı kullanarak bir soru yanıtlarını alın.](#GetAnswers)
 - [Bilgi Bankası hakkında bilgi alın.](#GetKB)
-- [Belirtilen kullanıcıya ait tüm Bilgi Bankası hakkında bilgi alın.](#GetKBsByUser)
+- [Belirtilen kullanıcıya ait tüm bilgi bankalarından hakkında bilgi alın.](#GetKBsByUser)
 - [Bilgi Bankası silin.](#Delete)
-- [Geçerli uç nokta anahtarları alın.](#GetKeys)
-- [Geçerli uç nokta anahtarları yeniden oluşturun.](#PutKeys)
-- [Word değişiklikleri geçerli kümesini alır.](#GetAlterations)
+- [Geçerli uç nokta anahtarlarını alın.](#GetKeys)
+- [Geçerli uç nokta anahtarları yeniden oluştur.](#PutKeys)
+- [Word değişiklikleri geçerli kümesini alın.](#GetAlterations)
 - [Word değişiklikleri geçerli kümesini değiştirin.](#PutAlterations)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-İhtiyacınız olacak [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows bu kodu çalıştırmak için. (Ücretsiz Community sürümü çalışır.)
+İhtiyacınız olacak [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows üzerinde bu kodu çalıştırmak için. (Ücretsiz Community sürümü çalışır.)
 
-Sahip olmanız gerekir bir [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Microsoft QnA Maker API**. Ücretli abonelik anahtarından gerekir, [Azure Pano](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Microsoft soru-cevap Oluşturucu API'si**. Ücretli aboneliğe anahtarından gerekir, [Azure panosuna](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 <a name="Create"></a>
 
-## <a name="create-knowledge-base"></a>Bilgi Bankası oluşturun
+## <a name="create-knowledge-base"></a>Bilgi Bankası oluşturma
 
-Aşağıdaki kod bir yeni Bilgi Bankası temel kullanarak oluşturur [oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) yöntemi.
+Aşağıdaki kod temel kullanarak yeni bir Bilgi Bankası oluşturur [Oluştur](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) yöntemi.
 
-1. Sık kullanılan IDE içinde yeni bir C# projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `key` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
+2. Aşağıda sağlanan kod ekleyin.
+3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+4. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -208,7 +208,7 @@ namespace QnAMaker
 
 **Bilgi Bankası yanıt oluşturma**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -241,14 +241,14 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 
 <a name="Update"></a>
 
-## <a name="update-knowledge-base"></a>Bilgi Bankası güncelleştir
+## <a name="update-knowledge-base"></a>Bilgi Bankası güncelleştirme
 
-Aşağıdaki kod varolan Bilgi Bankası temel kullanarak güncelleştirmeleri [güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) yöntemi.
+Aşağıdaki kodu kullanarak temel bir mevcut bilgi güncelleştirmeleri [güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) yöntemi.
 
-1. Sık kullanılan IDE içinde yeni bir C# projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `key` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
+2. Aşağıda sağlanan kod ekleyin.
+3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+4. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -407,9 +407,9 @@ namespace QnAMaker
 
 ```
 
-**Bilgi Bankası yanıt güncelleştir**
+**Bilgi Bankası yanıtı güncelleştirme**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -437,7 +437,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>İstek durumunu Al
 
-Çağırabilirsiniz [işlemi](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) yöntemi oluşturmak veya Bilgi Bankası güncelleştirmek için bir istek durumunu kontrol edin. Bu yöntem nasıl kullanıldığını görmek için örnek kod için bkz: [oluşturma](#Create) veya [güncelleştirme](#Update) yöntemi.
+Çağırabilirsiniz [işlemi](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) oluşturmak ya da bir Bilgi Bankası güncelleştirme isteği durumunu denetlemek için yöntemi. Bu yöntem nasıl kullanıldığını görmek için örnek kod için bkz: [Oluştur](#Create) veya [güncelleştirme](#Update) yöntemi.
 
 [Başa dön](#HOLTop)
 
@@ -445,12 +445,12 @@ Press any key to continue.
 
 ## <a name="publish-knowledge-base"></a>Bilgi Bankası yayımlama
 
-Aşağıdaki kod varolan Bilgi Bankası kullanarak temel yayımlar [Yayımla](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) yöntemi.
+Aşağıdaki kodu kullanarak temel bir mevcut bilgi yayımlar [Yayımla](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) yöntemi.
 
-1. Sık kullanılan IDE içinde yeni bir C# projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `key` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
+2. Aşağıda sağlanan kod ekleyin.
+3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+4. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -526,7 +526,7 @@ namespace QnAMaker
 
 **Bilgi Bankası yanıtı yayımlama**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -540,12 +540,12 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 
 ## <a name="replace-knowledge-base"></a>Bilgi Bankası değiştirin
 
-Aşağıdaki kodu kullanarak temel belirtilen bilgi içeriğini değiştirir [Değiştir](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) yöntemi.
+Aşağıdaki kodu kullanarak, temel belirtilen bilgi içeriğini değiştirir [değiştirin](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) yöntemi.
 
-1. Sık kullanılan IDE içinde yeni bir C# projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `key` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
+2. Aşağıda sağlanan kod ekleyin.
+3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+4. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -643,7 +643,7 @@ namespace QnAMaker
 
 **Bilgi Bankası yanıt değiştirin**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -655,14 +655,14 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 
 <a name="GetQnA"></a>
 
-## <a name="download-the-contents-of-a-knowledge-base"></a>Bilgi Bankası içeriğini indirme
+## <a name="download-the-contents-of-a-knowledge-base"></a>Bilgi Bankası içeriğini indir
 
-Aşağıdaki kodu kullanarak temel belirtilen bilgi içeriğini indirir [karşıdan Bilgi Bankası](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) yöntemi.
+Aşağıdaki kod temel kullanarak belirtilen bilgi içeriğini indirir [indirme Bilgi Bankası](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) yöntemi.
 
-1. Sık kullanılan IDE içinde yeni bir C# projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `key` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
+2. Aşağıda sağlanan kod ekleyin.
+3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+4. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -735,7 +735,7 @@ namespace QnAMaker
 
 **Bilgi Bankası yanıt indirin**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -772,16 +772,16 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 
 <a name="GetAnswers"></a>
 
-## <a name="get-answers-to-a-question-by-using-a-knowledge-base"></a>Bilgi Bankası kullanarak bir soru yanıtlarını alın
+## <a name="get-answers-to-a-question-by-using-a-knowledge-base"></a>Bilgi Bankası'nı kullanarak bir soru yanıtlar alın
 
-Aşağıdaki kodu kullanarak, belirtilen Bilgi Bankası kullanarak sorusunun yanıtlarını alır **oluşturmak yanıtlar** yöntemi.
+Aşağıdaki kodu kullanarak, belirtilen Bilgi Bankası'nı kullanarak bir sorusunun yanıtlarını alır **yanıtları oluşturmak** yöntemi.
 
-1. Sık kullanılan IDE içinde yeni bir C# projesi oluşturun.
-1. Aşağıda sunulan kodu ekleyin.
-1. Değiştir `host` QnA Maker aboneliğiniz için Web sitesi adı değeri. Daha fazla bilgi için bkz: [QnA Maker hizmet oluşturma](../How-To/set-up-qnamaker-service-azure.md).
-1. Değiştir `endpoint_key` aboneliğiniz için geçerli uç nokta anahtarla değer. Bu abonelik anahtarınızı aynı olmadığını unutmayın. Uç nokta anahtarlarınızı kullanarak elde edebilirsiniz [endpoint anahtarları alma](#GetKeys) yöntemi.
-1. Değiştir `kb` değerini yanıtlar için sorgulamak istediğiniz Bilgi Bankası kimliği. Bu Bilgi Bankası gerekir zaten yayınlandı kullanarak Not [Yayımla](#Publish) yöntemi.
-1. Programını çalıştırın.
+1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
+1. Aşağıda sağlanan kod ekleyin.
+1. Değiştirin `host` soru-cevap Oluşturucu aboneliğiniz için Web sitesi adı değeri. Daha fazla bilgi için [soru-cevap Oluşturucu hizmeti oluşturma](../How-To/set-up-qnamaker-service-azure.md).
+1. Değiştirin `endpoint_key` aboneliğiniz için geçerli uç nokta anahtar ile değeri. Bu abonelik anahtarınız ile aynı olmadığını unutmayın. Uç nokta anahtarlarınızı kullanarak alabileceğiniz [uç nokta anahtarları alma](#GetKeys) yöntemi.
+1. Değiştirin `kb` yanıtları sorgulamak istediğiniz Bilgi Bankası kimliği değeri. Bu Bilgi Bankası gerekir zaten yayınlandı kullanarak Not [Yayımla](#Publish) yöntemi.
+1. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -849,9 +849,9 @@ namespace QnAMaker
 }
 ```
 
-**Yanıtlar yanıtını alma**
+**Yanıtlar yanıt alın**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -877,12 +877,12 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 
 ## <a name="get-information-about-a-knowledge-base"></a>Bilgi Bankası hakkında bilgi edinin
 
-Belirtilen bilgi hakkında bilgi aşağıdaki kodu kullanarak temel alır [Bilgi Bankası ayrıntıları alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) yöntemi.
+Aşağıdaki kodu belirtilen bilgi hakkındaki bilgileri kullanarak, temel alır [Bilgi Bankası ayrıntıları alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) yöntemi.
 
-1. Sık kullanılan IDE içinde yeni bir C# projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `key` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
+2. Aşağıda sağlanan kod ekleyin.
+3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+4. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -949,9 +949,9 @@ namespace QnAMaker
 
 ```
 
-**Bilgi Bankası ayrıntıları yanıtını alma**
+**Bilgi Bankası ayrıntıları yanıt alın**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -975,14 +975,14 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 
 <a name="GetKBsByUser"></a>
 
-## <a name="get-all-knowledge-bases-for-a-user"></a>Bir kullanıcı için tüm Bilgi Bankası Al
+## <a name="get-all-knowledge-bases-for-a-user"></a>Bir kullanıcının tüm bilgi bankalarından alır
 
-Aşağıdaki kod, belirtilen bir kullanıcı için tüm Bilgi Bankası hakkında bilgi alır kullanarak [alma kullanıcı için Bilgi Bankası](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) yöntemi.
+Aşağıdaki kod, belirtilen bir kullanıcı için tüm bilgi bankalarından hakkında bilgi alır kullanarak [alma bilgi bankaları için kullanıcı](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) yöntemi.
 
-1. Sık kullanılan IDE içinde yeni bir C# projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `key` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
+2. Aşağıda sağlanan kod ekleyin.
+3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+4. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -1046,9 +1046,9 @@ namespace QnAMaker
 
 ```
 
-**Kullanıcı yanıtı Bilgi Bankası Al**
+**Bilgi bankaları için kullanıcı yanıtı alın**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -1090,12 +1090,12 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>Bilgi Bankası Sil
 
-Aşağıdaki kodu kullanarak temel belirtilen bilgi siler [silme Bilgi Bankası](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) yöntemi.
+Aşağıdaki kodu kullanarak, temel belirtilen bilgi siler [Sil Bilgi Bankası](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) yöntemi.
 
-1. Sık kullanılan IDE içinde yeni bir C# projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `key` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
+2. Aşağıda sağlanan kod ekleyin.
+3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+4. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -1170,7 +1170,7 @@ namespace QnAMaker
 
 **Bilgi Bankası yanıtı Sil**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -1182,14 +1182,14 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 
 <a name="GetKeys"></a>
 
-## <a name="get-endpoint-keys"></a>Uç noktası anahtarı alma
+## <a name="get-endpoint-keys"></a>Uç nokta anahtarları alma
 
-Aşağıdaki kodu kullanarak geçerli uç nokta anahtarları alır [endpoint anahtarları alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) yöntemi.
+Aşağıdaki kodu kullanarak geçerli uç nokta anahtarlarını alır [uç nokta anahtarları alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) yöntemi.
 
-1. Sık kullanılan IDE içinde yeni bir C# projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `key` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
+2. Aşağıda sağlanan kod ekleyin.
+3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+4. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -1252,9 +1252,9 @@ namespace QnAMaker
 }
 ```
 
-**Uç nokta anahtarları yanıtını alma**
+**Uç nokta anahtarları yanıt alın**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -1269,12 +1269,12 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 
 ## <a name="refresh-endpoint-keys"></a>Uç nokta anahtarlarını yenileme
 
-Aşağıdaki kodu kullanarak geçerli uç nokta anahtarlarını yeniden oluşturur [endpoint anahtarlarını yenileme](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) yöntemi.
+Aşağıdaki kodu kullanarak geçerli uç nokta anahtarlarını yeniden oluşturur [uç nokta anahtarlarını yenileme](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) yöntemi.
 
-1. Sık kullanılan IDE içinde yeni bir C# projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `key` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
+2. Aşağıda sağlanan kod ekleyin.
+3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+4. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -1342,7 +1342,7 @@ namespace QnAMaker
 
 **Uç nokta anahtarları yanıt Yenile**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -1357,12 +1357,12 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 
 ## <a name="get-word-alterations"></a>Word değişiklikleri Al
 
-Aşağıdaki kodu kullanarak geçerli word değişiklikleri alır [karşıdan değişiklikleri](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) yöntemi.
+Aşağıdaki kodu kullanarak geçerli sözcüğü değişiklikleri alır [indirme değişiklikleri](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) yöntemi.
 
-1. Sık kullanılan IDE içinde yeni bir C# projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `key` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
+2. Aşağıda sağlanan kod ekleyin.
+3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+4. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -1425,9 +1425,9 @@ namespace QnAMaker
 }
 ```
 
-**Word değişiklikleri yanıtını alma**
+**Word değişiklikleri yanıt alın**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -1448,12 +1448,12 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 
 ## <a name="replace-word-alterations"></a>Word değişiklikleri değiştirin
 
-Aşağıdaki kodu kullanarak geçerli word değişiklikleri değiştirir [Değiştir değişiklikleri](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) yöntemi.
+Aşağıdaki kodu kullanarak geçerli sözcüğü değişiklikleri değiştirir [değiştirin değişiklikleri](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) yöntemi.
 
-1. Sık kullanılan IDE içinde yeni bir C# projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `key` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
+2. Aşağıda sağlanan kod ekleyin.
+3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+4. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -1551,7 +1551,7 @@ namespace QnAMaker
 
 **Word değişiklikleri yanıt değiştirin**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -1564,8 +1564,8 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Soru-cevap Oluşturucu (V4) REST API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
-[QnA Maker genel bakış](../Overview/overview.md)
+[Soru-cevap Oluşturucu genel bakış](../Overview/overview.md)

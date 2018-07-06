@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ccdcdeeaf4ac8730be4f9e3ee648dc41c2a02641
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2c1fce35749dee12caec0bcd15a9eccdf81b8d1d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345167"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856782"
 ---
 # <a name="what-is-the-speech-service-preview"></a>Konuşma hizmeti (Önizleme) nedir?
 
@@ -60,7 +60,7 @@ Konuşmadan metne akustik ve dil modellerini özel sözlük gürültülü ortaml
 
 [Metin okuma](text-to-speech.md) (TTS) veya konuşma sentezi API dönüştürür düz metin ses dosyası uygulamanızda teslim görünen doğal konuşma. Birden çok ses, cinsiyet veya vurgu, değişen birçok desteklenen diller için kullanılabilir.
 
-Sorunlu sözcükleri tam fonetik telaffuz belirtmek için API konuşma sentezi işaretleme dili (SSML'yi) etiketler destekler. SSML ayrıca metnin içinde konuşma özelliklerini gösterebilir (vurgu, hız, ses düzeyi, cinsiyet ve sıklık gibi).
+API destekler [konuşma sentezi işaretleme dili (SSML'yi)](speech-synthesis-markup.md) sorunlu sözcükleri tam fonetik telaffuz belirtebilmeniz için etiketler. SSML ayrıca metnin içinde konuşma özelliklerini gösterebilir (vurgu, hız, ses düzeyi, cinsiyet ve sıklık gibi).
 
 Metin okuma API'si için ortak kullanım durumları verilmiştir.
 
@@ -68,7 +68,7 @@ Metin okuma API'si için ortak kullanım durumları verilmiştir.
 * Ses isteyen gezintisi gibi araç uygulamalar
 * Konuşmayı metne dönüştürme API'si ile uyumlu etkileşimli kullanıcı arabirimleri
 
-Metin okuma API'si, yalnızca uygulamanız için benzersiz bir ses istiyorsanız veya desteklenmeyen bir diyalekt için gerekir, özel sesli modelleri destekler.
+Metin okuma API'si, yalnızca uygulamanız için benzersiz bir ses istiyorsanız veya desteklenmeyen bir diyalekt için gerekir, destekler [özel sesli modelleri](how-to-customize-voice-font.md).
 
 ## <a name="speech-translation"></a>Konuşma Çevirisi
 

@@ -13,45 +13,45 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: d89aa308ab8f6684cebbec49bbefdcb54d77c886
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 1ab7aa9ecdd51809f6e1d82958f21b78b16e7e63
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869725"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859566"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android için Azure Mobile Apps SDK'sını kullanma
 
-Bu kılavuzu gibi yaygın senaryolar uygulamak için mobil uygulamalar için SDK'sı Android istemci kullanmayı gösterir:
+Bu kılavuzu gibi yaygın senaryoları uygulamak için Android istemci SDK'sı mobil uygulamalar için kullanmayı gösterir:
 
-* Verileri (ekleme, güncelleştirme ve silme) sorgulama.
+* (Ekleme, güncelleştirme, silme) veri sorgulama.
 * Kimlik doğrulaması.
 * Hataları işleme.
 * İstemci özelleştirme.
 
-Bu kılavuz, istemci-tarafı Android SDK odaklanmıştır.  Mobil uygulamaları için sunucu tarafı SDK'ları hakkında daha fazla bilgi için bkz: [iş SDK .NET arka ucu ile] [ 10] veya [Node.js arka ucu SDK kullanmayı][11].
+Bu kılavuz, istemci tarafı Android SDK üzerinde odaklanır.  Mobile Apps için sunucu tarafı SDK'lar hakkında daha fazla bilgi edinmek için [.NET arka uç SDK'sı ile çalışma] [ 10] veya [Node.js arka uç SDK'yı nasıl kullanabileceğinizi][11].
 
 ## <a name="reference-documentation"></a>Başvuru belgeleri
 
-Bulabileceğiniz [Javadocs API Başvurusu] [ 12] github'da Android istemci kitaplığı.
+Bulabilirsiniz [Javadocs API Başvurusu] [ 12] github'da Android istemci kitaplığı.
 
 ## <a name="supported-platforms"></a>Desteklenen platformlar
 
-Android için Azure Mobile Apps SDK'sı telefon ve tablet form faktörleri için API düzey 19 ile 24 (KitKat Nougat aracılığıyla) destekler.  Kimlik doğrulaması, özellikle, kimlik bilgilerini toplamak için ortak bir web framework yaklaşımı kullanır.  Sunucu akış kimlik doğrulaması saatlerde gibi küçük form faktörü cihazlarla çalışmaz.
+Android için Azure Mobile Apps SDK'sı, telefon ve tablet form faktörleri için API düzey 19 ile 24 (KitKat Nougat aracılığıyla) destekler.  Kimlik doğrulaması, özellikle, kimlik bilgilerini toplamak için genel bir web çerçevesi yaklaşım kullanır.  Sunucu akışı kimlik doğrulaması, izlemeleri gibi küçük form faktörü cihazlarla çalışmaz.
 
 ## <a name="setup-and-prerequisites"></a>Kurulum ve Önkoşullar
 
-Tamamlamak [Mobile Apps quickstart](app-service-mobile-android-get-started.md) Öğreticisi.  Bu görev, Azure Mobile Apps geliştirmek için tüm ön koşulların yerine sağlar.  Hızlı Başlangıç ayrıca hesabınızı yapılandırma ve ilk mobil uygulama arka oluşturmanıza yardımcı olur.
+Tamamlamak [Mobile Apps Hızlı Başlangıç](app-service-mobile-android-get-started.md) öğretici.  Bu görevi, Azure mobil uygulamaları geliştirmek için tüm ön koşullar karşılandığında sağlar.  Bu hızlı başlangıçta ayrıca hesabınızı yapılandırın ve ilk mobil uygulama arka ucu oluşturmanıza yardımcı olur.
 
-Hızlı Başlangıç Öğreticisi tamamlamak istemediğinize karar verirseniz, aşağıdaki görevleri tamamlayın:
+Hızlı Başlangıç öğreticisini tamamlamak değil karar verirseniz, aşağıdaki görevleri tamamlayın:
 
-* [bir mobil uygulama arka ucu oluşturma] [ 13] Android uygulamanızı kullanılacak.
-* Android Studio'da [güncelleştirme Gradle derleme dosyalarını](#gradle-build).
-* [Internet izni etkinleştirmek](#enable-internet).
+* [bir mobil uygulama arka ucu oluşturma] [ 13] Android uygulamanızı kullanmak için.
+* Android Studio'da [güncelleştirme Gradle derleme dosyaları](#gradle-build).
+* [İnternet iznini etkinleştirme](#enable-internet).
 
 ### <a name="gradle-build"></a>Gradle derleme dosyasını güncelleştirme
 
-Her ikisi de değiştirme **build.gradle** dosyaları:
+Her ikisini de değiştirme **build.gradle** dosyaları:
 
 1. Bu kodu ekleyin *proje* düzeyi **build.gradle** içinde dosya *buildscript* etiketi:
 
@@ -69,11 +69,11 @@ Her ikisi de değiştirme **build.gradle** dosyaları:
     compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    Şu anda son 3.4.0 sürümüdür. Desteklenen sürümleri listelenir [bintray'deki üzerinde][14].
+    Şu anda en son sürümü 3.4.0 gösterilir. Desteklenen sürümler listelenmiştir [bintray'deki][14].
 
-### <a name="enable-internet"></a>Internet izin etkinleştir
+### <a name="enable-internet"></a>İnternet iznini etkinleştirme
 
-Azure erişmek için uygulamanızı etkin Internet izni olmalıdır. Zaten etkinleştirilmişse, aşağıdaki kod satırını ekleyin, **AndroidManifest.xml** dosyası:
+Azure'a erişmek için uygulamanızı etkin INTERNET izni olmalıdır. Zaten etkinse, aşağıdaki kod satırını ekleyin, **AndroidManifest.xml** dosyası:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -81,14 +81,14 @@ Azure erişmek için uygulamanızı etkin Internet izni olmalıdır. Zaten etkin
 
 ## <a name="create-a-client-connection"></a>İstemci bağlantısı oluşturma
 
-Azure mobil uygulamalar, mobil uygulamanıza dört işlevleri sağlar:
+Azure Mobile Apps mobil uygulamanıza dört işlev sağlar:
 
-* Veri erişimi ve bir Azure mobil uygulamalar hizmeti ile çevrimdışı eşitleme.
-* Özel Azure mobil uygulamalar sunucusu SDK ile yazılmış API'leri çağırın.
-* Azure uygulama hizmeti kimlik doğrulama ve yetkilendirme ile kimlik doğrulaması.
-* Anında iletme bildirimi kaydı Notification Hubs ile.
+* Veri erişimi ve bir Azure mobil uygulamaları hizmeti ile çevrimdışı eşitleme.
+* Azure mobil uygulamalar sunucusu SDK ile yazılmış özel API'ler çağırın.
+* Azure App Service kimlik doğrulaması ve yetkilendirme ile kimlik doğrulaması.
+* Anında iletme bildirimi kaydı Notification Hubs ile'nı tıklatın.
 
-Bu işlevlerin her biri ilk oluşturduğunuz gerektiren bir `MobileServiceClient` nesnesi.  Yalnızca bir `MobileServiceClient` nesne içinde mobil istemci oluşturulmalıdır (diğer bir deyişle, bir Singleton deseni olmalıdır).  Oluşturmak için bir `MobileServiceClient` nesnesi:
+Bu işlevlerin her biri önce oluşturmanızı gerektiren bir `MobileServiceClient` nesne.  Yalnızca bir `MobileServiceClient` nesne içinde mobil istemci oluşturulması (diğer bir deyişle, bir Singleton deseni olmalıdır).  Oluşturmak için bir `MobileServiceClient` nesnesi:
 
 ```java
 MobileServiceClient mClient = new MobileServiceClient(
@@ -96,11 +96,11 @@ MobileServiceClient mClient = new MobileServiceClient(
     this);                  // Your application Context
 ```
 
-`<MobileAppUrl>` Bir dize ya da mobil arka ucunuza işaret eden bir URL nesnesi.  Mobil arka barındırmak için Azure App Service kullanıyorsanız, kullandığınız güvenli olduğundan emin olun `https://` URL sürümü.
+`<MobileAppUrl>` Bir dize ya da mobil arka ucunuza işaret eden bir URL nesnesi.  Mobil arka ucunuzdaki barındırmak için Azure App Service kullanıyorsanız, kullandığınız güvenli olduğundan emin olun `https://` URL sürümü.
 
-İstemci ayrıca etkinlik veya Context - erişmesi `this` örnekte parametresi.  MobileServiceClient yapı içinde gerçekleşmelidir `onCreate()` yöntemi etkinliğin başvurulan `AndroidManifest.xml` dosya.
+İstemci ayrıca etkinlik veya bağlam - erişim gerektiren `this` örnekte parametre.  MobileServiceClient yapı içinde gerçekleşmelidir `onCreate()` etkinliğin yöntemi başvuruda `AndroidManifest.xml` dosya.
 
-En iyi uygulama, sunucu iletişimi kendi (singleton deseni) sınıfına soyut.  Bu durumda, hizmeti uygun şekilde yapılandırmak için oluşturucusu içinde etkinlik geçirmelisiniz.  Örneğin:
+En iyi uygulama, sunucu yazışmaya kendi (singleton deseni) sınıfı soyut.  Bu durumda, hizmet uygun şekilde yapılandırmak için etkinliğe oluşturucu içinde geçmelidir.  Örneğin:
 
 ```java
 package com.example.appname.services;
@@ -142,21 +142,21 @@ public class AzureServiceAdapter {
 }
 ```
 
-Şimdi Ara `AzureServiceAdapter.Initialize(this);` içinde `onCreate()` ana etkinlik yöntemi.  İstemci erişim gerektiren herhangi bir yöntem `AzureServiceAdapter.getInstance();` hizmeti bağdaştırıcısı için bir başvuru elde edilir.
+Artık çağırabilirsiniz `AzureServiceAdapter.Initialize(this);` içinde `onCreate()` ana etkinliği yöntemi.  İstemci erişimi gerektiren diğer yöntemleri `AzureServiceAdapter.getInstance();` hizmeti bağdaştırıcısı için bir başvuru almak için.
 
-## <a name="data-operations"></a>Veri işlemleri
+## <a name="data-operations"></a>Veri İşlemleri
 
-Azure Mobile Apps SDK'sı çekirdek mobil uygulama arka uç SQL Azure içinde depolanan verilere erişim sağlamaktır.  Kesin türü belirtilmiş sınıfları (tercih edilen) kullanarak bu verilere erişebilir veya türsüz sorgular (önerilmez).  Bu bölümde toplu kesin türü belirtilmiş sınıflarını kullanma ile ilgilidir.
+Azure Mobile Apps SDK'sı setinin mobil uygulama arka uçta SQL Azure içinde depolanan verilere erişim sağlamaktır.  Türü kesin belirlenmiş sınıf (tercih edilir) kullanarak bu verilere erişmesinden veya türsüz sorgular (önerilmez).  Bu bölümün toplu kullanarak türü kesin belirlenmiş sınıf ile ilgilidir.
 
 ### <a name="define-client-data-classes"></a>İstemci veri sınıflarını tanımlamak
 
-SQL Azure tablolardan verilere erişmek için mobil uygulama arka ucu tablolarda için karşılık gelen istemci veri sınıflarını tanımlayın. Bu konudaki örnekler varsayar adlı bir tablo **MyDataTable**, aşağıdaki sütunları vardır:
+SQL Azure tablolardaki verilere erişmek için mobil uygulama arka ucu tablolarında karşılık gelen istemci veri sınıflarını tanımlayın. Bu konudaki örnekler varsayar adlı bir tablo **MyDataTable**, aşağıdaki sütunlar vardır:
 
 * id
-* Metin
-* Tamamlayın
+* metin
+* tamamlayın
 
-Adlı bir dosyaya karşılık gelen yazılan istemci-tarafı nesnenin bulunduğundan **MyDataTable.java**:
+Karşılık gelen türü belirlenmiş istemci-tarafı nesnesi adlı bir dosyada bulunan **MyDataTable.java**:
 
 ```java
 public class ToDoItem {
@@ -166,7 +166,7 @@ public class ToDoItem {
 }
 ```
 
-Eklediğiniz her bir alan için'Set ' yordamı yöntemleri ekleyin.  SQL Azure tablonuz daha fazla sütun içeriyorsa, bu sınıfa karşılık gelen alanlara eklersiniz.  Örneğin, varsa DTO (veri aktarımı nesne) sahip bir tamsayı öncelik sütunu ve'Set ' yordamı yöntemlerinin yanı sıra bu alanı ekleyebilirsiniz:
+Eklediğiniz her bir alan için alıcı ve ayarlayıcı yöntemleri ekleyin.  SQL Azure tablonuza daha fazla sütun içeriyorsa, bu sınıf için karşılık gelen alanlarını eklersiniz.  Örneğin, bir DTO (veri aktarımı nesnesi) sahip bir tamsayı öncelik sütunu, ardından alıcı ve ayarlayıcı yöntemlerinden yanı sıra, bu alanın ekleyebilirsiniz:
 
 ```java
 private Integer priority;
@@ -189,17 +189,17 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Ek tablolar, Mobile Apps arka oluşturmayı öğrenmek için bkz: [nasıl yapılır: bir tablo denetleyicisi tanımlamak] [ 15] (.NET arka ucu) veya [dinamik bir şema kullanarak tabloları tanımlayın] [ 16] (Node.js arka ucu).
+Mobile Apps arka ucunuzu ek tablolar oluşturmayı öğrenmek için bkz: [nasıl yapılır: Tablo denetleyicisi tanımlamak] [ 15] (.NET arka ucu) veya [dinamik şemayı kullanarak tablolar tanımlama] [ 16] (Node.js arka ucu).
 
-Bir Azure Mobile Apps arka uç tablosu dört biri istemciler için kullanılabilir beş özel alanlar tanımlar:
+Bir Azure Mobile Apps arka uç tablosu, biri dört istemciler için kullanılabilir beş özel alanlar tanımlar:
 
-* `String id`: Kaydı genel benzersiz kimliği.  En iyi uygulama, dize gösterimini kimliği olun bir [UUID] [ 17] nesnesi.
-* `DateTimeOffset updatedAt`: Son tarih/saat güncelleştirin.  UpdatedAt alan sunucu tarafından ayarlanır ve istemci kodunuz tarafından hiçbir zaman ayarlamanız gerekir.
-* `DateTimeOffset createdAt`: Bu nesnenin oluşturulduğu tarih.  CreatedAt alan sunucu tarafından ayarlanır ve istemci kodunuz tarafından hiçbir zaman ayarlamanız gerekir.
-* `byte[] version`: Normal olarak bir dize olarak gösterilen, sürüm sunucu tarafından ayarlanır.
-* `boolean deleted`: Kayıt silindi ancak henüz temizlendi değil olduğunu gösterir.  Kullanmayın `deleted` sınıfınız özelliği olarak.
+* `String id`: Kayıt genel olarak benzersiz kimliği.  En iyi uygulama, dize gösterimi kimliği olun bir [UUID] [ 17] nesne.
+* `DateTimeOffset updatedAt`: Son tarih/saat güncelleştirin.  UpdatedAt alan, sunucu tarafından ayarlanır ve hiçbir zaman istemci kodunuz tarafından ayarlanması gerekir.
+* `DateTimeOffset createdAt`: Nesne oluşturulduğu tarih.  CreatedAt alan, sunucu tarafından ayarlanır ve hiçbir zaman istemci kodunuz tarafından ayarlanması gerekir.
+* `byte[] version`: Genellikle dize olarak temsil edilen, sürüm sunucu tarafından ayarlanır.
+* `boolean deleted`: Kayıt silindi ancak henüz temizleneceği değil olduğunu gösterir.  Kullanmayın `deleted` sınıfınıza özelliği olarak.
 
-`id` Alan gereklidir.  `updatedAt` Alan ve `version` alan çevrimdışı eşitleme için kullanılan (Artımlı eşitleme ve Çakışma çözümlemesi için sırasıyla).  `createdAt` Alan başvurusu alan ve istemci tarafından kullanılmaz.  Adları "arasında hat" adlarının özelliklerinin ve ayarlanabilir değildir.  Ancak, nesneniz ve "arasında hat" adları kullanarak arasında bir eşleme oluşturabilirsiniz [gson] [ 3] kitaplığı.  Örneğin:
+`id` alanı gereklidir.  `updatedAt` Alan ve `version` çevrimdışı eşitleme için kullanılan alan (Artımlı eşitleme ve Çakışma çözümlemesi için sırasıyla).  `createdAt` Alanı bir başvuru alan olup, istemci tarafından kullanılmaz.  Adları "arasında hat" özellik adlarının ve ayarlanabilir değildir.  Ancak, nesnenizin kullanarak "arasında hat" adları arasında bir eşleme oluşturabilirsiniz [gson] [ 3] kitaplığı.  Örneğin:
 
 ```java
 package com.example.zumoappname;
@@ -257,9 +257,9 @@ public class ToDoItem
 }
 ```
 
-### <a name="create-a-table-reference"></a>Bir tablo başvurusu oluşturma
+### <a name="create-a-table-reference"></a>Bir tablo başvurusu
 
-Bir tablo erişmek için ilk oluşturma bir [MobileServiceTable] [ 8] çağırarak nesne **getTable** yöntemi [MobileServiceClient] [9].  Bu yöntem iki aşırı yüklemeye sahip:
+Bir tablo erişmek için öncelikle oluşturma bir [MobileServiceTable] [ 8] çağırarak **getTable** metodunda [MobileServiceClient] [9].  Bu yöntemin iki aşırı yüklemesi vardır:
 
 ```java
 public class MobileServiceClient {
@@ -268,32 +268,32 @@ public class MobileServiceClient {
 }
 ```
 
-Aşağıdaki kodda, **mClient** MobileServiceClient nesnenizin başvurudur.  İlk aşırı burada sınıf adı ve tablo adı aynı olan ve bir hızlı başlangıcı kullanılan kullanılır:
+Aşağıdaki kodda, **mClient** MobileServiceClient nesnenizin bir başvurudur.  İlk aşırı yükleme, burada sınıf adı ve tablo adıyla aynıdır ve bir hızlı başlangıç bölümünde kullanılan kullanılır:
 
 ```java
 MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 ```
 
-Tablo adı sınıfı adından farklı olduğunda ikinci aşırı kullanılır: ilk parametre tablo adıdır.
+Tablo adı sınıf adından farklı olduğunda ikinci aşırı yüklemesi kullanılır: ilk parametre tablo adıdır.
 
 ```java
 MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 ```
 
-## <a name="query"></a>Arka uç tablosu sorgulama
+## <a name="query"></a>Sorgu bir arka uç tablosu
 
-İlk olarak, bir tablo başvurusu edinin.  Ardından bir sorgu üzerinde tablo başvurusu yürütün.  Bir sorgu herhangi bir bileşimini şöyledir:
+İlk olarak bir tablo başvurusu edinin.  Ardından tablo başvurusu üzerinde bir sorguyu yürütün.  Bir sorgu, herhangi bir birleşimini şöyledir:
 
 * A `.where()` [filtre yan tümcesi](#filtering).
-* Bir `.orderBy()` [yan tümcesinin sıralama](#sorting).
+* Bir `.orderBy()` [ordering yan tümcesi](#sorting).
 * A `.select()` [alan seçimi yan tümcesi](#selection).
-* A `.skip()` ve `.top()` için [sonuçları disk belleği](#paging).
+* A `.skip()` ve `.top()` için [sonuçları disk belleğine alınan](#paging).
 
-Yan tümceler önceki sırayla sunulmalıdır.
+Yan tümceleri önceki sırayla sunulmalıdır.
 
 ### <a name="filter"></a> Sonuçları filtreleme
 
-Genel sorgu şu şekildedir:
+Bir sorgunun genel formu şöyledir:
 
 ```java
 List<MyDataTable> results = mDataTable
@@ -302,11 +302,11 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-Önceki örnekte tüm sonuçları (kadar en büyük sayfa boyutu sunucu tarafından ayarını) döndürür.  `.execute()` Yöntemi arka uçta sorgu yürütür.  Sorgu dönüştürülür bir [OData v3] [ 19] Mobile Apps arka uç iletimden önce sorgu.  Alındığında, Mobile Apps arka uç SQL Azure örneğinde yürütmeden önce bir SQL deyimini sorgu dönüştürür.  Ağ etkinliği biraz zaman alır beri `.execute()` yöntemi döndürür bir [ `ListenableFuture<E>` ] [ 18].
+Yukarıdaki örnekte (en fazla sayfa boyutu sunucu tarafından ayarını kadar) tüm sonuçları döndürür.  `.execute()` Yöntemi, arka uçta sorguyu yürütür.  Sorgu dönüştürülür bir [OData v3] [ 19] Mobile Apps arka uca iletimden önce sorgu.  İstek alındığında, Mobile Apps arka uç SQL Azure örneğinde yürütmeden önce bir SQL deyimi sorgu dönüştürür.  Ağ etkinliği biraz zaman alır. bu yana `.execute()` yöntemi döndürür bir [ `ListenableFuture<E>` ] [ 18].
 
-### <a name="filtering"></a>Döndürülen veri filtreleme
+### <a name="filtering"></a>Döndürülen verileri filtreleme
 
-Aşağıdaki sorgu yürütme tüm öğeleri döndürür **Todoıtem** tablo nerede **tam** eşittir **false**.
+Şu sorgu Yürütmeyle tüm öğeleri döndürür **Todoıtem** tablo where **tam** eşittir **false**.
 
 ```java
 List<ToDoItem> result = mToDoTable
@@ -316,11 +316,11 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-**mToDoTable** daha önce oluşturduğumuz mobil hizmeti tablo başvurusudur.
+**mToDoTable** daha önce oluşturduğumuz mobil hizmeti tablo başvurudur.
 
-Bir filtre kullanarak tanımlarsınız **burada** tablo başvurusu üzerinde yöntem çağrısı. **Nerede** yöntemi tarafından izlenen bir **alan** yöntemi ve ardından bir yöntemle mantıksal koşulu belirtir. Olası koşul yöntemleri dahil **eq** (eşittir) **ne** (eşit değildir), **gt** (büyük), **ge** (büyük veya eşittir) **lt** (küçüktür), **le** (küçük veya eşittir). Bu yöntemleri belirli değerleri numarası ve dize alanları karşılaştırmanıza olanak sağlar.
+Bir filtre kullanarak tanımlarsınız **burada** Tablo başvurusunda yöntem çağrısı. **Burada** yöntemi tarafından izlenen bir **alan** yöntemi, mantıksal koşul belirten bir yöntem tarafından izlenen. Koşul yöntemden dahil **eq** (eşittir) **ne** (eşit değildir), **gt** (büyüktür), **ge** (büyüktür veya eşittir) **lt** (küçüktür), **le** (küçüktür veya eşittir). Bu yöntemlerin sayısı ve dize alanları belirli değerlerle karşılaştırmak olanak tanır.
 
-Tarihleri filtreleyebilirsiniz. Aşağıdaki yöntemlerden tüm tarih alanı ya da tarih kısımlarını karşılaştırmanıza olanak tanır: **yıl**, **ay**, **gün**, **saat**,  **dakika**, ve **ikinci**. Aşağıdaki örnek, öğe için bir filtre ekler, *son tarih* 2013'e eşittir.
+Tarihleri filtreleyebilirsiniz. Aşağıdaki yöntemlerden tarih kısımlarını ve tamamını tarih alanı karşılaştırmanıza olanak tanır: **yıl**, **ay**, **gün**, **saat**,  **dakika**, ve **ikinci**. Aşağıdaki örnek, öğeler için bir filtre ekler, *son tarih* 2013'e eşittir.
 
 ```java
 List<ToDoItem> results = MToDoTable
@@ -330,7 +330,7 @@ List<ToDoItem> results = MToDoTable
     .get();
 ```
 
-Aşağıdaki yöntemlerden karmaşık filtreler dize alanları destekler: **startsWith**, **endsWith**, **concat**, **subString**, **indexOf**, **Değiştir**, **toLower**, **toUpper**, **kırpma**, ve **uzunluğu** . Aşağıdaki örnek filtreleri tablosu için satırları *metin* sütun "PRI0" ile başlar
+Aşağıdaki yöntemlerden karmaşık filtreleri dize alanları desteği: **startsWith**, **endsWith**, **concat**, **subString**, **indexOf**, **değiştirin**, **toLower**, **toUpper**, **trim**, ve **uzunluğu** . Aşağıdaki örnek filtrelerini tablo satırları *metin* sütun "PRI0" ile başlar
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -340,7 +340,7 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-Aşağıdaki işleci yöntemleri numara alanları desteklenir: **ekleme**, **alt**, **mul**, **div**, **mod**, **kat**, **tavan**, ve **yuvarlak**. Aşağıdaki örnek filtreleri tablosu için satırları **süresi** bir çift sayı.
+Aşağıdaki işleci yöntemleri üzerinde sayı alanları desteklenir: **ekleme**, **alt**, **mul**, **div**, **mod**, **kat**, **tavan**, ve **yuvarlak**. Aşağıdaki örnek filtrelerini tablo satırları **süresi** bir çift sayı.
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -350,7 +350,7 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-Bu mantıksal yöntemlerle koşulları birleştirebilirsiniz: **ve**, **veya** ve **değil**. Aşağıdaki örnekte iki önceki örneklerin birleştirir.
+Koşullar ile mantıksal bu yöntemleri birleştirebilirsiniz: **ve**, **veya** ve **değil**. Aşağıdaki örnek iki Yukarıdaki örneklerde birleştirir.
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -360,7 +360,7 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-Mantıksal işleçler: Grup ve iç içe geçirme
+Grup ve iç içe mantıksal işleçleri:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -374,11 +374,11 @@ List<ToDoItem> results = mToDoTable
     .execute().get();
 ```
 
-Daha ayrıntılı tartışma ve filtreleme örnekleri için bkz: [Android istemci sorgu modelini zenginliğinin keşfetme][20].
+Daha ayrıntılı tartışma ve filtreleme örnekler için bkz [Android istemci sorgu modelini zenginliğine keşfetmeye][20].
 
-### <a name="sorting"></a>Döndürülen veriler sıralama
+### <a name="sorting"></a>Döndürülen verileri sıralama
 
-Aşağıdaki kod bir tablodan tüm öğeleri döndürür **Todoıtems** göre artan *metin* alan. *mToDoTable* daha önce oluşturduğunuz arka uç tablo başvurusudur:
+Aşağıdaki kod tablodan tüm öğeleri döndürür **Todoıtems** göre artan düzende sıralandı *metin* alan. *mToDoTable* daha önce oluşturduğunuz arka uç tablosuna başvuru:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -387,11 +387,11 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-Öğesinin ilk parametresi **orderBy** bir dize sıralama yapılacak alanı adına eşit bir yöntemdir. İkinci parametre **QueryOrder** artan veya azalan sıralama belirtmek için numaralandırması.  Kullanarak filtre ***nerede*** yöntemi, ***nerede*** yöntemi çağrılır, önce ***orderBy*** yöntemi.
+İlk parametresi **orderBy** yöntemdir üzerinde sıralama yapılacak alan adına eşit olan bir dize. İkinci parametre **QueryOrder** artan veya azalan düzende sıralama belirtmek için sabit listesi.  Kullanarak uyguladıysanız ***burada*** yöntemi ***burada*** yöntemi çağrılır, önce ***orderBy*** yöntemi.
 
 ### <a name="selection"></a>Belirli sütunları seçin
 
-Aşağıdaki kod bir tablodan tüm öğeleri döndürmek nasıl gösterir **Todoıtems**, ancak yalnızca görüntüler **tam** ve **metin** alanları. **mToDoTable** daha önce oluşturduğumuz arka uç tablo başvurusudur.
+Aşağıdaki kod tablodan tüm öğeleri döndürmek nasıl gösterir **Todoıtems**, ancak yalnızca görüntüler **tam** ve **metin** alanları. **mToDoTable** daha önce oluşturduğumuz arka uç tablosuna başvuru.
 
 ```java
 List<ToDoItemNarrow> result = mToDoTable
@@ -400,13 +400,13 @@ List<ToDoItemNarrow> result = mToDoTable
     .get();
 ```
 
-Select işlevi parametreleri döndürmek istediğiniz tablonun sütunlarının dize adlardır.  **Seçin** yöntemi gibi yöntemleri uygulayın gerekiyor **nerede** ve **orderBy**. Disk belleği yöntemler gibi tarafından izlenebilir **atla** ve **üst**.
+Select işlevi parametreleri dize iade etmek istediğiniz tablonun sütunlarını adlarıdır.  **Seçin** yöntemi gerekiyor gibi yöntemleri izlemek **burada** ve **orderBy**. Disk belleği yöntemlerinin gibi tarafından izlenebilir **atla** ve **üst**.
 
 ### <a name="paging"></a>Dönüş verileri sayfalarında
 
-Veri **her zaman** sayfalarında döndürdü.  Döndürülen kayıt sayısını sunucu tarafından ayarlanır.  Daha fazla kayıt istemci isteğinde bulunursa sunucu en fazla kayıt sayısı döndürür.  Varsayılan olarak, sunucu üzerindeki en büyük sayfa boyutu 50 kayıttır.
+Veriler **her zaman** sayfalarında döndürdü.  Döndürülen kayıt sayısı, sunucu tarafından ayarlanır.  Daha fazla kaydı istemci isteğinde bulunursa sunucu en fazla kayıt sayısını döndürür.  Varsayılan olarak, sunucu üzerindeki en fazla sayfa boyutu 50 kayıt ' dir.
 
-İlk örnek bir tablodan en üstteki beş öğelerini seçmek nasıl gösterir. Sorgu bir tablodan döndürürse **Todoıtems**. **mToDoTable** daha önce oluşturduğunuz arka uç tablo başvurusudur:
+İlk örnek, bir tablonun ilk beş öğeleri seçmek gösterilmektedir. Sorgu tablonun öğeleri döndürür **Todoıtems**. **mToDoTable** daha önce oluşturduğunuz arka uç tablosuna başvuru:
 
 ```java
 List<ToDoItem> result = mToDoTable
@@ -415,7 +415,7 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-İlk beş öğeleri atlar ve ardından sonraki beş döndüren bir sorgu şöyledir:
+İlk beş öğeleri atlar ve ardından sonraki beş döndüren bir sorgu aşağıda verilmiştir:
 
 ```java
 List<ToDoItem> result = mToDoTable
@@ -424,7 +424,7 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-Bir tablodaki tüm kayıtları almak istiyorsanız, tüm sayfaları yinelemek için kod uygulayın:
+Bir tablodaki tüm kayıtları almak istiyorsanız, tüm sayfaları yinelemek için kodu Uygula:
 
 ```java
 List<MyDataModel> results = new List<MyDataModel>();
@@ -441,14 +441,14 @@ do {
 } while (nResults > 0);
 ```
 
-Bir istek bu yöntemi kullanarak tüm kayıtlar için en az iki isteklerine Mobile Apps arka uç oluşturur.
+Bu yöntemi kullanarak tüm kayıtlar için bir istek, iki isteği Mobile Apps arka ucuna en az oluşturur.
 
 > [!TIP]
-> Sağ sayfa boyutunu seçme isteği sürerken bellek kullanımı, bant genişliği kullanımı ve veri tamamen alma gecikme arasında bir denge ' dir.  Varsayılan değer (50 kayıtları) tüm aygıtlar için uygundur.  Özellikle büyük bellek cihazlarda çalışmazsa, en fazla 500 artırın.  Biz, kabul edilebilir gecikme ve büyük bellek sorunları 500 kayıtları sonuçlarında ötesinde sayfa boyutunu artırmayı buldunuz.
+> Sağ bir sayfa boyutunu belirlemek, isteğin gerçekleştiği sırada bellek kullanımı, bant genişliği kullanımını ve veri tamamen alma gecikme arasında bir denge değerdir.  Varsayılan (50 kayıt), tüm cihazlar için uygundur.  Özel olarak daha büyük bellek cihazlarda çalışır, en fazla 500 artırın.  Kabul edilebilir gecikme ve büyük bellek sorunlarını 500 kayıt sonuçlarında ötesinde sayfa boyutunu artırma bulduk.
 
-### <a name="chaining"></a>Nasıl yapılır: Sorgu yöntemleri birleştirme
+### <a name="chaining"></a>Nasıl yapılır: birleştirme sorgu yöntemleri
 
-Arka uç tabloları sorgulama kullanılan yöntemleri art arda eklenmiş. Sorgu yöntemleri zincirleme sıralanır ve disk belleği filtrelenmiş satır belirli sütunları seçmek sağlar. Karmaşık mantıksal filtreler oluşturabilirsiniz.  Her sorgu yöntemi, bir sorgu nesnesi döndürür. Bir dizi yöntem bitirmek ve gerçekte sorguyu çalıştırmak için arama **yürütme** yöntemi. Örneğin:
+Arka uç tabloları sorgularken kullanılan yöntemleri birleştirilebilir. Sorgu yöntemleri zincirleme sıralanmış ve disk belleğine alınan bir filtrelenen satırlar belirli sütunları seçmenizi sağlar. Karmaşık mantıksal filtreler oluşturabilirsiniz.  Her sorgu yöntemine, bir sorgu nesnesi döndürür. Bir dizi yöntem bitirmek ve gerçekten sorguyu çalıştırmak için çağrı **yürütme** yöntemi. Örneğin:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -468,22 +468,22 @@ Zincirleme sorgu yöntemleri şöyle sıralanmalıdır gerekir:
 
 1. Filtreleme (**burada**) yöntemleri.
 2. Sıralama (**orderBy**) yöntemleri.
-3. Seçim (**seçin**) yöntemleri.
+3. Seçimi (**seçin**) yöntemleri.
 4. disk belleği (**atla** ve **üst**) yöntemleri.
 
-## <a name="binding"></a>Veri bağlama için kullanıcı arabirimi
+## <a name="binding"></a>Kullanıcı arabirimine veri bağlama
 
-Veri bağlama üç bileşenleri içerir:
+Veri bağlama üç bileşenden oluşur:
 
 * Veri kaynağı
-* Ekranı düzeni
-* İki birbirine bağlar bağdaştırıcısı.
+* Ekran düzeni
+* İki bağdaştırabilir bağdaştırıcısı.
 
-Bizim örnek kodda veri Mobile Apps SQL Azure tablosundan döndürürüz **Todoıtem** bir dizi içine. Veri uygulamaları için genel bir desen etkinliktir.  Veritabanı sorguları genellikle bir liste veya dizi istemci alır satır koleksiyonu döndürür. Bu örnekte, veri kaynağı bir dizidir.  Kod cihazda görüntülenen verileri görünümünü tanımlayan bir ekran düzenini belirtir.  İki bağlı olan bu kodda bir uzantı bir bağdaştırıcı ile birlikte, **ArrayAdapter&lt;Todoıtem&gt;**  sınıfı.
+Örnek kodumuz biz verileri Mobile Apps SQL Azure tablodan **Todoıtem** dizisine. Bu etkinlik bir veri uygulamaları için ortak desendir.  Veritabanı sorguları genellikle bir listesini ya da dizi istemci alır satırları koleksiyonunu döndürür. Bu örnekte, veri kaynağı bir dizidir.  Kod, cihaz üzerinde görünen verilerin görünümünü tanımlayan bir ekran düzenini belirtir.  In bir uzantısı olan bu kodda bir bağdaştırıcı ile birlikte, iki bağlı olan **ArrayAdapter&lt;Todoıtem&gt;**  sınıfı.
 
 #### <a name="layout"></a>Düzen tanımlayın
 
-Düzen XML kodunu birkaç parçacıkları tarafından tanımlanır. Varolan bir düzeni verilen, aşağıdaki kod temsil **ListView** bizim sunucu veri ile doldurulacak istiyoruz.
+Düzen, birden çok XML kod parçacıkları tarafından tanımlanır. Varolan bir düzen göz önünde bulundurulduğunda, aşağıdaki kod temsil **ListView** bizim sunucu verileriyle doldurmak istiyoruz.
 
 ```xml
     <ListView
@@ -494,7 +494,7 @@ Düzen XML kodunu birkaç parçacıkları tarafından tanımlanır. Varolan bir 
     </ListView>
 ```
 
-Önceki kod *LISTITEM* özniteliği listesinde tek bir satır için Düzen kimliğini belirtir. Bu kod bir onay kutusu ve ilgili metin belirtir ve listedeki her bir öğe için bir kez örneği. Bu düzen görüntülenmez **kimliği** alan ve daha karmaşık bir düzen belirtirsiniz ek alanlar görüntüleme. Bu kod **row_list_to_do.xml** dosya.
+Önceki kodda, *ListItem* öznitelik listesinde tek bir satır için Düzen kimliğini belirtir. Bu kod, bir onay kutusu ve ilgili metin belirtir ve listedeki her öğe için bir kez örneği. Bu düzen aşağıdaki dotnetclıtools'u görüntülemiyor **kimliği** alan ve daha karmaşık bir düzen belirtirsiniz ek alanlar görüntüsünü. Bu kodu **row_list_to_do.xml** dosya.
 
 ```java
 <?xml version="1.0" encoding="utf-8"?>
@@ -511,7 +511,7 @@ Düzen XML kodunu birkaç parçacıkları tarafından tanımlanır. Varolan bir 
 ```
 
 #### <a name="adapter"></a>Bağdaştırıcı tanımlayın
-Veri kaynağı bizim görünümünün bir dizi olduğundan **Todoıtem**, biz alt bizim bağdaştırıcısından bir **ArrayAdapter&lt;Todoıtem&gt;**  sınıfı. Bu alt sınıf için bir görünüm üreten her **Todoıtem** kullanarak **row_list_to_do** düzeni.  Bizim kodda bir uzantısıdır ve aşağıdaki sınıf tanımlarız **ArrayAdapter&lt;E&gt;**  sınıfı:
+Veri kaynağı bizim görünümünün bir dizi olduğundan **Todoıtem**, biz alt bizim bağdaştırıcısından bir **ArrayAdapter&lt;Todoıtem&gt;**  sınıfı. Bu alt sınıfı için bir görünüm oluşturur. her **Todoıtem** kullanarak **row_list_to_do** düzeni.  Bizim kodda bir uzantısıdır ve aşağıdaki sınıf tanımlarız **ArrayAdapter&lt;E&gt;**  sınıfı:
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
@@ -554,23 +554,23 @@ Bağdaştırıcıları geçersiz kılma **getView** yöntemi. Örneğin:
     }
 ```
 
-Biz bu sınıfının bir örneği bizim etkinliğinde gibi oluşturun:
+Biz bu sınıfın bir örneği bizim etkinliğinde şu şekilde oluşturun:
 
 ```java
     ToDoItemAdapter mAdapter;
     mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 ```
 
-ToDoItemAdapter Oluşturucusu ikinci parametresi, Düzen başvurudur. Biz şimdi örneğini oluşturabilirsiniz **ListView** ve bağdaştırıcıya atayın **ListView**.
+ToDoItemAdapter oluşturucusunun ikinci parametresi, düzen bir başvurudur. Biz artık oluşturabileceğiniz **ListView** bağdaştırıcıya atayın **ListView**.
 
 ```java
     ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
     listViewToDo.setAdapter(mAdapter);
 ```
 
-#### <a name="use-adapter"></a>Kullanıcı arabirimini bağlaması bağdaştırıcıya kullanın
+#### <a name="use-adapter"></a>Kullanıcı arabirimini bağlanacağı bağdaştırıcısı kullanın
 
-Veri bağlama kullanmak artık hazırsınız. Aşağıdaki kod tabloda öğeleri alma gösterir ve yerel bağdaştırıcı döndürülen öğe ile doldurur.
+Artık veri bağlamayı kullanmak hazırsınız. Aşağıdaki kodu yerel bağdaştırıcısı döndürülen öğeleriyle doldurur ve tabloda öğeleri almak gösterir.
 
 ```java
     public void showAll(View view) {
@@ -599,11 +599,11 @@ Veri bağlama kullanmak artık hazırsınız. Aşağıdaki kod tabloda öğeleri
     }
 ```
 
-Bağdaştırıcı, değiştirmek istediğiniz zaman arama **Todoıtem** tablo. Bir kayıt kayıt temelinde yapılır ve değişiklikleri olduğundan, bir koleksiyon yerine tek bir satır işleyici. Bir öğe eklediğinizde, çağrı **ekleme** yöntemi bağdaştırıcısında; silerken, çağrı **kaldırmak** yöntemi.
+Bağdaştırıcı, değiştirmek istediğiniz zaman arama **Todoıtem** tablo. Değişiklikler tek kayıt kayıt temelinde gerçekleştirilir olduğundan, bir koleksiyon yerine tek bir satır işleyin. Bir öğe eklediğinizde, çağrı **ekleme** bağdaştırıcısında; yöntemi silerken çağrı **kaldırmak** yöntemi.
 
 Tam bir örnek bulabilirsiniz [Android hızlı başlangıç projesi][21].
 
-## <a name="inserting"></a>Arka uç veri Ekle
+## <a name="inserting"></a>Arka uca veri ekleme
 
 Bir örneği *Todoıtem* sınıfını ve özelliklerini ayarlayın.
 
@@ -613,7 +613,7 @@ item.text = "Test Program";
 item.complete = false;
 ```
 
-Ardından **INSERT()** nesne eklemek için:
+Ardından **INSERT()** bir nesneyi eklemek için:
 
 ```java
 ToDoItem entity = mToDoTable
@@ -621,21 +621,21 @@ ToDoItem entity = mToDoTable
     .get();
 ```
 
-Döndürülen varlığı eşleşmeleri arka uç tabloya eklenen verilere dahil kimliği ve diğer tüm değerler (gibi `createdAt`, `updatedAt`, ve `version` alanları) arka uç ayarlayın.
+Döndürülen varlığı eşleşmeleri arka uç tablosuna veri kimliği ve diğer tüm değerler dahil (gibi `createdAt`, `updatedAt`, ve `version` alanları) arka uç ayarlayın.
 
-Mobile Apps tabloları gerektiren adlı birincil anahtar sütunu **kimliği**. Bu sütun bir dize olmalıdır. Kimlik sütununun varsayılan değeri bir GUID değeridir.  E-posta adresleri veya kullanıcı adları gibi diğer benzersiz değerler sağlayabilirsiniz. Bir dize kimliği değeri için eklenen bir kaydı sağlanmadığında arka uç yeni bir GUID oluşturur.
+Mobile Apps tablolarda gereklidir adlı birincil anahtar sütunu **kimliği**. Bu sütun bir dize olmalıdır. Varsayılan kimlik sütunu bir GUID değeridir.  E-posta adresi veya kullanıcı adları gibi diğer benzersiz değerler sağlayabilirsiniz. Bir dize kimliği için eklenen bir kaydı sağlanmadığında, arka uç yeni GUID oluşturur.
 
 Dize kimliği değerleri aşağıdaki avantajları sağlar:
 
-* Kimlikleri veritabanına gidiş dönüş yapmadan oluşturulabilir.
-* Kayıtları farklı tablolar veya veritabanlarına birleştirme kolaydır.
-* KOD değerleri daha iyi bir uygulama mantığı ile tümleştirin.
+* Veritabanına bir gidiş dönüş yapmadan kimlikleri oluşturulabilir.
+* Kayıtları farklı tablolar veya veritabanlarına birleştirme daha kolaydır.
+* Kimliği değerleri daha iyi bir uygulama mantığı ile tümleştirin.
 
-Dize kimliği değerler **gerekli** çevrimdışı eşitleme desteği.  Arka uç veritabanında depolandıktan sonra bir kimliğini değiştiremezsiniz.
+Dize kimliği değerler **gerekli** çevrimdışı eşitleme desteği.  Arka uç veritabanında depolandıktan sonra bir kimliği değiştirilemiyor.
 
 ## <a name="updating"></a>Bir mobil uygulama verileri güncelleştirme
 
-Bir tablodaki verileri güncelleştirmek için yeni nesne için geçirmek **update()** yöntemi.
+Bir tablodaki verileri güncelleştirmek için yeni nesneye geçirmek **update()** yöntemi.
 
 ```java
 mToDoTable
@@ -643,18 +643,18 @@ mToDoTable
     .get();
 ```
 
-Bu örnekte, *öğesi* bir satıra bir başvuru *Todoıtem* üzerinde yapılan bazı değişiklikler dolmadığı tablo.  Aynı satır **kimliği** güncelleştirilir.
+Bu örnekte, *öğesi* bir satıra bir başvuru *Todoıtem* tablosu için yapılan birkaç değişiklik oluşturdu.  Aynı satırı **kimliği** güncelleştirilir.
 
-## <a name="deleting"></a>Bir mobil uygulama verilerini sil
+## <a name="deleting"></a>Bir mobil uygulama verilerini silme
 
-Aşağıdaki kod, veri nesnesi belirterek tablodan veri silme gösterilmektedir.
+Aşağıdaki kod, veri nesnesi belirterek bir tablodan veri silme gösterir.
 
 ```java
 mToDoTable
     .delete(item);
 ```
 
-Belirterek öğeyi silebilirsiniz **kimliği** silmek için satırı alanı.
+Bir öğe belirterek de silebilirsiniz **kimliği** silmek için satırın alan.
 
 ```java
 String myRowId = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
@@ -662,9 +662,9 @@ mToDoTable
     .delete(myRowId);
 ```
 
-## <a name="lookup"></a>Belirli bir öğeyi kimliğe göre arayın
+## <a name="lookup"></a>Belirli bir öğeyi kimliğine göre arayın
 
-Belirli bir sahip bir öğe aramak **kimliği** ile alan **lookUp()** yöntemi:
+Belirli bir sahip bir öğe araması **kimliği** alanına **lookUp()** yöntemi:
 
 ```java
 ToDoItem result = mToDoTable
@@ -672,13 +672,13 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Nasıl yapılır: türsüz verilerle çalışma
+## <a name="untyped"></a>Nasıl yapılır: yazılmamış verileri ile çalışma
 
-Türsüz programlama modeli, JSON seri hale getirme üzerinde tam denetim sağlar.  Burada bir türsüz programlama modelini kullanmak isteyebilirsiniz bazı yaygın senaryolar vardır. Örneğin, arka uç tablonuz fazla sayıda sütun içeriyor ve yalnızca bir sütun alt kümesini başvuru gerekiyorsa.  Yazılı modeli Mobile Apps arka uç veri sınıfınızda tanımlanan tüm sütunları tanımlamanızı gerektirir.  Verilere erişmek için API çağrıları çoğunu yazılan programlama çağrıları benzerdir. Ana farktır türsüz modelinde, yöntemleri üzerinde çağırmasını **MobileServiceJsonTable** nesnesi yerine **MobileServiceTable** nesnesi.
+Yazılmamış bir programlama modeli, JSON seri hale getirme üzerinde tam denetim sağlar.  Burada yazılmamış bir programlama modeli kullanmak isteyebilir, sık karşılaşılan bazı senaryolar vardır. Örneğin, arka uç tablonuzun birçok sütun içeren ve yalnızca bir sütun alt kümesi başvuru gerekir.  Belirlenmiş model Mobile Apps arka uç veri Sınıfınız içinde tanımlanan tüm sütunları tanımlamanızı gerektirir.  Çoğu verilerine erişmek için API çağrıları, yazılan programlama çağrıları benzerdir. Ana fark yazılmamış modelinde, yöntemleri üzerinde çağırma **MobileServiceJsonTable** nesnesi yerine **MobileServiceTable** nesne.
 
-### <a name="json_instance"></a>Türsüz tablo örneği oluşturma
+### <a name="json_instance"></a>Yazılmamış bir tablo örneği oluşturma
 
-Yazılı modeline benzer bir tablo başvurusu alarak başlattığınız, ancak bu durumda olduğu bir **MobileServicesJsonTable** nesnesi. Başvuru çağırarak elde **getTable** istemci örneği üzerinde yöntemi:
+Benzer şekilde türü belirlenmiş model, bir tablo başvurusu alarak başlattığınızda, ancak bu durumda, bir **MobileServicesJsonTable** nesne. Başvuru çağırarak elde **getTable** istemci örneği üzerinde yöntemi:
 
 ```java
 private MobileServiceJsonTable mJsonToDoTable;
@@ -686,10 +686,10 @@ private MobileServiceJsonTable mJsonToDoTable;
 mJsonToDoTable = mClient.getTable("ToDoItem");
 ```
 
-Örneği oluşturduktan sonra **MobileServiceJsonTable**, neredeyse aynı API ile yazılan programlama modeli kullanılabilir olarak sahiptir. Bazı durumlarda, yöntemleri türü belirsiz bir parametre türü belirtilmiş bir parametre yerine getirin.
+Örneğini oluşturduktan sonra **MobileServiceJsonTable**, neredeyse aynı API ile yazılan programlama modeli kullanılabilir olarak sahiptir. Bazı durumlarda, yöntemleri yerine belirtilmiş bir parametre türü belirsiz bir parametre alır.
 
-### <a name="json_insert"></a>Türü belirsiz bir tabloya ekleme
-Aşağıdaki kod, bir ekleme yapmak gösterilmiştir. İlk adım oluşturmaktır bir [JsonObject][1], parçası olduğu [gson] [ 3] kitaplığı.
+### <a name="json_insert"></a>Yazılmamış bir tabloya Ekle
+Aşağıdaki kod nasıl ekleme yapılacağını gösterir. İlk adım oluşturmaktır bir [JsonObject][1], parçası olduğu [gson] [ 3] kitaplığı.
 
 ```java
 JsonObject jsonItem = new JsonObject();
@@ -697,7 +697,7 @@ jsonItem.addProperty("text", "Wake up");
 jsonItem.addProperty("complete", false);
 ```
 
-Ardından, **INSERT()** tabloya türsüz nesne eklemek için.
+Ardından, **INSERT()** yazılmamış nesne tabloya eklenecek.
 
 ```java
 JsonObject insertedItem = mJsonToDoTable
@@ -705,27 +705,27 @@ JsonObject insertedItem = mJsonToDoTable
     .get();
 ```
 
-Eklenen nesnesinin kimliği almanız gereken kullanırsanız **getAsJsonPrimitive()** yöntemi.
+Eklenen nesne Kimliğini almak ihtiyacınız varsa **getAsJsonPrimitive()** yöntemi.
 
 ```java
 String id = insertedItem.getAsJsonPrimitive("id").getAsString();
 ```
-### <a name="json_delete"></a>Türü belirsiz bir tablodan silin
-Aşağıdaki kod örneği, bu durumda, aynı örneğini silmek nasıl gösterir bir **JsonObject** önceden oluşturulmuş *Ekle* örnek. Kod yazılan durumunda olduğu gibi ile aynıdır, ancak başvurduğu beri yöntemi farklı bir imzaya sahip bir **JsonObject**.
+### <a name="json_delete"></a>Yazılmamış bir tablodan silme
+Aşağıdaki kod örneği, bu durumda, aynı örneğini silme işlemini gösterir. bir **JsonObject** önceki oluşturulduğu *Ekle* örnek. Kod olarak yazılan durum ile aynıdır, ancak bunu başvurduğundan yöntemi, farklı bir imzaya sahip. bir **JsonObject**.
 
 ```java
 mToDoTable
     .delete(insertedItem);
 ```
 
-Doğrudan Kimliğini kullanarak bir örneği daha da silebilirsiniz:
+Ayrıca, kendi Kimliğini kullanarak doğrudan örneği silebilirsiniz:
 
 ```java
 mToDoTable.delete(ID);
 ```
 
-### <a name="json_get"></a>Türü belirsiz bir tablodan tüm satırları döndürür
-Aşağıdaki kod, tüm bir tabloyu almak gösterilmiştir. Bir JSON tablo kullandığından, seçmeli olarak yalnızca bazı tablonun sütunlarının alabilirsiniz.
+### <a name="json_get"></a>Yazılmamış bir tablodan tüm satırları döndürür
+Aşağıdaki kod, bir tablonun tamamını almak nasıl gösterir. Bir JSON tablo kullandığımızdan, seçmeli olarak tablonun sütunlarını yalnızca bazılarını alabilir.
 
 ```java
 public void showAllUntyped(View view) {
@@ -761,20 +761,20 @@ public void showAllUntyped(View view) {
 }
 ```
 
-Filtreleme aynı kümesi, filtreleme ve yazılı model için kullanılabilir yöntemleri disk belleği türsüz modeli için kullanılabilir.
+Filtreleme aynı kümesi, filtreleme ve sayfalama belirlenmiş model için kullanılabilen yöntemler yazılmamış modeli için kullanılabilir.
 
-## <a name="offline-sync"></a>Çevrimdışı eşitleme uygulama
+## <a name="offline-sync"></a>Uygulama çevrimdışı eşitleme
 
-Azure Mobile Apps istemci SDK'sı sunucu verilerini yerel olarak bir kopyasını saklamak için bir SQLite veritabanı kullanarak çevrimdışı veri eşitlemeyi de uygular.  Çevrimdışı bir tablo üzerinde gerçekleştirilen işlemler, iş için mobil bağlantısı gerektirmez.  Çevrimdışı eşitleme yardımları esnekliği ve çakışma çözümü için daha karmaşık mantığı ödün verme pahasına performans.  Azure Mobile Apps istemci SDK'sı aşağıdaki özellikleri gerçekleştirir:
+Azure Mobile Apps istemci SDK'sı bir kopyasını sunucu verilerini yerel olarak depolamak için bir SQLite veritabanı kullanarak çevrimdışı veri eşitlemeyi de uygular.  Çevrimdışı bir tablo üzerinde gerçekleştirilen işlemler, iş için mobil bağlantısı gerektirmez.  Çevrimdışı eşitleme, esneklik ve performansı çakışmaları çözümlemek için daha karmaşık mantık çoğaltamaz kolaylık sağlar.  Azure Mobile Apps istemci SDK'sı aşağıdaki özellikler uygular:
 
-* Artımlı eşitleme: Bant genişliği ve bellek tüketimi kaydetme yalnızca güncelleştirilmiş ve yeni kayıtlar indirilir.
-* İyimser eşzamanlılık: İşlemleri başarılı olarak kabul edilir.  Çakışma çözümü, güncelleştirmelerinin sunucuda gerçekleştirilir kadar ertelenir.
-* Çakışma çözümü: çakışan değişikliği sunucuda yapılan ve kullanıcıyı uyarmak için kancaları SDK algılar.
-* Geçici silme: Silinen kayıtlar, çevrimdışı önbelleklerini güncelleştirmek diğer cihazları izin vererek, silinen işaretlenir.
+* Artımlı eşitleme: Bant genişliği ve bellek tüketimi kaydetme yalnızca güncelleştirilmiş ve yeni kayıt indirilir.
+* İyimser eşzamanlılık: İşlemlerinin başarılı olması için kabul edilir.  Çakışma, sunucu üzerinde güncelleştirme yapıldığında kadar ertelenir.
+* Çakışma: çakışan değişiklik sunucuda yapılan ve kullanıcıyı uyarmak için hooks sağlayan SDK algılar.
+* Geçici silme: Silinen kayıtlar, çevrimdışı önbelleklerini güncelleştirmek diğer cihazlara izin verme, silinmiş olarak işaretlenir.
 
-### <a name="initialize-offline-sync"></a>Çevrimdışı eşitleme başlatılamadı
+### <a name="initialize-offline-sync"></a>Çevrimdışı eşitleme başlatın
 
-Çevrimdışı her tablo kullanmadan önce çevrimdışı önbellek tanımlanması gerekir.  Normalde, tablo tanımı istemci oluşturulduktan hemen sonra gerçekleştirilir:
+Çevrimdışı her tablo kullanmadan önce çevrimdışı önbellekte tanımlanmalıdır.  Normalde, tablo tanımı istemci oluşturduktan hemen sonra gerçekleştirilir:
 
 ```java
 AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
@@ -817,7 +817,7 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 }
 ```
 
-### <a name="obtain-a-reference-to-the-offline-cache-table"></a>Çevrimdışı Önbellek tablo başvurusu alın
+### <a name="obtain-a-reference-to-the-offline-cache-table"></a>Çevrimdışı Önbellek tablosuna bir başvurudur alın
 
 Çevrimiçi bir tablo için kullandığınız `.getTable()`.  Çevrimdışı bir tablo için kullanın `.getSyncTable()`:
 
@@ -825,11 +825,11 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 MobileServiceSyncTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
 ```
 
-(Filtreleme, sıralama, disk belleği, veri ekleme, verilerini güncelleştirmek ve verileri silme de dahil olmak üzere) çevrimiçi tablolar için kullanılabilir olan tüm yöntemleri eşit oranda işe çevrimiçi ve çevrimdışı tablolarda.
+(Filtreleme, sıralama, sayfalama, veri ekleme, verileri güncelleştirme ve verileri silme de dahil olmak üzere) çevrimiçi tablolar için kullanılabilir tüm yöntemleri eşit derecede iyi çalışması tablolarda, çevrimiçi ve çevrimdışı.
 
-### <a name="synchronize-the-local-offline-cache"></a>Yerel Çevrimdışı Önbellek Eşitle
+### <a name="synchronize-the-local-offline-cache"></a>Yerel önbellek çevrimdışı eşitleme
 
-Eşitleme, uygulamanızın içinde denetimdir.  Bir örnek eşitleme yöntemi şöyledir:
+Uygulamanızın içinde eşitleme denetimidir.  Bir örnek eşitleme yöntemi aşağıda verilmiştir:
 
 ```java
 private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
@@ -850,23 +850,23 @@ private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
 }
 ```
 
-İçin bir sorgu adı sağlanmışsa `.pull(query, queryname)` yöntemi sonra Artımlı eşitleme oluşturulan veya en son başarıyla değiştirildi yalnızca kayıtlar tamamlandı çekme döndürmek için kullanılır.
+Bir sorgu adı sağlanmışsa `.pull(query, queryname)` yöntemi sonra Artımlı eşitleme oluşturulmuş veya en son başarıyla değiştirildi yalnızca kayıtlar tamamlanan çekme döndürmek için kullanılır.
 
-### <a name="handle-conflicts-during-offline-synchronization"></a>Çevrimdışı eşitleme sırasında çakışmalarını işleme
+### <a name="handle-conflicts-during-offline-synchronization"></a>Sırasında çevrimdışı eşitleme çakışmalarını işleme
 
-Sırasında bir çakışma olursa bir `.push()` işlemi, bir `MobileServiceConflictException` oluşturulur.   Sunucu tarafından verilen öğesi özel durum katıştırılır ve tarafından alınabilir `.getItem()` özel durumunda.  Anında iletme MobileServiceSyncContext nesnesinde aşağıdaki öğeleri çağırarak ayarlayın:
+Sırasında bir çakışma meydana gelirse bir `.push()` işlemi, bir `MobileServiceConflictException` oluşturulur.   Sunucu tarafından verilen öğenin özel durumda katıştırılır ve tarafından alınabilen `.getItem()` üzerinde özel durum.  Anında iletme MobileServiceSyncContext nesne üzerinde aşağıdaki öğeleri çağırarak ayarlayın:
 
 *  `.cancelAndDiscardItem()`
 *  `.cancelAndUpdateItem()`
 *  `.updateOperationAndItem()`
 
-İstediğiniz gibi tüm çakışmaları işaretlenmiş sonra çağrı `.push()` yeniden tüm çakışmaları çözümlemek için.
+İstediğiniz gibi tüm çakışmaları işaretlenmiş sonra çağırma `.push()` tüm çakışmaları çözümlemeyi tekrar.
 
 ## <a name="custom-api"></a>Özel bir API çağrısı
 
-Özel bir API değil eşlemek için bir ekleme, güncelleştirme, silme veya okuma işlemi sunucusu işlevselliği kullanıma özel uç noktaları tanımlamanızı sağlar. Özel bir API kullanarak, okuma ve HTTP ileti üstbilgilerini ayarlama ve JSON dışında bir ileti gövdesinin biçimi tanımlama gibi Mesajlaşma üzerinde daha fazla denetim olabilir.
+Özel API eşlemek için bir ekleme, güncelleştirme, silme, veya okuma işlemi sunucusu işlevselliği kullanıma sunan özel uç noktalar tanımlamanızı sağlar. Özel API kullanarak okuma ve HTTP ileti üstbilgilerini ayarlama ve ileti gövdesi biçimi JSON dışında tanımlama gibi Mesajlaşma hakkında daha fazla denetime sahip olabilir.
 
-Bir Android istemciden çağırmanız **invokeApi** özel API uç noktası çağrılacak yöntem. Aşağıdaki örnek adlı bir API uç noktası çağrı gösterilmektedir **completeAll**, adlı bir koleksiyon sınıfı döndürür **MarkAllResult**.
+Android bir istemciden çağırın **invokeApi** özel API uç noktası çağrılacak yöntem. Aşağıdaki örnek adlı bir API uç noktasını çağırmak nasıl gösterir **completeAll**, adlı bir koleksiyon sınıfı döndüren **MarkAllResult**.
 
 ```java
 public void completeItem(View view) {
@@ -886,30 +886,30 @@ public void completeItem(View view) {
 }
 ```
 
-**İnvokeApi** yöntemi yeni özel API için bir POST isteği gönderir istemcide çağrılır. Herhangi bir hata olduğundan özel API tarafından döndürülen sonuç bir ileti iletişim kutusunda görüntülenir. Diğer sürümleri **invokeApi** isteğe bağlı olarak istek gövdesinde nesneyi gönderme, HTTP yöntemini belirtin ve sorgu parametreleri istekle Gönder olanak tanır. Türsüz sürümlerini **invokeApi** de sağlanır.
+**İnvokeApi** yöntemi, yeni özel API için bir POST isteği gönderir istemcide çağrılır. Herhangi bir hata olduğu gibi özel API tarafından döndürülen sonuç bir ileti iletişim kutusu görüntülenir. Diğer sürümleri **invokeApi** isteğe bağlı olarak istek gövdesinde bir nesne göndermek, HTTP yöntemini belirtin ve sorgu parametreleri istekle Gönder olanak tanır. Türsüz sürümleri **invokeApi** de sağlanır.
 
 ## <a name="authentication"></a>Uygulamanıza kimlik doğrulaması ekleme
 
-Öğreticiler zaten bu özellikler ekleme ayrıntılı olarak açıklanmaktadır.
+Öğreticiler, bu özellikler ekleme zaten ayrıntılı olarak açıklanmaktadır.
 
-Uygulama hizmetini destekleyen [uygulama kullanıcıların kimlik doğrulaması](app-service-mobile-android-get-started-users.md) çeşitli dış kimlik sağlayıcılarını kullanarak: Facebook, Google, Microsoft Account, Twitter ve Azure Active Directory. Yalnızca kimliği doğrulanmış kullanıcılar için belirli işlemler için erişimi kısıtlamak için tablolarda izinlerini ayarlayabilirsiniz. Yetkilendirme kuralları arka ucunuzu uygulamak için kimliği doğrulanmış kullanıcıların kimliğini de kullanabilirsiniz.
+App Service destekler [uygulama kullanıcıların kimliğini doğrulama](app-service-mobile-android-get-started-users.md) çeşitli dış kimlik sağlayıcısı kullanarak: Facebook, Google, Microsoft Account, Twitter ve Azure Active Directory. Tablolarda yalnızca kimliği doğrulanmış kullanıcılar için belirli işlemler için erişimi sınırlandırmak için izinleri ayarlayabilirsiniz. Kimliği doğrulanmış kullanıcıların kimliğini, yetkilendirme kuralları arka ucunuzu uygulamak için de kullanabilirsiniz.
 
-İki kimlik doğrulama akışı desteklenir: bir **server** akış ve **istemci** akış. Kimlik sağlayıcılar web arabirimi alacağından sunucu akış Basit kimlik doğrulama deneyimi sağlar.  Hiçbir ek SDK'ları akış kimlik doğrulaması uygulamak için gereklidir. Kimlik doğrulaması akışı mobil cihaz derin bir tümleştirmeye sağlamaz ve yalnızca kavram senaryoları kanıtı için önerilir.
+İki kimlik doğrulama akışı desteklenir: bir **sunucu** akış ve **istemci** akış. Kimlik sağlayıcıları web arabirimi olmasına olduğundan sunucu akışı Basit kimlik doğrulaması deneyimi sağlar.  Ek SDK, kimlik doğrulaması akışını uygulamak için gereklidir. Akış doğrulaması, mobil cihaz kapsamlı bir tümleştirme sağlamaz ve yalnızca senaryoları kavram kanıtı için önerilir.
 
-Kimlik sağlayıcısı tarafından sağlanan SDK'ları kullanır gibi istemci akışı çoklu oturum açma gibi aygıta özgü özellikleri ile daha derin tümleştirme sağlar.  Örneğin, mobil uygulamanıza Facebook SDK'sı tümleştirebilirsiniz.  Mobil istemci Facebook uygulamaya değiştirir ve, mobil uygulamanıza değiştirmeden önce oturum onaylar.
+Kimlik sağlayıcısı tarafından sağlanan SDK'ları kullanır gibi istemci akışı çoklu oturum açma gibi cihaza özgü özellikler ile daha derin tümleştirme sağlar.  Örneğin, mobil uygulamanıza Facebook SDK tümleştirebilirsiniz.  Mobil istemciyi Facebook uygulamaya değiştirir ve, mobil uygulamanıza geçirmeden önce oturum onaylar.
 
-Dört adım, uygulamanıza kimlik doğrulamasını etkinleştirmek için gereklidir:
+Dört adımı, uygulamanızda kimlik doğrulamasını etkinleştirmek için gereklidir:
 
-* Uygulamanızın kimlik doğrulaması için bir kimlik sağlayıcısı ile kaydedin.
-* Uygulama hizmeti arka yapılandırın.
-* Uygulama hizmeti arka uç kimliği doğrulanmış kullanıcılara yalnızca tablo kısıtlayın.
+* Bir kimlik sağlayıcısı ile kimlik doğrulaması için uygulamanızı kaydedin.
+* App Service arka ucunuzu yapılandırın.
+* Tablo Kimliği doğrulanmış kullanıcılara yalnızca App Service arka ucu kısıtlayın.
 * Kimlik doğrulama kodu uygulamanıza ekleyin.
 
-Yalnızca kimliği doğrulanmış kullanıcılar için belirli işlemler için erişimi kısıtlamak için tablolarda izinlerini ayarlayabilirsiniz. Kimliği doğrulanmış bir kullanıcı SID'si, istekleri değiştirmek için de kullanabilirsiniz.  Daha fazla bilgi için gözden [kimlik doğrulamayı kullanmaya başlama] ve sunucu SDK nasıl yapılır belgeleri.
+Tablolarda yalnızca kimliği doğrulanmış kullanıcılar için belirli işlemler için erişimi sınırlandırmak için izinleri ayarlayabilirsiniz. Kimliği doğrulanmış bir kullanıcının SID, değiştirme isteklerini için de kullanabilirsiniz.  Daha fazla bilgi için gözden [kimlik doğrulamayı kullanmaya başlama] ve sunucu SDK'sını nasıl yapılır belgeleri.
 
-### <a name="caching"></a>Kimlik doğrulaması: Sunucu akışı
+### <a name="caching"></a>Kimlik doğrulama: Sunucu akışı
 
-Aşağıdaki kod, Google sağlayıcısını kullanarak bir sunucu akış oturum açma işlemi başlatır.  Google sağlayıcısı için güvenlik gereksinimleri nedeniyle ek yapılandırma gereklidir:
+Aşağıdaki kod, Google Sağlayıcısı'nı kullanarak bir sunucu akışı oturum açma işlemi başlatır.  Ek yapılandırma, güvenlik gereksinimlerini Google sağlayıcısı nedeniyle gereklidir:
 
 ```java
 MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Google, "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
@@ -942,9 +942,9 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-`GOOGLE_LOGIN_REQUEST_CODE` , Ana tanımlanan etkinlik için kullanıldığından `login()` yöntemi ve içinde `onActivityResult()` yöntemi.  İçinde kullanılan aynı numarası olduğu sürece herhangi bir benzersiz sayı seçebilirsiniz `login()` yöntemi ve `onActivityResult()` yöntemi.  İstemci kodu (daha önce gösterildiği gibi) bir hizmet bağdaştırıcısı soyut, hizmet bağdaştırıcıda uygun yöntemlerini çağırmalıdır.
+`GOOGLE_LOGIN_REQUEST_CODE` Tanımlanan, ana etkinlik için kullanılan `login()` yöntemi ve içinde `onActivityResult()` yöntemi.  İçinde kullanılan aynı sayıda sürece herhangi bir benzersiz sayı seçebilirsiniz `login()` yöntemi ve `onActivityResult()` yöntemi.  İstemci kodu (daha önce gösterildiği gibi) bir hizmet bağdaştırıcısına soyut, uygun yöntemleri hizmeti bağdaştırıcıda çağırmalıdır.
 
-Ayrıca proje customtabs için yapılandırmanız gerekir.  Önce bir yeniden yönlendirme URL'si belirtin.  Aşağıdaki kod parçacığını ekleyin `AndroidManifest.xml`:
+Ayrıca proje customtabs için yapılandırmak gerekir.  Önce bir yeniden yönlendirme URL'si belirtin.  Aşağıdaki kod parçacığını `AndroidManifest.xml`:
 
 ```xml
 <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
@@ -957,7 +957,7 @@ Ayrıca proje customtabs için yapılandırmanız gerekir.  Önce bir yeniden y�
 </activity>
 ```
 
-Ekleme **redirectUriScheme** için `build.gradle` dosya uygulamanız için:
+Ekleme **redirectUriScheme** için `build.gradle` uygulamanız için dosya:
 
 ```text
 android {
@@ -974,7 +974,7 @@ android {
 }
 ```
 
-Son olarak, ekleme `com.android.support:customtabs:23.0.1` bağımlılıkları listesinde için `build.gradle` dosyası:
+Son olarak, ekleme `com.android.support:customtabs:23.0.1` bağımlılıklar listesine `build.gradle` dosyası:
 
 ```text
 dependencies {
@@ -988,24 +988,24 @@ dependencies {
 }
 ```
 
-Oturum açmış kullanıcıdan kimliği elde bir **MobileServiceUser** kullanarak **getuserıd öğesini** yöntemi. Vadeli zaman uyumsuz oturum açma API'leri çağırmak için nasıl kullanılacağını örneği için bkz: [kimlik doğrulamayı kullanmaya başlama].
+Oturum açmış olan kullanıcı Kimliğini almak bir **MobileServiceUser** kullanarak **getuserıd öğesini** yöntemi. Zaman uyumsuz oturum açma API'leri çağırmak için vadeli kullanma örneği için bkz: [kimlik doğrulamayı kullanmaya başlama].
 
 > [!WARNING]
-> Belirtilen URL şeması büyük/küçük harf duyarlıdır.  Emin tüm oluşumlarını `{url_scheme_of_you_app}` eşleşen durumda.
+> Belirtilen URL düzeni, büyük/küçük harf duyarlıdır.  Emin tüm oluşumlarını `{url_scheme_of_you_app}` eşleşen servis talebi.
 
-### <a name="caching"></a>Önbellek kimlik doğrulama belirteçleri
+### <a name="caching"></a>Kimlik doğrulama belirteçlerini önbelleğe alma
 
-Kimlik doğrulama belirteçleri önbelleğe alma kullanıcı kimliği ve kimlik doğrulama belirteci cihazda yerel olarak depolamak gerekir. Uygulamayı bir sonraki başlatılışında önbellek denetleyin ve bu değerleri varsa, yordam günlüğüne atlayın ve istemci bu verilerle rehydrate. Ancak bu verileri duyarlıdır ve telefon çalınırsa durumda güvenliği şifrelenmiş depolanması gerekir.  Tam bir örnek nasıl önbellek kimlik doğrulama belirteçleri için gördüğünüz [önbelleğe kimlik doğrulama belirteçleri bölümü][7].
+Kimlik doğrulama belirteçlerini önbelleğe alma kullanıcı kimliği ve kimlik doğrulama belirteci cihazda yerel olarak depolamak gerekir. Uygulamayı bir sonraki başlatılışında cache'i kontrol etme ve bu değerler varsa günlüğünde yordamı atlayın ve istemci ile bu verileri yeniden doldurma. Ancak bu veriler hassas ve güvenliği için telefon çalınırsa durumunda şifrelenmiş depolanması gerekir.  Nasıl önbellek kimlik doğrulama belirteçleri için bir tam örnek gördüğünüz [önbellek kimlik doğrulama belirteçleri bölümü][7].
 
-Süresi dolmuş bir belirteç kullanmaya çalıştığınızda aldığınız bir *yetkisiz 401* yanıt. Filtreleri kullanarak kimlik doğrulama hataları işleyebilir.  Uygulama hizmeti arka uç isteklerine filtreleri kesebilir. Filtre kodu bir 401 yanıtı testleri, oturum açma işlemini tetikler ve 401 oluşturulan istek sürdürür.
+Süresi dolmuş bir belirteç kullanmaya çalıştığınızda, aldığınız bir *401 Yetkisiz* yanıt. Filtreler kullanılarak kimlik doğrulaması hataları başa çıkabilir.  App Service arka ucu isteklerine filtreler müdahale. Filtreleme kodunu bir 401 yanıtı testleri, oturum açma işlemini tetikler ve ardından 401'i oluşturan istek sürdürür.
 
-### <a name="refresh"></a>Yenileme belirteçleri kullanın
+### <a name="refresh"></a>Yenileme belirteçleri kullanma
 
-Azure App Service kimlik doğrulaması ve yetkilendirme tarafından döndürülen belirteci tanımlı yaşam süresi bir saat sahip.  Bu süre kullanıcı sağlamalarını gerekir.  Ardından istemci akışı kimlik doğrulaması yoluyla aldığınız uzun süreli bir belirteç kullanıyorsanız, Azure App Service kimlik doğrulaması ve yetkilendirme aynı belirteci kullanan sağlamalarını.  Başka bir Azure uygulama hizmeti belirteci ile yeni bir yaşam süresi oluşturulur.
+Azure App Service kimlik doğrulaması ve yetkilendirme tarafından döndürülen belirteci tanımlanmış bir saat ömrü vardır.  Bu süre bittikten sonra kullanıcı yeniden kimliğini doğrulaması gerekir.  Ardından istemci akışı kimlik doğrulaması aldığınız uzun süreli bir belirteç kullanıyorsanız, Azure App Service kimlik doğrulaması ve yetkilendirme aynı belirteci kullanarak ile sağlamalarını.  Başka bir Azure App Service belirteci ile yeni bir ömrü oluşturulur.
 
-Ayrıca, yenileme belirteçleri için kullanılan sağlayıcının kaydedebilirsiniz.  Bir yenileme belirteci her zaman kullanılabilir değil.  Ek yapılandırma gerekli değildir:
+Ayrıca yenileme belirteçleri kullanılacak sağlayıcıyı kaydedebilirsiniz.  Bir yenileme belirteci her zaman kullanılabilir değil.  Ek yapılandırma gerekli değildir:
 
-* İçin **Azure Active Directory**, Azure Active Directory uygulaması için bir istemci parolası yapılandırın.  İstemci parolası, Azure Active Directory kimlik doğrulamasını yapılandırırken Azure App Service'te belirtin.  Çağrılırken `.login()`, geçirmek `response_type=code id_token` bir parametre olarak:
+* İçin **Azure Active Directory**, Azure Active Directory uygulaması için bir istemci gizli anahtarını yapılandırın.  İstemci gizli anahtarı Azure App Service, Azure Active Directory kimlik doğrulamasını yapılandırırken belirtin.  Çağrılırken `.login()`, geçmesi `response_type=code id_token` bir parametre olarak:
 
     ```java
     HashMap<String, String> parameters = new HashMap<String, String>();
@@ -1017,7 +1017,7 @@ Ayrıca, yenileme belirteçleri için kullanılan sağlayıcının kaydedebilirs
         parameters);
     ```
 
-* İçin **Google**, geçirmek `access_type=offline` bir parametre olarak:
+* İçin **Google**, geçmesi `access_type=offline` bir parametre olarak:
 
     ```java
     HashMap<String, String> parameters = new HashMap<String, String>();
@@ -1031,7 +1031,7 @@ Ayrıca, yenileme belirteçleri için kullanılan sağlayıcının kaydedebilirs
 
 * İçin **Microsoft Account**seçin `wl.offline_access` kapsam.
 
-Bir belirteç yenilemek için arama `.refreshUser()`:
+Bir belirteci yenilemek için çağrı `.refreshUser()`:
 
 ```java
 MobileServiceUser user = mClient
@@ -1039,14 +1039,14 @@ MobileServiceUser user = mClient
     .get();
 ```
 
-En iyi uygulama, sunucudan bir 401 yanıtına algılar ve kullanıcı belirteci yenilemeye çalışır bir filtre oluşturun.
+En iyi uygulama, sunucudan bir 401 yanıtı algılar ve kullanıcı belirteci yenilemeye çalışır bir filtre oluşturun.
 
-## <a name="log-in-with-client-flow-authentication"></a>Oturum akış olmayan istemci kimlik doğrulaması ile oturum
+## <a name="log-in-with-client-flow-authentication"></a>İstemci akışı kimlik bilgilerinizle oturum açın
 
-Akış olmayan istemci kimlik doğrulaması oturum açma için genel işlem aşağıdaki gibidir:
+Oturum açma akışı istemci kimlik doğrulaması için genel süreç aşağıdaki gibidir:
 
-* Azure App Service kimlik doğrulama ve yetkilendirme akışı sunucu kimlik doğrulaması gibi yapılandırın.
-* Kimlik doğrulama sağlayıcısı kimlik doğrulaması için bir erişim belirteci üretmek için SDK tümleştirin.
+* Akış sunucu kimlik doğrulaması gibi Azure App Service kimlik doğrulaması ve yetkilendirme yapılandırın.
+* Bir erişim belirteci oluşturmak için SDK kimlik doğrulaması için kimlik doğrulama sağlayıcısı tümleştirin.
 * Çağrı `.login()` yöntemini aşağıdaki şekilde:
 
     ```java
@@ -1065,14 +1065,14 @@ Akış olmayan istemci kimlik doğrulaması oturum açma için genel işlem aşa
     });
     ```
 
-Değiştir `onSuccess()` başarılı oturum açma kullanmak istediğiniz, kod ile yöntemi.  `{provider}` Dizedir geçerli bir sağlayıcısı: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount**, veya **twitter**.  Özel kimlik doğrulama uyguladıysanız, özel kimlik doğrulama sağlayıcısı etiketi de kullanabilirsiniz.
+Değiştirin `onSuccess()` başarılı bir oturum açma kullanmak istediğiniz, kod ile yöntemi.  `{provider}` Dizedir geçerli sağlayıcı: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount**, veya **twitter**.  Özel kimlik doğrulama uyguladıysanız, özel kimlik doğrulama sağlayıcısı etiketi de kullanabilirsiniz.
 
 ### <a name="adal"></a>Kullanıcıların Active Directory Authentication Library (ADAL) ile kimlik doğrulaması
 
-Kullanıcılar Azure Active Directory'yi kullanarak uygulamanıza oturum için Active Directory Authentication Library (ADAL) kullanabilirsiniz. Bir istemci akış oturum açma kullanılarak genellikle kullanılması tercih `loginAsync()` yöntemleri olarak daha yerel bir UX fikir sağlar ve ek özelleştirme için sağlar.
+Kullanıcıların uygulamanızla Azure Active Directory'yi kullanarak oturum açmak için Active Directory Authentication Library (ADAL) kullanabilirsiniz. Bir istemci akışı oturum açma kullanarak genellikle kullanılması tercih `loginAsync()` yöntemleri, daha doğal bir UX görünümünü sağlar ve için ek özelleştirme yapmanıza izin verir.
 
-1. İzleyerek, mobil uygulamanızın arka ucuna AAD oturum açma için yapılandırma [uygulama hizmeti Active Directory oturum açma için yapılandırma] [ 22] Öğreticisi. İsteğe bağlı bir adım yerel istemci uygulaması kaydı tamamlamak emin olun.
-2. ADAL aşağıdaki tanımları eklemek için build.gradle dosyanızla değiştirerek yükleyin:
+1. AAD oturum açma için mobil uygulama arka ucunuzu izleyerek yapılandırın [App Service, Active Directory oturum açma için yapılandırma] [ 22] öğretici. Yerel istemci uygulaması kaydetme isteğe bağlı bir adım tamamladığınızdan emin olun.
+2. ADAL build.gradle dosyanıza aşağıdaki tanımları içerecek şekilde değiştirerek yükleyin:
 
 ```
 repositories {
@@ -1097,12 +1097,12 @@ dependencies {
 }
 ```
 
-1. Aşağıdaki değişiklik yapmadan uygulamanız için aşağıdaki kodu ekleyin:
+1. Aşağıdaki değişiklik yapmadan uygulamanıza aşağıdaki kodu ekleyin:
 
-* Değiştir **INSERT yetkilisi burada** uygulamanızı sağlanan Kiracı adı. Biçiminde olmalıdır https://login.microsoftonline.com/contoso.onmicrosoft.com.
-* Değiştir **Ekle-RESOURCE-kimliği-Buraya** , mobil uygulamanızın arka ucuna için istemci kimliği. İstemci kimliği elde edebilirsiniz **Gelişmiş** altında sekmesinde **Azure Active Directory ayarları** Portalı'nda.
-* Değiştir **Ekle-istemci-kimliği-Buraya** yerel istemci uygulamasından kopyaladığınız istemci kimliği.
-* Değiştir **Ekle-REDIRECT-URI-Buraya** sitenizin ile */.auth/login/done* uç noktasını, HTTPS şeması kullanarak. Bu değer benzer olmalıdır *https://contoso.azurewebsites.net/.auth/login/done*.
+* Değiştirin **INSERT yetkilisi burada** uygulamanızı sağlanan Kiracı adı. Biçim olmalıdır https://login.microsoftonline.com/contoso.onmicrosoft.com.
+* Değiştirin **Ekle-RESOURCE-kimliği-Buraya** mobil uygulamanızın arka ucu için istemci kimliği. İstemci kimliği edinebilirsiniz **Gelişmiş** sekmesinde altında **Azure Active Directory ayarları** portalında.
+* Değiştirin **istemci kimliği burayı INSERT** yerel istemci uygulamasından kopyaladığınız istemci kimliği.
+* Değiştirin **ekleme-yeniden yönlendirme-URI-Buraya** sitenizin ile */.auth/login/done* uç noktasını, HTTPS düzenini kullanarak. Bu değer, aşağıdakine benzer olmalıdır *https://contoso.azurewebsites.net/.auth/login/done*.
 
 ```java
 private AuthenticationContext mContext;
@@ -1167,19 +1167,19 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-## <a name="filters"></a>İstemci-sunucu iletişimi Ayarla
+## <a name="filters"></a>İstemci-sunucu iletişimi ayarlama
 
-İstemci bağlantı normalde Android SDK'sı ile sağlanan temel HTTP kitaplığını kullanarak temel bir HTTP bağlantısı olur.  Neden, değiştirmek istediğiniz birkaç nedeni vardır:
+İstemci normal Android SDK'sı ile sağlanan temel alınan HTTP kitaplığını kullanarak temel bir HTTP bağlantısı bağlantısıdır.  Neden bunu değiştirmek istiyorsunuz birkaç nedeni vardır:
 
-* Zaman aşımları ayarlamak için alternatif bir HTTP kitaplığı kullanmak istediğiniz.
+* Zaman aşımları ayarlamak için alternatif bir HTTP kitaplığı kullanmak istiyorsanız.
 * Bir ilerleme çubuğu sağlamak istiyor.
-* API yönetim işlevleri desteklemek için özel bir üstbilgisi eklemek istiyor.
-* Böylece, yeniden kimlik doğrulamanın uygulayabileceğiniz başarısız bir yanıt müdahale istiyor.
-* Günlük analizi hizmeti için arka uç isteklerini istiyor.
+* API Yönetimi işlevselliği desteklemek için özel bir başlık eklemek istiyor.
+* Başarısız bir yanıt yeniden kimlik doğrulaması uygulayabilmesi ıntercept istiyor.
+* Arka uç istekleri bir analytics hizmetinde oturum açmak istiyor.
 
 ### <a name="using-an-alternate-http-library"></a>Alternatif bir HTTP kitaplığı kullanma
 
-Çağrı `.setAndroidHttpClientFactory()` istemci başvurusu oluşturduktan sonra hemen yöntemi.  Örneğin, bağlantı zaman aşımını 60 saniye (yerine varsayılan 10 saniye) ayarlamak için şunu yazın:
+Çağrı `.setAndroidHttpClientFactory()` istemci referans oluşturduktan sonra hemen yöntemi.  Örneğin, bağlantı zaman aşımını 60 saniye (yerine, varsayılan 10 saniye) ayarlamak için şunu yazın:
 
 ```java
 mClient = new MobileServiceClient("https://myappname.azurewebsites.net");
@@ -1194,9 +1194,9 @@ mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
 });
 ```
 
-### <a name="implement-a-progress-filter"></a>Bir ilerleme filtre uygulama
+### <a name="implement-a-progress-filter"></a>Uygulama bir ilerleme durumu filtresi
 
-Her istek bir kesme noktası uygulayarak uygulayabilirsiniz bir `ServiceFilter`.  Örneğin, aşağıdaki önceden oluşturulmuş ilerleme çubuğu güncelleştirmeleri:
+Uygulayarak, bir kesme noktası her isteğin uygulayabileceğiniz bir `ServiceFilter`.  Örneğin, aşağıdaki önceden oluşturulmuş bir ilerleme çubuğu güncelleştirir:
 
 ```java
 private class ProgressFilter implements ServiceFilter {
@@ -1233,7 +1233,7 @@ private class ProgressFilter implements ServiceFilter {
 }
 ```
 
-Bu filtre istemciye aşağıdaki gibi ekleyebilirsiniz:
+Bu filtre istemciye şu şekilde ekleyebilirsiniz:
 
 ```java
 mClient = new MobileServiceClient(applicationUrl).withFilter(new ProgressFilter());
@@ -1266,7 +1266,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>Otomatik serileştirme yapılandırın
 
-Kullanarak her sütun için geçerli bir dönüştürme stratejisi belirtebilirsiniz [gson] [ 3] API. Android istemci kitaplığını kullanan [gson] [ 3] arka planda verileri Azure App Service'e gönderilmeden önce JSON verilerini Java nesnelerini seri hale getirilemedi.  Aşağıdaki kod **setFieldNamingStrategy()** stratejisini ayarlamak için yöntem. Bu örnek ilk karakter (bir "m"), silinmesine neden olur ve ardından küçük her alan adı için sonraki karakteri. Örneğin, "id" "Orta" etkinleştirmeniz  Gereksinimini azaltmak için bir dönüştürme stratejisini uygula `SerializedName()` çoğu alanlara ek açıklamaları.
+Kullanarak her sütun için geçerli bir dönüştürme stratejisi belirtebilirsiniz [gson] [ 3] API. Android istemci Kitaplığı'nı kullanan [gson] [ 3] arka planda, Azure App Service'te veri gönderilmeden önce Java nesnelerini JSON verilerini seri hale getirmek için.  Aşağıdaki kod **setFieldNamingStrategy()** stratejisi ayarlamak için yöntemi. Bu örnekte, ilk karakter ("m"), siler ve ardından küçük her alan adı için bir sonraki karakteri. Örneğin, "id" içinde "Orta" etkinleştirmeniz  Gereksinimini azaltmak için bir dönüştürme stratejisi uygulamak `SerializedName()` çoğu alanlarda ek açıklamalar.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {
@@ -1283,17 +1283,17 @@ client.setGsonBuilder(
 );
 ```
 
-Bu kod kullanarak bir mobil istemci başvuru oluşturmadan önce yürütülmelidir **MobileServiceClient**.
+Bu kod, bir mobil istemci başvurusu kullanarak oluşturmadan önce yürütülmelidir **MobileServiceClient**.
 
 <!-- URLs. -->
 [Get started with Azure Mobile Apps]: app-service-mobile-android-get-started.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
-[kimlik doğrulamayı kullanmaya başlama]: app-service-mobile-android-get-started-users.md
-[1]: http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html
+[Kimlik doğrulamayı kullanmaya başlama]: app-service-mobile-android-get-started-users.md
+[1]: https://static.javadoc.io/com.google.code.gson/gson/2.8.5/com/google/gson/JsonObject.html
 [2]: http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
-[3]: http://go.microsoft.com/fwlink/p/?LinkId=290801
+[3]: https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5
 [4]: http://go.microsoft.com/fwlink/p/?LinkId=296840
 [5]: app-service-mobile-android-get-started-push.md
 [6]: ../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps

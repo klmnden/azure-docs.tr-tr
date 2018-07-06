@@ -1,6 +1,6 @@
 ---
 title: Lisans Self Servis parola sıfırlama - Azure Active Directory
-description: Lisans gereksinimlerini Azure AD Self Servis parola sıfırlama
+description: Azure AD Self Servis parola sıfırlama lisans gereksinimleri
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,50 +10,50 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 64c12177e5cf6c82018731b493c0da22e1895b7f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292568"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855533"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Lisans gereksinimleri için Azure AD Self Servis parola sıfırlama
 
-Azure Active Directory (Azure AD) parola sıfırlama işlevi için sırayla, *kuruluşunuzda atanan en az bir Lisansı olmalıdır* o kullanıcı için. Uygun bir lisans, bir kullanıcının bu lisansın kapsadığı özelliklerden doğrudan veya dolaylı olarak faydalandığı durumlarda gereklidir.
+Azure Active Directory (Azure AD) parola sıfırlama işlevi için sırada, *kuruluşunuzda atanmış en az bir lisansı olması gerekir* söz konusu kullanıcı için. Uygun bir lisans, bir kullanıcının bu lisansın kapsadığı özelliklerden doğrudan veya dolaylı olarak faydalandığı durumlarda gereklidir.
 
-* **Yalnızca bulut kullanıcıları**: Office 365 herhangi SKU veya Azure AD temel Ücretli
-* **Bulut** veya **şirket içi kullanıcıların**: Azure AD Premium P1 veya P2, Enterprise Mobility + Security (EMS) veya Microsoft 365
+* **Yalnızca bulut kullanıcılarına**: Office 365 SKU veya Azure AD temel Ücretli
+* **Bulut** veya **şirket kullanıcıları**: Azure AD Premium P1 veya P2, Enterprise Mobility + Security (EMS) veya Microsoft 365
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Parola geri yazma için lisans gereksinimleri
 
-**Self Servis parola sıfırlama/Değiştir/Unlock şirket içi geri yazma ile Azure AD premium özelliğidir**. Lisanslama hakkında daha fazla bilgi için bkz: [Azure Active Directory sitesi fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
+**Self Servis parola sıfırlama/değiştirme/kilidini açma şirket içi geri yazma ile Azure AD premium özelliğidir**. Lisanslama hakkında daha fazla bilgi için bkz. [Azure Active Directory site fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Parola geri yazma özelliğini kullanmak için aşağıdaki lisansları Kiracı'atanmış olması gerekir:
+Parola geri yazma özelliğini kullanmak için kiracınızda atanan aşağıdaki lisanslardan birine sahip olmalıdır:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + güvenlik E3 veya A3
-* Enterprise Mobility + güvenlik E5 veya A5
+* Enterprise Mobility + Security E3 veya A3
+* Enterprise Mobility + Security E5'e veya A5
 * Microsoft 365 E3 veya A3
 * Microsoft 365 E5 veya A5
-* Microsoft 365 F1'e
+* Microsoft 365 F1
 
 > [!WARNING]
-> Tek başına Office 365 planları lisans *parola geri yazma desteklemeyen* ve bu işlevlerin çalışması önceki planlardan sahip olması gerekir.
+> Tek başına Office 365 planları lisanslama *parola geri yazma özelliğini desteklemeyen* ve çalışmak bu işlev için önceki planlardan birine sahip olması gerekir.
 >
 
-Maliyetleri de dahil olmak üzere ek lisans bilgileri şu sayfalarda bulunabilir:
+Maliyetleri de dahil olmak üzere ek lisans bilgileri şu sayfalarda yer bulunabilir:
 
 * [Site fiyatlandırma Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Azure Active Directory özellikleri ve yetenekleri](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Kurumsal](https://www.microsoft.com/microsoft-365/enterprise)
 
-## <a name="enable-group-or-user-based-licensing"></a>Grup veya kullanıcı tabanlı lisans etkinleştirme
+## <a name="enable-group-or-user-based-licensing"></a>Grup veya kullanıcı tabanlı lisanslama etkinleştir
 
-Artık Azure AD, Grup tabanlı lisans destekler. Yöneticiler, bunları birer birer atama yerine kullanıcıların bir gruba toplu lisansları atayabilirsiniz. Daha fazla bilgi için bkz: [atayabilir, doğrulayın ve lisans sorunları gidermek](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).
+Artık Azure AD grup tabanlı lisanslama destekler. Yöneticiler, bir kerede atamak yerine kullanıcılar bir grup toplu lisansları atayabilir. Daha fazla bilgi için [atamak, doğrulamak ve lisans sorunları çözmeniz](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
-Bazı Microsoft Hizmetleri tüm konumlarda kullanılabilir değil. Yönetici bir kullanıcıya bir lisans atanabilmesi için önce belirtmelidir **kullanım konumu** kullanıcı özelliği. Lisans atama altında yapılabilir **kullanıcı** > **profil** > **ayarları** Azure portalı bölümünde. *Grup lisans atamasını kullandığınızda, belirtilen bir kullanım konumu olmayan tüm kullanıcılar dizininin konumunu devralır.*
+Bazı Microsoft Hizmetleri, tüm konumlardaki kullanılamaz. Yönetici bir kullanıcıya lisans atanabilmesi için önce belirtmelisiniz **kullanım konumu** kullanıcı özelliği. Lisans atama altında yapılabilir **kullanıcı** > **profili** > **ayarları** bölümünde Azure portalında. *Kullanım konumu belirtilmemiş olmadan herhangi bir kullanıcı, Grup lisans ataması kullandığınızda, dizin konumunu devralır.*
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

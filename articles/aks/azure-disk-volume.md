@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8aea56017d38b57d36f5f1d42e2d4e9ed1d809e5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f807264dc2c2e07ccd175fb1b0427b7ce9e9f524
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346102"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868254"
 ---
 # <a name="volumes-with-azure-disks"></a>Azure diskleri ile birimleri
 
@@ -51,6 +51,10 @@ Disk oluşturulduktan sonra aşağıdakine benzer bir çıktı görmeniz gerekir
 ```
 > [!NOTE]
 > Azure yönetilen diskler için belirli bir boyut SKU tarafından faturalandırılır. Bu SKU'ları 32GiB S4 veya P4 diskleri ile arasındadır 4TiB S50 veya P50 disk için. Ayrıca, aktarım hızı ve IOPS performansı bir Premium yönetilen disk bağlıdır AKS kümesindeki düğümlere örnek boyutu ve SKU. Bkz: [fiyatlandırma ve yönetilen diskler performansını][managed-disk-pricing-performance].
+
+> [!NOTE]
+> Ayrı kaynak grubunda disk oluşturmanız gerekiyorsa, Azure Kubernetes Service (AKS) hizmet sorumlusu, küme için disk barındıran kaynak grubunu eklemek etmeniz `Contributor` rol. 
+>
 
 ## <a name="mount-disk-as-volume"></a>Disk birimi olarak bağlama
 

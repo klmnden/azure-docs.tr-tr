@@ -1,6 +1,6 @@
 ---
-title: Varsa koşul Azure Data Factory etkinliğinde | Microsoft Docs
-description: Varsa koşul etkinliği bir koşula göre işlem akışını denetlemenizi sağlar.
+title: Varsa Condition etkinliği Azure Data factory'de | Microsoft Docs
+description: IF koşulu etkinliği, bir koşula göre işlem akışını denetlemenize olanak tanır.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 0141694b87664a83872f7b270631d454f863d5a8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5077982bdef4d0e8fbf1ab485566909b4dc97a8a
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046175"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857387"
 ---
-# <a name="if-condition-activity-in-azure-data-factory"></a>Varsa Azure Data Factory etkinliğinde koşul
+# <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data factory'de etkinlik koşul
 If Koşulu etkinliği, programlama dilerindeki If deyimiyle aynı işlevselliği sağlar. Koşul `true` sonucunu verdiğinde bir dizi etkinliği, `false` sonucu verdiğinde ise başka bir dizi etkinliği değerlendirmeye alır. 
 
 ## <a name="syntax"></a>Sözdizimi
@@ -67,19 +67,19 @@ If Koşulu etkinliği, programlama dilerindeki If deyimiyle aynı işlevselliği
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-ad | IF-koşul etkinlik adı. | Dize | Evet
+ad | IF-condition etkinliği adı. | Dize | Evet
 type | Ayarlanmalıdır **IfCondition** | Dize | Evet
-İfade | True veya false olarak değerlendirilmelidir ifade | Evet
-ifTrueActivities | İfade olarak değerlendirildiğinde yürütülen etkinlikleri kümesi `true`. | Evet
-ifFalseActivities | İfade olarak değerlendirildiğinde yürütülen etkinlikleri kümesi `false`. | Evet
+ifade | True veya false değerlendirmelidir ifadesi | İfade sonucu ile Boole türü | Evet
+ifTrueActivities | İfade sonucunu verdiğinde çalıştırılan etkinlik kümesini `true`. | Dizi | Evet
+ifFalseActivities | İfade sonucunu verdiğinde çalıştırılan etkinlik kümesini `false`. | Dizi | Evet
 
 ## <a name="example"></a>Örnek
-Bu örnekteki işlem hattı verileri bir çıkış klasörü için bir giriş klasöründen kopyalar. Çıkış klasörüne ardışık düzen parametresinin değeri tarafından belirlenir: routeSelection. RouteSelection değeri true ise, veriler için outputPath1 kopyalanır. Ve routeSelection değeri false ise, veriler için outputPath2 kopyalanır. 
+Bu örnekteki işlem hattı, verileri bir girdi klasöründen bir çıktı klasörüne kopyalar. Çıkış klasörü, işlem hattı parametre değeri tarafından belirlenir: routeSelection. RouteSelection değeri true ise, veriler için outputPath1 kopyalanır. Ve routeSelection değeri false ise, veriler için outputPath2 kopyalanır. 
 
 > [!NOTE]
-> Bu bölüm, JSON tanımları ve ardışık düzen çalıştırmak için örnek PowerShell komutlarını sağlar. Azure PowerShell ve JSON tanımlarını kullanarak Data Factory işlem hattı oluşturmak için adım adım yönergeler içeren bir anlatım için bkz: [Öğreticisi: Azure PowerShell kullanarak bir veri fabrikası oluşturma](quickstart-create-data-factory-powershell.md).
+> Bu bölümde, JSON tanımları ve işlem hattını çalıştırmak için örnek PowerShell komutları sağlanır. Azure PowerShell ve JSON tanımları'ı kullanarak Data Factory işlem hattı oluşturmak için adım adım yönergeler içeren bir kılavuz için bkz. [öğretici: Azure PowerShell kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>IF-koşul etkinliği (Adfv2QuickStartPipeline.json) kanal
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>IF-Condition etkinliği (c:\adfv2quickstartpsh) içeren işlem hattı
 
 ```json
 {
@@ -190,7 +190,7 @@ Bu örnekteki işlem hattı verileri bir çıkış klasörü için bir giriş kl
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage bağlı hizmeti (AzureStorageLinkedService.json)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure depolama bağlı hizmeti (C:\adfv2tutorial)
 
 ```json
 {
@@ -207,8 +207,8 @@ Bu örnekteki işlem hattı verileri bir çıkış klasörü için bir giriş kl
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametreli Azure Blob veri kümesi (BlobDataset.json)
-Ardışık Düzen kümeleri **folderPath** ya da değerine **outputPath1** veya **outputPath2** parametresi ardışık. 
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametreli Azure Blob veri kümesi (C:\adfv2quickstartpsh)
+İşlem hattı ayarlar **folderPath** ya da değerine **outputPath1** veya **outputPath2** işlem hattı parametresi. 
 
 ```json
 {
@@ -234,7 +234,7 @@ Ardışık Düzen kümeleri **folderPath** ya da değerine **outputPath1** veya 
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Ardışık Düzen parametre JSON (PipelineParameters.json)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>İşlem hattı parametresi JSON (C:\adfv2quickstartpsh)
 
 ```json
 {
@@ -246,7 +246,7 @@ Ardışık Düzen kümeleri **folderPath** ya da değerine **outputPath1** veya 
 ```
 
 ### <a name="powershell-commands"></a>PowerShell komutları
-Bu komutlarda JSON dosyaları klasörüne kaydettiğinizden varsayılmaktadır: C:\ADF. 
+Bu komutlarda, klasöre JSON dosyalarını kaydettiğiniz varsayılmaktadır: C:\ADF. 
 
 ```powershell
 Connect-AzureRmAccount
@@ -288,7 +288,7 @@ $result.Error -join "`r`n"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Data Factory ile desteklenen diğer denetim akışı etkinlikleri bakın: 
+Data Factory tarafından desteklenen diğer denetim akışı etkinlikleri bakın: 
 
 - [İşlem Hattı Yürütme Etkinliği](control-flow-execute-pipeline-activity.md)
 - [Her etkinlik için](control-flow-for-each-activity.md)
