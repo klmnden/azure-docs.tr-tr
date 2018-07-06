@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: b9298b081baf94350ab19a5d9a8af2705327eed6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a77724bd5ed14bf8eb91bf64a1837ce7106edd06
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102626"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867904"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight'ta Apache HBase örneğiyle çalışmaya başlama
 
@@ -35,7 +35,7 @@ Bu HBase örneğini denemeye başlamadan önce aşağıdakilere sahip olmanız g
 * [curl](http://curl.haxx.se/download.html).
 
 ## <a name="create-hbase-cluster"></a>HBase kümesi oluşturma
-Aşağıdaki yordamda HBase kümesi ve bağlı varsayılan Azure Depolama hesabı oluşturmak için Azure Resource Manager şablonu kullanılmaktadır. Yordamda ve diğer küme oluşturma yöntemlerinde kullanılan parametreleri anlamak için bkz. [HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md). Data Lake Storage Gen2 kullanma hakkında daha fazla bilgi için bkz: [hızlı başlangıç: Hdınsight kümelerinde ayarlama](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+Aşağıdaki yordamda HBase kümesi ve bağlı varsayılan Azure Depolama hesabı oluşturmak için Azure Resource Manager şablonu kullanılmaktadır. Yordamda ve diğer küme oluşturma yöntemlerinde kullanılan parametreleri anlamak için bkz. [HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md). Data Lake depolama Gen2 kullanma hakkında daha fazla bilgi için bkz. [hızlı başlangıç: HDInsight kümelerinde ayarlama](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın. Şablon, [Azure Hızlı Başlangıç şablonları](https://azure.microsoft.com/resources/templates/) içinde bulunur.
    
@@ -43,7 +43,7 @@ Aşağıdaki yordamda HBase kümesi ve bağlı varsayılan Azure Depolama hesab�
 2. **Özel dağıtım** dikey penceresine şu değerleri girin:
    
    * **Abonelik**: Kümeyi oluşturmak için kullanılan Azure aboneliğinizi seçin.
-   * **Kaynak grubu**: bir Azure kaynak grubu oluşturabilir veya mevcut bir kullanabilirsiniz.
+   * **Kaynak grubu**: bir Azure Resource management grubu oluşturun veya var olanı kullanın.
    * **Konum**: Kaynak grubu konumunu belirtin. 
    * **ClusterName**: HBase kümesi için bir ad girin.
    * **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı **admin** şeklindedir.
@@ -248,7 +248,7 @@ HDInsight içinde HBase, kümelerin izlenmesi için bir Web Kullanıcı Arabirim
 
 **HBase Master Kullanıcı Arabirimi’ne erişmek için**
 
-1. https://&lt;Kumeadi>.azurehdinsight.net adresinden Ambari Web Kullanıcı Arabiriminde oturum açın.
+1. Ambari Web kullanıcı Arabirimi bir oturum sırasında https://&lt;Clustername >. azurehdinsight.net.
 2. Soldaki menüden **HBase**’e tıklayın.
 3. Sayfanın üstündeki **Hızlı bağlantılar**’a tıklayın, etkin Zookeeper düğümü bağlantısının üzerine gelin ve **HBase Master Kullanıcı Arabirimi**’ne tıklayın.  Kullanıcı arabirimi başka bir tarayıcı sekmesinde açılır:
 

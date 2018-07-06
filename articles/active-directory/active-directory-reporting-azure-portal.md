@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1bcd7f9e0a134173a8942b71259428a720a3d076
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 06179d42d2904a4d82f466be0719768f9f010858
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222510"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868567"
 ---
 # <a name="azure-active-directory-reporting"></a>Azure Active Directory raporlama
 
@@ -113,7 +113,7 @@ Azure Active Directory'deki çeşitli rapor türleri hakkında daha fazla bilgi 
 - [Denetim günlükleri raporu](active-directory-reporting-activity-audit-logs.md)
 - [Oturum açma günlükleri raporu](active-directory-reporting-activity-sign-ins.md)
 
-Raporlama API'sini kullanarak raporlama verilerine erişim hakkında daha fazla bilgi edinmek istiyorsanız, bkz: 
+Raporlama API'sini kullanarak raporlama verilerine erişme hakkında daha fazla bilgi edinmek istiyorsanız, bkz: 
 
 - [Azure Active Directory raporlama API’siyle çalışmaya başlama](active-directory-reporting-api-getting-started-azure-portal.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure HALUK uygulamalarında sürümlerde yönetme | Microsoft Docs
-description: Dil anlama (HALUK) uygulamaları sürümlerde yönetmeyi öğrenin.
+title: Azure'da LUIS uygulama sürümlerinde yönetme | Microsoft Docs
+description: Language Understanding (LUIS) uygulamaların sürümlerinde yönetmeyi öğrenin.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,100 +9,100 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: v-geberr
-ms.openlocfilehash: 672f7991be0fc236e39daf7d1ce1d6080b31815b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ef5dadd94d3612500d3092bdbd601fdaa12d1701
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351701"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868037"
 ---
 # <a name="manage-versions"></a>Sürümleri yönetme
 
-Farklı bir model üzerinde çalıştığınız her zaman oluşturma [sürüm](luis-concept-version.md) uygulamanın. 
+Farklı bir model üzerinde çalıştığınız her zaman Oluştur [sürüm](luis-concept-version.md) uygulama. 
 
-## <a name="set-active-version"></a>Set etkin sürüm
-Sürümleri ile çalışması için uygulamanızın üzerinde adını seçerek açın **My uygulamaları** sayfasında ve ardından **ayarları** üst çubuğunda.
+## <a name="set-active-version"></a>Etkin sürümü Ayarla
+Sürümlerle çalışma için uygulamanızın adını seçerek açın **uygulamalarım** sayfasında ve ardından **ayarları** üst çubuktaki.
 
 ![Sürümleri sayfası](./media/luis-how-to-manage-versions/settings.png)
 
-**Ayarları** sayfası sürümleri ve ortak çalışanlar dahil olmak üzere tüm uygulama için ayarları yapılandırmanıza olanak sağlar. 
+**Ayarları** sayfası sürümleri ve ortak çalışanlar dahil olmak üzere tüm uygulama için ayarları yapılandırmanıza olanak tanır. 
 
-## <a name="clone-a-version"></a>Bir sürüm kopyalama
-1. Üzerinde **ayarları** sayfasında, uygulama ayarları ve ortak çalışanlar bölümlerinden sonra bulma kopyalamak istediğiniz sürüm satırı. Şimdiye kadar sağındaki üç nokta (...) seçin. 
+## <a name="clone-a-version"></a>Sürümü Kopyala
+1. Üzerinde **ayarları** sayfasında, sonra uygulama ayarları ve ortak çalışanlar bölümleri, kopyalamak istediğiniz sürümü satırı bulun. Öğesinin üç noktasını (***...*** ) sağda düğmesi. 
 
     ![Sürüm satır özellikleri](./media/luis-how-to-manage-versions/version-section.png)
 
 2. Seçin **kopya** listeden.
 
-    ![Sürüm satır özellikleri seçimi](./media/luis-how-to-manage-versions/version-three-dots-modal.png)
+    ![Sürüm satır özellikleri seçim](./media/luis-how-to-manage-versions/version-three-dots-modal.png)
 
-3. İçinde **kopya sürüm** iletişim kutusu, "0.2" gibi yeni sürümü için bir ad yazın.
+3. İçinde **kopya sürüm** iletişim kutusunda, "0.2" gibi yeni sürümü için bir ad yazın.
 
    ![Kopya sürüm iletişim kutusu](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
  
  > [!NOTE]
- > Sürüm kimliği yalnızca karakter rakam oluşabilir veya '.' ve 10 karakterden uzun olamaz.
+ > Sürüm kimliği, yalnızca karakterlerinden basamak oluşabilir veya '.' ve 10 karakterden uzun olamaz.
  
- Belirtilen ada sahip yeni bir sürüm oluşturulur ve etkin sürüm olarak ayarlayın.
+ Belirtilen ada sahip yeni bir sürüm oluşturulur ve etkin bir sürüm olarak ayarlayın.
  
-  ![Sürüm oluşturulur ve listeye eklenir](./media/luis-how-to-manage-versions/new-version.png)
+  ![Sürümü oluşturulan ve listeye eklendi](./media/luis-how-to-manage-versions/new-version.png)
 
  > [!NOTE]
- > Önceki görüntüde gösterildiği gibi yayımlanmış bir sürüm burada da yayınlandı yuvası türünü gösteren bir renkli işareti ile ilişkilidir: üretim (yeşil), hazırlama (kırmızı) ve her ikisi de (siyah). Eğitim ve yayımlama tarihleri, yayımlanmış her sürüm için görüntülenir.
+ > Önceki görüntüde gösterildiği gibi yayımlanmış bir sürüm burada da yayımlandıysa yuvası türünü gösteren renkli işareti ile ilişkilidir: üretim (yeşil), hazırlama (kırmızı) ve her ikisi de (siyah). Eğitim ve yayımlama tarihler için yayımlanan her sürümü görüntülenir.
 
-## <a name="set-active-version"></a>Set etkin sürüm
-1. Üzerinde **ayarları** sayfasında **sürümleri** listesinde, sağ uçta üç nokta (...) seçin.
+## <a name="set-active-version"></a>Etkin sürümü Ayarla
+1. Üzerinde **ayarları** sayfasında **sürümleri** listesinde, üç noktayı seçin (***...*** ) en sağdaki düğme.
 
-2. Açılır listeden seçin **etkin olarak ayarlanmış**.
+2. Açılır listesinden **etkin olarak ayarla**.
 
-    ![Set etkin sürüm](./media/luis-how-to-manage-versions/set-active-version.png)
+    ![Etkin sürümü Ayarla](./media/luis-how-to-manage-versions/set-active-version.png)
 
-    Etkin sürüm, aşağıdaki ekran görüntüsünde gösterildiği gibi açık bir mavi renk tarafından vurgulanmıştır:
+    Etkin sürüm açık mavi rengi, aşağıdaki ekran görüntüsünde gösterildiği gibi vurgulanır:
 
-    ![Etkin sürüm](./media/luis-how-to-manage-versions/set-active-version-done.png) 
+    ![Etkin sürümü](./media/luis-how-to-manage-versions/set-active-version-done.png) 
 
 
-## <a name="import-version"></a>İçeri aktarma sürümü
-Bir JSON dosyasından bir sürümünü içe aktarabilirsiniz. Bir kez bir sürümünü içe aktardıktan sonra yeni sürümü etkin sürüm haline gelir.
+## <a name="import-version"></a>Alma sürümü
+Bir JSON dosyasından bir sürümü içeri aktarabilirsiniz. Bir sürümü içeri aktardığınızda, yeni sürümü etkin sürümü haline gelir.
 
-**Bir sürümünü almak için:**
+**Bir sürümü içeri aktarmak için:**
 
-1. Üzerinde **ayarları** sayfasında, **alma yeni sürümü** düğmesi.
+1. Üzerinde **ayarları** sayfasında **yeni sürüm içeri aktarma** düğmesi.
 
     ![İçeri Aktar düğmesi](./media/luis-how-to-manage-versions/import-version.png)
 
-2. Seçin **Gözat** ve JSON dosyası seçin.
+2. Seçin **Gözat** ve JSON dosyasını seçin.
 
-    ![İçeri aktarma sürüm iletişim](./media/luis-how-to-manage-versions/import-version-dialog.png)
+    ![Sürüm iletişim kutusu İçeri Aktar](./media/luis-how-to-manage-versions/import-version-dialog.png)
 
-Yalnızca JSON dosyası sürümünde uygulamada zaten varsa, sürüm kimliği ayarlamanız gerekir.
+JSON dosyasındaki sürüm uygulamada zaten varsa, bir sürüm kimliği ayarlamak yeterlidir.
 
-## <a name="export-version"></a>Sürüm dışarı aktarma
-Bir JSON dosyası için bir sürüm dışarı aktarabilirsiniz.
+## <a name="export-version"></a>Dışarı aktarma sürümü
+Bir sürüm JSON dosyasını dışarı aktarabilirsiniz.
 
 **Bir sürüm dışarı aktarmak için:**
 
-1. Üzerinde **ayarları** sayfasında **sürümleri** listesinde, sağ uçta üç nokta (...) seçin.
+1. Üzerinde **ayarları** sayfasında **sürümleri** listesinde, üç noktayı seçin (***...*** ) en sağdaki düğme.
 
-2. Seçin **verme** açılır listesinde, eylemleri ve dosyayı kaydetmek istediğiniz yeri seçin.
+2. Seçin **dışarı** açılır listesinde, Eylemler ve dosyayı kaydetmek istediğiniz yeri seçin.
 
-## <a name="delete-a-version"></a>Bir sürümü Sil
-Sürümleri silebilir, ancak en az bir uygulamanın sürümünü tutmam gerekiyor. Etkin sürüm hariç tüm sürümleri silebilirsiniz. 
+## <a name="delete-a-version"></a>Bir sürüm Sil
+Sürümleri silebilirsiniz ancak uygulamayı en az bir sürümünü saklamak gerekir. Etkin sürümü hariç tüm sürümler silebilirsiniz. 
 
-1. Üzerinde **ayarları** sayfasında **sürümleri** listesinde, sağ uçta üç nokta (...) seçin.
+1. Üzerinde **ayarları** sayfasında **sürümleri** listesinde, üç noktayı seçin (***...*** ) en sağdaki düğme.
 
-2. Seçin **silmek** açılır listesinde, eylemleri ve dosyayı kaydetmek istediğiniz yeri seçin.
+2. Seçin **Sil** açılır listesinde, Eylemler ve dosyayı kaydetmek istediğiniz yeri seçin.
 
     ![Sürüm onayını Sil](./media/luis-how-to-manage-versions/delete-menu.png) 
 
 
-## <a name="rename-a-version"></a>Bir sürümünü yeniden adlandırma
+## <a name="rename-a-version"></a>Bir sürüm yeniden adlandır
 Sürüm adı zaten kullanımda olup olmadığını sürece sürümleri yeniden adlandırabilirsiniz.  
 
-1. Üzerinde **ayarları** sayfasında **sürümleri** listesinde, sağ uçta üç nokta (...) seçin.
+1. Üzerinde **ayarları** sayfasında **sürümleri** listesinde, üç noktayı seçin (***...*** ) en sağdaki düğme.
 
-2. Seçin **yeniden adlandırma** Eylemler açılır listesinde.
+2. Seçin **Yeniden Adlandır** eylemleri açılır listesinde.
 
-3. Yeni bir sürüm adı girin ve **Bitti**.
+3. Yeni bir sürüm adı girin ve seçin **Bitti**.
 
-    ![Sürüm onayı yeniden adlandırma](./media/luis-how-to-manage-versions/rename-popup.png) 
+    ![Sürüm onayı yeniden adlandır](./media/luis-how-to-manage-versions/rename-popup.png) 

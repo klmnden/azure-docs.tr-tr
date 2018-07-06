@@ -1,6 +1,6 @@
 ---
-title: Azure içerik aracı - Orta videolar ve .NET dökümleri | Microsoft Docs
-description: İçerik denetleyici videolar ve .NET dökümleri Orta için nasıl kullanılacağını.
+title: Azure Content Moderator - Orta videoları ve. NET'te dökümleri | Microsoft Docs
+description: Videolar ve. NET'te dökümleri denetlemek Content Moderator'ı kullanma
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,74 +9,74 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: a084b50e44fe26ba2547d0f7b7ed184fb71b190c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0f851c030a05880d79a998ed4b4a941082c057b9
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35352523"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865480"
 ---
-# <a name="video-and-transcript-moderation-tutorial"></a>Video ve dökümü yönetimini Öğreticisi
+# <a name="video-and-transcript-moderation-tutorial"></a>Video ve Döküm Denetimi Öğreticisi
 
-İçerik denetleyicinin video API'ler videolar Orta ve İnsan gözden geçirme aracında video incelemeler oluşturmanıza izin verir. 
+İçerik denetleyicinin video API'leri videoları Orta ve video incelemeleri insan tarafından İnceleme aracı oluşturmanıza olanak sağlar. 
 
-Bu öğretici yardımcı makine destekli denetleme ve İnsan-içinde--döngü gözden geçirme oluşturma ile tam bir videoyu ve dökümü yönetimi çözümü oluşturmak nasıl anlamak için ayrıntılı.
+Bu öğretici yardımcı olan makine Yardımlı resim denetimi ve İnsan içinde--döngüsü gözden geçirme oluşturma ile eksiksiz bir video ve döküm denetimi çözümü derleme işlemini anlama ayrıntılı.
 
-Karşıdan [C# konsol uygulaması](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) Bu öğretici için. Konsol uygulaması, aşağıdaki görevleri gerçekleştirmek için SDK ve ilişkili paketleri kullanır:
+İndirme [C# konsol uygulaması](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) Bu öğretici için. Konsol uygulaması, aşağıdaki görevleri gerçekleştirmek için SDK ve ilişkili paketleri kullanır:
 
-- Daha hızlı işleme için giriş video Sıkıştır
-- Görüntüleri ve çerçeveleri ınsights ile almak için video Orta
-- Çerçeve zaman damgaları küçük resimleri (görüntüler) oluşturmak için kullanın
-- Zaman damgaları ve video incelemeler oluşturmak için küçük resimleri gönderme
-- Metin (dökümü) medya dizin oluşturucu API ile video konuşma Dönüştür
-- Metin denetleme hizmetiyle dökümü Orta
-- Video incelemeye aracılı dökümü Ekle
+- Daha hızlı işleme giriş video Sıkıştır
+- Görüntüleri ve öngörülerle çerçeveleri almak için video Orta
+- Küçük resimleri (görüntüler) oluşturmak için çerçeve zaman damgaları kullanın
+- Zaman damgaları ve küçük resim, video incelemeleri oluşturmak için gönderme
+- Video Konuşmayı metne (döküm) Media Indexer API ile dönüştürün
+- Metin denetimi hizmeti olan döküm Orta
+- Yönetilen döküm video gözden geçirici ekleyin
 
-## <a name="sample-program-outputs"></a>Örnek program çıkarır
+## <a name="sample-program-outputs"></a>Örnek program çıkışı
 
-Ayrıca, geçmeden önce aşağıdaki örnek çıkış programda bakalım:
+Daha fazla geçmeden önce aşağıdaki örnek çıkışlara programından göz atalım:
 
-- [Konsol çıkışı](#program-output)
+- [Konsol çıktısı](#program-output)
 - [Video gözden geçirme](#video-review-default-view)
-- [Dökümü görünümü](#video-review-transcript-view)
+- [Transkript görüntüle](#video-review-transcript-view)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-1. Kaydolun [içerik denetleyici gözden geçirme aracı](https://contentmoderator.cognitive.microsoft.com/) web sitesi ve [özel etiketler oluşturma](Review-Tool-User-Guide/tags.md) , C# konsol uygulaması gelen içindeki kod atar. Aşağıdaki ekran özel etiketler gösterir.
+1. Kaydolun [Content Moderator İnceleme aracı](https://contentmoderator.cognitive.microsoft.com/) web sitesi ve [özel etiketler oluşturmak](Review-Tool-User-Guide/tags.md) , C# konsol uygulaması içindeki kod gelen atar. Özel etiketler aşağıdaki ekran gösterilir.
 
-  ![Video yönetimini özel etiketler](images/video-tutorial-custom-tags.png)
+  ![Video denetimi özel etiketler](images/video-tutorial-custom-tags.png)
 
-1. Örnek uygulamayı çalıştırmak için bir Azure hesabı ve Azure Media Services hesabı gerekir. Ayrıca, içerik denetleyicinin özel Önizleme erişmeniz gerekir. Son olarak, Azure Active Directory kimlik doğrulama kimlik bilgileri gerekir. Bu bilgiler edinme hakkında ayrıntılar için bkz: [Video yönetimini API Hızlı Başlangıç](video-moderation-api.md).
+1. Örnek uygulamayı çalıştırmak için bir Azure hesabı ve Azure Media Services hesabı gerekir. Ayrıca, Content Moderator özel Önizleme erişimi gerekir. Son olarak, Azure Active Directory kimlik doğrulama kimlik bilgileri gerekir. Bu bilgiler edinme hakkında daha fazla bilgi için bkz [Video denetimi API'si Hızlı Başlangıç](video-moderation-api.md).
 
-1. Dosyayı düzenlemek `App.config` ve hizmet uç noktaları, Active Directory Kiracı adı ekleyin ve Abonelik anahtarları belirtilen tarafından `#####`. Aşağıdaki bilgiler gereklidir:
+1. Dosyayı düzenlemek `App.config` hizmet uç noktaları, Active Directory Kiracı adı ekleyin ve Abonelik anahtarları tarafından belirtilen `#####`. Aşağıdaki bilgiler gereklidir:
 
 |Anahtar|Açıklama|
 |-|-|
 |`AzureMediaServiceRestApiEndpoint`|Azure Media Services (AMS) API uç noktası|
 |`ClientSecret`|Azure Media Services için abonelik anahtarı|
-|`ClientId`|Azure Media Services istemci kimliği|
+|`ClientId`|Azure Media Services için istemci kimliği|
 |`AzureAdTenantName`|Kuruluşunuz temsil eden active Directory Kiracı adı|
-|`ContentModeratorReviewApiSubscriptionKey`|İçerik denetleyici için abonelik anahtarınızı API gözden geçirin|
-|`ContentModeratorApiEndpoint`|Uç noktası için içerik yönetici API'si|
-|`ContentModeratorTeamId`|İçerik denetleyici takım kimliği|
+|`ContentModeratorReviewApiSubscriptionKey`|Abonelik anahtarı için Content Moderator API'si gözden geçirin|
+|`ContentModeratorApiEndpoint`|Content Moderator API'si için uç nokta|
+|`ContentModeratorTeamId`|Content moderator takım kimliği|
 
 ## <a name="getting-started"></a>Başlarken
 
-Sınıf `Program` içinde `Program.cs` video yönetimini uygulama için temel giriş noktasıdır.
+Sınıf `Program` içinde `Program.cs` video denetimi uygulamanın ana giriş noktasıdır.
 
-### <a name="methods-of-class-program"></a>Program sınıfının yöntemleri
+### <a name="methods-of-class-program"></a>Program sınıfının yöntemlerini
 
 |Yöntem|Açıklama|
 |-|-|
-|`Main`|Komut satırı ayrıştırır, kullanıcı girişi toplar ve işlemeye başlıyor.|
-|`ProcessVideo`|Sıkıştırır, karşıya yükleme, moderates ve video incelemeler oluşturur.|
+|`Main`|Komut satırı ayrıştırır, kullanıcı girişini toplayan ve işlemeye başlıyor.|
+|`ProcessVideo`|Sıkıştırır, yükler, moderates ve video incelemeleri oluşturur.|
 |`CreateVideoStreamingRequest`|Bir video karşıya yüklemek için bir akış oluşturur|
-|`GetUserInputs`|Kullanıcı girişi toplar; hiçbir komut satırı seçenekleri olmadığında kullanılır|
-|`Initialize`|Denetleme işlemi için gereken nesneleri başlatır|
+|`GetUserInputs`|Kullanıcı girişini toplayan; komut satırı seçeneği mevcut olduğunda kullanılır.|
+|`Initialize`|Denetleme işlemi için gerekli nesneleri başlatır|
 
 ### <a name="the-main-method"></a>Main yöntemi
 
-`Main()` video denetleme işlemini anlama başlamak için yer olan yürütme başladığı, olduğundan.
+`Main()` video denetimi işlemini anlama başlangıç noktanız olduğundan yürütme başladığı olduğundan.
 
     static void Main(string[] args)
     {
@@ -119,13 +119,13 @@ Sınıf `Program` içinde `Program.cs` video yönetimini uygulama için temel gi
 
 `Main()` Aşağıdaki komut satırı bağımsız değişkenleri işleme:
 
-- Denetleme için gönderilecek MPEG-4 video dosyaları içeren dizini yolu. Tüm `*.mp4` bu dizin ve alt dizinlerinde dosyaları denetleme için gönderilir.
-- Metin dökümleri amacıyla aracılık ses oluşturulan olup olmadığını belirten isteğe bağlı olarak, bir Boole (true/false) bayrak.
+- MPEG-4 denetimi için gönderilecek video dosyalarını içeren bir dizin yolu. Tüm `*.mp4` dosyalarını bu dizinde ve alt dizinlerinde denetimi için gönderilir.
+- Metin dökümleri amacıyla aracılık ses oluşturulması gerekip gerekmediğini belirten isteğe bağlı olarak, bir Boole (true/false) bayrağı.
 
-Komut satırı bağımsız değişken yoksa `Main()` çağrıları `GetUserInputs()`. Bu yöntem tek bir görüntü dosyasının yolunu girin ve bir metin dökümü oluşturulan olup olmadığını belirtmek için kullanıcıya sorar.
+Hiçbir komut satırı bağımsız değişkenleri yoksa `Main()` çağrıları `GetUserInputs()`. Bu yöntem, tek bir video dosyası yolunu girin ve bir metin dökümü oluşturulması gerekip gerekmediğini belirtmek için kullanıcıya sorar.
 
 > [!NOTE]
-> Konsol uygulaması kullanan [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) karşıya yüklenen videonun ses parçasından dökümleri oluşturulacak. Sonuçları WebVTT biçiminde sağlanır. Bu biçimi hakkında daha fazla bilgi için bkz: [Web Video metin parçaları biçimi](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> Konsol uygulaması kullanan [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) karşıya yüklenen videonun ses parçasından dökümleri oluşturulacak. Sonuçları WebVTT biçiminde sağlanır. Bu biçimi hakkında daha fazla bilgi için bkz. [Web Video metin parçaları biçimi](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
 ### <a name="initialize-and-processvideo-methods"></a>Başlatma ve ProcessVideo yöntemleri
 
@@ -134,13 +134,13 @@ Komut satırından veya etkileşimli kullanıcı girişi, programın seçenekler
 |Sınıf|Açıklama|
 |-|-|
 |`AMSComponent`|Video dosyaları için denetleme göndermeden önce sıkıştırır.|
-|`AMSconfigurations`|Bulunan uygulamanın yapılandırma verileri için arabirim `App.config`.|
+|`AMSconfigurations`|Bulunan uygulama yapılandırma verileri arabirimine `App.config`.|
 |`VideoModerator`| Karşıya yükleme, kodlama, şifreleme ve AMS SDK'sını kullanarak denetleme|
-|`VideoReviewApi`|Video incelemeler içerik denetleyicinin hizmet yöneten|
+|`VideoReviewApi`|Content Moderator hizmetinde video incelemeleri yönetir|
 
-Bu sınıfları (aside gelen `AMSConfigurations`, basit olduğu) Bu öğreticinin yaklaşan bölümlerde daha ayrıntılı olarak ele alınmaktadır.
+Bu sınıflar (aside gelen `AMSConfigurations`, basit olduğu) Bu öğreticinin sonraki bölümlerde daha ayrıntılı olarak ele alınmaktadır.
 
-Son olarak, video işlenen birer birer çağırarak dosyalardır `ProcessVideo()` her.
+Son olarak, video dosyaları çağırarak işlenen birer birer olan `ProcessVideo()` her.
 
     private static async Task ProcessVideo(string videoPath)
     {
@@ -188,23 +188,23 @@ Son olarak, video işlenen birer birer çağırarak dosyalardır `ProcessVideo()
     }
 
 
-`ProcessVideo()` Yöntemdir oldukça basit. Bu, sırayla aşağıdaki işlemleri gerçekleştirir:
+`ProcessVideo()` Yöntemi oldukça açıktır. Bu sırada aşağıdaki işlemleri gerçekleştirir:
 
 - Video sıkıştırır
-- Bir Azure Media Services varlığı video yükler
-- Video Orta düzeye bir AMS işi oluşturur
-- Video İnceleme içerik Aracı alanında oluşturur
+- Video için bir Azure Media Services varlık yükler.
+- Video denetlemek bir AMS işi oluşturur
+- Content Moderator video bir inceleme oluşturur
 
-Aşağıdaki bölümlerde daha ayrıntılı olarak bazı tarafından çağrılan tek tek işlemleri göz önünde bulundurun `ProcessVideo()`. 
+Aşağıdaki bölümlerde daha ayrıntılı olarak çağrılan tek tek işlemler bazıları düşünün `ProcessVideo()`. 
 
-## <a name="compressing-the-video"></a>Video sıkıştırma
+## <a name="compressing-the-video"></a>Görüntü sıkıştırma
 
-Ağ trafiğini en aza indirmek için uygulama video dosyaları H.264 (MPEG-4 AVC) biçimine dönüştürür ve maksimum 640 piksel genişliğine ölçeklendirir. H.264 codec yüksek verimlilik (sıkıştırma oranı) nedeniyle önerilir. Sıkıştırma yapılır ücretsiz kullanarak `ffmpeg` dahil komut satırı aracı `Lib` Visual Studio çözümü klasörü. Giriş dosyaları tarafından desteklenen herhangi bir biçimdeki olabilir `ffmpeg`en yaygın kullanılan video dosyası biçimlerini ve codec bileşenleri dahil olmak üzere.
+Ağ trafiğini en aza indirmek için uygulama video dosyalarını H.264 (AVC MPEG-4) biçimine dönüştürür ve bunları bir maksimum 640 piksel genişliğe ölçeklendirir. H.264 codec yüksek verimlilik (sıkıştırma oranı) nedeniyle önerilir. Sıkıştırma yapılır ücretsiz kullanarak `ffmpeg` dahil edilen komut satırı aracı `Lib` Visual Studio Çözüm klasörü. Giriş dosyaları tarafından desteklenen herhangi bir biçimdeki olabilir `ffmpeg`en sık kullanılan video dosyası biçimleri ve codec bileşenleri dahil olmak üzere.
 
 > [!NOTE]
-> Komut satırı seçeneklerini kullanarak programı başlattığınızda denetleme için gönderilecek video dosyaları içeren dizini belirtin. Bu dizin sahip tüm dosyaları `.mp4` dosya adı uzantısı işlenir. Diğer dosya adı uzantılarını işlemek için güncelleştirme `Main()` yönteminde `Program.cs` istenen uzantıları dahil.
+> Komut satırı seçeneklerini kullanarak programı başlattığınızda, denetimi için gönderilecek video dosyaları içeren dizini belirtin. Bu dizine sahip tüm dosyaların `.mp4` dosya adı uzantısı işlenir. Diğer dosya adı uzantılarını işlemek için güncelleştirme `Main()` yönteminde `Program.cs` istenen uzantıların eklenecek.
 
-Tek bir video dosyası sıkıştırır kodu `AmsComponent` sınıfını `AMSComponent.cs`. Bu işlevsellik için sorumlu yöntemdir `CompressVideo()`, burada gösterilen.
+Tek bir video dosyası sıkıştırır kodu `AmsComponent` sınıfını `AMSComponent.cs`. Bu işlev için sorumlu yöntemdir `CompressVideo()`, burada gösterilen.
 
     public string CompressVideo(string videoPath)
     {
@@ -238,21 +238,21 @@ Tek bir video dosyası sıkıştırır kodu `AmsComponent` sınıfını `AMSComp
 
 Kod, aşağıdaki adımları gerçekleştirir:
 
-- Yapılandırmada emin olmak için denetimleri `App.config` tüm gerekli verileri içerir
+- Yapılandırmada emin olmak için denetimleri `App.config` gerekli tüm verileri içerir
 - Emin olmak için denetimleri `ffmpeg` ikili yok
-- Çıktı dosyası adını ekleyerek derlemeler `_c.mp4` dosyasının temel adı için (gibi `Example.mp4`  ->  `E>xample_c.mp4`)
-- Dönüştürme gerçekleştirmek için bir komut satırı dizesi oluşturur
-- Başlayan bir `ffmpeg` komut satırını kullanarak işlem
-- Video işlenecek bekler
+- Çıktı dosyası adını ekleyerek yapılar `_c.mp4` dosyasının temel adı için (gibi `Example.mp4`  ->  `E>xample_c.mp4`)
+- Dönüştürme gerçekleştirmek için komut satırı dizesi oluşturur
+- Başlatan bir `ffmpeg` komut satırını kullanarak işlem
+- Videonun işlenmesi bekler
 
 > [!NOTE]
-> Videolarınızı H.264 kullanılarak önceden sıkıştırılan ve uygun boyutlarda biliyorsanız, yazabilirsiniz `CompressVideo()` sıkıştırma atlanacak.
+> Videolarınızı H.264 kullanarak zaten sıkıştırılmış ve uygun boyutlarda biliyorsanız, yazabilirsiniz `CompressVideo()` sıkıştırma atlanacak.
 
-Bu yöntem sıkıştırılmış çıktı dosyası adını döndürür.
+Bu yöntem, sıkıştırılmış çıkış dosyasının dosya adını döndürür.
 
 ## <a name="uploading-and-moderating-the-video"></a>Karşıya yükleme ve video yönetme
 
-İçerik Yönetimi hizmeti tarafından işlenen önce video Azure Media Services depolanması gerekir. `Program` Sınıfını `Program.cs` kısa bir yönteme sahip `CreateVideoStreamingRequest()` video karşıya yüklemek için kullanılan akış isteği temsil eden bir nesne döndürür.
+İçerik denetleme hizmeti tarafından işlenebilmesi Azure Media Services'da video depolanmalıdır. `Program` Sınıfını `Program.cs` kısa bir yönteme sahip `CreateVideoStreamingRequest()` video karşıya yüklemek için kullanılan akış isteği temsil eden bir nesne döndürür.
 
     private static UploadVideoStreamRequest CreateVideoStreamingRequest(string compressedVideoFilePath)
     {
@@ -269,7 +269,7 @@ Bu yöntem sıkıştırılmış çıktı dosyası adını döndürür.
             };
     }
 
-Elde edilen `UploadVideoStreamRequest` nesne tanımlanmış `UploadVideoStreamRequest.cs` (ve kendi üst `UploadVideoRequest`, `UploadVideoRequest.cs`). Bu sınıfların burada gösterilen değil; Bunlar, kısa ve yalnızca ilgili bilgileri ve sıkıştırılmış video verileri tutmak için hizmet. Başka bir yalnızca veri sınıfı `UploadAssetResult` (`UploadAssetResult.cs`) karşıya yükleme işleminin sonuçlarını tutmak için kullanılır. Bu satırlar anlamak olası şimdi `ProcessVideo()`:
+Ortaya çıkan `UploadVideoStreamRequest` nesne tanımlanmış `UploadVideoStreamRequest.cs` (ve kendi üst `UploadVideoRequest`, `UploadVideoRequest.cs`). Bu sınıfların burada gösterilmez; Bunlar kısa ve yalnızca ilgili bilgileri ve sıkıştırılmış görüntü verileri tutmak için hizmet. Başka bir veri yalnızca sınıf `UploadAssetResult` (`UploadAssetResult.cs`) karşıya yükleme işleminin sonuçlarını tutmak için kullanılır. Şimdi bu satırları anlamak olası `ProcessVideo()`:
 
     UploadVideoStreamRequest uploadVideoStreamRequest = CreateVideoStreamingRequest(compressedVideoPath);
     UploadAssetResult uploadResult = new UploadAssetResult();
@@ -286,15 +286,15 @@ Elde edilen `UploadVideoStreamRequest` nesne tanımlanmış `UploadVideoStreamRe
         Console.WriteLine("Video Review process failed.");
     }
 
-Bu satırlar aşağıdaki görevleri gerçekleştirin:
+Bu satırlar, aşağıdaki görevleri gerçekleştirin:
 
 - Oluşturma bir `UploadVideoStreamRequest` sıkıştırılmış video karşıya yüklemek için
-- İsteğin ayarlamak `GenerateVTT` kullanıcı metin dökümü istediyseniz bayrak
-- Çağrıları `CreateAzureMediaServicesJobToModerateVideo()` karşıya yükleme gerçekleştirmek ve sonucu almak için
+- İsteğin ayarlayın `GenerateVTT` kullanıcı metin dökümü istenirse bayrak
+- Çağrıları `CreateAzureMediaServicesJobToModerateVideo()` karşıya yükleme gerçekleştirin ve sonuç almak için
 
-## <a name="deep-dive-into-video-moderation"></a>Video yönetimini içine derinlemesine bakış
+## <a name="deep-dive-into-video-moderation"></a>Video denetimi derinlemesine inceleyin
 
-Yöntem `CreateAzureMediaServicesJobToModerateVideo()` yer `VideoModerator.cs`, Azure Media Services ile etkileşime giren kodu toplu içerir. Yöntemin kaynak kodu aşağıdaki Ayıkla gösterilir.
+Yöntem `CreateAzureMediaServicesJobToModerateVideo()` bulunduğu `VideoModerator.cs`, toplu Azure Media Services ile etkileşime giren kodu içerir. Yöntemin kaynak kodu aşağıdaki Ayıkla gösterilir.
 
     public bool CreateAzureMediaServicesJobToModerateVideo(UploadVideoStreamRequest uploadVideoRequest, UploadAssetResult uploadResult)
     {
@@ -357,14 +357,14 @@ Yöntem `CreateAzureMediaServicesJobToModerateVideo()` yer `VideoModerator.cs`, 
 
 Bu kod, aşağıdaki görevleri gerçekleştirir:
 
-- Yapılacak işlem için bir AMS işi oluşturur
-- Video dosyası kodlama, onu yönetme ve metin dökümü oluşturmak için görevleri ekler
-- Başlangıç işlem ve dosya karşıya yükleme işi gönderir
-- Denetleme sonuçları, metin dökümü (isteniyorsa) ve diğer bilgileri alır.
+- İşlemenin gerçekleştirilmesi için bir AMS işi oluşturur
+- Video dosyasını kodlama, yönetme ve metin transkript oluşturma için görevler ekler
+- Başlangıç işleme ve dosyayı karşıya yükleme işi gönderir
+- Denetleme sonuçları, metin dökümü (istenirse) ve diğer bilgileri alır.
 
-## <a name="sample-video-moderation-response"></a>Örnek video yönetimini yanıt
+## <a name="sample-video-moderation-response"></a>Örnek video denetimi yanıt
 
-Video denetleme işi sonucu (bkz [video yönetimini quickstart](video-moderation-api.md) olduğunu denetleme sonuçlarını içeren bir JSON veri yapısı. Bu sonuçları (görüntüleri) parçaları dökümünü (klipleri) içeren her olayları gözden geçirilmek üzere işaretlenmiş anahtar çerçeveler ile video içinde içerir. Her anahtar çerçevesi tarafından olasılığını Yetişkin veya saldırganlardan içerik içerdiği puanlanır. Aşağıdaki örnek, bir JSON yanıtı gösterir:
+Video denetimi iş sonucu (bkz [video denetimi hızlı](video-moderation-api.md) olduğunu denetleme sonuçlarını içeren bir JSON veri yapısı. Bu sonuçları parçaları (görüntüleri) dökümünü videodaki içeren her olayları gözden geçirilmek üzere işaretlenmiş anahtar çerçeveler ile (klipleri) içerir. Her anahtar çerçeve yetişkinlere yönelik veya müstehcen içerik içerdiği olasılığına göre puanlanır. Aşağıdaki örnek bir JSON yanıtı gösterilir:
 
     {
         "version": 2,
@@ -416,15 +416,15 @@ Video denetleme işi sonucu (bkz [video yönetimini quickstart](video-moderation
     ]
     }
 
-Transcription, video sesi de olduğu zaman üretilen `GenerateVTT` bayrağı ayarlanır.
+Ayrıca bir Videodan ses tanıma, ne zaman üretilen `GenerateVTT` bayrağı ayarlanır.
 
 > [!NOTE]
-> Konsol uygulaması kullanan [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) gelen dökümleri oluşturmak için karşıya yüklenen video ses izle. Sonuçları WebVTT biçiminde sağlanır. Bu biçimi hakkında daha fazla bilgi için bkz: [Web Video metin parçaları biçimi](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> Konsol uygulaması kullanan [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) karşıya yüklenen videonun ses parçasından dökümleri oluşturulacak. Sonuçları WebVTT biçiminde sağlanır. Bu biçimi hakkında daha fazla bilgi için bkz. [Web Video metin parçaları biçimi](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
 
-## <a name="creating-the-human-in-the-loop-review"></a>İnsan-içinde--döngü gözden geçirme oluşturma
+## <a name="creating-the-human-in-the-loop-review"></a>İnsan içinde--döngüsü İnceleme
 
-Denetleme işlemi video, ses izleri dökümü birlikte anahtar çerçeveler listesini döndürür. Sonraki adım, İnsan denetleyiciler için içerik denetleyici gözden geçirme aracında bir gözden geçirme oluşturmaktır. Geri gidip `ProcessVideo()` yönteminde `Program.cs`, çağrısına bakın `CreateVideoReviewInContentModerator()` yöntemi. Bu yöntem `videoReviewApi` bulunduğu sınıfı `VideoReviewAPI.cs`ve burada gösterilir.
+Denetleme işlemi, video, ses parçaları bir dökümü ile birlikte gelen anahtar çerçeveler listesini döndürür. Sonraki adım, İnsan Moderatörler için Content Moderator İnceleme aracında bir inceleme oluşturmaktır. Geri giderek `ProcessVideo()` yönteminde `Program.cs`, çağrısına bakın `CreateVideoReviewInContentModerator()` yöntemi. Bu yöntem `videoReviewApi` bulunduğu sınıfı `VideoReviewAPI.cs`ve burada gösterilir.
 
     public async Task<string> CreateVideoReviewInContentModerator(UploadAssetResult uploadAssetResult)
     {
@@ -461,37 +461,37 @@ Denetleme işlemi video, ses izleri dökümü birlikte anahtar çerçeveler list
 `CreateVideoReviewInContentModerator()` Aşağıdaki görevleri gerçekleştirmek için çeşitli yöntemler çağırır:
 
 > [!NOTE]
-> Konsol uygulaması kullanan [FFmpeg](https://ffmpeg.org/) küçük resimler oluşturma kitaplığı. Bu küçük resimleri (görüntüler) çerçeve veritabanındaki tarih damgası karşılık [video yönetimini çıktı](#sample-video-moderation-response).
+> Konsol uygulaması kullanan [FFmpeg](https://ffmpeg.org/) küçük resimler oluşturma kitaplığı. Bu küçük resimleri (görüntüler) çerçeve veritabanındaki tarih damgası karşılık [video denetimi çıkış](#sample-video-moderation-response).
 
 |Görev|Yöntemler|Dosya|
 |-|-|-|
-|Anahtar video çerçeveler ve bunları küçük resimlerini oluşturur extract|`CreateVideoFrames()`<br>`GenerateFrameImages()`|`FrameGeneratorServices.cs`|
-|Metin dökümü varsa Yetişkin veya saldırganlardan ses bulmak tarama|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
-|Hazırlama ve İnsan İnceleme için video gözden geçirme isteği gönderir|`CreateReviewRequestObject()`<br> `ExecuteCreateReviewApi()`<br>`CreateAndPublishReviewInContentModerator()`|`VideoReviewAPI.cs`|
+|Anahtar videodan kareler ve bunların küçük resimler oluşturur Ayıkla|`CreateVideoFrames()`<br>`GenerateFrameImages()`|`FrameGeneratorServices.cs`|
+|Metin dökümü kullanılabiliyorsa, yetişkinlere yönelik veya müstehcen ses bulmak tarama|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
+|Hazırlama ve insan tarafından İnceleme için bir video gözden geçirme isteği gönderir|`CreateReviewRequestObject()`<br> `ExecuteCreateReviewApi()`<br>`CreateAndPublishReviewInContentModerator()`|`VideoReviewAPI.cs`|
 
 ## <a name="video-review-default-view"></a>Video gözden geçirme varsayılan görünüm
 
-Aşağıdaki ekran önceki adımların sonuçlarını gösterir.
+Aşağıdaki ekranda, önceki adımın sonuçları gösterilmektedir.
 
 ![Video gözden geçirme varsayılan görünüm](images/video-tutorial-default-view.PNG)
 
-## <a name="transcript-generation"></a>Dökümü oluşturma
+## <a name="transcript-generation"></a>Döküm oluşturma
 
-Şimdiye kadar bu öğreticide sunulan kodu visual içerik odaklı. Konuşma içeriği gözden geçir belirtildiği gibi gelen oluşturulan dökümü kullanır, ayrı ve isteğe bağlı bir işlemdir. Metin dökümleri nasıl oluşturulduğunu ve gözden geçirme işleminde kullanılan bir göz atalım için şimdi zaman yapılır. Dökümü oluşturma görevini döner [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content) hizmet.
+Şimdiye kadar bu öğreticide gösterilen kodun görsel içeriğe bağlı odaklanıyor. Konuşma içeriğini gözden geçirmesini belirtildiği gibi seslerden oluşturulan bir döküm kullanır, ayrı ve isteğe bağlı bir işlemdir. Bu metin dökümleri nasıl oluşturulduğunu ve gözden geçirme işleminde kullanılan göz atalım artık zamanıdır. Transkript oluşturma görevini döner [Azure Media Indexer'ın](https://docs.microsoft.com/azure/media-services/media-services-index-content) hizmeti.
 
 Uygulama, aşağıdaki görevleri gerçekleştirir:
 
 |Görev|Yöntemler|Dosya|
 |-|-|-|
 |Metin dökümleri oluşturulacak olup olmadığını belirleme|`Main()`<br>`GetUserInputs()`|`Program.cs`|
-|Bu durumda, transcription iş yönetimini bir parçası olarak gönder|`ConfigureTranscriptTask()`|`VideoModerator.cs`|
-|Dökümü yerel bir kopyasını alma|`GenerateTranscript()`|`VideoModerator.cs`|
-|Uygunsuz ses içeren çerçeveleri video bayrak|`GenerateTextScreenProfanity()`<br>`TextScreen()`|`VideoReviewAPI.cs`|
-|Sonuçlar incelemeye ekleyin|`UploadScreenTextResult()`<br>`ExecuteAddTranscriptSupportFile()`|`VideoReviewAPI.cs`|
+|Bu durumda, döküm iş denetimi bir parçası olarak gönder|`ConfigureTranscriptTask()`|`VideoModerator.cs`|
+|Transkripti yerel bir kopyasını alın|`GenerateTranscript()`|`VideoModerator.cs`|
+|Uygunsuz ses içeren videonun karelerini bayrak|`GenerateTextScreenProfanity()`<br>`TextScreen()`|`VideoReviewAPI.cs`|
+|Sonuçları gözden geçirici ekleyin|`UploadScreenTextResult()`<br>`ExecuteAddTranscriptSupportFile()`|`VideoReviewAPI.cs`|
 
 ### <a name="task-configuration"></a>Görev yapılandırması
 
-Şimdi sağ transcription işi gönderme uygulamasına geçin. `CreateAzureMediaServicesJobToModerateVideo()` (yukarıda açıklanan) çağrıları `ConfigureTranscriptTask()`.
+Şimdi transkripsiyonu işi gönderiliyor içine sağ atlayın. `CreateAzureMediaServicesJobToModerateVideo()` (zaten açıklandığı gibi) çağrılarını `ConfigureTranscriptTask()`.
 
     private void ConfigureTranscriptTask(IJob job)
     {
@@ -504,14 +504,14 @@ Uygulama, aşağıdaki görevleri gerçekleştirir:
         task.OutputAssets.AddNew("AudioIndexing Output Asset", AssetCreationOptions.None);
     }
 
-Dökümü görev için yapılandırma dosyasından okunur `MediaIndexerConfig.json` çözümün içinde `Lib` klasör. AMS varlıklar transcription işlem çıkışı ve yapılandırma dosyası için oluşturulur. AMS işini çalıştırdığında, bu görev bir metin dökümü video dosyanın ses parçasından oluşturur.
+Transkript görev için yapılandırma dosyasından okunur `MediaIndexerConfig.json` çözümün içinde `Lib` klasör. AMS varlıklarını transkripsiyonu işleminin çıktı ve yapılandırma dosyası için oluşturulur. AMS işi çalıştığında, bu görev bir metin dökümü ses video dosyanın parçasından oluşturur.
 
 > [!NOTE]
 > Örnek uygulamayı yalnızca konuşma ABD İngilizcesi olarak tanır.
 
-### <a name="transcript-generation"></a>Dökümü oluşturma
+### <a name="transcript-generation"></a>Döküm oluşturma
 
-Dökümü AMS varlık yayımlanır. Uygunsuz içerik dökümü taramak için Azure Media Services'den varlık uygulamayı yükler. `CreateAzureMediaServicesJobToModerateVideo()` çağrıları `GenerateTranscript()`gösterilen dosyasını almak için buraya tıklayın.
+Transkripti bir AMS varlığı yayımlanır. Transkripti uygunsuz içeriği için taramak için Azure Media Services'den varlık uygulamayı yükler. `CreateAzureMediaServicesJobToModerateVideo()` çağrıları `GenerateTranscript()`gösterilen dosyasını almak için burada.
 
     public bool GenerateTranscript(IAsset asset)
     {
@@ -534,23 +534,23 @@ Dökümü AMS varlık yayımlanır. Uygunsuz içerik dökümü taramak için Azu
         }
     }
 
-Gerekli bazı AMS Kurulumdan sonra çağırarak gerçek indirme gerçekleştirilen `DownloadAssetToLocal()`, yerel bir dosyaya bir AMS varlık kopyalar genel bir işlev.
+Bazı gerekli AMS Kurulumdan sonra gerçek indirme çağrılarak gerçekleştirilir `DownloadAssetToLocal()`, AMS varlığı yerel bir dosyaya kopyalar genel bir işlev.
 
-## <a name="transcript-moderation"></a>Dökümü denetleme
+## <a name="transcript-moderation"></a>Transkript denetleme
 
-Dökümü ile yakın elinizdeki, taranan olduğundan ve incelemeye kullanılır. Gözden geçirme oluşturma kapsamında olan `CreateVideoReviewInContentModerator()`, o çağrıları `GenerateTextScreenProfanity()` iş yapmak için. Buna karşılık, bu yöntemi çağırır `TextScreen()`, işlevselliğinin büyük kısmını içerir. 
+Transkripti ile eldeki kapatın, bu taranan ve incelemeye kullanılır. Gözden geçirme oluşturmak, kapsamında olan `CreateVideoReviewInContentModerator()`, bu çağrılar `GenerateTextScreenProfanity()` işini yapması için. Sırayla bu yöntemi çağırır `TextScreen()`, işlevselliğinin büyük kısmını içeren. 
 
 `TextScreen()` Aşağıdaki görevleri gerçekleştirir:
 
-- Zaman dökümü tamps ve başlıkları ayrıştırma
-- Metin denetleme için her başlığı gönderme
-- Uygunsuz konuşma içeriğe sahip herhangi bir çerçeve bayrak
+- Transkripti kez tamps ve kapalı açıklamalı alt yazı ayrıştırma
+- Metin denetimi için her bir açıklama Gönder
+- Uygunsuz konuşma içeriklere sahip olabilecek herhangi bir kare bayrak
 
 Her bu görevleri daha ayrıntılı inceleyelim:
 
-### <a name="initialize-the-code"></a>Kod başlatma
+### <a name="initialize-the-code"></a>Kod Başlat
 
-İlk olarak, tüm değişkenleri ve koleksiyonları başlatır.
+İlk olarak, tüm değişkenleri ve Koleksiyonlar başlatın.
 
     private async Task<TranscriptScreenTextResult> TextScreen(string filepath, List<ProcessedFrameDetails> frameEntityList)
     {
@@ -571,9 +571,9 @@ Her bu görevleri daha ayrıntılı inceleyelim:
         // Code from the next sections in the tutorial
     
 
-### <a name="parse-the-transcript-for-captions"></a>Resim yazıları için dökümü ayrıştırılamıyor
+### <a name="parse-the-transcript-for-captions"></a>Transkripti alt yazıların ayrıştırılamıyor
 
-Ardından, resim yazıları ve zaman damgaları için VTT biçimlendirilmiş dökümü ayrıştırılamıyor. Gözden geçirme Aracı'nı bu resim yazıları video İnceleme ekranı dökümü sekmesinde görüntüler. Zaman damgaları resim yazıları karşılık gelen video çerçeveler ile eşitlemek için kullanılır.
+Ardından, açıklamalı alt yazılar ve zaman damgaları VTT biçimlendirilmiş transkripti ayrıştırılamıyor. İnceleme aracını bu açıklamalı alt yazılar döküm sekmesinde video İnceleme ekranı görüntüler. Zaman damgaları, resim yazıları karşılık gelen video çerçeveler ile eşitlemek için kullanılır.
 
         // Code from the previous section(s) in the tutorial
 
@@ -623,14 +623,14 @@ Ardından, resim yazıları ve zaman damgaları için VTT biçimlendirilmiş dö
 
             // Code from the following section in the quickstart
 
-### <a name="moderate-captions-with-the-text-moderation-service"></a>Metin denetleme hizmetiyle Orta resim yazıları
+### <a name="moderate-captions-with-the-text-moderation-service"></a>Metin denetimi hizmeti ile orta açıklamalı alt yazılar
 
-Ardından, API içerik denetleyicinin metinle ayrıştırılmış metin başlıklarını tarayın.
+Ardından, ayrıştırılmış metin açıklamalı alt yazılar Content Moderator'ın metin tanıma API'si ile tarayın.
 
 > [!NOTE]
-> İçerik denetleyici hizmeti anahtarınızı ikinci (RPS) hız sınırı başına bir istek var. Sınırı aşarsanız, SDK 429 hata kodunu içeren bir özel durum oluşturur. 
+> Content Moderator hizmeti anahtarınızı ikinci (RP'ler) hız sınırı başına bir istek var. Sınırı aşarsanız, SDK'sı 429 hata koduna sahip özel durum oluşturur. 
 >
-> Ücretsiz katmanı anahtarı bir RPS hızı sınırı vardır.
+> Ücretsiz katmanı anahtarı bir RPS oranı sınırı vardır.
 
     //
     // Moderate the captions or cues
@@ -722,29 +722,29 @@ Ardından, API içerik denetleyicinin metinle ayrıştırılmış metin başlık
             return screenTextResult;
     }
 
-### <a name="breaking-down-the-text-moderation-step"></a>Metin denetleme adım kesiliyor
+### <a name="breaking-down-the-text-moderation-step"></a>Metin denetimi Adım sonu
 
-`TextScreen()` önemli bir yöntem, sağlandığından bölünme, olur.
+`TextScreen()` Haydi bölmek, önemli bir yöntem olduğundan.
 
-1. İlk olarak, yöntem satır dökümü dosyasını okur. Boş satırlar ve içeren satırları yoksayar bir `NOTE` güvenirlik puanı. Zaman damgaları ve metin öğeleri ayıklar *ipuçlarını* dosyasında. Bir işaret metin ses parçasından temsil eder ve başlangıç ve bitiş zamanlarını içerir. Bir işaret dize zaman damgası satırıyla ile başlayan `-->`. Bir veya daha fazla satırlık metin tarafından izlenir.
+1. İlk olarak, yöntem satır döküm dosyasını okur. Satırları içeren ve boş yoksayar bir `NOTE` ile bir güven puanı. Zaman damgaları ve metin öğeleri ayıklar *ipuçları* dosyasında. İpucu metin, ses parçasından temsil eder ve başlangıç ve bitiş zamanlarını içerir. Dize zaman damgası satırla ipucu başlar `-->`. Bir veya daha fazla satırlık metin izler.
 
-1. Örneklerini `CaptionScreentextResult` (tanımlanan `TranscriptProfanity.cs`) her işaret Ayrıştırılan bilgiyi tutmak için kullanılır.  Ne zaman yeni bir zaman damgası satır algılandığında veya maksimum metin uzunluğu 1024 karakterle ulaşıldığında, yeni bir `CaptionScreentextResult` eklenen `csrList`. 
+1. Örneklerini `CaptionScreentextResult` (tanımlanan `TranscriptProfanity.cs`) her işaret Ayrıştırılan bilgileri tutmak için kullanılır.  Ne zaman yeni bir zaman damgası satır algılandığında veya bir maksimum metin uzunluğu 1024 karakterle ulaşıldığında, yeni bir `CaptionScreentextResult` eklenir `csrList`. 
 
-1. Yöntemi, sonraki her işaret metin denetleme API gönderir. Her ikisi de çağırır `ContentModeratorClient.TextModeration.DetectLanguageAsync()` ve `ContentModeratorClient.TextModeration.ScreenTextWithHttpMessagesAsync()`, içinde tanımlanan `Microsoft.Azure.CognitiveServices.ContentModerator` derleme. Oranı sınırlı olan önlemek için her işaret göndermeden önce bir saniye için yöntemi duraklatır.
+1. Yöntemi, sonraki metin denetimi API'sine yapılan her işaret gönderir. Her ikisi de çağırır `ContentModeratorClient.TextModeration.DetectLanguageAsync()` ve `ContentModeratorClient.TextModeration.ScreenTextWithHttpMessagesAsync()`, içinde tanımlandığı `Microsoft.Azure.CognitiveServices.ContentModerator` derleme. Sınırlı hızı anda önlemek için yöntemi her işaret göndermeden önce bir saniye için duraklatır.
 
-1. Sonuçları metin denetleme hizmetinden aldıktan sonra yöntemi sonra bunları güvenirlik eşikleri sağlayıp sağlamadığını görmek için çözümler. Bu değerleri oluşturulmuş `App.config` olarak `OffensiveTextThreshold`, `RacyTextThreshold`, ve `AdultTextThreshold`. Son olarak, uygunsuz şartları da depolanır. İşaret 's zaman aralığı içinde tüm çerçeveleri içeren rahatsız edici, saldırganlardan ve/veya yetişkin metin işaretlenir.
+1. Metin denetimi hizmetinden sonuçları aldıktan sonra yöntemi daha sonra bunları güvenle eşikleri karşılayıp karşılamadığını görmek için analiz eder. Bu değerleri içinde belirlenen `App.config` olarak `OffensiveTextThreshold`, `RacyTextThreshold`, ve `AdultTextThreshold`. Son olarak, uygunsuz koşulları da depolanır. İşaret ait zaman aralığı içinde tüm çerçeveleri, rahatsız edici, müstehcen içeren ve/veya yetişkin metin işaretlenir.
 
-1. `TextScreen()` döndüren bir `TranscriptScreenTextResult` bir bütün olarak video metin denetleme sonucundan içeren örneği. Bu nesne ve tüm uygunsuz terimlerin bir listesi ile birlikte uygunsuz içerik çeşitli türlerde için puanlar bayrakları içerir. Arayan `CreateVideoReviewInContentModerator()`, çağrıları `UploadScreenTextResult()` İnsan gözden geçirenlere kullanılabilir olması için bu bilgileri incelemeye eklemek için.
+1. `TextScreen()` döndürür bir `TranscriptScreenTextResult` içeren bir bütün olarak video metin denetimi sonuç örneği. Bu nesne bayraklarını içerir ve tüm uygunsuz terimlerin bir listesi ile birlikte uygunsuz içeriği çeşitli türleri puanlar. Arayan `CreateVideoReviewInContentModerator()`, çağrıları `UploadScreenTextResult()` İnsan gözden geçirenlere kullanılabilir olacak şekilde bu bilgiler gözden eklemek için.
  
-## <a name="video-review-transcript-view"></a>Video gözden geçirme dökümü görünümü
+## <a name="video-review-transcript-view"></a>Video gözden geçirme döküm görüntüle
 
-Aşağıdaki ekran oluşturma ve denetleme adımları dökümü sonucunu gösterir.
+Aşağıdaki ekranda, oluşturma ve denetleme adımları transkripti sonucunu gösterir.
 
-![Video denetleme dökümü görünümü](images/video-tutorial-transcript-view.PNG)
+![Video denetimi döküm görüntüle](images/video-tutorial-transcript-view.PNG)
 
 ## <a name="program-output"></a>Program çıktısı
 
-Tamamlandıkça program aşağıdaki komut satırı çıkışı çeşitli görevleri gösterir. Ayrıca, denetleme sonucu (JSON biçiminde) ve konuşma dökümü özgün video dosyaları ile aynı dizinde kullanılabilir.
+Tamamlandıkça programın komut satırı çıkışı aşağıdaki çeşitli görevler gösterilmektedir. Buna ek olarak, denetimi sonucu (JSON biçiminde) ve konuşma dökümü özgün video dosyaları ile aynı dizinde kullanılabilir durumdadır.
 
     Microsoft.ContentModerator.AMSComponentClient
     Enter the fully qualified local path for Uploading the video :
@@ -768,4 +768,4 @@ Tamamlandıkça program aşağıdaki komut satırı çıkışı çeşitli görev
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Visual Studio çözümü indirme](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) Bu öğretici için dosyaları ve gerekli kitaplıklar örnek ve tümleştirme üzerinde başlayın.
+[Visual Studio çözümü indirme](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) dosyaları ve gerekli kitaplıkları Bu öğretici için örnek ve tümleştirmenizi üzerinde kullanmaya başlayın.

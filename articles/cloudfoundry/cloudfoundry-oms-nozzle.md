@@ -1,6 +1,6 @@
 ---
-title: Bulut Foundry izlemek için Azure günlük analizi kafa dağıtma | Microsoft Docs
-description: Azure günlük analizi için bulut Foundry loggregator kafa dağıtma hakkında adım adım yönergeler için. Başlık bulut Foundry sistem sağlık ve performans ölçümlerini izlemek için kullanın.
+title: Cloud Foundry izlemek için Azure Log Analytics Nozzle dağıtma | Microsoft Docs
+description: Azure Log Analytics için Cloud Foundry loggregator Nozzle dağıtma konusunda adım adım yönergeler. Başlık, Cloud Foundry sistem durumu ve performans ölçümlerini izlemek için kullanın.
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
@@ -15,103 +15,103 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 687356b60ad0bbc469d67e071ce3bccc8b61ebd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c58c2b255d269aef7e8b3fea62d003ad0c16ef0a
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609010"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868135"
 ---
-# <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Bulut Foundry sistem izleme için Azure günlük analizi kafa dağıtma
+# <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry sistemin izlenmesi için Azure Log Analytics Nozzle dağıtma
 
-[Azure günlük analizi](https://azure.microsoft.com/services/log-analytics/) bir Azure hizmetidir. Toplamak ve analiz etmek, buluttan oluşturulur ve şirket içi ortamları verileri yardımcı olur.
+[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) bir Azure hizmetidir. Bulutunuzdan oluşturulur ve şirket içi Ortamlarınızdaki verileri toplayıp analiz yardımcı olur.
 
-Günlük analizi başlık (başlık) ölçümleri ileten bir bulut Foundry (CF) bileşeni olan [bulut Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose günlük analizi için. Başlık ile toplamak, görüntülemek ve, CF sistem sağlık ve performans ölçümleri, birden çok dağıtımlar arasında analiz edin.
+Log Analytics Nozzle (başlık) ölçümleri ileten bir Cloud Foundry (CF) bileşeni olduğu [Cloud Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) Log analytics'e firehose. Nozzle ile toplamak, görüntüleyebilir ve birden çok dağıtımlarınızda CF sistem durumu ve performans ölçümlerinizi, analiz edin.
 
-Bu belgede, kafa CF ortamınıza dağıtmak ve ardından veri günlük analizi konsolundan erişim hakkında bilgi edinin.
+Bu belgede, CF ortamınıza Nozzle dağıtma ve ardından verileri Log Analytics konsolundan erişmeyi öğrenin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Başlık dağıtmak için Önkoşullar adımlardır.
+Aşağıdaki adımlar, Nozzle dağıtmak için önkoşullardır.
 
-### <a name="1-deploy-a-cf-or-pivotal-cloud-foundry-environment-in-azure"></a>1. Azure CF veya Bileşendirler bulut Foundry bir ortamda dağıtmak
+### <a name="1-deploy-a-cf-or-pivotal-cloud-foundry-environment-in-azure"></a>1. Azure'daki CF veya Pivotal Cloud Foundry ortamı dağıtma
 
-Başlık bir açık kaynak CF dağıtımı veya Bileşendirler bulut Foundry (PCF) dağıtım ile kullanabilirsiniz.
+Bir açık kaynak CF dağıtım veya Pivotal Cloud Foundry (PCF) dağıtım ile Nozzle kullanabilirsiniz.
 
-* [Azure üzerinde bulut Foundry dağıtma](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md)
+* [Azure'da cloud Foundry dağıtma](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md)
 
-* [Azure üzerinde Bileşendirler bulut Foundry dağıtma](https://docs.pivotal.io/pivotalcf/1-11/customizing/azure.html)
+* [Azure'da Pivotal Cloud Foundry dağıtma](https://docs.pivotal.io/pivotalcf/1-11/customizing/azure.html)
 
-### <a name="2-install-the-cf-command-line-tools-for-deploying-the-nozzle"></a>2. Başlık dağıtmak için CF komut satırı araçları'nı yükleme
+### <a name="2-install-the-cf-command-line-tools-for-deploying-the-nozzle"></a>2. Nozzle dağıtma CF komut satırı araçlarını yükleyin
 
-Başlık CF ortamında bir uygulama olarak çalışır. Uygulamayı dağıtmak için CF CLI gerekir.
+Nozzle CF ortamında bir uygulama olarak çalışır. CF uygulamasını dağıtmak için CLI ihtiyacınız vardır.
 
-Başlık da loggregator firehose ve bulut denetleyicisi için erişim izni gerekir. Oluşturma ve kullanıcı yapılandırmak için kullanıcı hesabı ve kimlik doğrulaması (UAA) hizmeti gerekir.
+Nozzle loggregator firehose ve Bulutu denetleyicisi erişim izni de gerekir. Oluşturma ve yapılandırma kullanıcı için kullanıcı hesabı ve kimlik doğrulaması (UAA) hizmeti gerekir.
 
-* [Bulut Foundry CLI yükleme](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
+* [Cloud Foundry CLI yükleme](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
 
-* [Bulut Foundry UAA komut satırı İstemcisi'ni yükleme](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
+* [Cloud Foundry UAA komut satırı istemcisini yükleme](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
 
 UAA komut satırı istemci ayarlamadan önce Rubygems yüklü olduğundan emin olun.
 
-### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Günlük analizi çalışma alanı oluşturma
+### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Azure'da Log Analytics çalışma alanı oluşturma
 
-Günlük analizi çalışma alanı el ile veya bir şablon kullanarak oluşturabilirsiniz. Kurulum, önceden yapılandırılmış OMS KPI görünümleri ve Uyarıları OMS Konsolu için şablon dağıtır. 
+El ile veya bir şablon kullanarak Log Analytics çalışma alanı oluşturabilirsiniz. Şablon önceden yapılandırılmış OMS KPI görünümler ve uyarılar OMS konsolunda bir kurulumunu dağıtır. 
 
-#### <a name="to-create-the-workspace-manually"></a>Çalışma alanı el ile oluşturmak için:
+#### <a name="to-create-the-workspace-manually"></a>Çalışma alanını el ile oluşturmak için:
 
-1. Azure portalında Azure Marketi'nde hizmetlerin listesini arama ve günlük analizi seçin.
-2. Seçin **oluşturma**ve ardından aşağıdaki öğeler için seçenekleri seçin:
+1. Azure portalında Azure Marketi'nde Hizmetler listesinde arama yapın ve Log Analytics'ı seçin.
+2. Seçin **Oluştur**ve ardından şu öğeler için seçim:
 
-   * **OMS çalışma**: çalışma alanınız için bir ad yazın.
-   * **Abonelik**: CF dağıtımınız ile aynı olan birden çok aboneliğiniz varsa, seçin.
-   * **Kaynak grubu**: yeni bir kaynak grubu oluşturun veya aynı CF dağıtımınızla birlikte kullanın.
+   * **OMS çalışma alanı**: çalışma alanınız için bir ad yazın.
+   * **Abonelik**: CF dağıtımınız ile aynı olan birden fazla aboneliğiniz varsa, seçin.
+   * **Kaynak grubu**: yeni bir kaynak grubu oluşturun veya aynı CF dağıtımınıza kullanın.
    * **Konum**: konumu girin.
-   * **Fiyatlandırma katmanı**: seçin **Tamam** tamamlamak için.
+   * **Fiyatlandırma katmanı**: seçin **Tamam** tamamlanması.
 
-Daha fazla bilgi için bkz: [günlük Analytics ile çalışmaya başlama](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Daha fazla bilgi için [Log Analytics ile çalışmaya başlama](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Azure market yerden OMS izleme şablonu aracılığıyla OMS çalışma alanı oluşturmak için:
+#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Azure market yerden OMS çalışma alanını OMS izleme şablonu aracılığıyla oluşturmak için:
 
 1. Azure Portalı'nı açın.
-2. "+" İşaretine tıklayın ya da "kaynak üzerinde sol üst köşede oluşturma".
-3. Arama penceresinde "Bulut Foundry" yazın, "OMS bulut Foundry izleme çözümü" seçin.
-4. İzleme çözüm şablonu ön sayfa yüklendiğinde, OMS bulut Foundry şablonu dikey penceresini başlatmak üzere "Oluştur"'i tıklatın.
-5. Gerekli Parametreler girin:
-    * **Abonelik**: OMS çalışma alanı için genellikle aynı bulut Foundry dağıtımı ile Azure aboneliğini seçin.
-    * **Kaynak grubu**: varolan bir kaynak grubu seçin veya OMS çalışma alanı için yeni bir tane oluşturun.
-    * **Kaynak grubu konumu**: kaynak grubu konumunu seçin.
-    * **OMS_Workspace_Name**: bir çalışma alanı adı girin çalışma alanı mevcut değilse yeni bir şablonu oluşturur.
-    * **OMS_Workspace_Region**: çalışma alanı için bir konum seçin.
-    * **OMS_Workspace_Pricing_Tier**: SKU OMS çalışma alanını seçin. Bkz: [Kılavuzu fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/) başvuru.
-    * **Yasal koşullar**: tıklatın yasal koşulları yasal koşulu kabul etmesi "Oluştur" ı.
-- Tüm parametreleri belirttikten sonra şablonu dağıtmak için "Oluştur" seçeneğini tıklatın. Dağıtım tamamlandığında, durum bildirim sekme görünecektir.
+2. "+" İşaretine tıklayın veya "kaynak sol üst köşedeki oluştur".
+3. Arama penceresine "Cloud Foundry" yazın, "OMS Cloud Foundry izleme çözümü" seçin.
+4. İzleme çözümü şablonu ön sayfa yüklendiğinde, OMS Cloud Foundry şablonu dikey penceresini başlatmak için "Oluştur"'a tıklayın.
+5. Gerekli parametreleri girin:
+    * **Abonelik**: OMS çalışma alanı için genellikle aynı Cloud Foundry dağıtım ile bir Azure aboneliği seçin.
+    * **Kaynak grubu**: mevcut bir kaynak grubunu seçin veya yeni bir OMS çalışma alanı oluşturun.
+    * **Kaynak grubu konumu**: kaynak grubunun konumunu seçin.
+    * **OMS_Workspace_Name**: bir çalışma alanı adı girin. çalışma alanı yoksa, şablonun yeni bir tane oluşturun.
+    * **OMS_Workspace_Region**: çalışma alanı konumunu seçin.
+    * **OMS_Workspace_Pricing_Tier**: SKU OMS çalışma alanı seçin. Bkz: [fiyatlandırma Kılavuzu](https://azure.microsoft.com/pricing/details/log-analytics/) başvuru.
+    * **Yasal koşullar**: tıklayın yasal koşullar'yasal koşulu kabul için "Oluştur" a tıklayın.
+- Tüm parametreler belirttikten sonra şablonu dağıtmak için "Oluştur" a tıklayın. Dağıtım tamamlandığında durum bildirim sekme görünür.
 
 
-## <a name="deploy-the-nozzle"></a>Başlık dağıtma
+## <a name="deploy-the-nozzle"></a>Nozzle dağıtma
 
-Birkaç kafa dağıtmanın farklı yolu vardır: PCF döşeme veya CF uygulama olarak.
+Birkaç Nozzle dağıtmanın farklı yöntemleri vardır: CF uygulama olarak ya da PCF kutucuk olarak.
 
-### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>Başlık PCF Ops Manager kutucuğu dağıtma
+### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>PCF Ops Manager kutucuk olarak Nozzle dağıtma
 
-Adımlarını izleyin [Azure günlük analizi kafa PCF için yükleyip](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Bu basitleştirilmiş bir yaklaşım, PCF Ops manager kutucuğu otomatik olarak yapılandırmak ve başlık gönderme. 
+Adımlarını izleyin [yükleme ve Azure Log Analytics Nozzle PCF için yapılandırma](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Bu basitleştirilmiş bir yaklaşım, PCF Ops manager kutucuk otomatik olarak yapılandıracak ve nozzle anında iletme. 
 
-### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Başlık CF bir uygulama olarak el ile dağıtma
+### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Nozzle CF uygulaması olarak el ile dağıtma
 
-Başlık PCF Ops Manager kullanmıyorsanız, bir uygulama olarak dağıtın. Aşağıdaki bölümlerde bu işlemi açıklanmaktadır.
+PCF Ops Manager kullanmıyorsanız Nozzle bir uygulama olarak dağıtın. Aşağıdaki bölümlerde, bu işlemi açıklanmaktadır.
 
-#### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>CF dağıtımınızı CF CLI aracılığıyla yönetici olarak oturum açın
+#### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>CF dağıtımınıza CF CLI ile bir yönetici olarak oturum açın
 
 Şu komutu çalıştırın:
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
 
-"SYSTEM_DOMAIN", CF etki alanı adıdır. Bunu "SYSTEM_DOMAIN" arayarak, CF dağıtım bildirim dosyasında alabilirsiniz. 
+"SYSTEM_DOMAIN", CF etki alanı adıdır. Bu "SYSTEM_DOMAIN" arayarak, CF dağıtım bildirim dosyasında alabilirsiniz. 
 
-"CF_User" CF yönetici adıdır. Adı ve parola almak "scım'yi" bölümünde arama, adı ve CF dağıtım bildirim dosyası "cf_admin_password" için arama.
+"CF_User" CF yönetici addır. Adını ve parolasını almak "scım" bölümünde arama, adı ve CF dağıtım bildirim dosyasının "cf_admin_password" için arama.
 
-#### <a name="create-a-cf-user-and-grant-required-privileges"></a>CF kullanıcı oluşturmak ve gerekli ayrıcalıkları
+#### <a name="create-a-cf-user-and-grant-required-privileges"></a>CF kullanıcı oluşturma ve gerekli ayrıcalıkları verme
 
 Aşağıdaki komutları çalıştırın:
 ```
@@ -122,9 +122,9 @@ uaac member add cloud_controller.admin ${FIREHOSE_USER}
 uaac member add doppler.firehose ${FIREHOSE_USER}
 ```
 
-"SYSTEM_DOMAIN", CF etki alanı adıdır. Bunu "SYSTEM_DOMAIN" arayarak, CF dağıtım bildirim dosyasında alabilirsiniz.
+"SYSTEM_DOMAIN", CF etki alanı adıdır. Bu "SYSTEM_DOMAIN" arayarak, CF dağıtım bildirim dosyasında alabilirsiniz.
 
-#### <a name="download-the-latest-log-analytics-nozzle-release"></a>En son günlük analizi başlık sürümü indirme
+#### <a name="download-the-latest-log-analytics-nozzle-release"></a>Log Analytics Nozzle en son sürümü indirin
 
 Şu komutu çalıştırın:
 ```
@@ -134,7 +134,7 @@ cd oms-log-analytics-firehose-nozzle
 
 #### <a name="set-environment-variables"></a>Ortam değişkenlerini belirleme
 
-Şimdi, geçerli dizininizde manifest.yml dosyasında ortam değişkenleri ayarlayabilirsiniz. Başlık uygulama bildirimi gösterir. Değerleri, belirli günlük analizi çalışma alanı bilgileriyle değiştirin.
+Şimdi geçerli dizininizde manifest.yml dosyasında ortam değişkenlerini ayarlayabilirsiniz. Uygulama bildirimi Nozzle için aşağıda gösterilmiştir. Değerleri, belirli Log Analytics çalışma alanı bilgileri ile değiştirin.
 
 ```
 OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
@@ -157,17 +157,17 @@ LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log 
 
 ### <a name="push-the-application-from-your-development-computer"></a>Uygulamanızı geliştirme bilgisayarınızın uygulamadan anında iletme
 
-Oms-günlük-Analytics'i-firehose-başlık klasörü altında olduğundan emin olun. Şu komutu çalıştırın:
+Oms-log-analytics-firehose-nozzle klasörü altında olduğundan emin olun. Şu komutu çalıştırın:
 ```
 cf push
 ```
 
-## <a name="validate-the-nozzle-installation"></a>Başlık yüklemeyi doğrulama
+## <a name="validate-the-nozzle-installation"></a>Nozzle yüklemeyi doğrulama
 
-### <a name="from-apps-manager-for-pcf"></a>Uygulamaları Manager'dan (için PCF)
+### <a name="from-apps-manager-for-pcf"></a>Uygulamaları Manager'dan (PCF için)
 
-1. OPS Manager için oturum açın ve döşeme yükleme Panoda görüntülendiğinden emin olun.
-2. Uygulamaları Yöneticisi için oturum açın, başlık için oluşturduğunuz alan kullanımı raporu listelendiğinden emin olun ve durum normal olduğundan emin olun.
+1. OPS Manager için oturum açın ve kutucuk yükleme Panoda görüntülendiğinden emin olun.
+2. Uygulama Yöneticisi'ni açın, üzerinde kullanım raporu oluşturduğunuz için başlık alanı listelendiğinden emin olun ve durum normal olduğundan emin olun.
 
 ### <a name="from-your-development-computer"></a>Geliştirme bilgisayarınızdan
 
@@ -175,77 +175,77 @@ CF CLI penceresinde yazın:
 ```
 cf apps
 ```
-OMS kafa uygulama çalıştığından emin olun.
+OMS Nozzle uygulamayı çalışır durumda olduğundan emin olun.
 
-## <a name="view-the-data-in-the-oms-portal"></a>OMS Portalı'nda verileri görüntüleme
+## <a name="view-the-data-in-the-oms-portal"></a>OMS Portalı'nda verileri görüntüleyin
 
-İzleme çözümü ile OMS dağıttıysanız, pazar yeri şablon Azure portalına gidin ve OMS çözüm bulunur. Çözüm, şablonda belirtilen kaynak grubunda bulabilirsiniz. Çözümü tıklatın, göz atın "OMS konsola", önceden yapılandırılmış görünümler, üst bulut Foundry sistem KPI'ları, uygulama verileri, uyarılar ve VM sistem durumu ölçümleri listelenir. 
+İzleme çözümü ile OMS dağıttıysanız Marketi şablonun, Azure portalına gidin ve OMS çözüm bulunur. Çözüm, şablonda belirtilen kaynak grubunda bulabilirsiniz. Çözüm'e tıklayın, göz atın "OMS konsola" önceden yapılandırılmış görünümler, üst Cloud Foundry sistem KPI'ları, uygulama verileri, uyarıları ve VM sistem durumu ölçümleri listelenir. 
 
-OMS çalışma alanını el ile oluşturduysanız, görünümler ve Uyarıları oluşturmak için aşağıdaki adımları izleyin:
+OMS çalışma alanı el ile oluşturduysanız, görünümler ve Uyarılar oluşturmak için aşağıdaki adımları izleyin:
 
-### <a name="1-import-the-oms-view"></a>1. OMS görünümünü Al
+### <a name="1-import-the-oms-view"></a>1. OMS görünüm alma
 
-OMS Portalı'ndan Gözat **Görünüm Tasarımcısı** > **alma** > **Gözat**ve omsview dosyalarından birini seçin. Örneğin, seçin *bulut Foundry.omsview*ve görünümü kaydedin. Bir kutucuk gösterilir artık **genel bakış** sayfası. Görselleştirilmiş ölçümlerini görmek için seçin.
+OMS Portalı'ndan göz atın **Görünüm Tasarımcısı** > **alma** > **Gözat**, omsview dosyalarından birini seçin. Örneğin, *bulut Foundry.omsview*ve görünüm kaydedebilirsiniz. Artık bir kutucuk görüntülenir **genel bakış** sayfası. Görselleştirilen ölçümleri görmek için seçin.
 
-Bu görünümler özelleştirebilir veya aracılığıyla yeni görünümler oluşturma **Görünüm Tasarımcısı**.
+Bu görünümler özelleştirme veya aracılığıyla yeni görünümler oluşturmak **Görünüm Tasarımcısı**.
 
-*"Bulut Foundry.omsview"* bulut Foundry OMS görünüm şablonu Önizleme sürümüdür. Bu tam olarak yapılandırılmış bir varsayılan şablonudur. Öneriniz ya da şablon hakkında geri bildirim varsa, bunları göndermeniz [sorun bölüm](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
+*"Bulut Foundry.omsview"* Cloud Foundry OMS görünüm şablonu, bir önizleme sürümüdür. Bu tam olarak yapılandırılmış bir varsayılan şablonudur. Önerileriniz veya geri bildirim şablonuyla ilgili varsa bunları gönderebilirsiniz [sorun bölüm](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
 
 ### <a name="2-create-alert-rules"></a>2. Uyarı kuralları oluşturma
 
-Yapabilecekleriniz [uyarı oluşturma](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts), sorgular ve ve eşik değerleri gerektiği gibi özelleştirin. Aşağıdaki uyarıları önerilir:
+Yapabilecekleriniz [uyarıları oluşturma](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts)ve sorgular ve eşik değerleri gereken şekilde özelleştirin. Aşağıdaki uyarılar önerilir:
 
 | Arama sorgusu                                                                  | Şuna bağlı olarak uyarı oluştur: | Açıklama                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
-| Tür CF_ValueMetric_CL Origin_s = bbs Name_s = "Domain.cf-uygulamalar" =                   | Sonuçları < 1 sayısı   | **BBS. Domain.cf uygulamaları** cf uygulamaları etki alanı güncel olup olmadığını gösterir. Bu, bulut denetleyicisi CF uygulama isteklerinden bbs için eşitlenir anlamına gelir. Yürütme için LRPsDesired (AIS Diego istenen). Alınan veri cf uygulamaları etki alanı belirtilen zaman penceresinde güncel değil anlamına gelir. |
-| Tür CF_ValueMetric_CL Origin_s = rep Name_s = UnhealthyCell Value_d = > 1            | Sonuçları > 0 sayısı   | Diego hücreler için 0 sağlıklı anlamına gelir ve 1 sağlıksız anlamına gelir. Belirtilen zaman penceresi için birden fazla sağlıksız Diego hücre algılanmazsa uyarı ayarlayın. |
-| Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Sonuçları > 0 sayısı | 1 sağlıklı bir sistemidir ve sistem sağlıklı değil 0 anlamına anlamına gelir. |
-| Tür CF_ValueMetric_CL Origin_s = route_emitter Name_s = ConsulDownMode Value_d = > 0 | Sonuçları > 0 sayısı   | Consul düzenli aralıklarla sistem durumunu gösterir. 0 anlamına gelir sağlıklı bir sistemidir ve rota verici Consul kapalı olduğunu algılar 1 anlamına gelir. |
-| Tür CF_CounterEvent_CL Origin_s = DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" veya Name_s="doppler.shedEnvelopes") Delta_d = > 0 | Sonuçları > 0 sayısı | Delta bilerek Doppler tarafından geri baskısı nedeniyle bırakılan ileti sayısı. |
-| Tür CF_LogMessage_CL SourceType_s = LGR MessageType_s = hata =                      | Sonuçları > 0 sayısı   | Loggregator yayar **LGR** günlüğe kaydetme işlemi sorunları belirtmek için. Günlük iletisi çıkış çok yüksek olduğunda bir sorun bir örnektir. |
-| Tür CF_ValueMetric_CL Name_s = slowConsumerAlert =                               | Sonuçları > 0 sayısı   | Başlık loggregator yavaş tüketici uyarı aldığında, gönderdiği **slowConsumerAlert** ValueMetric günlük analizi için. |
-| Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Sonuçları > 0 sayısı   | Kayıp Olay delta sayısı eşiği ulaşırsa, başlık çalıştıran bir sorun olabilecek anlamına gelir. |
+| Tür CF_ValueMetric_CL Origin_s = bbs Name_s = = "Domain.cf uygulamalar"                   | Sonuçları < 1 sayısı   | **BBS. Domain.cf uygulamaları** cf uygulama etki alanı güncel olup olmadığını gösterir. CF uygulamasını isteklerinden bulut denetleyicisi için bbs eşitlenir anlamına gelir. Yürütme için LRPsDesired (AIS Diego istenen). Hiç veri alınmadı cf uygulama etki alanı belirtilen zaman penceresinde güncel değil anlamına gelir. |
+| Tür CF_ValueMetric_CL Origin_s = temsilcisi Name_s = UnhealthyCell Value_d = > 1            | Sonuçları > 0 sayısı   | Diego hücreler için 0 sağlıklı anlamına gelir ve 1 sağlıksız anlamına gelir. Belirtilen bir zaman penceresinde birden çok kötü Diego hücre algılanmazsa uyarı ayarlama. |
+| Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Sonuçları > 0 sayısı | 1, sistemin iyi durumda ve sistemin iyi durumda değil 0 anlamına gelir anlamına gelir. |
+| Tür CF_ValueMetric_CL Origin_s = route_emitter Name_s = ConsulDownMode Value_d = > 0 | Sonuçları > 0 sayısı   | Consul düzenli aralıklarla sistem durumunu gösterir. 0, sistemin iyi durumda ve rota verici Consul kapalı olduğunu algılar 1 anlamına gelir anlamına gelir. |
+| Tür CF_CounterEvent_CL Origin_s = ("Name_s="TruncatingBuffer.DroppedMessages veya Name_s="doppler.shedEnvelopes") DopplerServer Delta_d = > 0 | Sonuçları > 0 sayısı | Kasıtlı olarak Doppler tarafından ters baskı denen nedeniyle bırakılan ileti değişim sayısı. |
+| Tür CF_LogMessage_CL SourceType_s = LGR MessageType_s = hata =                      | Sonuçları > 0 sayısı   | Loggregator yayan **LGR** günlüğe kaydetme işlemi ile ilgili sorunlar belirtmek için. Günlük ileti çıktısını çok fazla olduğunda, ilgili bir sorun örneğidir. |
+| Tür CF_ValueMetric_CL Name_s = slowConsumerAlert =                               | Sonuçları > 0 sayısı   | Nozzle loggregator yavaş tüketici uyarı aldığında, gönderdiği **slowConsumerAlert** Log analytics'e ValueMetric. |
+| Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Sonuçları > 0 sayısı   | Kayıp olayları delta sayısı bir eşiği ulaşırsa Nozzle çalıştırılırken bir sorun olabilir anlamına gelir. |
 
 ## <a name="scale"></a>Ölçek
 
 Başlık ve loggregator ölçeklendirebilirsiniz.
 
-### <a name="scale-the-nozzle"></a>Ölçeği başlık
+### <a name="scale-the-nozzle"></a>Ölçek Nozzle
 
-Başlık en az iki örnek ile başlamanız gerekir. Firehose kafa tüm örneklerinde iş yükü dağıtır.
-Başlık tutabilir firehose veri trafiği ile emin olmak için ayarlanan **slowConsumerAlert** uyarı ("uyarı kuralları oluşturmak" önceki bölümde listelenen). Uyarı sonra izleyin [yavaş kafa yönelik yönergeler](https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) ölçeklendirme gerekli olup olmadığını belirlemek için.
-Başlık ölçeklendirmek için örnek sayı veya bellek veya disk kaynakları için Kafa artırmak için uygulamaları Yöneticisi veya CF CLI kullanın.
+En az iki örneğini Nozzle ile başlamanız gerekir. Firehose Nozzle tüm örneklerinde iş yükü dağıtır.
+Nozzle tutabilir veri trafiği firehose ile emin olmak için ayarlama **slowConsumerAlert** uyarı ("uyarı kuralları oluşturma" önceki bölümde listelenen). Uyarı sonra yönergeleri takip ederek [yavaş Nozzle kılavuzunu](https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) ölçeklendirme gerekli olup olmadığını belirlemek için.
+Nozzle ölçeklendirmek için örnek sayılar veya bellek veya disk kaynakları için Nozzle artırmak için uygulamaları Yöneticisi veya CF CLI'ı kullanın.
 
 ### <a name="scale-the-loggregator"></a>Ölçek loggregator
 
-Loggregator gönderen bir **LGR** günlüğü iletisi günlüğe kaydetme işlemi sorunları gösterir. Loggregator ölçeklendirilmiş gerekip gerekmediğini belirlemek için uyarı izleyebilirsiniz.
-Loggregator ölçeklendirmek için Doppler arabellek boyutunu artırabilir veya ek Doppler sunucu örnekleri CF bildiriminde ekleyebilirsiniz. Daha fazla bilgi için bkz: [loggregator ölçeklendirmeye yönelik bir yönerge](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
+Loggregator gönderen bir **LGR** günlük ileti günlüğe kaydetme işlemi ile ilgili sorunlar belirtmek için. Loggregator ölçeği gerekip gerekmediğini belirlemek için uyarı izleyebilirsiniz.
+Loggregator ölçeklendirmek için Doppler arabellek boyutunu artırın veya ek Doppler sunucu örnekleri CF bildiriminde ekleyin. Daha fazla bilgi için [loggregator ölçeklendirme Kılavuzu](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
 
 ## <a name="update"></a>Güncelleştirme
 
-Başlık daha yeni bir sürümüyle güncelleştirmek için yeni başlık sürümünü indirin, yukarıdaki "kafa dağıtma" bölümündeki adımları izleyin ve uygulamayı yeniden gönderme.
+Daha yeni bir sürümle Nozzle güncelleştirmek için yeni Nozzle sürümünü indirin, yukarıdaki "Nozzle dağıtma" bölümündeki adımları izleyin ve uygulamayı yeniden gönderin.
 
-### <a name="remove-the-nozzle-from-ops-manager"></a>Başlık Ops Yöneticisi'nden kaldırın
+### <a name="remove-the-nozzle-from-ops-manager"></a>İşlem Yöneticisi'nden Nozzle Kaldır
 
 1. Ops Manager için oturum açın.
-2. Bulun **PCF için Microsoft Azure günlük analizi kafa** döşeme.
+2. Bulun **PCF için Microsoft Azure Log Analytics Nozzle** Döşe.
 3. Çöp simgesini seçin ve silme işlemini onaylayın.
 
-### <a name="remove-the-nozzle-from-your-development-computer"></a>Başlık Geliştirme bilgisayarınızdan kaldırın
+### <a name="remove-the-nozzle-from-your-development-computer"></a>Geliştirme bilgisayarınızdan Nozzle
 
-CF CLI pencerenizde yazın:
+CF CLI penceresinde şunu yazın:
 ```
 cf delete <App Name> -r
 ```
 
-Başlık kaldırırsanız, OMS portalında verileri otomatik olarak kaldırılmaz. Günlük analizi saklama ayarı göre süresi dolar.
+OMS portalında veri Nozzle kaldırırsanız, otomatik olarak kaldırılmaz. Log Analytics bekletme ayarınıza göre süresi dolar.
 
 ## <a name="support-and-feedback"></a>Destek ve geri bildirim
 
-Azure günlük analizi başlık olarak açık kaynaklı. Sorular ve için geri bildirim gönder [GitHub bölüm](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues). Bir Azure destek isteği'ni açmak için "bulut Foundry çalıştıran sanal makine" servis kategorisi seçin. 
+Azure Log Analytics Nozzle olarak açık kaynaklı. Sorular ve geri bildirim gönder [GitHub bölümü](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues). Azure destek isteği açmak için "Cloud Foundry çalıştıran sanal makine" hizmet kategorisi seçin. 
 
 ## <a name="next-step"></a>Sonraki adım
 
-PCF2.0 VM performans ölçümleri Azure günlük analizi kafa sistem ölçümleri ileticisi tarafından aktarılan ve OMS çalışma alanına tümleşiktir. OMS aracısının artık gerekli VM performans ölçümleri. Ancak Syslog bilgi toplamak için OMS Aracısı'nı kullanabilirsiniz. OMS Aracısı CF Vm'leriniz için Bosh eklenti olarak yüklenir. 
+PCF2.0 VM performans ölçümlerini Azure log analytics nozzle için sistem ölçümlerini ileticisini aktarılan ve OMS çalışma alanınıza tümleşik. Artık VM performans ölçümleri için OMS Aracısı gerekir. Ancak Syslog bilgilerini toplamak için OMS Aracısı'nı kullanabilirsiniz. OMS Aracısı CF vm'lere bir Bosh eklentisi olarak yüklenir. 
 
-Ayrıntılar için bkz [dağıtmak OMS Aracısı bulut Foundry dağıtımınıza](https://github.com/Azure/oms-agent-for-linux-boshrelease).
+Ayrıntılar için bkz [dağıtma OMS Aracısı Cloud Foundry dağıtımınıza](https://github.com/Azure/oms-agent-for-linux-boshrelease).

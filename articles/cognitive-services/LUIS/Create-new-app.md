@@ -1,6 +1,6 @@
 ---
-title: Yeni bir uygulama ile HALUK oluşturma | Microsoft Docs
-description: Oluşturun ve dil anlama (HALUK) Web uygulamalarınızı yönetin.
+title: LUIS ile yeni bir uygulama oluşturma | Microsoft Docs
+description: Oluşturun ve Language Understanding (LUIS) sayfasındaki yönetin.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,76 +9,76 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: v-geberr
-ms.openlocfilehash: 75edd39346995cdef72bb1e1fcb9eaff53d29702
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 998a85720f5707fbf6ed4c5cfa3ed0dab5d1cc0e
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355756"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865054"
 ---
-# <a name="create-an-app"></a>Bir uygulama oluşturun
-Farklı şekillerde yeni bir uygulama oluşturun: 
+# <a name="create-an-app"></a>Uygulama oluşturma
+Yeni bir uygulama farklı şekillerde oluşturursunuz: 
 
-* [Başlat](#create-new-app) boş bir uygulama ile ve amacı, utterances ve varlıklar oluşturun.
-* [Başlat](#create-new-app) boş bir uygulama ile ve ekleme bir [önceden oluşturulmuş bir etki alanı](luis-how-to-use-prebuilt-domains.md).
-* [HALUK uygulama alma](#import-new-app) zaten hedefleri, utterances ve varlıkları içeren bir JSON dosyasından.
+* [Başlangıç](#create-new-app) boş bir uygulama ile ve hedefleri, konuşma ve varlıklar oluşturun.
+* [Başlangıç](#create-new-app) boş bir uygulama ile ve bir [önceden oluşturulmuş etki alanı](luis-how-to-use-prebuilt-domains.md).
+* [Bir LUIS uygulaması içeri](#import-new-app) zaten amacı, konuşma ve varlıkları içeren bir JSON dosyasından.
 
-## <a name="what-is-an-app"></a>Uygulaması nedir
-Uygulamasını içeren [sürümleri](luis-how-to-manage-versions.md) modelinizi yanı sıra herhangi birini [ortak](luis-how-to-collaborate.md) uygulaması. Uygulama oluşturduğunuzda, kültür seçin ([dil](luis-supported-languages.md)) hangi **daha sonra değiştirilemez**. 
+## <a name="what-is-an-app"></a>Uygulama nedir
+Uygulamayı içeren [sürümleri](luis-how-to-manage-versions.md) modelinizi yanı sıra herhangi birini [ortak çalışanlar](luis-how-to-collaborate.md) uygulama için. Uygulamayı oluşturduğunuzda, kültür seçin ([dil](luis-supported-languages.md)) hangi **daha sonra değiştirilemez**. 
 
-Varsayılan sürümü yeni bir uygulama, "0,1.". 
+Varsayılan sürümü yeni bir uygulama, "0.1". 
 
-Oluşturma ve üzerinde uygulamalarınızı yönetmek **My uygulamaları** sayfası. Bu sayfayı seçerek her zaman erişebilirsiniz **uygulamalarım** üst gezinti çubuğundaki [HALUK](luis-reference-regions.md) Web sitesi. 
+Oluşturabilir ve uygulamalarınızı yönetme **uygulamalarım** sayfası. Bu sayfayı seçerek her zaman erişebilirsiniz **uygulamalarım** üst gezinti çubuğundaki [LUIS](luis-reference-regions.md) Web sitesi. 
 
-[![](media/luis-create-new-app/apps-list.png "Uygulamaların listesini ekran görüntüsü")](media/luis-create-new-app/apps-list.png#lightbox)
+[![](media/luis-create-new-app/apps-list.png "Uygulama listesinin ekran görüntüsü")](media/luis-create-new-app/apps-list.png#lightbox)
 
 ## <a name="create-new-app"></a>Yeni uygulama oluşturma
 
-1. Üzerinde **My uygulamaları** sayfasında, **yeni uygulama oluştur**.
-2. İletişim kutusunda "TravelAgent" uygulamanızı adlandırın.
+1. Üzerinde **uygulamalarım** sayfasında **yeni uygulama oluştur**.
+2. İletişim kutusunda, "TravelAgent" uygulamanızı adlandırın.
 
     ![Yeni uygulama iletişim kutusu oluşturma](./media/luis-create-new-app/create-app.png)
 
-3. Uygulama kültür seçin (TravelAgent uygulama için İngilizce seçin) ve ardından **Bitti**. 
+3. Uygulama kültürü seçin (TravelAgent bir uygulama için İngilizce seçin) ve ardından **Bitti**. 
 
     >[!NOTE]
-    >Kültür uygulama oluşturulduktan sonra değiştirilemez. 
+    >Kültür, uygulama oluşturulduktan sonra değiştirilemez. 
 
-## <a name="import-new-app"></a>Yeni uygulama alma
-JSON dosyasının adını (en çok 50 karakter), sürüm (en çok 10 karakter) ve bir uygulama açıklaması ayarlayabilirsiniz. Uygulama JSON dosyaları örnekleri kullanılabilir [HALUK-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/Examples-BookFlight).
+## <a name="import-new-app"></a>Yeni uygulama içeri aktarma
+(En çok 50 karakter) adı, sürümü (en fazla 10 karakter) ve uygulama açıklamasını JSON dosyasında ayarlayabilirsiniz. Uygulama JSON dosyaları örnekleri kullanılabilir [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/Examples-BookFlight).
 
-1. Üzerinde **My uygulamaları** sayfasında, **alma yeni uygulama**.
-2. İçinde **alma yeni uygulama** iletişim kutusunda, HALUK uygulama tanımlama JSON dosyasını seçin.
+1. Üzerinde **uygulamalarım** sayfasında **alma yeni uygulama**.
+2. İçinde **alma yeni uygulama** iletişim kutusunda LUIS uygulaması tanımlayan JSON dosyasını seçin.
 
     ![Yeni bir uygulama iletişim kutusu içeri aktarma](./media/luis-create-new-app/import-app.png)
 
-## <a name="export-app"></a>Uygulama dışarı aktarma
-1. Üzerinde **My uygulamaları** sayfasında, uygulama satırın sonundaki üç noktaya (...) seçin.
+## <a name="export-app"></a>Uygulamayı dışarı aktarma
+1. Üzerinde **uygulamalarım** sayfasında, üç noktayı seçin (***...*** ) uygulama satırının sonundaki.
 
-    [![](media/luis-create-new-app/apps-list.png "Uygulama başına eylemlerin açılır iletişim kutusunun ekran görüntüsü")](media/luis-create-new-app/three-dots.png#lightbox)
+    [![](media/luis-create-new-app/apps-list.png "Uygulama başına Eylemler açılır iletişim kutusunun ekran görüntüsü")](media/luis-create-new-app/three-dots.png#lightbox)
 
-2. Seçin **verme uygulama** menüsünde. 
+2. Seçin **dışarı aktarma uygulama** menüsünde. 
 
-## <a name="rename-app"></a>Uygulama yeniden adlandırma
+## <a name="rename-app"></a>Uygulamayı yeniden adlandırma
 
-1. Üzerinde **My uygulamaları** sayfasında, uygulama satırın sonundaki üç noktaya (...) seçin. 
-2. Seçin **yeniden adlandırma** menüsünde.
-3. Yeni adını seçin ve uygulama girin **Bitti**.
+1. Üzerinde **uygulamalarım** sayfasında, üç noktayı seçin (***...*** ) uygulama satırının sonundaki. 
+2. Seçin **Yeniden Adlandır** menüsünde.
+3. Uygulama seçin ve yeni bir ad girin **Bitti**.
 
 ## <a name="delete-app"></a>Uygulamayı silme
 
 > [!CAUTION]
-> Uygulama için tüm ortak çalışanlar ve sahibi siliyorsunuz. [Dışarı aktarma](#export-app) silmeden önce uygulama. 
+> Uygulama için tüm çalışanlar ve sahibi siliyorsunuz. [Dışarı aktarma](#export-app) silinmeden önce uygulama. 
 
-1. Üzerinde **My uygulamaları** sayfasında, uygulama satırın sonundaki üç noktaya (...) seçin. 
-2. Seçin **silmek** menüsünde.
+1. Üzerinde **uygulamalarım** sayfasında, üç noktayı seçin (***...*** ) uygulama satırının sonundaki. 
+2. Seçin **Sil** menüsünde.
 3. Seçin **Tamam** onay penceresinde.
 
-## <a name="export-endpoint-logs"></a>Uç nokta günlükleri dışarı aktarma
-Sorgu günlükleri içeren UTC saati ve HALUK JSON yanıt.
+## <a name="export-endpoint-logs"></a>Uç nokta günlükleri Dışarı Aktar
+Sorgu günlükleri içeren UTC saati ve LUIS JSON yanıtı.
 
-1. Üzerinde **My uygulamaları** sayfasında, uygulama satırın sonundaki üç noktaya (...) seçin. 
-2. Seçin **verme uç nokta günlükleri** menüsünde.
+1. Üzerinde **uygulamalarım** sayfasında, üç noktayı seçin (***...*** ) uygulama satırının sonundaki. 
+2. Seçin **uç nokta günlükleri dışarı aktar** menüsünde.
 
 ```
 Query,UTC DateTime,Response
@@ -87,4 +87,4 @@ text i'm driving and will be 30 minutes late to the meeting,02/13/2018 15:18:43,
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İlk göreviniz uygulama [hedefleri Ekle](luis-how-to-add-intents.md).
+Uygulamadaki ilk göreviniz [hedef ekleme](luis-how-to-add-intents.md).

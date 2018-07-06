@@ -1,6 +1,6 @@
 ---
-title: Azure bulut Kabuk özelliklerinde bash | Microsoft Docs
-description: Azure bulut Kabuk Bash'te özelliklerine genel bakış
+title: Bash Azure Cloud Shell özellikleri | Microsoft Docs
+description: Azure Cloud Shell'deki Bash hizmetinde özelliklerine genel bakış
 services: Azure
 documentationcenter: ''
 author: jluk
@@ -12,65 +12,67 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 06/13/2018
 ms.author: juluk
-ms.openlocfilehash: b61dda5b56ca3cc8ef827a06aaedac701ca79f8f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: f0be50a3e8328c26651e0db5c8fae708518a0ea1
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850211"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37861897"
 ---
-# <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Özellikler ve Azure bulut Kabuk Bash'te için araçları
+# <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Özellikler ve Azure Cloud Shell'deki Bash hizmetinde için Araçlar
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-> [!TIP]
-> Özellikleri & araçlarla [PowerShell](features-powershell.md) da kullanılabilir.
-
-Bulut Kabuk çalışır bash `Ubuntu 16.04 LTS`.
+Azure Cloud Shell çalıştığı `Ubuntu 16.04 LTS`.
 
 ## <a name="features"></a>Özellikler
 
 ### <a name="secure-automatic-authentication"></a>Güvenli otomatik kimlik doğrulaması
 
-Bulut Kabuk bash'te güvenli bir şekilde ve otomatik olarak hesap erişim için Azure CLI 2.0 kimliğini doğrular.
-
-### <a name="ssh-into-azure-linux-virtual-machines"></a>Azure Linux sanal makineleri içine SSH
-
-Azure CLI 2. 0 bir Linux VM oluşturma varsayılan SSH anahtarı oluşturabilir ve yerleştirileceği, `$Home` dizin. SSH yerleştirme anahtarlar `$Home` bulut Kabuğu'ndan doğrudan Azure Linux VM'ler için SSH bağlantısını sağlar. Anahtarları acc_ içinde tutulur<user>dosya paylaşımınızı .img kullanırken veya dosya paylaşımı veya anahtarları erişimi paylaşımı en iyi uygulamaları kullanın.
+Cloud Shell'i güvenli bir şekilde ve otomatik olarak Azure PowerShell ve Azure CLI 2.0 için hesap erişimi doğrular.
 
 ### <a name="home-persistence-across-sessions"></a>Oturumlar arasında $Home kalıcılığı
 
-Dosyaları oturumlarında kalıcı hale getirmek için bulut Kabuk, ilk kez başlatıldığında Azure dosya paylaşımında ekleme aracılığıyla açıklanmaktadır.
-Tamamlandığında, bulut Kabuk otomatik olarak depolama ihtiyaçlarınızı ekleme (olarak takılı `$Home\clouddrive`) gelecekteki tüm oturumları için.
-Ayrıca, bulut Kabuk Bash'te içinde `$Home` directory, Azure dosya paylaşımında bir .img olarak kalıcıdır.
-Dışında dosyaları `$Home` ve makine durumunu oturumlar arasında sürdürülmez.
+Dosyaları oturumlarda kalıcı hale getirilmesi için Cloud Shell ilk kez başlattığınızda bir Azure dosya paylaşımı ekleme aracılığıyla size.
+Tamamlandığında, Cloud Shell depolama alanınızı otomatik olarak eklenecek (takılamadı `$Home\clouddrive`) gelecekteki tüm oturumları.
+Ayrıca, `$Home` dizin olarak Azure dosya paylaşımınızdaki bir .img kalıcıdır.
+Dışında dosyaları `$Home` ve makine durumu oturumlar arasında sürdürülmez. SSH anahtarları gibi gizli dizilerin depolanmasında en iyi uygulamaları kullanın. Gibi hizmetleri [Azure anahtar kasası kurulumu için öğreticiler sahip](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
-[Bulut Kabuk Bash'te kalıcı dosyaları hakkında daha fazla bilgi edinin.](persisting-shell-storage.md)
+[Cloud shell'de kalıcı dosyaları hakkında daha fazla bilgi edinin.](persisting-shell-storage.md)
 
-### <a name="integration-with-open-source-tooling"></a>Açık kaynaklı araçları ile tümleştirme
+### <a name="azure-drive-azure"></a>Azure sürücüsü (Azure:)
 
-Bulut Kabuk bash'te Terraform, Ansible ve Chef InSpec gibi açık kaynaklı araçları için önceden yapılandırılmış kimlik doğrulaması içerir. Örnek izlenecek deneyin.
+(Önizleme) Cloud shell'de PowerShell Azure sürücüsü başlar (`Azure:`).
+Azure sürücüsü kolay keşfe ve işlem, ağ, depolama vb. için dosya sistemi gezintisi benzer gibi Azure kaynaklarının gezinme sağlar.
+Tanıdık kullanmaya devam edebilirsiniz [Azure PowerShell cmdlet'lerini](https://docs.microsoft.com/powershell/azure) bulunduğunuz sürücü bağımsız olarak bu kaynakları.
+Azure kaynakları, doğrudan Azure portalında veya Azure PowerShell cmdlet'leri aracılığıyla yapılan ya da yapılan tüm değişiklikler Azure sürücüde yansıtılır.  Çalıştırabileceğiniz `dir -Force` kaynaklarınızı yenilenemedi.
+
+![](media/features-powershell/azure-drive.png)
+
+### <a name="deep-integration-with-open-source-tooling"></a>Açık kaynak araçları ile kapsamlı tümleştirme
+
+Cloud Shell'de önceden yapılandırılmış kimlik doğrulama için Terraform, Ansible ve Chef InSpec gibi açık kaynaklı araçları içerir. Örnek izlenecek deneyin.
 
 ## <a name="tools"></a>Araçlar
 
 |Kategori   |Ad   |
 |---|---|
-|Linux araçları            |Bash<br> Paylaş<br> tmux<br> dıg<br>               |
+|Linux araçları            |bash<br> zsh<br> Göster<br> tmux<br> dıg<br>               |
 |Azure Araçları            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) ve [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
-|Metin düzenleyiciler           |VIM<br> nano<br> emacs       |
-|Kaynak denetimi         |Git                    |
-|Derleme araçları            |Yapma<br> maven<br> npm<br> PIP         |
-|Kapsayıcılar             |[Docker CLI](https://github.com/docker/cli)/[Docker makine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
-|Veritabanları              |MySQL istemci<br> PostgreSql istemci<br> [SQLCMD yardımcı programı](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Diğer                  |iPython istemci<br> [Foundry CLI bulut](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)| 
+|Metin düzenleyiciler           |vim<br> nano<br> emacs       |
+|Kaynak denetimi         |git                    |
+|Derleme araçları            |olun<br> maven<br> npm<br> pip         |
+|Kapsayıcılar             |[Docker CLI](https://github.com/docker/cli)/[Docker makinesi](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI'Sİ](https://github.com/dcos/dcos-cli)         |
+|Veritabanları              |MySQL istemci<br> PostgreSql istemcisi<br> [SQLCMD yardımcı programı](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
+|Diğer                  |Ipython istemci<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)| 
 
 ## <a name="language-support"></a>Dil desteği
 
 |Dil   |Sürüm   |
 |---|---|
-|.NET       |2.0.0       |
+|.NET Core  |2.0.0       |
 |Başlayın         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
@@ -78,5 +80,7 @@ Bulut Kabuk bash'te Terraform, Ansible ve Chef InSpec gibi açık kaynaklı ara�
 |Python     |2.7 ve 3.5 (varsayılan)|
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Bulut Kabuk hızlı başlangıcı bash](quickstart.md) <br>
-[Azure CLI 2.0 hakkında bilgi edinin](https://docs.microsoft.com/cli/azure/)
+[Bash cloud Shell hızlı başlangıçta](quickstart.md) <br>
+[PowerShell Cloud Shell (Önizleme) hızlı başlangıç](quickstart-powershell.md) <br>
+[Azure CLI 2.0 hakkında bilgi edinin](https://docs.microsoft.com/cli/azure/) <br>
+[Azure PowerShell hakkında bilgi edinin](https://docs.microsoft.com/powershell/azure/) <br>

@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: b4502dfc8f856516989326c8d748a5d13fdba02b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4b4b193751606883548e25e731dcece4ae72ba7b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634599"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858373"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Portal ve .NET cihazını kullanarak IoT Hub modül kimliğini ve modül ikizini kullanmaya başlama
 
@@ -26,12 +26,12 @@ Bu öğreticide şunları öğreneceksiniz
 2. cihazınızdan modül ikizini güncelleştirmek için .NET cihaz SDK’sını kullanma.
 
 > [!NOTE]
-> Hem cihazlarınızda hem de çözüm arka ucunuzda çalıştırılacak uygulamalar oluşturmak için kullanabileceğiniz Azure IoT SDK'ları hakkında bilgi için bkz. [Azure IoT SDK’ları][lnk-hub-sdks].
+> Hem cihazlarınızda hem de çözüm arka ucunuzda çalıştırılacak uygulamalar oluşturmak için kullanabileceğiniz Azure IoT SDK'ları hakkında bilgi için bkz. [Azure IoT SDK'ları][lnk-hub-sdks].
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Visual Studio 2015 veya Visual Studio 2017.
-* Etkin bir Azure hesabı. (Hesabınız yoksa yalnızca birkaç dakika içinde [ücretsiz hesap][lnk-free-trial] oluşturabilirsiniz.)
+* Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -43,7 +43,7 @@ Artık IoT Hub’ınız vardır. [Portalı](https://portal.azure.com) açın ve 
 
 Kaydettikten sonra, cihaz kimliği listesinde MyFirstDevice kimliğinin başarıyla oluşturulduğunu görebilirsiniz.
 
-![Oluşturulan cihaz kimliği][11]
+![Oluşturduğunuz cihaz kimliği][11]
 
 Şimdi satıra tıklayın. Cihaz ayrıntılarını göreceksiniz.
 
@@ -66,9 +66,9 @@ IoT Hub’ınızda modül kimliğini başarıyla oluşturdunuz. Simülasyon ciha
 
 1. **Visual Studio projesi oluşturma** - Visual Studio’da **Konsol Uygulaması (.NET Framework)** proje şablonunu kullanarak mevcut çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. .NET Framework sürümünün 4.6.1 veya sonraki bir sürüm olduğundan emin olun. Projeye **UpdateModuleTwinReportedProperties** adını verin.
 
-    ![Visual Studio projesi oluşturma][13]
+    ![Visual studio projesi oluşturma][13]
 
-2. **En son Azure IOT Hub .NET cihaz SDK'sı yükleme** -modülü kimlik ve modül twin genel önizlemede değil. Yalnızca IoT Hub ön sürüm cihaz SDK’larında kullanılabilir. Visual Studio’da araçlar > Nuget paket yöneticisi > çözüm için Nuget paketlerini yönet seçeneğini açın. Microsoft.Azure.Devices.Client öğesini arayın. Ön sürümü dahil et onay kutusunu işaretlediğinizden emin olun. En son sürümü seçin ve yükleyin. Şimdi tüm modül özelliklerine erişiminiz vardır. 
+2. **En son Azure IOT hub'ı .NET cihaz SDK'sını yükleme** -modül kimlik ve modül ikizi şu genel Önizleme aşamasındadır. Yalnızca IoT Hub ön sürüm cihaz SDK’larında kullanılabilir. Visual Studio’da araçlar > Nuget paket yöneticisi > çözüm için Nuget paketlerini yönet seçeneğini açın. Microsoft.Azure.Devices.Client öğesini arayın. Ön sürümü dahil et onay kutusunu işaretlediğinizden emin olun. En son sürümü seçin ve yükleyin. Şimdi tüm modül özelliklerine erişiminiz vardır. 
 
     ![Azure IoT Hub .NET hizmet SDK’sı V1.16.0-preview-005’i yükleme][14]
 
@@ -143,18 +143,17 @@ IoT Hub’ınızda modül kimliğini başarıyla oluşturdunuz. Simülasyon ciha
     ```
 
     Bu kod örneği, AMQP protokolüyle raporlanan özellikleri güncelleştirme ve modül ikizini alma işlemini nasıl yapacağınızı gösterir. Genel önizleme aşamasında, modül ikizi işlemleri için yalnızca AMQP’yi destekleriz.
-    ```
 
-## Run the apps
+## <a name="run-the-apps"></a>Uygulamaları çalıştırma
 
-You are now ready to run the apps. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for the console app. And then press F5 to start both apps running. 
+Şimdi uygulamaları çalıştırmaya hazırsınız. Visual Studio'daki Çözüm Gezgini'nde çözümünüze sağ tıklayın ve ardından **Başlangıç projelerini ayarla**'ya tıklayın. **Birden fazla başlangıç projesi** seçin ve sonra konsol uygulaması için eylem olarak **Başlat**’ı seçin. ' İ tıklatın ve ardından her iki uygulama çalıştırma başlatmak için F5 tuşuna basın. 
 
-## Next steps
+## <a name="next-steps"></a>Sonraki adımlar
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
+IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için bkz:
 
-* [Get started with IoT Hub module identity and module twin using .NET backup and .NET device][lnk-csharp-csharp-getstarted]
-* [Getting started with IoT Edge][lnk-iot-edge]
+* [.NET yedekleme ve cihaz .NET kullanarak IOT hub'ı modül kimlik ve modül ikizi ile çalışmaya başlama][lnk-csharp-csharp-getstarted]
+* [IoT Edge ile çalışmaya başlama][lnk-iot-edge]
 
 
 <!-- Images. -->

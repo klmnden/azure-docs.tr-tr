@@ -10,12 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79d64a5a7eb339c6904fe026209292202632f640
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342020"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867962"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
 
@@ -57,6 +57,7 @@ Linux Bilgisayarları'nda dosyaları izlemeyi yapılandırmak için aşağıdaki
 |Özyineleme     | İzlenecek öğe aranırken özyinelemenin kullanılıp kullanılmadığını belirler.        |
 |Sudo Kullan     | Bu ayar, öğe denetlenirken sudonun kullanılıp kullanılmadığını belirler.         |
 |Bağlantılar     | Bu ayar, dizinleri dolaşırken sembolik bağlantıların nasıl ele alındığını belirler.<br> **Yoksay** - sembolik bağlantıları yoksayar ve başvurulan dosyaları veya dizinleri içermez.<br>**İzleyin** - özyineleme sırasında sembolik bağlantıları izler ve başvurulan dosyaları veya dizinleri de içerir.<br>**Yönetme** - sembolik bağlantıları izler ve döndürülen içeriğin değiştirilmesine izin verir.     |
+|Tüm ayarları için dosya içeriği karşıya yükleme| Açar veya kapatır izlenen değişiklikleri dosya içeriği karşıya yükleme. Mevcut seçenekler: **True** veya **False**.|
 
 > [!NOTE]
 > “Yönet” bağlantıları seçeneği önerilmez. Dosya içeriğini alma desteklenmiyor.
@@ -75,6 +76,13 @@ Windows bilgisayarlarda izlemeye dosyaları yapılandırmak için aşağıdaki a
 |Öğe Adı     | İzlenecek dosyanın kolay adı.        |
 |Grup     | Dosyaları mantıksal olarak gruplamak için bir grup adı.        |
 |Yolu Gir     | Dosyanın denetleneceği yol. Örneğin: “c:\temp\myfile.txt”       |
+|Tüm ayarları için dosya içeriği karşıya yükleme| Açar veya kapatır izlenen değişiklikleri dosya içeriği karşıya yükleme. Mevcut seçenekler: **True** veya **False**.|
+
+## <a name="configure-file-content-tracking"></a>Dosya içeriği izlemeyi yapılandırma
+
+Görüntüleyebileceğiniz önce ve sonra bir değişiklik dosya içeriği değişiklik izleme ile bir dosyanın içeriği. Her dosya, dosyanın içeriğini değişiklik bir depolama hesabında depolanır ve önceki ve sonraki değişiklik, satır içi veya yan yana dosyasını gösterir bu dosyalar, Windows ve Linux için kullanılabilir. Daha fazla bilgi için bkz. [izlenen bir dosyanın içeriğini görüntülemek](change-tracking-file-contents.md).
+
+![bir dosyadaki değişiklikleri görüntüleme](./media/change-tracking-file-contents/view-file-changes.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Windows kayıt defteri anahtarlarını izlemek için
 

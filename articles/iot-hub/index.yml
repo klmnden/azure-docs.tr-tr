@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/26/2018
   ms.author: dobett
-  ms.openlocfilehash: 6995c2006b32bb2fc6b9e86307b7573d0293a250
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+  ms.openlocfilehash: 35f60b4fef75c3eebb9ac203aaded26d32773c53
+  ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34632933"
+  ms.lasthandoff: 07/05/2018
+  ms.locfileid: "37858356"
 abstract:
   description: IoT Hub’ı kullanarak milyarlarca Nesnelerin İnterneti varlığına bağlanma, bunları izleme ve denetleme hakkında bilgi edinin. Öğreticiler, API başvuruları, videolar ve diğer belgeler, IoT cihazlarıyla bir çözümün arka ucu arasında güvenilir ve çift yönlü iletişim dağıtmanıza yardımcı olur.
 sections:
@@ -56,6 +56,7 @@ sections:
     items:
     - html: <a href="/azure/iot-hub/tutorial-routing">IoT Hub’da otomatik ileti yönlendirmeyi yapılandırma</a>
     - html: <a href="/azure/iot-hub/tutorial-device-twins">Cihazlarınızı bir arka uç hizmetinden yapılandırma</a>
+    - html: <a href="/azure/iot-hub/tutorial-firmware-update">Cihaz yazılımı güncelleştirme işlemi gerçekleştirme</a>
     - html: <a href="/azure/iot-hub/tutorial-connectivity">IoT hub’ınızla bağlantıyı test etmek için bir sanal cihaz kullanma</a>
 - title: Başvuru
   items:

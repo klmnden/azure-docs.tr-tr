@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 320eef05faec6b3e399e5a1289e3ee076823c921
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c78de020e3cbaae6fccf2f981bb3601269ceba58
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346323"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859842"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta yükleme
 
@@ -131,6 +131,9 @@ Ve modüller ile çalışan listesi:
 ```cmd/sh
 sudo iotedge list
 ```
+>[!NOTE]
+>Kaynak üzerinde kısıtlı RaspberryPi gibi cihazları, yüksek oranda önerilir *OptimizeForPerformance* ortam değişkeni ayarlandığında *false* yönergeleri uyarınca [ sorun giderme kılavuzu.][lnk-trouble]
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -139,6 +142,7 @@ Düzgün bir şekilde, kullanıma alma yükleme Edge çalışma zamanı ile ilgi
 <!-- Links -->
 [lnk-dcs]: how-to-register-device-portal.md
 [lnk-dps]: how-to-auto-provision-simulated-device-linux.md
+[lnk-trouble]: https://review.docs.microsoft.com/en-us/azure/iot-edge/troubleshoot#stability-issues-on-resource-constrained-devices
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md

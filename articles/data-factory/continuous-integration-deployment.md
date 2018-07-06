@@ -1,6 +1,6 @@
 ---
-title: Sürekli tümleştirme ve Azure Data Factory dağıtımda | Microsoft Docs
-description: Data Factory işlem hatlarını (geliştirme, test, üretim) bir ortamdan diğerine taşımak için sürekli tümleştirme ve dağıtım kullanmayı öğrenin.
+title: Sürekli tümleştirme ve dağıtım Azure Data factory'de | Microsoft Docs
+description: Data Factory işlem hatları (geliştirme, test ve üretim) bir ortamdan diğerine taşımak için sürekli tümleştirme ve dağıtım'ı kullanmayı öğrenin.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,118 +12,118 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: douglasl
-ms.openlocfilehash: febd43586ab3006303143ca04ce8a37941a6fd60
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ee01980229495d9b3f372ec85ee874955c291e5c
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268167"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868329"
 ---
-# <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Sürekli tümleştirme ve Azure Data Factory dağıtımında
+# <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Sürekli tümleştirme ve dağıtım Azure Data factory'de
 
-Sürekli Tümleştirme yapılan her değişiklik test uygulaması olduğundan, otomatik olarak ve mümkün olduğunca erken codebase. Sürekli dağıtım sırasında sürekli tümleştirme olur ve değişiklikler bir hazırlık veya üretim sisteme iter test izler.
+Sürekli tümleştirme, sistemi, yapılan her değişikliği testin uygulamadır, otomatik olarak ve mümkün olduğunca erken kod tabanı. Sürekli dağıtım, test sırasında sürekli tümleştirme olur ve değişiklikler bir hazırlık veya üretim sistemine gönderim izler.
 
-Azure Data Factory için sürekli tümleştirme ve dağıtım taşıma Data Factory işlem hatlarını (geliştirme, test, üretim) bir ortamdan diğerine gelir. Sürekli tümleştirme ve dağıtım yapmak için Azure Resource Manager şablonları ile veri fabrikası UI tümleştirmesi kullanabilirsiniz. Seçtiğiniz Data Factory UI Resource Manager şablonu oluşturabilir **ARM şablonu** seçenekleri. Seçtiğinizde, **verme ARM şablonu**, portal data factory ve tüm bağlantı dizeleri ve diğer parametreleri içeren bir yapılandırma dosyası için Resource Manager şablonu oluşturur. Ardından (geliştirme, test, üretim) her ortam için bir yapılandırma dosyası oluşturmanız gerekir. Ana Resource Manager şablon dosyası tüm ortamlar için aynı kalır.
+Azure Data Factory için sürekli tümleştirme ve dağıtım taşıma Data Factory işlem hatları (geliştirme, test ve üretim) bir ortamdan diğerine gösterir. Sürekli tümleştirme ve dağıtım yapmak için Azure Resource Manager şablonları ile tümleştirme Data Factory kullanıcı Arabirimi kullanabilirsiniz. Data Factory kullanıcı arabirimini seçtiğinizde bir Resource Manager şablonu oluşturabilir **ARM şablonu** seçenekleri. Seçtiğinizde, **dışarı ARM şablonu**, portalda Resource Manager şablonu için veri fabrikasını ve tüm bağlantı dizeleri ve diğer parametreleri içeren bir yapılandırma dosyası oluşturur. Ardından, bir yapılandırma dosyası her bir ortamda (geliştirme, test ve üretim) oluşturmanız gerekir. Ana Resource Manager şablon dosyası tüm ortamlar için aynı kalır.
 
-Dokuz dakikalık bir giriş ve bu özellik tanıtımı için aşağıdaki videoyu izleyin:
+Dokuz dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
-## <a name="create-a-resource-manager-template-for-each-environment"></a>Her ortam için Resource Manager şablonu oluşturma
-Seçin **verme ARM şablonu** geliştirme ortamında veri fabrikanızın Resource Manager şablonu dışarı aktarmak için.
+## <a name="create-a-resource-manager-template-for-each-environment"></a>Her ortam için bir Resource Manager şablonu oluşturma
+Seçin **dışarı ARM şablonu** geliştirme ortamında veri fabrikanızın Resource Manager şablonunu dışarı aktarmak için.
 
 ![](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-Ardından, test veri fabrikası ve üretim veri fabrikası gidin ve seçin **alma ARM şablonu**.
+Ardından, veri fabrikası test ve üretim veri fabrikası gidin ve seçin **alma ARM şablonu**.
 
 ![](media/continuous-integration-deployment/continuous-integration-image2.png)
 
-Bu eylem, dışarı aktarılan şablon burada aktarabilirsiniz Azure portalına alır. Seçin **kendi şablonunuzu Düzenleyicisi'nde yapı** ve ardından **yükleme dosyası** ve oluşturulan Resource Manager şablonu seçin. Ayarlar ve data factory sağlar ve tüm ardışık düzen, üretim ortamınızda alınır.
+Bu eylem, Azure portalında nerede dışarı aktarılan şablonu içeri aktarabilirsiniz alır. Seçin **düzenleyicide kendi şablonunuzu oluşturun** ardından **yük dosyası** ve oluşturulan Resource Manager şablonu seçin. Data factory ve ayarları sağlayın ve tüm işlem hattının üretim ortamınıza içeri aktarılır.
 
 ![](media/continuous-integration-deployment/continuous-integration-image3.png)
 
 ![](media/continuous-integration-deployment/continuous-integration-image4.png)
 
-Seçin **yükleme dosyası** dışarı aktarılan Resource Manager şablonunu seçin ve tüm yapılandırma değerleri (örneğin, bağlantılı hizmetler) girin.
+Seçin **yük dosyası** dışarı aktarılan Resource Manager şablonu seçin ve tüm yapılandırma değerleri (örneğin, bağlı hizmetler) girin.
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Sürekli Tümleştirme yaşam döngüsü
-Sürekli Tümleştirme & kullanabileceğiniz dağıtımı için tüm yaşam döngüsü İşte VSTS GIT tümleştirmesi veri fabrikası kullanıcı arabiriminde etkinleştirdikten sonra:
+Sürekli tümleştirme ve kullanabileceğiniz dağıtımı için tüm yaşam döngüsüne İşte VSTS GIT tümleştirmesi Data Factory kullanıcı arabiriminde etkinleştirdikten sonra:
 
-1.  Bir geliştirme data factory tüm geliştiriciler ardışık düzen, veri kümeleri ve diğerleri gibi Veri Fabrikası Kaynakları yazabilirsiniz VSTS ile ayarlayın.
+1.  Tüm geliştiriciler işlem hatları, veri kümeleri ve diğerleri gibi Data Factory kaynaklarını yazabilirsiniz VSTS ile geliştirme veri fabrikası oluşturun.
 
-2.  Ardından geliştiriciler ardışık düzen gibi kaynakları değiştirebilirsiniz. Kendi değişiklikler yapma gibi seçebilecekleri **hata ayıklama** ardışık düzen en son değişikliklerle birlikte nasıl çalıştığını görmek için.
+2.  Geliştiriciler, işlem hatları gibi kaynakları daha sonra değiştirebilirsiniz. Bunlar, değişiklikler gibi seçebilirsiniz **hata ayıklama** işlem hattı en son değişikliklerle nasıl çalıştığını görmek için.
 
-3.  Geliştiriciler kendi değişikliklerden memnunsanız sonra bunlar eşleri tarafından gözden kendi değişiklikleri almak amacıyla ana dala (veya işbirliği şube) kendi daldan bir çekme isteği oluşturabilirsiniz.
+3.  Geliştiriciler kendi değişikliklerden memnunsanız sonra bunlar ana dal (veya işbirliği dal) eşleri tarafından gözden yaptıkları değişiklikleri almak için kendi daldan bir çekme isteği oluşturabilirsiniz.
 
-4.  Değişiklikleri ana dala sonra bunlar seçerek geliştirme Fabrika yayımlayabilirsiniz **Yayımla**.
+4.  Değişiklikleri ana dalınızda sonra bunlar seçerek geliştirme fabrikasına yayımlayabilirsiniz **Yayımla**.
 
-5.  Takım test Fabrika ve üretim fabrikası değişiklikler yükseltmek hazır olduğunda, kendi ana dala Canlı geliştirme Data Factory yedekler durumda bunlar Resource Manager şablonu ana dala veya başka bir şube dışarı aktarabilirsiniz.
+5.  Takım test Fabrika ve üretim fabrikası değişiklikleri yükseltmek hazır olduğunda, Canlı geliştirme Data Factory, ana dal yedekler durumunda, Resource Manager şablonu ana daldan gelen veya diğer herhangi bir dala dışarı aktarabilirsiniz.
 
-6.  Dışarı aktarılan Resource Manager şablonu test Fabrika ve üretim fabrikası farklı parametre dosyalarla dağıtılabilir.
+6.  Dışarı aktarılan Resource Manager şablonu test Fabrika hem de üretim fabrikası için farklı parametre dosyaları ile dağıtılabilir.
 
-## <a name="automate-continuous-integration-with-vsts-releases"></a>VSTS sürümleriyle sürekli tümleştirme otomatikleştirme
+## <a name="automate-continuous-integration-with-vsts-releases"></a>Sürekli Tümleştirme ile VSTS yayın otomatikleştirme
 
-Veri Fabrikası birden çok ortamlara dağıtımını otomatik hale getirebilmeniz VSTS serbest bırakma ayarı ayarlamak için adımlar şunlardır.
+Veri Fabrikası birden çok ortama dağıtımı otomatik hale getirmek için bir VSTS yayını Ayarla için adımlar aşağıda verilmiştir.
 
 ![VSTS ile sürekli tümleştirme diyagramı](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Gereksinimler
 
--   Bir Azure aboneliğine bağlı Team Foundation Server veya VSTS kullanılarak [ *Azure Resource Manager Hizmeti uç noktası*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   Bir Azure aboneliğine bağlı Team Foundation Server veya VSTS'yi kullanmaya [ *Azure Resource Manager hizmet uç noktası*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
--   Veri Fabrikası VSTS yapılandırılmış Git ile.
+-   Data Factory ile yapılandırılmış VSTS Gıt.
 
--   Bir [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) gizli içeren.
+-   Bir [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) gizli dizileri içeren.
 
-### <a name="set-up-a-vsts-release"></a>VSTS yayın ayarlayın
+### <a name="set-up-a-vsts-release"></a>Bir VSTS yayını Ayarla
 
-1.  Data Factory ile yapılandırılmış bir aynı projede VSTS sayfanıza gidin.
+1.  Data Factory ile yapılandırılmış bir olarak aynı projede VSTS sayfanıza gidin.
 
-2.  Üst menü çubuğunda **derleme ve sürüm** &gt; **sürümleri** &gt; **oluşturma yayın tanımı**.
+2.  Üst menü çubuğunda **derleme ve yayın** &gt; **yayınlar** &gt; **Oluştur yayın tanımı**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
 3.  Seçin **boş işlem** şablonu.
 
-4.  Ortamınızı adını girin.
+4.  Ortamınızın adını girin.
 
-5.  Git yapı ekleyin ve Data Factory ile yapılandırılmış aynı deponun seçin. Seçin `adf_publish` son varsayılan sürümle varsayılan dalı olarak.
+5.  Git yapıt ekleyin ve Data Factory ile yapılandırılmış aynı depoda'ni seçin. Seçin `adf_publish` varsayılan en son sürümüyle varsayılan dal olarak.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-7.  Bir Azure Resource Manager dağıtım görev ekleyin:
+7.  Bir Azure Resource Manager dağıtım görevi ekleyin:
 
-    a.  Yeni bir görev oluşturun, arama **Azure kaynak grubu dağıtımı**ve bunu ekleyin.
+    a.  Yeni görev oluşturun, arama **Azure kaynak grubu dağıtımı**ve bunu ekleyin.
 
-    b.  Dağıtım görev abonelik, kaynak grubu ve hedef veri fabrikası için konum seçin ve gerekirse kimlik bilgilerini sağlayın.
+    b.  Dağıtım görevi, abonelik, kaynak grubu ve Data Factory hedef konumu seçin ve gerekirse, kimlik bilgilerini sağlayın.
 
-    c.  Seçin **oluştur veya güncelleştir kaynak grubu** eylem.
+    c.  Seçin **kaynak grubu oluşturma veya güncelleştirme** eylem.
 
-    d.  Seçin **...** içinde **şablonu** alan. Resource Manager şablonu için Gözat (*ARMTemplateForFactory.json*) Portalı'nda Yayımla eylemi tarafından oluşturuldu. Bu dosya klasöründe arayın `<FactoryName>` , `adf_publish` dal.
+    d.  Seçin **...** içinde **şablon** alan. Resource Manager şablonu bulun (*ARMTemplateForFactory.json*) portalında Yayımla eylemini tarafından oluşturuldu. Bu dosyada bir klasörü arayın `<FactoryName>` , `adf_publish` dal.
 
-    e.  Parametreler dosyası için aynı işlevi görür. Bir kopyasını oluşturduğunuz bağlı olarak doğru dosya seçin veya varsayılan dosya kullanmakta olduğunuz *ARMTemplateParametersForFactory.json*.
+    e.  Parametre dosyasını için aynı işlevi görür. Bir kopya oluşturduğunuz bağlı olarak doğru dosyayı seçin veya varsayılan dosya kullandığınız *ARMTemplateParametersForFactory.json*.
 
-    f.  Seçin **...** yanına **şablon parametreleri geçersiz kılma** alanına ve veri fabrikası hedefi için bilgileri girin. Şu biçimde gizliliği için aynı adı anahtar Kasası'nı gelen kimlik bilgilerini kullanmak için: varsayarsak parolanın olduğu `cred1`, girin `"$(cred1)"` (arasında tırnak).
+    f.  Seçin **...** yanındaki **şablon parametrelerini geçersiz kıl** alan ve Data Factory hedef bilgileri doldurun. Şu biçimde gizli dizi için aynı adı için anahtar kasasından gelen kimlik bilgilerini kullanın: parolanın adı olduğu varsayılırsa `cred1`, girin `"$(cred1)"` (tırnak işaretleri arasında olmalıdır).
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
 8.  Yayın tanımını kaydedin.
 
-9.  Bu sürüm tanımdan yeni bir sürüm oluşturun.
+9.  Bu yayın tanımındaki yeni bir yayın oluşturun.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
-### <a name="optional---get-the-secrets-from-azure-key-vault"></a>İsteğe bağlı - gizli anahtarları Azure anahtar Kasası'Al
+### <a name="optional---get-the-secrets-from-azure-key-vault"></a>İsteğe bağlı: Azure Key Vault'tan gizli dizileri Al
 
-Bir Azure Resource Manager şablonu geçirmek için gizli varsa Azure anahtar kasası VSTS sürümüyle kullanmanızı öneririz.
+Bir Azure Resource Manager şablonunda geçirmek için gizli dizileri varsa, Azure Key Vault ile VSTS yayın kullanmanızı öneririz.
 
-Gizli işlemek için iki yolu vardır:
+Gizli dizileri işlemek için iki yolu vardır:
 
-1.  Parolaları parametre dosyasına ekleyin. Daha fazla bilgi için bkz: [dağıtım sırasında güvenli parametre değeri geçirmek için kullanım Azure anahtar kasası](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+1.  Parolaları parametre dosyasına ekleyin. Daha fazla bilgi için bkz. [dağıtım sırasında güvenli bir parametre geçirmek için Azure anahtar kasası kullanım](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
-    -   Yayımla dalının karşıya parametreleri dosyanın bir kopyasını oluşturun ve aşağıdaki biçimde anahtar Kasası'ndan almak istediğiniz parametrelerinin değerlerini ayarlayın:
+    -   Yayımlama dala karşıya parametreleri dosyasının bir kopyasını oluşturun ve aşağıdaki biçime sahip anahtar kasasından almak istediğiniz parametre değerlerini ayarlayın:
 
     ```json
     {
@@ -140,29 +140,29 @@ Gizli işlemek için iki yolu vardır:
     }
     ```
 
-    -   Bu yöntemi kullandığınızda, gizli anahtar Kasası'nı otomatik olarak alınır.
+    -   Bu yöntemi kullandığınızda, gizli anahtar kasasından otomatik olarak aktarılır.
 
-    -   Parametreler dosyası da Yayımla dalında olması gerekir.
+    -   Parametre dosyasını yayımlama dalında de olması gerekir.
 
-2.  Ekleme bir [Azure anahtar kasası görev](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) Azure Resource Manager önceki bölümde açıklanan dağıtmadan önce:
+2.  Ekleme bir [Azure anahtar kasası görev](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) Azure Resource Manager önceki bölümde açıklanan dağıtımdan önce:
 
-    -   Seçin **görevleri** sekmesinde, yeni bir görev oluşturun, arama **Azure anahtar kasası** ve bunu ekleyin.
+    -   Seçin **görevleri** sekmesinde, yeni bir görev oluşturma, arama **Azure anahtar kasası** ve ekleyin.
 
-    -   Anahtar kasası oluşturulan abonelik anahtar kasası görevde seçin, sağlamanız gerekiyorsa, kimlik bilgileri ve anahtar Kasası'ı seçin.
+    -   Key Vault görevde, anahtar kasasını oluşturduğunuz aboneliği seçin, sağlamanız gerekiyorsa, kimlik ve anahtar Kasası'nı seçin.
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-vsts-agent"></a>VSTS aracıya izinleri
-Azure anahtar kasası Görev ilk kez bir erişim reddedildi hatası ile başarısız olabilir. Yayın günlükleri indirmek ve bulun `.ps1` VSTS aracıya izin vermek için komut dosyasıyla. Komutu doğrudan çalıştırabilirsiniz veya dosyadan sorumlusunun Kimliğini kopyalayın ve erişim ilkesini Azure portalında el ile ekleyin. (*Almak* ve *listesi* olan gerekli minimum izinleri).
+### <a name="grant-permissions-to-the-vsts-agent"></a>VSTS aracısına izin ver
+Azure Key Vault Görev ilk kez bir erişim reddedildi hatası ile başarısız olabilir. Yayın günlükleri indirmek ve bulun `.ps1` VSTS aracıya izin vermek için komut dosyası. Komutu doğrudan çalıştırabilirsiniz veya asıl kimliği dosyasından kopyalayın ve erişim ilkesi, Azure portalında el ile ekleyin. (*Alma* ve *listesi* olan gerekli en düşük izinleri).
 
 ### <a name="update-active-triggers"></a>Güncelleştirme etkin Tetikleyicileri
-Etkin Tetikleyiciler güncelleştirmeye çalıştığınızda, dağıtım başarısız olabilir. Etkin Tetikleyiciler güncelleştirmek için el ile sonlandırmasına ve dağıtımdan sonra başlatmak gerekir. Aşağıdaki örnekte gösterildiği gibi bu amaç için bir Azure Powershell görev ekleyebilirsiniz:
+Etkin Tetikleyicileri güncelleştirmeye çalışırsanız, dağıtım başarısız olabilir. Etkin Tetikleyicileri güncelleştirmek için el ile sonlandırmasına ve bunları dağıtımdan sonra başlatmak gerekir. Aşağıdaki örnekte gösterildiği gibi bu amaç için bir Azure Powershell görev ekleyebilirsiniz:
 
-1.  VSTS yayın görevleri sekmesinde, arama **Azure Powershell** ve bunu ekleyin.
+1.  VSTS yayın görevleri sekmede arama **Azure Powershell** ve ekleyin.
 
 2.  Seçin **Azure Resource Manager** bağlantı olarak yazın ve aboneliğinizi seçin.
 
-3.  Seçin **satır içi betiği** komut dosyası olarak yazın ve ardından kodunuzu sağlayın. Aşağıdaki örnek Tetikleyiciler durdurur:
+3.  Seçin **satır içi betik** betik olarak yazın ve ardından kodunuzu sağlayın. Aşağıdaki örnek, Tetikleyiciler durdurur:
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -174,13 +174,13 @@ Etkin Tetikleyiciler güncelleştirmeye çalıştığınızda, dağıtım başar
 
 Benzer adımları izleyin ve benzer bir kod kullanın (ile `Start-AzureRmDataFactoryV2Trigger` işlevi) Tetikleyiciler dağıtımdan sonra yeniden başlatmak için.
 
-## <a name="sample-template-and-script"></a>Örnek şablon ve komut dosyası
-Sürekli tümleştirme ve dağıtım için Data Factory ile çalışmaya başlamak için kullanabileceğiniz iki örnekleri şunlardır:
+## <a name="sample-template-and-script"></a>Örnek şablonu ve komut dosyası
+Data Factory için sürekli tümleştirme ve dağıtım kullanmaya başlamak için kullanabileceğiniz iki örnek aşağıda verilmiştir:
 
--   VSTS içeri aktarabilirsiniz örnek dağıtım şablonu.
--   Örnek komut dosyası Tetikleyicileri dağıtmadan önce durdurmak ve yeniden başlatmak için daha sonra tetikler. Komut ayrıca kaldırılmış olan kaynakları silmek için kodu içerir.
+-   VSTS'de içeri aktarabileceğiniz bir örnek dağıtım şablonu.
+-   Dağıtımdan önce Tetikleyicileri durdurmak ve yeniden başlatmak için örnek betik daha sonra tetikler. Betik ayrıca kaldırılmış olan kaynakları silmek için kod içerir.
 
-VSTS içeri aktarabilirsiniz bir örnek dağıtım şablonu aşağıda verilmiştir.
+VSTS'de içeri aktarabileceğiniz bir örnek dağıtım şablonu aşağıda verilmiştir.
 
 ```json
 {
@@ -718,7 +718,7 @@ VSTS içeri aktarabilirsiniz bir örnek dağıtım şablonu aşağıda verilmiş
 }
 ```
 
-Örnek komut dosyası Tetikleyicileri dağıtmadan önce durdurmak ve Tetikleyicileri daha sonra yeniden başlatmak için şöyledir:
+Dağıtımdan önce Tetikleyicileri durdurmak ve Tetikleyicileri daha sonra yeniden başlatmak için bir örnek betiği şu şekildedir:
 
 ```powershell
 param
@@ -794,3 +794,94 @@ else {
     $deletedintegrationruntimes | ForEach-Object { Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
 }
 ```
+
+## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Özel Parametreler ile Resource Manager şablonu kullanma
+
+Resource Manager şablonuna yönelik özel parametreler tanımlayabilirsiniz. Adlı bir dosya yeterlidir `arm-template-parameters-definition.json` deposunun kök klasörüne. (Dosya adı tam olarak burada gösterilen adı eşleşmelidir.) Veri Fabrikası dosya, çalışmakta olduğunuz hangi daldan, işbirliği dalından yalnızca okumaya çalışır. Dosya bulunamazsa, Data Factory varsayılan tanımları kullanır.
+
+Aşağıdaki örnek, örnek bir parametreler dosyası gösterir. Bu örnek, kendi özel parametre dosyasını oluşturmak için bir başvuru olarak kullanın. Sağladığınız dosya JSON biçimi doğru değilse, Data Factory tarayıcı konsolunu bir hata iletisi çıkışı yapar ve Data Factory kullanıcı Arabiriminde gösterilen varsayılan tanımları döner.
+
+```json
+{
+    "Microsoft.DataFactory/factories/pipelines": {},
+    "Microsoft.DataFactory/factories/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "ssisProperties": {
+                    "catalogInfo": {
+                        "catalogServerEndpoint": "=",
+                        "catalogAdminUserName": "=",
+                        "catalogAdminPassword": {
+                            "value": "-::secureString"
+                        }
+                    },
+                    "customSetupScriptProperties": {
+                        "sasToken": {
+                            "value": "-::secureString"
+                        }
+                    }
+                },
+                "linkedInfo": {
+                    "key": {
+                        "value": "-::secureString"
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "userName": "=",
+                    "accessKeyId": "=",
+                    "servicePrincipalId": "=",
+                    "userId": "=",
+                    "clientId": "=",
+                    "clusterUserName": "=",
+                    "clusterSshUserName": "=",
+                    "hostSubscriptionId": "=",
+                    "clusterResourceGroup": "=",
+                    "subscriptionId": "=",
+                    "resourceGroupName": "=",
+                    "tenant": "=",
+                    "dataLakeStoreUri": "=",
+                    "baseUrl": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/datasets": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "folderPath": "=",
+                    "fileName": "="
+                }
+            }
+        }
+    }
+}
+```
+

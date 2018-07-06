@@ -1,6 +1,6 @@
 ---
 title: HLS Microsoft PlayReady veya Apple FairPlay - Azure ile içerik koruma | Microsoft Docs
-description: Bu konu genel bir bakış sağlar ve Azure Media Services dinamik olarak HTTP canlı akışı (HLS) içeriğinizi Apple FairPlay ile şifrelemek için nasıl kullanılacağını gösterir. Ayrıca, Media Services lisans teslimat hizmetinin istemcilere FairPlay lisansları teslim etmek için nasıl kullanılacağını gösterir.
+description: Bu konu, genel bir bakış sağlar ve HTTP canlı akışı (HLS) içeriğinizi Apple FairPlay ile dinamik olarak şifrelemek için Azure Media Services'ı kullanma işlemini gösterir. Ayrıca, FairPlay lisansı istemcilere sunmak için Media Services lisans teslimat hizmeti kullanmayı gösterir.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,82 +13,82 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: fc3504f71af2f5e8f989a1d015ff78dda2c85d66
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 65188dacbb29fea5562ca5b83283861986719ce1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790688"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866687"
 ---
-# <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Apple FairPlay veya Microsoft PlayReady ile içerik, HLS koruma
-Azure Media Services, dinamik olarak HTTP canlı akışı (HLS) içeriğinizi aşağıdaki biçimlerini kullanarak şifrelemenizi sağlar:  
+# <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>HLS Apple FairPlay veya Microsoft PlayReady ile içerik koruma
+Azure Media Services dinamik olarak şu biçimlerden kullanarak HTTP canlı akışı (HLS) içeriğinizi şifrelemenizi sağlar:  
 
-* **AES-128 Zarf şifresiz anahtar**
+* **Zarf AES-128 şifresiz anahtar**
 
-    Tüm öbek kullanılarak şifrelenir **AES-128 CBC** modu. Şifre çözme akışın iOS ve OS X oyuncu tarafından yerel olarak desteklenir. Daha fazla bilgi için bkz: [AES-128 kullanarak dinamik şifreleme ve anahtar teslim hizmeti](media-services-protect-with-aes128.md).
+    Tüm öbek kullanılarak şifrelenir **AES-128 CBC** modu. Şifre çözme akışın iOS ve OS X oyuncu tarafından yerel olarak desteklenir. Daha fazla bilgi için [AES-128 kullanılarak dinamik şifreleme ve anahtar dağıtımı hizmetiyle](media-services-protect-with-aes128.md).
 * **Apple FairPlay**
 
-    Tek tek video ve ses örnekleri kullanılarak şifrelenmiş **AES-128 CBC** modu. **FairPlay akış** (FPS), cihaz işletim sistemlerinin yerel destek iOS ve Apple TV ile bütünleştirilmiştir. OS X üzerinde Safari şifrelenmiş medya Uzantıları (EME) arabirimi desteği kullanarak FPS sağlar.
+    Tek video ve ses örnekleri kullanılarak şifrelenmiş **AES-128 CBC** modu. **FairPlay Streaming** (FPS), iOS ve Apple TV yerel desteğiyle, cihaz işletim sistemlerinin bütünleştirilmiştir. OS X üzerinde Safari şifreli medya Uzantıları (EME) arabirimi desteğini kullanarak FPS sağlar.
 * **Microsoft PlayReady**
 
-Aşağıdaki resimde gösterildiği **HLS + FairPlay veya PlayReady dinamik şifreleme** iş akışı.
+Aşağıdaki görüntüde **HLS + FairPlay veya PlayReady dinamik şifreleme** iş akışı.
 
 ![Dinamik şifreleme iş akışı diyagramı](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-Bu makalede, Media Services dinamik olarak HLS içeriğinizi Apple FairPlay ile şifrelemek için nasıl kullanılacağı gösterilmektedir. Ayrıca, Media Services lisans teslimat hizmetinin istemcilere FairPlay lisansları teslim etmek için nasıl kullanılacağını gösterir.
+Bu makalede, Media Services dinamik olarak HLS içeriğinizin Apple FairPlay ile şifrelemek için kullanılacak gösterilmiştir. Ayrıca, FairPlay lisansı istemcilere sunmak için Media Services lisans teslimat hizmeti kullanmayı gösterir.
 
 > [!NOTE]
-> Ayrıca, PlayReady HLS içeriğinizle şifrelemek isterseniz, ortak bir içerik anahtarı oluşturup, varlıkla ilişkilendirme gerekir. İçerik anahtarının yetkilendirme ilkesini yapılandırma bölümünde açıklandığı gibi etmeniz [dinamik ortak şifreleme kullanarak PlayReady](media-services-protect-with-playready-widevine.md).
+> HLS içeriğinizin PlayReady ile şifreleme istiyorsanız, ortak bir içerik anahtarı oluşturup, varlıkla ilişkilendirme gerekir. İçerik anahtarının yetkilendirme ilkesini yapılandırma bölümünde anlatıldığı gibi etmeniz [dinamik ortak şifreleme kullanarak PlayReady](media-services-protect-with-playready-widevine.md).
 >
 >
 
 ## <a name="requirements-and-considerations"></a>Gereksinimleri ve konular
 
-Media Services FairPlay ile şifrelenmiş HLS teslim etmek ve FairPlay lisansları teslim etmeyi kullanırken gerekli şunlardır:
+Media Services HLS ile FairPlay şifrelenmiş sunmak için ve FairPlay lisansları kullanırken gerekli şunlardır:
 
   * Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
-  * Bir Media Services hesabı. Oluşturmak için bkz: [Azure portalını kullanarak Azure Media Services hesabı oluşturma](media-services-portal-create-account.md).
-  * İle kaydolmak [Apple geliştirme programı](https://developer.apple.com/).
-  * Apple gerektirir almak içerik sahibi [dağıtım paketi](https://developer.apple.com/contact/fps/). Media Services ile anahtar güvenlik modülü (KSM) zaten uygulanan ve son FPS paket isteyen durumu. Sertifika oluşturma ve uygulama gizli anahtarı (İSTEYİN) elde etmek için son FPS paketinde yönergeler de vardır. ASK FairPlay yapılandırmak için kullanın.
-  * Azure Media Services .NET SDK sürümü **3.6.0** veya sonraki bir sürümü.
+  * Bir Media Services hesabı. Oluşturmak için bkz: [Azure portalını kullanarak bir Azure Media Services hesabı oluşturma](media-services-portal-create-account.md).
+  * Kaydolmak için [Apple geliştirme programı](https://developer.apple.com/).
+  * Apple gerektirir edinmek üzere içerik sahibi [dağıtım paketi](https://developer.apple.com/contact/fps/). Media Services ile anahtar güvenlik modülü (KSM) zaten uygulanmış ve son FPS paket isteyen durumu. Sertifika oluşturma ve uygulama gizli anahtarı (ASK) elde etmek amacıyla son FPS pakete yönergeler de vardır. ASK FairPlay yapılandırmak için kullanın.
+  * Azure Media Services .NET SDK sürümü **3.6.0** veya üzeri.
 
 Media Services anahtar teslim tarafında aşağıdakiler ayarlanmalıdır:
 
-  * **Uygulama sertifika (AC)**: özel anahtarı içeren bir .pfx dosyası budur. Bu dosyayı oluşturmak ve bir parolayla şifreleyin.
+  * **App Cert (AC)**: Bu özel anahtarı içeren bir .pfx dosyasıdır. Bu dosya oluşturur ve bir parola ile şifrelemek.
 
-       Bir anahtar teslim İlkesi yapılandırdığınızda, bu parolayı ve Base64 biçiminde .pfx dosyası sağlamanız gerekir.
+       Bir anahtar teslim ilkesini yapılandırırken, parola ve Base64 biçiminde .pfx dosyası sağlamanız gerekir.
 
-      Aşağıdaki adımlar, bir .pfx sertifika dosyası oluşturmak için FairPlay açıklanmaktadır:
+      Aşağıdaki adımları HLS için FairPlay bir .pfx sertifika dosyası oluşturmayı açıklar:
 
-    1. Gelen OpenSSL yükleme https://slproweb.com/products/Win32OpenSSL.html.
+    1. OpenSSL yüklemek https://slproweb.com/products/Win32OpenSSL.html.
 
-        FairPlay sertifika ve Apple tarafından sunulan diğer dosyaların nerede klasörüne gidin.
-    2. Komut satırından aşağıdaki komutu çalıştırın. Bu .cer dosyasını bir .pem dosyasına dönüştürür.
+        FairPlay sertifika ve Apple tarafından sunulan diğer dosyaları olduğu klasöre gidin.
+    2. Komut satırından aşağıdaki komutu çalıştırın. Bu, bir .pem dosyasına .cer dosyasını dönüştürür.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509-der bildirmek-FairPlay.cer içinde-FairPlay out.pem çıkışı
-    3. Komut satırından aşağıdaki komutu çalıştırın. Bu .pem dosyasını özel anahtarla bir .pfx dosyasına dönüştürür. .Pfx dosyası için parolayı sonra OpenSSL tarafından istendi.
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509-der bildirmek-FairPlay.cer içinde-FairPlay out.pem çıkış
+    3. Komut satırından aşağıdaki komutu çalıştırın. Bu .pem dosyası özel anahtara sahip bir .pfx dosyasına dönüştürür. .Pfx dosyası için parolayı ardından OpenSSL tarafından istenir.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-- out FairPlay out.pfx export-inkey privatekey.pem-FairPlay out.pem - passin file:privatekey-pem-pass.txt içinde
-  * **Uygulama sertifika parola**: .pfx dosyasını oluşturmak için parola.
-  * **Uygulama sertifika parolası kimliği**: parola, bunlar diğer Media Services anahtarları nasıl yüklemek için benzer yüklemeniz gerekir. Kullanım **ContentKeyType.FairPlayPfxPassword** enum değeri Media Services Kimliği almak için Anahtar teslim İlkesi seçeneği kullanmak istedikleri budur.
-  * **IV**: 16 bayt rastgele bir değeri budur. Varlık teslim İlkesi'nde IV eşleşmelidir. IV oluşturmak ve her iki yerde de yerleştirin: Varlık teslim ilkesini ve anahtar teslim İlkesi seçeneği.
-  * **SORUN**: Apple Geliştirici Portalı'nı kullanarak sertifika oluşturduğunuzda bu anahtar aldı. Her geliştirme ekibi benzersiz ASK alır. SOR bir kopyasını kaydedin ve güvenli bir yerde saklayın. Daha sonra Media Services'e FairPlayAsk olarak ASK yapılandırmanız gerekir.
-  * **SORUN kimliği**: Media Services'e ASK karşıya yüklediğinizde bu kimliği elde edilir. Kullanarak ASK yüklemelisiniz **ContentKeyType.FairPlayAsk** enum değeri. Sonuç olarak, Media Services ID döndürülür ve ne anahtar teslim İlkesi seçeneği ayarlarken kullanılması gereken budur.
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-dışarı aktarma - FairPlay out.pfx-inkey privatekey.pem-FairPlay out.pem - passin file:privatekey-pem-pass.txt içinde
+  * **App Cert parola**: .pfx dosyasını oluşturmak için parola.
+  * **App Cert parola kimliği**: parola, bunlar diğer Media Services anahtarları nasıl yüklemek için benzer yüklemeniz gerekir. Kullanım **ContentKeyType.FairPlayPfxPassword** medya Hizmetleri Kimliği almak için sabit listesi değeri Anahtar teslim İlkesi seçeneği kullanmak gereksinim duydukları şeyleri budur.
+  * **IV**: 16 bayt rastgele bir değer budur. Varlık teslim ilkesini de IV ile eşleşmesi gerekir. IV oluşturma ve her iki yerde de yerleştirin: Varlık teslim ilkesini ve anahtar teslim İlkesi seçeneği.
+  * **SORUN**: Apple Geliştirici Portalı'nı kullanarak sertifika oluşturduğunuzda bu anahtarı alınır. Her geliştirme ekibi bir benzersiz ASK alır. ASK bir kopyasını kaydedin ve güvenli bir yerde saklayın. Daha sonra Media Services'e FairPlayAsk olarak ASK yapılandırmanız gerekir.
+  * **SORUN kimliği**: Media Services'e ASK karşıya yüklediğinizde bu kimliği elde edilir. ASK kullanarak yüklemelisiniz **ContentKeyType.FairPlayAsk** enum değeri. Sonuç olarak, medya Hizmetleri kimliği döndürülür ve ne anahtar teslim İlkesi seçeneği ayarlarken kullanılması gereken budur.
 
-Şunları FPS istemci tarafından ayarlamanız gerekir:
+FPS istemci tarafından aşağıdakiler ayarlanmalıdır:
 
-  * **Uygulama sertifika (AC)**: Bu işletim sisteminin bazı yükü şifrelemek için kullandığı ortak anahtarı içeren bir.cer/.der dosyasıdır. Media Services player tarafından gerekli olduğu hakkında bilmek ister. Anahtar teslim hizmeti kullanarak ilgili özel anahtarın şifresini çözer.
+  * **App Cert (AC)**: Bu işletim sisteminin bazı yükü şifrelemek için kullandığı ortak anahtar içeren bir.cer/.der dosyasıdır. Media Services player tarafından gerekli olduğu için bu konuda bilmesi gerekir. Anahtar dağıtımı hizmetiyle ilişkili özel anahtarı kullanarak şifresini çözer.
 
-FairPlay şifrelenmiş akışı kayıttan için gerçek ASK ilk alın ve ardından gerçek bir sertifika oluşturun. Bu işlem, tüm üç bölümden oluşturur:
+FairPlay şifrelenmiş stream kayıttan yürütme için gerçek ASK ilk alın ve ardından gerçek bir sertifika oluşturun. Bu işlem, tüm üç bölümü oluşturur:
 
   * .DER dosya
   * .pfx dosyası
   * .pfx için parolayı
 
-Aşağıdaki istemciler ile HLS Destek **AES-128 CBC** şifreleme: OS X, Apple TV iOS Safari.
+Aşağıdaki istemciler HLS ile destek **AES-128 CBC** şifreleme: Apple TV OS X, iOS Safari.
 
 ## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>FairPlay dinamik şifreleme ve lisans teslimat hizmetlerini yapılandırma
-FairPlay ile varlıklarınızı kullanarak Media Services lisans teslimat hizmeti ve dinamik şifreleme kullanarak koruma için genel adımlar verilmiştir.
+Varlıklarınızı FairPlay kullanarak Media Services lisans teslimat hizmeti ve dinamik şifreleme kullanarak koruma için genel adımlar aşağıdadır.
 
 1. Bir varlık oluşturun ve dosyaları varlığa yükleyin.
 2. Dosyayı içeren varlığı, bit hızı uyarlamalı MP4 kümesine kodlayın.
@@ -96,10 +96,10 @@ FairPlay ile varlıklarınızı kullanarak Media Services lisans teslimat hizmet
 4. İçerik anahtarının yetkilendirme ilkesini yapılandırın. Aşağıdakileri belirtin:
 
    * Teslim yöntemi (Bu durumda, FairPlay).
-   * FairPlay ilkesi seçenekleri yapılandırma. FairPlay yapılandırma hakkında daha fazla bilgi için bkz **ConfigureFairPlayPolicyOptions()** örnek yöntemi.
+   * FairPlay ilkesi seçenekleri yapılandırma. FairPlay yapılandırma hakkında daha fazla ayrıntı için bkz. **ConfigureFairPlayPolicyOptions()** aşağıdaki örnekte yöntemi.
 
      > [!NOTE]
-     > Genellikle, yalnızca bir sertifika ve ASK kümesi olacağı için yalnızca bir kez FairPlay ilkesi seçeneklerini yapılandırmak istersiniz.
+     > Genellikle, yalnızca bir sertifika ve bir dizi sahip olacağından FairPlay ilkesi seçenekleri yalnızca bir kez yapılandırmak istiyorsunuz.
      >
      >
    * Kısıtlamalar (açık veya belirteç).
@@ -107,35 +107,35 @@ FairPlay ile varlıklarınızı kullanarak Media Services lisans teslimat hizmet
 5. Varlık teslim ilkesini yapılandırın. Teslim ilkesi yapılandırması şunları içerir:
 
    * Teslim Protokolü (HLS).
-   * Dinamik şifreleme (ortak CBC şifreleme) türü.
+   * Dinamik şifreleme türü (ortak CBC şifreleme).
    * Lisans edinme URL'si.
 
      > [!NOTE]
-     > FairPlay ve başka bir dijital hak yönetimi (DRM) sistemiyle şifrelenmiş bir akış teslim etmek istiyorsanız, ayrı teslim ilkeleri yapılandırmanız gerekir:
+     > FairPlay ve başka bir Digital Rights Management (DRM) sistemi ile şifrelenmiş bir akış iletmek istiyorsanız, ayrı teslim ilkelerini yapılandırma için gerekenler:
      >
-     > * HTTP (DASH) ile ortak şifreleme (CENC) (PlayReady + Widevine) ve kesintisiz PlayReady ile üzerinden dinamik Uyarlamalı akış yapılandırmak için bir IAssetDeliveryPolicy
-     > * FairPlay HLS için yapılandırmak için başka bir IAssetDeliveryPolicy
+     > * Bir IAssetDeliveryPolicy Dynamic Adaptive Streaming HTTP (DASH) ile ortak şifreleme (CENC) (PlayReady ve Widevine) ve PlayReady ile kesintisiz üzerinden yapılandırmak için
+     > * Başka bir IAssetDeliveryPolicy HLS için FairPlay yapılandırmak için
      >
      >
 6. Akış URL’si almak için bir OnDemand bulucu oluşturun.
 
-## <a name="use-fairplay-key-delivery-by-player-apps"></a>FairPlay anahtar teslim tarafından oynatıcı uygulamaları kullanma
-İOS SDK kullanarak oynatıcı uygulamaları geliştirme yapabilirsiniz. FairPlay içeriği yürütmek lisans exchange protokolünü uygulayan gerekir. Bu protokol, Apple tarafından belirtilmemiş. Anahtar teslim istekleri göndermek nasıl kadar her bir uygulama olmasından. Medya Hizmetleri FairPlay anahtar teslim hizmeti olarak aşağıdaki biçimde bir www-form-url kodlanmış posta iletisi gelmesini SPC bekler:
+## <a name="use-fairplay-key-delivery-by-player-apps"></a>FairPlay anahtar teslim oynatıcı uygulamaları ile kullanma
+İOS SDK'sını kullanarak oynatıcı uygulamaları geliştirebilirsiniz. FairPlay içeriğini oynatmak lisans exchange protokolünü uygulayan gerekir. Bu protokol, Apple tarafından belirtilmedi. Bu anahtar teslim istekleri göndermek nasıl her uygulamanın tercihine bağlı olur. Medya Hizmetleri FairPlay anahtar dağıtımı hizmetiyle aşağıdaki biçimde bir www-form-url kodlanmış posta iletisi gelmesini SPC bekliyor:
 
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player FairPlay kayıttan yürütme destekler. Bkz: [Azure Media Player belgelerine](https://amp.azure.net/libs/amp/latest/docs/index.html) daha fazla bilgi için.
+> Azure Media Player FairPlay kayıttan yürütme destekler. Bkz: [Azure Media Player belgeleri](https://amp.azure.net/libs/amp/latest/docs/index.html) daha fazla bilgi için.
 >
 >
 
 ## <a name="streaming-urls"></a>Akış URL'leri
-Varlığınızı birden çok DRM ile şifrelenmiş bir şifreleme etiketi akış URL'SİNDE kullanmalısınız: (biçimi 'm3u8-aapl' = şifreleme = 'xxx').
+Varlığınız birden çok DRM ile şifrelenmiş, şifreleme etiketi akış URL'SİNDE kullanmalısınız: (format = 'm3u8-aapl' şifreleme = 'xxx').
 
 Aşağıdaki maddeler geçerlidir:
 
 * Yalnızca sıfır veya bir şifreleme türü belirtilebilir.
-* Şifreleme türü bir şifreleme varlık için uygulanan yalnızca URL'de belirtilmesi gerekmez.
+* Şifreleme türünün yalnızca varlık için bir şifreleme uygulandı URL'nin belirtilmesi gerekmez.
 * Şifreleme türü büyük küçük harfe duyarlı değil.
 * Aşağıdaki şifreleme türlerini belirtilebilir:  
   * **cenc**: ortak şifreleme (PlayReady veya Widevine)
@@ -154,7 +154,7 @@ Aşağıdaki maddeler geçerlidir:
 
 ## <a name="example"></a>Örnek
 
-Aşağıdaki örnek Media Services ile FairPlay şifrelenmiş içeriğinizi teslim etmek için kullanma yeteneğini gösterir. Bu işlev Azure Media Services SDK'sı sürüm 3.6.0 .NET için sunulmuştur. 
+Aşağıdaki örnek, şifrelenmiş HLS ile FairPlay içeriğinizi teslim etmek için Media Services'ı kullanma yeteneğini gösterir. Bu işlev, sürüm 3.6.0 .NET için Azure Media Services SDK sunulmuştur. 
 
 Bu bölümde gösterilen kodu Program.cs dosyanızdaki kodun üzerine yazın.
 
@@ -249,7 +249,7 @@ namespace DynamicEncryptionWithFairPlay
                 TokenRestrictionTemplate tokenTemplate =
                     TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-                // Generate a test token based on the the data in the given TokenRestrictionTemplate.
+                // Generate a test token based on the data in the given TokenRestrictionTemplate.
                 // Note, you need to pass the key id Guid because we specified
                 // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
                 Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);

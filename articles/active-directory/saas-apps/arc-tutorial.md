@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme yayımlama yay - SSO ile | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ve yayımlama yay - SSO arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory Tümleştirme ile yayımlama yay - SSO | Microsoft Docs'
+description: Azure Active Directory ve yayımlama yay - SSO arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,117 +15,117 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: bf811d789c0c6effd6f8940ad433092ea9ba04cb
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9decab5c35cda03e8532c48654203be7d95a5801
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210082"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858852"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Öğretici: Azure Active Directory Tümleştirme yayımlama yay - SSO ile
+# <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Öğretici: Azure Active Directory Tümleştirme ile yayımlama yay - SSO
 
-Bu öğreticide, Arc yayımlama - SSO Azure Active Directory (Azure AD) ile tümleştirme öğrenin.
+Bu öğreticide, yay yayımlama - SSO Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
 Yay yayımlama - SSO Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 - Yayımlama yay - SSO erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak yayımlama yay - Azure AD hesaplarına ile SSO (çoklu oturum açma) için açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- Otomatik olarak imzalanan için yayımlama yay - SSO (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme yay yayımlama ile - SSO yapılandırmak için aşağıdaki öğeleri gerekir:
+Yay yayımlama ile - SSO, Azure AD tümleştirmesi yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir yay yayımlama - abonelik etkin SSO çoklu oturum açma
+- Azure AD aboneliğiniz
+- Bir Yayı yayımlama - abonelik etkin SSO çoklu oturum açma
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Yay yayımlama - galerisinden SSO ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-arc-publishing---sso-from-the-gallery"></a>Yay yayımlama - galerisinden SSO ekleme
-Yayımlama yay - Azure AD'ye SSO tümleştirmesini yapılandırmak için yönetilen SaaS uygulamaları listenize galerisinden SSO yay yayımlama - eklemeniz gerekir.
+Yayımlama yay - Azure AD'ye SSO tümleştirmesini yapılandırmak için yayımlama - yay listenizi yönetilen SaaS uygulamaları için SSO galerisinden eklemeniz gerekir.
 
-**SSO Galerisi'nden yay yayımlama - eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden SSO yay yayımlama - eklemek için aşağıdaki adımları uygulayın:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **yayımlama yay - SSO**seçin **yayımlama yay - SSO** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+1. Arama kutusuna **yayımlama yay - SSO**seçin **yayımlama yay - SSO** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Yay yayımlama - sonuçlar listesinde SSO](./media/arc-tutorial/tutorial_arc_addfromgallery.png)
+    ![Yayımlama - SSO sonuç listesinde yay](./media/arc-tutorial/tutorial_arc_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma yay yayımlama ile test etme - SSO "Britta Simon" adlı bir test kullanıcı tabanlı.
 
-Çoklu oturum açma çalışmak özelliğini için Azure AD ne karşılık gelen kullanıcı yay yayımlama bilmek ister - SSO kullanıcıya Azure AD'de. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı yay yayımlama - arasında bir bağlantı ilişkisi SSO kurulması gerekir.
+Tek çalışmak, oturum için Azure AD yay Publishing'de karşılığı kullanıcının bilmesi gerekir - SSO, Azure AD'de bir kullanıcı için olan. Diğer bir deyişle, SSO bir Azure AD kullanıcısı ile ilgili kullanıcı yay yayımlama - arasında bir bağlantı ilişki kurulması gerekir.
 
-Yapılandırmak ve Azure AD çoklu oturum açma ile yay yayımlama - sınamak için SSO, aşağıdaki yapı taşları tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma yay yayımlama ile-test etmek için SSO, aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Bir yay yayımlama oluşturma - SSO test kullanıcı](#create-an-arc-publishing---sso-test-user)**  - yayımlama yay - kullanıcı Azure AD gösterimini bağlı SSO Britta Simon, karşılık gelen sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Yay yayımlama'bir Oluştur - SSO kullanıcı test](#create-an-arc-publishing---sso-test-user)**  - yayımlama yay - kullanıcı Azure AD gösterimini bağlı SSO Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma, Arc yayımlama içinde - SSO uygulaması yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma, yay yayımlama içinde - SSO uygulama yapılandırın.
 
 **Azure AD çoklu oturum açma yay yayımlama ile - SSO yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **yayımlama yay - SSO** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **yayımlama yay - SSO** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/arc-tutorial/tutorial_arc_samlbase.png)
 
-3. Üzerinde **yayımlama yay - SSO etki alanı ve URL'leri** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** modu tarafından başlatılan:
+1. Üzerinde **yayımlama yay - SSO etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
 
-    ![Yay yayımlama - SSO etki alanı ve oturum açma URL'leri tek bilgi](./media/arc-tutorial/tutorial_arc_url.png)
+    ![Yay yayımlama - SSO etki alanı ve URL'ler tek bilgi'oturum açma](./media/arc-tutorial/tutorial_arc_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://www.okta.com/saml2/service-provider/<Unique ID>`
+    1. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://www.okta.com/saml2/service-provider/<Unique ID>`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
+    1. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
 
-4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
+1. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
-    ![Yay yayımlama - SSO etki alanı ve oturum açma URL'leri tek bilgi](./media/arc-tutorial/tutorial_arc_url1.png)
+    ![Yay yayımlama - SSO etki alanı ve URL'ler tek bilgi'oturum açma](./media/arc-tutorial/tutorial_arc_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
+    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
      
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler, gerçek tanımlayıcı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [yayımlama yay - SSO istemci destek ekibi](mailto:inf@washpost.com) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [yayımlama yay - SSO istemci Destek ekibine](mailto:inf@washpost.com) bu değerleri almak için. 
 
-5. Yayımlama yay - SSO uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
+1. Yayımlama yay - SSO uygulama belirli bir biçimde SAML onaylamalarını bekliyor. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
     
     ![Çoklu oturum açmayı yapılandırın](./media/arc-tutorial/tutorial_arc_attribute.png)
 
-6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, yukarıdaki resimde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     | Öznitelik Adı | Öznitelik Değeri |
     | ---------------| --------------- |    
@@ -134,117 +134,117 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | e-posta | User.Mail |
     | gruplar | User.assignedroles |
 
-    a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
+    1. Tıklayın **eklemek agentconfigutil** açmak için **öznitelik Ekle** iletişim.
 
      ![Çoklu oturum açmayı yapılandırın](./media/arc-tutorial/tutorial_attribute_04.png)
 
      ![Çoklu oturum açmayı yapılandırın](./media/arc-tutorial/tutorial_attribute_05.png)
     
-    b. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
+    1. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
     
-    c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+    1. Gelen **değer** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
 
-    d. Bırakın **Namespace** boş.
+    1. Bırakın **Namespace** boş.
     
-    d. Tıklatın **Tamam**
+    1. Tıklayın **Tamam**
 
     > [!NOTE]
-    > Burada **grupları** özniteliği ile eşlendiği **user.assignedroles**. Bu grup adlarını geri uygulama eşlemek için Azure AD'de oluşturulan özel rolleridir. Daha fazla yönergeler bulabilirsiniz [burada](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) Azure AD'de özel roller oluşturma. 
+    > Burada **grupları** özniteliği ile eşlendi **user.assignedroles**. Bu grup adlarını uygulama yeniden eşlemek için Azure AD'de oluşturulan özel rolleridir. Daha fazla rehberliğe bulabilirsiniz [burada](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) Azure AD'de özel roller oluşturma. 
 
-7. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/arc-tutorial/tutorial_arc_certificate.png) 
 
-8. Tıklatın **kaydetmek** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/arc-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/arc-tutorial/tutorial_general_400.png)
     
-9. Üzerinde **yayımlama yay - SSO yapılandırma** 'yi tıklatın **yapılandırma yay yayımlama - SSO** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **yayımlama yay - SSO yapılandırma** bölümünde **yapılandırma yay yayımlama - SSO** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Yay yayımlama - SSO yapılandırma](./media/arc-tutorial/tutorial_arc_configure.png) 
 
-10. Çoklu oturum açma yapılandırmak için **yayımlama yay - SSO** yan, indirilen göndermek için ihtiyacınız **sertifika (Base64), Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** için [yay Yayımlama - SSO destek ekibi](mailto:inf@washpost.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Çoklu oturum açmayı yapılandırma **yayımlama yay - SSO** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64), oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** için [yay Yayımlama - SSO Destek ekibine](mailto:inf@washpost.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/arc-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/arc-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/arc-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/arc-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/arc-tutorial/create_aaduser_04.png)
 
-    a. İçinde **adı** kutusuna **BrittaSimon**.
+    1. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    1. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    1. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
-    d. **Oluştur**’a tıklayın.
+    1. **Oluştur**’a tıklayın.
  
-### <a name="create-an-arc-publishing---sso-test-user"></a>Bir yay yayımlama - SSO test kullanıcısı oluşturma
+### <a name="create-an-arc-publishing---sso-test-user"></a>Bir Yayı yayımlama - SSO test kullanıcısı oluşturma
 
-Bu bölümün amacı Britta Simon yay yayımlama içinde - SSO adlı bir kullanıcı oluşturmaktır. Yayımlama yay - SSO'yu yalnızca zaman sağlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, eylem öğe yok. Yeni bir kullanıcı yayımlama yay - henüz yoksa SSO erişme denemesi sırasında oluşturulur.
+Bu bölümün amacı, Britta Simon yay yayımlama içinde - SSO adlı bir kullanıcı oluşturmaktır. Yayımlama yay - SSO tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, yayımlama yay - SSO henüz mevcut değilse erişme denemesi sırasında oluşturulur.
 
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [yayımlama yay - SSO destek ekibi](mailto:inf@washpost.com).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [yayımlama yay - SSO Destek ekibine](mailto:inf@washpost.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta erişim yay yayımlama için - SSO vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma yay yayımlama için - SSO erişimi vererek kullanmak Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
-**Britta Simon yay yayımlama için - SSO atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon yay yayımlama için - SSO, atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **yayımlama yay - SSO**.
+1. Uygulamalar listesinde **yayımlama yay - SSO**.
 
     ![Yay yayımlama - uygulamalar listesinde SSO bağlantı](./media/arc-tutorial/tutorial_arc_app.png)  
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Yay yayımlama - SSO kutucuğu erişim Paneli'nde tıklattığınızda, otomatik olarak, Arc yayımlama için - SSO uygulaması açan.
+Yay yayımlama - SSO kutucuk erişim Paneli'nde tıkladığınızda, otomatik olarak imzalanmış, yay yayımlama için - SSO uygulama açma.
 Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

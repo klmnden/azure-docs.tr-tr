@@ -1,6 +1,6 @@
 ---
-title: Sunucusuz veritabanı bilgi işlem - Azure işlevleri ve Azure Cosmos DB | Microsoft Docs
-description: Nasıl Azure Cosmos DB ve Azure işlevleri birlikte olay denetimli sunucusuz bilgisayar uygulamaları oluşturmak için kullanılabilir öğrenin.
+title: Bilgi işlem sunucusuz veritabanı - Azure işlevleri ve Azure Cosmos DB | Microsoft Docs
+description: Nasıl Azure Cosmos DB ile Azure işlevleri birlikte olay temelli sunucusuz bilgi işlem uygulamaları oluşturmak için kullanılabileceğini öğrenin.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -9,151 +9,151 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 26d5fe3cf96f7a63b725f1b46d85e453a8aa6ada
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613974"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858815"
 ---
-# <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure işlevleri kullanarak sunucusuz veritabanı hesaplama
+# <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure işlevleri ile sunucusuz veritabanı bilgi işlem
 
-Sunucusuz computing yinelenebilir ve durum bilgisiz olan tek tek parçaları mantığı üzerinde odaklanma tüm olanağı hakkındadır. Bu parça hiçbir altyapı Yönetimi gerektirir ve bunlar yalnızca saniye veya milisaniye, bunlar için çalıştırmak için kaynaklarını tüketebilir. Azure ekosistemindeki tarafından kullanılabilir kılınan işlevler sunucusuz bilgisayar taşıma özünde olan [Azure işlevleri](https://azure.microsoft.com/services/functions).
+Sunucusuz bilgi işlem tekrarlanabilir ve durum bilgisi olan tek tek parçalarını mantığı üzerinde odaklanma tüm olanağı hakkındadır. Bu parçaları bir altyapı Yönetimi gerektirir ve saniye veya milisaniye, bunlar için çalıştırmak için yalnızca kullandıkları kaynaklar. Azure ekosistemindeki tarafından kullanıma sunulan işlevleri, sunucusuz bilgi işlem taşıma özünde olan [Azure işlevleri](https://azure.microsoft.com/services/functions).
 
-Arasında yerel tümleştirme ile [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) ve Azure işlevleri, oluşturabileceğiniz veritabanı tetikleyiciler, giriş bağlamaları ve çıktı bağlamaları doğrudan Azure Cosmos DB hesabınızdan. Azure işlevleri ve Azure Cosmos DB kullanarak oluşturun ve olay denetimli sunucusuz düşük gecikmeli erişim ile temel bir genel kullanıcı için zengin veri dağıtma.
+Arasında yerel tümleştirme ile [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) ve Azure işlevleri, oluşturabileceğiniz veritabanı tetikleyici, giriş bağlamaları ve çıkış bağlamaları doğrudan Azure Cosmos DB hesabınızdan. Azure işlevleri ve Azure Cosmos DB kullanarak oluşturun ve genel kullanıcı tabanı için zengin veri düşük gecikme süreli erişim ile olay tabanlı sunucusuz uygulamalar dağıtın.
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure Cosmos DB ve Azure işlevleri, veritabanları ve sunucusuz uygulamaları aşağıdaki yollarla tümleştirmenize olanak sağlar:
+Azure Cosmos DB ile Azure işlevleri, sunucusuz uygulamalar ve veritabanları aşağıdaki yollarla tümleştirmenize olanak etkinleştir:
 
-* Olay kaynaklı oluşturma **Azure Cosmos DB tetikleyici** bir Azure işlevinde. Bu tetikleyici dayanan [akış değiştirme](change-feed.md) , Azure Cosmos DB kapsayıcı değişiklikleri izlemek için akışlar. Bir kapsayıcıya herhangi bir değişiklik yapıldığında, Akış akış değişiklik Azure işlevi çağırır tetikleyici gönderilir.
-* Alternatif olarak, bir Azure işlevi kullanarak bir Azure Cosmos DB koleksiyonu bağlama bir **bağlama giriş**. Bir işlev çalıştırıldığında giriş bağlamaları kapsayıcıdan verilerini okur.
-* Bir Azure Cosmos DB koleksiyonu kullanılarak için bir işlev bağlama bir **bağlama çıktı**. Bir işlev tamamlandığında, çıkış bağlamaları veri bir kapsayıcıya yazma.
+* Olay temelli oluşturma **Azure Cosmos DB tetikleyicisi** bir Azure işlev. Bu tetikleyiciyi dayanan [değişiklik akışını](change-feed.md) Azure Cosmos DB kapsayıcınız için değişiklikleri izlemek üzere akışları. Bir kapsayıcıya herhangi bir değişiklik yapıldığında, değişiklik akışı akışı Azure işlevi çağırır tetikleyici gönderilir.
+* Alternatif olarak, bir Azure işlevi kullanarak bir Azure Cosmos DB kapsayıcısı bağlama bir **giriş bağlama işlemini**. Bir işlev çalıştırıldığında giriş bağlamaları bir kapsayıcıdan verileri okuyamadı.
+* Bind bir işlevi kullanarak bir Azure Cosmos DB kapsayıcısı bir **çıktı bağlaması**. Bir işlev tamamlandığında, çıkış bağlamaları veri bir kapsayıcıya yazma.
 
 > [!NOTE]
 > Şu anda Azure Cosmos DB tetikleyicisi, giriş bağlamaları ve çıkış bağlamaları yalnızca SQL API ve Graph API hesaplarıyla çalışır.
 
-Aşağıdaki diyagram bu üç tümleştirmeler her gösterir: 
+Aşağıdaki diyagram, her biri üç bu tümleştirmelere gösterir: 
 
-![Azure Cosmos DB ve Azure işlevlerinin nasıl tümleştirme](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
+![Azure Cosmos DB ile Azure işlevleri nasıl tümleştirin](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
 
-Azure Cosmos DB tetikleyici, giriş bağlama ve çıktı bağlama aşağıdaki bileşimlerde kullanılabilir:
-* Bir Azure Cosmos DB tetikleyicisi, farklı bir Azure Cosmos DB kapsayıcı için bir çıktı bağlama ile kullanılabilir. Bir işlev değişikliği akıştaki bir öğe üzerinde bir eylem gerçekleştirdikten sonra (geldiğini aynı kapsayıcı için etkili bir şekilde bir özyinelemeli döngü oluşturacak yazma) başka bir kapsayıcıya yazabilirsiniz. Veya, etkili bir şekilde bir çıkış bağlama kullanarak farklı bir kapsayıcı için bir kapsayıcı değişen tüm öğeleri geçirmek için bir Azure Cosmos DB tetikleyicisi kullanabilirsiniz.
-* Giriş bağlamalar ve Azure Cosmos DB için çıktı bağlamaları aynı Azure işlevinde kullanılabilir. Bu, belirli veri giriş bağlama ile bulmak, Azure işlevinde değiştirme ve ardından onu aynı kapsayıcı ya da farklı bir kapsayıcı değiştirme sonrasında kaydetmek istediğinizde iyi durumda çalışır.
-* Bir giriş bağlaması bir Azure Cosmos DB kapsayıcısına bir Azure Cosmos DB tetikleyicisi aynı işlevi kullanılabilir ve ile ya da bağlama çıktısı olmadan kullanılabilir. Bu birleşim güncel para birimi exchange bilgilerini (bir giriş bağlaması bir exchange kapsayıcısına oturum çekilen) uygulamak için yeni siparişler değişiklik akışına alışveriş sepeti hizmetinizi kullanabilirsiniz. Güncelleştirilmiş alışveriş sepeti toplam geçerli para birimi dönüştürme uygulanan bir çıktı bağlama kullanarak üçüncü bir kapsayıcıya yazılabilir.
+Azure Cosmos DB tetikleyicisi, giriş bağlama ve çıkış bağlaması aşağıdaki birleşimler kullanılabilir:
+* Bir Azure Cosmos DB tetikleyicisi, farklı bir Azure Cosmos DB kapsayıcısı için bir çıkış bağlaması ile kullanılabilir. Bir işlev, değişiklik akışı bir öğe üzerinde bir eylem gerçekleştirdikten sonra (aynı kapsayıcı geldiği için etkili bir şekilde yinelemeli döngü oluşturursunuz yazma) başka bir kapsayıcıya yazabilirsiniz. Veya bir Azure Cosmos DB tetikleyicisi bir kapsayıcıdan değişen tüm öğeleri bir çıkış bağlaması kullanarak farklı bir kapsayıcıya etkili bir şekilde geçirmek için kullanabilirsiniz.
+* Giriş bağlamaları ve çıkış bağlamaları Azure Cosmos DB için aynı Azure işlevinde kullanılabilir. Aynı kapsayıcı ya da farklı bir kapsayıcıya değiştirme sonrasında kaydedin giriş bağlama işlemiyle belirli verileri bulmak ve Azure işlevinde değiştirmek istediğinizde bu iyi durumda çalışır.
+* Bir Azure Cosmos DB kapsayıcısı için bir giriş bağlaması aynı işlevi bir Azure Cosmos DB tetikleyicisi olarak kullanılabilir ve ile veya bir çıkış de bağlaması olmadan kullanılabilir. Bu birleşim güncel para birimi exchange bilgilerini (bir exchange kapsayıcısı için bir giriş bağlaması oturum çekilen) uygulamak için yeni siparişler değişiklik akışını alışveriş sepeti hizmetinde kullanabilirsiniz. Güncelleştirilmiş alışveriş sepeti toplam uygulanan geçerli para birimi dönüştürme işlemine bir çıkış bağlaması kullanan üçüncü bir kapsayıcıya yazılabilir.
 
 ## <a name="use-cases"></a>Uygulama alanları
 
-Aşağıdaki kullanım örnekleri verilerinizden en iyi Azure Cosmos DB - olay tabanlı Azure işlevleri verilerinizi bağlayarak yapabileceğiniz birkaç yolu gösterir.
+Aşağıdaki kullanım örnekleri - Azure Cosmos DB verilerinizi en iyi olay kaynaklı Azure işlevleri'ne verilerinize bağlanarak yapabileceğiniz birkaç yolu gösterilmektedir.
 
-### <a name="iot-use-case---azure-cosmos-db-trigger-and-output-binding"></a>IOT - Azure Cosmos DB tetikleyici kullanım ve bağlama çıkış
+### <a name="iot-use-case---azure-cosmos-db-trigger-and-output-binding"></a>IOT kullanım örneği - Azure Cosmos DB tetikleyicisi ve çıktı bağlaması
 
-Onay altyapısı ışık bağlı otomobil içinde görüntülendiğinde, IOT uygulamalarında, bir işlev çağırabilirsiniz.
+Onay altyapısı ışık bağlı Arabada görüntülendiğinde, IOT uygulamalarında, bir işlevi çağırabilirsiniz.
 
-**Uygulama:** Azure Cosmos DB tetikleyici ve bir çıkış bağlama kullanın
+**Uygulama:** bir Azure Cosmos DB tetikleyicisi ve bir çıkış bağlaması kullanın
 
-1. Bir **Azure Cosmos DB tetikleyici** bağlı otomobil içinde bir gelen onay altyapısı ışık gibi Oto uyarıları ilgili olaylarını tetiklemek için kullanılır.
-2. Onay altyapısı ışık geldiğinde, algılayıcı verilerini Azure Cosmos Veritabanına gönderilir.
-3. Azure Cosmos DB oluşturur veya yeni algılayıcı verileri belgeleri güncelleştirir ve sonra bu değişiklikleri Azure Cosmos DB tetikleyiciye akışı.
-4. Tüm değişiklikleri aracılığıyla akış değişikliği akışı gibi tetikleyici her veri değişikliği algılayıcı veri toplama için çağrılır.
-5. Bir eşik koşul işlevinde garanti departmana algılayıcı verileri göndermek için kullanılır.
-6. Sıcaklık Ayrıca belirli bir değere ise, bir uyarı da sahibine gönderilir.
-7. **Bağlama çıktı** işlev onay altyapısı olay hakkında bilgi depolamak için başka bir Azure Cosmos DB koleksiyonunda araba kaydı güncelleştirir.
+1. Bir **Azure Cosmos DB tetikleyicisi** bağlı Arabada yakında onay altyapısı ışığı gibi araba uyarılara olaylarını tetiklemek için kullanılır.
+2. Onay altyapısı ışık söz konusu olduğunda, algılayıcı verilerini Azure Cosmos DB için gönderilir.
+3. Azure Cosmos DB oluşturur veya yeni algılayıcı verileri belgeleri güncelleştirir ve sonra bu değişiklikleri için Azure Cosmos DB tetikleyicisi aktarılır.
+4. Değişiklik akışı akışı yapılan tüm değişiklikler gibi tetikleyici algılayıcı veri toplama için her veri değişikliği çağrılır.
+5. Eşik koşuluna işlevinde garanti departmanına sensör verilerini göndermek için kullanılır.
+6. Sıcaklık aynı zamanda belirli bir değerin üzerinde ise bir uyarı da sahibine gönderilir.
+7. **Çıktı bağlaması** işlev denetimi altyapısı olayla ilgili bilgileri depolamak için başka bir Azure Cosmos DB kapsayıcısındaki araba kaydı güncelleştirir.
 
-Aşağıdaki resimde, bu tetikleyici için Azure Portalı'nda yazılan kod gösterir.
+Aşağıdaki görüntüde Bu tetikleyici için Azure Portalı'nda yazılan kod gösterilmektedir.
 
 ![Azure portalında bir Azure Cosmos DB tetikleyicisi oluşturma](./media/serverless-computing-database/cosmos-db-trigger-portal.png)
 
-### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Finans - Zamanlayıcı tetikleyicisi kullanım ve bağlama giriş
+### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Finans kullanım örneği - Zamanlayıcı tetikleyici ve bağlama giriş
 
-Banka hesap bakiyesini belirli bir miktar düştüğünde, finansal uygulamalarında, bir işlev çağırabilirsiniz.
+Belirli bir miktar altında bir banka hesabı Bakiye düştüğünde, finansal uygulamalarında, bir işlevi çağırabilir.
 
-**Uygulama:** Zamanlayıcı tetikleyicisi bir Azure Cosmos DB ile giriş bağlama
+**Uygulama:** bir zamanlayıcı tetikleyicisi ile bir Azure Cosmos DB giriş bağlama
 
-1. Kullanarak bir [Zamanlayıcı tetikleyicisi](../azure-functions/functions-bindings-timer.md), aralıklarla kullanarak bir Azure Cosmos DB kapsayıcısındaki depolanan banka hesabı Bakiye bilgilerini alabilir bir **bağlama giriş**.
-2. Kullanıcı tarafından ayarlanan Yetersiz bakiye eşiğin altına Bakiye ise, ardından bir eylem ile Azure işlevinden izlenmesi.
-3. Çıktı bağlama olabilir bir [SendGrid tümleştirme](../azure-functions/functions-bindings-sendgrid.md) konumuna gönderen bir e-posta hizmet hesabından her yetersiz Bakiye hesapları için tanımlanan e-posta adreslerine.
+1. Kullanarak bir [Zamanlayıcı tetikleyicisi](../azure-functions/functions-bindings-timer.md), aralıklarla kullanarak bir Azure Cosmos DB kapsayıcısında depolanan banka hesabı Bakiye bilgilerini alabilirsiniz bir **giriş bağlama işlemini**.
+2. Bakiye düşük Bakiye eşiğin altında kullanıcı tarafından ayarlanan ise, ardından bir işlemle Azure işlevini iletişim kurun.
+3. Çıkış bağlaması olabilir bir [SendGrid tümleştirme](../azure-functions/functions-bindings-sendgrid.md) , bir e-posta gönderen bir hizmet hesabından her düşük Bakiye hesapları için tanımlanan e-posta adresleri.
 
-Aşağıdaki görüntüler bu senaryo için Azure portalında kodu gösterir.
+Aşağıdaki kod bu senaryo için Azure Portalı'nda gösterilmektedir.
 
-![Finansal senaryosu için Zamanlayıcı tetikleyicisi için Index.js dosyası](./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png)
+![Finansal senaryosu için bir zamanlayıcı tetikleyicisi için Index.js dosyasını](./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png)
 
-![Finansal senaryosu için Zamanlayıcı tetikleyicisi için Run.csx dosyası](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
+![Run.csx dosyasının bir finansal senaryosu için bir zamanlayıcı tetikleyicisi için](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
 
-### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Oyun - Azure Cosmos DB tetikleyici kullanım ve bağlama çıkış
+### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Oyun kullanım örneği - Azure Cosmos DB tetikleyicisi ve çıktı bağlaması
 
-Yeni bir kullanıcı oluşturulduğunda, oyunlar, bunları kullanarak biliyor olabilirsiniz diğer kullanıcıların arayabilirsiniz [Azure Cosmos DB grafik API'sini](graph-introduction.md). [Azure Cosmos DB SQL veritabanına] kolay alma için sonuçları sonra yazabilirsiniz.
+Yeni bir kullanıcı oluşturulduğunda, oyun, bunları kullanarak biliyor olabilirsiniz diğer kullanıcılar arayabilirsiniz [Azure Cosmos DB Graph API](graph-introduction.md). Ardından sonuçları kolayca almak için [Azure Cosmos DB SQL veritabanı] yazabilirsiniz.
 
-**Uygulama:** Azure Cosmos DB tetikleyici ve bir çıkış bağlama kullanın
+**Uygulama:** bir Azure Cosmos DB tetikleyicisi ve bir çıkış bağlaması kullanın
 
 1. Bir Azure Cosmos DB kullanarak [grafik veritabanı](graph-introduction.md) tüm kullanıcılar depolamak için bir Azure Cosmos DB tetikleyicisi ile yeni bir işlev oluşturabilirsiniz. 
-2. Yeni bir kullanıcı eklenir, işlevi çağrılır ve sonuç kullanılarak depolandığını her bir **bağlama çıktı**.
-3. İşlev, yeni bir kullanıcıya doğrudan ilişkili olan ve bu veri kümesi işlevi için döndürür tüm kullanıcıları aramak için grafik veritabanını sorgular.
+2. Yeni bir kullanıcı eklenir, işlev çağrılır ve sonuç kullanarak depolanır her bir **çıktı bağlaması**.
+3. Grafik veritabanı, yeni bir kullanıcıya doğrudan ilişkili ve söz konusu veri kümesi işlevi için döndüren tüm kullanıcılar için aranacak işlev sorgular.
 4. Bu veriler daha sonra daha sonra kolayca yeni kullanıcı bağlı arkadaşlarının gösteren ön uç uygulama tarafından alınabilmesi için bir Azure Cosmos DB depolanır.
 
 ### <a name="retail-use-case---multiple-functions"></a>Perakende kullanım örneği - birden çok işlevi
 
-Bir kullanıcı bir öğeyi sepetine eklediğinde perakende uygulamalarında, artık oluşturmak ve isteğe bağlı bir iş ardışık düzeni bileşenleri için işlevleri çağırma esnekliğine sahipsiniz.
+Bir kullanıcı bir öğeyi sepetine eklediğinde perakende uygulamalarında, şimdi oluşturun ve isteğe bağlı bir iş ardışık düzeni bileşenleri için işlevleri çağırmak için esnekliğiniz vardır.
 
-**Uygulama:** bir koleksiyona dinleme birden çok Azure Cosmos DB Tetikleyicileri
+**Uygulama:** bir kapsayıcıya dinleyen birden çok Azure Cosmos DB Tetikleyicileri
 
-1. Bunların tümü aynı dinleme Azure Cosmos DB Tetikleyicileri her - alışveriş sepeti veri, akış değiştirmek ekleyerek, birden çok Azure işlevleri oluşturabilirsiniz. Birden çok işlevleri için dinlerken aynı akış değiştirmek, yeni bir kira koleksiyon her işlevi için gerekli dikkat edin. Kira Koleksiyonlar hakkında daha fazla bilgi için bkz: [değişiklik akış işlemci kitaplığı anlama](change-feed.md#understand-cf).
-2. Alışveriş sepeti kullanıcılara yeni bir öğe eklendiğinde, her işlev bağımsız olarak alışveriş sepeti kapsayıcıdan akış değişiklik tarafından çağrılır.
-    * Bir işlev geçerli sepet içeriğini kullanıcı de ilginizi çekiyor diğer öğeleri görünümünü değiştirmek için kullanabilir.
-    * Başka bir işlev stok toplamları güncelleştirebilir.
-    * Başka bir işlev müşteri bilgileri belirli bir promosyon kullanılmasının gönderen pazarlama departmanı için ürünleri gönderebilir. 
+1. Her - Azure Cosmos DB Tetikleyicileri tümü aynı dinleme değişiklik, alışveriş sepeti veri akışını ekleyerek, birden çok Azure işlevleri oluşturabilirsiniz. Birden çok işlevleri için dinlerken aynı değişiklik akışını, her işlev için yeni bir kira koleksiyonu gereklidir dikkat edin. Kira Koleksiyonlar hakkında daha fazla bilgi için bkz. [değişiklik akışı işlemci kitaplığı anlama](change-feed.md#understand-cf).
+2. Alışveriş sepeti kullanıcılara yeni bir öğe eklendiğinde, her işlevin bağımsız olarak değişiklik alışveriş sepeti kapsayıcıdan akışı tarafından çağrılır.
+    * Bir işlev, geçerli sepet içeriğini kullanıcı ilgisini diğer öğelerin görünümünü değiştirmek için kullanabilirsiniz.
+    * Başka bir işleve stok toplamları güncelleştirebilir.
+    * Başka bir işleve müşteri bilgilerini belirli ürünleri bunları promosyon çocuğu gönderen pazarlama departmanı için gönderebilir. 
 
-    Departmanı değişiklik akışına dinleyerek Azure Cosmos DB tetikleyici oluşturun ve kritik sipariş işleminde olayları işlemeyi gecikme olmaz emin olun.
+    Her departman için değişiklik akışını dinleyen tarafından bir Azure Cosmos DB tetikleyicisi oluşturma ve kritik sipariş işleme olayları sürecinde gecikme olmaz emin olun.
 
-Tüm bunların kullanım örnekleri, işlev uygulamanın kendi ayrılmış olduğundan, her zaman yeni uygulama örneği Döndür gerek yoktur. Bunun yerine, Azure işlevleri gerektiği gibi ayrık işlemleri tamamlamaları için tekil işlevler döner.
+Tüm bunların kullanım örnekleri, işlev uygulaması ayrılmış olduğundan, yeni uygulama örnekleri her zaman döndürme gerekmez. Bunun yerine, Azure işlevleri, gerektiği şekilde parçalı işlemleri tamamlamaları için tekil işlevler döner.
 
-## <a name="tooling"></a>Araçları
+## <a name="tooling"></a>Araç kullanımı
 
-Azure Cosmos DB ve Azure işlevleri arasında yerel tümleştirme Azure portalında ve Visual Studio 2017'de kullanılabilir.
-* Azure işlevleri portalındaki Azure Cosmos DB tetikleyici oluşturabilirsiniz. Hızlı Başlangıç yönergeleri için bkz: [Azure portalda bir Azure Cosmos DB tetikleyicisi oluşturma](https://aka.ms/cosmosdbtriggerportalfunc) ![Azure işlevleri portalda bir Azure Cosmos DB tetikleyicisi oluşturma](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
-* Azure işlevleri Portalı'nda tetikleyicileri diğer türleri için de Azure Cosmos DB giriş bağlamaları ve çıktı bağlamaları ekleyebilirsiniz. Hızlı Başlangıç yönergeleri için bkz: [Azure işlevleri ve Cosmos DB kullanarak yapılandırılmamış verileri depolamak](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md).
+Azure Cosmos DB ile Azure işlevleri arasında yerel tümleştirme, Azure portalında ve Visual Studio 2017'de kullanılabilir.
+* Azure işlevleri portalda bir Azure Cosmos DB tetikleyicisi oluşturabilirsiniz. Hızlı yönergeler için bkz: [Azure portalında bir Azure Cosmos DB tetikleyicisi oluşturma](https://aka.ms/cosmosdbtriggerportalfunc) ![Azure işlevleri portalda bir Azure Cosmos DB tetikleyicisi oluşturma](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
+* Azure işlevleri Portalı'nda tetikleyicileri diğer türleri için de Azure Cosmos DB giriş bağlamaları ve çıkış bağlamaları ekleyebilirsiniz. Hızlı yönergeler için bkz: [Azure işlevleri ve Cosmos DB'yi kullanarak yapılandırılmamış verileri Store](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md).
     ![Azure işlevleri portalda bir Azure Cosmos DB tetikleyicisi oluşturma](./media/serverless-computing-database/function-portal-input-binding.png)
-*   Azure Cosmos DB Portalı'nda var olan bir Azure işlevi uygulamaya aynı kaynak grubunda bir Azure Cosmos DB tetikleyicisi ekleyebilirsiniz.
+*   Azure Cosmos DB portalında bir Azure Cosmos DB tetikleyicisi, aynı kaynak grubunda var olan bir Azure işlev uygulaması ekleyebilirsiniz.
     ![Azure işlevleri portalda bir Azure Cosmos DB tetikleyicisi oluşturma](./media/serverless-computing-database/cosmos-db-portal.png)
-* Visual Studio 2017 ' tümleşik şablonu kullanarak bir Azure Cosmos DB tetikleyicisi oluşturabilirsiniz:
+* Visual Studio 2017'de tümleşik bir şablonu kullanarak bir Azure Cosmos DB tetikleyicisi oluşturabilirsiniz:
 
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
 
 
-## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>Neden Azure işlevleri tümleştirme sunucusuz bilgi işlem için nasıl seçecekler?
+## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>Sunucusuz bilgi işlem için Azure işlevleri tümleştirmesi neden seçmeliyim?
 
-Azure işlevleri çalışma veya sağlama veya altyapısını yönetme, isteğe bağlı çalıştırılabilir mantığı kısa parçalarını ölçeklenebilir birim oluşturma olanağı sağlar. Azure işlevleri kullanarak, Azure Cosmos DB veritabanınızdaki değişikliklere yanıt vermesi için Gelişmiş bir uygulama oluşturmak zorunda kalmadan, belirli görevler için küçük yeniden kullanılabilir işlevler oluşturabilirsiniz. Ayrıca, ayrıca Azure Cosmos DB veri girişi veya çıkışı bir Azure işlevi bir HTTP gibi olaya yanıt olarak kullanabileceğiniz istekleri veya zaman aşımına tetikleyici.
+Azure işlevleri, ölçeklenebilir iş ya da kısa parçalarını isteğe bağlı olarak sağlama veya altyapı yönetmenize gerek kalmadan çalıştırılabilir mantıksal birim oluşturma olanağı sağlar. Azure işlevleri'ni kullanarak, Azure Cosmos DB veritabanınıza değişikliklere yanıt vermek için tam bir uygulama oluşturmanız gerekmez, belirli görevler için yeniden kullanılabilir küçük işlevler oluşturabilirsiniz. Ayrıca, Azure Cosmos DB veri giriş veya çıkış için bir Azure işlevi gibi bir HTTP olaya yanıt olarak kullanabilirsiniz istekleri veya zamanlanmış bir tetikleyici.
 
-Azure Cosmos DB sunucusuz, bilgi işlem mimarisi için önerilen veritabanı şu nedenlerden dolayı şöyledir:
+Azure Cosmos DB, aşağıdaki nedenlerden dolayı sunucusuz bilgi işlem mimarisi için önerilen veritabanı şöyledir:
 
-* **Tüm verilerinizi anında erişim**: çünkü depolanan her değer ayrıntılı erişiminiz Azure Cosmos DB [otomatik olarak dizinler](indexing-policies.md) varsayılan olarak, tüm veri ve bu dizinleri hemen kullanılabilir hale getirir. Bu, sürekli olarak sorgu, güncelleştirme ve veritabanınızı yeni öğeler eklemek ve Azure işlevleri aracılığıyla anlık erişime sahip olduğunuz anlamına gelir.
+* **Tüm verilerinizi anında erişim**: çünkü depolanan her değerin ayrıntılı erişiminiz Azure Cosmos DB [otomatik olarak dizinleyen](indexing-policies.md) varsayılan olarak, tüm veri ve bu dizinleri hemen kullanılabilir hale getirir. Başka bir deyişle, sürekli olarak sorgu, güncelleştirme ve yeni öğeler eklemek için veritabanı ve Azure işlevleri aracılığıyla anında erişebilirsiniz.
 
-* **Şemasız**. Azure Cosmos DB şemasız - olduğundan hiçbir veri çıkışı bir Azure işlevi benzersiz olarak işleyebilen. Bu "hiçbir şey işlemek" yaklaşım için basit yapar oluşturan çeşitli işlevler Azure Cosmos DB'de tüm çıktı.
+* **Şemasız**. Herhangi bir Azure işlevi veri çıkışı benzersiz bir şekilde işleyebilen, bu nedenle azure Cosmos DB, şemasız - olduğu. Bu "hiçbir şey handle" yaklaşım için basit kılar oluşturan çeşitli işlevler tüm Azure Cosmos DB çıktı.
 
-* **Ölçeklenebilir işleme**. Üretilen iş yukarı ve aşağı anında Azure Cosmos DB'de genişletilebilir. Yüzlerce veya binlerce sorgulama ve aynı koleksiyona yazma işlevlerin varsa, ölçeği artırabilirsiniz, [RU/s](request-units.md) yükü işlemek üzere. Tüm işlevleri, ayrılmış RU/s kullanarak paralel olarak çalışabilir ve verilerinizi olması garanti [tutarlı](consistency-levels.md).
+* **Ölçeklenebilir aktarım hızı**. Aktarım hızı, Azure Cosmos DB'de yukarı ve aşağı bir anında ölçeklendirilebilir. Yüzlerce veya binlerce sorgulama ve aynı kapsayıcıya yazma işlevleri varsa ölçeğini artırabilirsiniz, [RU/sn](request-units.md) yükü işlemek için. Tüm İşlevler, ayrılmış RU/sn kullanarak işlemi paralel olarak çalışabilir ve verilerinizin olması garanti [tutarlı](consistency-levels.md).
 
-* **Genel çoğaltma**. Azure Cosmos DB veri çoğaltabilirsiniz [dünya](distribute-data-globally.md) gecikme, coğrafi bulma verilerinizi kullanıcılarınızın bulunduğu en yakın azaltmak için. Olarak tüm Azure Cosmos DB sorgularıyla olay denetimli Tetikleyicileri verilerden veri DB'den Azure Cosmos kullanıcıya en yakın okunur.
+* **Genel çoğaltma**. Azure Cosmos DB veri çoğaltabilirsiniz [dünyanın farklı yerlerindeki](distribute-data-globally.md) verilerinizi kullanıcılarınızın bulunduğu konumlara yakın gecikme süresi, coğrafi azaltmak için. Olarak tüm Azure Cosmos DB sorgular ile olay temelli Tetikleyiciler verilerden veriler kullanıcıya en yakın Azure Cosmos DB'den okunur.
 
-Verileri depolamak için Azure işlevleri ile tümleştirmek için arıyorsanız ve derin dizin gerekmez veya ekleri ve medya dosyalarını depolamak gerekirse [Azure Blob Storage tetikleyici](../azure-functions/functions-bindings-storage-blob.md) daha iyi bir seçenek olabilir.
+Verileri depolamak için Azure işlevleri ile tümleştirmek için arıyorsanız ve ayrıntılı dizin gerekmez veya ekleri ve medya dosyalarını depolamak gerekiyorsa [Azure Blob Depolama tetikleyicisi](../azure-functions/functions-bindings-storage-blob.md) daha iyi bir seçenek olabilir.
 
-Azure işlevleri yararları: 
+Azure işlevleri avantajları: 
 
-* **Olay kaynaklı**. Azure işlevleri olay denetimli ve Azure Cosmos DB'den akışı bir değişiklik dinlemek. Dinleme mantığı oluşturmanız gerekmez, bunun anlamı, yalnızca için dinliyor değişiklikleri takip. 
+* **Olay temelli**. Azure işlevleri, olay temelli ve bir değişiklik Azure Cosmos DB'den akışı dinleyebilirsiniz. Dinleme mantıksal oluşturmanız gerekmez, bunun anlamı, yalnızca için dinleme değişikliklerin takip. 
 
-* **Sınırsız**. İşlevler yürütme paralel ve hizmet dönüş gerektiği kadar yukarı. Parametrelerini ayarlayın.
+* **Sınırsız**. İşlevler, paralel ve hizmet yürütme dönüş gereksinim duyduğunuz kadar çok ayarlama. Parametrelerini ayarlayın.
 
-* **Hızlı Görevler için iyi**. Bir olay tetikler ve işlev tamamlandıktan hemen sonra bunları kapatır her hizmet işlevlerin yeni örneği döner. Yalnızca işlevlerinizi çalıştıran zaman için ödeme yaparsınız.
+* **Hızlı Görevler için iyi**. Bir olayı tetikler ve işlev tamamlandıktan hemen sonra bunları kapatır her hizmet işlevleri yeni örneklerini sanal makineleri çalıştırır. Yalnızca, işlevleriniz gerektirdikçe süre için ödeme yaparsınız.
 
-Akış, Logic Apps, Azure işlevleri veya Web işleri uygulamanız için en iyi olup emin değilseniz bkz [akış, Logic Apps, İşlevler ve Web işleri arasında seçim yapma](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
+Flow, Logic Apps, Azure işlevleri ve WebJobs uygulamanız için en iyi olup emin değilseniz bkz [Flow, Logic Apps, İşlevler ve Web işleri arasında seçim yapma](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Artık Azure Cosmos DB ve Azure işlevleri şimdi gerçekte bağlanın: 
+Artık Azure Cosmos DB ile Azure işlevleri için gerçek yeniliklerden: 
 
 * [Azure portalında bir Azure Cosmos DB tetikleyicisi oluşturma](https://aka.ms/cosmosdbtriggerportalfunc)
-* [Bir Azure Cosmos DB giriş bağlaması ile bir Azure işlevleri HTTP tetikleyicisi oluşturun](https://aka.ms/cosmosdbinputbind)
-* [Azure işlevleri ve Cosmos DB kullanarak yapılandırılmamış veri depolayın](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
-* [Azure Cosmos DB bağlamalar ve Tetikleyicileri](../azure-functions/functions-bindings-cosmosdb.md)
+* [Bir Azure Cosmos DB giriş bağlama işlemiyle Azure işlevleri HTTP tetikleyicisi oluşturma](https://aka.ms/cosmosdbinputbind)
+* [Azure işlevleri ve Cosmos DB'yi kullanarak yapılandırılmamış verileri Store](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
+* [Azure Cosmos DB bağlamalar ve tetikleyiciler](../azure-functions/functions-bindings-cosmosdb.md)
 
 
  

@@ -1,6 +1,6 @@
 ---
-title: BizTalk Server EDI çözümleri BizTalk Services Teknik Kılavuzu'na geçirme | Microsoft Docs
-description: EDI için MABS; yine de geçir istiyor musunuz? Microsoft Azure BizTalk Hizmetleri
+title: BizTalk Server EDI çözümlerini BizTalk Hizmetleri için teknik Kılavuzu geçirme | Microsoft Docs
+description: EDI için MABS geçir Microsoft Azure BizTalk Hizmetleri
 services: biztalk-services
 documentationcenter: na
 author: MandiOhlinger
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 1b70fc3d199d7f1521acb534dafec8fb3e69500e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaa7028bb37ac4c2c313efce2afebc1dc5e814d2
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23843493"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860087"
 ---
-# <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI çözümleri için BizTalk Services geçirme: teknik Kılavuzu
+# <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI çözümlerini BizTalk Services'a geçmenin: teknik Kılavuzu
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -29,99 +29,99 @@ Yazar: Tim Wieman ve Nitin Mehrotra
 
 İnceleme: Karthik Bharthy
 
-Kullanılarak yazılmış: Microsoft Azure BizTalk Services – Şubat 2014 serbest bırakın.
+Kullanılarak yazılmış: Microsoft Azure BizTalk Services – Şubat 2014 sürümü.
 
 ## <a name="introduction"></a>Giriş
-Elektronik Veri Değişimi (EDI) hangi işletmeler exchange verileri en yaygın yollarla elektronik olarak da işletmeler için veya B2B işlemler olarak gösterilen biridir. BizTalk Server ilk BizTalk Server sürüm bu yana bir on üzerinden EDI desteği oluşturdu. BizTalk Services ile Microsoft EDI çözümleri için destek Microsoft Azure platformunda devam eder. B2B işlemler çoğunlukla kuruluş için dış ve bu nedenle bir bulut platformunda uygulanırsa uygulamak daha kolay olur. Microsoft Azure BizTalk Services aracılığıyla bu yeteneği sağlar.
+Elektronik Veri Değişimi (EDI) hangi işletmelerin exchange verilerini en yaygın yöntemlerle elektronik olarak da işletmeler arası veya B2B işlemleri adlandırılır biridir. BizTalk Server EDI desteği ilk BizTalk Server sürümünden itibaren on yıldan oluşturdu. BizTalk Hizmetleri ile Microsoft Microsoft Azure platformunda EDI çözümlerini desteği devam eder. B2B işlemlerini çoğunlukla bir kuruluş dışında bulunan ve bu nedenle bir bulut platformunun üzerine uyguladığında uygulamak daha kolay olur. Microsoft Azure BizTalk Hizmetleri aracılığıyla bu yeteneği sağlar.
 
-Yeni EDI çözümleri için "greenfield" platform olarak bazı müşteriler BizTalk Services bakın, ancak birçok müşteri Azure'a geçirmek isteyebileceğiniz geçerli BizTalk Server EDI çözümleri sahiptir. BizTalk Services EDI tasarlanmış çünkü aynı anahtar varlıkları (iş ortakları, varlıklar, anlaşmalar ticaret), BizTalk Server EDI mimari olarak göre BizTalk Services BizTalk Server EDI yapıtları geçirmek mümkündür.
+Bazı müşteriler için yeni EDI çözümlerini bir "ın" platform olarak BizTalk Hizmetleri arayın, birçok müşteri Azure'a geçirmek isteyebileceğiniz geçerli BizTalk Server EDI çözümlerini bulunur. BizTalk Hizmetleri EDI desteklemesi için tasarlanmıştır (iş ortakları, varlıklar, anlaşmalar ticaret), BizTalk Server EDI mimari olarak aynı temel varlıklarda temel BizTalk Server EDI yapıtları BizTalk hizmetlerine geçirme mümkün olmasıdır.
 
-Bu belge farklılıklarını geçirme BizTalk Server EDI yapıtlarıyla BizTalk Services için bazıları açıklanır. Bu belge, BizTalk Server EDI işlemeyi ve ticari ortak sözleşmeleri bilgili varsayar. BizTalk Server EDI hakkında daha fazla bilgi için bkz: [iş ortağı yönetimi kullanarak BizTalk Server ticaret](https://msdn.microsoft.com/library/bb259970.aspx).
+Bu belge, BizTalk hizmetlerine geçirme BizTalk Server EDI yapıtlarla birlikte ilgili farklılıklar açıklanır. Bu belge, ticari ortak sözleşmeleri ve BizTalk Server EDI işleme bilgisine varsayar. BizTalk Server EDI hakkında daha fazla bilgi için bkz. [iş ortağı yönetim kullanarak BizTalk Server alım-satım](https://msdn.microsoft.com/library/bb259970.aspx).
 
-## <a name="which-version-of-biztalk-server-edi-artifacts-can-be-migrated-to-biztalk-services"></a>BizTalk Server EDI yapıları'nın hangi sürümü BizTalk Services geçirilebilecek?
-Bu iş ortakları, Profiller ve anlaşmaları içerecek şekilde yeniden modellenmiş zaman BizTalk Server EDI modülü BizTalk Server 2010 için önemli ölçüde geliştirilmiştir. BizTalk Services ticari ortaklar ve iş bölümler bu ticari ortaklar içinde düzenlemek için aynı modelini kullanır. Sonuç olarak, EDI yapıları BizTalk Server 2010 ve sonraki sürümler için BizTalk Services geçiş, bir düz çok daha ileri bir işlemdir. BizTalk Server 2010'den önceki sürümleri ile ilişkili EDI yapıtları geçirmek için önce BizTalk Server 2010'a yükseltme ve EDI yapıtları BizTalk Services geçirmenize gerekir.
+## <a name="which-version-of-biztalk-server-edi-artifacts-can-be-migrated-to-biztalk-services"></a>BizTalk Hizmetleri için BizTalk Server EDI yapıtları'nın hangi sürümünün taşınabilir mi?
+Bu iş ortakları, Profiller ve anlaşmalar içerecek şekilde yeniden modellenmiş, BizTalk Server EDI modülü BizTalk Server 2010 için önemli ölçüde geliştirilmiştir. BizTalk Hizmetleri, ticari ortaklar ve iş bölümler ticaret iş ortakları içinde düzenlemek için aynı modelini kullanır. Sonuç olarak, EDI yapıtları BizTalk Server 2010 ve sonraki sürümler BizTalk hizmetlerine geçirme, çok daha anlaşılır, bir işlemdir. BizTalk Server 2010'dan önceki sürümleriyle ilişkili EDI yapıtları geçirmek için BizTalk Server 2010'a yükseltmeniz ve ardından EDI yapıtlarınızı BizTalk hizmetlerine geçirme.
 
 ## <a name="scenariosmessage-flow"></a>Senaryo/ileti akışı
-BizTalk Server ile olarak BizTalk Services'da işleme EDI bir ticari ortak Yönetimi (TPM) çözüm oluşturulmuştur. TPM çözüm, aşağıdaki anahtar bileşeni vardır:
+BizTalk Server ile BizTalk Services'da işleme EDI bir ticari ortak Yönetimi (TPM) çözüm olarak tasarlanmıştır. TPM çözüm aşağıdaki temel bileşenlere sahiptir:
 
-* Ticaret ortakları, hangi B2B işlem kuruluşta temsil eder.
-* Profilleri, ticari ortak içinde bölümler temsil eder.
-* Ticari ortak sözleşmeleri (veya anlaşmaları) iki iş ortakları/profilleri arasında iş anlaşmayı temsil eder.
+* Ticari ortaklar, hangi kuruluştaki B2B hareket temsil eder.
+* Profiller, ticari ortak içinde bölümler temsil eder.
+* Ticari ortak sözleşmeleri (veya anlaşmalar) iki iş ortakları/profiller arasındaki ticari sözleşme temsil eder.
 
-BizTalk Server EDI çözüm ve BizTalk Services EDI çözümü arasındaki farklar yanı sıra benzerlikler aşağıda gösterilmektedir:
+Aşağıdaki çizimde, bir BizTalk Server EDI ve BizTalk Hizmetleri EDI çözüm arasındaki farklar yanı sıra benzerlikler gösterilmektedir:
 
 ![][EDImessageflow]
 
-BizTalk Server EDI çözüm akışında ve BizTalk Services arasındaki benzerlikler ve anahtar farkları şunlardır:
+Bir BizTalk Server EDI çözüm flow'da ve BizTalk Hizmetleri arasındaki benzerlikler ve farklar şunlardır:
 
-* Yalnızca bir EDIReceive ardışık EDI ileti ve bir EDISend ardışık EDI ileti göndermek için almak için kullandığı BizTalk Server gibi BizTalk Services bir almaya köprüsü EDI almak ve EDI gönderme köprüsü EDI iletilerini göndermek için kullanır. BizTalk Server ardışık düzen gönderme kullanarak bir Sözleşmesi ile ilişkili olan veya geri alma bağlantı noktalarının. BizTalk hizmetleri sözleşmesi gönder gösterir veya köprüsü alırsınız.
-* EDI ileti EDIReceive ardışık düzen işledikten sonra ileti BizTalk Server ' SQL Server veritabanına yazılan. EdiSend ardışık düzen ileti SQL Server veritabanından alır, işler ve ardından ticaret ortağına gönderir.
+* BizTalk Hizmetleri, yalnızca BizTalk Server EDI iletisi ve bir EDISend işlem hattı bir EDI iletisi göndermek için almak için bir EDIReceive işlem hattı kullandığı gibi bir almak için köprü EDI almak ve EDI gönderme köprüsü EDI iletilerini göndermek için kullanır. BizTalk Server, işlem hatları ile bir anlaşma Gönder'i kullanarak ilişkili veya bağlantı alma. BizTalk Hizmetleri, anlaşma Gönder gösterir veya köprü alırsınız.
+* EDI iletisi EDIReceive işlem hattı işledikten sonra iletiyi BizTalk Server'ın içinde bir SQL Server veritabanına yazılan. EdiSend işlem hattı SQL Server veritabanını iletiden sonra seçer, işler ve ardından ticaret ortağına gönderir.
   
-    BizTalk Services EDI aldıktan sonra köprüsü EDI ileti işleme, bir dış işlem iletiyi yönlendirir. Dış işlem Microsoft Azure veya şirket içi çalıştırıyor. Dış işlem ileti EDI gönderme köprüsü için rota; Gönderme köprüsü ileti kendiliğinden çekme değil. İleti işlendikten sonra EDI gönderme köprüsü ticaret ortağına iletiyi yönlendirir.
+    BizTalk hizmetleri de EDI aldıktan sonra köprüsü EDI ileti işleme, dış işleme iletisi yönlendirir. Dış işlem Microsoft Azure'da veya şirket içi üzerinde çalışıyor olabilir. Dış işleme iletisi EDI gönderme köprüsü için yönlendirmek; Gönderme köprüsü ileti kendiliğinden çekmez. İleti işlendikten sonra EDI gönderme köprüsü için ticari ortak ileti yönlendirir.
 
-BizTalk Services hızlı bir şekilde oluşturmak ve tüm Microsoft Azure işlem yapılandırma örnekleri (Web veya çalışan rolleri) olmadan ticaret ortakları, tüm Microsoft Azure SQL veritabanları veya arasında herhangi bir B2B anlaşması dağıtmak için kullanımı kolay yapılandırma deneyimi sağlar Microsoft Azure depolama hesabı. Daha karmaşık senaryolara iş akışları veya diğer hizmetini işleme bağlamadan gerektirir "kenarlarının etrafına" başka bir deyişle, bir ticari ortak sözleşmesi önce veya sonra ticari ortak sözleşmesi EDI köprüsü işleme. Ayrıntılı olarak, aşağıdaki olaylar dizisi bir EDI ileti BizTalk Services'da işleme sırasında oluşur.
+BizTalk Hizmetleri, hızla oluşturun ve tüm Microsoft Azure işlem yapılandırma örnekleri (Web veya çalışan rolleri) olmadan ticaret iş ortakları, herhangi bir Microsoft Azure SQL veritabanına veya herhangi bir B2B sözleşmedir dağıtmak için bir kolay kullanımlı yapılandırma deneyimi sağlar. Microsoft Azure depolama hesabı. Daha karmaşık senaryolarda, iş akışları veya başka bir hizmet işleme bağlamadan gerektirecek "köşelerindeki" diğer bir deyişle, bir ticaret iş ortağı sözleşmesi önce veya sonra iş ortağı sözleşmesi EDI ticari köprüsü işleme. Ayrıntılı olarak, aşağıdaki olaylar dizisi bir EDI iletisi BizTalk Services'da işleme sırasında oluşur.
 
-1. İş ortağı, Fabrikam ticari bir EDI ileti alındı.  Ticaret ortaklarından EDI iletileri almak için BizTalk Services FTP, SFTP, AS2 ve HTTP/s gibi aktarım protokollerini destekler
-2. Ticari ortak sözleşmesi alma tarafı işleme XML biçimine EDI ileti ayrıştırır.  Service Bus Uç noktalara bir Service Bus geçişi uç noktası, hizmet veri yolu konusu, hizmet veri yolu kuyruğu ya da BizTalk Services köprü gibi (XML biçiminde) artık hata ayıklayabildiğinize EDI ileti yönlendirebilir.
-3. Daha fazla özel işleme için uç noktasından sonra artık hata ayıklayabildiğinize XML iletileri alınması.  Bu uç noktalar bir şirket içi bileşeni ya da daha fazla işlem bir Windows iş akışı (WF) veya Windows Communication Foundation (WCF) hizmetini iletisinde Microsoft Azure işlem örneğine örneğin işlenemedi.
-4. "Gönderme tarafı işleme" ticari ortak sözleşmesi sonra EDI formatına XML ileti derler ve ticaret ortağına Contoso gönderir.  Ticari ortaklar EDI ileti göndermek için BizTalk Services olarak EDI iletileri almak için kullanılanlarla aynı protokollerini destekler.
+1. İş ortağı, Fabrikam alım-satım EDI iletisi aldı.  BizTalk Hizmetleri gibi FTP, SFTP, AS2 ve HTTP/s aktarım protokolünü destekleyen ticari iş ortaklarının sunduğu EDI iletilerini almak için
+2. Ticari ortak sözleşmesi alma tarafı işleme XML biçimine EDI iletisi ayrıştırır.  Service Bus uç noktalarına bir Service Bus geçişi uç noktası, Service Bus konusu, hizmet veri yolu kuyruğu ya da BizTalk Hizmetleri köprü gibi ayrıştırılmış EDI iletisi (XML biçimi) yönlendirebilirsiniz.
+3. Ayrıştırılmış XML iletileri daha fazla özel işleme için uç noktasından sonra alınan.  Bu uç noktalar şirket içi bir bileşen ya da daha fazla işlem yapılacak bir Windows Workflow (WF) veya Windows Communication Foundation (WCF) hizmetinin Microsoft Azure işlem örneğine örneğin işlenemedi.
+4. "Gönderme tarafı işleme" ticari ortak sözleşmesi sonra XML ileti EDI biçime derler ve ticaret iş ortağı için Contoso gönderir.  Ticari ortaklar için EDI iletilerini göndermek için BizTalk Hizmetleri EDI iletilerini almak için kullanılanlarla aynı protokollerini destekler.
 
-Bu belgede daha fazla kavramsal bir Rehber sağlanır üzerinde geçirme bazı farklı BizTalk Server EDI yapılarının BizTalk Services.
+Bu belgede daha fazla kavramsal rehberlik sağlanır üzerinde geçirme bazı farklı BizTalk Server EDI yapıtlar için BizTalk Hizmetleri.
 
-## <a name="sendreceive-ports-to-trading-partners"></a>Gönderme/alma bağlantı noktalarının ticaret ortakları
-BizTalk Server alma konumları ve alma bağlantı noktalarının ticaret ortaklarından EDI/XML iletileri alacak şekilde ayarlamanız ve ticari ortak EDI/XML iletileri göndermek için Gönder bağlantı noktalarını ayarlayın. Ardından bu bağlantı noktaları BizTalk Server Yönetim Konsolu kullanılarak ticari ortak sözleşmesi için yukarı bağlayın. BizTalk Services, ticaret ortaklarından gelen iletileri almanıza konumları ve burada gönderdiğiniz ticaret ortaklarına iletileri ticari ortak sözleşmesi kendisini (parçası olarak aktarım ayarları) BizTalk Services Portalı'nda bir parçası olarak yapılandırılır.  Bu nedenle, gerçekten "gönderme bağlantı noktaları" ve "konumları Al" kavramı başına uzatılmasında BizTalk Services'da sahip değilsiniz. Daha fazla bilgi için bkz: [oluşturma anlaşmaları](https://msdn.microsoft.com/library/windowsazure/hh689908.aspx).
+## <a name="sendreceive-ports-to-trading-partners"></a>Gönderme bağlantı noktaları ticaret iş ortakları ve alma
+BizTalk Server alma konumlarını ve alma bağlantı noktalarının ticari iş ortaklarının sunduğu EDI/XML iletileri alacak şekilde ayarlamanız ve ticaret iş ortağına EDI/XML iletileri göndermek için gönderme bağlantı noktalarını ayarlayın. Ardından bu bağlantı noktaları için BizTalk Server yönetim konsolunu kullanarak ticari ortak sözleşmesi bağlayın. BizTalk Services, ticaret iş ortakları iletileri almanıza konumları ve burada gönderdiğiniz ortaklar için iletileri, ticari ortak sözleşmesi kendisi (aktarım ayarlarının bir parçası) olarak BizTalk Hizmetleri portalında bir parçası olarak yapılandırılır.  Bu nedenle, gerçekten "gönderme bağlantı noktaları" ve "konumları Al" kavramını başına uzatılmasında BizTalk Services hizmetinde yok. Daha fazla bilgi için [sözleşmeleri oluşturma](https://msdn.microsoft.com/library/windowsazure/hh689908.aspx).
 
-## <a name="pipelines-bridges"></a>Ardışık Düzen (köprü)
-BizTalk Server EDI içinde ardışık düzen da uygulamanın gerektirdiği gibi belirli işleme özelliklerine yönelik özel mantık içerebilir ileti işleme varlıklardır. BizTalk Services için eşdeğer bir EDI köprüsü olacaktır. Ancak, şimdilik BizTalk Services EDI köprüleri "kapalı".  Diğer bir deyişle, kendi özel etkinlikler EDI köprüsüne ekleyemezsiniz. Özel işlem yapmadan önce veya iletinin ticari ortak sözleşmesi bir parçası olarak yapılandırılmış köprüsü girdikten sonra uygulamanızda EDI köprüsü dışında yapılmalıdır. EAI köprüleri özel işleme yapma seçeneğiniz vardır. Özel işleme istiyorsanız, önce veya sonra EDI köprüsü tarafından işlenen iletisi EAI köprüleri kullanabilirsiniz. Daha fazla bilgi için bkz: [özel kodda dahil köprüleri nasıl](https://msdn.microsoft.com/library/azure/dn232389.aspx).
+## <a name="pipelines-bridges"></a>İşlem hatları (köprü)
+BizTalk Server EDI işlem hatları da uygulamanın gerektirdiği gibi belirli bir işlemeyi özelliklerin Özel mantık dahil edebileceğiniz ileti işleme varlıklardır. BizTalk Hizmetleri için de bir EDI köprüsü eşdeğer olacaktır. Ancak şimdilik BizTalk Hizmetleri'nde EDI köprüleri "kapatılır".  Diğer bir deyişle, bir EDI köprüsüne özel etkinliklerinizi ekleyemezsiniz. Herhangi bir özel işlem önce ya da ticari ortak sözleşmesi bir parçası olarak yapılandırılmış köprüsü ileti girdikten sonra uygulamanızda EDI köprüsü dışında yapılmalıdır. EAI köprüleri özel işlem yapma seçeneğiniz vardır. Özel işleme istiyorsanız, önce veya sonra EDI köprüsü tarafından işlenen iletisi EAI köprüleri kullanabilirsiniz. Daha fazla bilgi için [özel kodda dahil köprüsü nasıl](https://msdn.microsoft.com/library/azure/dn232389.aspx).
 
-Özel kod ve/veya hizmet veri yolu kuyrukları ve konularından ticari ortak sözleşmesi iletisini almadan önce veya sonra anlaşmayı iletisini işler ve Service Bus uç noktasına yönlendirir ileti kullanarak bir Yayımla ve abone akışla ekleyebilirsiniz.
+Özel kod ve/veya Service Bus kuyrukları ve konuları ticari ortak sözleşmesi iletiyi alır önce veya sonra sözleşmesi iletiyi işler ve bir Service Bus uç noktasına yönlendirir mesajlaşması kullanarak bir yayımlama/abone olma akışla ekleyebilirsiniz.
 
-Bkz: **senaryoları/ileti akışı** ileti akışı deseni için bu konudaki.
+Bkz: **senaryoları/ileti akışı** ileti akış düzeni için bu konuda.
 
-## <a name="agreements"></a>Anlaşmaları
-BizTalk Server 2010 ticaret ortak EDI işleme için kullanılan sözleşmeleri biliyorsanız, BizTalk ticari ortak sözleşmeleri Hizmetleri bilgili arayın. Anlaşma ayarların çoğu aynıdır ve aynı terimleri kullanın. Bazı durumlarda, anlaşma ayarları çok daha basittir BizTalk Server aynı ayarlarında karşılaştırılan. AS2, EDIFACT ve Microsoft Azure BizTalk Services destekler X12 taşıma.
+## <a name="agreements"></a>Sözleşmeler
+BizTalk Server 2010 ticaret ortak EDI işleme için kullanılan sözleşmeleri biliyorsanız, BizTalk Services'ın ticari ortak sözleşmeleri bilgili arayın. Sözleşme ayarların çoğu aynıdır ve aynı bir terminoloji kullanıyor. Bazı durumlarda, anlaşma ayarları çok daha basittir BizTalk Server aynı ayarları karşılaştırılan. AS2, EDIFACT ve Microsoft Azure BizTalk Services destekler X12 taşıma.
 
-Microsoft Azure BizTalk Services de sağlayan bir **TPM veri geçişi** ticaret iş ortakları ve anlaşmaları BizTalk Server ticari ortak modülünden BizTalk Services Portal geçirmek için aracı. TPM veri geçiş aracı kullanılabilir Araçlar paketinin bir parçası olarak, hangi adresinden yüklenebilir [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057). Paket Ayrıca aracı ve temel sorun giderme bilgileri için Aracı'nı kullanma hakkında yönergeler sağlayan bir benioku dosyası içerir.
+Microsoft Azure BizTalk Services de sağlar bir **TPM veri geçişi** ticaret iş ortakları ve anlaşmalar BizTalk Server ticaret iş ortağı modülünden BizTalk Hizmetleri portalında geçirmek için aracı. TPM veri geçiş aracı kullanılabilir Araçları paketinin bir parçası olarak, hangi nden indirilebilir [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057). Paketi ayrıca aracı ve temel sorun giderme bilgileri için Aracı'nı kullanma hakkında yönergeler sağlayan bir benioku dosyası içerir.
 
 ## <a name="schemas"></a>Şemalar
-BizTalk Services BizTalk Services çözümlerinde kullanılan EDI şemaları sağlar.  Ayrıca, BizTalk hizmetlerinin yanı sıra BizTalk Server arasında EDI şema kök düğümü aynı olduğu için BizTalk Server EDI şemaları da BizTalk Services ile kullanılabilir. Bu nedenle, doğrudan, BizTalk Server EDI şemaları alma ve bunları BizTalk Services'ı kullanarak geliştirme EDI çözümlerinde kullanma olanağınız olur. Gelen şemaları de indirebilirsiniz [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057).
+BizTalk Hizmetleri, BizTalk Services çözümlerinde kullanılan EDI şemaları sağlar.  Ayrıca, BizTalk hizmetlerinin yanı sıra BizTalk Server arasında EDI şemasının kök düğümü aynı olduğu için BizTalk Server EDI şemaları de BizTalk Hizmetleri ile kullanılabilir. Bu nedenle, doğrudan, BizTalk Server EDI şemaları alıp bunları BizTalk Services'ı kullanarak geliştirme EDI çözümlerini kullanmak mümkün olacaktır. Şemalardan da indirebilirsiniz [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057).
 
-## <a name="maps-transforms"></a>Eşlemeleri (dönüşümler)
-BizTalk Server'ın eşlemeleri dönüşümler BizTalk Services'da denir. BizTalk Server geçirme haritaları BizTalk Services için (harita karmaşıklığına bağlı olarak) elde etmek için daha karmaşık görevleri biri olabilir. BizTalk Hizmetleri için kullanılan eşleme BizTalk Eşleyici farklı bir araçtır. Eşleyici çoğunlukla aynı görünse de, temel alınan eşleme biçiminde farklıdır. İşlevsiler (adlı **eşleme işlemleri** BizTalk Services) kullanımına kullanıcılar da farklıdır.  Uygulamada bir BizTalk harita doğrudan BizTalk Services'da kullanamazsınız. Ayrıca, BizTalk Server içinde kullanılabilir tüm İşlevsiler BizTalk Services harita işlemlerinde olarak kullanılabilir.
+## <a name="maps-transforms"></a>Haritalar (dönüşümler)
+BizTalk Server maps'a dönüşümler BizTalk Hizmetleri'nde çağrılır. BizTalk hizmetlerine geçirme haritalar'dan BizTalk Server (harita karmaşıklığına bağlı olarak) elde etmek için daha karmaşık görevleri biri olabilir. BizTalk Hizmetleri için kullanılan eşleme BizTalk eşleyicisinden farklı bir araçtır. Temel eşleme biçimi Eşleyici çoğunlukla aynı görünür halde farklıdır. İşlevsiler (adlı **eşleme işlemleri** BizTalk Services) kullanılabilir olan kullanıcıları da farklıdır.  Aslında, BizTalk Services hizmetinde BizTalk harita doğrudan kullanamazsınız. Ayrıca, BizTalk Server kullanılabilir tüm İşlevsiler eşleme işlemleri BizTalk Hizmetleri'nde olarak kullanılabilir.
 
 ### <a name="new-transform-operations"></a>Yeni dönüştürme işlemleri
-Dönüştürme eşleme işlemleri listesi BizTalk Server Eşleyici oldukça farklı görünebilir, ancak BizTalk Services dönüştüren aynı görevleri gerçekleştirmeye yeni yöntemler vardır. Örneğin, BizTalk Services dönüştüren sahip **listeleme işlemleri** kullanılabilir. Bu, BizTalk eşleyicisinde kullanılabilir değildi.  **Listeleme işlemleri** oluşturmak ve bir liste öğesi (olarak da bilinen "satır") kümesi ve her öğesi, birden çok üye (olarak da bilinen "sütunlar") sahip olduğu bir "listesinde", işletmek olanak sağlar.  Sıralamak, bağlı bir koşul, vb. öğeleri seçin.
+BizTalk Hizmetleri dönüştüren, dönüştürme eşlemesi işlemlerin listesini BizTalk Server eşleyicisinden oldukça farklı görünebilir, ancak aynı görevleri yerine getirmeye yeni yolu vardır. Örneğin, BizTalk Hizmetleri dönüştüren sahip **listeleme işlemleri** kullanılabilir. Bu, BizTalk eşleyicisinde kullanılabilir değildi.  **Listeleme işlemleri** etkinleştirmek, oluşturma ve bir "listesinde", bir liste (diğer adıyla "satır") öğelerin kümesi olduğu ve her öğesi, birden çok üye (diğer adıyla "sütunları") sahip olabilir.  Listeyi sıralayın, bağlı bir koşul, vb. öğeleri seçer.
 
-BizTalk Services dönüştüren içindeki yeni işlevsellik başka bir örnektir **döngüsü işlemleri**.  BizTalk Server eşleyicisinde iç içe geçmiş döngüler oluşturmak zordur.  Bu nedenle, döngü eşleme işlemleri için BizTalk Services dönüştüren eklenir.
+BizTalk Hizmetleri dönüştüren yeni işlevler başka bir örnektir **döngü Operations**.  BizTalk Server eşleyicisinde iç içe döngüleri oluşturmak zordur.  Bu nedenle, döngü eşleme işlemleri için BizTalk Hizmetleri dönüştüren eklenir.
 
-Başka bir örnek henüz **If-Then-Else** ifade eşleme işlemi.  IF-then-başka bir işlem yapmakla BizTalk eşleyicisinde mümkün olsa da, görünen basit bir görevi gerçekleştirmek için birden çok İşlevsiler gerekli.
+Başka bir örnek henüz **If-Then-Else** ifade harita işlemi.  İf-then-else bir işlem yapmadan BizTalk eşleyicisinde olası, ancak birden çok İşlevsiler görünüşte basit bir görevi gerçekleştirmek için gerekli.
 
-### <a name="migrating-biztalk-server-maps"></a>BizTalk sunucusunu taşıma eşlemeleri
-Microsoft Azure BizTalk Services BizTalk Server geçirmek için bir aracı için BizTalk Services dönüşümler eşlemeleri sağlar. **BTMMigrationTool** olarak kullanılabilir parçası **Araçları** ile sağlanan paketini [BizTalk Services SDK'sını indirme](http://go.microsoft.com/fwlink/p/?LinkId=235057). Aracı hakkında daha fazla bilgi için bkz: [BizTalk Services dönüştürmek için BizTalk harita Dönüştür](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
+### <a name="migrating-biztalk-server-maps"></a>BizTalk sunucusunu taşıma eşler
+Microsoft Azure BizTalk Services, BizTalk Server'ı geçirmek için bir aracı için BizTalk Hizmetleri dönüşümler eşler sağlar. **BTMMigrationTool** olarak kullanılabilir parçası **Araçları** ile sağlanan paket [BizTalk Hizmetleri SDK'sını indirme](http://go.microsoft.com/fwlink/p/?LinkId=235057). Aracı hakkında daha fazla bilgi için bkz. [BizTalk hizmetlerini dönüştürmek için BizTalk eşleşmesi dönüştürme](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
 
-Bir örneğe Sandro Pereira, BizTalk MVP tarafından nasıl de bakabilirsiniz [BizTalk Services dönüşümler BizTalk Server eşlemeleri geçirmek](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
+Bir örneğe nasıl Sandro Pereira, BizTalk MVP tarafından da bakabilirsiniz [BizTalk Server haritalar için BizTalk Hizmetleri dönüşümler geçirme](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
 
-## <a name="orchestrations"></a>Düzenlemelerin
-BizTalk Server orchestration Microsoft Azure için işleme geçirmek gerekiyorsa, düzenlemelerin Microsoft Azure çalışan BizTalk Server düzenlemelerin desteklemediğinden yazılması gerekir.  Windows Workflow Foundation 4.0 (WF4) hizmetinin orchestration işlevleri yeniden yazabilirsiniz.  Şu anda hiçbir geçiş BizTalk Server düzenlemelerin WF4 olduğundan bu tam bir yeniden yazma olacaktır. Windows iş akışı için bazı kaynaklar aşağıda verilmiştir:
+## <a name="orchestrations"></a>Düzenlemeleri
+BizTalk Server düzenleme Microsoft Azure'a işleme geçmeniz gerekiyorsa düzenlemeleri Microsoft Azure çalışan BizTalk Server düzenlemeleri desteklemediğinden yazılması gerekir.  Bir Windows Workflow Foundation 4.0 (WF4) hizmetinin düzenleme işlevleri yeniden yazabilirsiniz.  Şu anda hiçbir geçiş BizTalk Server düzenlemeleri WF4 olduğundan bu tam bir yeniden yazma olacaktır. Windows iş akışı için bazı kaynaklar aşağıda verilmiştir:
 
-* [*Bir WCF iş akışı hizmeti Service Bus kuyrukları ve konularından ile tümleştirmek nasıl* ](https://msdn.microsoft.com/library/azure/hh709041.aspx) Paolo Salvatori tarafından. 
-* [*Windows Workflow Foundation ve Microsoft Azure ile uygulamaları oluşturmaya* oturum](http://go.microsoft.com/fwlink/p/?LinkId=237314) yapı 2011 konferans gelen.
-* [*Windows Workflow Foundation Geliştirici Merkezi* ](http://go.microsoft.com/fwlink/p/?LinkId=237315) konusuna bakın.
-* [*Windows Workflow Foundation 4 (WF4) belgeleri* ](https://msdn.microsoft.com/library/dd489441.aspx) konusuna bakın.
+* [*Bir WCF iş akışı hizmeti, hizmet veri yolu kuyrukları ve konuları ile tümleştirmek nasıl* ](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) Paolo Salvatori tarafından. 
+* [*Windows Workflow Foundation'ı ve Azure ile uygulama oluşturmaya* oturumu](http://go.microsoft.com/fwlink/p/?LinkId=237314) derleme 2011 konferansına ait.
+* [*Windows Workflow Foundation Geliştirici Merkezi* ](http://go.microsoft.com/fwlink/p/?LinkId=237315) MSDN'de.
+* [*Windows Workflow Foundation 4 (WF4) belgeleri* ](https://msdn.microsoft.com/library/dd489441.aspx) MSDN'de.
 
-## <a name="other-considerations"></a>Diğer konular
-BizTalk Services kullanırken yapmanız gereken birkaç dikkat edilecek noktalar aşağıda verilmiştir.
+## <a name="other-considerations"></a>Dikkat edilecek diğer noktalar
+BizTalk Services'ı kullanırken yapmanız gereken bazı önemli noktalar aşağıda verilmiştir.
 
 ### <a name="fallback-agreements"></a>Geri dönüş sözleşmeleri
-BizTalk Server EDI işlemeyi "Geri dönüş anlaşmaları" kavramı vardır.  BizTalk Services mu **değil** bir geri dönüş sözleşmesi kavramı kadarki sahip.  BizTalk belgeleri konulara bakın [rolü, sözleşmelerde EDI işlemeyi](http://go.microsoft.com/fwlink/p/?LinkId=237317) ve [yapılandırma genel ya da geri dönüş sözleşmesi özelliklerini](https://msdn.microsoft.com/library/bb245981.aspx) geri dönüş anlaşmaları BizTalk nasıl kullanıldığı hakkında bilgi için Sunucu.
+BizTalk Server EDI işleme "Geri dönüş sözleşmeleri" kavramı vardır.  BizTalk Hizmetleri gerektirmez **değil** bir geri dönüş sözleşmesi kavramı şimdiye sahip.  BizTalk belgeleri konulara bakın [rolü, sözleşmelerde EDI işleme](http://go.microsoft.com/fwlink/p/?LinkId=237317) ve [yapılandırma genel ya da geri dönüş anlaşması özellikleri](https://msdn.microsoft.com/library/bb245981.aspx) geri dönüş anlaşmalar BizTalk nasıl kullanıldığı hakkında bilgi Sunucu.
 
 ### <a name="routing-to-multiple-destinations"></a>Birden çok hedefe yönlendirme
-BizTalk Services köprüleri, geçerli durumunda bir yayımlama kullanarak birden çok hedefe yönlendirme iletileri desteklemiyor-model abone olun. Bunun yerine bir BizTalk Services köprüsü iletilerden sonra birden fazla uç noktada ileti almak için birden fazla abonelik olabilir bir Service Bus konu için rota.
+BizTalk Hizmetleri köprüleri, geçerli durumunda bir yayımlama kullanarak birden fazla hedefe yönlendirme iletileri desteklemiyor-abonelik modeli. Bunun yerine bir BizTalk Hizmetleri köprü iletilerden sonra birden fazla uç nokta ileti almak için birden fazla abonelik olabilir bir Service Bus konu başlığına yol.
 
 ## <a name="conclusion"></a>Sonuç
-Microsoft Azure BizTalk Services daha fazla özellik ve yetenekler eklemek için normal kilometre güncelleştirilir. Her güncelleştirme ile BizTalk Services ve diğer Azure teknolojilerini kullanarak uçtan uca çözümler oluşturma kolaylaştırmak için işlevsellik destek umuyoruz.
+Microsoft Azure BizTalk Services, daha fazla özellik ve yetenekler eklemek için normal kilometre güncelleştirilir. Her bir güncelleştirme ile BizTalk Hizmetleri ve diğer Azure teknolojileri kullanarak uçtan uca çözüm oluşturmayı kolaylaştırmak için işlevsellik destek umuyoruz.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-[Azure ile Kurumsal uygulamaları geliştirme](https://msdn.microsoft.com/library/azure/hh674490.aspx)
+[Azure ile Kurumsal uygulamalar geliştirme](https://msdn.microsoft.com/library/azure/hh674490.aspx)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png

@@ -5,21 +5,21 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/05/2018
+ms.date: 06/28/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: df4765fc92e78dbb5ee43be3cc09c2b96d834080
-ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
+ms.openlocfilehash: 28f5d2d670279aa1baf26584892747eb99bbdf43
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/16/2018
-ms.locfileid: "35683160"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37864732"
 ---
 | Kategori | Veri deposu |
 |:--- |:--- |
 | **Azure** |[Azure Blob Depolama](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB](../articles/data-factory/connector-azure-cosmos-db.md) |
-| &nbsp; |[Azure Data Lake Store](../articles/data-factory/connector-azure-data-lake-store.md) |
+| &nbsp; |[Azure Data Lake depolama Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[MySQL için Azure Veritabanı](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[PostgreSQL için Azure Veritabanı](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Azure Dosya Depolama](../articles/data-factory/connector-azure-file-storage.md) |

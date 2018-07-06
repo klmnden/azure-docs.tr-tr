@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: ff78a7ed700506625761b0b1060040548b4a3ea1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 0572caa1cd09c164d6c5a53bfe1c143bccffd535
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344823"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859097"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Market ve AppSource yayımcı Kılavuzu  
 
@@ -75,27 +75,18 @@ Sonra [çözümünüzü gönderme](https://azuremarketplace.microsoft.com/sell/s
 Microsoft go pazara açılma avantajları ve Market'te işletmenizi büyütün yolları hakkında daha fazla bilgi için ziyaret [Microsoft Go-To-Market Hizmetleri sayfası](https://partner.microsoft.com/reach-customers/gtm).
 
 ---  
+## <a name="marketplace-and-storefronts"></a>Market ve Vitrinler 
 
-## <a name="storefronts"></a>Vitrinler  
-Microsoft, iki ayrı vitrinler Market'te sağlar. Vitrinler tekliflerini listeleyin, denemeler etkinleştirmek ve doğrudan Microsoft müşterileri ile transact olanak sağlar.  
-*   AppSource ve Azure Market karşılaştırma
-    *   Karşılaştırma AppSource vitrinler hakkında daha fazla bilgi için ziyaret edin ve Azure Marketi sayfasında bulunan [karşılaştırma AppSource ve Azure Marketi'nde](./comparing-appsource-azure-marketplace.md).
-*   AppSource 
-    *   AppSource hakkında daha fazla bilgi için ziyaret edin sayfasında AppSource ile işletmenizi bulunan büyütme [AppSource ile işletmenizi büyütün](./grow-your-business-with-appsource.md).  
-*   Azure Market 
-    *   Azure Market hakkında daha fazla bilgi için büyütme bulunan işletmenizi Azure Market sayfasını ziyaret edin [işletmenizi Azure Market ile büyütün](./grow-your-business-with-azure-marketplace.md).  
+Microsoft, iki ayrı vitrinler bizim Market'te sağlar: AppSource ve Azure Market. Market vitrininin birleşiminden müşterilerin tam olarak gereksinim duydukları şeyleri kolayca bulmasına yardımcı olmak için İzleyici ve Microsoft bulut ürünlerinde hizalanır. 
 
-Vitrinler bulmak, deneyin ve uygulamaları ve dijital dönüşümünüzü hızlandırın hizmetleri satın almak etkinleştirin. Vitrinler Microsoft müşterileri ve iş ortakları için erişim artırarak işletmeleri büyütmenize yardımcı olur.  
- 
-Her vitrin yayımlama yatırım getirinizi en üst düzeye çıkarmanıza yardımcı olmak için özel seçenekleri sağlar. Aşağıdaki tabloda bu seçenekler özetlenmektedir.  
+Çözümünüz için hedef kitle tanımlayan ile mağaza başlamadan seçme. Karar vermek için aşağıdaki tabloyu kullanın: 
 
-|  | AppSource | Azure Market |  
-|:--- |:--- |:--- |  
-| Hedef kitle | Satır iş kolu karar alıcılar<table> <tr> <th>özel roller </th> </tr> <tr> <td>Muhasebe</td> </tr> <tr> <td>Satın alma</td> </tr> <tr> <td>Üretim</td> </tr> </table> | BT uzmanları ve geliştiriciler<table> <tr> <th>özel roller </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>Dba'lar</td> </tr> <tr> <td>SecOps</td> </tr> </table> |  
+|  | AppSource | Azure Market |
+|:--- |:--- |:--- |
+| Hedef kitle | Satır iş kolu karar alıcılar | BT uzmanları ve geliştiriciler | 
 | İle oluşturulmuş veya genişletmek için | Azure<br />Dynamics 365<br />Office 365<br />Power BI<br />PowerApps | Azure |  
-| Çözüm ve hizmet türleri | İş kolu satır bulut uygulamaları tamamlandı<br />Office 365 eklentileri | Altyapı çözümleri<br />Profesyonel hizmetler |  
-| Teklif türü | Danışmanlık Hizmetleri<br />Benimle iletişime geçin<br />Ücretsiz deneme sürümü<br />Şimdi edinin<br />Test sürüşü | Azure uygulamaları: yönetilen uygulamalar<br />Azure uygulamaları: Çözüm şablonları<br />Danışmanlık Hizmetleri<br />Benimle iletişime geçin<br />Deneme<br />sanal makine |  
-| Kullanıcılara erişim vermek için uygulama içi deneyim<br />uygulamaları ve Hizmetleri bağlamında<br />uygulamanızı | Dynamics 365<br />Office 365<br />Office istemci uygulamaları<br />Power BI | Azure portalına<br />Azure Resource Manager CLI |  
+
+Her vitrin özel seçenekler ve özellikler, iş fırsatı en üst düzeye çıkarmak için sağlar. Bizim vitrinler daha ayrıntılı bir karşılaştırması için ziyaret [karşılaştırma AppSource ve Azure Marketi'nde](./comparing-appsource-azure-marketplace.md). 
 
 ---   
 

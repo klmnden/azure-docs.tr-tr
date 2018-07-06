@@ -1,34 +1,59 @@
 ---
-title: Ölçeklendirme bulma ve değerlendirme Azure geçirmek kullanarak | Microsoft Docs
-description: Azure geçiş hizmetini kullanarak şirket içi makineler çok sayıda değerlendirmek açıklar.
+title: Ölçeklendirme Keşif ve değerlendirme Azure Geçişi'ni kullanarak | Microsoft Docs
+description: Azure geçişi hizmetini kullanarak şirket içi makinelerin çok sayıda değerlendirmek açıklar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: dd7524c0114589e0c145cb4c03b0f531d58ce950
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: dbd2ef6270d0f270dabb6a1f5461e09fc37102db
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214700"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859600"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
-Azure geçirme 1500 makinelerin her proje bir sınırı vardır, bu makalede kullanarak şirket içi sanal makineleri (VM'ler) çok sayıda değerlendirmek nasıl [Azure geçirmek](migrate-overview.md).   
+Azure geçişi, proje başına 1500 makineyi sınırı vardır, bu makalede kullanarak çok sayıda şirket içi sanal makineleri (VM'ler) değerlendirmek nasıl [Azure geçişi](migrate-overview.md).   
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- **VMware**: geçirmeyi planladığınız sanal makineleri vCenter Server 5.5, 6.0 veya 6.5 sürümü tarafından yönetilmelidir. Ayrıca, bir ESXi ana bilgisayar çalışan sürüm 5.0 veya sonrasını toplayıcısı VM dağıtmak için gerekir.
-- **vCenter hesap**: vCenter Server erişmek için salt okunur bir hesabınızın olması gerekir. Azure Geçişi, şirket içi VM’leri bulmak için bu hesabı kullanır.
-- **İzinleri**: vCenter Server OVA biçimde bir dosyaya aktararak bir VM oluşturmak için izinlere ihtiyacınız vardır.
-- **İstatistikleri ayarları**: dağıtıma başlamadan önce düzeyi 3 vCenter sunucusu istatistikleri ayarlarını ayarlamanız gerekir. Düzey 3'ten daha düşük ise, değerlendirme çalışır, ancak depolama ve ağ için performans verilerini toplanan olmaz. Boyut önerileri bu durumda CPU ve bellek için performans verilerini ve disk ve ağ bağdaştırıcıları için yapılandırma verilerini temel alır.
+- **VMware**: geçirmeyi planladığınız VM'ler, vCenter Server sürüm 5.5, 6.0 veya 6.5 ile yönetilmelidir. Ayrıca, 5.0 veya üzeri Toplayıcı VM'yi dağıtmak için bir ESXi ana çalışan sürümü gerekir.
+- **vCenter hesabı**: vCenter Server'a erişmek için salt okunur bir hesabınız olması gerekir. Azure Geçişi, şirket içi VM’leri bulmak için bu hesabı kullanır.
+- **İzinleri**: vCenter Server'da, bir dosyayı OVA biçiminde içeri aktararak VM oluşturma için izinlerinizin olması gerekir.
+- **İstatistik ayarları**: dağıtımı başlatmadan önce vCenter Server için istatistik ayarları düzeyini 3 ayarlanması gerekir. Düzey 3'ten daha düşükse, değerlendirme çalışır, ancak depolama ve ağ için performans verileri toplanmaz. Boyut önerileri, CPU ve bellek için performans verilerini ve disk ve ağ bağdaştırıcıları için yapılandırma verilerini bu durumda hesaplanır.
+
+
+### <a name="set-up-permissions"></a>İzinleri ayarlama
+
+Azure Geçişi’nin, değerlendirme amacıyla VM’leri otomatik olarak bulması için VMware sunucularına erişebilmesi gerekir. VMware hesap için şu izinler gereklidir:
+
+- Kullanıcı türü: En azından salt okunur bir kullanıcı
+- İzinler: Veri Merkezi nesnesi –> Alt Nesneye Yay, rol=Salt okunur
+- Ayrıntılar: Veri merkezi düzeyinde atanmış ve veri merkezindeki tüm nesnelere erişimi olan kullanıcı.
+- Erişimi kısıtlamak için Alt nesneye yay ile Erişim yok rolünü alt nesnelere (vSphere konakları, veri depoları, VM’ler ve ağlar) atayın.
+
+Bir kiracı ortamda dağıtıyorsanız, bunu ayarlamak için yöntemlerinden biri aşağıda verilmiştir:
+
+1.  Kiracı başına bir kullanıcı oluşturun ve ve kullanarak [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), belirli bir kiracıya ait sanal makinenin salt okunur izinler atayın. Ardından, bu kimlik bilgilerinin bulma için kullanın. RBAC, karşılık gelen bir vCenter kullanıcı erişimi yalnızca belirli sanal makinenin Kiracı olmasını sağlar.
+2. Aşağıdaki örnekte, kullanıcı #1 ve 2 numaralı kullanıcı için açıklandığı gibi farklı Kiracı kullanıcılar için RBAC ayarlayın:
+
+    - İçinde **kullanıcı adı** ve **parola**, Toplayıcının içinde Vm'leri bulmak için kullanacağı salt okunur hesabın kimlik bilgilerini belirtin 
+    - Datacenter1 - kullanıcı #1 ve 2 numaralı Kullanıcı salt okunur izinleri verin. Tek VM izinleri çünkü tüm alt nesneleri için bu izinleri yay yok.
+    
+      - VM1 (Kiracı #1) (#1 kullanıcı okuma yalnızca izni)
+      - VM2 (Kiracı #1) (#1 kullanıcı okuma yalnızca izni)
+      - VM3 (Kiracı #2) (2 kullanıcı okuma yalnızca izni)
+      - VM4 (Kiracı #2) (2 kullanıcı okuma yalnızca izni)
+
+   - 1 kullanıcı kimlik bilgilerini kullanarak bulma gerçekleştirirseniz, yalnızca VM1 ve VM2 bulunacaktır.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Geçiş projeleri ve bulmaları planlama
 
-Tek bir Azure geçirmek Toplayıcı birden çok vcenter sunucuları bulma (birbiri ardından) ve ayrıca birden çok geçiş projelerine bulma (birbiri ardından) destekler. Toplayıcı bir yangın çalışır ve modeli unuttunuz bulma yaptıktan sonra farklı bir vCenter Server verilerini toplamak ya da farklı geçiş projeye göndermek için aynı Toplayıcı kullanabilirsiniz.
+Tek bir Azure geçişi toplayıcısı birden fazla vCenter sunucuları keşiften (birbiri ardına) destekler ve aynı zamanda birden fazla geçiş projeleri için bulma (birbiri ardına) destekler. Toplayıcı yangın içinde çalışır ve unut modeli, bir bulma yaptıktan sonra farklı bir vCenter sunucusu veri toplamak veya farklı bir geçiş projesine göndermek için aynı Toplayıcı kullanabilirsiniz.
 
-Bulmaları ve aşağıdaki sınırlara göre değerlendirmeleri planlayın:
+Bulma ve değerlendirme şu sınırlara göre planlayın:
 
 | **Varlık** | **Makine sınırı** |
 | ---------- | ----------------- |
@@ -38,58 +63,58 @@ Bulmaları ve aşağıdaki sınırlara göre değerlendirmeleri planlayın:
 
 Bu planlama konuları göz önünde bulundurun:
 
-- Azure geçirmek Toplayıcı kullanarak bir bulma yaptığınızda, vCenter Server klasörü, veri merkezi, küme veya ana bilgisayar için bulma kapsamını ayarlayabilirsiniz.
-- Birden fazla bulma yapmak için vCenter klasörleri, veri merkezleri, kümeleri veya 1500 makineler sınırlandırılmasıdır desteklemeyen konaklar, bulmak istediğiniz sanal makineleri olan sunucu doğrulayın.
-- Değerlendirme amacıyla, değerlendirme ve aynı proje içinde bağımlılıklarını makinelerle tutmanızı öneririz. VCenter Server bağımlı makineler aynı klasörü, veri merkezi veya değerlendirmesi için küme olduğundan emin olun.
+- Azure geçişi Toplayıcısı'nı kullanarak bir bulma işlemi gerçekleştirdiğinizde, bulma kapsamı bir vCenter Server klasörü, veri merkezi, küme veya konağı ayarlayabilirsiniz.
+- Vcenter Server'daki klasörleri, veri merkezleri, kümeler veya 1.500 makineler SORUMLULUĞUN destekleyen konakların bulmak istediğiniz VM'lerin olan birden fazla keşif yapmak için doğrulayın.
+- Değerlendirme amacıyla, değerlendirme ve aynı proje içinde bağımlılıklarını makinelerle tutmanızı öneririz. VCenter Server'da, bağımlı makinelere/klasör, veri merkezi veya küme değerlendirmesi için olduğundan emin olun.
 
-Senaryonuza bağlı olarak, aşağıda belirlenen gibi bulmaları ayırabilirsiniz:
+Senaryonuza bağlı olarak, aşağıda belirtilen şekilde, bulmalar ayırabilirsiniz:
 
-### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>Birden çok vCenter sunucuları değerinden 1500 VM'ler ile
+### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>Birden fazla vCenter sunucuları ile 1500'den az VM'ler
 
-Ortamınızda birden çok vCenter sunucuları olması ve sanal makinelerin toplam sayısını 1500'den az ise, tüm sanal makineler arasında tüm vCenter sunucularını bulmak için tek bir Toplayıcı ve tek geçiş proje kullanabilirsiniz. Toplayıcı bir vCenter sunucusu aynı anda bulur olduğundan, aynı Toplayıcı tüm vCenter karşı sunucuları, birbiri ardından çalıştırın ve aynı geçiş projesi Toplayıcı'ne gelin. Tüm bulma işlemleri tamamlandıktan sonra daha sonra makinelerin değerlendirmeleri oluşturabilirsiniz.
+Ortamınızda birden fazla vCenter sunucuları varsa ve sanal makinelerin toplam sayısını 1500'den az ise tüm sanal makineler arasında tüm vCenter sunucularını keşfetmek için tek bir Toplayıcı ve tek bir geçiş projesi kullanabilirsiniz. Toplayıcı, bir kerede bir vCenter Server bulur olduğundan, aynı Toplayıcı tüm vCenter karşı sunucuları, birbiri ardına çalıştırın ve Toplayıcı aynı geçiş projeye işaret edecek. Bulma tamamlandıktan sonra makineler değerlendirmeler oluşturabilirsiniz.
 
-### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Birden çok vCenter sunucuları birden fazla 1500 VM'ler ile
+### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Birden fazla vCenter sunucuları ile 1500'den fazla VM
 
-VCenter sunucusu başına değerinden 1500 sanal makineler, ancak birden fazla 1500 VM'ler ile birden çok vCenter sunucuları arasında tüm vCenter görevi görür varsa (bir geçiş proje yalnızca 1500 VM'ler tutabilir) birden çok geçiş projeleri oluşturmanız gerekir. Bu vCenter sunucusu başına bir geçiş proje oluşturma ve bulmaları bölme elde edebilirsiniz. Tek bir Toplayıcı her vCenter Server (birbiri ardından) bulmak için kullanabilirsiniz. Aynı anda başlatmak için bulmaları istiyorsanız, birden çok uygulamaları dağıtabilir ve paralel olarak çalıştıracak.
+Tüm vCenter hizmet etmesi arasında birden fazla vCenter sunucuları ile 1500'den küçük sanal makine vCenter sunucusu sayısı, ancak 1500'den fazla VM varsa, (bir geçiş projesi yalnızca 1500 Vm'leri barındırmak) birden çok geçiş projeleri oluşturmanız gerekir. Bu vCenter Server her bir geçiş projesi oluşturma ve bulmaları bölerek elde edebilirsiniz. Tek bir Toplayıcı, her bir vCenter Server (birbiri ardına) bulmak için kullanabilirsiniz. Aynı anda başlatmak için bulmaları istiyorsanız, birden çok gereçlerini dağıtma ve bulmaları paralel olarak çalıştırmak.
 
-### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Tek bir vCenter Server'ın birden fazla 1500 makineler
+### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Tek bir vcenter Server 1500'den fazla makineler
 
-Tek bir vCenter Server'da birden fazla 1500 sanal makineler varsa, birden çok geçiş projelere bulma bölmeniz gerekir. Bulmaları bölmek için Gereci kapsam alanında yararlanır ve ana bilgisayar, küme, klasör veya bulmak istediğiniz datacenter belirtin. VCenter Server, 1000 ile de iki klasör varsa, örneğin, sanal makineleri (Klasör1) ve diğer 800 sanal makineler (klasör2) ile tek toplayıcısını kullanın ve iki bulmaları gerçekleştirin. İlk bulma kapsamı olarak Klasör1 belirtin ve noktası ilk geçiş projesine ilk bulma tamamlandıktan sonra aynı toplayıcının, klasör2 ve geçiş proje ayrıntılarını ikinci geçiş projeye için kapsamı değiştirin ve İkinci bulma yapın.
+Tek bir vCenter Server'da 1500'den fazla sanal makineleriniz varsa, birden çok geçiş projelere bulma bölmek gerekir. Bulmaları bölmek için gereç kapsam alanı yararlanın ve konağa, küme, klasör veya bulmak istediğiniz veri merkezinde belirtin. VCenter sunucusu ile 1000 ile de iki klasör varsa, örneğin, Vm'leri (Klasör1) ve diğer 800 VM (klasör2) ile tek bir Toplayıcı ve iki bulmalar gerçekleştirmek kullanabilirsiniz. İlk bulma kapsamı olarak Klasör1 belirtin ve noktası ilk geçiş projenizi ilk keşif tamamlandıktan sonra aynı Toplayıcı, klasör2 ve geçiş proje ayrıntılarını ikinci geçiş projesi için kapsamı değiştirin ve İkinci keşif yapın.
 
-### <a name="multi-tenant-environment"></a>Çok kiracılı ortamı
+### <a name="multi-tenant-environment"></a>Çok kiracılı ortam
 
-Kiracılar arasında paylaşılan bir ortamda varsa ve başka bir kiracının Abonelikteki bir kiracı VM'ler bulmak istediğinizde değil, bulma kapsamı için toplayıcı Gereci kapsam alanında kullanabilirsiniz. Kiracılar konakları paylaşıyorsanız, yalnızca belirli kiracıya ait sanal makineleri salt okunur erişimi olan bir kimlik bilgisi oluşturun ve sonra Toplayıcı Gereci bu kimlik bilgilerini kullanın ve kapsam bulma yapmak için ana bilgisayar olarak belirtin. Alternatif olarak, vcenter Server'daki (tenant1 Klasör1 ve tenant2 klasör2 düşünelim), paylaşılan konak altında klasör oluşturabilirsiniz ve tenant2 Klasör1 içine tenant1 için sanal makineleri klasör2 taşıyın ve bulmaları Toplayıcı, buna göre kapsam uygun klasörü belirterek.
+Kiracılar genelinde paylaşılan bir ortamda varsa ve bir kiracının başka bir kiracının Abonelikteki sanal makinelerin keşfetmek istiyor musunuz, bulma kapsamı için toplayıcı gerecini kapsam alanı kullanabilirsiniz. Kiracıların konaklar paylaşıyorsanız, yalnızca belirli kiracıya ait sanal makinelerin salt okunur erişimi olan bir kimlik bilgisi oluşturmak ve ardından bu kimlik bilgisi Toplayıcı Gereci kullanabilir ve keşif yapmak için ana bilgisayarı olarak kapsamını belirtin. Alternatif olarak, vcenter Server (Klasör1 tenant1 için ve klasör2 tenant2 için diyelim), paylaşılan konak altında klasör oluşturabilirsiniz tenant2 ve Klasör1 içine tenant1 için Vm'leri klasör2 taşıyın ve bulmaları, Toplayıcı'ı uygun şekilde kapsam uygun bir klasör belirterek.
 
-## <a name="discover-on-premises-environment"></a>Şirket içi ortamına Bul
+## <a name="discover-on-premises-environment"></a>Şirket içi ortamı bulma
 
-Planınızla hazır olduğunuzda, şirket içi sanal makinelerin bulma başlatabilirsiniz:
+Planınızla hazır olduktan sonra şirket içi sanal makineleri bulma başlatabilirsiniz:
 
 ### <a name="create-a-project"></a>Proje oluşturma
 
-Bir Azure geçirmek projesi, gereksinimlerinize uygun şekilde oluşturun:
+Gereksinimlerinize uygun olarak bir Azure geçişi projesi oluşturun:
 
-1. Azure portalında seçin **kaynak oluşturma**.
+1. Azure portalında **kaynak Oluştur**.
 2. **Azure Geçişi** için arama yapın ve arama sonuçlarında **Azure Geçişi (önizleme)** seçeneğini belirleyin. Ardından **Oluştur**’u seçin.
 3. Bir proje adı ve proje için Azure aboneliği belirtin.
 4. Yeni bir kaynak grubu oluşturun.
-5. İstediğiniz projesi oluşturun ve ardından konum belirtin **oluşturma**. Vm'leriniz için farklı bir hedef konum hala değerlendirebilirsiniz unutmayın. Proje için belirtilen konum, şirket içi Vm'lerden toplanan meta verileri depolamak için kullanılır.
+5. Projeyi oluşturmak ve ardından istediğiniz konumu belirtin **Oluştur**. Sanal makineleriniz için farklı bir konuma hala değerlendirebilirsiniz unutmayın. Proje için belirtilen konum, şirket içi Vm'lerden toplanan meta verileri depolamak için kullanılır.
 
-### <a name="set-up-the-collector-appliance"></a>Toplayıcı Gereci ayarlayın
+### <a name="set-up-the-collector-appliance"></a>Toplayıcı gerecini ayarlamak
 
-Azure Geçişi, toplayıcı gereci olarak bilinen bir şirket içi VM oluşturur. Bu VM şirket içi VMware sanal makineleri bulur ve bunları hakkındaki meta verileri Azure geçiş hizmetine gönderir. Toplayıcı Gereci ayarlamak için bir OVA dosyasını indirin ve şirket içi vCenter sunucusu örneğine içeri aktarın.
+Azure Geçişi, toplayıcı gereci olarak bilinen bir şirket içi VM oluşturur. Bu VM, şirket içi VMware Vm'lerini bulur ve bunlar hakkındaki meta veriler Azure geçişi hizmetine gönderir. Toplayıcı gerecini ayarlamak için bir OVA dosyasını indirmek ve şirket içi vCenter sunucusu örneğine içe aktarın.
 
 #### <a name="download-the-collector-appliance"></a>Toplayıcı gerecini indirin
 
-Birden çok proje varsa, vCenter sunucusuna yalnızca bir kez Toplayıcı Gereci indirme gerekir. Karşıdan yükleme ve Gereci ayarladıktan sonra her proje için çalıştırın ve benzersiz proje kimliği ve anahtarı belirtin.
+Birden çok proje varsa, vCenter Server'a yalnızca bir kez Toplayıcı gerecini indirin gerekir. İndirin ve gerecini ayarlamak sonra her proje için çalıştırın ve benzersiz proje Kimliğini ve anahtarını belirtin.
 
-1. Azure geçirmek projesini seçin **Başlarken** > **bulma & değerlendirin** > **Bul makineler**.
-2. İçinde **Bul makineler**seçin **karşıdan**, OVA dosyasını karşıdan yüklemek için.
-3. İçinde **kopyalama proje kimlik**anahtarı proje için ve Kimliğini kopyalayın. Toplayıcıyı yapılandırırken bu bilgilere ihtiyaç duyarsınız.
+1. Azure geçişi projesinde seçin **Başlarken** > **Keşif ve değerlendirme** > **makineleri Bul**.
+2. İçinde **makineleri keşfet**seçin **indirme**OVA dosyasını indirmek için.
+3. İçinde **proje kimlik bilgilerini kopyalama**, kopya kimliği ve anahtarı için proje. Toplayıcıyı yapılandırırken bu bilgilere ihtiyaç duyarsınız.
 
 
 #### <a name="verify-the-collector-appliance"></a>Toplayıcı gereci doğrulama
 
-Dağıtmadan önce OVA dosya güvenli olduğundan emin olun:
+OVA dosyasını dağıtmadan önce güvenli olup olmadığını denetleyin:
 
 1. Dosyayı indirdiğiniz makinede yönetici komut penceresi açın.
 
@@ -99,7 +124,7 @@ Dağıtmadan önce OVA dosya güvenli olduğundan emin olun:
 
    Örnek kullanım: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
-3. Üretilen karma aşağıdaki ayarları eşleştiğinden emin olun.
+3. Oluşturulan karma aşağıdaki ayarları eşleştiğinden emin olun.
 
     OVA sürüm 1.0.9.8 için
 
@@ -135,82 +160,82 @@ Dağıtmadan önce OVA dosya güvenli olduğundan emin olun:
 
 ### <a name="create-the-collector-vm"></a>Toplayıcı VM’yi oluşturma
 
-İndirilen Dosya vCenter sunucusuna içeri aktarın:
+İndirilen dosyayı vCenter Server'a aktarın:
 
-1. VSphere istemci konsolunda seçin **dosya** > **OVF şablon dağıtma**.
+1. VSphere Client konsolunda seçin **dosya** > **OVF şablonu Dağıt**.
 
     ![OVF dağıtma](./media/how-to-scale-assessment/vcenter-wizard.png)
 
-2. OVF şablon Dağıtma Sihirbazı'nda > **kaynak**, OVA dosyasının konumunu belirtin.
+2. OVF şablonu Dağıtma Sihirbazı > **kaynak**, OVA dosyasının konumunu belirtin.
 3. **Ad** ve **Konum** bölümünde toplayıcı VM için bir kolay ad ve VM’nin barındırılacağı envanter nesnesini belirtin.
 4. **Konak/Küme** bölümünde, toplayıcı VM’nin çalıştırılacağı konağı veya kümeyi belirtin.
 5. Depolama’da, toplayıcı VM için depolama hedefini belirleyin.
 6. **Disk Biçimi**’nde disk türünü ve boyutunu belirtin.
-7. **Ağ Eşleme** bölümünde toplayıcı VM’nin bağlanacağı ağı belirtin. Ağ Azure'a meta veri göndermek için internet bağlantısı gerekir.
+7. **Ağ Eşleme** bölümünde toplayıcı VM’nin bağlanacağı ağı belirtin. Ağ meta verileri Azure'a göndermek için internet bağlantısı gerekir.
 8. Gözden geçirin ve ayarları onaylayın ve ardından **son**.
 
-### <a name="identify-the-id-and-key-for-each-project"></a>Kimliğini belirlemek ve her proje için anahtar
+### <a name="identify-the-id-and-key-for-each-project"></a>Kimliği tanımlayın ve her proje için anahtar
 
-Birden çok proje varsa, Kimliğini belirlemek ve her biri için anahtar emin olun. Sanal makineleri bulmak için toplayıcı çalıştırdığınızda bu anahtar gerekir.
+Birden çok proje varsa, Kimliğini belirlemek ve her biri için anahtar emin olun. Vm'leri bulmak için toplayıcıyı çalıştırdığınızda anahtarı gerekir.
 
-1. Projedeki seçin **Başlarken** > **bulma & değerlendirin** > **Bul makineler**.
-2. İçinde **kopyalama proje kimlik**anahtarı proje için ve Kimliğini kopyalayın.
-    ![Proje kimlik bilgilerini kopyalama](./media/how-to-scale-assessment/copy-project-credentials.png)
+1. Projede **Başlarken** > **Keşif ve değerlendirme** > **makineleri Bul**.
+2. İçinde **proje kimlik bilgilerini kopyalama**, kopya kimliği ve anahtarı için proje.
+    ![Proje kimlik bilgilerini kopyalayın](./media/how-to-scale-assessment/copy-project-credentials.png)
 
-### <a name="set-the-vcenter-statistics-level"></a>VCenter istatistikleri düzeyini ayarlayın
-Bulma sırasında toplanan performans sayaçları listesi aşağıdadır. VCenter Server çeşitli düzeylerinde varsayılan sayaçlar şunlardır.
+### <a name="set-the-vcenter-statistics-level"></a>VCenter istatistikleri düzeyi
+Bulma sırasında toplanan performans sayaçları listesi aşağıdadır. Vcenter Server'daki çeşitli düzeylerde varsayılan sayaçlar şunlardır.
 
-Böylece tüm sayaçları doğru toplanan istatistikleri düzeyi için en yüksek ortak düzeyi (3) ayarlamanızı öneririz. Daha düşük düzeyde ayarlamak vCenter varsa, yalnızca birkaç sayaçları tamamen 0 olarak ayarlayın rest ile toplanabilir. Değerlendirme ardından eksik verileri gösterebilir.
+Böylece tüm sayaçları düzgün toplanan istatistikleri düzeyi için en yüksek genel düzeyde (3) ayarlamanızı öneririz. Daha düşük bir düzeyde ayarlamak vCenter varsa, yalnızca birkaç sayaçları 0 olarak ayarlamak geri kalanı ile tamamen toplanabilir. Değerlendirmeyi, ardından eksik veri gösterebilir.
 
 Aşağıdaki tabloda, belirli bir sayaç alınamadı, etkilenecek değerlendirme sonuçlarını da listeler.
 
-| Sayaç                                 | Düzey | Aygıt başına düzeyi | Değerlendirme etkisi                    |
+| Sayaç                                 | Düzey | Cihaz başına düzeyi | Etki değerlendirmesi                    |
 | --------------------------------------- | ----- | ---------------- | ------------------------------------ |
 | CPU.Usage.average                       | 1     | NA               | Önerilen VM boyutu ve maliyet         |
 | mem.Usage.average                       | 1     | NA               | Önerilen VM boyutu ve maliyet         |
-| virtualDisk.read.average                | 2     | 2                | Disk boyutu, depolama maliyeti ve VM boyutu |
-| virtualDisk.write.average               | 2     | 2                | Disk boyutu, depolama maliyeti ve VM boyutu |
-| virtualDisk.numberReadAveraged.average  | 1     | 3                | Disk boyutu, depolama maliyeti ve VM boyutu |
-| virtualDisk.numberWriteAveraged.average | 1     | 3                | Disk boyutu, depolama maliyeti ve VM boyutu |
+| virtualDisk.read.average                | 2     | 2                | Disk boyutu, depolama maliyetini ve VM boyutu |
+| virtualDisk.write.average               | 2     | 2                | Disk boyutu, depolama maliyetini ve VM boyutu |
+| virtualDisk.numberReadAveraged.average  | 1     | 3                | Disk boyutu, depolama maliyetini ve VM boyutu |
+| virtualDisk.numberWriteAveraged.average | 1     | 3                | Disk boyutu, depolama maliyetini ve VM boyutu |
 | NET.Received.average                    | 2     | 3                | VM boyutu ve ağ maliyeti             |
 | NET.transmitted.average                 | 2     | 3                | VM boyutu ve ağ maliyeti             |
 
 > [!WARNING]
-> Daha yüksek bir istatistik düzeyi yeni ayarladıysanız, bu günde bir performans sayaçlarını oluşturmak için kadar sürebilir. Bu nedenle, bir günün ardından bulma çalıştırmanızı öneririz.
+> Daha yüksek bir istatistik düzeyini yeni ayarladıysanız, bir gün için performans sayaçları oluşturma sürer. Bu nedenle, bir gün sonra bulma çalıştırmanızı öneririz.
 
 ### <a name="run-the-collector-to-discover-vms"></a>VM’leri bulmak için toplayıcıyı çalıştırma
 
-Yapmanız gereken her bulma için gerekli kapsamında VM'ler bulmak için toplayıcı çalıştırın. Bir bulma art arda çalıştırın. Eşzamanlı bulmaları desteklenmez ve her bir keşfin farklı bir kapsama sahip olmalıdır.
+Gerçekleştirmeniz gereken her bulma için gerekli kapsam içindeki Vm'leri bulmak için toplayıcıyı çalıştırın. Bir bulma art arda çalıştırın. Eş zamanlı bulmalar desteklenmez ve her bir keşfin farklı bir kapsama sahip olmalıdır.
 
 1.  vSphere Client konsolunda VM’ye sağ tıklayın ve **Konsolu Aç** seçeneğini belirleyin.
 2.  Gereç için dil, saat dilimi ve parola tercihlerini belirtin.
-3.  Masaüstünde seçin **Toplayıcı çalıştırmak** kısayol.
-4.  Azure geçirmek Toplayıcı açmak **önkoşulları ayarlama** ve sonra:
+3.  Masaüstünde seçin **Toplayıcı Çalıştır** kısayol.
+4.  Azure geçişi toplayıcısı açın **önkoşulları ayarlama** ve ardından:
 
     a. Lisans koşullarını kabul edin ve üçüncü taraf bilgilerini okuyun.
 
     Toplayıcı, VM’nin İnternet erişimine sahip olup olmadığını denetler.
 
-    b. VM Internet proxy üzerinden erişirse, seçin **Proxy ayarlarını**, proxy adresi ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin.
+    b. VM Internet proxy üzerinden erişirse, seçin **Proxy ayarlarını**, Ara sunucu adresi ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin.
 
     Toplayıcı, toplayıcı hizmetinin çalışıp çalışmadığını denetler. Hizmet, toplayıcı VM’ye varsayılan olarak yüklenir.
 
     c. VMware PowerCLI’yı indirin ve yükleyin.
 
 5.  **vCenter Server bilgilerini belirtin** bölümünde şunları yapın:
-    - Adı (FQDN) veya vCenter sunucusunun IP adresini belirtin.
-    - İçinde **kullanıcı adı** ve **parola**, Toplayıcı VM'ler vCenter Server'da bulmak için kullanacağı salt okunur hesap kimlik bilgilerini belirtin.
-    - **Kapsam seçin** bölümünde, sanal makine bulma için bir kapsam seçin. Toplayıcı, yalnızca belirtilen kapsamın içindeki VM'ler bulabilir. Kapsam belirli bir klasör, veri merkezi veya küme olarak ayarlanabilir. 1. 000'den fazla VMs içermemelidir.
+    - Adı (FQDN) veya vCenter Server'ın IP adresi belirtin.
+    - İçinde **kullanıcı adı** ve **parola**, Toplayıcının vCenter Server'da Vm'leri bulmak için kullanacağı salt okunur hesabın kimlik bilgilerini belirtin.
+    - **Kapsam seçin** bölümünde, sanal makine bulma için bir kapsam seçin. Toplayıcı yalnızca belirtilen kapsam içindeki Vm'leri bulabilir. Kapsam belirli bir klasör, veri merkezi veya küme olarak ayarlanabilir. Bu 1. 000'den fazla VM içermelidir.
 
-6.  İçinde **belirt geçiş proje**anahtarı proje için ve Kimliğini belirtin. Kopyaladığınız alamadık, Toplayıcı VM Azure Portalı'nı açın. Projenin üzerinde **genel bakış** sayfasında, **Bul makineler** ve değerleri kopyalayın.  
-7.  İçinde **koleksiyonu ilerlemeyi görüntüleme**, Keşif sürecini izleyebilir ve VM'lerin toplanan meta verilerin kapsamında olduğunu denetleyin. Toplayıcı, yaklaşık bir bulma süresi sağlar.
+6.  İçinde **geçişi projesini belirtin**anahtarı için proje ve Kimliğini belirtin. Kopyaladığınız alamadık, Toplayıcı VM'den Azure portalını açın. Projenin **genel bakış** sayfasında **makineleri Bul** ve değerleri kopyalayın.  
+7.  İçinde **toplama durumunu görüntüle**, Keşif sürecini izleyebilir ve Vm'lerden toplanan meta verilerin kapsam içinde olup olmadığını denetleyin. Toplayıcı, yaklaşık bir bulma süresi sağlar.
 
 
 #### <a name="verify-vms-in-the-portal"></a>VM’lerin portalda olup olmadığını doğrulama
 
-Bulma süresi, kaç VM bulduğunuza bağlıdır. Genellikle, 100 VM'ler için bulma Toplayıcı çalışması bittikten sonra bir saat tamamlanır.
+Bulma süresi, kaç VM bulduğunuza bağlıdır. Genellikle, 100 VM için toplayıcı çalışmayı tamamladıktan sonra bir saat geçici bir çözüm bulma tamamlanır.
 
-1. Geçiş Planlayıcısı projedeki seçin **Yönet** > **makineler**.
+1. Migration Planner projesinde seçin **Yönet** > **makineler**.
 2. Bulmak istediğiniz VM’lerin portalda görüntülenip görüntülenmediğini kontrol edin.
 
 

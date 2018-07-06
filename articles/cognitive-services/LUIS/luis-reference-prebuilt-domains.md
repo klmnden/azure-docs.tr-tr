@@ -1,7 +1,7 @@
 ---
-title: Önceden oluşturulmuş bir etki alanı başvurusu - Azure | Microsoft Docs
+title: Önceden oluşturulmuş etki alanı başvuru - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Hedefleri ve varlıkları gelen dil anlama akıllı Hizmetleri (HALUK), önceden oluşturulmuş koleksiyonlarıdır önceden oluşturulmuş etki referansı.
+description: Önceden oluşturulmuş koleksiyonları hedefleri ve varlıkların gelen Language Understanding Intelligent Services (LUIS) önceden oluşturulmuş etki alanları için başvuru.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -10,235 +10,235 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: v-geberr
-ms.openlocfilehash: 14c53bd25913922a0cd7cc438ad0fbe8b4663dd1
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: fe035c744e7cbc291fa392205239f331410412dc
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061973"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866340"
 ---
 # <a name="prebuilt-domain-reference"></a>Önceden derlenmiş etki alanı başvurusu
-Bu başvuru hakkında bilgi sağlar. [önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md), amaçları ve HALUK sunar varlıkları önceden oluşturulmuş koleksiyonları olduğu.
+Bu başvuru, hakkında bilgi sağlar. [önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md), önceden oluşturulmuş koleksiyon hedefleri ve LUIS sunan varlıkların olduğu.
 
-[Özel etki alanlarını](create-new-app.md), buna karşın hiçbir hedefleri ve modelleri başlayın. Önceden oluşturulmuş bir etki alanı hedefleri ve varlıklar için özel bir model ekleyebilirsiniz.
+[Özel etki alanları](create-new-app.md), aksine, hiçbir hedefleri ve modelleri başlayın. Herhangi bir önceden oluşturulmuş etki alanı hedefleri ve varlıklar için özel bir model ekleyebilirsiniz.
 
 ## <a name="list-of-prebuilt-domains"></a>Önceden oluşturulmuş etki alanlarının listesi
-HALUK 20 önceden oluşturulmuş etki alanı sunar. 
+LUIS, 20 önceden oluşturulmuş etki alanı sunar. 
 
-| Önceden oluşturulmuş bir etki alanı | Açıklama | Desteklenen Diller |
+| Önceden oluşturulmuş etki alanı | Açıklama | Desteklenen Diller |
 | ---------------- |-----------------------|:------:|
-| Takvim | Takvim etki alanı amacını ve ekleme, silme, veya bir randevu düzenleme, katılımcı kullanılabilirlik denetleniyor ve takvim olayı hakkında bilgi bulmak için varlıkları sağlar.| tr-TR<br/> zh-CN |
-| Kamera | Kamera etki alanı, resim, video kaydetmek ve yayın video uygulamaya almak için hedefleri ve varlıkları sağlar.| tr-TR |
+| Takvim | Amaç ve varlıkları ekleme, silme veya randevu düzenleme, katılımcı kullanılabilirlik denetimi ve bir takvim etkinliği hakkında bilgi bulma için Takvim etki alanı sağlar.| tr-TR<br/> zh-CN |
+| Kamera | Kamera etki alanı, resim, video kaydetmek ve yayın video, uygulama almak için amaç ve varlıkları sağlar.| tr-TR |
 | İletişim | İleti gönderme ve telefon çağrıları yapma.| tr-TR <br/> zh-CN |
-| Eğlence  | Müzik, filmler ve TV ile ilgili sorgular işleme.| tr-TR |
-| Olaylar | Konsere, festivals, spor oyunları ve Komedi biletlerini kayıt gösterir.| tr-TR |
-| Uygunluk | Uygunluk etkinlikleri izleme için ilgili istekleri işleme.| tr-TR |
-| Oyun | Çok oyunculu oyun oyun parti ilgili istekleri işleme.| tr-TR |
-| HomeAutomation | Akıllı ana aygıtlar ışık ve Gereçleri gibi denetleme.| tr-TR<br/> zh-CN |
-| MovieTickets | Bilet filmler film tiyatro adresindeki kayıt.| tr-TR |
-| Müzik | Müzik bir müzik çalar yürütülüyor.| tr-TR<br/> zh-CN |
-| Not | Not etki alanı hedefleri ve varlıkları oluşturma, düzenleme ve notları bulma ile ilgili sağlar.| tr-TR<br/> zh-CN |
-| OnDevice | Hedefleri ve cihaz denetlenmesi için ilgili varlıklar OnDevice etki alanı sağlar.| tr-TR<br/> zh-CN |
-| Yerler  | İşletmeler, kurumlar, Restoran, ortak alanları ve adresleri gibi yerlerde ilgili sorgular işleme.| tr-TR<br/> zh-CN |
-| Anımsatıcı | Oluşturma, düzenleme ve anımsatıcıları bulma ile ilgili istekleri işleme.| tr-TR<br/> zh-CN |
-| RestaurantReservation | Restoran ayırmaları yönetmek için istekleri işleme.| tr-TR<br/> zh-CN |
-| Ücreti | Bir ücreti kayıtları işleme.| tr-TR<br/> zh-CN |
-| Çevirme | Metin bir hedef dile çevirme.| tr-TR<br/> zh-CN |
+| Eğlence  | Müzik, film ve TV ile ilgili sorgularını işleme.| tr-TR |
+| Olaylar | Konserlerden, festivallerinden, spor oyunları ve Komedi biletlerini kayıt gösterir.| tr-TR |
+| Uygunluk | Uygunluk etkinliklerini izleme ilgili istekleri işleme.| tr-TR |
+| Oyun | Çok oyunculu oyun, oyun bir taraf ilgili istekleri işleme.| tr-TR |
+| HomeAutomation | Cihazları ve ışıklar gibi Akıllı Giriş cihazları denetleme.| tr-TR<br/> zh-CN |
+| MovieTickets | Bir film tiyatro filmleri bilet kayıt.| tr-TR |
+| Müzik | Müziği bir müzik çalar.| tr-TR<br/> zh-CN |
+| Not | Amaç ve varlıkları oluşturma, düzenleme ve notları bulma ile ilgili not etki alanı sağlar.| tr-TR<br/> zh-CN |
+| OnDevice | Hedefleri ve cihaz denetlemek için ilgili varlıkları OnDevice etki alanı sağlar.| tr-TR<br/> zh-CN |
+| Basamak  | İşletmeler, kurumlar, Restoran, ortak alanları ve adresleri gibi yerlerde ilgili sorgular işleme.| tr-TR<br/> zh-CN |
+| Anımsatıcı | Oluşturma, düzenleme ve anımsatıcılar bulma ile ilgili istekleri işleme.| tr-TR<br/> zh-CN |
+| RestaurantReservation | Restoran ayırmalarını yönetmek için istek işleme.| tr-TR<br/> zh-CN |
+| Taksi | Rezervasyonlar bir taksi için işleme.| tr-TR<br/> zh-CN |
+| Çevirme | Metni bir hedef dile çevirerek.| tr-TR<br/> zh-CN |
 | TV | TV denetleme.| tr-TR |
-| Altyapı Hizmetleri  | "Yardım" gibi birden çok etki alanı içinde ortak olan istekleri işleme "yineleyin", "yeniden başlatın."| tr-TR |
-| Hava durumu | Hava raporları ve tahminleri alınıyor.| tr-TR<br/> zh-CN |
-| Web | Bir Web sitesine giderek.| tr-TR<br/> zh-CN |
+| Altyapı Hizmetleri  | "Yardım" gibi birden çok etki alanı ortak olan isteklerin işlenmesinden "yinelemek", "baştan başlayın."| tr-TR |
+| Hava durumu | Hava durumu raporları ve tahminlerini alınıyor.| tr-TR<br/> zh-CN |
+| Web | Bir Web sitesine yönlendirir.| tr-TR<br/> zh-CN |
 
-Her etki alanı üzerinde daha ayrıntılı bilgi için aşağıdaki bölümlerde bakın.
+Aşağıdaki bölümlerde her etki alanı ile ilgili daha fazla ayrıntı için bkz.
 
 ## <a name="calendar"></a>Takvim 
 
-Takvim etki alanı hedefleri ve ilgili takvim girişlerinin varlıkları sağlar. Takvim hedefleri ekleme, silme veya bir randevu düzenleme, kullanılabilirlik denetleniyor ve bir takvim girişi veya randevu hakkındaki bilgileri bulma içerir.
+Hedefleri ve takvim girişlerinin ilgili varlıkları Takvim etki alanı sağlar. Takvim hedefleri ekleme, silme veya randevu düzenleme, kullanılabilirliği denetleniyor ve takvim girişi veya randevu hakkında bilgi bulma içerir.
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Ekle | Yeni bir kerelik öğesi takvime ekleyin.| Lisa ile bir randevu 2 pm Pazar'konumunda oluşturun <br/><br/>Toplantı zamanlamak istiyorum<br/><br/>Toplantı ayarlama gerekir|
-| CheckAvailability | Bir randevu veya toplantı kullanıcının takvim veya başka bir kişinin takvim için kullanılabilirlik bulun.| Jim karşılamak kullanılabilir olduğunda? <br/><br/>Carol yarın kullanılabilir olduğunda göster<br/><br/>Chris Cumartesi günleri ücretsiz mi?|
-| Sil | Takvim girişi silmek için istek.| Carol ile My randevu iptal edin. <br/><br/>My 09: 00 toplantı Sil<br/>|
-| Düzenle | Varolan Toplantı veya Takvim Girişi değiştirme isteği.| My 09: 00 toplantı 10: 00 için taşıyın.<br/><br/>My zamanlama güncelleştirmek istediğiniz.<br/><br/>My toplantı Reschdule Ryan ile.|
-| Bul | Haftalık takvimim görüntüler.| Bul hekimi randevu gözden geçirin. <br/><br/>takvimim Göster<br/>|
+| Ekle | Yeni bir kerelik öğe takviminize ekleyin.| Pazar günü Pasifik 2 sırasında Lisa ile bir randevu oluşturun <br/><br/>Toplantı zamanlamak istiyorum<br/><br/>Toplantı ayarlama gerekir|
+| CheckAvailability | Kullanılabilirlik randevu veya kullanıcının takvim veya başka bir kişinin Takvim toplantı bulun.| Jim karşılamak kullanılabilir olduğunda? <br/><br/>Carol yarın kullanılabilir olduğunda göster<br/><br/>Chris Cumartesi günleri ücretsiz mi?|
+| Sil | Bir takvime girişi silme isteği.| Carol ile My randevu iptal edin. <br/><br/>My 09: 00 toplantı Sil<br/>|
+| Düzenle | Bir mevcut toplantı veya Takvim Girişi değiştirme isteği.| 10'da My 09: 00 toplantı taşıyın.<br/><br/>Zamanlamam güncelleştirmek istiyorsunuz.<br/><br/>My toplantı Reschdule Ryan ile.|
+| Bul | Haftalık takviminizde görüntüler.| Bul diş randevu gözden geçirin. <br/><br/>Takvimi Göster<br/>|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Konum | Takvim öğesi, toplantı veya randevu konumu. Adresleri, şehir ve bölge iyi konumları gösterilebilir.| 209 Nashville Spor salonu <br/><br/>897 Krep temizleme<br/><br/>Garaj|
-| Konu | Toplantı veya randevu başlığı.| Hekimi'nın randevu <br/><br/>Jale ile Yemeği<br/><br/>Doktor randevusu|
+| Konum | Takvim öğesi, toplantı veya randevu konumu. Adres, şehir ve bölgeler konumları, iyi örneklerdir.| 209 Nashville uygulamaları <br/><br/>897 Krep Merkezi<br/><br/>İş dışındaki vakitlerimi|
+| Konu | Bir toplantıda veya randevu başlığı.| Diş'ın randevu <br/><br/>Öğle yemeği Julia ile<br/><br/>Doktor randevu|
 
 ## <a name="camera"></a>Kamera 
-Kamera etki alanı hedefleri ve kamera kullanmayla ilgili varlıkları sağlar. Hedefleri bir fotoğraf, selfie, ekran veya görüntü yakalamak ve bir uygulamaya video yayınlamak kapsar.
+Hedefleri ve bir kamera kullanımıyla ilgili varlıkları kamera etki alanı sağlar. Intents bir fotoğraf, selfie, ekran görüntüsü veya görüntü yakalama ve video uygulamaya yayınlamak kapsar.
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| CapturePhoto| Fotoğraf yakalayın.| Fotoğraf Al<br/><br/>Yakalama|
-| CaptureScreenshot | Bir ekran görüntüsü alma.| Ekran görüntüsü alın.<br/><br/>Ekran Yakalama.|
-| CaptureSelfie | Bir selfie yakalayın.| Bir selfie alın <br/><br/>Bana resmini alın |
-| CaptureVideo | Kayıt video başlatın.| Kaydı başlat <br/><br/>Kaydetmeye başlamak|
+| CapturePhoto| Fotoğraf yakalayın.| Fotoğraf çek<br/><br/>Yakalama|
+| CaptureScreenshot | Bir ekran görüntüsünü yakalayın.| Ekran görüntüsü<br/><br/>Ekran Yakalama.|
+| CaptureSelfie | Bir selfie yakalayın.| Özçekim <br/><br/>Bana ait bir resim al |
+| CaptureVideo | Video kaydı başlatın.| Kaydı başlat <br/><br/>Kaydı başlatmak|
 | StartBroadcasting| Yayın video başlatın.| Facebook yayınlama Başlat|
-| StopBroadcasting| Yayın video durdurun.| Yayın Durdur|
-| StopVideoRecording| Bir video kaydı durdurun.| Yeterli olmasıdır<br/><br/>durdurmanıza|
+| StopBroadcasting| Yayın video durdurun.| Yayını Durdur|
+| StopVideoRecording| Bir video kaydı durdurun.| Yeterli olan<br/><br/>Kaydı Durdur|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| AppName | Video yayını için bir uygulama adı.| OneNote<br/><br/>Facebook<br/><br/>Skype|
+| AppName | Video yayınlamak için bir uygulama adı.| OneNote<br/><br/>Facebook<br/><br/>Skype|
 
 
 ## <a name="communication"></a>İletişim 
-Hedefleri ve e-posta, iletileri ve telefon aramaları için ilgili varlıklar iletişimi etki alanı sağlar.
+Hedefleri ve e-posta, iletileri ve telefon aramaları ilgili varlıkları iletişimi etki alanı sağlar.
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| AddContact| Yeni bir kişi kullanıcının kişiler listesine ekleyin.|Yeni Kişi Ekle <br/><br/>Bu sayı kaydetmek ve Carol adıyla yerleştirin|
-| AddMore| Bir e-posta veya metin, daha fazla step-wise e-posta veya metin birleşimin parçası ekleyin.|Daha fazla metin ekleme <br/><br/>Gövde e-posta ile daha fazla Ekle|
-| Yanıt| Gelen telefon aramasını yanıtlayın.|yanıt çağrısı <br/><br/>Çekme|
-| AssignContactNickname| Takma ad kişiye atayın.|Babanızın için Isaac değiştirme <br/>Jim'ın takma ad Düzenle<br/>Takma ad Patti Owens ekleme|
-| CallVoiceMail| Kullanıcının sesli posta bağlayın.|Bana my sesli posta kutusuna bağlanın <br/>sesli posta<br/>sesli posta çağırın|
-| CheckIMStatus| Skype kişi durumunu denetleyin.|Jim'ın çevrimiçi durumu hemen ayarlanır? <br/>Carol, sohbet etmek var mı?|
-| Onayla| Bir eylem onaylayın.|Evet<br/>Tamam<br/>Anlaşıldı<br/>I bu e-posta göndermek istediğinizi onaylayın.<br/>|
-| Arama| Bir telefon araması yapın.|Jim çağırın<br/>Lütfen 311 arama<br/>|
-| FindContact| Kişi bilgileri ada göre bulur.|Carol'ın numarası Bul<br/>Carol'ın numarası göster<br/>|
-| FindSpeedDial| Bir telefon numarası için ve tersi yönde ayarlamak hızlı arama numarasını bulun.|Arama numaramı 5 nedir?<br/>Set Çevir var mı?<br/>941 5555 333 arama numarası nedir?|
-| GetForwardingsStatus| Çağrı yönlendirmenin geçerli durumunu alır.|My Çağrı yönlendirmenin açık mı?<br/>Çağrı Durumum açmak veya kapatmak olup olmadığını bildir<br/>|
-| GoBack| Önceki adıma geri dönün.|Twitter için geri dönün<br/>Bir adımı geri dönün<br/>Geri dön|
-| Yoksayma| Gelen bir arama yoksay.|Yanıt yok<br/>Çağrı yoksay|
-| IgnoreWithMessage| Gelen bir arama yoksay ve bunun yerine metinle yanıt.|Bu çağrı alamıyorsanız, ancak bir ileti gönderin.<br/>Yoksay ve bir metin geri gönderin.|
-| PressKey| Düğme veya sayı tuş takımında basın.|Arama yıldız.<br/>1 2 3'e basın.|
-| ReadAloud| Bir ileti veya e-posta kullanıcıya okuyun.|Metni okuyun.<br/>Ne depoladığından iletinin söyleyin?|
-| TurnForwardingOff| Bir telefon araması yapın.|<br/><br/>|
-| Arama| Yeniden denemek mi yoksa bir sayı yeniden çağırın.|Arayın.<br/>My son çağrı arayın.|
-| Reddet| Gelen çağrıyı reddeder.|Çağrı Reddet<br/>Şimdi yanıt olamaz<br/>Şu anda kullanılabilir değil ve daha sonra geri çağırır.|
-| SendEmail| Bir e-posta gönderin. Bu amaç için e-posta ancak metin iletileri için geçerlidir.|Can sularında e-posta: Mike Yemeği geçen hafta sende çok iyi.<br/>Bob için bir e-posta Gönder<br/>|
-| SendMessage| Bir metin iletisi veya anlık ileti gönderin.|Chris ve Carol için metin Gönder|
-| SetSpeedDial| Hızlı arama kısayol için bir kişinin telefon numarası ayarlayın.|Hızlı Çevir bir Carol için ayarlayın.<br/>Mom için hızlı arama ayarlayın.|
-| ShowNext| Sonraki öğeye, örneğin, bir kısa mesaj veya e-postaları listesinde bakın.|Bir sonraki gösterir.<br/>Sonraki sayfaya gidin.|
-| ShowPrevious| Önceki öğesi, örneğin, bir kısa mesaj veya e-postaları listesinde bakın.|Öncekinin gösterir.<br/>Önceki<br/>Önceki gidin.|
-| StartOver| Sistem üzerinde başlatmak veya yeni bir oturum başlatın.|Yeniden başlayın<br/>Yeni oturum<br/>restart|
-| TurnForwardingOff| Çağrı yönlendirmenin devre dışı bırakın.|My çağrıları iletme Durdur<br/>Çağrı yönlendirmenin kapalı geçiş|
-| TurnForwardingOn| Konuşmacı telefonu kapatın.|My çağrıları 3333 iletme<br/>Çağrı yönlendirmenin 3333 için geçiş|
-| TurnSpeakerOff| Konuşmacı telefonu kapatın.|Bana Konuşmacı alın.<br/>Hoparlörlü devre dışı bırakın.<br/>|
-| TurnSpeakerOn| Konuşmacı telefonda açın.|Hoparlörlü modu.<br/>Hoparlörlü yerleştirin.<br/>|
+| AddContact| Yeni bir kişi, kullanıcının kişiler listesine ekleyin.|Yeni Kişi Ekle <br/><br/>Bu sayı kaydedin ve Carol adıyla yerleştirin|
+| AddMore| Daha fazla e-posta veya metin tarafınızdaki e-posta veya metin birleşimin parçası ekleyin.|Daha fazla metin Ekle <br/><br/>Daha fazla gövdesi, e-posta Ekle|
+| Yanıt| Gelen telefon aramasını yanıtlayın.|Yanıt arama <br/><br/>Bunu seçin|
+| AssignContactNickname| Bir takma ad, bir kişi için atayın.|Isaac babanızın için değiştirin <br/>Can'ın takma adı Düzenle<br/>Patti Owens için takma ad ekleyin|
+| CallVoiceMail| İçin kullanıcının sesli posta bağlanın.|Benim sesli posta kutuma Bağlan <br/>Sesli posta<br/>Sesli mesaj çağırın|
+| CheckIMStatus| Skype kişi durumunu denetleyin.|Can'ın çevrimiçi durumu hemen ayarlanır? <br/>Carol, sohbet etmek kullanılabilir mi?|
+| Onayla| Bir eylemi onaylayın.|Evet<br/>Tamam<br/>Anlaşıldı<br/>Bu e-posta göndermek istediğiniz onaylıyorum.<br/>|
+| Arama| Telefon araması yapın.|Jim çağırın<br/>Lütfen 311 Çevir<br/>|
+| FindContact| Ada göre iletişim bilgilerini bulabilir.|Carol'ın telefon numarası bulun<br/>Carol'ın numarasını göster<br/>|
+| FindSpeedDial| Bir telefon numarası için ve tersi ayarlamak hızlı arama numarası bulun.|Arama numaramı 5 nedir?<br/>Kümesi çevirmek hızı var mı?<br/>941 5555 333 arama numaralı nedir?|
+| GetForwardingsStatus| Çağrı iletme geçerli durumunu alın.|My çağrı iletme açık mı?<br/>Çağrı Durumum açık veya kapalı olma bildir<br/>|
+| GoBack| Önceki adıma geri dönün.|Twitter dönün<br/>Bir adıma geri dönün<br/>Geri dön|
+| Yoksayma| Gelen bir arama yoksayın.|Yanıt yok<br/>Çağrı yoksay|
+| IgnoreWithMessage| Gelen bir arama yoksay ve bunun yerine metin ile yanıtla.|Bu aramayı yanıtlamalı yoktur ancak bir ileti gönderin.<br/>Yoksay ve bir metin geri gönderin.|
+| PressKey| Bir düğme veya sayı tuş takımında tuşuna basın.|Arama yıldız.<br/>1 2 3'e basın.|
+| ReadAloud| Bir mesaj veya e-posta kullanıcıya okuyun.|Metni okuyun.<br/>Hangi Filiz iletisinde konuları?|
+| TurnForwardingOff| Telefon araması yapın.|<br/><br/>|
+| Arama| Arayın veya bir sayı yeniden çağırın.|Arayın.<br/>Benim son çağrı arayın.|
+| Reddet| Bir gelen çağrıyı reddeder.|Çağrı Reddet<br/>Artık yanıt bulamadığınız<br/>Şu anda kullanılamıyor ve daha sonra geri çağırır.|
+| SendEmail| E-posta gönderin. Bu amaç için e-posta ancak metin iletileri için geçerlidir.|Mike sularında e-posta: Mike dinner geçen hafta sende çok iyi.<br/>Bob için bir e-posta Gönder<br/>|
+| SendMessage| SMS mesajı ya da anlık ileti gönderin.|Chris ve Carol metin Gönder|
+| SetSpeedDial| Kişinin telefon numarası için hızlı arama kısayol ayarlayın.|Carol için hızlı arama birini ayarlayın.<br/>Mom için hızlı arama ayarlayın.|
+| ShowNext| Sonraki öğeyi, örneğin, bir kısa mesaj veya e-postaları listesinde bakın.|Sonrakini Göster.<br/>Bir sonraki sayfasına gidin.|
+| ShowPrevious| Önceki öğeyi, örneğin, bir kısa mesaj veya e-postaları listesinde görürsünüz.|Öncekine gösterir.<br/>Önceki<br/>Önceki gidin.|
+| StartOver| Sistem baştan başlayın veya yeni bir oturum başlatın.|Yeniden başlayın<br/>Yeni oturum<br/>restart|
+| TurnForwardingOff| Çağrı iletme devre dışı bırakın.|Çağrılarım iletme Durdur<br/>Çağrı iletme geçiş|
+| TurnForwardingOn| Konuşmacı telefonu kapatın.|Çağrılarım 3333 için iletme<br/>Çağrı Yönlendirme 3333 üzerinde geçiş|
+| TurnSpeakerOff| Konuşmacı telefonu kapatın.|Bana hoparlör kapalı yararlanın.<br/>Hoparlör devre dışı bırakın.<br/>|
+| TurnSpeakerOn| Konuşmacı telefonda açın.|Hoparlör modu.<br/>Hoparlör koyabilirsiniz.<br/>|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| AudioDeviceType | Ses aygıtını (Konuşmacı, kulaklık, mikrofon, vb.) türü.| Konuşmacı<br/>Tutmadan<br/>Bluetooth|
-| Kategori | Bir ileti veya e-posta kategorisi.| Önemli<br/>Yüksek öncelikli işler|
-| ContactAttribute | Kullanıcı hakkında yapılabilecek Sorgulamalar kişi özniteliğidir.| Doğum<br/>Adres<br/>Telefon numarası|
+| AudioDeviceType | Ses cihazı (Konuşmacı, kulaklık, mikrofon, vb.) türü.| Konuşmacı<br/>Kendiliğinden<br/>Bluetooth|
+| Kategori | Bir mesaj veya e-posta kategorisidir.| Önemli<br/>Yüksek öncelikli|
+| ContactAttribute | Kişinin kullanıcı hakkında vazgeçilmez bir öznitelik.| Doğum günü bilgilerine<br/>Adres<br/>Telefon numarası|
 | ContactName | Bir kişi veya ileti alıcı adı.| Carol<br/>Jim<br/>Chris|
-| EmailSubject | Konu satırı bir e-postalar için kullanılan metin.| RE: öykü ilginç|
-| Çizgi | Kullanıcının satırı çağırmaya ya da bir metin/e-posta göndermek için kullanmak istiyor.| İş satır<br/>İngiliz hücre<br/>Skype|
-| İleti | Bir e-posta veya metin olarak gönderilecek ileti.| Bugün toplantı harika. En kısa zamanda tekrar bakın!|
+| EmailSubject | E-posta konusu kullanılan metin.| RE: ilgi çekici hikayesi|
+| Çizgi | Kullanıcının satırı çağrı yapmak veya bir metin/e-postadan göndermek için kullanmak istiyor.| İş satır<br/>İngiliz hücresi<br/>Skype|
+| İleti | Bir e-posta veya metin olarak gönderilecek ileti.| Bugün toplantı harika. En kısa zamanda tekrar görün!|
 | MessageType | Bir kişi veya ileti alıcı adı.| Metin<br/>Email|
-| OrderReference | Almak için bir öğe tanımlayan bir liste sıralı veya göreli konumu. Örneğin, "son" veya "son" "I gönderilen son ileti neydi?"| Son<br/>En Son|
-| Gönderenin adı | Gönderenin adı.| Patti Owens|
+| OrderReference | Listesini almak için bir öğeyi tanımlamak, sıralı ya da göreli konumu. Örneğin, "last" veya "son" içinde "I gönderilen son ileti neydi?"| Son<br/>En Son|
+| Gönderenin adı | Gönderen adı.| Patti Owens|
 
 ## <a name="entertainment"></a>Eğlence  
-Etki alanı amaçları ve filmler, müzik, oyun ve TV için aramayla ilgili varlıklar sağlar eğlence gösterir.
+Etki alanı hedefleri ve filmler, müzik, oyunlar ve TV aramayla ilgili varlıkları sağlar eğlence gösterir.
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Arama| Filmler, müzik, uygulamalar, oyun ve TV için arama gösterir.|Hale mağazada arayın.<br/>Avatar arayın.|
+| Arama| Arama filmler, müzik, uygulamalar, oyunlar ve TV için gösterilmektedir.|Halo mağazada arayın.<br/>Avatar arayın.|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| ContentRating | Medya G veya R gibi bir derecelendirme filmler için içerik.|Çocuklar video.<br/>PG derecelendirilir.|
-| Tarz | Film, oyun, uygulama veya şarkı tarzını.|Comedies<br/>Dramas<br/>Komik|
-| Anahtar sözcüğü| Bir öznitelik belirten bir genel arama anahtar sözcüğü daha özel ortam yuvalarında yok.|Parçalar<br/>Ay Akarsu<br/>Amelia Earhart|
-| Dil | Medya G veya R gibi bir derecelendirme filmler için içerik.|Fransızca <br/>Türkçe<br/>Kore dili|
-| MediaFormat | Medya biçimlendirilmiş ek özel teknik türü.|HD filmler<br/>3B filmler<br/>İndirilebilir|
-| MediaSource | Mağaza veya medya alınırken Market.|Netflix<br/>Asal|
-| MediaSubTypes| Medya türleri film ve oyunlara küçük.|Gösterileri<br/>DLC<br/>Tanıtımları|
-| Uyruğu| Film, Göster veya eser oluşturulduğu ülke.|Fransızca <br/>Almanca <br/>Kore dili|
-| Kişi| Aktör, director, üretici, müzisyen veya sanatçı film, uygulama, oyun veya TV programı ile ilişkilendirilmiş.|Madonna<br/>Stanley Kubrick|
-| Rol| Medya oluşturma bir kişi tarafından yürütülen bir roldür.|Sings<br/>Yöneten<br/>Tarafından|
-| Unvan| Film, uygulama, oyun, TV programı veya Şarkı adı.|Arkadaş<br/>Minecraft|
-| Tür| Film, uygulama, oyun, TV programı veya şarkı türü veya ortam biçimi.|Müzik<br/>MovieTV <br/>gösterir|
-| UserRating| Kullanıcı yıldız veya derecelendirme başparmak.|5 yıldız<br/>3 yıldız<br/>4 yıldız|
+| ContentRating | Medya, film derecelendirmesi G veya R gibi içerik.|Video çocuk.<br/>PG derecelendirilir.|
+| Tarzı | Film, oyun, uygulama veya şarkı Tarz.|Comedies<br/>Dramas<br/>Komik|
+| Anahtar sözcüğü| Bir genel arama anahtar sözcüğü bir öznitelik belirtmemeye daha belirli ortam yuvalarda yok.|Parçalar<br/>Ay Irmağı<br/>Amelia Earhart|
+| Dil | Medya, film derecelendirmesi G veya R gibi içerik.|Fransızca <br/>Türkçe<br/>Kore dili|
+| MediaFormat | İçinde medya biçimlendirilmiş ek özel teknik türü.|HD filmler<br/>3B filmler<br/>İndirilebilir|
+| MediaSource | Depolama veya medya almak için Market.|Netflix<br/>Asal|
+| MediaSubTypes| Medya türleri filmler ve oyunlar küçük.|Tanıtımlar<br/>DLC<br/>Tanıtımları|
+| Uyruğu| Bir film, Göster ya da şarkı oluşturulduğu ülke.|Fransızca <br/>Almanca <br/>Kore dili|
+| Kişi| Aktör, Müdür, üretici, müzisyen veya sanatçı bir film, uygulamayı, oyunu veya TV programı ilişkili.|Madonna<br/>Stanley Kubrick|
+| Rol| Medya oluşturma kişinin oynadığı rolü.|İmzalar<br/>Yöneten<br/>Tarafından|
+| Unvan| Bir film, uygulama, oyun, TV programı veya Şarkı adı.|Arkadaş<br/>Minecraft|
+| Tür| Bir film, uygulama, oyun, TV programı veya şarkı türü veya medya biçimi.|Müzik<br/>MovieTV <br/>gösterir|
+| UserRating| Veya kullanıcı yıldız derecelendirmesi thumbs.|5 yıldız<br/>3 yıldız<br/>4 yıldız|
 
 ## <a name="events"></a>Olaylar 
-Olayları etki alanı hedefleri sağlar ve varlıkları ayırtmak konsere, festivals, spor oyunları ve Komedi gibi olaylar için ilgili gösterir.
+Varlıkları ayırtmak konserlerden, festivallerinden, spor oyunları ve Komedi gibi olayları gösterir ilgili ve hedefleri olayları etki alanı sağlar.
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Rehberi| Bir olay bilet satın alın.|Bu hafta sonu symphony için bir bilet satın istiyor.|
+| Rehberi| Bir olay için bilet satın alın.|Bu hafta symphony için bilet satın almak istiyorum.|
 
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Adres | Olay konumu veya adresi. |Palo Alto<br/>300 112th Ave kullan <br/> Seattle |
-| Ad | Bir olayın adı.|Park Shakespeare|
-| PlaceName| Olay konumu adı.|Louvre<br/>Opera temizleme<br/>Broadway|
-| PlaceType | Konumun türü, olay bekletilir.|Cafe<br/>THEATRE<br/>Kitaplık|
-| Tür | Bir olay türü.|Birlikte<br/>Spor oyun|
+| Adres | Olay konumu veya adresi. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
+| Ad | Bir olayın adı.|Park içinde Shakespeare|
+| PlaceName| Olay konum adı.|Louvre<br/>Opera Merkezi<br/>Broadway|
+| PlaceType | Konum türü içinde olay gerçekleştirilecektir.|Cafe<br/>Tiyatro<br/>Kitaplık|
+| Tür | Bir olay türü.|Konser<br/>Spor oyunu|
 
 ## <a name="fitness"></a>Uygunluk 
-Uygunluk etki alanı hedefleri ve uygunluk etkinlikleri izleme için ilgili varlıklar sağlar. Hedefleri zaman veya uzaklığı kalan veya etkinlik sonuçları kaydetme not kaydetme içerir.
+Hedefleri ve uygunluk etkinliklerini izleme ilgili varlıkları uygunluk etki alanı sağlar. Hedefleri, saati veya uzaklığı kalan veya etkinlik sonuçları kaydedilirken not kaydetme içerir.
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| AddNote| Ek Notlar izlenen bir aktivite ekler.|Bu farklı çalıştır zorluk 6/10 idi<br/>Üzerinde çalışan üzerinde ben terrain asphalt olduğu<br/>3 hızı bisiklet kullanıyorum|
-|GetRemaining| Bir etkinlik için kalan süre veya uzaklığı alır.|Ne kadar süre sonraki diz kasa?<br/>Kaç tane mil my çalıştırmada kalıyor mu? Bölme için ne kadar süre?|
-| LogActivity| Tamamlanan etkinlik sonuçları günlüğü ya da kaydedin.|My son çalıştırma Kaydet<br/>My Cumartesi sabah ilerlemesi oturum<br/>My önceki yüz depolama|
-| LogWeight| Kullanıcının geçerli ağırlık oturum ya da kaydedin.|My geçerli ağırlık Kaydet<br/>My ağırlık şimdi oturum<br/>My geçerli gövde ağırlık depolama|
+| AddNote| Ek notlar için izlenen bir etkinliği ekler.|Bu çalıştırmanın zorluk 6/10 idi<br/>Çalışan üzerinde ben Arazi asfalt olduğu<br/>3 hızı bisiklet kullanıyorum|
+|GetRemaining| Kalan saati veya uzaklığı için bir etkinliği alır.|Ne kadar süre sonraki lap kasa?<br/>My çalıştırmasında kaç mil kalıyor? Bölme için ne kadar süre?|
+| LogActivity| Tamamlanan etkinlik sonuçları günlüğü ya da kaydedin.|Son çalışma Alanım Kaydet<br/>My Cumartesi sabahı Yürüme oturum<br/>My önceki yüzme depolayın|
+| LogWeight| Kullanıcının geçerli ağırlık oturum ya da kaydedin.|My geçerli ağırlık Kaydet<br/>My ağırlık şimdi oturum açın<br/>My geçerli gövdesi ağırlık depolayın|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| ActivityType | İzlemek için etkinlik türü. |Çalıştırın<br/>Yol<br/>Yüz<br/>Döngüsü |
-| Yiyecek | Uygunluk uygulamada izlemek için yemek türü. |Muz<br/>SOM<br/>Protein sallama|
-| MealType| Bir sistem durumu veya uygunluk uygulamasında izlemek için yemek türü.|Kahvaltı<br/>Yemeği<br/>Yemeği<br/>Supper|
-| Ölçüm| Zaman, uzaklığı veya uygunluk veya sistem durumu uygulamanızda ağırlık ölçümleri türü.|Kilometre<br/>Mil<br/>Dakika<br/>Kilogram|
-| Sayı | Uygunluk veya sistem durumu uygulamanızda sayısal bir miktar.|19<br/>üç<br/>200<br/>bir|
-| StatType | İstatistik türü uygunluk veya sistem durumu uygulamanızda toplanan verileri.|Toplam<br/>Ortalama<br/>Maksimum<br/>Minimum|
+| ActivityType | İzleyen etkinlik türü. |Çalıştırın<br/>İlerlemesi<br/>Yüzme<br/>Döngüsü |
+| Yiyecek | Gıda uygunluk uygulamada izlemek için bir tür. |Muz<br/>Somon<br/>Protein sallama|
+| MealType| Bir sistem durumu veya uygunluk uygulamasında izlemek için bir paket türü.|Kahvaltı<br/>Akşam Yemeği<br/>Öğle yemeği<br/>Supper|
+| Ölçüm| Ölçümleri zaman, uzaklığı veya ağırlık, uygunluk veya sistem durumu uygulamada kullanılmak için bir tür.|Kilometre<br/>Mil<br/>Dakika<br/>Kilogram|
+| Sayı | Uygunluk veya sistem durumu bir uygulamada kullanmak için sayısal bir miktar.|19<br/>üç<br/>200<br/>bir|
+| StatType | Uygunluk veya sistem durumu uygulamada kullanılmak toplanmış veriler üzerinde bir istatistik türü.|Toplam<br/>Ortalama<br/>Maksimum<br/>Minimum|
 
 ## <a name="gaming"></a>Oyun 
-Oyun etki alanı hedefleri ve çok oyunculu oyun oyun parti yönetmeyle ilgili varlıkları sağlar.
+Hedefleri ve çok oyunculu oyun, oyun bir taraf yönetmeyle ilgili varlıkları oyun etki alanı sağlar.
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| InviteParty| Bir kişi bir oyun taraf katılmak için davet edin.|Bu player my tarafa davet et<br/>My tarafa gelen<br/>My clan katılın|
-|LeaveParty| Bir etkinlik için kalan süre veya uzaklığı alır.|Out ben<br/>Bu taraf için başka bir bırakmak<br/>Çıkma|
-| StartParty| Çok oyunculu oyun bir oyun taraf başlatın.|Şimdi Şaka bir taraf Başlat<br/>bir taraf Başlat<br/>bir clan bu akşam başlamanız gerekir|
+| InviteParty| Bir kişi bir oyun taraf katılmaya davet ediyoruz.|Bu benim taraf Player'a davet edin<br/>My tarafa gelir<br/>My clan katılın|
+|LeaveParty| Kalan saati veya uzaklığı için bir etkinliği alır.|Çıkış istiyorum<br/>Bu taraf için başka bir bırakarak<br/>Çıkma|
+| StartParty| Çok oyunculu oyun oyun taraf başlatın.|Şimdi Şaka bir taraf Başlat<br/>bir taraf Başlat<br/>bir clan yemeğinde başlamanız gerekir|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| İletişim| Çok oyunculu oyun kullanmak için bir ilgili kişi adı.|Carol<br/>Jim|
+| İletişim| Çok oyunculu oyun kullanmak için bir kişi adı.|Carol<br/>Jim|
 
 
 ## <a name="homeautomation"></a>HomeAutomation 
-Hedefleri ve akıllı ev aygıtlar ışık ve Gereçleri gibi denetlenmesi için ilgili varlıklar HomeAutomation etki alanı sağlar.
+Hedefleri ve ışıklar ve cihazları gibi Akıllı Giriş cihazları denetlemek için ilgili varlıkları HomeAutomation etki alanı sağlar.
 
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Kapatma| Kapatmak, kapatmak veya bir cihaz kilidini açın.|Işık devre dışı bırakma<br/>Kahve Makinesi Durdur<br/>Kapat Garaj kapı|
-|Sok| Bir aygıtı açın veya belirli bir ayarı veya mod için cihaz ayarlayın.|My Kahve Makinesi Aç<br/>my Kahve Makinesi kapatabilir miyim?<br/>Thermostat 72 derece ayarlayın.|
+| Kapatma| Devre dışı bırakmak, kapatma veya bir cihazın kilidini açmak.|Işıkları aç<br/>Kahve Oluşturucu Durdur<br/>Kapat Garaj kapısının|
+|Aç| Bir cihazda etkinleştirme veya belirli bir ayarı veya mod için cihazı ayarlama.|My Kahve Makinesi üzerinde Aç<br/>my Kahve Makinesi üzerinde kapatabilir miyim?<br/>Thermostat 72 derece ayarlayın.|
 
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Cihaz | Üzerinde veya kapatılabilir aygıt türü.|Kahve Makinesi<br/>Thermostat<br/>ışık|
-| İşlem | Aygıt ayarlanacak durumu.|kilitleme<br/>aç<br/>açık<br/>kapalı|
-| Yer | Konum veya cihaz yer.|Oturma odası<br/>Yatak<br/>mutfak|
+| Cihaz | Açılıp kapatılabilir cihaz türü.|Kahve Oluşturucu<br/>thermostat<br/>ışıklar|
+| İşlem | Cihaz durumu.|Kilit<br/>aç<br/>açık<br/>kapalı|
+| Oda | Konuma veya cihaz yer.|Oturma odası<br/>Yatak odası<br/>mutfak|
 
 ## <a name="movietickets"></a>MovieTickets 
-Hedefleri ve filmler film tiyatro adresindeki kayıt bilet ilgili varlıkları MovieTickets etki alanı sağlar.
+Hedefleri ve ayırtmak için film tiyatro filmleri ilgili varlıkları MovieTickets etki alanı sağlar.
 
 ### <a name="examples"></a>Örnekler
 ```
@@ -250,20 +250,20 @@ When is Captain Omar showing?
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Rehberi | Film biletleri satın alın.|Bana lideri Omar ve iki musketeers için iki biletleri kitap<br/>Bir bilet yarın'ın Film için satın almak istiyorum<br/>Bir bilet Captian Omar Kısım 2 için sonraki Çarşamba istiyorum|
-|GetShowTime| Bir filmi showtime alın.|Ne zaman lideri Omar gösteren?|
+| Rehberi | Film biletleri satın alın.|Bana iki biletleri lideri Omar ve iki musketeers rezervasyonu<br/>Yarının film için bilet satın almak istiyorum<br/>Bir bilet Captian Omar Kısım 2 için sonraki Çarşamba istiyorum|
+|GetShowTime| Showtime filmin alın.|Ne zaman lideri Omar gösteriliyor?|
 
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Adres | Film tiyatro adresi.|Palo Alto<br/>300 112th Ave kullan<br/>Seattle|
-| MovieTitle | Film başlığı.|Pi sayısının ömrü<br/>Hunger oyunlar<br/>Başlangıcı|
-| PlaceName | Film tiyatro veya sinema adı.|Sinema Amir<br/>Alexandria Theatre<br/>New York tiyatrosu|
-| PlaceType | Bir filmi adresindeki gösteren konum türü.|sinema<br/>tiyatro<br/>IMAX sinema|
+| Adres | Bir film tiyatro adresi.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| MovieTitle | Bir filmi başlığı.|Pi ömrü<br/>Hunger oyunlar<br/>Başlangıcı|
+| PlaceName | Bir film tiyatro ya da film adı.|Sinema Amir<br/>Alexandria tiyatro<br/>New York tiyatro|
+| PlaceType | Film adresindeki gösteren konum türü.|sinema<br/>tiyatro<br/>IMAX sinema|
 
 ## <a name="music"></a>Müzik 
-Müzik etki alanı hedefleri ve bir müzik çalar müzik Yürütülüyor ilgili varlıklar sağlar.
+Hedefleri ve bir müzik çalar müziği için ilgili varlıkları müzik etki alanı sağlar.
 
 ### <a name="examples"></a>Örnekler
 ```
@@ -275,26 +275,26 @@ Skip to the next song
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| DecreaseVolume | Cihaz birim azaltın.|azaltmak İzle<br/>Aşağı birim|
-| IncreaseVolume | Cihaz birim artırın.|İzleme birim artırın<br/>birimi|
-| Sessiz |Oyun müzik sessiz.|Sessiz şarkı<br/>Sessiz kaydı koyun<br/>Sessiz müzik |
+| DecreaseVolume | Cihaz birimin azaltın.|azaltmak İzle<br/>birim aşağı|
+| IncreaseVolume | Cihaz birimin artırın.|İzleme birim artırın<br/>birimi|
+| Sesi Kapat |Oyun müzik sessiz.|Sesi kapa şarkı<br/>Sessiz kanalında yerleştirin<br/>Sesi kapa müzik |
 | Duraklat | Oyun müzik duraklatın.|Duraklat<br/>Duraklatma müzik<br/>Duraklatma İzle|
-| PlayMusic | Bir cihazda müzik.|Kevin Durant Yürüt<br/>Paradise Coldplay tarafından Yürüt<br/>Merhaba Adele tarafından Yürüt|
-| Yinele |Oyun müzik yineleyin.|Yineleme şarkı<br/>İzleme kazanç Yürüt<br/>Müzik yineleyin|
+| PlayMusic | Bir cihazda müzik.|Kevin Durant Yürüt<br/>Coldplay tarafından Paradise Yürüt<br/>Adele tarafından Hello Yürüt|
+| Yinele |Oyun müzik yineleyin.|Şarkı yineleyin<br/>İzleme kazanç Yürüt<br/>Müzik yineleyin|
 | Sürdür | Oyun müzik sürdürün.|Şarkı Sürdür<br/>Müzik yeniden Başlat<br/>Devam ettirmek|
-| SkipBack | Geriye dönük bir izleme atlayın.|Sonraki şarkıya atla<br/>Sonraki şarkıya Yürüt|
-| SkipForward |İleri takip atlayın.|Önceki şarkıyı çalma<br/>Önceki parçaya geri dönün |
-| Durdur | Müzik kayıttan yürütme için ilgili bir eylem durdurun. |Bu albüm yürütmeyi durdurur.|
-| Sesi Aç | Müzik çalma aygıtı sesi Aç.| Sesi Aç.|
+| SkipBack | Geriye dönük bir parça atlayın.|Sonraki şarkıya atla<br/>Bir sonraki şarkı Yürüt|
+| SkipForward |İleriye doğru bir parça atlayın.|Önceki şarkıyı Yürüt<br/>Önceki izlemek için geri dönün |
+| Durdur | Müzik kayıttan yürütmek üzere ilgili eylem durdurun. |Bu albüm yürütmeyi durdurur.|
+| Sesi Aç | Müzik kayıttan yürütme cihaz sesi Aç.| Sesi Aç.|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| ArtistName | Aktör, director, üretici, yazıcı, müzisyen veya sanatçı bir aygıtta yürütmek için medya ile ilişkilendirilmiş.|Elvis Presley<br/>Taylor Swift<br/>Adele<br/>Mozart|
-| Tarz | İstenen müzik tarzı.|Ülke müzik<br/>Broadway klasikler<br/>Klasik müzik Baroque dönemden Yürüt|
+| ArtistName | Aktör, Müdür, üretici, yazıcı, müzisyen veya sanatçı bir cihazda medya ile ilişkili.|Elvis Presley<br/>Taylor Swift<br/>Adele<br/>Mozart|
+| Tarzı | İstenen müzik Tarz.|Ülke müzik<br/>Broadway klasikler<br/>Klasik müzik Baroque dönemden Yürüt|
 
 ## <a name="note"></a>Not 
-Not etki alanı hedefleri ve varlıkları oluşturma, düzenleme ve notları bulma ile ilgili sağlar.
+Amaç ve varlıkları oluşturma, düzenleme ve notları bulma ile ilgili not etki alanı sağlar.
 
 ### <a name="examples"></a>Örnekler
 ```
@@ -306,28 +306,28 @@ Remove all items from my vacation list
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| AddToNote | Bilgi nota ekleme.|My Market Not lettuce merak ekmek kahve ekleme<br/>Yapılacaklar listem ekleme<br/>my Wunderlist leziz çörekler ekleme|
-| CheckOffItem | Önceden varolan not öğelerinden kapalı denetleyin.|My Market listeden muzlar kapalı denetleyin<br/>Liste yapıldığı şekilde alışveriş my tatile Peynir kek işaretle|
-| Temizle | Tüm öğeleri önceden varolan not temizleyin.|Tüm öğeleri my tatil listeden kaldırın<br/>My okuma listeden Temizle tüm|
-| Onayla | Not için ilgili eylemi onaylayın.|Benim tarafımdan kesebilirsiniz.<br/>evet<br/>Tüm öğeleri listelerde tutma onaylayan|
-| Oluştur | Yeni bir not oluşturun. | Liste oluştur<br/>Bu Jason hatırlat için May ilk haftasında piyasada olduğuna dikkat edin|
-| Sil | Tüm Not silin. |Tatil listem Sil <br/>My Market not silme|
-| DeleteNoteItem | Öğeleri önceden varolan bir not silin.| Yongaları my Market listeden sil<br/>Kalemler listesi alışveriş my Okul Kaldır|
-| ReadAloud | Bir liste sesli okuyun.|Birinci beni oku<br/>Beni Oku ayrıntıları|
-| ShowNext | Bir listedeki sonraki öğeye notların bakın.|Bir sonraki Göster<br/>Sonraki sayfa<br/>Sonraki|
+| AddToNote | Bilgi nota ekleme.|My Market Not lettuce merak ekmek kahve Ekle<br/>Yapılacaklar listem Ekle<br/>my Wunderlist'e leziz çörekler Ekle|
+| CheckOffItem | Önceden var olan bir not öğelerinden kapalı denetleyin.|My Market listeden bananas kapalı denetleyin<br/>Liste bitti olarak alışveriş my tatile peynirlerine ayırıyor pasta işaretle|
+| Temizle | Tüm öğeleri önceden varolan bir notun temizleyin.|Tatil listemdeki tüm öğeleri Kaldır<br/>Tüm okuma listem Temizle|
+| Onayla | Not ile ilgili bir eylemi onaylayın.|Benim tarafımdan uygundur<br/>evet<br/>Tüm öğeleri listelerde tutma onaylayan|
+| Oluştur | Yeni bir not oluşturun. | Liste oluştur<br/>Bu Jason hatırlat için Mayıs ilk haftası piyasada olduğuna dikkat edin|
+| Sil | Tüm bir not silin. |Tatil listem Sil <br/>My Market Notu Sil|
+| DeleteNoteItem | Öğeleri önceden varolan bir nottan silin.| Market listemdeki yongaları Sil<br/>Liste alışveriş okulumun kalemler Kaldır|
+| ReadAloud | Bir liste sesli okuyun.|Beni ilk oku<br/>Bana ayrıntıları okuyun|
+| ShowNext | Notları listedeki sonraki öğeye bakın.|Sonrakini Göster<br/>Sonraki sayfa<br/>Sonraki|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| AppName | Not Alma uygulama adı.|Wunderlist<br/>OneNote|
+| AppName | Not Alma uygulamasını adı.|Wunderlist<br/>OneNote|
 | ContactName | Not ilgili kişi adı.|Carol<br/>Jim<br/>Chris|
-| Veri kaynağı | Notlar konumu.|OneDrive<br/>Google belgeleri<br/>Bilgisayarım|
-| DataType | Dosya veya genellikle belirli yazılım programları ile ilgili belge türü.|Slayt<br/>Elektronik tablo<br/>Çalışma sayfası|
-| Metin | Not veya anımsatıcı metni.|taramasını önce uzatma<br/>Yarın uzun çalışma|
-| Unvan | Not başlığı.|Market<br/>çağrılacak kişiler<br/>Yapılacaklar|
+| Veri kaynağı | Notları konumu.|OneDrive<br/>Google docs<br/>Bilgisayarım|
+| DataType | Dosya veya genellikle belirli yazılımlar ile ilişkili belge türü.|Slayt<br/>Elektronik tablo<br/>Çalışma sayfası|
+| Metin | Not veya anımsatıcı metni.|Yürüyen önce Uzat<br/>uzun süre çalışan yarın|
+| Unvan | Not ın başlığı.|Market<br/>çağrılacak kişiler<br/>Yapılacaklar|
 
 ## <a name="ondevice"></a>OnDevice 
-Hedefleri ve cihaz denetlenmesi için ilgili varlıklar OnDevice etki alanı sağlar.
+Hedefleri ve cihaz denetlemek için ilgili varlıkları OnDevice etki alanı sağlar.
 
 ### <a name="examples"></a>Örnekler
 ```
@@ -339,46 +339,46 @@ Can you make the screen brighter?
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| AreYouListening | Cihaz dinlenip dinlenmediğini isteyin.|Bu, üzerinde mi?<br/>dinleme?|
-|CloseApplication|Cihaz uygulamayı kapatın.|video oynatıcı kapatın|
-|FileBug|Cihazda dosyalama.|Lütfen dosyalama<br/>Bir hata için Benioku dosyası?<br/>Bu hatayı bildirmek izin ver|
-|GoBack|Tek bir adımda geri dönün veya önceki adıma dönmek için isteyin.|Lütfen geri dönün<br/>Önceki ekrana gidin<br/>Git geri Dur dinleme|
+| AreYouListening | Cihaz dinleyip dinlemediğini isteyin.|Bu, üzerinde mi?<br/>dinliyoruz?|
+|CloseApplication|Cihaz uygulamasını kapatın.|video oynatıcı kapatın|
+|FileBug|Cihazda hata bildirin.|Lütfen hata bildirin<br/>Bir hata için bir benioku dosyası?<br/>Bu hatayı bildirmek istiyorum|
+|GoBack|Bir adıma geri dönün veya önceki adıma dönmek için isteyin.|Lütfen geri dönün<br/>Önceki ekrana gidin<br/>Git geri stop dinleme|
 |Yardım| Yardım isteyin.|Lütfen yardımcı olun<br/>Merhaba<br/>Ne yapabilirsiniz?<br/>Yardım almam gerekiyor| 
-|LocateDevice|Aygıtı bulun.|Telefonum bulabilir<br/>Can'ın iphone'umu Bul<br/>Telefonumu Bul|
-|Oturum açma|Cihaz kullanarak bir hizmet için oturum açın.|Oturum açma Lütfen<br/>Facebook oturum açma<br/>LinkedIn günlüğüne|
-|Oturum kapatma|Aygıtı kullanan bir hizmet dışı oturum açın.|Telefonum oturum<br/>Twitter oturum açın<br/>Oturumu kapat|
-|MainMenu|Bir aygıtın ana menü görüntüleyin.|Görünüm menüsü.|
-|OpenApplication|Aygıtta bir uygulamayı açın.|Uyarı Lütfen açın<br/>Kamerayı açın<br/>Takvim başlatma|
+|LocateDevice|Cihaz bulun.|Telefonumu bulabilirsiniz<br/>Tom'ın iphone'u Bul<br/>Telefonumu Bul|
+|Oturum açma|Cihaz kullanarak bir hizmet için oturum açın.|Oturum açma Lütfen<br/>Facebook oturum açma<br/>LinkedIn oturum|
+|Oturum kapatma|Cihaz kullanarak bir service oturumlarını kapatmalıdır.|Telefonumu oturum<br/>Twitter oturum açın<br/>Oturumu kapat|
+|MainMenu|Bir cihazın ana menü görüntüleyin.|Görünüm menüsü.|
+|OpenApplication|Cihazdaki bir uygulama açın.|Lütfen uyarı açın<br/>Kamerayı açın<br/>Takvim başlatın|
 |OpenSetting|Bir aygıt ayarı açın.|Ağ Ayarları'nı açın.|
-|PairDevice|Cihaz çifti.|Bluetooth sinyal telefona eşleştirme bana yardımcı olabilir<br/>Bluetooth'u açmasına ve dizüstü bilgisayar ile eşleştirin<br/>Dizüstü bilgisayarımda kayıtlı çifti Bluetooth sinyali|
-|Kapalı | Aygıt devre dışı bırakın.|Bilgisayarımı kapatmalı<br/>Kapat<br/>My mobil devre dışı bırakma|
-|QueryBattery|Pil ömrünün hakkında bilgi alın.|Pil ömrünün göster.<br/>Pil Durumum nedir<br/>Şimdi ne kadar pil kaldı?<br/>Pil Göster|
+|PairDevice|Cihaz çifti.|Bluetooth sinyal telefona eşleştirme bana yardımcı olabilir<br/>Bluetooth'u açmasına ve dizüstü ile eşleştirin<br/>Dizüstü bilgisayarımda kayıtlı çifti Bluetooth sinyali|
+|Kopyalanabilmesi | Cihaz devre dışı bırakın.|My Bilgisayarı Kapat<br/>Kapat<br/>My mobil Kapat|
+|QueryBattery|Pil ömrü hakkında bilgi alın.|Pil ömrünü göster.<br/>Pil Durumum nedir<br/>Şimdi ne kadar pil kaldı?<br/>Pil Göster|
 |QueryWifi|WiFi hakkında bilgi alın.|WiFi bilgi alın.|
-|Yeniden Başlatma|Cihaz yeniden başlatın.|Lütfen yeniden başlatın.|
-|RingDevice| Kayıp olduğunda bulmak için ring cihaza isteyin.|Telefonum halka.| 
-|SetBrightness|Cihaz parlaklığını ayarlayın.|Set parlaklığını Orta<br/>Set parlaklığını yüksek<br/>Set parlaklığını düşük|
-|SetupDevice|Cihaz kurulumu başlatın.|İşletim sistemi kurulumu yükleme istiyorum<br/>Lütfen kurulum<br/>Benim için kurulumu yapın|
-|ShowAppBar|Bir uygulama çubuğunu göster.|Uygulama çubuğunu göster<br/>Uygulama çubuğunu Lütfen<br/>Uygulama çubuğunu görmek izin ver|
-|ShowContextMenu|Bir bağlam menüsü gösterir.|Bağlam menüsü bkz izin ver<br/>Bağlam menüsü Lütfen<br/>Bana bağlam menüsü gösterebilir|
-|Uyku|Uyku moduna aygıt yerleştirin.|Uyu<br/>Uyku<br/>My bilgisayar uyku modunda|
-|SwitchApplication|Uygulamayı cihazda kullanmaya geçiş yapın.|My media player geçin.|
-|TurnDownBrightness|Cihaz parlaklığını açın.|Ekran dim.|
-|TurnOffSetting|Bir aygıt ayarı devre dışı bırakmak.|Bluetooth devre dışı bırakma<br/>Veri devre dışı bırak<br/>Bluetooth bağlantısını kesme|
+|Yeniden Başlatma|Cihazı yeniden başlatın.|Lütfen yeniden başlatın.|
+|RingDevice| Halka, cihaza, kaybetti gönderilirken için isteyin.|Telefonumu halka.| 
+|SetBrightness|Cihaz parlaklık ayarlayın.|Ayarlama brightness Orta<br/>Ayarlama brightness yüksek<br/>Ayarlama brightness düşük|
+|SetupDevice|Cihaz kurulumu başlatın.|İşletim sistemi kurulumu yüklemek istiyorum<br/>Lütfen kurulum<br/>Benim için kurulumu yapın|
+|ShowAppBar|Bir uygulama çubuğunu göster.|Uygulama çubuğunu göster<br/>Uygulama çubuğu Lütfen<br/>Uygulama çubuğunu görmek istiyorum|
+|ShowContextMenu|Bir bağlam menüsünü görüntüleyin.|Bağlam menüsünü görmek istiyorum<br/>Bağlam menüsü Lütfen<br/>Bana bağlam menüsü gösterebilirsiniz|
+|Uyku|Uyku moduna cihaz yerleştirin.|Uyu<br/>Uyku<br/>My bilgisayar uyku modunda|
+|SwitchApplication|Cihazda kullanmak için uygulamayı geçin.|My media player ile geçiş yapın.|
+|TurnDownBrightness|Cihaz parlaklık bırakın.|Ekran karartma.|
+|TurnOffSetting|Cihaz ayarı devre dışı bırakın.|Bluetooth devre dışı bırak<br/>Veri devre dışı bırak<br/>Bluetooth bağlantısını kes|
 |TurnOnSetting|Bir aygıt ayarı etkinleştirin.|Açık <br/> Kapalı|
-|TurnUpBrightness|Cihaz parlaklığını açın.|Daha açık ekranda yapabilirsiniz?|
+|TurnUpBrightness|Brightness cihaz açın.|Ekran rengin daha açık hale getirebilirsiniz?|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| AppName | Aygıtta bir uygulamanın adı.|SoundCloud<br/>YouTube|
-| BrightnessLevel | Cihazda parlaklığını düzeyini ayarlayın.|Yüz yüzde<br/>Elli<br/>40%|
-| ContactName | Aygıtta bir ilgili kişi adı.|Paul<br/>Marlen Max|
-| DeviceType | Aygıt türü. |Telefon<br/>Kindle<br/>Dizüstü bilgisayar|
-| MediaType | Aygıt tarafından işlenen medya türü.|Müzik<br/>Film<br/>TV programı|
-| SettingType | Ayar veya düzenlemek için kullanıcının istediği Ayarları panelini türü.|WiFi<br/>Kablosuz ağ<br/>Renk şeması<br/>Bildirim Merkezi|
+| AppName | Cihazda bir uygulamanın adı.|SoundCloud<br/>YouTube|
+| BrightnessLevel | Cihazda parlaklık düzeyini ayarlayın.|Yüzde yüz<br/>Elli<br/>40%|
+| ContactName | Cihazda bir kişinin adı.|Paul<br/>Marlen Maks|
+| DeviceType | Cihaz türü. |Telefon<br/>Kindle<br/>Dizüstü bilgisayar|
+| MediaType | Cihaz tarafından işlenen medya türü.|Müzik<br/>Film<br/>TV programları|
+| SettingType | Ayar veya düzenlemek için kullanıcının istediği ayarlar paneli türü.|WiFi<br/>Kablosuz ağ<br/>Renk şeması<br/>Bildirim Merkezi|
 
-## <a name="places"></a>Yerler  
-Yerler etki alanı işletmeler, kurum, Restoran, ortak alanları ve adresleri gibi yerlerde ilgili sorguları işlemek için hedefleri sağlar.
+## <a name="places"></a>Basamak  
+Basamak etki alanı, işletmelerin, kurum, Restoran, ortak alanları ve adresleri gibi yerlerde ilgili sorguları işlemek için hedefleri sağlar.
 
 ### <a name="examples"></a>Örnekler
 ```
@@ -390,64 +390,64 @@ At what time does Safeway close?
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| AddFavoritePlace | Bir konuma eklemeniz kullanıcının Sık Kullanılanlar listesi.|Bu konum Kullanılanlara Kaydet<br/>Bu adres Kullanılanlara Ekle|
-|CheckAccident|Belirtilen yolda bir yanlışlık olup olmadığını isteyin.|Herhangi bir yanlışlık 880 üzerinde var mı?<br/>Yanlışlıkla bilgi göster|
-|CheckAreaTraffic|Genel alan veya belirtilen bir rotaya değil, Otoyol trafiği denetleyin.|Seattle trafiği<br/>Gibi trafik Seattle'da nedir?|
-|CheckIntoPlace|Sosyal medya kullanarak bir yere iade edildi.|Bana Foursquare üzerinde iade etme<br/>Burada iade etme|
-|CheckRouteTraffic| Kullanıcı tarafından belirtilen belirli bir yolu, trafiği denetleyin.|Nasıl Mashiko trafiği mi?<br/>Kirkland için traffice Göster<br/>Nasıl Seattle trafiği mi?| 
-|Onayla|Bir yere ilgili eylemi onaylayın.|My Restoran ayırma onaylayın.|
-|Çıkış|Bir yere ilgili bir görevi'ndan çıkmak için eylem.|Lütfen çıkın<br/>Bana yönergeleri vermiş çıkın|
-|FindPlace|Bir yerde (iş, kurum, Restoran, ortak alanı, adresi) için arama yapın.|Yakın kitaplık nerede?<br/>Bana iyi İtalyanca Restoran Sıradağlar Görünümü'nde bulur|
-|GetAddress| Bir yerin adresini isteyin.|Robson sokakta Guu adresini Göster<br/>En yakın Starbucks adresi nedir?| 
-|GetDistance işlevi|Belirli bir yere uzaklığı hakkında isteyin.|Ne kadar uzakta tatil Inn mi?<br/>Buradan kare Bellevue için ne kadar nedir<br/>Tahoe uzaklık nedir|
-|GetHours|Bir yerde işletim saattir hakkında isteyin.|Ne zaman Safeway kapatmak?<br/>Giriş deposu saattir nelerdir?<br/>Starbucks hala açık mı?|
-|GetMenu|Bir restoran menü öğelerinin isteyin.|Zucca herhangi bir şey hizmet mu vegan?<br/>Sizzler adresindeki menüsünde nedir<br/>Applebee'nın menüsünü göster|
-|GetPhoneNumber| Bir yerde telefon numarası için isteyin.|En yakın Starbucks telefon numarasını nedir?<br/>Sayı giriş deposu için verin| 
-|GetPriceRange| Bir yerde fiyat aralığının sorar.|Zucca ucuz mi?<br/>Cineplex yarım fiyat Çarşamba günleri mi?<br/>Ne kadar Sizzler tüm lobster Yemeği maliyetlerine mı çalışıyor?|
-|GetReviews|Bir yerde incelemeler için isteyin.|Gözden geçirmeler Cheesecase Fabrika Göster<br/>Yelp içinde Cineplex değerlendirmeleri|
-|GetRoute|Bir yere yönergeleri için isteyin.|Nasıl Bellevue kare yol<br/>8 ve 59th en kısa yolu buradan Göster<br/>Bana Sıradağlar görünüm CA'ya yönleri Al|
-|GetStarRating|Bir yerde yıldız derecesiyle için isteyin.|Nasıl Zucca Yelp göre derecelendirilmiş?<br/>Kaç tane yıldız Fransızca Çamaşırlar var mı?<br/>Monterrey içinde aquarium iyi mi?|
-|GetTransportationSchedule|Veri yolu zamanlama için bir yer alır.|Ne zaman şehir merkezi sonraki yoluna mi?<br/>Kol ilçe yollarına Göster|
-|GetTravelTime|Seyahat süresi belirtilen hedef için isteyin.|Ne kadar San Francisco buradan almak için sürer<br/>Yönlendirmeli saati Beyoğlu için BT nedir|
-|MakeCall|Bir yere bir telefon araması yapın.|MOM çağırın<br/>Gamze için Skype çağrı yapmak istiyorsunuz<br/>Jim çağırın|
-|MakeReservation|Bir restoran ya da diğer iş için bir ayırma isteği.|İki tonight için Zucca ayırmak<br/>Kitap yarın için bir tablo<br/>Tablo 8 Palo Alto içinde 3 için|
-|MapQuestions|Yönergeleri veya olup belirtilen yol bir hedefe gider hakkında bilgi istemek.|13 şehir merkezi geçirmek mu?<br/>İçin Oakland 880 devam edebilir mi?|
-|Derecelendirme|Derecelendirme açıklaması bir restoran ya da yer alır.|Kaç tane yıldız Contoso Inn var mı?|
-|ReadAloud|Yerlerin listesi sesli okuyun.|Birinci beni oku<br/>Beni Oku ayrıntıları|
-|SelectItem|Bir yer veya yerlerde ilgili seçenekleri listesinden bir öğe seçin.|İkincisi seçin<br/>İlk seçin|
-|ShowMap|Bir alanı haritasını gösterin.|İkincisi için bir eşleme Göster<br/>Haritayı göster<br/>San Francisco haritada Bul|
-|ShowNext|Sonraki öğe bir seri gösterir.|Bir sonraki Göster<br/>sonraki sayfaya gidin|
-|ShowPrevious|Önceki öğeyi bir seri gösterir.|öncekinin Göster<br/>önceki<br/>Önceki gidin|
+| AddFavoritePlace | Konum, kullanıcının Sık Kullanılanlar listesine ekleyin.|Bu konumda sık kullanılanlara Kaydet<br/>Bu adres Sık Kullanılanlara Ekle|
+|CheckAccident|Belirtilen yolda bir yanlışlık olduğunu isteyin.|Bir yanlışlık üzerinde 880 mı?<br/>Yanlışlıkla bilgi göster|
+|CheckAreaTraffic|Genel alan veya belirtilen bir rotaya göre değil, Otoyol trafiği denetleyin.|Seattle trafiği<br/>Seattle gibi trafiği nedir?|
+|CheckIntoPlace|Sosyal medya kullanarak bir yere iade edin.|Bana Foursquare üzerinde iade et<br/>Buraya bakın|
+|CheckRouteTraffic| Kullanıcı tarafından belirtilen belirli bir yol trafiği denetleyin.|Nasıl Mashiko trafiği mi?<br/>Sağlayan: Kirkland için traffice Göster<br/>Seattle trafiği nasıl mi?| 
+|Onayla|Bir yere ilgili eylemi onaylayın.|Restoran ayırmamın onaylayın.|
+|Çıkış|Bir görev bir yere ilgili çıkmak için eylem.|Lütfen çıkın<br/>Bana yönergeleri veren Çık|
+|FindPlace|Bir yer (iş, kurum, Restoran, ortak alan, adresi) arayın.|En yakın kitaplık nerede?<br/>Bana bir iyi İtalyanca Restoran Sıradağlar Görünümü'nde bulun|
+|GetAddress| Bir yer adresi isteyin.|Robson sokakta Guu adresi Göster<br/>En yakın kahve adresini nedir?| 
+|GetDistance|Belirli bir yere uzaklık hakkında isteyin.|Tatil Inn nasıl uzakta mi?<br/>Buradan Bellevue kare için ne kadar<br/>uzaklık Tahoe nedir|
+|GetHours|Bir alan için çalışma saatleri hakkında isteyin.|Ne zaman Safeway kapatmak?<br/>Giriş Depot saatliğine nelerdir?<br/>Kahve hala açık mı?|
+|GetMenu|Bir Restoran için menü öğeleri için isteyin.|Herhangi bir şey Zucca sunmuyor vegan?<br/>Sizzler menüde nedir<br/>Applebee'nın menüsünü göster|
+|GetPhoneNumber| Bir yer için telefon numarası isteyin.|En yakın kahve telefon numarasını nedir?<br/>Sayı giriş deposu için verin| 
+|GetPriceRange| Bir yer fiyat aralığının ister.|Zucca ucuz mi?<br/>Cineplex yarı fiyatına Çarşamba günleri mi?<br/>Ne kadar Sizzler lobster tüm Akşam Yemeği maliyetle?|
+|GetReviews|Bir yerde gözden geçirmeler için isteyin.|Cheesecase fabrikası için gözden geçirmeleri Göster<br/>Yelp Cineplex incelemelerde okuyun|
+|GetRoute|Bir yere yönergeleri isteyin.|Bellevue kare yürütmek nasıl<br/>Buradan 8 ve 59th en kısa yolu Göster<br/>Bana Sıradağlar görünümü CA'ya yönergeleri alın|
+|GetStarRating|Bir yer için yıldız derecelendirmesi isteyin.|Nasıl Zucca Yelp göre derecelendirilmiştir?<br/>Kaç yıldızı Fransızca Çamaşırlar var mı?<br/>Aquarium Monterrey içinde iyi mi?|
+|GetTransportationSchedule|Veri yolu zamanlama için bir yer alın.|Ne zaman şehir merkezinde sonraki yoluna nedir?<br/>İçinde King County yollarına Göster|
+|GetTravelTime|Seyahat süresini belirtilen bir hedefe isteyin.|Ne kadar süre San Francisco için buradan almak için sürer<br/>Sürüş süresi için Denver SF nedir|
+|MakeCall|Telefon görüşmesi için bir yer.|MOM çağırın<br/>Anna'nın Skype çağrısı yapmak istiyorum<br/>Jim çağırın|
+|MakeReservation|Bir restoran veya diğer iş için bir ayırma isteği.|İki tonight için Zucca ayırın<br/>Kitap yarın için bir tablo<br/>Tablo için 8 Palo Alto 3.|
+|MapQuestions|Yönergeleri veya olup belirtilen yol bir hedefe giden hakkında daha fazla bilgi isteyin.|13 şehir merkezi geçirin mu?<br/>İçin Oakland 880 yararlanabilir miyim?|
+|Derecelendirme|Bir restoran veya yer derecelendirmesi açıklamasını alın.|Kaç yıldızı Contoso Inn var mı?|
+|ReadAloud|Basamak listesini sesli okuyun.|Beni ilk oku<br/>Bana ayrıntıları okuyun|
+|SelectItem|Bir alan veya yer ile ilgili seçimler listesinden bir öğe seçin.|İkinci seçin<br/>İlk seçin|
+|ShowMap|Bir alan haritasını göster.|İkincisi için bir haritasını Göster<br/>Haritayı göster<br/>Harita üzerinde San Francisco Bul|
+|ShowNext|Bir dizinin sonraki öğeyi gösterir.|Sonrakini Göster<br/>Sonraki Sayfaya Git|
+|ShowPrevious|Önceki öğeyle bir dizide gösterir.|Öncekine Göster<br/>önceki<br/>Öncekine git|
 |StartOver|Uygulamayı yeniden başlatın veya yeni bir oturum başlatın.|Yeniden başlayın<br/>Yeni oturum<br/>
 restart|
-|TakesReservations|Bir yerde ayırmalarını kabul edip etmeyeceğini isteyin.|Resim Galerisi ayırmalarını kabul ediyor mu<br/>Zeytin bahçesi rezervasyon yapmak mümkün mü
+|TakesReservations|Bir yer rezervasyonları kabul edip etmeyeceğini isteyin.|Sanat galerisini ayırmalarını kabul ediyor mu<br/>Ayırma sırasında Zeytin bahçesi yapmak mümkündür
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| AbsoluteLocation | Konum veya bir yere adresidir.|Palo Alto<br/>300 112th Ave kullan<br/>Seattle|
-| S | Amaç özellikleri/avantajları bir yer.|Çocuklar ücretsiz yemek<br/>rıhtımının<br/>Park boş|
-| Atmosfer | Bir yerde Atmosfer.|Çocuklara yönelik<br/>sıradan Restoran<br/>sporty|
-| Cuisine | Bir yerde cuisine. |Akdeniz<br/>İtalyanca<br/>Hindistan|
-| DestinationAddress| Bir hedef konum veya adresi.|Palo Alto<br/>300 112th Ave kullan<br/>Seattle|
-| DestinationPlaceName| Bir iş, Restoran, ortak çekim veya kuruluştan bir hedef adı.|Orta park<br/>safeway<br/>walmart|
-| DestinationPlaceType | Yerel iş, Restoran, ortak çekim veya kuruluştan bir hedef türü. |Restoran<br/>Opera<br/>sinema|
-| Uzaklık | Bir yere uzaklığı.|15 mil<br/>5 mil<br/>10 mil koyma|
-| MealType | Yemek kahvaltı veya yemek gibi türü. |Kahvaltı<br/>Yemeği<br/>Yemeği<br/>Supper|
-| OpenStatus | Bir yerde açık veya kapalı olup olmadığını gösterir.|Açık<br/>Kapalı<br/>açma|
+| AbsoluteLocation | Konumu veya bir yerde adresidir.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| Kullanılmıyordu | Bir yer hedefi özellikleri/avantajları.|Çocuklar ücretsiz yemek<br/>rıhtımının<br/>Park ücretsiz|
+| Atmosfer | Atmosfer bir yer.|Çocuklara yönelik<br/>sıradan bir restoran<br/>sporty|
+| Cuisine | Cuisine bir yer. |Akdeniz<br/>İtalyanca<br/>Hindistan|
+| DestinationAddress| Bir hedef konum veya adresi.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| DestinationPlaceName| Bir iş, Restoran, ortak bir çekim veya kurum bir hedef adı.|Orta parka<br/>safeway<br/>walmart|
+| DestinationPlaceType | Yerel işletme, Restoran, ortak bir çekim veya kurum bir hedef türü. |Restoran<br/>Opera<br/>Sinema|
+| Uzaklık | Bir yer uzaklık.|15 mil<br/>5 mili<br/>10 mil uzaklıkta|
+| MealType | Kahvaltı veya öğle yemeği türü. |kahvaltı<br/>Akşam Yemeği<br/>öğle yemeği<br/>supper|
+| OpenStatus | Bir yer açık veya kapalı olup olmadığını belirtir.|Açık<br/>Kapalı<br/>açma|
 | PlaceName | Bir alan adı.|Cheesecake Fabrika|
-| PlaceType | Bir Yerleştir türüdür.|Cafe<br/>THEATRE<br/>Kitaplık|
+| PlaceType | Bir alan türü.|Cafe<br/>Tiyatro<br/>Kitaplık|
 | PreferredRoute | Kullanıcı tarafından belirtilen tercih edilen yol. | 101 <br/>202 <br/>Rota 401|
-| Ürün | Bir yerde tarafından sunulan ürün. | Elbise<br/>Dijital ASR kameraları<br/>Yeni balık | 
-| PublicTransportationRoute | Kullanıcı arıyor ortak taşıma rotanın adı. | Kuzey Doğu corridor eğitimi<br/>Veri yolu rota 3 X |
-| Derecelendirme | Bir yerde derecesi. | 5 yıldız<br/>3 yıldız<br/>4 yıldız|
-| RouteAvoidanceCriteria | KAZALARDAN dolayı RID'ler, kurulumlarını veya tolls önleme gibi belirli yollar önleme ölçütleri | Tolls <br/>Kurulumlarını<br/>Rota 11|
-| ServiceProvided | Bu bir iş veya yöneticinize gibi yer tarafından sağlanan hizmetidir plowing, peyzaj kar. | yöneticinize<br/>Teknisyenin<br/>plumber|
+| Ürün | Bir yer tarafından sunulan ürün. | Giyim<br/>ASR dijital kameraları<br/>Yeni balık | 
+| PublicTransportationRoute | Kullanıcı arıyor taşımacılık rotanın adı. | Kuzey Doğu corridor eğitme<br/>Veri yolu rota 3 X |
+| Derecelendirme | Yer derecelendirmesi. | 5 yıldız<br/>3 yıldız<br/>4 yıldız|
+| RouteAvoidanceCriteria | Kazalar, yapılarını veya Ücretli geçişler önleme gibi belirli yollar önleme ölçütleri | Ücretli geçişler <br/>Yapılarını<br/>Rota 11|
+| ServiceProvided | Bu bir işletmeyi ya da yöneticinize gibi bir yerde tarafından sağlanan hizmetidir plowing, peyzaj kar. | yöneticinize<br/>Teknisyenin<br/>plumber|
 | TransportationCompany | Aktarım sağlayıcısının adı.|Amtrak<br/>Acela<br/>Greyhound|
 | TransportationType | Taşıma türü.|Veri yolu<br/>Eğitim<br/>Sürüş|
 
 ## <a name="reminder"></a>Anımsatıcı 
-Hedefleri ve varlıkları oluşturma, düzenleme ve anımsatıcıları bulma için anımsatıcı etki alanı sağlar.
+Anımsatıcı etki alanı amaç ve varlıkları oluşturma, düzenleme ve bulma anımsatıcılar sağlar.
 
 ### <a name="examples"></a>Örnekler
 ```
@@ -459,18 +459,18 @@ Can you check if I have a reminder about Christine's birthday?
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Değiştir| Bir anımsatıcı olarak değiştirin.|09: 00 için yarın My görüşme değiştirme<br/>My atama anımsatıcı yarın için taşıma|
-| Oluştur| Yeni bir anımsatıcı oluşturun.|bir anımsatıcı oluşturma<br/>Hatırlat sütlü satın almak için<br/>Evde ben Rebecca çağrılacak unutmayın istiyorum|
-| Sil | Bir anımsatıcı silin.|My resim anımsatıcı Sil<br/>Bu anımsatıcı Sil|
-| Bul | Bir anımsatıcı bulun.|My Yıldönümü hakkında bir anımsatıcı var mı?<br/>Bir anımsatıcı Christine'nın Doğum günü hakkında varsa göz atabilirsiniz?|
+| Değiştir| Anımsatıcı değiştirin.|My röportajı yarın 09: 00 için değiştirin<br/>Yarın için benim atama anımsatıcı Taşı|
+| Oluştur| Yeni bir anımsatıcı oluşturun.|Anımsatıcı oluşturma<br/>Sütlü satın hatırlat<br/>Evde yapmazsam Rebecca çağrılacak unutmayın istiyorum|
+| Sil | Anımsatıcıyı Sil.|Benim bir resmi anımsatıcı Sil<br/>Bu anımsatıcı Sil|
+| Bul | Anımsatıcı bulun.|Anımsatıcı my Yıldönümü hakkında sahip?<br/>Anımsatıcıyı Christine'nın Doğum günü hakkında sorularım varsa kontrol edebilirim?|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Metin | Bir anımsatıcı metin açıklaması.|kuru temizleme seçin<br/>Hizmet merkezinde My araba bırakarak devre dışı|
+| Metin | Anımsatıcı metin açıklaması.|kuru temizleme seçin<br/>My araba hizmeti Merkezi'nde bırakmayı devre dışı|
 
 ## <a name="restaurantreservation"></a>RestaurantReservation 
-Hedefleri ve varlıklarla Restoran ayırmaları yönetmeyle ilgili RestaurantReservation etki alanı sağlar.
+Hedefleri ve Restoran ayırmaları yönetmeyle ilgili varlıkları RestaurantReservation etki alanı sağlar.
 
 ### <a name="examples"></a>Örnekler
 ```
@@ -482,24 +482,24 @@ Table for 3 in Palo Alto at 7
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Ayırma | Bir Restoran için bir ayırma isteği. |İki tonight için Zucca ayırmak<br/>Kitap yarın için bir tablo<br/>Tablo 7 Palo Alto içinde 3 için|
+| Ayırma | Bir Restoran için bir ayırma isteği. |İki tonight için Zucca ayırın<br/>Kitap yarın için bir tablo<br/>Tablo 7, 3 Palo Alto'için|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Adres| Olay konumu veya bir ayırma adresi.|Palo Alto<br/>300 112th Ave kullan<br/>Seattle|
-| S | Bir yerde s açıklayan bir öznitelik.|Okyanusu görünümü<br/>olmayan İçilmez|
-| AppName | Ayırmalar yapmak için bir uygulama adı.|TabloAç<br/>Yelp<br/>TripAdvisor|
+| Adres| Olay konumu veya bir ayırma adresi.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| Kullanılmıyordu | Bir yer kullanılmıyordu açıklayan öznitelik.|Okyanusu görüntüle<br/>olmayan İçilmez|
+| AppName | Rezervasyonları yapmak için bir uygulama adı.|TabloAç<br/>Yelp<br/>TripAdvisor|
 | Atmosfer | Bir restoran veya başka bir yerde Atmosfer açıklaması.|Romantik<br/>sıradan<br/>gruplar için iyi|
-| Cuisine | Yemek, cuisine veya cuisine Uyruğu türü. |Çince<br/>İtalyanca<br/>Meksika|
-| MealType | Ayırma ile ilişkili yemek türü.|Kahvaltı<br/>Yemeği<br/>Yemeği<br/>Supper|
-| PlaceName | Yerel iş, Restoran, ortak çekim veya kurum adı.|IHOP<br/>Cheesecake Fabrika<br/>Louvre|
-| PlaceType | Yerel iş, Restoran, ortak çekim veya kurum türü.|Restoran<br/>Opera<br/>sinema|
-| Derecelendirme | Yer veya Restoran derecesi.|5 yıldız<br/>3 yıldız<br/>4 yıldız|
+| Cuisine | Gıda, cuisine veya cuisine Uyruğu türü. |Çince<br/>İtalyanca<br/>Meksika|
+| MealType | Ayırma ile ilişkili bir paket türü.|kahvaltı<br/>Akşam Yemeği<br/>öğle yemeği<br/>supper|
+| PlaceName | Yerel işletme, Restoran, ortak bir çekim veya kurum adı.|IHOP<br/>Cheesecake Fabrika<br/>Louvre|
+| PlaceType | Yerel işletme, Restoran, ortak bir çekim veya kurum türü.|Restoran<br/>Opera<br/>sinema|
+| Derecelendirme | Çalındığında ya da Restoran derecesi.|5 yıldız<br/>3 yıldız<br/>4 yıldız|
 
-## <a name="taxi"></a>Ücreti 
+## <a name="taxi"></a>Taksi 
  
-Hedefleri ve varlıkları oluşturma ve yönetme ücreti kayıtları ücreti etki alanı sağlar.
+Amaç ve varlıkları oluşturma ve yönetme taksi rezervasyonlarının taksi etki alanı sağlar.
 
 ### <a name="examples"></a>Örnekler
 ```
@@ -511,24 +511,24 @@ Cancel my Uber
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Rehberi | Bir ücreti çağırın. |Bana bir cab Al<br/>bir ücreti Bul<br/>Bana bir uber kitap x|
-| İptal | Bir ücreti kayıt için ilgili eylemi iptal eder.|My ücreti iptal et<br/>My Uber iptal et|
-| İzle | Bir ücreti yol izler.|My ücreti için beklenecek ne kadar uzun var mı?<br/>My Uber nerede?|
+| Rehberi | Bir taksi çağırın. |Bana bir cab Al<br/>Bir taksi bulun<br/>Bana bir uber kitap x|
+| İptal | Bir taksi kayıt için ilgili eylemi iptal eder.|My taksi iptal et<br/>My Uber iptal et|
+| İzle | Taksi yolu izleyin.|Ne kadar uzun my taksi için beklemek zorunda?<br/>My Uber nerede?|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Adres| Bir ücreti kayıt ile ilişkili adresi. |Palo Alto<br/>300 112th Ave kullan<br/>Seattle|
-| DestinationAddress| Bir hedef konum veya adresi. |Palo Alto<br/>300 112th Ave kullan<br/>Seattle|
-| DestinationPlaceName | Yerel iş, Restoran, ortak çekim veya kuruluştan bir hedef adı. |Orta Park<br/>Safeway<br/>Walmart|
-| DestinationPlaceType | Yerel iş, Restoran, ortak çekim veya kuruluştan bir hedef türü. |Restoran<br/>Opera<br/>sinema|
-| PlaceName | Yerel iş, Restoran, ortak çekim veya kurum adı. |Orta Park<br/>Safeway<br/>Walmart|
-| PlaceType| Bir ücreti kitap isteği yerinde türü.|Restoran<br/>Opera<br/>sinema|
+| Adres| Bir taksi kayıt ile ilişkili adres. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| DestinationAddress| Bir hedef konum veya adresi. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| DestinationPlaceName | Yerel işletme, Restoran, ortak bir çekim veya kurum bir hedef adı. |Orta parka<br/>Safeway<br/>Walmart|
+| DestinationPlaceType | Yerel işletme, Restoran, ortak bir çekim veya kurum bir hedef türü. |Restoran<br/>Opera<br/>Sinema|
+| PlaceName | Yerel işletme, Restoran, ortak bir çekim veya kurum adı. |Orta parka<br/>Safeway<br/>Walmart|
+| PlaceType| Yerinde bir taksi rezervasyonu için bir istek türü.|Restoran<br/>Opera<br/>Sinema|
 | TransportationCompany | Aktarım sağlayıcısının adı.|Amtrak<br/>Acela<br/>Greyhound|
 | TransportationType | Taşıma türü.|Veri yolu<br/>Eğitim<br/>Sürüş|
 
 ## <a name="translate"></a>Çevirme 
-Çeviri etki alanı hedefleri ve metin hedef dile çevirme için ilgili varlıklar sağlar.
+Hedefleri ve metni bir hedef dile çevirmek için ilgili varlıkları Çevir etki alanı sağlar.
 
 ### <a name="examples"></a>Örnekler
 ```
@@ -540,18 +540,18 @@ Translate this sentence to English
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Çevirme| Başka bir dilde metne çevir.|Fransızca Çevir<br/>Almanca Hello Çevir|
+| Çevirme| Metni başka bir dile çevirir.|Fransızca Çevir<br/>Almanca Hello Çevir|
 
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| TargetLanguage | Çeviri hedef dili.|Fransızca <br/>Almanca <br/>Kore dili|
+| TargetLanguage | Bir çeviri hedef dili.|Fransızca <br/>Almanca <br/>Kore dili|
 | Metin | Çevrilecek metin.|Hello World<br/>Günaydın<br/>İyi akşamlar|
 
 ## <a name="tv"></a>TV 
  
-TV etki alanı, TV denetlemek için hedefleri ve varlıkları sağlar.
+TV etki alanı, TV denetlemek için amaç ve varlıkları sağlar.
 
 ### <a name="examples"></a>Örnekler
 ```
@@ -563,17 +563,17 @@ Watch National Geographic
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| ChangeChannel| TV kanalında değiştirin.|CNN kanala Değiştir<br/>BBC geçiş kanalı<br/>4 kanal Git|
-| ShowGuide| TV kılavuz gösterir.|TV Kılavuzu Göster<br/>Film kanalda şimdi nedir?<br/>program listem Göster|
-| WatchTV| TV kanalı izlemek isteyin.|Disney kanal izlemek istediğiniz<br/>TV için lütfen gidin<br/>Ulusal coğrafi izleyin|
+| ChangeChannel| Bir TV kanalda değiştirin.|CNN kanala Değiştir<br/>BBC geçiş kanalı<br/>4 kanala gidin|
+| ShowGuide| TV Kılavuzu gösterir.|TV Kılavuzu Göster<br/>Film kanal artık nedir?<br/>My program listesini göster|
+| WatchTV| Bir televizyon kanalı izlemek isteyebilirsiniz.|Disney kanal izlemek istiyorum<br/>TV Lütfen gidin<br/>Ulusal coğrafi izleyin|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| ChannelName | TV kanal adı.|CNN<br/>BBC<br/>Film kanal|
+| ChannelName | Bir TV kanalın adı.|CNN<br/>BBC<br/>Film kanal|
 
 ## <a name="utilities"></a>Altyapı Hizmetleri  
-Yardımcı programlar etki alanı hedefleri Tebrikler, iptal, onay, Yardım, yineleme, başlatma ve durdurma Gezinti gibi pek çok görev için ortak olan görevleri sağlar.
+Yardımcı programları etki alanı hedefleri greetings, iptal, onay, Yardım, yineleme ve gezintisi, başlatma ve durdurma gibi birçok görev için ortak olan görevleri sağlar.
 
 ### <a name="examples"></a>Örnekler
 ```
@@ -585,19 +585,19 @@ Repeat last question please
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| İptal | Eylemi iptal eder.|İletiyi iptal etme<br/>Artık e-posta göndermek istemiyorum|
-| Onayla | Bir eylem onaylayın.|Evet ı Onayla<br/>Onaylama iyi<br/>Onaylama Tamam|
-| FinishTask | Kullanıcı başlatılmış bir görevi tamamlayın.|İşlemi bitirdim<br/>Yüklemeyi bitirdim<br/>Yapıldığını|
-| GoBack | Tek bir adımda geri dönün veya önceki adıma geri dönün.|Twitter hesabına geri dönün<br/>Bir adımı geri dönün<br/>Geri dön|
-| Yardım | Yardım iste.|Lütfen yardımcı olun<br/>Yardımı<br/>Yardım|
-| Yinele | Bir eylem yineleyin.|Son bir soru Lütfen tekrarlayın<br/>Son şarkının yineleyin|
-| ShowNext | Sonraki öğe bir seri gösterir. |Bir sonraki Göster<br/>sonraki sayfaya gidin|
-| ShowPrevious | Önceki öğeyi bir seri gösterir.|öncekinin Göster|
+| İptal | Eylemi iptal eder.|İletiyi iptal et<br/>Artık e-posta göndermek istemiyorum|
+| Onayla | Bir eylemi onaylayın.|Evet oh olduğumu onaylıyorum<br/>İyi onaylayan<br/>Tamamdır onaylayan|
+| FinishTask | Kullanıcı başlatılan bir görevi tamamlayın.|İşim bitti<br/>İşim bitti<br/>Yapıldığını|
+| GoBack | Bir adıma geri dönün veya bir önceki adıma geri dönün.|Twitter'da geri dönün<br/>Bir adıma geri dönün<br/>Geri dön|
+| Yardım | Yardım isteği.|Lütfen yardımcı olun<br/>Yardımı<br/>Yardım|
+| Yinele | Bir eylemi yineleyin.|Lütfen son soru tekrarlayın<br/>Son şarkı yineleyin|
+| ShowNext | Bir dizinin sonraki öğeyi gösterir. |Sonrakini Göster<br/>Sonraki Sayfaya Git|
+| ShowPrevious | Önceki öğeyle bir dizide gösterir.|Öncekine Göster|
 | StartOver | Uygulamayı yeniden başlatın veya yeni bir oturum başlatın.|Yeniden başlayın<br/>Yeni oturum<br/>restart|
-| Durdur | Bir eylem durdurun.| Lütfen belirten Durdur<br/>Kes sesini<br/>Lütfen durdurma|
+| Durdur | Bir eylem durdurun.| Bu Lütfen belirten Durdur<br/>Kes sesini<br/>Lütfen durdurma|
 
 ## <a name="weather"></a>Hava durumu 
-Hava durumu etki alanı, hava durumu raporları ve tahminleri almak için hedefleri ve varlıkları sağlar.
+Hava durumu etki alanı, hava durumu raporları ve öngörüleri almak için amaç ve varlıkları sağlar.
 
 ### <a name="examples"></a>Örnekler
 ```
@@ -609,16 +609,16 @@ What's the average temperature in India in september?
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| GetCondition | Hava durumu için ilgili geçmiş gerçekleri öğrenin. |Eylül Londra'da hava durumu<br/>Eylül'Hindistan ortalama sıcaklık nedir?|
-| GetForecast | Geçerli hava durumu alın ve sonraki birkaç gün için tahmini. |Nasıl hava bugün mi?<br/>10 tahmin günü nedir?<br/>Nasıl hava bu hafta sonu olacak?|
+| GetCondition | Hava durumu için ilgili geçmiş gerçekleri öğrenin. |hava durumu, Eylül ayının Londra<br/>Eylül'de bulunan ortalama sıcaklık nedir?|
+| GetForecast | Geçerli hava durumunu alın ve birkaç gün için tahmin edin. |Nasıl hava durumu hemen mi?<br/>10 gün tahmini nedir?<br/>Hava durumu, bu hafta nasıl olacak?|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Konum| Hava durumu isteği için mutlak konumu.|Seattle<br/>Paris<br/>Palo Alto|
+| Konum| Hava durumu isteği için bir mutlak konumu.|Seattle<br/>Paris<br/>Palo Alto|
 
 ## <a name="web"></a>Web 
-Web etki alanı, bir Web sitesine gezinmek için amacına sağlar.
+Web etki alanı bir hedefi için bir Web sitesine gezinme sağlar.
 
 ### <a name="examples"></a>Örnekler
 ```
@@ -630,5 +630,5 @@ Navigate to www.bing.com
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Gidin | Belirtilen bir Web sitesine gitmek için bir istek. |İçin facebook.com gidin<br/>Www.twitter.com için Git|
+| Gidin | Belirtilen bir Web sitesine gidin isteği. |İçin facebook.com gidin<br/>Www.twitter.com için Git|
 

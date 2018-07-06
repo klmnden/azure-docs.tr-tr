@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 9f12d9e8c9ee2038e7841cd05bb438421a5a8984
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2fd53225a455a34d03772487a10f62a94ac86735
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345354"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868982"
 ---
 # <a name="tutorial-add-phrase-list-to-improve-predictions"></a>Öğretici: Öngörüler geliştirmek için ifade listesi ekleme
 Bu öğreticide, hedefi puanları doğruluğunu artırmak ve varlıkları bir birbirinin yerine ekleyerek (eş anlamlılar) aynı anlama sahip sözcükleri tanımlama [tümcecik liste özelliğini](./luis-concept-feature.md).
@@ -254,7 +254,7 @@ Varlık puanı görüntülemek için [modeli yayımlama](luis-how-to-publish-app
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunu yapmak için uygulama listesinde uygulama adının yanındaki üç nokta menüsüne (...) tıklayıp **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunu yapmak için üç noktayı seçin (***...*** ) sağında bulunan uygulama listesinde uygulama adı, seçin **Sil**. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

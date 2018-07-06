@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
 ms.service: cognitive-services
-ms.openlocfilehash: f004a0a1726ca6c513e2cb4c137f82ae40e31a01
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 479fa450b86d19032e75ef6aa511a7bdca608d75
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344336"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869062"
 ---
 # <a name="manage-intents"></a>Intents yönetme 
 Ekleme [hedefleri](luis-concept-intent.md) LUIS uygulamanızı sorularınız ya da aynı amaçları olan komutları gruplarını tanımlamak için. 
@@ -75,9 +75,9 @@ Bkz: [hedefi veya varlık sayfasında mevcut utterance Ekle deseni](luis-how-to-
 
 ## <a name="edit-an-utterance-on-intent-page"></a>Hedefi sayfasında bir utterance Düzenle
 
-Bir utterance düzenlemek için bu utterance satırının sağındaki üç nokta (...) simgesini seçin ve ardından **Düzenle**. Metin değiştirme sonra klavyedeki Enter tuşuna basın.
+Bir utterance düzenlemek için üç noktayı seçin (***...*** ) bu utterance satırını sağ ucunda düğmesini ve ardından **Düzenle**. Metin değiştirme sonra klavyedeki Enter tuşuna basın.
 
-![Ekran görüntüsü, hedefleri Ayrıntıları sayfası, vurgulanan üç nokta simgesi](./media/luis-how-to-add-intents/edit-utterance.png) 
+![Üç nokta düğmesi vurgulanmış ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-intents/edit-utterance.png) 
 
 ## <a name="reassign-utterances-on-intent-page"></a>Konuşma niyetini sayfasında yeniden atama
 Bir veya daha fazla konuşma amacı, başka bir amaç için atama yoluyla değiştirebilirsiniz. 
@@ -92,7 +92,7 @@ Tek bir utterance utterance ait satır sonuna doğru farklı bir amaç için yen
 
 ## <a name="delete-utterances-on-intent-page"></a>Konuşma niyetini sayfasında Sil
 
-Bir utterance silmek için bu utterance satırının sağındaki üç nokta (...) simgesini seçin ve ardından **Sil**. Utterance listesi ve LUIS uygulaması kaldırılır.
+Bir utterance silmek için üç noktayı seçin (***...*** ) bu utterance satırını sağ ucunda düğmesini ve ardından **Sil**. Utterance listesi ve LUIS uygulaması kaldırılır.
 
 ![Sil seçeneğinin vurgulandığı ile ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 

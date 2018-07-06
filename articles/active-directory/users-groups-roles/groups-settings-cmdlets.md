@@ -14,12 +14,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 79d78d282d454586f5930d54248467365f2e684f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 658ec5bb2aa7c15fb1d38da5249ff9b13973cf41
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450276"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868006"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri
 Bu makale, grupları oluşturmak için Azure Active Directory (Azure AD) PowerShell cmdlet'lerini kullanmaya yönelik yönergeler içerir. Bu içerik yalnızca (birleştirilmiş grupları denir) Office 365 grupları için geçerlidir. 
@@ -98,8 +98,8 @@ Group.Unified SettingsTemplate içinde tanımlanan ayarlar aşağıda verilmişt
 |  <ul><li>UsageGuidelinesUrl<li>Türü: Dize<li>Varsayılan: "" |Grup kullanım kılavuzları bağlantısı. |
 |  <ul><li>ClassificationDescriptions<li>Türü: Dize<li>Varsayılan: "" | Sınıflandırma açıklamaları virgülle ayrılmış listesi. |
 |  <ul><li>DefaultClassification<li>Türü: Dize<li>Varsayılan: "" | Hiçbiri belirtilmemişse varsayılan sınıflandırma bir grup için kullanılacak olan sınıflandırması.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Türü: Dize<li>Varsayılan: "" | Office 365 grupları için yapılandırılmış adlandırma kuralı tanımlayan bir en fazla 64 karakter uzunluğunda dize. Daha fazla bilgi için [Office 365 grupları (Önizleme) için bir adlandırma ilkesini zorlama](../groups-naming-policy.md). |
-| <ul><li>CustomBlockedWordsList<li>Türü: Dize<li>Varsayılan: "" | Kullanıcı grubu adı veya diğer adı kullanmak için izin verilmez tümcecikleri virgülle ayrılmış dizesi. Daha fazla bilgi için [Office 365 grupları (Önizleme) için bir adlandırma ilkesini zorlama](../groups-naming-policy.md). |
+|  <ul><li>PrefixSuffixNamingRequirement<li>Türü: Dize<li>Varsayılan: "" | Office 365 grupları için yapılandırılmış adlandırma kuralı tanımlayan bir en fazla 64 karakter uzunluğunda dize. Daha fazla bilgi için [Office 365 grupları için bir adlandırma ilkesini zorlama](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Türü: Dize<li>Varsayılan: "" | Kullanıcı grubu adı veya diğer adı kullanmak için izin verilmez tümcecikleri virgülle ayrılmış dizesi. Daha fazla bilgi için [Office 365 grupları için bir adlandırma ilkesini zorlama](groups-naming-policy.md). |
 | <ul><li>EnableMSStandardBlockedWords<li>Türü: Boole<li>Varsayılan: "False" | Kullanmayın
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Türü: Boole<li>Varsayılan: False | Konuk kullanıcı Grup sahibi olabilir olup olmadığını belirten bir Boole değeri. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Türü: Boole<li>Varsayılan: True | Konuk kullanıcı erişim için Office 365 grupları içeriğe sahip olup olmadığını belirten bir Boole değeri.  Bu ayar, bir Azure Active Directory Premium P1 lisansı gerektirmez.|

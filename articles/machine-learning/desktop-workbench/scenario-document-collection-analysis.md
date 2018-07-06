@@ -1,50 +1,50 @@
 ---
-title: Koleksiyon analiz - Azure belge | Microsoft Docs
-description: Özetlemek ve belgeleri, tümcecik öğrenme, modelleme konu ve Azure ML çalışma ekranı kullanarak konu modeli çözümlemesi gibi teknikler de dahil olmak üzere büyük topluluğu analiz etme.
+title: Belge koleksiyonu çözümleme - Azure | Microsoft Docs
+description: Özetleme ve büyük bir belge, tümcecik öğrenme konu modelleme ve Azure ML Workbench kullanarak konu model analizi gibi teknikler koleksiyonu analiz etme.
 services: machine-learning
 author: kehuan
 ms.author: kehuan
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 60d65b17d4cbe8a45ff3fb62b06852d7b945e8f1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832868"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37861927"
 ---
 # <a name="document-collection-analysis"></a>Belge koleksiyonu çözümleme
 
-Bu senaryo, özetlemek ve belgeleri, tümcecik öğrenme, modelleme konu ve Azure ML çalışma ekranı kullanarak konu modeli çözümlemesi gibi teknikler de dahil olmak üzere büyük topluluğu çözümlemek gösterilmiştir. Azure Machine Learning çalışma ekranı çok büyük belge koleksiyonunu kaydınızı kolay ölçek sağlar ve eğitmek ve işlem bağlamı, yerel işlem için veri bilimi sanal makinelere Spark kümesi arasında değişen birçok içinde modelleri ayarlamak için mekanizma sağlar. Kolay geliştirme Jupyter not defterleri Azure Machine Learning çalışma ekranının içinden sağlanır.
+Bu senaryo özetlemek ve büyük bir belge, tümcecik öğrenme konu modelleme ve Azure ML Workbench kullanarak konu model analizi gibi teknikler koleksiyonu analiz etme gösterir. Azure Machine Learning Workbench için çok büyük bir belge koleksiyonu için kolay ölçek sağlar ve eğitme ve işlem bağlamı, yerel işlem için veri bilimi sanal makineleri için Spark kümesi arasında çeşitli Modellerinizi ayarlamak için bir mekanizma sağlar. Kolay geliştirme, Azure Machine Learning Workbench içinde Jupyter Notebook aracılığıyla sağlanır.
 
 ## <a name="link-to-the-gallery-github-repository"></a>Galeri GitHub deponuza bağlayın
 
-Bu gerçek dünya senaryoları için ortak GitHub depo kod örnekleri, bu örnek için gerekli dahil olmak üzere tüm malzemeleri içerir:
+Bu örnek için gerekli, kod örnekleri dahil olmak üzere tüm malzemeler, bu gerçek dünya senaryosu için ortak GitHub deposu içerir:
 
 [https://github.com/Azure/MachineLearningSamples-DocumentCollectionAnalysis](https://github.com/Azure/MachineLearningSamples-DocumentCollectionAnalysis)
 
 ## <a name="overview"></a>Genel Bakış
 
-Her gün toplanan bir miktarda (özellikle yapılandırılmamış metin verileri) ile önemli bir sınama düzenlemek, arama ve bu metinleri büyük miktarlarda anlamak için kullanılır. Bu belge koleksiyonu analiz senaryosu büyük belge koleksiyonunu çözümlemek ve aşağı akış NLP görevleri etkinleştirmek için bir verimli ve otomatik uçtan uca iş akışı gösterilmektedir.
+Her gün toplanan büyük miktarda veri (özellikle yapılandırılmamış metin verilerini) ile önemli düzenlemek, arama ve bu metinleri miktardaki anlamak zordur. Bu belge koleksiyonu çözümleme senaryo büyük belge koleksiyonu çözümleme ve aşağı akış NLP görevlerini etkinleştirmek için bir verimli ve otomatik uçtan uca iş akışı gösterilmektedir.
 
-Bu senaryo tarafından teslim temel öğeleri şunlardır:
+Bu senaryo tarafından sunulan temel öğeleri şunlardır:
 
-1. Belgelerden belirgin çok sözcükler tümcecik öğrenme.
+1. Belgelerden dikkat çekici çok sözcük tümcecik öğrenme.
 
-1. Belge koleksiyonundaki sunulan temel konuları bulma.
+1. Belge koleksiyonundaki sunulan temel konuları bulunuyor.
 
-1. Belgeleri temsil eden göre güncel dağıtım.
+1. Belgeleri güncel dağıtım tarafından temsil eder.
 
-1. Düzenleme, arama ve belgeleri tasarlamayla içeriğe göre özetlemeye yöntemleri sunmak.
+1. Düzenleme, arama ve belgeleri güncel içeriğe göre özetlemek için yöntemleri sunmak.
 
-Bu senaryoda sunulan yöntemleri konu eğilimleri anomali, belge koleksiyonu özetleme ve benzer belge arama bulma gibi kritik endüstriyel iş yüklerinin sağlayabilir. Belge analiz, devlet Yasama, haberleri, ürün incelemeleri, müşteri geribildirimler ve bilimsel araştırma makaleleri gibi birçok farklı türlerdeki uygulanabilir.
+Bu senaryoda sunulan yöntemleri kritik endüstriyel gibi iş yüklerini bulma konu eğilimleri anomali ve belge koleksiyonu özetleme benzer belge arama işlemi çeşitli sağlayabilir. Birçok farklı türdeki kamu Yasama, haberleri, ürün incelemeleri, müşteri geri bildirimler ve bilimsel araştırmaları makaleleri gibi belge analizi için uygulanabilir.
 
-Machine learning teknikleri/Bu senaryoda kullanılan algoritmalar şunları içerir:
+Makine öğrenme teknikleri/Bu senaryoda kullanılan algoritmalar şunlardır:
 
 1. Metin işleme ve temizleme
 
@@ -60,84 +60,84 @@ Machine learning teknikleri/Bu senaryoda kullanılan algoritmalar şunları içe
 
 Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 
-* Düzgün yüklediğinizden emin olun [Azure Machine Learning çalışma ekranı](../service/overview-what-is-azure-ml.md) izleyerek [yükleyin ve hızlı başlangıç oluşturma](../service/quickstart-installation.md).
+* Düzgün bir şekilde yüklediğinizden emin olun [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) izleyerek [yükleme ve oluşturma Hızlı Başlangıç](../service/quickstart-installation.md).
 
-* Bu örnekte her işlem bağlam çalıştırabilir. Ancak, çalıştırmak için bir çok çekirdekli makinesinde en az önerilir 16GB bellek ve 5GB disk alanı.
+* Bu örnek, her işlem bağlam üzerinde çalıştırılabilir. Ancak, çalıştırmak için çok çekirdekli makine ile en az önerilir 16GB bellek ve 5GB disk alanı.
 
-## <a name="create-a-new-workbench-project"></a>Yeni bir çalışma ekranı projesi oluşturma
+## <a name="create-a-new-workbench-project"></a>Workbench yeni bir proje oluşturun
 
-Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
-1.  Açık Azure Machine Learning çalışma ekranı
-2.  Üzerinde **projeleri** sayfasında, **+** oturum ve seçin **yeni proje**
-3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri doldurun
-4.  İçinde **arama proje şablonları** arama kutusu, "Belge koleksiyonu analiz" yazın ve şablonu seçin
+Bu örnekte, şablon olarak kullanarak yeni bir proje oluşturun:
+1.  Açık bir Azure Machine Learning Workbench'i
+2.  Üzerinde **projeleri** sayfasında **+** açıp seçmek **yeni proje**
+3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri girin
+4.  İçinde **proje şablonlarında Ara** arama kutusuna "Belge koleksiyonu Çözümleme" yazın ve şablonu seçin
 5.  **Oluştur**'a tıklayın
 
 ## <a name="data-description"></a>Veri açıklaması
 
-Bu senaryoda kullanılan dataset metin özetler ve BİZE Kongre tarafından yapılan her legislative eylemi için ilişkili meta verileri içerir. Veriler toplanır [GovTrack.us](https://www.govtrack.us/), Amerika Birleşik Devletleri Kongre etkinliklerini izler ve yardımcı Americans kendi Ulusal legislative işleminde katılın. Toplu veri aracılığıyla indirilebilir [bu bağlantıyı](https://www.govtrack.us/data/congress/) bu senaryoya dahil edilmeyen el ile bir betik kullanarak. Veri yüklemek nasıl ayrıntılarını bulunamadı [GovTrack API belgelerine](https://www.govtrack.us/developers/api).
+Bu senaryoda kullanılan veri kümesinin metin özetleri ve BİZE Kongre tarafından gerçekleştirilen her bir devletin eylemi ilişkili meta veriler içerir. Verilerin toplandığı [GovTrack.us](https://www.govtrack.us/), Amerika Birleşik Devletleri Kongre etkinliklerini izler ve katılmak, Ulusal devletin işlemde tan yardımcı olur. Toplu veri aracılığıyla indirilebilir [bu bağlantıyı](https://www.govtrack.us/data/congress/) bu senaryoya dahil edilmeyen el ile bir betik kullanarak. Nasıl veri yükleneceği ile ilgili ayrıntıları bulunamadı [GovTrack API belgeleri](https://www.govtrack.us/developers).
 
 ### <a name="data-source"></a>Veri kaynağı
 
-Bu senaryoda, toplanan ham verileri BİZE Kongre tarafından (önerilen faturaları ve çözümlemeleri) 1973 tarihli Haziran 2017 sunulan legislative Eylemler dizisidir (93rd 115th Congresses için). Toplanan veriler JSON biçiminde ve zengin bir legislative eylemler hakkında bilgi içerir. Başvurmak [bu GitHub bağlantıyı](https://github.com/unitedstates/congress/wiki/bills) veri alanları ayrıntılı bir açıklaması için. Bu senaryo içinde tanıtım amaç için yalnızca bir alt veri alanlarının ayıklanan JSON dosyaları. Önceden derlenmiş TSV dosyası `CongressionalDataAll_Jun_2017.tsv` kayıtları legislative işlemleri içeren bu senaryoda sağlanır. TSV dosyası otomatik olarak ya da dizüstü indirilebilir `1_Preprocess_Text.ipynb` Not Defteri klasörü altında veya `preprocessText.py` Python paketindeki.
+Bu senaryoda, toplanan ham verileri BİZE Kongre tarafından (önerilen fatura ve çözümleri) 1973 tarihli Haziran 2017'ye sunulan devletin eylemleri dizisidir (93rd 115th Congresses için). Toplanan verileri JSON biçimindedir ve zengin devletin eylemler hakkında bilgi içerir. Başvurmak [bu GitHub bağlantı](https://github.com/unitedstates/congress/wiki/bills) veri alanları ayrıntılı bir açıklaması için. Bu senaryo içinde Tanıtım amaçlı için yalnızca bir alt veri alanlarının ayıklanan JSON dosyalarından. Önceden derlenmiş TSV dosyası `CongressionalDataAll_Jun_2017.tsv` devletin bu eylemlerin kayıtları içeren bu senaryoda sağlanır. TSV dosyası otomatik olarak not defterleri ile indirilebilir `1_Preprocess_Text.ipynb` Not Defteri klasörü altında veya `preprocessText.py` Python paketi olarak.
 
 ### <a name="data-structure"></a>Veri yapısı
 
-Veri dosyasında dokuz veri alanları vardır. Veri alan adları ve açıklamaları aşağıda listelenmiştir.
+Veri dosyasında dokuz veri alanları vardır. Veri alanı adları ve açıklamaları aşağıda listelenmiştir.
 
-| Alan Adı | Tür | Açıklama | Eksik değeri içermelidir |
+| Alan Adı | Tür | Açıklama | Eksik değer içermesi |
 |------------|------|-------------|---------------|
-| `ID` | Dize | Fatura/çözüm kimliği. Bu alan [bill_type] [sayı] biçimidir-[Kongre]. Örneğin, "hconres1-93" fatura türü "hconres" anlamına gelir (temsil eden için ev eşzamanlı çözümleme başvurmak için [bu belgeyi](https://github.com/unitedstates/congress/wiki/bills#basic-information)), fatura numarası ' 1'dir 've ' 93 Kongre sayıdır'. | Hayır |
+| `ID` | Dize | Fatura/çözüm kimliği. Bu alan [bill_type] [sayı] biçimidir-[Kongre]. Örneğin, "93 hconres1" fatura türü "hconres" anlamına gelir (temsil eden ev eşzamanlı çözümlemesi için bkz [bu belgeyi](https://github.com/unitedstates/congress/wiki/bills#basic-information)), bill numarası ' 1'dir 've ' 93 Kongre sayıdır'. | Hayır |
 | `Text` | Dize | Fatura/çözümleme içeriği. | Hayır |
-| `Date` | Dize | Fatura/çözümleme Başlangıçta önerilen tarih. Bir 'yyyy-aa-gg' biçiminde. | Hayır |
-| `SponsorName` | Dize | Fatura/çözümleme önerilen birincil sponsoru adı. | Evet |
-| `Type` | Dize | Birincil başlık türünü sponsorluğunu üstlenmek, 'rep' (temsilcisi) ya da 'ğ' (senator). | Evet |
-| `State` | Dize | Birincil sponsoru durumu. | Evet |
-| `District` | Tamsayı | Sponsoru başlığı bir temsilcisi ise birincil sponsoru bölge sayısı. | Evet |
-| `Party` | Dize | Birincil sponsoru taraf. | Evet |
-| `Subjects` | Dize | Üst üste fatura Kongre kitaplığı tarafından eklenen konu koşulları. Terimleri virgülle birleşir. Bu koşulları Kongre kitaplığı içinde bir insan tarafından yazılan ve fatura hakkında bilgi ilk yayımlandığında genellikle mevcut değildir. Herhangi bir zamanda eklenebilir. Bu nedenle bir fatura ömrünü sonu bazı konu artık ilgili olmayabilir. | Evet |
+| `Date` | Dize | Fatura/çözüm Başlangıçta önerilen tarih. Bir 'yyyy-aa-gg' biçiminde. | Hayır |
+| `SponsorName` | Dize | Fatura/çözüm önerilen birincil sponsoru adı. | Evet |
+| `Type` | Dize | Birincil başlık türünü toplanma, 'Temsilcisi' (temsilcisi) ya da 'Gönder' (senator). | Evet |
+| `State` | Dize | Birincil sponsor durumu. | Evet |
+| `District` | Tamsayı | Birincil sponsor sponsoru başlığının bir temsilcisi ise bölge sayısı. | Evet |
+| `Party` | Dize | Birincil sponsor taraf. | Evet |
+| `Subjects` | Dize | Üst üste fatura kitaplığı Kongre tarafından eklenen konu koşulları. Terimleri virgülle bitiştirilir. Bu koşulları Kongre kitaplığı içinde bir insan tarafından yazılmış ve fatura bilgileri ilk yayımlandığında genellikle mevcut değildir. Herhangi bir zamanda eklenebilir. Bu nedenle fatura ömrünün sonunda bazı konu artık uygun olmayabilir. | Evet |
 
 ## <a name="scenario-structure"></a>Senaryo yapısı
 
-Belge koleksiyonu analiz örneği iki tür sonuçlara düzenlenmiştir. İlk tür iPython tüm iş akışının adım adım açıklamaları Göster not defterlerini dizisidir. İkinci bir Python paket yanı sıra bu paketin nasıl kullanılacağı bazı kod örnekleri türüdür. Birçok kullanım durumlarına genel Python paketidir.
+Belge koleksiyonu çözümleme örnek teslim edilebilirleri iki tür düzenlenmiştir. İlk tür, Ipython iş akışının tamamını adım adım açıklamaları Göster not defterlerini dizisidir. İkinci bir Python paketi yanı sıra bu paketin nasıl kullanılacağı bazı kod örnekleri türüdür. Birçok kullanım durumlarına göre genel Python paketidir.
 
-Bu örnekte dosyaları şu şekilde düzenlenmiştir.
+Bu örnekte dosyalar gibi düzenlenir.
 
 | Dosya Adı | Tür | Açıklama |
 |-----------|------|-------------|
-| `aml_config` | Klasör | Azure Machine Learning çalışma ekranı yapılandırma klasörü başvurmak [bu belge](./experimentation-service-configuration-reference.md) ayrıntılı deneme yürütme yapılandırması için |
+| `aml_config` | Klasör | Azure Machine Learning Workbench yapılandırma klasörü başvurmak [bu belgeleri](./experimentation-service-configuration-reference.md) ayrıntılı deneme yürütme yapılandırması |
 | `Code` | Klasör | Python betiği ve Python paketini kaydetmek için kullanılan kod klasörü |
 | `Data` | Klasör | Ara dosyaları kaydetmek için kullanılan veri klasörü |
-| `notebooks` | Klasör | Jupyter not defterlerini klasörü |
-| `Code/documentAnalysis/__init__.py` | Python dosyası | Python paket init dosyası |
-| `Code/documentAnalysis/configs.py` | Python dosyası | Önceden tanımlanmış sabitleri dahil olmak üzere belge analiz Python paketi tarafından kullanılan yapılandırma dosyası |
-| `Code/documentAnalysis/preprocessText.py` | Python dosyası | Aşağı Akış görevler için verileri ön işlemek için kullanılan Python dosyası |
-| `Code/documentAnalysis/phraseLearning.py` | Python dosyası | Verileri tümcecikleri öğrenin ve ham verileri dönüştürmek için kullanılan Python dosyası |
-| `Code/documentAnalysis/topicModeling.py` | Python dosyası | Görünmeyen Dirichlet ayırma (LDA) konu modeli eğitmek için kullanılan Python dosyası |
-| `Code/step1.py` | Python dosyası | Belge koleksiyonu analiz adım 1: metin önişle |
-| `Code/step2.py` | Python dosyası | Belge koleksiyonu analiz adım 2: tümceyi öğrenme |
-| `Code/step3.py` | Python dosyası | Belge koleksiyonu analiz adım 3: eğitmek ve LDA konu modelini değerlendir |
-| `Code/runme.py` | Python dosyası | Örnek bir dosyada tüm adımları çalıştırın |
-| `notebooks/1_Preprocess_Text.ipynb` | iPython not defteri | Metin önişle ve ham verileri dönüştürme |
-| `notebooks/2_Phrase_Learning.ipynb` | iPython not defteri | Metin verilerden tümcecikleri (sonra veri dönüştürme) öğrenin |
-| `notebooks/3_Topic_Model_Training.ipynb` | iPython not defteri | Tren LDA konu modeli |
-| `notebooks/4_Topic_Model_Summarization.ipynb` | iPython not defteri | Eğitilmiş bir LDA konu modelini temel alan belge koleksiyonunun içeriğini özetler |
-| `notebooks/5_Topic_Model_Analysis.ipynb` | iPython not defteri | Metin belgeleri koleksiyonu tasarlamayla içeriğini çözümleyebilir ve belge koleksiyonla ilişkili diğer meta verileri karşı güncel bilgi ilişkilendirmek |
-| `notebooks/6_Interactive_Visualization.ipynb` | iPython not defteri | Öğrenilen konu modelinin etkileşimli Görselleştirme |
-| `notebooks/winprocess.py` | Python dosyası | Dizüstü bilgisayarlar tarafından kullanılan çoklu işlem için python komut dosyası |
+| `notebooks` | Klasör | Jupyter not defterleri klasörü |
+| `Code/documentAnalysis/__init__.py` | Soubor Pythonu | Python paket init dosyası |
+| `Code/documentAnalysis/configs.py` | Soubor Pythonu | Yapılandırma dosyası Python paketi, önceden tanımlanmış sabitleri de dahil olmak üzere belge analizi tarafından kullanılır. |
+| `Code/documentAnalysis/preprocessText.py` | Soubor Pythonu | Aşağı Akış görevlerinde için verileri ön işleme için kullanılan bir Python dosyası |
+| `Code/documentAnalysis/phraseLearning.py` | Soubor Pythonu | İfadeleri verilerden bilgi edinin ve ham verileri dönüştürmek için kullanılan bir Python dosyası |
+| `Code/documentAnalysis/topicModeling.py` | Soubor Pythonu | Görünmeyen Dirichlet ayırma (LDA) konu modeli eğitmek için kullanılan bir Python dosyası |
+| `Code/step1.py` | Soubor Pythonu | Adım 1 / belge koleksiyonu çözümleme: metin ön işleme |
+| `Code/step2.py` | Soubor Pythonu | Adım 2 / belge koleksiyonu çözümleme: tümcecik öğrenme |
+| `Code/step3.py` | Soubor Pythonu | Adım 3 / belge koleksiyonu çözümleme: eğitme ve değerlendirme LDA konu modeli |
+| `Code/runme.py` | Soubor Pythonu | Örnek bir dosya içinde tüm adımları çalıştırın |
+| `notebooks/1_Preprocess_Text.ipynb` | Ipython Notebook | Ham verileri dönüştürme ve metin ön işleme |
+| `notebooks/2_Phrase_Learning.ipynb` | Ipython Notebook | (Sonra veri dönüştürme) ifadeleri metin verilerden bilgi edinin |
+| `notebooks/3_Topic_Model_Training.ipynb` | Ipython Notebook | LDA konu modeli eğitme |
+| `notebooks/4_Topic_Model_Summarization.ipynb` | Ipython Notebook | Eğitilen bir LDA konu modelini temel belge koleksiyonu içeriğini özetleme |
+| `notebooks/5_Topic_Model_Analysis.ipynb` | Ipython Notebook | Metin belgeleri koleksiyonunu tasarlamayla içeriğini çözümleyebilir ve güncel bilgiler belge koleksiyonu ile ilişkili diğer meta verileri ilişkilendirin |
+| `notebooks/6_Interactive_Visualization.ipynb` | Ipython Notebook | Öğrenilen konu modelinin etkileşimli Görselleştirme |
+| `notebooks/winprocess.py` | Soubor Pythonu | Dizüstü bilgisayarlar tarafından kullanılan işlemci için python betiği |
 | `README.md` | Markdown dosyası | Benioku markdown dosyası |
 
 ### <a name="data-ingestion-and-transformation"></a>Veri alımı ve dönüştürme
 
-Derlenmiş dataset `CongressionalDataAll_Jun_2017.tsv` Blob depolama alanına kaydedilir ve erişilebilir olduğunu hem de dizüstü bilgisayarlar ve Python komut dosyaları içinde. Veri alımı ve dönüştürme için iki adımı vardır: metin verileri ön işleme ve tümceyi öğrenme.
+Derlenmiş dataset `CongressionalDataAll_Jun_2017.tsv` Blob depolama alanına kaydedilir ve erişilebilir olduğundan hem not defterlerini ve Python komut dosyaları. Veri alımı ve dönüştürme için iki adımı vardır: metin verileri ön işleme ve tümcecik öğrenme.
 
 #### <a name="preprocess-text-data"></a>Metin verileri ön işleme
 
-Önişlem adım temizleyin ve ham metin verileri hazırlamak için doğal dil işleme teknikleri uygulanır. Denetimsiz tümcecik öğrenme ve görünmeyen konu modelleme için bir precursor görür. Ayrıntılı adım adım açıklama not defterinde bulunabilir `1_Preprocess_Text.ipynb`. Ayrıca bir Python komut dosyası olan `step1.py` bu not defterini karşılık gelir.
+Ön işleme adımı, doğal dil işleme tekniklerini temizlemek ve ham metin verilerini hazırlamak için geçerlidir. Görünmeyen konu modelleme ve tümcecik Denetimsiz öğrenme için bir precursor görür. Ayrıntılı adım adım açıklama not defterinde bulunabilir `1_Preprocess_Text.ipynb`. Python betiğini de mevcuttur `step1.py` bu not defterini karşılık gelir.
 
-Bu adımda, TSV veri dosyası Azure Blob depolama alanından indirilir ve Pandas DataFrame içeri aktarıldı. Her satır DataFrame tek bir bağlı uzun dize metin ya da 'belge' öğedir. Her bir belgenin sonra tümcelerin, tümce veya subphrases büyük olasılıkla olan parçalara metnin ayrılır. Bölme arası cümleyi veya çapraz tümceciği sözcük dizelerini tümcecikleri öğrenme kullandığınızda işlemin öğrenme tümcecik önlemek üzere tasarlanmıştır.
+Bu adımda, TSV veri dosyasını Azure Blob depolama alanından indirilir ve bir Pandas DataFrame içeri aktarıldı. Her bir satır veri çerçevesi öğesinde tek cohesive uzun metin veya bir 'document' dizesidir. Her belge ardından cümle, ifadeler veya subphrases olasılığı öbeklere metin ayrılır. Bölme arası cümle veya çapraz tümcecik sözcük dizelerini tümcecikleri öğrenme kullandığınızda işlemin öğrenme tümcecik engellemek için tasarlanmıştır.
 
-Hem Not Defteri ve Python paket önişlem adımı için tanımlanan birden çok işlevleri vardır. İşin çoğunu bu iki satırlar kodlarının çağırarak elde edilebilir.
+Not Defteri ve Python paketini ön işleme adımı için tanımlanan birden çok işlev vardır. İşin çoğunu, bu iki satırı kodlarının çağırarak gerçekleştirilebilir.
 
 ```python
 # Read raw data into a Pandas DataFrame
@@ -149,11 +149,11 @@ cleanedDataFrame = CleanAndSplitText(textDF, saveDF=True)
 
 #### <a name="phrase-learning"></a>Tümcecik öğrenme
 
-Tümcecik öğrenme adım belgeleri büyük topluluğu arasında anahtar tümcecikleri öğrenmek için temel bir çerçeve uygular. Başlıklı teknik incelemeye açıklanan "[Multiword tümcecikleri geliştirilmiş konu modelleme, konuşma konuşma için kısıtlı tümcecikleri ağacı modelleme](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf)", hangi ilk olarak sunulan konuşulan dil 2012 IEEE Atölye içinde Teknoloji. Tümcecik öğrenme adımın ayrıntılı uygulama iPython not defteri gösterilen `2_Phrase_Learning.ipynb` ve Python komut dosyası `step2.py`.
+Tümcecik öğrenme adımı, anahtar ifadeleri büyük bir belge koleksiyonu arasında öğrenmek için temel bir çerçeve uygular. Başlıklı yazının açıklanan "[kısıtlı tümcecikleri ağaç geliştirilmiş konu modelleme, konuşma konuşma Multiword tümcecikleri modelleme](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf)", hangi ilk kısmında sunulmuştur konuşulan dil 2012 IEEE Atölyesi Teknoloji. Tümcecik öğrenme adımın ayrıntılı uygulama Ipython Notebook gösterilen `2_Phrase_Learning.ipynb` ve Python betiğini `step2.py`.
 
-Bu adım, temizlenen metin giriş olarak alır ve büyük belgeleri koleksiyonda mevcut en belirgin tümcecikleri öğrenir. Tümcecik öğrenme, üç görevlere bölünür yinelemeli bir işlemdir: n-gram sayısı, rank ağırlıklı Pointwise karşılıklı bilgilere göre bağlı sözcüklerin olası tümcecikleri ve metin tümceciği yeniden yazın. Belirtilen tümcecikleri öğrenilen kadar üç bu görevleri birden çok yinelemelerini sıralı olarak yürütülür.
+Bu adım, temizlenmiş metin giriş olarak alır ve büyük bir belge koleksiyonu mevcut en dikkat çekici tümcecikleri öğrenir. Tümcecik öğrenme üç görevlere ayrılabilir, yinelemeli bir işlemdir: n-gram sayısı, rank ağırlıklı Pointwise karşılıklı bilgilere göre bağlı bir kelimelerin olası ifadeleri ve metin deyimi yeniden yazın. Belirtilen ifadeler öğrenilen kadar bu üç görevin birden çok yinelemelerde sırayla yürütülür.
 
-Belge analiz Python paket Python sınıfı `PhraseLearner` tanımlanan `phraseLearning.py` dosya. Tümcecikleri öğrenmek için kullanılan kod parçacığı aşağıdadır.
+Belge analizi Python paket Python sınıfı içinde `PhraseLearner` tanımlanan `phraseLearning.py` dosya. İfadeleri öğrenmek için kullanılan kod parçacığı aşağıdadır.
 
 ```python
 # Instantiate a PhraseLearner and run a configuration
@@ -172,26 +172,26 @@ phraseLearner.RunConfiguration(textData,
 ```
 
 > [!NOTE]
-> Tümcecik öğrenme adım ile çoklu işlem uygulanır. Ancak, daha fazla CPU çekirdekleri yapmak **değil** daha hızlı bir yürütme süresi anlamına gelir. Bizim testlerinde performans, çoklu işlem yükü nedeniyle birden fazla sekiz çekirdeği ile geliştirilmiş değil. Sekiz Çekirdeği (3,6 GHz) olan bir makinede 25.000 tümcecikleri öğrenmek için yaklaşık iki ve bir yarım saat sürdü.
+> Tümcecik öğrenme adımı çoklu işleme ile uygulanır. Ancak, bunun için daha fazla CPU çekirdeği **değil** daha hızlı bir yürütme süresi anlamına gelir. Testlerimiz, performans, çoklu işlem yükü nedeniyle sekizden fazla çekirdek içeren geliştirilmiş değil. Sekiz çekirdeğe (3.6 GHz) olan bir makinede 25.000 tümcecikleri öğrenmek için yaklaşık iki ve yarım saat sürdü.
 >
 
 ### <a name="topic-modeling"></a>Konu modelleme
 
-Bir görünmeyen konu model kullanımı öğrenme LDA üçüncü Bu senaryoda bir adımdır. [Gensim](https://radimrehurek.com/gensim/) Python paket öğrenmek için bu adım gereklidir bir [LDA konu modeli](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation). Bu adım için karşılık gelen not defteri `3_Topic_Model_Training.ipynb`. Ayrıca başvurabilirsiniz `step3.py` belge analiz paketin nasıl kullanılacağı için.
+Görünmeyen konu model kullanımı öğrenme LDA üçüncü Bu senaryoda adımıdır. [Gensim](https://radimrehurek.com/gensim/) Python paketini öğrenmek için bu adım gereklidir bir [LDA konu modeli](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation). Bu adım için karşılık gelen not defterine `3_Topic_Model_Training.ipynb`. Ayrıca başvurabilirsiniz `step3.py` belge analizi paketin nasıl kullanılacağı için.
 
-Bu adımda, ana LDA konu modeli öğrenin ve hiper parametrelerini ayarlamak için bir görevdir. Vardır ayarlanması gereken birden çok parametre ne zaman bir LDA modeli eğitmek, ancak en önemli parametre konuları sayısıdır. Çok az konuları Insight belge koleksiyonuna sahip olmayabilir; çok seçerken birçok "gövde çok sayıda küçük, yüksek oranda benzer konulara aşırı kümelemesinde" neden olur. Bu senaryo amacı konuların sayısını ayarlamak nasıl göstermektir. Azure Machine Learning çalışma ekranı denemeler farklı parametre yapılandırmayla farklı işlem bağlamları üzerinde çalıştırmak özgürlüğü sağlar.
+Bu adımda, ana bir LDA konu modeli öğrenin ve hiper parametreler ayarlamak için görevdir. Vardır ayarlanması gereken birden çok parametre ne zaman bir LDA modeli eğitmek, ancak konu sayısı en önemli parametredir. Çok az sayıda konuları öngörülere ve belge koleksiyonu olmayabilir; çok seçerken birçok "bir gövde birçok küçük ve büyük ölçüde benzer konulara aşırı kümelemesindeki" sonuçlanır. Bu senaryonun amacı, konu sayısı'nı ayarlama göstermektir. Azure Machine Learning Workbench, denemeleri farklı parametre yapılandırmasıyla farklı işlem bağlamlarının üzerinde çalıştırmak için özgürlüğü sağlar.
 
-Belge analiz Python paket yardımcı olmak için birkaç işlevleri tanımlanmış olan kullanıcılar konu en iyi sayısı şekil. İlk konu modeli tutarlılık değerlendirerek bir yaklaşımdır. Desteklenen dört değerlendirme matrisleri vardır: `u_mass`, `c_v`, `c_uci`, ve `c_npmi`. Bu dört ölçümün ayrıntılarını ele alınmıştır [bu kağıt](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf). Tutulan çıkış gövde üzerinde perplexity değerlendirmek için ikinci bir yaklaşım kullanılır.
+Belge analizi Python paketine yardımcı olmak için bazı işlevleri tanımlanmış olan en iyi konuları sayısının ölçeğini kullanıcıları şekil. Konu modelinin modellenmiş değerlendirerek ilk yaklaşımdır. Desteklenen dört değerlendirme matrisi vardır: `u_mass`, `c_v`, `c_uci`, ve `c_npmi`. Bu dört ölçüm ayrıntıları ele alınmıştır [Bu yazıda](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf). İkinci tutulan genişletme gövde üzerinde perplexity değerlendirilecek bir yaklaşımdır.
 
-Perplexity değerlendirme için en iyi konu sayısı bulmak için 'U' Şekil eğri beklenir. Ve dirsek konumu en iyi seçimdir. Birden çok kez farklı rastgele kök ile değerlendirmek ve ortalama almak için tavsiye edilir. Tutarlılık değerlendirmek bir 'n' olması bekleniyor şekil, konu sayısı artan tutarlılık artar anlamına gelir ve ardından azaltın. Bir örnek çizim perplexity, ve `c_v` tutarlılık şu şekilde gösteriliyor.
+'U' şekli eğri konularda en iyi sayısının ölçeğini bulmak için perplexity değerlendirme için bekleniyor. Ve dirsek konumu en iyi bir seçimdir. Farklı rasgele çekirdek ile birden çok kez değerlendirmenize ve ortalamasını almak için tavsiye edilir. Modellenmiş değerlendirmek bir 'N' sayıda olması beklenir şekil, konu sayısı artan modellenmiş artış anlamına gelir ve ardından azaltın. Bir örnek çizim perplexity, ve `c_v` modellenmiş şu şekilde gösteriliyor.
 
 ![Perplexity](./media/scenario-document-collection-analysis/Perplexity_Value.png)
 
-![c_v tutarlılık](./media/scenario-document-collection-analysis/c_v_Coherence.png)
+![c_v modellenmiş](./media/scenario-document-collection-analysis/c_v_Coherence.png)
 
-Bu senaryoda, tutarlılık değeri de 200 konuları sonra önemli ölçüde azaltır perplexity 200 konuları sonra önemli ölçüde artırır. Bu grafikler ve karşı daha fazla genel konularına desire kümelenmiş konuları bağlı olarak, iyi bir seçenek 200 konuları olmalıdır seçin.
+Modellenmiş değeri de 200 konuları sonra önemli ölçüde azaltır. ancak bu senaryoda perplexity 200 konuları sonra önemli ölçüde artırır. Bu grafikler ve gizliliğinizi korumayı taahhüt eder daha genel konular için kümelenmiş konuları bağlı olarak, 200 konuları iyi bir seçenek seçin.
 
-Bir deneme LDA konu modelinde Çalıştır veya eğitmek ve farklı konu sayı çalıştıran tek bir deneme yapılandırmalarında LDA modelleriyle değerlendirmek eğitim yapabilirsiniz. Bir yapılandırma için birden çok kez çalıştırmak ve ortalama tutarlılık ve/veya perplexity değerlendirmeleri almak için tavsiye edilir. Belge analiz paketin nasıl kullanılacağı ayrıntılarını bulunabilir `step3.py` dosya. Bir örnek kod parçacığını aşağıdaki gibidir.
+Bir denemede LDA konu modeli Çalıştır veya eğitmek ve farklı bir konu sayı yapılandırmaları Çalıştır tek bir denemede birden çok LDA modelleriyle değerlendirmek eğitebilirsiniz. Bir yapılandırmanın birden çok kez çalıştırın ve ardından ortalama modellenmiş ve/veya perplexity değerlendirmeleri almak için tavsiye edilir. Belge analizi paketin nasıl kullanılacağı ile ilgili ayrıntıları bulunabilir `step3.py` dosya. Bir örnek kod parçacığını aşağıdaki gibidir.
 
 ```python
 topicmodeler = TopicModeler(docs,
@@ -218,35 +218,35 @@ perplex = topicmodeler.EvaluatePerplexity(lda)
 ```
 
 > [!NOTE]
-> Bir LDA konu modeli eğitmek için yürütme süresi, makinedeki çekirdek sayısının yanı sıra gövde, Hiper parametre yapılandırma boyutu gibi birden çok faktöre bağlıdır. Birden çok CPU çekirdeği kullanarak daha hızlı bir model eğitir. Ancak, aynı hiper parametresiyle daha fazla sayıda çekirdek ayarını daha az güncelleştirmeler eğitim sırasında anlamına gelir. İçin önerilen **yakınsanmış LDA modeli eğitmek için en az 100 güncelleştirmeleri**. Güncelleştirme sayısı ve hiper parametreleri arasındaki ilişki içinde ele alınmıştır [bu post](https://groups.google.com/forum/#!topic/gensim/ojySenxQHi4) ve [bu post](http://miningthedetails.com/blog/python/lda/GensimLDA/). Bizim testlerinde yapılandırmasını kullanarak 200 konularda LDA modeli eğitmek için yaklaşık 3 saat sürdü `workers=15`, `passes=10`, `chunksize=1000` 16 çekirdek (2,0 GHz) olan bir makinede.
+> Bir LDA konu modeli eğitmek için yürütme süresi, gövde, Hiper parametre yapılandırma yanı sıra, makinedeki çekirdek boyutu birden çok etkene bağlıdır. Birden çok CPU çekirdekleri kullanılarak daha hızlı bir modeli eğitir. Ancak, aynı hyper parametresi ile daha fazla çekirdek ayarını daha az güncelleştirmeleri eğitim sırasında anlamına gelir. İçin önerilen **yakınsanmış bir LDA modeli eğitmek için en az 100 güncelleştirmeleri**. Güncelleştirme sayısı ve hiper Parametreler arasındaki ilişki, içinde ele alınmıştır [yazıya](https://groups.google.com/forum/#!topic/gensim/ojySenxQHi4) ve [yazıya](http://miningthedetails.com/blog/python/lda/GensimLDA/). Testlerimiz, yaklaşık 3 saat yapılandırmasını kullanarak 200 konularla LDA modeli eğitmek için sürdüğünü `workers=15`, `passes=10`, `chunksize=1000` 16 çekirdek (2,0 GHz) olan bir makinede.
 >
 
-### <a name="topic-summarization-and-analysis"></a>Konu özetleme ve çözümleme
+### <a name="topic-summarization-and-analysis"></a>Konu özetleme ve analiz
 
-İki dizüstü bilgisayarlar belge analiz paketinde karşılık gelen hiçbir işlevleri varken bir konu özetleme ve analiz oluşur.
+İki not defteri belge analizi pakette hiçbir ilgili işlevlerle varken bir konu özetleme ve analiz oluşur.
 
-İçinde `4_Topic_Model_Summarization.ipynb`, eğitilen LDA konu modelini temel alan belgesinin içeriğini özetlemek nasıl gösterir. Özetleme, adım 3'te öğrenilen LDA konu modeline uygulanır. Önem derecesi ya da belge olmak üzere ölçü konuya kullanarak bir konu kalitesi ölçmek nasıl gösterir. Bu olmak üzere ölçü göründükleri belgeleri baskındır görünmeyen konuları zayıf görünmeyen konuları birçok belgeler arasında yayılan daha fazla anlamsal olarak önemli olduğunu varsayar. Bu kavram yazıda sunulmuştur "[ses gövde özetleme için görünmeyen konu modelleme](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf)."
+İçinde `4_Topic_Model_Summarization.ipynb`, eğitilen bir LDA konu modelini temel belgesinin içeriğini özetlenme biçimini gösterir. Özetleme, adım 3'te öğrenilen LDA konu modeline uygulanır. Bu önem ya da belge saflığa ölçü konuya kullanarak bir konu kalitesi ölçmek nasıl gösterir. Bu saflığa ölçü, göründükleri belgeleri baskındır görünmeyen konuları zayıf görünmeyen konuları birçok belgeler arasında yayılabilir. daha fazla anlamsal olarak önemli olduğunu varsayar. Bu kavramı kağıt kullanıma sunulmuştur "[ses topluluğunuza özetleme için görünmeyen konu modelleme](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf)."
 
-Not Defteri `5_Topic_Model_Analysis.ipynb` belgeleri topluluğu güncel içeriği çözümlemek ve belge koleksiyonla ilişkili diğer meta verileri karşı güncel bilgi ilişkilendirmek gösterilmektedir. Birkaç çizimleri kullanıcıların öğrenilen konu ve belge koleksiyonu daha iyi anlamasına yardımcı olmak için bu not defterinde sunulur.
+Not Defteri `5_Topic_Model_Analysis.ipynb` tasarlamayla içeriğini bir belge koleksiyonu çözümleme ve belge koleksiyonu ile ilişkili diğer meta verileri karşı güncel bilgi ilişkilendirmek gösterilmektedir. Birkaç çizimleri kullanıcıların öğrenilen konu ve belge koleksiyonu daha iyi anlamanıza yardımcı olmak için bu not defteri kullanıma sunulmuştur.
 
-Not Defteri `6_Interactive_Visualization.ipynb` öğrenilen konu modeli etkileşimli görselleştirme gösterilmektedir. Dört etkileşimli görselleştirme görevleri içerir.
+Not Defteri `6_Interactive_Visualization.ipynb` öğrenilen konu modeli etkileşimli görselleştirme gösterilmektedir. Bu dört etkileşimli görselleştirme görevleri içerir.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu gerçek dünya senaryosu sağlam bir modeli oluşturmak için bilinen metin analytics teknikleri (Bu durumda, tümcecik öğrenme ve LDA konu modelleme) kullanmayı ve Azure Machine Learning çalışma ekranı modeli performansını izlemek ve sorunsuz bir şekilde çalıştırmak nasıl yardımcı olabileceği önemli noktalar yüksek ölçekli öğrencileriyle. Daha ayrıntılı olarak:
+İyi bilinen metin analizi teknikleri (Bu durumda, tümcecik öğrenme ve LDA konu modelleme) güçlü bir modeli oluşturmak için nasıl kullanılacağını ve Azure Machine Learning Workbench model performansını izlemek ve sorunsuz bir şekilde çalıştırma nasıl yardımcı olabileceğini Bu gerçek dünya senaryosu vurgulanıyor daha yüksek ölçekte öğrencileriyle. Daha ayrıntılı olarak:
 
-* Tümcecik öğrenme ve konu modelleme belgeleri topluluğu işlemek ve sağlam bir model oluşturmak için kullanın. Belgeleri topluluğu çok büyük ise, Azure Machine Learning çalışma ekranı kolayca onu ölçeklendirebilirsiniz ayarlama ve çıkış. Ayrıca, kullanıcıların farklı işlem bağlamı kolayca Azure Machine Learning çalışma ekranının içinden denemeleri çalıştırmak için serbestçe.
+* Bir belge koleksiyonu işlem ve sağlam bir model derlemek için ifade öğrenme ve konu modelleme kullanın. Belgelerin koleksiyonu çok büyük ise, Azure Machine Learning Workbench kolayca ölçeklendiremezsiniz ayarlama ve inceleyin. Ayrıca, kullanıcılar, Azure Machine Learning Workbench içinde farklı işlem bağlamı kolayca denemeleri çalıştırmak için özgürlüğüne sahipsiniz.
 
-* Azure Machine Learning çalışma ekranı not defterlerini bir adım adım şekilde ve tüm bir denemeyi çalıştırmak için Python betiği çalıştırmak için her iki seçenek sağlar.
+* Azure Machine Learning Workbench, not defterlerini bir adım adım bir şekilde ve tüm bir denemeyi çalıştırmak için Python betiğini çalıştırmak için iki seçenek sağlar.
 
-* Konu en iyi sayısı bulmak için Azure Machine Learning çalışma ekranı kullanarak Hyper-parametre ayarlama öğrenmek gerekli. Azure Machine Learning çalışma ekranı modeli performansını izlemek ve sorunsuz bir şekilde yüksek ölçekte farklı öğrencileriyle çalıştırmak yardımcı olabilir.
+* Bilgi edinmek en iyi konuları sayısını bulmak için Azure Machine Learning Workbench'i kullanarak Hyper parametresi ayarlama gerekli. Azure Machine Learning Workbench, model performansını izlemek ve sorunsuz bir şekilde farklı öğrencileriyle daha büyük bir ölçekte alıştırmanızı yardımcı olabilir.
 
-* Azure Machine Learning çalışma ekranı çalıştırma geçmişi ve öğrenilen modelleri yönetebilirsiniz. Veri bilimcilerine modelleri gerçekleştirmek için en iyi hızlı bir şekilde tanımlamak ve komut dosyalarını ve bunları oluşturmak için kullanılan veri bulmak için etkinleştirir.
+* Azure Machine Learning Workbench'i çalıştırma geçmişi ve öğrenilen modelleri yönetebilirsiniz. Ancak, veri uzmanları için en iyi performansa sahip Modellerinizi hızla tanımlamanıza ve betikleri ve onları oluşturmak için kullanılan verileri bulmak için etkinleştirir.
 
 ## <a name="references"></a>Başvurular
 
-* **Attila J. Hazen, Gamze Uludağ**, [ _için kısıtlanmış tümcecikleri ağacı Multiword tümcecikleri modelleme geliştirilmiş konu modelleme konuşma konuşma_](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf). Dil teknolojisi Atölye (SLT) 2012 IEEE söylenir. IEEE, 2012.
+* **Timothy J. Hazen, Fred Uludağ**, [ _geliştirilmiş damıtarak konuşma bağlamında kullanılabilen konuşma konu modelleme için kısıtlanmış bir ifade ağacı Multiword tümcecikleri modelleme_](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf). Konuşulan dili teknoloji Workshop (SLT) 2012 IEEE. IEEE, 2012.
 
-* **Attila J. Hazen**, [ _ses gövde özetleme görünmeyen konu modelleme_](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf). Uluslararası konuşma iletişimi ilişki 12 yıllık konferans. 2011.
+* **Timothy J. Hazen**, [ _ses topluluğunuza özetleme için görünmeyen konu modelleme_](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf). Uluslararası konuşma iletişim ilişkilendirmenin 12 yıllık konferansı. 2011.
 
-* **Michael Roder, her iki Andreas, Alexander Hinneburg**, [ _konu tutarlılık ölçüleri alanı keşfetme_](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf). Sekizinci ACM uluslararası konferans Web araması ve veri madenciliği bildirileri. ACM, 2015'İ TIKLATIN.
+* **Michael Roder, her iki Andreas Alexander Hinneburg**, [ _konu modellenmiş ölçüleri alan araştırma_](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf). Web araması ve veri madenciliği sekizinci ACM uluslararası konferans bildirileri. ACM, 2015'İ TIKLATIN.

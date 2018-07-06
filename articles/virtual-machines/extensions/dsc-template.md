@@ -1,6 +1,6 @@
 ---
-title: İstenen durum yapılandırması uzantısı Azure Resource Manager şablonları ile
-description: İstenen durum Yapılandırması'nı (DSC) uzantısı'nda Azure Resource Manager şablonu tanımı hakkında bilgi edinin.
+title: Azure Resource Manager şablonları ile Desired State Configuration uzantısı
+description: Azure Desired State Configuration ' nı (DSC) uzantısı için Resource Manager şablon tanımı hakkında bilgi edinin.
 services: virtual-machines-windows
 documentationcenter: ''
 author: DCtheGeek
@@ -16,25 +16,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: 8d1e8b4d529936a2401c734b2eff1f0c02dae352
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: d007869bb8bad1a2f0775a1ab2c1bf5d27c1cb8f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307875"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866234"
 ---
-# <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>İstenen durum yapılandırması uzantısı Azure Resource Manager şablonları ile
+# <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile Desired State Configuration uzantısı
 
-Bu makalede Azure Resource Manager şablonu [istenen durum Yapılandırması'nı (DSC) uzantısı işleyici](dsc-overview.md).
+Bu makalede Azure Resource Manager şablonu [Desired State Configuration ' nı (DSC) uzantısı işleyicisi](dsc-overview.md).
 
 > [!NOTE]
-> Biraz farklı şema örnekler karşılaşabilirsiniz. Ekim 2016 sürümde şema değişikliği oluştu. Ayrıntılar için bkz [güncelleştirme önceki biçiminden](#update-from-the-previous-format).
+> Biraz farklı şema örneklerle karşılaşabilirsiniz. Şema değişikliği Ekim 2016 sürümündeki oluştu. Ayrıntılar için bkz [güncelleştirme Önceki biçimden](#update-from-a-previous-format).
 
 ## <a name="template-example-for-a-windows-vm"></a>Bir Windows VM için şablon örneği
 
-Aşağıdaki kod parçacığında gider **kaynak** şablon bölümünü.
-DSC uzantı varsayılan uzantısı özellikleri devralır.
-Daha fazla bilgi için bkz: [VirtualMachineExtension sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+Aşağıdaki kod parçacığı gider **kaynak** şablon bölümü.
+DSC uzantısı varsayılan uzantı özellikleri devralır.
+Daha fazla bilgi için [VirtualMachineExtension sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
 {
@@ -79,11 +79,11 @@ Daha fazla bilgi için bkz: [VirtualMachineExtension sınıfı](https://docs.mic
 
 ## <a name="template-example-for-windows-virtual-machine-scale-sets"></a>Şablon örneği Windows sanal makine ölçek için ayarlar
 
-Bir sanal makine ölçek kümesi düğüm bir **özellikleri** sahip bölüm bir **VirtualMachineProfile, extensionProfile** özniteliği.
-Altında **uzantıları**, DSC uzantısı ayrıntıları ekleyin.
+Bir sanal makine ölçek kümesi düğümü olan bir **özellikleri** olan bölüm bir **VirtualMachineProfile, extensionprofile öğesine** özniteliği.
+Altında **uzantıları**, DSC uzantısı ayrıntılarını ekleyin.
 
-DSC uzantı varsayılan uzantısı özellikleri devralır.
-Daha fazla bilgi için bkz: [VirtualMachineScaleSetExtension sınıfı](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+DSC uzantısı varsayılan uzantı özellikleri devralır.
+Daha fazla bilgi için [VirtualMachineScaleSetExtension sınıfı](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
@@ -130,9 +130,9 @@ Daha fazla bilgi için bkz: [VirtualMachineScaleSetExtension sınıfı](/dotnet/
 
 ## <a name="detailed-settings-information"></a>Ayrıntılı ayarları bilgileri
 
-Aşağıdaki şemada kullanmak **ayarları** Resource Manager şablonu Azure DSC uzantı bölümü.
+Aşağıdaki şemada kullanın **ayarları** Resource Manager şablonu Azure DSC uzantı bölümü.
 
-Varsayılan yapılandırma komut dosyası için kullanılabilir olan bağımsız değişkenler listesi için bkz: [varsayılan yapılandırma komut dosyası](#default-configuration-script).
+Varsayılan yapılandırma betiğini için kullanılabilir olan bağımsız değişkenler listesi için bkz. [varsayılan yapılandırma betiğini](#default-configuration-script).
 
 ```json
 "settings": {
@@ -178,43 +178,43 @@ Varsayılan yapılandırma komut dosyası için kullanılabilir olan bağımsız
 
 | Özellik adı | Tür | Açıklama |
 | --- | --- | --- |
-| settings.wmfVersion |dize |VM üzerinde yüklenmesi gereken Windows Management Framework (WMF) sürümünü belirtir. Bu özelliği ayarlamak **son** WMF en son sürümünü yükler. Şu anda bu özellik için yalnızca olası değerler şunlardır: **4.0**, **5.0**, **5.0PP**, ve **son**. Olası değerler tabi güncelleştirmelerdir. Varsayılan değer **son**. |
-| Settings.Configuration.URL |dize |DSC yapılandırması .zip dosyanızın indirileceği URL konumunu belirtir. Sağlanan URL erişim için bir SAS belirteci gerektiriyorsa, ayarlamak **protectedSettings.configurationUrlSasToken** özelliğinin değeri, SAS belirteci. Bu özellik gereklidir **settings.configuration.script** veya **settings.configuration.function** tanımlanır. Bu özellikler için herhangi bir değer verilirse, uzantı konumu Configuration Manager (LCM'yi) meta veri ayarlamak için varsayılan yapılandırma komut dosyası çağırır ve bağımsız değişkenler sağlanması. |
-| Settings.Configuration.Script |dize |DSC yapılandırması tanımını içeren komut dosyasının dosya adını belirtir. Bu komut dosyası tarafından belirtilen URL'den indirilen .zip dosyasının kök klasöründe olmalıdır **configuration.url** özelliği. Bu özellik gereklidir **settings.configuration.url** veya **settings.configuration.script** tanımlanır. Bu özellikler için herhangi bir değer verilirse, uzantı LCM'yi meta verileri ayarlamak için varsayılan yapılandırma komut dosyası çağırır ve bağımsız değişkenler sağlanması. |
-| Settings.Configuration.Function |dize |DSC yapılandırması adını belirtir. Adlı yapılandırma komut dosyasında yer almalıdır, **configuration.script** tanımlar. Bu özellik gereklidir **settings.configuration.url** veya **settings.configuration.function** tanımlanır. Bu özellikler için herhangi bir değer verilirse, uzantı LCM'yi meta verileri ayarlamak için varsayılan yapılandırma komut dosyası çağırır ve bağımsız değişkenler sağlanması. |
+| settings.wmfVersion |dize |Sanal makinenizde yüklü Windows Management Framework (WMF) sürümünü belirtir. Bu özelliği ayarlamak **son** WMF'nin en son sürümünü yükler. Şu anda bu özellik için yalnızca olası değerler şunlardır: **4.0**, **5.0**, **5.0PP**, ve **son**. Bu olası değerler şunlardır: güncelleştirmeleri tabidir. Varsayılan değer **son**. |
+| Settings.Configuration.URL |dize |DSC yapılandırması .zip dosyanızın indirileceği URL konumu belirtir. Sağlanan URL erişimi için bir SAS belirteci gerektiriyorsa, ayarlama **protectedSettings.configurationUrlSasToken** değeriniz SAS belirtecinizle değere. Bu özellik gereklidir **settings.configuration.script** veya **settings.configuration.function** tanımlanır. Bu özellikler için hiçbir değer belirtilmezse, uzantı konumu Configuration Manager'ı (LCM) meta verileri ayarlamak için varsayılan yapılandırma betiğini çağırır ve bağımsız değişkenleri iletilmelidir. |
+| Settings.Configuration.Script |dize |DSC yapılandırma tanımı içeren komut dosyasının dosya adını belirtir. Bu betik tarafından belirtilen URL'den indirilen .zip dosyasının kök klasöründe olmalıdır **configuration.url** özelliği. Bu özellik gereklidir **settings.configuration.url** veya **settings.configuration.script** tanımlanır. Bu özellikler için hiçbir değer belirtilmezse, uzantı LCM meta verileri ayarlamak için varsayılan yapılandırma betiğini çağırır ve bağımsız değişkenler iletilmelidir. |
+| Settings.Configuration.Function |dize |DSC yapılandırma adını belirtir. Betikte adlı yapılandırmanın eklenmelidir, **configuration.script** tanımlar. Bu özellik gereklidir **settings.configuration.url** veya **settings.configuration.function** tanımlanır. Bu özellikler için hiçbir değer belirtilmezse, uzantı LCM meta verileri ayarlamak için varsayılan yapılandırma betiğini çağırır ve bağımsız değişkenler iletilmelidir. |
 | settings.configurationArguments |Koleksiyon |DSC yapılandırmanızı geçirmek istediğiniz herhangi bir parametre tanımlar. Bu özellik şifrelenmez. |
-| settings.configurationData.url |dize |DSC yapılandırmanız için giriş olarak kullanmak için yapılandırma verileri (.psd1) dosyanızı indirileceği URL'yi belirtir. Sağlanan URL erişim için bir SAS belirteci gerektiriyorsa, ayarlamak **protectedSettings.configurationDataUrlSasToken** özelliğinin değeri, SAS belirteci. |
-| settings.privacy.dataEnabled |dize |Etkinleştirir veya telemetri koleksiyonunu devre dışı bırakır. Bu özellik yalnızca olası değerler **etkinleştirmek**, **devre dışı**, **''**, veya **$null**. Bu özellik boş ya da boş bırakarak telemetri sağlar. Varsayılan değer **''**. Daha fazla bilgi için bkz: [Azure DSC uzantısı veri toplama](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
-| settings.advancedOptions.downloadMappings |Koleksiyon |WMF indirileceği alternatif konumlar tanımlar. Daha fazla bilgi için bkz: [Azure DSC uzantısı 2.8 ve kendi konuma uzantısı bağımlılıkları yüklemeleri eşlemeyi](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
+| settings.configurationData.url |dize |DSC yapılandırma için giriş olarak kullanmak için yapılandırma verileri (.psd1) dosyasını indirileceği URL'sini belirtir. Sağlanan URL erişimi için bir SAS belirteci gerektiriyorsa, ayarlama **protectedSettings.configurationDataUrlSasToken** değeriniz SAS belirtecinizle değere. |
+| settings.privacy.dataEnabled |dize |Etkinleştirir veya telemetri koleksiyonunu devre dışı bırakır. Bu özellik için yalnızca olası değerler şunlardır: **etkinleştirme**, **devre dışı**, **''**, veya **$null**. Bu özellik boş ya da boş bırakarak telemetri sağlar. Varsayılan değer **''**. Daha fazla bilgi için [Azure DSC uzantı veri koleksiyonu](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
+| settings.advancedOptions.downloadMappings |Koleksiyon |WMF indirileceği alternatif konumlar tanımlar. Daha fazla bilgi için [Azure DSC uzantı 2.8 ve yüklemeleri uzantısı bağımlılıkları kendi konumuyla eşleşen nasıl](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
 | protectedSettings.configurationArguments |Koleksiyon |DSC yapılandırmanızı geçirmek istediğiniz herhangi bir parametre tanımlar. Bu özellik şifrelenir. |
-| protectedSettings.configurationUrlSasToken |dize |SAS belirteci URL erişmek için kullanılacak belirtir, **configuration.url** tanımlar. Bu özellik şifrelenir. |
-| protectedSettings.configurationDataUrlSasToken |dize |SAS belirteci URL erişmek için kullanılacak belirtir, **configurationData.url** tanımlar. Bu özellik şifrelenir. |
+| protectedSettings.configurationUrlSasToken |dize |URL erişmek için SAS belirteci belirtir, **configuration.url** tanımlar. Bu özellik şifrelenir. |
+| protectedSettings.configurationDataUrlSasToken |dize |URL erişmek için SAS belirteci belirtir, **configurationData.url** tanımlar. Bu özellik şifrelenir. |
 
 ## <a name="default-configuration-script"></a>Varsayılan yapılandırma betiği
 
 Aşağıdaki değerleri hakkında daha fazla bilgi için bkz: [yerel Configuration Manager temel ayarları](/powershell/dsc/metaconfig#basic-settings).
-DSC uzantı varsayılan yapılandırma komut dosyası aşağıdaki tabloda listelenen LCM'yi özelliklerini yapılandırmak için kullanabilirsiniz.
+DSC uzantısı varsayılan yapılandırma betiği, aşağıdaki tabloda listelenen LCM özellikleri yapılandırmak için kullanabilirsiniz.
 
 | Özellik adı | Tür | Açıklama |
 | --- | --- | --- |
-| settings.configurationArguments.RegistrationKey |SecureString |Gerekli özellik. Azure Otomasyonu hizmeti ile bir PowerShell kimlik bilgisi nesnesi parola olarak kaydetmek için bir düğüm için kullanılan anahtarı belirtir. Bu değer kullanarak otomatik olarak bulunabileceğini **listkeys** Otomasyon hesabı karşı yöntemi. Değer bir korumalı ayarı olarak güvenli hale getirilmelidir. |
-| settings.configurationArguments.RegistrationUrl |dize |Gerekli özellik. Düğüm kaydetmek için girişimde bulunduğu Otomasyon uç noktası URL'sini belirtir. Bu değer kullanarak otomatik olarak bulunabileceğini **başvuru** Otomasyon hesabı karşı yöntemi. |
+| settings.configurationArguments.RegistrationKey |SecureString |Gerekli özellik. Bir düğüm için Azure Otomasyon hizmeti ile bir PowerShell kimlik bilgisi nesnesi bir parola olarak kaydetmek için kullanılan anahtarını belirtir. Bu değeri kullanarak otomatik olarak bulunabileceğini **listkeys'i** Otomasyon hesabına karşı yöntemi. Değer korumalı bir ayarı olarak güvenli hale getirilmelidir. |
+| settings.configurationArguments.RegistrationUrl |dize |Gerekli özellik. Düğümü kaydetmek için girişimde bulunduğu Otomasyon uç noktası URL'sini belirtir. Bu değeri kullanarak otomatik olarak bulunabileceğini **başvuru** Otomasyon hesabına karşı yöntemi. |
 | settings.configurationArguments.NodeConfigurationName |dize |Gerekli özellik. Düğüm yapılandırması düğüme atamak için Otomasyon hesabı belirtir. |
-| settings.configurationArguments.ConfigurationMode |dize |Modu için LCM'yi belirtir. Geçerli seçenekler şunlardır **ApplyOnly**, **ApplyandMonitor**, ve **ApplyandAutoCorrect**.  Varsayılan değer **ApplyandMonitor**. |
-| settings.configurationArguments.RefreshFrequencyMins | uint32 | Otomasyon hesabı için güncelleştirmeleri denetlemek LCM'yi ne sıklıkta denediğini belirler.  Varsayılan değer **30**.  En düşük değer **15**. |
-| settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | Ne sıklıkta LCM'yi geçerli yapılandırmasını doğrular belirtir. Varsayılan değer **15**. En düşük değer **15**. |
-| settings.configurationArguments.RebootNodeIfNeeded | boole | DSC işlemi isterse bir düğümü otomatik olarak başlatılması olup olmadığını belirtir. Varsayılan değer **false**. |
-| settings.configurationArguments.ActionAfterReboot | dize | Bir yeniden başlatmadan sonra bir yapılandırma uygularken olacağını belirtir. Geçerli seçenekler şunlardır: **ContinueConfiguration** ve **StopConfiguration**. Varsayılan değer **ContinueConfiguration**. |
-| settings.configurationArguments.AllowModuleOverwrite | boole | LCM'yi düğümü üzerindeki var olan modülleri yazıp yazmayacağını belirtir. Varsayılan değer **false**. |
+| settings.configurationArguments.ConfigurationMode |dize |LCM için modu belirtir. Geçerli seçenekler şunlardır **ApplyOnly**, **ApplyandMonitor**, ve **ApplyandAutoCorrect**.  Varsayılan değer **ApplyandMonitor**. |
+| settings.configurationArguments.RefreshFrequencyMins | uint32 | Güncelleştirmeler için Otomasyon hesabı ile denetlemek LCM'ne sıklıkta denediğini belirler.  Varsayılan değer **30**.  Minimum değer **15**. |
+| settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | Ne sıklıkta LCM geçerli yapılandırmasını doğrular belirtir. Varsayılan değer **15**. Minimum değer **15**. |
+| settings.configurationArguments.RebootNodeIfNeeded | boole | DSC işlemi isterse bir düğümü otomatik olarak yeniden başlatılabilir olup olmadığını belirtir. Varsayılan değer **false**. |
+| settings.configurationArguments.ActionAfterReboot | dize | Bir yeniden başlatmadan sonra bir yapılandırma uygulanırken olacağını belirtir. Geçerli seçenekler **ContinueConfiguration** ve **StopConfiguration**. Varsayılan değer **ContinueConfiguration**. |
+| settings.configurationArguments.AllowModuleOverwrite | boole | LCM düğümünde mevcut modüllerini yazıp yazmayacağını belirtir. Varsayılan değer **false**. |
 
 ## <a name="settings-vs-protectedsettings"></a>Ayarları vs. ProtectedSettings
 
-Tüm ayarlar, VM'de ayarlarını metin dosyasına kaydedilir.
-Altında listelenen özellikler **ayarları** ortak özelliklerdir.
-Ortak Özellikler ayarlarını metin dosyasına şifreli değildir.
-Altında listelenen özellikler **protectedSettings** bir sertifika ile şifrelenir ve düz metin ayarları dosyası VM'de olarak gösterilmez.
+Tüm ayarlar, sanal makine ayarlarını metin dosyasına kaydedilir.
+Altında listelenen özellikleri **ayarları** ortak özellikleri.
+Genel Özellikler ayarlarını metin dosyasına şifreli değildir.
+Altında listelenen özellikleri **protectedSettings** bir sertifika ile şifrelenir ve sanal makine ayarları dosyasına düz metin olarak gösterilmez.
 
-Yapılandırma kimlik bilgileri gerektiriyorsa, kimlik bilgileri içerebilir **protectedSettings**:
+Yapılandırma, kimlik bilgileri gerekiyorsa, kimlik bilgileri içerebilir **protectedSettings**:
 
 ```json
 "protectedSettings": {
@@ -229,9 +229,9 @@ Yapılandırma kimlik bilgileri gerektiriyorsa, kimlik bilgileri içerebilir **p
 
 ## <a name="example-configuration-script"></a>Örnek yapılandırma betiği
 
-Aşağıdaki örnek LCM'yi için meta veri ayarları sağlayın ve Automation DSC hizmete kaydolmak DSC uzantısı için varsayılan davranış gösterir.
-Yapılandırma bağımsız değişkenler zorunludur.
-Yapılandırma değişkenleri LCM'yi meta verileri ayarlamak için varsayılan yapılandırma betiği geçirilir.
+Aşağıdaki örnek, LCM için meta veri ayarları sağlayın ve Automation DSC hizmetiyle kaydetmek için DSC uzantısı için varsayılan davranış gösterir.
+Yapılandırma bağımsız değişkenleri gereklidir.
+Yapılandırma değişkenleri LCM meta verileri ayarlamak için varsayılan yapılandırma betiğini geçirilir.
 
 ```json
 "settings": {
@@ -254,14 +254,14 @@ Yapılandırma değişkenleri LCM'yi meta verileri ayarlamak için varsayılan y
 }
 ```
 
-## <a name="example-using-the-configuration-script-in-azure-storage"></a>Yapılandırma komut dosyası Azure depolama alanında kullanan örnek
+## <a name="example-using-the-configuration-script-in-azure-storage"></a>Yapılandırma betiği Azure depolama kullanan örnek
 
-Aşağıdaki örnek kaynaklı [DSC uzantısı işleyici genel bakış](dsc-overview.md).
-Bu örnek uzantısını dağıtmak için cmdlet'leri yerine Resource Manager şablonları kullanır.
-IisInstall.ps1 yapılandırmasını kaydetmek, bir .zip dosyasına yerleştirin ve erişilebilir bir URL dosyayı karşıya yükleyin.
+Aşağıdaki örnek dandır [DSC uzantısı işleyicisine genel bakış](dsc-overview.md).
+Bu örnek, uzantıyı dağıtmak için cmdlet'leri yerine Resource Manager şablonları kullanır.
+Iısınstall.ps1 yapılandırmayı kaydedin, .zip dosyasındaki yerleştirin ve ardından erişilebilir bir URL dosyayı karşıya yükleyin.
 Bu örnek, Azure Blob Depolama kullanır, ancak herhangi bir rastgele konumdan .zip dosyalarını indirebilirsiniz.
 
-Resource Manager şablonu VM doğru dosyasını indirin ve ardından uygun PowerShell işlevi çalıştırmak için aşağıdaki kodu bildirir:
+Resource Manager şablonunda VM doğru dosyayı indirin ve ardından uygun PowerShell işlevi çalıştırmak için aşağıdaki kodu bildirir:
 
 ```json
 "settings": {
@@ -278,10 +278,10 @@ Resource Manager şablonu VM doğru dosyasını indirin ve ardından uygun Power
 
 ## <a name="update-from-a-previous-format"></a>Önceki bir biçimden güncelleştir
 
-Uzantısı'nın önceki bir biçimde herhangi bir ayarı (ve ortak özellikleri olan **ModulesUrl**, **ConfigurationFunction**, **SasToken**, veya  **Özellikler**) uzantısı geçerli biçimine otomatik olarak uyum.
-Bunlar yalnızca bunlar önce yaptığınız gibi çalıştırın.
+Herhangi bir ayarı uzantısı'nın önceki bir biçimde (ve ortak özelliklerine sahip **ModulesUrl**, **ConfigurationFunction**, **SasToken**, veya  **Özellikleri**) uzantısının geçerli biçime otomatik olarak uyum sağlar.
+Yalnızca bunlar önce yaptığınız gibi bunlar çalıştırın.
 
-Aşağıdaki şema gibi Aranan hangi önceki ayarları şeması gösterir:
+Aşağıdaki şema gibi görünüyordu hangi önceki ayarları şeması gösterir:
 
 ```json
 "settings": {
@@ -311,63 +311,63 @@ Aşağıdaki şema gibi Aranan hangi önceki ayarları şeması gösterir:
 }
 ```
 
-Önceki biçimi geçerli biçimine nasıl uyum aşağıda verilmiştir:
+Önceki biçimden geçerli biçime nasıl uyum sağlayan şu şekildedir:
 
-| Özellik adı | Önceki şema eşdeğerine |
+| Özellik adı | Önceki şema eşdeğer |
 | --- | --- |
 | settings.wmfVersion |Ayarlar. WMFVersion |
 | Settings.Configuration.URL |Ayarlar. ModulesUrl |
-| Settings.Configuration.Script |Ayarları ilk kısmı. ConfigurationFunction (önce \\ \\) |
+| Settings.Configuration.Script |Ayarlarının ilk bölümü. ConfigurationFunction (önce \\ \\) |
 | Settings.Configuration.Function |Ayarları ikinci bölümü. ConfigurationFunction (sonra \\ \\) |
 | settings.configurationArguments |Ayarlar. Özellikleri |
-| settings.configurationData.url |protectedSettings.DataBlobUri (olmadan, SAS belirteci) |
+| settings.configurationData.url |protectedSettings.DataBlobUri (olmadan bir SAS belirteci) |
 | settings.privacy.dataEnabled |Ayarlar. Privacy.DataEnabled |
 | settings.advancedOptions.downloadMappings |Ayarlar. AdvancedOptions.DownloadMappings |
 | protectedSettings.configurationArguments |protectedSettings.Properties |
 | protectedSettings.configurationUrlSasToken |Ayarlar. SasToken |
 | protectedSettings.configurationDataUrlSasToken |SAS belirteci protectedSettings.DataBlobUri gelen |
 
-## <a name="troubleshooting---error-code-1100"></a>Sorun giderme - 1100 hata kodu
+## <a name="troubleshooting---error-code-1100"></a>Sorun giderme - hata kodu 1100
 
-Hata kodu 1100 DSC uzantısı için kullanıcı girişi ile ilgili bir sorun gösterir.
+Hata kodu 1100 DSC uzantısı kullanıcı girişi ile ilgili bir sorun gösterir.
 Bu hataların metin değişir ve değişebilir.
-İçine çalışabilir hataları bazıları aşağıda verilmiştir ve bunları nasıl düzeltebilirsiniz.
+Karşılaşabileceğiniz hatalar bazıları aşağıda verilmiştir ve bunları nasıl düzeltebilirsiniz.
 
 ### <a name="invalid-values"></a>Geçersiz değerler
 
-"Privacy.dataCollection olduğundan '{0}'.
+"Privacy.dataCollection olan '{0}'.
 Yalnızca olası değerler şunlardır: '' 'Enable' ve 'Disable' ".
-"WmfVersion olduğundan '{0}'.
-Yalnızca olası değerler şunlardır:... ve 'Son' ".
+"WmfVersion olan '{0}'.
+Yalnızca olası değerler şunlardır:... ' Son ' ".
 
-**Sorun**: sağlanan değer verilmez.
+**Sorun**: sağlanan değer izin verilmiyor.
 
-**Çözüm**: geçersiz değer geçerli bir değerle değiştirin.
-Daha fazla bilgi için bölümündeki tabloya bakın [ayrıntıları](#details).
+**Çözüm**: geçersiz bir değer geçerli bir değerle değiştirin.
+Daha fazla bilgi için bkz: tablodaki [ayrıntıları](#details).
 
 ### <a name="invalid-url"></a>Geçersiz URL
 
-"ConfigurationData.url olduğundan '{0}'. Bu geçerli bir URL değil"" DataBlobUri olduğundan '{0}'. Bu geçerli bir URL değil"" Configuration.url olduğundan '{0}'. Bu geçerli bir URL değil"
+"ConfigurationData.url olan '{0}'. Bu geçerli bir URL değil"" DataBlobUri olan '{0}'. Bu geçerli bir URL değil"" Configuration.url olan '{0}'. Bu geçerli bir URL değil"
 
 **Sorun**: A sağlanan URL geçerli değil.
 
-**Çözüm**: tüm sağlanan URL'leri denetleyin.
-Tüm URL'leri uzantısı uzak makinede erişebilmesini geçerli konumlara çözmek emin olun.
+**Çözüm**: sağlanan tüm URL'leri denetleyin.
+Tüm URL'leri uzantısı uzak makinede erişebilirsiniz geçerli konumlara çözmek emin olun.
 
-### <a name="invalid-configurationargument-type"></a>Geçersiz ConfigurationArgument türü
+### <a name="invalid-configurationargument-type"></a>ConfigurationArgument türü geçersiz
 
 "Geçersiz configurationArguments türü {0}"
 
-**Sorun**: *ConfigurationArguments* olamaz özelliğini çözümlemek için bir **Hashtable** nesnesi.
+**Sorun**: *ConfigurationArguments* özelliği çözümleyemiyor bir **Hashtable** nesne.
 
 **Çözüm**: olun, *ConfigurationArguments* özelliği bir **Hashtable**.
-Önceki örnekte sağlanan biçimi izler. Tırnak işareti, virgül ve küme ayraçları izleyin.
+Önceki örnekte sağlanan biçim izleyin. Tırnak işareti, virgül ve küme ayraçları izleyin.
 
 ### <a name="duplicate-configurationarguments"></a>Yinelenen ConfigurationArguments
 
 "Yinelenen bağımsız bulunan{0}' hem genel hem de korumalı configurationArguments içinde"
 
-**Sorun**: *ConfigurationArguments* genel ayarları ve *ConfigurationArguments* korumalı ayarlarında aynı ada sahip özelliklere sahiptir.
+**Sorun**: *ConfigurationArguments* genel ayarları ve *ConfigurationArguments* korumalı ayarlarında özellikler ile aynı ada sahip.
 
 **Çözüm**: Yinelenen özellikler birini kaldırın.
 
@@ -385,7 +385,7 @@ Tüm URL'leri uzantısı uzak makinede erişebilmesini geçerli konumlara çözm
 
 "Bu configurationData.url belirtilen ConfigurationDataUrlSasToken gerektirir"
 
-**Sorun**: tanımlanmış bir özellik eksik başka bir özellik olması gerekiyor.
+**Sorun**: bir tanımlanan özellik eksik başka bir özellik olması gerekiyor.
 
 **Çözümleri**:
 
@@ -394,7 +394,7 @@ Tüm URL'leri uzantısı uzak makinede erişebilmesini geçerli konumlara çözm
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hakkında bilgi edinin [ayarlar Azure DSC uzantısı ile sanal makine ölçek kullanarak](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
-- İlgili diğer ayrıntıları bulmak [DSC'SİNİN güvenli kimlik bilgileri yönetimi](dsc-credentials.md).
-- Alma bir [Azure DSC uzantısı işleyici giriş](dsc-overview.md).
+- Hakkında bilgi edinin [sanal makine ölçek kümeleri ile Azure DSC uzantı](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
+- Hakkında daha fazla ayrıntı bulmak [DSC'ın güvenli kimlik bilgileri yönetimi](dsc-credentials.md).
+- Alma bir [giriş Azure DSC uzantısı işleyicisine](dsc-overview.md).
 - PowerShell DSC hakkında daha fazla bilgi için Git [PowerShell Belge Merkezi](/powershell/dsc/overview).

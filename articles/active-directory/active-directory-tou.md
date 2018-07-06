@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 06/29/2018
 ms.author: rolyon
-ms.openlocfilehash: f22190d81d8ffbb91e9573974d93d4b1ad35af18
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444353"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856425"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede Azure AD Kullanım Koşullarını kullanmaya nasıl başlayacağınız açıklanmaktadır.
@@ -30,7 +30,7 @@ Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlam
 Azure AD Kullanım Koşulları aşağıdakileri yapmanızı sağlar:
 - Çalışanların veya ziyaretçilerin erişim sağlamadan önce Kullanım Koşullarınızı kabul etmesini zorunlu tutun.
 - Genel Kullanım Koşullarınızı kuruluşunuzdaki tüm kullanıcılarla paylaşın.
-- Kullanıcı özniteliklerine dayalı belirli Kullanım Koşulları (örneğin, doktorlarla hemşirelere ya da yurtiçi ve uluslararası çalışanlara, [dinamik grupları](active-directory-groups-dynamic-membership-azure-portal.md) kullanarak) sunun.
+- Kullanıcı özniteliklerine dayalı belirli Kullanım Koşulları (örneğin, doktorlarla hemşirelere ya da yurtiçi ve uluslararası çalışanlara, [dinamik grupları](users-groups-roles/groups-dynamic-membership.md) kullanarak) sunun.
 - Yüksek iş etkisine sahip uygulamalara (Salesforce gibi) erişim sırasında geçerli belirli Kullanım Koşulları sunun.
 - Kullanım Koşullarını farklı dillerde sunun.
 - Kullanım Koşullarınızı kabul etmemiş olan kullanıcıları listeleyin.

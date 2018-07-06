@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 306032ece4feda0e8132db1e95c4a229472e6c04
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3630d4d694452f2c619e707d1e2e58f1bfe71c0e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34643507"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858961"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda denetleme
 
@@ -52,8 +52,9 @@ Bir denetim ilkesi, ilke varsayılan sunucu olarak veya belirli bir veritabanı 
 > * Farklı bir kullanmak istediğiniz *depolama hesabı* veya *saklama süresi* belirli bir veritabanı için.
 > * Olay türleri ya da sunucu üzerindeki bir veritabanına geri kalanından farklı kategorilere belirli bir veritabanı için Denetim istiyorsunuz. Örneğin, yalnızca belirli bir veritabanı için denetlenmesi gereken tablo eklemeleri olabilir.
 > * Şu anda tehdit algılama, kullanmak istediğiniz yalnızca veritabanı düzeyi denetimi ile desteklenir.
->
 
+> [!IMPORTANT]
+>Bir Azure SQL veri ambarı veya bir Azure SQL veri ambarı'na da olan bir sunucuyu denetlemeyi etkinleştirme **sürdürülüyor veri ambarında sonuçlanır**, burada, daha önce duraklatıldı durumunda bile. **Denetim yeniden etkinleştirdikten sonra veri ambarını duraklatmak emin olun**.
 
 ## <a id="subheading-5"></a>Tüm veritabanları için sunucu düzeyi denetimi ayarlamanız
 
