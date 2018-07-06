@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 9b9f72812b1a1f0e30379c32e10d316fcbf71d3b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 3c5629dc1ad87456583f5a713f16e696bc9b7b1e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345598"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858672"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>İzleme ve Azure Cosmos DB'de ölçümlerle hata ayıklama
 
@@ -39,7 +39,7 @@ En yaygın hata durum kodu 429 (hız sınırlama/azaltma), istekleri Azure Cosmo
 
 ## <a name="determining-the-throughput-distribution-across-partitions"></a>Bölümler arasında aktarım hızı dağıtım belirleme
 
-İyi bir bölüm anahtarlarınızı kardinalitesi sahip, ölçeklenebilir bir uygulama için gereklidir. Bölünmüş bir koleksiyona bölümler tarafından ayrılmış aktarım hızı dağıtımını belirlemek için gidin **ölçümler dikey penceresine** içinde [Azure portalında](https://portal.azure.com). İçinde **aktarım hızı** sekmesi, depolama dökümü içinde gösterilmiştir **RU/saniye her bir fiziksel bölüm tarafından kullanılan en fazla** grafiği. Aşağıdaki grafikte, veri'yi en sol tarafındaki dengesiz bölümü tarafından olarak düşük bir dağıtım örneği gösterilmektedir. 
+İyi bir bölüm anahtarlarınızı kardinalitesi sahip, ölçeklenebilir bir uygulama için gereklidir. Bölümler tarafından ayrılmış herhangi bir bölünmüş kapsayıcı aktarım hızı dağıtımını belirlemek için gidin **ölçümler dikey penceresine** içinde [Azure portalında](https://portal.azure.com). İçinde **aktarım hızı** sekmesi, depolama dökümü içinde gösterilmiştir **RU/saniye her bir fiziksel bölüm tarafından kullanılan en fazla** grafiği. Aşağıdaki grafikte, veri'yi en sol tarafındaki dengesiz bölümü tarafından olarak düşük bir dağıtım örneği gösterilmektedir. 
 
 ![Tek bölüm 3: 05'te yoğun kullanım görme](media/use-metrics/metrics-17.png)
 
@@ -47,7 +47,7 @@ Düzensiz aktarım hızı dağıtım neden *sık erişimli* daraltılmış istek
 
 ## <a name="determining-the-storage-distribution-across-partitions"></a>Bölümler arasında depolama dağıtım belirleme
 
-İyi bir kardinalite bölümünüzün sahip, ölçeklenebilir bir uygulama için gereklidir. Bölünmüş bir koleksiyona bölümler tarafından ayrılmış aktarım hızı dağıtımını belirlemek için ölçümler dikey penceresine gidin [Azure portalında](https://portal.azure.com). Aktarım hızı sekmede RU/saniye her bir fiziksel bölüm grafik tarafından kullanılan en fazla depolama dökümü gösterilir. Aşağıdaki grafikte, veri'yi en sol tarafındaki dengesiz bölümü tarafından olarak düşük bir dağıtım gösterilmektedir. 
+İyi bir kardinalite bölümünüzün sahip, ölçeklenebilir bir uygulama için gereklidir. Bölümler tarafından ayrılmış herhangi bir bölünmüş kapsayıcı aktarım hızı dağıtımını belirlemek için ölçümler dikey penceresine gidin [Azure portalında](https://portal.azure.com). Aktarım hızı sekmede RU/saniye her bir fiziksel bölüm grafik tarafından kullanılan en fazla depolama dökümü gösterilir. Aşağıdaki grafikte, veri'yi en sol tarafındaki dengesiz bölümü tarafından olarak düşük bir dağıtım gösterilmektedir. 
 
 ![Zayıf veri dağıtım örneği](media/use-metrics/metrics-07.png)
 
@@ -55,7 +55,7 @@ Hangi bölüm anahtarı bölüm grafikte tıklayarak dağıtım eğriltme neden 
 
 ![Bölüm anahtarı, dağıtım eğme](media/use-metrics/metrics-05.png)
 
-Hangi bölüm anahtarı tanımlayan eğriltme dağıtımlarında neden olan sonra daha fazla dağıtılmış bir bölüm anahtarı ile koleksiyon bölümlemek gerekebilir. Azure Cosmos DB'de bölümleme hakkında daha fazla bilgi için bkz. [bölümleme ve ölçeklendirme Azure Cosmos DB'de](./partition-data.md).
+Hangi bölüm anahtarı tanımlayan eğriltme dağıtımlarında neden olan sonra kapsayıcınızı daha fazla dağıtılmış bir bölüm anahtarıyla yeniden bölmek zorunda kalabilirsiniz. Azure Cosmos DB'de bölümleme hakkında daha fazla bilgi için bkz. [bölümleme ve ölçeklendirme Azure Cosmos DB'de](./partition-data.md).
 
 ## <a name="comparing-data-size-against-index-size"></a>Dizin boyutu karşı karşılaştırma veri boyutu
 

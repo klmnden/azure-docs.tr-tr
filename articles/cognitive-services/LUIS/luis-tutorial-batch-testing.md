@@ -10,25 +10,25 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5788f17f2724a0354a1db506971c2343c1800f01
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 4a5ace10c171d17235051c5bd666526318829fd7
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266405"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867350"
 ---
-# <a name="use-batch-testing-to-find-prediction-accuracy-issues"></a>Tahmin doğruluğunu sorunları bulmak için toplu test kullanma
+# <a name="use-batch-testing-to-find-prediction-accuracy-issues"></a>Toplu test tahmin doğruluğunu sorunları bulmak için kullanın
 
-Bu öğretici toplu sınama utterance tahmin sorunları bulmak için nasıl kullanılacağını gösterir.  
+Bu öğreticide, batch test utterance tahmin sorunları bulmak için nasıl kullanılacağı gösterilmektedir.  
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-* Bir toplu iş test dosyası oluşturma 
-* Bir toplu testi çalıştırma
+* Toplu test dosyası oluşturma 
+* Toplu test çalıştırma
 * Test sonuçlarını gözden geçirme
-* Hedefleri için hataları giderin
-* Toplu işlem yeniden sınayın
+* Hedefleri için hataları düzeltin
+* Batch yeniden test et
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -36,10 +36,10 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Bu makalede, etmeniz bir [LUIS][LUIS] LUIS uygulamanızı yazmak için hesap.
 
 > [!Tip]
-> Bir abonelik zaten yoksa için kaydedebilirsiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/).
+> Zaten bir aboneliğiniz yoksa, kaydolabilirsiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/).
 
 ## <a name="create-new-app"></a>Yeni uygulama oluşturma
-Bu makalede önceden oluşturulmuş etki alanı HomeAutomation kullanır. Önceden oluşturulmuş etki alanı hedefleri, varlıkları ve ışık gibi HomeAutomation cihazlarını denetleme utterances sahiptir. Uygulama oluşturma, etki alanı ekleme eğitmek ve yayımlayın.
+Bu makalede önceden oluşturulmuş etki alanı HomeAutomation kullanır. Amacı, varlıkları ve konuşma gibi ışıklar HomeAutomation cihazları denetlemek için önceden oluşturulmuş etki alanı vardır. Uygulamayı oluşturur, etki alanı ekleme eğitin ve yayımlayın.
 
 1. İçinde [LUIS] Web sitesi, seçerek yeni bir uygulama oluşturun **yeni uygulama oluştur** üzerinde **MyApps** sayfası. 
 
@@ -49,7 +49,7 @@ Bu makalede önceden oluşturulmuş etki alanı HomeAutomation kullanır. Önced
 
     ![Uygulama adı girin](./media/luis-tutorial-batch-testing/create-app-2.png)
 
-3. Seçin **önceden oluşturulmuş etki alanları** sol alt köşedeki içinde. 
+3. Seçin **önceden oluşturulmuş etki alanları** sol alt köşedeki. 
 
     ![Önceden oluşturulmuş etki alanını seçin](./media/luis-tutorial-batch-testing/prebuilt-domain-1.png)
 
@@ -57,16 +57,16 @@ Bu makalede önceden oluşturulmuş etki alanı HomeAutomation kullanır. Önced
 
     ![HomeAutomation etki alanı ekleme](./media/luis-tutorial-batch-testing/prebuilt-domain-2.png)
 
-5. Seçin **tren** sağ üst gezinti çubuğunda.
+5. Seçin **eğitme** üst sağ gezinti çubuğunda.
 
-    ![Tren düğmesini seçin](./media/luis-tutorial-batch-testing/train-button.png)
+    ![Train düğmeyi seçin](./media/luis-tutorial-batch-testing/train-button.png)
 
-## <a name="batch-test-criteria"></a>Toplu test ölçütleri
-Toplu sınama aynı anda en fazla 1000 utterances test edebilirsiniz. Toplu işlem yinelenen değer yok. [Dışarı aktarma](create-new-app.md#export-app) geçerli utterances listesini görmek için uygulama.  
+## <a name="batch-test-criteria"></a>Batch sınama ölçütünde
+Batch sınama aynı anda en fazla 1000 konuşma test edebilirsiniz. Toplu işlem yinelenen sahip olmamalıdır. [Dışarı aktarma](create-new-app.md#export-app) geçerli konuşma listesini görmek için uygulama.  
 
-LUIS test stratejisi, verilerin üç ayrı kümelerini kullanır: model utterances, toplu test utterances ve uç nokta utterances. Bu öğretici için (bir hedefi eklenir) ya da modeli utterances gelen utterances veya uç nokta utterances kullanmadığınızdan emin olun. 
+LUIS test stratejisi, verilerin üç ayrı kümelerini kullanır: model utterances, toplu test utterances ve uç nokta utterances. Bu öğreticide, konuşma (bir amaç için eklenir) ya da model konuşma gelen veya konuşma uç noktası kullanmadığınızdan emin olun. 
 
-Utterances hiçbirini zaten uygulamada toplu test için kullanmayın:
+Herhangi bir konuşma zaten uygulamada toplu test için kullanmayın:
 
 ```
 'breezeway on please',
@@ -111,9 +111,9 @@ Utterances hiçbirini zaten uygulamada toplu test için kullanmayın:
 ## <a name="create-a-batch-to-test-intent-prediction-accuracy"></a>Hedefi tahmin doğruluğunu test etmek için bir toplu iş oluşturma
 1. Oluşturma `homeauto-batch-1.json` gibi bir metin düzenleyicisinde [VSCode](https://code.visualstudio.com/). 
 
-2. İle utterances ekleme **hedefi** testinde tahmin edilen istiyor. Bu öğreticide, basit hale getirmek üzere utterances olur `HomeAutomation.TurnOn` ve `HomeAutomation.TurnOff` ve geçiş `on` ve `off` utterances metin. İçin `None` amacı, birkaç olmayan utterances ekleme parçası [etki alanı](luis-glossary.md#domain) (konu) alanı. 
+2. Konuşma ile ekleme **hedefi** testinde tahmin edilen istiyor. Bu öğreticide, basit hale getirmek üzere konuşma olur `HomeAutomation.TurnOn` ve `HomeAutomation.TurnOff` ve geçiş `on` ve `off` konuşma metin. İçin `None` amacı, birkaç olmayan Konuşma ekleme parçası [etki alanı](luis-glossary.md#domain) (konu) alanı. 
 
-    JSON toplu iş için toplu test sonuçlarını nasıl ilişkilendirmek anlamak için yalnızca altı hedefleri ekleyin.
+    Toplu test sonuçlarını toplu JSON nasıl ilişkilendirmek anlamak için yalnızca altı ıntents ekleyin.
 
     ```JSON
     [
@@ -150,18 +150,18 @@ Utterances hiçbirini zaten uygulamada toplu test için kullanmayın:
     ]
     ```
 
-## <a name="run-the-batch"></a>Toplu işi çalıştırın
+## <a name="run-the-batch"></a>Toplu işlem çalıştırın
 1. Seçin **Test** üst gezinti çubuğunda. 
 
-    ![Gezinti çubuğunda test seçin](./media/luis-tutorial-batch-testing/test-1.png)
+    ![Gezinti bölmesinde testi seçin](./media/luis-tutorial-batch-testing/test-1.png)
 
-2. Seçin **test paneli toplu** sağ taraftaki panelinde. 
+2. Seçin **test paneli toplu** Sağdaki panelde. 
 
-    ![Toplu test paneli seçin](./media/luis-tutorial-batch-testing/test-2.png)
+    ![Toplu test panosunu seçin](./media/luis-tutorial-batch-testing/test-2.png)
 
 3. Seçin **alma dataset**.
 
-    ![İçeri aktarma veri kümesini seçin](./media/luis-tutorial-batch-testing/test-3.png)
+    ![İçeri aktarma veri kümesi seçin](./media/luis-tutorial-batch-testing/test-3.png)
 
 4. Dosya sistemi konumunu seçin `homeauto-batch-1.json` dosya.
 
@@ -169,86 +169,86 @@ Utterances hiçbirini zaten uygulamada toplu test için kullanmayın:
 
     ![Dosya seç](./media/luis-tutorial-batch-testing/test-4.png)
 
-6. **Çalıştır** düğmesini seçin. Test tamamlanana kadar bekleyin.
+6. **Çalıştır** düğmesini seçin. Test işlemi tamamlanana kadar bekleyin.
 
     ![Çalıştır'ı seçin](./media/luis-tutorial-batch-testing/test-5.png)
 
 7. Seçin **bkz sonuçları**.
 
-    ![Sonuçları görmek](./media/luis-tutorial-batch-testing/test-6.png)
+    ![Sonuçları göster](./media/luis-tutorial-batch-testing/test-6.png)
 
-8. Gösterge ve grafik sonuçları gözden geçirin.
+8. Gösterge ve grafik sonuçlarını gözden geçirin.
 
-    ![Toplu iş sonuçları](./media/luis-tutorial-batch-testing/batch-result-1.png)
+    ![Toplu işlem sonuçları](./media/luis-tutorial-batch-testing/batch-result-1.png)
 
-## <a name="review-batch-results"></a>Toplu iş sonuçları gözden geçirin
-Toplu iş sonuçları iki bölümde olur. Üst kısmında, grafik ve gösterge içerir. Grafik alanı adı seçtiğinizde utterances alt kısmında görüntülenir.
+## <a name="review-batch-results"></a>Toplu iş sonuçlarını gözden geçirin
+Toplu sonuçları iki bölümü var. Üst kısmında, graf ve gösterge içerir. Bir grafik alanı adını seçtiğinizde alt kısmında konuşma görüntüler.
 
-Hataları kırmızı renk tarafından belirtilir. Grafik iki kırmızı olarak görüntülenen bölümlerin dört bölüm kullanılıyor. **Odağı bölümlere üzerinde bunlar**. 
+Hatalar kırmızı renk tarafından belirtilir. İki kırmızı renkte gösterilir bölümlerin dört bölümde grafiğidir. **Temel odak noktası bölümlere bunlar**. 
 
-Test bölümü hatalı gösterir sağ üst bir hedefi veya varlık varlığını tahmin. Alt sol bölümü test yanlış bir hedefi veya varlık yokluğu tahmin gösterir.
+Bölüm yanlış test gösterir sağ üst bir hedefi veya varlık varlığını tahmin. Sol alt kısmında, yanlış tahmin edilen bir hedefi veya varlık test gösterir.
 
 ### <a name="homeautomationturnoff-test-results"></a>HomeAutomation.TurnOff test sonuçları
-Açıklamada seçin `HomeAutomation.TurnOff` hedefi. Açıklamada adının solundaki bir yeşil başarı simgesine içeriyor. Bu amaç için hatalar yoktur. 
+Göstergede seçin `HomeAutomation.TurnOff` hedefi. Bu açıklama bölümünde adının solunda bir yeşil bir başarı simgesi vardır. Bu amaç için hata yok. 
 
-![Toplu iş sonuçları](./media/luis-tutorial-batch-testing/batch-result-1.png)
+![Toplu işlem sonuçları](./media/luis-tutorial-batch-testing/batch-result-1.png)
 
-### <a name="homeautomationturnon-and-none-intents-have-errors"></a>HomeAutomation.TurnOn ve hiçbiri hedefleri sahip hataları
-Diğer iki amacı test tahminleri toplu iş dosyası beklentilerini eşleşmiyordu anlamına gelen hataları var. Seçin `None` ilk hata gözden geçirmek için göstergede hedefi. 
+### <a name="homeautomationturnon-and-none-intents-have-errors"></a>HomeAutomation.TurnOn ve hiçbiri hedefleri olan hataları
+Diğer iki amacı hatalar, test Öngörüler toplu dosya beklentileri eşleşmedi anlamı vardır. Seçin `None` ilk hata gözden geçirmek için göstergede hedefi. 
 
 ![Hedefi yok](./media/luis-tutorial-batch-testing/none-intent-failures.png)
 
-Hatalar görünür kırmızı bölümlerde grafik: **yanlış pozitif** ve **False negatif**. Seçin **False negatif** grafiğin altındaki başarısız utterances görmek için grafikte bölüm adı. 
+Hatalar görünür kırmızı bölümlerde grafikteki: **yanlış pozitif** ve **False negatif**. Seçin **False negatif** grafiğin altındaki başarısız konuşma görmek için grafikteki bölüm adı. 
 
 ![False negatif hataları](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
 
-Başarısız olan utterance `help` olarak bekleniyordu bir `None` hedefi ancak tahmin test `HomeAutomation.TurnOn` hedefi.  
+Başarısız olan utterance `help` olarak beklenen bir `None` hedefi ancak tahmin edilen test `HomeAutomation.TurnOn` hedefi.  
 
-İki hataları, HomeAutomation.TurnOn birinde ve hiçbiri birinde vardır. Her ikisi tarafından utterance kaynaklanan `help` çünkü hiçbiri beklentiyi başarısız oldu ve HomeAutomation.TurnOn amacı için beklenmeyen bir eşleşme oluştu. 
+İki hataları HomeAutomation.TurnOn birinde ve hiçbiri birinde vardır. Her ikisi tarafından utterance kaynaklanan `help` çünkü hiçbiri beklentisi karşılamak başarısız oldu ve HomeAutomation.TurnOn amaç için beklenmeyen bir eşleşme oluştu. 
 
-Nedenini belirlemek için `None` utterances başarısız oluyor, halen utterances gözden `None`. 
+Nedenini belirlemek için `None` konuşma testlerden, şu anda konuşma gözden `None`. 
 
-## <a name="review-none-intents-utterances"></a>Gözden geçirme hedefi hiçbiri utterances kullanıcının
+## <a name="review-none-intents-utterances"></a>Gözden geçirme konuşma kullanıcının hedefi yok
 
-1. Kapat **Test** seçerek paneli **Test** üst gezinti çubuğundaki düğmesini. 
+1. Kapat **Test** seçerek paneli **Test** üst gezinti çubuğunda düğme. 
 
-2. Seçin **yapı** üst gezinti panelinden. 
+2. Seçin **derleme** üst gezinti panelinde. 
 
-3. Seçin **hiçbiri** hedefleri listesinden hedefi.
+3. Seçin **hiçbiri** hedefi amaçlarını listesinden.
 
-4. Utterances belirteci görünümünü görmek için Denetim + E seçin 
+4. Konuşma belirteci görünümünü görmek için kontrol + E seçin 
     
-    |Hedefi hiçbiri utterances kullanıcının|Tahmin puanı|
+    |Konuşma kullanıcının hedefi yok|Tahmin puanı|
     |--|--|
-    |"Sıcaklık benim için lütfen azaltmak"|0.44|
-    |"dim mutfak ışık 25."|0.43|
-    |"biriminiz daha düşük"|0.46|
-    |"Benim yatak Lütfen Internet Aç"|0.28|
+    |"Sıcaklık benim için lütfen azaltma"|0.44|
+    |"25 mutfak ışıkları dim."|0.43|
+    |"toplu alt"|0.46|
+    |"Benim Yatak odası Lütfen internet'teki kapatma"|0.28|
 
-## <a name="fix-none-intents-utterances"></a>Düzeltme yok hedefi utterances kullanıcının
+## <a name="fix-none-intents-utterances"></a>Düzeltme hedefi yok konuşma kullanıcının
     
-Tüm utterances `None` uygulama etki alanı dışındaki olması beklenir. Yanlış hedefi; bu nedenle bu utterances HomeAutomation göre ' dir. 
+İçinde herhangi bir konuşma `None` uygulama etki alanı dışındaki olması gerekiyor. Bu konuşma HomeAutomation göreli olduğundan yanlış amaca oldukları. 
 
-LUIS ayrıca verir % 50'değerinden küçük utterances (<.50) tahmin puanı. Diğer iki amacı, utterances bakarsanız, çok daha yüksek tahmin puanları bakın. LUIS anlarsınız örnek utterances, düşük puanlarını olduğunda utterances geçerli amacını ve diğer amaçlar arasında için LUIS karmaşıktır. 
+LUIS ayrıca verir % 50'değerinden küçük utterances (<.50) tahmin puanı. Diğer iki amacı, konuşma bakarsanız, çok daha yüksek tahmin puanları bakın. LUIS anlarsınız örnek utterances, düşük puanlarını olduğunda utterances geçerli amacını ve diğer amaçlar arasında için LUIS karmaşıktır. 
 
-Uygulama, halen utterances düzeltmek için `None` hedefi doğru hedefi taşınması gerekir ve `None` hedefi yeni, uygun hedefleri gerekiyor. 
+Uygulama şu anda konuşma düzeltmek için `None` hedefi ihtiyaç doğru amaç taşınacak ve `None` hedefi yeni, uygun bir ıntents gerekiyor. 
 
-Üç utterances `None` hedefi Otomasyon aygıt ayarları düşürmek için amacı. Sözcükler gibi kullandığınız `dim`, `lower`, veya `decrease`. Internet üzerinde etkinleştirmek dördüncü utterance sorar. Tüm dört utterances açma veya bir aygıta güç derecesini değiştirme hakkında olduğundan, bunlar için taşınması gereken `HomeAutomation.TurnOn` hedefi. 
+Üçü konuşma `None` hedefi Otomasyon cihaz ayarları düşürmek için geliyordu. Sözcükler gibi kullandıkları `dim`, `lower`, veya `decrease`. Dördüncü utterance Internet üzerinde etkinleştirmek ister. Tüm dört konuşma açma veya güç derecesini bir cihaza değiştirme hakkında olduğundan, bunlar için kaydırılacağı `HomeAutomation.TurnOn` hedefi. 
 
-Bu yalnızca bir çözümdür. Yeni bir amacı da oluşturabilirsiniz `ChangeSetting` dim, kullanarak utterances taşıma azaltmak ve yeni o hedefi azaltmak. 
+Bu tek bir çözümdür. Yeni bir amacı da oluşturabilirsiniz `ChangeSetting` dim, kullanarak konuşma taşıma alt ve bu yeni hedefi azaltın. 
 
-## <a name="fix-the-app-based-on-batch-results"></a>Toplu sonuçlarına dayalı uygulama düzeltme
-Dört utterances taşıma `HomeAutomation.TurnOn` hedefi. 
+## <a name="fix-the-app-based-on-batch-results"></a>Batch sonuçlarına göre uygulama düzeltme
+Dört konuşma taşıma `HomeAutomation.TurnOn` hedefi. 
 
-1. Tüm utterances seçili şekilde utterance listesinin onay kutusunu seçin. 
+1. Tüm konuşma seçili şekilde utterance listenin üstündeki onay kutusu seçin. 
 
-2. İçinde **yeniden hedefi** açılan listesinde, select `HomeAutomation.TurnOn`. 
+2. İçinde **yeniden atama hedefi** açılan listesinde, select `HomeAutomation.TurnOn`. 
 
-    ![Utterances Taşı](./media/luis-tutorial-batch-testing/move-utterances.png)
+    ![Konuşma Taşı](./media/luis-tutorial-batch-testing/move-utterances.png)
 
-    Dört utterances atanıncaya sonra utterance listelemek için `None` hedefi boştur.
+    Dört konuşma atanır sonra utterance listelemek için `None` hedefi boştur.
 
-3. Dört yeni amacı için hiçbiri hedefi ekleyin:
+3. Dört yeni hedef hiçbiri için hedefi ekleme:
 
     ```
     "fish"
@@ -257,24 +257,24 @@ Dört utterances taşıma `HomeAutomation.TurnOn` hedefi.
     "pizza"
     ```
 
-    Bu utterances HomeAutomation etki alanının dışında kesinlikle var. Her utterance girerken skoru için izleyin. Puanı düşük veya daha çok düşük (ile etrafında kırmızı bir kutu) olabilir. 8. adımda uygulama eğitmek sonra puanı çok daha yüksek olur. 
+    Bu konuşma kesinlikle HomeAutomation etki alanı dışında olan. Her utterance girerken, puan için izleyin. Puan, düşük veya hatta çok düşük (kırmızı kutu çevresinde) sahip olabilir. Adım 8'de uygulamayı eğitme sonra puan çok daha yüksek olur. 
 
-7. Mavi etiketi seçin ve utterance içinde seçerek tüm etiketleri Kaldır **Etiketi Kaldır**.
+7. Mavi etiket utterance ve select seçerek tüm etiketleri kaldırmak **Etiketi Kaldır**.
 
-8. Seçin **tren** sağ üst gezinti çubuğunda. Her utterance puanı çok daha yüksektir. Tüm puanlarını `None` hedefi olmalıdır.80 şimdi. 
+8. Seçin **eğitme** üst sağ gezinti çubuğunda. Her utterance puanı çok daha yüksektir. Tüm puanları `None` hedefi olmalıdır.80 şimdi. 
 
 ## <a name="verify-the-fix-worked"></a>Düzeltme çalışılan doğrulayın
-İçin toplu testinde utterances doğru şekilde tahmin doğrulamak için **hiçbiri** amacı, toplu test yeniden çalıştırın.
+İçin toplu test konuşma doğru şekilde tahmin doğrulamak için **hiçbiri** amacı, batch testi yeniden çalıştırın.
 
 1. Seçin **Test** üst gezinti çubuğunda. 
 
-2. Seçin **test paneli toplu** sağ taraftaki panelinde. 
+2. Seçin **test paneli toplu** Sağdaki panelde. 
 
-3. Toplu işlem adı'nın sağındaki üç nokta (...) seçip **çalıştırmak Dataset**. Toplu test tamamlanana kadar bekleyin.
+3. Öğesinin üç noktasını (***...*** ) sağında toplu işlem adı'düğmesine tıklayın ve belirleyin **çalıştırma Dataset**. Toplu test işlemi tamamlanana kadar bekleyin.
 
     ![Veri kümesi çalıştırın](./media/luis-tutorial-batch-testing/run-dataset.png)
 
-4. Seçin **bkz sonuçları**. Hedefleri tüm hedefi adları solundaki yeşil simgeler olması gerekir. Kümesine sağ filtreli `HomeAutomation.Turnoff` yeşil nokta grafiği Orta için en yakın üst sağ panelinde hedefini seçin. Grafik aşağıdaki tabloda utterance adı görüntülenir. Puanı `breezeway off please` çok düşük olur. İsteğe bağlı bir etkinlik, bu puanı artırmak yapma için daha fazla utterances eklemektir. 
+4. Seçin **bkz sonuçları**. Intents tüm hedefi adları solundaki yeşil simgeler olması gerekir. Ayarlamak doğru filtreyle `HomeAutomation.Turnoff` yeşil nokta grafiğinin ortasını için en yakın üst sağ panelde hedefini seçin. Grafiğin altındaki tabloda utterance adı görünür. Puanı `breezeway off please` çok düşüktür. İsteğe bağlı bir etkinliği, bu puanı artırmak için hedefi için daha fazla konuşma eklemektir. 
 
     ![Veri kümesi çalıştırın](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
 
@@ -374,7 +374,7 @@ Entity testing is diferrent than intents. An utterance will have only one top sc
 
 3. Select **Test** on the top navigation panel to open the Batch testing pane again. 
 
-4. If the list of datasets is not visible, select **Back to list**. Select the three dots (...) at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
+4. If the list of datasets is not visible, select **Back to list**. Select the ellipsis (***...***) button at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
 
 5. Select **See results** to review the test results.
 
@@ -383,6 +383,6 @@ Entity testing is diferrent than intents. An utterance will have only one top sc
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Örnek utterances hakkında daha fazla bilgi edinin](luis-how-to-add-example-utterances.md)
+> [Örnek konuşma hakkında daha fazla bilgi edinin](luis-how-to-add-example-utterances.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

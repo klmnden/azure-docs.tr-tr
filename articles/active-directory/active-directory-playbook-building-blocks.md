@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: c5f3904621dcc4fe992b2c2f8293ad706b01f713
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d2a63a1a9b335b7765c5eaf8c90e1d755b2ce9c9
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446784"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867129"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook prova: yapı taşları
 
@@ -42,7 +42,7 @@ Azure AD Premium ile istediğiniz POC için gereken bazı ön koşullar aşağı
 | Önkoşul | Kaynaklar |
 | --- | --- |
 | Geçerli bir Azure aboneliği ile tanımlanan azure AD kiracısı | [Bir Azure Active Directory kiracısı edinme](active-directory-howto-tenant.md)<br/>**Not:** Azure AD Premium lisansına sahip bir ortam zaten varsa, giderek sınırı sıfır olan bir abonelik edinebilirsiniz https://aka.ms/accessaad <br/>Daha fazla bilgi edinin: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ ve https://technet.microsoft.com/library/dn832618.aspx |
-| Tanımlanan ve doğrulanmış etki alanları | [Azure Active Directory'ye özel etki alanı adı ekleme](active-directory-domains-add-azure-portal.md)<br/>**Not:** Power BI gibi bazı iş yükleri bir azure AD kiracısı altında kapsar sağlamış. Belirli bir etki alanı için bir kiracı ile ilişkili olup olmadığını denetlemek için gidin https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Etki alanı zaten bir kiracıya atanan sonra başarılı bir yanıt almak ve konuşturabilirsiniz çözümüyse gerekli. Bu durumda, Ek Yardım için Microsoft ile iletişime geçin. Devralma seçenekleri hakkında daha fazla bilgi: [Azure için Self Servis kaydolma nedir?](active-directory-self-service-signup.md) |
+| Tanımlanan ve doğrulanmış etki alanları | [Azure Active Directory'ye özel etki alanı adı ekleme](active-directory-domains-add-azure-portal.md)<br/>**Not:** Power BI gibi bazı iş yükleri bir azure AD kiracısı altında kapsar sağlamış. Belirli bir etki alanı için bir kiracı ile ilişkili olup olmadığını denetlemek için gidin https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Etki alanı zaten bir kiracıya atanan sonra başarılı bir yanıt almak ve konuşturabilirsiniz çözümüyse gerekli. Bu durumda, Ek Yardım için Microsoft ile iletişime geçin. Devralma seçenekleri hakkında daha fazla bilgi: [Azure için Self Servis kaydolma nedir?](users-groups-roles/directory-self-service-signup.md) |
 | Azure AD Premium veya EMS deneme etkin | [Azure Active Directory Premium bir ay boyunca ücretsiz](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Azure AD Premium veya EMS lisanslarınız PoC kullanıcılara atadığınız | [Kendiniz ve kullanıcılarınızın Azure Active Directory lisansı](active-directory-licensing-get-started-azure-portal.md) |
 | Azure AD genel yönetici kimlik bilgileri | [Azure Active Directory'de yönetici rolleri atama](users-groups-roles/directory-assign-admin-roles.md) |
@@ -125,11 +125,11 @@ Yaklaşık tamamlama süresi: 10 dakika
 | Adım | Kaynaklar |
 | --- | --- |
 | Azure AD yönetim portalında lisansları dikey penceresine gidin | [Azure AD yönetim portalında: lisanslama](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) |
-| Lisanslar POC kullanıcılarla güvenlik grubuna atayın. | [Kullanıcılar Azure Active Directory'de bir grup için lisans atama](active-directory-licensing-group-assignment-azure-portal.md) |
+| Lisanslar POC kullanıcılarla güvenlik grubuna atayın. | [Kullanıcılar Azure Active Directory'de bir grup için lisans atama](users-groups-roles/licensing-groups-assign.md) |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-Herhangi bir sorun olması durumunda Git [senaryoları, sınırlamalar ve bilinen sorunlar Azure Active Directory'de lisanslama yönetmek için grupları kullanma](active-directory-licensing-group-advanced.md)
+Herhangi bir sorun olması durumunda Git [senaryoları, sınırlamalar ve bilinen sorunlar Azure Active Directory'de lisanslama yönetmek için grupları kullanma](users-groups-roles/licensing-group-advanced.md)
 
 ## <a name="saas-federated-sso-configuration"></a>SaaS Federasyon SSO yapılandırma
 
