@@ -1,6 +1,6 @@
 ---
 title: Azure dosya AKS ile kullanma
-description: Azure diskleri AKS ile kullanma
+description: AKS ile Azure disklerini kullanma
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 25ae0e508223b50219e40245cc9dfbc407b96bba
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 0479e4d80b7490db170255d47ef3190bb744d2d8
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096705"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901502"
 ---
 # <a name="volumes-with-azure-files"></a>Azure dosyaları ile birimleri
 
-Kapsayıcı tabanlı uygulamalara erişmek ve bir dış veri birimdeki veriler kalıcı hale getirmek çoğunlukla gerekir. Azure dosyaları bu dış veri deposu olarak kullanılabilir. Bu makale Azure Kubernetes hizmetindeki Kubernetes birimi olarak Azure dosyaları kullanılarak ayrıntıları.
+Kapsayıcı tabanlı uygulamalar genellikle erişmek ve bir dış veri birimdeki veriler kalıcı hale getirmek gerekir. Azure dosyaları, bu dış veri deposu olarak kullanılabilir. Bu makalede, Azure Kubernetes Service'teki bir Kubernetes birimi olarak Azure dosyaları'nı kullanarak ayrıntıları.
 
-Kubernetes birimleri hakkında daha fazla bilgi için bkz: [Kubernetes birimleri][kubernetes-volumes].
+Kubernetes birimleri hakkında daha fazla bilgi için bkz. [Kubernetes birimleri][kubernetes-volumes].
 
 ## <a name="create-an-azure-file-share"></a>Azure dosya paylaşımı oluşturma
 
-Bir Azure dosya paylaşımı Kubernetes birimi olarak kullanmadan önce bir Azure Storage hesabı ve dosya paylaşımı oluşturmanız gerekir. Aşağıdaki komut dosyası, bu görevleri tamamlamak için kullanılabilir. Not edin veya parametre değerleri güncelleştirmek, bunlardan bazıları Kubernetes birim oluşturulurken gereklidir.
+Bir Azure dosya paylaşımı Kubernetes birim olarak kullanmadan önce bir Azure depolama hesabı ve dosya paylaşımı oluşturmanız gerekir. Bu görevleri tamamlamak için aşağıdaki betiği kullanılabilir. Not alın veya parametre değerlerini güncelleştirin, bunlardan bazıları Kubernetes hacmi oluştururken gereklidir.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -52,22 +52,22 @@ STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_G
 
 # Echo storage account name and key
 echo Storage account name: $AKS_PERS_STORAGE_ACCOUNT_NAME
-echo Storgae account key: $STORAGE_KEY
+echo Storage account key: $STORAGE_KEY
 ```
 
-## <a name="create-kubernetes-secret"></a>Kubernetes gizli anahtar oluşturma
+## <a name="create-kubernetes-secret"></a>Kubernetes gizli dizi oluşturma
 
-Kubernetes dosya paylaşımına erişmek için kimlik bilgileri gerekir. Bu kimlik bilgileri depolanmış bir [Kubernetes gizli][kubernetes-secret], Kubernetes pod oluştururken başvurulan.
+Kubernetes dosya paylaşımına erişmek için kimlik bilgileri gerekir. Bu kimlik bilgileri depolanan bir [Kubernetes gizli][kubernetes-secret], bir Kubernetes pod oluştururken başvuruyor.
 
-Gizli anahtarı oluşturmak için aşağıdaki komutu kullanın. Değiştir `STORAGE_ACCOUNT_NAME` , depolama hesabı adı ile ve `STORAGE_ACCOUNT_KEY` depolama anahtarınız ile.
+Gizli dizi oluşturmak için aşağıdaki komutu kullanın. Değiştirin `STORAGE_ACCOUNT_NAME` ile depolama hesabı adınızı ve `STORAGE_ACCOUNT_KEY` depolama anahtarınız ile.
 
 ```console
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=STORAGE_ACCOUNT_KEY
 ```
 
-## <a name="mount-file-share-as-volume"></a>Birim olarak dosya paylaşımını bağlama
+## <a name="mount-file-share-as-volume"></a>Dosya paylaşımını birim olarak bağlama
 
-Azure dosya paylaşımınıza kendi spec birim yapılandırarak, pod bağlayın. Adlı yeni bir dosya oluşturun `azure-files-pod.yaml` aşağıdaki içeriğe sahip. Güncelleştirme `aksshare` Azure dosyaları verilen ad paylaşın.
+Azure dosya paylaşımınızı, bir pod içinde kendi spec birim yapılandırarak bağlayın. Adlı yeni bir dosya oluşturun `azure-files-pod.yaml` aşağıdaki içeriğe sahip. Güncelleştirme `aksshare` Azure dosyaları'na verilen ad ile paylaşın.
 
 ```yaml
 apiVersion: v1
@@ -95,11 +95,11 @@ Kubectl bir pod oluşturmak için kullanın.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-Şimdi takılabilir, Azure dosya paylaşımı ile çalışan bir kapsayıcıya sahip `/mnt/azure` dizin.  Birimi, pod aracılığıyla incelerken bağlama görebilirsiniz `kubectl describe pod azure-files-pod`.
+Artık Azure dosya paylaşımınızı takılabilir ile çalışan bir kapsayıcıya sahip `/mnt/azure` dizin.  Birimi aracılığıyla pod incelerken bağlama gördüğünüz `kubectl describe pod azure-files-pod`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure dosyaları kullanarak Kubernetes birimleri hakkında daha fazla bilgi edinin.
+Azure dosyaları'nı kullanarak Kubernetes birimleri hakkında daha fazla bilgi edinin.
 
 > [!div class="nextstepaction"]
 > [Azure dosyaları için Kubernetes eklentisi][kubernetes-files]

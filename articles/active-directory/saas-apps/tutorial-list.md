@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/18/2018
+ms.date: 07/06/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 9a7e8157fbf2294dae959247aa2f0013a80e58c1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1a5f9ed67bf39db6aa1e4f817957d795883a677f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446137"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901957"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Azure Active Directory ile SaaS uygulama tümleştirmesi
 
@@ -44,6 +44,7 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-8x8virtualoffice-tutorial.png)| [8x8lik sanal Office](8x8virtualoffice-tutorial.md)|
 
 ## <a name="a"></a>A
+
 | Logo | Çoklu oturum açma için uygulaması Öğreticisi | Kullanıcı sağlama uygulaması Öğreticisi |
 | :---: | :--- | :--- |
 | ![Logo](./media/tutorial-list/active-directory-saas-abintegro-tutorial.png)| [Abintegro](abintegro-tutorial.md)|
@@ -87,7 +88,6 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-autotaskworkplace-tutorial.png)| [Autotask çalışma alanı](autotaskworkplace-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-awardspring-tutorial.png)| [AwardSpring](awardspring-tutorial.md)|
 
-
 ## <a name="b"></a>B
 
 | Logo | Çoklu oturum açma için uygulaması Öğreticisi | Kullanıcı sağlama uygulaması Öğreticisi |
@@ -108,6 +108,7 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-blackboard-learn-tutorial.png)| [Yazı tahtası öğrenin](blackboard-learn-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-blackboard-learn-shibboleth-tutorial.png)| [-Shibboleth Yazı tahtası öğrenin](blackboard-learn-shibboleth-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-bluejeans-tutorial.png)| [BlueJeans](bluejeans-tutorial.md)|[BlueJeans - kullanıcı sağlama](bluejeans-provisioning-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-bomgarremotesupport-tutorial.png)| [Bomgar uzak destek](bomgarremotesupport-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-bonus-tutorial.png)| [Bonusly](bonus-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-boomi-tutorial.png)| [Boomi](boomi-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-box-tutorial.png)| [Kutusu](box-tutorial.md)| [Kutusu - kullanıcı sağlama](box-userprovisioning-tutorial.md)|
@@ -128,6 +129,7 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-central-desktop-tutorial.png)| [Merkezi Masaüstü](central-desktop-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-ceridiandayforcehcm-tutorial.png)| [Ceridian Dayforce HCM](ceridiandayforcehcm-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-cernercentral-tutorial.png)| [Cerner Orta](cernercentral-tutorial.md)|[Cerner Orta - kullanıcı sağlama](cernercentral-provisioning-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-certainadminsso-tutorial.png)| [Belirli yönetim SSO](certainadminsso-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-certify-tutorial.png)| [Onayla](certify-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-cezannehrsoftware-tutorial.png)| [İK Cezanne yazılım](cezannehrsoftware-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-cherwell-tutorial.png)| [Cherwell](cherwell-tutorial.md)|
@@ -136,8 +138,8 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-cimpl-tutorial.png)| [Cimpl](cimpl-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-ciscocloud-tutorial.png)| [Cisco bulut](ciscocloud-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-ciscocloudlock-tutorial.png)| [Cisco Cloudlock](ciscocloudlock-tutorial.md)|
-| ![Logo](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|[Cisco Spark - kullanıcı sağlama](cisco-spark-provisioning-tutorial.md)|
-| ![Logo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|[Cisco Webex - kullanıcı sağlama](cisco-webex-provisioning-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](sharefile-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)|[Clarizen - kullanıcı sağlama](clarizen-provisioning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Gözden geçirme Temizle](clearreview-tutorial.md)|
@@ -160,7 +162,6 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-cs-stars-tutorial.png)| [CS yıldız](cs-stars-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-cylanceprotect-tutorial.png)| [CylancePROTECT](cylanceprotect-tutorial.md)|
 
-
 ## <a name="d---e"></a>D - E
 
 | Logo | Çoklu oturum açma için uygulaması Öğreticisi | Kullanıcı sağlama uygulaması Öğreticisi |
@@ -177,7 +178,7 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-dome9arc-tutorial.png)| [Dome9 yay](dome9arc-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-domo-tutorial.png)| [Domo](domo-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-dowjones-factiva-tutorial.png)| [Pencere Jones Factiva](dowjones-factiva-tutorial.md)|
-| ![Logo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [İş için Dropbox](dropboxforbusiness-tutorial.md)| [Dropbox - iş için kullanıcı sağlama](dropboxforbusiness-provisioning-tutorial.md)| 
+| ![Logo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [İş için Dropbox](dropboxforbusiness-tutorial.md)| [Dropbox - iş için kullanıcı sağlama](dropboxforbusiness-provisioning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-druva-tutorial.png)| [Druva](druva-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-dynamicsignal-tutorial.png)| [Dinamik sinyali](dynamicsignal-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-easyterritory-tutorial.png)| [EasyTerritory](easyterritory-tutorial.md)|
@@ -187,6 +188,7 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-efidigitalstorefront-tutorial.png)| [EFI dijital mağaza](efidigitalstorefront-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-egnyte-tutorial.png)| [Egnyte](egnyte-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-ekincare-tutorial.png)| [eKincare](ekincare-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-elionboarding-tutorial.png)| [Eli ekleme](elionboarding-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-elium-tutorial.png)| [Elium](elium-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-empcenter-tutorial.png)| [EmpCenter](empcenter-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-encompass-tutorial.png)| [Çevreleyen](encompass-tutorial.md)|
@@ -198,8 +200,6 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-evernote-tutorial.png)| [Evernote](evernote-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-evidence-tutorial.png)| [Evidence.com](evidence-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-expensify-tutorial.png)| [Expensify](expensify-tutorial.md)|
-
-
 
 ## <a name="f---g"></a>F - G
 
@@ -235,7 +235,6 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-greenhouse-tutorial.png)| [Greenhouse](greenhouse-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-grovo-tutorial.png)| [Grovo](grovo-tutorial.md)|
 
-
 ## <a name="h---i"></a>H - I
 
 | Logo | Çoklu oturum açma için uygulaması Öğreticisi | Kullanıcı sağlama uygulaması Öğreticisi |
@@ -262,25 +261,28 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-ilms-tutorial.png)| [iLMS](ilms-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-imagerelay-tutorial.png)| [Görüntü geçiş](imagerelay-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-imageworks-tutorial.png)| [GÖRÜNTÜ ÇALIŞIR](imageworks-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-imagineerwebVision-tutorial.png)| [Imagineer WebVision](imagineerwebVision-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-impacriskmanager-tutorial.png)| [IMPAC Risk Yöneticisi](impacriskmanager-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-infogix-tutorial.png)| [Infogix Data3Sixty yönetir](infogix-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-inforretailinformationmanagement-tutorial.png)| [Infor perakende â bilgi yönetimi](inforretailinformationmanagement-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-inkling-tutorial.png)| [İnkling](inkling-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-innotas-tutorial.png)| [Innotas](innotas-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-innovationhub-tutorial.png)| [Yenilik Hub](innovationhub-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-insidertrack-tutorial.png)| [Insider İzle](insidertrack-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-insideview-tutorial.png)| [InsideView](insideview-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-insight4grc-tutorial.png)| [Insight4GRC](insight4grc-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-insigniasamlsso-tutorial.png)| [İnsignia SAML SSO](insigniasamlsso-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-insperityexpensable-tutorial.png)| [Insperity ExpensAble](insperityexpensable-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-intacct-tutorial.png)| [Intacct](intacct-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-intime-tutorial.png)| [İnTime](intime-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-intralinks-tutorial.png)| [Intralinks](intralinks-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-ipasssmartconnect-tutorial.png)| [iPass SmartConnect](ipasssmartconnect-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-iqnavigatorvms-tutorial.png)| [IQNavigator VM'ler](iqnavigatorvms-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-iqualify-tutorial.png)| [iQualify LMS](iqualify-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-iriusrisk-tutorial.png)| [IriusRisk](iriusrisk-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-itrp-tutorial.png)| [ITRP](itrp-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-itslearning-tutorial.png)| [itslearning](itslearning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-iwellnessnow-tutorial.png)| [iWellnessNow](iwellnessnow-tutorial.md)|
-
 
 ## <a name="j---k"></a>J - K
 
@@ -311,13 +313,14 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-kronos-tutorial.png)| [Kronos](kronos-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-kudos-tutorial.png)| [Kudos](kudos-tutorial.md)|
 
-
 ## <a name="l---m"></a>M - M
+
 | Logo | Çoklu oturum açma için uygulaması Öğreticisi | Kullanıcı sağlama uygulaması Öğreticisi |
 | :---: | :--- | :--- |
 | ![Logo](./media/tutorial-list/active-directory-saas-landgorilla-tutorial.png)| [Land Gorilla istemci](landgorilla-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-launchdarkly-tutorial.png)| [LaunchDarkly](launchdarkly-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-lcvista-tutorial.png)| [LCVista](lcvista-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-leapsome-tutorial.png)| [Leapsome](leapsome-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-learning-at-work-tutorial.png)| [İşte öğrenim](learning-at-work-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-learningseatlms-tutorial.png)| [Learning Seat LMS](learningseatlms-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-learningpool-tutorial.png)| [Learningpool Yasası](learningpool-tutorial.md)|
@@ -361,7 +364,6 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-mozy-enterprise-tutorial.png)| [Mozy Enterprise](mozy-enterprise-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-mypolicies-tutorial.png)| [myPolicies](mypolicies-tutorial.md)|
 
-
 ## <a name="n---o"></a>N - O
 
 | Logo | Çoklu oturum açma için uygulaması Öğreticisi | Kullanıcı sağlama uygulaması Öğreticisi |
@@ -372,6 +374,7 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-netsuite-tutorial.png)| [Muhasebesi](netsuite-tutorial.md)|[Muhasebesi - kullanıcı sağlama](netsuite-provisioning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-new-relic-tutorial.png)| [New Relic](new-relic-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-nexonia-tutorial.png)| [Nexonia](nexonia-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-nimblex-tutorial.png)| [Nimblex](nimblex-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-nomadesk-tutorial.png)| [Nomadesk](nomadesk-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-nomadic-tutorial.png)| [Nomadic](nomadic-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-novatus-tutorial.png)| [Novatus](novatus-tutorial.md)|
@@ -452,7 +455,6 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-rollbar-tutorial.png)| [Rollbar](rollbar-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-runmyprocess-tutorial.png)| [RunMyProcess](runmyprocess-tutorial.md)|
 
-
 ## <a name="s"></a>S
 
 | Logo | Çoklu oturum açma için uygulaması Öğreticisi | Kullanıcı sağlama uygulaması Öğreticisi |
@@ -476,6 +478,7 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-sap-netweaver-tutorial.png)| [SAP NetWeaver](sap-netweaver-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-scalexenterprise-tutorial.png)| [ScaleX Enterprise](scalexenterprise-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-scclifecycle-tutorial.png)| [SCC yaşam döngüsü](scclifecycle-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-screencast-tutorial.png)| [Yayını-O-Matic](screencast-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-schoox-tutorial.png)| [Schoox](schoox-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-sciforma-tutorial.png)| [Sciforma](sciforma-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-sciquest-spend-director-tutorial.png)| [SciQuest harcama Direktörü](sciquest-spend-director-tutorial.md)|
@@ -523,7 +526,7 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-syncplicity-tutorial.png)| [Syncplicity](syncplicity-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-synergi-tutorial.png)| [Synergi](synergi-tutorial.md)|
 
-## <a name="t"></a>T
+## <a name="t---u---v"></a>T - U - V
 
 | Logo | Çoklu oturum açma için uygulaması Öğreticisi | Kullanıcı sağlama uygulaması Öğreticisi |
 | :---: | :--- | :--- |
@@ -571,7 +574,6 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-voyance-tutorial.png)| [Voyance](voyance-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-vxmaintain-tutorial.png)| [vxMaintain](vxmaintain-tutorial.md)|
 
-
 ## <a name="w---z"></a>W - Z
 
 | Logo | Çoklu oturum açma için uygulaması Öğreticisi | Kullanıcı sağlama uygulaması Öğreticisi |
@@ -610,8 +612,6 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-zscaler-zscloud-tutorial.png)| [Zscaler ZSCloud](zscaler-zscloud-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-zwayam-tutorial.png)| [Zwayam](zwayam-tutorial.md)|
 
-
 ## <a name="related-articles"></a>İlgili makaleler
 
 [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](../active-directory-apps-index.md)
-

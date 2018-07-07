@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d814bed6f126cb3b81d85c4e797a22d2ac22ddfb
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 4862e3aa976287512fd69fdfe9295e3f3328d5a7
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856214"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887785"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge için genel sorunlar ve çözümler
 
@@ -245,9 +245,13 @@ Edge çalışma zamanı bir parçası olan edge hub'ı varsayılan olarak perfor
 ### <a name="resolution"></a>Çözüm
 İçin edge hub'ı bir ortam değişkenini ayarlamak **OptimizeForPerformance** için **false**. Bunu yapmanın iki yolu vardır:
 
-Kullanıcı arabiriminde: Portalı'nda *cihaz ayrıntıları*->*modülleri ayarlama*->*Gelişmiş Edge çalışma zamanı ayarları Yapılandır*, ortam oluşturma adlı değişken *OptimizeForPerformance* ayarlanmış *false* için *Edge hub'ı*.
+Kullanıcı Arabiriminde: 
+
+Portalı'nda *cihaz ayrıntıları*->*modülleri ayarlama*->*Gelişmiş Edge çalışma zamanı ayarları Yapılandır*, bir ortam değişkeni oluşturun adlı *OptimizeForPerformance* ayarlanmış *false* için *Edge hub'ı*.
 
 ![optimizeforperformance][img-optimize-for-perf]
+
+**VEYA**
 
 Dağıtım bildirimi içinde:
 

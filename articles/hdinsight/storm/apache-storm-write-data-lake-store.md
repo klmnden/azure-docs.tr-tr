@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 95dea2896bf1d116a14d8b51ada9e17f186d4373
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 7a314ada1c25b57b6d1701bf414a42a58397e1f0
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856265"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903141"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>HDFS'ye HDInsight üzerinde Apache Storm yazma
 
@@ -133,7 +133,7 @@ Aşağıdaki öğeler bu YAML tanımlar:
 * `rotationPolicy`: Dosyalarını döndürmek ne zaman tanımlar. Bu örnekte, hiçbir dönüş gerçekleştirilir.
 * `hdfs-bolt`: Yapılandırma parametreleri olarak önceki bileşenleri'ni kullanan `HdfsBolt` sınıfı.
 
-Flux çerçevesi hakkında daha fazla bilgi için bkz. [ https://storm.apache.org/releases/1.1.0/flux.html ](https://storm.apache.org/releases/1.1.0/flux.html).
+Flux çerçevesi hakkında daha fazla bilgi için bkz. [ https://storm.apache.org/releases/1.1.2/flux.html ](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="configure-the-cluster"></a>Kümeyi yapılandırma
 

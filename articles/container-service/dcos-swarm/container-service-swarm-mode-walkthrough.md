@@ -2,19 +2,19 @@
 title: Hızlı Başlangıç - Linux için Azure Docker CE kümesi
 description: Azure CLI ile Azure Container Service'de Linux kapsayıcıları için Docker CE kümesi oluşturmayı hızlı bir şekilde öğrenin.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: cd52982fc650d5fd3b4edd8513946a721306a451
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 46e93953ba8db141b99b14aa78674e85b343adbc
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164100"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903412"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Docker CE kümesi dağıtma
 
@@ -58,7 +58,7 @@ Azure Container Service'te [az acs create](/cli/azure/acs#az_acs_create) komutuy
 Aşağıdaki örnekte, bir Linux ana düğümü ve üç Linux aracı düğümüyle *mySwarmCluster* adlı bir küme oluşturulur.
 
 ```azurecli-interactive
-az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
+az acs create --name mySwarmCluster --orchestrator-type swarm --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 Sınırlı deneme sürümünde olduğu gibi bazı durumlarda, bir Azure aboneliğinin Azure kaynaklarına sınırlı erişimi olur. Dağıtım sınırlı kullanılabilir çekirdek sayısı nedeniyle başarısız olursa, `--agent-count 1` öğesini [az acs create](/cli/azure/acs#az_acs_create) komutuna ekleyerek varsayılan aracı sayısını azaltın. 

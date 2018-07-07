@@ -1,6 +1,6 @@
 ---
-title: Azure HALUK uygulamalardaki özellikleri anlama | Microsoft Docs
-description: HALUK uygulamanın performansını iyileştirmeye yardımcı olmak özellikleri hakkında bilgi edinin. Tümcecik listeleri ve normal ifadeleri tanıma desenlerini özellikleri içerir.
+title: Azure'da LUIS uygulama özelliklerini anlama | Microsoft Docs
+description: Bir LUIS uygulamanın performansını iyileştirmeye yardımcı olan özellikler hakkında bilgi edinin. İfade listeleri ve düzenleri için normal ifadeleri tanıma özellikleri içerir.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,55 +9,55 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: v-geberr
-ms.openlocfilehash: 416fadaf52d7a71dcaab81aab3bf6099213e5af5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 597948947303b7fdf16f24576620d6f39d7c51f4
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35356378"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887455"
 ---
-# <a name="phrase-list-features-in-luis"></a>HALUK tümcecik listesi özellikleri
+# <a name="phrase-list-features-in-luis"></a>LUIS, ifade listesi özellikleri
 
-Machine learning'de bir *özelliği* ayırt bir ayırdedici nitelik ya da sisteminizi gözlemleyen veri özniteliği. 
+Machine learning'de bir *özellik* bir ayırt edici nitelik veya sisteminizin gözlemler veri özniteliği. 
 
-Etiket veya sınıflandırmak istediğiniz giriş tanımak nasıl konusunda ipuçları sağlamak için bir dil modeli özellikleri ekleyin. Hedefleri ve varlıkları tanıması HALUK Yardım özellikleri ancak özellikleri hedefleri veya varlıklar kendilerini değildir. Bunun yerine, özellikler, ilgili koşulları örnekleri sağlayabilir.  
+Bir dil modeli, ipuçlarını, etiket veya sınıflandırmak istediğiniz giriş anlamayı hakkında sağlamaya özellikleri ekleyin. Özellikleri, hedefleri ve varlıkları hem LUIS yardımcı olur, ancak özellikleri, hedefleri ve varlıkları kendilerini değildir. Bunun yerine, özellikler, ilgili koşulları örnekleri sağlayabilir.  
 
-## <a name="what-is-a-phrase-list-feature"></a>Tümcecik liste özelliğini nedir?
-Tümcecik listesi bir grup değerlerin aynı sınıfa ait olan ve benzer şekilde (örneğin, şehirler veya ürün adlarını) değerlendirilmesi gerekir (kelimeler ve ifadeler) içerir. HALUK bunlardan birini hakkında ne öğrenir otomatik olarak başkalarına da uygulanır. Bu kapalı değil [listesi varlık](luis-concept-entity-types.md#types-of-entities) (tam metin eşleşir) eşleşen sözcüklerin.
+## <a name="what-is-a-phrase-list-feature"></a>Bir ifade listesi özelliği nedir?
+Bir ifade listesi, aynı sınıfa ait benzer şekilde (örneğin, şehirler ya da ürün adlarını) işlenmesi gereken değerleri (sözcük ve tümcecikleri) bir grup içerir. LUIS bunları biri hakkında ne öğrenir otomatik olarak başkaları için de uygulanır. Kapalı değil [varlık listesinde](luis-concept-entity-types.md#types-of-entities) (tam metin eşleşmesini) eşleşen bir kelimelerin.
 
-Tümcecik listesi uygulama etki alanı sözlük için ikinci bir HALUK işaret sözcükleri ilgili olarak ekler.
+Bir ifade listesi uygulama etki alanının sözlüğü LUIS için ikinci bir sinyal sözcükleri ilgili olarak ekler.
 
-## <a name="how-to-use-phrase-lists"></a>Tümcecik listeleri kullanma
-Seyahat Aracısı uygulamada, Londra, Paris ve Kahire değerlerini içeren "Şehir" adlı bir deyim listesini oluşturun. Basit bir varlık gibi bu değerlerden birini etiket varsa bir [örnek utterance](luis-how-to-add-example-utterances.md#add-simple-entity-label) bir amacı, diğerleri tanımak HALUK öğrenir. 
+## <a name="how-to-use-phrase-lists"></a>İfade listeleri kullanma
+Bir seyahat aracı uygulaması, Londra, Paris ve Cairo değerlerini içeren "Şehir" adlı bir ifade listesini oluşturun. Basit bir varlık olarak şu değerlerden biri olarak etiket varsa bir [örnek utterance](luis-how-to-add-example-utterances.md#add-simple-entity-label) bir amaca LUIS diğerleri öğrenir. 
 
-Tümcecik listesi değiştirilebilir veya birbirinin yerine olmayan olabilir. Bir *birbirinin yerine* tümcecik listesidir için eş anlamlı sözcükleri, değerler ve *birbirinin yerine olmayan* tümcecik listesi eş anlamlıları değil, ancak başka bir yolla benzer olmayan değerler için tasarlanmıştır. 
+Değiştirilebilir veya değiştirilebilir olmayan bir ifade listesi olabilir. Bir *birbirinin yerine* tümcecik listedir eş anlamlılar için değerler ve *değiştirilebilir olmayan* tümcecik listesi, eş anlamlılar bulunmayan, ancak başka bir yolla benzer değerler için tasarlanmıştır. 
 
-## <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>Tümcecik listeler Yardım basit değiştirilebilir varlıklar tanımlayın
-Değiştirilebilir tümcecik listeleri HALUK uygulamanızın performansı ayarlamak için iyi bir yoldur. Uygulamanız doğru hedefi utterances tahmin etmeye veya varlıklar algılamayı sorun varsa, utterances olağan dışı sözcükleri ya da anlamları belirsiz olabilir sözcükler içeren hakkında düşünün. Bu sözcükleri tümcecik listesini dahil etmek için iyi bir aday değildir.
+## <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>Tümcecik listeler Yardım basit değiştirilebilir varlıkları tanımlama
+Değiştirilebilir ifade listeleri LUIS uygulamanızın performansını ayarlamak için iyi bir yoludur. Uygulamanızın doğru amaç konuşma tahmin etme veya varlık tanıma sorun varsa, konuşma olağan dışı bir sözcük veya anlamları belirsiz olabilir sözcükler içeren hakkında düşünün. Bu sözcükler tümcecik listesinde içermek için iyi adaylar değildir.
 
-## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>Tümcecik listeler Yardım daha iyi anlamak bağlamdan hedefleri tanımlayın
-Tümcecik listeleri nadir, mülkiyet ve yabancı sözcüklerini kullanın. HALUK (dışında uygulama kültür) yabancı sözcüklerin yanı sıra nadir ve özel sözcükleri tanıyamazsa olabilir ve bu nedenle bunlar tümcecik listesine eklenmesi gerekir. Bu tümcecik listesi olmayan-birbirinin yerine, HALUK tanımak için öğrenmelisiniz bir sınıf nadir sözcükler kümesini oluşturur, ancak bunlar eş anlamlıları değildir belirtmek için veya birbirleri ile karşılıklı olarak işaretlenmelidir.
+## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>Tümcecik listeler Yardım hedefleri daha iyi anlama bağlamdan tanımlayın
+İfade listeleri için nadir, özel ve yabancı kelimeler kullanın. LUIS yabancı kelimeler (dışında uygulamanın kültür) yanı sıra, nadir ve özel sözcük tanıyamadı olabilir ve bu nedenle bunlar bir ifade listesine eklenmesi gereken. Bu ifade listesi, olmayan-birbirinin yerine, nadir bir sözcükler kümesini LUIS tanımayı öğrenin bir sınıf oluşturur, ancak bunlar eş anlamlı sözcükler değildir belirtmek için veya birbirinin yerine birbirleri ile işaretlenmelidir.
 
-Tümcecik listesi bir yönerge katı eşleştirme işlemi yapmak veya her zaman tümcecik listesindeki tüm koşulları tam olarak aynı etiket HALUK için değil. Yalnızca bir ipucu olur. Örneğin, "Patti" ve "Selma" adların olup olmadığını belirten bir tümcecik listesi olabilir, ancak HALUK bağlamsal bilgi "2 için bir ayırma Patti'nın Diner için yemeği Make" ve "beş bana yürüten farklı bir şey anlamına olduğunu bilmek kullanmaya devam edebilirsiniz yönlendirmeler Selma, Georgia". 
+Bir ifade listesi LUIS sıkı eşleştirme işlemi yapmak veya her zaman deyim listesindeki tüm koşulları tamamen aynı etiket için bir yönerge değil. Bu, yalnızca bir ipucu verir. Örneğin, "Patti" ve "Selma" adların olup olmadığını belirten bir ifade listesi olabilir, ancak LUIS kullanmaya devam edebilirsiniz bağlamsal bilgiler farklı bir şey anlamına olduğunu bilmek "2 için bir ayırma sırasında Patti'nın Diner Akşam olun" ve "bana sürüş bulma yönlendirmeler Selma, Gürcistan". 
 
-Tümcecik listesi ekleme, daha fazla örnek utterances bir hedefi eklemek için bir alternatiftir. 
+Bir ifade listesine eklenmesi, daha fazla örnek konuşma eklemeye yönelik bir amacı bir alternatiftir. 
 
-## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Tümcecik kullanmak ne zaman listesi varlıklar karşı listeler
-Tümcecik liste ve liste varlıkları utterances tüm hedefleri etkileyebilir, ancak her bunu farklı bir şekilde gerçekleştirir. Hedefi tahmin puanlarını etkilemek için bir ifade listesini kullanın. Bir tam metin eşleşme varlık ayıklama etkilemek için bir liste varlık kullanın. 
+## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Ne zaman tümceciğini kullanın varlıklar listesi listeler
+Bir ifade listesi hem liste varlıklar arasında tüm hedefleri konuşma etkileyebilir, ancak her bunu farklı bir şekilde yapar. Hedefi tahmin puanı etkilemek için bir ifade listesini kullanın. Bir liste varlığı, bir tam metin eşleşmesi için varlık ayıklama etkilemek için kullanın. 
 
 ### <a name="use-a-phrase-list"></a>Bir ifade listesini kullanın
-Tümcecik listesi ile HALUK hala bağlam dikkate alın ve benzer öğeler, ancak tam bir eşleşme değil, listedeki öğeleri tanımlamak için genelleştirin. Generalize ve yeni bir kategori öğeleri tanımlamak için HALUK uygulamanız gerekiyorsa, tümcecik listesini kullanın. 
+Bir ifade listesiyle LUIS hala bağlam dikkate alın ve benzer öğeleri, ancak tam bir eşleşme yok, listedeki öğeleri tanımlamak için generalize. LUIS uygulamanızı generalize ve bir kategorideki yeni öğeleri tanımlamak için gerekiyorsa, bir ifade listesini kullanın. 
 
-Bir varlığın yeni kişiler veya yeni ürünlerin tanımalıdır bir stok uygulama adlarını tanımalıdır toplantı Zamanlayıcı gibi yeni örnekleri tanımasına istediğinizde gibi basit bir makine öğrenilen varlığın başka bir türü kullanın veya hiyerarşik varlık. Sözcük, tümcecik listesini oluşturun ve diğer sözcükleri HALUK yardımcı tümcecikleri varlık benzer bulun. Bu liste ek anlamlı sözcükleri değerine ekleyerek varlık örnekleri tanımak için HALUK size rehberlik eder. 
+Bir varlıktaki yeni kişileri veya yeni ürün tanımalıdır bir envanter uygulama adlarını tanımalıdır bir toplantı Zamanlayıcı yeni örneklerini tanıyabilirsiniz istediğinizde başka türde bir makine öğrenilen varlık gibi basit bir kullanın veya hiyerarşik varlık. Ardından, başka bir deyişle varlığa benzer Bul LUIS yardımcı olan bir ifade listesini sözcük ve tümcecikleri oluşturun. Bu liste değeri olarak sözcükleri ek anlam ekleyerek varlık örnekleri tanımak için LUIS size yol gösterir. 
 
-Tümcecik listeleri hedefleri ve varlıkları anlayış kalitesini arttırma ile Yardım etki alanına özgü sözlük gibidir. Bir ortak tümcecik listesini Şehir adları gibi uygun isimleri kullanımdır. Şehir adı kısa çizgi veya kesme dahil olmak üzere birkaç sözcükler olabilir.
+Hedefleri ve varlıkları anlama kalitesini geliştirme ile yardımcı etki alanına özel sözlük ifade listeleri gibidir. İfade listesinin ortak kullanım Şehir adları gibi uygun isimleri ' dir. Bir şehir adı kısa çizgi veya kesme işaretleri dahil olmak üzere birkaç sözcük olabilir.
  
-### <a name="dont-use-a-phrase-list"></a>Tümcecik listesi kullanma 
-Bir liste varlık açıkça bir varlık alabilir ve yalnızca tam olarak eşleşen değerleri tanımlar. her değer tanımlar. Bir liste varlık bir varlığın tüm örneklerini bilinir ve sık sık değişmeyen bir restoran menüsündeki yemek öğeleri gibi değişmez bir uygulama için uygun olabilir. Bir varlık olarak bir tam metin eşleşen gerekiyorsa, tümcecik listesi kullanmayın. 
+### <a name="dont-use-a-phrase-list"></a>Bir ifade listesi kullanma 
+Bir liste varlık varlığın alabilir ve yalnızca tam olarak aynı değerleri tanımlar. her bir değeri açıkça tanımlar. Bir liste varlık varlığın tüm örneklerini bilinen ve sık sık, seyrek değişen bir restoran menüsü Gıda öğeleri gibi değişmez bir uygulama için uygun olabilir. Bir varlığın bir tam metin eşleşmesi gerekiyorsa, ifade listesi kullanmayın. 
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 Bilgi [en iyi uygulamalar](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bkz: [Özellik Ekle](luis-how-to-add-features.md) HALUK uygulamanıza Özellikler ekleme hakkında daha fazla bilgi için.
+Bkz: [Özellik Ekle](luis-how-to-add-features.md) LUIS uygulamanızı özellikleri ekleme hakkında daha fazla bilgi için.

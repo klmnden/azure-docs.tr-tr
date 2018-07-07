@@ -1,7 +1,7 @@
 ---
-title: Program aracılığıyla Node.js kullanarak HALUK uygulaması oluşturma | Microsoft Docs
+title: Node.js kullanarak program aracılığıyla LUIS uygulaması oluşturma | Microsoft Docs
 titleSuffix: Azure
-description: Program aracılığıyla verilerden önceden var olan HALUK yazma API kullanarak CSV biçiminde HALUK uygulamasının nasıl oluşturulacağını öğrenin.
+description: Önceden var olan verileri CSV biçiminde yazma LUIS API'si kullanarak program aracılığıyla bir LUIS uygulaması oluşturmayı öğrenin.
 services: cognitive-services
 author: DeniseMak
 manager: rstand
@@ -10,45 +10,45 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: e97dc184266bc9518ee5f909891bd97f7c71804b
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 54c7565dd00305d3ce1faba5d7cc5616c53dd026
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113066"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888173"
 ---
-# <a name="build-a-luis-app-programmatically-using-nodejs"></a>Program aracılığıyla Node.js kullanarak HALUK uygulaması oluşturma
+# <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js kullanarak program aracılığıyla LUIS uygulaması oluşturma
 
-HALUK her şeyi yapan programlı bir API sağlar [HALUK] [ LUIS] Web sitesi yapar. Bu, ne zaman önceden var olan verilere sahip ve program aracılığıyla daha HALUK uygulama bilgilerini el ile girerek oluşturmak için hızlı zamandan tasarruf edebilirsiniz. 
+LUIS, her şeyi yapan programlı bir API sağlar [LUIS](luis-reference-regions.md) Web sitesi yok. Bu, ne zaman önceden var olan verilere sahip olduğunuz ve bilgileri el ile girerek bir LUIS uygulaması daha programlı olarak oluşturmak için daha hızlı zamandan tasarruf edebilirsiniz. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Oturum [HALUK] [ LUIS] Web sitesi ve bulma, [anahtar yazma](luis-concept-keys.md#authoring-key) hesap ayarları'nda. Geliştirme API'leri çağırmak için bu anahtarı kullanın.
+* Oturum [LUIS](luis-reference-regions.md) Web sitesi ve bulma, [anahtar yazma](luis-concept-keys.md#authoring-key) hesap ayarları'nda. Yazma API'leri çağırmak için bu anahtarı kullanırsınız.
 * Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-* Bu öğretici, kullanıcı isteklerinin kuramsal şirketin günlük dosyaları için bir CSV başlar. Karşıdan [burada](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv).
-* En son Node.js ile NPM yükleyin. İndirin [burada](https://nodejs.org/en/download/).
-* **[Önerilen]**  IntelliSense ve hata ayıklama için visual Studio Code buradan indirin [burada](https://code.visualstudio.com/) ücretsiz.
+* Bu öğretici, kullanıcı isteklerinin kuramsal bir şirketin günlük dosyaları için bir CSV ile başlar. İndirdiği [burada](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv).
+* NPM ile en son Node.js yükleyin. İndirdiği [burada](https://nodejs.org/en/download/).
+* **[Önerilen]**  Visual Studio Code için IntelliSense ve hata ayıklama, buradan indirin [burada](https://code.visualstudio.com/) ücretsiz.
 
-## <a name="map-preexisting-data-to-intents-and-entities"></a>Hedefleri ve varlıkları önceden var olan verileri eşleme
-Farklı işlemler kullanıcılara eşlemeleri yapmak istediğiniz metin veri içeriyorsa, ile HALUK göz önünde oluşturulmadıysa bir sistem olsa bile, kullanıcı giriş HALUK amaçları için varolan kategorilerden eşlemesi ile gündeme olabilir. Önemli kelimeler ve ifadeler hangi kullanıcıların kabul içinde belirleyebiliyorsanız, bu sözcükleri varlıklara eşleyebilir.
+## <a name="map-preexisting-data-to-intents-and-entities"></a>Amaç ve varlıkları için önceden var olan veri eşlemesi
+Haritalar farklı şeyler kullanıcılara yapmak istediğiniz metin veri içeriyorsa, LUIS göz önünde bulundurun oluşturulmadıysa bir sistemde sahip olsanız bile, kullanıcı giriş LUIS içinde hedefleri için mevcut kategorilerden eşlemesi ile gündeme olabilir. Önemli bir sözcük ve tümcecikleri içinde hangi kullanıcıların kabul belirleyebiliyorsanız, bu sözcükler varlıklarına eşleyebilir.
 
-`IoT.csv` dosyasını açın. Günlük, kullanıcı sorgularının nasıl kategorilere ayrılan, hangi kullanıcı etti ve bazı sütunları bunları dışında çekilen yararlı bilgiler dahil olmak üzere bir kuramsal ev Otomasyon hizmetine içerir. 
+`IoT.csv` dosyasını açın. Bu, kullanıcı sorgularının bir kuramsal ev Otomasyonu hizmetinde, bunları dışında çekilen yararlı bilgilerle nasıl kategorilere ayrılan, hangi kullanıcı etti ve bazı sütunlar gibi günlük içerir. 
 
 ![CSV dosyası](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
-Gördüğünüz **RequestType** sütun hedefleri, olabilir ve **isteği** sütun bir örnek utterance gösterir. Utterance oluşursa diğer alanları varlıklar olabilir. Hedefleri, varlıkları ve örnek utterances olduğundan, basit bir örnek uygulama için gereksinimleri vardır.
+Gördüğünüz **RequestType** sütun amacı, olabilir ve **istek** sütun örnek utterance gösterir. Utterance içinde oluşursa diğer alanları varlıkları olabilir. Amacı, varlıkları ve örnek konuşma olduğundan, basit bir örnek uygulama için gereksinimleri vardır.
 
-## <a name="steps-to-generate-a-luis-app-from-non-luis-data"></a>HALUK olmayan verileri HALUK uygulama oluşturmak için adımlar
-Kaynak dosyasından yeni bir HALUK uygulaması oluşturmak için önce CSV dosyasından veriler ayrıştırma ve bu verileri yazma API kullanarak HALUK yükleyebilirsiniz bir biçime dönüştürün. Ayrıştırılmış verilerden ne hedefleri ve varlıkları vardır bilgi toplayın. Sonra bir uygulama oluşturmak için API çağrıları yapma ve amaçları ve ayrıştırılmış verilerden toplanan varlıklar ekleyin. HALUK uygulama oluşturduktan sonra örnek utterances ayrıştırılmış verileri ekleyebilirsiniz. Bu akış aşağıdaki kodu son bölümünde görebilirsiniz. Kopyalama veya [karşıdan](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/index.js) Bu kod ve içinde kaydedin `index.js`.
+## <a name="steps-to-generate-a-luis-app-from-non-luis-data"></a>LUIS olmayan verilerden bir LUIS uygulaması oluşturmak için adımları
+Kaynak dosyasından yeni bir LUIS uygulaması oluşturmak için ilk, CSV dosyasındaki verileri ayrıştırılamadı ve bu veriler için LUIS yazma API kullanarak karşıya yüklediğiniz bir biçimine dönüştürün. Ayrıştırılmış verilerden ne amaç ve varlıkları vardır bilgi toplayabilir. Ardından, uygulamayı oluşturmak için API çağrıları yapabilir ve hedefleri ve toplanan verileri ayrıştırılmış varlıklar ekleyin. LUIS uygulaması oluşturduktan sonra örnek konuşma ayrıştırılmış verileri ekleyebilirsiniz. Bu akış aşağıdaki kodun son bölümünde görebilirsiniz. Kopyalama veya [indirme](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/index.js) Bu kod ve kaydedin `index.js`.
 
    [!code-javascript[Node.js code for calling the steps to build a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/index.js)]
 
 
-## <a name="parse-the-csv"></a>CSV ayrıştırılamıyor
+## <a name="parse-the-csv"></a>CSV ayrıştırma
 
-CSV'ye utterances içeren sütun girişleri HALUK anlayabileceği bir JSON biçimine ayrıştırılması gerekir. Bu JSON biçimi içermesi gereken bir `intentName` utterance amacı tanımlayan alan. Ayrıca içermesi gereken bir `entityLabels` utterance varlık, boş alan. 
+LUIS anlayabileceği bir JSON biçimine ayrıştırılacak konuşma csv içeren sütun girişleri sahip. Bu JSON biçiminde içermelidir bir `intentName` utterance amacını tanımlayan alan. Ayrıca içermelidir bir `entityLabels` alanı utterance hiçbir varlık değeri boş olabilir. 
 
-Örneğin, "ışık Aç" girişini bu JSON eşler:
+Örneğin, "Işıkları Aç" girişini bu JSON olarak eşler:
 
 ```json
         {
@@ -69,33 +69,33 @@ CSV'ye utterances içeren sütun girişleri HALUK anlayabileceği bir JSON biçi
         }
 ```
 
-Bu örnekte, `intentName` altında Kullanıcı isteği geldiği **isteği** CSV dosyasındaki sütun başlığını ve `entityName` anahtar bilgileri diğer sütunlarla alanından gelir. Örneğin, bir giriş için ise **işlemi** veya **aygıt**ve dize de gerçek istekte oluşur ve ardından bir varlık olarak etiketli. Aşağıdaki kod bu işlem ayrıştırma gösterir. Kopyalayabilir veya [karşıdan](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_parse.js) onu ve kaydetmesi `_parse.js`.
+Bu örnekte, `intentName` altında kullanıcı isteğin geldiği **isteği** sütun başlığı CSV dosyasındaki ve `entityName` anahtar bilgisi ile diğer sütunlardan gelir. Örneğin, bir giriş için ise **işlemi** veya **cihaz**ve dize de gerçek istekte oluşur ve ardından bir varlık olarak etiketlenmiş. Aşağıdaki kodu ayrıştırma işlemi gösterilmektedir. Kopyalayabilir veya [indirme](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_parse.js) bunu ve kaydetmesi `_parse.js`.
 
    [!code-javascript[Node.js code for parsing a CSV file to extract intents, entities, and labeled utterances](~/samples-luis/examples/build-app-programmatically-csv/_parse.js)]
 
 
 
-## <a name="create-the-luis-app"></a>HALUK uygulaması oluşturma
-Verileri JSON içinde Ayrıştırılan sonra bir HALUK uygulamasına ekleyin. Aşağıdaki kod HALUK uygulamasını oluşturur. Kopyalama veya [karşıdan](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_create.js) ve içine kaydedin `_create.js`.
+## <a name="create-the-luis-app"></a>LUIS uygulaması oluşturma
+JSON'a veri ayrıştırıldıktan sonra bir LUIS uygulaması ekleyin. Aşağıdaki kod LUIS uygulaması oluşturur. Kopyalama veya [indirme](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_create.js) ve içine kaydedin `_create.js`.
 
    [!code-javascript[Node.js code for creating a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/_create.js)]
 
 
 ## <a name="add-intents"></a>Hedef ekleme
-Bir uygulama oluşturduktan sonra onu amaçları için gerekir. Aşağıdaki kod HALUK uygulamasını oluşturur. Kopyalama veya [karşıdan](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_intents.js) ve içine kaydedin `_intents.js`.
+Bir uygulama oluşturduktan sonra ona hedefleri gerekir. Aşağıdaki kod LUIS uygulaması oluşturur. Kopyalama veya [indirme](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_intents.js) ve içine kaydedin `_intents.js`.
 
    [!code-javascript[Node.js code for creating a series of intents](~/samples-luis/examples/build-app-programmatically-csv/_intents.js)]
 
 
 ## <a name="add-entities"></a>Varlık ekleme
-Aşağıdaki kod HALUK uygulama varlıkları ekler. Kopyalama veya [karşıdan](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_entities.js) ve içine kaydedin `_entities.js`.
+Aşağıdaki kod varlıkları için LUIS uygulaması ekler. Kopyalama veya [indirme](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_entities.js) ve içine kaydedin `_entities.js`.
 
    [!code-javascript[Node.js code for creating entities](~/samples-luis/examples/build-app-programmatically-csv/_entities.js)]
    
 
 
 ## <a name="add-utterances"></a>Konuşma ekleme
-Hedefleri ve varlıkları HALUK uygulamasında tanımlanmış sonra utterances ekleyebilirsiniz. Aşağıdaki kod [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API, aynı anda en fazla 100 utterances eklemenizi sağlar.  Kopyalama veya [karşıdan](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_upload.js) ve içine kaydedin `_upload.js`.
+LUIS uygulama varlıkları ve hedefleri tanımlanmış sonra konuşma ekleyebilirsiniz. Aşağıdaki kod [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) aynı anda en fazla 100 Konuşma ekleme olanak tanıyan API.  Kopyalama veya [indirme](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_upload.js) ve içine kaydedin `_upload.js`.
 
    [!code-javascript[Node.js code for adding utterances](~/samples-luis/examples/build-app-programmatically-csv/_upload.js)]
 
@@ -103,15 +103,15 @@ Hedefleri ve varlıkları HALUK uygulamasında tanımlanmış sonra utterances e
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
 
-### <a name="install-nodejs-dependencies"></a>Node.js bağımlılıkları yükler
-Node.js bağımlılıkları NPM terminal/komut satırında yükleyin.
+### <a name="install-nodejs-dependencies"></a>Node.js bağımlılıklarını yükleyin
+Node.js bağımlılıkları NPM'den terminal/komut satırında yükleyin.
 
 ````
 > npm install
 ````
 
 ### <a name="change-configuration-settings"></a>Yapılandırma ayarlarını değiştirme
-Bu uygulamayı kullanmak için index.js dosyasındaki değerleri kendi uç noktası anahtarı değiştirmek ve uygulamanızın sahip olmasını istediğiniz adı sağlamanız gerekir. Ayrıca, uygulamanın kültür ayarlayın veya sürüm numarasını değiştirin.
+Bu uygulamayı kullanmak için kendi uç noktası anahtarı için değerler index.js dosyasını değiştirin ve istediğiniz uygulamanın adını sağlayın gerekir. Ayrıca, uygulamanın kültüre ayarlayın veya sürüm numarasını değiştirin.
 
 İndex.js dosyasını açın ve dosyanın üst bu değerleri değiştirin.
 
@@ -123,8 +123,8 @@ const LUIS_appName = "Sample App";
 const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
 ````
-### <a name="run-the-script"></a>Komut dosyasını çalıştır
-Node.js ile terminal/komut satırından komut dosyasını çalıştırın.
+### <a name="run-the-script"></a>Betiği çalıştırın
+Node.js ile bir terminal/komut satırından betiği çalıştırın.
 
 ````
 > node index.js
@@ -135,7 +135,7 @@ or
 ````
 
 ### <a name="application-progress"></a>Uygulama ilerleme durumu
-Uygulama çalışırken, komut satırında ilerleme durumunu gösterir. Komut satırı çıkışı HALUK yanıtlarının biçimi içerir.
+Komut satırı, uygulama çalışırken ilerleme durumunu gösterir. Komut satırı çıkışı, luıs'den yanıtları biçimini içerir.
 
 ````
 > node index.js
@@ -162,8 +162,8 @@ upload done
 
 
 
-## <a name="open-the-luis-app"></a>HALUK uygulamasını açın
-Komut dosyası tamamlandıktan sonra oturum açabildiğinizden [HALUK] [ LUIS] ve altında oluşturduğunuz HALUK uygulama görmek **My uygulamaları**. Eklediğiniz altında utterances görmeye olmalıdır **Sok**, **kapatma**, ve **hiçbiri** amaçlar.
+## <a name="open-the-luis-app"></a>LUIS uygulaması açın
+Betik tamamlandıktan sonra üzerinde oturum açabildiğinizden [LUIS](luis-reference-regions.md) ve altında oluşturduğunuz LUIS uygulaması **uygulamalarım**. Eklediğiniz altında konuşma görmeye olmalıdır **Sok**, **kapatma**, ve **hiçbiri** amacı.
 
 ![Sok hedefi](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 
@@ -171,15 +171,12 @@ Komut dosyası tamamlandıktan sonra oturum açabildiğinizden [HALUK] [ LUIS] v
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Test ve HALUK Web uygulamanızda eğitme](interactive-test.md)
+> [Test ve LUIS Web uygulamanızda eğitin](interactive-test.md)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-Bu örnek uygulama aşağıdaki HALUK API'lerini kullanır:
+Bu örnek uygulama aşağıdaki LUIS API'leri kullanır:
 - [uygulama oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
-- [hedefleri Ekle](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
-- [Varlıklar ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
-- [utterances Ekle](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
-
+- [hedef ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
+- [Varlık Ekle](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
+- [Konuşma ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)

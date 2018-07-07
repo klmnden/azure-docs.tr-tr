@@ -1,6 +1,6 @@
 ---
-title: HALUK - Azure tarafından döndürülen tahmin puan anlama | Microsoft Docs
-description: İçinde HALUK tahmin puan anlamı öğrenin
+title: LUIS - Azure tarafından döndürülen tahmin puanı anlama | Microsoft Docs
+description: LUIS tahmin puanı anlamı öğrenin
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,57 +9,55 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 31c101a23892df8599b8cdc0f67647fefb969490
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 88d5eb22186248024a356610addab0d43f68a961
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265997"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887139"
 ---
 # <a name="prediction-score"></a>Tahmin puanı
-Tahmin puanı HALUK tahmin sonuçlarını sahip güvenirlik düzeyini gösterir. 
+Tahmin puanı LUIS sahip tahmin sonuçlarını için güvenilirlik derecesi gösterir. 
 
-Tahmin puan genellikle sıfır (0) ve bir (1) olur. Bir yüksek oranda emin HALUK puan 0.99 örnektir. 0,01 puanı düşük güvenilirlik, örnektir. 
+Tahmin puan genellikle sıfır (0) ve bir (1) olur. Bir yüksek oranda başarılara LUIS puan 0.99 örneğidir. Düşük güvenilirlik puanı 0,01 örneğidir. 
 
-|Puan değeri|Güven|
+|Puanı değeri|Güven|
 |--|--|
-|1|kesin eşleşmiyor|
+|1|kesin eşleştir|
 |0.99|yüksek güvenilirlik|
-|0.01|Düşük güvenilirlik|
+|0.01|düşük güven|
 |0|eşleştirilecek kesin hatası|
 
-Bir utterance bir düşük güvenilirlik puan sonuçlandığında HALUK uygulamasında vurgular [HALUK] [ LUIS] Web sitesi **hedefi** ile tanımlanan, sayfa **etiketli hedefi**  kırmızı ile ana hatlarıyla. 
+LUIS, bir utterance içinde bir düşük güvenilirlik puanı sonuçlandığında vurgular [LUIS](luis-reference-regions.md) Web sitesi **hedefi** ile tanımlanan, sayfa **etiketli hedefi** kırmızı özetlenen. 
 
-![Puan tutarsızlık](./media/luis-concept-score/score-discrepancy.png)
+![Puan uyuşmazlık](./media/luis-concept-score/score-discrepancy.png)
 
 ## <a name="top-scoring-intent"></a>Üst Puanlama hedefi
-Her utterance tahmin üst Puanlama amacıyla döndürür. Tahmin puanları bir sayısal karşılaştırması budur. İlk iki puanları aralarında çok küçük bir fark olabilir. HALUK puanları döndürme dışında bu yakınlık göstermez.  
+Bir üst Puanlama amacı her utterance tahmin döndürür. Tahmin puanları bir sayısal karşılaştırma budur. Üstteki iki puanları, bunlar arasında çok küçük bir fark olabilir. LUIS puanları döndüren dışında bu yakınlık göstermiyor.  
 
-Üst puanları yakınlık hakkında endişeleriniz varsa, tüm hedefleri puanını döndürmelidir. Word seçiminde farklılıkları gösteren iki amaçlar için utterances ekleyebilirsiniz ve düzenleme veya bir chatbot gibi HALUK arama uygulaması varsa, iki üst hedefleri nasıl ele alınacağını hakkında programlı seçimler. 
+En çok puan yakınlık endişeleriniz varsa, tüm hedefleri puanını döndürmelidir. Sözcük seçimi ile bunların farkını gösteren iki amaçları için konuşma ekleyebilir ve düzenleme veya bir sohbet Robotu gibi LUIS arama uygulamanız varsa, iki üst ıntents nasıl ele alınacağını hakkında programlı seçimler. 
 
-## <a name="return-prediction-score-for-all-intents"></a>Tüm amaçlar için tahmini puan döndürür
-Bir test veya uç nokta sonuç tüm hedefleri içerebilir. Bu yapılandırma üzerinde ayarlanmış [endpoint](https://aka.ms/v1-endpoint-api-docs) ile `verbose=true` sorgu dizesi ad/değer çifti. 
+## <a name="return-prediction-score-for-all-intents"></a>Tüm amaçlar için tahmin puanı döndürür
+Bir test veya uç nokta sonuç, tüm hedefleri içerebilir. Bu yapılandırma üzerinde ayarlanmış [uç nokta](https://aka.ms/v1-endpoint-api-docs) ile `verbose=true` sorgu dizesi ad/değer çifti. 
 
-## <a name="review-intents-with-similar-scores"></a>Benzer puanları ile hedefleri gözden geçirin
-Tüm amaçlar için puan gözden geçirme, yalnızca doğru hedefi tanımlanır ancak sonraki hedefi'nın puan tanımlanan utterances için tutarlı bir şekilde önemli ölçüde daha düşük olduğunu doğrulamak için iyi bir yöntemidir. 
+## <a name="review-intents-with-similar-scores"></a>Benzer puanları amaçlarıyla gözden geçirin
+Tüm hedefleri puanını gözden geçirme, yalnızca doğru amaç tanımlanır ancak sonraki amaç'ın puanı tanımlanan tutarlı bir şekilde konuşma için önemli ölçüde daha düşük olduğunu doğrulamak için iyi bir yoludur. 
 
-Birden çok hedefleri bir utterance bağlamında Kapat tahmin puanları varsa HALUK hedefleri arasında geçiş yapabilirsiniz. Bu sorunu gidermek için her amacıyla çok çeşitli bağlamsal farklar için utterances eklemeye devam edin.   
+LUIS, birden çok ıntents Kapat tahmin puanları, bir utterance içeriğine göre varsa amaçları arasında geçiş yapabilirsiniz. Bu sorunu gidermek için her amaca daha geniş kitlelere bağlamsal farklar çeşitli konuşma eklemeye devam edin.   
 
-## <a name="e-exponent-notation"></a>E (üs) gösterimi
+## <a name="e-exponent-notation"></a>E (üstel) gösterimde
 
-Tahmin puanları üstel gösterimde, kullanabileceğiniz *görünen* 0-1 yukarıda aralığı, gibi `9.910309E-07`. Bu puan bir göstergesidir bir çok **küçük** numarası.
+Tahmin puanları, üstel gösterim kullanabilir *görünen* 0-1 yukarıda gibi aralığı `9.910309E-07`. Bu puanı göstergesidir bir çok **küçük** sayı.
 
 |E gösterimi puanı |Gerçek puanı|
 |--|--|
 |9.910309E-07|.0000009910309|
 
-## <a name="differences-with-predictions"></a>Tahminleri farklılıklar
-Eğitim rastgele bir öğe olduğundan farklı bir uygulamayı aynı modelde eğitmek ve notların bu aynı değildir, bu değildir. İkincisi, herhangi bir utterance birden çok amaç için çakışmasını aynı utterance üst hedefini eğitim göre değiştirebilirsiniz anlamına gelir.
+## <a name="differences-with-predictions"></a>Öngörüler farklılıklar
+Eğitim doğrulukla öğesi olduğundan farklı bir uygulamada aynı modeli eğitmek ve puanlar bu aynı değildir, bu andır. İkincisi, birden fazla hedefi için bir utterance herhangi bir çakışma üst hedefi aynı utterance için eğitim göre değiştirebilirsiniz anlamına gelir.
 
-Chatbot amacına güveni göstermek için belirli bir HALUK puan gerektiriyorsa, bunun yerine üst iki hedefleri puan birbirinden kullanmanız gerekir. Bu eğitim Çeşitlemeler için esneklik sağlar. 
+Bir güven göstermek için belirli bir LUIS puanı, sohbet botu gerektiriyorsa, bunun yerine üst iki amacı puanı birbirinden kullanmanız gerekir. Bu eğitim çeşitleri için esneklik sağlar. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bkz: [varlıkları ekleyin](luis-how-to-add-entities.md) HALUK uygulamanıza varlıklar ekleme hakkında daha fazla bilgi için.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+Bkz: [varlık Ekle](luis-how-to-add-entities.md) LUIS uygulamanızı varlıklar ekleme hakkında daha fazla bilgi için.

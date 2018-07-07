@@ -1,6 +1,6 @@
 ---
-title: Bir Linux VM üzerinde rayları Web sitesinde bir Ruby konak | Microsoft Docs
-description: Ayarlama ve Ruby kullanarak bir Linux sanal makine azure'da rayları tabanlı Web sitesinde ana bilgisayar.
+title: Ruby on Rails, bir Linux VM'de Web sitesi barındırma | Microsoft Docs
+description: Ayarlanmış ve Ruby on Rails tabanlı bir Web sitesinde bir Linux sanal makinesini kullanarak azure'da barındırın.
 services: virtual-machines-linux
 documentationcenter: ruby
 author: rmcmurray
@@ -15,17 +15,17 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: fa19f3dc7dded712102d4ba9b66dd4df1bfd20dd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6ea1d249b7f9aec3a45923b162a97ce7f83d0d31
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29397606"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901162"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM’de Ruby on Rails Web uygulaması
-Bu öğretici, Linux sanal makine kullanarak azure'da rayları Web sitesinde bir Ruby barındırmak nasıl gösterir.  
+Bu öğretici, bir Linux sanal makinesi kullanarak Ruby on Rails Web sitesi azure'da barındırmak nasıl gösterir.  
 
-Bu öğretici, Ubuntu Server 14.04 LTS kullanılarak doğrulandı. Başka bir Linux dağıtım kullanırsanız, rayları yüklemek için adımları değiştirmeniz gerekebilir.
+Bu öğreticide, Ubuntu Server 14.04 LTS kullanılarak doğrulandı. Farklı bir Linux dağıtımı kullanıyorsanız, Rails yüklemek için adımları değiştirmeniz gerekebilir.
 
 > [!IMPORTANT]
 > Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md).  Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
@@ -33,31 +33,31 @@ Bu öğretici, Ubuntu Server 14.04 LTS kullanılarak doğrulandı. Başka bir Li
 >
 
 ## <a name="create-an-azure-vm"></a>Bir Azure VM oluşturma
-Bir Linux görüntüsüyle bir Azure VM oluşturarak başlayın.
+Bir Linux görüntüsü ile bir Azure VM oluşturarak başlayın.
 
-VM oluşturmak için Azure portalında veya Azure komut satırı arabirimi (CLI) kullanabilirsiniz.
+VM oluşturmak için Azure portal veya Azure komut satırı arabirimi (CLI) kullanabilirsiniz.
 
 ### <a name="azure-portal"></a>Azure portalına
 1. Oturum [Azure portalı](https://portal.azure.com)
-2. Tıklatın **kaynak oluşturma**, arama kutusuna "Ubuntu Server 14.04" yazın. Araması tarafından döndürülen girdiyi tıklatın. Dağıtım modelini seçin **Klasik**, "Oluştur" seçeneğine tıklayın.
-3. Temel bilgiler dikey penceresinde gerekli alanlar için değerleri girin: adı (VM), kullanıcı adı, kimlik doğrulama türü ve ilgili kimlik bilgileri, Azure abonelik, kaynak grubunu ve konumu.
+2. Tıklayın **kaynak Oluştur**, arama kutusuna "Ubuntu Server 14.04" yazın. Arama sonucunda döndürülen girişe tıklayın. Dağıtım modeli için seçin **Klasik**, ardından "Oluştur" a tıklayın.
+3. Temel bilgiler dikey penceresi gerekli alanlar için değerler sağlayın: (VM için) ad, kullanıcı adı, kimlik doğrulama türü ve karşılık gelen kimlik bilgileri, Azure aboneliği, kaynak grubunu ve konumu.
 
-   ![Yeni bir Ubuntu görüntüsü oluşturma](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
+   ![Yeni bir Ubuntu görüntüsünü oluşturma](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
 
-4. VM sağlandıktan sonra VM adına tıklayın ve tıklayın **uç noktaları** içinde **ayarları** kategorisi. Altında listelenen SSH uç nokta bulunamadı **tek başına**.
+4. VM sağlandıktan sonra sanal makine adına tıklayın ve tıklayın **uç noktaları** içinde **ayarları** kategorisi. SSH uç noktası altında listelenen bulma **tek başına**.
 
-   ![Varsayılan uç noktası](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
+   ![Varsayılan uç nokta](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
 
 ### <a name="azure-cli"></a>Azure CLI
-Adımları [çalıştıran bir sanal makine Linux oluşturma][vm-instructions].
+Bağlantısındaki [çalıştıran bir sanal makine Linux oluşturma][vm-instructions].
 
 VM sağlandıktan sonra aşağıdaki komutu çalıştırarak SSH uç noktası alabilirsiniz:
 
     azure vm endpoint list <vm-name>  
 
-## <a name="install-ruby-on-rails"></a>Ruby rayları üzerinde yükle
-1. SSH VM'e bağlanmak için kullanın.
-2. SSH oturumundan Ruby VM yüklemek için aşağıdaki komutları kullanın:
+## <a name="install-ruby-on-rails"></a>Ruby on Rails yükleyin
+1. VM'ye bağlanmak için SSH kullanın.
+2. SSH oturumundan, VM'de Ruby yüklemek için aşağıdaki komutları kullanın:
 
         sudo apt-get update -y
         sudo apt-get upgrade -y
@@ -73,21 +73,21 @@ VM sağlandıktan sonra aşağıdaki komutu çalıştırarak SSH uç noktası al
 
         ruby -v
 
-3. Rayları yüklemek için aşağıdaki komutu kullanın:
+3. Rails yüklemek için aşağıdaki komutu kullanın:
 
         sudo gem install rails --no-rdoc --no-ri -V
 
-    Kullanımı daha hızlıdır belgeleri yükleme atlamak için yok rdoc ve--Hayır RI bayrakları.
-    -V ekleme yükleme ilerleme durumu hakkında bilgi görüntüler bu komut büyük olasılıkla yürütmek için uzun bir süre gidersiniz.
+    Kullanımı daha hızlı olan belgeleri, yüklemeyi atlamak için no-rdoc ve--no-RI bayrakları.
+    Ekleme -V yükleme ilerleme durumu hakkında bilgi görüntüler bu komut, büyük olasılıkla yürütmek için uzun sürer.
 
-## <a name="create-and-run-an-app"></a>Oluşturma ve bir uygulamayı çalıştırma
-SSH yoluyla hala oturum açmış olsa da, aşağıdaki komutları çalıştırın:
+## <a name="create-and-run-an-app"></a>Oluşturma ve uygulama çalıştırma
+SSH yoluyla oturumunuz hala açıkken aşağıdaki komutları çalıştırın:
 
     rails new myapp
     cd myapp
     rails server -b 0.0.0.0 -p 3000
 
-[Yeni](http://guides.rubyonrails.org/command_line.html#rails-new) komut yeni bir rayları uygulaması oluşturur. [Server](http://guides.rubyonrails.org/command_line.html#rails-server) komut rayları ile birlikte gelen WEBrick web sunucusu başlatır. (Üretim kullanımı için büyük olasılıkla Unicorn veya yolcu gibi farklı bir sunucu kullanmak istediğiniz.)
+[Yeni](http://guides.rubyonrails.org/command_line.html#rails-new) komut yeni bir Rails uygulaması oluşturur. [Sunucu](http://guides.rubyonrails.org/command_line.html#rails-server) komut Rails ile birlikte gelen WEBrick web sunucusu başlatır. (Üretimde kullanıma yönelik, büyük olasılıkla Unicorn veya yolcu gibi farklı bir sunucu kullanmak isteyebilirsiniz.)
 
 Aşağıdakine benzer bir çıktı görmeniz gerekir.
 
@@ -100,44 +100,44 @@ Aşağıdakine benzer bir çıktı görmeniz gerekir.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>Bir uç nokta ekleme
-1. [Azure portalı] gidin [https://portal.azure.com] ve VM'yi seçin.
+1. [Azure portalı] [https://portal.azure.com] ve VM'nizi seçin.
 
-2. Seçin **uç noktaları** içinde **ayarları** sayfa sol kenar.
+2. Seçin **uç noktaları** içinde **ayarları** sol kenar sayfası.
 
-3. Tıklatın **ekleme** sayfanın üst kısmındaki.
+3. Tıklayın **ekleme** sayfanın üstünde.
 
-4. İçinde **uç nokta ekleme** iletişim sayfasında, aşağıdaki bilgileri girin:
+4. İçinde **uç noktası ekleme** iletişim sayfasında, aşağıdaki bilgileri girin:
 
    * **Ad**: HTTP
-   * **Protocol**: TCP
+   * **Protokol**: TCP
    * **Genel bağlantı noktası**: 80
    * **Özel bağlantı noktası**: 3000
    * **PI adresi kayan**: devre dışı
-   * **Erişim denetimi listesi - sipariş**: Bu erişim kuralı önceliği ayarlar 1001 ya da başka bir değer.
-   * **Erişim denetimi listesi - adı**: allowHTTP
-   * **Erişim denetimi listesi - eylem**: izin ver
-   * **Erişim denetimi listesi - uzak alt**: 1.0.0.0/16
+   * **Erişim denetim listesi - sipariş**: Bu kuralın önceliğini ayarlar 1001 veya başka bir değer.
+   * **Erişim denetim listesi - adı**: allowHTTP
+   * **Erişim denetim listesi - eylem**: izin ver
+   * **Erişim denetim listesi - uzak alt**: 1.0.0.0/16
 
-     Bu uç noktaya trafiğini burada rayları sunucu dinliyor özel bağlantı noktası 3000 için yönlendirecek 80 genel bir bağlantı noktası var. Erişim denetimi listesi kuralı bağlantı noktası 80 üzerinde ortak trafiğine izin verir.
+     Bu uç noktaya trafik, Rails sunucusunu nereye dinliyor özel bağlantı noktası 3000 için yönlendirilecek 80 numaralı genel bağlantı noktasını sahiptir. Erişim denetim listesi kuralına 80 numaralı bağlantı noktasında ortak trafiğine izin verir.
 
-     ![Yeni uç noktası](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
+     ![Yeni uç nokta](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
 
-5. Uç nokta kaydetmek için Tamam'ı tıklatın.
+5. Uç nokta kaydetmek için Tamam'a tıklayın.
 
-6. Bildiren bir ileti görüntülenmelidir **sanal makine uç noktası kaydediliyor**. Bu ileti kaybolur sonra uç nokta etkindir. Şimdi, sanal makinenin DNS adı giderek uygulamanızı test. Web sitesi aşağıdakine benzer görünmelidir:
+6. Bildiren bir ileti görünmelidir **sanal makine uç noktası kaydediliyor**. Uç nokta, bu ileti kaybolur sonra etkinleştirilir. Şimdi sanal makinenizi DNS adını giderek uygulamanızı test. Web sitesi, aşağıdakine benzer görünmelidir:
 
-    ![Varsayılan rayları sayfası][default-rails-cloud]
+    ![Varsayılan rails sayfası][default-rails-cloud]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide adımları çoğunu el ile yaptınız. Bir üretim ortamında, uygulama geliştirme makinenizde yazmak ve Azure VM'ye dağıtın. Ayrıca, çoğu üretim ortamlarında Apache veya yürüten rayları uygulamasının birden çok örneği Yönlendirme ve statik kaynakları hizmet isteği NginX gibi başka bir sunucu işlemi ile birlikte rayları uygulama ana bilgisayar. Daha fazla bilgi için http://rubyonrails.org/deploy/ bakın.
+Bu öğreticide adımlarının çoğunun el ile vermedi. Bir üretim ortamında, geliştirme makinenizde uygulamanızı yazma ve Azure VM dağıtın. Ayrıca, çoğu üretim ortamlarında, Apache veya Ngınx, Rails uygulamasını birden çok örneğini Yönlendirme ve statik kaynakları sunan yürüten istek gibi başka bir sunucu işlemi ile birlikte Rails uygulamasını barındırır. Daha fazla bilgi için http://guides.rubyonrails.org/routing.html.
 
-Ruby rayları üzerinde hakkında daha fazla bilgi için [rayları kılavuzları üzerinde Söyleniş][rails-guides].
+Ruby on Rails hakkında daha fazla bilgi edinmek için [Ruby on Rails kılavuzları][rails-guides].
 
-Söyleniş uygulamanızdan Azure hizmetleri kullanmak için bkz:
+Ruby uygulamanızı Azure hizmetlerini kullanmak için bkz:
 
-* [BLOB'ları kullanarak yapılandırılmamış veri depolayın][blobs]
-* [Mağaza anahtar/değer çiftlerinin tabloları kullanma][tables]
-* [Yüksek bant genişliği içeriğin bulunduğu içerik teslim ağı][cdn-howto]
+* [BLOB'ları kullanarak yapılandırılmamış verileri Store][blobs]
+* [Store anahtar/değer çiftleri tablolarını kullanma][tables]
+* [Content Delivery Network ile yüksek bant genişlikli içeriğe hizmet][cdn-howto]
 
 <!-- WA.com links -->
 [blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md

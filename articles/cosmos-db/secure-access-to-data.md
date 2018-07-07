@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: sngun
-ms.openlocfilehash: eddfce08711043f81cee0b1c8d7ee8c6c02f6a45
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: c51d399b646e7914ba85048c0928837caac7c15b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858747"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901128"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Azure Cosmos DB verilere erişimin güvenliğini sağlama
 Bu makalede depolanan verilere erişimin güvenliğini sağlama genel bir bakış sağlar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -174,6 +174,11 @@ foreach (Permission perm in permFeed)
 
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
+
+## <a name="delete-or-export-user-data"></a>Kullanıcı verilerini dışarı aktarma veya silme
+Azure Cosmos DB, arayın, seçin, değiştirmek ve veritabanı veya koleksiyon içinde bulunan herhangi bir kişisel verilerini silme sağlar. Azure Cosmos DB API'leri bulup ancak kişisel verilerini silme sağlar, API'leri ve kişisel verileri silmek için gerekli mantığı tanımlamak için sizin sorumluluğunuzdadır. Farklı dil aramak ve kişisel verilerini silme yöntemlerini içeren SDK'ları her çok modelli bir API (SQL API'si, MongoDB API, Gremlin API'si, Cassandra API, tablo API'si) sağlar. Ayrıca etkinleştirebilirsiniz [süresi (TTL) canlı](time-to-live.md) belirli bir süre sonra otomatik olarak silmek herhangi bir ek ücret ödemeden veri özelliği.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Cosmos DB veritabanı güvenliği hakkında daha fazla bilgi için bkz: [Cosmos DB: Veritabanı Güvenlik](database-security.md).

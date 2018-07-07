@@ -1,66 +1,66 @@
 ---
-title: Azure kurtarma Hizmetleri kasasını Sil '
-description: Bu makalede, bir kurtarma Hizmetleri kasasını Sil açıklanmaktadır. Makale bir kasa silmeyi deneyin, ancak olamaz sorun giderme adımlarını içerir.
-services: service-name
+title: Azure kurtarma Hizmetleri kasasında Sil '
+description: Bu makalede, bir kurtarma Hizmetleri kasasını silme açıklanmaktadır. Bu makale, bir kasayı silmeyi deneyin ancak olamaz, sorun giderme adımları içerir.
+services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 7/6/2018
 ms.author: markgal
-ms.openlocfilehash: d8169eba6790e49a85d69434663faabe7430942e
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 5a3a67a41525d30b73bb203eeeacbdf49bb35193
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937609"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901859"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasasını silme
 
-Bu makalede, bir kurtarma Hizmetleri Kasası'nı tüm öğeleri kaldırın ve ardından silin açıklanmaktadır. Bir sunucu kayıtlıysa ve yedekleme verilerini tutan bir kurtarma Hizmetleri kasası silinemiyor. Bir kasa silmeyi deneyin ancak kullanamazsanız, kasaya yedekleme verileri almak için hala yapılandırılır.
+Bu makalede, tüm öğeleri bir kurtarma Hizmetleri kasasından kaldırın ve ardından silin açıklanmaktadır. Bir sunucuya kaydedilir ve yedekleme verilerini tutar bir kurtarma Hizmetleri kasası silinemiyor. Bir kasayı silmeyi deneyin ancak kullanamazsanız, yedekleme verilerini almak için kasa yine de yapılandırılır.
 
-Kasayı silme, başlıklı bölüme bakın öğrenmek için [Azure portalından bir kasa silme](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). Kurtarma Hizmetleri kasasında herhangi bir veri koruyun ve kasa silmek istediğiniz istemiyorsanız, bölümüne bakın [force tarafından kasayı silin](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Kasaya nedir emin değilseniz ve kasayı silebilirsiniz emin olmak ihtiyacınız varsa bölümüne bakın [Kaldır kasası bağımlılıkları ve delete kasa](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
+Bölümüne bakın, bir kasayı silme hakkında bilgi edinmek için [Azure portalından bir kasayı silme](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). Kurtarma Hizmetleri Kasası'nda hiçbir veriyi saklamak ve kasayı silmek isteyip istemediğiniz, bölümüne bakın. [zorla tarafından kasayı silin](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Kasada nedir emin değilseniz ve kasayı silebilirsiniz emin olmanız gerekir, bölümüne bakın. [Kaldır kasa bağımlılıkları ve delete kasası](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
-## <a name="delete-a-vault-from-azure-portal"></a>Azure portalından bir kasa silme
+## <a name="delete-a-vault-from-azure-portal"></a>Azure portalından bir kasayı silme
 
-Açık kurtarma Hizmetleri kasası zaten varsa, ikinci adıma atlayın.
+Açık kurtarma Hizmetleri kasası zaten varsa ikinci bir adıma atlayın.
 
-1. Azure Portalı'nı açın ve Panodan silmek istediğiniz kasaya açın.
+1. Azure portalını açın ve silmek istediğiniz kasayı panoyu açın.
 
-   Hub menüsünde panoya sabitlenmiş kurtarma Hizmetleri kasası yoksa tıklatın **tüm hizmetleri** ve kaynak listesinde yazın **kurtarma Hizmetleri**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Aboneliğinizde kasalarının listesi görüntülemek için **kurtarma Hizmetleri kasaları**.
+   Hub menüsünde, panoya sabitlenmiş kurtarma Hizmetleri kasası yoksa tıklayın **tüm hizmetleri** ve kaynak listesinde yazın **kurtarma Hizmetleri**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Aboneliğinizde kasalarının listesi görüntülemek için tıklayın **kurtarma Hizmetleri kasaları**.
 
    ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
    Kurtarma Hizmetleri kasalarının listesi görüntülenir. 
 
-   ![Kasa listesinden seçin](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
+   ![listeden kasayı seçin](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
-2. Listeden silmek istediğiniz kasayı seçin. Kasa seçtiğinizde kasa panosu açılır.
+2. Listeden silmek istediğiniz kasayı seçin. Kasayı seçtiğinizde, kasa panosu açılır.
 
-    ![kendi panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
+    ![panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-3. Kasa panosunda bir kasa silmek için tıklatın **silmek**. Kasayı silmek istediğinizi doğrulamanız istenir.
+3. Kasa panosunda bir kasayı silme için tıklatın **Sil**. Kasayı silmek istediğinizi doğrulamanız istenir.
 
-    ![kendi panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/click-delete-button-to-delete-vault.png)
+    ![panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/click-delete-button-to-delete-vault.png)
 
-    Varsa **kasa silme hatası** görünür, bağımlılıkları kasadan kaldırabilirsiniz veya kasası force tarafından silmek için PowerShell kullanabilirsiniz. Aşağıdaki bölümlerde bu görevlerin nasıl gerçekleştirileceğini açıklamaktadır.
+    Varsa **kasa silme hatası** görünürse, bağımlılıkları kasadan kaldırabilirsiniz veya force tarafından kasayı silmek için PowerShell kullanabilirsiniz. Aşağıdaki bölümlerde, bu görevlerin nasıl gerçekleştirileceğini açıklamaktadır.
 
     ![Kasa silme hatası](./media/backup-azure-delete-vault/vault-delete-error.png)
 
 
-## <a name="delete-the-recovery-services-vault-by-force"></a>Force tarafından kurtarma Hizmetleri kasasını Sil
+## <a name="delete-the-recovery-services-vault-by-force"></a>Force tarafından kurtarma Hizmetleri kasasını silme
 
-Kurtarma Hizmetleri kasası force tarafından silmek için PowerShell kullanın. Zorla yollarla kurtarma Hizmetleri kasasını ve ilişkili tüm yedekleme verileri kalıcı olarak silinir. 
+Bir kurtarma Hizmetleri kasası tarafından zorla silmek için PowerShell kullanabilirsiniz. Zorla yöntemlerle kurtarma Hizmetleri kasasını ve ilişkili tüm yedekleme verileri kalıcı olarak silinir. 
 
 > [!Warning]
-> Kurtarma Hizmetleri kasası silmek için PowerShell kullanılırken kasadaki tüm yedekleme verileri kalıcı olarak silmek istediğinizden emin olun.
+> Bir kurtarma Hizmetleri kasasını silmek için PowerShell kullanırken kasasındaki tüm yedekleme verileri kalıcı olarak silmek istediğinizden emin olun.
 >
 
-Kurtarma Hizmetleri kasası silmek için:
+Bir kurtarma Hizmetleri kasasını silmek için:
 
 1. Azure hesabınızda oturum açın.
 
-   Oturum açtığınızda, Azure aboneliğinizle `Connect-AzureRmAccount` komut ve izleyin ekrandaki yönergeleri.
+   `Connect-AzureRmAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
 
    ```powershell
     Connect-AzureRmAccount
@@ -73,173 +73,173 @@ Kurtarma Hizmetleri kasası silmek için:
 
 2. Yönetici ayrıcalıklarıyla bir PowerShell penceresi açın.
 
-3. Kullanım `Set-ExecutionPolicy Unrestricted` kısıtlamalar kaldırmak için.
+3. Kullanım `Set-ExecutionPolicy Unrestricted` herhangi bir kısıtlama kaldırmak için.
 
-4. Chocolately.org Azure Resource Manager istemci paketini karşıdan yüklemek için aşağıdaki komutu çalıştırın.
+4. Azure Resource Manager istemci paketi chocolately.org indirmek için aşağıdaki komutu çalıştırın.
 
-    `iex ((New-Object System.Net.WebClient) DownloadString('https://chocolatey.org/install.ps1))`
+    `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
-5. Azure Resource Manager API İstemci yüklemek için aşağıdaki komutu kullanın.
+5. Azure Resource Manager API istemcisi yüklemek için aşağıdaki komutu kullanın.
 
    `choco.exe install armclient`
 
-6. Azure portalında abonelik kimliği ve ilişkili kaynak grubu adı, silmek istediğiniz kurtarma Hizmetleri kasası toplayın.
+6. Azure portalında, abonelik kimliği ve ilişkili kaynak grubu adı silmek istediğiniz kurtarma Hizmetleri kasası için toplayın.
 
-7. PowerShell'de, abonelik kimliği, kaynak grubu adı ve kurtarma Hizmetleri kasa adı kullanarak şu komutu çalıştırın. Komutu çalıştırdığınızda, kasaya ve tüm bağımlılıkları siler.
+7. PowerShell'de, abonelik kimliği, kaynak grubu adı ve kurtarma Hizmetleri kasa adı kullanarak şu komutu çalıştırın. Komutu çalıştırdığınızda, kasayı ve tüm bağımlılıklarını siler.
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-8. Aboneliğiniz Azure portalında oturum açın ve kasa silinmiş doğrulayın.
+8. Aboneliğiniz Azure portalında oturum açın ve kasa silinir doğrulayın.
 
 
-## <a name="remove-vault-dependencies-and-delete-vault"></a>Kasa bağımlılıkları kaldırın ve kasayı silin
+## <a name="remove-vault-dependencies-and-delete-vault"></a>Kasa bağımlılıkları kaldırın ve kasasını silme
 
-Kasa bağımlılıkları el ile kaldırmak için her bir öğe veya sunucusunda ve kurtarma Hizmetleri kasası arasında yapılandırması silin. Aşağıdaki yordam boyunca ilerledikçe kullanmak **yedekleme öğeleri** menü (görüntü bakın) için:
+Kasa bağımlılıkları el ile kaldırmak için her bir öğe veya sunucu arasında yapılandırmasını silme ve kurtarma Hizmetleri kasası. Aşağıdaki yordam boyunca ilerledikçe kullanın **yedekleme öğeleri** menü (resme bakın) için:
 
-* Azure depolama (Azure dosyaları) yedeklemeleri
-* Azure VM yedekleri SQL Server
+* Azure depolama (Azure dosyaları) yedekleri
+* SQL Server Azure VM yedeklemeleri
 * Azure sanal makineleri yedekleme
-* Microsoft Azure kurtarma Hizmetleri Aracısı yedekleri
+* Microsoft Azure kurtarma Hizmetleri Aracısı yedekleme
 
-Kullanım **Yedekleme Altyapısı** menü (görüntü bakın) için:
+Kullanım **Yedekleme Altyapısı** menü (resme bakın) için:
 
-* Azure yedekleme sunucusu yedeklemeleri
+* Azure Backup sunucusu yedekleme
 * System Center DPM yedeklemelerini
 
-    ![kendi panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
+    ![panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
 
-1. Kasa Panosu menüsünden korunan öğeler bölümüne gidin ve'ı tıklatın **yedekleme öğeleri**. Bu menüde durdurun ve Azure dosya sunucuları, SQL sunucuları Azure VM ve Azure sanal makineleri silin. Bu örnekte, biz yedekleme verilerini bir Azure dosya sunucusundan kaldıracağız.
+1. Kasa Panosu menüsünden korumalı öğeler bölümüne inin ve tıklayın **yedekleme öğeleri**. Bu menüde, durdurun ve Azure dosya sunucuları, Azure VM ve Azure sanal makineler'de SQL Server'ı silin. Bu örnekte, bir Azure dosya sunucusundan yedekleme verilerini kaldıracağız.
 
-    ![kendi panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/selected-backup-items.png)
+    ![panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/selected-backup-items.png)
 
-2. Bu türdeki tüm öğeleri görüntülemek için bir yedekleme türü seçin.
+2. Bu türdeki tüm öğeleri görüntülemek için bir yedekleme türünü seçin.
 
     ![Yedekleme türünü seçin](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
-3. Listedeki tüm öğelerin, öğeyi sağ tıklatın ve bağlam menüsünden seçin **Dur yedekleme**.
+3. Tüm öğeleri listesinde bir öğeye sağ tıklayın ve bağlam menüsünden seçin **yedeklemeyi Durdur**.
 
     ![Yedekleme türünü seçin](./media/backup-azure-delete-vault/stop-backup-item.png) 
 
-    Durdur yedekleme menüsü açılır.
+    Yedeklemeyi Durdur menüsünü açar.
 
-4. Üzerinde **durdurmak yedekleme** menüsünde gelen **bir seçenek belirleyin** menüsünde, select **yedekleme verilerini Sil**öğesinin adını yazın ve'ı tıklatın **Dur yedekleme**.
+4. Üzerinde **yedeklemeyi Durdur** menüsünde, gelen **bir seçenek belirleyin** menüsünde **yedekleme verilerini Sil**öğesinin adını yazın ve tıklayın **yedeklemeyi Durdur**.
 
-    Bunu silmek istediğinizde doğrulamak için öğesinin adı yazın. **Durdurmak yedekleme** öğeyi doğrulayın sonra düğmesini etkinleştirir. Veri korursanız, kasayı silmek mümkün olmayacaktır.
+    Bunu silmek istediğinizde doğrulamak için öğesinin adını yazın. **Yedeklemeyi Durdur** öğesi doğruladıktan sonra düğmesini etkinleştirir. Veri tutuyorsanız, kasayı silmek mümkün olmayacaktır.
 
     ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-    İsterseniz, verileri neden silmekte olduğunuz bir gerekçe sağlamasını ve yorumlar ekleyin. İş tamamlandı doğrulamak için Azure iletilerini denetleyin ![yedekleme verilerini silmek](./media/backup-azure-delete-vault/messages.png). <br/>
-    İş tamamlandıktan sonra hizmeti bir ileti gönderir: *yedekleme işlemi durduruldu ve yedekleme verileri silindi*.
+    İsterseniz, neden veri silmekte olduğunuz bir neden belirtin ve yorumlar ekleyin. İş tamamlandı doğrulamak için Azure iletileri denetleyin ![yedekleme verilerini Sil](./media/backup-azure-delete-vault/messages.png). <br/>
+    İş tamamlandıktan sonra hizmetin bir ileti gönderir: *yedekleme işlemi durduruldu ve yedekleme verileri silindi*.
 
-5. Listeden bir öğe üzerinde sildikten sonra **yedekleme öğeleri** menüsünde tıklatın **yenileme** kasadaki öğeleri görmek için.
+5. Üzerinde listesindeki bir öğeyi sildikten sonra **yedekleme öğeleri** menüsünde tıklatın **Yenile** kasadaki öğeleri görmek için.
 
       ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/empty-items-list.png)
 
-      Listede hiç öğe olduğunda kaydırın **Essentials** kurtarma Hizmetleri kasası menü bölmesinde. Döndürmemelidir olması herhangi **yedekleme öğeleri**, **yönetim sunucularını yedekleme**, veya **öğeleri çoğaltılan** listelenir. Öğeleri kasaya görüntülenmeye devam ederse, üç adıma geri dönün ve farklı öğe türü listesini seçin.  
+      Listede bir öğe olduğunda, kaydırma **Essentials** bölmesinde kurtarma Hizmetleri kasası menüsünde. Var olmamalıdır tüm **yedekleme öğeleri**, **yedekleme yönetim sunucuları**, veya **çoğaltılan öğeler** listelenir. Öğeleri hala kasaya görünüyorsa, üç adımına dönmek ve farklı öğe türü listesini seçin.  
 
-6. Kasa araç çubuğunda başka öğe yok olduğunda tıklatın **silmek**.
+6. Kasa araç çubuğunda daha fazla öğe olduğunda tıklayın **Sil**.
 
     ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-7. Kasayı silmek istediğiniz doğrulamak için tıklatın **Evet**.
+7. Kasayı silmek istediğinizi doğrulamak için tıklayın **Evet**.
 
-    Kasa silinir ve portal döndürür **yeni** servis menüsü.
+    Kasa silinir ve portal döndürür **yeni** hizmet menüsünü.
 
-## <a name="removing-azure-backup-server-or-dpm"></a>Azure Backup sunucusu veya DPM kaldırma
+## <a name="removing-azure-backup-server-or-dpm"></a>Azure Backup sunucusu veya DPM kaldırılıyor
 
-1. Kasa Panosu menüsünden Yönet bölümüne gidin ve'ı tıklatın **Yedekleme Altyapısı**. 
+1. Kasa Panosu menüsünden Yönet bölümüne inin ve tıklayın **Yedekleme Altyapısı**. 
 
-2. Alt menüde tıklatın **yedekleme yönetim sunucuları** Azure yedekleme sunucuları ve System Center DPM sunucusu görüntülemek için. durdurun ve Azure dosya sunucuları, SQL sunucuları Azure VM ve Azure sanal makineleri silin. 
+2. Alt menüde tıklayın **yedekleme yönetim sunucuları** Azure Backup sunucusu ve System Center DPM sunucusu görüntülemek için. Durdur ve Azure dosya sunucuları, Azure VM ve Azure sanal makineler'de SQL Server'ı silin. 
 
-    ![kendi panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+    ![panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
-3. Sil ve alt menüsünden seçin istediğiniz öğeyi sağ **silmek**.
+3. Silin ve alt menüden istediğiniz öğeye sağ **Sil**.
 
     ![Yedekleme türünü seçin](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
-    Durdur yedekleme menüsü açılır.
+    Yedeklemeyi Durdur menüsünü açar.
 
-4. Üzerinde **durdurmak yedekleme** menüsünde gelen **bir seçenek belirleyin** menüsünde, select **yedekleme verilerini Sil**öğesinin adını yazın ve'ı tıklatın **Dur yedekleme**.
+4. Üzerinde **yedeklemeyi Durdur** menüsünde, gelen **bir seçenek belirleyin** menüsünde **yedekleme verilerini Sil**öğesinin adını yazın ve tıklayın **yedeklemeyi Durdur**.
 
-    Silmek istediğiniz doğrulamak için adını yazın. **Durdurmak yedekleme** öğeyi doğrulayın sonra düğmesini etkinleştirir. Veri tutuyorsanız kasası silinemiyor.
+    Silmek istediğiniz doğrulamak için adını yazın. **Yedeklemeyi Durdur** öğesi doğruladıktan sonra düğmesini etkinleştirir. Verileri Tut kasayı silemezsiniz.
 
     ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-    İsteğe bağlı olarak, bir nedeni neden, verileri siliniyor ve açıklamaları ekleme sağlayabilir. İş tamamlandığını doğrulamak için Azure iletilerini denetleyin ![yedekleme verilerini silmek](./media/backup-azure-delete-vault/messages.png). <br/>
-    İş tamamlandıktan sonra hizmeti bir ileti gönderir: yedekleme işlemi durduruldu ve yedekleme verileri silindi.
+    İsteğe bağlı olarak, bir neden neden, verileri silmek ve açıklamalar ekleme sağlayabilirsiniz. İşin tamamlandığını doğrulamak için Azure iletileri denetleyin ![yedekleme verilerini Sil](./media/backup-azure-delete-vault/messages.png). <br/>
+    İş tamamlandıktan sonra hizmetin bir ileti gönderir: yedekleme işlemi durduruldu ve yedekleme verileri silindi.
 
-5. Listeden bir öğe üzerinde sildikten sonra **yedekleme öğeleri** menüsünde tıklatın **yenileme** kasadaki kalan öğeleri görmek için.
+5. Üzerinde listesindeki bir öğeyi sildikten sonra **yedekleme öğeleri** menüsünde tıklatın **Yenile** kasadaki kalan öğeleri görmek için.
 
       ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/empty-items-list.png)
 
-      Listede hiç öğe olduğunda kaydırın **Essentials** kurtarma Hizmetleri kasası menü bölmesinde. Döndürmemelidir olması herhangi **yedekleme öğeleri**, **yönetim sunucularını yedekleme**, veya **öğeleri çoğaltılan** listelenir. Öğeleri kasaya görüntülenmeye devam ederse, üç adıma geri dönün ve farklı öğe türü listesini seçin.  
-6. Olduğunda daha fazla öğe kasadaki kasa panosunda tıklatın **silmek**.
+      Listede bir öğe olduğunda, kaydırma **Essentials** bölmesinde kurtarma Hizmetleri kasası menüsünde. Var olmamalıdır tüm **yedekleme öğeleri**, **yedekleme yönetim sunucuları**, veya **çoğaltılan öğeler** listelenir. Öğeleri hala kasaya görünüyorsa, üç adımına dönmek ve farklı öğe türü listesini seçin.  
+6. Kasa panosunda Kasası'nda daha fazla öğe olduğunda tıklayın **Sil**.
 
     ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-7. Kasayı silmek istediğiniz doğrulamak için tıklatın **Evet**.
+7. Kasayı silmek istediğinizi doğrulamak için tıklayın **Evet**.
 
-    Kasa silinir ve portal döndürür **yeni** servis menüsü.
+    Kasa silinir ve portal döndürür **yeni** hizmet menüsünü.
 
 
-## <a name="removing-azure-backup-agent-recovery-points"></a>Azure Yedekleme aracısı kurtarma noktalarını kaldırma
+## <a name="removing-azure-backup-agent-recovery-points"></a>Azure Backup Aracısı kurtarma noktalarını kaldırma
 
-1. Kasa Panosu menüsünden Yönet bölümüne gidin ve'ı tıklatın **Yedekleme Altyapısı**.
+1. Kasa Panosu menüsünden Yönet bölümüne inin ve tıklayın **Yedekleme Altyapısı**.
 
-2. Alt menüye tıklayın **korunan sunucuları** listesini görüntülemek için sunucu türleri, Azure Backup aracısını dahil olmak üzere korumalı.
+2. Alt menüde **korumalı sunucuların** listesini görüntülemek için Azure Backup Aracısı dahil, sunucu türleri korumalı.
 
-    ![kendi panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/identify-protected-servers.png)
+    ![panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-3. İçinde **korunan sunucuları** listesinde, Azure yedekleme Aracısı'nı tıklatın.
+3. İçinde **korumalı sunucuların** Azure Backup Aracısı'nı tıklatın.
 
     ![Yedekleme türünü seçin](./media/backup-azure-delete-vault/list-of-protected-server-types.png)
 
-    Azure Backup aracısını kullanan korumalı sunucuları listesi açılır.
+    Azure Backup Aracısı kullanılarak korunan sunucuların listesi açılır.
 
-    ![belirli korumalı sunucuyu seçin](./media/backup-azure-delete-vault/azure-backup-agent-protected-servers.png)
+    ![belirli bir korumalı sunucuyu seçin](./media/backup-azure-delete-vault/azure-backup-agent-protected-servers.png)
 
-4. Sunucular listesinde, kendi menüsünü açmak için tıklatın.
+4. Sunucular listesinde, bir alt menüsünü açmak için tıklayın.
 
-    ![Seçilen sunucunun panosunu görüntülemek](./media/backup-azure-delete-vault/selected-protected-server.png)
+    ![Seçilen sunucunun panosunu görüntüleyin](./media/backup-azure-delete-vault/selected-protected-server.png)
 
-5. Seçilen sunucunun Pano menüsünde **silmek**.
+5. Seçili sunucu Panosu menüsünde **Sil**.
 
-    ![Seçili sunucu silme](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
+    ![Seçili sunucuyu silin](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
 
-6. Üzerinde **silmek** menüsünde öğesinin adını yazın ve tıklatın **silmek**.
+6. Üzerinde **Sil** menüsünden öğesinin adını yazın ve tıklayın **Sil**.
 
-    Bunu silmek istediğinizde doğrulamak için öğesinin adı yazın. **Silmek** öğeyi doğrulayın sonra düğmesini etkinleştirir.
+    Bunu silmek istediğinizde doğrulamak için öğesinin adını yazın. **Sil** öğesi doğruladıktan sonra düğmesini etkinleştirir.
 
     ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
 
-    İsteğe bağlı olarak, bir nedeni neden, verileri siliniyor ve açıklamaları ekleme sağlayabilir. İş tamamlandığını doğrulamak için Azure iletilerini denetleyin ![yedekleme verilerini silmek](./media/backup-azure-delete-vault/messages.png). <br/>
-    İş tamamlandıktan sonra hizmeti bir ileti gönderir: yedekleme işlemi durduruldu ve yedekleme verileri silindi.
+    İsteğe bağlı olarak, bir neden neden, verileri silmek ve açıklamalar ekleme sağlayabilirsiniz. İşin tamamlandığını doğrulamak için Azure iletileri denetleyin ![yedekleme verilerini Sil](./media/backup-azure-delete-vault/messages.png). <br/>
+    İş tamamlandıktan sonra hizmetin bir ileti gönderir: yedekleme işlemi durduruldu ve yedekleme verileri silindi.
 
-7. Listeden bir öğe üzerinde sildikten sonra **yedekleme öğeleri** menüsünde tıklatın **yenileme** kasadaki kalan öğeleri görmek için.
+7. Üzerinde listesindeki bir öğeyi sildikten sonra **yedekleme öğeleri** menüsünde tıklatın **Yenile** kasadaki kalan öğeleri görmek için.
 
       ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/empty-items-list.png)
 
-      Listede hiç öğe olduğunda kaydırın **Essentials** kurtarma Hizmetleri kasası menü bölmesinde. Döndürmemelidir olması herhangi **yedekleme öğeleri**, **yönetim sunucularını yedekleme**, veya **öğeleri çoğaltılan** listelenir. Öğeleri kasaya görüntülenmeye devam ederse, üç adıma geri dönün ve farklı öğe türü listesini seçin.  
-8. Olduğunda daha fazla öğe kasadaki kasa panosunda tıklatın **silmek**.
+      Listede bir öğe olduğunda, kaydırma **Essentials** bölmesinde kurtarma Hizmetleri kasası menüsünde. Var olmamalıdır tüm **yedekleme öğeleri**, **yedekleme yönetim sunucuları**, veya **çoğaltılan öğeler** listelenir. Öğeleri hala kasaya görünüyorsa, üç adımına dönmek ve farklı öğe türü listesini seçin.  
+8. Kasa panosunda Kasası'nda daha fazla öğe olduğunda tıklayın **Sil**.
 
     ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-9. Kasayı silmek istediğiniz doğrulamak için tıklatın **Evet**.
+9. Kasayı silmek istediğinizi doğrulamak için tıklayın **Evet**.
 
-    Kasa silinir ve portal döndürür **yeni** servis menüsü.
+    Kasa silinir ve portal döndürür **yeni** hizmet menüsünü.
 
-## <a name="what-if-i-stop-the-backup-process-but-retain-the-data"></a>Ne yedekleme işlemini durdurun ancak verileri korur?
+## <a name="what-if-i-stop-the-backup-process-but-retain-the-data"></a>Ne yedekleme işlemi durdurur ancak verileri tut?
 
-Yedekleme işlemi ancak yanlışlıkla durdurursanız *korumak* verileri kasa silmeden önce yedekleme verilerini silmeniz gerekir. Yedekleme verilerini silmek için:
+Yedekleme işlemi ancak yanlışlıkla iptal ederseniz *korumak* veri kasayı silmeden önce yedekleme verilerini silmeniz gerekir. Yedekleme verilerini silmek için:
 
-1. Üzerinde **yedekleme öğeleri** menüsünde öğeyi sağ tıklatın ve bağlam menüsünde **yedekleme verileri Sil**.
+1. Üzerinde **yedekleme öğeleri** menüsünde, öğeye sağ tıklayın ve bağlam menüsünde **yedekleme verilerini Sil**.
 
     ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/delete-backup-data-menu.png)
 
     **Yedekleme verilerini Sil** menüsü açılır.
-2. Üzerinde **yedekleme verilerini Sil** menüsünde öğesinin adını yazın ve tıklatın **silmek**.
+2. Üzerinde **yedekleme verilerini Sil** menüsünden öğesinin adını yazın ve tıklayın **Sil**.
 
     ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/delete-retained-vault.png)
 
-    Veri sildikten sonra adım 4 c dönün ve işlemine devam edin.
+    Verileri sildikten sonra adım 4 c dönün ve işleme devam.

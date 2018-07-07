@@ -1,6 +1,6 @@
 ---
-title: Azure yük dengeleyici sorunlarını giderme | Microsoft Docs
-description: Azure yük dengeleyici ile ilgili bilinen sorunlar sorun giderme
+title: Azure Load Balancer sorunlarını giderme | Microsoft Docs
+description: Azure Load Balancer ile bilinen sorunlarını giderme
 services: load-balancer
 documentationcenter: na
 author: chadmath
@@ -12,123 +12,122 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 07/06/2018
 ms.author: genli
-ms.openlocfilehash: 294bb6dd780d1df642d6e793b29267da1e8b8336
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6777842f3ca336eb4ae0d134cbc7ffd062bc6f29
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774922"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889672"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer sorunlarını giderme
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Bu sayfa, ortak Azure yük dengeleyici sorular için sorun giderme bilgileri sağlar. Yük dengeleyiciye kullanılamadığında, en yaygın belirtiler aşağıdaki gibidir: 
-- Yük dengeleyicinin arkasındaki VM'ler için sistem durumu araştırmalarının yanıt vermiyor 
-- Yük dengeleyicinin arkasındaki VM'ler yapılandırılan bağlantı noktasındaki trafiği yanıt vermiyor
+Bu sayfa, ortak Azure Load Balancer sorular için sorun giderme bilgileri sağlar. Yük Dengeleyici bağlantısına kullanılamadığında, en yaygın belirtiler aşağıdaki gibidir: 
+- Yük dengeleyicinin arkasındaki VM'ler için sistem durumu araştırmaları yanıt vermiyor 
+- Yük dengeleyicinin arkasındaki VM'ler için yapılandırılan bağlantı noktasındaki trafiğe yanıt vermiyor
 
-## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Belirti: Yük dengeleyicinin arkasındaki VM'ler için sistem durumu araştırmalarının yanıt vermiyor
-Arka uç sunucular yük dengeleyici kümesinde katılmayı araştırma onay geçmesi gerekir. Sistem durumu araştırmalarının hakkında daha fazla bilgi için bkz: [anlama yük dengeleyici yoklamaları](load-balancer-custom-probe-overview.md). 
+## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Belirti: Yük dengeleyicinin arkasındaki VM'ler için sistem durumu araştırmaları yanıt vermiyor
+Arka uç sunucularına yük dengeleyici kümesiyle katılmak araştırma onay geçmesi gerekir. Sistem durumu araştırmaları hakkında daha fazla bilgi için bkz: [anlama yük dengeleyici araştırmalarını](load-balancer-custom-probe-overview.md). 
 
-Yük Dengeleyici arka uç havuzu VM'ler için aşağıdaki nedenlerden biriyle nedeniyle araştırmalar yanıt vermiyor olabilir: 
-- Yük Dengeleyici arka uç havuzu VM sağlam değil 
-- Yük Dengeleyici arka uç havuzu VM araştırma bağlantı noktasında dinleme yapmıyor 
-- Yük Dengeleyici arka uç havuzu VM'ler üzerindeki bağlantı noktasının güvenlik duvarı ya da bir ağ güvenlik grubu engelleme 
+Yük Dengeleyici arka uç havuzu Vm'leri aşağıdaki nedenlerden dolayı araştırmaları için yanıt vermiyor olabilir: 
+- Yük Dengeleyici arka havuzu sanal makinesi iyi durumda olmayan 
+- Yük Dengeleyici arka havuzu sanal makine araştırma bağlantı noktasında dinleme yapmıyor 
+- Yük Dengeleyici arka uç havuzuna VM üzerindeki bağlantı noktasının güvenlik duvarı veya bir ağ güvenlik grubu engelliyor 
 - Yük Dengeleyici diğer yapılandırma hataları
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>Neden 1: Yük dengeleyici arka uç havuzu VM sağlam değil 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-unhealthy"></a>1. neden: Yük dengeleyici arka havuzu sanal makinesi iyi durumda olmayan 
 
 **Doğrulama ve çözümleme**
 
-Bu sorunu çözmek için katılan VM'ler için oturum açın ve VM durumu sağlıklı olup olmadığını denetleyin ve yanıt verebilir **PsPing** veya **TCPing** havuzundaki başka bir VM'den. VM sağlam değil veya için araştırma yanıt verip vermediğini, sorunu gidermek ve Yük Dengeleme katılabilmesi için önce VM sağlıklı bir duruma geri alın.
+Bu sorunu çözmek için katılımcı VM'ler için oturum açın ve VM durumu sağlıklı olup olmadığını denetleyin ve yanıt verebilir **PsPing** veya **Telnet** havuzdaki başka bir VM'den. VM, sağlam değil veya araştırmasına yanıt verip vermediğini, sorunu düzeltmek ve Yük Dengeleme de katılabilmesi için önce VM'yi sağlıklı bir duruma alın.
 
-### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>Neden 2: Yük dengeleyici arka uç havuzu VM araştırma bağlantı noktasında dinleme yapmıyor
-VM'yi sağlıklı olduğundan, ancak yoklama yanıt vermiyor, ardından bir araştırma bağlantı noktası VM veya VM katılan üzerinde açık değil olası bir nedeni olabilir Bu bağlantı noktasında dinleme değil.
+### <a name="cause-2-load-balancer-backend-pool-vm-is-not-listening-on-the-probe-port"></a>2. neden: Yük dengeleyici arka havuzu sanal makinesi araştırma bağlantı noktasında dinleme yapmıyor
+VM, iyi durumda ancak araştırmasına yanıt vermiyorsa, ardından bir araştırma bağlantı noktasını VM veya VM katılan üzerinde açık değil olası neden olabilir, bağlantı noktası üzerinde dinleme yapmıyor.
 
 **Doğrulama ve çözümleme**
 
-1. VM arka uç için oturum açın. 
-2. Bir komut istemi açın ve aşağıdaki komutu çalıştırın olmadığını doğrulamak için araştırma bağlantı noktasını dinleyen bir uygulamanın:   
-            Netstat - bir
+1. Arka uç VM oturum açın. 
+2. Bir komut istemi açın ve aşağıdaki komutu çalıştırarak var doğrulamak için araştırma bağlantı noktasında dinleyen bir uygulamanın alır:   
+            Netstat - an
 3. Bağlantı noktası durumu olarak listelenmemişse **DİNLEME**, doğru bağlantı noktasını yapılandırın. 
-4. Alternatif olarak, olarak listelenen başka bir bağlantı noktası seçin **DİNLEME**ve dengeleyici yapılandırması uygun şekilde yük güncelleştirme.              
+4. Alternatif olarak, başka bir bağlantı olarak listelenen seçin **DİNLEME**ve güncelleştirme dengeleyici yapılandırmasını uygun şekilde yükleyin.              
 
-### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>3. neden: Güvenlik duvarı ya da bir ağ güvenlik grubu bağlantı noktası üzerinde yük dengeleyici arka uç havuzu VM'ler engelliyor  
-VM üzerindeki güvenlik duvarında sonda bağlantı noktası engelliyor veya bir veya daha fazla ağ güvenlik grubu veya VM alt ağ üzerinde yapılandırılmış, bağlantı noktası ulaşmak araştırma izin vermeyen, VM durumu araştırması yanıt alamıyor.          
-
-**Doğrulama ve çözümleme**
-
-* Güvenlik Duvarı etkinse, araştırma bağlantı noktası izin verecek şekilde yapılandırılıp yapılandırılmadığını denetleyin. Aksi durumda, araştırma bağlantı noktasındaki trafiğe izin ve yeniden test etmek için Güvenlik Duvarı'nı yapılandırın. 
-* Ağ güvenlik grupları listesinden araştırma bağlantı noktasındaki gelen veya giden trafiğe girişim olup olmadığını denetleyin. 
-* Ayrıca, denetleyin bir **Reddet tüm** ağ güvenlik grupları kural NIC VM veya LB araştırmalar & trafiğine izin veren varsayılan kural daha yüksek önceliğe sahip alt ağ üzerinde (ağ güvenlik grupları izin vermelidir yük dengeleyici IP 168.63.129.16). 
-* Bu kurallardan herhangi birinin araştırma trafiğini engelliyor, kaldırmak ve araştırma trafiğine izin verme kuralları yeniden yapılandırın.  
-* VM için sistem durumu araştırmalarının yanıt şimdi başlatılmış olup olmadığını test edin. 
-
-### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>4. neden: Diğer yapılandırma hataları yük dengeleyici
-Önceki tüm nedenlerini doğrulandı ve doğru şekilde çözümlenen göründüğü ve sistem durumu araştırması için sonra el ile arka uç VM hala yanıtlamıyor için bağlanabilirliği test edin ve bağlantı anlamak için bazı izlemeleri toplamak.
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>3. neden: Yük dengeleyici arka uç havuzuna VM üzerindeki bağlantı noktasının güvenlik duvarı veya bir ağ güvenlik grubu engelliyor  
+Araştırma bağlantı noktasını VM üzerindeki güvenlik duvarını engelliyor veya bir veya daha fazla ağ alt ağında veya VM üzerinde yapılandırılan güvenlik grupları, araştırma bağlantı noktasını erişmesine izin vermemesi durumunda VM sistem durumu araştırmasına yanıt silemiyor.          
 
 **Doğrulama ve çözümleme**
 
-* Kullanım **Psping** araştırma bağlantı noktası yanıt test VNet içindeki diğer VM'ler birinden (örnek:.\psping.exe -t 10.0.0.4:3389) ve sonuçları kaydedin. 
-* Kullanım **TCPing** araştırma bağlantı noktası yanıt test VNet içindeki diğer VM'ler birinden (örnek:.\tcping.exe 10.0.0.4 3389) ve sonuçları kaydedin. 
+* Güvenlik Duvarı etkinse, yoklama bağlantı noktası izin verecek şekilde yapılandırılıp yapılandırılmadığını denetleyin. Aksi durumda, yoklama bağlantı noktası üzerinde trafiğe izin veren ve yeniden test etmek için güvenlik duvarını yapılandırın. 
+* Ağ güvenlik grupları listesinden araştırma bağlantı noktasında gelen veya giden trafiği engelleme olup olmadığını denetleyin. 
+* Ayrıca, kontrol bir **Reddet tüm** NIC VM veya LB araştırmaları & trafiğine izin veren varsayılan kuralı daha yüksek bir önceliğe sahip bir alt ağ üzerinde ağ güvenlik grupları kuralı (ağ güvenlik grupları izin vermesi gerekir, yük dengeleyici IP 168.63.129.16). 
+* Bu kurallardan herhangi birine araştırma trafiğini engelliyorsanız kaldırın ve kuralları, araştırma trafiğine izin verecek şekilde yeniden yapılandırın.  
+* VM sistem durumu yoklamalara yanıt vermeye artık başlatılmış olup olmadığını test edin. 
+
+### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>4. neden: Diğer kısıtlamalardaki yapılandırma hataları, yük dengeleyici
+Önceki tüm nedenler doğrulanabilir ve doğru şekilde çözümlenen gibi görünüyor ve durum yoklaması için sonra el ile arka uç VM'den hala yanıtlamıyor bağlantısını için test etme ve bağlantı anlamak için bazı izlemeleri toplamak.
+
+**Doğrulama ve çözümleme**
+
+* Kullanım **Psping** bir araştırma bağlantı noktası yanıtını test etmek için sanal ağ içindeki diğer Vm'lere (örnek: -t 10.0.0.4:3389.\psping.exe) ve sonuçları kaydedin. 
+* Kullanım **Telnet** bir araştırma bağlantı noktası yanıtını test etmek için sanal ağ içindeki diğer Vm'lere (örnek:.\tcping.exe 10.0.0.4 3389) ve sonuçları kaydedin. 
 * Yanıt bu ping testlerinde sonra alınırsa
-    - Eşzamanlı Netsh trace hedef arka uç havuzu VM üzerinde ve başka bir test VM aynı sanal ağdan çalıştırın. Şimdi, belirli bir süre için PsPing testi, bazı ağ izleri toplamak ve testi durdurma. 
-    - Ağ Yakalama çözümlemek ve ping sorguya ilgili gelen ve giden paketlerin olup olmadığını görebilirsiniz. 
-        - Hiçbir gelen paket arka uç havuzu VM uyulması gereken, var. olası bir ağ güvenlik grupları veya trafiği engelleme UDR yanlış yapılandırma 
-        - Hiçbir giden paketlerin arka uç havuzu VM uyulması gereken, VM ilgisiz sorunları (için eample, araştırma bağlantı noktası engelleme uygulama) için denetlenmesi gerekir. 
-    - Araştırma paketleri (büyük olasılıkla ayarlarıyla UDR) başka bir hedef için yük dengeleyici ulaşmadan önce zorlanır durumunda doğrulayın. Bu arka uç VM hiçbir zaman ulaşması trafiğine neden olabilir. 
-* Araştırma türü (örneğin, TCP HTTP) değiştirin ve ağ güvenlik grupları ACL'ler ve güvenlik duvarı sorun araştırma yanıtı yapılandırmayla ise doğrulamak için karşılık gelen bağlantı noktasını yapılandırın. Sistem durumu araştırma yapılandırması hakkında daha fazla bilgi için bkz: [Yük Dengeleme uç noktası sistem durumu araştırma Yapılandırması](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
+    - Hedef arka havuzu sanal makinesi üzerinde eşzamanlı bir Netsh trace ve başka bir test sanal makinesi aynı sanal ağdan çalıştırın. Artık, bir süre için PsPing test çalıştırması, bazı ağ izleri toplamak ve ardından testi durdurma. 
+    - Ağ yakalamayı analiz etme ve gelen ve giden paketlerin ping sorgu için ilgili olup olmadığını görebilirsiniz. 
+        - Arka uç havuzu sanal makinesi hiçbir gelen paket kullanılıyorsa var. büyük olasılıkla bir ağ güvenlik grupları veya trafiği engelleme UDR yanlış yapılandırma 
+        - Arka uç havuzu sanal makinesi hiçbir giden paketlerin kullanılıyorsa, VM'nin ilgisiz sorunları (örneğin, yoklama bağlantı noktası engelleme uygulama için) denetlenecek gerekir. 
+    - Araştırma paketleri (büyük olasılıkla UDR ayarları aracılığıyla) başka bir hedef için yük dengeleyici ulaşmadan önce isabetten, doğrulayın. Bu, hiçbir zaman arka uç VM'den ulaşmak trafiği neden olabilir. 
+* Araştırma türü (örneğin, HTTP TCP için) değiştirin ve ağ güvenlik grupları ACL ve güvenlik duvarı araştırma yanıt yapılandırmasıyla sorunu olup olmadığını doğrulamak üzere karşılık gelen bağlantı noktasını yapılandırın. Sistem durumu araştırması yapılandırması hakkında daha fazla bilgi için bkz: [Yük Dengeleme uç noktası sistem durumu araştırması Yapılandırması](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
 
-## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Belirti: VM'ler yük dengeleyicinin arkasına yapılandırılmış veri bağlantı noktası üzerinde trafiği yanıt vermiyor
+## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Belirti: Sanal makineleri yük dengeleyicinin arkasına yapılandırılmış veri bağlantı noktası üzerinde trafiğe yanıt vermiyor
 
-VM sağlıklı olarak listelenir ve sistem durumu araştırmalarının için yanıt verir ancak hala Yük Dengeleme katılmıyor veya veri trafiği yanıt vermeyen bir arka uç havuzu, şunlardan birini nedeniyle olabilir: 
-* Yük Dengeleyici arka uç havuzu VM veri bağlantı noktasında dinleme yapmıyor 
-* Ağ güvenlik grubu bağlantı noktası üzerinde yük dengeleyici arka uç havuzu VM engelleme  
-* Yük Dengeleyici aynı VM ve NIC erişme 
-* Katılımcı yük dengeleyici arka uç havuzundan VM Internet yük dengeleyici VIP erişme 
+Arka uç havuzuna VM sağlıklı olarak listelenir ve sistem durumu araştırmaları için yanıt verir ancak hala Yük Dengeleme katılmıyor veya veri trafiğe yanıt vermiyorsa, aşağıdakilerden birini nedeniyle olabilir: 
+* Yük Dengeleyici arka havuzu sanal makine veri bağlantı noktasında dinleme yapmıyor 
+* Ağ güvenlik grubu bağlantı noktası yük dengeleyici arka havuzu sanal makinesi üzerinde engelliyor  
+* Yük Dengeleyici aynı sanal makine veya NIC'den erişme 
+* Internet yük dengeleyici VIP katılımcı yük dengeleyici arka uç havuzundan VM erişme 
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>Neden 1: Yük dengeleyici arka uç havuzu VM veri bağlantı noktasında dinleme yapmıyor 
-Bir VM için veri trafiğini yanıt vermezse, hedef bağlantı katılımcı VM açık olmadığından bu olabilir veya VM Bu bağlantı noktasında dinleme yapmıyor. 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>1. neden: Yük dengeleyici arka havuzu sanal makinesi veri bağlantı noktasında dinleme yapmıyor 
+VM veri trafiğe yanıt vermezse, ya da, hedef bağlantı noktası üzerinde katılan bir VM'nin, açık değil. Bunun nedeni olabilir veya VM Bu bağlantı noktasında dinleme yapmıyor. 
 
 **Doğrulama ve çözümleme**
 
-1. VM arka uç için oturum açın. 
-2. Bir komut istemi açın ve aşağıdaki komutu çalıştırın olmadığını doğrulamak için veri bağlantı noktasını dinleyen bir uygulamanın:  
-            Netstat - bir 
-3. Bağlantı noktası durumuyla listelenmemişse "DİNLEME" uygun dinleyici bağlantı noktasını yapılandırın 
-4. Bağlantı noktasını dinleme olarak işaretlenmişse, bu bağlantı noktası olası sorunlar için hedef uygulama denetleyin. 
+1. Arka uç VM oturum açın. 
+2. Bir komut istemi açın ve aşağıdaki komutu çalıştırarak var. doğrulamak için veri bağlantı noktasında dinleyen bir uygulamanın alır:  
+            Netstat - an 
+3. Bağlantı noktası durumla listede yoksa "DİNLEME" uygun dinleyici bağlantı noktasını yapılandırma 
+4. Bağlantı noktasını dinleme olarak işaretlenmişse, ardından hedef uygulamanın bu bağlantı noktasında olası sorunları kontrol edin. 
 
-### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>2. neden: Ağ güvenlik grubu bağlantı noktası üzerinde yük dengeleyici arka uç havuzu VM engelliyor  
+### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>2. neden: Ağ güvenlik grubu bağlantı noktası yük dengeleyici arka havuzu sanal makinesi üzerinde engelliyor  
 
-Bir veya daha fazla ağ güvenlik grupları veya VM alt ağ üzerinde yapılandırdıysanız, VM yanıt verip vermediğini ise kaynak IP veya bağlantı noktası, engelliyor.
+Bir veya daha fazla ağ güvenlik grubu, alt ağdaki veya VM'de yapılandırdıysanız, VM yanıt verip vermediğini ise kaynak IP veya bağlantı noktası, engelliyor.
 
-* VM arka uçta yapılandırılmış ağ güvenlik grupları listesi. Daha fazla bilgi için bkz: [ağ güvenlik gruplarını yönet](../virtual-network/manage-network-security-group.md).
-* Ağ güvenlik grupları listesinden kontrol edin:
-    - veri bağlantı noktasındaki gelen veya giden trafiğe girişim sahiptir. 
-    - bir **Reddet tüm** ağ güvenlik grubu kural NIC VM veya yük dengeleyici izin veren varsayılan kural yoklamaları daha yüksek bir önceliği olan alt ağ üzerinde ve trafik (ağ güvenlik grupları izin vermelidir 168.63.129.16, yük dengeleyici IP Sonda bağlantı noktası olan) 
-* Kurallardan herhangi birinin trafiğini engelliyor, kaldırmak ve veri trafiğine izin vermek için bu kuralların yeniden yapılandırın.  
-* VM için sistem durumu araştırmalarının yanıt şimdi başlatılmış olup olmadığını test edin.
+* Arka uç VM üzerinde yapılandırılan ağ güvenlik gruplarının listesi. Daha fazla bilgi için [ağ güvenlik gruplarını yönetme](../virtual-network/manage-network-security-group.md).
+* Ağ güvenlik grupları listesinden komutu kontrol edin:
+    - veri bağlantı noktasında gelen veya giden trafiği engelleme sahiptir. 
+    - bir **Reddet tüm** ağ üzerinde NIC'nin VM veya yük dengeleyici izin veren varsayılan kuralı araştırmaları daha yüksek bir önceliği olan bir alt ağ güvenlik grubu kuralı ve trafik (ağ güvenlik grupları izin vermelidir 168.63.129.16, yük dengeleyici IP Araştırma bağlantı noktası olan) 
+* Kurallardan herhangi birinin trafiğini engelliyorsanız kaldırın ve bu kurallar veri trafiğine izin verecek şekilde yeniden yapılandırın.  
+* VM sistem durumu araştırmaları için yanıt vermek artık başlatılmış olup olmadığını test edin.
 
-### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>3. neden: aynı VM ve ağ arabirimi yük dengeleyici erişme 
+### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>3. neden: yük dengeleyici aynı VM ve ağ arabiriminden erişme 
 
-VM yük dengeleyici arka uç içinde barındırılan uygulamanızı aynı ağ arabirimi aynı arka uç VM içinde barındırılan başka bir uygulamaya erişmeye çalıştığında, desteklenmeyen bir senaryodur ve başarısız olur. 
+VM yük dengeleyicinin arka uçtaki barındırılan uygulamanız aynı ağ arabirimi aynı arka uç VM içinde barındırılan başka bir uygulamaya erişmeye çalışırsa, desteklenmeyen bir senaryodur ve başarısız olur. 
 
-**Çözümleme** aşağıdaki yöntemlerden birini aracılığıyla bu sorunu çözümlemek için:
-* Uygulama başına sanal makineleri ayrı arka uç havuzunu yapılandırın. 
-* Her uygulamanın kendi ağ arabirimi ve IP adresi kullanarak şekilde uygulama ikili NIC Vm'lerde yapılandırın. 
+**Çözüm** aşağıdaki yöntemlerden birini kullanarak bu sorunu çözebilirsiniz:
+* Uygulama başına ayrı bir arka uç havuzu Vm'leri yapılandırın. 
+* Her uygulama kendi ağ arabirimi ve IP adresi kullanarak şekilde uygulamayı çift NIC VM yapılandırın. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>4. nedeni: iç yük dengeleyici VIP katılımcı yük dengeleyici arka uç havuzundan VM erişme
+### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>4. neden: iç yük dengeleyici VIP'sine katılımcı yük dengeleyici arka uç havuzundan VM erişme
 
-Bir ILB VIP VNet içinde yapılandırılır ve katılımcı arka uç VM'ler birini iç yük dengeleyici VIP erişmeye çalışıyor, bu hatasına neden olur. Bu senaryo desteklenmez.
-**Çözümleme** değerlendirmek uygulama ağ geçidi veya diğer proxy'leri (örneğin, nginx veya haproxy) bu tür bir senaryoyu desteklemek için. Uygulama ağ geçidi hakkında daha fazla bilgi için bkz: [Application Gateway genel bakış](../application-gateway/application-gateway-introduction.md)
+Bir ILB VIP bir sanal ağ içinde yapılandırılır ve bir katılımcı arka uç sanal makinelerinin iç yük dengeleyici VIP'sine erişmeyi çalışıyor, bu hatasına neden olur. Bu senaryo desteklenmez.
+**Çözüm** Application Gateway değerlendirmek veya diğer proxy'ler (örneğin, ngınx veya haproxy), bu tür bir senaryoyu desteklemek için. Application Gateway hakkında daha fazla bilgi için bkz. [Application Gateway genel bakış](../application-gateway/application-gateway-introduction.md)
 
-## <a name="additional-network-captures"></a>Ek ağ yakalamaları
-Bir destek servis talebi açmaya karar verirseniz, daha hızlı bir çözüm için aşağıdaki bilgileri toplayın. Tek bir arka uç aşağıdaki testleri gerçekleştirmek için VM seçin:
-- Araştırma bağlantı noktası yanıt sınamak için sanal ağ içindeki VM'ler arka uç birinden Psping kullanın (örnek: psping 10.0.0.4:3389) ve sonuçları kaydedin. 
-- Araştırma bağlantı noktası yanıt sınamak için sanal ağ içindeki VM'ler arka uç birinden TCPing kullanın (örnek: psping 10.0.0.4:3389) ve sonuçları kaydedin.
-- Bu ping testlerinde yanıt alınmazsa, PsPing çalıştırın, ardından Netsh izleme durdurma yaparken eşzamanlı Netsh trace arka uç VM ve VM sanal ağ testi çalıştırın. 
+## <a name="additional-network-captures"></a>Ek ağ yakalama
+Bir destek olayı açmaya karar verirseniz, daha hızlı bir çözüm için aşağıdaki bilgileri toplayın. Tek bir arka uç VM'den aşağıdaki testleri gerçekleştirmek için seçin:
+- Araştırma bağlantı noktası yanıtını test etmek için bir arka uç sanal makineler VNet içinde Psping kullanın (örnek: psping 10.0.0.4:3389) ve sonuçları kaydedin. 
+- Bu ping testlerinde yanıt alınmazsa, PsPing çalıştırın, ardından Netsh izleme durdurma sırasında eşzamanlı bir Netsh trace arka uç VM'den ve VNet test VM'SİNDE çalıştırın. 
   
 ## <a name="next-steps"></a>Sonraki adımlar
 

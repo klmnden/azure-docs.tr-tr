@@ -1,6 +1,6 @@
 ---
-title: Azure HALUK uygulamalardaki anlama hedefleri | Microsoft Docs
-description: Dil anlama akıllı hizmet (HALUK) uygulamalarında hedefleri nedir açıklar.
+title: Azure'da LUIS uygulamalarında anlama hedefleri | Microsoft Docs
+description: Language Understanding Intelligent Service (LUIS) uygulamalarında hedefleri nelerdir anlatılmaktadır.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,96 +9,94 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5c2feb0240b676d4e106cbda65aaaed7604a35c5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: cbf1ad2da3bbc86f8c6861458ae9e5d5c49c56ce
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265161"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888587"
 ---
-# <a name="intents-in-luis"></a>HALUK hedefleri
+# <a name="intents-in-luis"></a>LUIS, hedefleri
 
-Eylem kullanıcı gerçekleştirmek istediği veya bir görev amacına temsil eder. Bir amaç veya hedef kullanıcının ifade edilen olduğundan [utterance](luis-concept-utterance.md).
+Kullanıcı eylem gerçekleştirmek istediği ya da bir amacı bir görevi gösterir. Bir amaç veya hedef bir kullanıcının ifade olduğundan [utterance](luis-concept-utterance.md).
 
-Kullanıcıların uygulamanızda almak istediğiniz eylemler için karşılık gelen bir dizi hedefleri tanımlayın. Örneğin, seyahat uygulama birkaç hedefleri tanımlar:
+Kullanıcıların uygulamanızda almak istediğiniz eylemlerine karşılık gelen bir ıntents kümesi tanımlar. Örneğin, bir seyahat uygulaması, çeşitli hedefleri tanımlar:
 
-Seyahat uygulama hedefleri   |   Örnek utterances   | 
+Uygulama amaçları seyahat   |   Örnek konuşmalar   | 
 ------|------|
- BookFlight     |   "Bana uçuş RIO için sonraki hafta kitap" <br/> "Bana RIO için 24 üzerinde uçarak" <br/> "Uçak bileti RIO de Janeiro için sonraki Pazar ihtiyacım"    |
- Karşılama     |   "Merhaba" <br/>"Hello" <br/>"İyi sabah"  |
- CheckWeather | "Gibi hava Boston içinde nedir?" <br/> "Bu hafta için tahmini Göster" |
+ BookFlight     |   "Bana bir uçuş RIO için sonraki hafta kitap" <br/> "Benim için RIO üzerinde 24 uçarak" <br/> "Uçak bileti Rio de Janeiro sonraki Sunday ihtiyacım"    |
+ Karşılama     |   "Hi" <br/>"Hello" <br/>"Günaydın"  |
+ CheckWeather | "Gibi de Boston hava nedir?" <br/> "Bu hafta için hava durumu tahminini Göster" |
  None         | "Bana bir tanımlama bilgisi tarif Al"<br>"Lakers win?" |
 
-Önceden tanımlanmış amacıyla, tüm uygulamaları gelen "[hiçbiri](#none-intent-is-fallback-for-app)" geri dönüş hedefi olduğu. 
+Tüm uygulamalar önceden tanımlanmış bir hedefle gelir "[hiçbiri](#none-intent-is-fallback-for-app)" geri dönüş hedefi olduğu. 
 
-## <a name="prebuilt-domains-provide-intents"></a>Önceden oluşturulmuş etki alanları hedefleri sağlar
-Tanımladığınız hedefleri ek olarak, önceden oluşturulmuş hedefleri önceden oluşturulmuş etki alanlarından birini kullanabilirsiniz. Daha fazla bilgi için bkz: [HALUK uygulamaları önceden oluşturulmuş etki alanlarında kullanmak](luis-how-to-use-prebuilt-domains.md) amacı, uygulamanızda kullanmak için önceden oluşturulmuş bir etki alanından özelleştirme hakkında bilgi edinmek için.
+## <a name="prebuilt-domains-provide-intents"></a>Önceden oluşturulmuş etki alanları hedefleri belirtin
+Tanımladığınız ıntents ek olarak, önceden oluşturulmuş hedefleri önceden oluşturulmuş etki alanlarından birini kullanabilirsiniz. Daha fazla bilgi için [LUIS uygulamalarında önceden oluşturulmuş etki alanlarını](luis-how-to-use-prebuilt-domains.md) ıntents uygulamanızda kullanmak için önceden oluşturulmuş bir etki alanından özelleştirme hakkında bilgi edinmek için.
 
-## <a name="return-all-intents-scores"></a>Tüm amaçlar puanları Döndür
-Tek bir hedefi için bir utterance atayın. HALUK bir utterance uç aldığında, bu utterance bir üst hedefini döndürür. Utterance için tüm hedefleri puanları isterseniz, sağlayabilir `verbose=true` bayrağı API sorgu dizesinde [endpoint çağrı](https://aka.ms/v1-endpoint-api-docs). 
+## <a name="return-all-intents-scores"></a>Tüm hedefleri puanlarını döndürür
+Tek bir hedefi için bir utterance atarsınız. LUIS uç noktasında bir utterance aldığında, o utterance bir üst hedefini döndürür. Utterance için tüm hedefleri puanları istiyorsanız sağlayabilir `verbose=true` bayrağı API sorgu dizesini [uç noktası çağrısı](https://aka.ms/v1-endpoint-api-docs). 
 
 ## <a name="intent-compared-to-entity"></a>Varlığa karşılaştırıldığında hedefi
-Hedefi chatbot kullanıcıdan sürer ve tüm utterance üzerinde temel eylemini temsil eder. Varlık kelimeler ve ifadeler utterance içinde yer alan temsil eder. Bir utterance hedefi Puanlama yalnızca bir üst olabilir ancak birçok varlıklar sahip olabilir. 
+Amaç, sohbet botu için kullanıcının gerçekleştirmesi gereken ve tüm utterance üzerinde temel eylemini temsil eder. Varlık sözcük ve tümcecikleri utterance içinde yer alan temsil eder. Bir utterance hedefi Puanlama yalnızca bir üste sahip olabilir ancak birçok varlık sahip olabilir. 
 
-<a name="how-do-intents-relate-to-entities"></a> Amacına oluşturmak, kullanıcının _engellemekse_ checkweather() işlevi çağrısı gibi istemci uygulamanız bir eylemi tetikler. Ardından eylemi yürütmek için gerekli parametreleri temsil etmek için bir varlık oluşturun. 
+<a name="how-do-intents-relate-to-entities"></a> Bir hedefi oluşturma, kullanıcının _engellemekse_ checkweather() işlevi çağrısı gibi istemci uygulamanızda bir eylem tetikler. Ardından eylemi yürütmek için gerekli parametreleri göstermek için bir varlık oluşturun. 
 
-|Örnek hedefi   | Varlık | Örnek utterances varlık   | 
+|Örnek hedefi   | Varlık | Örnek konuşma varlık   | 
 |------------------|------------------------------|------------------------------|
-| CheckWeather | {"tür": "Konum", "varlığı": "seattle"}<br>{"tür": "builtin.datetimeV2.date","entity": "yarın", "Çözümleme": "2018-05-23"} | Ne hava de olduğu gibi `Seattle` `tomorrow`? |
-| CheckWeather | {"tür": "date_range", "varlığı": "Bu hafta sonu"} | Tahmin için Göster `this weekend` | 
+| CheckWeather | {"type": "Konum", "varlık": "seattle"}<br>{"type": "builtin.datetimeV2.date","entity": "yarın", "Çözüm": "2018-05-23"} | Hava durumu, beğendiğiniz Özellikler `Seattle` `tomorrow`? |
+| CheckWeather | {"type": "date_range", "varlık": "Bu hafta sonu"} | Tahmini Göster `this weekend` | 
 
-## <a name="custom-intents"></a>Özel hedefleri
+## <a name="custom-intents"></a>Özel bir ıntents
 
-Benzer şekilde niyetli [utterances](luis-concept-utterance.md) yönelik tek amacı karşılık gelir. Maksadınızı utterances herhangi kullanabilirsiniz [varlık](luis-concept-entity-types.md) varlıklar hedefi özgü olmadığından uygulama. 
+Benzer şekilde niyetli [konuşma](luis-concept-utterance.md) için tek bir hedefi karşılık gelir. Amacınız, konuşma herhangi kullanabilirsiniz [varlık](luis-concept-entity-types.md) varlıkları hedefi özgü olmadığından uygulama. 
 
-## <a name="prebuilt-domain-intents"></a>Önceden oluşturulmuş bir etki alanı hedefleri
+## <a name="prebuilt-domain-intents"></a>Önceden oluşturulmuş etki alanı hedefleri
 
-[Önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md) utterances ile amacı vardır.  
+[Önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md) konuşma amaçlarıyla sahip.  
 
-## <a name="none-intent-is-fallback-for-app"></a>Hedefi hiçbiri uygulaması için geri dönüş
-**Hiçbiri** amacı olan bir catch tümü veya bir geri dönüş hedefi. Uygulama etki alanında (konu alanında) önemli olmayan utterances HALUK öğretmeyi kullanılır. **Hiçbiri** amacı, 10 ile uygulamadaki toplam utterances yüzde 20 arasında olmalıdır. Boş bırakmayın. 
+## <a name="none-intent-is-fallback-for-app"></a>Hedefi hiçbir uygulama için geri dönüş
+**Hiçbiri** amacı olan bir genel ya da geri dönüş hedefi. LUIS uygulama etki alanında (konu alanı), önemli değildir. Konuşma öğretmek için kullanılır. **Hiçbiri** amacı, uygulamadaki toplam konuşma yüzde 20'si ile 10 arasındaki olmalıdır. Bu bölümü boş bırakmayın. 
 
-### <a name="none-intent-helps-conversation-direction"></a>Hedefi hiçbiri konuşma yönü yardımcı olur
-Bir utterance hiçbiri tahmin, hedefi ve bu tahmin ile chatbot döndürülen bot daha fazla soru sormak veya geçerli seçenekleri kullanıcıya chatbot yönlendirmek için bir menü sağlar. 
+### <a name="none-intent-helps-conversation-direction"></a>Hedefi yok konuşma yönü de yardımcı olur.
+Bir utterance hiçbiri tahmin edildiğinde, hedefi ve döndürülen bu tahmin ile Sohbet botu için robot daha fazla soru veya sohbet botu geçerli seçeneklerdir kullanıcıya yönlendirmek için bir menü sağlayın. 
 
-### <a name="no-utterances-in-none-intent-skews-predictions"></a>Hiçbir utterances hedefi hiçbiri Eğer Öngörüler
-İçin tüm utterances eklemezseniz **hiçbiri** hedefi, HALUK etki alanına bir etki alanı hedefleri dışında bir utterance zorlar. Bu tahmin puanları utterance yanlış hedefini HALUK eğitme tarafından eğme. 
+### <a name="no-utterances-in-none-intent-skews-predictions"></a>Hiçbir konuşma niyetini hiçbiri eğriltir Öngörüler
+İçin herhangi bir konuşma eklemezseniz **hiçbiri** hedefi, LUIS etki alanına bir etki alanı amacı dışında bir utterance zorlar. LUIS utterance yanlış hedefini eğitiminde tarafından bu tahmin puanları eğme. 
 
-### <a name="add-utterances-to-the-none-intent"></a>Utterances Yok'a hedefi ekleyin
-**Hiçbiri** hedefi oluşturulur, ancak amaç boş kaldı. Etki alanı dışındaki utterances ile doldurun. İçin iyi bir utterance **hiçbiri** tamamen uygulama endüstri yanı sıra uygulama dışında bir şey hizmet olduğu. Örneğin, seyahat uygulama için tüm utterances kullanmamalıdır **hiçbiri** faturalama, yemek, Restoran, kargo, ınflight eğlence ayırmaları gibi hareket etmek ilişkili. 
+### <a name="add-utterances-to-the-none-intent"></a>Konuşma hiçbiri hedefi ekleme
+**Hiçbiri** hedefi oluşturulur, ancak boş bilerek. Etki alanı dışındaki bir konuşma ile doldurun. İçin iyi bir utterance **hiçbiri** tamamen uygulamanın yanı sıra sektör uygulama dışında bir şey hizmet olduğu. Örneğin, bir seyahat uygulaması için herhangi bir konuşma kullanmamalıdır **hiçbiri** faturalandırma food, barındırma, kargo, Hareket halindeki eğlence ayırmalar gibi her fırsatta seyahat etmeye ilişkili. 
 
-Ne tür bir utterances bırakılır için hiçbiri hedefi? Belirli bir şeyi ile bot böyle "ne tür bir dinosaur mavi gösteren var?" yanıt döndürmemelidir Başlat Seyahat uygulama dışında ne kadar çok özel bir soru budur. 
+Ne tür bir konuşma bırakılır kullanmışsanız hedefi? Belirli bir şey ile botunuza böyle "ne tür bir dinozor mavi tam var?" yanıt olmamalıdır Başlat Uzak bir seyahat uygulaması dışında çok belirli bir sorunuz budur. 
 
-### <a name="none-is-a-required-intent"></a>Gerekli bir hedefi Yok'tur
-**Hiçbiri** amacı gerekli amaç ve silinemez veya yeniden adlandırılamaz.
+### <a name="none-is-a-required-intent"></a>Hiçbiri gerekli bir hedefi olan
+**Hiçbiri** amacı gerekli amacı ve silinemez veya yeniden adlandırılamaz.
 
 ## <a name="negative-intentions"></a>Negatif amaçları 
-Pozitif ve negatif amaçları gibi belirlemek istiyorsanız "ı **istediğiniz** bir araba" ve "ı **yok** bir araba istediğiniz", iki hedefleri (bir olumlu ve bir olumsuz) oluşturma ve için uygun utterances ekleyin Her. Veya tek bir hedefi oluşturup iki farklı pozitif ve negatif koşullarını bir varlık olarak işaretleyin.  
+Negatif ve pozitif amaçları gibi belirlemek istiyorsanız "miyim **istediğiniz** bir araba" ve "ı **yoksa** bir araba istediğiniz", iki hedefleri (bir pozitif ve negatif bir) oluşturma ve için uygun Konuşma ekleme Her. Tek bir hedefi oluşturma ve iki farklı pozitif ve negatif koşulları bir varlık olarak işaretleyin.  
 
-## <a name="intent-balance"></a>Hedefi Bakiye
-Uygulama etki alanı hedefleri utterances dengesi her amacı arasında olması gerekir. 10 utterances ile bir hedefi ve 500 utterances ile başka bir amaca sahip değilsiniz. Bu dengeli değil. Bu durum varsa, birçok hedefleri içine yeniden düzenlenmiş, görmek için 500 utterances amacıyla gözden geçirin. bir [düzeni](luis-concept-patterns.md). 
+## <a name="intent-balance"></a>Intent bakiyesi
+Uygulama etki alanı hedefleri konuşma dengesi her hedefi arasında olmalıdır. 10 Konuşma ile bir hedefi ve 500 Konuşma ile başka bir amacı yoktur. Bu dengeli değil. Bu durum varsa, birçok hedefleri halinde yeniden, görmek için 500 konuşma amacıyla gözden geçirin. bir [deseni](luis-concept-patterns.md). 
 
-**Hiçbiri** bakiyeye hedefi dahil değildir. Bu amaç için uygulama toplam utterances % 10 içermelidir.
+**Hiçbiri** hedefi bakiyeye dahil değildir. Bu hedefi % uygulamasında toplam konuşma 10 içermelidir.
 
-## <a name="intent-limits"></a>Hedefi sınırları
-Gözden geçirme [sınırları](luis-boundaries.md#model-boundaries) kaç hedefleri anlamak için bir modele ekleyebilirsiniz. 
+## <a name="intent-limits"></a>Intent sınırları
+Gözden geçirme [sınırları](luis-boundaries.md#model-boundaries) kaç hedefleri öğrenmek için bir model ekleyebilirsiniz. 
 
-### <a name="if-you-need-more-than-the-maximum-number-of-intents"></a>En fazla sayısını hedefleri gerekiyorsa 
-İlk olarak, sisteminize çok fazla hedefleri kullanıp kullanmadığını göz önünde bulundurun. 
+### <a name="if-you-need-more-than-the-maximum-number-of-intents"></a>Intents en fazla sayısından fazlasını gerekiyorsa 
+İlk olarak, sisteminize çok fazla ıntents kullanıp kullanmadığını göz önünde bulundurun. 
 
-### <a name="can-multiple-intents-be-combined-into-single-intent-with-entities"></a>Birden çok hedefleri tek amacı olan varlık birleştirilebilir 
-Çok benzer hedefleri bunları ayırt etmenize HALUK çok daha zor yapabilirsiniz. Hedefleri olması için kullanıcı isteyen, ancak kodunuzu alır her yolu yakalama gerekmez ana görevleri yakalamak için yeterli değişmesi. Örneğin, bir seyahat uygulamasında ayrı hedefleri BookFlight ve FlightCustomerService olabilir, ancak BookInternationalFlight ve BookDomesticFlight çok benzer. Sisteminiz bunları ayırt etmek gerekirse, varlık veya diğer mantığı yerine hedefleri kullanın. 
+### <a name="can-multiple-intents-be-combined-into-single-intent-with-entities"></a>Birden çok hedefleri tek amacı, varlıklarla birleştirilebilir 
+Çok benzer bir ıntents LUIS bunları ayırt daha zor yapabilirsiniz. Intents olması için anın ancak alan, kodunuzun her yolunu yakalamak üzere gerekmeyen ana görevleri yakalamak için yeterli değiştirilen. Örneğin, bir seyahat uygulamasında ayrı ıntents BookFlight ve FlightCustomerService olabilir, ancak BookInternationalFlight ve BookDomesticFlight çok benzerdir. Bunları ayırt etmek sisteminizi gerekiyorsa, varlıklar veya diğer mantıksal yerine hedefleri kullanın. 
 
 ### <a name="dispatcher-model"></a>Dağıtıcı modeli
-HALUK ve QnA maker uygulamalarla birleştirme hakkında daha fazla bilgi [gönderme modeli](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps). 
+LUIS ve soru-cevap Oluşturucu uygulamalarla birleştirme hakkında daha fazla bilgi [gönderme modeli](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps). 
 
-### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Hedefleri önemli sayıda olan uygulamalar için yardım iste
-Hedefleri sayısını azaltmak ve birden fazla uygulama, hedefleri bölme sizin için işe yaramazsa, desteğe başvurun. Destek Hizmetleri Azure aboneliğinize içeriyorsa, kişi [Azure teknik destek](https://azure.microsoft.com/support/options/). 
+### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Önemli sayıda hedefleri olan uygulamalar için yardım iste
+Intents sayısını azaltmayı ya da birden çok uygulamalarda, hedefleri bölme sizin için işe yaramazsa, desteğe başvurun. Destek Hizmetleri Azure aboneliğinize dahildir, başvurun [Azure teknik desteğine](https://azure.microsoft.com/support/options/). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Daha fazla bilgi edinmek [varlıklar](luis-concept-entity-types.md), önemli sözcükler amaçlar için ilgili olduğu
-* Bilgi nasıl [ekleyin ve hedefleri yönetin](luis-how-to-add-intents.md) HALUK uygulamanızda.
-* Gözden hedefi [en iyi uygulamalar](luis-concept-best-practices.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+* Daha fazla bilgi edinin [varlıkları](luis-concept-entity-types.md), önemli sözcükleri hedefleri için uygun olan
+* Bilgi nasıl [ekleyin ve hedefleri yönetin](luis-how-to-add-intents.md) LUIS uygulamanızda.
+* Gözden geçirin, amacı [en iyi uygulamalar](luis-concept-best-practices.md)

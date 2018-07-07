@@ -1,6 +1,6 @@
 ---
-title: Derleme ve Azure Machine Learning paket için bilgisayar Vizyon kullanarak bir görüntü sınıflandırma modeli dağıtın.
-description: Oluşturmak, eğitmek, test ve Azure Machine Learning paket için bilgisayar Vizyon kullanarak bir bilgisayarı görme görüntü sınıflandırma modeli dağıtma hakkında bilgi edinin.
+title: Oluşturun ve Azure Machine Learning paket için görüntü işleme kullanan bir görüntü sınıflandırma modeli dağıtın.
+description: Oluşturma, eğitme, sınama ve Azure Machine Learning paket için görüntü işleme kullanan bir bilgisayar işleme görüntü sınıflandırma modeli dağıtma konusunda bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,34 +9,34 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 2c988f8651d0ae9a8662b502ca2ba2dbabb2defe
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 6b7f73573cb1465b89e54e30894b3549153e4acb
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37116186"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888441"
 ---
-# <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Derleme ve Azure Machine Learning ile görüntü sınıflandırma modelleri dağıtma
+# <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Azure Machine Learning ile görüntü sınıflandırma modellerini Derleme ve dağıtma
 
-Bu makalede, nasıl kullanılacağını öğrenirsiniz **bilgisayar görme için Azure Machine Learning paketi** eğitmek, test ve bir görüntü sınıflandırma modeli dağıtın (AMLPCV). 
+Bu makalede, kullanmayı öğrenin **görüntü işleme için Azure Machine Learning paketi** eğitmek, test ve bir görüntü sınıflandırma model dağıtma (AMLPCV). 
 
-Görüntü sınıflandırmasını kullanan çok sayıda bilgisayar görme etki alanındaki sorunları çözülebilir. Bu sorunlar gibi soruları yanıtlamak model oluşturmaya içerir:
-+ _Bir nesne görüntüde var mı? Örneğin, "köpek", "araba", "sevk" vb._
-+ _Hangi sınıfın göz Hastalık önem derecesine göre bu hasta'nın retinal tarama evinced?_
+Çok sayıda bilgisayar işleme etki alanındaki sorunları, görüntü sınıflandırması kullanarak çözülebilir. Bu sorunlar, soruları cevaplamak modeller oluşturma içerir:
++ _Bir nesne görüntüde var mı? Örneğin, "köpek", "araba", "gönderilen" vb._
++ _Hangi sınıfın göz Hastalık önem derecesi, bu hastanın retinal taramasıyla evinced?_
 
-Oluşturma ve dağıtma AMLPCV Bu modelde olduğunda, aşağıdaki adımlarda size gidin:
+Oluşturma ve dağıtma AMLPCV ile bu model, aşağıdaki adımları izleyerek gidin:
 1. Veri kümesi oluşturma
-2. Görüntü Görselleştirme ve ek açıklaması
-3. Görüntü augmentation'a
+2. Görüntü Görselleştirme ve ek açıklama
+3. Görüntü güçlendirme
 4. Derin sinir ağı (DNN) modeli tanımı
 5. Sınıflandırıcı eğitim
 6. Değerlendirme ve görselleştirme
 7. Web hizmeti dağıtımı
-8. Web hizmeti yük test etme
+8. Web hizmeti yük testi
 
-[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) kullanılan derin öğrenme çerçevesi eğitim yerel olarak desteklenen GPU makinede gibi gerçekleştirilir ([derin veri bilimi VM öğrenme](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), ve dağıtım Azure ML Operationalization CLI kullanır.
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) kullanılır derin öğrenme framework eğitim yerel olarak desteklenen GPU makinede gibi gerçekleştirilir ([derin öğrenme veri bilimi sanal makinesi](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), ve dağıtımı, Azure ML kullanıma hazır hale getirme CLI'yı kullanır.
 
-Başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/vision) her modül ve sınıfı için ayrıntılı başvuru için.
+Başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/vision) her modülü ve sınıf için ayrıntılı başvuru.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -44,33 +44,27 @@ Başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/vision) her 
 
 1. Aşağıdaki hesapları ve uygulama kurmalı ve yüklü:
    - Bir Azure Machine Learning Denemesi hesabı 
-   - Bir Azure Machine Learning modeli yönetim hesabı
+   - Bir Azure Machine Learning Model Yönetimi hesabı
    - Azure Machine Learning Workbench'in yüklü olması
 
-   Bu üç henüz oluşturduğunuz veya yüklü uygulayın [Azure Machine Learning Quickstart ve çalışma ekranı yükleme](../service/quickstart-installation.md) makalesi. 
+   Bu üç henüz oluşturduysanız veya yüklü izleyin [Azure Machine Learning hızlı ve Workbench'i yükleme](../service/quickstart-installation.md) makalesi. 
 
-1. Bilgisayar görme için Azure Machine Learning paketi yüklü olmalıdır. Bilgi edinmek için nasıl [burada bu paketi yükledikten](https://aka.ms/aml-packages/vision).
+1. Görüntü işleme için Azure Machine Learning paketi yüklü olmalıdır. Bilgi edinmek için nasıl [burada bu paketi yüklemek](https://aka.ms/aml-packages/vision).
 
 ## <a name="sample-data-and-notebook"></a>Örnek veriler ve not defteri
 
-### <a name="get-the-jupyter-notebook"></a>Jupyter Not Defteri Al
+### <a name="get-the-jupyter-notebook"></a>Jupyter not defterini alma
 
-İndirme örneği çalıştırmak için Not Defteri kendiniz burada açıklanmıştır.
+Örneği çalıştırmak için Not defterini indirme kendiniz burada açıklanmıştır.
 
 > [!div class="nextstepaction"]
-> [Jupyter Not Defteri Al](https://aka.ms/aml-packages/vision/notebooks/image_classification)
+> [Jupyter not defterini alma](https://aka.ms/aml-packages/vision/notebooks/image_classification)
 
 ### <a name="load-the-sample-data"></a>Örnek verileri yükleme
 
-Aşağıdaki örnek, 63 yemek takımı görüntülerini oluşan bir veri kümesi kullanır. Her görüntü (bowl fincanı, Çatal bıçak, kalıbı) dört farklı sınıflardan birine ait olarak etiketlenir. Bu örnekte resimlerinin sayısı küçük, böylelikle Bu örnek hızlı yürütülebilir. Uygulamada sınıfı başına en az 100 görüntüleri sağlanmalıdır. Tüm görüntüleri adresindedir *".. /sample_data/imgs_recycling / "*,"bowl"adlı alt dizinleri,"fincanı","Çatal bıçak"ve"kalıbı".
+Aşağıdaki örnek, 63 yemek takımı görüntülerini oluşan bir veri kümesi kullanır. Her bir görüntü (bowl, Imagine cup, Çatal bıçak, blondan) dört farklı sınıflardan birine ait olarak etiketlenir. Bu örnekte görüntülerinin sayısını, böylece bu örnek yürütülebilir hızlı bir şekilde küçüktür. Uygulamada sınıfı başına en az 100 görüntüleri sağlanmalıdır. Tüm görüntüleri altındadır *".. /sample_data imgs_recycling / "*,"bowl"adlı alt dizinleri,"cup","Çatal bıçak"ve"blonu".
 
 ![Azure Machine Learning veri kümesi](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
-
-## <a name="storage-context"></a>Depolama bağlamı
-
-Depolama bağlamı çeşitli genişletilmiş görüntüleri gibi çıktı dosyaları veya DNN model dosyalarının nerede depolanacağını belirlemek için kullanılır. Depolama bağlamları hakkında daha fazla bilgi için bkz: [StorageContext belgelerine](https://review.docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-python&branch=smoke-test). 
-
-Normalde, depolama içerik açıkça ayarlanmış olması gerekmez. Ancak, 25 MB sınırına Azure Machine Learning çalışma ekranı tarafından uygulanan proje boyutu olmaması için çıkış dizini için Azure Machine Learning paketi için bilgisayar Vizyon Azure Machine Learning proje dışında bir yere ayarlayın ("... /.. /.. /.. / cvtk_output "). Artık gerekli sonra "cvtk_output" directory kaldırdığınızdan emin olun.
 
 
 ```python
@@ -84,49 +78,39 @@ from sklearn import svm
 from cvtk import ClassificationDataset, CNTKTLModel, Context, Splitter, StorageContext
 from cvtk.augmentation import augment_dataset
 from cvtk.core.classifier import ScikitClassifier
-from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix, basic_plot
+from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix
 import matplotlib.pyplot as plt
+
+from classification.notebook.ui_utils.ui_annotation import AnnotationUI
+from classification.notebook.ui_utils.ui_results_viewer import ResultsUI
+from classification.notebook.ui_utils.ui_precision_recall import PrecisionRecallUI
+
 %matplotlib inline
 
 # Disable printing of logging messages
 from azuremltkbase.logging import ToolkitLogger
 ToolkitLogger.getInstance().setEnabled(False)
-
-# Set storage context.
-out_root_path = "../../../cvtk_output"
-Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_path=out_root_path)
 ```
-
-
-
-
-    {
-        "storage": {
-            "outputs_path": "../../../cvtk_output",
-            "persistent_path": "../../../cvtk_output",
-            "temp_path": "../../../cvtk_output"
-        }
-    }
 
 
 
 ## <a name="create-a-dataset"></a>Veri kümesi oluşturma
 
-Bağımlılıkları alınan ve depolama bağlamını ayarlayın sonra veri kümesi nesnesi oluşturabilirsiniz.
+Bağımlılıkları alınan ve depolama bağlamını ayarladıktan sonra veri kümesi nesnesi oluşturabilirsiniz.
 
-Bu nesne için bilgisayar Vizyon Azure Machine Learning paketiyle oluşturmak için yerel diskte görüntüleri kök dizininin sağlar. Bu dizin, Yemek takımı dataset aynı genel yapısını diğer bir deyişle izleyin, gerçek görüntüleri alt dizinleri içerir:
-- kök
+Bu nesne, görüntü işleme için Azure Machine Learning paketiyle oluşturmak için yerel diskte görüntüleri kök dizinini belirtin. Bu dizin, diğer bir deyişle yemek takımı veri kümesine aynı genel yapısını izleyin, gerçek görüntüleri ile alt dizinleri içerir:
+- Kök
     - Etiket 1
-    - 2 etiketi
+    - Etiket 2
     - ...
     - Etiket n
   
-Bir görüntü sınıflandırma model için farklı bir veri kümesi kök yolu değiştirirken kadar kolay eğitim `dataset_location` farklı görüntülere işaret etmek için aşağıdaki kodu.
+Farklı bir veri kümesi kök yolu ile değişiyor olarak kolayca için bir görüntü sınıflandırma modeli Eğitimi `dataset_location` farklı görüntülere işaret edecek şekilde kod.
 
 
 ```python
-# Root image directory 
-dataset_location = os.path.abspath(os.path.join(os.getcwd(), "../sample_data/imgs_recycling"))
+# Root image directory
+dataset_location = os.path.abspath("classification/sample_data/imgs_recycling")
 
 dataset_name = 'recycling'
 dataset = ClassificationDataset.create_from_dir(dataset_name, dataset_location)
@@ -140,13 +124,13 @@ print("Select information for image 2: name={}, label={}, unique id={}.".format(
     Dataset consists of 63 images with 4 labels.
     Select information for image 2: name=msft-plastic-bowl20170725152154282.jpg, label=bowl, unique id=3.
 
-Veri kümesi nesnesi kullanarak görüntüleri indirmek için işlevsellik sağlar [Bing görüntü arama API](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/). 
+Veri kümesi nesnesi kullanarak görüntüleri indirmek için işlevsellik sağlar [Bing resim arama API'si](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/). 
 
-Arama sorguları iki tür desteklenir: 
+İki tür arama sorguları desteklenir: 
 + Normal metin sorguları
-+ Görüntü URL sorguları
++ Görüntü URL'si sorguları
 
-Bu sorguları sınıfı etiketi ile birlikte bir JSON olarak kodlanmış metin dosyası içinde sağlanmalıdır. Örneğin:
+Bu sorguları birlikte sınıfı etiketi içinde bir JSON olarak kodlanmış bir metin dosyası sağlanmalıdır. Örneğin:
 
 ```json
 {
@@ -171,18 +155,17 @@ Bu sorguları sınıfı etiketi ile birlikte bir JSON olarak kodlanmış metin d
 }
 ```
 
-Ayrıca, açıkça Bing görüntü arama API anahtarını içermesi için bir bağlam nesnesi oluşturmanız gerekir. Bu bir Bing görüntü arama API aboneliği gerektirir.
+Ayrıca, Bing resim arama API'si anahtar içermesi için bir bağlam nesnesi açıkça oluşturmalısınız. Bu, Bing resim arama API'si aboneliği gerektirir.
 
-## <a name="visualize-and-annotate-images"></a>Görselleştirme ve görüntüleri açıklama ekleme
+## <a name="visualize-and-annotate-images"></a>Görselleştirme ve görüntü ek açıklama Ekle
 
-Görüntüleri ve aşağıdaki pencere öğesini kullanarak veri kümesi nesnesi doğru etiketler görselleştirebilirsiniz. 
+Aşağıdaki pencere öğesi kullanılarak dataset nesnesinde doğru etiketleri ve görüntü görselleştirebilirsiniz. 
 
-"Pencere öğesi Javascript algılanmadı" hatayla karşılaşırsanız, bunu çözmek için şu komutu çalıştırın:
+"Pencere öğesi Javascript algılanmadı" hatası ile karşılaşırsanız, bunu çözmek için şu komutu çalıştırın:
 <br>`jupyter nbextension enable --py --sys-prefix widgetsnbextension`
 
 
 ```python
-from ui_utils.ui_annotation import AnnotationUI
 annotation_ui = AnnotationUI(dataset, Context.get_global_context())
 display(annotation_ui.ui)
 ```
@@ -191,11 +174,11 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>Görüntüleri büyütmek
 
-[ `augmentation` Modülü](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) açıklanan tüm dönüştürmeleri kullanarak bir veri kümesi nesnesi büyütmek için işlevsellik sağlar [imgaug](https://github.com/aleju/imgaug) kitaplığı. Resim dönüşümleri gruplandırılabilir tek bir ardışık düzende kanaldaki tüm dönüştürmeleri aynı anda uygulanır; Bu durumda her görüntü. 
+[ `augmentation` Modülü](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) açıklanan tüm dönüştürmeleri kullanarak bir veri kümesi nesnesi büyütmek için işlevsellik sağlar [imgaug](https://github.com/aleju/imgaug) kitaplığı. Resim dönüşümleri gruplandırılabilir tek bir işlem hattı, bu durumda işlem hattındaki tüm dönüştürmeler eşzamanlı olarak uygulanır her görüntü. 
 
-Farklı augmentation'a adımları ayrı ayrı uygulamak istediğiniz veya farklı şekilde, birden çok ardışık düzen tanımlayın ve onlara geçirin *augment_dataset* işlevi. Daha fazla bilgi ve görüntü augmentation'a örnekleri için bkz: [imgaug belgelerine](https://github.com/aleju/imgaug).
+Farklı güçlendirme adımları ayrı ayrı uygulamak istediğiniz veya farklı şekilde, birden fazla işlem hattını tanımlayabilir ve onlara geçirmek *augment_dataset* işlevi. Daha fazla bilgi ve görüntü güçlendirme örnekler için bkz. [imgaug belgeleri](https://github.com/aleju/imgaug).
 
-Genişletilmiş görüntüler eğitim kümesine ekleme, küçük veri kümeleri için özellikle yararlıdır. DNN eğitim işlem artan eğitim resimlerinin sayısı nedeniyle daha yavaş olduğundan, deneme augmentation'a olmadan Başlat öneririz.
+Genişletilmiş görüntüler eğitim kümesine ekleme, küçük veri kümeleri için özellikle yararlıdır. DNN eğitim işlem sayısının eğitim resmi artması nedeniyle daha yavaş olduğundan, deneme güçlendirme olmadan Başlat öneririz.
 
 
 ```python
@@ -227,18 +210,18 @@ else:
 
 ## <a name="define-dnn-models"></a>DNN modelleri tanımlayın
 
-Aşağıdaki pretrained derin sinir ağı modeller bu paketle desteklenir: 
-+ Resnet 18
-+ Resnet 34
-+ Resnet 50
-+ Resnet 101
-+ Resnet 152
+Aşağıdaki pretrained derin sinir ağı modelleri ile bu paket desteklenir: 
++ Resnet-18
++ Resnet-34
++ Resnet-50
++ Resnet-101
++ Resnet-152
 
-Bu DNNs sınıflandırıcı olarak ya da featurizer olarak kullanılabilir. 
+Bu Dnn'leri Sınıflandırıcısı olarak veya özelliği Oluşturucu olarak kullanılabilir. 
 
-Ağlar hakkında daha fazla bilgi bulunabilir [burada](https://github.com/Microsoft/CNTK/blob/master/PretrainedModels/Image.md), ve aktarım öğrenme için temel bir giriş [burada](https://blog.slavv.com/a-gentle-intro-to-transfer-learning-2c0b674375a0).
+Ağlar hakkında daha fazla bilgi bulunabilir [burada](https://github.com/Microsoft/CNTK/blob/master/PretrainedModels/Image.md), ve öğrenme aktarmak için temel bir giriş [burada](https://blog.slavv.com/a-gentle-intro-to-transfer-learning-2c0b674375a0).
 
-Varsayılan görüntü sınıflandırma bu paket için 224 x 224 piksel çözünürlüğü ve Resnet 18 DNN parametreleridir. Bu parametreler de çok çeşitli görevler üzerinde çalışmak için seçilmedi. Doğruluk genellikle, örneğin, 500 x 500 piksel resim çözünürlüğü artırma ve/veya derin modeli (Resnet-50) seçme tarafından geliştirilebilir. Parametrelerinin değiştirilmesi, eğitim süresini önemli bir artış, ancak gelebilir. Makaleyi bakın [doğruluğunu artırmak nasıl](https://docs.microsoft.com/azure/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models).
+Varsayılan görüntü sınıflandırma bu paketin 224 x 224 piksel çözünürlüğü ve Resnet-18 DNN parametrelerdir. Bu parametreleri de çok çeşitli görevler üzerinde çalışmaya seçilmedi. Doğruluk genellikle, örneğin, 500 x 500 piksel görüntü çözünürlüğünü artırmak ve/veya derin bir modeli (Resnet-50) seçme tarafından geliştirilebilir. Parametrelerinin değiştirilmesi, eğitim süresini önemli bir artış, ancak gelebilir. Makaleye bakın [doğruluğunu artırmak nasıl](https://docs.microsoft.com/azure/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models).
 
 
 ```python
@@ -264,18 +247,18 @@ dnn_model = CNTKTLModel(train_set.labels,
     Successfully downloaded ResNet18_ImageNet_CNTK
     
 
-## <a name="train-the-classifier"></a>Tren sınıflandırıcı
+## <a name="train-the-classifier"></a>Train Sınıflandırıcısı
 
-Önceden eğitilen DNN için aşağıdaki yöntemlerden birini seçebilirsiniz.
+Önceden eğitilmiş DNN için aşağıdaki yöntemlerden birini seçebilirsiniz.
 
-  - **DNN iyileştirme**, sınıflandırma doğrudan gerçekleştirmek için DNN eğitir. DNN eğitim yavaş olsa da, tüm ağ ağırlıkları en iyi doğruluğu vermek için eğitim sırasında geliştirilebilir beri genellikle en iyi sonuçlar verecektir.
+  - **DNN iyileştirme**, sınıflandırma doğrudan gerçekleştirmek için DNN eğitir. DNN eğitim yavaş olsa da, tüm ağ ağırlıkları eğitim sırasında en yüksek doğruluğa vermek geliştirilebilir beri genellikle en iyi sonuçlar verecektir.
 
-  - **DNN featurization**, DNN olarak çalıştığı-görüntünün küçük boyutlu bir gösterimini elde edilir (512, 2048 veya 4096 gezinen). Bu gösterim sonra ayrı bir sınıflandırıcı eğitmek için girdi olarak kullanılır. DNN değişmeden tutulur olduğundan, doğruluk kadar iyi değildir ancak bu yaklaşım çok daha hızlı DNN iyileştirme için karşılaştırılır. Yine de, doğrusal SVM gibi harici bir sınıflandırıcı (aşağıdaki kodda gösterildiği gibi) eğitim sağlam bir temel sağlar ve bir sorun uygulanabilirliğini anlamak.
+  - **DNN özellik kazandırma sayesinde**, DNN olarak çalıştığı-küçük boyutlu bir görüntü gösterimini elde edilir (512, 2048 veya 4096 gezinen). Bu gösterimi, sonra ayrı bir sınıflandırıcı eğitmek için giriş olarak kullanılır. DNN değişmeden kalmasını olduğundan, doğruluk kadar iyi olmaz ancak bu yaklaşım çok daha hızlı DNN iyileştirme için karşılaştırılır. Bununla birlikte, (aşağıdaki kodda gösterildiği gibi) bir doğrusal SVM gibi harici bir sınıflandırıcı eğitim sağlam bir temel sağlayın ve bir sorun uygulanabilirliğini anlamaya yardımcı.
   
-TensorBoard eğitim ilerleme görselleştirmek için kullanılabilir. TensorBoard etkinleştirmek için:
-1. Parametre ekleme `tensorboard_logdir=PATH` aşağıdaki kodda gösterildiği gibi
-1. Komutunu kullanarak TensorBoard istemcisini başlattığınızda `tensorboard --logdir=PATH` yeni bir konsol içinde.
-1. Varsayılan olarak localhost:6006 olan TensorBoard tarafından belirtildiği gibi bir web tarayıcısı açın. 
+TensorBoard eğitim ilerleme durumunu görselleştirmek için kullanılabilir. TensorBoard etkinleştirmek için:
+1. Parametre Ekle `tensorboard_logdir=PATH` aşağıdaki kodda gösterildiği gibi
+1. Komutunu kullanarak TensorBoard istemcisini başlattığınızda `tensorboard --logdir=PATH` yeni bir konsolda.
+1. Varsayılan olarak localhost:6006 olduğu TensorBoard tarafından belirtildiği şekilde bir web tarayıcısı açın. 
 
 
 ```python
@@ -356,15 +339,15 @@ if classifier_name == "dnn":
 ![PNG](media/how-to-build-deploy-image-classification-models/output_17_0.png)
 
 
-## <a name="evaluate-and-visualize-model-performance"></a>Değerlendirin ve model performans Görselleştirme
+## <a name="evaluate-and-visualize-model-performance"></a>Değerlendirmek ve model performansını görselleştirin
 
-Değerlendirme modülünü kullanarak bir bağımsız sınama veri kümesi üzerinde eğitilen model performansını değerlendirebilirsiniz. Bu hesaplar değerlendirme ölçümleri bazıları şunlardır:
+Değerlendirme modülü kullanarak bir bağımsız test veri kümesini eğitilen model performansını değerlendirebilirsiniz. Bu hesaplar değerlendirme ölçümlerin bazıları şunlardır:
  
-+ Doğruluk (varsayılan sınıf ortalaması)
-+ PR eğri
-+ ROC eğrisi
++ Doğruluk (varsayılan sınıf ortalama)
++ Çekme isteği eğri
++ ROC eğrisi çizimleri
 + Eğri altında alanı
-+ Karışıklığı Matrisi
++ Karışıklık Matrisi
 
 
 ```python
@@ -407,7 +390,6 @@ labels = [l.name for l in dataset.labels]
 pred_scores = ce.scores #classification scores for all images and all classes
 pred_labels = [labels[i] for i in np.argmax(pred_scores, axis=1)]
 
-from ui_utils.ui_results_viewer import ResultsUI
 results_ui = ResultsUI(test_set, Context.get_global_context(), pred_scores, pred_labels)
 display(results_ui.ui)
 ```
@@ -420,38 +402,37 @@ display(results_ui.ui)
 precisions, recalls, thresholds = ce.compute_precision_recall_curve() 
 thresholds = list(thresholds)
 thresholds.append(thresholds[-1])
-from ui_utils.ui_precision_recall import PrecisionRecallUI
 pr_ui = PrecisionRecallUI(100*precisions[::-1], 100*recalls[::-1], thresholds[::-1])
 display(pr_ui.ui) 
 ```
 
 ![Azure Machine Learning veri kümesi](media/how-to-build-deploy-image-classification-models/image_precision_curve.png)
 
-## <a name="operationalization-deploy-and-consume"></a>Operationalization: dağıtma ve kullanma
+## <a name="operationalization-deploy-and-consume"></a>Kullanıma hazır hale getirme:, dağıtma ve kullanma
 
-Operationalization yayımlama modelleri ve web Hizmetleri olarak kod sürecini ve bu hizmetleri iş sonuçlar tüketiminin ' dir. 
+Kullanıma hazır hale getirme işlemini yayımlama modelleri ve web Hizmetleri olarak kod ve iş sonuçlar bu hizmetlerin kullanımını ' dir. 
 
-Modelinizi eğitildi sonra tüketim kullanarak bir web hizmeti olarak modelin dağıtabilirsiniz [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Modellerinizi, LocalMachine ya da Azure kapsayıcı Hizmeti'ni (ACS) küme dağıtılabilir. ACS kullanarak, web hizmetiniz elle ölçeklendirme veya otomatik ölçeklendirmeyi işlevini kullanın.
+Modelinizi eğitildi sonra tüketim kullanmak için bir web hizmeti olarak modelin dağıtabilir [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Modellerinizi, yerel makine veya Azure Container Service (ACS) kümesine dağıtılabilir. ACS kullanarak, web hizmetini el ile ölçeklendirebilir veya otomatik ölçeklendirme işlevini kullanın.
 
-**Azure CLI ile oturum açın**
+**Oturum Azure CLI ile oturum açın**
 
-Kullanarak bir [Azure](https://azure.microsoft.com/) hesap geçerli bir abonelik ile aşağıdaki CLI komutu kullanarak oturum açın:
+Kullanarak bir [Azure](https://azure.microsoft.com/) hesap ile geçerli bir abonelik, aşağıdaki CLI komutunu kullanarak oturum açın:
 <br>`az login`
 
-+ Başka bir Azure aboneliğine geçmeniz komutu kullanın:
++ Başka bir Azure aboneliğine geçiş yapmak için komutu kullanın:
 <br>`az account set --subscription [your subscription name]`
 
-+ Geçerli model yönetim hesabı görmek için komutu kullanın:
++ Geçerli model Yönetimi hesabı görmek için komutu kullanın:
   <br>`az ml account modelmanagement show`
 
 **Oluşturun ve küme dağıtım ortamınızı ayarlayın**
 
-Yalnızca dağıtım ortamınızı bir kez ayarlamanız gerekir. Henüz yoksa, şimdi kullanarak dağıtım ortamınızı ayarlayın [bu yönergeleri](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
+Yalnızca bir kez dağıtım ortamınızı ayarlamanız gerekir. Henüz yoksa, şimdi kullanarak dağıtım ortamı oluşturmanız [bu yönergeleri](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
 
-Etkin dağıtım ortamınızı görmek için aşağıdaki CLI komutu kullanın:
+Etkin dağıtım ortamınızı görmek için aşağıdaki CLI komutunu kullanın:
 <br>`az ml env show`
    
-Oluşturun ve dağıtım ortamı için örnek Azure CLI komutu
+Örnek Azure CLI komutunu oluşturmak ve dağıtım ortamı ayarlamak için
 
 ```CLI
 az provider register -n Microsoft.MachineLearningCompute
@@ -462,25 +443,25 @@ az ml env set -n [environment name] -g [resource group]
 az ml env cluster
 ```
     
-### <a name="manage-web-services-and-deployments"></a>Web Hizmetleri ve Dağıtımları yönet
+### <a name="manage-web-services-and-deployments"></a>Web Hizmetleri ve dağıtımları yönetin
 
-Aşağıdaki API, web Hizmetleri olarak modelleri dağıtmak, bu web hizmetleri yönetmek ve dağıtımları yönetmek için kullanılabilir.
+Aşağıdaki API, Modellerinizi web Hizmetleri olarak dağıtmanıza, bu web hizmetlerini yönetme ve dağıtımları yönetmek için kullanılabilir.
 
 |Görev|API|
 |----|----|
-|Dağıtım nesnesi oluşturun|`deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model, aml_env="cluster")`
+|Dağıtım nesnesi oluşturma|`deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model, aml_env="cluster")`
 |Web hizmetini dağıtma|`deploy_obj.deploy()`|
 |Puan görüntüsü|`deploy_obj.score_image(local_image_path_or_image_url)`|
-|Web hizmeti Sil|`deploy_obj.delete()`|
-|Web hizmeti olmadan docker yansıması oluştur|`deploy_obj.build_docker_image()`|
-|Var olan dağıtım listesi|`AMLDeployment.list_deployment()`|
-|Hizmet dağıtım adıyla varsa silin|`AMLDeployment.delete_if_service_exist(deployment_name)`|
+|Web hizmeti silme|`deploy_obj.delete()`|
+|Web hizmeti olmadan docker görüntüsü oluşturun|`deploy_obj.build_docker_image()`|
+|Mevcut bir dağıtım listesi|`AMLDeployment.list_deployment()`|
+|Hizmet dağıtımı adı ile varsa silin|`AMLDeployment.delete_if_service_exist(deployment_name)`|
 
-**API belgelerine:** başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/vision) her modül ve sınıfı için ayrıntılı başvuru için.
+**API belgeleri:** başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/vision) her modülü ve sınıf için ayrıntılı başvuru.
 
-**CLI başvuru:** daha gelişmiş işlemleri, dağıtımla ilgili başvurmak için [model yönetim CLI başvuru](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
+**CLI başvurusu:** daha gelişmiş işlemler, dağıtımla ilgili başvurmak için [model Yönetimi CLI başvurusu](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
 
-**Azure portalında dağıtım Yönetimi**: izleme ve dağıtımlarınızda yönetme [Azure portal](https://ms.portal.azure.com/). Azure portalından adını kullanarak, Machine Learning modeli yönetim hesabı sayfasını bulun. Model yönetim hesabı sayfasına gidin > Model Yönetim > hizmetler.
+**Azure portalında dağıtım Yönetimi**: izleme ve yönetme dağıtımlarınızda [Azure portalında](https://ms.portal.azure.com/). Azure portalından adını kullanarak Machine Learning Model Yönetimi hesap sayfanızda bulun. Ardından Model Yönetimi hesabı sayfasına gidin > Model Yönetimi > hizmetler.
 
 
 ```python
@@ -537,15 +518,15 @@ print("Deployment DONE")
 
 ### <a name="consume-the-web-service"></a>Web hizmetini kullanma 
 
-Bir web hizmeti olarak modeli dağıttığınızda, bu yöntemlerden birini kullanarak web hizmetiyle görüntüleri puan:
+Bir web hizmeti olarak modeli dağıtacağız sonra aşağıdaki yöntemlerden birini kullanarak web hizmetine görüntüleri puan:
 
-- Dağıtım nesnesi kullanılarak ile doğrudan web hizmeti puan `deploy_obj.score_image(image_path_or_url)`
+- Dağıtım nesnesi kullanılarak ile doğrudan web hizmeti Puanlama `deploy_obj.score_image(image_path_or_url)`
 
-- Hizmet uç noktası URL'si ve hizmet anahtarını (hiçbiri yerel dağıtım için) kullanın: `AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
+- Hizmet uç noktası URL'si ve hizmet anahtarını (hiçbir yerel dağıtım) ile kullanın: `AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
 
-- Web hizmeti uç noktası doğrudan Puanlama amacıyla, HTTP istekleri oluşturur. Bu seçenek Gelişmiş kullanıcılar için kullanılır.
+- Web hizmeti uç noktası doğrudan puanlamak için HTTP isteği oluşturur. Bu seçenek, İleri düzey kullanıcılar için kullanılabilir.
 
-### <a name="score-with-existing-deployment-object"></a>Var olan dağıtım nesnesiyle puan
+### <a name="score-with-existing-deployment-object"></a>Var olan dağıtım nesnesiyle Puanlama
 
 ```
 deploy_obj.score_image(image_path_or_url)
@@ -591,7 +572,7 @@ for img_index, img_obj in enumerate(test_set.images[:10]):
     print(return_json)
 ```
 
-### <a name="score-with-service-endpoint-url-and-service-key"></a>Hizmet uç noktasının URL'sini ve hizmet anahtarı ile puan
+### <a name="score-with-service-endpoint-url-and-service-key"></a>Hizmet uç noktasının URL'sini ve hizmet anahtarı ile Puanlama
 
 `AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
 
@@ -614,9 +595,9 @@ serialized_result_in_json = AMLDeployment.score_existing_service_with_image(imag
 print("serialized_result_in_json:", serialized_result_in_json)
 ```
 
-### <a name="score-endpoint-with-http-request-directly"></a>Http isteği doğrudan puan uç noktası
+### <a name="score-endpoint-with-http-request-directly"></a>Http isteği ile uç noktası doğrudan Puanlama
 
-Aşağıdaki kod örneği, HTTP isteği doğrudan Python içinde oluşturur. Ancak, diğer programlama dillerinde olarak yapabilirsiniz.
+Aşağıdaki kod örneği, doğrudan Python'da HTTP isteği oluşturur. Ancak, başka programlama dillerinde bunu yapabilirsiniz.
 
 
 ```python
@@ -667,9 +648,9 @@ images = [test_set.images[0].storage_path, test_set.images[1].storage_path] # A 
 score_image_list_with_http(images, service_endpoint_url, service_key)
 ```
 
-### <a name="parse-serialized-result-from-web-service"></a>Seri hale getirilmiş sonuç web hizmetinden ayrıştırılamıyor
+### <a name="parse-serialized-result-from-web-service"></a>Web hizmetinden serileştirilmiş sonucu ayrıştırması
 
-Web hizmeti çıktısını bir JSON dizesidir. Bu JSON dizesi farklı DNN modeli sınıflarla ayrıştıramıyor.
+Web hizmetinden gelen çıkış bir JSON dizesi var. Bu JSON dizesi farklı DNN model sınıfları ile ayrıştırabilirsiniz.
 
 
 ```python
@@ -695,12 +676,12 @@ print("Class label:", dnn_model.class_map[class_index])
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Machine Learning paketi hakkında daha fazla bilgi için bilgisayar Vizyon bu makalelerde öğrenin:
+Azure Machine Learning paketi hakkında daha fazla görüntü işleme için bu makalelerde öğrenin:
 
 + Bilgi edinmek için nasıl [Bu modelin doğruluğunu artırmak](how-to-improve-accuracy-for-computer-vision-models.md).
 
-+ Okuma [genel bakış paketini ve nasıl yükleneceği öğrenin](https://aka.ms/aml-packages/vision).
++ Okuma [genel bakış paketini ve bu yüklemeyi öğrenin](https://aka.ms/aml-packages/vision).
 
-+ Araştır [başvuru belgelerini](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) bu paket için.
++ Keşfedin [başvuru belgeleri](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) bu paket için.
 
-+ Hakkında bilgi edinin [Azure Machine Learning için diğer Python paketlerini](reference-python-package-overview.md).
++ Hakkında bilgi edinin [diğer Azure Machine Learning Python paketleri](reference-python-package-overview.md).

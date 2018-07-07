@@ -9,18 +9,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: c581c26f867ca78a5ed12922c9e8760f5f903881
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f55574f7a9ffbcc2a1c8bd160bb66336b59c348c
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345867"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888612"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Geliştirme ve uç noktası kullanıcı erişimi
 Erişim geliştirme sahipleri ve ortak çalışanlar için kullanılabilir. Özel bir uygulama için erişim uç noktası sahipleri ve ortak çalışanlar için kullanılabilir. Genel bir uygulama için uç nokta kendi LUIS hesabını ve genel uygulama kimliğine sahip herkes için erişilebilir 
 
 ## <a name="access-to-authoring"></a>Yazma erişimi
-Uygulama erişimi [LUIS] [ LUIS] Web sitesi veya [yazma API'leri](https://aka.ms/luis-authoring-apis) uygulama sahibi tarafından denetlenir. 
+Uygulama erişimi [LUIS](luis-reference-regions.md#luis-website) Web sitesi veya [yazma API'leri](https://aka.ms/luis-authoring-apis) uygulama sahibi tarafından denetlenir. 
 
 Sahibi ve tüm ortak çalışanlar uygulama yazma erişimi vardır. 
 
@@ -80,5 +80,3 @@ LUIS ile sıfır olmayan-conformities (bulguları) denetim rapordaki ISO 27018:2
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bkz: [en iyi](luis-concept-best-practices.md) amaç ve varlıkları iyi tahminler elde etmek için kullanmayı öğrenin.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

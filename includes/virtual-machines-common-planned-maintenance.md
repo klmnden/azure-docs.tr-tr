@@ -2,68 +2,68 @@
 title: include dosyası
 description: include dosyası
 services: virtual-machines
-author: cynthn
+author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: cynthn
+ms.date: 07/05/2018
+ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: abf10177f8ce86309043da92d1f2b690775b6d89
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "30196449"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37910040"
 ---
-Azure güvenilirliği, performansı ve sanal makineler için konak altyapısının güvenliğini artırmak için güncelleştirmeleri düzenli olarak gerçekleştirir. Bu güncelleştirmeleri aralığı (örneğin, işletim sistemi, hiper yönetici ve konakta dağıtılan çeşitli aracılar), bir barındırma ortamında yazılım bileşenleri düzeltme eki uygulama gelen donanım yetkisini için ağ bileşenleri yükseltiliyor. Bu güncelleştirmeler çoğunluğu barındırılan sanal makineler için herhangi bir etkisi olmadan gerçekleştirilir. Ancak, güncelleştirmeler bir etkiye sahip olduğu durumlar vardır:
+Azure güncelleştirmeleri güvenilirlik, performans ve sanal makineler için konak altyapısının güvenliğini iyileştirmek için düzenli olarak gerçekleştirir. Bu güncelleştirmeleri aralığı (örneğin, işletim sistemi, hiper yönetici ve konak üzerinde dağıtılan çeşitli aracılar), barındırma ortamında yazılım bileşenlerini düzeltme eki uygulama gelen donanım yetkisinin alınması için ağ iletişimi bileşenlerinin yükseltiliyor. Bu güncelleştirmelerin çoğu barındırılan sanal makinelere sunucuları etkilenmeden gerçekleştirilir. Ancak, güncelleştirmeleri bir etkiye sahip olduğu durumlar da vardır:
 
-- Bir yeniden başlatma daha az güncelleştirmesi olası ise, Azure VM konak güncelleştirilmiş ya da VM zaten güncelleştirilmiş bir ana bilgisayara tamamen taşınır duraklatmak için bakım koruma bellek kullanır.
+- Bir yeniden başlatma daha az güncelleştirme Mümkünse, Azure VM konak güncelleştirildiğinde ya da VM tamamen zaten güncelleştirilmiş bir konağa taşındığında duraklatmak için Bakımı koruma bellek kullanır.
 
-- Bakım bir yeniden başlatma gerektirirse, ne zaman bunu planlı bakım, bir bildirim alın. Bu durumlarda, ayrıca bakım kendiniz, uygun bir zaman başlayabileceğiniz bir zaman penceresi verilir.
+- Bakım yeniden başlatma gerektirirse, ne zaman bunu planlı bakım, bir bildirim alın. Bu gibi durumlarda, aynı zamanda bakım kendiniz için en uygun zamanda başlayabileceğiniz bir zaman penceresi verilir.
 
-Bu sayfa Microsoft Azure bakım her iki tür nasıl gerçekleştireceğini açıklar. Planlanmamış olaylar (kesintileri) hakkında daha fazla bilgi için sanal makinelerin kullanılabilirliğini yönetme [Windows] bakın (../articles/virtual-machines/windows/manage-availability.md) veya [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Bu sayfayı Microsoft Azure'nın bakım her iki tür nasıl gerçekleştirdiğini açıklar. Planlanmamış olaylar (kesintileri) hakkında daha fazla bilgi için sanal makinelerin kullanılabilirliğini yönetme [Windows] bakın (../articles/virtual-machines/windows/manage-availability.md) veya [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
 Bir sanal makinede çalışan uygulamalar için Azure meta veri hizmeti kullanarak gelecek güncelleştirmeleri hakkında bilgi toplayabilir [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) veya [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
 
-Planlı bakım yönetme "nasıl yapılır" için "İşleme planlı bakım bildirimleri" için bilgi [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) veya [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+Planlı bakım yönetme "nasıl yapılır" için "İşleme planlı bakım bildirimlerini" için bilgi [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) veya [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="memory-preserving-maintenance"></a>Bakım koruma bellek
+## <a name="memory-preserving-maintenance"></a>Bakımı koruma bellek
 
-Güncelleştirmeleri tam bir yeniden başlatma gerektirmez, bellek koruma bakım mekanizmaları sanal makine etkisini sınırlamak için kullanılır. Sanal makine en fazla 30 barındırma ortamı gerekli güncelleştirmeleri ve düzeltme eklerini geçerlidir ya da VM zaten güncelleştirilmiş bir ana bilgisayara taşır RAM bellek koruma saniye duraklatıldı. Sanal makine sonra sürdürülür ve sanal makine saati otomatik olarak eşitlenir. 
+Güncelleştirmeleri tam bir yeniden başlatma gerektirmez, bellek koruma bakım mekanizmaları sanal makineye etkisini sınırlamak için kullanılır. Sanal makine en fazla 30 barındırma ortamı gerekli güncelleştirmeleri ve yamaları geçerli ya da sanal makine zaten güncelleştirilmiş bir konağa taşır, RAM belleği koruma saniye duraklatıldı. Ardından sanal makine sürdürülür ve sanal makinenin saati otomatik olarak eşitlenir. 
 
-Kullanılabilirlik kümelerinde VM'ler için güncelleştirilmiş birer birer güncelleştirme etki alanlarıdır. Bir güncelleştirme etki alanında (UD) tüm sanal makineleri duraklatıldı, güncelleştirilmiş ve planlı bakım için sonraki UD taşıyan önce sonra sürdürüldü.
+Hata etki alanı tarafından uygulanan hata etki alanı bu rebootful olmayan bakım işlemleridir ve hiçbir uyarı sistem durumu sinyali alınırsa ilerleme durduruldu.
 
-Bazı uygulamalar, bu tür güncelleştirmeler tarafından etkilenebilir. Gerçek zamanlı Olay işleme, akış veya kod veya yüksek verimlilik senaryoları, ağ gibi gerçekleştiren uygulamaları 30 saniyelik duraklamalar tolerans için tasarlanmamış olabilir. <!-- sooooo, what should they do? --> VM taşımak için farklı bir konak olması durumunda, bazı önemli iş yükleri için sanal makine duraklatma baştaki birkaç dakika içinde küçük bir performans düşüşü görebilirsiniz. 
+Bazı uygulamalar, bu türden güncelleştirmeler etkilenebilir. Gerçek zamanlı Olay işleme, medya akışı veya kodlama dönüştürme veya yüksek aktarım hızı senaryoları, ağ gibi gerçekleştiren uygulamalar tolere 30 bir saniyelik duraklama için tasarlanmamış olabilir. <!-- sooooo, what should they do? --> Farklı bir konağa sanal makine taşınırken durumunda, önemli bazı iş yükleri için sanal makineyi duraklatma sonlanan birkaç dakika içinde küçük bir performans düşüşü görebilirsiniz. 
 
 
 ## <a name="maintenance-requiring-a-reboot"></a>Yeniden başlatma gerektiren bakım
 
-Sanal makineleri planlı bakım için yeniden başlatılması gerektiğinde, önceden bildirilir. Planlı bakım iki aşaması vardır: Self Servis ve zamanlanmış bakım penceresinde.
+VM'ler için planlı bakım yeniden başlatılması gerektiğinde önceden bilgilendirilirsiniz. Planlı bakım için iki aşaması vardır: Self Servis ve zamanlanmış bakım penceresinde.
 
-**Self Servis penceresi** bakım, sanal makineleri üzerinde başlatmak olanak tanır. Bu süre boyunca bakım isteğiniz sonucunu denetleyin ve bunların durumunu görmek için her bir VM sorgulayabilirsiniz.
+**Self Servis penceresi** Vm'leriniz üzerinde Bakımı sizin başlatmanıza olanak tanır. Bu süre boyunca, kendi durumunu görmek ve Bakım isteğiniz sonucunu denetlemek için her bir VM sorgulayabilirsiniz.
 
-Self Servis bakım başlattığınızda, VM zaten güncelleştirildi ve geri çalıştırır bir düğüme taşınır. VM yeniden çünkü geçici disk kaybolur ve sanal ağ arabirimiyle ilişkilendirilmiş dinamik IP adreslerini güncelleştirilir.
+Self Servis bakım başlattığınızda, sanal makinenizin zaten güncelleştirildi ve yeniden destekleyen bir düğüme taşınır. VM yeniden geçici disk kaybolur ve sanal ağ arabirimiyle ilişkilendirilmiş dinamik IP adresleri güncelleştirildi.
 
-Self Servis bakım başlatın ve işlemi sırasında bir hata ise, işlem durduruldu, VM güncelleştirilmez ve planlı bakım yinelemeden diğerine de kaldırılır. Daha sonra yeni bir zamanlama ile temas ve olması Self Servis bakım yapmak için yeni bir fırsat sunulan. 
+Self Servis bakım başlatın ve işlemi sırasında bir hata ise, işlem durdurulur, VM güncelleştirilmez ve Self Servis bakım yeniden dene seçeneğine sahip olursunuz. 
 
-Self Servis penceresi geçtiğinde **zamanlanmış bakım penceresi** başlar. Bu zaman penceresi sırasında hala sorgu için bakım penceresi, ancak artık bakım kendiniz başlatılamaz.
+Self Servis penceresi geçtiğinde **zamanlanan bakım penceresinden** başlar. Bu zaman penceresi boyunca yine de bakım penceresi için sorgu, ancak artık bakım kendiniz başlatabilirsiniz.
 
-Görmek için yeniden başlatma gerektiren bakım yönetme hakkında daha fazla bilgi için "İşleme planlı bakım bildirimleri" [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) veya [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
+Görmek için yeniden başlatma gerektiren bakım yönetme hakkında daha fazla bilgi için "İşleme planlı bakım bildirimlerini" [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) veya [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
 
-## <a name="availability-considerations-during-planned-maintenance"></a>Planlı bakım sırasında kullanılabilirlik konuları 
+### <a name="availability-considerations-during-scheduled-maintenance"></a>Zamanlanan bakım sırasında kullanılabilirlik konuları 
 
-Planlı Bakım penceresini beklemek karar verirseniz, Vm'leriniz için en yüksek kullanılabilirliği sürdürmek için dikkate alınması gereken birkaç nokta vardır. 
+Zamanlanmış bakım penceresini beklemek karar verirseniz, sanal makinelerinizin yüksek kullanılabilirliğini korumak için dikkate alınması gereken birkaç nokta vardır. 
 
-### <a name="paired-regions"></a>Eşleştirilmiş bölgeleri
+#### <a name="paired-regions"></a>Eşleştirilmiş bölgeler
 
-Her Azure bölgesi başka bir bölge içinde aynı coğrafi konum ile eşleştirilmiş, bölgesel çifti birlikte yaptıkları. Planlı bakım sırasında Azure yalnızca tek bir bölgedeki bir bölge çiftinin VM'ler güncelleştirir. Örneğin, Orta Kuzey ABD’de Sanal Makineler güncelleştirilirken Azure aynı anda Orta Güney ABD’deki bir Sanal Makineyi güncelleştirmez. Ancak, Kuzey Avrupa gibi diğer bölgelerde, Doğu ABD ile aynı zamanda bakım yapılabilir. Bölge çiftleri nasıl yardımcı olabilecek anlama bölgeler arasında daha iyi Vm'leriniz dağıtın. Daha fazla bilgi için bkz: [Azure bölgesi çiftleri](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Her Azure bölgesi aynı coğrafyadaki başka bir bölgeyle eşleştirilir, bölgesel çift birlikte yapmaları. Planlanan bakım sırasında Azure bölgesi çiftinin tek bir bölgedeki Vm'leri yalnızca güncelleştirir. Örneğin, Orta Kuzey ABD’de Sanal Makineler güncelleştirilirken Azure aynı anda Orta Güney ABD’deki bir Sanal Makineyi güncelleştirmez. Ancak, Kuzey Avrupa gibi diğer bölgelerde, Doğu ABD ile aynı zamanda bakım yapılabilir. Bölge çiftlerinin nasıl yararlanabileceğiniz understanding bölgeler arasında daha iyi Vm'lerinizi dağıtın. Daha fazla bilgi için [Azure bölge çiftleri](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-### <a name="availability-sets-and-scale-sets"></a>Kullanılabilirlik kümeleri ve ölçek kümeleri
+#### <a name="availability-sets-and-scale-sets"></a>Kullanılabilirlik kümeleri ve ölçek kümeleri
 
-Bir iş yükü Azure vm'lerinde dağıtırken, uygulamanız için yüksek kullanılabilirlik sağlamak üzere bir kullanılabilirlik kümesi içindeki sanal makineleri oluşturabilirsiniz. Bu bir kesinti veya bakım olayları sırasında en az bir sanal makinenin kullanılabilir olmasını sağlar.
+Bir iş yükü Azure sanal makinelerinde dağıtırken uygulamanız için yüksek kullanılabilirlik sağlamak üzere bir kullanılabilirlik kümesi içindeki sanal makineler oluşturabilirsiniz. Bu, kesinti veya rebootful bakım olayları sırasında en az bir sanal makinenin kullanılabilir olmasını sağlar.
 
-Bir kullanılabilirlik kümesinde en fazla 20 güncelleştirme etki alanları arasında (UDs) tek tek sanal makineleri yayılır. Planlı bakım sırasında herhangi bir anda yalnızca bir tek güncelleştirme etki alanı etkilenmez. Güncelleme etki alanına etkilenip sırasını mutlaka sıralı olarak gerçekleşmez olduğunu unutmayın. 
+Bir kullanılabilirlik kümesi içinde tek tek sanal makineleri, (UD) en fazla 20 güncelleştirme etki alanlarına dağıtılır. Planlanan bakım sırasında belirli bir zamanda yalnızca bir tek güncelleştirme etki alanı etkilenir. Etkilenmesine güncelleştirme etki alanlarının sırası, mutlaka sırayla gerçekleşmediğinden olduğunu unutmayın. 
 
-Sanal makine ölçek kümeleri dağıtmak ve aynı sanal makineleri bir küme tek bir kaynak olarak yönetmenize olanak sağlayan bir Azure işlem kaynaktır. Ölçek kümesi, bir kullanılabilirlik kümesindeki sanal makineleri gibi güncelleştirme etki alanları arasında otomatik olarak dağıtılır. Gibi kullanılabilirlik kümeleri ile ölçek kümeleri ile yalnızca bir tek güncelleştirme etki alanı herhangi bir zamanda etkilenmez.
+Sanal makine ölçek kümeleri, özdeş Vm'lerden oluşan bir küme tek bir kaynak olarak dağıtıp yönetmenize olanak sağlayan bir Azure işlem kaynağıdır. Ölçek kümesi, bir kullanılabilirlik kümesindeki VM'ler gibi güncelleştirme etki alanları arasında otomatik olarak dağıtılır. Tıpkı kullanılabilirlik kümeleri ile ölçek kümeleri ile yalnızca bir tek güncelleştirme etki alanı planlanan bakım sırasında herhangi bir belirli zamanda etkilenmez.
 
-Sanal makinelerinizin yüksek kullanılabilirlik için yapılandırma hakkında daha fazla bilgi için bkz, sanal makinelerin kullanılabilirliğini için [Windows](../articles/virtual-machines/windows/manage-availability.md) veya [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Sanal makinelerinizi yüksek kullanılabilirlik için yapılandırma hakkında daha fazla bilgi için sanal makinelerinizin kullanılabilirliğini yönetme görmek için [Windows](../articles/virtual-machines/windows/manage-availability.md) veya [Linux](../articles/virtual-machines/linux/manage-availability.md).

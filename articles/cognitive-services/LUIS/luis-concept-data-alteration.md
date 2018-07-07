@@ -1,6 +1,6 @@
 ---
-title: HALUK - Azure veri değişikliğinin kavramlarını anlama | Microsoft Docs
-description: Tahminleri dil anlama (HALUK) önce verileri nasıl değiştirilebilir öğrenin
+title: LUIS - Azure veri değişikliğinin kavramları anlama | Microsoft Docs
+description: Language Understanding (LUIS) Öngörüler önce verileri nasıl değiştirilebilir öğrenin
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,31 +9,31 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: v-geberr
-ms.openlocfilehash: ab9b9fe5c34c334fd65971f9040c8e43467aa242
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ab70839b4fa8f2064a3ff929034a6ffcb8fc7788
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112159"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887751"
 ---
 # <a name="data-alterations"></a>Veri değişiklikleri
-HALUK öncesinde veya sırasında tahmin utterance işlemek için yöntemler sağlar. 
+LUIS, öncesinde veya sırasında tahmin utterance işlemek için yöntemler sağlar. 
 
-## <a name="correct-spelling-errors-in-utterance"></a>Utterance doğru yazım hataları
-HALUK kullanan [Bing yazım denetleme API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) utterance yazım hatalarını gidermek için. HALUK hizmetle ilişkili anahtarı gerekir. Anahtar oluşturun, sonra sorgu dizesi parametresi olarak anahtarı ekleyin [endpoint](https://aka.ms/luis-endpoint-apis). 
+## <a name="correct-spelling-errors-in-utterance"></a>Utterance yazarken yazım hataları
+LUIS kullanan [Bing yazım denetimi API'si V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) utterance yazım hatalarını düzeltmek için. LUIS, hizmetle ilişkili anahtar gerekir. Anahtar oluşturun, sonra anahtarın bir sorgu dizesi parametresi olarak ekleyin [uç nokta](https://aka.ms/luis-endpoint-apis). 
 
-Ayrıca, yazım hatalarını düzeltebilirsiniz **Test** tarafından panel [anahtarı girme](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Anahtar Test paneli tarayıcıda oturum değişkeni olarak tutulur. Anahtar düzeltildi yazım istediğiniz her tarayıcı oturumunda Test Masası'na ekleyin. 
+Yazım hatalarını da düzeltebilirsiniz **Test** tarafından panelinde [anahtarı girme](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Anahtar, bir Test paneli tarayıcı oturumu değişken olarak tutulur. Anahtar Test panele düzeltildi yazım istediğiniz her bir tarayıcı oturumunda ekleyin. 
 
-Test panelinde ve uç nokta sayısı doğru anahtar kullanımını [anahtar kullanımı](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/) kota. HALUK metin uzunluğu için sınırları Bing yazım denetimi uygular. 
+Test paneli ve uç nokta sayısı doğru anahtar kullanımını [anahtar kullanımı](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/) kota. LUIS, metin uzunluğu sınırlarını Bing yazım denetimi uygular. 
 
-Uç nokta yazım düzeltmeleri çalışmak için iki params gerektirir:
+Uç nokta için yazım düzeltmeleri çalışmak iki params gerektirir:
 
 |Param|Değer|
 |--|--|
 |`spellCheck`|boole|
-|`bing-spell-check-subscription-key`|[Bing yazım denetleme API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) uç noktası anahtarı|
+|`bing-spell-check-subscription-key`|[Bing yazım denetimi API'si V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) uç noktası anahtarı|
 
-Zaman [Bing yazım denetleme API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) bir hata, özgün utterance ve düzeltilmiş utterance döndürülür tahminleri yanı sıra uç noktasından algılar.
+Zaman [Bing yazım denetimi API'si V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) bir hata, özgün utterance ve düzeltilmiş utterance döndürülür tahminlerinin yanı sıra uç noktasından algılar.
 
 ```JSON
 {
@@ -48,28 +48,28 @@ Zaman [Bing yazım denetleme API V7](https://azure.microsoft.com/services/cognit
 ```
  
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Önceden oluşturulmuş datetimeV2 varlık saat dilimini değiştirme
-HALUK uygulamayı önceden oluşturulmuş datetimeV2 varlık kullanırken bir tarih saat değeri tahmin yanıtta döndürülebilir. Saat dilimi isteğin döndürmek için doğru datetime belirlemek için kullanılır. İstek bir bot veya başka bir merkezi uygulamayı HALUK için alma önce geliyorsa HALUK kullanan saat dilimi düzeltin. 
+Bir LUIS uygulaması önceden oluşturulmuş datetimeV2 varlık kullandığında, bir datetime değeri tahmin yanıtta döndürülebilir. Saat dilimi isteğin döndürmek için doğru datetime belirlemek için kullanılır. İstek bir bot veya alma için LUIS önce başka bir merkezi uygulamasından geliyorsa LUIS kullanır saat dilimi düzeltin. 
 
-### <a name="endpoint-querystring-parameter"></a>Son nokta sorgu dizesi parametresi
-Kullanıcının saat dilimi olarak ekleyerek saat dilimi düzeltilinceye [endpoint](https://aka.ms/luis-endpoint-apis) kullanarak `timezoneOffset` param. Değeri `timezoneOffset` saati değiştirmek için dakika cinsinden pozitif veya negatif sayı olmalıdır.  
+### <a name="endpoint-querystring-parameter"></a>Uç nokta querystring parametresi
+Kullanıcının saat dilimine ekleyerek saat dilimi düzeltilene [uç nokta](https://aka.ms/luis-endpoint-apis) kullanarak `timezoneOffset` param. Değerini `timezoneOffset` saati değiştirmek için dakikalar içinde pozitif veya negatif sayı olmalıdır.  
 
 |Param|Değer|
 |--|--|
-|`timezoneOffset`|dakika cinsinden pozitif veya negatif sayı|
+|`timezoneOffset`|dakikalar içinde pozitif veya negatif sayı|
 
-### <a name="daylight-savings-example"></a>Gün ışığından yararlanma örneği
-Günışığından yararlanma saatine ayarlamak için döndürülen önceden oluşturulmuş datetimeV2 gerekiyorsa, kullanması gereken `timezoneOffset` sorgu dizesi parametresi ile bir değer dakika cinsinden +/- [endpoint](https://aka.ms/luis-endpoint-apis) sorgu.
+### <a name="daylight-savings-example"></a>Gün ışığından tasarruf örneği
+Gün ışığından yararlanma saatine ayarlamak için döndürülen önceden oluşturulmuş datetimeV2 gerekiyorsa kullanmalısınız `timezoneOffset` querystring parametresi ile bir değer dakika cinsinden +/- [uç nokta](https://aka.ms/luis-endpoint-apis) sorgu.
 
 60 dakika ekleyin: 
 
-https://{Region}.api.cognitive.microsoft.com/luis/v2.0/Apps/{appId}?q=Turn üzerinde ışık? **timezoneOffset = 60**& ayrıntılı {boolean} = & Yazım denetimi {boolean} = & hazırlama {boolean} = & bing-yazım-onay-subscription-key = {dize} & oturum {boolean} =
+https://{Region}.api.cognitive.microsoft.com/luis/v2.0/Apps/{appId}?q=Turn ışıkları Aç? **timezoneOffset = 60**& ayrıntılı {boolean} = & Yazım denetimi {boolean} = & hazırlama {boolean} = & bing-yazım-onay-subscription-key = {string} gün & lüğü {boolean} =
 
 60 dakika kaldırın: 
 
-https://{Region}.api.cognitive.microsoft.com/luis/v2.0/Apps/{appId}?q=Turn üzerinde ışık? **timezoneOffset = 60**& ayrıntılı {boolean} = & Yazım denetimi {boolean} = & hazırlama {boolean} = & bing-yazım-onay-subscription-key = {dize} & oturum {boolean} =
+https://{Region}.api.cognitive.microsoft.com/luis/v2.0/Apps/{appId}?q=Turn ışıkları Aç? **timezoneOffset = 60**& ayrıntılı {boolean} = & Yazım denetimi {boolean} = & hazırlama {boolean} = & bing-yazım-onay-subscription-key = {string} gün & lüğü {boolean} =
 
-## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>C# kodu timezoneOffset doğru değerini belirler
-Aşağıdaki C# kod kullanır [Timezoneınfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo?view=netframework-4.7.1) sınıfının [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=netframework-4.7.1#examples) doğru belirlemek amacıyla yöntemi `timezoneOffset` sistem zamanına bağlıdır:
+## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>C# kodu timezoneOffset doğru değerini belirler.
+Aşağıdaki C# kod [Timezoneınfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo?view=netframework-4.7.1) sınıfın [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=netframework-4.7.1#examples) doğru belirlemek için yöntemi `timezoneOffset` sistem saatini temel alan:
 
 ```CSharp
 // Get CST zone id
@@ -88,6 +88,4 @@ int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bu öğretici ile doğru yazım](luis-tutorial-bing-spellcheck.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [Bu öğretici ile doğru yazım hatalarını](luis-tutorial-bing-spellcheck.md)

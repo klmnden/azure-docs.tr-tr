@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: 7c8f7fff5e3cf7334ce30a3fa90ae950f841662c
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: abff3f715a1fccba172147f02b83f7209f87cf9e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865306"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902525"
 ---
 # <a name="managed-service-identity-preview"></a>Yönetilen Hizmet Kimliği (önizleme)
 
@@ -60,6 +60,9 @@ Yönetilen hizmet kimliği artık web uygulaması için Event Hubs ad alanına e
 ### <a name="run-the-app"></a>Uygulamayı çalıştırma
 
 Artık oluşturduğunuz ASP.NET uygulamasının varsayılan sayfasını değiştirin. Web uygulama kodundan kullanabilirsiniz [bu GitHub deposundan](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp). 
+
+>[!NOTE] 
+> MSI özelliği önizlemedeyken kullandığınızdan emin olun [Service Bus kitaplığı önizleme sürümünü](https://www.nuget.org/packages/WindowsAzure.ServiceBus/4.2.2-preview) yeni API'leri erişebilmek için. 
 
 Uygulamayı başlattıktan sonra tarayıcınızı EventHubsMSIDemo.aspx için işaretleyin. Alternatif olarak, başlangıç sayfası olarak ayarlayın. Kod EventHubsMSIDemo.aspx.cs dosyasında bulunabilir. Bazı giriş alanları ile birlikte en az bir web uygulaması sonucudur **Gönder** ve **alma** olaylarını almak veya göndermek için Event Hubs'a bağlanma düğmeleri. 
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 5a6e2872d1c9bd0e13aae0e0abecdb011dd79fb9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ab3ccd981514225a003b07bafbb73db11aaa21e2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443309"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903739"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU için iyileştirilmiş sanal makine boyutları
 

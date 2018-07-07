@@ -1,30 +1,30 @@
 ---
 title: Yönetilen hizmet kimliği destekleyen azure Hizmetleri
-description: Yönetilen hizmet kimliği ve Azure AD kimlik doğrulama desteği hizmetlerin listesi
+description: Yönetilen hizmet kimliği ve Azure AD kimlik doğrulamasını destekleyen hizmetlerin listesi
 services: active-directory
 author: daveba
 ms.author: daveba
 ms.date: 06/27/2018
-ms.topic: reference
+ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: b39d5144eacfe6d621dae54da66b1306db516476
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: cdef4cf16fc688b61f367a77267be821ee84bf56
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060163"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902019"
 ---
-# <a name="services-that-support-managed-service-identity"></a>Yönetilen hizmet kimliği Destek Hizmetleri 
+# <a name="services-that-support-managed-service-identity"></a>Yönetilen hizmet kimliği destekleyen hizmetler 
 
-Yönetilen hizmet kimliği Azure Active Directory'de otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Yönetilen bir kimliği'ni kullanarak Azure AD kimlik doğrulama kimlik bilgileri, kodunuzda gerek kalmadan destekleyen herhangi bir hizmeti doğrulayabilir. MSI ve Azure AD kimlik doğrulaması Azure arasında tümleştirme sürecinde duyuyoruz. Denetleme Güncelleştirmeleri için sık sık.
+Yönetilen hizmet kimliği Azure Active Directory'de otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Yönetilen kimlik kullanarak kodunuzda kimlik bilgileri olmadan Azure AD kimlik doğrulamasını destekleyen herhangi bir hizmeti doğrulayabilir. MSI ve Azure AD kimlik doğrulaması Azure'da tümleştirme sürecinde duyuyoruz. Kontrol güncelleştirmeleri için sık sık.
 
 ## <a name="azure-services-that-support-managed-service-identity"></a>Yönetilen hizmet kimliği destekleyen azure Hizmetleri
 
-Aşağıdaki Azure hizmetlerini yönetilen hizmet kimliği destekler.
+Aşağıdaki Azure Hizmetleri, yönetilen hizmet kimliği destekler.
 
-| Hizmet | Durum | Tarih | Yapılandırma | Belirteç alın |
+| Hizmet | Durum | Tarih | Yapılandırma | Bir belirteç Al |
 | ------- | ------ | ---- | --------- | ----------- |
 | Azure Sanal Makineler | Önizleme | Eylül 2017 | [Azure portal](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure CLI](qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager şablonları](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
 | Azure App Service | Kullanılabilir | Haziran 2018 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure CLI](/azure/app-service/app-service-managed-service-identity#using-the-azure-cli)<br>[Azure PowerShell](/azure/app-service/app-service-managed-service-identity#using-azure-powershell)<br>[Azure Resource Manager şablonu](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol)<br>[.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[JavaScript](/azure/app-service/app-service-managed-service-identity#token-js)<br>[PowerShell](/azure/app-service/app-service-managed-service-identity#token-powershell)  |
@@ -32,11 +32,11 @@ Aşağıdaki Azure hizmetlerini yönetilen hizmet kimliği destekler.
 | Azure Data Factory V2 | Önizleme | Kasım 2017 | [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
 
 
-## <a name="azure-services-that-support-azure-ad-authentication"></a>Bu destek Azure AD kimlik doğrulaması Azure Hizmetleri
+## <a name="azure-services-that-support-azure-ad-authentication"></a>Söz konusu destek Azure AD kimlik doğrulamasını Azure Hizmetleri
 
-Aşağıdaki hizmetler Azure AD kimlik doğrulamayı desteklemek ve yönetilen hizmet kimliği kullanan istemci Hizmetleri ile test edilmiştir.
+Aşağıdaki hizmetler, Azure AD kimlik doğrulamasını desteklemek ve yönetilen hizmet kimliği kullanan istemci Hizmetleri ile test edilmiştir.
 
-| Hizmet | Kaynak kimliği | Durum | Tarih | Erişimi atayın |
+| Hizmet | Kaynak kimliği | Durum | Tarih | Erişim atama |
 | ------- | ----------- | ------ | ---- | ------------- |
 | Azure Resource Manager | https://management.azure.com/ | Kullanılabilir | Eylül 2017 | [Azure portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
 | Azure Key Vault | https://vault.azure.net | Kullanılabilir | Eylül 2017 | |

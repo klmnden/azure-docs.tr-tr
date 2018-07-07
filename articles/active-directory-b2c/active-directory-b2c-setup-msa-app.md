@@ -1,59 +1,51 @@
 ---
-title: Azure Active Directory B2C'de Microsoft hesabı yapılandırma | Microsoft Docs
-description: Tüketicilere uygulamalarınızda Azure Active Directory B2C ile güvenliği sağlanan Microsoft hesapları ile kaydolma ve oturum açma sağlar.
+title: Azure Active Directory B2C kullanarak bir Microsoft hesabı ile kaydolma ve oturum açma ayarlama | Microsoft Docs
+description: Azure Active Directory B2C kullanarak uygulamalarınızı Microsoft hesaplarıyla müşterilere kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2016
+ms.date: 07/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c788b14a99125a208390cd4f8ead338efed06933
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 16e4dbac4c8146b048d4d9b76544677a6111e2a5
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444176"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37900838"
 ---
-# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory B2C: Kaydolma ve oturum açma tüketicilere Microsoft hesapları sağlayın
+# <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Microsoft hesabı ile kaydolma ve oturum açma ayarlama
+
 ## <a name="create-a-microsoft-account-application"></a>Bir Microsoft hesabı uygulaması oluşturun
-Microsoft hesabı bir Azure Active Directory (Azure AD) B2C kimlik sağlayıcısı olarak kullanmak için bir Microsoft hesabı uygulaması oluşturun ve doğru parametreleri sağlamanız gerekir. Bunu yapmak için bir Microsoft hesabı gerekir. Yoksa, adresinden edinebilirsiniz [ https://www.live.com/ ](https://www.live.com/).
 
-1. Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ve Microsoft hesabı kimlik bilgilerinizle oturum açın.
-2. Tıklayın **uygulama ekleme**.
-   
-    ![Microsoft hesabı - yeni bir uygulama ekleme](./media/active-directory-b2c-setup-msa-app/msa-add-new-app.png)
-3. Sağlayan bir **adı** tıklayın ve uygulama için **uygulama oluşturma**.
-   
-    ![Microsoft hesabı - uygulama adı](./media/active-directory-b2c-setup-msa-app/msa-app-name.png)
-4. Değerini kopyalayın **uygulama kimliği**. Kiracınızdaki bir kimlik sağlayıcısı olarak Microsoft hesabı yapılandırmak için gerekir.
-   
-    ![Microsoft hesabı - uygulama kimliği](./media/active-directory-b2c-setup-msa-app/msa-app-id.png)
-5. Tıklayarak **Ekle platform** ve **Web**.
-   
-    ![Microsoft hesabı - platformu Ekle](./media/active-directory-b2c-setup-msa-app/msa-add-platform.png)
-   
-    ![Microsoft hesabı - Web](./media/active-directory-b2c-setup-msa-app/msa-web.png)
-6. Girin `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **yeniden yönlendirme URI'leri** alan. Değiştirin **{tenant}** kiracınızın adı (örneğin, contosob2c.onmicrosoft.com) ile.
-   
-    ![Microsoft hesabı - yeniden yönlendirme URL'si](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)
-7. Tıklayarak **yeni parola oluştur** altında **uygulama gizli dizilerini** bölümü. Ekranda görüntülenen yeni parolayı kopyalayın. Kiracınızdaki bir kimlik sağlayıcısı olarak Microsoft hesabı yapılandırmak için gerekir. Bu parola, bir önemli güvenlik kimlik bilgisidir.
-   
-    ![Microsoft hesabı - yeni parola oluşturma](./media/active-directory-b2c-setup-msa-app/msa-generate-new-password.png)
-   
-    ![Microsoft hesabı - yeni parola](./media/active-directory-b2c-setup-msa-app/msa-new-password.png)
-8. İfadesini içeren kutuyu **Canlı SDK desteği** altında **Gelişmiş Seçenekler** bölümü. **Kaydet**’e tıklayın.
-   
-    ![Microsoft hesabı - Canlı SDK desteği](./media/active-directory-b2c-setup-msa-app/msa-live-sdk-support.png)
+Bir Microsoft hesabı bir Azure Active Directory (Azure AD) B2C kimlik sağlayıcısı olarak kullanmak için kiracınızda temsil ettiği bir uygulama oluşturmak gerekir. Bir Microsoft hesabınız yoksa, adresinden edinebilirsiniz [ https://www.live.com/ ](https://www.live.com/).
 
-## <a name="configure-microsoft-account-as-an-identity-provider-in-your-tenant"></a>Kiracınızdaki bir kimlik sağlayıcısı olarak Microsoft hesabı yapılandırın
-1. Bu adımları [B2C özellikleri dikey penceresine gitme](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) Azure portalında.
-2. B2C özellikleri dikey penceresinde tıklayın **kimlik sağlayıcıları**.
-3. Dikey pencerenin en üstündeki **+Add (+Ekle)** seçeneğine tıklayın.
-4. Kullanımı kolay bir sağlamak **adı** kimlik sağlayıcısı yapılandırması için. Örneğin, "MSA" girin.
-5. Tıklayın **kimlik sağlayıcısı türü**seçin **Microsoft hesabı**, tıklatıp **Tamam**.
-6. Tıklayın **bu kimlik sağlayıcısını ayarlama** uygulama kimliği ve daha önce oluşturduğunuz Microsoft hesabı uygulama parolasını girin.
-7. Tıklayın **Tamam** ve ardından **Oluştur** Microsoft hesabı yapılandırmanızı kaydetmek için.
+1. Oturum [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) Microsoft hesabı kimlik bilgilerinizle.
+2. Sağ üst köşedeki seçin **uygulama ekleme**.
+3. Sağlayan bir **adı** tıklayın ve uygulama için **Oluştur**.
+4. Kayıt sayfasında, değerini kopyalayın **uygulama kimliği**. Microsoft hesabınızla kimlik sağlayıcısı olarak kiracınızda yapılandırmak için kullanın.
+5. Seçin **Ekle platform**ve ardından seçin **Web**.
+6. Girin `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **yeniden yönlendirme URL'leri**. Değiştirin **{tenant}** kiracınızın adı (örneğin, contosob2c.onmicrosoft.com) ile.
+7. Seçin **yeni parola oluştur** altında **uygulama gizli dizilerini**. Ekranda görüntülenen yeni parolayı kopyalayın. Kiracınızdaki bir kimlik sağlayıcısı olarak bir Microsoft hesabı yapılandırmak için ihtiyacınız. Bu parola, bir önemli güvenlik kimlik bilgisidir.
+
+## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Bir Microsoft hesabı kimlik sağlayıcısı olarak yapılandırma
+
+1. Oturum [Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel Yöneticisi olarak.
+2. Azure AD B2C kiracınızı içeren dizini kullandığınızdan emin olmak için Azure portalın sağ üst köşesinde bu dizine geçin. Abonelik bilgilerinizi ve ardından **Dizin Değiştir**’i seçin. 
+
+    ![Azure AD B2C kiracınıza geçiş yapma](./media/active-directory-b2c-setup-msa-app/switch-directories.png)
+
+    Kiracınızı içeren dizini seçin.
+
+    ![Dizin seçme](./media/active-directory-b2c-setup-msa-app/select-directory.png)
+
+3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
+4. Seçin **kimlik sağlayıcıları**ve ardından **Ekle**.
+5. Sağlayan bir **adı**. Örneğin, *MSA*.
+6. Seçin **kimlik sağlayıcısı türü**seçin **Microsoft Account**, tıklatıp **Tamam**.
+7. Seçin **bu kimlik sağlayıcısını ayarlama** olarak daha önce kaydettiğiniz uygulama kimliği girin **istemci kimliği** olarak kaydedilen parolayı girin **gizli**daha önce oluşturduğunuz Microsoft hesabı uygulaması.
+8. Tıklayın **Tamam** ve ardından **Oluştur** Microsoft hesabı yapılandırmanızı kaydetmek için.
 

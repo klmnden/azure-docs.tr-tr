@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: c1bff75ebdba656127f7860bdb72d368a94ef20b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 499c7182fba9d8efeebfb22e22a692d431dcb7ac
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866551"
+ms.locfileid: "37888662"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Service Fabric küme ayarlarını ve yapı yükseltme İlkesi özelleştirme
 Bu belge çeşitli yapı ayarları özelleştirmek anlatır ve yapı yükseltme ilkesini Service Fabric kümeniz için. Bloblarda özelleştirebileceğiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak.
@@ -752,6 +752,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |FabricLogRoot |Dize | İzin Verilmiyor |Service fabric günlük kök dizini. SF günlüklerinden ve izlemelerinden yerleştirildiği budur. |
 |NodesToBeRemoved|Varsayılan bir dize ise ""| Dinamik |Yapılandırma yükseltmesinin bir parçası kaldırılması gerektiğini düğümleri. (Yalnızca için tek başına dağıtımlarında)|
 |ServiceRunAsAccountName |Dize | İzin Verilmiyor |Hesap adı altında çalıştırılacağı fabric konak hizmeti. |
+|SkipContainerNetworkResetOnReboot|bool, varsayılan FALSE olur.|NotAllowed|Mı sıfırlama kapsayıcı ağ yeniden başlatıldığında atlanacak.|
 |SkipFirewallConfiguration |Bool, varsayılan değer false'tur | İzin Verilmiyor |Güvenlik Duvarı ayarlarını veya sistem tarafından ayarlanmış olması gerekip gerekmediğini belirtir. Bu, yalnızca windows güvenlik duvarı kullanıyorsanız geçerlidir. Daha sonra üçüncü taraf güvenlik duvarları kullanıyorsanız, sistem ve uygulamalara için bağlantı noktalarını açmanız gerekir |
 
 ## <a name="tokenvalidationservice"></a>TokenValidationService

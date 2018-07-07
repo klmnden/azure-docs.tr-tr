@@ -1,6 +1,6 @@
 ---
 title: Azure WebJobs SDK Kullanmaya Başlarken
-description: Olay kaynaklı arka plan işlemesi için WebJobs SDK'sı giriş. Azure ve üçüncü taraf hizmetleri verilerine erişmek öğrenin.
+description: WebJobs SDK olay odaklı arka plan işlemesi için giriş. Azure Hizmetleri ve üçüncü taraf hizmetleri verilere erişmek öğrenin.
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
@@ -13,26 +13,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6cdcfbf16f77525d6cee2085fdde9fdd630027e3
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 68377ffd53d5f2b99ddc08386529a40dda12e1b2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096688"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901560"
 ---
-# <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay denetimli arka plan işlemesi için Azure WebJobs SDK'sını kullanmaya başlama
+# <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli arka planda işleme için Azure WebJobs SDK ile çalışmaya başlama
 
-Bu makalede, bir Azure WebJobs SDK projesi oluşturun, yerel olarak çalıştırın ve Azure App Service'e dağıtma gösterilmektedir.
+Bu makalede, Azure WebJobs SDK projesi oluşturun, yerel olarak çalıştırın ve Azure App Service'e dağıtma gösterilmektedir.
 
-Yönergeler için olan [Visual Studio 2017](https://www.visualstudio.com/vs/), ancak diğer araçları ile aynı görevleri gibi gerçekleştirilebilir [Visual Studio Code](https://code.visualstudio.com/).
+Yönergeler için olan [Visual Studio 2017](https://www.visualstudio.com/vs/), ancak diğer araçları ile gerçekleştirdiğiniz görevlerin gibi gerçekleştirilebilir [Visual Studio Code](https://code.visualstudio.com/).
 
 ## <a name="what-is-the-azure-webjobs-sdk"></a>Azure WebJobs SDK nedir?
 
-Azure Web işleri SDK'si, Azure Hizmetleri verilere eriştiğinde arka plan işleme kod yazma görevini basitleştirir bir çerçevedir. SDK bir sıraya eklenen yeni bir ileti gibi bir işlev tetiklemesi gereken olayları belirten bir bildirim temelli söz dizimi özellikleri. Benzer Tanımlayıcı Sözdizimi okuma ve bir işlev tetiklenen sonra veri yazma denetler. Bu sistem Tetikleyicileri ve bağlamaları Azure ve üçüncü taraf hizmetlerine erişme ile ilişkili alt düzey kodlama görevlerin çoğunu ilgilenir.
+Azure WebJobs SDK, arka plan işleme Azure hizmetlerindeki verilere erişen bir kod yazma görevini kolaylaştıran bir çerçevedir. Sıraya eklenen yeni bir ileti gibi bir işlevi tetiklemesi gereken olayları belirtmek için bir bildirim temelli söz dizimi SDK'sı sunar. Tetiklenen bir işlev sonra veri yazma ve okuma benzer bildirim temelli söz dizimini denetler. Bu sistem, Tetikleyicileri ve bağlamaları, Azure ve üçüncü taraf hizmetleri erişim ile ilişkili alt düzey kodlama görevlerin çoğunu üstlenir.
 
-### <a name="functions-triggers-and-bindings"></a>İşlevler, Tetikleyicileri ve bağlamaları
+### <a name="functions-triggers-and-bindings"></a>İşlevler, tetikleyiciler ve bağlamalar
 
-Bir veya daha fazla Web işleri SDK'si proje tanımlar *işlevler*. Bir işlev yöntemi imzası tetikleyici özniteliğine sahip bir yöntemdir. Bir işlevi çağırmak için koşullar Tetikleyicileri ve bağlamaları ne okumak ve yazmak belirtin. Örneğin, aşağıdaki işlev tetikleyici özniteliğinde bir kuyruk iletisi görünür her işlev çağrısı için çalışma zamanı söyler `items` sırası. `Blob` Özniteliği söyleyen bir blob'a okumak için kuyruk iletisini kullanılacak çalışma zamanı *iş öğeleri* kapsayıcı. Kuyruk iletisini içeriğini &mdash; sağlanan `queueTrigger` parametresi &mdash; blob adıdır.
+WebJobs SDK projesi, bir veya daha fazla tanımlar *işlevleri*. Bir işlev, Yöntem imzasında tetikleyici özniteliği olan bir yöntemdir. Bir işlevi çağırmak için koşullar Tetikleyicileri ve bağlamaları ne okumak ve yazmak belirtin. Örneğin, aşağıdaki işlev tetikleyici özniteliğinde bir kuyruk iletisi göründüğünde işlevi çağırmak için çalışma zamanı söyler `items` kuyruk. `Blob` Özniteliği söyleyen bir blobun okunabilmesi için kuyruk iletisi kullanılacak çalışma zamanı *iş öğeleri* kapsayıcı. Kuyruk iletisinin içeriği &mdash; sağlanan `queueTrigger` parametre &mdash; blob adıdır.
 
 ```cs
 public static void Run(
@@ -44,44 +44,36 @@ public static void Run(
 }
 ```
 
-### <a name="versions-2x-and-3x"></a>Sürümleri 2.x ve 3.x
+### <a name="versions-2x-and-3x"></a>Sürüm 2.x ve 3.x
 
-Yönergeleri 3.x (önizlemede) için farklı nedir hakkında notlar ile bir Web işleri SDK'si sürüm 2.x projesi oluşturmak nasıl bildirir. 3.x tarafından sunulan ana değişiklik .NET Core .NET Framework yerine kullanılır.
-
-> [!NOTE]
-> 3.x Önizleme aşamasındadır ve geliştirme aşamasındadır ve bu makaledeki 3.x yönergeleri güncel değil. En son bilgiler için sayfanın sonundaki GitHub sorunları bakın.
+Web işleri SDK'sı sürüm 2.x proje oluşturma yönergeleri söyleyin. 3.x, Web işleri SDK'sının en son sürümü olan ancak şu anda Önizleme aşamasındadır ve bu makalede henüz bu sürümü için yönergeler yoktur. Tanıtılan ana değişiklik sürümü tarafından 3.x .NET Core, .NET Framework yerine kullanılır.
 
 ### <a name="azure-functions"></a>Azure İşlevleri
 
-[Azure işlevleri](../azure-functions/functions-overview.md) WebJobs SDK temel alır ve WebJobs SDK doğrudan kullanmanız gerekmez zamanki bir seçenektir. Azure işlevleri 1.x kullanan Web işleri SDK'si 2.x. Daha fazla bilgi için bkz: [Azure işlevleri ve WebJobs SDK arasında karşılaştırma](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
+[Azure işlevleri](../azure-functions/functions-overview.md) WebJobs SDK'da temel alır ve Web işleri SDK'sını doğrudan kullanmak zorunda kalmazsınız zamanki bir seçenektir. Azure işlevleri 1.x kullandığı WebJobs SDK 2.x. Daha fazla bilgi için [Azure işlevleri ve WebJobs SDK karşılaştırması](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu makalede, sahip olduğunuz varsayılmaktadır [bir Azure hesabı](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) ile deneyimi [Azure uygulama hizmetinde uygulamalar](app-service-web-overview.md). Bu makaledeki adımları tamamlamak için:
+Bu makalede, sahip olduğunuz varsayılır [bir Azure hesabı](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) ve deneyimini [Azure App Service'te uygulamaları](app-service-web-overview.md). Bu makaledeki adımları tamamlayabilmeniz için:
 
-* [Visual Studio 2017 yükleme](https://docs.microsoft.com/visualstudio/install/) ile **Azure geliştirme** iş yükü. Zaten Visual Studio olan ancak iş yükü yok, iş yükü seçerek eklemek **Araçlar > alma araçları ve özelliklerinin**.
-* [Bir App Service uygulaması oluşturma](app-service-web-get-started-dotnet-framework.md). Zaten bir Webjob'un dağıtabileceğiniz varsa, yeni bir tane oluşturmak yerine bunu kullanabilirsiniz.
+* [Visual Studio 2017'yi](https://docs.microsoft.com/visualstudio/install/) ile **Azure geliştirme** iş yükü. Zaten Visual Studio yüklü ancak bu iş yükü yüklü değilse, iş yükü seçerek ekleyin **Araçlar > araçları ve özellikleri Al**.
+* [Bir App Service uygulaması oluşturma](app-service-web-get-started-dotnet-framework.md). Webjob'a dağıtabileceğiniz bir hesabınız varsa, yeni bir tane oluşturmak yerine bunu kullanabilirsiniz.
 
 ## <a name="create-a-project"></a>Proje oluşturma
 
-1. Visual Studio'da seçin **Dosya > Yeni proje**.
+1. Visual Studio'da **Dosya > Yeni proje**.
 
 2. Seçin **Windows Klasik Masaüstü > konsol uygulaması (.NET Framework)**.
 
-   3.x projesi oluşturmak için seçin **.NET Core > konsol uygulaması (.NET Core)**.
-   
-   > [!NOTE]
-   > 3.x Önizleme aşamasındadır ve geliştirme aşamasındadır ve bu makaledeki 3.x yönergeleri güncel değil. En son bilgiler için sayfanın sonundaki GitHub sorunları bakın.
-
-3. Proje adı *WebJobsSDKSample*ve ardından **Tamam**.
+3. Projeyi adlandırın *WebJobsSDKSample*ve ardından **Tamam**.
 
    ![Yeni Proje iletişim kutusu](./media/webjobs-sdk-get-started/new-project.png)
 
 ## <a name="add-webjobs-nuget-package"></a>Web işleri NuGet paketi ekleme
 
-1. NuGet paketi en son kararlı 2.x sürümünü yükleme `Microsoft.Azure.WebJobs`. (Web işleri SDK'si için 3.x, en son 3.x sürümünü seçin.)
+1. En son kararlı sürümü olan 2.x sürümüne NuGet paketini yükleyin `Microsoft.Azure.WebJobs`.
  
-   Burada **Paket Yöneticisi Konsolu** sürüm 2.2.0 komutunu:
+   İşte **Paket Yöneticisi Konsolu** komutu 2.2.0 sürümü için:
 
    ```powershell
    Install-Package Microsoft.Azure.WebJobs -version 2.2.0
@@ -89,7 +81,7 @@ Bu makalede, sahip olduğunuz varsayılmaktadır [bir Azure hesabı](https://azu
 
 ## <a name="create-the-jobhost"></a>JobHost oluşturma
 
-`JobHost` Nesnesidir işlevler için çalışma zamanı kapsayıcısı: tetikleyiciler ve çağrıları işlevleri için dinler. 
+`JobHost` Nesnedir işlevler için çalışma zamanı kapsayıcısı: tetikleyiciler ve çağrıları işlevleri için dinler. 
 
 1. İçinde *Program.cs*, ekleme bir `using` deyimi:
 
@@ -108,18 +100,18 @@ Bu makalede, sahip olduğunuz varsayılmaktadır [bir Azure hesabı](https://azu
    }
    ```
 
-## <a name="enable-console-logging"></a>Konsol günlük kaydını etkinleştir
+## <a name="enable-console-logging"></a>Konsol günlüğü kaydetmeyi etkinleştir
 
-Web işleri SDK'si projesinde günlüğü için birkaç seçenek vardır. Bir tavsiye ederiz [ASP.NET Core için geliştirilmiş günlük framework](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging). Bu çerçeve, daha iyi performans ve depolama medyası ve filtreleme daha fazla esneklik sunar. 
+WebJobs SDK projesinde kaydetmek için birkaç seçenek vardır. Bir tavsiye ederiz [ASP.NET Core için geliştirilmiş günlüğe kaydetme çerçevesi](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging). Bu çerçeve, daha iyi performans ve depolama ortamı ve filtreleme konusunda daha fazla esneklik sunar. 
 
 Bu bölümde, yeni framework kullanan konsol günlüğünü ayarlama.
 
-1. Aşağıdaki NuGet paketleri en son kararlı sürümü yükleyin:
+1. Aşağıdaki NuGet paketlerini en son kararlı sürümünü yükleyin:
 
-   * `Microsoft.Extensions.Logging` -Günlük kaydı çerçevesi.
-   * `Microsoft.Extensions.Logging.Console` -Konsol *sağlayıcı*. Bir sağlayıcı belirli bir hedefe günlükleri, bu durumda konsola gönderir. 
+   * `Microsoft.Extensions.Logging` -Günlüğe kaydetme çerçevesi.
+   * `Microsoft.Extensions.Logging.Console` -Konsol *sağlayıcısı*. Bir sağlayıcı günlükleri belirli bir hedefe, bu durumda konsola gönderir. 
  
-   Burada **Paket Yöneticisi Konsolu** komutları sürüm 2.0.1 için:
+   İşte **Paket Yöneticisi Konsolu** sürüm 2.0.1 komutları:
 
    ```powershell
    Install-Package Microsoft.Extensions.Logging -version 2.0.1
@@ -135,7 +127,7 @@ Bu bölümde, yeni framework kullanan konsol günlüğünü ayarlama.
    using Microsoft.Extensions.Logging;
    ```
 
-3. İçinde `Main` yöntemi, güncelleştirme için kodu ekleyin `JobHostConfiguration` oluşturmadan önce `JobHost`:
+3. İçinde `Main` yöntemini güncelleştirmek için kodu ekleyin `JobHostConfiguration` oluşturmadan önce `JobHost`:
  
    ```
    config.DashboardConnectionString = "";
@@ -146,10 +138,10 @@ Bu bölümde, yeni framework kullanan konsol günlüğünü ayarlama.
 
    Bu kod, aşağıdaki değişiklikleri yapar:
 
-   * Devre dışı bırakır [Pano günlük](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs). Pano izleme aracı eski olduğundan ve Pano günlük yüksek verimlilik üretim senaryoları için önerilmez.
+   * Devre dışı bırakır [Pano günlük](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs). İzleme aracı eski panodur ve yüksek performanslı üretim senaryoları için panoyu günlük önerilmez.
    * Varsayılan konsol sağlayıcısıyla ekler [filtreleme](webjobs-sdk-how-to.md#log-filtering). 
 
-   `Main` Yöntemi şimdi aşağıdaki gibi görünür:
+   `Main` Metodu artık şuna benzer:
 
    ```
    var config = new JobHostConfiguration();
@@ -163,7 +155,7 @@ Bu bölümde, yeni framework kullanan konsol günlüğünü ayarlama.
    
 ## <a name="create-a-function"></a>İşlev oluşturma
 
-1. Oluşturma *Functions.cs* proje klasöründe ve şablonu kodu bu kod ile değiştirin:
+1. Oluşturma *Functions.cs* proje klasörü ve şablon kodunu bu kodla değiştirin:
 
    ```cs
    using Microsoft.Azure.WebJobs;
@@ -182,15 +174,15 @@ Bu bölümde, yeni framework kullanan konsol günlüğünü ayarlama.
    }
    ```
 
-   `QueueTrigger` Özniteliği söyler adlı bir Azure depolama kuyruğu üzerinde yeni bir ileti yazılırken bu işlevi çağırmak için çalışma zamanı `queue`. Kuyruk iletinin içeriğini yöntemi kodunda sağlanır `message` parametresi. Yönteminin gövdesi, tetikleyici verileri işlemek burada ' dir. Bu örnekte, kod yalnızca iletiyi günlüğe kaydeder.
+   `QueueTrigger` Özniteliği söyler adlı bir Azure depolama kuyruğuna üzerinde yeni bir mesaj yazıldığında bu işlevi çağırmak için çalışma zamanı `queue`. Kuyruk iletisi içeriğini yöntemi kodunda sağlanır `message` parametresi. Tetikleyici verileri işlem nerede Yöntemin gövdesi olur. Bu örnekte, kod yalnızca iletiyi günlüğe kaydeder.
 
-   `message` Parametresi bir dize olması gerekmez. Ayrıca bir JSON nesnesi bir bayt dizisi bağlayabilirsiniz veya [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) nesnesi. [Sıra tetikleyici kullanımını görmek](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Bağlama türlerinin (örneğin, kuyruklar, BLOB'lar veya tabloları) bağlayabilirsiniz parametre türleri farklı bir dizi vardır.
+   `message` Parametresi bir dize olması gerekmez. Ayrıca bir JSON nesnesi bir bayt dizisi bağlayabilir veya [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) nesne. [Kuyruk tetikleyicisi kullanımını görmek](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Her bağlama türü (örneğin, kuyruklar, blobları veya tabloları) bağlayabilirsiniz parametre türleri farklı bir kümesi vardır.
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Yerel olarak çalışan Azure Storage öykünücüsü WebJobs SDK gereken tüm özelliklere sahip değil. Bu nedenle bu bölümde bir depolama hesabı oluşturmak ve kullanmak için proje yapılandırın.
+Yerel olarak çalışan Azure depolama öykünücüsü WebJobs SDK gereken tüm özelliklere sahip değil. Bu nedenle bu bölümde Azure depolama hesabı oluşturma ve bunu kullanmak için projeyi yapılandırın.
 
-1. Açık **Sunucu Gezgini** ve Azure oturumu açın. Sağ **Azure** düğümünü ve ardından **Microsoft Azure aboneliğine bağlanma**.
+1. Açık **Sunucu Gezgini** ve Azure'da oturum açın. Sağ **Azure** düğümüne tıklayın ve ardından **Microsoft Azure aboneliğine bağlanma**.
 
    ![Azure'da oturum açma](./media/webjobs-sdk-get-started/sign-in.png)
 
@@ -200,25 +192,25 @@ Yerel olarak çalışan Azure Storage öykünücüsü WebJobs SDK gereken tüm �
 
 2. İçinde **depolama hesabı oluştur** iletişim kutusunda, depolama hesabı için benzersiz bir ad girin.
 
-3. Aynı seçin **bölge** uygulama hizmeti uygulamanızı oluşturulan veya bir bölge için kapatın.
+3. Aynı seçin **bölge** App Service uygulamanızı oluşturduğunuz veya size bir bölge kapatın.
 
 1. **Oluştur**’u seçin.
 
    ![Depolama hesabı oluşturma](./media/webjobs-sdk-get-started/create-storage-account.png)
 
-1. Altında **depolama** düğümünde **Sunucu Gezgini**, yeni depolama hesabı seçin. İçinde **özellikleri** penceresinde, üç nokta seçin (**...** ) sağ tarafındaki **bağlantı dizesi** değeri alanı.
+1. Altında **depolama** düğümünde **Sunucu Gezgini**, yeni depolama hesabını seçin. İçinde **özellikleri** penceresinde öğesinin üç noktasını (**...** ) sağ tarafında **bağlantı dizesi** değeri alanı.
 
    ![Bağlantı dizesi üç nokta](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
-2. Bağlantı dizesini kopyalayın ve bu değer herhangi bir yerde yeniden kullanıma kopyalayabilirsiniz olduğunu kaydedin.
+2. Bağlantı dizesini kopyalayın ve yeniden bir kolayca kopyalayabilir, bu değer bir yere kaydedin.
 
    ![Bağlantı dizesini kopyalayın](./media/webjobs-sdk-get-started/copy-key.png)
 
-## <a name="configure-storage-for-running-locally"></a>Yerel olarak çalıştırmak için depolama yapılandırma
+## <a name="configure-storage-for-running-locally"></a>Yerel olarak çalıştırmak için depolamayı yapılandırma
 
-WebJobs SDK uygulama ayarları koleksiyondaki depolama bağlantı dizesi arar. Yerel olarak çalıştırdığınızda, bu değeri arar *App.config* dosya ya da ortam değişkenleri.
+WebJobs SDK, uygulama ayarları koleksiyondaki depolama bağlantı dizesi arar. Yerel olarak çalıştırdığınızda, bu değeri arar *App.config* dosya veya ortam değişkenleri.
 
-1. Aşağıdaki XML eklemek *App.config* açtıktan hemen sonra dosya `<configuration>` etiketi.
+1. Eklemek için aşağıdaki XML *App.config* açtıktan hemen sonra dosya `<configuration>` etiketi.
 
    ```xml
    <connectionStrings>
@@ -226,17 +218,17 @@ WebJobs SDK uygulama ayarları koleksiyondaki depolama bağlantı dizesi arar. Y
    </connectionStrings>
    ```
 
-2. Değiştir *{depolama bağlantı dizesi}* daha önce kopyaladığınız bağlantı dizesine sahip.
+2. Değiştirin *{depolama bağlantı dizesi}* daha önce kopyaladığınız bağlantı dizesi.
 
-   Daha sonra Azure App Service uygulaması yapılandırdığınızda, bağlantı dizesi yeniden kullanacaksınız.
+   Daha sonra Azure'da App Service uygulamasını yapılandırırken bağlantı dizesini tekrar kullanacaksınız.
 
 ## <a name="test-locally"></a>Yerel olarak test etme
 
-Bu bölümde, projeyi yerel olarak çalıştırın ve bir kuyruk iletisi oluşturarak Tetik işlevi oluşturun.
+Bu bölümde, projeyi yerel olarak çalıştırın ve bir kuyruk iletisi oluşturarak işlevi tetikleyin oluşturun.
 
-1. Projeyi çalıştırmak için CTRL + F5 tuşuna basın.
+1. Projeyi çalıştırmak için CTRL + F5 tuşlarına basın.
 
-   Konsol çalışma işlevinizde bulundu ve onu tetiklemek bir kuyruk iletisi bekleyen gösterir.
+   Konsol, çalışma zamanının işlevinizi bulundu ve bunu tetiklemek kuyruk iletileri için bekliyor gösterir.
 
    ```console
    Found the following functions:
@@ -249,35 +241,35 @@ Bu bölümde, projeyi yerel olarak çalıştırın ve bir kuyruk iletisi oluştu
          Job host started
    ```
 
-   Bir uyarı iletisi görebilirsiniz bir `ServicePointManager` ayarı. Bu proje ile yapılması test etmek için bu uyarıyı yoksayabilirsiniz. Uyarı hakkında daha fazla bilgi için bkz: [WebJobs SDK kullanmayı](webjobs-sdk-how-to.md#jobhost-servicepointmanager-settings).
+   Uyarı iletisiyle karşılaşabilirsiniz bir `ServicePointManager` ayarı. Bu proje ile yapacağınız işlemleri test etmek için uyarıyı yoksayabilirsiniz. Uyarı hakkında daha fazla bilgi için bkz. [Web işleri SDK'sını kullanmayı](webjobs-sdk-how-to.md#jobhost-servicepointmanager-settings).
 
 2. Konsol penceresini kapatın.
 
-1. İçinde **Sunucu Gezgini**, yeni depolama hesabınız için düğümünü genişletin ve ardından sağ **sıraları**. 
+1. İçinde **Sunucu Gezgini**, yeni depolama hesabınız için düğümü genişletin ve ardından sağ tıklayarak **kuyrukları**. 
 
 2. Seçin **kuyruk oluşturma**. 
 
-3. Girin *sıra* sıra ve ardından adı olarak **Tamam**.
+3. Girin *kuyruk* seçin ve kuyruk adı olarak **Tamam**.
 
    ![Kuyruk oluştur](./media/webjobs-sdk-get-started/create-queue.png)
 
-4. Yeni sıra düğümünü sağ tıklatın ve ardından **sırayı görüntüle**.
+4. Yeni Kuyruk düğümünü sağ tıklatın ve ardından **sırayı görüntüle**.
 
 5. Seçin **ekleme ileti** simgesi.
 
    ![Kuyruk oluştur](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-6. İçinde **ekleme ileti** iletişim kutusunda, girin *Merhaba Dünya!* olarak **ileti metni**ve ardından **Tamam**.
+6. İçinde **ekleme ileti** iletişim kutusunda girin *Merhaba Dünya!* olarak **ileti metni**ve ardından **Tamam**.
 
    ![Kuyruk oluştur](./media/webjobs-sdk-get-started/hello-world-text.png)
 
 7. Projeyi tekrar çalıştırın.
 
-   Kullandığınız olduğundan `QueueTrigger` özniteliğini `ProcessQueueMessage` işlevi, WeJobs SDK çalışma zamanı dinleyen bir kuyruk iletisi başladığında. Sıranın adlı yeni bir kuyruk iletisi bulduğu *sıra* ve işlevi çağırır.
+   Nedeniyle `QueueTrigger` özniteliğini `ProcessQueueMessage` işlevi WeJobs SDK çalışma zamanı dinler kuyruk iletileri için açıldığında. Sıranın adlı yeni bir kuyruk iletisi bulduğu *kuyruk* ve işlevini çağırır.
 
-   Nedeniyle [üstel geri alma yoklama sıra](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm), iletiyi bulun ve işlevin çalıştırılabilmesi çalışma zamanı için 2 dakika olarak uzun sürebilir. Bu bekleme süresi çalıştırarak azaltılabilir [geliştirme modunu](webjobs-sdk-how-to.md#jobhost-development-settings).
+   Şu nedenle [üstel geri alma yoklama kuyruk](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm), iletiyi bulun ve işlevin çalıştırılabilmesi çalışma zamanı için 2 dakika kadar sürebilir. Bu bekleme süresi çalıştırarak azaltılabilir [geliştirme modu](webjobs-sdk-how-to.md#jobhost-development-settings).
 
-  Konsol çıktısı şu şekildedir:
+  Konsol çıktısı şuna benzer:
 
    ```console
    Found the following functions:
@@ -298,49 +290,49 @@ Bu bölümde, projeyi yerel olarak çalıştırın ve bir kuyruk iletisi oluştu
 
 8. Konsol penceresini kapatın.
 
-## <a name="add-application-insights-logging"></a>Application Insights günlüğü ekleme
+## <a name="add-application-insights-logging"></a>Application Insights günlük Ekle
 
-Projeyi Azure içinde çalıştığında, konsol çıktısı görüntüleyerek işlevi yürütme izleyemez. Tavsiye ederiz izleme çözümü [Application Insights](../application-insights/app-insights-overview.md). Daha fazla bilgi için bkz: [İzleyici Azure işlevleri](../azure-functions/functions-monitoring.md).
+Projeyi Azure içinde çalıştığında, işlevi yürütme konsol çıktısı görüntüleyerek izleyemez. Tavsiye ederiz izleme çözümü [Application Insights](../application-insights/app-insights-overview.md). Daha fazla bilgi için [İzleyici Azure işlevleri](../azure-functions/functions-monitoring.md).
 
-Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama için aşağıdaki görevleri yapın:
+Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama için şu görevleri yapın:
 
-* Bir uygulama hizmeti uygulama ve çalışmak için Application Insights örneği olduğundan emin olun.
-* Application Insights örneği ve daha önce oluşturduğunuz depolama hesabı kullanmak için App Service uygulaması yapılandırın.
-* Proje için Application Insights için günlük ayarlayın.
+* Bir App Service uygulaması ve çalışmak için Application Insights örneği olduğundan emin olun.
+* Application Insights örneği ve daha önce oluşturduğunuz depolama hesabını kullanmak için App Service uygulamasını yapılandırın.
+* Proje için Application Insights için günlük kaydı ayarlayın.
 
 ### <a name="create-app-service-app-and-application-insights-instance"></a>App Service uygulaması ve Application Insights örneği oluşturma
 
-1. Kullanabileceğiniz, bir uygulama hizmeti uygulaması zaten yoksa [oluşturmak](app-service-web-get-started-dotnet-framework.md).
+1. Kullanabileceğiniz, App Service uygulaması zaten yoksa [oluşturmak](app-service-web-get-started-dotnet-framework.md).
 
-2. Kullanabileceğiniz, Application Insights kaynağı zaten yoksa [oluşturmak](../application-insights/app-insights-create-new-resource.md). Ayarlama **uygulama türü** için **genel**ve bölümlerde atla **izleme anahtarını kopyalama**.
+2. Kullanabileceğiniz, Application Insights kaynağı henüz yoksa [oluşturmak](../application-insights/app-insights-create-new-resource.md). Ayarlama **uygulama türü** için **genel**ve aşağıdaki bölümlerde atla **izleme anahtarını kopyalama**.
 
 3. Kullanmak istediğiniz bir Application Insights kaynağı zaten varsa [izleme anahtarını kopyalama](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>Uygulama ayarlarını yapılandırma 
 
-1. İçinde **Sunucu Gezgini**, genişletin **uygulama hizmeti** düğümü altında **Azure**.
+1. İçinde **Sunucu Gezgini**, genişletme **App Service** düğümünde **Azure**.
 
-1. Uygulama hizmeti uygulamanızı bulunduğu kaynak grubunu genişletin ve ardından uygulama hizmeti uygulamanızı sağ tıklatın.
+1. App Service uygulamanızı olan kaynak grubunu genişletin ve ardından App Service uygulamanıza sağ tıklayın.
 
 3. Seçin **görünüm ayarları**.
 
-4. İçinde **bağlantı dizeleri** kutusunda, aşağıdaki girişi ekleyin.
+4. İçinde **bağlantı dizeleri** kutusunda, şu girişi ekleyin.
 
    |Ad  |bağlantı dizesi  |Veritabanı Türü|
    |---------|---------|------|
    |AzureWebJobsStorage | {daha önce kopyaladığınız depolama bağlantı dizesi}|Özel|
    
-6. Varsa **uygulama ayarları** kutusunu anahtar, daha önce kopyaladığınız bir ekleme Application Insights araçları yok. (İzleme anahtarı zaten vardır, App Service uygulaması nasıl oluşturulacağını bağlı olabilir.)
+6. Varsa **uygulama ayarları** kutusu, bir Application Insights izleme anahtarı, daha önce kopyaladığınız eklemesini yok. (İzleme anahtarını zaten Burada, App Service uygulamasını nasıl oluşturduğunuza bağlı olabilir.)
 
    |Ad  |Değer  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {İzleme anahtarını} |
 
-2. Değiştir *{izleme anahtarını}* kullanmakta olduğunuz Application Insights kaynağı araçları anahtarla.
+2. Değiştirin *{izleme anahtarını}* kullanmakta olduğunuz Application Insights kaynağı izleme anahtarını ile.
 
 2. **Kaydet**’i seçin.
 
-1. Aşağıdaki XML eklemek *App.config* bağlantı dizeleri koleksiyonu hemen sonra dosya.
+1. Eklemek için aşağıdaki XML *App.config* dosya, bağlantı dizeleri koleksiyona hemen sonra.
 
    ```xml
    <appSettings>
@@ -348,25 +340,25 @@ Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama 
    </appSettings>
    ```
 
-2. Değiştir *{izleme anahtarını}* kullanmakta olduğunuz Application Insights kaynağı araçları anahtarla.
+2. Değiştirin *{izleme anahtarını}* kullanmakta olduğunuz Application Insights kaynağı izleme anahtarını ile.
 
-   Bu verilerde ekleme *App.config* dosya projeyi yerel olarak çalıştırdığınızda test Application Insights bağlantısı olanak sağlar. 
+   Bu veri ekleme *App.config* dosya projeyi yerel olarak çalıştırdığınızda, Application Insights bağlantıyı sınamak etkinleştirir. 
 
 3. Yaptığınız değişiklikleri kaydedin.
 
 ### <a name="add-application-insights-logging-provider"></a>Application Insights oturum açma sağlayıcısı Ekle
 
-1. Application Insights oturum açma sağlayıcısı için NuGet paketi en son kararlı 2.x sürümünü yükleyin: `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`. (Web işleri SDK'si için 3.x, paketin en son 3.x sürümünü seçin.)
+1. En son kararlı sürümü olan 2.x sürümüne NuGet paketini yüklemek için Application Insights günlük sağlayıcısını: `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
 
-   Burada **Paket Yöneticisi Konsolu** sürüm 2.2.0 komutunu:
+   İşte **Paket Yöneticisi Konsolu** komutu 2.2.0 sürümü için:
 
    ```powershell
    Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -version 2.2.0
    ``` 
 
-1. .NET configuration manager için NuGet paketi en son kararlı 4.x sürümünü yükleyin: `System.Configuration.ConfigurationManager`.
+1. .NET configuration manager için NuGet paketini en son kararlı 4.x sürümünü yükleyin: `System.Configuration.ConfigurationManager`.
 
-   Burada **Paket Yöneticisi Konsolu** sürüm 4.4.1 komutunu:
+   İşte **Paket Yöneticisi Konsolu** komutunu 4.4.1 sürümü için:
 
    ```powershell
    Install-Package System.Configuration.ConfigurationManager -version 4.4.1
@@ -378,7 +370,7 @@ Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama 
    using System.Configuration;
    ```
 
-2. Kodla `Main` aşağıdaki kod ile yöntemi:
+2. Değiştirin `Main` yöntemini aşağıdaki kod ile:
 
    ```csharp
    using (var loggerFactory = new LoggerFactory())
@@ -397,81 +389,81 @@ Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama 
 
    Bu kod, aşağıdaki değişiklikleri yapar:
 
-   * Varsayılan bir Application Insights günlüğü sağlayıcısından ekler [filtreleme](webjobs-sdk-how-to.md#log-filtering); yerel olarak çalıştırırken tüm bilgiler ve daha yüksek düzey günlükleri artık hem Konsol hem de Application Insights için geçer. 
-   * Koyar `LoggerFactory` nesnesinde bir `using` konak çıktığında, günlük çıktısı Temizlenen emin olmak için blok. 
+   * Varsayılan bir Application Insights günlük sağlayıcısını ekler [filtreleme](webjobs-sdk-how-to.md#log-filtering); yerel olarak çalıştırırken tüm bilgiler ve daha yüksek düzey günlükleri artık hem Konsol hem de Application Insights için geçer. 
+   * Koyar `LoggerFactory` nesnesine bir `using` konak çıktığında, günlük çıktısını Temizlenen emin olmak için blok. 
 
 ## <a name="test-application-insights-logging"></a>Test Application Insights günlüğe kaydetme
 
-Bu bölümde, yerel olarak yeniden konsol konusunda da Application Insights'a, günlük verilerini şimdi gittiği doğrulamak için çalıştırın.
+Bu bölümde, yerel olarak yeniden Konsolu için de Application Insights, günlük verilerini artık geçiyor doğrulamak için çalıştırın.
 
-1. Kullanım **Sunucu Gezgini** bir kuyruk iletisi oluşturmak için aynı şekilde yaptığınız [önceki](#trigger-the-function), girin dışında *Hello App Insights!* ileti metni.
+1. Kullanım **Sunucu Gezgini** kuyruk iletisi oluşturmak için aynı şekilde yaptığınız [önceki](#trigger-the-function)girin dışında *Hello App Insights!* ileti metni.
 
 1. Projeyi çalıştırın.
 
-   WebJobs SDK kuyruk iletisini işler ve konsol penceresinde günlüklerine bakın.
+   WebJobs SDK kuyruk iletisini işler ve konsol penceresinde günlüklere bakın.
 
 1. Konsol penceresini kapatın.
 
-1. Açık [Azure portal](https://portal.azure.com/)ve Application Insights kaynağınıza gidin.
+1. Açık [Azure portalında](https://portal.azure.com/)ve Application Insights kaynağınıza gidin.
 
 2. Seçin **arama**.
 
    ![Ara'yı seçin](./media/webjobs-sdk-get-started/select-search.png)
 
-1. Görmüyorsanız *Hello App Insights!* ileti, select **yenileme** birkaç dakika için düzenli aralıklarla. (Günlükleri temizlemek Application Insights istemcisi için biraz zaman alır çünkü işler hemen günlükleri görünmüyor.)
+1. Görmüyorsanız *Hello App Insights!* ileti, select **Yenile** birkaç dakika için düzenli aralıklarla. (Günlüklerini temizlemek Application Insights istemci bir süredir aldığından işlediğinden hemen günlükleri görünmez.)
 
-   ![Application Insights günlükleri](./media/webjobs-sdk-get-started/logs-in-ai.png)
+   ![Application ınsights'ta günlükleri](./media/webjobs-sdk-get-started/logs-in-ai.png)
 
 3. Konsol penceresini kapatın.
 
-## <a name="deploy-as-a-webjob"></a>Bir Web işi dağıtma
+## <a name="deploy-as-a-webjob"></a>Bir Web işi olarak dağıtmak
 
-Bu bölümde bir Web işi projeyi dağıtın. Bir App Service uygulamasına dağıtmak, [daha önce oluşturduğunuz](#create-app-service-app-and-application-insights-instance). Azure üzerinde çalıştığı sırada kodunuzu test etmek için bir kuyruk iletisi oluşturarak bir işlev çağrısını tetiklemek.
+Bu bölümde bir WebJob olarak projeyi dağıtın. Bir App Service uygulamasına dağıtın, [daha önce oluşturduğunuz](#create-app-service-app-and-application-insights-instance). Azure'da çalıştığı sırada kodunuzu test etmek için bir kuyruk iletisi oluşturarak bir işlev çağrısını tetikler.
 
-1. İçinde **Çözüm Gezgini**projeye sağ tıklayın ve ardından **Azure Web işi olarak Yayımla**.
+1. İçinde **Çözüm Gezgini**projeye sağ tıklayın ve ardından **Azure WebJob olarak Yayımla**.
 
-1. İçinde **Azure Web işine Ekle** iletişim kutusunda **Tamam**.
+1. İçinde **Azure WebJob Ekle** iletişim kutusunda **Tamam**.
 
-   ![Azure Web işi ekleme](./media/webjobs-sdk-get-started/add-azure-webjob.png)
+   ![Azure Web işi Ekle](./media/webjobs-sdk-get-started/add-azure-webjob.png)
 
-   Visual Studio Web işi yayımlama NuGet paketi otomatik olarak yükler.
+   Visual Studio, NuGet paketi WebJob yayımlama için otomatik olarak yükler.
 
-1. İçinde **profil** adımında **Yayımla** seçin **Microsoft Azure App Service**.
+1. İçinde **profili** adımında **Yayımla** seçin **Microsoft Azure App Service**.
 
-   ![Yayımlama iletişim kutusu](./media/webjobs-sdk-get-started/publish-dialog.png)
+   ![Yayımla iletişim kutusu](./media/webjobs-sdk-get-started/publish-dialog.png)
 
-1. İçinde **uygulama hizmeti** iletişim kutusunda **kaynak grubunuz > uygulama hizmeti uygulamanızı**ve ardından **Tamam**.
+1. İçinde **App Service** iletişim kutusunda **kaynak grubunuzun > App Service uygulamanızı**ve ardından **Tamam**.
 
-   ![App Service iletişim](./media/webjobs-sdk-get-started/app-service-dialog.png)
+   ![App Service iletişim kutusu](./media/webjobs-sdk-get-started/app-service-dialog.png)
 
-1. İçinde **bağlantı** sihirbazın, select **Yayımla**.
+1. İçinde **bağlantı** seçin, adım **Yayımla**.
 
-## <a name="trigger-the-function-in-azure"></a>Tetikleyici Azure işlevi
+## <a name="trigger-the-function-in-azure"></a>Azure işlevi tetikleyin
 
-1. Değil çalıştırdığınız yerel olarak emin olun (konsol penceresi hala açıksa kapatın). Aksi takdirde yerel örneği oluşturduğunuz herhangi bir kuyruk iletisi işleyemedi ilk olabilir.
+1. Değil çalıştırdığınız yerel olarak emin olun (hala açık değilse konsol penceresini kapatın). Aksi takdirde yerel örneğini oluşturduğunuz herhangi bir kuyruk iletileri işlemek için ilk olabilir.
 
-1. Kullanım **Sunucu Gezgini** bir kuyruk iletisi oluşturmak için aynı şekilde yaptığınız [önceki](#trigger-the-function), girin dışında *Hello Azure!*.
+1. Kullanım **Sunucu Gezgini** kuyruk iletisi oluşturmak için aynı şekilde yaptığınız [önceki](#trigger-the-function)girin dışında *Merhaba Azure!*.
 
-7. Yenileme **sıra** sayfa Visual Studio ve yeni ileti Azure App Service içinde çalışan işlevi işlendiği çünkü kayboldu.
+7. Yenileme **kuyruk** sayfasında Visual Studio ve yeni iletinin Azure App Service'te çalışan işlevi işlenen çünkü kayboldu.
 
    > [!TIP]
-   > Azure'da test ederken kullanmak [geliştirme modunu](webjobs-sdk-how-to.md#jobhost-development-settings) sıra Tetik işlevi hemen başlatıldığından emin olun ve nedeniyle gecikmelerden kaçınmak için [üstel geri alma yoklama sıra](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm).
+   > Azure'da test ederken kullanmak [geliştirme modu](webjobs-sdk-how-to.md#jobhost-development-settings) kuyruğu tetikleme işlevi hemen başlatıldığından emin olun ve son gecikmeleri önlemek için [üstel geri alma yoklama kuyruk](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm).
 
 ### <a name="view-logs-in-application-insights"></a>Application ınsights'ta günlüklerini görüntüle
 
-1. Açık [Azure portal](https://portal.azure.com/)ve Application Insights kaynağınıza gidin.
+1. Açık [Azure portalında](https://portal.azure.com/)ve Application Insights kaynağınıza gidin.
 
 2. Seçin **arama**.
 
-1. Görmüyorsanız *Hello Azure!* ileti, select **yenileme** birkaç dakika için düzenli aralıklarla.
+1. Görmüyorsanız *Merhaba Azure!* ileti, select **Yenile** birkaç dakika için düzenli aralıklarla.
 
-   WebJob içinde çalışan işlevi günlüklerinden gördüğünüz dahil olmak üzere *Hello Azure!* önceki bölümde girilen metin.
+   Bir WebJob içinde çalışan işlevi günlüklerinden gördüğünüz gibi *Merhaba Azure!* önceki bölümde girdiğiniz metin.
 
-## <a name="add-an-input-binding"></a>Bir giriş bağlaması ekleme
+## <a name="add-an-input-binding"></a>Bir giriş bağlaması Ekle
 
-Giriş bağlamaları veri okuyan kod basitleştirin. Bu örnek için kuyruk iletisini blob adı olacaktır ve bulmak ve Azure storage'da bir blob okumak için blob adı kullanacaksınız.
+Giriş bağlamaları veri okuyan kod basitleştirin. Bu örnekte, kuyruk iletisi blob adı olacak ve blob adı bulmak ve Azure Depolama'daki bir blobun okunabilmesi için kullanacaksınız.
 
-1. İçinde *Functions.cs*, yerine `ProcessQueueMessage` aşağıdaki kod ile yöntemi:
+1. İçinde *Functions.cs*, değiştirin `ProcessQueueMessage` yöntemini aşağıdaki kod ile:
 
    ```cs
    public static void ProcessQueueMessage(
@@ -483,7 +475,7 @@ Giriş bağlamaları veri okuyan kod basitleştirin. Bu örnek için kuyruk ilet
    }
    ```
 
-   Bu kodda, `queueTrigger` olan bir [ifade bağlama](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns), yani çalışma zamanında farklı bir değer çözümler.  Çalışma zamanında, kuyruk iletinin içeriğini içeriyor.
+   Bu kodda, `queueTrigger` olduğu bir [ifade bağlama](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns), çalışma zamanında farklı bir değer çözümler anlamına gelir.  Çalışma zamanında kuyruk iletisi içeriğini sahiptir.
 
 2. Ekleme bir `using`:
 
@@ -491,29 +483,29 @@ Giriş bağlamaları veri okuyan kod basitleştirin. Bu örnek için kuyruk ilet
    using System.IO;
    ```
 
-3. Depolama hesabınızda blob kapsayıcı oluşturun.
+3. Depolama hesabınızdaki blob kapsayıcı oluşturun.
 
-   a. İçinde **Sunucu Gezgini**, depolama hesabınız için düğümünü genişletin, sağ **BLOB'lar**ve ardından **Blob kapsayıcısı oluşturmak**.
+   a. İçinde **Sunucu Gezgini**, depolama hesabınız için düğümünü genişletin, sağ **Blobları**ve ardından **Blob kapsayıcısı Oluştur**.
 
-   b. İçinde **Blob kapsayıcısı oluşturmak** iletişim kutusunda, girin *kapsayıcı* kapsayıcı adı ve ardından olarak **Tamam**.
+   b. İçinde **Blob kapsayıcısı Oluştur** iletişim kutusunda girin *kapsayıcı* kapsayıcı adı ve ardından olarak **Tamam**.
 
-4. Karşıya yükleme *Program.cs* dosya blob kapsayıcısı. (Bu dosya burada kullanılır; Örneğin, herhangi bir metin dosyasını karşıya yükleyin ve dosya adında bir kuyruk iletisi oluşturun.)
+4. Karşıya yükleme *Program.cs* blob kapsayıcısına dosya. (Bu dosya burada kullanılan örnek olarak; size herhangi bir metin dosyasını karşıya yükleme ve dosya adında bir kuyruk iletisi oluşturun.)
 
-   a. İçinde **Sunucu Gezgini**, az önce oluşturduğunuz kapsayıcısı için düğüme çift tıklayın.
+   a. İçinde **Sunucu Gezgini**, az önce oluşturduğunuz kapsayıcının düğümüne çift tıklayın.
 
-   b. İçinde **kapsayıcı** penceresinde, seçin **karşıya** düğmesi.
+   b. İçinde **kapsayıcı** penceresinde **karşıya** düğmesi.
 
-   ![BLOB Karşıya Yükle düğmesi](./media/webjobs-sdk-get-started/blob-upload-button.png)
+   ![Blobu karşıya yükleme düğmesini](./media/webjobs-sdk-get-started/blob-upload-button.png)
 
    c. Bulmak ve seçmek *Program.cs*ve ardından **Tamam**.
 
-5. Bir kuyruk iletisi daha önce oluşturduğunuz kuyruk oluşturma ile *Program.cs* ileti metni olarak.
+5. Daha önce oluşturduğunuz sırada bir kuyruk iletisi oluşturmak ile *Program.cs* iletisinin metni.
 
    ![Kuyruk iletisi Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
 6. Projeyi çalıştırın.
 
-   Kuyruk iletisini sonra blob okur ve uzunluğu günlüklerini işlevi tetikler. Konsol çıktısı şu şekildedir:
+   Kuyruk iletisi ardından blobu okur ve uzunluğunu günlükleri işlevi tetikler. Konsol çıktısı şuna benzer:
 
    ```console
    Found the following functions:
@@ -527,7 +519,7 @@ Giriş bağlamaları veri okuyan kod basitleştirin. Bu örnek için kuyruk ilet
 
 ## <a name="add-an-output-binding"></a>Çıktı bağlaması ekleme
 
-Çıktı bağlamaları veri yazan kodu basitleştirin. Bu örnek blob boyutuna günlük kaydı yerine bir kopyasını yazarak öncekinin değiştirir.
+Çıkış bağlamaları veri yazan kodu basitleştirin. Bu örnek blob boyutu günlüğü yerine bir kopyasını yazarak Öncekine değiştirir.
 
 1. `ProcessQueueMessage` yöntemini aşağıdaki kod ile değiştirin:
 
@@ -543,16 +535,16 @@ Giriş bağlamaları veri okuyan kod basitleştirin. Bu örnek için kuyruk ilet
    }
    ```
 
-5. Başka bir kuyruk iletisi *Program.cs* ileti metni olarak.
+5. Başka bir kuyruk iletisi *Program.cs* iletisinin metni.
 
 6. Projeyi çalıştırın.
 
-   Kuyruk iletisini sonra blob okur, uzunluğu günlüğe kaydeder ve yeni blob oluşturur işlevi tetikler. Konsol çıktısı, aynıdır ancak zaman blob kapsayıcı penceresine gidin ve seçin **yenileme**, adlı yeni bir blob gördüğünüz *kopyalama Program.cs.*
+   Kuyruk iletisi ardından blobu okur, uzunluğu günlüğe kaydeder ve yeni bir blob oluşturur işlevini tetikler. Konsol çıktısı, aynıdır ancak ne zaman blob kapsayıcı penceresine gidin ve seçin **Yenile**, adlı yeni bir blob gördüğünüz *Program.cs kopyalama.*
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu kılavuz, oluşturmak, çalıştırmak ve WebJobs SDK projesi dağıtma göstermiştir.
+Bu kılavuz, oluşturma, çalıştırma ve Web işleri SDK'sı projeyi dağıtmak nasıl göstermiştir.
 
-Her şeyi içeren bir Web işleri SDK'si projeye gider Göster, yönergeleri, sıfırdan bir proje oluşturmanız gerekirdi. Sonraki projenizi oluşturduğunuzda, ancak kullanmayı **Azure WebJob** şablonunda **bulut** kategorisi. Bu şablon, NuGet paketlerini ve örnek kod daha önce ayarlamış bir proje oluşturur. Not örnek kodunu yeni günlük framework kullanmak için değiştirilmesi gerekebilir.
+WebJobs SDK'si projeye gider her şeyi göstermek için sıfırdan bir proje oluşturma yönergeleri vardı. Bir sonraki projenizi oluşturduğunuzda, ancak kullanmayı **Azure WebJob** şablonunda **bulut** kategorisi. Bu şablon, NuGet paketlerini ve örnek kodu zaten ayarlanmış olan bir proje oluşturur. Örnek kod yeni günlük çerçeveyi kullanacak şekilde değiştirilmesi gerekebileceğini unutmayın.
 
-Daha fazla bilgi için bkz: [WebJobs SDK kullanmayı](webjobs-sdk-how-to.md).
+Daha fazla bilgi için [Web işleri SDK'sını kullanmayı](webjobs-sdk-how-to.md).

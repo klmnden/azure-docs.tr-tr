@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/3/2018
+ms.date: 7/6/2018
 ms.author: raiye
-ms.openlocfilehash: 5fe3bd3bd63c08d779abffdac6b214989fd3970f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 440f988744a99d4857c6b9fa58f52e0f1eef1a3f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860070"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902172"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
 
-## <a name="may-guest-os"></a>İşletim sistemi Konuk
+## <a name="june-guest-os"></a>Haziran konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-06 | [4284880] |Windows 10 Güvenlik |5.20 |12 Haziran 2018'e |

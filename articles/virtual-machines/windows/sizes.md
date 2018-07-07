@@ -1,6 +1,6 @@
 ---
-title: Azure Windows VM boyutları | Microsoft Docs
-description: Azure'da Windows sanal makineler için kullanılabilir farklı boyutlarını listeler.
+title: Azure'da Windows VM boyutları | Microsoft Docs
+description: Azure'da Windows sanal makineler için farklı boyutlarda listeler.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: d4e1b56ba695f3305d1be023c4352a3c4bcfe27d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 9f934bfa190664f189bd40aff3f015f553d6a96f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34658358"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37900965"
 ---
-# <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineler için Boyutlar
+# <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makine boyutları
 
-Bu makalede, kullanılabilir boyutları ve Windows uygulamaları ve iş yüklerini çalıştırmak için kullanabileceğiniz Azure sanal makineleri için seçenekleri açıklar. Ayrıca, ne zaman, bu kaynakları kullanmayı planlıyorsanız bulundurmanız dağıtımında dikkat edilecek noktalar sağlar.  Bu makalede ayrıca kullanılabilir [Linux sanal makineleri](../linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Bu makalede, sunulan boyutlar ve Windows uygulamaları ve iş yüklerini çalıştırmak için kullanabileceğiniz bir Azure sanal makineleri için seçenekleri açıklar. Ayrıca, ne zaman, bu kaynakları kullanmayı planlıyorsanız dikkat edilecekler sağlar.  Bu makale için de kullanılabilir olan [Linux sanal makineleri](../linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 | Tür                     | Boyutlar           |    Açıklama       |
@@ -33,16 +33,16 @@ Bu makalede, kullanılabilir boyutları ve Windows uygulamaları ve iş yükleri
 | [İşlem için iyileştirilmiş](sizes-compute.md)        | Fsv2, Fs, F             | Yüksek CPU/bellek oranı. Orta yoğunlukta trafiğe sahip web sunucuları, ağ gereçleri, toplu işlemler ve uygulama sunucuları için uygundur.        |
 | [Bellek için iyileştirilmiş](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, Dv2  | Yüksek bellek CPU oranı. İlişkisel veritabanı sunucuları, orta veya büyük boyutlu önbellekler ve bellek içi analiz için idealdir.                 |
 | [Depolama için iyileştirilmiş](../virtual-machines-windows-sizes-storage.md)        | Ls                | Yüksek disk aktarım hızı ve GÇ. Büyük Veri, SQL ve NoSQL veritabanları için ideal.                                                         |
-| [GPU](sizes-gpu.md)            | NV, NC, NCv2, NCv3, ND            | Özelleştirilmiş sanal makineleri yoğun grafik işleme ve video düzenleme için hedeflenen, aynı zamanda model eğitim ve derin learning ile inferencing (ND). Tek veya birden çok GPU ile kullanılabilir.       |
+| [GPU](sizes-gpu.md)            | NV, NC, NCv2, NCv3, ND            | Özelleştirilmiş sanal makineler ağır grafik işlemleri ile video düzenleme için hedeflenmiş, hem de eğitim ve çıkarım (ND) ile ayrıntılı öğrenme modeli. Tek veya birden çok GPU ile kullanılabilir.       |
 | [Yüksek performanslı işlem](sizes-hpc.md) | H       | İşleme düzeyi yüksek olan isteğe bağlı ağ arabirimleri (RDMA) içeren sanal makineler, şimdiye kadarki en hızlı ve en güçlü CPU ile sunuluyor. 
 
 
 <br> 
 
-- Çeşitli boyutlarda fiyatlandırma hakkında daha fazla bilgi için bkz: [sanal makineler fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). 
-- Azure Vm'lerinde genel sınırları görmek için bkz [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../../azure-subscription-service-limits.md).
-- Depolama maliyetleri, depolama hesabında kullanılan sayfa sayısına göre ayrıca hesaplanır. Ayrıntılar için [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
-- Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları üzerinde işlem performans karşılaştırmanıza yardımcı olur.
+- Çeşitli boyutlardaki fiyatlandırması hakkında daha fazla bilgi için bkz: [sanal makineler fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). 
+- Azure Vm'lerinde genel sınırları görmek için bkz [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../../azure-subscription-service-limits.md).
+- Depolama maliyetleri, depolama hesabında kullanılan sayfa sayısına göre ayrıca hesaplanır. Ayrıntılar için [Azure depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
+- Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları arasında işlem performansını karşılaştırmanıza yardımcı olabilir.
 
 
 ## <a name="rest-api"></a>REST API
@@ -55,22 +55,22 @@ VM boyutları için sorgu için REST API kullanma hakkında daha fazla bilgi iç
 
 ## <a name="acu"></a>ACU
 
-Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları üzerinde işlem performans karşılaştırmanıza yardımcı olur.
+Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları arasında işlem performansını karşılaştırmanıza yardımcı olabilir.
 
 ## <a name="benchmark-scores"></a>Kıyaslama puanları
 
-Windows sanal makineleri kullanma performans işlem hakkında daha fazla bilgi edinin [CoreMark Kıyaslama puanları](compute-benchmark-scores.md).
+Windows sanal makineleri kullanarak performans işlem hakkında daha fazla bilgi edinin [CoreMark Kıyaslama puanlarını](compute-benchmark-scores.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kullanılabilir farklı VM boyutları hakkında daha fazla bilgi edinin:
+Mevcut olan farklı VM boyutları hakkında daha fazla bilgi edinin:
 - [Genel amaçlı](sizes-general.md)
 - [İşlem için iyileştirilmiş](sizes-compute.md)
 - [Bellek için iyileştirilmiş](../virtual-machines-windows-sizes-memory.md)
 - [Depolama için iyileştirilmiş](../virtual-machines-windows-sizes-storage.md)
 - [GPU için iyileştirilmiş](sizes-gpu.md)
 - [Yüksek performanslı işlem](sizes-hpc.md)
-- Denetleyin [önceki nesil](sizes-previous-gen.md) sayfa için standart bir Dv1 (v1), D1-4 ve D11-14 ve A8-A11 serisi
+- Denetleme [önceki nesil](sizes-previous-gen.md) sayfası A standart, Dv1 (D1-4 ve D11-14 v1) ve A8-A11 serileri
 
 
 

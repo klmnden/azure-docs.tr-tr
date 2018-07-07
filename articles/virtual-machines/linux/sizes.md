@@ -1,6 +1,6 @@
 ---
-title: Linux VM boyutları Azure'da | Microsoft Docs
-description: Azure'daki Linux sanal makineler için kullanılabilir farklı boyutlarını listeler.
+title: Azure'da Linux VM boyutları | Microsoft Docs
+description: Azure'da Linux sanal makineleri için kullanılabilen farklı boyutlarını listeler.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 3d5311bda4fd0133bea57fee245386d451deb5c4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5ee3d29ceada238c5e4a633b501f63ed307ba76e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34653901"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37900876"
 ---
-# <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure'daki Linux sanal makineler için Boyutlar
-Bu makalede, kullanılabilir boyutları ve Linux uygulamaları ve iş yüklerini çalıştırmak için kullanabileceğiniz Azure sanal makineleri için seçenekleri açıklar. Ayrıca, ne zaman, bu kaynakları kullanmayı planlıyorsanız bulundurmanız dağıtımında dikkat edilecek noktalar sağlar. Bu makalede ayrıca kullanılabilir [Windows sanal makineleri](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+# <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure'da Linux sanal makine boyutları
+Bu makale, sunulan boyutlar ve Seçenekler Linux uygulamaları ve iş yüklerini çalıştırmak için kullanabileceğiniz bir Azure sanal makineleri için açıklar. Ayrıca, ne zaman, bu kaynakları kullanmayı planlıyorsanız dikkat edilecekler sağlar. Bu makale için de kullanılabilir olan [Windows sanal makineleri](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 | Tür                     | Boyutlar           |    Açıklama       |
@@ -32,15 +32,15 @@ Bu makalede, kullanılabilir boyutları ve Linux uygulamaları ve iş yüklerini
 | [İşlem için iyileştirilmiş](sizes-compute.md)        | Fsv2, Fs, F             | Yüksek CPU/bellek oranı. Orta yoğunlukta trafiğe sahip web sunucuları, ağ gereçleri, toplu işlemler ve uygulama sunucuları için uygundur.        |
 | [Bellek için iyileştirilmiş](sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, Dv2  | Yüksek bellek CPU oranı. İlişkisel veritabanı sunucuları, orta veya büyük boyutlu önbellekler ve bellek içi analiz için idealdir.                 |
 | [Depolama için iyileştirilmiş](sizes-storage.md)        | Ls                | Yüksek disk aktarım hızı ve GÇ. Büyük Veri, SQL ve NoSQL veritabanları için ideal.                                                         |
-| [GPU](sizes-gpu.md)            | NV, NC, NCv2, NCv3, ND            | Özelleştirilmiş sanal makineleri yoğun grafik işleme ve video düzenleme için hedeflenen, aynı zamanda model eğitim ve derin learning ile inferencing (ND). Tek veya birden çok GPU ile kullanılabilir.       |
+| [GPU](sizes-gpu.md)            | NV, NC, NCv2, NCv3, ND            | Özelleştirilmiş sanal makineler ağır grafik işlemleri ile video düzenleme için hedeflenmiş, hem de eğitim ve çıkarım (ND) ile ayrıntılı öğrenme modeli. Tek veya birden çok GPU ile kullanılabilir.       |
 | [Yüksek performanslı işlem](sizes-hpc.md) | H       | İşleme düzeyi yüksek olan isteğe bağlı ağ arabirimleri (RDMA) içeren sanal makineler, şimdiye kadarki en hızlı ve en güçlü CPU ile sunuluyor. 
 
 <br>
 
-- Çeşitli boyutlarda fiyatlandırma hakkında daha fazla bilgi için bkz: [sanal makineler fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
-- VM boyutları Azure bölgelerindeki kullanılabilirlik için bkz: [bölgeye göre ürünleri](https://azure.microsoft.com/regions/services/).
-- Azure Vm'lerinde genel sınırları görmek için bkz [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../../azure-subscription-service-limits.md).
-- Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları üzerinde işlem performans karşılaştırmanıza yardımcı olur.
+- Çeşitli boyutlardaki fiyatlandırması hakkında daha fazla bilgi için bkz: [sanal makineler fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
+- Azure bölgeleri VM boyutları kullanılabilirliği için bkz: [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/regions/services/).
+- Azure Vm'lerinde genel sınırları görmek için bkz [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../../azure-subscription-service-limits.md).
+- Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları arasında işlem performansını karşılaştırmanıza yardımcı olabilir.
 
 
 ## <a name="rest-api"></a>REST API
@@ -53,22 +53,22 @@ VM boyutları için sorgu için REST API kullanma hakkında daha fazla bilgi iç
 
 ## <a name="acu"></a>ACU
 
-Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları üzerinde işlem performans karşılaştırmanıza yardımcı olur.
+Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları arasında işlem performansını karşılaştırmanıza yardımcı olabilir.
 
 ## <a name="benchmark-scores"></a>Kıyaslama puanları
 
-Performans Linux sanal makineleri kullanma hakkında daha fazla işlem öğrenin [CoreMark Kıyaslama puanları](compute-benchmark-scores.md).
+Linux Vm'leri kullanarak performans işlem hakkında daha fazla bilgi edinin [CoreMark Kıyaslama puanlarını](compute-benchmark-scores.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kullanılabilir farklı VM boyutları hakkında daha fazla bilgi edinin:
+Mevcut olan farklı VM boyutları hakkında daha fazla bilgi edinin:
 - [Genel amaçlı](sizes-general.md)
 - [İşlem için iyileştirilmiş](sizes-compute.md)
 - [Bellek için iyileştirilmiş](sizes-memory.md)
 - [Depolama için iyileştirilmiş](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [Yüksek performanslı işlem](sizes-hpc.md)
-- Denetleyin [önceki nesil](sizes-previous-gen.md) sayfa için standart bir Dv1 (v1), D1-4 ve D11-14 ve A8-A11 serisi
+- Denetleme [önceki nesil](sizes-previous-gen.md) sayfası A standart, Dv1 (D1-4 ve D11-14 v1) ve A8-A11 serileri
 
 
 

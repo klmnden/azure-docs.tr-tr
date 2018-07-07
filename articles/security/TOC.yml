@@ -164,8 +164,16 @@
           href: azure-operational-security-checklist.md
 - name: İdare ve uyum
   items:
-    - name: Düzenlenen iş yükleri için finansal hizmetler
-      href: ./blueprints/financial-services-regulated-workloads.md
+    - name: FFIEC
+      items:
+        - name: Veri analizi
+          href: ./blueprints/ffiec-analytics-overview.md
+        - name: Veri ambarı
+          href: ./blueprints/ffiec-dw-overview.md
+        - name: IaaS web uygulaması
+          href: ./blueprints/ffiec-iaaswa-overview.md
+        - name: PaaS web uygulaması
+          href: ./blueprints/ffiec-paaswa-overview.md
     - name: GDPR
       items:
         - name: Veri analizi
@@ -187,34 +195,15 @@
         - name: PaaS web uygulaması
           href: ./blueprints/fedramp-paaswa-overview.md
     - name: PCI DSS
-      href: ./blueprints/payment-processing-blueprint.md
       items:
-        - name: Gereksinimlere genel bakış
-          href: ./blueprints/pci-dss-requirements-overview.md
-        - name: Gereksinim 1 - Güvenlik duvarları
-          href: ./blueprints/pci-dss-requirement-1-firewall.md
-        - name: Gereksinim 2 - Parolalar
-          href: ./blueprints/pci-dss-requirement-2-password.md
-        - name: Gereksinim 3 - CHD
-          href: ./blueprints/pci-dss-requirement-3-chd.md
-        - name: Gereksinim 4 - Şifreleme
-          href: ./blueprints/pci-dss-requirement-4-encryption.md
-        - name: Gereksinim 5 - Kötü amaçlı yazılım
-          href: ./blueprints/pci-dss-requirement-5-malware.md
-        - name: Gereksinim 6 - Güvenlik sistemleri
-          href: ./blueprints/pci-dss-requirement-6-secure-system.md
-        - name: Gereksinim 7 - Erişim
-          href: ./blueprints/pci-dss-requirement-7-access.md
-        - name: Gereksinim 8 - Kimlik
-          href: ./blueprints/pci-dss-requirement-8-identity.md
-        - name: Gereksinim 9 - Fiziksel erişim
-          href: ./blueprints/pci-dss-requirement-9-physical-access.md
-        - name: Gereksinim 10 - İzleme
-          href: ./blueprints/pci-dss-requirement-10-monitoring.md
-        - name: Gereksinim 11 - Test etme
-          href: ./blueprints/pci-dss-requirement-11-testing.md
-        - name: Gereksinim 12 - İlke
-          href: ./blueprints/pci-dss-requirement-12-policy.md
+        - name: Veri analizi
+          href: ./blueprints/pcidss-analytics-overview.md
+        - name: Veri ambarı
+          href: ./blueprints/pcidss-dw-overview.md
+        - name: IaaS web uygulaması
+          href: ./blueprints/pcidss-iaaswa-overview.md
+        - name: PaaS web uygulaması
+          href: ./blueprints/pcidss-paaswa-overview.md
     - name: UK NHS
       items:
         - name: Veri analizi

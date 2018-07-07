@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory cihaz yönetimi ile ilgili SSS | Microsoft Docs
-description: Azure Active Directory cihaz Yönetimi SSS.
+title: Azure Active Directory cihaz yönetimi hakkında SSS | Microsoft Docs
+description: Azure Active Directory cihaz yönetimi hakkında SSS.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,69 +15,69 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309865"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901145"
 ---
-# <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi ile ilgili SSS
+# <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
 
 
-**S: macOS cihaz nasıl kayıt mi?**
+**S: nasıl bir macOS cihazı kaydedebilir miyim?**
 
-**Y:** macOS cihazı kaydetmek için:
+**Y:** macOS cihazını kaydetmek için:
 
 1.  [Uyumluluk ilkesi oluşturma](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [MacOS cihazlar için koşullu erişim ilkesi tanımlayın](active-directory-conditional-access-azure-portal.md) 
+2.  [MacOS cihazlar için koşullu erişim ilkesi tanımlama](active-directory-conditional-access-azure-portal.md) 
 
 **Notlar:**
 
-- Koşullu erişim ilkesinde yer alan kullanıcıların bir [Office sürümü için macOS desteklenen](active-directory-conditional-access-technical-reference.md#client-apps-condition) kaynaklara erişmek için. 
+- Koşullu erişim ilkenizi dahil edilen kullanıcıların bir [macOS için Office sürümü desteklenen](active-directory-conditional-access-technical-reference.md#client-apps-condition) kaynaklara erişmek için. 
 
-- İlk erişim girişimi sırasında kullanıcılarınızın şirket portalını kullanarak aygıt kaydetmesi istenir.
+- İlk erişim denemesi sırasında kullanıcılarınızın şirket portalını kullanarak cihazını kaydetmesi istenir.
 
 ---
 
-**S: son cihazın kayıtlı. Azure portalında kullanıcı bilgilerimi altında aygıt neden göremiyorum?**
+**S: kısa bir süre önce cihazın kayıtlı. Azure portalındaki kullanıcı Bilgilerim altında cihazın neden göremiyorum?**
 
-**Y:** karma Azure AD alanına katılmış Windows 10 cihazları gösterme kullanıcı aygıtları altında.
-Tüm aygıtlar görünümü Azure portalında kullanmanız gerekir. PowerShell de kullanabilirsiniz [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet'i.
+**Y:** hibrit Azure AD'ye katılmış olan Windows 10 cihazları görünmez altında kullanıcı cihazları.
+Azure portalında tüm cihazları görüntüle kullanmanız gerekir. PowerShell de kullanabilirsiniz [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet'i.
 
-Yalnızca aşağıdaki cihazları kullanıcı aygıtları altında listelenmiştir:
+Yalnızca aşağıdaki cihazlar, kullanıcı cihazları altında listelenir:
 
-- Karma Azure AD olmayan tüm kişisel cihazları katıldı. 
-- Tüm Windows 10 olmayan / Windows Server 2016 aygıtlar.
-- Tüm Windows dışı cihazlar 
+- Hibrit Azure AD'ye olmayan tüm kişisel cihazlar katıldı. 
+- Tüm Windows 10 olmayan / Windows Server 2016 cihazları.
+- Tüm Windows olmayan cihazlar 
 
 --- 
 
-**S: istemci cihaz kayıt durumu nedir nasıl biliyor musunuz?**
+**S: nasıl istemci cihaz kayıt durumu nedir biliyor musunuz?**
 
-**Y:** Azure portalı, tüm aygıtlar için Git ve kullanabileceğiniz cihaz kimliğini kullanarak aygıt için arama Birleştirme türü sütunu altında değerini denetleyin.
+**Y:** Azure portalını kullanabilir, tüm cihazlara gidin ve cihaz kimliğini kullanarak cihaz için arama yapın Birleştirme türü sütunu altındaki değerini denetleyin.
 
-Kayıtlı bir cihaza yerel aygıt kaydı durumundan denetlemek istiyorsanız:
+Kayıtlı bir cihazı yerel cihaz kayıt durumundan denetlemek istiyorsanız:
 
 - Windows 10 ve Windows Server 2016 veya üzeri cihazlar için dsregcmd.exe/Status çalıştırın.
-- Alt düzey işletim sistemi sürümleri için "%programFiles%\Microsoft çalışma alanına Join\autoworkplace.exe" Çalıştır
+- Alt düzey işletim sistemi sürümleri için "%programFiles%\Microsoft çalışma alanına Join\autoworkplace.exe" çalıştırın.
 
 ---
 
-**S: Azure portalında silinmiş veya cihazda Windows PowerShell, ancak yerel durumu kullanma hala kaydedildiğini belirten?**
+**S: Azure portalında silinmiş veya hala kayıtlı cihazda Windows PowerShell, ancak yerel durumu kullanma diyor?**
 
-**Y:** bu tasarım gereğidir. Cihazın kaynaklara bulutta erişimi. 
+**Y:** bu tasarım gereğidir. Cihaz bulut kaynaklarına erişimi yoktur. 
 
-İşlemi el ile yeniden yeniden kaydetmek istiyorsanız, cihaz üzerinde gerçekleştirilecek olmalıdır. 
+Yeniden yeniden kaydetmek isterseniz, cihaz üzerinde gerçekleştirilecek el ile gerçekleştirilen bir eylem olmalıdır. 
 
-Windows 10 ve Windows Server 2016'de, olan birleşim durumundan temizlemek için AD etki alanına katılmış şirket içi:
+Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki alanına katılmış şirket içinde:
 
 1.  Komut istemini yönetici olarak açın.
 
 2.  Türü `dsregcmd.exe /debug /leave`
 
-3.  Oturumu kapatın ve yeniden Azure AD ile cihaz kayıtları zamanlanmış görev tetiklemek oturum açın. 
+3.  Oturumu kapatın ve yeniden Azure AD ile cihaz kaydeden zamanlanmış tetikleyici için oturum açın. 
 
 Şirket içi alt düzey Windows işletim sistemi sürümleri için AD etki alanına katılmış:
 
@@ -86,92 +86,105 @@ Windows 10 ve Windows Server 2016'de, olan birleşim durumundan temizlemek için
 3.  `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"` yazın.
 
 ---
-** S: Nasıl t bir Azure AD katılmış aygıt yerel cihazda ayrılma?
-**A:** 
-- Karma Azure AD alanına katılmış cihazlar için zamanlanmış bir görev aygıta yeniden kayıt için otomatik kayıtlarını devre dışı bırakmak üzere emin olun. Ardından, açık komut istemini bir yönetici ve türü `dsregcmd.exe /debug /leave`. Alternatif olarak, bu komutu bir komut dosyası olarak toplu olarak ayrılma birden çok aygıt üzerinden çalıştırılabilir.
+**S: ben bir Azure AD katıldı cihaz yerel olarak cihazda ayrılma?**
 
-- Saf Azure AD katılmış için aygıtlar, tüm Azure AD kullanıcı kimlik bilgileriyle oturum açamazsınız gibi hesap veya bir oluşturma çevrimdışı bir yerel yönetici sağladığınızdan emin olun. Ardından, Git **ayarları** > **hesapları** > **erişim iş veya Okul**. Hesabınızı seçin ve tıklayın **Bağlantıyı Kes**. Komut istemlerini izleyin ve istendiğinde yerel yönetici kimlik bilgilerini sağlayın. Cihaz ayrılma işlemini tamamlamak için yeniden başlatın.
+**Y:** 
+- Karma Azure AD alanına katılmış aygıtlar için zamanlanmış görev cihazı yeniden kayıt için otomatik kayıt devre dışı bırakmak üzere emin olun. Ardından, açık komut istemini yönetici olarak çalıştırıp türü `dsregcmd.exe /debug /leave`. Alternatif olarak, bu komutu bir komut dosyası olarak toplu olarak ayrılma için birden çok cihazda çalıştırılabilir.
 
----
-
-**Azure Portalı'nda yinelenen aygıt girişleri neden görüyor musunuz?**
-
-**A:**
-
--   Windows 10 ve Windows Server 2016 için ayrılma ve aynı aygıt yeniden katılmak için yinelenen denemesi olursa olabilir yinelenen girdi. 
-
--   Ekleme iş veya Okul hesabınızla kullandıysanız, eklemek iş veya Okul hesabını kullanan her bir windows kullanıcı aynı cihaz adı ile yeni bir cihaz kaydı oluşturun.
-
--   Şirket içi alt düzey Windows işletim sistemi sürümleri için etki alanına katılmış otomatik kayıt kullanarak AD aynı aygıt adı cihazda oturum her etki alanı kullanıcı için yeni bir cihaz kayıt oluşturur. 
-
--   Temizlenmeden, yeniden yüklendi ve aynı adla yeniden birleştirilmiş bir Azure AD alanına katılmış makine görünmesini sağlar başka bir kayıtla aynı aygıt adı olarak.
+- Azure AD katıldı saf için cihazlar, tüm Azure AD kullanıcı kimlik bilgileriyle oturum açamayacaksınız gibi hesap veya bir oluşturma çevrimdışı bir yerel yönetici olduğundan emin olun. Ardından, Git **ayarları** > **hesapları** > **işe veya okula erişim**. Hesabınızı seçin ve tıklayın **Bağlantıyı Kes**. Komut istemlerini izleyin ve istendiğinde yerel yönetici kimlik bilgilerini girin. Ayrılma işlemi tamamlamak için cihazı yeniden başlatın.
 
 ---
 
-**Neden bir kullanıcı Azure portalında devre dışı bırakan bir aygıttan hala kaynaklarına erişebilir mi?**
+**S: kullanıcılar Azure AD alanına katılmış aygıtlar yazıcıları arama yapamazsınız. Azure AD alanına katılmış aygıtlar yazdırma nasıl etkinleştirebilirim?**
 
-**Y:** uygulanacak iptal etmek için bir saat sürebilir.
+**Y:** yazıcılar için Azure AD alanına katılmış aygıtlar dağıtmak için bkz: [karma bulut yazdırma](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Hibrit bulut yazdırma dağıtmak için bir şirket içi Windows Server gerekir. Şu anda, bulut tabanlı yazdırma hizmeti kullanılabilir değil. 
+
+---
+
+**S: neden Azure portalında yinelenen cihaz girişi görüyor musunuz?**
+
+**Y:**
+
+-   Windows 10 ve Windows Server 2016 için ayrılma ve aynı cihaza yeniden katılabilir yönelik yinelenen girişimleri varsa olabilir yinelenen girdiler. 
+
+-   Ekleme iş veya Okul hesabı kullandıysanız, ekleme iş veya Okul hesabı kullanan her bir windows kullanıcı yeni bir cihaz kaydı ile aynı cihaz adı oluşturun.
+
+-   Şirket içi alt düzey Windows işletim sistemi sürümleri için AD etki alanına katılmış otomatik kaydı hizmetini kullanarak cihazda oturum açan her etki alanı kullanıcısı için aynı cihaz adı ile yeni bir cihaz kaydı oluşturur. 
+
+-   Temizlenen, yeniden yüklendi ve aynı adla yeniden birleştirilmiş bir Azure AD alanına katılmış makinenizin cihaz aynı ada sahip başka bir kayıt olarak görünecektir.
+
+---
+
+**S: neden bir kullanıcı Azure portalında devre dışı bırakan bir CİHAZDAN hala kaynaklara erişebilir?**
+
+**Y:** uygulanacak bir iptal etme için bir saate kadar sürebilir.
 
 >[!Note] 
->Kayıtlı cihazlar için kullanıcılar kaynaklarına erişemez emin olmak için cihaz silinirken öneririz. Daha fazla ayrıntı için bkz: [cihazları Yönetim için ıntune'a kaydetme](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>Kayıtlı cihazlar için kullanıcılar kaynaklara erişemez emin olmak için cihaz silinmeden önceki öneririz. Daha fazla ayrıntı için [ıntune'da Yönetim için cihazları kaydetme](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 
 ---
 
-**Kullanıcılarım "Buradan var. alınamıyor" neden görüyor musunuz?**
+**S: Kullanıcılarım "Buradan oraya ulaşamazsınız" neden görüyorum?**
 
-**Y:** belirli koşullu erişim kuralları belirli cihaz durumu gerektirecek şekilde yapılandırılmış ve cihaz ölçütleri karşılamıyor, kullanıcılar engellenir ve bu ileti görür. Koşullu erişim ilkesi kuralları değerlendirin ve cihaz bu iletinin görünmemesi için belirttiğiniz ölçütlere uyan mümkün olduğundan emin olun.
-
----
-
-
-**S: Azure portalında kullanıcı bilgileri altında cihaz kaydı görebilir ve cihazda kayıtlı olarak durumunu görebilirsiniz. Koşullu erişim kullanarak ayarlarım doğru miyim?**
-
-**Y:** DeviceID tarafından yansıtılan aygıt birleşim durumu üzerinde Azure AD ile eşleşen ve koşullu erişim için herhangi bir değerlendirme ölçütleri karşılayan gerekir. Daha fazla ayrıntı için bkz: [Azure Active Directory cihaz kaydı ile çalışmaya başlama](active-directory-device-registration.md).
+**Y:** kullanıcıları belirli koşullu erişim kuralları, belirli cihaz durumu gerektirecek şekilde yapılandırdıysanız ve cihaz ölçütleri karşılamıyor ise engellenir ve şu mesajı görürsünüz. Lütfen koşullu erişim ilkesi kuralları değerlendirir ve cihazın bu iletiyi engellemek için ölçütleri karşılayan mümkün olduğundan emin olun.
 
 ---
 
-**Yalnızca Azure AD alanına bir aygıt için bir "kullanıcı adı veya parola, yanlış" iletisi neden sağlarım?**
+**S: neden bazı kullanıcılar değil Azure AD'de MFA istemleri get yapmak katılmış cihazlarda?**
 
-**Y:** bu senaryo için yaygın nedenler şunlardır:
+**Y:** kullanıcı katıldığında veya Azure AD ile çok faktörlü kimlik doğrulaması kullanarak bir cihazı kaydeder, cihaz güvenilir ikinci öğe için söz konusu kullanıcıyla olur. Sonuç olarak, aynı kullanıcı oturum açtığında cihaza ve uygulamaya erişen her Azure AD cihaz ikinci öğe olarak göz önünde bulundurur ve ek MFA sorulmadan uygulamalarına sorunsuz bir şekilde erişmek bu kullanıcı sağlar. Bu davranış, cihaz erişen diğer tüm kullanıcılar yine de bir MFA testini ile MFA gerektiren uygulamalar erişmeden önce istendiği şekilde bu cihazda oturum imzalama herhangi bir kullanıcı için geçerli değildir.
 
-- Kullanıcı kimlik bilgilerinizi artık geçerli değildir.
+---
+
+**S: Azure portalında kullanıcı bilgileri altında cihaz kaydı bakın ve cihazda kayıtlı durumu görebilirsiniz. Koşullu erişim kullanmak için doğru Kurulumu miyim?**
+
+**Y:** DeviceID tarafından yansıtılan cihaz birleşim durumu, Azure AD ile eşleşmesi ve koşullu erişim için herhangi bir değerlendirme ölçütleri karşılayan gerekir. Daha fazla ayrıntı için [Azure Active Directory cihaz kaydı ile çalışmaya başlama](active-directory-device-registration.md).
+
+---
+
+**S: neden Azure AD'ye katılmış yalnızca bir cihaz için bir "kullanıcı adı veya parola hatalı" iletisi alırım?**
+
+**Y:** bu senaryo için yaygın nedenleri şunlardır:
+
+- Kullanıcı kimlik bilgilerinizi artık geçerli değil.
 
 - Bilgisayarınızı Azure Active Directory ile iletişim kuramıyor. Tüm ağ bağlantısı sorunlarını denetleyin.
 
-- Azure AD katılım ön koşulları karşılanmadı. Lütfen adımları izlediğinizden emin olun [geniletmek bulut özelliklerini Azure Active Directory katılım aracılığıyla Windows 10 cihazlarına](active-directory-azureadjoin-overview.md).  
+- Azure AD Join Önkoşullar karşılanmadı. Adımları izlediğinizden emin olun [yaygınlaştırma bulut işlevlerini Windows 10 cihazlarını Azure Active Directory Join ile](active-directory-azureadjoin-overview.md).  
 
-- Federasyon oturumları bir WS-Trust etkin uç noktası desteklemek için Federasyon sunucusu gerektirir. 
+- Federasyon oturum açma bilgileri, WS-Trust ile etkin bir uç nokta desteklemek için Federasyon sunucunuz gerektirir. 
 
-- Kimlik doğrulama geçiş etkinleştirdiyseniz ve kullanıcının oturum açma özelliğini değiştirilmesi gereken geçici bir parola.
-
----
-
-**S: görmemin nedeni "... Oops bir hata oluştu!" Azure AD yapmak çalıştığınızda iletişim katılma Bilgisayarımda?**
-
-**Y:** bu bir Intune ile Azure Active Directory kaydını ayarlama sonucudur. Azure AD birleştirme yapma girişiminde bulunan kullanıcının doğru Intune lisansı atanmış olduğundan emin olun. Daha fazla ayrıntı için bkz: [Windows cihaz yönetimini ayarlama](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+- Kimlik doğrulaması üzerinden etkinleştirdiyseniz ve kullanıcı oturum açma sırasında değiştirilmesi gereken geçici bir parola sahiptir.
 
 ---
 
-**Neden hata bilgilerini almadım rağmen bir PC katılmaya my girişimi başarısız oldu?**
+**S: neden görüyorum "hata... bir hata oluştu!" Azure AD yapmak çalıştığınızda iletişim katılın Bilgisayarımda?**
 
-**Y:** kullanıcı cihazda yerel yerleşik yönetici hesabı kullanarak oturum, olası bir nedeni olmamasıdır. Lütfen farklı bir yerel hesap Azure Active Directory katılım Kurulumu tamamlamak için kullanmadan önce oluşturun. 
+**Y:** bu bir Azure Active Directory kaydı Intune ile ayarlama sonucudur. Azure AD'ye katılım yapma girişimi kullanıcının doğru Intune lisansı atanmış olduğundan emin olun. Daha fazla ayrıntı için [Windows cihaz yönetimini ayarlama](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+
+---
+
+**S: neden hata bilgileri almadım olsa da bir PC katılmaya my girişimi başarısız oldu?**
+
+**Y:** olası bir nedeni, kullanıcı cihazda yerleşik yerel yönetici hesabı kullanarak oturum emin olan. Azure Active Directory Join Kurulumu tamamlamak için kullanmadan önce lütfen farklı bir yerel hesap oluşturun. 
 
 ---
 
 **S: otomatik cihaz kaydı için kurulum yönergeleri nereden bulabilirim?**
 
-**Y:** ayrıntılı yönergeler için bkz: [Azure Active Directory ile etki alanına katılmış Windows cihazlarının otomatik kaydını yapılandırma](active-directory-conditional-access-automatic-device-registration-setup.md)
+**Y:** ayrıntılı yönergeler için bkz. [Azure Active Directory ile Windows etki alanına katılmış cihazların otomatik kaydını yapılandırma](active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ---
 
-**S: sorun giderme nereden bulabilirim otomatik cihaz kaydı hakkında bilgi mi?**
+**S: sorun giderme nereden bulabilirim otomatik cihaz kaydı hakkında bilgi?**
 
 **Y:** sorun giderme bilgileri için bkz:
 
-- [Azure AD ile – Windows 10 ve Windows Server 2016 alanına katılmamış bilgisayarlar etki alanının otomatik kayıt sorunlarını giderme](device-management-troubleshoot-hybrid-join-windows-current.md)
+- [Azure AD'ye – Windows 10 ve Windows Server 2016 alanına katılmış bilgisayarları etki alanının otomatik kaydı sorunlarını giderme](device-management-troubleshoot-hybrid-join-windows-current.md)
 
-- [Otomatik kaydı etki alanının sorun giderme bilgisayarlar, alt düzey istemciler için Windows Azure AD alanına katılmış](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+- [Bilgisayarları Azure AD'ye Windows alt düzey istemciler için katılmış etki alanının otomatik kaydı sorunlarını giderme](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
+
 ---
 

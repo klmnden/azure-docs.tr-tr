@@ -1,7 +1,7 @@
 ---
-title: Değişiklik çalışmak akışı destek Azure Cosmos DB'de | Microsoft Docs
-description: Belgelerdeki değişiklikleri izlemek ve tetikleyiciler gibi olay tabanlı işleme ve önbellekleri ve analizi sistemleri güncel tutma gerçekleştirmek için Azure Cosmos DB Değiştir Akış desteği kullanın.
-keywords: Akış değiştirme
+title: Azure Cosmos DB'de çalışma değişiklik akışı desteği | Microsoft Docs
+description: Azure Cosmos DB değişiklik akışı desteği, belgelerdeki değişiklikleri izlemek ve Tetikleyicileri gibi olay tabanlı işleme ve önbelleğe alır ve analiz sistemlerinin güncel tutarak gerçekleştirmek için kullanın.
+keywords: akışı değiştirme
 services: cosmos-db
 author: rafats
 manager: kfile
@@ -10,93 +10,93 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 6b0aaa075b8b2881e269d79a67e75528d0d9a86a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e53f1e62b9265d2eec2f49537cc05c865e1436f3
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129867"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902971"
 ---
-# <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Destek Azure Cosmos DB'de akış değişiklik ile çalışma
+# <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Azure Cosmos DB'de destek akış değişiklik ile çalışma
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) bir hızlı ve esnek genel veritabanı, oyun, perakende, IOT için oldukça uygun ve işletimsel günlüğe kaydetme uygulamaları çoğaltılır. Bu uygulamalar ortak tasarım modelinde ek eylemleri atarlar için verilerde yapılan değişiklikleri kullanmaktır. Bu ek eylemleri aşağıdakilerden biri olabilir: 
+[Azure Cosmos DB](../cosmos-db/introduction.md) bir hızlı ve esnek genel veritabanı, perakende, oyun, IOT için uygundur ve işletimsel günlüğe kaydetme uygulamaları çoğaltılır. Bu uygulamalar bir ortak tasarım modelinde, ek eylemler istiyorsanız verilerde yapılan değişiklikleri kullanmaktır. Bu ek eylemler aşağıdakilerden biri olabilir: 
 
-* Bir belge eklendiğinde veya değiştiren bir bildirim ya da bir API çağrısı tetikleniyor.
-* IOT için işleme veya Analiz gerçekleştirme akış.
-* Önbellek, arama motoru veya veri ambarı eşitleme ya da verileri soğuk depolama arşivleme ek veri taşıma.
+* Bir belge eklendiğinde veya değiştirildiğinde bir bildirim ya da bir API çağrısına tetikleniyor.
+* Stream için IOT işleme veya Analiz gerçekleştirme.
+* Ek veri taşıma, önbellek, arama motoru veya veri ambarı eşitleme veya soğuk depolama için veri arşivleme.
 
-**Değişiklik akışı Destek** aşağıdaki görüntüde gösterildiği gibi Azure Cosmos DB'de, verimli ve ölçeklenebilir çözümler her bu düzenlerin oluşturmanıza olanak sağlar:
+**Değişiklik akışı desteği** aşağıdaki görüntüde gösterildiği gibi Azure Cosmos DB'de her biri bu desenleri için etkili ve ölçeklenebilir çözümleri oluşturmanıza olanak sağlar:
 
-![Akış güç gerçek zamanlı analiz ve bilgi işlem senaryolarına olay denetimli için Azure Cosmos DB Değiştir kullanma](./media/change-feed/changefeedoverview.png)
+![Güç gerçek zamanlı analiz ve olay temelli bilgi işlem senaryoları kullanarak Azure Cosmos DB değişiklik akışı](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Destek akış değişiklik tüm veri modelleri ve Azure Cosmos DB kapsayıcılarında sağlanır. Ancak, değişiklik akış SQL istemcisini kullanarak okuyun ve öğeleri JSON biçimine serileştiren. Biçimlendirme, JSON nedeniyle istemciler yaşar MongoDB biçimlendirilmiş BSON belgeler ve JSON arasında bir uyuşmazlık akış değişiklik biçimlendirilmiş.
+> Değişiklik akışı desteği, tüm veri modelleri ve Azure Cosmos DB kapsayıcıları için sağlanır. Ancak, değişiklik akışı SQL istemcisi kullanılarak okunur ve öğeleri JSON biçimine serileştiren. Biçimlendirme, JSON nedeniyle istemciler yaşar MongoDB BSON biçimlendirilmiş belgeleri ve JSON arasında bir uyuşmazlık değişiklik akışı biçimlendirilmiş.
 
-Aşağıdaki videoda Azure Cosmos DB Program Yöneticisi Barış Liu nasıl çalıştığı Azure Cosmos DB değişiklik akışı gösterilmektedir.
+Aşağıdaki videoda, Azure Cosmos DB Program Yöneticisi Manager Andrew Liu nasıl çalışır Azure Cosmos DB değişiklik akışı gösterilmektedir.
 
 > [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
 >
 >
 
-## <a name="how-does-change-feed-work"></a>Nasıl Değiştir iş akışı?
+## <a name="how-does-change-feed-work"></a>Nasıl değişiklik iş akışı?
 
-Azure Cosmos DB works akış desteği, herhangi bir değişiklik için bir Azure Cosmos DB koleksiyonuna dinleyerek değiştirin. Ardından, değiştirilmiş sırada değiştirilen belge sıralanmış listesini çıkarır. Değişiklikler kalıcı, zaman uyumsuz olarak ve artımlı olarak işlenen ve çıkış paralel işleme için bir veya daha fazla tüketiciye üzerinden dağıtılabilir. 
+Azure Cosmos DB geliştirilme akış desteği, herhangi bir değişiklik için bir Azure Cosmos DB koleksiyonu için dinleyerek değiştirin. Ardından, değiştirilmiş olan sırayla değiştirilen belgelerin sıralanmış listesini çıkarır. Değişiklikleri kalıcı, zaman uyumsuz olarak ve artımlı olarak işlenebilir ve çıkış paralel işleme için bir veya daha fazla tüketicileri arasında dağıtılabilir. 
 
 Bu makalenin sonraki bölümlerinde açıklandığı gibi üç farklı yolla akış değişiklik okuyabilirsiniz:
 
-*   [Azure işlevlerini kullanma](#azure-functions)
-*   [Azure DB SDK Cosmos kullanma](#sql-sdk)
-*   [Azure Cosmos DB değişikliği kullanarak akış işlemci kitaplığı](#change-feed-processor)
+*   [Azure işlevleri'ni kullanarak](#azure-functions)
+*   [Azure Cosmos DB SDK'sını kullanma](#sql-sdk)
+*   [Kullanarak Azure Cosmos DB değişiklik akışı işlemci kitaplığı](#change-feed-processor)
 
-Değişiklik akışı her bölüm anahtarı aralığının belge koleksiyonundaki için kullanılabilir ve böylece dizisine paralel işleme için bir veya daha fazla tüketiciye aşağıdaki görüntüde gösterildiği gibi dağıtılabilir.
+Değişiklik akışı her bölüm anahtar aralığı içinde belge koleksiyonu için kullanılabilir ve bu nedenle paralel işleme için bir veya daha fazla tüketicileri arasında aşağıdaki görüntüde gösterildiği gibi dağıtılabilir.
 
-![Azure Cosmos DB değişimin dağıtılmış işlem akışı](./media/change-feed/changefeedvisual.png)
+![Azure Cosmos DB değişiklik akışı, dağıtılan işleme](./media/change-feed/changefeedvisual.png)
 
 Ek ayrıntılar:
-* Değişiklik akış tüm hesapları için varsayılan olarak etkindir.
-* Kullanabilirsiniz, [sağlanan işleme](request-units.md) yazma bölgenize veya herhangi bir [bölge okuma](distribute-data-globally.md) akış değişikliği okumak için olduğu gibi başka bir Azure Cosmos DB işlemi.
-* Değişiklik akış ekler ve koleksiyon içindeki belgelerde yapılan güncelleştirme işlemlerini içerir. Siler yakalayabilirsiniz belgelerinizi siler yerine içinde "soft-Sil" bayrağını ayarlayarak. Alternatif olarak, sınırlı bir süre belgeleriniz için ayarlayabileceğiniz [TTL yetenek](time-to-live.md), örneğin, 24 saat ve siler yakalamak için o özelliğin değerini kullanın. Bu çözüm ile TTL sona erme süresinden daha kısa bir zaman aralığındaki değişiklikleri işlemeye sahip.
-* Bir belgeyi her değişiklik akış değişikliği tam olarak bir kez görünür ve bunların denetim noktası oluşturma mantığı istemcileri yönetmek. Değişiklik akış işlemci kitaplığı otomatik denetim noktası oluşturma ve "en az bir kez" semantiği sağlar.
-* Yalnızca en son değişiklik belirli bir belge için değişiklik günlüğünde yer alır. Ara değişikliklerin kullanılamayabilir.
-* Değişiklik akışı, her bölüm anahtarı değerini içinde değişiklik sırasına göre sıralanır. Bölüm anahtarı değerleri arasında hiçbir garanti edilen sipariş yoktur.
-* Değişiklikleri herhangi noktası zaman eşitlenebilir, diğer bir deyişle, değişiklikler kullanılabilir hiçbir sabit veri saklama süresi vardır.
-* Değişiklikler bölüm anahtar aralıklarına yığınlar halinde kullanılabilir. Bu özellik paralel olarak birden çok tüketiciye/sunucuları tarafından işlenmek üzere büyük topluluklara değişikliklerden sağlar.
-* Uygulamalar aynı koleksiyonda üzerinde eşzamanlı olarak birden çok değişikliği akışları isteyebilir.
-* ChangeFeedOptions.StartTime kullanılabilir ilk bir başlangıç noktası, örneğin sağlamak için saatin karşılık gelen devamlılık belirteci bulunamıyor. ContinuationToken belirtilmişse StartTime ve StartFromBeginning değerleri WINS. ChangeFeedOptions.StartTime kesinliğini ~ 5 saniye olur. 
+* Değişiklik akışı, tüm hesaplar için varsayılan olarak etkindir.
+* Kullanabileceğiniz, [sağlanan aktarım hızı](request-units.md) yazma bölgenizi ya da tüm [bölgesinde](distribute-data-globally.md) değişiklik akışı okumak için olduğu gibi başka bir Azure Cosmos DB işlem.
+* Değişiklik akışı, ekler ve koleksiyonu içindeki belgeler yapılan güncelleştirme işlemlerini içerir. Siler yakalayabilirsiniz siler yerine, belgelerinizi içinde "geçici silme" bayrak ayarlayarak. Alternatif olarak, sınırlı bir süre için belgelerinizi ayarlayabilirsiniz [TTL özelliği](time-to-live.md), örneğin, 24 saat ve silmeleri yakalamak için bu özelliğin değerini kullanın. Bu çözüm sayesinde TTL sona erme süresinden daha kısa bir zaman aralığında değişikliklerini işlemesi gerekir.
+* Her değişiklik için bir belge değişiklik akışı tam bir kez görünür ve bunların denetim noktası mantığına istemcileri yönetme. Değişiklik akışı işlemci kitaplığı otomatik denetim noktası oluşturma ve "en az bir kez" semantiği sağlar.
+* Belirli bir belge için yalnızca en son değişikliği değişiklik günlüğünde bulunur. Ara değişikliklerin kullanılamayabilir.
+* Değişiklik akışı, her bölüm anahtarı değeri içinde değişiklik göre sıralanır. Bölüm anahtarı değerleri arasında yürütülme sırası yoktur.
+* Değişiklikleri tüm-belirli bir noktaya eşitlenebilir, diğer bir deyişle, değişiklikler kullanılabilir sabit veri saklama dönemi yoktur.
+* Değişiklikler bölüm anahtar aralığı bir öbekler halinde kullanılabilir. Bu özellik paralel olarak birden fazla tüketici/sunucuları tarafından işlenmek üzere, büyük koleksiyonların değişiklik izin verir.
+* Uygulama, aynı koleksiyon üzerinde aynı anda birden çok değişiklik akışlarından talep edebilir.
+* ChangeFeedOptions.StartTime kullanılabilir ilk bir başlangıç noktası, örneğin sağlamak için karşılık gelen saatin devamlılık belirteci bulunamadı. ContinuationToken belirtilmişse StartTime ve StartFromBeginning değerlerin kazanır. ~ 5 saniye duyarlığını ChangeFeedOptions.StartTime olur. 
 
 ## <a name="use-cases-and-scenarios"></a>Kullanım örnekleri ve senaryoları
 
-Değişiklik akış yüksek hacimli yazma ile büyük veri kümelerine verimli işlenmesini sağlar ve nelerin değiştiğini belirlemek için tüm bir veri kümesini sorgulama için bir alternatif sunar. 
+Değişiklik akışı, yüksek hacimli yazma ile büyük veri kümelerini verimli işlenmesini sağlar ve nelerin değiştiğini belirlemek için bir veri kümesinin tamamında sorgulama için bir alternatif sunar. 
 
-Örneğin, akışı bir değişiklikle, aşağıdaki görevleri etkin şekilde gerçekleştirebilirsiniz:
+Örneğin, bir değişiklik akışı, aşağıdaki görevleri verimli bir şekilde gerçekleştirebilirsiniz:
 
-* Bir önbellek, arama dizini ya da bir veri ambarı Azure Cosmos DB içinde depolanan veriler ile güncelleştirecek.
-* Uygulama düzeyi verileri katmanlama ve arşivleme uygulamak, diğer bir deyişle, Azure Cosmos DB'de "etkin verileri" depolamak ve "soğuk veri çıkış" geçerlilik süresi [Azure Blob Storage](../storage/common/storage-introduction.md) veya [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
-* Farklı bir bölümleme düzeni ile başka bir Azure Cosmos DB hesabına sıfır kapalı kalma süresi geçişler gerçekleştirin.
-* Uygulama [lambda işlem hatları Azure üzerinde](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) Azure Cosmos DB ile. Azure Cosmos DB alımı ve sorgu işleyen ve düşük ile lambda mimariyi uygulayan ölçeklenebilir veritabanı çözümü sağlar. 
-* Almak ve cihazlar, algılayıcılar, altyapı ve uygulamaları olay verileri depolamak ve gerçek zamanlı bu olayları işlemek [Azure akış analizi](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md), veya [Apache Spark](../hdinsight/spark/apache-spark-overview.md). 
+* Azure Cosmos DB'de depolanan verilerle bir cache, search dizini veya bir veri ambarı'nı güncelleştirin.
+* Uygulama düzeyi verileri katmanlama ve Arşiv uygulamak, diğer bir deyişle, "Sık erişimli veriler" Azure Cosmos DB'de depolamak ve için "soğuk verileri" Yaş [Azure Blob Depolama](../storage/common/storage-introduction.md) veya [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
+* Farklı bir bölümleme düzeni ile başka bir Azure Cosmos DB hesabına sıfır kapalı kalma süresini geçişler gerçekleştirin.
+* Uygulama [lambda işlem hatları azure'da](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) Azure Cosmos DB ile. Azure Cosmos DB hem alma hem de sorgu işleme ve daha düşük ile lambda mimarisi uygulama ölçeklenebilir veritabanı çözümü sağlar. 
+* Bu olaylar ile gerçek zamanlı işleme alma ve cihaz, sensör, altyapı ve uygulamalardan gelen olay verilerini [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md), veya [Apache Spark](../hdinsight/spark/apache-spark-overview.md). 
 
-Aşağıdaki resimde, her ikisi de alma ve Azure Cosmos DB kullanarak sorgu kullanabilirsiniz lambda ardışık düzen akış destek nasıl değiştiğini gösterir: 
+Aşağıdaki görüntüde, her ikisi de alıp Azure Cosmos DB kullanarak sorgu kullanabilirsiniz lambda işlem hatları akış desteği nasıl değiştiğini gösterir: 
 
-![Azure Cosmos DB tabanlı lambda ardışık düzeni alımı ve sorgu için](./media/change-feed/lambda.png)
+![Kesintisiz alım ve sorgu için Azure Cosmos DB tabanlı lambda işlem hattı](./media/change-feed/lambda.png)
 
-Ayrıca, içinde [sunucusuz](http://azure.com/serverless) web ve mobil uygulamaları, yapabilecekleriniz müşterinizin profili, tercihlerine veya konumu kullanarakcihazlarınıanındailetmebildirimlerigöndermegibibelirlieylemleritetiklemekiçindeğişiklikizlemeolaylarına[Azure işlevleri](#azure-functions). Oyun oluşturmak için Azure Cosmos DB kullanıyorsanız, şunları yapabilirsiniz, örneğin, kullanım tamamlanmış oyunlar gelen puanları göre gerçek zamanlı liderlik uygulamak için akış değiştirin.
+Ayrıca, içinde [sunucusuz](http://azure.com/serverless) , web ve mobil uygulamalar, müşterinizin profili, tercihlerine veya konum 'nıkullanarakcihazlarınıanındailetmebildirimlerigöndermegibibelirlieylemleritetiklemekiçindeğişikliklergibiolaylarıizlemekiçin[Azure işlevleri](#azure-functions). Bir oyun oluşturmak için Azure Cosmos DB kullanıyorsanız, şunları yapabilirsiniz, örneğin, kullanım değişiklik akışı tamamlanmış oyunlardan puanları göre gerçek zamanlı puan tabloları uygulamak için.
 
 <a id="azure-functions"></a>
-## <a name="using-azure-functions"></a>Azure işlevlerini kullanma 
+## <a name="using-azure-functions"></a>Azure işlevleri'ni kullanarak 
 
-Azure işlevleri kullanıyorsanız, bir Azure Cosmos DB Değiştir akışına bağlanmak için en basit yolu, Azure işlevleri uygulamanızın Azure Cosmos DB tetikleyici eklemektir. Bir Azure işlevleri uygulamada bir Azure Cosmos DB tetikleyicisi oluşturduğunuzda, bağlanmak için Azure Cosmos DB koleksiyonu seçin ve koleksiyona bir değişiklik yapıldığında işlevi tetiklenir. 
+Azure işlevleri'ni kullanıyorsanız, en basit yolu için bir Azure Cosmos DB değişiklik akışı bağlanmak için Azure işlevleri uygulamanızı bir Azure Cosmos DB tetikleyicisi eklemektir. Bir Azure işlev uygulaması bir Azure Cosmos DB tetikleyicisi oluşturduğunuzda, bağlanmak için Azure Cosmos DB koleksiyonu seçin ve her koleksiyona bir değişiklik yapıldığında işlevi tetiklenir. 
 
-Azure işlevleri Portalı'nda tetikleyicileri oluşturulabilir Azure Cosmos DB portalında veya program aracılığıyla. Daha fazla bilgi için bkz: [Azure Cosmos DB: sunucusuz veritabanı Azure işlevleri kullanarak bilgi işlem](serverless-computing-database.md).
+Azure işlevleri Portalı'nda Tetikleyiciler oluşturulabilir Azure Cosmos DB portalında veya programlama yoluyla. Daha fazla bilgi için [Azure Cosmos DB: Azure işlevleri ile sunucusuz veritabanı computing](serverless-computing-database.md).
 
 <a id="sql-sdk"></a>
 ## <a name="using-the-sdk"></a>SDK’yı kullanarak
 
-[SQL SDK](sql-api-sdk-dotnet.md) Azure Cosmos DB okumak ve akış bir değişiklik yönetmek için tüm güç getirdiği için. Ancak çok sorumlulukları, çok sayıda harika güç ile gelir. Kontrol noktalarını yönetme, belge sıra numaraları ile ilgilidir ve bölüm anahtarlarını üzerinde ayrıntılı denetim sahibi istiyorsanız, SDK'sını kullanarak sağ yaklaşım olabilir.
+[SQL SDK'sı](sql-api-sdk-dotnet.md) için Azure Cosmos DB, okuma ve bir değişiklik akışı yönetmek için tüm güç sağlar. Ancak büyük güç, çok sayıda sorumlulukları gelir. Kontrol noktalarını yönetme, belge sırası numaralarıyla Dağıt ve bölüm anahtarları üzerinde ayrıntılı denetime sahip istiyorsanız, daha sonra SDK'sını kullanarak aldığı doğru yaklaşım olabilir.
 
-Bu bölümde SQL SDK'sı akışı bir değişiklik ile çalışmak için nasıl kullanılacağı anlatılmaktadır.
+Bu bölümde bir değişiklik akışı ile çalışmak için SQL SDK'sını kullanma konusunda yol göstermektedir.
 
-1. Appconfig aşağıdaki kaynakları okuyarak başlatın. Uç nokta ve yetkilendirme anahtar alınırken yönergeleri kullanılabilir [bağlantı dizenizi güncelleştirme](create-sql-api-dotnet.md#update-your-connection-string).
+1. Appconfig aşağıdaki kaynakları okuyarak başlatın. Uç nokta ve yetkilendirme anahtarını alma yönergeleri kullanılabilir [bağlantı dizenizi güncelleştirme](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -115,7 +115,7 @@ Bu bölümde SQL SDK'sı akışı bir değişiklik ile çalışmak için nasıl 
     }
     ```
 
-3. Bölüm anahtarı aralıklarını alma:
+3. Bölüm anahtar aralığı alın:
 
     ```csharp
     FeedResponse pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
@@ -127,7 +127,7 @@ Bu bölümde SQL SDK'sı akışı bir değişiklik ile çalışmak için nasıl 
     pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
     ```
 
-4. ExecuteNextAsync her bölüm anahtarı aralığının arayın:
+4. Çağrı ExecuteNextAsync için her bölüm anahtar aralığı:
 
     ```csharp
     foreach (PartitionKeyRange pkRange in partitionKeyRanges){
@@ -158,73 +158,73 @@ Bu bölümde SQL SDK'sı akışı bir değişiklik ile çalışmak için nasıl 
     ```
 
 > [!NOTE]
-> Yerine `ChangeFeedOptions.PartitionKeyRangeId`, kullanabileceğiniz `ChangeFeedOptions.PartitionKey` akışı bir değişiklik almak istediğiniz için tek bölüm anahtarı belirtmek için. Örneğin, `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
+> Yerine `ChangeFeedOptions.PartitionKeyRangeId`, kullanabileceğiniz `ChangeFeedOptions.PartitionKey` değişiklik akışı alınacağı tek bölüm anahtarı belirtmek için. Örneğin, `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
 > 
 >
 
-Birden çok okuyucular varsa, kullanabileceğiniz **ChangeFeedOptions** farklı iş parçacıklarındaki ya da farklı istemcileri okuma yükü dağıtmak için.
+Birden fazla okuyucuyu kapsayacak varsa, kullanabileceğiniz **ChangeFeedOptions** farklı iş parçacıkları veya farklı istemcilerin okuma yükünü dağıtmak için.
 
-İşte bu kadar bu birkaç kod satırıyla, değişiklik akışı okuma başlatabilirsiniz. Bu makalede kullanılan tam bir kod almak [GitHub deposuna](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
+Ve İşte bu kadar bu birkaç kod satırıyla, değişiklik akışı okuma başlayabilirsiniz. Bu makalede kullanılan tam kod alabilirsiniz [GitHub deposunu](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 
-Yukarıdaki 4. adımda kodda **ResponseContinuation** son satırı bu sıra numarası sonra yeni belgeleri okuyun sonraki açışınızda kullanacağınız belgenin son mantıksal sıra numarası (LSN) içeriyor. Kullanarak **StartTime** , **ChangeFeedOption** belgeleri almak üzere, net genişletebilirsiniz. Böylece, Eğer, **ResponseContinuation** null, ancak, **StartTime** beri değiştirilen tüm belgeleri alırsınız sürede geri gider **StartTime**. Ancak, IF, **ResponseContinuation** sistem itibaren bu LSN tüm belgeleri alırsınız bir değere sahip.
+Yukarıdaki 4. adımdaki kod **ResponseContinuation** bu sıra numarası sonra yeni belgeleri okuyun sonraki açışınızda kullanacağınız belgenin son mantıksal sıra numarası (LSN) son satırı içeriyor. Kullanarak **StartTime** , **ChangeFeedOption** belgeleri almak için net genişletebilirsiniz. Yani, **ResponseContinuation** null; ancak, **StartTime** beri değiştirilen tüm belgelerin olacağı süre döner **StartTime**. Ancak, Eğer, **ResponseContinuation** sistem tüm belgelerin bu yana bu LSN olacağı bir değere sahip.
 
-Bu nedenle, kontrol noktası dizinizi yalnızca her bölüm için LSN engelliyor. Ancak bu bölümleri mücadele etmek istemiyorsanız, kontrol noktaları, LSN, başlangıç saati, vb. basit seçenek işlemci kitaplığı akış değişiklik kullanmaktır.
+Bu nedenle, denetim noktası diziniz yalnızca her bölüm için LSN engelliyor. Ancak bu bölümleri ile uğraşmak istemiyorsanız, kontrol noktaları, LSN, başlangıç zamanı, vb. Basit seçeneği değişiklik akışı işlemci kitaplığı kullanmaktır.
 
 <a id="change-feed-processor"></a>
-## <a name="using-the-change-feed-processor-library"></a>Değişiklik kullanarak akış işlemci kitaplığı 
+## <a name="using-the-change-feed-processor-library"></a>Kullanarak değişiklik akışı işlemci kitaplığı 
 
-[Azure Cosmos DB Değiştir Akış işlemci Kitaplığı](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) kolayca olay işleme arasında birden çok tüketiciye dağıtmak yardımcı olabilir. Bu kitaplık, bölümler ve paralel çalışan birden çok iş parçacığı üzerinde okuma değişiklikleri basitleştirir.
+[Azure Cosmos DB değişiklik akışı işlemci Kitaplığı](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) olay işleme çeşitli tüketicilere kolayca dağıtmak yardımcı olabilir. Bu kitaplık, bölümler ve paralel olarak çalışan birden çok iş parçacığı üzerinde okuma değişiklikleri basitleştirir.
 
-Değişiklik akış işlemci kitaplığı ana avantajı, her bölüm yönetmek zorunda değilsiniz ve devamlılık belirteci ve her bir koleksiyon el ile yoklamaya yok ' dir.
+Değişiklik akışı işlemci kitaplığı ana avantajı, her bölüm yönetmek zorunda olmadığınız ve devamlılık belirteci ve her bir koleksiyon el ile yoklamaya yoksa ' dir.
 
-Değişiklik akış işlemci kitaplığı, bölümler ve paralel çalışan birden çok iş parçacığı üzerinde okuma değişiklikleri basitleştirir.  Bir kiralama mekanizması kullanarak bölümleri arasında okuma değişiklikleri otomatik olarak yönetir. İşlemci kitaplığı akış değişiklik kullanan iki istemciler başlatırsanız aşağıdaki resimde gördüğünüz gibi kendi aralarında iş bölün. İstemcilerin artmaya devam ederken, aralarında iş bölerek tutun.
+Değişiklik akışı işlemci kitaplığı, bölümler ve paralel olarak çalışan birden çok iş parçacığı üzerinde okuma değişiklikleri basitleştirir.  Kiralama mekanizması kullanılarak bölümler arasında okuma değişiklikleri otomatik olarak yönetir. Değişiklik akışı işlemci kitaplığı kullanan iki istemciler başlatırsanız, aşağıdaki görüntüde görebileceğiniz gibi bunlar kendi aralarında iş bölün. İstemcilerin artmaya devam ederken, kendi aralarında iş bölme tutun.
 
-![Azure Cosmos DB değişimin dağıtılmış işlem akışı](./media/change-feed/change-feed-output.png)
+![Azure Cosmos DB değişiklik akışı, dağıtılan işleme](./media/change-feed/change-feed-output.png)
 
-Sol istemci ilk başlatıldığından ve tüm bölümleri sonra ikinci istemci başlatıldı ve ardından ilk izin bazı ikinci istemci kiraları Git izleme başlatıldı. Bu görebileceğiniz gibi farklı makinelerde ve istemciler arasındaki iş dağıtmak için iyi yoludur.
+Sol istemci ilk olarak başlatıldığından ve tüm bölümleri ve ardından ikinci bir istemci başlatıldı ve ardından ilk izin bazı ikinci istemci kiraları Git izleme başlatıldı. Bu gördüğünüz gibi farklı makinelerde ve istemciler arasındaki iş dağıtmak için kullanışlı yoludur.
 
-Aynı koleksiyonda izleme ve iki işlevi nasıl işlemci kitaplığı öğe için bölümleri karar bağlı bağlı olarak farklı belgeler alabilirsiniz aynı kira kullanılarak iki sunucusuz Azure funtions varsa unutmayın.
+Aynı koleksiyona izleme ve iki işlev nasıl işlemci kitaplığı için öğe bölümleri karar bağlı bağlı olarak farklı belgeler alabilirsiniz aynı kira kullanılarak iki sunucusuz Azure funtions varsa unutmayın.
 
 <a id="understand-cf"></a>
-### <a name="understanding-the-change-feed-processor-library"></a>İşlemci kitaplığı akış değişikliği anlama
+### <a name="understanding-the-change-feed-processor-library"></a>Anlama değişiklik akışı işlemci kitaplığı
 
-Değişiklik akış işlemci kitaplığı gerçekleştirilmesinin dört ana bileşen mevcuttur: izlenen koleksiyonu, kira koleksiyonu, işlemci ana bilgisayar ve tüketicilerin. 
+Değişiklik akışı işlemci kitaplığı uygulama dört ana bileşen vardır: izlenen koleksiyonu, kira koleksiyonu, işleyicisi ana bilgisayarı ve tüketiciler. 
 
 > [!WARNING]
 > Koleksiyon oluşturmanın bir fiyatı vardır çünkü Azure Cosmos DB'yle iletişim kurması için uygulamaya aktarım hızı ayırırsınız. Daha ayrıntılı bilgi için lütfen [fiyatlandırma sayfasını](https://azure.microsoft.com/pricing/details/cosmos-db/) ziyaret edin
 > 
 > 
 
-**İzlenen koleksiyonu:** değişiklik akış oluşturulan verileri izlenen koleksiyonudur. Tüm eklemeleri ve değişiklikleri izlenen koleksiyonu için koleksiyon değişiklik akışta yansıtılır. 
+**İzlenen koleksiyonu:** değişiklik akışı oluşturulan veriler izlenen koleksiyonudur. Tüm eklemeleri ve değişiklikleri izlenen koleksiyon için koleksiyon değişiklik akışını yansıtılır. 
 
-**Kira koleksiyonu:** arasında birden çok Worker akış değişiklik işleme kira koleksiyonu koordinatları. Ayrı bir koleksiyon, bölüm başına bir kiralama ile kiraları depolamak için kullanılır. Farklı bir hesap işlemci akış değişiklik çalıştığı yazma bölgeyi daha yakın olan bu kira koleksiyon depolamak için avantajlıdır. Bir kira nesnesi aşağıdaki öznitelikleri içerir: 
+**Kira koleksiyonu:** değişiklik arasında birden fazla çalışana akışı işleme kira koleksiyonu koordinatlar. Ayrı bir koleksiyon ile bir kira bölüm başına kiraları depolamak için kullanılır. Değişiklik akışı işlemci çalıştığı için yazma bölgesi yakın farklı bir hesapla bu kira koleksiyonu depolamak için avantajlıdır. Bir kira nesnesi aşağıdaki öznitelikleri içerir: 
 * Sahibi: kira sahibi olan konak belirtir
-* Devamlılık: belirli bir bölüm için akış değişiklik (devamlılık belirteci) konumu belirtir
-* Zaman damgası: kira güncelleştirildi; son zamanı zaman damgası, kira süresi dolmuş olarak kabul edilip edilmediğini kontrol etmek için kullanılabilir 
+* Devamlılık: belirli bir bölüm için akış değişikliği (devamlılık belirteci) konumu belirtir.
+* Zaman damgası: kira güncelleştirildi; son saat zaman damgası, kiralama süresi olarak kabul edilip edilmediğini kontrol etmek için kullanılabilir 
 
-**İşlemci ana bilgisayarı:** etkin kiralamaları kaç ana örneklerini olmadığına göre işlem kaç bölümler her konak belirler. 
-1.  Bir ana bilgisayar başlatıldığında tüm ana bilgisayarlar arasında iş yükünü dengelemek için kiraları alır. Kira etkin şekilde bir ana bilgisayar kiralama, düzenli aralıklarla yeniler. 
-2.  Bir ana bilgisayar kontrol noktaları da son kirasını her devamlılık belirteci okuyun. Eşzamanlılık güvenliği sağlamak için her bir kira güncelleştirme ETag bir ana bilgisayar denetler. Diğer denetim noktası stratejileri de desteklenir.  
-3.  Kapatma, bağlı bir konak tüm kira serbest bırakır, ancak depolanan denetim noktası dosyasından okuma daha sonra devam edebilmek için devamlılık bilgileri tutar. 
+**İşleyicisi ana bilgisayarı:** her ana bilgisayar işlemi konakların kaç tane Etkin kiralar olmadığına göre kaç bölümlerini belirler. 
+1.  Bir ana bilgisayar başlatıldığında tüm konaklar arasında iş yükünü dengelemek için kiraları alır. Kira etkin şekilde bir konak kiralama, düzenli aralıklarla yeniler. 
+2.  Bir ana bilgisayar denetim noktaları son kirasını her devamlılık belirteci okuyun. Eşzamanlılık güvenliği sağlamak için her bir kira güncelleştirme ETag bir konak denetler. Diğer denetim noktası stratejileri de desteklenir.  
+3.  Kapatma, bağlı bir konak tüm kira serbest bırakır, ancak depolanan denetim noktası daha sonra okumaya devam edebilmek için devamlılık bilgileri tutar. 
 
-Şu anda konakların sayısı bölümleri (kiraları) sayısından büyük olamaz.
+Şu anda ana bilgisayar sayısı bölüm (kiraları) sayısından büyük olamaz.
 
-**Tüketiciler:** tüketici veya çalışanları olan her konak tarafından başlatılan akış değişiklik yönlendirilmeden iş parçacığı. Her işlemci ana bilgisayarın birden çok tüketiciye sahip olabilir. Her bir tüketici değişikliği atandığı bölümünden akış ve değişiklikleri ana bilgisayar bildirir ve kira süresi okur.
+**Tüketiciler:** tüketiciler veya çalışanlar, olan değişiklik akışı, her konak tarafından başlatılan işlemleri gerçekleştiren iş parçacıkları. Her işleyicisi ana bilgisayarı, birden fazla tüketici olabilir. Her tüketici, değişiklik atandığı bölümünden akışı ve değişiklikleri ana bilgisayar bildirir ve kiralama süresi okur.
 
-Daha fazla değişiklik akış dört nasıl bu unsuru anlamak için işlemci iş birlikte bakalım örneği aşağıdaki diyagramda. İzlenen koleksiyonu belgeleri depolar ve "Şehir" Bölüm anahtarı olarak kullanır. Mavi bölüm "Şehir" alanını "A-E" belgeler vb. içerdiğini görürsünüz. Her iki tüketicileri paralel dört bölümden okuma ile iki ana vardır. Oklar, belirli bir nokta akış değişikliği okuma tüketicileri gösterir. Mavi akış değişiklik zaten okuma değişiklikleri temsil ederken, ilk bölümü Koyu mavi okunmamış değişiklikler temsil eder. Ana bilgisayarlar, her tüketici geçerli okuma konumunu izlemek için bir "devamlılık" değeri depolamak için kira koleksiyonunu kullanın. 
+Daha fazla değişiklik akışı nasıl bu dört öğeden anlamak için işlemci iş birlikte bakalım, aşağıdaki diyagramda bir örnek. İzlenen koleksiyonu, belgeleri depolayan ve "city" Bölüm anahtarı olarak kullanır. Mavi bölüm "A-E" "city" alanından belgelerle vb. içeren görüyoruz. Her iki tüketici paralel dört bölümden okuma içeren iki ana vardır. Oklar, değişiklik akışı belirli bir noktada okuma tüketiciler gösterir. Açık mavi değişiklik akışı zaten okuma değişiklikleri temsil ederken, ilk bölümü, koyu mavi okunmamış değişiklikleri temsil eder. Ana bilgisayarlar, her bir tüketicinin geçerli okuma konumunu izlemek için bir "Devam" değerini depolamak için kira koleksiyonu kullanın. 
 
-![Azure Cosmos DB değişikliği kullanarak akış işlemcisi konağı](./media/change-feed/changefeedprocessornew.png)
+![Kullanarak Azure Cosmos DB değişiklik akışı işlemci konak](./media/change-feed/changefeedprocessornew.png)
 
-### <a name="working-with-the-change-feed-processor-library"></a>İşlemci kitaplığı akış değişiklik ile çalışma
+### <a name="working-with-the-change-feed-processor-library"></a>Değişiklik akışı işlemci kitaplığı ile çalışma
 
-İşlemci NuGet paketi değişikliği yükleme akışı önce ilk yükleyin: 
+İşlemci NuGet paketi yükleme değişiklik akışı önce ilk yükleyin: 
 
 * Microsoft.Azure.DocumentDB, en son sürümü.
 * Newtonsoft.Json, en son sürümü
 
-Daha sonra yüklemek [Microsoft.Azure.DocumentDB.ChangeFeedProcessor Nuget paketi](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) ve bir başvuru olarak dahil edin.
+Yüklemeyi [Microsoft.Azure.DocumentDB.ChangeFeedProcessor Nuget paketini](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) ve bir başvuru olarak eklediğiniz.
 
-Yapmanız gereken değişiklik akış işlemci kitaplığı uygulamak için aşağıdaki:
+Yapmanız gereken değişiklik akışı işlemci kitaplığı uygulamak için aşağıdaki:
 
 1. Uygulama bir **DocumentFeedObserver** uygulayan nesne **IChangeFeedObserver**.
     ```csharp
@@ -299,7 +299,7 @@ Yapmanız gereken değişiklik akış işlemci kitaplığı uygulamak için aşa
     }
     ```
 
-2. Uygulama bir **DocumentFeedObserverFactory**, hangi uygulayan bir **IChangeFeedObserverFactory**.
+2. Uygulama bir **DocumentFeedObserverFactory**, uygulayan bir **IChangeFeedObserverFactory**.
     ```csharp
      using Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing;
 
@@ -328,14 +328,14 @@ Yapmanız gereken değişiklik akış işlemci kitaplığı uygulamak için aşa
     }
     ```
 
-3. Tanımlamak *CancellationTokenSource* ve *ChangeFeedProcessorBuilder*
+3. Tanımlama *CancellationTokenSource* ve *ChangeFeedProcessorBuilder*
 
     ```csharp
     private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
     private readonly ChangeFeedProcessorBuilder builder = new ChangeFeedProcessorBuilder();
     ```
 
-5. Yapı **ChangeFeedProcessorBuilder** sonra ilgili nesneleri tanımlama 
+5. derleme **ChangeFeedProcessorBuilder** sonra ilgili nesneleri tanımlama 
 
     ```csharp
             string hostName = Guid.NewGuid().ToString();
@@ -383,89 +383,89 @@ Yapmanız gereken değişiklik akış işlemci kitaplığı uygulamak için aşa
             await result.StartAsync();
             Console.Read();
             await result.StopAsync();    
-            ```
+    ```
 
-That’s it. After these few steps documents will start showing up into the **DocumentFeedObserver.ProcessChangesAsync** method.
+İşte bu kadar. Bu adımlarda sonra belgeleri içine görünmeye başlar **DocumentFeedObserver.ProcessChangesAsync** yöntemi.
 
-Above code is for illustration purpose to show different kind of objects and their interaction. You have to define proper variables and initiate them with correct values. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessorV2).
+Yukarıdaki kodu farklı türde nesneler ve onların etkileşimi göstermek gösterim amacıyla ' dir. Uygun değişkenleri tanımlayın ve bunları doğru değerlerle başlatmak gerekir. Bu makalede kullanılan tam kod alabilirsiniz [GitHub deposunu](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessorV2).
 
 > [!NOTE]
-> You should never have a master key in your code or in config file as shown in above code. Please see [how to use Key-Vault to retrive the keys](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/).
+> Hiçbir zaman, kodunuzda veya kod gösterildiği gibi yapılandırma dosyasında bir ana anahtar olması gerekir. Lütfen [Key-Vault kuralından anahtarları kullanmak nasıl](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/).
 
 
-## FAQ
+## <a name="faq"></a>SSS
 
-### What are the different ways you can read Change Feed? and when to use each method?
+### <a name="what-are-the-different-ways-you-can-read-change-feed-and-when-to-use-each-method"></a>Değişiklik akışı okuma farklı yolları nelerdir? ve her yöntemi kullanmak ne zaman?
 
-There are three options for you to read change feed:
+Değişiklik akışı okumanız için üç seçenek vardır:
 
-* **[Using Azure Cosmos DB SQL API .NET SDK](#sql-sdk)**
+* **[Azure Cosmos DB SQL API .NET SDK'sını kullanma](#sql-sdk)**
    
-   By using this method, you get low level of control on change feed. You can manage the checkpoint, you can access a particular partition key etc. If you have multiple readers, you can use [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) to distribute read load to different threads or different clients. .
+   Bu yöntemi kullanarak, değişiklik akışı denetimde düşük düzeyde alın. Denetim noktası yönetebilir, belirli bir bölüm anahtarı vb. erişebilir. Birden fazla okuyucuyu kapsayacak varsa, kullanabileceğiniz [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) farklı iş parçacıkları veya farklı istemcilerin okuma yükünü dağıtmak için. .
 
-* **[Using the Azure Cosmos DB change feed processor library](#change-feed-processor)**
+* **[Kullanarak Azure Cosmos DB değişiklik akışı işlemci kitaplığı](#change-feed-processor)**
 
-   If you want to outsource lot of complexity of change feed then you can use change feed processor library. This library hides lot of complexity, but still gives you complete control on change feed. This library follows an [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern), your processing function is called by the SDK. 
+   Değişiklik akışı karmaşıklığını çok fazla dış istiyorsanız, değişiklik akışı işlemci kitaplığı kullanabilirsiniz. Bu kitaplığı çok sayıda karmaşıklığını gizler, ancak yine de değişiklik akışını, üzerinde tam denetim verir. Bu kitaplık izleyen bir [gözlemci deseni](https://en.wikipedia.org/wiki/Observer_pattern), işleme işlevinizi SDK tarafından çağrılır. 
 
-   If you have a high throughput change feed, you can instantiate multiple clients to read the change feed. Because you are using “change feed processor library”, it will automatically divide the load among different clients. You do not have to do anything. All the complexity is handled by SDK. However, if you want to have your own load balancer, then you can implement IParitionLoadBalancingStrategy for custom partition strategy. Implement IPartitionProcessor – for custom processing changes on a partition. However, with SDK, you can process a partition range but if you want to process a particular partition key then you have to use SDK for SQL API.
+   Bir yüksek aktarım hızı değişiklik akışı varsa, değişiklik akışını okumak için birden çok istemci örneği oluşturabilir. "Değişiklik akışı işlemci kitaplığı" kullandığından, otomatik olarak yükü farklı istemciler arasında böler. Herhangi bir şey gerekmez. Tüm karmaşıklığı SDK tarafından yapılır. Yük dengeleyicinizi olmasını istiyorsanız, ancak daha sonra IParitionLoadBalancingStrategy özel bölüm stratejisi uygulayabilir. Özel işleme değişikliklerin bir bölüme IPartitionProcessor – uygulayın. Ancak, SDK'sı ile bir bölüm aralığı işleyebilir ancak belirli bir bölüm anahtarı işlemek isterseniz daha sonra SDK'sı SQL API'si için kullanmak zorunda.
 
-* **[Using Azure Functions](#azure-functions)** 
+* **[Azure işlevleri'ni kullanarak](#azure-functions)** 
    
-   The last option Azure Function is the simplest option. We recommend using this option. When you create an Azure Cosmos DB trigger in an Azure Functions app, you select the Azure Cosmos DB collection to connect to and the function is triggered whenever a change to the collection is made. watch a [screen cast](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) of using Azure function and change feed
+   Son seçenek Azure işlevi en basit bir seçenektir. Bu seçeneği kullanmanızı öneririz. Bir Azure işlev uygulaması bir Azure Cosmos DB tetikleyicisi oluşturduğunuzda, bağlanmak için Azure Cosmos DB koleksiyonu seçin ve her koleksiyona bir değişiklik yapıldığında işlevi tetiklenir. İzleme bir [ekran atama](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) değişiklik akışını ve Azure'ı kullanarak bu işlevi
 
-   Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB portal, or programmatically. Visual Studio and VS Code has great support to write Azure Function. You can write and debug the code on your desktop, and then deploy the function with one click. For more information, see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md) article.
+   Azure işlevleri Portalı'nda Tetikleyiciler oluşturulabilir Azure Cosmos DB portalında veya programlama yoluyla. Visual Studio ve VS Code Azure işlevi yazmak için mükemmel destek vardır. Yazma ve masaüstünüzde kodda hata ayıklama ve ardından işlev tek bir tıklamayla dağıtın. Daha fazla bilgi için [Azure Cosmos DB: Azure işlevleri ile sunucusuz veritabanı computing](serverless-computing-database.md) makalesi.
 
-### What is the sort order of documents in change feed?
+### <a name="what-is-the-sort-order-of-documents-in-change-feed"></a>Değişiklik akışı belgelerde sıralama düzeni nedir?
 
-Change feed documents comes in order of their modification time. This sort order is guaranteed only per partition.
+Değişiklik akışı belgeleri kendi değiştirme saati sırasına göre sunulur. Bu sıralama düzeni yalnızca bölüm başına garanti edilir.
 
-### For a multi-region account, what happens to the change feed when the write-region fails-over? Does the change feed also failover? Would the change feed still appear contiguous or would the fail-over cause change feed to reset?
+### <a name="for-a-multi-region-account-what-happens-to-the-change-feed-when-the-write-region-fails-over-does-the-change-feed-also-failover-would-the-change-feed-still-appear-contiguous-or-would-the-fail-over-cause-change-feed-to-reset"></a>Bir çok bölgeli hesabı için yazma bölgesi başarısız-üzerinden zaman akışı değişikliğin ne olur? Değişiklik de yük devretme akışı mu? Değişiklik hala akışı bitişik görünür veya yük devretme nedeni değişiklik akışını sıfırlamak için?
 
-Yes, change feed will work across the manual failover operation and it will be contiguous.
+Evet, değişiklik akışı el ile yük devretme işlemi çalışır ve bitişik olacaktır.
 
-### How long change feed persist the changed data if I set the TTL (Time to Live) property for the document to -1?
+### <a name="how-long-change-feed-persist-the-changed-data-if-i-set-the-ttl-time-to-live-property-for-the-document-to--1"></a>Ne kadar süreyle değişiklik akışı persist değiştirilen verileri belge TTL (yaşam süresi) özelliği -1 olarak ayarlarsanız?
 
-Change feed will persist forever. If data is not deleted, it will remain in change feed.
+Değişiklik akışı her zaman açık kalır. Veriler silinmez, değişiklik akışı içinde kalır.
 
-### How can I configure Azure functions to read from a particular region, as change feed is available in all the read regions by default?
+### <a name="how-can-i-configure-azure-functions-to-read-from-a-particular-region-as-change-feed-is-available-in-all-the-read-regions-by-default"></a>Değişiklik akışı, varsayılan olarak tüm okuma bölgelerinde kullanılabilir olduğu gibi belirli bir bölgeden okumak için Azure işlevleri nasıl yapılandırabilirim?
 
-Currently it’s not possible to configure Azure Functions to read from a particular region. There is a GitHub issue in the Azure Functions repo to set the preferred regions of any Azure Cosmos DB binding and trigger.
+Şu anda Azure işlevleri, belirli bir bölgeden okumak için yapılandırmak mümkün değildir. Herhangi bir Azure Cosmos DB bağlama ve tetikleme tercih edilen bölge ayarlamak için Azure işlevleri depoda bir GitHub sorunu yoktur.
 
-Azure Functions uses the default connection policy. You can configure connection mode in Azure Functions and by default, it reads from the write region, so it is best to co-locate Azure Functions on the same region.
+Azure işlevleri, varsayılan bağlantı İlkesi kullanır. Azure işlevleri'nde ve varsayılan olarak bağlantı modu yapılandırma, aynı bölgede bulunan Azure işlevleri birlikte bulunacak en iyisidir yazma bölgesinden okur.
 
-### What is the default size of batches in Azure Functions?
+### <a name="what-is-the-default-size-of-batches-in-azure-functions"></a>Azure işlevleri'nde toplu varsayılan boyutu nedir?
 
-100 documents at every invocation of Azure Functions. However, this number is configurable within the function.json file. Here is complete [list of configuration options](../azure-functions/functions-run-local.md). If you are developing locally, update the application settings within the [local.settings.json](../azure-functions/functions-run-local.md) file.
+Azure işlevleri'nin her çağırma 100 belgeleri. Ancak, bu sayı function.json dosyasında yapılandırılabilir. İşte tam [yapılandırma seçeneklerinin listesi](../azure-functions/functions-run-local.md). Yerel olarak geliştiriyorsanız, uygulama ayarları içinde güncelleştirme [local.settings.json](../azure-functions/functions-run-local.md) dosya.
 
-### I am monitoring a collection and reading its change feed, however I see I am not getting all the inserted document, some documents are missing. What is going on here?
+### <a name="i-am-monitoring-a-collection-and-reading-its-change-feed-however-i-see-i-am-not-getting-all-the-inserted-document-some-documents-are-missing-what-is-going-on-here"></a>Bir koleksiyon izleme ve okuma değişiklik akışı, ancak tüm ekli belge almıyorum görüyorum, bazı belgeler eksik. Ne anlama geliyor?
 
-Please make sure that there is no other function reading the same collection with the same lease collection. It happened to me, and later I realized the missing documents are processed by my other Azure functions, which is also using the same lease.
+Aynı koleksiyon ile aynı kira koleksiyonu okuma hiçbir işlev olduğundan emin olun. Bana oldu ve daha sonra Ayrıca aynı kira kullanarak my diğer Azure işlevleri tarafından işlenen eksik belgeleri miyim gerçekleşmiş.
 
-Therefore, if you are creating multiple Azure Functions to read the same change feed then they must use different lease collection or use the “leasePrefix” configuration to share the same collection. However, when you use change feed processor library you can start multiple instances of your function and SDK will divide the documents between different instances automatically for you.
+Okunacak birden çok Azure işlevleri oluşturuyorsanız farklı kira koleksiyonu kullanın veya aynı koleksiyona paylaşmak için "leasePrefix" yapılandırmasını kullanın. Bu nedenle, aynı akışı değiştirin. Ancak, değişiklik akışı işlemci kitaplığı kullandığınızda, işlevinizi birden çok örneğini başlayabilir ve SDK Belgeleri otomatik olarak farklı örnekleri arasında böler.
 
-### My document is updated every second, and I am not getting all the changes in Azure Functions listening to change feed.
+### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>Saniyede Uygulamam belge güncelleştirilir ve tüm değişiklikleri Azure işlevleri'nde değişiklik akışını dinleme almıyorum.
 
-Azure Functions polls change feed for every 5 seconds, so any changes made between 5 seconds are lost. Azure Cosmos DB stores just one version for every 5 seconds so you will get the 5th change on the document. However, if you want to go below 5 second, and want to poll change Feed every second, You can configure the polling time “feedPollTime”, see [Azure Cosmos DB bindings](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). It is defined in milliseconds with a default of 5000. Below 1 second is possible but not advisable, as you will start burning more CPU.
+5 saniye arasında yapılan tüm değişiklikler kaybedilir için azure işlevleri yoklamalar değişiklik her 5 saniyede akışı. 5 değişikliğin belgede erişmenizi sağlayacak şekilde azure Cosmos DB, tek bir sürüm 5 saniyede depolar. Ancak, 5 saniye gidin ve değişiklik saniyede akışı yoklamak istediğiniz istiyorsanız, yoklama süresi "feedPollTime" yapılandırmak, bakın [Azure Cosmos DB bağlamaları](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). Varsayılan değer 5000 milisaniye cinsinden tanımlanır. Daha fazla CPU yazma başlayacak şekilde olası ancak önerilir, 1 saniye.
 
-### I inserted a document in the Mongo API collection, but when I get the document in change feed, it shows a different id value. What is wrong here?
+### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>Mongo API koleksiyonda bir belge ekledim ancak belgenin içinde değişiklik akışı aldığınızda farklı kimliği değerini gösterir. Burada sorun nedir?
 
-Your collection is Mongo API collection. Remember, change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed. You are seeing is the representation of a BSON document in JSON. If you use binary attributes in a Mongo accounts, they are converted to JSON.
+Koleksiyonunuz Mongo API koleksiyonudur. Değişiklik akışı bir SQL istemcisi kullanılarak okunur ve öğeleri JSON biçimine serileştiren unutmayın. Biçimlendirme, JSON nedeniyle istemciler yaşar MongoDB BSON biçimlendirilmiş belgeleri ve JSON arasında bir uyuşmazlık değişiklik akışı biçimlendirilmiş. Sizin gördüğünüz BSON belgeye JSON gösterimidir. Mongo hesaplarında ikili öznitelikler kullanıyorsa, bunlar JSON'a dönüştürülür.
 
-### Is there a way to control change feed for updates only and not inserts?
+### <a name="is-there-a-way-to-control-change-feed-for-updates-only-and-not-inserts"></a>Değişiklik akışı yalnızca güncelleştirmeleri denetlemek için bir yol yoktur ve değil ekler?
 
-Not today, but this functionality is on roadmap. Today, you can add a soft marker on the document for updates.
+Bugün değil, ancak bu işlev, yol haritası kapsamındadır. Bugün, üzerinde belge güncelleştirmeleri için yazılım işaretleyici ekleyebilirsiniz.
 
-### Is there a way to get deletes in change feed?
+### <a name="is-there-a-way-to-get-deletes-in-change-feed"></a>Değişiklik akışı silmeleri almak için bir yol var mı?
 
-Currently change feed doesn’t log deletes. Change feed is continuously improving, and this functionality is on roadmap. Today, you can add a soft marker on the document for delete. Add an attribute on the document called “deleted” and set it to “true” and set a TTL on the document so that it can be automatically deleted.
+Değişiklik akışı siler oturum şu anda değil. Değişiklik akışı sürekli olarak geliştirmek ve bu işlev, yol haritası kapsamındadır. Bugün, belge silme için geçici bir işaretleyici ekleyebilirsiniz. Bir öznitelik "silindi" adlı "true" olarak ayarlayın ve otomatik olarak silinebilir belge üzerinde bir TTL ayarlamak belge ekleyin.
 
-### Can I read change feed for historic documents(for example, documents that were added 5 years back) ?
+### <a name="can-i-read-change-feed-for-historic-documentsfor-example-documents-that-were-added-5-years-back-"></a>Ben, değişiklik akışı geçmiş belgeleri (örneğin, 5 yıl eklenmiş olan belgeleri) okuyabilir miyim?
 
-Yes, if the document is not deleted you can read the change feed as far as the origin of your collection.
+Belge silinmedi, Evet değişiklik okuyabilirsiniz koleksiyonunuzun kaynağı sunulan ürünün kendinde akış.
 
-### Can I read change feed using JavaScript?
+### <a name="can-i-read-change-feed-using-javascript"></a>Ben, JavaScript kullanarak değişiklik akışı okuyabilir miyim?
 
-Yes, Node.js SDK initial support for change feed is recently added. It can be used as shown in the following example, please update documentdb module to current version before you run the code:
+Evet, Node.js SDK'sı ilk değişiklik akışı desteği kısa süre önce eklenir. Aşağıdaki örnekte, kod çalıştırmadan önce lütfen geçerli sürüme güncelleştirme documentdb modülünü gösterildiği gibi kullanılabilir:
 
 ```js
 
@@ -502,54 +502,54 @@ query.executeNext((err, results, headers) =&gt; {
 
 ```
 
-### <a name="can-i-read-change-feed-using-java"></a>Java kullanarak değişiklik akış okuyabilir miyim?
+### <a name="can-i-read-change-feed-using-java"></a>Ben, Java kullanarak değişiklik akışı okuyabilir miyim?
 
-Değişiklik akış okumak için Java kitaplığı sağlanmıştır [Github deposunu](https://github.com/Azure/azure-documentdb-changefeedprocessor-java). Ancak, şu anda Java kitaplığı .NET kitaplığı arkasında birkaç sürümleri gerekir. Yakında hem kitaplıkları eşit olacaktır.
+Java kitaplığı, değişiklik akışı okumak için kullanılabilir [Github deposu](https://github.com/Azure/azure-documentdb-changefeedprocessor-java). Ancak, şu anda Java kitaplık .NET kitaplığı arkasına birkaç sürümleri vardır. Yakında hem kitaplıkları eşit olacaktır.
 
-### <a name="can-i-use-etag-lsn-or-ts-for-internal-bookkeeping-which-i-get-in-response"></a>Yanıtta alma iç muhasebe için _etag, _lsn veya _ts kullanabilir miyim?
+### <a name="can-i-use-etag-lsn-or-ts-for-internal-bookkeeping-which-i-get-in-response"></a>Yanıtta alabilirim iç muhasebe için _etag, _lsn veya _ts kullanabilir miyim?
 
-_etag biçimidir iç ve, ona bağlı olmaması gerekir (bunu ayrıştırabilir değil) için istediğiniz zaman değiştirebilirsiniz.
-_ts değişiklik ya da oluşturma zaman damgası ' dir. _Ts kronolojik karşılaştırma için kullanabilirsiniz.
-_lsn ise yalnızca değişiklik akış için eklenen bir toplu iş kimliği, mağaza'dan işlem kimliğini temsil eden... Birçok belgeleri aynı _lsn olabilir.
-Dikkat edilecek ETag FeedResponse üzerinde belge üzerinde gördüğünüz _etag farklı bir daha fazla şey. _etag bir iç tanımlayıcı ve eşzamanlılık için kullanıldığında, belge sürümü hakkında bildirir ve ETag akış sıralama için kullanılır.
+_etag biçimidir iç ve, kendisine bağlı olmaması gerekir (ayrıştırmak değil) için dilediğiniz zaman değiştirebilirsiniz.
+_ts değişiklik ya da oluşturma zaman damgası ' dir. _Ts kronolojik bir karşılaştırması için kullanabilirsiniz.
+_lsn ise yalnızca değişiklik akışı için eklenen bir toplu iş kimliği, mağaza'dan temsil ettiği için işlem kimliği... Birçok belge aynı _lsn olabilir.
+Not için ETag FeedResponse üzerinde belgeyle ilgili gördüğünüz _etag farklı bir şey daha. _etag dahili bir tanımlayıcıdır ve eşzamanlılık için kullanıldığında, belge sürümü hakkında bildirir ve ETag akışın sıralama için kullanılır.
 
-### <a name="does-reading-change-feed-add-any-additional-cost-"></a>Değişiklik akışı okuma ek bir maliyet ekler?
+### <a name="does-reading-change-feed-add-any-additional-cost-"></a>Değişiklik akışı okuma herhangi ek bir maliyet ekliyor mu?
 
-Yani RU ait harcanan için Azure Cosmos DB koleksiyonları ve dışındaki veri hareketleri her zaman RU tüketen sizden ücret kesilir. Kullanıcıların kira koleksiyon tarafından tüketilen RU ücretlendirilir.
+Yani RU'ın tüketilen için Azure Cosmos DB koleksiyonları ve dışındaki veri hareketleri her zaman tüketen RU ücretlendirilir. Kullanıcılar, kiralama koleksiyon tarafından tüketilen RU için ücretlendirilirsiniz.
 
-### <a name="can-multiple-azure-functions-read-one-collections-change-feed"></a>Birden çok Azure işlevleri, bir koleksiyona ait değişiklik akış okuyabilir miyim?
+### <a name="can-multiple-azure-functions-read-one-collections-change-feed"></a>Birden çok Azure işlevleri, bir koleksiyonun değişiklik akışı okuyabilir miyim?
 
-Evet. Birden çok Azure işlevleri aynı koleksiyonunun değişiklik akış okuyabilir. Ancak, Azure işlevleri tanımlanan ayrı bir leaseCollectionPrefix olması gerekir.
+Evet. Birden çok Azure işlevleri aynı koleksiyonun değişiklik akışı okuyabilirsiniz. Ancak, Azure işlevleri tanımlanan ayrı bir leaseCollectionPrefix olması gerekir.
 
-### <a name="should-the-lease-collection-be-partitioned"></a>Kira koleksiyon bölümlendiğinde?
+### <a name="should-the-lease-collection-be-partitioned"></a>Kira koleksiyonu bölümlere ayrılması gerekir?
 
 Hayır, kira koleksiyonu düzeltilebilir. Bölümlenmiş kira koleksiyonu gerekli değildir ve şu anda desteklenmiyor.
 
-### <a name="can-i-read-change-feed-from-spark"></a>Değişiklik bilgi edinebilirsiniz Spark'tan akış?
+### <a name="can-i-read-change-feed-from-spark"></a>Değişiklik okumak Spark'tan akışı?
 
-Evet, uygulayabilirsiniz. Lütfen bakın [Azure Cosmos DB Spark Bağlayıcısı](spark-connector.md). Burada bir [ekran cast](https://www.youtube.com/watch?v=P9Qz4pwKm_0&t=1519s) yapılandırılmış bir Akış akış değiştirme işleminin nasıl gösteriliyor.
+Evet, uygulayabilirsiniz. Lütfen [Azure Cosmos DB Spark Bağlayıcısı](spark-connector.md). İşte bir [ekran atama](https://www.youtube.com/watch?v=P9Qz4pwKm_0&t=1519s) değişiklik yapılandırılmış bir akış akışı işleminin nasıl gösteriliyor.
 
-### <a name="if-i-am-processing-change-feed-by-using-azure-functions-say-a-batch-of-10-documents-and-i-get-an-error-at-7th-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-documentie-7th-document-in-my-next-feed"></a>Azure işlevlerini kullanarak akış değişiklik işleme, 10 belgeleri toplu söyleyin ve 7 belge hata alıyorum. Bu durumda son üç belgeleri nasıl ı başarısız olan belgeden (yani işleme başlayabilirsiniz işlenmez 7 belge) my sonraki akışındaki?
+### <a name="if-i-am-processing-change-feed-by-using-azure-functions-say-a-batch-of-10-documents-and-i-get-an-error-at-7th-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-documentie-7th-document-in-my-next-feed"></a>Değişiklik akışı Azure işlevleri'ni kullanarak işleme, 10 belgeleri toplu söyleyin ve 7 belgeye bir hata alıyorum. Bu durumda son üç belgeler işleme başarısız belge (yani nasıl github'da işlenir Belge 7) sonraki my akışta?
 
-Hata, önerilen desenini try-catch bloğu ile kodunuzu sarmalamak için yönetmektir. Hata catch ve bu belge bir sıraya (teslim edilemeyen) alıp hata üretilen belgelerle dağıtılacak mantığı tanımlayın. 200 belge toplu ve başarısız oldu, tek bir belge varsa, bu yöntemle, hemen tüm toplu throw gerekmez.
+Hatayı işlemeye yönelik önerilen Düzen try-catch bloğu ile kodunuzu sarmaktır. Hata catch ve belge bir sıra (edilemeyen) koyun ve mantık hatası üretilen belgelerle tanımlayabilirsiniz. 200 belge toplu ve başarısız, tek bir belge varsa bu yöntemle, hemen tüm batch throw gerekmez.
 
-Hata, onay noktasına başına Geri Sar olmayan olasılığına başka bu belgeleri değişiklik akıştan almaya devam. Değişiklik akış tutar, bu nedenle belgelerin son son ek görüntüsü belgenin önceki anlık kaybedebilir unutmayın. belgeyi yalnızca bir son sürümü değişiklik akış tutar ve arasında diğer işlemleri dönün ve belgeyi değiştirme.
+Hata, Kontrol noktasına geri başına geri değil durumunda başka bu belgeleri değişiklik akışı'ndan almaya devam. Unutmayın, değişiklik akışı tutar, bu nedenle belgelerin son son ek görüntüsü belgedeki önceki anlık görüntüye kaybedebilir. değişiklik akışı yalnızca bir belgenin son sürümünü tutar ve arasında diğer işlemleri gelir ve belgeyi değiştirme.
 
-Kodunuzu düzelttikten tutmak gibi yakında sahipsiz sırayı hiçbir belge bulabilirsiniz.
-Azure işlevleri değişiklik akış sistem tarafından otomatik olarak çağrılır ve denetim noktası vb. Azure işlevi tarafından dahili olarak korunur. Denetim noktası geri ve her yönüyle denetlemek istiyorsanız, değişikliği kullanarak işlemci SDK akış düşünmelisiniz.
+Kod çözme tutmak gibi eski ileti sırası üzerinde hiçbir belge yakında bulabilirsiniz.
+Azure işlevleri, değişiklik akışı sistem tarafından otomatik olarak çağrılır ve denetim noktası vb. Azure işlevi tarafından dahili olarak korunur. Denetim noktası geri alma ve her yönüyle denetlemek istiyorsanız, kullanarak değişiklik akışı işlemci SDK düşünmelisiniz.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure işlevleriyle Azure Cosmos DB kullanma hakkında daha fazla bilgi için bkz: [Azure Cosmos DB: sunucusuz veritabanı Azure işlevleri kullanarak bilgi işlem](serverless-computing-database.md).
+Azure Cosmos DB, Azure işlevleri ile kullanma hakkında daha fazla bilgi için bkz. [Azure Cosmos DB: Azure işlevleri ile sunucusuz veritabanı computing](serverless-computing-database.md).
 
-İşlemci kitaplığı akış değişiklik kullanma hakkında daha fazla bilgi için aşağıdaki kaynakları kullanın:
+Değişiklik akışı işlemci kitaplığı kullanma hakkında daha fazla bilgi için aşağıdaki kaynakları kullanın:
 
 * [Bilgileri sayfası](sql-api-sdk-dotnet-changefeed.md) 
 * [Nuget paketi](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [1-6 yukarıdaki adımları gösteren örnek kod](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
-* [Github'da ek örnekleri](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
+* [GitHub üzerinde ek örnekleri](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
-SDK akış değişiklik kullanma hakkında daha fazla bilgi için aşağıdaki kaynakları kullanın:
+Değişiklik ve SDK üzerinden akışı kullanma hakkında daha fazla bilgi için aşağıdaki kaynakları kullanın:
 
 * [SDK bilgileri sayfası](sql-api-sdk-dotnet.md)

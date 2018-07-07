@@ -1,6 +1,6 @@
 ---
 title: Azure Windows VM boyutları - depolama | Microsoft Docs
-description: Azure'da Windows sanal makineler için kullanılabilir en iyi duruma getirilmiş farklı depolama boyutlarını listeler. Vcpu, veri diskleri ve NIC yanı sıra bu serideki boyutları için depolama üretilen iş ve ağ bant sayısı hakkında bilgi listeler.
+description: Azure'da Windows sanal makineler için farklı depolama için iyileştirilmiş boyutlarını listeler. Vcpu, veri diskleri ve NIC yanı sıra bu serideki boyutları için depolama aktarım hızı ve ağ bant sayısı hakkında bilgiler listelenir.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/11/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 99a777b1689ae0641729709e30c4880479243d71
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7e0b22751cd72f0c7e4e1452c1f1d6c78d9fbc20
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658188"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903842"
 ---
-# <a name="storage-optimized-virtual-machine-sizes"></a>Sanal makine boyutlarını depolama en iyi duruma getirilmiş
+# <a name="storage-optimized-virtual-machine-sizes"></a>Depolama için iyileştirilmiş sanal makine boyutları
 
 
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
 
 
-## <a name="other-sizes"></a>Diğer boyutlara
+## <a name="other-sizes"></a>Diğer boyutları
 - [Genel amaçlı](sizes-general.md)
 - [İşlem için iyileştirilmiş](sizes-compute.md)
 - [Bellek için iyileştirilmiş](sizes-memory.md)
 - [GPU için iyileştirilmiş](sizes-gpu.md)
 - [Yüksek performanslı işlem](sizes-hpc.md)
-- [Önceki nesli](sizes-previous-gen.md)
+- [Önceki nesil](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları üzerinde işlem performans karşılaştırmanıza yardımcı olur.
+Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları arasında işlem performansını karşılaştırmanıza yardımcı olabilir.
 

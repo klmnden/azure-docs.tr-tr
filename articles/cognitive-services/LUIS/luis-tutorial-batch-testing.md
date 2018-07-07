@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: v-geberr
-ms.openlocfilehash: 4a5ace10c171d17235051c5bd666526318829fd7
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 27d6bbc628ac3183032a90d8f3ad98998c76a957
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867350"
+ms.locfileid: "37888839"
 ---
 # <a name="use-batch-testing-to-find-prediction-accuracy-issues"></a>Toplu test tahmin doğruluğunu sorunları bulmak için kullanın
 
@@ -33,7 +33,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 ## <a name="prerequisites"></a>Önkoşullar
 
 > [!div class="checklist"]
-> * Bu makalede, etmeniz bir [LUIS][LUIS] LUIS uygulamanızı yazmak için hesap.
+> * Bu makalede ayrıca gerekir bir [LUIS](luis-reference-regions.md) LUIS uygulamanızı yazmak için kullanılan hesap.
 
 > [!Tip]
 > Zaten bir aboneliğiniz yoksa, kaydolabilirsiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/).
@@ -41,7 +41,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 ## <a name="create-new-app"></a>Yeni uygulama oluşturma
 Bu makalede önceden oluşturulmuş etki alanı HomeAutomation kullanır. Amacı, varlıkları ve konuşma gibi ışıklar HomeAutomation cihazları denetlemek için önceden oluşturulmuş etki alanı vardır. Uygulamayı oluşturur, etki alanı ekleme eğitin ve yayımlayın.
 
-1. İçinde [LUIS] Web sitesi, seçerek yeni bir uygulama oluşturun **yeni uygulama oluştur** üzerinde **MyApps** sayfası. 
+1. İçinde [LUIS](luis-reference-regions.md) Web sitesi, seçerek yeni bir uygulama oluşturun **yeni uygulama oluştur** üzerinde **MyApps** sayfası. 
 
     ![Yeni uygulama oluşturma](./media/luis-tutorial-batch-testing/create-app-1.png)
 

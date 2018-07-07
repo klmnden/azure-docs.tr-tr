@@ -1,24 +1,24 @@
 ---
-title: Azure DC/OS kümesi Marathon REST API ile yönetme
-description: Marathon REST API kullanarak Azure kapsayıcı hizmeti DC/OS kümesine kapsayıcıları dağıtın.
+title: Marathon REST API'si ile Azure DC/OS kümesini yönetme
+description: Marathon REST API'sini kullanarak bir Azure Container Service DC/OS kümesine kapsayıcıları dağıtın.
 services: container-service
-author: dlepow
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: danlep
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: edd66be25bf2571a7315372898300476fec101ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 34fc6f946d172f1431367e84f9d4d8a6855003ed
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165614"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901776"
 ---
-# <a name="dcos-container-management-through-the-marathon-rest-api"></a>DC/OS Marathon REST API'si aracılığıyla kapsayıcı Yönetimi
+# <a name="dcos-container-management-through-the-marathon-rest-api"></a>Marathon REST API aracılığıyla DC/OS kapsayıcısını yönetme
 
-DC/OS, temel donanımı özetlerken, kümelenmiş iş yüklerini dağıtmak ve ölçeklendirmek için ortam sağlar. DC/OS’nin en üstünde, hesaplama iş yüklerini zamanlamayı ve yürütmeyi yöneten bir çerçeve vardır. Çerçeveler çok sayıda yaygın iş yükü için kullanılabilir, ancak bu belgenin oluşturma ve Marathon REST API'sini kullanarak kapsayıcı dağıtımlarını ölçeklendirme başlamanızı sağlar. 
+DC/OS, temel donanımı özetlerken, kümelenmiş iş yüklerini dağıtmak ve ölçeklendirmek için ortam sağlar. DC/OS’nin en üstünde, hesaplama iş yüklerini zamanlamayı ve yürütmeyi yöneten bir çerçeve vardır. Çerçeveler çok sayıda yaygın iş yükü için kullanılabilir, ancak bu belgede, oluşturma ve Marathon REST API'i kullanarak kapsayıcı dağıtımı ölçeklendirme başlamanıza yardımcı olur. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -28,12 +28,12 @@ Bu örneklerin üzerinden geçmeden önce, Azure Kapsayıcı Hizmeti’nde yapı
 * [Azure Container Service kümesine bağlanma](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>DC/OS API'lere erişim
-Azure kapsayıcı hizmeti kümesine bağlandıktan sonra DC/OS ve ilgili REST API'leri aracılığıyla erişebilirsiniz http://localhost:local-port. Bu belgedeki örneklerde, bağlantı noktası 80 üzerinde tünel oluşturulmaktadır. Örneğin, Marathon uç noktaları URI'ler erişilebildiğini itibaren `http://localhost/marathon/v2/`. 
+Azure kapsayıcı hizmeti kümesine bağlandıktan sonra DC/OS ve ilgili REST API'leri aracılığıyla erişebilir http://localhost:local-port. Bu belgedeki örneklerde, bağlantı noktası 80 üzerinde tünel oluşturulmaktadır. Örneğin, Marathon uç noktaları bir URI'leri ulaşılabilir başlayarak `http://localhost/marathon/v2/`. 
 
 Çeşitli API'ler hakkında daha fazla bilgi için, [Marathon API’si](https://mesosphere.github.io/marathon/docs/rest-api.html) ve [Chronos API’si](https://mesos.github.io/chronos/docs/api.html) için Mesosphere belgelerine ve [Mesos Scheduler API’si](http://mesos.apache.org/documentation/latest/scheduler-http-api/) için Apache belgelerine bakın.
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>DC/OS’den ve Marathon’dan bilgi toplama
-DC/OS kümesine kapsayıcıları dağıtmadan önce adları ve DC/OS aracıların durumu gibi DC/OS kümesi hakkında bazı bilgileri toplayın. Bunu yapmak için, DC/OS REST API’sinin `master/slaves` uç noktasını sorgulayın.  Her şey yolunda giderse, sorgu DC/OS aracıları ve her biri için çeşitli özellikler listesini döndürür.
+DC/OS kümesine kapsayıcıları dağıtmadan önce adları ve DC/OS aracılarının durumunu gibi DC/OS kümesi hakkında bazı bilgiler toplayın. Bunu yapmak için, DC/OS REST API’sinin `master/slaves` uç noktasını sorgulayın.  Her şey yolunda giderse, sorgu DC/OS aracıları ve her biri için çeşitli özellikler listesini döndürür.
 
 ```bash
 curl http://localhost/mesos/master/slaves
@@ -48,7 +48,7 @@ curl localhost/marathon/v2/apps
 ```
 
 ## <a name="deploy-a-docker-formatted-container"></a>Docker biçimli kapsayıcı dağıtma
-Docker biçimli kapsayıcıları Marathon REST API'si aracılığıyla hedeflenen dağıtımı açıklayan bir JSON dosyası kullanarak dağıtın. Aşağıdaki örnek bir Nginx kapsayıcısı kümedeki özel bir aracıya dağıtır. 
+Docker biçimli kapsayıcıları Marathon REST API aracılığıyla, hedeflenen dağıtımı açıklayan bir JSON dosyası kullanarak dağıtın. Aşağıdaki örnek bir özel aracı kümedeki Ngınx kapsayıcısı dağıtır. 
 
 ```json
 {
@@ -69,7 +69,7 @@ Docker biçimli kapsayıcıları Marathon REST API'si aracılığıyla hedeflene
 }
 ```
 
-Docker biçimli bir kapsayıcıyı dağıtmak için JSON dosyasının erişilebilir bir yerde saklayın. Ardından, kapsayıcıyı dağıtmak için aşağıdaki komutu çalıştırın. JSON dosyasının adını belirtin (`marathon.json` Bu örnekte).
+Docker biçimli bir kapsayıcıyı dağıtmak için JSON dosyasının erişilebilir bir konumda depolayın. Ardından, kapsayıcıyı dağıtmak için aşağıdaki komutu çalıştırın. JSON dosyasının adını belirtin (`marathon.json` Bu örnekte).
 
 ```bash
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
@@ -87,32 +87,32 @@ curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-typ
 curl localhost/marathon/v2/apps
 ```
 
-## <a name="reach-the-container"></a>Kapsayıcı ulaşmak
+## <a name="reach-the-container"></a>Kapsayıcı ulaşın
 
-Özel aracıları kümedeki birinde Nginx bir kapsayıcıda çalışıp çalışmadığını doğrulayabilirsiniz. Kapsayıcı çalıştığı bağlantı noktası ve ana bilgisayar bulmak için çalışan görevler için Marathon sorgu: 
+Ngınx özel aracılardan kümesinde biri üzerinde bir kapsayıcıda çalıştığını doğrulayabilirsiniz. Kapsayıcı çalıştığı bağlantı noktası ve ana bilgisayar bulmak için çalışan görevleri için Marathon sorgu: 
 
 ```bash
 curl localhost/marathon/v2/tasks
 ```
 
-Değerini bulur `host` çıktıda (benzer şekilde bir IP adresi `10.32.0.x`) ve değeri `ports`.
+Değerini bulun `host` çıktıda (benzer şekilde bir IP adresi `10.32.0.x`), değeri `ports`.
 
 
-Şimdi küme yönetimi FQDN için bir SSH terminal bağlantısı (tünel bağlantısı değil) oluşturun. Bağlantı kurulduktan sonra doğru değerini değiştirerek aşağıdaki, istekte `host` ve `ports`:
+Artık bir SSH terminal bağlantısı (tünel bağlantısı değil) kümenin yönetim FQDN için olun. Bağlantı kurulduktan sonra doğru değerleri değiştirerek aşağıdaki isteği gerçekleştirmek `host` ve `ports`:
 
 ```bash
 curl http://host:ports
 ```
 
-Nginx server çıktısı aşağıdakine benzer:
+Ngınx sunucu çıktı aşağıdakine benzer olacaktır:
 
-![Kapsayıcısından Nginx](./media/container-service-mesos-marathon-rest/nginx.png)
+![Ngınx kapsayıcısından](./media/container-service-mesos-marathon-rest/nginx.png)
 
 
 
 
 ## <a name="scale-your-containers"></a>Kapsayıcılarınızı ölçeklendirme
-Ölçeği genişletme veya ölçeklendirmek için Marathon API'si kullanabilirsiniz uygulama dağıtımlarda. Önceki örnekte, uygulamanın bir örneğini dağıttınız. Şimdi bunun ölçeğini uygulamanın üç örneğine genişletelim. Bunu yapmak için, aşağıdaki JSON metnini kullanarak bir JSON dosyası oluşturun ve erişilebilir bir konumda depolayın.
+Marathon API'si artırabilir veya azaltabilirsiniz için kullanabileceğiniz uygulama dağıtımlarının. Önceki örnekte, uygulamanın bir örneğini dağıttınız. Şimdi bunun ölçeğini uygulamanın üç örneğine genişletelim. Bunu yapmak için, aşağıdaki JSON metnini kullanarak bir JSON dosyası oluşturun ve erişilebilir bir konumda depolayın.
 
 ```json
 { "instances": 3 }
@@ -121,7 +121,7 @@ Nginx server çıktısı aşağıdakine benzer:
 Tünel bağlantısından uygulamanın ölçeğini genişletmek için aşağıdaki komutu çalıştırın.
 
 > [!NOTE]
-> URI http://localhost/marathon/v2/apps/ ölçeklendirilecek uygulamanın kimliği tarafından izlenen. Burada, URI olacaktır sunulan Nginx örneğini kullanıyorsanız, http://localhost/marathon/v2/apps/nginx.
+> URI http://localhost/marathon/v2/apps/ ardından ölçeklendirilecek uygulamanın Kimliğini. URI burada olacaktır sağlanan Nginx örneğini kullanıyorsanız http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -165,7 +165,7 @@ Docker biçimli kapsayıcıları Marathon aracılığıyla, hedeflenen dağıtı
 }
 ```
 
-Docker biçimli bir kapsayıcıyı dağıtmak için JSON dosyasının erişilebilir bir yerde saklayın. Ardından, kapsayıcıyı dağıtmak için aşağıdaki komutu çalıştırın. JSON dosyasının yolunu belirtin (`marathon.json` Bu örnekte).
+Docker biçimli bir kapsayıcıyı dağıtmak için JSON dosyasının erişilebilir bir konumda depolayın. Ardından, kapsayıcıyı dağıtmak için aşağıdaki komutu çalıştırın. JSON dosyasının yolunu belirtin (`marathon.json` Bu örnekte).
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
@@ -180,7 +180,7 @@ Marathon API’sini uygulama dağıtımlarının ölçeğini genişletmek ve öl
 Uygulamanın ölçeğini genişletmek için aşağıdaki komutu çalıştırın:
 
 > [!NOTE]
-> URI http://localhost/marathon/v2/apps/ ölçeklendirilecek uygulamanın kimliği tarafından izlenen. Burada sağlanan Nginx örneğini kullanıyorsanız, URI olacaktır http://localhost/marathon/v2/apps/nginx.
+> URI http://localhost/marathon/v2/apps/ ardından ölçeklendirilecek uygulamanın Kimliğini. Burada sağlanan Nginx örneğini kullanıyorsanız, URI olacaktır http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -190,5 +190,5 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Mesos HTTP uç noktaları hakkında daha fazla bilgi](http://mesos.apache.org/documentation/latest/endpoints/)
-* [Marathon REST API'si hakkında daha fazla bilgi](https://mesosphere.github.io/marathon/docs/rest-api.html)
+* [Marathon REST API hakkında daha fazla bilgi](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

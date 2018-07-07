@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM boyutları - işlem en iyi duruma getirilmiş | Microsoft Docs
-description: Azure'daki Linux sanal makineler için kullanılabilir en iyi duruma getirilmiş farklı işlem boyutlarını listeler. Vcpu, veri diskleri ve NIC yanı sıra bu serideki boyutları için depolama üretilen iş ve ağ bant sayısı hakkında bilgi listeler.
+title: Azure Linux VM boyutları - işlem için iyileştirilmiş | Microsoft Docs
+description: Azure'da Linux sanal makineler için farklı işlem için iyileştirilmiş boyutlarını listeler. Vcpu, veri diskleri ve NIC yanı sıra bu serideki boyutları için depolama aktarım hızı ve ağ bant sayısı hakkında bilgiler listelenir.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -13,29 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 1a13efb271713ea4f47469b4261b278e1b350650
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 4733a4c92a5bdfe2eabd2144a1c6c8738ac6693e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34654530"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902461"
 ---
-# <a name="compute-optimized-virtual-machine-sizes"></a>En iyi duruma getirilmiş işlem sanal makine boyutları
+# <a name="compute-optimized-virtual-machine-sizes"></a>İşlem için iyileştirilmiş sanal makine boyutları
 
 [!INCLUDE [virtual-machines-common-sizes-compute](../../../includes/virtual-machines-common-sizes-compute.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 
-## <a name="other-sizes"></a>Diğer boyutlara
+## <a name="other-sizes"></a>Diğer boyutları
 - [Genel amaçlı](sizes-general.md)
 - [Bellek için iyileştirilmiş](sizes-memory.md)
 - [Depolama için iyileştirilmiş](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [Yüksek performanslı işlem](sizes-hpc.md)
-- [Önceki nesli](sizes-previous-gen.md)
+- [Önceki nesil](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları üzerinde işlem performans karşılaştırmanıza yardımcı olur.
+Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları arasında işlem performansını karşılaştırmanıza yardımcı olabilir.

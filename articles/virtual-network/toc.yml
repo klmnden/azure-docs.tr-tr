@@ -69,10 +69,10 @@
       items:
         - name: Ağ güvenlik grupları
           items:
+            - name: Azure PowerShell
+              href: tutorial-filter-network-traffic-powershell.md
             - name: Azure CLI
               href: tutorial-filter-network-traffic-cli.md
-            - name: Azure portalına
-              href: virtual-networks-create-nsg-arm-pportal.md
         - name: Yol tabloları
           items:
             - name: Azure PowerShell

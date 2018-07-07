@@ -1,67 +1,58 @@
 ---
-title: Azure Active Directory B2C Facebook yapılandırmasında | Microsoft Docs
-description: Tüketicilere Facebook hesapları Azure Active Directory B2C tarafından güvence altına alınan uygulamalarınızdaki ile kaydolma ve oturum açma sağlar.
+title: Azure Active Directory B2C kullanarak bir Facebook hesabıyla kaydolma ve oturum açma ayarlama | Microsoft Docs
+description: Azure Active Directory B2C kullanarak uygulamalarınızda Facebook hesabı olan müşteriler için kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 8/7/2017
+ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 316e44ea92a25ab804c8cc499f91c45e4a66ef02
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: de059e3875b5f15526cb176d43a019fd2d9ee9b9
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445509"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901390"
 ---
-# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-facebook-accounts"></a>Azure Active Directory B2C: Kaydolma ve oturum açma tüketicilere Facebook hesapları sağlayın
+# <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Facebook hesabıyla kaydolma ve oturum açma ayarlama
+
 ## <a name="create-a-facebook-application"></a>Bir Facebook uygulaması oluşturun
-Facebook kimlik sağlayıcısı olarak Azure Active Directory (Azure AD) B2C'yi kullanmak için bir Facebook uygulaması oluşturun ve doğru parametreleri sağlamanız gerekir. Bunu yapmak için Facebook hesabına ihtiyacınız var. Yoksa, adresinden edinebilirsiniz [ https://www.facebook.com/ ](https://www.facebook.com/).
 
-1. Git [geliştiriciler için Facebook](https://developers.facebook.com/) hesap kimlik bilgileri Web sitesi ve uygulamanızı Facebook oturum açın.
-2. Zaten yapmadıysanız, Facebook geliştiricisi olarak kaydolma gerekir. Bunu yapmak için tıklatın **kaydetme** (sağ üst köşesinde), Facebook'ın ilkeleri kabul edin ve kayıt adımları tamamlayın.
-3. Tıklayın **uygulamalarım** ve ardından **yeni uygulama Ekle**. 
-4. Formda sağlayan bir **görünen ad** ve geçerli bir **ilgili kişi e-posta**.
+Bir Facebook hesabıyla bir kimlik sağlayıcısı olarak Azure Active Directory (Azure AD) B2C'yi kullanmak için kiracınızda temsil ettiği bir uygulama oluşturmak gerekir. Bir Facebook hesabı yoksa adresinden edinebilirsiniz [ https://www.facebook.com/ ](https://www.facebook.com/).
+
+1. Oturum [geliştiriciler için Facebook](https://developers.facebook.com/) Facebook hesabı kimlik bilgilerinizle.
+2. Zaten yapmadıysanız, Facebook geliştiricisi olarak kaydolma gerekir. Bunu yapmak için **kaydetme** sayfanın sağ üst köşesindeki Facebook'ın ilkeleri kabul edin ve kayıt adımları tamamlayın.
+3. Seçin **uygulamalarım** ve ardından **yeni uygulama Ekle**. 
+4. Girin bir **görünen ad** ve geçerli bir **ilgili kişi e-posta**.
 5. Tıklayın **uygulama kimliği oluşturma**. Bu, Facebook platform ilkeleri kabul edin ve çevrimiçi güvenlik denetimini Tamamla gerektirebilir.
-6. Sol sütunda tıklayın **ayarları** seçip **temel** zaten seçili değil.
-7. Seçin bir **kategori**. 
-8. Tıklayın **+ Platform Ekle** seçip **Web sitesi**.
-   
-    ![Facebook - ayarlar](./media/active-directory-b2c-setup-fb-app/fb-settings.png)
-   
-    ![Facebook - Settings - Web sitesi](./media/active-directory-b2c-setup-fb-app/fb-website.png)
-9. Girin `https://login.microsoftonline.com/` içinde **Site URL'si** alan ve ardından **Değişiklikleri Kaydet** sayfanın alt kısmındaki.
-   
-    ![Facebook - Site URL'si](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
+6. Seçin **ayarları** > **temel**.
+7. Sayfanın en altında seçin **Platform Ekle**ve ardından **Web sitesi**.
+8. Girin `https://login.microsoftonline.com/` içinde **Site URL'si**. Bir URL girin **gizlilik ilkesi URL'si**, örneğin `http://www.contoso.com`.
+9. Seçin **değişiklikleri kaydetmek**.
+11. Sayfanın üst kısmında değerini kopyalayın **uygulama kimliği**. 
+12. Tıklayın **Göster** ve değerini kopyalayın **uygulama gizli anahtarı**. Facebook kimlik sağlayıcısı olarak kiracınızda yapılandırmak için bu ikisinin de kullanın. **Uygulama gizli anahtarı** bir önemli güvenlik kimlik bilgisidir.
+13. Seçin **ürünleri**ve ardından **ayarlanan** altında **Facebook oturum açma**.
+14. Seçin **ayarları** altında **Facebook oturum açma**.
+15. Girin `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **geçerli OAuth yeniden yönlendirme URI'leri** . Değiştirin **{tenant}** kiracınızın adı (örneğin, contosob2c.onmicrosoft.com) ile. Tıklayın **Değişiklikleri Kaydet** sayfanın alt kısmındaki.
+16. Facebook uygulamanızı Azure AD B2C için kullanılabilir hale getirmek için seçin **uygulama incelemesi**ayarlayın **Uygulamam olun genel?** için **Evet**, örneğin birkategoriseçin`Business and Pages`ve ardından **Onayla**.
 
-10. Değerini kopyalayın **uygulama kimliği**. Tıklayın **Göster** ve değerini kopyalayın **uygulama gizli anahtarı**. Her ikisi de Facebook kiracınızdaki bir kimlik sağlayıcısı yapılandırmak için gerekir. **Uygulama gizli anahtarı** bir önemli güvenlik kimlik bilgisidir.
-   
-    ![Facebook - uygulama kimliği ve uygulama gizli anahtarı](./media/active-directory-b2c-setup-fb-app/fb-app-id-app-secret.png)
-11. Tıklayın **+ Ürün Ekle** sol gezinti çubuğunda ve ardından **Ayarla** için düğme **Facebook oturum açma**.
-   
-    ![Facebook - Facebook oturum açma](./media/active-directory-b2c-setup-fb-app/fb-login.png)
-12. Tıklayın **ayarları** altında sağ gezinti çubuğunda **Facebook oturum açma**
+## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Bir Facebook hesabıyla bir kimlik sağlayıcısı olarak yapılandırma
 
-    ![Facebook - Facebook oturum açma ayarları](./media/active-directory-b2c-setup-fb-app/fb-login-settings.png)
-13. Girin `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **geçerli OAuth yeniden yönlendirme URI'leri** alanındaki **istemci OAuth ayarları** bölümü. Değiştirin **{tenant}** kiracınızın adı (örneğin, contosob2c.onmicrosoft.com) ile. Tıklayın **Değişiklikleri Kaydet** sayfanın alt kısmındaki.
-    
-    ![Facebook - OAuth yeniden yönlendirme URI'si](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-uri.png)
-14. Facebook uygulamanızı Azure AD B2C tarafından kullanılabilir hale getirmek için genel olarak kullanılabilir hale getirmek gerekir. Tıklayarak bunu yapabilirsiniz **uygulama incelemesi** sol gezinti çubuğunda ve anahtar için sayfanın üst kısmındaki kapatarak **Evet** tıklayıp **Onayla**.
-    
-    ![Facebook - uygulama genel](./media/active-directory-b2c-setup-fb-app/fb-app-public.png)
+1. Oturum [Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel Yöneticisi olarak.
+2. Azure AD B2C kiracınızı içeren dizini kullandığınızdan emin olmak için Azure portalın sağ üst köşesinde bu dizine geçin. Abonelik bilgilerinizi ve ardından **Dizin Değiştir**’i seçin. 
 
-## <a name="configure-facebook-as-an-identity-provider-in-your-tenant"></a>Facebook kimlik sağlayıcısı kiracınızdaki yapılandırın
-1. Bu adımları [B2C özellikleri dikey penceresine gitme](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) Azure portalında.
-2. B2C özellikleri dikey penceresinde tıklayın **kimlik sağlayıcıları**.
-3. Dikey pencerenin en üstündeki **+Add (+Ekle)** seçeneğine tıklayın.
-4. Kullanımı kolay bir sağlamak **adı** kimlik sağlayıcısı yapılandırması için. Örneğin, "Facebook" girin.
-5. Tıklayın **kimlik sağlayıcısı türü**seçin **Facebook**, tıklatıp **Tamam**.
-6. Tıklayın **bu kimlik sağlayıcısını ayarlama** uygulama kimliği ve uygulama gizli anahtarı (uygulamanızın daha önce oluşturduğunuz Facebook) girin, **istemci kimliği** ve **gizli** Sırasıyla alanları.
-7. Tıklayın **Tamam**ve ardından **Oluştur** Facebook yapılandırmanızı kaydetmek için.
+    ![Azure AD B2C kiracınıza geçiş yapma](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
 
-> [!NOTE]
-> Ekleme bir **kimlik sağlayıcısı** kiracınıza mevcut ilkelerinizi değiştirmez. Yeni oluşturduğunuz kimlik sağlayıcısı dahil ederek ilkelerinizi güncelleştirmeyi unutmayın.
->
+    Kiracınızı içeren dizini seçin.
+
+    ![Dizin seçme](./media/active-directory-b2c-setup-fb-app/select-directory.png)
+
+3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
+4. Seçin **kimlik sağlayıcıları**ve ardından **Ekle**.
+5. Girin bir **adı**. Örneğin, *Facebook*.
+6. Seçin **kimlik sağlayıcısı türü**seçin **Facebook**, tıklatıp **Tamam**.
+7. Seçin **bu kimlik sağlayıcısını ayarlama** olarak daha önce kaydedilen uygulama kimliği girin **istemci kimliği** olarak kayıtlı uygulama gizli anahtarı girin **gizli** , daha önce oluşturduğunuz Facebook uygulama).
+8. Tıklayın **Tamam** ve ardından **Oluştur** Facebook yapılandırmanızı kaydetmek için.

@@ -115,6 +115,8 @@
   items:
     - name: SSS
       href: FAQs.md
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
     - name: Hesap verilerini dışarı aktarma veya silme

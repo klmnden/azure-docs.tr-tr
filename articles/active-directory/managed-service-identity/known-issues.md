@@ -1,6 +1,6 @@
 ---
-title: Sık sorulan sorular ve bilinen sorunlar ile yönetilen hizmet kimliği (MSI) Azure Active Directory için
-description: Yönetilen hizmet kimliği Azure Active Directory için bilinen sorunlar.
+title: SSS ve bilinen sorunlar ile yönetilen hizmet kimliği (MSI) için Azure Active Directory
+description: Azure Active Directory için Yönetilen hizmet kimliği ile ilgili bilinen sorunlar.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -10,48 +10,48 @@ ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
 ms.component: msi
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05096050dfc29aebd2859b298eef884dcd9a1111
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930995"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37908080"
 ---
-# <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Sık sorulan sorular ve bilinen sorunlar ile yönetilen hizmet kimliği (MSI) Azure Active Directory için
+# <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>SSS ve bilinen sorunlar ile yönetilen hizmet kimliği (MSI) için Azure Active Directory
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Sık Sorulan Sorular (SSS)
 
-### <a name="does-msi-work-with-azure-cloud-services"></a>MSI Azure bulut Hizmetleri ile çalışır mı?
+### <a name="does-msi-work-with-azure-cloud-services"></a>MSI, Azure Cloud Services ile çalışır mı?
 
-Hayır, Azure Cloud Services MSI desteklemek için plan yok.
+Hayır, Azure bulut Hizmetleri'nde MSI desteklemek için herhangi bir plan yoktur.
 
-### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>MSI Active Directory Authentication Library (ADAL) veya Microsoft kimlik doğrulama kitaplığı (MSAL) ile çalışır mı?
+### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>MSI, Active Directory Authentication Library (ADAL) veya Microsoft kimlik doğrulama kitaplığı (MSAL) ile çalışır mı?
 
-Hayır, MSI henüz ADAL veya MSAL ile tümleşiktir değil. MSI REST uç noktasını kullanarak bir MSI belirtecini alma hakkında daha fazla bilgi için bkz: [belirteci alımı için bir Azure VM yönetilen hizmet kimliği (MSI) kullanmayı](how-to-use-vm-token.md).
+Hayır, MSI ADAL veya MSAL henüz tümleşikleştirilmemiştir. MSI REST uç noktasını kullanarak bir MSI belirtecini alma hakkında daha fazla bilgi için bkz [belirtecinin alınması için bir Azure VM yönetilen hizmet kimliği (MSI) kullanma](how-to-use-vm-token.md).
 
-### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>Yönetilen hizmet kimliği, güvenlik sınırı nedir?
+### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>Yönetilen hizmet kimliğini bir güvenlik sınırı nedir?
 
-Kimliğin güvenlik sınırı kendisine bağlı olduğu kaynaktır. Örneğin, bir sanal makine MSI için güvenlik sınırı, sanal makine olur. Bu VM üzerinden çalışan herhangi bir kod MSI uç noktasını çağırmak ve belirteçler istemek kullanabilirsiniz. MSI destekleyen diğer kaynaklarla benzer deneyimidir.
+Kimlik, güvenlik sınırı için bağlı bir kaynaktır. Örneğin, bir sanal makine MSI güvenlik sınırı, sanal makine olur. Bu VM'de çalışan herhangi bir kod MSI uç noktasını çağırmak ve belirteçler istemek için. MSI destekleyen diğer kaynaklarla benzer deneyimidir.
 
 ### <a name="should-i-use-the-msi-vm-imds-endpoint-or-the-msi-vm-extension-endpoint"></a>MSI VM IMDS uç nokta veya MSI VM uzantısı uç nokta kullanmalıyım?
 
-MSI VM ile birlikte kullanırken, MSI IMDS uç nokta kullanarak öneririz. Azure örneği meta veri hizmeti Azure Resource Manager aracılığıyla oluşturulan tüm Iaas VM'ler için erişilebilir bir REST uç noktadır. MSI IMDS kullanmanın avantajları bazıları şunlardır:
+MSI ile sanal makineleri kullanırken, MSI IMDS uç noktayı kullanarak öneririz. Azure örnek meta veri hizmeti, Azure Resource Manager aracılığıyla oluşturulan tüm Iaas Vm'leri için erişilebilir bir REST uç noktasıdır. Bazı MSI IMDS kullanmanın avantajları şunlardır:
 
-1. Tüm Azure Iaas desteklenen işletim sistemleri MSI IMDS kullanabilirsiniz. 
-2. Artık, VM MSI etkinleştirmek için bir uzantı yüklemeniz gerekir. 
-3. MSI tarafından kullanılan sertifikaların artık VM'yi mevcut değildir. 
-4. IMDS uç noktası bir iyi bilinen yönlendirilemeyen IP adresi, VM içinden yalnızca kullanılabilir değil. 
+1. Tüm Azure Iaas desteklenen işletim sistemleri IMDS MSI kullanabilirsiniz. 
+2. Artık MSI etkinleştirmek için VM'NİZDE bir uzantı yüklemeniz gerekir. 
+3. MSI tarafından kullanılan sertifikalar artık VM yok. 
+4. Bir bilinen yönlendirilemeyen IP adresi, VM içinden yalnızca bulunan IMDS uç nokta var. 
 
-MSI VM uzantısı hala bugün kullanılmak üzere kullanılabilir olduğunu; Ancak, biz varsayılan IMDS uç noktası için kullanılacak ilerleyen. MSI VM uzantısı kullanımdan plan üzerinde yakında başlayacak. 
+MSI VM uzantısı hala kullanılabilir bugün kullanılacak olan; ancak biz varsayılan IMDS uç noktayı kullanarak ilerletme. MSI VM uzantısı kullanımdan kaldırma planı üzerinde yakında başlayacak. 
 
-Azure örneği Metada hizmeti hakkında daha fazla bilgi için bkz: [IMDS belgeleri](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+Azure örneği Metada Service hakkında daha fazla bilgi için bkz. [IMDS belgeleri](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Desteklenen Linux dağıtımları nelerdir?
 
@@ -60,62 +60,62 @@ Azure Iaas tarafından desteklenen tüm Linux dağıtımları ile MSI IMDS uç n
 Not: MSI VM uzantısı yalnızca aşağıdaki Linux dağıtımları destekler:
 - CoreOS kararlı
 - CentOS 7.1
-- RedHat 7.2
+- Red Hat 7.2
 - Ubuntu 15.04
 - Ubuntu 16.04
 
-Diğer Linux dağıtımları şu anda desteklenmez ve uzantı üzerinde desteklenmeyen dağıtımları başarısız olabilir.
+Diğer Linux dağıtımlarına şu anda desteklenmez ve uzantı desteklenmeyen dağıtımlarında başarısız olabilir.
 
-Uzantı CentOS 6.9 üzerinde çalışır. Ancak, 6.9 sistem destek eksikliği nedeniyle, uzantısı yeniden başlatma kilitlendi veya durdurulmuş otomatik değildir. VM başlatıldığında yeniden başlatır. Uzantı el ile yeniden başlatmak için bkz: [nasıl, yeniden MSI uzantısı?](#how-do-you-restart-the-msi-extension)
+Uzantı, CentOS 6.9 üzerinde çalışır. Ancak, 6.9 sistem desteği eksikliği nedeniyle uzantı yeniden kilitlenmesi veya durduruldu durumunda otomatik olarak tamamlar değil. VM yeniden başlatıldığında yeniden başlatır. Uzantıyı el ile yeniden başlatmak için bkz: [nasıl MSI uzantısı başlatmanız?](#how-do-you-restart-the-msi-extension)
 
-### <a name="how-do-you-restart-the-msi-extension"></a>MSI uzantısı nasıl yeniden?
-Uzantı durursa, Windows ve Linux belirli sürümleri, aşağıdaki cmdlet'i el ile yeniden başlatmak için kullanılabilir:
+### <a name="how-do-you-restart-the-msi-extension"></a>MSI uzantıyı nasıl başlatmanız?
+Uzantı durursa, Windows ve Linux'ın, aşağıdaki cmdlet'i el ile yeniden başlatmak için kullanılabilir:
 
 ```powershell
 Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
 Konumlar: 
-- Uzantı adı ve türü Windows için: ManagedIdentityExtensionForWindows
-- Uzantı adı ve türü Linux için: ManagedIdentityExtensionForLinux
+- Uzantı adı ve türü için Windows: ManagedIdentityExtensionForWindows
+- Uzantı adı ve Linux için türü: ManagedIdentityExtensionForLinux
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 
-### <a name="automation-script-fails-when-attempting-schema-export-for-msi-extension"></a>Şema verme MSI uzantısı çalışırken "Otomasyon betiğini" başarısız
+### <a name="automation-script-fails-when-attempting-schema-export-for-msi-extension"></a>"Otomasyon betiği" MSI uzantısı için şema verme çalışırken başarısız olur.
 
-Yönetilen hizmet kimliği bir VM üzerinde etkin olduğunda, aşağıdaki hata VM veya kaynak grubu için "Otomasyon betiğini" özelliğini kullanmaya çalışırken gösterilir:
+Bir VM'ye yönetilen hizmet kimliği etkinleştirildiğinde, VM veya kaynak grubu için "Otomasyon betiği" özelliğini kullanmaya çalışırken şu hata gösterilir:
 
-![MSI otomasyon komut dosyası dışarı aktarma hatası](../media/msi-known-issues/automation-script-export-error.png)
+![MSI Otomasyon betiğini dışarı aktarma hatası](../media/msi-known-issues/automation-script-export-error.png)
 
-Yönetilen hizmet kimliği VM uzantısı şemasına bir kaynak grubu şablonu dışarı aktarmak için özelliği şu anda desteklemiyor. Sonuç olarak, oluşturulan şablon yapılandırma parametrelerini kaynak üzerinde yönetilen hizmet kimliği göstermez. Bu bölümler örneklerde izleyerek el ile eklenebilir [bir şablonu kullanarak bir VM yönetilen hizmet kimliği yapılandırma](qs-configure-template-windows-vm.md).
+Yönetilen hizmet kimliği VM uzantısı, şu anda şeması için kaynak grubu şablonunu dışarı aktarma özelliğini desteklemiyor. Sonuç olarak oluşturulan şablon kaynağında yönetilen hizmet kimliği etkinleştirmek için yapılandırma parametreleri göstermez. Bu bölümlerde örneklerde izleyerek elle eklenebilir [bir şablonu kullanarak bir VM yönetilen hizmet kimliği yapılandırma](qs-configure-template-windows-vm.md).
 
-Şema Dışarı Aktar işlevselliği MSI VM uzantısı için kullanılabilir hale geldiğinde, listelenecektir [dışarı aktarma kaynak VM uzantıları içeren grupları](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
+Şema dışarı aktarma işlevi için MSI VM uzantısı kullanılabilir olduğunda, listelenecektir [verme kaynak VM uzantıları içeren gruplara](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
-### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Yapılandırma dikey penceresinde Azure Portalı'nda görünmüyor
+### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Yapılandırma dikey penceresinde, Azure portalında görünmüyor
 
-VM yapılandırma dikey penceresinde, VM görünmüyorsa, ardından MSI bölgenizde portaldaki henüz etkinleştirilmedi.  Daha sonra yeniden denetleyin.  MSI kullanarak VM etkinleştirebilirsiniz [PowerShell](qs-configure-powershell-windows-vm.md) veya [Azure CLI](qs-configure-cli-windows-vm.md).
+VM yapılandırma dikey penceresinde, sanal makinenizde görünmüyorsa, ardından MSI portalın bölgeniz henüz etkinleştirilmedi.  Daha sonra tekrar kontrol edin.  Kullanarak VM için MSI etkinleştirebilirsiniz [PowerShell](qs-configure-powershell-windows-vm.md) veya [Azure CLI](qs-configure-cli-windows-vm.md).
 
-### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Erişim denetimi (IAM) dikey penceresinde sanal makinelere erişim atanamaz
+### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Erişim denetimi (IAM) dikey penceresinde sanal makinelere erişim atanamıyor
 
-Varsa **sanal makine** için bir seçenek olarak Azure Portalı'nda görünmez **atamak için erişim** içinde **erişim denetimi (IAM)** > **Ekle izinleri**, sonra da yönetilen hizmet kimliği, bölgenizdeki portaldaki henüz etkinleştirilmedi. Daha sonra yeniden denetleyin.  Rol ataması için Yönetilen hizmet kimliği MSI hizmet sorumlusu için arama yaparak hala seçebilirsiniz.  VM adını girin **seçin** alan ve hizmet sorumlusu arama sonucunda görünür.
+Varsa **sanal makine** yönelik bir seçenek olarak Azure Portalı'nda görünmez **erişim Ata** içinde **erişim denetimi (IAM)** > **Ekle izinleri**, sonra da yönetilen hizmet kimliği portalın bölgeniz henüz etkinleştirilmedi. Daha sonra tekrar kontrol edin.  Rol ataması için Yönetilen hizmet kimliği MSI hizmet sorumlusu için arama yaparak yine de seçebilirsiniz.  VM'nin adını **seçin** alan ve hizmet sorumlusu arama sonucunda görüntülenir.
 
-### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>VM kaynak grubuna veya aboneliğe taşındıktan sonra başlatılamıyor
+### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>Kaynak grubu veya abonelik taşındıktan sonra başlatmak VM başarısız
 
-VM çalışır durumda taşırsanız, taşıma işlemi sırasında çalışmaya devam eder. VM durduruldu ve yeniden başlatılabilir, ancak taşımadan sonra onu başlatmak başarısız olur. VM MSI kimliğine başvuru güncelleştirilmiyor ve eski kaynak grubunda üzerine devam çünkü bu sorun oluşur.
+Bir sanal makine çalışır durumda taşırsanız, taşıma işlemi sırasında çalışmaya devam eder. VM durdurulduysa ve yeniden başlatıldı, ancak taşıma sonrasında, bunu başlatmak başarısız olur. VM MSI kimliğine başvuru güncelleştirilmiyor ve eski kaynak grubunda üzerine devam eder, çünkü bu sorun ortaya çıkar.
 
 **Geçici çözüm** 
  
-MSI için doğru değerleri sınıflandırıp bir güncelleştirme VM üzerinde tetikler. MSI kimliğine başvuru güncelleştirmek için bir VM özellik değişikliği yapabilirsiniz. Örneğin, aşağıdaki komut ile VM üzerinde yeni bir etiket değeri ayarlayabilirsiniz:
+VM üzerinde bir güncelleştirme için MSI doğru değerleri alabilmeniz tetikleyin. MSI kimliğine başvuru güncelleştirmek için bir VM özellik değişiklik yapabilirsiniz. Örneğin, aşağıdaki komutu VM'deki yeni bir etiket değeri ayarlayabilirsiniz:
 
 ```azurecli-interactive
  az  vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
 ```
  
-Bu komut yeni bir etiket değeri 1 olan "fixVM" VM ayarlar. 
+Bu komut, sanal makinede yeni bir etiket değeri 1 ile "fixVM" ayarlar. 
  
-Bu özellik ayarlayarak, doğru MSI kaynak URI'si ile VM güncelleştirir ve ardından VM başlatabilmek için olmalıdır. 
+Bu özellik ayarlayarak, VM doğru MSI kaynak URI'si ile güncelleştirir ve ardından sanal Makineyi başlatmak mümkün olmalıdır. 
  
-VM başladıktan sonra etiket komutu kullanılarak kaldırılabilir:
+VM başlatıldıktan sonra aşağıdaki komutu kullanarak etiket kaldırılabilir:
 
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
@@ -123,13 +123,14 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 ## <a name="known-issues-with-user-assigned-identities"></a>Atanan kullanıcı kimlikleri ile ilgili bilinen sorunlar
 
-- Kullanıcı kimliği atanmış atamaları yalnızca VM ve VMSS için kullanılabilir olan. Önemli: Atanan kullanıcı kimliğini atamaları gelecek aylarda değiştirin.
-- Atanan kullanıcı kimlikleri aynı VM/VMSS üzerinde yinelenen, başarısız VM/VMSS neden olur. Bu, farklı büyük/küçük harf ile eklenen kimlikleri içerir. Örneğin MyUserAssignedIdentity ve myuserassignedidentity. 
-- Bir VM VM uzantısının sağlama DNS arama hataları nedeniyle başarısız olabilir. VM'yi yeniden başlatın ve yeniden deneyin. 
-- Atanan 'Varolmayan' kullanıcı kimliği eklemek VM başarısız olmasına neden olur. 
-- Özel karakterler (örneğin, alt çizgi) adında bir kimlikle atanmış bir kullanıcı oluşturma, desteklenmiyor.
-- Kullanıcı Kimliği adlarının atanma 24 karakter uçtan uca senaryosu için kısıtlanmış. Kullanıcı atanan kimlikleri 24 karakterden daha uzun adlarıyla atanacak başarısız olur.  
-- İkinci bir kullanıcı ekleme kimlik atandığında ClientID VM uzantısı için istekleri belirteçleri için kullanılamayabilir. Bir azaltma, aşağıdaki iki bash komutlarla MSI VM uzantısı yeniden başlatın:
+- Kullanıcıya atanan kimlik yalnızca VM ve VMSS getirelim atamalardır. Önemli: Atanan kullanıcı kimlik atamaları gelecek ay içinde değiştirin.
+- Atanan kullanıcı kimlikleri aynı VM/VMSS üzerinde yinelenen, başarısız VM/VMSS neden olur. Bu, farklı büyük/küçük harf ile eklenen kimliklerini içerir. Örneğin MyUserAssignedIdentity ve myuserassignedidentity. 
+- Bir VM için VM uzantısının sağlama DNS arama hataları nedeniyle başarısız olabilir. VM'yi yeniden başlatın ve yeniden deneyin. 
+- 'Var olmayan' kullanıcı tarafından atanan kimlik ekleme, VM başarısız olmasına neden olur. 
+- Bir kullanıcı tarafından atanan kimliği adında özel karakterler (örneğin, alt çizgi) ile oluşturma, desteklenmiyor.
+- Kullanıcı tarafından atanan kimlik adları uçtan uca senaryo için 24 karakterden sınırlı. 24 karakterden daha uzun adlara sahip kullanıcı atanan kimlikleri atanacak başarısız olur.
+- Yönetilen kimlik sanal makine uzantısı aracılığıyla, desteklenen sınırı 32 kullanıcı tarafından yönetilen kimlikleri atanan olur. Yönetilen kimlik sanal makine uzantısı, desteklenen sınırı 512'dır.  
+- İkinci bir kullanıcı ekleyerek kimlik atandığında ClientID VM uzantısı için istekleri belirteçleri kullanılabilir olmayabilir. Bir risk azaltma, MSI VM uzantısı aşağıdaki iki bash komutları yeniden başlatın:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- Bir kullanıcı kimliği atanır, ancak kimliği atanır hiçbir sistem bir VM'ye sahip olduğu portal UI MSI devre dışı olarak gösterilir. Kimliği atanır sistem etkinleştirmek için bir Azure Resource Manager şablonu, Azure CLI veya bir SDK kullanın.
+- Bir VM, bir kullanıcı tarafından atanan kimliği ancak hiçbir sistem tarafından atanan kimliği varsa, portal UI MSI devre dışı olarak gösterilir. Sistem tarafından atanan kimlik etkinleştirmek için bir Azure Resource Manager şablonu, Azure CLI veya SDK'yı kullanın.

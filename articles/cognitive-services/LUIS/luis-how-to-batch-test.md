@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: 0844ec9c421afd4cd1e9e8b2e6ab5fbe93b23d04
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ec023ad796c57141cb35cce15b3d982adf2b8659
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868914"
+ms.locfileid: "37887768"
 ---
 # <a name="batch-testing"></a>Toplu işe testi
  Toplu test LUIS, performansı ölçmek için geçerli eğitilen modelinizde kapsamlı bir testtir. 
@@ -77,13 +77,6 @@ Grafiğin belirli bir amaç veya varlık tarafından filtre uygulamak için sağ
  
 ![Görselleştirilen toplu Test sonucu](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
-<!--
-## Investigate false sections
-Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
-
-
-The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
--->
 ## <a name="view-single-point-utterance-data"></a>Tek nokta utterance verileri görüntüleme
 Grafikte, kendi tahmin kesin puanı görmek için bir veri noktasının gelin. Sayfanın alt kısmındaki konuşma listesinde karşılık gelen kendi utterance almak için bir veri noktasını seçin. 
 
@@ -111,12 +104,3 @@ Test LUIS uygulamanızı doğru amaç ve varlıkları tanımıyor gösteriyorsa,
 * [LUIS uygulamanızın performansını artırmak için özellikleri kullanın](luis-how-to-add-features.md) 
 * [Bu öğreticiyle test toplu anlama](luis-tutorial-batch-testing.md)
 * [Batch kavramları test öğrenin](luis-concept-batch-test.md).
-
-[true-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-positive
-[true-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-negative
-[false-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-positive
-[false-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-negative
-[f-measure]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#f-measure
-[recall]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#recall
-[precision]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#precision
-

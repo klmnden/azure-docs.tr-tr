@@ -1,6 +1,6 @@
 ---
-title: Azure portalı kullanılarak ayarlanan bir Azure sanal makine ölçek üzerinde MSI yapılandırın
-description: Azure portalını kullanarak Azure VMSS üzerinde bir yönetilen hizmet Kimliği'ni (MSI) yapılandırma için adım yönergeler tarafından adım.
+title: Azure portalını kullanarak bir Azure sanal makine ölçek üzerinde MSI'yı yapılandırma
+description: Azure portalını kullanarak Azure VMSS üzerinde bir yönetilen hizmet kimliği (MSI) yapılandırma yönergeleri adım adım.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,73 +9,73 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: c915c692a12781538e10d367d40e3efe473a6853
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1ba9f827abeb0c0cf6430089e1fb504288550737
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33929053"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37900472"
 ---
-# <a name="configure-a-vmss-managed-service-identity-msi-using-the-azure-portal"></a>Bir VMSS yönetilen hizmet kimliği (Azure Portalı'nı kullanarak MSI) yapılandırma
+# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Sanal Makine Yapılandırma Yönetilen hizmet kimliği (MSI) Azure portalını kullanarak ölçek kümesi
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Yönetilen hizmet kimliği Azure Active Directory'de otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Bu kimlik, Azure AD kimlik doğrulaması, kimlik bilgileri, kodunuzda gerek kalmadan destekleyen herhangi bir hizmeti için kimlik doğrulaması yapmak için kullanabilirsiniz. 
+Yönetilen hizmet kimliği Azure Active Directory'de otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Bu kimlik, Azure AD kimlik doğrulaması, kimlik bilgilerini kodunuzda zorunda kalmadan destekleyen herhangi bir hizmeti kimlik doğrulaması için kullanabilirsiniz. 
 
-Bu makalede, etkinleştirme ve devre dışı kimlik Azure portalını kullanarak bir VMSS için atanan sistem öğreneceksiniz. Şu anda atama ve kullanıcı kimlikleri Azure VMSS atanan kaldırma Azure Portal desteklenmiyor.
+Bu makalede, Azure portalını kullanarak nasıl etkinleştirileceği ve sistem tarafından atanan kimlik için bir sanal makine ölçek kümesi devre dışı öğreneceksiniz. Şu anda Azure portalı üzerinden atama ve kullanıcı tarafından atanan kimlikleri bir Azure sanal makine ölçek kümesinden kaldırılması desteklenmiyor.
 
 > [!NOTE]
-> Şu anda kimlik işlemleri atanan kullanıcı desteklenmez Azure portalı yoluyla. Geri güncelleştirmeleri denetleyin.
+> Şu anda, kullanıcı tarafından atanan kimlik işlemleri desteklenmez Azure Portal aracılığıyla. Geri güncelleştirmeleri denetleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 
-- Yönetilen hizmet kimliği ile emin değilseniz, kullanıma [genel bakış bölümünde](overview.md).
-- Bir Azure hesabınız yoksa [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.
+- Yönetilen hizmet kimliği ile bilmiyorsanız, kullanıma [genel bakış bölümünde](overview.md).
+- Azure hesabınız yoksa, [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.
 
-## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Bir Azure sanal makine ölçek kümesinin oluşturulması sırasında yönetilen hizmet kimliği
+## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Bir Azure sanal makine ölçek kümesi oluşturulması sırasında yönetilen hizmet kimliği
 
-Şu anda, VM oluşturma Azure Portalı aracılığıyla yönetilen hizmet kimliği işlemlerini desteklemiyor. Bunun yerine, Lütfen ilk önce bir Azure sanal makine ölçek kümesi oluşturmak için aşağıdaki Azure sanal makine ölçek kümesi oluşturma Hızlı Başlangıç makalesine bakın:
+Şu anda, VM oluşturma Azure portal aracılığıyla yönetilen hizmet kimliği işlemlerini desteklemiyor. Bunun yerine, lütfen öncelikle bir Azure sanal makine ölçek kümesi oluşturmak için aşağıdaki Azure sanal makine ölçek kümesi oluşturma Hızlı başlangıcı makaleye başvurun:
 
-- [Azure portalında bir sanal makine ölçek kümesi oluşturma](../../virtual-machine-scale-sets/quick-create-portal.md)  
+- [Azure portalını kullanarak bir sanal makine ölçek kümesi oluşturma](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-Ardından sanal makine ölçek kümesinde MSI etkinleştirme ile ilgili ayrıntılar için sonraki bölüme geçin.
+Ardından sanal makine ölçek kümesinde MSI etkinleştirme hakkında daha fazla ayrıntı için sonraki bölüme devam edin.
 
-## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>Yönetilen hizmet kimliği mevcut bir Azure VMMS üzerinde etkinleştir
+## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>Mevcut bir Azure VMMS üzerinde yönetilen hizmet kimliğini etkinleştirme
 
-Kimliği olmadan ilk olarak sağlanan bir VM üzerinde atanan sistem etkinleştirmek için:
+Sistem tarafından atanan kimliği olmadan ilk olarak sağlanan bir VM üzerinde etkinleştirmek için:
 
-1. Oturum [Azure portal](https://portal.azure.com) sanal makine ölçek kümesini içeren Azure aboneliği ile ilişkili bir hesabı kullanarak.
+1. Oturum [Azure portalında](https://portal.azure.com) sanal makine ölçek kümesi içeren Azure aboneliği ile ilişkili bir hesap kullanarak.
 
 2. İstenen sanal makine ölçek kümesine gidin.
 
-3. VM atanan sistem kimliğini "Yönetilen hizmet kimliği altında" "Evet"'ı seçerek etkinleştirin ve ardından **kaydetmek**. Bu işlemi tamamlamak için 60 saniye veya daha fazlasını gerçekleştirebilirsiniz:
+3. VM üzerindeki sistem tarafından atanan kimliği "Yönetilen hizmet kimliği altında" etkinleştir "Evet"'i seçerek ve ardından **Kaydet**. Bu işlemi tamamlamak için 60 saniye veya daha fazlasını gerçekleştirebilirsiniz:
 
-   [![Yapılandırma sayfası ekran görüntüsü](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
+   [![Yapılandırma sayfasında ekran görüntüsü](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
 ## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Yönetilen hizmet kimliği bir Azure sanal makine ölçek kümesinden Kaldır
 
-Artık bir MSI gereken bir sanal makine ölçek kümesi varsa:
+Artık bir MSI gereken sanal makine ölçek kümesi varsa:
 
-1. Oturum [Azure portal](https://portal.azure.com) sanal makine ölçek kümesini içeren Azure aboneliği ile ilişkili bir hesabı kullanarak. Ayrıca hesabınızın sağlayan bir role ait olduğundan emin olun sanal makine ölçek kümesi üzerinde yazma izinleri.
+1. Oturum [Azure portalında](https://portal.azure.com) sanal makine ölçek kümesi içeren Azure aboneliği ile ilişkili bir hesap kullanarak. Ayrıca hesabınız sunan bir role ait olduğundan emin olun sanal makine ölçek kümesi üzerinde yazma izinleri.
 
 2. İstenen sanal makine ölçek kümesine gidin.
 
-3. "Yönetilen hizmet kimliği" altında "Hayır" seçerek VM'de kimliği atanır sisteminizi devre dışı sonra Kaydet'e tıklayın. Bu işlemi tamamlamak için 60 saniye veya daha fazlasını gerçekleştirebilirsiniz:
+3. "Yönetilen hizmet kimliği" altında "Hayır" seçerek atanan sanal makine kimliği sistemi devre dışı bırakın, sonra Kaydet'e tıklayın. Bu işlemi tamamlamak için 60 saniye veya daha fazlasını gerçekleştirebilirsiniz:
 
-   ![Yapılandırma sayfası ekran görüntüsü](../media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
+   ![Yapılandırma sayfasında ekran görüntüsü](../media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
 
 ## <a name="related-content"></a>İlgili İçerik
 
-- Yönetilen hizmet kimliği genel bakış için bkz: [genel bakış](overview.md).
+- Yönetilen hizmet kimliği genel bakış için bkz. [genel bakış](overview.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Verin Azure portalını kullanarak bir Azure sanal makine ölçek MSI kümesi [erişim için başka bir Azure kaynağı](howto-assign-access-portal.md).
+- MSI verin Azure portalını kullanarak bir Azure sanal makine ölçek kümesi [başka bir Azure kaynağına erişim](howto-assign-access-portal.md).
 
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
+Aşağıdaki yorum bölümünde geri bildirim sağlamak ve geliştirmek ve içeriklerimizde şekil yardımcı kullanın.

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3b87f89c8f0cb6a5b22923513d78fff9085f3598
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 83e5a8db9162ef1587664c0a353252c04ade45d8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345337"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887812"
 ---
 # <a name="entities-in-luis"></a>LUIS varlıkları
 
@@ -197,7 +197,7 @@ Bileşik varlık, bir bütün parçalarını temsil eder. Örneğin, PlaneTicket
 
 LUIS LUIS uygulamanızı sabit değerler listesini belirtmenizi sağlar ancak değil makine-öğrenilen listesi varlık türünü de sağlar. Bkz: [LUIS sınırları](luis-boundaries.md) sınırları varlık türleri gözden geçirmek için başvuru. 
 
-Kabul hiyerarşik, bileşik ve listelemeye ve hala en fazla sınıra ihtiyacınız varsa, desteğe başvurun. Bunu yapmak için sisteminizin hakkında ayrıntılı bilgi toplamak, Git [LUIS] [ LUIS] Web sitesine gidin ve ardından **Destek**. Destek Hizmetleri Azure aboneliğinize dahildir, başvurun [Azure teknik desteğine](https://azure.microsoft.com/support/options/). 
+Kabul hiyerarşik, bileşik ve listelemeye ve hala en fazla sınıra ihtiyacınız varsa, desteğe başvurun. Bunu yapmak için sisteminizin hakkında ayrıntılı bilgi toplamak, Git [LUIS](luis-reference-regions.md#luis-website) Web sitesine gidin ve ardından **Destek**. Destek Hizmetleri Azure aboneliğinize dahildir, başvurun [Azure teknik desteğine](https://azure.microsoft.com/support/options/). 
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 
@@ -216,5 +216,3 @@ Bkz: [en iyi uygulamalar](luis-concept-best-practices.md) daha fazla bilgi için
 Kavramları iyi hakkında bilgi edinin [konuşma](luis-concept-utterance.md). 
 
 Bkz: [varlık Ekle](luis-how-to-add-entities.md) LUIS uygulamanızı varlıklar ekleme hakkında daha fazla bilgi için.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

@@ -1,6 +1,6 @@
 ---
-title: Derleme ve tahmin için Azure Machine Learning paketi kullanarak bir tahmin modeli dağıtın.
-description: Oluşturma, eğitme, test ve tahmin için Azure Machine Learning paketi kullanarak bir tahmin modeli dağıtma hakkında bilgi edinin.
+title: Oluşturun ve tahmin için Azure Machine Learning paketi kullanarak bir tahmin modeli dağıtın.
+description: Oluşturma, eğitme, sınama ve tahmin için Azure Machine Learning paketi kullanarak bir tahmin modeli dağıtma konusunda bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,23 +9,23 @@ ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 05/07/2018
-ms.openlocfilehash: 320a7cf4a34657138c9096cdc4b573170be376e9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 44093dfde926b92d1617b85d27e362a8e40e5c56
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036803"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888679"
 ---
-# <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Derleme ve Azure Machine Learning ile tahmin modelleri dağıtma
+# <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Azure Machine Learning ile tahmin modellerini Derleme ve dağıtma
 
-Bu makalede, nasıl kullanılacağını öğrenirsiniz **tahmin için Azure Machine Learning paketi** hızlı bir şekilde oluşturmak ve bir tahmin modeli dağıtmak için (AMLPF). İş akışı aşağıdaki gibidir:
+Bu makalede, kullanmayı öğrenin **tahmin için Azure Machine Learning paketi** (AMLPF hızla oluşturmak ve bir tahmin modeli dağıtmak için). İş akışı aşağıdaki gibidir:
 
-1. Yük ve keşfedin.
+1. Yükleme ve verileri keşfedin
 2. Özellik oluşturma
-3. Eğitmek ve en iyi modeli seçin
-4. Model dağıtma ve web hizmetini kullanma
+3. Eğitim ve en iyi modeli seçin
+4. Modeli dağıtma ve web hizmetini kullanma
 
-Başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/forecasting) her modül ve sınıfı için ayrıntılı başvuru yanı sıra dönüştürücüler ve modelleri tam listesi için.
+Başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/forecasting) her modülü ve sınıf için ayrıntılı başvuru yanı sıra dönüştürücüler ve modelleri tam listesi için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -33,38 +33,38 @@ Başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/forecasting)
 
 1. Aşağıdaki hesapları ve uygulama kurmalı ve yüklü:
    - Bir Azure Machine Learning Denemesi hesabı 
-   - Bir Azure Machine Learning modeli yönetim hesabı
+   - Bir Azure Machine Learning Model Yönetimi hesabı
    - Azure Machine Learning Workbench'in yüklü olması 
 
-    Bu üç henüz oluşturduğunuz veya yüklü uygulayın [Azure Machine Learning Quickstart ve çalışma ekranı yükleme](../service/quickstart-installation.md) makalesi.
+    Bu üç henüz oluşturduysanız veya yüklü izleyin [Azure Machine Learning hızlı ve Workbench'i yükleme](../service/quickstart-installation.md) makalesi.
 
-1. Tahmin için Azure Machine Learning paketi yüklü olmalıdır. Bilgi edinmek için nasıl [burada bu paketi yükledikten](https://aka.ms/aml-packages/forecasting).
+1. Tahmin için Azure Machine Learning paketi yüklü olmalıdır. Bilgi edinmek için nasıl [burada bu paketi yüklemek](https://aka.ms/aml-packages/forecasting).
 
 ## <a name="sample-data-and-jupyter-notebook"></a>Örnek veriler ve Jupyter not defteri
 
 ### <a name="sample-workflow"></a>Örnek iş akışı 
 Örnek iş akışı aşağıdaki gibidir:
  
-1. **Veri alma**: veri kümesi yükleme ve TimeSeriesDataFrame dönüştürün. Bu dataframe zaman serisi veri olduğu için burada olarak adlandırılan tahmin, Azure Machine Learning paketi tarafından sağlanan yapısı **AMLPF**.
+1. **Veri alma**: dataset yükleme ve TimeSeriesDataFrame dönüştürün. Bu veri çerçevesi olan bir zaman serisi verileri burada denir, tahmin için Azure Machine Learning paketi tarafından sağlanan yapı **AMLPF**.
 
-2. **Özellikler oluşturmak**: AMLPF tarafından sağlanan çeşitli featurization dönüştürücüler özellikleri oluşturmak için kullanın.
+2. **Özellikleri oluşturma**: çeşitli özellik kazandırma sayesinde dönüştürücüler AMLPF tarafından sağlanan özellikler oluşturmak için kullanın.
 
-3. **Tren ve en iyi modeli seçmek**: çeşitli univariate zaman serisi modelleri ve makine öğrenimi modellerini performansını karşılaştırın. 
+3. **Eğitme ve en iyi modeli seçmek**: çeşitli univariate zaman serisi modelleri ve makine öğrenimi modelleri performansını karşılaştırın. 
 
-4. **Model dağıtma**: Bu başkaları tarafından kullanılabilecek şekilde Azure Machine Learning çalışma ekranı aracılığıyla bir web hizmeti olarak eğitilen model ardışık düzen dağıtın.
+4. **Model dağıtma**:, başkaları tarafından kullanılabilmesi için eğitilen modeli ardışık düzeni Azure Machine Learning Workbench ile bir web hizmeti olarak dağıtın.
 
-### <a name="get-the-jupyter-notebook"></a>Jupyter Not Defteri Al
+### <a name="get-the-jupyter-notebook"></a>Jupyter not defterini alma
 
-İndirme kod örnekleri çalıştırmak için Not Defteri kendiniz burada açıklanan.
+İndirme kod örnekleri çalıştırmak için Not defterini kendiniz burada açıklanan.
 
 > [!div class="nextstepaction"]
-> [Jupyter Not Defteri Al](https://aka.ms/aml-packages/forecasting/notebooks/sales_forecasting)
+> [Jupyter not defterini alma](https://aka.ms/aml-packages/forecasting/notebooks/sales_forecasting)
 
 ### <a name="explore-the-sample-data"></a>Örnek verileri keşfedin
 
-Örnekleri Bel izleyin kod örneklerinde tahmin machine learning [University, Şikago'nın Dominick'ın daha hassas Foods dataset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) turuncu suyu satış tahmin etmek için. Dominick'ın Chicago metropol alanı Market zincirinde oluştu.
+Machine learning örnekleri Bel izleme kodu örneklerde tahmin [Üniversitesi, Şikago'nın Dominick'ın daha hassas Foods dataset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) Portakal suyu satışları tahmin etmeye. Bir Market zinciri Chicago metropoliten alanında Dominick'ın oluştu.
 
-### <a name="import-any-dependencies-for-this-sample"></a>Bu örnek için tüm bağımlılıkları alma
+### <a name="import-any-dependencies-for-this-sample"></a>Bu örnek için herhangi bir bağımlılığın içeri aktarma
 
 Bu bağımlılıklar için aşağıdaki kod örnekleri içe aktarılması gerekir:
 
@@ -105,7 +105,7 @@ print('imports done')
 
 ## <a name="load-data-and-explore"></a>Verileri yüklemek ve keşfedin
 
-Bu kod parçacığını bir ham veri kümesi ile bu durumda başlatma tipik işlemini gösterir [Dominick'ın daha hassas Foods verilerden](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Ayrıca kolaylık işlevini kullanabilirsiniz [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+Bu kod parçacığı ile ham bir veri kümesi, bu durumda başlatma tipik işlemini gösterir [Dominick'ın daha hassas Foods verilerden](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Kolaylık işlevini de kullanabilirsiniz [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
 
 
 ```python
@@ -152,9 +152,9 @@ whole_df.head()
       <td>3,87</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0,10</td>
+      <td>0.10</td>
       <td>0.30</td>
       <td>0.46</td>
       <td>2.11</td>
@@ -172,9 +172,9 @@ whole_df.head()
       <td>3,87</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0,10</td>
+      <td>0.10</td>
       <td>0.30</td>
       <td>0.46</td>
       <td>2.11</td>
@@ -192,9 +192,9 @@ whole_df.head()
       <td>3,87</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0,10</td>
+      <td>0.10</td>
       <td>0.30</td>
       <td>0.46</td>
       <td>2.11</td>
@@ -212,9 +212,9 @@ whole_df.head()
       <td>3,87</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0,10</td>
+      <td>0.10</td>
       <td>0.30</td>
       <td>0.46</td>
       <td>2.11</td>
@@ -232,9 +232,9 @@ whole_df.head()
       <td>3,87</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0,10</td>
+      <td>0.10</td>
       <td>0.30</td>
       <td>0.46</td>
       <td>2.11</td>
@@ -247,10 +247,10 @@ whole_df.head()
 
 
 
-Marka ve mağaza tarafından haftalık satış verileri oluşur. Satılan miktar logaritmasını bulunduğu _logmove_ sütun. Veriler ayrıca bazı müşteri demografik özellikleri içerir. 
+Marka ve mağaza tarafından haftalık satış verileri oluşur. Satılan miktar logaritmasını bulunduğu _logmove_ sütun. Veriler, bazı müşteri demografik özellikler de içerir. 
 
-Zaman serisi modeli için aşağıdaki öğeleri bu dataframe ayıklamanız gerekir: 
-+ Bir tarih/saat ekseni 
+Zaman serisi modeli için bu veri çerçevesi ' aşağıdaki öğeleri ayıklanacak gerekir: 
++ Tarih Ekseni 
 + Tahmin için satış miktarı
 
 
@@ -334,11 +334,11 @@ print('{} time series in the data frame.'.format(nseries))
     249 time series in the data frame.
     
 
-Veri yaklaşık 250 farklı birleşimlerini deposu ve marka veri çerçevesinde içerir. Her birleşimin kendi zaman serisi satış tanımlar. 
+Veriler yaklaşık 250 farklı birleşimlerini deposu ve bir veri çerçevesinde marka içeriyor. Her bir bileşimi kendi zaman serisi satış tanımlar. 
 
-Kullanabileceğiniz [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) rahat bir tek veri yapısı kullanarak birden fazla seri modellemek için sınıf _çizgisi_. Çizgisi tarafından belirtilen `store` ve `brand` sütun.
+Kullanabileceğiniz [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) rahatça birden fazla seri kullanarak bir tek veri yapısı model sınıfı _dilimi_. Dilimi tarafından belirtilen `store` ve `brand` sütun.
 
-Arasındaki farkı _çizgisi_ ve _grup_ Grup olmak zorunda değildir ancak çizgisi her zaman gerçek hayatta, fiziksel olarak anlamlı olmasıdır. İç paket işlevleri grup kullanıcı bu gruplandırma modeli performansının artırılmasına yardımcı olur. inanırsa birden çok zaman serisinde listeden tek bir model oluşturmak için kullanın. Varsayılan olarak, Grup çizgisi için eşit olarak ayarlandığından ve tek bir model her birimi için oluşturulmuştur. 
+Arasındaki fark _dilimi_ ve _grubu_ grubu olması gerekmez ancak dilimi her zaman gerçek dünyada, fiziksel olarak anlamlı olmasıdır. İç paket işlevleri, kullanıcı bu gruplandırma model performansını artırır inanırsa birden çok zaman serisindeki tek bir model oluşturmak için grubu kullanın. Varsayılan olarak, grup için dilimi eşit olacak şekilde ayarlanır ve tek bir model için her bir dilimi oluşturulmuştur. 
 
 
 ```python
@@ -409,7 +409,7 @@ whole_tsdf[['Quantity']].head()
 
 
 
-TimeSeriesDataFrame gösteriminde zaman ekseni birimi şimdi veri çerçeve dizini parçası olan ve işlevselliği dilimleme pandas datetime kolay erişim izni.
+TimeSeriesDataFrame gösteriminde zaman ekseni dilimi artık veri çerçeve dizinini parçasıdır ve işlevsellik dilimleme pandas datetime kolay erişim izni.
 
 
 ```python
@@ -498,7 +498,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-[TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) işlevi zaman serisi veri çerçevesi kapsamlı bir rapor oluşturur. Rapor, hem bir genel veri açıklaması hem de istatistik zaman serisi veri belirli içerir. 
+[TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) işlevi, zaman serisi veri çerçevesi ilişkin kapsamlı bir rapor oluşturur. Rapor, hem bir genel veri açıklaması hem de istatistik belirli zaman serisi verilerini içerir. 
 
 
 ```python
@@ -663,11 +663,16 @@ whole_tsdf.ts_report()
 
 ![PNG](./media/how-to-build-deploy-forecast-models/output_15_6.png)
 
+![PNG](./media/how-to-build-deploy-forecast-models/output_59_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_61_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_63_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_63_1.png)
+ 
 
 
-## <a name="integrate-with-external-data"></a>Dış veri ile tümleştirme
+## <a name="integrate-with-external-data"></a>Dış veri ile tümleştirin
 
-Bazen tahmin için ek özellikler olarak dış veri tümleştirmek yararlıdır. Bu kod örneğinde, hava durumu için ilgili dış verilerle TimeSeriesDataFrame katılın.
+Bazen tahmin için ek özellikler olarak dış veri tümleştirme yararlıdır. Bu kod örneğinde, hava durumu için ilgili dış verilerle TimeSeriesDataFrame katılın.
 
 
 ```python
@@ -768,9 +773,9 @@ whole_tsdf.head()
       <td>/ 1,59</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0,10</td>
+      <td>0.10</td>
       <td>0.30</td>
       <td>...</td>
       <td>2.11</td>
@@ -789,12 +794,12 @@ whole_tsdf.head()
       <td>40</td>
       <td>8.41</td>
       <td>0</td>
-      <td>3.17</td>
+      <td>3.17 ile</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0,10</td>
+      <td>0.10</td>
       <td>0.30</td>
       <td>...</td>
       <td>2.11</td>
@@ -816,9 +821,9 @@ whole_tsdf.head()
       <td>3,87</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0,10</td>
+      <td>0.10</td>
       <td>0.30</td>
       <td>...</td>
       <td>2.11</td>
@@ -839,16 +844,16 @@ whole_tsdf.head()
       <td>7.49</td>
       <td>1</td>
       <td>/ 1,59</td>
-      <td>0.12</td>
-      <td>0.32</td>
+      <td>0,12</td>
+      <td>0,32</td>
       <td>0,05</td>
       <td>10.92</td>
-      <td>0,10</td>
+      <td>0.10</td>
       <td>0.41</td>
       <td>...</td>
       <td>3.80</td>
       <td>0.68</td>
-      <td>1.60</td>
+      <td>1,60</td>
       <td>0.74</td>
       <td>1792</td>
       <td>1990-06-14</td>
@@ -863,16 +868,16 @@ whole_tsdf.head()
       <td>8.35</td>
       <td>0</td>
       <td>2.99</td>
-      <td>0.12</td>
-      <td>0.32</td>
+      <td>0,12</td>
+      <td>0,32</td>
       <td>0,05</td>
       <td>10.92</td>
-      <td>0,10</td>
+      <td>0.10</td>
       <td>0.41</td>
       <td>...</td>
       <td>3.80</td>
       <td>0.68</td>
-      <td>1.60</td>
+      <td>1,60</td>
       <td>0.74</td>
       <td>4224</td>
       <td>1990-06-14</td>
@@ -885,16 +890,16 @@ whole_tsdf.head()
 </table>
 
 
-## <a name="preprocess-data-and-impute-missing-values"></a>Verileri ön işlemek ve eksik değerleri impute
+## <a name="preprocess-data-and-impute-missing-values"></a>Verileri önceden işleme ve eksik değerleri impute
 
-Başlangıç verileri Eğitim kümesi ve bir sınama kümesi ayırarak [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) yardımcı program işlevi. Sonuç kümesi sınama her zaman serisi son 40 gözlemleri içerir. 
+Başlangıç Eğitim kümesi ve bir sınama kümesi verileri bölerek [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) yardımcı program işlevi. Sonuç kümesi testi her zaman serisinin son 40 gözlemler içerir. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Temel zaman serisi modelleri ardışık zaman serisi gerektirir. Seri kullanarak düzenli aralıklarla örneklenen süre dizininin sahip oldukları anlamına gelir, normal olup olmadığını görmek için onay [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) işlevi.
+Temel zaman serisi modelleri, bitişik zaman serisi gerektirir. Seriyi kullanarak düzenli aralıklarla örneklenen bir zaman dizine sahip oldukları anlamına gelir, normal olup olmadığını görmek için onay [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) işlevi.
 
 
 ```python
@@ -969,7 +974,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-Seri (213 dışı 249) çoğunu düzensiz görebilirsiniz. Bir [imputation dönüştürme](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) satış miktarı değerleri eksik doldurmak için gereklidir. Birçok imputation seçenekleri olsa da, aşağıdaki örnek kod doğrusal ilişkilendirme kullanır.
+Seri (213 tanesi 249) çoğunu düzensiz görebilirsiniz. Bir [imputation dönüştürme](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) satış miktarı değerleri eksik doldurmak için gereklidir. Aşağıdaki örnek kod, birçok imputation seçenek olsa da, doğrusal enterpolasyon kullanır.
 
 
 ```python
@@ -982,7 +987,7 @@ imputer = TimeSeriesImputer(input_column='Quantity',
 train_imputed_tsdf = imputer.transform(train_tsdf)
 ```
 
-İmputation kod çalıştırıldıktan sonra tüm serisi normal sıklığı vardır:
+İmputation kod çalıştırıldıktan sonra tüm serisi normal sıklık vardır:
 
 
 ```python
@@ -997,16 +1002,16 @@ print(ts_regularity_imputed[ts_regularity_imputed['regular'] == False])
 
 ## <a name="univariate-time-series-models"></a>Univariate zaman serisi modelleri
 
-Verileri temizlendi, modelleme başlayabilirsiniz.  Başlangıç üç univariate modeli oluşturarak: "naïve" modeli, "Mevsimlik naïve" modeli ve bir "ARIMA" modeli.
-* Naive tahmin algoritmasını son süresi gerçek hedef değişken değerini geçerli süre tahmini değeri olarak kullanır.
+Verileri temizlendi, modelleme başlayabilirsiniz.  Üç univariate modelleri oluşturarak başlayın: "naïve" modeli, "Dönemsel naïve" modeli ve bir "ARIMA" modeli.
+* Naive kullanılacak tahmin algoritmasını son nokta gerçek hedef değişken değeri tahmin edilen geçerli dönemin değerini kullanır.
 
-* Mevsimlik Naive algoritması önceki mevsimin aynı zaman noktası gerçek hedef değişken değeri geçerli zaman noktası tahmini değeri olarak kullanır. Geçen yıl aynı ayın gerçek değeri geçerli yılın ay tahmin kullanmayı bazı örnekler şunlardır; dün aynı saatlik Bugün saat tahmin etmek için kullanın. 
+* Dönemsel Naive algoritması, tahmini değeri geçerli bir zaman noktası olarak aynı zaman noktasını önceki mevsimin gerçek hedef değişken değerini kullanır. Geçerli yıl, ay tahmin etmek için aynı geçen yılın ayı gerçek değerini kullanarak bazı örnekler şunlardır; dün aynı saatlik bugün saatlerini tahmin etmek için kullanın. 
 
-* Üstel yumuşatma (madde işaretleri) algoritması, gözlemleri büyüdükçe katlanarak küçülen ağırlıkları ile ağırlıklı ortalamalar geçmiş gözlemleri, bilgi işlem tarafından tahminleri oluşturur. 
+* Üstel yumuşatma (ETS) algoritması, ağırlıklı ortalamalar, geçmiş gözlemlerdir gözlemler büyüdükçe katlanarak küçülen ağırlıkları ile bilgi işlem tarafından tahminler oluşturur. 
 
-* AutoRegressive tümleşik hareketli ortalama (ARIMA) algoritma zaman serisi veri autocorrelation yakalar. ARIMA hakkında daha fazla bilgi için bkz: [Bu bağlantı](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
+* Ardışık Bağlanımlı tümleşik hareketli ortalama (ARIMA) algoritma zaman serisi verilerinde autocorrelation yakalar. ARIMA hakkında daha fazla bilgi için bkz: [Bu bağlantı](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
 
-Model parametreler, veri keşfi başlayın. 
+Model parametreler üzerinde bir veri keşfi ayarlayarak başlatın. 
 
 
 ```python
@@ -1014,7 +1019,7 @@ oj_series_freq = 'W-WED'
 oj_series_seasonality = 52
 ```
 
-### <a name="initialize-models"></a>Modelleri başlatma
+### <a name="initialize-models"></a>Modelleri Başlat
 
 
 ```python
@@ -1033,9 +1038,9 @@ arima_order = [2, 1, 0]
 arima_model = Arima(oj_series_freq, arima_order)
 ```
 
-### <a name="combine-multiple-models"></a>Birden fazla modeli birleştirin
+### <a name="combine-multiple-models"></a>Birden çok modeli birleştirin
 
-[ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) tahmin, birden çok estimators birleştirmek ve bunlara bir kod satırı kullanarak uygun/tahmin olanak sağlar.
+[ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) estimator birden çok estimators birleştirmek ve bunlara bir kod satırı kullanarak uygun/tahmin olanak tanır.
 
 
 ```python
@@ -1046,27 +1051,27 @@ forecaster_union = ForecasterUnion(
 
 ### <a name="fit-and-predict"></a>Uygun ve tahmin
 
-AMLPF içinde estimators scikit olarak aynı API izleyin-estimators öğrenin: model eğitim ve tahminleri oluşturmak için bir predıct yöntemi için uygun bir yöntem. 
+Scikit olarak aynı API estimators AMLPF içinde izleyin-estimators öğrenin: model eğitiminin ve tahminler üretmek için bir predıct yöntem için uygun bir yöntem. 
 
 **Modelleri eğitme**  
-Bu modeller tüm univariate modelleri olduğundan, bir model her veri birimi için uygun. AMLPF kullanarak, tek bir işlev çağrısı ile tüm 249'a kadar modelleri uygun olamaz.
+Bu modeller tüm univariate modelleri olduğundan, bir model verilerin her bir dilimi için uygun. AMLPF kullanarak, yalnızca bir işlev çağrısıyla 249'a kadar tüm modelleri uygun olamaz.
 
 
 ```python
 forecaster_union_fitted = forecaster_union.fit(train_imputed_tsdf)
 ```
 
-**Test verileri satış tahmin**  
-Benzer şekilde uygun yöntemi, tüm 249'a kadar seri için tahminleri sınama veri kümesi ile yapılan bir çağrı oluşturabileceğiniz `predict` işlevi. 
+**Test verilerini satış tahmini**  
+Benzer şekilde uygun yöntemi, Öngörüler 249'a kadar tüm seriler için sınama veri kümesi için bir çağrı ile oluşturabileceğiniz `predict` işlevi. 
 
 
 ```python
 forecaster_union_prediction = forecaster_union_fitted.predict(test_tsdf, retain_feature_column=True)
 ```
 
-**Model performansını değerlendirmek**   
+**Model performansını değerlendirme**   
 
-Şimdi sınama kümesi tahmin hatalarda hesaplayabilirsiniz. Burada, ortalama mutlak yüzdesi hata (MAPE) kullanabilirsiniz. MAPE gerçek satış değerleri göre ortalama mutlak yüzde hata yer almaktadır. ```calc_error``` İşlevi için yaygın olarak kullanılan hata ölçümleri birkaç yerleşik işlevler sağlar. MedianAPE hesaplamak ve err_fun bağımsız değişkeni geçirmek için bizim özel hata işlevi de tanımlayabilirsiniz.
+Şimdi sınama kümesi tahmin hatalarda hesaplayabilirsiniz. Burada, ortalama mutlak yüzdesi hata (MAPE) kullanabilirsiniz. MAPE gerçek satış değerlerini göre ortalama mutlak tamamlanma hata yer almaktadır. ```calc_error``` İşlevi birkaç yerleşik işlevler hata yaygın olarak kullanılan ölçümleri sağlar. Bizim özel hata işlevini MedianAPE hesaplamak ve err_fun bağımsız değişkeni geçirmek için de tanımlayabilirsiniz.
 
 
 ```python
@@ -1143,16 +1148,16 @@ univariate_model_errors
 
 
 
-## <a name="build-machine-learning-models"></a>Machine learning modellerini Derleme
+## <a name="build-machine-learning-models"></a>Makine öğrenimi modelleri oluşturma
 
-Tahmin için Azure Machine Learning paketi, geleneksel univariate modelleri yanı sıra makine öğrenimi modellerini oluşturmanızı da sağlar.
+Tahmin için Azure Machine Learning paket, geleneksel univariate modelleri yanı sıra, makine öğrenimi modelleri oluşturmak de sağlar.
 
 Bu modeller için özellikler oluşturarak başlayın.
 
 ### <a name="feature-engineering"></a>Özellik Mühendisliği
 
 **Dönüştürücüler**   
-Paketi birçok dönüştürücüler zaman serisi veri ön işleme ve featurization sağlar. Aşağıdaki örnekler bazı ön işleme ve featurization işlevlerini gösterir.
+Paket, zaman serisi verileri ön işleme ve özellik kazandırma sayesinde birçok dönüştürücüler sağlar. Aşağıdaki örneklerde, bazı ön işleme ve özellik kazandırma sayesinde işlevlerini göstermektedir.
 
 
 ```python
@@ -1181,8 +1186,8 @@ time_index_featurizer = TimeIndexFeaturizer(correlation_cutoff=0.1, overwrite_co
 grain_featurizer = GrainIndexFeaturizer(overwrite_columns=True, ts_frequency=oj_series_freq)
 ```
 
-**Komut zincirleri**   
-Ardışık Düzen nesneleri farklı nesnelere tekrar tekrar uygulanabilir şekilde adımları kümesini kaydetmek kolaylaştırır. Ayrıca, ardışık düzen nesneleri onları dağıtım için diğer makinelere kolayca taşınabilir hale getirmek amacıyla pickled. Şu ana kadar bir ardışık düzen kullanarak oluşturduğunuz tüm dönüştürücüler zincir. 
+**İşlem hatları**   
+İşlem hattı nesneleri için tekrar tekrar farklı nesnelere uygulanabilirler adımları kaydetmek kolaylaştırır. Ayrıca, işlem hattı nesneleri bunları dağıtım için diğer makinelere kolayca taşınabilir hale getirmek pickled. Şu ana kadar bir işlem hattı'ı kullanarak oluşturduğunuz tüm dönüştürücüler zincirleyebilirsiniz. 
 
 
 ```python
@@ -1249,7 +1254,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-[RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) TimeSeriesDataFrame üzerinde eğitilmiş böylece sklearn regresyon estimators işlevi sarmalar. Sarmalanan forecaster ayrıca her grubu bu servis talebi deposunda aynı modeline koyar. Forecaster benzer olarak kabul ve birlikte havuza seri grubu için bir model öğrenebilirsiniz. Seri grubu için bir model, uzun serisindeki veri genellikle kısa serisinin tahminleri geliştirmek için kullanır. Bu modeller Kitaplığı'nda regresyon destekleyen diğer modelleri için değiştirebilirsiniz. 
+[RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) TimeSeriesDataFrame üzerinde geliştirilen böylece sklearn regresyon estimators işlevi sarmalar. Sarmalanan forecaster, aynı modele bu durum deposunda her grup ayrıca koyar. Benzer olarak kabul ve birlikte bir havuzda toplanabilir mi seri grubu için bir model forecaster öğrenebilirsiniz. Seri grubu için bir model, uzun serisi verilerinden genellikle kısa bir seri için tahminlerini geliştirmek için kullanır. Bu modeller Kitaplığı'nda regresyon destekleyen diğer modelleri için birbirinin yerine kullanabilir. 
 
 
 ```python
@@ -1363,13 +1368,13 @@ all_errors.sort_values('MedianAPE')
 
 
 
-Bazı makine öğrenimi modellerini eklenen özellikleri ve daha iyi tahmin doğruluğunu almak için seri arasındaki benzerlikler yararlanamazsınız.
+Bazı makine öğrenimi modelleri eklenen özellikler ve daha iyi tahmin doğruluğunu almak için seri arasındaki benzerlikler avantajlarından faydalanabilir.
 
 **Çapraz doğrulama ve parametre Süpürme**    
 
-Paket işlevleri tahmin bir uygulama için öğrenme bazı geleneksel makine uyum sağlar.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator) ne olur ve tahmin Framework'te bilinecek değil uyarak geçici olarak, çapraz doğrulama yapar. 
+Paket işlevleri tahmin bir uygulama için bazı geleneksel makine uyum sağlar.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator) ne olduğu ve tahmin bir çerçeve bilinmiyor uyarak zamansal olarak, çapraz doğrulama yapar. 
 
-Aşağıdaki şekilde, her kare bir zaman noktasından verileri temsil eder. Mavi kareler eğitim temsil eder ve her Katlama sınama turuncu kareler temsil eder. Test verilerinin zaman noktalarından en büyük eğitim zaman noktasından sonra gelmesi gerekir. Aksi takdirde, gelecekteki veri modeli değerlendirme geçersiz hale gelmesine neden eğitim verilerini sızmış. 
+Aşağıdaki çizimde, her kare bir zaman noktasından verileri temsil eder. Mavi kareler eğitim temsil eder ve her kat test turuncu kareler temsil eder. Test verilerinin zaman noktalarından en büyük eğitim zaman noktasından sonra gelmelidir. Aksi halde gelecekteki verilerle eğitim verilerini model değerlendirme geçersiz olmasına neden sızmış. 
 
 ![PNG](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
@@ -1392,7 +1397,7 @@ print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
     
 
 **Son işlem hattı oluşturma**   
-En iyi modeli tanımladınız, yapı ve son hattınızı tüm dönüştürücüler ve en iyi modeli sığmayacak. 
+En iyi modeli tanımladığınıza göre derleme ve tüm dönüştürücüler ve en iyi modeli ile son ardışık düzeninize uyacak. 
 
 
 ```python
@@ -1411,13 +1416,13 @@ print('Median of APE of final pipeline: {0}'.format(final_median_ape))
     Median of APE of final pipeline: 42.54336821266968
     
 
-## <a name="operationalization-deploy-and-consume"></a>Operationalization: dağıtma ve kullanma
+## <a name="operationalization-deploy-and-consume"></a>Kullanıma hazır hale getirme:, dağıtma ve kullanma
 
-Bu bölümde, bir Azure Machine Learning web hizmeti olarak bir ardışık düzen dağıtın ve eğitim ve puanlama için kullanabilir. Dağıtılan web hizmeti Puanlama modeli retrains ve yeni veri tahminlerin oluşturur.
+Bu bölümde, bir işlem hattı bir Azure Machine Learning web hizmeti olarak dağıtma ve eğitim ve puanlama için kullanma. Dağıtılan web hizmeti Puanlama modeli retrains ve yeni veri tahminlerin oluşturur.
 
-### <a name="set-model-deployment-parameters"></a>Model dağıtım parametrelerini ayarlama
+### <a name="set-model-deployment-parameters"></a>Model dağıtım parametrelerini ayarla
 
-Aşağıdaki parametreleri için kendi değerlerini değiştirin. Azure Machine Learning ortamı, model yönetim hesabı ve kaynak grubu aynı bölgede bulunan emin olun.
+Aşağıdaki parametreler için kendi değerlerinizi değiştirin. Azure Machine Learning ortamınızı emin olmak için model Yönetimi hesabı ve kaynak grubunun aynı bölgede yer alır.
 
 
 ```python
@@ -1456,7 +1461,7 @@ deployment_name = '<web service name>'
 deployment_working_directory = '<local working directory>'
 ```
 
-### <a name="define-the-azure-machine-learning-environment-and-deployment"></a>Dağıtım ve Azure Machine Learning ortamı tanımlayın
+### <a name="define-the-azure-machine-learning-environment-and-deployment"></a>Azure Machine Learning ortam ve dağıtım tanımlayın
 
 
 ```python
@@ -1491,9 +1496,9 @@ aml_deployment = ForecastWebserviceFactory(deployment_name=deployment_name,
 aml_deployment.deploy()
 ```
 
-### <a name="score-the-web-service"></a>Web hizmeti puan
+### <a name="score-the-web-service"></a>Puanlama web hizmeti
 
-Küçük bir veri kümesini Puanlama amacıyla kullanmak [puan](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) tüm veriler için bir web hizmeti gönderme için yöntemi çağırın.
+Küçük bir veri kümesi puanlamak için kullanmak [puanı](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) bir web hizmeti göndermek için yöntemi çağırmak için tüm veriler.
 
 
 ```python
@@ -1514,7 +1519,7 @@ aml_web_service = aml_deployment.get_deployment()
 results = aml_web_service.score(score_context=score_context)
 ```
 
-Büyük bir veri kümesi Puanlama amacıyla kullanmak [paralel Puanlama](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) birden çok web hizmeti gönderme modu çağrıları, verilerin her grup için bir tane.
+Büyük bir veri kümesini puanlamak için kullanmak [paralel Puanlama](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) birden çok web hizmetine göndermek için modu çağrıları, her veri grubu için bir tane.
 
 
 ```python
@@ -1523,10 +1528,10 @@ results = aml_web_service.score(score_context=score_context, method='parallel')
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Machine Learning paketi hakkında daha fazla bilgi için tahmin bu makalelerde öğrenin:
+Azure Machine Learning paketi hakkında daha fazla bilgi aşağıdaki makalelerde tahmin için bilgi edinin:
 
-+ Okuma [genel bakış paketini ve nasıl yükleneceği öğrenin](https://aka.ms/aml-packages/forecasting).
++ Okuma [genel bakış paketini ve bu yüklemeyi öğrenin](https://aka.ms/aml-packages/forecasting).
 
-+ Araştır [başvuru belgeleri](https://aka.ms/aml-packages/forecasting) bu paket için.
++ Keşfedin [başvuru belgeleri](https://aka.ms/aml-packages/forecasting) bu paket için.
 
-+ Hakkında bilgi edinin [Azure Machine Learning için diğer Python paketlerini](reference-python-package-overview.md).
++ Hakkında bilgi edinin [diğer Azure Machine Learning Python paketleri](reference-python-package-overview.md).

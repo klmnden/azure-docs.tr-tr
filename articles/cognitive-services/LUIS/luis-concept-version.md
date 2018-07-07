@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 694b195440936a6eb42520c3343b6ff13194cc79
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f897a3c85bebff3c4534679d45e8af49aacba44a
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346340"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888125"
 ---
 # <a name="versions"></a>Sürümler
 İle aynı uygulamanın farklı modelleri oluşturma [sürümleri](luis-how-to-manage-versions.md). 
@@ -26,7 +26,7 @@ Sürüm kimliği basamak karakterlerinden oluşur veya '.' ve 10 karakterden uzu
 Başlangıç sürümü (0,1) Varsayılan active sürümüdür. 
 
 ## <a name="active-version"></a>Etkin sürümü
-İçin [bir sürümünü ayarlama](luis-how-to-manage-versions.md#set-active-version) etkin, şu anda düzenlenebilir ve test oluşturucusunu [LUIS] [ LUIS] Web sitesi. Bir sürüm kendi verilerine erişim, test etmek ve yayımlamak için güncelleştirmeleri de yapmak için etkin olarak ayarlayın.
+İçin [bir sürümünü ayarlama](luis-how-to-manage-versions.md#set-active-version) etkin, şu anda düzenlenebilir ve test oluşturucusunu [LUIS](luis-reference-regions.md) Web sitesi. Bir sürüm kendi verilerine erişim, test etmek ve yayımlamak için güncelleştirmeleri de yapmak için etkin olarak ayarlayın.
 
 Şu anda etkin sürümünün adı uygulama adından sonra üst, sol bölmede görüntülenir. 
 
@@ -62,5 +62,3 @@ Sahibi ve tüm [ortak çalışanlar](luis-how-to-collaborate.md) uygulamanın t�
 Eklemeyi öğrenmek [sürüm](luis-how-to-manage-versions.md) uygulama ayarları sayfasında. 
 
 Tasarlamayı öğrenin [hedefleri](luis-concept-intent.md) modeline.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

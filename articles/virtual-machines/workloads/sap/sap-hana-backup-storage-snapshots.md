@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: c7c90a2e24d8dbe7764825abe18c5a1e73b67499
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 1d3089052a67b899e2e4b38123145bd4ae51693f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868747"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902308"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Depolama anlık görüntülerine dayalı SAP HANA yedeklemesi
 
@@ -90,7 +90,8 @@ Bu komut dosyalarını kopyalamak nereye hakkında ayrıntılı bilgi ve tam ola
 
 - [Azure’da VM yedekleme altyapınızı planlama](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
 - [Uygulamayla tutarlı tutarlı yedekleme, Azure Linux vm'leri](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
-- 
+
+
 
 Bu anda, Microsoft olmayan yayımladıktan komut dosyaları ve anlık görüntü sonrası betikler SAP HANA için hazırlayın. Müşteri ya da sistem entegratörü gibi bu betikleri oluşturmak ve yukarıda anılan belgeleri yordamı yapılandırmak gerekir.
 
@@ -99,7 +100,7 @@ Bu anda, Microsoft olmayan yayımladıktan komut dosyaları ve anlık görüntü
 Azure backup tarafından alınan bir uygulamayla tutarlı yedekleme, geri yükleme işlemi makalesinde belgelenen [dosyaları Azure sanal makine yedekten kurtarma](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm). 
 
 > [!IMPORTANT]
-> Makaledeki [dosyaları Azure sanal makine yedekten kurtarma](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm), özel durumların bir listesi vardır ve listelenen adımları kullanarak disk eşlikli. Şeritli diskleri, normal bir VM yapılandırması için SAP HANA büyük olasılıkla içindir. Bu nedenle, makaleyi okuyun ve geri yükleme işlemi makalede listelenen gibi böyle durumlar için test etmek için gereklidir. 
+> Bu makalede [dosyaları Azure sanal makine yedekten kurtarma](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm) özel durumların bir listesi ve disk eşlikli kullanırken, listelenen adımları. Şeritli diskleri, normal bir VM yapılandırması için SAP HANA büyük olasılıkla içindir. Bu nedenle, makaleyi okuyun ve geri yükleme işlemi makalede listelenen gibi böyle durumlar için test etmek için gereklidir. 
 
 
 

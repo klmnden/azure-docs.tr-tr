@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 9793b98c384346dc0de68061d42b4bcb3c513ed4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 12105829f62b988760d3bbf18000466fd27b9aff
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866211"
+ms.locfileid: "37888341"
 ---
 # <a name="tutorial-use-patterns-to-improve-predictions"></a>Öğretici: desenleri Öngörüler geliştirmek için kullanın.
 
@@ -29,7 +29,7 @@ Bu öğreticide, hedefi ve varlık tahmin artırmak için desenleri kullanın.
 * Bağlamsal tabanlı varlıkları bulmak için bir varlığa bir rolü ekleme
 * Serbest biçimli varlıkları bulmak için bir Pattern.any ekleme
 
-Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS][LUIS] hesabına ihtiyacınız olacak.
+Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS](luis-reference-regions.md) hesabına ihtiyacınız olacak.
 
 ## <a name="import-humanresources-app"></a>İçeri aktarma İnsanKaynakları uygulama
 Bu öğreticide, bir İnsanKaynakları uygulaması içeri aktarır. Uygulamanın üç amacı vardır: hiçbiri, GetEmployeeOrgChart, GetEmployeeBenefits. İki varlık uygulama vardır: önceden oluşturulmuş sayısı ve çalışan. Çalışan varlık, bir çalışanın adı ayıklamak için basit bir varlıktır. 
@@ -250,6 +250,4 @@ Pattern.any varlık için varlıklar farklı uzunluktaki sağlar. Desen Başlang
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Tahminini geliştirme deyimi listeyi kullanın.](luis-tutorial-interchangeable-phrase-list.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [LUIS uygulamaları için en iyi uygulamaları öğrenin](luis-concept-best-practices.md)

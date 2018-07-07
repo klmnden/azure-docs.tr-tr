@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 9b8556a30169561488a7b46f93af87b31e049e7a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 4a3571acade7b7bd304c91eadc90b1a9f6e53860
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345517"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37886850"
 ---
 # <a name="utterances-in-luis"></a>LUIS, konuşma
 
@@ -23,7 +23,7 @@ ms.locfileid: "37345517"
 Kullanıcıların girer düşündüğünüz tümcecikleri toplayın. Aynı anlama gelir, ancak oluşturulan konuşma farklı sözcük uzunluğu ve sözcük yerleştirme dahil. 
 
 ## <a name="how-to-choose-varied-utterances"></a>Çeşitli konuşma seçme
-Ne zaman önce başlamanıza tarafından [örnek Konuşma ekleme] [ add-example-utterances] LUIS modelinize göz önünde bulundurmanız bazı ilkeler aşağıda verilmiştir.
+Ne zaman önce başlamanıza tarafından [örnek Konuşma ekleme](luis-how-to-add-example-utterances.md) LUIS modelinize göz önünde bulundurmanız bazı ilkeler aşağıda verilmiştir.
 
 ### <a name="utterances-arent-always-well-formed"></a>Konuşma her zaman iyi biçimlendirilmiş değil
 "Bana Paris bilet kitap" veya "Kayıt" gibi bir cümle bir parçasını gibi bir cümle olabilir ya da "Paris uçuş."  Kullanıcılar, yazım hatalarını genellikle yapın. Uygulamanızı planlarken, kullanıcı girişi için LUIS iletmeden önce yazım olup olmadığını göz önünde bulundurun. [Bing yazım denetimi API'si] [ BingSpellCheck] LUIS ile tümleşir. Uygulamayı yayımladığınızda, Bing yazım denetimi API'si için bir dış anahtarla LUIS uygulamanızı ilişkilendirebilirsiniz. Onay kullanıcı konuşma yazım değil, yazım hatalarını ve yazım hatalarını içeren konuşma üzerinde LUIS eğitme.
@@ -70,7 +70,6 @@ Modelinizi eğitilen, yayımlanmış ve alıcı sonra [uç nokta](luis-glossary.
 Gözden geçirme [en iyi uygulamalar](luis-concept-best-practices.md) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bkz: [örnek Konuşma ekleme] [ add-example-utterances] kullanıcı konuşma anlamak için bir LUIS uygulaması eğitim hakkında bilgi.
+Bkz: [örnek Konuşma ekleme](luis-how-to-add-example-utterances.md) kullanıcı konuşma anlamak için bir LUIS uygulaması eğitim hakkında bilgi.
 
-[add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-example-utterances
 [BingSpellCheck]: https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text

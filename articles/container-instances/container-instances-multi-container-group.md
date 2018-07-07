@@ -1,42 +1,42 @@
 ---
-title: Azure kapsayıcı örnekleri gruplarında çok kapsayıcı dağıtma
-description: Azure kapsayıcı örnekleri birden çok kapsayıcı kapsayıcı grubuyla dağıtmayı öğrenin.
+title: Azure Container ınstances'da çok kapsayıcılı grupları dağıtma
+description: Birden çok kapsayıcı Azure Container ınstances'da bir kapsayıcı grubu dağıtmayı öğrenin.
 services: container-instances
-author: iainfoulds
+author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: iainfou
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 6d337c9ed23ac9af884f4113b046a8e9756fd441
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ecc4484eddd6541c1407e1ed816ba8830030d7c8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097113"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888206"
 ---
 # <a name="deploy-a-container-group"></a>Kapsayıcı grubu dağıtma
 
-Azure kapsayıcı örnekleri birden çok kapsayıcı kullanarak tek bir ana bilgisayar üzerine dağıtımını destekleyen bir [kapsayıcı grubu](container-instances-container-groups.md). Bu günlüğe kaydetme, izleme veya başka bir yapılandırma için bir uygulama sepet oluştururken bir hizmetin ikinci bir bağlı işlem nerede ihtiyaç yararlıdır.
+Azure Container Instances kullanarak tek bir konak üzerine birden çok kapsayıcı dağıtımını destekleyen bir [kapsayıcı grubu](container-instances-container-groups.md). Günlüğe kaydetme, izleme veya başka bir yapılandırma için bir uygulama sepet oluştururken hizmet ikinci bir bağlı işlem gereken yere kullanışlıdır.
 
-Azure CLI kullanarak birden çok kapsayıcı grupları dağıtmak için iki yöntem vardır:
+Azure CLI kullanarak çok kapsayıcılı grupları dağıtma için iki yöntem vardır:
 
-* Resource Manager şablonu dağıtımı (Bu makalede)
-* [YAML dosya dağıtımı](container-instances-multi-container-yaml.md)
+* Resource Manager şablon dağıtımı (Bu makale)
+* [YAML dosyası dağıtım](container-instances-multi-container-yaml.md)
 
-Ek Azure hizmet kaynakları (örneğin, bir Azure dosya paylaşımı) dağıtmak gerektiğinde bir Resource Manager şablonu ile dağıtım kapsayıcı örnek dağıtım zamanında önerilir. Dağıtımınızı içerdiğinde YAML formatı nedeniyle daha kısa yapısı, dağıtımı YAML dosya ile önerilir *yalnızca* kapsayıcı örnekleri.
+Ek Azure hizmet kaynakları (örneğin, bir Azure dosya paylaşımı) dağıtmak gerektiğinde dağıtım bir Resource Manager şablonu ile kapsayıcı örneği dağıtımıyla zamanında önerilir. Dağıtımınız varsa YAML formatın daha kısa niteliği nedeniyle dağıtım ile bir YAML dosyası önerilir *yalnızca* kapsayıcı örnekleri.
 
 > [!NOTE]
-> Birden çok kapsayıcı grupları Linux kapsayıcılara şu anda kısıtlı. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışmamız esnasında, geçerli platform farklılıklarını [Azure Kapsayıcı Örnekleri için kotalar ve bölge kullanılabilirliği](container-instances-quotas.md) bölümünde bulabilirsiniz.
+> Birden çok kapsayıcı grubunun şu anda Linux kapsayıcılarıyla kısıtlıdır. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışmamız esnasında, geçerli platform farklılıklarını [Azure Kapsayıcı Örnekleri için kotalar ve bölge kullanılabilirliği](container-instances-quotas.md) bölümünde bulabilirsiniz.
 
 ## <a name="configure-the-template"></a>Şablon yapılandırma
 
-Bu makaledeki bölümler basit çok kapsayıcı sepet yapılandırma çalıştıran bir Azure Resource Manager şablonu dağıtarak yol.
+Bu makaledeki bölümler, basit bir çoklu kapsayıcı sepet yapılandırma çalıştıran bir Azure Resource Manager şablonu dağıtarak yol.
 
-Başlangıç adlı bir dosya oluşturarak `azuredeploy.json`, ardından aşağıdaki JSON dosyasını buraya kopyalayın.
+Adlı bir dosya oluşturarak başlayın `azuredeploy.json`, içine aşağıdaki JSON kopyalayın.
 
-Bu Resource Manager şablonunu iki kapsayıcı kapsayıcı grubuyla, bir ortak IP adresi ve iki gösterilen bağlantı noktalarını tanımlar. Gruptaki ilk kapsayıcı bir internet'e yönelik uygulama çalışır. İkinci kapsayıcı, sepet grubun yerel ağ aracılığıyla ana web uygulaması için bir HTTP isteği yapar.
+Bu Resource Manager şablonu, bir kapsayıcı grubu iki kapsayıcı, bir genel IP adresi ve iki kullanıma sunulan bağlantı noktası tanımlar. İlk kapsayıcı grubunda Internet'e yönelik bir uygulama çalıştırır. İkinci kapsayıcıyı, sepet, grubun yerel ağ aracılığıyla ana web uygulamaya bir HTTP isteği yapar.
 
 ```JSON
 {
@@ -124,7 +124,7 @@ Bu Resource Manager şablonunu iki kapsayıcı kapsayıcı grubuyla, bir ortak I
 }
 ```
 
-Bir özel kapsayıcı görüntü kayıt defterini kullanmak için JSON belgesi aşağıdaki biçime sahip bir nesne ekleyin. Bu yapılandırma örnek uygulaması için bkz: [ACI Resource Manager şablonu başvurusu] [ template-reference] belgeleri.
+Özel kapsayıcı görüntüsünü kayıt defteri kullanmak için JSON belgesi aşağıdaki biçime sahip bir nesne ekleyin. Bu yapılandırma için bir örnek uygulaması, bakın [ACI Resource Manager şablon başvurusu] [ template-reference] belgeleri.
 
 ```JSON
 "imageRegistryCredentials": [
@@ -144,7 +144,7 @@ Bir özel kapsayıcı görüntü kayıt defterini kullanmak için JSON belgesi a
 az group create --name myResourceGroup --location eastus
 ```
 
-Şablonla dağıtmak [az grup dağıtımı oluşturmak] [ az-group-deployment-create] komutu.
+Şablon ile dağıtım [az grubu dağıtım oluşturma] [ az-group-deployment-create] komutu.
 
 ```azurecli-interactive
 az group deployment create --resource-group myResourceGroup --template-file azuredeploy.json
@@ -152,15 +152,15 @@ az group deployment create --resource-group myResourceGroup --template-file azur
 
 Birkaç saniye içinde Azure’dan bir ilk yanıt almanız gerekir.
 
-## <a name="view-deployment-state"></a>Dağıtım durumunu görüntüle
+## <a name="view-deployment-state"></a>Görünüm dağıtım durumu
 
-Dağıtım durumunu görüntülemek için aşağıdakini kullanın [az kapsayıcı Göster] [ az-container-show] komutu:
+Dağıtım durumunu görüntülemek için aşağıdakileri kullanın [az container show] [ az-container-show] komutu:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Çalışan uygulama görüntülemek istiyorsanız, tarayıcınızın IP adresine gidin. Örneğin, IP. `52.168.26.124` Bu örnek çıkışı:
+Çalışan uygulamayı görüntülemek istiyorsanız, tarayıcınızda IP adresine gidin. Örneğin, IP olduğundan `52.168.26.124` , bu örnek çıktı:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
@@ -170,7 +170,7 @@ myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-helloworld
 
 ## <a name="view-logs"></a>Günlükleri görüntüleme
 
-Kullanarak bir kapsayıcı günlük çıktısını görüntüleyin [az kapsayıcı günlükleri] [ az-container-logs] komutu. `--container-name` Bağımsız değişkeni günlüklerini kapsayıcıyı belirtir. Bu örnekte, ilk kapsayıcı belirtilir.
+Kullanarak bir kapsayıcının günlük çıktısını görüntülemek [az kapsayıcı günlüklerini] [ az-container-logs] komutu. `--container-name` Kapsayıcı günlüklerini çekme yapılacağı bağımsız değişken belirtir. Bu örnekte, ilk kapsayıcı belirtilir.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -185,7 +185,7 @@ listening on port 80
 ::1 - - [09/Jan/2018:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Yan araba kapsayıcısı için günlükleri görmek için ikinci kapsayıcı adı belirterek aynı komutu çalıştırın.
+Yan araba kapsayıcı için günlükleri görmek için ikinci kapsayıcının adını belirterek aynı komutu çalıştırın.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -211,11 +211,11 @@ Date: Tue, 09 Jan 2018 23:25:11 GMT
 Connection: keep-alive
 ```
 
-Gördüğünüz gibi sepet bir HTTP isteği düzenli aralıklarla çalıştığından emin olmak için ana web uygulamasına grubun yerel ağ üzerinden yapılmasıdır. Bu sepet örnek, bir HTTP yanıt kodu 200 dışında Tamam aldıysanız, bir uyarıyı tetiklemek için genişletilemiyor.
+Gördüğünüz gibi sepet düzenli aralıklarla çalıştığından emin olmak için ana web uygulamasına grubun yerel ağ üzerinden bir HTTP istek yapıyor. Bir HTTP yanıt kodu 200 dışında Tamam aldığında, bir uyarı tetiklemek için bu sepet örneği genişletilemiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, bir çok kapsayıcı Azure kapsayıcı örneği dağıtmak için gerekli olan adımları ele. Bir uçtan uca Azure kapsayıcı örnekleri deneyimi için Azure kapsayıcı örnekleri öğretici bakın.
+Bu makalede, bir çoklu kapsayıcı Azure container örneği dağıtmak için gerekli olan adımları ele. Uçtan uca Azure Container Instances deneyimi için Azure Container Instances Öğreticisine bakın.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances öğreticisi][aci-tutorial]

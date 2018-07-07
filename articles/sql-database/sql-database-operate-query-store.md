@@ -1,6 +1,6 @@
 ---
-title: Azure SQL veritabanındaki Query Store işletim
-description: Azure SQL veritabanındaki Query Store çalışması öğrenin
+title: Azure SQL veritabanında Query Store çalıştırma
+description: Azure SQL veritabanında Query Store çalışması hakkında bilgi edinin
 services: sql-database
 author: bonova
 manager: craigg
@@ -9,51 +9,51 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: bonova
-ms.openlocfilehash: 92e4180f1efe62d2dae9778f70e25f1bb0273b7f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 37cb77b6738ba1354034dcf77d22a19b96c4ef23
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649892"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903107"
 ---
-# <a name="operating-the-query-store-in-azure-sql-database"></a>Azure SQL veritabanındaki Query Store işletim
-Query Store Azure sürekli olarak toplayan ve tüm sorguları hakkında ayrıntılı geçmiş bilgileri sunan bir tam olarak yönetilen veritabanı özelliğidir. Query Store hakkında önemli ölçüde hem bulut için sorun giderme sorgu performansı basitleştirir ve şirket içi müşteriler uçak 's uçuş veri Kaydedicisi benzer olarak düşünebilirsiniz. Bu makalede Azure sorgu deposunda işletim belirli yönleri açıklanmaktadır. Bu önceden toplanan verileri kullanarak, hızlı bir şekilde tanılayabilir ve performans sorunlarını gidermek ve böylece işletmelerini odaklanan daha fazla zaman ayırın. 
+# <a name="operating-the-query-store-in-azure-sql-database"></a>Azure SQL veritabanında Query Store çalıştırma
+Query Store azure'da sürekli olarak toplayan ve tüm sorguları hakkında ayrıntılı geçmiş bilgiler sunan bir tam olarak yönetilen veritabanı özelliğidir. Query Store hakkında önemli ölçüde kolaylaştırır hem de bulut için sorun giderme sorgu performansı ve şirket içinde müşteriler uçak 's uçuş veri Kaydedicisi benzer olarak düşünebilirsiniz. Bu makalede, azure'da Query Store işletim belirli yönlerini açıklar. Bu önceden toplanan verileri kullanarak, hızlı bir şekilde tanılayın ve performans sorunlarını ve böylece kendi işletmelerini odaklanarak daha fazla zaman ayırıyor. 
 
-Query Store süredir [genel olarak kullanılabilir](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) Kasım 2015 itibaren Azure SQL veritabanında. Query Store temelidir Performans Analizi ve ayarlama gibi özellikleri, [SQL veritabanı Danışmanı'nı ve performans Pano](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Bu makalede yayımlama şu anda Query Store, Azure, birden çok 200.000 kullanıcı veritabanlarında kesintisiz birkaç ay için sorgu ile ilgili bilgi toplama çalışıyor.
+Query Store oluştu [küresel olarak kullanılabilir](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) Kasım 2015 beri Azure SQL veritabanı'nda. Query Store temelidir Performans Analizi ve ayarlama gibi özellikleri, [SQL veritabanı Danışmanı ve performansını Pano](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Bu makalede yayımlama şu anda, Query Store, azure'da 200.000'den fazla kullanıcı veritabanlarındaki kesinti olmadan birkaç ay için sorgu ile ilgili bilgi toplama çalışıyor.
 
 > [!IMPORTANT]
 > Microsoft, tüm Azure SQL veritabanları için (mevcut ve yeni) Query Store etkinleştirme sürecinde ' dir. 
 > 
 > 
 
-## <a name="optimal-query-store-configuration"></a>En iyi sorgu deposu yapılandırma
-Bu bölümde, Query Store ve bağımlı özelliklerinin güvenilir işlemi gibi emin olmak için tasarlanmış en iyi yapılandırma varsayılanlarını açıklanmaktadır [SQL veritabanı Danışmanı'nı ve performans Pano](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Varsayılan yapılandırma kapalı/READ_ONLY durumlarda en az zamanın olan sürekli veri toplama için optimize edilmiştir.
+## <a name="optimal-query-store-configuration"></a>En uygun Query Store yapılandırma
+Bu bölümde Query Store ve bağımlı özelliklerini güvenilir işlemi gibi emin olmak için tasarlanan en uygun yapılandırma Varsayılanları açıklar [SQL veritabanı Danışmanı ve performansını Pano](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Varsayılan yapılandırma, OFF/READ_ONLY durumlarda harcanan minimum süre olan sürekli veri toplama için optimize edilmiştir.
 
 | Yapılandırma | Açıklama | Varsayılan | Açıklama |
 | --- | --- | --- | --- |
-| MAX_STORAGE_SIZE_MB |Query Store içinde müşteri veritabanı alabilir veri alanı için üst sınırını belirtir |100 |Yeni veritabanları için zorlanan |
-| İNTERVAL_LENGTH_MİNUTES DEĞERİ |İçinde sorgu planları için toplanan çalışma zamanı istatistikleri toplanır ve kalıcı zaman penceresi boyutunu tanımlar. Bu yapılandırma ile tanımlanan süre her etkin sorgu planı en çok bir satır var. |60 |Yeni veritabanları için zorlanan |
-| STALE_QUERY_THRESHOLD_DAYS DEĞERİ |Kalıcı çalışma zamanı istatistikleri ve etkin olmayan sorguları saklama süresi denetimleri zamana dayalı temizleme İlkesi |30 |Yeni veritabanları ve önceki varsayılan (367) ile veritabanları için zorlanan |
-| SİZE_BASED_CLEANUP_MODE DEĞERİ |Query Store veri boyutu sınırı yaklaştığında otomatik veri temizleme gerçekleşir olup olmadığını belirtir |OTOMATİK |Tüm veritabanları için zorlanan |
-| QUERY_CAPTURE_MODE DEĞERİ |Tüm sorgular veya yalnızca bir alt sorgu izlenen olup olmadığını belirtir |OTOMATİK |Tüm veritabanları için zorlanan |
-| FLUSH_INTERVAL_SECONDS |Çalışma zamanı istatistikleri bellekte diske temizleme önce tutulduğu en fazla süre yakalanan belirtir |900 |Yeni veritabanları için zorlanan |
+| MAX_STORAGE_SIZE_MB |Query Store, müşteri veritabanının içinde sürebilir veri alanı için sınır belirtir |100 |Yeni veritabanları için zorunlu |
+| INTERVAL_LENGTH_MINUTES |Zaman penceresi boyunca toplanan çalışma zamanı istatistikleri sorgu planlarına için toplanır ve kalıcı boyutunu tanımlar. Her etkin sorgu planı, bu yapılandırma ile tanımlanan bir süre için en fazla bir satır var. |60 |Yeni veritabanları için zorunlu |
+| STALE_QUERY_THRESHOLD_DAYS |Kalıcı bir çalışma zamanı istatistikleri ve etkin olmayan sorguları saklama süresini denetleyen zamana bağlı temizleme İlkesi |30 |Yeni veritabanları ve önceki varsayılan (367) ile veritabanları için zorunlu |
+| SIZE_BASED_CLEANUP_MODE |Query Store veri boyutu sınırına yakınken otomatik veri temizleme gerçekleşir olup olmadığını belirtir |OTOMATİK |Tüm veritabanları için zorunlu |
+| QUERY_CAPTURE_MODE |Tüm sorguları veya yalnızca bir alt sorgu izlenen olup olmadığını belirtir |OTOMATİK |Tüm veritabanları için zorunlu |
+| FLUSH_INTERVAL_SECONDS |Çalışma zamanı istatistikleri bellekte tutulur diske temizleme önce maksimum süre yakalanan belirtir |900 |Yeni veritabanları için zorunlu |
 |  | | | |
 
 > [!IMPORTANT]
-> Bu varsayılan son aşaması Query Store etkinleştirme tüm Azure SQL veritabanlarında (önemli not önceki bakın), otomatik olarak uygulanır. Bunlar birincil iş yükünü veya sorgu deposunun güvenilir işlemleri olumsuz sürece sonra bu ışık Azure SQL veritabanı müşteriler tarafından ayarladığınız yapılandırma değerlerini değiştirme olmaz.
+> Bu varsayılan otomatik olarak son aşaması, Query Store etkinleştirme tüm Azure SQL veritabanlarındaki (önceki önemli nota bakın) uygulanır. Bunlar birincil iş yükünü veya Query Store, güvenilir işlemleri olumsuz yönde sürece sonra bu ışık Azure SQL veritabanı müşteriler tarafından ayarlanan yapılandırma değerlerini değiştirme gerekmez.
 > 
 > 
 
-Özel ayarlarınızı olmak istiyorsanız, kullanmak [ALTER DATABASE Query Store seçenekleriyle](https://msdn.microsoft.com/library/bb522682.aspx) yapılandırma önceki duruma dönmek için. Kullanıma [Query Store en iyi yöntemlerle](https://msdn.microsoft.com/library/mt604821.aspx) nasıl en iyi yapılandırma parametrelerini üst seçtiğiniz öğrenmek için.
+Özel ayarlarınızla kalmak istiyorsanız kullanın [ALTER DATABASE Query Store seçeneklerle](https://msdn.microsoft.com/library/bb522682.aspx) yapılandırmaya önceki duruma geri dönmek için. Kullanıma [Query Store ile en iyi](https://msdn.microsoft.com/library/mt604821.aspx) için üst en uygun yapılandırma parametreleri nasıl seçtiğini öğrenin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[SQL veritabanı performansı öngörüleri](sql-database-performance.md)
+[SQL veritabanı performansı İçgörüleri](sql-database-performance.md)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
-Daha fazla bilgi kullanıma için aşağıdaki makalelere:
+Daha fazla bilgi için geçirin makaleleri:
 
-* [Veritabanınız için uçuş veri Kaydedicisi](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
+* [Veritabanınız için uçuş verileri Kaydedici](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
 * [Query Store kullanarak performans izleme](https://msdn.microsoft.com/library/dn817826.aspx)
-* [Sorgu deposu kullanım senaryoları](https://msdn.microsoft.com/library/mt614796.aspx)
-* [Query Store kullanarak performans izleme](https://msdn.microsoft.com/library/dn817826.aspx) 
+* [Query Store kullanım senaryoları](https://msdn.microsoft.com/library/mt614796.aspx)
+ 
 

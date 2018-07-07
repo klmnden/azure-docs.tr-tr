@@ -1,6 +1,6 @@
 ---
-title: Tetikleyicileri ve bağlamaları Azure işlevlerinde
-description: Kod yürütmeyi çevrimiçi olayları ve bulut tabanlı hizmetlere bağlanmak için Azure işlevleri Tetikleyicileri ve bağlamaları kullanmayı öğrenin.
+title: Tetikleyiciler ve bağlamalar Azure işlevleri'nde
+description: Tetikleyicileri ve bağlamaları, Azure işlevleri'nde, kod yürütme çevrimiçi etkinliklerimizden ve bulut tabanlı hizmetlere bağlamak için kullanmayı öğrenin.
 services: functions
 documentationcenter: na
 author: tdykstra
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 305f7a54e290b8628401c21f033f8be7017d4a91
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083874"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887479"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 
-Bu makalede Tetikleyicileri ve bağlamaları Azure işlevlerinde kavramsal bir genel bakıştır. Tüm bağlamalar ve tüm desteklenen diller için ortak olan özellikleri aşağıda açıklanmıştır.
+Bu makalede, Tetikleyicileri ve bağlamaları Azure işlevleri'nde kavramsal bir genel bakıştır. Tüm bağlamaları ve tüm desteklenen diller için ortak olan özellikler aşağıda açıklanmıştır.
 
 ## <a name="overview"></a>Genel Bakış
 
-A *tetikleyici* bir işlev nasıl çağrıldığını tanımlar. Bir işlev tam olarak bir tetikleyici olması gerekir. Tetikleyiciler genellikle işlevi tetiklenen yükü olduğu veri ilişkilendirdiniz.
+A *tetikleyici* nasıl bir işlev çağrılır tanımlar. Bir işlev tam olarak bir tetikleyici olmalıdır. Tetikleyiciler genellikle işlevi tetikleyen yüktür veri ilişkilendirdiniz.
 
-Giriş ve çıkış *bağlamaları* kodunuzu içindeki verileri bağlanmak için bildirim temelli bir yolunu sağlar. Bağlamaları isteğe bağlıdır ve bir işlev birden fazla giriş varsa ve bağlamaları çıktı. 
+Giriş ve çıkış *bağlamaları* kodunuz içinde verilere bağlanmak için bildirim temelli bir yöntemini sağlar. Bağlamaları isteğe bağlıdır ve bir işlev sahip birden fazla giriş ve çıkış bağlamaları. 
 
-Tetikleyicileri ve bağlamaları cmdlet'e kod çalıştığınız Hizmetleri ayrıntılarını engellemenize olanak tanır. İşlevinizi verileri (örneğin, bir kuyruk iletisi içeriği) işlevi parametreleri alır. İşlev dönüş değerini kullanarak (örneğin, bir kuyruk iletisi oluşturmak için) veri gönderme bir `out` parametresi veya [Toplayıcı nesnesi](functions-reference-csharp.md#writing-multiple-output-values).
+Tetikleyicileri ve bağlamaları, runbook'a kod ile çalışıyorsanız Hizmetleri ayrıntılarını önlemenize olanak tanır. İşlevinizi verileri (örneğin, bir kuyruk iletisinin içeriği) işlevi parametreleri alır. İşlevin dönüş değerini kullanarak (örneğin, bir kuyruk iletisi oluşturmak için) veri gönderdiğiniz bir `out` parametresi veya [Toplayıcı nesnesi](functions-reference-csharp.md#writing-multiple-output-values).
 
-Azure portalını kullanarak işlevleri geliştirirken Tetikleyicileri ve bağlamaları yapılandırılan bir *function.json* dosya. Portal, bu yapılandırma için bir kullanıcı Arabirimi sağlar ancak doğrudan değiştirerek dosyasını düzenleyebilirsiniz **Gelişmiş Düzenleyici**.
+Azure portalını kullanarak işlevleri geliştirirken, Tetikleyicileri ve bağlamaları yapılandırılan bir *function.json* dosya. Portal, bu yapılandırma için bir kullanıcı Arabirimi sağlar ancak doğrudan değiştirerek dosyayı düzenleyebilirsiniz **Gelişmiş Düzenleyici**.
 
-Sınıf kitaplığı oluşturmak için Visual Studio kullanarak işlevleri geliştirirken, Tetikleyicileri ve bağlamaları yöntemleri ve öznitelikleri ile parametreleri tasarlayarak yapılandırın.
+Bir sınıf kitaplığı oluşturmak için Visual Studio kullanarak işlevleri geliştirirken, Tetikleyicileri ve bağlamaları yöntemleri ve öznitelikleri parametrelerle tasarlayarak yapılandırın.
 
 ## <a name="example-trigger-and-binding"></a>Örnek tetikleyici ve bağlama
 
-Her Azure kuyruk depolama alanında yeni bir ileti görüntülendiğinde, Azure Table depolama alanına yeni bir satır yazmak istediğinizi varsayalım. Bu senaryo, bir Azure kuyruk kullanarak uygulanabilir depolama tetikleyici ve bir Azure Table depolama çıkış bağlama. 
+Azure kuyruk depolama alanında yeni bir iletinin göründüğü her durumda, Azure tablo depolama alanına yeni bir satır yazmak istediğiniz varsayalım. Bu senaryo, bir Azure kuyruğundaki kullanarak uygulanabilir depolama tetikleyicisi ve Azure tablo depolama çıkış bağlaması. 
 
-Burada bir *function.json* bu senaryo için dosya. 
+İşte bir *function.json* bu senaryo için dosya. 
 
 ```json
 {
@@ -65,16 +65,16 @@ Burada bir *function.json* bu senaryo için dosya.
 }
 ```
 
-İlk öğe `bindings` kuyruk depolama tetikleyici dizisidir. `type` Ve `direction` özelliklerini tetikleyici tanımlayın. `name` Özelliği sıraya ileti içeriğini alan işlev parametresi tanımlar. İzlemek için sırasının adı olarak `queueName`, ve bağlantı dizesi tarafından tanımlanan uygulama ayarı `connection`.
+İçindeki ilk öğeyi `bindings` kuyruk depolama tetikleyicisi dizisidir. `type` Ve `direction` tetikleyici özelliklerini tanımlayın. `name` Özelliği kuyruk iletisi içeriğini alan işlev parametresi tanımlar. İzlemek için kuyruk adı yer `queueName`, ve uygulama ayarının tarafından tanımlanan bağlantı dizesidir `connection`.
 
-İkinci öğe `bindings` dizidir Azure Table Storage bağlama çıktı. `type` Ve `direction` özelliklerini bağlama tanımlayın. `name` Dönüş değeri işlevini kullanarak bu durumda, özellik belirtir nasıl yeni tablo satırı işlevi sağlar. Tablonun adını bulunduğu `tableName`, ve bağlantı dizesi tarafından tanımlanan uygulama ayarı `connection`.
+İkinci öğe `bindings` dizidir Azure tablo depolama çıktı bağlaması. `type` Ve `direction` bağlama özelliklerini tanımlayın. `name` Dönüş değeri işlevini kullanarak bu durumda, özellik belirtir nasıl yeni bir tablo satırının işlevi sağlar. Tablo adı kullanılıyor `tableName`, ve uygulama ayarının tarafından tanımlanan bağlantı dizesidir `connection`.
 
-Görüntülemek ve içeriğini düzenlemek için *function.json* Azure portalında tıklatın **Gelişmiş Düzenleyici** seçeneği **tümleştir** işlevinizi sekmesinde.
+İçeriğini görüntüleyip *function.json* Azure portalında **Gelişmiş Düzenleyici** seçeneğini **tümleştir** işlevinizin sekmesi.
 
 > [!NOTE]
-> Değeri `connection` bağlantı dizesi, bağlantı dizesinin kendisini içeren bir uygulama ayarı adı. Bağlamaları bağlantısı kullanmak en iyi zorlamak için uygulama ayarlarında depolanan dizeleri alıştırma *function.json* hizmet gizli içermiyor.
+> Değerini `connection` değil bağlantı dizesinin kendisinin bağlantı dizesi içeren bir uygulama ayarı adı. Bağlamaları kullanın bağlantı dizeleri en iyi zorlamak için uygulama ayarlarında depolanan uygulama *function.json* hizmet gizli dizileri içermiyor.
 
-Aşağıda, bu tetikleyici ve bağlama ile çalışan bir C# kodu verilmiştir. Kuyruk iletisi içeriği sağlayan parametresinin adı olduğuna dikkat edin `order`; çünkü bu ad gereklidir `name` özellik değeri *function.json* olduğu `order` 
+Aşağıda, bu tetikleyici ve bağlama ile çalışan bir C# kodu verilmiştir. Kuyruk iletisi içeriği sağlayan parametrenin adı olduğuna dikkat edin `order`; çünkü bu adı gereklidir `name` özellik değeri *function.json* olduğu `order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -101,7 +101,7 @@ public class Person
 }
 ```
 
-JavaScript işlevi ile aynı function.json dosyası kullanılabilir:
+Bir JavaScript işlevi ile aynı function.json dosya kullanılabilir:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -119,7 +119,7 @@ function generateRandomId() {
 }
 ```
 
-Bir sınıf kitaplığı, aynı tetikleyici ve bağlama bilgileri &mdash; kuyruk ve tablo adları, depolama hesapları, işlev giriş ve çıkış parametreleri &mdash; function.json dosya yerine öznitelikleri tarafından sağlanır. Bir örneği aşağıda verilmiştir:
+Bir sınıf kitaplığı, aynı tetikleyici ve bağlama bilgileri &mdash; kuyruk ve tablo adları, depolama hesapları, işlev giriş ve çıkış parametrelerini &mdash; öznitelikleri function.json dosyası tarafından sağlanır. Bir örneği aşağıda verilmiştir:
 
 ```csharp
  public static class QueueTriggerTableOutput
@@ -151,91 +151,91 @@ Bir sınıf kitaplığı, aynı tetikleyici ve bağlama bilgileri &mdash; kuyruk
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-Bağlamaları önizlemede veya üretim kullanımı için onaylanan olduğu hakkında bilgi için bkz: [desteklenen diller](supported-languages.md).
+Bağlamaları önizlemededir veya üretim kullanımı için onaylanmış olan hakkında bilgi için bkz: [desteklenen diller](supported-languages.md).
 
-## <a name="register-binding-extensions"></a>Bağlama uzantılarını kaydetme
+## <a name="register-binding-extensions"></a>Bağlama uzantıları kaydetme
 
-Bazı geliştirme ortamlarında, açıkça zorunda *kaydetmek* kullanmak istediğiniz bir bağlama. Bağlama uzantıları NuGet paketlerini sağlanır ve uzantı kaydetmek için bir paket yükleyin. Aşağıdaki tabloda, ne zaman ve nasıl bağlama uzantıları kaydetmek gösterir.
+Bazı geliştirme ortamlarında, açıkça zorunda *kaydetme* kullanmak istediğiniz bir bağlama. Bağlama uzantıları NuGet paketlerinde sağlanır ve bir uzantıyı kaydetmek için bir paket yükleyin. Aşağıdaki tabloda, ne zaman ve nasıl bağlama uzantıları kaydetme gösterir.
 
-|Geliştirme ortamı |Kayıt<br/> işlevlerinde 1.x  |Kayıt<br/> işlevlerinde 2.x  |
+|Geliştirme ortamı |Kayıt<br/> işlevlerde 1.x  |Kayıt<br/> işlevlerde 2.x  |
 |---------|---------|---------|
-|Azure portalına|Automatic|[Otomatik istemiyle](#azure-portal-development)|
-|Yerel Azure işlevleri çekirdek araçlarını kullanma|Automatic|[Çekirdek araçları CLI komutları kullanın](#local-development-azure-functions-core-tools)|
-|Visual Studio 2017 kullanarak C# sınıf kitaplığı|[NuGet araçlarını kullanma](#c-class-library-with-visual-studio-2017)|[NuGet araçlarını kullanma](#c-class-library-with-visual-studio-2017)|
-|Visual Studio kodu kullanarak C# sınıf kitaplığı|Yok|[.NET Core CLI kullanın](#c-class-library-with-visual-studio-code)|
+|Azure portalına|Automatic|[Otomatik İstemi ile](#azure-portal-development)|
+|Azure işlevleri çekirdek Araçları'nı kullanarak yerel|Automatic|[Çekirdek araçları CLI komutlarını kullanın](#local-development-azure-functions-core-tools)|
+|Visual Studio 2017'yi kullanarak C# sınıf kitaplığı|[NuGet araçları kullanın](#c-class-library-with-visual-studio-2017)|[NuGet araçları kullanın](#c-class-library-with-visual-studio-2017)|
+|Visual Studio Code kullanarak C# sınıf kitaplığı|Yok|[.NET Core CLI kullanma](#c-class-library-with-visual-studio-code)|
 
-Bunlar otomatik olarak tüm sürümleri ve ortamlara kayıtlı olduğundan, açık kayıt gerektirmeyen özel durumlar aşağıdaki bağlama türleri şunlardır: HTTP, Zamanlayıcı ve Azure Storage (BLOB, kuyruklar ve tablolar). 
+Açık kaydı otomatik olarak tüm sürümleri ve ortamları kayıtlı olduğundan gerektirmeyen özel durumlar aşağıdaki bağlama türleridir: HTTP, Zamanlayıcı ve Azure depolama (BLOB'lar, kuyruklar ve tablolar). 
 
 ### <a name="azure-portal-development"></a>Azure portal geliştirme
 
-Bu bölüm, yalnızca işlevleriyle geçerlidir 2.x. Bağlama uzantıları işlevlerde açıkça kaydedilmesi gerekmez 1.x.
+Bu bölüm yalnızca işlevlere uygulanır 2.x. Bağlama uzantıları işlevleri açıkça kaydedilmesi gerekmez 1.x.
 
-Bir işlev oluşturun veya bir bağlama eklemek, tetikleyici veya bağlama uzantısı kayıt gerektirdiğinde istenir. Tıklayarak komutuna yanıt **yükleme** uzantısını kaydetmek için. Yüklemesi tüketim plan üzerinde 10 dakikaya kadar sürebilir.
+Bir işlev oluşturma veya bağlama eklemek, tetikleyicisi veya bağlaması uzantısı kaydı gerektirdiğinde, sizden istenir. Tıklayarak istemine yanıt **yükleme** uzantısını kaydetmek için. Yükleme, bir tüketim planında 10 dakikaya kadar sürebilir.
 
-Yalnızca bir kez verilen işlev uygulaması için her bir uzantı yüklemeniz gerekir. 
+Yalnızca bir kez bir verilen işlev uygulaması için her bir uzantı yüklemeniz gerekir. 
 
 ### <a name="local-development-azure-functions-core-tools"></a>Yerel geliştirme Azure işlevleri çekirdek araçları
 
-Bu bölüm, yalnızca işlevleriyle geçerlidir 2.x. Bağlama uzantıları işlevlerde açıkça kaydedilmesi gerekmez 1.x.
+Bu bölüm yalnızca işlevlere uygulanır 2.x. Bağlama uzantıları işlevleri açıkça kaydedilmesi gerekmez 1.x.
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 <a name="local-csharp"></a>
-### <a name="c-class-library-with-visual-studio-2017"></a>C# sınıf kitaplığı Visual Studio 2017 ile
+### <a name="c-class-library-with-visual-studio-2017"></a>C# sınıf kitaplığı ile Visual Studio 2017
 
-İçinde **Visual Studio 2017**, Paket Yöneticisi konsolunu kullanarak paketlerini yükleyebilirsiniz [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) aşağıdaki örnekte gösterildiği gibi komut:
+İçinde **Visual Studio 2017**, Paket Yöneticisi Konsolu'nu kullanarak paketleri yükleyebilirsiniz [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) aşağıdaki örnekte gösterildiği gibi komut:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
 ```
 
-Belirtilen bağlama için kullanılacak paketi adını başvurusu makalesinde Bu bağlama için sağlanır. Bir örnek için bkz: [paketleri hizmet veri yolu bağlama başvurusu makalesinde bölümüne](functions-bindings-service-bus.md#packages---functions-1x).
+Kullanmak için belirli bir bağlama için paket adını bu bağlama için başvuru makalesinde verilmektedir. Bir örnek için bkz. [paketler Service Bus bağlama başvuru makalesinde bölümüne](functions-bindings-service-bus.md#packages---functions-1x).
 
-Değiştir `<target_version>` paketin belirli bir sürümle örnekteki gibi `3.0.0-beta5`. Geçerli sürümler tek tek Paket sayfalarında listelenen [NuGet.org](https://nuget.org). İşlevler çalışma zamanına karşılık gelen ana sürüm 1.x veya 2.x bağlama için başvuru makaledeki belirtilir.
+Değiştirin `<target_version>` örnekte belirli bir paket sürümü ile gibi `3.0.0-beta5`. Geçerli sürümler tek tek Paket sayfalarında listelenen [NuGet.org](https://nuget.org). İşlevler çalışma zamanı için karşılık gelen ana sürüm bağlama için başvuru makalesinde 1.x veya 2.x belirtilir.
 
 ### <a name="c-class-library-with-visual-studio-code"></a>C# sınıf kitaplığı Visual Studio Code ile
 
-İçinde **Visual Studio Code**, komut istemini kullanarak gelen paketlerini yükleyebilirsiniz [dotnet eklemek paket](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) aşağıdaki örnekte gösterildiği gibi .NET Core CLI komutu:
+İçinde **Visual Studio Code**, komut istemi kullanarak paketleri yükleyebilirsiniz [dotnet paketini ekleyin](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) aşağıdaki örnekte gösterildiği gibi .NET Core CLI, komut:
 
 ```terminal
 dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
 ```
 
-.NET Core CLI yalnızca Azure işlevleri 2.x geliştirme için kullanılabilir.
+.NET Core CLI, yalnızca Azure işlevleri 2.x geliştirme için kullanılabilir.
 
-Belirtilen bağlama için kullanılacak paketi adını başvurusu makalesinde Bu bağlama için sağlanır. Bir örnek için bkz: [paketleri hizmet veri yolu bağlama başvurusu makalesinde bölümüne](functions-bindings-service-bus.md#packages---functions-1x).
+Kullanmak için belirli bir bağlama için paket adını bu bağlama için başvuru makalesinde verilmektedir. Bir örnek için bkz. [paketler Service Bus bağlama başvuru makalesinde bölümüne](functions-bindings-service-bus.md#packages---functions-1x).
 
-Değiştir `<target_version>` paketin belirli bir sürümle örnekteki gibi `3.0.0-beta5`. Geçerli sürümler tek tek Paket sayfalarında listelenen [NuGet.org](https://nuget.org). İşlevler çalışma zamanına karşılık gelen ana sürüm 1.x veya 2.x bağlama için başvuru makaledeki belirtilir.
+Değiştirin `<target_version>` örnekte belirli bir paket sürümü ile gibi `3.0.0-beta5`. Geçerli sürümler tek tek Paket sayfalarında listelenen [NuGet.org](https://nuget.org). İşlevler çalışma zamanı için karşılık gelen ana sürüm bağlama için başvuru makalesinde 1.x veya 2.x belirtilir.
 
 ## <a name="binding-direction"></a>Bağlama yönü
 
-Tüm Tetikleyicileri ve bağlamaları sahip bir `direction` özelliğinde *function.json* dosyası:
+Tüm tetikleyiciler ve bağlamalar bir `direction` özelliğinde *function.json* dosyası:
 
-- Tetikleyiciler için her zaman yönüdür `in`
-- Giriş ve çıkış bağlamaları kullanmak `in` ve `out`
-- Özel bir yön bazı bağlamaları Destek `inout`. Kullanırsanız `inout`, yalnızca **Gelişmiş Düzenleyici** kullanılabilir **tümleştir** sekmesi.
+- Tetikleyiciler için her zaman yönü olur `in`
+- Giriş ve çıkış bağlamaları kullanın `in` ve `out`
+- Bazı bağlamalar destekleyen özel bir yön `inout`. Kullanırsanız `inout`, yalnızca **Gelişmiş Düzenleyici** kullanılabilir **tümleştir** sekmesi.
 
-Kullandığınızda [öznitelikleri bir sınıf kitaplığı'nda](functions-dotnet-class-library.md) Tetikleyicileri ve bağlamaları yapılandırmak için yönü bir öznitelik oluşturucuda sağlanan veya parametre türünden sonuçlandı.
+Kullanırken [öznitelikleri bir sınıf kitaplığı'nda](functions-dotnet-class-library.md) Tetikleyicileri ve bağlamaları yapılandırmak için yön bir öznitelik oluşturucuda sağlanan veya parametre türünden çıkarsanan.
 
-## <a name="using-the-function-return-value"></a>İşlev dönüş değerini kullanarak
+## <a name="using-the-function-return-value"></a>İşlev dönüş değeri kullanma
 
-Bir dönüş değerine sahip diller için dönüş değerini bir çıkış bağlama bağlayabilirsiniz:
+Dönüş değerine sahip dillerde dönüş değerini bir çıkış bağlaması bağlayabilirsiniz:
 
-* Bir C# sınıf kitaplığı'nda, yönteminin dönüş değeri çıkış bağlama özniteliğini uygulayın.
+* Bir C# sınıf kitaplığında, yöntemin dönüş değerini çıkış bağlama özniteliğini uygulayın.
 * Diğer dillerde ayarlamak `name` özelliğinde *function.json* için `$return`.
 
-Birden çok öğe yazmanız gereken kullanırsanız bir [Toplayıcı nesnesi](functions-reference-csharp.md#writing-multiple-output-values) dönüş değeri yerine. Birden çok çıktı bağlamalar varsa, dönüş değeri yalnızca bunlardan birinin için kullanın.
+Birden fazla öğe yazmanız gereken kullanırsanız bir [Toplayıcı nesnesi](functions-reference-csharp.md#writing-multiple-output-values) yerine dönüş değeri. Dönüş değeri, birden çok çıkış bağlamaları varsa, bunlardan yalnızca biri için kullanın.
 
 Dile özgü örneğe bakın:
 
 * [C#](#c-example)
-* [C# betik (.csx)](#c-script-example)
+* [C# betiği (.csx)](#c-script-example)
 * [F#](#f-example)
 * [JavaScript](#javascript-example)
 
-### <a name="c-example"></a>C# örnek
+### <a name="c-example"></a>C# örneği
 
-Dönüş değerini zaman uyumsuz örneği tarafından izlenen bir çıktı bağlama için kullanan burada'nın C# kod:
+Dönüş değeri için zaman uyumsuz örneği tarafından izlenen bir çıkış bağlaması kullanan aşağıda verilmiştir; C# kodu:
 
 ```cs
 [FunctionName("QueueTrigger")]
@@ -259,9 +259,9 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, Trace
 }
 ```
 
-### <a name="c-script-example"></a>C# kod örneği
+### <a name="c-script-example"></a>C# betiği örneği
 
-Çıktı bağlama işte *function.json* dosyası:
+Çıkış bağlaması işte *function.json* dosyası:
 
 ```json
 {
@@ -272,7 +272,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, Trace
 }
 ```
 
-Zaman uyumsuz örneği tarafından izlenen C# betik kodu, şöyledir:
+Zaman uyumsuz örneği tarafından izlenen C# betik kodu, şu şekildedir:
 
 ```cs
 public static string Run(WorkItem input, TraceWriter log)
@@ -292,9 +292,9 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 }
 ```
 
-### <a name="f-example"></a>F # örnek
+### <a name="f-example"></a>F # örneği
 
-Çıktı bağlama işte *function.json* dosyası:
+Çıkış bağlaması işte *function.json* dosyası:
 
 ```json
 {
@@ -305,7 +305,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 }
 ```
 
-F # kod aşağıdaki gibidir:
+F # kodu şu şekildedir:
 
 ```fsharp
 let Run(input: WorkItem, log: TraceWriter) =
@@ -316,7 +316,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 ### <a name="javascript-example"></a>JavaScript örneği
 
-Çıktı bağlama işte *function.json* dosyası:
+Çıkış bağlaması işte *function.json* dosyası:
 
 ```json
 {
@@ -327,7 +327,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 }
 ```
 
-JavaScript'te, ikinci parametresinde dönüş değeri gider `context.done`:
+JavaScript'te, ikinci parametresinin, dönüş değeri gider `context.done`:
 
 ```javascript
 module.exports = function (context, input) {
@@ -337,11 +337,11 @@ module.exports = function (context, input) {
 }
 ```
 
-## <a name="binding-datatype-property"></a>DataType özelliği için bağlama
+## <a name="binding-datatype-property"></a>Bağlamanın dataType özelliği
 
-.NET, parametre türü veri türü için giriş verileri tanımlamak için kullanın. Örneğin, kullanın `string` sıra tetikleyici, ikili ve bir POCO nesne seri durumdan özel bir tür olarak okumak için bir bayt dizisi metnini bağlamak için.
+. NET'te, parametre türü, giriş verileri için veri türünü tanımlamak için kullanın. Örneğin, kullanın `string` ikili ve için bir POCO nesnenin serisini kaldırmak için özel bir tür olarak okunacak bayt dizisi olarak bir kuyruk tetikleyicisi metnini bağlanacak.
 
-JavaScript gibi dinamik olarak yazılan diller için kullanmak `dataType` özelliğinde *function.json* dosya. Örneğin, bir HTTP isteği ikili biçimde içeriğini okumak için ayarlar `dataType` için `binary`:
+JavaScript gibi dinamik olarak yazılan diller için kullanmak `dataType` özelliğinde *function.json* dosya. Örneğin, ikili biçimde bir HTTP isteği içeriğini okumak için ayarlanmış `dataType` için `binary`:
 
 ```json
 {
@@ -354,11 +354,11 @@ JavaScript gibi dinamik olarak yazılan diller için kullanmak `dataType` özell
 
 Diğer seçenekler için `dataType` olan `stream` ve `string`.
 
-## <a name="binding-expressions-and-patterns"></a>İfadeler ve desenler bağlama
+## <a name="binding-expressions-and-patterns"></a>Bağlama ifadeleri ve desenleri
 
-Tetikleyicileri ve bağlamaları en güçlü özelliklerden biridir *ifadeleri bağlama*. İçinde *function.json* dosya ve işlev parametrelerini ve kod değerlerine çeşitli kaynaklardan çözmek ifadeleri kullanabilirsiniz.
+Tetikleyiciler ve bağlamalar en güçlü özelliklerinden biri *ifadeleri bağlama*. İçinde *function.json* dosya ve işlev parametrelerini ve kod, çeşitli kaynaklardan gelen değerlerine çözmek ifadeleri kullanabilirsiniz.
 
-Çoğu ifadenin süslü ayraçlar içinde kaydırma tarafından tanımlanır. Örneğin, bir sıra Tetik işlevi içinde `{queueTrigger}` sıraya ileti metnini çözümleniyor. Varsa `path` özellik bir blob için çıkış bağlama `container/{queueTrigger}` ve işlevi bir kuyruk iletisi tarafından tetiklenir `HelloWorld`, adlandırılmış bir blob `HelloWorld` oluşturulur.
+Çoğu ifadenin ayraç içindeki sarmalama tarafından tanımlanır. Örneğin, bir kuyruğu tetikleme işlevi içinde `{queueTrigger}` kuyruğa ileti metni giderir. Varsa `path` özellik bir blob için çıktı bağlaması `container/{queueTrigger}` ve bir kuyruk iletisi ile tetiklenen işlev `HelloWorld`, adlı bir blob `HelloWorld` oluşturulur.
 
 Bağlama ifade türleri
 
@@ -366,22 +366,22 @@ Bağlama ifade türleri
 * [Tetikleyici dosya adı](#binding-expressions---trigger-file-name)
 * [Tetikleyici meta verileri](#binding-expressions---trigger-metadata)
 * [JSON yükü](#binding-expressions---json-payloads)
-* [Yeni bir GUID](#binding-expressions---create-guids)
+* [Yeni GUID](#binding-expressions---create-guids)
 * [Geçerli tarih ve saat](#binding-expressions---current-time)
 
 ### <a name="binding-expressions---app-settings"></a>Bağlama ifadeleri - uygulama ayarları
 
-En iyi uygulama, parolaları ve bağlantı dizeleri yapılandırma dosyalarını yerine uygulama ayarları kullanılarak yönetilmelidir. Bu bu Sırları erişimi sınırlar ve dosyalarını depolamak güvenli olmasını sağlayan *function.json* ortak kaynak denetimi depoları olarak.
+En iyi uygulama, gizli anahtarları ve bağlantı dizeleri yapılandırma dosyaları yerine, uygulama ayarlarını kullanarak yönetilmelidir. Bu parolalara erişimi sınırlar ve dosyaları depolamak güvenli olmasını sağlayan *function.json* genel kaynak denetimi depoları olarak.
 
-Uygulama ayarları da ortamına bağlı yapılandırmasını değiştirmek istediğinizde kullanışlıdır. Örneğin, bir test ortamında, farklı bir sıra veya blob depolama kapsayıcısı izlemek isteyebilir.
+Uygulama ayarları, ayrıca ortama bağlı yapılandırmasını değiştirmek istediğinizde yararlıdır. Örneğin, bir test ortamında farklı bir kuyruk veya blob depolama kapsayıcısı izlemek isteyebilirsiniz.
 
-Uygulama ayarı bağlama ifadeleri gelen diğer bağlama ifadeleri farklı şekilde tanımlanır: süslü ayraçlar yerine yüzde işaretleri sarılır. Örneğin blob çıkış bağlama yolu ise `%Environment%/newblob.txt` ve `Environment` uygulama ayarı değer `Development`, bir blob içinde oluşturulacak `Development` kapsayıcı.
+Uygulama ayarı bağlama ifadeleri gelen diğer bağlama ifadeleri farklı şekilde tanımlanır: küme ayracı yerine yüzde işaretleri sarmalanır. Örneğin blob çıkış bağlama yolu ise `%Environment%/newblob.txt` ve `Environment` uygulama ayarı değeri `Development`, bir blob oluşturulacaktır `Development` kapsayıcı.
 
-Bir işlev yerel olarak çalıştırırken, uygulama ayarı değerleri alınması *local.settings.json* dosya.
+Bir işlev yerel olarak çalışırken, uygulama ayar değerleri gelir *local.settings.json* dosya.
 
-Unutmayın `connection` Tetikleyicileri ve bağlamaları özelliği özel bir durumdur ve yüzde işaretleri olmadan uygulama ayarları olarak değerleri otomatik olarak çözer. 
+Unutmayın `connection` Tetikleyicileri ve bağlamaları özelliği özel bir durumdur ve otomatik olarak yüzde işaretleri olmadan uygulama ayarları olarak değerlerini çözümler. 
 
-Aşağıdaki örnek bir uygulama ayarını kullanan bir Azure kuyruk depolama tetikleyicisi olduğundan `%input-queue-name%` üzerinde tetiklemek için sıra tanımlamak için.
+Aşağıdaki örnek, bir uygulama ayarı kullanan bir Azure kuyruk depolama tetikleyicisi `%input-queue-name%` tetiklenecek kuyruk tanımlamak için.
 
 ```json
 {
@@ -411,9 +411,9 @@ public static void Run(
 
 ### <a name="binding-expressions---trigger-file-name"></a>Bağlama ifadeleri - tetikleyici dosya adı
 
-`path` Bir Blob için tetikleyici diğer bağlamalarda tetikleme blob adını başvurun ve işlev kodu olanak sağlayan bir desen olabilir. Desen hangi BLOB'ları bir işlev çağrısını tetikleyebilir belirtin filtreleme ölçütlerini de içerir.
+`path` Bir Blob için tetikleyici diğer bağlamalarda tetikleme blob adını bakın ve işlev kodunu sağlayan bir desen olabilir. Desen, hangi BLOB'ları, bir işlev çağrısını tetikleyebilirsiniz belirttiğiniz filtre ölçütüne de içerebilir.
 
-Örneğin, bağlama, aşağıdaki Blob tetikleyici içinde `path` deseni `sample-images/{filename}`, adlandırılmış bir bağlama deyimi oluşturur `filename`:
+Örneğin, bağlama, aşağıdaki Blob tetikleyicisinin `path` desendir `sample-images/{filename}`, adlı bir bağlama ifadesi oluşturur `filename`:
 
 ```json
 {
@@ -428,7 +428,7 @@ public static void Run(
     ...
 ```
 
-İfade `filename` oluşturulan blob adını belirtmek için bir çıktı bağlamasında sonra kullanılabilir:
+İfade `filename` sonra bir çıkış bağlaması içinde oluşturulan blob adını belirtmek için kullanılabilir:
 
 ```json
     ...
@@ -443,7 +443,7 @@ public static void Run(
 }
 ```
 
-İşlev kodu kullanarak erişim bu aynı değere sahip `filename` bir parametre adı olarak:
+İşlev kodunu kullanarak erişim bu aynı değere sahip `filename` parametre adı:
 
 ```csharp
 // C# example of binding to {filename}
@@ -457,7 +457,7 @@ public static void Run(Stream image, string filename, Stream imageSmall, TraceWr
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
-Sınıf kitaplıkları öznitelikleri bağlama ifadeleri ve desenler aynı kullanabilme uygular. Aşağıdaki örnekte, öznitelik Oluşturucusu aynı parametreleridir `path` önceki olarak değerleri *function.json* örnekler: 
+Sınıf kitaplıkları özniteliklerinde bağlama ifadeleri ve düzenleri kullanmak için aynı özelliği uygular. Aşağıdaki örnekte, öznitelik oluşturucu parametresi aynıdır `path` önceki olarak değerleri *function.json* örnekleri: 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -473,23 +473,23 @@ public static void Run(
 
 ```
 
-Dosya adı uzantısı gibi bölümlerinin ifadeler de oluşturabilirsiniz. İfadeler ve desenler Blob yol dizesi nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [depolama blob bağlama başvurusu](functions-bindings-storage-blob.md).
+Dosya adı uzantısı gibi bölümleri için ifadeleri de oluşturabilirsiniz. İfadeler ve desenleri Blob yol dizesi kullanma hakkında daha fazla bilgi için bkz. [depolama blob bağlama başvurusu](functions-bindings-storage-blob.md).
  
 ### <a name="binding-expressions---trigger-metadata"></a>Bağlama ifadeleri - tetikleyici meta verileri
 
-Bir tetikleyici (örneğin, bir işlev tetiklenen kuyruk iletisini içerik) tarafından sağlanan veri yükü yanı sıra birçok Tetikleyicileri ek meta veri değerleri sağlayın. Bu değerleri C# ve F # veya özelliklerinde giriş parametresi olarak kullanılabilir `context.bindings` JavaScript nesne. 
+Bir tetikleyici (örneğin, tetiklenen bir işlev bir kuyruk iletisinin içeriği) tarafından sağlanan veri yükü yanı sıra birçok tetikleyici ek meta veri değerleri sağlayın. Bu değerleri C# ve F # veya özellikleri giriş parametresi olarak kullanılabilir `context.bindings` JavaScript nesnesi. 
 
 Örneğin, bir Azure kuyruk depolama tetikleyicisi aşağıdaki özellikleri destekler:
 
-* QueueTrigger - geçerli bir dize, ileti içeriği tetikleme
+* İleti içeriği geçerli bir dize ise tetikleme QueueTrigger-
 * DequeueCount
-* expirationTime
+* ExpirationTime
 * Kimlik
 * InsertionTime
 * NextVisibleTime
 * PopReceipt
 
-Bu meta veri değerleri erişilebilir *function.json* dosya özellikleri. Örneğin, bir sıra tetikleyici kullanmanız ve kuyruk iletisini okumak istediğiniz bir blob adını içeren varsayalım. İçinde *function.json* kullanabileceğiniz dosyası `queueTrigger` blob meta veri özellik `path` özelliği, aşağıdaki örnekte gösterildiği gibi:
+Bu meta veri değerleri erişilebilir *function.json* dosya özellikleri. Örneğin, bir kuyruk tetikleyicisi kullanın ve kuyruk iletisini okumak istediğiniz bir blob adını içeren varsayalım. İçinde *function.json* kullanabileceğiniz dosyası `queueTrigger` BLOB meta veri özelliği `path` özelliği, aşağıdaki örnekte gösterildiği gibi:
 
 ```json
   "bindings": [
@@ -509,13 +509,13 @@ Bu meta veri değerleri erişilebilir *function.json* dosya özellikleri. Örne�
   ]
 ```
 
-Her tetikleyici için meta veri özelliklerini ayrıntılarını karşılık gelen başvurusu makalesinde açıklanmıştır. Bir örnek için bkz: [sıra tetikleyici meta verileri](functions-bindings-storage-queue.md#trigger---message-metadata). Belgeleri de kullanılabilir de **tümleştir** portal sekmesinde, **belgelerine** bağlama yapılandırma alanı aşağıdaki bölümüne.  
+Meta veri özelliklerini her tetikleyicinin ayrıntılarını karşılık gelen başvuru makalesinde açıklanmıştır. Bir örnek için bkz. [kuyruğu tetikleyici meta verileri](functions-bindings-storage-queue.md#trigger---message-metadata). Belgeleri kullanılabilir ayrıca **tümleştir** Portalı'nın sekmesini, **belgeleri** bölümüne bağlama yapılandırma alanı.  
 
 ### <a name="binding-expressions---json-payloads"></a>Bağlama ifadeleri - JSON yükü
 
-Bir tetikleyici yükü JSON olduğunda, aynı işlev ve işlev kodu diğer bağlamaları için yapılandırma özelliklerini başvurabilirsiniz.
+Bir tetikleyici yükü JSON olduğunda, aynı işlevi ve işlev kodunu diğer bağlamalar için yapılandırma özelliklerine başvurabilirsiniz.
 
-Aşağıdaki örnekte gösterildiği *function.json* JSON içinde blob adını alır bir Web kancası işlevi için dosya: `{"BlobName":"HelloWorld.txt"}`. Bir Blob giriş bağlama blob okur ve HTTP bağlama döndürür HTTP yanıtı blob içeriğinin çıktı. Blob giriş bağlaması doğrudan başvurarak blob adı alır fark `BlobName` özelliği (`"path": "strings/{BlobName}"`)
+Aşağıdaki örnekte gösterildiği *function.json* dosya JSON biçiminde bir blob adı alan bir Web kancası işlevi için: `{"BlobName":"HelloWorld.txt"}`. Bir Blob giriş bağlama blob okur ve HTTP bağlama döndürür HTTP yanıtında blob içeriklerini çıktı. Blob giriş bağlamasına doğrudan başvurarak blob adı alır fark `BlobName` özelliği (`"path": "strings/{BlobName}"`)
 
 ```json
 {
@@ -530,7 +530,7 @@ Aşağıdaki örnekte gösterildiği *function.json* JSON içinde blob adını a
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+      "path": "strings/{BlobName}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -542,7 +542,7 @@ Aşağıdaki örnekte gösterildiği *function.json* JSON içinde blob adını a
 }
 ```
 
-Bu C# ve F # içinde çalışmak, aşağıdaki örnekte olduğu gibi seri durumdan çıkarılacak alanlarını tanımlayan bir sınıf gerekir:
+Bu C# ve F # içinde çalışmak, aşağıdaki örnekte olduğu gibi seri için alanları tanımlayan bir sınıf gerekir:
 
 ```csharp
 using System.Net;
@@ -582,9 +582,9 @@ module.exports = function (context, info) {
 }
 ```
 
-#### <a name="dot-notation"></a>Noktalı gösterim
+#### <a name="dot-notation"></a>Nokta gösterimi
 
-JSON yükünüzü özelliklerin bazıları özellikleri nesneleriyle varsa, bunları noktalı gösterim kullanılarak doğrudan başvurabilirsiniz. Örneğin, JSON öğenizin şöyle varsayın:
+JSON yükünüzü özelliklerinde bazı özelliklere sahip nesneler varsa, bu nokta gösterimi kullanılarak doğrudan başvurabilirsiniz. Örneğin, JSON şöyle düşünün:
 
 ```json
 {"BlobName": {
@@ -594,13 +594,13 @@ JSON yükünüzü özelliklerin bazıları özellikleri nesneleriyle varsa, bunl
 }
 ```
 
-Doğrudan başvurabilir `FileName` olarak `BlobName.FileName`. Bu JSON biçimi ile işte `path` önceki örnekte özelliği uygulamamız gibi görünecektir:
+Doğrudan başvurabilirsiniz `FileName` olarak `BlobName.FileName`. Bu JSON biçimi ile işte `path` önceki örnekte özelliği gibi görünür:
 
 ```json
 "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
 ```
 
-C# ' ta iki sınıf gerekir:
+C# ', iki sınıf gerekir:
 
 ```csharp
 public class BlobInfo
@@ -614,9 +614,9 @@ public class BlobName
 }
 ```
 
-### <a name="binding-expressions---create-guids"></a>Bağlama ifadeleri - GUID'ler oluşturma
+### <a name="binding-expressions---create-guids"></a>Bağlama ifadeleri - GUID oluştur
 
-`{rand-guid}` İfade bağlama bir GUID oluşturur. Aşağıdaki blob yolu bir `function.json` dosyası gibi bir ada sahip bir blob oluşturur *50710cb5-84b9 - 4d 9 87 d 83-a03d6976a682.txt*.
+`{rand-guid}` Bağlama ifadesi bir GUID oluşturur. Aşağıdaki blob yolu bir `function.json` dosyası gibi bir ada sahip bir blob oluşturur *50710cb5 84b9 - 4d 9 87 d 83-a03d6976a682.txt*.
 
 ```json
 {
@@ -642,17 +642,17 @@ Bağlama ifadesi `DateTime` çözümler `DateTime.UtcNow`. Aşağıdaki blob yol
 
 ## <a name="binding-at-runtime"></a>Çalışma zamanında bağlama
 
-C# ve diğer .NET dilleri bildirim temelli bağlamaları aksine bir kesinlik temelli bağlama desen kullanabilirsiniz *function.json* ve öznitelikleri. Kesinlik temelli bağlama bağlama parametreleri tasarım yerine çalışma zamanında hesaplanması gerektiğinde kullanışlıdır. Daha fazla bilgi için bkz: [C# Geliştirici Başvurusu](functions-dotnet-class-library.md#binding-at-runtime) veya [C# betik Geliştirici Başvurusu](functions-reference-csharp.md#binding-at-runtime).
+C# ve diğer .NET dilleri, bildirim temelli bağlamaları aksine bir kesinlik temelli bir bağlama deseni kullanabileceğiniz *function.json* ve öznitelikleri. Kesinlik temelli bağlama bağlama parametreleri tasarım yerine çalışma zamanında hesaplanması gerektiğinde yararlıdır. Daha fazla bilgi için bkz. [C# Geliştirici Başvurusu](functions-dotnet-class-library.md#binding-at-runtime) veya [C# betiği Geliştirici Başvurusu](functions-reference-csharp.md#binding-at-runtime).
 
-## <a name="functionjson-file-schema"></a>Function.JSON dosyası şeması
+## <a name="functionjson-file-schema"></a>Function.JSON dosya şeması
 
-*Function.json* dosyası şeması şu adreste [ http://json.schemastore.org/function ](http://json.schemastore.org/function).
+*Function.json* dosya şemasının kullanılabilir [ http://json.schemastore.org/function ](http://json.schemastore.org/function).
 
 ## <a name="handling-binding-errors"></a>Bağlama hataları işleme
 
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
-İşlevleri tarafından desteklenen çeşitli hizmetler için tüm ilgili hata konulara bağlantılar için bkz: [hata kodları bağlama](functions-bindings-error-pages.md#binding-error-codes) bölümünü [Azure işlevleri hata işleme](functions-bindings-error-pages.md) genel bakış konusunun.  
+İşlevleri tarafından desteklenen çeşitli hizmetler için tüm ilgili hata konulara bağlantılar için bkz: [hata kodları bağlama](functions-bindings-error-pages.md#binding-error-codes) bölümünü [Azure işlevleri hata işleme](functions-bindings-error-pages.md) genel bakış konusu.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

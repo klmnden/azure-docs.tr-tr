@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2dc59a631107df6a9e77722b98fa77f7936f07aa
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 9216d43bd6431bb16c14e0bf2d8fb7d174365417
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437306"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902711"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack için kullanılabilir olan Azure Market öğeleri
 
@@ -228,6 +228,7 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [F5 BIG-IP sanal sürümü](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Gelişmiş Yük Dengeleme, GSLB, ağ güvenlik duvarı, DNS, WAF ve uygulama erişimi. | F5 Networks |
 | ![Hortonworks Data Platform (HDP) korumalı alan](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) korumalı alan](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Tarafından HDP %2,5 100 açık kaynak platformu Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari için desteklenen. | Hortonworks |
 | ![KEMP LoadMaster yük dengeleyici ADC içerik anahtarı](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster yük dengeleyici ADC içerik anahtarı](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 4-7. Katman uygulama teslim denetleyicisini (ADC) yük dengeleyici, içerik anahtarı ve Traffic Manager. | KEMP Technologies Inc. |
+| ![NRI mPLAT paketi - çoklu bulut Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT paketi - çoklu bulut Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Bir tek bölmesinde, izlemek için cam yapılandırma, sağlama, otomatikleştirin ve herhangi bir iş yükü veya Bulut yönetir. | NRI |
 | ![NooBaa karma AWS S3 uyumlu - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa karma AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Genel yayılan ve şirket içi kapasite kaynaklara S3 ile uyumlu depolama hizmeti. | NooBaa |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall, bilinen ve bilinmeyen güvenlik açıklarına algılar ve web apps'te saldırıları engeller. **Her iki PT Market öğelerini indirme.** | Pozitif teknolojileri |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Kurumsal tüm yaşam döngüsü, Azure Stack altyapısının otomatikleştirmenizi sağlar. **Her iki Puppet Market öğelerini indirme.** | Puppet |

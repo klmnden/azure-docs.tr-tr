@@ -1,6 +1,6 @@
 ---
 title: Azure IOT hub'ı yükseltme | Microsoft Docs
-description: Fiyatlandırma ve ölçek katmanı IOT hub'ın daha fazla ileti ve cihaz Yönetimi işlevlerini edinecek şekilde değiştirin.
+description: Fiyatlandırma ve ölçek katmanı için IOT Hub'ı daha fazla ileti ve cihaz Yönetimi işlevlerini edinecek şekilde değiştirin.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -8,46 +8,46 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 472115f166adc5385b6f46b2f3ac5ef75a6cde92
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f60b7d30c073c49d5e0a7d35e7263c2181ed744
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637285"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903073"
 ---
-# <a name="how-to-upgrade-your-iot-hub"></a>IOT hub'ınızı yükseltme
+# <a name="how-to-upgrade-your-iot-hub"></a>IOT hub'ınıza yükseltme
 
-IOT çözümünüzü büyüdükçe, Azure IOT Hub ölçeği yardımcı olması hazırdır. Azure IOT hub'ı iki katmanı sunar, (B) temel ve standart (S), istediğiniz müşteriler uyum sağlamak için farklı özellikleri kullanın. Her katman içinde her gün gönderilen ileti sayısını belirleyen üç (1, 2 ve 3) boyutlarıdır. 
+IOT çözümünüzü büyüdükçe, Azure IOT hub'ı ölçek büyütmenize yardımcı olmak hazırdır. Azure IOT Hub'ı iki katmanı sunar, (B) temel ve standart (S), uyum sağlamak istediğiniz müşterileri için farklı özellikleri kullanın. Her bir katman içinde olan her gün gönderilen ileti sayısını belirlemek üç boyutları (1, 2 ve 3). 
 
-Daha fazla cihaz varsa ve daha fazla özelliklerine ihtiyaç, gereksinimlerinize uygun olarak, IOT hub'ı ayarlamak için üç yol vardır:
+Daha fazla cihaz sahip ve daha fazla özelliğe ihtiyacınız olduğunda, IOT hub, gereksinimlerinize uyacak şekilde ayarlamak için üç yolu vardır:
 
-* IOT hub'ı içinde birimleri ekleyin. Örneğin, bir ek 400.000 iletiler günde bir B1 IOT hub'ı ek her birimi sağlar. 
-* IOT hub'ı boyutunu değiştirin. Örneğin, günde her birimi destekleyen iletilerin miktarını artırmak için B2 katmanına B1 katmanından geçirin.
-* Daha yüksek bir katmana yükseltin. Örneğin, B1 katmanından aynı Mesajlaşma kapasitesi ancak standart katmanındaki gelen Gelişmiş özellikleri ile S1 katmana yükseltin.
+* IOT hub dahilindeki birimleri ekleyin. Örneğin, B1 IOT hub'ındaki ek her birim bir ek 400.000 günlük ileti olanak tanır. 
+* IOT hub'ı boyutunu değiştirin. Örneğin, günde her birimi destekleyen iletilerin miktarını artırmak için B2 katman B1 katmanı geçirin.
+* Daha yüksek bir katmana yükseltin. Örneğin, B1 katmandan aynı ileti kapasite ancak standart katmanda gelen Gelişmiş Özellikler ile S1 katmanına yükseltin.
 
-Bu değişiklikler, tüm mevcut işlemleri kesintiye uğratmadan oluşabilir.
+Bu değişiklikleri tüm mevcut işlemleri kesintiye uğratmadan ortaya çıkabilir.
 
-IOT hub'ınızı düşürmek istiyorsanız, birimleri kaldırın ve IOT hub'ı azaltın. Ancak, daha düşük bir katmana düşürülemiyor. Örneğin, S1 katmanına S2 katmanından ancak S2 katman B1 katmanına taşıyabilirsiniz. 
+IOT hub'ınıza düşürmek istiyorsanız, birimleri kaldırın ve IOT hub'ı azaltın. Ancak, daha düşük bir katmana inemezsiniz. Örneğin, S1 katmanına S2 katmanından ancak B1 katmanı için S2 katmanı taşıyabilirsiniz. 
 
-Bu örnekler, IOT hub'ınızı çözüm değişikliklerinizi ayarlamak nasıl anlamanıza yardımcı olması için yöneliktir. Her katmanın özellikleri hakkında belirli bilgiler için her zaman için başvurmalıdır [Azure IOT Hub fiyatlandırma](https://azure.microsoft.com/pricing/details/iot-hub/). 
+Bu örnekler, IOT hub'ınıza çözüm değişikliklerinizi ayarlamak nasıl anlamanıza yardımcı olması için yöneliktir. Her katmanın özellikleri hakkında belirli bilgiler için her zaman başvurmanız gerekir [Azure IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub/). 
 
-## <a name="upgrade-your-existing-iot-hub"></a>Var olan IOT hub'ınızı yükseltme 
+## <a name="upgrade-your-existing-iot-hub"></a>Var olan IOT hub'ı yükseltme 
 
-1. Oturum [Azure portal](https://portal.azure.com/) ve IOT hub'ına gidin. 
+1. Oturum [Azure portalında](https://portal.azure.com/) ve IOT hub'ınıza gidin. 
 2. Seçin **fiyatlandırma ve ölçek**. 
 
    ![Fiyatlandırma ve ölçek](./media/iot-hub-upgrade/pricing-scale.png)
 
-3. Hub'ınız için katmanını değiştirmek için seçin **fiyatlandırma ve ölçek katmanı**. Yeni katman seçin ve ardından **seçin**.
+3. Hub'ınız için katmanını değiştirmek üzere seçin **fiyatlandırma ve ölçek katmanı**. Yeni katmanı seçin ve ardından tıklayın **seçin**.
 
    ![Fiyatlandırma ve ölçek](./media/iot-hub-upgrade/select-tier.png)
 
-4. Hub'ınızdaki birim sayısını değiştirmek için altında yeni bir değer girin **IOT Hub birimleri**. 
-5. Seçin **kaydetmek** yaptığınız değişiklikleri kaydetmek için. 
+4. Hub'ınızdaki birim sayısını değiştirmek için altında yeni bir değer girin. **IOT Hub birimlerinin**. 
+5. Seçin **Kaydet** yaptığınız değişiklikleri kaydedin. 
 
-IOT hub'ınız şimdi ayarlanır ve yapılandırmalarınızı değiştirilmemiştir. 
+IOT hub'ınız şimdi ayarlanır ve yapılandırmalarınızı değiştirilmez. IOT hub'ı bölüm sınırından temel katmanı Not 8'dir. Bu sınırı kaldığından Temel katmandan standart katmana geçiş yaptığınızda.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hakkında daha fazla ayrıntıyı [sağ IOT hub'ı katmanı seçme](iot-hub-scaling.md). 
+Hakkında daha fazla ayrıntıyı [doğru IOT Hub katmanını seçme](iot-hub-scaling.md). 
 

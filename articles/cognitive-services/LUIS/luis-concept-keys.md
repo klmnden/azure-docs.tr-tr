@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: v-geberr
-ms.openlocfilehash: fe6bd0803098854c7ced1a7d816ebbc8cce23b09
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: eb3487a304ec2e4045ff76253c456dc4b6ee19b5
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340622"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888632"
 ---
 # <a name="keys-in-luis"></a>LUIS anahtarları
 LUIS, iki anahtar kullanır: [yazma](#programmatic-key) ve [uç nokta](#endpoint-key). LUIS hesabınızı oluşturduğunuzda yazma anahtar sizin için otomatik olarak oluşturulur. LUIS uygulamanızı yayımlamaya hazır olduğunuzda yapmanız [uç nokta oluşturma](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [atayabilirsiniz](luis-how-to-manage-keys.md#assign-endpoint-key) LUIS uygulamanıza ve [ile uç nokta sorgu kullanın](#use-endpoint-key-in-query). 
@@ -31,7 +31,7 @@ LUIS uygulamaları yazmak önemlidir [bölgeleri](luis-reference-regions.md#publ
 
 Bir başlangıç anahtarı olarak da bilinen bir yazma anahtar otomatik olarak bir LUIS hesabı oluşturun ve ücretsiz olarak oluşturulur. Her yazma tüm uygulamalarınızda LUIS bir yazma anahtar sahip [bölge](luis-reference-regions.md). LUIS uygulamanızı yazar veya test uç noktası sorguları yazma anahtar sağlanır. 
 
-Yazma anahtarını bulmak için oturum [LUIS] [ LUIS] ve hesap adı açmak için sağ Gezinti çubuğuna tıklayarak **hesap ayarları**.
+Yazma anahtarını bulmak için oturum [LUIS](luis-reference-regions.md#luis-website) ve hesap adı açmak için sağ Gezinti çubuğuna tıklayarak **hesap ayarları**.
 
 ![Anahtar yazma](./media/luis-concept-keys/programatic-key.png)
 
@@ -70,10 +70,8 @@ Bkz: [anahtar sınırları](luis-boundaries.md#key-limits) ve [Azure bölgeleri]
 Yayımlama bölgeler bölge geliştirme farklıdır. Yazma bölgesi istediğiniz yayımlama bölgesiyle ilgili uygulama oluşturduğunuzdan emin olun.
 
 ## <a name="key-limit-errors"></a>Anahtar sınırı hataları
-Aşarsanız, ikinci kota bir HTTP 429 hatasını alıyorsunuz. Aşarsanız, aylık kota bir HTTP 403 hatası alırsınız. Bir LUIS alarak bu hataları düzeltin [uç nokta](#endpoint-key) anahtar [atama](luis-how-to-manage-keys.md#assign-endpoint-key) uygulamasında anahtar **Yayımla** sayfasının [LUIS] [ LUIS] Web sitesi.
+Aşarsanız, ikinci kota bir HTTP 429 hatasını alıyorsunuz. Aşarsanız, aylık kota bir HTTP 403 hatası alırsınız. Bir LUIS alarak bu hataları düzeltin [uç nokta](#endpoint-key) anahtar [atama](luis-how-to-manage-keys.md#assign-endpoint-key) uygulamasında anahtar **Yayımla** sayfasının [LUIS](luis-reference-regions.md#luis-website) Web sitesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bilgi [kavramları](luis-how-to-manage-keys.md#assign-endpoint-key) yazma ve uç nokta anahtarları hakkında.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
