@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 15f21fd03b0373c189f3b6c4972280d128024217
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 83dbe4b7bad8935e7d047a06d6d01ca74329027d
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "36943530"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906652"
 ---
 Bellek, ilişkisel veritabanı sunucuları, Orta veya büyük boyutlu önbellekler ve bellek içi analiz için harika olan yüksek bellek CPU oranı VM boyutları teklifi en iyi duruma getirilmiş. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra depolama aktarım hızı ve ağ bant genişliği için bu gruplandırma her boyutundaki sayısı hakkında bilgi sağlar. 
 
@@ -31,6 +31,10 @@ Bellek, ilişkisel veritabanı sunucuları, Orta veya büyük boyutlu önbellekl
 ## <a name="esv3-series"></a>Esv3 serisi 
 
 ACU: 160-190 <sup>1</sup>
+
+Premium Depolama: desteklenir
+
+Premium depolama önbelleğe alma: desteklenir
 
 ESv3 serisi örnekleri, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi temel alır, Intel Turbo Boost Technology 2.0 ile 3,5 GHz hıza çıkabilir ve premium depolama kullanır. Ev3 serisi örnekleri, yoğun bellek kullanımlı kurumsal uygulamalar için idealdir.
 
@@ -57,6 +61,10 @@ ESv3 serisi örnekleri, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi 
 
 ACU: 160-190 <sup>1</sup>
 
+Premium Depolama: Desteklenmez
+
+Premium depolama önbelleğe alma: Desteklenmez
+
 Ev3 serisi örnekleri, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi temel alır ve Intel Turbo Boost Technology 2.0 ile 3,5 GHz hıza çıkabilir. Ev3 serisi örnekleri, yoğun bellek kullanımlı kurumsal uygulamalar için idealdir.
 
 Veri disk depolaması, sanal makinelerden ayrı olarak faturalandırılır. Premium depolama disklerini kullanmak için ESv3 boyutlarını kullanın. ESv3 boyutları için fiyatlandırma ve faturalandırma oranları Ev3 serisi ile aynıdır. 
@@ -80,6 +88,12 @@ Veri disk depolaması, sanal makinelerden ayrı olarak faturalandırılır. Prem
 ## <a name="m-series"></a>M serisi 
 
 ACU: 160-180 <sup>1</sup>
+
+Premium Depolama: desteklenir
+
+Premium depolama önbelleğe alma: desteklenir
+
+Yazma hızlandırıcı: [desteklenir](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 | Boyut            | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
@@ -113,6 +127,10 @@ ACU: 160-180 <sup>1</sup>
 
 ACU: 180-240 <sup>1</sup>
 
+Premium Depolama: desteklenir
+
+Premium depolama önbelleğe alma: desteklenir
+
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |---|---|---|---|---|---|---|---|
 | Standard_GS1 |2 |28 |56 |8 |10.000/100 (264) |5000/125 |2 / 2000 |
@@ -133,6 +151,10 @@ ACU: 180-240 <sup>1</sup>
 
 ACU: 180 - 240
 
+Premium Depolama: Desteklenmez
+
+Premium depolama önbelleğe alma: Desteklenmez
+
 | Boyut         | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_G1  | 2         | 28          | 384            | 6000/93/46                                           | 8/8x500                       | 2 / 2000                     |
@@ -148,6 +170,10 @@ ACU: 180 - 240
 ## <a name="dsv2-series-11-15"></a>DSv2 serisi 11-15
 
 ACU: 210-250 <sup>1</sup>
+
+Premium Depolama: desteklenir
+
+Premium depolama önbelleğe alma: Desteklenmez
 
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -171,6 +197,10 @@ ACU: 210-250 <sup>1</sup>
 ## <a name="dv2-series-11-15"></a>Dv2 serisi 11-15
 
 ACU: 210 - 250
+
+Premium Depolama: Desteklenmez
+
+Premium depolama önbelleğe alma: Desteklenmez
 
 | Boyut              | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
