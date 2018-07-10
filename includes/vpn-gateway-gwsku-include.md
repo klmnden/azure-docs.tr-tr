@@ -29,7 +29,7 @@ Yeni VPN ağ geçidi SKU'ları ağ geçitlerinde sunulan özellik kümeleri aç�
 
 | **SKU**| **Özellikler**|
 | ---    | ---         |
-|**Temel** (*)   | **Rota tabanlı VPN**: P2S ile 10 tünel; P2S için; RADIUS kimlik doğrulaması P2S için Ikev2 yok<br>**İlke tabanlı VPN** (IKEv1): 1 tünel; P2S yok|
+|**Temel** (\*\*)   | **Rota tabanlı VPN**: P2S ile 10 tünel; P2S için; RADIUS kimlik doğrulaması P2S için Ikev2 yok<br>**İlke tabanlı VPN** (IKEv1): 1 tünel; P2S yok|
 | **VpnGw1, VpnGw2 ve VpnGw3** | **Rota tabanlı VPN**: 30 tünele kadar (*), P2S, BGP, etkin-etkin, özel IPSec/IKE İlkesi, ExpressRoute/VPN birlikte kullanımı |
 |        |             |
 
@@ -44,7 +44,7 @@ SLA ve özellik kümeleri farklılıklar nedeniyle üretim ve geliştirme ve tes
 | **İş yükü**                       | **SKU'lar**               |
 | ---                                | ---                    |
 | **Üretim, kritik iş yükleri** | VpnGw1, VpnGw2, VpnGw3 |
-| **Geliştirme-test veya kavram kanıtı**   | Temel (*)                 |
+| **Geliştirme-test veya kavram kanıtı**   | Temel (\*\*)                 |
 |                                    |                        |
 
 (\*\*) Temel SKU eski SKU olarak kabul edilir ve özellik sınırlamaları vardır. Temel SKU kullanmadan önce gereksinim duyduğunuz özellik desteklendiğinden emin olun.
