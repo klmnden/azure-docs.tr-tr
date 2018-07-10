@@ -20,7 +20,9 @@
       href: storage-quickstart-blobs-cli.md
     - name: Blob’larla çalışma - .NET
       href: storage-quickstart-blobs-dotnet.md
-    - name: Blob’larla çalışma - Java
+    - name: Blob’larla çalışma - Java (Depolama SDK V10)
+      href: storage-quickstart-blobs-java-v10.md
+    - name: Blob’larla çalışma - Java (Depolama SDK V7)
       href: storage-quickstart-blobs-java.md
     - name: Bloblarla çalışma - Python
       href: storage-quickstart-blobs-python.md
@@ -192,6 +194,8 @@
           href: storage-blob-immutable-storage.md
         - name: Azure Depolama istemcisi için güvenli TLS'yi etkinleştirme
           href: ../common/storage-security-tls.md
+        - name: Uyumluluk teklifleri
+          href: ../common/storage-compliance-offerings.md
     - name: İzleme ve sorun giderme
       items:
         - name: Sorun giderme öğreticisi

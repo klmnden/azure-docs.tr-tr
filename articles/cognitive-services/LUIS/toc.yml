@@ -65,8 +65,10 @@
           href: luis-quickstart-intent-and-key-phrase.md
         - name: 8. Yaklaşım analizi ekleme
           href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: Tahmin iyileştirme
+    - name: Uygulama geliştirme
       items:
+        - name: Uç nokta konuşmasını gözden geçirme
+          href: luis-tutorial-review-endpoint-utterances.md
         - name: Desenler ile
           href: luis-tutorial-pattern.md
         - name: Tümcecik listesi ile
@@ -313,6 +315,8 @@
       href: 'https://github.com/Microsoft/Recognizers-Text'
 - name: Kaynaklar
   items:
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Azure Yol Haritası
       href: 'https://aka.ms/luis-roadmap'
     - name: Sözlük
@@ -326,7 +330,7 @@
     - name: UserVoice
       href: 'https://aka.ms/luis-uservoice-forum'
     - name: Arama
-      href: 'https://docs.microsoft.com/en-us/search/index?search=LUIS'
+      href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: Blog
       href: 'https://blog.botframework.com/category/luis/'
     - name: Bilgi Bankası

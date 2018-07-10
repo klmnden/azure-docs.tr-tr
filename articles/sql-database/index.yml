@@ -14,14 +14,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/01/2018
   ms.author: carlrab
-  ms.openlocfilehash: 64c6bd7ee69f443f819676d1605aa679066e2e84
-  ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+  ms.openlocfilehash: c159eec7a8674e57e6f7a815040527ed60966f46
+  ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37063358"
+  ms.lasthandoff: 07/06/2018
+  ms.locfileid: "37887292"
 abstract:
-  description: Azure SQL Veritabanı, Microsoft SQL Server Veritabanı Altyapısı'nın en son kararlı sürümünü temel alan ilişkisel hizmet olarak veritabanı ürünüdür. SQL Veritabanı, altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde veri odaklı uygulamalar ve web siteleri oluşturmak için kullanabileceğiniz yüksek performanslı, güvenilir ve güvenli bir veritabanıdır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, SQL Veritabanı’nı kullanmayı öğrenin.
+  description: Azure SQL Veritabanı, Microsoft SQL Server Veritabanı Altyapısı'nın en son kararlı sürümünü temel alan ilişkisel hizmet olarak veritabanı (DBaaS) ürünüdür. SQL Veritabanı, altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde veri odaklı uygulamalar ve web siteleri oluşturmak için kullanabileceğiniz yüksek performanslı, güvenilir ve güvenli bir veritabanıdır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, SQL Veritabanı’nı kullanmayı öğrenin.
   aside:
     image:
       alt: 
@@ -32,6 +32,42 @@ abstract:
     href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
     width: 250
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/sql-database/sql-database-technical-overview
+      html: <p>Her zaman SQL Server Veritabanı Altyapısı’nın en son kararlı sürümünde çalışan <a href="/azure/sql-database/sql-database-high-availability">yüksek oranda kullanılabilir</a> PaaS veritabanı ve <a href="/azure/sql-database/sql-database-automated-backups">otomatik veritabanı yedeklemeleri</a> ile yama uygulanmış işletim sistemi.</p>
+      image:
+        src: media/index/i_managed.svg
+      title: Tam olarak yönetilir
+    - href: /azure/sql-database/sql-database-service-tiers
+      html: <p>Aylık 5 ABD Doları gibi makul ücretlerden 80 çekirdekli güçlü veritabanlarına varan <a href="/azure/sql-database/sql-database-service-tiers">esnek performans katmanlarıyla</a> fiyat/performans oranını ihtiyaçlarınıza göre uyarlayın.</p>
+      image:
+        src: media/index/i_perftier.svg
+      title: Fiyat/performans katmanları
+    - href: /azure/sql-database/sql-database-single-database-scale
+      html: <p>Uygulamanızın performansını artırmak için ihtiyaçlarınıza göre veritabanlarınızın <a href="/azure/sql-database/sql-database-single-database-scale">ölçeğini artırın</a>, <a href="/azure/sql-database/sql-database-read-scale-out">ölçeğini genişletin</a> veya parçalara ayırın.</p>
+      image:
+        src: media/index/i_scale.svg
+      title: Ölçeklenebilirlik ve esneklik
+    - href: /azure/sql-database/sql-database-automatic-tuning
+      html: <p><a href="/azure/sql-database/sql-database-automatic-tuning">Veritabanı performansınızı otomatik olarak ayarlamak</a>, veritabanlarınızdaki <a href="/azure/sql-database/sql-advanced-threat-protection">tehditleri</a> ve <a href="/azure/sql-database/sql-vulnerability-assessment">güvenlik açıklarını belirlemek</a> için yerleşik zekanın hizmete erişimine izin verin.</p>
+      image:
+        src: media/index/i_intelligence.svg
+      title: Yerleşik zeka
+    - href: /azure/sql-database/sql-database-servers-databases
+      html: <p>Performansı öngörülebilen tek veritabanı gerektiren <a href="/azure/sql-database/saas-tenancy-app-design-patterns">SaaS uygulamalarınız</a> ve mikro hizmetleriniz için <a href="/azure/sql-database/sql-database-managed-instance">Mantıksal sunucularda barındırılan tek veritabanını</a> kullanın.</p>
+      image:
+        src: media/index/i_db.svg
+      title: Tek Veritabanı
+    - href: /azure/sql-database/sql-database-managed-instance
+      html: <p><a href="azure/sql-database/sql-database-managed-instance-migrate">Şirket içi veritabanlarınızı</a>, Azure PaaS üzerinde veritabanında neredeyse hiç kod değişikliği gerekmeden kolayca geçirmek için <a href="/azure/sql-database/sql-database-managed-instance">Yönetilen Örnek</a> kullanın.</p>
+      image:
+        src: media/index/i_mi.svg
+      title: Yönetilen Örnek
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
@@ -48,27 +84,34 @@ sections:
     - image:
         src: media/index/logo_powershell.svg
       title: PowerShell
+    - image:
+        src: media/index/logo_arm.svg
+      title: Azure Resource Manager şablonu
     rows:
     - title: Tek bir SQL Veritabanı oluşturma
       values:
       - href: /azure/sql-database/sql-database-get-started-portal
       - href: /azure/sql-database/sql-database-get-started-cli
       - href: /azure/sql-database/sql-database-get-started-powershell
+      - href: 
     - title: SQL Yönetilen Örnek oluşturma
       values:
       - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
       - href: 
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: 
     - title: SQL Esnek Havuzu oluşturma
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
     - title: Tek bir SQL Veritabanını ölçeklendirme
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
+      - href: 
     - title: SQL Esnek Havuzunu ölçeklendirme
       values:
       - href: 
@@ -79,11 +122,13 @@ sections:
       - href: 
       - href: 
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
+      - href: 
     - title: Azure ağını Yönetilen Örnek için yapılandırma
       values:
       - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
       - href: 
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph

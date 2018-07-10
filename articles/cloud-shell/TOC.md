@@ -5,13 +5,12 @@
 ## [PowerShell - Hızlı Başlangıç](quickstart-powershell.md)
 
 # Özellikler ve araçlar
-## [Bash - Özellikler ve Araçlar](features.md)
-## [PowerShell - Özellikler ve Araçlar](features-powershell.md)
+## [Özellikler ve araçlar](features.md)
 
 # Nasıl yapılır
-## [Bash - Kalıcı depolama](persisting-shell-storage.md)
-## [PowerShell - Kalıcı depolama](persisting-shell-storage-powershell.md)
+## [Kalıcı depolama](persisting-shell-storage.md)
 ## [Pencereyi kullanma](using-the-shell-window.md)
+## [Microsoft kullanıcıları için PowerShell Cloud Shell](cloud-shell-windows-users.md)
 
 # Örnekler
 ## [Bash - Terraform ile kaynak oluşturma](example-terraform-bash.md)

@@ -98,7 +98,7 @@
 
 ### Genişletilmiş IoT senaryoları
 #### [iothub-explorer ile bulut cihaz mesajlaşmasını yönetme](iot-hub-explorer-cloud-device-messaging.md)
-#### [IoT Hub iletilerini Azure veri depolamaya kaydetme](iot-hub-store-data-in-azure-table-storage.md)
+#### [IoT Hub iletilerini Azure Blob depolamaya kaydetme](iot-hub-store-data-in-azure-table-storage.md)
 #### [Power BI’da Veri Görselleştirme](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Web Apps ile Veri Görselleştirme](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Azure Machine Learning kullanarak hava durumu tahmini](iot-hub-weather-forecast-machine-learning.md)

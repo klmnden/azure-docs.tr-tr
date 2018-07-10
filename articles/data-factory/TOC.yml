@@ -138,10 +138,10 @@
           href: connector-azure-blob-storage.md
         - name: Azure Cosmos DB
           href: connector-azure-cosmos-db.md
-        - name: Azure Data Lake Storage
-          href: connector-azure-data-lake-storage.md
-        - name: Azure Data Lake Store
+        - name: Azure Data Lake Storage Gen1
           href: connector-azure-data-lake-store.md
+        - name: Azure Data Lake Storage Gen2
+          href: connector-azure-data-lake-storage.md
         - name: MySQL için Azure Veritabanı
           href: connector-azure-database-for-mysql.md
         - name: PostgreSQL için Azure Veritabanı
@@ -277,11 +277,11 @@
         - name: Veri Kopyalama aracı
           href: copy-data-tool.md
           items: null
-        - name: Data Lake Storage’ı yükleme
+        - name: Data Lake Storage Gen2 yükleme
           href: load-azure-data-lake-storage-gen2.md
         - name: SQL Veri Ambarı’nı yükleme
           href: load-azure-sql-data-warehouse.md
-        - name: Data Lake Store’u yükleme
+        - name: Data Lake Storage Gen1 yükleme
           href: load-azure-data-lake-store.md
         - name: Bölümlenmiş verileri okuma veya yazma
           href: how-to-read-write-partitioned-data.md

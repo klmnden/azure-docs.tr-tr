@@ -47,6 +47,8 @@
       items:
         - name: Değişiklik İzlemeye genel bakış
           href: automation-change-tracking.md
+        - name: İzlenen dosyaların içeriklerini görüntüleme
+          href: change-tracking-file-contents.md
     - name: Envanter
       items:
         - name: Stok koleksiyonuyla VM yönetme

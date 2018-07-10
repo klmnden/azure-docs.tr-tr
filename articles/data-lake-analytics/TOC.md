@@ -40,12 +40,11 @@
 #### [Bilişsel uzantılar](data-lake-analytics-u-sql-cognitive.md)
 #### [Programlama kılavuzu](data-lake-analytics-u-sql-programmability-guide.md)
 
-### U-SQL SDK’sı
-#### [Yerel çalıştırma ve hata ayıklama](data-lake-analytics-data-lake-tools-local-run.md)
-#### [Çalıştırma ve test etme](data-lake-analytics-u-sql-sdk.md) 
-
 ### Visual Studio
 #### [Yükleme](data-lake-analytics-data-lake-tools-install.md)
+#### [Yerel çalıştırma](data-lake-analytics-data-lake-tools-local-run.md)
+#### [Yerel hata ayıklama](data-lake-analytics-data-lake-tools-local-debug.md)
+#### [U-SQL veritabanları geliştirme](data-lake-analytics-data-lake-tools-develop-usql-database.md)
 #### [İşlere gözatma ve bunları görüntüleme](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Özel C# kodunda hata ayıklama](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Yinelenen işlerde sorun giderme](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
@@ -59,6 +58,11 @@
 #### [Yazma](data-lake-analytics-data-lake-tools-for-vscode.md)
 #### [Özel kod](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Yerel çalıştırma ve hata ayıklama](data-lake-tools-for-vscode-local-run-and-debug.md)
+
+### Sürekli tümleştirme ve sürekli geliştirme
+#### [Genel Bakış](data-lake-analytics-cicd-overview.md)
+#### [Test ayarlama](data-lake-analytics-cicd-test.md)
+#### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 
 # Başvuru
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)

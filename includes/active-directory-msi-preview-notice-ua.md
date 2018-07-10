@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: b7ab0eb810231af405a43df2454a66cfa09eb71d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
-ms.translationtype: MT
+ms.openlocfilehash: 9e67c98f889962a911321dbfc5ae9d84b43e5a26
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860663"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889463"
 ---
 |  |
 |--|
-|Atanan kullanıcı kimliklerini Azure Active Directory'nin bir önizleme özelliği olan... Başlamadan önce [bilinen sorunları](~/articles/active-directory/managed-service-identity/known-issues.md) gözden geçirdiğinizden emin olun. Önizlemeler hakkında daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|Kullanıcı Tarafından Atanan Kimlikler, Azure Active Directory’nin bir önizleme özelliğidir. Başlamadan önce [bilinen sorunları](~/articles/active-directory/managed-service-identity/known-issues.md) gözden geçirdiğinizden emin olun. Önizlemeler hakkında daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |
 
 
