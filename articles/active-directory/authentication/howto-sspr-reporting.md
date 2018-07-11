@@ -23,7 +23,7 @@ Dağıtımdan sonra birçok kuruluşun öğrenmek istediğiniz nasıl ya da (SSP
 
 ![Raporlama][Reporting]
 
-[Azure portalı] () içinde mevcut raporları aşağıdaki sorular yanıtlanabilirhttps://portal.azure.com/):
+[Azure portalı] (https://portal.azure.com/):
 
 > [!NOTE]
 > Siz [genel yönetici](../users-groups-roles/directory-assign-admin-roles.md), ve, bu veriler kuruluşunuz adına toplanması için katılım gerekir. Katılım için ziyaret gerekir **raporlama** sekme veya denetim günlükleri en az bir kez. O zamana kadar kuruluşunuz için veri toplanmaz.
