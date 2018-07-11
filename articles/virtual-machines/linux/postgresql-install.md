@@ -1,9 +1,9 @@
 ---
-title: Bir Linux VM üzerinde PostgreSQL ayarlama | Microsoft Docs
-description: Yükleme ve PostgreSQL azure'da bir Linux sanal makine yapılandırma hakkında bilgi edinin
+title: Bir Linux sanal makinesi üzerinde PostgreSQL ayarlama | Microsoft Docs
+description: Yükleme ve azure'da bir Linux sanal makinesi üzerinde PostgreSQL yapılandırma hakkında bilgi edinin
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,73 +14,73 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: iainfou
-ms.openlocfilehash: 7741f861c5697da1e453c0d613b4b762511cf555
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: cynthn
+ms.openlocfilehash: 903e94cfa932ddd93a931caa8888d93f1bdfe365
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30241020"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932740"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure’da PostgreSQL yükleme ve yapılandırma
-PostgreSQL Oracle ve DB2 için benzer bir Gelişmiş açık kaynak veritabanı yok. Tam ACID uyumluluk, güvenilir işlem işleme ve çoklu sürüm eşzamanlılık denetimi gibi Kurumsal kullanıma hazır özellikler içerir. Ayrıca, ANSI SQL ve SQL/MED (Oracle, MySQL, MongoDB ve diğer birçok için yabancı veri sarmalayıcıları dahil) gibi standartlara destekler. Desteğiyle üzerinde 12 yordam diller, GIN ve GiST dizinleri, uzamsal veri desteği ve birden çok NoSQL benzeri özellikleri JSON veya anahtar-değer tabanlı uygulamalar için yüksek oranda genişletilebilir.
+PostgreSQL için Oracle ve DB2 benzer bir Gelişmiş açık kaynak veritabanı ' dir. Bu, tam ACID uyumluluk ve güvenilir bir işlem tabanlı işleme çok sürümlü eşzamanlılık denetimi gibi Kurumsal kullanıma hazır özellikler içerir. Ayrıca, ANSI SQL ve SQL/MED (Oracle, MySQL, MongoDB ve diğer birçok için yabancı veri sarmalayıcıları dahil) gibi standartları destekler. 12'den yordam diller, GIN ve GiST dizinleri, uzamsal veri desteği ve birden çok NoSQL benzeri özellikler için destek JSON veya anahtar-değer tabanlı uygulamalar için yüksek oranda genişletilebilir.
 
-Bu makalede, yüklemek ve bir Azure Linux çalıştıran sanal makine üzerinde PostgreSQL yapılandırmak öğreneceksiniz.
+Bu makalede, yükleme ve Linux çalıştıran Azure sanal makinesinde PostgreSQL yapılandırma öğreneceksiniz.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="install-postgresql"></a>Install PostgreSQL
+## <a name="install-postgresql"></a>PostgreSQL yükleme
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için Linux çalıştıran bir Azure sanal makinesi zaten olmalıdır. Oluşturma ve devam etmeden önce bir Linux VM ayarlamak için bkz: [Azure Linux VM'de Öğreticisi](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Bu öğreticiyi tamamlamak için Linux çalıştıran bir Azure sanal makinesi zaten olmalıdır. Oluşturma ve devam etmeden önce bir Linux VM ayarlamak için bkz: [Azure Linux VM öğretici](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
 Bu durumda, bağlantı noktası 1999 PostgreSQL bağlantı noktası olarak kullanın.  
 
-PuTTY üzerinden oluşturulan VM Linux bağlayın. Bir Azure Linux VM kullanmakta olduğunuz ilk kez kullanıyorsanız bkz [nasıl kullanmak ile SSH Linux Azure üzerinde](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) bir Linux VM bağlanmak için PuTTY kullanın öğrenmek için.
+PuTTY üzerinden oluşturulan VM Linux bağlanın. Bu bir Azure Linux VM kullandığınız ilk kez olup olmadığını [nasıl azure'da Linux ile SSH kullanma](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) bir Linux VM'ye bağlanmak için PuTTY kullanma hakkında bilgi edinmek için.
 
 1. (Yönetici) köküne geçmek için aşağıdaki komutu çalıştırın:
    
         # sudo su -
-2. Bazı dağıtımları PostgreSQL yüklemeden önce yüklemelisiniz bağımlılıkları vardır. Bu listede, distro denetlemek ve uygun komutu çalıştırın:
+2. Bazı dağıtımlar, PostgreSQL yüklemeden önce yüklemelisiniz bağımlılıkları vardır. Bu listede, distro denetlemek ve uygun komutu çalıştırın:
    
-   * Red Hat base Linux:
+   * Red Hat taban Linux:
      
            # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
-   * Debian temel Linux:
+   * Debian taban Linux:
      
             # apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
    * SUSE Linux:
      
            # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
-3. Kök dizinine PostgreSQL yükleyin ve paketin sıkıştırmasını açın:
+3. PostgreSQL kök dizine indirin ve ardından paketi sıkıştırmasını açın:
    
         # wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
    
         # tar jxvf  postgresql-9.3.5.tar.bz2
    
-    Yukarıdaki örnek verilebilir. Daha ayrıntılı indirme adresi bulabilirsiniz [dizin/pub programlarının/kaynak /](https://ftp.postgresql.org/pub/source/).
-4. Yapı başlatmak için şu komutları çalıştırın:
+    Yukarıdaki örnek verilebilir. Ayrıntılı yükleme adresini bulabilirsiniz [/pub programlarının/kaynak / dizin](https://ftp.postgresql.org/pub/source/).
+4. Derlemeyi başlatmak için şu komutları çalıştırın:
    
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. Her şeyi içeren belgeleri (HTML ve ADAM sayfaları) ve ek modülleri (contrib) dahil olmak üzere oluşturulabilir oluşturmak istiyorsanız bunun yerine aşağıdaki komutu çalıştırın:
+5. Belge (HTML ve ADAM sayfaları) ve ek modüller (contrib) dahil olmak üzere oluşturulabilir her şeyi oluşturmak istiyorsanız aşağıdaki komutu yerine çalıştırın:
    
         # gmake install-world
    
-    Aşağıdaki onay iletisini almanız gerekir:
+    Şu onaylama iletisini almanız gerekir:
    
         PostgreSQL, contrib, and documentation successfully made. Ready to install.
 
 ## <a name="configure-postgresql"></a>PostgreSQL yapılandırın
-1. (İsteğe bağlı) Sürüm numarasını içermeyecek şekilde PostgreSQL başvuru kısaltmak için sembolik bağlantı oluşturun:
+1. (İsteğe bağlı) Sürüm numarasını içermeyecek şekilde PostgreSQL başvuru kısaltmak için sembolik bir bağlantısını oluşturun:
    
         # ln -s /opt/pgsql9.3.5 /opt/pgsql
 2. Veritabanı için bir dizin oluşturun:
    
         # mkdir -p /opt/pgsql_data
-3. Kök olmayan kullanıcı oluşturun ve o kullanıcının profilini değiştirin. Ardından, bu yeni bir kullanıcıya geçiş (adlı *postgres* örneğimizde):
+3. Kök olmayan kullanıcı bu kullanıcının profili oluşturup değiştirmek. Ardından, bu yeni bir kullanıcıya geçiş (adlı *postgres* örneğimizde):
    
         # useradd postgres
    
@@ -89,10 +89,10 @@ PuTTY üzerinden oluşturulan VM Linux bağlayın. Bir Azure Linux VM kullanmakt
         # su - postgres
    
    > [!NOTE]
-   > Güvenlik nedenleriyle, PostgreSQL kök olmayan kullanıcı başlatmak, başlatma veya veritabanı kapatmak için kullanır.
+   > Güvenlik nedenleriyle, PostgreSQL kök olmayan kullanıcı başlatmak, başlatma veya kapatma veritabanı için kullanır.
    > 
    > 
-4. Düzen *bash_profile* aşağıdaki komutları girerek dosya. Bu satırlar sonuna eklenecek *bash_profile* dosyası:
+4. Düzen *bash_profile* aşağıdaki komutları girerek dosya. Bu satır sonuna kadar eklenecektir *bash_profile* dosyası:
    
         cat >> ~/.bash_profile <<EOF
         export PGPORT=1999
@@ -109,23 +109,23 @@ PuTTY üzerinden oluşturulan VM Linux bağlayın. Bir Azure Linux VM kullanmakt
 5. Yürütme *bash_profile* dosyası:
    
         $ source .bash_profile
-6. Aşağıdaki komutu kullanarak yüklemenizi doğrulama:
+6. Aşağıdaki komutu kullanarak yüklemenizi doğrulayın:
    
         $ which psql
    
-    Yükleme başarılı olursa, aşağıdaki yanıt görürsünüz:
+    Yükleme işleminiz başarılı olursa, şu yanıtı görürsünüz:
    
         /opt/pgsql/bin/psql
-7. Ayrıca, PostgreSQL sürüm kontrol edebilirsiniz:
+7. PostgreSQL sürümü de göz atabilirsiniz:
    
         $ psql -V
-8. Veritabanını başlatılamadı:
+8. Veritabanı başlatın:
    
         $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
    
-    Aşağıdaki çıkış almanız gerekir:
+    Aşağıdaki çıktıyı almalısınız:
 
-![görüntü](./media/postgresql-install/no1.png)
+![image](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>PostgreSQL ayarlayın
 <!--    [postgres@ test ~]$ exit -->
@@ -136,15 +136,15 @@ Aşağıdaki komutları çalıştırın:
 
     # cp linux /etc/init.d/postgresql
 
-/Etc/init.d/postgresql dosyasındaki iki değişkenleri değiştirin. Öneki PostgreSQL yükleme konumunu ayarlayın: **/opt/pgsql**. PGDATA PostgreSQL veri depolama yoluna ayarlayın: **/opt/pgsql_data**.
+/Etc/init.d/postgresql dosyasında iki değişkenleri değiştirin. Önek PostgreSQL yükleme yoluna ayarlanır: **/opt/pgsql**. PGDATA PostgreSQL veri depolama yoluna ayarlanmış: **/opt/pgsql_data**.
 
     # sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![görüntü](./media/postgresql-install/no2.png)
+![image](./media/postgresql-install/no2.png)
 
-Yürütülebilir yapabilmek için dosyayı değiştirin:
+Dosyayı yürütülebilir hale getirmek için değiştirin:
 
     # chmod +x /etc/init.d/postgresql
 
@@ -152,16 +152,16 @@ PostgreSQL başlatın:
 
     # /etc/init.d/postgresql start
 
-PostgreSQL uç noktası üzerinde olup olmadığını kontrol edin:
+Üzerinde PostgreSQL uç noktası olup olmadığını kontrol edin:
 
     # netstat -tunlp|grep 1999
 
-Şu çıktı görmeniz gerekir:
+Aşağıdaki çıktıyı görmeniz gerekir:
 
-![görüntü](./media/postgresql-install/no3.png)
+![image](./media/postgresql-install/no3.png)
 
-## <a name="connect-to-the-postgres-database"></a>Postgres veritabanına bağlan
-Postgres kullanıcıya bir kez daha anahtarı:
+## <a name="connect-to-the-postgres-database"></a>Postgres veritabanı'na bağlanma
+Postgres kullanıcıya yeniden anahtarı:
 
     # su - postgres
 
@@ -169,42 +169,42 @@ Postgres veritabanı oluşturun:
 
     $ createdb events
 
-Olayları veritabanına bağlan:
+Yeni oluşturduğunuz olayları veritabanına bağlan:
 
     $ psql -d events
 
-## <a name="create-and-delete-a-postgres-table"></a>Oluşturun ve Postgres tablo silme
-Veritabanına bağlı, tablo içinde oluşturabilirsiniz.
+## <a name="create-and-delete-a-postgres-table"></a>Oluşturma ve Postgres tablo silme
+Veritabanına bağlandıktan sonra içinde tablolar oluşturabilirsiniz.
 
 Örneğin, aşağıdaki komutu kullanarak yeni bir örnek Postgres tablo oluşturun:
 
     CREATE TABLE potluck (name VARCHAR(20),    food VARCHAR(30),    confirmed CHAR(1), signup_date DATE);
 
-Aşağıdaki sütun adları ve kısıtlamaları ile dört sütunlu bir tablo şimdi ayarlamış olduğunuz:
+Artık aşağıdaki sütun adları ve kısıtlamalar dört sütunlu bir tablo ayarladıysanız:
 
-1. "Name" sütun altında 20 karakter uzunluğunda olacak şekilde VARCHAR komutu tarafından sınırlıdır.
-2. "Yemek" sütun herkes getirecek yemek öğesi belirtir. VARCHAR altında 30 karakter olması için bu metni sınırlar.
-3. "Onaylanan" sütun, kişinin için Yemeğini Getir Partisi RSVP'd olup olmadığını kaydeder. Kabul edilebilir değerler "Y" ve "N" dir.
-4. Bunlar olayı için kaydolurken "tarih" sütun gösterir. Tarih yyyy-aa-gg yazılması Postgres gerektirir
+1. "Name" sütunu altındaki 20 karakter uzunluğunda olacak şekilde VARCHAR komutu tarafından sınırlıdır.
+2. "Yemek" sütunu her kişi getirecek Gıda öğeyi belirtir. VARCHAR logoyu 30 karakter olması için bu metni sınırlar.
+3. "Onaylandı" sütun, kişinin Yemeğini Getir için Partisi yanıtladığı kaydeder. Kabul edilebilir değerler şunlardır: "Y" ve "N".
+4. Olay için RMS'ye kaydolurken "tarih" sütun gösterir. Tarih yyyy-aa-gg yazılması Postgres gerektirir
 
-Tablonuz başarıyla oluşturulduysa aşağıdakilere bakın:
+Tablonuzu başarıyla oluşturulduysa aşağıdaki görmeniz gerekir:
 
-![görüntü](./media/postgresql-install/no4.png)
+![image](./media/postgresql-install/no4.png)
 
-Aşağıdaki komutu kullanarak, tablo yapısı de denetleyebilirsiniz:
+Ayrıca, aşağıdaki komutu kullanarak tablo yapısı denetleyebilirsiniz:
 
-![görüntü](./media/postgresql-install/no5.png)
+![image](./media/postgresql-install/no5.png)
 
-### <a name="add-data-to-a-table"></a>Bir tabloya veri ekleme
-İlk olarak, bilgileri bir satıra Ekle:
+### <a name="add-data-to-a-table"></a>Tabloya veri ekleme
+İlk olarak, bilgileri bir satır ekleyin:
 
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
 
-Bu çıktı görmeniz gerekir:
+Bu bir çıktı görmeniz gerekir:
 
-![görüntü](./media/postgresql-install/no6.png)
+![image](./media/postgresql-install/no6.png)
 
-Birkaç daha fazla kişinin tabloya ekleyebilirsiniz. İşte birkaç seçenek veya kendi oluşturabilirsiniz:
+Birkaç kişi tabloya ekleyebilirsiniz. İşte bazı seçenekler veya kendi oluşturabilirsiniz:
 
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Sandy', 'Key Lime Tarts', 'N', '2012-04-14');
 
@@ -217,25 +217,25 @@ Bir tablo göstermek için aşağıdaki komutu kullanın:
 
     select * from potluck;
 
-Çıktısı şöyledir:
+Çıktı.
 
-![görüntü](./media/postgresql-install/no7.png)
+![image](./media/postgresql-install/no7.png)
 
-### <a name="delete-data-in-a-table"></a>Bir tablodaki verileri silme
+### <a name="delete-data-in-a-table"></a>Bir tablodaki verileri Sil
 Bir tablodaki verileri silmek için aşağıdaki komutu kullanın:
 
     delete from potluck where name=’John’;
 
-"John" satırdaki tüm bilgileri siler. Çıktısı şöyledir:
+Bu, tüm bilgileri "John" satır siler. Çıktı.
 
-![görüntü](./media/postgresql-install/no8.png)
+![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Bir tablodaki verileri güncelleştirme
-Bir tablodaki verileri güncelleştirmek için aşağıdaki komutu kullanın. Biz "Y" için "N" den kendi RSVP değiştirecek şekilde aynen katılan olmadığını, bu biri için Sandy onayladığından:
+Bir tablodaki verileri güncelleştirmek için aşağıdaki komutu kullanın. "Y" öğesinden "N" kendi Davetiyeyi değiştireceğiz. Bu nedenle bu biri, Filiz katılan olmadığını, Kumlu onaylamıştır:
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 
 
-## <a name="get-more-information-about-postgresql"></a>PostgreSQL hakkında daha fazla bilgi alın
-Bir Azure Linux VM'de PostgreSQL yüklemesini tamamladığınıza göre Azure'da kullanarak keyfini çıkarabilirsiniz. PostgreSQL hakkında daha fazla bilgi için [PostgreSQL Web sitesi](http://www.postgresql.org/).
+## <a name="get-more-information-about-postgresql"></a>PostgreSQL hakkında daha fazla bilgi edinin
+Azure Linux VM'de PostgreSQL yüklemesini tamamladığınızda, Azure'da kullanmaya keyfini çıkarabilirsiniz. PostgreSQL hakkında daha fazla bilgi edinmek için [PostgreSQL Web sitesi](http://www.postgresql.org/).
 

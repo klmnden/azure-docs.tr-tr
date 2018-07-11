@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 237a19b76268e1207c9de438a4f79d3dc8382476
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c2a7278f4ee6861a1e47610c06fdc6ffcec52247
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903818"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931091"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -82,7 +82,8 @@ Geçiş ayarları
 | Tür            | Görünen ad | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
 | Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
-| Metin            | Konum     | location   | Yok       |
+| Cihaz özelliği | Cihaz konumu   | location  | location    |
+| Metin            | İçinde üretilen     | manufacturedIn   | Yok       |
 
 
 ### <a name="add-a-real-device"></a>Gerçek cihaz ekleme
@@ -152,19 +153,24 @@ Bildirilen özellik değerleri ve telemetri ölçümleri görüntüleyebilir ve 
 
 1. Kullanım **Device Explorer** gitmek için **ölçümleri** eklediğiniz gerçek MXChip cihaz sayfası:
 
-    ![Gerçek cihaza gidin](media/howto-connect-devkit/realdevice.png)
+    ![Gerçek cihaza gidin](media/howto-connect-devkit/realdevicenew.png)
 
 1. Üzerinde **ölçümleri** sayfasında MXChip CİHAZDAN gelen telemetriyi görebilirsiniz:
 
-    ![Gerçek bir CİHAZDAN telemetri görüntüleme](media/howto-connect-devkit/realtelemetry.png)
+    ![Gerçek bir CİHAZDAN telemetri görüntüleme](media/howto-connect-devkit/devicetelemetrynew.png)
 
-1. Üzerinde **özellikleri** sayfasında, cihaz tarafından bildirilen son zar numarası görüntüleyebilirsiniz:
+1. Üzerinde **özellikleri** sayfasında son zar numarasını ve cihaz tarafından raporlanan cihaz konumu görüntüleyebilirsiniz:
 
-    ![Cihaz özelliklerini görüntüleme](media/howto-connect-devkit/deviceproperties.png)
+    ![Cihaz özelliklerini görüntüleme](media/howto-connect-devkit/devicepropertynew.png)
 
 1. Üzerinde **ayarları** sayfasında, ayarları MXChip cihazda güncelleştirebilirsiniz:
 
-    ![Cihaz ayarlarını görüntüle](media/howto-connect-devkit/settings.png)
+    ![Cihaz ayarlarını görüntüle](media/howto-connect-devkit/devicesettingsnew.png)
+
+1. Üzerinde **Pano** sayfası, harita konumu görebilirsiniz
+
+    ![Cihaz panoyu görüntüle](media/howto-connect-devkit/devicedashboardnew.png)
+
 
 ## <a name="download-the-source-code"></a>Kaynak kodunu indirebilir
 

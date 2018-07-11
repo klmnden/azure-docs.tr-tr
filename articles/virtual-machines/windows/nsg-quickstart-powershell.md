@@ -1,9 +1,9 @@
 ---
 title: Azure PowerShell kullanarak bir VM için bağlantı noktalarını açmak | Microsoft Docs
-description: Bir bağlantı noktasını açmak bir uç noktası, Windows Azure PowerShell ve Azure resource manager dağıtım modunu kullanarak VM oluşturma hakkında bilgi edinin
+description: Bağlantı noktası açma / bir uç nokta için Azure resource manager dağıtım modu ve Azure PowerShell kullanarak Windows VM'nizi oluşturma hakkında bilgi edinin
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: cf45f7d8-451a-48ab-8419-730366d54f1e
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: iainfou
-ms.openlocfilehash: a7564c19f8318d62260d03b92f8115c8f3fa887a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: cynthn
+ms.openlocfilehash: f79db8cdec0aa48ae300aff4c58072fb6afdc932
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367070"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932791"
 ---
-# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Bağlantı noktaları ve uç noktaları bir VM için Azure PowerShell kullanarak nasıl açılacağı
+# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>PowerShell kullanarak Azure'da bağlantı noktalarını ve uç noktaları bir VM'ye açma
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>Hızlı komutlar
-Bir ağ güvenlik grubu oluşturup ACL kuralları ihtiyacınız [Azure PowerShell'in yüklü en son sürümünü](/powershell/azureps-cmdlets-docs). Ayrıca [Azure Portalı'nı kullanarak bu adımları uygulamadan](nsg-quickstart-portal.md).
+Bir ağ güvenlik grubu oluşturup ACL kuralları ihtiyacınız [Azure PowerShell'in en son sürümünü](/powershell/azureps-cmdlets-docs). Ayrıca [Azure portalı kullanarak aşağıdaki adımları gerçekleştirmek](nsg-quickstart-portal.md).
 
 Azure hesabınızda oturum açın:
 
@@ -33,9 +33,9 @@ Azure hesabınızda oturum açın:
 Connect-AzureRmAccount
 ```
 
-Aşağıdaki örneklerde, parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *myNetworkSecurityGroup*, ve *myVnet*.
+Aşağıdaki örneklerde, parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *Vm2*, ve *myVnet*.
 
-Bir kural oluştururken [yeni AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). Aşağıdaki örnek, adında bir kural oluşturur *myNetworkSecurityGroupRule* izin vermek için *tcp* bağlantı noktasında trafik *80*:
+Bir kural oluştururken [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). Aşağıdaki örnekte adlı bir kural oluşturur *myNetworkSecurityGroupRule* izin vermek için *tcp* bağlantı noktası üzerinde trafiğe *80*:
 
 ```powershell
 $httprule = New-AzureRmNetworkSecurityRuleConfig `
@@ -51,7 +51,7 @@ $httprule = New-AzureRmNetworkSecurityRuleConfig `
     -DestinationPortRange 80
 ```
 
-Ardından, ağ güvenlik grubu ile oluşturma [yeni AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) ve yeni oluşturduğunuz gibi HTTP kural atayın. Aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur *myNetworkSecurityGroup*:
+Ardından, ağ güvenlik grubu oluşturma [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) ve yeni oluşturduğunuz gibi HTTP kuralı atayın. Aşağıdaki örnekte adlı bir ağ güvenlik grubu oluşturur *Vm2*:
 
 ```powershell
 $nsg = New-AzureRmNetworkSecurityGroup `
@@ -61,7 +61,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
     -SecurityRules $httprule
 ```
 
-Şimdi şimdi bir alt ağ için ağ güvenlik grubu atayın. Aşağıdaki örnek adlı varolan bir sanal ağ atar *myVnet* değişkenine *$vnet* ile [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork):
+Şimdi github'dan ağ güvenlik grubunuzu bir alt ağa atayın. Aşağıdaki örnekte adlı varolan bir sanal ağ atar *myVnet* değişkenine *$vnet* ile [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork):
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork `
@@ -69,7 +69,7 @@ $vnet = Get-AzureRmVirtualNetwork `
     -Name "myVnet"
 ```
 
-Ağ güvenlik grubu, alt ağ ile ilişkilendirmek [kümesi AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig). Aşağıdaki örnek adlı alt ağın ilişkilendirir *mySubnet* ağ güvenlik grubu ile:
+Alt ağınız ile ağ güvenlik grubunuzu ilişkilendirmek [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig). Aşağıdaki örnekte adlı alt ağ ilişkilendirir *mySubnet* , ağ güvenlik grubu ile:
 
 ```powershell
 $subnetPrefix = $vnet.Subnets|?{$_.Name -eq 'mySubnet'}
@@ -81,7 +81,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     -NetworkSecurityGroup $nsg
 ```
 
-Son olarak, sanal ağınızla güncelleştirme [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) sırada, değişikliklerin etkili olması:
+Son olarak, sanal ağınız ile güncelleştirme [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) sırasıyla, değişikliklerin etkili olabilmesi için:
 
 ```powershell
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
@@ -89,12 +89,12 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 
 ## <a name="more-information-on-network-security-groups"></a>Ağ güvenlik grupları hakkında daha fazla bilgi
-Burada hızlı komutlar VM'nize akan trafikle başlamak ve çalıştırmak için olanak sağlar. Ağ güvenlik grupları birçok harika özellikler ve kaynaklarınıza erişimi denetlemek için ayrıntı düzeyi sağlar. Daha fazla bilgi edinebilirsiniz [bir ağ güvenlik grubu ve ACL oluşturma kuralları burada](tutorial-virtual-network.md#secure-network-traffic).
+Hızlı komutlar Burada, sanal makinenizde akan trafikle ayarlayıp çalıştırmaya başlamasına olanak tanır. Ağ güvenlik grupları, çok sayıda harika özellik ve kaynaklarınıza erişimi denetlemek için ayrıntı düzeyi sağlar. Daha fazla bilgi edinebilirsiniz [oluşturma bir ağ güvenlik grubu ve ACL kurallarını burada](tutorial-virtual-network.md#secure-network-traffic).
 
-Yüksek oranda kullanılabilir web uygulamaları için Azure yük dengeleyici arkasında Vm'leriniz yerleştirmeniz gerekir. Yük Dengeleyici trafik filtreleme sağlar bir ağ güvenlik grubu olan VM'ler için trafiği dağıtır. Daha fazla bilgi için bkz: [nasıl yükleneceğini Linux sanal makineleri yüksek oranda kullanılabilir bir uygulama oluşturmak için Azure Bakiye](tutorial-load-balancer.md).
+Yüksek oranda kullanılabilir web uygulamaları için Vm'lerinizi bir Azure yük dengeleyici arkasında yerleştirmeniz gerekir. Yük Dengeleyici trafik filtreleme sağlar bir ağ güvenlik grubu Vm'lerle trafiği dağıtır. Daha fazla bilgi için [nasıl yükleneceğini yüksek oranda kullanılabilir bir uygulama oluşturmak için azure'da Linux sanal makineleri Bakiye](tutorial-load-balancer.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu örnekte, HTTP trafiğine izin veren basit bir kural oluşturuldu. Aşağıdaki makalelerde ayrıntılı ortamları oluşturma hakkında bilgi bulabilirsiniz:
+Bu örnekte, HTTP trafiğine izin veren basit bir kuralı oluşturuldu. Aşağıdaki makalelerde daha ayrıntılı ortamları oluşturma hakkında bilgi bulabilirsiniz:
 
 * [Azure Resource Manager'a genel bakış](../../azure-resource-manager/resource-group-overview.md)
 * [Bir ağ güvenlik grubu nedir?](../../virtual-network/security-overview.md)

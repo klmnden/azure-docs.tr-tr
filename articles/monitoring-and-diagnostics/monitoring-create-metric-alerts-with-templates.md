@@ -1,6 +1,6 @@
 ---
 title: Resource Manager şablonu ile ölçüm uyarısı oluşturma
-description: Ölçüm bir uyarı oluşturmak için Resource Manager şablonu kullanmayı öğrenin.
+description: Ölçüm uyarısı oluşturma için Resource Manager şablonu kullanmayı öğrenin.
 author: snehithm
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,31 @@ ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 0a4e6c2ebb57aca13a53a8ff12953f0c7a90bc61
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4dba3d182c7c2927aa4feb88e70fe5711fcc6818
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263455"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932220"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager şablonu ile ölçüm uyarısı oluşturma
-Bu makalede nasıl kullanabileceğinizi gösteren bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) yapılandırmak için [yeni ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md) Azure İzleyicisi'nde. Resource Manager şablonları programlı olarak uyarıları ortamlar genelinde tutarlı ve tekrarlanabilir bir şekilde ayarlamak etkinleştirin. Yeni ölçüm uyarılar şu anda kullanılabilir [kaynak türleri bu kümesini](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+Bu makalede nasıl kullanabileceğinizi gösteren bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) yapılandırmak için [yeni ölçüm uyarılarının](monitoring-near-real-time-metric-alerts.md) Azure İzleyici'de. Resource Manager şablonları, program aracılığıyla uyarıları ortamlarınızda tutarlı ve tekrarlanabilir bir şekilde ayarlamak etkinleştirin. Yeni ölçüm uyarılarının şu anda kullanılabilir [bu kaynak türleri kümesini](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+
+> [!IMPORTANT]
+> Resource Manager şablonu kaynak türü için ölçüm uyarısı çalışmaz için belirtilen: Microsoft.OperationalInsights/workspaces; Ölçümler ile Log Analytics için desteği Önizleme aşamasındadır. Kaynak şablonu ile Önizleme işlevselliğine kullanmakla ilgilenen kullanıcılar başvurabilirler [Azure uyarıları geri bildirim](mailto:azurealertsfeedback@microsoft.com)
+
 
 Temel adımlar aşağıdaki gibidir:
 
-1. Şablonlardan birini uyarının oluşturulacağını açıklayan bir JSON dosyası kullanın.
-2. Düzenle ve ilgili parametreleri dosyadan bir JSON olarak uyarı özelleştirmek için kullanın.
-3. Şablonunu kullanarak dağıtın [herhangi bir dağıtım yöntemini](../azure-resource-manager/resource-group-template-deploy.md).
+1. Şablonlardan birini nasıl uyarı oluşturulacağı açıklayan bir JSON dosyası olarak kullanın.
+2. Düzenleyin ve karşılık gelen parametre dosyasını bir JSON olarak uyarı özelleştirmek için kullanın.
+3. Şablon kullanarak dağıtma [herhangi bir dağıtım yöntemi](../azure-resource-manager/resource-group-template-deploy.md).
 
 
-## <a name="resource-manager-template-for-a-simple-metric-alert"></a>Basit bir ölçüm uyarı için Resource Manager şablonu
-Resource Manager şablonu kullanarak bir uyarı oluşturmak için bir kaynak türü oluşturun `Microsoft.Insights/metricAlerts` ve tüm ilişkili özellikleri doldurur. Ölçüm bir uyarı kuralı oluşturur ve örnek bir şablon aşağıdadır.
+## <a name="resource-manager-template-for-a-simple-metric-alert"></a>Basit bir ölçüm uyarısı için Resource Manager şablonu
+Resource Manager şablonu kullanarak bir uyarı oluşturmak için kaynak türü oluştur `Microsoft.Insights/metricAlerts` ve tüm ilgili özellikleri doldurur. Bir ölçüm uyarısı kuralının oluşturur ve örnek bir şablonu aşağıdadır.
 
-Aşağıda json bu ilerlemesi amacıyla simplemetricalert.json olarak kaydedin.
+Aşağıdaki json'u simplemetricalert.json amacıyla bu kılavuzda olarak kaydedin.
 
 ```json
 {
@@ -180,11 +184,11 @@ Aşağıda json bu ilerlemesi amacıyla simplemetricalert.json olarak kaydedin.
 }
 ```
 
-Bir şema ve özellikleri açıklaması bir uyarı kuralı için [buradan kullanılabilir](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate).
+Bir uyarı kuralı özellikleri ve şema açıklaması [ulaşabilirsiniz](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate).
 
-Komut satırında ya da bir parametre dosyası üzerinden parametre değerlerini ayarlayabilirsiniz. Örnek bir parametre dosyası aşağıda verilmiştir. 
+Komut satırında veya bir parametre dosyası aracılığıyla, parametre değerlerini ayarlayabilirsiniz. Örnek bir parametre dosyası aşağıda verilmiştir. 
 
-Aşağıda json simplemetricalert.parameters.json kaydedin ve gerektiği gibi değiştirebilirsiniz.
+Aşağıdaki json'u simplemetricalert.parameters.json kaydedin ve gerektiği gibi değiştirin.
 
 ```json
 {
@@ -226,7 +230,7 @@ Aşağıda json simplemetricalert.parameters.json kaydedin ve gerektiği gibi de
 ```
 
 
-PowerShell veya Azure CLI kullanarak şablonu ve parametre dosyası kullanarak ölçüm uyarı oluşturabilir.
+PowerShell veya Azure CLI kullanarak şablonu ve parametre dosyalarını kullanarak bir ölçüm uyarısı oluşturabilirsiniz.
 
 Azure PowerShell’i kullanma
 
@@ -253,12 +257,12 @@ az group deployment create \
 
 > [!NOTE]
 >
-> Ölçüm uyarı hedef kaynak için farklı bir kaynak grubunda oluşturulabilir olsa da, hedef kaynak olarak aynı kaynak grubu kullanmanızı öneririz.
+> Ölçüm uyarısı hedef kaynağı için farklı bir kaynak grubunda oluşturulması, ancak aynı kaynak grubunu, hedef kaynak kullanmanızı öneririz.
 
-## <a name="resource-manager-template-for-a-more-advanced-metric-alert"></a>Resource Manager şablonu için daha gelişmiş bir ölçüm Uyarısı
-Çok boyutlu ölçümleri uyarı yanı sıra birden çok ölçüt destekleyen, daha yeni ölçüm uyarıları desteği. Aşağıdaki şablonu boyutlu ölçümleri daha gelişmiş bir ölçüm uyarı oluşturmak ve birden çok ölçüt belirlemek için kullanabilirsiniz.
+## <a name="resource-manager-template-for-a-more-advanced-metric-alert"></a>Daha gelişmiş bir ölçüm uyarısı için Resource Manager şablonu
+Yeni ölçüm uyarılarının, çok boyutlu ölçümler üzerinde uyarı yanı sıra birden çok ölçüt destekleyen destekler. Boyutlu ölçümler üzerinde daha gelişmiş bir ölçüm uyarısı oluşturma ve birden çok ölçüt belirtmek için aşağıdaki şablonu kullanabilirsiniz.
 
-Aşağıda json bu ilerlemesi amacıyla advancedmetricalert.json olarak kaydedin.
+Aşağıdaki json'u advancedmetricalert.json amacıyla bu kılavuzda olarak kaydedin.
 
 ```json
 {
@@ -374,9 +378,9 @@ Aşağıda json bu ilerlemesi amacıyla advancedmetricalert.json olarak kaydedin
 }
 ```
 
-Yukarıdaki şablonu aşağıda sağlanan parametre dosyasıyla birlikte kullanabilirsiniz. 
+Yukarıdaki şablonu aşağıda sağlanan parametre dosyası ile birlikte kullanabilirsiniz. 
 
-Kaydet ve aşağıdaki json bu ilerlemesi amacıyla advancedmetricalert.parameters.json olarak değiştirin.
+Kaydet ve aşağıdaki json'u advancedmetricalert.parameters.json amacıyla bu kılavuzda olarak değiştirin.
 
 ```json
 {
@@ -443,7 +447,7 @@ Kaydet ve aşağıdaki json bu ilerlemesi amacıyla advancedmetricalert.paramete
 ```
 
 
-Geçerli çalışma dizininizden PowerShell veya Azure CLI kullanarak şablonu ve parametre dosyası kullanarak ölçüm uyarı oluştur
+Ölçüm Uyarısı, geçerli çalışma dizinine PowerShell veya Azure CLI kullanarak şablonu ve parametre dosyalarını kullanarak oluşturabilirsiniz.
 
 Azure PowerShell’i kullanma
 ```powershell
@@ -470,8 +474,8 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Ölçüm uyarı hedef kaynak için farklı bir kaynak grubunda oluşturulabilir olsa da, hedef kaynak olarak aynı kaynak grubu kullanmanızı öneririz.
+> Ölçüm uyarısı hedef kaynağı için farklı bir kaynak grubunda oluşturulması, ancak aynı kaynak grubunu, hedef kaynak kullanmanızı öneririz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinin [Azure içindeki uyarıları](monitoring-overview-unified-alerts.md)
+* Daha fazla bilgi edinin [Azure uyarıları](monitoring-overview-unified-alerts.md)
 * Bilgi edinmek için nasıl [Resource Manager şablonları ile bir eylem grubu oluştur](monitoring-create-action-group-with-resource-manager-template.md)
