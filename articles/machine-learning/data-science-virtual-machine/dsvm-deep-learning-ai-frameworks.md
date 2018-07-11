@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: af2a6b19d74e02b9368722cadf4d57aef377d43a
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865446"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952833"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Derin Öğrenme ve AI çerçeveleri
 [Veri bilimi sanal makinesi](http://aka.ms/dsvm) (DSVM) ve [derin öğrenme VM](http://aka.ms/dsvm/deeplearning) Tahmine dayalı analiz ile yapay zeka (AI) uygulamaları oluşturmanıza yardımcı olmak için ayrıntılı öğrenme çerçevelerini destekler ve bilişsel yetenekleri, görüntü ve dil anlama gibi. 
@@ -66,7 +66,7 @@ Tüm derin öğrenme çerçeveleri DSVM'nin kullanılabilir ilişkin ayrıntıla
 
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | Derin öğrenme      |
+| Nedir?   | Üst düzey derin öğrenme API      |
 | Desteklenen DSVM sürümleri      | Windows, Linux     |
 | Nasıl, yapılandırılmış / DSVM üzerinde yüklü?  | TensorFlow, üzerinde Python 3.5 yüklenir [Linux ve Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) ve Python 3.6 üzerinde [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
 | Örneklere bağlantılar      | https://github.com/fchollet/keras/tree/master/examples      |

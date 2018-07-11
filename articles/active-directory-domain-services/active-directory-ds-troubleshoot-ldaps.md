@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory etki alanı Hizmetleri: Güvenli LDAP yapılandırma sorunlarını giderme | Microsoft Docs'
-description: Güvenli LDAP için Azure AD Etki Alanı Hizmetleri'nde sorun giderme
+title: 'Azure Active Directory Domain Services: Güvenli LDAP yapılandırma sorunlarını giderme | Microsoft Docs'
+description: Güvenli LDAP için Azure AD Domain Services sorunlarını giderme
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
@@ -15,54 +15,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: dbe2715d76f18daf87b65871c26d73205ec2f7fd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8304ffa7c0cd225f258064d3c1a36a754c684241
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218852"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950725"
 ---
-# <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD etki alanı Hizmetleri - sorun giderme güvenli LDAP yapılandırması
+# <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD etki alanı Hizmetleri - sorun giderme güvenli LDAP yapılandırma
 
-Bu makalede çözümler için ortak sağlar ne zaman sorunları [güvenli LDAP yapılandırma](active-directory-ds-admin-guide-configure-secure-ldap.md) Azure AD etki alanı Hizmetleri için.
+Bu makale için yaygın kullanılan raporlayabileceği ne zaman sorunları [güvenli LDAP yapılandırılıyor](active-directory-ds-admin-guide-configure-secure-ldap.md) Azure AD Domain Services için.
 
 ## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101: Güvenli LDAP ağ güvenlik grubu yapılandırma
 
 **Uyarı iletisi:**
 
-*Güvenli LDAP internet üzerinden yönetilen etki alanı için etkinleştirilir. Ancak, bağlantı noktası 636 erişimi bir ağ güvenlik grubu kullanılarak aşağı kilitli değil. Bu parola kaba kuvvet saldırıları yönetilen etki alanına kullanıcı hesaplarında getirebilir.*
+*İnternet üzerinden güvenli LDAP, yönetilen etki alanı için etkinleştirilir. Ancak 636 numaralı bağlantı noktasına erişim bir ağ güvenlik grubu kullanılarak kilitlenmemiş kilitli değil. Bu kullanıcı hesaplarını parola deneme yanılma saldırıları için yönetilen etki alanındaki getirebilir.*
 
 ### <a name="secure-ldap-port"></a>Güvenli LDAP bağlantı noktası
 
-Güvenli LDAP etkinleştirildiğinde, belirli IP adreslerinden yalnızca gelen LDAPS erişime izin vermek için ek kurallar oluşturmanızı öneririz. Bu kurallar etki alanınızda bir güvenlik tehdidi tehlikeli olabilecek deneme yanılma saldırılarına karşı koruyun. Bağlantı noktası 636, yönetilen etki alanına erişim sağlar. Güvenli LDAP için erişime izin vermek için NSG güncelleştirmek nasıl şöyledir:
+Güvenli LDAP etkin olduğunda, yalnızca belirli IP adreslerinden gelen LDAPS erişime izin vermek için ek kurallar oluşturmanızı öneririz. Bu kurallar, etki alanı güvenlik tehdidi doğuracak deneme yanılma saldırılarına karşı koruyun. Bağlantı noktası 636 yönetilen etki alanınıza erişim sağlar. Güvenli LDAP için erişime izin vermek için NSG güncelleştirmek nasıl aşağıda verilmiştir:
 
-1. Gidin [ağ güvenlik grupları sekmesinde](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) Azure portalında
+1. Gidin [ağ güvenlik grupları sekmesini](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) Azure portalında
 2. Tablodan, etki alanı ile ilişkili NSG seçin.
-3. Tıklayın **gelen güvenlik kuralları**
+3. Tıklayarak **gelen güvenlik kuralları**
 4. Bağlantı noktası 636 kuralı oluşturma
-   1. Tıklatın **Ekle** üst gezinti çubuğunda.
-   2. Seçin **IP adreslerini** kaynağı.
-   3. Bu kural için kaynak bağlantı noktası aralığı belirtin.
+   1. Tıklayın **Ekle** üst gezinti çubuğunda.
+   2. Seçin **IP adresleri** kaynağı için.
+   3. Bu kural için kaynak bağlantı noktası aralıkları belirtin.
    4. Hedef bağlantı noktası aralıkları için giriş "636".
-   5. Protokol **TCP**.
-   6. Kural, uygun bir ad, açıklama ve öncelik verin. Varsa bu kuralın önceliğini "Deny tüm" kuralındaki önceliğe daha yüksek olmalıdır.
+   5. Protokolüdür **TCP**.
+   6. Kural, bir uygun adını, açıklamasını ve öncelik verin. Varsa bu kuralın önceliğini "Reddet tüm" kuralının önceliği yüksek olmalıdır.
    7. **Tamam**’a tıklayın.
 5. Kural oluşturulduğunu doğrulayın.
-6. Etki alanınızın sistem durumunu adımlarını doğru tamamladığınızdan emin olmak için iki saat içinde denetleyin.
+6. Adımları doğru şekilde tamamladığınızdan emin olmak için iki saat içinde etki alanınızın sistem durumunu denetleyin.
 
 > [!TIP]
-> Bağlantı noktası 636 sorunsuz çalıştırmak Azure AD etki alanı Hizmetleri için gereken yalnızca kural değil. Daha fazla bilgi için ziyaret [ağ yönergeleri](active-directory-ds-networking.md) veya [sorun giderme NSG yapılandırma](active-directory-ds-troubleshoot-nsg.md) makaleleri.
+> Bağlantı noktası 636 sorunsuz bir şekilde çalıştırmak Azure AD Domain Services için gereken yalnızca kural değil. Daha fazla bilgi için ziyaret [ağ yönergeleri](active-directory-ds-networking.md) veya [sorun giderme NSG yapılandırmasını](active-directory-ds-troubleshoot-nsg.md) makaleler.
 >
 
 ## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502: LDAP sertifikanın sona ermesinden güvenli
 
 **Uyarı iletisi:**
 
-*Yönetilen etki alanı için güvenli LDAP sertifika XX sona erecek.*
+*Yönetilen etki alanı için güvenli LDAP sertifikasını [date] dolacak].*
 
 **Çözüm:**
 
-Yeni bir güvenli LDAP sertifika özetlenen adımları izleyerek oluşturun [güvenli LDAP yapılandırma](active-directory-ds-admin-guide-configure-secure-ldap.md) makalesi.
+Özetlenen adımları izleyerek yeni bir güvenli LDAP sertifikası oluşturma [güvenli LDAP yapılandırma](active-directory-ds-admin-guide-configure-secure-ldap.md) makalesi.
 
 ## <a name="contact-us"></a>Bizimle iletişim kurun
-Azure Active Directory etki alanı Hizmetleri ürün ekibine başvurun [paylaşmak geri bildirim veya destek](active-directory-ds-contact-us.md).
+Azure Active Directory Domain Services ürün ekibiyle [geri bildirim paylaşma veya destek](active-directory-ds-contact-us.md).

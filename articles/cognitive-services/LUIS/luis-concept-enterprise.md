@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: v-geberr
-ms.openlocfilehash: aca67db88255585355bc59a29e53639bc5eca717
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 0c1cd175649415e811140e45225bd8441071ab19
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37886765"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950847"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Bir LUIS uygulaması için Kurumsal stratejileri
 Bu tasarım stratejiler Kurumsal uygulamanız için gözden geçirin.
@@ -29,7 +29,7 @@ Tüm uygulamalar arasında aynı üst amaç alabilmek için birinci ve ikinci am
 
 Tek bir uygulama yöneticisi olarak belirleyin. Gözden geçirme için önerilen herhangi bir konuşma ana uygulamaya eklenen ardından için tüm diğer uygulamaları geri taşınır. Uygulamanın tam bir dışarı aktarma veya etiketli konuşma asıl alt öğelerine yüklenirken budur. Yükleme araçtan yapılabilir [LUIS](luis-reference-regions.md) Web sitesi veya geliştirme API için bir [tek utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) veya bir [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
 
-Düzenli bir zamanlama [konuşma uç noktası incelenmesi](label-suggested-utterances.md) iki haftada gibi etkin olarak öğrenmeye için daha sonra yeniden eğitme ve yeniden yayımlayın. 
+Düzenli bir zamanlama [konuşma uç noktası incelenmesi](luis-how-to-review-endoint-utt.md) iki haftada gibi etkin olarak öğrenmeye için daha sonra yeniden eğitme ve yeniden yayımlayın. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>Birden çok LUIS anahtarları aynı uygulamaya atama
 LUIS uygulamanızı daha fazla uç noktası İsabeti tek anahtarının kota izin verdiğinden, oluşturma ve daha fazla anahtarları LUIS uygulaması için atama alırsa. Bir traffic manager oluşturma veya yük dengeleyici uç nokta sorguları uç nokta anahtarlarını yönetme. 
@@ -37,7 +37,7 @@ LUIS uygulamanızı daha fazla uç noktası İsabeti tek anahtarının kota izin
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>Tek parça uygulamanızı yanlış hedefi döndürdüğünde
 Uygulamanızı çok çeşitli kullanıcı konuşma tahmin etmek için geliyorsa, uygulamayı düşünün [gönderme modeli](#dispatch-tool-and-model). Tek parça bir uygulamayı kesme LUIS üst uygulama arasında hedefleri ve alt uygulamalar arasında yanıltıcı yerine başarıyla ıntents arasında odağı algılama sağlar. 
 
-Düzenli bir zamanlama [konuşma uç noktası incelenmesi](label-suggested-utterances.md) iki haftada gibi etkin olarak öğrenmeye için daha sonra yeniden eğitme ve yeniden yayımlayın. 
+Düzenli bir zamanlama [konuşma uç noktası incelenmesi](luis-how-to-review-endoint-utt.md) iki haftada gibi etkin olarak öğrenmeye için daha sonra yeniden eğitme ve yeniden yayımlayın. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>500'den fazla hedefleri gerektiğinde
 Örneğin, 500'den fazla amacı olan bir office Yardımcısı, geliştirmekte olduğunuz varsayalım. 200 amacı, Toplantı zamanlama için ilişkiliyse, ilgili anımsatıcılar 200 olan, iş arkadaşlarınızın hakkında bilgi alma 200 olduğundan ve e-posta göndermek için 200 olan, grubunun hedefleri böylece her grubu tek bir uygulama olarak, ardından her hedefi içeren üst düzey bir uygulama oluşturabilirsiniz. Kullanım [dağıtım aracı ve mimari](#dispatch-tool-and-model) en üst düzey uygulama oluşturmak için. Ardından botunuzun Göster olarak basamaklı çağrısı kullanmak üzere değiştirmek [gönderme Öğreticisi][dispatcher-application-tutorial]. 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3ac82d6f0b54846485ed7369d5c9c1bd352f9daa
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: f529459562ec10a7b9bbcca578d8998e545f3f4c
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437751"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952622"
 ---
 # <a name="support-for-azure-marketplace"></a>Azure Marketi için destek  
 Azure Marketi destek seçenekleri.  
@@ -45,7 +45,7 @@ Azure Marketi destek seçenekleri.
 
 | Kanal desteği | Açıklama |  
 |:--- |:--- |  
-| Slack: [join.marketplace.azure.com](https://join.marketplace.azure.com) | Teknik sorunlar iş ortaklarıyla desteklemek için Slack ortamı. Şu anda bu ortamda çalışan 350 + iş ortakları hakkında vardır. |  
+| Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Teknik sorunlar iş ortaklarıyla desteklemek için Slack ortamı. Şu anda bu ortamda çalışan 350 + iş ortakları hakkında vardır. |  
 | MSDN Forumları: Market bulunan [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Microsoft Developer Network Forumu. |  
 | Yığın taşması: Azure konumundaki [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Taşma ortam çözümleri edinin ve Azure Marketi'nde ilgili her şeyi hakkında sorular sormak için yığın.<ul> <li>Yığın taşması: Azure Market konumundaki [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Yığın taşması: Azure Resource Manager konumundaki [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Yığın taşması: Azure sanal makinelerinde bulunan [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Yığın taşması: Azure'da kapsayıcı konumundaki [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 

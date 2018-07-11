@@ -9,24 +9,24 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: 24e179e24423412a5ff25a64157e273b1a025a6f
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 515bcf4e06de562d1c83082824daa4dca0b54226
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888703"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950524"
 ---
 # <a name="data-storage-and-removal"></a>Veri depolama ve kaldırma
 LUIS anahtarı ile belirtilen bölgeyi karşılık gelen bir Azure veri deposunda şifrelenmiş verileri depolar. Bu veriler 30 gün boyunca saklanır. 
 
 ## <a name="export-and-delete-app"></a>Dışarı aktarma ve uygulamayı Sil
-Kullanıcılar üzerinde tam denetime sahip [verme](create-new-app.md#export-app) ve [silme](create-new-app.md#delete-app) uygulama. 
+Kullanıcılar üzerinde tam denetime sahip [verme](luis-how-to-start-new-app.md#export-app) ve [silme](luis-how-to-start-new-app.md#delete-app) uygulama. 
 
 ## <a name="utterances-in-an-intent"></a>Bir hedefi olarak konuşma
 Eğitim için kullanılan örnek konuşma Sil [LUIS](luis-reference-regions.md). LUIS uygulamanızdan bir örnek utterance silerseniz, LUIS web hizmetinden kaldırılır ve dışarı aktarma için kullanılamaz.
 
 ## <a name="utterances-in-review"></a>Konuşma incelemesindeki
-Konuşma içinde LUIS önerir kullanıcı konuşma listesinden silebilirsiniz  **[gözden geçirme endpoint konuşma sayfası](label-suggested-utterances.md)**. Konuşma bu listeden silme önerilmesini engelliyor, ancak bunları günlüklerinden silmez.
+Konuşma içinde LUIS önerir kullanıcı konuşma listesinden silebilirsiniz  **[gözden geçirme endpoint konuşma sayfası](luis-how-to-review-endoint-utt.md)**. Konuşma bu listeden silme önerilmesini engelliyor, ancak bunları günlüklerinden silmez.
 
 ## <a name="accounts"></a>Hesaplar
 Bir hesabı silerseniz, tüm uygulamalar, kendi örnek konuşma ve günlükleri birlikte silinir. Hesabın önce 60 gün boyunca veriler korunur ve veriler kalıcı olarak silinir.
@@ -44,4 +44,4 @@ Veri saklama ve silme amacı doğrultusunda, etkin olmayan bir LUIS uygulaması 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Dışarı aktarma ve uygulama silme hakkında bilgi edinin](create-new-app.md)
+> [Dışarı aktarma ve uygulama silme hakkında bilgi edinin](luis-how-to-start-new-app.md)

@@ -1,8 +1,7 @@
 ---
-title: Betik eylemleri - Azure kullanarak Hdınsight kümelerini özelleştirme | Microsoft Docs
-description: Betik eylemi kullanarak Hdınsight kümelerini özelleştirme öğrenin.
+title: HDInsight betik eylemleri - Azure'ı kullanarak kümeleri özelleştirme | Microsoft Docs
+description: HDInsight kümelerini betik eylemi kullanarak özelleştirme öğrenin.
 services: hdinsight
-documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,64 +13,64 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 15fa3e7738810ada48f471a685f79a82445ad70c
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 50ef40b3ea3bc8c768e8b4266ef50ad02e02f026
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808868"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950623"
 ---
-# <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Betik eylemi kullanarak Windows tabanlı Hdınsight kümelerini özelleştirme
-**Betik eylemi** çağırmak için kullanılan [özel komut dosyaları](hdinsight-hadoop-script-actions.md) bir kümede ek yazılım yüklemek için küme oluşturma işlemi sırasında.
+# <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Windows tabanlı HDInsight kümelerini betik eylemi kullanarak özelleştirme
+**Betik eylemi** çağırmak için kullanılan [özel betikler](hdinsight-hadoop-script-actions.md) bir kümede ek yazılım yüklemek için küme oluşturma işlemi sırasında.
 
-Bu makaledeki bilgileri, Windows tabanlı Hdınsight kümelerine özeldir. Linux tabanlı kümeler için bkz: [özelleştirme Linux tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
+Bu makaledeki bilgiler, Windows tabanlı HDInsight kümelerine özeldir. Linux tabanlı kümeler için bkz: [özelleştirme Linux tabanlı HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
 
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-Hdınsight kümeleri başka yöntemlerle de çeşitli özelleştirilebilir, ek Azure depolama hesapları dahil olmak üzere gibi Hadoop değiştirme yapılandırma dosyaları (core-site.xml, hive-site.xml, vb.) veya paylaşılan kitaplıklar (örn., Hive, Oozie) içine ekleme Küme ortak konumlarda. Bu özelleştirmeler, Azure PowerShell, Azure Hdınsight .NET SDK veya Azure portalı yapılabilir. Daha fazla bilgi için bkz: [Hdınsight'ta oluşturmak Hadoop kümeleri][hdinsight-provision-cluster].
+HDInsight kümeleri başka yöntemlerle de çeşitli özelleştirilebilir, ek Azure depolama hesapları dahil olmak üzere gibi Hadoop değiştirme yapılandırma dosyaları (core-site.xml, hive-site.xml vb.) veya paylaşılan kitaplıklar (örneğin, Hive, Oozie) uygulamasına ekleme Ortak konumu kümedeki. Bu özelleştirmeler, Azure PowerShell, Azure HDInsight .NET SDK veya Azure portalı yapılabilir. Daha fazla bilgi için [Hadoop kümeleri oluşturma HDInsight][hdinsight-provision-cluster].
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
 ## <a name="script-action-in-the-cluster-creation-process"></a>Küme oluşturma işlemi betik eylemi
-Betik eylemi, yalnızca bir küme oluşturulan aşamasında olsa da kullanılır. Betik eylemi oluşturma işlemi sırasında çalıştırıldığında aşağıdaki diyagramda gösterilmektedir:
+Betik eylemi, yalnızca bir küme oluşturulurken olmakla birlikte kullanılır. Betik eylemi oluşturma işlemi sırasında yürütüldüğünde, aşağıdaki diyagramda gösterilmektedir:
 
-![Hdınsight küme özelleştirme ve küme oluşturma sırasında aşamaları][img-hdi-cluster-states]
+![HDInsight kümesi özelleştirme ve aşamaları sırasında küme oluşturma][img-hdi-cluster-states]
 
-Komut dosyası çalıştırılırken küme girer **ClusterCustomization** aşaması. Bu aşamada, komut dosyası belirtilen kümedeki tüm düğümler, üzerinde paralel sistem yönetici hesabı altında çalışacak ve düğümler üzerinde tam yönetici ayrıcalıkları sağlar.
+Komut dosyası çalıştırılırken, kümeye girdiğinde **ClusterCustomization** aşaması. Bu aşamada, betik tüm belirtilen kümedeki düğümler üzerinde paralel sistem yönetici hesabı altında çalışır ve düğümler üzerinde tam yönetici ayrıcalıkları sağlar.
 
 > [!NOTE]
-> Sırasında küme düğümlerinde yönetici ayrıcalıklarına sahip olduğundan **ClusterCustomization** aşama, durdurma ve Hadoop ile ilgili hizmetlerin gibi hizmetler başlatma gibi işlemler gerçekleştirmek için komut dosyasını kullanabilirsiniz. Bu nedenle, komut dosyasının parçası olarak çalışan betik tamamlanmadan önce Ambari Hizmetleri ve diğer Hadoop ile ilgili hizmetlerin hazır ve çalışır olduğundan emin olmalısınız. Bu hizmetler, onu oluşturulurken kümenin durumunu ve sistem durumu başarıyla onaylaması için gereklidir. Bu hizmetler etkiler kümedeki herhangi bir yapılandırma değiştirirseniz, sağlanan yardımcı işlevleri kullanmanız gerekir. Yardımcı işlevleri hakkında daha fazla bilgi için bkz: [Hdınsight betik eylemi geliştirme betikleri][hdinsight-write-script].
+> Sırasında küme düğümleri üzerinde yönetici ayrıcalıklarına sahip olduğundan **ClusterCustomization** aşama, durdurma ve başlatma Hadoop ile ilgili hizmetler gibi hizmetler gibi işlemler gerçekleştirmek için komut dosyasını kullanabilirsiniz. Bu nedenle, betiğinin bir parçası olarak çalışan betik tamamlanmadan önce Ambari Hizmetleri ve diğer Hadoop ile ilgili hizmetler ve çalışıyor olduğundan emin emin olmanız gerekir. Bu hizmetler, oluşturulurken kümesinin durumunu ve sistem durumu başarıyla onaylaması gerekir. Bu hizmetler etkiler kümedeki herhangi bir yapılandırma değiştirirseniz, sağlanan yardımcı işlevleri kullanmanız gerekir. Yardımcı işlevleri hakkında daha fazla bilgi için bkz: [HDInsight için betik eylemi geliştirme betikleri][hdinsight-write-script].
 >
 >
 
-Küme için belirtilen varsayılan depolama hesabı, çıkış ve komut dosyası için hata günlüklerini depolanır. Günlükler, adı olan bir tabloda depolanır **u < \cluster-name-fragment >< \time-stamp > setuplog**. Kümedeki düğümler (baş düğüm ve çalışan düğümleri) çalışan komut dosyasından toplama günlükleri şunlardır.
+Çıktı ve komut dosyası için hata günlüklerini, küme için belirtilen varsayılan depolama hesabında depolanır. Günlükler, adı olan bir tabloda depolanır **u < \cluster-name-fragment >< \time-stamp > setuplog**. Bu kümedeki düğümleri (baş düğüm ve çalışan düğümleri) üzerinde çalışan komut dosyasından toplama günlüklerdir.
 
-Her küme içinde belirtilen sırayla çağrılır birden çok betik eylemleri kabul edebilir. Bir komut dosyasını olması çalıştıran baş düğüm, çalışan düğümlerine veya her ikisi de.
+Her küme içinde belirtilen sırayla çağrılır birden çok betik eylemleri kabul edebilir. Betik olması çalıştırdınız baş düğüm, çalışan düğümlerinin veya her ikisi de.
 
-Hdınsight Hdınsight kümelerinde aşağıdaki bileşenleri yüklemek için çeşitli komut dosyaları sağlar:
+HDInsight, HDInsight kümelerinde aşağıdaki bileşenleri yüklemek için birkaç komut dosyaları sağlar:
 
 | Ad | Betik |
 | --- | --- |
-| **Spark yükleyin** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Bkz: [yükleme ve kullanma hdınsight'ta Spark kümeleri][hdinsight-install-spark]. |
-| **R yükleme** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. [Yükleme ve kullanma R Hdınsight kümelerinde] bkz [hdınsight-Install-r]. |
-| **Solr yükleyin** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Bkz: [yükleme ve kullanma Solr hdınsight kümeleri](hdinsight-hadoop-solr-install.md). |
-| - **Giraph yükleyin** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Bkz: [yükleme ve kullanma Giraph hdınsight kümeleri](hdinsight-hadoop-giraph-install.md). |
-| **Ön yük Hıve kitaplıkları** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Bkz: [eklemek Hive kitaplıkları Hdınsight kümeleri hakkında](hdinsight-hadoop-add-hive-libraries.md) |
+| **Spark'ı yükleme** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Bkz: [yükleme ve kullanma, HDInsight üzerinde Spark kümeleri][hdinsight-install-spark]. |
+| **R yükleme** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Bkz: [yükleme ve HDInsight kümelerinde R kullanma](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
+| **Solr yükleme** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Bkz: [HDInsight üzerinde Solr yükleme ve kullanma kümeleri](hdinsight-hadoop-solr-install.md). |
+| **Giraph yükleme** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Bkz: [HDInsight üzerinde Giraph yükleme ve kullanma kümeleri](hdinsight-hadoop-giraph-install.md). |
+| **Hive kitaplıklarını önceden yükleme** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Bkz: [HDInsight kümelerinde ekleme Hive kitaplıkları](hdinsight-hadoop-add-hive-libraries.md) |
 
-## <a name="call-scripts-using-the-azure-portal"></a>Azure portalını kullanarak komut dosyalarını arayın
+## <a name="call-scripts-using-the-azure-portal"></a>Azure portalını kullanarak komut dosyalarını çağırma
 **Azure portalından**
 
-1. Konusunda açıklandığı gibi bir küme oluşturmaya başlamak [Hdınsight'ta oluşturmak Hadoop kümeleri](hdinsight-hadoop-provision-linux-clusters.md).
-2. İsteğe bağlı yapılandırma bölümünde için **betik eylemleri** dikey penceresinde tıklatın **betik eylemi eklemek** aşağıda gösterildiği gibi betik eylemi hakkındaki ayrıntıları sağlamak için:
+1. Anlatıldığı gibi bir küme oluşturmaya başlayın [Hadoop kümeleri oluşturma HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+2. İsteğe bağlı yapılandırma altında için **betik eylemleri** dikey penceresinde tıklayın **betik eylemi ekleme** aşağıda gösterildiği gibi bir betik eylemi ayrıntılarını sağlamak için:
 
-    ![Bir küme özelleştirmek için betik eylemi kullanın](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "bir küme özelleştirmek için kullanım betik eylemi")
+    ![Bir küme özelleştirmek için betik eylemi kullanmanız](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "küme özelleştirmek için betik eylemini kullanın")
 
     <table border='1'>
         <tr><th>Özellik</th><th>Değer</th></tr>
         <tr><td>Ad</td>
             <td>Betik eylemi için bir ad belirtin.</td></tr>
-        <tr><td>Betik URI'si</td>
+        <tr><td>Betiği URI'si</td>
             <td>Küme özelleştirmek için çağrılan betik URI'si belirtin. s</td></tr>
         <tr><td>HEAD/çalışan</td>
             <td>Düğüm belirtin (**Head** veya **çalışan**) özelleştirme betik çalıştığı şirket.</b>.
@@ -79,11 +78,11 @@ Hdınsight Hdınsight kümelerinde aşağıdaki bileşenleri yüklemek için çe
             <td>Komut dosyası tarafından gerekli parametreleri belirtin.</td></tr>
     </table>
 
-    Küme üzerinde birden çok bileşeni yüklemek için birden fazla betik eylemi eklemek için ENTER tuşuna basın.
-3. Tıklatın **seçin** betik eylemi yapılandırmasını kaydedin ve küme oluşturma ile devam edin.
+    Küme üzerinde birden çok bileşenleri yüklemek için birden fazla betik eylemi eklemek için ENTER tuşuna basın.
+3. Tıklayın **seçin** betik eylemi yapılandırmasını kaydetmek ve küme oluşturma işlemine devam etmek için.
 
-## <a name="call-scripts-using-azure-powershell"></a>Azure PowerShell kullanarak komut dosyalarını arayın
-Bu aşağıdaki PowerShell betiğini Spark Windows tabanlı Hdınsight kümesine yüklemek gösterilmiştir.  
+## <a name="call-scripts-using-azure-powershell"></a>Azure PowerShell kullanarak komut dosyalarını çağırma
+Bu aşağıdaki PowerShell Betiği, Windows tabanlı HDInsight kümesi üzerinde Spark'ı yüklemek gösterilmektedir.  
 
     # Provide values for these variables
     $subscriptionID = "<Azure Suscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
@@ -165,16 +164,16 @@ Bu aşağıdaki PowerShell betiğini Spark Windows tabanlı Hdınsight kümesine
             -Config $config
 
 
-Diğer yazılım yüklemek için komut dosyası komut dosyasında Değiştir gerekir:
+Diğer yazılım yüklemek için betik komut dosyasında değiştirilecek gerekir:
 
-İstendiğinde, küme için kimlik bilgilerini girin. Küme oluşturulmadan önce birkaç dakika sürebilir.
+İstendiğinde, küme için kimlik bilgilerini girin. Uygulamanın, küme oluşturulmadan önce birkaç dakika sürebilir.
 
-## <a name="call-scripts-using-net-sdk"></a>.NET SDK kullanarak komut dosyalarını arayın
-Aşağıdaki örnek, Windows tabanlı Hdınsight kümesi üzerinde Spark yükleneceği gösterilmiştir. Diğer yazılım yüklemek için komut dosyası kodu değiştirin gerekecektir.
+## <a name="call-scripts-using-net-sdk"></a>.NET SDK kullanarak komut dosyalarını çağırma
+Aşağıdaki örnek, Windows tabanlı HDInsight kümesi üzerinde Spark'ı yüklemek gösterilmektedir. Diğer yazılım yüklemek için kod içindeki betik dosyasının yerini gerekecektir.
 
-**İle Spark Hdınsight kümesi oluşturmak için**
+**Spark ile bir HDInsight kümesi oluşturma**
 
-1. Visual Studio'da bir C# konsol uygulaması oluşturun.
+1. Visual Studio'da C# konsol uygulaması oluşturun.
 2. Nuget Paket Yöneticisi konsolundan aşağıdaki komutu çalıştırın.
 
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -191,7 +190,7 @@ Aşağıdaki örnek, Windows tabanlı Hdınsight kümesi üzerinde Spark yüklen
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
-4. Sınıfında aşağıdaki kodu yerleştirin:
+4. Aşağıdakilerle sınıftaki kod yerleştirin:
 
         private static HDInsightManagementClient _hdiManagementClient;
 
@@ -283,38 +282,38 @@ Aşağıdaki örnek, Windows tabanlı Hdınsight kümesi üzerinde Spark yüklen
         }
 5. Uygulamayı çalıştırmak için **F5**'e basın.
 
-## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Hdınsight kümelerinde kullanılan açık kaynaklı yazılım desteği
-Microsoft Azure Hdınsight, büyük veri uygulamalarını bulutta Hadoop biçimlendirilmiş açık kaynak teknolojilerinin bir ekosistemi kullanarak oluşturmanıza olanak sağlayan esnek bir platform hizmetidir. Microsoft Azure içinde açıklandığı gibi bu genel düzeyde bir destek açık kaynak teknolojileri için sağlar **destek kapsamı** bölümünü <a href="http://azure.microsoft.com/support/faq/" target="_blank">Azure destek SSS Web sitesine</a>. Hdınsight hizmeti, aşağıda açıklandığı gibi bir ek düzeyi bazı bileşenleri için destek sağlar.
+## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>HDInsight kümelerinde kullanılan açık kaynaklı yazılım desteği
+Microsoft Azure HDInsight, Hadoop geçici olarak oluşturulmuş açık kaynak teknolojilerinin bir ekosistemi kullanarak buluttaki büyük veri uygulamaları oluşturmanıza olanak sağlayan esnek bir platform hizmetidir. Microsoft Azure içinde açıklandığı gibi bu genel bir seviyede destek açık kaynak teknolojileri için sağlar **destek kapsamı** bölümünü <a href="http://azure.microsoft.com/support/faq/" target="_blank">Azure desteği SSS Web sitesine</a>. HDInsight hizmeti, aşağıda açıklandığı gibi bir ek düzeyi bazı bileşenleri için destek sağlar.
 
-Hdınsight hizmetinde bulunan açık kaynak bileşenleri iki tür vardır:
+HDInsight hizmetinde kullanılabilir açık kaynak bileşenleri iki tür vardır:
 
-* **Yerleşik bileşenlerini** -bu bileşenlerin Hdınsight kümelerinde önceden yüklü olduğundan ve küme çekirdek işlevselliğini sağlar. Örneğin, YARN ResourceManager, Hive sorgu dili (HiveQL) ve Mahout kitaplık bu kategoriye ait. Küme bileşenlerin tam bir listesi kullanılabilir [Hdınsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler nelerdir?](hdinsight-component-versioning.md) </a>.
-* **Özel bileşenler** -, bir kullanıcı kümesi olarak yükleyebilir veya topluluk bulunan ya da sizin tarafınızdan oluşturulan herhangi bir bileşenin, iş yükü kullanın.
+* **Yerleşik bileşenlerini** -bu bileşenler HDInsight kümelerinde önceden yüklü olan ve kümeyi temel işlevlerini sağlar. Örneğin, YARN ResourceManager, Hive sorgu dili (HiveQL) ve Mahout kitaplığı, bu kategoriye aittir. Tam küme bileşenleri listesini kullanılabilir [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler nelerdir?](hdinsight-component-versioning.md) </a>.
+* **Özel bileşenler** -, kümenin bir kullanıcı olarak yükleyebilir veya herhangi bir bileşeni Topluluğu'nda kullanılabilir veya sizin tarafınızdan oluşturulan iş yükünüzü kullanın.
 
-Yerleşik bileşenlerini tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenleri ilgili sorunları gidermek için yardımcı olur.
+Yerleşik bileşenleri tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
 
 > [!WARNING]
-> Hdınsight kümesi ile sağlanan bileşenler tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenleri ilgili sorunları gidermek için yardımcı olur.
+> HDInsight kümesi ile sağlanan bileşenler tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
 >
-> Özel bileşenler, daha fazla sorun gidermenize yardımcı olması için ticari koşulların elverdiği oranda makul destek alırsınız. Bu sorunu çözmek veya bu teknoloji derin uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları devreye isteyen neden olabilir. Örneğin, olduğu gibi kullanılabilecek birçok topluluk siteleri vardır: [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Özel bileşenler daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Bu sorunu çözümlemek ya da bu teknoloji için derin bir uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları etkileşim kurmak isteyen neden olabilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 >
 >
 
-Hdınsight hizmeti özel bileşenleri kullanmak için çeşitli yöntemler sunar. Nasıl bir bileşen kullanılan veya kümeye yüklü bağımsız olarak, aynı düzeyde desteği geçerlidir. Özel bileşenler Hdınsight kümelerinde kullanılabilir en yaygın şekilde listesi aşağıdadır:
+HDInsight hizmeti, özel bileşenler kullanmak için birkaç yol sağlar. Nasıl bir bileşen ya da kümeye yüklü bağımsız olarak, aynı düzeyde desteği geçerlidir. Özel bileşenler HDInsight kümelerinde kullanılabilir en yaygın yolu bir listesi aşağıdadır:
 
-1. İş gönderme - Hadoop veya diğer tür execute veya özel bileşenleri kullanan işi kümeye gönderilebilir.
-2. Küme özelleştirme - küme oluşturma sırasında ek ayarlar ve küme düğümlerinde yüklü özel bileşenleri belirtebilirsiniz.
-3. Örnekler - popüler özel bileşenleri, Microsoft ve diğerleri için bu bileşenlerin Hdınsight kümelerinde nasıl kullanılabileceğini örnek sağlayabilir. Bu örnekler desteği olmadan sağlanır.
+1. İş gönderme - Hadoop ya da diğer türleri yürütün veya özel bileşenler kullanan işlerinin kümeye gönderilebilir.
+2. Küme özelleştirmesi - küme oluşturma sırasında ek ayarlar ve küme düğümlerinde yüklü özel bileşenler belirtebilirsiniz.
+3. Örnekleri - popüler özel bileşenler, Microsoft ve diğerleri için HDInsight kümelerinde bu bileşenlerin nasıl kullanılabileceğini örneklerin sağlayabilir. Bu örnekler desteği olmadan sağlanır.
 
 ## <a name="develop-script-action-scripts"></a>Betik eylemi betikleri geliştirme
-Bkz: [Hdınsight betik eylemi geliştirme betikleri][hdinsight-write-script].
+Bkz: [HDInsight için betik eylemi geliştirme betikleri][hdinsight-write-script].
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Hdınsight'ta Hadoop kümeleri oluşturma] [ hdinsight-provision-cluster] diğer özel seçenekleri kullanarak bir Hdınsight kümesi oluşturmak yönergeler sağlar.
-* [Hdınsight için betik eylemi betikleri geliştirme][hdinsight-write-script]
-* [Yükleme ve Spark Hdınsight kümelerinde kullanma][hdinsight-install-spark]
-* [Yükleme ve Hdınsight kümelerinde Solr kullanma](hdinsight-hadoop-solr-install.md).
-* [Yükleme ve Hdınsight kümelerinde Giraph kullanma](hdinsight-hadoop-giraph-install.md).
+* [HDInsight Hadoop kümeleri oluşturma] [ hdinsight-provision-cluster] diğer özel seçenekleri kullanarak bir HDInsight kümesi oluşturma hakkında yönergeler açıklanmaktadır.
+* [HDInsight için betik eylemi betikleri geliştirme][hdinsight-write-script]
+* [Yükleme ve HDInsight kümelerine Spark kullanma][hdinsight-install-spark]
+* [Yükleme ve HDInsight kümelerinde Solr kullanma](hdinsight-hadoop-solr-install.md).
+* [Yükleme ve HDInsight kümelerinde Giraph kullanma](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md

@@ -1,9 +1,9 @@
 ---
-title: Azure'da Windows istemci görüntüleri kullanmak | Microsoft Docs
-description: Windows 7, Windows 8 veya Windows 10 azure'da geliştirme ve test senaryoları için dağıtmak için Visual Studio abonelik avantajlarını kullanma
+title: Azure'da Windows istemci görüntülerini kullanma | Microsoft Docs
+description: Windows 7, Windows 8 veya Windows 10'da Azure dev/test senaryoları için dağıtmak için Visual Studio abonelik avantajlarını kullanma
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
@@ -13,56 +13,56 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
-ms.author: iainfou
-ms.openlocfilehash: c1fdf3e95fe0026dcb1b47dd6537008921d461fe
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: cynthn
+ms.openlocfilehash: a2b9a06e8e3b1bda91050e1607c7265d6fe66bb1
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017543"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931798"
 ---
-# <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Windows İstemcisi Azure üzerinde geliştirme ve test senaryoları için kullanın.
-Uygun bir Visual Studio (önceki adıyla MSDN) aboneliğiniz varsa Azure geliştirme ve test senaryoları için Windows 10 Enterprise (x64) sağlanan veya Windows 7, Windows 8 kullanabilirsiniz. Bu makalede, Windows 7, Windows 8.1, Windows 10 Enterprise Azure ve aşağıdaki Azure galeri görüntüleri kullanımını çalıştırmak için uygunluk gereksinimleri özetlenmektedir.
+# <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Windows istemci Azure'da geliştirme/test senaryoları için kullanın.
+Azure'da geliştirme/test senaryoları için Windows 10 Enterprise (x64), uygun bir Visual Studio (eski adıyla MSDN) aboneliğiniz sağlanan ya da Windows 7, Windows 8, kullanabilirsiniz. Bu makalede, Windows 7, Windows 8.1, Windows 10 Enterprise, Azure ve Azure Galerisi şu görüntüleri kullanımını çalıştırmak için uygunluk gereksinimleri özetlenmektedir.
 
 ![Azure portalından görüntü ayrıntıları](./media/client-images/windows-client-msdn-images.png) 
 
 > [!NOTE]
-> Azure Galerisi'ndeki Windows 10 Pro ve Windows 10 Pro N görüntü için lütfen [çok kullanıcılı barındırma hakları ile azure'da Windows 10 dağıtma](windows-desktop-multitenant-hosting-deployment.md)
+> Azure Galerisi'ndeki Windows 10 Pro ve Windows 10 Pro N görüntü için başvurun [çok Kiracılı barındırma hakları ile azure'da Windows 10 dağıtma](windows-desktop-multitenant-hosting-deployment.md)
 >![Azure portalından Pro görüntü ayrıntıları](./media/client-images/windows-client-pro-images.png) 
 >
 
 ## <a name="subscription-eligibility"></a>Abonelik uygunluk
-Etkin Visual Studio abonelerinden (bir Visual Studio abonelik lisans kişiler) Windows İstemcisi geliştirme ve sınama amacıyla kullanabilirsiniz. Windows İstemcisi, kendi donanım ve herhangi bir türde Azure aboneliği çalışan Azure sanal makineler üzerinde kullanılabilir. Windows İstemcisi dağıtılan veya Azure üzerinde normal üretim kullanımı için kullanılan veya etkin Visual Studio abonelerinden olmayan kişiler tarafından kullanılan.
+Etkin Visual Studio aboneleri (Visual Studio Abonelik lisansı almış kişiler), Windows istemci geliştirme ve test amacıyla kullanabilirsiniz. Windows istemci donanım ve herhangi bir türde Azure aboneliğinde çalışan Azure sanal makineler kullanılabilir. Windows istemci dağıtılan veya normal üretim kullanımı için Azure üzerinde kullanılan veya etkin Visual Studio aboneleri olmayan kişiler tarafından kullanılır.
 
-Size kolaylık olması için belirli Windows 10 görüntüleri içinde Azure galerisinden kullanılabilir [uygun geliştirme ve test sunar](#eligible-offers). Visual Studio abonelerinden teklif herhangi bir türde içinde için de [yeterli hazırlayın ve oluşturun](prepare-for-upload-vhd-image.md) bir 64-bit Windows 7, Windows 8 veya Windows 10 görüntüsü ve ardından [karşıya yüklemek için Azure](upload-generalized-managed.md). Kullanım geliştirme ve test için etkin Visual Studio aboneler tarafından sınırlı kalır.
+Kolaylık olması için belirli Windows 10 görüntüleri içinde Azure galerisinden kullanılabilir [uygun geliştirme ve test teklifleri](#eligible-offers). Visual Studio aboneleri teklif herhangi bir tür içinde aynı zamanda [yeterince hazırlayın ve oluşturun](prepare-for-upload-vhd-image.md) bir 64 bit Windows 7, Windows 8 veya Windows 10 görüntüsü ve ardından [karşıya Azure'a](upload-generalized-managed.md). Kullanımı, etkin Visual Studio aboneleri tarafından geliştirme ve test için sınırlı kalır.
 
-## <a name="eligible-offers"></a>Uygun teklifleri
-Aşağıdaki tabloda, Windows 10 Azure Galerisine dağıtmak uygun olan kimlikleri teklif ayrıntıları verilmektedir. Windows 10 görüntüler, yalnızca aşağıdaki teklifleri için görünür durumdadır. Windows İstemcisi farklı Teklif türü çalıştırmak için gereken visual Studio aboneleri gerektirir [yeterli hazırlayın ve oluşturun](prepare-for-upload-vhd-image.md) bir 64-bit Windows 7, Windows 8 veya Windows 10 görüntüsü ve [Azure'a yükleyin](upload-generalized-managed.md).
+## <a name="eligible-offers"></a>Uygun teklifler
+Aşağıdaki tabloda, Azure Galerisi aracılığıyla Windows 10 dağıtmak uygun olan kimlikleri Teklif Ayrıntıları. Windows 10 görüntüleri, yalnızca aşağıdaki teklifler için görülebilir. Windows istemci farklı bir teklif tür çalıştırmak isteyen visual Studio aboneleri için gerekli [yeterince hazırlayın ve oluşturun](prepare-for-upload-vhd-image.md) bir 64 bit Windows 7, Windows 8 veya Windows 10 görüntüsü ve [sonra azure'a](upload-generalized-managed.md).
 
 | Teklif Adı | Teklif Numarası | Kullanılabilir istemci görüntüleri |
 |:--- |:---:|:---:|
 | [Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P |Windows 10 |
 | [Visual Studio Enterprise (MPN) aboneleri](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P |Windows 10 |
 | [Visual Studio Professional aboneleri](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P |Windows 10 |
-| [Visual Studio Test uzmanı aboneleri](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P |Windows 10 |
-| [Visual Studio Premium with MSDN (avantajı)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
+| [Visual Studio Test Professional aboneleri](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P |Windows 10 |
+| [Visual Studio Premium with MSDN (avantaj)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
 | [Visual Studio Enterprise aboneleri](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |Windows 10 |
 | [Visual Studio Enterprise (BizSpark) aboneleri](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |Windows 10 |
-| [Enterprise geliştirme ve Test](https://azure.microsoft.com/en-us/offers/ms-azr-0148p/) |0148P |Windows 10 |
+| [Kurumsal geliştirme ve Test](https://azure.microsoft.com/en-us/offers/ms-azr-0148p/) |0148P |Windows 10 |
 
-## <a name="check-your-azure-subscription"></a>Azure aboneliğiniz denetleyin
-Teklif kimliği bilmiyorsanız, bu iki yoldan biriyle Azure Portalı aracılığıyla elde edebilirsiniz:  
+## <a name="check-your-azure-subscription"></a>Azure aboneliğinizi denetleyin
+Teklif Kimliğinizi bilmiyorsanız, şu iki yoldan biriyle Azure portalından alabilirsiniz:  
 
 - Üzerinde *abonelikleri* penceresi:
 
-  ![Teklif kimliği ayrıntıları Azure portalından](./media/client-images/offer-id-azure-portal.png) 
+  ![Azure portalından Teklif kimliği ayrıntıları](./media/client-images/offer-id-azure-portal.png) 
 
-- Veya tıklatın **faturalama** ve abonelik kimliğinizi tıklatın Teklif kimliği görünür *faturalama* penceresi.
+- Veya tıklayın **faturalama** ve abonelik kimliğinizi'ye tıklayın Teklif kimliği görünür *faturalama* penceresi.
 
-Teklif kimliği de görüntüleyebilirsiniz ['Abonelik' sekmesini](http://account.windowsazure.com/Subscriptions) Azure hesap portalının:
+Teklif kimliği de görüntüleyebilirsiniz ['Subscriptions' sekmesinde](http://account.windowsazure.com/Subscriptions) Azure hesap Portalı'nın:
 
-![Azure hesap portalından Teklif kimliği ayrıntıları](./media/client-images/offer-id-azure-account-portal.png) 
+![Azure hesap Portalı'ndan Teklif kimliği ayrıntıları](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kullanarak, Vm'lerde artık dağıtabilirsiniz [PowerShell](quick-create-powershell.md), [Resource Manager şablonları](ps-template.md), veya [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Şimdi kullanarak sanal makinelerinizi dağıtmak [PowerShell](quick-create-powershell.md), [Resource Manager şablonları](ps-template.md), veya [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 

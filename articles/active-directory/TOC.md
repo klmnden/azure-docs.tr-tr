@@ -127,11 +127,13 @@
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
-
 ### Sorun giderme
 #### [Eksik denetim verileri](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [İndirmelerde eksik veriler](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Azure Active Directory Etkinlik günlükleri içerik paketi hataları](active-directory-reporting-troubleshoot-content-pack.md)
+#### [Azure Active Directory Raporlama API’sindeki hatalar](active-directory-reporting-troubleshoot-graph-api.md)
+
+
 ### [Programlı Erişim](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Önkoşullar](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Denetim örnekleri](active-directory-reporting-api-audit-samples.md)

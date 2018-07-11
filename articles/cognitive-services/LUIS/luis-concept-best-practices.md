@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: c1d797e3dd3a0926cfce8fee323aaaa1a866a169
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 6c4e4c7acb5083e758aa7c6b94e2464a85ae8e9e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436935"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951130"
 ---
 # <a name="best-practices"></a>En iyi uygulamalar
 LUIS uygulamanızı oluşturmak için yazma işleminin hızlandırılmasının uygulamayı kullanın. 
@@ -77,7 +77,7 @@ Bu yöntemler, güvenirlik eğriltir çünkü uygulamanızı uç nokta isteği a
 Bu geri dönüş, amacı, uygulamanızın dışında her şeyi gösterilir. Bir örnek utterance hiçbiri LUIS uygulamanızı geri kalanında her 10 örnek konuşma için hedefi ekleyin.
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Etkin öğrenme için Öner özelliğinden yararlanın
-Kullanım [etkin olarak öğrenmeye](label-suggested-utterances.md)'s **gözden geçirin, konuşma uç noktası** hedefleri için daha fazla örnek konuşma eklemek yerine düzenli olarak. Uygulamayı sürekli olarak konuşma uç noktası almak için bu listeyi artan ve değiştirme.
+Kullanım [etkin olarak öğrenmeye](luis-how-to-review-endoint-utt.md)'s **gözden geçirin, konuşma uç noktası** hedefleri için daha fazla örnek konuşma eklemek yerine düzenli olarak. Uygulamayı sürekli olarak konuşma uç noktası almak için bu listeyi artan ve değiştirme.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Uygulamanızın performansını izleyin
 Bir sınama kümesi kullanarak tahmin doğruluğunu izleyin. 

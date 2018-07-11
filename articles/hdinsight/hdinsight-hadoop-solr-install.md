@@ -1,6 +1,6 @@
 ---
-title: Hadoop kümesi - Azure Solr yüklemek için betik eylemi kullanın | Microsoft Docs
-description: Hdınsight kümesi ile betik eylemi kullanarak Solr özelleştirmeyi öğrenin.
+title: Solr Hadoop kümesi - Azure yüklemek üzere betik eylemi kullanın | Microsoft Docs
+description: HDInsight kümesi ile betik eylemi kullanarak Solr özelleştirmeyi öğrenin.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -14,66 +14,66 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: caabe0fea6286c9439e8929b054d771868dcb6f1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 6445bcdc361bcda3beb6abcb6196fecc9c6c0024
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272157"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952884"
 ---
-# <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Yükleme ve Windows tabanlı Hdınsight kümelerinde Solr kullanma
+# <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Yükleme ve Windows tabanlı HDInsight kümelerinde Solr kullanma
 
-Windows tabanlı Hdınsight kümesi ile betik eylemi kullanarak Solr özelleştirmeyi ve Solr verileri aramak için nasıl kullanılacağını öğrenin.
+Windows tabanlı HDInsight kümesi ile Solr betik eylemi kullanarak özelleştirme ve Solr veri aramak için nasıl kullanılacağını öğrenin.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar, yalnızca Windows tabanlı Hdınsight kümeleri ile çalışır. Hdınsight yalnızca Windows'da Hdınsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı bir kümeyle Solr kullanma hakkında daha fazla bilgi için bkz: [yükleme ve kullanma Solr Hdınsight Hadoop kümeleri (Linux) üzerinde](hdinsight-hadoop-solr-install-linux.md).
+> Bu belgede yer alan adımlar, yalnızca Windows tabanlı HDInsight kümeleri ile çalışır. HDInsight yalnızca Windows üzerinde HDInsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı küme ile Solr kullanma hakkında daha fazla bilgi için bkz: [yükleme ve Hdınsight Hadoop kümeleri (Linux) üzerinde Solr kullanma](hdinsight-hadoop-solr-install-linux.md).
 
 
-Solr Azure Hdınsight (Hadoop, Storm, HBase, Spark) kümede herhangi bir türde kullanarak yükleyebileceğiniz *betik eylemi*. Solr bir Hdınsight kümesine yüklemek için örnek komut dosyası salt okunur Azure depolama blobunu gelen kullanılabilir [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Kullanarak Azure HDInsight (Hadoop, Storm, HBase, Spark) kümesinde herhangi bir türde üzerinde Solr yükleyebilirsiniz *betik eylemi*. Solr'ın bir HDInsight kümesine yüklemek için örnek betik salt okunur bir Azure depolama blob'nden kullanılabilir [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
-Örnek komut dosyası yalnızca Hdınsight küme sürümü ile 3.1 çalışır. Hdınsight küme sürümleri hakkında daha fazla bilgi için bkz: [Hdınsight küme sürümleri](hdinsight-component-versioning.md).
+Örnek betik yalnızca HDInsight kümesi sürüm ile 3.1 çalışır. HDInsight küme sürümleri hakkında daha fazla bilgi için bkz. [HDInsight küme sürümleri](hdinsight-component-versioning.md).
 
-Bu konuda kullanılan örnek betik, belirli bir yapılandırmayla Windows tabanlı Solr küme oluşturur. Farklı Koleksiyonlara, parça, şemalar, çoğaltmalar, vb. ile Solr küme yapılandırmak istiyorsanız, Solr ikili dosyaları ve komut dosyası uygun şekilde değiştirmelisiniz.
+Bu konuda kullanılan örnek betik, belirli bir yapılandırma ile bir Windows tabanlı Solr kümesi oluşturur. Farklı koleksiyonlar, parçalar, şemalar, çoğaltmalar, vb. ile Solr kümesini yapılandırmak, betik ve Solr ikili dosyaları uygun şekilde değiştirmelisiniz.
 
 **İlgili makaleler**
 
-* [Yükleme ve Solr Hdınsight Hadoop kümeleri (Linux) kullanma](hdinsight-hadoop-solr-install-linux.md)
-* [Hdınsight'ta Hadoop kümeleri oluşturma](hdinsight-provision-clusters.md): Hdınsight kümeleri oluşturma hakkında genel bilgi.
-* [Betik eylemi kullanarak Hdınsight kümesi özelleştirme][hdinsight-cluster-customize]: betik eylemi kullanarak Hdınsight kümelerini özelleştirme hakkında genel bilgi.
-* [Hdınsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions.md).
+* [Yükleme ve (Linux) Hdınsight Hadoop kümelerinde Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
+* [HDInsight Hadoop kümeleri oluşturma](hdinsight-provision-clusters.md): HDInsight kümeleri oluşturma hakkında genel bilgi.
+* [Betik eylemi kullanarak HDInsight kümesi özelleştirme][hdinsight-cluster-customize]: HDInsight kümelerini betik eylemi kullanarak özelleştirme hakkında genel bilgiler.
+* [HDInsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions.md).
 
 ## <a name="what-is-solr"></a>Solr nedir?
-<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> güçlü tam metin araması verileri sağlayan bir kurumsal arama platformudur. Hadoop depolamak ve çok büyük miktarda veri yönetme olanak sağlarken, Apache Solr hızlı bir şekilde veri almak için arama yetenekleri sağlar.
+<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> veriler üzerinde güçlü tam metin araması sağlayan bir kurumsal arama platformudur. Hadoop depolamak ve yönetmek çok büyük miktarda veri etkinleştirse bile, Apache Solr hızlıca veri almak için arama özellikleri sağlar.
 
-## <a name="install-solr-using-portal"></a>Portal kullanarak Solr yükleyin
-1. Kullanarak bir küme oluşturmaya başlamak **özel Oluştur** konusunda açıklandığı gibi seçeneği [Hdınsight'ta oluşturmak Hadoop kümeleri](hdinsight-provision-clusters.md).
-2. Üzerinde **betik eylemleri** Sayfa Sihirbazı'nın tıklatın **betik eylemi eklemek** aşağıda gösterildiği gibi betik eylemi hakkındaki ayrıntıları sağlamak için:
+## <a name="install-solr-using-portal"></a>Portalı kullanarak Solr yükleme
+1. Kullanarak bir küme oluşturmaya başlayın **özel Oluştur** anlatıldığı gibi seçeneği [Hadoop kümeleri oluşturma HDInsight](hdinsight-provision-clusters.md).
+2. Üzerinde **betik eylemleri** Sayfası Sihirbazı'nın **betik eylemi ekleme** aşağıda gösterildiği gibi bir betik eylemi ayrıntılarını sağlamak için:
 
-    ![Bir küme özelleştirmek için betik eylemi kullanın](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "bir küme özelleştirmek için kullanım betik eylemi")
+    ![Bir küme özelleştirmek için betik eylemi kullanmanız](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "küme özelleştirmek için betik eylemini kullanın")
 
     <table border='1'>
         <tr><th>Özellik</th><th>Değer</th></tr>
         <tr><td>Ad</td>
-            <td>Betik eylemi için bir ad belirtin. Örneğin, <b>yükleme Solr</b>.</td></tr>
-        <tr><td>Betik URI'si</td>
-            <td>Küme özelleştirmek için çağrılan betik Tekdüzen Kaynak Tanımlayıcısı (URI) belirtin. Örneğin, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
+            <td>Betik eylemi için bir ad belirtin. Örneğin, <b>Solr yükleme</b>.</td></tr>
+        <tr><td>Betiği URI'si</td>
+            <td>Küme özelleştirmek için çağrılır betik Tekdüzen Kaynak Tanımlayıcısı (URI) belirtin. Örneğin, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
         <tr><td>Düğüm Türü</td>
-            <td>Özelleştirme kodun çalıştığı düğüm belirtin. Seçebileceğiniz <b>tüm düğümleri</b>, <b>Head yalnızca düğümlerin</b>, veya <b>yalnızca çalışan düğümleri</b>.
+            <td>Özelleştirme kodun çalıştığı düğüm belirtin. Seçebileceğiniz <b>tüm düğümleri</b>, <b>baş düğümlerine yalnızca</b>, veya <b>çalışan düğümleri yalnızca</b>.
         <tr><td>Parametreler</td>
-            <td>Komut dosyası tarafından gerekli parametreleri belirtin. Bunu boş bırakabilirsiniz şekilde Solr yüklemek için komut dosyası herhangi bir parametre gerektirmez.</td></tr>
+            <td>Komut dosyası tarafından gerekli parametreleri belirtin. Bu boş bırakabilirsiniz şekilde Solr yükleme betiği herhangi bir parametre gerektirmez.</td></tr>
     </table>
 
-    Küme üzerinde birden çok bileşeni yüklemek için birden fazla betik eylemi ekleyebilirsiniz. Komut dosyaları ekledikten sonra küme oluşturmaya başlamak için onay işaretine tıklayın.
+    Küme üzerinde birden çok bileşenleri yüklemek için birden fazla betik eylemi ekleyebilirsiniz. Komut ekledikten sonra küme oluşturmaya başlamak için onay işaretine tıklayın.
 
 ## <a name="use-solr"></a>Solr kullanma
-Bazı veri dosyalarıyla Solr dizin ile başlamalıdır. Solr sonra dizinli verileri arama sorguları çalıştırmak için de kullanabilirsiniz. Solr bir Hdınsight kümesi içinde kullanmak için aşağıdaki adımları gerçekleştirin:
+Solr ile bazı veri dosyalarının dizinini oluşturarak ile başlamalıdır. Solr ardından dizinli veriler üzerinde arama sorguları çalıştırmak için de kullanabilirsiniz. Solr'ın bir HDInsight kümesinde kullanmak için aşağıdaki adımları gerçekleştirin:
 
-1. **Uzak Masaüstü Protokolü (RDP) için Hdınsight kümesine yüklü Solr ile kullanma uzaktan**. Azure portalından, kümeye yüklü Solr ve sonra uzaktan ile oluşturduğunuz küme için Uzak Masaüstü'nü etkinleştirin. Yönergeler için bkz: [RDP kullanarak Hdınsight kümelerini Bağlan](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
-2. **Dizin veri dosyaları yükleyerek Solr**. Solr dizin oluşturduğunuzda, arama gerekebilir, belgeleri yerleştirin. Solr dizin için RDP kümesine uzak kullanın, masaüstüne gidin, Hadoop komut satırı açın ve gidin **C:\apps\dist\solr-4.7.2\example\exampledocs**. Şu komutu çalıştırın:
+1. **Uzak Masaüstü Protokolü (RDP) için Uzak HDInsight kümesine ile yüklü Solr kullanma**. Azure portalından, solr'ın yüklü ve ardından uzak kümeye oluşturduğunuz küme için Uzak masaüstünü etkinleştirin. Yönergeler için [RDP kullanarak HDInsight kümelerini Bağlan](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
+2. **Dizin Solr'ın veri dosyaları karşıya yükleyerek**. Solr dizin, içindeki arama yapmak için ihtiyacınız olan belgeleri yerleştirin. Solr dizin, RDP uzak kümeye kullanın, masaüstüne gidin, Hadoop komut satırı açın ve gidin **C:\apps\dist\solr-4.7.2\example\exampledocs**. Şu komutu çalıştırın:
 
         java -jar post.jar solr.xml monitor.xml
 
-    Konsola aşağıdaki çıktı görürsünüz:
+    Konsolunda aşağıdaki çıktıyı görürsünüz:
 
         POSTing file solr.xml
         POSTing file monitor.xml
@@ -81,15 +81,15 @@ Bazı veri dosyalarıyla Solr dizin ile başlamalıdır. Solr sonra dizinli veri
         COMMITting Solr index changes to http://localhost:8983/solr/update..
         Time spent: 0:00:01.624
 
-    Post.jar yardımcı programı, iki örnek belgelerle Solr dizinler **solr.xml** ve **monitor.xml**. Solr yüklemeye post.jar yardımcı programı ve örnek belgeleri kullanılabilir.
-3. **Solr Pano içinde dizinlenmiş belgeleri aramak için kullanın**. RDP oturumu Hdınsight kümesi için Internet Explorer'ı açın ve Solr Panosu'nda başlatın **http://headnodehost:8983/solr/#/**. Sol bölmeden gelen **çekirdek Seçici** açılan listesinde, select **collection1**, tıklatıp, içinde **sorgu**. Örnek olarak, seçin ve tüm belgeleri Solr döndürmek için aşağıdaki değerleri girin:
+    İki örnek belge ile post.jar yardımcı programı dizinler Solr **solr.xml** ve **monitor.xml**. Solr yükleme post.jar yardımcı programı ve örnek belgeleri kullanılabilir.
+3. **Solr içinde dizinli belgelerde arama yapmak için kullanılacağını**. HDInsight kümesi için RDP oturumu, Internet Explorer'ı açın ve Solr Panosu'nda başlatın **http://headnodehost:8983/solr/#/**. Sol bölmeden gelen **çekirdek Seçici** açılan listesinde, select **collection1**, tıklatıp, içinde **sorgu**. Örneğin, seçin ve tüm belgeleri Solr döndürmek için aşağıdaki değerleri sağlayın:
 
-   * İçinde **q** metin kutusuna  **\*:**\*. Bu dizini tüm belgeleri Solr döndürür. Belirli bir dizeyi belgelerde arama yapmak istiyorsanız, o dizeyi buraya girebilirsiniz.
-   * İçinde **wt** metin kutusunda, çıktı biçimi seçin. Varsayılan değer **json**. Tıklatın **sorgu yürütme**.
+   * İçinde **q** metin kutusuna  **\*:**\*. Bu dizine alınmış tüm belgelerin Solr döndürür. Belirli bir dizeyi belgelerde arama yapmak istiyorsanız, buraya o dizenin girebilirsiniz.
+   * İçinde **wt** metin kutusunda, çıkış biçimini seçin. Varsayılan değer **json**. Tıklayın **sorguyu**.
 
-     ![Bir küme özelleştirmek için betik eylemi kullanın](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Solr Panoda bir sorgu çalıştırın")
+     ![Bir küme özelleştirmek için betik eylemi kullanmanız](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Solr Panoda bir sorgu çalıştırın")
 
-     Çıktı Solr dizin oluşturma işlemi için kullanılan iki belgeleri döndürür. Çıktı aşağıdakine benzer:
+     Çıktı, Solr dizin oluşturma için kullanılan iki belgeleri döndürür. Çıktı aşağıdakine benzer:
 
            "response": {
                "numFound": 2,
@@ -142,42 +142,48 @@ Bazı veri dosyalarıyla Solr dizin ile başlamalıdır. Solr sonra dizinli veri
                  }
                ]
              }
-4. **Önerilen: dizinli Solr Hdınsight kümesi ile ilişkili Azure Blob Depolama yedekleme**. İyi bir uygulama, Azure Blob Depolama üzerine Solr küme düğümlerinden dizinli verileri yedeklemelisiniz. Bunu yapmak için aşağıdaki adımları gerçekleştirin:
+4. **Önerilen: dizinli Solr HDInsight kümesi ile ilişkili Azure Blob Depolama yedekleme**. İyi bir yöntem olarak, Azure Blob Depolama üzerine Solr küme düğümlerinden dizinlenmiş verileri yedeklemelisiniz. Bunu yapmak için aşağıdaki adımları gerçekleştirin:
 
-   1. RDP oturumu Internet Explorer'ı açın ve aşağıdaki URL'yi noktası:
+   1. RDP oturumundan, Internet Explorer'ı açın ve aşağıdaki URL'ye noktası:
 
            http://localhost:8983/solr/replication?command=backup
 
        Şuna benzer bir yanıt görmeniz gerekir:
-
-           <?xml version="1.0" encoding="UTF-8"?>
-           <response>
+            
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+          <response>
              <lst name="responseHeader">
                <int name="status">0</int>
                <int name="QTime">9</int>
              </lst>
-             <str name="status">OK</str>
-           </response>
-   2. {SOLR_HOME} uzak oturumda gidin\{koleksiyonu} \data. Örnek komut dosyası oluşturulan küme için bu olmalıdır **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. Bu konumda benzer bir ad ile oluşturulmuş bir anlık görüntü klasörü görmelisiniz **anlık görüntü.* zaman damgası ***.
-   3. Anlık görüntü klasörü zip ve Azure Blob depolama alanına yükleyin. Hadoop komut satırından aşağıdaki komutu kullanarak anlık görüntü klasörü konuma gidin:
+            <str name="status">OK</str>
+          </response>
+      ```
+      
+   2. Uzak bir oturumda {SOLR_HOME için} gidin\{koleksiyon} \data. Bu örnek betik oluşturulan küme için olmalıdır `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Bu konumda benzer bir ad ile oluşturulmuş bir anlık görüntü klasörü görmelisiniz **anlık görüntü.* zaman damgası ***.
+   
+   3. Anlık görüntü klasörü zip ve Azure Blob depolama alanına yükleyin. Hadoop komut satırından aşağıdaki komutu kullanarak anlık görüntü klasörü konumuna gidin:
 
-             hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+      ```
+      hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+      ```
 
-       Bu komut anlık görüntü /example/data/varsayılan kümeyle ilişkili depolama hesabı kapsayıcıda altında kopyalar.
+   Bu komut anlık görüntü /example/data/kapsayıcı içinde ' % s'varsayılan kümeyle ilişkili depolama hesabı altında kopyalar.
 
-## <a name="install-solr-using-aure-powershell"></a>Solr işlemleri PowerShell kullanarak yükleme
-Bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Örnek, Azure PowerShell kullanarak Spark yükleneceği gösterilmiştir. Kullanılacak komut dosyasını özelleştirmeniz gerekiyorsa [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+## <a name="install-solr-using-aure-powershell"></a>Azure PowerShell kullanarak Solr yükleme
+Bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Örnek Azure PowerShell kullanarak Spark'ı yüklemek nasıl gösterir. Kullanılacak betiği dosyasını özelleştirmeniz gerektiğini [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
-## <a name="install-solr-using-net-sdk"></a>.NET SDK kullanarak Solr yükleyin
-Bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Örnek, .NET SDK kullanarak Spark yükleneceği gösterilmiştir. Kullanılacak komut dosyasını özelleştirmeniz gerekiyorsa [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+## <a name="install-solr-using-net-sdk"></a>.NET SDK kullanarak Solr yükleme
+Bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Örnek .NET SDK kullanarak Spark'ı yüklemek nasıl gösterir. Kullanılacak betiği dosyasını özelleştirmeniz gerektiğini [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Yükleme ve Solr Hdınsight Hadoop kümeleri (Linux) kullanma](hdinsight-hadoop-solr-install-linux.md)
-* [Hdınsight'ta Hadoop kümeleri oluşturma](hdinsight-provision-clusters.md): Hdınsight kümeleri oluşturma hakkında genel bilgi.
-* [Betik eylemi kullanarak Hdınsight kümesi özelleştirme][hdinsight-cluster-customize]: betik eylemi kullanarak Hdınsight kümelerini özelleştirme hakkında genel bilgi.
-* [Hdınsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions.md).
-* [Yükleme ve Spark Hdınsight kümelerinde kullanma][hdinsight-install-spark]: Spark yükleme hakkında örnek betik eylemi.
-* [Hdınsight kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install.md): Giraph yükleme hakkında örnek betik eylemi.
+* [Yükleme ve (Linux) Hdınsight Hadoop kümelerinde Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
+* [HDInsight Hadoop kümeleri oluşturma](hdinsight-provision-clusters.md): HDInsight kümeleri oluşturma hakkında genel bilgi.
+* [Betik eylemi kullanarak HDInsight kümesi özelleştirme][hdinsight-cluster-customize]: HDInsight kümelerini betik eylemi kullanarak özelleştirme hakkında genel bilgiler.
+* [HDInsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions.md).
+* [Yükleme ve HDInsight kümelerine Spark kullanma][hdinsight-install-spark]: Spark'ı yükleme hakkında daha fazla örnek betik eylemi.
+* [HDInsight kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install.md): Giraph yükleme hakkında daha fazla örnek betik eylemi.
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md

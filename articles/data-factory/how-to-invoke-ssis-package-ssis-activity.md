@@ -1,6 +1,6 @@
 ---
-title: SSIS paketi yürütme SSIS paketi etkinlikle - Azure çalıştırmak | Microsoft Docs
-description: Bu makalede, SSIS paketi yürütme etkinliğini kullanarak bir Azure Data Factory ardışık düzeninde bir SQL Server Integration Services (SSIS) paketi çalıştırmak açıklar.
+title: SSIS paketi yürütme SSIS paketi etkinliği ile - Azure çalıştırmak | Microsoft Docs
+description: Bu makalede SSIS paketi yürütme etkinliğini kullanarak bir Azure Data Factory işlem hattı, bir SQL Server Integration Services (SSIS) paketi çalıştırmayı öğrenin.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -8,34 +8,34 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 07/09/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 26b9271744d7be45c2a879fde3bb3fb5d6049a3b
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: db5941528eedd10cf252607dbe2160bd498a70de
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083794"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951976"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>SSIS paketi yürütme etkinliği Azure Data factory'de bir SSIS paketi çalıştırın
-Bu makalede, bir SSIS paketi yürütme etkinliğini kullanarak bir Azure Data Factory ardışık düzeninde bir SSIS paketi çalıştırmak açıklar. 
+Bu makalede bir SSIS paketi yürütme etkinliği kullanarak SSIS paketi bir Azure Data Factory işlem hattında çalıştırmayı öğrenin. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
-Bu makaledeki Kılavuzu SSIS katalog barındıran Azure SQL veritabanını kullanır. Bir Azure SQL yönetilen örneği (Önizleme) de kullanabilirsiniz.
+Bu makaledeki Kılavuzu, SSIS Kataloğu barındıran Azure SQL veritabanı kullanır. Azure SQL yönetilen örneği (Önizleme) de kullanabilirsiniz.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Azure SSIS tümleştirme çalışma zamanı oluşturma
-Adım adım yönergeleri izleyerek yoksa, bir Azure SSIS tümleştirmesi çalışma zamanı oluşturma [Öğreticisi: dağıtmak SSIS paketleri](tutorial-create-azure-ssis-runtime-portal.md).
+Bir Azure-SSIS tümleştirme çalışma zamanı içinde adım adım yönergeleri izleyerek bir tane yoksa, oluşturma [Öğreticisi: dağıtma SSIS paketlerini](tutorial-create-azure-ssis-runtime-portal.md).
 
-## <a name="data-factory-ui-azure-portal"></a>Veri Fabrikası kullanıcı Arabirimi (Azure portalı)
-Bu bölümde, veri fabrikası UI SSIS paketi çalıştırır bir SSIS paketi yürütme etkinlikle Data Factory işlem hattı oluşturmak için kullanın.
+## <a name="data-factory-ui-azure-portal"></a>Data Factory kullanıcı Arabirimi (Azure portalı)
+Bu bölümde, bir SSIS paketi çalıştıran bir SSIS paketi yürütme etkinliği bir Data Factory işlem hattı oluşturmak için Data Factory kullanıcı arabirimini kullanın.
 
 ### <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
-Azure Portalı'nı kullanarak data factory oluşturmak ilk adımdır. 
+İlk adım, Azure portalını kullanarak veri fabrikası oluşturmaktır. 
 
 1. **Microsoft Edge** veya **Google Chrome** web tarayıcısını açın. Şu anda Data Factory kullanıcı arabirimi yalnızca Microsoft Edge ve Google Chrome web tarayıcılarında desteklenmektedir.
 2. [Azure portalına](https://portal.azure.com) gidin. 
@@ -56,7 +56,7 @@ Azure Portalı'nı kullanarak data factory oluşturmak ilk adımdır.
       - **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin.   
          
     Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
-4. Seçin **V2** için **sürüm**.
+4. **Sürüm** için **V2**'yi seçin.
 5. Data factory için **konum** seçin. Açılan listede yalnızca Data Factory tarafından desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan veri depoları (Azure Depolama, Azure SQL Veritabanı, vb.) ve işlemler (HDInsight, vb.) başka konumlarda olabilir.
 6. **Panoya sabitle**’yi seçin.     
 7. **Oluştur**’a tıklayın.
@@ -68,73 +68,75 @@ Azure Portalı'nı kullanarak data factory oluşturmak ilk adımdır.
     ![Data factory giriş sayfası](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Azure Data Factory kullanıcı arabirimi (UI) uygulamasını ayrı bir sekmede açmak için **Yazar ve İzleyici** kutucuğuna tıklayın. 
 
-### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>SSIS paketi yürütme etkinliği ile işlem hattı oluşturma
-Bu adımda, bir işlem hattı oluşturmak için veri fabrikası kullanıcı arabirimini kullanın. SSIS paketi yürütme aktivite ardışık düzene ekleyip SSIS paketi çalıştırmak için yapılandırabilirsiniz. 
+### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Bir SSIS paketi yürütme etkinliği ile işlem hattı oluşturma
+Bu adımda, bir işlem hattı oluşturmak için Data Factory kullanıcı arabirimini kullanın. SSIS paketi yürütme etkinlik işlem hattının ekleyip SSIS paketi çalıştırmak için yapılandırabilirsiniz. 
 
-1. Get başlangıç sayfasını tıklatın **oluşturma ardışık düzen**: 
+1. Başlarken sayfasında, tıklayın **işlem hattı Oluştur**: 
 
     ![Başlarken sayfası](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. İçinde **etkinlikleri** araç kutusu, genişletin **genel**ve sürükle ve bırak **SSIS paketi yürütme** ardışık düzen Tasarımcı yüzeyine etkinlik. 
+2. İçinde **etkinlikleri** araç genişletin **genel**ve sürükleme ve bırakma **SSIS paketi yürütme** etkinliğini işlem hattı Tasarımcı yüzeyine bırakın. 
 
-   ![SSIS etkinlik Tasarımcı yüzeyine sürükleyin](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
+   ![SSIS etkinliğini Tasarımcı yüzeyine sürükleyin.](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
 
-3. Üzerinde **genel** sekmesi özelliklerini SSIS paketi yürütme etkinliği için bir ad ve açıklama etkinliği sağlar. İsteğe bağlı zaman aşımını ayarlamanız ve değerleri yeniden deneyin.
+3. Üzerinde **genel** sekmesinde bir ad ve açıklama etkinliğinin SSIS paketi yürütme etkinliğinin özelliklerini sağlar. İsteğe bağlı zaman aşımını ayarlayın ve değerleri yeniden deneyin.
 
     ![Genel sekmesinde özelliklerini ayarlama](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. Üzerinde **ayarları** Azure SSIS tümleştirmesi çalışma zamanı ilişkili SSIS paketi yürütme etkinliği için select özelliklerinin sekmesinde `SSISDB` paketin dağıtıldığı veritabanı. Paket yolu sağlayın `SSISDB` biçimindeki veritabanı `<folder name>/<project name>/<package name>.dtsx`. İsteğe bağlı olarak 32-bit yürütme ve önceden tanımlanmış veya özel günlüğe kaydetme düzeyi belirtin ve bir ortam yol biçimde sağlayın `<folder name>/<environment name>`.
+4. Üzerinde **ayarları** özelliklerinin Azure-SSIS tümleştirme çalışma zamanının ilişkili SSIS paketi yürütme etkinliği seçin için sekmesinde `SSISDB` paketin dağıtıldığı veritabanı. Paket yolu sağlamak `SSISDB` biçimindeki veritabanı `<folder name>/<project name>/<package name>.dtsx`. İsteğe bağlı olarak 32-bit yürütme ve önceden tanımlanmış ya da özel günlük kaydı düzeyini belirtin ve bir ortam yol biçiminde sağlayın `<folder name>/<environment name>`.
 
     ![Ayarlar sekmesinde özelliklerini ayarlama](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-5. Ardışık Düzen yapılandırmasını doğrulamak için tıklatın **doğrulama** araç çubuğunda. **İşlem Hattı Doğrulama Raporu**'nu kapatmak için **>>** seçeneğine tıklayın.
+5. İşlem hattı yapılandırmasını doğrulamak için tıklayın **doğrulama** araç. **İşlem Hattı Doğrulama Raporu**'nu kapatmak için **>>** seçeneğine tıklayın.
 
-6. Tıklayarak Data Factory yayımlama kanalı **tümünü Yayımla** düğmesi. 
+6. Tıklayarak işlem hattını Data Factory'de yayımlamak **tümünü Yayımla** düğmesi. 
 
 ### <a name="optionally-parameterize-the-activity"></a>İsteğe bağlı olarak, etkinlik Parametreleştirme
 
-İsteğe bağlı olarak, değerler ifadeler veya veri fabrikası sistem değişkenleri, proje veya paket parametrelerinizi JSON biçiminde üzerinde başvurabilirsiniz işlevleri atamak **Gelişmiş** sekmesi. Örneğin, Data Factory işlem hattı parametreleri SSIS projenize veya aşağıdaki ekran görüntüsünde gösterildiği gibi paket parametreleri atayabilirsiniz:
+İsteğe bağlı olarak, proje veya paket parametrelerinizi kullanarak JSON biçiminde için değerleri, ifadeler ve İşlevler, Data Factory sistem değişkenlere başvurabilir, Ata **kaynak kodu görüntüle** yürütme SSIS alt kısmındaki düğmesi Paket etkinlik kutusunu veya **kod** işlem hattı alanının sağ üst köşedeki düğmesi. Örneğin, Data Factory işlem hattı parametrelerinin SSIS projenize veya paket parametreleri aşağıdaki ekran görüntülerinde gösterildiği gibi atayabilirsiniz:
 
-![SSIS paketi yürütme etkinlik parametreleri ekleme](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+![SSIS paketi yürütme etkinliği için JSON betiğini Düzenle](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![SSIS paketi yürütme etkinliği parametrelerini Ekle](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ### <a name="run-and-monitor-the-pipeline"></a>Çalıştırın ve işlem hattını izleme
-Bu bölümde bir ardışık düzen çalıştırma tetikler ve ardından izleyebilirsiniz. 
+Bu bölümde, bir işlem hattı çalıştırması tetiklemek ve daha sonra izleyin. 
 
-1. Çalıştıran bir ardışık düzen tetiklemek için tıklatın **tetikleyici** araç ve tıklatın **şimdi tetikleyebilir**. 
+1. Bir işlem hattı çalıştırması tetiklemek için tıklatın **tetikleyici** araç ve tıklatın **şimdi Tetikle**. 
 
     ![Şimdi tetikle](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
 
 2. **İşlem Hattı Çalıştırma** penceresinde **Son**’u seçin. 
 
-3. Soldaki **İzleyici** sekmesine geçin. Çalıştırma ardışık düzen ve durumunu (örneğin, çalıştırma başlangıç saati) diğer bilgilerle birlikte bakın. Görünümü yenilemek için **Yenile**’ye tıklayın.
+3. Soldaki **İzleyici** sekmesine geçin. İşlem hattı çalıştırma ve yanı sıra diğer bilgiler (örneğin, çalıştırma başlangıç saati) durumunu görürsünüz. Görünümü yenilemek için **Yenile**’ye tıklayın.
 
     ![İşlem hattı çalıştırmaları](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
-4. **Eylemler** sütunundaki **Etkinlik Çalıştırmalarını Görüntüle** bağlantısına tıklayın. Ardışık Düzen yalnızca bir etkinlik (SSIS paketi yürütme etkinliği) sahip farklı çalıştır yalnızca bir etkinlik bakın.
+4. **Eylemler** sütunundaki **Etkinlik Çalıştırmalarını Görüntüle** bağlantısına tıklayın. Yalnızca bir etkinlik olduğundan işlem hattı yalnızca bir etkinlik (SSIS paketi yürütme etkinliği) çalıştırma görürsünüz.
 
     ![Etkinlik çalıştırmaları](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
 
-5. Aşağıdaki çalıştırabilirsiniz **sorgu** SSISDB karşı yürütülen paket doğrulamak için Azure SQL server veritabanı. 
+5. Aşağıdakini çalıştırabilirsiniz. **sorgu** SSISDB karşı yürütülen paket doğrulamak için Azure SQL server veritabanı. 
 
     ```sql
     select * from catalog.executions
     ```
 
-    ![Paket yürütmeleri doğrulayın](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
+    ![Paket yürütme doğrulayın](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-6. Ardışık Düzen etkinlik Çalıştır çıktısından SSISDB yürütme kimliği alın ve daha kapsamlı yürütme günlüklerini ve hata iletileri SSMS denetlemek için kimliği kullanın.
+6. İşlem hattı etkinlik çalıştırması çıktısından SSISDB yürütme Kimliğini alın ve daha kapsamlı yürütme günlükleri ve hata iletilerinde SSMS denetlemek için kimliği kullanın.
 
-    ![Yürütme kimliği alma](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
+    ![Yürütme kimliği Al](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 
 > [!NOTE]
-> Ardışık Düzen (saatlik, günlük, vs.) zamanlamaya göre çalışır, zamanlanmış bir tetikleyici için işlem hattınızı oluşturabilirsiniz. Bir örnek için bkz: [data factory - Data Factory UI oluşturma](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+> Böylece işlem hattını bir zamanlamaya göre (saatlik, günlük, vb.) çalıştırır, zamanlanmış bir tetikleyici için işlem hattınızı oluşturabilirsiniz. Bir örnek için bkz. [veri fabrikası - Data Factory kullanıcı Arabirimi oluşturma](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Bu bölümde, bir SSIS paketi çalıştıran SSIS sahip bir etkinliğini Data Factory işlem hattı oluşturmak için Azure PowerShell kullanın. 
+Bu bölümde, bir SSIS paketi çalıştıran bir SSIS etkinliği bir Data Factory işlem hattı oluşturmak için Azure PowerShell kullanırsınız. 
 
 [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin. 
 
 ### <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
-Azure SSIS IR sahip aynı veri fabrikası kullanın veya ayrı veri fabrikası oluşturun. Aşağıdaki yordam, bir data factory oluşturmak için adımları sağlar. Bu veri fabrikasında SSIS etkinliği ile işlem hattı oluşturun. SSIS etkinlik, SSIS paketi çalıştırır. 
+Azure-SSIS IR sahip aynı data factory kullanabilir veya ayrı bir veri fabrikası oluşturma. Aşağıdaki yordam bir veri fabrikası oluşturmak için adımları sağlar. Bu veri fabrikasında bir SSIS etkinliği ile işlem hattı oluşturma. SSIS etkinliğini kullanarak SSIS paketi çalıştırır. 
 
 1. Daha sonra PowerShell komutlarında kullanacağınız kaynak grubu adı için bir değişken tanımlayın. Aşağıdaki komut metnini PowerShell'e kopyalayın [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) için çift tırnak içinde bir ad belirtin ve ardından komutu çalıştırın. Örneğin: `"adfrg"`. 
    
@@ -174,15 +176,15 @@ Aşağıdaki noktalara dikkat edin:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Data Factory örnekleri oluşturmak için, Azure’da oturum açarken kullandığınız kullanıcı hesabı, **katkıda bulunan** veya **sahip** rollerinin üyesi ya da bir Azure aboneliğinin **yöneticisi** olmalıdır.
-* Veri Fabrikası olduğu şu anda Azure bölgeleri listesi için aşağıdaki sayfada ilgilendiren ve ardından genişletin bölgeleri seçin **Analytics** bulmak için **Data Factory**: [ Bölgeye göre ürünleri](https://azure.microsoft.com/global-infrastructure/services/). Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
+* Data Factory kullanılabildiği şu anda Azure bölgelerinin listesi için aşağıdaki sayfada faiz ve ardından genişletin bölgeleri seçin **Analytics** bulunacak **Data Factory**: [ Bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/). Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 
-### <a name="create-a-pipeline-with-an-ssis-activity"></a>SSIS etkinliği ile işlem hattı oluşturma 
-Bu adımda, SSIS etkinliği ile işlem hattı oluşturun. Etkinlik, SSIS paketi çalıştırır. 
+### <a name="create-a-pipeline-with-an-ssis-activity"></a>Bir SSIS etkinliği ile işlem hattı oluşturma 
+Bu adımda, bir SSIS etkinliği ile işlem hattı oluşturma. Etkinlik, SSIS paketi çalıştırır. 
 
-1. Adlı bir JSON dosyası oluşturun **RunSSISPackagePipeline.json** içinde **C:\ADF\RunSSISPackage** klasör içeriği aşağıdaki örneğe benzer:
+1. Adlı bir JSON dosyası oluşturun **RunSSISPackagePipeline.json** içinde **C:\ADF\RunSSISPackage** aşağıdaki örneğe benzer içeriğe sahip klasörde:
 
     > [!IMPORTANT]
-    > Dosyayı kaydetmeden önce nesne adları, açıklamalar ve yolları, özellik ve parametre değerlerini, parolalar ve diğer değişken değerlerini değiştirin. 
+    > Dosyayı kaydetmeden önce nesne adları ve açıklamaları yolları, özellik ve parametre değerlerini, parolalar ve diğer değişken değerleri değiştirin. 
 
     ```json
     {
@@ -256,9 +258,9 @@ Bu adımda, SSIS etkinliği ile işlem hattı oluşturun. Etkinlik, SSIS paketi 
     }
     ```
 
-2.  Azure PowerShell'de geçmek `C:\ADF\RunSSISPackage` klasör.
+2.  Azure PowerShell'de geçin `C:\ADF\RunSSISPackage` klasör.
 
-3. Ardışık düzen oluşturmak için **RunSSISPackagePipeline**, çalışma **kümesi AzureRmDataFactoryV2Pipeline** cmdlet'i.
+3. İşlem hattını oluşturmak için **RunSSISPackagePipeline**çalıştırın **Set-AzureRmDataFactoryV2Pipeline** cmdlet'i.
 
     ```powershell
     $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
@@ -278,7 +280,7 @@ Bu adımda, SSIS etkinliği ile işlem hattı oluşturun. Etkinlik, SSIS paketi 
     ```
 
 ### <a name="create-a-pipeline-run"></a>İşlem hattı çalıştırması oluşturma
-Kullanım **Invoke-AzureRmDataFactoryV2Pipeline** ardışık düzen cmdlet'ini. Cmdlet, gelecekte izlemek üzere işlem hattı çalıştırma kimliğini döndürür.
+Kullanım **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet'ini işlem hattını çalıştırın. Cmdlet, gelecekte izlemek üzere işlem hattı çalıştırma kimliğini döndürür.
 
 ```powershell
 $RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
@@ -309,10 +311,10 @@ while ($True) {
 }   
 ```
 
-Azure portalını kullanarak ardışık düzeni da izleyebilirsiniz. Adım adım yönergeler için bkz: [işlem hattını izleme](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+Azure portalını kullanarak işlem hattını da izleyebilirsiniz. Adım adım yönergeler için bkz: [işlem hattını izleme](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-### <a name="create-a-trigger"></a>Bir Tetikleyici oluşturma
-Önceki adımda, ardışık düzen isteğe bağlı verdi. Ardışık Düzen (saatlik, günlük, vs.) zamanlamaya göre çalıştırmak için bir zamanlama tetikleyici de oluşturabilirsiniz.
+### <a name="create-a-trigger"></a>Tetikleyici oluşturma
+Önceki adımda, işlem hattı talep üzerine çalıştı. İşlem hattını bir zamanlamaya göre (saatlik, günlük, vb.) çalıştırmak için bir zamanlama tetikleyicisi de oluşturabilirsiniz.
 
 1. Adlı bir JSON dosyası oluşturun **MyTrigger.json** içinde **C:\ADF\RunSSISPackage** klasöründe aşağıdaki içeriğe sahip: 
 
@@ -341,28 +343,28 @@ Azure portalını kullanarak ardışık düzeni da izleyebilirsiniz. Adım adım
     }    
     ```
 2. İçinde **Azure PowerShell**, geçiş **C:\ADF\RunSSISPackage** klasör.
-3. Çalıştırma **kümesi AzureRmDataFactoryV2Trigger** cmdlet'ini tetikleyici oluşturur. 
+3. Çalıştırma **Set-AzureRmDataFactoryV2Trigger** cmdlet'i, bir tetikleyici oluşturur. 
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                     -DataFactoryName $DataFactory.DataFactoryName `
                                     -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
     ```
-4. Varsayılan olarak, tetikleyici durdurulmuş durumda. Tetikleyici çalıştırırsınız **başlangıç AzureRmDataFactoryV2Trigger** cmdlet'i. 
+4. Varsayılan olarak, tetikleyici durdurulmuş durumdadır. Tetikleyiciyi çalıştırmadan **Start-AzureRmDataFactoryV2Trigger** cmdlet'i. 
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                       -DataFactoryName $DataFactory.DataFactoryName `
                                       -Name "MyTrigger" 
     ```
-5. Çalıştırarak, tetikleyici başlatıldığını onaylayın **Get-AzureRmDataFactoryV2Trigger** cmdlet'i. 
+5. Çalıştırarak tetikleyicinin başlatıldığını onaylayın **Get-AzureRmDataFactoryV2Trigger** cmdlet'i. 
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
                                     -DataFactoryName $DataFactoryName `
                                     -Name "MyTrigger"     
     ```    
-6. Sonraki saat sonra aşağıdaki komutu çalıştırın. Örneğin, geçerli saati UTC saat 15: 25'e ise, 4 PM UTC komutunu çalıştırın. 
+6. Sonraki saat sonra aşağıdaki komutu çalıştırın. Örneğin, geçerli saati 3: 25'te ise, 4'te komutu çalıştırın. 
     
     ```powershell
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
@@ -372,7 +374,7 @@ Azure portalını kullanarak ardışık düzeni da izleyebilirsiniz. Adım adım
                                        -TriggerRunStartedBefore "2017-12-09"
     ```
 
-    Yürütülen paket doğrulamak için Azure SQL Server'da SSISDB veritabanında şu sorguyu çalıştırabilirsiniz. 
+    Yürütülen paket doğrulamak için Azure SQL sunucunuza SSISDB veritabanında şu sorguyu çalıştırabilirsiniz. 
 
     ```sql
     select * from catalog.executions
@@ -380,5 +382,5 @@ Azure portalını kullanarak ardışık düzeni da izleyebilirsiniz. Adım adım
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Aşağıdaki blog gönderisine bakın:
--   [Modernize ve ETL/ELT akışlarınızı ADF ardışık düzende SSIS etkinliklerle genişletme](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)
+İçin şu blog yayınına bakın:
+-   [Modernleştirin ve ETL/ELT iş akışlarınızı SSIS etkinliklerle ADF işlem hatlarını genişletin](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)

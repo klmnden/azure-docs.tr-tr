@@ -8,15 +8,15 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 06/07/2018
+ms.date: 07/06/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: c6f397c2cfcfd9fbd4a5cc8f70a99f4abc86ba21
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1d8db471a3f8ebf9dbcce77b101a2688f2570fd6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34850687"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949893"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Veritabanı yedeklemesini Azure SQL Veritabanı Yönetilen Örneğine geri yükleme
 
@@ -140,7 +140,7 @@ SSMS ile Wide World Importers veritabanını yedekleme dosyasından Yönetilen �
 
     ![dosya listesi](./media/sql-database-managed-instance-tutorial/file-list.png)
 
-4. Aşağıdaki betiği kullanarak Adventure Works 2012 veritabanını bir yedekleme dosyasından geri yükleyin; yedekleme dosyasını içeren kapsayıcının URL’sini sağlayın:
+4. Aşağıdaki betiği kullanarak Wide World Importers veritabanını bir yedekleme dosyasından geri yükleyin; yedekleme dosyasını içeren kapsayıcının URL’sini sağlayın:
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =

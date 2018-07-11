@@ -1,9 +1,9 @@
 ---
-title: Windows Azure VM Symantec Endpoint Protection yükle | Microsoft Docs
-description: Yükleme ve Symantec Endpoint Protection güvenlik uzantısı bir yeni veya var olan Azure Klasik dağıtım modeli kullanılarak oluşturulmuş VM'deki yapılandırın öğrenin.
+title: Bir Windows Azure VM üzerinde Symantec Endpoint Protection yükle | Microsoft Docs
+description: Yükleme ve bir yeni veya var olan Azure Klasik dağıtım modeliyle oluşturulan sanal makinesinde Symantec uç nokta koruması güvenlik uzantısı yapılandırma hakkında bilgi edinin.
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: iainfou
-ms.openlocfilehash: 54ce769d9442a4c95ad59875097893dc0b89a004
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: cynthn
+ms.openlocfilehash: 3102a183b5ce124182f770545a75deb9b128574f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942672"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930571"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Bir Windows VM’de Symantec Uç Nokta Koruması yükleme ve yapılandırma
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
 
-Bu makalede yükleme ve Symantec Endpoint Protection istemcisini bir mevcut Windows Server çalıştıran sanal makine üzerinde (VM) yapılandırma gösterilmektedir. Bu tam istemci virüs ve casus yazılımdan koruma, güvenlik duvarı ve izinsiz giriş önleme gibi hizmetleri içerir. İstemci, VM Aracısı'nı kullanarak bir güvenlik uzantısı olarak yüklenir.
+Bu makalede yükleme ve Symantec Endpoint Protection istemcisini bir var olan Windows Server çalıştıran sanal makine üzerinde (VM) yapılandırma gösterilmektedir. Bu tam istemci virüs ve casus yazılımdan koruma ve güvenlik duvarı yetkisiz erişim önleme gibi hizmetler içerir. İstemci, VM Aracısı'nı kullanarak bir güvenlik uzantısı olarak yüklenir.
 
-Symantec'ten bir şirket içi çözüm için mevcut bir aboneliğiniz varsa, Azure sanal makinelerinizi korumak için kullanabilirsiniz. Bir müşteri henüz değilseniz, deneme aboneliği için kaydolabilirsiniz. Bu çözüm hakkında daha fazla bilgi için bkz: [Symantec Endpoint Protection Microsoft'un Azure platformunda][Symantec]. Bu sayfa Ayrıca lisans bilgileri ve Symantec müşteri zaten iseniz istemcisini yüklemeye yönelik yönergeleri için bağlantıları vardır.
+Symantec'ten bir şirket içi çözüm için mevcut bir abonelik varsa, Azure sanal makinelerinizi korumak için kullanabilirsiniz. Bir müşteri henüz değilseniz, bir deneme aboneliğine kaydolabilirsiniz. Bu çözüm hakkında daha fazla bilgi için bkz. [Symantec Endpoint Protection'ı Microsoft Azure platformu][Symantec]. Bu sayfa, lisans bilgilerini ve Symantec müşteri zaten kullanıyorsanız istemciyi yüklemeye ilişkin yönergeler bağlantıları da vardır.
 
-## <a name="install-symantec-endpoint-protection-on-an-existing-vm"></a>Var olan bir VM Symantec Endpoint Protection yükle
+## <a name="install-symantec-endpoint-protection-on-an-existing-vm"></a>Mevcut bir sanal makinesinde Symantec Endpoint Protection yükle
 Başlamadan önce aşağıdakiler gerekir:
 
-* Azure PowerShell modülü, sürüm 0.8.2 veya daha sonra iş bilgisayarınızın. İle yüklenen Azure PowerShell sürümü kontrol edebilirsiniz **Get-Module azure | Tablo Biçimlendir sürüm** komutu. Yönergeler ve en son sürüme bir bağlantı için bkz: [yükleme ve yapılandırma Azure PowerShell][PS]. Oturum açma kullanarak Azure aboneliği `Add-AzureAccount`.
-* Azure sanal makinede çalışan VM Aracısı.
+* Azure PowerShell modülü, sürüm 0.8.2 ya da daha sonra iş bilgisayarınızda. İle yüklü olduğu bir Azure PowerShell sürümünü kontrol edebilirsiniz **Get-Module azure | format-table sürüm** komutu. Yönergeler ve en son sürüme bir bağlantı için bkz. [yükleme ve yapılandırma, Azure PowerShell][PS]. Kullanarak Azure aboneliği için oturum açın `Add-AzureAccount`.
+* Azure sanal Makinesi'nde çalışan VM Aracısı.
 
-İlk olarak, VM aracısının sanal makinede zaten yüklü olduğunu doğrulayın. Bulut hizmeti adı ve sanal makine adı girin ve ardından bir yönetici düzeyi Azure PowerShell komut isteminde aşağıdaki komutları çalıştırın. Dahil olmak üzere tırnak işaretleri içindeki her şeyi değiştirin < ve > karakterleri.
+İlk olarak, VM Aracısı sanal makinede zaten yüklü olduğunu doğrulayın. Bulut hizmeti adı ve sanal makine adı girin ve ardından yönetici düzeyinde Azure PowerShell komut isteminde aşağıdaki komutları çalıştırın. Dahil olmak üzere, tırnak işaretleri içindeki her şeyi değiştirin < ve > karakterleri.
 
 > [!TIP]
-> Sanal makine adları ve bulut hizmeti bilmiyorsanız, çalıştırmak **Get-AzureVM** geçerli aboneliğiniz tüm sanal makinelerin adlarını listelemek için.
+> Sanal makine adları ve bulut hizmeti bilmiyorsanız, çalıştırma **Get-AzureVM** geçerli aboneliğinizdeki tüm sanal makinelerin adlarını listelemek için.
 
 ```powershell
 $CSName = "<cloud service name>"
@@ -48,9 +48,9 @@ $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-Varsa **write-host** komutu görüntüler **doğru**, VM aracısının yüklü olduğundan. Bunu görüntülerse **False**, yönergeler ve Azure blog postası karşıdan yükleme bağlantısı bkz [VM aracısı ve uzantılar - 2. parça][Agent].
+Varsa **write-host** komutunu görüntüler **True**, VM Aracısı yüklenir. Bu görüntüler **False**, yönergeleri ve Azure Web günlüğü gönderisinde indirme bağlantısını [VM aracısı ve uzantıları - 2. bölüm][Agent].
 
-VM Aracısı yüklüyse, Symantec Endpoint Protection aracısını yüklemek için şu komutları çalıştırın.
+VM aracısını yüklediyseniz, Symantec Endpoint Protection aracısını yüklemek için şu komutları çalıştırın.
 
 ```powershell
 $Agent = Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection
@@ -59,14 +59,14 @@ Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionNam
     -VM $vm | Update-AzureVM
 ```
 
-Symantec güvenlik uzantısı yüklendikten ve güncel durumda olduğunu doğrulamak için:
+Symantec güvenlik uzantısı yüklü olduğundan ve güncel olduğunu doğrulamak için:
 
-1. Sanal makinede oturum açın. Yönergeler için bkz: [nasıl bir sanal makine çalıştıran Windows Server oturum][Logon].
-2. Windows Server 2008 R2 için tıklatın **Başlat > Symantec Endpoint Protection**. Windows Server 2012 veya Windows Server 2012 R2, başlangıç ekranından yazın **Symantec**ve ardından **Symantec Endpoint Protection**.
-3. Gelen **durum** sekmesinde **durum Symantec Endpoint Protection** penceresinde, güncelleştirmeleri uygulamak veya gerektiğinde yeniden başlatın.
+1. Sanal makinede oturum açın. Yönergeler için [oturum açma bir sanal makine çalıştıran Windows Server][Logon].
+2. Windows Server 2008 R2 için tıklatın **Başlat > Symantec Endpoint Protection**. Windows Server 2012 veya başlangıç ekranından Windows Server 2012 R2 için yazın **Symantec**ve ardından **Symantec Endpoint Protection**.
+3. Gelen **durumu** sekmesinde **durumu Symantec Endpoint Protection** penceresinde güncelleştirmeleri uygulayabilir veya gerekirse yeniden başlatın.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
-[Nasıl yapılır Windows Server çalıştıran bir sanal makinede oturum açın][Logon]
+[Nasıl yapılır Windows Server çalıştıran bir sanal makinede oturum açma][Logon]
 
 [Azure VM uzantıları ve özellikleri][Ext]
 

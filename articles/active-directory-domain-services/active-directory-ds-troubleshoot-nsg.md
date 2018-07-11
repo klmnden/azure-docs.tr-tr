@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory etki alanı Hizmetleri: Sorun giderme ağ güvenlik grubu yapılandırma | Microsoft Docs'
-description: Azure AD etki alanı Hizmetleri için NSG yapılandırma sorunlarını giderme
+title: 'Azure Active Directory Domain Services: Sorun giderme ağ güvenlik grubu yapılandırması | Microsoft Docs'
+description: Azure AD Domain Services için NSG yapılandırmasıyla ilgili sorunları giderme
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
@@ -15,54 +15,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 807dd2bdcc1e2ad18b1a93c3337c8244e3f1366b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 67f4f0850d0600fc7ca0f1323e7c7801187089f5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218988"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950743"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Geçersiz ağ yapılandırması, yönetilen etki alanınız için sorun giderme
-Bu makale ve aşağıdaki uyarı iletisine neden ağ ile ilişkili yapılandırma hatalarını gidermek yardımcı olur:
+Bu makale ve aşağıdaki uyarı iletisinde neden ağla ilgili yapılandırma hatalarını gidermek yardımcı olur:
 
 ## <a name="alert-aadds104-network-error"></a>Uyarı AADDS104: Ağ hatası
-**Uyarı iletisi:** *Microsoft, bu yönetilen etki alanı için etki alanı denetleyicilerinin ulaşmasını oluşturamıyor. Bu sanal ağ blokları erişiminizi yönetilen etki alanı için yapılandırılmış bir ağ güvenlik grubu (NSG) durum. Başka bir olası neden, kullanıcı tanımlı bir yol yoksa, Internet'ten gelen trafiği engeller olmasıdır.*
+**Uyarı iletisi:** *Microsoft bu yönetilen etki alanı için etki alanı denetleyicilerine ulaşamıyoruz. Bu, sanal ağ yönetilen etki alanı erişimi engeller üzerinde yapılandırılan bir ağ güvenlik grubu (NSG) durum meydana. Başka bir olası neden, kullanıcı tanımlı bir yol varsa, internet'ten gelen trafiği engeller. ' dir.*
 
-Geçersiz NSG ağ hatalarının en yaygın nedeni Azure AD etki alanı Hizmetleri için bağlantılardır. Sanal ağınızı erişmesine izin vermek için yapılandırılmış ağ güvenlik grubu (NSG) [belirli bağlantı noktalarını](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). Bu bağlantı noktaları engellenirse Microsoft izlemek veya yönetilen etki alanınızı güncelleştirin. Ayrıca, Azure AD dizininizi ve yönetilen etki alanınız arasında eşitleme etkilenmez. NSG oluşturulurken, bu bağlantı noktaları hizmetindeki kesintiye uğramaması için açık tutun.
+Geçersiz NSG ağ hatalarının en yaygın nedeni Azure AD Domain Services için yapılandırmalardır. Sanal ağınızı erişmesine izin vermek için yapılandırılan ağ güvenlik grubu (NSG) [belirli bağlantı noktalarını](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). Bu bağlantı noktaları engellenirse, Microsoft izleme veya yönetilen etki alanınıza güncelleştirin. Ayrıca, Azure AD dizininizi ve yönetilen etki alanınıza eşitlemesi etkilenir. NSG oluşturulurken bu bağlantı noktaları hizmet kesintisini önlemek için açık tutun.
 
-### <a name="checking-your-nsg-for-compliance"></a>Uyumluluk için NSG denetleniyor
+### <a name="checking-your-nsg-for-compliance"></a>NSG uyumluluğu denetleniyor
 
 1. Gidin [ağ güvenlik grupları](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) Azure portalında sayfası
-2. Tablodan, yönetilen etki alanınızı etkin olduğu alt ağ ile ilişkili NSG seçin.
-3. Altında **ayarları** sol panelinde tıklatın **gelen güvenlik kuralları**
-4. Yerinde kuralları gözden geçirin ve hangi kuralları erişimi engelliyor tanımlamak [Bu bağlantı noktaları](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services).
-5. Kuralı siliniyor, bir kural ekleme ya da yeni bir NSG tamamen oluşturma tarafından uyumluluğu sağlamak için NSG düzenleyin. Adımları [bir kural eklemek](#add-a-rule-to-a-network-security-group-using-the-azure-portal) veya [yeni, uyumlu bir NSG oluşturma](#create-a-nsg-for-azure-ad-domain-services-using-powershell) olan aşağıdaki.
+2. Tablodan, yönetilen etki alanınıza etkinleştirildiği alt ağ ile ilişkilendirilmiş NSG seçin.
+3. Altında **ayarları** sol panelde tıklayın **gelen güvenlik kuralları**
+4. Yerinde kuralları gözden geçirin ve erişimi engelleme hangi kuralları tanımlamak [Bu bağlantı noktaları](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
+5. NSG kuralı siliniyor, bir kural ekleme ya da tamamen yeni bir NSG oluşturmayı uyumluluk sağlamak için düzenleyin. Adımları [alınabilecek](#add-a-rule-to-a-network-security-group-using-the-azure-portal) veya [yeni, uyumlu bir NSG oluşturmak](#create-a-nsg-for-azure-ad-domain-services-using-powershell) olan aşağıdaki
 
 ## <a name="sample-nsg"></a>Örnek NSG
-Aşağıdaki tabloda, yönetilen etki alanınız güvenli izlemek, yönetmek ve bilgileri güncelleştirmek Microsoft verirken engelleneceği NSG bir örnek gösterilmektedir.
+Aşağıdaki tabloda, yönetilen etki alanınıza güvenli izleme, yönetme ve güncelleştirme bilgileri Microsoft'a verirken engelleneceği NSG bir örnek gösterilmektedir.
 
 ![Örnek NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 >[!NOTE]
-> Azure AD etki alanı Hizmetleri sanal ağdan sınırsız giden erişim gerektirir. Sanal ağ için giden erişimi kısıtlayan herhangi bir ek NSG kural oluşturmamayı öneririz.
+> Azure AD Domain Services, sanal ağdan giden sınırsız erişim gerektirir. Sanal ağ için giden erişimi kısıtlayan herhangi ek bir NSG kuralı oluşturmamayı öneririz.
 
-## <a name="add-a-rule-to-a-network-security-group-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir ağ güvenlik grubu kural ekleme
-PowerShell kullanmak istemiyorsanız, Azure portalını kullanarak Nsg'ler tek kuralları el ile ekleyebilirsiniz. Ağ güvenlik grubundaki kuralları oluşturmak için aşağıdaki adımları tamamlayın:
+## <a name="add-a-rule-to-a-network-security-group-using-the-azure-portal"></a>Azure portalını kullanarak bir ağ güvenlik grubu Kuralı Ekle
+PowerShell kullanmak istemiyorsanız, Azure portalı kullanarak Nsg'ler için tek kuralları el ile ekleyebilirsiniz. Ağ güvenlik grubunuzu kuralları oluşturmak için aşağıdaki adımları tamamlayın:
 
-1. Gidin [ağ güvenlik grupları](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) Azure portalında sayfası
-2. Tablodan, yönetilen etki alanınızı etkin olduğu alt ağ ile ilişkili NSG seçin.
-3. Altında **ayarları** sol panelinde ya da tıklatın **gelen güvenlik kuralları** veya **giden güvenlik kurallarında**.
-4. Tıklayarak kural oluşturma **Ekle** ve bilgileri doldurma. **Tamam**’a tıklayın.
-5. Kuralınız kuralları tabloda bularak oluşturulup oluşturulmadığını denetleyin.
+1. Gidin [ağ güvenlik grupları](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) Azure portalında sayfası.
+2. Tablodan, yönetilen etki alanınıza etkinleştirildiği alt ağ ile ilişkilendirilmiş NSG seçin.
+3. Altında **ayarları** sol panelde tıklayın **gelen güvenlik kuralları** veya **giden güvenlik kuralları**.
+4. Tıklayarak kural oluşturma **Ekle** ve bilgiler. **Tamam**’a tıklayın.
+5. Kurallar tablodaki yerleştirerek, kuralı oluşturuldu doğrulayın.
 
 
-## <a name="create-a-nsg-for-azure-ad-domain-services-using-powershell"></a>PowerShell kullanarak Azure AD etki alanı Hizmetleri için bir NSG oluşturma
-Bu NSG herhangi diğer istenmeyen gelen erişimi engelleme sırasında Azure AD etki alanı Hizmetleri tarafından gerekli bağlantı noktalarına gelen trafiğe izin verecek şekilde yapılandırılır.
+## <a name="create-a-nsg-for-azure-ad-domain-services-using-powershell"></a>PowerShell kullanarak Azure AD Domain Services için bir NSG oluşturma
+Bu NSG, tüm diğer istenmeyen gelen erişimi engelleme sırasında Azure AD Domain Services tarafından gerekli bağlantı noktalarına gelen trafiğe izin verecek şekilde yapılandırılır.
 
-**Önkoşul: Azure PowerShell'i yükleyip** yönergelerini izleyin [Azure PowerShell modülünü yüklemek ve Azure aboneliğinize bağlanmak](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+**Önkoşul: PowerShell'i yükleme ve Azure yapılandırma** yönergelerini izleyin [Azure PowerShell modülünü yüklemek ve Azure aboneliğinize bağlayın](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 >[!TIP]
-> Azure PowerShell modülü en son sürümünü kullanmanızı öneririz. Yüklü Azure PowerShell modülünü daha eski bir sürümü zaten varsa, en son sürüme güncelleştirin.
+> Azure PowerShell modülünün en son sürümünü kullanmanızı öneririz. Azure PowerShell Modülü yüklü daha eski bir sürümü zaten varsa, en son sürüme güncelleştirin.
 >
 
 PowerShell kullanarak yeni bir NSG oluşturmak için aşağıdaki adımları kullanın.
@@ -73,7 +73,7 @@ PowerShell kullanarak yeni bir NSG oluşturmak için aşağıdaki adımları kul
   Connect-AzureRmAccount
   ```
 
-2. Bir NSG ile üç kurallar oluşturun. Aşağıdaki komut dosyası, Azure AD etki alanı hizmetleri çalıştırmak için gerekli bağlantı noktalarını erişmesine izin vermek NSG için üç kuralları tanımlar. Sonra bu kuralları içeren yeni bir NSG komut dosyasını oluşturur. Sanal ağda dağıtılmış iş yükleri için gerekirse diğer gelen trafiğe izin ek kurallar eklemek için aynı biçimi kullanır.
+2. Bir NSG ile üç kurallar oluşturun. Aşağıdaki betik, Azure AD Domain Services'ı çalıştırmak için gereken bağlantı noktalarına erişime izin veren NSG için üç kuralları tanımlar. Ardından, bu kurallar içeren yeni bir NSG betik oluşturur. Sanal ağda dağıtılan iş yükleri için gerekirse diğer gelen trafiğe izin veren ek kuralları eklemek için aynı biçimini kullanın.
 
   ```PowerShell
   # Allow inbound HTTPS traffic to enable synchronization to your managed domain.
@@ -107,7 +107,7 @@ PowerShell kullanarak yeni bir NSG oluşturmak için aşağıdaki adımları kul
   -Name "AADDomainServices-NSG" -SecurityRules $SyncRule, $PSRemotingRule
   ```
 
-3. Son olarak, NSG vnet ve alt ağ tercih ile ilişkilendirin.
+3. Son olarak, NSG vnet ve tercih ettiğiniz alt ağı ile ilişkilendirin.
 
   ```PowerShell
   # Find vnet and subnet
@@ -119,9 +119,9 @@ PowerShell kullanarak yeni bir NSG oluşturmak için aşağıdaki adımları kul
   Set-AzureRmVirtualNetwork -VirtualNetwork $Vnet
   ```
 
-## <a name="full-script-to-create-and-apply-an-nsg-for-azure-ad-domain-services"></a>Komut dosyası oluşturabilir ve Azure AD etki alanı Hizmetleri için bir NSG uygulayabilirsiniz tam
+## <a name="full-script-to-create-and-apply-an-nsg-for-azure-ad-domain-services"></a>Tam komut dosyası oluşturabilir ve Azure AD Domain Services için bir NSG uygulayabilirsiniz
 >[!TIP]
-> Azure PowerShell modülü en son sürümünü kullanmanızı öneririz. Yüklü Azure PowerShell modülünü daha eski bir sürümü zaten varsa, en son sürüme güncelleştirin.
+> Azure PowerShell modülünün en son sürümünü kullanmanızı öneririz. Azure PowerShell Modülü yüklü daha eski bir sürümü zaten varsa, en son sürüme güncelleştirin.
 >
 
 ```PowerShell
@@ -175,4 +175,4 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $Vnet
 
 
 ## <a name="need-help"></a>Yardım mı gerekiyor?
-Azure Active Directory etki alanı Hizmetleri ürün ekibine başvurun [paylaşmak geri bildirim veya destek](active-directory-ds-contact-us.md).
+Azure Active Directory Domain Services ürün ekibiyle [geri bildirim paylaşma veya destek](active-directory-ds-contact-us.md).

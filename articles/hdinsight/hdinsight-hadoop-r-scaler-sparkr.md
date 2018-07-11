@@ -1,6 +1,6 @@
 ---
-title: Azure Hdınsight ile ScaleR ve SparkR kullanma | Microsoft Docs
-description: Hdınsight üzerinde ML hizmetleriyle ScaleR ve SparkR kullanın
+title: ScaleR ve SparkR Azure HDInsight ile kullanma | Microsoft Docs
+description: ScaleR ve SparkR HDInsight üzerinde ML Hizmetleri ile kullanma
 services: hdinsight
 documentationcenter: ''
 author: bradsev
@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 34d923cdf2dd96412996c766632ae42aac576e8c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2b16135e83ba52f7a2e6bd214791910db80634bc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061487"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952850"
 ---
-# <a name="combine-scaler-and-sparkr-in-hdinsight"></a>ScaleR ve hdınsight'ta SparkR birleştirin
+# <a name="combine-scaler-and-sparkr-in-hdinsight"></a>ScaleR ve SparkR HDInsight içinde birleştirin
 
-Bu belge, uçuş varış gecikmeler kullanarak tahmin etmek gösterilmiştir bir **ScaleR** Lojistik regresyon modeli. Örnek kullanan katılmış uçuş gecikmesi ve hava durumu verilerini kullanan **SparkR**.
+Bu belge, uçuş varış gecikmeler kullanarak tahmin etmek gösterilmiştir bir **ScaleR** Lojistik regresyon modeli. Uçuş gecikme ve hava durumu verilerini kullanılarak, örnekte **SparkR**.
 
-Her iki paket Hadoop'ın Spark yürütme altyapısı üzerinde çalışsa da bunlar her kendi ilgili Spark oturumları gerektiği paylaşımı bellek içi verilerden engellenir. ML Server gelecek bir sürümünde bu sorun giderilinceye kadar geçici bir çözüm çakışmayan Spark oturumlar kullanan ve Ara dosyalar ile veri değişimi için değildir. Buradaki yönergeleri Bu gereksinimleri elde etmek kolay olduğunu gösterir.
+Her iki paketi de Hadoop'ın Spark yürütme altyapısının çalıştırmasına rağmen bellek içi verileri kendi ilgili Spark oturumlarında gereksinim duydukları her gibi paylaşım engellenir. ML Server gelecek bir sürümünde bu sorun giderilinceye kadar çakışmayan Spark oturumlar kullanan ve Ara dosyaları veri değişimi için çözüm olabilir. Buradaki yönergeleri Bu gereksinimleri elde etmek basit olduğunu gösterir.
 
-Bu örnek başlangıçta Strata 2016 konumundaki konuşma içinde Mario Inchiosa ve Roni Burd tarafından paylaşıldı. Bu konuşma konumunda bulabilirsiniz [R ölçeklenebilir bir veri bilimi platformuyla derleme](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
+Bu örnek başlangıçta bir konuşması konumundaki Strata 2016 içinde Roni Burd Mario Inchiosa ile paylaşıldı. Bu konuşmada, bulabilirsiniz [R ile ölçeklenebilir bir veri bilimi platformu oluşturmayı](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
-Kodu, Spark Azure Hdınsight kümesinde çalışan ML sunucusu için ilk olarak yazılmıştır. Ancak, bir komut dosyası kullanımda SparkR ve ScaleR karıştırma ayrıca şirket içi ortamları bağlamında geçerli kavramdır.
+Kodu, azure'da bir HDInsight kümesinde Spark üzerinde çalıştırılan ML Server için ilk olarak yazılmıştır. Ancak, bir komut dosyası kullanımda ScaleR ve SparkR karıştırma kavramı da şirket içi ortamlara bağlamında geçerli.
 
-Bu belgede yer alan adımlar bir ara R ve misiniz bilgisi düzeyini sahip olduğunuzu varsaymaktadır [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) ML sunucusunun kitaplığı. İçin sunulan [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) bu senaryo taramasını oluştu.
+Bu belgedeki adımlarda bir ara R ve bu bilgi düzeyi sahip olduğunuzu varsaymaktadır [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) ML Server kitaplığı. İçin sunulan [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) bu senaryoyu adım anlatarak oluştu.
 
 ## <a name="the-airline-and-weather-datasets"></a>Uçak ve hava durumu veri kümeleri
 
-Uçuş veri kullanılabilir [ABD hükümeti arşivler](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Posta olarak kullanılabilir [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+Uçuş verileri kullanılabilir [ABD devlet kurumları arşivlerinizin](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Bir zip olarak kullanılabilir [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-Hava durumu verileri ham formunda, ZIP dosyaları olarak aya göre yüklenebilir [National Oceanic ve hava yönetim deposu](http://www.ncdc.noaa.gov/orders/qclcd/). Bu örnekte, veri Mayıs 2007 – Kasım 2012 indirin. Saatlik veri dosyalarını kullanmak ve `YYYYMMMstation.txt` her zips dosyasında. 
+Hava Durumu verilerini ham biçimiyle, zip dosyaları olarak aya göre indirilebileceğini [Ulusal Okyanus ve Atmosfer Yönetimi depo](http://www.ncdc.noaa.gov/orders/qclcd/). Bu örnekte, Mayıs 2007: Kasım 2012 verileri indirin. Saatlik veri dosyalarını kullanmak ve `YYYYMMMstation.txt` her zıps dosya. 
 
 ## <a name="setting-up-the-spark-environment"></a>Spark ortamını ayarlama
 
-Spark ortamını ayarlamak için aşağıdaki kodu kullanın:
+Spark ortamı ayarlamak için aşağıdaki kodu kullanın:
 
 ```
 workDir        <- '~'  
@@ -86,7 +86,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-Ardından, eklemek `Spark_Home` R paketleri arama yolu. Arama yolu ekleme SparkR kullanın ve SparkR oturum başlatma sağlar:
+Ardından, ekleme `Spark_Home` R Paketlerine yönelik arama yolu. Arama yoluna ekleme SparkR kullanın ve SparkR oturumu başlatmak sağlar:
 
 ```
 #..setup for use of SparkR  
@@ -109,18 +109,18 @@ sqlContext <- sparkRSQL.init(sc)
 
 ## <a name="preparing-the-weather-data"></a>Hava durumu verileri hazırlama
 
-Hava durumu verileri hazırlamak için alt sütunlara modelleme için gerekli: 
+Hava Durumu verilerini hazırlamak için alt sütunları için modelleme için gerekli: 
 
-- "Görünürlük"
+- "Görünürlüğünü"
 - "DryBulbCelsius"
 - "DewPointCelsius"
 - "RelativeHumidity"
 - "WindSpeed"
 - "Altimeter"
 
-Ardından hava durumu istasyonla ilişkilendirilmiş bir havaalanındaki kodu ekleyin ve ölçüleri yerel saatten UTC'ye dönüştürmek.
+Ardından hava durumu istasyonu ile ilişkili bir havaalanı kodu ekleyin ve ölçümler yerel saatten UTC'ye dönüştürün.
 
-Bir havaalanındaki kodu hava durumu istasyon (WBAN) bilgisi eşlemek için bir dosya oluşturarak başlayın. Aşağıdaki kodu her alt kümelerini biz gerekir, hava durumu istasyon eşleme dosyası birleştirir, ölçümleri UTC tarihi sürelerinin ayarlar ve dosyanın yeni bir sürümünü yazar sütunlara saatlik ham hava veri dosyalarının okur:
+Hava durumu istasyonu (WBAN) bilgileri bir havaalanı kodu eşlemek için bir dosya oluşturarak başlayın. Aşağıdaki kod, biz gerekir, hava durumu istasyonu eşleme dosyası birleştirir, ölçümlerin UTC tarih saatleri ayarlar ve sonra dosyayı yeni bir sürümü Yazar sütunlara alt kümelerini saatlik ham hava durumu verileri dosyaların her biri okur:
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time
@@ -198,9 +198,9 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
            transformObjects = list(wbanToAirIDAndTZDF1 = wbanToAirIDAndTZDF))
 ```
 
-## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Spark DataFrames uçak ve hava durumu verileri alma
+## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Uçak ve hava durumu verileri için Spark veri çerçevelerini içeri aktarma
 
-SparkR kullanırız artık [read.df()](https://docs.databricks.com/spark/1.6/sparkr/functions/read.df.html#read-df) işlevi için Spark DataFrames hava durumu ve uçak veri alın. Bu işlev, diğer birçok Spark yöntemi gibi yürütüldüğünde gevşek, bunlar yürütülmek üzere sıraya ancak gerekli kadar yürütülmedi olduğunu anlamına gelir.
+SparkR kullandığımız artık [read.df()](https://docs.databricks.com/spark/1.6/sparkr/functions/read.df.html#read-df) hava durumu ve Havayolu verileri için Spark veri çerçevelerini içeri aktarmak için işlevi. Diğer birçok Spark yöntemler gibi bu işlev yürütülür gevşek, bunların yürütme için sıraya alınmış ancak gerekli kadar yürütülmedi, anlamına gelir.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -224,7 +224,7 @@ weatherDF <- read.df(sqlContext, weatherPath, source = "com.databricks.spark.csv
 
 ## <a name="data-cleansing-and-transformation"></a>Veri temizleme ve dönüştürme
 
-Biz içe uçak veriler üzerinde bazı temizleme yapılacağına sütun yeniden adlandırılamadı. Biz yalnızca gerekli değişkenleri tutun ve zamanlanmış ayrılma kez ayrılma en son hava durumu verilerle birleştirmeyi etkinleştirmek için en yakın saat aşağıya doğru yuvarlar:
+Sonraki içe Havayolu veriler üzerinde biraz temizlik yaptığımız sütun yeniden adlandırılamadı. Biz yalnızca gereken değişkenleri tutmak ve en son hava durumu verileri ayrılma sırasında birleştirmeyi etkinleştirmek için en yakın saat zamanlanmış kalkış saatler yuvarlar:
 
 ```
 logmsg('clean the airline data') 
@@ -252,7 +252,7 @@ coltypes(airDF) <- c("character", "integer", "integer", "integer", "integer", "c
 airDF$CRSDepTime <- floor(airDF$CRSDepTime / 100)
 ```
 
-Artık hava durumu veriler üzerinde benzer işlemler gerçekleştirebilir:
+Artık hava durumu verilerini benzer işlemleri gerçekleştirin:
 
 ```
 # Average weather readings by hour
@@ -271,9 +271,9 @@ weatherDF <- rename(weatherDF,
 )
 ```
 
-## <a name="joining-the-weather-and-airline-data"></a>Hava durumu ve uçak verileri birleştirme
+## <a name="joining-the-weather-and-airline-data"></a>Hava durumu ve Havayolu verileri birleştirme
 
-Şimdi SparkR kullanırız [join()](https://docs.databricks.com/spark/latest/sparkr/functions/join.html) işlevi datetime ve uçak ve hava durumu verileri ayrılma AirportID göre bir sol dış birleşim yapın. Dış birleşim eşleşen hava durumu verileri olsa bile tüm hava yolu veri kayıtları korumak olanak tanır. Birleştirme, aşağıdaki biz bazı gereksiz sütunları kaldırmak ve birleştirme tarafından sunulan gelen DataFrame öneki kaldırmak için Tutuluyor sütunları yeniden adlandırın.
+Artık SparkR kullandığımız [join()](https://docs.databricks.com/spark/1.6/sparkr/functions/join.html#join) işlevini bir sol dış birleşim kalkış AirportID Havayolu ve hava durumu verileri ve datetime. Dış birleşim eşleşen hava durumu verileri olsa bile tüm Havayolu veri kayıtlarının tutulacağı sağlıyor. Birleştirme aşağıdaki biz bazı gereksiz sütunları kaldırma ve birleşimi tarafından sunulan gelen DataFrame ön ekini kaldırmak için tutulan sütunları yeniden adlandırın.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')
@@ -304,7 +304,7 @@ joinedDF2 <- rename(joinedDF1,
 )
 ```
 
-Benzer biçimde, Varış AirportID ve datetime göre hava durumu ve uçak veri Katıl:
+Benzer şekilde, biz varış AirportID ve datetime göre hava durumu ve Havayolu veri Katıl:
 
 ```
 logmsg('Join airline data with weather at Destination Airport')
@@ -335,9 +335,9 @@ joinedDF5 <- rename(joinedDF4,
                     )
 ```
 
-## <a name="save-results-to-csv-for-exchange-with-scaler"></a>Exchange ScaleR ile için CSV'ye Sonuçları Kaydet
+## <a name="save-results-to-csv-for-exchange-with-scaler"></a>ScaleR exchange'le için CSV'ye Sonuçları Kaydet
 
-SparkR ile yapmak için ihtiyacımız birleştirmeler tamamlanan. Biz verileri son Spark DataFrame girişi için bir CSV için "joinedDF5" için ScaleR kaydetmek ve SparkR oturumu kapatın. Biz açıkça sonuç CSV ScaleR işleme yeterli paralellik etkinleştirmek için 80 ayrı bölümlere kaydetmek için SparkR verin:
+Birleştirmeler ile SparkR yapmanız gereken tamamlanan. Biz, verileri son Spark DataFrame girişi için bir CSV için "joinedDF5" için ScaleR kaydetmek ve SparkR oturumu kapatın. Biz, ScaleR işleme yeterli paralellik sağlamak için 80 ayrı bölümlerde sonuç CSV kaydetmek için SparkR açıkça bildirin:
 
 ```
 logmsg('output the joined data from Spark to CSV') 
@@ -355,7 +355,7 @@ rxHadoopRemove(file.path(dataDir, "joined5Csv/_SUCCESS"))
 
 ## <a name="import-to-xdf-for-use-by-scaler"></a>ScaleR tarafından kullanılmak XDF alma
 
-CSV dosyası birleştirilmiş uçak ve hava durumu verileri olarak kullanırız-ScaleR metin veri kaynağına aracılığıyla modelleme içindir. Ancak, birden çok işlem dataset üzerinde çalışırken daha etkili olduğundan biz XDF için ilk olarak, alın:
+CSV dosyası birleştirilmiş Havayolu ve hava durumu verileri olarak kullanabiliriz-modelleme ScaleR metin veri kaynağı aracılığıyla içindir. Ancak, veri kümesindeki birden çok işlemleri çalıştırırken daha etkili olduğundan biz XDF için ilk olarak, içe aktarın:
 
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
@@ -440,7 +440,7 @@ finalData <- RxXdfData(file.path(dataDir, "joined5XDF"), fileSystem = hdfsFS)
 
 ## <a name="splitting-data-for-training-and-test"></a>Verileri eğitim ve test için bölme
 
-RxDataStep test 2012 veri çıkışı bölme ve eğitim rest tutmak için kullanırız:
+RxDataStep test 2012 veri çıkış bölme ve eğitim için rest tutmak için kullanırız:
 
 ```
 # split out the training data
@@ -463,9 +463,9 @@ rxGetInfo(trainDS)
 rxGetInfo(testDS)
 ```
 
-## <a name="train-and-test-a-logistic-regression-model"></a>Eğitme ve test Lojistik regresyon modeli
+## <a name="train-and-test-a-logistic-regression-model"></a>Eğitme ve bir Lojistik regresyon modeli test etme
 
-Şimdi biz bir model oluşturmak hazır olursunuz. Geliş saati gecikmesine hava veri etkisini görmek için ScaleR'ın Lojistik regresyon yordamı kullanırız. Biz bunu varış gecikme 15 dakikadan daha büyük ölçüde ve varış havaalanları adresindeki hava etkilediği olup olmadığını modellemek için kullanın:
+Şimdi bir model oluşturmak üzere hazırız. Hava durumu verileri etki gecikmesine geliş saati görmek için ScaleR'ın Lojistik regresyon yordamı kullanırız. Biz bunu 15 dakikadan daha büyük bir alma gecikme kalkış ve varış havaalanları, hava durumu etkilediği olup model oluşturmak için kullanın:
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
@@ -485,7 +485,7 @@ logitModel <- rxLogit(formula, data = trainDS, maxIterations = 3)
 base::summary(logitModel)
 ```
 
-Şimdi nasıl bazı tahminleri yapma ve ROC ve AUC arayarak test verileri üzerindeki mu görelim.
+Şimdi nasıl bazı Öngörüler yapma ve ROC ve AUC tarafından test verileri üzerindeki yaptığını görelim.
 
 ```
 # Predict over test data (Logistic Regression).
@@ -512,7 +512,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Başka bir yerde Puanlama
 
-Biz de modeli Puanlama verileri başka bir platformda kullanabilirsiniz. Bir RDS dosyaya kaydedilmesi ve ardından aktarma ve SQL Server R Hizmetleri gibi ortam Puanlama hedef bu RDS alma tarafından. Faktörü düzeyleri belirtmek için veri modeli yerleşik eşleştiğinden emin olmak önemlidir. Eşleşen ayıklanması ve ScaleR'ın aracılığıyla modelleme verileri ilişkili sütun bilgileri kaydederek elde edilebilir `rxCreateColInfo()` işlevi ve tahmin için giriş veri kaynağı için bu sütun bilgileri uygulanıyor. Aşağıdaki biz test kümesinin birkaç satırları kaydetmek ve ayıklamak ve tahmin komut dosyasında bu örnek sütun bilgileri kullanın:
+Ayrıca model Puanlama verileri başka bir platform için kullanabiliriz. Bir RDS dosyasına kaydediliyor aktarmak ve bir hedef SQL Server R Services gibi ortam Puanlama, RDS alma tarafından. Faktörü düzeyleri puanlanması veri modeli üzerinde oluşturulmuş eşleştiğinden emin olmak önemlidir. Eşleşen ayıklayarak ve modelleme verileri ScaleR'ın aracılığıyla ilişkili sütun bilgileri kaydedilirken ulaşılabilecek `rxCreateColInfo()` işlevi ve tahmin için giriş veri kaynağı, sütun bilgileri uygulamak. Aşağıdaki biz birkaç test veri satırlarını kaydetmek ve ayıklayın ve tahmin betikte bu örnekten sütun bilgileri kullanın:
 
 ```
 # save the model and a sample of the test dataset 
@@ -537,15 +537,15 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="summary"></a>Özet
 
-Bu makalede, biz nasıl SparkR kullanım modeli geliştirme Hadoop Spark ScaleR ile veri işleme için birleştirmek mümkündür gösterilen. Bu senaryo, bir kerede yalnızca bir oturum çalışan ayrı Spark oturumlar kullanan ve CSV dosyaları aracılığıyla veri değişimi gerektirir. SparkR ve ScaleR bir Spark oturumu paylaşabilir ve bu nedenle Spark DataFrames paylaşmak basit olsa da bu işlem yaklaşan bir ML Hizmetleri sürümde daha kolay olması gerekir.
+Bu makalede, biz nasıl SparkR kullanımı için Hadoop Spark model geliştirme için veri işleme ScaleR ile birleştirmek mümkündür gösterilen. Bu senaryo, yalnızca bir oturum aynı anda çalışan ayrı Spark oturumları, koruyun ve CSV dosyaları aracılığıyla veri değişimi gerektirir. SparkR ve ScaleR bir Spark oturumuna paylaşın ve bu nedenle Spark veri çerçevelerini paylaşın basit olsa da, bu işlem yaklaşan bir ML Hizmetleri sürümde daha da kolay olmalıdır.
 
 ## <a name="next-steps-and-more-information"></a>Sonraki adımlar ve daha fazla bilgi
 
-- Spark ML sunucuda kullanımı hakkında daha fazla bilgi için bkz: [Başlarken Kılavuzu](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Spark ML sunucuda kullanımı hakkında daha fazla bilgi için bkz. [Başlarken Kılavuzu](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
-- ML Server hakkında genel bilgi için bkz: [R ile çalışmaya başlama](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) makalesi.
+- ML Server hakkında genel bilgi için bkz. [R ile çalışmaya başlama](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) makalesi.
 
-- Hdınsight üzerinde ML hizmetleri hakkında daha fazla bilgi için bkz: [hdınsight'ta ML hizmetleri genel bakış](r-server/r-server-overview.md) ve [ML Hizmetleri Azure hdınsight kullanmaya başlama](r-server/r-server-get-started.md).
+- HDInsight üzerinde ML hizmetleri hakkında daha fazla bilgi için bkz: [HDInsight üzerinde ML hizmetleri genel bakış](r-server/r-server-overview.md) ve [ML Hizmetleri üzerindeki Azure HDInsight ile çalışmaya başlama](r-server/r-server-get-started.md).
 
 SparkR kullanımı hakkında daha fazla bilgi için bkz:
 

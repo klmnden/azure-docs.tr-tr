@@ -1,48 +1,48 @@
 ---
-title: Azure kullanılabilirlik bölgeleri - Önizleme bölge olarak yedekli sanal ağ geçidi oluşturma | Microsoft Docs
-description: VPN Gateway ve ExpressRoute ağ geçidi kullanılabilirliği bölgelerde - Önizleme dağıtın.
+title: Bölgesel olarak yedekli sanal ağ geçidi oluşturma Azure kullanılabilirlik alanları - Önizleme | Microsoft Docs
+description: VPN Gateway ve ExpressRoute ağ geçitleri kullanılabilirlik alanlarında - Preview'ı dağıtın.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 07/09/2018
 ms.author: cherylmc
-ms.openlocfilehash: c484358bf98f0121cfc3ce270b162b01c75b5b09
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: fa349555a5effd41ca519cbd5a29005203d79543
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096242"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952564"
 ---
-# <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones---preview"></a>Bölge olarak yedekli sanal ağ geçidi Azure kullanılabilirlik bölgeleri - Önizleme oluşturma
+# <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones---preview"></a>Azure kullanılabilirlik alanları - Önizleme bölgesel olarak yedekli sanal ağ geçidi oluşturma
 
-VPN ve ExpressRoute ağ geçitleri dağıtabilir [Azure kullanılabilirlik bölgeleri](../availability-zones/az-overview.md). Bu seçenek, dayanıklılık, ölçeklenebilirlik ve yüksek kullanılabilirlik için sanal ağ geçitlerini getirir. Fiziksel ve mantıksal ağ geçitleri Azure kullanılabilirlik bölgelerde dağıtma, ağ geçitleri bir bölge içinde şirket içi ağ bağlantınızı Azure'a bölge düzeyinde hatalarından korurken ayırır.
+VPN ve ExpressRoute ağ geçitleri dağıtabilir [Azure kullanılabilirlik alanları](../availability-zones/az-overview.md). Bu seçenek, dayanıklılık, ölçeklenebilirlik ve yüksek kullanılabilirlik için sanal ağ geçitleri getirir. Ağ geçitleri Azure kullanılabilirlik alanları, fiziksel ve mantıksal olarak dağıtma, ağ geçitleri bir bölge içinde bölge düzeyinde hatalardan Azure'a, şirket içi ağ bağlantısını korurken ayırır.
 
-Zonal ve bölge olarak yedekli ağ geçitlerinde normal sanal ağ geçitleri temel performans geliştirmeleri vardır. Ayrıca, bir bölge olarak yedekli veya zonal sanal ağ geçidi oluşturma, diğer ağ geçitlerine oluşturmaktan daha hızlıdır. Take yaklaşık 15 dakika boyunca bir ExpressRoute ağ geçidi ve bir VPN ağ geçidi için 19 dakika zaman 45 dakika alma yerine oluşturun.
+Bölgesel ve bölgesel olarak yedekli ağ geçitleri normal sanal ağ geçitleri temel performans geliştirmeleri vardır. Ayrıca, bölgesel olarak yedekli ya da bölgesel sanal ağ geçidi oluşturma, diğer ağ geçitleri oluşturmaktan daha hızlıdır. Sınav zamanı yaklaşık 15 dakika boyunca bir ExpressRoute ağ geçidi ve VPN ağ geçidi için 19 dakika zaman 45 dakika sürüyor yerine oluşturun.
 
-### <a name="zrgw"></a>Bölge olarak yedekli ağ geçitleri
+### <a name="zrgw"></a>Bölgesel olarak yedekli ağ geçitleri
 
-Sanal ağ geçitlerini kullanılabilirlik dilimlerinde otomatik olarak dağıtmak için bölge olarak yedekli sanal ağ geçitlerini kullanabilirsiniz. Bölge olarak yedekli ağ geçitleri ile Azure ile ilgili kritik, ölçeklenebilir hizmetleriniz için erişim GA konumundaki % 99,99 çalışma süresi SLA kadar yararlanmak istiyorsanız.
+Sanal ağ geçitlerinizi kullanılabilirlik alanları genelinde otomatik olarak dağıtmak için bölgesel olarak yedekli sanal ağ geçitlerini de kullanabilirsiniz. Bölgesel olarak yedekli ağ geçitleri ile % 99,99 çalışma süresi SLA'sı, azure'da görev açısından kritik, ölçeklenebilir hizmetleriniz için erişim GA çekirdeğinden yararlanarak.
 
 <br>
 <br>
 
 ![Bölge redunant ağ geçitleri grafiği](./media/create-zone-redundant-vnet-gateway/zonered.png)
 
-### <a name="zgw"></a>Zonal ağ geçitleri
+### <a name="zgw"></a>Bölgesel ağ geçitleri
 
-Belirli bir bölgedeki ağ geçitleri dağıtmak için zonal ağ geçitleri kullanın. Zonal bir ağ geçidi dağıttığınızda, her iki ağ geçidi örneği aynı kullanılabilirlik bölgede dağıtılır.
+Belirli bir bölgedeki ağ geçidi dağıtmak için bölgesel ağ geçidi kullanın. Bölgesel bir ağ geçidi dağıttığınızda, her iki ağ geçidi örneklerini aynı kullanılabilirlik alanında dağıtılır.
 
 <br>
 <br>
 
-![zonal ağ geçitleri grafiği](./media/create-zone-redundant-vnet-gateway/zonal.png)
+![Bölgesel ağ geçitleri grafiği](./media/create-zone-redundant-vnet-gateway/zonal.png)
 
 ## <a name="gwskus"></a>Ağ Geçidi SKU'ları
 
-Bölge olarak yedekli ve zonal ağ geçitleri, yeni ağ geçidi SKU'ları kullanmanız gerekir. Bir kez, [kendi kendinize kaydetmeniz önizlemede](#enroll), yeni sanal ağ geçidi SKU'ları Azure AZ bölgeler tümünde görürsünüz. Bölge olarak yedekli ve zonal ağ geçitleri belirli dışında bu SKU'ları ExpressRoute ve VPN ağ geçidi için karşılık gelen SKU'ları benzerdir.
+Bölgesel olarak yedekli ve bölgesel ağ geçitleri için yeni ağ geçidi SKU'ları kullanmanız gerekir. Sonra [kendi kendinize kaydetmeniz önizlemesinde](#enroll), yeni sanal ağ geçidi SKU'ları Azure AZ bölgeleri tümünde görürsünüz. Bölgesel olarak yedekli ve bölgesel ağ geçitleri için belirli şeylerdir bu SKU'ları ilgili SKU'ları için ExpressRoute ve VPN Gateway de benzerdir.
 
 Yeni ağ geçidi SKU'ları şunlardır:
 
@@ -60,32 +60,32 @@ Yeni ağ geçidi SKU'ları şunlardır:
 
 ## <a name="pipskus"></a>Genel IP SKU'ları
 
-Bölge olarak yedekli ağ geçitleri ve zonal ağ geçitlerini kullanan Azure genel IP kaynağı *standart* SKU. Azure genel IP kaynağı yapılandırması, dağıttığınız ağ geçidi bölge yedekli olup olmadığını belirler veya zonal. Genel IP kaynağı ile oluşturursanız, bir *temel* SKU, ağ geçidi sahip olmaz hiçbir bölge artıklık ve ağ geçidi kaynakları bölgesel olacaktır.
+Bölgesel olarak yedekli ağ geçitleri ve bölgesel ağ geçitlerini kullanan Azure genel IP kaynağı üzerinde *standart* SKU. Azure genel IP kaynağı yapılandırmasını dağıttığınız ağ geçidi bölge yedekli olup olmadığını belirler veya bölgesel. Bir genel IP kaynağı oluşturursanız, bir *temel* SKU, ağ geçidi herhangi bir bölge artıklığı olmaz ve ağ geçidi kaynakları bölgesel olacaktır.
 
-### <a name="pipzrg"></a>Bölge olarak yedekli ağ geçitleri
+### <a name="pipzrg"></a>Bölgesel olarak yedekli ağ geçitleri
 
-Ortak IP adresi kullanarak bir oluşturduğunuzda **standart** davranışı bir bölge belirtmeden ortak IP SKU, farklı ağ geçidi bir VPN ağ geçidi veya ExpressRoute ağ geçidi olmasına bağlı olarak. 
+Genel bir IP adresi kullanarak oluşturduğunuzda **standart** bölge belirtmeden genel IP SKU'su, davranışı farklı ağ geçidi bir VPN ağ geçidi veya ExpressRoute ağ geçidi olduğuna bağlı olarak. 
 
-* Bir VPN ağ geçidi için iki ağ geçidi örnekleri bölge artıklık sağlamak için bu üç bölgeler dışında tüm 2'deki dağıtılır. 
-* Olabilir beri ikiden fazla örnekleri, bir ExpressRoute ağ geçidi için ağ geçidi üç dilimlerinde yayılabilir.
+* Bir VPN ağ geçidi için iki ağ geçidi örnekleri herhangi 2 bölgesi yedeklilik sağlamak için bu üç bölgeler dışında dağıtılır. 
+* İkiden fazla örnekleri olabileceği bir ExpressRoute ağ geçidi için ağ geçidi üç tüm bölgeler arasında yayılabilir.
 
-### <a name="pipzg"></a>Zonal ağ geçitleri
+### <a name="pipzg"></a>Bölgesel ağ geçitleri
 
-Ortak IP adresi kullanarak bir oluşturduğunuzda **standart** ortak IP SKU ve bölge (1, 2 veya 3) belirtin, tüm ağ geçidi örnekleri aynı bölgede dağıtılır.
+Genel bir IP adresi kullanarak oluşturduğunuzda **standart** genel IP SKU'su ve bölgeyi (1, 2 veya 3) belirtin, tüm ağ geçidi örnekleri aynı bölgede dağıtılır.
 
 ### <a name="piprg"></a>Bölgesel ağ geçitleri
 
-Ortak IP adresi kullanarak bir oluşturduğunuzda **temel** ortak IP SKU, ağ geçidi bölgesel bir ağ geçidi olarak dağıtılır ve ağ geçidine yerleşik bölge artıklık yok.
+Genel bir IP adresi kullanarak oluşturduğunuzda **temel** genel IP SKU'su, ağ geçidi bölgesel bir ağ geçidi olarak dağıtılır ve ağ geçidinde yerleşik bölge artıklığı sahip değil.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Yerel bilgisayarınızda veya Azure bulut Kabuk üzerinde yüklü ya da PowerShell kullanabilirsiniz. Bu özellik yüklemek ve PowerShell yerel olarak kullanmak seçerseniz, PowerShell modülü en son sürümünü gerektirir.
+Yerel olarak yüklü bilgisayarınızda veya Azure Cloud Shell'i PowerShell kullanabilirsiniz. PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu özelliği PowerShell modülünün en son sürümünü gerektirir.
 
 [!INCLUDE [Cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-### <a name="to-use-powershell-locally"></a>PowerShell yerel olarak kullanmak için
+### <a name="to-use-powershell-locally"></a>PowerShell'i yerel olarak kullanma
 
-Yerine PowerShell, bilgisayarınızda yerel olarak kullanıyorsanız, bulut Kabuğu'nu kullanarak, PowerShell modülü 6.1.1 yüklemelisiniz ya da daha yüksek. Yüklediğiniz PowerShell sürümünü denetlemek için aşağıdaki komutu kullanın:
+Yerine PowerShell, bilgisayarınızda yerel olarak kullanıyorsanız, Cloud Shell'i kullanmak, PowerShell modülü 6.1.1 yüklemeniz gerekir ya da daha yüksek. Yüklü PowerShell sürümü denetlemek için aşağıdaki komutu kullanın:
 
 ```azurepowershell
 Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
@@ -97,9 +97,9 @@ Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershel
 
 ## <a name="enroll"></a>1. Önizlemede kaydetme
 
-Bölge olarak yedekli veya zonal bir ağ geçidi yapılandırmadan önce ilk önizleme aboneliğinizde Self kaydetmelisiniz. Aboneliğinizi sağlandıktan sonra yeni ağ geçidi SKU'ları Azure AZ bölgeler tümünde görmek başlar. 
+Bölgesel olarak yedekli ya da bölgesel bir ağ geçidi yapılandırmadan önce ilk önizleme aboneliğinizde Self kaydetmelisiniz. Aboneliğinizi sağlandıktan sonra yeni ağ geçidi SKU'ları Azure AZ bölgeleri tümünde görmeye başlarsınız. 
 
-Azure hesabınızda oturum ve bu Önizleme için beyaz liste ile istediğiniz abonelik kullandığınızdan emin olun. Kaydetmek için aşağıdaki örneği kullanın:
+Azure hesabınızda oturum açmış ve bu Önizleme için beyaz listeye almak istediğiniz aboneliği kullanarak emin olun. Kaydetmek için aşağıdaki örneği kullanın:
 
 ```azurepowershell-interactive
 Register-AzureRmProviderFeature -FeatureName AllowVMSSVirtualNetworkGateway -ProviderNamespace Microsoft.Network
@@ -112,13 +112,13 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network
 ```
 
-Sonuç bu örneğe benzer görünür:
+Sonuçları şu örneğe benzer görünecektir:
 
 ![sağlanan](./media/create-zone-redundant-vnet-gateway/verifypreview.png)
 
 ## <a name="variables"></a>2. Değişkenlerinizi bildirme
 
-Örnek adımlar için kullanılan değerleri aşağıda listelenmiştir. Ayrıca, bazı örnekler bildirilen değişkenler adımları kullanın. Bu adımları, kendi ortamınızda kullanıyorsanız, bu değerleri kendinizinkilerle değiştirildiğinden emin olun. Konumu belirtirken, belirttiğiniz bölge desteklendiğinden emin olun. Daha fazla bilgi için bkz: [SSS](#faq).
+Örnek adımları için kullanılan değerleri aşağıda listelenmiştir. Ayrıca, bazı örneklerde adımları içinde bildirilen değişkenleri kullanır. Kendi ortamınızda adımları kullanıyorsanız, bu değerleri kendi değerlerinizle değiştirdiğinizden emin olun. Konumu belirtirken, belirttiğiniz bölgelerin desteklendiğini doğrulayın. Daha fazla bilgi için [SSS](#faq).
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"
@@ -154,7 +154,7 @@ $vnet = New-AzureRmVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location
 
 ## <a name="gwsub"></a>4. Ağ geçidi alt ağı ekleme
 
-Ağ geçidi alt ağı sanal ağ geçidi hizmetlerini kullanmak ayrılmış IP adresleri içerir. Aşağıdaki örnekler eklemek ve bir ağ geçidi alt ağı belirlemek için kullanın:
+Ağ geçidi alt ağı sanal ağ geçidi hizmetlerinin kullandığı ayrılmış IP adreslerini içerir. Ekleme ve bir ağ geçidi alt ağı ayarlamak için aşağıdaki örnekleri kullanın:
 
 Ağ geçidi alt ağını ekleyin.
 
@@ -163,26 +163,26 @@ $getvnet = Get-AzureRmVirtualNetwork -ResourceGroupName $RG1 -Name VNet1
 Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $getvnet
 ```
 
-Sanal ağ için ağ geçidi alt ağ yapılandırması ayarlayın.
+Sanal ağ geçidi alt ağ yapılandırmasını ayarlayın.
 
 ```azurepowershell-interactive
 $getvnet | Set-AzureRmVirtualNetwork
 ```
 ## <a name="publicip"></a>5. Genel bir IP adresi talep etme
  
-Bu adımda, oluşturmak istediğiniz ağ geçidi için geçerli olan yönergeleri seçin. Ağ geçitleri dağıtmak için bölgeler seçimi için genel IP adresi belirtilen bölgeleri bağlıdır.
+Bu adımda, oluşturmak istediğiniz ağ geçidi için geçerli olan yönergeler seçin. Ağ geçidi dağıtmak için bölge seçimini bölgeler için genel IP adresi belirtilen bağlıdır.
 
-### <a name="ipzoneredundant"></a>Bölge olarak yedekli ağ geçitleri için
+### <a name="ipzoneredundant"></a>Bölgesel olarak yedekli ağ geçitleri için
 
-Bir ortak IP adresiyle isteği bir **standart** Publicıpaddress SKU ve herhangi bir bölgeye belirtmeyin. Bu durumda, oluşturulan standart ortak IP adresi bölge olarak yedekli bir genel IP olacaktır.   
+Genel bir IP adresi ile istek bir **standart** Publicıpaddress SKU ve herhangi bir bölge belirtmeyin. Bu durumda, oluşturulan standart genel IP adresini, bölgesel olarak yedekli genel IP olacaktır.   
 
 ```azurepowershell-interactive
 $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="ipzonalgw"></a>Zonal ağ geçitleri için
+### <a name="ipzonalgw"></a>İçin bölgesel ağ geçitleri
 
-Bir ortak IP adresiyle isteği bir **standart** Publicıpaddress SKU. (1, 2 veya 3) dilimini belirtin. Tüm ağ geçidi örnekleri bu bölgeye dağıtılır.
+Genel bir IP adresi ile istek bir **standart** Publicıpaddress SKU. Bölgeyi (1, 2 veya 3) belirtin. Tüm ağ geçidi örnekleri, bu bölgeye dağıtılır.
 
 ```azurepowershell-interactive
 $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
@@ -190,7 +190,7 @@ $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Nam
 
 ### <a name="ipregionalgw"></a>İçin bölgesel ağ geçitleri
 
-Bir ortak IP adresiyle isteği bir **temel** Publicıpaddress SKU. Bu durumda, ağ geçidi bölgesel bir ağ geçidi olarak dağıtılır ve ağ geçidine yerleşik bölge artıklık yok. Ağ geçidi örnekleri tüm bölgelerde sırasıyla oluşturulur.
+Genel bir IP adresi ile istek bir **temel** Publicıpaddress SKU. Bu durumda, ağ geçidi bölgesel bir ağ geçidi olarak dağıtılır ve ağ geçidinde yerleşik bölge artıklığı sahip değil. Ağ geçidi örnekleri tüm bölgelerde sırasıyla oluşturulur.
 
 ```azurepowershell-interactive
 $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
@@ -207,64 +207,64 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $
 
 Sanal ağ geçidi oluşturun.
 
->[!NOTE]
->Bu aşamada, ağ geçidi SKU'su belirtemezsiniz. SKU otomatik olarak ErGw1AZ için ExpressRoute ve VpnGw1AZ VPN ağ geçidi için varsayılan olarak alır.
->
-
 ### <a name="for-expressroute"></a>ExpressRoute için
 
 ```azurepowershell-interactive
 New-AzureRmVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType ExpressRoute
 ```
 
-### <a name="for-vpn-gateway"></a>VPN ağ geçidi için
+### <a name="for-vpn-gateway"></a>VPN ağ geçidi
 
 ```azurepowershell-interactive
 New-AzureRmVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased
 ```
 
-## <a name="feedback"></a>Geribildirim sağlama
+## <a name="feedback"></a>Geri bildirim sağlama
 
-Görüşleriniz bizim için önemlidir. E-posta Gönder aznetworkgateways@microsoft.com sorunları veya bölge olarak yedekli ve zonal VPN ve Expressroute ağ geçitleri için (olumlu veya olumsuz) görüş bildirin. "[]" Şirket adınızı konu satırında içerir. Bir sorun bildiriyorsanız, abonelik kimliği de içerir.
+Görüşleriniz bizim için önemlidir. Bir e-posta Gönder aznetworkgateways@microsoft.com herhangi bir sorun bildirin veya bölgesel olarak yedekli ve bölgesel VPN ve Expressroute ağ geçitleri için (pozitif veya negatif) geri bildirim sağlamak için. "[]" Şirket adınızı konu satırında içerir. Bir sorun bildiriyorsanız de abonelik Kimliğinizi içerir.
 
 ## <a name="faq"></a>SSS
 
-### <a name="how-do-i-sign-up-for-the-preview"></a>Nasıl Önizleme için kaydolabilirim?
+### <a name="how-do-i-sign-up-for-the-preview"></a>Önizleme için nasıl kaydolabilirim?
 
 Yapabilecekleriniz [kendi kendinize kaydetmeniz](#enroll) bu makalede PowerShell komutlarını kullanarak.
 
-### <a name="what-will-change-when-i-enroll"></a>Cihazımı kaydettiğimde ne değişir mi?
+### <a name="what-will-change-when-i-enroll"></a>I kaydettiğinizde ne değişecek mi?
 
-Açısından bakıldığında, Önizleme süresince, ağ geçitleri bölge artıklık ile dağıtabilirsiniz. Bu, ağ geçitleri tüm örneklerini Azure kullanılabilirlik dilimlerinde dağıtılır ve farklı bir arıza ve güncelleştirme etki her kullanılabilirlik bölgedir anlamına gelir. Bu, ağ geçitleri daha güvenilir, kullanılabilir ve esnek bölge hatalarını hale getirir.
+Açısından bakıldığında, Önizleme sırasında bölge yedekliliği ile ağ geçitlerinizi dağıtabilirsiniz. Bu, ağ geçitleri tüm örneklerini Azure kullanılabilirlik alanları genelinde dağıtılacak ve her kullanılabilirlik alanı farklı hata ve güncelleme etki alanı olduğu anlamına gelir. Bu ağ geçitlerinizi daha güvenilir, kullanılabilir ve dayanıklı bölge hatalarını sağlar.
 
-### <a name="what-regions-are-available-for-the-preview"></a>Önizleme için hangi bölgelerde kullanılabilir?
+### <a name="can-i-use-the-azure-portal"></a>Azure portalını kullanabilir miyim?
 
-Bölge olarak yedekli ve zonal ağ geçitleri üretim/Azure ortak bölgelerde kullanılabilir.
+Evet, Önizleme için Azure portalını kullanabilirsiniz. Ancak, yine de PowerShell kullanarak kendi kendilerine kaydolmalarına gerekiyorsa veya portal Önizleme sırasında kullanmanız mümkün olmayacaktır.
 
-### <a name="will-i-be-billed-for-participating-in-this-preview"></a>I bu önizlemede katılmak için Fatura edilecek?
+### <a name="what-regions-are-available-for-the-preview"></a>Önizleme için hangi bölgeler mevcuttur?
 
-Size, ağ geçitleri için Önizleme sırasında Fatura edilecek değil. Ancak, dağıtımınıza bağlı hiçbir SLA yoktur. Geri bildiriminiz işitme çok ilgi duyuyoruz.
+Bölgesel olarak yedekli ve bölgesel ağ geçitleri üretim/Azure genel bölgelerde kullanılabilir.
+
+### <a name="will-i-be-billed-for-participating-in-this-preview"></a>Bu önizleme sürümünde katıldığınız için faturalandırılırım?
+
+Ağ geçitlerinizi için Önizleme sırasında faturalandırılırsınız değil. Ancak, dağıtımınıza bağlı SLA yoktur. Geri bildirimlerinizi almaktan içinde çok ilgi duyuyoruz.
 
 > [!NOTE]
-> ExpressRoute ağ geçidi için ağ geçidi faturalandırılır ve Ücret değil. Ancak, bağlantı hattı kendisini (ağ geçidi değil) Fatura edilecek.
+> ExpressRoute ağ geçitleri için ağ geçidi olarak faturalandırılır ve dolu değil. Ancak, bağlantı hattı kendisi (ağ geçidini değil) faturalandırılırsınız.
 
-### <a name="what-regions-are-available-for-me-to-try-this-in"></a>Benim bu denemek için hangi bölgelerde kullanılabilir?
+### <a name="what-regions-are-available-for-me-to-try-this-in"></a>Bana bu denemek için hangi bölgeler mevcuttur?
 
-Genel Önizleme Orta ABD ve Fransa merkezi bölgelerde (genel olarak kullanılabilir kullanılabilirlik bölgeleri Azure bölgeleri) kullanılabilir. İleride, bölge olarak yedekli ağ geçitleri kullanılabilir, diğer Azure ortak bölgelerde yapacağız.
+Orta ABD ve orta Fransa'da bölgelerde (kullanılabilirlik alanları genel kullanıma açık olan Azure bölgeleri) genel önizlemede kullanılabilir. Bundan sonra bölgesel olarak yedekli ağ geçitleri kullanılabilir, diğer Azure ortak bölgelerde bulunacağız.
 
-### <a name="can-i-change-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Bölge olarak yedekli veya zonal ağ geçitleri için varolan my sanal ağ geçitlerini değiştirebilir miyim?
+### <a name="can-i-change-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Bölgesel olarak yedekli ya da bölgesel ağ geçitleri için var olan sanal ağ geçitlerim değiştirebilirim?
 
-Bölge olarak yedekli veya zonal ağ geçitleri, var olan sanal ağ geçitlerine geçirme şu anda desteklenmiyor. Ancak, mevcut ağ geçidini silin ve bölge olarak yedekli veya zonal bir ağ geçidi yeniden oluşturun.
+Bölgesel olarak yedekli ya da bölgesel ağ geçitleri için var olan sanal ağ geçitlerinizi geçişi şu anda desteklenmiyor. Bununla birlikte, mevcut ağ geçidinizi silin ve bölgesel olarak yedekli ya da bölgesel bir ağ geçidi yeniden oluşturun.
 
-### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Aynı sanal ağda hem VPN hem de hızlı rota ağ geçitleri dağıtabilir miyim?
+### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Ben, aynı sanal ağdaki VPN hem Expressroute ağ geçitleri dağıtabilir miyim?
 
-VPN ve Expressroute ağ geçitlerinin aynı sanal ağda birlikte bulunma genel Önizleme sırasında desteklenir. Ancak, aşağıdaki gereksinimleri ve sınırlamaları dikkat edin:
+Aynı anda var olmalarına aynı sanal ağda hem VPN hem de Express Route ağ geçidi, genel Önizleme sırasında desteklenir. Ancak, aşağıdaki gereksinimler ve sınırlamalar dikkat edin:
 
-* Ayırma /27 bir ağ geçidi alt ağı için IP adresi aralığı.
-* Bölge-yedek/zonal hızlı rota ağ geçitleri yalnızca bölge-yedek/zonal VPN ağ geçitleri ile birlikte var olabilir.
-* Bölge-yedek/zonal VPN ağ geçidi dağıtmadan önce bölge-yedek/zonal Expressroute ağ geçidi dağıtın.
-* Bir bölge-yedek/zonal Expressroute ağ geçidi için en fazla 4 devreler bağlanabilir.
+* Ayrılan en az/27 bir ağ geçidi alt ağı için IP adresi aralığı.
+* Bölge-yedekli/bölgesel Express Route ağ geçidi ile bölgeye-yedekli/bölgesel VPN ağ geçitleri yalnızca birlikte bulunabilir.
+* Bölge-yedekli/bölgesel VPN ağ geçidi dağıtmadan önce bölge-yedekli/bölgesel Express Route ağ geçidi dağıtın.
+* Bölge-yedekli/bölgesel bir Express Route ağ geçidi en fazla 4 bağlantı hatları için bağlantılı olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Görüşleriniz bizim için önemlidir. E-posta Gönder aznetworkgateways@microsoft.com sorunları veya bölge olarak yedekli ve zonal VPN ve Expressroute ağ geçitleri için (olumlu veya olumsuz) görüş bildirin. "[]" Şirket adınızı konu satırında içerir. Bir sorun bildiriyorsanız, abonelik kimliği de içerir.
+Görüşleriniz bizim için önemlidir. Bir e-posta Gönder aznetworkgateways@microsoft.com herhangi bir sorun bildirin veya bölgesel olarak yedekli ve bölgesel VPN ve Expressroute ağ geçitleri için (pozitif veya negatif) geri bildirim sağlamak için. "[]" Şirket adınızı konu satırında içerir. Bir sorun bildiriyorsanız de abonelik Kimliğinizi içerir.

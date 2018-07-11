@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1c68c586fb799a540f70804d181aa66b2bda9e97
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344840"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952547"
 ---
 # <a name="what-is-language-understanding-luis"></a>Language Understanding (LUIS) nedir?
 Language Understanding (LUIS) genel anlamı tahmin edin ve ilgili ve ayrıntılı bilgileri almak için bir kullanıcının konuşma, doğal dil metinlerinde özel makine öğrenimi uygulanan bir bulut tabanlı bir hizmettir. 
@@ -99,7 +99,7 @@ Bir örnek [utterance](luis-how-to-add-example-utterances.md) metin girişi kull
 LUIS uygulamanızı yayımlanır ve gerçek kullanıcı konuşma aldıktan sonra LUIS tahmin doğruluğunu artırmak için çeşitli yöntemler sunar: [etkin olarak öğrenmeye](#active-learning) konuşma uç noktası,'ın [tümcecik listeleri](#phrase-lists) etki alanı ekleme, Word ve [desenleri](#patterns) gerekli konuşma sayısını azaltmak için.
 
 ### <a name="active-learning"></a>Etkin öğrenme
-İçinde [etkin olarak öğrenmeye](label-suggested-utterances.md) işlem, LUIS, aldığı gözden geçirmeniz için uç noktasında konuşma seçerek LUIS uygulamanızı gerçek konuşma uyum sağlar. Kabul edebilir veya uç nokta tahmin, retrain ve sitemde yeniden yayınlayacağım düzeltin. LUIS ile yinelemeli bu işlem, en az miktarda zaman ve çaba alma hızlı öğrenir. 
+İçinde [etkin olarak öğrenmeye](luis-how-to-review-endoint-utt.md) işlem, LUIS, aldığı gözden geçirmeniz için uç noktasında konuşma seçerek LUIS uygulamanızı gerçek konuşma uyum sağlar. Kabul edebilir veya uç nokta tahmin, retrain ve sitemde yeniden yayınlayacağım düzeltin. LUIS ile yinelemeli bu işlem, en az miktarda zaman ve çaba alma hızlı öğrenir. 
 
 ### <a name="phrase-lists"></a>Tümcecik listeleri 
 LUIS sağlar [listeleri tümceleri](luis-concept-feature.md) modeli etki alanınıza önemli bir sözcük ve tümcecikleri belirtmek için. LUIS, bu sözcükler ve aksi takdirde modelde bulunamaz tümcecikleri ek anlam eklemek için bu listeleri kullanır.

@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8d52469e11ac508ee8b353311f6040ac9d6f2e4e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 85bea1b042eb9b882022118d36e5a55a802a1bdc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447158"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950572"
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management'ı yönetmek için erişim verme
 Azure AD Privileged Identity Management (PIM) bir kuruluş için otomatik olarak sağlayan bir genel yönetici rolü atamalarını ve PIM erişimi alın. Başka hiç kimse yazma erişimi varsayılan olarak, ancak diğer genel yöneticileri dahil alır. Diğer genel Yöneticiler, güvenlik yöneticileri ve güvenlik okuyucuları Azure AD PIM salt okunur erişimi vardır. PIM erişimi verme, ilk kullanıcı başkalarına atayabilirsiniz **ayrıcalıklı Rol Yöneticisi** rol.
@@ -34,10 +34,10 @@ Her zaman en az iki kullanıcı bir ayrıcalıklı Rol Yöneticisi rolünde bir 
 1. Oturum [Azure portalında](https://portal.azure.com/) seçip **Azure AD Privileged Identity Management** Panoda uygulama.
 2. Seçin **ayrıcalıklı rollerimi Yönet** > **ayrıcalıklı Rol Yöneticisi** > **Ekle**.
    
-    ![Ayrıcalıklı rol yöneticileri - ekran görüntüsü Ekle][1]
+    ![Ayrıcalıklı rol yöneticileri - ekran görüntüsü Ekle](./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png)
 3. Yönetilen Kullanıcı Ekle dikey, 1. adım zaten tamamlandı. 2. adımı seçin **Seçili kullanıcılar** eklemek istediğiniz kullanıcıyı arayın.
    
-    ![Kullanıcılar - ekran görüntüsü][2]
+    ![Kullanıcılar - ekran görüntüsü](./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png)
 4. Arama sonuçlarından kullanıcı seçin ve tıklayın **Bitti**.
 5. Tıklayın **Tamam** seçiminizi kaydetmek için. Seçtiğiniz kullanıcı ayrıcalıklı rol yöneticileri listesinde görünür.
    
@@ -55,8 +55,3 @@ Biri ayrıcalıklı rol yönetici rolünden kaldırmadan önce her zaman Ayrıca
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png

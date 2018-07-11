@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: f55574f7a9ffbcc2a1c8bd160bb66336b59c348c
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 90b53bf1334a68fcea813653a7f6d28f362fbd2e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888612"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950657"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Geliştirme ve uç noktası kullanıcı erişimi
 Erişim geliştirme sahipleri ve ortak çalışanlar için kullanılabilir. Özel bir uygulama için erişim uç noktası sahipleri ve ortak çalışanlar için kullanılabilir. Genel bir uygulama için uç nokta kendi LUIS hesabını ve genel uygulama kimliğine sahip herkes için erişilebilir 
@@ -33,7 +33,7 @@ Sahibi ve tüm ortak çalışanlar uygulama yazma erişimi vardır.
 |Uygulama genel yap|Uygulama genel olduğunda, herhangi bir yazma ya da uç noktası anahtarı ile uygulama sorgulayabilirsiniz.|
 |Modeli Değiştir|
 |Yayımlama|
-|Gözden geçirme için uç nokta konuşma [etkin öğrenme](label-suggested-utterances.md)|
+|Gözden geçirme için uç nokta konuşma [etkin öğrenme](luis-how-to-review-endoint-utt.md)|
 |Eğitim|
 
 ## <a name="access-to-endpoint"></a>Erişim uç noktası

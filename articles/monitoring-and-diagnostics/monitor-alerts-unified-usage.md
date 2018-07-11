@@ -1,6 +1,6 @@
 ---
-title: Oluşturun, görüntüleyin ve yönetin Azure İzleyicisi'ni kullanarak uyarıları
-description: Yazar, görüntülemek ve ölçüm yönetmek ve uyarı kuralları tek bir yerden oturum için yeni birleşik Azure uyarıları deneyimi kullanın.
+title: Oluşturun, görüntüleyin ve yönetin Azure İzleyici'yi kullanarak uyarıları
+description: Yazar, görüntülemek ve ölçüm yönetmek ve tek bir yerden günlük uyarısı kuralları için yeni birleşik Azure uyarı deneyiminden kullanın.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,171 +8,171 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 9ade63c07003ead55e63093ae74e876589ec8d61
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
-ms.translationtype: HT
+ms.openlocfilehash: a913075c051c6b784495917b7edbd7340254a212
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287846"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952639"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme  
 
 ## <a name="overview"></a>Genel Bakış
-Bu makalede Azure portalın içinde yeni uyarılar arabirimini kullanarak uyarıları ayarlama gösterilmiştir. Bir uyarı kuralı tanımını üç bölümlerinde şöyledir:
-- Hedef: izlenmesi için belirli Azure kaynağı,
-- Ölçüt: Belirli bir koşulun veya mantığı, sinyalin görülen, eylem tetiklemesi gereken
-- Eylem: Belirli çağrısı bir bildirim - alıcıya gönderilen, SMS, Web kancası vb. e-posta.
+Bu makalede, Azure portalı içinde yeni uyarılar arabirimini kullanarak uyarıları ayarlama işlemini göstermektedir. Bir uyarı kuralı tanımı üç bölümlerinde verilmiştir:
+- Hedef: izlenecek belirli Azure kaynağı
+- Ölçüt: Belirli bir koşulu veya mantıksal, sinyalin görülen, tetikleyici
+- Eylem: Bir - bildirim alıcısı için belirli çağrı gönderilen, SMS, Web kancası vb. e-posta.
 
-Azure uyarıları, ayrıca tüm uyarı kuralları ve tek bir konumdan yönetme becerisini birleşik bir görünüm sağlar; Çözümlenmemiş tüm uyarıları görüntüleme dahil olmak üzere. İşlevinden hakkında daha fazla bilgi [Azure uyarılar - genel bakış](monitoring-overview-unified-alerts.md).
+Azure uyarıları, ayrıca tüm uyarı kuralları ve bunları tek bir yerde yönetme becerisini birleşik bir görünümünü sağlar. Çözümlenmemiş tüm uyarıları görüntüleme dahil olmak üzere. İşlevi hakkında daha fazla bilgi [Azure uyarıları - genel bakış](monitoring-overview-unified-alerts.md).
 
-Uyarı kullanan terimi **günlük uyarıları** sinyal dayalı özel sorgu olduğu uyarıları açıklamak için [günlük analizi](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-analytics.md). [Yeni ölçüm uyarı özelliği](monitoring-near-real-time-metric-alerts.md) uyarı yeteneği sağlar [çok boyutlu ölçümleri](monitoring-metric-charts.md) belirli Azure kaynakları için. Bu kaynak için ek filtreler oluşturma boyutlarında kullanabilirsiniz **çok boyutlu ölçüm uyarıları**.
+Uyarı kullanan terimi **günlük uyarıları** dayalı özel sorgu olduğu sinyal uyarılarını açıklamak için [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-analytics.md). [Yeni ölçüm uyarısı özelliğinin](monitoring-near-real-time-metric-alerts.md) uyarı yeteneği sağlar [çok boyutlu ölçümler](monitoring-metric-charts.md) belirli Azure kaynakları için. Bu kaynak için uyarıları oluşturma boyutlara ek filtreler kullanabilirsiniz **çok boyutlu ölçüm uyarıları**.
 
 
 > [!NOTE]
-> Azure uyarılarını Azure'da uyarıları oluşturmak için yeni ve geliştirilmiş bir deneyim sunar. Varolan [uyarıları (Klasik)](monitoring-overview-alerts.md) deneyimi kullanılabilir kalır.
+> Azure uyarılarını Azure'da uyarılar oluşturmak için yeni ve geliştirilmiş bir deneyim sunar. Varolan [uyarılar (Klasik)](monitoring-overview-alerts.md) deneyimi kullanılabilir kalır.
 >
 
-Ayrıntılı İleri Azure uyarıları kullanarak adım adım Kılavuzu ' dir.
+Ayrıntılı sonraki Azure Uyarıları'nı kullanarak adım adım kılavuzdur.
 
 ## <a name="create-an-alert-rule-with-the-azure-portal"></a>Azure Portal ile bir uyarı kuralı oluşturma
-1. İçinde [portal](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarıları**.  
+1. İçinde [portalı](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarılar**.  
     ![İzleme](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
 
-2. Seçin **yeni uyarı kuralı** Azure'da yeni bir uyarı oluşturma düğmesi.
-    ![Uyarı ekleme](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+2. Seçin **yeni uyarı kuralı** Azure'da yeni bir uyarı oluşturmak için.
+    ![Uyarı Ekle](./media/monitor-alerts-unified/AlertsPreviewOption.png)
 
-3. Uyarı oluşturma bölümüne üç bölümden oluşan ile gösterilir: *Uyarı koşulu tanımla*, *uyarı ayrıntılarını tanımlayın*, ve *tanımla eylem grubu*.
+3. Uyarı oluşturma bölümünde, üç bölümden oluşan ile gösterilir: *uyarı koşulunu tanımlama*, *uyarı ayrıntılarını tanımlama*, ve *tanımla eylem grubu*.
 
     ![Kural oluşturma](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-4.  Uyarı koşulu kullanarak tanımlayın **Select Resource** bağlantı ve bir kaynak seçerek hedef belirleme. Filtre seçerek * abonelik, * kaynak türü ve son olarak seçerek gerekli *kaynak*.
+4.  Kullanarak uyarı koşulunu tanımlama **seçin kaynak** bağlantı ve hedef bir kaynak seçerek belirtme. Filtre belirleyerek * abonelik * kaynak türüne ve son olarak seçerek gerekli *kaynak*.
 
     >[!NOTE]
 
-    > Devam etmeden önce seçili kaynak için sinyalleri doğrulayın.
+    > Devam etmeden önce seçili kaynak için sinyal doğrulayın.
 
     ![Kaynak seçin](./media/monitor-alerts-unified/Alert-SelectResource.png)
 
- Kullanıcı arabirimi, tek bir yerden çeşitli türde bir uyarı oluşturmanıza olanak sağlar. İstenen uyarı türüne göre sonraki adım olarak seçin:
+ Kullanıcı arabirimi, çeşitli uyarı türleri tek bir yerden oluşturmanıza olanak sağlar. İstenen uyarı türüne göre sonraki adım olarak seçin:
 
-    - İçin **ölçüm uyarıları**: 5-7 adımları; ardından doğrudan 11. adıma gidin
-    - İçin **günlük uyarıları**, adım 8'a geçin.
+    - İçin **ölçüm uyarıları**: 5-7. adımları uygulayın; ardından doğrudan 11. adıma gidin
+    - İçin **günlük uyarıları**, 8. adımına atlayabilirsiniz.
 
     > [!NOTE]
 
-    > Etkinlik günlüğü uyarıları da desteklenir, ancak önizlemede. [Daha fazla bilgi edinin](monitoring-activity-log-alerts-new-experience.md).
+    > Etkinlik günlüğü uyarıları da desteklenir, ancak Önizleme aşamasındadır. [Daha fazla bilgi edinin](monitoring-activity-log-alerts-new-experience.md).
 
-5. * Ölçüm uyarıları: Olun **kaynak türü** sinyal türü ile seçilen **ölçüm**, sonra bir kez uygun **kaynak** tıklatın seçilen *Bitti*oluşturma uyarısı dönmek için düğmesini. Sonraki kullanmak **ölçüt eklemek** daha önce seçilen kaynak için kullanılabilir olan belirli sinyal sinyal seçenekleri, izleme hizmeti ve listelenen - türü listesinden seçmek için düğmesi.
+5. *Ölçüm uyarıları*: olun **kaynak türü** sinyal türü ile seçilen **ölçüm**sonra bir kez uygun **kaynak** tıklatın seçilir  *Bitti* oluşturma uyarısı döndürülecek düğmesi. Ardından **Ölçüt Ekle** daha önce seçilen kaynak için kullanılabilen sinyal seçenekleri, izleme hizmeti ve listelenen - türü listesinden belirli bir sinyal seçmek için düğme.
 
     ![Bir kaynak seçin](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
     > [!NOTE]
 
-    >  Tüm [yakın gerçek zamanlı uyarılar](monitoring-near-real-time-metric-alerts.md) özellikli kaynakları izleme hizmetiyle listelenen **Platform** ve sinyal türü olarak **ölçümü**
+    >  Tüm [neredeyse gerçek zamanlı uyarılar](monitoring-near-real-time-metric-alerts.md) olabilecek kaynakların İzleyici hizmetiyle listelenen **Platform** ve sinyal türü olarak **ölçüm**
 
-6. *Ölçüm uyarıları*: sinyal seçtikten sonra uyarı verme mantığı belirtilebilir. Başvuru için geçmiş veriler sinyali zaman penceresini kullanarak ince ayar seçeneğiyle gösterilir **geçmişini göster**, geçen hafta için son altı saat değişen. Görselleştirme, yerinde ile **uyarı mantığı** koşul, toplama ve son olarak eşik gösterilen seçeneklerinden seçilebilir. Önizleme sağlanan mantığı uyarıyı tetikleyen belirten koşul görselleştirme sinyal geçmişi birlikte gösterilir. Son olarak hangi süre için uyarı için belirtilen koşul seçerek görünmelidir belirtin **süresi** seçerek uyarı ne sıklıkla çalışmalı birlikte seçeneği **sıklığı**.
+6. *Ölçüm uyarıları*: sinyal seçtikten sonra uyarı vermek için mantık belirtilebilir. Başvuru için geçmiş veri sinyali zaman penceresini kullanarak ince seçeneğiyle gösterilir **Geçmişi Göster**, geçen hafta için son altı saat farklı. Bir yerde görselleştirme ile **Alert Logic** koşulu, toplama ve son olarak eşiği gösterilen seçeneklerden seçilebilir. Sağlanan mantığı önizleme olarak uyarı tetiklemesi belirten koşul sinyal geçmişi yanı sıra görselleştirme gösterilir. Son olarak hangi süre için uyarı için belirtilen koşul seçerek nasıl olması gerektiğini belirlemek **süresi** ne sıklıkta uyarı seçerek çalışması gereken birlikte seçeneği **sıklığı**.
 
-    ![Ölçüm için sinyal mantığını yapılandırın](./media/monitor-alerts-unified/AlertsPreviewCriteria.png)
+    ![Ölçüm için sinyal mantığını yapılandırma](./media/monitor-alerts-unified/AlertsPreviewCriteria.png)
 
-7. *Ölçüm uyarıları*: durumunda sinyal olan bir ölçüm sonra uyarı pencere konusu Azure kaynağı için birden fazla veri noktası veya boyutları kullanarak filtre uygulanmış. 
+7. *Ölçüm uyarıları*: varsa sinyaldir bir ölçüm ve ardından söz konusu Azure kaynağı için birden çok veri noktaları veya boyutları kullanarak uyarı pencere filtrelenebilir. 
 
-    a. Bir süresini seçin **geçmişini göster** farklı bir zaman aralığında görselleştirmek için açılır. Bir zaman serisinin filtrelemek desteklenen ölçümler için Boyutlar seçebilirsiniz; Boyutları seçme isteğe bağlıdır ve yukarı-için beş boyutlar kullanılabilir. 
+    a. Bir süreye seçin **Geçmişi Göster** farklı bir süre görselleştirmek için açılır. Zaman serisinde bulunan filtre uygulamak desteklenen ölçümler için boyut seçebilirsiniz; Boyutları seçme isteğe bağlıdır ve yukarı-beş boyutlarının kullanılabilir. 
 
-    b. **Uyarı mantığı** gösterilen seçenekler arasından seçili *koşulu*, * toplama ve *eşik*. Önizleme sağlanan mantığı geçmişte uyarının belirten koşul görselleştirme sinyal geçmişi birlikte gösterilir. 
+    b. **Uyarı mantığı** gösterilen seçenekler arasından seçilebilecek *koşul*, *, toplama ve *eşiği*. Sağlanan mantıksal önizleme olarak, geçmişte uyarı Tetiklenmiş zamanı belirten koşul görselleştirmeyi sinyal geçmişi ile birlikte gösterilir. 
 
-    c. Süreyi belirtmek için **süresi** seçerek uyarı birlikte ne sıklıkla çalışmalı **sıklığı**.
+    c. Süreyi belirtmek için **süresi** uyarı seçerek ne sıklıkla birlikte çalışması gereken **sıklığı**.
 
-    ![Çok boyutlu ölçüm için sinyal mantığını yapılandırın](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
+    ![Çok boyutlu ölçüm için sinyal mantığını yapılandırma](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Oturum uyarıları*: olun **kaynak türü** gibi analytics kaynağıdır *günlük analizi* veya *Application Insights* ve sinyal türü olarak **günlük** , sonra bir kez uygun **kaynak** olan seçilen, tıklatın *Bitti*. Sonraki kullanmak **ölçüt eklemek** sinyal seçenekleri kaynağın ve sinyal listesinden kullanılabilir bir listesini görüntüle düğmesini **özel günlük arama** monitor hizmeti gibi seçilen günlüğü için seçenek *günlük Analytics* veya *Application Insights*.
+8. *Günlük uyarıları*: olun **kaynak türü** gibi bir analytics kaynak *Log Analytics* veya *Application Insights* ve sinyal türü olarak **günlüğü** sonra bir kez uygun **kaynak** olduğundan seçilen, tıklayın *Bitti*. Ardından **Ölçüt Ekle** sinyal sinyal listeden ve kaynak için kullanılabilir seçenekler listesini görüntüleyin düğmesine **özel günlük araması** seçilen gibi hizmetini izleme günlüğü için seçenek *günlük Analytics* veya *Application Insights*.
 
-   ![Bir kaynak - özel günlük arama seçin](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
+   ![Kaynak - özel bir günlük araması'nı seçin](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > Listeleri analytics sorgu sinyal türü - olarak alabilir uyarıları **günlük (kayıtlı sorgunun)**, çizimde görülen. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - Kaydet daha fazla ayrıntı sorgu adresinde kaydetme kullanarak [günlük arama günlük analizi kullanarak](../log-analytics/log-analytics-log-searches.md) veya [paylaşılan sorguda application ınsights Analytics](../log-analytics/log-analytics-overview.md). 
+   > Liste sinyal türü - analytics sorgusuna alma uyarılar **günlük (kayıtlı sorgu)**, çizimde görüldüğü gibi. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - kaydetmek daha fazla ayrıntı bulunabilir sorgu kaydetme kullanarak [log analytics'te günlük arama özelliğini kullanarak](../log-analytics/log-analytics-log-searches.md) veya [application ınsights'ta paylaşılan sorgu Analytics](../log-analytics/log-analytics-overview.md). 
 
-9.  *Oturum uyarıları*: içinde seçildikten sonra uyarı verme sorgu belirtilebilir **arama sorgusu** sorgu sözdizimi yanlışsa alan kırmızı hata görüntüler; alan. Sorgu Sözdizimi doğruysa - başvuru için belirtilen sorgu geçmiş verileri son altı saat zaman penceresinden geçen hafta için ince ayar seçeneğiyle bir grafik olarak gösterilir.
+9.  *Günlük uyarıları*: içinde seçildiğinde, uyarı için sorgu belirtilebilir **arama sorgusu** sorgu söz dizimi yanlışsa alanda hata kırmızı renkte görüntülenir; alan. Sorgu Sözdizimi doğruysa - başvuru için belirtilen sorgu geçmiş veri son altı saat zaman penceresinden geçen hafta için ince seçeneğiyle bir grafik olarak gösterilir.
 
- ![Uyarı kuralı yapılandırma](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
+ ![Uyarı kuralını yapılandırın](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
 
  > [!NOTE]
 
-    > Geçmiş verileri görselleştirme yalnızca sorgu sonuçlarını saati ayrıntıları varsa gösterilebilir. Sorgunuz özetlenmiş veri veya belirli sütun değerleri - sonuçlanırsa aynı tekil bir çizim gösterilir.
+    > Geçmiş verileri görselleştirme, sorgu sonuçları saati ayrıntıları varsa yalnızca gösterilebilir. Özetlenmiş veriler veya belirli bir sütun değerleri -, sorgu sonuçları aynı tekil bir çizim gösterilir.
 
-    >  Günlük Application ınsights kullanarak uyarıları ölçüm ölçü türü için kullanarak verileri gruplandırmak üzere hangi belirli değişken belirtebilirsiniz **üzerinde toplama** ; aşağıda gösterildiği gibi seçeneği:
+    >  Application ınsights'ı kullanarak günlük uyarıları ölçüm ölçüsü türü için kullanarak verileri gruplandırmak için hangi belirli bir değişken belirtebilirsiniz **bulunan** ; aşağıda gösterildiği gibi seçeneği:
 
-    ![seçeneği toplama](./media/monitor-alerts-unified/aggregate-on.png)
+    ![toplama seçeneği](./media/monitor-alerts-unified/aggregate-on.png)
 
-10.  *Oturum uyarıları*: Görselleştirme, yerinde ile **uyarı mantığı** koşul, toplama ve son olarak eşik gösterilen seçeneklerinden seçilebilir. Son olarak mantığında belirtmek için belirtilen koşul, değerlendirmek için zaman kullanarak **süresi** seçeneği. Seçerek uyarı ne sıklıkla çalışmalı birlikte **sıklığı**.
-İçin **günlük uyarıları** uyarıları temel:
-   - *Kayıt sayısı*: sorgu tarafından döndürülen kayıt sayısını daha büyük ya da sağlanan değerden daha az ise bir uyarı oluşturulur.
-   - *Ölçüm ölçüm*: her değilse bir uyarı oluşturulur *toplama değeri* sonuçlarında sağlanan eşik değerini aşıyor ve bu *göre gruplandırılmış* değeri seçilir. Bir uyarı için dizi seçilen bir zaman diliminde eşiğini sayısıdır. Sonuç kümesi veya ihlallerini ardışık örnekler içinde gerçekleşmelidir gerektirecek şekilde ardışık ihlallerini arasında herhangi bir bileşimini ihlallerini için toplam ihlal belirtebilirsiniz. Daha fazla bilgi edinmek [günlük uyarıları ve türlerini](monitor-alerts-unified-log.md).
+10.  *Günlük uyarıları*: bir yerde görselleştirme ile **Alert Logic** koşulu, toplama ve son olarak eşiği gösterilen seçeneklerden seçilebilir. Son olarak mantığında belirtin belirtilen koşulun değerlendirme süresi kullanarak **süresi** seçeneği. Uyarı seçerek ne sıklıkta çalıştırılacağını birlikte **sıklığı**.
+İçin **günlük uyarıları** uyarılar temelinde:
+   - *Kayıt sayısı*: sorgu tarafından döndürülen kayıt sayısını büyüktür veya belirtilen değerden daha az ise bir uyarı oluşturulur.
+   - *Ölçüm ölçüsü*: her değilse bir uyarı oluşturulur *toplam değer* sonuçlarda sağlanan eşik değerini aşıyor ve bu *göre gruplandırılmış* değer seçildi. Seçili zaman aralığındaki eşiğini kaç kez uyarısının ihlallerini sayısıdır. Sonuç kümesi veya ihlallerini ardışık örnekler içinde gerçekleşmelidir gerektirecek şekilde ardışık ihlaller genelinde toplam ihlal sayısı için herhangi bir birleşimini ihlallerini belirtebilirsiniz. Daha fazla bilgi edinin [günlük uyarıları ve bunların türlerini](monitor-alerts-unified-log.md).
 
     > [!TIP]
-    > Uyarılar - günlük arama uyarıları şu anda özel sürebilir *süresi* ve *sıklığı* dakika değeri. Değerleri 1440 dakika (yani) 24 saat için 5 dakika arasında değişebilir. Uyarı dönemi deyin üç saat olmasını istiyorsanız, bu nedenle dönüştürmeden dakika içinde - kullanmadan önce 180 dakika
+    > Uyarılar - günlük arama uyarıları şu anda özel sürebilir *süresi* ve *sıklığı* dakika değeri. Değerleri 1440 dakika 24 saat (yani) 5 dakika arasında değişebilir. Uyarı dönemi deyin üç saat olmasını istiyorsanız, bu nedenle dönüştürmeden dakika içinde - kullanmadan önce 180 dakika
 
-11. İkinci adım olarak, uyarı için bir ad tanımlayın **uyarı kuralı adı** alanı ile birlikte bir **açıklama** uyarı özellikleri ayrıntılı ve **önem** değeri sağlanan seçenekleri. Bu ayrıntılar tüm uyarı e-postalar, bildirimleri veya Azure İzleyici tarafından yapılan itme yeniden kullanılır. Kullanıcı uygun şekilde değiştirerek uyarı kuralı, oluşturulduktan hemen etkinleştirmeye ek olarak, seçebilir **etkinleştir kural oluşturulduktan sonra** seçeneği.
+11. İkinci bir adım olarak, bir ad, uyarının tanımlayın **uyarı kuralı adı** alanı ile birlikte bir **açıklama** uyarı özellikleri gerçekleşen ve **önem derecesi** değerini Sağlanan seçenekler. Bu ayrıntılar, tüm uyarı e-postaları, bildirimleri veya Azure İzleyici tarafından gerçekleştirilen anında iletme tanımlarlar. Kullanıcı uygun şekilde değiştirerek uyarı kuralı oluşturma hemen etkinleştirmeye ek olarak, seçebilir **oluşturulduktan sonra kuralı etkinleştir** seçeneği.
 
-    İçin **günlük uyarıları** yalnızca, bazı ek işlevler uyarı ayrıntıları kullanılabilir:
+    İçin **günlük uyarıları** yalnızca, bazı ilave işlevler uyarı ayrıntıları kullanılabilir:
 
-    - **Uyarıları bastırma**: gizleme uyarı kuralı için etkinleştirdiğinizde, Eylemler kural için yeni bir uyarı oluşturduktan sonra tanımlı bir süre için devre dışı bırakılmış. Kural hala çalışıyor ve ölçütleri karşılanıyorsa sağlanan uyarı kayıtları oluşturur. Yinelenen eylemler çalıştırmadan sorunu düzeltmek için izin verme, süre.
+    - **Uyarıları bastır**: gizleme için uyarı kuralı etkinleştirdiğinizde, Eylemler kural için yeni bir uyarı oluşturduktan sonra tanımlı bir süre için devre dışı bırakılır. Kural hala çalışıyor ve ölçütler karşılanıyorsa sağlanan uyarı kayıtları oluşturur. Yinelenen eylemler çalıştırmadan sorunu düzeltmek için izin verme size zaman.
 
-        ![Günlük uyarılar için uyarıları bastırma](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
+        ![Günlük uyarıları için uyarıları bastır](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
 
         > [!TIP]
-        > Bildirimleri çakışma durdurulduğundan emin olmak için uyarı sıklığını büyük bastır bir uyarı değeri belirtin
+        > Bildirimleri çakışma durdurulduğundan emin olmak için uyarı sıklığını büyüktür bastır bir uyarı değerini belirtin
 
-12. Üçüncü ve son adımı belirttiğiniz varsa **eylem grubu** Uyarı koşulu karşılandığında için uyarı kuralı tetiklenmesi gerekiyor. Varolan bir eylem grubu uyarı ile seçin veya yeni bir eylem grubu oluşturun. Uyarı tetikleyici Azure olur olduğunda göre eylem, seçili grubu: email(s) göndermek, SMS(s) göndermek, Webhook(s) çağrısı, Azure runbook'ları, anında iletme ITSM aracı, vb. kullanarak düzeltin. Daha fazla bilgi edinmek [Eylem grupları](monitoring-action-groups.md).
+12. Üçüncü ve son adım olarak belirtmek varsa **eylem grubu** uyarı kuralı için Uyarı koşulu karşılandığında tetiklenen gerekir. Uyarı ile mevcut bir eylem grubu seçin veya yeni bir eylem grubu oluşturun. Şunlara göre bir uyarı tetikleyicisi Azure olur olduğunda bir eylem grubu seçili: email(s) göndermek, SMS(s) göndermek, Web kancası çağrısı, Azure runbook'ları, anında iletme ITSM aracına, vb. kullanarak düzeltin. Daha fazla bilgi edinin [Eylem grupları](monitoring-action-groups.md).
 
-    İçin **günlük uyarıları** varsayılan eylemleri geçersiz kılmak bazı ek işlevler kullanılabilir:
+    İçin **günlük uyarıları** bazı ilave işlevler şu varsayılan eylemleri geçersiz kılmak kullanılabilir:
 
-    - **E-posta bildirimi**: geçersiz kılmaları *e-posta konusu* eylem grubu; bir veya daha fazla e-posta Eylemler konusu eylemi grubunda varsa gönderilen e-posta. Posta gövdesini değiştirilemez ve bu alan **değil** e-posta adresi.
-    - **Özel Json yükünü dahil et**: bir veya daha fazla Web kancası eylemleri konusu eylemi grubunda mevcut; eylem grubu tarafından kullanılan JSON Web kancası geçersiz kılar. Kullanıcı ilişkili eylem grubunda yapılandırılmış tüm Web kancası için kullanılacak JSON biçimi belirtebilirsiniz; Web kancası biçimleri hakkında daha fazla bilgi için bkz: [günlük uyarılar için Web kancası eylem](monitor-alerts-unified-log-webhook.md). Test Web kancası seçeneği biçimi ve örnek JSON kullanarak hedef işlemesi denetlemek için sağlanır ve etiketli bu seçenek yalnızca amacı **sınama** amaçlar.
+    - **E-posta bildirimi**: geçersiz kılan *e-posta konusu* eylem grubu aracılığıyla; söz konusu eylem grubuna bir veya daha fazla e-posta eylemleri varsa gönderilen e-postadaki. Postanın gövdesini değiştiremezsiniz ve bu alan **değil** e-posta adresi.
+    - **Özel Json yükü dahil**: söz konusu eylem grubuna bir veya daha fazla Web kancası işlemleri mevcut Web kancası Eylem grupları tarafından; kullanılan JSON geçersiz kılar. Kullanıcı, ilişkili eylem grubunda yapılandırılmış tüm Web kancaları için kullanılmak üzere JSON biçimi belirtebilirsiniz; Web kancası biçimleri hakkında daha fazla bilgi için bkz. [günlük uyarıları için Web kancası eylemi](monitor-alerts-unified-log-webhook.md). Test Web kancası seçeneği, biçimi ve işleme örnek JSON kullanarak hedef tarafından denetlenecek sağlanır ve etiketli gibi bu seçenek yalnızca kuruluşunuz **test** amaçlar.
 
-        ![Günlük uyarılar için eylem geçersiz kılmaları](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+        ![Günlük uyarıları için eylem geçersiz kılmaları](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 
         > [!NOTE]
-        > İçin **Test Web kancası** çalışmaya seçeneği, endpoint desteklemelidir [arası kaynak kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/) ve kullanıcının "Access-Control-Allow-Origin üst bilgisi" sorunlar almak için CORS proxy kullanabilir
+        > İçin **Test Web kancası** çalışmaya seçeneğinde, uç nokta desteklemelidir [Cross Origin kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/) ve kullanıcının "Access-Control-Allow-Origin üst bilgisi" sorunları almak için CORS Ara kullanabilir
 
-13. Tüm alanlar geçerliyse ve yeşil onay **uyarı kuralı oluştur** düğmesini ve bir uyarı Azure İzleyicisi - uyarılar oluşturulur. Tüm uyarıları uyarılar Panosu görüntülenebilir.
+13. Tüm alanları geçerliyse ve yeşil onay **uyarı kuralı oluşturma** düğmesini ve Azure İzleyici - uyarılar bir uyarı oluşturulur. Tüm uyarıları Pano uyarılardan görüntülenebilir.
 
     ![Kural oluşturma](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
 
-    Birkaç dakika içinde uyarı etkindir ve daha önce açıklandığı şekilde tetikler.
+    Birkaç dakika içinde uyarı etkin ve daha önce açıklandığı gibi tetikler.
 
-## <a name="view-your-alerts-in-azure-portal"></a>Azure Portalı'nda, uyarıları görüntüleme
+## <a name="view-your-alerts-in-azure-portal"></a>Azure portalında uyarıları görüntüleme
 
-1. İçinde [portal](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarıları**.  
+1. İçinde [portalı](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarılar**.  
 
-2. **Uyarılar Panosu** görüntülenir - tüm Azure uyarıları birleşik ve tekil panosunda görüntülenir; burada görüntülerle ![uyarı Panosu](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
-3. Üst soldan sağa, Pano ayrıntılı listesini görmek için tıklattığınız aşağıdaki - bir bakışta gösterir:
-    - *Uyarıları harekete*: mantığı karşılanır ve içinde durum harekete uyarılar şu anda sayısı
-    - *Toplam uyarı kuralları*: oluşturulan uyarı kuralları ve alt, şu an etkin olan numarasını sayısı 
+2. **Uyarılar Panosu** görüntülenen - tekil panosunda görüntülenen tüm Azure uyarıları burada görüntülerle birleşik ve ![uyarı Panosu](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
+3. Üst soldan sağa, panoyu ayrıntılı bir listesi görmek üzere tıklanabilecek aşağıdaki - bir bakışta gösterir:
+    - *Tetiklenen uyarılar*: mantıksal karşılanması ve içinde durum harekete sahip uyarılar şu anda sayısı
+    - *Toplam uyarı kuralları*: oluşturulan uyarı kuralları ve alt, şu anda etkin numarası sayısı 
     
 
         > [!NOTE]
-        > Tüm ayrıntılarla tutarlı Pano emin olmak için application ınsights ve günlük analizi için günlük uyarıları dahil olmak üzere uyarılar harekete; [Geliştirilmiş birleşik uyarı (Önizleme)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview) kullanılmalıdır
+        > Günlük uyarıları için application ınsights ve log analytics de dahil olmak üzere tüm tetiklenen uyarılar hakkında ayrıntılar içeren tutarlı Pano sağlamak; [Geliştirilmiş birleşik uyarı (Önizleme)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview) kullanılmalıdır
   
   
-4. Tüm Mazotlu uyarıların bir listesi, kullanıcının ayrıntılarını görüntülemek için tıklatabileceği gösterilir
-5. Bulma özel uyarıları kuruluşlara yardımcı olmaktayız; bir kullanabileceğiniz üstteki açılan seçenekleri belirli filtreleme için *abonelik, kaynak grubu ve/veya kaynak*. Herhangi bir çözümlenmemiş uyarı için bir kullanım başka *filtre uyarı* seçeneği bulmak için sağlanan anahtar - belirli eşleşen uyarılarla *adı, Uyarı ölçütleri, kaynak grubu ve hedef kaynak*
+4. Tüm tetiklenen uyarılar listesini, kullanıcının ayrıntılarını görüntülemek için tıklayabileceği gösterilir.
+5. Bulma belirli uyarıları kuruluşlara yardımcı olmaktayız; bir kullanabileceğiniz üstteki açılan seçenekleri belirli bir filtreleme için *abonelik, kaynak grubu ve/veya kaynak*. Çözümlenmemiş herhangi bir uyarı için bir kullanım başka *filtre uyarı* seçeneği bulmak için sağlanan anahtar sözcüğü - belirli eşleşen uyarılarla *adı, Uyarı ölçütleri, kaynak grubu ve hedef kaynak*
 
-## <a name="managing-your-alerts-in-azure-portal"></a>Azure Portalı'nda, Uyarıları yönetme
-1. İçinde [portal](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarıları**.  
-2. Seçin **yönetmek kuralları** düğmesini oluşturulan tüm uyarı kuralları burada listelenen kural Yönetimi bölümüne - gitmek için üst çubukta; devre dışı bırakılmış uyarıları dahil olmak üzere.
-3. Belirli uyarı kuralları için bulmak için bir ya da aşağı açılan filtreleri shortlist uyarı kuralları için özel izin üstteki kullanabilirsiniz *abonelik, kaynak grupları ve/veya kaynak*. Uyarı kuralı listesinin bölmesi arama'yı kullanarak alternatif olarak işaretlenmiş *filtre uyarıları*, bir karşı eşleşen anahtar sözcüğü sağlayabilir *uyarı adı, koşul ve hedef kaynak*; yalnızca görüntülemek için eşleştirme kuralları.
-   ![Uyarı kurallarını yönetme](./media/monitoring-alerts-unified-usage/alerts-preview-rules.png)
-4. Görüntülemek veya belirli uyarı kuralı değiştirmek için tıklatılabilir bir bağlantı gösterilen adını tıklatın.
-5. Tanımlanan uyarısı gösterilir - üç aşama yapısındaki: 1) Uyarı koşulu 2) uyarı ayrıntı 3) eylem grubu. **Hedef ölçütleri** uyarı mantığı ya da yeni bir değişiklik için tıklattığınız ölçütleri önceki mantığı silmek için Kutusu'nu kullandıktan sonra eklenebilir. Benzer şekilde, uyarı Ayrıntıları bölümünde - **açıklama** ve **önem** değiştirilebilir. Eylem grubunu değiştirilebilir ve yeni bir uyarı kullanmaya bağlama için hazırlanmış **yeni eylem grup** düğmesi.
+## <a name="managing-your-alerts-in-azure-portal"></a>Azure portalındaki uyarılarınızı yönetme
+1. İçinde [portalı](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarılar**.  
+2. Seçin **yönetme kuralları** oluşturulan uyarı kurallarının tümünü burada listelenen kural Yönetim bölümüne - gitmek için üst taraftaki çubukta, düğmesine; devre dışı bırakıldı uyarıları da dahil olmak üzere.
+3. Özel uyarı kuralları için bulmak için bir ya da açılan filtreleri shortlist uyarı kuralları için özel izin en üste kullanabilirsiniz *abonelik, kaynak grupları ve/veya kaynak*. Yukarıdaki uyarı kuralı listesi bölmesinde arama'yı kullanarak üzerinde alternatif olarak işaretlenmiş *filtre uyarıları*, bir anahtar sözcüğü karşı eşleşen sağlayabilir *uyarı adı, koşul ve hedef kaynak*; yalnızca göstermek için eşleştirme kuralları.
+   ![Uyarı kurallarını yönet](./media/monitoring-alerts-unified-usage/alerts-preview-rules.png)
+4. Tıklatılabilir bir bağlantı gösterilen adını görüntülemek veya belirli bir uyarı kuralı değiştirmek için tıklayın.
+5. Tanımlanan bir uyarı gösterilir - içinde üç aşama yapısı: 1) uyarı durumu 2) uyarı ayrıntısı (3) eylem grubu. **Hedef ölçütleri** uyarı mantığı ya da yeni bir değiştirmek üzere tıklanabilecek ölçütleri Kutusu'nu önceki mantığı silmek için kullandıktan sonra eklenebilir. Benzer şekilde, uyarı Ayrıntıları bölümündeki - **açıklama** ve **önem derecesi** değiştirilebilir. Eylem grubunu değiştirilebilir ve yeni bir uyarı kullanmaya bağlama için hazırlanmış **yeni eylem grubu** düğmesi.
 
-   ![Uyarı kuralı değiştirme](./media/monitor-alerts-unified/AlertsPreviewEdit.png)
+   ![Uyarı kuralı değiştirin](./media/monitor-alerts-unified/AlertsPreviewEdit.png)
 
-6. Üst panelde kullanarak, değişiklikler uyarıya yansıtıcı dahil olabilir: **kaydetmek** uyarı için yapılan değişiklikleri yürütmek için **atmak** uyarı için yapılan tüm değişiklikleri kaydetmeden geri dönmek için **devre dışı bırak**  olacağı artık çalışır veya herhangi bir eylemi tetikleyen uyarı - devre dışı bırakmak için. Ve son olarak, **silmek** tüm uyarı kuralı Azure'dan kalıcı olarak kaldırmak için.
+6. Üst panelde kullanarak değişiklikler uyarıya yansıtıcı dahil olabilir: **Kaydet** uyarı için yapılan tüm değişiklikleri kaydetmek için **at** uyarı için yapılan tüm değişiklikler taahhüt vermek zorunda kalmadan geri dönmek için **devre dışı bırak**  sonrasında artık çalışır veya herhangi bir eylemi tetikleyen uyarısı - devre dışı bırakmak için. Son olarak, **Sil** Azure'dan tüm uyarı kuralı kalıcı olarak kaldırılacak.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Yeni hakkında daha fazla bilgi [yakın gerçek zamanlı ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md)
-- Alma bir [ölçümleri toplama genel bakış](insights-how-to-customize-monitoring.md) hizmetinizi kullanılabilir ve yanıt verebilir durumda olduğundan emin olmak için.
-- Hakkında bilgi edinin [uyarıları Azure Uyarıları'nda oturum açın](monitor-alerts-unified-log.md)
+- Yeni hakkında daha fazla bilgi [neredeyse gerçek zamanlı ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md)
+- Alma bir [ölçümleri koleksiyonun genel bakış](insights-how-to-customize-monitoring.md) hizmetinizin kullanılabilir ve yanıt verdiğinden emin olmak için.
+- Hakkında bilgi edinin [oturum uyarılar Azure uyarıları](monitor-alerts-unified-log.md)
 - [Etkinlik günlüğü uyarıları uyarılar (Önizleme) deneyiminde hakkında bilgi edinin](monitoring-activity-log-alerts-new-experience.md)

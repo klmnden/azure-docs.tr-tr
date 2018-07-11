@@ -1,6 +1,6 @@
 ---
-title: Başlatma ve durdurma Azure yığın | Microsoft Docs
-description: Başlat ve Azure yığın kapatma hakkında bilgi edinin.
+title: Azure Stack başlatıp | Microsoft Docs
+description: Başlat ve Azure Stack kapatma hakkında bilgi edinin.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -15,47 +15,50 @@ ms.topic: article
 ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 53015ba5c282bbe9c7b8185b080ffb6d834b6c75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dd1e64d5ad6982c85a8205e3036d30a2ede92f7c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31391142"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930299"
 ---
-# <a name="start-and-stop-azure-stack"></a>Azure yığın durdurup başlatın
-Düzgün kapatılır ve Azure yığın hizmetlerini yeniden başlatmak için bu makaledeki yordamları izlemelisiniz. 
+# <a name="start-and-stop-azure-stack"></a>Azure Stack başlatıp
+Düzgün bir şekilde kapatılmasını ve Azure Stack hizmetlerini yeniden başlatmak için bu makaleyi yordamlarını izlemelisiniz. Kapatma fiziksel olarak tüm Azure Stack ortamı güç. Başlangıç tüm altyapı rollerinde güçlendirir ve Kiracı kaynaklarını bunlar önce kapatma olan güç durumunu döndürür.
 
-## <a name="stop-azure-stack"></a>Azure yığın Durdur 
+## <a name="stop-azure-stack"></a>Azure Stack Durdur 
 
-Azure yığın aşağıdaki adımlarla kapatın:
+Azure Stack aşağıdaki adımlarla kapatın:
 
-1. Ayrıcalıklı uç nokta oturumu (CESARETLENDİRİCİ) ağ erişimi olan bir makineden Azure yığın ERCS VM'ler açın. Yönergeler için bkz: [Azure yığınında kullanan ayrıcalıklı uç noktasını](azure-stack-privileged-endpoint.md).
+1. Yaklaşan kapatma için Azure Stack ortamınızın Kiracı kaynaklar üzerinde çalışan tüm iş yükleri hazırlama. 
 
-2. CESARETLENDİRİCİ çalıştırın:
+2. Ayrıcalıklı uç nokta oturum (CESARETLENDİRİCİ) ağ erişimi olan bir makineden Azure Stack ERCS Vm'lere açın. Yönergeler için [Azure Stack'te ayrıcalıklı uç noktayı kullanarak](azure-stack-privileged-endpoint.md).
+
+3. CESARETLENDİRİCİ çalıştırın:
 
     ```powershell
       Stop-AzureStack
     ```
 
-3. Devre dışı güç tüm fiziksel Azure yığın düğümlerine bekleyin.
+4. Devre dışı güç fiziksel tüm Azure Stack düğümlere bekleyin.
 
 > [!Note]  
-> Özgün donatım üreticisi (kimlerin Azure yığın donanımınız sağlanan OEM'den) yönergeleri izleyerek bir fiziksel düğüm güç durumunu doğrulayabilirsiniz. 
+> Özgün ekipman üreticisi (kimin, Azure Stack donanımı tarafından sağlanan OEM) yönergeleri izleyerek bir fiziksel düğüm güç durumunu doğrulayabilirsiniz. 
 
-## <a name="start-azure-stack"></a>Azure yığın Başlat 
+## <a name="start-azure-stack"></a>Azure Stack Başlat 
 
-Azure yığın aşağıdaki adımlarla başlatın. Azure yığın nasıl durduruldu bağımsız olarak aşağıdaki adımları izleyin.
+Azure Stack, aşağıdaki adımlarla başlayın. Azure Stack nasıl durduruldu bağımsız olarak bu adımları izleyin.
 
-1. Her fiziksel düğümlerin Azure yığın ortamınızdaki güç. Fiziksel düğümler için yönergeler gücüyle gelen özgün donanım üreticisi (kimin donanım Azure yığını için sağlanan OEM) yönergeleri izleyerek doğrulayın.
+1. Her Azure Stack ortamınıza fiziksel düğüm güç. Fiziksel düğümler için yönergeler gücüyle gelen orijinal ekipman üreticisi (kimin donanım, Azure Stack için sağlanan OEM) yönergeleri takip ederek doğrulayın.
 
-2. Azure yığın altyapı hizmetleri başlatana kadar bekleyin. Azure yığın altyapı hizmetleri başlatma işlemini tamamlama için iki saat gerektirebilir. Azure yığın ile başlangıç durumunu doğrulayabilirsiniz [ **Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
+2. Azure Stack altyapı hizmetleri başlatana kadar bekleyin. Azure Stack altyapı hizmetleri başlatma işlemini tamamlama için iki saat gerektirebilir. Azure Stack ile başlangıç durumunu doğrulayabilirsiniz [ **Get-ActionStatus** cmdlet'i](#get-the-startup-status-for-azure-stack).
 
+3. Tüm Kiracı kaynaklarınızın bunlar önce kapatma olan durumuna döndüğünden emin olun. Kiracı kaynaklar üzerinde çalışan iş yüklerini başlatma işleminden sonra iş yükü Yöneticisi tarafından yeniden yapılandırılması gerekebilir.
 
-## <a name="get-the-startup-status-for-azure-stack"></a>Azure yığını için başlatma durumunu Al
+## <a name="get-the-startup-status-for-azure-stack"></a>Azure Stack için başlangıç durumunu Al
 
-Aşağıdaki adımlarla Azure yığın başlangıç yordamı için başlangıç alın:
+Başlangıç için aşağıdaki adımlarla Azure Stack başlangıç yordamını alın:
 
-1. Ayrıcalıklı bir uç nokta oturumu ağ erişimi olan bir makineden Azure yığın ERCS VM'ler açın.
+1. Azure Stack ERCS Vm'leri için ağ erişimi olan bir makineden ayrıcalıklı bir uç nokta oturum açın.
 
 2. CESARETLENDİRİCİ çalıştırın:
 
@@ -63,11 +66,11 @@ Aşağıdaki adımlarla Azure yığın başlangıç yordamı için başlangıç 
       Get-ActionStatus Start-AzureStack
     ```
 
-## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Başlatma ve kapatma Azure yığınının sorun giderme
+## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Başlatma ve kapatma Azure Stack sorunlarını giderme
 
-Altyapı ve Kiracı Hizmetleri Azure yığın ortamınıza başarıyla 2 saat sonra güç başlatma, aşağıdaki adımları gerçekleştirin. 
+Altyapı ve Kiracı Hizmetleri, Azure Stack ortamınıza başarıyla 2 saat sonra güç başlatma, aşağıdaki adımları gerçekleştirin. 
 
-1. Ayrıcalıklı bir uç nokta oturumu ağ erişimi olan bir makineden Azure yığın ERCS VM'ler açın.
+1. Azure Stack ERCS Vm'leri için ağ erişimi olan bir makineden ayrıcalıklı bir uç nokta oturum açın.
 
 2. Çalıştırın: 
 
@@ -75,7 +78,7 @@ Altyapı ve Kiracı Hizmetleri Azure yığın ortamınıza başarıyla 2 saat so
       Test-AzureStack
       ```
 
-3. Çıktıyı gözden geçirin ve sistem durumu hataları çözümleyin. Daha fazla bilgi için bkz: [Azure yığınının bir doğrulama sınamasını çalıştırmanızı](azure-stack-diagnostic-test.md).
+3. Çıktıyı gözden geçirin ve sistem durumu hataları çözün. Daha fazla bilgi için [Azure Stack bir doğrulama sınamasını çalıştırmanızı](azure-stack-diagnostic-test.md).
 
 4. Çalıştırın:
 
@@ -83,8 +86,8 @@ Altyapı ve Kiracı Hizmetleri Azure yığın ortamınıza başarıyla 2 saat so
       Start-AzureStack
     ```
 
-5. Çalışıyorsa **başlangıç AzureStack** hataya, Microsoft Müşteri Hizmetleri desteği'ne başvurun. 
+5. Çalışıyorsa **başlangıç AzureStack** bir hata sonuçlarında, Microsoft Müşteri Hizmetleri desteği ile iletişime geçin. 
 
 ## <a name="next-steps"></a>Sonraki adımlar 
 
-Azure yığın Tanılama aracı hakkında daha fazla bilgi edinin ve günlüğe kaydetme bkz [Azure yığın tanılama araçları](azure-stack-diagnostics.md).
+Azure Stack'te Tanılama aracı hakkında daha fazla bilgi edinin ve günlük sorun için bkz: [Azure Stack'te tanılama araçları](azure-stack-diagnostics.md).

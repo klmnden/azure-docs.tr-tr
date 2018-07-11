@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 7afa50484c3ebf258bbdd2b7f16c9cd051710d28
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 9609a0fa5599bd34fa52f7c0311369fb27aaf955
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437901"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951167"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>C# Reliable Services ile Service uzaktan iletişim
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ ServiceProxy oluşturma hafif bir işlem olduğundan, ihtiyacınız kadar oluşt
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory ömrü
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) olan farklı bir uzak arabirimler için Ara sunucu örnekleri oluşturan bir üreteci. API kullanırsanız `ServiceProxy.Create` proxy oluşturmak, sonra framework ServiceProxy tek oluşturur.
-Geçersiz kılmak gerektiğinde el ile oluşturmak kullanışlıdır [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) özellikleri.
+Geçersiz kılmak gerektiğinde el ile oluşturmak kullanışlıdır [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) özellikleri.
 Fabrikası oluşturma pahalı bir işlemdir. Bir iç iletişim istemci önbelleğini ServiceProxyFactory tutar.
 ServiceProxyFactory olabildiğince uzun bir süre için önbelleğe en iyi uygulamadır.
 

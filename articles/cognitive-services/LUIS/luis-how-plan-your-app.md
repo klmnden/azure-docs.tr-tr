@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 66036da19b0c7f49935b32272e963b3766497605
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 2ce202bbb1479db18fb88cfef4d510ae4cb39a78
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37438181"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952109"
 ---
 # <a name="plan-your-luis-app"></a>LUIS uygulamanızı planlama
 
@@ -82,7 +82,7 @@ Bir normal ifade varlık, bir normal ifade ifadeye göre bir utterance verileri 
 Bkz: [veri ayıklama](luis-concept-data-extraction.md#regular-expression-entity-data) normal ifade varlıkları JSON sorgu yanıtı uç noktasından ayıklama hakkında daha fazla bilgi edinmek için. Deneyin [hızlı](luis-quickstart-intents-regex-entity.md) bir normal ifade varlık kullanma hakkında daha fazla bilgi için.
 
 ## <a name="after-getting-endpoint-utterances"></a>Konuşma uç noktası aldıktan sonra
-Tahmin geliştirmelerle uygulamak uygulamanızı konuşma uç noktası aldıktan sonra plan [etkin olarak öğrenmeye](label-suggested-utterances.md), [tümcecik listeleri](luis-concept-feature.md), ve [desenleri](luis-concept-patterns.md). 
+Tahmin geliştirmelerle uygulamak uygulamanızı konuşma uç noktası aldıktan sonra plan [etkin olarak öğrenmeye](luis-how-to-review-endoint-utt.md), [tümcecik listeleri](luis-concept-feature.md), ve [desenleri](luis-concept-patterns.md). 
 
 ### <a name="patternany-entity"></a>Pattern.Any varlık
 Patterns.Any bir yer tutucudur kullanılan yalnızca değişken uzunluklu bir [deseninin](luis-concept-patterns.md) varlık burada başlar ve biter işaretlemek için şablon utterance. Şablon konuşma uygun [doğru sözdizimi](luis-concept-patterns.md#pattern-syntax) varlıkları ve Ignorable metin tanımlamak için.

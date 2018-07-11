@@ -1,48 +1,48 @@
 ---
-title: Azure Site kurtarma işlemi sunucuyu yönetme | Microsoft Docs
-description: Bu makalede VMware sanal ve fiziksel sunucu çoğaltma Azure Site kurtarma için ayarlanmış bir işlem sunucusu yönetin.
-author: AnoopVasudavan
+title: Azure Site recovery'de bir işlem sunucusunu | Microsoft Docs
+description: Bu makalede VMware VM ve fiziksel sunucu çoğaltması Azure Site recovery'de için ayarlanmış bir işlem sunucusunu.
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/20/2018
-ms.author: anoopkv
-ms.openlocfilehash: d1f880a5ec9f0343891999ef3bad11279cb0cfe6
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.author: ramamill
+ms.openlocfilehash: df162177c1ff56c1d6fc34d2ce49925a2705a868
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285539"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950796"
 ---
 # <a name="manage-process-servers"></a>İşlem sunucularını yönetme
 
-Varsayılan olarak, VMware Vm'lerini veya fiziksel sunucuları Azure'a çoğaltırken kullanılan işlem sunucusu şirket içi yapılandırma sunucusu makineye yüklenir. Birkaç ayrı işlem sunucusu kurmak gereken örnekleri şunlardır:
+Varsayılan olarak VMware Vm'lerini veya fiziksel sunucuları Azure'a çoğaltırken kullanılan işlem sunucusu şirket içi yapılandırma sunucusu makineye yüklenir. Birkaç ayrı işlem sunucusu kurmak gereksinim örneklerinin vardır:
 
-- Büyük dağıtımlar için kapasite ölçeklendirmek için ek şirket içi işlem sunucuları gerekebilir.
-- Yeniden çalışma için ihtiyacınız geçici bir işlem sunucusu Azure'da ayarlayın. Yeniden çalışma yapıldığında bu VM'yi silebilirsiniz. 
+- Büyük dağıtımlar için kapasite ölçeklendirme şirket içinde ek işlem sunucularının gerekebilir.
+- Yeniden çalışma için ihtiyacınız geçici bir işlem sunucusu Azure'da ayarlayın. Yeniden çalışma tamamlandığında bu VM'yi silebilirsiniz. 
 
-Bu makalede, bu ek işlem sunucular için tipik yönetim görevleri özetlenmektedir.
+Bu makalede, bu ek işlem sunucularının için tipik yönetim görevleri özetler.
 
 ## <a name="upgrade-a-process-server"></a>Bir işlem sunucusunu yükseltme
 
-Şirket içinde veya Azure (yeniden çalışma nedeniyle), aşağıdaki gibi çalışan bir işlem sunucusu yükseltme:
+Şirket içinde veya azure'da (yeniden çalışma amaçları için), şu şekilde çalışan bir işlem sunucusu yükseltme:
 
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]
 
 > [!NOTE]
-  Genellikle, bir işlem sunucusu yeniden çalışma amaçları doğrultusunda oluşturmak için Azure galeri görüntüsü kullandığınızda kullanılabilir en son sürümü çalışıyor. Site Recovery yayın düzeltmeler ve geliştirmeler düzenli olarak ekipleri ve işlem sunucuları güncel tutmak öneririz.
+  Genellikle, bir işlem sunucusu Azure'da yeniden çalışma amacıyla oluşturmak üzere Azure Galerisi görüntüsünü kullandığınızda, kullanılabilir en son sürümü çalışıyor. Site Recovery yayın düzeltmeler ve geliştirmeler düzenli olarak ekiplerinin ve işlem sunucularının güncel tutmanızı öneririz.
 
 
 
-## <a name="reregister-a-process-server"></a>Bir işlem sunucusu yeniden kaydetme
+## <a name="reregister-a-process-server"></a>İşlem sunucusu yeniden kaydettirin
 
-Şirket içi çalışan bir işlem sunucusu kaydetmeden veya Azure'da, yapılandırma sunucusuyla aşağıdakileri yapmanız gerekirse:
+Şirket içinde çalışan bir işlem sunucusu yeniden kaydettirin veya Azure'da, yapılandırma sunucusu ile aşağıdakileri yapmanız gerekirse:
 
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
 
 Ayarları kaydettikten sonra aşağıdakileri yapın:
 
-1. İşlem sunucusunda bir yönetici komut istemi açın.
-2. Klasöre Gözat **%PROGRAMDATA%\ASR\Agent**, ve şu komutu çalıştırın:
+1. İşlem sunucusu, bir yönetici komut istemi açın.
+2. Klasöre göz atın **%PROGRAMDATA%\ASR\Agent**, ve şu komutu çalıştırın:
 
     ```
     cdpcli.exe --registermt
@@ -52,9 +52,9 @@ Ayarları kaydettikten sonra aşağıdakileri yapın:
 
 ## <a name="modify-proxy-settings-for-an-on-premises-process-server"></a>Bir şirket içi işlem sunucusu için proxy ayarlarını değiştirme
 
-İşlem sunucusu, Azure Site Recovery bağlanmak için bir proxy kullanıyorsa, var olan proxy ayarlarını değiştirmeniz gerekiyorsa bu yordamı kullanın.
+İşlem sunucusu, Azure Site Recovery hizmetine bağlanmak için bir ara sunucu kullanıyorsa, var olan proxy ayarları değiştirmeniz gerekirse bu yordamı kullanın.
 
-1. İşlem sunucusu makine oturum açın. 
+1. İşlem sunucusu makinede oturum açın. 
 2. Bir yönetici PowerShell komut penceresi açın ve aşağıdaki komutu çalıştırın:
   ```
   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -62,7 +62,7 @@ Ayarları kaydettikten sonra aşağıdakileri yapın:
   net stop obengine
   net start obengine
   ```
-2. Klasöre Gözat **%PROGRAMDATA%\ASR\Agent**, ve aşağıdaki komutu çalıştırın:
+2. Klasöre göz atın **%PROGRAMDATA%\ASR\Agent**, ve aşağıdaki komutu çalıştırın:
   ```
   cmd
   cdpcli.exe --registermt
@@ -75,7 +75,7 @@ Ayarları kaydettikten sonra aşağıdakileri yapın:
   ```
 
 
-## <a name="remove-a-process-server"></a>Bir işlem sunucusunu kaldırma
+## <a name="remove-a-process-server"></a>Bir işlem sunucusunu Kaldır
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 

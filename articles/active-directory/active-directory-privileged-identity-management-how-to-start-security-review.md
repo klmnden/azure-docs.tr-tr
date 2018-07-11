@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 28a998647dacdf57390638b8ce1629a76077b450
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 38386de86c83733e3539048de9e263ed6225eee5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446903"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952169"
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management'ta erişim gözden geçirmesi başlatma
 Kullanıcılar artık ihtiyacınız yoksa erişim ayrıcalıklı, rol atamaları "eski" olur. Bu eski rol atamaları, ayrıcalıklı rol ile ilişkili riski azaltmak için yöneticileri veya genel yöneticileri düzenli olarak kullanıcılara verilen rolleri gözden geçirmek için yöneticileri istemek için erişim gözden geçirmeleri oluşturmanız gerekir. Bu belge, Azure AD Privileged Identity Management (PIM) erişim gözden geçirmesi başlatma adımlarını kapsar.
@@ -37,12 +37,12 @@ PIM uygulama ana sayfasından erişim gözden geçirmesi başlamanın üç yolu 
 
 Tıkladığınızda **gözden** düğmesi **erişim değerlendirmesi başlatma** dikey penceresi görünür. Bu dikey pencerede, yedekleyeceksiniz gözden geçirme adı ve süre sınırı ile yapılandırmak için gözden geçirin ve kimin gözden geçirmeyi gerçekleştirip karar vermek için bir rol seçin.
 
-![Erişim gözden geçirmesi - ekran görüntüsü Başlat][1]
+![Erişim gözden geçirmesi - ekran görüntüsü Başlat](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png)
 
 ### <a name="configure-the-review"></a>Gözden geçirmeyi yapılandırma
 Erişim gözden geçirmesi oluşturma için adlandırın ve bir başlangıç ve bitiş tarihi ayarlamak gerekir.
 
-![Gözden geçirme - ekran görüntüsü yapılandırma][2]
+![Gözden geçirme - ekran görüntüsü yapılandırma](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png)
 
 Gözden geçirmeyi tamamlamak, kullanıcılar için yeterince uzun uzunluğunu olun. Bitiş tarihinden önce son, erken gözden her zaman durdurabilirsiniz.
 
@@ -51,7 +51,7 @@ Her gözden geçirme, yalnızca bir rol üzerinde odaklanır. Erişim gözden ge
 
 1. Gidin **rol üyeliğini gözden geçirme**
    
-    ![Gözden geçirme rol üyeliğini - ekran görüntüsü][3]
+    ![Gözden geçirme rol üyeliğini - ekran görüntüsü](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png)
 2. Listeden bir rol seçin.
 
 ### <a name="decide-who-will-perform-the-review"></a>Kimin gözden geçirmeyi gerçekleştirip karar verin
@@ -59,7 +59,7 @@ Bir gözden geçirme gerçekleştirmeye yönelik üç seçenek vardır. Gözden 
 
 1. Gidin **Gözden Geçiren seçin**
    
-    ![Gözden Geçiren - ekran görüntüsü seçin][4]
+    ![Gözden Geçiren - ekran görüntüsü seçin](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png)
 2. Seçeneklerden birini seçin:
    
    * **Select Gözden Geçiren**: erişim gerek duyan bilmiyorsanız bu seçeneği kullanın. Bu seçenek belirtilmişse, gözden geçirmeyi tamamlamak için bir kaynak sahibi veya grup yöneticisi atayabilirsiniz.
@@ -79,10 +79,3 @@ Değerlendirme süresi bitene kadar gözden geçirmelerini tamamlamak için kull
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="pim-table-of-contents"></a>PIM İçindekiler
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png
-[3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
-[4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png

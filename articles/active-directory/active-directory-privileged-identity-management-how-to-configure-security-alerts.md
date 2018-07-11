@@ -13,18 +13,18 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d054ca015fd97b3ec45f18b2d3a795eccf606993
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fee4344be2875140a2e9c35bd83eb668bd1efa3f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447566"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952471"
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management güvenlik uyarılarını yapılandırma
 ## <a name="security-alerts"></a>Güvenlik uyarıları
 Azure Privileged Identity Management (PIM), ortamınızda şüpheli veya güvenli olmayan bir etkinlik olduğunda uyarılar oluşturur. Bir uyarı tetiklendiğinde, PIM panosunda görünür. Uyarıyı tetikleyen rollerin listeleyen bir rapor görmek için uyarıyı seçin.
 
-![PIM Pano güvenlik uyarıları - ekran görüntüsü][1]
+![PIM Pano güvenlik uyarıları - ekran görüntüsü](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png)
 
 | Uyarı | Severity | Tetikleyici | Öneri |
 | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ Güvenlik Uyarıları ortamınız ve Güvenlik amaçları ile çalışmak için 
 1. Oturum [Azure portalında](https://portal.azure.com/) seçip **Azure AD Privileged Identity Management** kutucuğu panodan.
 2. Seçin **yönetilen ayrıcalıklı rolleri** > **ayarları** > **uyarıları ayarları**.
    
-    ![Güvenlik Uyarıları ayarlarına gidin][2]
+    ![Güvenlik Uyarıları ayarlarına gidin](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png)
 
 ### <a name="roles-are-being-activated-too-frequently-alert"></a>"Rolleri çok sık etkinleştirilmekte" Uyarısı
 Bir kullanıcı birden çok kez belirli bir dönem içinde aynı ayrıcalıklı rol etkinleştirir, bu bir uyarı tetikler. Süre hem etkinleştirme sayısını yapılandırabilirsiniz.
@@ -66,8 +66,3 @@ Bir kullanıcı bir rolünü etkinleştirmeden belirli bir miktar olursa bu uyar
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
