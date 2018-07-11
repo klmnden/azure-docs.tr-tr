@@ -1,8 +1,8 @@
 ---
 title: Azure Active Directory koşullu erişim koşulları nelerdir? | Microsoft Docs
-description: Koşullar ilke tetiklemek için Azure Active Directory koşullu erişimin nasıl kullanıldığı hakkında bilgi edinin.
+description: Koşul bir ilkeyi tetiklemek için Azure Active Directory koşullu erişim nasıl kullanıldığı hakkında bilgi edinin.
 services: active-directory
-keywords: uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+keywords: uygulamalar, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -18,15 +18,15 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
 ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "36232571"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları nelerdir? 
 
-İle [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md), bulut uygulamalarınızı nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz. Bir koşullu erişim ilkesi ("bunu") yanıt ("Bu durumda") ilkeniz tetikleme nedenini tanımlayın. 
+İle [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md), bulut uygulamalarınızı nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz. Bir koşullu erişim ilkesinde ("Bu durumda") ilkeniz tetikleme nedeni için ("bunu") yanıtı tanımlayın. 
 
 ![Denetim](./media/active-directory-conditional-access-conditions/10.png)
 
@@ -34,103 +34,103 @@ ms.locfileid: "36232571"
 Koşullu erişim bağlamında:
 
 - "**Bu durumda**" olarak adlandırılır **koşullar**. 
-- "**Sonra bunu**" olarak adlandırılır **erişim denetimleri**.
+- "**Bunu yapmak**" olarak adlandırılır **erişim denetimleri**.
 
-Koşullarınızı erişim denetimleri ile birlikte bir koşullu erişim ilkesi temsil eder.
+Koşullarınızda erişim denetimleri ile koşullu erişim ilkesi temsil eder.
 
 ![Denetim](./media/active-directory-conditional-access-conditions/61.png)
 
 
-Bir koşullu erişim ilkesinde yapılandırılmamış koşullar uygulanmaz. Bazı koşullar [zorunlu](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work) bir ortam için bir koşullu erişim ilkesini uygulamak için. 
+Koşullu erişim ilkesinde yapılandırılmış olmaması koşullar uygulanmaz. Bazı koşullar [zorunlu](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work) bir ortama bir koşullu erişim ilkesini uygulamak için. 
 
-Bu makalede, koşullar ve bir koşullu erişim ilkesini nasıl kullanıldıkları hakkında genel bir bakış sağlar. 
+Bu makalede, koşullar ve bir koşullu erişim ilkesini nasıl kullanıldığı hakkında genel bir bakış sağlar. 
 
 ## <a name="users-and-groups"></a>Kullanıcılar ve gruplar
 
-Kullanıcılar ve gruplar bir koşullu erişim ilkesi zorunlu bir durumdur. Ya da seçim yapabileceğiniz ilkenizde, **tüm kullanıcıların** veya belirli kullanıcılar ve Gruplar'ı seçin.
+Kullanıcılar ve gruplar koşul, bir koşullu erişim ilkesinde zorunludur. İlkenizde, yi yapabilecekleriniz **tüm kullanıcılar** veya belirli kullanıcılar ve Gruplar'ı seçin.
 
 ![Denetim](./media/active-directory-conditional-access-conditions/111.png)
 
 Seçtiğinizde:
 
-- **Tüm kullanıcılar**, ilkenizi dizindeki tüm kullanıcılara uygulanır. Bu, Konuk kullanıcılar içerir.
+- **Tüm kullanıcılar**, ilkenizi dizinindeki tüm kullanıcılara uygulanır. Bu, Konuk kullanıcıları içerir.
 
-- **Kullanıcıları ve grupları seçin**, aşağıdaki seçenekleri belirleyin:
+- **Kullanıcıları ve grupları seçme**, aşağıdaki seçenekleri belirleyebilirsiniz:
 
-    - **Tüm Konuk kullanıcılar** -B2B Konuk kullanıcılar için bir ilke hedef olanak tanır. Bu koşul herhangi bir kullanıcı hesabı ile eşleşen *userType* özniteliğini *Konuk*. Hesap Azure AD'de bir davet akışı oluşturulduktan hemen sonra uygulanan bir ilke gereken durumlarda bu ayarı kullanın.
+    - **Tüm Konuk kullanıcılar** -B2B konuk kullanıcıların bir ilkesinin hedefleyeceği sağlar. Bu koşul herhangi bir kullanıcı hesabı ile eşleşen *userType* özniteliğini *Konuk*. Bu ayar, bir ilke hesap, Azure AD'de bir davet akışı oluşturulduktan hemen sonra uygulanması gereken yere durumlarda kullanabilirsiniz.
 
-    - **Dizin rolleri** -kullanıcının rol ataması dayalı bir ilke hedef olanak tanır. Bu durum Dizin rolleri gibi destekleyen *genel yönetici* veya *parola Yöneticisi*.
+    - **Dizin rolleri** -kullanıcının rol atamaya bağlı bir ilkesinin hedefleyeceği sağlar. Bu durum gibi dizin rolünü destekler *genel yönetici* veya *parola Yöneticisi*.
 
-    - **Kullanıcılar ve gruplar** -hedef belirli kullanıcı kümelerine sağlar. Örneğin, tüm üyeleri ik departmanı, bulut uygulaması seçilen bir HR uygulama olduğunda içeren bir grup seçebilirsiniz.
+    - **Kullanıcılar ve gruplar** -hedef belirli kullanıcı kümelerine sağlar. Örneğin, bulut uygulaması seçilen bir ik uygulaması varsa, tüm çözümler. ik departmanı üyeleri içeren bir grup seçebilirsiniz.
 
-Bir grup da grup herhangi bir türde dinamik veya atanan güvenlik ve dağıtım grupları dahil olmak üzere Azure AD'de olabilir
+Bir grup, herhangi bir grup türünü Azure AD'de dinamik veya atanan güvenlik ve dağıtım grupları dahil olabilir
 
-Belirli kullanıcı veya Grup İlkesi'nden dışlayabilirsiniz. Bir ortak kullanım örneği olup hizmet hesapları, ilke çok faktörlü kimlik doğrulaması (MFA) zorunlu tutar. 
+Belirli kullanıcılar veya gruplar bir ilkeden dışlayabilirsiniz. Bir ortak kullanım örneği olup hizmet hesapları, ilke multi factor authentication (MFA) zorunlu kılar. 
 
-Belirli kullanıcı kümeleri için hedefleme yeni bir ilke dağıtımı için yararlıdır. Yeni bir ilke ilkesi davranışını doğrulamak için kullanıcıları ilk bir kümesini hedeflemelidir. 
+Kullanıcılar belirli kümelerini hedefleyen yeni bir ilke dağıtımı için kullanışlıdır. Yeni bir ilke yalnızca ilk kümesi ilkesi davranışını doğrulamak için kullanıcı hedeflemelidir. 
 
 
 
 ## <a name="cloud-apps"></a>Bulut uygulamaları 
 
-Web siteleri bir bulut uygulamasıdır veya hizmet. Azure uygulama ara sunucusu tarafından korunan web siteleri içerir. Desteklenen bulut uygulamalarını ayrıntılı bir açıklaması için bkz: [bulut uygulamaları atama](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments).    
+Bir web siteleri bulut uygulaması, ya da hizmet. Bu, Azure uygulama ara sunucusu tarafından korunan web siteleri içerir. Desteklenen bulut uygulamalarının ayrıntılı bir açıklaması için bkz [bulut uygulamaları atama](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments).    
 
-Bulut uygulamaları bir koşullu erişim ilkesi zorunlu bir durumdur. Ya da seçim yapabileceğiniz ilkenizde, **tüm bulut uygulamaları** veya belirli uygulamaları seçin.
+Bulut uygulamaları koşul, bir koşullu erişim ilkesinde zorunludur. İlkenizde, yi yapabilecekleriniz **tüm bulut uygulamaları** veya belirli uygulamalar seçin.
 
 ![Denetim](./media/active-directory-conditional-access-conditions/03.png)
 
 Şunları seçebilirsiniz:
 
-- **Tüm bulut uygulamaları** tüm kuruluş uygulanacak temel ilkeleri. Bu seçim için ortak bir kullanım örneği oturum açma riski algılandığında her bulut uygulaması için çok faktörlü kimlik doğrulaması gerektiren bir ilkedir. Uygulanan bir ilke **tüm bulut uygulamaları** erişim için geçerli tüm web sitesi ve hizmetler. Bu ayar görünür bulut uygulamaları için sınırlı değildir **seçin bulut uygulamalarını** listesi.
+- **Tüm bulut uygulamaları** temel ilkeleri, kuruluş genelinde uygulanacak. Bu seçim için yaygın bir kullanım örneği oturum açma riski algılandığında herhangi bir bulut uygulamasında için çok faktörlü kimlik doğrulaması gerektiren bir ilkedir. Uygulanan bir ilke **tüm bulut uygulamaları** erişim için geçerli tüm web sitesi ve Hizmetleri. Bu ayar görünen bulut uygulamalarına sınırlı değildir **seçin bulut uygulamaları** listesi.
 
-- Tek tek bulut uygulamalarını ilkelerle hedef belirli hizmetlerine. Kullanıcıların Örneğin, gerektiren bir [uyumlu aygıt](active-directory-conditional-access-policy-connected-applications.md) SharePoint Online'a erişmek için. SharePoint içeriği, örneğin, Microsoft Teams eriştiklerinde Bu ilke ayrıca diğer hizmetlere uygulanır. 
+- İlkesi tarafından hedef belirli hizmetler için tek bulut uygulamaları. Örneğin, kullanıcıların gerektirebilir bir [uyumlu cihaz](active-directory-conditional-access-policy-connected-applications.md) SharePoint Online'a erişmek için. SharePoint içeriği, örneğin, Microsoft Teams eriştiklerinde Bu ilke, diğer hizmetlere de uygulanır. 
 
-Bir ilkenin belirli uygulamaları de hariç tutabilirsiniz; Ancak, bu uygulamaları hala eriştiklerinde services uygulanan ilkeler tabidir. 
+Belirli uygulamalar İlkesi'nden de hariç tutabilirsiniz; Ancak, bu uygulamalar yine de erişim hizmetleri için uygulanan ilkelerle tabidir. 
 
 
 
 ## <a name="sign-in-risk"></a>Oturum açma riski
 
-Bir oturum açma riski bir oturum açma girişimi meşru bir kullanıcı hesabı sahibi tarafından gerçekleştirilmedi olasılığını (yüksek, Orta veya düşük) için bir göstergesidir. Azure AD oturum açma sırasında bir kullanıcının oturum açma risk düzeyi hesaplar. Oturum açma hesaplanan risk düzeyi, bir koşullu erişim ilkesi koşulu olarak kullanabilirsiniz. 
+Oturum açma riski (yüksek, Orta veya düşük) bir oturum açma girişimi bir kullanıcı hesabının meşru sahibi tarafından gerçekleştirilmedi olasılığını göstergesidir. Azure AD oturum açma sırasında bir kullanıcının oturum açma risk düzeyini hesaplar. Koşullu erişim ilkesi koşulu olarak hesaplanan oturum açma risk düzeyini kullanabilirsiniz. 
 
 ![Koşullar](./media/active-directory-conditional-access-conditions/22.png)
 
-Bu koşulu kullanmak için gerek [Azure Active Directory kimlik koruması](active-directory-identityprotection.md) etkin.
+Bu koşulu kullanmak için ihtiyacınız [Azure Active Directory kimlik koruması](active-directory-identityprotection.md) etkin.
  
 Bu koşul için ortak kullanım durumları olan ilkeler:
 
-- Potansiyel olarak yasal olmayan kullanıcıların, bulut uygulamalarınızı erişimini engellemek için bir yüksek oturum açma riski kullanıcılarla engelleyin. 
-- Orta bir oturum açma riski olan kullanıcılar için çok faktörlü kimlik doğrulaması gerektirir. Çok faktörlü kimlik doğrulamasını zorunlu tutarak, oturum açma yasal bir hesap sahibi tarafından gerçekleştirildiğinden ek güvenirlik sağlayabilirsiniz.
+- Potansiyel olarak yasal olmayan kullanıcılar, bulut uygulamalarınıza erişimini engellemek için bir yüksek oturum açma riski kullanıcılarla engelleyin. 
+- Orta ölçekli bir oturum açma riski olan kullanıcılar için çok faktörlü kimlik doğrulaması gerektirir. Çok faktörlü kimlik doğrulaması zorunlu tutarak, oturum açmanın meşru bir hesap sahibi tarafından gerçekleştirildiğini ek güvence sağlayabilir.
 
 Daha fazla bilgi için bkz. [Riskli oturum açma işlemleri](active-directory-identityprotection.md#risky-sign-ins).  
 
 ## <a name="device-platforms"></a>Cihaz platformları
 
-Cihaz platformu, Cihazınızda çalıştırılan işletim sistemi tarafından belirlenir. Azure AD kullanıcı aracısı gibi bir aygıt tarafından sağlanan bilgileri kullanarak platform tanımlar. Bu bilgiler doğrulanmamış olduğundan, tüm platformlar bunları, erişimi engelleme, Intune ilkeleriyle uyumluluğunu gerektiren veya cihaz etki alanına katılmış olması gerektiren tarafından uygulanan bir ilke olması önerilir. Tüm cihaz platformları için ilkeyi uygulamak için varsayılandır. 
+Cihaz platformu, Cihazınızda çalıştırılan işletim sistemi tarafından belirlenir. Azure AD kullanıcı aracısı gibi cihaz tarafından sağlanan bilgileri kullanarak platform tanımlar. Bu bilgiler doğrulanmamış olduğundan, tüm platformlar bunları, erişimi engelleme, Intune ilkeleriyle uyumluluğunu gerektiren veya cihaz etki alanına katılmış olmasını gerektiren tarafından uygulanan bir ilke olması önerilir. Tüm cihaz platformları için ilkeyi uygulamak için varsayılandır. 
 
 
 ![Koşullar](./media/active-directory-conditional-access-conditions/24.png)
 
-Desteklenen cihaz platformlarının tam bir listesi için bkz: [cihaz platformu koşul](active-directory-conditional-access-technical-reference.md#device-platform-condition).
+Desteklenen cihaz platformlarını tam bir listesi için bkz. [cihaz platformu koşul](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
-Bu durum, bulut uygulamalarınızı erişimi kısıtlayan bir ilke için bir ortak kullanım örneği [yönetilen cihazlara](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Cihaz platform koşulu dahil daha fazla senaryoları için bkz: [Azure Active Directory Uygulama temelli koşullu erişim](active-directory-conditional-access-mam.md).
+Bu durum, bulut uygulamalarınıza erişimi kısıtlayan bir ilke için bir ortak kullanım örneği [yönetilen cihazlar](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Cihaz platformu koşulu dahil olmak üzere daha fazla senaryo için bkz. [Azure Active Directory uygulama tabanlı koşullu erişim](active-directory-conditional-access-mam.md).
 
 
 
 ## <a name="device-state"></a>Cihaz durumu
 
-Cihaz durumu koşulu karma Azure AD alanına ve aygıtları bir koşullu erişim ilkesinden hariç tutulacak uyumlu olarak işaretlenmiş sağlar. Bu, bir ilke yalnızca ek oturum güvenliğini sağlamak için yönetilmeyen cihaza uygulanmalıdır durumunda faydalı olur. Örneğin, bir aygıt yönetilmeyen olduğunda yalnızca Microsoft Cloud App Security oturum denetimi uygulayın. 
+Cihaz durumu koşulunu hibrit Azure AD'ye katıldı ve cihaz bir koşullu erişim ilkesinden hariç tutulacak uyumlu olarak işaretli sağlar. Bir ilke yalnızca ek oturum güvenliği sağlamak için yönetilmeyen cihaza uygulanmasını gerektiren bu kullanışlıdır. Örneğin, bir cihazın yönetilmeyen olduğunda yalnızca Microsoft Cloud App Security oturum denetimi uygular. 
 
 
 ![Koşullar](./media/active-directory-conditional-access-conditions/112.png)
 
-Yönetilmeyen cihazlar için erişimi engellemek istiyorsanız, uygulamalıdır [cihaz temelli koşullu erişim](active-directory-conditional-access-policy-connected-applications.md).
+Yönetilmeyen cihazların erişimini engellemek istiyorsanız, uygulamalıdır [cihaz tabanlı koşullu erişim](active-directory-conditional-access-policy-connected-applications.md).
 
 
 ## <a name="locations"></a>Konumlar
 
-Konumları ile bir bağlantı girişimini gelen başlatıldığı üzerinde temel koşullarını tanımlamak için seçeneğiniz vardır. 
+Konumlar ile bir bağlantı denemesi gelen başlatıldığı üzerinde temel koşulları tanımlamak için seçeneğiniz vardır. 
      
 ![Koşullar](./media/active-directory-conditional-access-conditions/25.png)
 
@@ -138,14 +138,14 @@ Bu koşul için ortak kullanım durumları olan ilkeler:
 
 - Şirket ağı devre dışı olduklarında hizmet erişen kullanıcılar için çok faktörlü kimlik doğrulaması gerektirir.  
 
-- Bir hizmeti belirli ülke veya bölgelerden erişen kullanıcıların erişimi engeller. 
+- Bir hizmetin belirli ülke veya bölgelerden erişen kullanıcılar için erişimi engelleyin. 
 
-Daha fazla bilgi için bkz: [Azure Active Directory koşullu erişim konumu durumu nedir?](active-directory-conditional-access-locations.md)
+Daha fazla bilgi için [konum koşulu Azure Active Directory koşullu erişim nedir?](active-directory-conditional-access-locations.md)
 
 
 ## <a name="client-apps"></a>İstemci uygulamaları
 
-İstemci uygulamaları koşulu gibi uygulamaları, farklı türde bir ilkenin uygulanacağı sağlar:
+İstemci uygulamaları durumu gibi farklı uygulama türleri için bir ilkenin uygulanacağı sağlar:
 
 - Web siteleri ve Hizmetleri
 - Mobil uygulamalar ve Masaüstü uygulamaları. 
@@ -154,94 +154,94 @@ Daha fazla bilgi için bkz: [Azure Active Directory koşullu erişim konumu duru
 
 Bir uygulama olarak sınıflandırılır:
 
-- Bir web sitesi veya web SSO protokolleri, SAML, kullanıyorsa, hizmet WS-Fed veya Openıd Connect gizli bir istemci için.
+- Web sitesi veya web SSO protokolleri, SAML, kullanıyorsa, hizmet WS-Federasyon veya Openıd Connect gizli bir istemci için.
 
-- Bir mobil uygulaması ya da yerel bir istemci için mobil uygulama Openıd Connect kullanıyorsa, masaüstü uygulaması.
+- Bir mobil uygulaması ya da yerel bir istemci için Openıd Connect mobil uygulamayı kullanıyorsa, masaüstü uygulaması.
 
-Koşullu erişim ilkenizi kullanabileceğiniz istemci uygulamaları tam bir listesi için bkz: [istemci uygulamaları koşulu](active-directory-conditional-access-technical-reference.md#client-apps-condition) Azure Active Directory koşullu erişim Teknik Başvurusu.
+Koşullu erişim ilkenizi kullanabileceğiniz istemci uygulamaları tam bir listesi için bkz. [istemci uygulamalar koşulunu](active-directory-conditional-access-technical-reference.md#client-apps-condition) Azure Active Directory koşullu erişim teknik başvuru.
 
 Bu koşul için ortak kullanım durumları olan ilkeler:
 
-- Gerektiren bir [uyumlu aygıt](active-directory-conditional-access-policy-connected-applications.md) herhangi bir CİHAZDAN tarayıcı erişim sağlarken büyük miktarlarda verinin cihaza karşıdan mobil ve Masaüstü uygulamaları için.
+- Gerekli bir [uyumlu cihaz](active-directory-conditional-access-policy-connected-applications.md) tarayıcı erişimini herhangi bir CİHAZDAN verirken cihaza, büyük miktarlarda veri indirme mobil ve Masaüstü uygulamaları için.
 
-- Web uygulamalarından gelen erişimi engellemek, ancak Mobil ve Masaüstü uygulamaları erişime izin verecek.
+- Web uygulamalarından erişimi engellemek, ancak Mobil ve Masaüstü uygulamalar erişime izin verecek.
 
-Web SSO ve modern kimlik doğrulama protokollerini kullanarak ek olarak, yerel posta uygulamaları çoğu akıllı telefonlar gibi kullanan Exchange ActiveSync posta uygulamaları için bu koşul uygulayabilirsiniz. Şu anda, eski protokolleri kullanarak istemci uygulamaları AD FS kullanarak korunması gerekir.
+Web SSO ve modern kimlik doğrulama protokollerini kullanarak ek olarak, yerel posta uygulamaları çoğu akıllı telefonlar gibi kullanan Exchange ActiveSync posta uygulamaları için bu durum da uygulayabilirsiniz. Şu anda, eski protokolleri kullanarak istemci uygulamaları AD FS kullanarak korunması gerekir.
 
-Bu durum, yalnızca seçebilirsiniz **Office 365 Exchange Online** seçtiğiniz yalnızca bulut uygulaması.
+Bu durum, yalnızca seçebilirsiniz **Office 365 Exchange Online** seçtiğiniz tek bulut uygulamasıdır.
 
 ![Bulut uygulamaları](./media/active-directory-conditional-access-conditions/32.png)
 
-Seçme **Exchange ActiveSync** başka koşullar yapılandırılan bir ilke yoksa, istemci uygulamaları olarak koşulu yalnızca desteklenir. Ancak, yalnızca desteklenen platformlar uygulamak için bu koşul kapsamını daraltabilirsiniz.
+Seçme **Exchange ActiveSync** diğer koşullar yapılandırılmış ilke yoksa, istemci uygulamaları olarak koşulu yalnızca desteklenir. Ancak, bu koşul yalnızca desteklenen platformlara Uygula kapsamını daraltabilirsiniz.
 
  
 ![Desteklenen platformlar](./media/active-directory-conditional-access-conditions/33.png)
 
-Bu koşul yalnızca desteklenen platformlar için uygulama olduğundan tüm cihaz platformları için eşdeğer bir [cihaz platformu koşul](active-directory-conditional-access-conditions.md#device-platforms).
+Bu koşul yalnızca desteklenen platformlara uygulama tüm cihaz platformları için eşdeğer olan bir [cihaz platformu koşul](active-directory-conditional-access-conditions.md#device-platforms).
 
 ![Desteklenen platformlar](./media/active-directory-conditional-access-conditions/34.png)
 
 
  Daha fazla bilgi için bkz.
 
-- [SharePoint Online ve Exchange Online için koşullu erişim Azure Active Directory ayarlama](active-directory-conditional-access-no-modern-authentication.md)
+- [SharePoint Online ve Exchange Online için Azure Active Directory koşullu erişim ayarlama](active-directory-conditional-access-no-modern-authentication.md)
  
-- [Azure Active Directory Uygulama temelli koşullu erişim](active-directory-conditional-access-mam.md) 
+- [Azure Active Directory uygulama tabanlı koşullu erişim](active-directory-conditional-access-mam.md) 
 
 
-### <a name="legacy-authentication"></a>Eski kimlik doğrulaması  
+### <a name="legacy-authentication"></a>Eski bir kimlik doğrulama  
 
-Koşullu erişim artık modern kimlik doğrulamayı desteklemeyen eski Office istemcileri ve bunun yanı sıra, POP, IMAP, SMTP, vb. gibi posta protokolleri kullanan istemciler için geçerlidir. Bu gibi ilkeleri yapılandırmanıza izin verir **diğer istemcilerden erişimi engelleme**.
+Koşullu erişim artık modern kimlik doğrulaması desteği olmayan eski Office istemcileri ve bunun yanı sıra, POP, IMAP, SMTP vb. gibi posta protokollerini kullanan istemciler için geçerlidir. Bu sayede gibi ilkeleri yapılandırmak **diğer istemcilerden erişimi engelle**.
 
 
-![Eski kimlik doğrulaması](./media/active-directory-conditional-access-conditions/160.png)
+![Eski bir kimlik doğrulama](./media/active-directory-conditional-access-conditions/160.png)
  
 
 
 
 #### <a name="known-issues"></a>Bilinen sorunlar
 
-- İlke yapılandırma **diğer istemciler** SPConnect gibi belirli istemcilerden gelen tüm kuruluş engeller. Beklenmedik bir şekilde kimlik doğrulaması bu eski istemciler nedeni budur. Bu sorunun temel eski Office istemcileri gibi Office uygulamaları geçerli değildir. 
+- Bir ilke için yapılandırma **diğer istemciler** SPConnect gibi belirli istemcilerden gelen tüm kuruluş engeller. Bu, beklenmedik bir şekilde kimlik doğrulaması bu eski istemciler kaynaklanır. Bu sorun, eski Office istemcileri gibi Office uygulamaları büyük geçerli değildir. 
 
-- İlkenin etkili olması için 24 saate kadar sürebilir. 
+- Bu ilkenin etkili olması için 24 saate kadar sürebilir. 
 
 
 #### <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-**Bu, Exchange Web Hizmetleri (EWS) engelleyecek mi?**
+**Bu, Exchange Web Hizmetleri (EWS) bloke edilir?**
 
-EWS kullanarak kimlik doğrulama protokolü bağlıdır. EWS uygulama modern kimlik doğrulamasını kullanıyorsanız, "mobil uygulamalar ve Masaüstü istemcileri" istemci uygulaması tarafından ele alınacaktır. EWS uygulama temel kimlik doğrulamasını kullanıyorsanız, "Diğer istemciler" istemci uygulaması tarafından ele alınacaktır.
+Bu, EWS kullanan kimlik doğrulama protokolü bağlıdır. EWS uygulaması modern kimlik doğrulaması kullanıyorsa, "mobil uygulamalar ve masaüstü istemciler" istemci uygulama tarafından ele alınmaktadır. EWS uygulama temel kimlik doğrulaması kullanıyorsa, "Diğer istemciler" istemci uygulama tarafından ele alınmaktadır.
 
 
-**Hangi denetimlerin diğer istemciler için kullanabilir miyim**
+**Diğer istemciler için hangi denetimlerin kullanabilirim**
 
-Herhangi bir denetimi "Diğer istemciler için" yapılandırılabilir. Ancak, son kullanıcı deneyimi için tüm durumlarda erişimi olacaktır. "Diğer istemciler" uyumlu aygıt, etki alanına katılma, vb. denetimleri MFA gibi desteklemez. 
+"Diğer istemciler için" herhangi bir denetimi yapılandırılabilir. Bununla birlikte, son kullanıcı deneyimi erişimi engellemek için her durumda olacaktır. "Diğer istemciler" uyumlu cihaz, etki alanına katılım, vb. gibi MFA'yı denetimleri desteklemez. 
  
-**Hangi şartlar diğer istemciler için kullanabilir miyim?**
+**Hangi durumlarda diğer istemciler için kullanabilir miyim?**
 
-Tüm koşullar "Diğer istemciler için" yapılandırılabilir.
+"Diğer istemciler için" koşulları yapılandırılabilir.
 
-**Exchange ActiveSync tüm koşullar ve denetimleri destekliyor mu?**
+**Exchange ActiveSync tüm koşullarını ve denetimlerini destekliyor mu?**
 
 Hayır. Exchange ActiveSync (EAS) destek özeti aşağıda verilmiştir:
 
-- EAS yalnızca kullanıcı ve Grup hedeflemenin destekler. Konuk, rolleri desteklemiyor. Konuk/rol koşul yapılandırdıysanız, biz İlkesi kullanıcıya veya uygulanacaksa belirleyemediğinden tüm kullanıcılar engellenen.
+- EAS yalnızca kullanıcı ve Grup hedefleyen destekler. Bunu konuk, rolleri desteklemiyor. Biz ilke kullanıcıya veya uygulanacaksa belirleyemediğinden Konuk/rol koşul yapılandırılmışsa, tüm kullanıcılar engellenmiş.
 
-- EAS Exchange ile yalnızca bulut uygulama olarak çalışır. 
+- EAS, Exchange ile yalnızca bulut uygulaması çalışır. 
 
-- EAS istemci uygulamanın kendi dışında herhangi bir koşul desteklemez.
+- EAS istemci uygulaması kendisi dışında herhangi bir koşul desteklemez.
 
-- EAS (cihaz uyumluluğu dışında tüm bloğuna götürür) herhangi bir denetim ile yapılandırılabilir.
+- EAS (cihaz uyumluluğu hariç tüm bloğu götürür) herhangi bir denetime yapılandırılabilir.
 
-**İlkeler tüm istemci uygulamaları için ileriye dönük varsayılan olarak uygulamak?**
+**İlkeler tüm istemci uygulamaları için varsayılan değer olarak ileriye dönük uygulanır mı?**
 
-Hayır. Varsayılan ilke davranışında değişiklik yoktur. İlkeler, tarayıcı ve mobil uygulamalar/Masaüstü istemcileri için varsayılan olarak uygulanmaya devam eder.
+Hayır. Varsayılan ilke davranışında değişiklik yoktur. İlkeler, tarayıcı ve mobil uygulamalarını/masaüstü istemcisi için varsayılan olarak uygulanmaya devam eder.
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Koşullu erişim ilkesini yapılandırma hakkında bilmek istiyorsanız [Azure Active Directory koşullu erişimi olan belirli uygulamalar için MFA gerektiren](active-directory-conditional-access-app-based-mfa.md).
+- Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektiren](active-directory-conditional-access-app-based-mfa.md).
 
-- Ortamınız için koşullu erişim ilkelerini yapılandırma için hazır olup olmadığını görmek [Azure Active Directory'de koşullu erişim için en iyi uygulamaları](active-directory-conditional-access-best-practices.md). 
+- Ortamınız için koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz [Azure Active Directory'de koşullu erişim için en iyi yöntemler](active-directory-conditional-access-best-practices.md). 
 

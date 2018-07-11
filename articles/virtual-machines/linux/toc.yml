@@ -51,8 +51,6 @@
       href: tutorial-mean-stack.md
     - name: 16 - SSL ile web sunucusunun güvenliğini sağlama
       href: tutorial-secure-web-server.md
-    - name: Packer görüntüsü ve uygulamaları ölçek kümesine dağıtma
-      href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: Örnekler
   items:
     - name: Azure CLI

@@ -1,21 +1,21 @@
-1. Yükleyici, korumak istediğiniz sunucuda yerel bir klasöre (örneğin, tmp) kopyalayın. Bir terminal, aşağıdaki komutları çalıştırın:
+1. Yükleyiciyi, korumak istediğiniz sunucuda yerel bir klasöre (örneğin, / tmp) kopyalayın. Bir terminal penceresinde aşağıdaki komutları çalıştırın:
   ```
   cd /tmp ;
 
   tar -xvzf Microsoft-ASR_UA*release.tar.gz
   ```
-2. Mobilite hizmetinin yüklenmesi için aşağıdaki komutu çalıştırın:
+2. Mobility hizmetini yüklemek için aşağıdaki komutu çalıştırın:
 
   ```
   sudo ./install -d <Install Location> -r MS -v VmWare -q
   ```
-3. Yükleme tamamlandıktan sonra Mobility hizmetinin yapılandırma sunucusuna kayıtlı gerekir. Mobility hizmeti ile yapılandırma sunucusunu kaydetmek için aşağıdaki komutu çalıştırın:
+3. Mobility hizmeti yüklemesi tamamlandıktan sonra yapılandırma sunucusuna kaydedilmesi gerekir. Mobility hizmeti ile yapılandırma sunucusunu kaydetmek için aşağıdaki komutu çalıştırın:
 
   ```
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
   ```
 
-#### <a name="mobility-service-installer-command-line"></a>Mobility Hizmeti Yükleyici komut satırı
+#### <a name="mobility-service-installer-command-line"></a>Mobility hizmeti yükleyicisi komut satırı
 
 ```
 Usage:
@@ -24,9 +24,9 @@ Usage:
 
 |Parametre|Tür|Açıklama|Olası değerler|
 |-|-|-|-|
-|-r |Zorunlu|Mobility hizmetinin (MS) yüklü olmalıdır veya MasterTarget (MT) yüklenmesi gerektiğini belirtir.|MS </br> MT|
-|-d |İsteğe bağlı|Mobility Hizmeti'nin yüklendiği konumu.|/usr/local/ASR|
-|-v|Zorunlu|Mobility hizmetinin yüklü olduğu platform belirtir. </br> </br>- **VMware**: Mobility hizmeti üzerinde çalışan bir VM'de yüklerseniz, bu değeri kullanın *VMware vSphere ESXi konakları*, *Hyper-V konakları*, ve *fiziksel sunucuları*. </br> - **Azure**: bir Azure Iaas sanal aracıyı yüklerseniz, bu değeri kullanın.| VMware </br> Azure|
+|-r |Zorunlu|Mobility hizmeti (MS) yüklenmelidir ya da olan ana hedef (MT) yüklenmesi gerektiğini belirtir.|MS </br> MT|
+|-d |İsteğe bağlı|Mobility Hizmeti'nin yüklendiği konum.|/usr/local/ASR|
+|-v|Zorunlu|Mobility hizmetinin yüklendiği platformunu belirtir. </br> </br>- **VMware**: üzerinde çalışan bir sanal makinesi üzerinde Mobility hizmetini yüklerseniz, bu değeri kullanın *VMware vSphere ESXi konakları*, *Hyper-V konakları*, ve *fiziksel sunucuları*. </br> - **Azure**: Azure Iaas sanal makinesine bir aracıyı yüklerseniz, bu değeri kullanın.| VMware </br> Azure|
 |-q|İsteğe bağlı|Yükleyici sessiz modda çalıştırmak için belirtir.| Yok|
 
 
@@ -40,5 +40,5 @@ UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 
 |Parametre|Tür|Açıklama|Olası değerler|
 |-|-|-|-|
-|-i |Zorunlu|Yapılandırma sunucusu IP|Herhangi bir geçerli IP adresi|
-|-P |Zorunlu|Burada bağlantısı geçebilmesi tümcecik dosyaları için tam dosya yolu kaydedilir|Geçerli bir klasör|
+|-i |Zorunlu|Yapılandırma sunucusu IP'si|Herhangi bir geçerli IP adresi|
+|-P |Zorunlu|Burada tümcecik geçirmek bağlantı dosyasının tam dosya yolunu kaydedildi|Herhangi bir geçerli klasörü|

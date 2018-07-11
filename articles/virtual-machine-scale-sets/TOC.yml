@@ -55,10 +55,6 @@
           href: tutorial-autoscale-powershell.md
         - name: Şablon
           href: tutorial-autoscale-template.md
-    - name: Özel Packer görüntüsüyle uygulamaları bir Azure sanal makine ölçek kümesine dağıtma
-      items:
-        - name: Azure CLI 2.0
-          href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: Örnekler
   items:
     - name: Azure CLI 2.0

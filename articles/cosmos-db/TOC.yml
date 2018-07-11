@@ -364,8 +364,6 @@ items:
                 href: tutorial-query-table.md
               - name: 4 - Global olarak dağıtma
                 href: tutorial-global-distribution-table.md
-              - name: '5 - Sunucusuz uygulama: Node.js'
-                href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
           - name: Örnekler
             items:
               - name: .NET

@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory - JSON betik oluşturma başvurusu | Microsoft Docs
-description: Data Factory varlıkları için JSON şemaları sağlar.
+description: Data Factory varlıkları için JSON şemalarının sağlar.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -15,21 +15,21 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 191f8973e85186590a2ba840e473f8fff57a9d94
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "37053057"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON betik oluşturma başvurusu
 > [!NOTE]
-> Bu makale, veri fabrikası 1 sürümü için geçerlidir.
+> Bu makale, Data Factory’nin 1. sürümü için geçerlidir.
 
 
-Bu makalede, Azure Data Factory varlıkları (ardışık düzen, etkinlik, veri kümesi ve bağlantılı hizmet) tanımlamak için JSON şemaları ve örnekler sağlar.  
+Bu makalede, Azure Data Factory varlıklarını (işlem hattı, etkinlik, veri kümesi ve bağlı hizmet) tanımlamak için JSON şemalarının ve örnekler sağlar.  
 
 ## <a name="pipeline"></a>İşlem hattı 
-Ardışık düzen tanımı için üst düzey yapısı aşağıdaki gibidir: 
+İşlem hattı için üst düzey yapısını aşağıdaki gibidir: 
 
 ```json
 {
@@ -44,22 +44,22 @@ Ardışık düzen tanımı için üst düzey yapısı aşağıdaki gibidir:
 } 
 ```
 
-Aşağıdaki tabloda özellikleri JSON tanımını ardışık düzen içinde açıklanmaktadır:
+Aşağıdaki tabloda, işlem hattı JSON tanımını içindeki özellikleri açıklar:
 
 | Özellik | Açıklama | Gerekli
 -------- | ----------- | --------
-| ad | İşlem hattının adı. Eylemi temsil eden bir ad belirtin etkinlik veya ardışık düzen yapmak için yapılandırılır<br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi (_) ile başlamalıdır</li><li>Şu karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
-| açıklama |Hangi etkinlik veya ardışık düzen açıklayan metin için kullanılır | Hayır |
+| ad | İşlem hattının adı. Eylemi temsil eden bir ad belirtin etkinlik veya işlem hattı yapmak için yapılandırılır<br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi (_) ile başlamalıdır</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
+| açıklama |Ne işlem hattı ve etkinlik için kullanıldığını açıklayan metin | Hayır |
 | etkinlikler | Etkinliklerin listesini içerir. | Evet |
-| start |Ardışık düzeni için başlangıç tarihi / saati. Olmalıdır [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41. <br/><br/>Yerel saat örneğin tahmini süre belirlemek mümkündür. Örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6'da tahmini olduğu<br/><br/>Başlangıç ve bitiş özellikleri birlikte ardışık düzen etkin süresini belirtin. Çıktı dilimler yalnızca ile etkin bu dönemde üretilir. |Hayır<br/><br/>End özelliği için bir değer belirtirseniz, başlangıç özelliği için değer belirtmeniz gerekir.<br/><br/>Başlangıç ve bitiş zamanlarını hem de bir işlem hattı oluşturmak için boş olabilir. Çalıştırmak ardışık düzeni için etkin bir süre ayarlamak için her iki değer belirtmeniz gerekir. Başlangıç ve bitiş zamanlarını belirtmezseniz, bir işlem hattı oluştururken, bunları daha sonra Set-AzureRmDataFactoryPipelineActivePeriod cmdlet'ini kullanarak ayarlayabilirsiniz. |
-| end |Ardışık düzeni için bitiş tarihi / saati. Belirtilen ISO biçiminde olmalıdır. Örneğin: 2014-10-14T17:32:41 <br/><br/>Yerel saat örneğin tahmini süre belirlemek mümkündür. Örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6'da tahmini olduğu<br/><br/>İşlem hattını süresiz olarak çalışacak şekilde 9999-09-09 end özelliği için değer olarak belirtin. |Hayır <br/><br/>Başlangıç özellik için bir değer belirtirseniz, son özelliği için değer belirtmeniz gerekir.<br/><br/>İçin notlarına bakın **Başlat** özelliği. |
-| isPaused |Ardışık Düzen true olarak ayarlandığında çalışmazsa. Varsayılan değer = false. Bu özelliği etkinleştirmek veya devre dışı bırakmak için kullanabilirsiniz. |Hayır |
-| pipelineMode |Zamanlama için yöntem ardışık düzeni için çalışır. İzin verilen değerler: (varsayılan), zamanlanmış kez.<br/><br/>'Zamanlanmış' ardışık düzen belirtilen süre aralığında etkin süresinin (başlangıç ve bitiş saati) göre çalıştırıldığını gösterir. 'Kez' ardışık düzen yalnızca bir kez çalıştırıldığını gösterir. Oluşturulduktan sonra kez ardışık düzen şu anda değiştiren/güncelleştirilemiyor. Bkz: [Onetime ardışık düzen](data-factory-create-pipelines.md#onetime-pipeline) kez ayar hakkındaki ayrıntılar için. |Hayır |
-| expirationTime |Kendisi için ardışık düzeni geçerli olduğunu ve sağlanan kalacağı oluşturulduktan sonra süre. Tüm etkin başarısız oldu, yok veya sona erme zamanı ulaştığında çalıştığında, ardışık düzen otomatik olarak silinmesi durumunda. |Hayır |
+| start |İşlem hattının başlangıç tarihi / saati. Olmalıdır [ISO biçimi](http://en.wikipedia.org/wiki/ISO_8601). Örnek: 2014-10-14T16:32:41. <br/><br/>Yerel saati, örneğin bir Tah belirtmek mümkündür. Bir örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6 AM tahmini olduğu<br/><br/>Başlangıç ve bitiş özellikleri işlem hattının etkin dönemini birlikte belirtin. Çıktı dilimleri yalnızca ile bu etkin dönem içinde oluşturulur. |Hayır<br/><br/>End özelliği için bir değer belirtirseniz, başlangıç özelliği için değer belirtmeniz gerekir.<br/><br/>Başlangıç ve bitiş saatleri hem de bir işlem hattı oluşturmak için boş olabilir. Çalıştırılacak işlem hattının etkin bir süresini ayarlamak için her iki değer belirtmeniz gerekir. Başlangıç ve bitiş zamanı belirtmezseniz, işlem hattını oluştururken, bunları daha sonra Set-AzureRmDataFactoryPipelineActivePeriod cmdlet'ini kullanarak ayarlayabilirsiniz. |
+| end |İşlem hattının son tarih-saat. Belirtilen ISO biçiminde olmalıdır. Örnek: 2014-10-14T17:32:41 <br/><br/>Yerel saati, örneğin bir Tah belirtmek mümkündür. Bir örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6 AM tahmini olduğu<br/><br/>İşlem hattını süresiz olarak çalıştırmak için 9999-09-09 son özelliğinin değeri olarak belirtin. |Hayır <br/><br/>Başlangıç özellik için bir değer belirtirseniz, end özelliği için değer belirtmeniz gerekir.<br/><br/>İçin Notlar'a bakın **Başlat** özelliği. |
+| isPaused |İşlem hattı true olarak ayarlanırsa çalışmazsa. Varsayılan değer = false. Bu özelliği etkinleştirmek veya devre dışı bırakmak için kullanabilirsiniz. |Hayır |
+| pipelineMode |İşlem hattı çalıştırmaları zamanlamak için yöntem. İzin verilen değerler: (varsayılan), zamanlanmış onetime.<br/><br/>'Zamanlanmış' işlem hattı, belirtilen zaman aralığı (başlangıç ve bitiş saati) etkin süresinin göre çalıştırıldığını gösterir. 'Onetime' işlem hattı yalnızca bir kez çalıştırıldığını gösterir. Tek seferlik işlem hatları oluşturulduktan sonra değişiklik ve güncelleştirilmiş olamaz. Bkz: [Onetime işlem hattı](data-factory-create-pipelines.md#onetime-pipeline) onetime ayarı hakkında ayrıntılı bilgi için. |Hayır |
+| expirationTime |İşlem hattı geçerli olduğunu ve sağlanan kalmalıdır, oluşturulduktan sonra süre. Tüm etkin, başarısız, yok veya işlem hattı çalıştırmaları otomatik olarak bir kez silinir sona erme zamanı ulaşır. |Hayır |
 
 
 ## <a name="activity"></a>Etkinlik 
-Ardışık düzen tanımı (etkinlikleri öğesi) içinde bir etkinlik için üst düzey yapısı aşağıdaki gibidir:
+Bir işlem hattı tanımındaki (etkinlikleri öğesi) bir etkinlik için üst düzey yapısını aşağıdaki gibidir:
 
 ```json
 {
@@ -82,40 +82,40 @@ Ardışık düzen tanımı (etkinlikleri öğesi) içinde bir etkinlik için üs
 }
 ```
 
-Tablo Özellikleri JSON tanımını etkinlik içinde açıklanmıştır:
+Tablo, içinde etkinlik JSON tanımındaki özellikler açıklanmaktadır:
 
 | Etiket | Açıklama | Gerekli |
 | --- | --- | --- |
-| ad |Etkinliğin adı. Eylemi temsil eden bir ad belirtin, etkinlik yapılandırılması<br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi (_) ile başlamalıdır</li><li>Şu karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
-| açıklama |Etkinlik hangi amaçla kullanıldığına açıklayan metin. |Hayır |
-| type |Etkinlik türünü belirtir. Bkz: [veri DEPOLARINA](#data-stores) ve [veri dönüştürme etkinlikleri](#data-transformation-activities) bölümleri etkinlikler farklı türde. |Evet |
-| girişler |Etkinlik tarafından kullanılan giriş tabloları<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |HDInsightStreaming ve SqlServerStoredProcedure etkinlikleri için Hayır'ı <br/> <br/> Diğer tüm kullanıcılar için Evet |
-| çıkışlar |Etkinlik tarafından kullanılan çıkış tabloları.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Evet |
-| linkedServiceName |Etkinlik tarafından kullanılan bağlı hizmetin adı. <br/><br/>Bir etkinlik için gerekli işlem ortamına bağlanan bağlı hizmeti belirtmeniz gerekebilir. |Hdınsight etkinlikleri, Azure Machine Learning etkinlikleri ve saklı yordam etkinliği için Evet. <br/><br/>Diğer tümü için hayır |
-| typeProperties |Özellikler typeProperties bölümünde etkinlik türüne bağlıdır. |Hayır |
+| ad |Etkinliğin adı. Eylemi temsil eden bir ad belirtin, etkinlik yapılandırılması<br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi (_) ile başlamalıdır</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
+| açıklama |Etkinliğin ne için kullanıldığını açıklayan metin. |Hayır |
+| type |Etkinlik türünü belirtir. Bkz: [veri DEPOLARI](#data-stores) ve [veri dönüştürme etkinlikleri](#data-transformation-activities) bölümleri farklı etkinlik türleri için. |Evet |
+| girişler |Etkinlik tarafından kullanılan giriş tablosu<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Hdınsightstreaming ve SqlServerStoredProcedure etkinlikler için Hayır <br/> <br/> Diğer tümü için Evet |
+| çıkışlar |Etkinlik tarafından kullanılan çıkış tablolar.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Evet |
+| linkedServiceName |Etkinlik tarafından kullanılan bağlı hizmetin adı. <br/><br/>Bir etkinlik için gerekli işlem ortamına bağlanan bağlı hizmeti belirtmeniz gerekebilir. |HDInsight etkinlikleri, Azure Machine Learning etkinlikleri ve saklı yordam etkinliği için Evet. <br/><br/>Diğer tümü için hayır |
+| typeProperties |TypeProperties bölümündeki özellikler etkinlik türüne bağlıdır. |Hayır |
 | ilke |Etkinliğin çalışma zamanı davranışını etkileyen ilkeler. Belirtilmezse, varsayılan ilkeler kullanılır. |Hayır |
-| Zamanlayıcı |"Zamanlayıcı" özelliği, istenen etkinliği için zamanlama tanımlamak için kullanılır. Onun alt Listedekilerin aynıdır [dataset kullanılabilirliği özelliğinde](data-factory-create-datasets.md#dataset-availability). |Hayır |
+| Zamanlayıcı |"Zamanlayıcı" özelliği, istenen etkinlik için zamanlama tanımlamak için kullanılır. Onun alt dışındaki aynıdır [bir veri kümesi kullanılabilirlik özelliğinde](data-factory-create-datasets.md#dataset-availability). |Hayır |
 
 ### <a name="policies"></a>İlkeler
-İlkeler, özellikle bir tablonun dilim işlendiğinde bir etkinlik çalışma zamanı davranışını etkiler. Aşağıdaki tabloda ayrıntılar sağlar.
+Özellikle, bir tablonun dilim işlendiğinde ilkeler bir etkinliğin çalışma zamanı davranışını etkiler. Aşağıdaki tabloda ayrıntılar sağlar.
 
 | Özellik | İzin verilen değerler | Varsayılan Değer | Açıklama |
 | --- | --- | --- | --- |
-| Eşzamanlılık |Tamsayı <br/><br/>En yüksek değeri: 10 |1 |Etkinliğin eşzamanlı yürütmeleri sayısı.<br/><br/>Üzerinde farklı dilimler oluşabilir paralel etkinlik yürütmeleri sayısını belirler. Örneğin, bir etkinlik geçtikleri gerekiyorsa bir büyük daha büyük bir eşzamanlılık değer sahip kullanılabilir veri kümesi, veri işleme hızı artar. |
-| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |İşlenen veri dilimleri sıralama belirler.<br/><br/>Örneğin, varsa (bir oluşmasını 4 pm adresindeki ve 17: 00 saatleri sırasında başka bir) 2 böler ve hem de yürütme olması. ExecutionPriorityOrder NewestFirst olacak şekilde ayarlarsanız, 17: 00 saatleri sırasında dilim önce işlenir. ExecutionPriorityORder OldestFIrst olacak şekilde ayarlarsanız, benzer şekilde ardından 4 PM adresindeki dilim işlenir. |
-| retry |Tamsayı<br/><br/>En büyük değer 10 olabilir |0 |Veri işleme ve dilim için hata olarak işaretlenmiş önce yeniden deneme sayısı. Etkinlik yürütme veri dilimi için belirtilen yeniden deneme sayısı kadar yeniden denenir. Yeniden deneme mümkün olan en kısa sürede hatasından sonra yapılır. |
-| timeout |TimeSpan |00:00:00 |Etkinlik için zaman aşımı. Örnek: 00:10: (zaman aşımı 10 dakika anlamına gelir) 00<br/><br/>Bir değer belirtilmemiş ya da 0'dır, zaman aşımını sonsuz olur.<br/><br/>Dilim üzerinde veri işleme süresi zaman aşımı değerini aşarsa, iptal edilir ve sistem işlemeyi yeniden dener. Yeniden deneme sayısı yeniden deneme özelliğe bağlıdır. Zaman aşımı oluştuğunda durumu süresi sona erdi için ayarlanır. |
-| gecikme |TimeSpan |00:00:00 |Veri işleme dilim başlatır gecikme belirtin.<br/><br/>Beklenen yürütme süresi gecikme tamamlandıktan sonra bir veri dilimi için etkinlik yürütülmesini başlatılır.<br/><br/>Örnek: 00:10: (10 dakika gecikme anlamına gelir) 00 |
-| longRetry |Tamsayı<br/><br/>En yüksek değeri: 10 |1 |Dilim yürütme başarısız olmadan önce uzun yeniden deneme sayısı.<br/><br/>longRetry girişimleri tarafından longRetryInterval aralarına aralık eklenir. Yeniden deneme girişimleri arasındaki süre belirtmeniz gerekiyorsa, bu nedenle longRetry kullanın. Yeniden deneme ve longRetry belirtilirse, her bir longRetry denemesi denemeleri içerir ve en fazla deneme sayısını yeniden deneme * longRetry.<br/><br/>Örneğin, biz etkinlik ilkesinde aşağıdaki ayarları varsa:<br/>Yeniden deneme: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Yürütmek için yalnızca bir dilim olduğu varsayılır (Durum Bekliyor) ve Etkinlik yürütme her zaman başarısız olur. Başlangıçta 3 ardışık yürütme deneme olacaktır. Her girişiminden sonra Yeniden Dene'yi dilim durum olacaktır. İlk 3 deneme üzerinden sonra dilim durum LongRetry olur.<br/><br/>Bir saat sonra (diğer bir deyişle, longRetryInteval'ın değeri), 3 ardışık yürütme deneme başka bir dizi olacaktır. Bundan sonra dilim durumu başarısız ve daha fazla yeniden deneme yok denenmesi. Bu nedenle genel 6 deneme yapıldı.<br/><br/>Hiçbir yürütme başarılı olursa, dilim durum hazır olur ve daha fazla yeniden deneme yok çalıştı.<br/><br/>longRetry, belirleyici olmayan zamanlarda bağımlı veri ulaştığında veya genel ortamında hangi veri işleme gerçekleşir altında anormal olduğu durumlarda kullanılabilir. Böyle durumlarda, yeniden deneme birbiri ardından yardımcı yapmak ve sonra bir aralık böylece istenen çıkış sonuçlarında zaman.<br/><br/>Uyarı: longRetry veya longRetryInterval yüksek değerleri ayarlı değil. Genellikle, daha yüksek değerleri sistemle ilgili diğer sorunlar kapsıyor. |
-| longRetryInterval |TimeSpan |00:00:00 |Uzun yeniden deneme girişimleri arasında gecikme |
+| Eşzamanlılık |Tamsayı <br/><br/>En büyük değer: 10 |1 |Etkinliğin eşzamanlı yürütmelerinin sayısı.<br/><br/>Bu, üzerinde farklı dilimleri oluşabilir paralel Etkinlik yürütme sayısını belirler. Örneğin, bir etkinlik geçtikleri gerekiyorsa, çok sayıda büyük eşzamanlılık değeri, kullanılabilir verilerin veri işleme hızı artar. |
+| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |İşlenmekte olan veri dilimi sıralama belirler.<br/><br/>Örneğin, varsa (4'te, bir gerçekleşmesini ve başka bir saat 17: 00) 2 böler ve hem de yürütme olması. Dilim saat 17: 00, executionPriorityOrder NewestFirst olacak şekilde ayarlarsanız, önce işlenir. ExecutionPriorityORder OldestFIrst olacak şekilde ayarlarsanız, benzer şekilde ardından 4'te en işlenir. |
+| retry |Tamsayı<br/><br/>En büyük değer 10 olabilir |0 |Dilimin veri işleme hatası olarak işaretlenmeden önce yeniden deneme sayısı. Veri dilimi için etkinlik yürütme belirtilen yeniden deneme sayısı en fazla yeniden denenir. Yeniden deneme hatadan sonra mümkün olan en kısa sürede gerçekleştirilir. |
+| timeout |Zaman aralığı |00:00:00 |Etkinlik için zaman aşımı. Örnek: 10: (zaman aşımı 10 dakika anlamına gelir) 00.00<br/><br/>Bir değer belirtilmezse veya 0'dır, zaman aşımı sonsuz olur.<br/><br/>Dilim üzerinde veri işleme süresi zaman aşımı değerini aşarsa, iptal edilir ve sistem işleme yeniden dener. Yeniden deneme sayısını, yeniden deneme özelliğine bağlıdır. Zaman aşımı meydana geldiğinde, durum zaman aşımına uğradı için ayarlanır. |
+| gecikme |Zaman aralığı |00:00:00 |Veri işleme dilim başlatılmadan önce gecikme belirtin.<br/><br/>Etkinlik bir veri diliminin yürütülmesi, gecikmenin beklenen yürütme süresi sonra başlatılır.<br/><br/>Örnek: 10: (10 dakika gecikme anlamına gelir) 00.00 |
+| longRetry |Tamsayı<br/><br/>En büyük değer: 10 |1 |Dilim yürütme başarısız olmadan önce uzun yeniden deneme sayısı.<br/><br/>denemeleri longRetry, longretryınterval gibi tarafından aralıklandırılmış. Yeniden deneme girişimleri arasındaki süre belirtmeniz gerekiyorsa, bu nedenle longRetry kullanın. Yeniden deneme longRetry belirtilirse, yeniden deneme girişimleri longRetry içerir ve yeniden deneme girişimlerinin sayısı en fazla olan * longRetry.<br/><br/>Örneğin etkinlik ilkesinde aşağıdaki ayarları sunuyoruz:<br/>Yeniden deneme: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Yürütmek için yalnızca bir dilim olduğu varsayılır (Durum Bekliyor) ve her etkinlik yürütme başarısız olur. İlk 3 ardışık yürütme girişimleri olacaktır. Her girişimden sonra dilim durumu yeniden deneme olacaktır. İlk 3 deneme üzerinden sonra dilim durumu LongRetry olacaktır.<br/><br/>Bir saat sonra (diğer bir deyişle, longRetryInteval'ın değer), 3 ardışık yürütme girişimleri başka bir dizi olacaktır. Bundan sonra dilim durumu başarısız ve daha fazla yeniden deneme yok çalıştı. Bu nedenle genel 6 denemesi yapıldı.<br/><br/>Herhangi bir yürütme başarılı olursa, dilim durumu hazır olur ve daha fazla yeniden deneme yok çalıştı.<br/><br/>longRetry olduğu bağımlı veri belirleyici olmayan zamanlarda ulaşır ya da genel ortamının hangi verileri işlemesi altında güvenilir olmayan durumlarda kullanılabilir. Bu gibi durumlarda, bunun yapılması deneme birbiri ardına yardımcı ve bunun yapılması bir aralıktan sonra istenen çıkış sonuçlarında zaman.<br/><br/>Uyarı: longRetry veya longretryınterval gibi yüksek değerlerini ayarlamayın. Genellikle, yüksek değerler sistemle ilgili diğer konuları da kapsıyor. |
+| longRetryInterval |Zaman aralığı |00:00:00 |Uzun yeniden deneme girişimleri arasındaki gecikme |
 
-### <a name="typeproperties-section"></a>typeProperties bölümü
-Her etkinlik için farklı typeProperties bölümüdür. Dönüştürme etkinlikleri yalnızca türü özellikleri vardır. Bkz: [veri dönüştürme etkinlikleri](#data-transformation-activities) ardışık düzeninde dönüştürme etkinlikleri tanımlayan JSON örnekleri için bu makalenin bölümünde. 
+### <a name="typeproperties-section"></a>typeProperties bölümünün
+TypeProperties bölümünün her etkinlik için farklıdır. Dönüştürme etkinlikleri, yalnızca tür özellikleri vardır. Bkz: [veri dönüştürme etkinlikleri](#data-transformation-activities) dönüştürme etkinlikleri bir işlem hattında tanımlayan JSON örnekleri için bu makaledeki bölümü. 
 
-**Kopya etkinliği** typeProperties bölümünde iki alt bölümleri vardır: **kaynak** ve **havuz**. Bkz: [veri DEPOLARINA](#data-stores) veri kullanmayı gösteren JSON örnekleri bir kaynak ve/veya havuz depolamak için bu makaledeki bölüm. 
+**Kopyalama etkinliği** typeProperties bölümünün iki alt bölümlere sahiptir: **kaynak** ve **havuz**. Bkz: [veri DEPOLARI](#data-stores) bir kaynak ve/veya havuz veri kullanmayı gösteren JSON örneklerini depolamak için bu makaledeki bölümü. 
 
 ### <a name="sample-copy-pipeline"></a>Örnek kopyalama işlem hattı
-Aşağıdaki örnek işlem hattında, **Etkinlikler** bölümünde **Kopyalama** türünde olan bir etkinlik vardır. Bu örnekte [kopyalama etkinliğini](data-factory-data-movement-activities.md) verileri Azure Blob depolama alanından Azure SQL veritabanına kopyalar. 
+Aşağıdaki örnek işlem hattında, **Etkinlikler** bölümünde **Kopyalama** türünde olan bir etkinlik vardır. Bu örnekte [kopyalama etkinliği](data-factory-data-movement-activities.md) verileri bir Azure Blob depolama alanından Azure SQL veritabanına kopyalar. 
 
 ```json
 {
@@ -166,9 +166,9 @@ Aşağıdaki noktalara dikkat edin:
 * Etkinlik girdisi **InputDataset** olarak, etkinlik çıktısı ise **OutputDataset** olarak ayarlanmıştır.
 * **typeProperties** bölümünde **BlobSource** kaynak türü, **SqlSink** de havuz türü olarak belirtilir.
 
-Bkz: [veri DEPOLARINA](#data-stores) veri kullanmayı gösteren JSON örnekleri bir kaynak ve/veya havuz depolamak için bu makaledeki bölüm.    
+Bkz: [veri DEPOLARI](#data-stores) bir kaynak ve/veya havuz veri kullanmayı gösteren JSON örneklerini depolamak için bu makaledeki bölümü.    
 
-Bu ardışık düzen oluşturma izlenecek tam yol için bkz: [Öğreticisi: veri kopyalama Blob depolama alanından SQL veritabanına](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+Bu işlem hattını oluşturmak üzere izlenecek tam yol için bkz: [öğretici: Blob depolamadan SQL veritabanına veri kopyalama için](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 ### <a name="sample-transformation-pipeline"></a>Örnek dönüştürme işlem hattı
 Aşağıdaki örnek işlem hattında, **etkinlikler** bölümünde **HDInsightHive** türünde olan bir etkinlik vardır. Bu örnekte [HDInsight Hive etkinliği](data-factory-hive-activity.md), bir Azure HDInsight Hadoop kümesinde Hive betik dosyası çalıştırarak verileri bir Azure Blob depolamadan dönüştürür. 
@@ -222,14 +222,14 @@ Aşağıdaki noktalara dikkat edin:
 
 * Etkinlikler bölümünde **türü** **HDInsightHive** olarak ayarlanmış yalnızca bir etkinlik vardır.
 * **partitionweblogs.hql** Hive betik dosyası Azure depolama hesabında (scriptLinkedService tarafından belirtilen **AzureStorageLinkedService** adıyla) ve **adfgetstarted** kapsayıcısındaki **betik** klasöründe depolanır.
-* **Tanımlar** bölümü hive betiğine Hive yapılandırma değerleri olarak geçirilir çalışma zamanı ayarlarını belirtmek için kullanılır (örneğin `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
+* **Tanımlar** bölümü, hive betiğine Hive yapılandırma değerleri olarak geçirilen çalışma zamanı ayarlarını belirtmek için kullanılır (ör. `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
-Bkz: [veri dönüştürme etkinlikleri](#data-transformation-activities) ardışık düzeninde dönüştürme etkinlikleri tanımlayan JSON örnekleri için bu makalenin bölümünde.
+Bkz: [veri dönüştürme etkinlikleri](#data-transformation-activities) dönüştürme etkinlikleri bir işlem hattında tanımlayan JSON örnekleri için bu makaledeki bölümü.
 
-Bu ardışık düzen oluşturma izlenecek tam yol için bkz: [Öğreticisi: Hadoop kümesi kullanarak verileri işlemek için ilk işlem hattınızı oluşturma](data-factory-build-your-first-pipeline.md). 
+Bu işlem hattını oluşturmak üzere izlenecek tam yol için bkz: [Öğreticisi: Hadoop kümesi kullanarak verileri işlemek için ilk işlem hattınızı oluşturma](data-factory-build-your-first-pipeline.md). 
 
 ## <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmet tanımı için üst düzey yapısı aşağıdaki gibidir:
+Bağlı hizmet tanımı için üst düzey yapısını aşağıdaki gibidir:
 
 ```json
 {
@@ -242,16 +242,16 @@ Bağlantılı hizmet tanımı için üst düzey yapısı aşağıdaki gibidir:
 }
 ```
 
-Tablo Özellikleri JSON tanımını etkinlik içinde açıklanmıştır:
+Tablo, içinde etkinlik JSON tanımındaki özellikler açıklanmaktadır:
 
 | Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- | 
 | ad | Bağlı hizmetin adı. | Evet | 
-| özellikleri - türü | Bağlantılı hizmet türü. Örneğin: Azure Storage, Azure SQL veritabanı. |
-| typeProperties | TypeProperties bölüm için her bir veri deposu farklı veya ortam işlem öğesine sahip. Bkz: [veri depoları](#datastores) bağlı hizmetler tüm verileri depolamak için bölüm ve [ortamları işlem](#compute-environments) için tüm işlem bağlı Hizmetleri |   
+| Özellikler - türü | Bağlı hizmet türü. Örneğin: Azure depolama, Azure SQL veritabanı. |
+| typeProperties | TypeProperties bölümünün her veri deposu için farklı işlem ortamı öğeleri var. Bkz: [veri depoları](#datastores) bağlı hizmetler tüm veri depolamak için bölüm ve [ortamları işlem](#compute-environments) için tüm işlem bağlı Hizmetleri |   
 
 ## <a name="dataset"></a>Veri kümesi 
-Azure Data Factory kümesinde aşağıdaki gibi tanımlanır:
+Azure Data factory'de bir veri kümesi şu şekilde tanımlanır:
 
 ```json
 {
@@ -281,28 +281,28 @@ Azure Data Factory kümesinde aşağıdaki gibi tanımlanır:
 }
 ```
 
-Aşağıdaki tabloda yukarıdaki JSON özelliklerinde açıklanmaktadır:   
+Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:   
 
 | Özellik | Açıklama | Gerekli | Varsayılan |
 | --- | --- | --- | --- |
-| ad | Veri kümesi adı. Bkz: [Azure Data Factory - adlandırma kuralları](data-factory-naming-rules.md) adlandırma kuralları. |Evet |NA |
-| type | Veri kümesi türü. Azure Data Factory ile desteklenen türlerden biri belirtin (örneğin: AzureBlob, AzureSqlTable). Bkz: [veri DEPOLARINA](#data-stores) tüm veri depoları ve veri fabrikası tarafından desteklenen veri türleri için bölüm. | 
-| yapısı | Veri kümesi şemasını. Bu sütun, türleri, vb. içerir. | Hayır |NA |
-| typeProperties | Seçili türüne karşılık gelen özellikler. Bkz: [veri DEPOLARINA](#data-stores) desteklenen türlerini ve bunların özelliklerini bölümü. |Evet |NA |
-| external | Bir veri kümesi açıkça data factory işlem hattı tarafından veya üretilen olup olmadığını belirlemek için mantıksal bayrak. |Hayır |false |
-| availability | İşleme penceresi veya veri kümesi üretim dilimleme modelini tanımlar. Model dilimleme veri kümesi hakkında daha fazla bilgi için bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makalesi. |Evet |NA |
-| ilke |Ölçüt ya da veri kümesi dilimler karşılamanız gerekmektedir koşulu tanımlar. <br/><br/>Ayrıntılar için bkz [Dataset İlkesi](#Policy) bölümü. |Hayır |NA |
+| ad | Veri kümesinin adı. Bkz: [Azure Data Factory - adlandırma kuralları](data-factory-naming-rules.md) adlandırma kuralları. |Evet |NA |
+| type | Veri kümesi türü. Azure Data Factory tarafından desteklenen türlerinden birini belirtin (örneğin: AzureBlob, AzureSqlTable). Bkz: [veri DEPOLARI](#data-stores) bölümde tüm Data Factory tarafından desteklenen veri türleri ve veri depoları için. | 
+| yapısı | Şema kümesi. Bu sütun, türleri, vb. içerir. | Hayır |NA |
+| typeProperties | Seçili türüne karşılık gelen özellikleri. Bkz: [veri DEPOLARI](#data-stores) desteklenen türleri ve bunların özelliklerini bölümü. |Evet |NA |
+| external | Bir veri kümesi açıkça bir veri fabrikası işlem hattı tarafından veya üretilen olup olmadığını belirlemek için Boole bayrağı. |Hayır |false |
+| availability | Veri kümesi üretim için dilimleme modelinin veya işleme penceresini tanımlar. Model dilimleme veri kümesi hakkında daha fazla bilgi için bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makalesi. |Evet |NA |
+| ilke |Ölçüt veya veri kümesinin dilimlerini karşılamalıdır koşulu tanımlar. <br/><br/>Ayrıntılar için bkz [veri kümesi ilke](#Policy) bölümü. |Hayır |NA |
 
-Her sütunda **yapısı** bölüm, aşağıdaki özellikleri içerir:
+Her sütunda **yapısı** bölümü aşağıdaki özellikleri içerir:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | ad |Sütunun adı. |Evet |
 | type |Sütunun veri türü.  |Hayır |
-| kültür |.NET tabanlı türü belirtilir ve .NET türü olduğunda kullanılacak kültürü `Datetime` veya `Datetimeoffset`. `en-us` varsayılan değerdir. |Hayır |
-| Biçimi |Biçim türü belirtilir ve .NET türü olduğunda kullanılacak dize `Datetime` veya `Datetimeoffset`. |Hayır |
+| Kültür |.NET tabanlı türü belirtildi ve .NET türü olduğunda kullanılacak kültürü `Datetime` veya `Datetimeoffset`. `en-us` varsayılan değerdir. |Hayır |
+| Biçim |Biçim türü belirtildi ve .NET türü olduğunda kullanılacak dize `Datetime` veya `Datetimeoffset`. |Hayır |
 
-Aşağıdaki örnekte, üç sütun kümesi sahip `slicetimestamp`, `projectname`, ve `pageviews` ve bunlar türü: dize, dize ve ondalık sırasıyla.
+Aşağıdaki örnekte, üç sütun bir veri kümesine sahiptir `slicetimestamp`, `projectname`, ve `pageviews` ve bunlar türü: dize, dize ve ondalık sırasıyla.
 
 ```json
 structure:  
@@ -313,17 +313,17 @@ structure:
 ]
 ```
 
-Aşağıdaki tabloda, kullanabileceğiniz özellikleri açıklanmaktadır **kullanılabilirlik** bölümü:
+Aşağıdaki tabloda kullanabileceğiniz özellikleri açıklanmaktadır **kullanılabilirlik** bölümü:
 
 | Özellik | Açıklama | Gerekli | Varsayılan |
 | --- | --- | --- | --- |
-| frequency |Veri kümesi dilim üretim için zaman birimini belirtir.<br/><br/><b>Sıklık desteklenen</b>: dakika, saat, gün, hafta, ay |Evet |NA |
-| interval |Sıklığı çarpanı belirtir<br/><br/>"X sıklığı aralığını" ne sıklıkta dilim üretilen belirler.<br/><br/>Saatlik olarak başka bir dilimlenebilir dataset gerekiyorsa, ayarladığınız <b>sıklığı</b> için <b>saat</b>, ve <b>aralığı</b> için <b>1</b>.<br/><br/><b>Not</b>: sıklığını dakika belirtirseniz, aralık en az 15'e ayarlayın öneririz |Evet |NA |
-| Stili |Dilim aralığı başlangıç/bitiş üretilen olup olmadığını belirtir.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Sıklık aya ayarlanır ve stil EndOfInterval için dilim ayın son gününde üretilmez. Stil StartOfInterval için ayarlarsanız, dilim ayın ilk günü oluşturulur.<br/><br/>Sıklığı gün olarak ayarlanır ve stili için EndOfInterval dilim günün son bir saatte üretilmez.<br/><br/>Sıklık saate ayarlanır ve stil EndOfInterval için dilim saat sonunda üretilmez. Örneğin, 13'te – 2 PM dönem için bir dilim için 2 saat dilimi oluşturulur. |Hayır |EndOfInterval |
-| anchorDateTime |Veri kümesi dilim sınırlarını işlem için Zamanlayıcı tarafından kullanılan zaman içinde mutlak konum tanımlar. <br/><br/><b>Not</b>: AnchorDateTime sıklığından daha ayrıntılı tarih bölümden oluşur sonra daha ayrıntılı bölümleri göz ardı edilir. <br/><br/>Örneğin, varsa <b>aralığı</b> olan <b>saatlik</b> (sıklığı: saat ve aralığı: 1) ve <b>AnchorDateTime</b> içeren <b>dakika ve saniyeleri</b>sonra <b>dakika ve saniyeleri</b> AnchorDateTime bölümlerini yok sayılır. |Hayır |01/01/0001 |
-| uzaklık |Tarafından başlangıç ve bitiş tüm veri kümesi dilim gölgeye Timespan. <br/><br/><b>Not</b>: anchorDateTime ve uzaklık belirtilirse, birleştirilmiş shift sonucudur. |Hayır |NA |
+| frequency |Veri kümesi dilim üretim yönelik zaman birimini belirtir.<br/><br/><b>Sıklık desteklenen</b>: dakika, saat, gün, hafta, ay |Evet |NA |
+| interval |Sıklığı çarpanı belirtir<br/><br/>"X sıklık aralığı" ne sıklıkta dilim üretilir belirler.<br/><br/>Veri kümesinin saatlik olarak dilimlenmiş gerekiyorsa, ayarladığınız <b>sıklığı</b> için <b>saat</b>, ve <b>aralığı</b> için <b>1</b>.<br/><br/><b>Not</b>: sıklığını dakika belirtmeniz durumunda da en az 15'e aralığı ayarlamanızı öneririz |Evet |NA |
+| Stil |Dilim aralığı başlangıç/bitiş sırasında üretilen olup olmadığını belirtir.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Frequency ay ayarlanır ve stil EndOfInterval için ayın son gününde dilim üretilir. Stili için StartOfInterval ayarlarsanız, ayın ilk gününde dilim üretilir.<br/><br/>Sıklığı gün olarak ayarlanır ve stil EndOfInterval için dilim günün son bir saat içinde üretilmez.<br/><br/>Sıklık saat olarak ayarlanır ve stil EndOfInterval için dilim saatin sonunda üretilmez. Örneğin, 2 saat 13 – PM dönem için bir dilim için 2 saat dilim üretilir. |Hayır |EndOfInterval |
+| anchorDateTime |Zamanlayıcı tarafından veri kümesi dilim sınırlarını hesaplamak için kullanılan zaman içinde mutlak konum tanımlar. <br/><br/><b>Not</b>: AnchorDateTime sıklığından daha ayrıntılı olan tarih bölümlü sonra daha ayrıntılı bölümleri göz ardı edilir. <br/><br/>Örneğin, varsa <b>aralığı</b> olduğu <b>saatlik</b> (Sıklık: saat ve aralığı: 1) ve <b>AnchorDateTime</b> içeren <b>dakika ve saniye</b>sonra <b>dakika ve saniye</b> AnchorDateTime kısımlarını yok sayılır. |Hayır |01/01/0001 |
+| uzaklık |Başlangıç ve bitiş tüm veri kümesi dilim olarak kaydırılan bir TimeSpan değeri. <br/><br/><b>Not</b>: anchorDateTime uzaklığı belirtilirse birleşik shift sonucudur. |Hayır |NA |
 
-Aşağıdaki kullanılabilirlik bölümü çıktı veri kümesi üretilen saatlik (veya) giriş olduğunu belirtir dataset kullanılabilir saatlik:
+Aşağıdaki kullanılabilirlik bölümü çıktı veri kümesi üretilen saatlik (veya) giriş olduğunu belirtir veri kümesi, kullanılabilir saat:
 
 ```json
 "availability":    
@@ -333,12 +333,12 @@ Aşağıdaki kullanılabilirlik bölümü çıktı veri kümesi üretilen saatli
 }
 ```
 
-**İlkesi** veri kümesi tanımı bölümünde ölçütleri veya veri kümesi dilimler karşılamanız gerekmektedir koşulu tanımlar.
+**İlke** veri kümesi tanımı bölümünde ölçütleri veya veri kümesinin dilimlerini karşılamalıdır koşulu tanımlar.
 
 | İlke Adı | Açıklama | Uygulanan | Gerekli | Varsayılan |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Doğrular verilerde bir **Azure blob** (megabayt cinsinden) en düşük boyut gereksinimlerini karşılıyor. |Azure Blob |Hayır |NA |
-| minimumRows |Doğrular verilerde bir **Azure SQL veritabanı** veya bir **Azure tablo** en az satır sayısını içerir. |<ul><li>Azure SQL Database</li><li>Azure Tablosu</li></ul> |Hayır |NA |
+| minimumSizeMB |Doğrulama verilerde bir **Azure blob** (megabayt cinsinden) en küçük boyut gereksinimlerini karşılıyor. |Azure Blob |Hayır |NA |
+| minimumRows |Doğrulama verilerde bir **Azure SQL veritabanı** veya bir **Azure tablo** en az sayıda satır içerir. |<ul><li>Azure SQL Database</li><li>Azure Tablosu</li></ul> |Hayır |NA |
 
 **Örnek:**
 
@@ -353,24 +353,24 @@ Aşağıdaki kullanılabilirlik bölümü çıktı veri kümesi üretilen saatli
 }
 ```
 
-Azure Data Factory tarafından üretilen bir veri kümesi sürece bunu olarak işaretlenmelidir **dış**. Etkinlik veya ardışık düzen zincirleme kullanılmadığı sürece bu ayar genellikle bir ardışık düzendeki ilk etkinlik girişleri için geçerlidir.
+Azure Data Factory tarafından üretilen veri kümesi sürece bu olarak işaretlenmelidir **dış**. Etkinlik veya işlem hattı zincirleme kullanılmadığı sürece bu ayar genellikle bir işlem hattındaki ilk etkinliğin girişleri için geçerlidir.
 
 | Ad | Açıklama | Gerekli | Varsayılan Değer |
 | --- | --- | --- | --- |
-| dataDelay |Verilen dilim için dış veri kullanılabilirliğini onay gecikme süresi. Verilerin saatlik varsa, örneğin, dış veri kullanılabilir ve karşılık gelen dilimi hazır denetleyin dataDelay kullanılarak ertelenebilir.<br/><br/>Yalnızca mevcut süre için geçerlidir.  Örneğin, 1:00 PM şimdi ise ve bu değer 10 dakikadır doğrulama 13: 10'te başlatır.<br/><br/>Bu ayar, geçmişte dilimler etkilemez (dilimler dilim bitiş saati + dataDelay < şimdi) herhangi bir gecikme işlenir.<br/><br/>Saat 23:59 saatleri gereken kullanarak belirtilen büyük `day.hours:minutes:seconds` biçimi. Örneğin, 24 saat belirtmek için 24:00:00 kullanmayın; Bunun yerine, 1.00:00:00 kullanın. 24:00:00 kullanırsanız, 24 gün (24.00:00:00) kabul edilir. 1 gün ve 4 saat için 1:04:00:00 belirtin. |Hayır |0 |
-| Retryınterval |Bir hata ile sonraki arasındaki bekleme süresini girişimi yeniden deneyin. Bir deneme başarısız olursa, sonraki deneyin sonra Retryınterval olur. <br/><br/>1:00 PM şimdi ise, ilk denemede başlamadan. İlk doğrulama denetimi tamamlamak için süre 1 dakika ve işlem başarısız oldu, sonraki yeniden deneme ise 1:00 1 dak (süresi) + 1 dak (yeniden deneme aralığı) = 1:02 PM. <br/><br/>Geçmişte dilimler için gecikme yoktur. Yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 dakika) |
-| retryTimeout |Yeniden deneme girişimleri için zaman aşımı.<br/><br/>Bu özellik 10 dakika olarak ayarlanırsa, doğrulama 10 dakika içinde tamamlanması gerekir. Yeniden deneme doğrulamayı gerçekleştirmek için 10 dakikadan uzun sürüyorsa, zaman aşımına uğradı.<br/><br/>Tüm denemeleri doğrulama için zaman aşımına uğrarsa, dilim süresi sona erdi işaretlenir. |Hayır |00:10:00 (10 dakika) |
-| maximumRetry |Dış veri kullanılabilirliğini denetleyin sayısı. İzin verilen en büyük değer 10'dur. |Hayır |3 |
+| dataDelay |Belirtilen dilim için dış veri kullanılabilirliğini kontrolü gecikme süresi. Verilerin saatlik varsa, örneğin, dış veri kullanılabilir ve karşılık gelen dilimi hazır olduğunu görmek için onay dataDelay kullanılarak ertelenebilir.<br/><br/>Yalnızca mevcut bir süre için geçerlidir.  Örneğin, 13: 00'te şu anda ise ve bu değer 10 dakikadır doğrulama 13: 10'te başlatır.<br/><br/>Bu ayar, geçmiş dilimler etkilemez (dilimler dilim bitiş zamanı + dataDelay < artık) herhangi bir gecikme olmadan işlenir.<br/><br/>Saat 23:59 saat gereken kullanarak belirtilenden daha büyük `day.hours:minutes:seconds` biçimi. Örneğin, 24 saat belirtmek için 24:00:00 kullanmayın; Bunun yerine, 1.00:00:00 kullanın. 24:00:00 kullanırsanız, 24 gün (24.00:00:00) kabul edilir. 1 gün ve 4 saat, 1:04:00:00 belirtin. |Hayır |0 |
+| Retryınterval |Sonraki hata arasındaki bekleme süresi yeniden deneme girişimi. Bir deneme başarısız olursa, sonraki deneyin Retryınterval sonra olur. <br/><br/>1:00 PM şu anda ise, ilk denemede başlamadan. İlk doğrulama denetimini tamamlamak için süre 1 dakika ve işlem başarısız oldu, sonraki yeniden deneme ise 1:00 + 1 dakika (süre) + 1 dakika (yeniden deneme aralığı) 13: 02'te =. <br/><br/>Geçmiş dilimler için gecikme yoktur. Yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 dakika) |
+| retryTimeout |Her yeniden deneme girişimi için zaman aşımı.<br/><br/>Bu özellik, 10 dakika olarak ayarlanır, doğrulama, 10 dakika içinde tamamlanması gerekir. Doğrulamayı gerçekleştirmek için 10 dakikadan uzun sürerse, yeniden deneme zaman aşımına uğradı.<br/><br/>Doğrulama için tüm girişimleri zaman aşımına uğrarsa, dilim zaman aşımına uğradı işaretlenir. |Hayır |00:10:00 (10 dakika) |
+| maximumRetry |Dış veri kullanılabilirliğini denetleyin sayısı. İzin verilen en yüksek değer 10'dur. |Hayır |3 |
 
 
 ## <a name="data-stores"></a>VERİ DEPOLARI
-[Bağlantılı hizmeti](#linked-service) tüm türleri bağlı hizmetler için ortak olan JSON öğeleri için sağlanan bölüm açıklamalar. Bu bölümde her veri deposuna belirli JSON öğeleri hakkında ayrıntılar sağlar.
+[Bağlı hizmet](#linked-service) bağlı hizmetler tüm türleri için ortak olan JSON öğeler için sağlanan bölüm açıklamalar. Bu bölümde, her bir veri deposuna özel JSON öğeleri hakkında ayrıntılar sağlar.
 
-[Dataset](#dataset) veri kümeleri tüm türleri için ortak olan JSON öğeleri için sağlanan bölüm açıklamalar. Bu bölümde her veri deposuna belirli JSON öğeleri hakkında ayrıntılar sağlar.
+[Veri kümesi](#dataset) tüm veri kümesi türü için ortak olan JSON öğeler için sağlanan bölüm açıklamalar. Bu bölümde, her bir veri deposuna özel JSON öğeleri hakkında ayrıntılar sağlar.
 
-[Etkinlik](#activity) tüm türleri etkinlikler için ortak olan JSON öğeleri için sağlanan bölüm açıklamalar. Bu bölümde bir kopyalama etkinliği kaynak/havuz olarak kullanıldığında, her veri deposuna özel JSON öğeleri hakkında ayrıntılar sağlar.  
+[Etkinlik](#activity) tüm etkinlik türleri için ortak olan JSON öğelerinin açıklamaları sağlanan bölüm. Bu bölümde, bir kopyalama etkinliği kaynak/havuz olarak kullanıldığında, her bir veri deposuna özel JSON öğeleri hakkında ayrıntılar sağlar.  
 
-Bağlantılı hizmeti, veri kümesi ve kaynak/havuz kopyalama etkinliği için JSON şemaları görmek ilgilendiğiniz deposu için bağlantıya tıklayın.
+Kopyalama etkinliği için kaynak/havuz bağlantılı hizmet ve veri kümesi için JSON şemalarının görmek ilgilendiğiniz deposu bağlantısına tıklayın.
 
 | Kategori | Veri deposu 
 |:--- |:--- |
@@ -402,19 +402,19 @@ Bağlantılı hizmeti, veri kümesi ve kaynak/havuz kopyalama etkinliği için J
 | &nbsp; |[OData](#odata) |
 | &nbsp; |[ODBC](#odbc) |
 | &nbsp; |[Salesforce](#salesforce) |
-| &nbsp; |[Web tablo](#web-table) |
+| &nbsp; |[Web tablosu](#web-table) |
 
 ## <a name="azure-blob-storage"></a>Azure Blob Depolama
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlı hizmetler iki tür vardır: Azure depolama bağlantılı hizmeti ve Azure depolama SAS bağlantılı hizmeti.
+Bağlı hizmetler, iki tür vardır: Azure depolama bağlı hizmeti ve Azure depolama SAS bağlı hizmeti.
 
 #### <a name="azure-storage-linked-service"></a>Azure Storage Bağlı Hizmeti
-Azure storage hesabınızı kullanarak bir data factory'ye bağlamak için **hesap anahtarı**, bir Azure Storage bağlı hizmeti oluşturma. Bağlantılı hizmeti bir Azure depolama alanını tanımlayın, Ayarla **türü** bağlantılı hizmetinin **AzureStorage**. Ardından, aşağıdaki özellikleri belirtebilirsiniz **typeProperties** bölümü:  
+Kullanarak, Azure depolama hesabınızı veri fabrikasına bağlamak için **hesap anahtarı**, bir Azure depolama bağlı hizmeti oluşturma. Bağlı hizmeti bir Azure depolama tanımlamak için Ayarla **türü** bağlı hizmetinin **AzureStorage**. Ardından, aşağıdaki özellikleri belirtebilirsiniz **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| connectionString |ConnectionString özelliği için Azure depolama alanına bağlanmak için gereken bilgileri belirtin. |Evet |
+| bağlantı dizesi |ConnectionString özelliği için Azure depolamaya bağlanmak için gereken bilgileri belirtin. |Evet |
 
 ##### <a name="example"></a>Örnek  
 
@@ -430,12 +430,12 @@ Azure storage hesabınızı kullanarak bir data factory'ye bağlamak için **hes
 }
 ```
 
-#### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS bağlı hizmeti
-Azure depolama bağlı SAS hizmeti bir paylaşılan erişim imzası (SAS) kullanarak Azure data factory için bir Azure depolama hesabı bağlantı sağlar. Veri Fabrikası depolama alanındaki tüm/özel kaynakları (blob/kapsayıcısı) kısıtlanmış/zaman sınırlı erişim sağlar. Paylaşılan erişim imzası kullanarak bir veri fabrikası Azure depolama hesabınıza bağlamak için bir Azure depolama bağlı SAS hizmeti oluşturun. Bağlantılı hizmeti bir Azure depolama SAS tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AzureStorageSas**. Ardından, aşağıdaki özellikleri belirtebilirsiniz **typeProperties** bölümü:   
+#### <a name="azure-storage-sas-linked-service"></a>Azure depolama SAS bağlı hizmeti
+Azure depolama SAS bağlı hizmet, bir paylaşılan erişim imzası (SAS) kullanarak bir Azure data factory'de bir Azure depolama hesabı bağlantı sağlar. Data factory ile kısıtlı/zamana bağlı depolama (blob/kapsayıcı) tüm/özel kaynaklarına erişimi sağlar. Paylaşılan erişim imzası kullanarak Azure depolama hesabınızı veri fabrikasına bağlamak için bir Azure depolama SAS bağlı hizmet oluşturun. Bağlı hizmeti Azure depolama SAS tanımlamak için Ayarla **türü** bağlı hizmetinin **AzureStorageSas**. Ardından, aşağıdaki özellikleri belirtebilirsiniz **typeProperties** bölümü:   
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| sasUri |Blob, kapsayıcı ya da tablo gibi Azure Storage kaynakları için paylaşılan erişim imzası URI belirtin. |Evet |
+| sasUri |Blob, kapsayıcı veya tablo gibi Azure Storage kaynakları için paylaşılan erişim imzası URI'si belirtin. |Evet |
 
 ##### <a name="example"></a>Örnek
 
@@ -451,18 +451,18 @@ Azure depolama bağlı SAS hizmeti bir paylaşılan erişim imzası (SAS) kullan
 }  
 ```
 
-Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz: [Azure Blob Storage bağlayıcı](data-factory-azure-blob-connector.md#linked-service-properties) makalesi. 
+Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz. [Azure Blob Depolama Bağlayıcısı](data-factory-azure-blob-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Azure Blob veri kümesini tanımlamak için **türü** için veri kümesinin **AzureBlob**. Ardından aşağıdaki Azure Blob belirli özelliklerinde belirtin **typeProperties** bölümü: 
+Bir Azure Blob veri kümesi tanımlamak için **türü** için veri kümesinin **AzureBlob**. Ardından, aşağıdaki Azure Blob belirli özellikleri belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| folderPath |Kapsayıcı ve klasöre blob depolamada yolu. Örnek: myblobcontainer\myblobfolder\ |Evet |
-| fileName |Blob adı. isteğe bağlıdır ve büyük küçük harfe duyarlı dosya adıdır.<br/><br/>Bir dosya adı belirtirseniz, (kopyalama dahil) etkinlik belirli Blob üzerinde çalışır.<br/><br/>Dosya adı belirtilmediğinde kopyalama tüm BLOB'lar girdi veri kümesi için folderPath içerir.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı aşağıdaki olacaktır Bu biçim: veri. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
-| partitionedBy |partitionedBy isteğe bağlı bir özelliktir. Bir dinamik folderPath ve zaman serisi verileri için dosya adı belirtmek için kullanabilirsiniz. Örneğin, folderPath için verileri saatte parametreli olabilir. |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| folderPath |Kapsayıcı ve blob depolama alanında bir klasör yolu. Örnek: myblobcontainer\myblobfolder\ |Evet |
+| fileName |Blob adı. İsteğe bağlı ve büyük küçük harfe duyarlı dosya adıdır.<br/><br/>Etkinlik (kopyalama dahil), bir filename belirtirseniz, belirli bir blobu üzerinde çalışır.<br/><br/>Dosya adı belirtilmemişse, kopya tüm BLOB'ları folderPath için giriş veri kümesi içerir.<br/><br/>Oluşturulan dosyanın adını bir çıktı veri kümesi için dosya adı belirtilmediği durumlarda, aşağıdaki olacaktır Bu biçim: veri. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
+| partitionedBy |partitionedBy isteğe bağlı bir özelliktir. Bir dinamik folderPath ve zaman serisi verileri için dosya adı belirtmek için kullanabilirsiniz. Örneğin, saatte veri folderPath parametreli olabilir. |Hayır |
+| Biçim | Şu biçim türlerini desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquetbiçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın. |Hayır |
+| sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -491,14 +491,14 @@ Bir Azure Blob veri kümesini tanımlamak için **türü** için veri kümesinin
  ```
 
 
-Daha fazla bilgi için bkz: [Azure Blob bağlayıcı](data-factory-azure-blob-connector.md#dataset-properties) makalesi.
+Daha fazla bilgi için [Azure Blob Bağlayıcısı](data-factory-azure-blob-connector.md#dataset-properties) makalesi.
 
-### <a name="blobsource-in-copy-activity"></a>Kopyalama etkinliğinde BlobSource
-Bir Azure Blob depolama alanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **BlobSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="blobsource-in-copy-activity"></a>Kopyalama etkinliğindeki BlobSource
+Bir Azure Blob depolamadan veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **BlobSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |(Varsayılan değer) false değerini true |Hayır |
+| özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca veri yinelemeli olarak okunur olup olmadığını belirtir. |(Varsayılan değer) true, False |Hayır |
 
 #### <a name="example-blobsource"></a>Örnek: **BlobSource**
 ```json
@@ -536,12 +536,12 @@ Bir Azure Blob depolama alanından veri kopyalıyorsanız ayarlamak **kaynak tü
     }
 }
 ```
-### <a name="blobsink-in-copy-activity"></a>Kopyalama etkinliğinde BlobSink
-Bir Azure Blob depolama alanına veri kopyalıyorsanız ayarlamak **Havuz türü** kopyalama etkinliği **BlobSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+### <a name="blobsink-in-copy-activity"></a>Kopyalama etkinliğindeki BlobSink
+Bir Azure Blob depolama alanına veri kopyalama verilirse **Havuz türü** , kopyalama etkinliğine **BlobSink**, aşağıdaki özellikleri belirtin **havuz** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| copyBehavior |Kaynak BlobSource veya dosya sistemi olduğunda kopyalama davranışını tanımlar. |<b>PreserveHierarchy</b>: Dosya hiyerarşisi hedef klasördeki korur. Kaynak dosyanın kaynak klasöre göreli yol, hedef dosya hedef klasöre göreli yolunu aynıdır.<br/><br/><b>FlattenHierarchy</b>: tüm kaynak klasörü hedef klasör ilk düzeyi dosyalarıdır. Hedef dosyalar otomatik adına sahip. <br/><br/><b>MergeFiles (varsayılan):</b> bir dosya için kaynak klasöründeki tüm dosyaları birleştirir. Birleştirilmiş Dosya adı, dosya/Blob adı belirtilirse, belirtilen ad olur; Aksi takdirde otomatik olarak oluşturulan dosya adı olacaktır. |Hayır |
+| copyBehavior |Kaynak BlobSource veya dosya sistemi olduğunda kopyalama davranışını tanımlar. |<b>PreserveHierarchy</b>: hedef klasördeki ise dosya hiyerarşisini korur. Kaynak dosyanın kaynak klasöre göreli yol, hedef dosya hedef klasöre göreli yoluna aynıdır.<br/><br/><b>FlattenHierarchy</b>: kaynak klasördeki tüm dosyaları ilk hedef klasörün içinde düzeyindedir. Hedef dosyalar otomatik adına sahip. <br/><br/><b>MergeFiles (varsayılan):</b> tüm dosyaları kaynak klasörden bir dosya birleştirir. Birleştirilmiş Dosya adı, dosya/Blob adı belirtilmezse, belirtilen adı olur; Aksi takdirde, otomatik olarak oluşturulan dosya adı olacaktır. |Hayır |
 
 #### <a name="example-blobsink"></a>Örnek: BlobSink
 
@@ -582,26 +582,26 @@ Bir Azure Blob depolama alanına veri kopyalıyorsanız ayarlamak **Havuz türü
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure Blob bağlayıcı](data-factory-azure-blob-connector.md#copy-activity-properties) makalesi. 
+Daha fazla bilgi için [Azure Blob Bağlayıcısı](data-factory-azure-blob-connector.md#copy-activity-properties) makalesi. 
 
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmeti bir Azure Data Lake Store tanımlamak için bağlantılı hizmet türüne ayarlayın **AzureDataLakeStore**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bağlı hizmeti bir Azure Data Lake Store tanımlamak için bağlı hizmetinin türü **birlikte AzureDataLakeStore**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlanmalıdır: **AzureDataLakeStore** | Evet |
-| dataLakeStoreUri | Azure Data Lake Store hesabı bilgilerini belirtin. Aşağıdaki biçimdedir: `https://[accountname].azuredatalakestore.net/webhdfs/v1` veya `adl://[accountname].azuredatalakestore.net/`. | Evet |
+| type | Type özelliği ayarlanmalıdır: **birlikte AzureDataLakeStore** | Evet |
+| dataLakeStoreUri | Azure Data Lake Store hesabınız hakkında bilgiler belirtin. Aşağıdaki biçimdedir: `https://[accountname].azuredatalakestore.net/webhdfs/v1` veya `adl://[accountname].azuredatalakestore.net/`. | Evet |
 | subscriptionId | Data Lake Store ait olduğu azure abonelik kimliği. | Havuz için gerekli |
 | resourceGroupName | Data Lake Store ait olduğu azure kaynak grubu adı. | Havuz için gerekli |
 | servicePrincipalId | Uygulamanın istemci kimliği belirtin. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
-| servicePrincipalKey | Uygulamanın anahtarını belirtin. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
-| kiracı | Uygulamanızın bulunduğu altında Kiracı bilgileri (etki alanı adı veya Kiracı kimliği) belirtin. Azure portalının sağ üst köşedeki fare gelerek alabilir. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
-| Yetkilendirme | Tıklatın **Authorize** düğmesini **Data Factory düzenleyici** ve bu özelliği otomatik olarak oluşturulan yetkilendirme URL'si atar kimlik bilgilerinizi girin. | Evet (kullanıcı kimlik bilgileri doğrulaması için)|
-| SessionID | OAuth yetkilendirme oturumundan OAuth oturum kimliği. Her oturum kimliği benzersiz olup yalnızca bir kez kullanılabilir. Data Factory Düzenleyici kullandığınızda bu ayarı otomatik olarak oluşturulur. | Evet (kullanıcı kimlik bilgileri doğrulaması için) |
+| serviceprincipalkey değerleri | Uygulama anahtarını belirtin. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
+| kiracı | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Azure portalının sağ üst köşedeki fare getirerek geri alabilirsiniz. | Evet (hizmet sorumlusu kimlik doğrulaması için) |
+| Yetkilendirme | Tıklayın **Authorize** düğmesine **Data Factory düzenleyici** ve bu özelliği otomatik olarak oluşturulan yetkilendirme URL'si atar kimlik bilgilerinizi girin. | Evet (kimlik bilgisi için kullanıcı kimlik doğrulaması)|
+| oturum kimliği | OAuth yetkilendirme oturumundan OAuth oturum kimliği. Her oturum kimliği benzersiz olup yalnızca bir kez kullanılabilir. Bu ayar, Data Factory Düzenleyici kullandığınızda otomatik olarak oluşturulur. | Evet (kimlik bilgisi için kullanıcı kimlik doğrulaması) |
 
-#### <a name="example-using-service-principal-authentication"></a>Örnek: hizmet asıl kimlik doğrulaması kullanma
+#### <a name="example-using-service-principal-authentication"></a>Örnek: hizmet sorumlusu kimlik doğrulaması kullanma
 ```json
 {
     "name": "AzureDataLakeStoreLinkedService",
@@ -634,18 +634,18 @@ Bağlantılı hizmeti bir Azure Data Lake Store tanımlamak için bağlantılı 
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure Data Lake Store bağlayıcı](data-factory-azure-datalake-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [Azure Data Lake Store bağlayıcı](data-factory-azure-datalake-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Azure Data Lake Store veri kümesini tanımlamak için **türü** için veri kümesinin **AzureDataLakeStore**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir Azure Data Lake Store veri kümesini tanımlamak için **türü** için veri kümesinin **birlikte AzureDataLakeStore**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| folderPath |Kapsayıcı ve Azure Data Lake klasörü yoluna depolar. |Evet |
-| fileName |Azure Data Lake Store'da dosyasının adı. isteğe bağlıdır ve büyük küçük harfe duyarlı dosya adıdır. <br/><br/>Bir dosya adı belirtirseniz, (kopyalama dahil) etkinlik belirli bir dosya üzerinde çalışır.<br/><br/>FileName belirtilmediğinde kopyalama folderPath girdi veri kümesi için tüm dosyaları içerir.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı aşağıdaki olacaktır Bu biçim: veri. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
-| partitionedBy |partitionedBy isteğe bağlı bir özelliktir. Bir dinamik folderPath ve zaman serisi verileri için dosya adı belirtmek için kullanabilirsiniz. Örneğin, folderPath için verileri saatte parametreli olabilir. |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| folderPath |Kapsayıcı ve Azure veri Gölü'nde klasörü yoluna depolar. |Evet |
+| fileName |Azure Data Lake Store'da dosyasının adı. İsteğe bağlı ve büyük küçük harfe duyarlı dosya adıdır. <br/><br/>Bir dosya adı belirtirseniz, etkinlik (kopyalama dahil) belirli bir dosya üzerinde çalışır.<br/><br/>Dosya adı belirtilmemişse, kopyalama folderPath giriş veri kümesi için tüm dosyaları içerir.<br/><br/>Oluşturulan dosyanın adını bir çıktı veri kümesi için dosya adı belirtilmediği durumlarda, aşağıdaki olacaktır Bu biçim: veri. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
+| partitionedBy |partitionedBy isteğe bağlı bir özelliktir. Bir dinamik folderPath ve zaman serisi verileri için dosya adı belirtmek için kullanabilirsiniz. Örneğin, saatte veri folderPath parametreli olabilir. |Hayır |
+| Biçim | Şu biçim türlerini desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquetbiçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın. |Hayır |
+| sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -679,18 +679,18 @@ Bir Azure Data Lake Store veri kümesini tanımlamak için **türü** için veri
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure Data Lake Store bağlayıcı](data-factory-azure-datalake-connector.md#dataset-properties) makalesi. 
+Daha fazla bilgi için [Azure Data Lake Store bağlayıcı](data-factory-azure-datalake-connector.md#dataset-properties) makalesi. 
 
-### <a name="azure-data-lake-store-source-in-copy-activity"></a>Kopya etkinliği Azure Data Lake Store kaynağında
-Bir Azure Data Lake Deposu'ndan veri veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **AzureDataLakeStoreSource**ve aşağıdaki özellikleri belirtin **kaynak**bölümü:
+### <a name="azure-data-lake-store-source-in-copy-activity"></a>Azure Data Lake Store kaynağında kopyalama etkinliği
+Bir Azure Data Lake Store ' veri kopyalıyorsanız ayarlayın **kaynak türünü** , kopyalama etkinliğine **kümesinin kullanılması gerekir**, aşağıdaki özellikleri belirtin **kaynak**bölümü:
 
-**AzureDataLakeStoreSource** aşağıdaki özellikleri destekler **typeProperties** bölümü:
+**Kümesinin kullanılması gerekir** aşağıdaki özellikleri destekler **typeProperties** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |(Varsayılan değer) false değerini true |Hayır |
+| özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca veri yinelemeli olarak okunur olup olmadığını belirtir. |(Varsayılan değer) true, False |Hayır |
 
-#### <a name="example-azuredatalakestoresource"></a>Örnek: AzureDataLakeStoreSource
+#### <a name="example-azuredatalakestoresource"></a>Örnek: kümesinin kullanılması gerekir
 
 ```json
 {
@@ -728,14 +728,14 @@ Bir Azure Data Lake Deposu'ndan veri veri kopyalıyorsanız ayarlamak **kaynak t
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure Data Lake Store bağlayıcı](data-factory-azure-datalake-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [Azure Data Lake Store bağlayıcı](data-factory-azure-datalake-connector.md#copy-activity-properties) makalesi.
 
-### <a name="azure-data-lake-store-sink-in-copy-activity"></a>Kopya etkinliği Azure Data Lake Store havuzunda
-Bir Azure Data Lake Store'a veri kopyalamak istiyorsanız, ayarlayın **Havuz türü** kopyalama etkinliği **AzureDataLakeStoreSink**ve aşağıdaki özellikleri belirtin **havuz** Bölüm:
+### <a name="azure-data-lake-store-sink-in-copy-activity"></a>Kopyalama etkinliğindeki havuz Azure Data Lake Store
+Bir Azure Data Lake Store için veri kopyalama verilirse **Havuz türü** , kopyalama etkinliğine **AzureDataLakeStoreSink**, aşağıdaki özellikleri belirtin **havuz** Bölüm:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| copyBehavior |Kopyalama davranışını belirtir. |<b>PreserveHierarchy</b>: Dosya hiyerarşisi hedef klasördeki korur. Kaynak dosyanın kaynak klasöre göreli yol, hedef dosya hedef klasöre göreli yolunu aynıdır.<br/><br/><b>FlattenHierarchy</b>: tüm dosyaları kaynak klasörden hedef klasöre ilk düzeyi oluşturulur. Hedef dosyalar otomatik adıyla oluşturulur.<br/><br/><b>MergeFiles</b>: bir dosya için kaynak klasöründeki tüm dosyaları birleştirir. Birleştirilmiş Dosya adı, dosya/Blob adı belirtilirse, belirtilen ad olur; Aksi takdirde otomatik olarak oluşturulan dosya adı olacaktır. |Hayır |
+| copyBehavior |Kopyalama davranışını belirtir. |<b>PreserveHierarchy</b>: hedef klasördeki ise dosya hiyerarşisini korur. Kaynak dosyanın kaynak klasöre göreli yol, hedef dosya hedef klasöre göreli yoluna aynıdır.<br/><br/><b>FlattenHierarchy</b>: kaynak klasördeki tüm dosyaları ilk düzeyini hedef klasörü içinde oluşturulur. Hedef dosyalar otomatik adıyla oluşturulur.<br/><br/><b>MergeFiles</b>: tüm dosyaları kaynak klasörden bir dosya birleştirir. Birleştirilmiş Dosya adı, dosya/Blob adı belirtilmezse, belirtilen adı olur; Aksi takdirde, otomatik olarak oluşturulan dosya adı olacaktır. |Hayır |
 
 #### <a name="example-azuredatalakestoresink"></a>Örnek: AzureDataLakeStoreSink
 ```json
@@ -778,16 +778,16 @@ Bir Azure Data Lake Store'a veri kopyalamak istiyorsanız, ayarlayın **Havuz t�
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure Data Lake Store bağlayıcı](data-factory-azure-datalake-connector.md#copy-activity-properties) makalesi. 
+Daha fazla bilgi için [Azure Data Lake Store bağlayıcı](data-factory-azure-datalake-connector.md#copy-activity-properties) makalesi. 
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB  
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmeti bir Azure Cosmos DB tanımlamak için Ayarla **türü** bağlantılı hizmetinin **DocumentDb**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bağlı hizmeti bir Azure Cosmos DB tanımlamak için Ayarla **türü** bağlı hizmetinin **DocumentDb**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | **Özellik** | **Açıklama** | **Gerekli** |
 | --- | --- | --- |
-| connectionString |Azure Cosmos DB veritabanına bağlanmak için gereken bilgileri belirtin. |Evet |
+| bağlantı dizesi |Azure Cosmos DB veritabanına bağlanmak için gereken bilgileri belirtin. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -802,14 +802,14 @@ Bağlantılı hizmeti bir Azure Cosmos DB tanımlamak için Ayarla **türü** ba
     }
 }
 ```
-Daha fazla bilgi için bkz: [Azure Cosmos DB bağlayıcı](data-factory-azure-documentdb-connector.md#linked-service-properties) makalesi.
+Daha fazla bilgi için [Azure Cosmos DB Bağlayıcısı](data-factory-azure-documentdb-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Azure Cosmos DB veri kümesini tanımlamak için **türü** için veri kümesinin **DocumentDbCollection**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir Azure Cosmos DB veri kümesini tanımlamak için **türü** için veri kümesinin **DocumentDbCollection**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | **Özellik** | **Açıklama** | **Gerekli** |
 | --- | --- | --- |
-| collectionName |Azure Cosmos DB koleksiyonunun adı. |Evet |
+| CollectionName |Azure Cosmos DB koleksiyonu adı. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -830,16 +830,16 @@ Bir Azure Cosmos DB veri kümesini tanımlamak için **türü** için veri küme
     }
 }
 ```
-Daha fazla bilgi için bkz: [Azure Cosmos DB bağlayıcı](data-factory-azure-documentdb-connector.md#dataset-properties) makalesi.
+Daha fazla bilgi için [Azure Cosmos DB Bağlayıcısı](data-factory-azure-documentdb-connector.md#dataset-properties) makalesi.
 
-### <a name="azure-cosmos-db-collection-source-in-copy-activity"></a>Kopya etkinliği Azure Cosmos DB koleksiyon kaynağında
-Bir Azure Cosmos Veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **DocumentDbCollectionSource**ve aşağıdaki özellikleri belirtin **kaynak**bölümü:
+### <a name="azure-cosmos-db-collection-source-in-copy-activity"></a>Kopyalama etkinliği, Azure Cosmos DB koleksiyonu kaynağı
+Bir Azure Cosmos DB'den verileri kopyalama verilirse **kaynak türü** için kopyalama etkinliği, **DocumentDbCollectionSource**, aşağıdaki özellikleri belirtin **kaynak**bölümü:
 
 
 | **Özellik** | **Açıklama** | **İzin verilen değerler** | **Gerekli** |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için sorgu belirtin. |Sorgu dizesindeki Azure Cosmos DB tarafından desteklenir. <br/><br/>Örnek: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Hayır <br/><br/>Belirtilmezse, yürütülen SQL deyimi: `select <columns defined in structure> from mycollection` |
-| nestingSeparator |Belge iç içe geçmiş belirtmek için özel karakter |Herhangi bir karakter. <br/><br/>Azure Cosmos DB iç içe geçmiş yapılar burada izin verilen bir NoSQL JSON belgeleri için deposudur. Azure Data Factory sağlar hiyerarşisi olan nestingSeparator aracılığıyla belirtmek kullanıcı "." Yukarıdaki örneklerde. Ayırıcı olmadan kopyalama etkinliği üç alt öğeleri "Ad" nesnesiyle ilk olarak, oluşturacak Orta ve son "Name.First", "Name.Middle" ve "Name.Last" Tablo tanımında göre. |Hayır |
+| sorgu |Verileri okumak için bir sorgu belirtin. |Azure Cosmos DB tarafından desteklenen dize sorgulayın. <br/><br/>Örnek: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Hayır <br/><br/>Belirtilmezse, yürütülen SQL deyimi: `select <columns defined in structure> from mycollection` |
+| nestingSeparator |Belge iç içe geçmiş belirtmek için özel karakter |Herhangi bir karakter. <br/><br/>Azure Cosmos DB iç içe geçmiş yapılar burada izin verilen bir NoSQL JSON belgeleri için deposudur. Azure Data Factory sağlayan kullanıcı hiyerarşisi olan nestingSeparator aracılığıyla belirtmek "." Yukarıdaki örneklerde. Ayırıcı ile kopyalama etkinliği ile üç alt öğeleri "Name" nesne ilk olarak, oluşturacak Orta ve son olarak, "Name.First", "Name.Middle" ve "Name.Last" Tablo tanımındaki göre. |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -879,14 +879,14 @@ Bir Azure Cosmos Veritabanından veri kopyalıyorsanız ayarlamak **kaynak tür�
 }
 ```
 
-### <a name="azure-cosmos-db-collection-sink-in-copy-activity"></a>Kopya etkinliği Azure Cosmos DB koleksiyonu havuzunda
-Azure Cosmos Veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz türü** kopyalama etkinliği **DocumentDbCollectionSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü :
+### <a name="azure-cosmos-db-collection-sink-in-copy-activity"></a>Kopyalama etkinliği, Azure Cosmos DB koleksiyonu havuz
+Azure Cosmos DB'ye veri kopyalıyorsanız ayarlamak **Havuz türü** , kopyalama etkinliğine **DocumentDbCollectionSink**, aşağıdaki özellikleri belirtin **havuz** bölümü :
 
 | **Özellik** | **Açıklama** | **İzin verilen değerler** | **Gerekli** |
 | --- | --- | --- | --- |
-| nestingSeparator |Bir özel karakter iç içe geçmiş belge belirtmek için kaynak sütun adı gereklidir. <br/><br/>Örneğin yukarıdaki: `Name.First` çıktıda tablo Cosmos DB belgede aşağıdaki JSON yapısını oluşturur:<br/><br/>"Name": {<br/>    "İlk": "John"<br/>}, |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir.<br/><br/>Varsayılan değer `.` (nokta). |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir. <br/><br/>Varsayılan değer `.` (nokta). |
-| writeBatchSize |Azure Cosmos DB hizmeti belgeleri oluşturmak için paralel isteklerin sayısı.<br/><br/>Bu özelliği kullanarak Azure Cosmos DB öğesine/öğesinden veri kopyalama işlemi sırasında performans ince ayar yapabilirsiniz. Daha fazla paralel istekler için Azure Cosmos DB'ye gönderildiğinden writeBatchSize artırdığınızda daha iyi bir performans düşüklüğü görebilir. Ancak, azaltma önlemek gerekir, hata iletisi atabilirsiniz: "oranıdır büyük istek".<br/><br/>Azaltmayı bir dizi etkene, belgeler, belgeleri koşullarını sayısı boyutunu dahil olmak üzere, hedef koleksiyon, vb. İlkesi dizin tarafından belirlenir. Kopyalama işlemleri için en çok kullanılabilir verimlilik sağlamak için daha iyi bir koleksiyonunu (örneğin, S3) kullanabilirsiniz (2.500 istek birimleri/saniye). |Tamsayı |Hayır (varsayılan: 5) |
-| writeBatchTimeout |İşlemin zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
+| nestingSeparator |Bir iç içe geçmiş belge belirtmek için kaynak sütun adı özel karakterler gereklidir. <br/><br/>Örneğin yukarıdaki: `Name.First` Cosmos DB belgesini aşağıdaki JSON yapısında tablo çıktısında oluşturur:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir.<br/><br/>Varsayılan değer `.` (nokta). |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir. <br/><br/>Varsayılan değer `.` (nokta). |
+| writeBatchSize |Belgeleri oluşturmak için Azure Cosmos DB hizmetine paralel isteklerinin sayısı.<br/><br/>Bu özelliği kullanarak Azure Cosmos DB/deposundan veri kopyalama işlemi sırasında performans hassas ayarlamalar yapabilirsiniz. Azure Cosmos DB için daha fazla paralel istekler gönderildiği writeBatchSize artırdığınızda daha iyi bir performans bekleyebilirsiniz. Ancak, azaltmayı önlemek gerekir, hata iletisi oluşturabilecek: "istek oranı büyük".<br/><br/>Azaltma, belgeler, belgeleri koşullarını sayısı boyutu da dahil olmak üzere, dizin oluşturma ilkesi hedef koleksiyon, vb. faktörleri sayısına göre belirlenir. Kopyalama işlemleri için en iyi kullanılabilir işleme sağlamak için daha iyi bir koleksiyon (örneğin, S3) kullanabilirsiniz (2.500 istek birimi/saniye). |Tamsayı |Hayır (varsayılan: 5) |
+| writeBatchTimeout |İşlem zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. |zaman aralığı<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -928,16 +928,16 @@ Azure Cosmos Veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz tü
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure Cosmos DB bağlayıcı](data-factory-azure-documentdb-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [Azure Cosmos DB Bağlayıcısı](data-factory-azure-documentdb-connector.md#copy-activity-properties) makalesi.
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmeti bir Azure SQL veritabanı tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AzureSqlDatabase**ve aşağıdaki özellikleri belirtin **typeProperties** Bölüm:  
+Bağlı hizmeti Azure SQL veritabanı tanımlamak için Ayarla **türü** bağlı hizmetinin **AzureSqlDatabase**, aşağıdaki özellikleri belirtin **typeProperties** Bölüm:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| connectionString |ConnectionString özelliği için Azure SQL veritabanı örneğine bağlanmak için gereken bilgileri belirtin. |Evet |
+| bağlantı dizesi |ConnectionString özelliği için Azure SQL veritabanı örneğine bağlanmak için gereken bilgileri belirtin. |Evet |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -952,14 +952,14 @@ Bağlantılı hizmeti bir Azure SQL veritabanı tanımlamak için Ayarla **tür�
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure SQL bağlayıcı](data-factory-azure-sql-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [Azure SQL Bağlayıcısı](data-factory-azure-sql-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Azure SQL veritabanı veri kümesini tanımlamak için **türü** için veri kümesinin **AzureSqlTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir Azure SQL veritabanı veri kümesi tanımlamak için **türü** için veri kümesinin **AzureSqlTable**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Tablo veya Görünüm bağlantılı hizmetinin Azure SQL veritabanı örneğinde başvurduğu adı. |Evet |
+| tableName |Tablo veya Görünüm bağlı hizmeti Azure SQL veritabanı örneğinde başvurduğu adı. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -987,17 +987,17 @@ Bir Azure SQL veritabanı veri kümesini tanımlamak için **türü** için veri
     }
 }
 ```
-Daha fazla bilgi için bkz: [Azure SQL bağlayıcı](data-factory-azure-sql-connector.md#dataset-properties) makalesi. 
+Daha fazla bilgi için [Azure SQL Bağlayıcısı](data-factory-azure-sql-connector.md#dataset-properties) makalesi. 
 
-### <a name="sql-source-in-copy-activity"></a>Kopyalama etkinliğinde SQL kaynağı
-Bir Azure SQL veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **SqlSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="sql-source-in-copy-activity"></a>Kopyalama etkinliğindeki SQL kaynağı
+Bir Azure SQL veritabanı'ndan veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **SqlSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örnek: `select * from MyTable`. |Hayır |
-| sqlReaderStoredProcedureName |Kaynak tablodan veri okuyan saklı yordamın adı. |Saklı yordam adı. |Hayır |
-| storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
+| sqlReaderStoredProcedureName |Kaynak tablo verilerini okuyan saklı yordamın adı. |Saklı yordamın adı. |Hayır |
+| storedProcedureParameters |Saklı yordamın parametreleri. |Ad/değer çiftleri. Adları ve parametreleri büyük küçük harfleri, adları ve saklı yordam parametreleri büyük küçük harfleri eşleşmelidir. |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -1041,20 +1041,20 @@ Bir Azure SQL veritabanından veri kopyalıyorsanız ayarlamak **kaynak türün�
     }
 }
 ```
-Daha fazla bilgi için bkz: [Azure SQL bağlayıcı](data-factory-azure-sql-connector.md#copy-activity-properties) makalesi. 
+Daha fazla bilgi için [Azure SQL Bağlayıcısı](data-factory-azure-sql-connector.md#copy-activity-properties) makalesi. 
 
-### <a name="sql-sink-in-copy-activity"></a>Kopyalama etkinliği SQL havuzunda
-Azure SQL veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz türü** kopyalama etkinliği **SqlSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+### <a name="sql-sink-in-copy-activity"></a>Kopyalama etkinliğindeki SQL havuz
+Azure SQL veritabanı'na veri kopyalama verilirse **Havuz türü** , kopyalama etkinliğine **SqlSink**, aşağıdaki özellikleri belirtin **havuz** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
+| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. |zaman aralığı<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
-| sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. |Sorgu bildirimi. |Hayır |
-| sliceIdentifierColumnName |Ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak kopyalama etkinliği için bir sütun adı belirtin. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
-| sqlWriterStoredProcedureName |Saklı yordam adı hedef tabloda bu upserts (güncelleştirmeler/ekler) verileri. |Saklı yordam adı. |Hayır |
-| storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
-| sqlWriterTableType |Saklı yordam, kullanılacak bir tablo türü adı belirtin. Kopyalama etkinliği taşınan veri geçici bir tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu ardından var olan verilerle kopyalanan verileri birleştirebilirsiniz. |Bir tablo türü adı. |Hayır |
+| sqlWriterCleanupScript |Belirli bir dilimin veri Temizlenen şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. |Bir sorgu deyimi. |Hayır |
+| sliceIdentifierColumnName |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilimin verileri temizlemek için kullanılan otomatik dilim tanımlayıcısı ile doldurmak için bir sütun adı belirtin. |Bir sütunun veri türüyle binary(32) sütun adı. |Hayır |
+| sqlWriterStoredProcedureName |Saklı yordamın adını bu upsert eder (güncelleştirmeleri/eklemeleri) verileri hedef tabloya. |Saklı yordamın adı. |Hayır |
+| storedProcedureParameters |Saklı yordamın parametreleri. |Ad/değer çiftleri. Adları ve parametreleri büyük küçük harfleri, adları ve saklı yordam parametreleri büyük küçük harfleri eşleşmelidir. |Hayır |
+| sqlWriterTableType |Saklı yordam, kullanılacak bir tablo türü adı belirtin. Kopyalama etkinliği, taşınan veri bir geçici tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu daha sonra mevcut verilerle kopyalanan verileri birleştirebilirsiniz. |Bir tablo türü adı. |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -1099,16 +1099,16 @@ Azure SQL veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz türü
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure SQL bağlayıcı](data-factory-azure-sql-connector.md#copy-activity-properties) makalesi. 
+Daha fazla bilgi için [Azure SQL Bağlayıcısı](data-factory-azure-sql-connector.md#copy-activity-properties) makalesi. 
 
 ## <a name="azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin Azure SQL Data Warehouse tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AzureSqlDW**ve aşağıdaki özellikleri belirtin **typeProperties** Bölüm:  
+Bağlı hizmeti bir Azure SQL veri ambarı tanımlamak için Ayarla **türü** bağlı hizmetinin **AzureSqlDW**, aşağıdaki özellikleri belirtin **typeProperties** Bölüm:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| connectionString |ConnectionString özelliği için Azure SQL Data Warehouse örneğine bağlanmak için gereken bilgileri belirtin. |Evet |
+| bağlantı dizesi |ConnectionString özelliği için Azure SQL veri ambarı örneğine bağlanmak için gereken bilgileri belirtin. |Evet |
 
 
 
@@ -1126,14 +1126,14 @@ Bağlantılı hizmetinin Azure SQL Data Warehouse tanımlamak için Ayarla **tü
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure SQL Data Warehouse Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [Azure SQL veri ambarı Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Azure SQL Data Warehouse veri kümesini tanımlamak için **türü** için veri kümesinin **AzureSqlDWTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir Azure SQL veri ambarı veri kümesi tanımlamak için **türü** için veri kümesinin **AzureSqlDWTable**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Tablo veya Görünüm başvuran bağlı hizmetin Azure SQL veri ambarı veritabanındaki adı. |Evet |
+| tableName |Tablo veya Görünüm başvuran bağlı hizmetin Azure SQL veri ambarı veritabanı adı. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -1162,17 +1162,17 @@ Bir Azure SQL Data Warehouse veri kümesini tanımlamak için **türü** için v
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure SQL Data Warehouse Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties) makalesi. 
+Daha fazla bilgi için [Azure SQL veri ambarı Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties) makalesi. 
 
-### <a name="sql-dw-source-in-copy-activity"></a>Kopyalama etkinliğinde SQL DW kaynağı
-Azure SQL veri ambarından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **SqlDWSource**ve aşağıdaki özellikleri belirtin **kaynak** Bölüm:
+### <a name="sql-dw-source-in-copy-activity"></a>Kopyalama etkinliğindeki SQL DW kaynağı
+Azure SQL veri ambarından veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **SqlDWSource**, aşağıdaki özellikleri belirtin **kaynak** Bölüm:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır |
-| sqlReaderStoredProcedureName |Kaynak tablodan veri okuyan saklı yordamın adı. |Saklı yordam adı. |Hayır |
-| storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
+| sqlReaderStoredProcedureName |Kaynak tablo verilerini okuyan saklı yordamın adı. |Saklı yordamın adı. |Hayır |
+| storedProcedureParameters |Saklı yordamın parametreleri. |Ad/değer çiftleri. Adları ve parametreleri büyük küçük harfleri, adları ve saklı yordam parametreleri büyük küçük harfleri eşleşmelidir. |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -1217,22 +1217,22 @@ Azure SQL veri ambarından veri kopyalıyorsanız ayarlamak **kaynak türünü**
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure SQL Data Warehouse Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) makalesi. 
+Daha fazla bilgi için [Azure SQL veri ambarı Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) makalesi. 
 
-### <a name="sql-dw-sink-in-copy-activity"></a>SQL DW havuz kopyalama etkinliğinde
-Azure SQL Data Warehouse'a veri kopyalıyorsanız ayarlamak **Havuz türü** kopyalama etkinliği **SqlDWSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+### <a name="sql-dw-sink-in-copy-activity"></a>Kopyalama etkinliğindeki SQL DW havuz
+Azure SQL veri ambarı'na veri kopyalama verilirse **Havuz türü** , kopyalama etkinliğine **SqlDWSink**, aşağıdaki özellikleri belirtin **havuz** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. |Sorgu bildirimi. |Hayır |
-| Bulunan'allowpolybase |BULKINSERT mekanizması yerine PolyBase (varsa) kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** |True <br/>False (varsayılan) |Hayır |
-| polyBaseSettings |Bir grup olabilir özellik belirtilen **Bulunan'allowpolybase** özelliği ayarlanmış **doğru**. |&nbsp; |Hayır |
-| rejectValue |Sayı veya yüzde değeri sorgu başarısız önce reddedilemiyor satır belirtir. <br/><br/>PolyBase'nın reddetme seçenekleri hakkında daha fazla bilgi **bağımsız değişkenleri** bölümünü [CREATE dış TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) konu. |0 (varsayılan), 1, 2... |Hayır |
-| rejectType |RejectValue seçeneği bir hazır değer veya bir yüzde belirtilen belirtir. |Değer (varsayılan), yüzde |Hayır |
-| Havuzu'na ilişkin |PolyBase reddedilen satırları yüzdesini yeniden hesaplar önce almak için satır sayısını belirler. |1, 2, … |Evet, varsa **rejectType** olan **yüzdesi** |
-| useTypeDefault |PolyBase metin dosyasından veri aldığında sınırlandırılmış metin dosyaları eksik değerleri nasıl ele alınacağını belirtir.<br/><br/>Bağımsız değişkenler bölümünde bu özelliği hakkında daha fazla bilgi [oluşturma EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |TRUE, False (varsayılan) |Hayır |
+| sqlWriterCleanupScript |Belirli bir dilimin veri Temizlenen şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. |Bir sorgu deyimi. |Hayır |
+| Bulunan'allowpolybase |PolyBase, (uygunsa) yerine BULKINSERT mekanizması kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** |True <br/>False (varsayılan) |Hayır |
+| polyBaseSettings |Bir grup olabilir özellik belirtilen **Bulunan'allowpolybase** özelliği **true**. |&nbsp; |Hayır |
+| rejectValue |Sayı veya sorgu başarısız olmadan önce reddedilemiyor satırları yüzdesini belirtir. <br/><br/>PolyBase'nın içinde reddetme seçeneklerini hakkında daha fazla bilgi **bağımsız değişkenleri** bölümünü [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) konu. |0 (varsayılan), 1, 2... |Hayır |
+| rejectType |RejectValue seçeneği değişmez değer veya bir yüzdesi olarak belirtilen belirtir. |Değer (varsayılan), yüzde |Hayır |
+| rejectSampleValue |Reddedilen satırların yüzdesi PolyBase yeniden hesaplar önce almak için satır sayısını belirler. |1, 2, … |Evet, varsa **rejectType** olduğu **yüzdesi** |
+| useTypeDefault |PolyBase metin dosyasından veri aldığında sınırlandırılmış metin dosyaları eksik değerleri nasıl ele alınacağını belirtir.<br/><br/>Bağımsız değişkenler bölümünden bu özellik hakkında daha fazla bilgi [oluşturma EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |TRUE, False (varsayılan) |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
-| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
+| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. |zaman aralığı<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -1278,12 +1278,12 @@ Azure SQL Data Warehouse'a veri kopyalıyorsanız ayarlamak **Havuz türü** kop
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure SQL Data Warehouse Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) makalesi. 
+Daha fazla bilgi için [Azure SQL veri ambarı Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) makalesi. 
 
 ## <a name="azure-search"></a>Azure Search
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmeti bir Azure Search tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AzureSearch**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bağlı hizmeti bir Azure Search tanımlamak için Ayarla **türü** bağlı hizmetinin **Azure Search**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- |
@@ -1305,15 +1305,15 @@ Bağlantılı hizmeti bir Azure Search tanımlamak için Ayarla **türü** bağl
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure Search Bağlayıcısı](data-factory-azure-search-connector.md#linked-service-properties) makalesi.
+Daha fazla bilgi için [Azure Search bağlayıcı](data-factory-azure-search-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Azure Search veri kümesini tanımlamak için **türü** için veri kümesinin **AzureSearchIndex**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir Azure Search veri kümesini tanımlamak için **türü** için veri kümesinin **AzureSearchIndex**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- |
-| type | Type özelliği ayarlamak **AzureSearchIndex**.| Evet |
-| indexName | Azure Search dizini adı. Veri Fabrikası dizinini oluşturmaz. Azure Search'te dizin mevcut olması gerekir. | Evet |
+| type | Type özelliği ayarlanmalıdır **AzureSearchIndex**.| Evet |
+| indexName | Azure Search dizininin adı. Veri fabrikası, Dizin oluşturulmaz. Azure Search'te dizin varolmalıdır. | Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -1334,15 +1334,15 @@ Bir Azure Search veri kümesini tanımlamak için **türü** için veri kümesin
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure Search Bağlayıcısı](data-factory-azure-search-connector.md#dataset-properties) makalesi.
+Daha fazla bilgi için [Azure Search bağlayıcı](data-factory-azure-search-connector.md#dataset-properties) makalesi.
 
-### <a name="azure-search-index-sink-in-copy-activity"></a>Kopya etkinliği Azure arama dizini havuzunda
-Bir Azure Search dizinine veri kopyalıyorsanız ayarlamak **Havuz türü** kopyalama etkinliği **AzureSearchIndexSink**ve aşağıdaki özellikleri belirtin **havuz** Bölüm:
+### <a name="azure-search-index-sink-in-copy-activity"></a>Kopyalama etkinliği, Azure arama dizini havuz
+Bir Azure Search dizinine veri kopyalıyorsanız ayarlamak **Havuz türü** , kopyalama etkinliğine **AzureSearchIndexSink**, aşağıdaki özellikleri belirtin **havuz** Bölüm:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Birleştir veya bir belge dizinde zaten mevcut olduğunda Değiştir belirtir. | (Varsayılan) birleştirme<br/>Karşıya Yükle| Hayır |
-| WriteBatchSize | Arabellek boyutu writeBatchSize ulaştığında Azure Search dizinine veri yükler. | 1 için 1.000. Varsayılan değer 1000'dir. | Hayır |
+| WriteBehavior | Bir belge dizinde zaten mevcut olduğunda değiştirin ya da birleştirme belirtir. | (Varsayılan) birleştirme<br/>Karşıya Yükle| Hayır |
+| WriteBatchSize | Arabellek boyutu writeBatchSize ulaştığında, verileri Azure Search dizinine yükler. | 1 ila 1.000. Varsayılan değer 1000'dir. | Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -1387,20 +1387,20 @@ Bir Azure Search dizinine veri kopyalıyorsanız ayarlamak **Havuz türü** kopy
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure Search Bağlayıcısı](data-factory-azure-search-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [Azure Search bağlayıcı](data-factory-azure-search-connector.md#copy-activity-properties) makalesi.
 
 ## <a name="azure-table-storage"></a>Azure Table Storage
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlı hizmetler iki tür vardır: Azure depolama bağlantılı hizmeti ve Azure depolama SAS bağlantılı hizmeti.
+Bağlı hizmetler, iki tür vardır: Azure depolama bağlı hizmeti ve Azure depolama SAS bağlı hizmeti.
 
 #### <a name="azure-storage-linked-service"></a>Azure Storage Bağlı Hizmeti
-Azure storage hesabınızı kullanarak bir data factory'ye bağlamak için **hesap anahtarı**, bir Azure Storage bağlı hizmeti oluşturma. Bağlantılı hizmeti bir Azure depolama alanını tanımlayın, Ayarla **türü** bağlantılı hizmetinin **AzureStorage**. Ardından, aşağıdaki özellikleri belirtebilirsiniz **typeProperties** bölümü:  
+Kullanarak, Azure depolama hesabınızı veri fabrikasına bağlamak için **hesap anahtarı**, bir Azure depolama bağlı hizmeti oluşturma. Bağlı hizmeti bir Azure depolama tanımlamak için Ayarla **türü** bağlı hizmetinin **AzureStorage**. Ardından, aşağıdaki özellikleri belirtebilirsiniz **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type |Type özelliği ayarlanmalıdır: **AzureStorage** |Evet |
-| connectionString |ConnectionString özelliği için Azure depolama alanına bağlanmak için gereken bilgileri belirtin. |Evet |
+| bağlantı dizesi |ConnectionString özelliği için Azure depolamaya bağlanmak için gereken bilgileri belirtin. |Evet |
 
 **Örnek:**  
 
@@ -1416,13 +1416,13 @@ Azure storage hesabınızı kullanarak bir data factory'ye bağlamak için **hes
 }  
 ```
 
-#### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS bağlı hizmeti
-Azure depolama bağlı SAS hizmeti bir paylaşılan erişim imzası (SAS) kullanarak Azure data factory için bir Azure depolama hesabı bağlantı sağlar. Veri Fabrikası depolama alanındaki tüm/özel kaynakları (blob/kapsayıcısı) kısıtlanmış/zaman sınırlı erişim sağlar. Paylaşılan erişim imzası kullanarak bir veri fabrikası Azure depolama hesabınıza bağlamak için bir Azure depolama bağlı SAS hizmeti oluşturun. Bağlantılı hizmeti bir Azure depolama SAS tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AzureStorageSas**. Ardından, aşağıdaki özellikleri belirtebilirsiniz **typeProperties** bölümü:   
+#### <a name="azure-storage-sas-linked-service"></a>Azure depolama SAS bağlı hizmeti
+Azure depolama SAS bağlı hizmet, bir paylaşılan erişim imzası (SAS) kullanarak bir Azure data factory'de bir Azure depolama hesabı bağlantı sağlar. Data factory ile kısıtlı/zamana bağlı depolama (blob/kapsayıcı) tüm/özel kaynaklarına erişimi sağlar. Paylaşılan erişim imzası kullanarak Azure depolama hesabınızı veri fabrikasına bağlamak için bir Azure depolama SAS bağlı hizmet oluşturun. Bağlı hizmeti Azure depolama SAS tanımlamak için Ayarla **türü** bağlı hizmetinin **AzureStorageSas**. Ardından, aşağıdaki özellikleri belirtebilirsiniz **typeProperties** bölümü:   
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type |Type özelliği ayarlanmalıdır: **AzureStorageSas** |Evet |
-| sasUri |Blob, kapsayıcı ya da tablo gibi Azure Storage kaynakları için paylaşılan erişim imzası URI belirtin. |Evet |
+| sasUri |Blob, kapsayıcı veya tablo gibi Azure Storage kaynakları için paylaşılan erişim imzası URI'si belirtin. |Evet |
 
 **Örnek:**
 
@@ -1438,14 +1438,14 @@ Azure depolama bağlı SAS hizmeti bir paylaşılan erişim imzası (SAS) kullan
 }  
 ```
 
-Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz: [Azure Table Storage bağlayıcı](data-factory-azure-table-connector.md#linked-service-properties) makalesi. 
+Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz. [Azure tablo depolama Bağlayıcısı](data-factory-azure-table-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Azure Table veri kümesini tanımlamak için **türü** için veri kümesinin **AzureTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir Azure tablosu veri kümesi tanımlamak için **türü** için veri kümesinin **AzureTable**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Bağlantılı hizmet başvurduğu Azure tablo veritabanı örneğinde tablonun adı. |Evet. Bir tableName bir azureTableSourceQuery belirtildiğinde, tablodaki tüm kayıtları hedefe kopyalanır. Bir azureTableSourceQuery de belirtilirse, sorgu karşılayan tablodaki kayıtları hedefe kopyalanır. |
+| tableName |Bağlı hizmeti Azure tablo veritabanı örneğinde tablonun adını gösterir. |Evet. Bir tableName bir azureTableSourceQuery belirtildiğinde, tablodaki tüm kayıtları hedefe kopyalanır. Sorguyu karşılayan bir tablodaki kayıtları bir azureTableSourceQuery de belirtilirse, hedefe kopyalanamadı. |
 
 #### <a name="example"></a>Örnek
 
@@ -1474,15 +1474,15 @@ Bir Azure Table veri kümesini tanımlamak için **türü** için veri kümesini
 }
 ```
 
-Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz: [Azure Table Storage bağlayıcı](data-factory-azure-table-connector.md#dataset-properties) makalesi. 
+Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz. [Azure tablo depolama Bağlayıcısı](data-factory-azure-table-connector.md#dataset-properties) makalesi. 
 
-### <a name="azure-table-source-in-copy-activity"></a>Kopya etkinliği Azure tablo kaynağında
-Azure tablo depolamasından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **AzureTableSource**ve aşağıdaki özellikleri belirtin **kaynak** Bölüm:
+### <a name="azure-table-source-in-copy-activity"></a>Kopyalama etkinliği, Azure tablo kaynağı
+Azure tablo Depolama'dan veri kopyalıyorsanız ayarlamak **kaynak türünü** , kopyalama etkinliğine **AzureTableSource**, aşağıdaki özellikleri belirtin **kaynak** Bölüm:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| azureTableSourceQuery |Verileri okumak için özel sorgu kullanın. |Azure tablo sorgu dizesi. Sonraki bölümdeki örneklere bakın. |Hayır. Bir tableName bir azureTableSourceQuery belirtildiğinde, tablodaki tüm kayıtları hedefe kopyalanır. Bir azureTableSourceQuery de belirtilirse, sorgu karşılayan tablodaki kayıtları hedefe kopyalanır. |
-| azureTableSourceIgnoreTableNotFound |Swallow tablosunun özel durum var olup olmadığını gösterir. |TRUE<br/>FALSE |Hayır |
+| azureTableSourceQuery |Verileri okumak için özel sorgu kullanın. |Azure tablo sorgu dizesi. Sonraki bölümdeki örneklere bakın. |Hayır. Bir tableName bir azureTableSourceQuery belirtildiğinde, tablodaki tüm kayıtları hedefe kopyalanır. Sorguyu karşılayan bir tablodaki kayıtları bir azureTableSourceQuery de belirtilirse, hedefe kopyalanamadı. |
+| azureTableSourceIgnoreTableNotFound |Swallow özel durum tablosunun mevcut olup olmadığını gösterir. |TRUE<br/>FALSE |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -1527,19 +1527,19 @@ Azure tablo depolamasından veri kopyalıyorsanız ayarlamak **kaynak türünü*
 }
 ```
 
-Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz: [Azure Table Storage bağlayıcı](data-factory-azure-table-connector.md#copy-activity-properties) makalesi. 
+Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz. [Azure tablo depolama Bağlayıcısı](data-factory-azure-table-connector.md#copy-activity-properties) makalesi. 
 
-### <a name="azure-table-sink-in-copy-activity"></a>Kopya etkinliği Azure tablo havuzunda
-Azure Table depolama alanına veri kopyalıyorsanız ayarlamak **Havuz türü** kopyalama etkinliği **AzureTableSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+### <a name="azure-table-sink-in-copy-activity"></a>Kopyalama etkinliğindeki havuz Azure tablosu
+Azure tablo depolama alanına veri kopyalama verilirse **Havuz türü** için kopyalama etkinliği, **AzureTableSink**, aşağıdaki özellikleri belirtin **havuz** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| azureTableDefaultPartitionKeyValue |Havuzu tarafından kullanılan varsayılan bölüm anahtar değeri. |Bir dize değeri. |Hayır |
-| azureTablePartitionKeyName |Değerleri bölüm anahtarları olarak kullanılan sütun adını belirtin. Belirtilmezse, AzureTableDefaultPartitionKeyValue bölüm anahtarı olarak kullanılır. |Sütun adı. |Hayır |
+| azureTableDefaultPartitionKeyValue |Havuz tarafından kullanılan varsayılan bölüm anahtarı değeri. |Bir dize değeri. |Hayır |
+| azureTablePartitionKeyName |Değerleri bölüm anahtarı olarak kullanılan sütun adını belirtin. Belirtilmezse, AzureTableDefaultPartitionKeyValue bölüm anahtarı olarak kullanılır. |Sütun adı. |Hayır |
 | azureTableRowKeyName |Sütun değerleri satır anahtarı olarak kullanılan sütun adını belirtin. Belirtilmezse, her satır için bir GUID kullanın. |Sütun adı. |Hayır |
-| azureTableInsertType |Azure tabloya veri ekleme modu.<br/><br/>Bu özellik, var olan satırları eşleşen bölüm ve satır anahtarlarla çıkış tablosuna birleştirilmiş veya değiştirilmesi değerlerine sahip olup olmadığını denetler. <br/><br/>Bu ayarları (birleştirme ve Değiştir) nasıl çalıştığı hakkında bilgi edinmek için [ekleme veya birleştirme varlık](https://msdn.microsoft.com/library/azure/hh452241.aspx) ve [ekleme veya değiştirme varlık](https://msdn.microsoft.com/library/azure/hh452242.aspx) Konular. <br/><br> Bu ayar, tablo düzeyinde değil satır düzeyinde uygulanır ve girdide var olmayan satır çıkış tablosuna hiçbiri seçeneği siler. |Merge (varsayılan)<br/>Değiştir |Hayır |
-| writeBatchSize |WriteBatchSize veya writeBatchTimeout gelindiğinde veri Azure tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
-| writeBatchTimeout |WriteBatchSize veya writeBatchTimeout gelindiğinde veri Azure tablosuna ekler. |TimeSpan<br/><br/>Örnek: "00: 20:00" (20 dakika) |Hayır (depolama İstemcisi varsayılan zaman aşımı için varsayılan değer 90 saniye) |
+| azureTableInsertType |Azure tabloya veri eklemek için modu.<br/><br/>Bu özellik, var olan satır bölüm ve satır anahtarları eşleşen çıktı tablosu değiştirildi veya birleştirilmiş değerlerine sahip olup olmadığını denetler. <br/><br/>Bu ayarları (birleştirme ve Değiştir) nasıl çalıştığı hakkında bilgi edinmek için bkz. [Ekle ya da birleştirme varlık](https://msdn.microsoft.com/library/azure/hh452241.aspx) ve [Ekle veya Değiştir varlık](https://msdn.microsoft.com/library/azure/hh452242.aspx) konuları. <br/><br> Bu ayar, tablo düzeyinde değil satır düzeyinde uygulanır ve her iki seçeneği giriş bulunmayan çıkış tablosundaki satırları siler. |Birleştirme (varsayılan)<br/>Değiştir |Hayır |
+| writeBatchSize |WriteBatchSize veya writeBatchTimeout isabet edildiğinde verileri Azure tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
+| writeBatchTimeout |WriteBatchSize veya writeBatchTimeout isabet edildiğinde verileri Azure tablosuna ekler. |zaman aralığı<br/><br/>Örnek: "00: 20:00" (20 dakika) |Hayır (depolama istemci varsayılan zaman aşımı süresi için varsayılan değer 90 saniye) |
 
 #### <a name="example"></a>Örnek
 
@@ -1584,20 +1584,20 @@ Azure Table depolama alanına veri kopyalıyorsanız ayarlamak **Havuz türü** 
     }
 }
 ```
-Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz: [Azure Table Storage bağlayıcı](data-factory-azure-table-connector.md#copy-activity-properties) makalesi. 
+Bu bağlantılı hizmetler hakkında daha fazla bilgi için bkz. [Azure tablo depolama Bağlayıcısı](data-factory-azure-table-connector.md#copy-activity-properties) makalesi. 
 
 ## <a name="amazon-redshift"></a>Amazon RedShift
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir Amazon Redshift tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AmazonRedshift**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü :  
+Bir Amazon Redshift tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin **AmazonRedshift**, aşağıdaki özellikleri belirtin **typeProperties** bölümü :  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| sunucu |IP adresi veya ana bilgisayar Amazon Redshift sunucunun adıdır. |Evet |
-| port |İstemci bağlantılarını dinlemek için Amazon Redshift sunucunun kullandığı TCP bağlantı noktası numarası. |Hayır, varsayılan değer: 5439 |
+| sunucu |IP adresi veya ana bilgisayar adı Amazon Redshift sunucusunun. |Evet |
+| port |Amazon Redshift sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası sayısı. |Hayır, varsayılan değer: 5439 |
 | veritabanı |Amazon Redshift veritabanının adı. |Evet |
 | kullanıcı adı |Veritabanına erişimi olan kullanıcı adı. |Evet |
-| password |Kullanıcı hesabının parolası. |Evet |
+| password |Kullanıcı hesabı için parola. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -1617,14 +1617,14 @@ Bağlantılı hizmetinin bir Amazon Redshift tanımlamak için Ayarla **türü**
 }
 ```
 
-Daha fazla bilgi için bkz: [Amazon Redshift bağlayıcı](#data-factory-amazon-redshift-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [Amazon Redshift Bağlayıcısı](#data-factory-amazon-redshift-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Amazon Redshift veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir Amazon Redshift veri kümesi tanımlamak için **türü** için veri kümesinin **RelationalTable**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Amazon Redshift veritabanında bağlantılı hizmet başvurduğu tablonun adı. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
+| tableName |Amazon Redshift veritabanındaki bağlı hizmet başvurduğu tablonun adı. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
 
 
 #### <a name="example"></a>Örnek
@@ -1646,14 +1646,14 @@ Bir Amazon Redshift veri kümesini tanımlamak için **türü** için veri küme
     }
 }
 ```
-Daha fazla bilgi için bkz: [Amazon Redshift bağlayıcı](#data-factory-amazon-redshift-connector.md#dataset-properties) makalesi.
+Daha fazla bilgi için [Amazon Redshift Bağlayıcısı](#data-factory-amazon-redshift-connector.md#dataset-properties) makalesi.
 
-### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında 
-Amazon Redshift veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliğindeki ilişkisel bir kaynak 
+Verileri Amazon Redshift'ten kopyalama verilirse **kaynak türü** için kopyalama etkinliği, **RelationalSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -1696,22 +1696,22 @@ Amazon Redshift veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama 
     }
 }
 ```
-Daha fazla bilgi için bkz: [Amazon Redshift bağlayıcı](#data-factory-amazon-redshift-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [Amazon Redshift Bağlayıcısı](#data-factory-amazon-redshift-connector.md#copy-activity-properties) makalesi.
 
 ## <a name="ibm-db2"></a>IBM DB2
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir IBM DB2 tanımlamak için Ayarla **türü** bağlantılı hizmetinin **OnPremisesDB2**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bir IBM DB2 tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin **OnPremisesDB2**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| sunucu |DB2 sunucunun adıdır. |Evet |
-| veritabanı |DB2 veritabanının adı. |Evet |
-| Şema |Veritabanı şemasında adı. Şema adı büyük/küçük harf duyarlıdır. |Hayır |
-| authenticationType |DB2 veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
+| sunucu |DB2 sunucusunun adı. |Evet |
+| veritabanı |DB2 veritabanı adı. |Evet |
+| Şema |Veritabanı şemasının adı. Şema adı büyük/küçük harfe duyarlıdır. |Hayır |
+| authenticationType |DB2 veritabanına bağlanmak için kullanılan kimlik doğrulaması türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
 | kullanıcı adı |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
-| gatewayName |Data Factory hizmetinin şirket içi DB2 veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| gatewayName |Data Factory hizmetinin şirket içi DB2 veritabanına bağlanmak için kullanması gereken ağ geçidi adı. |Evet |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -1731,14 +1731,14 @@ Bağlantılı hizmetinin bir IBM DB2 tanımlamak için Ayarla **türü** bağlan
     }
 }
 ```
-Daha fazla bilgi için bkz: [IBM DB2 Bağlayıcısı](#data-factory-onprem-db2-connector.md#linked-service-properties) makalesi.
+Daha fazla bilgi için [IBM DB2 Bağlayıcısı](#data-factory-onprem-db2-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir DB2 veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:
+DB2 veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve şu özelliklerde belirtin **typeProperties** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |DB2 veritabanına örneğinde bağlantılı hizmet başvurduğu tablonun adı. TableName büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) 
+| tableName |Bağlı hizmeti DB2 veritabanı örneğinde tablonun adını gösterir. TableName, büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) 
 
 #### <a name="example"></a>Örnek
 ```json
@@ -1764,15 +1764,15 @@ Bir DB2 veri kümesini tanımlamak için **türü** için veri kümesinin **Rela
 }
 ```
 
-Daha fazla bilgi için bkz: [IBM DB2 Bağlayıcısı](#data-factory-onprem-db2-connector.md#dataset-properties) makalesi.
+Daha fazla bilgi için [IBM DB2 Bağlayıcısı](#data-factory-onprem-db2-connector.md#dataset-properties) makalesi.
 
-### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-IBM DB2'den veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliğindeki ilişkisel bir kaynak
+IBM DB2'den veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **RelationalSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `"query": "select * from "MySchema"."MyTable""`. |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `"query": "select * from "MySchema"."MyTable""`. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -1812,22 +1812,22 @@ IBM DB2'den veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etki
     }
 }
 ```
-Daha fazla bilgi için bkz: [IBM DB2 Bağlayıcısı](#data-factory-onprem-db2-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [IBM DB2 Bağlayıcısı](#data-factory-onprem-db2-connector.md#copy-activity-properties) makalesi.
 
 ## <a name="mysql"></a>MySQL
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir MySQL tanımlamak için Ayarla **türü** bağlantılı hizmetinin **OnPremisesMySql**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bir MySQL tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin **OnPremisesMySql**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| sunucu |MySQL sunucu adı. |Evet |
+| sunucu |MySQL sunucusunun adı. |Evet |
 | veritabanı |MySQL veritabanının adı. |Evet |
-| Şema |Veritabanı şemasında adı. |Hayır |
-| authenticationType |MySQL veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: `Basic`. |Evet |
-| kullanıcı adı |MySQL veritabanına bağlanmak için kullanıcı adını belirtin. |Evet |
-| password |Belirttiğiniz kullanıcı hesabı için parola belirtin. |Evet |
-| gatewayName |Data Factory hizmetinin şirket içi MySQL veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| Şema |Veritabanı şemasının adı. |Hayır |
+| authenticationType |MySQL veritabanına bağlanmak için kullanılan kimlik doğrulaması türü. Olası değerler şunlardır: `Basic`. |Evet |
+| kullanıcı adı |MySQL veritabanına bağlanmak için kullanıcı adı belirtin. |Evet |
+| password |Belirtilen kullanıcı hesabı için parola belirtin. |Evet |
+| gatewayName |Data Factory hizmetinin şirket içi MySQL veritabanına bağlanmak için kullanması gereken ağ geçidi adı. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -1849,14 +1849,14 @@ Bağlantılı hizmetinin bir MySQL tanımlamak için Ayarla **türü** bağlant�
 }
 ```
 
-Daha fazla bilgi için bkz: [MySQL bağlayıcı](data-factory-onprem-mysql-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [MySQL bağlayıcısını](data-factory-onprem-mysql-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir MySQL veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir MySQL veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |MySQL veritabanı örneğinde bağlantılı hizmet başvurduğu tablonun adı. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
+| tableName |Bağlı hizmeti MySQL veritabanı örneğinde tablonun adını gösterir. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -1882,15 +1882,15 @@ Bir MySQL veri kümesini tanımlamak için **türü** için veri kümesinin **Re
     }
 }
 ```
-Daha fazla bilgi için bkz: [MySQL bağlayıcı](data-factory-onprem-mysql-connector.md#dataset-properties) makalesi. 
+Daha fazla bilgi için [MySQL bağlayıcısını](data-factory-onprem-mysql-connector.md#dataset-properties) makalesi. 
 
-### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-Bir MySQL veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliğindeki ilişkisel bir kaynak
+Bir MySQL veritabanından veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **RelationalSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
 
 #### <a name="example"></a>Örnek
@@ -1934,17 +1934,17 @@ Bir MySQL veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** 
 }
 ```
 
-Daha fazla bilgi için bkz: [MySQL bağlayıcı](data-factory-onprem-mysql-connector.md#copy-activity-properties) makalesi. 
+Daha fazla bilgi için [MySQL bağlayıcısını](data-factory-onprem-mysql-connector.md#copy-activity-properties) makalesi. 
 
 ## <a name="oracle"></a>Oracle 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir Oracle tanımlamak için Ayarla **türü** bağlantılı hizmetinin **OnPremisesOracle**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Oracle tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin **OnPremisesOracle**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| driverType | Hangi sürücünün/Oracle veritabanına veri kopyalamak için kullanılacağını belirtin. İzin verilen değerler **Microsoft** veya **ODP** (varsayılan). Bkz: [desteklenen sürümü ve yükleme](#supported-versions-and-installation) sürücü ayrıntıları bölümü. | Hayır |
-| connectionString | ConnectionString özelliği için Oracle veritabanı örneğine bağlanmak için gereken bilgileri belirtin. | Evet |
+| driverType | / Oracle veritabanına veri kopyalamak için kullanılacak sürücüyü belirtin. İzin verilen değerler **Microsoft** veya **ODP** (varsayılan). Bkz: [desteklenen sürümü ve yükleme](#supported-versions-and-installation) sürücü ayrıntıları bölümü. | Hayır |
+| bağlantı dizesi | ConnectionString özelliği için Oracle veritabanı örneğine bağlanmak için gereken bilgileri belirtin. | Evet |
 | gatewayName | Şirket içi Oracle sunucusuna bağlanmak için kullanılan ağ geçidinin adı |Evet |
 
 #### <a name="example"></a>Örnek
@@ -1962,14 +1962,14 @@ Bağlantılı hizmetinin bir Oracle tanımlamak için Ayarla **türü** bağlant
 }
 ```
 
-Daha fazla bilgi için bkz: [Oracle bağlayıcı](data-factory-onprem-oracle-connector.md#linked-service-properties) makalesi.
+Daha fazla bilgi için [Oracle Bağlayıcısı](data-factory-onprem-oracle-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Oracle veri kümesini tanımlamak için **türü** için veri kümesinin **OracleTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir Oracle veri kümesini tanımlamak için **türü** için veri kümesinin **OracleTable**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Oracle veritabanında bağlantılı hizmet başvurduğu tablonun adı. |Hayır (varsa **oracleReaderQuery** , **OracleSource** belirtilir) |
+| tableName |Bağlı hizmetini ifade eder Oracle veritabanı tablosunun adı. |Hayır (varsa **oracleReaderQuery** , **OracleSource** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -1999,14 +1999,14 @@ Bir Oracle veri kümesini tanımlamak için **türü** için veri kümesinin **O
     }
 }
 ```
-Daha fazla bilgi için bkz: [Oracle bağlayıcı](data-factory-onprem-oracle-connector.md#dataset-properties) makalesi.
+Daha fazla bilgi için [Oracle Bağlayıcısı](data-factory-onprem-oracle-connector.md#dataset-properties) makalesi.
 
-### <a name="oracle-source-in-copy-activity"></a>Kopyalama etkinliği Oracle kaynağında
-Bir Oracle veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **OracleSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="oracle-source-in-copy-activity"></a>Kopya etkinlikteki kaynak Oracle
+Bir Oracle veritabanından veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **OracleSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin, `select * from MyTable` <br/><br/>Belirtilmezse, yürütülen SQL deyimi: `select * from MyTable` |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| oracleReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin, `select * from MyTable` <br/><br/>Belirtilmezse, yürütülen SQL deyimi: `select * from MyTable` |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -2051,17 +2051,17 @@ Bir Oracle veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü**
 }
 ```
 
-Daha fazla bilgi için bkz: [Oracle bağlayıcı](data-factory-onprem-oracle-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [Oracle Bağlayıcısı](data-factory-onprem-oracle-connector.md#copy-activity-properties) makalesi.
 
-### <a name="oracle-sink-in-copy-activity"></a>Kopyalama etkinliği Oracle havuzunda
-Am Oracle veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz türü** kopyalama etkinliği **OracleSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+### <a name="oracle-sink-in-copy-activity"></a>Kopyalama etkinliğindeki havuz Oracle
+' Te Oracle veritabanına veri kopyalama verilirse **Havuz türü** için kopyalama etkinliği, **OracleSink**, aşağıdaki özellikleri belirtin **havuz** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: 00:30:00 (30 dakika). |Hayır |
+| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. |zaman aralığı<br/><br/> Örnek: 00:30:00 (30 dakika). |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 100) |
-| sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. |Sorgu bildirimi. |Hayır |
-| sliceIdentifierColumnName |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak için sütun adı belirtin. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
+| sqlWriterCleanupScript |Belirli bir dilimin veri Temizlenen şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. |Bir sorgu deyimi. |Hayır |
+| sliceIdentifierColumnName |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilimin verileri temizlemek için kullanılan otomatik dilim tanımlayıcısı ile doldurmak için sütun adı belirtin. |Bir sütunun veri türüyle binary(32) sütun adı. |Hayır |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -2103,22 +2103,22 @@ Am Oracle veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz türü
     }
 }
 ```
-Daha fazla bilgi için bkz: [Oracle bağlayıcı](data-factory-onprem-oracle-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [Oracle Bağlayıcısı](data-factory-onprem-oracle-connector.md#copy-activity-properties) makalesi.
 
 ## <a name="postgresql"></a>PostgreSQL
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir PostgreSQL tanımlamak için Ayarla **türü** bağlantılı hizmetinin **OnPremisesPostgreSql**ve aşağıdaki özellikleri belirtin **typeProperties** Bölüm:  
+Bir PostgreSQL tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin **OnPremisesPostgreSql**, aşağıdaki özellikleri belirtin **typeProperties** Bölüm:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| sunucu |PostgreSQL sunucunun adıdır. |Evet |
-| veritabanı |PostgreSQL veritabanının adı. |Evet |
-| Şema |Veritabanı şemasında adı. Şema adı büyük/küçük harf duyarlıdır. |Hayır |
-| authenticationType |PostgreSQL veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
+| sunucu |PostgreSQL sunucusu adı. |Evet |
+| veritabanı |PostgreSQL veritabanı adı. |Evet |
+| Şema |Veritabanı şemasının adı. Şema adı büyük/küçük harfe duyarlıdır. |Hayır |
+| authenticationType |PostgreSQL veritabanı'na bağlanmak için kullanılan kimlik doğrulaması türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
 | kullanıcı adı |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
-| gatewayName |Data Factory hizmetinin şirket içi PostgreSQL veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| gatewayName |Data Factory hizmetinin şirket içi PostgreSQL veritabanına bağlanmak için kullanması gereken ağ geçidi adı. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -2139,14 +2139,14 @@ Bağlantılı hizmetinin bir PostgreSQL tanımlamak için Ayarla **türü** bağ
     }
 }
 ```
-Daha fazla bilgi için bkz: [PostgreSQL bağlayıcı](data-factory-onprem-postgresql-connector.md#linked-service-properties) makalesi.
+Daha fazla bilgi için [PostgreSQL bağlayıcı](data-factory-onprem-postgresql-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir PostgreSQL veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir PostgreSQL veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Bağlantılı hizmet başvurduğu PostgreSQL veritabanı örneğinde tablonun adı. TableName büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
+| tableName |Bağlı hizmeti PostgreSQL veritabanı örneğinde tablonun adını gösterir. TableName, büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -2171,15 +2171,15 @@ Bir PostgreSQL veri kümesini tanımlamak için **türü** için veri kümesinin
     }
 }
 ```
-Daha fazla bilgi için bkz: [PostgreSQL bağlayıcı](data-factory-onprem-postgresql-connector.md#dataset-properties) makalesi.
+Daha fazla bilgi için [PostgreSQL bağlayıcı](data-factory-onprem-postgresql-connector.md#dataset-properties) makalesi.
 
-### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-Bir PostgreSQL veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** Bölüm:
+### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliğindeki ilişkisel bir kaynak
+Bir PostgreSQL veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** , kopyalama etkinliğine **RelationalSource**, aşağıdaki özellikleri belirtin **kaynak** Bölüm:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: "sorgu": "seçin * gelen \"MySchema\".\" MyTable\"". |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: "query": "seçin * öğesinden \"MySchema\".\" MyTable\"". |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -2221,23 +2221,23 @@ Bir PostgreSQL veritabanından veri kopyalıyorsanız ayarlamak **kaynak türün
 }
 ```
 
-Daha fazla bilgi için bkz: [PostgreSQL bağlayıcı](data-factory-onprem-postgresql-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [PostgreSQL bağlayıcı](data-factory-onprem-postgresql-connector.md#copy-activity-properties) makalesi.
 
 ## <a name="sap-business-warehouse"></a>SAP Business Warehouse
 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin SAP Business Warehouse (BW) tanımlamak için Ayarla **türü** bağlantılı hizmetinin **SapBw**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü :  
+SAP Business Warehouse (BW) tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin **SapBw**, aşağıdaki özellikleri belirtin **typeProperties** bölümü :  
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP BW örneği bulunduğu sunucunun adıdır. | dize | Evet
-systemNumber | SAP BW sisteminin sistem numarası. | Bir dize olarak gösterilen iki basamaklı ondalık sayı. | Evet
-istemci kimliği | SAP W sistem istemcisinde istemci kimliği. | Bir dize olarak gösterilen üç basamaklı ondalık sayı. | Evet
+sunucu | SAP BW örneği yer aldığı sunucunun adı. | dize | Evet
+systemNumber | SAP BW sisteminin sistem numarası. | İki basamaklı ondalık sayı bir dize olarak temsil edilir. | Evet
+ClientID | SAP W sisteminde istemcinin istemci kimliği. | Bir dize olarak temsil edilen üç basamaklı ondalık sayı. | Evet
 kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | dize | Evet
 password | Kullanıcının parolası. | dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP BW örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | dize | Hayır
+gatewayName | Data Factory hizmetinin şirket içi SAP BW örneğine bağlanmak için kullanması gereken ağ geçidi adı. | dize | Evet
+encryptedCredential | Şifrelenmiş kimlik bilgisi dizesi. | dize | Hayır
 
 #### <a name="example"></a>Örnek
 
@@ -2258,10 +2258,10 @@ encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | dize | Hayır
 }
 ```
 
-Daha fazla bilgi için bkz: [SAP Business Warehouse Bağlayıcısı](data-factory-sap-business-warehouse-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [SAP Business Warehouse Bağlayıcısı](data-factory-sap-business-warehouse-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-SAP BW veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**. SAP BW veri kümesi türü için desteklenen türüne özgü özellikler yok **RelationalTable**.  
+SAP BW veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**. SAP BW veri kümesi türü için desteklenen türe özgü özellikler yoktur **RelationalTable**.  
 
 #### <a name="example"></a>Örnek
 
@@ -2280,10 +2280,10 @@ SAP BW veri kümesini tanımlamak için **türü** için veri kümesinin **Relat
     }
 }
 ```
-Daha fazla bilgi için bkz: [SAP Business Warehouse Bağlayıcısı](data-factory-sap-business-warehouse-connector.md#dataset-properties) makalesi. 
+Daha fazla bilgi için [SAP Business Warehouse Bağlayıcısı](data-factory-sap-business-warehouse-connector.md#dataset-properties) makalesi. 
 
-### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-SAP Business Warehouse veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** Bölüm:
+### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliğindeki ilişkisel bir kaynak
+SAP Business Warehouse veri kopyalıyorsanız ayarlayın **kaynak türünü** , kopyalama etkinliğine **RelationalSource**, aşağıdaki özellikleri belirtin **kaynak** Bölüm:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
@@ -2332,21 +2332,21 @@ SAP Business Warehouse veri kopyalıyorsanız ayarlamak **kaynak türünü** kop
 }
 ```
 
-Daha fazla bilgi için bkz: [SAP Business Warehouse Bağlayıcısı](data-factory-sap-business-warehouse-connector.md#copy-activity-properties) makalesi. 
+Daha fazla bilgi için [SAP Business Warehouse Bağlayıcısı](data-factory-sap-business-warehouse-connector.md#copy-activity-properties) makalesi. 
 
 ## <a name="sap-hana"></a>SAP HANA
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin SAP HANA tanımlamak için Ayarla **türü** bağlantılı hizmetinin **SapHana**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+SAP HANA tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin **SapHana**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP HANA örneği bulunduğu sunucunun adıdır. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa belirtin `server:port`. | dize | Evet
-authenticationType | Kimlik doğrulama türü. | Dize. "Temel" veya "Windows" | Evet 
+sunucu | SAP HANA örneği yer aldığı sunucunun adı. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa, belirtin `server:port`. | dize | Evet
+authenticationType | Kimlik doğrulaması türü. | dize. "Temel" veya "Windows" | Evet 
 kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | dize | Evet
 password | Kullanıcının parolası. | dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP HANA örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | dize | Hayır
+gatewayName | Data Factory hizmetinin şirket içi SAP HANA örneğine bağlanmak için kullanması gereken ağ geçidi adı. | dize | Evet
+encryptedCredential | Şifrelenmiş kimlik bilgisi dizesi. | dize | Hayır
 
 #### <a name="example"></a>Örnek
 
@@ -2366,10 +2366,10 @@ encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | dize | Hayır
 }
 
 ```
-Daha fazla bilgi için bkz: [SAP HANA bağlayıcı](data-factory-sap-hana-connector.md#linked-service-properties) makalesi.
+Daha fazla bilgi için [SAP HANA Bağlayıcısı](data-factory-sap-hana-connector.md#linked-service-properties) makalesi.
  
 ### <a name="dataset"></a>Veri kümesi
-SAP HANA veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**. SAP HANA veri kümesi türü için desteklenen türüne özgü özellikler yok **RelationalTable**. 
+SAP HANA veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**. SAP HANA veri kümesi türü için desteklenen türe özgü özellikler yoktur **RelationalTable**. 
 
 #### <a name="example"></a>Örnek
 
@@ -2388,14 +2388,14 @@ SAP HANA veri kümesini tanımlamak için **türü** için veri kümesinin **Rel
     }
 }
 ```
-Daha fazla bilgi için bkz: [SAP HANA bağlayıcı](data-factory-sap-hana-connector.md#dataset-properties) makalesi. 
+Daha fazla bilgi için [SAP HANA Bağlayıcısı](data-factory-sap-hana-connector.md#dataset-properties) makalesi. 
 
-### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-SAP HANA veri deposundan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** Bölüm:
+### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliğindeki ilişkisel bir kaynak
+SAP HANA veri deposundan veri kopyalamayı verilirse **kaynak türünü** , kopyalama etkinliğine **RelationalSource**, aşağıdaki özellikleri belirtin **kaynak** Bölüm:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu | SAP HANA örneğinden verileri okumak için SQL sorgusu belirtir. | SQL sorgusu. | Evet |
+| sorgu | SAP HANA örneği verileri okumak için SQL sorgusu belirtir. | SQL sorgusu. | Evet |
 
 
 #### <a name="example"></a>Örnek
@@ -2441,22 +2441,22 @@ SAP HANA veri deposundan veri kopyalıyorsanız ayarlamak **kaynak türünü** k
 }
 ```
 
-Daha fazla bilgi için bkz: [SAP HANA bağlayıcı](data-factory-sap-hana-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [SAP HANA Bağlayıcısı](data-factory-sap-hana-connector.md#copy-activity-properties) makalesi.
 
 
 ## <a name="sql-server"></a>SQL Server
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlı hizmet türü oluşturma **OnPremisesSqlServer** bir şirket içi SQL Server veritabanını data factory'ye bağlamak için. Aşağıdaki tabloda şirket içi SQL Server bağlantılı hizmete özgü JSON öğeleri açıklamasını sağlar.
+Bağlı hizmet türü oluşturma **OnPremisesSqlServer** bir şirket içi SQL Server veritabanına bir veri fabrikasına bağlamak için. Aşağıdaki tabloda, şirket içi SQL Server bağlı hizmeti için özel JSON öğeleri için bir açıklama sağlar.
 
-Aşağıdaki tabloda, SQL Server bağlantılı hizmete özgü JSON öğeleri açıklamasını sağlar.
+Aşağıdaki tabloda, SQL Server bağlı hizmeti için özel JSON öğeleri için bir açıklama sağlar.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **OnPremisesSqlServer**. |Evet |
-| connectionString |SQL kimlik doğrulaması veya Windows kimlik doğrulaması kullanarak şirket içi SQL Server veritabanına bağlanmak için gereken connectionString bilgilerini belirtin. |Evet |
-| gatewayName |Data Factory hizmetinin şirket içi SQL Server veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
-| kullanıcı adı |Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. Örnek: **domainname\\kullanıcıadı**. |Hayır |
+| bağlantı dizesi |SQL kimlik doğrulaması veya Windows kimlik doğrulaması kullanarak şirket içi SQL Server veritabanına bağlanmak üzere gereken bağlantı dizesi bilgilerini belirtin. |Evet |
+| gatewayName |Data Factory hizmetinin şirket içi SQL Server veritabanına bağlanmak için kullanması gereken ağ geçidi adı. |Evet |
+| kullanıcı adı |Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. Örnek: **domainname\\username**. |Hayır |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
 
 Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzureRmDataFactoryEncryptValue** cmdlet'i ve bunları aşağıdaki örnekte gösterildiği gibi bağlantı dizesini kullanın (**EncryptedCredential** özellik):  
@@ -2466,7 +2466,7 @@ Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzureRmDataFactoryEncr
 ```
 
 
-#### <a name="example-json-for-using-sql-authentication"></a>Örnek: SQL kimlik doğrulaması kullanmak için JSON
+#### <a name="example-json-for-using-sql-authentication"></a>Örnek: JSON'ın SQL kimlik doğrulaması kullanma
 
 ```json
 {
@@ -2482,7 +2482,7 @@ Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzureRmDataFactoryEncr
 ```
 #### <a name="example-json-for-using-windows-authentication"></a>Örnek: JSON'ı Windows kimlik doğrulaması kullanma
 
-Kullanıcı adı ve parolası belirtilmişse, ağ geçidi bunları şirket içi SQL Server veritabanına bağlanmak için belirtilen kullanıcı hesabının kimliğine bürün kullanır. Aksi takdirde, ağ geçidi SQL Server Ağ Geçidi (kendi başlangıç hesabı) güvenlik bağlamı ile doğrudan bağlanır.
+Kullanıcı adı ve parolası belirtilmişse, ağ geçidi bunları şirket içi SQL Server veritabanına bağlanmak için belirtilen kullanıcı hesabının kimliğine bürün için kullanır. Aksi takdirde, ağ geçidi SQL Server Ağ Geçidi (kendi başlangıç hesabı) güvenlik bağlamı ile doğrudan bağlanır.
 
 ```json
 {
@@ -2499,14 +2499,14 @@ Kullanıcı adı ve parolası belirtilmişse, ağ geçidi bunları şirket içi 
 }
 ```
 
-Daha fazla bilgi için bkz: [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir SQL Server veri kümesini tanımlamak için **türü** için veri kümesinin **SqlServerTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir SQL Server veri kümesini tanımlamak için **türü** için veri kümesinin **SqlServerTable**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Tablo veya Görünüm hizmeti bağlı SQL Server veritabanı örneğinde başvurduğu adı. |Evet |
+| tableName |Tablo veya Görünüm bağlı hizmeti SQL Server veritabanı örneğindeki adını gösterir. |Evet |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -2534,26 +2534,26 @@ Bir SQL Server veri kümesini tanımlamak için **türü** için veri kümesinin
 }
 ```
 
-Daha fazla bilgi için bkz: [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#dataset-properties) makalesi. 
+Daha fazla bilgi için [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#dataset-properties) makalesi. 
 
-### <a name="sql-source-in-copy-activity"></a>Kopyalama etkinliğinde SQL kaynağı
-Bir SQL Server veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **SqlSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="sql-source-in-copy-activity"></a>Kopyalama etkinliğindeki SQL kaynağı
+Bir SQL Server veritabanından veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **SqlSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. Birden çok tablo girdi veri kümesi tarafından başvurulan veritabanından başvurabilir. Belirtilmezse, yürütülen SQL deyimi: MyTable arasından seçin. |Hayır |
-| sqlReaderStoredProcedureName |Kaynak tablodan veri okuyan saklı yordamın adı. |Saklı yordam adı. |Hayır |
-| storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
+| sqlReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. Birden çok tablo giriş veri kümesi tarafından başvurulan veritabanından başvurabilir. Belirtilmezse, yürütülen SQL deyimi: MyTable arasından seçin. |Hayır |
+| sqlReaderStoredProcedureName |Kaynak tablo verilerini okuyan saklı yordamın adı. |Saklı yordamın adı. |Hayır |
+| storedProcedureParameters |Saklı yordamın parametreleri. |Ad/değer çiftleri. Adları ve parametreleri büyük küçük harfleri, adları ve saklı yordam parametreleri büyük küçük harfleri eşleşmelidir. |Hayır |
 
-Varsa **sqlReaderQuery** belirtilen SqlSource için kopyalama etkinliği veri almak için SQL Server veritabanı kaynağında bu sorguyu çalıştırır.
+Varsa **sqlReaderQuery** belirtilen SqlSource için kopyalama etkinliği, verileri almak için SQL Server veritabanı kaynak karşı bu sorgu çalıştırır.
 
-Alternatif olarak, bir saklı yordam belirterek belirleyebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (saklı yordam parametreleri alıyorsa).
+Alternatif olarak, bir saklı yordam belirterek belirtebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (saklı yordamın parametreleri sürerse).
 
-SqlReaderQuery veya sqlReaderStoredProcedureName belirtmezseniz yapısı bölümünde tanımlanan sütunları SQL Server veritabanına karşı çalıştırmak için seçme sorgusu oluşturmak için kullanılır. Veri kümesi tanımı yapısına sahip değilse, tüm sütunları tablodan seçilir.
+SqlReaderQuery ya da sqlReaderStoredProcedureName belirtmezseniz yapı bölümünde tanımlanan sütunları SQL Server veritabanında çalıştırmak için bir select sorgusu oluşturmak için kullanılır. Veri kümesi tanımı yapısına sahip değilse, tüm sütunları tablodan seçilir.
 
 > [!NOTE]
-> Kullandığınızda **sqlReaderStoredProcedureName**, yine de için bir değer belirtmeniz gerekiyorsa **tableName** JSON veri kümesi bir özellik. Yine de bu tabloya karşı gerçekleştirilen başka doğrulama vardır.
+> Kullanırken **sqlReaderStoredProcedureName**, yine de için bir değer belirtmeniz gerekiyorsa **tableName** veri kümesi JSON özelliğinde. Ancak bu tabloya karşı gerçekleştirilen başka bir doğrulama vardır.
 
 
 #### <a name="example"></a>Örnek
@@ -2598,27 +2598,27 @@ SqlReaderQuery veya sqlReaderStoredProcedureName belirtmezseniz yapısı bölüm
 }
 ```
 
-Bu örnekte, **sqlReaderQuery** SqlSource için belirtilir. Kopyalama etkinliği bu sorguyu veri almak için SQL Server veritabanı kaynağına karşı çalışır. Alternatif olarak, bir saklı yordam belirterek belirleyebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (saklı yordam parametreleri alıyorsa). SqlReaderQuery girdi veri kümesi tarafından başvurulan veritabanına birden çok tablolarına başvuruda bulunabilir. Yalnızca veri kümesi'nin tableName typeProperty ayarlamak tabloya sınırlı değildir.
+Bu örnekte, **sqlReaderQuery** SqlSource için belirtilir. Kopyalama etkinliği, verileri almak için SQL Server veritabanı kaynak karşı bu sorguyu çalıştırır. Alternatif olarak, bir saklı yordam belirterek belirtebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (saklı yordamın parametreleri sürerse). Giriş veri kümesi tarafından başvurulan veritabanına birden fazla tablo sqlReaderQuery başvurabilirsiniz. Yalnızca veri kümesinin tableName typeProperty ayarlayın tabloya sınırlı değildir.
 
-SqlReaderQuery veya sqlReaderStoredProcedureName belirtmezseniz yapısı bölümünde tanımlanan sütunları SQL Server veritabanına karşı çalıştırmak için seçme sorgusu oluşturmak için kullanılır. Veri kümesi tanımı yapısına sahip değilse, tüm sütunları tablodan seçilir.
+SqlReaderQuery veya sqlReaderStoredProcedureName belirtmezseniz yapı bölümünde tanımlanan sütunları SQL Server veritabanında çalıştırmak için bir select sorgusu oluşturmak için kullanılır. Veri kümesi tanımı yapısına sahip değilse, tüm sütunları tablodan seçilir.
 
-Daha fazla bilgi için bkz: [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#copy-activity-properties) makalesi. 
+Daha fazla bilgi için [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#copy-activity-properties) makalesi. 
 
-### <a name="sql-sink-in-copy-activity"></a>Kopyalama etkinliği SQL havuzunda
-Bir SQL Server veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz türü** kopyalama etkinliği **SqlSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+### <a name="sql-sink-in-copy-activity"></a>Kopyalama etkinliğindeki SQL havuz
+Bir SQL Server veritabanına veri kopyalama verilirse **Havuz türü** , kopyalama etkinliğine **SqlSink**, aşağıdaki özellikleri belirtin **havuz** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
+| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. |zaman aralığı<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
-| sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği sorgusunu belirtin. Daha fazla bilgi için bkz: [Yinelenebilirlik](#repeatability-during-copy) bölümü. |Sorgu bildirimi. |Hayır |
-| sliceIdentifierColumnName |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak için sütun adı belirtin. Daha fazla bilgi için bkz: [Yinelenebilirlik](#repeatability-during-copy) bölümü. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
-| sqlWriterStoredProcedureName |Saklı yordam adı hedef tabloda bu upserts (güncelleştirmeler/ekler) verileri. |Saklı yordam adı. |Hayır |
-| storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
-| sqlWriterTableType |Saklı yordam, kullanılacak tablo türü adı belirtin. Kopyalama etkinliği taşınan veri geçici bir tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu ardından var olan verilerle kopyalanan verileri birleştirebilirsiniz. |Bir tablo türü adı. |Hayır |
+| sqlWriterCleanupScript |Belirli bir dilimin veri Temizlenen şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. Daha fazla bilgi için [yinelenebilirliği](#repeatability-during-copy) bölümü. |Bir sorgu deyimi. |Hayır |
+| sliceIdentifierColumnName |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilimin verileri temizlemek için kullanılan otomatik dilim tanımlayıcısı ile doldurmak için sütun adı belirtin. Daha fazla bilgi için [yinelenebilirliği](#repeatability-during-copy) bölümü. |Bir sütunun veri türüyle binary(32) sütun adı. |Hayır |
+| sqlWriterStoredProcedureName |Saklı yordamın adını bu upsert eder (güncelleştirmeleri/eklemeleri) verileri hedef tabloya. |Saklı yordamın adı. |Hayır |
+| storedProcedureParameters |Saklı yordamın parametreleri. |Ad/değer çiftleri. Adları ve parametreleri büyük küçük harfleri, adları ve saklı yordam parametreleri büyük küçük harfleri eşleşmelidir. |Hayır |
+| sqlWriterTableType |Saklı yordamda kullanılan tablo türü adı belirtin. Kopyalama etkinliği, taşınan veri bir geçici tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu daha sonra mevcut verilerle kopyalanan verileri birleştirebilirsiniz. |Bir tablo türü adı. |Hayır |
 
 #### <a name="example"></a>Örnek
-Ardışık Düzen bu girdi ve çıktı veri kümeleri kullanmak üzere yapılandırıldığı ve saatte çalışacak şekilde zamanlanır kopyalama etkinliği içerir. JSON tanımını düzenindeki **kaynak** türü ayarlanmış **BlobSource** ve **havuz** türü ayarlanmış **SqlSink**.
+İşlem hattı, bu girdi ve çıktı veri kümelerini kullanmak için yapılandırıldığı ve saatte bir çalışacak şekilde zamanlanmış bir kopyalama etkinliği içeriyor. JSON tanımı, işlem hattındaki **kaynak** türü ayarlandığında **BlobSource** ve **havuz** türü ayarlandığında **SqlSink**.
 
 ```json
 {
@@ -2661,22 +2661,22 @@ Ardışık Düzen bu girdi ve çıktı veri kümeleri kullanmak üzere yapıland
 }
 ```
 
-Daha fazla bilgi için bkz: [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#copy-activity-properties) makalesi. 
+Daha fazla bilgi için [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#copy-activity-properties) makalesi. 
 
 ## <a name="sybase"></a>Sybase
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bir Sybase tanımlamak için hizmeti bağlı, Ayarla **türü** bağlantılı hizmetinin **OnPremisesSybase**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bir Sybase tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin **OnPremisesSybase**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| sunucu |Sybase sunucunun adıdır. |Evet |
-| veritabanı |Sybase veritabanının adı. |Evet |
-| Şema |Veritabanı şemasında adı. |Hayır |
-| authenticationType |Sybase veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
+| sunucu |Sybase sunucusunun adı. |Evet |
+| veritabanı |Sybase veritabanı adı. |Evet |
+| Şema |Veritabanı şemasının adı. |Hayır |
+| authenticationType |Sybase veritabanına bağlanmak için kullanılan kimlik doğrulaması türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
 | kullanıcı adı |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
-| gatewayName |Data Factory hizmetinin şirket içi Sybase veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| gatewayName |Data Factory hizmetinin şirket içi Sybase veritabanına bağlanmak için kullanması gereken ağ geçidi adı. |Evet |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -2697,14 +2697,14 @@ Bir Sybase tanımlamak için hizmeti bağlı, Ayarla **türü** bağlantılı hi
 }
 ```
 
-Daha fazla bilgi için bkz: [Sybase bağlayıcı](data-factory-onprem-sybase-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [Sybase bağlayıcı](data-factory-onprem-sybase-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Sybase veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir Sybase veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Sybase veritabanı örneğinde bağlantılı hizmet başvurduğu tablonun adı. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
+| tableName |Bağlı hizmeti Sybase veritabanı örneğinde tablonun adını gösterir. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -2731,15 +2731,15 @@ Bir Sybase veri kümesini tanımlamak için **türü** için veri kümesinin **R
 }
 ```
 
-Daha fazla bilgi için bkz: [Sybase bağlayıcı](data-factory-onprem-sybase-connector.md#dataset-properties) makalesi. 
+Daha fazla bilgi için [Sybase bağlayıcı](data-factory-onprem-sybase-connector.md#dataset-properties) makalesi. 
 
-### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-Bir Sybase veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü :
+### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliğindeki ilişkisel bir kaynak
+Bir Sybase veritabanından veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **RelationalSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü :
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -2781,20 +2781,20 @@ Bir Sybase veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü**
 }
 ```
 
-Daha fazla bilgi için bkz: [Sybase bağlayıcı](data-factory-onprem-sybase-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [Sybase bağlayıcı](data-factory-onprem-sybase-connector.md#copy-activity-properties) makalesi.
 
 ## <a name="teradata"></a>Teradata
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bir Teradata tanımlamak için hizmeti bağlı, Ayarla **türü** bağlantılı hizmetinin **OnPremisesTeradata**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bir Teradata tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin **OnPremisesTeradata**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| sunucu |Teradata sunucunun adıdır. |Evet |
-| authenticationType |Teradata veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
+| sunucu |Teradata sunucusunun adı. |Evet |
+| authenticationType |Teradata veritabanına bağlanmak için kullanılan kimlik doğrulaması türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
 | kullanıcı adı |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
-| gatewayName |Data Factory hizmetinin şirket içi Teradata veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| gatewayName |Data Factory hizmetinin şirket içi Teradata veritabanına bağlanmak için kullanması gereken ağ geçidi adı. |Evet |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -2813,10 +2813,10 @@ Bir Teradata tanımlamak için hizmeti bağlı, Ayarla **türü** bağlantılı 
 }
 ```
 
-Daha fazla bilgi için bkz: [Teradata bağlayıcı](data-factory-onprem-teradata-connector.md#linked-service-properties) makalesi.
+Daha fazla bilgi için [Teradata bağlayıcı](data-factory-onprem-teradata-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Teradata Blob veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**. Şu anda Teradata veri kümesi için desteklenen tür özellik yok. 
+Bir Teradata Blob veri kümesi tanımlamak için **türü** için veri kümesinin **RelationalTable**. Şu anda Teradata veri kümesi için desteklenen hiçbir tür özellikleri vardır. 
 
 #### <a name="example"></a>Örnek
 ```json
@@ -2842,10 +2842,10 @@ Bir Teradata Blob veri kümesini tanımlamak için **türü** için veri kümesi
 }
 ```
 
-Daha fazla bilgi için bkz: [Teradata bağlayıcı](data-factory-onprem-teradata-connector.md#dataset-properties) makalesi.
+Daha fazla bilgi için [Teradata bağlayıcı](data-factory-onprem-teradata-connector.md#dataset-properties) makalesi.
 
-### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-Bir Teradata veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** Bölüm:
+### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliğindeki ilişkisel bir kaynak
+Bir Teradata veritabanından veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **RelationalSource**, aşağıdaki özellikleri belirtin **kaynak** Bölüm:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
@@ -2894,19 +2894,19 @@ Bir Teradata veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü
 }
 ```
 
-Daha fazla bilgi için bkz: [Teradata bağlayıcı](data-factory-onprem-teradata-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [Teradata bağlayıcı](data-factory-onprem-teradata-connector.md#copy-activity-properties) makalesi.
 
 ## <a name="cassandra"></a>Cassandra
 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bir bağlı Cassandra hizmet tanımlamak için **türü** bağlantılı hizmetinin **OnPremisesCassandra**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Cassandra bağlı hizmetini tanımlamak için **türü** bağlı hizmetinin **OnPremisesCassandra**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| konak |Bir veya daha fazla IP adresleri veya ana bilgisayar adlarını Cassandra sunucuları.<br/><br/>IP adreslerini veya aynı anda tüm sunucularına bağlanmak için ana bilgisayar adlarını virgülle ayrılmış listesini belirtin. |Evet |
-| port |İstemci bağlantılarını dinlemek için Cassandra sunucusunun kullandığı TCP bağlantı noktası. |Hayır, varsayılan değer: 9042 |
-| authenticationType |Basic veya Anonymous |Evet |
+| konak |Bir veya daha fazla IP adresleri veya Cassandra sunucusunun ana bilgisayar adını.<br/><br/>IP adreslerini veya aynı anda tüm sunuculara bağlanmak için ana bilgisayar adlarını virgülle ayrılmış listesini belirtin. |Evet |
+| port |Cassandra sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. |Hayır, varsayılan değer: 9042 |
+| authenticationType |Temel veya anonim |Evet |
 | kullanıcı adı |Kullanıcı hesabının kullanıcı adını belirtin. |Evet, authenticationType temel olarak ayarlanmışsa. |
 | password |Kullanıcı hesabı için parola belirtin. |Evet, authenticationType temel olarak ayarlanmışsa. |
 | gatewayName |Şirket içi Cassandra veritabanına bağlanmak için kullanılan ağ geçidi adı. |Evet |
@@ -2931,15 +2931,15 @@ Bir bağlı Cassandra hizmet tanımlamak için **türü** bağlantılı hizmetin
 }
 ```
 
-Daha fazla bilgi için bkz: [Cassandra bağlayıcı](data-factory-onprem-cassandra-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [Cassandra bağlayıcı](data-factory-onprem-cassandra-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Cassandra veri kümesini tanımlamak için **türü** için veri kümesinin **CassandraTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Cassandra veri kümesini tanımlamak için **türü** için veri kümesinin **CassandraTable**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| keyspace |Keyspace veya Cassandra veritabanındaki şema adı. |Evet (varsa **sorgu** için **CassandraSource** tanımlı değil). |
-| tableName |Cassandra veritabanı tablosunun adı. |Evet (varsa **sorgu** için **CassandraSource** tanımlı değil). |
+| anahtar alanı |Anahtar alanı veya Cassandra veritabanındaki şema adı. |Evet (varsa **sorgu** için **CassandraSource** tanımlı değil). |
+| tableName |Cassandra veritabanındaki tablonun adı. |Evet (varsa **sorgu** için **CassandraSource** tanımlı değil). |
 
 #### <a name="example"></a>Örnek
 
@@ -2969,15 +2969,15 @@ Cassandra veri kümesini tanımlamak için **türü** için veri kümesinin **Ca
 }
 ```
 
-Daha fazla bilgi için bkz: [Cassandra bağlayıcı](data-factory-onprem-cassandra-connector.md#dataset-properties) makalesi. 
+Daha fazla bilgi için [Cassandra bağlayıcı](data-factory-onprem-cassandra-connector.md#dataset-properties) makalesi. 
 
-### <a name="cassandra-source-in-copy-activity"></a>Kopyalama etkinliği Cassandra kaynağında
-Cassandra veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **CassandraSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="cassandra-source-in-copy-activity"></a>Kopyalama etkinliği Cassandra kaynakta
+Cassandra veri kopyalıyorsanız ayarlayın **kaynak türü** için kopyalama etkinliği, **CassandraSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL-92 sorgusu veya CQL sorgusu. Bkz: [CQL başvuru](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>SQL sorgusu kullanırken belirtin **keyspace name.table adı** sorgulamak istediğiniz tabloyu temsil etmek için. |Hayır (tableName ve veri kümesi üzerinde keyspace tanımlanmışsa). |
-| consistencyLevel |Tutarlılık düzeyi kaç çoğaltmaları Okuma isteği için veri istemci uygulamasına geri dönmeden önce yanıt vermesi gereken belirtir. Cassandra Okuma isteği karşılamak veriler için çoğaltmaları belirtilen sayısını denetler. |BİR, İKİ, ÜÇ, ÇEKİRDEK, TÜMÜ, LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Bkz: [veri tutarlılığını yapılandırma](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) Ayrıntılar için. |Hayır. Varsayılan değer biridir. |
+| sorgu |Verileri okumak için özel sorgu kullanın. |92 SQL sorgusu veya CQL sorgusu. Bkz: [CQL başvuru](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>SQL sorgu kullanarak belirtmeniz **anahtar alanı name.table adı** sorgulamak istediğiniz tablosunu temsil edecek. |Hayır (tableName ve veri kümesi üzerinde anahtar alanı tanımlanmışsa). |
+| consistencyLevel |Tutarlılık düzeyi, istemci uygulamasına veri döndürmeden önce kaç çoğaltmalar için Okuma isteği yanıtlamalıdır belirtir. Cassandra Okuma isteği karşılamak veriler için çoğaltmaları belirtilen sayısını denetler. |BİR, İKİ, ÜÇ SANAL ÇEKİRDEK, TÜMÜ LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Bkz: [veri tutarlılığını yapılandırma](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) Ayrıntılar için. |Hayır. Varsayılan değer biridir. |
 
 #### <a name="example"></a>Örnek
   
@@ -3022,23 +3022,23 @@ Cassandra veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinl
 }
 ```
 
-Daha fazla bilgi için bkz: [Cassandra bağlayıcı](data-factory-onprem-cassandra-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [Cassandra bağlayıcı](data-factory-onprem-cassandra-connector.md#copy-activity-properties) makalesi.
 
 ## <a name="mongodb"></a>MongoDB
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir MongoDB tanımlamak için Ayarla **türü** bağlantılı hizmetinin **OnPremisesMongoDB**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bağlı hizmeti bir MongoDB tanımlamak için Ayarla **türü** bağlı hizmetinin **OnPremisesMongoDB**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| sunucu |IP adresi veya ana bilgisayar MongoDB sunucunun adıdır. |Evet |
-| port |İstemci bağlantılarını dinlemek için MongoDB sunucusunun kullandığı TCP bağlantı noktası. |İsteğe bağlı, varsayılan değer: 27017 |
-| authenticationType |Basic veya Anonymous. |Evet |
-| kullanıcı adı |MongoDB erişmek için kullanıcı hesabı. |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
+| sunucu |IP adresi veya ana bilgisayar adı MongoDB sunucusunun. |Evet |
+| port |MongoDB sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. |İsteğe bağlı, varsayılan değer: 27017 |
+| authenticationType |Temel veya anonim. |Evet |
+| kullanıcı adı |MongoDB erişmek için kullanıcı hesabı'nı tıklatın. |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
 | password |Kullanıcının parolası. |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
-| authSource |Kimlik doğrulaması için kimlik bilgilerinizi denetlemek için kullanmak istediğiniz MongoDB veritabanı adı. |(Temel kimlik doğrulaması kullanılıyorsa) isteğe bağlı. Varsayılan: yönetici hesabı ve databaseName özelliği kullanılarak belirtilen veritabanı kullanır. |
-| databaseName |Erişmek istediğiniz MongoDB veritabanı adı. |Evet |
-| gatewayName |Veri deposu erişen ağ geçidi adı. |Evet |
+| authSource |Kimlik doğrulaması için kimlik bilgilerinizi denetlemek için kullanmak istediğiniz MongoDB veritabanının adı. |(Temel kimlik doğrulaması kullanılıyorsa) isteğe bağlı. Varsayılan: yönetici hesabı ve databaseName özelliği kullanılarak belirtilen veritabanı kullanır. |
+| DatabaseName |Erişmek istediğiniz MongoDB veritabanının adı. |Evet |
+| gatewayName |Veri deposu erişen bir ağ geçidi adı. |Evet |
 | encryptedCredential |Ağ Geçidi tarafından şifrelenmiş kimlik bilgileri. |İsteğe bağlı |
 
 #### <a name="example"></a>Örnek
@@ -3062,14 +3062,14 @@ Bağlantılı hizmetinin bir MongoDB tanımlamak için Ayarla **türü** bağlan
 }
 ```
 
-Daha fazla bilgi için bkz: [MongoDB bağlayıcı makale](data-factory-on-premises-mongodb-connector.md#linked-service-properties)
+Daha fazla bilgi için [MongoDB Bağlayıcısı makalesi](data-factory-on-premises-mongodb-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Veri kümesi
-MongoDB veri kümesini tanımlamak için **türü** için veri kümesinin **MongoDbCollection**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+MongoDB veri kümesini tanımlamak için **türü** için veri kümesinin **MongoDbCollection**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| collectionName |MongoDB veritabanı koleksiyonunda adı. |Evet |
+| CollectionName |MongoDB veritabanındaki koleksiyonun adı. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -3091,14 +3091,14 @@ MongoDB veri kümesini tanımlamak için **türü** için veri kümesinin **Mong
 }
 ```
 
-Daha fazla bilgi için bkz: [MongoDB bağlayıcı makale](data-factory-on-premises-mongodb-connector.md#dataset-properties)
+Daha fazla bilgi için [MongoDB Bağlayıcısı makalesi](data-factory-on-premises-mongodb-connector.md#dataset-properties)
 
-#### <a name="mongodb-source-in-copy-activity"></a>Kopyalama etkinliği MongoDB kaynağında
-Veri adresinden kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **MongoDbSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+#### <a name="mongodb-source-in-copy-activity"></a>Kopya etkinlikteki kaynak MongoDB
+Mongodb'deki verileri kopyalama verilirse **kaynak türü** , kopyalama etkinliğine **MongoDbSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL-92 sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **collectionName** , **dataset** belirtilir) |
+| sorgu |Verileri okumak için özel sorgu kullanın. |SQL 92 sorgu dizesi. Örneğin: `select * from MyTable`. |Hayır (varsa **collectionName** , **veri kümesi** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -3142,18 +3142,18 @@ Veri adresinden kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkin
 }
 ```
 
-Daha fazla bilgi için bkz: [MongoDB bağlayıcı makale](data-factory-on-premises-mongodb-connector.md#copy-activity-properties)
+Daha fazla bilgi için [MongoDB Bağlayıcısı makalesi](data-factory-on-premises-mongodb-connector.md#copy-activity-properties)
 
 ## <a name="amazon-s3"></a>Amazon S3
 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir Amazon S3 tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AwsAccessKey**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Amazon S3 tanımlamak için bağlı hizmeti, ayarlayın **türü** bağlı hizmetinin **AwsAccessKey**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | accessKeyID |Gizli erişim anahtarı kimliği. |dize |Evet |
-| secretAccessKey |Gizli erişim anahtar kendisi. |Şifrelenmiş gizli dize |Evet |
+| secretAccessKey |Gizli erişim anahtarı kendisi. |Şifrelenmiş gizli dize |Evet |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -3169,25 +3169,25 @@ Bağlantılı hizmetinin bir Amazon S3 tanımlamak için Ayarla **türü** bağl
 }
 ```
 
-Daha fazla bilgi için bkz: [Amazon S3 bağlayıcı makale](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties).
+Daha fazla bilgi için [Amazon S3 Bağlayıcısı makalesi](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Amazon S3 dataset tanımlamak için **türü** için veri kümesinin **AmazonS3**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir Amazon S3 veri kümesi tanımlamak için **türü** için veri kümesinin **AmazonS3**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | bucketName |S3 demetini adı. |Dize |Evet |
-| anahtar |S3 nesne anahtarı. |Dize |Hayır |
-| önek |S3 nesne anahtarı için önek. Seçilen nesneler, anahtarları Bu önek ile başlatın. Yalnızca anahtar boş olduğunda geçerlidir. |Dize |Hayır |
-| sürüm |S3 sürüm etkinleştirilirse S3 nesne sürümü. |Dize |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır | |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır | |
+| anahtar |S3 nesnesinin anahtarı. |Dize |Hayır |
+| Ön eki |S3 nesnesinin anahtarı için önek. Seçili bir nesne anahtarları bu öneki ile başlayın. Yalnızca anahtar boş olduğunda geçerlidir. |Dize |Hayır |
+| sürüm |S3 sürümü oluşturma etkinse, S3 nesnesinin sürümü. |Dize |Hayır |
+| Biçim | Şu biçim türlerini desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquetbiçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın. |Hayır | |
+| sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır | |
 
 
 > [!NOTE]
-> bucketName + anahtarı burada demet S3 nesneleri için kök kapsayıcı ve anahtar S3 nesnenin tam yolunun S3 nesnenin konumunu belirtir.
+> bucketName + anahtarı burada S3 nesneleri için kök kapsayıcı demet oluşturuyorum ve anahtar S3 nesnesinin tam yolunu S3 nesnesinin konumunu belirtir.
 
-#### <a name="example-sample-dataset-with-prefix"></a>Örnek: Örnek veri kümesi önekiyle
+#### <a name="example-sample-dataset-with-prefix"></a>Örnek: Örnek veri kümesi ön eki
 
 ```json
 {
@@ -3235,32 +3235,32 @@ Bir Amazon S3 dataset tanımlamak için **türü** için veri kümesinin **Amazo
 }
 ```
 
-#### <a name="example-dynamic-paths-for-s3"></a>Örnek: S3 dinamik yollar
-Örnekte, Amazon S3 dataset içindeki anahtar ve bucketName özellikler için sabit değerleri kullanın.
+#### <a name="example-dynamic-paths-for-s3"></a>Örnek: Dinamik yollar S3
+Bu örnekte anahtar ve bucketName özelliklerinde Amazon S3 veri kümesi için sabit değerlerini kullanın.
 
 ```json
 "key": "testFolder/test.orc",
 "bucketName": "<S3 bucket name>",
 ```
 
-Veri Fabrikası sistem değişkenleri SliceStart gibi kullanarak anahtar ve çalışma zamanında dinamik olarak bucketName hesaplama olabilir.
+Data Factory SliceStart gibi sistem değişkenlerini kullanarak kayıt anahtarını ve bucketName zamanında dinamik olarak hesaplamak olabilir.
 
 ```json
 "key": "$$Text.Format('{0:MM}/{0:dd}/test.orc', SliceStart)"
 "bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
 ```
 
-Bir Amazon S3 dataset önek özelliği için aynı yapabilirsiniz. Bkz: [Data Factory işlevler ve sistem değişkenleri](data-factory-functions-variables.md) desteklenen işlevleri ve değişkenler listesi.
+Bir Amazon S3 veri kümesi önek özelliği için aynısını yapabilir. Bkz: [Data Factory işlevleri ve sistem değişkenleri](data-factory-functions-variables.md) desteklenen işlevler ve değişkenler içeren bir liste için.
 
-Daha fazla bilgi için bkz: [Amazon S3 bağlayıcı makale](data-factory-amazon-simple-storage-service-connector.md#dataset-properties).
+Daha fazla bilgi için [Amazon S3 Bağlayıcısı makalesi](data-factory-amazon-simple-storage-service-connector.md#dataset-properties).
 
-### <a name="file-system-source-in-copy-activity"></a>Dosya sistem kaynağını kopyalama etkinliği
-Verileri Amazon S3'ten kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **FileSystemSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="file-system-source-in-copy-activity"></a>Kopyalama etkinliği dosya sistem kaynağı
+Amazon S3'ten veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **FileSystemSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| özyinelemeli |Özyinelemeli S3 listesinde olup olmadığını belirtir dizini altındaki nesneleri. |true/false |Hayır |
+| özyinelemeli |Yinelemeli olarak S3 listesinde olup olmadığını belirtir dizinin altındaki nesneleri. |true/false |Hayır |
 
 
 #### <a name="example"></a>Örnek
@@ -3306,28 +3306,28 @@ Verileri Amazon S3'ten kopyalıyorsanız ayarlamak **kaynak türünü** kopyalam
 }
 ```
 
-Daha fazla bilgi için bkz: [Amazon S3 bağlayıcı makale](data-factory-amazon-simple-storage-service-connector.md#copy-activity-properties).
+Daha fazla bilgi için [Amazon S3 Bağlayıcısı makalesi](data-factory-amazon-simple-storage-service-connector.md#copy-activity-properties).
 
 ## <a name="file-system"></a>Dosya Sistemi
 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bir Azure data factory ile bir şirket içi dosya sistemi bağlayabilirsiniz **şirket içi dosya sunucusu** bağlı hizmeti. Aşağıdaki tabloda şirket içi dosya sunucusu bağlantılı hizmete özgü JSON öğeleri için açıklamalar sağlanır.
+Bir Azure data factory ile bir şirket içi dosya sistemine bağlanabilirsiniz **şirket içi dosya sunucusu** bağlı hizmeti. Aşağıdaki tabloda, şirket içi dosya sunucusuna bağlı hizmete özgü JSON öğelerinin açıklamaları verilmiştir.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlandığından emin olun **OnPremisesFileServer**. |Evet |
-| konak |Kopyalamak istediğiniz klasörün kök yolunu belirtir. Kaçış karakteri kullanmak ' \ ' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için. |Evet |
-| Kullanıcı Kimliği |Sunucusuna erişimi olan kullanıcı Kimliğini belirtin. |Hayır (encryptedCredential seçerseniz) |
-| password |(UserID) kullanıcının parolasını belirtin. |Hayır (encryptedCredential seçerseniz |
-| encryptedCredential |Yeni AzureRmDataFactoryEncryptValue cmdlet'ini çalıştırarak alabilirsiniz şifreli kimlik bilgilerini belirtin. |Hayır (kullanıcı kimliği ve parola düz metin olarak belirtmek isterseniz) |
-| gatewayName |Veri Fabrikası şirket içi dosya sunucusuna bağlanmak için kullanması gereken ağ geçidi adını belirtir. |Evet |
+| konak |Kopyalamak istediğiniz klasörün kök yolunu belirtir. Çıkış karakterini kullanma ' \ ' dizesinde özel karakterler için. Bkz: [örnek bağlantılı hizmet ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekler. |Evet |
+| Kullanıcı Kimliği |Sunucu erişimi olan kullanıcının kimliği belirtin. |Hayır (encryptedCredential seçerseniz) |
+| password |(Kullanıcı kimliği) kullanıcının parolasını belirtin. |Hayır (encryptedCredential seçin |
+| encryptedCredential |New-AzureRmDataFactoryEncryptValue cmdlet çalıştırılarak elde edebilirsiniz şifrelenmiş kimlik bilgilerini belirtin. |Hayır (kullanıcı kimliği ve parola düz metin olarak belirtmek isterseniz varsa) |
+| gatewayName |Data Factory şirket içi dosya sunucusuna bağlanmak için kullanması gereken ağ geçidi adını belirtir. |Evet |
 
 #### <a name="sample-folder-path-definitions"></a>Örnek klasör yolu tanımları 
-| Senaryo | Bağlantılı hizmet tanımında ana bilgisayar | veri kümesi tanımında folderPath |
+| Senaryo | Bağlı hizmet tanımında barındırın | veri kümesi tanımında folderPath |
 | --- | --- | --- |
-| Veri Yönetimi ağ geçidi makine üzerinde yerel klasör: <br/><br/>Örnekler: D:\\ \* veya D:\folder\subfolder\\* |D:\\ \\ (için veri yönetimi ağ geçidi 2.0 ve sonraki sürümler) <br/><br/> localhost (daha önceki sürümler için veri yönetimi ağ geçidi 2. 0) |. \\ \\ veya klasör\\\\alt klasör (için veri yönetimi ağ geçidi 2.0 ve sonraki sürümler) <br/><br/>D:\\ \\ veya D:\\\\klasörü\\\\alt klasör (için ağ geçidi sürüm 2.0 altında) |
-| Uzak paylaşılan klasör: <br/><br/>Örnekler: \\ \\myserver\\paylaşmak\\ \* veya \\ \\myserver\\paylaşmak\\klasörü\\alt klasör\\* |\\\\\\\\myserver\\\\paylaşma |. \\ \\ veya klasör\\\\alt klasör |
+| Veri Yönetimi ağ geçidi makinesinde yerel klasör: <br/><br/>Örnek: D:\\ \* veya D:\folder\subfolder\\* |D:\\ \\ (için veri yönetimi ağ geçidi 2.0 ve sonraki sürümler) <br/><br/> localhost (daha önceki sürümler için veri yönetimi ağ geçidi 2.0) |. \\ \\ veya klasör\\\\alt klasör (için veri yönetimi ağ geçidi 2.0 ve sonraki sürümler) <br/><br/>D:\\ \\ veya D:\\\\klasör\\\\alt klasör (için ağ geçidi sürüm 2.0 altında) |
+| Paylaşılan uzak klasör: <br/><br/>Örnekler: \\ \\myserver\\paylaşmak\\ \* veya \\ \\myserver\\paylaşmak\\klasör\\alt\\* |\\\\\\\\myserver\\\\paylaşın |. \\ \\ veya klasör\\\\alt |
 
 
 #### <a name="example-using-username-and-password-in-plain-text"></a>Örnek: kullanıcı adı ve parola düz metin olarak kullanma
@@ -3363,19 +3363,19 @@ Bir Azure data factory ile bir şirket içi dosya sistemi bağlayabilirsiniz **�
 }
 ```
 
-Daha fazla bilgi için bkz: [dosya sistemi bağlayıcı makale](data-factory-onprem-file-system-connector.md#linked-service-properties).
+Daha fazla bilgi için [dosya sistemi Bağlayıcısı makalesi](data-factory-onprem-file-system-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Veri kümesi
-Bir dosya sistemi veri kümesini tanımlamak için **türü** için veri kümesinin **FileShare**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir dosya sistemi veri kümesini tanımlamak için **türü** için veri kümesinin **FileShare**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| folderPath |Alt klasöre belirtir. Kaçış karakteri kullanmak ' \' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet |
-| fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı şu biçimdedir: <br/><br/>`Data.<Guid>.txt` (Örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Hayır |
-| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin. <br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: "fileFilter": "* .log"<br/>Örnek 2: "fileFilter": 2016 - 1-? txt"<br/><br/>Bu fileFilter bir giriş FileShare veri kümesi için geçerli olduğunu unutmayın. |Hayır |
-| partitionedBy |PartitionedBy dinamik folderPath/için bir dosya adı time series verilerini belirtmek için kullanabilirsiniz. İçin verileri saatte parametreli folderPath örneğidir. |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**; ve desteklenen düzeyler: **Optimal** ve **hızlı**. bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| folderPath |Yükleme kökü klasörüne belirtir. Çıkış karakterini kullanma ' \' dizesinde özel karakterler için. Bkz: [örnek bağlantılı hizmet ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekler.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün yol tabanlı slice başlangıç/bitiş tarih saatleri. |Evet |
+| fileName |Dosya adı belirtin **folderPath** klasördeki belirli bir dosyaya başvurmak için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tabloda bir klasördeki tüm dosyaları işaret eder.<br/><br/>FileName için bir çıktı veri kümesi belirtilmediğinde, oluşturulan dosyanın adı şu biçimdedir: <br/><br/>`Data.<Guid>.txt` (Örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Hayır |
+| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin. <br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: "fileFilter": "* .log"<br/>Örnek 2: "fileFilter": 2016 - 1-? txt"<br/><br/>Bu fileFilter girdi FileShare veri kümesi için geçerli olduğunu unutmayın. |Hayır |
+| partitionedBy |PartitionedBy dinamik bir folderPath/fileName için zaman serisi verilerini belirtmek için kullanabilirsiniz. FolderPath için verileri saatte parametreli bir örnektir. |Hayır |
+| Biçim | Şu biçim türlerini desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquetbiçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın. |Hayır |
+| sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**; ve desteklenen düzeyler: **Optimal** ve **hızlı**. bkz: [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
 > [!NOTE]
 > Dosya adı ve fileFilter aynı anda kullanamazsınız.
@@ -3437,14 +3437,14 @@ Bir dosya sistemi veri kümesini tanımlamak için **türü** için veri kümesi
 }
 ```
 
-Daha fazla bilgi için bkz: [dosya sistemi bağlayıcı makale](data-factory-onprem-file-system-connector.md#dataset-properties).
+Daha fazla bilgi için [dosya sistemi Bağlayıcısı makalesi](data-factory-onprem-file-system-connector.md#dataset-properties).
 
-### <a name="file-system-source-in-copy-activity"></a>Dosya sistem kaynağını kopyalama etkinliği
-Dosya sisteminden veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **FileSystemSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="file-system-source-in-copy-activity"></a>Kopyalama etkinliği dosya sistem kaynağı
+Dosya sisteminden veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **FileSystemSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |TRUE, False (varsayılan) |Hayır |
+| özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca veri yinelemeli olarak okunur olup olmadığını belirtir. |TRUE, False (varsayılan) |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -3487,14 +3487,14 @@ Dosya sisteminden veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalam
     }
 }
 ```
-Daha fazla bilgi için bkz: [dosya sistemi bağlayıcı makale](data-factory-onprem-file-system-connector.md#copy-activity-properties).
+Daha fazla bilgi için [dosya sistemi Bağlayıcısı makalesi](data-factory-onprem-file-system-connector.md#copy-activity-properties).
 
-### <a name="file-system-sink-in-copy-activity"></a>Dosya sistemi havuzu kopyalama etkinliği
-Dosya sistemi veri kopyalıyorsanız ayarlamak **Havuz türü** kopyalama etkinliği **FileSystemSink**ve aşağıdaki özellikleri belirtin **havuz** bölümü:
+### <a name="file-system-sink-in-copy-activity"></a>Dosya sistemi kopyalama etkinliğindeki havuz
+Dosya sistemi veri kopyalıyorsanız ayarlayın **Havuz türü** , kopyalama etkinliğine **FileSystemSink**, aşağıdaki özellikleri belirtin **havuz** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| copyBehavior |Kaynak BlobSource veya dosya sistemi olduğunda kopyalama davranışını tanımlar. |**PreserveHierarchy:** dosya hiyerarşisi hedef klasördeki korur. Diğer bir deyişle, kaynak dosyanın kaynak klasöre göreli yol hedef dosya hedef klasöre göreli yol aynıdır.<br/><br/>**FlattenHierarchy:** tüm dosyaları kaynak klasörden hedef klasöre ilk düzeyi oluşturulur. Hedef dosyalar otomatik olarak oluşturulur adıyla oluşturulur.<br/><br/>**MergeFiles:** bir dosya için kaynak klasöründeki tüm dosyaları birleştirir. Dosya adı/blob adı belirtilirse, birleştirilmiş dosya adı belirtilen addır. Aksi halde, bir otomatik olarak oluşturulan dosya adı değil. |Hayır |
+| copyBehavior |Kaynak BlobSource veya dosya sistemi olduğunda kopyalama davranışını tanımlar. |**PreserveHierarchy:** ise dosya hiyerarşisini hedef klasördeki korur. Diğer bir deyişle, kaynak dosyanın kaynak klasöre göreli yol hedef dosya hedef klasöre göreli yol aynıdır.<br/><br/>**FlattenHierarchy:** tüm dosyaları kaynak klasörden hedef klasöre ilk düzeyde yer oluşturulur. Hedef dosyalar bir otomatik olarak oluşturulan adıyla oluşturulur.<br/><br/>**MergeFiles:** tüm dosyaları kaynak klasörden bir dosya birleştirir. Dosya adı/blob adı belirtilirse, birleştirilmiş dosya adı belirtilen adıdır. Aksi takdirde, bir otomatik olarak oluşturulan dosya adı değil. |Hayır |
 otomatik-
 
 #### <a name="example"></a>Örnek
@@ -3540,24 +3540,24 @@ otomatik-
 }
 ```
 
-Daha fazla bilgi için bkz: [dosya sistemi bağlayıcı makale](data-factory-onprem-file-system-connector.md#copy-activity-properties).
+Daha fazla bilgi için [dosya sistemi Bağlayıcısı makalesi](data-factory-onprem-file-system-connector.md#copy-activity-properties).
 
 ## <a name="ftp"></a>FTP
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin FTP tanımlamak için Ayarla **türü** bağlantılı hizmetinin **Ftp_sunucusu**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+FTP tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin **Ftp_sunucusu**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli | Varsayılan |
 | --- | --- | --- | --- |
 | konak |FTP sunucusunun adı veya IP adresi |Evet |&nbsp; |
 | authenticationType |Kimlik doğrulaması türünü belirtme |Evet |Temel, anonim |
 | kullanıcı adı |FTP sunucusuna erişimi olan kullanıcı |Hayır |&nbsp; |
-| password |(Kullanıcı adı) kullanıcı parolası |Hayır |&nbsp; |
+| password |(Kullanıcı adı) kullanıcının parolasını |Hayır |&nbsp; |
 | encryptedCredential |FTP sunucusuna erişmek için şifrelenmiş kimlik bilgileri |Hayır |&nbsp; |
 | gatewayName |Şirket içi FTP sunucusuna bağlanmak için veri yönetimi ağ geçidi adı |Hayır |&nbsp; |
 | port |FTP sunucusunun dinlediği bağlantı noktası |Hayır |21 |
 | enableSsl |FTP SSL/TLS kanalı üzerinden kullanıp kullanmayacağınızı belirtin |Hayır |true |
-| enableServerCertificateValidation |Sunucu SSL sertifika doğrulamasını FTP SSL/TLS kanalı üzerinden kullanırken etkinleştirilip etkinleştirilmeyeceğini belirtin |Hayır |true |
+| enableServerCertificateValidation |FTP üzerinden SSL/TLS kanal kullanırken sunucu SSL sertifika doğrulamasını etkinleştirip etkinleştirmeyeceğinizi belirtin |Hayır |true |
 
 #### <a name="example-using-anonymous-authentication"></a>Örnek: Anonim kimlik doğrulamasını kullanma
 
@@ -3574,7 +3574,7 @@ Bağlantılı hizmetinin FTP tanımlamak için Ayarla **türü** bağlantılı h
 }
 ```
 
-#### <a name="example-using-username-and-password-in-plain-text-for-basic-authentication"></a>Örnek: kullanıcı adı ve parola düz metin olarak temel kimlik doğrulaması kullanma
+#### <a name="example-using-username-and-password-in-plain-text-for-basic-authentication"></a>Örnek: kullanıcı adı ve parola düz metin olarak temel kimlik doğrulaması için kullanma
 
 ```json
 {
@@ -3591,7 +3591,7 @@ Bağlantılı hizmetinin FTP tanımlamak için Ayarla **türü** bağlantılı h
 }
 ```
 
-#### <a name="example-using-port-enablessl-enableservercertificatevalidation"></a>Örnek: Bağlantı noktası, enableSsl, enableServerCertificateValidation kullanma
+#### <a name="example-using-port-enablessl-enableservercertificatevalidation"></a>Örnek: Bağlantı noktası, enableSsl enableServerCertificateValidation kullanma
 
 ```json
 {
@@ -3628,20 +3628,20 @@ Bağlantılı hizmetinin FTP tanımlamak için Ayarla **türü** bağlantılı h
 }
 ```
 
-Daha fazla bilgi için bkz: [FTP Bağlayıcısı](data-factory-ftp-connector.md#linked-service-properties) makalesi.
+Daha fazla bilgi için [FTP Bağlayıcısı](data-factory-ftp-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir FTP veri kümesini tanımlamak için **türü** için veri kümesinin **FileShare**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir FTP veri kümesini tanımlamak için **türü** için veri kümesinin **FileShare**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| folderPath |Klasörün alt yolu. Kaçış karakteri kullanmak ' \ ' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet 
-| fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
-| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: `"fileFilter": "*.log"`<br/>Örnek 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter bir giriş FileShare veri kümesi için geçerlidir. Bu özellik ile HDFS desteklenmiyor. |Hayır |
-| partitionedBy |partitionedBy filename zaman serisi veri için dinamik bir folderPath belirtmek için kullanılabilir. Örneğin, her veri saat için parametreli folderPath. |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**; ve desteklenen düzeyler: **Optimal** ve **hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
-| useBinaryTransfer |Belirtin olup ikili aktarım modunu kullanın. İkili mod ve false ASCII için true. Varsayılan değer: True. İlişkili bağlantılı hizmet türü türü olduğunda bu özellik yalnızca kullanılabilir: Ftp_sunucusu. |Hayır |
+| folderPath |Alt klasörünün yolu. Çıkış karakterini kullanma ' \ ' dizesinde özel karakterler için. Bkz: [örnek bağlantılı hizmet ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekler.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün yol tabanlı slice başlangıç/bitiş tarih saatleri. |Evet 
+| fileName |Dosya adı belirtin **folderPath** klasördeki belirli bir dosyaya başvurmak için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tabloda bir klasördeki tüm dosyaları işaret eder.<br/><br/>Oluşturulan dosyanın adını bir çıktı veri kümesi için dosya adı belirtilmediği durumlarda, aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
+| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>1. örnekler: `"fileFilter": "*.log"`<br/>Örnek 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter girdi FileShare veri kümesi için geçerlidir. Bu özellik, HDFS ile desteklenmiyor. |Hayır |
+| partitionedBy |partitionedBy dinamik bir folderPath, zaman serisi verileri için dosya adı belirtmek için kullanılabilir. Örneğin, verilerin her saat için parametreli folderPath. |Hayır |
+| Biçim | Şu biçim türlerini desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquetbiçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın. |Hayır |
+| sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**; ve desteklenen düzeyler: **Optimal** ve **hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| useBinaryTransfer |Belirtin olup ikili aktarım modunu kullanın. İkili mod ve false ASCII için true. Varsayılan değer: True. İlişkili bağlantılı hizmet türü türü olduğunda, yalnızca bu özellik kullanılabilir: Ftp_sunucusu. |Hayır |
 
 > [!NOTE]
 > Dosya adı ve fileFilter aynı anda kullanılamaz.
@@ -3668,14 +3668,14 @@ Bir FTP veri kümesini tanımlamak için **türü** için veri kümesinin **File
 }
 ```
 
-Daha fazla bilgi için bkz: [FTP Bağlayıcısı](data-factory-ftp-connector.md#dataset-properties) makalesi.
+Daha fazla bilgi için [FTP Bağlayıcısı](data-factory-ftp-connector.md#dataset-properties) makalesi.
 
-### <a name="file-system-source-in-copy-activity"></a>Dosya sistem kaynağını kopyalama etkinliği
-Bir FTP sunucusundan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **FileSystemSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="file-system-source-in-copy-activity"></a>Kopyalama etkinliği dosya sistem kaynağı
+Bir FTP sunucusundan veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **FileSystemSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |TRUE, False (varsayılan) |Hayır |
+| özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca veri yinelemeli olarak okunur olup olmadığını belirtir. |TRUE, False (varsayılan) |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -3717,23 +3717,23 @@ Bir FTP sunucusundan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopya
 }
 ```
 
-Daha fazla bilgi için bkz: [FTP Bağlayıcısı](data-factory-ftp-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [FTP Bağlayıcısı](data-factory-ftp-connector.md#copy-activity-properties) makalesi.
 
 
 ## <a name="hdfs"></a>HDFS
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir HDFS tanımlamak için Ayarla **türü** bağlantılı hizmetinin **Hdfs**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bir HDFS tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin **Hdfs**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **Hdfs** |Evet |
 | Url |HDFS URL'si |Evet |
-| authenticationType |Anonim veya Windows. <br><br> Kullanılacak **Kerberos kimlik doğrulaması** HDFS bağlayıcı için başvurmak [Bu bölümde](#use-kerberos-authentication-for-hdfs-connector) şirket içi ortamınıza uygun şekilde ayarlamak için. |Evet |
+| authenticationType |Anonim veya Windows. <br><br> Kullanılacak **Kerberos kimlik doğrulaması** HDFS bağlayıcısının başvurmak [Bu bölümde](#use-kerberos-authentication-for-hdfs-connector) şirket içi ortamınızı uygun şekilde ayarlamak için. |Evet |
 | Kullanıcı adı |Kullanıcı adı için Windows kimlik doğrulaması. |Evet (Windows kimlik doğrulaması için) |
 | password |Windows kimlik doğrulaması için parola. |Evet (Windows kimlik doğrulaması için) |
-| gatewayName |Data Factory hizmetinin HDFS bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
-| encryptedCredential |[AzureRMDataFactoryEncryptValue yeni](https://msdn.microsoft.com/library/mt603802.aspx) erişim kimlik bilgisi çıktısı. |Hayır |
+| gatewayName |Data Factory hizmetinin HDFS'ye bağlanmak için kullanması gereken ağ geçidi adı. |Evet |
+| encryptedCredential |[Yeni AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) erişim kimlik bilgisi çıktısı. |Hayır |
 
 #### <a name="example-using-anonymous-authentication"></a>Örnek: Anonim kimlik doğrulamasını kullanma
 
@@ -3770,18 +3770,18 @@ Bağlantılı hizmetinin bir HDFS tanımlamak için Ayarla **türü** bağlantı
 }
 ```
 
-Daha fazla bilgi için bkz: [HDFS bağlayıcı](#data-factory-hdfs-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [HDFS bağlayıcı](#data-factory-hdfs-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-HDFS veri kümesini tanımlamak için **türü** için veri kümesinin **FileShare**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+HDFS veri kümesini tanımlamak için **türü** için veri kümesinin **FileShare**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| folderPath |Klasör yolu. Örnek: `myfolder`<br/><br/>Kaçış karakteri kullanmak ' \ ' dize özel karakter. Örneğin: folder\subfolder için klasör belirtin\\\\alt ve d:\samplefolder için d: belirtin\\\\ÖrnekKlasör.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet |
-| fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
-| partitionedBy |partitionedBy filename zaman serisi veri için dinamik bir folderPath belirtmek için kullanılabilir. Örnek: veri her saat için parametreli folderPath. |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| folderPath |Klasör yolu. Örnek: `myfolder`<br/><br/>Çıkış karakterini kullanma ' \ ' dizesinde özel karakterler için. Örneğin: folder\subfolder için klasörü belirtin\\\\alt d:\samplefolder için d: belirtin\\\\ÖrnekKlasör.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün yol tabanlı slice başlangıç/bitiş tarih saatleri. |Evet |
+| fileName |Dosya adı belirtin **folderPath** klasördeki belirli bir dosyaya başvurmak için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tabloda bir klasördeki tüm dosyaları işaret eder.<br/><br/>Oluşturulan dosyanın adını bir çıktı veri kümesi için dosya adı belirtilmediği durumlarda, aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
+| partitionedBy |partitionedBy dinamik bir folderPath, zaman serisi verileri için dosya adı belirtmek için kullanılabilir. Örnek: veri her saat için parametreli folderPath. |Hayır |
+| Biçim | Şu biçim türlerini desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquetbiçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın. |Hayır |
+| sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
 > [!NOTE]
 > Dosya adı ve fileFilter aynı anda kullanılamaz.
@@ -3806,16 +3806,16 @@ HDFS veri kümesini tanımlamak için **türü** için veri kümesinin **FileSha
 }
 ```
 
-Daha fazla bilgi için bkz: [HDFS bağlayıcı](#data-factory-hdfs-connector.md#dataset-properties) makalesi. 
+Daha fazla bilgi için [HDFS bağlayıcı](#data-factory-hdfs-connector.md#dataset-properties) makalesi. 
 
-### <a name="file-system-source-in-copy-activity"></a>Dosya sistem kaynağını kopyalama etkinliği
-HDFS veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **FileSystemSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="file-system-source-in-copy-activity"></a>Kopyalama etkinliği dosya sistem kaynağı
+Verileri HDFS Kopyalamakta olduğunuz verilirse **kaynak türü** için kopyalama etkinliği, **FileSystemSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 **FileSystemSource** aşağıdaki özellikleri destekler:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |TRUE, False (varsayılan) |Hayır |
+| özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca veri yinelemeli olarak okunur olup olmadığını belirtir. |TRUE, False (varsayılan) |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -3853,32 +3853,32 @@ HDFS veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği 
 }
 ```
 
-Daha fazla bilgi için bkz: [HDFS bağlayıcı](#data-factory-hdfs-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [HDFS bağlayıcı](#data-factory-hdfs-connector.md#copy-activity-properties) makalesi.
 
 ## <a name="sftp"></a>SFTP
 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir SFTP tanımlamak için Ayarla **türü** bağlantılı hizmetinin **Sftp**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bağlı hizmeti bir SFTP tanımlamak için Ayarla **türü** bağlı hizmetinin **Sftp**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- | --- |
-| konak | SFTP sunucunun adı veya IP adresi. |Evet |
-| port |SFTP sunucunun dinlediği bağlantı noktası. Varsayılan değer: 21 |Hayır |
-| authenticationType |Kimlik doğrulama türü belirtin. İzin verilen değerler: **temel**, **SshPublicKey**. <br><br> Başvurmak [kullanarak temel kimlik doğrulaması](#using-basic-authentication) ve [kullanarak SSH ortak anahtar kimlik doğrulaması](#using-ssh-public-key-authentication) daha fazla özellikleri ve JSON örnekleri sırasıyla bölümler. |Evet |
-| skipHostKeyValidation | Ana anahtar doğrulama atlamak bu seçeneği belirtin. | Hayır. Varsayılan değeri: false |
-| hostKeyFingerprint | Ana makine anahtarı, parmak izi belirtin. | Yanıt Evet ise `skipHostKeyValidation` false olarak ayarlayın.  |
-| gatewayName |Bir şirket içi SFTP sunucusuna bağlanmak için veri yönetimi ağ geçidi adı. | Bir şirket içi SFTP sunucusundan veri kopyalama, Evet. |
-| encryptedCredential | SFTP sunucuya erişmek için şifrelenmiş kimlik bilgileri'ı seçin. Otomatik olarak oluşturulan Kopyalama Sihirbazı'nı veya ClickOnce açılan iletişim temel kimlik doğrulaması (kullanıcı adı + parola) veya SshPublicKey kimlik (kullanıcı adı + özel anahtar yolu veya içerik) belirttiğinizde. | Hayır. Yalnızca bir şirket içi SFTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
+| konak | SFTP sunucusunun adı veya IP adresi. |Evet |
+| port |SFTP sunucusunun dinlediği bağlantı noktası. Varsayılan değer: 21 |Hayır |
+| authenticationType |Kimlik doğrulama türünü belirtin. İzin verilen değerler: **temel**, **SshPublicKey**. <br><br> Başvurmak [kullanarak temel kimlik doğrulaması](#using-basic-authentication) ve [kullanarak SSH ortak anahtarı kimlik doğrulaması](#using-ssh-public-key-authentication) daha fazla özellik ve JSON örneklerini sırasıyla bölümler. |Evet |
+| skipHostKeyValidation | Konak anahtar doğrulamasını atlayın verilip verilmeyeceğini belirtin. | Hayır. Varsayılan değer: false |
+| hostKeyFingerprint | Konak anahtarı parmak izi belirtin. | Yanıt Evet ise `skipHostKeyValidation` false olarak ayarlanır.  |
+| gatewayName |Şirket içi SFTP sunucusuna bağlanmak için veri yönetimi ağ geçidi adı. | Bir şirket içi SFTP sunucusundan veri kopyalama, Evet. |
+| encryptedCredential | SFTP sunucusuna erişmek için şifrelenmiş kimlik bilgileri'ı seçin. Otomatik olarak oluşturulan temel kimlik doğrulaması (kullanıcı adı ve parola) ya da SshPublicKey kimlik doğrulaması (kullanıcı adı ve özel anahtar yolu veya içerik) Kopyalama Sihirbazı'nı veya ClickOnce açılan iletişim kutusunda belirttiğiniz zaman. | Hayır. Yalnızca bir şirket içi SFTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
 
 #### <a name="example-using-basic-authentication"></a>Örnek: temel kimlik doğrulaması kullanma
 
-Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` olarak `Basic`ve SFTP bağlayıcı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
+Temel kimlik doğrulaması kullanmak için ayarlanmış `authenticationType` olarak `Basic`ve SFTP Bağlayıcısı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- | --- |
 | kullanıcı adı | SFTP sunucusuna erişimi olan kullanıcı. |Evet |
-| password | (Kullanıcı adı) kullanıcının parolası. | Evet |
+| password | (Kullanıcı adı) kullanıcı parolası. | Evet |
 
 ```json
 {
@@ -3920,16 +3920,16 @@ Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` ol
 }
 ```
 
-#### <a name="using-ssh-public-key-authentication"></a>**SSH ortak anahtar kimlik doğrulaması kullanma:**
+#### <a name="using-ssh-public-key-authentication"></a>**SSH ortak anahtar kimlik doğrulamasını kullanma:**
 
-Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` olarak `SshPublicKey`ve SFTP bağlayıcı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
+Temel kimlik doğrulaması kullanmak için ayarlanmış `authenticationType` olarak `SshPublicKey`ve SFTP Bağlayıcısı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- | --- |
 | kullanıcı adı |SFTP sunucusuna erişimi olan kullanıcı |Evet |
-| privateKeyPath | Belirtin özel anahtar dosyasının mutlak yolu, ağ geçidi erişebilir. | Belirtin `privateKeyPath` veya `privateKeyContent`. <br><br> Yalnızca bir şirket içi SFTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
-| privateKeyContent | Özel anahtar içeriğinin seri hale getirilmiş bir dize. Kopyalama Sihirbazı'nı, özel anahtar dosyası okumak ve özel anahtar içeriği otomatik olarak ayıklayın. Tüm diğer aracı/SDK kullanıyorsanız, bunun yerine privateKeyPath özelliğini kullanın. | Belirtin `privateKeyPath` veya `privateKeyContent`. |
-| Parola | Geçişi tümcecik/anahtar dosyası bir parola deyimi tarafından korunuyorsa, özel anahtarın şifresini çözmek için parola belirtin. | Evet, özel anahtar dosyası bir parola deyimi tarafından korunuyorsa. |
+| privateKeyPath | Belirtin özel anahtar dosyasının mutlak yolu, ağ geçidinin erişebilir. | Seçeneklerinden birini belirtin `privateKeyPath` veya `privateKeyContent`. <br><br> Yalnızca bir şirket içi SFTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
+| privateKeyContent | Özel anahtar içeriği seri hale getirilmiş bir dize. Kopyalama Sihirbazı'nı, özel anahtar dosyasını okuma ve özel anahtar içeriği otomatik olarak ayıklayın. Herhangi diğer araca/SDK'ya kullanıyorsanız privateKeyPath özelliğini kullanın. | Seçeneklerinden birini belirtin `privateKeyPath` veya `privateKeyContent`. |
+| Parola | Geçişi tümcecik/anahtar dosyası bir parola deyimi tarafından korunuyorsa, özel anahtarın şifresini çözmek için parola belirtin. | Özel anahtar dosyasını bir parola deyimi tarafından korunuyorsa, Evet. |
 
 ```json
 {
@@ -3950,7 +3950,7 @@ Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` ol
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Örnek: **özel anahtar içeriği kullanarak SshPublicKey kimlik doğrulaması**
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Örnek: **özel anahtar içeriğini kullanarak SshPublicKey kimlik doğrulaması**
 
 ```json
 {
@@ -3970,20 +3970,20 @@ Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` ol
 }
 ```
 
-Daha fazla bilgi için bkz: [SFTP bağlayıcı](data-factory-sftp-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [SFTP Bağlayıcısı](data-factory-sftp-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-SFTP veri kümesini tanımlamak için **türü** için veri kümesinin **FileShare**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir SFTP veri kümesini tanımlamak için **türü** için veri kümesinin **FileShare**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| folderPath |Klasörün alt yolu. Kaçış karakteri kullanmak ' \ ' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet |
-| fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
-| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: `"fileFilter": "*.log"`<br/>Örnek 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter bir giriş FileShare veri kümesi için geçerlidir. Bu özellik ile HDFS desteklenmiyor. |Hayır |
-| partitionedBy |partitionedBy filename zaman serisi veri için dinamik bir folderPath belirtmek için kullanılabilir. Örneğin, her veri saat için parametreli folderPath. |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
-| useBinaryTransfer |Belirtin olup ikili aktarım modunu kullanın. İkili mod ve false ASCII için true. Varsayılan değer: True. İlişkili bağlantılı hizmet türü türü olduğunda bu özellik yalnızca kullanılabilir: Ftp_sunucusu. |Hayır |
+| folderPath |Alt klasörünün yolu. Çıkış karakterini kullanma ' \ ' dizesinde özel karakterler için. Bkz: [örnek bağlantılı hizmet ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekler.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün yol tabanlı slice başlangıç/bitiş tarih saatleri. |Evet |
+| fileName |Dosya adı belirtin **folderPath** klasördeki belirli bir dosyaya başvurmak için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tabloda bir klasördeki tüm dosyaları işaret eder.<br/><br/>Oluşturulan dosyanın adını bir çıktı veri kümesi için dosya adı belirtilmediği durumlarda, aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
+| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>1. örnekler: `"fileFilter": "*.log"`<br/>Örnek 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter girdi FileShare veri kümesi için geçerlidir. Bu özellik, HDFS ile desteklenmiyor. |Hayır |
+| partitionedBy |partitionedBy dinamik bir folderPath, zaman serisi verileri için dosya adı belirtmek için kullanılabilir. Örneğin, verilerin her saat için parametreli folderPath. |Hayır |
+| Biçim | Şu biçim türlerini desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquetbiçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın. |Hayır |
+| sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| useBinaryTransfer |Belirtin olup ikili aktarım modunu kullanın. İkili mod ve false ASCII için true. Varsayılan değer: True. İlişkili bağlantılı hizmet türü türü olduğunda, yalnızca bu özellik kullanılabilir: Ftp_sunucusu. |Hayır |
 
 > [!NOTE]
 > Dosya adı ve fileFilter aynı anda kullanılamaz.
@@ -4009,14 +4009,14 @@ SFTP veri kümesini tanımlamak için **türü** için veri kümesinin **FileSha
 }
 ```
 
-Daha fazla bilgi için bkz: [SFTP bağlayıcı](data-factory-sftp-connector.md#dataset-properties) makalesi. 
+Daha fazla bilgi için [SFTP Bağlayıcısı](data-factory-sftp-connector.md#dataset-properties) makalesi. 
 
-### <a name="file-system-source-in-copy-activity"></a>Dosya sistem kaynağını kopyalama etkinliği
-SFTP kaynaktan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **FileSystemSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="file-system-source-in-copy-activity"></a>Kopyalama etkinliği dosya sistem kaynağı
+Bir SFTP kaynaktan veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **FileSystemSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |TRUE, False (varsayılan) |Hayır |
+| özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca veri yinelemeli olarak okunur olup olmadığını belirtir. |TRUE, False (varsayılan) |Hayır |
 
 
 
@@ -4060,29 +4060,29 @@ SFTP kaynaktan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama e
 }
 ```
 
-Daha fazla bilgi için bkz: [SFTP bağlayıcı](data-factory-sftp-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [SFTP Bağlayıcısı](data-factory-sftp-connector.md#copy-activity-properties) makalesi.
 
 
 ## <a name="http"></a>HTTP
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmeti bir HTTP tanımlama, Ayarla **türü** bağlantılı hizmetinin **Http**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bağlı hizmeti bir HTTP tanımlamak için Ayarla **türü** bağlı hizmetinin **Http**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | url | Web sunucusu için temel URL | Evet |
-| authenticationType | Kimlik doğrulama türünü belirtir. İzin verilen değerler: **anonim**, **temel**, **Özet**, **Windows**, **ClientCertificate**. <br><br> Daha fazla özellikleri ve bu kimlik doğrulama türleri için JSON örnekleri bu tabloda aşağıdaki bölümlerde sırasıyla bakın. | Evet |
-| enableServerCertificateValidation | Sunucu SSL sertifika doğrulamasını kaynak HTTPS Web sunucusu ise etkinleştirilip etkinleştirilmeyeceğini belirtin | Hayır, varsayılan değer true şeklindedir |
+| authenticationType | Kimlik doğrulama türünü belirtir. İzin verilen değerler: **anonim**, **temel**, **Özet**, **Windows**, **ClientCertificate**. <br><br> Daha fazla özellik ve bu kimlik doğrulama türleri için JSON örnekleri bu tabloda aşağıdaki bölümlere sırasıyla bakın. | Evet |
+| enableServerCertificateValidation | Kaynak HTTPS Web sunucusu ise sunucu SSL sertifika doğrulamasını etkinleştirip etkinleştirmeyeceğinizi belirtin | Hayır, varsayılan değer true şeklindedir |
 | gatewayName | Bir şirket içi HTTP kaynağına bağlanmak için veri yönetimi ağ geçidi adı. | Bir şirket içi HTTP kaynaktan veri kopyalama, Evet. |
 | encryptedCredential | HTTP uç noktasına erişmek için şifrelenmiş kimlik bilgileri'ı seçin. Otomatik olarak oluşturulan Kopyalama Sihirbazı'nı veya ClickOnce açılan iletişim kimlik doğrulama bilgilerini yapılandırın. | Hayır. Yalnızca bir şirket içi HTTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
 
-#### <a name="example-using-basic-digest-or-windows-authentication"></a>Örnek: Temel, Özet veya Windows kimlik doğrulaması kullanma
-Ayarlama `authenticationType` olarak `Basic`, `Digest`, veya `Windows`ve HTTP Bağlayıcısı yukarıda sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
+#### <a name="example-using-basic-digest-or-windows-authentication"></a>Örnek: Temel, Özet veya Windows kimlik doğrulamasını kullanma
+Ayarlama `authenticationType` olarak `Basic`, `Digest`, veya `Windows`ve HTTP Bağlayıcısı yukarıda tanıtılan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | kullanıcı adı | HTTP uç noktasına erişmek için kullanıcı adı. | Evet |
-| password | (Kullanıcı adı) kullanıcının parolası. | Evet |
+| password | (Kullanıcı adı) kullanıcı parolası. | Evet |
 
 ```json
 {
@@ -4101,22 +4101,22 @@ Ayarlama `authenticationType` olarak `Basic`, `Digest`, veya `Windows`ve HTTP Ba
 
 #### <a name="example-using-clientcertificate-authentication"></a>Örnek: ClientCertificate kimlik doğrulaması kullanma
 
-Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` olarak `ClientCertificate`ve HTTP Bağlayıcısı yukarıda sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
+Temel kimlik doğrulaması kullanmak için ayarlanmış `authenticationType` olarak `ClientCertificate`ve HTTP Bağlayıcısı yukarıda tanıtılan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| embeddedCertData | İkili veriler kişisel bilgi değişimi (PFX) dosyası Base64 ile kodlanmış içeriği. | Belirtin `embeddedCertData` veya `certThumbprint`. |
-| Certthumbprınt | Ağ geçidi makinenizin sertifika deposunda yüklü sertifika parmak izi. Yalnızca bir şirket içi HTTP kaynaktan veri kopyalama işlemi sırasında uygulanır. | Belirtin `embeddedCertData` veya `certThumbprint`. |
+| embeddedCertData | Kişisel bilgi değişimi (PFX) dosyasının ikili verileri Base64 ile kodlanmış içeriği. | Seçeneklerinden birini belirtin `embeddedCertData` veya `certThumbprint`. |
+| Certthumbprınt | Ağ geçidi makinenizin sertifika deposunda yüklü sertifika parmak izi. Yalnızca bir şirket içi HTTP kaynaktan veri kopyalama işlemi sırasında uygulanır. | Seçeneklerinden birini belirtin `embeddedCertData` veya `certThumbprint`. |
 | password | Sertifikayla ilişkili parola. | Hayır |
 
-Kullanırsanız `certThumbprint` kimlik doğrulaması ve sertifika yüklü için yerel bilgisayarın kişisel deposunda, ağ geçidi hizmeti okuma izni vermesi gerekir:
+Kullanırsanız `certThumbprint` yerel bilgisayarın kişisel depoda kimlik doğrulaması ve sertifika yüklü için ağ geçidi hizmeti için okuma izni vermeniz gerekir:
 
-1. Microsoft Yönetim Konsolu (MMC) başlatın. Ekleme **sertifikaları** hedefleyen eklentisi **yerel bilgisayar**.
-2. Genişletme **sertifikaları**, **kişisel**, tıklatıp **Sertifikalar**.
-3. Kişisel deposundaki sertifikayı sağ tıklatın ve seçin **tüm görevler**->**özel anahtarları Yönet...**
-3. Üzerinde **güvenlik** sekmesinde, altında veri yönetimi ağ geçidi ana bilgisayar hizmeti çalıştığı okuma erişimi sertifikayı kullanıcı hesabını ekleyin.  
+1. Microsoft Yönetim Konsolu (MMC) başlatın. Ekleme **sertifikaları** hedefleyen eklentisini **yerel bilgisayar**.
+2. Genişletin **sertifikaları**, **kişisel**, tıklatıp **sertifikaları**.
+3. Kişisel deposundan sertifikayı sağ tıklatın ve seçin **tüm görevler**->**özel anahtarları Yönet...**
+3. Üzerinde **güvenlik** sekmesinde, altında veri yönetimi ağ geçidi ana bilgisayar hizmetinin çalıştığı okuma erişimi ile sertifikayı kullanıcı hesabı ekleyin.  
 
-**Örnek: istemci sertifikası kullanarak:** bu hizmeti, veri fabrikası bir şirket içi HTTP web sunucusuna bağlı. Veri Yönetimi ağ ile geçidi yüklü olduğu makinede yüklü bir istemci sertifikası kullanır.
+**Örnek: istemci sertifikası kullanma:** bu veri fabrikanıza şirket içi HTTP web sunucusuna bağlı hizmeti. Veri Yönetimi ağ ile geçidi yüklü olduğu makinede yüklü olan bir istemci sertifikası kullanır.
 
 ```json
 {
@@ -4134,7 +4134,7 @@ Kullanırsanız `certThumbprint` kimlik doğrulaması ve sertifika yüklü için
 ```
 
 #### <a name="example-using-client-certificate-in-a-file"></a>Örnek: istemci sertifikası bir dosyada kullanma
-Bu hizmet bağlantılar, veri fabrikası bir şirket içi HTTP web sunucusuna bağlı. Veri Yönetimi ağ ile geçidi yüklü olduğu makinedeki bir istemci sertifikası dosyası kullanır.
+Bu veri fabrikanıza şirket içi HTTP web sunucusuna bağlı hizmeti. Veri Yönetimi ağ ile geçidi yüklü olduğu makinedeki bir istemci sertifikası dosyası kullanır.
 
 ```json
 {
@@ -4151,21 +4151,21 @@ Bu hizmet bağlantılar, veri fabrikası bir şirket içi HTTP web sunucusuna ba
 }
 ```
 
-Daha fazla bilgi için bkz: [HTTP Bağlayıcısı](data-factory-http-connector.md#linked-service-properties) makalesi.
+Daha fazla bilgi için [HTTP Bağlayıcısı](data-factory-http-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir HTTP veri kümesini tanımlamak için **türü** için veri kümesinin **Http**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+HTTP veri kümesi tanımlamak için **türü** için veri kümesinin **Http**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| relativeUrl | Verileri içeren kaynak için göreli bir URL. Bağlantılı hizmet tanımında belirtilen URL yolu belirtilmediğinde kullanılır. <br><br> Dinamik URL oluşturmak için kullanabileceğiniz [Data Factory işlevler ve sistem değişkenleri](data-factory-functions-variables.md), örneğin: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | Hayır |
-| requestMethod | HTTP yöntemi. İzin verilen değerler **almak** veya **POST**. | Hayır. `GET` varsayılan değerdir. |
+| relativeUrl | Verileri içeren kaynak için göreli bir URL. Yalnızca bağlı hizmet tanımında belirtilen URL yolu belirtilmemiş olduğunda kullanılır. <br><br> Dinamik URL oluşturmak için kullanabileceğiniz [Data Factory işlevleri ve sistem değişkenleri](data-factory-functions-variables.md), örnek: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | Hayır |
+| requestMethod | HTTP yöntemi. İzin verilen değerler **alma** veya **POST**. | Hayır. `GET` varsayılan değerdir. |
 | additionalHeaders | Ek HTTP isteği üstbilgileri. | Hayır |
-| requestBody | HTTP istek gövdesi. | Hayır |
-| Biçimi | Yalnızca istiyorsanız, **HTTP uç noktası olarak veri almak-olduğu** ayrıştırma olmadan, bu biçim ayarlarını atla. <br><br> HTTP yanıt içeriği kopyalama sırasında ayrıştırma istiyorsanız, aşağıdaki biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| Includesearchresults: true | HTTP istek gövdesi. | Hayır |
+| Biçim | Yalnızca isterseniz **HTTP uç noktasından veri alma-olan** ayrıştırma olmadan, bu biçimi ayarları atlayın. <br><br> Kopyalama sırasında HTTP yanıt içeriği ayrıştırılamıyor istiyorsanız, şu biçim türlerini desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquetbiçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. |Hayır |
+| sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
-#### <a name="example-using-the-get-default-method"></a>Örnek: (varsayılan) GET yöntemini kullanma
+#### <a name="example-using-the-get-default-method"></a>Örnek: (varsayılan) alma yöntemini kullanma
 
 ```json
 {
@@ -4207,14 +4207,14 @@ Bir HTTP veri kümesini tanımlamak için **türü** için veri kümesinin **Htt
     }
 }
 ```
-Daha fazla bilgi için bkz: [HTTP Bağlayıcısı](data-factory-http-connector.md#dataset-properties) makalesi.
+Daha fazla bilgi için [HTTP Bağlayıcısı](data-factory-http-connector.md#dataset-properties) makalesi.
 
-### <a name="http-source-in-copy-activity"></a>Kopyalama etkinliğinde HTTP kaynağı
-Bir HTTP kaynaktan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **HttpSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="http-source-in-copy-activity"></a>Kopyalama etkinliğindeki HTTP kaynağı
+Bir HTTP kaynaktan veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **HttpSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | Zaman aşımı (TimeSpan) için bir yanıt almak HTTP isteği. Bu zaman aşımı yanıt verileri okumak için zaman aşımına bir yanıt elde etmektir. | Hayır. Varsayılan değer: 00:01:40 |
+| httpRequestTimeout | Zaman aşımı süresi (zaman) HTTP isteği bir yanıt alın. Yanıt verileri okumak için zaman aşımını değil bir yanıt almak için zaman aşımı olan. | Hayır. Varsayılan değer: 00:01:40 |
 
 
 #### <a name="example"></a>Örnek
@@ -4259,21 +4259,21 @@ Bir HTTP kaynaktan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyala
 }
 ```
 
-Daha fazla bilgi için bkz: [HTTP Bağlayıcısı](data-factory-http-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [HTTP Bağlayıcısı](data-factory-http-connector.md#copy-activity-properties) makalesi.
 
 ## <a name="odata"></a>OData
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir OData tanımlamak için Ayarla **türü** bağlantılı hizmetinin **OData**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bir OData tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin **OData**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | url |OData hizmeti URL'si. |Evet |
-| authenticationType |OData kaynağına bağlanmak için kullanılan kimlik doğrulama türü. <br/><br/> OData bulut için olası değerler şunlardır anonim, temel ve OAuth (Not OAuth Azure Active Directory tabanlı şu anda yalnızca Azure Data Factory destek). <br/><br/> Anonim, temel ve Windows, şirket içi OData için olası değerler şunlardır. |Evet |
+| authenticationType |OData kaynağına bağlanmak için kullanılan kimlik doğrulaması türü. <br/><br/> Bulut OData anonim, temel ve OAuth (Not Azure Active Directory tabanlı OAuth Azure Data Factory şu anda yalnızca destek) olası değerler şunlardır. <br/><br/> Anonim, temel ve Windows, şirket içi OData için olası değerler şunlardır. |Evet |
 | kullanıcı adı |Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Evet (yalnızca temel kimlik doğrulaması kullanıyorsanız) |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Evet (yalnızca temel kimlik doğrulaması kullanıyorsanız) |
-| authorizedCredential |OAuth kullanıyorsanız **Authorize** veri fabrikası Kopyalama Sihirbazı'nı veya düzenleyicide düğmesine tıklayın ve sonra da bu özelliğin değeri otomatik olarak oluşturulan kimlik bilgilerinizi girin. |Evet (yalnızca OAuth kimlik doğrulaması kullanıyorsanız) |
-| gatewayName |Data Factory hizmetinin şirket içi OData hizmetine bağlanmak için kullanması gereken ağ geçidinin adı. Yalnızca şirket içi OData kaynak sunucudan kopyaladığınız verileri belirtin. |Hayır |
+| authorizedCredential |OAuth kullanıyorsanız **Authorize** Data Factory Kopyalama Sihirbazı'nı veya düzenleyicide düğmesine tıklayın ve sonra da bu özelliğin değeri otomatik olarak oluşturulan kimlik bilgilerinizi girin. |Evet (yalnızca OAuth kimlik doğrulaması kullanıyorsanız) |
+| gatewayName |Data Factory hizmetinin şirket içi OData hizmetine bağlanmak için kullanması gereken ağ geçidi adı. Yalnızca şirket içi OData kaynağından kopyalanan veri belirtin. |Hayır |
 
 #### <a name="example---using-basic-authentication"></a>Temel kimlik doğrulaması kullanan örnek-
 ```json
@@ -4291,7 +4291,7 @@ Bağlantılı hizmetinin bir OData tanımlamak için Ayarla **türü** bağlant�
 }
 ```
 
-#### <a name="example---using-anonymous-authentication"></a>Anonim kimlik doğrulaması kullanan örnek-
+#### <a name="example---using-anonymous-authentication"></a>Örnek - anonim kimlik doğrulaması
 
 ```json
 {
@@ -4306,7 +4306,7 @@ Bağlantılı hizmetinin bir OData tanımlamak için Ayarla **türü** bağlant�
 }
 ```
 
-#### <a name="example---using-windows-authentication-accessing-on-premises-odata-source"></a>Örnek - kullanan Windows kimlik doğrulaması erişme OData kaynağı şirket içi
+#### <a name="example---using-windows-authentication-accessing-on-premises-odata-source"></a>Örnek - kimlik doğrulaması kullanarak Windows erişme OData kaynağı şirket içinde
 
 ```json
 {
@@ -4324,7 +4324,7 @@ Bağlantılı hizmetinin bir OData tanımlamak için Ayarla **türü** bağlant�
 }
 ```
 
-#### <a name="example---using-oauth-authentication-accessing-cloud-odata-source"></a>Örnek - bulut OData kaynağı erişme OAuth kimlik doğrulaması kullanma
+#### <a name="example---using-oauth-authentication-accessing-cloud-odata-source"></a>Örnek - bulut OData kaynağına erişme OAuth kimlik doğrulaması kullanma
 ```json
 {
     "name": "inputLinkedService",
@@ -4341,14 +4341,14 @@ Bağlantılı hizmetinin bir OData tanımlamak için Ayarla **türü** bağlant�
 }
 ```
 
-Daha fazla bilgi için bkz: [OData bağlayıcı](data-factory-odata-connector.md#linked-service-properties) makalesi.
+Daha fazla bilgi için [OData Bağlayıcısı](data-factory-odata-connector.md#linked-service-properties) makalesi.
 
 ### <a name="dataset"></a>Veri kümesi
-Bir OData veri kümesini tanımlamak için **türü** için veri kümesinin **ODataResource**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir OData veri kümesini tanımlamak için **türü** için veri kümesinin **ODataResource**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| yol |OData kaynak yolu |Hayır |
+| yol |OData kaynağı yolu |Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -4376,10 +4376,10 @@ Bir OData veri kümesini tanımlamak için **türü** için veri kümesinin **OD
 }
 ```
 
-Daha fazla bilgi için bkz: [OData bağlayıcı](data-factory-odata-connector.md#dataset-properties) makalesi.
+Daha fazla bilgi için [OData Bağlayıcısı](data-factory-odata-connector.md#dataset-properties) makalesi.
 
-### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-Bir OData kaynaktan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliğindeki ilişkisel bir kaynak
+Bir OData kaynaktan veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **RelationalSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 | Özellik | Açıklama | Örnek | Gerekli |
 | --- | --- | --- | --- |
@@ -4427,23 +4427,23 @@ Bir OData kaynaktan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyal
 }
 ```
 
-Daha fazla bilgi için bkz: [OData bağlayıcı](data-factory-odata-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [OData Bağlayıcısı](data-factory-odata-connector.md#copy-activity-properties) makalesi.
 
 
 ## <a name="odbc"></a>ODBC
 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir ODBC tanımlamak için Ayarla **türü** bağlantılı hizmetinin **OnPremisesOdbc**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bir ODBC tanımlamak için bağlı hizmeti, Ayarla **türü** bağlı hizmetinin **OnPremisesOdbc**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| connectionString |Bağlantı dizesi ve isteğe bağlı şifrelenmiş kimlik bilgileri olmayan erişim kimlik bilgileri bölümü. Aşağıdaki bölümlerde örneklere bakın. |Evet |
-| kimlik bilgisi |Sürücü özgü özellik değer biçiminde belirtilen bağlantı dizesi erişim kimlik bilgisi bölümü. Örnek: "Uid =<user ID>; PWD =<password>; RefreshToken =<secret refresh token>; ". |Hayır |
-| authenticationType |ODBC veri deposuna bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: anonim ve temel. |Evet |
+| bağlantı dizesi |Bağlantı dizesini ve isteğe bağlı bir şifrelenmiş kimlik bilgileri olmayan erişim kimlik bilgileri bölümü. Aşağıdaki bölümlerde örneklere bakın. |Evet |
+| kimlik bilgisi |Erişim kimlik bilgisi sürücüye özel özellik-değer biçiminde belirtilen bağlantı dizesi kısmı. Örnek: "Uid =<user ID>; PWD =<password>; RefreshToken =<secret refresh token>; ". |Hayır |
+| authenticationType |ODBC veri deposuna bağlanmak için kullanılan kimlik doğrulaması türü. Olası değerler şunlardır: anonim ve temel. |Evet |
 | kullanıcı adı |Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
-| gatewayName |Data Factory hizmetinin ODBC veri deposuna bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| gatewayName |Data Factory hizmetinin ODBC veri deposuna bağlanmak için kullanması gereken ağ geçidi adı. |Evet |
 
 #### <a name="example---using-basic-authentication"></a>Temel kimlik doğrulaması kullanan örnek-
 
@@ -4462,8 +4462,8 @@ Bağlantılı hizmetinin bir ODBC tanımlamak için Ayarla **türü** bağlantı
     }
 }
 ```
-#### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Temel kimlik doğrulaması ile şifrelenmiş kimlik bilgileri kullanılarak örnek-
-Kullanarak kimlik bilgilerini şifrelemek [yeni AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (Azure PowerShell 1.0 sürümü) cmdlet'ini veya [yeni AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 veya önceki bir sürümü Azure PowerShell).  
+#### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Şifrelenmiş kimlik bilgileriyle temel kimlik doğrulaması kullanan örnek-
+Kimlik bilgilerini kullanarak şifreleyebilirsiniz [yeni AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (Azure PowerShell 1.0 sürümü) cmdlet'ini veya [yeni AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 veya önceki bir sürümünü Azure PowerShell).  
 
 ```json
 {
@@ -4496,14 +4496,14 @@ Kullanarak kimlik bilgilerini şifrelemek [yeni AzureRMDataFactoryEncryptValue](
 }
 ```
 
-Daha fazla bilgi için bkz: [ODBC bağlayıcı](data-factory-odbc-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [ODBC Bağlayıcısı](data-factory-odbc-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir ODBC veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir ODBC veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |ODBC veri deposundaki tablonun adı. |Evet |
+| tableName |ODBC veri deposundaki tablosunun adı. |Evet |
 
 
 #### <a name="example"></a>Örnek
@@ -4531,10 +4531,10 @@ Bir ODBC veri kümesini tanımlamak için **türü** için veri kümesinin **Rel
 }
 ```
 
-Daha fazla bilgi için bkz: [ODBC bağlayıcı](data-factory-odbc-connector.md#dataset-properties) makalesi. 
+Daha fazla bilgi için [ODBC Bağlayıcısı](data-factory-odbc-connector.md#dataset-properties) makalesi. 
 
-### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-Bir ODBC veri deposundan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü :
+### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliğindeki ilişkisel bir kaynak
+Bir ODBC veri deposundan veri kopyalamayı verilirse **kaynak türünü** , kopyalama etkinliğine **RelationalSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü :
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
@@ -4582,20 +4582,20 @@ Bir ODBC veri deposundan veri kopyalıyorsanız ayarlamak **kaynak türünü** k
 }
 ``` 
 
-Daha fazla bilgi için bkz: [ODBC bağlayıcı](data-factory-odbc-connector.md#copy-activity-properties) makalesi.
+Daha fazla bilgi için [ODBC Bağlayıcısı](data-factory-odbc-connector.md#copy-activity-properties) makalesi.
 
 ## <a name="salesforce"></a>Salesforce
 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin bir Salesforce tanımlamak için Ayarla **türü** bağlantılı hizmetinin **Salesforce**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bağlı hizmeti bir Salesforce tanımlamak için Ayarla **türü** bağlı hizmetinin **Salesforce**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| environmentUrl | URL, Salesforce örneği belirtin. <br><br> -Varsayılan değer "https://login.salesforce.com". <br> -Korumalı alan veri kopyalamak için belirtin "https://test.salesforce.com". <br> Özel etki alanından veri kopyalamak için örneğin, "https://[domain].my.salesforce.com" belirtin. |Hayır |
+| environmentUrl | URL, Salesforce örneği belirtin. <br><br> -Varsayılan değer "https://login.salesforce.com". <br> Korumalı alan ' veri kopyalamak için belirtin "https://test.salesforce.com". <br> Özel etki alanından veri kopyalamak için örneğin, "https://[domain].my.salesforce.com" belirtin. |Hayır |
 | kullanıcı adı |Kullanıcı hesabı için bir kullanıcı adı belirtin. |Evet |
 | password |Kullanıcı hesabı için bir parola belirtin. |Evet |
-| securityToken |Kullanıcı hesabı için bir güvenlik belirteci belirtin. Bkz: [güvenlik belirteci alma getirin](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) bir güvenlik belirteci sıfırlama/get ilgili yönergeler için. Güvenlik belirteçleri hakkında genel bilgi edinmek için [güvenlik ve API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Evet |
+| securityToken |Kullanıcı hesabı için güvenlik belirtecini belirtin. Bkz: [güvenlik belirteci alın getirin](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) bir güvenlik belirteci sıfırlama/alma konusunda yönergeler için. Güvenlik belirteçleri hakkında genel bilgi edinmek için [güvenlik ve API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -4613,14 +4613,14 @@ Bağlantılı hizmetinin bir Salesforce tanımlamak için Ayarla **türü** bağ
 }
 ```
 
-Daha fazla bilgi için bkz: [Salesforce bağlayıcı](data-factory-salesforce-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [Salesforce Bağlayıcısı](data-factory-salesforce-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Salesforce veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Salesforce veri kümesini tanımlamak için **türü** için veri kümesinin **RelationalTable**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Salesforce tablo adı. |Hayır (varsa bir **sorgu** , **RelationalSource** belirtilir) |
+| tableName |Salesforce'taki tablosunun adı. |Hayır (varsa bir **sorgu** , **RelationalSource** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -4649,14 +4649,14 @@ Salesforce veri kümesini tanımlamak için **türü** için veri kümesinin **R
 }
 ```
 
-Daha fazla bilgi için bkz: [Salesforce bağlayıcı](data-factory-salesforce-connector.md#dataset-properties) makalesi. 
+Daha fazla bilgi için [Salesforce Bağlayıcısı](data-factory-salesforce-connector.md#dataset-properties) makalesi. 
 
-### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliği ilişkisel kaynağında
-Salesforce veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **RelationalSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
+### <a name="relational-source-in-copy-activity"></a>Kopyalama etkinliğindeki ilişkisel bir kaynak
+Salesforce veri kopyalıyorsanız ayarlayın **kaynak türü** , kopyalama etkinliğine **RelationalSource**, aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |Bir SQL-92 sorgu veya [Salesforce nesnesi sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgu. Örneğin:  `select * from MyTable__c`. |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| sorgu |Verileri okumak için özel sorgu kullanın. |Bir SQL 92 sorgu veya [Salesforce nesne sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgu. Örneğin:  `select * from MyTable__c`. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
 #### <a name="example"></a>Örnek  
 
@@ -4704,18 +4704,18 @@ Salesforce veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkin
 ```
 
 > [!IMPORTANT]
-> API adı "__c" bölümü için herhangi bir özel nesne gereklidir.
+> API adı "__c" bölümü, herhangi özel bir nesne için gereklidir.
 
-Daha fazla bilgi için bkz: [Salesforce bağlayıcı](data-factory-salesforce-connector.md#copy-activity-properties) makalesi. 
+Daha fazla bilgi için [Salesforce Bağlayıcısı](data-factory-salesforce-connector.md#copy-activity-properties) makalesi. 
 
-## <a name="web-data"></a>Web verileri 
+## <a name="web-data"></a>Web veri 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin Web tanımlamak için Ayarla **türü** bağlantılı hizmetinin **Web**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
+Bağlı hizmeti bir Web tanımlamak için Ayarla **türü** bağlı hizmetinin **Web**, aşağıdaki özellikleri belirtin **typeProperties** bölümü:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| Url |Web kaynağı URL'si |Evet |
+| Url |Web kaynağına URL'si |Evet |
 | authenticationType |Anonim. |Evet |
  
 
@@ -4735,16 +4735,16 @@ Bağlantılı hizmetinin Web tanımlamak için Ayarla **türü** bağlantılı h
 }
 ```
 
-Daha fazla bilgi için bkz: [Web tablo bağlayıcı](data-factory-web-table-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [Web tablosu bağlayıcı](data-factory-web-table-connector.md#linked-service-properties) makalesi. 
 
 ### <a name="dataset"></a>Veri kümesi
-Bir Web veri kümesini tanımlamak için **türü** için veri kümesinin **WebTable**ve aşağıdaki özellikleri belirtin **typeProperties** bölümü: 
+Bir Web veri kümesini tanımlamak için **türü** için veri kümesinin **WebTable**ve şu özelliklerde belirtin **typeProperties** bölümü: 
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type |Veri kümesi türü. ayarlanmalıdır **WebTable** |Evet |
-| yol |Tabloyu içeren kaynak için göreli bir URL. |Hayır. Bağlantılı hizmet tanımında belirtilen URL yolu belirtilmediğinde kullanılır. |
-| dizin |Tablo kaynak dizini. Bkz: [bir HTML sayfasında tablosunun Get dizini](#get-index-of-a-table-in-an-html-page) bir HTML sayfasında bir tablo dizininin alma adımları için bölüm. |Evet |
+| yol |Tablo içeren bir kaynak için göreli bir URL. |Hayır. Yalnızca bağlı hizmet tanımında belirtilen URL yolu belirtilmemiş olduğunda kullanılır. |
+| dizin |Kaynak tablodaki dizini. Bkz [Get dizini bir HTML sayfasında bir tablonun](#get-index-of-a-table-in-an-html-page) bölüm için bir HTML sayfasında bir tablo dizininin başlangıç adımları. |Evet |
 
 #### <a name="example"></a>Örnek
 
@@ -4767,10 +4767,10 @@ Bir Web veri kümesini tanımlamak için **türü** için veri kümesinin **WebT
 }
 ```
 
-Daha fazla bilgi için bkz: [Web tablo bağlayıcı](data-factory-web-table-connector.md#dataset-properties) makalesi. 
+Daha fazla bilgi için [Web tablosu bağlayıcı](data-factory-web-table-connector.md#dataset-properties) makalesi. 
 
-### <a name="web-source-in-copy-activity"></a>Kopyalama etkinliğinde Web kaynağı
-Bir web tablodan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **WebSource**. Şu anda kopyalama etkinliği kaynağında olduğunda türü **WebSource**, hiçbir ek özellikler desteklenir.
+### <a name="web-source-in-copy-activity"></a>Kopyalama etkinliği Web kaynağında
+Web tablodan veri kopyalıyorsanız ayarlamak **kaynak türünü** , kopyalama etkinliğine **WebSource**. Şu anda, kopyalama etkinliği kaynak olduğunda tür **WebSource**, hiçbir ek özellikler desteklenir.
 
 #### <a name="example"></a>Örnek
 
@@ -4814,38 +4814,38 @@ Bir web tablodan veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama
 }
 ```
 
-Daha fazla bilgi için bkz: [Web tablo bağlayıcı](data-factory-web-table-connector.md#copy-activity-properties) makalesi. 
+Daha fazla bilgi için [Web tablosu bağlayıcı](data-factory-web-table-connector.md#copy-activity-properties) makalesi. 
 
-## <a name="compute-environments"></a>ORTAMLAR İŞLEM
-Aşağıdaki tablo, veri fabrikası ve bunlar üzerinde çalışan dönüştürme etkinlikleri tarafından desteklenen bilgi işlem ortamları listeler. Bir data factory'ye bağlamak bağlı hizmet JSON şemaları görmek ilgilendiğiniz işlem bağlantısına tıklayın. 
+## <a name="compute-environments"></a>ORTAM İŞLEM
+Aşağıdaki tabloda Data Factory ve bunlar üzerinde çalışabilecek dönüştürme etkinlikleri tarafından desteklenen işlem ortamlarının listeler. Bir veri fabrikasına bağlamak için bağlı hizmet için JSON şemalarının görmek ilgilendiğiniz işlem bağlantısına tıklayın. 
 
 | İşlem ortamı | Etkinlikler |
 | --- | --- |
-| [İsteğe bağlı Hdınsight kümesi](#on-demand-azure-hdinsight-cluster) veya [kendi Hdınsight kümenizi](#existing-azure-hdinsight-cluster) |[.NET özel etkinlik](#net-custom-activity), [Hive etkinliğini](#hdinsight-hive-activity), [Pig etkinlik] (#hdinsight-pig-etkinliği [MapReduce etkinliği](#hdinsight-mapreduce-activity), [Hadoop etkinlik akış](#hdinsight-streaming-activityd), [ Spark etkinliği](#hdinsight-spark-activity) |
+| [İsteğe bağlı HDInsight kümesi](#on-demand-azure-hdinsight-cluster) veya [kendi HDInsight kümenizi](#existing-azure-hdinsight-cluster) |[.NET özel etkinliği](#net-custom-activity), [Hive etkinliği](#hdinsight-hive-activity), [Pig etkinliği] (#hdinsight-pig-etkinlik [MapReduce etkinliği](#hdinsight-mapreduce-activity), [Hadoop etkinlik akışı](#hdinsight-streaming-activityd), [ Spark etkinliği](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[.NET özel etkinliği](#net-custom-activity) |
-| [Azure Machine Learning](#azure-machine-learning) | [Toplu iş yürütme etkinliği makine](#machine-learning-batch-execution-activity), [kaynak güncelleştirme etkinliği makine](#machine-learning-update-resource-activity) |
-| [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
+| [Azure Machine Learning](#azure-machine-learning) | [Machine Learning batch yürütme etkinliği](#machine-learning-batch-execution-activity), [Machine Learning kaynak güncelleştirme etkinliği](#machine-learning-update-resource-activity) |
+| [Azure Data Lake Analytics'i](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
 | [Azure SQL veritabanı](#azure-sql-database-1), [Azure SQL veri ambarı](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[Saklı Yordam](#stored-procedure-activity) |
 
-## <a name="on-demand-azure-hdinsight-cluster"></a>İsteğe bağlı Azure Hdınsight kümesi
-Azure Data Factory hizmetinin otomatik olarak bir Windows/Linux tabanlı isteğe bağlı Hdınsight kümesi verileri işlemek için oluşturabilirsiniz. Küme kümeyle ilişkili depolama hesabı (JSON özelliğinde linkedServiceName) ile aynı bölgede oluşturulur. Bu bağlı hizmete aşağıdaki dönüştürme etkinlikleri çalıştırabilirsiniz: [.NET özel etkinlik](#net-custom-activity), [Hive etkinliğini](#hdinsight-hive-activity), [Pig etkinlik] (#hdinsight-pig-etkinliği [MapReduce etkinliği ](#hdinsight-mapreduce-activity), [Hadoop etkinlik akış](#hdinsight-streaming-activityd), [Spark etkinlik](#hdinsight-spark-activity). 
+## <a name="on-demand-azure-hdinsight-cluster"></a>İsteğe bağlı Azure HDInsight kümesi
+Azure Data Factory hizmetinin, bir Windows/Linux tabanlı isteğe bağlı HDInsight kümesi verileri işlemek için otomatik olarak oluşturabilirsiniz. Küme, kümeyle ilişkili depolama hesabı (JSON özelliğinde linkedServiceName) ile aynı bölgede oluşturulur. Bu bağlı hizmeti üzerinde aşağıdaki dönüştürme etkinliklerini çalıştırabilirsiniz: [.NET özel etkinliği](#net-custom-activity), [Hive etkinliği](#hdinsight-hive-activity), [Pig etkinliği] (#hdinsight-pig-etkinlik [MapReduce etkinliği ](#hdinsight-mapreduce-activity), [Hadoop etkinlik akışı](#hdinsight-streaming-activityd), [Spark etkinliği](#hdinsight-spark-activity). 
 
 ### <a name="linked-service"></a>Bağlı hizmet 
-Aşağıdaki tabloda bir isteğe bağlı Hdınsight bağlı hizmeti Azure JSON tanımında kullanılan özellikleri için açıklamalar sağlanır.
+Aşağıdaki tabloda, bir isteğe bağlı HDInsight bağlı hizmeti Azure JSON tanımında kullanılan özellikleri için açıklamalar sağlar.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalı **HDInsightOnDemand**. |Evet |
-| clusterSize |Kümedeki çalışan/veri düğüm sayısı. Hdınsight kümesi için bu özelliği belirtmeniz çalışan düğüm sayısı ile birlikte 2 baş düğümler ile oluşturulur. Düğüm boyutu 4 çalışan düğümlü bir küme 24 çekirdek alır, böylece 4 çekirdeğe sahip Standard_D3 olduğundan (4\*4 = 16 çekirdek çalışan düğümleri artı 2\*4 = 8 çekirdek baş düğümler için). Bkz: [Hdınsight oluşturma Linux tabanlı Hadoop kümeleri](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) Standard_D3 katmanı hakkında ayrıntılı bilgi için. |Evet |
-| TimeToLive |İsteğe bağlı Hdınsight kümesi için izin verilen boşta kalma süresi. Ne kadar süreyle isteğe bağlı Hdınsight kümesi kümedeki diğer etkin iş yok varsa bir etkinlik tamamlandıktan sonra canlı kalır belirtir.<br/><br/>Örneğin, bir etkinlik Çalıştır 6 dakika sürer ve timetolive 5 dakika olarak ayarlanmıştır, küme 6 etkinlik işleme dakika çalıştırdıktan sonra 5 dakika boyunca etkin kalır. Başka bir etkinlik 6 dakika penceresiyle yürütülürse, aynı küme tarafından işlenir.<br/><br/>İsteğe bağlı Hdınsight kümesi oluşturma bir pahalı işlemi (işlem zaman alabilir), bunu kullanımı isteğe bağlı Hdınsight kümesi yeniden kullanarak bir veri fabrikası performansını artırmak için bu ayarı olarak gerekli olur.<br/><br/>Timetolive değeri 0 olarak ayarlarsanız, etkinliği çalıştırmak hemen işlenen küme silinir. Diğer taraftan, yüksek bir değer ayarlarsanız, kümenin yüksek maliyetlerini gereksiz yere kaynaklanan boşta kalır. Bu nedenle, gereksinimlerinize göre uygun değere ayarlamak önemlidir.<br/><br/>Timetolive özellik değerini uygun şekilde ayarlanmışsa, birden çok ardışık düzen isteğe bağlı Hdınsight kümesi aynı kopyasını paylaştığında |Evet |
-| sürüm |Hdınsight küme sürümü. Ayrıntılar için bkz [desteklenen Azure Data Factory'de Hdınsight sürümleri](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Hayır |
-| linkedServiceName |Depolamak ve veri işleme için isteğe bağlı küme tarafından kullanılacak azure depolama bağlı hizmeti. <p>Şu anda bir Azure Data Lake Store depolama alanı olarak kullanan bir isteğe bağlı Hdınsight kümesi oluşturulamıyor. Bir Azure Data Lake Store'da işleme Hdınsight sonuç verileri depolamak istiyorsanız, Azure Blob depolama alanından Azure Data Lake Store'a veri kopyalamak için kopyalama etkinliği kullanın.</p>  | Evet |
-| additionalLinkedServiceNames |Data Factory hizmetinin bunları sizin adınıza kaydedebilirsiniz böylece Hdınsight için ek depolama hesapları hizmeti bağlı belirtir. |Hayır |
+| type |Type özelliği ayarlanmalıdır **Hdınsightondemand**. |Evet |
+| clusterSize |Kümedeki çalışan/veri düğümü sayısı. HDInsight kümesi için bu özelliği belirtmeniz çalışan düğümleri sayısını 2 baş düğüm ile oluşturulur. 4 çekirdek, 4 çalışan düğümü küme 24 çekirdek sürer olan işler için standart_d3 boyutunu düğümlerdir (4\*4 = 16 çekirdek çalışan düğümleri artı 2\*baş düğümleri için 4 = 8 çekirdek). Bkz: [oluşturma Linux tabanlı Hadoop kümeleri HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) işler için standart_d3 katmanı hakkında ayrıntılı bilgi için. |Evet |
+| TimeToLive |İsteğe bağlı HDInsight kümesi için izin verilen boşta kalma süresi. Ne kadar süreyle isteğe bağlı HDInsight kümesi kümede hiç bir etkin iş olduğunda çalıştırmak bir etkinlik tamamlandıktan sonra canlı kalmasını belirtir.<br/><br/>Örneğin, bir etkinlik çalıştırması 6 dakika sürer ve timetolive 5 dakika olarak ayarlanmıştır, küme etkinlik işleme 6 dakika çalıştırdıktan sonra 5 dakika boyunca Canlı kalır. Başka bir etkinlik çalıştırması 6 dakika penceresiyle yürütülürse, aynı küme tarafından işlenir.<br/><br/>Bir isteğe bağlı HDInsight kümesi oluşturma bir yeniden bir isteğe bağlı HDInsight kümesi kullanarak veri fabrikası performansını artırmak için bu ayarı olarak gerekli bunu kullanmak, pahalı işlem (biraz sürebilir) bağlıdır.<br/><br/>Timetolive değeri 0 olarak ayarlarsanız, etkinlik Çalıştır olarak işlenen küme silinir. Öte yandan, yüksek bir değere ayarlarsanız, kümenin yüksek maliyetleri gereksiz yere kaynaklanan boşta kalır. Bu nedenle, ihtiyaçlarınıza uygun değeri ayarlamak önemlidir.<br/><br/>Timetolive özellik değeri uygun şekilde ayarlanmışsa isteğe bağlı HDInsight kümesi'nın aynı örneğine birden fazla işlem hattını paylaşabilirsiniz |Evet |
+| sürüm |HDInsight küme sürümü. Ayrıntılar için bkz [desteklenen Azure Data Factory'de HDInsight sürümleri](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Hayır |
+| linkedServiceName |Depolama ve veri işleme için isteğe bağlı küme tarafından kullanılacak azure depolama bağlı hizmeti. <p>Şu anda, bir Azure Data Lake Store depolama alanı olarak kullanan bir isteğe bağlı HDInsight kümesi oluşturulamıyor. HDInsight bir Azure Data Lake Store içinde işleme sonuç verileri depolamak istiyorsanız, Azure Data Lake Store için Azure Blob depolama alanından verileri kopyalamak için kopyalama etkinliğini kullanın.</p>  | Evet |
+| additionalLinkedServiceNames |Ek depolama hesapları için HDInsight bağlı hizmeti Data Factory hizmetinin sizin adınıza kaydedebilmesi belirtir. |Hayır |
 | osType |İşletim sistemi türü. İzin verilen değerler: (varsayılan) Windows ve Linux |Hayır |
-| hcatalogLinkedServiceName |Azure SQL adını HCatalog veritabanına işaret hizmeti bağlı. İsteğe bağlı Hdınsight kümesi meta depo Azure SQL veritabanı kullanılarak oluşturulur. |Hayır |
+| hcatalogLinkedServiceName |Azure SQL adını bağlı HCatalog veritabanına işaret eden hizmeti. Meta veri deposu olarak Azure SQL veritabanı kullanarak isteğe bağlı HDInsight kümesi oluşturulur. |Hayır |
 
 ### <a name="json-example"></a>JSON örneği
-Aşağıdaki JSON Linux tabanlı isteğe bağlı Hdınsight bağlı hizmeti tanımlar. Data Factory hizmetinin otomatik olarak oluşturur bir **Linux tabanlı** veri dilimi işlerken Hdınsight kümesi. 
+Aşağıdaki JSON, Linux tabanlı bir isteğe bağlı HDInsight bağlı hizmeti tanımlar. Data Factory hizmetinin otomatik olarak oluşturur bir **Linux tabanlı** veri dilimi işlerken HDInsight kümesi. 
 
 ```json
 {
@@ -4863,23 +4863,23 @@ Aşağıdaki JSON Linux tabanlı isteğe bağlı Hdınsight bağlı hizmeti tan�
 }
 ```
 
-Daha fazla bilgi için bkz: [işlem bağlı Hizmetleri](data-factory-compute-linked-services.md) makalesi. 
+Daha fazla bilgi için [işlem bağlı Hizmetleri](data-factory-compute-linked-services.md) makalesi. 
 
-## <a name="existing-azure-hdinsight-cluster"></a>Var olan Azure Hdınsight kümesi
-Kendi Hdınsight kümenizi Data Factory ile kaydetmek için bir Azure Hdınsight bağlı hizmeti oluşturabilirsiniz. Bu bağlı hizmete aşağıdaki veri dönüştürme etkinlikleri çalıştırabilirsiniz: [.NET özel etkinlik](#net-custom-activity), [Hive etkinliğini](#hdinsight-hive-activity), [Pig etkinlik] (#hdinsight-pig-etkinliği [MapReduce Etkinlik](#hdinsight-mapreduce-activity), [Hadoop etkinlik akış](#hdinsight-streaming-activityd), [Spark etkinlik](#hdinsight-spark-activity). 
+## <a name="existing-azure-hdinsight-cluster"></a>Var olan Azure HDInsight kümesi
+Kendi HDInsight kümenizi Data Factory'ye kaydetmeniz için bir Azure HDInsight bağlı hizmeti oluşturabilirsiniz. Bu bağlı hizmeti üzerinde aşağıdaki veri dönüştürme etkinlikleri çalıştırabilirsiniz: [.NET özel etkinliği](#net-custom-activity), [Hive etkinliği](#hdinsight-hive-activity), [Pig etkinliği] (#hdinsight-pig-etkinlik [MapReduce Etkinlik](#hdinsight-mapreduce-activity), [Hadoop etkinlik akışı](#hdinsight-streaming-activityd), [Spark etkinliği](#hdinsight-spark-activity). 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Aşağıdaki tabloda Azure Hdınsight bağlı hizmeti Azure JSON tanımında kullanılan özellikleri için açıklamalar sağlanır.
+Aşağıdaki tabloda, bir Azure HDInsight bağlı hizmeti Azure JSON tanımında kullanılan özellikleri için açıklamalar sağlar.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalı **Hdınsight**. |Evet |
-| clusterUri |Hdınsight küme URI'si. |Evet |
-| kullanıcı adı |Var olan bir Hdınsight kümesine bağlanmak için kullanılacak kullanıcı adını belirtin. |Evet |
+| type |Type özelliği ayarlanmalıdır **HDInsight**. |Evet |
+| Küme Uri'si |HDInsight küme URİ'si. |Evet |
+| kullanıcı adı |Mevcut bir HDInsight kümesine bağlanmak için kullanılacak kullanıcı adını belirtin. |Evet |
 | password |Kullanıcı hesabı için parola belirtin. |Evet |
-| linkedServiceName | Hdınsight küme tarafından kullanılan Azure blob depolama başvurduğu Azure Storage bağlı hizmetin adı. <p>Şu anda bu özellik için bir Azure Data Lake Store bağlı belirtemezsiniz. Hdınsight kümesi için Data Lake Store erişimi varsa Azure Data Lake Store'da verileri Hive/Pig komut dosyalarından erişebilir. </p>  |Evet |
+| linkedServiceName | HDInsight küme tarafından kullanılan Azure blob Depolama'ya başvuran Azure depolama bağlı hizmetin adı. <p>Şu anda bu özellik için bir Azure Data Lake Store bağlı belirtemezsiniz. HDInsight kümesi için Data Lake Store erişimi varsa Hive/Pig betikleri Azure Data Lake Store içinde verilerine erişebilir. </p>  |Evet |
 
-Hdınsight kümeleri desteklenen sürümleri için bkz: [desteklenen Hdınsight sürümleri](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). 
+HDInsight kümeleri desteklenen sürümleri için bkz: [desteklenen HDInsight sürümleri](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). 
 
 #### <a name="json-example"></a>JSON örneği
 
@@ -4899,18 +4899,18 @@ Hdınsight kümeleri desteklenen sürümleri için bkz: [desteklenen Hdınsight 
 ```
 
 ## <a name="azure-batch"></a>Azure Batch
-Batch havuzundaki sanal makineler (VM'ler) kaydetmek için bir Azure Batch bağlantılı hizmeti bir data factory ile oluşturabilirsiniz. .NET özel etkinlikler Azure Batch ya da Azure Hdınsight kullanarak çalıştırabilirsiniz. Çalıştırabilirsiniz bir [.NET özel etkinlik](#net-custom-activity) bu hizmeti bağlı. 
+Data factory ile bir Batch havuzu sanal makineler (VM'ler) kaydetmek için bir Azure Batch bağlı hizmeti oluşturabilirsiniz. Azure Batch ya da Azure HDInsight'ı kullanarak .NET özel etkinlikleri çalıştırabilirsiniz. Çalıştırabileceğiniz bir [.NET özel etkinliği](#net-custom-activity) bu bağlı hizmeti. 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Aşağıdaki tabloda bir Azure Batch bağlı hizmeti Azure JSON tanımında kullanılan özellikleri için açıklamalar sağlanır.
+Aşağıdaki tabloda, bir Azure Batch bağlı hizmeti Azure JSON tanımında kullanılan özellikleri için açıklamalar sağlar.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalı **AzureBatch**. |Evet |
-| accountName |Azure toplu işlem hesabının adı. |Evet |
+| type |Type özelliği ayarlanmalıdır **AzureBatch**. |Evet |
+| accountName |Azure Batch hesabı adı. |Evet |
 | accessKey |Azure Batch hesabı için erişim anahtarı. |Evet |
-| poolName |Sanal makinelerin havuzunun adı. |Evet |
-| linkedServiceName |Azure depolama adı hizmeti bağlı Azure Batch hizmeti ile ilişkili bağlı. Bu bağlı hizmetin etkinlik ve Etkinlik yürütme günlüklerini depolamak çalıştırmak için gerekli hazırlama dosyaları için kullanılır. |Evet |
+| poolName |Sanal makine havuzu adı. |Evet |
+| linkedServiceName |Ad Azure depolama bağlı hizmeti bu bağlı Azure Batch hizmeti ile ilişkilendirilmiş. Bu bağlı hizmeti, etkinlik ve Etkinlik yürütme günlüklerini depolamak çalıştırmak için gereken hazırlık dosyalar için kullanılır. |Evet |
 
 
 #### <a name="json-example"></a>JSON örneği
@@ -4931,16 +4931,16 @@ Aşağıdaki tabloda bir Azure Batch bağlı hizmeti Azure JSON tanımında kull
 ```
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
-Bir Machine Learning toplu Puanlama uç noktası data factory ile kaydetmek için bir Azure Machine Learning bağlantılı hizmeti oluşturun. Bu bilgisayarda çalıştırabilir iki veri dönüştürme etkinlikleri bağlantılı hizmeti: [Machine Learning toplu iş yürütme etkinliği](#machine-learning-batch-execution-activity), [Machine Learning kaynak güncelleştirme etkinliği](#machine-learning-update-resource-activity). 
+Machine Learning toplu Puanlama uç noktası bir data factory ile kaydetmek için bir Azure Machine Learning bağlı hizmet oluşturun. Bu çalıştırabilirsiniz iki veri dönüştürme etkinlikleri bağlı hizmet: [Machine Learning Batch yürütme etkinliği](#machine-learning-batch-execution-activity), [Machine Learning kaynak güncelleştirme etkinliği](#machine-learning-update-resource-activity). 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Aşağıdaki tabloda bir Azure Machine Learning bağlı hizmeti Azure JSON tanımında kullanılan özellikleri için açıklamalar sağlanır.
+Aşağıdaki tabloda, bir Azure Machine Learning bağlı hizmeti Azure JSON tanımında kullanılan özellikleri için açıklamalar sağlar.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | Tür |Type özelliği ayarlanmalıdır: **AzureML**. |Evet |
-| mlEndpoint |Toplu Puanlama URL. |Evet |
-| apikey ile yapılan |Yayımlanan çalışma alanı modelinin API. |Evet |
+| mlEndpoint |Toplu işlem Puanlama URL'si. |Evet |
+| apiKey |Yayımlanan çalışma alanı modelinin API. |Evet |
 
 #### <a name="json-example"></a>JSON örneği
 
@@ -4958,25 +4958,25 @@ Aşağıdaki tabloda bir Azure Machine Learning bağlı hizmeti Azure JSON tanı
 ```
 
 ## <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
-Oluşturduğunuz bir **Azure Data Lake Analytics** bir Azure Data Lake Analytics bağlamak için bağlı hizmet kullanmadan önce bir Azure data factory hizmetine işlem [Data Lake Analytics U-SQL etkinliği](data-factory-usql-activity.md) ardışık düzeninde.
+Oluşturduğunuz bir **Azure Data Lake Analytics** kullanmadan önce bir Azure Data Lake Analytics bağlamak için bağlı hizmet bir Azure data factory hizmetine işlem [Data Lake Analytics U-SQL etkinliği](data-factory-usql-activity.md) ardışık düzeninde.
 
 ### <a name="linked-service"></a>Bağlı hizmet
 
-Aşağıdaki tabloda bir Azure Data Lake Analytics bağlantılı hizmeti JSON tanımında kullanılan özellikleri için açıklamalar sağlanır. 
+Aşağıdaki tabloda, bir Azure Data Lake Analytics bağlı hizmeti JSON tanımında kullanılan özellikleri için açıklamalar sağlar. 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | Tür |Type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. |Evet |
 | accountName |Azure Data Lake Analytics hesap adı. |Evet |
-| dataLakeAnalyticsUri |Azure Data Lake Analytics URI. |Hayır |
-| Yetkilendirme |Yetkilendirme kodu, tıkladıktan sonra otomatik olarak alınır **Authorize** Data Factory Düzenleyici'düğmesine tıklayın ve OAuth oturum açma tamamlanıyor. |Evet |
+| dataLakeAnalyticsUri |Azure Data Lake Analytics URI'si. |Hayır |
+| Yetkilendirme |Yetkilendirme kodu, tıkladıktan sonra otomatik olarak alınır **Authorize** OAuth oturum açma işlemi tamamlandıktan ve Data Factory Düzenleyicisi'nde düğmesi. |Evet |
 | subscriptionId |Azure abonelik kimliği |Hayır (belirtilmezse, data Factory abonelik kullanılır). |
-| resourceGroupName |Azure kaynak grubu adı |Hayır (belirtilmezse, kaynak grubu data Factory kullanılır). |
-| SessionID |OAuth yetkilendirme oturumundan oturum kimliği. Her oturum kimliği benzersiz olup yalnızca bir kez kullanılabilir. Data Factory Düzenleyici kullandığınızda, bu otomatik olarak oluşturulan kimliğidir. |Evet |
+| resourceGroupName |Azure kaynak grubu adı |Hayır (belirtilmezse, data Factory kaynak grubu kullanılır). |
+| oturum kimliği |OAuth yetkilendirme oturumundan oturum kimliği. Her oturum kimliği benzersiz olup yalnızca bir kez kullanılabilir. Data Factory Düzenleyicisi'ni kullandığınızda, bu kimliği otomatik olarak üretilir. |Evet |
 
 
 #### <a name="json-example"></a>JSON örneği
-Aşağıdaki örnek bir Azure Data Lake Analytics bağlantılı hizmeti için JSON tanımını sağlar.
+Aşağıdaki örnek, bir Azure Data Lake Analytics bağlı hizmeti için JSON tanımını sağlar.
 
 ```json
 {
@@ -4996,14 +4996,14 @@ Aşağıdaki örnek bir Azure Data Lake Analytics bağlantılı hizmeti için JS
 ```
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL bağlı hizmeti oluşturma ve onunla kullanma [saklı yordam etkinliği](#stored-procedure-activity) Data Factory işlem hattı bir saklı yordam çağırmak için. 
+Bir Azure SQL bağlı hizmeti oluşturma ve kullanılmakta olan [saklı yordam etkinliğine](#stored-procedure-activity) Data Factory işlem hattı bir saklı yordam çağırmak için. 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmeti bir Azure SQL veritabanı tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AzureSqlDatabase**ve aşağıdaki özellikleri belirtin **typeProperties** Bölüm:  
+Bağlı hizmeti Azure SQL veritabanı tanımlamak için Ayarla **türü** bağlı hizmetinin **AzureSqlDatabase**, aşağıdaki özellikleri belirtin **typeProperties** Bölüm:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| connectionString |ConnectionString özelliği için Azure SQL veritabanı örneğine bağlanmak için gereken bilgileri belirtin. |Evet |
+| bağlantı dizesi |ConnectionString özelliği için Azure SQL veritabanı örneğine bağlanmak için gereken bilgileri belirtin. |Evet |
 
 #### <a name="json-example"></a>JSON örneği
 
@@ -5019,17 +5019,17 @@ Bağlantılı hizmeti bir Azure SQL veritabanı tanımlamak için Ayarla **tür�
 }
 ```
 
-Bkz: [Azure SQL Bağlayıcısı](data-factory-azure-sql-connector.md#linked-service-properties) makale bu bağlı hizmetin hakkında ayrıntılı bilgi için.
+Bkz: [Azure SQL Bağlayıcısı](data-factory-azure-sql-connector.md#linked-service-properties) bu bağlı hizmeti hakkında bilgi için makalenin.
 
 ## <a name="azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı
-Bir Azure SQL Data Warehouse bağlı hizmet oluşturma ve onunla kullanma [saklı yordam etkinliği](data-factory-stored-proc-activity.md) Data Factory işlem hattı bir saklı yordam çağırmak için. 
+Bir Azure SQL veri ambarı bağlı hizmetini oluşturmak ve kullanılmakta olan [saklı yordam etkinliğine](data-factory-stored-proc-activity.md) Data Factory işlem hattı bir saklı yordam çağırmak için. 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlantılı hizmetinin Azure SQL Data Warehouse tanımlamak için Ayarla **türü** bağlantılı hizmetinin **AzureSqlDW**ve aşağıdaki özellikleri belirtin **typeProperties** Bölüm:  
+Bağlı hizmeti bir Azure SQL veri ambarı tanımlamak için Ayarla **türü** bağlı hizmetinin **AzureSqlDW**, aşağıdaki özellikleri belirtin **typeProperties** Bölüm:  
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| connectionString |ConnectionString özelliği için Azure SQL Data Warehouse örneğine bağlanmak için gereken bilgileri belirtin. |Evet |
+| bağlantı dizesi |ConnectionString özelliği için Azure SQL veri ambarı örneğine bağlanmak için gereken bilgileri belirtin. |Evet |
 
 #### <a name="json-example"></a>JSON örneği
 
@@ -5045,22 +5045,22 @@ Bağlantılı hizmetinin Azure SQL Data Warehouse tanımlamak için Ayarla **tü
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure SQL Data Warehouse Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) makalesi. 
+Daha fazla bilgi için [Azure SQL veri ambarı Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) makalesi. 
 
 ## <a name="sql-server"></a>SQL Server 
-Bir SQL Server bağlantılı hizmet oluşturma ve onunla kullanma [saklı yordam etkinliği](data-factory-stored-proc-activity.md) Data Factory işlem hattı bir saklı yordam çağırmak için. 
+SQL Server bağlı hizmeti oluşturma ve kullanılmakta olan [saklı yordam etkinliğine](data-factory-stored-proc-activity.md) Data Factory işlem hattı bir saklı yordam çağırmak için. 
 
 ### <a name="linked-service"></a>Bağlı hizmet
-Bağlı hizmet türü oluşturma **OnPremisesSqlServer** bir şirket içi SQL Server veritabanını data factory'ye bağlamak için. Aşağıdaki tabloda şirket içi SQL Server bağlantılı hizmete özgü JSON öğeleri açıklamasını sağlar.
+Bağlı hizmet türü oluşturma **OnPremisesSqlServer** bir şirket içi SQL Server veritabanına bir veri fabrikasına bağlamak için. Aşağıdaki tabloda, şirket içi SQL Server bağlı hizmeti için özel JSON öğeleri için bir açıklama sağlar.
 
-Aşağıdaki tabloda, SQL Server bağlantılı hizmete özgü JSON öğeleri açıklamasını sağlar.
+Aşağıdaki tabloda, SQL Server bağlı hizmeti için özel JSON öğeleri için bir açıklama sağlar.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **OnPremisesSqlServer**. |Evet |
-| connectionString |SQL kimlik doğrulaması veya Windows kimlik doğrulaması kullanarak şirket içi SQL Server veritabanına bağlanmak için gereken connectionString bilgilerini belirtin. |Evet |
-| gatewayName |Data Factory hizmetinin şirket içi SQL Server veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
-| kullanıcı adı |Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. Örnek: **domainname\\kullanıcıadı**. |Hayır |
+| bağlantı dizesi |SQL kimlik doğrulaması veya Windows kimlik doğrulaması kullanarak şirket içi SQL Server veritabanına bağlanmak üzere gereken bağlantı dizesi bilgilerini belirtin. |Evet |
+| gatewayName |Data Factory hizmetinin şirket içi SQL Server veritabanına bağlanmak için kullanması gereken ağ geçidi adı. |Evet |
+| kullanıcı adı |Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. Örnek: **domainname\\username**. |Hayır |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
 
 Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzureRmDataFactoryEncryptValue** cmdlet'i ve bunları aşağıdaki örnekte gösterildiği gibi bağlantı dizesini kullanın (**EncryptedCredential** özellik):  
@@ -5070,7 +5070,7 @@ Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzureRmDataFactoryEncr
 ```
 
 
-#### <a name="example-json-for-using-sql-authentication"></a>Örnek: SQL kimlik doğrulaması kullanmak için JSON
+#### <a name="example-json-for-using-sql-authentication"></a>Örnek: JSON'ın SQL kimlik doğrulaması kullanma
 
 ```json
 {
@@ -5086,7 +5086,7 @@ Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzureRmDataFactoryEncr
 ```
 #### <a name="example-json-for-using-windows-authentication"></a>Örnek: JSON'ı Windows kimlik doğrulaması kullanma
 
-Kullanıcı adı ve parolası belirtilmişse, ağ geçidi bunları şirket içi SQL Server veritabanına bağlanmak için belirtilen kullanıcı hesabının kimliğine bürün kullanır. Aksi takdirde, ağ geçidi SQL Server Ağ Geçidi (kendi başlangıç hesabı) güvenlik bağlamı ile doğrudan bağlanır.
+Kullanıcı adı ve parolası belirtilmişse, ağ geçidi bunları şirket içi SQL Server veritabanına bağlanmak için belirtilen kullanıcı hesabının kimliğine bürün için kullanır. Aksi takdirde, ağ geçidi SQL Server Ağ Geçidi (kendi başlangıç hesabı) güvenlik bağlamı ile doğrudan bağlanır.
 
 ```json
 {
@@ -5103,37 +5103,37 @@ Kullanıcı adı ve parolası belirtilmişse, ağ geçidi bunları şirket içi 
 }
 ```
 
-Daha fazla bilgi için bkz: [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#linked-service-properties) makalesi.
+Daha fazla bilgi için [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#linked-service-properties) makalesi.
 
 ## <a name="data-transformation-activities"></a>VERİ DÖNÜŞTÜRME ETKİNLİKLERİ
 
 Etkinlik | Açıklama
 -------- | -----------
-[Hdınsight Hive etkinliği](#hdinsight-hive-activity) | Data Factory işlem hattı Hdınsight Hive etkinliğinde, Hive sorguları kendi veya isteğe bağlı Windows/Linux tabanlı Hdınsight kümesi yürütür. 
-[Hdınsight Pig etkinliği](#hdinsight-pig-activity) | Data Factory işlem hattı Hdınsight Pig etkinliğinde kendi Pig sorgular veya isteğe bağlı Windows/Linux tabanlı Hdınsight kümesi yürütür.
-[HDInsight MapReduce Etkinliği](#hdinsight-mapreduce-activity) | Data Factory işlem hattı Hdınsight MapReduce etkinliğinde kendi MapReduce programları veya isteğe bağlı Windows/Linux tabanlı Hdınsight kümesi yürütür.
-[HDInsight Akış Etkinliği](#hdinsight-streaming-activity) | Hdınsight akış etkinliğinde Data Factory işlem hattı Hadoop akış programlar kendi veya isteğe bağlı Windows/Linux tabanlı Hdınsight kümesi yürütür.
-[HDInsight Spark Etkinliği](#hdinsight-spark-activity) | Data Factory işlem hattı Hdınsight Spark etkinliğinde Spark programlar kendi Hdınsight kümesinde yürütür. 
-[Machine Learning Batch Yürütme Etkinliği](#machine-learning-batch-execution-activity) | Azure Data Factory, Tahmine dayalı analiz için yayımlanan bir Azure Machine Learning web hizmetini kullan ardışık düzen kolayca oluşturmanıza olanak sağlar. Toplu iş yürütme etkinliği Azure Data Factory ardışık düzeninde kullanarak, bir Machine Learning web hizmeti toplu veriler üzerinde tahminlerde çağırabilirsiniz. 
-[Machine Learning Kaynak Güncelleştirme Etkinliği](#machine-learning-update-resource-activity) | Zaman içinde denemeler Puanlama Machine Learning Tahmine dayalı modelleri yeni giriş veri kümeleri kullanarak retrained gerekir. Yeniden eğitme ile tamamladıktan sonra ile retrained Machine Learning modeli Puanlama web hizmetini güncelleştirmek istiyor. Web hizmeti ile yeni eğitilen modeli güncelleştirmek için güncelleştirme kaynağı etkinliğini kullanabilirsiniz.
-[Saklı Yordam Etkinliği](#stored-procedure-activity) | Aşağıdaki veri depolarına birinde bir saklı yordam çağrılacak bir Data Factory işlem hattı saklı yordam etkinliği kullanabilirsiniz: Azure SQL Database, Azure SQL Data Warehouse, SQL Server veritabanı kuruluşunuzdaki veya bir Azure VM. 
-[Data Lake Analytics U-SQL etkinliği](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL etkinliği Azure Data Lake Analytics kümede bir U-SQL komut dosyasını çalıştırır.  
-[.NET özel etkinliği](#net-custom-activity) | Veri fabrikası tarafından desteklenmeyen bir şekilde veri dönüştürme ihtiyacınız varsa, kendi veri işleme mantığı ile özel bir etkinlik oluşturmak ve ardışık düzeninde etkinlik kullanın. Bir Azure Batch hizmeti ya da Azure Hdınsight kümesi kullanarak çalıştırmak için özel .NET etkinliği yapılandırabilirsiniz. 
+[HDInsight Hive etkinliği](#hdinsight-hive-activity) | Hive sorguları kendi sunucunuzda veya isteğe bağlı Windows/Linux tabanlı HDInsight kümesi Data Factory işlem hattındaki HDInsight Hive etkinliği yürütür. 
+[HDInsight Pig etkinliği](#hdinsight-pig-activity) | HDInsight Pig etkinliği bir Data Factory işlem hattında, Pig sorgu kendiniz veya isteğe bağlı Windows/Linux tabanlı HDInsight kümesi yürütür.
+[HDInsight MapReduce Etkinliği](#hdinsight-mapreduce-activity) | MapReduce programlarını kendi sunucunuzda veya isteğe bağlı Windows/Linux tabanlı HDInsight kümesi Data Factory işlem hattındaki HDInsight MapReduce etkinliği yürütür.
+[HDInsight Akış Etkinliği](#hdinsight-streaming-activity) | HDInsight akış etkinliği bir Data Factory işlem hattında, Hadoop akış programları kendi sunucunuzda veya isteğe bağlı Windows/Linux tabanlı HDInsight kümesi yürütür.
+[HDInsight Spark Etkinliği](#hdinsight-spark-activity) | HDInsight Spark etkinliği bir Data Factory işlem hattı, Spark programlarını kendi HDInsight kümesinde yürütür. 
+[Machine Learning Batch Yürütme Etkinliği](#machine-learning-batch-execution-activity) | Azure Data Factory, kolayca Tahmine dayalı analiz için yayımlanan bir Azure Machine Learning web hizmetini kullanan işlem hatları oluşturmanıza olanak sağlar. Bir Azure Data Factory işlem hattı, Batch yürütme etkinliği kullanarak verileri toplu tahminlerde bulunmak üzere Machine Learning web hizmetini çağırabilirsiniz. 
+[Machine Learning Kaynak Güncelleştirme Etkinliği](#machine-learning-update-resource-activity) | Zaman içinde yeni bir giriş veri kümeleri kullanarak eğitilebileceği denemeleri Puanlama Machine learning'de Tahmine dayalı modelleri gerekir. Yeniden eğitme ile işiniz bittiğinde, Puanlama web hizmeti ile retrained Machine Learning modeli güncelleştirmek istiyorsunuz. Web hizmeti ile yeni eğitilen modeli güncelleştirmek için güncelleştirme kaynak etkinliği'ni kullanabilirsiniz.
+[Saklı Yordam Etkinliği](#stored-procedure-activity) | Aşağıdaki veri depolarını birinde bir saklı yordam çağırmak için saklı yordam etkinliği bir Data Factory işlem hattında kullanabilirsiniz: Azure SQL veritabanı, Azure SQL veri ambarı, SQL Server veritabanı kuruluşunuza veya bir Azure VM. 
+[Data Lake Analytics U-SQL etkinliği](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL etkinliği, bir Azure Data Lake Analytics kümesinde bir U-SQL betiği çalıştırır.  
+[.NET özel etkinliği](#net-custom-activity) | Verileri Data Factory tarafından desteklenmeyen bir şekilde dönüştürmek isterseniz, kendi veri işleme mantığı ile özel bir etkinlik oluşturma ve işlem hattı etkinliğini kullanın. Bir Azure Batch hizmeti ya da bir Azure HDInsight kümesi kullanarak çalıştırmak için özel bir .NET etkinliği yapılandırabilirsiniz. 
 
      
 ## <a name="hdinsight-hive-activity"></a>HDInsight Hive Etkinliği
-Bir Hive etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **Hdınsighthive**. Hdınsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölüm için Hdınsighthive etkinliği türünü ayarladığınızda:
+Bir Hive etkinliği JSON tanımında, aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olmalıdır: **Hdınsighthive**. Bir HDInsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler desteklenir **typeProperties** için Hdınsighthive etkinliği türünü ayarladığınızda, bölüm:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | komut dosyası |Hive betiği satır içi belirtin |Hayır |
-| komut dosyası yolu |Hive betiği bir Azure blob storage'da depolamak ve dosyanın yolunu belirtin. 'Komut dosyası' veya 'scriptPath' özelliğini kullanın. Her ikisi birlikte kullanılamaz. Dosya adı büyük/küçük harf duyarlıdır. |Hayır |
-| tanımlar |'Hiveconf' kullanarak Hive betiğini içinde başvurmak için anahtar/değer çiftleri olarak parametrelerini belirtin |Hayır |
+| betik yolu |Hive betiği bir Azure blob depolama alanında Store ve dosyanın yolunu belirtin. 'Script' veya 'scriptPath' özelliğini kullanın. Her ikisi de birlikte kullanılamaz. Dosya adı büyük/küçük harfe duyarlıdır. |Hayır |
+| tanımlar |Hive betiği 'hiveconf' kullanarak içinde başvurmak için anahtar/değer çiftleri parametrelerini belirtin |Hayır |
 
-Bu tür özellikleri için Hive etkinliği özgüdür. Diğer özellikler (dışında typeProperties bölüm) tüm etkinlikler için desteklenir.   
+Bu tür özellikleri için Hive etkinliği özgüdür. Diğer özelliklerini (dışında typeProperties bölümünün) tüm etkinlikler için desteklenir.   
 
 ### <a name="json-example"></a>JSON örneği
-Aşağıdaki JSON ardışık düzeninde Hdınsight Hive etkinliği tanımlar.  
+Aşağıdaki JSON bir işlem hattındaki HDInsight Hive etkinliği tanımlar.  
 
 ```json
 {
@@ -5165,18 +5165,18 @@ Aşağıdaki JSON ardışık düzeninde Hdınsight Hive etkinliği tanımlar.
 }
 ```
 
-Daha fazla bilgi için bkz: [Hive etkinliği](data-factory-hive-activity.md) makalesi. 
+Daha fazla bilgi için [Hive etkinliği](data-factory-hive-activity.md) makalesi. 
 
 ## <a name="hdinsight-pig-activity"></a>HDInsight Pig Etkinliği
-Pig etkinlik JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **HDInsightPig**. Hdınsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölümünde etkinlik türü için HDInsightPig ayarladığınızda: 
+Pig etkinliği JSON tanımında, aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olmalıdır: **HDInsightPig**. Bir HDInsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler desteklenir **typeProperties** bölümünde etkinlik türü için HDInsightPig ayarladığınızda: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | komut dosyası |Pig betiği satır içi belirtin |Hayır |
-| komut dosyası yolu |Pig betiği bir Azure blob storage'da depolamak ve dosyanın yolunu belirtin. 'Komut dosyası' veya 'scriptPath' özelliğini kullanın. Her ikisi birlikte kullanılamaz. Dosya adı büyük/küçük harf duyarlıdır. |Hayır |
-| tanımlar |Pig betiği içinde başvurmak için anahtar/değer çiftleri olarak parametrelerini belirtin |Hayır |
+| betik yolu |Pig betiği bir Azure blob depolama alanında Store ve dosyanın yolunu belirtin. 'Script' veya 'scriptPath' özelliğini kullanın. Her ikisi de birlikte kullanılamaz. Dosya adı büyük/küçük harfe duyarlıdır. |Hayır |
+| tanımlar |Pig betiği içinde başvurmak için anahtar/değer çiftleri parametrelerini belirtin |Hayır |
 
-Bu tür özellikleri, Pig etkinlik özgüdür. Diğer özellikler (dışında typeProperties bölüm) tüm etkinlikler için desteklenir.   
+Bu tür özellikleri için Pig etkinliği özgüdür. Diğer özelliklerini (dışında typeProperties bölümünün) tüm etkinlikler için desteklenir.   
 
 ### <a name="json-example"></a>JSON örneği
 
@@ -5217,17 +5217,17 @@ Bu tür özellikleri, Pig etkinlik özgüdür. Diğer özellikler (dışında ty
 }
 ```
 
-Daha fazla bilgi için bkz: [Pig etkinlik](#data-factory-pig-activity.md) makalesi. 
+Daha fazla bilgi için [Pig etkinliği](#data-factory-pig-activity.md) makalesi. 
 
 ## <a name="hdinsight-mapreduce-activity"></a>HDInsight MapReduce Etkinliği
-Bir MapReduce etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **HDInsightMapReduce**. Hdınsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölümünde etkinlik türü için HDInsightMapReduce ayarladığınızda: 
+MapReduce etkinliği JSON tanımında, aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olmalıdır: **HDInsightMapReduce**. Bir HDInsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler desteklenir **typeProperties** bölümünde etkinlik türü için HDInsightMapReduce ayarladığınızda: 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| jarLinkedService | JAR dosyasını içeren Azure depolama bağlı hizmetin adı. | Evet |
-| jarFilePath | Azure storage'da JAR dosyasının yolu. | Evet | 
+| jarLinkedService | JAR dosyasını içeren Azure depolama için bağlı hizmetin adı. | Evet |
+| jarFilePath | Azure storage'da JAR dosyası yolu. | Evet | 
 | className | JAR dosyasını ana sınıfının adı. | Evet | 
-| bağımsız değişkenler | Bağımsız değişkenleri MapReduce program virgülle ayrılmış listesi. Çalışma zamanında gördüğünüz birkaç ek bağımsız değişkenler (örneğin: mapreduce.job.tags) MapReduce çerçeveden. MapReduce bağımsız değişkenleriyle ayırt etmek için seçeneği ve değer bağımsız değişken olarak aşağıdaki örnekte gösterildiği gibi kullanmayı düşünün (- s,--giriş,--çıkış vb. olan göre bunların değerleri hemen ardından seçenekleri) | Hayır | 
+| bağımsız değişkenler | MapReduce programını bağımsız değişkenleri virgülle ayrılmış listesi. Çalışma zamanında, gördüğünüz bazı ek bağımsız değişkenler (örneğin: mapreduce.job.tags) MapReduce çerçeveden. MapReduce bağımsız değişkenleriyle değişkenleriniz ayırt etmek için hem seçeneği hem de değer bağımsız değişken olarak aşağıdaki örnekte gösterildiği gibi kullanmayı düşünün (- s, giriş,--çıktısı, vb. değerlerine göre hemen ardından seçenekleri olan) | Hayır | 
 
 ### <a name="json-example"></a>JSON örneği
 
@@ -5275,24 +5275,24 @@ Bir MapReduce etkinliği JSON tanımında aşağıdaki özellikleri belirtebilir
 }
 ```
 
-Daha fazla bilgi için bkz: [MapReduce etkinliği](data-factory-map-reduce.md) makalesi. 
+Daha fazla bilgi için [MapReduce etkinliği](data-factory-map-reduce.md) makalesi. 
 
 ## <a name="hdinsight-streaming-activity"></a>HDInsight Akış Etkinliği
-Bir Hadoop akış etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **HDInsightStreaming**. Hdınsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölümünde etkinlik türü için HDInsightStreaming ayarladığınızda: 
+Bir Hadoop akış etkinlik JSON tanımında, aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olmalıdır: **Hdınsightstreaming**. Bir HDInsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler desteklenir **typeProperties** bölümünde etkinlik türü için Hdınsightstreaming ayarladığınızda: 
 
 | Özellik | Açıklama | 
 | --- | --- |
-| Eşleyici | Yürütülebilir Eşleyici adı. Örnekte, cat.exe yürütülebilir Eşleyici ' dir.| 
-| reducer | Yürütülebilir reducer adı. Örnekte, wc.exe yürütülebilir reducer ' dir. | 
-| input | Eşleyici için girdi dosyası (konum dahil). Örnekte: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample blob kapsayıcısı, veri/örnek/Gutenberg klasördür ve davinci.txt blob. |
-| çıkış | Çıktı dosyası (konum dahil) reducer için. Hadoop akış işi çıkışı, bu özellik için belirtilen konuma yazılır. |
-| filePaths | Eşleyici ve reducer yürütülebilir dosyalar için yollar. Örnekte: "adfsample/example/apps/wc.exe" adfsample blob kapsayıcısı, örnek/uygulamaları klasördür ve wc.exe çalıştırılabilir. | 
-| fileLinkedService | FilePaths bölümünde belirtilen dosyaları içeren Azure depolama temsil eden azure depolama bağlı hizmeti. | 
-| bağımsız değişkenler | Bağımsız değişkenleri MapReduce program virgülle ayrılmış listesi. Çalışma zamanında gördüğünüz birkaç ek bağımsız değişkenler (örneğin: mapreduce.job.tags) MapReduce çerçeveden. MapReduce bağımsız değişkenleriyle ayırt etmek için seçeneği ve değer bağımsız değişken olarak aşağıdaki örnekte gösterildiği gibi kullanmayı düşünün (- s,--giriş,--çıkış vb. olan göre bunların değerleri hemen ardından seçenekleri) | 
-| Getdebugınfo | İsteğe bağlı bir öğe. Hata için ayarlandığında, günlükleri yalnızca hatada indirilir. Tüm ayarlandığında, günlükleri yürütme durumu bağımsız olarak daima yüklenir. | 
+| Eşleyici | Yürütülebilir Eşleyici adı. Bu örnekte cat.exe yürütülebilir eşleyicisidir.| 
+| Azaltıcı | Yürütülebilir Azaltıcı adı. Bu örnekte wc.exe yürütülebilir Azaltıcı ' dir. | 
+| input | (Konum dahil) giriş dosyası Eşleştiricisi için. Örnekte: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample blob kapsayıcısını, örnek/data/Gutenberg klasördür ve davinci.txt blob. |
+| çıkış | Çıktı dosyası (konum dahil) için Azaltıcı. Hadoop akışı tanımlı işlemin çıktısını, bu özellik için belirtilen konuma yazılır. |
+| filePaths | Yolları Eşleyici ve azaltıcı yürütülebilir dosyalar için. Örnekte: "adfsample/example/apps/wc.exe" adfsample blob kapsayıcısını, örnek/uygulamaları klasördür ve wc.exe çalıştırılabilir. | 
+| fileLinkedService | FilePaths bölümünde belirtilen dosyalar içeren bir Azure depolama temsil eden azure depolama bağlı hizmeti. | 
+| bağımsız değişkenler | MapReduce programını bağımsız değişkenleri virgülle ayrılmış listesi. Çalışma zamanında, gördüğünüz bazı ek bağımsız değişkenler (örneğin: mapreduce.job.tags) MapReduce çerçeveden. MapReduce bağımsız değişkenleriyle değişkenleriniz ayırt etmek için hem seçeneği hem de değer bağımsız değişken olarak aşağıdaki örnekte gösterildiği gibi kullanmayı düşünün (- s, giriş,--çıktısı, vb. değerlerine göre hemen ardından seçenekleri olan) | 
+| Getdebugınfo | İsteğe bağlı bir öğe. Başarısız olduğunda ayarlandığında, günlükleri yalnızca başarısız olduğunda indirilir. Tüm ayarlandığında, günlükleri yürütme durumu bağımsız olarak daima yüklenir. | 
 
 > [!NOTE]
-> Hadoop akış etkinliği için bir çıkış veri kümesi belirtmelisiniz **çıkarır** özelliği. Bu veri kümesi yalnızca ardışık düzen zamanlama (saatlik, günlük, vs.) sürücü için gereken bir kukla dataset olabilir. Etkinliği bir girdi almazsa, etkinliği için bir giriş veri kümesi belirtme atlayabilirsiniz **girişleri** özelliği.  
+> Hadoop akış etkinliğinde'için bir çıktı veri kümesi belirtmelisiniz **çıkarır** özelliği. Bu veri kümesi (saatlik, günlük, vb.) işlem hattı zamanlama sürücü için gerekli olan yalnızca bir işlevsiz veri kümesi olabilir. Etkinliği bir girdi almazsa, girdi veri kümesi için etkinliğin belirtme atlayabilirsiniz **girişleri** özelliği.  
 
 ## <a name="json-example"></a>JSON örneği
 
@@ -5339,21 +5339,21 @@ Bir Hadoop akış etkinliği JSON tanımında aşağıdaki özellikleri belirteb
 }
 ```
 
-Daha fazla bilgi için bkz: [Hadoop akış etkinliği](data-factory-hadoop-streaming-activity.md) makalesi. 
+Daha fazla bilgi için [Hadoop akış etkinliğinde](data-factory-hadoop-streaming-activity.md) makalesi. 
 
 ## <a name="hdinsight-spark-activity"></a>HDInsight Spark Etkinliği
-Bir Spark etkinlik JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **HDInsightSpark**. Hdınsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölümünde etkinlik türü için HDInsightSpark ayarladığınızda: 
+Bir Spark etkinliği JSON tanımında, aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olmalıdır: **HDInsightSpark**. Bir HDInsight bağlı hizmeti ilk oluşturun ve değeri olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler desteklenir **typeProperties** bölümünde etkinlik türü için HDInsightSpark ayarladığınızda: 
 
 | Özellik | Açıklama | Gerekli |
 | -------- | ----------- | -------- |
-| rootPath | Azure Blob kapsayıcısı ve Spark dosyasını içeren klasör. Dosya adı büyük/küçük harf duyarlıdır. | Evet |
-| entryFilePath | Spark kod/paketi kök klasörüne göreli yolu. | Evet |
-| className | Uygulamanın Java/Spark ana sınıfı | Hayır | 
-| bağımsız değişkenler | Spark programın komut satırı bağımsız değişkenleri listesi. | Hayır | 
-| proxyUser | Spark program yürütülmeye kimliğine bürünmek için kullanıcı hesabı | Hayır | 
+| rootPath | Azure Blob kapsayıcısı ve Spark dosyasını içeren klasör. Dosya adı büyük/küçük harfe duyarlıdır. | Evet |
+| entryFilePath | Spark kodun/paketin kök klasörünün göreli yolu. | Evet |
+| className | Uygulamanın Java/Spark temel sınıfı | Hayır | 
+| bağımsız değişkenler | Spark programı için komut satırı bağımsız değişkenleri listesi. | Hayır | 
+| Proxyuserpassword | Spark programının yürütülecek kimliğine bürünmek için kullanıcı hesabı | Hayır | 
 | sparkConfig | Spark yapılandırma özellikleri. | Hayır | 
-| Getdebugınfo | Hdınsight küme tarafından kullanılan Azure depolama Spark günlük dosyalarının ne zaman kopyalanır belirtir (veya) sparkJobLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: yok. | Hayır | 
-| sparkJobLinkedService | Azure Storage bağlı Spark iş dosyası, bağımlılıklar ve günlükleri tutan hizmeti.  Bu özellik için bir değer belirtmezseniz, Hdınsight kümesi ile ilişkili depolama kullanılır. | Hayır |
+| Getdebugınfo | HDInsight kümesi tarafından kullanılan Azure depolama için Spark günlük dosyalarının ne zaman kopyalanır belirtir (veya) sparkJobLinkedService belirtilir. İzin verilen değerler: hiçbiri, her zaman ya da hata. Varsayılan değer: yok. | Hayır | 
+| sparkJobLinkedService | Azure depolama bağlı iş dosyası, bağımlılıklar ve günlükleri Spark tutan hizmeti.  Bu özellik için bir değer belirtmezseniz, HDInsight kümesi ile ilişkili depolama kullanılır. | Hayır |
 
 ### <a name="json-example"></a>JSON örneği
 
@@ -5385,29 +5385,29 @@ Bir Spark etkinlik JSON tanımında aşağıdaki özellikleri belirtebilirsiniz.
 ```
 Aşağıdaki noktalara dikkat edin: 
 
-- **Türü** özelliği ayarlanmış **HDInsightSpark**.
-- **RootPath** ayarlanır **adfspark\\pyFiles** burada adfspark, Azure Blob kapsayıcısında ve pyFiles kapsayıcıdaki ince klasördür. Bu örnekte, Azure Blob Storage Spark kümesi ile ilişkili adrestir. Farklı bir Azure depolama dosyayı karşıya yükleyebilirsiniz. Bunu yaparsanız, bu depolama hesabı data factory'ye bağlamak için bir Azure depolama bağlantılı hizmeti oluşturun. Ardından, bağlı hizmetin adı için bir değer olarak belirtin **sparkJobLinkedService** özelliği. Bkz: [Spark etkinlik özellikleri](#spark-activity-properties) bu özellik ve Spark etkinlik tarafından desteklenen diğer özellikleri hakkında ayrıntılı bilgi için.
-- **EntryFilePath** ayarlanır **test.py**, python dosyası değil. 
-- **Getdebugınfo** özelliği ayarlanmış **her zaman**, günlük dosyaları her zaman anlamına gelir (başarılı veya başarısız) oluşturulur.  
+- **Türü** özelliği **HDInsightSpark**.
+- **RootPath** ayarlanır **adfspark\\pyFiles** burada adfspark Azure Blob kapsayıcısı ve pyFiles kapsayıcıdaki ince klasördür. Bu örnekte, Spark kümesi ile ilişkili bir Azure Blob depolama alanıdır. Farklı bir Azure depolama için dosyayı karşıya yükleyebilirsiniz. Bunu yaparsanız, depolama hesabınızı veri fabrikasına bağlamak için bir Azure depolama bağlı hizmeti oluşturma. Ardından için bir değer olarak bağlı hizmetin adı belirtin **sparkJobLinkedService** özelliği. Bkz: [Spark etkinliği özellikleri](#spark-activity-properties) bu özellik ve Spark etkinliği tarafından desteklenen diğer özellikler hakkında ayrıntılı bilgi için.
+- **EntryFilePath** ayarlanır **test.py**, python dosyası olduğu. 
+- **Getdebugınfo** özelliği **her zaman**, günlük dosyaları her zaman anlamına gelir (başarı veya başarısızlık) oluşturulur.  
 
     > [!IMPORTANT]
-    > Bir sorunu gidermeye çalışıyor değilseniz, bu özellik her zaman bir üretim ortamında ayarlamak değil kullanmanızı öneririz. 
-- **Çıkarır** bölümü bir çıkış veri kümesi yok. Spark program herhangi bir çıktı üretmez olsa bile bir çıkış veri kümesi belirtmeniz gerekir. Çıktı veri kümesi, ardışık düzen (saatlik, günlük, vs.) için zamanlamayı sürücüleri.
+    > Bir sorunu gidermeye çalışıyor değilseniz, bu özellik her zaman bir üretim ortamında ayarlamanız önerilir. 
+- **Çıkarır** bölümünde bir çıktı veri kümesi bulunur. Spark programının hiçbir çıktı oluşturmasa bile bir çıktı veri kümesi belirtmelisiniz. Çıktı veri kümesi (saatlik, günlük, vb.) işlem hattı için zamanlamayı beraberinde getirir.
 
-Etkinliği hakkında daha fazla bilgi için bkz: [Spark etkinlik](data-factory-spark.md) makalesi.  
+Etkinlik hakkında daha fazla bilgi için bkz. [Spark etkinliği](data-factory-spark.md) makalesi.  
 
 ## <a name="machine-learning-batch-execution-activity"></a>Machine Learning Batch Yürütme Etkinliği
-Azure ML toplu iş yürütme etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **AzureMLBatchExecution**. Bağlantılı hizmet ilk öğrenme Azure bir makine oluşturma ve için bir değer olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölümünde etkinlik türü için AzureMLBatchExecution ayarladığınızda:
+Azure ML Batch yürütme etkinliği JSON tanımında, aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olmalıdır: **AzureMLBatchExecution**. Bir Azure Machine Learning ilk bağlı hizmeti oluşturma ve bu adı için bir değer olarak belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler desteklenir **typeProperties** bölümünde etkinlik türü için AzureMLBatchExecution ayarladığınızda:
 
 Özellik | Açıklama | Gerekli 
 -------- | ----------- | --------
-WebServiceInput etkinliğine | Azure ML web hizmeti için bir giriş olarak geçirilecek veri kümesi. Bu veri kümesi de etkinliğinin girdi bulunması gerekir. |WebServiceInput etkinliğine veya webServiceInputs kullanın. | 
-webServiceInputs | Azure ML web hizmeti girişleri olarak geçirilecek veri kümeleri belirtin. Web hizmeti birden fazla girdi aldığı durumlarda WebServiceInput etkinliğine özelliğini kullanmak yerine webServiceInputs özelliğini kullanın. Tarafından başvurulan veri kümeleri **webServiceInputs** de dahil etkinliğin **girişleri**. | WebServiceInput etkinliğine veya webServiceInputs kullanın. | 
-webServiceOutputs | Çıktı Azure ML web hizmeti olarak atanan veri kümesi. Web hizmeti, bu veri kümesini çıktı verilerini döndürür. | Evet | 
-globalParameters | Bu bölümde web hizmeti parametreleri için değerleri belirtin. | Hayır | 
+hem WebServiceInput | Azure ML web hizmeti için bir giriş olarak geçirilecek veri kümesi. Bu veri kümesi için etkinlik girişlerinde de eklenmelidir. |Veya hem WebServiceInput hem de Webserviceınputs kullanın. | 
+Webserviceınputs | Azure ML web hizmeti için girdi olarak geçirilecek veri kümeleri belirtin. Web hizmetini birden fazla giriş aldığı durumlarda hem WebServiceInput özelliğini kullanarak yerine Webserviceınputs özelliğini kullanın. Tarafından başvurulan veri kümeleri **Webserviceınputs** etkinliğinde eklenmelidir **girişleri**. | Veya hem WebServiceInput hem de Webserviceınputs kullanın. | 
+webServiceOutputs | Azure ML web hizmeti için çıktı olarak atanmış olan veri kümeleri. Web hizmeti, bu veri kümesi çıktı verilerini döndürür. | Evet | 
+globalParameters | Bu bölümde web hizmeti parametreleri için değerler belirtin. | Hayır | 
 
 ### <a name="json-example"></a>JSON örneği
-Bu örnekte, etkinlik bir veri kümesine sahiptir **MLSqlInput** giriş olarak ve **MLSqlOutput** çıktı olarak. **MLSqlInput** kullanarak geçirilen web hizmeti tarafından bir girdi olarak **WebServiceInput etkinliğine** JSON özelliği. **MLSqlOutput** çıkış olarak Web hizmeti tarafından kullanılarak geçirilir **webServiceOutputs** JSON özelliği. 
+Bu örnekte, etkinlik bir veri kümesine sahiptir. **MLSqlInput** giriş olarak ve **MLSqlOutput** çıktı olarak. **MLSqlInput** kullanılarak geçirilen bir web hizmeti tarafından giriş olarak **WebServiceInput** JSON özelliği. **MLSqlOutput** çıkış olarak Web hizmeti tarafından kullanılarak geçirilir **webServiceOutputs** JSON özelliği. 
 
 ```json
 {
@@ -5447,21 +5447,21 @@ Bu örnekte, etkinlik bir veri kümesine sahiptir **MLSqlInput** giriş olarak v
 }
 ```
 
-JSON örnekte dağıtılan Azure Machine Learning Web hizmeti, başlangıç/bitiş bir Azure SQL veritabanı veri okuma/yazma için bir okuyucu ve yazıcı modülü kullanır. Aşağıdaki dört parametre bu Web hizmetini sunar: veritabanı sunucu adı, veritabanı adı, sunucu kullanıcı hesabı adı ve sunucu kullanıcı hesabı parolası.
+JSON örnekte, Azure SQL veritabanı ' / için veri okuma/yazma için bir okuyucu ve yazıcı modülü dağıtılan Azure Machine Learning Web hizmetini kullanır. Bu Web hizmetini aşağıdaki dört parametre sunar: veritabanı sunucu adı, veritabanı adı, sunucu kullanıcı hesabı adını ve Server kullanıcı hesabı parolası.
 
 > [!NOTE]
-> Yalnızca girişleri ve çıkışları AzureMLBatchExecution etkinliğin Web hizmeti parametreleri olarak geçirilebilir. Örneğin, yukarıdaki JSON parçacığında, bir giriş WebServiceInput etkinliğine parametresi Web hizmeti için bir girdi olarak geçirilen AzureMLBatchExecution etkinliğine MLSqlInput olabilir.
+> Yalnızca giriş ve çıkışları AzureMLBatchExecution etkinliğin Web hizmetine parametre olarak geçirilebilir. Örneğin, yukarıdaki JSON parçacığında, bir Web hizmeti giriş olarak WebServiceInput parametresi geçirilen AzureMLBatchExecution etkinliği bir girdi MLSqlInput olur.
 
 ## <a name="machine-learning-update-resource-activity"></a>Machine Learning Kaynak Güncelleştirme Etkinliği
-Azure ML güncelleştirme kaynak etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **AzureMLUpdateResource**. Bağlantılı hizmet ilk öğrenme Azure bir makine oluşturma ve için bir değer olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölüm için AzureMLUpdateResource etkinliği türünü ayarladığınızda:
+Azure ML güncelleştirme kaynağı etkinlik JSON tanımında, aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olmalıdır: **AzureMLUpdateResource**. Bir Azure Machine Learning ilk bağlı hizmeti oluşturma ve bu adı için bir değer olarak belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler desteklenir **typeProperties** için AzureMLUpdateResource etkinliği türünü ayarladığınızda, bölüm:
 
 Özellik | Açıklama | Gerekli 
 -------- | ----------- | --------
 trainedModelName | Retrained modelin adı. | Evet |  
-trainedModelDatasetName | Yeniden eğitme işlem tarafından döndürülen iLearner dosyasını işaret eden bir veri kümesi. | Evet | 
+trainedModelDatasetName | Yeniden eğitme işlem tarafından döndürülen olan iLearner dosyasını işaret eden bir veri kümesi. | Evet | 
 
 ### <a name="json-example"></a>JSON örneği
-Ardışık düzen iki etkinlik vardır: **AzureMLBatchExecution** ve **AzureMLUpdateResource**. Azure ML toplu iş yürütme etkinliği giriş olarak eğitim verileri alır ve bir iLearner dosya bir çıktı olarak üretir. Etkinlik giriş eğitim verilerle eğitim web hizmeti (web hizmeti olarak sunulan eğitim denemenizi) çağırır ve ilearner dosya webservice alır. PlaceholderBlob Azure Data Factory hizmeti tarafından ardışık çalıştırmak için gerekli olan yalnızca bir kukla çıktı veri kümesi ' dir.
+İşlem hattı iki etkinlik içerir: **AzureMLBatchExecution** ve **AzureMLUpdateResource**. Azure ML Batch yürütme etkinliği, giriş olarak eğitim verilerini alır ve çıktı olarak bir iLearner dosyası üretir. Etkinlik, giriş eğitim verilerle eğitim web hizmeti (bir web hizmeti olarak kullanıma sunulan eğitim denemesini) çağırır ve webservice olan ilearner dosyasını alır. PlaceholderBlob yalnızca Azure Data Factory hizmeti tarafından işlem hattını çalıştırmak için gerekli olan bir işlevsiz bir çıktı veri kümesidir.
 
 
 ```json
@@ -5520,15 +5520,15 @@ Ardışık düzen iki etkinlik vardır: **AzureMLBatchExecution** ve **AzureMLUp
 ```
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL Etkinliği
-U-SQL etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **DataLakeAnalyticsU SQL**. Bir Azure Data Lake Analytics bağlı hizmeti oluşturma ve için bir değer olarak adını belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** DataLakeAnalyticsU-SQL etkinliği türünü ayarladığınızda, bölüm: 
+U-SQL etkinliği JSON tanımında, aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olmalıdır: **DataLakeAnalyticsU SQL**. Bir Azure Data Lake Analytics bağlı hizmeti oluşturma ve bu adı için bir değer olarak belirtmeniz gerekir **linkedServiceName** özelliği. Aşağıdaki özellikler desteklenir **typeProperties** DataLakeAnalyticsU-SQL etkinliği türünü ayarladığınızda, bölüm: 
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| scriptPath |U-SQL komut dosyasını içeren klasörün yolu. Dosyanın adı büyük/küçük harf duyarlıdır. |Hayır (komut dosyası kullanırsanız) |
-| scriptLinkedService |Veri Fabrikası için komut dosyasını içeren depolamayı bağlı hizmet |Hayır (komut dosyası kullanırsanız) |
-| komut dosyası |ScriptPath ve scriptLinkedService belirtme yerine satır içi betiği belirtin. Örneğin: "komut dosyası": "Veritabanı oluştur test". |Hayır (scriptPath ve scriptLinkedService kullanıyorsanız) |
+| ScriptPath |U-SQL komut dosyasını içeren klasörün yolu. Dosyanın adı büyük/küçük harfe duyarlıdır. |Hayır (komut dosyası kullanırsanız) |
+| scriptLinkedService |Bağlantılar için veri komut dosyasını içeren depolama bağlı hizmeti |Hayır (komut dosyası kullanırsanız) |
+| komut dosyası |ScriptPath ve scriptLinkedService belirtmek yerine satır içi betiği belirtin. Örneğin: "betik": "Veritabanı oluşturma test". |Hayır (scriptPath ve scriptLinkedService kullanıyorsanız) |
 | degreeOfParallelism |Aynı anda işi çalıştırmak için kullanılan düğümlerin sayısı. |Hayır |
-| öncelik |İlk çalıştırmak için sıraya alınan tüm işlerden seçili belirler. Alt sayısı, öncelik o kadar yüksektir. |Hayır |
+| öncelik |Sıraya alınan tüm önce çalıştırılması gerektiğini belirler. Alt sayısı, öncelik o kadar yüksektir. |Hayır |
 | parametreler |U-SQL betiği için parametreler |Hayır |
 
 ### <a name="json-example"></a>JSON örneği
@@ -5584,25 +5584,25 @@ U-SQL etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. E
 }
 ```
 
-Daha fazla bilgi için bkz: [Data Lake Analytics U-SQL etkinliği](data-factory-usql-activity.md). 
+Daha fazla bilgi için [Data Lake Analytics U-SQL etkinliği](data-factory-usql-activity.md). 
 
 ## <a name="stored-procedure-activity"></a>Saklı Yordam Etkinliği
-Bir saklı yordam etkinliği JSON tanımında aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **SqlServerStoredProcedure**. Aşağıdaki bağlı hizmetler, bir tane oluşturun ve değeri olarak bağlı hizmetin adı belirtmeniz gerekir **linkedServiceName** özelliği:
+Bir saklı yordam etkinliği JSON tanımında, aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olmalıdır: **SqlServerStoredProcedure**. Aşağıdaki bağlı hizmetler, bir tane oluşturun ve bağlı hizmet adı için bir değer olarak belirtmeniz gerekir **linkedServiceName** özelliği:
 
 - SQL Server 
 - Azure SQL Database
 - Azure SQL Veri Ambarı
 
-Aşağıdaki özellikler de desteklenen **typeProperties** bölümünde etkinlik türü için SqlServerStoredProcedure ayarladığınızda:
+Aşağıdaki özellikler desteklenir **typeProperties** bölümünde etkinlik türü için SqlServerStoredProcedure ayarladığınızda:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| storedProcedureName |Azure SQL veritabanı ya da çıktı tablosu kullanır bağlantılı hizmet tarafından temsil edilen Azure SQL Data Warehouse saklı yordamın adını belirtin. |Evet |
-| storedProcedureParameters |Saklı yordam parametreleri için değerleri belirtin. Bir parametre için null geçmesi gerekiyorsa, söz dizimini kullanın: "param1": null (tüm küçük harf). Bu özellik kullanma hakkında bilgi edinmek için aşağıdaki örnek bakın. |Hayır |
+| storedProcedureName |Çıktı tablosu kullanan bağlı hizmetiyle temsil edilen Azure SQL veri ambarı ve Azure SQL veritabanı saklı yordamın adını belirtin. |Evet |
+| storedProcedureParameters |Saklı yordam parametrelerinin değerlerini belirtin. Bir parametre için null değeri geçirmeye gerekiyorsa, söz dizimini kullanın: "param1": null (küçük harflerle). Aşağıdaki örnek bu özelliği kullanma hakkında bilgi edinmek için bkz. |Hayır |
 
-Bir giriş veri kümesi belirtirseniz, ('Hazır' durumunda) kullanılabilir olmalıdır çalıştırmak saklı yordam etkinliği. Girdi veri kümesi saklı yordam, bir parametre olarak kullanılamaz. Yalnızca saklı yordam etkinliği başlatmadan önce bağımlılık denetlemek için kullanılır. Bir çıkış veri kümesi için bir saklı yordam etkinliği belirtmeniz gerekir. 
+Girdi veri kümesi belirtirseniz, ('Hazır' durumunda) kullanılabilir olmalıdır çalıştırmak saklı yordam etkinliği. Giriş veri kümesi saklı yordam, bir parametre olarak kullanılamıyor. Yalnızca, saklı yordam etkinliği başlamadan önce bağımlılık denetlemek için kullanılır. Bir saklı yordam etkinliği için bir çıktı veri kümesi belirtmelisiniz. 
 
-Çıktı veri kümesi belirtir **zamanlama** saklı yordam etkinliği (saatlik, haftalık, aylık, vb.). Çıktı veri kümesi kullanmalısınız bir **bağlantılı hizmeti** bir Azure SQL Database veya bir Azure SQL Data Warehouse veya çalıştırmak için saklı yordam istediğiniz SQL Server veritabanı başvuruyor. Çıktı veri kümesi için saklı yordam sonucunu başka bir etkinlik tarafından işleme sonraki geçirmek için bir yol olarak hizmet verebilir ([etkinlikleri zincirleme](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) ardışık düzeninde. Ancak, veri fabrikası otomatik olarak bir saklı yordam çıktısını bu veri kümesine yazmaz. Çıktı veri kümesi işaret eden bir SQL tablosuna Yazar saklı yordam değil. Bazı durumlarda, çıktı veri kümesi olabilir bir **kukla dataset**, yalnızca saklı yordam etkinliği çalıştırmak için zamanlama belirtmek için kullanılır.  
+Çıktı veri kümesi belirtir **zamanlama** saklı yordam etkinliği (saatlik, haftalık, aylık, vb.). Çıktı veri kümesi kullanmalısınız bir **bağlı hizmet** Azure SQL veritabanı veya bir Azure SQL veri ambarı veya SQL Server veritabanı saklı yordamı çalıştırmak için istediğiniz başvuruyor. Çıktı veri kümesi için saklı yordam sonucu başka bir etkinlik tarafından işleme sonraki geçirmek için bir yol olarak hizmet verebilen ([zincirleme etkinlikleri](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) işlem hattındaki. Ancak, Data Factory otomatik olarak bir saklı yordam çıktısı bu veri kümesine yazmaz. Bu çıktı veri kümesini işaret eden bir SQL tablosunu yazan saklı yordam aynıdır. Bazı durumlarda, çıktı veri kümesi olabilir bir **işlevsiz bir veri kümesi**, yalnızca saklı yordam etkinliği çalıştırmak için zamanlamayı belirtmek için kullanılır.  
 
 ### <a name="json-example"></a>JSON örneği
 
@@ -5630,18 +5630,18 @@ Bir giriş veri kümesi belirtirseniz, ('Hazır' durumunda) kullanılabilir olma
 }
 ```
 
-Daha fazla bilgi için bkz: [saklı yordam etkinliği](data-factory-stored-proc-activity.md) makalesi. 
+Daha fazla bilgi için [saklı yordam etkinliğine](data-factory-stored-proc-activity.md) makalesi. 
 
 ## <a name="net-custom-activity"></a>.NET özel etkinliği
-.NET özel etkinliğinde JSON tanımını aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olması gerekir: **DotNetActivity**. Azure Hdınsight bağlı hizmeti oluşturmak veya bağlı bir Azure Batch hizmeti ve bağlı hizmetin adı için bir değer olarak belirtin **linkedServiceName** özelliği. Aşağıdaki özellikler de desteklenen **typeProperties** bölümünde etkinlik türü için DotNetActivity ayarladığınızda:
+Bir .NET özel etkinliği JSON tanımı, aşağıdaki özellikleri belirtebilirsiniz. Etkinlik türü özelliği olmalıdır: **DotNetActivity**. Bir Azure HDInsight bağlı hizmeti oluşturmanız gerekir veya bağlı bir Azure Batch hizmeti ve bağlı hizmet adı için bir değer olarak belirtin **linkedServiceName** özelliği. Aşağıdaki özellikler desteklenir **typeProperties** bölümünde etkinlik türü için DotNetActivity ayarladığınızda:
  
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| AssemblyName | Derleme adı. Örnek,: **MyDotnetActivity.dll**. | Evet |
-| EntryPoint |IDotNetActivity arabirimini uygulayan sınıfı adı. Örnek,: **MyDotNetActivityNS.MyDotNetActivity** burada MyDotNetActivityNS ad alanı ve MyDotNetActivity sınıfı.  | Evet | 
-| PackageLinkedService | Özel Etkinlik zip dosyasını içeren blob depolama alanına işaret Azure Storage bağlı hizmetin adı. Örnek,: **AzureStorageLinkedService**.| Evet |
-| PackageFile | ZIP dosyasının adı. Örnek,: **customactivitycontainer/MyDotNetActivity.zip**. | Evet |
-| extendedProperties | Tanımlayın ve .NET kodu için geçirin genişletilmiş özellikler. Bu örnekte, **SliceStart** değişkeni SliceStart sistem değişkeni göre bir değere ayarlanır. | Hayır | 
+| AssemblyName | Derlemenin adı. Bu örnekte olduğu: **MyDotnetActivity.dll**. | Evet |
+| Giriş noktası |Idotnetactivity arabirimi uygulayan sınıfın adı. Bu örnekte olduğu: **MyDotNetActivityNS.MyDotNetActivity** burada MyDotNetActivityNS ad alanı ve MyDotNetActivity sınıftır.  | Evet | 
+| PackageLinkedService | Özel etkinliğin zip dosyasını içeren blob depolama alanına işaret eden bir Azure depolama bağlı hizmetinin adı. Bu örnekte olduğu: **AzureStorageLinkedService**.| Evet |
+| PackageFile | ZIP dosyasının adı. Bu örnekte olduğu: **customactivitycontainer/MyDotNetActivity.zip**. | Evet |
+| ExtendedProperties | Tanımlayabilir ve geçirmek .NET kodu için genişletilmiş özellikler. Bu örnekte, **SliceStart** değişkeni SliceStart sistem değişkeninde dayalı bir değere ayarlanır. | Hayır | 
 
 ### <a name="json-example"></a>JSON örneği
 
@@ -5690,10 +5690,10 @@ Daha fazla bilgi için bkz: [saklı yordam etkinliği](data-factory-stored-proc-
 }
 ```
 
-Ayrıntılı bilgi için bkz: [veri fabrikasında özel etkinlikleri kullanmak](data-factory-use-custom-activities.md) makalesi. 
+Ayrıntılı bilgi için bkz. [Data Factory'de özel etkinlikler kullanma](data-factory-use-custom-activities.md) makalesi. 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Aşağıdaki öğreticilere bakın: 
 
 - [Öğretici: kopyalama etkinliği ile işlem hattı oluşturma](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Öğretici: hive etkinliği ile işlem hattı oluşturma](data-factory-build-your-first-pipeline-using-editor.md)
+- [Öğretici: bir hive etkinliği ile işlem hattı oluşturma](data-factory-build-your-first-pipeline-using-editor.md)

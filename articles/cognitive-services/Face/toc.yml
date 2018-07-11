@@ -25,12 +25,14 @@
       href: QuickStarts/Python.md
     - name: Ruby
       href: QuickStarts/Ruby.md
+- name: Öğreticiler
+  items:
+    - name: 'C#'
+      href: Tutorials/FaceAPIinCSharpTutorial.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: İlk Yüz Tanıma API'si uygulamaları
       items:
-        - name: 'C#'
-          href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: Android için Java
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
         - name: Python

@@ -1,6 +1,6 @@
 ---
-title: Klasik dağıtım modelinde Azure Linux VM ayırma hatalarının sorunlarını giderme | Microsoft Docs
-description: Oluşturduğunuzda, yeniden başlatın veya Azure klasik bir Linux VM yeniden boyutlandırma ayırma hatalarını giderme
+title: Klasik dağıtım modelinde Azure Linux VM oluşan ayırma hatalarını giderme | Microsoft Docs
+description: Oluşturma, yeniden başlatma veya azure'da klasik bir Linux VM yeniden boyutlandırma karşılaşılan ayırma hatalarını giderme
 services: virtual-machines-Linux, azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: genli
 ms.openlocfilehash: d03580e688b993b9b0ea5ca0ea436e1a47a4b0bd
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "31529481"
 ---
-# <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Ayırma hatası senaryoları Klasik dağıtım modelinde belirli sorun giderme adımları
+# <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Klasik dağıtım modelinde ayırma hatası senaryoları belirli sorun giderme adımları
 
 [!INCLUDE [virtual-machines-common-allocation-failure-classic](../../../includes/virtual-machines-common-allocation-failure-classic.md)]
 

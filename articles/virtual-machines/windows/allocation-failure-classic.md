@@ -1,6 +1,6 @@
 ---
-title: Klasik dağıtım modelinde Azure Windows VM ayırma hatalarının sorunlarını giderme | Microsoft Docs
-description: Oluşturduğunuzda, yeniden başlatın veya Azure Klasik Windows VM yeniden boyutlandırma ayırma hatalarını giderme
+title: Klasik dağıtım modelinde Azure Windows VM oluşan ayırma hatalarını giderme | Microsoft Docs
+description: Oluşturma, yeniden başlatma veya Azure Klasik Windows VM'yi yeniden boyutlandırma karşılaşılan ayırma hatalarını giderme
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: genli
 ms.openlocfilehash: 659781a16663d815e54454746d017eef29414b95
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "31529502"
 ---
-# <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Ayırma hatası senaryoları Klasik dağıtım modelinde belirli sorun giderme adımları
+# <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Klasik dağıtım modelinde ayırma hatası senaryoları belirli sorun giderme adımları
 
 [!INCLUDE [virtual-machines-common-allocation-failure-classic](../../../includes/virtual-machines-common-allocation-failure-classic.md)]
 

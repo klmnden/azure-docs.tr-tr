@@ -1,6 +1,6 @@
 ---
-title: Azure (Klasik) SQL Server sanal makineye bağlanma | Microsoft Docs
-description: Azure'da bir sanal makinede çalışan SQL Server bağlayacağınızı öğrenin. Bu konu Klasik dağıtım modelini kullanır. Senaryoları ağ yapılandırmasını ve istemcinin konumu bağlı olarak farklılık gösterir.
+title: Bir SQL Server sanal makinesi (Klasik) azure'da bağlanın | Microsoft Docs
+description: Azure'da bir sanal makinede çalışan SQL Server'a bağlanma hakkında bilgi edinin. Bu konuda, Klasik dağıtım modeli kullanır. Senaryo ağ yapılandırmasını ve istemcinin konumuna bağlı olarak farklılık gösterir.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -16,10 +16,10 @@ ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: c856c8c67d410a3b528c4f8b12b1225cf395bca4
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "29398378"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure’daki bir SQL Server Sanal Makinesi’ne Bağlanma (Klasik Dağıtım)
@@ -30,67 +30,67 @@ ms.locfileid: "29398378"
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Bu konuda, bir Azure sanal makinede çalışan SQL Server örneğine bağlanmak açıklar. Bazı kapsayan [genel bağlantı senaryoları](#connection-scenarios) ve ardından sağlar [ayrıntılı bir Azure VM'de SQL Server bağlantısı yapılandırma adımları](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
+Bu konu, bir Azure sanal makinesinde çalışan SQL Server Örneğinize bağlanmak açıklar. Bazılarını içermektedir [genel bağlantı senaryoları](#connection-scenarios) ve daha sonra sağlar [ayrıntılı adımlar için bir Azure VM'de SQL Server bağlantısını yapılandırmayla](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Resource Manager VM kullanıyorsanız, bkz: [bir SQL Server sanal makinesine bağlanma Kaynak Yöneticisi'ni kullanarak azure'da](../sql/virtual-machines-windows-sql-connect.md).
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Resource Manager Vm'lerinde kullanıyorsanız bkz [Resource Manager'ı kullanarak azure'da SQL Server sanal makinesine bağlanma](../sql/virtual-machines-windows-sql-connect.md).
 
 ## <a name="connection-scenarios"></a>Bağlantı senaryoları
-Bir sanal makinede çalışan SQL Server bir istemcinin bağlandığı yöntemi istemci ve makine/ağ yapılandırması konumunu bağlı olarak değişir. Bu senaryolar şunlardır:
+SQL Server'ın bir sanal makine üzerinde çalışan bir istemcinin bağlandığı şekilde istemci ve makine/ağ yapılandırma konumuna bağlı olarak farklılık gösterir. Bu senaryolar şunlardır:
 
-* [SQL Server'a aynı bulut hizmetinde bağlanın](#connect-to-sql-server-in-the-same-cloud-service)
-* [Internet üzerinden SQL Server'a bağlanma](#connect-to-sql-server-over-the-internet)
-* [Aynı sanal ağ içinde SQL Server'a bağlanma](#connect-to-sql-server-in-the-same-virtual-network)
+* [Aynı bulut hizmetinde SQL Server'a bağlanma](#connect-to-sql-server-in-the-same-cloud-service)
+* [İnternet üzerinden SQL Server'a bağlanma](#connect-to-sql-server-over-the-internet)
+* [Aynı sanal ağda SQL Server'a bağlanma](#connect-to-sql-server-in-the-same-virtual-network)
 
 > [!NOTE]
-> Bu yöntemlerin herhangi biriyle ile bağlamadan önce izlemeniz gereken [bağlantısını yapılandırmak için bu makaledeki adımları](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
+> Bu yöntemlerin herhangi biriyle ile bağlamadan önce izlemeniz gereken [bağlantısı yapılandırmak için bu makaledeki adımları](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 > 
 > 
 
-### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>SQL Server'a aynı bulut hizmetinde bağlanın
-Birden fazla sanal makineyi aynı bulut hizmetinde oluşturulabilir. Bu sanal makineleri senaryo anlamak için bkz: [bir sanal ağ veya Bulut hizmetiyle sanal makinelere bağlanmak nasıl](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). Bir istemci bir sanal makineye aynı bulut hizmetinde başka bir sanal makinede çalışan SQL Server bağlanmaya çalıştığında bu senaryodur.
+### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Aynı bulut hizmetinde SQL Server'a bağlanma
+Birden çok sanal makine aynı bulut hizmetinde oluşturulabilir. Bu sanal makineler senaryo anlamak için bkz: [sanal makineleri bir sanal ağ veya Bulut hizmeti ile bağlama](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). Tek bir sanal makinede bir istemci aynı bulut hizmetinde başka bir sanal makinede çalışan SQL Server'a bağlanma girişiminde bulunduğunda bu senaryodur.
 
-Bu senaryoda, VM kullanarak bağlanabilir **adı** (Ayrıca gösterilen **bilgisayar adı** veya **ana bilgisayar adı** Portalı'nda). Bu VM için oluşturma sırasında sağlanan adıdır. Örneğin, SQL VM'nizi adlı **mysqlvm**, aynı bulut hizmetindeki bir istemci VM bağlanmak için bağlantı dizesi olarak şunu kullanabilirsiniz:
+Bu senaryoda, sanal Makineyi kullanarak bağlantı kurabilir **adı** (Ayrıca olarak gösterilen **bilgisayar adı** veya **ana bilgisayar adı** Portalı'nda). Bu VM için oluşturma sırasında sağladığınız addır. Örneğin, SQL VM'nizi adlı **mysqlvm**, aynı bulut hizmetindeki bir istemci VM bağlanmak için şu bağlantı dizesini kullanabilirsiniz:
 
     "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
 ### <a name="connect-to-sql-server-over-the-internet"></a>Internet üzerinden SQL Server'a bağlanma
-SQL Server veritabanı altyapısına Internet'ten bağlanmak istiyorsanız, bir sanal makine uç noktası gelen TCP iletişimi için oluşturmanız gerekir. Bu Azure yapılandırma adımı, gelen TCP bağlantı noktası trafiğini sanal makinenin erişebildiği bir TCP bağlantı noktasına yönlendirir.
+SQL Server veritabanı altyapısına Internet'ten bağlanmak istiyorsanız, gelen TCP iletişimi için bir sanal makine uç noktası oluşturmanız gerekir. Bu Azure yapılandırma adımı, gelen TCP bağlantı noktası trafiğini sanal makinenin erişebildiği bir TCP bağlantı noktasına yönlendirir.
 
-Internet üzerinden bağlanmak için sanal makinenin DNS adı ve VM uç nokta bağlantı noktası numarasını (Bu makalenin sonraki bölümlerinde yapılandırılmış) kullanmanız gerekir. DNS adını bulmak için Azure Portalı'na gidin ve seçin **sanal makineleri (Klasik)**. Ardından, sanal makineyi seçin. **DNS adı** gösterilen **genel bakış** bölümü.
+İnternet üzerinden bağlanmak için sanal makinenin DNS adını ve VM uç nokta bağlantı noktası numarasını (Bu makalenin sonraki bölümlerinde yapılandırılmış) kullanmanız gerekir. DNS adını bulmak için Azure portalına gidin ve seçin **sanal makineler (Klasik)**. Ardından, sanal makineyi seçin. **DNS adı** gösterilen **genel bakış** bölümü.
 
-Örneğin, klasik bir sanal makine adlı göz önünde bulundurun **mysqlvm** bir DNS adı ile **mysqlvm7777.cloudapp.net** VM bitiş noktası **57500**. Düzgün yapılandırılmış bağlantı varsayıldığında, bağlantı dizesi olarak şunu sanal makineyi dilediğiniz yerde erişmek için kullanılabilecek Internet'te:
+Örneğin, klasik bir sanal makine adlı düşünün **mysqlvm** DNS adı ile **mysqlvm7777.cloudapp.net** ve bir sanal makine uç noktası **57500**. Düzgün bir şekilde yapılandırılmış bağlantı varsayarsak, aşağıdaki bağlantı dizesi sanal makineyi dilediğiniz yerde erişmek için kullanılabilir internet üzerinde:
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Bu bağlantı istemciler için internet üzerinden sağlar, ancak bu herkes SQL sunucunuza bağlanmak göstermez. Dışında doğru kullanıcı adını ve parolayı istemciler vardır. Ek güvenlik için iyi bilinen bağlantı noktası 1433 genel sanal makine uç noktası için kullanmayın. Ve mümkünse, bir ACL eklemeyi düşünün yalnızca istemcilere trafiği kısıtlamak için uç noktada izin verir. ACL'ler uç ile kullanma ile ilgili yönergeler için bkz: [bir uç nokta ACL'sini Yönet](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+Bu bağlantı için istemcileri internet üzerinden sağlar, ancak bu herkes SQL Server'ınıza bağlanmak göstermez. Dışında doğru kullanıcı adını ve parolayı istemciler vardır. Ek güvenlik için iyi bilinen bağlantı noktası 1433 genel sanal makine uç noktası için kullanmayın. Ve mümkün olduğunda, bir ACL'yi eklemeyi göz önünde bulundurun yalnızca istemcilere trafiği kısıtlamak için uç noktasında izin verir. ACL'leri kullanarak uç noktaları ile ilgili yönergeler için bkz: [bir uç nokta ACL'sini Yönet](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
 
 > [!NOTE]
-> SQL Server ile iletişim kurmak için bu yöntemi kullandığınızda, Azure veri merkezi tüm giden veriler olduğunu tabi normal dikkate almak önemlidir [giden veri aktarımları fiyatlandırma](https://azure.microsoft.com/pricing/details/data-transfers/).
+> SQL Server ile iletişim kurmak için bu yöntemi kullandığınızda, Azure veri merkezinden tüm giden veri tabi normal bilmek önemlidir [üzerinde giden veri aktarımları fiyatlandırma](https://azure.microsoft.com/pricing/details/data-transfers/).
 > 
 > 
 
-### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>Aynı sanal ağ içinde SQL Server'a bağlanma
-[Sanal ağ](../../../virtual-network/virtual-networks-overview.md) ek senaryolara olanak sağlar. Bu sanal makineleri farklı bir bulut Hizmetleri'nde bulunsa bile sanal makineleri aynı sanal ağdaki bağlanabilir. İle bir [siteden siteye VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), şirket içi ağlar ve makineler VM'ler bağlayan bir karma mimarisi oluşturabilirsiniz.
+### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>Aynı sanal ağda SQL Server'a bağlanma
+[Sanal ağ](../../../virtual-network/virtual-networks-overview.md) ek senaryoların gerçekleşmesine olanak tanır. Bu sanal makineler farklı bulut hizmetlerinde mevcut olsa bile, Vm'leri aynı sanal ağda bağlanabilirsiniz. İle bir [siteden siteye VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), makineleri şirket içi ağlar ile Vm'leri bağlanan karma mimarisi oluşturabilirsiniz.
 
-Sanal ağlar da Azure sanal makineleri bir etki alanına katılma olanak sağlar. Bu, SQL Server için Windows kimlik doğrulamasını kullanmak için tek yoludur. Diğer bağlantı senaryolar, kullanıcı adlarını ve Parolaları SQL kimlik doğrulaması gerektirir.
+Sanal ağlar aynı zamanda Azure Vm'lerinizi bir etki alanına olanak tanır. SQL Server için Windows kimlik doğrulamasını kullanmak için tek yolu budur. Bir bağlantı senaryoları, kullanıcı adları ve parolaları ile SQL kimlik doğrulaması gerektirir.
 
-Bir etki alanı ortamı ve Windows kimlik doğrulamasını yapılandırmak için kullanacaksanız, bu makaledeki adımları genel bir uç nokta veya SQL kimlik doğrulaması ve oturum açma bilgileri yapılandırmak gerekmez. Bu senaryoda, SQL Server örneğinizi SQL Server VM adı bağlantı dizesinde belirterek bağlanabilir. Aşağıdaki örnek, Windows kimlik doğrulaması da yapılandırılmış olduğunu ve kullanıcının SQL Server örneğine erişimi verildiğini varsayar.
+Bir etki alanı ortamı ve Windows kimlik doğrulaması yapılandırmak için kullanacaksanız, genel bir uç nokta veya SQL kimlik doğrulaması ve oturum açma bilgileri yapılandırmak için bu makaledeki adımları tekrarlayın gerekmez. Bu senaryoda, SQL Server örneğinizi SQL Server VM adı bağlantı dizesinde belirterek bağlanabilirsiniz. Aşağıdaki örnek, Windows kimlik doğrulaması de yapılandırılmış olmasını ve kullanıcı SQL Server örneğine erişim izni olduğunu varsayar.
 
     "Server=mysqlvm;Integrated Security=true"
 
 ## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Bir Azure VM'de SQL Server bağlantısı yapılandırma adımları
-Aşağıdaki adımlarda, SQL Server Management Studio (SSMS) kullanarak Internet üzerinden SQL Server örneğine bağlanma gösterilmektedir. Ancak, SQL Server sanal makinenizi çalıştıran her iki şirket içi uygulamalarınızı ve Azure erişilebilir hale getirme için aynı adımları uygulayın.
+Aşağıdaki adımlarda, SQL Server Management Studio (SSMS) kullanarak internet üzerinden SQL Server örneğine bağlanmak nasıl ekleyebileceğiniz gösterilmektedir. Ancak, SQL Server sanal makinenizi Azure ve hem şirket içinde çalışan uygulamalarınız için erişilebilir hale getirmek için aynı adımları uygulayın.
 
-SQL Server örneği başka bir VM veya Internet'ten bağlanmadan önce izleyen bölümlerde açıklandığı gibi aşağıdaki görevleri tamamlamanız gerekir:
+SQL Server örneğine başka bir VM veya Internet'ten bağlanmadan önce aşağıdaki bölümlerde açıklandığı gibi aşağıdaki görevleri tamamlamanız gerekir:
 
 * [Sanal makine için bir TCP uç noktası oluşturma](#create-a-tcp-endpoint-for-the-virtual-machine)
-* [Windows Güvenlik Duvarı'nda açık TCP bağlantı noktaları](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-* [SQL Server'ın TCP protokolünün dinleyecek şekilde yapılandırma](#configure-sql-server-to-listen-on-the-tcp-protocol)
-* [SQL Server için karma mod kimlik doğrulamasını yapılandırma](#configure-sql-server-for-mixed-mode-authentication)
-* [SQL Server kimlik doğrulama oturumları oluşturma](#create-sql-server-authentication-logins)
+* [Windows Güvenlik duvarında TCP bağlantı noktaları açma](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
+* [SQL Server'ı TCP protokolünde dinleyecek şekilde yapılandırma](#configure-sql-server-to-listen-on-the-tcp-protocol)
+* [SQL Server'ı karma mod kimlik doğrulaması için yapılandırma](#configure-sql-server-for-mixed-mode-authentication)
+* [SQL Server kimlik doğrulaması oturum açma kimliği oluşturma](#create-sql-server-authentication-logins)
 * [Sanal makinenin DNS adını belirleme](#determine-the-dns-name-of-the-virtual-machine)
-* [Başka bir bilgisayardan veritabanı altyapısına bağlanma](#connect-to-the-database-engine-from-another-computer)
+* [Başka bir bilgisayardan veritabanı altyapısına Bağlan](#connect-to-the-database-engine-from-another-computer)
 
 Aşağıdaki diyagram tarafından bağlantı yolu özetlenmiştir:
 
@@ -103,11 +103,11 @@ Aşağıdaki diyagram tarafından bağlantı yolu özetlenmiştir:
 [!INCLUDE [Connect to SQL Server in a VM Classic Steps](../../../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Yüksek kullanılabilirlik ve olağanüstü durum kurtarma için AlwaysOn Kullanılabilirlik grupları kullanacak planlıyorsanız, bir dinleyici uygulama düşünmelisiniz. Veritabanı istemcileri dinleyicisi yerine SQL Server örnekleri birine doğrudan bağlanır. Dinleyici istemcileri kullanılabilirlik grubunda birincil çoğaltmaya yönlendirir. Daha fazla bilgi için bkz: [Azure'da AlwaysOn Kullanılabilirlik grupları için bir ILB dinleyicisi yapılandırın](../classic/ps-sql-int-listener.md).
+Yüksek kullanılabilirlik ve olağanüstü durum kurtarma için AlwaysOn Kullanılabilirlik grupları kullanmayı planlıyor musunuz, dinleyici uygulama düşünmelisiniz. Veritabanı istemcileri dinleyici yerine doğrudan SQL Server örneklerinden birine bağlanın. Dinleyici istemciler kullanılabilirlik grubunda birincil çoğaltmaya yönlendirir. Daha fazla bilgi için [Azure'da AlwaysOn Kullanılabilirlik grupları için ILB dinleyicisi yapılandırma](../classic/ps-sql-int-listener.md).
 
-Bir Azure sanal makinede çalışan SQL Server için tüm en iyi güvenlik uygulamaları gözden geçirilmesi önemlidir. Daha fazla bilgi için bkz. [Azure Sanal Makineler'de SQL Server için Güvenlikle İlgili Dikkat Edilmesi Gerekenler](../sql/virtual-machines-windows-sql-security.md).
+Azure sanal makinesinde çalışan SQL Server için tüm en iyi yöntemleri gözden geçirilmesi önemlidir. Daha fazla bilgi için bkz. [Azure Sanal Makineler'de SQL Server için Güvenlikle İlgili Dikkat Edilmesi Gerekenler](../sql/virtual-machines-windows-sql-security.md).
 
 Azure Virtual Machines’de SQL Server için.[Öğrenme Yolunu keşfedin](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/). 
 
-Azure Vm'lerde SQL Server çalıştırma ile ilgili diğer konular için bkz: [Azure Virtual Machines'de SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Azure Vm'lerinde SQL Server çalıştırma ile ilgili diğer konular için bkz [Azure Virtual Machines'de SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 

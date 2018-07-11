@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 36d59638984c31a98067b95fded9626f31a7f278
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+ms.openlocfilehash: ac8686d0ea5704492bfc2e08972a2f70c9b34c43
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "34669364"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37906828"
 ---
 Azure H serisi sanal makineler en son Vm'leri molekül modellemeleri ve hesaplama sıvı dinamiği gibi yüksek son işlem hesaplama gereksinimlerine yönelik yüksek performanslı bilgi işlem olur. Bu 8 ve 16 vCPU VM'ler Intel Haswell E5-2667 V3 işlemci teknolojisini DDR4 bellek ve SSD tabanlı geçici depolama üzerinde oluşturulur. 
 
@@ -24,6 +24,10 @@ H Serisi önemli miktarda CPU gücünün yanı sıra, FDR InfiniBand ile düşü
 ## <a name="h-series"></a>H Serisi
 
 ACU: 290-300
+
+Premium Depolama: Desteklenmez
+
+Premium depolama önbelleğe alma: Desteklenmez
 
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum diski aktarım hızı: IOPS | En fazla NIC |
 | --- | --- | --- | --- | --- | --- | --- |

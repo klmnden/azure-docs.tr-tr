@@ -1,6 +1,6 @@
 ---
-title: Azure genel bakış işlem birim | Microsoft Docs
-description: İşlem birimleri için Windows Azure kavramı genel bakış. ACU Azure SKU'ları arasında CPU performans karşılaştırma bir yolunu sunar.
+title: İşlem birimi Azure'nün genel bakış | Microsoft Docs
+description: İşlem birimleri için Windows Azure kavramının genel bakış. ACU CPU performansı Azure SKU'ları arasında karşılaştırma bir yol sağlar.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2017
 ms.author: jonbeck
 ms.openlocfilehash: baf49856f8f7480ece10e065b3ac002297f06617
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "30918090"
 ---
 # <a name="azure-compute-unit-acu"></a>Azure işlem birimi (ACU)
@@ -27,7 +27,7 @@ ms.locfileid: "30918090"
 [!INCLUDE [virtual-machines-common-acu](../../../includes/virtual-machines-common-acu.md)]
 
 
-Farklı boyutlarda hakkında daha fazla bilgi için bağlantılar şunlardır:
+Farklı boyutları hakkında daha fazla bilgi için bağlantılar şunlardır:
 - [Genel amaçlı](sizes-general.md)
 - [Bellek için iyileştirilmiş](../virtual-machines-windows-sizes-memory.md)
 - [İşlem için iyileştirilmiş](sizes-compute.md)

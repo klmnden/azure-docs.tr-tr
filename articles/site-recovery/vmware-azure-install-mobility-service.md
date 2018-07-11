@@ -3,15 +3,15 @@ title: Mobility hizmetini (VMware veya fiziksel-Azure) yükleme | Microsoft Docs
 description: Şirket içi VMware Vm'leri ve fiziksel sunucuları Azure Site Recovery ile koruma için Mobility hizmeti aracısı yüklemeyi öğrenin.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.topic: article
+ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: e98e67c453e909662c509598acc4cf65c5a0a6fa
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: bc0ec09e28c5540eb919ac4e5f970f877ae27e44
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887666"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37919096"
 ---
 # <a name="install-the-mobility-service"></a>Mobility hizmetini yükleme 
 

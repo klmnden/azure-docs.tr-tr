@@ -1,6 +1,6 @@
 ---
-title: Özel geliştirilmiş bir uygulama için belirli alanları doldurmak nasıl | Microsoft Docs
-description: Azure AD ile özel bir geliştirilmiş uygulama kaydederken belirli alanları doldurmak nasıl hakkında yönergeler
+title: İçin özel olarak geliştirilmiş bir uygulamada belirli alanları doldurmak nasıl | Microsoft Docs
+description: Azure AD ile özel olarak geliştirilen bir uygulama kaydı sırasında belirli alanları doldurun hakkında yönergeler
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -15,49 +15,49 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.openlocfilehash: c6f6b0685c83d9305c62f121aec562d2afedae21
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "36335729"
 ---
-# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Özel geliştirilmiş bir uygulama için belirli alanları doldurmak nasıl
+# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Nasıl için özel olarak geliştirilmiş bir uygulamada belirli alanları doldurun
 
-Bu makalede, kullanılabilir tüm alanlar uygulama kayıt formunda kısa bir açıklamasını sağlar [Azure portal](https://portal.azure.com).
+Bu makalede, kullanılabilir tüm alanları uygulama kayıt formunda kısa bir açıklamasını sunar [Azure portalında](https://portal.azure.com).
 
-## <a name="register-a-new-application"></a>Yeni uygulamayı Kaydet
+## <a name="register-a-new-application"></a>Yeni bir uygulamayı kaydetme
 
--   Yeni bir uygulama kaydetmek için gidin [Azure portal](https://portal.azure.com).
+-   Yeni bir uygulamayı kaydetmek için gidin [Azure portalında](https://portal.azure.com).
 
--   Sol gezinti bölmesinden tıklatın **Azure Active Directory.**
+-   Sol gezinti bölmesinden tıklayın **Azure Active Directory.**
 
--   Seçin **uygulama kayıtlar** tıklatıp **Ekle**.
+-   Seçin **uygulama kayıtları** tıklatıp **Ekle**.
 
--   Uygulama kayıt formu bu açın.
+-   Bu kayıt formunu açın.
 
-## <a name="fields-in-the-application-registration-form"></a>Uygulama kayıt formu alanları
+## <a name="fields-in-the-application-registration-form"></a>Kayıt formunu alanları
 
 
 | Alan            | Açıklama                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Ad             | Uygulamanın adı. En az dört karakter olmalıdır.                |
-| Uygulama Türü | **Web uygulaması/Web API**: bir web uygulaması, web API veya her ikisini de temsil eden bir uygulama 
-| |**Yerel**: bir kullanıcının Cihazınızda veya bilgisayarınızda yüklü bir uygulama           |
-| Oturum Açma URL'si      | Burada kullanıcıların uygulamanızı kullanmaya oturum açabilirsiniz URL'si                                  |
+| Ad             | Uygulamanın adı. Bu, en az dört karakter olmalıdır.                |
+| Uygulama Türü | **Web uygulaması/Web API'si**: bir web uygulaması, bir web API'sini veya her ikisini temsil eden bir uygulama 
+| |**Yerel**: bir kullanıcının cihazına veya bilgisayarına yüklenebilen bir uygulama           |
+| Oturum Açma URL'si      | Kullanıcıların uygulamanızı kullanmak için oturum içinde URL'si                                  |
 
-Yukarıdaki alanları doldurduktan sonra uygulama Azure portalında kaydedilir ve uygulama sayfasına yönlendirilirsiniz. **Ayarları** uygulama bölmesi düğmesinde uygulamanızı özelleştirmenize olanak için daha fazla alan Ayarları sayfası açılır. Aşağıdaki tabloda Ayarları sayfasında tüm alanları açıklar. yalnızca bir alt kümesini, bir web uygulaması veya bir yerel uygulamayı oluşturduğunuz bağlı olarak, bu alanlara görür unutmayın.
+Yukarıdaki alanları doldurduktan sonra Azure portalında uygulama kaydedilir ve uygulama sayfasına yönlendirilirsiniz. **Ayarları** uygulama bölmesinde düğmesine uygulamanızı özelleştirmek size daha fazla alan olan ayarları sayfası açılır. Aşağıdaki tabloda Ayarları sayfasında tüm alanlar açıklanır. Not, bir web uygulaması veya yerel bir uygulama oluşturduğunuz bağlı olarak, bu alanların bir alt kümesini yalnızca görür.
 
 | Alan           | Açıklama                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Uygulama Kimliği  | Bir uygulamayı kaydetme, Azure AD, uygulamanızın bir uygulama kimliği atar Kimliği Azure ad kimlik doğrulama isteklerini uygulamanızda benzersizce gibi kaynaklara erişmek için kullanılan uygulama grafik API'si ister.                                                          |
-| Uygulama Kimliği URI'si      | Bu genellikle formunun benzersiz bir URI olmalıdır **https://&lt;Kiracı\_adı&gt;/&lt;uygulama\_adı&gt;.** Bu yetkilendirme grant akışı sırasında için belirteç veren kaynak belirtmek için benzersiz bir tanımlayıcı olarak kullanılır. Verilen erişim belirteci 'aud' talepte haline gelir. |
-| Karşıya yeni logo yükle | Bu, uygulamanız için bir logosu yüklemek için kullanabilirsiniz. Logo .bmp, .jpg veya .png biçiminde olmalıdır ve dosya boyutu 100 KB'tan daha az olmalıdır. Görüntü boyutları merkezi görüntü boyutları 94 x 94 piksel ile 215 x 215 piksel olmalıdır.                                                       |
+| Uygulama Kimliği  | Bir uygulamayı kaydettiğinizde, Azure AD uygulamanızı bir uygulama kimliği atar Azure ad kimlik doğrulama isteklerini uygulamanıza benzersiz olarak tanımlanabilmesi gibi kaynaklara erişmek için kimlik kullanılabilir uygulama Graph API'sini ister.                                                          |
+| Uygulama Kimliği URI'si      | Bu genellikle formun benzersiz bir URI olmalıdır **https://&lt;Kiracı\_adı&gt;/&lt;uygulama\_adı&gt;.** Yetkilendirme verme akışı sırasında bu belirteç için yayınlanması gereken kaynak belirtmek için benzersiz bir tanımlayıcı olarak kullanılır. Ayrıca, verilen erişim belirtecinde 'aud' talep olur. |
+| Karşıya yeni logo yükle | Bu, uygulamanız için bir logosu yüklemek için kullanabilirsiniz. Logo, .bmp, .jpg veya .png biçiminde olmalıdır ve dosya boyutu 100 KB'tan küçük olmalıdır. Görüntü boyutları ile merkez resim boyutları: 94 x 94 piksel 215 x 215 piksel olmalıdır.                                                       |
 | Giriş sayfası URL'si   | Uygulama kaydı sırasında belirtilen oturum açma URL'si budur.                                                                                                                                                                                                                                              |
-| Oturum Kapatma URL'si      | Bu tek oturum kapatma oturum kapatma URL'si. Kullanıcı Azure AD ile kullanıcıların oturumlarını temizlediğinde azure AD herhangi bir kayıtlı uygulamayı kullanarak bu URL'yi bir oturum kapatma isteği gönderir.                                                                                                                                       |
-| Çok kiracılı  | Bu anahtar, uygulamanın birden çok kiracılar tarafından kullanılıp kullanılamayacağını belirtir. Bu genellikle, dış kuruluşlar kendi Kiracı kaydetme ve kuruluşun verilere erişim izni verme uygulamanızı kullanabileceğiniz anlamına gelir.                                                                   |
-| Yanıt URL'leri      | Yanıt URL'leri Azure AD uygulamanız tarafından istenen herhangi bir belirtece döndüğü noktalarıdır.                                                                                                                                                                                                          |
-| Yeniden Yönlendirme URI'leri   | Yerel uygulamalar için kullanıcı başarılı yetkilendirme sonrasında burada gönderilen budur. Yeniden yönlendirme URI'si uygulamanız OAuth 2.0 istekte sağlayan azure AD onay Portalı'nda kayıtlı değerlerden biri ile eşleşir.                                                            |
-| Anahtarlar            | Program aracılığıyla erişim Web API'leri herhangi bir kullanıcı etkileşimi olmadan Azure AD tarafından güvenli hale getirilmiş anahtarları oluşturabilir. Gelen \* \*anahtarları\* \* sayfasında, anahtar açıklaması ve sona erme tarihini girin ve anahtarı oluşturmak için kaydedin. Daha sonra erişim açamayacaksınız gibi güvenli bir yere kaydettiğinizden emin olun.             |
+| Oturum Kapatma URL'si      | Bu çoklu oturum kapatma oturum kapatma URL'si. Azure AD ile kullanıcı oturumuna temizlediğinde azure AD'ye kayıtlı herhangi bir uygulamayı kullanarak bu URL'ye oturum kapatma isteği gönderir.                                                                                                                                       |
+| Çok kiracılı  | Bu anahtar, birden fazla Kiracı tarafından uygulamanın kullanılıp kullanılamayacağını belirtir. Bu genellikle, dış kuruluşlar kendilerine ait kiracıda kaydedip kuruluş verilerine erişimi verme uygulamanızın kullanabileceği anlamına gelir.                                                                   |
+| Yanıt URL'leri      | Yanıt URL'leri, burada Azure AD, uygulamanız tarafından istenen belirteçleri döndürdüğü uç noktalardır.                                                                                                                                                                                                          |
+| Yeniden Yönlendirme URI'leri   | Yerel uygulamalar için kullanıcı başarılı yetkilendirme sonrasında burada gönderilen budur. Yeniden yönlendirme URI'si, uygulamanız OAuth 2.0 isteğine sağlayan azure AD denetimi Portalı'nda kayıtlı değerlerinden eşleşir.                                                            |
+| Anahtarlar            | Programlama yoluyla erişim Web güvenliği herhangi bir kullanıcı etkileşimi olmadan Azure AD tarafından sağlanan API anahtarları oluşturabilirsiniz. Gelen \* \*anahtarları\* \* sayfasında, bir anahtar açıklaması ve sona erme tarihini girin ve anahtarı oluşturmak için kaydedin. Daha sonra erişmek mümkün olmayacaktır gibi güvenli bir yere kaydettiğinizden emin olun.             |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Uygulamaları Azure Active Directory ile yönetme](manage-apps/what-is-application-management.md)

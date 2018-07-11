@@ -1,6 +1,6 @@
 ---
-title: Statik paketleme görevleri gerçekleştirmek için Azure Media Paketleyicisi'ni kullanma | Microsoft Docs
-description: Bu konu Azure Media Paketleyici ile gerçekleştirilen çeşitli görevleri gösterir.
+title: Statik paketleme görevlerini gerçekleştirmek üzere Azure Media Packager'ı kullanarak | Microsoft Docs
+description: Bu konuda, Azure Media Packager'ı ile gerçekleştirilir çeşitli görevler gösterilmektedir.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,49 +15,49 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.openlocfilehash: 808f25ee2c0b72f557ec72d159318e25cb7387ab
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "33790562"
 ---
-# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Statik paketleme görevleri gerçekleştirmek için Azure Media Paketleyicisi'ni kullanma
+# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Statik paketleme görevlerini gerçekleştirmek üzere Azure Media Packager'ı kullanma
 > [!NOTE]
-> Microsoft Azure medya Paketleyici ve Microsoft Azure medya Şifreleyici ömrü tarihi sonuna 1 Mart 2017 için genişletilmiştir. Bu tarihten önce bu işlemciler işlevlerini Medya Kodlayıcısı standart (MES için) eklenir. Müşteriler için MES işleri göndermek için kendi iş akışları geçirme konusunda yönergeler sağlanır. Biçim dönüştürmeyi ve şifreleme özellikleri de dinamik paketleme ve dinamik şifreleme bulunabilir.
+> 1 Mart 2017'ye tarihi Microsoft Azure medya Paketleyici ve Microsoft Azure medya Şifreleyici yaşam sonuna genişletilmiştir. Bu tarihten önce bu işlemci işlevlerini medya Kodlayıcı standart (MES için) eklenir. Müşteriler için MES işleri göndermek için iş akışlarını geçirme hakkında yönergeler sağlanır. Biçim dönüştürme ve şifreleme özellikleri de dinamik paketleme ve dinamik şifreleme yapılabilir.
 > 
 > 
 
 ## <a name="overview"></a>Genel Bakış
-İnternet üzerinden dijital video teslim etmek için medyayı sıkıştırmanız gerekir. Dijital video dosyaları büyük ve internet üzerinden veya düzgün görüntülemek, müşterilerinizin cihazlar için teslim etmek için çok büyük olabilir. Kodlama müşterilerinizin medyanızı görüntüleyebilmeniz video ve ses sıkıştırma işlemidir. Bir video kodlandıktan sonra farklı bir dosya kapsayıcılarına yerleştirilebilir. Bir kapsayıcı halinde yerleştirme kodlanmış medya işleme paketleme verilir. Örneğin, bir MP4 dosyası alın ve Azure Media Paketleyici kullanarak kesintisiz akış veya HLS içerik dönüştürün. 
+İnternet üzerinden dijital video teslim etmek için medyayı sıkıştırmanız gerekir. Dijital video dosyaları büyük ve internet üzerinden veya müşterilerinizin cihazlar düzgün görüntülenmesi sunmak için çok büyük olabilir. Kodlama, müşterilerinizin ortamınızı görüntülemek için video ve ses sıkıştırma işlemidir. Bir video kodlanmış sonra farklı bir dosya kapsayıcılarına yerleştirilebilir. Bir kapsayıcı içine yerleştirme kodlanmış medya işleme paketleme verilir. Örneğin, bir MP4 dosyasını alır ve Azure Media Packager'ı kullanarak kesintisiz akış ve HLS içeriği dönüştürün. 
 
-Media Services, dinamik ve statik paketleme destekler. Statik paketleme kullanırken müşteriler tarafından gerekli her biçiminde, içeriğin bir kopyasını oluşturmanız gerekir. Tüm paketleme dinamik ile ihtiyacınız bit hızı Uyarlamalı MP4 veya kesintisiz akış dosyaları kümesini içeren bir varlık oluşturmaktır. Ardından, istekteki bildirimini veya parça, isteğe bağlı Akış belirtilen biçime bağlı olarak sunucu kullanıcılarınızın akış seçmiş olduğunuz protokolde almanızı sağlar. Bunu sonucunda, dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services hizmeti, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
+Media Services dinamik ve statik paketleme destekler. Statik paketleme kullanırken, müşterileriniz tarafından gerekli olan her biçimde, içeriğin bir kopyasını oluşturmanız gerekir. Tüm paketleme, dinamik ile ihtiyacınız, bir grup bit hızı Uyarlamalı MP4 veya kesintisiz akış dosyaları içeren bir varlık oluşturmaktır. Ardından bildirim veya parça isteğindeki talep üzerine akış belirtilen biçime bağlı sunucusu kullanıcılarınız akış, seçtiğiniz protokolde almanızı sağlar. Bunu sonucunda, dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services hizmeti, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
 
 > [!NOTE]
-> Kullanmak için önerilen [dinamik paketleme](media-services-dynamic-packaging-overview.md).
+> Kullanılacak önerilen [dinamik paketleme](media-services-dynamic-packaging-overview.md).
 > 
 > 
 
 Ancak, statik paketleme gerektiren bazı senaryolar vardır: 
 
-* Uyarlamalı bit hızlı (örneğin, üçüncü taraf kodlayıcılar kullanarak) dış kodlayıcılar ile kodlanmış MP4s doğrulanıyor.
+* Uyarlamalı bit hızı MP4 kodlanmış (örneğin, üçüncü taraf Kodlayıcı kullanarak) dış kodlayıcılarda doğrulanıyor.
 
-Statik paketleme aşağıdaki görevleri gerçekleştirmek için de kullanabilirsiniz: ancak dinamik şifreleme kullanabilmek için önerilir.
+Statik paketleme aşağıdaki görevleri gerçekleştirmek için de kullanabilirsiniz: ancak, dinamik şifreleme kullanabilmek için önerilir.
 
-* PlayReady ile MPEG DASH ve kesintisiz koruma için statik şifreleme kullanma
-* AES-128 ile HLSv3 korumak için statik şifreleme kullanma
-* PlayReady ile HLSv3 korumak için statik şifreleme kullanma
+* Statik şifreleme kullanarak PlayReady ile MPEG DASH ve kesintisiz koruma
+* HLSv3 AES-128 ile koruma için statik şifreleme kullanma
+* HLSv3 PlayReady ile koruma için statik şifreleme kullanma
 
-## <a name="validating-adaptive-bitrate-mp4s-encoded-with-external-encoders"></a>Dış Kodlayıcılarla doğrulama Uyarlamalı bit hızlı MP4s kodlanmış
-Media Services kodlayıcılarla kodlanmamış Uyarlamalı bit hızlı (Çoklu bit hızı) MP4 dosyaları kümesini kullanmak istiyorsanız, başka bir işleme önce dosyalarınızı doğrulamalıdır. Medya Hizmetleri Paketleyici MP4 dosyaları kümesini içeren bir varlık doğrulamak ve varlık kesintisiz akış veya HLS olarak paketlenmiş denetleyin. Doğrulama görev başarısız olursa, görev işlemekte olan iş bir hata ile tamamlar. Doğrulama görev Önayar tanımlayan XML bulunabilir [görev hazır Azure medya Paketleyici için](http://msdn.microsoft.com/library/azure/hh973635.aspx) makalesi.
+## <a name="validating-adaptive-bitrate-mp4s-encoded-with-external-encoders"></a>Dış Kodlayıcılarla doğrulama Uyarlamalı bit hızı MP4 kodlanmış
+Media Services kodlayıcılarla değil kodlanmış (Çoklu bit hızı) bit hızı Uyarlamalı MP4 dosyaları kümesini kullanmak istiyorsanız, önce başka işlem dosyalarınızı doğrulamalıdır. Media Services Packager'ı, bir MP4 dosyaları kümesini içeren bir varlık doğrulamak ve varlık kesintisiz akış ve HLS için paketlenmesi olup olmadığını denetleyin. Doğrulama görev başarısız olursa, görev işliyordu iş hatayla tamamlanır. Doğrulama görev ön ayarları tanımlayan XML bulunabilir [hazır görev için Azure Media Packager'ı](http://msdn.microsoft.com/library/azure/hh973635.aspx) makalesi.
 
 > [!NOTE]
-> Çalışma zamanı önlemek için içeriğinizi doğrulamak için Media Services Paketleyici sorunları veya üretmek için Medya Kodlayıcısı standart kullanın. İsteğe bağlı Akış sunucusu, kaynak dosyalarıyla çalışma zamanında ayrıştırabiliyor değilse, HTTP 1.1 hatası "415 Desteklenmeyen medya türü." alıyorsunuz Art arda sunucunun, kaynak dosyalarını ayrıştırmak başarısız olmasına neden olan isteğe bağlı Akış sunucusu performansını etkiler ve diğer isteklere hizmet vermek için kullanılabilir bant genişliğini azaltabilir. Azure Media Services, bir hizmet düzeyi sözleşmesi (SLA), isteğe bağlı Akış hizmetleri sunar. Ancak, bu SLA, yukarıda açıklanan şekilde sunucu yanlış olmadığını gerçekleştirilemez.
+> Media Encoder Standard kullanarak veya çalışma zamanı önlemek için içeriğinizi doğrulamak için medya Hizmetleri Paketleyici verir. İsteğe bağlı Akış sunucusu zamanında kaynak dosyalarını ayrıştırmak mümkün değilse, HTTP 1.1 "415 Desteklenmeyen medya türü." hatasını Art arda sunucunun, kaynak dosyalarını ayrıştırmak başarısız olmasına neden olan talep üzerine akış sunucusunun performansını etkiler ve diğer isteklerine hizmet için kullanılabilir bant genişliğini azaltabilir. Azure Media Services, bir hizmet düzeyi sözleşmesi (SLA), talep üzerine akış hizmetleri sunar. Ancak, sunucunun kötüye kullanımını yukarıda açıklanan şekilde, bu SLA gerçekleştirilemez.
 > 
 > 
 
-Bu bölümde, doğrulama görev işlem gösterilmektedir. Ayrıca, durum ve hata iletisi ile JobStatus.Error tamamlayan işin görmek nasıl gösterir.
+Bu bölümde, doğrulama görev işlemi gösterilmektedir. Ayrıca, durum ve hata iletisi ile JobStatus.Error tamamlanan işin nasıl gösterir.
 
-Medya Hizmetleri Paketleyici ile MP4 dosyalarınızın doğrulamak için kendi bildirimi (.ism) dosyası oluşturun ve Media Services hesabınıza kaynak dosyalarıyla birlikte yüklemek. Aşağıda bir .ism dosyası örneği Medya Kodlayıcısı standart tarafından oluşturulur. Dosya adları büyük/küçük harfe duyarlıdır. Ayrıca, .ism dosyası metni UTF-8 ile kodlanmış emin olun.
+Medya Hizmetleri Paketleyici MP4 dosyalarınızla doğrulamak için kendi bildirimi (.ism) dosyası oluşturun ve Azure Media Services hesabına birlikte kaynak dosyalarını karşıya yükleyin. Aşağıda bir .ism dosyası örneği Media Encoder Standard tarafından oluşturulur. Dosya adları büyük/küçük harfe duyarlıdır. Ayrıca, .ism dosyası metni, UTF-8 ile kodlanmış emin olun.
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -80,9 +80,9 @@ Medya Hizmetleri Paketleyici ile MP4 dosyalarınızın doğrulamak için kendi b
     </smil>
 ```
 
-Bulduktan sonra Uyarlamalı bit hızı MP4 kümesine dinamik paketleme yararlanabilir. Dinamik paketleme, daha fazla paketleme olmadan belirtilen Protokolü akışlar sunmanıza olanak sağlar. Daha fazla bilgi için bkz: [dinamik paketleme](media-services-dynamic-packaging-overview.md).
+Sonra hızı Uyarlamalı MP4 kümesine dinamik paketleme yararlanabilirsiniz. Dinamik paketleme, daha fazla paketleme olmadan belirtilen protokol akışlar sunmanıza olanak sağlar. Daha fazla bilgi için [dinamik paketleme](media-services-dynamic-packaging-overview.md).
 
-Aşağıdaki kod örneği, Azure Media Services .NET SDK uzantıları kullanır.  Kod giriş MP4 dosyaları ve .ism dosyası bulunduğu klasöre işaret edecek şekilde güncelleştirdiğinizden emin olun. Ve ayrıca MediaPackager_ValidateTask.xml dosyasının bulunduğu. Bu XML dosyası tanımlanan [görev Önayar Azure medya Paketleyici için](http://msdn.microsoft.com/library/azure/hh973635.aspx) makalesi.
+Aşağıdaki kod örneği, Azure Media Services .NET SDK uzantıları kullanır.  Kod .ism dosyası ve giriş MP4 dosyalarının bulunduğu klasöre işaret edecek şekilde güncelleştirdiğinizden emin olun. Ve ayrıca MediaPackager_ValidateTask.xml dosyanızın bulunduğu için. Bu XML dosyası tanımlanan [Azure Media Packager'ı için görev Önayar](http://msdn.microsoft.com/library/azure/hh973635.aspx) makalesi.
 
 ```csharp
     using Microsoft.WindowsAzure.MediaServices.Client;
@@ -250,23 +250,23 @@ Aşağıdaki kod örneği, Azure Media Services .NET SDK uzantıları kullanır.
     }
 ```
 
-## <a name="using-static-encryption-to-protect-your-smooth-and-mpeg-dash-with-playready"></a>Kesintisiz ve MPEG DASH PlayReady ile koruma için statik şifreleme kullanma
-İçeriğinizi PlayReady ile korumak istiyorsanız, kullanarak seçenekleriniz vardır [dinamik şifreleme](media-services-protect-with-playready-widevine.md) (önerilen seçenek) veya statik şifreleme (Bu bölümde açıklandığı şekilde).
+## <a name="using-static-encryption-to-protect-your-smooth-and-mpeg-dash-with-playready"></a>Kesintisiz ve MPEG DASH ile PlayReady korumak için statik şifreleme kullanma
+PlayReady ile içeriğinizi korumanıza istiyorsanız kullanmanın etkinleştirebileceğinizi [dinamik şifreleme](media-services-protect-with-playready-widevine.md) (önerilen seçenek) veya statik şifreleme (Bu bölümde açıklandığı şekilde).
 
-Bu bölümdeki örnek bir mezzanine dosyanızı (Bu örnek MP4) Uyarlamalı bit hızlı MP4 dosyaları içine kodlar. Ardından MP4s kesintisiz akış paketler ve kesintisiz akış PlayReady ile şifreler. Sonuç olarak, kesintisiz akış veya MPEG DASH akış imkanınız olur.
+Bu bölümdeki örnekte (büyük/küçük harf bu MP4) içindeki bir ara dosyayı Uyarlamalı bit hızı MP4 dosyaları kodlar. Ardından MP4 kesintisiz akış paketler ve kesintisiz akış PlayReady ile sonra şifreler. Sonuç olarak, kesintisiz akış veya MPEG DASH akış olanağına sahip olursunuz.
 
-Media Services, artık Microsoft PlayReady lisansları teslim etmek için bir hizmet sunar. Bu makaledeki örnek Media Services PlayReady lisans teslimat hizmetinin nasıl yapılandırılacağı gösterir (aşağıdaki kod içinde tanımlanan ConfigureLicenseDeliveryService yöntemi bakın). Medya Hizmetleri PlayReady lisans teslimat hizmeti hakkında daha fazla bilgi için bkz: [dinamik şifreleme kullanarak PlayReady ve lisans teslimat hizmeti](media-services-protect-with-playready-widevine.md).
+Media Services, artık Microsoft PlayReady lisans sunma için bir hizmet sunar. Bu makaledeki örnek, Media Services PlayReady lisans teslimat hizmetinin yapılandırma işlemi gösterilmektedir (kod içinde tanımlanan ConfigureLicenseDeliveryService yöntemi bakın). Media Services PlayReady lisans teslimat hizmeti hakkında daha fazla bilgi için bkz: [dinamik şifreleme kullanarak PlayReady ve lisans teslimat hizmetinin](media-services-protect-with-playready-widevine.md).
 
 > [!NOTE]
-> MPEG PlayReady ile şifrelenmiş DASH teslim etmek için CENC seçenekleri useSencBox ve adjustSubSamples özelliklerini ayarlayarak kullandığınızdan emin olun (açıklanan [görev Önayar Azure medya Şifreleyici için](http://msdn.microsoft.com/library/azure/hh973610.aspx) makale) true.  
+> MPEG DASH ile PlayReady şifreli sunmak için CENC seçenekleri useSencBox ve adjustSubSamples özelliklerini ayarlayarak kullandığınızdan emin olun (açıklanan [Azure medya Şifreleyici için görev Önayar](http://msdn.microsoft.com/library/azure/hh973610.aspx) makale) true.  
 > 
 > 
 
-Aşağıdaki kod giriş MP4 dosyanızda bulunduğu klasöre işaret edecek şekilde güncelleştirdiğinizden emin olun.
+Aşağıdaki kod, giriş MP4 dosyasının bulunduğu klasöre işaret edecek şekilde güncelleştirdiğinizden emin olun.
 
-Ve ayrıca MediaPackager_MP4ToSmooth.xml ve MediaEncryptor_PlayReadyProtection.xml dosyalarının bulunduğu. MediaPackager_MP4ToSmooth.xml tanımlanmış [görev Önayar Azure medya Paketleyici için](http://msdn.microsoft.com/library/azure/hh973635.aspx) ve MediaEncryptor_PlayReadyProtection.xml tanımlanmış [görev Önayar Azure medya Şifreleyici için](http://msdn.microsoft.com/library/azure/hh973610.aspx) makalesi. 
+Ve ayrıca MediaPackager_MP4ToSmooth.xml ve MediaEncryptor_PlayReadyProtection.xml dosyalarınızın bulunduğu için. MediaPackager_MP4ToSmooth.xml tanımlanmış [Azure Media Packager'ı için görev Önayar](http://msdn.microsoft.com/library/azure/hh973635.aspx) ve MediaEncryptor_PlayReadyProtection.xml tanımlanmış [Azure medya Şifreleyici için görev Önayar](http://msdn.microsoft.com/library/azure/hh973610.aspx) makalesi. 
 
-Örnek dinamik olarak MediaEncryptor_PlayReadyProtection.xml dosyasını güncelleştirmek için kullanabileceğiniz UpdatePlayReadyConfigurationXMLFile yöntemi tanımlar. Kullanılabilir anahtar çekirdek varsa, keySeedValue ve Keyıd değerlerine dayalı içerik anahtarı oluşturmak için CommonEncryption.GeneratePlayReadyContentKey yöntemi kullanabilirsiniz.
+Örnek MediaEncryptor_PlayReadyProtection.xml dosya dinamik olarak güncelleştirmek için kullanabileceğiniz UpdatePlayReadyConfigurationXMLFile yöntemi tanımlar. Kullanılabilir anahtar çekirdek varsa, CommonEncryption.GeneratePlayReadyContentKey yöntemi keySeedValue ve Keyıd değerlerine dayalı bir içerik anahtarı oluşturmak için kullanabilirsiniz.
 
 ```csharp
     using System;
@@ -702,17 +702,17 @@ Ve ayrıca MediaPackager_MP4ToSmooth.xml ve MediaEncryptor_PlayReadyProtection.x
     }
 ```
 
-## <a name="using-static-encryption-to-protect-hlsv3-with-aes-128"></a>AES-128 ile HLSv3 korumak için statik şifreleme kullanma
-AES-128 ile HLS şifrelemek isterseniz, dinamik şifreleme (önerilen seçenek) veya statik şifreleme (Bu bölümde gösterildiği gibi) kullanarak seçenekleriniz vardır. Dinamik şifreleme kullanmaya karar verirseniz bkz [AES-128 dinamik şifreleme kullanarak ve anahtar teslim hizmeti](media-services-protect-with-aes128.md).
+## <a name="using-static-encryption-to-protect-hlsv3-with-aes-128"></a>HLSv3 AES-128 ile koruma için statik şifreleme kullanma
+AES-128 ile HLS şifrelemek isterseniz, dinamik şifreleme (önerilen seçenek) veya statik şifreleme (Bu bölümde gösterildiği gibi) kullanarak seçenekleriniz vardır. Dinamik şifreleme kullanmaya karar verirseniz, bkz. [kullanarak AES-128 dinamik şifreleme ve anahtar teslim hizmeti](media-services-protect-with-aes128.md).
 
 > [!NOTE]
-> İçeriğinizi HLS dönüştürmek için önce convert/içeriğinizi kesintisiz akış kodlayın gerekir.
-> Ayrıca, HLS AES ile şifrelenmiş için aşağıdaki özellikleri MediaPackager_SmoothToHLS.xml dosyanızda ayarlamak emin olun: true, anahtar değeri ve authentication\authorization sunucuya işaret edecek şekilde keyuri değeri ayarlamak için şifreleme özelliğini ayarlayın.
-> Medya Hizmetleri bir anahtar dosyası oluşturun ve varlık kapsayıcısında yerleştirin. /Asset-containerguid/\*.key dosya sunucunuza kopyalayın (veya gerekir anahtar dosyanızı oluşturun) ve varlık kapsayıcıdan \*.key dosya silin.
+> HLS içeriğinizin dönüştürmek için önce dönüştürme/içeriğinizi kesintisiz akış ile kodlamanız gerekir.
+> Ayrıca, HLS AES ile şifrelenmiş için aşağıdaki özellikleri MediaPackager_SmoothToHLS.xml dosyanızda ayarlanan emin olun: true, anahtar değeri ve kimlik doğrulaması\yetkilendirme sunucunuzu işaret edecek şekilde keyuri değeri ayarlamak için şifreleme özelliğini ayarlayın.
+> Media Services anahtar dosyası oluşturmak ve varlık kapsayıcısında yerleştirin. /Asset-containerguid/\*.key dosya sunucunuza kopyalayın (veya gerekir anahtar dosyanızı oluşturun) ve varlık kapsayıcıdan \*.key dosya silin.
 > 
 > 
 
-Bu bölümdeki örnek MP4 dosyaları ve ardından MP4s kesintisiz akış paketler multibitrate (Bu durumda MP4) Ara dosyayı kodlar. Bunun ardından kesintisiz akış halinde HTTP canlı akışı (Gelişmiş Şifreleme Standardı (AES) 128-bit akış şifreleme ile şifrelenmiş HLS) paketler. Aşağıdaki kod giriş MP4 dosyanızda bulunduğu klasöre işaret edecek şekilde güncelleştirdiğinizden emin olun. Ve ayrıca MediaPackager_MP4ToSmooth.xml ve MediaPackager_SmoothToHLS.xml yapılandırma dosyalarınızın bulunduğu. Bu dosyalarda tanımı bulabilirsiniz [görev Önayar Azure medya Paketleyici için](http://msdn.microsoft.com/library/azure/hh973635.aspx) makalesi.
+Bu bölümdeki örnek, bir ara dosyayı (Bu durumda MP4) MP4 dosyaları ve ardından MP4 kesintisiz akış paketler multibitrate içine kodlar. Ardından kesintisiz akış ile HTTP canlı akışı (Gelişmiş Şifreleme Standardı (AES) 128 bit akış şifreleme ile şifrelenmiş HLS) paketleri. Aşağıdaki kod, giriş MP4 dosyasının bulunduğu klasöre işaret edecek şekilde güncelleştirdiğinizden emin olun. Ve ayrıca MediaPackager_MP4ToSmooth.xml ve MediaPackager_SmoothToHLS.xml yapılandırma dosyalarınızın bulunduğu için. Bu dosyalarda tanımı bulabilirsiniz [Azure Media Packager'ı için görev Önayar](http://msdn.microsoft.com/library/azure/hh973635.aspx) makalesi.
 
 ```csharp
     using System;
@@ -985,19 +985,19 @@ Bu bölümdeki örnek MP4 dosyaları ve ardından MP4s kesintisiz akış paketle
     }
 ```
 
-## <a name="using-static-encryption-to-protect-hlsv3-with-playready"></a>PlayReady ile HLSv3 korumak için statik şifreleme kullanma
-İçeriğinizi PlayReady ile korumak istiyorsanız, kullanarak seçenekleriniz vardır [dinamik şifreleme](media-services-protect-with-playready-widevine.md) (önerilen seçenek) veya statik şifreleme (Bu bölümde açıklandığı şekilde).
+## <a name="using-static-encryption-to-protect-hlsv3-with-playready"></a>HLSv3 PlayReady ile koruma için statik şifreleme kullanma
+PlayReady ile içeriğinizi korumanıza istiyorsanız kullanmanın etkinleştirebileceğinizi [dinamik şifreleme](media-services-protect-with-playready-widevine.md) (önerilen seçenek) veya statik şifreleme (Bu bölümde açıklandığı şekilde).
 
 > [!NOTE]
-> PlayReady kullanarak içeriğinizi korumak için önce Dönüştür/içeriğinizi bir kesintisiz akış biçiminde kodlamak gerekir.
+> PlayReady kullanarak içeriğinizi korumak için önce dönüştürme/içeriğinizi kesintisiz akış bir biçime kodlamanız gerekir.
 > 
 > 
 
-Bu bölümdeki örnek bir mezzanine dosyanızı (Bu örnek MP4) multibitrate MP4 dosyaları içine kodlar. Bunu daha sonra MP4s kesintisiz akış paketler ve kesintisiz akış PlayReady ile şifreler. HTTP canlı akışı (PlayReady ile şifrelenmiş HLS) üretmek için PlayReady kesintisiz akış varlık HLS paketlenmesi gerekir. Bu makalede bu adımların nasıl gerçekleştirileceğini gösterir.
+Bu bölümdeki örnek, bir mezzanine dosyasında (Bu durum MP4) multibitrate MP4 dosyaları kodlar. Ardından MP4 kesintisiz akış paketler ve kesintisiz akış ile PlayReady şifreler. HTTP canlı akışı (PlayReady ile şifrelenmiş HLS) oluşturmak için PlayReady kesintisiz akış varlık HLS paketlenmesi gerekir. Bu makalede, bu adımların nasıl gerçekleştirileceğini gösterir.
 
-Media Services, artık Microsoft PlayReady lisansları teslim etmek için bir hizmet sunar. Bu makaledeki örnek Media Services PlayReady lisans teslimat hizmetinin nasıl yapılandırılacağı gösterir (bkz **ConfigureLicenseDeliveryService** kodda tanımlanan yöntemi). 
+Media Services, artık Microsoft PlayReady lisans sunma için bir hizmet sunar. Bu makaledeki örnek, Media Services PlayReady lisans teslimat hizmetinin yapılandırma işlemi gösterilmektedir (bkz **ConfigureLicenseDeliveryService** kod içinde tanımlanan yöntem). 
 
-Aşağıdaki kod giriş MP4 dosyanızda bulunduğu klasöre işaret edecek şekilde güncelleştirdiğinizden emin olun. Ve ayrıca MediaPackager_MP4ToSmooth.xml, MediaPackager_SmoothToHLS.xml ve MediaEncryptor_PlayReadyProtection.xml dosyalarının bulunduğu. MediaPackager_MP4ToSmooth.xml ve MediaPackager_SmoothToHLS.xml tanımlanmış [görev Önayar Azure medya Paketleyici için](http://msdn.microsoft.com/library/azure/hh973635.aspx) ve MediaEncryptor_PlayReadyProtection.xml tanımlanmış [Azure medya için görev Önayar Şifreleyici](http://msdn.microsoft.com/library/azure/hh973610.aspx) makalesi.
+Aşağıdaki kod, giriş MP4 dosyasının bulunduğu klasöre işaret edecek şekilde güncelleştirdiğinizden emin olun. Ve ayrıca MediaPackager_MP4ToSmooth.xml MediaPackager_SmoothToHLS.xml ve MediaEncryptor_PlayReadyProtection.xml dosyalarınızın bulunduğu için. MediaPackager_MP4ToSmooth.xml ve MediaPackager_SmoothToHLS.xml içinde tanımlanmıştır [Azure Media Packager'ı için görev Önayar](http://msdn.microsoft.com/library/azure/hh973635.aspx) ve MediaEncryptor_PlayReadyProtection.xml tanımlanmış [Azure medya için görev Önayar Şifreleyici](http://msdn.microsoft.com/library/azure/hh973610.aspx) makalesi.
 
 ```csharp
     using System;

@@ -59,10 +59,10 @@
 #### [Özel kod](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Yerel çalıştırma ve hata ayıklama](data-lake-tools-for-vscode-local-run-and-debug.md)
 
-### Sürekli tümleştirme ve sürekli geliştirme
-#### [Genel Bakış](data-lake-analytics-cicd-overview.md)
-#### [Test ayarlama](data-lake-analytics-cicd-test.md)
-#### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
+## Sürekli tümleştirme ve sürekli geliştirme
+### [Genel Bakış](data-lake-analytics-cicd-overview.md)
+### [Test ayarlama](data-lake-analytics-cicd-test.md)
+### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 
 # Başvuru
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)

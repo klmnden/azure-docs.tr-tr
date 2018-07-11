@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/2018
+ms.date: 07/08/2018
 ms.author: magoedte
-ms.openlocfilehash: e7d3fdf9e6f027ab1c23a057ad6e039d50cab9ad
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a94f7289c75a4f4d466542c608d81cf5b954f4b1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436431"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37917359"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Azure Kubernetes Service (AKS) kapsayıcı durumu (Önizleme) izleme
 
@@ -54,7 +54,7 @@ Bu özellik için bir kümedeki tüm düğümlerin performans ve olay verilerini
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın. 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Kapsayıcı, yeni bir küme için sistem durumu izlemeyi etkinleştir
-Yalnızca Azure portalında dağıtım yaptığınızda AKS kümenizi izleme de etkinleştirebilirsiniz.  Hızlı Başlangıç makalesinde adımları [Azure Kubernetes Service (AKS) kümesini dağıtma](../aks/kubernetes-walkthrough-portal.md).  Üzerinde olduğunda **izleme** sayfasında **Evet** seçeneği için **izlemeyi etkinleştirme** etkinleştirmek, mevcut bir seçin veya yeni bir Log Analytics çalışma alanı oluşturma.  
+Yeni bir AKS kümesini Azure portalından dağıtımı sırasında izlemeyi etkinleştirebilirsiniz.  Hızlı Başlangıç makalesinde adımları [Azure Kubernetes Service (AKS) kümesini dağıtma](../aks/kubernetes-walkthrough-portal.md).  Üzerinde olduğunda **izleme** sayfasında **Evet** seçeneği için **izlemeyi etkinleştirme** etkinleştirmek, mevcut bir seçin veya yeni bir Log Analytics çalışma alanı oluşturma.  
 
 İzleme etkinleştirildikten sonra tüm yapılandırma görevleri başarıyla tamamlandı, iki yoldan biriyle kümenizden performansını izleyebilirsiniz:
 
@@ -66,7 +66,7 @@ Yalnızca Azure portalında dağıtım yaptığınızda AKS kümenizi izleme de 
 İzleme etkinleştirildikten sonra küme için işletimsel verileri görebilmek için önce yaklaşık 15 dakika sürebilir.  
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Kapsayıcı mevcut yönetilen kümeleri için sistem durumu izlemeyi etkinleştir
-AKS kapsayıcı zaten dağıtılmış izlemeyi etkinleştirme gerçekleştirilebilir Azure portalından veya PowerShell cmdlet'i kullanılarak belirtilen Azure Resource Manager şablonu ile **New-AzureRmResourceGroupDeployment** veya Azure CLI.  
+Azure portalından veya PowerShell cmdlet'i kullanılarak belirtilen Azure Resource Manager şablonu ile zaten dağıtılmış bir AKS kümesi izlemesini etkinleştirebilirsiniz **New-AzureRmResourceGroupDeployment** veya Azure CLI.  
 
 
 ### <a name="enable-from-azure-portal"></a>Azure portalından etkinleştirme
@@ -75,13 +75,11 @@ Azure portalında AKS kapsayıcınızı izlemeyi etkinleştirmek için aşağıd
 1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde yazın **kapsayıcıları**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **Kubernetes Hizmetleri**.<br><br> ![Azure portal](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
 2. Kapsayıcılar, listeden bir kapsayıcı seçin.
 3. Kapsayıcı genel bakış sayfasında **kapsayıcı sistem durumu izleme** ve **kapsayıcı durumunun ve günlükleri ekleme** sayfası görüntülenir.
-4. Üzerinde **kapsayıcı durumunun ve günlükleri ekleme** sayfasında, mevcut bir Log Analytics varsa küme ile aynı abonelikte çalışma alanı, aşağı açılan listeden seçin.  Varsayılan çalışma listesi belirler ve konum AKS kapsayıcı abonelikte dağıtılmış. Seçimi yapabilir veya **Yeni Oluştur** ve aynı abonelikte yeni bir çalışma alanı belirtin.<br><br> ![AKS kapsayıcı sistem durumu izlemeyi etkinleştir](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+4. Üzerinde **kapsayıcı durumunun ve günlükleri ekleme** sayfasında, mevcut bir Log Analytics varsa küme ile aynı abonelikte çalışma alanı, aşağı açılan listeden seçin.  Varsayılan çalışma listesi belirler ve konum AKS kapsayıcı abonelikte dağıtılmış.<br><br> ![AKS kapsayıcı sistem durumu izlemeyi etkinleştir](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
 
-    Seçerseniz **Yeni Oluştur**, **yeni çalışma alanı oluşturma** bölmesi görünür. **Bölge** Varsayılanları bölgeye kapsayıcı kaynağınızı içinde oluşturulur ve varsayılan değeri kabul edin veya farklı bir bölge seçin ve ardından çalışma alanı için bir ad belirtin.  Tıklayın **Oluştur** seçiminizi kabul etmek için.<br><br> ![Çalışma alanı için kapsayıcı monintoring tanımlayın](./media/monitoring-container-health/create-new-workspace-01.png)  
-
-    >[!NOTE]
-    >Batı Orta ABD bölgesinde yeni bir çalışma alanı oluşturulamıyor, şu anda bu bölgede yalnızca önceden var olan bir çalışma alanı seçebilirsiniz.  Bu bölge listeden seçebilirsiniz olsa bile, dağıtım başlatılır ancak daha sonra kısa bir süre içinde başarısız.  
-    >
+>[!NOTE]
+>Küme izleme verilerini depolamak için yeni bir Log Analytics çalışma alanı oluşturmak istiyorsanız, adımları [Cretae bir Log Analytics çalışma alanı](../log-analytics/log-analytics-quick-create-workspace.md) ve AKS kapsayıcı aynı abonelikte çalışma alanı oluşturduğunuzdan emin olun Dağıttı.  
+>
  
 İzleme etkinleştirildikten sonra küme için işletimsel verileri görebilmek için önce yaklaşık 15 dakika sürebilir. 
 
@@ -243,10 +241,11 @@ Azure CLI'yı kullanmayı seçerseniz, önce CLI yerel olarak yükleyip kullanma
         ```
 İzleme etkinleştirildikten sonra küme için işletimsel verileri görebilmek için önce yaklaşık 15 dakika sürebilir.  
 
-## <a name="verify-agent-deployed-successfully"></a>Doğrulama Aracısı başarıyla dağıtıldı
+## <a name="verify-agent-and-solution-deployment"></a>Aracı ve çözüm dağıtımı doğrulama
+Aracı sürümü ile *06072018* ve üzeri, hem aracıyı hem de çözüm başarıyla dağıtıldı doğrulayamadı.  Aracıyı önceki sürümleriyle aracı dağıtımı doğrulayabilirsiniz.
 
 ### <a name="agent-version-06072018-and-higher"></a>Aracı sürümü 06072018 ve üzeri
-OMS Aracısı sürümünü doğrulamak için *06072018* veya üzeri düzgün bir şekilde, aşağıdaki komutları çalıştırın dağıtılır: 
+Aracı başarıyla dağıtıldığını doğrulamak için aşağıdaki komutu çalıştırın.   
 
 ```
 kubectl get ds omsagent --namespace=kube-system
@@ -260,7 +259,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
-Yeni bir dağıtımını doğrulamak için aşağıdaki komutu çalıştırın:
+Çözümün dağıtımı doğrulamak için aşağıdaki komutu çalıştırın:
 
 ```
 kubectl get deployment omsagent-rs -n=kube-system
@@ -524,7 +523,7 @@ Kapsayıcı durumunun başarıyla etkinleştirilmiş ve yapılandırılmış, an
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
     ```  
-2. Aracı sürümü için dağıtım durumunu denetleyin *06072018* veya aşağıdaki komutu çalıştırarak daha yüksek:
+2. Aracı sürümü ile çözüm dağıtım durumunu denetlemek *06072018* veya aşağıdaki komutu çalıştırarak daha yüksek:
 
     `kubectl get deployment omsagent-rs -n=kube-system`
 

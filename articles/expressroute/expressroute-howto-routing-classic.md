@@ -1,5 +1,5 @@
 ---
-title: 'Yönlendirme (bir ExpressRoute için eşliği) hattı yapılandırma: Azure: Klasik | Microsoft Docs'
+title: 'Yönlendirme (için ExpressRoute eşdüzey hizmet sağlama) devreyi yapılandırma: Azure: Klasik | Microsoft Docs'
 description: Bu makalede, bir ExpressRoute bağlantı hattı için özel, ortak ve Microsoft eşlemesinin nasıl oluşturulduğu ve sağlandığı adım adım anlatılmaktadır. Bu makalede ayrıca bağlantı hattınızın durumunu denetleme, bağlantı hattını güncelleştirme veya silme işlemlerinin nasıl yapıldığı da anlatılmaktadır.
 documentationcenter: na
 services: expressroute
@@ -16,24 +16,24 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 ms.openlocfilehash: 9cebb196bd91da704798fb001763a76e6d090472
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "31594146"
 ---
-# <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Oluşturma ve bir expressroute bağlantı hattı (Klasik) için eşleme değiştirme
+# <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Bir ExpressRoute bağlantı hattı için (Klasik) eşlemesi oluşturma ve değiştirme
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [Video - özel eşliği](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Video - ortak eşleme](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [Video - Microsoft eşlemesi](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [Video - özel eşdüzey hizmet sağlama](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Video - genel eşdüzey hizmet sağlama](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Video - Microsoft eşdüzey hizmet sağlama](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (klasik)](expressroute-howto-routing-classic.md)
 > 
 
-Bu makalede, PowerShell ve klasik dağıtım modeli kullanarak bir expressroute için yönlendirme yapılandırması oluşturma ve yönetme için adım adım anlatılmaktadır. Aşağıdaki adımlarda ayrıca bir ExpressRoute bağlantı hattının durumunu denetleme, güncelleştirme veya bağlantı hattını silme ve eşlemelerin sağlamasını kaldırma işlemleri de anlatılmaktadır.
+Bu makalede PowerShell ve klasik dağıtım modeli kullanarak ExpressRoute devresi için yönlendirme yapılandırması oluşturma ve yönetme için adımlarında size kılavuzluk eder. Aşağıdaki adımlarda ayrıca bir ExpressRoute bağlantı hattının durumunu denetleme, güncelleştirme veya bağlantı hattını silme ve eşlemelerin sağlamasını kaldırma işlemleri de anlatılmaktadır.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -43,9 +43,9 @@ Bu makalede, PowerShell ve klasik dağıtım modeli kullanarak bir expressroute 
 
 
 ## <a name="configuration-prerequisites"></a>Yapılandırma önkoşulları
-* Azure Hizmet Yönetimi (SM) PowerShell cmdlet'lerinin en yeni sürümünü gerekir. Daha fazla bilgi için bkz: [Azure PowerShell cmdlet'leri ile çalışmaya başlama](/powershell/azure/overview).  
+* Azure Hizmet Yönetimi (SM) PowerShell cmdlet'lerinin en yeni sürümünü gerekir. Daha fazla bilgi için [Azure PowerShell cmdlet'lerini kullanmaya Başlarken](/powershell/azure/overview).  
 * Yapılandırmaya başlamadan önce [önkoşullar](expressroute-prerequisites.md) sayfasını, [yönlendirme gereksinimleri](expressroute-routing.md) sayfasını ve [iş akışları](expressroute-workflows.md) sayfasını gözden geçirdiğinizden emin olun.
-* Etkin bir ExpressRoute bağlantı hattınızın olması gerekir. Yönergeleri izleyerek [bir expressroute bağlantı hattı oluşturma](expressroute-howto-circuit-classic.md) ve devam etmeden önce bağlantı sağlayıcınız tarafından etkinleştirilen hattı sahip. Aşağıda açıklanan cmdlet’leri çalıştırmanız için ExpressRoute bağlantı hattının sağlanmış ve etkin durumda olması gerekir.
+* Etkin bir ExpressRoute bağlantı hattınızın olması gerekir. Yönergelerini izleyin [ExpressRoute devresi oluşturma](expressroute-howto-circuit-classic.md) ve devam etmeden önce bağlantı sağlayıcınız tarafından etkinleştirilen devreniz olduğunu. Aşağıda açıklanan cmdlet’leri çalıştırmanız için ExpressRoute bağlantı hattının sağlanmış ve etkin durumda olması gerekir.
 
 > [!IMPORTANT]
 > Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıcıları ile oluşturulan bağlantı hatları için geçerlidir. Yönetilen Katman 3 hizmetleri (genellikle MPLS gibi bir IPVPN) sunan bir hizmet sağlayıcısı kullanıyorsanız, bağlantı sağlayıcınız yönlendirmeyi sizin için yapılandırır ve yönetir.
@@ -68,7 +68,7 @@ Bir ExpressRoute bağlantı hattı için bir, iki veya üç eşlemenin tamamın�
 
         Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-4. Ardından, Klasik dağıtım modeli için PowerShell için Azure aboneliğinize eklemek için aşağıdaki cmdlet'i kullanın.
+4. Ardından, Azure aboneliğiniz için PowerShell Klasik dağıtım modeli için eklemek için aşağıdaki cmdlet'i kullanın.
 
         Add-AzureAccount
 
@@ -77,16 +77,16 @@ Bir ExpressRoute bağlantı hattı için bir, iki veya üç eşlemenin tamamın�
 Bu bölümde bir ExpressRoute bağlantı hattı için Azure özel eşleme yapılandırmasını oluşturma, alma, güncelleştirme ve silme hakkında yönergeler açıklanmaktadır. 
 
 ### <a name="to-create-azure-private-peering"></a>Azure özel eşlemesi oluşturmak için
-1. **ExpressRoute için PowerShell modülünü içeri aktarın.**
+1. **ExpressRoute için PowerShell modülünü alın.**
    
-    ExpressRoute cmdlet'lerini kullanmaya başlamak için PowerShell oturumuna Azure ve ExpressRoute modülleri içeri aktarmalısınız. Azure ve ExpressRoute modüllerini PowerShell oturumuna içeri aktarmak için aşağıdaki komutları çalıştırın. Sürüm farklılık gösterebilir.    
+    Azure ve ExpressRoute modülleri ExpressRoute cmdlet'lerini kullanmaya başlamak için PowerShell oturumuna aktarmanız gerekir. Azure ve ExpressRoute modüllerini PowerShell oturumuna içeri aktarmak için aşağıdaki komutları çalıştırın. Sürüm farklılık gösterebilir.    
    
         Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
         Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-2. **Bir expressroute bağlantı hattı oluşturun.**
+2. **Bir ExpressRoute bağlantı hattı oluşturun.**
    
     Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure özel eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin. 
-3. **Expressroute bağlantı hattının sağlandığından emin olmak için kontrol edin.**
+3. **ExpressRoute bağlantı hattının sağlandığından emin olmak için kontrol edin.**
    
     Önce ExpressRoute ağ geçidinin Sağlandığından ve Etkin durumda olduğundan emin olmanız gerekir. Aşağıdaki örneğe bakın.
    
@@ -101,7 +101,7 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Azure özel eşleme yapıl
         Sku                              : Standard
         Status                           : Enabled
    
-    Bağlantı hattı hazırlandı ve etkin gösterdiğinden emin olun. Seçili değilse, bağlantı hattınız gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
+    Bağlantı hattı sağlanıyor ve etkin gösterildiğinden emin olun. Bu gereksinimleri karşılamıyorsa devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
    
         ServiceProviderProvisioningState : Provisioned
         Status                           : Enabled
@@ -117,11 +117,11 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Azure özel eşleme yapıl
      
     Bağlantı hattınız için Azure özel eşlemesini yapılandırmak üzere aşağıdaki cmdlet’i çalıştırabilirsiniz.
      
-        Yeni AzureBGPPeering - AccessType özel - ServiceKey "***" - PrimaryPeerSubnet "10.0.0.0/30" - SecondaryPeerSubnet "10.0.0.4/30" - PeerAsn 1234 - Vlanıd 100
+        Özel - AzureBGPPeering yeni - AccessType, Servicekey'ini "***" - PrimaryPeerSubnet "10.0.0.0/30" - SecondaryPeerSubnet "10.0.0.4/30" PeerAsn - 1234 - Vlanıd 100
      
     Bir MD5 karma değeri kullanmayı seçerseniz, aşağıdaki cmdlet'i kullanabilirsiniz.
      
-        Yeni AzureBGPPeering - AccessType özel - ServiceKey "***" - PrimaryPeerSubnet "10.0.0.0/30" - SecondaryPeerSubnet "10.0.0.4/30" - PeerAsn 1234 - Vlanıd 100 - SharedKey "A1B2C3D4"
+        Özel - AzureBGPPeering yeni - AccessType, Servicekey'ini "***" - PrimaryPeerSubnet "10.0.0.0/30" - SecondaryPeerSubnet "10.0.0.4/30" PeerAsn - 1234 - Vlanıd 100 - SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > AS numaranızı müşteri ASN’si değil eşleme ASN’si olarak belirttiğinizden emin olun.
@@ -167,16 +167,16 @@ Aşağıdaki cmdlet'i çalıştırarak eşleme yapılandırmanızı kaldırabili
 Bu bölümde bir ExpressRoute bağlantı hattı için Azure ortak eşleme yapılandırmasını oluşturma, alma, güncelleştirme ve silme hakkında yönergeler açıklanmaktadır.
 
 ### <a name="to-create-azure-public-peering"></a>Azure ortak eşlemesi oluşturmak için
-1. **ExpressRoute için PowerShell modülünü içeri aktarın.**
+1. **ExpressRoute için PowerShell modülünü alın.**
    
-    ExpressRoute cmdlet'lerini kullanmaya başlamak için PowerShell oturumuna Azure ve ExpressRoute modülleri içeri aktarmalısınız. Azure ve ExpressRoute modüllerini PowerShell oturumuna içeri aktarmak için aşağıdaki komutları çalıştırın. Sürüm farklılık gösterebilir.   
+    Azure ve ExpressRoute modülleri ExpressRoute cmdlet'lerini kullanmaya başlamak için PowerShell oturumuna aktarmanız gerekir. Azure ve ExpressRoute modüllerini PowerShell oturumuna içeri aktarmak için aşağıdaki komutları çalıştırın. Sürüm farklılık gösterebilir.   
    
         Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
         Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **ExpressRoute bağlantı hattı oluşturma**
    
     Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure ortak eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin.
-3. **Expressroute bağlantı hattının sağlandığından emin olmak için kontrol edin**
+3. **ExpressRoute bağlantı hattı, sağlandığından emin olmak için kontrol edin**
    
     Önce ExpressRoute ağ geçidinin Sağlandığından ve Etkin durumda olduğundan emin olmanız gerekir. Aşağıdaki örneğe bakın.
    
@@ -191,7 +191,7 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Azure ortak eşleme yapıl
         Sku                              : Standard
         Status                           : Enabled
    
-    Bağlantı hattı hazırlandı ve etkin gösterdiğinden emin olun. Seçili değilse, bağlantı hattınız gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
+    Bağlantı hattı sağlanıyor ve etkin gösterildiğinden emin olun. Bu gereksinimleri karşılamıyorsa devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
    
         ServiceProviderProvisioningState : Provisioned
         Status                           : Enabled
@@ -207,11 +207,11 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Azure ortak eşleme yapıl
      
     Bağlantı hattınız için Azure özel eşlemesini yapılandırmak üzere aşağıdaki cmdlet’i çalıştırabilirsiniz.
      
-        Yeni AzureBGPPeering - AccessType ortak - ServiceKey "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" - PeerAsn 1234 - Vlanıd 200
+        Genel - AzureBGPPeering yeni - AccessType, Servicekey'ini "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" PeerAsn - 1234 - Vlanıd 200
      
     Bir MD5 karma değeri kullanmayı seçerseniz, aşağıdaki cmdlet'i kullanabilirsiniz
      
-        Yeni AzureBGPPeering - AccessType ortak - ServiceKey "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" - PeerAsn 1234 - Vlanıd 200 - SharedKey "A1B2C3D4"
+        Genel - AzureBGPPeering yeni - AccessType, Servicekey'ini "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" PeerAsn - 1234 - Vlanıd 200 - SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > AS numaranızı müşteri ASN’si değil eşleme ASN’si olarak belirttiğinizden emin olun.
@@ -253,18 +253,18 @@ Aşağıdaki cmdlet'i çalıştırarak eşleme yapılandırmanızı kaldırabili
 Bu bölümde bir ExpressRoute bağlantı hattı için Microsoft eşleme yapılandırmasını oluşturma, alma, güncelleştirme ve silme hakkında yönergeler açıklanmaktadır. 
 
 ### <a name="to-create-microsoft-peering"></a>Microsoft eşlemesi oluşturmak için
-1. **ExpressRoute için PowerShell modülünü içeri aktarın.**
+1. **ExpressRoute için PowerShell modülünü alın.**
    
-    ExpressRoute cmdlet'lerini kullanmaya başlamak için PowerShell oturumuna Azure ve ExpressRoute modülleri içeri aktarmalısınız. Azure ve ExpressRoute modüllerini PowerShell oturumuna içeri aktarmak için aşağıdaki komutları çalıştırın. Sürüm farklılık gösterebilir.   
+    Azure ve ExpressRoute modülleri ExpressRoute cmdlet'lerini kullanmaya başlamak için PowerShell oturumuna aktarmanız gerekir. Azure ve ExpressRoute modüllerini PowerShell oturumuna içeri aktarmak için aşağıdaki komutları çalıştırın. Sürüm farklılık gösterebilir.   
    
         Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
         Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **ExpressRoute bağlantı hattı oluşturma**
    
     Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure özel eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin.
-3. **Expressroute bağlantı hattının sağlandığından emin olmak için kontrol edin**
+3. **ExpressRoute bağlantı hattı, sağlandığından emin olmak için kontrol edin**
    
-    Expressroute bağlantı hattı hazırlandı ve etkin durumda olup olmadığını görmek için ilk olarak işaretlemeniz gerekir.
+    Önce ExpressRoute bağlantı hattı sağlanıyor ve etkin durumda olup olmadığını görmek için denetlemelisiniz.
    
         PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
    
@@ -277,11 +277,11 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Microsoft eşleme yapılan
         Sku                              : Standard
         Status                           : Enabled
    
-    Bağlantı hattı hazırlandı ve etkin gösterdiğinden emin olun. Seçili değilse, bağlantı hattınız gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
+    Bağlantı hattı sağlanıyor ve etkin gösterildiğinden emin olun. Bu gereksinimleri karşılamıyorsa devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
    
         ServiceProviderProvisioningState : Provisioned
         Status                           : Enabled
-4. **Microsoft bağlantı hattı için eşlemesini yapılandırın**
+4. **Microsoft bağlantı hattı için eşleme yapılandırma**
    
     Devam etmeden önce aşağıdaki bilgilere sahip olduğunuzdan emin olun.
    
@@ -296,7 +296,7 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Microsoft eşleme yapılan
      
     Bağlantı hattınız için Microsoft pering yapılandırmak için aşağıdaki cmdlet'i çalıştırabilirsiniz.
      
-        Yeni AzureBGPPeering - AccessType Microsoft - ServiceKey "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" - Vlanıd 300 - PeerAsn 1234 - CustomerAsn 2245 - AdvertisedPublicPrefixes "123.0.0.0/30" - RoutingRegistryName "ARIN" - SharedKey "A1B2C3D4"
+        Yeni-AzureBGPPeering - AccessType Microsoft - Servicekey'ini "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" - Vlanıd 300 PeerAsn - 1234 - CustomerAsn 2245 - AdvertisedPublicPrefixes " 123.0.0.0/30 "- RoutingRegistryName"ARIN"- SharedKey"A1B2C3D4"
 
 ### <a name="to-view-microsoft-peering-details"></a>Microsoft eşleme ayrıntılarını görüntülemek için
 Aşağıdaki cmdlet'i kullanarak yapılandırma ayrıntılarını alabilirsiniz.
@@ -328,8 +328,8 @@ Aşağıdaki cmdlet'i çalıştırarak eşleme yapılandırmanızı kaldırabili
     Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Ardından, [expressroute bağlantı hattına bir VNet bağlama](expressroute-howto-linkvnet-classic.md).
+Ardından, [bir ExpressRoute bağlantı hattına bir VNet bağlama](expressroute-howto-linkvnet-classic.md).
 
-* İş akışları hakkında daha fazla bilgi için bkz: [ExpressRoute iş akışları](expressroute-workflows.md).
+* İş akışları hakkında daha fazla bilgi için bkz. [ExpressRoute iş akışları](expressroute-workflows.md).
 * Bağlantı hattı eşlemesi hakkında daha fazla bilgi için bkz. [ExpressRoute bağlantı hattı ve yönlendirme etki alanları](expressroute-circuit-peerings.md).
 

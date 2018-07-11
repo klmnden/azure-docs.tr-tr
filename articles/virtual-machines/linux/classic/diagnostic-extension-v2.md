@@ -1,6 +1,6 @@
 ---
 title: Bir Linux VM VM uzantısı ile izleme | Microsoft Docs
-description: Linux tanılama uzantı performans ve Tanılama verileri azure'da bir Linux VM izlemek için nasıl kullanılacağını öğrenin.
+description: Azure'da bir Linux sanal makinesi tanılama verilerini ve performansı izlemek için Linux tanılama uzantısı'nı kullanmayı öğrenin.
 services: virtual-machines-linux
 author: NingKuang
 manager: jeconnoc
@@ -15,89 +15,89 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
 ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "32193069"
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Linux Diagnostic Extension’ı kullanarak bir Linux VM’nin performansını ve tanılama verilerini izleme
 
-Bu belge Linux tanılama uzantısını 2.3 sürümünü açıklar.
+Bu belgede Linux tanılama uzantısı 2.3 sürümü açıklanmaktadır.
 
 > [!IMPORTANT]
-> Bu sürüm kullanım dışıdır ve 30 Haziran 2018 sonra her zaman yayımdan olabilir. 3.0 sürümünde değiştirilmiştir. Daha fazla bilgi için bkz: [Linux tanılama uzantısı sürüm 3.0 belgelerine](../diagnostic-extension.md).
+> Bu sürüm kullanım dışıdır ve 30 Haziran 2018'den sonra istediğiniz zaman yayımdan kaldırılmış olabilir. Sürüm 3.0 ile değiştirilmiştir. Daha fazla bilgi için [Linux tanılama uzantısının 3.0 sürümü belgelerine](../diagnostic-extension.md).
 
 ## <a name="introduction"></a>Giriş
 
-(**Not**: Linux tanılama uzantısını açık kaynaklıdır [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) burada uzantısına en güncel bilgiler ilk yayımlanır. Denetlemek isteyebilirsiniz [GitHub sayfası](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) ilk.)
+(**Not**: Linux tanılama uzantısı üzerinde açık kaynaklı [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) nerede uzantısında en güncel bilgiler ilk yayımlanır. Denetlemek isteyebilirsiniz [GitHub sayfasına](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) ilk.)
 
-Linux tanılama uzantısını kullanıcı İzleyicisi Microsoft Azure üzerinde çalışan Linux sanal makineleri yardımcı olur. Aşağıdaki özellikleri içerir:
+Linux tanılama uzantısı, Microsoft Azure üzerinde çalışan Linux sanal makineleri bir kullanıcı izleme yardımcı olur. Bunu aşağıdaki özellikleri içerir:
 
-* Toplar ve kullanıcının depolama tablosu tanılama ve syslog bilgiler dahil olmak üzere, Linux VM'den sistem performans bilgilerine yükler.
-* Kullanıcıların, toplanan ve karşıya veri ölçümlerini özelleştirme olanak tanır.
-* Belirtilen günlük dosyalarını karşıya yüklemek için atanmış depolama tablosu olanak tanır.
+* Toplar ve kullanıcının depolama tablosu, tanılama ve syslog bilgiler dahil olmak üzere Linux VM'den sistem performans bilgilerine yükler.
+* Toplanan ve karşıya veri ölçümlerini özelleştirme olanağı sağlar.
+* Belirtilen depolama tablosu için belirtilen günlük dosyalarını karşıya yüklemek kullanıcıların sağlar.
 
-Geçerli sürümde 2.3 verileri şunları içerir:
+Geçerli sürümde 2.3 veriler içerir:
 
 * Sistem, güvenlik ve uygulama günlükleri de dahil olmak üzere tüm Linux Rsyslog günlükleri.
-* Belirtilen tüm sistem verileri [System Center Çapraz Platform çözümlerini site](https://scx.codeplex.com/wikipage?title=xplatproviders).
+* Belirtilen tüm sistem verilerini [System Center Çapraz Platform çözümleri site](https://scx.codeplex.com/wikipage?title=xplatproviders).
 * Kullanıcı tarafından belirtilen günlük dosyaları.
 
-Bu uzantı, Klasik ve Resource Manager dağıtım modelleri ile çalışır.
+Bu uzantı, hem Klasik hem de Resource Manager dağıtım modeli ile çalışır.
 
-### <a name="current-version-of-the-extension-and-deprecation-of-old-versions"></a>Geçerli sürümünü uzantısı ve eski sürümleri kullanımdan kaldırma
+### <a name="current-version-of-the-extension-and-deprecation-of-old-versions"></a>Geçerli sürümünü uzantısı ve eski sürümlerinin kullanımdan kaldırma
 
-Uzantısı'nın en son sürüm **2.3**, ve **eski sürümlerini (2.0, 2.1 ve 2.2) kullanım dışı ve, bu yılın sonuna (2017) tarafından yayımlanmamış**. Linux tanılama uzantısını devre dışı otomatik alt sürüm yükseltme işlemine yüklediyseniz, uzantı kaldırıp etkin otomatik alt sürüm yükseltme işlemine yeniden yüklemeniz önerilir. Klasik (ASM) Vm'lerinde, bu Azure XPLAT CLI veya Powershell ile uzantısı yüklüyorsanız '2.*' sürüm olarak belirterek elde edebilirsiniz. ARM Vm'leri üzerinde bu dahil ederek elde edebilirsiniz ' "olan": true' VM Dağıtım şablonu olarak. Ayrıca, herhangi bir yeni yüklemesi uzantısının seçeneği açık yükseltme otomatik alt sürüm olmalıdır.
+Uzantının en son sürüm **2.3**, ve **(2.0, 2.1 ve 2.2) eski sürümler kullanım dışı ve bu yılın sonuna kadar (2017) tarafından yayımlanmamış**. Devre dışı otomatik ikincil sürüm yükseltme ile Linux tanılama uzantısının yüklü değilse, bu uzantının yüklemesini kaldırmak ve otomatik ikincil sürüm yükseltme işlemine etkin yeniden önemle tavsiye edilir. Klasik (ASM) Vm'lerinde Azure XPLAT CLI veya Powershell aracılığıyla uzantı yüklüyorsanız '2.*' sürüm olarak belirterek bunu gerçekleştirebilirsiniz. ARM Vm'leri üzerinde ekleyerek bunu gerçekleştirebilirsiniz ' "autoUpgradeMinorVersion": true' VM dağıtımı şablonunda. Ayrıca, uzantının yeni bir yükleme, otomatik ikincil sürüm yükseltme seçeneği açık olmalıdır.
 
-## <a name="enable-the-extension"></a>Uzantı etkinleştirilemedi
+## <a name="enable-the-extension"></a>Uzantıyı etkinleştir
 
-Bu uzantıyı kullanarak etkinleştirebilirsiniz [Azure portal](https://portal.azure.com/#), Azure PowerShell veya Azure CLI komut dosyaları.
+Bu uzantıyı kullanarak etkinleştirebilirsiniz [Azure portalında](https://portal.azure.com/#), Azure PowerShell veya Azure CLI betikleri.
 
-Görüntülemek ve sistem ve performans verileri doğrudan Azure Portalı'nı yapılandırmak için izleyin [adımları Azure blogunda](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
+Görüntülemek ve sistem ve performans verileri doğrudan Azure portalından yapılandırmak için izleyin [Azure blogundaki adımları](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
-Bu makalede etkinleştirmek ve Azure CLI komutları kullanarak uzantısını yapılandırmak nasıl odaklanır. Bu, okuma ve verileri doğrudan depolama tablosu görüntülemenize olanak sağlar.
+Bu makalede, etkinleştirmek ve Azure CLI komutlarını kullanarak uzantısını yapılandırmak nasıl odaklanır. Bu, okuma ve doğrudan depolama tablosundan verileri görüntülemek sağlar.
 
-Burada açıklanan yapılandırma yöntemleri için Azure portalı çalışmaz unutmayın. Görüntülemek ve sistem ve performans verileri doğrudan Azure Portalı'nı yapılandırmak için dahili olarak portalı üzerinden etkinleştirilmesi gerekir.
+Burada açıklanan yapılandırma yöntemleri Azure portalı için işe yaramaz unutmayın. Görüntülemek ve sistem ve performans verileri doğrudan Azure portalından yapılandırmak için portal üzerinden uzantısı etkinleştirilmelidir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Azure Linux Aracısı sürüm 2.0.6 veya daha sonra**.
+* **Azure Linux Aracısı 2.0.6 sürümüne veya daha sonra**.
 
-  Çoğu Azure VM Linux galeri görüntüleri sürümü 2.0.6 dahil Not veya sonraki bir sürümü. Çalıştırabilirsiniz **WAAgent-sürüm** VM hangi sürümünün yüklü olduğunu doğrulamak için. VM 2.0.6 önceki bir sürümünü çalıştırıyorsa, takip edebilirsiniz [github'daki bu yönergeleri](https://github.com/Azure/WALinuxAgent "yönergeleri") güncelleştirin.
-* **Azure CLI**. İzleyin [CLI yüklemek için bu Kılavuzu](../../../cli-install-nodejs.md) makinenizi Azure CLI ortamda ayarlamak için. Azure CLI yüklendikten sonra kullanabileceğiniz **azure** arabiriminden, komut satırı Azure CLI komutlara erişmek için (Bash, Terminal veya komut istemi) komutu. Örneğin:
+  Çoğu Azure VM Linux galeri görüntüleri 2.0.6 sürümüne içerdiğine dikkat edin veya üzeri. Çalıştırabileceğiniz **WAAgent-sürüm** VM'de hangi sürümünün yüklü olduğunu doğrulamak için. VM 2.0.6 önceki bir sürümünü çalıştırıyorsa, izleyebilirsiniz [github'da bu yönergeleri](https://github.com/Azure/WALinuxAgent "yönergeleri") güncelleştirmek için.
+* **Azure CLI**. İzleyin [CLI yüklemek için bu Kılavuzu](../../../cli-install-nodejs.md) makinenizde Azure CLI ortamı ayarlamak için. Azure CLI'yı yükledikten sonra kullanabileceğiniz **azure** komut satırı arabiriminizde Azure CLI komutlarına erişip (Bash, Terminal veya komut istemi) komutu. Örneğin:
 
-  * Çalıştırma **azure vm uzantısı kümesi--Yardım** ayrıntılı yardım bilgi.
-  * Çalıştırma **azure oturum açma** Azure'a oturum açmak için.
-  * Çalıştırma **azure vm listesi** Azure üzerinde sahip tüm sanal makineler listesi.
-* Verileri depolamak için bir depolama hesabı. Daha önce oluşturulmuş bir depolama hesabı adı ve verileri depolama alanına yüklemek için bir erişim anahtarı gerekir.
+  * Çalıştırma **azure vm uzantısı set--help** ayrıntılı yardım bilgisi için.
+  * Çalıştırma **azure oturum açma** için Azure'da oturum açın.
+  * Çalıştırma **azure vm listesini** Azure'da sahip tüm sanal makineler listesi.
+* Verileri depolamak için bir depolama hesabı. Önceden oluşturulmuş bir depolama hesabı adı ve depolama verileri yüklemek için bir erişim anahtarı gerekir.
 
-## <a name="use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension"></a>Linux tanılama uzantısını etkinleştirmek için Azure CLI komutunu kullanın
+## <a name="use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension"></a>Linux Diagnostic Extension'ı etkinleştirmek için Azure CLI komutunu kullanın
 
-### <a name="scenario-1-enable-the-extension-with-the-default-data-set"></a>Senaryo 1. Varsayılan veri kümesi uzantısını etkinleştirme
+### <a name="scenario-1-enable-the-extension-with-the-default-data-set"></a>Senaryo 1. Varsayılan veri kümesiyle uzantısını etkinleştirme
 
-2.3 veya sonraki sürümü toplanacağını varsayılan veri içerir:
+Sürüm 2.3 veya üstü, toplanacak varsayılan veri içerir:
 
-* Tüm Rsyslog bilgileri (Sistem, güvenlik ve uygulama günlükleri dahil).  
-* Temel sistem verileri çekirdek kümesi. Tam veri kümesi üzerinde açıklanan Not [System Center Çapraz Platform çözümlerini site](https://scx.codeplex.com/wikipage?title=xplatproviders).
+* Tüm Rsyslog bilgi (Sistem, güvenlik ve uygulama günlüklerini dahil).  
+* Bir dizi temel sistem verileri. Tam veri kümesi üzerinde açıklanmıştır Not [System Center Çapraz Platform çözümleri site](https://scx.codeplex.com/wikipage?title=xplatproviders).
   Ek veriler etkinleştirmek istiyorsanız, Senaryo 2 ve 3'te adımlarla devam edin.
 
-1. Adım Aşağıdaki içerik ile PrivateConfig.json adlı bir dosya oluşturun:
+1. Adım Aşağıdaki içerikle PrivateConfig.json adlı bir dosya oluşturun:
 
     {
         "storageAccountName" : "the storage account to receive data",
         "storageAccountKey" : "the key of the account"
     }
 
-2. Adım Çalıştırma **azure vm uzantısı vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2 ayarlayın.* --Özel yapılandırma yolu PrivateConfig.json**.
+2. Adım Çalıştırma **azure vm uzantısı vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2 olarak ayarlayın.* --Özel yapılandırma yolu PrivateConfig.json**.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Senaryo 2. Performans İzleyicisi ölçümlerini özelleştirme
 
-Bu bölümde, performans ve tanı veri tablosu nasıl özelleştirileceği açıklanmaktadır.
+Bu bölümde, performans ve tanılama veri tablosu özelleştirmeyi açıklar.
 
-1. Adım Senaryo 1'de açıklanan içeriğe sahip PrivateConfig.json adlı bir dosya oluşturun. Ayrıca PublicConfig.json adlı bir dosya oluşturun. Toplamak istediğiniz belirli verileri belirtin.
+1. Adım Senaryo 1'de tanımlanan içeriği ile PrivateConfig.json adlı bir dosya oluşturun. Ayrıca PublicConfig.json adlı bir dosya oluşturun. Toplamak istediğiniz belirli verileri belirtin.
 
-Desteklenen tüm sağlayıcıları ve değişkenleri için başvuru [System Center Çapraz Platform çözümlerini site](https://scx.codeplex.com/wikipage?title=xplatproviders). Birden çok sorgu sahip ve birden fazla tabloya daha fazla sorguları komut dosyasına ekleyerek depolayabilirsiniz.
+Tüm desteklenen sağlayıcılar ve değişkenleri için başvuru [System Center Çapraz Platform çözümleri site](https://scx.codeplex.com/wikipage?title=xplatproviders). Birden çok sorgu sahip ve daha fazla sorgu komut dosyasına ekleyerek birden çok tablodan depolayabilirsiniz.
 
 Varsayılan olarak, her zaman Rsyslog verileri toplanır.
 
@@ -112,13 +112,13 @@ Varsayılan olarak, her zaman Rsyslog verileri toplanır.
     }
 
 
-2. Adım Çalıştırma **azure vm uzantısı ayarlamak vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'--özel yapılandırma yolu PrivateConfig.json--ortak yapılandırma yolu PublicConfig.json**.
+2. Adım Çalıştırma **azure vm uzantısı ayarlamak vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'--private-config-path PrivateConfig.json--public-config-path PublicConfig.json**.
 
 ### <a name="scenario-3-upload-your-own-log-files"></a>Senaryo 3. Kendi günlük dosyalarını karşıya yükleme
 
-Bu bölümde, toplamak ve belirli günlük dosyalarını depolama hesabınıza yüklemeniz açıklar. Yolu, günlük dosyası ve günlüğünüzü depolamak istediğiniz tablonun adını belirtmeniz gerekir. Birden çok dosya/tablosu girdileri komut dosyasına ekleyerek, birden çok günlük dosyası oluşturabilirsiniz.
+Bu bölümde, toplamak ve belirli günlük dosyalarını depolama hesabınıza yükleme işlemini açıklar. Yolunu günlük dosyanız ve günlüğünüzün depolamak istediğiniz tablonun adını belirtmeniz gerekir. Birden çok dosya/tablo girişleri komut dosyasına ekleyerek, birden çok günlük dosyası oluşturabilirsiniz.
 
-1. Adım Senaryo 1'de açıklanan içeriğe sahip PrivateConfig.json adlı bir dosya oluşturun. Ardından aşağıdaki içerik ile PublicConfig.json adlı başka bir dosya oluşturun:
+1. Adım Senaryo 1'de tanımlanan içeriği ile PrivateConfig.json adlı bir dosya oluşturun. Ardından aşağıdaki içerikle PublicConfig.json adlı başka bir dosya oluşturun:
 
 ```json
 {
@@ -134,13 +134,13 @@ Bu bölümde, toplamak ve belirli günlük dosyalarını depolama hesabınıza y
 
 2. Adım `azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json` öğesini çalıştırın.
 
-2.3 önce uzantısı sürümlerinde bu ayar, tüm günlükleri yazılan Not `/var/log/mysql.err` için yinelenen `/var/log/syslog` (veya `/var/log/messages` Linux distro bağlı olarak) de. Bu yinelenen günlük önlemek istiyorsanız, günlük kaydını dışlayabilirsiniz `local6` tesis rsyslog yapılandırmanızda günlüğe kaydeder. Linux distro bağlıdır, ancak bir Ubuntu 14.04 sistemde değiştirmek için dosyasıdır `/etc/rsyslog.d/50-default.conf` ve satır değiştirebilirsiniz `*.*;auth,authpriv.none -/var/log/syslog` için `*.*;auth,authpriv,local6.none -/var/log/syslog`. 2.3 (2.3.9007), en son düzeltme sürümde bu sorun düzeltilene 2.3 uzantısı sürümüne sahipseniz, bu sorun değil olacağını şekilde. Hala bile VM'yi yeniden başlatıldıktan sonra varsa, lütfen bizimle iletişime geçin ve en son düzeltme sürümü otomatik olarak yüklenmez neden gidermenize yardımcı.
+2.3 önce uzantı sürümlerinde bu ayar, tüm günlükleri yazılan Not `/var/log/mysql.err` için çoğaltılmaya `/var/log/syslog` (veya `/var/log/messages` Linux distro bağlı olarak) de. Bu yinelenen bir günlük önlemek istiyorsanız, günlüğe kaydedilmesini hariç tutabilirsiniz `local6` tesis rsyslog yapılandırmanızda günlüğe kaydeder. Üzerinde Linux distro bağlıdır, ancak bir Ubuntu 14.04 sistemde değiştirmek için dosya `/etc/rsyslog.d/50-default.conf` ve satır değiştirebilirsiniz `*.*;auth,authpriv.none -/var/log/syslog` için `*.*;auth,authpriv,local6.none -/var/log/syslog`. 2.3 (2.3.9007) en son düzeltme sürümde bu sorun düzeltilene 2.3 Uzantı sürümü varsa, bu sorunu değil olacağını şekilde. Bile, sanal Makinenizin yeniden başlattıktan sonra hala varsa lütfen bizimle iletişim kurun ve en son düzeltme sürümü otomatik olarak yüklenmez neden sorun giderme yardımcı olun.
 
-### <a name="scenario-4-stop-the-extension-from-collecting-any-logs"></a>Senaryo 4. Herhangi bir günlük toplama gelen uzantısı Durdur
+### <a name="scenario-4-stop-the-extension-from-collecting-any-logs"></a>Senaryo 4. Uzantı'nın tüm günlükleri toplamayı Durdur
 
-Bu bölümde, günlükleri toplamayı gelen uzantısı durdurmayı açıklar. İzleme Aracısı işlemi hala hazır ve çalışır bile bu yeniden yapılandırmaya olacağını unutmayın. İzleme Aracısı işlemi tamamen durdurmak istiyorsanız, uzantıyı devre dışı bırakarak bunu yapabilirsiniz. Uzantı devre dışı bırakmak için komut `azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'`.
+Bu bölümde, günlükleri toplama gelen uzantısı durdurmak açıklar. İzleme Aracısı işlemi hala çalışır duruma bile bu yeniden yapılandırmaya olacağını unutmayın. İzleme Aracısı işlemi tamamen durdurmak istiyorsanız, uzantıyı devre dışı bırakarak bunu yapabilirsiniz. Uzantı devre dışı bırakmak için bu komut `azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'`.
 
-1. Adım Senaryo 1'de açıklanan içeriğe sahip PrivateConfig.json adlı bir dosya oluşturun. Aşağıdaki içerik ile PublicConfig.json adlı başka bir dosya oluşturun:
+1. Adım Senaryo 1'de tanımlanan içeriği ile PrivateConfig.json adlı bir dosya oluşturun. Aşağıdaki içerikle PublicConfig.json adlı başka bir dosya oluşturun:
 
     {
         "perfCfg" : [],
@@ -148,21 +148,21 @@ Bu bölümde, günlükleri toplamayı gelen uzantısı durdurmayı açıklar. İ
     }
 
 
-2. Adım Çalıştırma **azure vm uzantısı ayarlamak vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'--özel yapılandırma yolu PrivateConfig.json--ortak yapılandırma yolu PublicConfig.json**.
+2. Adım Çalıştırma **azure vm uzantısı ayarlamak vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'--private-config-path PrivateConfig.json--public-config-path PublicConfig.json**.
 
 ## <a name="review-your-data"></a>Verilerinizi gözden geçirin
 
-Performans ve tanılama verilerini bir Azure Storage tablosunda depolanır. Gözden geçirme [Ruby Azure tablo depolamasından kullanmayı](../../../cosmos-db/table-storage-how-to-use-ruby.md) Azure CLI komut dosyalarını kullanarak veri depolama tablosundaki erişim hakkında bilgi edinmek için.
+Performans ve Tanılama verileri bir Azure depolama tablosunda depolanır. Gözden geçirme [Azure tablo Depolama'yı Ruby kullanma](../../../cosmos-db/table-storage-how-to-use-ruby.md) Azure CLI betiklerini kullanarak depolama tablosundaki verilere erişmek öğrenin.
 
-Ayrıca, verilere erişmek için kullanıcı Arabirimi araçlarını kullanabilirsiniz:
+Ayrıca, verilere erişmek için UI araçları kullanabilirsiniz:
 
-1. Visual Studio Sunucu Gezgini. Depolama hesabınıza gidin. VM yaklaşık beş dakika boyunca çalıştıktan sonra dört varsayılan tabloları görürsünüz: "LinuxCpu", "LinuxDisk", "LinuxMemory" ve "Linuxsyslog". Tablo adları verileri görüntülemek için çift tıklayın.
-1. [Azure Storage Gezgini](https://azurestorageexplorer.codeplex.com/ "Azure Storage Gezgini").
+1. Visual Studio Sunucu Gezgini. Depolama hesabınıza gidin. VM yaklaşık beş dakika boyunca çalıştıktan sonra dört varsayılan tablolar görürsünüz: "LinuxCpu", "LinuxDisk", "LinuxMemory" ve "Linuxsyslog". Tablo adları, verileri görüntülemek için çift tıklayın.
+1. [Azure Depolama Gezgini](https://azurestorageexplorer.codeplex.com/ "Azure Depolama Gezgini").
 
-![görüntü](./media/diagnostic-extension/no1.png)
+![image](./media/diagnostic-extension/no1.png)
 
-FileCfg veya (senaryoları 2 ve 3'te açıklandığı gibi) perfCfg etkinleştirdiyseniz, varsayılan olmayan verileri görüntülemek için Visual Studio Sunucu Gezgini ve Azure Storage Gezgini kullanabilirsiniz.
+FileCfg veya (senaryoları 2 ve 3'te açıklandığı gibi) perfCfg etkinleştirdiyseniz, varsayılan olmayan verileri görüntülemek için Visual Studio sunucu Gezgini'nde ve Azure Depolama Gezgini'ni kullanabilirsiniz.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 
-* Müşteri tarafından belirtilen günlük dosyası ve Rsyslog bilgi yalnızca komut dosyası aracılığıyla erişilebilir.
+* Rsyslog bilgileri ve müşteri tarafından belirtilen günlük dosyası yalnızca komut dosyası aracılığıyla erişilebilir.

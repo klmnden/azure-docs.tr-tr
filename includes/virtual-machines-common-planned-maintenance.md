@@ -9,13 +9,13 @@ ms.date: 07/05/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: abf10177f8ce86309043da92d1f2b690775b6d89
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "37910040"
 ---
-Azure güncelleştirmeleri güvenilirlik, performans ve sanal makineler için konak altyapısının güvenliğini iyileştirmek için düzenli olarak gerçekleştirir. Bu güncelleştirmeleri aralığı (örneğin, işletim sistemi, hiper yönetici ve konak üzerinde dağıtılan çeşitli aracılar), barındırma ortamında yazılım bileşenlerini düzeltme eki uygulama gelen donanım yetkisinin alınması için ağ iletişimi bileşenlerinin yükseltiliyor. Bu güncelleştirmelerin çoğu barındırılan sanal makinelere sunucuları etkilenmeden gerçekleştirilir. Ancak, güncelleştirmeleri bir etkiye sahip olduğu durumlar da vardır:
+Azure sanal makine konak altyapısının güvenilirlik, performans ve güvenliğini iyileştirmek için düzenli olarak güncelleştirmeler yapar. Bu güncelleştirmeler barındırma ortamındaki yazılım bileşenlerine (işletim sistemi, hiper yönetici ve konak üzerinde dağıtılmış olan çeşitli aracılar) düzeltme eki uygulama, ağ bileşenlerini yükseltme ve donanımların kullanımdan çıkarılması gibi işlemler olabilir. Bu güncelleştirmelerin çoğu barındırılan sanal makinelere sunucuları etkilenmeden gerçekleştirilir. Ancak, güncelleştirmeleri bir etkiye sahip olduğu durumlar da vardır:
 
 - Bir yeniden başlatma daha az güncelleştirme Mümkünse, Azure VM konak güncelleştirildiğinde ya da VM tamamen zaten güncelleştirilmiş bir konağa taşındığında duraklatmak için Bakımı koruma bellek kullanır.
 

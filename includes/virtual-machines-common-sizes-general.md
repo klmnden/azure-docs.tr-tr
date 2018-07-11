@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 016aa15f391daedae1b87fc6c7099b72b50f7160
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+ms.openlocfilehash: 0cd31a6acaa248b53fbe90684894b3bb3e7ebf86
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "34669331"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37907052"
 ---
 Dengeli CPU / bellek oranı genel amaçlı sanal makine boyutları sağlar. Test ve geliştirme, küçük - orta boyutlu veritabanları, düşük - orta yoğunluklu trafiğe sahip web sunucuları için idealdir. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmaki boyutları için depolama aktarım hızı sayısı hakkında bilgi sağlar. 
 
@@ -25,6 +25,10 @@ Dengeli CPU / bellek oranı genel amaçlı sanal makine boyutları sağlar. Test
 
 
 ## <a name="b-series"></a>B serisi
+
+Premium Depolama: desteklenir
+
+Premium depolama önbelleğe alma: Desteklenmez
 
 B serisi seri aktarıma uygun VM'ler CPU'nun tam performansta küçük veritabanları ve geliştirme gibi web sunucuları gibi sürekli olarak gerekir ve test ortamları iş yükleri için idealdir. Bu iş yükleri genellikle seri aktarıma uygun performans gereksinimleri vardır. B serisi, bu müşteriler VM temel performansını sayısından az kullanarak kredi oluşturulacak VM örneği izin veren bir fiyat bilinçli temel performans ile bir VM boyutu satın almanıza olanak sağlar. VM VM kredi toplandığında, daha yüksek bir CPU performans uygulamanızın gerektirdiği en fazla % 100 CPU kullandığınızda sanal makinenin temel veri bloğu.
 
@@ -43,6 +47,10 @@ B serisi seri aktarıma uygun VM'ler CPU'nun tam performansta küçük veritaban
 
 ACU: 160-190
 
+Premium Depolama: desteklenir
+
+Premium depolama önbelleğe alma: desteklenir
+
 Dsv3 serisi boyutlarındaki dayalı 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemci veya en son 2,3 GHz Intel XEON® E5-2673 v4, Intel Turbo Boost Technology 2.0 ile 3,5 GHz hıza ve premium depolama kullanan (Broadwell) işlemciyi. Dsv3 serisi boyutları, üretim iş yüklerinin çoğu için uygun bir vCPU, bellek ve geçici depolama kombinasyonu sunar.
 
 
@@ -60,6 +68,10 @@ Dsv3 serisi boyutlarındaki dayalı 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) i�
 ## <a name="dv3-series-sup1sup"></a>Dv3 serisi <sup>1</sup>
 
 ACU: 160-190
+
+Premium Depolama: Desteklenmez
+
+Premium depolama önbelleğe alma: Desteklenmez
 
 Dv3 serisi boyutları olan bağlı 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemci veya 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell) işlemciyi, Intel Turbo Boost Technology 2.0 ile 3,5 GHz hıza çıkabilir. Dv3 serisi boyutları, üretim iş yüklerinin çoğu için uygun bir vCPU, bellek ve geçici depolama kombinasyonu sunar.
 
@@ -82,6 +94,10 @@ Veri disk depolaması, sanal makinelerden ayrı olarak faturalandırılır. Prem
 
 ACU: 210-250
 
+Premium Depolama: desteklenir
+
+Premium depolama önbelleğe alma: desteklenir
+
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3,5 |7 |4 |4000/32 (43) |3200/48 |2 / 750 |
@@ -96,6 +112,10 @@ ACU: 210-250
 
 ACU: 210-250
 
+Premium Depolama: Desteklenmez
+
+Premium depolama önbelleğe alma: Desteklenmez
+
 | Boyut           | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diskleri | Aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
 | Standard_D1_v2 | 1    | 3,5         | 50                     | 3000/46/23                                             | 4              | 4x500            | 2 / 750                                      |
@@ -109,7 +129,9 @@ ACU: 210-250
 
 ACU: 100
 
+Premium Depolama: Desteklenmez
 
+Premium depolama önbelleğe alma: Desteklenmez
 
 | Boyut            | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

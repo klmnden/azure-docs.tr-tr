@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure yeni destek isteği dosya karşıya yükleme yardımcı programı yönergeleri | Microsoft Docs
-description: Microsoft Azure yeni destek isteği dosya karşıya yükleme yardımcı programı kullanırken yönergelerini açıklar
+title: Yeni Microsoft Azure destek isteği dosyasını karşıya yükleme yardımcı programı yönergeleri | Microsoft Docs
+description: Microsoft Azure yeni destek isteği dosyasını karşıya yükleme yardımcı programını kullanırken yönergelerini açıklar.
 services: ''
 documentationcenter: ''
 author: genlin
@@ -16,36 +16,36 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
 ms.openlocfilehash: 6edcf9ae8135de8bf82d819e50d3d336b641166e
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "34068582"
 ---
-# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure yeni destek isteği dosya karşıya yükleme yardımcı programı yönergeleri
-Olduğunda, [bir destek isteği oluşturmak](https://portal.azure.com/#create/Microsoft.Support), dosya karşıya yükleme yardımcı programı yardımcı olabilir, kolayca karşıya yükleme Tanılama veya olan olayla ilgili düşündüğünüz diğer dosyaları.  
+# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Yeni Microsoft Azure destek isteği dosyasını karşıya yükleme yardımcı programı yönergeleri
+Olduğunda, [bir destek isteği oluşturma](https://portal.azure.com/#create/Microsoft.Support), dosya karşıya yükleme yardımcı programı yardımcı olabilir kolayca Tanılama dosyalarını karşıya yükleme veya olayla ilgili olduğunu düşündüğünüz diğer tüm dosyalar.  
 
 > [!NOTE]
-> Gizliliğinizi korumak için yüklemenizde herhangi bir kişisel bilgi içermez.
+> Gizliliğinizi korumak için karşıya yükleme işleminiz herhangi bir kişisel bilgi içermez.
 >
 >
 
-Dosyayı karşıya yüklemeyi yardımcı programını kullandığınızda aşağıdaki yönergeleri izleyin:
+Dosyayı karşıya yüklemeyi yardımcı programını kullanırken aşağıdaki yönergeleri izleyin:
 
-* Tüm dosyaların bir dosya adı uzantısı .docx veya .xlsx gibi olması gerekir. İzin verilen dosya adı uzantılarının listesi için aşağıdaki tabloya bakın.
+* Tüm dosyaları bir dosya adı uzantısı .docx veya .xlsx gibi olmalıdır. İzin verilen dosya adı uzantılarının listesi için bkz.
 * Dosya adı 110 karakterden uzun olmalıdır.
-* Birden fazla dosyayı karşıya yükleyemiyor.
-* Dosyaları 4 MB'den daha büyük olamaz.
+* Birden fazla dosya karşıya yüklenemiyor.
+* Dosyaları 4 MB'den büyük olamaz.
 
-## <a name="table-of-the-allowed-file-name-extensions"></a>İzin verilen dosya adı uzantılarını tablosu
+## <a name="table-of-the-allowed-file-name-extensions"></a>İzin verilen dosya adı uzantıları tablosu
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
 | .7z         | .dat  | .hwl        | .odx  | .RAR     | .tdb       | .xlam   |
-| bir          | .DB   | .ics        | .oft  | .rdl     | .tdf       | .XLR    |
+| .a          | .DB   | .ics        | .oft  | .rdl     | .tdf       | .XLR    |
 | .ABC        | . DMP  | .ini        | eski  | .RDLC    | .Text      | .xls    |
 | .adm        | .do_  | .java       | .one  | .re_     | .thmx      | .xlsb   |
 | .aspx       | .doc  | .jpg        | .osd  | .reg     | .tif       | .xlsm   |
-| . ATF        | .docm | . LDF        | . ÇIKIŞI  | .Remove  | .trc       | .xlsx   |
+| . ATF        | .docm | . LDF        | . KULLANIMA AL  | .Remove  | .trc       | .xlsx   |
 | .b          | .docx | .Letterhead | .P1   | .ren     | . TTD       | .xlt    |
 | .ba_        | .dotm | .lnk        | .pcap | .Rename  | .tx_       | .xltx   |
 | .bak        | .dotx | .lo_        | .pdb  | .RFT     | .txt       | .XML    |

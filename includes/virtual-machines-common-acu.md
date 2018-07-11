@@ -9,13 +9,13 @@ ms.date: 03/09/2018
 ms.author: cynthn;davberg
 ms.custom: include file
 ms.openlocfilehash: 8f2cc3ce7e19a71422d3087bd78f8176bbff7364
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "36338314"
 ---
-Azure işlem birim'nı (ACU) kavramı Azure SKU'ları üzerinde işlem (CPU) performans karşılaştırma bir yolunu sunar. Bu birim, performans ihtiyaçlarınızı karşılayabilecek SKU'yu kolayca belirlemenize yardımcı olacak.  ACU şu anda Küçük (Standard_A1) VM'de 100 olarak standart haline getirilmiş ve diğer tüm SKU'lar, standart bir karşılaştırmalı testte sunabilecekleri yaklaşık hıza göre derecelendirilmiştir. 
+Kavram, Azure işlem birimi (ACU) açısından, bilgi işlem (CPU) performansını Azure SKU'ları arasında karşılaştırma bir yol sağlar. Bu birim, performans ihtiyaçlarınızı karşılayabilecek SKU'yu kolayca belirlemenize yardımcı olacak.  ACU şu anda Küçük (Standard_A1) VM'de 100 olarak standart haline getirilmiş ve diğer tüm SKU'lar, standart bir karşılaştırmalı testte sunabilecekleri yaklaşık hıza göre derecelendirilmiştir. 
 
 > [!IMPORTANT]
 > ACU yalnızca rehberlik etme amacı taşımaktadır.  İş yükünüzle aldığınız sonuçlar farklılık gösterebilir. 
