@@ -54,6 +54,7 @@
 #### [Eksik hizmet asıl adlarını geri yükleme](active-directory-ds-troubleshoot-service-principals.md)
 #### [Güvenli LDAP hataları](active-directory-ds-troubleshoot-ldaps.md)
 ### [Eşleşmeyen kiracı hatalarını düzeltme](active-directory-ds-mismatched-tenant-error.md)
+### [Askıya alınan etki alanları](active-directory-ds-suspension.md)
 
 
 # Başvuru

@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 9acdfdde667d37bac5b96e4497b3e86d2cdeccb8
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f3808620c4527f2971d8eb6d53a09c893b162b59
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063417"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340960"
 ---
-# <a name="tutorial-learn-how-to-return-data-from-keyphrase-entity"></a>Öğretici: keyPhrase varlığındaki verileri döndürme 
+# <a name="tutorial-7-add-keyphrase-entity"></a>Öğretici: 7. keyPhrase varlığını ekleme 
 Bu öğreticide konuşmalardaki temel konuları ayıklamayı gösteren bir uygulama kullanacaksınız.
 
 <!-- green checkmark -->
@@ -201,10 +201,10 @@ Sohbet botunuz artık konuşmadaki bir sonraki adımı belirlemek için yeterli 
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve konuşmadaki keyPhrase verilerini alarak bir sonraki adımı gerçekleştirebilir. LUIS, bot veya çağrı uygulaması için programlama işini gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunu yapmak için uygulama listesinde uygulama adının yanındaki üç nokta menüsüne (...) tıklayıp **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç nokta menüsüne (...) tıklayıp **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Yaklaşım ve amaç tahmini döndüren bir uygulama oluşturma](luis-quickstart-intent-and-sentiment-analysis.md)
+> [Uygulamaya yaklaşım analizi ekleme](luis-quickstart-intent-and-sentiment-analysis.md)
 

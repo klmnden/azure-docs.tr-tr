@@ -59,16 +59,20 @@
           href: luis-quickstart-intent-and-list-entity.md
         - name: 5. Hiyerarşik varlık ekleme
           href: luis-quickstart-intent-and-hier-entity.md
-        - name: 6. Basit varlık ve tümcecik listesi ekleme
+        - name: 6. Bileşik varlık ekleme
+          href: luis-tutorial-composite-entity.md
+        - name: 7. Basit varlık ve tümcecik listesi ekleme
           href: luis-quickstart-primary-and-secondary-data.md
-        - name: 7. keyPhrase varlığını ekleme
+        - name: 8. keyPhrase varlığını ekleme
           href: luis-quickstart-intent-and-key-phrase.md
-        - name: 8. Yaklaşım analizi ekleme
+        - name: 9. Yaklaşım analizi ekleme
           href: luis-quickstart-intent-and-sentiment-analysis.md
     - name: Uygulama geliştirme
       items:
         - name: Uç nokta konuşmasını gözden geçirme
           href: luis-tutorial-review-endpoint-utterances.md
+        - name: Toplu test ile
+          href: luis-tutorial-batch-testing.md
         - name: Desenler ile
           href: luis-tutorial-pattern.md
 - name: Örnekler
@@ -138,7 +142,7 @@
     - name: Uygulamanızı planlama
       href: luis-how-plan-your-app.md
     - name: Yeni bir uygulama başlatma
-      href: Create-new-app.md
+      href: luis-how-to-start-new-app.md
     - name: Model Oluşturma
       items:
         - name: Hedef ekleme
@@ -147,15 +151,15 @@
           href: luis-how-to-add-example-utterances.md
         - name: Varlık ekleme
           href: luis-how-to-add-entities.md
-        - name: Gruplandırılmış verileri ayıklamak için birleşik varlık kullanma
-          href: luis-tutorial-composite-entity.md
-        - name: Node.js kullanarak tam metin eşleştirmek için liste varlığı kullanma
-          href: luis-tutorial-list-entity.md
-        - name: Node.js kullanarak program aracılığıyla uygulama derleme
-          href: luis-tutorial-node-import-utterances-csv.md
+        - name: API’ler ile
+          items:
+            - name: Node.js kullanarak program aracılığıyla uygulama derleme
+              href: luis-tutorial-node-import-utterances-csv.md
+            - name: Node.js kullanarak tam metin eşleştirmek için liste varlığı kullanma
+              href: luis-tutorial-list-entity.md
     - name: Tümleştirme
       items:
-        - name: Bing Yazım Denetimi API'si v7 ile yazım düzeltme
+        - name: Bing Yazım Denetimi API’si v7 ile
           href: luis-tutorial-bing-spellcheck.md
         - name: Konuşma hizmeti ile
           href: luis-tutorial-speech-to-intent.md
@@ -176,7 +180,7 @@
     - name: Tahmin doğruluğunu iyileştirme
       items:
         - name: Uç nokta konuşmasını gözden geçirme
-          href: Label-Suggested-Utterances.md
+          href: luis-how-to-review-endoint-utt.md
         - name: Tümcecik listesi ekleme
           href: luis-how-to-add-features.md
         - name: Desen ekleme
@@ -189,36 +193,36 @@
           href: interactive-test.md
         - name: Toplu işe testi
           href: luis-how-to-batch-test.md
-        - name: Toplu test ile doğruluğu iyileştirme
-          href: luis-tutorial-batch-testing.md
-    - name: Uygulamanızı yayımlama
+    - name: Uygulama yayımlama
       href: luis-how-to-publish-app.md
     - name: Önceden oluşturulmuş modelleri kullanma
       items:
-        - name: Önceden oluşturulmuş varlıklar kullanma
+        - name: Varlıkları kullanma
           href: luis-prebuilt-entities.md
-        - name: Önceden oluşturulmuş etki alanları kullanma
+        - name: Etki alanlarını kullanma
           href: luis-how-to-use-prebuilt-domains.md
-        - name: Önceden oluşturulmuş Cortana uygulamasını kullanma
+        - name: Cortana kullanma
           href: luis-how-to-cortana-prebuilt-app.md
-    - name: LUIS uygulamanızı yönetme
+    - name: Uygulama yönetme
       items:
         - name: Panoyu kullanma
           href: luis-how-to-use-dashboard.md
-        - name: Anahtar oluşturma
+        - name: Uç nokta anahtarları oluşturma
           href: luis-how-to-azure-subscription.md
-        - name: LUIS’e anahtar ekleme
+        - name: Uygulamaya uç nokta anahtarları ekleme
           href: luis-how-to-manage-keys.md
-        - name: PowerShell ile uç nokta kullanımını görüntüleme
-          href: luis-how-to-manage-from-cloud-shell.md
         - name: Sürümleri yönetme
           href: luis-how-to-manage-versions.md
         - name: Diğer yazarlarla birlikte çalışma
           href: luis-how-to-collaborate.md
-        - name: Traffic Manager ile anahtarlar arasında uç nokta kotasını yayma
-          href: traffic-manager.md
-    - name: LUIS hesabınızı yönetme
-      href: luis-how-to-account-settings.md
+        - name: Yazma anahtarı yönetme
+          href: luis-how-to-account-settings.md
+        - name: Uç nokta kullanımını yönetme
+          items:
+            - name: PowerShell ile uç nokta kullanımını görüntüleme
+              href: luis-how-to-manage-from-cloud-shell.md
+            - name: Traffic Manager ile anahtarlar arasında uç nokta kotasını yayma
+              href: traffic-manager.md
     - name: V2 API’ye geçiş
       href: migration-v1-to-v2.md
     - name: Program aracılığıyla bölgeyi bulma
@@ -251,6 +255,8 @@
           href: luis-reference-prebuilt-deprecated.md
         - name: E-posta varlığı
           href: luis-reference-prebuilt-email.md
+        - name: keyPhrase varlığı
+          href: luis-reference-prebuilt-keyphrase.md
         - name: Sayı varlığı
           href: luis-reference-prebuilt-number.md
         - name: Sıralı varlık

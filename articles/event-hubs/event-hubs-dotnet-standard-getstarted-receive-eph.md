@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fd74405c8ca95ca1a5880ab26bf87705bde217de
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29389844"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127542"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>.NET Standard'da Olay İşlemcisi Konağı ile iletiler almaya başlama
 
@@ -33,8 +33,8 @@ Bu öğreticide, **Olay İşlemcisi Konağı** kitaplığını kullanarak bir ol
 * [Microsoft Visual Studio 2015 veya 2017](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılır, ama Visual Studio 2015 de desteklenir.
 * [.NET Core Visual Studio 2015 veya 2017 araçları](http://www.microsoft.com/net/core).
 * Azure aboneliği.
-* Azure Event Hubs ad alanı.
-* Azure Depolama hesabı.
+* Azure Event Hubs ad alanı ve bir olay hub’ı.
+* Bir Azure depolama hesabı.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma  
 
@@ -123,11 +123,11 @@ Aşağıdaki adımları izleyerek [**Microsoft.Azure.EventHubs**](https://www.nu
     using System.Threading.Tasks;
     ```
 
-2. `Program` sınıfına olay hub'ı bağlantı dizesi, olay hub'ı adı, depolama hesabı kapsayıcı adı, depolama hesabı adı ve depolama hesabı anahtarı için sabitleri ekleyin. Aşağıdaki kodu ekleyin (yer tutucular yerine ilgili değerleri kullanın).
+2. `Program` sınıfına olay hub'ı bağlantı dizesi, olay hub'ı adı, depolama hesabı kapsayıcı adı, depolama hesabı adı ve depolama hesabı anahtarı için sabitleri ekleyin. Aşağıdaki kodu ekleyin (yer tutucular yerine ilgili değerleri kullanın):
 
     ```csharp
-    private const string EhConnectionString = "{Event Hubs connection string}";
-    private const string EhEntityPath = "{Event Hub path/name}";
+    private const string EventHubConnectionString = "{Event Hubs connection string}";
+    private const string EventHubName = "{Event Hub path/name}";
     private const string StorageContainerName = "{Storage account container name}";
     private const string StorageAccountName = "{Storage account name}";
     private const string StorageAccountKey = "{Storage account key}";
@@ -143,9 +143,9 @@ Aşağıdaki adımları izleyerek [**Microsoft.Azure.EventHubs**](https://www.nu
         Console.WriteLine("Registering EventProcessor...");
 
         var eventProcessorHost = new EventProcessorHost(
-            EhEntityPath,
+            EventHubName,
             PartitionReceiver.DefaultConsumerGroupName,
-            EhConnectionString,
+            EventHubConnectionString,
             StorageConnectionString,
             StorageContainerName);
 
@@ -174,8 +174,8 @@ Aşağıdaki adımları izleyerek [**Microsoft.Azure.EventHubs**](https://www.nu
 
         public class Program
         {
-            private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
             private const string StorageContainerName = "{Storage account container name}";
             private const string StorageAccountName = "{Storage account name}";
             private const string StorageAccountKey = "{Storage account key}";
@@ -223,4 +223,4 @@ Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi e
 * [Event Hubs ile ilgili SSS](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
-[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcore.png
+[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

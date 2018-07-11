@@ -3,7 +3,7 @@ title: Hızlı başlangıç - Azure portalında Linux sanal makinesi oluşturma 
 description: Bu hızlı başlangıçta Azure portalını kullanarak Linux sanal makinesi oluşturmayı öğrenirsiniz
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/24/2018
-ms.author: iainfou
+ms.date: 07/03/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 18ac0291bff2c0fbfffdd5dfa3097f8a6acb561f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012892"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447967"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalında Linux sanal makinesi oluşturma
 
@@ -63,7 +63,7 @@ http://portal.azure.com adresinden Azure portalında oturum açın
 
     ![VM boyutlarını gösteren ekran görüntüsü](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
 
-5. **Ayarlar** altında, varsayılan ayarları olduğu gibi bırakın ve **Tamam**’ı seçin.
+5. **Ayarlar** sayfasının **Ağ** > **Ağ Güvenlik Grubu** > **Ortak gelen bağlantı noktası seçin** bölümündeki açılan menüden **HTTP** ve **SSH (22)** seçimlerini yapın. Diğer varsayılan ayarları olduğu gibi bırakın ve **Tamam**’ı seçin.
 
 6. Özet sayfasında **Oluştur**’u seçerek sanal makine dağıtımını başlatın.
 
@@ -99,14 +99,6 @@ sudo apt-get -y install nginx
 
 İşiniz bittiğinde, `exit` seçeneği ile SSH oturumundan çıkıp Azure portalında VM özelliklerine geri dönün.
 
-## <a name="open-port-80-for-web-traffic"></a>Web trafiği için 80 numaralı bağlantı noktasını açın
-
-Ağ Güvenlik Grubu (NSG), gelen ve giden trafiğin güvenliğini sağlar. Azure portalından bir VM oluşturulduğunda, SSH bağlantıları için 22 numaralı bağlantı noktasında bir gelen kuralı oluşturulur. Bu VM bir web sunucusunu barındırdığından, 80 numaralı bağlantı noktası için bir NSG kuralının oluşturulması gerekir.
-
-1. VM genel bakış sayfasında **Ağ**’ı seçin.
-2. Mevcut gelen ve giden kuralların listesi gösterilir. **Gelen bağlantı noktası kuralı ekle**’yi seçin.
-3. Üst kısımda **Temel** seçeneğini ve ardından kullanılabilir hizmetler listesinden *HTTP*’yi belirleyin. Size 80 numaralı bağlantı noktası, bir öncelik ve ad sağlanır.
-4. Kuralı oluşturmak için **Ekle**’yi seçin.
 
 ## <a name="view-the-web-server-in-action"></a>Web sunucusunu iş başında görün
 

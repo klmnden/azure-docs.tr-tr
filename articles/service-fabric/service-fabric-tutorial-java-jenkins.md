@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Java uygulaması için CI/CD ayarlama | Microsoft Docs
+title: Azure'da Service Fabric üzerindeki bir Java uygulaması için Jenkins'i yapılandırma | Microsoft Docs
 description: Bu öğreticide, bir Java Service Fabric uygulaması dağıtmak için Jenkins kullanarak sürekli tümleştirmenin nasıl ayarlanacağını öğreneceksiniz.
 services: service-fabric
 documentationcenter: java
@@ -15,15 +15,16 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: bd986b8741b55a10018f7400c9415e7aedfbf119
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 59e36a2c8b719f2e8e3fd6aec20b91605221d8b2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29949846"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109452"
 ---
-# <a name="tutorial-set-up-a-jenkins-environment-with-service-fabric"></a>Öğretici: Service Fabric ile Jenkins ortamı ayarlama
-Bu öğretici, bir serinin beşinci kısmıdır. Yükseltmeleri uygulamanızda dağıtmak için Jenkins’in nasıl kullanılacağını gösterir. Bu öğreticide Service Fabric Jenkins eklentisi, uygulamayı bir kümede dağıtmak için Oylama uygulamasını barındıran bir Github deposuyla birlikte kullanılır. 
+# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Öğretici: Service Fabric üzerindeki bir Java uygulamasında CI/CD etkinleştirmek için bir Jenkins ortamı yapılandırma
+
+Bu öğretici, bir serinin beşinci kısmıdır. Yükseltmeleri uygulamanızda dağıtmak için Jenkins’in nasıl kullanılacağını gösterir. Bu öğreticide Service Fabric Jenkins eklentisi, uygulamayı bir kümede dağıtmak için Oylama uygulamasını barındıran bir Github deposuyla birlikte kullanılır.
 
 Serinin beşinci kısmında öğrenecekleriniz:
 > [!div class="checklist"]
@@ -39,15 +40,16 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-java-elk.md)
 > * CI/CD ayarlama
 
-
 ## <a name="prerequisites"></a>Ön koşullar
-- [Git indirmeleri sayfasından](https://git-scm.com/downloads) Git’i yerel bilgisayarınıza yükleyin. Git hakkında daha fazla bilgi için [Git belgelerini](https://git-scm.com/docs) okuyun.
-- [Jenkins](https://jenkins.io/) ile çalışma hakkında bilgi sahibi olun.
-- Bir [GitHub](https://github.com/) hesabı oluşturun ve GitHub’ın nasıl kullanılacağını öğrenin.
-- Bilgisayarınıza [Docker](https://www.docker.com/community-edition)’ı yükleyin.
+
+* [Git indirmeleri sayfasından](https://git-scm.com/downloads) Git’i yerel bilgisayarınıza yükleyin. Git hakkında daha fazla bilgi için [Git belgelerini](https://git-scm.com/docs) okuyun.
+* [Jenkins](https://jenkins.io/) ile çalışma hakkında bilgi sahibi olun.
+* Bir [GitHub](https://github.com/) hesabı oluşturun ve GitHub’ın nasıl kullanılacağını öğrenin.
+* Bilgisayarınıza [Docker](https://www.docker.com/community-edition)’ı yükleyin.
 
 ## <a name="pull-and-deploy-service-fabric-jenkins-container-image"></a>Service Fabric Jenkins kapsayıcı görüntüsünü çekme ve dağıtma
-Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirsiniz. Aşağıdaki yönergeler, sağlanan bir Docker görüntüsü kullanılarak bunun bir küme dışında nasıl ayarlanacağını göstermektedir. Ancak önceden yapılandırılmış bir Jenkins derleme ortamı da kullanılabilir. Aşağıdaki kapsayıcı görüntüsü, Service Fabric eklentisi yüklenmiş şekilde gelir ve Service Fabric ile hemen kullanıma hazırdır. 
+
+Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirsiniz. Aşağıdaki yönergeler, sağlanan bir Docker görüntüsü kullanılarak bunun bir küme dışında nasıl ayarlanacağını göstermektedir. Ancak önceden yapılandırılmış bir Jenkins derleme ortamı da kullanılabilir. Aşağıdaki kapsayıcı görüntüsü, Service Fabric eklentisi yüklenmiş şekilde gelir ve Service Fabric ile hemen kullanıma hazırdır.
 
 1. Service Fabric Jenkins kapsayıcı görüntüsünü çekin: ``docker pull rapatchi/jenkins:v10``. Bu görüntü, Service Fabric Jenkins eklentisi önceden yüklenmiş şekilde gelir.
 
@@ -68,8 +70,8 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
     Kapsayıcı kimliği 2d24a73b5964 ise, 2d24 kullanın.
     * ``http://<HOST-IP>:8080`` olan bu parola, portaldan Jenkins panosunda oturum açmak için gereklidir
     * İlk kez oturum açtıktan sonra kendi kullanıcı hesabınızı oluşturabilir veya yönetici hesabını kullanabilirsiniz.
-    
-5. [Yeni bir SSH anahtarı oluşturma ve SSH aracısına ekleme](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) bölümünde anlatılan adımları kullanarak, GitHub’ı Jenkins ile çalışacak şekilde ayarlayın. Komutlar Docker kapsayıcısından çalıştırıldığından, Linux ortamı için yönergeleri izleyin. 
+
+5. [Yeni bir SSH anahtarı oluşturma ve SSH aracısına ekleme](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) bölümünde anlatılan adımları kullanarak, GitHub’ı Jenkins ile çalışacak şekilde ayarlayın. Komutlar Docker kapsayıcısından çalıştırıldığından, Linux ortamı için yönergeleri izleyin.
     * SSH anahtarı oluşturmak için GitHub tarafından sağlanan yönergeleri kullanın. Ardından, depoyu barındıran GitHub hesabına SSH anahtarını ekleyin.
     * Önceki bağlantıda belirtilen komutları Jenkins Docker kabuğunda (ana bilgisayarınızda değil) çalıştırın.
     * Ana bilgisayarınızdan Jenkins kabuğunda oturum açmak için aşağıdaki komutları kullanın:
@@ -78,7 +80,7 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
     docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
     ```
 
-    Jenkins kapsayıcı görüntüsünün barındırıldığı küme veya makinede genel kullanıma yönelik bir IP bulunduğundan emin olun. Genel kullanıma yönelik IP olması, Jenkins örneğinin GitHub'dan bildirimler almasını sağlar.    
+    Jenkins kapsayıcı görüntüsünün barındırıldığı küme veya makinede genel kullanıma yönelik bir IP bulunduğundan emin olun. Genel kullanıma yönelik IP olması, Jenkins örneğinin GitHub'dan bildirimler almasını sağlar.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Bir Jenkins işi oluşturma ve yapılandırma
 
@@ -111,9 +113,9 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
 7. **Derleme bölümü** altında, **Derleme adımı ekle** açılır listesinden **Gradle Betiğini Çağır** seçeneğini belirleyin. Açılan pencere öğesinde gelişmiş menüyü açın, uygulamanız için **Kök derleme betiği** yolunu belirtin. Belirtilen yoldan build.gradle’ı alır ve buna göre çalışır.
 
     ![Service Fabric Jenkins Derleme eylemi](./media/service-fabric-tutorial-java-jenkins/jenkinsbuildscreenshot.png)
-  
-8. **Derleme Sonrası Eylemler** açılır listesinden **Service Fabric Projesini Dağıt**’ı seçin. Burada, Jenkins tarafından derlenen Service Fabric uygulamasının dağıtılacağı kümenin ayrıntılarını sağlamanız gerekir. Sertifika yolu, birimin takılı olduğu sertifikanın yoludur (/tmp/myCerts). 
-   
+
+8. **Derleme Sonrası Eylemler** açılır listesinden **Service Fabric Projesini Dağıt**’ı seçin. Burada, Jenkins tarafından derlenen Service Fabric uygulamasının dağıtılacağı kümenin ayrıntılarını sağlamanız gerekir. Sertifika yolu, birimin takılı olduğu sertifikanın yoludur (/tmp/myCerts).
+
     Uygulamayı dağıtmak için kullanılan ek ayrıntıları da sağlayabilirsiniz. Uygulama ayrıntılarına yönelik bir örnek için aşağıdaki ekran görüntüsüne bakın:
 
     ![Service Fabric Jenkins Derleme eylemi](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
@@ -122,11 +124,11 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
     > Burada küme, Jenkins kapsayıcı görüntüsünü dağıtmak için Service Fabric kullandığınız durumda Jenkins kapsayıcı uygulamasını barındıran kümeyle aynı olabilir.
     >
 
-## <a name="update-your-existing-application"></a>Mevcut uygulamanızı güncelleştirme 
+## <a name="update-your-existing-application"></a>Mevcut uygulamanızı güncelleştirme
 
-1. *VotingApplication/VotingWebPkg/Code/wwwroot/index.html* dosyasında HTML başlığını **Service Fabric Voting Sample V2** ile güncelleştirin. 
+1. *VotingApplication/VotingWebPkg/Code/wwwroot/index.html* dosyasında HTML başlığını **Service Fabric Voting Sample V2** ile güncelleştirin.
 
-    ```html 
+    ```html
     <div ng-app="VotingApp" ng-controller="VotingAppController" ng-init="refresh()">
         <div class="container-fluid">
             <div class="row">
@@ -138,7 +140,7 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
     </div>
     ```
 
-2. **ApplicationTypeVersion** ve **ServiceManifestVersion** sürümünü, *Voting/VotingApplication/ApplicationManifest.xml* dosyasında **2.0.0** olarak güncelleştirin. 
+2. **ApplicationTypeVersion** ve **ServiceManifestVersion** sürümünü, *Voting/VotingApplication/ApplicationManifest.xml* dosyasında **2.0.0** olarak güncelleştirin.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
@@ -155,13 +157,13 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
              <StatelessService InstanceCount="1" ServiceTypeName="VotingWebType">
                 <SingletonPartition/>
              </StatelessService>
-          </Service>      
+          </Service>
        <Service Name="VotingDataService">
                 <StatefulService MinReplicaSetSize="3" ServiceTypeName="VotingDataServiceType" TargetReplicaSetSize="3">
                     <UniformInt64Partition HighKey="9223372036854775807" LowKey="-9223372036854775808" PartitionCount="1"/>
                 </StatefulService>
             </Service>
-        </DefaultServices>      
+        </DefaultServices>
     </ApplicationManifest>
     ```
 
@@ -177,17 +179,18 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
     </CodePackage>
     ```
 
-4. Uygulama yükseltmesi gerçekleştiren bir Jenkins işini başlatmak için yeni değişikliklerinizi Github deponuza gönderin. 
+4. Uygulama yükseltmesi gerçekleştiren bir Jenkins işini başlatmak için yeni değişikliklerinizi Github deponuza gönderin.
 
 5. Service Fabric Explorer’da **Uygulamalar** açılan listesine tıklayın. Yükseltmenizin durumunu görmek için **Devam Eden Yükseltmeler** sekmesine tıklayın.
 
     ![Devam eden yükseltme](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-6. **http://\<Host-IP>:8080** adresine erişirseniz Oylama uygulaması tüm işlevselliğiyle çalışır durumda olur. 
+6. **http://\<Host-IP>:8080** adresine erişirseniz Oylama uygulaması tüm işlevselliğiyle çalışır durumda olur.
 
     ![Yerel Oylama Uygulaması](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]

@@ -1,5 +1,5 @@
 ---
-title: Service Fabric için Java uygulaması oluşturma | Microsoft Docs
+title: Azure'da Service Fabric üzerinde bir Java uygulaması oluşturma | Microsoft Docs
 description: Bu öğreticide, bir ön uçla güvenilir hizmet Java uygulamasının nasıl oluşturulacağını, durum bilgisi olan güvenilir hizmet arka ucunun nasıl oluşturulacağını ve uygulamanın kümeye nasıl dağıtılacağını öğreneceksiniz.
 services: service-fabric
 documentationcenter: java
@@ -15,14 +15,15 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b512ba91d1df7ec0432bdf9048268714e570fe6b
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: a8522dbe20f302a1819b89eaea92562a2dcf43a5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958685"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114134"
 ---
-# <a name="tutorial-create-and-deploy-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service"></a>Öğretici: Java web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmetiyle uygulama oluşturma ve dağıtma
+# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Öğretici: Service Fabric üzerinde Java web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmeti olan uygulama oluşturma
+
 Bu öğretici, bir dizinin birinci bölümüdür. Bitirdiğinizde, oylama sonuçlarını kümedeki durum bilgisi içeren arka uç hizmetine kaydeden bir Java web ön ucuna sahip Oylama uygulaması sağlanır. Bu öğretici serisi, çalışır durumda bir Mac OSX veya Linux geliştirici makineniz olmasını gerektirir. Oylama uygulamasını el ile oluşturmak istemiyorsanız, [tamamlanmış uygulamanın kaynak kodunu indirebilir](https://github.com/Azure-Samples/service-fabric-java-quickstart) ve [Oylama örnek uygulamasında izlenecek yol](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application) bölümüne atlayabilirsiniz.
 
 ![Yerel Oylama Uygulaması](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
@@ -37,18 +38,21 @@ Serinin birinci bölümünde şunları öğrenirsiniz:
 
 Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
-> *  Java Service Fabric Güvenilir Hizmetler uygulaması derleme
+> * Java Service Fabric Güvenilir Hizmetler uygulaması derleme
 > * [Yerel kümede uygulamayı dağıtma ve uygulamanın hatasını ayıklama](service-fabric-tutorial-debug-log-local-cluster.md)
 > * [Azure kümesine uygulama dağıtma](service-fabric-tutorial-java-deploy-azure.md)
 > * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-java-elk.md)
 > * [CI/CD ayarlama](service-fabric-tutorial-java-jenkins.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
+
 Bu öğreticiye başlamadan önce:
-- Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-- [Mac](service-fabric-get-started-mac.md) veya [Linux](service-fabric-get-started-linux.md) için geliştirme ortamınızı ayarlayın. Eclipse eklentisini, Gradle’ı, Service Fabric SDK’yı ve Service Fabric CLI’yı (sfctl) yükleme yönergelerini izleyin.
+
+* Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+* [Mac](service-fabric-get-started-mac.md) veya [Linux](service-fabric-get-started-linux.md) için geliştirme ortamınızı ayarlayın. Eclipse eklentisini, Gradle’ı, Service Fabric SDK’yı ve Service Fabric CLI’yı (sfctl) yükleme yönergelerini izleyin.
 
 ## <a name="create-the-front-end-java-stateless-service"></a>Ön uç durum bilgisi olmayan Java hizmeti oluşturma
+
 İlk olarak, Oylama uygulamasının web ön ucunu oluşturun. Durum bilgisi olmayan Java hizmeti, AngularJS tarafından desteklenen bir web kullanıcı arabirimini barındıran basit bir HTTP sunucusu anlamına gelir. Bir kullanıcıdan gelen istekler, bu durum bilgisi olmayan hizmet tarafından işlenir ve oyları depolamak için durum bilgisi olan hizmete uzak yordam çağrısı olarak gönderilir. 
 
 1. Eclipse başlatma
@@ -62,7 +66,7 @@ Bu öğreticiye başlamadan önce:
     ![Yeni hizmet iletişim kutusunda durum bilgisi olmayan Java hizmetini seçme](./media/service-fabric-tutorial-create-java-app/name-sf-proj-wizard.png) 
 
 4. **Hizmet Ekle** sayfasında **Durum Bilgisi Olmayan Hizmet** öğesini seçin ve hizmetinize **VotingWeb** adını verin. Projeyi oluşturmak için **Son**'a tıklayın.
-   
+
     ![Durum bilgisi olmayan hizmet oluşturma]( ./media/service-fabric-tutorial-create-java-app/createvotingweb.png)
 
     Eclipse bir uygulama ve bir hizmet projesi oluşturup bunları Paket Gezgini'nde görüntüler.
@@ -80,9 +84,10 @@ Tablo, önceki ekran görüntüsünde yer alan paket gezginindeki her bir öğen
 | settings.gradle | Bu klasördeki Gradle projelerinin adlarını içerir. |
 
 ### <a name="add-html-and-javascript-to-the-votingweb-service"></a>VotingWeb hizmetine HTML ve Javascript ekleme
-Durum bilgisi olmayan hizmet tarafından işlenebilen kullanıcı arabirimi eklemek için, *VotingApplication/VotingWebPkg/Code* konumuna bir HTML dosyası ekleyin. Bu HTML dosyası daha sonra durum bilgisi olmayan Java hizmetine eklenen basit HTTP sunucusu tarafından işlenir. 
 
-1. *VotingApplication/VotingWebPkg/Code* dizinine ulaşmak için *VotingApplication* dizinini genişletin. 
+Durum bilgisi olmayan hizmet tarafından işlenebilen kullanıcı arabirimi eklemek için, *VotingApplication/VotingWebPkg/Code* konumuna bir HTML dosyası ekleyin. Bu HTML dosyası daha sonra durum bilgisi olmayan Java hizmetine eklenen basit HTTP sunucusu tarafından işlenir.
+
+1. *VotingApplication/VotingWebPkg/Code* dizinine ulaşmak için *VotingApplication* dizinini genişletin.
 
 2. *Kod* dizinine sağ tıklayın ve **Yeni**->**Diğer** seçeneklerine tıklayın
 
@@ -201,7 +206,8 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
 ```
 
 ### <a name="update-the-votingwebservicejava-file"></a>VotingWebService.java dosyasını güncelleştirme
-**VotingWeb** alt projesinde *VotingWeb/src/statelessservice/VotingWebService.java* dosyasını açın. **VotingWebService**, durum bilgisi olmayan hizmete yönelik ağ geçididir ve ön uç API’si için iletişim dinleyicisini ayarlamaktan sorumludur. 
+
+**VotingWeb** alt projesinde *VotingWeb/src/statelessservice/VotingWebService.java* dosyasını açın. **VotingWebService**, durum bilgisi olmayan hizmete yönelik ağ geçididir ve ön uç API’si için iletişim dinleyicisini ayarlamaktan sorumludur.
 
 Dosyada **createServiceInstanceListeners** yönteminin içeriklerini aşağıdakiyle değiştirin ve değişikliklerinizi kaydedin.
 
@@ -219,7 +225,8 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 ```
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>HTTPCommunicationListener.java dosyası ekleme
-HTTP iletişim dinleyicisi, HTTP sunucusunu ayarlayan bir denetleyici olarak hareket eder ve oylama eylemlerini tanımlayan API’leri gösterir. *VotingWeb/src/statelessservice* klasöründe *statelessservice* paketine sağ tıklayın, ardından **Yeni->Diğer...->Genel->Dosya** seçeneklerini belirleyin ve **İleri**’ye tıklayın.  Dosyaya *HttpCommunicationListener.java* adını verin ve **Son**’a tıklayın.  
+
+HTTP iletişim dinleyicisi, HTTP sunucusunu ayarlayan bir denetleyici olarak hareket eder ve oylama eylemlerini tanımlayan API’leri gösterir. *VotingWeb/src/statelessservice* klasöründe *statelessservice* paketine sağ tıklayın, ardından **Yeni->Diğer...->Genel->Dosya** seçeneklerini belirleyin ve **İleri**’ye tıklayın.  Dosyaya *HttpCommunicationListener.java* adını verin ve **Son**’a tıklayın.
 
 Dosyanın içeriğini aşağıdakilerle değiştirin, sonra değişikliklerinizi kaydedin.  Daha sonra, [HttpCommunicationListener.java dosyasını güncelleştirme](#updatelistener_anchor) bölümünde bu dosya, arka uç hizmetinden oylama verilerini işleyecek, okuyacak ve yazacak şekilde değiştirilir.  Şimdilik dinleyici yalnızca Oylama uygulaması için statik HTML'i döndürür.
 
@@ -259,7 +266,7 @@ import system.fabric.CancellationToken;
 public class HttpCommunicationListener implements CommunicationListener {
 
     private static final Logger logger = Logger.getLogger(HttpCommunicationListener.class.getName());
-    
+
     private static final String HEADER_CONTENT_TYPE = "Content-Type";
     private static final int STATUS_OK = 200;
     private static final int STATUS_NOT_FOUND = 404; 
@@ -267,7 +274,7 @@ public class HttpCommunicationListener implements CommunicationListener {
     private static final String RESPONSE_NOT_FOUND = "404 (Not Found) \n";
     private static final String MIME = "text/html";  
     private static final String ENCODING = "UTF-8";
-    
+
     private static final String ROOT = "wwwroot/";
     private static final String FILE_NAME = "index.html";
     private StatelessServiceContext context;
@@ -290,7 +297,7 @@ public class HttpCommunicationListener implements CommunicationListener {
             logger.log(Level.SEVERE, null, ex);
             throw new RuntimeException(ex);
         }
-        
+
         // Responsible for rendering the HTML layout described in the previous step
         server.createContext("/", new HttpHandler() {
             @Override
@@ -307,7 +314,7 @@ public class HttpCommunicationListener implements CommunicationListener {
                     } else {    
                       Headers h = t.getResponseHeaders();
                       h.set(HEADER_CONTENT_TYPE, MIME);
-                      t.sendResponseHeaders(STATUS_OK, 0);              
+                      t.sendResponseHeaders(STATUS_OK, 0);
     
                       OutputStream os = t.getResponseBody();
                       FileInputStream fs = new FileInputStream(file);
@@ -316,7 +323,7 @@ public class HttpCommunicationListener implements CommunicationListener {
                       while ((count = fs.read(buffer)) >= 0) {
                         os.write(buffer,0,count);
                       }
-                      
+
                       fs.close();
                       os.close();
                     }  
@@ -329,11 +336,11 @@ public class HttpCommunicationListener implements CommunicationListener {
         /*
         [Replace this entire comment block in the 'Connect the services' section]
         */
-        
+
         server.setExecutor(null);
         server.start();
     }
-    
+
     //Helper method to parse raw HTTP requests
     private Map<String, String> queryToMap(String query){
         Map<String, String> result = new HashMap<String, String>();
@@ -379,6 +386,7 @@ public class HttpCommunicationListener implements CommunicationListener {
 ```
 
 ### <a name="configure-the-listening-port"></a>Dinleme bağlantı noktasını yapılandırma
+
 VotingWebService ön uç hizmeti oluşturulduğunda Service Fabric, hizmetin dinlemesi için bir bağlantı noktası seçer.  VotingWebService, bu uygulama için ön uç işlevi görür ve dış trafiği kabul eder; bu nedenle şimdi bu hizmeti sabit ve iyi tanınan bir bağlantı noktasına bağlayalım. Paket Gezgini’nde *VotingWebService/VotingWebServicePkg/ServiceManifest.xml* dosyasını açın.  **Kaynaklar** bölümünde **Uç Nokta** kaynağını bulun ve **Bağlantı Noktası** değerini 8080 numaralı veya başka bir bağlantı noktasıyla değiştirin. Uygulamayı yerel olarak dağıtmak ve çalıştırmak için, uygulama dinleme bağlantı noktasının bilgisayarınızda açık ve kullanılabilir olması gerekir. **ServiceManifest** etiketinin altına aşağıdaki kod parçacığını yapıştırın.
 
 ```xml
@@ -390,16 +398,17 @@ VotingWebService ön uç hizmeti oluşturulduğunda Service Fabric, hizmetin din
         <Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
     </Endpoints>
   </Resources>
-```  
+```
 
 ## <a name="add-a-stateful-back-end-service-to-your-application"></a>Uygulamanıza durum bilgisi olan bir arka uç hizmeti ekleme
+
 Java Web API hizmetinin çatısı tamamlandığına göre devam edelim ve durum bilgisi olan arka uç hizmetini tamamlayalım.
 
 Service Fabric, güvenilir koleksiyonlar kullanarak verileri doğrudan hizmetinizin içinden tutarlı ve güvenilir bir şekilde depolamanıza olanak tanır. Güvenilir koleksiyonlar, yüksek düzeyde kullanılabilir ve güvenilir koleksiyon sınıfları kümesidir. Bu sınıfların kullanımı, Java koleksiyonları kullanan herkese tanıdık gelir.
 
 1. Paket Gezgini'nde, uygulama projesinin içindeki **Oylama**'ya sağ tıklayın ve **Service Fabric > Service Fabric Hizmeti Ekle**’yi seçin.
-   
-2. **Hizmet Ekle** iletişim kutusunda **Durum Bilgisi Olan Hizmet**'i seçin, hizmete **VotingData** adını verin ve **Hizmet Ekle**'ye tıklayın. 
+
+2. **Hizmet Ekle** iletişim kutusunda **Durum Bilgisi Olan Hizmet**'i seçin, hizmete **VotingData** adını verin ve **Hizmet Ekle**'ye tıklayın.
 
     ![Mevcut bir uygulamaya yeni hizmet ekleme](./media/service-fabric-tutorial-create-java-app/addstatefuljava.png)
 
@@ -540,8 +549,9 @@ class VotingDataService extends StatefulService implements VotingRPC {
 }
 ```
 
-## <a name="create-the-communication-interface-to-your-application"></a>Uygulamanıza yönelik iletişim arabirimi oluşturma 
-Şimdi ön uç durum bilgisi olmayan hizmetin çatısı ve arka uç hizmeti oluşturulur. Sonraki adım, iki hizmetin bağlanmasıdır. Ön uç ve arka uç hizmetleri, Oylama uygulamasının işlemlerini tanımlayan VotingRPC adlı bir arabirim kullanır. Bu arabirim, iki hizmet arasında uzak yordam çağrılarını (RPC) etkinleştirmek için hem ön uç hem de arka uç hizmetleri tarafından uygulanır. Eclipse, Gradle alt projelerinin eklenmesini desteklemediğinden, bu arabirimi içeren paketin el ile eklenmesi gerekir. 
+## <a name="create-the-communication-interface-to-your-application"></a>Uygulamanıza yönelik iletişim arabirimi oluşturma
+
+Şimdi ön uç durum bilgisi olmayan hizmetin çatısı ve arka uç hizmeti oluşturulur. Sonraki adım, iki hizmetin bağlanmasıdır. Ön uç ve arka uç hizmetleri, Oylama uygulamasının işlemlerini tanımlayan VotingRPC adlı bir arabirim kullanır. Bu arabirim, iki hizmet arasında uzak yordam çağrılarını (RPC) etkinleştirmek için hem ön uç hem de arka uç hizmetleri tarafından uygulanır. Eclipse, Gradle alt projelerinin eklenmesini desteklemediğinden, bu arabirimi içeren paketin el ile eklenmesi gerekir.
 
 1. Paket Gezgini’nde **Oylama** projesine sağ tıklayın ve **Yeni -> Diğer ...** seçeneklerine tıklayın.
 
@@ -552,7 +562,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 3. *Voting/VotingRPC/src/rpcmethods* bölümünde *VotingRPC.java* adlı bir dosya oluşturun ve **VotingRPC.java** dosyasının içine aşağıdakileri yapıştırın. 
 
     ```java
-    package rpcmethods; 
+    package rpcmethods;
     
     import java.util.ArrayList;
     import java.util.concurrent.CompletableFuture;
@@ -878,6 +888,7 @@ Bu bölümde, proje için Gradle betikleri yapılandırılır.
     ```
 
 ## <a name="deploy-application-to-local-cluster"></a>Uygulamayı yerel kümede dağıtma
+
 Bu noktada uygulama, yerel Service Fabric kümesinde dağıtılmaya hazırdır.
 
 1. Paket Gezgini’nde **Oylama** projesine sağ tıklayın ve **Service Fabric -> Uygulama Derle** seçeneklerine tıklayarak uygulamanızı derleyin.
@@ -901,6 +912,7 @@ Bu noktada uygulama, yerel Service Fabric kümesinde dağıtılmaya hazırdır.
 6. Web tarayıcınıza gidip **http://localhost:8080** adresine erişerek yerel Service Fabric kümesinde çalıştırılan uygulamanızı görüntüleyin. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Öğreticinin bu bölümünde, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]

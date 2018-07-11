@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 39683c89db57dbeefd190a51415c783d012785e0
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 163763bf1203a045326c7163b5f6da9aa417d8cf
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36303784"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081865"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Öğretici: Bir sınıf laboratuvarı ayarlama 
 Bu öğreticide, sınıftaki öğrenciler tarafından kullanılan sanal makinelerle bir sınıf laboratuvarı ayarlayacaksınız.  
@@ -96,8 +96,8 @@ Bir şablonu yayımladığınızda Azure Lab Services, şablonu kullanarak labor
 2. Şimdi **Yayımla** düğmesini seçin. Bu işlemin süresi oluşturulan VM sayısına (laboratuvara katılan kullanıcı sayısıyla aynıdır) bağlı olarak değişebilir.
     
     > [!IMPORTANT]
-    > Bir şablon genel olarak kullanılabilir olduğunda, şablonun erişimi özel erişim olarak değiştirilemez. 
-4. **Sanal makineler** sayfasına geçin ve **Atanmamış** durumunda beş sanal makine gördüğünüzü doğrulayın. Bu VM’ler henüz bir öğrenciye atanmamıştır. 
+    > Şablon yayımlama işlemi geri alınamaz. 
+4. **Sanal makineler** sayfasına geçin ve **Atanmamış** durumundaki sanal makineleri gördüğünüzü doğrulayın. Bu VM’ler henüz bir öğrenciye atanmamıştır. 
 
     ![Sanal makineler](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. VM'ler oluşturulana kadar bekleyin. Bu makinelerin durumu **Durduruldu** olmalıdır. Bu sayfadan bir öğrenci VM'sini başlatabilir, VM'ye bağlanabilir, VM'yi durdurabilir ve VM'yi silebilirsiniz. VM'leri bu sayfadan başlatabilir veya öğrencilerinizin başlatmasını sağlayabilirsiniz. 

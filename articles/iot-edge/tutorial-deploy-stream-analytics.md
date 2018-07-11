@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ad2895a457a20632823260f2429ac95fad82089c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0790f504c978b4302812cffc9b655e817c156da3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060204"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081396"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Öğretici: Azure Stream Analytics’i bir IoT Edge modülüne dağıtma - önizleme
 
@@ -128,7 +128,7 @@ Artık Azure Stream Analytics işinizi IoT Edge cihazınıza dağıtmaya hazırs
    tempSensor modülünü bu cihaza önceden dağıttıysanız değer otomatik olarak doldurulabilir. Aksi takdirde aşağıdaki adımlarla modülü ekleyin:
 
    1. **Ekle**'ye tıklayıp **IoT Edge Modülü**'nü seçin.
-   2. Ad alanına **tempsensor** yazın.
+   2. Ad alanına **tempSensor** yazın.
    3. Görüntü URI'si alanına **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0** yazın. 
    4. Diğer ayarları değiştirmeden bırakın.
    5. **Kaydet**’i seçin.

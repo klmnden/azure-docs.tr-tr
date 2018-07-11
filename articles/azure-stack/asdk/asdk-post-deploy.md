@@ -1,6 +1,6 @@
 ---
-title: Posta dağıtım yapılandırmaları için Azure yığın Geliştirme Seti'nı (ASDK) | Microsoft Docs
-description: Azure yığın Geliştirme Seti (ASDK) yükledikten sonra yapmak için önerilen yapılandırma değişiklikleri açıklar.
+title: Dağıtım yapılandırmaları Azure Stack geliştirme Seti'ni (ASDK) için gönderin | Microsoft Docs
+description: Azure Stack geliştirme Seti'ni (ASDK) yükledikten sonra yapmak için önerilen yapılandırma değişiklikleri açıklar.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: ec5947bc68ba95a7b1e1588c444f4b28a7435f1c
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 23d99c498c139da3a145a1df230f419b4591b256
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801559"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598450"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK yükleme sonrası yapılandırma görevleri
 
-Sonra [Azure yığın Geliştirme Seti (ASDK) yükleme](asdk-install.md), bazı önerilen bir yükleme sonrası yapılandırma değişiklikleri yapmanız gerekecektir.
+Sonra [Azure Stack geliştirme Seti'ni (ASDK) yükleme](asdk-install.md), bazı önerilen bir yükleme sonrası yapılandırma değişiklikleri yapmak ihtiyacınız olacak.
 
 ## <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell’i yükleme
 
-Azure yığın uyumlu Azure PowerShell modülleri Azure yığın ile çalışmak için gereklidir.
+Azure Stack uyumlu Azure PowerShell modülleri, Azure Stack ile çalışmak için gereklidir.
 
-Azure yığını için PowerShell komutlarını PowerShell Galerisi aracılığıyla yüklenir. PSGallery depo kaydetmek için yükseltilmiş bir PowerShell oturumu açın ve aşağıdaki komutu çalıştırın:
+Azure Stack için PowerShell komutları PowerShell Galerisi'nde yüklenir. PSGallery depo kaydetmek için yükseltilmiş bir PowerShell oturumu açın ve aşağıdaki komutu çalıştırın:
 
 ``` Powershell
 Set-PSRepository `
@@ -38,14 +38,14 @@ Set-PSRepository `
   -InstallationPolicy Trusted
 ```
 
-Azure yığın uyumlu AzureRM modülleri belirtmek için API sürümü profillerini kullanın.  API sürümü profilleri sürüm farklarını Azure ve Azure yığın yönetmek için bir yöntem sunar. Bir API sürümü profili belirli API sürümleri ile AzureRM PowerShell modülleri kümesidir. **AzureRM.Bootstrapper** PowerShell Galerisi aracılığıyla kullanılabilir modül API sürümü profilleri ile çalışmak için gerekli PowerShell cmdlet'leri sağlar.
+Azure Stack uyumlu AzureRM modülleri belirtmek için API sürümü profillerini kullanabilirsiniz.  API sürümü profillerini Azure ve Azure Stack arasında sürümü farkları yönetmek için bir yol sağlar. Bir API Sürüm profili, AzureRM PowerShell modülleri belirli API sürümleri ile kümesidir. **AzureRM.Bootstrapper** PowerShell Galerisi'nde kullanılabilir modül ile API Sürüm profillerini çalışması için gerekli olan PowerShell cmdlet'leri sağlar.
 
-En son Azure yığın PowerShell modülü ile veya ASDK ana bilgisayara Internet bağlantısı olmadan yükleyebilirsiniz:
+En son Azure Stack PowerShell modülü ile veya ASDK konak bilgisayara Internet bağlantısı olmadan yükleyebilirsiniz:
 
 > [!IMPORTANT]
-> Gerekli sürümü yüklemeden önce emin olun, [tüm mevcut Azure PowerShell modülleri kaldırmak](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell).
+> Gerekli sürümü yüklemeden önce emin olun, [tüm mevcut Azure PowerShell modülleri kaldırma](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-the-azure-stack-powershell-modules).
 
-- **Internet bağlantısı olan** ASDK ana bilgisayardan. Bu modüller, Geliştirme Seti yüklemesine yüklemek için aşağıdaki PowerShell betiğini çalıştırın:
+- **İnternet bağlantısı ile** ASDK ana bilgisayar. Bu modüller, Geliştirme Seti yüklemesine yüklemek için aşağıdaki PowerShell betiğini çalıştırın:
 
   ``` PowerShell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
@@ -63,7 +63,7 @@ En son Azure yığın PowerShell modülü ile veya ASDK ana bilgisayara Internet
 
   Yükleme başarılı olursa, AzureRM ve AzureStack modülleri çıktısında görüntülenir.
 
-- **İnternet bağlantısı olmadan** ASDK ana bilgisayardan. Bağlantısı kesilmiş bir senaryoda, aşağıdaki PowerShell komutlarını kullanarak Internet bağlantısına sahip bir makine için ilk PowerShell modülleri indirmeniz gerekir:
+- **İnternet bağlantısı olmadan** ASDK ana bilgisayar. Bağlantısı kesilmiş bir senaryoda, PowerShell modüllerine aşağıdaki PowerShell komutlarını kullanarak internet bağlantısı olan bir makineye indirmeniz gerekir:
 
   ```PowerShell
   $Path = "<Path that is used to save the packages>"
@@ -86,7 +86,7 @@ En son Azure yığın PowerShell modülü ile veya ASDK ana bilgisayara Internet
     -RequiredVersion 1.3.0
   ```
 
-  Ardından, indirilen paketler ASDK bilgisayara kopyalayın ve konumu varsayılan deposu olarak kaydetmek ve bu depodan AzureRM ve AzureStack modüllerini yükleyin:
+  Ardından, indirilen paketler ASDK bilgisayara kopyalayın ve varsayılan depo konumu kaydetmek ve bu depodan AzureRM ve AzureStack modüllerini yükleyin:
 
     ```PowerShell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
@@ -104,9 +104,9 @@ En son Azure yığın PowerShell modülü ile veya ASDK ana bilgisayara Internet
       -Repository $RepoName
     ```
 
-## <a name="download-the-azure-stack-tools"></a>Azure yığın araçları yükleyin
+## <a name="download-the-azure-stack-tools"></a>Azure Stack araçları indirin
 
-[AzureStack Araçları](https://github.com/Azure/AzureStack-Tools) yönetme ve dağıtma kaynakları Azure yığınına için PowerShell modülleri barındıran bir GitHub depo. Bu araçları elde etmek için GitHub deposunu kopyalayın veya AzureStack Araçlar klasörünü aşağıdaki komut dosyasını çalıştırarak yükleyebilirsiniz:
+[AzureStack Araçları](https://github.com/Azure/AzureStack-Tools) yönetme ve dağıtma kaynakları Azure Stack için PowerShell modülleri barındıran bir GitHub deposudur. Bu araçları edinmek için GitHub deposunu kopyalayın veya AzureStack Araçlar klasörüne aşağıdaki komutu çalıştırarak yükleyebilirsiniz:
 
   ```PowerShell
   # Change directory to the root directory. 
@@ -128,45 +128,45 @@ En son Azure yığın PowerShell modülü ile veya ASDK ana bilgisayara Internet
   ```
 
 ## <a name="validate-the-asdk-installation"></a>ASDK yüklemeyi doğrulama
-ASDK dağıtımınız başarılı olduğundan emin olmak için aşağıdaki adımları izleyerek Test AzureStack cmdlet'i kullanabilirsiniz:
+ASDK dağıtımınızın başarılı olmasını sağlamak için aşağıdaki adımları izleyerek Test AzureStack cmdlet'i kullanabilirsiniz:
 
 1. AzureStack\AzureStackAdmin ASDK ana bilgisayarda oturum açın.
 2. PowerShell'i yönetici olarak (PowerShell ISE değil) açın.
 3. Çalıştırın: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
 4. Çalıştırın: `Test-AzureStack`
 
-Sınamaların tamamlanması birkaç dakika sürebilir. Yükleme başarılı olduysa, çıktı şöyle görünür:
+Sınamaların tamamlanması birkaç dakika sürebilir. Yükleme başarılı olduysa, çıktı şuna benzer:
 
 ![Test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
-Hatası varsa, Yardım almak için sorun giderme adımlarını izleyin.
+Bir hata oluştuğunda, Yardım almak için sorun giderme adımlarını izleyin.
 
-## <a name="activate-the-administrator-and-tenant-portals"></a>Yönetici ve Kiracı portalı etkinleştir
-Azure AD kullanan dağıtımlar sonra Azure yığın yönetici ve Kiracı portalı etkinleştirmeniz gerekir. Bu etkinleştirme, Azure yığın portalı ve Azure Resource Manager (onay sayfasında listelenen) doğru izinler tüm kullanıcılar için dizin vermenizi izin.
+## <a name="activate-the-administrator-and-tenant-portals"></a>Yönetici ve Kiracı portalları etkinleştirme
+Azure AD kullanan dağıtımlar sonra Azure Stack yönetici ve Kiracı portalı etkinleştirmeniz gerekir. Bu etkinleştirme Azure Stack portal ve Azure Resource Manager (onay sayfasında listelenmiştir) doğru tüm kullanıcılar için izinleri dizinin vermenizi toplanmasına onay verir.
 
-- Yönetici portalı için gidin https://adminportal.local.azurestack.external/guest/signup, bilgileri okuyun ve ardından **kabul**. Kabul ettikten sonra aynı zamanda dizin Kiracı yönetici olmayan hizmet yöneticileri ekleyebilirsiniz.
+- Yönetici portalı için gidin https://adminportal.local.azurestack.external/guest/signupbilgileri okuyun ve ardından **kabul**. Kabul ettikten sonra aynı zamanda dizin Kiracı yönetici olmayan hizmet yöneticileri ekleyebilir.
 
-- Kiracı portalı için gidin https://portal.local.azurestack.external/guest/signup, bilgileri okuyun ve ardından **kabul**. Kabul ettikten sonra dizindeki kullanıcıları Kiracı portalında oturum açabilir. 
+- Kiracı portalı için gidin https://portal.local.azurestack.external/guest/signupbilgileri okuyun ve ardından **kabul**. Kabul ettikten sonra kullanıcılar dizininde Kiracı portalında oturum açabilir. 
 
 > [!NOTE] 
-> Portalları etkin değil, yalnızca dizin yönetici oturum açabilir ve portalları kullanın. Başka bir kullanıcı oturum açtığında bunların yönetici izinleri diğer kullanıcılara vermemiş bildiren bir hata görürsünüz. Yönetici yerel olarak Azure yığın kayıtlı dizinine ait değil, Azure yığın dizin etkinleştirme URL'sine eklenmesi gerekir. Örneğin, Azure yığın fabrikam.onmicrosoft.com ve yönetici kullanıcı için kayıtlı ise admin@contoso.com, gitmek https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com Portalı'nı etkinleştirmek için. 
+> Portalları etkin değil, yalnızca dizin Yöneticisi oturum açın ve portallarını birlikte kullanmanız gerekir. Başka bir kullanıcı oturum açtığında, yönetici izinleri diğer kullanıcılara vermemiş bildiren bir hata görürsünüz. Yöneticinin yerel olarak Azure Stack için kayıtlı dizine ait değil, Azure Stack directory etkinleştirme URL eklenmesi gerekir. Örneğin, Azure Stack, Fabrikam.onmicrosoft.com adresli ve yönetici kullanıcı için kayıtlı ise admin@contoso.com, gitmek https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com portal'ı etkinleştirmek için. 
 
-## <a name="reset-the-password-expiration-policy"></a>Parola süre sonu ilkesi Sıfırla 
-ASDK dağıttıktan sonra Değerlendirme dönemi sona ermeden önce Geliştirme Seti ana bilgisayar için parola süresi sona ermiyor emin olmak için aşağıdaki adımları izleyin.
+## <a name="reset-the-password-expiration-policy"></a>Parola süresi dolma ilkesini Sıfırla 
+ASDK dağıttıktan sonra değerlendirme süresi sona ermeden önce Geliştirme Seti konak için parola süresi sona ermiyor emin olmak için aşağıdaki adımları izleyin.
 
-### <a name="to-change-the-password-expiration-policy-from-powershell"></a>Parola süre sonu ilkesi Powershell'den değiştirmek için:
+### <a name="to-change-the-password-expiration-policy-from-powershell"></a>Powershell'den parola süresi dolma ilkesini değiştirmek için:
 Yükseltilmiş bir Powershell konsolundan komutu çalıştırın:
 
 ```powershell
 Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
 ```
 
-### <a name="to-change-the-password-expiration-policy-manually"></a>Parola süre sonu ilkesi el ile değiştirmek için:
-1. Geliştirme Seti konakta açmak **Grup İlkesi Yönetimi** (GPMC. MMC) ve gidin **Grup İlkesi Yönetimi** – **orman: azurestack.local** – **etki alanları** – **azurestack.local**.
+### <a name="to-change-the-password-expiration-policy-manually"></a>Parola süresi dolma ilkesini el ile olarak değiştirmek için:
+1. Geliştirme Seti konakta açın **Grup İlkesi Yönetimi** (GPMC. MMC) gidin **Grup İlkesi Yönetimi** – **orman: azurestack.local** – **etki alanları** – **azurestack.local**.
 2. Sağ **varsayılan etki alanı ilkesi** tıklatıp **Düzenle**.
 3. Grup İlkesi Yönetimi Düzenleyicisi'nde gidin **Bilgisayar Yapılandırması** – **ilkeleri** – **Windows ayarları** – **güvenlik ayarları**– **Hesap ilkeleri** – **parola ilkesi**.
-4. Sağ bölmede, çift **en uzun parola geçerlilik süresi**.
-5. İçinde **en uzun parola geçerlilik süresi özellikleri** iletişim kutusu, değişiklik **parola içinde dolacak** değeri **180**ve ardından **Tamam**.
+4. Sağ bölmede **en fazla parola geçerlilik süresi**.
+5. İçinde **en fazla parola geçerlilik süresi özellikleri** iletişim kutusunda, değişiklik **parola içinde sona erecek** değerini **180**ve ardından **Tamam**.
 
 ![Grup İlkesi Yönetim Konsolu](media/asdk-post-deploy/gpmc.png)
 

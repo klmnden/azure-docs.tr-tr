@@ -1,5 +1,5 @@
 ---
-title: Java Service Fabric uygulamasını Azure’da bir kümeye dağıtma | Microsoft Docs
+title: Azure’da bir Service Fabric kümesine Java uygulaması dağıtma | Microsoft Docs
 description: Bu öğreticide, Java Service Fabric uygulamasının bir Azure Service Fabric kümesine nasıl dağıtılacağını öğreneceksiniz.
 services: service-fabric
 documentationcenter: java
@@ -15,40 +15,44 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 370cb367a90c8c1a4f8051e79d3858d78c8c3b75
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: afa9aa4ef4d3d8d8a6816d194b69271fdf0d928a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644051"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109683"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Öğretici: Azure’da bir Service Fabric kümesine Java uygulamasını dağıtma
+
 Bir serinin üçüncü kısmı olan bu öğreticide bir Service Fabric uygulamasının Azure’da bir kümeye nasıl dağıtılacağı gösterilir.
 
 Serinin üçüncü bölümünde şunları öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Azure’da güvenli bir Linux kümesi oluşturma 
+> * Azure’da güvenli bir Linux kümesi oluşturma
 > * Kümeye bir uygulama dağıtma
 
 Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
+
 > [!div class="checklist"]
-> *  [Java Service Fabric Güvenilir Hizmetler uygulaması derleme](service-fabric-tutorial-create-java-app.md)
+> * [Java Service Fabric Güvenilir Hizmetler uygulaması derleme](service-fabric-tutorial-create-java-app.md)
 > * [Yerel kümede uygulamayı dağıtma ve uygulamanın hatasını ayıklama](service-fabric-tutorial-debug-log-local-cluster.md)
 > * Azure kümesine uygulama dağıtma
 > * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-java-elk.md)
 > * [CI/CD ayarlama](service-fabric-tutorial-java-jenkins.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
+
 Bu öğreticiye başlamadan önce:
-- Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
-- [Azure CLI 2.0’ı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- [Mac](service-fabric-get-started-mac.md) veya [Linux](service-fabric-get-started-linux.md) için Service Fabric SDK’yı yükleyin
-- [Python 3'ü yükleme](https://wiki.python.org/moin/BeginnersGuide/Download)
+
+* Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
+* [Azure CLI 2.0’ı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Mac](service-fabric-get-started-mac.md) veya [Linux](service-fabric-get-started-linux.md) için Service Fabric SDK’yı yükleyin
+* [Python 3'ü yükleme](https://wiki.python.org/moin/BeginnersGuide/Download)
 
 ## <a name="create-a-service-fabric-cluster-in-azure"></a>Azure’da Service Fabric kümesi oluşturma
 
-Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak için gerekli kaynakları oluşturur. Ayrıca ELK (Elasticsearch, Logstash, Kibana) yığını kullanılarak çözümünüzün durumunu izlemek için gerekli kaynaklar ayarlanır. Özellikle [Event Hubs](https://azure.microsoft.com/services/event-hubs/), Service Fabric’teki günlükler için havuz olarak kullanılır. Service Fabric kümesinden Logstash örneğinize günlükleri gönderecek şekilde yapılandırılmıştır. 
+Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak için gerekli kaynakları oluşturur. Ayrıca ELK (Elasticsearch, Logstash, Kibana) yığını kullanılarak çözümünüzün durumunu izlemek için gerekli kaynaklar ayarlanır. Özellikle [Event Hubs](https://azure.microsoft.com/services/event-hubs/), Service Fabric’teki günlükler için havuz olarak kullanılır. Service Fabric kümesinden Logstash örneğinize günlükleri gönderecek şekilde yapılandırılmıştır.
 
 1. Bir terminali açın ve Azure’da kaynakları oluşturmak için şablonları ve gerekli yardımcı betikleri içeren aşağıdaki paketi indirin
 
@@ -56,23 +60,23 @@ Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak i
     git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```
 
-2. Azure hesabınızda oturum açma 
+2. Azure hesabınızda oturum açma
 
     ```bash
     az login
     ```
 
-3. Kaynakları oluşturmak için kullanmak istediğiniz Azure aboneliğinizi ayarlama 
+3. Kaynakları oluşturmak için kullanmak istediğiniz Azure aboneliğinizi ayarlama
 
     ```bash
     az account set --subscription [SUBSCRIPTION-ID]
-    ``` 
+    ```
 
-4. *service-fabric-java-quickstart/AzureCluster* klasöründen, Anahtar Kasası’nda bir küme sertifikası oluşturmak için aşağıdaki komutu çalıştırın. Bu sertifika, Service Fabric kümenizin güvenliğini sağlamak için kullanılır. Bölgeyi (Service Fabric kümenizle aynı olmalıdır), anahtar kasası kaynak grubu adını, anahtar kasası adını, sertifika parolasını ve küme DNS adını sağlayın. 
+4. *service-fabric-java-quickstart/AzureCluster* klasöründen, Anahtar Kasası’nda bir küme sertifikası oluşturmak için aşağıdaki komutu çalıştırın. Bu sertifika, Service Fabric kümenizin güvenliğini sağlamak için kullanılır. Bölgeyi (Service Fabric kümenizle aynı olmalıdır), anahtar kasası kaynak grubu adını, anahtar kasası adını, sertifika parolasını ve küme DNS adını sağlayın.
 
     ```bash
     ./new-service-fabric-cluster-certificate.sh [REGION] [KEY-VAULT-RESOURCE-GROUP] [KEY-VAULT-NAME] [CERTIFICATE-PASSWORD] [CLUSTER-DNS-NAME-FOR-CERTIFICATE]
-    
+
     Example: ./new-service-fabric-cluster-certificate.sh 'westus' 'testkeyvaultrg' 'testkeyvault' '<password>' 'testservicefabric.westus.cloudapp.azure.com'
     ```
 
@@ -84,11 +88,11 @@ Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak i
     Certificate Thumbprint: <THUMBPRINT>
     ```
 
-5. Günlüklerinizi depolayan depolama hesabı için bir kaynak grubu oluşturma 
+5. Günlüklerinizi depolayan depolama hesabı için bir kaynak grubu oluşturma
 
     ```bash
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
-    
+
     Example: az group create --location westus --name teststorageaccountrg
     ```
 
@@ -96,11 +100,11 @@ Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak i
 
     ```bash
     az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind Storage
-    
+
     Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind Storage
     ```
 
-7. [Azure Portal](https://portal.azure.com)’a erişin ve Depolama hesabınızın **Paylaşılan Erişim İmzası** sekmesine gidin. Aşağıdaki adımları izleyerek SAS belirtecini oluşturun. 
+7. [Azure Portal](https://portal.azure.com)’a erişin ve Depolama hesabınızın **Paylaşılan Erişim İmzası** sekmesine gidin. Aşağıdaki adımları izleyerek SAS belirtecini oluşturun.
 
     ![Depolama için SAS oluşturma](./media/service-fabric-tutorial-java-deploy-azure/storagesas.png)
 
@@ -114,16 +118,16 @@ Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak i
 
     ```bash
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
-    
+
     Example: az group create --location westus --name testeventhubsrg
     ```
 
-10. Aşağıdaki komutu kullanarak bir Event Hubs kaynağı oluşturun. namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule ve receiveAuthorizationRule ayrıntılarını girmek için istemleri izleyin. 
+10. Aşağıdaki komutu kullanarak bir Event Hubs kaynağı oluşturun. namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule ve receiveAuthorizationRule ayrıntılarını girmek için istemleri izleyin.
 
     ```bash
     az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
-    
-    Example: 
+
+    Example:
     az group deployment create -g testeventhubsrg --template-file eventhubsdeploy.json
     Please provide string value for 'namespaceName' (? for help): testeventhubnamespace
     Please provide string value for 'eventHubName' (? for help): testeventhub
@@ -132,8 +136,8 @@ Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak i
     Please provide string value for 'receiveAuthorizationRuleName' (? for help): receiver
     ```
 
-    Önceki komutun JSON çıkışında **çıkış** alanının içeriklerini kopyalayın. Service Fabric kümesi oluşturulduğunda gönderen bilgileri kullanılır. Alıcı adı ve anahtar, sonraki öğreticide Logstash hizmeti, Olay Hub’ından ileti alacak şekilde yapılandırıldığında kullanılmak üzere kaydedilmelidir. Aşağıdaki blob, örnek bir JSON çıkışıdır:     
-    
+    Önceki komutun JSON çıkışında **çıkış** alanının içeriklerini kopyalayın. Service Fabric kümesi oluşturulduğunda gönderen bilgileri kullanılır. Alıcı adı ve anahtar, sonraki öğreticide Logstash hizmeti, Olay Hub’ından ileti alacak şekilde yapılandırıldığında kullanılmak üzere kaydedilmelidir. Aşağıdaki blob, örnek bir JSON çıkışıdır:
+
     ```json
     "outputs": {
         "receiver Key": {
@@ -169,9 +173,9 @@ Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak i
 
     EventHubs için SAS URL’niz şu yapıyı izler: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Örneğin, https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
-12. *sfdeploy.parameters.json* dosyasını açın ve önceki adımlardaki şu içerikleri değiştirin 
+12. *sfdeploy.parameters.json* dosyasını açın ve önceki adımlardaki şu içerikleri değiştirin
 
-    ```
+    ```json
     "applicationDiagnosticsStorageAccountName": {
         "value": "teststorageaccount"
     },
@@ -191,7 +195,7 @@ Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak i
 
 ## <a name="deploy-your-application-to-the-cluster"></a>Kümeye uygulamanızı dağıtma
 
-1. Uygulamanızı dağıtmadan önce, *Voting/VotingApplication/ApplicationManifest.xml* dosyasına aşağıdaki kod parçacığını eklemeniz gerekir. **X509FindValue** alanı, **Azure’da Service Fabric kümesi oluşturma** bölümünün 4. Adımından döndürülen küçük resimdir. Bu kod parçacığı, **ApplicationManifest** alanının (kök alan) altında iç içe yerleştirilir. 
+1. Uygulamanızı dağıtmadan önce, *Voting/VotingApplication/ApplicationManifest.xml* dosyasına aşağıdaki kod parçacığını eklemeniz gerekir. **X509FindValue** alanı, **Azure’da Service Fabric kümesi oluşturma** bölümünün 4. Adımından döndürülen küçük resimdir. Bu kod parçacığı, **ApplicationManifest** alanının (kök alan) altında iç içe yerleştirilir.
 
     ```xml
     <Certificates>
@@ -211,32 +215,33 @@ Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak i
     sfctl cluster select --endpoint https://testlinuxcluster.westus.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
-4. Uygulamanızı dağıtmak için *Oylama/Betikler* klasörüne gidin ve **install.sh** betiğini çalıştırın. 
+4. Uygulamanızı dağıtmak için *Oylama/Betikler* klasörüne gidin ve **install.sh** betiğini çalıştırın.
 
     ```bash
     ./install.sh
     ```
 
-5. Service Fabric Explorer’a erişmek için sık kullandığınız tarayıcıyı açıp https://testlinuxcluster.westus.cloudapp.azure.com:19080 yazın. Bu uç noktaya bağlanmak için kullanmak istediğiniz sertifika deposundan sertifikayı seçin. Linux makinesi kullanıyorsanız, Service Fabric Explorer’ı görüntülemek için *new-service-fabric-cluster-certificate.sh* betiği tarafından oluşturulan sertifikaların Chrome’a içeri aktarılması gerekir. Mac kullanıyorsanız, Anahtarlığınıza PFX dosyasını yüklemeniz gerekir. Uygulamanızın kümeye yüklendiğini görürsünüz. 
+5. Service Fabric Explorer’a erişmek için sık kullandığınız tarayıcıyı açıp https://testlinuxcluster.westus.cloudapp.azure.com:19080 yazın. Bu uç noktaya bağlanmak için kullanmak istediğiniz sertifika deposundan sertifikayı seçin. Linux makinesi kullanıyorsanız, Service Fabric Explorer’ı görüntülemek için *new-service-fabric-cluster-certificate.sh* betiği tarafından oluşturulan sertifikaların Chrome’a içeri aktarılması gerekir. Mac kullanıyorsanız, Anahtarlığınıza PFX dosyasını yüklemeniz gerekir. Uygulamanızın kümeye yüklendiğini görürsünüz.
 
     ![SFX Java Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 
-6. Uygulamanıza erişmek için https://testlinuxcluster.westus.cloudapp.azure.com:8080 yazın 
+6. Uygulamanıza erişmek için https://testlinuxcluster.westus.cloudapp.azure.com:8080 yazın
 
     ![Oylama Uygulaması Java Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
 
-7. Uygulamanızı kümeden kaldırmak için **Betikler** klasöründeki *uninstall.sh* betiğini çalıştırın 
+7. Uygulamanızı kümeden kaldırmak için **Betikler** klasöründeki *uninstall.sh* betiğini çalıştırın
 
     ```bash
     ./uninstall.sh
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Azure’da güvenli bir Linux kümesi oluşturma 
-> * ELK ile izleme için gerekli kaynakları oluşturma 
+> * Azure’da güvenli bir Linux kümesi oluşturma
+> * ELK ile izleme için gerekli kaynakları oluşturma
 > * İsteğe bağlı: Service Fabric’i denemek için grup kümelerini kullanma
 
 Sonraki öğreticiye ilerleyin:

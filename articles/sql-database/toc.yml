@@ -84,8 +84,6 @@
           href: sql-database-service-tiers-dtu.md
         - name: Kaynak sınırları
           href: sql-database-resource-limits.md
-    - name: Yüksek kullanılabilirlik
-      href: sql-database-high-availability.md
     - name: Mantıksal sunucular ve tek veritabanları
       items:
         - name: Mantıksal sunucular ve tek veritabanları
@@ -128,8 +126,46 @@
           href: sql-database-managed-instance-connect-app.md
         - name: T-SQL farklılıkları
           href: sql-database-managed-instance-transact-sql-information.md
-    - name: SQL Server genel özellikleri
-      href: sql-database-features.md
+    - name: İş sürekliliği
+      items:
+        - name: İş sürekliliği
+          href: sql-database-business-continuity.md
+        - name: Yüksek kullanılabilirlik
+          href: sql-database-high-availability.md
+        - name: Veritabanı yedeklemeleri
+          href: sql-database-automated-backups.md
+        - name: Uzun süreli yedek saklama
+          itmes:
+            - name: Uzun süreli yedek saklama
+              href: sql-database-long-term-retention.md
+            - name: Uzun süreli yedek saklama yapılandırma - SQL depolama
+              href: sql-database-long-term-backup-retention-configure.md
+            - name: Uzun süreli yedek saklama yapılandırma - Azure kasası (kullanım dışı)
+              href: sql-database-long-term-backup-retention-configure-vault.md
+        - name: Yük devretme grupları ve coğrafi çoğaltma
+          items:
+            - name: Yük devretme grupları ve coğrafi çoğaltma
+              href: sql-database-geo-replication-overview.md
+            - name: Coğrafi çoğaltmayı yapılandırma - Portal
+              href: sql-database-geo-replication-portal.md
+            - name: Çoğaltmalar için güvenliği yapılandırma
+              href: sql-database-geo-replication-security-config.md
+        - name: Veritabanı kurtarma
+          items:
+            - name: Veritabanı kurtarma
+              href: sql-database-recovery-using-backups.md
+            - name: Kesintiden kurtarma
+              href: sql-database-disaster-recovery.md
+            - name: Kurtarma tatbikatı gerçekleştirme
+              href: sql-database-disaster-recovery-drills.md
+        - name: Uygulama tasarımı
+          items:
+            - name: Olağanüstü durum kurtarmaya yönelik tasarım
+              href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
+            - name: Elastik havuzlara yönelik tasarım
+              href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+            - name: Uygulama yükseltmelerine yönelik tasarım
+              href: sql-database-manage-application-rolling-upgrade.md
     - name: Güvenlik
       items:
         - name: Güvenlik
@@ -192,76 +228,56 @@
               href: sql-database-always-encrypted.md
             - name: Azure Key Vault kullanma
               href: sql-database-always-encrypted-azure-key-vault.md
-    - name: İş sürekliliği
+    - name: Elastik ölçeklenebilirlik
       items:
-        - name: İş sürekliliği
-          href: sql-database-business-continuity.md
-        - name: Veritabanı yedeklemeleri
-          href: sql-database-automated-backups.md
-        - name: Uzun süreli yedek saklama
-          itmes:
-            - name: Uzun süreli yedek saklama
-              href: sql-database-long-term-retention.md
-            - name: Uzun süreli yedek saklama yapılandırma - SQL depolama
-              href: sql-database-long-term-backup-retention-configure.md
-            - name: Uzun süreli yedek saklama yapılandırma - Azure kasası (kullanım dışı)
-              href: sql-database-long-term-backup-retention-configure-vault.md
-        - name: Yük devretme grupları ve coğrafi çoğaltma
+        - name: Kaynak ölçeklenebilirliği
+          href: sql-database-scale-resources.md
+        - name: Okuma Amaçlı Ölçeği Genişletme
+          href: sql-database-read-scale-out.md
+        - name: Veritabanı parçalama
           items:
-            - name: Yük devretme grupları ve coğrafi çoğaltma
-              href: sql-database-geo-replication-overview.md
-            - name: Coğrafi çoğaltmayı yapılandırma - Portal
-              href: sql-database-geo-replication-portal.md
-            - name: Çoğaltmalar için güvenliği yapılandırma
-              href: sql-database-geo-replication-security-config.md
-        - name: Veritabanı kurtarma
-          items:
-            - name: Veritabanı kurtarma
-              href: sql-database-recovery-using-backups.md
-            - name: Kesintiden kurtarma
-              href: sql-database-disaster-recovery.md
-            - name: Kurtarma tatbikatı gerçekleştirme
-              href: sql-database-disaster-recovery-drills.md
-        - name: Uygulama tasarımı
-          items:
-            - name: Olağanüstü durum kurtarmaya yönelik tasarım
-              href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-            - name: Elastik havuzlara yönelik tasarım
-              href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-            - name: Uygulama yükseltmelerine yönelik tasarım
-              href: sql-database-manage-application-rolling-upgrade.md
-    - name: SQL Veritabanına geçiş
-      items:
-        - name: SQL Veritabanına geçiş
-          href: sql-database-cloud-migrate.md
-        - name: Yönetilen Örneğe geçiş
-          href: sql-database-managed-instance-migrate.md
-        - name: Geçişten sonra SQL Veritabanını yönetme
-          href: sql-database-manage-after-migration.md
-    - name: Verileri yükleme ve taşıma
-      items:
-        - name: Azure içinde bir veritabanı kopyalama
-          href: sql-database-copy.md
-        - name: BACPAC’ten veritabanını içeri aktarma
-          href: sql-database-import.md
-        - name: Veritabanını BACPAC’e dışarı aktarma
-          href: sql-database-export.md
-        - name: Veri eşitleme
-          items:
-            - name: SQL Data Sync
-              href: sql-database-sync-data.md
-            - name: Şema değişikliklerini çoğaltma
-              href: sql-database-update-sync-schema.md
-            - name: OMS ile izleme
-              href: sql-database-sync-monitor-oms.md
-            - name: Data Sync için en iyi deneyimler
-              href: sql-database-best-practices-data-sync.md
-            - name: Data Sync’de sorun giderme
-              href: sql-database-troubleshoot-data-sync.md
-        - name: BCP ile veri yükleme
-          href: sql-database-load-from-csv-with-bcp.md
-        - name: ADF ile veri yükleme
-          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
+            - name: Veritabanı parçalama
+              href: sql-database-elastic-scale-introduction.md
+            - name: Elastik istemci kitaplığı - birleştirme
+              href: sql-database-elastic-database-client-library.md
+            - name: Elastik veritabanı istemci kitaplığını yükseltme
+              href: sql-database-elastic-scale-upgrade-client-library.md
+            - name: Parça eşlemeleri
+              href: sql-database-elastic-scale-shard-map-management.md
+            - name: Sorgu yönlendirme
+              href: sql-database-elastic-scale-data-dependent-routing.md
+            - name: Kimlik bilgilerini yönetme
+              href: sql-database-elastic-scale-manage-credentials.md
+            - name: Parça sorgulama
+              href: sql-database-elastic-scale-multishard-querying.md
+            - name: Elastik araçlar
+              href: sql-database-elastic-scale-glossary.md
+            - name: Parçalı verileri taşıma
+              href: sql-database-elastic-scale-overview-split-and-merge.md
+            - name: Elastik istemci kitaplığı - Dapper
+              href: sql-database-elastic-scale-working-with-dapper.md
+            - name: Elastik araçlar hakkında SSS
+              href: sql-database-elastic-scale-faq.md
+            - name: Parçalı uygulama oluşturma
+              href: sql-database-elastic-scale-get-started.md
+            - name: Yatay olarak parçalı verileri sorgulama
+              href: sql-database-elastic-query-getting-started.md
+            - name: Parçalı verileri taşıma
+              href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
+            - name: Güvenlik yapılandırması
+              href: sql-database-elastic-scale-split-merge-security-configuration.md
+            - name: Parça ekleme
+              href: sql-database-elastic-scale-add-a-shard.md
+            - name: Parça eşleme sorunlarını giderme
+              href: sql-database-elastic-database-recovery-manager.md
+            - name: Parçalı veritabanını geçirme
+              href: sql-database-elastic-convert-to-use-elastic-tools.md
+            - name: Sayaç oluşturma
+              href: sql-database-elastic-database-perf-counters.md
+            - name: Entity framework kullanma
+              href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+    - name: SQL özellik karşılaştırması
+      href: sql-database-features.md
     - name: İzleme ve ayarlama
       items:
         - name: İzleme ve ayarlama
@@ -318,52 +334,6 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Otomasyonu
           href: sql-database-manage-automation.md
-    - name: Ölçeği genişletme
-      items:
-        - name: Okuma Amaçlı Ölçeği Genişletme
-          href: sql-database-read-scale-out.md
-        - name: Veritabanı parçalama
-          items:
-            - name: Veritabanı parçalama
-              href: sql-database-elastic-scale-introduction.md
-            - name: Elastik istemci kitaplığı - birleştirme
-              href: sql-database-elastic-database-client-library.md
-            - name: Elastik veritabanı istemci kitaplığını yükseltme
-              href: sql-database-elastic-scale-upgrade-client-library.md
-            - name: Parça eşlemeleri
-              href: sql-database-elastic-scale-shard-map-management.md
-            - name: Sorgu yönlendirme
-              href: sql-database-elastic-scale-data-dependent-routing.md
-            - name: Kimlik bilgilerini yönetme
-              href: sql-database-elastic-scale-manage-credentials.md
-            - name: Parça sorgulama
-              href: sql-database-elastic-scale-multishard-querying.md
-            - name: Elastik araçlar
-              href: sql-database-elastic-scale-glossary.md
-            - name: Parçalı verileri taşıma
-              href: sql-database-elastic-scale-overview-split-and-merge.md
-            - name: Elastik istemci kitaplığı - Dapper
-              href: sql-database-elastic-scale-working-with-dapper.md
-            - name: Elastik araçlar hakkında SSS
-              href: sql-database-elastic-scale-faq.md
-            - name: Parçalı uygulama oluşturma
-              href: sql-database-elastic-scale-get-started.md
-            - name: Yatay olarak parçalı verileri sorgulama
-              href: sql-database-elastic-query-getting-started.md
-            - name: Parçalı verileri taşıma
-              href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
-            - name: Güvenlik yapılandırması
-              href: sql-database-elastic-scale-split-merge-security-configuration.md
-            - name: Parça ekleme
-              href: sql-database-elastic-scale-add-a-shard.md
-            - name: Parça eşleme sorunlarını giderme
-              href: sql-database-elastic-database-recovery-manager.md
-            - name: Parçalı veritabanını geçirme
-              href: sql-database-elastic-convert-to-use-elastic-tools.md
-            - name: Sayaç oluşturma
-              href: sql-database-elastic-database-perf-counters.md
-            - name: Entity framework kullanma
-              href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: Veritabanları arası işlemler
       items:
         - name: Elastik Veritabanı işleri
@@ -424,6 +394,40 @@
           href: sql-database-temporal-tables-retention-policy.md
         - name: Bellek içi yapılandırma
           href: sql-database-in-memory-oltp-migration.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: SQL Veritabanına geçiş
+      items:
+        - name: SQL Veritabanına geçiş
+          href: sql-database-cloud-migrate.md
+        - name: Yönetilen Örneğe geçiş
+          href: sql-database-managed-instance-migrate.md
+        - name: Geçişten sonra SQL Veritabanını yönetme
+          href: sql-database-manage-after-migration.md
+    - name: Verileri yükleme ve taşıma
+      items:
+        - name: Azure içinde bir veritabanı kopyalama
+          href: sql-database-copy.md
+        - name: BACPAC’ten veritabanını içeri aktarma
+          href: sql-database-import.md
+        - name: Veritabanını BACPAC’e dışarı aktarma
+          href: sql-database-export.md
+        - name: Veri eşitleme
+          items:
+            - name: SQL Data Sync
+              href: sql-database-sync-data.md
+            - name: Şema değişikliklerini çoğaltma
+              href: sql-database-update-sync-schema.md
+            - name: OMS ile izleme
+              href: sql-database-sync-monitor-oms.md
+            - name: Data Sync için en iyi deneyimler
+              href: sql-database-best-practices-data-sync.md
+            - name: Data Sync’de sorun giderme
+              href: sql-database-troubleshoot-data-sync.md
+        - name: BCP ile veri yükleme
+          href: sql-database-load-from-csv-with-bcp.md
+        - name: ADF ile veri yükleme
+          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
     - name: Uygulama geliştirme
       items:
         - name: Bağlantı
@@ -448,8 +452,6 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
-- name: Nasıl yapılır kılavuzları
-  items:
     - name: Çok kiracılı SaaS başvuru mimarisi
       items:
         - name: Wingtip Tickets örneği

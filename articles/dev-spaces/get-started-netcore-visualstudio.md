@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: 93c1c9cb27e5eb2d56583dccaffe92e9d50ecc2d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c2d92f26bec2045e7f1e8afff189d58d8c29f25a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959283"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099485"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>.NET Core ve Visual Studio ile Azure Dev Spaces’ı Kullanmaya Başlama
 
@@ -35,7 +35,7 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 1. En son [Visual Studio 2017](https://www.visualstudio.com/vs/) sürümünü yükleme
 1. Visual Studio yükleyicisinde aşağıdaki İş Yükünün seçili olduğundan emin olun:
     * ASP.NET ve web geliştirme
-1. [Azure Dev Spaces için Visual Studio uzantısını](https://aka.ms/get-azds-visualstudio) yükleme
+1. [Kubernetes için Visual Studio Araçları](https://aka.ms/get-azds-visualstudio)'nı yükleme
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Kapsayıcıda çalışan bir web uygulaması oluşturma
 

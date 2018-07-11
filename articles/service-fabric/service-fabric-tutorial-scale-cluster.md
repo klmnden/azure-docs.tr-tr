@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric kümesini ölçekleme | Microsoft Docs
-description: Bu öğreticide, Service Fabric kümesinin nasıl hızlı şekilde ölçekleneceğini öğrenirsiniz.
+title: Azure'daki bir Service Fabric kümesini ölçeklendirme | Microsoft Docs
+description: Bu öğreticide, Azure'daki bir Service Fabric kümesini hızlı bir şekilde ölçeklendirmeyi öğreneceksiniz.
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 678ca45d12fd10a02d967cd32743b4d7b6ea26af
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83f7a03744e7e8819d71eae81ed8e497797bef62
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642708"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109418"
 ---
-# <a name="tutorial-scale-a-service-fabric-cluster"></a>Öğretici: Service Fabric kümesini ölçekleme
+# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Öğretici: Azure'daki bir Service Fabric kümesini ölçeklendirme
 
 Bu öğretici, bir serinin ikinci kısmı olup mevcut kümenizin ölçeğini nasıl genişleteceğinizi ve daraltacağınızı gösterir. Tamamladığınızda, kümenizin nasıl ölçekleneceğini ve kalan kaynakların nasıl temizleneceğini öğrenmiş olacaksınız.
 
@@ -41,14 +41,17 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * [Service Fabric ile API Management dağıtma](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
+
 Bu öğreticiye başlamadan önce:
-- Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
-- [Azure Powershell modülü sürüm 4.1 veya üzerini](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ya da [Azure CLI 2.0](/cli/azure/install-azure-cli)'ı yükleme
-- Azure'da güvenli bir [Windows kümesi](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) oluşturma
-- Windows kümesi dağıtıyorsanız, bir Windows dağıtım ortamı ayarlayın. [Visual Studio 2017](http://www.visualstudio.com)'yi ve **Azure geliştirme**, **ASP.NET ve web geliştirme**, ayrıca **.NET Core çoklu platform geliştirme** iş yüklerini yükleyin.  Ardından bir [.NET dağıtım ortamı](service-fabric-get-started.md) ayarlayın.
-- Linux kümesi dağıtıyorsanız, [Linux](service-fabric-get-started-linux.md) veya [MacOS](service-fabric-get-started-mac.md) üzerinde bir Java dağıtım ortamı ayarlayın.  [Service Fabric CLI](service-fabric-cli.md)'yı yükleyin. 
+
+* Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
+* [Azure Powershell modülü sürüm 4.1 veya üzerini](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ya da [Azure CLI 2.0](/cli/azure/install-azure-cli)'ı yükleme
+* Azure'da güvenli bir [Windows kümesi](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) oluşturma
+* Windows kümesi dağıtıyorsanız, bir Windows dağıtım ortamı ayarlayın. [Visual Studio 2017](http://www.visualstudio.com)'yi ve **Azure geliştirme**, **ASP.NET ve web geliştirme**, ayrıca **.NET Core çoklu platform geliştirme** iş yüklerini yükleyin.  Ardından bir [.NET dağıtım ortamı](service-fabric-get-started.md) ayarlayın.
+* Linux kümesi dağıtıyorsanız, [Linux](service-fabric-get-started-linux.md) veya [MacOS](service-fabric-get-started-mac.md) üzerinde bir Java dağıtım ortamı ayarlayın.  [Service Fabric CLI](service-fabric-cli.md)'yı yükleyin.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+
 Azure komutlarını yürütmeden önce Azure hesabınızda oturum açıp aboneliğinizi seçin.
 
 ```powershell
@@ -118,7 +121,7 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 > [!NOTE]
 > Bu kısım yalnızca *Bronz* dayanıklılık katmanı için geçerlidir. Dayanıklılık hakkında daha fazla bilgi için bkz. [Service Fabric küme kapasitesi planlaması][durability].
 
-Bir sanal makine kümesinin ölçeğini daralttığınızda ölçek kümesi (çoğu durumda) en son oluşturulan sanal makine örneğini kaldırır. Bu nedenle, eşleşen, en son oluşturulan Service Fabric düğümünü bulmanız gerekir. Service Fabric düğümlerindeki en büyük `NodeInstanceId` özellik değerini denetleyerek bu son düğümü bulabilirsiniz. Aşağıdaki kod örnekleri, düğüm örneğine göre sıralanır ve en büyük kimlik değerine sahip örnek hakkındaki ayrıntıları getirir. 
+Bir sanal makine kümesinin ölçeğini daralttığınızda ölçek kümesi (çoğu durumda) en son oluşturulan sanal makine örneğini kaldırır. Bu nedenle, eşleşen, en son oluşturulan Service Fabric düğümünü bulmanız gerekir. Service Fabric düğümlerindeki en büyük `NodeInstanceId` özellik değerini denetleyerek bu son düğümü bulabilirsiniz. Aşağıdaki kod örnekleri, düğüm örneğine göre sıralanır ve en büyük kimlik değerine sahip örnek hakkındaki ayrıntıları getirir.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
@@ -180,7 +183,7 @@ else
     # Stop node
     $stopid = New-Guid
     Start-ServiceFabricNodeTransition -Stop -OperationId $stopid -NodeName $nodename -NodeInstanceId $nodeid -StopDurationInSeconds 300
-    
+
     $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
     $loopTimeout = 10
 
@@ -191,7 +194,7 @@ else
         $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
         Write-Host "Checking state... $state found"
     }
-    
+
     if ($state -ne [System.Fabric.TestCommandProgressState]::Completed)
     {
         Write-Error "Stop transaction failed with $state"
@@ -220,13 +223,12 @@ sfctl node remove-state --node-name _nt1vm_5
 > [!TIP]
 > Her bir adımın durumunu denetlemek için şu **sfctl** sorgularını kullanın
 >
-> **Devre dışı bırakma durumunu denetleme**  
+> **Devre dışı bırakma durumunu denetleme**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
-> **Durdurma durumunu denetleme**  
+> **Durdurma durumunu denetleme**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
-
 
 ### <a name="scale-in-the-scale-set"></a>Ölçek kümesinin ölçeğini daraltma
 
@@ -249,7 +251,6 @@ az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
 az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 ```
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
@@ -258,7 +259,6 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Küme düğümü sayısını okuma
 > * Küme düğümleri ekleme (ölçeği genişletme)
 > * Küme düğümlerini kaldırma (ölçeği daraltma)
-
 
 Ardından, kümenin çalışma zamanının nasıl yükseltileceğini öğrenmek için aşağıdaki öğreticiye geçin.
 > [!div class="nextstepaction"]

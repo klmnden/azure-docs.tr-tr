@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7902b5ad2d680a22a2d132187cdad5f96a334447
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c0d19c53a0bd217935a494dfb4affbaa85062247
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061854"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097487"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak Temel Yük Dengeleyici ile VM’lere iç trafiğin yükünü dengeleme
 
@@ -75,10 +75,10 @@ Bu bölümde, Temel Yük Dengeleyicinizin arka uç havuzu için iki sanal makine
     - Oluşturduğunuz yeni Kullanılabilirlik kümesinin adı için *myAvailabilitySet*.
     -  Sanal makine olarak *myVNet*'in seçildiğinden emin olun.
     - Alt ağ olarak *myBackendSubnet*'in seçildiğinden emin olun.
-    - Oluşturmanız gereken yeni ağ güvenlik grubunun (güvenlik duvarı) adı için *myNetworkSecurityGroup*.
+5. **Ağ Güvenlik Grubu** bölümünde **Gelişmiş**'i seçin. Ardından **Ağ güvenlik grubu (güvenlik duvarı)** için **Yok**'u seçin.
 5. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
 6. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’a tıklayın.
-7. 1-6 arası adımları kullanarak, Kullanılabilirlik kümesi *myAvailabilityset*, sanal ağ *myVnet*, alt ağ *myBackendSubnet* ve Ağ Güvenlik Grubu *myNetworkSecurityGroup* olarak ayarlanmış şekilde *VM2* adlı ikinci bir sanal makine oluşturun. 
+7. 1-6 arası adımları kullanarak, Kullanılabilirlik kümesi *myAvailabilityset*, sanal ağ *myVnet*, alt ağ *myBackendSubnet* ve **Ağ güvenlik grubu (güvenlik grubu)** için **Yok**'u seçerek *VM2* adlı ikinci bir sanal makine oluşturun. 
 
 ### <a name="install-iis-and-customize-the-default-web-page"></a>IIS yükleme ve varsayılan web sayfasını özelleştirme
 
@@ -100,33 +100,6 @@ Bu bölümde, Temel Yük Dengeleyicinizin arka uç havuzu için iki sanal makine
 5. *myVM1* ile RDP bağlantısını kapatın.
 6. IIS yüklemek ve varsayılan web sayfasını özelleştirmek için *myVM2* ile adım 1-5’i yineleyin.
 
-## <a name="create-nsg-rules"></a>NSG kuralları oluşturma
-
-Bu bölümde, HTTP ve RDP kullanarak gelen bağlantılara izin vermek için NSG kuralları oluşturacaksınız.
-
-1. Sol menüden **Tüm kaynaklar**’a tıklayın ve kaynak listesinden, **myResourceGroupLB** kaynak grubunda bulunan **myNetworkSecurityGroup** seçeneğine tıklayın.
-2. **Ayarlar**’ın altında **Gelen güvenlik kuralları**’na ve sonra **Ekle**’ye tıklayın.
-3. 80 numaralı bağlantı noktasını kullanarak gelen HTTP bağlantılarına izin vermek için *myHTTPRule* adlı gelen güvenlik kuralı için şu değerleri girin:
-    - **Kaynak** için *Hizmet Etiketi*.
-    - **Kaynak hizmet etiketi** için *İnternet*
-    - **Hedef bağlantı noktası aralıkları** için *80*
-    - **Protokol** için *TCP*
-    - **Eylem** için *İzin Ver*
-    - **Öncelik** için *100*
-    - Ad için *myHTTPRule*
-    - Açıklama için *HTTP’ye İzin Ver*
-4. **Tamam**’a tıklayın.
- 
-5. 2 - 4 arası adımları yineleyerek, aşağıdaki değerlerle 3389 numaralı bağlantı noktasını kullanarak gelen RDP bağlantısına izin vermek için *myRDPRule* adlı başka bir kural oluşturun:
-    - **Kaynak** için *Hizmet Etiketi*.
-    - **Kaynak hizmet etiketi** için *İnternet*
-    - **Hedef bağlantı noktası aralıkları** için *3389*
-    - **Protokol** için *TCP*
-    - **Eylem** için *İzin Ver*
-    - **Öncelik** için *200*
-    - Ad için *myRDPRule*
-    - Açıklama için *RDP’ye İzin Ver*
-
 ## <a name="create-basic-load-balancer-resources"></a>Temel Yük Dengeleyici kaynakları oluşturma
 
 Bu bölümde, arka uç adres havuzu ve durum araştırması için yük dengeleyici ayarlarını yapılandıracak ve yük dengeleyici ve NAT kurallarını belirteceksiniz.
@@ -139,7 +112,7 @@ Trafiği VM’lere dağıtmak için, bir arka uç adres havuzunda yük dengeleyi
 1. Sol menüden **Tüm kaynaklar**’a tıklayın ve sonra kaynak listesinden **myLoadBalancer** seçeneğine tıklayın.
 2. **Ayarlar** bölümünde **Arka uç havuzları**’na ve sonra **Ekle**’ye tıklayın.
 3. **Arka uç havuzu ekle** sayfasında aşağıdakileri yapın:
-    - Ad için, arka uç havuzunuzun adı olarak *myBackEndPool yazın.
+    - Ad için, arka uç havuzunuzun adı olarak *myBackEndPool* yazın.
     - **İlişkilendirildiği öğe** için, açılır menüden **Kullanılabilirlik kümesi**’ne tıklayın
     - **Kullanılabilirlik kümesi** için **myAvailabilitySet** seçeneğine tıklayın.
     - Arka uç havuzunda oluşturduğunuz tüm sanal makineleri (*myVM1* & *myVM2*) eklemek için **Hedef ağ IP yapılandırması ekle** seçeneğine tıklayın.

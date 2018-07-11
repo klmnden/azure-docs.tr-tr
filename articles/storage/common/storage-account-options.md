@@ -7,14 +7,14 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/22/2018
+ms.date: 07/03/2018
 ms.author: hux
-ms.openlocfilehash: 3f1dfa09c0f123d20a7be043aa8d0033a5b6bd72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335780"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445441"
 ---
 # <a name="azure-storage-account-options"></a>Azure Depolama hesabı seçenekleri
 
@@ -46,7 +46,10 @@ GPv2 depolama hesapları, **Erişim Katmanı** özniteliğini hesap düzeyinde k
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>Bir depolama hesabını GPv2’ye yükseltme
 
-Kullanıcılar, istedikleri zaman PowerShell veya Azure CLI aracılığıyla bir GPv1 veya Blob depolama hesabını GPv2 hesabına yükseltebilir. Bu değişiklik geri alınamaz ve başka değişikliklere izin verilmez.
+Kullanıcılar, istedikleri zaman Azure portal, PowerShell veya Azure CLI aracılığıyla bir GPv1 veya Blob depolama hesabını GPv2 hesabına yükseltebilir. Bu değişiklik geri alınamaz ve başka değişikliklere izin verilmez.
+
+#### <a name="upgrade-with-azure-portal"></a>Azure portal ile yükseltme
+Bir GPv1 veya Blob depolama hesabını Azure portalı kullanarak GPv2 hesabına yükseltmek için öncelikle [Azure portal](https://portal.azure.com) oturumu açmanız ve depolama hesabınızı seçmeniz gerekir. **Ayarlar** > **Yapılandırma**'yı seçin. Burada **Yükselt** düğmesini ve yükseltme işlemiyle ilgili notları göreceksiniz.
 
 #### <a name="upgrade-with-powershell"></a>Powershell ile yükseltme
 
@@ -262,9 +265,9 @@ Blob depolama hesaplarında coğrafi çoğaltma veri aktarımı maliyeti de bir 
 
 ## <a name="migrating-existing-data"></a>Mevcut verileri geçirme
 
-Bir GPv1 hesabı, kesinti veya API değişiklikleri olmadan ve verilerin geçirilmesi gerekmeden kolayca GPv2’ye yükseltilebilir. Bu nedenle, GPv1 hesaplarını Blob depolama hesapları yerine GPv2 hesaplarına geçirmeniz kesinlikle önerilir.
+Bir GPv1 veya Blob depolama hesabı, kesinti veya API değişiklikleri olmadan ve verilerin geçirilmesi gerekmeden kolayca GPv2’ye yükseltilebilir. Bu nedenle, GPv1 hesaplarını Blob depolama hesapları yerine GPv2 hesaplarına geçirmeniz kesinlikle önerilir. GPv2'ye yükseltme hakkında daha fazla bilgi için bkz. [Bir depolama hesabını GPv2’ye yükseltme](#upgrade-a-storage-account-to-gpv2).
 
-Ancak, Blob depolama hesabına geçmeniz gerekiyorsa ve GPv2 hesaplarını kullanamıyorsanız, aşağıdaki yönergeleri kullanabilirsiniz. 
+Ancak, GPv1'den Blob depolama hesabına geçmeniz gerekiyorsa ve GPv2 hesaplarını kullanamıyorsanız, aşağıdaki yönergeleri kullanabilirsiniz. 
 
 Bir Blob Storage hesabı yalnızca blok ve ilave bloblarının depolanmasına yöneliktir. Blobların yanı sıra tablo, kuyruk, dosya ve diskleri de depolamanızı sağlayan mevcut genel amaçlı depolama hesapları Blob depolama hesaplarına dönüştürülemez. Depolama katmanlarını kullanmak için, yeni Blob depolama hesapları oluşturmanız ve mevcut verilerinizi yeni oluşturulan hesaplara taşımanız gerekir. 
 

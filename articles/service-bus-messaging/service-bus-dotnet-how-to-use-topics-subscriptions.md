@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/6/2017
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: aa75ac48d650f28d4aaeb612f2900d705cf71b5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8916ccb430da6bea66de3894201a11a70bb45df9
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29396950"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447209"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus konuları ile çalışmaya başlama
 
@@ -429,7 +429,7 @@ Tebrikler! .NET Standard kitaplığını kullanarak bir konu ve abonelik oluştu
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Service Bus mesajlaşmasının daha gelişmiş özelliklerini gösteren [örneklerin bulunduğu GitHub depomuza](https://github.com/Azure/azure-service-bus/tree/master/samples) göz atın.
+Service Bus mesajlaşmasının daha gelişmiş özelliklerini gösteren [örneklerin bulunduğu Service Bus GitHub deposuna](https://github.com/Azure/azure-service-bus/tree/master/samples) göz atın.
 
 <!--Image references-->
 

@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/26/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: b718ed505babd2df6487aecd3a87f17590aef2b9
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061256"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130903"
 ---
-# <a name="tutorial-create-app-that-uses-simple-entity"></a>Öğretici: Örnek varlık kullanan bir uygulama oluşturma
+# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>Öğretici: 6. Basit varlık ve tümcecik listesi ekleme
 Bu öğreticide **Simple** (Basit) varlığını kullanarak konuşmadan makine öğrenmesi verilerini ayıklamayı gösteren bir uygulama oluşturacaksınız.
 
 <!-- green checkmark -->
@@ -45,7 +45,7 @@ Bu uygulama, bir konuşmadaki verileri nasıl çekeceğinizi göstermektedir. Bi
 |Please submit my resume for the engineering position. (Lütfen özgeçmişimi mühendislik pozisyonu için değerlendirmek üzere gönderin.)|engineering (mühendislik)|
 |Fill out application for job 123456 (123456 numaralı iş için başvuru yapın)|123456|
 
-Bu öğretici, iş adını ayıklamak için yeni bir varlık ekler. Belirli bir iş numarasını ayıklama özelliği normal ifade [öğreticisinde](luis-quickstart-intents-regex-entity.md) gösterilmiştir. 
+Bu öğretici, iş adını ayıklamak için yeni bir varlık ekler. 
 
 ## <a name="purpose-of-the-simple-entity"></a>Basit varlığın amacı
 Bu LUIS uygulamasındaki basit varlığın amacı, LUIS uygulamasına iş adının ne olduğunu ve konuşmanın hangi bölümünde bulunabileceğini öğretmektir. Konuşmanın iş olan bölümü, sözcük seçimine ve konuşma uzunluğuna göre konuşmadan konuşmaya değişiklik gösterebilen iletidir. LUIS uygulamasının tüm amaçlardaki konuşmaların herhangi birinde bulunabilecek işlerin örneklerine ihtiyacı vardır.  
@@ -85,7 +85,7 @@ Bu LUIS uygulamasında birden fazla amaçta iş adları bulunmaktadır. LUIS, bu
 
     ![İş adı ve basit türü görünen basit varlık oluşturma açılır iletişim kutusu](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. `Submit resume for engineering position` konuşmasında engineering kelimesini İş varlığı olarak etiketleyin. engineering kelimesini seçin ve açılır menüden Job (İş) girişini seçin. 
+5. `Submit resume for engineering position` konuşmasında `engineering` kelimesini İş varlığı olarak etiketleyin. `engineering` kelimesini seçin ve açılır menüden **Job** (İş) girişini seçin. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Etiketlenen iş varlığı vurgulanmış LUIS ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
@@ -292,7 +292,7 @@ LUIS-Samples Github deposundaki [jobs-phrase-list.csv](https://github.com/Micros
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Create new phrase list (Yeni tümcecik listesi oluştur) iletişim kutusu açılmış ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Tümcecik listesine daha fazla sözcük eklemek istiyorsanız, önerilen kelimeleri gözden geçirin ve ilgili olanları ekleyin. 
+    Tümcecik listesine daha fazla sözcük eklemek istiyorsanız, **Related Values** (İlgili Değerler) girişlerini gözden geçirin ve ilgili olanları ekleyin. 
 
 4. Tümcecik listesini etkinleştirmek için **Save** (Kaydet) öğesini seçin.
 
@@ -369,7 +369,7 @@ LUIS-Samples Github deposundaki [jobs-phrase-list.csv](https://github.com/Micros
 Tümcecik listesini eklemek, listedeki sözcüklerin sinyalini güçlendirdi ancak tam eşleşme olarak **kullanılmadı**. Tümcecik listesinde ilk sözcüğü `lead` olan birden fazla işin yanı sıra `welder` işi de mevcut ancak `lead welder` işi mevcut değil. İşler için tümcecik listesi eksik olabilir. Düzenli olarak [uç nokta konuşmalarını gözden geçirin](label-suggested-utterances.md) ve bulduğunuz diğer iş sözcüklerini tümcecik listenize ekleyin. Ardından yeniden eğitin ve yeniden yayımlayın.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Bu LUIS uygulaması hangi işlemleri gerçekleştirdi?
-Basit bir amaca ve tümcecik listesine sahip olan bu uygulama, doğal dil sorgu varlığını tanımladı ve ileti verilerini döndürdü. 
+Basit bir amaca ve tümcecik listesine sahip olan bu uygulama, doğal dil sorgu varlığını tanımladı ve iş verilerini döndürdü. 
 
 Sohbet botunuz artık iş başvurusu yapma birincil eylemini ve bu eylemin parametrelerinden biri olan başvurulan işi belirlemek için yeterli bilgiye sahip. 
 
@@ -377,9 +377,9 @@ Sohbet botunuz artık iş başvurusu yapma birincil eylemini ve bu eylemin param
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve varlık verilerini alarak iş bilgilerini üçüncü taraf bir API üzerinden bir İnsan Kaynakları temsilcisine iletebilir. Bot veya çağrı uygulaması için başka programlama seçenekleri varsa LUIS bu görevleri gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunu yapmak için uygulama listesinde uygulama adının yanındaki üç nokta menüsüne (...) tıklayıp **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç nokta menüsüne (...) tıklayıp **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Önceden oluşturulmuş keyphrase varlığı eklemeyi öğrenin](luis-quickstart-intent-and-key-phrase.md)
+> [Önceden oluşturulmuş keyphrase varlığı ekleme](luis-quickstart-intent-and-key-phrase.md)

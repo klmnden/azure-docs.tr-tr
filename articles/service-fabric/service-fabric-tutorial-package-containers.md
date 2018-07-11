@@ -1,5 +1,5 @@
 ---
-title: Service Fabric kapsayıcıları uygulaması paketleme ve dağıtma | Microsoft Belgeleri
+title: Azure'da kapsayıcıları Service Fabric uygulaması olarak paketleme ve dağıtma | Microsoft Docs
 description: Bu öğreticide, Yeoman kullanarak Azure Service Fabric uygulaması tanımı oluşturmayı ve uygulamayı paketlemeyi öğrenirsiniz.
 services: service-fabric
 documentationcenter: ''
@@ -16,32 +16,33 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b98c1995aa9051029049711ece18aeb23c444f1a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: be4ac20f578dc670a3d9c83124504c37e57ee9bf
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642803"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108782"
 ---
-# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Öğretici: Kapsayıcıları Service Fabric uygulaması olarak paketleme ve dağıtma
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Öğretici: Yeoman'ı kullanarak kapsayıcıları Service Fabric uygulaması olarak paketleme ve dağıtma
 
-Bu öğretici, bir dizinin ikinci bölümüdür. Bu öğreticide, bir şablon oluşturma aracı (Yeoman) kullanılarak bir Service Fabric uygulaması tanımı oluşturulmaktadır. Daha sonra bu uygulama Service Fabric’e kapsayıcı dağıtmak için kullanılabilir. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz: 
+Bu öğretici, bir dizinin ikinci bölümüdür. Bu öğreticide, bir şablon oluşturma aracı (Yeoman) kullanılarak bir Service Fabric uygulaması tanımı oluşturulmaktadır. Daha sonra bu uygulama Service Fabric’e kapsayıcı dağıtmak için kullanılabilir. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Yeoman’ı yükleme  
+> * Yeoman’ı yükleme
 > * Yeoman’ı kullanarak bir uygulama paketi oluşturma
 > * Uygulama paketinin ayarlarını kapsayıcılarla kullanıma uygun şekilde yapılandırma
-> * Uygulama oluşturma  
-> * Uygulamayı dağıtma ve çalıştırma 
+> * Uygulama oluşturma
+> * Uygulamayı dağıtma ve çalıştırma
 > * Uygulamayı temizleme
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- Bu öğretici serisinin [1. Bölümünde](service-fabric-tutorial-create-container-images.md) oluşturulup Azure Container Registry’ye gönderilen kapsayıcı görüntüleri kullanılır.
-- Linux geliştirme ortamı [ayarlanmıştır](service-fabric-tutorial-create-container-images.md).
+* Bu öğretici serisinin [1. Bölümünde](service-fabric-tutorial-create-container-images.md) oluşturulup Azure Container Registry’ye gönderilen kapsayıcı görüntüleri kullanılır.
+* Linux geliştirme ortamı [ayarlanmıştır](service-fabric-tutorial-create-container-images.md).
 
 ## <a name="install-yeoman"></a>Yeoman’ı yükleme
-Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden uygulama oluşturmaya yardımcı olacak yapı iskelesi araçları sağlar. Yeoman şablon oluşturucunuzun olduğundan emin olmak için aşağıdaki adımları izleyin. 
+
+Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden uygulama oluşturmaya yardımcı olacak yapı iskelesi araçları sağlar. Yeoman şablon oluşturucunuzun olduğundan emin olmak için aşağıdaki adımları izleyin.
 
 1. Makinenize nodejs ve NPM’yi yükleyin. Mac OSX kullanıcılarının Homebrew paket yöneticisi'ni kullanması gerekir
 
@@ -49,14 +50,14 @@ Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden uygulama oluş
     curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
     sudo apt-get install -y nodejs 
     ```
-2. NPM’den makinenize Yeoman şablon oluşturucuyu yükleyin 
+2. NPM’den makinenize Yeoman şablon oluşturucuyu yükleyin
 
     ```bash
     sudo npm install -g yo
     ```
 3. Service Fabric Yeoman kapsayıcı oluşturucuyu yükleyin
 
-    ```bash 
+    ```bash
     sudo npm install -g generator-azuresfcontainer
     ```
 
@@ -79,7 +80,7 @@ Aşağıda yo komutunu çalıştırmanın girişi ve çıktısı gösterilmekted
 ? Name your application TestContainer
 ? Name of the application service: azurevotefront
 ? Input the Image Name: <acrName>.azurecr.io/azure-vote-front:v1
-? Commands: 
+? Commands:
 ? Number of instances of guest container application: 1
    create TestContainer/TestContainer/ApplicationManifest.xml
    create TestContainer/TestContainer/azurevotefrontPkg/ServiceManifest.xml
@@ -92,7 +93,7 @@ Aşağıda yo komutunu çalıştırmanın girişi ve çıktısı gösterilmekted
 Yeoman kullanılarak oluşturulmuş olan bir uygulamaya başka bir kapsayıcı hizmeti eklemek için aşağıdaki adımları uygulayın:
 
 1. Dizini bir düzey değiştirerek **TestContainer** dizinine gidin. Örnek: *./TestContainer*
-2. `yo azuresfcontainer:AddService` öğesini çalıştırın 
+2. `yo azuresfcontainer:AddService` öğesini çalıştırın
 3. Hizmete “azurevoteback” adını verin
 4. Redis için kapsayıcı görüntüsü yolunu sağlayın: “alpine:redis”
 5. Komutlar bölümünü boş bırakmak için Enter tuşuna basın
@@ -103,7 +104,7 @@ Kullanılan hizmeti eklemeye yönelik girişlerin tümü aşağıda gösterilmek
 ```bash
 ? Name of the application service: azurevoteback
 ? Input the Image Name: alpine:redis
-? Commands: 
+? Commands:
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
    create TestContainer/azurevotebackPkg/config/Settings.xml
@@ -111,13 +112,15 @@ Kullanılan hizmeti eklemeye yönelik girişlerin tümü aşağıda gösterilmek
 ```
 
 Bu öğreticinin geri kalanında **TestContainer** dizininde çalışacağız. Örneğin, *./TestContainer/TestContainer*. Bu dizinde aşağıdakiler bulunmalıdır.
+
 ```bash
 $ ls
 ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 ```
 
 ## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Uygulama bildirimini Azure Container Registry’ye ait kimlik bilgileriyle yapılandırın
-Service Fabric’in kapsayıcı görüntülerini Azure Container Registry’den çekebilmesi için **ApplicationManifest.xml** dosyasında kimlik bilgilerini sağlamamız gerekir. 
+
+Service Fabric’in kapsayıcı görüntülerini Azure Container Registry’den çekebilmesi için **ApplicationManifest.xml** dosyasında kimlik bilgilerini sağlamamız gerekir.
 
 ACR örneğinizde oturum açın. İşlemi tamamlamak için **az acr login** komutunu kullanın. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz adı sağlayın.
 
@@ -133,7 +136,7 @@ Ardından, kapsayıcı kayıt defterinizin parolasını almak için aşağıdaki
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-**ApplicationManifest.xml** dosyasında ön uç hizmetinin **ServiceManifestImport** öğesinin altına kod parçacığını ekleyin. **AccountName** alanına kendi **acrName** değerinizi ve **Password** alanına bir önceki komuttan döndürülen parolayı girin. Bu belgenin sonunda tam bir **ApplicationManifest.xml** verilmiştir. 
+**ApplicationManifest.xml** dosyasında ön uç hizmetinin **ServiceManifestImport** öğesinin altına kod parçacığını ekleyin. **AccountName** alanına kendi **acrName** değerinizi ve **Password** alanına bir önceki komuttan döndürülen parolayı girin. Bu belgenin sonunda tam bir **ApplicationManifest.xml** verilmiştir.
 
 ```xml
 <Policies>
@@ -142,12 +145,13 @@ az acr credential show -n <acrName> --query passwords[0].value
   </ContainerHostPolicies>
 </Policies>
 ```
+
 ## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>İletişim ve kapsayıcı bağlantı noktalarıyla konak bağlantı noktalarını eşlemeyi yapılandırın
 
 ### <a name="configure-communication-port"></a>İletişim bağlantı noktasını yapılandırma
 
 İstemcilerin hizmetinizle iletişim kurabilmesi için bir HTTP uç noktası yapılandırın. *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* dosyasını açın ve **ServiceManifest** öğesinde bir uç nokta kaynağı belirtin.  Protokolü, bağlantı noktasını ve adını ekleyin. Bu öğreticide hizmet, bağlantı noktası 80’i dinlemektedir. Aşağıdaki kod parçacığı, kaynakta *ServiceManifest* etiketinin altına yerleştirilir.
-  
+
 ```xml
 <Resources>
   <Endpoints>
@@ -159,7 +163,7 @@ az acr credential show -n <acrName> --query passwords[0].value
 </Resources>
 
 ```
-  
+
 Benzer şekilde, arka uç hizmeti için Hizmet Bildirimi’ni (Service Manifest) değiştirin. *./TestContainer/azurevotebackPkg/ServiceManifest.xml* dosyasını açın ve **ServiceManifest** öğesinde bir uç nokta kaynağı belirtin. Bu öğreticide, redis için varsayılan değer olan 6379 kullanılmaktadır. Aşağıdaki kod parçacığı, kaynakta *ServiceManifest* etiketinin altına yerleştirilir.
 
 ```xml
@@ -172,11 +176,13 @@ Benzer şekilde, arka uç hizmeti için Hizmet Bildirimi’ni (Service Manifest)
   </Endpoints>
 </Resources>
 ```
-**UriScheme** değerinin sağlanması, kapsayıcı uç noktasını bulunabilirlik için Service Fabric Adlandırma hizmetine otomatik olarak kaydeder. Bu makalenin sonunda örnek olarak arka uç hizmetine yönelik tam bir ServiceManifest.xml örnek dosyası verilmiştir. 
+
+**UriScheme** değerinin sağlanması, kapsayıcı uç noktasını bulunabilirlik için Service Fabric Adlandırma hizmetine otomatik olarak kaydeder. Bu makalenin sonunda örnek olarak arka uç hizmetine yönelik tam bir ServiceManifest.xml örnek dosyası verilmiştir.
 
 ### <a name="map-container-ports-to-a-service"></a>Kapsayıcı bağlantı noktalarını bir hizmete eşleme
-Kümedeki kapsayıcıları kullanıma sunmak için “ApplicationManifest.xml” dosyasında bir bağlantı noktası bağlaması oluşturulması da gerekir. **PortBinding** ilkesi **ServiceManifest.xml** dosyalarında tanımladığımız **Uç Noktalarına (Endpoints)** başvurur. Bu uç noktalarına gelen istekler, burada açılan ve bağlanan kapsayıcı bağlantı noktalarına eşlenir. 80 ve 6379 numaralı bağlantı noktalarını uç noktalarına bağlamak için **ApplicationManifest.xml** dosyasına aşağıdaki kodu ekleyin. Bu belgenin sonunda tam bir **ApplicationManifest.xml** verilmiştir. 
-  
+
+Kümedeki kapsayıcıları kullanıma sunmak için “ApplicationManifest.xml” dosyasında bir bağlantı noktası bağlaması oluşturulması da gerekir. **PortBinding** ilkesi **ServiceManifest.xml** dosyalarında tanımladığımız **Uç Noktalarına (Endpoints)** başvurur. Bu uç noktalarına gelen istekler, burada açılan ve bağlanan kapsayıcı bağlantı noktalarına eşlenir. 80 ve 6379 numaralı bağlantı noktalarını uç noktalarına bağlamak için **ApplicationManifest.xml** dosyasına aşağıdaki kodu ekleyin. Bu belgenin sonunda tam bir **ApplicationManifest.xml** verilmiştir.
+
 ```xml
 <ContainerHostPolicies CodePackageRef="Code">
     <PortBinding ContainerPort="80" EndpointRef="azurevotefrontTypeEndpoint"/>
@@ -190,9 +196,9 @@ Kümedeki kapsayıcıları kullanıma sunmak için “ApplicationManifest.xml”
 ```
 
 ### <a name="add-a-dns-name-to-the-backend-service"></a>Arka uç hizmetine bir DNS adı ekleme
-  
-Service Fabric’in bu DNS adını arka uç hizmetine atayabilmesi için söz konusu adın **ApplicationManifest.xml** dosyasında belirtilmesi gerekir. Aşağıda gösterildiği gibi **Service** öğesine **ServiceDnsName** özniteliğini ekleyin: 
-  
+
+Service Fabric’in bu DNS adını arka uç hizmetine atayabilmesi için söz konusu adın **ApplicationManifest.xml** dosyasında belirtilmesi gerekir. Aşağıda gösterildiği gibi **Service** öğesine **ServiceDnsName** özniteliğini ekleyin:
+
 ```xml
 <Service Name="azurevoteback" ServiceDnsName="redisbackend.testapp">
   <StatelessService ServiceTypeName="azurevotebackType" InstanceCount="1">
@@ -202,16 +208,16 @@ Service Fabric’in bu DNS adını arka uç hizmetine atayabilmesi için söz ko
 ```
 
 Ön uç hizmeti, Redis örneğinin DNS adını öğrenmek için bir ortam değişkenini okur. Bu ortam değişkeni, Docker görüntüsünü oluşturmak için kullanılan Dockerfile’da zaten tanımlanmıştır ve burada herhangi bir işlem yapılmasına gerek yoktur.
-  
+
 ```Dockerfile
 ENV REDIS redisbackend.testapp
 ```
-  
-Aşağıdaki kod parçacığı, ön uç Python kodunun Dockerfile’da belirtilen ortam değişkenini nasıl aldığını göstermektedir. Burada herhangi bir işlem yapılmasına gerek yoktur. 
+
+Aşağıdaki kod parçacığı, ön uç Python kodunun Dockerfile’da belirtilen ortam değişkenini nasıl aldığını göstermektedir. Burada herhangi bir işlem yapılmasına gerek yoktur.
 
 ```python
 # Get DNS Name
-redis_server = os.environ['REDIS'] 
+redis_server = os.environ['REDIS']
 
 # Connect to the Redis store
 r = redis.StrictRedis(host=redis_server, port=6379, db=0)
@@ -220,13 +226,14 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 Öğreticinin bu noktasında Service Package uygulamasına yönelik şablon bir kümeye dağıtılmak için hazırdır. Sıradaki öğreticide bu uygulama bir Service Fabric kümesine dağıtılıp burada çalıştırılmaktadır.
 
 ## <a name="create-a-service-fabric-cluster"></a>Service Fabric kümesi oluşturma
+
 Uygulamayı Azure'daki bir kümeye dağıtmak için kendi kümenizi oluşturun.
 
-Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleridir. Service Fabric ekibi tarafından çalıştırılan bu kümelere herkes uygulama dağıtarak platform hakkında bilgi alabilir. Bir Grup Kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric). 
+Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleridir. Service Fabric ekibi tarafından çalıştırılan bu kümelere herkes uygulama dağıtarak platform hakkında bilgi alabilir. Bir Grup Kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric).
 
-Güvenli toplu kümede yönetimi işlemleri gerçekleştirmek için Service Fabric Explorer, CLI veya Powershell’i kullanabilirsiniz. Service Fabric Explorer’ı kullanmak için, PFX dosyasını Toplu Küme Web sitesinden indirmeniz ve sertifikayı sertifika deponuza (Windows veya Mac) veya tarayıcının kendisine (Ubuntu) aktarmanız gerekir. Toplu kümeden gelen otomatik olarak imzalanan sertifikaların parolası yoktur. 
+Güvenli toplu kümede yönetimi işlemleri gerçekleştirmek için Service Fabric Explorer, CLI veya Powershell’i kullanabilirsiniz. Service Fabric Explorer’ı kullanmak için, PFX dosyasını Toplu Küme Web sitesinden indirmeniz ve sertifikayı sertifika deponuza (Windows veya Mac) veya tarayıcının kendisine (Ubuntu) aktarmanız gerekir. Toplu kümeden gelen otomatik olarak imzalanan sertifikaların parolası yoktur.
 
-Powershell veya CLI ile yönetim işlemleri gerçekleştirmek için PFX (Powershell) veya PEM (CLI) gerekir. PFX dosyasını PEM dosyasına dönüştürmek için lütfen aşağıdaki komutu çalıştırın:  
+Powershell veya CLI ile yönetim işlemleri gerçekleştirmek için PFX (Powershell) veya PEM (CLI) gerekir. PFX dosyasını PEM dosyasına dönüştürmek için lütfen aşağıdaki komutu çalıştırın:
 
 ```bash
 openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
@@ -235,7 +242,8 @@ openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1
 Kendi kümenizi oluşturma hakkında daha fazla bilgi için bkz. [Azure'da Service Fabric kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Uygulamayı oluşturup kümeye dağıtma
-Uygulamayı, Service Fabric CLI’yi kullanarak Azure kümesine dağıtabilirsiniz. Service Fabric CLI makinenizde yüklü değilse [buradaki](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) yönergeleri uygulayarak yükleyin. 
+
+Uygulamayı, Service Fabric CLI’yi kullanarak Azure kümesine dağıtabilirsiniz. Service Fabric CLI makinenizde yüklü değilse [buradaki](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) yönergeleri uygulayarak yükleyin.
 
 Azure’daki Service Fabric kümesine bağlanın. Örnek uç noktayı kendi uç noktanız ile değiştirin. Uç nokta, aşağıdaki gibi tam bir URL olmalıdır.
 
@@ -258,7 +266,8 @@ Bir tarayıcı açın ve http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Expl
 ![votingapp][votingapp]
 
 ## <a name="clean-up"></a>Temizleme
-Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek için şablonda sağlanan kaldırma betiğini kullanın. Bu komutun örneği temizlemesi zaman alır ve “install.sh” komutu bu betiğin hemen ardından çalıştırılamaz. 
+
+Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek için şablonda sağlanan kaldırma betiğini kullanın. Bu komutun örneği temizlemesi zaman alır ve “install.sh” komutu bu betiğin hemen ardından çalıştırılamaz.
 
 ```bash
 ./uninstall.sh
@@ -267,12 +276,13 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
 ## <a name="examples-of-completed-manifests"></a>Tamamlanan bildirimlerin örnekleri
 
 ### <a name="applicationmanifestxml"></a>ApplicationManifest.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ApplicationManifest ApplicationTypeName="TestContainerType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="azurevotefrontPkg" ServiceManifestVersion="1.0.0"/>
-    <Policies> 
+    <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myaccountname" Password="<password>" PasswordEncrypted="false"/>
         <PortBinding ContainerPort="80" EndpointRef="azurevotefrontTypeEndpoint"/>
@@ -281,7 +291,7 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
   </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="azurevotebackPkg" ServiceManifestVersion="1.0.0"/>
-      <Policies> 
+      <Policies>
         <ContainerHostPolicies CodePackageRef="Code">
           <PortBinding ContainerPort="6379" EndpointRef="azurevotebackTypeEndpoint"/>
         </ContainerHostPolicies>
@@ -302,7 +312,8 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
 </ApplicationManifest>
 ```
 
-### <a name="front-end-servicemanifestxml"></a>Ön uç ServiceManifest.xml 
+### <a name="front-end-servicemanifestxml"></a>Ön uç ServiceManifest.xml
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="azurevotefrontPkg" Version="1.0.0"
@@ -312,7 +323,7 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
       <StatelessServiceType ServiceTypeName="azurevotefrontType" UseImplicitHost="true">
    </StatelessServiceType>
    </ServiceTypes>
-   
+
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
@@ -320,8 +331,8 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
-      <EnvironmentVariables> 
-      </EnvironmentVariables> 
+      <EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
 
   <Resources>
@@ -337,6 +348,7 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
 ```
 
 ### <a name="redis-servicemanifestxml"></a>Redis ServiceManifest.xml
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="azurevotebackPkg" Version="1.0.0"
@@ -346,7 +358,7 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
       <StatelessServiceType ServiceTypeName="azurevotebackType" UseImplicitHost="true">
    </StatelessServiceType>
    </ServiceTypes>
-   
+
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
@@ -354,8 +366,8 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
-      <EnvironmentVariables> 
-      </EnvironmentVariables> 
+      <EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
      <Resources>
     <Endpoints>
@@ -367,16 +379,17 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
   </Resources>
  </ServiceManifest>
 ```
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, Yeoman kullanılarak birden çok kapsayıcı bir Service Fabric uygulaması şeklinde paketlendi. Ardından, bu uygulama bir Service Fabric kümesine dağıtılıp burada çalıştırıldı. Aşağıdaki adımlar tamamlandı:
 
 > [!div class="checklist"]
-> * Yeoman’ı yükleme  
+> * Yeoman’ı yükleme
 > * Yeoman’ı kullanarak bir uygulama paketi oluşturma
 > * Uygulama paketinin ayarlarını kapsayıcılarla kullanıma uygun şekilde yapılandırma
-> * Uygulama oluşturma  
-> * Uygulamayı dağıtma ve çalıştırma 
+> * Uygulama oluşturma
+> * Uygulamayı dağıtma ve çalıştırma
 > * Uygulamayı temizleme
 
 Service Fabric’te uygulamaya yönelik yük devretme ve ölçeklendirme hakkında bilgi edinmek için sıradaki öğreticiye geçin.
@@ -386,5 +399,3 @@ Service Fabric’te uygulamaya yönelik yük devretme ve ölçeklendirme hakkın
 
 [votingapp]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
 [sfx]: ./media/service-fabric-tutorial-deploy-run-containers/containerspackagetutorialsfx.png
-
-

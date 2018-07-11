@@ -1,4 +1,21 @@
-Lütfen daha önce [burada][namespace-how-to] gösterildiği gibi bir Service Bus ad alanı oluşturduğunuzdan emin olun.
+---
+title: include dosyası
+description: include dosyası
+services: service-bus-messaging
+author: sethmanheim
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 06/29/2018
+ms.author: sethm
+ms.custom: include file
+ms.openlocfilehash: bad7e87cb194fb7d8846e7e675881658a1d33b1e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138169"
+---
+Daha önce [burada][namespace-how-to] gösterildiği gibi bir Service Bus ad alanı oluşturduğunuzdan emin olun.
 
 1. [Azure portalında][azure-portal] oturum açın.
 2. Portalın sol tarafındaki gezinme bölmesinde **Service Bus**'a tıklayın (**Service Bus** yoksa **Diğer hizmetler**'e tıklayın).

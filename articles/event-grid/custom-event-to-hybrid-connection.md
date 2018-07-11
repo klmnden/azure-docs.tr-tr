@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/04/2018
+ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 31c8dd520079046808b32dad0d338415bed71c58
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ee504f805c536ba9a6186514206546c3df1f0f1a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302986"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127722"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Azure CLI ve Event Grid ile özel olayları Azure Relay Karma Bağlantılar’a yönlendirme
 
@@ -39,7 +39,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Özel konu oluşturma
 
-Event grid konusu, olaylarınızı göndereceğiniz kullanıcı tanımlı bir uç nokta sağlar. Aşağıdaki örnekte özel konu, kaynak grubunuzda oluşturulur. `<topic_name>` değerini konunuz için benzersiz bir adla değiştirin. Konu adı bir DNS girdisi ile temsil edildiğinden benzersiz olmalıdır.
+Event grid konusu, olaylarınızı göndereceğiniz kullanıcı tanımlı bir uç nokta sağlar. Aşağıdaki örnekte özel konu, kaynak grubunuzda oluşturulur. `<topic_name>` değerini konunuz için benzersiz bir adla değiştirin. Konu adı bir DNS girdisi ile temsil edildiğinden konu adı benzersiz olmalıdır.
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -55,7 +55,7 @@ Event Grid’e hangi olayları izlemek istediğinizi bildirmek için bir konuya 
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
-Aşağıdaki betik, geçiş ad alanının kaynak kimliğini alır. Karma bağlantının kimliğini oluşturur ve bir event grid konusuna abone olur. Uç nokta türünü `hybridconnection` olarak ayarlar ve uç noktanın karma bağlantı kimliğini kullanır.
+Aşağıdaki betik, geçiş ad alanının kaynak kimliğini alır. Karma bağlantının kimliğini oluşturur ve bir event grid konusuna abone olur. Betik, uç nokta türünü `hybridconnection` olarak ayarlar ve uç noktanın karma bağlantı kimliğini kullanır.
 
 ```azurecli-interactive
 relayname=<namespace-name>
@@ -73,9 +73,25 @@ az eventgrid event-subscription create \
   --endpoint $hybridid
 ```
 
+## <a name="create-application-to-process-events"></a>Olayları işlemek için uygulama oluşturma
+
+Karma bağlantıdan olayları alabilecek bir uygulamaya ihtiyacınız vardır. [Microsoft Azure Event Grid Hybrid Connection Consumer sample for C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination), bu işlemi gerçekleştirir. Önkoşul adımlarını tamamladınız.
+
+1. Visual Studio 2017 Sürüm 15.5 veya üzerine sahip olduğunuzdan emin olun.
+
+1. Depoyu yerel makinenize kopyalayın.
+
+1. Visual Studio'da HybridConnectionConsumer projesini yükleyin.
+
+1. Program.cs dosyasında `<relayConnectionString>` ve `<hybridConnectionName>` yerine oluşturduğunuz geçiş bağlantısı dizesini ve karma bağlantı adını yazın.
+
+1. Visual Studio'da derleyin ve çalıştırın.
+
 ## <a name="send-an-event-to-your-topic"></a>Konunuza olay gönderme
 
-Event Grid’in iletiyi uç noktanıza nasıl dağıttığını görmek için bir olay tetikleyelim. İlk olarak özel konunun URL’sini ve anahtarını alalım. Tekrar belirtmek gerekirse, `<topic_name>` için kendi konu adınızı kullanın.
+Event Grid’in iletiyi uç noktanıza nasıl dağıttığını görmek için bir olay tetikleyelim. Bu makalede olayı tetiklemek için Azure CLI'yı nasıl kullanacağınız gösterilmektedir. Alternatif olarak [Event Grid yayımcı uygulamasını](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher) da kullanabilirsiniz.
+
+İlk olarak özel konunun URL’sini ve anahtarını alalım. Tekrar belirtmek gerekirse, `<topic_name>` için kendi konu adınızı kullanın.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)

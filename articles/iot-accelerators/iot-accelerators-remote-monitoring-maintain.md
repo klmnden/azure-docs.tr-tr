@@ -1,95 +1,89 @@
 ---
-title: Uzaktan izleme çözümünde - Azure aygıtlarla ilgili sorunları giderme | Microsoft Docs
-description: Bu öğretici Uzaktan izleme çözümüne cihaz sorunlarını gidermek ve gösterilmektedir.
+title: Uzaktan izleme çözümünde uyarıları kullanma ve cihaz sorunlarını giderme - Azure | Microsoft Docs
+description: Bu öğreticide Uzaktan İzleme çözümünde uyarıların nasıl kullanılacağı ve bu çözüme bağlı cihazlarla ilgili sorunların nasıl yönetileceği gösterilmektedir.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 05/01/2018
-ms.topic: conceptual
-ms.openlocfilehash: 9a620d91238393ba0bde89f521f790b58ab35baf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.date: 06/18/2018
+ms.topic: tutorial
+ms.custom: mvc
+ms.openlocfilehash: 9607705220450b30d2ffaf0f2be9fa2a5664b879
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628081"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081797"
 ---
-# <a name="troubleshoot-and-remediate-device-issues"></a>Aygıt sorunlarını gidermek ve
+# <a name="troubleshoot-and-remediate-device-issues"></a>Cihaz sorunlarını giderme ve düzeltme
 
-Bu öğretici nasıl kullanılacağını gösterir **Bakım** sorun giderme ve cihaz sorunlarını düzeltmek için çözümdeki sayfası. Bu özellikler tanıtmak için öğretici senaryo Contoso IOT uygulamada kullanır.
+Bu öğreticide bağlı IoT cihazlarınızla ilgili sorunları tanımlamak ve gidermek için Uzaktan İzleme çözümü hızlandırıcısını kullanacaksınız. Çözüm hızlandırıcısı panosundaki uyarıları kullanarak sorunları tanımlayacak ve bu sorunları gidermek için uzaktan iş çalıştıracaksınız.
 
-Contoso yeni sınamak **prototip** alanında aygıt. Contoso operatör olarak, test sırasında fark **prototip** sıcaklık uyarı Panoda aygıt tetikleme beklenmedik biçimde. Şimdi bu hatalı davranışını araştırmanız gerekir **prototip** aygıt.
+Contoso, yeni bir **Prototype** cihazını sahada test etmektedir. Contoso'da çalışan bir operatör olarak test sırasında **Prototype** cihazının panoda beklenmedik bir şekilde sıcaklık uyarısı tetiklediğini fark ediyorsunuz. Bu arızalı **Prototype** cihazının davranışını incelemeniz ve sorunu çözmeniz gerekiyor.
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide şunları yaptınız:
 
 >[!div class="checklist"]
-> * Kullanım **Bakım** uyarıyı araştırmak için sayfası
-> * Sorunu düzeltmek için bir aygıt yöntemini çağırın
+> * Bir cihazdan gelen uyarıyı araştırma
+> * Cihazla ilgili sorunu çözme
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi izlemek için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
+Bu öğreticiyi takip etmek için Azure aboneliğinizde Uzaktan İzleme çözümü hızlandırıcısının dağıtılmış örneğine sahip olmanız gerekir.
 
-Uzaktan izleme çözümü dağıtılmış henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-accelerators-remote-monitoring-deploy.md) Öğreticisi.
+Uzaktan İzleme çözümü hızlandırıcısını henüz dağıtmadıysanız [Bulut tabanlı uzaktan izleme çözümü dağıtma](quickstart-remote-monitoring-deploy.md) hızlı başlangıcını tamamlamanız gerekir.
 
-## <a name="use-the-maintenance-dashboard"></a>Bakım Panosu kullanın
+## <a name="investigate-an-alert"></a>Sorunu araştırma
 
-Üzerinde **Pano** fark ile ilişkilendirilen kural'ten gelen beklenmeyen sıcaklık uyarı sayfası **prototip** aygıtları:
+**Dashboard** (Pano) sayfasında **Prototype** cihazlarıyla ilişkilendirilmiş kuraldan beklenmeyen sıcaklık uyarıları geldiğini fark ediyorsunuz:
 
-![Panoda gösteren uyarıları](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm.png)
+[![Panodaki uyarılar](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-expanded.png#lightbox)
 
-Sorunu daha fazla araştırmak için seçin **keşfedin uyarı** uyarının yanındaki seçeneği:
+Sorunu araştırmak için uyarının yanındaki **Explore Alert** (Uyarıyı Keşfet) seçeneğini belirleyin:
 
-![Uyarı panodan keşfedin](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm.png)
+[![Uyarıyı panodan keşfetme](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-expanded.png#lightbox)
 
-Uyarı ayrıntı görünümünü gösterir:
+Uyarının ayrıntılı görünümünde şu bilgiler yer alır:
 
-* Uyarının başlatıldığı zaman
-* Durum bilgisi uyarı ile ilgili aygıtlar hakkında
-* Telemetri uyarı ile ilgili aygıtlardan
+* Uyarının tetiklendiği zaman
+* Uyarıyla ilişkilendirilmiş cihazlar hakkında durum bilgileri
+* Uyarıyla ilişkilendirilmiş cihazların telemetri verileri
 
-![Uyarı ayrıntıları](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail.png)
+[![Uyarı ayrıntıları](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-expanded.png#lightbox)
 
-Uyarı onaylamak için seçin **uyarı oluşum** ve **kabul**. Bu eylem uyarı gördünüz ve üzerinde çalıştığınız görmek diğer işleçler sağlar.
+Uyarıyı onaylamak için **Alert occurrences** (Uyarı tekrarları) girişlerinin tümünü seçip **Acknowledge** (Onayla) öğesini seçin. Bu eylem, diğer operatörlere uyarıyı gördüğünüzü ve üzerinde çalıştığınızı bildirir:
 
-![Uyarıları Onayla](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge.png)
+[![Uyarıları onaylama](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge-expanded.png#lightbox)
 
-Uyarı onayladığınızda oluşum durum değişikliklerini **onaylanan**.
+Uyarıyı onayladığınızda durumu **Acknowledged** (Onaylandı) olarak değişir.
 
-Listede, gördüğünüz **prototip** aygıt sıcaklık uyarı tetikleme sorumlu:
+Listede sıcaklık uyarısının oluşturulmasından sorumlu olan **Prototype** cihazını görebilirsiniz:
 
-![Uyarıya neden aygıtların listesi](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice.png)
+[![Uyarıya neden olan cihazları listeleme](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
-## <a name="remediate-the-issue"></a>Sorunu düzeltmek
+## <a name="resolve-the-issue"></a>Sorunu çözme
 
-Sorunu düzeltmek için **prototip** aygıtı ihtiyacınız çağırmak **DecreaseTemperature** cihazda yöntemi.
+**Prototype** cihazıyla ilgili sorunu çözmek için cihazda **DecreaseTemperature** metodunu çağırmanız gerekir.
 
-Bir cihaz üzerinde çalışmak için aygıtlar listesinde seçin ve ardından **işleri**. **Prototip** cihaz modeli belirtir altı yöntemi bir aygıtı desteklemesi gerekir:
+Üzerinde işlem yapmak istediğiniz cihazı listeden seçin ve **Jobs** (İşler) öğesini seçin. **Prototype** cihaz modeli, bir cihazın desteklemesi gereken altı metodu belirtir:
 
-![Aygıt destekler yöntemlerini görüntülemek](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods.png)
+[![Cihazın desteklediği metotları görüntüleme](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
-Seçin **DecreaseTemperature** ve iş adı ayarlamak **DecreaseTemperature**. Ardından **Uygula**:
+**DecreaseTemperature** girişini seçin ve işe **DecreaseTemperature** adını verin. Ardından **Apply** (Uygula) öğesini seçin:
 
-![Sıcaklık azaltmak için proje oluşturma](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob.png)
+[![Sıcaklığı düşürme işini oluşturma](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
-İşin durumunu izlemek için **Bakım** sayfasında, **işleri**. Kullanım **işleri** tüm işleri izlemek için görüntüleme ve yöntemini çağıran çözümde:
+İşin durumunu izlemek için **View job status** (İş durumunu görüntüle) öğesine tıklayın. **Jobs** (İşler) görünümünü kullanarak çözümdeki tüm işleri ve metot çağrılarını izleyebilirsiniz:
 
-![Sıcaklık azaltmak için iş İzleyicisi](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob.png)
+[![Sıcaklığı düşürme işini izleme](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-expanded.png#lightbox)
 
-Belirli bir proje veya yöntem çağrısı ayrıntılarını görüntülemek için listede seçin **işleri** görünümü:
+**Dashboard** (Pano) sayfasında telemetri verilerini görüntüleyerek cihaz sıcaklığının düşüp düşmediğini kontrol edebilirsiniz:
 
-![İş ayrıntılarını görüntüleme](./media/iot-accelerators-remote-monitoring-maintain/maintenancejobdetail.png)
+[![Sıcaklık düşüşünü görüntüleme](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide gördüğünüz nasıl yapılır:
+Bu öğreticide cihazlarınızla ilgili sorunları tanımlamak için uyarıları kullanmayı ve sorunları çözmek için cihazlar üzerinde işlem gerçekleştirmeyi öğrendiniz. Çözüm hızlandırıcınıza fiziksel cihaz bağlamayı öğrenmek için nasıl yapılır makalelerine devam edin.
 
-<!-- Repeat task list from intro -->
->[!div class="checklist"]
-> * Kullanım **Bakım** uyarıyı araştırmak için sayfası
-> * Sorunu düzeltmek için bir aygıt yöntemini çağırın
-
-Aygıt sorunları nasıl yöneteceğinizi öğrendiniz artık, önerilen sonraki adıma edinmektir nasıl [çözümünüzü sanal cihazlar ile Test](iot-accelerators-remote-monitoring-test.md).
-
-<!-- Next tutorials in the sequence -->
+Cihaz sorunlarını yönetmeyi öğrendiniz, önerilen bir sonraki adımda [Cihazınızı Uzaktan İzleme çözümü hızlandırıcısına bağlamayı](iot-accelerators-connecting-devices.md) öğrenmeniz önerilir.

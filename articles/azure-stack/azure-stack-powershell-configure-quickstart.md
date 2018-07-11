@@ -1,6 +1,6 @@
 ---
-title: PowerShell'i yükleme ve Azure yığın Hızlı Başlangıç için yapılandırma | Microsoft Docs
-description: Yükleme ve PowerShell Azure yığını için yapılandırma hakkında bilgi edinin.
+title: PowerShell'i yükleme ve Azure Stack Hızlı Başlangıç için yapılandırma | Microsoft Docs
+description: Yükleme ve Azure Stack için PowerShell yapılandırma hakkında bilgi edinin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 66598bda7ca1fcf5c6e05ab47232236b740177a6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 70c1fd72df437ade3bc12cd23db923f6d449e7fb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075247"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465752"
 ---
-# <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Get Azure yığınında PowerShell ile çalışır
+# <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Azure stack'teki PowerShell ile çalışmaya Al
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Bu Hızlı Başlangıç, yüklemek ve PowerShell ile bir Azure yığın ortamını yapılandırmak için yardımcı olur. Bu makalede sağladığımız betik kapsamına **Azure yığın işleci** yalnızca.
+Bu hızlı başlangıçta, yükleme ve PowerShell ile bir Azure Stack ortamı yapılandırma yardımcı olur. Bu makalede sunuyoruz. komut dosyası için kapsama **Azure Stack operatörü** yalnızca.
 
-Bu makalede açıklanan adımları sıkıştırılmış sürümüdür [PowerShell yükleme]( azure-stack-powershell-install.md), [karşıdan Araçları]( azure-stack-powershell-download.md), ve [Azure yığın işlecin PowerShell ortamıyapılandırın]( azure-stack-powershell-configure-admin.md) makaleleri. Bu konudaki komut dosyalarını kullanarak, Azure Active Directory veya Active Directory Federasyon Hizmetleri (AD FS) ile dağıtılan Azure yığın ortamlar için PowerShell ayarlayabilirsiniz.  
+Bu makalede açıklanan adımları sıkıştırılmış sürümüdür [PowerShell yükleme]( azure-stack-powershell-install.md), [araçları indirme]( azure-stack-powershell-download.md), ve [Azure Stack işlecin PowerShell ortamınıyapılandırma]( azure-stack-powershell-configure-admin.md) makaleler. Bu konudaki komut dosyalarını kullanarak, Azure Active Directory veya Active Directory Federasyon Hizmetleri (AD FS) ile dağıtılan Azure Stack ortamlar için PowerShell'i ayarlayabilirsiniz.  
 
 
-## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Azure Active Directory tabanlı dağıtımlar için PowerShell ayarlayın
+## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Azure Active Directory tabanlı dağıtımlar için PowerShell'i ayarlayın
 
-VPN üzerinden bağlıysanız, Azure yığın Geliştirme Seti ya da Windows tabanlı bir dış istemci için oturum açın. Yükseltilmiş bir PowerShell ISE oturumu açın ve ardından aşağıdaki betiği çalıştırın. Güncelleştirdiğinizden emin olun **TenantName**, **ArmEndpoint**, ve **GraphAudience** değişkenleri ortam yapılandırma için gerekli olarak:
+VPN birbirine bağlandıysa, Azure Stack geliştirme Seti'ni veya Windows tabanlı bir dış istemci için oturum açın. Yükseltilmiş bir PowerShell ISE oturumu açın ve ardından aşağıdaki betiği çalıştırın. Güncelleştirdiğinizden emin olun **Kiracıadı**, **ArmEndpoint**, ve **GraphAudience** ortamınızdaki yapılandırmayı için gerekirse değişkenleri:
 
 ```powershell
 # Specify Azure Active Directory tenant name.
@@ -98,9 +98,9 @@ Import-Module .\Connect\AzureStack.Connect.psm1
     -TenantId $TenantID 
 ```
 
-## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>AD FS tabanlı dağıtımlar için PowerShell ayarlayın
+## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>AD FS tabanlı dağıtımlar için PowerShell'i ayarlayın
 
-Azure internet'e bağlı olduğunda yığını çalışıyorsanız, aşağıdaki komut dosyasını kullanabilirsiniz. İnternet bağlantısı Azure yığın çalışıyorsanız, ancak kullanmak [kesilmiş PowerShell yükleme yolu](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) ve PowerShell yapılandırmak için cmdlet'leri Bu komutta gösterildiği gibi aynı kalır. VPN üzerinden bağlıysanız, Azure yığın Geliştirme Seti ya da Windows tabanlı bir dış istemci için oturum açın. Yükseltilmiş bir PowerShell ISE oturumu açın ve ardından aşağıdaki betiği çalıştırın. Güncelleştirdiğinizden emin olun **ArmEndpoint** ve **GraphAudience** değişkenleri ortam yapılandırma için gerekli olarak:
+İnternet'e bağlı olduğunda Azure Stack çalışıyorsanız, aşağıdaki betiği kullanabilirsiniz. İnternet bağlantısı olmadan Azure Stack çalışıyorsanız, ancak kullanmak [PowerShell'i yükleme yolu bağlantısı kesildi](azure-stack-powershell-install.md) ve PowerShell cmdlet'lerinin Bu komutta gösterildiği gibi aynı kalır. VPN birbirine bağlandıysa, Azure Stack geliştirme Seti'ni veya Windows tabanlı bir dış istemci için oturum açın. Yükseltilmiş bir PowerShell ISE oturumu açın ve ardından aşağıdaki betiği çalıştırın. Güncelleştirdiğinizden emin olun **ArmEndpoint** ve **GraphAudience** ortamınızdaki yapılandırmayı için gerekirse değişkenleri:
 
 ```powershell
 
@@ -166,16 +166,16 @@ Add-AzureRmAccount `
 
 ## <a name="test-the-connectivity"></a>Bağlantısını test etme
 
-PowerShell yapılandırdıysanız, bir kaynak grubu oluşturarak yapılandırmayı test edebilirsiniz:
+PowerShell yapılandırdığınıza göre bir kaynak grubu oluşturarak yapılandırmasını test edebilirsiniz:
 
 ```powershell
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
 > [!note]  
-> Bir kaynak grubu belirtmek için aboneliğinizde bir kaynak grubu olması gerekir. Abonelikler hakkında daha fazla bilgi için bkz: [planı, teklif, kota ve abonelik genel bakış](azure-stack-plan-offer-quota-overview.md)
+> Bir kaynak grubu belirtmek için aboneliğinizde bir kaynak grubu olması gerekir. Abonelikler hakkında daha fazla bilgi için bkz. [Plan, teklif, kota ve abonelik genel bakış](azure-stack-plan-offer-quota-overview.md)
 
-Kaynak grubu oluşturulduktan sonra **sağlama durumu** özelliği ayarlanmış **başarılı**.
+Kaynak grubu oluşturulduktan sonra **sağlama durumu** özelliği **başarılı**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

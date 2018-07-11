@@ -1,6 +1,6 @@
 ---
-title: Azure farklı rolleri anlama | Microsoft Docs
-description: Azure - Klasik Abonelik Yöneticisi rolleri, Azure rol tabanlı erişim denetimi (RBAC) rollerini ve Azure Active Directory (Azure AD) yönetici rolleri farklı roller açıklanmaktadır
+title: Klasik abonelik yönetici rolleri, Azure RBAC rolleri ve Azure AD yönetici rollerinin karşılaştırması | Microsoft Docs
+description: Azure - Klasik abonelik yönetici rolleri, Azure role tabanlı erişim denetimi (RBAC) rolleri ve Azure Active Directory (Azure AD) yönetici rollerindeki farklı roller açıklanmaktadır
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,118 +10,117 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/29/2018
+ms.topic: overview
+ms.date: 07/02/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 6285614b42b469feeb63b880976e79828838e675
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
-ms.translationtype: MT
+ms.openlocfilehash: 68127a38e28524b5f093cf0aafb0d0b7bb9ae1b6
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347152"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445459"
 ---
-# <a name="understand-the-different-roles-in-azure"></a>Azure farklı rolleri anlama
+# <a name="classic-subscription-administrator-roles-vs-azure-rbac-roles-vs-azure-ad-administrator-roles"></a>Klasik abonelik yönetici rolleri, Azure RBAC rolleri ve Azure AD yönetici rollerinin karşılaştırması
 
-Azure'da yeniyseniz tüm Azure rollerinde anlaşılması zor bulabilirsiniz. Bu makalede, aşağıdaki rolleri ve her zaman kullanacağınız açıklayan yardımcı olur:
-- Klasik Abonelik Yöneticisi rolleri
+Azure'da yeniyseniz farklı rolleri kavrama konusunda zorluk yaşıyor olabilirsiniz. Bu makalede aşağıdaki roller ve bunları kullanacağınız zamanlar açıklanmaktadır:
+- Klasik abonelik yönetici rolleri
 - Azure rol tabanlı erişim denetimi (RBAC) rolleri
 - Azure Active Directory (Azure AD) yönetici rolleri
 
-## <a name="how-the-roles-are-related"></a>Rollerin nasıl ilişkili olduğunu
+## <a name="how-the-roles-are-related"></a>Roller arasındaki ilişki
 
-Rolleri azure'da daha iyi anlamak için bu geçmişi bazıları öğrenmenize yardımcı olur. Azure başlangıçta yayımlandığında, kaynaklara erişimi yalnızca üç yönetici rolleri ile yönetildiği sırada: Hesap Yöneticisi, Hizmet Yöneticisi ve ortak yönetici. Daha sonra Azure kaynakları için rol tabanlı erişim denetimi (RBAC) eklendi. Azure RBAC, üzerinde oluşturulmuş yeni bir yetkilendirme sistemidir [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) , Azure kaynaklarına ayrıntılı erişim yönetimi sağlar. RBAC, birçok yerleşik roller içerir, farklı kapsamların atanabilir ve kendi özel roller oluşturmanızı da sağlar. Azure AD'de, kullanıcılar, gruplar ve etki alanları gibi kaynakları yönetmek için birkaç Azure AD yönetici rollerini vardır.
+Azure'un geçmişine göz atmanız rolleri daha iyi anlamanıza yardımcı olabilir. Azure ilk kez kullanıma sunulduğunda kaynaklara erişim yalnızca üç yönetici rolüyle yönetiliyordu: Hesap Yöneticisi, Hizmet Yöneticisi ve Ortak Yönetici. Sonradan Azure kaynakları için rol tabanlı erişim denetimi (RBAC) özelliği eklendi. Azure RBAC, Azure kaynakları için daha ayrıntılı bir erişim yönetimi sunan daha yeni bir yetkilendirme sistemidir. RBAC farklı kapsamlarda atanabilen birçok yerleşik role sahiptir ve kendi özel rollerinizi oluşturmanıza imkan tanır. Azure AD'deki kullanıcılar, gruplar veya etki alanları gibi kaynakları yönetmek için birden fazla Azure AD yönetici rolü bulunur.
 
-Aşağıdaki diyagramda, Klasik Abonelik Yöneticisi rolleri, Azure RBAC rolleri ve Azure AD yönetici rollerini nasıl ilişkili olduğunu, üst düzey bir görünümüdür.
+Aşağıdaki diyagramda klasik abonelik yönetici rolleri, Azure RBAC rolleri ve Azure AD yönetici rolleri arasındaki ilişki yüksek düzeyde gösterilmiştir.
 
-![Azure farklı rolleri](./media/rbac-and-directory-admin-roles/rbac-admin-roles.png)
+![Azure'daki farklı roller](./media/rbac-and-directory-admin-roles/rbac-admin-roles.png)
 
 
-## <a name="classic-subscription-administrators"></a>Klasik abonelik yöneticileri
+## <a name="classic-subscription-administrator-roles"></a>Klasik abonelik yönetici rolleri
 
-Hesap Yöneticisi, Hizmet Yöneticisi ve ortak yönetici azure'da Klasik Abonelik Yöneticisi rolleri var. Klasik abonelik yöneticileri, Azure aboneliği için tam erişime sahiptir. Bunlar, kaynakların Azure portalı, Azure Resource Manager API'lerini ve klasik dağıtım modeli API'lerini kullanarak yönetebilirsiniz. Hesap Yöneticisi ve Hizmet Yöneticisi, Azure'a kaydolmak için kullandığınız hesabı otomatik olarak ayarlanır. Ardından, ek ortak Yöneticiler eklenebilir. Hizmet Yöneticisi ve ortak Yöneticiler abonelik kapsamında bir sahip rolü (Azure RBAC rolü) atanmış kullanıcılar eşdeğer erişimi var. Aşağıdaki tabloda bu üç Klasik Abonelik Yönetim rolleri arasındaki farkları açıklar.
+Hesap Yöneticisi, Hizmet Yöneticisi ve Ortak Yönetici, Azure'daki üç klasik abonelik yönetici rolüdür. Klasik abonelik yöneticileri, Azure aboneliğinde tam erişime sahiptir. Bu yöneticiler Azure portal, Azure Resource Manager API'leri ve klasik dağıtım modeli API'leri aracılığıyla kaynakları yönetebilir. Azure'a kaydolmak için kullanılan hesap otomatik olarak hem Hesap Yöneticisi hem de Hizmet Yöneticisi olarak ayarlanır. Kayıt işleminin ardından ek Ortak Yöneticiler eklenebilir. Hizmet Yöneticisi ve Ortak Yöneticiler, abonelik kapsamında Sahip rolü (bir Azure RBAC rolüdür) atanmış olan kullanıcılarla eşit düzeyde erişime sahiptir. Aşağıdaki tabloda bu üç klasik abonelik yönetici rolü arasındaki farklar gösterilmiştir.
 
 | Klasik abonelik yöneticisi | Sınır | İzinler | Notlar |
 | --- | --- | --- | --- |
-| Hesap Yöneticisi | Azure hesabı başına 1 | <ul><li>Erişim [Azure hesap Merkezi](https://account.azure.com/Subscriptions)</li><li>Bir hesaptaki tüm abonelikleri Yönet</li><li>Yeni Abonelik Oluştur</li><li>Aboneliklerinizi iptal edin</li><li>Bir abonelik için faturalama değiştirme</li><li>Hizmet yöneticisini değiştiremez</li></ul> | Kavramsal olarak, fatura aboneliğin sahibi.|
-| Hizmet Yöneticisi | Azure aboneliği başına 1 | <ul><li>Hizmetleri yönetme [Azure portalı](https://portal.azure.com)</li><li>Ortak yönetici rolüne kullanıcı atayın</li></ul> | Varsayılan olarak yeni bir abonelik için Hesap Yöneticisi ayrıca hizmet yöneticisidir.<br>Hizmet Yöneticisi, abonelik kapsamında sahip rolüne atanan kullanıcı eşdeğer erişebilir. |
-| Ortak Yönetici | Abonelik başına 200 | <ul><li>Aynı ayrıcalıklar Hizmet Yöneticisi olarak erişecek ancak ilişkisini aboneliklerin Azure dizinleriyle değiştiremez</li><li>Ortak yönetici rolüne kullanıcı atayın, ancak hizmet yöneticisini değiştiremez</li></ul> | Ortak yönetici, abonelik kapsamında sahip rolüne atanan kullanıcı eşdeğer erişebilir. |
+| Hesap Yöneticisi | Azure hesabı başına 1 | <ul><li>[Azure Hesap Merkezi](https://account.azure.com/Subscriptions)'ne erişme</li><li>Hesaptaki tüm abonelikleri yönetme</li><li>Yeni abonelik oluşturma</li><li>Abonelikleri iptal etme</li><li>Aboneliğin faturalama bilgilerini değiştirme</li><li>Hizmet Yöneticisini değiştirme</li></ul> | Kavramsal açıdan aboneliğin faturalama sahibidir.|
+| Hizmet Yöneticisi | Azure aboneliği başına 1 | <ul><li>[Azure portal](https://portal.azure.com)'da hizmetleri yönetme</li><li>Ortak Yönetici rolüne kullanıcı atama</li></ul> | Yeni bir abonelikte Hesap Yöneticisi varsayılan olarak Hizmet Yöneticisi olur.<br>Hizmet Yöneticisi, abonelik kapsamında Sahip rolü atanmış olan kullanıcıyla eşit düzeyde erişime sahiptir. |
+| Ortak Yönetici | Abonelik başına 200 | <ul><li>Hizmet Yöneticisi ile aynı erişim ayrıcalıklarına sahiptir, ancak aboneliklerin Azure dizinleriyle ilişkisini değiştiremez</li><li>Ortak Yönetici rolüne kullanıcı atayabilir ancak Hizmet Yöneticisini değiştiremez</li></ul> | Ortak Yönetici, abonelik kapsamında Sahip rolü atanmış olan kullanıcıyla eşit düzeyde erişime sahiptir. |
 
-Azure portalında, Hizmet Yöneticisi ve Hesap Yöneticisi, aboneliğinizin özelliklerini görüntüleyerek atanan kişi görebilirsiniz.
+Azure portalda aboneliğinizin özelliklerini görüntüleyerek Hesap Yöneticisi ve Hizmet Yöneticisi rollerine atanmış olan kullanıcıları görebilirsiniz.
 
-![Hesap Yöneticisi ve Azure Portal'da Hizmet Yöneticisi](./media/rbac-and-directory-admin-roles/account-admin-service-admin.png)
+![Azure portalda Hesap Yöneticisi ve Hizmet Yöneticisi](./media/rbac-and-directory-admin-roles/account-admin-service-admin.png)
 
-Ekleme veya abonelik yöneticileri değiştirme hakkında daha fazla bilgi için bkz. [ekleme veya değiştirme Azure aboneliği yöneticileri](../billing/billing-add-change-azure-subscription-administrator.md) Azure faturalama belgelerinde.
+Abonelik yöneticisi ekleme veya değiştirme hakkında bilgi almak için Azure Faturalama belgesindeki [Azure aboneliği yöneticisi ekleme veya değiştirme](../billing/billing-add-change-azure-subscription-administrator.md).
 
 ### <a name="azure-account-and-azure-subscriptions"></a>Azure hesabı ve Azure abonelikleri
 
-Bir Azure hesabı, faturalandırma ilişkisine temsil eder. Bir Azure hesabı, bir kullanıcı kimliği, bir veya daha fazla Azure aboneliği ve Azure kaynakları kümesi ' dir. Hesabı oluşturan kişi bu hesabında oluşturulan tüm abonelikler için hesap yöneticinize anlamına gelir. Bu kişi ayrıca Hizmet Yöneticisi abonelik için varsayılandır.
+Azure hesabı bir faturalama ilişkisini temsil eder. Azure hesabı bir kullanıcı kimliğinden, bir veya daha fazla Azure aboneliğinden ve ilgili Azure kaynakları kümesinden oluşur. Hesabı oluşturan kişi, bu hesapta oluşturulan tüm aboneliklerin Hesap Yöneticisi olur. Bu kişi ayrıca aboneliğin varsayılan Hizmet Yöneticisi de olur.
 
-Azure abonelikleri Azure kaynaklarına erişimi düzenlemenize yardımcı olur. Ayrıca kaynak kullanımının nasıl raporlandığını, faturalandırıldığını ve ödendiği denetlemenize yardımcı olur. Her abonelikte, farklı Abonelikleriniz ve farklı planlarınız office, departman, proje ve benzeri tarafından denetlenebilmesi bir farklı faturalama ve ödeme Kurulum olabilir. Her hizmetin bir aboneliği aittir ve abonelik Kimliğini programlı işlemler için gerekli olabilir.
+Azure abonelikleri, Azure kaynaklarına erişimi düzenlemenize de yardımcı olur. Ayrıca kaynak kullanımının nasıl raporlandığını, faturalandırıldığını ve ödendiği denetlemenize yardımcı olur. Her abonelik farklı bir faturalandırma ve ödeme ayarına sahip olabilir, bu nedenle ofise, departmana, projeye vs. göre farklı abonelikleriniz ve farklı planlarınız olabilir. Her hizmet bir aboneliğe aittir ve programlama işlemleri için abonelik kimliği gerekebilir.
 
-Hesaplar ve abonelikler yönetilen [Azure hesap Merkezi](https://account.azure.com/Subscriptions).
+Hesaplar ve abonelikler [Azure Hesap Merkezi](https://account.azure.com/Subscriptions)'nden yönetilir.
 ## <a name="azure-rbac-roles"></a>Azure RBAC rolleri
 
-Azure RBAC işlem ve depolama gibi Azure kaynaklarına ayrıntılı erişim yönetimi sağlayan bir sistemdir. Azure RBAC 60'tan fazla yerleşik rolleri içerir. Dört temel RBAC rolü var. İlk üç tüm kaynak türleri için geçerlidir:
+Azure RBAC, [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)'ı temel alan, işlem ve depolama gibi Azure kaynakları için ayrıntılı erişim yönetimi sağlayan bir yetkilendirme sistemidir. Azure RBAC'de 60'ın üzerinde yerleşik rol bulunur. Dört temel RBAC rolü vardır. İlk üçü tüm kaynak türleri için geçerlidir:
 
 | Azure RBAC rolü | İzinler | Notlar |
 | --- | --- | --- |
-| [Sahibi](built-in-roles.md#owner) | <ul><li>Tüm kaynaklar için tam erişim</li><li>Diğer temsilci erişimi</li></ul> | Hizmet Yöneticisi ve ortak Yöneticiler abonelik kapsamında bir sahip rolü atanmış olan<br>Tüm kaynak türlerine uygulanır. |
-| [Katılımcı](built-in-roles.md#contributor) | <ul><li>Oluşturma ve tüm Azure kaynaklarınızın türlerini yönetme</li><li>Diğerleri için erişim izni veremez</li></ul> | Tüm kaynak türlerine uygulanır. |
-| [Okuyucu](built-in-roles.md#reader) | <ul><li>Azure kaynaklarını görüntüleme</li></ul> | Tüm kaynak türlerine uygulanır. |
-| [Kullanıcı erişimi Yöneticisi](built-in-roles.md#user-access-administrator) | <ul><li>Azure kaynaklarına kullanıcı erişimini yönetme</li></ul> |  |
+| [Sahip](built-in-roles.md#owner) | <ul><li>Tüm kaynaklara tam erişim</li><li>Diğer kullanıcılara erişim yetkisi verme</li></ul> | Hizmet Yöneticisine ve Ortak Yöneticilere abonelik kapsamında Sahip rolü atanır<br>Tüm kaynak türleri için geçerlidir. |
+| [Katılımcı](built-in-roles.md#contributor) | <ul><li>Her türlü Azure kaynağını oluşturma ve yönetme</li><li>Başkalarına erişim izni veremez</li></ul> | Tüm kaynak türleri için geçerlidir. |
+| [Okuyucu](built-in-roles.md#reader) | <ul><li>Azure kaynaklarını görüntüleme</li></ul> | Tüm kaynak türleri için geçerlidir. |
+| [Kullanıcı Erişimi Yöneticisi](built-in-roles.md#user-access-administrator) | <ul><li>Azure kaynaklarına kullanıcı erişimini yönetme</li></ul> |  |
 
-Yerleşik rollerin geri kalanı, belirli bir Azure kaynak yönetimi sağlar. Örneğin, [sanal makine Katılımcısı](built-in-roles.md#virtual-machine-contributor) oluşturmak ve sanal makineleri yönetmek kullanıcı rolü sağlar. Tüm yerleşik roller listesi için bkz. [yerleşik roller](built-in-roles.md).
+Yerleşik rollerin diğerleri belirli Azure kaynakları için yönetim özellikleri sunar. Örneğin [Sanal Makine Katılımcısı](built-in-roles.md#virtual-machine-contributor) rolü, kullanıcının sanal makine oluşturmasını ve yönetmesini sağlar. Yerleşik rollerin tam listesi için bkz. [Yerleşik roller](built-in-roles.md).
 
-RBAC, yalnızca Azure portalı ve Azure Resource Manager API'leri destekler. Kullanıcılar, gruplar ve RBAC rollerini atanan uygulamaları kullanamaz [Azure Klasik dağıtım modeli API'lerini](../azure-resource-manager/resource-manager-deployment-model.md).
+RBAC yalnızca Azure portal ve Azure Resource Manager API'leri tarafından desteklenir. RBAC rolü atanmış olan kullanıcılar, gruplar ve uygulamalar [Azure klasik dağıtım modeli API'lerini](../azure-resource-manager/resource-manager-deployment-model.md) kullanamaz.
 
-Rol atamaları RBAC kullanarak Azure portalında görünen **erişim denetimi (IAM)** dikey penceresi. Bu dikey pencere, abonelik, kaynak grupları ve çeşitli kaynakları gibi portalı boyunca bulunabilir.
+Azure portalda RBAC kullanan rol atamaları **Erişim denetimi (IAM)** dikey penceresinde görünür. Bu dikey pencereye abonelikler, kaynak grupları ve çeşitli kaynaklar gibi portal genelinde erişebilirsiniz.
 
-![Azure portalında erişim denetimi (IAM) dikey](./media/rbac-and-directory-admin-roles/access-control.png)
+![Azure portalda Erişim denetimi (IAM) dikey penceresi](./media/rbac-and-directory-admin-roles/access-control.png)
 
-Tıkladığınızda **rolleri** seçeneği, yerleşik ve özel rollerin listesini görürsünüz.
+**Roller** seçeneğine tıkladığınızda yerleşik ve özel rollerin listesini göreceksiniz.
 
-![Azure portalında yerleşik roller](./media/rbac-and-directory-admin-roles/built-in-roles.png)
+![Azure portalda yerleşik roller](./media/rbac-and-directory-admin-roles/built-in-roles.png)
 
 ## <a name="azure-ad-administrator-roles"></a>Azure AD yönetici rolleri
 
-Rolleri gibi bir dizinde Azure AD kaynaklarını yönetmek için kullanılan azure AD Yöneticisi oluşturma veya kullanıcıları Düzenle, diğerlerine yönetici rolleri atama, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetmek ve etki alanlarını yönetme. Aşağıdaki tabloda, birkaç önemli Azure AD yönetici rollerini açıklanmaktadır.
+Azure AD yönetici rolleri kullanıcı oluşturma veya düzenleme, başkalarına yönetici rolleri atama, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetme ve etki alanlarını yönetme gibi bir dizin içindeki Azure AD kaynaklarını yönetmek için kullanılır. Aşağıdaki tabloda önemli Azure AD yönetici rollerinin birkaç tanesi gösterilmiştir.
 
-| Azure AD Yönetici rolü | İzinler | Notlar |
+| Azure AD yönetici rolü | İzinler | Notlar |
 | --- | --- | --- |
-| [Genel yönetici](../active-directory/active-directory-assign-admin-roles-azure-portal.md#company-administrator) | <ul><li>Azure Active Directory'ye federe hizmetlerinin yanı sıra Azure Active Directory, tüm yönetim özelliklerine erişimi yönetme</li><li>Diğerlerine yönetici rolleri atama</li><li>Tüm kullanıcılar ve tüm yöneticiler için parola sıfırlama</li></ul> | Azure Active Directory kiracısı için kaydolan kişi genel yönetici olur. |
-| [Kullanıcı Yöneticisi](../active-directory/active-directory-assign-admin-roles-azure-portal.md#user-account-administrator) | <ul><li>Oluşturabilir ve kullanıcıların ve grupların tüm özelliklerini yönetebilir</li><li>Destek biletlerini yönetebilir</li><li>Hizmet durumunu izleme</li><li>Kullanıcılar, Yardım Masası yöneticileri ve diğer kullanıcı yöneticileri için parolaları değiştirme</li></ul> |  |
-| [Yardım Masası Yöneticisi](../active-directory/active-directory-assign-admin-roles-azure-portal.md#helpdesk-administrator) | <ul><li>Kullanıcıların ve diğer Yardım Masası yöneticilerinin parolalarını değiştirme</li><li>Hizmet isteklerini yönetme</li><li>Hizmet durumunu izleme</li></ul> |  |
-| [Faturalama Yöneticisi](../active-directory/active-directory-assign-admin-roles-azure-portal.md#billing-administrator) | <ul><li>Satın alma işlemleri yapın</li><li>Abonelikleri yönetme</li><li>Destek biletlerini yönetebilir</li><li>İzleyicilerin sistem durumu hizmeti</li></ul> |  |
+| [Genel Yönetici](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) | <ul><li>Azure Active Directory'deki tüm yönetim özelliklerine ve Azure Active Directory'yi federasyona ekleyen hizmetlere erişimi yönetme</li><li>Diğer kullanıcılara yönetici rolü atama</li><li>Tüm kullanıcıların ve diğer yöneticilerin parolasını sıfırlama</li></ul> | Azure Active Directory'ye kaydolan kullanıcı, Genel Yönetici olur. |
+| [Kullanıcı Yöneticisi](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>Kullanıcı ve grup oluşturma ve bunların tüm özelliklerini yönetme</li><li>Destek biletlerini yönetme</li><li>Hizmet durumunu izleme</li><li>Kullanıcıların, Yardım Masası yöneticilerinin ve Kullanıcı Yöneticilerinin parolalarını değiştirme</li></ul> |  |
+| [Faturalama Yöneticisi](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Satın alma gerçekleştirme</li><li>Abonelikleri yönetme</li><li>Destek biletlerini yönetme</li><li>Hizmet durumunu izleme</li></ul> |  |
 
-Tüm Azure AD yönetici rollerinin bir listesi için bkz. [Azure Active Directory'de yönetici rolleri atama](/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
+Tüm Azure AD yönetici rollerinin listesi için bkz. [Azure Active Directory'de yönetici rollerini atama](/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
-Azure portalında Azure AD yönetici rolleri atayabilir **Azure Active Directory** dikey penceresi.
+Azure portalda Azure AD yönetici rollerinin listesini **Roller ve yöneticiler** dikey penceresinde görebilirsiniz.
 
-![Azure portalında Azure AD yönetici rolleri](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
+![Azure portalda Azure AD yönetici rolleri](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 
-## <a name="differences-between-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Azure RBAC rolleri ve Azure AD yönetici rolleri arasındaki farklar
+## <a name="differences-between-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Azure RBAC rolleri ile Azure AD yönetici rolleri arasındaki farklar
 
-Yüksek düzeyde, Azure RBAC rolleri, izinler, Azure Active Directory kaynaklarını yönetmek için Azure AD yönetici rollerini kontrol ederken, Azure kaynaklarını yönetmek için izinler denetler. Aşağıdaki tabloda farklılıklar karşılaştırır.
+Genel anlamda Azure RBAC rolleri, Azure kaynaklarını yönetme izinlerini yönetirken Azure AD yönetici rolleri, Azure Active Directory kaynaklarını yönetme izinlerini denetler. Farkların bazıları aşağıdaki tabloda karşılaştırılmıştır.
 
 | Azure RBAC rolleri | Azure AD yönetici rolleri |
 | --- | --- |
 | Azure kaynaklarına erişimi yönetme | Azure Active Directory kaynaklarına erişimi yönetme |
-| Özel roller destekler | Kendi rollerinizi oluşturulamıyor |
-| Kapsamı birden çok düzeyde (Yönetim grubu, abonelik, kaynak grubu, kaynak) belirtilebilir. | Kiracı düzeyinde kapsamdır |
-| Rol bilgilerini Azure portalında Azure CLI, Azure PowerShell, Azure Resource Manager şablonları erişilebilir, REST API | Rol bilgilerinin Azure Yönetim Portalı, Office 365 Yönetim Portalı'nda Microsoft Graph AzureAD PowerShell erişilebilir. |
+| Özel rolleri destekler | Kendi rollerinizi oluşturamazsınız |
+| Birden fazla düzeyde (yönetim grubu, abonelik, kaynak grubu, kaynak) kapsam belirtilebilir | Kapsam kiracı düzeyindedir |
+| Rol bilgilerine Azure portal, Azure CLI, Azure PowerShell, Azure Resource Manager şablonları, REST API'si aracılığıyla erişilebilir | Rol bilgilerine Azure yönetici portalı, Office 365 yönetim portalı, Microsoft Graph, AzureAD PowerShell aracılığıyla erişilebilir |
 
-### <a name="do-azure-rbac-roles-and--azure-ad-administrator-roles-overlap"></a>Azure RBAC rolleri ve Azure AD yönetici rollerini örtüşme?
+### <a name="do-azure-rbac-roles-and--azure-ad-administrator-roles-overlap"></a>Azure RBAC rolleri ile Azure AD yönetici rolleri arasında çakışma var mı?
 
-Varsayılan olarak, Azure RBAC rolleri ve Azure AD yönetici rollerini Azure ve Azure'u kapsayan değil AD. Ancak, genel yönetici erişimleri seçerek yükseltir, **genel yönetici Azure aboneliklerini ve Yönetim gruplarını yönetebilir** geçiş Azure portalında genel yönetici verilecek [ Kullanıcı erişimi Yöneticisi](built-in-roles.md#user-access-administrator) belirli bir kiracının tüm Aboneliklerde rol (RBAC rolü). Kullanıcı erişimi yöneticisi rolü, diğer kullanıcılara Azure kaynaklarına erişim verme kullanıcı sağlar. Bu anahtar, bir abonelik erişebilmek yararlı olabilir. Daha fazla bilgi için [Azure AD yönetici erişimini yükseltme](elevate-access-global-admin.md).
+Azure RBAC rolleri ve Azure AD yönetici rolleri varsayılan olarak Azure ve Azure AD'yi kapsamaz. Ancak bir Genel Yöneticinin, Azure portalda **Genel yönetici Azure Aboneliklerini ve Yönetim Gruplarını yönetebilir**'i seçerek erişim kapsamını genişletmesi halinde Genel Yöneticiye ilgili kiracının tüm aboneliklerinde [Kullanıcı Erişimi Yöneticisi](built-in-roles.md#user-access-administrator) rolü (bir RBAC rolüdür) verilir. Kullanıcı Erişimi Yöneticisi, kullanıcının diğer kullanıcılara Azure kaynaklarına erişim izni vermesini sağlar. Bu seçenek bir aboneliğe yeniden erişim elde etmek konusunda faydalı olabilir. Daha fazla bilgi için bkz. [Azure AD yöneticisi olarak erişimi yükseltme](elevate-access-global-admin.md).
 
-Çeşitli Azure AD yönetici rollerini yayılma Azure AD ve Microsoft Office 365 genel yönetici ve kullanıcı yönetici rolleri gibi. Örneğin, genel yönetici rolünün bir üyesi varsa, Azure AD'de genel yönetici özelliklerine sahip ve Office 365 gibi Microsoft Exchange ve Microsoft SharePoint için değişiklikler. Bununla birlikte, varsayılan olarak, genel yönetici Azure kaynaklarına erişimi yok.
+Genel Yönetici ve Kullanıcı Yöneticisi rolleri gibi Azure AD ve Microsoft Office 365'i kapsayan birden fazla Azure AD yönetici rolü vardır. Örneğin Genel Yönetici rolüne üye olduğunuzda Azure AD ve Office 365'te Microsoft Exchange ve Microsoft SharePoint'te değişiklik yapma gibi genel yönetici özelliklerine sahip olursunuz. Ancak Genel Yönetici varsayılan olarak Azure kaynaklarına erişim sahibi değildir.
 
-![Azure AD yönetici rollerini ve Azure RBAC](./media/rbac-and-directory-admin-roles/azure-office-roles.png)
+![Azure RBAC ile Azure AD yönetici rollerinin karşılaştırılması](./media/rbac-and-directory-admin-roles/azure-office-roles.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Rol tabanlı erişim denetimi (RBAC) nedir?](overview.md)
-- [Azure Active Directory'de yönetici rolleri atama](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Ekleme veya Azure aboneliği yöneticileri değiştirme](/azure/billing/billing-add-change-azure-subscription-administrator)
+- [Azure Active Directory’de yönetici rolü atama](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
+- [Azure aboneliği yöneticileri ekleme veya değiştirme](/azure/billing/billing-add-change-azure-subscription-administrator)

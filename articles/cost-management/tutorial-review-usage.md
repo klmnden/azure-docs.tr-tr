@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 79857f05505a59de94d7a6926afe38cceeac34f3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5505ec8dd25e5468fad81d4eb26980202425969a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35629603"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -27,6 +28,7 @@ Azure Maliyet Yönetimi, eğilimleri takip edebilmeniz, verimsizlikleri algılam
 > * Kullanım ve maliyet eğilimlerini izleme
 > * Kullanım verimsizliklerini algılama
 > * Olağan dışı harcama veya aşırı harcama uyarıları oluşturma
+> * Verileri dışarı aktarma
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -41,7 +43,7 @@ Tüm kullanım ve maliyet bilgilerini Cloudyn portalında gözden geçirirsiniz.
 
 ## <a name="track-usage-and-cost-trends"></a>Kullanım ve maliyet eğilimlerini izleme
 
-Eğilimleri belirlemek için Zaman İçinde raporları ile kullanım maliyetler için harcanan gerçek parayı izleyebilirsiniz. Eğilimlere bakmaya başlamak için Zaman İçinde Gerçek Maliyet raporunu kullanın. Portalın üst kısmındaki menüde **Maliyet** > **Maliyet Analizi** > **Zaman İçinde Gerçek Maliyet**’e tıklayın. Raporu ilk kez açtığınızda, rapor uygulanmış bir grup ya da filtre yoktur.
+Eğilimleri belirlemek için Zaman İçinde raporları ile kullanım maliyetler için harcanan gerçek parayı izleyebilirsiniz. Eğilimlere bakmaya başlamak için Zaman İçinde Gerçek Maliyet raporunu kullanın. Portalın sol üst kısmından **Maliyet** > **Maliyet Analizi** > **Zaman İçinde Gerçek Maliyet**’e tıklayın. Raporu ilk kez açtığınızda, rapor uygulanmış bir grup ya da filtre yoktur.
 
 Örnek bir rapor aşağıda verilmiştir:
 
@@ -89,12 +91,15 @@ Anormal harcama durumları ve fazla harcama riskleri konusunda paydaşları otom
 
 Herhangi bir Maliyet raporunu kullanarak herhangi bir harcamaya ilişkin uyarı oluşturabilirsiniz. Bu örnekte, Azure VM harcaması toplam bütçenize yaklaştığında bildirim almak için Zaman İçinde Gerçek Maliyet raporunu kullanın. Uyarının oluşturulması için aşağıdaki adımların tümü gereklidir. Portalın üst kısmındaki menüde **Maliyet** > **Maliyet Analizi** > **Zaman İçinde Gerçek Maliyet**’e tıklayın. **Gruplar** seçeneğini **Hizmet** olarak, **Hizmet filtreleme** seçeneğini **Azure/VM** olarak ayarlayın. Raporun sağ üst kısmında **Eylemler**’e tıklayın ve ardından **Rapor zamanla**’yı seçin.
 
-İstediğiniz sıklığı kullanarak kendinize raporu e-posta ile göndermek için **Zamanlama** sekmesini kullanın. **E-posta ile gönder**’i seçtiğinizden emin olun. Kullandığınız tüm etiketler, gruplar ve filtreler, e-posta ile gönderilen rapora dahil edilir. **Eşik** sekmesine tıklayın ve **Gerçek Maliyet ve Eşik** öğesini seçin. 500.000$ toplam bütçeye sahipseniz ve maliyetler bu tutarın yarısına yaklaştığında bildirim almak istediyseniz, 250.000$ değerinde **Kırmızı uyarı** ve 240.000$ değerinde **Sarı uyarı** oluşturun. Girdiğiniz değerlere virgül eklemeyin. Ardından, ardışık olarak verilecek uyarı sayısını seçin. Belirttiğiniz toplam uyarı sayısını aldığınızda, başka bir uyarı gönderilmez. Zamanlanmış raporu kaydedin.
+Bu raporu kaydet veya zamanla kutusunda, istediğiniz sıklığı kullanarak kendinize raporu e-posta ile göndermek için **Zamanlama** sekmesini kullanın. **E-posta ile gönder**’i seçtiğinizden emin olun. Kullandığınız tüm etiketler, gruplar ve filtreler, e-posta ile gönderilen rapora dahil edilir. **Eşik** sekmesine tıklayın ve **Gerçek Maliyet ve Eşik** öğesini seçin. 500.000$ toplam bütçeye sahipseniz ve maliyetler bu tutarın yarısına yaklaştığında bildirim almak istediyseniz, 250.000$ değerinde **Kırmızı uyarı** ve 240.000$ değerinde **Sarı uyarı** oluşturun. Girdiğiniz değerlere virgül eklemeyin. Ardından, ardışık olarak verilecek uyarı sayısını seçin. Belirttiğiniz toplam uyarı sayısını aldığınızda, başka bir uyarı gönderilmez. Zamanlanmış raporu kaydedin.
 
 ![örnek rapor](./media/tutorial-review-usage/schedule-alert01.png)
 
 Ayrıca, Maliyet Yüzdesi ve Bütçe eşiği ölçümünü kullanarak uyarı oluşturmayı seçebilirsiniz. Bu ölçümü kullanarak, para birimi değerleri yerine bütçe yüzdelerini kullanabilirsiniz.
 
+## <a name="export-data"></a>Verileri dışarı aktarma
+
+Raporlar için uyarı oluşturduğunuz gibi raporlardaki verileri de dışarı aktarabilirsiniz. Örneğin Cloudyn hesaplarının veya diğer kullanıcı verilerinin bir listesini dışarı aktarmak isteyebilirsiniz. Dışarı aktarmak için bir raporu açtıktan sonra sağ üst kısmından **Eylemler**'e tıklayın. Gerçekleştirmek isteyebileceğiniz eylemlerden biri, bilgileri indirmek veya yazdırmak için **Tüm rapor verilerini dışarı aktar** eylemidir. Dilerseniz **Rapor zamanla**'yı seçerek raporu e-postayla gönderilecek şekilde zamanlayabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -104,6 +109,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Kullanım ve maliyet eğilimlerini izleme
 > * Kullanım verimsizliklerini algılama
 > * Olağan dışı harcama veya aşırı harcama uyarıları oluşturma
+> * Verileri dışarı aktarma
 
 
 Geçmiş verileri kullanarak harcamaları tahmin etme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.

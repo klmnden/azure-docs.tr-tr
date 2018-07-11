@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: d9720377beb1973b8ae4e9423fc991aa82646924
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 10aad06d4ac8d76dc023648e8d6c0366bff859e6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061605"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344720"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak verileri ayıklama, dönüştürme ve yükleme
 
@@ -55,7 +55,7 @@ Bu öğreticiyi tamamlamak için:
 
 Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı oluşturursunuz. 
 
-1. Azure portalında **Kaynak oluşturun** > **Analiz** > **Azure Databricks** seçeneklerini belirleyin.
+1. Azure portalında **Kaynak oluşturun** > **Analiz** > **Azure Databricks**'i seçin.
 
     ![Azure portalında Databricks](./media/handle-data-using-databricks/azure-databricks-on-portal.png "Databricks on Azure portal")
 
@@ -117,7 +117,7 @@ Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturacak
 
 4. İlk hücreye aşağıdaki kodu girin ve ardından çalıştırın:
 
-    ```python
+    ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
     dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
@@ -132,11 +132,14 @@ Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturacak
 
 Bir sonraki adım, örnek verileri daha sonra Azure Databricks'te dönüştürmek üzere depolama hesabına yüklemektir. 
 
-1. Data Lake Storage Gen2 için oluşturulmuş bir hesap yoksa Data Lake Storage Gen2 hesabı oluşturma hızlı başlangıcındaki adımları izleyin.
-2. Örnek veriler (**small_radio_json.json**), [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) deposunda mevcuttur. JSON dosyasını indirin ve dosyayı kaydettiğiniz yolu not edin.
-3. Verileri depolama hesabınıza yükleyin. Verileri depolama hesabınıza yüklemek için kullandığınız yöntem, Hiyerarşik Ad Alanı Hizmeti'ni (HNS) etkinleştirme durumuna göre değişiklik gösterir.
+> [!NOTE]
+> Azure Data Lake Storage Gen2 ile uyumlu bir hesabınız yoksa [oluşturmak için hızlı başlangıç](./quickstart-create-account.md) bölümüne bakın.
 
-    Hiyerarşik Ad Alanı Hizmeti ADLS Gen2 hesabınızda etkinleştirilmişse yükleme için Azure Data Factory, distp veya AzCopy (sürüm 10) araçlarını kullanabilirsiniz. AzCopy sürüm 10 yalnızca önizleme müşterileri tarafından kullanılabilir. AzCopy komutunu Cloud Shell'den kullanmak için:
+1. [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) deposundan (**small_radio_json.json**) dosyasını indirin ve kaydettiğiniz yeri not edin.
+
+2. Sonraki adımda örnek verileri depolama hesabınıza yükleyin. Verileri depolama hesabınıza yüklemek için kullandığınız yöntem, hiyerarşik ad alanını etkinleştirme durumuna göre değişiklik gösterir.
+
+    Hiyerarşik ad alanı Gen2 hesabınız için oluşturulmuş olan Azure Depolama hesabınızda etkinleştirilmişse yükleme için Azure Data Factory, distp veya AzCopy (sürüm 10) araçlarını kullanabilirsiniz. AzCopy sürüm 10 yalnızca önizleme müşterileri tarafından kullanılabilir. AzCopy'yi kullanmak için aşağıdaki kodu bir komut penceresine yapıştırın:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -150,7 +153,7 @@ DataBricks Not Defterinize dönün ve aşağıdaki kodu yeni bir hücreye girin:
 
 1. Aşağıdaki kod parçacığını boş bir kod hücresine ekleyin ve yer tutucu değerleri daha önce depolama hesabından kaydettiğiniz değerlerle değiştirin.
 
-    ```python
+    ```scala
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
     dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
     ```
@@ -159,13 +162,13 @@ DataBricks Not Defterinize dönün ve aşağıdaki kodu yeni bir hücreye girin:
 
 2. Artık Azure Databricks'e veri çerçevesi olarak örnek json dosyasını yükleyebilirsiniz. Aşağıdaki kodu yeni bir hücreye yapıştırıp **SHIFT + ENTER** tuşlarına basın (yer tutucu değerlerini değiştirdiğinizden emin olun):
 
-    ```python
+    ```scala
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
     ```
 
 3. Veri çerçevesinin içeriğini görmek için aşağıdaki kodu çalıştırın.
 
-    ```python
+    ```scala
     df.show()
     ```
 
@@ -190,7 +193,7 @@ Ham örnek veriler (**small_radio_json.json**) radyo istasyonunun hedef kitlesin
 
 1. Oluşturduğunuz veri çerçevesinden yalnızca *firstName*, *lastName*, *gender*, *location* ve *level* sütunlarını alarak başlayın.
 
-    ```python
+    ```scala
     val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
     ```
 
@@ -225,7 +228,7 @@ Ham örnek veriler (**small_radio_json.json**) radyo istasyonunun hedef kitlesin
 
 2.  Bu verilerde başka dönüştürmeler de yaparak **level** sütununun adını **subscription_type** olarak değiştirebilirsiniz.
 
-    ```python
+    ```scala
     val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
     renamedColumnsDF.show()
     ```
@@ -267,28 +270,28 @@ Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azur
 
 1. Azure Databricks'ten Azure Depolama hesabına erişmek için yapılandırmayı sağlayın.
 
-    ```python
+    ```scala
     val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
-    val fileSystemName = "<FILE_SYSTEM_NJAME>"
+    val fileSystemName = "<FILE_SYSTEM_NAME>"
     val accessKey =  "<ACCESS_KEY>"
     ```
 
 2. Verileri Azure Databricks ile Azure SQL Veri Ambarı arasında taşırken kullanılacak geçici klasörü belirtin.
 
-    ```python
+    ```scala
     val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
     ```
 
 3. Aşağıdaki kod parçacığını çalıştırarak Azure Blob depolama erişim anahtarlarını yapılandırmada depolayın. Bu sayede erişim anahtarını not defterinde düz metin olarak saklamanız gerekmez.
 
-    ```python
+    ```scala
     val acntInfo = "fs.azure.account.key."+ storageURI
     sc.hadoopConfiguration.set(acntInfo, accessKey)
     ```
 
 4. Azure SQL Veri Ambarı örneğine bağlanmak için değerleri sağlayın. Önkoşulların bir parçası olarak SQL veri ambarını oluşturmuş olmalısınız.
 
-    ```python
+    ```scala
     //SQL Data Warehouse related settings
     val dwDatabase = "<DATABASE NAME>"
     val dwServer = "<DATABASE SERVER NAME>" 
@@ -302,7 +305,7 @@ Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azur
 
 5. Dönüştürülmüş veri çerçevesi **renamedColumnsDF**'yi SQL veri ambarına tablo olarak yüklemek için aşağıdaki kod parçacığını çalıştırın. Bu kod parçacığı SQL veritabanında **SampleTable** adlı bir tablo oluşturur.
 
-    ```python
+    ```scala
     spark.conf.set(
         "spark.sql.parquet.writeLegacyFormat",
         "true")

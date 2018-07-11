@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: afc9e7c0635f9920aa3ec7c9e6012aa4e41edb9d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 8e6873f45beac281adbc7a9669504f1703a9eaf5
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062050"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345500"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning'i bir IoT Edge modülü olarak dağıtma - önizleme
 
@@ -60,7 +60,7 @@ IoT Edge daemon yapılandırma dosyasını düzenleyin:
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Yapılandırmanın **connect** bölümünü güncelleştirin. Örnek:
+Yapılandırmanın **connect** bölümünü IP adresinizle güncelleştirin. Örnek:
 ```yaml
 connect:
   management_uri: "http://172.17.0.1.1:15580"
@@ -125,7 +125,7 @@ Kapsayıcınızın görüntüsünün başarıyla oluşturulduğundan ve makine �
 1. tempSensor modülünü daha önce IoT Edge cihazına dağıttıysanız, otomatik olarak dolabilir. Modül listenizde değilse ekleyin.
 
     1. **Ekle**'ye tıklayıp **IoT Edge Modülü**'nü seçin.
-    2. **Ad** alanına `tempsensor` girin.
+    2. **Ad** alanına `tempSensor` girin.
     3. **Görüntü URI'si** alanına `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` girin.
     4. **Kaydet**’i seçin.
 

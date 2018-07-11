@@ -17,12 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a76dbb9a232d99615629d1a3fec6010b37e73247
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2750ddaba4b3fe25e18b6d3b7e9a65656165818f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046787"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446614"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>SSH kullanarak HDInsight’a (Hadoop) bağlanma
 
@@ -137,7 +137,19 @@ SSH kullanıcı hesabı parolasını değiştirme hakkında bilgi için, [HDInsi
 
 ## <a id="domainjoined"></a>Kimlik doğrulama: Etki alanına katılmış HDInsight
 
-__Etki alanına katılmış HDInsight kümesi__ kullanıyorsanız, SSH ile bağlantı kurduktan sonra `kinit` komutunu kullanmanız gerekir. Bu komut sizden bir etki alanı kullanıcı adı ile parolası ister ve kümenizle ilişkili Azure Active Directory etki alanını kullanarak oturumunuzun kimliğini doğrular.
+__Etki alanına katılmış HDInsight kümesi__ kullanıyorsanız, SSH yerel kullanıcısı ile bağlantı kurduktan sonra `kinit` komutunu kullanmanız gerekir. Bu komut sizden bir etki alanı kullanıcı adı ile parolası ister ve kümenizle ilişkili Azure Active Directory etki alanını kullanarak oturumunuzun kimliğini doğrular.
+
+Etki alanı hesabıyla SSH kullanmak için etki alanına katılmış olan tüm düğümlerde (baş düğüm, uç düğüm gibi) Kerberos Kimlik Doğrulamasını etkinleştirebilirsiniz. Bunu yapmak için sshd config dosyasını düzenleyin:
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+açıklamayı kaldırın ve `KerberosAuthentication` yerine `yes` olarak değiştirin
+
+```bash
+sudo service sshd restart
+```
+
+Dilediğiniz zaman Kerberos kimlik doğrulamasının başarılı olup olmadığını doğrulamak için `klist` komutunu kullanabilirsiniz.
 
 Daha fazla bilgi için bkz. [Etki alanına katılmış HDInsight yapılandırma](./domain-joined/apache-domain-joined-configure.md).
 

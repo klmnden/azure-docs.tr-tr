@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 46c80f326c8210ac3282cf128058cee91ff3836c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1abc0a8ed9aec1082a4710647f6c03c87e1fd1d2
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770846"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098238"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Öğretici: Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme
 
@@ -320,6 +320,7 @@ Bu öğreticide, HDInsight üzerinde bir Apache Hadoop kümesi kullanarak veri a
 
 HDInsight’ta verilerle çalışmanın diğer yollarını öğrenmek için aşağıdaki makalelere bakın:
 
+* [Öğretici: Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
 * [HDInsight ile Hive kullanma][hdinsight-use-hive]
 * [HDInsight ile Pig kullanma][hdinsight-use-pig]
 * [HDInsight'ta Hadoop için Java MapReduce programları geliştirme][hdinsight-develop-mapreduce]

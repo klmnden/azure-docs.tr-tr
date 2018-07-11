@@ -2,19 +2,19 @@
 title: Hızlı Başlangıç - Azure Kubernetes küme portalı hızlı başlangıcı
 description: Azure portalı ile AKS'de Linux kapsayıcıları için Kubernetes kümesi oluşturmayı hızlı bir şekilde öğrenin.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 90d01ed7cc2483c8467d646ebf9ad056ea1a4baf
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: aa8a1cccd4eeb45e829cd8df73f128dd6cca416d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286605"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344483"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Hızlı Başlangıç: Azure Kubernetes Hizmeti (AKS) kümesini dağıtma
 
@@ -28,11 +28,9 @@ Bu hızlı başlangıç, Kubernetes kavramlarının temel olarak bilindiğini va
 
 http://portal.azure.com adresinden Azure portalında oturum açın.
 
-
-
 ## <a name="create-aks-cluster"></a>AKS kümesi oluşturma
 
-**Kaynak oluştur** > **Kubernetes Hizmeti** > **Oluştur**'u seçin.
+**Kaynak oluştur** > **Kubernetes Hizmeti**'ni seçin.
 
 AKS kümesi oluşturma formunun her bir başlığının altında aşağıdaki adımları tamamlayın.
 

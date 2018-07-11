@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e8dd425bbb5839b1c2f5ad4e217c61dc50b38ce1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c9249de56979d47a29fc9d7c12b99e41b3ada0fd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346833"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465846"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı için barındırma sunucuları ekleme
 
@@ -100,9 +100,6 @@ Tek başına kullanabilirsiniz (olmayan-yüksek kullanılabilirlik) herhangi bir
    * Mevcut bir SKU kullanmak için kullanılabilen bir SKU seçin ve ardından **Oluştur**.
    * Bir SKU oluşturmak için Seç **+ yeni SKU Oluştur**. İçinde **oluşturma SKU**gerekli bilgileri girin ve ardından **Tamam**.
 
-     > [!IMPORTANT]
-     > Özel karakterler, boşluk ve nokta dahil olmak üzere desteklenmeyen **adı** alan. Örnekler için değerler girmek için aşağıdaki ekran görüntüsünde kullanır **ailesi**, **katmanı**, ve **Edition** alanları.
-
      ![Bir SKU oluşturma](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>SQL Always On kullanılabilirlik grupları'nı kullanarak yüksek kullanılabilirlik sağlayın
@@ -119,16 +116,18 @@ SQL Always On örnekleri yapılandırmak ek adımlar gerektirir ve üç VM (veya
 
 Etkinleştirmelisiniz [otomatik dengeli dağıtımı](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) her kullanılabilirlik grubu için her SQL Server örneği üzerinde.
 
-Tüm örneklerinde otomatik dengeli dağıtımı etkinleştirmek için düzenleyin ve ardından her örneği için aşağıdaki SQL komutunu çalıştırın:
+Tüm örneklerinde otomatik dengeli dağıtımı etkinleştirmek için düzenleyin ve ardından ikincil her örneği için birincil çoğaltmadaki aşağıdaki SQL komutunu çalıştırın:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON 'InstanceName'
+      MODIFY REPLICA ON '<secondary_node>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```
 
-İkincil örneklerinde düzenleyin ve ardından her örneği için aşağıdaki SQL komutunu çalıştırın:
+Kullanılabilirlik grubu köşeli ayraçlar içine alınmalıdır unutmayın.
+
+İkincil düğümlerinde aşağıdaki SQL komutunu çalıştırın:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,7 +155,7 @@ Her örnek için bağımsız veritabanı kimlik doğrulama sunucusu seçeneğini
 
    Altında **SQL barındırma sunucuları**, SQL Server Kaynak sağlayıcısı, SQL Server'ın kaynak sağlayıcısının arka uç olarak hizmet gerçek örneklerini bağlanabilirsiniz.
 
-3. SQL Server Örneğinize ilişkin bağlantı bilgilerini ile formunu doldurun. Always On dinleyicisi (ve isteğe bağlı bağlantı noktası numarası.) FQDN adresini kullandığınızdan emin olun Sysadmin ayrıcalıklarına sahip yapılandırılmış hesap için bilgileri sağlayın.
+3. SQL Server Örneğinize ilişkin bağlantı bilgilerini ile formunu doldurun. Always On dinleyicisi (ve isteğe bağlı bağlantı noktası numarası ve örnek adı) FQDN adresini kullandığınızdan emin olun. Sysadmin ayrıcalıklarına sahip yapılandırılmış hesap için bilgileri sağlayın.
 
 4. SQL Always On kullanılabilirlik grubu örnekleri desteğini etkinleştirmek için Always On kullanılabilirlik grubu kutuyu işaretleyin.
 

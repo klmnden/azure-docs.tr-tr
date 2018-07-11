@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5863a8edbb20b2b0c231834259f1bb7b0423a8f6
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5bde54a65160c58d8bfba2f6c4c3b6a4317e46ed
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034025"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436451"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç: İlk IoT Edge modülünüzü Azure portalından bir Windows cihaza dağıtma - önizleme
 
@@ -81,29 +81,38 @@ Bu bölümdeki yönergeler, IoT Edge çalışma zamanını Linux kapsayıcılarl
 
 2. IoT Edge hizmet paketini indirin.
 
-   ```powershell
-   Invoke-WebRequest https://conteng.blob.core.windows.net/iotedged/iotedge.zip -o .\iotedge.zip
-   Expand-Archive .\iotedge.zip C:\ProgramData\iotedge -f
-   $env:Path += ";C:\ProgramData\iotedge"
-   SETX /M PATH "$env:Path"
-   ```
+  ```powershell
+  Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+  Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
+  Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+  rmdir C:\ProgramData\iotedge\iotedged-windows
+  $env:Path += ";C:\ProgramData\iotedge"
+  SETX /M PATH "$env:Path"
+  ```
 
-3. IoT Edge hizmetini oluşturun ve başlatın.
+3. vcruntime bileşenini yükleyin.
+
+  ```powershell
+  Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
+  .\vc_redist.exe /quiet /norestart
+  ```
+
+4. IoT Edge hizmetini oluşturun ve başlatın.
 
    ```powershell
    New-Service -Name "iotedge" -BinaryPathName "C:\ProgramData\iotedge\iotedged.exe -c C:\ProgramData\iotedge\config.yaml"
    Start-Service iotedge
    ```
 
-4. IoT Edge hizmetinin kullandığı bağlantı noktaları için güvenlik duvarı özel durumları ekleyin.
+5. IoT Edge hizmetinin kullandığı bağlantı noktaları için güvenlik duvarı özel durumları ekleyin.
 
    ```powershell
    New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
    ```
 
-5. **iotedge.reg** adlı yeni bir dosya oluşturun ve metin düzenleyiciyle açın. 
+6. **iotedge.reg** adlı yeni bir dosya oluşturun ve metin düzenleyiciyle açın. 
 
-6. Aşağıdaki içeriği ekleyip dosyayı kaydedin. 
+7. Aşağıdaki içeriği ekleyip dosyayı kaydedin. 
 
    ```input
    Windows Registry Editor Version 5.00
@@ -113,7 +122,7 @@ Bu bölümdeki yönergeler, IoT Edge çalışma zamanını Linux kapsayıcılarl
    "TypesSupported"=dword:00000007
    ```
 
-7. Dosya Gezgini'nde kaydettiğiniz dosyayı bulun ve çift tıklayarak Windows Kayıt Defteri'ne ekleyin. 
+8. Dosya Gezgini'nde kaydettiğiniz dosyayı bulun ve çift tıklayarak Windows Kayıt Defteri'ne ekleyin. 
 
 ### <a name="configure-the-iot-edge-runtime"></a>IoT Edge çalışma zamanını yapılandırma 
 
@@ -131,21 +140,27 @@ Bu bölümdeki yönergeler, IoT Edge çalışma zamanını Linux kapsayıcılarl
 
 4. Yapılandırma dosyasında **Edge device hostname** (Edge cihazı ana bilgisayar adı) bölümünü bulun. **hostname** değerini PowerShell'den kopyaladığınız değerle güncelleştirin.
 
-5. Yönetici PowerShell pencerenizde IoT Edge cihazınızın IP adresini alın. 
+3. Yönetici PowerShell pencerenizde IoT Edge cihazınızın IP adresini alın. 
 
    ```powershell
    ipconfig
    ```
 
-6. Çıktının **vEthernet (DockerNAT)** bölümündeki **IPv4 Address** değerini kopyalayın. 
+4. Çıktının **vEthernet (DockerNAT)** bölümündeki **IPv4 Address** değerini kopyalayın. 
 
-7. **IOTEDGE_HOST** adlı bir ortam değişkeni oluşturun, *\<ip_address\>* yerine IoT Edge cihazınızın IP Adresini yazın. 
+5. **IOTEDGE_HOST** adlı bir ortam değişkeni oluşturun, *\<ip_address\>* yerine IoT Edge cihazınızın IP Adresini yazın. 
 
-   ```powershell
-   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-   ```
+  ```powershell
+  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+  ```
 
-8. `config.yaml` dosyasında **Connect settings** (Bağlantı ayarları) bölümünü bulun. **management_uri** ve **workload_uri** içindeki **\<GATEWAY_ADDRESS\>** değerini IP adresiniz ve bir önceki bölümde açtığınız bağlantı noktalarıyla değiştirin. 
+  Ortam değişkenini yeniden başlatma işlemlerinden sonra kalıcı hale getirin.
+
+  ```powershell
+  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
+  ```
+
+6. `config.yaml` dosyasında **Connect settings** (Bağlantı ayarları) bölümünü bulun. **management_uri** ve **workload_uri** değerlerini IP adresiniz ve bir önceki bölümde açtığınız bağlantı noktalarıyla değiştirin. **\<GATEWAY_ADDRESS\>** yerine IP adresinizi yazın. 
 
    ```yaml
    connect: 
@@ -153,7 +168,7 @@ Bu bölümdeki yönergeler, IoT Edge çalışma zamanını Linux kapsayıcılarl
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-9. **Listen settings** (Dinleme ayarları) bölümünü bulun ve **management_uri** ile **workload_uri** için de aynı değerleri kullanın. 
+7. **Listen settings** (Dinleme ayarları) bölümünü bulun ve **management_uri** ile **workload_uri** için de aynı değerleri kullanın. 
 
    ```yaml
    listen:
@@ -161,20 +176,15 @@ Bu bölümdeki yönergeler, IoT Edge çalışma zamanını Linux kapsayıcılarl
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-10. **Moby Container Runtime settings** (Moby Kapsayıcısı Çalışma zamanı ayarları) bölümünü bulun. **network** satırının açıklamasını kaldırın ve değerin `nat` olarak ayarlandığından emin olun.
+8. **Moby Container Runtime settings** (Moby Kapsayıcısı Çalışma Zamanı ayarları) bölümünü bulun ve **network** değerinin `nat` olarak ayarlandığından emin olun.
 
-   ```yaml
-   moby_runtime:
-     uri: "npipe://./pipe/docker_engine"
-     network: "nat"
-   ```
+9. Yapılandırma dosyasını kaydedin. 
 
-11. Yapılandırma dosyasını kaydedin. 
-
-12. PowerShell'de IoT Edge hizmetini yeniden başlatın.
+10. PowerShell'de IoT Edge hizmetini yeniden başlatın.
 
    ```powershell
-   Stop-Service iotedge
+   Stop-Service iotedge -NoWait
+   sleep 5
    Start-Service iotedge
    ```
 
@@ -194,9 +204,10 @@ Bu bölümdeki yönergeler, IoT Edge çalışma zamanını Linux kapsayıcılarl
    # Displays logs from today, newest at the bottom.
 
    Get-WinEvent -ea SilentlyContinue `
-  -FilterHashtable @{ProviderName= "iotedged";
-    LogName = "application"; StartTime = [datetime]::Today} |
-  select TimeCreated, Message | Sort-Object -Descending
+    -FilterHashtable @{ProviderName= "iotedged";
+      LogName = "application"; StartTime = [datetime]::Today} |
+    select TimeCreated, Message |
+    sort-object @{Expression="TimeCreated";Descending=$false}
    ```
 
 3. IoT Edge cihazınızda çalışan tüm modülleri görüntüleyin. Hizmet ilk kez başlatıldığı için yalnızca **edgeAgent** modülünün çalıştığını göreceksiniz. edgeAgent modülü varsayılan olarak çalışır ve cihazınıza dağıtmak istediğiniz ek modülleri yüklemenize ve başlatmanıza yardımcı olur. 

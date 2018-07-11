@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 082275e2acd81e34c057f863651528eb46e8501e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115006"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>App Service Ortamınızı zorlamalı tünel ile yapılandırma
 
@@ -37,6 +38,7 @@ Sanal ağ içinde yönlendirme hakkında daha fazla bilgi için [Kullanıcı tan
 ASE giden trafiğinizi doğrudan İnternet yerine başka bir yere yönlendirmek isterseniz aşağıdaki seçenekleriniz vardır:
 
 * ASE’nizin doğrudan İnternet erişimini sağlama
+* ASE alt yağınızı BGP rotalarını yoksayacak şekilde yapılandırma
 * ASE alt ağını, Azure SQL ve Azure Depolama’ya yönelik Hizmet Uç Noktalarını kullanacak şekilde yapılandırma
 * ASE Azure SQL güvenlik duvarına kendi IP’lerinizi ekleme
 
@@ -58,8 +60,22 @@ Ağ zaten şirket içi trafiği yönlendiriyorsa, ASE’nizi barındırmak ve AS
 
 ![Doğrudan İnternet erişimi][1]
 
+## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>ASE alt yağınızı BGP rotalarını yoksayacak şekilde yapılandırma ## 
+
+ASE alt yağınızı BGP rotalarını yoksayacak şekilde yapılandırabilirsiniz.  Bu yapılandırmadan sonra ASE, sorunsuz bir şekilde bağımlılıklarına erişebilecektir.  Ancak uygulamalarınızın şirket içi kaynaklara erişmesini sağlamak için UDR'ler oluşturmanız gerekir.
+
+ASE alt yağınızı BGP rotalarını yoksayacak şekilde yapılandırmak için:
+
+* Mevcut değilse bir UDR oluşturun ve ASE alt ağınıza atayın.
+* Azure portalda ASE alt ağınıza atanmış olan rota tablosu arabirimini açın.  Yapılandırma'yı seçin.  BGP rota yayma özelliğini Devre dışı olarak ayarlayın.  Kaydet’e tıklayın. Bu özelliği kapatma adımları [Rota tablosu oluşturma][routetable] belgesinde belirtilmiştir.
+
+Bu işlemin ardından uygulamalarınız şirket içi kaynaklara erişemeyecektir. Bu durumu çözmek için ASE alt ağınıza atanmış olan UDR'yi düzenleyerek şirket içi adres aralıklarının rotasını ekleyin. Sonraki atlama türünün Sanal ağ geçidi olarak ayarlanması gerekir. 
+
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>Hizmet Uç Noktaları ile ASE’nizi yapılandırma ##
+
+ > [!NOTE]
+   > SQL bulunan hizmet uç noktaları, US Government bölgelerinde ASE ile çalışmaz.  Aşağıdaki bilgiler yalnızca genel Azure bölgelerinde geçerlidir.  
 
 Azure SQL ve Azure Depolama’ya gidenler dışında, ASE’nizden çıkan tüm giden trafiği yönlendirmek için aşağıdaki adımları gerçekleştirin:
 
@@ -141,3 +157,4 @@ Yalnızca iletişimi koparmanın yanı sıra, çok fazla gecikmeye neden olarak 
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[routetable]: ../../virtual-network/manage-route-table.md#create-a-route-table

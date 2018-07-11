@@ -10,6 +10,8 @@
   items:
     - name: Uzaktan izleme çözümü dağıtma
       href: quickstart-remote-monitoring-deploy.md
+    - name: Cihaz benzetimi çözümü dağıtma
+      href: quickstart-device-simulation-deploy.md
 - name: Öğreticiler
   items:
     - name: IoT cihazlarını izleme
@@ -149,10 +151,10 @@
           href: iot-accelerators-connected-factory-customize.md
     - name: Cihaz Benzetimi
       items:
-        - name: Çözüm hızlandırıcısı dağıtma
-          href: iot-accelerators-device-simulation-deploy.md
-        - name: Simülasyon çalıştırma
-          href: iot-accelerators-device-simulation-explore.md
+        - name: Mevcut bir IoT Hub’ı kullanma
+          href: iot-accelerators-device-simulation-choose-hub.md
+        - name: Özel cihaz modeli kullanma
+          href: iot-accelerators-device-simulation-custom-model.md
 - name: Başvuru
   items:
     - name: Geliştirici Başvuru Kılavuzu

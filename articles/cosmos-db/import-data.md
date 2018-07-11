@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 7f8e8d920884c611965ff760bb0369e08163356e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 52d5977b2a454dec803ad1233fcb12cc9573521c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029613"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100360"
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Veri geçişi aracı
 
@@ -450,7 +450,7 @@ Birden çok koleksiyon içeri aktarılırken içeri aktarma aracı, karma tabanl
 
 Azure Cosmos DB: Sıralı kayıt içeri aktarıcı aşağıdaki ek gelişmiş seçenekleri içerir:
 
-1. Paralel İstek Sayısı: Araç varsayılan olarak iki paralel isteği belirler. İçeri aktarılacak belgeler küçükse, paralel istek sayısını yükseltin. Bu sayı çok fazla yükseltilirse içeri aktarma sırasında azaltma oluşabilir.
+1. Paralel İstek Sayısı: Araç varsayılan olarak iki paralel isteği belirler. İçeri aktarılacak belgeler küçükse, paralel istek sayısını yükseltin. Bu sayı çok fazla yükseltilirse içeri aktarma sırasında hız sınırlama oluşabilir.
 2. Otomatik Kimlik Oluşturmayı Devre Dışı Bırak: İçeri aktarılacak her belge bir kimlik alanı içeriyorsa, bu seçenek belirlendiğinde performans artırılabilir. Benzersiz kimlik alanı eksik olan belgeler içeri aktarılmaz.
 3. Mevcut Belgeleri Güncelleştir: Araç varsayılan olarak kimlik çakışmaları olan mevcut belgeleri değiştirmez. Bu seçenek belirlendiğinde, kimlikleri eşleşen mevcut belgelerin üzerine yazılmasına olanak sağlanır. Bu özellik, mevcut belgeleri güncelleştiren zamanlanmış veri geçişleri için yararlıdır.
 4. Hata Durumunda Yeniden Deneme Sayısı: Geçici hatalar (örneğin, ağ bağlantısı kesintisi) olması durumunda Azure Cosmos DB’ye bağlantı yeniden denemesi sayısını belirtir.

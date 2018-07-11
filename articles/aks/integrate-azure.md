@@ -8,11 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: a881b08874a157b0d6781ec3859b05eeaeba6676
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 471b53be4200ff728214876dd187c3c4e427c947
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342897"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Azure için Açık Hizmet Aracısı (OSBA) kullanarak Azure tarafından yönetilen hizmetlerle tümleştirme
 
@@ -21,7 +22,7 @@ ms.lasthandoff: 05/10/2018
 ## <a name="prerequisites"></a>Ön koşullar
 * Bir Azure aboneliği
 
-* Azure CLI 2.0: [Yerel olarak yükleyebilir][azure-cli-install] veya [Azure Cloud Shell][azure-cloud-shell]'de kullanabilirsiniz.
+* Azure CLI: [Yerel olarak yükleyebilir][azure-cli-install] veya [Azure Cloud Shell][azure-cloud-shell]'de kullanabilirsiniz.
 
 * Helm CLI 2.7+: [Yerel olarak yükleyebilir][helm-cli-install] veya [Azure Cloud Shell][azure-cloud-shell]'de kullanabilirsiniz.
 
@@ -43,10 +44,16 @@ helm init --upgrade
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 ```
 
-Son olarak, Hizmet Kataloğunu Helm grafiğiyle yükleyin:
+Son olarak, Hizmet Kataloğunu Helm grafiğiyle yükleyin. Kümenizde RBAC etkinse bu komutu çalıştırın.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set controllerManager.healthcheck.enabled=false
+```
+
+Kümenizde RBAC etkin değilse bu komutu çalıştırın.
+
+```azurecli-interactive
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.auth.enabled=false --set controllerManager.healthcheck.enabled=false
 ```
 
 Helm grafik çalıştırıldıktan sonra aşağıdaki komutun çıktısında `servicecatalog` ifadesinin göründüğünü doğrulayın:
@@ -68,7 +75,7 @@ v1beta1.storage.k8s.io               10
 
 ## <a name="install-open-service-broker-for-azure"></a>Azure için Açık Hizmet Aracısı yükleme
 
-Sonraki adımda, Azure tarafından yönetilen hizmetler için kataloğu içeren [Azure için Açık Hizmet Aracısı][open-service-broker-azure]'nı yükleyin. Kullanılabilir Azure hizmetleri arasında PostgreSQL için Azure Veritabanı, Azure Redis Cache, MySQL için Azure Veritabanı, Azure Cosmos DB, Azure SQL Veritabanı ve diğerleri bulunur.
+Sonraki adımda, Azure tarafından yönetilen hizmetler için kataloğu içeren [Azure için Açık Hizmet Aracısı][open-service-broker-azure]'nı yükleyin. Kullanılabilir Azure hizmetleri arasında PostgreSQL için Azure Veritabanı, MySQL için Azure Veritabanı ve Azure SQL Veritabanı bulunur.
 
 İlk olarak Azure Helm deposu için Açık Hizmet Aracısı ekleyerek başlayalım:
 

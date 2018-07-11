@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 6fcd6389e3ff23c1cb2b2f0e5183ea43bae9f313
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ee6e3adc3300178164b83ee1f8dc2ab307eec45b
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796147"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081221"
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB’ye Giriş: Graph API
 
@@ -45,7 +45,7 @@ Azure Cosmos DB Graph API şunları sağlar:
 - Ayarlanabilir tutarlılık düzeyleri.
 - Rahat bir tutarlılıkla tek tek tüm bölge hesapları ve çok bölgeli tüm hesaplar için %99,99 kullanılabilirlik SLA'sı ve çok bölgeli tüm veritabanı hesaplarında %99,999 okunabilirlik olanaklarını içeren kapsamlı SLA’lar.
 
-Azure Cosmos DB’de sorgu yürütmek için [Apache TinkerPop](http://tinkerpop.apache.org) grafik geçişi dili, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) veya [Apache Spark GraphX](spark-connector-graph.md) gibi TinkerPop ile uyumlu diğer grafik sistemlerini kullanabilirsiniz.
+Azure Cosmos DB'yi sorgulamak için [Apache TinkerPop](http://tinkerpop.apache.org) grafik içinde dolaşma dilini veya [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)'i kullanabilirsiniz.
 
 Bu makale, Azure Cosmos DB Graph API'ye genel bir bakış sağlar ve milyarlarca köşesi ve kenarı olan yoğun grafikleri depolamak için bunu nasıl kullanabileceğinizi açıklar. Grafikleri milisaniyelik gecikme süresi ile sorgulayabilir, grafik yapısını ve şemasını kolayca geliştirebilirsiniz.
 
@@ -93,7 +93,7 @@ Azure Cosmos DB pazardaki diğer grafik veritabanlarıyla karşılaştırıldı�
 
 * Apache TinkerPop ile uyumluluk
 
- Azure Cosmos DB, yerel olarak Apache TinkerPop standart desteği sunar ve TinkerPop’un etkinleştirildiği diğer grafik sistemleriyle tümleştirilebilir. Bu sayede kolayca Titan veya Neo4j gibi başka bir grafik veritabanından geçiş yapabilir veya Azure Cosmos DB’yi [Apache Spark GraphX](spark-connector-graph.md) gibi grafik analizi çerçeveleriyle kullanabilirsiniz.
+ Azure Cosmos DB, yerel olarak Apache TinkerPop standart desteği sunar ve TinkerPop’un etkinleştirildiği diğer grafik sistemleriyle tümleştirilebilir. Bu sayede kolayca Titan veya Neo4j gibi başka bir grafik veritabanından geçiş yapabilir veya Azure Cosmos DB’yi Apache Spark GraphX gibi grafik analizi çerçeveleriyle kullanabilirsiniz.
 
 * Ayarlanabilir tutarlılık düzeyleri
 

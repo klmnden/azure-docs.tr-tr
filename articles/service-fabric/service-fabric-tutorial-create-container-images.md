@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric için kapsayıcı görüntüleri oluşturma | Microsoft Docs
+title: Azure'da Service Fabric üzerinde kapsayıcı görüntüleri oluşturma | Microsoft Docs
 description: Bu öğreticide, çok kapsayıcılı bir Service Fabric uygulaması için kapsayıcı görüntülerini nasıl oluşturabileceğinizi öğrenirsiniz.
 services: service-fabric
 documentationcenter: ''
@@ -16,25 +16,25 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 13cf13ce4a1456731d08f356ca405119ce1a6480
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a2814ff299d1bfb003b6133e2b75b47a312f8728
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29558194"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114049"
 ---
-# <a name="tutorial-create-container-images-for-service-fabric"></a>Öğretici: Service Fabric için kapsayıcı görüntüleri oluşturma
+# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Öğretici: Linux Service Fabric kümesi üzerinde kapsayıcı görüntüleri oluşturma
 
-Bu öğretici, Linux Service Fabric kümesinde kapsayıcıları kullanmayı gösteren öğretici serisinin ilk parçasıdır. Bu öğreticide, bir çoklu konteyner uygulaması Service Fabric ile kullanılmak üzere hazırlanmaktadır. Sonraki öğreticilerde, bu görüntüler Service Fabric uygulamasının bir parçası olarak kullanılır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz: 
+Bu öğretici, Linux Service Fabric kümesinde kapsayıcıları kullanmayı gösteren öğretici serisinin ilk parçasıdır. Bu öğreticide, bir çoklu konteyner uygulaması Service Fabric ile kullanılmak üzere hazırlanmaktadır. Sonraki öğreticilerde, bu görüntüler Service Fabric uygulamasının bir parçası olarak kullanılır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Uygulama kaynağını GitHub’dan kopyalama  
+> * Uygulama kaynağını GitHub’dan kopyalama
 > * Uygulama kaynağından kapsayıcı görüntüsü oluşturma
 > * Azure Container Registry (ACR) örneği dağıtma
 > * ACR için kapsayıcı görüntüsü etiketleme
 > * Görüntüyü ACR’ye yükleme
 
-Bu öğretici serisinde şunların nasıl yapıldığını öğrenirsiniz: 
+Bu öğretici serisinde şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Service Fabric için kapsayıcı görüntüleri oluşturma
@@ -43,13 +43,13 @@ Bu öğretici serisinde şunların nasıl yapıldığını öğrenirsiniz:
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- Service Fabric için ayarlanan Linux geliştirme ortamı. Linux ortamınızı ayarlamak için [buradaki](service-fabric-get-started-linux.md) yönergeleri izleyin. 
-- Bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
-- Ayrıca, Azure aboneliğine sahip olmalısınız. Ücretsiz deneme sürümü hakkında daha fazla bilgi için [buraya](https://azure.microsoft.com/free/) göz atın.
+* Service Fabric için ayarlanan Linux geliştirme ortamı. Linux ortamınızı ayarlamak için [buradaki](service-fabric-get-started-linux.md) yönergeleri izleyin.
+* Bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+* Ayrıca, Azure aboneliğine sahip olmalısınız. Ücretsiz deneme sürümü hakkında daha fazla bilgi için [buraya](https://azure.microsoft.com/free/) göz atın.
 
 ## <a name="get-application-code"></a>Uygulama kodunu alma
 
-Bu öğreticide kullanılan örnek uygulama, oylama uygulamasıdır. Bu uygulama, ön uç bileşen ile arka uç Redis örneğinden oluşur. Bileşenler, kapsayıcı görüntüleri olarak paketlenir. 
+Bu öğreticide kullanılan örnek uygulama, oylama uygulamasıdır. Bu uygulama, ön uç bileşen ile arka uç Redis örneğinden oluşur. Bileşenler, kapsayıcı görüntüleri olarak paketlenir.
 
 Geliştirme ortamına uygulamanın bir kopyasını indirmek için Git kullanın.
 
@@ -59,11 +59,11 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-Çözüm, iki klasör ve bir ‘docker-compose.yml’ dosyası içerir. ‘azure-vote’ klasörü, görüntüyü derlemek için kullanılan Dockerfile dosyasının yanı sıra Python ön uç hizmetini de içerir. ‘Voting’ dizini ise kümeye dağıtılmış Service Fabric uygulama paketini içerir. Bu dizinler, bu öğreticiyi tamamlamak için gerekli varlıkları içerir.  
+Çözüm, iki klasör ve bir ‘docker-compose.yml’ dosyası içerir. ‘azure-vote’ klasörü, görüntüyü derlemek için kullanılan Dockerfile dosyasının yanı sıra Python ön uç hizmetini de içerir. ‘Voting’ dizini ise kümeye dağıtılmış Service Fabric uygulama paketini içerir. Bu dizinler, bu öğreticiyi tamamlamak için gerekli varlıkları içerir.
 
 ## <a name="create-container-images"></a>Kapsayıcı görüntüleri oluşturma
 
-**azure-vote** dizini içinde, ön uç web bileşeni için görüntü derlemek üzere aşağıdaki komutu çalıştırın. Bu komut, görüntüyü oluşturmak için bu dizindeki Docker dosyasını kullanır. 
+**azure-vote** dizini içinde, ön uç web bileşeni için görüntü derlemek üzere aşağıdaki komutu çalıştırın. Bu komut, görüntüyü oluşturmak için bu dizindeki Docker dosyasını kullanır.
 
 ```bash
 docker build -t azure-vote-front .
@@ -86,13 +86,13 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Azure Container Registry’yi dağıtma
 
-Önce, Azure hesabınızda oturum açmak için **az login** komutunu çalıştırın. 
+Önce, Azure hesabınızda oturum açmak için **az login** komutunu çalıştırın.
 
 ```bash
 az login
 ```
 
-Sonra, Azure Container kayıt defterini oluşturmada kullanacağınız aboneliğinizi seçmenizi sağlayan **az account** komutunu kullanın. Azure aboneliğinizin abonelik kimliğini <subscription_id> alanına girmeniz gerekir. 
+Sonra, Azure Container kayıt defterini oluşturmada kullanacağınız aboneliğinizi seçmenizi sağlayan **az account** komutunu kullanın. Azure aboneliğinizin abonelik kimliğini <subscription_id> alanına girmeniz gerekir.
 
 ```bash
 az account set --subscription <subscription_id>
@@ -106,13 +106,13 @@ Bir Azure Container Registry dağıtırken önce bir kaynak grubuna ihtiyaç duy
 az group create --name <myResourceGroup> --location westus
 ```
 
-**az acr create** komutuyla Azure Container kayıt defteri oluşturun. \<acrName> değerini, aboneliğiniz altında oluşturmak istediğiniz kapsayıcı kayıt defteriyle değiştirin. Bu ad, alfasayısal karakterler içermeli ve benzersiz olmalıdır. 
+**az acr create** komutuyla Azure Container kayıt defteri oluşturun. \<acrName> değerini, aboneliğiniz altında oluşturmak istediğiniz kapsayıcı kayıt defteriyle değiştirin. Bu ad, alfasayısal karakterler içermeli ve benzersiz olmalıdır.
 
 ```bash
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-Bu öğreticinin geri kalan aşamalarında, seçtiğiniz kapsayıcı kayıt defteri adı için yer tutucu olarak “acrName” kullanacağız. Lütfen bu değeri not edin. 
+Bu öğreticinin geri kalan aşamalarında, seçtiğiniz kapsayıcı kayıt defteri adı için yer tutucu olarak “acrName” kullanacağız. Lütfen bu değeri not edin.
 
 ## <a name="log-in-to-your-container-registry"></a>Kapsayıcı kayıt defterinizde oturum açma
 
@@ -164,7 +164,6 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 
 Etiketledikten sonra, işlemi doğrulamak için ‘docker images’ komutunu çalıştırın.
 
-
 Çıktı:
 
 ```bash
@@ -210,13 +209,13 @@ azure-vote-front
 Bu öğreticide GitHub’dan bir uygulama çekilmiştir, kapsayıcı görüntüleri oluşturulmuş ve bir kayıt defterine gönderilmiştir. Aşağıdaki adımlar tamamlandı:
 
 > [!div class="checklist"]
-> * Uygulama kaynağını GitHub’dan kopyalama  
+> * Uygulama kaynağını GitHub’dan kopyalama
 > * Uygulama kaynağından kapsayıcı görüntüsü oluşturma
 > * Azure Container Registry (ACR) örneği dağıtma
 > * ACR için kapsayıcı görüntüsü etiketleme
 > * Görüntüyü ACR’ye yükleme
 
-Yeoman kullanarak bir Service Fabric uygulamasına kapsayıcı paketleme hakkında bilgi edinmek için sonraki öğreticiye geçin. 
+Yeoman kullanarak bir Service Fabric uygulamasına kapsayıcı paketleme hakkında bilgi edinmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
 > [Kapsayıcıları Service Fabric uygulaması olarak paketleme ve dağıtma](service-fabric-tutorial-package-containers.md)

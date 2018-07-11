@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: cacda277082f62c9d98a7459cb5dbf74375bfd87
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: bdaead6fe739d62340ca225aa1a6d8adf9e86cb9
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795355"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100305"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: MongoDB verilerini içeri aktarma 
 
@@ -82,7 +82,7 @@ MongoDB hesabı için API’nize verileri geri yüklemek için, içeri aktarmay�
         
     * Varsayılan olarak, Azure Cosmos DB yeni bir MongoDB koleksiyonun saniyede 1.000 istek birimiyle (RU/sn) sağlar. Mongoimport, mongorestore veya mongomirror kullanarak geçişe başlamadan önce, [Azure portaldan](https://portal.azure.com) veya MongoDB sürücüleri ve araçlarından tüm koleksiyonlarınızı önceden oluşturun. Koleksiyonunuz 10 GB’den büyükse, uygun parça anahtarına sahip bir [parçalı/bölümlenmiş koleksiyon](partition-data.md) oluşturduğunuzdan emin olun.
 
-    * [Azure portalından](https://portal.azure.com), yalnızca geçiş için koleksiyonunuzun aktarım hızını tek bir bölüm için 1.000 RU/sn’den parçalı koleksiyon için 2.500 RU/sn’ye artırın. Daha yüksek aktarım hızı ile, azaltmayı önleyebilir ve daha kısa sürede geçişi tamamlayabilirsiniz. Azure Cosmos DB’de saatlik faturalandırma ile, maliyet tasarrufu sağlamak için geçiş işleminden hemen sonra aktarım hızını azaltabilirsiniz.
+    * [Azure portalından](https://portal.azure.com), yalnızca geçiş için koleksiyonunuzun aktarım hızını tek bir bölüm için 1.000 RU/sn’den parçalı koleksiyon için 2.500 RU/sn’ye artırın. Daha yüksek aktarım hızı ile, hız sınırlamayı önleyebilir ve daha kısa sürede geçişi tamamlayabilirsiniz. Azure Cosmos DB’de saatlik faturalandırma ile, maliyet tasarrufu sağlamak için geçiş işleminden hemen sonra aktarım hızını azaltabilirsiniz.
 
     * Koleksiyon düzeyinde RU/sn sağlamaya ek olarak, üst veritabanı düzeyinde bir koleksiyon kümesi için RU/sn de sağlayabilirsiniz. Bu, veritabanı ve koleksiyonların önceden oluşturulmasını ve her koleksiyon için bir parça anahtarı tanımlanmasını gerektirir.
 

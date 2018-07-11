@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric kapsayıcı uygulamasında yük devretme ve ölçeklendirme| Microsoft Docs
+title: Azure'da Service Fabric üzerindeki bir kapsayıcı uygulamasında yük devretme ve ölçeklendirme| Microsoft Docs
 description: Bu öğreticide, Azure Service Fabric kapsayıcıları uygulamasında yük devretmenin nasıl ele alındığını öğrenirsiniz.  Ayrıca, bir kümede çalışan kapsayıcıları ve hizmetleri ölçeklendirme işleminden de bahsedilir.
 services: service-fabric
 documentationcenter: ''
@@ -16,25 +16,27 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 27d1918125b8c2f79f6506470ae43354e402f9af
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b099d1765f0ed56d6768501086bf8b9f83d5a86a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29555493"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112278"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Öğretici: Service Fabric ile kapsayıcı hizmetlerinin yük devretme ve ölçeklendirme işlemlerini gösterir
 
 Bu öğretici, bir serinin üçüncü bölümüdür. Bu öğreticide, Service Fabric kapsayıcı uygulamalarında yük devretmenin nasıl ele alındığını öğrenirsiniz. Ayrıca, kapsayıcı ölçeklendirme işleminden de bahsedilir. Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Service Fabric kümesindeki bir kapsayıcıda yük devretme ile ilgili daha fazla bilgi edinin  
+> * Service Fabric kümesindeki bir kapsayıcıda yük devretme ile ilgili daha fazla bilgi edinin
 > * Uygulamadaki web ön uç kapsayıcılarını ölçeklendirme
 
 ## <a name="prerequisites"></a>Ön koşullar
+
 [Kısım 2](service-fabric-tutorial-package-containers.md)’deki uygulama, etkin bir Service Fabric kümesinde çalışıyor.
 
 ## <a name="fail-over-a-container-in-a-cluster"></a>Kümedeki bir kapsayıcıya yük devretme
+
 Service Fabric, kapsayıcı örneklerinizin bir arıza durumunda kümedeki diğer düğümlere otomatik olarak taşınmasını sağlar. Bir düğümü kapsayıcılar için el ile boşaltabilir ve kümedeki diğer düğümlere taşıyabilirsiniz. Hizmetlerinizi ölçeklendirmek için kullanabileceğiniz birden fazla yöntem vardır. Bu örnekte Service Fabric Explorer'ı kullanacağız.
 
 Ön uç kapsayıcısında yük devretmek için aşağıdaki adımları uygulayın:
@@ -42,13 +44,14 @@ Service Fabric, kapsayıcı örneklerinizin bir arıza durumunda kümedeki diğe
 1. Kümenizde Service Fabric Explorer'ı açın. Örneğin: `http://lin4hjim3l4.westus.cloudapp.azure.com:19080`.
 2. Ağaç görünümünde **fabric:/TestContainer/azurevotefront** düğümüne tıklayın ve bölüm düğümünü (GUID ile gösterilir) genişletin. Ağaç görünümünde kapsayıcının üzerinde çalıştığı düğümleri gösteren düğüm adına dikkat edin. Örneğin: `_nodetype_1`
 3. Ağaç görünümünde **Düğümler** düğümünü genişletin. Kapsayıcıyı çalıştıran düğümün yanındaki üç noktaya tıklayın.
-1. İlgili düğümü yeniden başlatmak için **Yeniden Başlat**'ı seçin ve yeniden başlatma eylemini onaylayın. Yeniden başlatma durumunda kapsayıcıdan kümedeki başka bir düğüme yük devretme gerçekleştirilir.
+4. İlgili düğümü yeniden başlatmak için **Yeniden Başlat**'ı seçin ve yeniden başlatma eylemini onaylayın. Yeniden başlatma durumunda kapsayıcıdan kümedeki başka bir düğüme yük devretme gerçekleştirilir.
 
 ![noderestart][noderestart]
 
 Düğüm adının (ön uç kapsayıcılarının çalıştığı yeri belirtir), kapsayıcıdaki başka bir düğümle nasıl değiştiğini göz önünde bulundurun. Bir süre sonra uygulamaya yeniden gözatabilir ve uygulamanın başka bir düğümde çalışır durumda olduğunu görebilirsiniz.
 
 ## <a name="scale-containers-and-services-in-a-cluster"></a>Bir kümedeki kapsayıcıları ve hizmetleri ölçeklendirme
+
 Hizmet yükünü karşılamak için bir kümedeki Service Fabric kapsayıcıları ölçeklendirilebilir. Kümede çalıştırılan örnek sayısını değiştirerek bir kapsayıcıyı ölçeklendirebilirsiniz.
 
 Web ön ucunu ölçeklendirmek için aşağıdaki adımları gerçekleştirin:
@@ -74,10 +77,10 @@ Bu basit yönetim görevi sayesinde ön uç hizmetinizde kullanıcı yükünü i
 Bu öğreticide, kapsayıcıda yük devremenin yanı sıra uygulama ölçeklendirme işlemleri gösterilmiştir. Aşağıdaki adımlar tamamlandı:
 
 > [!div class="checklist"]
-> * Service Fabric kümesindeki bir kapsayıcıda yük devretme ile ilgili daha fazla bilgi edinin  
+> * Service Fabric kümesindeki bir kapsayıcıda yük devretme ile ilgili daha fazla bilgi edinin
 > * Uygulamadaki web ön uç kapsayıcılarını ölçeklendirme
 
-Bu öğretici serisinde, şunların nasıl yapıldığını öğrendiniz: 
+Bu öğretici serisinde, şunların nasıl yapıldığını öğrendiniz:
 > [!div class="checklist"]
 > * Kapsayıcı görüntüleri oluşturma
 > * Kapsayıcı görüntülerini Azure Container Registry’ye gönderme

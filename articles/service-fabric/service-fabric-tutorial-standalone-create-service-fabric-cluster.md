@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: 85e6efcc4e213da4d6c650f7543403dd52e8337c
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 7ba5fa1d4c5b87d1c4828ee98dae36f415d37c20
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248444"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344164"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Öğretici: Service Fabric kümesi yükleme ve oluşturma
 
@@ -61,13 +61,7 @@ Düğümler güncelleştirildikten sonra şu şekilde görünür:
         }
 ```
 
-Sonra birkaç özelliği güncelleştirmeniz gerekir.  34. satırda, tanılama deposunun bağlantı dizesini değiştirmeniz gerekir. Değişiklik sonrasında `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"` değeri IP adresinizle değiştirilerek bağlantı dizesi şu şekilde görünmelidir
-
-Bağlantı dizesini güncelleştirdikten sonra klasörü oluşturduğunuzdan emin olun.  Aşağıdaki komut, klasörü oluşturacaktır; ancak aşağıdaki IP adresini, bağlantı dizesine eklediğiniz IP adresi ile değiştirdiğinizden emin olun:
-
-```powershell
-mkdir \\172.31.27.1\c$\DiagnosticsStore
-```
+Sonra birkaç özelliği güncelleştirmeniz gerekir.  34. satırda, tanılama deposunun bağlantı dizesini değiştirmeniz gerekir ve sonrasında şekilde görünmelidir: `"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`
 
 Son olarak, yapılandırmanın `nodeTypes` bölümünde Windows’un kullanacağı kısa ömürlü bağlantı noktalarıyla eşlenecek yeni bir bölüm ekleyin.  Yapılandırma dosyası aşağıdaki gibi görünmelidir:
 

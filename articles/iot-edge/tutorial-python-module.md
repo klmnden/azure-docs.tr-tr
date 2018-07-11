@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 884237a851461fe3d7a48708d221909804760ceb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 42af2b5ec6b591929f37afebe6546d61b8a3a02a
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063131"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082857"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Öğretici: Python IoT Edge modülü geliştirme ve sanal cihazınıza dağıtma
 
@@ -34,7 +34,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Hızlı başlangıçta [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md) için oluşturduğunuz Azure IoT Edge cihazı.
+* Hızlı başlangıçta [Linux](quickstart-linux.md) için oluşturduğunuz Azure IoT Edge cihazı.
+
+   >[!Note]
+   >Azure IoT Edge için Python modülleri Windows veya ARM cihazlarını desteklemez. 
+
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Visual Studio Code için Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Visual Studio Code için Python uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 

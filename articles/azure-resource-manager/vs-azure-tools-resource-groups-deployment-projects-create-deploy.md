@@ -6,32 +6,27 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 4bd084c8-0842-4a10-8460-080c6a085bec
 ms.service: azure-resource-manager
 ms.devlang: multiple
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2018
+ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: bd2869b35d92ea92261223131476d7cc8eb854eb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af8b91ee20ccb4d16e7666c317ea7d08a265e6d6
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360113"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435553"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio aracılığıyla Azure kaynak grupları oluşturma ve dağıtma
-Visual Studio ve [Azure SDK](https://azure.microsoft.com/downloads/) ile altyapınızı ve kodlarınızı Azure’a dağıtan bir proje oluşturabilirsiniz. Örneğin, uygulamanızın web ana bilgisayarını, web sitesini ve veritabanını tanımlayabilir ve kodlarını ve altyapısını dağıtabilirsiniz. Ayrıca, bir Sanal Makine, Sanal Ağ ve Depolama Hesabı tanımlayabilir ve bu altyapıyı ve Sanal Makinede yürütülen betiği dağıtabilirsiniz. **Azure Kaynak Grubu** dağıtım projesi gerekli tüm kaynakları tek, tekrarlanabilir bir işlemde dağıtmanıza olanak tanır. Kaynakların dağıtılması ve yönetilmesi hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](resource-group-overview.md).
+Visual Studio ile altyapınızı ve kodlarınızı Azure’a dağıtan bir proje oluşturabilirsiniz. Örneğin, uygulamanızın web ana bilgisayarını, web sitesini ve veritabanını tanımlayabilir ve kodlarını ve altyapısını dağıtabilirsiniz. Visual Studio genelde karşılaşılan senaryoların dağıtılması için birçok farklı başlangıç şablonu sağlar. Bu makalede bir web uygulaması ve SQL Veritabanı dağıtacaksınız.  
 
-Azure Kaynak Grubu projeleri, Azure’da dağıttığınız kaynakları tanımlayan Azure Resource Manager JSON şablonlarını içerir. Resource Manager şablonu bileşenleri hakkında daha fazla bilgi edinmek için [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md). Visual Studio bu şablonları düzenlemenize olanak tanır ve şablonlarla çalışmayı basitleştiren araçlar sunar.
-
-Bu makalede bir web uygulaması ve SQL Veritabanı dağıtacaksınız. Ancak, adımlar tüm kaynak türleri için neredeyse aynıdır. Bir Sanal Makineyi ve ilgili kaynaklarını da kolayca dağıtabilirsiniz. Visual Studio genelde karşılaşılan senaryoların dağıtılması için birçok farklı başlangıç şablonu sağlar.
-
-Bu makalede Visual Studio 2017 gösterilmektedir. Visual Studio 2015 Güncelleştirme 2 ve .NET 2.9 için Microsoft Azure SDK veya Azure SDK 2.9 ile Visual Studio 2013 kullanıyorsanız, deneyiminiz büyük ölçüde aynıdır. Azure SDK 2.6 veya sonraki sürümlerini kullanabilirsiniz. Ancak, kullanıcı arabirimindeki deneyiminiz bu makalede gösterilenden farklı olabilir. Adımları uygulamaya başlamadan önce [Azure SDK](https://azure.microsoft.com/downloads/)’nın en son sürümünü yüklemenizi kesinlikle öneririz. 
+Bu makalede [Visual Studio 2017'yi Azure geliştirme özellikleri ve ASP.NET iş yükleri yüklü bir şekilde](/dotnet/azure/dotnet-tools) kullanmayı öğreneceksiniz. Visual Studio 2015 Güncelleştirme 2 ve .NET 2.9 için Microsoft Azure SDK veya Azure SDK 2.9 ile Visual Studio 2013 kullanıyorsanız, deneyiminiz büyük ölçüde aynıdır.
 
 ## <a name="create-azure-resource-group-project"></a>Azure Kaynak Grubu projesi oluşturma
-Bu yordamda, bir **Web uygulaması + SQL** şablonu ile Azure Kaynak Grubu projesi oluşturacaksınız.
+Bu bölümde, bir **Web uygulaması + SQL** şablonu ile Azure Kaynak Grubu projesi oluşturacaksınız.
 
 1. Visual Studio’da **Dosya**, **Yeni Proje**’yi ve **C#** veya **Visual Basic**’i seçin (bu projeler yalnızca JSON ve PowerShell içeriğine sahip olduğundan hangi dili seçtiğiniz sonraki aşamaları etkilemez). Daha sonra **Bulut** ve **Azure Kaynak Grubu** projesini seçin.
    
@@ -52,18 +47,18 @@ Bu yordamda, bir **Web uygulaması + SQL** şablonu ile Azure Kaynak Grubu proje
    
     ![düğümleri gösterme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
    
-    Bu örnek için Web uygulaması + SQL şablonunu seçtiğimiz için aşağıdaki dosyaları göreceksiniz: 
+    Bu örnek için Web uygulaması + SQL şablonunu seçtiğiniz için aşağıdaki dosyaları göreceksiniz: 
    
    | Dosya adı | Açıklama |
    | --- | --- |
-   | Deploy-AzureResourceGroup.ps1 |Azure Resource Manager’da dağıtılacak PowerShell komutlarını çağıran PowerShell betiği.<br />**Not** Visual Studio, şablonunuzu dağıtmak için bu PowerShell betiğini kullanır. Bu betikte yaptığınız tüm değişiklikler Visual Studio’daki dağıtımı da etkiler, bu nedenle dikkatli olun. |
+   | Deploy-AzureResourceGroup.ps1 |Azure Resource Manager’da dağıtılacak PowerShell komutlarını çalıştıran PowerShell betiği.<br />**Not** Visual Studio, şablonunuzu dağıtmak için bu PowerShell betiğini kullanır. Bu betikte yaptığınız tüm değişiklikler Visual Studio’daki dağıtımı da etkiler, bu nedenle dikkatli olun. |
    | WebSiteSQLDatabase.json |Azure’da dağıtmak istediğiniz altyapıyı tanımlayan Resource Manager şablonu ve dağıtım sırasında sağlayabileceğiniz parametreler. Resource Manager’ın kaynakları doğru sırayla dağıtmasını sağlamak için kaynaklarınız arasındaki bağımlılıkları da tanımlar. |
    | WebSiteSQLDatabase.parameters.json |Şablon tarafından gereken değerleri içeren bir parametre dosyası. Her bir dağıtımı özelleştirmek için parametre değerlerini geçirirsiniz. |
    
     Tüm kaynak grubu dağıtım projeleri bu temel dosyaları içerir. Diğer projeler diğer işlevleri desteklemek için ek dosyalar içerebilir.
 
 ## <a name="customize-the-resource-manager-template"></a>Resource Manager şablonunu özelleştirme
-Dağıtmak istediğiniz kaynakları tanımlayan JSON şablonlarını değiştirerek dağıtım projesini özelleştirebilirsiniz. JSON, JavaScript Nesne Gösterimi anlamına gelir ve birlikte çalışması kolay bir sıralanmış veri biçimidir. JSON dosyaları dosyaların üst kısmında başvurduğunuz şemayı kullanır. Şemayı anlamak istiyorsanız indirip analiz edebilirsiniz. Şema, hangi öğelerin geçerli olduğunu, alan türlerini ve biçimlerini, numaralandırılmış değerlerin olası değerlerini ve benzer konuları tanımlar. Resource Manager şablonu bileşenleri hakkında daha fazla bilgi edinmek için [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
+Dağıtmak istediğiniz kaynakları tanımlayan JSON şablonlarını değiştirerek dağıtım projesini özelleştirebilirsiniz. JSON, JavaScript Nesne Gösterimi anlamına gelir ve birlikte çalışması kolay bir sıralanmış veri biçimidir. JSON dosyaları dosyaların üst kısmında başvurduğunuz şemayı kullanır. Şemayı anlamak istiyorsanız indirip analiz edebilirsiniz. Şema, hangi öğelerin geçerli olduğunu, alan türlerini ve biçimlerini ve bir özelliğin olası değerlerini tanımlar. Resource Manager şablonu bileşenleri hakkında daha fazla bilgi edinmek için [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 
 Şablonunuzda çalışmak için **WebSiteSQLDatabase.json** dosyasını açın.
 
@@ -205,7 +200,7 @@ Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıt�
 8. Bu kez **Web Apps için Web Dağıtımı**’nı seçin. 
    
     ![web dağıtımı ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
-9. Kaynak grubu projenizi kaynak grubuna yeniden dağıtın. Bu defa, bazı yeni parametre bulunur. **_artifactsLocation** ve **_artifactsLocationSasToken** değerleri Visual Studio tarafından otomatik olarak oluşturulduğundan, bunlar için değer girmeniz gerekmez. Ancak, klasör ve dosya adını, dağıtım paketini içeren yola ayarlamanız gerekir (aşağıdaki görüntüde **ExampleAppPackageFolder** ve **ExampleAppPackageFileName** olarak gösterilmiştir). Daha önce başvuru özelliklerinde gördüğünüz değerleri belirtin (**ExampleApp** ve **package.zip**).
+9. Kaynak grubu projenizi kaynak grubuna yeniden dağıtın. Bu defa, bazı yeni parametre bulunur. **_artifactsLocation** veya **_artifactsLocationSasToken** değerleri Visual Studio tarafından otomatik olarak oluşturulduğundan, bunlar için değer girmeniz gerekmez. Ancak, klasör ve dosya adını, dağıtım paketini içeren yola ayarlamanız gerekir (aşağıdaki görüntüde **ExampleAppPackageFolder** ve **ExampleAppPackageFileName** olarak gösterilmiştir). Daha önce başvuru özelliklerinde gördüğünüz değerleri belirtin (**ExampleApp** ve **package.zip**).
    
     ![web dağıtımı ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
    
@@ -218,11 +213,11 @@ Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıt�
      ![dağıtılmış uygulamayı gösterme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## <a name="add-an-operations-dashboard-to-your-deployment"></a>Dağıtımınıza bir işlem panosu ekleme
-Bir çözüm oluşturduğumuza göre artık son düzlüğe geçip onu çalışır duruma getirebiliriz. Yalnızca Visual Studio arabirimi aracılığıyla kullanılabilir olan kaynaklarla sınırlı olmazsınız. JSON’da kaynaklar olarak tanımlanan paylaşılan panoları kullanabiliriz. Şablonumuzu düzenleyip özel bir kaynak ekleyerek bunu yaparız. 
+Yalnızca Visual Studio arabirimi aracılığıyla kullanılabilir olan kaynaklarla sınırlı olmazsınız. Şablonunuza özel bir kaynak ekleyerek dağıtımınızı özelleştirebilirsiniz. Kaynak eklemeyi göstermek için dağıttığınız kaynağı yönetmek üzere bir işlem panosu eklersiniz.
 
-1. WebsiteSqlDeploy.json dosyasını açın ve depolama hesabı kaynağından sonra, kaynaklar bölümünün kapanış ] işaretinden önce aşağıdaki json kod bloğunu ekleyin.
+1. WebsiteSqlDeploy.json dosyasını açın ve depolama hesabı kaynağından sonra, kaynaklar bölümünün kapanış `]` işaretinden önce aşağıdaki JSON kodunu ekleyin.
 
-```json
+  ```json
     ,{
       "properties": {
         "lenses": {
@@ -297,23 +292,19 @@ Bir çözüm oluşturduğumuza göre artık son düzlüğe geçip onu çalışı
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-}
-```
+  }
+  ```
 
-2. Kaynak grubunuzu yeniden dağıtın, Azure portalında panonuza baktığınızda, paylaşılan panonun seçenek listenize eklendiğini görürsünüz. 
+2. Kaynak grubunuzu yeniden dağıtın. Azure portaldaki panonuza bakın ve paylaşılan panonun seçenek listenize eklenmiş olduğuna dikkat edin.
 
-    ![Özel Pano](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
+   ![Özel Pano](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
 
+3. Panoyu seçin.
 
+   ![Özel Pano](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
-   > [!NOTE] 
-   > Panoya erişim, RBAC grupları kullanılarak yönetilebilir ve özelleştirmeler dağıtıldıktan sonra kaynağa yayımlanabilir. Kaynak grubunu yeniden dağıttığınızda kaynak grubunun şablonunuzda varsayılan değere geri sıfırlanacağını unutmayın. Şablonu özelleştirmelerle güncelleştirmelisiniz. Bunun nasıl yapılacağı konusunda yardım için bkz. [Programlamayla Azure Panoları oluşturma](../azure-portal/azure-portal-dashboards-create-programmatically.md)
+RBAC gruplarını kullanarak pano erişimini yönetebilirsiniz. Ayrıca dağıtıldıktan sonra panonun görünümünü özelleştirebilirsiniz. Ancak kaynak grubunuza yeniden dağıttığınızda pano şablonunuzdaki varsayılan durumuna geri döner. Pano oluşturma hakkında daha fazla bilgi için bkz. [Program aracılığıyla Azure Panoları oluşturma](../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
-
-    ![Özel Pano](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
-    
-    
 ## <a name="next-steps"></a>Sonraki adımlar
-* Portalı kullanarak kaynaklarınızı yönetme hakkında daha fazla bilgi için bkz. [Azure portalı kullanarak Azure kaynaklarınızı yönetme](resource-group-portal.md).
 * Şablonlar hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 

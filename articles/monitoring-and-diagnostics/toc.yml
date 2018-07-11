@@ -103,6 +103,8 @@
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Tanılama Ayarlarını Kaynak Yöneticisi şablonlarıyla etkinleştirme
           href: monitoring-enable-diagnostic-logs-using-template.md
+        - name: JSON Satır tanılama günlükleri biçimine hazırlanma
+          href: monitor-diagnostic-logs-append-blobs.md
     - name: Etkinlik günlüğünü kullanma
       items:
         - name: Etkinlik günlüğünde olayları görüntüleme

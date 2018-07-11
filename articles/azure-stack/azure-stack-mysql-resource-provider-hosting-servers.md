@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 60f1978b4173f169ad14deb67b075a61f9e7f149
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: bccc2dcad8e326cd29cfe031a95a7c2d0cf5ec7f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344147"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38302322"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcı barındırma sunucuları ekleme
 
@@ -52,9 +52,6 @@ Sistem Yöneticisi ayrıcalıklarına sahip bir hesabın kimlik bilgilerini sağ
    ![Bir MySQL SKU oluşturma](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
    SKU **adı** kullanıcıların veritabanlarını ve uygun SKU için ucunuzun sku'sunun özelliklerini yansıtmalıdır.
-
-   >[!IMPORTANT]
-   >Özel karakterler, boşluk ve nokta dahil olmak üzere desteklenmeyen **adı** veya **katmanı** oluşturduğunuzda bir SKU MySQL kaynak sağlayıcı.
 
 6. Seçin **Tamam** SKU oluşturma.
 > [!NOTE]

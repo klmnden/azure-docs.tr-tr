@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: df22040de398810fd9250ef46da2f95b6915c4a9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 11b2fccf3c02555f50f48252f2cd9968c9ec90d7
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030667"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436098"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç: İlk IoT Edge modülünüzü Azure portalından bir Windows cihaza dağıtma - önizleme
 
@@ -185,24 +185,31 @@ Bu bölümdeki yönergeler, IoT Edge çalışma zamanını Linux kapsayıcılarl
 
 5. **IOTEDGE_HOST** adlı bir ortam değişkeni oluşturun, *\<ip_address\>* yerine IoT Edge cihazınızın IP Adresini yazın. 
 
-   ```powershell
-   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-   ```
+  ```powershell
+  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+  ```
+  
+  Ortam değişkenini yeniden başlatma işlemlerinden sonra kalıcı hale getirin.
 
-6. `config.yaml` dosyasında **Connect settings** (Bağlantı ayarları) bölümünü bulun. **management_uri** ve **workload_uri** değerlerini IP adresiniz ve bir önceki bölümde açtığınız bağlantı noktalarıyla değiştirin. 
+  ```powershell
+  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
+  ```
+
+
+6. `config.yaml` dosyasında **Connect settings** (Bağlantı ayarları) bölümünü bulun. **management_uri** ve **workload_uri** değerlerini IP adresiniz ve bir önceki bölümde açtığınız bağlantı noktalarıyla değiştirin. **\<GATEWAY_ADDRESS\>** yerine IP adresinizi yazın. 
 
    ```yaml
    connect: 
-     management_uri: "http://<ip_address>:15580"
-     workload_uri: "http://<ip_address>:15581"
+     management_uri: "http://<GATEWAY_ADDRESS>:15580"
+     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
 7. **Listen settings** (Dinleme ayarları) bölümünü bulun ve **management_uri** ile **workload_uri** için de aynı değerleri kullanın. 
 
    ```yaml
    listen:
-     management_uri: "http://<ip_address>:15580"
-     workload_uri: "http://<ip_address:15581"
+     management_uri: "http://<GATEWAY_ADDRESS>:15580"
+     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
 8. **Moby Container Runtime settings** (Moby Kapsayıcısı Çalışma Zamanı ayarları) bölümünü bulun ve **network** değerinin `nat` olarak ayarlandığından emin olun.

@@ -1,5 +1,5 @@
 ---
-title: Azure Batch Rendering hizmeti - bulut ölçekli işleme | Microsoft Docs
+title: Azure Batch Rendering - bulut ölçekli işleme | Microsoft Docs
 description: İşleri, doğrudan Maya üzerinden veya kullanım başına ödeme temelinde Azure sanal makinelerinde işleyin.
 services: batch
 author: dlepow
@@ -8,23 +8,23 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: df1b2da7628e6c3f9f4bcbb02a936c33aad49698
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 954a67ed126b505c9ba0da81b3ace0d25e840adb
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076980"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128597"
 ---
-# <a name="get-started-with-the-batch-rendering-service"></a>Batch Rendering hizmetini kullanmaya başlama
+# <a name="get-started-with-batch-rendering"></a>Batch Rendering’i kullanmaya başlayın 
 
-Azure Batch Rendering hizmeti, kullanım başına ödeme temelinde bulut ölçekli işleme özellikleri sunar. Batch Rendering hizmeti, iş zamanlama ve kuyruğa alma işlerini gerçekleştirir, hata ve yeniden denemeleri yönetir ve işleme işleriniz için otomatik ölçeklendirme yapar. Batch Rendering hizmeti; [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) ve [V-Ray](https://www.chaosgroup.com/vray/maya) gibi işleme uygulamalarını destekler. Maya 2017 için Batch eklentisi, masaüstünüzden Azure’da bir işleme işi başlatmanızı kolaylaştırır.
+Azure Batch Rendering, kullanım başına ödeme temelinde bulut ölçekli işleme özellikleri sunar. Batch Rendering, iş zamanlama ve kuyruğa alma işlerini gerçekleştirir, hata ve yeniden denemeleri yönetir ve işleme işleriniz için otomatik ölçeklendirme yapar. Batch Rendering; [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) ve [V-Ray](https://www.chaosgroup.com/vray/maya) gibi işleme uygulamalarını destekler. Maya 2017 için Batch eklentisi, masaüstünüzden Azure’da bir işleme işi başlatmanızı kolaylaştırır.
 
 Maya ve 3ds Max ile [BatchLabs](https://github.com/Azure/BatchLabs) masaüstü uygulamasını veya [Batch Şablonları CLI](batch-cli-templates.md)'sını kullanarak iş çalıştırabilirsiniz. Azure Batch CLI kullanarak Batch işlerini kod yazmadan çalıştırabilirsiniz. Kod yerine şablon dosyaları kullanarak Batch havuzları, işleri ve görevleri oluşturabilirsiniz. Daha fazla bilgi için bkz. [Azure Batch CLI Şablonlarını ve Dosya Aktarımı özelliğini kullanma](batch-cli-templates.md).
 
 
 ## <a name="supported-applications"></a>Desteklenen uygulamalar
 
-Batch Rendering hizmeti şu anda aşağıdaki uygulamaları desteklemektedir:
+Batch Rendering şu anda aşağıdaki uygulamaları desteklemektedir:
 
 CentOS 7 işleme düğümlerinde:
 - Autodesk Maya I/O 2017 Güncelleştirme 5 (cut 201708032230)
@@ -49,7 +49,7 @@ Windows Server 2016 işleme düğümlerinde:
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Batch Rendering hizmetini kullanmak için şunlar gerekir:
+Batch Rendering'i kullanmak için şunlara ihtiyacınız vardır:
 
 - [Azure hesabı](https://azure.microsoft.com/free/).
 - **Azure Batch hesabı.** Azure portalında bir Batch hesabı oluşturmaya ilişkin yönergeler için bkz. [Azure portalıyla Batch hesabı oluşturma](batch-account-create-portal.md).
@@ -64,7 +64,7 @@ Maya için Batch eklentisini kullanmak için şunlar gerekir:
 
 ## <a name="basic-batch-concepts"></a>Temel Batch kavramları
 
-Batch Rendering hizmetini kullanmaya başlamadan önce işlem düğümleri, havuzlar ve işler gibi birkaç Batch kavramının bilinmesi yararlıdır. Genel olarak Azure Batch hakkında daha fazla bilgi almak için bkz. [Batch ile doğası gereği paralel iş yüklerini çalıştırma](batch-technical-overview.md).
+Batch Rendering'i kullanmaya başlamadan önce işlem düğümleri, havuzlar ve işler gibi birkaç Batch kavramının bilinmesi yararlıdır. Genel olarak Azure Batch hakkında daha fazla bilgi almak için bkz. [Batch ile doğası gereği paralel iş yüklerini çalıştırma](batch-technical-overview.md).
 
 ### <a name="pools"></a>Havuzlar
 
@@ -104,7 +104,7 @@ Azure Batch, kendi özel görüntünüzü sağlamanıza imkan verir. Bu seçene�
 
 ## <a name="options-for-submitting-a-render-job"></a>İşleme işi gönderme seçenekleri
 
-Kullandığınız 3D uygulamasına bağlı olarak işleme işlerini hizmete göndermek için kullanabileceğiniz farklı seçenekler vardır:
+Kullandığınız 3D uygulamasına bağlı olarak işleme işlerini göndermek için kullanabileceğiniz farklı seçenekler vardır:
 
 ### <a name="maya"></a>Maya
 
@@ -121,14 +121,14 @@ Maya ile şunları kullanabilirsiniz:
 - [BatchLabs](https://azure.github.io/BatchLabs) masaüstü uygulaması (3ds Max BatchLabs şablonlarını kullanma yönergeleri için bkz. [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax))
 - [Batch Şablonları CLI'sı](batch-cli-templates.md)
 
-3ds Max Batch Labs şablonları VRay ve Arnold sahnelerini Azure Batch Rendering Hizmetini kullanarak işlemenizi sağlar. VRay ve Arnold için biri standart sahneler, diğeri de 3ds Max varlık ve doku dosyası (.mxp dosyası) yolu gerektiren daha karmaşık sahneler için olmak üzere iki şablon sürümüne sahiptir. 3ds Max Batch Labs şablonları hakkında daha fazla bilgi için GitHub'daki [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) deposuna bakın.
+3ds Max Batch Labs şablonları VRay ve Arnold sahnelerini Batch Rendering'i kullanarak işlemenizi sağlar. VRay ve Arnold için biri standart sahneler, diğeri de 3ds Max varlık ve doku dosyası (.mxp dosyası) yolu gerektiren daha karmaşık sahneler için olmak üzere iki şablon sürümüne sahiptir. 3ds Max Batch Labs şablonları hakkında daha fazla bilgi için GitHub'daki [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) deposuna bakın.
 
-Ayrıca [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial)'sını kullanarak işleme hizmetini var olan işlem hattınızla tümleştirebilirsiniz.
+Ayrıca [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial)'sını kullanarak işlemeyi var olan işlem hattınızla tümleştirebilirsiniz.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Maya için Batch eklentisini kullanarak işleme işi gönderme
 
-Maya için Batch eklentisi ile Maya’dan Batch Rendering hizmetine bir iş gönderebilirsiniz. Aşağıdaki bölümlerde, işi eklentiden yapılandırma ve sonra gönderme işlemi açıklanmaktadır. 
+Maya için Batch eklentisi ile Maya’dan Batch Rendering'e bir iş gönderebilirsiniz. Aşağıdaki bölümlerde, işi eklentiden yapılandırma ve sonra gönderme işlemi açıklanmaktadır. 
 
 ### <a name="load-the-batch-plug-in-for-maya"></a>Maya için Batch eklentisini yükleme
 

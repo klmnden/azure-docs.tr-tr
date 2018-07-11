@@ -1,59 +1,59 @@
 ---
-title: Azure Active Directory'de kullanıcılar için bir grubu oluşturma | Microsoft Docs
-description: Azure Active Directory'de bir grup oluşturma ve gruba üye ekleme
+title: Azure AD'de kullanıcı grubu oluşturma | Microsoft Docs
+description: Azure Active Directory'de grup oluşturma ve gruba üye ekleme
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/04/2017
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 0a757ff93531e95da632086c2526dd36406f94c2
-ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
-ms.translationtype: MT
+ms.openlocfilehash: 82d475e5adadb4e7670f24a6193348c9e1b37a16
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35664920"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37767582"
 ---
-# <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Bir grup oluşturun ve Azure Active Directory'de üye ekleme
+# <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Azure Active Directory'de grup oluşturma ve üye ekleme
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-groups-create-azure-portal.md)
-> * [PowerShell](../active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+> * [PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)
 
-Bu makalede, oluşturma ve Azure Active Directory'de yeni bir grubu doldurmak açıklanmaktadır. Lisans veya izinleri bir kullanıcı veya cihaz sayısı için aynı anda atama gibi yönetim görevleri gerçekleştirmek için bir grup kullanın.
+Bu makalede Azure Active Directory'de yeni bir grup oluşturma ve üye ekleme adımları açıklanmaktadır. Aynı anda birkaç kullanıcıya veya cihaza lisans ya da izin atama gibi yönetim görevlerini gerçekleştirmek için grup kullanırsınız.
 
 ## <a name="how-do-i-create-a-group"></a>Nasıl grup oluşturulur?
-1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
-2. Seçin **tüm hizmetleri**, girin **kullanıcı ve grupları** metin kutusuna ve ardından **Enter**.
+1. Dizin için genel yönetici olan bir hesapla [Azure portalda](https://portal.azure.com) oturum açın.
+2. **Tüm hizmetler**’i seçin, metin kutusuna **Kullanıcılar ve gruplar** yazın ve ardından **Enter**’a basın.
 
-   ![Açılış kullanıcı yönetimi](./media/active-directory-groups-create-azure-portal/search-user-management.png)
-3. Üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **tüm grupları**.
+   ![Kullanıcı yönetimini açma](./media/active-directory-groups-create-azure-portal/search-user-management.png)
+3. **Kullanıcılar ve gruplar** dikey penceresinde **Tüm gruplar**’ı seçin.
 
-   ![Grupları dikey penceresini açma](./media/active-directory-groups-create-azure-portal/view-groups-blade.png)
-4. Üzerinde **kullanıcılar ve gruplar - tüm grupları** dikey penceresinde, select **Ekle** komutu.
+   ![Gruplar dikey penceresini açma](./media/active-directory-groups-create-azure-portal/view-groups-blade.png)
+4. **Kullanıcılar ve gruplar - Tüm gruplar** dikey penceresinde **Ekle** komutunu seçin.
 
-   ![Ekle komutu seçme](./media/active-directory-groups-create-azure-portal/add-group-command.png)
-5. Üzerinde **grup** dikey penceresinde, bir ad ve Grup açıklamasını ekleyin.
-6. Gruba eklenecek üyeleri seçmek için **atanan** içinde **üyelik türü** kutusuna ve ardından **üyeleri**. Bir grubun üyeliğini dinamik olarak yönetme hakkında daha fazla bilgi için bkz: [grup üyeliği için Gelişmiş kurallar oluşturmak için öznitelikleri kullanma](../active-directory-groups-dynamic-membership-azure-portal.md).
+   ![Ekle komutunu seçme](./media/active-directory-groups-create-azure-portal/add-group-command.png)
+5. **Grup** dikey penceresinde grup için bir ad ve açıklama girin.
+6. Gruba eklenecek üyeleri seçmek için **Üyelik türü** kutusunda **Atanmış**'ı ve ardından **Üyeler**'i seçin. Grup üyeliklerini dinamik olarak yönetme hakkında daha fazla bilgi için bkz. [Grup üyeliği için gelişmiş kurallar oluşturmak üzere öznitelikleri kullanma](../active-directory-groups-dynamic-membership-azure-portal.md).
 
    ![Eklenecek üyeleri seçme](./media/active-directory-groups-create-azure-portal/select-members.png)
-7. Üzerinde **üyeleri** dikey penceresinde, select bir veya daha fazla kullanıcılara veya cihazlara grubuna eklemeniz ve seçin **seçin** grubuna eklemek için dikey pencerenin altındaki düğmesini. **Kullanıcı** kutusu, bir kullanıcı veya aygıt adı herhangi bir kısmını girişe eşleşmesini temel alan görüntü filtreler. Joker karakterler bu kutuya kabul edilir.
-8. Üyeleri gruba eklemeyi bitirdiğinizde, seçin **oluşturma** üzerinde **grup** dikey.    
+7. **Üyeler** dikey penceresinde gruba eklemek üzere bir veya daha fazla kullanıcı ya da cihaz seçin ve bunları gruba eklemek için dikey pencerenin en altında yer alan **Seç** düğmesini seçin. **Kullanıcı** kutusu görünen sonuçları girişinizle eşleşen kullanıcı veya cihaz adlarını gösterecek şekilde filtreler. Bu kutuda joker karakter kullanılamaz.
+8. Gruba üye eklemeyi tamamladıktan sonra **Grup** dikey penceresinde **Oluştur**'u seçin.    
 
-   ![Grubu onayı oluşturma](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
+   ![Grup oluşturma onayı](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
-* [Var olan grupları bakın](active-directory-groups-view-azure-portal.md)
-* [Bir grubu ayarlarını yönetme](active-directory-groups-settings-azure-portal.md)
-* [Bir grubun üyelerini yönetmek](active-directory-groups-members-azure-portal.md)
-* [Bir grubun üyeliğini yönetme](active-directory-groups-membership-azure-portal.md)
-* [Bir gruptaki kullanıcılar için dinamik kurallarını yönet](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [Var olan grupları görme](active-directory-groups-view-azure-portal.md)
+* [Bir grubun ayarlarını yönetme](active-directory-groups-settings-azure-portal.md)
+* [Bir grubun üyelerini yönetme](active-directory-groups-members-azure-portal.md)
+* [Bir grubun üyeliklerini yönetme](active-directory-groups-membership-azure-portal.md)
+* [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](../active-directory-groups-dynamic-membership-azure-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric’te Windows Kapsayıcıları için İzleme ve Tanılama | Microsoft Docs
-description: Bu öğreticide, Azure Service Fabric’te düzenlenen Windows Kapsayıcıları için izleme ve tanılama özelliğini ayarlayacaksınız.
+title: Azure'da Service Fabric üzerindeki Windows kapsayıcılarını izleme ve tanılama | Microsoft Docs
+description: Bu öğreticide, Azure Service Fabric üzerindeki Windows kapsayıcıları için Log Analytics izleme ve tanılama özelliğini yapılandıracaksınız.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: f839b05a1d97ce78601697469c982839358d6b06
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b013627c5a0dc596c9897d7fa2c5bf2b2a79ee40
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300865"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114015"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Öğretici: Log Analytics kullanarak Service Fabric’te Windows kapsayıcılarını izleme
 
@@ -34,13 +34,16 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Log Analytics aracısını kapsayıcı ve düğüm ölçümlerini alacak şekilde yapılandırma
 
 ## <a name="prerequisites"></a>Ön koşullar
+
 Bu öğreticiye başlamadan önce karşılamanız gereken ön koşullar şunlardır:
-- Azure’da bir kümeye sahip olmak veya [bu öğreticide küme oluşturmak](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-- [Buna kapsayıcılı bir uygulama dağıtmak](service-fabric-host-app-in-a-container.md)
+
+* Azure’da bir kümeye sahip olmak veya [bu öğreticide küme oluşturmak](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+* [Buna kapsayıcılı bir uygulama dağıtmak](service-fabric-host-app-in-a-container.md)
 
 ## <a name="setting-up-log-analytics-with-your-cluster-in-the-resource-manager-template"></a>Kaynak Yöneticisi şablonunda kümenizle Log Analytics’i ayarlama
 
 Bu öğreticinin ilk bölümünde [sağlanan şablonu](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) kullandıysanız, genel bir Service Fabric Azure Resource Manager şablonuna aşağıdaki eklemeler zaten yapılmıştır. Kendinize ait bir kümeniz varsa ve bunu Log Analytics ile kapsayıcıları izlemek üzere ayarlamak istiyorsanız:
+
 * Resource Manager şablonunuzda aşağıdaki değişiklikleri yapın.
 * PowerShell ile [şablonu dağıtarak](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) kümenizi yükseltin. Azure Resource Manager, kaynağın mevcut olduğunu algılar ve yükseltme olarak kullanıma sunar.
 
@@ -49,7 +52,7 @@ Bu öğreticinin ilk bölümünde [sağlanan şablonu](https://github.com/ChackD
 *template.json* dosyanızda aşağıdaki değişiklikleri yapın:
 
 1. *Parametreler* bölümünüze Log Analytics çalışma alanı konumunu ve adını ekleyin:
-    
+
     ```json
     "omsWorkspacename": {
       "type": "string",
@@ -74,8 +77,8 @@ Bu öğreticinin ilk bölümünde [sağlanan şablonu](https://github.com/ChackD
 
     Bunlardan birinde kullanılan değeri değiştirmek için *template.parameters.json* dosyanıza aynı parametreleri ekleyin ve orada kullanılan değerleri değiştirin.
 
-2. Çözüm adını ve çözümü *değişkenlerinize* ekleyin: 
-    
+2. Çözüm adını ve çözümü *değişkenlerinize* ekleyin:
+
     ```json
     "omsSolutionName": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
     "omsSolution": "ServiceFabric"
@@ -102,7 +105,7 @@ Bu öğreticinin ilk bölümünde [sağlanan şablonu](https://github.com/ChackD
     ```
 
 4. Log Analytics çalışma alanını ayrı bir kaynak olarak ekleyin. *resources* kısmında, sanal makine ölçek kümeleri kaynağından sonra şunu ekleyin:
-    
+
     ```json
     {
         "apiVersion": "2015-11-01-preview",
@@ -193,21 +196,21 @@ Geçerli kümenizi yükseltmek için şablonu yeni değişikliklerinizle dağıt
 
 *Log Analytics Çalışma Alanı* için istem görüntülendiğinde kaynak grubunuzda oluşturulan çalışma alanını seçin ve **Oluştur**’a tıklayın. Bu, çalışma alanınıza bir *Kapsayıcı İzleme Çözümü* ekler ve otomatik olarak, şablon tarafından dağıtılan Log Analytics aracısının docker günlüklerini ve istatistiklerini toplamaya başlamasını sağlar. 
 
-*Kaynak grubunuza* geri dönün. Yeni eklenen izleme çözümünü burada görürsünüz. Bu çözüme tıklarsanız giriş sayfası, çalıştırdığınız kapsayıcı görüntülerinin sayısını size gösterir. 
+*Kaynak grubunuza* geri dönün. Yeni eklenen izleme çözümünü burada görürsünüz. Bu çözüme tıklarsanız giriş sayfası, çalıştırdığınız kapsayıcı görüntülerinin sayısını size gösterir.
 
 *Öğreticinin [ikinci bölümünde](service-fabric-host-app-in-a-container.md) fabrikam kapsayıcımın 5 örneğini çalıştırdığıma dikkat edin*
 
 ![Kapsayıcı çözümü giriş sayfası](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
 
-**Kapsayıcı İzleme Çözümü**’ne tıkladığınızda, birden fazla panelde gezinmenin yanı sıra Log Analytics’te sorgu çalıştırmanızı sağlayan daha ayrıntılı bir panoya yönlendirilirsiniz. 
+**Kapsayıcı İzleme Çözümü**’ne tıkladığınızda, birden fazla panelde gezinmenin yanı sıra Log Analytics’te sorgu çalıştırmanızı sağlayan daha ayrıntılı bir panoya yönlendirilirsiniz.
 
 *Eylül 2017 itibarıyla çözümde bazı güncelleştirmeler yapılacağını unutmayın. Birden fazla düzenleyiciyi aynı çözümle tümleştirme üzerinde çalıştığımız için Kubernetes olaylarıyla ilgili aldığınız hataları yoksayabilirsiniz.*
 
-Aracı, docker günlüklerini aldığından varsayılan olarak *stdout* ve *stderr*’i gösterecek şekilde ayarlanır. Sağa kaydırdığınızda kapsayıcı görüntüsü envanterinin, durumun, ölçümlerin yanı sıra diğer faydalı verileri almak için çalıştırabileceğiniz örnek sorguları da görürsünüz. 
+Aracı, docker günlüklerini aldığından varsayılan olarak *stdout* ve *stderr*’i gösterecek şekilde ayarlanır. Sağa kaydırdığınızda kapsayıcı görüntüsü envanterinin, durumun, ölçümlerin yanı sıra diğer faydalı verileri almak için çalıştırabileceğiniz örnek sorguları da görürsünüz.
 
 ![Kapsayıcı çözümü panosu](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
-Bu panellerden herhangi birine tıklamanız sizi görüntülenen değeri oluşturan Log Analytics sorgusuna yönlendirir. Alınmakta olan tüm farklı günlük türlerini görmek için sorguyu *\** olarak değiştirin. Buradan kapsayıcı performansını ve günlükleri sorgulayabilir, bunlar için filtreleme yapabilir veya Service Fabric platform olaylarına bakabilirsiniz. Aynı zamanda aracılarınız her düğümden sürekli olarak bir sinyal yayar. Böylece, küme yapılandırmanızın değişmesi durumunda verilerin tüm makinelerinizden toplanmaya devam ettiğinden emin olmak için bu sinyallere bakabilirsiniz.   
+Bu panellerden herhangi birine tıklamanız sizi görüntülenen değeri oluşturan Log Analytics sorgusuna yönlendirir. Alınmakta olan tüm farklı günlük türlerini görmek için sorguyu *\** olarak değiştirin. Buradan kapsayıcı performansını ve günlükleri sorgulayabilir, bunlar için filtreleme yapabilir veya Service Fabric platform olaylarına bakabilirsiniz. Aynı zamanda aracılarınız her düğümden sürekli olarak bir sinyal yayar. Böylece, küme yapılandırmanızın değişmesi durumunda verilerin tüm makinelerinizden toplanmaya devam ettiğinden emin olmak için bu sinyallere bakabilirsiniz.
 
 ![Kapsayıcı sorgusu](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
@@ -222,10 +225,9 @@ Bu sizi Log Analytics Çalışma Alanınıza yönlendirir. Burada çözümlerini
 
 Kapsayıcı İzleme Çözümünüzü birkaç dakika içinde **yenileyin**. Bunu yaptığınızda *Bilgisayar Performansı* verilerinin geldiğini görmeye başlarsınız. Bu, kaynaklarınızın nasıl kullanıldığını anlamanıza yardımcı olur. Kümenizi ölçeklendirme konusunda doğru kararlar vermek veya bir kümenin yükünüzü beklenen şekilde dengeleyip dengelemediğini doğrulamak için de bu ölçümleri kullanabilirsiniz.
 
-*Not: Zaman filtrelerinin bu ölçümleri kullanabilmeniz için uygun şekilde ayarlandığından emin olun.* 
+*Not: Zaman filtrelerinin bu ölçümleri kullanabilmeniz için uygun şekilde ayarlandığından emin olun.*
 
 ![Performans sayaçları 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

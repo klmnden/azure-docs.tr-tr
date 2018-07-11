@@ -39,8 +39,10 @@
       href: how-to-customize-language-model.md
     - name: Söyleniş özelleştirme
       href: how-to-customize-pronunciation.md
-    - name: Ses Tiplerini Özelleştirme (Bot Marka Sesi)
+    - name: Ses tiplerini özelleştirme (bot marka sesi)
       href: how-to-customize-voice-font.md
+    - name: Ses örnekleri kaydetme
+      href: record-custom-voice-samples.md
     - name: Transkript hazırlama
       href: prepare-transcription.md
     - name: Özel ses akışları kullanma

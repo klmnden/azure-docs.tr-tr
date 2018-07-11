@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 06/29/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 3f0ba3034c1ba9e68f83caaaf9aacb96134ca74b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5d13c565302ae16b6fb2894f6a5a3843f47f9547
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235507"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342234"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Öğretici: Azure CDN özel etki alanı üzerinde HTTPS yapılandırma
 
@@ -177,7 +177,7 @@ CNAME kaydınız, *Ad*’ın özel etki alanınız, *Değer*’in ise CDN uç no
 
 CNAME kayıtları hakkında daha fazla bilgi için bkz. [CNAME DNS kaydı oluşturma](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
 
-CNAME kaydınız doğru biçimdeyse DigiCert, özel etki alanı adınızı otomatik olarak doğrular ve Konu Diğer Adları (SAN) sertifikasına ekler. DigitCert size doğrulama e-postası göndermez ve isteğinizi onaylamanız gerekmez. Sertifika bir yıl süreyle geçerlidir ve süresi dolmadan önce otomatik olarak yenilenir. [Yayılma için bekleme](#wait-for-propagation) adımına geçin. 
+CNAME kaydınız doğru biçimdeyse DigiCert, özel etki alanı adınızı otomatik olarak doğrular ve etki alanı adınız için ayrılmış bir sertifika oluşturur. DigitCert size doğrulama e-postası göndermez ve isteğinizi onaylamanız gerekmez. Sertifika bir yıl süreyle geçerlidir ve süresi dolmadan önce otomatik olarak yenilenir. [Yayılma için bekleme](#wait-for-propagation) adımına geçin. 
 
 Otomatik doğrulama genellikle birkaç dakika sürer. Bir saat içinde etki alanınızı doğrulanmış olarak görmüyorsanız destek bileti açın.
 
@@ -214,7 +214,7 @@ Formdaki yönergeleri uygulayın. İki doğrulama seçeneğiniz vardır:
 
 - Yalnızca bu istekte kullanılan söz konusu ana bilgisayar adını onaylayabilirsiniz. Sonraki istekler için ek onay gereklidir.
 
-Onaydan sonra DigiCert, SAN sertifikasına için özel etki alanı adınızı ekler. Sertifika bir yıl süreyle geçerlidir ve süresi dolmadan önce otomatik olarak yenilenir.
+DigiCert onaydan sonra özel etki alanı adınız için sertifika oluşturma işlemlerini tamamlar. Sertifika bir yıl süreyle geçerlidir ve süresi dolmadan önce otomatik olarak yenilenir.
 
 ## <a name="wait-for-propagation"></a>Yayılma için bekleme
 
@@ -288,11 +288,11 @@ Aşağıdaki tabloda, HTTPS’yi devre dışı bıraktığınızda oluşan işle
 
 1. *Sertifika sağlayıcısı kimdir ve ne tür bir sertifika kullanılır?*
 
-    **Verizon’dan Azure CDN** ile, DigiCert tarafından sağlanan bir Konu Diğer Adları (SAN) sertifikası kullanılır. Bir SAN sertifikası, tek sertifika ile birden fazla tam etki alanı adının güvenliğini sağlayabilir. **Microsoft’tan Azure CDN Standart** ile, DigiCert tarafından sağlanan tek bir sertifika kullanılır.
+    Hem **Azure CDN from Verizon** hem de **Azure CDN from Microsoft** için özel etki alanınızda Digicert tarafından sağlanan ayrılmış/tek sertifika sağlanır. 
 
-2. IP tabanlı veya SNI TLS/SSL kullanıyor musunuz?
+2. *IP tabanlı veya SNI TLS/SSL kullanıyor musunuz?*
 
-    **Verizon’dan Azure CDN**, IP tabanlı TLS/SSL kullanır. **Microsoft’tan Azure CDN Standart**, SNI TLS/SSL kullanır.
+    Hem **Azure CDN from Verizon** hem de **Azure CDN Standard from Microsoft** için SNI TLS/SSL kullanın.
 
 3. *DigiCert’ten etki alanı doğrulama e-postası almazsam ne olur?*
 
@@ -309,6 +309,10 @@ Aşağıdaki tabloda, HTTPS’yi devre dışı bıraktığınızda oluşan işle
 6. *DNS sağlayıcım ile Sertifika Yetkilisi Yetkilendirme kaydı kullanmam gerekir mi?*
 
     Hayır, Sertifika Yetkilisi Yetkilendirme kaydı şu anda gerekli değildir. Ancak, varsa, geçerli CA olarak DigiCert’i içermelidir.
+
+7. *20 Haziran 2018'de Azure CDN from Verizon, varsayılan olarak ayrılmış bir sertifikayla SNI TLS/SSL kullanmaya başlamıştır. Subject Alternative Names (SAN) sertifikası ve IP tabanlı TLS/SSL kullanan mevcut özel etki alanlarıma ne olacak?*
+
+    Microsoft, uygulamanıza yalnızca SNI istemci isteklerinin gönderildiğini algılarda mevcut etki alanlarınız önümüzdeki aylarda kademeli olarak tek sertifikaya geçirilecektir. Microsoft, uygulamanıza SNI harici istemci isteklerinin gönderildiğini algılarsa etki alanlarınız IP tabanlı TLS/SSL ile SAN sertifikasında kalacaktır. Her durumda hizmetinizde veya SNI ya da SNI harici olduğuna bakılmaksızın istemci istekleriniz için sunulan destekte kesinti olmayacaktır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -1,6 +1,6 @@
 ---
-title: Bir Web uygulamasından Azure anahtar kasası kullanan | Microsoft Docs
-description: Bir web uygulamasından Azure anahtar kasası kullanmayı öğrenmenize yardımcı olmak için bu öğreticiyi kullanın.
+title: 'Öğretici: Web Uygulamasından Azure Key Vault’u kullanma | Microsoft Docs'
+description: Bu öğretici, web uygulamasından Azure Key Vault’u kullanmayı öğrenmenize yardımcı olacaktır.
 services: key-vault
 author: adhurwit
 manager: mbaldwin
@@ -8,80 +8,75 @@ tags: azure-resource-manager
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: tutorial
+ms.date: 06/29/2018
 ms.author: adhurwit
-ms.openlocfilehash: 3a191c3ee7eea641aab81008a6da801b609fb4c5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
-ms.translationtype: MT
+ms.openlocfilehash: 5cd764395e91a82973318da7284b28d7a43d35ea
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802111"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115113"
 ---
-# <a name="use-azure-key-vault-from-a-web-application"></a>Bir Web uygulamasından Azure anahtar kasası kullanın
+# <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Öğretici: Web uygulamasından Azure Key Vault’u kullanma
+Bu öğretici, Azure'daki bir web uygulamasından Azure Key Vault’u kullanmayı öğrenmenize yardımcı olacaktır. Web uygulamasında kullanmak üzere Azure Key Vault'taki bir gizli diziye erişme sürecini göstermektedir. Öğretici ayrıca bu süreci bir adım ileri götürerek gizli anahtar yerine sertifika kullanımını da gösterecektir. Bu öğretici, Azure'da web uygulaması oluşturma konusundaki temel kavramlara hakim olan web geliştiricileri için tasarlanmıştır. 
 
-## <a name="introduction"></a>Giriş
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz: 
 
-Azure web uygulamasından Azure anahtar kasası kullanmayı öğrenmenize yardımcı olmak için bu öğreticiyi kullanın. Bu, böylece web uygulamanızda kullanılabilir gizli bir Azure anahtar Kasası'erişme işlemi açıklanmaktadır.
+> [!div class="checklist"]
+> * Uygulama ayarlarını web.config dosyasına ekleme
+> * Erişim belirteci almak için bir metot ekleme
+> * Uygulama çalıştırıldığında belirteci alma
+> * Sertifika kimlik doğrulama 
 
-**Tahmini tamamlanma süresi:** 15 dakika
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-Azure Anahtar Kasası genel bakış bilgileri için bkz. [Azure Anahtar Kasası nedir?](key-vault-whatis.md)
+## <a name="prerequisites"></a>Ön koşullar
 
-## <a name="prerequisites"></a>Önkoşullar
+Bu öğreticiyi tamamlamak için aşağıdaki öğelere sahip olmanız gerekir:
 
-Bu öğreticiyi tamamlamak için aşağıdakilere sahip olmanız gerekir:
+* Azure Key Vault içindeki bir gizli dizinin URI'si
+* Azure Active Directory'ye kaydedilmiş ve anahtar kasanıza erişimi olan bir web uygulamasının İstemci Kimliği ve Gizli Anahtarı
+* Bir web uygulaması. Bu öğreticide Azure'da bir Web Uygulaması olarak dağıtılmış olan ASP.NET MVC uygulamasıyla ilgili adımlar gösterilir.
 
-* Azure anahtar Kasası'nda bir gizlilik için bir URI
-* Bir istemci kimliği ve bir web uygulaması için bir gizli anahtar kasanızı erişimi Azure Active Directory'ye kayıtlı
-* Bir web uygulamasıdır. Biz gösteren Azure Web uygulaması olarak dağıtılmış bir ASP.NET MVC uygulaması için adımları.
+Gizli dizi URI'sini, İstemci Kimliğini, Gizli Anahtarı almak ve uygulamayı kaydetmek için [Azure Key Vault'u kullanmaya başlama](key-vault-get-started.md) sayfasındaki adımları uygulayın. Web uygulaması kasaya erişecektir ve Azure Active Directory'de kayıtlı olması gerekir. Ayrıca anahtar kasasına erişim haklarına da sahip olmalıdır. Uygulama bu şartları karşılamıyorsa Kullanmaya Başlama öğreticisindeki Uygulama Kaydetme bölümüne dönün ve oradaki adımları uygulayın. Azure Web Apps uygulaması oluşturma hakkında daha fazla bilgi için bkz. [Web Apps'e genel bakış](../app-service/app-service-web-overview.md).
 
->[!IMPORTANT]
->* Bu örnek AAD kimlikleri el ile sağlama daha eski bir şekilde bağlıdır. Şu anda var. yeni bir özellik olarak adlandırılan önizlemede [yönetilen hizmet kimliği (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), hangi otomatik olarak sağlayabilirler AAD kimlikleri. Lütfen üzerinde aşağıdaki örneğe bakın [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) daha ayrıntılı bilgi için.
-
-> [!NOTE]
->* Listelenen adımları tamamladınız gereklidir [Azure anahtar kasası ile çalışmaya başlama](key-vault-get-started.md) Bu öğretici için böylece bir web uygulaması için bir gizlilik ve istemci kimliği ve istemci parolası URI sahip.
+Bu örnek, Azure Active Directory kimliklerinin el ile sağlanmasına dayanmaktadır. Şu anda önizleme sürümünde olan ve Azure AD kimliklerini otomatik olarak sağlayabilen [Yönetilen Hizmet Kimliği (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview) adlı yeni bir özellik vardır. Daha fazla bilgi için [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) üzerindeki örneğe ve ilgili [MSI ile App Service ve İşlevler öğreticisine](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) bakın. 
 
 
-Anahtar kasası erişecek web uygulamasını Azure Active Directory'de kayıtlı ve anahtar Kasası'na erişim verildi adrestir. Bu durumda değilse, bir kasaya Başlarken Öğreticisi uygulamada geri dönün ve listelenen adımları yineleyin.
+## <a id="packages"></a>NuGet paketlerini ekleme
 
-Bu öğretici, Azure üzerinde web uygulamaları oluşturma temelleri anlamak web geliştiricileri için tasarlanmıştır. Azure Web Apps hakkında daha fazla bilgi için bkz. [Web Apps'e genel bakış](../app-service/app-service-web-overview.md).
+Web uygulamanız için yüklemiş olmanız gereken iki paket vardır.
 
-## <a id="packages"></a>NuGet paketleri ekleme
+* Active Directory Authentication Library içinde Azure Active Directory ile etkileşim kurmak ve kullanıcı kimliğini yönetmek için kullanabileceğiniz metotlar vardır
+* Azure Key Vault Library içinde Azure Key Vault ile etkileşim kurmak için kullanabileceğiniz metotlar vardır
 
-Yüklü web uygulamanız gereken iki paket vardır.
+Bu paketlerin ikisi de Paket Yöneticisi Konsolu'ndan Install-Package komutuyla yüklenebilir.
 
-* Active Directory Authentication Library - Azure Active Directory ile etkileşim ve kullanıcı kimliği yönetmek için yöntemler içerir
-* Azure anahtar kasası Library - Azure anahtar kasası ile etkileşim için yöntemler içerir
-
-Bu paketleri her ikisi de Install-Package komutunu kullanarak Paket Yöneticisi konsolu kullanılarak yüklenebilir.
-
-```
-// this is currently the latest stable version of ADAL
-Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+```powershell
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory 
 Install-Package Microsoft.Azure.KeyVault
 ```
 
-## <a id="webconfig"></a>Web.Config değiştirme
+## <a id="webconfig"></a>web.config dosyasını değiştirme
 
-Web.config dosyasında aşağıdaki gibi eklenmesi gereken üç uygulama ayarlarını vardır.
+web.config dosyasına aşağıdaki şekilde eklenmesi gereken üç uygulama ayarı vardır. Ek bir güvenlik düzeyi sağlamak için gerçek değerleri Azure portalda ekleyeceğiz.
 
-```
+```xml
     <!-- ClientId and ClientSecret refer to the web application registration with Azure Active Directory -->
     <add key="ClientId" value="clientid" />
     <add key="ClientSecret" value="clientsecret" />
 
     <!-- SecretUri is the URI for the secret in Azure Key Vault -->
     <add key="SecretUri" value="secreturi" />
+    <!-- If you aren't hosting your app as an Azure Web App, then you should use the actual ClientId, Client Secret, and Secret URI values -->
 ```
 
-Uygulamanızı Azure Web uygulaması olarak barındırmak için yapmayacağınız, web.config dosyasına gerçek ClientID, istemci gizli anahtarı ve gizli anahtar URI'sini değerleri eklemeniz gerekir. Aksi takdirde ek bir güvenlik düzeyi için Azure Portalı'nda gerçek değerler biz alacağınız çünkü bu kukla değerleri bırakın.
 
-## <a id="gettoken"></a>Bir erişim belirteci almak için bir yöntem ekleyin
 
-Anahtar kasası API kullanmak için bir erişim belirteci gerekir. Anahtar kasası istemci anahtar kasası API çağrılarını işler, ancak erişim belirtecini alır işleviyle sağlamanız gerekir.  
+## <a id="gettoken"></a>Erişim belirteci almak için bir metot ekleme
 
-Azure Active Directory'den bir erişim belirteci alma kodu verilmiştir. Bu kodu, uygulamanızda herhangi bir yere gidebilirsiniz. Bir yardımcı programları veya EncryptionHelper sınıfı eklemek ister.  
+Key Vault API'sini kullanmak için bir erişim belirtecine ihtiyacınız vardır. Key Vault İstemcisi, Key Vault API'sine gönderilen çağrıları işler ancak erişim belirtecini alan bir işlev kullanmanız gerekir. Aşağıdaki örnekte Azure Active Directory'den erişim belirteci almak için kullanılabilecek kod gösterilmiştir. Bu kod uygulamanızın herhangi bir bölümünde kullanılabilir. Ben Utils veya EncryptionHelper sınıfı eklemeyi tercih ediyorum.  
 
 ```cs
 //add these using statements
@@ -105,15 +100,15 @@ public static async Task<string> GetToken(string authority, string resource, str
 
     return result.AccessToken;
 }
+// Using Client ID and Client Secret is a way to authenticate an Azure AD application.
+// Using it in your web application allows for a separation of duties and more control over your key management. 
+// However, it does rely on putting the Client Secret in your configuration settings.
+// For some people, this can be as risky as putting the secret in your configuration settings.
 ```
 
-> [!NOTE]
->* Şu anda yeni bir özellik olarak Yönetilen Hizmet Kimliği (MSI), kimlik doğrulaması için en kolay yöntemdir. Daha ayrıntılı bilgi için, [Bir .NET uygulamasında MSI ile Key Vault](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) ve ilgili [App Service ve İşlevler ile MSI öğreticisini](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) kullanarak örneğin aşağıdaki bağlantısına bakın. 
->* İstemci kimliği ve istemci gizli anahtarını kullanarak Azure AD uygulaması kimliğini doğrulamak için başka bir yoludur. Ve web uygulamanızı kullanarak ayrılması görevlerini ve anahtar yönetimi üzerinde daha fazla denetim sağlar. Ancak, yapılandırma ayarlarınızda korumak istediğiniz gizli koyma olarak olarak riskli olabilecek bazı yapılandırma ayarlarınızın istemci gizli anahtarı koyma kullanır. Aşağıdaki bir tartışma için bir istemci kimliği ve sertifika istemci kimliği ve istemci parolası yerine Azure AD uygulaması kimliğini doğrulamak için nasıl kullanılacağı hakkında bakın.
+## <a id="appstart"></a>Uygulama çalıştırıldığında gizli diziyi alma
 
-## <a id="appstart"></a>Uygulama başlangıç gizli anahtarı alma
-
-Şimdi anahtar kasası API çağrısı ve gizli anahtarı almak için kod gerekir. Aşağıdaki kod herhangi bir yere kullanmaya ihtiyacım önce çağırılır sürece koyabilirsiniz. Böylece gizli uygulama için kullanılabilir hale getirir ve Başlat'bir kez çalıştırılır t bu kodu Global.asax uygulama başlatma olayı koymak.
+Şimdi Key Vault API'sini çağırmak ve gizli diziyi almak için kullanacağımız koda ihtiyacımız var. Aşağıdaki kodu kullanmadan önce çağırdığınız sürece herhangi bir yere yerleştirebilirsiniz. Bu kodu Global.asax içindeki Application Start olayının içine yerleştirdim, bu sayede başlangıçta bir kez çalışarak gizli diziyi uygulama için kullanılabilir hale getiriyor.
 
 ```cs
 //add these using statements
@@ -124,43 +119,47 @@ using System.Web.Configuration;
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]);
 
-//I put a variable in a Utils class to hold the secret for general  application use.
+//I put a variable in a Utils class to hold the secret for general application use.
 Utils.EncryptSecret = sec.Value;
 ```
 
-## <a id="portalsettings"></a>Uygulama ayarları (isteğe bağlı) Azure portalında ekleme
+## <a id="portalsettings"></a>Azure Portal'da uygulama ayarlarını ekleme
 
-Bir Azure Web uygulaması varsa, Azure portalında AppSettings için gerçek değerler artık ekleyebilirsiniz. Bunu yaparak, gerçek değerler Web.Config'de olmaz ancak ayrı bir erişim denetimi özelliklerinden sahip olduğu Portal korumalı. Bu değerler, web.config dosyanızda girdiğiniz değerleri için değiştirilecektir. Adları aynı olduğundan emin olun.
+Artık Azure Web App'te Azure portal'dan gerçek AppSettings değerlerini ekleyebilirsiniz. Bu adımı gerçekleştirdiğinizde gerçek değerler web.config dosyasında olmaz ancak ayrı erişim denetimi özelliklerine sahip olduğunuz Portal aracılığıyla koruma altına alınır. Bu değerler web.config dosyasına girdiğiniz değerlerle değiştirilir. Adların aynı olduğundan emin olun.
 
-![Azure Portalı'nda görüntülenen uygulama ayarları][1]
+![Azure portalda görüntülenen Uygulama Ayarları][1]
 
-## <a name="authenticate-with-a-certificate-instead-of-a-client-secret"></a>Bir istemci parolası yerine bir sertifika ile kimlik doğrulaması
+## <a name="authenticate-with-a-certificate-instead-of-a-client-secret"></a>Gizli anahtar yerine bir sertifikayla kimlik doğrulaması gerçekleştirme
 
-Azure AD uygulaması kimliğini doğrulamak için başka bir istemci kimliği ve istemci parolası yerine bir istemci kimliği ve bir sertifika kullanarak yoludur. Bir Azure Web uygulamasında bir sertifika kullanmak için adımları şunlardır:
+Bir Azure AD uygulamasının kimliğini İstemci Kimliği ve Gizli Anahtar kullanarak doğrulamayı kavradınız, şimdi İstemci Kimliği ve bir sertifika kullanalım. Azure Web App'te sertifika kullanmak için aşağıdaki adımları uygulayın:
 
-1. Alma veya bir sertifika oluşturun
-2. Sertifika bir Azure AD uygulama ile ilişkilendirme
-3. Sertifikayı kullanmak üzere Web uygulamanıza kod ekleme
-4. Web uygulamanız için bir sertifika Ekle
+1. Sertifika alma veya oluşturma
+2. Sertifikayı bir Azure AD uygulaması ile ilişkilendirme
+3. Sertifikayı kullanmak için web uygulamanıza kod ekleme
+4. Web uygulamanıza sertifika ekleme
 
-### <a name="get-or-create-a-certificate"></a>Alma veya bir sertifika oluşturun
+### <a name="get-or-create-a-certificate"></a>Sertifika alma veya oluşturma
 
-Bizim amaçlar için bir test sertifikası yapacağız. Burada, birkaç Geliştirici Komut İstemi'nde bir sertifika oluşturmak için kullanabileceğiniz komutlar bulunmaktadır. Oluşturulan sertifika dosyaları istediğiniz dizini değiştirin.  Ayrıca, başlangıç ve bitiş tarihi sertifikanın için geçerli tarih artı 1 yıl kullanın.
+ Bu öğretici için bir test sertifikası oluşturacağız. Otomatik olarak imzalanan bir sertifika oluşturmak için bu betiği kullanabilirsiniz. Dizini sertifika dosyalarınızın oluşturulmasını istediğiniz yerle değiştirin.  Sertifikanın başlangıç ve bitiş tarihi olarak geçerli tarihe bir yıl ekleyebilirsiniz.
 
+```powershell
+#Create self-signed certificate and export pfx and cer files 
+$PfxFilePath = "c:\data\KVWebApp.pfx" 
+$CerFilePath = "c:\data\KVWebApp.cer" 
+$DNSName = "MyComputer.Contoso.com" 
+$Password ="MyPassword" 
+$SecStringPw = ConvertTo-SecureString -String $Password -Force -AsPlainText 
+$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\LocalMachine\My" -NotBefore 05/15/2018 -NotAfter 05/15/2019 
+Export-PfxCertificate -cert $cert -FilePath $PFXFilePath -Password $SecStringPw 
+Export-Certificate -cert $cert -FilePath $CerFilePath 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
-pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
-```
 
-Bitiş tarihi ve .pfx için parolayı not edin (Bu örnekte: 07/31/2018 ve test123). Bunları aşağıdaki gerekir.
+Bitiş tarihini ve .pfx dosyasının parolasını not edin (bu örnekte: 15 Mayıs 2019 ve MyPassword). Aşağıdaki betik için bu değerlere ihtiyacınız olacak. 
+### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Sertifikayı bir Azure AD uygulaması ile ilişkilendirme
 
-Bir test sertifikası oluşturma hakkında daha fazla bilgi için bkz: [nasıl yapılır: bilgisayarınızı kendi Test sertifikası oluşturma](https://msdn.microsoft.com/library/ff699202.aspx)
+Artık bir sertifikanız olduğuna göre bunu bir Azure AD uygulamasıyla ilişkilendirebilirsiniz. İlişkilendirme işlemi PowerShell üzerinden tamamlanabilir. Sertifikayı Azure AD uygulamasıyla ilişkilendirmek için aşağıdaki komutları çalıştırın:
 
-### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Sertifika bir Azure AD uygulama ile ilişkilendirme
-
-Bir sertifika sahip olduğunuza göre Azure AD uygulaması ile ilişkilendirmeniz gerekir. Şu anda Azure portalı, bu iş akışı desteklemiyor; Bu PowerShell aracılığıyla tamamlanabilir. Sertifika Azure AD uygulama ile ilişkilendirmek için aşağıdaki komutları çalıştırın:
-
-```ps
+```powershell
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 $x509.Import("C:\data\KVWebApp.cer")
 $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
@@ -178,17 +177,18 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "ht
 $x509.Thumbprint
 ```
 
-Bu komutları çalıştırdıktan sonra Azure AD'de uygulama görebilirsiniz. Arama yaparken, "Şirketimin sahip olduğu uygulamalar" "Uygulamaları Şirketim kullanıyor yerine" arama iletişim kutusunda seçtiğiniz emin olun.
+Bu komutları çalıştırdıktan sonra uygulamayı Azure AD'de görebilirsiniz. Uygulama kayıtlarında arama yaparken, arama iletişim kutusunda "All apps" (Tüm uygulamalar) yerine **My apps** (Uygulamalarım) öğesini seçtiğinizden emin olun. 
 
-Azure AD uygulama nesneleri ve ServicePrincipal nesneleri hakkında daha fazla bilgi için bkz: [uygulama ve hizmet sorumlusu nesneleri](../active-directory/active-directory-application-objects.md).
+### <a name="add-code-to-your-web-app-to-use-the-certificate"></a>Sertifikayı kullanmak için web uygulamanıza kod ekleme
 
-### <a name="add-code-to-your-web-app-to-use-the-certificate"></a>Sertifikayı kullanmak üzere Web uygulamanıza kod ekleme
+Şimdi Web Uygulamanıza sertifikaya erişmesi ve onu kullanarak kimlik doğrulaması yapması için gerekli kodları ekleyeceğiz. 
 
-Şimdi biz cert erişmek ve kimlik doğrulaması için kullanmak üzere Web uygulamanız için kod ekleyeceksiniz.
-
-İlk cert erişmek için kod yoktur.
+İlk olarak, sertifika erişmek için gerekli koda bakalım. StoreLocation değerinin LocalMachine değil CurrentUser olduğuna dikkat edin. Test sertifikası kullandığımızdan Find metoduna 'false' değeri veriyoruz.
 
 ```cs
+//Add this using statement
+using System.Security.Cryptography.X509Certificates;  
+
 public static class CertificateHelper
 {
     public static X509Certificate2 FindCertificateByThumbprint(string findValue)
@@ -211,9 +211,9 @@ public static class CertificateHelper
 }
 ```
 
-StoreLocation Currentuser'a LocalMachine yerine olduğuna dikkat edin. Ve bir test sertifikası kullanıyoruz çünkü biz bulma yöntemine ' false' sağlamış olursunuz olduğunu.
 
-Sonraki CertificateHelper kullanır ve kimlik doğrulaması için gerekli olan bir ClientAssertionCertificate oluşturan kodudur.
+
+Bir sonraki kod CertificateHelper metodunu kullanarak kimlik doğrulaması için gerekli ClientAssertionCertificate metodunu oluşturur.
 
 ```cs
 public static ClientAssertionCertificate AssertionCert { get; set; }
@@ -225,7 +225,7 @@ public static void GetCert()
 }
 ```
 
-Erişim belirteci almak için yeni kod aşağıdaki gibidir. GetToken yöntemi önceki örnekte değiştirir. I kolaylık sağlamak için farklı bir ad verilen.
+Erişim belirtecini almak için kullanmanız gereken yeni kod budur. Bu kod, bir önceki örnekteki GetToken metodunun yerini alır. Kolaylık sağlamak için farklı bir ad verdim. Kullanım kolaylığı için bu kodun tamamını Web Uygulaması projemin Utils sınıfına ekledim.
 
 ```cs
 public static async Task<string> GetAccessToken(string authority, string resource, string scope)
@@ -236,33 +236,34 @@ public static async Task<string> GetAccessToken(string authority, string resourc
 }
 ```
 
-I tüm bu kod, kullanım kolaylığı için my Web uygulaması projenin yardımcı programları sınıfı yerleştirin.
 
-En son kod değişikliği Application_Start yöntemidir. İlk olarak kimliğinizi ClientAssertionCertificate yüklemek için GetCert() yöntemini çağırmak gerekiyor. Ve biz Biz yeni KeyVaultClient oluştururken sağladığınız geri çağırma yöntemi değiştirebilirsiniz. Bu sizi bir önceki örnekte vardı kod değiştirir unutmayın.
+
+Son kod değişikliği, Application_Start metodundadır. ClientAssertionCertificate metodunu çağırmak için öncelikle GetCert() metodunu çağırmamız gerekir. Ardından yeni bir KeyVaultClient oluştururken sağladığımız geri çağırma metodunu değiştireceğiz. Bu kod, bir önceki örnekteki kodun yerini alır.
 
 ```cs
 Utils.GetCert();
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
 ```
 
-### <a name="add-a-certificate-to-your-web-app-through-the-azure-portal"></a>Azure Portalı aracılığıyla Web uygulamanız için bir sertifika Ekle
+### <a name="add-a-certificate-to-your-web-app-through-the-azure-portal"></a>Azure Portal aracılığıyla web uygulamanıza sertifika ekleme
 
-Web uygulamanız için bir sertifika ekleme basit iki adımlı bir işlemdir. İlk olarak, Azure Portalı'na gidin ve Web uygulamanıza gidin. "Özel etki alanları ve SSL" girişini ayarları dikey penceresinde, Web uygulamanız için tıklatın. Önceki örnekte, KVWebApp.pfx, oluşturduğunuz sertifika karşıya kuramaz açılır olduğundan emin olun, dikey penceresinde pfx parolasını unutmayın.
+Web Uygulamanıza Sertifika ekleme, iki adımlı basit bir süreçtir. İlk olarak Azure portala gidip Web Uygulamanızı bulun. Web Uygulamanızın Ayarlar sayfasında **SSL ayarları** girişine tıklayın. Sayfa açıldığında önceki örnekte oluşturduğunuz KVWebApp.pfx Sertifikasını yükleyin. pfx dosyasının parolasını hatırladığınızdan emin olun.
 
-![Azure portalında bir Web uygulaması için bir sertifika ekleme][2]
+![Azure portalda bir Web Uygulamasına Sertifika ekleme][2]
 
-Bir uygulama ayarı adı Web sitesi sahip, Web uygulamanızın eklemek için yapmanız gereken son şey.\_yük\_SERTİFİKALARI ve değerini *. Bu, tüm sertifikaların yüklü olduğundan güvence altına alır. Karşıya yüklediğiniz sertifikalar yüklemek istiyorsanız, virgülle ayrılmış bir liste kendi parmak izleri girebilirsiniz.
+Yapmanız gereken son şey, Web Uygulamanıza WEBSITE\_LOAD\_CERTIFICATES adına ve * değerine sahip bir Uygulama Ayarı eklemektir. Bu adım, tüm Sertifikaların yüklenmesini sağlayacaktır. Yalnızca yüklediğiniz Sertifikaların yüklenmesini isterseniz parmak izlerini virgülle ayırarak girebilirsiniz.
 
-Bir Web uygulaması için bir sertifika ekleme hakkında daha fazla bilgi edinmek için [kullanarak sertifikaları Azure Web siteleri uygulamalarında](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
 
-### <a name="add-a-certificate-to-key-vault-as-a-secret"></a>Bir sertifika anahtar kasası için gizlilik olarak ekleyin.
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+İhtiyacınız kalmadığında öğretici için kullandığınız uygulama hizmetini, anahtar kasasını ve Azure AD uygulamasını silin.  
 
-Sertifikanızı Web App Service'e doğrudan yüklemek yerine, anahtar kasası gizli olarak depolayın ve buradan dağıtın. Bu aşağıdaki blog postasına özetlenen iki adımlı bir işlemdir [anahtar kasası aracılığıyla Azure Web uygulaması sertifikası dağıtma](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)
 
 ## <a id="next"></a>Sonraki adımlar
+> [!div class="nextstepaction"]
+>[Azure Key Vault Yönetim API'si Başvurusu](/dotnet/api/overview/azure/keyvault/management).
 
-Programlama başvuruları için bkz: [Azure anahtar kasası C# istemci API Başvurusu](https://msdn.microsoft.com/en-us/library/azure/mt430941.aspx).
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
+ 

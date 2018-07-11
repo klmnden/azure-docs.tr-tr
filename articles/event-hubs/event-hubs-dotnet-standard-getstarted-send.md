@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: f59f88d47bfcb3e761f509a3d87c6d068f44e0db
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 3dba92467dfaf377236a25f48899a8a53c587a82
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28985213"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130985"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>.NET Standard'da Azure Event Hubs'a ileti göndermeye başlama
 
@@ -33,13 +33,13 @@ Bu öğreticide, olay hub'ına bir dizi ileti gönderen bir .NET Core konsol uyg
 * [Microsoft Visual Studio 2015 veya 2017](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılır, ama Visual Studio 2015 de desteklenir.
 * [.NET Core Visual Studio 2015 veya 2017 araçları](http://www.microsoft.com/net/core).
 * Azure aboneliği.
-* Olay hub'ı ad alanı.
+* [Bir olay hub'ı ad alanı ve olay hub'ı](event-hubs-quickstart-portal.md).
 
 Olay hub'ına ileti göndermek için, bu öğreticide Visual Studio kullanılarak bir C# konsol uygulaması yazılır.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
 
-İlk adımda [Azure Portal](https://portal.azure.com) kullanılarak olay hub'ı türünde bir ad alanı oluşturulur, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgileri alınır. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı izleyin ve ardından aşağıdaki adımlarla devam edin.
+Ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-quickstart-portal.md) verilen yordamı izleyin ve ardından bu öğreticiyle devam edin.
 
 ## <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
@@ -141,8 +141,8 @@ Aşağıdaki adımları izleyerek [`Microsoft.Azure.EventHubs`](https://www.nuge
         public class Program
         {
             private static EventHubClient eventHubClient;
-            private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
 
             public static void Main(string[] args)
             {
@@ -152,11 +152,11 @@ Aşağıdaki adımları izleyerek [`Microsoft.Azure.EventHubs`](https://www.nuge
             private static async Task MainAsync(string[] args)
             {
                 // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-                // Typically, the connection string should have the entity path in it, but this simple scenario
-                // uses the connection string from the namespace.
-                var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
+                // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
+                // we are using the connection string from the namespace.
+                var connectionStringBuilder = new EventHubsConnectionStringBuilder(EventHubConnectionString)
                 {
-                    EntityPath = EhEntityPath
+                    EntityPath = EventHubName
                 };
 
                 eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
@@ -206,4 +206,4 @@ Aşağıdaki bağlantılarda Event Hubs hakkında daha fazla bilgi edinebilirsin
 * [Olay Hub’ı oluşturma](event-hubs-create.md)
 * [Event Hubs ile ilgili SSS](event-hubs-faq.md)
 
-[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcore.png
+[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png

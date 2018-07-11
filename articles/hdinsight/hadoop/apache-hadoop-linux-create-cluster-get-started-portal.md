@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: nitinme
-ms.openlocfilehash: b9cf3ae3417b993cd721460484d6228daf7b283c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd803fed4bc6a25904b2ea00a5b21af606ad7153
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627356"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097905"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure HDInsight’ta Hadoop ve Hive’ı kullanmaya başlama
 
@@ -80,7 +80,7 @@ Bu bölümde, Azure portalını kullanarak HDInsight’ta Hadoop kümesi oluştu
     
     |Özellik  |Açıklama  |
     |---------|---------|
-    |**Birincil depolama türü**     | Bu makale için, **Azure depolama**’yı seçerek Azure Depolama Blobunu varsayılan depolama hesabı olarak kullanın. Varsayılan depolama alanı olarak Azure Data Lake Store’u da kullanabilirsiniz. |
+    |**Birincil depolama türü**     | Bu makale için, **Azure depolama**’yı seçerek Azure Depolama Blobunu varsayılan depolama hesabı olarak kullanın. Varsayılan depolama alanı olarak Azure Data Lake Storage’ı da kullanabilirsiniz. |
     |**Seçim yöntemi**     |  Bu makale için, **Aboneliklerim**’i seçerek Azure aboneliğinizdeki bir depolama hesabını kullanın. Diğer aboneliklerdeki depolama hesabını kullanmak için, **Erişim anahtarı**’nı seçin ve sonra o hesaba ilişkin erişim anahtarını sağlayın. |
     |**Yeni depolama hesabı oluşturma**     | Depolama hesabına bir ad verin.|
 
@@ -177,6 +177,7 @@ Bu öğreticide, Kaynak Yöneticisi şablonu kullanarak Linux tabanlı bir HDIns
 Kendi verilerinizle çalışmaya başlamaya hazırsanız ve HDInsight’ın verileri nasıl depoladı veya verileri HDInsight’a alma hakkında daha fazla bilgi edinmek istiyorsanız, aşağıdaki makalelere bakın:
 
 * HDInsight’ın Azure Depolama’yı nasıl kullandığı hakkında daha fazla bilgi için bkz. [HDInsight ile Azure Depolama kullanma](../hdinsight-hadoop-use-blob-storage.md).
+* Data Lake Storage ile HDInsight kümesi oluşturma hakkında bilgi için bkz. [Hızlı başlangıç: HDInsight'ta kümeleri ayarlama](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * HDInsight’a veril yükleme hakkında daha fazla bilgi için bkz. [Verileri HDInsight’a yükleme](../hdinsight-upload-data.md).
 
 HDInsight ile veri çözümleme hakkında daha fazla bilgi için aşağıdaki makalelere bakın:

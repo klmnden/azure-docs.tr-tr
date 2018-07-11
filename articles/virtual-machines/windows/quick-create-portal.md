@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c28686c3b6494a0cf8938d39ab9b8338de7aa0c1
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: d5f44c634b953194ad4f112722d82f282d8c8f1a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012589"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444620"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalda Windows sanal makinesi oluşturma
 
@@ -29,7 +29,7 @@ Azure sanal makineleri (VM’ler), Azure portalı üzerinden oluşturulabilir. B
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 https://portal.azure.com adresinden Azure portalında oturum açın.
 
@@ -43,13 +43,13 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 
     ![Portal dikey penceresinde VM’niz ile ilgili temel bilgileri girin](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
 
-5. **Yeni oluştur**’u seçerek yeni bir kaynak grubu oluşturun ve ardından *myResourceGroup* gibi bir ad girin. İstediğiniz **Konum**’u ve ardından **Tamam**’ı seçin.
+5. **Yeni oluştur**’u seçerek yeni bir kaynak grubu oluşturun ve ardından *myResourceGroup* gibi bir ad girin. **Konum**’u ve ardından **Tamam**’ı seçin.
 
-4. VM için bir boyut seçin. Örneğin, *İşlem türü* veya *Disk türü*’ne göre filtreleyebilirsiniz. Önerilen VM boyutu: *D2s_v3*.
+4. VM için bir boyut seçin. Örneğin, *İşlem türü* veya *Disk türü*’ne göre filtreleyebilirsiniz. Önerilen VM boyutu: *D2s_v3*. Boyut belirledikten sonra **Seç**'e tıklayın.
 
     ![VM boyutlarını gösteren ekran görüntüsü](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
 
-5. **Ayarlar** altında, varsayılan ayarları olduğu gibi bırakın ve **Tamam**’ı seçin.
+5. **Ayarlar** sayfasının **Ağ** > **Ağ Güvenlik Grubu** > **Ortak gelen bağlantı noktası seçin** bölümündeki açılan menüden **HTTP** ve **RDP (3389)** seçimlerini yapın. Diğer varsayılan ayarları olduğu gibi bırakın ve **Tamam**’ı seçin.
 
 6. Özet sayfasında **Oluştur**’u seçerek sanal makine dağıtımını başlatın.
 
@@ -69,9 +69,9 @@ Sanal makine ile bir uzak masaüstü bağlantısı oluşturun. Bu yönergeler VM
 
 3. **Windows Güvenliği** penceresinde **Diğer seçenekler**'i ve ardından **Başka bir hesap kullanın**'ı seçin. Kullanıcı adını *vmname*\*username* olarak yazın, sanal makine için oluşturduğunuz parolayı girin ve ardından **Tamam**’a tıklayın.
 
-4. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Bağlantıya devam etmek için **Evet** veya **Devam**’a tıklayın.
+4. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Bağlantıyı oluşturmak için **Evet** veya **Devam**’a tıklayın.
 
-## <a name="install-web-server"></a>Web sunucusunu yükleme
+## <a name="install-web-server"></a>Web sunucusunu yükleyin
 
 Sanal makinenizin çalıştığını görmek için IIS web sunucusunu yükleyin. VM’de bir PowerShell istemi açın ve şu komutu çalıştırın:
 
@@ -81,24 +81,16 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 İşiniz bittiğinde, RDP’nin sanal makine bağlantısını kapatın.
 
-## <a name="open-port-80-for-web-traffic"></a>Web trafiği için 80 numaralı bağlantı noktasını açın
-
-Ağ Güvenlik Grubu (NSG), gelen ve giden trafiğin güvenliğini sağlar. Azure portalından bir VM oluşturulduğunda, RDP bağlantıları için 3389 numaralı bağlantı noktasında bir gelen kuralı oluşturulur. Bu VM bir web sunucusunu barındırdığından, 80 numaralı bağlantı noktası için bir NSG kuralının oluşturulması gerekir.
-
-1. VM genel bakış sayfasında **Ağ**’ı seçin.
-2. Mevcut gelen ve giden kuralların listesi gösterilir. **Gelen bağlantı noktası kuralını ekle**’yi seçin.
-3. Üst kısımda **Temel** seçeneğini ve ardından kullanılabilir hizmetler listesinden *HTTP*’yi belirleyin. Size 80 numaralı bağlantı noktası, bir öncelik ve ad sağlanır.
-4. Kuralı oluşturmak için **Ekle**’yi seçin.
 
 ## <a name="view-the-iis-welcome-page"></a>IIS karşılama sayfasını görüntüleme
 
-Sanal makinenizde İnternet’ten IIS yüklenmiş ve 80 numaralı bağlantı noktası açık olduğunda, varsayılan IIS karşılama sayfasını görüntülemek için tercih ettiğiniz bir web tarayıcısını kullanın. VM’nizin önceki bir adımda edinilen genel IP adresini kullanın. Aşağıdaki örnekte varsayılan IIS web sitesi gösterilir:
+Portalda VM'yi seçin ve VM özetinde IP adresinin sağ tarafındaki **Kopyalamak için tıklayın** düğmesini kullanarak adresi kopyalayın ve bir tarayıcı sekmesine yapıştırın. Varsayılan IIS karşılama sayfası açılır ve şu şekilde görünmelidir:
 
 ![Varsayılan IIS sitesi](./media/quick-create-powershell/default-iis-website.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olmadığında kaynak grubunu, sanal makineyi ve tüm ilişkili kaynakları silebilirsiniz. Bunu yapmak için, sanal makinenin kaynak grubunu ve **Sil**’i seçin, ardından silinecek kaynak grubunun adını onaylayın.
+Artık gerekli olmadığında kaynak grubunu, sanal makineyi ve tüm ilişkili kaynakları silebilirsiniz. Bunu yapmak için sanal makinenin kaynak grubunu ve **Sil**’i seçip silinecek kaynak grubunun adını onaylayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
