@@ -382,8 +382,8 @@
 ### [Azure AD Connect kullanarak şirket içi kimlikleri tümleştirme](./connect/active-directory-aadconnect.md)
 
 ## Kaynaklara temsilci erişimi
-### [Yönetici rolü üyelerini görüntüleme](users-groups-roles//directory-manage-roles-portal.md)
 ### [Yönetici rolleri](users-groups-roles/directory-assign-admin-roles.md)
+#### [Yönetici rolü üyelerini görüntüleme](users-groups-roles//directory-manage-roles-portal.md)
 #### [Kullanıcıya yönetici rolü atama](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Üye ve konuk kullanıcı izinlerini karşılaştırma](fundamentals/users-default-permissions.md)
 ### [Yönetici rolü güvenliği](users-groups-roles/directory-admin-roles-secure.md)  
