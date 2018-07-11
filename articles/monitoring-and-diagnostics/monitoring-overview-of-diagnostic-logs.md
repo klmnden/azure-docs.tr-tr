@@ -1,6 +1,6 @@
 ---
 title: Azure tanılama günlükleri'ne genel bakış
-description: Azure tanılama günlüklerini nelerdir ve bir Azure kaynağı içinde gerçekleşen olayların anlamak için bunları nasıl kullanacağınızı öğrenin.
+description: Azure tanılama günlükleri nelerdir ve bir Azure kaynağı içinde gerçekleşen olaylar anlamak için bunları nasıl kullanabileceğinizi öğrenin.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,53 +8,58 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: e361259bc5ce2dd946d3ea8bc1e69f743a40c6df
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a6435f74141429cbe4f9a169fd2f234161d486c4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264410"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918749"
 ---
-# <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma
+# <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplama ve Azure kaynaklarınızdan günlük verilerini kullanma
 
-## <a name="what-are-azure-resource-diagnostic-logs"></a>Azure kaynak tanılama günlüklerini nelerdir
+## <a name="what-are-azure-resource-diagnostic-logs"></a>Azure kaynak tanılama günlükleri nelerdir
 
-**Azure kaynak düzeyi tanılama günlüklerini** olan bir kaynak tarafından gösterilen günlükleri, o kaynak işlemi hakkında zengin, sık veriler sağlar. Bu günlükler içeriğini kaynak türüne göre değişir. Örneğin, ağ güvenlik grubu kural sayaçları ve anahtar kasası denetimleri kaynak günlükleri iki kategorisi vardır.
+**Azure kaynak düzeyinde tanılama günlükleri** olan bu kaynağın işlemiyle ilgili zengin, sık sık veri sağlayan bir kaynak tarafından günlüklerdir. Bu günlüklerin içeriği kaynak türüne göre değişir. Örneğin, ağ güvenliği Grup Kuralı sayaçları ve Key Vault denetimleri iki kaynak günlüklerinin kategorileridir.
 
-Kaynak düzeyi tanılama günlükleri farklı [etkinlik günlüğü](monitoring-overview-activity-logs.md). Etkinlik günlüğü kaynakları Kaynak Yöneticisi'ni kullanarak, örneğin, bir sanal makine oluşturma veya bir mantıksal uygulama silme gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlüğü bir abonelik düzeyi günlüğü bulunmaktadır. Kaynak düzeyi tanılama günlükleri, bu kaynak içinde kendisi, örneğin, gizli bir anahtar Kasası'nı alma gerçekleştirilen işlemler hakkında bilgi sağlar.
+Kaynak tanılama günlükleri tümünden [etkinlik günlüğü](monitoring-overview-activity-logs.md). Etkinlik günlüğü, Kaynak Yöneticisi'ni kullanarak, örneğin, bir sanal makine oluştururken veya bir mantıksal uygulama siliniyor, aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlüğünün abonelik düzeyinde günlüktür. Kaynak düzeyinde tanılama günlükleri, kaynağının içinde Örneğin, Key Vault'tan bir gizli dizi alma gerçekleştirilen işlemler hakkında bilgi sağlar.
 
-Kaynak düzeyi tanılama günlüklerini de konuk işletim sistemi düzeyinde tanılama günlükleri farklılık gösterir. Konuk işletim sistemi tanılama günlüklerini bu sanal makine içinde çalışan bir aracının tarafından toplanan veya diğer kaynak türü desteklenir. Konuk işletim sistemi düzeyinde tanılama günlüklerini işletim sistemi ve sanal makine üzerinde çalışan uygulamalardan veri yakalama işlemi sırasında kaynak düzeyi tanılama günlüklerini Azure platformu kendisini hiçbir aracı ve yakalama kaynak özgü veri gerektirir.
+Kaynak tanılama günlükleri de konuk işletim sistemi düzeyinde tanılama günlüklerinden farklıdır. Konuk işletim sistemi tanılama günlükleri, bu sanal makine içinde çalışan bir aracının tarafından toplanan veya diğer desteklenen kaynak türü ' dir. Konuk işletim sistemi düzeyinde tanılama günlükleri, işletim sistemi ve bir sanal makinede çalışan uygulamalardan veri yakalama işlemi sırasında kaynak düzeyinde tanılama günlükleri, Azure platformu kendisine hiçbir aracı ve yakalama kaynağa özgü veri gerektirir.
 
-Tüm kaynakları kaynak tanılama günlüklerini burada açıklanan yeni türünü desteklemez. Bu makale, hangi kaynak türlerinin yeni kaynak düzeyi tanılama günlüklerini destek listeleyen bir bölüm içerir.
+Tüm kaynaklar kaynak tanılama günlükleri burada açıklanan yeni türünü destekler. Bu makalede, hangi kaynak türlerinin destek yeni kaynak düzeyinde tanılama günlükleri listeleyen bir bölüm içerir.
 
-![Kaynağın tanılama günlükleri diğer türleri vs günlükleri ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
+![Kaynak tanılama günlükleri diğer türleri vs günlükleri ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
 
-## <a name="what-you-can-do-with-resource-level-diagnostic-logs"></a>Kaynak düzeyi tanılama günlükleri ile yapabilecekleriniz
-Kaynağın tanılama günlükleri ile yapabileceği şeylerden bazıları şunlardır:
+## <a name="what-you-can-do-with-resource-level-diagnostic-logs"></a>Kaynak tanılama günlükleri ile yapabilecekleriniz
+Kaynak tanılama günlükleri ile yapabileceklerinizden bazıları şunlardır:
 
-![Kaynağın tanılama günlüklerinin mantıksal yerleştirme](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
+![Mantıksal yerleşimini kaynak tanılama günlükleri](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
-* Bunları kaydetmek bir [ **depolama hesabı** ](monitoring-archive-diagnostic-logs.md) denetim veya el ile İnceleme için. Bekletme süresi (gün) kullanarak belirtebilirsiniz **kaynak tanılama ayarlarını**.
-* [Bunları akış **Event Hubs** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) bir üçüncü taraf hizmeti veya Powerbı gibi özel analiz çözümü tarafından alımı için.
-* Bunları ile analiz [günlük analizi](../log-analytics/log-analytics-azure-storage.md)
+* Kaydetmek için bir [ **depolama hesabı** ](monitoring-archive-diagnostic-logs.md) denetim veya el ile İnceleme. Bekletme süresi (gün cinsinden) kullanarak belirtebilirsiniz **kaynak tanılama ayarlarını**.
+* [Bunları Stream **Event Hubs** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) alımı üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
+* Bunları analiz [Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
-Bir depolama hesabı veya günlükleri yayma biri ile aynı abonelikte değil olay hub'ları ad alanı kullanabilirsiniz. Ayar yapılandıran kullanıcının uygun RBAC her iki aboneliğin erişiminiz olmalıdır.
+Günlükleri yayan biri ile aynı abonelikte değil Event Hubs ad alanı veya bir depolama hesabını kullanabilirsiniz. Ayarı yapılandıran kullanıcının her iki aboneliğin uygun RBAC erişiminiz olması gerekir.
 
 > [!NOTE]
->  Şu anda arşivleyemezsiniz verileri bir depolama hesabı, güvenli bir sanal ağ.
+>  Şu anda arşivlenemiyor verileri bir depolama hesabı, güvenli bir sanal ağda.
+
+> [!WARNING]
+> Depolama hesabı günlüğü verileri biçimi JSON satırlarına 1 Kasım 2018'de değişir. [Etki ve yeni biçime işlemek için araçlarınızı güncelleştirmek nasıl bir açıklaması için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 ## <a name="resource-diagnostic-settings"></a>Kaynak tanılama ayarları
 
-Kaynağın tanılama günlüklerini olmayan-kaynakları kaynak tanılama ayarları kullanılarak yapılandırılmış olan işlem. **Kaynak tanılama ayarlarını** kaynak denetimi için:
+Kaynak tanılama günlükleri için olmayan-kaynak tanılama ayarlarını kullanarak kaynakları yapılandırılmış işlem. **Kaynak tanılama ayarlarını** bir kaynak denetimi için:
 
-* Kaynağın tanılama günlüklerini ve ölçümleri (depolama hesabı, olay hub'ları ve/veya günlük analizi) gönderildiği.
-* Günlük kategorilerini gönderilir ve ölçüm verileri de gönderilip.
-* Her günlük kategori bir depolama hesabında ne kadar süre tutulacağını
-    - Sıfır gün bekletme günlükleri sonsuza kadar tutulur anlamına gelir. Aksi takdirde, değer 1 ile 2147483647 arasındaki gün herhangi bir sayıda olabilir.
-    - Bekletme ilkeleri ayarlanır, ancak yalnızca (örneğin, olay hub'ları veya günlük analizi seçenekler seçilidir) günlükleri bir depolama hesabında depolama devre dışı bırakıldı, bekletme ilkeleri bir etkisi yoktur.
-    - Bekletme ilkeleri uygulanan başına günlük, olduğundan, bir gün (UTC) dışında tutma sunulmuştur gün günlüklerinden sonunda İlkesi silinir. Örneğin, bir günlük bir Bekletme İlkesi nesneniz varsa, günün bugün başında dünden önceki gün günlüklerinden silinecek. Silme işlemi gece yarısı UTC ancak günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir Not başlar.
+* (Depolama hesabı, olay hub'ları ve/veya Log Analytics) burada kaynak tanılama günlükleri ve ölçümleri gönderilir.
+* Ölçüm verilerini de gönderilip ve hangi günlük kategorileri gönderilir.
+* Bir depolama hesabında günlük kategorileri ne kadar süre tutulacağını
+    - Bekletme günü sayısının sıfır günlükler süresiz olarak tutulur anlamına gelir. Aksi takdirde, değeri herhangi bir sayıda gün 1 ile 2147483647 arasında olabilir.
+    - Bekletme ilkeleri ayarlayın, ancak yalnızca (örneğin, Event Hubs veya Log Analytics seçeneği seçili) günlükleri bir depolama hesabında depolama devre dışı, bekletme ilkeleri bir etkisi yoktur.
+    - Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silindi. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar.
 
-Bu ayarlar Azure portalında bir kaynak için tanılama ayarları aracılığıyla, CLI komutları ve Azure PowerShell aracılığıyla veya aracılığıyla kolayca yapılandırılır [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+Bu ayarlar, kolayca Azure portalında bir kaynak için tanılama ayarları aracılığıyla, Azure PowerShell ve CLI komutları aracılığıyla veya aracılığıyla yapılandırılır [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 > [!NOTE]
 > Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
@@ -64,80 +69,80 @@ Bu ayarlar Azure portalında bir kaynak için tanılama ayarları aracılığıy
 >
 
 > [!WARNING]
-> Tanılama günlüklerini ve konuk işletim sistemi katmanından işlem kaynakları (örneğin, VM'ler veya Service Fabric) kullanım ölçümleri [yapılandırması ve çıkışları seçimi için ayrı bir mekanizma](../azure-diagnostics.md).
+> Tanılama günlükleri ve ölçümleri konuk işletim sistemi katmanından işlem kaynakları (örneğin, VM'ler veya Service Fabric) kullanım [yapılandırma ve çıktılar seçimi için ayrı bir mekanizma](../azure-diagnostics.md).
 
-## <a name="how-to-enable-collection-of-resource-diagnostic-logs"></a>Kaynağın tanılama günlüklerini koleksiyonunu etkinleştirme
+## <a name="how-to-enable-collection-of-resource-diagnostic-logs"></a>Kaynak tanılama günlükleri koleksiyonunu etkinleştirme
 
-Kaynağın tanılama günlüklerini koleksiyonunu etkinleştirilebilir [bir Resource Manager şablonunda kaynak oluştururken bir parçası olarak](./monitoring-enable-diagnostic-logs-using-template.md) veya bir kaynak Portalı'nda bu kaynağın sayfasından oluşturulduktan sonra. Azure PowerShell veya CLI komutları kullanarak ya da Azure İzleyici REST API'sini kullanarak herhangi bir noktada koleksiyonu de etkinleştirebilirsiniz.
+Kaynak tanılama günlükleri koleksiyonunu etkinleştirilebilir [bir kaynak bir Resource Manager şablonu oluşturma işleminin parçası olarak](./monitoring-enable-diagnostic-logs-using-template.md) veya o kaynağın sayfasından portalında bir kaynak oluşturulduktan sonra. Azure PowerShell veya CLI komutlarını kullanarak veya Azure İzleyici REST API'sini kullanarak herhangi bir noktada koleksiyonu da etkinleştirebilirsiniz.
 
 > [!TIP]
-> Bu yönergeleri doğrudan her kaynak için geçerli olmayabilir. Bazı kaynak türleri için geçerli olmayabilir özel adımlarını anlamak için bu sayfanın sonundaki şema bağlantılara bakın.
+> Bu yönergeler, doğrudan her kaynak için geçerli olmayabilir. Belirli kaynak türlerine uygulanabilir özel adımları anlamak için bu sayfanın alt kısmındaki şema bağlantılara bakın.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-in-the-portal"></a>Portaldaki kaynak tanılama günlükleri toplamayı etkinleştir
+### <a name="enable-collection-of-resource-diagnostic-logs-in-the-portal"></a>Portalda kaynak tanılama günlükleri koleksiyonunu etkinleştir
 
-Bir kaynak için belirli bir kaynak giderek ya da Azure İzleyicisi gezinme oluşturulduktan sonra kaynak tanılama günlüklerini Azure portalında koleksiyonunu etkinleştirebilirsiniz. Bu Azure izleyicisini etkinleştirmek için:
+Belirli bir kaynağa giderek veya Azure İzleyicisi'ne giderek bir kaynak oluşturulduktan sonra Azure portalında kaynak tanılama günlükleri koleksiyonunu etkinleştirebilirsiniz. Azure İzleyici aracılığıyla bunu etkinleştirmek için:
 
-1. İçinde [Azure portal](http://portal.azure.com), Azure izleyicisine gidin ve tıklayın **tanılama ayarları**
+1. İçinde [Azure portalında](http://portal.azure.com)Azure İzleyicisi'ne gidin ve tıklayarak **tanılama ayarları**
 
-    ![Azure İzleyicisi İzleme bölümü](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-blade.png)
+    ![Azure İzleyicisi İzleme](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-blade.png)
 
-2. İsteğe bağlı olarak kaynak grubu veya kaynak türü listeyi filtrelemek sonra tanılama ayarını ayarlamak istediğiniz kaynak'ı tıklatın.
+2. İsteğe bağlı olarak kaynak grubu veya kaynak türe göre listeyi filtreleyin ve kaynağın tanılama ayarını ayarlamak istediğiniz'i tıklatın.
 
-3. Hiçbir ayar kaynağı varsa, sizden istenir bir ayar oluşturmak için seçtiğiniz. "Tanılamayı açın."'i tıklatın
+3. Hiçbir ayar kaynağı varsa, istenen bir ayar oluşturmak için seçtiğiniz. "Tanılamayı Aç" tıklayın
 
-   ![Tanılama ayarını - ayar Ekle](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-none.png)
+   ![Tanılama ayarını - mevcut hiçbir ayar Ekle](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-none.png)
 
-   Kaynak üzerinde var olan ayarları varsa, bu kaynak üzerinde zaten yapılandırılmış ayarları listesini görürsünüz. "Tanılama ayarını Ekle" yi tıklatın.
+   Kaynakta mevcut ayarları varsa, bu kaynakta zaten yapılandırılmış ayarların bir listesini görürsünüz. "Tanılama ayarı Ekle" ye tıklayın
 
-   ![Tanılama ayarını ayarlar varolan - Ekle](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-multiple.png)
+   ![Tanılama ayarını - var olan ayarları Ekle](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-multiple.png)
 
-3. Ayar bir adı verin, veri göndermek ve hangi kaynak her hedefi için kullanılan yapılandırmak istediğiniz her hedef için kutuları işaretleyin. İsteğe bağlı olarak, bu günlükler kullanarak korumak için gün sayısını ayarlayın **bekletme (gün)** kaydırıcılar (yalnızca depolama hesabı hedef için geçerlidir). Sıfır gün bekletme günlükleri süresiz olarak depolar.
+3. Ayar bir adı verin, veri göndermek ve her hedef için hangi kaynağın kullanılacağını yapılandırmak istediğiniz her hedef için onay kutularını işaretleyin. İsteğe bağlı olarak, bu günlükleri kullanarak saklanacağı gün sayısını ayarlayın **bekletme (gün)** kaydırıcıları (yalnızca depolama hesabı hedef için geçerlidir). Bekletme günü sayısının sıfır günlükler süresiz olarak depolar.
 
-   ![Tanılama ayarını ayarlar varolan - Ekle](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-configure.png)
+   ![Tanılama ayarını - var olan ayarları Ekle](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-configure.png)
 
 4. **Kaydet**’e tıklayın.
 
-Birkaç dakika sonra yeni bir ayar bu kaynak için ayarları listesi görüntülenir ve yeni olay verilerini oluşturulan hemen tanılama günlüklerini belirtilen hedefe gönderilir.
+Birkaç dakika sonra yeni ayar, bu kaynak için ayarların listesi görüntülenir ve oluşturulan yeni olay verilerini hemen sonra tanılama günlüklerini belirtilen hedefe gönderilir.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>PowerShell aracılığıyla kaynak tanılama günlükleri toplamayı etkinleştir
+### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>Kaynak tanılama günlükleri PowerShell aracılığıyla koleksiyonunu etkinleştir
 
 Azure PowerShell aracılığıyla kaynak tanılama günlükleri toplamayı etkinleştirmek için aşağıdaki komutları kullanın:
 
-Tanılama günlüklerinin bir depolama hesabındaki depolama etkinleştirmek için bu komutu kullanın:
+Tanılama günlükleri bir depolama hesabında depolama etkinleştirmek için bu komutu kullanın:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
-Depolama hesabı kimliği günlükleri göndermek istediğiniz depolama hesabını kaynak kimliğidir.
+Depolama hesabı kimliği günlükleri göndermek istediğiniz depolama hesabı için kaynak kimliğidir.
 
-Bir olay hub'ına tanılama günlüklerini akışını etkinleştirmek için bu komutu kullanın:
+Olay hub'ına tanılama günlüklerinin akışını etkinleştirmek için bu komutu kullanın:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
-Hizmet veri yolu kural kimliği bu biçiminde bir dizedir: `{Service Bus resource ID}/authorizationrules/{key name}`.
+Service bus kural kimliği şu biçime sahip bir dizedir: `{Service Bus resource ID}/authorizationrules/{key name}`.
 
-Günlük analizi çalışma alanı için tanılama günlüklerinin gönderilmesine izin vermek için bu komutu kullanın:
+Tanılama günlüklerinin bir Log Analytics çalışma alanına gönderilmesine izin vermek için bu komutu kullanın:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
-Aşağıdaki komutu kullanarak, günlük analizi çalışma alanı kaynak Kimliğini elde edebilirsiniz:
+Aşağıdaki komutu kullanarak Log Analytics çalışma alanınızın kaynak kimliği elde edebilirsiniz:
 
 ```powershell
 (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 ```
 
-Birden çok çıktı seçenekleri etkinleştirmek için bu parametreler birleştirebilirsiniz.
+Birden çok çıkış seçeneği etkinleştirmek için şu parametreleri birleştirebilirsiniz.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Azure CLI 2.0 aracılığıyla kaynak tanılama günlükleri toplamayı etkinleştir
+### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Kaynak tanılama günlükleri, Azure CLI 2.0 aracılığıyla koleksiyonunu etkinleştir
 
-Azure CLI 2.0 aracılığıyla kaynak tanılama günlükleri toplamayı etkinleştirmek için kullandığınız [az İzleyici tanılama ayarlarını oluştur](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) komutu.
+Azure CLI 2.0 aracılığıyla kaynak tanılama günlükleri toplamayı etkinleştirmek için kullandığınız [az İzleyici diagnostic-settings oluşturma](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) komutu.
 
-Tanılama günlüklerinin bir depolama hesabındaki depolama etkinleştirmek için:
+Tanılama günlükleri bir depolama hesabında depolama etkinleştirmek için:
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -155,9 +160,9 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-`--resource-group` Bağımsız değişken, yalnızca gerekli olduğunda `--storage-account` bir nesne kimliği değil
+`--resource-group` Bağımsız değişken, yalnızca gerekli if `--storage-account` bir nesne kimliği değil.
 
-Bir olay hub'ına tanılama günlüklerini akışını etkinleştirmek için:
+Olay hub'ına tanılama günlüklerinin akışını etkinleştirmek için:
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -172,9 +177,9 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     ]'
 ```
 
-Kural Kimliği bu biçiminde bir dizedir: `{Service Bus resource ID}/authorizationrules/{key name}`.
+Kural Kimliği şu biçime sahip bir dizedir: `{Service Bus resource ID}/authorizationrules/{key name}`.
 
-Günlük analizi çalışma alanı için tanılama günlüklerini göndermeye etkinleştirmek için:
+Tanılama günlüklerinin bir Log Analytics çalışma alanına gönderme etkinleştirmek için:
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -189,34 +194,34 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     ]'
 ```
 
-`--resource-group` Bağımsız değişken, yalnızca gerekli olduğunda `--workspace` bir nesne kimliği değil
+`--resource-group` Bağımsız değişken, yalnızca gerekli if `--workspace` bir nesne kimliği değil
 
-Herhangi bir komutu ile ek kategoriler tanılama günlük olarak geçirilen JSON dizisine sözlükler ekleyerek ekleyebileceğiniz `--logs` parametresi. Birleştirebilirsiniz `--storage-account`, `--event-hub`, ve `--workspace` birden çok çıktı seçenekleri etkinleştirmek için parametreler.
+Herhangi bir komutu ile ek kategoriler için tanılama günlük olarak geçirilen JSON dizisi sözlükleri ekleyerek ekleyebileceğiniz `--logs` parametresi. Birleştirebilirsiniz `--storage-account`, `--event-hub`, ve `--workspace` birden çok çıkış seçeneği etkinleştirmek için parametreleri.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-rest-api"></a>REST API aracılığıyla kaynak tanılama günlükleri toplamayı etkinleştir
+### <a name="enable-collection-of-resource-diagnostic-logs-via-rest-api"></a>Kaynak tanılama günlükleri REST API aracılığıyla koleksiyonunu etkinleştir
 
-Azure İzleyici REST API'sini kullanarak tanılama ayarlarını değiştirmek için bkz: [bu belgeyi](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+Azure İzleyici REST API'sini kullanarak tanılama ayarlarını değiştirmek için bkz [bu belgeyi](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
-## <a name="manage-resource-diagnostic-settings-in-the-portal"></a>Portaldaki kaynak tanılama ayarlarını yönet
+## <a name="manage-resource-diagnostic-settings-in-the-portal"></a>Portalda kaynak tanılama ayarlarını yönetme
 
-Tüm kaynaklarınız tanılama ayarları ile ayarlandığından emin olun. Gidin **İzleyici** portal ve açık **tanılama ayarlarını**.
+Tüm kaynaklarınızı tanılama ayarlarını ayarlandığından emin olun. Gidin **İzleyici** portalı ve açık **tanılama ayarları**.
 
-![Tanılama günlüklerini dikey penceresinde portalı](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
+![Portalında tanılama günlükleri dikey penceresi](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-"Tüm hizmetleri" öğesine tıklamanız gerekebilir izleme bölümü bulunamıyor.
+"Tüm hizmetler" tıklamanız gerekebilir izleme bölümü bulunamıyor.
 
-Burada görebilirsiniz ve tanılaması etkin olup olmadığını görmek için tanılama ayarları destekleyen tüm kaynakları filtreleyin. Birden çok ayarları bir kaynak üzerinde ayarlanmış ve hangi depolama hesabı, olay hub'ları ad ve/veya veri akışının günlük analizi çalışma alanı denetleyin görmek için ayrıntıya inebilir.
+Burada görüntüleyebilir ve tanılaması etkin olup olmadığını görmek için tanılama ayarları destekleyen tüm kaynak filtreleyin. Ayarları birden çok kaynak üzerinde ayarlanmış olan ve hangi depolama hesabı, Event Hubs ad alanı ve/veya veri akışını Log Analytics çalışma alanını kontrol edin da görmek için detaya gidebilirsiniz.
 
-![Tanılama günlüklerini sonuçları portalında](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-blade.png)
+![Tanılama günlükleri sonuçlarını portalında](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-blade.png)
 
-Burada etkinleştir, devre dışı bırakmak veya seçilen kaynak için tanılama ayarlarınızı değiştirmek için tanılama ayarları görünümü oluşturan bir tanılama ayarı ekleme getirir.
+Tanılama ayarı ekleme nerede etkinleştirebilir, devre dışı bırakmak veya seçili kaynak için tanılama ayarlarınızı değiştirme tanılama ayarları görünümü getirir.
 
-## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Desteklenen hizmetler, kategoriler ve kaynak tanılama günlükleri için şemaları
+## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Desteklenen hizmetler, kategoriler ve şemalar kaynak tanılama günlükleri
 
-[Bu makaleye bakın](monitoring-diagnostic-logs-schema.md) desteklenen Hizmetleri ve günlük kategorileri ve bu hizmetler tarafından kullanılan şemalar tam bir listesi.
+[Bu makaleye bakın](monitoring-diagnostic-logs-schema.md) desteklenen hizmetler ve günlük kategorileri ve bu hizmetler tarafından kullanılan şemalar tam listesi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Akış kaynak tanılama günlüklerine **olay hub'ları**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Kaynak tanılama günlükleri için Stream **olay hub'ları**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Azure İzleyici REST API'sini kullanarak kaynak tanılama ayarlarını değiştirme](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Günlük analizi ile Azure depolama biriminden günlüklerini analiz edin](../log-analytics/log-analytics-azure-storage.md)
+* [Log Analytics ile Azure depolama biriminden günlüklerini çözümleme](../log-analytics/log-analytics-azure-storage.md)

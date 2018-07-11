@@ -8,16 +8,21 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 99f150b2c62331a63e5bd4377f51fd11359628ab
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a0146c0bf2b5a10f27cb59e32978aa6dff8f5982
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436037"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916335"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure tanılama günlüklerini arşivleme
 
 Bu makalede, biz arşivlemek için Azure portalı, PowerShell cmdlet'leri, CLI veya REST API'sini nasıl kullanabileceğinizi gösterir, [Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md) bir depolama hesabında. Bu seçenek, Denetim, statik analiz veya yedekleme için bir isteğe bağlı bekletme ilkesi ile tanılama günlüklerini tutmak istiyorsanız yararlıdır. Ayarı yapılandıran kullanıcının her iki abonelik için uygun RBAC erişimine sahip olduğu sürece, günlükleri yayan kaynak ile aynı abonelikte olması depolama hesabı yok.
+
+> [!WARNING]
+> Depolama hesabı günlüğü verileri biçimi JSON satırlarına 1 Kasım 2018'de değişir. [Etki ve yeni biçime işlemek için araçlarınızı güncelleştirmek nasıl bir açıklaması için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 ## <a name="prerequisites"></a>Önkoşullar
 

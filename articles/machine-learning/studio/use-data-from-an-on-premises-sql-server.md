@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning'de bir şirket içi SQL Server kullanmak | Microsoft Docs
-description: Azure Machine Learning ile gelişmiş analizler yapmak için şirket içi SQL Server veritabanından veri kullanın.
+description: Bir şirket içi SQL Server veritabanındaki verileri Azure Machine Learning ile Gelişmiş analiz gerçekleştirmek için kullanın.
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -15,23 +15,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: c3402c824b70d357b68e71ed7cb5783a7489b2b0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d9d9bfc6f8571ab30804d76b9ab9490b0d2e43c7
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837387"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37934734"
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Şirket içi SQL Server veritabanındaki verileri kullanarak Azure Machine Learning ile gelişmiş analiz gerçekleştirme
-
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Genellikle şirket içi verilerle çalışmak kuruluşların ölçeği ve bunların machine learning iş yükleri için bulut çevikliğini yararlanacak ister misiniz? Ancak, geçerli iş süreçlerini ve iş akışları buluta kendi şirket içi verileri taşıyarak kesintiye istemiyorum. Azure Machine Learning artık bir şirket içi SQL Server veritabanından veri okumak ve ardından eğitim ve bu verileri ile bir model Puanlama destekler. Artık bu el ile kopyalayın ve Bulut ve şirket içi sunucunuz arasında veri eşitlemek gerekmez. Bunun yerine, **veri içeri aktarma** modül Azure Machine Learning Studio'da şimdi okuyabilir, doğrudan, şirket içi SQL Server veritabanından kendi eğitim ve puanlama işleri için.
+Genellikle şirket içi verilerle çalışacak kuruluşların avantajı ölçek ve makine öğrenimi iş yükleri için bulutun çevikliğinden yapmak istiyorsunuz. Ancak, geçerli iş süreçleri ve iş akışları, şirket içi verileri buluta taşıyarak kesintiye istemiyorsanız. Azure Machine Learning artık bir şirket içi SQL Server veritabanından veri okumak ve ardından eğitim ve bu verilerle bir model Puanlama destekler. Artık bu el ile kopyalayın ve Bulut ve şirket içi sunucunuz arasında veri eşitlemeyi gerekmez. Bunun yerine, **verileri içeri aktarma** , eğitim ve puanlama işleri için modülü Azure Machine Learning Studio'da doğrudan, şirket içi SQL Server veritabanından artık bkz.
 
-Bu makalede nasıl giriş için bir genel bakış SQL server verilerini Azure Machine Learning içi sağlar. Çalışma alanları, modüller, veri kümeleri, denemeler, gibi Azure Machine Learning kavramlarını aşina varsayar *vb.*.
+Bu makalede nasıl giriş yapılır genel bir bakış SQL server verilerini Azure Machine Learning içine şirket sağlar. Çalışma alanları, modüller, veri kümeleri, denemeler, gibi Azure Machine Learning kavramlarını aşina varsayar *vb.*.
 
 > [!NOTE]
-> Bu özellik için ücretsiz çalışma alanı kullanılamıyor. Machine Learning fiyatlandırması ve katmanları hakkında daha fazla bilgi için bkz: [Azure Machine Learning fiyatlandırması](https://azure.microsoft.com/pricing/details/machine-learning/).
+> Bu özellik, ücretsiz çalışma alanları için kullanılamaz. Machine Learning fiyatlandırma ve katmanlar hakkında daha fazla bilgi için bkz: [Azure Machine Learning fiyatlandırması](https://azure.microsoft.com/pricing/details/machine-learning/).
 >
 >
 
@@ -39,114 +38,116 @@ Bu makalede nasıl giriş için bir genel bakış SQL server verilerini Azure Ma
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="install-the-microsoft-data-management-gateway"></a>Microsoft Veri Yönetimi ağ geçidi yükleyin
-Azure Machine Learning bir şirket içi SQL Server veritabanına erişmek için Microsoft Veri Yönetimi ağ geçidi yükleyip gerekir. Ağ geçidi bağlantısını Machine Learning Studio'da yapılandırdığınızda, indirmek ve ağ geçidini kullanarak yüklemek için olanağına sahip **karşıdan yükleme ve kaydetme veri ağ geçidi** aşağıda açıklanan iletişim.
+## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Data Factory şirket içinde barındırılan Integration Runtime'ı yükleme
+Azure Machine learning'de bir şirket içi SQL Server veritabanına erişmek için Data Factory şirket içinde barındırılan Integration önceki adıyla veri yönetimi ağ geçidi Runtime, karşıdan yüklenip kurulacak gerekir. Machine Learning Studio'da bağlantıyı yapılandırın, indirin ve Integration Runtime (IR) kullanarak yüklemek için fırsatına sahip **yükleme ve kayıt veri ağ geçidi** aşağıda açıklanan iletişim.
 
-İndirme ve MSI Kurulumu paketinden çalıştırarak veri yönetimi ağ geçidi önceden yükleyebilirsiniz [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717).
-32 bit veya 64-bit, bilgisayarınız için uygun şekilde seçerek en son sürümünü seçin. MSI, en son sürümü için mevcut bir veri yönetimi ağ geçidi korunan tüm ayarlarla yükseltmek için de kullanılabilir.
 
-Ağ geçidi aşağıdaki önkoşullar vardır:
+İndirip MSI Kurulumu paketinden çalıştıran önceden IR yükleyebilirsiniz [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). MSI, var olan bir IR korunur tüm ayarlarla en son sürüme yükseltmek için de kullanılabilir.
 
-* Desteklenen Windows işletim sistemi sürümleri, Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 ve Windows Server 2012 R2 ' dir.
-* Önerilen ağ geçidi makinesi için en az 2 GHz, 4 çekirdek, 8 GB RAM ve 80 GB disk yapılandırmadır.
-* Konak makine hazırda bekleme, ağ geçidi veri isteklerine yanıt vermiyor. Bu nedenle, ağ geçidi yüklemeden önce bilgisayarda uygun güç planı yapılandırın. Makine hazırda bekleme için yapılandırılmışsa, ağ geçidi yüklemesi bir ileti görüntüler.
-* Kopyalama etkinliği belirli bir sıklıkta oluştuğundan makinedeki kaynak kullanımı (CPU, bellek) de en yüksek ve boşta kalma süreleri ile aynı düzeni izler. Kaynak Kullanımı Yoğun bir şekilde de taşınan veri miktarına bağlıdır. Birden çok kopyası işleri devam ederken, kaynak kullanımı yoğun zamanlarda gidebilir girdiğini. Yukarıda listelenen en düşük yapılandırma teknik olarak yeterli olsa da, veri taşıma için belirli yük bağlı olarak en az yapılandırma daha fazla kaynak ile bir yapılandırmaya sahip isteyebilirsiniz.
+Data Factory şirket içinde barındırılan Integration Runtime, aşağıdaki önkoşulları vardır:
 
-Ayarlama işlemleri ve veri yönetimi ağ geçidi kullanırken aşağıdakileri göz önünde bulundurun:
+* Data Factory şirket içinde barındırılan Integration bir 64-bit işletim sistemi .NET Framework 4.6.1 veya üstü gerektirir.
+* Desteklenen Windows işletim sistemi sürümleri olan Windows 10, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. 
+* IR makine için önerilen yapılandırma, en az 2 GHz, 4 çekirdekli CPU, 8 GB RAM ve 80 GB disk ' dir.
+* Konak makine hazırda bekleme, IR veri isteklerine yanıt vermiyor. Bu nedenle, IR yüklemeden önce uygun bir güç planı bilgisayarda yapılandırma Makine hazırda bekleme için yapılandırılmışsa, IR yükleme bir ileti görüntüler.
+* Kopyalama etkinliği, belirli bir sıklıkta oluştuğundan, makine üzerinde kaynak kullanımı (CPU, bellek), ayrıca yoğun ve boş kalma sürelerinde ile aynı deseni izler. Kaynak Kullanımı Yoğun taşınan veri miktarı da bağlıdır. Birden çok kopyası işleri devam ederken, kaynak kullanımı yoğun zamanlarda Yukarı Git gözlemleyin. Yukarıda listelenen en düşük yapılandırmayı teknik olarak yeterli olsa da, en düşük yapılandırmayı veri taşıma için belirli yük bağlı olarak daha fazla kaynak ile bir yapılandırmaya sahip isteyebilirsiniz.
 
-* Veri Yönetimi ağ geçidi yalnızca bir örneği tek bir bilgisayara yükleyebilirsiniz.
-* Tek bir ağ geçidi birden çok şirket içi veri kaynakları için kullanabilirsiniz.
-* Birden çok ağ geçidi farklı bilgisayarlarda aynı şirket içi veri kaynağına bağlanabilir.
-* Aynı anda yalnızca bir çalışma alanı için bir ağ geçidi yapılandırın. Şu anda, ağ geçitleri çalışma alanları arasında paylaşılamaz.
-* Tek bir çalışma alanı için birden çok ağ geçidi yapılandırabilirsiniz. Örneğin, faaliyete geçirme için hazır olduğunuzda, geliştirme sırasında test veri kaynaklarına bağlı bir ağ geçidi ve bir üretim ağ geçidi kullanmak isteyebilirsiniz.
-* Ağ geçidi veri kaynağı ile aynı makinede olması gerekmez. Ancak veri kaynağına yakın kaldığını veri kaynağına bağlanmak ağ geçidi için süreyi azaltır. Şirket içi veri kaynağı kaynaklar için ağ geçidi ve veri kaynağı yok rekabet böylece barındıran olandan farklı bir makinede ağ geçidi yüklemenizi öneririz.
-* Ayrı bir ağ geçidi, Power BI veya Azure Data Factory senaryoları hizmet veren, bilgisayarınızda yüklü bir ağ geçidi zaten varsa, Azure Machine Learning için başka bir bilgisayara yükleyin.
+Ayarlama ve Data Factory şirket içinde barındırılan Integration Runtime'ı kullanırken aşağıdakileri göz önünde bulundurun:
+
+* IR yalnızca bir örneği, tek bir bilgisayara yükleyebilirsiniz.
+* Birden çok şirket içi veri kaynakları için tek bir IR kullanabilirsiniz.
+* Farklı bilgisayarlara birden fazla IRS aynı şirket içi veri kaynağına bağlanabilirsiniz.
+* Bir kerede yalnızca bir çalışma alanı için bir IRS yapılandırırsınız. Şu anda IRS çalışma alanları arasında paylaşılamaz.
+* Tek bir çalışma alanı için birden çok IRS yapılandırabilirsiniz. Örneğin, kullanıma hazır hale getirmeye hazır olduğunuzda, geliştirme ve IR üretim sırasında test veri kaynaklarınıza bağlı bir IR kullanmak isteyebilirsiniz.
+* IR veri kaynağı ile aynı makinede olması gerekmez. Ancak, veri kaynağına daha yakından kaldığını ağ geçidinin veri kaynağına bağlanmak süreyi azaltır. Kaynaklar için ağ geçidi ve veri kaynağı yoksa rekabet. böylece şirket içi veri kaynağı barındıran olandan farklı bir makineye IR yüklemenizi öneririz.
+* Power BI veya Azure Data Factory senaryoları hizmet yüklü bir IR zaten varsa, ayrı bir IR, Azure Machine Learning için başka bir bilgisayara yükleyin.
 
   > [!NOTE]
-  > Veri Yönetimi ağ geçidi ve Power BI Gateway aynı bilgisayar üzerinde çalıştırılamaz.
+  > Data Factory şirket içinde barındırılan Integration Runtime ve Power BI Gateway aynı bilgisayarda çalıştıramazsınız.
   >
   >
-* Diğer veri için Azure ExpressRoute kullanıyor olsa bile Azure Machine Learning için veri yönetimi ağ geçidi kullanmanız gerekir. (Bir güvenlik duvarının arkasında olan) bir şirket içi veri kaynağı olarak veri kaynağınız düşünmelisiniz bile ExpressRoute kullandığınızda. Machine Learning ile veri kaynağı arasında bağlantı kurmak için veri yönetimi ağ geçidi kullanın.
+* Diğer veri için Azure Expressroute'u kullanıyor olsanız bile, Data Factory şirket içinde barındırılan Integration Runtime Azure Machine Learning için kullanmanız gerekir. Veri kaynağı (bir güvenlik duvarının arkasında olan) bir şirket içi veri kaynağı olarak kabul etmelidir da ExpressRoute kullanırken. Data Factory şirket içinde barındırılan Integration Runtime, makine öğrenimi ve veri kaynağı arasında bağlantı kurmak için kullanın.
 
-Yükleme önkoşulları, yükleme adımlarını ve sorun giderme ipuçları hakkında ayrıntılı bilgi makalesinde bulabilirsiniz [veri yönetimi ağ geçidi](../../data-factory/v1/data-factory-data-management-gateway.md).
+Yükleme önkoşulları yükleme adımlarını ve sorun giderme ipuçları hakkında ayrıntılı bilgi makalesinde bulabilirsiniz [Data factory'de tümleştirme çalışma zamanı](../../data-factory/concepts-integration-runtime.md).
 
-## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-idtoc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Şirket içi SQL Server veritabanınıza Azure Machine Learning giriş verileri
-Bu kılavuzda, bir Azure Machine Learning çalışma alanında bir veri yönetimi ağ geçidi kurun ayarlama, yapılandırmak ve bir şirket içi SQL Server veritabanından veri okumak.
+## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-idtoc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Şirket içi SQL Server veritabanınızı Azure Machine Learning giriş verileri
+Bu kılavuzda, bir Azure Machine Learning çalışma alanında bir Azure Data Factory Integration Runtime ' ayarlama, yapılandırın ve ardından bir şirket içi SQL Server veritabanından verileri okuyamadı.
 
 > [!TIP]
-> Başlamadan önce tarayıcınızın açılır pencere engelleyicisi için devre dışı `studio.azureml.net`. Google Chrome tarayıcısı kullanıyorsanız, karşıdan yükleyip birkaç eklentiler Google Chrome WebStore kullanılabilir birini [kez tıklayın uygulama uzantısı](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
+> Başlamadan önce tarayıcınızın açılır pencere engelleyicisi için devre dışı `studio.azureml.net`. Google Chrome tarayıcı kullanıyorsanız, karşıdan yüklenip birkaç eklentileri Google Chrome WebStore kullanılabilir birini [kez tıklayın uygulaması uzantısı](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
 >
->
+> [!NOTE]
+> Azure Data Factory şirket içinde barındırılan Integration Runtime, daha önce veri yönetimi ağ geçidi biliniyordu. Adım adım öğretici için bir ağ geçidi olarak başvurmaya devam edecek.  
 
 ### <a name="step-1-create-a-gateway"></a>1. adım: bir ağ geçidi oluşturma
-İlk adım, oluşturmak ve şirket içi SQL veritabanına erişmek için ağ geçidi kurun ayarlamaktır.
+İlk adım, oluşturmak ve şirket içi SQL veritabanınıza erişmek için ağ geçidi ayarlama sağlamaktır.
 
 1. Oturum [Azure Machine Learning Studio](https://studio.azureml.net/Home/) ve çalışmak istediğiniz çalışma alanını seçin.
-2. Tıklatın **ayarları** dikey penceresinde soldaki ve ardından **DATA GATEWAYS** üst sekmesini.
-3. Tıklatın **yeni veri ağ geçidi** ekranın altındaki.
+2. Tıklayın **ayarları** dikey penceresinde soldaki ve ardından **veri ağ GEÇİTLERİ** en üstteki sekmedeki.
+3. Tıklayın **yeni DATA GATEWAY'e** ekranın alt kısmındaki.
 
     ![Yeni veri ağ geçidi](./media/use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
-4. İçinde **yeni veri ağ geçidi** iletişim kutusunda, girin **ağ geçidi adı** ve isteğe bağlı olarak ekleyin bir **açıklama**. Yapılandırma sonraki adıma gidin alt sağ köşesinde okuna tıklayın.
+4. İçinde **yeni veri ağ geçidi** iletişim kutusunda, girin **ağ geçidi adı** ve isteğe bağlı olarak bir **açıklama**. Alt sağ köşesinde yapılandırmasının sonraki adıma geçmek için oka tıklayın.
 
     ![Ağ geçidi ad ve açıklama girin](./media/use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
-5. Karşıdan yükleme ve kaydetme veri ağ geçidi iletişim kutusunda, ağ geçidi kayıt ANAHTARINI panoya kopyalayın.
+5. Yükleme ve kaydetme veri ağ geçidi iletişim kutusunda, ağ geçidi kayıt ANAHTARINI panoya kopyalayın.
 
-    ![Karşıdan yükle ve veri ağ geçidini kaydedin](./media/use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
-6. <span id="note-1" class="anchor"></span>Henüz indirdiğiniz ve Microsoft Veri Yönetimi ağ geçidi yüklü değilse, ardından **indirme veri yönetimi ağ geçidi**. Bu Microsoft Download geçirebileceğiniz indirir, ihtiyacınız olan ağ geçidi sürümü seçin ve yüklemeniz Center götürür. Makale başına bölümlerini yükleme önkoşulları, yükleme adımlarını ve sorun giderme ipuçları hakkında ayrıntılı bilgi bulabilirsiniz [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md) .
-7. Ağ geçidi yüklendikten sonra veri yönetimi ağ geçidi Yapılandırma Yöneticisi'ni açar ve **kayıt ağ geçidi** iletişim kutusu gösterilir. Yapıştır **ağ geçidi kayıt anahtarı** tıklatın ve Pano kopyalanan **kaydetmek**.
-8. Yüklü bir ağ geçidi zaten varsa, veri yönetimi ağ geçidi Yapılandırma Yöneticisi'ni çalıştırın. ' I tıklatın **anahtarı Değiştir**, Yapıştır **ağ geçidi kayıt anahtarı** panoya önceki adımda kopyaladığınız ve tıklatın **Tamam**.
-9. Yükleme tamamlandığında, **kayıt ağ geçidi** için Microsoft Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi iletişim kutusu gösterilir. Panoya bir önceki adımda kopyaladığınız ağ geçidi kayıt ANAHTARINI yapıştırın ve tıklatın **kaydetmek**.
+    ![İndirme ve veri ağ geçidini kaydetme](./media/use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
+6. <span id="note-1" class="anchor"></span>Henüz indirilir ve Microsoft Veri Yönetimi ağ geçidi yüklenir, ardından **indirme veri yönetimi ağ geçidi**. Bu Microsoft Download, indirin, ihtiyacınız olan ağ geçidi sürümü seçin ve yükleme Center götürür. Makale başına bölümlerini yükleme önkoşulları yükleme adımlarını ve sorun giderme ipuçları hakkında ayrıntılı bilgi bulabilirsiniz [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](../../data-factory/tutorial-hybrid-copy-portal.md) .
+7. Ağ geçidi yüklendikten sonra veri yönetimi ağ geçidi Yapılandırma Yöneticisi açılır ve **kayıt ağ geçidi** iletişim kutusu görüntülenir. Yapıştırma **ağ geçidi kayıt anahtarı** tıklatın ve Pano'ya kopyaladığınız **kaydetme**.
+8. Yüklü bir ağ geçidi zaten varsa, veri yönetimi ağ geçidi Yapılandırma Yöneticisi'ni çalıştırın. Tıklayın **değişiklik anahtarı**, Yapıştır **ağ geçidi kayıt anahtarı** önceki adımda panoya kopyalanır ve tıklayın **Tamam**.
+9. Yükleme tamamlandığında, **kayıt ağ geçidi** için Microsoft Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi iletişim kutusu görüntülenir. Panoya bir önceki adımda kopyaladığınız bir ağ geçidi kayıt ANAHTARINI yapıştırın ve tıklayın **kaydetme**.
 
-    ![Ağ geçidini kaydedin](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
+    ![Ağ geçidini kaydetme](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
 10. Aşağıdaki değerleri üzerinde ayarlandığında ağ geçidi Yapılandırma tamamlandıktan **giriş** sekmesini Microsoft Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi'nde:
 
     * **Ağ geçidi adı** ve **örnek adı** ağ geçidi adına ayarlayın.
     * **Kayıt** ayarlanır **kayıtlı**.
     * **Durum** ayarlanır **başlatıldı**.
-    * Alt görüntüler durum çubuğu **veri yönetimi ağ geçidi bulut Hizmeti'ne bağlanıldı** yeşil bir onay işareti yanı sıra.
+    * Durum çubuğu altındaki görüntüler **veri yönetimi ağ geçidi bulut hizmetine bağlanıldı** yeşil onay işaretiyle birlikte.
 
       ![Veri Yönetimi Ağ Geçidi Yöneticisi](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
 
-      Kayıt başarılı olduğunda azure Machine Learning Studio de güncelleştirilir.
+      Azure Machine Learning Studio, kayıt başarılı olduğunda da güncelleştirilir.
 
-    ![Ağ geçidi kaydı başarılı](./media/use-data-from-an-on-premises-sql-server/gateway-registered.png)
-11. İçinde **indirin ve veri ağ geçidini kaydetmek** iletişim kutusunda, Kurulumu tamamlamak için onay işaretine tıklayın. **Ayarları** sayfasında "Çevrimiçi" olarak ağ geçidi durumunu gösterir. Sağ taraftaki bölmede, durumunu ve diğer yararlı bilgiler bulabilirsiniz.
+    ![Başarılı ağ geçidi kaydı](./media/use-data-from-an-on-premises-sql-server/gateway-registered.png)
+11. İçinde **indirin ve veri ağ geçidini kaydetme** iletişim kutusunda Kurulumu tamamlamak için onay işaretine tıklayın. **Ayarları** sayfasında "Çevrimiçi" olarak ağ geçidi durumunu gösterir. Sağ bölmede, durumunu ve diğer yararlı bilgiler bulabilirsiniz.
 
     ![Ağ Geçidi ayarları](./media/use-data-from-an-on-premises-sql-server/gateway-status.png)
-12. Microsoft Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi'nde geçin **sertifika** sekmesi. Bu sekmede belirtilen sertifika kimlik bilgilerini Portalı'nda belirttiğiniz şirket içi veri depolama için şifreleme/şifre çözme için kullanılır. Bu sertifika, varsayılan sertifika yok. Microsoft, bu sertifika yönetim sisteminiz yedeklemek kullanarak kendi sertifikanızı değiştirme önerir. Tıklatın **değişiklik** kullanarak kendi sertifikanızı kullanmayı.
+12. Microsoft Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi'nde geçin **sertifika** sekmesi. Bu sekmede belirtilen sertifika Portalı'nda belirttiğiniz şirket içi veri deposu için kimlik bilgilerini şifreleme/şifre çözme için kullanılır. Bu sertifika, varsayılan sertifikadır. Microsoft, bu sertifika yönetimi sisteminizde yedeklemeniz kendi sertifikanızı değiştirerek önerir. Tıklayın **değişiklik** kendi sertifikanızı yerine kullanılacak.
 
-    ![Değişiklik ağ geçidi sertifikası](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-certificate.png)
-13. (isteğe bağlı) Microsoft Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi'nde ağ geçidi ile ilgili sorunları gidermek için ayrıntılı günlük kaydını etkinleştirmek istiyorsanız, geçiş için **tanılama** sekmesinde ve denetleme **ayrıntılı etkinleştir sorun giderme amacıyla günlüğü** seçeneği. Günlük bilgilerini Windows Olay Görüntüleyicisi'ni altında bulunabilir **uygulama ve hizmet günlükleri**  - &gt; **veri yönetimi ağ geçidi** düğümü. Aynı zamanda **tanılama** sekmesinde ağ geçidini kullanarak şirket içi veri kaynağına bağlantıyı sınayın.
+    ![Ağ geçidi sertifikayı Değiştir](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-certificate.png)
+13. (isteğe bağlı) Microsoft Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi'nde ağ geçidi ile ilgili sorunları gidermek için ayrıntılı günlük kaydını etkinleştirmek istiyorsanız geçin **tanılama** denetleyin ve sekme **ayrıntılı etkinleştir sorun giderme amacıyla günlük** seçeneği. Günlük bilgilerini Windows Olay Görüntüleyicisi'ni altında bulunabilir **uygulama ve hizmet günlükleri**  - &gt; **veri yönetimi ağ geçidi** düğümü. Ayrıca **tanılama** ağ geçidini kullanarak şirket içi veri kaynağına olan bağlantıyı sınamak için sekmesinde.
 
-    ![Ayrıntılı günlük kaydını etkinleştir](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
+    ![Ayrıntılı günlüğe yazmayı etkinleştir](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
 
-Bu, Azure Machine Learning ağ geçidi Kurulum işleminde tamamlar.
-Artık, şirket içi verilerinizi kullanmak hazırsınız.
+Bu, Azure Machine learning'de ağ geçidi Kurulum işlemi tamamlar.
+Artık, şirket içi verileri kullanmaya hazırsınız.
 
-Oluşturun ve her çalışma alanı için birden çok ağ geçidi Studio'da ayarlayın. Örneğin, geliştirme sırasında test veri kaynaklarına bağlanmak istediğiniz bir ağ geçidi faklı bir ağ geçidi olarak da üretim veri kaynaklarınız için sahip olabilir. Azure Machine Learning Şirket ortamınıza bağlı olarak birden çok ağ geçidi ayarlamak için esneklik sunar. Şu anda çalışma alanları arasında bir ağ geçidi paylaşamaz ve yalnızca bir ağ geçidi tek bir bilgisayara yüklenebilir. Daha fazla bilgi için bkz: [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md).
+Oluşturun ve her çalışma alanı için birden çok ağ geçidi Studio'da ayarlayın. Örneğin, geliştirme sırasında test veri kaynaklarınıza bağlanmak istediğiniz bir ağ geçidi farklı bir ağ geçidi olarak da, üretim veri kaynakları için sahip olabilir. Azure Machine Learning, birden çok ağ geçidi üzerinde Şirket ortamınıza bağlı olarak ayarlamak için esneklik sağlar. Şu anda çalışma alanları arasında bir ağ geçidi paylaşamaz ve yalnızca bir ağ geçidi tek bir bilgisayara yüklenebilir. Daha fazla bilgi için [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](../../data-factory/tutorial-hybrid-copy-portal.md).
 
-### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>2. adım: bir şirket içi veri kaynağından verileri okumak için ağ geçidi'ni kullanın.
-Ağ geçidi kurun ayarladıktan sonra ekleyebileceğiniz bir **veri içeri aktarma** şirket içi SQL Server veritabanındaki verileri girdi bir denemeyi modülü.
+### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>2. adım: ağ geçidini bir şirket içi veri kaynağından verileri okumak için kullanın.
+Ağ geçidini ayarlamadan ayarladıktan sonra ekleyebileceğiniz bir **verileri içeri aktarma** şirket içi SQL Server veritabanındaki verileri girdi bir denemeyi modülü.
 
-1. Machine Learning Studio'da seçin **DENEMELER** sekmesini tıklatın, **+ yeni** sol alt köşesinde ve seçin **boş deneme** (veya birkaç örnek birini seçin denemeler kullanılabilir).
-2. Bulma ve sürükleyin **veri içeri aktarma** modülünü deneme tuvaline.
-3. Tıklatın **Farklı Kaydet** tuvale aşağıda. "Azure Machine Learning şirket içi SQL Server Öğreticisi" deneme adını girin, çalışma alanını seçin ve tıklatın **Tamam** onay işareti.
+1. Machine Learning Studio'da seçin **DENEMELERİ** sekmesinde **+ yeni** seçin ve sol alt köşesinde **boş deneme** (veya birden çok örnek birini seçin denemeleri kullanılabilir).
+2. Bulun ve sürükleyin **verileri içeri aktarma** modülünü deneme tuvaline.
+3. Tıklayın **Kaydet** tuval aşağıda. "Azure Machine Learning şirket içi SQL Server Öğreticisi" deney adı girin, çalışma alanını seçin ve tıklayın **Tamam** işaretleyin.
 
-   ![Deneme Yeni adla kaydet](./media/use-data-from-an-on-premises-sql-server/experiment-save-as.png)
-4. ' I tıklatın **veri içeri aktarma** , daha sonra seçmek için Modülü **özellikleri** bölmesi tuvalin sağındaki Seç "Şirket içi SQL veritabanı" **veri kaynağı** açılır liste.
-5. Seçin **veri ağ geçidi** yüklü ve kayıtlı. Başka bir ağ geçidi kurun "(yeni veri ağ geçidi Ekle...)"'i seçerek ayarlayabilirsiniz.
+   ![Deneme yeni bir adla kaydet](./media/use-data-from-an-on-premises-sql-server/experiment-save-as.png)
+4. Tıklayın **verileri içeri aktarma** , ardından seçmek için modül **özellikleri** tuvalinin sağ bölmeye Seç "Şirket içi SQL veritabanı" **veri kaynağı** açılır liste.
+5. Seçin **veri ağ geçidi** yüklü ve kayıtlı. Başka bir ağ geçidi "(yeni bir veri ağ geçidi Ekle …)"'i seçerek ayarlayabilirsiniz.
 
-   ![Veri içeri aktarma modülü için veri ağ geçidi seçin](./media/use-data-from-an-on-premises-sql-server/import-data-select-on-premises-data-source.png)
-6. SQL girin **veritabanı sunucusu adı** ve **veritabanı adı**, SQL birlikte **veritabanı sorgusu** yürütmek istiyor.
-7. Tıklatın **değerleri girin** altında **kullanıcı adı ve parola** ve veritabanı kimlik bilgilerinizi girin. Windows tümleşik kimlik doğrulaması veya SQL Server şirket içi SQL Server'ınızdaki nasıl yapılandırıldığına bağlı olarak kimlik doğrulaması kullanabilirsiniz.
+   ![Verileri içeri aktarma modülü için veri ağ geçidi seçin](./media/use-data-from-an-on-premises-sql-server/import-data-select-on-premises-data-source.png)
+6. SQL girin **veritabanı sunucu adı** ve **veritabanı adı**, SQL birlikte **veritabanı sorgusu** yürütmek istediğiniz.
+7. Tıklayın **değerleri girin** altında **kullanıcı adı ve parola** ve veritabanı kimlik bilgilerinizi girin. Windows tümleşik kimlik doğrulaması veya SQL Server şirket içi SQL Server'ınızı nasıl yapılandırıldığına bağlı olarak kimlik doğrulaması kullanabilirsiniz.
 
-   ![Veritabanı kimlik bilgilerini girin](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
+   ![Veritabanı kimlik bilgileri girin](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
-   Yeşil onay işaretiyle "değerlerini Ayarla" iletisi "gerekli değerler" geçer. Veritabanı bilgileri veya parola değiştirilmediği sürece kimlik bilgilerini bir kez girmeniz yeterlidir. Azure Machine Learning bulutta kimlik bilgilerini şifrelemek için ağ geçidi yüklendiğinde, sağlanan sertifika kullanır. Azure hiçbir zaman şifreleme olmadan şirket içi kimlik bilgilerini depolar.
+   Yeşil onay işaretiyle birlikte "değerleri kümesi" ileti "gerekli değerleri" değişiklikler. Veritabanı bilgileri veya parola değiştirilmediği sürece kimlik bilgilerinin bir kere girmeniz yeterlidir. Azure Machine Learning, bulutta kimlik bilgilerini şifrelemek için ağ geçidini yüklerken sağladığınız sertifika kullanır. Azure, hiçbir zaman şifreleme olmadan şirket içi kimlik bilgilerini depolar.
 
    ![Veri modülü özelliklerini alma](./media/use-data-from-an-on-premises-sql-server/import-data-properties-entered.png)
-8. Tıklatın **çalıştırmak** denemeyi çalıştırmak için.
+8. Tıklayın **ÇALIŞTIRMA** denemeyi çalıştırmak için.
 
-Denemeyi çalıştırma tamamlandığında, çıkış bağlantı noktasına tıklayarak veritabanından alınan veri görselleştirebilirsiniz **veri içeri aktarma** modülü ve seçerek **Görselleştir**.
+Denemeyi çalıştırma tamamlandığında, çıkış bağlantı noktasına tıklayarak veritabanından alınan verileri görselleştirebilir miyim **verileri içeri aktarma** modülü ve seçerek **Görselleştir**.
 
-Denemenizi geliştirme tamamladıktan sonra dağıtın ve modelinizi faaliyete. Toplu yürütme hizmeti, şirket içi SQL Server verilerini kullanarak veritabanı yapılandırılan **veri içeri aktarma** modülü okuma ve puanlama için kullanılır. Puanlama veri şirket için istek yanıtı hizmeti kullanabilirsiniz, ancak Microsoft önerir kullanarak [Excel eklentisi](excel-add-in-for-web-services.md) yerine. Şu anda bir şirket içi SQL Server veritabanına yoluyla yazma **verileri dışa aktar** denemelerinizi içinde ya da desteklenen veya yayımlanmış web hizmetleri değil.
+Geliştirme deneyiminizi tamamladıktan sonra dağıtabilir ve modelinizi kullanıma hazır hale getirin. Toplu yürütme hizmeti, şirket içi SQL Server'dan veri kullanarak veritabanı yapılandırılan **verileri içeri aktarma** modülü okuyun ve puanlama için kullanılır. Microsoft Puanlama şirket içi verileri için istek yanıt hizmeti kullanabilirsiniz, ancak kullanılmasını önerir [Excel eklentisi](excel-add-in-for-web-services.md) yerine. Şu anda bir şirket içi SQL Server veritabanı yazma **verileri dışarı aktarma** denemelerinizi içinde ya da desteklenen veya yayımlanmış web hizmetleri değildir.

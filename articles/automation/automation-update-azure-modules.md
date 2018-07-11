@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f968bd75c7aee4ad390f9206bb1fa210e7fcd8ff
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 90aa19d690b1b4ab28c3a65a287a10aaf6a03ac6
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903158"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929041"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure automation'da Azure PowerShell modüllerini güncelleştirme
 
@@ -47,7 +47,7 @@ Modüller düzenli olarak ürün grubu tarafından güncelleştirildiğinden, de
 > [!NOTE]
 > Yeni bir zamanlanmış iş çalıştırıldığında azure Otomasyonu, Otomasyon hesabınızda en son modüllerini kullanır.    
 
-Bu Azure PowerShell modülleri cmdlet'leri, runbook'ları kullanırsanız, her ay bu güncelleştirme işlemini çalıştırmak için veya bu nedenle en son modülleri sahip olduğunuzdan emin olmak için istiyorsunuz.
+Bu Azure PowerShell modülleri cmdlet'leri, runbook'ları kullanırsanız, her ay bu güncelleştirme işlemini çalıştırmak için veya bu nedenle en son modülleri sahip olduğunuzdan emin olmak için istiyorsunuz. Azure Otomasyonu kullanır, hizmet sorumlusu süresi doldu veya abonelik düzeyi, modül güncelleştirme artık modülleri güncelleştirirken kimliğini doğrulamak için AzureRunAsConnection bağlantısı başarısız olur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

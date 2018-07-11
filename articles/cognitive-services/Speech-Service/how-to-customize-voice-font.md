@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 9f7fbcc804229de69c3c72fb33ae03c88af70145
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b9218600db8bd3e20528e61e411bb64c10dd9c84
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857506"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917644"
 ---
 # <a name="creating-custom-voice-fonts"></a>Özel ses tipi olarak oluşturma
 
@@ -51,9 +51,9 @@ Başlamaya hazırsınız!
 
 Ses dosyaları, tüm bu ses dosyalarını dökümleri içeren bir metin dosyası ile birlikte bir dizi Ses Eğitim veri kümesi oluşur.
 
-Bu dosyalar herhangi bir yönde hazırlayabilirsiniz: ya da bir betik yazabilir ve tarafından sesli talent, okuma veya herkese ses kullanın ve bunları konuşmaların metin olması. İkinci durumda, "um" ve diğer filler sesleri, atlar, mumbled sözcükleri veya mispronunciations gibi ses dosyalarını disfluencies düzenleyin.
+Bu dosyalar herhangi bir yönde hazırlayabilirsiniz: ya da bir betik yazabilir ve tarafından sesli talent, okuma veya herkese ses kullanın ve metin özelliği vardır. İkinci durumda, "um" ve diğer filler sesleri, atlar, mumbled sözcükleri veya mispronunciations gibi ses dosyalarını disfluencies düzenleyin.
 
-İyi ses tipi üretmek için kayıtları ile yüksek kaliteli bir mikrofon sessiz bir odada yapılır önemlidir. Tutarlı birim oranı, aralık ve konuşma ifadesel veren davranışların gibi konuşma harika bir dijital ses oluşturmak için gerekli. Üretim kullanımı için bir ses oluşturmak için profesyonel kaydı studio ve ses beceri kullanmanızı öneririz.
+İyi ses tipi üretmek için kayıtları ile yüksek kaliteli bir mikrofon sessiz bir odada yapılır önemlidir. Tutarlı birim oranı, aralık ve konuşma ifadesel veren davranışların gibi konuşma harika bir dijital ses oluşturmak için gerekli. Üretim kullanımı için bir ses oluşturmak için profesyonel kaydı studio ve ses beceri kullanmanızı öneririz. Daha fazla ayrıntı için [ses kaydetmek nasıl özel bir ses için örnekleri](record-custom-voice-samples.md).
 
 ### <a name="audio-files"></a>Ses dosyaları
 

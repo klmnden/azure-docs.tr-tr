@@ -3,7 +3,7 @@ title: Log Analytics için hizmet sağlayıcıları | Microsoft Docs
 description: Log Analytics, yönetilen hizmet sağlayıcılarına (msp), büyük kuruluşlar, bağımsız yazılım satıcılarına (ISV) yardımcı olabilir ve barındırma hizmeti sağlayıcılarına müşterinin şirket içi veya Bulut altyapı sunucularını izleme ve yönetme.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
+author: MeirMen
 manager: jochan
 editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/05/2018
 ms.author: meirm
 ms.component: na
-ms.openlocfilehash: 13f36f67e76b75176940a0f36121be30ba27d519
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: ad0a3b8e0ee5f1114ea1db95cfe2f4176b8e2ddb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340874"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931999"
 ---
-# <a name="log-analytics-features-for-service-providers"></a>Hizmet sağlayıcıları için log Analytics özellikleri
+# <a name="log-analytics-for-service-providers"></a>Hizmet sağlayıcıları için log Analytics
 Log Analytics, yönetilen hizmet sağlayıcılarına (msp), büyük kuruluşlar, bağımsız yazılım satıcılarına (ISV) ve müşterinin şirket içi veya Bulut altyapı sunucularını izleme ve yönetme barındırma hizmeti sağlayıcılarına yardımcı olabilir. 
 
 Büyük kuruluşlar özellikle yönetmekten sorumlu merkezi bir BT ekibiniz olduğunda bu benzer hizmet sağlayıcıları ile paylaşmak için birçok farklı iş birimleri BT. Kolaylık olması için bu belgede terimini kullanır. *hizmet sağlayıcısı* ancak aynı işlevselliği de kuruluşlar ve diğer müşteriler için kullanılabilir.
@@ -61,7 +61,8 @@ Bu mimari avantajları şunlardır:
 * Hizmet sağlayıcısı tüm müşteriler arasında analiz gerçekleştirebilirsiniz.
 
 Bu mimari dezavantajları şunlardır:
-* Müşteriler arasındaki verileri ayrı zor olacaktır. Bunu yapmak için en iyi yöntem, bilgisayarın etki alanı adı kullanmaktır.
+* Bu mimari yalnızca aracı tabanlı VM verileri için geçerlidir, PaaS, SaaS ve Azure fabric veri kaynakları kapsayan değil.
+* Tek bir çalışma alanına birleştirildiğinde müşteriler arasındaki verileri ayrı zor olabilir. Bunu yapmak için en iyi yöntem bilgisayarın tam etki alanı adı (FQDN) kullanmak veya Azure aboneliği kimliği kullanmaktır 
 * Tüm müşterilerden gelen tüm veriler tek bir fatura ve aynı saklama ve yapılandırma ayarları ile aynı bölgede depolanır.
 * Azure yapısı ve PaaS Hizmetleri kaynakla aynı kiracıda bu nedenle yönetim çalışma alanına günlükler gönderilemiyor olması için çalışma alanı gibi Azure tanılama ve Azure denetim gerektirir.
 * Tüm müşterilerden gelen tüm VM aracıları aynı çalışma alanı kimliği ve anahtarı kullanarak cental çalışma alanına doğrulanır. Belirli bir müşteri günlüklerinden diğer müşterilerin kesintiye uğratmadan engellemek için bir yöntem yoktur.

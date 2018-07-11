@@ -10,17 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: v-geberr
-ms.openlocfilehash: fe035c744e7cbc291fa392205239f331410412dc
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 45289b712a127e70636e225778d7a36578b34fa5
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866340"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931637"
 ---
 # <a name="prebuilt-domain-reference"></a>Önceden derlenmiş etki alanı başvurusu
 Bu başvuru, hakkında bilgi sağlar. [önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md), önceden oluşturulmuş koleksiyon hedefleri ve LUIS sunan varlıkların olduğu.
 
-[Özel etki alanları](create-new-app.md), aksine, hiçbir hedefleri ve modelleri başlayın. Herhangi bir önceden oluşturulmuş etki alanı hedefleri ve varlıklar için özel bir model ekleyebilirsiniz.
+[Özel etki alanları](luis-how-to-start-new-app.md), aksine, hiçbir hedefleri ve modelleri başlayın. Herhangi bir önceden oluşturulmuş etki alanı hedefleri ve varlıklar için özel bir model ekleyebilirsiniz.
 
 ## <a name="list-of-prebuilt-domains"></a>Önceden oluşturulmuş etki alanlarının listesi
 LUIS, 20 önceden oluşturulmuş etki alanı sunar. 
@@ -154,7 +154,7 @@ Etki alanı hedefleri ve filmler, müzik, oyunlar ve TV aramayla ilgili varlıkl
 | ContentRating | Medya, film derecelendirmesi G veya R gibi içerik.|Video çocuk.<br/>PG derecelendirilir.|
 | Tarzı | Film, oyun, uygulama veya şarkı Tarz.|Comedies<br/>Dramas<br/>Komik|
 | Anahtar sözcüğü| Bir genel arama anahtar sözcüğü bir öznitelik belirtmemeye daha belirli ortam yuvalarda yok.|Parçalar<br/>Ay Irmağı<br/>Amelia Earhart|
-| Dil | Medya, film derecelendirmesi G veya R gibi içerik.|Fransızca <br/>Türkçe<br/>Kore dili|
+| Dil | Ortamda, film veya şarkı konuşulan dili gibi kullanılan dil.|Fransızca <br/>Türkçe<br/>Kore dili|
 | MediaFormat | İçinde medya biçimlendirilmiş ek özel teknik türü.|HD filmler<br/>3B filmler<br/>İndirilebilir|
 | MediaSource | Depolama veya medya almak için Market.|Netflix<br/>Asal|
 | MediaSubTypes| Medya türleri filmler ve oyunlar küçük.|Tanıtımlar<br/>DLC<br/>Tanıtımları|

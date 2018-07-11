@@ -1,84 +1,84 @@
 ---
-title: Yeniden koruma başarısız oldu Azure Vm'leri üzerinde Azure Site Recovery Birincil Azure bölgesiyle dön | Microsoft Docs
-description: Azure Site Recovery kullanan bir birincil bölge'ndan yük devretme sonrasında Azure Vm'lerinin ikincil bir bölgede koruyun açıklar.
+title: Yeniden koruma başarısız Azure Vm'leri üzerinde Azure Site Recovery ile Birincil Azure bölgesine geri dön | Microsoft Docs
+description: Azure Site Recovery kullanarak birincil bir bölgeden yük devretme sonrasında Azure Vm'lerini ikincil bir bölgede yeniden korumak nasıl açıklar.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 6a57226f81e626e620033750c58d5998d8e7e894
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9759e209f15622d70aaa833a993234863ac1053c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716593"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918875"
 ---
-# <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Yeniden koruma birincil bölge Azure Vm'leri üzerinde başarısız oldu
+# <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Yeniden koruma birincil bölgeye Azure Vm'leri üzerinde başarısız oldu
 
 
-Olduğunda, [yük devri](site-recovery-failover.md) bir bölge başka bir kullanarak Azure VM'lerin [Azure Site Recovery](site-recovery-overview.md), korumasız bir durumda ikincil bölge içindeki VM'ler önyüklemesi. Başarısız birincil bölge VM'ler yedeklerseniz, aşağıdakileri yapmanız gerekir:
+Olduğunda, [yük devretme](site-recovery-failover.md) başka bir kullanarak Azure Vm'leri bir bölgeden [Azure Site Recovery](site-recovery-overview.md), VM'lerin önyükleme ikincil bölgede, korumasız bir durumda. Başarısız Vm'lere birincil bölgeye gönderir, aşağıdakileri yapmanız gerekir:
 
-- Böylece birincil bölge çoğaltmak başlatmaları ikincil bölge içindeki Vm'leri koruyun. 
-- Yükü tamamlandıktan ve sanal makineleri çoğaltmak sonra bunları üzerinden ikincil birincil bölge başarısız olabilir.
+- Böylece birincil bölgeye çoğaltmak başlatmaları ikincil bölgedeki Vm'leri yeniden koruyun. 
+- Yeniden koruma tamamlandıktan sonra Vm'leri çoğaltma yapıyorsanız, siz bunları ikincil birincil bölgeye devredebilir.
 
 > [!WARNING]
-> Seçtiğiniz varsa [geçirilen](migrate-overview.md#what-do-we-mean-by-migration) birincil makinelerden ikincil bölge VM başka bir kaynak grubuna taşınmış veya Azure VM silinmiş, VM koruyun veya geri dönecek değiştiremezsiniz.
+> Belirttiyseniz [geçişi](migrate-overview.md#what-do-we-mean-by-migration) birincil makinelerden ikincil bölgeye VM'yi başka bir kaynak grubuna taşındı veya Azure VM'yi silinmiş, VM yeniden koruma veya yeniden çalışma olamaz.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
-1. Birincil VM yük devretmeyi ikincil bölge için kaydedilmiş olmalıdır.
-2. Birincil hedef sitede kullanılabilir olması gerekir ve erişmek veya bu bölgede kaynak oluşturmak mümkün olması gerekir.
+1. Birincil VM yük devretme ikincil bölgeye kaydedilmiş olması gerekir.
+2. Birincil hedef siteye kullanılabilir olması gerekir ve erişmek veya bu bölgede kaynakları oluşturmak mümkün olması gerekir.
 
-## <a name="reprotect-a-vm"></a>Bir VM koruyun
+## <a name="reprotect-a-vm"></a>Bir VM'yi yeniden koruma
 
-1. İçinde **kasa** > **öğeleri çoğaltılan**başarısız VM üzerinde sağ tıklatın ve seçin **yeniden koruma**. Yükü yönü birincil ikincil gelen göstermesi gerekir. 
+1. İçinde **kasası** > **çoğaltılan öğeler**başarısız VM'ye sağ tıklayın ve seçin **yeniden koruma**. Yeniden koruma yönü, ikincil siteden göstermelidir. 
 
-  ![Koruyun](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+  ![Yeniden koruma](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
-2. Kaynak grubu, ağ, depolama ve kullanılabilirlik kümeleri gözden geçirin. Daha sonra, **Tamam**'a tıklayın. Yeni olarak işaretlenmiş tüm kaynakları varsa, bunlar yükü işleminin bir parçası oluşturulur.
-3. Yükü iş hedef sitenin en son verilerle çekirdeğini oluşturur. Bittikten sonra değişim çoğaltması gerçekleşir. Daha sonra birincil sitenin yerine çalıştırabilir. Sırasında kullanmak istediğiniz ağ koruyun, Özelleştir seçeneğini kullanarak veya depolama hesabı seçebilirsiniz.
+2. Kaynak grubu, ağ, depolama ve kullanılabilirlik kümeleri gözden geçirin. Daha sonra, **Tamam**'a tıklayın. Yeni olarak işaretli tüm kaynaklar varsa, bunlar yeniden koruma işleminin bir parçası oluşturulur.
+3. Yeniden koruma işi, hedef siteye en son verileri sağlar. Bittikten sonra değişim çoğaltması gerçekleşir. Daha sonra birincil sitenin devredebilir. Depolama hesabını seçebilir veya sırasında kullanmak istediğiniz ağ yeniden koruma, Özelleştir seçeneğini kullanarak.
 
   ![Seçenek özelleştirme](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
 ### <a name="customize-reprotect-settings"></a>Yeniden koruma ayarlarını özelleştirme
 
-Yükü sırasında hedef VMe aşağıdaki özelliklerini özelleştirebilirsiniz.
+Yeniden koruma sırasında ' % s'hedef VMe aşağıdaki özelliklerini özelleştirebilirsiniz.
 
 ![Özelleştirme](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
 |Özellik |Notlar  |
 |---------|---------|
-|Hedef kaynak grubu     | VM oluşturulacağı hedef kaynak grubu değiştirin. Yükü parçası olarak, hedef VM silinir. VM yük devretme sonrasında oluşturulacağı altında yeni bir kaynak grubu seçebilirsiniz.        |
-|Hedef sanal ağ     | Hedef ağ yeniden koruma işi sırasında değiştirilemez. Ağ değiştirmek için Ağ eşlemesi yineleyin.         |
-|Hedef depolama (ikincil VM yönetilen diskleri kullanmaz)     | VM yük devretme sonrasında kullandığı depolama hesabı değiştirebilirsiniz.         |
-|Çoğaltma (ikincil VM yönetilen diskler kullanan) diskleri yönetilen    | Site Recovery çoğaltma yönetilen diskleri ikincil sanal makinenin yönetilen diskleri yansıtmak üzere birincil bölgede oluşturur.         | 
-|Önbellek depolama     | Çoğaltma sırasında kullanılacak bir önbellek depolama hesabı belirtebilirsiniz. Varsayılan olarak, yeni bir önbellek depolama hesabı olan oluşturulabilir, yoksa.         |
-|Kullanılabilirlik Kümesi     |İkincil bölge VM'yi bir kullanılabilirlik kümesinin parçası ise, birincil bölgesinde bulunan hedef VM için ayarlanmış kullanılabilirlik seçebilirsiniz. Varsayılan olarak, Site Recovery birincil bölgede var olan kullanılabilirlik bulmayı dener ve bunu kullanın. Özelleştirme sırasında yeni bir kullanılabilirlik kümesi belirtebilirsiniz.         |
+|Hedef kaynak grubu     | Hedef kaynak grubu, sanal Makinenin oluşturulduğu değiştirin. Yeniden koruma bir parçası, hedef sanal makine silindi. Yük devretmeden sonra VM'ye oluşturulacağı altında yeni bir kaynak grubu seçebilirsiniz.        |
+|Hedef sanal ağ     | Hedef ağ yeniden koruma işi sırasında değiştirilemez. Ağ değiştirmek için ağ eşlemesini yineler.         |
+|Hedef depolama (ikincil VM'yi yönetilen disklere kullanmaz)     | Yük devretme sonrasında VM kullandığı depolama hesabı olarak değiştirebilirsiniz.         |
+|Yönetilen çoğaltma diskleri (ikincil VM'yi yönetilen disklere kullanır)    | Site Recovery, ikincil sanal makinenin yönetilen disklerini yansıtmak için birincil bölgede yönetilen çoğaltma diskleri oluşturur.         | 
+|Önbellek depolama     | Çoğaltma sırasında kullanılacak bir önbellek depolama hesabı belirtebilirsiniz. Varsayılan olarak, yeni bir önbellek depolama hesabı olması oluşturulur, yoksa.         |
+|Kullanılabilirlik Kümesi     |İkincil bölgedeki bir sanal makine bir kullanılabilirlik kümesinin parçasıysa, birincil bölgeye hedef sanal Makineyi bir kullanılabilirlik seçebilirsiniz. Varsayılan olarak, Site Recovery birincil bölgede mevcut kullanılabilirlik bulmaya çalışır ve bunu kullanın. Özelleştirme sırasında yeni bir kullanılabilirlik kümesi belirtebilirsiniz.         |
 
 
-### <a name="what-happens-during-reprotection"></a>Yükü sırasında ne olur?
+### <a name="what-happens-during-reprotection"></a>Yeniden koruma sırasında ne olacak?
 
 Varsayılan olarak, aşağıdakiler gerçekleşir:
 
 1. Birincil bölgede bir önbellek depolama hesabı oluşturulur
-2. Hedef depolama hesabı (birincil bölge içinde özgün depolama hesabı) yoksa, yeni bir tane oluşturulur. Atanan depolama hesabı adı "ile asr" sonekine ikincil VM tarafından kullanılan depolama hesabının adıdır.
-3. Çoğaltma, VM yönetilen diskleri kullanıyorsa, yönetilen diskleri ikincil VM diskleri çoğaltılan verileri depolamak için birincil bölge içinde oluşturulur. 
-4. Hedef kullanılabilirlik kümesi yoksa, yeni bir tane gerekliyse yeniden koruma işi bir parçası olarak oluşturulur. Yükü ayarları özelleştirdiyseniz, seçili kümesini kullanılır.
+2. Hedef depolama hesabı'nı (birincil bölgedeki özgün depolama hesabı) yoksa, yeni bir tane oluşturulur. Atanan depolama hesabı adı ile: "asr" sonekine ikincil VM tarafından kullanılan depolama hesabının adıdır.
+3. Sanal makinenizin yönetilen diskleri kullanıyorsa, yönetilen çoğaltma diskleri ikincil sanal makinenin diskleri çoğaltılan verileri depolamak için birincil bölgede oluşturulur. 
+4. Hedef kullanılabilirlik kümesi mevcut değilse yeni bir tane gerekirse yeniden koruma işini bir parçası olarak oluşturulur. Daha sonra yeniden koruma ayarları özelleştirdiyseniz, seçili kümesi kullanılır.
 
-Yeniden koruma işi ve VM var. hedef tetiklemek, aşağıdakiler gerçekleşir:
+Yeniden koruma işini ve VM var. hedef tetiklediğinizde aşağıdakiler gerçekleşir:
 
-1. Gerekli bileşenleri yeniden koruma bir parçası olarak oluşturulur. Zaten varsa, bunlar yeniden kullanılır.
-2. VM kapalıysa açık hedef tarafı çalıştığı.
-3. Hedef tarafı VM disk Site Recovery tarafından bir kapsayıcıya çekirdek blob olarak kopyalanır.
-4. Hedef tarafı VM sonra silinir.
-5. Çekirdek blob geçerli kaynağı tarafından kullanılan tarafı çoğaltmak için (ikincil) VM. Bu, yalnızca farkları çoğaltılır sağlar.
-6. Kaynak disk çekirdek blob arasındaki önemli değişiklikler eşitlenir. Bu işlemin tamamlanması biraz zaman alabilir.
-7. Yeniden koruma işi tamamlandıktan sonra değişim çoğaltması başlar ve çoğaltma ilkesi uygun olarak bir kurtarma noktası oluşturur.
-8. VM yeniden koruma işi başarılı olduktan sonra korumalı bir duruma girer.
+1. Gerekli bileşenleri yeniden koruma işleminin bir parçası olarak oluşturulur. Zaten varsa, bunlar yeniden kullanılır.
+2. VM kapalıysa açık olduğundan hedef tarafta, çalışıyor.
+3. Hedef tarafı VM disk, Site Recovery tarafından bir kapsayıcıya bir çekirdek blobu kopyalanır.
+4. Hedef tarafta VM ardından silinir.
+5. Geçerli kaynak tarafından kullanılan çekirdek blobu yan çoğaltma (ikincil) sanal makine. Bu, yalnızca deltaları çoğaltılır sağlar.
+6. Kaynak disk çekirdek blobu arasındaki önemli değişiklikler eşitlenir. Bu işlemin tamamlanması biraz zaman alabilir.
+7. Yeniden koruma işi tamamlandıktan sonra değişiklik çoğaltması başlar ve bir kurtarma noktası Çoğaltma İlkesi ayarlarına uygun olarak oluşturur.
+8. Yeniden koruma işini başarılı olduktan sonra VM'yi korumalı bir duruma girer.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-VM korunduktan sonra bir yük devretme işlemi başlatabilirsiniz. Yük devretme ikincil bölge VM'yi kapatır ve oluşturur ve bazı küçük kapalı kalma süresi ile birincil bölge içinde VM önyüklenir. Seçtiğiniz birer buna göre ve yük devretme sınamasını çalıştırmanızı öneririz, ancak birincil siteye tam bir yük devretme başlatılıyor. [Daha fazla bilgi edinin](site-recovery-failover.md) yük devretme hakkında.
+Sanal makine korunduktan sonra bir yük devretme başlatabilirsiniz. Yük devretme ikincil bölgedeki VM kapatır ve oluşturur ve bazı küçük kapalı kalma süresi ile birincil bölgedeki VM önyüklenir. Seçtiğiniz bir zaman uygun şekilde ve yük devretme testi çalıştırma öneririz ancak birincil siteye tam bir yük devretme başlatılıyor. [Daha fazla bilgi edinin](site-recovery-failover.md) yük devretme hakkında.
 

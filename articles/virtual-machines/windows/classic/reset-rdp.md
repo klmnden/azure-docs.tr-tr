@@ -1,9 +1,9 @@
 ---
-title: Parola veya uzak masaüstü yapılandırmasının Azure Windows VM üzerinde sıfırlama | Microsoft Docs
-description: Bir hesap parolası sıfırlama öğrenin veya bir Windows VM üzerinde Uzak Masaüstü Hizmetleri Azure portalında veya Azure PowerShell kullanarak Klasik dağıtım modeli kullanılarak oluşturulmuş.
+title: Azure'da Windows sanal makinesi üzerinde Uzak Masaüstü yapılandırması ve parola sıfırlama | Microsoft Docs
+description: Uzak Masaüstü Hizmetleri'yle azure'da bir Windows VM Azure portal veya Azure PowerShell kullanarak Klasik dağıtım modeli kullanılarak oluşturulmuş veya bir hesap parolası sıfırlama öğrenin.
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -14,62 +14,62 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: iainfou
-ms.openlocfilehash: 516cb740f9acad19dac77db0239341b42a2b27fe
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: bbe8059b3a239570c2c9b25586dae9adbe25312d
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30917658"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931387"
 ---
-# <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Uzak Masaüstü hizmetini veya Windows Klasik dağıtım modeli kullanılarak oluşturulan bir VM'de oturum açma parolasını sıfırlama
+# <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Uzak Masaüstü hizmetini veya Klasik dağıtım modeli kullanılarak oluşturulan bir Windows VM'de oturum açma parolasını sıfırlama
 > [!IMPORTANT]
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Ayrıca [Resource Manager dağıtım modeliyle oluşturulan VM'ler için bu adımları uygulamadan](../reset-rdp.md).
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Ayrıca [Resource Manager dağıtım modeliyle oluşturulan sanal makineler için bu adımları uygulamadan](../reset-rdp.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 
-Bir Windows sanal makine (VM) bağlanamıyorsanız, yerel yönetici parolasını sıfırlama veya Uzak Masaüstü hizmet yapılandırmasını sıfırlayın. Parola sıfırlama için Azure PowerShell'de Azure portalından veya VM erişim uzantısı kullanabilirsiniz.
+Bir Windows sanal makinesi (VM) bağlanamıyorsanız, yerel yönetici parolasını sıfırlayabilir ya da Uzak Masaüstü hizmet yapılandırmasını sıfırlayın. Parola sıfırlama için Azure PowerShell'de Azure portal'ı veya VM erişimi uzantısı kullanabilirsiniz.
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>Yapılandırma veya kimlik bilgilerini sıfırlama yolları
-Gereksinimlerinize bağlı olarak birkaç farklı şekilde, Uzak Masaüstü Hizmetleri ve kimlik bilgilerini sıfırlayabilirsiniz:
+Uzak Masaüstü Hizmetleri ve kimlik bilgilerini, gereksinimlerinize bağlı olarak birkaç farklı yolla sıfırlayabilir:
 
 - [Azure portalını kullanarak Sıfırla](#azure-portal)
 - [Azure PowerShell kullanarak Sıfırla](#vmaccess-extension-and-powershell)
 
 ## <a name="azure-portal"></a>Azure portalına
-Kullanabileceğiniz [Azure portal](https://portal.azure.com) Uzak Masaüstü hizmetini sıfırlanır. Portal menü genişletmek için sol üst köşedeki üç çubuklarında'ı tıklatın ve ardından **sanal makineleri (Klasik)**:
+Kullanabileceğiniz [Azure portalında](https://portal.azure.com) Uzak Masaüstü hizmetini sıfırlama. Portal menü genişletmek için sol üst köşedeki üç çubuğa tıklayın ve ardından **sanal makineler (Klasik)**:
 
-![Azure VM için Gözat](./media/reset-rdp/Portal-Select-Classic-VM.png)
+![Azure sanal Makineniz için Gözat](./media/reset-rdp/Portal-Select-Classic-VM.png)
 
-Windows sanal makineyi seçin ve ardından **uzaktan Sıfırla...** . Uzak Masaüstü yapılandırmasının sıfırlamak için aşağıdaki iletişim kutusu görüntülenir:
+Windows sanal makinenizi seçin ve ardından **uzaktan Sıfırla...** . Uzak Masaüstü yapılandırmasını sıfırlamak için aşağıdaki iletişim kutusu görüntülenir:
 
 ![Sıfırlama RDP yapılandırma sayfası](./media/reset-rdp/Portal-RDP-Reset-Windows.png)
 
-Kullanıcı adı ve parola yerel yönetici hesabının da sıfırlayabilirsiniz. Sanal makineden tıklatın **destek + sorun giderme** > **parola sıfırlama**. Parola sıfırlama dikey penceresinde görüntülenir:
+Ayrıca, kullanıcı adı ve yerel yönetici hesabının parolasını sıfırlayabilirsiniz. Sanal makineden tıklayın **destek + sorun giderme** > **parolayı Sıfırla**. Parola sıfırlama dikey penceresi görüntülenir:
 
 ![Parola sıfırlama sayfası](./media/reset-rdp/Portal-PW-Reset-Windows.png)
 
-Yeni bir kullanıcı adı ve parolanızı girdikten sonra tıklatın **kaydetmek**.
+Yeni kullanıcı adı ve parolanızı girdikten sonra tıklayın **Kaydet**.
 
-## <a name="vmaccess-extension-and-powershell"></a>VMAccess uzantısını ve PowerShell
-VM aracısının sanal makinede yüklü olduğundan emin olun. VMAccess uzantısını VM Aracısı kullanılabilir olduğu sürece, kullanmadan önce yüklü olması gerekmez. VM Aracısı zaten aşağıdaki komutu kullanarak yüklü olduğunu doğrulayın. ("MyCloudService" ve "myVM" bulut hizmetiniz ve, VM adlarıyla sırasıyla değiştirin. Çalıştırarak bu adları öğrenebilirsiniz `Get-AzureVM` hiçbir parametre olmadan.)
+## <a name="vmaccess-extension-and-powershell"></a>VMAccess uzantısı ile PowerShell
+VM Aracısı sanal makinede yüklü olduğundan emin olun. VMAccess uzantısını VM Aracısı kullanılabilir olduğu sürece, kullanabilmeniz için önce yüklü olması gerekmez. VM aracısı aşağıdaki komutu kullanarak zaten yüklendiğini doğrulayın. ("MyCloudService" ve "myVM" bulut hizmetinizin ve sanal makinenize adlarıyla sırasıyla değiştirin. Bu adlar çalıştırarak öğrenebilirsiniz `Get-AzureVM` hiçbir parametre olmadan.)
 
 ```powershell
 $vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-Varsa **write-host** komutu görüntüler **doğru**, VM aracısının yüklü olduğundan. Görüntüler, **False**, yönergeler ve karşıdan yükleme bağlantısı bkz [VM aracısı ve uzantılar - 2. parça](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure blog gönderisi.
+Varsa **write-host** komutunu görüntüler **True**, VM Aracısı yüklenir. Görüntüler, **False**, yönergeleri ve indirme bağlantısı [VM aracısı ve uzantıları - 2. bölüm](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure blog gönderisinden.
 
-Portalı kullanarak sanal makine oluşturduysanız denetleyin olup olmadığını `$vm.GetInstance().ProvisionGuestAgent` döndürür **doğru**. Aksi halde, bu komutu kullanarak ayarlayabilirsiniz:
+Portalı kullanarak sanal makine oluşturduğunuzda, denetleyin olmadığını `$vm.GetInstance().ProvisionGuestAgent` döndürür **True**. Aksi durumda, bu komutu kullanarak ayarlayabilirsiniz:
 
 ```powershell
 $vm.GetInstance().ProvisionGuestAgent = $true
 ```
 
-Çalıştırdığınız zaman bu komutu aşağıdaki hata engeller **kümesi AzureVMExtension** sonraki adımlarda komutu: "Sağlama Konuk Aracısı etkinleştirilmelidir VM nesnesinde Iaas VM erişim uzantısı ayarlamadan önce."
+Çalıştırdığınız zaman, bu komut şu hata engeller **kümesi AzureVMExtension** sonraki adımlarda komutu: "Sağlama Konuk Aracısı etkin olmalıdır VM nesnede Iaas VM erişimi uzantısı ayarlamadan önce."
 
-### <a name="reset-the-local-administrator-account-password"></a>**Yerel yönetici hesabı parolasını sıfırlama**
+### <a name="reset-the-local-administrator-account-password"></a>**Yerel yönetici hesabı parola sıfırlama**
 Geçerli yerel yönetici hesabı adı ve yeni bir parola ile oturum açma kimlik bilgileri oluşturun ve çalıştırın `Set-AzureVMAccessExtension` gibi.
 
 ```powershell
@@ -78,37 +78,37 @@ Set-AzureVMAccessExtension –vm $vm -UserName $cred.GetNetworkCredential().User
     -Password $cred.GetNetworkCredential().Password  | Update-AzureVM
 ```
 
-Geçerli hesabından farklı bir ad yazın, VMAccess uzantısını yerel yönetici hesabı yeniden adlandırır, o hesabı için parola atar ve Uzak Masaüstü oturumu kapatma sorunlarını. Yerel yönetici hesabı devre dışı bırakılırsa, VMAccess uzantısını etkinleştirir.
+Geçerli hesaptan farklı bir ad yazın, VMAccess uzantısı yerel yönetici hesabı yeniden adlandırır, o hesabı için parola atar ve Uzak Masaüstü oturumu kapatma sorunlarını. Yerel yönetici hesabı devre dışı bırakılırsa, bu VMAccess uzantısı sağlar.
 
 Bu komutlar da Uzak Masaüstü hizmet yapılandırmasını sıfırlayın.
 
-### <a name="reset-the-remote-desktop-service-configuration"></a>**Uzak Masaüstü hizmet yapılandırmasını sıfırlama**
+### <a name="reset-the-remote-desktop-service-configuration"></a>**Uzak Masaüstü hizmet yapılandırmasını Sıfırla**
 Uzak Masaüstü hizmet yapılandırmasını sıfırlamak için aşağıdaki komutu çalıştırın:
 
 ```powershell
 Set-AzureVMAccessExtension –vm $vm | Update-AzureVM
 ```
 
-VMAccess uzantısını sanal makinede iki komutu çalıştırır:
+VMAccess uzantısı, sanal makinede iki komutu çalıştırır:
 
 ```powershell
 netsh advfirewall firewall set rule group="Remote Desktop" new enable=Yes
 ```
 
-Bu komut 3389 numaralı TCP bağlantı noktasını kullanır gelen Uzak Masaüstü trafiğe izin veren yerleşik Windows Güvenlik Duvarı Grup etkinleştirir.
+Bu komut, kullandığı TCP bağlantı noktası 3389 gelen Uzak Masaüstü trafiğine izin veren yerleşik Windows Güvenlik Duvarı grubu sağlar.
 
 ```powershell
 Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
 ```
 
-Bu komut fDenyTSConnections Uzak Masaüstü bağlantıları etkinleştirme 0 için kayıt defteri değerini ayarlar.
+Bu komut, kayıt defteri değerini 0 olarak, Uzak Masaüstü bağlantıları etkinleştirme fDenyTSConnections ayarlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure VM erişim uzantısı yanıt vermiyor ve parola sıfırlamaya yoksa, şunları yapabilirsiniz [çevrimdışı yerel Windows parola sıfırlama](../reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Bu yöntem daha gelişmiş bir işlemdir ve başka bir VM için sanal sabit disk sorunlu VM bağlanmanızı gerektirir. Bu makalede ilk belgelenen adımları izleyin ve yalnızca son çare olarak çevrimdışı parola sıfırlama yöntemi deneyin.
+Azure VM erişimi uzantısı yanıt vermiyor ve parolanızı sıfırlayamıyoruz varsa [çevrimdışı yerel Windows parola sıfırlama](../reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Bu yöntem, daha gelişmiş bir işlemdir ve sorunlu sanal makinenin sanal sabit diski başka bir sanal makineye bağlanmanızı gerektirir. Bu makalede ilk belgelenen adımları izleyin ve yalnızca son çare olarak çevrimdışı parola sıfırlama yöntemi çalışır.
 
 [Azure VM uzantıları ve özellikleri](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[RDP veya SSH ile bir Azure sanal makineye bağlanmak](http://msdn.microsoft.com/library/azure/dn535788.aspx)
+[Bir Azure sanal makinesinde RDP veya SSH ile bağlanma](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
-[Windows tabanlı bir Azure sanal makine için Uzak Masaüstü bağlantı sorunlarını giderme](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Windows tabanlı bir Azure sanal makinesine Uzak Masaüstü bağlantılarında sorun giderme](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

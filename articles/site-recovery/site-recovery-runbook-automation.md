@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery kurtarma planlarında Azure Otomasyon çalışma kitabı ekleme | Microsoft Docs
-description: Azure Site Recovery kurtarma planları Azure otomasyonu kullanarak genişletme nasıl yardımcı olabileceğini öğrenin. Azure Kurtarma sırasında karmaşık görevleri tamamlamak öğrenin.
+title: Azure Otomasyonu runbook'ları, Azure Site Recovery kurtarma planlarında ekleyin | Microsoft Docs
+description: Azure Site Recovery kurtarma planları, Azure otomasyonu kullanarak genişletme nasıl yardımcı olabileceğini öğrenin. Azure'a Kurtarma sırasında karmaşık görevleri tamamlamak öğrenin.
 services: site-recovery
 documentationcenter: ''
 author: ruturaj
@@ -12,54 +12,54 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: a0a57e4a604a8cadedd5d715acf5f76a147da6d1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e9a1dfc6aa26246db5322a8f4491ab2a5bccfcf5
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896029"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917702"
 ---
-# <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Azure Otomasyon çalışma kitabı kurtarma planlara Ekle
-Bu makalede, Azure Site Recovery kurtarma planlarınızı genişletmek amacıyla Azure Automation ile nasıl tümleşik çalıştığını açıklar. Kurtarma planları korunan sanal makineleri kurtarma Site Recovery ile düzenleyebilirsiniz. Kurtarma planları hem ikincil bulutu için çoğaltma ve çoğaltma Azure için çalışır. Kurtarma planları de yardımcı kurtarma yapmak **tutarlı bir şekilde doğru**, **yinelenebilir**, ve **otomatik**. Vm'lerinizi Azure üzerinden başarısız olursa, Azure Automation tümleştirme kurtarma planlarınızı genişletir. Runbook'ları, ama güçlü bir otomatikleştirme görevleri teklif çalıştırmak için kullanabilirsiniz.
+# <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Kurtarma planlarına Azure Otomasyonu runbook'ları ekleme
+Bu makalede, Azure Site Recovery kurtarma planlarınızı genişletmek amacıyla Azure Otomasyonu ile nasıl tümleştirildiğini açıklar. Kurtarma planları, Site Recovery ile korunan Vm'leri kurtarma düzenleyebilirsiniz. Kurtarma planları, çoğaltma için ikincil bir Bulutu hem Azure'a çoğaltma için çalışır. Kurtarma planları da yardımcı olun kurtarma **tutarlı bir şekilde doğru**, **tekrarlanabilir**, ve **otomatik**. Azure Otomasyonu ile tümleştirme, sanal makinelerinizin azure'a yük devretme durumunda kurtarma planlarınızı genişletir. Güçlü otomasyon görevleri sunan runbook'ları çalıştırmak için kullanabilirsiniz.
 
-Azure Otomasyonu yeniyseniz, yapabilecekleriniz [kaydolun](https://azure.microsoft.com/services/automation/) ve [örnek komut dosyası yükleme](https://azure.microsoft.com/documentation/scripts/). Daha fazla bilgi için ve Azure Kurtarma kullanarak düzenlemek öğrenmek için [kurtarma planlarına](./site-recovery-create-recovery-plans.md), bkz: [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
+Azure Otomasyonu yeni sağlayıcıysanız şunu yapabilirsiniz [kaydolun](https://azure.microsoft.com/services/automation/) ve [örnek betikler indirme](https://azure.microsoft.com/documentation/scripts/). Daha fazla bilgi ve kullanarak azure'a kurtarma düzenleyin öğrenmek için [kurtarma planları](./site-recovery-create-recovery-plans.md), bkz: [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
 
-Bu makalede, nasıl Azure Otomasyon çalışma kitabı kurtarma planlarınızı tümleştirebilir açıklanmaktadır. Daha önce el ile müdahale gerekli temel görevleri otomatikleştirmek için örnekler kullanırız. Biz de çok adımlı kurtarma için bir tek tıklamalı kurtarma eylemi dönüştürmek açıklar.
+Bu makalede, Kurtarma planlarına Azure Otomasyonu runbook'ları nasıl tümleştirebilirsiniz açıklanmaktadır. Daha önce el ile müdahale gerekli temel görevleri otomatik hale getirmek için örneklerini kullanırız. Biz de çok adımlı kurtarma için tek tıklamayla çalışan kurtarma eylemi dönüştürme açıklanmaktadır.
 
-## <a name="customize-the-recovery-plan"></a>Kurtarma planı özelleştirme
-1. Git **Site Recovery** kurtarma planı kaynak dikey. Bu örnekte, iki VM, kurtarma için eklenene kurtarma planına sahip. Bir runbook eklemeye başlamak için tıklatın **Özelleştir** sekmesi.
+## <a name="customize-the-recovery-plan"></a>Kurtarma planını özelleştirin
+1. Git **Site Recovery** kurtarma planı kaynak dikey. Bu örnekte, kurtarma planı, kurtarma için eklenen iki VM var. Bir runbook eklemeye başlamak için tıklayın **Özelleştir** sekmesi.
 
-    ![Özelleştirme düğmesini tıklatın](media/site-recovery-runbook-automation-new/essentials-rp.png)
+    ![Özelleştirme düğmesine tıklayın](media/site-recovery-runbook-automation-new/essentials-rp.png)
 
 
-2. Sağ **Grup 1: Başlangıç**ve ardından **post eylem eklemek**.
+2. Sağ **Grup 1: Başlangıç**ve ardından **sonraki eylem Ekle**.
 
-    ![Sağ Grup 1: Başlatın ve sonrası eylemi ekleyin](media/site-recovery-runbook-automation-new/customize-rp.png)
+    ![Sağ tıklama Grup 1: Başlatın ve sonraki eylem Ekle](media/site-recovery-runbook-automation-new/customize-rp.png)
 
-3. Tıklatın **bir komut dosyası seçin**.
+3. Tıklayın **betik seçme**.
 
-4. Üzerinde **güncelleştirme eylem** dikey penceresinde, adı betik **Hello World**.
+4. Üzerinde **güncelleştirme eylemini** dikey penceresinde, adı komut **Hello World**.
 
-    ![Güncelleştirme eylem dikey penceresi](media/site-recovery-runbook-automation-new/update-rp.png)
+    ![Güncelleştirme eylemi dikey penceresi](media/site-recovery-runbook-automation-new/update-rp.png)
 
 5. Bir Otomasyon hesabı adı girin.
     >[!NOTE]
-    > Otomasyon hesabının Azure herhangi bir bölgede olabilir. Otomasyon hesabının Azure Site kurtarma kasası ile aynı abonelikte olması gerekir.
+    > Otomasyon hesabı, dilediğiniz Azure bölgesinde olabilir. Otomasyon hesabı, Azure Site Recovery kasası ile aynı abonelikte olmalıdır.
 
-6. Otomasyon hesabınızda bir runbook seçin. Bu runbook ilk grup kurtarma işleminden sonra kurtarma planı yürütülmesi sırasında çalışan komut dosyasıdır.
+6. Otomasyon hesabınızda, bir runbook seçin. Bu runbook ilk grubun kurtarma işleminden sonra kurtarma planı yürütülmesi sırasında çalışacak olan betiğe ' dir.
 
-7. Komut dosyasını kaydetmek için tıklatın **Tamam**. Komut dosyası eklenen **Grup 1: sonrası adımları**.
+7. Komut dosyası kaydetmek için tıklatın **Tamam**. Betik eklenir **Grup 1: sonraki adımlar**.
 
-    ![Eylem sonrası Grup 1:Start](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
+    ![Sonrası eylem grubu 1:Start](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 
 
-## <a name="considerations-for-adding-a-script"></a>Bir komut dosyası eklemek için dikkat edilecek noktalar
+## <a name="considerations-for-adding-a-script"></a>Bir komut dosyası eklemek için dikkat edilmesi gerekenler
 
-* Seçenekler için **bir adım silme** veya **betik güncelleştirme**, komut dosyasını sağ tıklatın.
-* Bir komut dosyası Azure üzerinde yük devretme sırasında bir şirket içi makineden Azure'a çalıştırabilirsiniz. Ayrıca Azure üzerinde bir birincil site komut dosyası kapatma önce olarak azure'dan şirket içi makineye sırasında çalıştırabilirsiniz.
-* Bir komut dosyası çalıştığında, bir kurtarma planı içeriği yerleştirir. Aşağıdaki örnek, bir bağlam değişkeni gösterir:
+* İçin Seçenekler **bir adım silme** veya **betiği Güncelleştir**, komut dosyasını sağ tıklayın.
+* Bir betiği Azure'da yük devretme sırasında bir şirket içi makine Azure'da çalıştırabilirsiniz. Bu da Azure üzerinde kapatın önce bir birincil siteyi komut olarak azure'dan şirket içi makineye sırasında çalıştırabilirsiniz.
+* Bir komut dosyası çalıştığında, bir kurtarma planı bağlam ekler. Aşağıdaki örnek, bir bağlam değişkeni gösterir:
 
     ```
             {"RecoveryPlanName":"hrweb-recovery",
@@ -87,33 +87,33 @@ Bu makalede, nasıl Azure Otomasyon çalışma kitabı kurtarma planlarınızı 
             }
     ```
 
-    Aşağıdaki tabloda, ad ve açıklama bağlamında her değişkenin listeler.
+    Aşağıdaki tabloda, adı ve içerik her bir değişken açıklaması listelenmektedir.
 
     | **Değişken adı** | **Açıklama** |
     | --- | --- |
-    | RecoveryPlanName |Çalıştırılan planın adı. Bu değişken, kurtarma planı adına göre farklı eylemleri yardımcı olur. Ayrıca komut dosyasını yeniden kullanabilirsiniz. |
+    | RecoveryPlanName |Çalıştırılan planın adı. Bu değişken kurtarma planı adına göre farklı eylemlerde yardımcı olur. Ayrıca, komut dosyasını yeniden kullanabilirsiniz. |
     | FailoverType |Yük devretme testi olup olmadığını belirtir, planlı veya plansız. |
     | FailoverDirection |Kurtarma için birincil veya ikincil bir siteye olup olmadığını belirtir. |
-    | GroupID |Plan çalıştırırken Grup numarası kurtarma planında tanımlar. |
-    | VmMap |Gruptaki tüm sanal makineleri bir dizi. |
+    | GroupID |Plan çalışırken Grup numarası kurtarma planında tanımlar. |
+    | VmMap |Gruptaki tüm VM'ler bir dizi. |
     | VMMap anahtarı |Her VM için benzersiz anahtar (GUID). Bu VM, Azure Virtual Machine Manager (VMM) Kimliğini uygunsa aynıdır. |
-    | SubscriptionId |VM oluşturulduğu Azure abonelik kimliği. |
-    | Rol adı |Kurtarılacak Azure VM adı. |
-    | CloudServiceName |VM oluşturulduğu Azure bulut hizmeti adı. |
-    | ResourceGroupName|VM oluşturulduğu Azure kaynak grubu adı. |
-    | RecoveryPointId|VM zaman kurtarılan için zaman damgası. |
+    | SubscriptionId |Sanal Makinenin oluşturulduğu Azure abonelik kimliği. |
+    | Rol adı |Kurtarılmakta olan Azure VM adı. |
+    | CloudServiceName |Sanal Makinenin oluşturulduğu Azure bulut hizmeti adı. |
+    | ResourceGroupName|Sanal Makinenin oluşturulduğu Azure kaynak grubu adı. |
+    | RecoveryPointId|VM, kurtarılır için zaman damgası. |
 
-* Otomasyon hesabı aşağıdaki modüller sahip olduğundan emin olun:
+* Otomasyon hesabı aşağıdaki modüller olduğundan emin olun:
     * AzureRM.profile
     * AzureRM.Resources
     * AzureRM.Automation
     * AzureRM.Network
     * AzureRM.Compute
 
-Tüm modüllerin uyumlu sürümlerini olmalıdır. Tüm modüllerin uyumlu olduğundan emin olmak için kolay bir yol tüm modülleri en son sürümlerini kullanmaktır.
+Tüm modüller, uyumlu sürümleri olmalıdır. Tüm modüller uyumlu olmasını sağlamak için kolay bir yol, tüm modülleri en son sürümlerine kullanmaktır.
 
-### <a name="access-all-vms-of-the-vmmap-in-a-loop"></a>Döngü VMMap tüm Vm'leri erişim
-Microsoft VMMap tüm VM'ler arasında döngü için aşağıdaki kodu kullanın:
+### <a name="access-all-vms-of-the-vmmap-in-a-loop"></a>Tüm sanal makinelerin bir döngüye VMMap erişim
+Microsoft VMMap tüm sanal makinelerde döngü gerçekleştirmek için aşağıdaki kodu kullanın:
 
 ```
 $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
@@ -131,17 +131,17 @@ $vmMap = $RecoveryPlanContext.VmMap
 ```
 
 > [!NOTE]
-> Komut dosyasını bir ön eylem önyükleme grubuna olduğunda kaynak grubu adı ve rol adı değeri boş. Yalnızca bu grubun VM yük devretme kümesinde başarılı olursa değerleri doldurulur. Komut dosyası, önyükleme grubunun sonrası bir işlemdir.
+> Kaynak grubu adı ve rol adı değerleri, betiği bir ön eylem önyükleme grubuna olduğunda boştur. Yalnızca bu grubun VM yük devretme başarılı olursa, değerler doldurulur. Betik, önyükleme grubunun sonrası bir işlemdir.
 
-## <a name="use-the-same-automation-runbook-in-multiple-recovery-plans"></a>Birden çok kurtarma planları aynı Otomasyon runbook'u kullanın
+## <a name="use-the-same-automation-runbook-in-multiple-recovery-plans"></a>Birden çok kurtarma planlarıyla, aynı Otomasyon runbook'u kullanın
 
-Dış değişkenler kullanarak birden çok kurtarma planları tek bir komut dosyası kullanabilirsiniz. Kullanabileceğiniz [Azure Otomasyon değişkenleri](../automation/automation-variables.md) depolamak için bir kurtarma planı yürütme geçirdiğiniz parametreler için. Kurtarma planı adı önek olarak değişkenine için ekleyerek, her kurtarma planı için bağımsız değişkenleri oluşturabilirsiniz. Ardından, değişkenleri olarak parametreler kullanın. Komut dosyası olmadan bir parametre değiştirmek, ancak hala komut dosyası çalışma biçimini değiştirme.
+Dış değişkenleri kullanarak birden çok kurtarma planlarıyla, tek bir komut dosyası kullanabilirsiniz. Kullanabileceğiniz [Azure Otomasyonu değişken](../automation/automation-variables.md) depolamak için bir kurtarma planı yürütme geçirdiğiniz parametreler için. Kurtarma planı adı ön eki olarak değişkenine eklediğinizde, her bir kurtarma planı için bağımsız değişkenler oluşturabilirsiniz. Ardından değişkenlerinin parametre olarak kullanın. Betik değiştirmeden bir parametreyi değiştirmek, ancak yine de betik çalışma biçimini değiştirmek.
 
-### <a name="use-a-simple-string-variable-in-a-runbook-script"></a>Basit bir dize değişkeni bir runbook komut dosyası kullanın
+### <a name="use-a-simple-string-variable-in-a-runbook-script"></a>Bir runbook betikte bir basit dize değişkeni kullanın
 
-Bu örnekte, bir komut dosyası bir ağ güvenlik grubu (NSG) girdi alır ve bir kurtarma planı VM'ler için geçerlidir.
+Bu örnekte, bir komut dosyası ' % s'Giriş bir ağ güvenlik grubu (NSG) alır ve bir kurtarma planı Vm'lere uygulanır.
 
-Hangi kurtarma algılamak için komut dosyası için plan çalıştığından, kurtarma planı bağlam kullanın:
+Kurtarma algılamak komut dosyası için plan çalıştığından, kurtarma planı bağlamı kullanın:
 
 ```
 workflow AddPublicIPAndNSG {
@@ -153,18 +153,18 @@ workflow AddPublicIPAndNSG {
     $RPName = $RecoveryPlanContext.RecoveryPlanName
 ```
 
-Varolan bir NSG'yi uygulamak için NSG adını ve NSG kaynak grubu adını bilmeniz gerekir. Bu değişkenler kurtarma planı komut için giriş olarak kullanın. Bunu yapmak için Otomasyon hesabı varlıkları iki değişken oluşturun. Değişken adı öneki olarak parametrelerini oluşturmakta olduğunuz kurtarma planının adı ekleyin.
+Mevcut bir nsg için NSG adı ve NSG kaynak grubu adını bilmeniz gerekir. Bu değişkenler, girdi olarak kurtarma planı betikler için kullanın. Bunu yapmak için Otomasyon hesabı varlıkları iki değişken oluşturun. Parametreler için bir değişken adının öneki olarak oluşturduğunuz kurtarma planının adı ekleyin.
 
-1. NSG adı depolamak için bir değişken oluşturun. Bir önek kurtarma planının adı kullanarak değişken adına ekleyin.
+1. NSG adı depolamak için bir değişken oluşturun. Bir önek, değişken adı kurtarma planının adını kullanarak ekleyin.
 
     ![Bir NSG adı değişkeni oluşturun](media/site-recovery-runbook-automation-new/var1.png)
 
-2. NSG'ın kaynak grubu adı depolamak için bir değişken oluşturun. Bir önek kurtarma planının adı kullanarak değişken adına ekleyin.
+2. NSG'ın kaynak grubu adı depolamak için bir değişken oluşturun. Bir önek, değişken adı kurtarma planının adını kullanarak ekleyin.
 
     ![Bir NSG kaynak grubu adı oluşturma](media/site-recovery-runbook-automation-new/var2.png)
 
 
-3.  Komut dosyasında aşağıdaki başvuru kodu değişken değerleri almak için kullanın:
+3.  Betikte, değişken değerlerini almak için aşağıdaki başvuru kodu kullanın:
 
     ```
     $NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
@@ -174,7 +174,7 @@ Varolan bir NSG'yi uygulamak için NSG adını ve NSG kaynak grubu adını bilme
     $RGnameVar = Get-AutomationVariable -Name $NSGRGValue
     ```
 
-4.  NSG başarısız üzerinden VM ağ arabirimine uygulamak için runbook değişkenlerde kullanın:
+4.  Runbook değişkenlerinde devredilen sanal makinenin ağ arabirimine NSG'yi uygulamak için kullanın:
 
     ```
     InlineScript {
@@ -189,14 +189,14 @@ Varolan bir NSG'yi uygulamak için NSG adını ve NSG kaynak grubu adını bilme
     }
     ```
 
-Her kurtarma planı için bağımsız değişkenleri oluşturun, böylece komut dosyasını yeniden kullanabilirsiniz. Kurtarma planı adı kullanarak bir önek ekleyin. Bir tam, uçtan uca komut dosyası için bu senaryo için bkz: [bir ortak IP NSG VM'ler için bir Site Recovery kurtarma planı test yük devretmesi sırasında ekleyip](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee).
+Komut dosyasını kullanabilirsiniz, böylece her bir kurtarma planı için bağımsız değişken oluşturun. Kurtarma planı adı kullanarak bir ön ek ekleyin. İçin tam, uçtan uca betik bu senaryo için bkz [bir genel IP ve NSG Vm'lere Site Recovery kurtarma planı test yük devretme sırasında ekleme](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee).
 
 
-### <a name="use-a-complex-variable-to-store-more-information"></a>Daha fazla bilgi depolamak için bir karmaşık değişkenini kullanın
+### <a name="use-a-complex-variable-to-store-more-information"></a>Daha fazla bilgi depolamak için bir karmaşık değişken kullanın
 
-Genel IP belirli vm'lerde etkinleştirmek için tek bir komut dosyası istediğiniz bir senaryo düşünün. Başka bir senaryoda, farklı sanal makineleri (değil, tüm VM'ler) üzerinde farklı Nsg'leri uygulamak isteyebilirsiniz. Herhangi bir kurtarma planı için yeniden kullanılabilir bir komut dosyası yapabilirsiniz. Her kurtarma planı VM'ler değişken sayıda olabilir. Örneğin, bir SharePoint kurtarma iki ön ucu vardır. Bir temel çizgi iş kolu (LOB) uygulaması yalnızca bir ön uç vardır. Her kurtarma planı için ayrı değişkenler oluşturamaz.
+Belirli sanal makineler üzerinde bir genel IP etkinleştirmek için tek bir komut dosyası istediğiniz bir senaryo düşünün. Başka bir senaryoda, farklı Vm'lere (değil, tüm sanal makineler) üzerinde farklı Nsg'ler uygulamak isteyebilirsiniz. Herhangi bir kurtarma planı için yeniden kullanılabilir bir betik yapabilirsiniz. Her bir kurtarma planı Vm'leri değişken bir sayı olabilir. Örneğin, bir SharePoint kurtarma iki ön ucu vardır. Bir temel çizgi iş kolu (LOB) uygulaması, yalnızca bir ön uç vardır. Her bir kurtarma planı için ayrı değişkenler oluşturamaz.
 
-Aşağıdaki örnekte, yeni bir teknik kullanır ve oluşturma bir [karmaşık değişkeni](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) Azure Otomasyon hesabı varlıkları içinde. Bunun için birden çok değer belirterek. Aşağıdaki adımları tamamlamak için Azure PowerShell kullanmanız gerekir:
+Aşağıdaki örnekte, size yeni bir teknik kullanın ve oluşturma bir [karmaşık değişkeni](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) Azure Otomasyonu hesabı varlıkları içinde. Birden çok değer belirterek bunu yapabilirsiniz. Aşağıdaki adımları tamamlamak için Azure PowerShell kullanmanız gerekir:
 
 1. PowerShell'de, Azure aboneliğinizde oturum açın:
 
@@ -206,24 +206,24 @@ Aşağıdaki örnekte, yeni bir teknik kullanır ve oluşturma bir [karmaşık d
     $sub | Select-AzureRmSubscription
     ```
 
-2. Parametreleri depolamak için kurtarma planının adı kullanarak karmaşık değişkeni oluşturun:
+2. Parametreleri depolamak için kurtarma planının adını kullanarak karmaşık değişkeni oluşturun:
 
     ```
     $VMDetails = @{"VMGUID"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"};"VMGUID2"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"}}
         New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
     ```
 
-3. Bu karmaşık değişkeninde **VMDetails** korumalı VM için VM kimliğidir. Azure portalında VM Kimliği almak için VM özelliklerini görüntüleyin. Aşağıdaki ekran görüntüsünde, iki VM ayrıntılarını depolayan bir değişken gösterir:
+3. Bu karmaşık değişkeninde **VMDetails** korumalı VM için VM kimliğidir. Azure portalında VM Kimliği almak için VM özelliklerini görüntüleyin. Aşağıdaki ekran görüntüsünde iki VM ayrıntılarını depolayan bir değişkeni gösterir:
 
-    ![VM kimliği GUID olarak kullanın](media/site-recovery-runbook-automation-new/vmguid.png)
+    ![VM kimliği bir GUID olarak kullanın](media/site-recovery-runbook-automation-new/vmguid.png)
 
-4. Runbook'unuzda bu değişkeni kullanın. Belirtilen VM GUID kurtarma planı bağlamda bulunursa, NSG VM Uygula:
+4. Runbook'unuza bu değişkeni kullanın. Belirtilen VM GUID'sine kurtarma planı bağlamda bulunursa, NSG VM üzerinde geçerlidir:
 
     ```
     $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
     ```
 
-4. Runbook'unuzda, kurtarma planı bağlam VM'ler döngü. VM var olup olmadığını denetleyin **$VMDetailsObj**. Varsa, erişim NSG'yi uygulamak için değişken özellikleri:
+4. Runbook'unuzda, kurtarma planı bağlamı VM'ler arasında döngü. Sanal Makinenin var olup olmadığını denetleyin **$VMDetailsObj**. Varsa, erişim NSG'yi uygulamak için değişkenin özellikleri:
 
     ```
         $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
@@ -243,24 +243,24 @@ Aşağıdaki örnekte, yeni bir teknik kullanır ve oluşturma bir [karmaşık d
         }
     ```
 
-Farklı bir kurtarma planları için aynı komut dosyasını kullanabilirsiniz. Bir kurtarma planı farklı değişkenlerine karşılık gelen değer depolayarak farklı parametreler girin.
+Farklı kurtarma planları için aynı betiği kullanabilirsiniz. Bir kurtarma planı farklı değişkenlerine karşılık gelen değer depolayarak farklı parametreler girin.
 
 ## <a name="sample-scripts"></a>Örnek komut dosyaları
 
-Automation hesabınız için örnek komut dosyaları dağıtmak için **Azure'a Dağıt** düğmesi.
+Otomasyon hesabınıza örnek betikler dağıtmak için **azure'a Dağıt** düğmesi.
 
 [![Azure’a dağıtma](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-Başka bir örnek için aşağıdaki videoya bakın. İki katmanlı WordPress uygulamayı azure'a kurtarmak nasıl gösterir:
+Başka bir örnek için aşağıdaki videoya bakın. Bu, iki katmanlı bir WordPress uygulaması azure'a kurtarma göstermektedir:
 
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
-* [Azure Otomasyon hizmeti farklı çalıştır hesabı](../automation/automation-create-runas-account.md)
-* [Azure Otomasyonu genel bakış](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Otomasyonu genel bakış")
-* [Azure Automation örnek betikler](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation örnek betikler")
+* [Azure Otomasyonu hizmeti Run As hesabı](../automation/automation-create-runas-account.md)
+* [Azure Otomasyonu'na genel bakış](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Otomasyonu'na genel bakış")
+* [Azure Otomasyonu örnek betikler](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Otomasyonu örnek betikler")
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Daha fazla bilgi edinin](site-recovery-failover.md) yük devretme işlemleri çalıştırma hakkında.

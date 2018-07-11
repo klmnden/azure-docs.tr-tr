@@ -1,6 +1,6 @@
 ---
-title: IPSec tünelleri yeniden kurmak için bir Azure VPN gateway sıfırlama | Microsoft Docs
-description: Bu makalede IPSec tünelleri kurulmaya Azure VPN Gateway'i sıfırlama adımları anlatılmaktadır. Makale VPN ağ geçitleri hem Klasik ve Resource Manager dağıtım modelleri için geçerlidir.
+title: IPSec tünelleri yeniden kurmak için bir Azure VPN Gateway'i sıfırlama | Microsoft Docs
+description: Bu makalede, IPSec tünelleri yeniden kurmak için Azure VPN Gateway'i sıfırlama adımları anlatılmaktadır. Makale VPN ağ geçitleri hem Klasik hem de Resource Manager dağıtım modelleri için geçerlidir.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: 693996595f1a1b963c96e5f59e72fe4c9ca80ff0
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: e61e41c41888d8d2ca65961dd5bea73fd9b6bd21
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753049"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927698"
 ---
 # <a name="reset-a-vpn-gateway"></a>VPN Gateway sıfırlama
 
-Bir veya daha fazla Siteden Siteye VPN tünelinde şirketler arası VPN bağlantısını kaybederseniz bir Azure VPN ağ geçidinin sıfırlanması yararlıdır. Bu durumda şirket içi VPN cihazlarınızın tümü düzgün çalışır, ancak Azure VPN ağ geçitleriyle IPsec tünelleri kuramaz. Bu makalede, VPN ağ geçidinizi sıfırlamanıza yardımcı olur.
+Bir veya daha fazla Siteden Siteye VPN tünelinde şirketler arası VPN bağlantısını kaybederseniz bir Azure VPN ağ geçidinin sıfırlanması yararlıdır. Bu durumda şirket içi VPN cihazlarınızın tümü düzgün çalışır, ancak Azure VPN ağ geçitleriyle IPsec tünelleri kuramaz. Bu makalede VPN gateway'inizi sıfırlama yardımcı olur.
 
-### <a name="what-happens-during-a-reset"></a>Sıfırlama sırasında ne olur?
+### <a name="what-happens-during-a-reset"></a>Sıfırlama sırasında ne olacak?
 
-Bir VPN ağ geçidi etkin bekleme yapılandırmasında çalışan iki VM örneğinden oluşur. Ağ geçidi sıfırladığınızda, ağ geçidi yeniden başlatılır ve ona şirketler arası yapılandırmalar yeniden uygular. Ağ geçidi, sahip olduğu genel IP adresini tutar. Bu durum VPN yönlendirici yapılandırmasını Azure VPN ağ geçidi için yeni bir ortak IP adresi ile güncelleştirmenizin gerekli olmadığı anlamına gelir.
+Bir VPN ağ geçidi bir etkin bekleme yapılandırmasında çalışan iki VM örneğinden oluşur. Ağ geçidini sıfırlama, ağ geçidini yeniden başlatır ve ardından şirketler arası yapılandırmalar yeniden uygular. Ağ geçidi, sahip olduğu genel IP adresini tutar. Bu durum VPN yönlendirici yapılandırmasını Azure VPN ağ geçidi için yeni bir ortak IP adresi ile güncelleştirmenizin gerekli olmadığı anlamına gelir.
 
-Ağ geçidi sıfırlamak için komutu verdiğinizde, Azure VPN ağ geçidi geçerli etkin örneği hemen yeniden. Bekleme örneğine etkin örnekten (yeniden başlatılan), yük devretme sırasında kısa bir boşluk olacaktır. Boşluk bir dakikadan az olmalıdır.
+Ağ geçidini sıfırlama komutu verdiğinizde, Azure VPN ağ geçidinin geçerli etkin örneği hemen yeniden. Bekleme örneğine etkin örnekten (yeniden başlatılan), yük devretme sırasında kısa bir boşluk olacaktır. Boşluk bir dakikadan az olmalıdır.
 
 İlk yeniden başlatma sonrasında bağlantı geri kazanılmazsa ikinci sanal makine örneğini (yeni etkin ağ geçidi) yeniden başlatmak için aynı komutu yeniden verin. Arka arkaya iki yeniden başlatma istenirse her iki sanal makine örneğinin (etkin ve bekleme) yeniden başlatılma süresi biraz daha uzun olur. Bu, sanal makinelerin yeniden başlatma işlemlerini tamamlaması için VPN bağlantısı üzerinde 2 ila 4 dakikaya varan daha uzun bir boşluğa neden olur.
 
-Şirketler arası bağlantı sorunları yaşamaya devam ediyorsanız, iki yeniden başlatma sonrasında, lütfen Azure Portalı'ndan bir destek isteği açın.
+Şirketler arası bağlantı sorunları yaşamaya devam ediyorsanız, iki yeniden başlatma sonrasında, lütfen Azure portalından bir destek isteği açın.
 
 ## <a name="before"></a>Başlamadan önce
 
-Ağ geçidinizi sıfırlamadan önce her bir IPsec Siteden Siteye (S2S) VPN tüneli için aşağıda listelenen anahtar öğeleri doğrulayın. Öğelerdeki uyuşmazlık S2S VPN tünellerinin bağlantısının kesilmesiyle sonuçlanır. Doğrulama ve şirket içi ve Azure VPN ağ geçitleri için yapılandırmaları düzeltme gereksiz yeniden başlatmalardan ve kesintilerden üzerinde çalışan diğer bağlantılar ağ geçitleri için gelen kaydeder.
+Ağ geçidinizi sıfırlamadan önce her bir IPsec Siteden Siteye (S2S) VPN tüneli için aşağıda listelenen anahtar öğeleri doğrulayın. Öğelerdeki uyuşmazlık S2S VPN tünellerinin bağlantısının kesilmesiyle sonuçlanır. Doğrulama ve Azure VPN ağ geçitleri ve şirket içi yapılandırmalarını düzeltme üzerinde çalışan diğer bağlantılar ağ geçitleri için gereksiz yeniden başlatmalardan ve gelen kaydeder.
 
-Ağ geçidinizi sıfırlamadan önce aşağıdaki öğeleri doğrulayın:
+Ağ geçidinizi sıfırlamadan önce aşağıdakileri doğrulayın:
 
 * Hem Azure VPN ağ geçidi hem de şirket içi VPN ağ geçidi için İnternet IP adresleri (VIP) hem Azure hem de şirket içi VPN ilkelerinde doğru şekilde yapılandırılmıştır.
 * Önceden paylaşılan anahtar Azure ve şirket içi VPN ağ geçitlerinde aynı olmalıdır.
@@ -48,34 +48,34 @@ Ağ geçidinizi sıfırlamadan önce aşağıdaki öğeleri doğrulayın:
 
 ## <a name="portal"></a>Azure portalı
 
-Azure Portalı'nı kullanarak bir Resource Manager VPN ağ geçidi sıfırlayabilirsiniz. Klasik bir ağ geçidi sıfırlamak istiyorsanız, bkz: [PowerShell](#resetclassic) adımları.
+Azure portalını kullanarak Resource Manager VPN ağ geçidi sıfırlayabilirsiniz. Klasik bir ağ geçidi sıfırlamak istiyorsanız, bkz. [PowerShell](#resetclassic) adımları.
 
 ### <a name="resource-manager-deployment-model"></a>Resource Manager dağıtım modeli
 
-1. Açık [Azure portal](https://portal.azure.com) ve sıfırlamak istediğiniz kaynak yöneticisi sanal ağ geçidi gidin.
-2. Sanal ağ geçidi için dikey 'Sıfırla' yı tıklatın.
+1. Açık [Azure portalında](https://portal.azure.com) ve sıfırlamak istediğiniz Resource Manager sanal ağ geçidine gidin.
+2. Sanal ağ geçidi dikey penceresinde, 'Sıfırla' seçeneğine tıklayın.
 
   ![VPN ağ geçidi dikey Sıfırla](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
-3. Sıfırlama dikey penceresinde **sıfırlama** düğmesi.
+3. Sıfırlama dikey penceresinde tıklayın **sıfırlama** düğmesi.
 
 ## <a name="ps"></a>PowerShell
 
 ### <a name="resource-manager-deployment-model"></a>Resource Manager dağıtım modeli
 
-Bir ağ geçidi sıfırlama cmdlet'i **sıfırlama AzureRmVirtualNetworkGateway**. Sıfırlama gerçekleştirmeden önce en son sürümünü olduğundan emin olun [Resource Manager PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0). Aşağıdaki örnek TestRG1 kaynak grubunda VNet1GW adlı bir sanal ağ geçidi sıfırlar:
+Bir ağ geçidini sıfırlamayı cmdlet'i **sıfırlama-AzureRmVirtualNetworkGateway**. Sıfırlama gerçekleştirmeden önce en son sürümüne sahip olduğunuzdan emin olun [Resource Manager PowerShell cmdlet'lerinin](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0). Aşağıdaki örnek TestRG1 kaynak grubunda VNet1GW adlı bir sanal ağ geçidi sıfırlar:
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
+$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
 Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
 Sonuç:
 
-Dönüş sonucu aldığınızda, ağ geçidi sıfırlama başarılı varsayabilirsiniz. Ancak, hiçbir şey yoktur açıkça sıfırlama işleminin başarılı olduğunu belirten dönüş sonucu. Ağ geçidi sıfırlama gerçekleştiği tam olarak görmek için geçmiş yakından aramak istiyorsanız, bu bilgiyi görüntüleyebilirsiniz [Azure portal](https://portal.azure.com). Portalı'nda gidin **'GatewayName' -> kaynak durumu**.
+Dönüş sonucu aldığınızda, ağ geçidi sıfırlama başarılı olduğunu varsayabilirsiniz. Ancak, hiçbir şey yoktur açıkça sıfırlama başarılı olduğunu gösteren dönüş sonucu. Ağ geçidi sıfırlama oluştuğu tam olarak görmek için geçmiş yakından görünmesini istiyorsanız, bu bilgiyi görüntüleyebilirsiniz [Azure portalında](https://portal.azure.com). Portalda gidin **'GatewayName' -> kaynak durumu**.
 
 ### <a name="resetclassic"></a>Klasik dağıtım modeli
 
-Bir ağ geçidi sıfırlama cmdlet'i **Reset-AzureVNetGateway**. Sıfırlama gerçekleştirmeden önce en son sürümünü olduğundan emin olun [Hizmet Yönetimi (SM) PowerShell cmdlet'lerini](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Aşağıdaki örnekte "ContosoVNet" adlı bir sanal ağ için ağ geçidi sıfırlar:
+Bir ağ geçidini sıfırlamayı cmdlet'i **Reset-AzureVNetGateway**. Sıfırlama gerçekleştirmeden önce en son sürümüne sahip olduğunuzdan emin olun [Hizmet Yönetimi (SM) PowerShell cmdlet'lerini](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Aşağıdaki örnekte "ContosoVNet" adlı bir sanal ağ için ağ geçidi sıfırlar:
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”
@@ -94,7 +94,7 @@ StatusCode     : OK
 
 ## <a name="cli"></a>Azure CLI
 
-Ağ geçidini sıfırlamaya kullanmak [az ağ vnet-gateway sıfırlama](https://docs.microsoft.com/cli/azure/network/vnet-gateway#az_network_vnet_gateway_reset) komutu. Aşağıdaki örnek vnet5gw'un TestRG5 kaynak grubunda adlı bir sanal ağ geçidi sıfırlar:
+Ağ geçidini sıfırlamaya kullanın [az ağ vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway#az_network_vnet_gateway_reset) komutu. Aşağıdaki örnek VNet5GW TestRG5 kaynak grubunda adlı bir sanal ağ geçidi sıfırlar:
 
 ```azurecli
 az network vnet-gateway reset -n VNet5GW -g TestRG5
@@ -102,4 +102,4 @@ az network vnet-gateway reset -n VNet5GW -g TestRG5
 
 Sonuç:
 
-Dönüş sonucu aldığınızda, ağ geçidi sıfırlama başarılı varsayabilirsiniz. Ancak, hiçbir şey yoktur açıkça sıfırlama işleminin başarılı olduğunu belirten dönüş sonucu. Ağ geçidi sıfırlama gerçekleştiği tam olarak görmek için geçmiş yakından aramak istiyorsanız, bu bilgiyi görüntüleyebilirsiniz [Azure portal](https://portal.azure.com). Portalı'nda gidin **'GatewayName' -> kaynak durumu**.
+Dönüş sonucu aldığınızda, ağ geçidi sıfırlama başarılı olduğunu varsayabilirsiniz. Ancak, hiçbir şey yoktur açıkça sıfırlama başarılı olduğunu gösteren dönüş sonucu. Ağ geçidi sıfırlama oluştuğu tam olarak görmek için geçmiş yakından görünmesini istiyorsanız, bu bilgiyi görüntüleyebilirsiniz [Azure portalında](https://portal.azure.com). Portalda gidin **'GatewayName' -> kaynak durumu**.

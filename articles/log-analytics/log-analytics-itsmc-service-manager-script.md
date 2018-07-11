@@ -1,6 +1,6 @@
 ---
-title: BT Hizmet Yönetimi Bağlayıcısı Azure bağlamak için Service Manager Web uygulaması oluşturmak için komut dosyası otomatik | Microsoft Docs
-description: Azure, BT Hizmet Yönetimi Bağlayıcısı ile bağlanmak ve merkezi olarak izlemek ve ITSM iş öğelerini yönetmek için otomatikleştirilmiş bir komut dosyası kullanarak bir Service Manager Web uygulaması oluşturun.
+title: BT Hizmet Yönetimi Bağlayıcısı azure'da bağlamak için Service Manager Web uygulaması oluşturmak için betik otomatik | Microsoft Docs
+description: Azure, BT Hizmet Yönetimi Bağlayıcısı ile bağlanma ve merkezi olarak izlemeye ve ITSM çalışma öğelerini yönetmek için otomatik bir betik kullanarak bir Service Manager Web uygulaması oluşturun.
 services: log-analytics
 documentationcenter: ''
 author: jyothirmaisuri
@@ -15,36 +15,36 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.component: na
-ms.openlocfilehash: 15626a9dd2e889470477e34d6f1ebd47cce1411b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 0fe987b00da669daf3830e903d53793d9d1edab6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128665"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950133"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Otomatik komut dosyası kullanarak Service Manager Web uygulaması oluşturma
 
-Service Manager Örneğiniz için Web uygulaması oluşturmak için aşağıdaki komut dosyasını kullanın. Service Manager bağlantı hakkında daha fazla bilgi aşağıda verilmiştir: [Service Manager Web uygulaması](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Service Manager Örneğiniz için Web uygulaması oluşturmak için aşağıdaki betiği kullanın. Service Manager bağlantı hakkında daha fazla bilgi aşağıda verilmiştir: [Service Manager Web uygulaması](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
-Aşağıdaki gerekli ayrıntıları sağlayarak komut dosyasını çalıştırın:
+Aşağıdaki gerekli ayrıntıları sağlayarak betiği çalıştırın:
 
 - Azure Abonelik Ayrıntıları
 - Kaynak grubu adı
 - Konum
-- Service Manager sunucu ayrıntıları (sunucu adı, etki alanı, kullanıcı adı ve parola)
+- Service Manager sunucusu ayrıntıları (sunucu adı, etki alanı, kullanıcı adı ve parola)
 - Web uygulamanız için site adı öneki
 - ServiceBus Namespace.
 
-Komut dosyası (benzersiz hale getirmek amacıyla birkaç ek dizeleri birlikte) belirtilen adı kullanarak Web uygulaması oluşturacaksınız. Bunu oluşturan **Web uygulaması URL'si**, **istemci kimliği**, ve **gizli**.
+Betik (benzersiz hale getirmek amacıyla birkaç ek dize ile birlikte) belirtilen adı kullanarak Web uygulaması oluşturacaksınız. Ürettiği **Web uygulaması URL'si**, **istemci kimliği**, ve **gizli**.
 
-Bir bağlantı ile BT Hizmet Yönetimi Bağlayıcısı oluşturduğunuzda, bu değerleri kaydetmek bu değerleri gerekir.
+Bu değerleri kaydetmek BT Hizmet Yönetimi Bağlayıcısı ile bir bağlantı oluşturduğunuzda bu değerlere ihtiyacınız olur.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
- Windows Management Framework 5.0 veya üstü.
-Windows 10 5.1 varsayılan olarak sahiptir. Çerçevesinden indirebilirsiniz [burada](https://www.microsoft.com/download/details.aspx?id=53347):
+ Windows Management Framework 5.0 veya üzeri.
+Windows 10 5.1 varsayılan olarak sahiptir. Framework indirebileceğiniz [burada](https://www.microsoft.com/download/details.aspx?id=50395):
 
-Aşağıdaki komut dosyasını kullanın:
+Aşağıdaki betiği kullanın:
 
 ```
 ####################################
@@ -323,4 +323,4 @@ if(!$err)
 
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
-[Karma bağlantı yapılandırma](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+[Karma bağlantıyı yapılandırın](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).

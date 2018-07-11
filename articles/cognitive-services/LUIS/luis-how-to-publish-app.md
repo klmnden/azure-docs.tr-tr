@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 1bd24af0498755b7cdcb170624fd8f9f3b39c85a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 0f6ba76ede48502e4f3308b11d41bf141f0188fb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347457"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927783"
 ---
 # <a name="publish-your-trained-app"></a>Eğitilen uygulamanızı yayımlayın
 Oluşturma ve LUIS uygulamanızı test etme bitirdikten sonra yayımlayın. Uygulamayı yayımladıktan sonra yayımlama sayfası, ilişkili tüm HTTP gösterir [uç noktaları](luis-glossary.md#endpoint). Bu uç noktaları başına [bölge](luis-reference-regions.md) ve başına [anahtarı](luis-how-to-manage-keys.md), ardından istemci, sohbet botu veya arka uç uygulamasına tümleştirilmiştir. 
@@ -67,7 +67,7 @@ Zaman dilimi seçiminden yuvası seçimi parçasıdır. LUIS için bu saat dilim
 
 Bu ayar, sohbet botu veya döndürülen ıntents puanları temel alarak programlı karar vermek için arama LUIS uygulamanızı sağlar. Genellikle üst iki amacı en ilginç var. En çok puan hiçbiri hedefi yok hedefi ve diğer yüksek puanlı amacını arasında kesin bir seçim yapar izleme bir soru sorun, sohbet botu seçebilirsiniz ise. 
 
-Hedefleri ve puanlarını Ayrıca, uç nokta günlükleri dahil. Yapabilecekleriniz [dışarı](create-new-app.md#export-app) Bu günlükleri ve puanları analiz edin. 
+Hedefleri ve puanlarını Ayrıca, uç nokta günlükleri dahil. Yapabilecekleriniz [dışarı](luis-how-to-start-new-app.md#export-app) Bu günlükleri ve puanları analiz edin. 
 
 ```
 {

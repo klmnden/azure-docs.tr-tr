@@ -1,48 +1,48 @@
 ---
-title: VMware VM ve Azure Site Recovery ile fiziksel sunucuya yeniden çalışma için bir işlem sunucusu Azure ayarlama | Microsoft Docs
-description: Bu makalede, azure'da yeniden çalışma VMware Azure Vm'lerine bir işlem sunucusu kurma açıklar.
+title: Azure'da bir işlem sunucusu VMware VM ve Azure Site Recovery ile fiziksel sunucuda yeniden çalışma için ayarlama | Microsoft Docs
+description: Bu makalede, Azure Vm'leri vmware'e yeniden çalışma, azure'da bir işlem sunucusu ayarlamak açıklar.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/10/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 1a6a1276d1a63971fba68dc868aa56ce687a6cc2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 20c3642bb9f9ad5089c37bb6da8562e570896cb4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300931"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918953"
 ---
-# <a name="set-up-a-process-server-in-azure-for-failback"></a>Yeniden çalışma için azure'da bir işlem sunucusu kurma
+# <a name="set-up-a-process-server-in-azure-for-failback"></a>Azure'da yeniden çalışma için bir işlem sunucusu ayarlama
 
-VMware Vm'leri veya Azure kullanarak fiziksel sunucular üzerinden başarısız olduktan sonra [Site Recovery](site-recovery-overview.md), yeniden çalışır olduğunda, bunları şirket içi siteye başarısız olabilir. Yeniden çalışmak için şirket içi azure'dan çoğaltmayı düzenlemek için azure'da geçici işlem sunucusu ayarlamanız gerekir. Yeniden çalışma işlemi tamamlandıktan sonra bu VM'yi silebilirsiniz.
+VMware Vm'lerini veya fiziksel sunucuları aracılığıyla Azure'a yük devretme sonra [Site Recovery](site-recovery-overview.md), yeniden çalışır olduğunda bunları şirket içi siteye geri dönebilirsiniz. Yeniden çalışma için şirket içi azure'dan çoğaltmayı düzenlemek için azure'da bir geçici işlem sunucusu ayarlamanız gerekir. Yeniden çalışma işlemi tamamlandıktan sonra bu VM'yi silebilirsiniz.
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
-Daha fazla bilgi edinmek [yükü](vmware-azure-reprotect.md) ve [geri dönme](vmware-azure-failback.md) işlemi.
+Daha fazla bilgi edinin [yeniden koruma](vmware-azure-reprotect.md) ve [geri dönme](vmware-azure-failback.md) işlem.
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
-## <a name="deploy-a-process-server-in-azure"></a>Azure'da bir işlem sunucusu Dağıt
+## <a name="deploy-a-process-server-in-azure"></a>Azure'da bir işlem sunucusu dağıtma
 
-1. Kasadaki > **Site Recovery altyapısı**> **Yönet** > **yapılandırma sunucularına**, yapılandırma sunucusu seçin.
+1. Kasadaki > **Site Recovery altyapısı**> **Yönet** > **Configuration Servers**, yapılandırma sunucusunu seçin.
 2. Sunucu sayfasında tıklatın **+ işlem sunucusu**
-3. İçinde **işlem Sunucu Ekle** sayfası ve Azure işlem sunucusu dağıtmak için seçin.
-4. Yük devretme, bir kaynak grubu, yük devretme ve Azure sanal makinelerini bulunan sanal ağ için kullanılan Azure bölgesi için kullanılan abonelik dahil olmak üzere Azure ayarlarını belirtin. Birden çok Azure ağları kullandıysanız, her biri bir işlem sunucusu gerekir.
+3. İçinde **işlem Sunucu Ekle** sayfası ve azure'da işlem sunucusu dağıtmak için seçin.
+4. Yük devretme, bir kaynak grubunu, yük devretme ve Azure Vm'leri bulunan sanal ağ için kullanılan Azure bölgesi için kullanılan abonelik dahil olmak üzere Azure ayarlarını belirtin. Birden fazla Azure ağını kullandıysanız, her biri bir işlem sunucusu gerekir.
 
-  ![İşlem sunucusu galeri öğesi ekleme](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+  ![İşlem sunucusu galeri öğesi Ekle](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
-4. İçinde **sunucu adı**, **kullanıcı adı**, ve **parola**, işlem sunucusu ve sunucuda yönetici izinleri atanmış kimlik bilgileri için bir ad belirtin.
-5. Sunucu VM diskleri, işlem sunucusu VM bulunacağı alt ağı ve VM başladığında atanacak sunucu IP adresi için kullanılacak bir depolama hesabı belirtin.
-6. Tıklatın **Tamam** işlem sunucusu VM dağıtma başlamak için Başlat.
+4. İçinde **sunucu adı**, **kullanıcı adı**, ve **parola**, işlem sunucusu ve sunucuda yönetici izinleri atanacak kimlik bilgileri için bir ad belirtin.
+5. Server VM disklerini, işlem sunucusu VM'nin yerleştirileceği alt ağ ve VM başladığında atanacak olan sunucu IP adresi için kullanılacak bir depolama hesabı belirtin.
+6. Tıklayın **Tamam** işlem sunucusu VM dağıtmaya başlamak için düğme.
 
 >
 
-## <a name="registering-the-process-server-running-in-azure-to-a-configuration-server-running-on-premises"></a>Yapılandırma (şirket içi çalıştıran) bir sunucuya (Azure'da çalışan) işlem sunucusu kaydetme
+## <a name="registering-the-process-server-running-in-azure-to-a-configuration-server-running-on-premises"></a>(Çalışan) işlem sunucusu (şirket içinde çalışan) bir yapılandırma Sunucusu'na kaydetme
 
-İşlem sunucusu VM çalışır durumda sonra aşağıdaki gibi şirket içi yapılandırma sunucusu ile kaydetmeniz gerekir:
+İşlem sunucusu sanal makine çalışır duruma geldikten sonra şirket içi yapılandırma sunucusu ile şu şekilde kaydetmeniz gerekir:
 
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
 

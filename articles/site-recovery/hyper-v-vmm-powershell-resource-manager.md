@@ -1,66 +1,66 @@
 ---
-title: PowerShell (Azure Resource Manager) ile ikincil siteye Sanal Makine Yöneticisi bulutlarındaki Hyper-V Vm'lerini çoğaltma | Microsoft Docs
-description: PowerShell (Resource Manager) kullanarak sanal makine yöneticisi bulutlarındaki Hyper-V Vm'lerini ikincil bir sanal makine yöneticisi siteye çoğaltmak açıklar
+title: Virtual Machine Manager bulutlarındaki Hyper-V Vm'lerini PowerShell (Azure Resource Manager) ile ikincil bir siteye çoğaltmak | Microsoft Docs
+description: Virtual Machine Manager bulutlarındaki Hyper-V Vm'lerini PowerShell (Resource Manager) kullanarak Virtual Machine Manager ikincil bir siteye çoğaltma işlemi açıklanır
 services: site-recovery
 author: sujaytalasila
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 7c6af1b63d9e7904f5a397200c6950c62df08832
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0fecc7ba48daf396c3d25969cdda5891bdf08232
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598787"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917974"
 ---
-# <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell (Resource Manager) kullanarak Hyper-V Vm'lerini ikincil bir siteye çoğaltma
+# <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell (Resource Manager) aracılığıyla Hyper-V Vm'lerini ikincil bir siteye çoğaltma
 
-Bu makale, Hyper-V Vm'lerini ikincil bir sanal makine yöneticisi bulutta System Center Virtual Machine Manager bulutlarında çoğaltmasını site kullanarak şirket için adımları otomatikleştirmek gösterilmiştir [Azure Site Recovery](site-recovery-overview.md).
+Bu makalede, Hyper-V Vm'lerini ikincil bir Virtual Machine Manager buluta System Center Virtual Machine Manager bulutlarındaki çoğaltılması site kullanarak şirket için adımları otomatikleştirmek gösterilmektedir [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Gözden geçirme [senaryo mimarisi ve bileşenleri](hyper-v-vmm-architecture.md).
+- Gözden geçirme [senaryo mimarisini ve bileşenlerini](hyper-v-vmm-architecture.md).
 - Tüm bileşenler için [destek gereksinimlerini](site-recovery-support-matrix-to-sec-site.md) gözden geçirin.
-- Sanal Makine Yöneticisi sunucuları ve Hyper-V konakları ile uyumlu olduğundan emin olun [destek gereksinimleri](site-recovery-support-matrix-to-sec-site.md).
-- Çoğaltmak istediğiniz sanal makineleri uyması onay [makine desteği çoğaltılan](site-recovery-support-matrix-to-sec-site.md).
+- Virtual Machine Manager sunucuları ve Hyper-V konakları ile uyumlu olduğundan emin [destek gereksinimlerini](site-recovery-support-matrix-to-sec-site.md).
+- Çoğaltmak istediğiniz VM'lerin uyumlu onay [makine desteği çoğaltılan](site-recovery-support-matrix-to-sec-site.md).
 
 
 ## <a name="prepare-for-network-mapping"></a>Ağ eşlemesi için hazırlanma
 
-[Ağ eşlemesi](hyper-v-vmm-network-mapping.md) arasındaki eşlemeleri şirket içi Sanal Makine Yöneticisi'ni VM ağları kaynak ve hedef bulutlarındaki. Eşleme şunları yapar:
+[Ağ eşlemesini](hyper-v-vmm-network-mapping.md) arasındaki eşlemeleri şirket içi kaynak ile hedef Bulutlar Virtual Machine Manager VM ağları. Eşleme şunları yapar:
 
-- Sanal makineleri yük devretme sonrasında uygun hedef VM ağına bağlanır. 
-- En iyi şekilde çoğaltılan VM'ler hedef Hyper-V ana bilgisayar sunucuları üzerinde yerleştirir. 
-- Ağ eşlemesini yapılandırmazsanız, çoğaltma sanal makineleri yük devretme sonrasında bir VM ağa bağlanmayacaktır.
+- Vm'leri yük devretme sonrasında uygun hedef VM ağlarına bağlar. 
+- En uygun şekilde hedef Hyper-V ana bilgisayar sunucuları üzerinde çoğaltma Vm'leri yerleştirir. 
+- Ağ eşlemesini yapılandırmazsanız, çoğalma VM'ler için bir VM ağı yük devretmeden sonra bağlanması gerekmez.
 
-Sanal Makine Yöneticisi aşağıdaki gibi hazırlayın:
+Virtual Machine Manager aşağıdaki gibi hazırlayın:
 
-* Olduğundan emin olun [Sanal Makine Yöneticisi Mantıksal ağlar](https://docs.microsoft.com/system-center/vmm/network-logical) kaynak ve hedef Sanal Makine Yöneticisi sunucularda:
+* Olduğundan emin olun [Virtual Machine Manager Mantıksal ağlar](https://docs.microsoft.com/system-center/vmm/network-logical) kaynak ve hedef Virtual Machine Manager sunuculara:
 
-    - Mantıksal ağ kaynak sunucu üzerindeki Hyper-V konaklarının bulunduğu kaynak Bulutu ile ilişkili olmalıdır.
-    - Hedef sunucudaki mantıksal ağ hedef Bulutu ile ilişkili olmalıdır.
-* Olduğundan emin olun [VM ağları](https://docs.microsoft.com/system-center/vmm/network-virtual) kaynak ve hedef Sanal Makine Yöneticisi sunucularında. VM ağları her konumdaki mantıksal ağ bağlantılı olması gerekir.
-* Vm'leri kaynak Hyper-V konaklarının kaynak VM ağına bağlayın. 
+    - Mantıksal ağ kaynak sunucudaki Hyper-V konaklarının bulunduğu kaynak bulutla ilişkili olmalıdır.
+    - Hedef sunucudaki mantıksal ağı hedef bulutla ilişkili olmalıdır.
+* Olduğundan emin olun [VM ağları](https://docs.microsoft.com/system-center/vmm/network-virtual) kaynak ve hedef Virtual Machine Manager sunucularında. VM ağları her konumdaki mantıksal ağ bağlantılı olması gerekir.
+* Kaynak VM ağına kaynak Hyper-V konaklarında VM'ler bağlanın. 
 
 ## <a name="prepare-for-powershell"></a>PowerShell için hazırlama
 
-Azure PowerShell davranmaya hazır olduğundan emin olun:
+Azure PowerShell kullanıma hazır olduğundan emin olun:
 
-- PowerShell, 0.8.10 sürümüne yükseltme veya üstünü kullanıyorsanız. [Daha fazla bilgi edinin](/powershell/azureps-cmdlets-docs) PowerShell ayarlama hakkında.
-- Ayarlama ve PowerShell yapılandırdıktan sonra gözden [hizmet cmdlet'leri](/powershell/azure/overview).
-- Parametre değerleri, giriş ve çıkış PowerShell'de kullanma hakkında daha fazla bilgi edinmek için okuma [başlama](/powershell/azure/get-started-azureps) Kılavuzu.
+- PowerShell, 0.8.10 sürüme yükseltin veya üzerini kullanıyorsanız. [Daha fazla bilgi edinin](/powershell/azureps-cmdlets-docs) PowerShell'i ayarlama hakkında.
+- Ayarlama ve PowerShell yapılandırma sonra gözden [hizmet cmdlet'leri](/powershell/azure/overview).
+- Parametre değerlerini, girdileri ve çıktıları içinde PowerShell kullanma hakkında daha fazla bilgi edinmek için [başlama](/powershell/azure/get-started-azureps) Kılavuzu.
 
 ## <a name="set-up-a-subscription"></a>Bir aboneliği ayarlama
-1. Powershell'den, Azure hesabınızda oturum açın.
+1. Powershell'den Azure hesabınızda oturum açın.
 
         $UserName = "<user@live.com>"
         $Password = "<password>"
         $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
         $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
         Connect-AzureRmAccount #-Credential $Cred
-2. Abonelik kimlikleri ile Aboneliklerin listesini alın. Kurtarma Hizmetleri kasası oluşturmak istediğiniz abonelik Kimliğini not alın. 
+2. Abonelik kimlikleri ile aboneliklerinizin bir listesini alın. Kurtarma Hizmetleri kasası oluşturmak istediğiniz abonelik Kimliğini not alın. 
 
         Get-AzureRmSubscription
 3. Kasa için abonelik ayarlayın.
@@ -75,25 +75,25 @@ Azure PowerShell davranmaya hazır olduğundan emin olun:
 
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
    
-    Get-AzureRMRecoveryServicesVault cmdlet'ini kullanarak oluşturduktan sonra kasa nesne alabilirsiniz.
+    Get-AzureRMRecoveryServicesVault cmdlet'ini kullanarak oluşturduktan sonra kasayı nesnesi alabilirsiniz.
 
 ## <a name="set-the-vault-context"></a>Kasa bağlamını ayarlayın
-1. Varolan bir kasa alın.
+1. Mevcut bir kasayı alın.
 
        $vault = Get-AzureRmRecoveryServicesVault -Name #vaultname
 2. Kasa bağlamını ayarlayın.
 
        Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
-## <a name="install-the-site-recovery-provider"></a>Site Recovery Sağlayıcısı'nı yüklemek
-1. Sanal Makine Yöneticisi makinede aşağıdaki komutu çalıştırarak bir dizin oluşturun:
+## <a name="install-the-site-recovery-provider"></a>Site Recovery Sağlayıcısı'nı yükleyin
+1. Virtual Machine Manager makinesinde aşağıdaki komutu çalıştırarak bir dizin oluşturun:
 
        New-Item c:\ASR -type directory
 2. İndirilen sağlayıcı kurulum dosyasını kullanarak dosyaları ayıklayın.
 
        pushd C:\ASR\
        .\AzureSiteRecoveryProvider.exe /x:. /q
-3. Bir sağlayıcı yükleyin ve yüklemesinin tamamlanması için bekleyin.
+3. Sağlayıcıyı yükleyin ve yüklemenin tamamlanmasını bekleyin.
 
        .\SetupDr.exe /i
        $installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
@@ -112,8 +112,8 @@ Azure PowerShell davranmaya hazır olduğundan emin olun:
        pushd $BinPath
        $encryptionFilePath = "C:\temp\".\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
 
-## <a name="create-and-associate-a-replication-policy"></a>Oluşturun ve bir çoğaltma ilkesi ilişkilendirin
-1. Bir çoğaltma ilkesi, bu durumda Hyper-V 2012 R2 için aşağıdaki gibi oluşturun:
+## <a name="create-and-associate-a-replication-policy"></a>Oluşturma ve bir çoğaltma ilkesi ilişkilendirme
+1. Bir çoğaltma ilkesi, bu durumda Hyper-V 2012 R2 için şu şekilde oluşturun:
 
         $ReplicationFrequencyInSeconds = "300";        #options are 30,300,900
         $PolicyName = “replicapolicy”
@@ -127,22 +127,22 @@ Azure PowerShell davranmaya hazır olduğundan emin olun:
         $policyresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod
 
     > [!NOTE]
-    > Virtual Machine Manager Bulutu Windows Server'ın farklı sürümlerini çalıştıran Hyper-V konakları içerebilir, ancak çoğaltma ilkesi belirli bir işletim sistemi için sürümüdür. Farklı işletim sistemlerinde çalışan farklı ana bilgisayarınız varsa, her sistem için ayrı çoğaltma ilkeleri oluşturun. Örneğin, Windows Server 2012 ve Windows Server 2012 R2 üzerinde çalışan üç ana çalışan beş ana bilgisayarınız varsa, iki çoğaltma ilkesi oluşturun. Her tür işletim sistemi için bir tane oluşturun.
+    > Windows Server'ın farklı sürümlerini çalıştıran Hyper-V konaklarını Virtual Machine Manager cloud içerebilir, ancak çoğaltma ilkesi belirli bir işletim sistemi sürümü için olan. Farklı işletim sistemleri üzerinde çalışan farklı konaklarınız varsa, her sistemi için ayrı bir çoğaltma ilkesi oluşturun. Örneğin, Windows Server 2012 ve Windows Server 2012 R2 üzerinde çalışan üç konakları üzerinde çalışan beş konaklarınız varsa, iki çoğaltma ilkesi oluşturun. Her işletim sistemi türü için bir tane oluşturun.
 
-2. Birincil koruma kapsayıcısı (birincil Sanal Makine Yöneticisi bulut) ve kurtarma koruma kapsayıcısı (Kurtarma Virtual Machine Manager Bulutu) alın.
+2. Birincil koruma kapsayıcısı (birincil Virtual Machine Manager Bulutu) ve kurtarma koruma kapsayıcısı (Kurtarma Virtual Machine Manager cloud) alın.
 
        $PrimaryCloud = "testprimarycloud"
        $primaryprotectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $PrimaryCloud;  
 
        $RecoveryCloud = "testrecoverycloud"
        $recoveryprotectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $RecoveryCloud;  
-3. Kolay adı kullanılarak oluşturulan çoğaltma ilkesini alır.
+3. Kolay adı kullanılarak oluşturulan çoğaltma ilkesini alın.
 
        $policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $policyname
-4. Koruma kapsayıcısı (Sanal Makine Yöneticisi bulut) ilişkilendirme çoğaltma ilkesiyle başlatın.
+4. Çoğaltma İlkesi ile ilişkisini koruma kapsayıcısı (Virtual Machine Manager Bulutu) başlatın.
 
        $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $primaryprotectionContainer -RecoveryProtectionContainer $recoveryprotectionContainer
-5. İlke ilişkilendirme işi bitmesini bekleyin. İş tamamlandıktan denetlemek için aşağıdaki PowerShell parçacığını kullanın:
+5. Bitirmek ilke ilişkilendirmesi işin tamamlanmasını bekleyin. İş tamamlandıktan denetlemek için aşağıdaki PowerShell kod parçacığını kullanın:
 
        $job = Get-AzureRmSiteRecoveryJob -Job $associationJob
 
@@ -151,7 +151,7 @@ Azure PowerShell davranmaya hazır olduğundan emin olun:
          $isJobLeftForProcessing = $true;
        }
 
-6. İşleme iş tamamlandıktan sonra aşağıdaki komutu çalıştırın:
+6. İşleme işi tamamlandıktan sonra aşağıdaki komutu çalıştırın:
 
        if($isJobLeftForProcessing)
        {
@@ -165,23 +165,23 @@ Azure PowerShell davranmaya hazır olduğundan emin olun:
 1. Geçerli kasa için sunucuları almak için bu komutu kullanın. Komut, Site Recovery sunucuları $Servers dizi değişkeninde depolar.
 
         $Servers = Get-AzureRmSiteRecoveryServer
-2. Kaynak Sanal Makine Yöneticisi sunucunun ve hedef Sanal Makine Yöneticisi sunucunun ağları almak için şu komutu çalıştırın.
+2. Kaynak Virtual Machine Manager sunucusu ve hedef Virtual Machine Manager sunucusu için ağları almak için şu komutu çalıştırın.
 
         $PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
 
         $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
 
     > [!NOTE]
-    > Kaynak Sanal Makine Yöneticisi sunucunun ilk veya ikinci bir sunucu dizisindeki olabilir. Sanal Makine Yöneticisi'ni sunucu adlarını denetleyin ve ağlar uygun şekilde alın.
+    > Kaynak Virtual Machine Manager sunucusu, sunucu dizideki ilk veya ikinci bir olabilir. Virtual Machine Manager sunucu adlarını denetleyin ve ağları uygun şekilde alın.
 
 
-3. Bu cmdlet, birincil ağ ve kurtarma ağ arasında bir eşleme oluşturur. Birincil Ağ $PrimaryNetworks ilk öğe belirtir. Kurtarma ağ $RecoveryNetworks ilk öğe belirtir.
+3. Bu cmdlet, birincil ağ ile kurtarma ağı arasında bir eşleme oluşturur. Bu birincil ağ $PrimaryNetworks ilk öğesi belirtir. Bu kurtarma ağı $RecoveryNetworks ilk öğesi belirtir.
 
         New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
 
 
-## <a name="enable-protection-for-vms"></a>VM'ler için korumayı etkinleştir
-Sunucular, Bulutlar ve ağlar doğru şekilde yapılandırıldıktan sonra buluttaki VM'ler için korumayı etkinleştirin.
+## <a name="enable-protection-for-vms"></a>VM'ler için korumayı etkinleştirin
+Sunucular, Bulutlar ve ağlar doğru şekilde yapılandırıldıktan sonra buluttaki sanal makineler için korumayı etkinleştirin.
 
 1. Korumayı etkinleştirmek için koruma kapsayıcısı almak için aşağıdaki komutu çalıştırın:
 
@@ -195,9 +195,9 @@ Sunucular, Bulutlar ve ağlar doğru şekilde yapılandırıldıktan sonra bulut
 
 ## <a name="run-a-test-failover"></a>Yük devretme testi çalıştırma
 
-Dağıtımınızı test etmek için bir yük devretme sınaması için tek bir sanal makine çalıştırın. Ayrıca birden çok VM içeren bir kurtarma planı oluşturmak ve bir yük devretme sınaması için plan çalıştırın. Yük devretme testi, yük devretme işleminizi ve kurtarma mekanizmanızı yalıtılmış bir ortamda benzetimli olarak gerçekleştirir.
+Dağıtımı test etmek için tek bir sanal makine bir yük devretme testi çalıştırın. Ayrıca birden çok VM içeren bir kurtarma planı oluşturabilir ve planı için bir yük devretme testi çalıştırın. Yük devretme testi, yük devretme işleminizi ve kurtarma mekanizmanızı yalıtılmış bir ortamda benzetimli olarak gerçekleştirir.
 
-1. Sanal makineleri içine üzerinden başarısız olur VM alın.
+1. Al, hangi sanal makinelerin VM'ye üzerinde başarısız olur.
 
        $Servers = Get-AzureRmSiteRecoveryServer
        $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
@@ -220,9 +220,9 @@ Dağıtımınızı test etmek için bir yük devretme sınaması için tek bir s
 
 İşlemin tamamlanması denetlemek için adımları [etkinliğini İzle](#monitor-activity).
 
-## <a name="run-planned-and-unplanned-failovers"></a>Planlanmış ve planlanmamış yük devretmeler çalıştırabilirsiniz
+## <a name="run-planned-and-unplanned-failovers"></a>Planlanmış ve planlanmamış yük devretme çalıştırma
 
-1. Planlanmış bir yük devretme gerçekleştirin.
+1. Planlı yük devretme gerçekleştirin.
 
    Tek bir VM için:
 
@@ -238,7 +238,7 @@ Dağıtımınızı test etmek için bir yük devretme sınaması için tek bir s
 
         $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan
 
-2. Planlanmamış bir yük devretme gerçekleştirin.
+2. Planlanmamış yük devretme gerçekleştirin.
 
    Tek bir VM için:
         
@@ -255,7 +255,7 @@ Dağıtımınızı test etmek için bir yük devretme sınaması için tek bir s
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
 ## <a name="monitor-activity"></a>Etkinliğini izleme
-Yük devretme etkinliğini izlemek için aşağıdaki komutları kullanın. İşleme işleri arasında tamamlamak bekleyin.
+Yük devretme etkinliğini izlemek için aşağıdaki komutları kullanın. İşleme işleri arasında bitmesini bekleyin.
 
     Do
     {
@@ -276,4 +276,4 @@ Yük devretme etkinliğini izlemek için aşağıdaki komutları kullanın. İş
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Daha fazla bilgi edinin](/powershell/module/azurerm.recoveryservices.backup/#recovery) Site Recovery Resource Manager PowerShell cmdlet'leri ile ilgili.
+[Daha fazla bilgi edinin](/powershell/module/azurerm.recoveryservices.backup/#recovery) Resource Manager PowerShell cmdlet'leri ile Site Recovery hakkında.

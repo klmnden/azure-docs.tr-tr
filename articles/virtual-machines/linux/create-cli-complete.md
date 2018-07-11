@@ -1,9 +1,9 @@
 ---
-title: Azure CLI 2.0 ile Linux ortamı oluşturun | Microsoft Docs
-description: Depolama, bir Linux VM, bir sanal ağ ve alt ağ, bir yük dengeleyici, bir NIC, ortak bir IP ve tüm sıfırdan Azure CLI 2.0 kullanarak bir ağ güvenlik grubu oluşturun.
+title: Azure CLI 2.0 ile bir Linux ortamı oluşturma | Microsoft Docs
+description: Depolama, bir Linux VM, sanal ağ ve alt ağ, yük dengeleyici, bir NIC, genel bir IP ve tüm yönleriyle Azure CLI 2.0 kullanarak bir ağ güvenlik grubu oluşturun.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,29 +14,29 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
-ms.author: iainfou
-ms.openlocfilehash: f41bfec3c9f950893b69c90a86c2e4a254b72a8b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: cynthn
+ms.openlocfilehash: c566c747d393dbfa3225faf6f8ad78fa8abfa3ac
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852141"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929714"
 ---
-# <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI ile tam Linux sanal makine oluşturma
-Hızla bir sanal makine (VM) oluşturmak için gerekli tüm destekleyici kaynakları oluşturmak için varsayılan değerleri kullanan tek bir Azure CLI komutu kullanabilirsiniz. Bir sanal ağ, genel IP adresi ve ağ güvenlik grubu kuralları gibi kaynakları otomatik olarak oluşturulur. Üretim ortamınızda, daha fazla denetim için kullanmak, önceden bu kaynakları oluşturmak ve bunları Vm'leriniz Ekle. Bu makalede, VM ve destekleyici kaynakları tek tek her nasıl oluşturulacağını aracılığıyla size yol gösterir.
+# <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI'de eksiksiz bir Linux sanal makinesi oluşturma
+Bir sanal makine (VM) Azure'da hızlıca oluşturmak için gerekli tüm destekleyici kaynakları oluşturmak için varsayılan değerleri kullanan tek bir Azure CLI komutunu kullanabilirsiniz. Bir sanal ağ, genel IP adresi ve ağ güvenlik grubu kuralları gibi kaynakları otomatik olarak oluşturulur. Daha fazla denetim üretim ortamınızda kullanmak, önceden bu kaynakları oluşturmak ve Vm'lerinizi bunlara ekleyin. Bu makalede, VM ve destekleyici kaynakların tek tek her biri oluşturma hakkında size yol gösterir.
 
-En son yüklediğinizden emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı ile oturum [az oturum açma](/cli/azure/reference-index#az_login).
+En son yüklediğinizden emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı ile oturum [az login](/cli/azure/reference-index#az_login).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *myVnet*, ve *myVM*.
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
-Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir kaynak grubu, bir sanal makine ve destekleyici sanal ağ kaynakları önce oluşturulmalıdır. Kaynak grubu ile oluşturma [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
+Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir kaynak grubu, bir sanal makine ve destekleyici ağ kaynakları önce oluşturulmalıdır. Kaynak grubu oluşturun [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Varsayılan olarak, Azure CLI komutların çıktısı JSON (JavaScript nesne gösterimi) ' dir. Örneğin, bir liste veya tablo çıktısı varsayılan değeri değiştirmek için kullanmak [az yapılandırmak--çıkış](/cli/azure/reference-index#az_configure). Ayrıca ekleyebileceğiniz `--output` herhangi bir komutunu bir kez için çıktı biçiminde değiştirin. Aşağıdaki örnek, JSON çıktısını gösterir `az group create` komutu:
+Varsayılan olarak, Azure CLI komutlarının çıkışı JSON (JavaScript nesne gösterimi) ' dir. Örneğin, bir liste veya tablo çıktısı varsayılan değiştirmek için kullanın [az yapılandırma--çıktı](/cli/azure/reference-index#az_configure). Ayrıca ekleyebilirsiniz `--output` herhangi bir komutu bir kez çıkış biçimde değiştirin. Aşağıdaki örnek JSON çıktısında `az group create` komutu:
 
 ```json                       
 {
@@ -51,7 +51,7 @@ Varsayılan olarak, Azure CLI komutların çıktısı JSON (JavaScript nesne gö
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Sanal ağ ve alt ağ oluşturma
-Azure ve bir alt ağda bir sanal ağ oluşturma sonraki Vm'leriniz oluşturabilirsiniz. Kullanım [az ağ vnet oluşturma](/cli/azure/network/vnet#az_network_vnet_create) adlı bir sanal ağ oluşturmak için *myVnet* ile *192.168.0.0/16* adres öneki. Ayrıca adlı bir alt ağ Ekle *mySubnet* adres öneki ile *192.168.1.0/24*:
+Azure'da ve bir alt ağ içinde bir sanal ağ oluşturma sonraki Vm'lerinizi oluşturabilirsiniz. Kullanım [az ağ sanal ağ oluşturma](/cli/azure/network/vnet#az_network_vnet_create) adlı bir sanal ağ oluşturmak için *myVnet* ile *192.168.0.0/16* adres ön eki. Ayrıca adlı bir alt ağ Ekle *mySubnet* adres ön eki ile *192.168.1.0/24*:
 
 ```azurecli
 az network vnet create \
@@ -62,7 +62,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-Alt ağ içindeki sanal ağı mantıksal olarak oluşturulan çıkış gösterir:
+Sanal ağ içinde alt mantıksal olarak oluşturulan çıktı gösterir:
 
 ```json
 {
@@ -103,7 +103,7 @@ Alt ağ içindeki sanal ağı mantıksal olarak oluşturulan çıkış gösterir
 
 
 ## <a name="create-a-public-ip-address"></a>Genel IP adresi oluşturma
-Şimdi bir genel IP adresiyle oluşturalım [az ağ genel IP oluşturun](/cli/azure/network/public-ip#az_network_public_ip_create). Bu genel IP adresi Vm'leriniz için Internet'ten bağlanmanıza olanak sağlar. Varsayılan Adres dinamik olduğundan içeren adlandırılmış bir DNS girişi oluşturmak `--domain-name-label` parametresi. Aşağıdaki örnek adlı ortak IP oluşturur *myPublicIP* DNS adı ile *mypublicdns*. DNS adının benzersiz olması gerektiğinden, kendi benzersiz DNS adını belirtin:
+Şimdi bir genel IP adresiyle oluşturalım [az network public-IP oluşturma](/cli/azure/network/public-ip#az_network_public_ip_create). Bu genel IP adresi, Internet'ten Vm'lerinizi bağlanmanızı sağlar. Varsayılan Adres dinamik olduğundan, adlandırılmış bir DNS girişi ile oluşturma `--domain-name-label` parametresi. Aşağıdaki örnekte adlı bir genel IP oluşturur *Mypublicıp* DNS adıyla *mypublicdns*. DNS adının benzersiz olması gerektiğinden, kendi benzersiz bir DNS adı sağlayın:
 
 ```azurecli
 az network public-ip create \
@@ -142,7 +142,7 @@ az network public-ip create \
 
 
 ## <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
-Vm'leriniz ve trafik akışını denetlemek için bir ağ güvenlik grubu bir sanal NIC veya alt ağ için geçerlidir. Aşağıdaki örnek kullanır [az ağ nsg oluşturma](/cli/azure/network/nsg#az_network_nsg_create) adlı bir ağ güvenlik grubu oluşturmak için *myNetworkSecurityGroup*:
+Vm'lerinizi ve giden trafik akışını denetlemek için sanal bir NIC veya alt ağ bir ağ güvenlik grubu uygulayın. Aşağıdaki örnekte [az ağ nsg oluşturma](/cli/azure/network/nsg#az_network_nsg_create) adlı bir ağ güvenlik grubu oluşturmak için *Vm2*:
 
 ```azurecli
 az network nsg create \
@@ -150,7 +150,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-İzin veren veya belirli bir trafik reddeden kuralları tanımlar. Bağlantı noktası 22 (SSH erişimini etkinleştirmek için) gelen bağlantılara izin vermek için bir gelen kuralı ile oluşturma [az ağ nsg kuralını](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). Aşağıdaki örnek, adında bir kural oluşturur *myNetworkSecurityGroupRuleSSH*:
+İzin veren veya belirli bir trafiği reddeden kuralları tanımlayın. (SSH erişimini etkinleştirmek için) 22 numaralı bağlantı noktasında gelen bağlantılara izin vermek için bir gelen kuralı ile oluşturma [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). Aşağıdaki örnekte adlı bir kural oluşturur *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -163,7 +163,7 @@ az network nsg rule create \
     --access allow
 ```
 
-(Web trafiği için) 80 numaralı bağlantı noktasında gelen bağlantılara izin vermek için başka bir ağ güvenlik grubu kural ekleyin. Aşağıdaki örnek, adında bir kural oluşturur *myNetworkSecurityGroupRuleHTTP*:
+(Web trafiği için) 80 numaralı bağlantı noktasında gelen bağlantılara izin vermek için başka bir ağ güvenlik grubu kuralı ekleyin. Aşağıdaki örnekte adlı bir kural oluşturur *myNetworkSecurityGroupRuleHTTP*:
 
 ```azurecli
 az network nsg rule create \
@@ -176,7 +176,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Ağ güvenlik grubu ve kurallarla inceleyin [az ağ nsg Göster](/cli/azure/network/nsg#az_network_nsg_show):
+Ağ güvenlik grubu ve kurallarıyla inceleyin [az ağ nsg show](/cli/azure/network/nsg#az_network_nsg_show):
 
 ```azurecli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
@@ -332,8 +332,8 @@ az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGro
 }
 ```
 
-## <a name="create-a-virtual-nic"></a>Sanal bir NIC'ye oluşturma
-Sanal ağ arabirimi kartlarıyla (NIC) program aracılığıyla kullanılabilir olduklarından kullanımları kuralları uygulayabilirsiniz. Bağlı olarak [VM boyutu](sizes.md), bir VM'ye birden çok sanal NIC ekleyebilirsiniz. Aşağıdaki [az ağ NIC oluşturmak](/cli/azure/network/nic#az_network_nic_create) komutunu adlı bir NIC oluşturduğunuz *myNic* ve ağ güvenlik grubuyla ilişkilendirin. Genel IP adresi *myPublicIP* de bir sanal NIC ile ilişkilidir
+## <a name="create-a-virtual-nic"></a>Sanal bir NIC oluşturup
+Sanal ağ arabirim kartları (NIC) program aracılığıyla kullanılabilir olduklarından kullanımları kuralları uygulayabilirsiniz. Yapılandırmanıza bağlı olarak [VM boyutu](sizes.md), birden çok sanal NIC bir VM'ye ekleyebilirsiniz. Aşağıdaki [az ağ NIC oluşturup](/cli/azure/network/nic#az_network_nic_create) komutunu adlı bir NIC oluşturduğunuz *Mynıc* , ağ güvenlik grubu ile ilişkilendirin. Genel IP adresini *Mypublicıp* sanal NIC ile ilişkilendirilir
 
 ```azurecli
 az network nic create \
@@ -437,15 +437,15 @@ az network nic create \
 
 
 ## <a name="create-an-availability-set"></a>Kullanılabilirlik kümesi oluşturma
-Kullanılabilirlik Yardım yayılan hata etki alanları ve güncelleştirme etki alanları arasında Vm'leriniz ayarlar. Yalnızca bir VM şimdi oluşturduğunuz olsa bile, gelecekte genişletin kolaylaştırmak için kullanılabilirlik kümeleri kullanmak en iyi bir uygulamadır. 
+Sanal makinelerinizin hata etki alanları ve güncelleme etki alanları arasında Yardım yayılan kullanılabilirlik kümeleri. Yalnızca bir sanal makine şu anda oluşturduğunuz olsa da, gelecekte genişletin daha kolay hale getirmek için kullanılabilirlik kümelerini kullanın. en iyi bir uygulamadır. 
 
-Sanal makineler, ortak bir güç kaynağı ve ağ anahtarı paylaşmak gruplandırması hata etki alanlarını tanımlayın. Varsayılan olarak, en çok üç hata etki alanlarında kullanılabilirlik kümesi içinde yapılandırılmış olan sanal makinelere ayrılır. Bu hata etki alanlarını birinde bir donanım sorunundan uygulamanızı çalıştıran her VM etkilemez.
+Hata etki alanları ortak bir güç kaynağı ve ağ anahtarını paylaşan sanal makinelerin bir gruplandırma tanımlayın. Varsayılan olarak, kullanılabilirlik kümenizde yapılandırılmış olan sanal makineler en fazla üç hata etki alanları arasında ayrılır. Bu hata etki alanlarına birinde bir donanım sorunu, uygulamanızı çalıştıran her VM etkilemez.
 
-Güncelleme etki alanına sanal makineler ve aynı anda yeniden temel alınan fiziksel donanım grupları belirtin. Planlı bakım sırasında hangi güncelleştirme etki alanlarını yeniden sıra sıralı olmayabilir, ancak aynı anda yalnızca tek bir güncelleştirme etki alanı yeniden başlatıldı.
+Güncelleştirme etki alanları, sanal makineler ve aynı anda yeniden başlatılabilecek temel alınan fiziksel donanımları grupları belirtin. Planlı bakım sırasında hangi güncelleştirme etki alanlarını yeniden başlatıldığı sırada sıralı olmayabilir, ancak aynı anda yalnızca bir güncelleme etki alanı yeniden başlatılır.
 
-Azure otomatik olarak VM'ler arıza ve güncelleştirme etki alanları arasında bunları bir kullanılabilirlik kümesine yerleştirdiğinizde dağıtır. Daha fazla bilgi için bkz: [VM'ler kullanılabilirliğini yönetme](manage-availability.md).
+Azure otomatik olarak Vm'leri hatası ve güncelleme etki alanları arasında bunları bir kullanılabilirlik kümesine yerleştirdiğinizde dağıtır. Daha fazla bilgi için [VM kullanılabilirliğini yönetme](manage-availability.md).
 
-Kullanılabilirlik için VM ile kümesi oluştur [az vm kullanılabilirlik kümesi oluşturma](/cli/azure/vm/availability-set#az_vm_availability_set_create). Aşağıdaki örnek *myAvailabilitySet* adında bir kullanılabilirlik kümesi oluşturur:
+Bir kullanılabilirlik kümesi ile sanal makinenizde [az vm kullanılabilirlik kümesi oluşturma](/cli/azure/vm/availability-set#az_vm_availability_set_create). Aşağıdaki örnek *myAvailabilitySet* adında bir kullanılabilirlik kümesi oluşturur:
 
 ```azurecli
 az vm availability-set create \
@@ -453,7 +453,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-Çıktı notları hata etki alanları ve güncelleme etki alanına:
+Çıkış notları hata etki alanları ve güncelleme etki alanları:
 
 ```json
 {
@@ -478,11 +478,11 @@ az vm availability-set create \
 
 
 ## <a name="create-a-vm"></a>VM oluşturma
-Internet'ten erişilebilen sanal makineleri desteklemek için ağ kaynaklarına oluşturduğunuzu düşünün. Şimdi bir VM oluşturun ve bir SSH anahtarı ile güvenliğini sağlayın. Bu örnekte, bir Ubuntu VM en son LTS dayalı oluşturalım. Ek görüntülerle bulabilirsiniz [az vm görüntü listesi](/cli/azure/vm/image#az_vm_image_list)açıklandığı gibi [Azure VM görüntülerini bulma](cli-ps-findimage.md).
+İnternet'ten erişilebilen Vm'leri desteklemek için ağ kaynaklarına oluşturdunuz. Artık bir VM oluşturun ve bir SSH anahtarı ile güvenli hale getirme. Bu örnekte, bir Ubuntu VM üzerinde en son LTS tabanlı oluşturalım. Ek görüntülerle bulabilirsiniz [az vm görüntüsü listesi](/cli/azure/vm/image#az_vm_image_list)anlatılan şekilde [Azure VM görüntüleri bulma](cli-ps-findimage.md).
 
-Kimlik doğrulaması için kullanılacak bir SSH anahtarı belirtin. SSH ortak anahtar çifti yoksa, şunları yapabilirsiniz [bunları oluşturmanız](mac-create-ssh-keys.md) veya `--generate-ssh-keys` bunları sizin için oluşturmak için parametre. Bir anahtar çifti zaten varsa, bu parametre varolan anahtarların kullanan `~/.ssh`.
+Kimlik doğrulaması için kullanılacak bir SSH anahtarı belirtin. SSH ortak anahtar çifti yoksa, şunları yapabilirsiniz [oluşturduktan](mac-create-ssh-keys.md) veya `--generate-ssh-keys` parametresini kullanarak bunları sizin için oluşturur. Bir anahtar çifti zaten varsa, bu parametre, mevcut anahtarları kullanır. `~/.ssh`.
 
-Tüm kaynaklara ve bilgi ile birlikte getirerek VM oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. Aşağıdaki örnek *myVM* adlı bir VM oluşturur:
+Tüm kaynaklara ve bilgi ile birlikte taşıyarak VM oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. Aşağıdaki örnek *myVM* adlı bir VM oluşturur:
 
 ```azurecli
 az vm create \
@@ -496,7 +496,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-SSH ortak IP adresi oluştururken sağladığınız DNS girişi ile VM. Bu `fqdn` , VM oluşturma çıktısında gösterilir:
+Genel IP adresini oluştururken sağladığınız DNS girişi ile sanal makinenize yönelik SSH. Bu `fqdn` VM oluşturma çıktısında gösterilir:
 
 ```json
 {
@@ -548,26 +548,26 @@ See "man sudo_root" for details.
 azureuser@myVM:~$
 ```
 
-NGINX yükleyin ve trafiği de görmenize VM akış. NGINX gibi yükleyin:
+NGINX yüklemek ve trafiği de görmenize VM akış. NGINX aşağıdaki gibi yükleyin:
 
 ```bash
 sudo apt-get install -y nginx
 ```
 
-Eylem varsayılan NGINX sitede görmek için web tarayıcınızı açın ve FQDN değerinizi girin:
+Varsayılan NGINX sitesi iş başında görmek için web tarayıcınızı açın ve FQDN değerinizi girin:
 
-![Varsayılan NGINX sitesinde VM](media/create-cli-complete/nginx.png)
+![Vm'nizde varsayılan NGINX sitesi](media/create-cli-complete/nginx.png)
 
-## <a name="export-as-a-template"></a>Bir şablon olarak dışarı aktarma
-Ne artık aynı parametreleri ya da bir üretim ortamında ek geliştirme ortamı oluşturmak isterseniz, bu eşleştiğinde? Resource Manager, ortamınız için tüm parametreleri tanımlayan JSON şablonlarını kullanır. Bu JSON şablonunu başvurarak tüm ortamlar oluşturun. Yapabilecekleriniz [JSON şablonları el ile oluşturabilir](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya sizin için JSON şablonunu oluşturmak için varolan bir ortama dışa aktarın. Kullanım [az grup verme](/cli/azure/group#az_group_export) kaynak grubunuz gibi dışarı aktarmak için:
+## <a name="export-as-a-template"></a>Şablon olarak dışarı aktarma
+Ne artık bir ek geliştirme ortamı aynı parametreleri ya da üretim ortamı oluşturmak istediğiniz, eşleşen? Resource Manager, ortamınız için tüm parametreleri tanımlayan JSON şablonlarını kullanır. Tüm ortamları, bu JSON şablonunu başvurarak oluşturun. Yapabilecekleriniz [JSON şablonları el ile derleme](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya sizin için JSON şablonunu oluşturmak için bir ortamı dışarı aktarın. Kullanım [az grubunu dışarı aktarma](/cli/azure/group#az_group_export) kaynak grubunuzun şu şekilde dışarı aktarmak için:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-Bu komut oluşturur `myResourceGroup.json` geçerli çalışma dizini dosyasında. Bu şablonu kullanarak bir ortam oluşturmak için tüm kaynak adları sorulur. Ekleyerek bu adları şablon dosyanızın doldurabilirsiniz `--include-parameter-default-value` parametresi `az group export` komutu. Kaynak adları belirtmek için JSON şablonunuzu düzenleyin veya [parameters.json dosyası oluşturma](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kaynak adları belirtir.
+Bu komut oluşturur `myResourceGroup.json` geçerli çalışma dizininizde dosya. Bu şablonu kullanarak bir ortam oluşturduğunuzda, tüm kaynak adları için istenir. Ekleyerek bu adlar, şablon dosyanızda doldurabilirsiniz `--include-parameter-default-value` parametresi `az group export` komutu. Kaynak adlarını belirtmek için JSON şablonunu düzenlemeniz veya [parameters.json dosya oluşturma](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kaynak adları belirtir.
 
-Bir ortamda, şablonu oluşturmak için kullanmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#az_group_deployment_create) gibi:
+Şablonunuzdan bir ortam oluşturmak için kullanın [az grubu dağıtım oluşturma](/cli/azure/group/deployment#az_group_deployment_create) gibi:
 
 ```azurecli
 az group deployment create \
@@ -575,7 +575,7 @@ az group deployment create \
     --template-file myResourceGroup.json
 ```
 
-Okumak isteyebilirsiniz [şablonlardan dağıtma hakkında daha fazla](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Artımlı olarak update ortamlar, parametre dosyasını kullanın ve şablonları bir tek bir depolama konumdan erişim hakkında bilgi edinin.
+Okumak isteyebilirsiniz [şablonlardan dağıtma hakkında daha fazla](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Artımlı olarak ortamları güncelleştirebilir, parametre dosyasını kullanın ve tek bir depolama konumundan şablonları erişim hakkında bilgi edinin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık birden çok ağ bileşenleri ve VM'ler ile çalışmaya başlamak hazırsınız. Burada sunulan çekirdek bileşenlerini kullanarak uygulamanızı oluşturmak için bu örnek ortamı kullanabilirsiniz.
+Artık birden çok ağ bileşenleri ve Vm'leri ile çalışmaya başlamak hazırsınız. Burada sunulan temel bileşenleri kullanarak uygulamanızı oluşturmak için bu örnek ortamı kullanabilirsiniz.

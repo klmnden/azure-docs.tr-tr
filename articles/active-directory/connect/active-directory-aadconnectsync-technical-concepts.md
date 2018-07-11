@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
-ms.author: markvi;andkjell
-ms.openlocfilehash: 591f67747316b950f32c5a113edda1080ed814a0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: billmath
+ms.openlocfilehash: 4c7f1a0f1199daf9409f9ef3b4230e774321fe59
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592849"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918722"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Eşitleme: Teknik Kavramlar
-Bu makalede konu özetidir [anlama mimarisi](active-directory-aadconnectsync-technical-concepts.md).
+Bu makalede konunun bir özetidir [anlama mimarisi](active-directory-aadconnectsync-technical-concepts.md).
 
-Azure AD Connect eşitleme bir düz meta dizin eşitleme platformu oluşturur.
-Aşağıdaki bölümlerde meta dizin eşitleme kavramları tanıtır.
-MIIS, ILM ve FIM temel oluşturma, Azure Active Directory Eşitleme Hizmetleri veri kaynaklarına bağlanma, veri kaynakları, aynı zamanda sağlama arasında veri eşitleme ve kimliklerini sağlamasını sonraki platformu sağlar.
+Azure AD Connect eşitleme, düz bir senaryonun meta dizin eşitleme platformuna göre oluşturur.
+Aşağıdaki bölümlerde meta dizin eşitleme için kavramları tanıtır.
+MIIS, ILM ve FIM temel oluşturma, Azure Active Directory Sync Hizmetleri veri kaynaklarına bağlanmak, veri kaynakları, hem de sağlama arasında veri eşitleme ve kimliklerini sağlamasını ileri bir platform sağlar.
 
 ![Teknik Kavramlar](./media/active-directory-aadconnectsync-technical-concepts/scenario.png)
 
@@ -40,53 +40,53 @@ Aşağıdaki bölümler, FIM eşitleme hizmeti şu yönlerini hakkında daha faz
 * Sağlama
 
 ## <a name="connector"></a>Bağlayıcı
-Bağlı bir dizin ile iletişim kurmak için kullanılan kod modülleri bağlayıcılar (önceki adıyla (MAs) yönetim aracıları olarak da bilinen) adı verilir.
+Bağlı bir dizin ile iletişim kurmak için kullanılan kod modülleri bağlayıcılar (eski adıyla yönetim aracıları (MAs) da bilinir) olarak adlandırılır.
 
-Bu Azure AD Connect eşitleme çalıştıran bilgisayara yüklenir. Bağlayıcılar aracısız özelleştirilmiş aracıları dağıtımını güvenmek yerine uzak sistem protokolleri kullanılarak gruplarıdır olanağı sağlar. Bunun anlamı azalmasına risk ve dağıtım zamanlarını, özellikle Kritik uygulamalar ve sistemler ile ilgilenirken.
+Bu Azure AD Connect eşitleme çalıştıran bilgisayarda yüklü. Bağlayıcılar, aracısız özel aracıların dağıtımı güvenmek yerine uzak sistem protokolleri kullanarak yazma olanağı sağlar. Düşük risk ve dağıtım süreleri, yani Kritik uygulamalar ve sistemlerle özellikle ilgilenirken.
 
-Yukarıdaki resimde bağlayıcı bağlayıcı alanıyla çalışır ancak dış sistemdeki tüm iletişim kapsar.
+Yukarıdaki resimde, bağlayıcı bağlayıcı alanıyla eşanlamlıdır ancak dış sistemdeki tüm iletişimleri kapsar.
 
-Bağlayıcı için tüm içe sorumludur ve işlevselliği sisteme dışarı aktarma ve bildirim temelli hazırlama veri dönüşümleri özelleştirmek için kullanırken her sistem için yerel olarak bağlanmak nasıl anlamak gerek gelen geliştiriciler boşaltır.
+Bağlayıcı sisteme işlevleri dışarı aktarmak için tüm içe sorumludur ve bildirim temelli sağlama veri dönüşümleri özelleştirmek için kullanırken her sunucuya yerel olarak bağlanmak nasıl anlamanıza gerek kalmadan gelen geliştiriciler serbest bırakır.
 
-İçeri ve dışarı aktarmalar yalnızca zamanlanmış değişiklikleri otomatik olarak bağlı veri kaynağı değil yayıldığından sistem içinde gerçekleşen değişikliklere karşı daha fazla yalıtımı izin vermeyi oluşur. Ayrıca, geliştiricilerin neredeyse tüm veri kaynağına bağlanmak için kendi bağlayıcılarını oluşturabilir.
+İçeri ve dışarı aktarmalar yalnızca zamanlanmış, sistem içinde değişiklikler otomatik olarak bağlı veri kaynağına yayılmamasını beri gerçekleşen değişikliklere karşı daha fazla yalıtım için izin verme ortaya çıkar. Ayrıca, geliştiricilerin neredeyse tüm veri kaynağına bağlanmak için kendi bağlayıcılarını oluşturabilir.
 
 ## <a name="attribute-flow"></a>Öznitelik akışı
-Meta veri bağlayıcı alanları komşu gelen tüm birleştirilmiş kimlikleri birleştirilmiş görünümüdür. Yukarıdaki şekilde, hem gelen hem de giden akış için ok uçları satırıyla tarafından öznitelik akışı belirtilmiştir. Öznitelik akışı kopyalama veya bir sistemden veri dönüştürme işlemidir ve tüm akışlar (gelen veya giden) öznitelik.
+Meta veri bağlayıcı alanları komşu gelen tüm birleştirilmiş kimlikleri birleştirilmiş görünümüdür. Yukarıdaki şekilde öznitelik akışı gelen ve giden akış ok ucu ile çizgilerle gösterilir. Tüm akışlar (gelen veya giden) öznitelik ve öznitelik akışı kopyalama veya verileri bir sistemden diğerine dönüştürme işlemidir.
 
-Eşitleme (tam veya delta) işlemleri çalışmak üzere zamanlanmış öznitelik akışı meta veri ve bağlayıcı alanı arasında çift yönlü oluşur.
+Eşitleme (tam veya delta) işlemleri çalışmak üzere zamanlanır öznitelik akışı bağlayıcı alanı ve meta veri deposu arasında çift meydana gelir.
 
-Öznitelik akışı yalnızca bu eşitlemeler çalıştırdığınızda oluşur. Öznitelik akışları eşitleme kurallarında tanımlanır. Bunlar, gelen (yukarıdaki resimde ISR) veya giden (yukarıdaki resimde OSR) olabilir.
+Öznitelik akışı yalnızca bu eşitlemeler çalıştırıldığında gerçekleşir. Öznitelik akışları eşitleme kurallarını tanımlanır. Bunlar, gelen (yukarıdaki resimde ISR) veya giden (yukarıdaki resimde OSR) olabilir.
 
 ## <a name="connected-system"></a>Bağlı sistem
-Bağlantılı sistem (diğer adıyla bağlı dizin) uzak sisteme Azure AD Connect eşitleme bağlandığı başvuran ve okuma ve gelen ve giden kimlik verilerini yazma.
+Bağlı sistem (bağlı dizin olarak da bilinir) Azure AD Connect eşitleme bağlandığı uzak sisteme başvuran ve okuma ve gelen ve giden kimlik verilerini yazma.
 
 ## <a name="connector-space"></a>Bağlayıcı alanı
-Her bağlı veri kaynağı nesneleri ve öznitelikleri için bağlayıcı alanı filtre uygulanmış bir alt olarak temsil edilir.
-Bu eşitleme hizmeti uzak sistem nesneleri eşitlerken başvurun gerek olmadan yerel olarak çalışmasına izin verir ve etkileşim içeri aktarmalar için sınırlar ve yalnızca dışa aktarır.
+Her bağlı veri kaynağı nesneleri ve öznitelikleri bağlayıcı alanında filtrelenmiş bir alt kümesi olarak temsil edilir.
+Bu eşitleme hizmeti uzak sisteme nesneler eşitlenirken başvurun gerek kalmadan yerel olarak çalışmasına izin verir ve etkileşim içeri aktarmalar için sınırlar ve yalnızca dışa aktarır.
 
-Ardından veri kaynağı ve bağlayıcı değişikliklerin (delta içeri aktarma) listesini sağlama yeteneği varsa, son Yoklama döngüsü alınıp beri işletimsel verimliliğinin yalnızca değiştikçe önemli ölçüde artırır. Bağlayıcı alanı otomatik olarak bağlayıcı zamanlaması alır ve verir gerektirerek yayılıyor değişiklikleri bağlı veri kaynağından korunmasını sağlar. Bu eklenen sigorta içiniz rahat, test, Önizleme veya sonraki güncelleştirme onaylama sırasında verir.
+Ardından veri kaynağını ve bağlayıcı (delta içeri aktarma) değişikliklerin bir listesini, sağlama yeteneği varsa, alınıp son yoklama döngüsünden bu yana operasyonel verimlilik yalnızca değiştikçe ölçüde artar. Bağlayıcı alanı bağlı veri kaynağı otomatik olarak bağlayıcı zamanlama içeri ve dışarı aktarımların gerektirerek yayılan değişikliklere karşı korunmasını sağlar. Bu ek sigorta konusunda içiniz rahat olsun, test, Önizleme veya İleri güncelleştirmeyi onaylama sırasında verir.
 
 ## <a name="metaverse"></a>Meta veri deposu
 Meta veri bağlayıcı alanları komşu gelen tüm birleştirilmiş kimlikleri birleştirilmiş görünümüdür.
 
-Kimlikleri birbirine bağlı ve yetkilisi alma akışı eşlemeleri aracılığıyla çeşitli öznitelikler için atanmış merkezi meta veri deposu nesne birden çok sistemlerden toplama bilgileri başlar. Bu nesne öznitelik akışı eşlemeleri giden sistemlere bilgileri getirir.
+Kimlikleri birbirine bağlı ve içeri aktarma akışı eşlemeleri aracılığıyla çeşitli öznitelikler için yetki verildiğini merkezi meta veri deposu nesnesi birden fazla sisteminden toplama bilgileri başlar. Bu nesne öznitelik akışı eşlemeleri giden sistemleri bilgileri getirir.
 
-Yetkili bir sistem bunları meta veri deposuna projeleri nesneleri oluşturulur. Tüm bağlantılar kaldırılır hemen meta veri deposu Nesne silindi.
+Yetkili bir sistem meta veri deposuna bunları projeleri nesneleri oluşturulur. Tüm bağlantılar kaldırılır hemen sonra meta veri deposu nesnesi silindi.
 
-Meta veri nesneleri doğrudan düzenlenemez. Tüm verileri nesnedeki öznitelik akışı katkıda bulunan gerekir. Meta veri her bağlayıcı alanı ile kalıcı bağlayıcılar tutar. Bu bağlayıcıların yeniden değerlendirme çalıştırmak için her eşitleme gerektirmez. Başka bir deyişle, Azure AD Connect eşitleme her zaman eşleşen uzak nesnesini bulmak yok. Bu normalde nesneleri ilişkilendirme için sorumlu olacaktır öznitelikleri için değişiklik önlemek maliyetli aracıları gereksinimini önler.
+Meta veri nesneleri doğrudan düzenlenemez. Nesnesindeki tüm veriler, öznitelik akışı katkıda gerekir. Meta veri her bağlayıcı alanına kalıcı Bağlayıcılarla tutar. Bu bağlayıcılar, her bir eşitleme çalıştırmak için yeniden değerlendirme gerektirmez. Bu, Azure AD Connect eşitleme eşleşen uzak nesne her zaman bulunacak yok anlamına gelir. Bu, normalde nesneleri ilişkilendirmek için sorumlu olacak öznitelikler için değişiklikleri önlemek pahalı aracıları gereksinimini ortadan kaldırır.
 
-Azure AD Connect eşitleme bir birleşim kural adı verilen bir işlem yönetilmesi gereken önceden var olan nesneleri olabilir yeni veri kaynaklarını bulma, hangi bağlantı kurmak olası adaylar değerlendirmek için kullanır.
-Bağlantı kurulduktan sonra bu değerlendirmeyi yeniden değil ve normal öznitelik akışı uzaktan bağlı veri kaynağı ve meta veri deposu gerçekleştirilebilir.
+Yönetilmesi gereken önceden var olan nesneleri olabilecek yeni veri kaynaklarını bulma, Azure AD Connect eşitleme olası adaylar olan bir bağlantı kurmak değerlendirilecek bir birleştirme kuralı olarak adlandırılan bir işlem kullanır.
+Bağlantı kurulduktan sonra Bu değerlendirme yinelenmemesini ve normal öznitelik akışı bağlı uzak veri kaynağının meta veri deposu arasında ortaya çıkabilir.
 
 ## <a name="provisioning"></a>Sağlama
-Bir yetkili kaynağı projeleri, meta veri deposuna yeni bir bağlayıcı alanı nesne yeni bir nesne bir aşağı akış bağlı veri kaynağı temsil eden başka bir bağlayıcı oluşturulabilir.
+Bir yetkili kaynak projeleri, yeni bir nesneye yeni bir bağlayıcı alanı nesne meta veri deposu bağlı bir aşağı akış veri kaynağı temsil eden başka bir bağlayıcı oluşturulabilir.
 
-Bu kendiliğinden bir bağlantı kurar ve öznitelik akışı çift yönlü devam edebilirsiniz.
+Bu doğal olarak bir bağlantı kurar ve öznitelik akışı ıcmp'ye geçebilirsiniz.
 
-Bir kural, yeni bir bağlayıcı alanı nesne oluşturulması gerektiğini belirler. her sağlama denir. Bu işlem daha yalnızca bağlayıcı alanı içinde yer aldığından verme gerçekleştirilene kadar ancak, bu bağlı veri kaynağına taşımaz.
+Bir kural, yeni bir bağlayıcı alanı nesne oluşturulması gerektiğini belirler. her sağlama çağrılır. Bu işlem daha yalnızca bağlayıcı alanı içinde yer aldığından verme gerçekleştirilene kadar ancak bu bağlı veri kaynağına taşımaz.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
-* [Azure AD Connect eşitleme: Eşitleme seçeneklerini özelleştirme](active-directory-aadconnectsync-whatis.md)
+* [Azure AD eşitleme bağlanın: Eşitleme seçeneklerini özelleştirme](active-directory-aadconnectsync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md)
 
 <!--Image references-->

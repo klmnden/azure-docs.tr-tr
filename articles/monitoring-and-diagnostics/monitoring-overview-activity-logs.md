@@ -1,6 +1,6 @@
 ---
 title: Azure etkinlik günlüğü'ne genel bakış
-description: Azure etkinlik günlüğü nedir öğrenin ve Azure aboneliğinizi içinde gerçekleşen olayların anlamak için nasıl kullanabilirsiniz.
+description: Azure etkinlik günlüğü ' ne olduğunu öğrenin ve Azure aboneliğinizde gerçekleşen olaylar anlamak için nasıl kullanabilirsiniz.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,122 +8,127 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: b6639ecc6fbd36df29458532d555b68b50b0a19c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 51cc4c37ba661feb63880c138e98200c981f6054
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018986"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918490"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
-**Azure etkinlik günlüğü** , Azure'da oluşan abonelik düzeyinde olaylar hakkında bilgi sağlayan bir abonelik günlüktür. Bu verileri, Azure Resource Manager işlemsel veri hizmeti sistem durumu olayları güncelleştirmeleri için bir aralığı içerir. Etkinlik günlüğü önceden aboneliklerinizi yönetim kategorisi raporları denetim düzlemi olayları itibaren "Denetim günlüklerini" veya "İşlem günlükleri," olarak bilinirdi. Etkinlik günlüğü kullanarak, belirleyebilirsiniz ' ne, kimin, ne zaman ve ' herhangi yazma işlemleri (PUT, POST, DELETE) aboneliğinizi kaynaklarında alınan için. İşleminin durumunu ve ilgili diğer özellikleri de anlayabilirsiniz. Etkinlik günlüğü okuma (GET) işlemleri veya işlemleri kullanan Klasik kaynakları için içermeyen / "RDFE" modeli.
+**Azure etkinlik günlüğü** oluşan Azure'da abonelik düzeyindeki olayların sağlayan bir abonelik günlüktür. Bu verileri, hizmet durumu olayları güncelleştirmelerinin Azure Resource Manager işletimsel verileri içerir. Etkinlik günlüğü daha önce Abonelikleriniz için yönetim kategorisi raporları denetim düzlemi olayları beri "Denetim günlüklerini" veya "Operasyonel günlükler," olarak biliniyordu. Etkinlik günlüğü'nü kullanarak belirleyebilirsiniz ' ne, kim ve ne zaman ' işlemlerini (PUT, POST, DELETE), aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen herhangi bir yazma için. Ayrıca, işlemi ve ilgili diğer özellikleri durumunu anlayabilirsiniz. Etkinlik günlüğünü okuma (GET) işlemlerini ya da kullanan Klasik kaynakları işlemlerinde içerip içermediğini / "RDFE" modeli.
 
-![Etkinlik günlükleri vs günlükleri diğer türleri ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
+![Etkinlik Günlükleri ve diğer tür günlüğü ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
 
-Şekil 1: Etkinlik günlükleri vs günlükleri diğer türleri
+Şekil 1: Etkinlik günlükleri ve diğer tür günlüğü
 
-Etkinlik günlüğü farklıdır [tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md). Etkinlik günlükleri dışarıdan kaynak işlemlerinin hakkında veriler sağlar ("Denetim düzlemi"). Tanılama günlüklerini bir kaynak tarafından gösterilen ve bu kaynağın ("veri düzlemi") işlemiyle ilgili bilgi sağlayın.
+Etkinlik günlüğü farklıdır [tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md). Etkinlik günlükleri bir dış kaynaktan işlemleri hakkında veri sağlar ("Denetim düzlemi"). Tanılama günlükleri, kaynak tarafından gönderilir ve bu kaynağın ("veri düzlemi") işlemiyle ilgili bilgi sağlar.
 
 > [!WARNING]
-> Azure etkinlik günlüğü öncelikle Azure Kaynak Yöneticisi'nde ortaya etkinlikleri içindir. Klasik/RDFE modeli kullanarak kaynakları izlemez. Bazı Klasik kaynak türleri proxy kaynak sağlayıcısı Azure Resource Manager (örneğin, Microsoft.ClassicCompute) sahiptir. Bir Klasik kaynak türü üzerinden Azure kaynak bu proxy kaynak sağlayıcılarını kullanarak Yöneticisi ile etkileşim işlemleri etkinlik günlüğünde görünür. Azure Resource Manager proxy'leri dışında bir Klasik kaynak türü ile etkileşim, eylemlerinizi yalnızca işlem günlüğüne kaydedilir. İşlem günlüğünün ayrı bir portal bölümde göz atılacak.
+> Azure Kaynak Yöneticisi'nde gerçekleşen etkinlikler için öncelikle Azure etkinlik günlüğü içindir. Klasik/RDFE modeli kullanarak kaynakları izlemez. Bazı Klasik kaynak türleri bir proxy kaynak sağlayıcısı, Azure Resource Manager (örneğin, Microsoft.ClassicCompute) sahip. Bir Klasik kaynak türü aracılığıyla Azure kaynak bu proxy kaynak sağlayıcılarını kullanarak Manager ile etkileşim işlemleri etkinlik günlüğü'nde görünür. Azure Resource Manager proxy'leri dışında bir Klasik kaynak türü ile etkileşim, eylemlerinizi yalnızca işlem günlüğüne kaydedilir. İşlem günlüğü portal'ın ayrı bir bölümde gözatılabilir.
 >
 >
 
-Olaylar, etkinlik CLI, PowerShell cmdlet'leri, Azure portalını kullanarak günlüğü alabilir ve Azure İzleyici REST API'si.
+Azure portalı, CLI, PowerShell cmdlet'lerini kullanarak, etkinlik günlüğünde olayları alabilirsiniz ve Azure İzleyici REST API'si.
 
 > [!NOTE]
->  [Yeni uyarılar](monitoring-overview-unified-alerts.md) uyarı kuralları oluşturma ve etkinlik yönetme oturum açtığınızda, Gelişmiş bir deneyim sunar.  [Daha fazla bilgi edinin](monitoring-activity-log-alerts-new-experience.md).
+>  [Yeni uyarılarda](monitoring-overview-unified-alerts.md) uyarı kuralları oluşturma ve yönetme etkinlik oturum açtığınızda Gelişmiş bir deneyim sunar.  [Daha fazla bilgi edinin](monitoring-activity-log-alerts-new-experience.md).
 
 Etkinlik günlüğü Tanıtımı aşağıdaki videoyu izleyin.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 
 
 ## <a name="categories-in-the-activity-log"></a>Etkinlik günlüğünde kategorileri
-Etkinlik günlüğü verileri çeşitli kategorileri içerir. Bu kategoriler şemalara ilgili tam Ayrıntılar için [bu makaleye bakın](monitoring-activity-log-schema.md). Bunlar:
-* **Yönetim** -bu kategorideki tüm kaydını içerir oluşturma, güncelleştirme, silme ve eylem işlemlerine Resource Manager aracılığıyla gerçekleştirilir. Bkz Bu kategoride olay türlerini örneklerindendir "sanal makine oluşturma" ve "belirli bir kaynak türü üzerinde bir işlem olarak bir kullanıcı veya Kaynak Yöneticisi'ni kullanarak uygulama tarafından gerçekleştirilen her eylem Modellenen ağ güvenlik grubunu sil". İşlem türü, yazma, silme veya eylemi ise, yönetim kategorisi kayıtları hem Başlangıç hem de başarılı veya başarısız bu işlemin kaydedilir. Yönetim kategorisi, rol tabanlı erişim denetimi yapılan değişikliklerin bir abonelikte de içerir.
-* **Hizmet durumu** -bu kategoriyi Azure'da oluşan herhangi bir hizmet durumu olay kaydını içerir. Bu kategorideki görür olay türü "SQL Azure Doğu ABD kesinti yaşanıyor." örneğidir Hizmet sistem durumu olayları beş çeşit olarak gelir: eylem gerekli, Destekli kurtarma, olay, bakım, bilgi veya güvenlik ve olay için etkilenen Abonelikteki bir kaynağınız varsa yalnızca görünür.
-* **Uyarı** -bu kategorideki tüm etkinleştirmeleri Azure uyarıların kaydını içerir. Bu kategorideki görür olay türü "myVM CPU % 80'den son 5 dakika için bırakıldı." örneğidir Azure sistemleri çeşitli sahip bir uyarı verme kavramı--bir kural çeşit tanımlayabilir ve bu kural için koşullara uyan bir bildirim alıyorsunuz. Her bir desteklenen Azure uyarı türü 'etkinleştirir,' veya bir bildirim oluşturmak için koşullar, bir kayıt etkinleştirme etkinlik günlüğü bu kategoriyi de gönderilir.
-* **Otomatik ölçeklendirme** -bu kategori, aboneliğinizde tanımladığınız herhangi bir otomatik ölçeklendirme ayarı göre otomatik ölçeklendirme altyapısı işlemi ile ilgili olayları kaydını içerir. Bu kategorideki görür olayın türünü, "Otomatik ölçeklendirme ölçek büyütme eylemi başarısız oldu." örneğidir Otomatik ölçeklendirme'ni kullanarak, otomatik olarak ölçeğini veya ölçeklendirin desteklenen kaynak türü örneği sayısı bir otomatik ölçeklendirme ayarı kullanarak gün ve/veya yük (ölçüm) verileri zamanında temel. Zaman ölçek yukarı veya aşağı, başlangıç ve başarılı veya başarısız olaylar için koşullar kaydedilir bu kategorideki.
-* **Öneri** -Azure Danışmanı öneri olaylarından bu kategorisi içerir.
-* **Güvenlik** -Azure Güvenlik Merkezi tarafından oluşturulan tüm uyarıları kaydını bu kategorisi içerir. Bu kategorideki görür olayın türünü, "yürütülen şüpheli çift uzantısının." örneğidir
-* **İlke ve kaynak durumu** -Bu kategorilerden tüm olaylar içermez; gelecekte kullanılmak üzere ayrılmıştır.
+Etkinlik günlüğü birkaç veri kategorilerini içerir. Bu kategorilerin şemaların ilgili tam Ayrıntılar için [bu makaleye bakın](monitoring-activity-log-schema.md). Bunlar:
+* **Yönetim** -Bu kategoride tüm kaydı oluşturma, güncelleştirme, silme ve eylem işlemlerine Resource Manager aracılığıyla gerçekleştirilir. Görmek Bu kategoride olay türlerini örnekleri arasında "sanal makine oluşturma" ve "bir kullanıcı ya da Resource Manager kullanarak uygulama tarafından gerçekleştirilen her eylemi modellenmiş bir işlemi belirli bir kaynak türü olarak ağ güvenlik grubunu sil". İşlem türü, yazma, silme veya eylem ise, hem Başlangıç hem de başarılı kayıtlar veya bu işlemin başarısız yönetim kategorisi kaydedilir. Yönetim kategorisi, bir abonelikte rol tabanlı erişim denetimi değişiklikleri de içerir.
+* **Hizmet durumu** -bu kategori, Azure'da ortaya çıkan tüm hizmet durumu olayları kaydını içerir. Bu kategoride göreceğiniz olay türünü "SQL Azure Doğu ABD, kesinti yaşanıyor." örneğidir Hizmet durumu olayları beş çeşit olarak gelir: eylem gerekli, Kurtarma Yardımlı, olay, bakım, bilgi veya güvenlik, olaydan etkilenen aboneliğindeki bir kaynak varsa yalnızca görünür.
+* **Uyarı** -bu kategorideki tüm etkinleştirmeleri Azure uyarıları kaydını içerir. Bu kategoride göreceğiniz olay türünü "myVM üzerindeki CPU % 80'den önceki 5 dakika boyunca bırakıldı." örneğidir Çeşitli Azure sistemleri sahip bir uyarı verme kavramı--tür bir kural tanımlamak ve bu kuralda veya ek koşullarla eşleşen bir bildirim alırsınız. Her bir desteklenen Azure uyarı türü 'etkinleştirir,' veya bir bildirim oluşturmak için koşullar karşılandığında, bir kaydı etkinleştirme etkinlik günlüğü, bu kategoriye de gönderilir.
+* **Otomatik ölçeklendirme** -kayıt işlemi herhangi bir otomatik ölçeklendirme ayarı, aboneliğinizde tanımlanmış temel otomatik ölçeklendirme altyapısı ilgili olayların bu kategorisi içerir. Bu kategoride göreceğiniz olay türünü, "Otomatik ölçek ölçeği artırma eylemi başarısız oldu." örneğidir Otomatik ölçeklendirme kullanarak, otomatik olarak ölçeği genişletme veya ölçeklendirme desteklenen kaynak türü örneği sayısını gün ve/veya yük (ölçüm) verileri kullanarak bir otomatik ölçeklendirme ayarı zamanında temel. Ne zaman ölçeği artırmak veya azaltmak için başlangıç ve başarılı veya başarısız olayları koşulların kaydedilir bu kategorideki.
+* **Öneri** -Azure Danışmanı için öneri olaylardan bu kategorisi içerir.
+* **Güvenlik** -Azure Güvenlik Merkezi tarafından oluşturulan herhangi bir uyarı kaydı bu kategorisi içerir. Bu kategoride göreceğiniz olay türünü, "şüpheli çift uzantılı dosya yürütüldü." örneğidir
+* **İlke ve kaynak durumu** -kategorilerine meydana gelen olayları içermez; gelecekte kullanılmak üzere ayrılmıştır.
 
-## <a name="event-schema-per-category"></a>Her kategori şeması
-[Etkinlik günlüğü olay şemanın her kategori anlamak için bu makaleye bakın.](monitoring-activity-log-schema.md)
+## <a name="event-schema-per-category"></a>Kategori başına olay şeması
+[Kategori başına etkinlik günlüğü olay şeması anlamak için bu makaleye bakın.](monitoring-activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Etkinlik günlüğü ile yapabilecekleriniz
-Etkinlik günlüğü ile yapabileceği şeylerden bazıları şunlardır:
+Etkinlik günlüğü ile yapabileceğiniz çok şey bazıları şunlardır:
 
 ![Azure Etkinlik günlüğü](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
-* Sorgulamak ve içinde görüntüleyebilir **Azure portal**.
-* [Bir uyarı etkinlik günlüğü olay olarak oluşturun.](monitoring-activity-log-alerts.md)
-* [Kendisine akışı bir **olay hub'ı** ](monitoring-stream-activity-logs-event-hubs.md) bir üçüncü taraf hizmeti veya Powerbı gibi özel analiz çözümü tarafından alımı için.
-* Powerbı kullanarak Analiz [ **Power BI içerik paketi**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-* [Kaydetmesi bir **depolama hesabı** arşivleme veya el ile İnceleme için](monitoring-archive-activity-log.md). Bekletme süresi (gün) kullanarak belirtebilirsiniz **günlük profili**.
-* PowerShell Cmdlet, CLI veya REST API sorgu.
+* Sorgulamak ve içinde görüntüleyebilir **Azure portalında**.
+* [Bir etkinlik günlüğü olayında uyarı oluşturun.](monitoring-activity-log-alerts.md)
+* [Kendisine Stream bir **olay hub'ı** ](monitoring-stream-activity-logs-event-hubs.md) alımı üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
+* Power BI kullanarak Analiz [ **Power BI içerik paketi**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Kaydetmesi bir **depolama hesabı** arşivleme veya el ile İnceleme](monitoring-archive-activity-log.md). Bekletme süresi (gün cinsinden) kullanarak belirtebilirsiniz **günlük profilini**.
+* PowerShell cmdlet'i, CLI veya REST API sorgulayın.
 
-## <a name="query-the-activity-log-in-the-azure-portal"></a>Sorgu Azure portalında etkinlik günlüğü
-Azure portalı içinde çeşitli yerlerde, etkinlik günlüğü görüntüleyebilirsiniz:
-* **Etkinlik günlüğü** altında etkinlik günlüğü için arama yaparak erişebileceği **tüm hizmetleri** sol gezinti bölmesinde.
-* **İzleyici** varsayılan sol gezinti bölmesinde görünür. Etkinlik günlüğü Azure İzleyici bölümüdür.
-* Herhangi bir kaynağa ait **kaynak**, örneğin, bir sanal makine için yapılandırma dikey. Etkinlik günlüğü, bu kaynak dikey çoğunu bölümleri biri ve otomatik olarak üzerine tıklayarak bu belirli bir kaynağa ilgili olayları filtreleyen ' dir.
+## <a name="query-the-activity-log-in-the-azure-portal"></a>Azure portalında etkinlik günlüğü sorgulama
+Azure portalının içinde çeşitli yerlerde, etkinlik günlüğü görüntüleyebilirsiniz:
+* **Etkinlik günlüğü** etkinlik günlüğü altında arayarak erişebileceğiniz **tüm hizmetleri** sol taraftaki gezinti bölmesinde.
+* **İzleyici** varsayılan sol taraftaki gezinti bölmesinde görünür. Etkinlik günlüğü Azure İzleyici bölümüdür.
+* Herhangi bir kaynağın **kaynak**, örneğin, bir sanal makine yapılandırma dikey. Etkinlik günlüğü, bu kaynak dikey pencerelerinin çoğunu bölümleri, biri ve bu belirli o kaynakla ilgili olayları otomatik olarak üzerine tıklayarak filtreler ' dir.
 
-Azure portalında, etkinlik günlüğü bu alanlara göre filtreleyebilirsiniz:
+Azure portalında etkinlik günlüğünüz bu alanlara göre filtreleyebilirsiniz:
 * TimeSpan - olaylar için başlangıç ve bitiş zamanı.
 * Kategori - yukarıda açıklandığı gibi olay kategorisi.
-* Abonelik - bir veya daha fazla Azure aboneliği adları.
-* Kaynak grubu - bu abonelikleri içinde bir veya daha fazla kaynak gruplar.
-* Kaynak (ad) - belirli bir kaynak adı.
-* Kaynak türü - kaynak, örneğin, Microsoft.Compute/virtualmachines türü.
-* İşlem adı - Örneğin, Microsoft.SQL/servers/Write bir Azure Resource Manager işlemin adı.
-* Önem derecesi - (hata, uyarı, bilgilendirici kritik) olay önem derecesi.
-* 'Arayan' ya da işlemi gerçekleştiren kullanıcı tarafından - başlatılan olay.
-* Arama Aç - tüm olayları tüm alanları genelinde için bu dizeyi arar bir açık metin arama kutusu budur.
+* Abonelik - bir veya daha fazla Azure aboneliği adı.
+* Kaynak grubu - bu Aboneliklerdeki içinde bir veya daha fazla kaynak grupları.
+* Kaynak (ad) - belirli bir kaynağın adı.
+* Kaynak türü - örneğin, Microsoft.Compute/virtualmachines kaynak türü.
+* İşlem adı - Microsoft.SQL/servers/Write Örneğin, bir Azure Resource Manager işlem adı.
+* Önem derecesi - (Kritik hata, uyarı, bilgilendirici) olay önem derecesi.
+* 'Arayan' ya da işlemi gerçekleştiren kullanıcı - tarafından başlatılan olay.
+* Açık arama - tüm olaylarda tüm alanlar boyunca o dize için arama bir açık metin arama kutusu budur.
 
-Bir filtre kümesi tanımladıktan sonra bu filtreler yeniden gelecekte uygulanmış aynı sorgulaması ihtiyacınız varsa oturumlarında kalıcı bir sorgu olarak kaydedebilirsiniz. Ayrıca, Azure Panonuzda her zaman bir belirli olayları takip etmek için bir sorgu sabitleyebilirsiniz.
+Bir filtre kümesi tanımladıktan sonra her zamankinden daha sonra yeniden uygulanması bu filtreleri ile aynı sorgu gerçekleştirmek gerekiyorsa farklı oturumlarda kalıcı bir sorgu olarak kaydedebilirsiniz. Ayrıca, bir sorgu her zaman belirli olayları takip etmek için Azure panonuza sabitleyebilirsiniz.
 
-"Uygulama" tıklatarak sorgunuzu çalıştırır ve tüm eşleşen olayları gösterir. Listedeki herhangi bir etkinliğe tıklayarak yanı sıra tam ham JSON o olayın olay özetini gösterir.
+"Uygula" tıklayarak sorguyu çalıştırır ve tüm eşleşen olayları göster. Listedeki herhangi bir olay tıklayarak yanı sıra tam ham JSON'ın bu olay, olay özetini gösterir.
 
-Daha fazla güç için tıklattığınız **günlük arama** etkinlik günlüğü verilerinizi görüntüler simgesi [günlük analizi etkinlik günlüğü analizi çözüm](../log-analytics/log-analytics-activity.md). Etkinlik günlüğü dikey günlükleri bir temel filtre/gözatma deneyimi sunar, ancak Özet, sorgu ve daha güçlü şekilde görselleştirmek günlük analizi sağlar.
+Daha fazla güç için tıklayabilirsiniz **günlük araması** etkinlik günlüğü verilerinizi gösteren bir simge [Log Analytics Activity Log Analytics çözümünü](../log-analytics/log-analytics-activity.md). Etkinlik günlüğü dikey günlükleri bir temel filtre/göz atma deneyimini sunar, ancak Log Analytics, Özet, sorgu ve daha güçlü şekilde verilerinizi görselleştirmek sağlar.
 
-## <a name="export-the-activity-log-with-a-log-profile"></a>Bir günlük profiliyle etkinlik günlüğü dışarı aktarma
-A **günlük profili** nasıl etkinlik günlüğü dışarı denetler. Bir günlük profili kullanarak, aşağıdakileri yapılandırabilirsiniz:
+## <a name="export-the-activity-log-with-a-log-profile"></a>Günlük profilini ile Etkinlik günlüğünü dışarı aktarma
+A **günlük profilini** etkinlik günlüğünüzü nasıl verilir denetimleri. Günlük profilini kullanarak, aşağıdakileri yapılandırabilirsiniz:
 
-* Etkinlik günlüğü (depolama hesabı veya olay hub'ları) burada gönderilmesi gereken
-* Hangi olay kategorileri (yazma, silme, eylem) gönderilmelidir. *Günlük profillerinde ve etkinlik günlüğü olaylarını "kategorisi" anlamını farklıdır. Günlük profilinde "Kategorisi" işlem türü (yazma, silme, eylem) temsil eder. Bir etkinlik günlüğü olay kaynağı ya da (örneğin, yönetim, ServiceHealth, uyarı ve daha fazla) olay türü "kategorisi" özelliğini temsil eder.*
-* Hangi bölgelerde (konumlara) aktarılması. Etkinlik günlüğünde birçok olay genel olaylar olarak eklemek "Genel" sağlayın.
-* Ne kadar süreyle etkinlik günlüğü bir depolama hesabında tutulmalıdır.
-    - Sıfır gün bekletme günlükleri sonsuza kadar tutulur anlamına gelir. Aksi takdirde, değer 1 ile 2147483647 arasındaki gün herhangi bir sayıda olabilir.
-    - Bekletme ilkeleri ayarlanır, ancak yalnızca (örneğin, olay hub'ları veya günlük analizi seçenekler seçilidir) günlükleri bir depolama hesabında depolama devre dışı bırakıldı, bekletme ilkeleri bir etkisi yoktur.
-    - Bekletme ilkeleri uygulanan başına günlük, olduğundan, bir gün (UTC) dışında tutma sunulmuştur gün günlüklerinden sonunda İlkesi silinir. Örneğin, bir günlük bir Bekletme İlkesi nesneniz varsa, günün bugün başında dünden önceki gün günlüklerinden silinecek. Silme işlemi gece yarısı UTC ancak günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir Not başlar.
+* Etkinlik günlüğü'nü (depolama hesabına veya olay hub'ları) nereye gönderileceğini
+* Hangi olay kategorileri (yazma, silme, eylem) gönderilmelidir. *Günlük profilleri ve etkinlik günlüğü olayları "Kategori" anlamını farklıdır. Günlük profilinde "Kategori" işlem türü (yazma, silme, eylem) temsil eder. Bir etkinlik günlüğü olayında "Kategori" özelliği, kaynak veya olay (örneğin, yönetim, ServiceHealth, uyarı ve daha fazlası) türünü temsil eder.*
+* Hangi bölgeler (konumlara) aktarılması. Etkinlik günlüğünde çok sayıda olayları genel olaylar olarak eklemek "Genel" sağlayın.
+* Ne kadar süreyle etkinlik günlüğü, depolama hesabında tutulmalıdır.
+    - Bekletme günü sayısının sıfır günlükler süresiz olarak tutulur anlamına gelir. Aksi takdirde, değeri herhangi bir sayıda gün 1 ile 2147483647 arasında olabilir.
+    - Bekletme ilkeleri ayarlayın, ancak yalnızca (örneğin, Event Hubs veya Log Analytics seçeneği seçili) günlükleri bir depolama hesabında depolama devre dışı, bekletme ilkeleri bir etkisi yoktur.
+    - Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silindi. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar.
 
-Günlükleri yayma olarak aynı abonelikte değil bir depolama hesabı veya olay hub'ı ad alanını kullanabilirsiniz. Ayar yapılandıran kullanıcının uygun RBAC her iki aboneliğin erişiminiz olmalıdır.
+Günlükleri yayan bir aynı abonelikte değil bir depolama hesabına veya olay hub'ı ad alanını kullanabilirsiniz. Ayarı yapılandıran kullanıcının her iki aboneliğin uygun RBAC erişiminiz olması gerekir.
 
 > [!NOTE]
->  Şu anda arşivleyemezsiniz verileri bir depolama hesabı, güvenli bir sanal ağ.
+>  Şu anda arşivlenemiyor verileri bir depolama hesabı, güvenli bir sanal ağda.
 
-Bu ayarlar, etkinlik günlüğü dikey penceresinde Portalı'nda "Verme" seçeneği aracılığıyla yapılandırılabilir. Bunlar ayrıca program aracılığıyla yapılandırılabilir [Azure İzleyici REST API'sini kullanarak](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlet'leri veya CLI. Bir abonelik yalnızca bir günlük profil olabilir.
+> [!WARNING]
+> Depolama hesabı günlüğü verileri biçimi JSON satırlarına 1 Kasım 2018'de değişir. [Etki ve yeni biçime işlemek için araçlarınızı güncelleştirmek nasıl bir açıklaması için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
+
+Bu ayarlar, portalda etkinlik günlüğü dikey penceresindeki "Export" seçeneği aracılığıyla yapılandırılabilir. Bunlar aynı zamanda program aracılığıyla yapılandırılabilir [Azure İzleyici REST API'sini kullanarak](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlet'leri veya CLI. Bir abonelikte yalnızca tek bir günlük profili olabilir.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Azure portalını kullanarak günlük profillerini yapılandırma
-Bir olay Hub'ına etkinlik günlüğü akışla aktarmak veya bunları Azure portalında "Export" seçeneğini kullanarak bir depolama hesabında depolamak.
+Etkinlik günlüğü olay Hub'ına akış ya da Azure portalında "Export" seçeneğini kullanarak bir depolama hesabında depolayın.
 
-1. Gidin **etkinlik günlüğü** portalın sol tarafta menüsünü kullanarak.
+1. Gidin **etkinlik günlüğü** portalın sol tarafındaki menüyü kullanarak.
 
-    ![Etkinlik günlüğü portalında gidin](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Tıklatın **verme** dikey pencerenin üstündeki düğmesi.
+    ![Portalda etkinlik günlüğüne gidin](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
+2. Tıklayın **dışarı** dikey penceresinin üstünde düğme.
 
-    ![Portalında Dışarı Aktar](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    ![Portal, Dışarı Aktar](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. Görüntülenen dikey penceresinde şunları seçebilirsiniz:  
   * olayları dışarı aktarmak istediğiniz bölgeleri
   * olayları kaydetmek istediğiniz depolama hesabı
-  * Bu olaylar depolama korumak istediğiniz gün sayısı. 0 gün ayarı günlükleri sonsuza kadar saklar.
-  * Bu olaylar akış için oluşturulacak bir Event Hub istediğiniz hizmet veri yolu Namespace.
+  * Bu olaylar depolamadaki saklamak istediğiniz gün sayısı. 0 gün ayarı günlükler süresiz korur.
+  * Bu olayları akış için oluşturulacak bir olay hub'ı istediğiniz hizmet veri yolu Namespace.
 
      ![Etkinlik günlüğü dikey dışarı aktarma](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Tıklatın **kaydetmek** bu ayarları kaydetmek için. Ayarlar aboneliğinize hemen uygulanır.
+4. Tıklayın **Kaydet** bu ayarları kaydedin. Ayarlar aboneliğinize hemen uygulanır.
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Azure PowerShell cmdlet'lerini kullanarak günlük profillerini yapılandırma
 
@@ -133,7 +138,7 @@ Bir olay Hub'ına etkinlik günlüğü akışla aktarmak veya bunları Azure por
 Get-AzureRmLogProfile
 ```
 
-#### <a name="add-a-log-profile"></a>Bir günlük profili ekleyin
+#### <a name="add-a-log-profile"></a>Günlük profilini ekleyin
 
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
@@ -142,11 +147,11 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
 | Ad |Evet |Günlük profilinin adı. |
-| StorageAccountId |Hayır |Etkinlik günlüğü kaydedilmesi gereken depolama hesabının kaynak kimliği. |
-| serviceBusRuleId |Hayır |Hizmet veri yolu kuralı kimliği hizmet veri yolu ad alanı için oluşturduğunuz olay hub'ları sahip ister misiniz? Bu biçimde bir dize: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Konum |Evet |Etkinlik günlüğü olaylarını toplamak istediğiniz bölgeler virgülle ayrılmış listesi. |
-| RetentionInDays |Evet |Hangi olayların tutulacağını için 1 ile 2147483647 arasında gün sayısı. Sıfır değeri günlükleri süresiz olarak depolar (sürekli). |
-| Kategori |Hayır |Toplanması gereken olay kategorileri virgülle ayrılmış listesi. Olası değerler şunlardır: yazma, silme ve eylem. |
+| StorageAccountId |Hayır |Etkinlik günlüğünün kaydedileceği depolama hesabı kaynak kimliği. |
+| serviceBusRuleId |Hayır |Service Bus kural kimliği oluşturulan olay hub'ları olmasını istediğiniz Service Bus ad alanı. Şu biçime sahip bir dizedir: `{service bus resource ID}/authorizationrules/{key name}`. |
+| Konum |Evet |Etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin virgülle ayrılmış listesi. |
+| Retentionındays |Evet |Hangi olayların tutulacağını, 1 ile 2147483647 arasında bir gün sayısı. Sıfır değeri günlükler süresiz olarak depolar (sonsuz). |
+| Kategori |Hayır |Virgülle ayrılmış liste toplanması gereken olay kategorileri. Olası değerler şunlardır: yazma, silme ve eylem. |
 
 #### <a name="remove-a-log-profile"></a>Günlük profilini Kaldır
 ```
@@ -162,9 +167,9 @@ az monitor log-profiles list
 az monitor log-profiles show --name <profile name>
 ```
 
-`name` Özelliği, günlük profilinizin adı olmalıdır.
+`name` Özelliği, günlük profilinin adı olmalıdır.
 
-#### <a name="add-a-log-profile"></a>Bir günlük profili ekleyin
+#### <a name="add-a-log-profile"></a>Günlük profilini ekleyin
 
 ```azurecli
 az monitor log-profiles create --name <profile name> \
@@ -173,7 +178,7 @@ az monitor log-profiles create --name <profile name> \
     --categories <category1 category2 ...>
 ```
 
-CLI ile monitör profili oluşturmak için tam belgeleri için bkz [CLI komut başvurusu](/cli/azure/monitor/log-profiles#az-monitor-log-profiles-create)
+CLI ile bir izleme profili oluşturmak için tam belgeleri için bkz. [CLI komut başvurusu](/cli/azure/monitor/log-profiles#az-monitor-log-profiles-create)
 
 #### <a name="remove-a-log-profile"></a>Günlük profilini Kaldır
 
@@ -182,5 +187,5 @@ az monitor log-profiles delete --name <profile name>
 ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* [Etkinlik günlüğü (önceki adıyla denetim günlüklerini) hakkında daha fazla bilgi edinin](../azure-resource-manager/resource-group-audit.md)
-* [Akış Event hubs'a Azure etkinlik günlüğü](monitoring-stream-activity-logs-event-hubs.md)
+* [Etkinlik günlüğü'nü (eski adıyla denetim günlükleri) hakkında daha fazla bilgi edinin](../azure-resource-manager/resource-group-audit.md)
+* [Azure etkinlik günlüğünün Event Hubs'a Stream](monitoring-stream-activity-logs-event-hubs.md)

@@ -1,9 +1,9 @@
 ---
 title: Otomatik ölçeklendirme Azure Vm'leri | Microsoft Docs
-description: Windows ve Linux sanal makineleri Azure üzerinde otomatik olarak ölçeklendirme hakkında bilgi edinin.
+description: Windows ve Linux sanal makinelerini Azure'da otomatik olarak ölçeklendirme hakkında bilgi edinin.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -12,13 +12,13 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 08/21/2017
-ms.author: iainfou
-ms.openlocfilehash: 53db5718ae6c67b38cd40d291d0f9c36731c7663
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: cynthn
+ms.openlocfilehash: 8a29b4802b17df5fc8a107592b42a736dfe33185
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30176083"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929782"
 ---
 # <a name="automatically-scale-virtual-machines-in-azure"></a>Azure'da sanal makineleri otomatik olarak ölçeklendirin
 

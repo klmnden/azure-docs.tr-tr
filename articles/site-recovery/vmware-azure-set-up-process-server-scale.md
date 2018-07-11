@@ -1,39 +1,39 @@
 ---
-title: VMware VM ve Azure Site Recovery ile fiziksel sunucuya yeniden çalışma için bir işlem sunucusu Azure ayarlama | Microsoft Docs
-description: Bu makalede, azure'da yeniden çalışma VMware Azure Vm'lerine bir işlem sunucusu kurma açıklar.
+title: Azure'da bir işlem sunucusu VMware VM ve Azure Site Recovery ile fiziksel sunucuda yeniden çalışma için ayarlama | Microsoft Docs
+description: Bu makalede, Azure Vm'leri vmware'e yeniden çalışma, azure'da bir işlem sunucusu ayarlamak açıklar.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/10/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 3e53954341136a293052f9af755515a5552432fe
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ade47c59a8db673869ce8c60a062a2a6a6656ca2
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300856"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916318"
 ---
-# <a name="set-up-additional-process-servers-for-scalability"></a>Ölçeklenebilirlik sağlamak için ek işlem sunucuları ayarlama
+# <a name="set-up-additional-process-servers-for-scalability"></a>Ölçeklenebilirlik için ek işlem sunucularını ayarlama
 
-Varsayılan olarak, VMware Vm'lerini veya fiziksel sunucuları Azure kullanmaya çoğaltırken, [Site Recovery](site-recovery-overview.md), bir işlem sunucusu yapılandırma sunucusu makineye yüklenir ve Site Recovery arasında veri aktarımını koordine etmek için kullanılır ve Şirket içi altyapınızı. Kapasite ve çoğaltma dağıtımınızın genişletme artırmak için ek tek başına işlem sunucuları ekleyebilirsiniz. Bu makalede bunun nasıl yapılacağı açıklanır.
+Varsayılan olarak, VMware Vm'lerini veya fiziksel sunucuları azure'a çoğaltırken [Site Recovery](site-recovery-overview.md), bir işlem sunucusu yapılandırma sunucusu makineye yüklenir ve Site Recovery arasında veri aktarımını koordine etmek için kullanılır ve Şirket içi altyapınızı. Kapasite ve çoğaltma dağıtımınızın ölçeğini artırmak için ek bağımsız işlem sunucuları ekleyebilirsiniz. Bu makalede bunun nasıl yapılacağı açıklanır.
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
 ### <a name="capacity-planning"></a>Kapasite planlaması
 
-Gerçekleştirdiğiniz emin olun [kapasite planlaması](site-recovery-plan-capacity-vmware.md) VMware çoğaltma için. Bu, belirlemenize yardımcı olabilir nasıl ve ne zaman ek işlem sunucusu dağıtmanız gerekir.
+Gerçekleştirdiğiniz emin [kapasite planlaması](site-recovery-plan-capacity-vmware.md) VMware çoğaltması için. Bu, tanımlamanıza yardımcı olur nasıl ve ne zaman ek işlem sunucusu dağıtmanız gerekir.
 
 ### <a name="sizing-requirements"></a>Boyutlandırma gereksinimleri 
 
-Tabloda özetlenen boyutlandırma gereksinimlerini doğrulayın. Genel olarak, 200'den fazla kaynak makinelere dağıtımınız ölçeklendirmek için olması veya 2 TB'den fazla oranını günlük karmaşıklığı toplam varsa, trafik hacmi işlemek için ek işlem sunucuları gerekir.
+Tabloda özetlenen boyutlandırma gereksinimlerini doğrulayın. Genel olarak, dağıtımınızı 200'den fazla kaynak makineye ölçeklendirmek sahip olduğunuz veya günlük 2 TB'den fazla oranını karmaşıklığı toplam varsa, trafik hacmini işlemeye yetecek ek işlem sunucularının gerekir.
 
-| **Ek işlem sunucusu** | **Önbellek disk boyutu** | **Veri değişikliği oranı** | **Korumalı makineler** |
+| **Ek işlem sunucusu** | **Önbellek diski boyutu** | **Veri değişiklik oranı** | **Korumalı makineler** |
 | --- | --- | --- | --- |
-|4 Vcpu (2 yuva * 2,5 GHz @ 2 Çekirdek), 8 GB bellek |300 GB |250 GB veya daha az |85 veya daha az makine çoğaltılır. |
-|8 Vcpu'lar (2 yuva * @ 2,5 GHz 4 çekirdek), 12 GB bellek |600 GB |1 TB ' 250 GB |85 150 makineler arasında çoğaltılır. |
-|12 Vcpu'lar (2 yuva * 2,5 GHz @ 6 çekirdek) 24 GB bellek |1 TB |1 TB ile 2 TB |150-225 makineler arasında çoğaltılır. |
+|4 Vcpu (2 yuva * 2.5 GHz @ 2 Çekirdek), 8 GB bellek |300 GB |250 GB veya daha az |85 ya da daha az makineleri çoğaltabilir. |
+|8 Vcpu (2 yuva * @ 2.5 GHz 4 çekirdek), 12 GB bellek |600 GB |250 GB ila 1 TB |85 150 makineler arasında çoğaltılır. |
+|12 Vcpu (2 yuva * @ 2.5 GHz 6 çekirdek) 24 GB bellek |1 TB |1 TB ile 2 TB |150-225 makineler arasında çoğaltılır. |
 
 ### <a name="prerequisites"></a>Önkoşullar
 
@@ -46,25 +46,25 @@ Ek işlem sunucusu için Önkoşulları aşağıdaki tabloda özetlenmiştir.
 
 İşlem sunucusu için yükleme dosyasını aşağıdaki gibi indirin:
 
-1. Azure portalında oturum açın ve kurtarma Hizmetleri Kasası'na göz atın.
-2. Açık **Site Recovery altyapısı** > **VMWare ve fiziksel makineleri** > **yapılandırma sunucularına** (altında VMware ve fiziksel için Makineler).
-3. Sunucu ayrıntıları detaya gitmek için yapılandırma sunucusu seçin. Ardından **+ işlem sunucusu**.
-4. İçinde **eklemek işlem sunucusu** >  **işlem sunucunuzu dağıtmak istediğiniz Seç**seçin **dağıtma bir genişleme işlem sunucusu şirket içi**.
+1. Azure portalında oturum açın ve kurtarma Hizmetleri kasanıza göz atın.
+2. Açık **Site Recovery altyapısı** > **VMWare ve fiziksel makineler** > **yapılandırma sunucusu** (altında VMware ve fiziksel Makineler için).
+3. Sunucu ayrıntıları detaya gitmek için yapılandırma sunucusunu seçin. Ardından **+ işlem sunucusu**.
+4. İçinde **ekleme işlem sunucusu** >  **seçin, işlem sunucunuzu dağıtmak istediğiniz**seçin **Dağıt bir genişleme işlem sunucusu şirket içi**.
 
   ![Sunucuları Sayfası Ekle](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
-1. Tıklatın **karşıdan Microsoft Azure Site kurtarma birleşik Kurulum**. Bu yükleme dosyasının en son sürümünü yükler.
+1. Tıklayın **indirme Microsoft Azure Site Recovery birleşik Kurulumu**. Bu yükleme dosyasının en son sürümünü indirir.
 
   > [!WARNING]
-  İşlem sunucusu yükleme sürümü aynı, veya öncesi olması gerekir, yapılandırma server sürümü çalışıyor olması. Sürüm uyumluluğu sağlamak için basit bir yol, en son yüklemek veya yapılandırma sunucunuz güncelleştirmek için kullanılan aynı yükleyici kullanmaktır.
+  Configuration server sürümü çalışıyor olması, işlem sunucusu yükleme sürümü aynı farklı veya daha önceki bir sürümü olmalıdır. Sürüm uyumluluğu sağlamak için basit bir yol, en son yükleme veya yapılandırma sunucunuzu güncelleştirmek için kullanılan aynı yükleyici kullanmaktır.
 
 ## <a name="install-from-the-ui"></a>Kullanıcı Arabiriminden yükleyin
 
-Aşağıdaki gibi yükleyin. Sunucuyu ayarladıktan sonra bunu kullanmak için kaynak makineleri geçirin.
+Aşağıda gösterildiği gibi yükleyin. Sunucuyu ayarladıktan sonra bunu kullanmak için kaynak makineler geçirin.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-add-process-server.md)]
 
 
-## <a name="install-from-the-command-line"></a>Komut satırından yükleyin
+## <a name="install-from-the-command-line"></a>Komut satırından yükleme
 
 Aşağıdaki komutu çalıştırarak yükleyin:
 
@@ -85,7 +85,7 @@ UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /
 ```
 ### <a name="create-a-proxy-settings-file"></a>Proxy ayarları dosyası oluşturma
 
-Bir proxy ayarlamak gerekiyorsa, ProxySettingsFilePath parametresi bir dosya girdi olarak alır. Dosyanın aşağıdaki gibi oluşturun ve giriş ProxySettingsFilePath parametresi olarak geçirin.
+Bir proxy ayarlamak gerekiyorsa ProxySettingsFilePath parametresi bir dosya girdi olarak alır. Dosya şu şekilde oluşturun ve bunu giriş ProxySettingsFilePath parametre olarak geçiriyoruz.
 
 ```
 * [ProxySettings]

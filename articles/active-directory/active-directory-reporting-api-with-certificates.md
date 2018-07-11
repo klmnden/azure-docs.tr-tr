@@ -15,97 +15,73 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: aa0891126ad6fa05a39b9245e4fe85b61218ec40
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0da0e5d4b7dd8ff000d6c56716bea1b36935af01
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222469"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928915"
 ---
 # <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Sertifikalarla Azure Active Directory raporlama API’sini kullanarak veri alma
 
-[Azure Active Directory (Azure AD) raporlama API'leri](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview), bir dizi REST tabanlı API aracılığıyla verilere programlı erişim sağlar. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz.
+[Azure Active Directory (Azure AD) raporlama API'leri](active-directory-reporting-api-getting-started-azure-portal.md), bir dizi REST tabanlı API aracılığıyla verilere programlı erişim sağlar. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz. Azure AD raporlama API'sini kullanıcı müdahalesi olmadan erişmek istiyorsanız, erişiminizi sertifikalarını kullanacak şekilde yapılandırabilirsiniz.
 
-Kullanıcı müdahalesi olmadan Azure AD Raporlama API'sine erişmek istiyorsanız, erişiminizi sertifika kullanacak şekilde yapılandırabilirsiniz
+Bu, aşağıdaki adımları içerir:
 
-Bu makalede:
+1. [Önkoşulları yükle](#install-prerequisites)
+2. [Uygulamanızdaki sertifikayı kaydetme](#register-the-certificate-in-your-app)
+3. [MS Graph API'si için bir erişim belirteci alma](#get-an-access-token-for-ms-graph-api)
+4. [MS Graph API uç noktaları sorgulama](#query-the-ms-graph-api-endpoints)
 
-- Sertifikaları kullanarak Azure AD raporlama API'sine erişmeniz için gereken adımlar sağlanır.
-- [Azure Active Directory raporlama API'sine erişim önkoşullarını](active-directory-reporting-api-prerequisites-azure-portal.md) tamamladığınız varsayılır. 
-
-
-Sertifikalarla raporlama API'sine erişmek için aşağıdaki işlemleri yapmalısınız:
-
-1. Önkoşulları yükleme
-2. Uygulamanızdaki sertifikayı ayarlama 
-3. İzinleri verme
-4. Bir erişim belirteci alma
-
-
-
-
-Kaynak kodu hakkında bilgi için bkz. [Rapor API Modülünden Yararlanma](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils). 
 
 ## <a name="install-prerequisites"></a>Ön koşulları yükleme
 
-Azure AD PowerShell V2 ve AzureADUtils modülünün yüklü olması gerekir.
+1. İlk olarak, tamamladığınızdan emin olun [Azure Active Directory raporlama API'SİYLE erişmek için Önkoşullar](active-directory-reporting-api-prerequisites-azure-portal.md). 
 
-1. [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md) içindeki yönergeleri izleyerek Azure AD PowerShell V2’yi indirip yükleyin.
+2. İndirme ve yükleme yönergeleri izleyerek, Azure AD Powershell V2 [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md)
 
-2. [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1) dizininden Azure AD Yardımcı Programları modülünü indirin. 
-  Bu modül aşağıdaki çeşitli yardımcı program cmdlet'lerini sağlar:
-    - Nuget kullanarak en son ADAL sürümü
+3. Gelen MSCloudIDUtils yükleme [PowerShellGallery - MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Bu modül aşağıdaki çeşitli yardımcı program cmdlet'lerini sağlar:
+    - ADAL kimlik doğrulaması için gereken kitaplıkları
     - ADAL kullanarak kullanıcı, uygulama anahtarları ve sertifikalardan erişim belirteçleri
     - Disk belleğine alınmış Graph API işleme sonuçları
 
-**Azure AD Yardımcı Programlar modülünü yüklemek için:**
+4. İlk kez çalıştırma modülü ise **yükleme MSCloudIdUtilsModule** Kurulumu tamamlamak için Aksi takdirde, yalnızca kullanarak içeri aktarabilirsiniz **Import-Module** Powershell komutu.
 
-1. Yardımcı programlar modülünün kaydedileceği dizini oluşturun (örneğin, c:\azureAD) ve modülü GitHub’dan indirin.
-2. Bir PowerShell oturumu açın ve yeni oluşturduğunuz dizine gidin. 
-3. Modülü içeri aktarın ve Install-AzureADUtilsModule cmdlet’ini kullanarak PowerShell modülüne yükleyin. 
+Oturumunuz şu ekran gibi görünmelidir:
 
-Oturum şu ekran gibi görünmelidir:
+  ![Windows PowerShell](./media/active-directory-reporting-api-with-certificates/module-install.png)
 
-  ![Windows PowerShell](./media/active-directory-report-api-with-certificates/windows-powershell.png)
+## <a name="register-the-certificate-in-your-app"></a>Uygulamanızdaki sertifikayı kaydetme
 
-## <a name="set-the-certificate-in-your-app"></a>Uygulamanızdaki sertifikayı ayarlama
+1. İlk olarak, uygulama kayıt sayfasına gidin. Giderek bunu yapabilirsiniz [Azure portalında](https://portal.azure.com)a **Azure Active Directory**, ardından **uygulama kayıtları** ve uygulamanızı listeden seçerek. 
 
-**Uygulamanızdaki sertifikayı ayarlamak için:**
+2. Ardından, adımları [sertifikanızı Azure AD'ye kaydetme](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials#register-your-certificate-with-azure-ad) uygulama için. 
 
-1. Azure Portal'dan uygulamanızın [Nesne Kimliğini alın](active-directory-reporting-api-prerequisites-azure-portal.md#get-your-applications-client-id). 
+3. Uygulama kimliği ve uygulamanızla birlikte yalnızca kayıtlı sertifikanın parmak izini unutmayın. Portalda, uygulama sayfanızdan parmak izi bulmak için Git **ayarları** tıklatıp **anahtarları**. Parmak izi altında olur **ortak anahtarları** listesi.
 
-  ![Azure portalına](./media/active-directory-report-api-with-certificates/azure-portal.png)
-
-2. Bir PowerShell oturumu açın ve Connect-AzureAD cmdlet'ini kullanarak Azure AD’ye bağlanın.
-
-  ![Azure portalına](./media/active-directory-report-api-with-certificates/connect-azuaread-cmdlet.png)
-
-3. AzureADUtils içindeki New-AzureADApplicationCertificateCredential cmdlet’ini kullanarak bir sertifika kimlik bilgisi ekleyin. 
-
->[!Note]
->Daha önce yakaladığınız uygulama Nesne Kimliğinin yanı sıra sertifika nesnesini (Cert: sürücüsünü kullanarak alın) belirtmeniz gerekir.
->
-
-
-  ![Azure portalına](./media/active-directory-report-api-with-certificates/add-certificate-credential.png)
   
-## <a name="get-an-access-token"></a>Bir erişim belirteci alma
+## <a name="get-an-access-token-for-ms-graph-api"></a>MS Graph API'si için bir erişim belirteci alma
 
-Erişim belirteci almak için AzureADUtils içindeki **Get-AzureADGraphAPIAccessTokenFromCert** cmdlet’ini kullanın. 
+MS Graph API'si için bir erişim belirteci almak için kullanın **Get-MSCloudIdMSGraphAccessTokenFromCert** MSCloudIdUtils PowerShell modülünden cmdlet'i. 
 
 >[!NOTE]
->Son bölümde kullandığınız Nesne Kimliği yerine Uygulama Kimliğini kullanmanız gerekir.
+>Uygulama Kimliğini (ClientID olarak da bilinir) yanı sıra, sertifikanın sertifika parmak izini (CurrentUser veya LocalMachine sertifika deposuna) bilgisayarınızın sertifika deposunda yüklü özel anahtarla kullanmanız gerekir.
 >
 
- ![Azure portalına](./media/active-directory-report-api-with-certificates/application-id.png)
+ ![Azure portalına](./media/active-directory-reporting-api-with-certificates/getaccesstoken.png)
 
 ## <a name="use-the-access-token-to-call-the-graph-api"></a>Graph API'sini çağırmak için erişim belirteci kullanma
 
-Şimdi betiği oluşturabilirsiniz. Aşağıda, AzureADUtils içindeki **Invoke-AzureADGraphAPIQuery** cmdlet’inin nasıl kullanıldığını gösteren bir örnek yer alır. Bu cmdlet, çok sayfalı sonuçları işer ve ardından PowerShell işlem hattına gönderir. 
+Artık, Graph API'sini sorgulamak için Powershell betiğinizde erişim belirteci kullanabilirsiniz. Aşağıda bir örnek kullanarak **Invoke-MSCloudIdMSGraphQuery** oturum açma bilgilerini veya diectoryAudits uç nokta Numaralandırılacak MSCloudIDUtils cmdlet'inden. Bu cmdlet, çok sayfalı sonuçları işer ve ardından PowerShell işlem hattına gönderir.
 
- ![Azure portalına](./media/active-directory-report-api-with-certificates/script-completed.png)
+### <a name="query-the-directoryaudits-endpoint"></a>Sorgu DirectoryAudits uç noktası
+ ![Azure portalına](./media/active-directory-reporting-api-with-certificates/query-directoryAudits.png)
 
-Artık bir CSV'ye göndermeye ve bir SIEM sistemine kaydetmeye hazırsınız. Ayrıca, betiğinizi zamanlanmış bir göreve kaydırarak, uygulama anahtarlarını kaynak kodda depolamak zorunda kalmadan kiracınızdan Azure AD verilerini düzenli olarak alabilirsiniz. 
+ ### <a name="query-the-signins-endpoint"></a>Sorgu oturum açma bilgilerini uç noktası
+ ![Azure portalına](./media/active-directory-reporting-api-with-certificates/query-signins.png)
+
+Artık bu veri bir CSV'ye göndermeye ve bir SIEM sistemine kaydetmeye seçebilirsiniz. Ayrıca, betiğinizi zamanlanmış bir göreve kaydırarak, uygulama anahtarlarını kaynak kodda depolamak zorunda kalmadan kiracınızdan Azure AD verilerini düzenli olarak alabilirsiniz. 
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

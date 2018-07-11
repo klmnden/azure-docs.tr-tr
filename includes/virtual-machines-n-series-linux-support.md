@@ -8,33 +8,33 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0264f92fa10bd503a2811ce40ee0b8d4edd5f3b1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1813367a2d143f75fb51a3160dd00219c709c57b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34669841"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37935775"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Desteklenen dağıtımlar ve sürücüler
 
 ### <a name="nvidia-cuda-drivers"></a>NVIDIA CUDA sürücüleri
 
-NVIDIA CUDA sürücüleri NC, NCv2, NCv3 ve ND-serisi VM'ler (NV-seri için isteğe bağlı) için aşağıdaki tabloda listelenen Linux dağıtımları üzerinde desteklenir. CUDA sürücü bilgileri yayın zamanında geçerli olur. En son CUDA sürücüleri için ziyaret [NVIDIA](https://developer.nvidia.com/cuda-zone) Web sitesi. Yükleme veya dağıtım için en son CUDA sürücüleri yükseltme emin olun. 
+NVIDIA CUDA sürücüleri NC, NCv2 NCv3 ve ND serisi VM'ler (NV serisi için isteğe bağlı) için aşağıdaki tabloda listelenen Linux dağıtımlarında desteklenir. CUDA sürücü bilgileri yayın zamanında güncel değil. En son CUDA sürücüleri için ziyaret [NVIDIA](https://developer.nvidia.com/cuda-zone) Web sitesi. Yükleme veya dağıtımınız için en son CUDA sürücüleri için yükseltme emin olun. 
 
 > [!TIP]
-> Bir Linux VM el ile CUDA sürücü yüklemesinde alternatif olarak, bir Azure dağıtabilirsiniz [veri bilimi sanal makine](../articles/machine-learning/data-science-virtual-machine/overview.md) görüntü. Ubuntu 16.04 LTS veya CentOS 7.4 DSVM sürümleri NVIDIA CUDA sürücüleri, CUDA derin sinir ağ kitaplığı ve başka araçlar önceden yükleyin.
+> Bir Azure Linux VM'de el ile CUDA sürücü yüklemesi için alternatif olarak, dağıtabilirsiniz [veri bilimi sanal makinesi](../articles/machine-learning/data-science-virtual-machine/overview.md) görüntü. Ubuntu 16.04 LTS veya 7.4 CentOS DSVM sürümleri önceden NVIDIA CUDA sürücüleri, CUDA derin sinir ağı kitaplığı ve diğer araçları yükleyin.
 
 | Dağıtım | Sürücü |
 | --- | -- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 ya da 7.4<br/><br/> CentOS tabanlı 7.3 ya da 7.4, CentOS tabanlı 7.4 HPC | NVIDIA CUDA 9.1, sürücüyü dal R390 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.4 ya da 7.3<br/><br/> CentOS tabanlı 7.3 veya 7.4, CentOS tabanlı 7.4 HPC | NVIDIA CUDA 9.1, sürücü dalı R390 |
 
-### <a name="nvidia-grid-drivers"></a>NVIDIA kılavuz sürücüleri
+### <a name="nvidia-grid-drivers"></a>NVIDIA GRID sürücüleri
 
-Microsoft sanal iş istasyonları kullanılan NV-serisi VM'ler için veya sanal uygulamalar için NVIDIA kılavuz sürücü yükleyiciler yeniden dağıtır. Yalnızca bu kılavuz sürücüleri yalnızca aşağıdaki tabloda listelenen dağıtımları Azure NV Vm'lerinde yükleyin. Bu sürücüleri kılavuz Azure sanal GPU yazılım lisansı içerir.
+Microsoft, sanal uygulamaları veya sanal çalışma İstasyonlarınızı kullanılan NV serisi VM'ler için NVIDIA GRID sürücü yükleyiciler yeniden dağıtır. Bu kılavuz sürücüleri yalnızca Azure NV Vm'lerinde yalnızca aşağıdaki tabloda listelenen dağıtımlarında yükleyin. Bu sürücüleri kılavuz Azure'da sanal GPU yazılımı için lisans içerir.
 
 | Dağıtım | Sürücü |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 ya da 7.4<br/><br/>CentOS tabanlı 7.3 veya 7.4 | NVIDIA kılavuz 6.0, sürücüyü dal R390|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.4 ya da 7.3<br/><br/>CentOS tabanlı 7.3 veya 7.4 | NVIDIA kılavuz 6.2, sürücü dalı R390|
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Kimlik eşitleme ve yinelenen öznitelik dayanıklılık | Microsoft Docs
-description: Azure AD Connect'i kullanarak dizin eşitleme sırasında UPN veya ProxyAddress çakışan nesneleri işlemek nasıl yeni davranışı.
+title: Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı | Microsoft Docs
+description: Azure AD Connect'i kullanarak dizin eşitlemesi sırasında UPN veya ProxyAddress çakışması nesneleriyle işlemek nasıl yeni davranış.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -14,86 +14,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
-ms.author: markvi
-ms.openlocfilehash: cfed9d32e919cc3c1b7b9c2a6ea5ddb31f2a8fb9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: billmath
+ms.openlocfilehash: a84e99e854900cef70450661f992c33787368c90
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593217"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919079"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı
-Yinelenen öznitelik dayanıklılık nedeni uyuşmazlık giderilecektir Azure Active Directory'de bir özelliktir **UserPrincipalName** ve **ProxyAddress** Microsoft'un eşitleme araçlardan birini çalıştırırken çakışıyor.
+Yinelenen öznitelik dayanıklılığı kaynaklanan uyuşmazlıkları ortadan kaldıracak Azure Active Directory özelliğidir **UserPrincipalName** ve **ProxyAddress** Microsoft'un birini çalıştırırken çakışıyor Eşitleme araçları.
 
-Bu iki özellik genellikle tüm arasında benzersiz olması gereken **kullanıcı**, **grup**, veya **kişi** nesneleri belirli bir Azure Active Directory kiracısı.
+Bu iki öznitelikler genellikle tüm arasında benzersiz olması gereken **kullanıcı**, **grubu**, veya **kişi** nesneleri belirli bir Azure Active Directory kiracısı.
 
 > [!NOTE]
-> Yalnızca kullanıcıların UPN olabilir.
+> Yalnızca kullanıcılar UPN olabilir.
 > 
 > 
 
-Bu özelliği etkinleştiren yeni davranışı eşitleme ardışık düzen bulut bölümünde, bu nedenle, istemci belirsiz ve Azure AD Connect, DirSync ve MIM + bağlayıcı dahil olmak üzere herhangi bir Microsoft Eşitleme ürünü için ilgili. Genel bir terim "eşitleme istemcisi" Bu belgede, bu ürünlerden birini temsil etmek için kullanılır.
+Bu özelliği etkinleştiren yeni davranış eşitleme işlem hattının bulut bölümünde, bu nedenle, belirsiz ve Azure AD Connect, DirSync ve MIM + bağlayıcı dahil olmak üzere herhangi bir Microsoft Eşitleme ürünü için ilgili istemci. Genel bir terim "eşitleme istemcisi", bu belgede, bu ürünlerden birini temsil etmek için kullanılır.
 
 ## <a name="current-behavior"></a>Şu anki davranışı
-Bu benzersizlik kısıtlamasını ihlal eden bir UPN veya ProxyAddress değer ile yeni bir nesne sağlamak girişimi varsa, Azure Active Directory bu nesnesinin oluşturulmasını engeller. Benzer şekilde, bir nesne bir benzersiz olmayan UPN veya ProxyAddress ile güncelleştirdiyseniz güncelleştirme başarısız. Sağlama denemesi veya güncelleştirme her dışarı aktarma döngüsü sırasında eşitleme istemci tarafından yeniden denenir ve çakışması çözülene kadar başarısız olmaya devam eder. Her girişimi sırasında bir hata raporu e-posta oluşturulur ve eşitleme istemci tarafından bir hata günlüğe kaydedilir.
+Bu benzersizlik kısıtlamasını ihlal ediyor UPN veya ProxyAddress değeri ile yeni bir nesne sağlama girişimi varsa, Azure Active Directory, nesnesinin oluşturulmasını engeller. Benzer şekilde, bir nesneyi benzersiz olmayan bir UPN veya ProxyAddress güncelleştirildikten sonra güncelleştirme başarısız. Sağlama girişimi veya güncelleştirmeyi her dışarı aktarma döngüsü sırasında eşitleme istemcisi tarafından denenen ve çakışması çözülene kadar başarısız devam eder. Her girişimi sırasında bir hata raporu e-posta oluşturulur ve eşitleme istemcisi tarafından bir hata günlüğe kaydedilir.
 
-## <a name="behavior-with-duplicate-attribute-resiliency"></a>Yinelenen öznitelik dayanıklılığına sahip davranışı
-Tamamen sağlamak veya yinelenen bir öznitelik bir nesne güncelleştirmek başarısız yerine, Azure Active Directory "hangi benzersizlik kısıtlamasını ihlal ediyor yinelenen öznitelik karantinaya". Bu öznitelik, UserPrincipalName gibi sağlamak için gerekliyse, hizmetin bir yer tutucu değerini atar. Bu geçici değerleri biçimi  
+## <a name="behavior-with-duplicate-attribute-resiliency"></a>Yinelenen öznitelik dayanıklılığı ile davranışı
+Tamamen sağlama veya bir nesne ile yinelenen bir öznitelik güncelleştir başarısız yerine, Azure Active Directory "benzersizlik kısıtlamasını ihlal ediyor yinelenen özniteliği karantinaya". Bu öznitelik gerekliyse, UserPrincipalName gibi sağlamak için hizmeti bir yer tutucu değeri atar. Bu geçici değerleri biçimi  
 "***<OriginalPrefix>+ < 4DigitNumber > @<InitialTenantDomain>. onmicrosoft.com***".  
-Öznitelik gerekli değilse, ister bir **ProxyAddress**, Azure Active Directory sadece çakışma özniteliği karantinaya ve nesne oluşturma veya güncelleştirme işlemi devam eder.
+Öznitelik gerekli değilse, ister bir **ProxyAddress**, Azure Active Directory yalnızca çakışma öznitelik karantinaya alır ve nesne oluşturma veya güncelleştirme ile devam eder.
 
-Öznitelik karantinaya alma sırasında çakışması hakkında bilgi eski davranış kullanılan aynı hata raporu e-posta gönderilir. Karantina gerçekleştiğinde, ancak, bu bilgileri, hata raporunda yalnızca bir kez görüntülenir. Bu gelecekteki postalarda tutulacak devam etmez. Ayrıca, bu nesne için dışarı aktarma başarılı olduktan sonra eşitleme istemcisi bir hata günlüğe kaydetmez ve oluşturma yeniden denemez / güncelleştirmesi sonraki eşitleme döngüsü sırasında işlemi.
+Öznitelik karantinaya üzerine çakışması hakkında bilgi eski davranışa kullanılan aynı hata raporu e-posta gönderilir. Karantina gerçekleştiğinde, ancak bu bilgileri, hata raporunda yalnızca bir kez görüntülenir. Bu gelecekteki e-postalarda günlüğe kaydedilecek devam etmez. Ayrıca, bu nesne için dışarı aktarma başarılı oldu eşitleme istemcisi bir hata günlüğe kaydetmez ve oluşturma yeniden denemez / güncelleştirme işlemi sırasında sonraki eşitleme döngüsü.
 
-Bu davranış desteklemek için yeni bir öznitelik kullanıcı, Grup ve iletişim nesne sınıfları için eklendi:  
+Bu davranışı destekleyen yeni bir öznitelik kullanıcı, Grup ve iletişim nesnesi sınıflarına eklenmiştir:  
 **DirSyncProvisioningErrors**
 
-Normal olarak eklenmelidir benzersizlik kısıtlamasını ihlal ediyor çakışan öznitelikleri depolamak için kullanılan birden çok değerli bir özniteliktir. Bir arka plan Zamanlayıcı görevi çözümlendi ve söz konusu öznitelikleri karantinadan otomatik olarak kaldırır yinelenen öznitelik çakışmaları aramak için her saat çalışır Azure Active Directory'de etkinleştirildi.
+Bu normalde eklenmelidir benzersizlik kısıtlamasını ihlal ediyor çakışan öznitelikleri depolamak için kullanılan birden çok değerli bir özniteliğidir. Yinelenen öznitelik çakışmaları Çözüldü ve söz konusu öznitelikleri karantinadan otomatik olarak kaldırır aramak için her saat çalışır Azure Active Directory'de bir arka plan Zamanlayıcı görevi etkinleştirildi.
 
-### <a name="enabling-duplicate-attribute-resiliency"></a>Yinelenen öznitelik dayanıklılık etkinleştirme
-Yinelenen öznitelik dayanıklılık yeni varsayılan davranış tüm Azure Active Directory kiracılar arasında olacaktır. Bu üzerinde ilk kez 22 Ağustos 2016 veya sonraki sürümlerde eşitlemenin etkinleştirilmiş tüm kiracılar için varsayılan olarak olacaktır. Bu tarihten önce eşitlemenin etkin kiracılar özelliğinin toplu olarak etkin olacaktır. Bu sunum Eylül 2016'da başlayacak ve her bir kiracının Teknik Bildirim kişi özelliği etkin olduğunda belirli bir tarih ile bir e-posta bildirimi gönderilir.
+### <a name="enabling-duplicate-attribute-resiliency"></a>Yinelenen öznitelik dayanıklılığı etkinleştirme
+Yinelenen öznitelik dayanıklılığı yeni varsayılan davranış, tüm Azure Active Directory kiracılar genelinde olacaktır. Üzerinde varsayılan olarak 22 Ağustos 2016 veya sonraki sürümlerinde ilk kez eşitleme etkin tüm kiracılar için de artar. Bu tarihten önce eşitleme özelliği etkin kiracılar özelliğinin toplu olarak etkin olacaktır. Bu sunum Eylül 2016'da başlar ve her bir kiracının Teknik Bildirim kişisi özelliği etkin olduğunda belirli bir tarih içeren bir e-posta bildirimi gönderilir.
 
 > [!NOTE]
-> Yinelenen öznitelik dayanıklılık açık durumda sonra devre dışı bırakılamaz.
+> Yinelenen öznitelik dayanıklılığı açıldı sonra devre dışı bırakılamaz.
 
-Özellik kiracınız için etkin olup olmadığını denetlemek için Azure Active Directory PowerShell modülü en son sürümünü indirme ve çalıştırma bunu yapabilirsiniz:
+Bu özellik, kiracınız için etkin olup olmadığını denetlemek için Azure Active Directory PowerShell modülünün en son sürümü indirme ve çalıştırma bunu yapabilirsiniz:
 
 `Get-MsolDirSyncFeatures -Feature DuplicateUPNResiliency`
 
 `Get-MsolDirSyncFeatures -Feature DuplicateProxyAddressResiliency`
 
 > [!NOTE]
-> Artık, kiracınız için açık önce proaktif olarak yinelenen öznitelik dayanıklılık özelliğini etkinleştirmek için Set-MsolDirSyncFeature cmdlet'ini kullanabilirsiniz. Özellik test edebilmek için yeni bir Azure Active Directory Kiracı oluşturmanız gerekir.
+> Artık, kiracınız için açık önce proaktif bir şekilde yinelenen öznitelik dayanıklılığı özelliğini etkinleştirmek için Set-MsolDirSyncFeature cmdlet'ini kullanabilirsiniz. Özelliği test etmek için yeni bir Azure Active Directory Kiracı oluşturmanız gerekir.
 
 ## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>DirSyncProvisioningErrors nesneleriyle tanımlama
-Bu hatalar nedeniyle yinelenen özellik çakışmaları, Azure Active Directory PowerShell ve Office 365 Yönetici portalı sahip nesneleri tanımlamak için şu anda iki yöntem vardır. Ek portal tabanlı gelecekte Raporlama ile genişletmek için bir plan yok.
+PowerShell Azure Active Directory ve Office 365 Yönetici portalı yinelenen özellik çakışmaları nedeniyle bu hataları olan nesneleri tanımlamak için şu anda iki yöntem vardır. Ek portal tabanlı gelecekte Raporlama ile genişletmek için bir plan yok.
 
 ### <a name="azure-active-directory-powershell"></a>Azure Active Directory PowerShell
-İçin PowerShell cmdlet'leri bu konuda aşağıdaki geçerlidir:
+PowerShell cmdlet'leri için bu konudaki aşağıdaki geçerlidir:
 
-* Aşağıdaki cmdlet'leri büyük küçük harfe duyarlı değildir.
-* **– ErrorCategory PropertyConflict** her zaman dahil edilmelidir. Şu anda başka tür olan **ErrorCategory**, ancak bu gelecekte uzatılabilir.
+* Aşağıdaki cmdlet'ler büyük küçük harfe duyarlı değildir.
+* **– ErrorCategory PropertyConflict** her zaman dahil edilmesi gerekir. Şu anda başka tür vardır **ErrorCategory**, ancak bu gelecekte uzatılabilir.
 
-İlk olarak, çalıştırarak kullanmaya başlama **Bağlan MsolService** ve için Kiracı Yöneticisi kimlik bilgilerini girme.
+İlk olarak çalıştırarak kullanmaya başlama **Connect-MsolService** ve için bir kiracı Yöneticisi kimlik bilgilerini girme.
 
-Ardından, farklı şekillerde hataları görüntülemek için aşağıdaki cmdlet'leri ve işleçleri kullanın:
+Ardından farklı şekillerde hataları görüntülemek için aşağıdaki cmdlet'leri ve işleçler kullanın:
 
-1. [Tüm bakın](#see-all)
+1. [Tümünü Göster](#see-all)
 2. [Özellik türü tarafından](#by-property-type)
-3. [Çakışan değerine göre](#by-conflicting-value)
-4. [Bir dize arama kullanma](#using-a-string-search)
-5. [Sıralanmış](#sorted)
+3. [Çakışan değere göre](#by-conflicting-value)
+4. [Bir dize aramayı kullanma](#using-a-string-search)
+5. [Sıralı](#sorted)
 6. [Sınırlı bir miktar veya tümü](#in-a-limited-quantity-or-all)
 
 #### <a name="see-all"></a>Tümünü incele
-Öznitelik sağlama genel listesini görmek için bağlandıktan sonra Kiracı hataları çalıştırın:
+Öznitelik sağlamanın genel bir listesini görmek için hataları kiracıdaki bağlandıktan sonra çalıştırın:
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`
 
-Bu, aşağıdaki gibi bir sonuç oluşturur:  
+Bu, aşağıdakine benzer bir sonuç üretir:  
  ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")  
 
 #### <a name="by-property-type"></a>Özellik türü tarafından
-Özellik türü hataları görmek için Ekle'ye **- PropertyName** ile bayrak **UserPrincipalName** veya **ProxyAddresses** bağımsız değişkeni:
+Özellik türü tarafından hataları görmek için Ekle **- PropertyName** ile bayrak **UserPrincipalName** veya **ProxyAddresses** bağımsız değişkeni:
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyName UserPrincipalName`
 
@@ -101,71 +101,71 @@ Veya
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyName ProxyAddresses`
 
-#### <a name="by-conflicting-value"></a>Çakışan değerine göre
-Eklemek için belirli bir özellik ile ilgili hataları görmek için **- PropertyValue** bayrağı (**- PropertyName** de bu bayrak eklerken kullanılması gerekir):
+#### <a name="by-conflicting-value"></a>Çakışan değere göre
+Eklemek için belirli bir özellik ile ilgili hatalar görmeniz **- PropertyValue** bayrağı (**- PropertyName** bu bayrağı eklerken de kullanılmalıdır):
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyValue User@domain.com -PropertyName UserPrincipalName`
 
-#### <a name="using-a-string-search"></a>Bir dize arama kullanma
-Bir geniş dize arama kullanımı yapmak için **- AramaDizesi** bayrağı. Bu bağımsız olarak tüm yukarıdaki bayrakları dışında kullanılabilir **- ErrorCategory PropertyConflict**, olduğu her zaman gerekli:
+#### <a name="using-a-string-search"></a>Bir dize aramayı kullanma
+Yapmak için bir geniş dize arama kullanın **- SearchString** bayrağı. Bu bağımsız olarak tüm yukarıdaki bayrakları dışında kullanılabilir **- ErrorCategory PropertyConflict**, her zaman gerekli olan:
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### <a name="in-a-limited-quantity-or-all"></a>Sınırlı bir miktar veya tümü
-1. **MaxResults <Int>**  değerleri belirli sayıda sorguya sınırlamak için kullanılabilir.
-2. **Tüm** tüm sonuçları, çok sayıda hataları mevcut durumda alınır emin olmak için kullanılabilir.
+1. **Maxresults bağımsız değişkenini <Int>**  değerleri belirli sayıda sorguya sınırlamak için kullanılabilir.
+2. **Tüm** tüm sonuçları, çok sayıda hata var durumda alınır emin olmak için kullanılabilir.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
 ## <a name="office-365-admin-portal"></a>Office 365 Yönetici portalı
-Dizin eşitleme hatalarına Office 365 Yönetim Merkezi'nde görüntüleyebilirsiniz. Office 365 portalında rapor yalnızca görüntüler **kullanıcı** bu hataları olan nesne. Arasındaki çakışmaları hakkında bilgi göstermez **grupları** ve **kişiler**.
+Office 365 Yönetim merkezinde dizin eşitleme hataları görüntüleyebilirsiniz. Office 365 portalı raporda yalnızca görüntüler **kullanıcı** bu hataları olan nesne. Arasındaki çakışmalar hakkında bilgi göstermez **grupları** ve **kişiler**.
 
 ![Etkin kullanıcılar](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1234.png "etkin kullanıcılar")
 
-Office 365 Yönetim Merkezi'nde dizin eşitleme hataları görüntüleme hakkında daha fazla yönerge için bkz: [Office 365'te dizin eşitleme hatalarına tanımlamak](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
+Office 365 Yönetim merkezinde dizin eşitleme hataları görüntülemek yönergeler için bkz: [Office 365'te dizin eşitleme hataları belirlemenize](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
 ### <a name="identity-synchronization-error-report"></a>Kimlik eşitleme hata raporu
-Yinelenen öznitelik çakışma sahip bir nesne zaman işlenir Kiracı için bir bildirim Teknik Bildirim gönderilen standart kimlik eşitleme hata raporu e-posta dahil bu yeni davranış kişiyle. Ancak, bu davranış önemli bir değişiklik yoktur. Çakışması çözülene kadar her sonraki hata raporu geçmişte, yinelenen öznitelik çakışma hakkında bilgi dahil edilir. Bu yeni davranış ile belirli bir çakışma için hata bildirimi yalnızca bir kez - çakışan öznitelik karantinaya aynı anda gibi görünüyor.
+Yinelenen öznitelik çakışma sahip bir nesne zaman işlenir davranışlarla teknik bildirim gönderilir standart kimlik eşitleme hata raporu e-postadaki bildirim dahil bu Kiracı için iletişime geçin. Ancak, bu davranışı önemli bir değişiklik yoktur. Çakışma çözümlendi kadar her sonraki hata raporu geçmişte, yinelenen öznitelik çakışma hakkında bilgi dahil edilir. Bu yeni davranış ile belirli bir çakışma hata bildirimine yalnızca bir kez - çakışan bir öznitelik karantinaya zaman gibi görünüyor.
 
-E-posta bildirimi nasıl ProxyAddress çakışma göründüğünü örneği şöyledir:  
+E-posta bildirimi ProxyAddress çakışma nasıl göründüğüne ilişkin bir örnek aşağıda verilmiştir:  
     ![Etkin kullanıcılar](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "etkin kullanıcılar")  
 
-## <a name="resolving-conflicts"></a>Çakışmalarını çözme
-Strateji ve çözüm taktiği bu hataları için sorun giderme yinelenen öznitelik hataları geçmişte işlenen biçimi farklı. Tek fark, Zamanlayıcı görevi çakışma çözüldükten sonra söz konusu öznitelik uygun nesnesine otomatik olarak eklemek için hizmet tarafı üzerinde Kiracı taramalar ' dir.
+## <a name="resolving-conflicts"></a>Çakışmaları çözümleme
+Stratejisi ve çözüm taktikleri bu hataları için sorun giderme yinelenen öznitelik hataları geçmişte işlenen biçimi farklı olmalıdır değil. Tek fark, Zamanlayıcı görevi çakışma giderildikten sonra söz konusu öznitelik için uygun nesne otomatik olarak eklemek için hizmet tarafında Kiracı taramalar ' dir.
 
-Aşağıdaki makalede çeşitli sorun giderme ve çözümleme stratejileri özetlenmektedir: [yinelenen ya da geçersiz öznitelikler önlemek Office 365'te dizin eşitleme](https://support.microsoft.com/kb/2647098).
+Aşağıdaki makalede çeşitli sorun giderme ve çözüm stratejileri özetler: [yinelenen ya da geçersiz öznitelikler önlemek Office 365'te dizin eşitleme](https://support.microsoft.com/kb/2647098).
 
 ## <a name="known-issues"></a>Bilinen sorunlar
-Bu bilinen sorunlar hiçbiri veri kaybı veya hizmet düşüşüne neden olur. Birkaç estetik, diğerleri standart neden "*öncesi dayanıklılık*" çakışma özniteliği ve başka karantinaya alma yerine durum için yinelenen öznitelik hataları fazladan el ile düzeltme yukarı gerektirecek şekilde belirli hataları neden olur.
+Bu bilinen sorunlar hiçbiri, veri kaybı veya hizmet düşmesine neden olur. Birkaç tanesinin estetik, diğerleri standart neden "*öncesi dayanıklılık*" çakışma özniteliği ve başka karantinaya yerine oluşturulması için yinelenen öznitelik hataları fazladan el ile düzeltme yukarı gerektirecek şekilde belirli hataları neden olur.
 
 **Çekirdek davranışı:**
 
-1. Özel öznitelik yapılandırmaları nesneleriyle karantinaya alınmış yinelenen öznitelikler aksine verme hataları almaya devam eder.  
+1. Nesneleri belirli bir öznitelik yapılandırmaları ile karantinaya alınmış yinelenen öznitelikleri aksine dışarı aktarma hataları almaya devam eder.  
    Örneğin:
    
-    a. Yeni kullanıcı AD UPN ile oluşturulur **Joe@contoso.com** ve ProxyAddress **smtp:Joe@contoso.com**
+    a. Yeni kullanıcı bir UPN ile AD'de oluşturulur **Joe@contoso.com** ve ProxyAddress **smtp:Joe@contoso.com**
    
-    b. Bu nesnenin özelliklerini ProxyAddress olduğu varolan bir grupla çakışma **SMTP:Joe@contoso.com**.
+    b. Bu nesnenin özelliklerini ProxyAddress olduğu mevcut bir grubu ile çakışan **SMTP:Joe@contoso.com**.
    
-    c. Dışa aktarma, üzerine bir **ProxyAddress çakışma** hata karantinaya çakışma özniteliklere sahip yerine oluşur. Dayanıklılık özellik etkinleştirilmeden önce olabilirdi gibi işlemi her sonraki eşitleme döngüsü sırasında denenir.
-2. İki grup aynı SMTP adresi ile şirket içi oluşturulursa sağlama standart yinelenen ile ilk denemede başarısız **ProxyAddress** hata. Ancak, yinelenen değer düzgün sonraki eşitleme döngüsü sırasında karantinaya alınır.
+    c. Dışarı aktarma, bağlı bir **ProxyAddress çakışma** karantinaya çakışma özniteliklere sahip yerine hata oluşur. Dayanıklılık özellik etkinleştirilmeden önce olabilirdi gibi işlemi her bir sonraki eşitleme döngüsü sırasında yeniden denenir.
+2. İki grup aynı SMTP adresi ile şirket içi oluşturulursa standart yinelenen ile yapılan ilk girişim üzerinde sağlama başarısız **ProxyAddress** hata. Ancak, yinelenen değer sonraki eşitleme döngüsü sırasında düzgün karantinaya alındı.
 
 **Office portalı rapor**:
 
-1. Ayrıntılı hata iletisi UPN çakışma kümesinde iki nesneler için aynıdır. Bu, bunların her ikisi de değiştirilmiş / karantinaya gerçekte yalnızca bir tanesi değiştirilen veri varken UPN Değerlerinin beklendiğinden gösterir.
-2. Değiştirilen/karantinaya UPN Değerlerinin oluşmuş bir kullanıcı için yanlış displayName UPN çakışma için ayrıntılı hata iletisi gösterir. Örneğin:
+1. Ayrıntılı hata iletisini UPN çakışma küme içindeki iki nesne için aynıdır. Bu, bunların her ikisi de değiştirilen / karantinaya aslında yalnızca bir tanesi değiştirilen herhangi bir veri varken UPN çalıştırılmış gösterir.
+2. Yanlış displayName değiştirildi ve karantinaya UPN oluşmuş bir kullanıcının UPN çakışma için ayrıntılı hata iletisi gösterir. Örneğin:
    
-    a. **Kullanıcı A** eşitlenir ilk yukarı **UPN = User@contoso.com** .
+    a. **Kullanıcı A** öncelikle ile eşitlenen **UPN = User@contoso.com** .
    
-    b. **Kullanıcı B** sonraki ile yukarı senkronize girişiminde bulunuldu **UPN = User@contoso.com** .
+    b. **B kullanıcısı** yukarı sonraki ile eşitlenmesi çalışıldı **UPN = User@contoso.com** .
    
-    c. **B kullanıcısının** UPN değiştirildi **User1234@contoso.onmicrosoft.com** ve **User@contoso.com** eklenen **DirSyncProvisioningErrors**.
+    c. **B kullanıcısının** UPN değiştiğinde **User1234@contoso.onmicrosoft.com** ve **User@contoso.com** eklenir **DirSyncProvisioningErrors**.
    
-    d. İçin hata iletisini **kullanıcı B** bildiren **kullanıcısı** zaten **User@contoso.com** UPN, ancak gösterildiği gibi **kullanıcı B'nin** kendi görünen adı.
+    d. İçin hata iletisini **B kullanıcısı** gösterilmelidir **kullanıcısı** zaten **User@contoso.com** UPN, ancak gösterildiği gibi **kullanıcı B'nin** kendi displayName.
 
 **Kimlik eşitleme hata raporu**:
 
-Bağlantı için *adımlar bu sorunu gidermek nasıl* yanlış:  
+Bağlantı için *bu sorunu gidermek adımları* yanlış:  
     ![Etkin kullanıcılar](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "etkin kullanıcılar")  
 
 İşaret etmelidir [ https://aka.ms/duplicateattributeresiliency ](https://aka.ms/duplicateattributeresiliency).
@@ -173,5 +173,5 @@ Bağlantı için *adımlar bu sorunu gidermek nasıl* yanlış:
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Azure AD Connect eşitleme](active-directory-aadconnectsync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md)
-* [Office 365'te dizin eşitleme hataları tanımlar](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+* [Office 365'te dizin eşitleme hataları belirleyin](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 

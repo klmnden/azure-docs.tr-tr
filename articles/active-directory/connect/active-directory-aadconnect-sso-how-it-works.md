@@ -1,10 +1,10 @@
 ---
 title: 'Azure AD Connect: Sorunsuz çoklu oturum açma - nasıl çalışır? | Microsoft Docs'
-description: Bu makalede, Azure Active Directory sorunsuz çoklu oturum açma özelliğinin nasıl çalıştığı açıklanmaktadır.
+description: Bu makalede, Azure Active Directory sorunsuz çoklu oturum açma özelliğinin nasıl çalıştığı açıklanır.
 services: active-directory
 keywords: Azure AD, SSO, gerekli bileşenleri yükleme Active Directory, Azure AD Connect nedir çoklu oturum açma
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -15,87 +15,87 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bcd9ec44eafd586648ba964c5cba248a184a8ec3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0b1940894ffb01595d11bc49889c6ec01714816b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591570"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918263"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sorunsuz çoklu oturum açma: teknik derinlemesine bakış
+# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sorunsuz çoklu oturum açma: ayrıntılı Teknik İnceleme
 
-Bu makalede, Azure Active Directory sorunsuz çoklu oturum açma (sorunsuz SSO) özelliğinin nasıl çalıştığı içine teknik ayrıntılar sağlar.
+Bu makalede, Azure Active Directory sorunsuz çoklu oturum açma (sorunsuz SSO) özelliğinin nasıl çalıştığı ile teknik ayrıntılar sunar.
 
-## <a name="how-does-seamless-sso-work"></a>Sorunsuz SSO nasıl çalışır?
+## <a name="how-does-seamless-sso-work"></a>Sorunsuz çoklu oturum açma nasıl çalışır?
 
-Bu bölümde ona üç bölümden oluşur:
-1. Sorunsuz SSO özelliği kurulumu.
-2. Nasıl bir web tarayıcısı bir tek bir kullanıcı oturum açma işleme ile sorunsuz SSO çalışır.
-3. Nasıl bir tek kullanıcı işlemi yerel bir istemcide oturum açma ile sorunsuz SSO çalışır.
+Bu bölüm, üç bölümü vardır:
+1. Sorunsuz çoklu oturum açma özelliği kurulumu.
+2. Nasıl bir tek kullanıcı işlemi bir web tarayıcısında oturum açma sorunsuz çoklu oturum açma ile çalışır.
+3. Nasıl sorunsuz SSO ile oturum açma tek bir kullanıcı işlemi yerel bir istemci üzerinde çalışır.
 
-### <a name="how-does-set-up-work"></a>Nasıl iş ayarlamak?
+### <a name="how-does-set-up-work"></a>Nasıl iş ayarlayamayan dilbilimsel?
 
-Sorunsuz SSO etkin gösterildiği gibi Azure AD Connect'i kullanarak [burada](active-directory-aadconnect-sso-quick-start.md). Özellik etkinleştirirken, aşağıdaki adımlardan oluşur:
+Sorunsuz çoklu oturum açma etkin gösterildiği gibi Azure AD Connect kullanarak [burada](active-directory-aadconnect-sso-quick-start.md). Bu özellik etkinleştirilirken, aşağıdaki adımlar oluşur:
 - Adlı bir bilgisayar hesabı `AZUREADSSOACC` (Azure AD temsil eden), şirket içi Active Directory (AD) oluşturulur.
 - Bilgisayar hesabının Kerberos şifre çözme anahtarı güvenli bir şekilde Azure AD ile paylaşılır.
-- Ayrıca, iki Kerberos hizmet asıl adları (SPN), Azure AD oturum açma sırasında kullanılan iki URL'ler temsil etmek üzere oluşturulur.
+- Ayrıca, Azure AD oturum açma sırasında kullanılan iki URL temsil etmek için iki Kerberos hizmet asıl adı (SPN) oluşturulur.
 
 >[!NOTE]
-> Bilgisayar hesabını ve Kerberos SPN'lerinin (Azure AD Connect'i kullanarak) Azure AD ile eşitleyebilir ve olan kullanıcılar için sorunsuz SSO istediğiniz her AD ormanında oluşturulur. Taşıma `AZUREADSSOACC` bilgisayar hesabı için bir kuruluş birimi (aynı şekilde yönetilir ve silinmez emin olmak için diğer bilgisayar hesapları depolandığı OU).
+> (Azure AD Connect kullanarak) Azure AD ile eşitleyebilir ve olan kullanıcılar için sorunsuz SSO istediğiniz her AD ormanında bilgisayar hesabını ve Kerberos SPN'ler oluşturulur. Taşıma `AZUREADSSOACC` bilgisayar hesabı için bir kuruluş birimi (aynı şekilde yönetilir ve silinmediğinden emin olmak için diğer bilgisayar hesapları depolandığı OU).
 
 >[!IMPORTANT]
->Yüksek oranda öneririz, [Kerberos şifre çözme anahtarı alma](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) , `AZUREADSSOACC` bilgisayar hesabı en az 30 günde.
+>Yüksek oranda olmasını öneririz, [Kerberos şifre çözme anahtarını başa döndürmek](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) , `AZUREADSSOACC` en az 30 günde bir bilgisayar hesabı.
 
-Kurulum tamamlandıktan sonra sorunsuz SSO herhangi diğer oturum tümleşik Windows kimlik doğrulaması (IWA) kullanan açma aynı şekilde çalışır.
+Kurulum tamamlandıktan sonra sorunsuz çoklu oturum açma herhangi diğer tümleşik Windows kimlik doğrulaması (IWA) kullanan oturum aynı şekilde çalışır.
 
-### <a name="how-does-sign-in-on-a-web-browser-with-seamless-sso-work"></a>Nasıl oturum sorunsuz SSO iş web tarayıcısında açma?
+### <a name="how-does-sign-in-on-a-web-browser-with-seamless-sso-work"></a>Nasıl iş sorunsuz SSO ile bir web tarayıcısında oturum?
 
-Web tarayıcısında oturum açma akışı aşağıdaki gibidir:
+Bir web tarayıcısında oturum açma akışı şu şekildedir:
 
-1. Kullanıcı bir web uygulamasına erişmeyi denediğinde (örneğin, Outlook Web App - https://outlook.office365.com/owa/) bir etki alanına katılmış kurumsal bir CİHAZDAN Kurumsal ağınızdaki.
+1. Kullanıcı bir web uygulamasına erişmeye çalışır (örneğin, Outlook Web App - https://outlook.office365.com/owa/) bir etki alanına katılmış Kurumsal CİHAZDAN Kurumsal ağınızdaki.
 2. Kullanıcı zaten oturum açmamış, kullanıcının Azure AD oturum açma sayfasına yönlendirilir.
-3. Kullanıcı adı oturum açma Azure AD sayfasına kullanıcı türler.
+3. Kullanıcı türleri kendi Azure AD oturum açma sayfasında kullanıcı adı.
 
   >[!NOTE]
-  >İçin [belirli uygulamaları](./active-directory-aadconnect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), 2 ve 3. adımları atlanır.
+  >İçin [belirli uygulamaları](./active-directory-aadconnect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), adım 2 ve 3 atlanır.
 
-4. JavaScript arka planda kullanarak, Azure AD tarayıcı bir Kerberos anahtarı sağlamak için bir 401 Yetkisiz yanıtı yoluyla sınar.
+4. JavaScript arka planda kullanarak, Azure AD aracılığıyla bir Kerberos anahtarı sağlamak için 401 Yetkisiz yanıt, tarayıcının sınar.
 5. Tarayıcı için Active Directory'den bir bilet sırayla ister `AZUREADSSOACC` (Azure AD temsil eden) bilgisayar hesabı.
-6. Active Directory bilgisayar hesabının bulur ve bilgisayar hesabının parolası ile şifrelenmiş tarayıcıya bir Kerberos anahtarı döndürür.
-7. Tarayıcı, edinilen Kerberos bileti Azure AD ile Active Directory'den iletir.
-8. Azure AD önceden paylaşılan anahtar kullanan kurumsal cihaz imzalı kullanıcının kimliğini içeren Kerberos bileti şifresini çözer.
-9. Değerlendirme sonra Azure AD uygulama için bir belirteç döndüren ya da çok faktörlü kimlik doğrulaması gibi ek sağlamaları gerçekleştirmek için kullanıcıya sorar.
-10. Kullanıcı oturum açma başarılı olursa, kullanıcı uygulamaya erişim mümkün değil.
+6. Active Directory bilgisayar hesabına bulur ve bir Kerberos anahtarı bilgisayar hesabının parolası ile şifrelenmiş tarayıcıya döndürür.
+7. Tarayıcı, alınan Kerberos anahtarı, Active Directory'den Azure AD'ye iletir.
+8. Azure AD, önceden paylaşılan anahtar kullanan kurumsal cihazda oturum açan kullanıcının kimliğini içeren Kerberos anahtarı şifresini çözer.
+9. Değerlendirme sonra Azure AD belirteç uygulamaya geri döndürür veya çok faktörlü kimlik doğrulaması gibi ek kanıtları gerçekleştirmek için kullanıcıya sorar.
+10. Kullanıcı oturum açma başarılı olursa, uygulamaya erişmeye çalıştığında bir kullanıcıdır.
 
-Aşağıdaki diyagram, tüm bileşenler ve adımlarını gösterir.
+Aşağıdaki diyagram, tüm bileşenleri ve ilgili adımları gösterir.
 
-![Sorunsuz çoklu oturum açma On - Web uygulama akışı](./media/active-directory-aadconnect-sso/sso2.png)
+![Sorunsuz çoklu oturum açma uygulama akışı On - Web](./media/active-directory-aadconnect-sso/sso2.png)
 
-Sorunsuz SSO fırsatçılıktan, başarısız olursa, oturum açma deneyimini normal davranışını - yani, kullanıcı oturum açmak için parolalarını girmeleri gerekir geri döner. anlamına gelir.
+Sorunsuz çoklu oturum açma başarısız olursa, oturum açma deneyimini normal davranışını - yani, kullanıcının oturum açmak için parola girmeniz gerekiyorsa geri döner. fırsatçı, yani.
 
-### <a name="how-does-sign-in-on-a-native-client-with-seamless-sso-work"></a>Nasıl oturum sorunsuz SSO iş yerel bir istemcide açma?
+### <a name="how-does-sign-in-on-a-native-client-with-seamless-sso-work"></a>Nasıl sorunsuz çoklu oturum açma çalışma ile yerel bir istemcide oturum?
 
-Yerel bir istemcide oturum açma akışı aşağıdaki gibidir:
+Yerel bir istemci oturum açma akışı aşağıdaki gibidir:
 
-1. Kullanıcı bir etki alanına katılmış kurumsal bir CİHAZDAN Kurumsal ağınızdaki (örneğin, Outlook istemcisi) yerel bir uygulamaya erişmeye çalışır.
-2. Kullanıcı zaten oturum açmışsa değil, yerel uygulama cihazın Windows oturumu kullanıcının kullanıcı adı alır.
-3. Uygulama için Azure AD kullanıcı adı gönderir ve kiracınıza ait WS-Trust MEX bitiş noktası alır.
-4. Uygulama tümleşik olup, kimlik doğrulama uç noktası kullanılabilir WS-Trust MEX bitiş noktası ardından sorgular.
-5. 4. adım başarılı olursa, bir Kerberos challenge verilir.
-6. Uygulama Kerberos anahtarını almak mümkün ise, bu kadar Azure AD ile tümleşik kimlik doğrulaması endpoint iletir.
-7. Azure AD Kerberos biletini şifresini çözer ve bunu doğrular.
-8. Azure AD kullanıcı oturum açtığında ve uygulamaya bir SAML belirteci verir.
-9. Uygulama, ardından Azure AD OAuth2 belirteç uç noktası için SAML belirteci gönderir.
-10. Azure AD SAML belirteci doğrular ve bir erişim belirteci ve belirtilen kaynak için bir yenileme belirteci ve bir kimliği belirteci uygulamaya sorunları.
-11. Kullanıcı uygulamanın kaynağa erişim alır.
+1. Kullanıcı bir etki alanına katılmış Kurumsal CİHAZDAN Kurumsal ağınızdaki (örneğin, Outlook istemcisi) yerel bir uygulamaya erişmeye çalışır.
+2. Kullanıcı zaten oturum açmamış, yerel uygulama cihazın Windows oturumu kullanıcı adını alır.
+3. Uygulama, kullanıcı adını Azure AD'ye gönderir ve kiracınızın MEX WS-Trust uç noktasını alır.
+4. Uygulama daha sonra WS-Trust MEX uç nokta kimlik doğrulama uç noktası kullanılabilir Tümleşik olmadığını görmek için sorgular.
+5. Adım 4 başarılı olursa, bir Kerberos challenge verilir.
+6. Uygulama Kerberos anahtarını almak mümkün ise, bunu Azure AD'nin tümleşik kimlik doğrulama uç noktası kadar iletir.
+7. Azure AD, Kerberos anahtarı şifresini çözer ve bunu doğrular.
+8. Azure AD kullanıcının oturum açtığı ve uygulamaya bir SAML belirteci verir.
+9. Uygulama, Azure AD'nin OAuth2 belirteç uç noktası için SAML belirtecinde ardından gönderir.
+10. Azure AD, SAML belirteci doğrular ve uygulamaya bir erişim belirteci ve yenileme belirteci için belirtilen kaynak ve bir kimlik belirteci verir.
+11. Kullanıcı, uygulamanın kaynağına erişimi alır.
 
-Aşağıdaki diyagram, tüm bileşenler ve adımlarını gösterir.
+Aşağıdaki diyagram, tüm bileşenleri ve ilgili adımları gösterir.
 
 ![Sorunsuz tek oturum açma - yerel uygulama akışı](./media/active-directory-aadconnect-sso/sso14.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [**Hızlı Başlangıç** ](active-directory-aadconnect-sso-quick-start.md) - hale getirmek ve Azure AD sorunsuz SSO çalışıyor.
-- [**Sık sorulan sorular** ](active-directory-aadconnect-sso-faq.md) -sık sorulan sorulara yanıtlar.
-- [**Sorun giderme** ](active-directory-aadconnect-troubleshoot-sso.md) -özelliği ile ilgili genel sorunları çözmeyi öğrenin.
-- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - yeni özellik istekleri dosyalama için.
+- [**Hızlı Başlangıç** ](active-directory-aadconnect-sso-quick-start.md) - getirmek ve Azure AD sorunsuz çoklu oturum açma çalışıyor.
+- [**Sık sorulan sorular** ](active-directory-aadconnect-sso-faq.md) -sık sorulan soruların yanıtları.
+- [**Sorun giderme** ](active-directory-aadconnect-troubleshoot-sso.md) -özelliği ile ilgili yaygın sorunları çözmeyi öğrenin.
+- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - yeni özellik istekleriniz dosyalama için.

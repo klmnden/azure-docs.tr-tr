@@ -1,6 +1,6 @@
 ---
-title: Bağlayıcısı sürüm yayımlama geçmişi | Microsoft Docs
-description: Bu konu bağlayıcıları tüm sürümleri, Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) için listeler.
+title: Bağlayıcı sürümü yayın geçmişi | Microsoft Docs
+description: Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) için bu konuda bağlayıcıları'nın tüm sürümleri listeler
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
 ms.component: hybrid
-ms.author: davidste
-ms.openlocfilehash: 11794739974a0efdd93a9c45cd18c6d959b1f7b2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: billmath
+ms.openlocfilehash: 9bbf75f258f9853803ca4c00155eb186ceca54a3
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592682"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916419"
 ---
 # <a name="connector-version-release-history"></a>Bağlayıcı Sürümü Yayınlama Geçmişi
 Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) bağlayıcıları sık sık güncelleştirilir.
 
 > [!NOTE]
-> Bu konuda FIM ve MIM yalnızca bilinmiyor. Bu bağlayıcıların üzerinde Azure AD Connect yüklemesi için desteklenmiyor. Yükseltme yapı belirtildiğinde yayımlanan bağlayıcılar AADConnect üzerinde önceden yüklenmiş.
+> Bu konu yalnızca FIM ve MIM yöneliktir. Bu bağlayıcıları için Azure AD Connect yüklenmesi desteklenmez. İçin yükseltme derleme belirtildiğinde yayımlanan bağlayıcılar AADConnect üzerinde önceden yüklenmiş.
 
 
-Bu konuda çıkarılan bağlayıcılarının tüm sürümlerini listeler.
+Bu konuda, yayımlanmış bağlayıcılarının tüm sürümlerini listeler.
 
 İlgili bağlantılar:
 
-* [En son bağlayıcılar indirin](http://go.microsoft.com/fwlink/?LinkId=717495)
-* [Genel LDAP Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) başvuru belgelerini
-* [Genel SQL bağlayıcı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) başvuru belgelerini
-* [Web Hizmetleri Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) başvuru belgelerini
-* [PowerShell Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell) başvuru belgelerini
-* [Lotus Domino Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino) başvuru belgelerini
+* [En son bağlayıcı indirme](http://go.microsoft.com/fwlink/?LinkId=717495)
+* [Genel LDAP Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) başvuru belgeleri
+* [Genel SQL Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) başvuru belgeleri
+* [Web Hizmetleri Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) başvuru belgeleri
+* [PowerShell Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell) başvuru belgeleri
+* [Lotus Domino Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino) başvuru belgeleri
 
 
 ## <a name="118300"></a>1.1.830.0
 
 ### <a name="fixed-issues"></a>Giderilen sorunlar:
 * Çözümlenen ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent(Message: A device attached to the system is not functioning)
-* Bu bağlayıcılar sürümünde miiserver.exe.config 4.1.4.0 3.3.0.0-4.1.3.0 gelen bağlama yeniden yönlendirmesinin güncelleştirmeniz gerekir
+* Bu bağlayıcılar sürümünde 3.3.0.0-4.1.3.0 bağlama yeniden yönlendirme 4.1.4.0 miiserver.exe.config içinde için güncelleştirmeniz gerekir
 * Genel Web Hizmetleri:
-    * Çözümlenen geçerli JSON yanıt Yapılandırma aracında kaydedilemedi
+    * Çözümlenen geçerli bir JSON yanıtı Yapılandırma aracında kaydedilemedi
 * Genel SQL:
-    * Dışa aktarma yalnızca güncelleştirme sorgusu silme işlemi için her zaman oluşturur. Silme sorgusu oluşturmak için eklenen
-    * 'Değişiklik izleme' 'Delta stratejisi' ise, hangi nesnelerin Delta alma işlemi için alır SQL sorgusu giderilmiştir. Bu uygulamada sınırlaması bilinen: Delta içeri aktarma 'Değişiklik izleme' moduna sahip birden çok değerli öznitelikler Değişiklikleri İzle değil
-    * Birden çok değerli öznitelik son değerini silmek gerekli olduğunda ve bu satırı silmek gerekli olan değer dışında herhangi bir veri içermiyor durumda için silme sorgusu oluşturmak için eklenen olasılığı.
-    * Çıkış parametreleri SP tarafından ne zaman işleme System.ArgumentException uygulanmadı 
-    * Dışarı aktarma işlemi varbinary(max) türü olan alana yapmak için hatalı sorgu
-    * Sorunu parametreListesi değişkeniyle iki kez (işlevlerde ExportAttributes ve GetQueryForMultiValue) başlatıldı
+    * Dışarı aktarma, yalnızca güncelleştirme sorgu silme işlemi için her zaman oluşturur. Delete sorgusu oluşturmak için eklendi
+    * 'Delta stratejisi' 'Değişiklik izleme' ise, Delta alma işlemi için nesneleri alır SQL sorgu düzeltildi. Bu uygulamada sınırlama bilinen: Delta içeri aktarma modu 'Değişiklik izleme' birden çok değerli öznitelikler değişiklikleri izleme
+    * Öznitelikte son değer silmek gereklidir ve bu satırı silmek gerekli olan değer dışında herhangi bir veri içermez, çalışması için silme sorgusu oluşturmasını olanağı eklendi.
+    * İşleme System.ArgumentException çıkış parametreleri SP tarafından uygulanan 
+    * Geçersiz sorgu dışarı aktarma işlemi alanına VARBINARY(max) türüne sahip olmak için
+    * Sorunu parameterList değişkeni iki kez (işlevleri ExportAttributes ve GetQueryForMultiValue) başlatıldı
 
 
 ## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
@@ -63,12 +63,12 @@ Bu konuda çıkarılan bağlayıcılarının tüm sürümlerini listeler.
 
 * Lotus Notes:
   * Özel certifiers seçeneği filtreleme
-  * İçeri aktarma ImportOperations sınıfının hangi işlemleri 'Görünümleri' modu ve hangi 'Arama' modunda çalıştırılabilir tanım sabit.
+  * İçeri aktarma ImportOperations sınıfının tanımı hangi işlemleri 'Görünümleri' modu ve hangi 'Ara' modunda çalıştırılabilir düzeltildi.
 * Genel LDAP:
-  * OpenLDAP Directory DN entryUUI yerine bağlantı olarak kullanır. Bağlantı değiştirilecek veren GLDAP bağlayıcıya yeni seçeneği
+  * OpenLDAP Directory DN entryUUI yerine bağlantı olarak kullanır. Yeni bağlantı değiştirilecek veren GLDAP bağlayıcı seçeneği
 * Genel SQL:
-  * Sabit verme varbinary(max) türünde alanına.
-  * İkili veriler CSEntry nesnesine bir veri kaynağından eklerken, çevirmelerinde işlevi sıfır bayt üzerinde başarısız oldu. CSEntryOperationBase sınıfının sabit çevirmelerinde işlev.
+  * Sabit dışarı aktarma VARBINARY(max) türü olan bir alana.
+  * İkili verileri bir veri kaynağından CSEntry nesnesine eklerken, sıfır bayt çevirmelerinde işlevi başarısız oldu. Sabit çevirmelerinde işlevi CSEntryOperationBase sınıf.
 
 
 
@@ -76,10 +76,10 @@ Bu konuda çıkarılan bağlayıcılarının tüm sürümlerini listeler.
 ### <a name="enhancements"></a>Geliştirmeleri:
 
 * Genel SQL:
-  * Yürütme modunu yapılandırma yeteneğini saklı yordamı adlandırılmış parametreleri ile veya adlandırılmamış 'Genel parametrelerini' sayfasındaki Genel SQL Yönetim Aracısı'nın bir yapılandırma penceresinde eklenir. Sayfanın 'Genel parametrelerini' yok 'execute depolanan yordamla modu sorumlu bir saklı yordamı yürütmek için adlandırılmış parametreleri Kullan' etiketli onay kutusu parametreleri veya adı verilir.
-    * Şu anda, adlandırılmış parametreleri içeren saklı yordamı yürütme olanağı yalnızca veritabanları için IBM DB2 ve MSSQL çalışır. Oracle ve MySQL veritabanları için bu yaklaşım çalışmıyor: 
-      * MySQL, SQL sözdizimi, adlandırılmış parametreleri depolanmış yordamları desteklemiyor.
-      * Oracle için ODBC sürücüsü, saklı yordamlar adlandırılmış parametreleri için adlandırılmış parametreleri desteklemiyor)
+  * Yürütme modu yapılandırma becerisi saklı yordam adlandırılmış parametreler veya adlandırılmamış bir yapılandırma penceresinde 'Genel parametreleri' sayfasındaki Genel SQL Yönetim Aracısı'nın eklenir. Sayfada 'Genel parametreleri' var 'modu için yürütme depolanan yordamla sorumlu bir saklı yordamı yürütmek için adlandırılmış parametreleri Kullan' etiketli onay kutusu veya parametreleri adlandırılır.
+    * Şu anda yalnızca veritabanları için IBM DB2 ve MSSQL adlandırılmış parametreli saklı yordamı yürütme yeteneği çalışır. Oracle ve MySQL veritabanları için bu yaklaşım çalışmıyor: 
+      * MySQL SQL sözdizimi, adlandırılmış parametreler saklı yordamları desteklemez.
+      * Oracle için ODBC sürücüsü, saklı yordamlardaki adlandırılmış parametreler için adlandırılmış parametreleri desteklemez)
 
 ## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
 
@@ -87,50 +87,50 @@ Bu konuda çıkarılan bağlayıcılarının tüm sürümlerini listeler.
 ### <a name="fixed-issues"></a>Giderilen sorunlar:
 
 * Genel Web Hizmetleri:
-  * İki veya daha fazla uç noktaları zamanki oluşturulan bir SOAP proje engelleyen bir sorun düzeltilmiştir.
+  * İki veya daha fazla uç nokta zamanki oluşturulan bir SOAP proje engelleyen bir sorun düzeltildi.
 * Genel SQL:
-  * Alma işleminde GSQL saati doğru bağlayıcı alanı kaydedildiğinde dönüştürülürken değil. GSQL bağlayıcı alanı için varsayılan tarih ve saat Biçim 'yyyy-aa-gg: ssZ ', 'yyyy-aa-gg için: ssZ' değiştirildi.
+  * İçeri aktarma işleminde GSQL zaman doğru bağlayıcı alanına kaydedildiğinde dönüştürerek değil. GSQL'ın bağlayıcı alanında varsayılan tarih ve saat Biçim 'yyyy-aa-gg için ssZ' 'yyyy-aa-gg ssZ' değiştirildi.
 
 ## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
 
 ### <a name="fixed-issues"></a>Giderilen sorunlar:
 
 * Genel Web Hizmetleri:
-  * Wsconfig Aracı'nı doğru şekilde isteğinden"örnek" REST hizmeti yöntemi için Json dizisi dönüştürmemenizi. Bu, bu Json dizisi REST isteği için seri hale getirme sorunlara neden oldu.
-  * Web Hizmeti Bağlayıcısı Yapılandırması aracını JSON öznitelik adları alanı simgeleri kullanımını desteklemiyor 
-    * Değiştirme deseni el ile WSConfigTool.exe.config dosyasına örneğin eklenebilir ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+  * Wsconfig Aracı'nı doğru şekilde REST hizmeti yöntemi için "örnek istek" Json dizisi dönüştürmemenizi. Bu, bu Json dizisi REST isteği için serileştirme ile ilgili sorunlar nedeniyle.
+  * Web Hizmeti Bağlayıcısı yapılandırma aracını JSON öznitelik adları boşluk sembolleri kullanımını desteklemiyor 
+    * Değiştirme deseni el ile WSConfigTool.exe.config dosyasına örn eklenebilir ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
 > [!NOTE]
-> Dışarı aktarma için aşağıdaki hatayı alırsınız gibi JSONSpaceNamePattern anahtar gereklidir: ileti: boş adı geçerli değil. 
+> Dışarı aktarma için şu hatayı alırsınız gibi JSONSpaceNamePattern anahtarı gereklidir: ileti: boş adı geçerli değil. 
 
 * Lotus Notes:
-  * Zaman seçeneği **kuruluşun/kuruluş birimleri için özel certifiers izin** Bağlayıcısı'nı (güncelleştirme) dışa aktarma sırasında başarısız sonra tüm öznitelikleri Domino ancak dışarı aktarma zamanında dışarı verme akış sonra devre dışı bir KeyNotFoundException eşitlemeye izin verilir. 
-    * Aşağıdaki öznitelikler birini değiştirerek DN (kullanıcı adı özniteliği) değiştirmeye çalışırsa yeniden adlandırma işlemi başarısız olduğu için bu gerçekleşir:  
+  * Zaman seçeneği **özel certifiers izin vermek için kuruluş/kuruluş birimi** Bağlayıcısı'nı (güncelleştirme) dışarı aktarma sırasında başarısız olur. tüm öznitelikler Domino ancak dışarı aktarma anında dışarı verme akışı sonra devre dışı bir KeyNotFoundException eşitlemeye izin verilir. 
+    * Aşağıdaki özniteliklerden birini değiştirdiğinizde DN (kullanıcı adı özniteliği) değiştirileceğini çalıştığında, yeniden adlandırma işlemi başarısız olduğundan bu gerçekleşir:  
       - Soyadı
       - FirstName
       - MiddleInitial
       - AltFullName
       - AltFullNameLanguage
-      - OU
+      - Kuruluş birimi
       - altcommonname
 
-  * Zaman **kuruluşun/kuruluş birimleri için özel certifiers izin** seçeneği etkin ancak gerekli certifiers hala boş sonra KeyNotFoundException oluşur.
+  * Zaman **özel certifiers izin vermek için kuruluş/kuruluş birimi** seçeneği etkin olduğunda, ancak gerekli certifiers hala boş sonra KeyNotFoundException gerçekleşir.
 
 ### <a name="enhancements"></a>Geliştirmeleri:
 
 * Genel SQL:
-  * **Senaryo: Gerçekleştirilmedi yeniden tasarlanmıştır:** "*" özelliği
-  * **Çözüm açıklaması:** değiştirilmiş bir yaklaşım [birden çok değerli başvuru öznitelikleri işleme](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
+  * **Senaryo: Yeniden tasarlanmış uygulanır:** "*" özelliği
+  * **Çözüm açıklaması:** değiştirilen yaklaşımı [başvurusu birden çok değerli öznitelikler işleme](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 
 ### <a name="fixed-issues"></a>Giderilen sorunlar:
 
 * Genel Web Hizmetleri:
-  * Web Hizmeti Bağlayıcısı varsa, sunucu yapılandırmasını içeri aktarılamıyor
+  * Web Hizmeti Bağlayıcısı mevcutsa sunucu yapılandırmasını içeri aktarılamıyor
   * Web Hizmeti Bağlayıcısı ile birden çok Web Hizmetleri çalışmıyor
 
 * Genel SQL:
   * Tek değer başvurulan özniteliği için hiçbir nesne türleri listelenir
-  * Delta içeri aktarma nesnesindeki değeri birden çok değerli tablosundan kaldırıldığında değişiklik izleme stratejisi siler
+  * Delta içeri aktarma nesnedeki değer birden çok değerli tablosundan kaldırıldığında değişiklik izleme stratejisi siler
   * OverflowException GSQL Bağlayıcısı ile DB2 AS / 400
 
 Lotus:
@@ -138,134 +138,134 @@ Lotus:
 
 ## <a name="114430"></a>1.1.443.0
 
-Yayımlanma tarihi: 2017 Mart
+Yayımlanma tarihi: Mart 2017
 
 ### <a name="enhancements"></a>Geliştirmeler
 
 * Genel SQL:</br>
-  **Senaryo Belirtiler:** SQL burada biz yalnızca bir nesne türüne bir başvuru izin ve çapraz başvuru üyeleriyle gerektiren Bağlayıcısı ile iyi bilinen bir sınırlama geçerlidir. </br>
-  **Çözüm açıklaması:** başvuruları için işlem adımda olan "*" seçeneği seçildiğinde, nesne türlerinin tüm bileşimleri eşitleme altyapısında döndürülür.
+  **Senaryo Belirtiler:** , bir SQL burada yalnızca bir nesne türü için bir başvuru izin ve gerekli üyelerle çapraz başvuru Bağlayıcısı ile iyi bilinen sınırlamasıdır. </br>
+  **Çözüm açıklaması:** işleme adımını başvurular için içinde bulunduğunuz "*" seçeneği belirlenirse, nesne türlerinin tüm bileşimleri eşitleme altyapısında döndürülür.
 
 >[!Important]
-- Bu çok sayıda yer tutucuları oluşturur
-- Adlandırma nesne türleri benzersiz olduğundan emin olmak için gereklidir.
+- Bu çok sayıda yer tutucu oluşturur
+- Adlandırma nesne türlerini benzersiz olduğundan emin olmak için gereklidir.
 
 
 * Genel LDAP:</br>
- **Senaryo:** yalnızca birkaç kapsayıcıları belirli bir bölüm seçildiğinde sonra arama hala tüm bölümünde yapılır. Özel eşitleme hizmeti, ancak bir değil, performans düşüşüne neden MA filtrelenir. </br>
+ **Senaryo:** belirli bölümünde yalnızca birkaç kapsayıcıları seçildiğinde, ardından arama hala tüm bölümünde yapılır. Özel eşitleme hizmeti, ancak bir performans düşüşüne neden değil MA filtrelenir. </br>
 
- **Çözüm açıklaması:** tüm kapsayıcıları aracılığıyla olası Git yapmak ve her biri tüm bölümünde arama yerine nesneleri aramak için değiştirilmiş GLDAP bağlayıcı'nın kodu.
+ **Çözüm açıklaması:** değiştirilen GLDAP bağlayıcının kod tüm kapsayıcıları aracılığıyla olası Git yapın ve her biri tüm bölümünde arama yerine nesneleri arayın.
 
 
 * Lotus Domino:
 
-  **Senaryo:** Domino posta silme bir dışa aktarma sırasında kişi kaldırma desteği. </br>
-  **Çözüm:** bir dışa aktarma sırasında kişi kaldırılmak üzere yapılandırılabilir posta silme desteği.
+  **Senaryo:** Domino posta silme desteği bir dışarı aktarma sırasında bir kişi kaldırma. </br>
+  **Çözüm:** bir dışarı aktarma sırasında bir kişi kaldırılmak üzere yapılandırılabilir posta silme desteği.
 
 ### <a name="fixed-issues"></a>Giderilen sorunlar:
 * Genel Web Hizmetleri:
- * Aşağıdaki hata olur sonra hizmet URL'si varsayılan değiştirirken SAP wsconfig WebService yapılandırma aracı aracılığıyla projeleri: yolunun bir bölümü bulunamadı.
+ * Aşağıdaki hata oluşur sonra hizmet URL'si varsayılan değiştirilirken SAP wsconfig WebService yapılandırma aracı ile projeleri: yolun bir parçası bulunamadı
 
       ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
 
 * Genel LDAP:
- * AD LDS tüm öznitelikleri GLDAP bağlayıcı görmez
- * LDAP dizini şemadan UPN özniteliklere algılandığında Sihirbazı sonları
- * Delta içeri aktarmalar başarısız bulma hatalı "objectclass" özniteliği seçilmediğinde tam içeri aktarma sırasında mevcut değil
- * Bir "Bölümleri ve hiyerarşileri Yapılandır" yapılandırma sayfası değil Göster herhangi bir nesne türü için genel yeni sunucuları bölümü eşittir  
-LDAP MA. Bunlar yalnızca nesneleri RootDSE bölümünden gösterdi.
+ * AD LDS tüm öznitelikler GLDAP bağlayıcı görmez
+ * LDAP dizini şemadan UPN özniteliklere algılandığında Sihirbazı sonu
+ * Delta içeri aktarmalar "objectclass" özniteliği yok seçildiğinde tam içeri aktarma sırasında mevcut bulma hatalarla başarısız
+ * Bir "Bölümleri ve hiyerarşileri Yapılandır" yapılandırma sayfası değil Göster herhangi bir nesne türü için genel yeni sunucular için bölüm eşittir  
+LDAP MA. Bunlar yalnızca RootDSE bölüm nesnelerden gösterdi.
 
 
 * Genel SQL:
- * Delta içeri aktarma öznitelikte içeri hata Genel SQL filigran için düzeltme
- * Birden çok değerli öznitelik deleted\added değerlerini verilirken deleted\added veri kaynağındaki değiller.  
+ * Genel SQL eşiği değişikliği içeri aktarma öznitelikte içeri hata düzeltildi
+ * Birden çok değerli öznitelik değerlerini deleted\added aktarırken, bunlar veri kaynağındaki deleted\added değildir.  
 
 
 * Lotus Notes:
- * Belirli bir alan "Tam adı" için Notlar verilirken özniteliğinin değeri Null veya boş. ancak meta veri deposunda doğru şekilde gösterilir.
- * Yinelenen Certifier hata düzeltme
- * Lotus Domino Bağlayıcısı diğer nesnelerle üzerinde herhangi bir veri olmadan nesne seçildiğinde sonra bulma hatası tam içeri aktarma işlemi gerçekleştirilirken aldığımız.
- * Delta içeri aktarma olduğunda Lotus Domino Bağlayıcısı, o çalışma sonunda Microsoft.IdentityManagement.MA.LotusDomino.Service.exe çalıştıran hizmet bazen döndürür bir uygulama hatası.
- * Genel grup üyelikleri düzgün çalışır ve bir kullanıcıyı üyelikten kaldırmak denemek için dışa aktarma çalıştırırken içeren bir güncelleştirme başarılı olarak gösterir, ancak kullanıcının gerçekten Lotus Notes üyeliğinin kaldırılmaları değil dışında tutulur.
- * Dışarı aktarma modunu "Append öğesi en altındaki" GUI, birden çok değerli öznitelikler için dışa aktarma sırasında en altındaki yeni öğeler eklemek için Lotus MA yapılandırmasında eklendiği gibi seçmek için bir fırsat.
- * Bağlayıcı posta klasörü ve kimliği kasası dosyayı silmek için gerekli mantığı ekleyeceksiniz.
- * Üyelik için NAB üye çalışmıyor silin.
- * Değerleri başarıyla birden çok değerli özniteliğinden silinmelidir
+ * Notlar verilirken özniteliğinin değeri Null veya boş. ancak belirli bir alan "Tam adı" meta veri deposunda doğru şekilde gösterilir.
+ * Yinelenen Certifier hatası için düzeltme
+ * Lotus Domino Bağlayıcısı ile diğer nesneler üzerinde herhangi bir veri olmadan nesne seçildiğinde sonra bulma hatası tam içeri aktarma gerçekleştirilirken aldığımız.
+ * Delta içeri aktarma olduğunda Lotus Domino bağlayıcı, bu çalışma sonunda Microsoft.IdentityManagement.MA.LotusDomino.Service.exe çalıştıran hizmet bazen döndürür bir uygulama hatası.
+ * Genel grup üyeliği düzgün çalışır ve bir kullanıcıyı üyelikten kaldırma denemek için dışarı aktarma çalıştırırken bir güncelleştirme ile başarılı olarak gösterir ancak kullanıcı gerçekten Lotus Notes üyelikten kaldırıldı değil dışında tutulur.
+ * "Ekle öğesi altındaki" GUI, birden çok değerli öznitelikler verme sırasında en altındaki yeni öğeler eklemek için Lotus MA yapılandırması eklendiği gibi dışarı aktarma modu için bir fırsat.
+ * Bağlayıcı, posta klasörü ve kimliği kasa dosyayı silmek için gerekli mantık ekleyeceksiniz.
+ * Platformlar arası NAB üye çalışmıyor üyelik silin.
+ * Değerleri birden çok değerli özniteliği başarıyla silinmesi gerekir
 
 ## <a name="111170"></a>1.1.117.0
-Yayımlanma tarihi: 2016 Mart
+Yayımlanma tarihi: Mart 2016
 
 **Yeni bir bağlayıcı**  
-İlk sürümü [Genel SQL bağlayıcı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
+Başlangıç sürümü [Genel SQL Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 **Yeni Özellikler:**
 
 * Genel LDAP Bağlayıcısı:
-  * Delta içeri aktarma Isode ile desteği eklendi.
+  * Isode ile değişikliği içeri aktarma için destek eklendi.
 * Web Hizmetleri Bağlayıcısı:
-  * CsEntryChangeResult ve nesne düzeyi hataları eşitleme altyapısında döndürülecek izin vermek için setImportErrorCode etkinliğiyle güncelleştirildi.
-  * Yeni nesne düzeyinde hata işlevselliği kullanmak için SAP6 ve SAP6User şablonları güncelleştirildi.
+  * CsEntryChangeResult etkinliği ve nesne düzeyi hataları eşitleme altyapısı için geri döndürülecek izin vermek için setImportErrorCode etkinliği güncelleştirildi.
+  * Yeni nesne düzeyinde hata işlevselliği kullanmak için SAP6 ve SAP6User şablonlarını güncelleştirdik.
 * Lotus Domino Bağlayıcısı:
-  * Dışarı aktarma için adres defteri başına bir certifier gerekir. Artık tüm certifiers için aynı parola yönetimini kolaylaştırmak için de kullanabilirsiniz.
+  * Dışarı aktarma için adres defteri başına bir certifier gerekir. Yönetimini kolaylaştırmak için artık tüm certifiers için aynı parolayı kullanabilirsiniz.
 
 **Giderilen sorunlar:**
 
 * Genel LDAP Bağlayıcısı:
-  * IBM Tivoli DS için bazı başvuru öznitelikleri doğru algılanmadı.
-  * Delta içeri aktarma sırasında açık LDAP için başında ve dizeleri sonuna boşluk kesildi.
-  * Novell ve NetIQ için OU/kapsayıcıları arasında ve aynı zamanda bir nesne taşındı verme başarısız nesne yeniden adlandırıldı.
+  * IBM Tivoli DS için bazı başvuru öznitelikleri düzgün algılanmadı.
+  * Delta içeri aktarma sırasında açık LDAP için boşluk dizeleri sonunda ve başındaki kesildi.
+  * Örnek olarak Novell ve NetIQ için OU'ları / kapsayıcılar arasında ve aynı zamanda bir nesne taşınan bir dışarı aktarma başarısız nesne yeniden adlandırıldı.
 * Web Hizmetleri Bağlayıcısı:
-  * Ardından web hizmeti aynı bağlama için birden çok uç noktalarının olsaydı, bağlayıcı Bu uç noktalarının doğru bulamadı.
+  * Ardından web hizmeti aynı bağlama için birden çok uç noktaya olsaydı, bağlayıcı Bu uç noktalarının doğru bulamadı.
 * Lotus Domino Bağlayıcısı:
-  * Bir verme bir posta veritabanına fullName özniteliğinin çalışmadı.
-  * Hem eklendi ve üye bir gruptan kaldırılan bir dışa aktarma yalnızca eklenen üyelerin verildi.
-  * Notlar belge geçersiz (öznitelik IsValid false olarak ayarlayın), bağlayıcı başarısız ise.
+  * Bir posta veritabanına tam adı özniteliğinin bir dışarı aktarma başarısız oldu.
+  * Hem eklendi ve üye bir gruptan kaldırılan bir dışarı aktarma, eklenen üyeler yalnızca verildi.
+  * Bir notları adlı belge geçersiz (öznitelik IsValid false olarak ayarlayın) ve ardından bağlayıcı başarısız olması durumunda.
 
-## <a name="older-releases"></a>Eski sürümleri
-Mart 2016 öncesinde bağlayıcıları destek konuları yayımlanmıştır.
+## <a name="older-releases"></a>Eski sürümler
+Mart 2016'dan önce bağlayıcıları destek konuları yayımlanmıştır.
 
 **Genel LDAP**
 
 * [KB3078617](https://support.microsoft.com/kb/3078617) -1.0.0597, Eylül 2015
 * [KB3044896](https://support.microsoft.com/kb/3044896) -1.0.0549, Mart 2015
 * [KB3031009](https://support.microsoft.com/kb/3031009) -1.0.0534, Ocak 2015
-* [KB3008177](https://support.microsoft.com/kb/3008177) -1.0.0419, 2014 Eylül
+* [KB3008177](https://support.microsoft.com/kb/3008177) -1.0.0419, Eylül 2014
 * [KB2936070](https://support.microsoft.com/kb/2936070) -4.3.1082, Mart 2014
 
-**Webservices'a**
+**Veritabanınızdaki**
 
-* [KB3008178](https://support.microsoft.com/kb/3008178) -1.0.0419, 2014 Eylül
+* [KB3008178](https://support.microsoft.com/kb/3008178) -1.0.0419, Eylül 2014
 
 **PowerShell**
 
-* [KB3008179](https://support.microsoft.com/kb/3008179) -1.0.0419, 2014 Eylül
+* [KB3008179](https://support.microsoft.com/kb/3008179) -1.0.0419, Eylül 2014
 
 **Lotus Domino**
 
 * [KB3096533](https://support.microsoft.com/kb/3096533) -1.0.0597, Eylül 2015
 * [KB3044895](https://support.microsoft.com/kb/3044895) -1.0.0549, Mart 2015
-* [KB2977286](https://support.microsoft.com/kb/2977286) -5.3.0712, 2014 Ağustos
+* [KB2977286](https://support.microsoft.com/kb/2977286) -5.3.0712, Ağustos 2014
 * [KB2932635](https://support.microsoft.com/kb/2932635) -5.3.1003, Şubat 2014  
 * [KB2899874](https://support.microsoft.com/kb/2899874) -5.3.0721, Ekim 2013
-* [KB2875551](https://support.microsoft.com/kb/2875551) -5.3.0534, 2013 Ağustos
+* [KB2875551](https://support.microsoft.com/kb/2875551) -5.3.0534, Ağustos 2013
 
 ## <a name="troubleshooting"></a>Sorun giderme 
 
 > [!NOTE]
-> Microsoft Identity Manager veya AADConnect kullanımı ECMA2 bağlayıcılar hiçbirini ile güncelleştirirken. 
+> Microsoft Identity Manager veya AADConnect ECMA2 bağlayıcılardan herhangi biri ile kullanımı güncelleştirirken. 
 
-Eşleştirilecek yükseltme sırasında bağlayıcı tanımı yenilemeniz gerekir veya kimliği 6947 uyarı rapor için uygulama olay günlüğü Başlat şu hatayla karşılaşırsınız: "derleme sürümünü AAD Bağlayıcı yapılandırması ("X.X.XXX. "X") ("X.X.XXX. gerçek sürümden daha eski "X"), "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".
+Bağlayıcı tanımını eşleşecek şekilde yükseltme sonrasında yenilemeniz gerekir veya kimliği 6947 uyarı bildirmek için uygulama olay günlüğü başlatılırken şu hatayı alırsınız: "derleme sürümü AAD Bağlayıcı yapılandırması ("X.X.XXX. "X") ("X.X.XXX. gerçek sürümden daha eski "X"), "C:\Program Files\Microsoft Azure AD'ye Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".
 
-Tanımı yenilemek için:
-* Bağlayıcı örneği özelliklerini açın
-* Bağlantıyı tıklatın / bağlanmak için sekmesi
+Tanımını yenilemek için:
+* Bağlayıcı örneği için özellikleri açın
+* Bağlantıya tıklayarak / bağlanmak için sekmesinde
   * Bağlayıcı hesabı için parolayı girin
-* Özellik sekmelerin her birini sırayla tıklatın
-  * Bu bağlayıcı türü bir bölüm sekme varsa Yenile düğmesini ile bu sekmedeki Yenile düğmesini tıklatın.
-* Tüm özellik sekmeleri eriştikten sonra değişiklikleri kaydetmek için Tamam düğmesini tıklatın.
+* Özellik sekmelerin her birini sırayla tıklayın
+  * Bu bağlayıcı türü bir bölüm sekme varsa bir yenileme düğmesi ile bu sekmedeki yenile düğmesine tıklayın.
+* Tüm özellik sekmeleri erişilen sonra değişiklikleri kaydetmek için Tamam düğmesine tıklayın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinmek [Azure AD Connect eşitleme](active-directory-aadconnectsync-whatis.md) yapılandırma.
+Daha fazla bilgi edinin [Azure AD Connect eşitleme](active-directory-aadconnectsync-whatis.md) yapılandırma.
 
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.

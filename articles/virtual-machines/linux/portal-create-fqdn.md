@@ -1,9 +1,9 @@
 ---
 title: Azure portalında bir Linux VM için FQDN oluşturma | Microsoft Docs
-description: FQDN, Azure portalında sanal makine için Resource Manager tabanlı veya tam etki alanı adının nasıl oluşturulacağını öğrenin.
+description: FQDN, Azure portalında sanal makine için bir kaynak yöneticisi tabanlı veya tam etki alanı adı oluşturma öğrenin.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,28 +14,28 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81182f5a03821dc42aed2390d9a0145460b1ddd7
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ada68fcb1c480be6d70a925895e968fe714639ac
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
-ms.locfileid: "26707295"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928293"
 ---
-# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Bir tam etki alanı adını Azure portalında için bir Linux VM oluşturun.
+# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Bir tam etki alanı adını Azure portalında bir Linux VM'si için oluşturun.
 
-İçinde bir sanal makine (VM) oluşturduğunuzda [Azure portal](https://portal.azure.com), sanal makine için genel bir IP kaynağı otomatik olarak oluşturulur. VM uzaktan erişmek için bu IP adresi kullanın. Portal oluşturmaz rağmen bir [tam etki alanı adı](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), veya FQDN, ekleyebileceğiniz bir VM oluşturulduktan sonra. Bu makalede, bir DNS adı veya FQDN oluşturmak için aşağıdaki adımları gösterilmektedir.
+İçinde bir sanal makine (VM) oluştururken [Azure portalında](https://portal.azure.com), sanal makine için bir genel IP kaynağı otomatik olarak oluşturulur. Bu IP adresi, sanal Makineye uzaktan erişmek için kullanın. Portal oluşturma değil ancak bir [tam etki alanı adı](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), veya FQDN, ekleyebileceğiniz bir VM oluşturulduktan sonra. Bu makalede, bir DNS adı veya FQDN oluşturma adımları gösterilmektedir.
 
 ## <a name="create-a-fqdn"></a>Bir FQDN oluşturma
-Bu makale, bir VM zaten oluşturduğunuzu varsayar. Gerekirse, [portalda bir VM oluşturma](quick-create-portal.md) veya [Azure CLI ile](quick-create-cli.md). VM çalışır durumda sonra aşağıdaki adımları izleyin:
+Bu makalede, bir VM zaten oluşturmuş olduğunuzu varsayar. Gerekirse, [portalda VM oluşturma](quick-create-portal.md) veya [Azure CLI ile](quick-create-cli.md). Sanal makinenizin çalışır duruma geldikten sonra aşağıdaki adımları izleyin:
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-Şimdi uzaktan ile bu DNS adı gibi kullanarak VM bağlanabileceğiniz `ssh azureuser@mydns.westus.cloudapp.azure.com`.
+Artık uzaktan ile olduğu gibi bu DNS adını kullanarak VM'ye bağlanabilirsiniz `ssh azureuser@mydns.westus.cloudapp.azure.com`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-VM'yi bir ortak IP ve DNS adı olan, yaygın uygulama çerçeveleri veya nginx, MongoDB, Docker, gibi hizmetleri dağıtabilirsiniz vs.
+VM'NİZİN genel bir IP ve DNS adı olan, ortak uygulama çerçeveleri veya ngınx, MongoDB, Docker gibi hizmetleri dağıtabilirsiniz vs.
 
-Ayrıca daha fazla hakkında bilgiyi [Kaynak Yöneticisi'ni kullanarak](../../azure-resource-manager/resource-group-overview.md) Azure dağıtımlarınızı oluşturma ipuçları için.
+Ayrıca daha fazla ilgili bilgi edinebilirsiniz [Kaynak Yöneticisi'ni kullanarak](../../azure-resource-manager/resource-group-overview.md) Azure dağıtımlarınızı oluşturma ipuçları için.
 

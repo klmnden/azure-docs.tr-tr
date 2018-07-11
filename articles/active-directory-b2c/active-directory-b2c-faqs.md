@@ -10,15 +10,18 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: eb9e4c58343e1f628ff862009b1d12dad07a1c91
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e56b6f9360bdbfe2c5dcb2e81862cb80310bf54c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442449"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928741"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri güncelleştirmeleri kontrol etmeyi unutmayın.
+
+### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Azure portalında Azure AD B2C uzantısı neden erişemiyorum?
+Neden Azure AD uzantısı, çalışmadığı için sık karşılaşılan iki nedeni vardır.  Azure AD B2C kullanıcı rolünüzün dizinde genel yönetici olmanız gerekir.  Erişimi olması düşünüyorsanız lütfen yöneticinize başvurun.  Genel yönetici ayrıcalıkları varsa, Azure AD B2C dizini ve Azure Active Directory dizin olduğundan emin olun.  Yönergeler için bkz: [bir Azure AD B2C dizini oluşturma](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Azure AD B2C özellikleri var olan, çalışan tabanlı Azure AD kiracımı kullanabilir miyim?
 Azure AD ve Azure AD B2C ayrı ürün teklifleri ve aynı kiracıda bir arada bulunamaz.  Azure AD kiracısı bir kuruluşu temsil eder.  Azure AD B2C kiracısı ile bağlı olan taraf uygulamaları kullanılacak kimlikleri koleksiyonunu temsil eder.  Özel ilkeleri ile (genel Önizleme), Azure AD B2C'yi bir kuruluşta çalışanlar kimlik doğrulaması sağlayan Azure AD'ye devredebilir.

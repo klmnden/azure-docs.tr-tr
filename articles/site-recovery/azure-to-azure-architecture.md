@@ -1,37 +1,37 @@
 ---
-title: Azure Site kurtarma için Azure Azure çoğaltma mimarisi | Microsoft Docs
-description: Bu makalede, bileşenleri ve Azure VM'ler Azure Site Recovery hizmetini kullanarak Azure bölgeler arasında çoğaltırken kullanılan mimariye genel bakış sağlar.
+title: Azure Site recovery'de Azure'a çoğaltma mimarisi | Microsoft Docs
+description: Bu makalede, Azure Vm'lerinin Azure bölgeleri arasında Azure Site Recovery hizmetini kullanarak çoğaltırken kullanılan bileşenlere ve genel bir bakış sağlar.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 67552b05d70e3ae44d75cbe1005743b6d17b2c2c
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 33ab90f958e5033c0c563e4fd8921ee1f7d57c47
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716236"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915682"
 ---
-# <a name="azure-to-azure-replication-architecture"></a>Azure için Azure çoğaltma mimarisi
+# <a name="azure-to-azure-replication-architecture"></a>Azure'dan Azure'a çoğaltma mimarisi
 
 
-Çoğaltma, yük devri ve Azure sanal makineleri (VM'ler) kullanarak Azure bölgeler arasında Kurtarma sırasında kullanılan mimarisi bu makalede [Azure Site Recovery](site-recovery-overview.md) hizmet.
+Bu makalede, çoğaltma, yük devretme ve kurtarma Azure sanal makineleri (VM'ler) kullanarak Azure bölgeleri arasında kullanılan mimarisini açıklar [Azure Site Recovery](site-recovery-overview.md) hizmeti.
 
 
 
 
 ## <a name="architectural-components"></a>Mimari bileşenler
 
-Aşağıdaki grafikte (Bu örnekte, Doğu ABD konumunda) belirli bir bölgede bir Azure VM ortamına üst düzey bir görünümünü sağlar. Bir Azure VM ortamda:
-- Uygulamaları sanal makinelerin yönetilen disklerle çalıştırıyor olabilir veya yönetilmeyen diskleri depolama hesaplarında yayılan.
-- Sanal makineleri, sanal ağ içindeki bir veya daha fazla alt ağlarda eklenebilir.
+Aşağıdaki grafikte, belirli bir bölgede (Bu örnekte, Doğu ABD konumunda) bir Azure VM ortamında üst düzey bir görünümünü sağlar. Bir Azure VM ortamında:
+- Uygulamaları yönetilen diskleri olan Vm'lerde çalışabilir veya yönetilmeyen diskler depolama hesabı arasında birçok şekilde yayılabilir.
+- Vm'leri, sanal ağ içindeki bir veya daha fazla alt ağlarda eklenebilir.
 
 
-**Azure için Azure'a çoğaltma**
+**Azure'dan Azure'a çoğaltma**
 
 ![Müşteri ortamı](./media/concepts-azure-to-azure-architecture/source-environment.png)
 
@@ -39,33 +39,33 @@ Aşağıdaki grafikte (Bu örnekte, Doğu ABD konumunda) belirli bir bölgede bi
 
 ### <a name="step-1"></a>1. Adım
 
-Azure VM çoğaltma etkinleştirdiğinizde, aşağıdaki kaynaklar otomatik olarak hedef bölgede Kaynak bölgesi ayarlara göre oluşturulur. Hedef kaynakları ayarları gerektiği gibi özelleştirebilirsiniz.
+Azure VM çoğaltma etkinleştirdiğinizde aşağıdaki kaynaklar otomatik olarak hedef bölgede kaynak bölge ayarlara göre oluşturulur. Hedef kaynakları ayarları gerektiği gibi özelleştirebilirsiniz.
 
-![Çoğaltma işlemi, 1. adım etkinleştir](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
+![Çoğaltma işlemi, 1. Adım'ı etkinleştir](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
 
 **Kaynak** | **Ayrıntılar**
 --- | ---
-**Hedef kaynak grubu** | Yük devretme sonrasında çoğaltılmış sanal makineleri ait olduğu kaynak grubu. Bu kaynak grubu konumu, kaynak sanal makine barındırılan Azure bölgesi dışında tüm Azure bölgesindeki olabilir.
-**Hedef sanal ağ** | Sanal ağ içinde çoğaltılmış VM'ler yük devretme sonrasında bulunur. Ağ eşlemesi, kaynak ve hedef sanal ağlar arasında ve tersi yönde oluşturulur.
-**Önbellek depolama hesapları** | Kaynak VM değişikliklerini bir hedef depolama hesabına çoğaltılır önce bunlar izlenen ve kaynak konumu önbelleği depolama hesabında gönderilir. Bu adım VM'de çalıştırılan üretim uygulamalar üzerinde en az etki sağlar.
-**(VM kullanmayan kaynak diskleri yönetiliyorsa) depolama hesapları hedef**  | Veri çoğaltılan hedef konumdaki depolama hesapları.
-** Çoğaltma yönetilen diskleri (VM olduğu açık kaynak diskleri yönetiliyorsa) **  | Diskleri veri çoğaltılan hedef konumda yönetilen.
-**Hedef kullanılabilirlik kümeleri**  | Kullanılabilirlik kümeleri, yük devretme sonrasında çoğaltılmış VM'ler bulunur.
+**Hedef kaynak grubu** | Yük devretme sonrasında çoğaltılmış VM'lerin ait olduğu kaynak grubu. Bu kaynak grubunun konumunu, kaynak sanal makineleri barındırılan Azure bölgesi dışında herhangi bir Azure bölgesinde olabilir.
+**Hedef sanal ağ** | Sanal ağ, çoğaltılan VM'ler yük devretmeden sonra bulunur. Ağ eşleme, kaynak ve hedef sanal ağlar arasında ve bunun tersi de oluşturulur.
+**Önbellek depolama hesapları** | Kaynak VM değişiklikler bir hedef depolama hesabına çoğaltılmadan önce sayfalar izlenir ve kaynak konumundaki önbellek depolama hesabına gönderilir. Bu adım, üretim uygulamaları VM'de çalıştırılan üzerinde en az etki sağlar.
+**Depolama hesapları (kaynak sanal makine tarafından kullanılmayan yönetilen diskleri kullanmıyorsa) hedef**  | Depolama hesabı hedef konumda olduğu veriler çoğaltılır.
+** Yönetilen çoğaltma diskleri (kaynak VM açıktır yönetilen diskleri kullanmıyorsa) **  | Yönetilen diskler çoğaltılan verileri için hedef konumunda.
+**Hedef kullanılabilirlik kümeleri**  | Kullanılabilirlik kümeleri yük devretme sonrasında çoğaltılmış VM'lerin bulunduğu olan.
 
 ### <a name="step-2"></a>2. Adım
 
-Çoğaltma etkin olarak Site Recovery uzantısı Mobility hizmeti VM üzerinde otomatik olarak yüklenir:
+Çoğaltma etkin olarak, Site Recovery Mobility hizmeti uzantısı VM'de otomatik olarak yüklenir:
 
-1. VM Site Recovery ile kaydedilir.
+1. VM'nin Site Recovery ile kaydedilir.
 
-2. Sürekli çoğaltma VM için yapılandırılır. VM disklerde veri yazma önbelleği depolama hesabında kaynak konumu için sürekli olarak aktarılır.
+2. Sürekli çoğaltma VM için yapılandırılır. VM disk üzerindeki veri yazma, sürekli olarak kaynak konumundaki önbellek depolama hesabına aktarılır.
 
-   ![Çoğaltma işlemi, 2. adım etkinleştir](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+   ![Çoğaltma işlemi, 2. Adım'ı etkinleştir](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
 
- Site Recovery hiçbir zaman VM'ye gelen bağlantısı gerekir. Yalnızca giden bağlantılar için aşağıdakiler gereklidir.
+ Site Recovery, sanal makineye gelen bağlantılara hiçbir zaman işlemesi gerekmez. Yalnızca giden bağlantı aşağıdakiler için gereklidir.
 
- - Site Recovery hizmeti URL'leri/IP adresleri
+ - Site Recovery hizmet URL'leri/IP adresleri
  - Office 365 kimlik doğrulaması URL'lerini/IP adresleri
  - Önbellek depolama hesabı IP adresleri
 
@@ -76,14 +76,14 @@ Linux VM’lerinin çoğaltma grubunun bir parçası olmasını istiyorsanız, 2
 
 ### <a name="step-3"></a>3. Adım
 
-Sürekli çoğaltma sürüyor sonra disk yazma işlemleri için önbellek depolama hesabı hemen aktarılır. Site Recovery verileri işler ve hedefe gönderir depolama hesabı ya da çoğaltma yönetilen diskler. Verilerin işlendikten sonra kurtarma noktaları birkaç dakikada bir hedef depolama hesabı oluşturulur.
+Sürekli çoğaltma sürüyor sonra disk yazmalarının hemen önbellek depolama hesabına aktarılır. Site Recovery verileri işler ve hedefe gönderir depolama hesabı veya çoğaltma yönetilen diskler. Kurtarma noktaları hedef depolama hesabında, veriler işlendikten sonra birkaç dakikada oluşturulur.
 
 ## <a name="failover-process"></a>Yük devretme işlemi
 
-Bir yük devretme başlatın, VM'ler hedef kaynak grubu, hedef sanal ağ, hedef alt ağ oluşturulur ve hedef kullanılabilirlik kümesinde. Bir yük devretme sırasında herhangi bir kurtarma noktası kullanabilirsiniz.
+Bir yük devretme başlatın, VM'ler hedef kaynak grubu, hedef sanal ağ, hedef alt ağ oluşturulur ve hedef kullanılabilirlik kümesi. Yük devretme sırasında herhangi bir kurtarma noktasını kullanabilirsiniz.
 
 ![Yük devretme işlemi](./media/concepts-azure-to-azure-architecture/failover.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Hızlı bir şekilde çoğaltmak](azure-to-azure-quickstart.md) bir ikincil bölge için bir Azure VM.
+[Hızlı bir şekilde çoğaltmak](azure-to-azure-quickstart.md) Azure VM'LERİNİ ikincil bir bölgeye.

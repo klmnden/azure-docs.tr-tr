@@ -1,5 +1,5 @@
 ---
-title: Karmaşık verileri - Azure ayıklamak için bileşik bir varlık oluşturma | Microsoft Docs
+title: Karmaşık verileri - Azure ayıklamak için bileşik bir varlık oluşturma Öğreticisi | Microsoft Docs
 description: LUIS uygulamanızı farklı türde varlık verilerini ayıklamak için bileşik bir varlık oluşturmayı öğrenin.
 services: cognitive-services
 author: v-geberr
@@ -7,118 +7,109 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 07/09/2018
 ms.author: v-geberr
-ms.openlocfilehash: 375b52f9206f55e620d5e664844b8fa1d7249a07
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: d73dc9b9f204e334a75c9de5e19c6b11e3a95b12
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888754"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929194"
 ---
-# <a name="use-composite-entity-to-extract-complex-data"></a>Karmaşık verileri ayıklamak için bileşik bir varlık kullanın
-Bu basit uygulamaya iki içeren [hedefleri](luis-concept-intent.md) ve birkaç varlık. Amacı, '1 bilet seattle'dan Cairo Cuma' gibi uçuşlar kitap ve ayırma verileri tek bir parçası olarak tüm ayrıntılarını döndürür sağlamaktır. 
+# <a name="tutorial-6-add-composite-entity"></a>Öğretici: 6. Bileşik varlık ekleme 
+Bu öğreticide, bileşik bir varlık içeren bir varlığa ayıklanan veri paketi ekleyin.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
+<!-- green checkmark -->
 > [!div class="checklist"]
-* Önceden oluşturulmuş varlıklarla datetimeV2 ve numarası ekleyin
-* Bileşik bir varlık oluşturma
-* Sorgu LUIS ve Bileşik varlık verilerini alma
+> * Bileşik varlıkları anlama 
+> * Verileri ayıklamak için bileşik bir varlık ekleme
+> * Uygulamayı eğitme ve yayımlama
+> * LUIS JSON yanıtını görmek için uygulamanın uç noktasını sorgulama
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-* LUIS uygulamanızı  **[hiyerarşik hızlı](luis-tutorial-composite-entity.md)**. 
+[Hiyerarşik varlık](luis-quickstart-intent-and-hier-entity.md) öğreticisinde oluşturulan İnsan Kaynakları uygulamasına sahip değilseniz JSON verilerini [içe aktararak](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulama oluşturun. İçeri aktarmanız gereken uygulama [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github deposunda bulunmaktadır.
 
-> [!Tip]
-> Zaten bir aboneliğiniz yoksa, kaydolabilirsiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/).
+Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `composite` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar.  
 
 ## <a name="composite-entity-is-a-logical-grouping"></a>Bileşik varlık mantıksal bir gruplandırmasıdır 
-Varlığın amacı, konuşma içindeki metnin bölümlerini bulmak ve kategorilere ayırmaktır. A [bileşik](luis-concept-entity-types.md) varlık bağlamından öğrenilen diğer varlık türleri oluşur. Uçuş ayırmaları alan bu seyahat uygulaması için birkaç bölümü ele alınmakta tarihleri, konumları ve bilgisayar lisansı sayısı gibi bilgiler vardır. 
+Bileşik varlık amacı bir üst kategori varlığa ilgili varlıkları grup. Bir bileşik oluşturulmadan önce bilgi ayrı varlıklar olarak bulunmaktadır. Hiyerarşik bir varlığa benzer, ancak daha fazla varlık türlerini içerebilir. 
 
-Bir bileşik oluşturulmadan önce bilgi ayrı varlıklar olarak bulunmaktadır. Mantıksal olarak ayrı varlıklar gruplandırılmasını ve bu mantıksal gruplandırma sohbet botu veya başka LUIS kullanan bir uygulama için yararlıdır, bileşik bir varlık oluşturun. 
+ Mantıksal olarak ayrı varlıklar gruplandırılmasını ve bu mantıksal gruplandırma istemci uygulamasına yardımcı olduğunda bileşik bir varlık oluşturun. 
 
-Kullanıcıların konuşmalarına basit örnekler şunlardır:
+Bu uygulamada çalışan adı tanımlanan **çalışan** varlık listesinde ve adı, e-posta adresi, şirketin dahili telefon, cep telefonu numarası ve ABD eş anlamlı sözcükler içerir Federal Vergi kimliği 
 
-```
-Book a flight to London for next Monday
-2 tickets from Dallas to Dublin this weekend
-Reserve a seat from New York to Paris on the first of April
-```
+**MoveEmployee** çalışan taşınabilir bir bina ve office diğerine istemek için örnek konuşma anlaşılabilmelidir. Yapı adları alfabetik: "A", "B" vb. ofisleri sayısal olmasına rağmen: "1234", "13245". 
+
+Örnek konuşma içinde **MoveEmployee** hedefini içerir:
+
+|Örnek konuşmalar|
+|--|
+|John W taşıyın. Smith a-2345 için|
+|shift x12345 to h-1234 tomorrow (yarın x12345 ile h-1234'ü değiştirin)|
  
-Bileşik varlık lisans sayısı, kaynak konumu, hedef konum ve tarih eşleşir. 
+Taşıma isteği, en az (herhangi bir eş anlamlı kullanarak) çalışan ve son bina ve ofis konumu içermelidir. İstek, bir tarih taşıma olacağını yanı sıra kaynak office de içerebilir. 
 
-## <a name="what-luis-does"></a>LUIS tarafından gerçekleştirilen işlemler
-Konuşmadaki amaç ve varlıklar tanımlandıktan, [ayıklandıktan](luis-concept-data-extraction.md#list-entity-data) ve [uç noktadan](https://aka.ms/luis-endpoint-apis) JSON biçiminde döndürüldükten sonra LUIS görevini tamamlamış olur. Arama uygulaması veya sohbet botu bu JSON yanıtını alıp tasarlanma amacına uygun olarak isteği gerçekleştirir. 
+Ayıklanan uç noktasına ait verilerin bu bilgileri içeren ve bunu, iade bir `RequestEmployeeMove` Bileşik varlık. 
 
-## <a name="add-prebuilt-entities-number-and-datetimev2"></a>Önceden oluşturulmuş varlıklarla sayısı ve datetimeV2 Ekle
-1. Seçin `MyTravelApp` uygulamalar listesinden uygulama [LUIS](luis-reference-regions.md#luis-website) Web sitesi.
+## <a name="create-composite-entity"></a>Bileşik varlık oluşturma
+1. İnsan Kaynakları uygulamanızın LUIS sisteminin **Build** (Derleme) bölümünde olduğundan emin olun. Sağ taraftaki menü çubuğunun en üstünde bulunan **Build** (Derleme) ifadesini seçerek bu bölüme geçebilirsiniz. 
 
-2. Uygulama açıldığında seçin **varlıkları** sol gezinti bağlantısı.
+    [ ![Sağ taraftaki menü çubuğunun en üstünde bulunan Build (Derleme) ifadesi vurgulanmış LUIS uygulaması ekran görüntüsü](./media/luis-tutorial-composite-entity/hr-first-image.png)](./media/luis-tutorial-composite-entity/hr-first-image.png#lightbox)
 
-    ![Varlıkları düğmeyi seçin](./media/luis-tutorial-composite-entity/intents-page-select-entities.png)    
+2. Üzerinde **hedefleri** sayfasında **MoveEmployee** hedefi. 
 
-3. **Manage prebuilt entities** (Önceden oluşturulan varlıkları yönet) öğesini seçin.
+    [![](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png "Vurgulanan 'MoveEmployee' amacıyla LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png#lightbox)
 
-    ![Varlıkları düğmeyi seçin](./media/luis-tutorial-composite-entity/manage-prebuilt-entities-button.png)
+3. Araç çubuğundaki konuşma listeyi filtrelemek için büyüteç simgesini seçin. 
 
-4. Açılır kutusunda **numarası** ve **datetimeV2**.
+    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Büyüteç düğmesi vurgulanan 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
-    ![Varlıkları düğmeyi seçin](./media/luis-tutorial-composite-entity/prebuilt-entity-ddl.png)
+4. Girin `tomorrow` utterance bulmak için filtre metin kutusuna `shift x12345 to h-1234 tomorrow`.
 
-5. Ayıklanacak yeni varlıklar için sırayla seçin **eğitme** üst gezinti çubuğunda.
+    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Vurgulanan 'yarının' filtresi 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
-    ![Train (Eğitim) düğmesini seçin](./media/luis-tutorial-composite-entity/train.png)
+    Varlık seçerek datetimeV2 göre filtre uygulamak için başka bir yöntemdir **varlık filtreleri** seçip **datetimeV2** listeden. 
 
-## <a name="use-existing-intent-to-create-composite-entity"></a>Bileşik bir varlık oluşturmak için mevcut hedefi kullanma
-1. Seçin **hedefleri** sol gezinti bölmesinden. 
+5. İlk varlığı seçin `Employee`, ardından **kaydırma bileşik varlıkta** açılır menüsü listesinde. 
 
-    ![Intents sayfayı seçin](./media/luis-tutorial-composite-entity/intents-from-entities-page.png)
+    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "İlk varlık içinde bileşik vurgulanmış seçerek 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
-2. Seçin `BookFlight` gelen **hedefleri** listesi.  
 
-    ![Listeden BookFlight hedefi seçin](./media/luis-tutorial-composite-entity/intent-page-with-prebuilt-entities-labeled.png)
+6. Son varlık hemen ardından `datetimeV2` utterance içinde. Bileşik bir varlığı gösteren sözcüklerin altında yeşil bir çubuk çizilir. Açılır menüde, bileşik bir ad girin `RequestEmployeeMove` seçip **oluştur yeni birleşik** üzerinde açılır menüde. 
 
-    Sayısı ve datetimeV2 konuşma üzerinde önceden oluşturulmuş varlıklar olarak etiketlenmiş.
+    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Vurgulanan son varlık bileşik ve oluşturma varlıkta seçerek 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
-3. Utterance için `book 2 flights from seattle to cairo next monday`, mavi seçin `number` varlık, ardından **kaydırma bileşik varlıkta** listeden. Bileşik bir varlığı gösteren sağa hareket ettikçe sözcüklerin altında yeşil bir çizgi imleç izler. Ardından son önceden oluşturulmuş varlık seçilecek Sağa Taşı `datetimeV2`, enter `FlightReservation` açılır pencerede metin kutusuna seçip **oluştur yeni birleşik**. 
+7. İçinde **ne tür bir varlık oluşturmak istiyorsunuz?**, gerekli neredeyse tüm alanlar listesinde bağlıdır. Yalnızca kaynak konumunda eksik. Seçin **alt varlık ekleme**seçin **Locations::Origin** var olan varlıkları listesinden seçip **Bitti**. 
 
-    ![Intents sayfasında bileşik bir varlık oluşturun](./media/luis-tutorial-composite-entity/create-new-composite.png)
+  ![Açılır pencerede başka bir varlık ekleme 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
-4. Bileşik varlık alt doğrulamak bir açılır iletişim kutusu belirir. **Done** (Bitti) öğesini seçin.
+8. Filtreyi kaldırmak için araç çubuğundaki Büyüteç'i seçin. 
 
-    ![Intents sayfasında bileşik bir varlık oluşturun](./media/luis-tutorial-composite-entity/validate-composite-entity.png)
+## <a name="label-example-utterances-with-composite-entity"></a>Bileşik varlıkla etiket örnek konuşma
+1. Her örnek utterance içinde bileşik içinde olması gereken en soldaki varlığı seçin. Ardından **kaydırma bileşik varlıkta**.
 
-## <a name="wrap-the-entities-in-the-composite-entity"></a>Varlıklar bileşik bir varlıkta Kaydır
-Bileşik varlık oluşturulduktan sonra kalan konuşma bileşik varlıktaki etiketleyin. Tümcecik bileşik bir varlık olarak kaydırmak için en soldaki sözcüğünü seçin, ardından seçmek gereken **kaydırma bileşik varlıkta** görünen listeden sonra en sağdaki word seçip adlandırılmış Bileşik varlık `FlightReservation`. Bu hızlı ve kesintisiz bir adım seçimleri, aşağıdaki adımları bölünmüştür.
+    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "İlk varlık içinde bileşik vurgulanmış seçerek 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
-1. Utterance içinde `schedule 4 seats from paris to london for april 1`, 4 sayı önceden oluşturulmuş varlığı seçin.
+2. Bileşik varlıkta son sözcüğü eşleyebilir ve ardından seçin **RequestEmployeeMove** açılır menüden. 
 
-    ![En soldaki sözcük Seç](./media/luis-tutorial-composite-entity/wrap-composite-step-1.png)
+    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Son varlık seçme içinde bileşik vurgulanmış 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
-2. Seçin **kaydırma bileşik varlıkta** görünen listeden.
+3. Tüm konuşma amacı, bileşik bir varlık ile etiketlenmiş doğrulayın. 
 
-    ![Listeden seçim Kaydır](./media/luis-tutorial-composite-entity/wrap-composite-step-2.png)
-
-3. En sağdaki word seçin. Bileşik bir varlığı gösteren ifadesinin altında yeşil bir çizgi görünür.
-
-    ![En sağdaki sözcük Seç](./media/luis-tutorial-composite-entity/wrap-composite-step-3.png)
-
-4. Select bileşik adı `FlightReservation` görünen listeden.
-
-    ![Adlandırılmış Bileşik varlık seçin](./media/luis-tutorial-composite-entity/wrap-composite-step-4.png)
-
-    Son utterance için kaydırma `London` ve `tomorrow` bileşik varlıkta, aynı yönergeleri kullanarak. 
+    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Etiketli tüm konuşma ile 'MoveEmployee' üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
-LUIS uygulaması eğitilene kadar amaçlar ve varlıklar (model) üzerinde yapılan değişiklikleri bilemez. 
+LUIS, uygulama eğitildi kadar yeni Bileşik varlık hakkında bilmez. 
 
 1. LUIS web sitesinin sağ üst kısmından **Train** (Eğitim) düğmesini seçin.
 
-    ![Uygulamayı eğitme](./media/luis-tutorial-composite-entity/train-button.png)
+    ![Uygulamayı eğitme](./media/luis-tutorial-composite-entity/hr-train-button.png)
 
 2. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde eğitim tamamlanmış olur.
 
-    ![Eğitim başarılı oldu](./media/luis-tutorial-composite-entity/trained.png)
+    ![Eğitim başarılı oldu](./media/luis-tutorial-composite-entity/hr-trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Uç nokta URL'sini almak için uygulamayı yayımlama
 Sohbet botunda veya başka bir uygulamada LUIS tahmini almak için uygulamayı yayımlamanız gerekir. 
@@ -127,123 +118,202 @@ Sohbet botunda veya başka bir uygulamada LUIS tahmini almak için uygulamayı y
 
 2. Production (Üretim) yuvasını ve ardından **Publish** (Yayımla) düğmesini seçin.
 
-    ![Uygulama yayımlama](./media/luis-tutorial-composite-entity/publish-to-production.png)
+    ![Uygulama yayımlama](./media/luis-tutorial-composite-entity/hr-publish-to-production.png)
 
 3. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde yayımlama işlemi tamamlanmış olur.
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Uç noktayı farklı bir konuşmayla sorgulama
+## <a name="query-the-endpoint"></a>Sorgu bitiş noktası 
 1. **Publish** (Yayımla) sayfasının en altında bulunan **endpoint** (uç nokta) bağlantısını seçin. Bu eylem adres çubuğunda uç nokta URL'sinin bulunduğu başka bir tarayıcı penceresi açar. 
 
-    ![Uç nokta URL'si seçin](./media/luis-tutorial-composite-entity/publish-select-endpoint.png)
+    ![Uç nokta URL'si seçin](./media/luis-tutorial-composite-entity/hr-publish-select-endpoint.png)
 
-2. Adres çubuğundaki URL'nin sonuna gidip `reserve 3 seats from London to Cairo on Sunday` yazın. Son sorgu dizesi parametresi `q`, utterance sorgu. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `BookFlight` amacını hiyerarşik varlık ayıklanmış şekilde döndürmelidir.
+2. Adres çubuğundaki URL'nin sonuna gidip `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.` yazın. Son sorgu dizesi parametresi `q`, utterance sorgu. 
 
-```
+    Bileşik doğru bir şekilde ayıklandıktan doğrulamak için bu test olduğundan, bir test ya da mevcut bir örnek utterance veya yeni bir utterance içerebilir. Bileşik varlıktaki tüm alt varlıklar eklemek iyi bir testtir.
+
+```JSON
 {
-  "query": "reserve 3 seats from London to Cairo on Sunday",
+  "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
   "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.999999046
+    "intent": "MoveEmployee",
+    "score": 0.9959525
   },
   "intents": [
     {
-      "intent": "BookFlight",
-      "score": 0.999999046
+      "intent": "MoveEmployee",
+      "score": 0.9959525
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.009858314
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.00728598563
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.0058053555
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.005371796
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00266987388
     },
     {
       "intent": "None",
-      "score": 0.227036044
+      "score": 0.00123299169
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00116407464
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.00102653319
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0006628214
     }
   ],
   "entities": [
     {
-      "entity": "sunday",
-      "type": "builtin.datetimeV2.date",
-      "startIndex": 40,
-      "endIndex": 45,
+      "entity": "march 3 2 p.m",
+      "type": "builtin.datetimeV2.datetime",
+      "startIndex": 41,
+      "endIndex": 54,
       "resolution": {
         "values": [
           {
-            "timex": "XXXX-WXX-7",
-            "type": "date",
-            "value": "2018-03-25"
+            "timex": "XXXX-03-03T14",
+            "type": "datetime",
+            "value": "2018-03-03 14:00:00"
           },
           {
-            "timex": "XXXX-WXX-7",
-            "type": "date",
-            "value": "2018-04-01"
+            "timex": "XXXX-03-03T14",
+            "type": "datetime",
+            "value": "2019-03-03 14:00:00"
           }
         ]
       }
     },
     {
-      "entity": "3 seats from london to cairo on sunday",
-      "type": "flightreservation",
-      "startIndex": 8,
-      "endIndex": 45,
-      "score": 0.6892485
+      "entity": "jill jones",
+      "type": "Employee",
+      "startIndex": 5,
+      "endIndex": 14,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
     },
     {
-      "entity": "cairo",
-      "type": "Location::Destination",
+      "entity": "z - 2345",
+      "type": "Locations::Destination",
       "startIndex": 31,
-      "endIndex": 35,
-      "score": 0.557570755
+      "endIndex": 36,
+      "score": 0.9690751
     },
     {
-      "entity": "london",
-      "type": "Location::Origin",
+      "entity": "a - 1234",
+      "type": "Locations::Origin",
       "startIndex": 21,
       "endIndex": 26,
-      "score": 0.8933808
+      "score": 0.9713137
+    },
+    {
+      "entity": "-1234",
+      "type": "builtin.number",
+      "startIndex": 22,
+      "endIndex": 26,
+      "resolution": {
+        "value": "-1234"
+      }
+    },
+    {
+      "entity": "-2345",
+      "type": "builtin.number",
+      "startIndex": 32,
+      "endIndex": 36,
+      "resolution": {
+        "value": "-2345"
+      }
     },
     {
       "entity": "3",
       "type": "builtin.number",
-      "startIndex": 8,
-      "endIndex": 8,
+      "startIndex": 47,
+      "endIndex": 47,
       "resolution": {
         "value": "3"
       }
+    },
+    {
+      "entity": "2",
+      "type": "builtin.number",
+      "startIndex": 50,
+      "endIndex": 50,
+      "resolution": {
+        "value": "2"
+      }
+    },
+    {
+      "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+      "type": "requestemployeemove",
+      "startIndex": 5,
+      "endIndex": 54,
+      "score": 0.4027723
     }
   ],
   "compositeEntities": [
     {
-      "parentType": "flightreservation",
-      "value": "3 seats from london to cairo on sunday",
+      "parentType": "requestemployeemove",
+      "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
       "children": [
         {
-          "type": "builtin.datetimeV2.date",
-          "value": "sunday"
+          "type": "builtin.datetimeV2.datetime",
+          "value": "march 3 2 p.m"
         },
         {
-          "type": "Location::Destination",
-          "value": "cairo"
+          "type": "Locations::Destination",
+          "value": "z - 2345"
         },
         {
-          "type": "builtin.number",
-          "value": "3"
+          "type": "Employee",
+          "value": "jill jones"
         },
         {
-          "type": "Location::Origin",
-          "value": "london"
+          "type": "Locations::Origin",
+          "value": "a - 1234"
         }
       ]
     }
-  ]
+  ],
+  "sentimentAnalysis": {
+    "label": "neutral",
+    "score": 0.5
+  }
 }
 ```
 
-Bir bileşik varlıkları dizisi dahil olmak üzere bu utterance döndürür **flightreservation** ayıklanan verilerin nesne.  
+Bu utterance bir bileşik varlıkları dizisi döndürür. Her varlık türü ve değeri verilir. Her bir alt varlık için daha fazla duyarlık bulmak için karşılık gelen öğe varlıkları dizide bulmak için bileşik bir dizi öğesi türü ve bir kombinasyonu kullanın.  
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Bu LUIS uygulaması hangi işlemleri gerçekleştirdi?
-Bu uygulama, yalnızca iki amacı ve birleşik bir varlık ile doğal dil sorgu engellemekse tanımlanır ve Ayıklanan veriler döndürdü. 
+Bu uygulama, doğal dil sorgu engellemekse tanımlanır ve ayıklanan verilerin adlandırılmış bir grup olarak döndürdü. 
 
-Sohbet Robotu, artık birincil eylem belirlemek için yeterli bilgiye sahip `BookFlight`, ayırma bilgilerini utterance içinde bulunamadı. 
+Sohbet Robotu, artık birincil eylem ve ilgili ayrıntıları utterance olduğunu belirlemede yeterli bilgi vardır. 
 
 ## <a name="where-is-this-luis-data-used"></a>Bu LUIS verileri nerede kullanılır? 
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve varlık verilerini alarak bir sonraki adımı gerçekleştirebilir. LUIS, bot veya çağrı uygulaması için programlama işini gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
 
-## <a name="next-steps"></a>Sonraki adımlar
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Seçin **uygulamalarım** üstteki soldaki menüde. Öğesinin üç noktasını (***...*** ) düğmesini seçin uygulama listesinde uygulama adının sağındaki **Sil**. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
-[Varlıklar hakkında daha fazla bilgi](luis-concept-entity-types.md). 
+## <a name="next-steps"></a>Sonraki adımlar
+> [!div class="nextstepaction"] 
+> [Bir ifade listesi tek bir varlığın eklemeyi öğrenin](luis-quickstart-primary-and-secondary-data.md)  

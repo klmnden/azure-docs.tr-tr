@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: ec023ad796c57141cb35cce15b3d982adf2b8659
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: bd586c6abb27ae0c07ac7c832fba7c1f38e4e5c6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887768"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950168"
 ---
 # <a name="batch-testing"></a>Toplu işe testi
  Toplu test LUIS, performansı ölçmek için geçerli eğitilen modelinizde kapsamlı bir testtir. 
@@ -100,7 +100,7 @@ Yeşil grafikte iki bölümlerini beklenen tahmin ile eşleşmedi.
 
 Test LUIS uygulamanızı doğru amaç ve varlıkları tanımıyor gösteriyorsa, daha fazla konuşma etiketleme ya da özellikler ekleyerek LUIS uygulamanızın performansını artırmak için çalışabilir. 
 
-* [LUIS ile önerilen konuşma etiket](Label-Suggested-Utterances.md) 
+* [LUIS ile önerilen konuşma etiket](luis-how-to-review-endoint-utt.md) 
 * [LUIS uygulamanızın performansını artırmak için özellikleri kullanın](luis-how-to-add-features.md) 
 * [Bu öğreticiyle test toplu anlama](luis-tutorial-batch-testing.md)
 * [Batch kavramları test öğrenin](luis-concept-batch-test.md).

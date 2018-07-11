@@ -1,9 +1,9 @@
 ---
-title: Karma kimlik tasarımı - çok faktörlü kimlik doğrulama gereksinimlerini Azure | Microsoft Docs
-description: Koşullu erişim denetimi ile Azure Active Directory kullanıcı doğrulanırken ve uygulamaya erişimine izin vermeden önce çekme belirli koşullar denetler. Bu koşullar sağlandığında, kullanıcı kimlik doğrulaması ve uygulamaya erişim izni.
+title: Karma kimlik tasarımı - Azure çok faktörlü kimlik doğrulaması gereksinimleri | Microsoft Docs
+description: Koşullu erişim denetimi ile Azure Active Directory kullanıcı kimlik doğrulaması yapılırken ve uygulamaya erişime izin vermeden önce çekme belirli koşullara bakar. Bu koşullar sağlandığında, kullanıcı kimlik doğrulaması ve uygulamaya erişim izni.
 documentationcenter: ''
 services: active-directory
-author: femila
+author: billmath
 manager: billmath
 editor: ''
 ms.assetid: 9c59fda9-47d0-4c7e-b3e7-3575c29beabe
@@ -16,51 +16,51 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: fe5ac8386394bf659de8d9905827359900f08d93
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 0c4d3edabbef6fe5626ce85c753cc7775ff2f1b9
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801043"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915410"
 ---
-# <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümü çok faktörlü kimlik doğrulama gereksinimlerini belirleme
-Veri ve uygulamaları bulutta ve herhangi bir CİHAZDAN erişen kullanıcılar ile yeteneği bu dünyasında bu bilgileri güvenlik altına almanın en önemli haline gelmiştir.  Her gün yeni bir başlık güvenlik ihlali hakkında yoktur.  Olmasına karşın, bu tür ihlallerine karşı garanti, çok faktörlü kimlik doğrulaması, ek bir bu ihlallerini önlemeye yardımcı olmak için güvenlik katmanı sağlar.
-Çok faktörlü kimlik doğrulaması kuruluşların gereksinimleri değerlendirilirken tarafından başlatın. Diğer bir deyişle, ne güvenli hale getirmek kuruluş çalışıyor.  Bu değerlendirme ayarlama ve kuruluşların kullanıcıları çok faktörlü kimlik doğrulaması için etkinleştirme teknik gereksinimlerini tanımlamak önemlidir.
+# <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için çok faktörlü kimlik doğrulama gereksinimlerini belirleme
+Bu dünyada Mobility, veri ve uygulamaları bulutta ve herhangi bir CİHAZDAN erişen kullanıcılar ile bu bilgiyi güvenli hale getirme güvenemediği haline gelmiştir.  Her gün bir güvenlik ihlali hakkında yeni bir başlık yoktur.  Olmasa da, bu tür İhlallerin karşı garanti, çok faktörlü kimlik doğrulaması, bir ek bu ihlallerini önlemeye yardımcı olmak için güvenlik katmanı sağlar.
+Çok faktörlü kimlik doğrulaması için kuruluşların gereksinimleri değerlendirerek başlatın. Diğer bir deyişle, güvenli hale getirmek ne kuruluş çalışıyor.  Bu değerlendirme ayarlama ve kuruluşların kullanıcıları çok faktörlü kimlik doğrulaması için etkinleştirme teknik gereksinimlerini tanımlamak önemlidir.
 
 > [!NOTE]
-> MFA ile ne yaptığını bilmiyorsanız, makaleyi okuyun önerilir [Azure multi-Factor Authentication nedir?](authentication/multi-factor-authentication.md) bu bölümü okumadan devam etmek için önceki.
+> MFA ve ne işe yaradığını bilmiyorsanız, makaleyi okumanızı önerilir [Azure multi-Factor Authentication nedir?](authentication/multi-factor-authentication.md) öncesinde bu bölümde okumaya devam edin.
 > 
 > 
 
 Aşağıda yanıtlanacak emin olun:
 
-* Şirketiniz Microsoft uygulamaları güvenli mi çalışıyor? 
-* Bu uygulamaları nasıl yayımlanacak?
-* Şirket içi uygulamalara erişmek çalışanlar izin vermek için uzaktan erişim sağlar?
+* Şirketiniz Microsoft uygulamaları güvenli hale getirmek çalışıyor? 
+* Bu uygulama nasıl yayımlanır?
+* Şirket, çalışanların şirket içi uygulamalara erişmesine izin vermek için uzaktan erişim sağlar mı?
 
-Yanıt Evet ise, hangi uzaktan erişimi tür? Ayrıca bu uygulamalara erişen kullanıcılar nerede bulunacağı değerlendirmeniz gerekir. Bu değerlendirme uygun çok faktörlü kimlik doğrulama stratejisi tanımlamak için başka bir önemli bir adımdır. Aşağıdaki soruları yanıtlayın emin olun:
+Yanıt Evet ise, uzaktan erişimi ne tür? Ayrıca bu uygulamalara erişen kullanıcılar konumlandırılacağı değerlendirilecek gerekir. Bu değerlendirme uygun çok faktörlü kimlik doğrulama stratejisi tanımlamak için başka bir önemli bir adımdır. Aşağıdaki soruları yanıtlamak emin olun:
 
-* Burada kullanıcıların bulunduğu olacak?
-* Bunlar herhangi bir yerde bulunan olabilir mi?
-* Şirketinizde kullanıcının konumuna göre kısıtlamaları kurmak istiyor mu?
+* Kullanıcılarınızın bulunduğu nereye gittiğini?
+* Bunlar herhangi bir yerde bulunan olabilir?
+* Şirketiniz kullanıcının konumuna göre kısıtlamaları kurmak istiyor mu?
 
-Bu gereksinimleri anladığınızda, kullanıcının gereksinimlerinin çok faktörlü kimlik doğrulaması için de değerlendirmek önemlidir. Bu değerlendirme önemlidir, çünkü çok faktörlü kimlik doğrulaması alma gereksinimlerini tanımlayacaksınız. Aşağıdaki soruları yanıtlayın emin olun:
+Bu gereksinimler anladığınızda, ayrıca çok faktörlü kimlik doğrulaması kullanıcının gereksinimlerini değerlendirmek önemlidir. Bu değerlendirme önemlidir, çünkü çok faktörlü kimlik doğrulaması alma için gereksinimleri tanımlar. Aşağıdaki soruları yanıtlamak emin olun:
 
-* Kullanıcılar, çok faktörlü kimlik doğrulamasıyla bilginiz?
-* Bazı kullanan ek kimlik doğrulama sağlamak için gerekli olacak mı?  
-  * Yanıt Evet ise, her zaman dış ağlara ya da erişimi belirli uygulamalar veya diğer koşullar altında çıkarken?
-* Kullanıcılar, eğitim Kurulum ve çok faktörlü kimlik doğrulaması uygulamak nasıl gerektirecek mi?
-* Kendi kullanıcıları için çok faktörlü kimlik doğrulamasını etkinleştirmek için şirketinizin istediği temel senaryolar nelerdir?
+* Kullanıcıların multi-Factor authentication ile tanıyor musunuz?
+* Bazı kullanan ek kimlik doğrulaması sağlamak için gerekli olacak mı?  
+  * Yanıt Evet ise, her zaman dış ağlara ya da erişimi belirli uygulamalara veya diğer koşullar altında Bekletmeden çıkarken?
+* Kullanıcıların, Kurulum ve çok faktörlü kimlik doğrulaması uygulamak için eğitim gerekiyor mu?
+* Şirket kullanıcıları için çok faktörlü kimlik doğrulamasını etkinleştirmek isteyen önemli senaryolar nelerdir?
 
-Önceki sorulara yanıt verilmesi sonra çok faktörlü kimlik doğrulaması zaten uygulanmış şirket içi varsa anlamak mümkün olacaktır. Bu değerlendirme ayarlama ve kuruluşların kullanıcıları çok faktörlü kimlik doğrulaması için etkinleştirme teknik gereksinimlerini tanımlamak önemlidir. Aşağıdaki soruları yanıtlayın emin olun:
+Önceki soruyu yanıtlayarak sonra şirket içinde çok faktörlü kimlik doğrulamasını zaten uygulanmış olup olmadığının anlaşılması mümkün olacaktır. Bu değerlendirme ayarlama ve kuruluşların kullanıcıları çok faktörlü kimlik doğrulaması için etkinleştirme teknik gereksinimlerini tanımlamak önemlidir. Aşağıdaki soruları yanıtlamak emin olun:
 
-* Şirketiniz MFA ile ayrıcalıklı hesaplara korumak istiyor mu?
-* Şirketinizin uyumluluk nedenleriyle belirli uygulama MFA'yı etkinleştirmek istiyor mu?
-* Şirketiniz, bu uygulama ya da yalnızca Yöneticiler tüm uygun kullanıcılar için MFA'yı etkinleştirmek istiyor mu?
-* Her zaman etkin MFA veya yalnızca zaman kullanıcıların şirket ağının dışından oturum olmak zorunda?
+* MFA ile ayrıcalıklı hesapları korumak şirketinizin gerekiyor mu?
+* Şirketiniz, mfa'yı uyumluluk nedenleriyle belirli uygulama etkinleştirme gerekiyor mu?
+* Şirketiniz tüm kullanıcılar bu uygulamayı ya da yalnızca Yöneticiler için mfa'yı etkinleştirme gerekiyor mu?
+* Mfa'yı her zaman etkin veya yalnızca kullanıcılar, kuruluş ağının dışında olduğunda açmış mı?
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Bir karma kimlik benimseme stratejinizi tanımlayın](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+[Karma kimlik benimseme stratejinizi tanımlayın](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 [Tasarım konularına genel bakış](active-directory-hybrid-identity-design-considerations-overview.md)

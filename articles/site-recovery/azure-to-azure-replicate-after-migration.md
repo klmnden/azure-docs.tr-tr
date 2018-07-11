@@ -1,42 +1,42 @@
 ---
-title: Azure Site Recovery ile azure'a geçişten sonra Azure VM'ler için olağanüstü durum kurtarma ayarlama | Microsoft Docs
-description: Bu makalede, Azure Site Kurtarma'yı kullanarak Azure geçişten sonra Azure bölgeler arasında olağanüstü durum kurtarma ayarlamak için makineleri hazırlamanın açıklar.
+title: Azure Site Recovery ile azure'a geçiş sonrasında Azure Vm'leri için olağanüstü durum kurtarma ayarlama | Microsoft Docs
+description: Bu makalede Azure Site Recovery ile azure'a geçiş sonrasında Azure bölgeleri arasında olağanüstü durum kurtarma ayarlama için makineleri hazırlamayı öğrenin.
 services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: c42a997560ee40eb0a587b81a6f191f372e0dd26
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 85ebb141390e0fa6b4dfbd77d7b7d3f6844950d7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716015"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916471"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Azure geçişten sonra Azure VM'ler için olağanüstü durum kurtarma ayarlayın 
+# <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Azure geçişten sonra Azure Vm'leri için olağanüstü durum kurtarmayı ayarlayın 
 
 
-Sonra bu makaleyi kullanın [Azure VM'ler için şirket içi makineler geçirilen](tutorial-migrate-on-premises-to-azure.md) kullanarak [Site Recovery](site-recovery-overview.md) hizmet. Bu makalede, Azure sanal makinelerini Site Recovery kullanarak bir ikincil bir Azure bölgesine olağanüstü durum kurtarma ayarlamak için hazırlamanıza yardımcı olur.
+Sonra bu makaleyi kullanın [şirket içi makinelerin Azure Vm'lerine taşıdınız](tutorial-migrate-on-premises-to-azure.md) kullanarak [Site Recovery](site-recovery-overview.md) hizmeti. Bu makalede, Azure sanal makinelerini Site Recovery ile ikincil bir Azure bölgesine olağanüstü durum kurtarmayı ayarlama hazırlamanıza yardımcı olur.
 
 
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
-Olağanüstü durum kurtarma ayarlamadan önce geçiş beklendiği gibi tamamlandığından emin olun. Bir geçiş yük devretme sonrasında başarıyla tamamlanması için seçmelisiniz **tam geçiş** seçeneği, geçirmek istediğiniz her makine için. 
+Olağanüstü durum kurtarma işlemini ayarladığınız önce geçiş beklendiği gibi tamamlanmış olduğundan emin olun. Bir geçiş yük devretme işleminden sonra başarıyla tamamlanması için seçmelisiniz **geçişi Tamamla** geçirmek istediğiniz her makine için bir seçenek. 
 
 
 
-## <a name="install-the-azure-vm-agent"></a>Azure VM Aracısı yükleme
+## <a name="install-the-azure-vm-agent"></a>Azure VM aracısını yükleyin
 
-Azure [VM Aracısı](../virtual-machines/extensions/agent-windows.md) Site Recovery çoğaltmak için VM üzerinde yüklü olmalıdır.
-
-
-1. Windows çalıştıran Vm'lerde VM aracısı yüklemek için indirme ve çalıştırma [aracı yükleyici](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yüklemeyi tamamlamak için VM üzerinde yönetici ayrıcalıkları gerekir.
-2. Linux çalıştıran sanal makinelerin VM Aracısı'nı yüklemek için en son yükleme [Linux Aracısı](../virtual-machines/extensions/agent-linux.md). Yüklemeyi tamamlamak için yönetici ayrıcalıkları gerekir. Dağıtım depodan yüklemeniz önerilir. Linux VM Aracısı doğrudan Github'dan yüklemenizi öneririz yok. 
+Azure [VM Aracısı](../virtual-machines/extensions/agent-windows.md) Site Recovery çoğaltma, sanal makinede yüklü olmalıdır.
 
 
-## <a name="validate-the-installation-on-windows-vms"></a>Windows sanal makineleri üzerinde yüklemeyi doğrulama
+1. Windows çalıştıran Vm'lerde VM aracısı yüklemek için indirme ve çalıştırma [Aracısı yükleyicisi](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yüklemeyi tamamlamak için VM üzerinde yönetici ayrıcalıkları gerekir.
+2. Linux çalıştıran Vm'leri üzerinde VM aracısı yüklemek için en son yükleme [Linux Aracısı](../virtual-machines/extensions/agent-linux.md). Yüklemeyi tamamlamak için yönetici ayrıcalıkları gerekir. Dağıtım deponuzdan yüklemeniz önerilir. Linux VM Aracısı, doğrudan Github'dan yükleme önerilmemektedir. 
+
+
+## <a name="validate-the-installation-on-windows-vms"></a>Windows vm'lerinde yüklemeyi doğrulama
 
 1. Azure VM'de C:\WindowsAzure\Packages klasöründeki WaAppAgent.exe dosyasını görmeniz gerekir.
 2. Dosyaya sağ tıklayın ve **özellikleri**seçin **ayrıntıları** sekmesi.
@@ -46,16 +46,16 @@ Azure [VM Aracısı](../virtual-machines/extensions/agent-windows.md) Site Recov
 
 ## <a name="migration-from-vmware-vms-or-physical-servers"></a>VMware Vm'lerini veya fiziksel sunucuları geçiş
 
-Azure için şirket içi VMware sanal makinelerini (veya fiziksel sunucuları) geçirirseniz, dikkat edin:
+Şirket içi VMware Vm'leri (veya fiziksel sunucuları) Azure'a geçiş işlemi gerçekleştirirseniz, dikkat edin:
 
-- Yalnızca geçirilen makinede Mobility hizmeti v9.6 değilse Azure VM Aracısı'nı yüklemeniz gerekir veya önceki sürümleri.
-- Windows Mobility hizmeti 9.7.0.0 sürümü veya sonraki sürümleri çalıştıran VM'ler üzerinde hizmet yükleyici en son kullanılabilir Azure VM Aracısı'nı yükler. Geçirdiğinizde, bu sanal makineleri Site Recovery uzantısına dahil tüm VM uzantısı için önkoşul aracı yüklemesi zaten karşılar.
-- Mobility hizmeti Azure aşağıdaki yöntemlerden birini kullanarak sanal makineden el ile kaldırmanız gerekir. Çoğaltma yapılandırmadan önce VM'yi yeniden başlatın.
-    - Windows, Denetim Masası'nda > **Program Ekle/Kaldır**, kaldırma **Microsoft Azure Site Recovery Mobility hizmeti/ana hedef sunucu**. Yükseltilmiş bir komut isteminde çalıştırın:
+- Yalnızca geçirilen makineye yüklü mobilite hizmeti v9.6 ise Azure VM aracısını yüklemeniz gerekir ya da daha önce.
+- Mobility hizmetinin sürümü 9.7.0.0 ve sonraki sürümlerde çalışan Windows Vm'lerinde hizmeti yükleyicisinin en son kullanılabilir Azure VM aracısı yükler. Geçiş yaptığınızda, bu Vm'lere Site Recovery uzantısı dahil olmak üzere tüm VM uzantısı için önkoşul aracı yüklemesi zaten karşılayın.
+- Mobility hizmeti aşağıdaki yöntemlerden birini kullanarak Azure sanal makineden el ile kaldırmanız gerekir. Çoğaltma yapılandırmadan önce VM'yi yeniden başlatın.
+    - Denetim Masası'nda Windows için > **Program Ekle/Kaldır**, kaldırma **Microsoft Azure Site Recovery Mobility hizmeti/ana hedef sunucusu**. Yükseltilmiş bir komut isteminde çalıştırın:
         ```
         MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
         ```
-    - Linux için oturum bir kök kullanıcı. Bir terminale Git **/user/local/ASR**, ve aşağıdaki komutu çalıştırın:
+    - Linux için oturum bir kök kullanıcı. Bir terminal penceresinde Git **/user/local/ASR**, ve aşağıdaki komutu çalıştırın:
         ```
         uninstall.sh -Y
         ```
@@ -63,4 +63,4 @@ Azure için şirket içi VMware sanal makinelerini (veya fiziksel sunucuları) g
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Hızlı bir şekilde çoğaltmak](azure-to-azure-quickstart.md) bir ikincil bölge için bir Azure VM.
+[Hızlı bir şekilde çoğaltmak](azure-to-azure-quickstart.md) Azure VM'LERİNİ ikincil bir bölgeye.

@@ -6,14 +6,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 31461e70e81f0f48a8d67e31b98cfae2dd627a54
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 01d4f3873c854776078986918e6ece55017c9193
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29467180"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917481"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Dağıtım Planlayıcısı maliyet tahmini raporu 
 
@@ -171,10 +171,10 @@ Site Recovery Dağıtım Planlayıcısı aşağıdaki para birimlerinin tümünd
 |---|---|---|---|---|---|---|---|
 |ARS|Arjantin pesosu ($)||AUD|Avustralya doları ($)||BRL|Brezilya reali (R$)|
 |CAD|Kanada doları ($)||CHF|İsviçre frangı (chf)||DKK|Danimarka kronu (kr)|
-|EUR|Euro (€)||GBP|İngiliz sterlini (£)||HKD|Hong Kong doları (HK$)|
-|IDR|Endonezya Rupisi (Rp)||INR|Hindistan rupisi (₹)||JPY|Japon yeni (¥)|
-|KRW|Kore wonu (₩)||MXN|Meksika pesosu (MX$)||MYR|Malezya ringgiti (RM$)|
-|NOK|Norveç kronu (kr)||NZD|Yeni Zelanda doları ($)||RUB|Rus rublesi (руб)|
+|EUR|Euro (€)||GBP|İngiliz Sterlini (£)||HKD|Hong Kong doları (HK$)|
+|IDR|Endonezya Rupisi (Rp)||INR|Hindistan Rupisi (₹)||JPY|Japon (¥)|
+|KRW|Kore Wonu (₩)||MXN|Meksika pesosu (MX$)||MYR|Malezya ringgiti (RM$)|
+|NOK|Norveç kronu (kr)||NZD|Yeni Zelanda doları ($)||RUB|RUS Rublesi (руб)|
 |SAR|Suudi riyali (SR)||SEK|İsveç kronu (kr)||TWD|Tayvan doları (NT$)|
 |TRY|Türk lirası (TL)||USD| ABD doları ($)||ZAR|Güney Afrika randı (R)|
 

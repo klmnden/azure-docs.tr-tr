@@ -9,12 +9,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 8b4f9c17557b405bc5f4e78947952826724fc784
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: af3a96c978a3b22fcbc6296642e4749c863dff9e
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865071"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928582"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Language Understanding (LUIS) Bilişsel hizmetler, müşteri verilerini silebilir ve dışarı aktarma
 
@@ -35,7 +35,7 @@ LUIS kullanıcılar LUIS web portalı veya LUIS programlı API'leri aracılığ�
 
 | | **Kullanıcı hesabı** | **Uygulama** | **Utterance(s)** | **Son kullanıcı sorguları** |
 | --- | --- | --- | --- | --- |
-| **Portal** | [Bağlantı](luis-how-to-account-settings.md) | [Bağlantı](create-new-app.md#delete-app) | [Bağlantı](create-new-app.md#delete-app) | [Bağlantı](create-new-app.md#delete-app) |
+| **Portal** | [Bağlantı](luis-how-to-account-settings.md) | [Bağlantı](luis-how-to-start-new-app.md#delete-app) | [Bağlantı](luis-how-to-start-new-app.md#delete-app) | [Bağlantı](luis-how-to-start-new-app.md#delete-app) |
 | **API'ler** | [Bağlantı](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Bağlantı](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Bağlantı](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Bağlantı](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 

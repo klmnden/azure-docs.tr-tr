@@ -1,64 +1,64 @@
 ---
-title: Hyper-V çoğaltma Azure için destek matrisi | Microsoft Docs
-description: Hyper-V çoğaltma Azure Site Recovery ile azure'a için gereksinimleri ve desteklenen bileşenlerin özetler
+title: Hyper-V'den azure'a çoğaltma için destek matrisi | Microsoft Docs
+description: Azure Site Recovery ile azure'a Hyper-V çoğaltma için gereksinimleri ve desteklenen bileşenlerin özetler
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: c818ff0df5cb1f1b3d20c726b20b30c418f53061
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266970"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921531"
 ---
-# <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V çoğaltma Azure için destek matrisi
+# <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V'den azure'a çoğaltma için destek matrisi
 
 
-Bu makalede desteklenen bileşenleri ve şirket içi Hyper-V sanal makineleri olağanüstü durum kurtarma Azure ayarlarını kullanarak özetler [Azure Site Recovery](site-recovery-overview.md).
+Bu makalede kullanarak desteklenen bileşenler ve şirket içi Hyper-V Vm'lerini azure'a olağanüstü durum kurtarması için ayarları özetler [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="supported-scenarios"></a>Desteklenen senaryolar
 
 **Senaryo** | **Ayrıntılar**
 --- | ---
-Hyper-V sanal makine Yöneticisi ile | System Center Virtual Machine Manager yapıda yönetilen Hyper-V konakları üzerinde çalışan sanal makineler için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz.<br/><br/> Bu senaryo Azure portalında veya PowerShell kullanarak dağıtabilirsiniz.<br/><br/> Hyper-V konakları Virtual Machine Manager tarafından yönetildiğinde, aynı zamanda bir ikincil şirket içi siteye olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryo hakkında daha fazla bilgi için okuma [Bu öğretici](tutorial-vmm-to-vmm.md).
-Hyper-V olmadan Sanal Makine Yöneticisi | Virtual Machine Manager tarafından yönetilmeyen Hyper-V konakları üzerinde çalışan sanal makineler için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz.<br/><br/> Bu senaryo Azure portalında veya PowerShell kullanarak dağıtabilirsiniz.
+Hyper-V ile Virtual Machine Manager | System Center Virtual Machine Manager dokusunda yönetilen Hyper-V konakları üzerinde çalışan VM'ler için Azure'da olağanüstü durum kurtarma gerçekleştirebilirsiniz.<br/><br/> Bu senaryo Azure portalında veya PowerShell kullanarak dağıtabilirsiniz.<br/><br/> Virtual Machine Manager tarafından yönetilen Hyper-V konağına, aynı zamanda bir ikincil şirket içi siteye olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryo hakkında daha fazla bilgi edinmek için [Bu öğreticide](tutorial-vmm-to-vmm.md).
+Hyper-V olmadan Virtual Machine Manager | Virtual Machine Manager tarafından yönetilmeyen Hyper-V konaklarında çalışan VM'ler için Azure'da olağanüstü durum kurtarma gerçekleştirebilirsiniz.<br/><br/> Bu senaryo Azure portalında veya PowerShell kullanarak dağıtabilirsiniz.
 
 
 ## <a name="on-premises-servers"></a>Şirket içi sunucular
 
 **Sunucu** | **Gereksinimleri** | **Ayrıntılar**
 --- | --- | ---
-Hyper-V (olmadan Sanal Makine Yöneticisi'ni çalıştıran) | Windows Server 2016, en son güncelleştirmeleri içeren Windows Server 2012 R2 | Site kurtarma için bir Hyper-V sitesi yapılandırdığınızda, Windows Server 2016 ve 2012 R2 çalıştıran konaklar karıştırılması desteklenmiyor.<br/><br/> Windows Server 2016 çalıştıran bir konakta bulunan sanal makineleri için farklı bir konuma kurtarma desteklenmez.
-Hyper-V (Virtual Machine Manager ile çalıştıran) | Virtual Machine Manager 2016, sanal makine yöneticisi 2012 R2 | Sanal Makine Yöneticisi kullandıysanız, Windows Server 2016 konaklar Sanal Makine Yöneticisi 2016'yönetilmelidir.<br/><br/> Windows Server 2016 ve 2012 R2 çalıştıran Hyper-V konakları karıştırır bir Virtual Machine Manager Bulutu şu anda desteklenmiyor.<br/><br/> Varolan bir sanal makine yöneticisi 2012 R2 sunucusuna 2016 yükseltmesini dahil ortamları desteklenmez.
+(Çalışan Virtual Machine Manager olmadan) Hyper-V | Windows Server 2016 (dahil olmak üzere Sunucu Çekirdeği yüklemesi), en son güncelleştirmeleri içeren Windows Server 2012 R2 | Site Recovery, Hyper-V sitesi yapılandırdığınızda, Windows Server 2016 ve 2012 R2 çalıştıran konaklar karıştırma desteklenmez.<br/><br/> Windows Server 2016 çalıştıran bir konakta bulunan sanal makineler için farklı bir konuma kurtarma desteklenmez.
+(Çalışan Virtual Machine Manager ile) Hyper-V | Virtual Machine Manager 2012 R2 Virtual Machine Manager 2016 | Virtual Machine Manager kullandıysanız, Virtual Machine Manager 2016'da Windows Server 2016 ana yönetilmelidir.<br/><br/> Windows Server 2016 ve 2012 R2 üzerinde çalışan Hyper-V konakları karıştırır Virtual Machine Manager Bulutu şu anda desteklenmemektedir.<br/><br/> Var olan bir Virtual Machine Manager 2012 R2 Server 2016'ya yükseltme içeren ortamlar desteklenmez.
 
 
 ## <a name="replicated-vms"></a>Çoğaltılan VM'ler
 
 
-VM desteği aşağıdaki tabloda özetlenmiştir. Site Recovery, desteklenen bir işletim sisteminde çalışan tüm iş yüklerini destekler.
+Aşağıdaki tabloda, VM desteği özetler. Site Recovery, desteklenen bir işletim sisteminde çalışan tüm iş yüklerini destekler.
 
  **Bileşen** | **Ayrıntılar**
 --- | ---
-VM yapılandırması | Azure'a VM'ler karşılamalıdır [Azure gereksinimleri](#failed-over-azure-vm-requirements).
-Konuk işletim sistemi | Bir konuk işletim sistemi Azure tarafından desteklenmez.<br/><br/> Windows Server 2016 Nano Server desteklenmiyor.
+VM yapılandırması | Azure'a çoğaltma Vm'leri karşılamalıdır [Azure gereksinimleri](#failed-over-azure-vm-requirements).
+Konuk işletim sistemi | Tüm konuk işletim sistemi Azure tarafından desteklenir.<br/><br/> Windows Server 2016 Nano Server desteklenmez.
 
 
 
 
 ## <a name="hyper-v-network-configuration"></a>Hyper-V ağ yapılandırması
 
-**Bileşen** | **Hyper-V sanal makine Yöneticisi ile** | **Hyper-V olmadan Sanal Makine Yöneticisi**
+**Bileşen** | **Hyper-V ile Virtual Machine Manager** | **Hyper-V olmadan Virtual Machine Manager**
 --- | --- | ---
 Konak ağ: NIC ekibi oluşturma | Evet
 Konak ağ: VLAN | Evet
 Konak ağ: IPv4 | Evet
 Konak ağ: IPv6 | Hayır
-Konuk VM ağı: NIC ekibi oluşturma | Hayır
+Konuk VM ağ: NIC ekibi oluşturma | Hayır
 Konuk VM ağı: IPv4 | Evet
 Konuk VM ağı: IPv6 | Hayır
 Konuk VM ağı: statik IP (Windows) | Evet
@@ -67,9 +67,9 @@ Konuk VM ağı: Multi-NIC | Evet
 
 
 
-## <a name="azure-vm-network-configuration-after-failover"></a>Azure VM ağ yapılandırması (sonra Yük devretme)
+## <a name="azure-vm-network-configuration-after-failover"></a>(Yük devretme sonra) Azure sanal makine ağ yapılandırması
 
-**Bileşen** | **Hyper-V sanal makine Yöneticisi ile** | **Hyper-V olmadan Sanal Makine Yöneticisi**
+**Bileşen** | **Hyper-V ile Virtual Machine Manager** | **Hyper-V olmadan Virtual Machine Manager**
 --- | --- | ---
 Azure ExpressRoute | Evet | Evet
 ILB | Evet | Evet
@@ -78,102 +78,102 @@ Azure Traffic Manager | Evet | Evet
 Multi-NIC | Evet | Evet
 Ayrılmış IP | Evet | Evet
 IPv4 | Evet | Evet
-Kaynak IP adresi koru | Evet | Evet
-Azure sanal ağ hizmet uç noktaları<br/> (Azure Storage güvenlik duvarları) | Evet | Evet
+Kaynak IP adresini koruma | Evet | Evet
+Azure sanal ağ hizmet uç noktaları<br/> (Azure depolama güvenlik duvarlarını) | Evet | Evet
 Hızlandırılmış Ağ | Hayır | Hayır
 
 
-## <a name="hyper-v-host-storage"></a>Hyper-V konağı depolama
+## <a name="hyper-v-host-storage"></a>Hyper-V konağında depolama
 
-**Depolama** | **Hyper-V sanal makine Yöneticisi ile** | **Hyper-V olmadan Sanal Makine Yöneticisi**
+**Depolama** | **Hyper-V ile Virtual Machine Manager** | **Hyper-V olmadan Virtual Machine Manager**
 --- | --- | --- | ---
 NFS | NA | NA
 SMB 3.0 | Evet | Evet
 SAN (İSCSI) | Evet | Evet
-Çok yollu (MPIO). İle test edilmiştir:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM CLARiiON için | Evet | Evet
+Çok yollu (MPIO). Test:<br></br> Microsoft DSM EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM CLARiiON için | Evet | Evet
 
 ## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM Konuk depolama
 
-**Depolama** | **Hyper-V sanal makine Yöneticisi ile** | **Hyper-V olmadan Sanal Makine Yöneticisi**
+**Depolama** | **Hyper-V ile Virtual Machine Manager** | **Hyper-V olmadan Virtual Machine Manager**
 --- | --- | ---
 VMDK | NA | NA
 VHD/VHDX | Evet | Evet
 2. nesil VM | Evet | Evet
 EFI/UEFI'YE| Evet | Evet
-Küme diskini paylaşılan | Hayır | Hayır
-Şifrelenmiş disk | Hayır | Hayır
+Küme diski paylaşılan | Hayır | Hayır
+Şifrelenmiş diski | Hayır | Hayır
 NFS | NA | NA
 SMB 3.0 | Hayır | Hayır
 RDM | NA | NA
 Disk > 1 TB | Evet, 4.095 GB'a kadar | Evet, 4.095 GB'a kadar
 Disk: mantıksal ve fiziksel 4K kesim | Desteklenmiyor: Gen 1/Gen 2 | Desteklenmiyor: Gen 1/Gen 2
 Disk: 4K mantıksal ve fiziksel 512 baytlık kesim | Evet |  Evet
-Şeritli disk birimle > 1 TB<br/><br/> Mantıksal birim yönetimi (LVM) | Evet | Evet
+Bölüştürülmüş bir disk birimi > 1 TB<br/><br/> Mantıksal birim yönetimi (LVM) | Evet | Evet
 Depolama alanları | Evet | Evet
-Sık kullanılan Ekle/Kaldır disk | Hayır | Hayır
+Sık erişimli Ekle/Kaldır disk | Hayır | Hayır
 Diski hariç tutma | Evet | Evet
 Çok yollu (MPIO) | Evet | Evet
 
 ## <a name="azure-storage"></a>Azure Storage
 
-**Bileşen** | **Hyper-V sanal makine Yöneticisi ile** | **Hyper-V olmadan Sanal Makine Yöneticisi**
+**Bileşen** | **Hyper-V ile Virtual Machine Manager** | **Hyper-V olmadan Virtual Machine Manager**
 --- | --- | ---
 Yerel olarak yedekli depolama | Evet | Evet
 Coğrafi olarak yedekli depolama | Evet | Evet
-Coğrafi olarak yedekli depolamaya okuma erişimi | Evet | Evet
+Okuma erişimli coğrafi olarak yedekli depolama | Evet | Evet
 Seyrek erişimli depolama | Hayır | Hayır
 Sık erişimli depolama| Hayır | Hayır
 Blok blobları | Hayır | Hayır
-Bekleyen (SSE) şifreleme| Evet | Evet
+(SSE) bekleyen şifreleme| Evet | Evet
 Premium depolama | Evet | Evet
 İçeri/dışarı aktarma hizmeti | Hayır | Hayır
-Azure depolama (çoğaltma verilerini depolamak için kullanılır) hedef depolama/önbelleği depolama hesabında yapılandırılmış sanal ağlar için güvenlik duvarları | Hayır | Hayır
+Hedef depolama/önbellek depolama hesabı (çoğaltma verilerini depolamak için kullanılan) üzerinde yapılandırılan sanal ağlar için Azure depolama güvenlik duvarları | Hayır | Hayır
 
 
 ## <a name="azure-compute-features"></a>Azure işlem özellikleri
 
-**Özellik** | **Hyper-V sanal makine Yöneticisi ile** | **Hyper-V olmadan Sanal Makine Yöneticisi**
+**Özellik** | **Hyper-V ile Virtual Machine Manager** | **Hyper-V olmadan Virtual Machine Manager**
 --- | --- | ---
 Kullanılabilirlik kümeleri | Evet | Evet
 HUB | Evet | Evet  
-Yönetilen diskler | Evet, yük devretme için.<br/><br/> Yönetilen disklerin yeniden çalışma desteklenmez. | Evet, yük devretme için.<br/><br/> Yönetilen disklerin yeniden çalışma desteklenmez.
+Yönetilen diskler | Evet, yük devretme için.<br/><br/> Yönetilen diskler yeniden çalışma desteklenmez. | Evet, yük devretme için.<br/><br/> Yönetilen diskler yeniden çalışma desteklenmez.
 
 ## <a name="azure-vm-requirements"></a>Azure VM gereksinimleri
 
-Şirket içi sanal makinelerini Azure'a çoğaltma bu tabloda özetlenen Azure VM gereksinimlerini karşılaması gerekir.
+Azure'a Çoğalttığınız şirket içi Vm'leri bu tabloda özetlenen Azure VM gereksinimleri karşılaması gerekir.
 
 **Bileşen** | **Gereksinimleri** | **Ayrıntılar**
 --- | --- | ---
-Konuk işletim sistemi | Site Recovery tüm işletim sistemlerini destekler [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Önkoşullar desteklenmeyen başarısız kontrol edin.
-Konuk işletim sistemi mimarisi | 64 bit | Önkoşullar desteklenmeyen başarısız kontrol edin.
-İşletim sistemi disk boyutu | 1. nesil sanal makineleri için 2.048 GB'a kadar.<br/><br/> 2. nesil sanal makineleri için 300 GB.  | Önkoşullar desteklenmeyen başarısız kontrol edin.
-İşletim sistemi disk sayısı | 1 | Önkoşullar desteklenmeyen başarısız kontrol edin.
-Veri diski sayısı | 16 veya daha az  | Önkoşullar desteklenmeyen başarısız kontrol edin.
-Veri diski VHD boyutu | 4.095 GB'a kadar | Önkoşullar desteklenmeyen başarısız kontrol edin.
+Konuk işletim sistemi | Site Recovery tüm işletim sistemlerini destekler [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Desteklenmeyen başarısız önkoşulları denetleyin.
+Konuk işletim sistemi mimarisi | 64 bit | Desteklenmeyen başarısız önkoşulları denetleyin.
+İşletim sistemi disk boyutu | 1. kuşak VM'ler için 2.048 GB.<br/><br/> 2. kuşak VM'ler için en fazla 300 GB.  | Desteklenmeyen başarısız önkoşulları denetleyin.
+İşletim sistemi disk sayısı | 1 | Desteklenmeyen başarısız önkoşulları denetleyin.
+Veri diski sayısı | 16 ya da daha az  | Desteklenmeyen başarısız önkoşulları denetleyin.
+Veri diski VHD boyutu | 4.095 GB'a kadar | Desteklenmeyen başarısız önkoşulları denetleyin.
 Ağ bağdaştırıcıları | Birden çok bağdaştırıcı desteklenir |
-Paylaşılan VHD | Desteklenmiyor | Önkoşullar desteklenmeyen başarısız kontrol edin.
-FC disk | Desteklenmiyor | Önkoşullar desteklenmeyen başarısız kontrol edin.
-Sabit disk biçimi | VHD <br/><br/> VHDX | Azure'a yük devretme, site kurtarma VHDX VHD'ye otomatik olarak dönüştürür. Geri şirket içi başarısız olduğunda, sanal makineler VHDX biçimini kullanacak şekilde devam eder.
+Paylaşılan VHD | Desteklenmiyor | Desteklenmeyen başarısız önkoşulları denetleyin.
+FC diski | Desteklenmiyor | Desteklenmeyen başarısız önkoşulları denetleyin.
+Sabit disk biçimi | VHD <br/><br/> VHDX | Azure'a yük devretme sırasında site Recovery VHDX otomatik olarak VHD'ye dönüştürür. Yeniden şirket içine başarısız olursa, sanal makineler VHDX biçimini kullanmaya devam eder.
 BitLocker | Desteklenmiyor | Bir sanal makine için çoğaltmayı etkinleştirmeden önce BitLocker'ı devre dışı bırakılması gerekir.
-VM adı | 1-63 karakter. Harfler, sayılar ve kısa çizgilerden oluşabilir. VM adı bir harf veya sayıyla başlamalı ve bitmelidir. | VM Özellikleri'nde Site Recovery değeri güncelleştirin.
-VM türü | 1. nesil<br/><br/> Nesil 2--Windows | 2. nesil sanal makineleri (VHDX biçimlendirilmiş bir veya iki veri birimlerini içeren) temel bir işletim sistemi disk türüne sahip ve 300 GB disk alanı daha az desteklenir.<br></br>Linux nesil 2 sanal makineleri desteklenmez. [Daha fazla bilgi edinin](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
+VM adı | 1-63 karakter. Harfler, sayılar ve kısa çizgilerden oluşabilir. VM adı bir harf veya sayıyla başlamalı ve bitmelidir. | Site Recovery VM özelliklerini değeri güncelleştirin.
+VM türü | 1. nesil<br/><br/> Nesil 2--Windows | 2. kuşak Vm'leri bir işletim sistemi disk türüyle (VHDX biçimlendirilmiş bir veya iki veri birimi içeren) temel ve 300 GB'tan az disk alanı desteklenir.<br></br>Linux 2. kuşak VM'ler desteklenmez. [Daha fazla bilgi edinin](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## <a name="recovery-services-vault-actions"></a>Kurtarma Hizmetleri kasası eylemleri
 
-**Eylem** |  **Hyper-V sanal makine Yöneticisi ile** | **Hyper-V olmadan Sanal Makine Yöneticisi**
+**Eylem** |  **Hyper-V ile Virtual Machine Manager** | **Hyper-V olmadan Virtual Machine Manager**
 --- | --- | ---
-Kasa kaynak grupları arasında taşıma<br/><br/> İçinde ve abonelikler arasında | Hayır | Hayır
-Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçinde ve abonelikler arasında | Hayır | Hayır
+Kasa kaynak grupları arasında taşıma<br/><br/> İçinde ve arasında abonelikler | Hayır | Hayır
+Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçinde ve arasında abonelikler | Hayır | Hayır
 
 
 ## <a name="provider-and-agent"></a>Sağlayıcı ve aracı
 
-Dağıtımınızın bu makaledeki ayarlarla uyumlu olduğundan emin olmak için son sağlayıcı ve Aracı sürümleri çalışmakta olduğunuzdan emin olun.
+Dağıtımınız bu makaledeki ayarlarla uyumlu olduğundan emin olmak için en son sağlayıcı ve Aracı sürümleri çalıştırdığınızdan emin olun.
 
 **Ad** | **Açıklama** | **Ayrıntılar**
 --- | --- | --- | --- | ---
-Azure Site kurtarma sağlayıcısı | Şirket içi sunucular ile Azure arasındaki iletişimi düzenler <br/><br/> Hyper-V sanal makine Yöneticisi ile: Sanal Makine Yöneticisi sunucularda yüklü<br/><br/> Hyper-V olmadan Sanal Makine Yöneticisi: Hyper-V ana bilgisayarına yüklü| En son sürümü: 5.1.2700.1 (Azure portalından kullanılabilir)<br/><br/> [En son özellikleri ve düzeltmeleri](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
-Microsoft Azure kurtarma Hizmetleri Aracısı | Hyper-V sanal makineleri ve Azure arasında çoğaltma koordinatları<br/><br/> Şirket içi Hyper-V sunucuları (veya ile olmadan Sanal Makine Yöneticisi) yüklü | En son aracı portaldan kullanılabilir
+Azure Site Recovery sağlayıcısı | Şirket içi sunucular ile Azure arasındaki iletişimi düzenler <br/><br/> Hyper-V Virtual Machine Manager ile: Virtual Machine Manager sunucularında yüklü<br/><br/> Hyper-V Virtual Machine Manager olmadan: Hyper-V konaklarında yüklü| En son sürümü: 5.1.2700.1 (Azure Portalı'ndan kullanılabilir)<br/><br/> [En son özellikler ve düzeltmeler](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
+Microsoft Azure kurtarma Hizmetleri Aracısı | Hyper-V Vm'leri ve Azure arasında çoğaltma koordinatları<br/><br/> Şirket içi Hyper-V sunucuları (ile arama veya Virtual Machine Manager olmadan) yüklü | En son aracıyı portalından kullanılabilir
 
 
 
@@ -181,4 +181,4 @@ Microsoft Azure kurtarma Hizmetleri Aracısı | Hyper-V sanal makineleri ve Azur
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bilgi nasıl [Azure hazırlama](tutorial-prepare-azure.md) şirket içi Hyper-V sanal makineleri olağanüstü durum kurtarması için.
+Bilgi edinmek için nasıl [Azure'u hazırlama](tutorial-prepare-azure.md) şirket içi Hyper-V Vm'lerinin olağanüstü durum kurtarması için.

@@ -3,15 +3,15 @@ title: Diskleri Azure Site Recovery ile korumanın dışında tutma | Microsoft 
 description: VMware’den Azure’a VM disklerinin çoğaltma işleminden nasıl ve neden hariç tutulacağı açıklanmaktadır.
 author: nsoneji
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 07/01/2018
+ms.workload: storage-backup-recovery
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 6a0b8891e25a764ecd0430696e155b2bd8e06e13
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: e7c9c1db52dc23c576782ffa8b21426c75230c51
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342615"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921289"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>VMware’den Azure’a geçi senaryolarında diskleri çoğaltmanın dışında tutma
 

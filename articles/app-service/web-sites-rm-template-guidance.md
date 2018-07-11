@@ -1,65 +1,64 @@
 ---
-title: Şablonları kullanarak Azure web uygulamaları dağıtma Kılavuzu | Microsoft Docs
-description: Web uygulamalarını dağıtmak için Azure Resource Manager şablonları oluşturmak için öneriler sunar.
+title: Şablonları kullanarak Azure web uygulaması Dağıtma Kılavuzu | Microsoft Docs
+description: Web uygulamalarını dağıtmak için Azure Resource Manager şablonları oluşturmaya yönelik öneriler.
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
-manager: timlt
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8c29cf5a65e9587b281a6000b5b4eff47f11da91
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: c2f600d86965e1115d4be1370da8f7c8e1b67f05
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807331"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927681"
 ---
-# <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonları kullanarak web uygulamaları dağıtma Kılavuzu
+# <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak web uygulaması Dağıtma Kılavuzu
 
-Bu makalede Azure Resource Manager şablonları oluşturmak için Azure App Service çözümlerini dağıtmak için öneriler sağlar. Bu öneriler, ortak sorunları önlemenize yardımcı olabilir.
+Bu makalede, Azure App Service çözümlerini dağıtmak için Azure Resource Manager şablonları oluşturmaya yönelik öneriler sağlar. Bu öneriler, ortak sorunları önlemenize yardımcı olabilir.
 
 ## <a name="define-dependencies"></a>Bağımlıkları tanımlama
 
-Web uygulamaları için bağımlılıkları tanımlayan bir web uygulaması içindeki kaynaklara nasıl etkileşim, bilinmesini gerektirir. Hatalı bir sırayla bağımlılıkları belirtirseniz, dağıtım hatalarına neden veya dağıtım dökümlerinin bir yarış durumu oluşturun.
+Web uygulamaları için bağımlılıklar tanımlayarak bir web uygulaması içindeki kaynaklara nasıl etkileşimde bulunduğunu anlamak gerekir. Hatalı bir sırayla bağımlılıkları belirtirseniz, dağıtım hatalarına neden veya dağıtım dökümlerinin bir yarış durumu oluşturun.
 
 > [!WARNING]
-> Şablonunuzda MSDeploy site uzantısı dahil, herhangi bir yapılandırma kaynağı MSDeploy kaynağına bağımlı olarak ayarlamanız gerekir. Zaman uyumsuz olarak yeniden başlatmak site yapılandırma değişiklikleri neden. Yapılandırma kaynakları MSDeploy bağımlı hale getirerek site yeniden başlatılmadan önce geçecek MSDeploy tamamladığından emin olun. Bu bağımlılıklar site MSDeploy dağıtım işlemi sırasında yeniden başlatılabilir. Bir örnek için bkz [Web dağıtımı bağımlılığı WordPress şablonla](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json).
+> Şablonunuzda bir MSDeploy site uzantısı dahil, herhangi bir yapılandırma kaynağını MSDeploy kaynağına bağlı olarak ayarlamanız gerekir. Zaman uyumsuz olarak yeniden başlatmak site yapılandırma değişiklikleri neden. Yapılandırma kaynaklarını MSDeploy bağımlı hale getirerek site yeniden başlatılmadan önce MSDeploy bittiğini emin olun. Bu bağımlılıkları MSDeploy dağıtım işlemi sırasında site yeniden başlatılabilir. Örnek şablon için bkz: [WordPress Web dağıtma bağımlılık şablonuyla](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json).
 
-Aşağıdaki resimde, çeşitli uygulama hizmeti kaynaklarına bağımlılık sırası gösterilmektedir:
+Aşağıdaki görüntüde, bağımlılık sırası çeşitli App Service kaynaklarını gösterilmektedir:
 
 ![Web uygulama bağımlılıkları](media/web-sites-rm-template-guidance/web-dependencies.png)
 
-Aşağıdaki sırayla kaynakları dağıtın:
+Aşağıdaki sırayla kaynakları dağıtma:
 
 **Katman 1**
-* Uygulama hizmeti planı.
-* Diğer ilgili kaynakları, veritabanları veya depolama hesapları gibi.
+* App Service planı.
+* Diğer tüm ilgili kaynakları, veritabanları veya depolama hesapları gibi.
 
 **Katman 2**
-* Web uygulaması--uygulama hizmeti plan üzerinde bağlıdır.
-* Sunucu grubu--hedefler azure Application Insights örneği uygulama hizmeti plan üzerinde bağlıdır.
+* Web uygulaması, App Service planı üzerinde bağlıdır.
+* Sunucu grubu--hedefleyen azure Application Insights örneği, App Service planı üzerinde bağlıdır.
 
 **Katman 3**
 * Kaynak denetimi--web uygulamasında bağlıdır.
 * MSDeploy site uzantısı--web uygulamasında bağlıdır.
-* Sunucu grubu--hedefleyen uygulama Öngörüler örneği web uygulamasında bağlıdır.
+* Sunucu grubu--hedef application Insights örneği üzerinde web uygulaması bağlıdır.
 
 **Katman 4**
-* Uygulama hizmeti sertifika--kaynak denetimi bağlıdır veya MSDeploy ya da varsa mevcut. Aksi takdirde, web uygulamasında bağlıdır.
-* Yapılandırma ayarları (bağlantı dizeleri, web.config değerleri, uygulama ayarlarını)--kaynak denetimi ve MSDeploy göre değişir ya da mevcut ise. Aksi takdirde, web uygulamasında bağlıdır.
+* App Service sertifikası--bağımlı kaynak denetimi veya MSDeploy ya da mevcut değil. Aksi takdirde, web uygulamasında bağlıdır.
+* Yapılandırma ayarları (bağlantı dizeleri, web.config değerleri, uygulama ayarları)--bağımlı kaynak denetimi veya MSDeploy ya da mevcut değilse. Aksi takdirde, web uygulamasında bağlıdır.
 
 **Katman 5**
-* Konak adı bağlamaları--varsa sertifikadaki bağlıdır. Aksi takdirde, üst düzey bir kaynağa bağlıdır.
-* Site uzantıları--varsa yapılandırma ayarlarına bağlıdır. Aksi takdirde, üst düzey bir kaynağa bağlıdır.
+* Konak adı bağlamaları--varsa sertifikayı bağlıdır. Aksi takdirde, bir üst düzey kaynağa bağlıdır.
+* Site uzantıları--varsa yapılandırma ayarlarına bağlıdır. Aksi takdirde, bir üst düzey kaynağa bağlıdır.
 
-Genellikle, çözümünüzün bu kaynakları ve katmanları yalnızca bazılarını içerir. Eksik katmanları için alt kaynakları İleri daha yüksek katman eşleyin.
+Genellikle, çözümünüz bu kaynakları ve katmanları yalnızca bazılarını içerir. Eksik katmanları için sonraki daha yüksek bir katman için alt kaynakları eşleyin.
 
-Aşağıdaki örnek, bir şablon parçası gösterir. Bağlantı dizesi yapılandırma değeri MSDeploy uzantısına göre değişir. MSDeploy uzantısı, web uygulaması ve veritabanı bağlıdır. 
+Aşağıdaki örnek, bir şablonun parçası gösterir. Bağlantı dizesi yapılandırma değerini MSDeploy uzantısını üzerinde bağlıdır. Web uygulaması ve veritabanı MSDeploy uzantısı bağlıdır. 
 
 ```json
 {
@@ -88,19 +87,19 @@ Aşağıdaki örnek, bir şablon parçası gösterir. Bağlantı dizesi yapılan
 }
 ```
 
-Yukarıdaki kod kullanır hazır Çalıştır bir örnek için bkz [şablonu: basit bir Umbraco Web uygulaması oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
+Yukarıdaki kod çalıştırılmaya hazır örnek için bkz [şablon: basit bir Umbraco Web uygulaması derleme](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
 
 ## <a name="find-information-about-msdeploy-errors"></a>MSDeploy hatalar hakkında bilgi
 
-Resource Manager şablonu MSDeploy kullanıyorsa, dağıtım hata iletileri anlaşılması zor olabilir. Başarısız bir dağıtımdan sonra daha fazla bilgi edinmek için aşağıdaki adımları deneyin:
+Resource Manager şablonunuzu MSDeploy kullanıyorsa, dağıtım hata iletileri anlamak zor olabilir. Başarısız bir dağıtımdan sonra daha fazla bilgi edinmek için aşağıdaki adımları deneyin:
 
-1. Sitenin gidin [Kudu konsol](https://github.com/projectkudu/kudu/wiki/Kudu-console).
+1. Sitenin Git [Kudu konsolunu](https://github.com/projectkudu/kudu/wiki/Kudu-console).
 2. Browse to the folder at D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. AppManagerStatus.xml ve appManagerLog.xml dosyaları arayın. İlk dosya durumunu kaydeder. İkinci dosya hata hakkındaki bilgileri kaydeder. Hata, açık değilse, forum ilgili Yardım isteyen zaman içerebilir.
+3. AppManagerStatus.xml ve appManagerLog.xml dosyaları arayın. İlk dosya durumunu kaydeder. Dosyanın ikinci hata hakkındaki bilgileri kaydeder. Hata, açık değilse, forum hakkında Yardım almak için soran olduğunda içerebilir.
 
 ## <a name="choose-a-unique-web-app-name"></a>Benzersiz web uygulaması adı seçin
 
-Web uygulamanız için ad genel olarak benzersiz olmalıdır. Bir adlandırma kuralını kullanabilirsiniz, büyük olasılıkla benzersiz veya kullanabileceğiniz [uniqueString işlevi](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) benzersiz bir ad oluşturma ile yardımcı olmak için.
+Web uygulamanız için bir ad genel olarak benzersiz olmalıdır. Bir adlandırma kuralını kullanabilirsiniz, büyük olasılıkla benzersiz olan veya kullanabileceğiniz [uniqueString işlevi](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) benzersiz bir ad oluşturma ile yardımcı olmak için.
 
 ```json
 {
@@ -111,6 +110,30 @@ Web uygulamanız için ad genel olarak benzersiz olmalıdır. Bir adlandırma ku
 }
 ```
 
+## <a name="deploy-web-app-certificate-from-key-vault"></a>Key vault'tan Web uygulaması sertifikası dağıtma
+
+Şablonunuzu içeriyorsa bir [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) kaynak SSL bağlaması ve sertifika için anahtar Kasası'nda depolanır, App Service kimlik sertifikası erişebilir emin olmanız gerekir.
+
+Genel Azure'da App Service hizmet sorumlusu kimliği vardır. **abfa0a7c-a6b6-4736-8310-5855508787cd**. App Service hizmet sorumlusu için Key Vault'a erişim vermek için kullanın:
+
+```azurepowershell-interactive
+Set-AzureRmKeyVaultAccessPolicy `
+  -VaultName KEY_VAULT_NAME `
+  -ServicePrincipalName abfa0a7c-a6b6-4736-8310-5855508787cd `
+  -PermissionsToSecrets get `
+  -PermissionsToCertificates get
+```
+
+Azure devlet kurumları, App Service hizmet sorumlusu kimliği olan **6a02c803-dafd-4136-b4c3-5a6f318b4714**. Önceki örnekte bu kimliği kullanın.
+
+Anahtar kasanızı seçin **sertifikaları** ve **Oluştur/içeri aktarma** sertifikayı karşıya yüklemek için.
+
+![Sertifika İçeri Aktar](media/web-sites-rm-template-guidance/import-certificate.png)
+
+Şablonunuzda, sertifikanın adını sağlayın `keyVaultSecretName`.
+
+Örnek şablon için bkz: [Key Vault gizli dizilerinden bir Web uygulaması sertifikası dağıtın ve SSL bağlaması oluşturmak için kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bir şablon ile web uygulamaları dağıtma, Öğretici için bkz: [sağlamak ve mikro beklendiği azure'da dağıtmak](app-service-deploy-complex-application-predictably.md).
+* Bir şablon ile web uygulaması dağıtma ilişkin bir öğretici için bkz. [sağlayın ve tahmin edilebilir bir biçimde azure'da mikro hizmetlerin dağıtımı](app-service-deploy-complex-application-predictably.md).

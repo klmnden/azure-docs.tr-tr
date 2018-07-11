@@ -11,12 +11,12 @@ ms.workload: data-management
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: 5e6acf59410099ba36bfa6fa89a576d83b61cf00
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: ff36a67cd09dd1e5cb5635be17d1dd76fc824d1a
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341513"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917083"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure Uygulama Hizmeti ile ClearDB MySQL veritabanları hakkında SSS
 Bu SSS ClearDB MySQL veritabanları, Azure Web Apps için satın alma ve kullanma hakkında sık sorulan soruları yanıtlar.
@@ -44,7 +44,6 @@ Bu, kullanmakta olduğunuz abonelik türüne bağlıdır. Bazı yaygın olarak k
 * [Ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/): Microsoft Azure ile kullanmak üzere Hizmetleri ancak üçüncü taraf kaynakların satın alma izin vermeyen krediler içerir. Üçüncü taraf Hizmetlerinde veya kredi kartı kullanmanız gerekir, ücretli bir MySQL veritabanı satın almak için abonelik etkin. Web Apps için ücretsiz ClearDB MySQL veritabanı oluşturabilirsiniz.
 * [MSDN aboneliği](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ve **MSDN Geliştirme ve Test Kullandıkça Öde**: benzer şekilde, ücretsiz deneme, MSDN aboneliği Cleardb'den MySQL çözüm Ücretli satın almak için bir kredi kartı olmasını gerektirir.
 * [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): her üç ay için tüm Azure Marketi (üçüncü taraf) aldıklarını birleştirilmiş, ayrı bir fatura EA müşterileri EA'ya göre faturalandırılır. Marketi satın alma işlemleri için parasal taahhüdü dışında faturalandırılır. Şu anda Azure Store müşterileri tarafından Azerbaycan, Hırvatistan, Norveç ve Porto Riko kayıtlı değil, lütfen unutmayın. 
-* [DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99): Web Apps için yalnızca ücretsiz ClearDB veritabanları oluşturabilirsiniz. Ücretsiz ClearDB MySQL veritabanları oluşturabilirsiniz sayısına bir sınır yoktur. Bu hizmet, yalnızca deneme için tasarlandığı gibi ücretsiz veritabanlarından üretim web uygulamaları için kullanılamaz olduğunu unutmayın.
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Bir Web uygulaması + MySQL Azure Market'ten 3.50 neden ücretlendirildim?
 Varsayılan veritabanı $3.50 olan Titan seçenektir. Maliyet veritabanı oluşturma sırasında gösterme ve bir veritabanı için istediğinize yaramadı yanlışlıkla satın alabilirsiniz. Deneyimini iyileştirmek üzere bir yolunu bulmak çalışıyoruz ancak bu tarihe kadar tıklatmadan önce tüm, seçili fiyatlandırma katmanları için web uygulaması ve veritabanı denetlemelisiniz **Oluştur** ve kaynakların dağıtımı başlatılıyor.

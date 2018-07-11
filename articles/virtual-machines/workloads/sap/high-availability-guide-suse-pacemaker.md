@@ -1,6 +1,6 @@
 ---
-title: SUSE Linux Enterprise Server Azure üzerinde Pacemaker ayarlama | Microsoft Docs
-description: SUSE Linux Enterprise Server Azure üzerinde Pacemaker ayarlama
+title: SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama | Microsoft Docs
+description: SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
@@ -15,53 +15,55 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: ba44a8988c4af68abf4d155a2b9cb490b6122d39
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cac2f91a25907be824e3fd3517736d921c3fde64
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656423"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921510"
 ---
-# <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>SUSE Linux Enterprise Server Azure üzerinde Pacemaker ayarlama
+# <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama
 
 [planning-guide]:planning-guide.md
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
+[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#memory-preserving-maintenance
+[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#memory-preserving-maintenance
 
-Azure Pacemaker kümedeki ayarlamak için iki seçenek vardır. Azure API'leri aracılığıyla başarısız bir düğümü yeniden başlatmak mvc'deki bir yalıtma Aracısı ya da kullanabilir veya bir SBD cihazı kullanabilirsiniz.
+Azure'da Pacemaker kümeyi ayarlamak için iki seçenek vardır. Azure API'leri aracılığıyla başarısız bir düğümü yeniden başlatmak üstlenir bir sınır Aracısı ya da kullanabilir veya SBD cihaz kullanabilirsiniz.
 
-SBD aygıt bir ek sanal bir iSCSI hedef sunucusu gibi davranır ve SBD aygıt sağlayan machine gerektirir. Bu iSCSI hedef sunucusu ancak olabilir diğer Pacemaker kümeleriyle paylaşılan. SBD aygıt kullanmanın avantajı, daha hızlı yük devretme zaman ve SBD cihazlar şirket kullanıyorsanız pacemaker küme nasıl çalıştığını üzerinde herhangi bir değişiklik gerektirmez. SBD yalıtma iSCSI hedef sunucusu kullanılamaz durumda mekanizması eskrim yedek olarak Azure dilimi Aracısı'nı kullanmaya devam edebilirsiniz.
+Bir ek sanal SBD cihaz sağlar ve bir iSCSI hedef sunucusu olarak davranan makineyi SBD cihaz gerektirir. Bu iSCSI hedef sunucusu ancak olabilir diğer Pacemaker kümeleriyle paylaşılan. SBD cihaz kullanmanın avantajı, daha hızlı yük devretme zaman alan bir işlemdir ve SBD cihazlar şirket içinde kullanıyorsanız nasıl pacemaker küme çalıştırıyorsanız üzerinde herhangi bir değişiklik gerektirmez. SBD çitlemek iSCSI hedef sunucusu kullanılamıyor durumda mekanizması çitlemek yedek olarak Azure sınır Aracısı'nı kullanmaya devam edebilirsiniz.
 
-Bir ek sanal makine yatırım istemiyorsanız, Azure dilimi Aracısı'nı da kullanabilirsiniz. Dezavantajı, bir yük devretme kaynak durdurma başarısız veya küme düğümlerini hangi birbirine artık iletişim kuramıyor, 10-15 dakika arasında sürebilir ' dir.
+Bir ek sanal makine yatırımını yapmak istemiyorsanız, Azure sınır Aracısı'nı kullanabilirsiniz. Dezavantajı, bir yük devretme kaynak durdurma başarısız olursa veya küme düğümleri, birbirine artık iletişim kuramıyor 10-15 dakika arasında sürebilir ' dir.
 
-![Pacemaker üzerinde SLES genel bakış](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+![SLES genel SLES üzerinde pacemaker](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
-## <a name="sbd-fencing"></a>SBD yalıtma
+## <a name="sbd-fencing"></a>SBD çitlemek
 
-SBD aygıt yalıtma için kullanmak istiyorsanız, aşağıdaki adımları izleyin.
+SBD cihaz için sınır kullanmak istiyorsanız aşağıdaki adımları izleyin.
 
-### <a name="set-up-an-iscsi-target-server"></a>Bir iSCSI hedef sunucusu ayarlamanız
+### <a name="set-up-an-iscsi-target-server"></a>Bir iSCSI hedef sunucusu ayarlama
 
-Önce bir zaten yoksa bir iSCSI hedef sanal makine oluşturmanız gerekir. iSCSI hedef sunucularına ile birden çok Pacemaker küme paylaşılabilir.
+Henüz sahip değil, bir iSCSI hedef sanal makine oluşturmak önce gerekir. iSCSI hedef sunucularına ile birden çok Pacemaker küme paylaşılabilir.
 
-1. Yeni SLES 12 SP1 ya da daha yüksek sanal makineyi dağıtmak ve aracılığıyla makine ssh bağlanın. Makine büyük olması gerekmez. Bir sanal makine boyutu Standard_E2s_v3 veya Standard_D2s_v3 gibi yeterli olur.
+1. Yeni SLES 12 SP1 veya daha yüksek bir sanal makine dağıtın ve makinesine ssh bağlanın. Makine büyük olması gerekmez. Bir sanal makine boyutu Standard_E2s_v3 veya Standard_D2s_v3 gibi büyük/küçük harf yeterlidir.
 
-1. SLES güncelleştir
+1. Güncelleştirme SLES
 
    <pre><code>
    sudo zypper update
    </code></pre>
 
-1. Paketlerini kaldırın
+1. Paketleri kaldırın
 
-   Targetcli ve SLES 12 SP3 ile ilgili bilinen bir sorun önlemek için aşağıdaki paketleri kaldırın. Bulunamayan paketlerle ilgili hatalar yoksayabilirsiniz
+   Targetcli ve SLES 12 SP3 ile bilinen bir sorunu önlemek için aşağıdaki paketleri kaldırın. Nebyla nalezena paketlerle ilgili hataları yoksayabilirsiniz.
    
    <pre><code>
    sudo zypper remove lio-utils python-rtslib python-configshell targetcli
    </code></pre>
    
-1. İSCSI hedef paket yüklemek için
+1. İSCSI hedef paketlerini yükleyin
 
    <pre><code>
    sudo zypper install targetcli-fb dbus-1-python
@@ -74,11 +76,11 @@ SBD aygıt yalıtma için kullanmak istiyorsanız, aşağıdaki adımları izley
    sudo systemctl start targetcli
    </code></pre>
 
-### <a name="create-iscsi-device-on-iscsi-target-server"></a>İSCSI hedef sunucuda iSCSI cihaz oluşturma
+### <a name="create-iscsi-device-on-iscsi-target-server"></a>İSCSI hedef sunucuda iSCSI cihazı oluşturma
 
-Bu küme için kullanılabilir iSCSI hedef sanal makine için yeni bir veri diski ekleyin. Veri diski 1 GB kadar küçük olabilir ve bir Premium depolama hesabı veya yönetilen bir Premium Disk yararlanmasını yerleştirilmelidir [tek VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines).
+Bu küme için kullanılabilir iSCSI hedef sanal makine için yeni bir veri diski ekleyin. Veri diski 1 GB kadar küçük olabilir ve bir Premium depolama hesabı veya bir Premium yönetilen Disk yararlanmasını yerleştirilmelidir [tek bir sanal makine SLA'sı](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
-Aşağıdaki komutu çalıştırın **iSCSI hedef VM** yeni küme için bir iSCSI diski oluşturmak için. Aşağıdaki örnekte, **cl1** yeni küme tanımlamak için kullanılır ve **üretim cl1 0** ve **üretim cl1 1** konak küme düğümlerinin adları. Bunları, Küme düğümlerinizi ana bilgisayar adı ile değiştirin.
+Aşağıdaki komutu şurada çalıştırın **iSCSI hedef VM** yeni küme için bir iSCSI diski oluşturmak için. Aşağıdaki örnekte, **cl1** yeni kümeye tanımlamak için kullanılır ve **prod cl1 0** ve **prod cl1 1** küme düğümlerinin konak adları. Bunları, Küme düğümlerinizi konak adı ile değiştirin.
 
 <pre><code>
 # List all data disks with the following command
@@ -108,15 +110,15 @@ sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/acls/ create i
 sudo targetcli saveconfig
 </code></pre>
 
-### <a name="set-up-sbd-device"></a>SBD aygıtı kurma
+### <a name="set-up-sbd-device"></a>SBD cihazı ayarlama
 
-Son adımda kümeden oluşturulduğu iSCSI aygıtı bağlayın.
-Oluşturmak istediğiniz yeni küme düğümleri üzerinde aşağıdaki komutları çalıştırın.
-Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli **[1]** - 1 düğümü yalnızca uygulanabilir veya **[2]** - yalnızca düğüm 2 için geçerlidir.
+Son adımda kümeden oluşturulduğu iSCSI cihazı bağlayın.
+Oluşturmak istediğiniz yeni küme düğümlerinde aşağıdaki komutları çalıştırın.
+Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]** - düğüm 1 yalnızca uygulanabilir veya **[2]** - yalnızca düğüm 2 için geçerlidir.
 
-1. **[A]**  İSCSI aygıtlarını Bağlan
+1. **[A]**  İSCSI cihazları Bağlan
 
-   İlk olarak, iSCSI ve SBD hizmetleri etkinleştirin.
+   İlk olarak iSCSI ve SBD hizmetlerini etkinleştirin.
 
    <pre><code>
    sudo systemctl enable iscsid
@@ -124,25 +126,25 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    sudo systemctl enable sbd
    </code></pre>
 
-1. **[1]**  İlk düğümde Başlatıcı adını değiştirin
+1. **[1]**  İlk düğümü üzerinde Başlatıcı adını değiştirin
 
    <pre><code>
    sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   Dosya içeriği, iSCSI aygıtı iSCSI hedef sunucuda oluşturulurken kullanılan ACL'ler eşleşecek şekilde değiştirin
+   İSCSI hedef sunucuda iSCSI cihazı oluşturulurken kullanılan ACL'leri eşleştirilecek dosya içeriğini değiştirme
 
    <pre><code>   
    InitiatorName=<b>iqn.2006-04.prod-cl1-0.local:prod-cl1-0</b>
    </code></pre>
 
-1. **[2]**  İkinci düğüm üzerindeki Başlatıcı adını değiştirin
+1. **[2]**  İkinci düğümü Başlatıcı adını değiştirin
 
    <pre><code>
    sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   Dosya içeriği, iSCSI aygıtı iSCSI hedef sunucuda oluşturulurken kullanılan ACL'ler eşleşecek şekilde değiştirin
+   İSCSI hedef sunucuda iSCSI cihazı oluşturulurken kullanılan ACL'leri eşleştirilecek dosya içeriğini değiştirme
 
    <pre><code>
    InitiatorName=<b>iqn.2006-04.prod-cl1-1.local:prod-cl1-1</b>
@@ -150,14 +152,14 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
 
 1. **[A]**  İSCSI Hizmeti yeniden başlatın
 
-   Şimdi değişikliği uygulamak için iSCSI Hizmeti yeniden başlatın
+   Değişikliği uygulamak için iSCSI hizmetini şimdi yeniden Başlat
    
    <pre><code>
    sudo systemctl restart iscsid
    sudo systemctl restart iscsi
    </code></pre>
 
-   İSCSI aygıtları bağlayın. Aşağıdaki örnekte, 10.0.0.17 iSCSI hedef sunucusunun IP adresi ve 3260 varsayılan bağlantı noktasıdır. <b>iqn.2006 04.cl1.local:cl1</b> ilk komut çalıştırdığınızda listelenen hedef adı değil.
+   İSCSI cihazları bağlayın. Aşağıdaki örnekte, 10.0.0.17 iSCSI hedef sunucusunun IP adresi ve 3260'ın varsayılan bağlantı noktasıdır. <b>iqn.2006 04.cl1.local:cl1</b> ilk komutu çalıştırdığınızda listelenen hedef adı değil.
 
    <pre><code>
    sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.17:3260</b>
@@ -166,7 +168,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    sudo iscsiadm -m node -p <b>10.0.0.17:3260</b> --op=update --name=node.startup --value=automatic
    </code></pre>
 
-   İSCSI aygıtı kullanılabilir olduğundan emin olun ve cihaz adını (Aşağıdaki örnek/dev/sde) yapılan Not
+   İSCSI cihazı kullanılabilir olduğundan emin olun ve Not cihaz adı (Aşağıdaki örnek/dev/sde) bitti
 
    <pre><code>
    lsscsi
@@ -178,7 +180,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    # <b>[6:0:0:0]    disk    LIO-ORG  cl1              4.0   /dev/sde</b>
    </code></pre>
 
-   Şimdi, iSCSI aygıtın Kimliğini alır.
+   Şimdi, iSCSI cihaz Kimliğini alın.
 
    <pre><code>
    ls -l /dev/disk/by-id/scsi-* | grep <b>sde</b>
@@ -188,27 +190,27 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    # lrwxrwxrwx 1 root root  9 Feb  7 12:39 /dev/disk/by-id/scsi-SLIO-ORG_cl1_3fe4da37-1a5a-4bb6-9a41-9a4df57770e4 -> ../../sde
    </code></pre>
 
-   Üç aygıt kimlikleri Listele komutu. SCSI-3, bu yukarıdaki örnekte ile başlayan kimliği kullanılması önerilir
+   Üç cihaz kimlikleri Listele komutu. SCSI-3, bu Yukarıdaki örnekteki ile başlayan kimliği kullanılması önerilir
    
    **/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df**
 
 1. **[1]**  SBD cihaz oluşturma
 
-   İlk küme düğümünde yeni bir SBD cihaz oluşturmak için iSCSI aygıtın aygıt Kimliğini kullanın.
+   Cihazın kimliği iSCSI ilk küme düğümüne SBD yeni bir cihaz oluşturmak için kullanın.
 
    <pre><code>
    sudo sbd -d <b>/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df</b> -1 10 -4 20 create
    </code></pre>
 
-1. **[A]**  SBD config uyarlama
+1. **[A]**  SBD config uyum
 
-   SBD yapılandırma dosyasını açın
+   SBD yapılandırma dosyasını aç
 
    <pre><code>
    sudo vi /etc/sysconfig/sbd
    </code></pre>
 
-   SBD aygıt özelliğini değiştirin, pacemaker tümleştirmesini etkinleştirmek ve SBD başlangıç modunu değiştirmek.
+   SBD cihaz özelliğini değiştirin, pacemaker entegrasyon sağlayın ve SBD başlangıç modunu değiştirin.
 
    <pre><code>
    [...]
@@ -225,7 +227,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
 
-   Şimdi yük Modülü
+   Artık modülünü yükleme
 
    <pre><code>
    sudo modprobe -v softdog
@@ -233,15 +235,15 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
 
 ## <a name="cluster-installation"></a>Küme yükleme
 
-Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli **[1]** - 1 düğümü yalnızca uygulanabilir veya **[2]** - yalnızca düğüm 2 için geçerlidir.
+Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]** - düğüm 1 yalnızca uygulanabilir veya **[2]** - yalnızca düğüm 2 için geçerlidir.
 
-1. **[A]**  SLES güncelleştir
+1. **[A]**  Güncelleştirme SLES
 
    <pre><code>
    sudo zypper update
    </code></pre>
 
-1. **[1]**  Ssh erişimini etkinleştirme
+1. **[1]**  Ssh erişimi etkinleştir
 
    <pre><code>
    sudo ssh-keygen
@@ -254,7 +256,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    sudo cat /root/.ssh/id_rsa.pub
    </code></pre>
 
-2. **[2]**  Ssh erişimini etkinleştirme
+2. **[2]**  Ssh erişimi etkinleştir
 
    <pre><code>
    sudo ssh-keygen
@@ -270,29 +272,29 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    sudo cat /root/.ssh/id_rsa.pub
    </code></pre>
 
-1. **[1]**  Ssh erişimini etkinleştirme
+1. **[1]**  Ssh erişimi etkinleştir
 
    <pre><code>
    # insert the public key you copied in the last step into the authorized keys file on the first server
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]**  Yükleme HA uzantısı
+1. **[A]**  Dilimi yükleme aracıları
    
    <pre><code>
-   sudo zypper install sle-ha-release fence-agents
+   sudo zypper install fence-agents
    </code></pre>
 
 1. **[A]**  Kurulum ana bilgisayar adı çözümlemesi   
 
-   Bir DNS sunucusu kullanın veya tüm düğümlerde/etc/hosts değiştirin. Bu örnek/Etc/Hosts dosyasının nasıl kullanılacağını gösterir.
-   IP adresi ve aşağıdaki komutlarda ana bilgisayar adını değiştirin. / Etc/hosts kullanmanın faydası, kümenizi hataları tek bir noktadan çok olabilen DNS bağımsız olmasıdır.
+   Bir DNS sunucusu kullanabilir veya/etc/hosts tüm düğümlerde değiştirin. Bu örnek/Etc/Hosts dosyasının nasıl kullanılacağını gösterir.
+   IP adresi ve aşağıdaki komutlarda bulunan ana bilgisayar adını değiştirin. / Etc/hosts kullanmanın avantajı, kümenizi tek hata noktası çok olabilecek DNS bağımsız olmasıdır.
 
    <pre><code>
    sudo vi /etc/hosts
    </code></pre>
    
-   / Etc/hosts aşağıdaki satırları ekleyin. Ortamınıza uyum sağlaması için ana bilgisayar adı ve IP adresini değiştirme   
+   / Etc/hosts aşağıdaki satırları ekleyin. IP adresi ve ana bilgisayar adını, ortamınızla eşleşecek şekilde değiştirin.   
    
    <pre><code>
    # IP address of the first cluster node
@@ -301,7 +303,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    <b>10.0.0.7 prod-cl1-1</b>
    </code></pre>
 
-1. **[1]**  Küme yükleyin
+1. **[1]**  Küme yükleme
    
    <pre><code>
    sudo ha-cluster-init
@@ -313,7 +315,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    # Do you wish to configure an administration IP? [y/N] -> N
    </code></pre>
 
-1. **[2]**  Küme düğümüne Ekle
+1. **[2]**  Küme düğümü Ekle
    
    <pre><code> 
    sudo ha-cluster-join
@@ -323,23 +325,23 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    # /root/.ssh/id_rsa already exists - overwrite? [y/N] N
    </code></pre>
 
-1. **[A]**  Hacluster parola aynı parolayı Değiştir
+1. **[A]**  Aynı parolayı hacluster parolasını değiştirme
 
    <pre><code> 
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]**  Diğer aktarım kullanın ve listesi eklemek için corosync yapılandırın. Aksi takdirde, küme çalışmaz.
+1. **[A]**  Corosync diğer aktarım kullanın ve bir düğüm listesine eklemek için yapılandırın. Aksi takdirde, küme çalışmaz.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Değerler yok ya da farklı değilse aşağıdaki kalın içeriği dosyaya ekleyin.
+   Değerler var. ya da farklı değilse kalın aşağıdaki içeriği dosyaya ekleyin. Bakımı koruma bellek izin vermek için 30000 belirteç değiştirdiğinizden emin olun. Bkz: [Linux'a yönelik bu makaleyi] [ virtual-machines-linux-maintenance] veya [Windows] [ virtual-machines-windows-maintenance] daha fazla ayrıntı için.
    
    <pre><code> 
    [...]
-     <b>token:          5000
+     <b>token:          30000
      token_retransmits_before_loss_const: 10
      join:           60
      consensus:      6000
@@ -386,25 +388,25 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
 
 ## <a name="create-stonith-device"></a>STONITH cihaz oluşturma
 
-STONITH aygıt bir hizmet sorumlusu Microsoft Azure karşı yetkilendirmek için kullanır. Bir hizmet sorumlusu oluşturmak için aşağıdaki adımları izleyin.
+STONITH cihaz, Microsoft Azure karşı korunmasına yetki vermek için bir hizmet sorumlusu kullanır. Bir hizmet sorumlusu oluşturmak için aşağıdaki adımları izleyin.
 
 1. Şuraya gidin: <https://portal.azure.com>
 1. Azure Active Directory dikey penceresini açın  
-   Özellikleri'ne gidin ve dizin kimliği yazma Bu **kimliği Kiracı**.
-1. Uygulama kayıtlar'ı tıklatın
+   Özellikler bölümüne gidin ve dizin kimliği yazma Bu **Kiracı kimliği**.
+1. Uygulama kayıtları tıklayın
 1. Ekle'ye tıklayın.
-1. Bir ad girin, uygulama türü "Web uygulaması/API" seçin, bir oturum açma URL'sini girin (örneğin http://localhost) Oluştur'u tıklatın
+1. Bir ad girin, "Web uygulaması/API'si" uygulama türünü seçin, bir oturum açma URL'sini girin (örneğin http://localhost) ve Oluştur'a tıklayın
 1. Oturum açma URL'si kullanılmaz ve geçerli bir URL olabilir
-1. Yeni uygulama seçin ve anahtarları Ayarlar sekmesini
-1. Yeni bir anahtar için bir açıklama girin, "Her zaman geçerli olsun" seçin ve Kaydet
+1. Yeni uygulamayı seçin ve ayarları sekmesini anahtarları
+1. Yeni bir anahtar için bir açıklama girin, "Her zaman geçerli olsun"'i seçin ve Kaydet'e tıklayın
 1. Değeri yazın. Olarak kullanılan **parola** için hizmet sorumlusu
-1. Uygulama Kimliği yazma Kullanıcı adı olarak kullanılır (**oturum açma kimliği** aşağıdaki adımlarda), hizmet sorumlusu
+1. Uygulama Kimliği yazma Kullanıcı adı olarak kullanılır (**oturum açma kimliği** sonraki adımlarda), hizmet sorumlusu
 
-### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Dilimi aracı için özel bir rol oluşturun
+### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Sınır aracısı için özel bir rol oluşturun
 
-Hizmet sorumlusu Azure kaynaklarınızı varsayılan olarak erişim izni yok. Başlatmak ve durdurmak için hizmet asıl izinleri vermeniz gerekir (serbest bırakma) kümenin tüm sanal makineler. Özel rol zaten oluşturmadıysanız kullanarak oluşturabilirsiniz [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell#create-a-custom-role) veya [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli#create-a-custom-role)
+Hizmet sorumlusu kullanarak Azure kaynaklarınızı varsayılan olarak erişim izni yok. Başlatmak ve durdurmak için hizmet sorumlusu izinleri vermeniz gerekir (serbest bırakın) kümenin tüm sanal makineler. Özel rol zaten oluşturmadıysanız, bunu kullanarak oluşturabilirsiniz [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell#create-a-custom-role) veya [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli#create-a-custom-role)
 
-Aşağıdaki içerik giriş dosyası için kullanın. İhtiyacınız olan içeriği, aboneliklere uyum, c276fc76-9cd4-44c9-99a7-4fd71546436e ve e91d47c4-76f3-4271-a796-21b4ecfe3624 aboneliğinizi kimlikleri ile değiştirin. Yalnızca bir aboneliğiniz varsa, ikinci giriş içinde AssignableScopes kaldırın.
+Giriş dosyası için aşağıdaki içeriği kullanın. İhtiyacınız olan içeriği için aboneliklerinizi uyum, c276fc76-9cd4-44c9-99a7-4fd71546436e ve e91d47c4-76f3-4271-a796-21b4ecfe3624 aboneliğinizin kimliği ile değiştirin. İkinci girdi, yalnızca bir aboneliğiniz varsa, ın AssignableScopes içinde kaldırın.
 
 ```json
 {
@@ -426,24 +428,24 @@ Aşağıdaki içerik giriş dosyası için kullanın. İhtiyacınız olan içeri
 }
 ```
 
-### <a name="1-assign-the-custom-role-to-the-service-principal"></a>**[1]**  Hizmet sorumlusu özel rol atama
+### <a name="1-assign-the-custom-role-to-the-service-principal"></a>**[1]**  Hizmet sorumlusuna özel rolü atama
 
-"Linux dilimi aracı son bölüm için hizmet sorumlusu oluşturulan rol" özel rol atayın. Sahip rolü artık kullanmayın!
+Özel rol "Linux sınır aracısı hizmet sorumlusuna son bölümde oluşturduğunuz rolü" atayın. Sahip rolü artık kullanmayın!
 
 1. Şuraya gidin: https://portal.azure.com
 1. Tüm kaynaklar dikey penceresini açın
 1. İlk küme düğümüne sanal makinesini seçin
-1. Erişim denetimi (IAM) tıklatın
+1. Erişim denetimi (IAM)'ye tıklayın.
 1. Ekle'ye tıklayın.
-1. "Linux dilimi Aracısı rol" rolü seçin
+1. "Linux sınır Aracısı rolü" rolü seçin
 1. Yukarıda oluşturduğunuz uygulamanın adını girin
-1. Tamam'ı tıklatın
+1. Tamam'a tıklayın
 
 İkinci küme düğümü için yukarıdaki adımları yineleyin.
 
-### <a name="1-create-the-stonith-devices"></a>**[1]**  STONITH aygıtları oluşturun
+### <a name="1-create-the-stonith-devices"></a>**[1]**  STONITH cihazları oluşturun
 
-Sanal makineler için izinleri düzenlenebilir sonra kümede STONITH cihazları yapılandırabilirsiniz.
+Sanal makineler için izinleri düzenleme sonra kümedeki STONITH cihazları yapılandırabilirsiniz.
 
 <pre><code>
 # replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
@@ -454,16 +456,16 @@ sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
 
 </code></pre>
 
-### <a name="1-create-fence-topology-for-sbd-fencing"></a>**[1]**  SBD yalıtma dilimi topolojisi oluştur
+### <a name="1-create-fence-topology-for-sbd-fencing"></a>**[1]**  SBD sınır için sınır topolojisi oluşturma
 
-Bir SBD aygıtı kullanmak istiyorsanız, iSCSI hedef sunucusu kullanılamaz durumda yedek olarak Azure dilimi Aracısı'nı kullanma hala öneririz.
+Bir SBD cihazı kullanmak istiyorsanız, iSCSI hedef sunucusu kullanılabilir değilse, bir Azure sınır Aracısı bir yedek olarak kullanarak yine de öneririz.
 
 <pre><code>
 sudo crm configure fencing_topology \
   stonith-sbd rsc_st_azure
 
 </code></pre>
-### **[1] ** STONITH aygıt kullanımını etkinleştirme
+### **[1] ** STONITH cihaz kullanımını etkinleştir
 
 <pre><code>
 sudo crm configure property stonith-enabled=true 
@@ -471,7 +473,7 @@ sudo crm configure property stonith-enabled=true
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure sanal makineleri planlama ve uygulama SAP için][planning-guide]
+* [Azure sanal makineleri planlama ve uygulama için SAP][planning-guide]
 * [SAP için Azure sanal makineler dağıtımı][deployment-guide]
-* [SAP için Azure sanal makineleri DBMS dağıtımı][dbms-guide]
-* Yüksek kullanılabilirlik ve Azure vm'lerinde SAP HANA olağanüstü durum kurtarma planı oluşturmak öğrenmek için bkz: [SAP HANA, yüksek kullanılabilirlik Azure Virtual Machines'de (VM'ler)][sap-hana-ha]
+* [SAP için Azure sanal makineleri DBMS dağıtım][dbms-guide]
+* Yüksek kullanılabilirlik ve Azure Vm'leri üzerinde SAP hana olağanüstü durum kurtarma planı oluşturma hakkında bilgi almak için bkz: [SAP HANA, yüksek kullanılabilirlik Azure Virtual Machines'de (VM'ler)][sap-hana-ha]

@@ -1,65 +1,65 @@
 ---
-title: Azure Site Recovery - Kurulum ve test Azure PowerShell kullanarak Azure sanal makineleri için olağanüstü durum kurtarma | Microsoft Docs
-description: Azure PowerShell kullanarak Azure Site Recovery ile Azure sanal makineleri için olağanüstü durum kurtarma ayarlanacağını öğrenin.
+title: Azure Site Recovery - Kurulum ve test edin, Azure PowerShell kullanarak Azure sanal makineler için olağanüstü durum kurtarma | Microsoft Docs
+description: Azure sanal makineleri için Azure PowerShell kullanarak Azure Site Recovery ile olağanüstü durum kurtarma ayarlamayı öğrenin.
 services: site-recovery
 author: bsiva
 manager: abhemraj
 editor: raynew
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: 3fa9ee27a1b9717d8011b7b46a1116f1f1ac1df5
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 62dd02d53c14635a386a8c6fa3fbfbd6f91a88f7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716338"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921095"
 ---
-# <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Olağanüstü durum kurtarma için Azure PowerShell kullanarak Azure sanal makineleri ayarlama
+# <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell kullanarak Azure sanal makineler için olağanüstü durum kurtarmayı ayarlama
 
-Bu makalede, Kurulum ve test etme gördüğünüz Azure PowerShell kullanarak Azure sanal makineleri için olağanüstü durum kurtarma. 
+Kurulum ve test etmek nasıl gördüğünüz bu makalede, Azure PowerShell kullanarak Azure sanal makineler için olağanüstü durum kurtarma. 
 
 Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > - Kurtarma Hizmetleri kasası oluşturun.
-> - Kasa bağlamı için PowerShell oturumu ayarlayın.
-> - Azure sanal makineleri çoğaltma işlemi başlatma kasasının hazırlayın.
-> - Ağ eşleşmelerini oluşturun.
+> - PowerShell oturumunun kasa bağlamını ayarlayın.
+> - Azure sanal makineleri çoğaltmaya başlamak için kasa hazırlayın.
+> - Ağ eşlemeleri oluşturun.
 > - Sanal makineleri çoğaltmak için depolama hesapları oluşturun.
-> - Azure sanal makineleri kurtarma bölge olağanüstü durum kurtarma için çoğaltılır.
-> - Yük devretme testi gerçekleştirmek, doğrulama ve temizleme yük devretme sınaması.
-> - Yük devretme kurtarma bölge.
+> - Olağanüstü durum kurtarma için bir kurtarma bölgesinde Azure sanal makinelerini çoğaltma.
+> - Yük devretme testi gerçekleştirmek, doğrulama ve yük devretme testini Temizle.
+> - Kurtarma bölgeye yük devretme.
 
 > [!NOTE]
-> Portalı aracılığıyla kullanılabilen tüm senaryosu özellikleri Azure PowerShell aracılığıyla bulunabilir. Şu anda Azure PowerShell aracılığıyla desteklenmeyen senaryo özelliklerden bazıları şunlardır:
+> Portal aracılığıyla sunulan tüm senaryo özellikleri, Azure PowerShell aracılığıyla kullanıma sunulabilir. Azure PowerShell aracılığıyla şu anda desteklenmeyen senaryo özelliklerden bazıları şunlardır:
 > - Yönetilen diskler kullanan Azure sanal makinelerini çoğaltma olanağı.
-> - Bir sanal makinenin tüm diskleri sanal makinenin her disk açıkça belirtmek zorunda kalmadan çoğaltılacak belirtme olanağı.  
+> - Sanal makinedeki tüm diskler her disk sanal makinenin açıkça belirtmek zorunda kalmadan çoğaltılacak belirtme olanağı.  
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce:
 - [Senaryo mimarisini ve bileşenlerini ](azure-to-azure-architecture.md) anladığınızdan emin olun.
 - Tüm bileşenler için [destek gereksinimlerini](azure-to-azure-support-matrix.md) gözden geçirin.
-- Sürüm 5.7.0 veya AzureRm PowerShell modülünün daha büyük. Yüklemek veya Azure PowerShell yükseltmek gerekiyorsa, bu izleyin [Azure PowerShell'i yükleme ve yapılandırma için kılavuz](/powershell/azureps-cmdlets-docs).
+- Sürüm 5.7.0 veya AzureRm PowerShell modülünün daha büyük. Yüklemek veya Azure PowerShell yükseltmek gerekirse bu izleyin [Azure PowerShell'i yükleme ve yapılandırma için kılavuz](/powershell/azureps-cmdlets-docs).
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Microsoft Azure aboneliğiniz için oturum açın
 
-Connect-AzureRmAccount cmdlet'i kullanılarak Azure aboneliğinizde oturum açın
+Connect-AzureRmAccount cmdlet'i kullanarak Azure aboneliğinizde oturum açın
 
 ```azurepowershell
 Connect-AzureRmAccount
 ```
-Azure aboneliğinizi seçin. Erişim için sahip olduğunuz Azure abonelikleri listesini almak için Get-AzureRmSubscription cmdlet'ini kullanın. Select-AzureRmSubscription cmdlet'ini kullanarak ile çalışmak için Azure aboneliğini seçin.
+Azure aboneliğinizi seçin. Get-AzureRmSubscription cmdlet'ine erişmek için sahip olduğunuz Azure Aboneliklerin listesini kullanın. Select-AzureRmSubscription cmdlet'ini kullanarak çalışmaya Azure aboneliğini seçin.
 
 ```azurepowershell
 Select-AzureRmSubscription -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-## <a name="get-details-of-the-virtual-machines-to-be-replicated"></a>Çoğaltılacak sanal makineleri ayrıntılarını alma
+## <a name="get-details-of-the-virtual-machines-to-be-replicated"></a>Çoğaltılacak sanal makinelerin ayrıntılarını Al
 
-Bu makalede bir örnekte, Doğu ABD bölgesindeki bir sanal makine çoğaltılan ve olması Batı ABD 2 bölgede kurtarıldı. Çoğaltılmasını sanal makine bir tek veri diski ve işletim sistemi diski ile bir sanal makinedir. AzureDemoVM örnekte kullanılan sanal makinenin adıdır.
+Bu makaledeki örnekte, bir sanal makine Doğu ABD bölgesinde çoğaltılır ve Batı ABD 2 bölgesinde kurtarıldı. Çoğaltılan sanal makineyi, bir işletim sistemi diski ve bir tek veri diskine sahip bir sanal makinesidir. Örnekte kullanılan sanal makine AzureDemoVM adıdır.
 
 ```azurepowershell
 # Get details of the virtual machine
@@ -84,7 +84,7 @@ ProvisioningState  : Succeeded
 StorageProfile     : {ImageReference, OsDisk, DataDisks}
 ```
 
-Disk, sanal makine diskleri için ayrıntıları. Disk ayrıntıları, daha sonra sanal makine için çoğaltma başlatırken kullanılır.
+Sanal makine diskleri için disk ayrıntıları alın. Disk ayrıntıları daha sonra sanal makine için çoğaltmayı başlatırken kullanılacak.
 
 ```azurepowershell
 $OSDiskVhdURI = $VM.StorageProfile.OsDisk.Vhd
@@ -96,11 +96,11 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 Kurtarma Hizmetleri kasası oluşturmak bir kaynak grubu oluşturun. 
 
 > [!IMPORTANT]
-> * Kurtarma Hizmetleri kasası ve korunan, sanal makineleri farklı Azure konumlarda olması gerekir.
-> * Kaynak grubu, Kurtarma Hizmetleri kasası ve korunan, sanal makineleri farklı Azure konumlarda olması gerekir.
-> * Kurtarma Hizmetleri kasası ve ait olduğu, kaynak grubu aynı Azure konumuna olabilir.
+> * Kurtarma Hizmetleri kasası ve korunmakta olan sanal makineleri farklı Azure konumlarında olması gerekir.
+> * Kurtarma Hizmetleri kasası korunmakta olan sanal makineler ve kaynak grubu, farklı Azure konumlarında olmalıdır.
+> * Kurtarma Hizmetleri kasası ve ait olduğu, kaynak grubu, aynı Azure konumda olabilir.
  
-Bu makalede örnekte korunan sanal makine Doğu ABD bölgesinde ' dir. Olağanüstü durum kurtarma için seçilen kurtarma bölge Batı ABD 2 bölgedir. Kurtarma Hizmetleri kasası, kasasının kaynak grubu hem de (Batı ABD 2) kurtarma bölgede olması
+Bu makaledeki örnekte Doğu ABD bölgesinde korunan sanal makine var. Olağanüstü durum kurtarma için seçilen kurtarma Batı ABD 2 bölgesinde bölgedir. Kurtarma Hizmetleri kasası ve kasa kaynak grubu (Batı ABD 2) kurtarma bölgede hem de olması
 
 ```azurepowershell
 #Create a resource group for the recovery services vault in the recovery Azure region
@@ -114,7 +114,7 @@ Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg
 ```
    
-Bir kurtarma Hizmetleri kasası oluşturun. A2aDemoRecoveryVault adlı bir kurtarma Hizmetleri kasası aşağıdaki örnekte Batı ABD 2 bölgede oluşturulur.
+Bir kurtarma Hizmetleri kasası oluşturun. A2aDemoRecoveryVault adlı kurtarma Hizmetleri kasası aşağıdaki örnekte Batı ABD 2 bölgesinde oluşturulur.
 
 ```azurepowershell
 #Create a new Recovery services vault in the recovery region
@@ -134,11 +134,11 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ## <a name="set-the-vault-context"></a>Kasa bağlamını ayarlayın
 
 > [!TIP]
-> Azure Site Recovery PowerShell Modülü (AzureRm.RecoveryServices.SiteRecovery Modülü) çoğu cmdlet'leri için kullanımı kolay diğer adları ile birlikte gelir. Modüldeki cmdlet'ler biçiminde  *\<işlemi >-**AzureRmRecoveryServicesAsr**\<nesnesi >* ve biçiminde eşdeğer diğer adlar  *\<İşlemi >-**ASR**\<nesnesi >*. Bu makalede, Okuma Kolaylığı için cmdlet diğer adlar kullanılmaktadır.
+> Azure Site Recovery PowerShell Modülü (AzureRm.RecoveryServices.SiteRecovery Modülü), çoğu cmdlet için kullanımı kolay diğer adları ile birlikte gelir. Modüldeki cmdlet'ler biçiminde  *\<işlemi >-**AzureRmRecoveryServicesAsr**\<Nesne >* ve biçiminde eşdeğer diğer adlar  *\<İşlemi >-**ASR**\<Nesne >*. Bu makalede, kolay okunması için cmdlet diğer adları kullanır.
 
-Kasa içeriği kullanmak için PowerShell oturumunda ayarlayın. Bunu yapmak için kasa ayarları dosyasına indirin ve kasa bağlam ayarlamak için PowerShell oturumunda indirilen dosya alma. 
+PowerShell oturumunda kullanmak için kasa bağlamını ayarlayın. Bunu yapmak için kasa ayarları dosyasına indirin ve kasa bağlamını ayarlamak için PowerShell oturumunda indirilen dosyayı içeri aktarın. 
 
-Bir kez ayarlandıktan sonra sonraki Azure Site kurtarma işlemleri PowerShell oturumunda seçilen kasa bağlamında gerçekleştirilir. 
+Bir kez ayarlandıktan sonra sonraki Azure Site Recovery işlemlerini bir PowerShell oturumunda seçili kasa bağlamında gerçekleştirilir. 
 
  ```azurepowershell
 #Download the vault settings file for the vault.
@@ -158,14 +158,14 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 #Delete the downloaded vault settings file
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
-## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>Azure sanal makineleri çoğaltma işlemi başlatma kasasının hazırlama
+## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>Azure sanal makineleri çoğaltmaya başlamak için kasa hazırlama
 
-####<a name="1-create-a-site-recovery-fabric-object-to-represent-the-primarysource-region"></a>1. Primary(source) bölge temsil etmek için bir Site Recovery doku nesnesi oluşturun
+####<a name="1-create-a-site-recovery-fabric-object-to-represent-the-primarysource-region"></a>1. Primary(source) bölgeyi temsil eden bir Site Recovery doku nesnesi oluşturun
 
-Kasa doku nesnesinde bir Azure bölgesi temsil eder. Birincil doku nesnesidir kasaya korunan sanal makineleri ait Azure bölgesini temsil etmek üzere oluşturulan doku nesnesi. Bu makalede örnekte korunan sanal makine Doğu ABD bölgesinde ' dir.
+Kasadaki doku nesnesi, bir Azure bölgesi temsil eder. Birincil fabric nesnesidir kasaya korunan sanal makinelerle ait Azure bölgesini temsil etmesi için oluşturduğunuz doku nesnesi. Bu makaledeki örnekte Doğu ABD bölgesinde korunan sanal makine var.
 
 > [!NOTE]
-> Azure Site Recovery işlemlerini zaman uyumsuz olarak çalıştırılır. Bir işlem başlattığınızda, bir Azure Site Recovery iş gönderildiğinde ve izleme nesnesi bir işi döndürülür. İzleme nesnesi işi (Get-ASRJob) iş için en son durumunu almak için ve işlemin durumunu izlemek için kullanın.
+> Azure Site Recovery işlemlerini zaman uyumsuz olarak yürütülür. Bir işlem başlattığınızda, Azure Site Recovery iş gönderilir ve nesne izleme iş döndürülür. Nesne izleme iş (Get-ASRJob) iş için en son durumu almak ve işlemin durumunu izlemek için kullanın.
 
 ```azurepowershell
 #Create Primary ASR fabric
@@ -183,11 +183,11 @@ Write-Output $TempASRJob.State
 
 $PrimaryFabric = Get-AsrFabric -Name "A2Ademo-EastUS"
 ```
-Aynı kasaya birçok Azure bölgesinde sanal makinelerden korumalı varsa, her kaynağı Azure bölgesi için bir doku nesnesi oluşturun.
+Aynı kasaya birden fazla Azure bölgesini sanal makineleri korumalı bir doku nesnesi için her kaynak Azure bölgesini oluşturun.
 
-####<a name="2-create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>2. Kurtarma bölgeyi temsil etmek için bir Site Recovery doku nesnesi oluşturun
+####<a name="2-create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>2. Kurtarma bölgesi temsil etmek için bir Site Recovery doku nesnesi oluşturun
 
-Kurtarma doku nesne kurtarma Azure konumu temsil eder. Sanal makineler için çoğaltılır ve kurtarma fabric tarafından temsil edilen kurtarma bölge kurtarılmadan (bir yük devretme durumunda). Bu örnekte kullanılan Azure bölgesi kurtarma Batı ABD 2 ' dir.
+Kurtarma doku nesnesi, Azure konum kurtarma temsil eder. Sanal makineler için çoğaltılır ve için kurtarma fabric tarafından temsil edilen kurtarma bölgesi (yük devretme durumunda) kurtarıldı. Bu örnekte kullanılan bir Azure bölgesine kurtarma Batı ABD 2 ' dir.
 
 ```azurepowershell
 #Create Recovery ASR fabric
@@ -206,9 +206,9 @@ $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-WestUS"
 
 ```
 
-####<a name="3-create-a-site-recovery-protection-container-in-the-primary-fabric"></a>3. Birincil yapıda Site Recovery koruma kapsayıcısı oluşturma
+####<a name="3-create-a-site-recovery-protection-container-in-the-primary-fabric"></a>3. Birincil dokusunda bir Site Recovery koruma kapsayıcısı oluşturma
 
-Koruma kapsayıcısı bir yapı içinde çoğaltılmış öğeleri gruplandırmak için kullanılan bir kapsayıcıdır.
+Koruma kapsayıcısı, çoğaltılan öğeler bir yapı içinde gruplamak için kullanılan bir kapsayıcıdır.
 
 ```azurepowershell
 #Create a Protection container in the primary Azure region (within the Primary fabric)
@@ -224,7 +224,7 @@ Write-Output $TempASRJob.State
 
 $PrimaryProtContainer = Get-ASRProtectionContainer -Fabric $PrimaryFabric -Name "A2AEastUSProtectionContainer"
 ```
-####<a name="4-create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>4. Kurtarma yapıda Site Recovery koruma kapsayıcısı oluşturma
+####<a name="4-create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>4. Kurtarma dokusunda bir Site Recovery koruma kapsayıcısı oluşturma
 
 ```azurepowershell
 #Create a Protection container in the recovery Azure region (within the Recovery fabric)
@@ -260,9 +260,9 @@ Write-Output $TempASRJob.State
 
 $ReplicationPolicy = Get-ASRPolicy -Name "A2APolicy"
 ```
-####<a name="6-create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>6. Birincil ve kurtarma koruma kapsayıcısında koruma kapsayıcısı eşlemesini oluşturma
+####<a name="6-create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>6. Bir koruma kapsayıcısı eşlemesine arasındaki birincil ve kurtarma koruma kapsayıcısı oluşturma
 
-Koruma kapsayıcısı eşlemesini birincil koruma kapsayıcısı'Kurtarma koruma kapsayıcısı ve bir çoğaltma ilkesi ile eşler. Koruma kapsayıcısı çifti arasında sanal makineleri çoğaltmak için kullanacağınız her bir çoğaltma ilkesi için bir eşleme oluşturun.
+Bir koruma kapsayıcısı eşlemesine kurtarma koruma kapsayıcısı ve bir çoğaltma ilkesi ile birincil koruma kapsayıcısı eşlemeleri. Koruma kapsayıcısı çifti arasında sanal makineleri çoğaltmak için kullanacağınız her bir çoğaltma ilkesi için bir eşleme oluşturun.
 
 ```azurepowershell
 #Create Protection container mapping between the Primary and Recovery Protection Containers with the Replication policy
@@ -282,7 +282,7 @@ $EusToWusPCMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $Pri
 
 ####<a name="7-create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>7. Koruma kapsayıcısı eşlemesini yeniden çalışma (yük devretme sonrasında çoğaltmayı tersine çevirme) için oluşturma
 
-Sanal makine üzerinde geri özgün bir Azure bölgesine, yeniden çalışma başarısız getirmek hazır olduğunuzda, bir yük devretme sonrasında. Yeniden çalışma, başarısız için başarısız çoğaltılan sanal makine üzerinde ters olan özgün bölge bölgesine üzerinden. Çoğaltmayı tersine çevirme için özgün bölgesi ve kurtarma bölgesi rollerini geçin. Özgün bölge şimdi yeni kurtarma bölgesi olur ve özgün kurtarma bölge şimdi neydi birincil bölge olur. Çoğaltmayı tersine çevirme için koruma kapsayıcısı eşlemesini özgün ve kurtarma bölgeler anahtarlı rollerini temsil eder.
+Bir sanal makineyi geri özgün Azure bölgesindeki için yeniden çalışma başarısız duruma getirmeye hazır olduğunda yük devretme sonrasında. Yeniden çalışma, başarısız başarısız olarak çoğaltılmış sanal makine üzerinde ters olan özgün bölgeye bölge üzerinden. Çoğaltmayı tersine çevirme için özgün bölgesi ve kurtarma bölgesi rollerini geçin. Özgün bölge, yeni kurtarma bölgesi artık hale gelir ve ilk kurtarma bölgesi artık neydi birincil bölgeye olur. Çoğaltmayı tersine çevirme için koruma kapsayıcısı eşlemesini özgün ve kurtarma bölgelerin anahtarlı rolleri temsil eder.
 
 ```azurepowershell
 #Create Protection container mapping (for failback) between the Recovery and Primary Protection Containers with the Replication policy 
@@ -298,16 +298,16 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
 Write-Output $TempASRJob.State
 ```
 
-## <a name="create-cache-storage-accounts-and-target-storage-accounts"></a>Önbellek depolama hesapları ve hedef depolama hesapları oluşturma
+## <a name="create-cache-storage-accounts-and-target-storage-accounts"></a>Önbellek depolama hesapları ve hedef depolama hesabı oluşturma
 
-Önbellek depolama hesabı aynı Azure bölgesinde çoğaltılmasını sanal makine olarak bir standart depolama hesabıdır. Önbellek depolama hesabı değişiklikleri kurtarma Azure bölgesi taşımadan önce çoğaltma değişikliklerini geçici olarak tutmak için kullanılır. (Ancak gerekli değildir) seçebileceğiniz bir sanal makinenin farklı diskler için farklı önbellek depolama hesaplarını belirtin.
+Bir önbellek depolama hesabına çoğaltılan sanal makine ile aynı Azure bölgesindeki bir standart depolama hesabıdır. Önbellek depolama hesabı, değişiklikleri Azure bölgesine kurtarma taşınır önce çoğaltma değişiklikleri geçici olarak tutmak için kullanılır. (Ancak gerek kalmayacak şekilde) seçebileceğiniz bir sanal makinenin farklı diskler için farklı bir önbellek depolama hesapları belirtin.
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
 $EastUSCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-Yönetilen diskleri kullanmayan sanal makineler için hedef depolama hesabı diskleri sanal makinenin çoğaltılan sanal kurtarma bölgede depolama hesapları ' dir. Hedef depolama hesabı, bir standart depolama hesabı ya da premium depolama hesabı olabilir. (G/ç yazma oranı) veri değişikliği hızını diskler ve depolama türü için Azure Site Recovery desteklenen karmaşası sınırları için temel gerekli depolama hesabı türünü seçin.
+Yönetilen disk kullanmayan sanal makineleri için hedef depolama hesabı için sanal makinenin diskleri çoğaltılır kurtarma bölgesinde bir depolama hesabı ' dir. Hedef depolama hesabı, standart depolama hesabı veya bir premium depolama hesabı olabilir. Depolama hesabı gereklidir (GÇ Yazma oranı) veri değişim hızı için diskler ve depolama türü için Azure Site Recovery tarafından desteklenen değişim sınırları temel türü seçin.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account
@@ -317,9 +317,9 @@ $WestUSTargetStorageAccount = New-AzureRmStorageAccount -Name "a2atargetstorage"
 
 ## <a name="create-network-mappings"></a>Ağ eşlemeleri oluşturma
 
-Ağ eşlemesi birincil bölge sanal ağlarda sanal ağlara kurtarma bölgede eşler. Ağ eşlemesini Azure sanal ağı yük devretme için birincil sanal ağ içindeki bir sanal makineye gereken kurtarma bölgede belirtir. Bir Azure sanal ağı yalnızca tek bir Azure sanal ağa bir kurtarma bölgede eşlenebilir.
+Ağ eşlemesi, Kurtarma bölgesindeki sanal ağlar için birincil bölgedeki sanal ağlar eşler. Ağ eşlemesi, birincil sanal ağdaki bir sanal makine yük devretme için gereken kurtarma bölgesinde Azure sanal ağı belirtir. Bir Azure sanal ağı, yalnızca tek bir Azure sanal ağına kurtarma bölgesindeki eşlenebilir.
 
-- Yük devretme için kurtarma bölgede bir Azure sanal ağ oluşturma
+- Yük devretme için kurtarma bölgede bir Azure sanal ağı oluşturun
 
    ```azurepowershell
     #Create a Recovery Network in the recovery region
@@ -381,9 +381,9 @@ Ağ eşlemesi birincil bölge sanal ağlarda sanal ağlara kurtarma bölgede eş
     Write-Output $TempASRJob.State
     ```
 
-## <a name="replicate-azure-virtual-machine"></a>Azure sanal makinesi çoğaltma
+## <a name="replicate-azure-virtual-machine"></a>Azure sanal makine çoğaltma
 
-Azure sanal makinesine çoğaltılır.
+Azure sanal makineyi çoğaltın.
 
 ```azurepowershell
 #Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
@@ -417,11 +417,11 @@ Write-Output $TempASRJob.State
 
 Başlangıç çoğaltma işlemi başarılı olduktan sonra sanal makine verilerini kurtarma bölgeye çoğaltılır. 
 
-Başlangıçta çoğaltılan diskleri sanal makinenin kurtarma bölgede bir kopyasını dengeli dağıtarak çoğaltma işlemini başlatır. Bu aşama, ilk çoğaltma aşaması olarak adlandırılır. 
+Başlangıçta bir kurtarma bölgesindeki sanal makinenin çoğaltılan diskleri kopyasını dengeli dağıtım çoğaltma işlemi başlatır. Bu aşama, ilk çoğaltma aşaması olarak adlandırılır. 
 
-İlk çoğaltma işlemi tamamlandıktan sonra çoğaltma için fark eşitleme aşaması taşır. Bu noktada, sanal makine korunuyor ve bir test yük devretme işlemi üzerinde gerçekleştirilebilir. İlk çoğaltma tamamlandıktan sonra sanal makineyi temsil eden çoğaltılmış öğesinin çoğaltma durumu "Korumalı" durumuna geçer.
+İlk çoğaltma tamamlandıktan sonra çoğaltma fark eşitleme aşamaya taşır. Bu noktada, sanal makine korunur ve test yük devretme işlemi üzerinde gerçekleştirilebilir. İlk çoğaltma tamamlandıktan sonra çoğaltılan öğeyi temsil eden sanal makine çoğaltma durumu "Korumalı" durumuna geçer.
 
-Sanal makine için çoğaltma durumunu ve çoğaltma durumu kendisine karşılık gelen korumalı çoğaltma öğesinde ayrıntılarını alarak izleyin.
+Çoğaltma durumu ve sanal makine için çoğaltma durumu kendisine karşılık gelen çoğaltma korumalı öğe ayrıntılarını alarak izleyin.
 ```azurepowershell
  Get-ASRReplicationProtectedItem -ProtectionContainer $PrimaryProtContainer | Select FriendlyName, ProtectionState, ReplicationHealth
 ```
@@ -431,9 +431,9 @@ FriendlyName ProtectionState ReplicationHealth
 AzureDemoVM  Protected       Normal           
 ```
 
-## <a name="perform-a-test-failover-validate-and-cleanup-test-failover"></a>Yük devretme testi gerçekleştirmek, doğrulama ve yük devretme testi temizleme
+## <a name="perform-a-test-failover-validate-and-cleanup-test-failover"></a>Yük devretme testi gerçekleştirmek, doğrulama ve yük devretme testini Temizle
 
-Sanal makinede (korumalı çoğaltma öğesinde sanal makinenin.) üzerinde çoğaltma sanal makine için korumalı bir duruma ulaştı sonra bir test yük devretme işlemi gerçekleştirilebilir
+Sanal makine için çoğaltmayı korumalı bir duruma ulaştı. sonra bir sınama yük devretmesi işlemini sanal makinede (korumalı çoğaltma öğesinde sanal makinenin.) gerçekleştirilebilir
 
 ```azurepowershell
 #Create a seperate network for test failover (not connected to my DR network)
@@ -477,9 +477,9 @@ AllowedActions   :
 Tasks            : {Prerequisites check for test failover, Create test virtual machine, Preparing the virtual machine, Start the virtual machine}
 Errors           : {}
 ```
-Test yük devretme işlemi başarıyla tamamlandığında, yükü devredilen sanal makine üzerinde test bağlanmak ve yük devretme sınaması doğrulayın.
+Test yük devretme işi başarıyla tamamlandıktan sonra Yük devredilen sanal makinenin başarısız test bağlanmak ve test yük devretmesi doğrulayın.
 
-Yedek temizleme başlatarak temiz test kopya sınama devredilen sanal makine üzerinde test tamamlandıktan sonra Yük devretme işlemi test edin. Bu işlem, yük devretme sınaması tarafından oluşturulan sanal makinenin test kopyasını siler.
+Temizleme başlatarak temiz test Kopyala'kurmak test sanal makinesi üzerinde test tamamlandıktan sonra Yük devretme işlemini test edin. Bu işlem, yük devretme testi tarafından oluşturulan sanal makinenin test kopyasını siler.
 
 ```azurepowershell
 $Job_TFOCleanup = Start-ASRTestFailoverCleanupJob -ReplicationProtectedItem $ReplicationProtectedItem
@@ -494,7 +494,7 @@ Succeeded
 
 ## <a name="failover-to-azure"></a>Azure'a yük devretme
 
-Belirli bir kurtarma noktası için sanal makine yük devretme.
+Belirli bir kurtarma noktasını sanal makineye yük devretme.
 
 ```azurepowershell
 $RecoveryPoints = Get-ASRRecoveryPoint -ReplicationProtectedItem $ReplicationProtectedItem
@@ -522,7 +522,7 @@ $Job_Failover.State
 Succeeded
 ```
 
-Başarılı bir şekilde devredilir sonra Yük devretme işlemini tamamlayabilir.
+Başarıyla yük devretti sonra Yük devretme işlemini yürütebilirsiniz.
 ```azurepowershell
 $CommitFailoverJOb = Start-ASRCommitFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem
 
@@ -549,7 +549,7 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
-Özgün bölgesine geri dönmek hazır olduğunuzda, bir yük devretme sonrasında çoğaltmayı tersine çevirme için güncelleştirme AzureRmRecoveryServicesAsrProtectionDirection cmdlet'ini kullanarak korumalı çoğaltma öğesinde başlatın.
+Özgün bölgesiyle geri dönmek hazır olduğunuzda, bir yük devrinden sonra güncelleştirme AzureRmRecoveryServicesAsrProtectionDirection cmdlet'ini kullanarak çoğaltma korumalı öğe için çoğaltmayı tersine çevirmeyi Başlat.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Görünüm [Azure Site Recovery PowerShell başvurusu ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) nasıl kurtarma planları oluşturma ve PowerShell aracılığıyla kurtarma planı yük devretme sınaması gibi diğer görevleri gerçekleştirebilir öğrenin.
+Görünüm [Azure Site Recovery PowerShell başvurusu ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) kurtarma planları oluşturma ve PowerShell üzerinden kurtarma planı yük devretme testi gibi diğer görevleri nasıl gerçekleştirebileceğiniz öğrenin.

@@ -1,20 +1,21 @@
 ---
-title: "Azure Site Recovery VMware/fiziksel sunucu çoğaltma mimarisi | Microsoft Docs"
-description: "Bu makalede bileşenleri ve çoğaltma VMware Vm'lerini veya fiziksel Windows/Linux sunucuları Azure Site Recovery ile ikincil VMware siteye şirket içi kullanılan mimarisi genel bakış sağlar."
+title: Azure Site recovery'de VMware/fiziksel sunucu çoğaltma mimarisi | Microsoft Docs
+description: Bu makalede çoğaltma VMware Vm'lerini veya fiziksel Windows/Linux sunucuları Azure Site Recovery ile ikincil VMware sitesindeki şirket çoğaltırken kullanılan bileşenler ve genel bir bakış sağlar.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 97a990aa3ed9043280888900d8fc7b604b6c22b5
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 04591c57f90e3c540963d77c2213498bf0ad2577
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921405"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>VMware VM/fiziksel sunucuya VMware çoğaltma mimarisi
+# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>VMware VM'LERİNİ/fiziksel sunucuya VMware çoğaltma mimarisi
 
-Bu makalede mimari ve çoğaltma, yük devri ve şirket içi VMware sanal makineleri (VM'ler) veya fiziksel Windows/Linux sunucuları için ikincil VMware sitesi kullanarak bir kurtarma sırasında kullanılan işlemleri [Azure Site Recovery](site-recovery-overview.md).
+Bu makalede mimari ve işlemlerdeki çoğaltma, yük devretme ve şirket içi VMware sanal makinelerini (VM) veya ikincil VMware sitesi kullanarak bir fiziksel Windows/Linux sunucularını kurtarma kullanılan [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Mimari bileşenler

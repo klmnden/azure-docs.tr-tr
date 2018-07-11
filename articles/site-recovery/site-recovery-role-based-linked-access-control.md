@@ -1,42 +1,45 @@
 ---
-title: Azure Site Recovery yönetmek için rol tabanlı erişim denetimini kullanma | Microsoft Docs
+title: Azure Site Recovery yönetmek için rol tabanlı erişim denetimi kullanarak | Microsoft Docs
 description: Bu makalede nasıl uygulanacağını ve Azure Site Recovery dağıtımlarınızı yönetmek için rol tabanlı erişim denetimi (RBAC) kullanın
 ms.service: site-recovery
+ms.workload: backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.date: 07/06/2018
 author: mayanknayar
 ms.topic: conceptual
-ms.date: 06/20/2018
 ms.author: manayar
-ms.openlocfilehash: 9d1d6aac463e5b9cf9994bfefac1aa1c38bb1e03
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: dfd880b6ff3a7e199ea259acc5e5ec59f89c897d
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284750"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919735"
 ---
-# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Site Recovery erişimi yönetmek için rol tabanlı erişim denetimi kullanın
+# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Site Recovery erişimi yönetmek için rol tabanlı erişim denetimi kullanma
 
-Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, ekibiniz içinde sorumlulukları kurabilmeleri ve belirli işlerini gerçekleştirmek için gereken şekilde kullanıcılara yalnızca belirli erişim izinleri verin.
+Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, kendi sorumluluklarını ayırabilir ve belirli işlerini gerçekleştirmek için gereken şekilde kullanıcılara yalnızca belirli erişim izinleri verme.
 
-Azure Site Recovery Site Recovery yönetim işlemlerini denetlemek için 3 yerleşik roller sağlar. [Azure RBAC yerleşik rolleri](../role-based-access-control/built-in-roles.md) hakkında daha fazla bilgi edinin
+Azure Site Recovery, Site Recovery yönetim işlemlerini denetlemek için 3 yerleşik rol sağlar. [Azure RBAC yerleşik rolleri](../role-based-access-control/built-in-roles.md) hakkında daha fazla bilgi edinin
 
-* [Site Recovery Katkıda Bulunanı](../role-based-access-control/built-in-roles.md#site-recovery-contributor) - Bu rol, Kurtarma Hizmetleri kasasında Site Recovery işlemlerini yönetmek için gereken tüm izinlere sahiptir. Ancak bu role sahip kullanıcı, Kurtarma Hizmetleri kasasını oluşturamaz veya silemez ya da diğer kullanıcılara erişim hakkı atayamaz. Bu rol etkinleştirin ve olağanüstü durum kurtarma uygulamaları ya da tüm kuruluşlar için olarak durumda may olmak yönetmek olağanüstü durum kurtarma yöneticileri için uygundur.
-* [Site kurtarma işleci](../role-based-access-control/built-in-roles.md#site-recovery-operator) -bu rol yürütün ve yük devretme ve yeniden çalışma işlemlerini yönetmek için gerekli izinlere sahip. Bu rolüne sahip bir kullanıcı etkinleştirmek veya çoğaltma devre dışı bırakmak, oluşturmak veya kasalarını silmek, yeni altyapı kaydedilemiyor veya diğer kullanıcıların erişim hakları atayın. Bu rol kimin yük devretme sanal makinelerin olağanüstü durum kurtarma işleci için uygundur veya uygulama sahipleri ve gerçek veya sanal olağanüstü durumda bir DR gibi BT yöneticileri tarafından istendiğinde uygulamaları ayrıntıya gidin. POST olağanüstü durum çözümlemesi, DR işleci yeniden koruyabilir ve geri dönme sanal makineler.
-* [Site Recovery Okuyucusu](../role-based-access-control/built-in-roles.md#site-recovery-reader) - Bu rol tüm Site Recovery yönetim işlemlerini görüntüleme iznine sahiptir. Bu rol kimin koruma geçerli durumunu izleyebilir ve Destek biletlerini gerekli olursa BT izleme yöneticinin için uygundur.
+* [Site Recovery Katkıda Bulunanı](../role-based-access-control/built-in-roles.md#site-recovery-contributor) - Bu rol, Kurtarma Hizmetleri kasasında Site Recovery işlemlerini yönetmek için gereken tüm izinlere sahiptir. Ancak bu role sahip kullanıcı, Kurtarma Hizmetleri kasasını oluşturamaz veya silemez ya da diğer kullanıcılara erişim hakkı atayamaz. Bu rol etkinleştirebilen ve uygulamalar veya kuruluşların tamamı için olağanüstü durum kurtarma gibi durumda may olmak yönetme olağanüstü durum kurtarma yöneticileri için idealdir.
+* [Site Recovery operatörü](../role-based-access-control/built-in-roles.md#site-recovery-operator) -bu rol, yürütme ve yük devretme ve yeniden çalışma işlemlerini yönetme izinlerine sahiptir. Bu role sahip bir kullanıcı etkinleştiremez veya çoğaltmayı devre dışı bırak, oluşturma veya kasa silme, yeni altyapılar kaydedebilir veya diğer kullanıcılara erişim hakkı atayabilirsiniz. Bu rol yük devretme sanal makinelerini bir olağanüstü durum kurtarma operatörü için idealdir veya uygulama sahipleri ve BT yöneticileri bir DR gibi bir gerçek veya sanal bir olağanüstü durumda tarafından istendiğinde uygulamaları detayına gidin. POST çözümleme olağanüstü DR operatörü yeniden koruma altına alabilir ve yeniden çalışma sanal makineler.
+* [Site Recovery Okuyucusu](../role-based-access-control/built-in-roles.md#site-recovery-reader) - Bu rol tüm Site Recovery yönetim işlemlerini görüntüleme iznine sahiptir. Bu rol kullanan mevcut koruma durumunu izleyebilir ve gerekirse destek biletleri oluşturabilen BT izleme Yöneticisi için idealdir.
 
-Daha fazla denetim için kendi rolleri tanımlamak için arıyorsanız, bkz: nasıl yapılır [özel roller yapı](../role-based-access-control/custom-roles.md) Azure.
+Daha fazla denetim için kendi rolleri tanımlamak için arıyorsanız, bkz. nasıl [özel roller oluşturma](../role-based-access-control/custom-roles.md) azure'da.
 
 ## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>Yeni sanal makineler için çoğaltmayı etkinleştirmek için gereken izinler
-Yeni bir sanal makine için Azure Site Kurtarma'yı kullanarak Azure çoğaltıldığında ilişkili kullanıcının erişim düzeyleri kullanıcı için Site Recovery sağlanan Azure kaynaklarını kullanmak için gerekli izinlere sahip olduğundan emin olmak için doğrulanır.
+Yeni bir sanal makine Azure Site Recovery kullanılarak Azure'a çoğaltılırken, ilişkili kullanıcının erişim düzeyi kullanıcının Site Recovery için sağlanan Azure kaynakları için gerekli izinlere sahip olduğundan emin olmak doğrulanır.
 
-Yeni bir sanal makine için çoğaltmayı etkinleştirmek için bir kullanıcı olması gerekir:
-* Seçili kaynak grubuna bir sanal makine oluşturma izni
-* Seçilen sanal ağ içinde bir sanal makine oluşturma izni
+Yeni bir sanal makineye yönelik çoğaltmayı etkinleştirmek için bir kullanıcı olması gerekir:
+* Seçilen kaynak grubunda bir sanal makine oluşturma izni
+* Seçilen sanal ağda bir sanal makine oluşturma izni
 * Seçili depolama hesabına yazma izni
 
-Bir kullanıcının yeni bir sanal makinenin tam çoğaltma aşağıdaki izinleri gerekir.
+Bir kullanıcı yeni bir sanal makine çoğaltmayı tamamlamak için aşağıdaki izinler gerekiyor.
 
 > [!IMPORTANT]
->İlgili izinleri dağıtım modeli eklendiğinden emin olun (Resource Manager / Klasik) kaynak dağıtımı için kullanılır.
+>İlgili izinler dağıtım modeli eklendiğinden emin olun (Resource Manager / Klasik) kaynak dağıtımı için kullanılır.
 
 | **Kaynak Türü** | **Dağıtım modeli** | **İzni** |
 | --- | --- | --- |
@@ -70,8 +73,8 @@ Bir kullanıcının yeni bir sanal makinenin tam çoğaltma aşağıdaki izinler
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md): Azure portalında RBAC ile çalışmaya başlama.
-* Erişimle yönetmeyi öğrenin:
+* Erişim ile yönetmeyi öğrenin:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
   * [REST API](../role-based-access-control/role-assignments-rest.md)
-* [Rol tabanlı erişim denetimi sorun giderme](../role-based-access-control/troubleshooting.md): sık karşılaşılan sorunları düzeltmek için öneriler alın.
+* [Rol tabanlı erişim denetimi sorunlarını giderme](../role-based-access-control/troubleshooting.md): yaygın sorunları çözme için öneriler alın.

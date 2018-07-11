@@ -1,6 +1,6 @@
 ---
 title: Yük devretme Azure hataları için sorun giderme | Microsoft Docs
-description: Bu makalede Azure yapabilmesini içinde sık karşılaşılan sorunları giderme yolları
+description: Bu makalede, azure'a yük devretme, sık karşılaşılan sorunları giderme yolları açıklanır.
 services: site-recovery
 documentationcenter: ''
 author: ponatara
@@ -12,69 +12,69 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 838eac510fc17d56f808f541f4e205a279f63c56
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: ad8b69bfe6f3261f00cd33846efc86ce3b198954
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318900"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919701"
 ---
-# <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Bir sanal makineye Azure üzerinden başarısız olduğunda hatalarında sorun giderme
+# <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Bir sanal makinenin azure'a yük devri sırasında karşılaşılan sorunları giderme
 
-Aşağıdaki hatalardan biri, Azure için sanal makinenin yük devretme yaparken alabilirsiniz. Sorunu gidermek için her bir hata koşulu için açıklanan adımları kullanın.
+Azure'da bir sanal makine yük devretmesi yaparken aşağıdaki hatalardan birini alabilirsiniz. Sorunu gidermek için her bir hata koşulu için açıklanan adımları kullanın.
 
-## <a name="failover-failed-with-error-id-28031"></a>Yük devretme 28031 hata Koduyla başarısız oldu
+## <a name="failover-failed-with-error-id-28031"></a>Hata kimliği 28031 yük devretme başarısız oldu
 
-Site Recovery azure'da sanal makine üzerinde başarısız oluşturmak mümkün değildi. Aşağıdaki nedenlerden biri nedeniyle oluşabilir:
+Site kurtarma, başarısız bir yük devredilen Azure sanal makine oluşturmak ulaşamadı. Aşağıdaki nedenlerden biri nedeniyle oluşabilir:
 
-* Sanal makine oluşturmak için kullanılabilir yeterli kotası yok: aboneliğine giderek kullanılabilir kota denetleyebilirsiniz -> kullanım + kotalar. Açabilirsiniz bir [yeni destek isteği](http://aka.ms/getazuresupport) Kotayı artırmak için.
+* Sanal makine oluşturmak kullanılabilir yeterli kotası yoktur: kullanılabilir kota aboneliğine giderek denetleyebilirsiniz -> kullanım ve kotalar. Açabileceğiniz bir [yeni destek isteği](http://aka.ms/getazuresupport) Kotayı artırmak için.
 
-* Yük devretme sanal makineler aynı kullanılabilirlik kümesinde farklı boyutu ailelerinin deniyorsunuz. Aynı kullanılabilirlik kümesinde tüm sanal makineler için aynı boyutu ailesi seçtiğinizden emin olun. Sanal makinenin işlem ve ağ ayarlarına giderek boyutunu değiştirin ve sonra Yük devretme işlemini yeniden deneyin.
+* Yük devretme sanal makineler aynı kullanılabilirlik kümesindeki farklı boyutta ailelerinin deniyorsunuz. Aynı kullanılabilirlik kümesindeki tüm sanal makineler için aynı boyut ailesi seçtiğinizden emin olun. Sanal makinenin işlem ve ağ ayarlarına giderek boyutunu değiştirin ve ardından yük devretmeyi yeniden deneyin.
 
-* Bir sanal makineye oluşturulmasını engeller abonelikte bir ilke yoktur. Bir sanal makine oluşturulmasına izin ve yük devretme yeniden denemek için ilkeyi değiştirin.
+* Bir sanal makine oluşturulmasını önleyen bir abonelikte bir ilke yoktur. Sanal makine oluşturmaya izin ver ve ardından yük devretmeyi yeniden deneyin ilkesini değiştirin.
 
-## <a name="failover-failed-with-error-id-28092"></a>Yük devretme 28092 hata Koduyla başarısız oldu
+## <a name="failover-failed-with-error-id-28092"></a>Hata kimliği 28092 yük devretme başarısız oldu
 
-Site Recovery birleştiremedi başarısız için bir ağ arabirimi oluşturmak üzere sanal makine üzerinde. Aboneliğindeki ağ arabirimlerini oluşturmak için kullanılabilir yeterli kotası olduğundan emin olun. Aboneliği giderek kullanılabilir kota denetleyebilirsiniz -> kullanım + kotalar. Açabilirsiniz bir [yeni destek isteği](http://aka.ms/getazuresupport) Kotayı artırmak için. Yeterli kotası olması durumunda bu bir aralıklı olabilir vermek, işlemi yeniden deneyin. Denemelere sorun devam ederse, bu belgenin sonuna bir yorum bırakın.  
+Site kurtarma, başarısız bir ağ arabirimi oluşturmak mümkün değildi yük devredilen sanal makine. Aboneliğindeki ağ arabirimlerini oluşturmak kullanılabilir yeterli kotası olduğundan emin olun. Kullanılabilir kota aboneliğine giderek denetleyebilirsiniz -> kullanım ve kotalar. Açabileceğiniz bir [yeni destek isteği](http://aka.ms/getazuresupport) Kotayı artırmak için. Yeterli kotanız sonra bu bir aralıklı olabilir gönderme, işlemi yeniden deneyin. Ardından denemelere sorun devam ederse, bu belgenin sonunda bir yorum bırakın.  
 
-## <a name="failover-failed-with-error-id-70038"></a>Yük devretme 70038 hata Koduyla başarısız oldu
+## <a name="failover-failed-with-error-id-70038"></a>Hata kimliği 70038 yük devretme başarısız oldu
 
-Site Recovery, azure'da Klasik sanal makine üzerinde başarısız oluşturmak bırakamıyor. Nedeniyle oluşabilir:
+Site Recovery Azure'da Klasik sanal makine üzerinde başarısız oluşturmak mümkün değildi. Nedeniyle oluşabilir:
 
-* Oluşturulacak sanal makine için gerekli olan bir sanal ağ gibi kaynaklardan biri yok. Sanal makinenin işlem ve ağ ayarlarının altında sağlanan sanal ağ oluşturun veya zaten var olduğundan ve yük devretme yeniden sanal bir ağa ayarı değiştirin.
+* Oluşturulacak sanal makine için gerekli olan bir sanal ağ gibi kaynaklardan biri mevcut değil. Sanal makinenin işlem ve ağ ayarlarında sağlanan sanal ağ oluşturma veya bir sanal ağ zaten var ve ardından yük devretmeyi yeniden deneyin ayarını değiştirin.
 
-## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Bağlan/RDP/SSH devredilen kurulamıyor sanal makineye Bağlan düğmesi gri nedeniyle sanal makine üzerinde
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Bağlama/RDP veya SSH ile başarısız kurulamıyor sanal makinede bağlantı düğmesi gri nedeniyle sanal makine üzerinde
 
-Bağlan düğmesi gri gösterilir ve Azure'a bir Express Route veya siteden siteye VPN bağlantısı üzerinden, ardından bağlanmamış
+Bağlan düğmesi gri renkte ve Azure'a bir Express Route veya siteden siteye VPN bağlantısı ardından bağlanmamış
 
-1. Git **sanal makine** > **ağ**, gerekli ağ arabirimi adına tıklayın.  ![Ağ arabirimi](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. Gidin **IP yapılandırmaları**, gerekli IP yapılandırması ad alanında bulunan'ye tıklayın. ![Ipconfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
-3. Genel IP adresi etkinleştirmek için tıklayın **etkinleştirmek**. ![IP etkinleştir](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Tıklayın **gerekli ayarları Yapılandır** > **Yeni Oluştur**. ![Yeni Oluştur](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
-5. Ortak adres adını girin, varsayılan seçenekleri seçin **SKU** ve **atama**, ardından **Tamam**.
-6. Şimdi, yapılan değişiklikleri kaydetmek için tıklatın **kaydetmek**.
-7. Paneller kapatın ve gidin **genel bakış** sanal makineye bağlanma RDP bölümü.
+1. Git **sanal makine** > **ağ**, gerekli ağ arabiriminin adına tıklayın.  ![Ağ arabirimi](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. Gidin **IP yapılandırmaları**, gerekli IP yapılandırması ad alanında bulunan'ye tıklayın. ![IP yapılandırmaları](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+3. Genel IP adresi etkinleştirmek için tıklayın **etkinleştirme**. ![IP etkinleştir](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. Tıklayarak **gerekli ayarları Yapılandır** > **Yeni Oluştur**. ![Yeni Oluştur](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+5. Ortak adres adını girin, için varsayılan seçenekleri seçin **SKU** ve **atama**, ardından **Tamam**.
+6. Şimdi, yaptığınız değişiklikleri kaydetmek için tıklatın **Kaydet**.
+7. Paneller kapatın ve gidin **genel bakış** sanal makineye bağlanma/RDP bölümü.
 
-## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-even-though-connect-button-is-available-not-grayed-out-on-the-virtual-machine"></a>Bağlan/RDP/SSH devredilen kurulamıyor üzerinden sanal bile bağlan düğmesi bulunur (gri değil) sanal makinede makine
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-even-though-connect-button-is-available-not-grayed-out-on-the-virtual-machine"></a>Bağlama/RDP veya SSH ile başarısız kurulamıyor üzerinden sanal olsa bile bağlan düğmesi kullanılabilir (gri değil) sanal makine üzerinde makine
 
-Denetleme **önyükleme tanılama** sanal makine ve bu makalesinde listelenen hataları denetleyin.
+Denetleme **önyükleme tanılaması** sanal makineye yükleyip bu makalesinde listelenen hataları denetleyin.
 
-1. Sanal makine başlatılmamışsa, daha eski bir kurtarma noktasına devretmek deneyin.
-2. Sanal makine içinde uygulama yukarı, uygulamayla tutarlı kurtarma noktasına deneyin yapabilmesini değilse.
-3. Ardından sanal makine etki alanına katılmış ise, bu etki alanı denetleyicisi doğru şekilde çalıştığından emin olun. Bu izleyerek yapılabilir aşağıdaki adımları verilen.
-    a. aynı ağdaki yeni bir sanal makine oluşturun
+1. Sanal makine başlatılmamışsa daha eski bir kurtarma noktasına yük devretmeyi deneyin.
+2. Sanal makinenin içindeki uygulama devretmeyi deneyin bir uygulama ile tutarlı kurtarma noktasına değilse.
+3. Sanal Makine etki alanına katılmış ise, etki alanı denetleyicisinin doğru şekilde çalıştığından emin olun. Bu takip ederek yapılabilir aşağıdaki adımlar verilir.
+    a. aynı ağda yeni bir sanal makine oluşturma
 
-    b.  aynı etki alanına mümkün olduğundan emin olun başarısız sanal makine gündeme beklenir.
+    b.  aynı etki alanına katılacak şekilde tutabileceğinden emin başarısız yük devredilen sanal makinenin görünmesi beklenen.
 
-    c. Etki alanı denetleyicisi ise **değil** doğru bir şekilde çalışmasını sonra oturum açmayı başarısız deneyin üzerinden bir yerel yönetici hesabı kullanarak sanal makine
-4. Özel bir DNS sunucusu kullanıyorsanız, erişilebilir olduğundan emin olun. Bu izleyerek yapılabilir aşağıdaki adımları verilen.
-    a. Yeni bir sanal makine aynı ağ ve b oluşturun. sanal makine adı özel DNS sunucusu kullanılarak çözümleme mümkün olup olmadığını denetleyin
+    c. Etki alanı denetleyicisi ise **değil** doğru bir şekilde çalışmasını daha sonra deneyin başarısız'nda oturum açtıktan sonra bir yerel yönetici hesabı kullanarak sanal makine üzerinde
+4. Özel bir DNS sunucusu kullanıyorsanız erişilebilir olduğundan emin olun. Bu takip ederek yapılabilir aşağıdaki adımlar verilir.
+    a. Yeni bir sanal makine aynı ağ ve b oluşturun. sanal makineyi özel DNS sunucusunu kullanarak ad çözümlemesi mümkün olup olmadığını denetleyin
 
 >[!Note]
->Önyükleme tanılaması dışındaki herhangi bir ayarı etkinleştirerek Azure VM Aracısı Yük devretmeden önce sanal makinede yüklü olmasını gerektirir
+>Önyükleme tanılama dışındaki herhangi bir ayarı etkinleştirerek Azure VM Aracısı, yük devretmeden önce sanal makinede yüklü olmasını gerektirir
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla yardıma gereksinim duyarsanız, ardından sorgunuza ileti [Site Recovery Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) veya bu belgenin sonuna bir yorum bırakın. Size yardımcı olmak üzere saptayabilmelisiniz etkin bir topluluk sunuyoruz.
+Daha fazla yardıma ihtiyacınız olursa, ardından sorgunuza gönderin [Site Recovery Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) veya bu belgenin sonunda bir yorum yazın. Gereken yardımcı olması etkin bir topluluk sahibiz.

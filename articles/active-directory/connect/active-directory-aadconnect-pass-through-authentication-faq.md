@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Sık sorulan sorular doğrudan kimlik doğrulama - | Microsoft Docs'
-description: Azure Active Directory doğrudan kimlik doğrulaması hakkında sık sorulan soruların yanıtlarını
+title: 'Azure AD Connect: Sık sorulan sorular geçişli kimlik doğrulaması - | Microsoft Docs'
+description: Azure Active Directory geçişli kimlik doğrulaması hakkında sık sorulan soruların yanıtlarını
 services: active-directory
-keywords: Azure AD Connect doğrudan kimlik doğrulama, Active Directory yükleyin gerekli bileşenleri Azure AD, SSO, çoklu oturum açma
+keywords: Azure AD, SSO, Azure AD Connect geçişli kimlik doğrulaması, Active Directory Yükleme gerekli bileşenleri çoklu oturum açma
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -15,128 +15,128 @@ ms.topic: article
 ms.date: 01/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ee467769b9653a9952b6e41e66a8777a4bac5e56
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: e62117ee98b1d47600141249dcd3b17ec58a9654
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028889"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918164"
 ---
-# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory doğrudan kimlik doğrulaması: Sık sorulan sorular
+# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory geçişli kimlik doğrulaması: Sık sorulan sorular
 
-Bu makalede, Azure Active Directory (Azure AD) doğrudan kimlik doğrulaması hakkında sık sorulan sorular giderir. Güncelleştirilmiş içerik için geri denetleniyor tutun.
+Bu makalede Azure Active Directory (Azure AD) geçişli kimlik doğrulaması hakkında sık sorulan soruları ele alır. Güncelleştirilmiş içerik için geri kontrol etmeyi unutmayın.
 
-## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Hangi yöntemin Azure AD, geçişli kimlik doğrulaması, oturum açmak için parola karma eşitlemesi ve Active Directory Federasyon Hizmetleri (AD FS) seçmem gerekir?
+## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Hangi yöntemin Azure AD'ye, geçişli kimlik doğrulaması, oturum açmak için parola karma eşitlemesi ve Active Directory Federasyon Hizmetleri (AD FS) seçmem gerekir?
 
-Şirket içi ortamınız ve kuruluş gereksinimlerine bağlıdır. Gözden geçirme [Azure AD Connect kullanıcı oturum açma seçenekleri](active-directory-aadconnect-user-signin.md) bir karşılaştırma için bir makale yöntemlerin çeşitli Azure AD oturum açma.
+Bu, şirket içi ortam ve kuruluş gereksinimlerine bağlıdır. Gözden geçirme [Azure AD Connect kullanıcı oturum açma seçenekleri](active-directory-aadconnect-user-signin.md) makalesine bir karşılaştırma için çeşitli Azure AD oturum açma yöntemleri.
 
-## <a name="is-pass-through-authentication-a-free-feature"></a>Doğrudan kimlik doğrulama boş bir özellik mi var?
+## <a name="is-pass-through-authentication-a-free-feature"></a>Geçişli kimlik doğrulaması, ücretsiz bir özellik mi var?
 
-Doğrudan kimlik doğrulaması boş bir özelliktir. Kullanmak için Azure AD Ücretli tüm sürümleri gerek yoktur.
+Geçişli kimlik doğrulaması ücretsiz bir özelliktir. Bunu kullanmak için Azure AD Ücretli tüm sürümleri gerekmez.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Doğrudan kimlik doğrulama kullanılabilir [Microsoft Azure Almanya bulut](http://www.microsoft.de/cloud-deutschland) ve [Microsoft Azure kamu bulut](https://azure.microsoft.com/features/gov/)?
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Geçişli kimlik doğrulaması kullanılabilir [Microsoft Azure Almanya bulut](http://www.microsoft.de/cloud-deutschland) ve [Microsoft Azure kamu bulutundaki](https://azure.microsoft.com/features/gov/)?
 
-Hayır. Doğrudan kimlik doğrulaması, yalnızca Azure AD dünya çapındaki örneğini içinde kullanılabilir.
+Hayır. Geçişli kimlik doğrulaması, yalnızca dünya çapındaki örneğini Azure AD içinde kullanılabilir.
 
-## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>Mu [koşullu erişim](../active-directory-conditional-access-azure-portal.md) doğrudan kimlik doğrulama ile çalışır?
+## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>Mu [koşullu erişim](../active-directory-conditional-access-azure-portal.md) geçişli kimlik doğrulaması ile çalışabilir?
 
-Evet. Azure çok faktörlü kimlik doğrulaması dahil olmak üzere tüm koşullu erişim özelliklerini doğrudan kimlik doğrulaması ile çalışır.
+Evet. Azure multi-Factor Authentication dahil, tüm koşullu erişim özelliklerini, geçişli kimlik doğrulaması ile çalışır.
 
-## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Doğrudan kimlik doğrulaması "Alternatif kimlik" yerine "userPrincipalName" kullanıcı adı olarak destekliyor mu?
+## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Geçişli kimlik doğrulaması yapılandırmalıdır "userPrincipalName" yerine "Alternatif kimlik" destekliyor mu?
 
-Evet. Doğrudan kimlik doğrulamasını destekleyen `Alternate ID` içinde Azure AD Connect yapılandırıldığında kullanıcı adı olarak. Daha fazla bilgi için bkz: [Azure AD Connect özel yüklemesi](active-directory-aadconnect-get-started-custom.md). Tüm Office 365 uygulamaları desteklemez `Alternate ID`. Belirli uygulamanın belgelerine destek deyimine bakın.
+Evet. Geçişli kimlik doğrulamasını destekleyen `Alternate ID` Azure AD Connect'e bağlanan yapılandırıldığında yapılandırmalıdır. Daha fazla bilgi için [Azure AD Connect özel yüklemesi](active-directory-aadconnect-get-started-custom.md). Tüm Office 365 uygulamaları desteklemez `Alternate ID`. Belirli bir uygulamanın belgelerine destek deyimine bakın.
 
-## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Parola karma eşitlemesi doğrudan kimlik doğrulama için bir geri dönüş olarak davranmak mu?
+## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Parola Karması eşitleme, geçişli kimlik doğrulaması için bir geri dönüş olarak davranmak mu?
 
-Hayır. Doğrudan kimlik doğrulama _yok_ otomatik olarak parola karması eşitlemesi için yük devretme. Yalnızca bir geri dönüş için görür [doğrudan kimlik doğrulama bugün desteklemiyor senaryoları](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Kullanıcı oturum açma hatalarını önlemek için doğrudan kimlik doğrulaması için yapılandırmalısınız [yüksek kullanılabilirlik](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Hayır. Geçişli kimlik doğrulaması _yok_ otomatik olarak yük devretme için parola karması eşitleme. Yalnızca bir geri dönüş için görür [geçişli kimlik doğrulaması bugün desteklemiyor senaryoları](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Kullanıcı oturum açma hatalarını önlemek için geçişli kimlik doğrulaması için yapılandırmalısınız [yüksek kullanılabilirlik](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
-## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Yükleyebilmek için bir [Azure AD uygulama proxy'si](../manage-apps/application-proxy.md) doğrudan kimlik doğrulama Aracısı ile aynı sunucuda bağlayıcı?
+## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Yükleyebilmek için bir [Azure AD uygulama proxy'si](../manage-apps/application-proxy.md) geçişli kimlik doğrulaması Aracısı ile aynı sunucuda bağlayıcı?
 
-Evet. Doğrudan kimlik doğrulama Aracısı sürümü 1.5.193.0 rebranded sürümleri veya daha sonra bu yapılandırmayı desteklemez.
+Evet. Geçişli kimlik doğrulaması Aracısı sürümü 1.5.193.0 rebranded sürümleri veya daha sonra bu yapılandırmayı desteklemez.
 
-## <a name="what-versions-of-azure-ad-connect-and-pass-through-authentication-agent-do-you-need"></a>Azure AD Connect ve doğrudan kimlik doğrulama Aracısı hangi sürümlerine gerekiyor?
+## <a name="what-versions-of-azure-ad-connect-and-pass-through-authentication-agent-do-you-need"></a>Hangi Azure AD Connect'i ve geçişli kimlik doğrulaması Aracısı sürümleri ihtiyacınız var?
 
-Bu özelliğin çalışması için sürüm 1.1.486.0 gerekir ve daha sonra Azure AD Connect ve 1.5.58.0 veya doğrudan kimlik doğrulama aracısı için daha sonra. Tüm yazılım sunucularda Windows Server 2012 R2 veya sonraki sürümünü yükleyin.
+Bu özelliğin çalışması için sürüm 1.1.486.0 gerekir ve daha sonra Azure AD Connect ve 1.5.58.0 veya doğrudan kimlik doğrulama aracısı için daha sonra. Tüm yazılım, Windows Server 2012 R2 veya üzeri sunuculara yükleyin.
 
-## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication"></a>My kullanıcının parolasının süresi dolmuş ne olur ve bunlar doğrudan kimlik doğrulaması kullanarak oturum açmaya çalışan?
+## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication"></a>Geçişli kimlik doğrulaması kullanarak oturum açmak, Bilgisayarım kullanıcı parolasının süresi dolmuşsa ne olur ve bunlar denemek ister misiniz?
 
-Yapılandırdıysanız [parola geri yazma](../active-directory-passwords-update-your-own-password.md) belirli bir kullanıcı için doğrudan kimlik doğrulaması kullanarak oturum açtığında, değiştirin ya parolalarını sıfırlayın. Parolalar, şirket içi Active beklendiği gibi dizinine geri yazılır.
+Yapılandırdıysanız [parola geri yazma](../active-directory-passwords-update-your-own-password.md) belirli bir kullanıcı için ve geçişli kimlik doğrulaması kullanarak kullanıcı oturum açtığında, bunlar değiştirebilir veya parolalarını sıfırlayabilir. Parolalar şirket içi Active beklendiği gibi dizine geri yazılır.
 
-Belirli bir kullanıcı için parola geri yazma özelliğini yapılandırmadıysanız ya da kullanıcının geçerli bir Azure AD yoksa lisansı atanmış, kullanıcı parolalarını bulutta güncelleştirilemiyor. Parolasının süresi olsa bile kullanıcılar parolalarını güncelleştirilemiyor. Kullanıcı, bunun yerine bu iletiyi görür: "kuruluşunuz parolanızı bu sitede güncelleştirmenize izin vermiyor. Kuruluşunuzun önerdiği yönteme göre güncelleştirmek veya yardıma gereksiniminiz varsa yöneticinize sorun." Kullanıcı veya yönetici parolalarını şirket içi Active Directory'de sıfırlamanız gerekir.
+Belirli bir kullanıcı için parola geri yazma özelliğini yapılandırmadıysanız ya da kullanıcının geçerli bir Azure AD yoksa, lisans atanmış, kullanıcı parolalarını bulutta güncelleştirilemiyor. Parolasının süresi dolan olsa bile parolalarını update yapılamıyor. Kullanıcı, bunun yerine bu iletiyi görür: "kuruluşunuz bu sitede parolanızı güncelleştirmenize izin vermez. Kuruluşunuzun önerdiği yönteme göre güncelleştirin veya yardıma ihtiyacınız varsa yöneticinize sorun." Kullanıcı veya yönetici parolalarını şirket içi Active Directory'de sıfırlamanız gerekir.
 
-## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Nasıl doğrudan kimlik doğrulama yanılma parola saldırılara karşı koruma sağlar mı?
+## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Nasıl geçişli kimlik doğrulaması parola deneme yanılma saldırılarına karşı koruma sağlar mı?
 
-Okuma [Azure Active Directory doğrudan kimlik doğrulaması: Akıllı kilitleme](../authentication/howto-password-smart-lockout.md) daha fazla bilgi için.
+Okuma [Azure Active Directory geçişli kimlik doğrulaması: Akıllı kilitleme](../authentication/howto-password-smart-lockout.md) daha fazla bilgi için.
 
-## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>Ne doğrudan kimlik doğrulama Aracısı 80 ve 443 numaralı bağlantı noktaları üzerinden iletişim?
+## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>Ne geçişli kimlik doğrulama aracılarının 80 ve 443 bağlantı noktaları üzerinden iletişim?
 
-- Kimlik Doğrulama Aracısı, tüm özellik işlemleri için bağlantı noktası 443 üzerinden HTTPS istekleri olun.
-- Kimlik Doğrulama Aracısı HTTP isteklerinin SSL sertifika iptal listeleri (CRL'ler) indirmek için 80 numaralı bağlantı noktası üzerinden olun.
+- Kimlik doğrulama aracılarının tüm özellik işlemler için bağlantı noktası 443 üzerinden HTTPS istekleri olun.
+- Kimlik doğrulama aracılarının HTTP isteklerinin SSL sertifika iptal listelerini (CRL'ler) indirmek için 80 numaralı bağlantı noktası üzerinden olun.
 
      >[!NOTE]
-     >En son güncelleştirmeleri özellik gerektirir bağlantı noktalarının sayısı azalır. Azure AD Connect veya kimlik doğrulama Aracısı eski sürümlerini varsa, bu bağlantı noktalarının açık de tutun: 5671, 8080, 9090, 9091, 9350, 9352 ve 10100 10120.
+     >En son güncelleştirmeleri özelliği gereken bağlantı noktaları sayısı azaltıldı. Azure AD Connect kimlik doğrulaması aracısı veya eski sürümleri varsa, bu bağlantı noktalarını açık de tutun: 5671, 8080 9090, 9091, 9350, 9352 ve 10100 10120.
 
-## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Doğrudan kimlik doğrulama aracıları giden web proxy sunucu iletişim kurabilir?
+## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Doğrudan kimlik doğrulama aracılarının bir giden web proxy sunucusu iletişim kurabilir?
 
-Evet. Web Proxy Otomatik Bulma (WPAD) şirket içi ortamınızda etkinleştirilirse, kimlik doğrulama aracıları otomatik olarak bulun ve ağ üzerinde bir web proxy sunucusu kullanma girişimi.
+Evet. Web Proxy Otomatik Bulma (WPAD) şirket içi ortamınızda etkinleştirilirse, kimlik doğrulama aracılarının otomatik olarak bulun ve ağ üzerinde bir web proxy sunucusu kullanma girişimi.
 
-## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Aynı sunucuda iki veya daha fazla doğrudan kimlik doğrulama aracısı yükleyebilir miyim?
+## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Aynı sunucuda iki veya daha fazla geçişli kimlik doğrulama aracılarının yükleyebilir miyim?
 
-Hayır, bir doğrudan kimlik doğrulama Aracısı yalnızca tek bir sunucuya yükleyebilirsiniz. Yüksek kullanılabilirlik için doğrudan kimlik doğrulama yapılandırmak istiyorsanız,'ndaki yönergeleri izleyin [Azure Active Directory doğrudan kimlik doğrulaması: Hızlı Başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Hayır, bir geçişli kimlik doğrulaması Aracısı yalnızca tek bir sunucuya yükleyebilirsiniz. Geçişli kimlik doğrulaması için yüksek kullanılabilirlik yapılandırmak istiyorsanız,'ndaki yönergeleri izleyin [Azure Active Directory geçişli kimlik doğrulaması: Hızlı Başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
-## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Doğrudan kimlik doğrulama Aracısı nasıl kaldırılsın mı?
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Geçişli kimlik doğrulaması Aracısı nasıl kaldırabilirim?
 
-Doğrudan kimlik doğrulama Aracısı çalıştığı sürece etkin kalır ve sürekli olarak kullanıcı oturum açma isteklerini işler. Bir kimlik doğrulama aracısı kaldırmak istiyorsanız, Git **Denetim Masası -> Programlar -> Programlar ve Özellikler** ve her ikisi de kaldırma **Microsoft Azure AD Connect kimlik doğrulama Aracısı** ve  **Microsoft Azure AD Connect aracı güncelleştirici** programlar.
+Geçişli kimlik doğrulaması aracısının çalıştığı sürece, etkin kalır ve sürekli olarak kullanıcı oturum açma isteklerini işler. Bir kimlik doğrulama aracısı kaldırmak istiyorsanız, Git **Denetim Masası -> Programlar -> Programlar ve Özellikler** ve her ikisi de kaldırırsanız **Microsoft Azure AD Connect kimlik doğrulaması Aracısı** ve  **Microsoft Azure AD Connect aracı güncelleştirici** programlar.
 
-Doğrudan kimlik doğrulama dikey işaretlerseniz [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com) önceki adımı tamamladıktan sonra kimlik doğrulama olarak gösteren Aracısı görürsünüz **devre dışı**. Bu _beklenen_. Kimlik Doğrulama Aracısı birkaç gün sonra otomatik olarak listeden bırakılır.
+Geçişli kimlik doğrulaması blade onaylarsanız [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com) önceki adımı tamamladıktan sonra kimlik doğrulama aracısı olarak gösteren görürsünüz **Inactive**. Bu _beklenen_. Kimlik doğrulaması Aracısı, birkaç gün sonra otomatik olarak listeden çıkarılır.
 
-## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Zaten AD FS için Azure AD oturum açmak için kullandığım. Nasıl, geçişli kimlik doğrulaması için geçiş yapabilirim?
+## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Zaten AD FS için Azure AD'de oturum kullanıyorum. Nasıl, doğrudan kimlik doğrulamaya geçiş yapabilirim?
 
-AD FS ile Azure AD Connect Sihirbazı oturum açmak için yöntemi olarak yapılandırdıysanız, geçişli kimlik doğrulaması için oturum açmak için kullanıcının kullandığı yöntemini değiştirin. Bu değişiklik, Kiracı'geçişli kimlik doğrulamasını etkinleştirir ve dönüştürür _tüm_ , Federasyon etki alanlarına yönetilen etki alanları. Doğrudan kimlik doğrulama kiracınıza oturum açmak için tüm sonraki istekleri işler. Şu anda, farklı etki alanları arasında AD FS ve geçişli kimlik doğrulaması bir birleşimini kullanmak için Azure AD Connect içinde desteklenen yolu yoktur.
+AD FS ile Azure AD Connect Sihirbazı oturum açmak için ettiğiniz iletişim yöntemi olarak yapılandırdıysanız, kullanıcının oturum açmak için geçişli kimlik doğrulaması için kullandığı yöntem değiştirin. Bu değişiklik, kiracıda geçişli kimlik doğrulaması sağlar ve dönüştürür _tüm_ , yönetilen etki alanlarını Federasyon etki alanlarına. Geçişli kimlik doğrulaması, kiracınızda oturum açmak için tüm sonraki istekleri işler. Şu anda, AD FS ve geçişli kimlik doğrulaması farklı etki alanlarında kullanılacak Azure AD Connect içinde desteklenen hiçbir yolu yoktur.
 
-AD FS oturum açmak için yöntemi olarak yapılandırılan varsa _dışında_ Azure AD Connect Sihirbazı, geçişli kimlik doğrulaması için kullanıcı oturum açma değişiklik yöntemi. Bu değişiklik yapabilirsiniz **yapılandırmayın** seçeneği. Bu değişiklik, Kiracı'doğrudan kimlik doğrulama sağlar, ancak tüm Federasyon etki alanı oturum açma için AD FS kullanmaya devam eder. El ile yönetilen etki alanlarını bazılarını veya tümünü bu Federasyon etki alanı dönüştürmek için PowerShell kullanın. Bu değişikliği yaptıktan sonra *yalnızca* doğrudan kimlik doğrulama, yönetilen etki alanlarına oturum açmak için tüm istekleri işler.
+AD FS oturum açmak için iletişim yöntemi olarak yapılandırılmış olursa _dışında_ Azure AD Connect Sihirbazı, geçişli kimlik doğrulaması için kullanıcı oturum açma değişiklik yöntemi. Bu değişiklik yapabileceğiniz **yapılandırmayın** seçeneği. Bu değişiklik, kiracıda geçişli kimlik doğrulaması sağlar, ancak tüm Federasyon etki alanları, oturum açma için AD FS kullanmaya devam eder. Yönetilen etki alanlarını el ile bazılarını veya tümünü bu Federasyon etki alanlarında dönüştürmek için PowerShell kullanın. Bu değişikliği yaptıktan sonra *yalnızca* geçişli kimlik doğrulaması, oturum açmak için yönetilen etki alanları için tüm istekleri işler.
 
 >[!IMPORTANT]
->Doğrudan kimlik doğrulama için yalnızca bulutta Azure oturum açma işlemek olmayan AD kullanıcıları.
+>Geçişli kimlik doğrulaması oturum açma işlemek değil için yalnızca bulutta yer alan Azure AD kullanıcıları.
 
-## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Doğrudan kimlik doğrulaması bir Çoklu orman Active Directory ortamında kullanabilir miyim?
+## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Çok ormanlı Active Directory ortamında geçişli kimlik doğrulaması kullanabilir miyim?
 
-Evet. Birden çok orman ortamlarına Active Directory ormanlar arasında orman güvenleri varsa desteklenir ve ad soneki yönlendirmesi doğru yapılandırılmışsa.
+Evet. Çok ormanlı ortamları, Active Directory ormanlarınız arasında orman güveni varsa desteklenir ve ad soneki yönlendirme doğru şekilde yapılandırıldıysa.
 
-## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Yüklemek doğrudan kimlik doğrulama aracı gerekiyor mu?
+## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Yükleme kaç geçişli kimlik doğrulama aracılarının gerekiyor?
 
-Birden çok doğrudan kimlik doğrulama aracı yükleme sağlar [yüksek kullanılabilirlik](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Ancak, belirleyici Yük Dengeleme arasında kimlik doğrulaması aracıları sağlamaz.
+Birden fazla geçişli kimlik doğrulama aracılarının yüklenmesi sağlar [yüksek kullanılabilirlik](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Ancak, kimlik doğrulama aracılarının arasında belirleyici dengelemeyi sağlamaz.
 
-En yüksek ve Kiracı'görmeyi beklediğiniz oturum açma isteklerinin ortalama yük göz önünde bulundurun. Bir kıyaslama tek bir kimlik doğrulama Aracısı 300-400 kimlik doğrulamaları standart bir 4 çekirdekli CPU, 16 GB RAM sunucu saniye başına işleyebilir.
+Kiracınızda görmeyi beklediğiniz oturum açma isteklerinin ortalama yük ve yoğun göz önünde bulundurun. Bir ölçüt tek bir kimlik doğrulama Aracısı ikinci bir standart bir 4 çekirdekli CPU, 16 GB RAM sunucu kimlik doğrulama işlemi 300-400 başa çıkabilir.
 
-Ağ trafiği tahmin etmek için aşağıdaki boyutlandırma kılavuzluğu kullanın:
-- Her istek bir yükü boyutu vardır (0.5K + 1 K * num_of_agents) bayt; yani, verileri Azure AD kimlik doğrulama aracısı için. Burada, "num_of_agents" Kiracı'kimlik doğrulama aracı sayısı kayıtlı belirtir.
-- Her yanıtı yükü boyutu 1 K bayt; yine de sahip istiyor musunuz? yani, verileri kimlik doğrulama Aracısı Azure ad.
+Ağ trafiğini tahmin etmek için aşağıdaki boyutlandırma yönergeleri kullanın:
+- Her isteğin yükünün boyutuna sahip (0.5K + 1 K * num_of_agents) bayt; yani, verileri Azure ad kimlik doğrulama Aracısı. Burada, kimlik doğrulama aracılarının sayısını kiracınızda kayıtlı "num_of_agents" gösterir.
+- Her yanıt yükü boyut olan 1 K bayta sahip; Azure AD'ye başka bir deyişle, veriler kimlik doğrulaması Aracısı'ndan.
 
-Çoğu müşteri için iki veya üç kimlik doğrulama Aracısı toplam, yüksek kullanılabilirlik ve kapasite için yeterlidir. Oturum açma gecikme süresini artırmak için etki alanı denetleyicileriniz yakın kimlik doğrulama aracısı yüklemeniz gerekir.
+Çoğu müşteri için toplam iki veya üç kimlik doğrulama aracılarının, yüksek kullanılabilirlik ve kapasite için yeterlidir. Oturum açma gecikme süresini iyileştirmek için etki alanı denetleyicilerinizin yakın kimlik doğrulama aracılarının yüklemeniz gerekir.
 
 >[!NOTE]
->Kiracı başına 12 kimlik doğrulaması aracıların sistem sınırı yoktur.
+>Kiracı başına 12 kimlik doğrulama aracılarının sistem sınırı yoktur.
 
-## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Azure AD Connect çalıştıran biri başka bir sunucuda ilk doğrudan kimlik doğrulama aracısı yükleyebilir miyim?
+## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Azure AD Connect'i çalıştıran farklı bir sunucuda ilk geçişli kimlik doğrulaması Aracısı yükleyebilirim?
 
-Hayır, bu senaryo olan _değil_ desteklenir.
+Hayır, bu senaryo kullanılabilir _değil_ desteklenir.
 
-## <a name="how-can-i-disable-pass-through-authentication"></a>Doğrudan kimlik doğrulama nasıl devre dışı bırakabilirim?
+## <a name="how-can-i-disable-pass-through-authentication"></a>Geçişli kimlik doğrulaması nasıl devre dışı bırakabilirim?
 
-Azure AD Connect Sihirbazı'nı yeniden çalıştırın ve oturum açma kullanıcı yöntemi olarak başka bir yönteme doğrudan kimlik doğrulamasını değiştirin. Bu değişiklik, Kiracı'geçişli kimlik doğrulaması devre dışı bırakır ve kimlik doğrulama sunucusundan kaldırır. Diğer sunucularda kimlik doğrulaması aracıları el ile kaldırmanız gerekir.
+Azure AD Connect Sihirbazı'nı yeniden çalıştırın ve kullanıcı oturum açma yöntemi, başka bir yönteme geçişli kimlik doğrulamasını değiştirin. Bu değişiklik, kiracıda geçişli kimlik doğrulaması devre dışı bırakır ve kimlik doğrulama Aracısı sunucudan kaldırır. Kimlik doğrulama aracılarının diğer sunuculardan el ile kaldırmanız gerekir.
 
-## <a name="what-happens-when-i-uninstall-a-pass-through-authentication-agent"></a>Doğrudan kimlik doğrulama Aracısı kaldırdığınızda ne olur?
+## <a name="what-happens-when-i-uninstall-a-pass-through-authentication-agent"></a>Geçişli kimlik doğrulaması Aracısı kaldırabilirim ne olur?
 
-Bir sunucudan doğrudan kimlik doğrulama aracısını kaldırırsanız, sunucunun oturum açma istekleri kabul etmeyi durdurmasına neden olur. Kiracı'oturum açma kullanıcı özelliği çiğnemekten önlemek için doğrudan kimlik doğrulama Aracısı kaldırmadan önce başka bir kimlik doğrulama Aracısı çalıştıran sahip emin olun.
+Geçişli kimlik doğrulaması Aracısı bir sunucudan kaldırırsanız, sunucunun oturum açma istekleri kabul etmeyi durdurmasına neden olur. Kiracınızda oturum açma kullanıcı özelliği bozmayı önlemek için geçişli kimlik doğrulaması Aracısı kaldırmadan önce başka bir kimlik doğrulama Aracısı çalıştıran sahip olun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Geçerli sınırlamalar](active-directory-aadconnect-pass-through-authentication-current-limitations.md): hangi senaryoları desteklenir ve hangilerinin olmayan öğrenin.
-- [Hızlı Başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md): Azure AD doğrudan kimlik doğrulamasını başlamak ve çalıştırmak.
-- [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md): kullanıcı hesapları korumak için Kiracı akıllı kilitleme özelliği yapılandırmayı öğrenin.
-- [Teknik derinlemesine](active-directory-aadconnect-pass-through-authentication-how-it-works.md): doğrudan kimlik doğrulaması özelliğinin nasıl çalıştığını anlayın.
-- [Sorun giderme](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): doğrudan kimlik doğrulama özelliği ile ortak sorunları çözmeyi öğrenin.
-- [Güvenlik derinlemesine](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): doğrudan kimlik doğrulama özelliği hakkında ayrıntılı teknik bilgi alın.
-- [Azure AD sorunsuz SSO](active-directory-aadconnect-sso.md): tamamlayıcı bu özellik hakkında daha fazla bilgi edinin.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): yeni özellik istekleri dosya için Azure Active Directory Forumu kullanın.
+- [Geçerli sınırlamalar](active-directory-aadconnect-pass-through-authentication-current-limitations.md): hangi senaryolar desteklenir ve hangilerinin olmayan öğrenin.
+- [Hızlı Başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md): Azure AD geçişli kimlik doğrulaması ve çalışır duruma getirin.
+- [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md): kullanıcı hesapları korumak için kiracınızda akıllı kilitleme özelliğini yapılandırma hakkında bilgi edinin.
+- [Teknik yakından bakışın](active-directory-aadconnect-pass-through-authentication-how-it-works.md): geçişli kimlik doğrulaması özelliği nasıl çalıştığını anlayın.
+- [Sorun giderme](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): geçişli kimlik doğrulaması özelliği ile ortak sorunları çözmeyi öğrenin.
+- [Güvenliğe derinlemesine bakış](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): geçişli kimlik doğrulaması özelliği hakkında ayrıntılı teknik bilgi alın.
+- [Azure AD sorunsuz çoklu oturum açma](active-directory-aadconnect-sso.md): tamamlayıcı bu özellik hakkında daha fazla bilgi edinin.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): dosya yeni özellik istekleri için Azure Active Directory Forumu kullanın.
 

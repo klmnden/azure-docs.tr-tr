@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 33208f09c148a9717825b68d65167db8865cc6ce
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 9f0d0b9732b2af36a0411329cede01a9b8cc8efc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869067"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920823"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
-> Abone olarak Azure Active Directory (Azure AD) Yenilikler ile güncel kalın [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [akış](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+> Abone olarak güncelleştirmeler için bu sayfayı yeniden ziyaret etmeniz ne zaman hakkında bildirim almak [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [akış](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 Azure AD iyileştirmeleri düzenli olarak alır. İle en son gelişmeleri güncel kalmak için bu makalede, ile hakkında bilgi sağlar:
 
--   En son sürümleri
--   Bilinen sorunlar
--   Hata düzeltmeleri
--   Kullanım dışı işlev
--   Değişiklikleri planları
+- En son sürümleri
+- Bilinen sorunlar
+- Hata düzeltmeleri
+- Kullanım dışı işlev
+- Değişiklikleri planları
 
 Bu sayfaya ay güncelleştirilir, böylece bunu düzenli olarak tekrar ziyaret.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: 530cc9a9dcfdd37253883aae9aa921600aa45c04
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 02a790907908daf2db282a320f50d3a27efbd177
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908794"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917195"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-visual-studio-team-services-vsts"></a>Contoso geçiş: Team Foundation Server dağıtımı Visual Studio Team Services (VSTS) için yeniden düzenleme
 
@@ -278,7 +278,7 @@ Başlamadan önce Contoso bir yerel SQL Server Yedekleme ve TFS sunucusu VMware 
     ![Geçiş](./media/contoso-migration-tfs-vsts/migrate7.png)
 
 
-## <a name="generate-a-dacpac"></a>DACPAC oluştur
+### <a name="generate-a-dacpac"></a>DACPAC oluştur
 
 Contoso, VSTS'na aktarma için bir yedek (DACPAC) oluşturur.
 

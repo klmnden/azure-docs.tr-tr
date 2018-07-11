@@ -1,5 +1,5 @@
 ---
-title: LUIS anahtarlarınızı yönetme | Microsoft Docs
+title: LUIS uç nokta anahtarlarınızı yönetme | Microsoft Docs
 description: Language Understanding (LUIS), programlı bir API uç noktası ve dış anahtarları yönetmek için kullanın.
 titleSuffix: Azure
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 99ba867b10c82d226948b13fda448cd24a33c553
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 288c1456979ff9214b2f333768da65bd3da1a734
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888737"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917804"
 ---
-# <a name="manage-your-luis-keys"></a>LUIS anahtarlarınızı yönetme
+# <a name="manage-your-luis-endpoint-keys"></a>LUIS uç nokta anahtarlarınızı yönetme
 Bir anahtar, yazar ve LUIS uygulamanızı yayımlayın veya uç noktanızı sorgu olanak tanır. 
 
 <a name="programmatic-key" ></a>

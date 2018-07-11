@@ -8,16 +8,16 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1b5caf199cd5bfe0fa462950cc1f7beb3f2872b2
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 8a1565b3816f2c6597ac941ac9a0ac48bc2c7bb7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887615"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915716"
 ---
-# <a name="manage-your-luis-account"></a>LUIS hesabınızı yönetme
+# <a name="manage-account-and-authoring-key"></a>Hesabı ve anahtarı yazma yönetme
 İki anahtar bilgi HLUIShesabı için kullanıcı hesabı ve geliştirme anahtar parçalarıdır. Oturum açma bilgilerini, yönetilen [account.microsoft.com](https://account.microsoft.com). Yazma anahtarınızı yönetilen engelle [LUIS](luis-reference-regions.md) Web sitesi **ayarları** sayfası. 
 
 ## <a name="authoring-key"></a>Anahtar yazma

@@ -1,130 +1,130 @@
 ---
-title: Azure sanal makinesi olağanüstü durum kurtarma ile ExpressRoute kullanarak | Microsoft Docs
-description: Azure ExpressRoute, Azure Site Recovery ile Azure sanal makinesi olağanüstü durum kurtarma için kullanılacak açıklar
+title: Azure sanal makine olağanüstü durum kurtarma ile ExpressRoute kullanılarak | Microsoft Docs
+description: Azure ExpressRoute, Azure Site Recovery ile Azure sanal makine olağanüstü durum kurtarma için kullanmayı açıklar
 services: site-recovery
 documentationcenter: ''
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 44ecbcc51cb53f4d7b68f5c5e24e7d81c5a4208c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 73514b524f554affb9730ba63ccd608491497af2
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071596"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920479"
 ---
-# <a name="using-expressroute-with-azure-virtual-machine-disaster-recovery"></a>Azure sanal makinesi olağanüstü durum kurtarma ile ExpressRoute kullanma
+# <a name="using-expressroute-with-azure-virtual-machine-disaster-recovery"></a>Azure sanal makine olağanüstü durum kurtarma ile ExpressRoute kullanılarak
 
-Microsoft Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan özel bağlantı üzerinden şirket içi ağlarınızı Microsoft bulutuna genişletmenizi sağlar. Bu makalede nasıl ExpressRoute Site Recovery ile Azure sanal makinelerin olağanüstü durum kurtarma için kullanabileceğiniz açıklanır.
+Microsoft Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan özel bağlantı üzerinden şirket içi ağlarınızı Microsoft bulutuna genişletmenizi sağlar. Bu makalede nasıl ExpressRoute Site Recovery ile Azure sanal makineleri olağanüstü durum kurtarma için kullanabileceğiniz açıklanır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce anladığınızdan emin olun:
--   ExpressRoute [bağlantı hatları](../expressroute/expressroute-circuit-peerings.md)
+-   ExpressRoute [devreler](../expressroute/expressroute-circuit-peerings.md)
 -   ExpressRoute [Yönlendirme etki alanları](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains)
--   Azure sanal makinesi [çoğaltma mimarisi](azure-to-azure-architecture.md)
--   [Çoğaltma ayarı](azure-to-azure-tutorial-enable-replication.md) Azure sanal makineleri için
--   [Devretmek](azure-to-azure-tutorial-failover-failback.md) Azure sanal makineler
+-   Azure sanal makine [çoğaltma mimarisi](azure-to-azure-architecture.md)
+-   [Çoğaltma ayarlandıktan](azure-to-azure-tutorial-enable-replication.md) Azure sanal makineleri için
+-   [Yük devretmeyi](azure-to-azure-tutorial-failover-failback.md) Azure sanal makineleri
 
 ## <a name="expressroute-and-azure-virtual-machine-replication"></a>ExpressRoute ve Azure sanal makine çoğaltma
 
-Site Recovery ile Azure sanal makineleri korurken, çoğaltma verilerinin bir Azure depolama hesabı ya da çoğaltma hedef yönetilen diskte mi kullanın, Azure sanal makineleri bağlı olarak Azure bölgesi gönderilir [Azure yönetilen diskleri](../virtual-machines/windows/managed-disks-overview.md). Çoğaltma uç noktaları ortak olsa da, varsayılan olarak, Azure VM çoğaltma için çoğaltma trafiğini bağımsız olarak Azure bölgesi kaynak sanal ağ içinde bulunduğu Internet'e erişmez.
+Site Recovery ile Azure sanal makineleri korurken, çoğaltma verileri bir Azure depolama hesabı veya çoğaltma hedef yönetilen Disk olup kullanın, Azure sanal makineleri bağlı olarak bir Azure bölgesine gönderilen [Azure yönetilen diskler](../virtual-machines/windows/managed-disks-overview.md). Çoğaltma uç noktaları ortak olsa da, varsayılan olarak, Azure VM çoğaltma için çoğaltma trafiğini Internet bağımsız olarak Azure bölgesi kaynak sanal ağ içinde bulunduğu erişmez.
 
-Çoğaltma verilerini Azure sınır bırakmaz gibi Azure VM olağanüstü durum kurtarma için ExpressRoute çoğaltma için gerekli değildir. Sanal makineler hedef Azure bölgesi yük devri sonra bunları erişebilirsiniz kullanarak [özel eşleme](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Çoğaltma verilerini Azure sınır bırakmaz gibi Azure VM'LERİNDE olağanüstü durum kurtarma için ExpressRoute çoğaltma için gerekli değildir. Sanal makineler üzerinde hedef Azure bölgesi başarısız olduktan sonra bunları erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
 
-## <a name="replicating-azure-deployments"></a>Çoğaltılan Azure dağıtımları
+## <a name="replicating-azure-deployments"></a>Azure dağıtımları çoğaltılıyor
 
-Daha önceki bir [makale](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity), basit bir kurulum bir Azure sanal ağı bağlı müşteri şirket içi veri merkezine ExpressRoute aracılığıyla açıklanan. Tipik kurumsal dağıtımlar birden fazla Azure sanal ağlar arasında bölme iş yükleri vardır ve bir merkezi bağlantı hub'ı hem internet hem de şirket içi dağıtımlar için harici bağlantı kurar.
+Bir önceki [makale](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity), müşterinin şirket içi veri merkezine ExpressRoute aracılığıyla Azure sanal ağına bağlı bir basit bir kurulumla açıklanmaktadır. Tipik kurumsal dağıtımlar sahip iş yükleri birden fazla Azure sanal ağları arasında bölmek ve merkezi bağlantı hub hem internet hem de şirket içi dağıtımlar için dış bağlantı kurar.
 
-Bu örnekte, kuruluş dağıtımlarında ortak olan bir hub ve bağlı bileşen topolojisi açıklanmaktadır:
--   Dağıtım bulunduğu **Azure Doğu Asya** bölge ve şirket içi veri merkezi Hong Kong, iş ortağı ucu aracılığıyla ExpressRoute bağlantı hattı bağlantısı vardır.
--   Uygulamalar, iki bağlı sanal ağlar arasında – dağıtıldığı **kaynak VNet1** adres alanı 10.1.0.0/24 ile ve **kaynak vnet2'yi** adres alanı 10.2.0.0/24 ile.
--   Hub sanal ağ **kaynak Hub VNet**, adres alanıyla 10.10.10.0/24 ağ geçidi davranır. Alt ağlar arasında tüm iletişimi hub'ı aracılığıyla gider.
--   Hub sanal ağı iki alt – sahiptir **NVA alt** adres alanı 10.10.10.0/25 ile ve **ağ geçidi alt ağı** adres alanı 10.10.10.128/25 ile.
--   **NVA alt** 10.10.10.10 IP adresiyle bir ağ sanal gereç sahiptir.
--   **Ağ geçidi alt ağı** özel eşleme Yönlendirme etki alanı ile müşterinin şirket içi veri merkezine yönlendiren bir ExpressRoute bağlantı bağlı olan bir ExpressRoute ağ geçidi.
--   Her bağlı sanal ağ hub sanal ağa bağlı ve bu ağ topolojisi kapsamındaki tüm yönlendirme Azure yol tabloları (UDR) aracılığıyla denetlenir. Giden tüm trafiği bir vnet'ten diğer vnet'e veya şirket içi veri merkezine NVA yönlendirilir.
+Bu örnekte, Kurumsal dağıtımlarında ortak olan bir hub ve bağlı bileşen topolojisi açıklanmaktadır:
+-   Dağıtımı **Azure Doğu Asya** bölge ve şirket içi veri Merkezinize Hong Kong iş ortağı edge'de aracılığıyla bir ExpressRoute bağlantı hattı bağlantısı vardır.
+-   Uygulamaları iki uç sanal ağlarda – dağıtılan **kaynak VNet1** adres alanı 10.1.0.0/24 ile ve **kaynak vnet2'den** adres alanı 10.2.0.0/24 ile.
+-   Hub sanal ağı **kaynak Hub VNet**, adres alanıyla 10.10.10.0/24 ağ geçidi davranır. Alt ağlar arasındaki tüm iletişimi hub'ı aracılığıyla gider.
+-   Hub sanal ağı iki alt ağa – sahip **NVA alt ağı** adres alanı 10.10.10.0/25 ile ve **ağ geçidi alt ağı** adres alanı 10.10.10.128/25 ile.
+-   **NVA alt ağı** 10.10.10.10 IP adresiyle bir ağ sanal gereci sahiptir.
+-   **Ağ geçidi alt ağı** yönlendiren bir özel eşdüzey hizmet sağlama Yönlendirme etki alanı aracılığıyla müşteri şirket içi bir veri merkezine ExpressRoute bağlantısı için bir ExpressRoute ağ geçidi bağlı sahiptir.
+-   Her bir uç sanal ağ merkez sanal ağa bağlandığından ve bu ağ topolojisi kapsamındaki tüm yönlendirme Azure rota tabloları (UDR) aracılığıyla denetlenir. Tüm giden trafiği bir sanal ağı diğer sanal ağa veya şirket içi veri merkezine NVA üzerinden yönlendirilir.
 
-![Şirket içi-Azure'a yük devretme önce ExpressRoute ile](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
+![Şirket içi-Azure'a yük Devretmeden önce ExpressRoute ile](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
 
 ### <a name="hub-and-spoke-peering"></a>Hub ve bağlı bileşen eşleme
 
-Hub eşliği için bağlı bileşen yapılandırması aşağıdaki gibidir:
+Hub eşlemesi için uç yapılandırması aşağıdaki gibidir:
 -   Sanal ağ adresi izin ver: etkin
--   İletilen trafiğe izin: etkin
--   Ağ geçidi transit izin ver: devre dışı
+-   İletilen trafiğe izin verecek: etkin
+-   Ağ geçidi aktarımına izin ver: devre dışı
 -   Ağ geçitleri kaldırmak: etkin
 
- ![Hub eşleme yapılandırmasını bağlı bileşen](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
+ ![Hub için eşleme yapılandırma uç](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
-Hub'ın eşlemesi bağlı bileşen yapılandırması aşağıdaki gibidir:
+Eşleme uç için hub'ı aşağıdaki yapılandırmaya sahip:
 -   Sanal ağ adresi izin ver: etkin
--   İletilen trafiğe izin: etkin
--   Ağ geçidi transit izin ver: etkin
+-   İletilen trafiğe izin verecek: etkin
+-   Ağ geçidi aktarımına izin ver: etkin
 -   Ağ geçitleri kaldırmak: devre dışı
 
- ![Hub'ın eşleme yapılandırmasını bağlı bileşen](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
+ ![Hub'ı uç eşleme yapılandırması](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 
 ### <a name="enabling-replication-for-the-deployment"></a>Dağıtım için çoğaltmayı etkinleştirme
 
-Yukarıdaki kurulumu için ilk [olağanüstü durum kurtarma ayarlamak](azure-to-azure-tutorial-enable-replication.md) Site RECOVERY'yi kullanarak her bir sanal makine için. Site Recovery, çoğaltma üzerinde hedef bölgesi (alt ağlar ve ağ geçidi alt ağları dahil) sanal ağlar oluşturmak ve kaynak ve hedef sanal ağlar arasında gerekli eşlemeleri oluşturma. Ayrıca, hedef tarafı ağları ve alt ağlar önceden oluşturabilir ve aynı çoğaltma etkinleştirirken kullanın.
+Yukarıdaki kurulumu için ilk [olağanüstü durum kurtarma ayarlama](azure-to-azure-tutorial-enable-replication.md) Site Recovery kullanarak tüm sanal makineleri için. Site Recovery, çoğaltma üzerinde hedef bölge (alt ağlar ve ağ geçidi alt ağları dahil) sanal ağlar oluşturma ve kaynak ve hedef sanal ağlar arasında gerekli eşlemeler oluşturun. Ayrıca, hedef tarafı ağlar ve alt ağlar önceden oluşturabilir ve aynı çoğaltmayı etkinleştirirken kullanabilirsiniz.
 
-Site Recovery, yol tablolarını, sanal ağ geçitlerini, sanal ağ geçidi bağlantıları, sanal ağ eşlemesi, veya herhangi diğer ağ kaynaklarına veya bağlantıları yinelemez. Bunlar ve diğer kaynakların parçası [çoğaltma işlemi](azure-to-azure-architecture.md#replication-process) sırasında veya yük devretme önce oluşturulan ve ilgili kaynaklarına bağlı olması gerekir. Azure Site Recovery'nin güçlü kullanabilirsiniz [kurtarma planlarına](site-recovery-create-recovery-plans.md) oluşturma ve ek kaynaklar Otomasyon betikleri kullanarak bağlanma otomatik hale getirmek için.
+Site Recovery, rota tabloları, sanal ağ geçitleri, sanal ağ geçidi bağlantısı, sanal ağ eşlemesi, veya tüm diğer ağ kaynakları veya bağlantıları çoğaltmaz. Bu ve diğer kaynakların parçası [çoğaltma işlemi](azure-to-azure-architecture.md#replication-process) sırasında ya da yük devretmeden önce oluşturulan ve ilgili kaynaklara bağlı gerekir. Azure Site Recovery'nin güçlü kullanabileceğiniz [kurtarma planları](site-recovery-create-recovery-plans.md) oluşturma ve ek kaynaklar Otomasyon betikleri kullanarak bağlanma otomatik hale getirmek için.
 
-Varsayılan olarak, çoğaltma trafiği Azure sınır bırakmaz. Genellikle, NVA dağıtımları NVA giden Internet akışına zorlar varsayılan yol (0.0.0.0/0) tanımlayın. Tüm çoğaltma trafiği NVA geçerse bu durumda, Gereci kısıtlanan. Aynı Ayrıca varsayılan yolların şirket dağıtımları için tüm Azure VM trafik yönlendirme için kullanıldığında uygulanır. Öneririz [bir sanal ağ hizmeti uç noktası oluşturulurken](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) , sanal ağ "Depolama için" böylece çoğaltma trafiğini Azure sınır bırakmaz.
+Varsayılan olarak, çoğaltma trafiğini Azure sınır bırakmaz. Genellikle, NVA dağıtımları da NVA üzerinden akmasını giden Internet trafiğini zorlar varsayılan yolun (0.0.0.0/0) tanımlayın. Tüm çoğaltma trafiğinin NVA üzerinden geçiyorsa bu durumda, gereç kısıtlanmazsınız. Aynı de şirket içi dağıtımlar için tüm Azure VM trafik yönlendirme için varsayılan yollar kullanılırken geçerlidir. Öneririz [bir sanal ağ hizmet uç noktası oluşturma](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) , sanal ağ için "depolama" böylece çoğaltma trafiğini Azure sınır bırakmaz.
 
 ## <a name="failover-models-with-expressroute"></a>ExpressRoute ile yük devretme modelleri
 
-Azure sanal makineleri farklı bir bölgeye yük devredildi, mevcut kaynak sanal ağ ExpressRoute bağlantısı otomatik olarak hedef sanal ağ üzerinde kurtarma bölge aktarılmaz. Yeni bir bağlantı, ExpressRoute hedef sanal ağa bağlanmak için gereklidir.
+Azure sanal makineleri farklı bir bölgeye yük devredildi, mevcut bir ExpressRoute bağlantısı kaynak sanal ağ için otomatik olarak hedef sanal ağ ile kurtarma bölgesinde aktarılmaz. Yeni bir bağlantı, ExpressRoute hedef sanal ağa bağlanmak için gereklidir.
 
-Ayrıntılı olarak aynı coğrafi kümedeki herhangi bir Azure bölgesine Azure sanal makineleri çoğaltabilirsiniz [burada](azure-to-azure-support-matrix.md#region-support). Seçilen hedef Azure bölgesi kaynağı olarak aynı coğrafi bölge içindeki değilse, kaynak ve hedef bölgesini bağlantısı için tek bir expressroute bağlantı hattı kullanıyorsanız, ExpressRoute Premium etkinleştirmeniz gerekir. Daha fazla ayrıntı için [ExpressRoute konumları](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) ve [ExpressRoute fiyatlandırma](https://azure.microsoft.com/pricing/details/expressroute/).
+Herhangi bir Azure bölgesine ayrıntılı olarak aynı coğrafi kümedeki Azure sanal makinelerini çoğaltma [burada](azure-to-azure-support-matrix.md#region-support). Seçtiğiniz hedef Azure bölgesi aynı jeopolitik bölgede kaynağı olarak içinde değilse, kaynak ve hedef bölge bağlantısını için tek bir ExpressRoute bağlantı hattı kullanıyorsanız, ExpressRoute Premium etkinleştirmeniz gerekir. Daha fazla ayrıntı için denetleyin [ExpressRoute konumları](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) ve [ExpressRoute fiyatlandırması](https://azure.microsoft.com/pricing/details/expressroute/).
 
-### <a name="two-expressroute-circuits-in-two-different-expressroute-peering-locations"></a>İki farklı konumlarda ExpressRoute eşleme iki ExpressRoute bağlantı hatları
--   Bu yapılandırma, birincil expressroute bağlantı hattı arızasına karşı ve ayrıca ExpressRoute eşleme konumlarına etkisi ve birincil expressroute bağlantı hattı kesintiye büyük ölçekli bölgesel afetler karşı güvence altına almaya istiyorsanız yararlıdır.
--   Normalde üretim ortamına bağlı hattı birincil hattı ve ikincil hattı olduğu gibi bir hatasız ve daha düşük bant genişliği genellikle kullanılır. Bant genişliğini ikincil ikincil birincil olarak gerekir zaman bir olağanüstü durum olayı artırılabilir.
--   Bu yapılandırma ile genel kurtarma zamanı azaltır, ikincil bir expressroute bağlantı hattı bağlantılardan hedef sanal ağ için yük devretme sonrası veya yerleşik ve olağanüstü durum bildirimi için hazır bağlantınız kurabilirsiniz. Hem birincil hem de eşzamanlı bağlantıların ve hedef bölgesini sanal ağlar ile yönlendirme şirket içi ikincil hattı ve yalnızca yük devretme sonrasında bağlantı kullandığından emin olmak.
--   Site Recovery ile korunan VM'ler için kaynak ve hedef sanal ağlar aynı veya farklı IP adreslerini, gereksinimi başına yük devretme sırasında olabilir. Her iki durumda da, yük devretme öncesinde ikincil bağlantıları kurulabilir.
+### <a name="two-expressroute-circuits-in-two-different-expressroute-peering-locations"></a>İki farklı ExpressRoute eşleme konumlarına iki ExpressRoute işlem hatları
+-   Bu yapılandırma, birincil ExpressRoute bağlantı hattının hataya karşı ve ayrıca ExpressRoute eşleme konumlarına etkiler ve birincil ExpressRoute devreniz kesintiye büyük ölçekli bölgesel felaketlere karşı sağlamak istiyorsanız kullanışlıdır.
+-   Normalde üretim ortamına bağlı devre devrenin birincil ve ikincil bağlantı hattını bir hatasız ve genellikle daha düşük bant genişliği kullanılır. İkincil bant genişliği, ikincil birincil devraldığınız gerekir zaman bir olağanüstü durum olayına artırılabilir.
+-   Bu yapılandırma ile genel kurtarma zamanı azaltır ikincil ExpressRoute devreniz bağlantılardan hedef sanal ağ için yük devretme sonrası veya bağlantı kurulu ve bir olağanüstü durum bildirimi için hazır kurabilirsiniz. Hem birincil hem de eşzamanlı bağlantı ve hedef bölge sanal ağları ile şirket yönlendirme içi bağlantı yalnızca yük devretme işleminden sonra ve ikincil bağlantı hattını kullandığından emin olmak.
+-   Site Recovery ile korunan VM'ler için kaynak ve hedef sanal ağlar, gereksinim başına yük devretme sırasında aynı veya farklı IP adresi olabilir. Her iki durumda da, yük devretme öncesinde ikincil bağlantı kurulabilir.
 
-### <a name="two-expressroute-circuits-in-the-same-expressroute-peering-location"></a>İki ExpressRoute bağlantı hatları ile aynı konumda ExpressRoute eşleme
--   Bu yapılandırma, birincil expressroute bağlantı hattı hatasına karşı güvence altına, ancak büyük ölçekli bölgesel afetler karşı ExpressRoute eşleme konumlarına etkileyebilir değil. İkinci ile birincil ve ikincil devreler etkilenmiş.
--   IP adresleri ve bağlantıları için başka koşullar ile aynı önceki durumda kalır. Eşzamanlı bağlantılarından şirket içi veri merkezi birincil bağlantı hattı ile sanal ağ kaynak ve hedef sanal ağ ikincil hattı ile olabilir. Hem birincil hem de eşzamanlı bağlantıların ve hedef bölgesini sanal ağlar ile yönlendirme şirket içi ikincil hattı ve yalnızca yük devretme sonrasında bağlantı kullandığından emin olmak.
--   Aynı eşleme konumunda devreler oluşturduğunuzda aynı sanal ağa her iki bağlantı hatları bağlanamıyor.
+### <a name="two-expressroute-circuits-in-the-same-expressroute-peering-location"></a>İki ExpressRoute bağlantı hatları ile aynı konumda ExpressRoute eşlemesi
+-   Bu yapılandırma, birincil ExpressRoute devresinin hatasına karşı güvence, ancak büyük ölçekli bölgesel felaketlere karşı ExpressRoute eşleme konumlarına etkileyebilir değil. İkinci ile birincil ve ikincil devreler etkilenmiş.
+-   Diğer koşulları IP adresleri ve bağlantı için önceki durum'içinde aynı kalır. Eşzamanlı bağlantı şirket içi veri merkezinden birincil bağlantı hattını sanal ağla kaynak ve hedef sanal ağı ikincil bağlantı hattını ile olabilir. Hem birincil hem de eşzamanlı bağlantı ve hedef bölge sanal ağları ile şirket yönlendirme içi bağlantı yalnızca yük devretme işleminden sonra ve ikincil bağlantı hattını kullandığından emin olmak.
+-   Eşleme aynı konumda devreler oluşturulduğunda her iki bağlantı hatları aynı sanal ağa bağlanamıyor.
 
-### <a name="single-expressroute-circuit"></a>Tek bir expressroute bağlantı hattı
--   Bu yapılandırma ExpressRoute eşleme konumu etkileyen bir büyük ölçekli bölgesel afet karşı güvence altına değil.
--   Tek bir expressroute bağlantı hattı ile kaynağına bağlanmak ve aynı IP adresi alanı hedef bölgesi üzerinde kullanılırsa, aynı anda bağlantı hattı için sanal ağlar hedef.
--   Aynı IP adresi alanı hedef bölgesi üzerinde kullanıldığında, kaynak tarafı bağlantı kesilmesi gerekir ve bundan sonra hedef tarafı bağlantı kuruldu. Bu bağlantı değişiklik kurtarma planının bir parçası betiği yazılabilir.
--   Birincil bölge erişilemiyorsa bölgesel bir hata, bağlantıyı kesme işlemi başarısız olabilir. Hedef sanal ağda aynı IP adresi alanı kullanıldığında, bu tür bir kesinti bağlantı oluşturma hedef bölgeye etkileyebilir.
--   İki eşzamanlı bağlantı aynı adres alanına bağlanmaya çalışırsanız hedefte bağlantı oluşturma işlemi başarılı olur ve daha sonra birincil bölge kurtarır, paket düşme karşılaşıyor. Paket düşme önlemek için birincil bağlantı hemen sonlandırılmalıdır. Birincil bağlantı can yeniden birincil bölge için sanal makinelerin POST geri dönme ikincil bağlantıyı kesmeden sonra kurulabilir.
--   Farklı bir adres alanı hedef sanal ağda kullanılırsa, ardından aynı anda kaynağına bağlanabilir ve sanal ağ aynı expressroute bağlantı hattı bağlantılarını hedef.
+### <a name="single-expressroute-circuit"></a>Tek bir ExpressRoute bağlantı hattı
+-   Bu yapılandırma, hangi ExpressRoute eşleme konumu etkileyebilecek büyük ölçekli bölgesel bir olağanüstü durum karşı Sigortası değil.
+-   Tek bir ExpressRoute bağlantı hattıyla, kaynağına bağlanmak ve sanal ağlar aynı anda bağlantı hattı için hedef olarak aynı IP adresi alanı üzerinde hedef bölge kullanılır.
+-   Aynı IP adresi alanına hedef bölge üzerinde kullanıldığında, kaynak tarafı bağlantı kesilmesi gerekir ve bundan sonra hedef tarafı bağlantı kuruldu. Bu bağlantı değişiklik kurtarma planının bir parçası yazılabilir.
+-   Birincil bölge erişilemiyorsa, bölgesel bir hata, bağlantıyı kesme işlemi başarısız olabilir. Hedef sanal ağda aynı IP adresi alanı kullanıldığında böyle bir kesinti bağlantı oluşturma için hedef bölgede etkileyebilir.
+-   İki eşzamanlı bağlantı aynı adres alanına bağlanmaya çalışırsanız hedefte bağlantı oluşturma işlemi başarılı olur ve daha sonra birincil bölgeye kurtarır, paket düşme karşılaşabileceği. Paket bir bırakılanlar önlemek için birincil bağlantı hemen sonlandırılmalıdır. İkincil bağlantı bağlantısını kestikten sonra birincil bölgeye, birincil bağlantı can yeniden sanal makinelerin sonrası yeniden çalışma kurulabilir.
+-   Hedef sanal ağdaki farklı bir adres alanı kullanılır yaparsanız, ardından aynı anda kaynağına bağlanmak ve hedef aynı ExpressRoute bağlantı hattına sanal ağları.
 
 ## <a name="recovering-azure-deployments"></a>Azure dağıtımları kurtarma
-İki farklı eşleme konumları ve korumalı Azure sanal makinelerin özel IP adreslerinin bekletme farklı iki ExpressRoute bağlantı hatları ile yük devretme modeli göz önünde bulundurun. Azure Güneydoğu Asya hedef kurtarma bölgedir ve ikincil bir ExpressRoute bağlantı hattı bağlantı Singapur bir iş ortağı edge'de üzerinden kurulur.
+İki farklı eşleme konumları ve korumalı Azure sanal makineleri için özel IP adreslerinin bekletme farklı iki ExpressRoute bağlantı hatları ile yük devretme modeli göz önünde bulundurun. Hedef kurtarma bölgedir Azure Güneydoğu Asya ve bir iş ortağı uç Singapur aracılığıyla ikincil bir ExpressRoute bağlantı hattı bağlantı kurulur.
 
-Sanal makineler ve sanal ağlar, çoğaltma ek olarak tüm dağıtımın kurtarma otomatikleştirmek için diğer ilgili ağ kaynakları ve bağlantıları da oluşturulması gerekir. Önceki hub ve bağlı bileşen topolojisi aşağıdaki ek ağ için adımları sırasında veya sonrasında yapılması gereken [yük devretme](azure-to-azure-tutorial-failover-failback.md) işlemi:
-1.  Azure ExpressRoute ağ geçidi hedef bölge hub sanal ağ oluşturun. ExpressRoute ağ geçidini expressroute bağlantı hattı hedef hub sanal ağa bağlanmak için gereklidir.
-2.  Sanal ağ bağlantısı hedef hub sanal ağdan hedef expressroute bağlantı hattı oluşturun.
-3.  Hedef bölgenin hub ve bağlı bileşen sanal ağlar arasında VNet eşlemeler ayarlayın. Eşleme özelliklerini hedef bölge ile aynı kaynak bölge olacaktır.
-4.  VNet hub Udr'ler ve iki uç Vnet'ler ayarlayın. Özellikleri aynı IP adresleri kullanılırken hedef tarafı Udr'ler kaynak tarafında aynıdır. Farklı bir hedef IP adresleriyle Udr'ler uygun şekilde değiştirilmesi gerekir.
+Kurtarma sanal makineler ve sanal ağlar, çoğaltmaya ek olarak tüm dağıtım işlemlerini otomatikleştirmek için diğer ilgili ağ kaynakları ve bağlantıları da oluşturulması gerekir. Adımları aşağıdaki ek eski merkez ve uç ağ topolojisi için sırasında veya sonrasında gerçekleştirilmesi gereken [yük devretme](azure-to-azure-tutorial-failover-failback.md) işlemi:
+1.  Hedef bölge hub sanal ağında Azure ExpressRoute ağ geçidini oluşturun. ExpressRoute ağ geçidini, hedef hub sanal ağı ExpressRoute devresine bağlama için gereklidir.
+2.  Sanal ağ bağlantısı hedef merkez sanal ağdaki hedef ExpressRoute bağlantı hattı oluşturun.
+3.  Hedef bölgenin hub ve bağlı sanal ağlar arasında VNet eşlemesi ayarlayın. Hedef bölge eşleme özellikleri bulunan kaynak bölge ile aynı olacaktır.
+4.  Merkez sanal ağdaki Udr'leri ve iki uç sanal ağları ayarlayın. Özellikleri kullanarak aynı IP adreslerini hedef tarafı Udr'ler kaynak tarafında aynıdır. Farklı bir hedef IP adresi ile Udr uygun şekilde değiştirilmesi gerekir.
 
-Yukarıdaki adımları parçası olarak betiği yazılabilir bir [kurtarma planı](site-recovery-create-recovery-plans.md). Uygulama bağlantı ve kurtarma süresi gereksinimlerine bağlı olarak, yukarıdaki adımları yük devretmeyi başlatmadan önce de tamamlanabilir.
+Yukarıdaki adımları bir parçası olarak yazılabilir bir [kurtarma planı](site-recovery-create-recovery-plans.md). Uygulama bağlantı ve kurtarma zamanı gereksinimlerinize bağlı olarak yukarıdaki adımları da yük devretme başlatılmadan önce tamamlanabilir.
 
-Sanal makineler kurtarma ve diğer bağlantı adımları tamamlama işlemleri sonrasında, Kurtarma Ortamı'nı aşağıdaki gibi görünür: ![şirket içi-Azure'a yük devretme sonrasında ExpressRoute ile](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-after-failover.png)
+Kurtarma sanal makinelerin ve bağlantı adımları gönderi yapın, Kurtarma Ortamı'nı şu şekilde görünür: ![şirket-için-Azure'a yük devredildikten sonra ExpressRoute ile](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-after-failover.png)
 
-Basit bir topoloji hedef sanal makinelerde aynı IP ile tek expressroute bağlantı hattı ile Azure VM olağanüstü durum kurtarma için ayrıntılı [burada](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity).
+Basit bir topoloji ile tek ExpressRoute bağlantı hattı, hedef sanal makineler, aynı IP ile Azure VM olağanüstü durum kurtarma için ayrıntılı [burada](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity).
 
-## <a name="recovery-time-objective-rto-considerations"></a>Kurtarma süresi hedefi (RTO) değerlendirmeleri
-Dağıtımınız için genel kurtarma süresini azaltmak için sağlama ve ek hedef bölgesini dağıtma öneririz [ağ bileşenleri](azure-vm-disaster-recovery-with-expressroute.md#enabling-replication-for-the-deployment) önceden sanal ağ geçitleri gibi. Kısa bir kapalı kalma süresi ek kaynaklar dağıtma ile ilişkili olan ve bu kesinti genel kurtarma süresini etkileyebilir değilse planlama sırasında için hesaba.
+## <a name="recovery-time-objective-rto-considerations"></a>Kurtarma süresi hedefi (RTO) konuları
+Dağıtımınız için genel kurtarma süresini kısaltmak için sağlama ve ek hedef bölgede dağıtma önerilir [ağ bileşenleri](azure-vm-disaster-recovery-with-expressroute.md#enabling-replication-for-the-deployment) önceden sanal ağ geçitleri gibi. Küçük bir kapalı kalma süresi, ek kaynaklar dağıtma ile ilişkilendirilir ve bu kapalı kalma süresi genel kurtarma süresini etkileyebilir, aksi takdirde planlaması sırasında belirlenmiştir.
 
-Normal çalıştıran öneririz [olağanüstü durum kurtarma ayrıntılarını](azure-to-azure-tutorial-dr-drill.md) korumalı dağıtımları. Bir detaylandırma çoğaltma stratejinizi veri kaybı veya kapalı kalma süresi olmadan doğrular ve üretim ortamınıza etkilemez. Bir detaylandırma çalışan kurtarma süresi hedefi olumsuz yönde etkileyebilir son dakika yapılandırma sorunları önler. Çoğaltma etkin olduğunda, ayarlanmış varsayılan ağ yerine test yük devretme için ayrı bir Azure VM ağ kullanmanızı öneririz.
+Normal çalıştırmanızı öneririz [olağanüstü durum kurtarma tatbikatlarını](azure-to-azure-tutorial-dr-drill.md) korumalı dağıtımları. Tatbikat, çoğaltma stratejinizi veri kaybı veya kesinti süresi olmadan doğrular ve üretim ortamınızı etkilemez. Tatbikat çalıştıran, Kurtarma süresi hedefi olumsuz yönde etkileyebilir, geçen dakikada yapılandırma sorunlarını önler. Yük devretme testi için çoğaltmayı etkinleştirdiğinizde ayarlanmış varsayılan ağ yerine ayrı bir Azure VM ağını kullanmanızı öneririz.
 
-Tek bir expressroute bağlantı hattı kullanıyorsanız, bölgesel afetler sırasında bağlantı kurulması sorunlarını önlemek için hedef sanal ağ için farklı bir IP adresi alanını kullanmanızı öneririz. Farklı IP adreslerini kullanarak kurtarılan üretim ortamınız için uygun değilse, çakışan IP adresleri ile iki sanal ağ bağlanamıyor gibi olağanüstü durum kurtarma ayrıntıya yük devretme sınaması farklı IP adreslerine sahip ayrı bir test ağı üzerinde yapılması gerekir Adres alanı aynı expressroute bağlantı hattına.
+Tek bir ExpressRoute bağlantı hattı kullanıyorsanız, bölgesel bir olağanüstü sırasında bağlantı kurma sorunları önlemek için hedef sanal ağ için farklı bir IP adresi alanını kullanmanızı öneririz. Farklı IP adreslerini kullanarak kurtarılan üretim ortamınız için uygun değilse, iki sanal ağ IP çakışan bağlanamıyorsunuz gibi olağanüstü durum kurtarma tatbikatı test yük devretmesi farklı IP adreslerine sahip ayrı bir test ağı yapılması Adres alanı aynı ExpressRoute bağlantı hattına.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Daha fazla bilgi edinmek [ExpressRoute bağlantı hatları](../expressroute/expressroute-circuit-peerings.md).
-- Daha fazla bilgi edinmek [ExpressRoute Yönlendirme etki alanları](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains).
-- Daha fazla bilgi edinmek [ExpressRoute konumları](../expressroute/expressroute-locations.md).
-- Daha fazla bilgi edinmek [kurtarma planlarına](site-recovery-create-recovery-plans.md) uygulama yük devretmeyi otomatikleştirmek için.
+- Daha fazla bilgi edinin [ExpressRoute devreleri](../expressroute/expressroute-circuit-peerings.md).
+- Daha fazla bilgi edinin [ExpressRoute Yönlendirme etki alanları](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains).
+- Daha fazla bilgi edinin [ExpressRoute konumları](../expressroute/expressroute-locations.md).
+- Daha fazla bilgi edinin [kurtarma planları](site-recovery-create-recovery-plans.md) uygulama yük devretme otomatikleştirmek için.

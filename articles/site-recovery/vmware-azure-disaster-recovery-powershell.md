@@ -1,31 +1,31 @@
 ---
-title: Çoğaltma ve VMware Vm'lerinde Azure Site Recovery PowerShell kullanarak Azure yük | Microsoft Docs
-description: Çoğaltma ve yük devretme Azure PowerShell kullanarak Azure Site Recovery VMware VM'ler için nasıl ayarlanacağını öğrenin.
+title: Çoğaltma ve VMware Vm'lerini PowerShell kullanarak Azure Site Recovery'de azure'a yük devretme | Microsoft Docs
+description: Çoğaltma ve yük devretme için Azure PowerShell kullanarak Azure Site Recovery, VMware Vm'leri için nasıl ayarlanacağını öğrenin.
 services: site-recovery
 author: bsiva
 ms.service: site-recovery
+ms.date: 07/06/2018
 ms.topic: conceptual
-ms.date: 06/20/2018
 ms.author: bsiva
-ms.openlocfilehash: 051bc3a0e1c0126826e96b49ff0a4e8008c88006
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a826817b8f2b4ebff8442da1fbee79a95990a9e8
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287863"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917821"
 ---
-# <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Çoğaltabilir ve VMware Vm'lerinde Azure PowerShell ile yük devri
+# <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Çoğaltma ve VMware Vm'lerini PowerShell ile azure'a yük devretme
 
-Bu makalede, çoğaltma ve yük devretme VMware sanal makineleri Azure PowerShell kullanarak Azure konularına bakın. 
+Bu makalede, çoğaltma ve yük devretme VMware sanal makinelerini Azure PowerShell kullanarak azure'a bakın. 
 
 Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> - Kurtarma Hizmetleri kasası oluşturun ve kasa bağlamını ayarlayın.
+> - Bir kurtarma Hizmetleri kasası oluşturun ve kasa bağlamını ayarlayın.
 > - Sunucu kaydı kasadaki doğrulayın.
-> - Bir çoğaltma ilkesi dahil, çoğaltma ayarlayın. VCenter server'ınızı ekleyin ve Vm'leri bulma. > - Bir vCenter sunucusu eklemek ve Bul 
-> - Çoğaltma verileri tutmak için depolama hesapları oluşturabilir ve Vm'lerini çoğaltma.
-> - Bir yük devretme gerçekleştirin. Yük devretme ayarlarını yapılandırın, sanal makineleri çoğaltmak için e ayarlarını gerçekleştirin.
+> - Çoğaltma, çoğaltma ilkesi dahil olmak üzere ayarlayın. VCenter server'ınızı ekleyin ve Vm'leri keşfedin. > - Bir vCenter sunucusu eklemek ve keşfedin 
+> - Çoğaltılan verileri tutmak için depolama hesapları oluşturmanız ve sanal makinelerini çoğaltma.
+> - Bir yük devretme gerçekleştirin. Yük devretme ayarlarını yapılandırma, sanal makineleri çoğaltmak için aşağıdakiler e ayarları gerçekleştirin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -33,23 +33,23 @@ Başlamadan önce:
 
 - [Senaryo mimarisini ve bileşenlerini ](vmware-azure-architecture.md) anladığınızdan emin olun.
 - Tüm bileşenler için [destek gereksinimlerini](site-recovery-support-matrix-to-azure.md) gözden geçirin.
-- Sürüm 5.0.1 veya AzureRm PowerShell modülünün daha büyük. Yüklemek veya Azure PowerShell yükseltmek gerekiyorsa, bu izleyin [Azure PowerShell'i yükleme ve yapılandırma için kılavuz](/powershell/azureps-cmdlets-docs).
+- Sürüm 5.0.1 veya AzureRm PowerShell modülünün daha büyük. Yüklemek veya Azure PowerShell yükseltmek gerekirse bu izleyin [Azure PowerShell'i yükleme ve yapılandırma için kılavuz](/powershell/azureps-cmdlets-docs).
 
 ## <a name="log-into-azure"></a>Azure'da oturum açın
 
-Connect-AzureRmAccount cmdlet'i kullanılarak Azure aboneliğinize oturum:
+Connect-AzureRmAccount cmdlet'i kullanılarak Azure aboneliğinize günlük:
 
 ```azurepowershell
 Connect-AzureRmAccount
 ```
-VMware sanal makinelerinizi çoğaltmak istediğiniz Azure aboneliğini seçin. Erişim için sahip olduğunuz Azure abonelikleri listesini almak için Get-AzureRmSubscription cmdlet'ini kullanın. Select-AzureRmSubscription cmdlet'ini kullanarak ile çalışmak için Azure aboneliğini seçin.
+VMware sanal makinelerinizin çoğaltmak istediğiniz Azure aboneliğini seçin. Get-AzureRmSubscription cmdlet'ine erişmek için sahip olduğunuz Azure Aboneliklerin listesini kullanın. Select-AzureRmSubscription cmdlet'ini kullanarak çalışmaya Azure aboneliğini seçin.
 
 ```azurepowershell
 Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 ```
 ## <a name="set-up-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası ayarlama
 
-1. Kurtarma Hizmetleri kasası oluşturmak bir kaynak grubu oluşturun. Aşağıdaki örnekte, kaynak grubu VMwareDRtoAzurePS olarak adlandırılır ve Doğu Asya bölgede oluşturulur.
+1. Kurtarma Hizmetleri kasası oluşturmak bir kaynak grubu oluşturun. Aşağıdaki örnekte, kaynak grubunu VMwareDRtoAzurePS adlı ve Doğu Asya bölgesinde oluşturulur.
 
    ```azurepowershell
    New-AzureRmResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
@@ -62,7 +62,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
 ```
    
-2. Bir kurtarma Hizmetleri kasası oluşturun. Aşağıdaki örnekte, Kurtarma Hizmetleri kasası VMwareDRToAzurePs olarak adlandırılır ve Doğu Asya bölgesinde ve önceki adımda oluşturduğunuz kaynak grubunda oluşturulur.
+2. Bir kurtarma Hizmetleri kasası oluşturun. Aşağıdaki örnekte, Kurtarma Hizmetleri kasası VMwareDRToAzurePs adlı ve Doğu Asya bölgesi ve önceki adımda oluşturduğunuz kaynak grubunda oluşturulur.
 
    ```azurepowershell
    New-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
@@ -77,7 +77,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
    ``` 
 
-3. Kasa için kasa kayıt anahtarını indirin. Kasa kayıt anahtarını şirket içi yapılandırma sunucusu bu kasaya kaydetmek için kullanılır. Kayıt yapılandırma sunucusu yazılım yükleme işleminin bir parçası değil.
+3. Kasa için kasa kayıt anahtarını indirin. Kasa kayıt anahtarını, şirket içi yapılandırma sunucusunu bu kasaya kaydetmek için kullanılır. Kayıt, yapılandırma sunucusuna yazılım yükleme işleminin parçasıdır.
 
    ```azurepowershell
    #Get the vault object by name and resource group and save it to the $vault PowerShell variable 
@@ -92,18 +92,18 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials
    ```
 
-4. İndirilen kasa kayıt anahtarını kullanın ve tam yükleme ve yapılandırma sunucusunun kaydı için aşağıda verilen makaleleri'ndaki adımları izleyin.
+4. İndirilen kasa kayıt anahtarını kullanın ve tam yükleme ve yapılandırma sunucusunun kaydı için aşağıda verilen makalelerindeki adımları izleyin.
    - [Koruma hedeflerinizi seçme](vmware-azure-set-up-source.md#choose-your-protection-goals)
    - [Kaynak ortamını ayarlama](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
 ### <a name="set-the-vault-context"></a>Kasa bağlamını ayarlayın
 
-Set-ASRVaultContext cmdlet'ini kullanarak kasası bağlamını ayarlayın. Bir kez ayarlandıktan sonra sonraki Azure Site kurtarma işlemleri PowerShell oturumunda seçilen kasa bağlamında gerçekleştirilir.
+Set-ASRVaultContext cmdlet'ini kullanarak kasa bağlamını ayarlayın. Bir kez ayarlandıktan sonra sonraki Azure Site Recovery işlemlerini bir PowerShell oturumunda seçili kasa bağlamında gerçekleştirilir.
 
 > [!TIP]
-> Azure Site Recovery PowerShell Modülü (AzureRm.RecoveryServices.SiteRecovery Modülü) çoğu cmdlet'leri için kullanımı kolay diğer adları ile birlikte gelir. Modüldeki cmdlet'ler biçiminde  *\<işlemi >-**AzureRmRecoveryServicesAsr**\<nesnesi >* ve biçiminde eşdeğer diğer adlar  *\<İşlemi >-**ASR**\<nesnesi >*. Bu makalede, Okuma Kolaylığı için cmdlet diğer adlar kullanılmaktadır.
+> Azure Site Recovery PowerShell Modülü (AzureRm.RecoveryServices.SiteRecovery Modülü), çoğu cmdlet için kullanımı kolay diğer adları ile birlikte gelir. Modüldeki cmdlet'ler biçiminde  *\<işlemi >-**AzureRmRecoveryServicesAsr**\<Nesne >* ve biçiminde eşdeğer diğer adlar  *\<İşlemi >-**ASR**\<Nesne >*. Bu makalede, kolay okunması için cmdlet diğer adları kullanır.
 
-Aşağıdaki örnekte, $vault kasası ayrıntılarının değişkeni PowerShell oturumu için kasa bağlamı belirtmek için kullanılır.
+Aşağıdaki örnekte, kasa ayrıntıları $vault değişkeni kasa bağlamını PowerShell oturumunun belirtmek için kullanılır.
 
    ```azurepowershell
    Set-ASRVaultContext -Vault $vault
@@ -114,23 +114,23 @@ Aşağıdaki örnekte, $vault kasası ayrıntılarının değişkeni PowerShell 
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Set-ASRVaultContext cmdlet'i alternatif olarak, kasası bağlam ayarlamak için alma AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet de kullanabilirsiniz. Kasa kayıt anahtarı dosyasını Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet'i için path parametresi olarak bulunduğu olduğu yolunu belirtin. Örneğin:
+Set-ASRVaultContext cmdlet'e alternatif olarak, bir de alma AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet kasa bağlamını ayarlamak için kullanabilirsiniz. Kasa kayıt anahtarı dosyasını içeri aktarma AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet'ine path parametresini olarak yer olduğu için yolu belirtin. Örneğin:
 
    ```azurepowershell
    Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
    Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
    ```
-Bu makalenin sonraki bölümlerinde, Azure Site Recovery işlemlerini kasası bağlamının ayarlanmış varsayalım.
+Bu makalenin sonraki bölümlerinde, Azure Site kurtarma işlemleri için kasa bağlamını ayarlamanız gerektiğini varsayalım.
 
-## <a name="validate-vault-registration"></a>Kasa kayıt doğrula
+## <a name="validate-vault-registration"></a>Kasa kayıt doğrulama
 
 Bu örnek için şunları sunuyoruz:
 
-- Yapılandırma sunucusu (**ConfigurationServer**) bu kasaya kayıtlı.
+- Yapılandırma sunucusunu (**ConfigurationServer**) bu kasaya kayıtlı.
 - Bir ek işlem sunucusu (**genişletme dosya**) için kayıtlı *ConfigurationServer*
-- Hesapları (**vCenter_account**, **WindowsAccount**, **LinuxAccount**) yapılandırma sunucusunda ayarlanmış. Bu hesapları, sanal makineleri bulmak ve göndermeli yükleme mobility hizmeti yazılım sunucularında çoğaltılacak olan Windows ve Linux için vCenter sunucusu eklemek için kullanılır.
+- Hesapları (**vCenter_account**, **WindowsAccount**, **LinuxAccount**) yapılandırma sunucusunda ayarlanmış. Bu hesaplar, sanal makineleri keşfetmek için ve çoğaltılması için Windows ve Linux sunucuları üzerinde mobility hizmet yazılımı göndermeli yükleme için vCenter server eklemek için kullanılır.
 
-1. Kayıtlı yapılandırma sunucuları, Site Recovery doku nesnesinde temsil edilir. Doku listesini nesneleri kasaya almak ve yapılandırma sunucusu belirleyin.
+1. Kayıtlı bir yapılandırma sunucusu, Site recovery'de bir doku nesnesi tarafından temsil edilir. Fabric listesini nesneleri kasaya alma ve yapılandırma sunucusu belirleyin.
 
    ```azurepowershell
    # Verify that the Configuration server is successfully registered to the vault
@@ -168,9 +168,9 @@ Bu örnek için şunları sunuyoruz:
    1     ConfigurationServer
    ```
 
-   Yukarıdaki çıktıya ***$ProcessServers [0]*** karşılık gelen *genişletme dosya* ve ***$ProcessServers [1]*** işlemsunucusurolüiçinkarşılıkgelen*ConfigurationServer*
+   Yukarıdaki çıktıda ***$ProcessServers [0]*** karşılık gelen *genişletme dosya* ve ***$ProcessServers [1]*** işlemsunucusurolünekarşılıkgelen*ConfigurationServer*
 
-3. Yapılandırma sunucusunda ayarlanmış hesapları tanımlayın.
+3. Yapılandırma sunucusunda ayarlanan hesapları tanımlayın.
 
    ```azurepowershell
    $AccountHandles = $ASRFabrics[0].FabricSpecificDetails.RunAsAccounts
@@ -185,16 +185,16 @@ Bu örnek için şunları sunuyoruz:
    3         LinuxAccount
    ```
 
-   Yukarıdaki çıktıya ***$AccountHandles [0]*** hesaba karşılık gelen *vCenter_account*, ***$AccountHandles [1]*** hesabına *WindowsAccount*, ve ***$AccountHandles [2]*** hesabına *LinuxAccount*
+   Yukarıdaki çıktıda ***$AccountHandles [0]*** hesaba karşılık gelen *vCenter_account*, ***$AccountHandles [1]*** hesabına *WindowsAccount*, ve ***$AccountHandles [2]*** hesabına *LinuxAccount*
 
 ## <a name="create-a-replication-policy"></a>Çoğaltma ilkesi oluşturma
 
-Bu adımda, iki çoğaltma ilkesi oluşturulur. Azure ve diğer çoğaltmak için VMware sanal makineleri çoğaltmak için bir ilke başarısız üzerinden Azure'da çalışan sanal makineler şirket içi VMware siteye yedekleyin.
+Bu adımda, iki çoğaltma ilkeleri oluşturulur. Azure ve diğer çoğaltılacak VMware sanal makinelerini çoğaltma için bir ilke yük devretti Azure'da çalışan sanal makineleri yedeklemek için şirket içi VMware sitesi.
 
 > [!NOTE]
-> Azure Site kurtarma işlemlerinin çoğu zaman uyumsuz olarak çalıştırılır. Bir işlem başlattığınızda, bir Azure Site Recovery iş gönderildiğinde ve izleme nesnesi bir işi döndürülür. İzleme nesnesi bu iş, işlemin durumunu izlemek için kullanılabilir.
+> Çoğu Azure Site Recovery işlemlerini zaman uyumsuz olarak yürütülür. Bir işlem başlattığınızda, Azure Site Recovery iş gönderilir ve nesne izleme iş döndürülür. İzleme nesnesi bu proje, işlemin durumunu izlemek için kullanılabilir.
 
-1. Adlı bir çoğaltma ilkesi oluşturmak *ReplicationPolicy* VMware sanal makineleri belirtilen özelliklerle Azure'a çoğaltmak için.
+1. Adlı çoğaltma ilkesi oluşturma *ReplicationPolicy* VMware sanal makinelerini, belirtilen özelliklerle Azure'a çoğaltmak için.
 
    ```azurepowershell
    $Job_PolicyCreate = New-ASRPolicy -VMwareToAzure -Name "ReplicationPolicy" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
@@ -228,15 +228,15 @@ Bu adımda, iki çoğaltma ilkesi oluşturulur. Azure ve diğer çoğaltmak içi
    Errors           : {}
    ```
 
-2. Azure'dan şirket içi VMware sitesi için kullanılmak üzere bir çoğaltma ilkesi oluşturun.
+2. Azure'dan şirket içi VMware sitesi için kullanılacak bir çoğaltma ilkesi oluşturun.
 
    ```azurepowershell
    $Job_FailbackPolicyCreate = New-ASRPolicy -AzureToVMware -Name "ReplicationPolicy-Failback" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
    ```
 
-   İş ayrıntılarını kullanmak *$Job_FailbackPolicyCreate* işlem tamamlanıncaya kadar izlemek için.
+   İş ayrıntılarında kullanın *$Job_FailbackPolicyCreate* işlemi tamamlanana kadar izlemek için.
 
-   * Yapılandırma sunucusu çoğaltma ilkeleriyle eşleştirmek için koruma kapsayıcısı eşlemesini oluşturun.
+   * Çoğaltma ilkeleri yapılandırma sunucusu ile eşlemek için bir koruma kapsayıcısı eşlemesi oluşturun.
 
    ```azurepowershell
    #Get the protection container corresponding to the Configuration Server
@@ -273,9 +273,9 @@ Bu adımda, iki çoğaltma ilkesi oluşturulur. Azure ve diğer çoğaltmak içi
 
    ```
 
-## <a name="add-a-vcenter-server-and-discover-vms"></a>Bir vCenter sunucusu eklemek ve sanal makineleri Bul
+## <a name="add-a-vcenter-server-and-discover-vms"></a>Bir vCenter sunucusu eklemek ve Vm'leri keşfedin
 
-IP adresi veya ana bilgisayar adı bir vCenter sunucusu ekleyin. **-Bağlantı noktası** parametresi bağlanmak için vCenter sunucusu üzerindeki bağlantı noktasını belirtir **-adı** parametresi, vCenter sunucusu için kullanılacak kolay bir ad belirtir ve **-hesap** parametresi, vCenter sunucusu tarafından yönetilen sanal makinelerin bulmak için kullanılacak yapılandırma sunucusundaki hesap tanıtıcı belirtir.
+Bir ' % s'vCenter sunucusu tarafından IP adresi veya konak ekleyin. **-Bağlantı noktası** parametresi bağlanmak vCenter sunucusundaki bağlantı noktasını belirtir **-adı** parametresi, vCenter sunucusu için kullanılacak bir kolay adı belirtir ve **-hesap** parametresi vCenter sunucusu tarafından yönetilen sanal makineleri bulmak için kullanılacak yapılandırma sunucusu üzerindeki hesabı tanıtıcı belirtir.
 
 ```azurepowershell
 # The $AccountHandles[0] variable holds details of vCenter_account
@@ -310,12 +310,12 @@ Tasks            : {Adding vCenter server}
 Errors           : {}
 ```
 
-## <a name="create-storage-accounts-for-replication"></a>Çoğaltma için depolama hesabı oluşturma
+## <a name="create-storage-accounts-for-replication"></a>Çoğaltma için depolama hesapları oluşturun
 
-Bu adımda, çoğaltma için kullanılacak depolama hesapları oluşturulur. Bu depolama hesaplarından daha sonra sanal makineleri çoğaltmak için kullanılır. Depolama hesapları kasa ile aynı Azure bölgesinde oluşturduğunuzdan emin olun. Çoğaltma için mevcut bir depolama hesabını kullanmayı planlıyorsanız, bu adımı atlayabilirsiniz.
+Bu adımda, çoğaltma için kullanılacak depolama hesabı oluşturulur. Bu depolama hesaplarından daha sonra sanal makineleri çoğaltmak için kullanılır. Depolama hesapları kasayla aynı Azure bölgesinde oluşturduğunuzdan emin olun. Çoğaltma için mevcut bir depolama hesabı kullanmayı planlıyorsanız, bu adımı atlayabilirsiniz.
 
 > [!NOTE]
-> Premium depolama hesabı için şirket içi sanal makineleri çoğaltılırken, ek bir standart depolama hesabı (günlük depolama hesabı) belirtmeniz gerekir. Premium Depolama Hedef günlükleri uygulanabilir kadar günlük depolama hesabı çoğaltma günlükleri bir ara deposu olarak tutar.
+> Premium depolama hesabı için şirket içi sanal makineleri çoğaltılırken, ek bir standart depolama hesabı (günlük depolama hesabı) belirtmeniz gerekir. Günlükleri premium Depolama Hedef uygulanabilir kadar günlük depolama hesabına çoğaltma günlükleri Ara bir depo olarak korur.
 >
 
 ```azurepowershell
@@ -329,26 +329,26 @@ $ReplicationStdStorageAccount= New-AzureRmStorageAccount -ResourceGroupName "VMw
 
 ## <a name="replicate-vmware-vms"></a>VMware Vm'lerini çoğaltma
 
-VCenter sunucudan bulunmak sanal makineler için yaklaşık 15-20 dakika sürer. Bulunan bir kez korunabilir öğe nesnesi bulunan her sanal makine için Azure Site Recovery oluşturulur. Bu adımda, önceki adımda oluşturduğunuz Azure depolama hesapları için üç bulunan sanal makinelerin çoğaltılır.
+VCenter sunucusundaki bulunmak sanal makineler için yaklaşık 15-20 dakika sürer. Bulunan bir kez korunabilir öğe nesnesi bulunan her sanal makine için Azure Site Recovery'de oluşturulur. Bu adımda, önceki adımda oluşturduğunuz Azure depolama hesapları için üç bulunan sanal makinelerin çoğaltılır.
 
-Bulunan bir sanal makineyi korumak için aşağıdaki ayrıntıları gerekir:
+Bulunan bir sanal makineyi korumak için aşağıdaki ayrıntıları ihtiyacınız olacak:
 
 * Çoğaltılacak korunabilir öğe.
-* Sanal makine için çoğaltmak için depolama hesabı. Ayrıca, bir günlük depolama, premium depolama hesabı için sanal makineleri koruma için gereklidir.
-* İşlem çoğaltma için kullanılacak sunucu. Kullanılabilir işlem sunucularının listesini alınan ve kaydedilen ***$ProcessServers [0]****(dosya genişletme)* ve ***$ProcessServers [1]*** *(ConfigurationServer)* değişkenleri.
-* Mobility hizmeti yazılım makinelere göndermeli yükleme için kullanılacak hesabı. Kullanılabilir hesaplar listesindeki alınan ve depolanan ***$AccountHandles*** değişkeni.
+* Sanal makine için çoğaltmak için depolama hesabı. Ayrıca, bir günlük depolama, premium depolama hesabı için sanal makineleri korumak için gereklidir.
+* Çoğaltma için kullanılan işlem sunucusu. Kullanılabilir işlem sunucularının listesini alınan ve kaydedilen ***$ProcessServers [0]****(genişletme dosya)* ve ***$ProcessServers [1]*** *(ConfigurationServer)* değişkenleri.  
+* Mobility hizmet yazılımı makinelere göndermeli yükleme için kullanılacak hesabı. Kullanılabilir hesaplar listesi alınan ve depolanan ***$AccountHandles*** değişkeni.
 * Koruma kapsayıcısı eşlemesini çoğaltma için kullanılacak çoğaltma ilkesi için.
-* Kaynak grubu sanal makine yük devretme oluşturulması gerekir.
-* İsteğe bağlı olarak, Azure sanal ağ ve alt ağı başarısız sanal makine bağlanması gerekir.
+* Kaynak grubu, sanal makinelerin yük devretme sırasında oluşturulmalıdır.
+* İsteğe bağlı olarak, Azure sanal ağını ve alt ağı başarısız yük devredilen sanal makinenin bağlı olmalıdır.
 
-Şimdi bu tabloda belirtilen ayarlarla şu sanal makineleri çoğaltmak
+Artık bu tabloda belirtilen ayarları kullanarak şu sanal makineleri çoğaltma
 
 
-|Sanal makine  |İşlem sunucusu        |Depolama Hesabı              |Günlük depolama hesabı  |İlke           |Mobility hizmeti yükleme hesabı|Hedef kaynak grubu  | Hedef sanal ağ  |Hedef alt ağ  |
+|Sanal makine  |İşlem sunucusu        |Depolama Hesabı              |Günlük depolama hesabına  |İlke           |Mobility hizmeti yüklemesi için hesabı|Hedef kaynak grubu  | Hedef sanal ağ  |Hedef alt ağ  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
-|Win2K12VM1       |Genişletme dosya|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ 1       |
-|CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| Yok                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ 1       |   
-|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| Yok                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ 1       |   
+|Win2K12VM1       |Genişletme dosya|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ-1       |
+|CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| Yok                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ-1       |   
+|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| Yok                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ-1       |   
 
  
 ```azurepowershell
@@ -383,9 +383,9 @@ $Job_EnableRepication3 = New-ASRReplicationProtectedItem -VMwareToAzure -Protect
 
 ```
 
-Etkinleştirme çoğaltma işi başarıyla tamamlandıktan sonra ilk çoğaltma sanal makineler için başlatılır. İlk çoğaltma, çoğaltma için çoğaltılacak veri miktarı ve kullanılabilir bant genişliğine bağlı olarak biraz zaman alabilir. İlk çoğaltma tamamlandıktan sonra sanal makinenin korumalı bir duruma taşır. Sanal makine bir yük devretme sınaması için sanal makine gerçekleştirebileceğiniz korumalı bir duruma ulaştığında, Kurtarma planları vb. ekleyin.
+Etkinleştirme çoğaltma işi başarıyla tamamlandıktan sonra ilk çoğaltma sanal makineler için başlatılır. İlk çoğaltma, çoğaltma için çoğaltılması gereken veri miktarı ve kullanılabilir bant genişliğine bağlı olarak biraz sürebilir. İlk çoğaltma tamamlandıktan sonra sanal makinenin korumalı bir duruma taşınır. Sanal makine yük devretme testi sanal makinesi için gerçekleştirebileceğiniz korumalı bir duruma ulaştığında, Kurtarma planlarına vb. ekleyin.
 
-Get-ASRReplicationProtectedItem cmdlet ile sanal makinenin çoğaltma durumunu ve çoğaltma durumunu kontrol edebilirsiniz.
+Get-ASRReplicationProtectedItem cmdlet'i ile sanal makine çoğaltma durumu ve çoğaltma durumunu kontrol edebilirsiniz.
 
 ```azurepowershell
 Get-ASRReplicationProtectedItem -ProtectionContainer $ProtectionContainer | Select FriendlyName, ProtectionState, ReplicationHealth
@@ -398,17 +398,17 @@ CentOSVM2    InitialReplicationInProgress    Normal
 Win2K12VM1   Protected                       Normal
 ```
 
-## <a name="configure-failover-settings"></a>Yük devretme ayarlarını yapılandırın
+## <a name="configure-failover-settings"></a>Yük devretme ayarlarını yapılandırma
 
-Korumalı makineler için yük devretme ayarları kümesi ASRReplicationProtectedItem cmdlet'ini kullanarak güncelleştirilebilir. Bu cmdlet'i güncelleştirilebilir ayarlardan bazıları şunlardır:
-* Yük devretme oluşturulacak sanal makinenin adı
-* Sanal makinenin Yük Devretmesini oluşturulacak VM boyutu
-* Azure sanal ağ ve NIC'ler sanal makinenin Yük Devretmesini bağlanması gerekir alt
-* Yönetilen diskleri için yük devretme
-* Azure karma kullanımı avantajı Uygula
-* Yük devretme sanal makineye atanacak hedef sanal ağlardan statik bir IP adresi atayın.
+Korumalı makineler için yük devretme ayarları kümesi ASRReplicationProtectedItem cmdlet'i kullanılarak güncelleştirilebilir. Bu cmdlet ile güncelleştirilebilir ayarlardan bazıları şunlardır:
+* Yük devretme sırasında oluşturulacak sanal makinenin adı
+* Sanal makine yük devretme sırasında oluşturulacak sanal makine boyutu
+* Azure sanal ağ ve NIC sanal makinenin yük devretme sırasında bağlanması gereken alt
+* Yönetilen disklere
+* Azure hibrit kullanım teklifi Uygula
+* Yük devretme sanal makineye atanacak hedef sanal ağdan statik bir IP adresi atayın.
 
-Bu örnekte, sanal makinenin sanal makine için yük devretme üzerinde oluşturulacak VM boyutu güncelleştiriyoruz *Win2K12VM1* ve yönetilen sanal makine kullanımını belirtin yük devretme disklerde.
+Bu örnekte, sanal makine için yük devretme sırasında oluşturulacak sanal makinenin VM boyutunu güncelleştiriyoruz *Win2K12VM1* ve sanal makine kullanımı yönetilen diskler üzerinde yük devretme.
 
 ```azurepowershell
 $ReplicatedVM1 = Get-ASRReplicationProtectedItem -FriendlyName "Win2K12VM1" -ProtectionContainer $ProtectionContainer
@@ -437,7 +437,7 @@ Errors           : {}
 
 ## <a name="run-a-test-failover"></a>Yük devretme testi çalıştırma
 
-1. DR detayı (yük devretme testi) aşağıdaki gibi çalıştırın:
+1. DR tatbikatı (yük devretme testi) aşağıdaki gibi çalıştırın:
 
    ```azurepowershell
    #Test failover of Win2K12VM1 to the test virtual network "V2TestNetwork"
@@ -448,17 +448,17 @@ Errors           : {}
    #Start the test failover operation
    $TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
    ```
-2. Test yük devretme işlemi başarıyla tamamlandığında, bir sanal makine ile sonekine fark edeceksiniz *"-Test"* (Bu durumda Win2K12VM1 Test) adının Azure içinde oluşturulur.
-3. Şimdi devredilen sanal makine üzerinde test bağlanmak ve yük devretme sınaması doğrulayın.
-4. Start-ASRTestFailoverCleanupJob cmdlet'ini kullanarak yük devretmeyi temizleyin. Bu işlem, test yük devretme işleminin bir parçası olarak oluşturulan sanal makinesini siler.
+2. Test yük devretme işi başarıyla tamamlandıktan sonra bir sanal makine ile olark fark edeceksiniz *"-Test"* (Bu durumda, Win2K12VM1-Test) adının Azure içinde oluşturulur.
+3. Şimdi, sınama yük devredilen sanal makinenin başarısız bağlanın ve test yük devretmesi doğrulayın.
+4. Başlangıç ASRTestFailoverCleanupJob cmdlet'ini kullanarak devretmeyi temizleyin. Bu işlem, sanal makine test yük devretme işleminin bir parçası olarak oluşturulan siler.
 
    ```azurepowershell
    $Job_TFOCleanup = Start-ASRTestFailoverCleanupJob -ReplicationProtectedItem $ReplicatedVM1
    ```
 
-## <a name="fail-over-to-azure"></a>Azure'a yük
+## <a name="fail-over-to-azure"></a>Azure'a yük devretme
 
-Bu adımda, biz belirli bir kurtarma noktası sanal makineye Win2K12VM1 yük devri.
+Bu adımda, size belirli bir kurtarma noktasını sanal makineye Win2K12VM1 yük devretme.
 
 1. Yük devretme için kullanılacak kullanılabilir kurtarma noktalarının bir listesini alın:
    ```azurepowershell
@@ -483,7 +483,7 @@ Bu adımda, biz belirli bir kurtarma noktası sanal makineye Win2K12VM1 yük dev
    Succeeded
    ```
 
-2. Başarıyla, başarısız sonra Yük devretme işlemi yürütme ve azure'dan çoğaltmayı tersine çevirme ayarlayın şirket içi VMware siteye yedekleyebilirsiniz.
+2. Başarıyla, üzerinde başarısız oldu. sonra Yük devretme işlemini tamamlama ve azure'dan çoğaltmayı tersine çevirme ayarlamak için şirket içi VMware sitesi yedekleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Kullanarak daha fazla görevleri otomatikleştirmeyi öğrenin [Azure Site Recovery PowerShell başvurusu ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).

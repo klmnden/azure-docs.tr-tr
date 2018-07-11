@@ -1,10 +1,10 @@
 ---
-title: Kullanıcı gizliliği ve Azure Active Directory doğrudan kimlik doğrulaması | Microsoft Docs
-description: Bu makalede, Azure Active Directory (Azure AD) doğrudan kimlik doğrulama ve GDPR uyumluluk ile ilgilidir.
+title: Kullanıcı gizliliği ve Azure Active Directory geçişli kimlik doğrulaması | Microsoft Docs
+description: Bu makalede, Azure Active Directory (Azure AD) geçişli kimlik doğrulaması ve GDPR uyumluluğu ile ilgilidir.
 services: active-directory
-keywords: Azure AD Connect doğrudan kimlik doğrulama, GDPR, gerekli bileşenleri Azure AD, SSO, çoklu oturum açma
+keywords: Azure AD, SSO, Azure AD Connect geçişli kimlik doğrulaması, GDPR, gerekli bileşenleri çoklu oturum açma
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -16,39 +16,39 @@ ms.date: 05/21/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 3343cebb85124f19fe773822e296312abad53d96
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f53f8ffcf8354d35fa552f099302456fa5226ca8
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591183"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915886"
 ---
-# <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Kullanıcı gizliliği ve Azure Active Directory doğrudan kimlik doğrulaması
+# <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Kullanıcı gizliliği ve Azure Active Directory geçişli kimlik doğrulaması
 
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure AD doğrudan kimlik doğrulama kişisel verileri içerebilir aşağıdaki günlük türünü oluşturur:
+Kişisel veri içerebilen aşağıdaki günlük türü, Azure AD geçişli kimlik doğrulaması oluşturur:
 
-- Azure AD Connect izleme günlüğü dosyalarının.
-- Kimlik Doğrulama Aracısı izleme günlüğü dosyalarının.
+- Azure AD Connect izleme günlüğü dosyaları.
+- Kimlik Doğrulama Aracısı izleme günlüğü dosyaları.
 - Windows olay günlüğü dosyaları.
 
-Kullanıcı gizliliği için doğrudan kimlik doğrulaması iki şekilde geliştirme:
+Kullanıcı gizliliği, geçişli kimlik doğrulaması için iki yolla geliştirme:
 
-1.  İstek, bir kişi için verileri ayıklamak ve yüklemeleri bu kişiden veri kaldırın.
+1.  İstek, bir kişi için verileri ayıklayın ve bu kişiden yüklemeleri veri kaldırın.
 2.  Hiçbir veri 48 saat dışında tutulur emin olun.
 
-Uygulama ve Bakım daha kolay olduğu gibi ikinci seçeneği kesinlikle öneririz. Her bir günlük türü için yönergeler şunlardır:
+Uygulamak ve sürdürmek daha kolay olduğu gibi ikinci seçeneği önerilir. Her günlük türü için yönergeler aşağıda verilmiştir:
 
 ### <a name="delete-azure-ad-connect-trace-log-files"></a>Azure AD Connect izleme günlük dosyalarını silin
 
-İçeriğini denetlemek **%ProgramData%\AADConnect** klasörü ve delete izleme günlüğünü içeriği (**izleme -\*.log** dosyaları), bu klasörün yüklerken veya yükseltirken Azure AD Connect, 48 saat içinde ya da bu eylem olarak doğrudan kimlik doğrulama yapılandırmasını değiştirme GDPR tarafından kapsamdaki verileri oluşturabilir.
+İçeriğini denetlemek **%ProgramData%\AADConnect** klasörü ve delete izleme günlüğünü içeriği (**izleme -\*.log** dosyaları) Azure AD Connect'i yükleme veya 48 saat içinde bu klasörün ya da bu eylem, geçişli kimlik doğrulaması yapılandırmasını değiştirme veriler GDPR kapsamında oluşturabilir.
 
 >[!IMPORTANT]
->Silmeyin **PersistedState.xml** bu dosya, Azure AD Connect'in önceki yükleme durumunu korumak için kullanılır ve yükseltme yüklemesi tamamlandığında, kullanılabilir olarak bu klasörde dosya. Bu dosya hiçbir zaman bir kişiyle ilgili tüm verileri içerir ve hiçbir zaman silinmesi gerekir.
+>Silme **PersistedState.xml** dosyası bu klasörde, bu dosya, Azure AD Connect'in önceki yükleme durumunu korumak için kullanılır ve bir yükseltme yüklemesi tamamlandığında kullanılır. Bu dosya hiçbir zaman bir kişiyle ilgili tüm verileri içerir ve hiçbir zaman silinmesi gerekir.
 
 Gözden geçirin ve Windows Gezgini'ni kullanarak bu izleme günlük dosyalarını silin veya gerekli eylemleri gerçekleştirmek için aşağıdaki PowerShell betiğini kullanabilirsiniz:
 
@@ -60,24 +60,24 @@ Foreach ($file in $Files) {
 }
 ```
 
-Bir dosyada komut dosyasını kaydetme ". PS1 "uzantısı. Gerektiğinde bu komut dosyasını çalıştırın.
+Betik bir dosyaya kaydet ". PS1 "uzantısı. Gerektiğinde bu betiği çalıştırın.
 
-İlişkili Azure AD Connect GDPR gereksinimleri hakkında daha fazla bilgi için bkz: [bu makalede](active-directory-aadconnect-gdpr.md).
+İlgili Azure AD Connect GDPR gereksinimleri hakkında daha fazla bilgi edinmek için bkz. [bu makalede](active-directory-aadconnect-gdpr.md).
 
-### <a name="delete-authentication-agent-event-logs"></a>Kimlik Doğrulama Aracısı olay günlüklerini silme
+### <a name="delete-authentication-agent-event-logs"></a>Kimlik doğrulama aracısı olayları Sil
 
-Bu ürün ayrıca oluşturabilirsiniz **Windows olay günlüklerini**. Daha fazla bilgi için lütfen okuyun [bu makalede](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx).
+Bu ürün oluşturabilir **Windows olay günlükleri**. Daha fazla bilgi için lütfen okuyun [bu makalede](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx).
 
-Doğrudan kimlik doğrulama Aracısı ile ilgili günlükleri görüntülemek için açık **Olay Görüntüleyicisi'ni** altında onay ve sunucudaki uygulama **uygulama ve hizmet Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin** .
+Geçişli kimlik doğrulaması Aracısı ile ilgili günlükleri görüntülemek için Aç **Olay Görüntüleyicisi'ni** altında sunucu ve uygulama **uygulama ve hizmet Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin** .
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Kimlik Doğrulama Aracısı izleme günlük dosyalarını silin
 
-İçeriğini düzenli olarak denetlemesi gerekir **%ProgramData%\Microsoft\Azure AD Connect kimlik doğrulama Agent\Trace\**  ve her 48 saat bu klasörün içeriğini silin. 
+İçeriği düzenli olarak denetlemesi gerekir **%ProgramData%\Microsoft\Azure AD Connect kimlik doğrulaması Agent\Trace\**  ve 48 saatte bu klasörün içeriğini silin. 
 
 >[!IMPORTANT]
->Kimlik Doğrulama Aracısı Hizmeti çalışıyorsa, klasöründeki geçerli günlük dosyasını silemedi olmaması. Yeniden denemeden önce hizmetini durdurun. Kullanıcı oturum açma hatalarını önlemek için önceden geçişli kimlik doğrulaması için yapılandırmanız [yüksek kullanılabilirlik](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+>Kimlik Doğrulama Aracısı Hizmeti çalışıyorsa, geçerli günlük dosyası klasörü içinde silmek mümkün olacaktır değil. Yeniden denemeden önce hizmetini durdurun. Kullanıcı oturum açma hatalarını önlemek için zaten geçişli kimlik doğrulaması için yapılandırmış olmanız [yüksek kullanılabilirlik](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
-Gözden geçirin ve Windows Gezgini'ni kullanarak bu dosyaları silin veya gerekli eylemleri gerçekleştirmek için aşağıdaki komut dosyasını kullanabilirsiniz:
+Gözden geçirip Windows Gezgini'ni kullanarak bu dosyaları silebilir ya da gerekli eylemleri gerçekleştirmek için aşağıdaki betiği kullanabilirsiniz:
 
 ```
 $Files = ((Get-childitem -Path "$env:programdata\microsoft\azure ad connect authentication agent\trace" -Recurse).VersionInfo).FileName 
@@ -87,23 +87,23 @@ Foreach ($file in $files) {
 }
 ```
 
-Bu komut dosyasının çalışmasını zamanlamak için her 48 saat şu adımları izleyin:
+Bu komut dosyasını çalıştırmak için zamanlama 48 saatte şu adımları izleyin:
 
-1.  Bir dosyada komut dosyasını kaydetme ". PS1 "uzantısı.
-2.  Açık **Denetim Masası** ve tıklayın **sistem ve güvenlik**.
-3.  Altında **Yönetimsel Araçlar** başlığı tıklayın "**zamanlama görevleri**".
-4.  İçinde **Görev Zamanlayıcı**, sağ tıklayın "**görev zamanlama Kitaplığı**"ve tıklayın"**... temel görev oluştur** ".
+1.  Betik bir dosyaya kaydet ". PS1 "uzantısı.
+2.  Açık **Denetim Masası** tıklayın **sistem ve güvenlik**.
+3.  Altında **Yönetimsel Araçlar** başlığı tıklayın "**görevleri zamanlayın**".
+4.  İçinde **Görev Zamanlayıcı**, sağ tıklayın "**görev zamanlama Kitaplığı**"ve tıklayın"**... temel görevi oluştur** ".
 5.  Yeni görev için bir ad girin ve tıklayın **sonraki**.
-6.  Seçin "**günlük**" için **görev tetiklemesi** tıklatıp **sonraki**.
-7.  Yinelenme iki gün olarak ayarlayın ve tıklatın **sonraki**.
-8.  Seçin "**bir programı başlatamayan**"'i tıklatın ve eylemi olarak **sonraki**.
-9.  Türü "**PowerShell**" Program/komut dosyası kutusunda ve etiketli kutusuna"**bağımsız değişkenler (isteğe bağlı) eklemek**", daha önce oluşturduğunuz komut dosyasının tam yolunu girin ve ardından **İleri**.
-10. Sonraki ekranda oluşturmak üzere olduğunuz görev bir özetini gösterir. Değerleri doğrulayın ve tıklayın **son** görevi oluşturmak için:
+6.  Seçin "**günlük**" için **görev tetikleyici** tıklatıp **sonraki**.
+7.  Yinelenme iki gün olarak ayarlanmış ve tıklayın **sonraki**.
+8.  Seçin "**programı Başlat**"'i tıklatın ve eylemi olarak **sonraki**.
+9.  Türü "**PowerShell**" Program/komut kutusundaki ve etiketli kutusuna"**bağımsız değişkenler (isteğe bağlı) ekleme**", daha önce oluşturduğunuz bir komut dosyası için tam yolu girin ve ardından tıklayın **sonraki**.
+10. Sonraki ekranda, görev oluşturmak üzere olduğunuz bir özetini gösterir. Değerleri doğrulayın ve tıklayın **son** görev oluşturmak için:
  
-### <a name="note-about-domain-controller-logs"></a>Etki alanı denetleyicisi günlükleri hakkında dikkat edin
+### <a name="note-about-domain-controller-logs"></a>Etki alanı denetleyicisi günlükleri hakkında dikkat edin.
 
-Denetim günlüğü etkinleştirilirse, bu ürün, etki alanı denetleyicileri için güvenlik günlüklerini oluşturabilir. Denetim ilkeleri yapılandırma hakkında daha fazla bilgi için bu okuma [makale](https://technet.microsoft.com/library/dd277403.aspx).
+Denetim günlüğü etkinleştirilmişse, bu ürün, etki alanı denetleyicileri için güvenlik günlükleri oluşturabilir. Denetim ilkeleri yapılandırma hakkında daha fazla bilgi edinmek için bu okuma [makale](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Güven Merkezi Microsoft Privacy ilkeyi gözden geçirin](https://www.microsoft.com/trustcenter)
-- [**Sorun giderme** ](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) -özelliği ile ilgili genel sorunları çözmeyi öğrenin.
+- [**Sorun giderme** ](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) -özelliği ile ilgili yaygın sorunları çözmeyi öğrenin.

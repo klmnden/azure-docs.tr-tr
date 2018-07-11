@@ -1,6 +1,6 @@
 ---
 title: Azure etkinlik günlüğü olay şeması
-description: Etkinlik günlüğü yayılan veriler için olay şeması anlama
+description: Etkinlik günlüğüne yayılan veriler için olay şemasının anlama
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: f6f6c59195fdc79959a1964c1f2770c3b6a68b22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 123ae27310d70812918f3c81ac3b9a71959a6c2c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264560"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917236"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure etkinlik günlüğü olay şeması
-**Azure etkinlik günlüğü** Azure'da oluşan herhangi bir abonelik düzeyi olayı bir anlayış sağlar günlüktür. Bu makalede veri kategorisi başına olay şema açıklanmaktadır.
+**Azure etkinlik günlüğü** Azure'da gerçekleşen herhangi bir abonelik düzeyindeki olayların sağlayan günlüktür. Bu makalede veri kategorisini başına olay şeması. Portal, PowerShell, CLI veya karşı REST API aracılığıyla doğrudan veri okunuyorsa veri şeması bağlı olarak farklı [veri depolama veya günlük profilini kullanarak Event Hubs akış](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Aşağıdaki örnekler, portal, PowerShell, CLI ve REST API kullanıma sunulan teklifinizle şema gösterir. Bu özellikler için bir eşleme [Azure tanılama günlükleri şema](./monitoring-diagnostic-logs-schema.md) makalenin sonunda sağlanır.
 
 ## <a name="administrative"></a>Yönetim
-Bu kategorideki tüm kaydını içerir oluşturma, güncelleştirme, silme ve eylem işlemlerine Resource Manager aracılığıyla gerçekleştirilir. Bkz Bu kategoride olay türlerini örneklerindendir "sanal makine oluşturma" ve "belirli bir kaynak türü üzerinde bir işlem olarak bir kullanıcı veya Kaynak Yöneticisi'ni kullanarak uygulama tarafından gerçekleştirilen her eylem Modellenen ağ güvenlik grubunu sil". İşlem türü, yazma, silme veya eylemi ise, yönetim kategorisi kayıtları hem Başlangıç hem de başarılı veya başarısız bu işlemin kaydedilir. Yönetim kategorisi, rol tabanlı erişim denetimi yapılan değişikliklerin bir abonelikte de içerir.
+Bu kategoride tüm kaydı oluşturma, güncelleştirme, silme ve eylem işlemlerine Resource Manager aracılığıyla gerçekleştirilir. Görmek Bu kategoride olay türlerini örnekleri arasında "sanal makine oluşturma" ve "bir kullanıcı ya da Resource Manager kullanarak uygulama tarafından gerçekleştirilen her eylemi modellenmiş bir işlemi belirli bir kaynak türü olarak ağ güvenlik grubunu sil". İşlem türü, yazma, silme veya eylem ise, hem Başlangıç hem de başarılı kayıtlar veya bu işlemin başarısız yönetim kategorisi kaydedilir. Yönetim kategorisi, bir abonelikte rol tabanlı erişim denetimi değişiklikleri de içerir.
 
-### <a name="sample-event"></a>Örnek olayı
+### <a name="sample-event"></a>Örnek olay
 ```json
 {
     "authorization": {
@@ -112,31 +112,31 @@ Bu kategorideki tüm kaydını içerir oluşturma, güncelleştirme, silme ve ey
 ### <a name="property-descriptions"></a>Özellik açıklamaları
 | Öğe adı | Açıklama |
 | --- | --- |
-| Yetkilendirme |BLOB olay RBAC özelliklerinin. Genellikle "eylem", "rol" ve "scope" özellikleri içerir. |
-| çağıran |İşlem, UPN Talebi veya kullanılabilirliğine göre SPN talep yürüttü kullanıcının e-posta adresi. |
-| kanallar |Aşağıdaki değerlerden birini: "Yönetici", "İşlem" |
-| Talepleri |Kullanıcı veya Kaynak Yöneticisi'nde bu işlemi gerçekleştirmek için uygulama kimliğini doğrulamak için Active Directory tarafından kullanılan JWT belirteci. |
-| correlationId |Genellikle bir GUID dize biçiminde. Bir correlationıd değeri paylaşan olayları aynı uber eyleme ait. |
+| Yetkilendirme |BLOB RBAC özelliklerinin olay. Genellikle, "action", "rolü" ve "scope" özelliklerini içerir. |
+| çağıran |İşlem, UPN Talebi veya SPN talep kullanılabilirliğine göre gerçekleştiren kullanıcının e-posta adresi. |
+| kanallar |Aşağıdaki değerlerden biri: "Yönetici", "İşlem" |
+| Talep |Kullanıcı veya uygulama Kaynak Yöneticisi'nde bu işlemi gerçekleştirmek için kimlik doğrulaması için Active Directory tarafından kullanılan JWT belirteci. |
+| correlationId |Genellikle bir GUID dize biçiminde. Bir Correlationıd paylaşan olayları aynı uber eyleme ait. |
 | açıklama |Olay açıklaması statik metin. |
-| eventDataId |Bir olay benzersiz tanımlayıcısı. |
-| httpRequest |Http isteği açıklayan blob. Genellikle "clientRequestId", "clientIpAddress" ve "yöntemi" (HTTP yöntemi. içerir For example, PUT). |
-| düzey |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı" |
-| resourceGroupName |Etkilenen kaynak kaynak grubu adı. |
+| eventDataId |Olayın benzersiz tanımlayıcısı. |
+| HTTP isteği |Http isteği açıklayan blob. Genellikle "Clientrequestıd'ye", "clientIpAddress" ve "method" (HTTP yöntemi. içerir For example, PUT). |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error"Uyarı",", "Bilgilendirici" ve "Ayrıntılı" |
+| resourceGroupName |Etkilenen kaynak için kaynak grubunun adı. |
 | resourceProviderName |Etkilenen kaynak için kaynak sağlayıcısının adı |
-| resourceId |Etkilenen kaynağının kaynak kimliği. |
-| operationId |Tek bir işleme karşılık gelen olayları arasında paylaşılan bir GUID. |
+| resourceId |Etkilenen kaynak kaynak kimliği. |
+| operationId |Tek bir işleme karşılık gelen olaylar arasında paylaşılan bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük). |
-| durum |İşlemin durumunu açıklayan dize. Bazı genel değerler şunlardır:, ilerleme, başarılı, başarısız, etkin, çözümlenmiş başlatıldı. |
-| alt durum |Genellikle HTTP durum kodu karşılık gelen REST çağrısı, ancak bu ortak değerleri gibi bir alt durum açıklayan diğer dizeleri de içerir: Tamam (HTTP durum kodu: 200), oluşturulan (HTTP durum kodu: 201), kabul edilen (HTTP durum kodu: 202), Hayır içeriği (HTTP durum kodu: 204), hatalı istek (HTTP durum kodu: 400), bulunamadı (HTTP durum kodu: 404), çakışma (HTTP durum kodu : 409), iç sunucu hatası (HTTP durum kodu: 500), hizmet kullanılamıyor (HTTP durum kodu: 503), ağ geçidi zaman aşımı (HTTP durum kodu: 504). |
-| eventTimestamp |Olay işleme olay karşılık gelen isteği Azure hizmeti tarafından oluşturulan zaman damgası. |
-| submissionTimestamp |Olay sorgulama için kullanılabilir duruma zaman damgası. |
+| durum |İşlemin durumunu açıklayan bir dize. Sık karşılaşılan bazı değerler şunlardır:, ilerleme, başarılı, başarısız, etkin, çözümlenmiş başlatıldı. |
+| alt durumu |Genellikle karşılık gelen REST, HTTP durum kodu diyebilirsiniz, ama bu ortak değerleri gibi bir alt açıklayan diğer dizeleri de içerebilir: Tamam (HTTP durum kodu: 200), oluşturulan (HTTP durum kodu: 201), kabul edilen (HTTP durum kodu: 202), içerik yok (HTTP durum Kodu: 204), hatalı istek (HTTP durum kodu: 400) bulunamadı (HTTP durum kodu: 404), çakışma (HTTP durum kodu: 409), iç sunucu hatası (HTTP durum kodu: 500), hizmet kullanılamıyor (HTTP durum kodu: 503), ağ geçidi zaman aşımı (HTTP durum kodu: 504). |
+| eventTimestamp |Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
+| submissionTimestamp |Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
 | subscriptionId |Azure abonelik kimliği |
 
 ## <a name="service-health"></a>Hizmet durumu
-Bu kategori, Azure'da oluşan herhangi bir hizmet durumu olay kaydını içerir. Bu kategorideki görür olay türü "SQL Azure Doğu ABD kesinti yaşanıyor." örneğidir Hizmet sistem durumu olayları beş çeşit olarak gelir: eylem gerekli, Destekli kurtarma, olay, bakım, bilgi veya güvenlik ve olay için etkilenen Abonelikteki bir kaynağınız varsa yalnızca görünür.
+Bu kategori, Azure'da gerçekleşen tüm hizmet durumu olayları kaydını içerir. Bu kategoride göreceğiniz olay türünü "SQL Azure Doğu ABD, kesinti yaşanıyor." örneğidir Hizmet durumu olayları beş çeşit olarak gelir: eylem gerekli, Kurtarma Yardımlı, olay, bakım, bilgi veya güvenlik, olaydan etkilenen aboneliğindeki bir kaynak varsa yalnızca görünür.
 
-### <a name="sample-event"></a>Örnek olayı
+### <a name="sample-event"></a>Örnek olay
 ```json
 {
   "channels": "Admin",
@@ -191,12 +191,12 @@ Bu kategori, Azure'da oluşan herhangi bir hizmet durumu olay kaydını içerir.
   }
 }
 ```
-Başvurmak [hizmet durumu bildirimlerine](./monitoring-service-notifications.md) özelliklerinde değerler ile ilgili belgeler için makalenin.
+Başvurmak [hizmet durumu bildirimlerini](./monitoring-service-notifications.md) makale özelliklerinde değerler hakkındaki belgeleri.
 
 ## <a name="alert"></a>Uyarı
-Bu kategorideki tüm etkinleştirmeleri Azure uyarı kaydı içerir. Bu kategorideki görür olay türü "myVM CPU % 80'den son 5 dakika için bırakıldı." örneğidir Azure sistemleri çeşitli sahip bir uyarı verme kavramı--bir kural çeşit tanımlayabilir ve bu kural için koşullara uyan bir bildirim alıyorsunuz. Her bir desteklenen Azure uyarı türü 'etkinleştirir,' veya bir bildirim oluşturmak için koşullar, bir kayıt etkinleştirme etkinlik günlüğü bu kategoriyi de gönderilir.
+Bu kategorideki tüm etkinleştirmeleri Azure uyarıları kaydını içerir. Bu kategoride göreceğiniz olay türünü "myVM üzerindeki CPU % 80'den önceki 5 dakika boyunca bırakıldı." örneğidir Çeşitli Azure sistemleri sahip bir uyarı verme kavramı--tür bir kural tanımlamak ve bu kuralda veya ek koşullarla eşleşen bir bildirim alırsınız. Her bir desteklenen Azure uyarı türü 'etkinleştirir,' veya bir bildirim oluşturmak için koşullar karşılandığında, bir kaydı etkinleştirme etkinlik günlüğü, bu kategoriye de gönderilir.
 
-### <a name="sample-event"></a>Örnek olayı
+### <a name="sample-event"></a>Örnek olay
 
 ```json
 {
@@ -261,55 +261,55 @@ Bu kategorideki tüm etkinleştirmeleri Azure uyarı kaydı içerir. Bu kategori
 | Öğe adı | Açıklama |
 | --- | --- |
 | çağıran | Her zaman Microsoft.Insights/alertRules |
-| kanallar | Her zaman "Yönetici, işlemi" |
-| Talepleri | JSON blob uyarı altyapısı SPN (hizmet asıl adı) ya da kaynak türüne sahip. |
-| correlationId | Dize biçimindeki bir GUID. |
-| açıklama |Uyarı Olay açıklaması statik metin. |
-| eventDataId |Uyarı olay benzersiz tanımlayıcısı. |
-| düzey |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı" |
-| resourceGroupName |Ölçüm uyarı ise etkilenen kaynak kaynak grubu adı. Diğer uyarı türleri için uyarıyı içeren kaynak grubunun adını budur. |
-| resourceProviderName |Etkilenen kaynak ölçüm uyarı ise kaynak sağlayıcısı adı. Diğer uyarı türleri için bu kaynak sağlayıcısı uyarının adıdır. |
-| resourceId | Etkilenen kaynak ölçüm uyarı ise kaynak kimliği adı. Diğer uyarı türleri için bu kaynak uyarı kaynak kimliğidir. |
-| operationId |Tek bir işleme karşılık gelen olayları arasında paylaşılan bir GUID. |
+| kanallar | Her zaman "Yöneticisi işlemi" |
+| Talep | JSON blob uyarı altyapısının SPN (hizmet asıl adı) ya da kaynak türüne sahip. |
+| correlationId | Dize biçiminde bir GUID. |
+| açıklama |Uyarı olayının açıklaması statik metin. |
+| eventDataId |Uyarı olayı benzersiz tanımlayıcısı. |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error"Uyarı",", "Bilgilendirici" ve "Ayrıntılı" |
+| resourceGroupName |Etkilenen kaynak ölçüm uyarısı ise kaynak grubunun adı. Diğer uyarı türleri için bu uyarıyı içeren kaynak grubunun adıdır. |
+| resourceProviderName |Etkilenen kaynak ölçüm uyarısı ise kaynak sağlayıcı adı. Diğer uyarı türleri için uyarı için kaynak sağlayıcısının adını budur. |
+| resourceId | Etkilenen kaynak ölçüm uyarısı ise kaynak kimliği adı. Diğer uyarı türleri için uyarı kaynağın kaynak kimliği budur. |
+| operationId |Tek bir işleme karşılık gelen olaylar arasında paylaşılan bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük). |
-| durum |İşlemin durumunu açıklayan dize. Bazı genel değerler şunlardır:, ilerleme, başarılı, başarısız, etkin, çözümlenmiş başlatıldı. |
-| alt durum | Genellikle uyarılar için null. |
-| eventTimestamp |Olay işleme olay karşılık gelen isteği Azure hizmeti tarafından oluşturulan zaman damgası. |
-| submissionTimestamp |Olay sorgulama için kullanılabilir duruma zaman damgası. |
+| durum |İşlemin durumunu açıklayan bir dize. Sık karşılaşılan bazı değerler şunlardır:, ilerleme, başarılı, başarısız, etkin, çözümlenmiş başlatıldı. |
+| alt durumu | Genellikle, uyarılar için null. |
+| eventTimestamp |Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
+| submissionTimestamp |Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
 | subscriptionId |Azure abonelik kimliği |
 
-### <a name="properties-field-per-alert-type"></a>Uyarı türü başına özellikleri alanı
-Özellikler alanı uyarı olay kaynağı bağlı olarak farklı değerler içerir. İki ortak uyarı Olay Etkinlik günlüğü uyarıları ve ölçüm uyarıları sağlayıcılarıdır.
+### <a name="properties-field-per-alert-type"></a>Özellikler alanı uyarı türünün başına
+Özellikler alanı uyarı olayının kaynağı, bağlı olarak farklı değerler içerir. İki ortak uyarı olayının etkinlik günlüğü uyarılarına ve ölçüm uyarıları sağlayıcılarındandır.
 
 #### <a name="properties-for-activity-log-alerts"></a>Etkinlik günlüğü uyarıların özellikleri
 | Öğe adı | Açıklama |
 | --- | --- |
-| properties.subscriptionId | Abonelik kimliği etkinlik günlüğü olaydan etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden. |
-| properties.eventDataId | Olay verileri etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olay Kimliğinden. |
-| properties.resourceGroup | Kaynak grubu etkinlik günlüğü olaydan etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden. |
-| properties.resourceId | Etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olay kaynağı kimliği. |
-| properties.eventTimestamp | Etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olayı olay zaman damgası. |
-| properties.operationName | Etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olayı işlem adı. |
-| Properties.Status | Etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olay durumu.|
+| properties.subscriptionId | Abonelik kimliği etkinleştirilmesi bu etkinlik günlük uyarı kuralı nedeniyle etkinlik günlüğü olay. |
+| properties.eventDataId | Olay verileri etkinleştirilmesi bu etkinlik günlük uyarı kuralı nedeniyle etkinlik günlüğü olay kimliği. |
+| properties.resourceGroup | Kaynak grubu etkinleştirilmesi bu etkinlik günlük uyarı kuralı nedeniyle etkinlik günlüğü olay. |
+| properties.resourceId | Kaynak Kimliği etkinleştirilmesi bu etkinlik günlük uyarı kuralı nedeniyle etkinlik günlüğü olay. |
+| properties.eventTimestamp | Etkinleştirilecek bu etkinlik günlük uyarı kuralı neden etkinlik günlüğü olayının olay zaman damgası. |
+| properties.operationName | İşlem adı etkinleştirilmesi bu etkinlik günlük uyarı kuralı nedeniyle etkinlik günlüğü olay. |
+| Properties.Status | Etkinleştirilecek bu etkinlik günlük uyarı kuralı nedeniyle etkinlik günlüğü olayında durumu.|
 
-#### <a name="properties-for-metric-alerts"></a>Ölçüm uyarıların özellikleri
+#### <a name="properties-for-metric-alerts"></a>Ölçüm uyarıları özellikleri
 | Öğe adı | Açıklama |
 | --- | --- |
-| Özellikler. RuleUri | Ölçüm uyarı kuralı kendisini kaynak kimliği. |
-| Özellikler. RuleName | Ölçüm uyarı kuralı adı. |
-| Özellikler. RuleDescription | (Uyarı kuralı tanımlanan) ölçüm uyarı kuralı açıklaması. |
-| Özellikler. Eşik | Ölçüm uyarı kuralı hesaplanmasında kullanılan eşik değeri. |
-| Özellikler. WindowSizeInMinutes | Ölçüm uyarı kuralı hesaplanmasında kullanılan pencere boyutu. |
-| Özellikler. Toplama | Ölçüm uyarı kuralda tanımlanan toplama türü. |
-| Özellikler. İşleci | Ölçüm uyarı kuralı hesaplanmasında kullanılan koşullu işleç. |
-| Özellikler. MetricName | Ölçüm uyarı kuralı hesaplanmasında kullanılan ölçüm ölçüm adı. |
-| Özellikler. MetricUnit | Ölçüm uyarı kuralı hesaplanmasında kullanılan ölçüm ölçü birimi. |
+| özellikleri. RuleUri | Ölçüm uyarısı kuralının kendisini kaynak kimliği. |
+| özellikleri. RuleName | Ölçüm uyarısı kuralının adı. |
+| özellikleri. RuleDescription | Ölçüm uyarısı kuralının (uyarı kuralı tanımlanan) açıklaması. |
+| özellikleri. Eşik | Ölçüm uyarı kuralının veriyi değerlendirmede kullanılan eşik değeri. |
+| özellikleri. WindowSizeInMinutes | Ölçüm uyarı kuralının veriyi değerlendirmede kullanılan pencere boyutu. |
+| özellikleri. Toplama | Ölçüm uyarı kuralda tanımlanan toplama türü. |
+| özellikleri. İşleci | Ölçüm uyarı kuralının veriyi değerlendirmede kullanılan koşullu işleç. |
+| özellikleri. MetricName | Ölçüm uyarı kuralının veriyi değerlendirmede kullanılan ölçümü ölçüm adı. |
+| özellikleri. MetricUnit | Ölçüm uyarı kuralının veriyi değerlendirmede kullanılan ölçüm için ölçüm birimi. |
 
 ## <a name="autoscale"></a>Otomatik Ölçeklendirme
-Bu kategori, aboneliğinizde tanımladığınız herhangi bir otomatik ölçeklendirme ayarı göre otomatik ölçeklendirme altyapısı işlemi ile ilgili olayları kaydını içerir. Bu kategorideki görür olayın türünü, "Otomatik ölçeklendirme ölçek büyütme eylemi başarısız oldu." örneğidir Otomatik ölçeklendirme'ni kullanarak, otomatik olarak ölçeğini veya ölçeklendirin desteklenen kaynak türü örneği sayısı bir otomatik ölçeklendirme ayarı kullanarak gün ve/veya yük (ölçüm) verileri zamanında temel. Ne zaman koşulları Ölçekle yukarı veya aşağı, başlangıç sınamadan ve başarılı veya başarısız olayları bu kategorideki kaydedilmez.
+Bu kategori, kayıt işlemi herhangi bir otomatik ölçeklendirme ayarı, aboneliğinizde tanımladığınız dayalı otomatik ölçeklendirme altyapısı ilgili olayların içerir. Bu kategoride göreceğiniz olay türünü, "Otomatik ölçek ölçeği artırma eylemi başarısız oldu." örneğidir Otomatik ölçeklendirme kullanarak, otomatik olarak ölçeği genişletme veya ölçeklendirme desteklenen kaynak türü örneği sayısını gün ve/veya yük (ölçüm) verileri kullanarak bir otomatik ölçeklendirme ayarı zamanında temel. Ne zaman koşulları yukarı veya aşağı başlangıç ölçek karşılanması ve başarılı veya başarısız olaylar bu kategorideki kaydedilir.
 
-### <a name="sample-event"></a>Örnek olayı
+### <a name="sample-event"></a>Örnek olay
 ```json
 {
   "caller": "Microsoft.Insights/autoscaleSettings",
@@ -370,33 +370,33 @@ Bu kategori, aboneliğinizde tanımladığınız herhangi bir otomatik ölçekle
 | Öğe adı | Açıklama |
 | --- | --- |
 | çağıran | Her zaman Microsoft.Insights/autoscaleSettings |
-| kanallar | Her zaman "Yönetici, işlemi" |
-| Talepleri | JSON blob otomatik ölçeklendirme altyapısı SPN (hizmet asıl adı) ya da kaynak türüne sahip. |
-| correlationId | Dize biçimindeki bir GUID. |
-| açıklama |Otomatik ölçeklendirme Olay açıklaması statik metin. |
-| eventDataId |Otomatik ölçeklendirme olay benzersiz tanımlayıcısı. |
-| düzey |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı" |
-| resourceGroupName |Otomatik ölçeklendirme ayarında kaynak grubunun adı. |
-| resourceProviderName |Otomatik ölçeklendirme ayarında kaynak sağlayıcısı adı. |
-| resourceId |Otomatik ölçeklendirme ayarında kaynak kimliği. |
-| operationId |Tek bir işleme karşılık gelen olayları arasında paylaşılan bir GUID. |
+| kanallar | Her zaman "Yöneticisi işlemi" |
+| Talep | JSON blob SPN (hizmet asıl adı) ya da kaynak türü ile otomatik ölçeklendirme altyapısı. |
+| correlationId | Dize biçiminde bir GUID. |
+| açıklama |Otomatik ölçeklendirme olayının statik metin açıklaması. |
+| eventDataId |Otomatik ölçeklendirme olayının benzersiz tanımlayıcısı. |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error"Uyarı",", "Bilgilendirici" ve "Ayrıntılı" |
+| resourceGroupName |Otomatik ölçeklendirme ayarı için kaynak grubunun adı. |
+| resourceProviderName |Otomatik ölçeklendirme ayarı için kaynak sağlayıcısının adı. |
+| resourceId |Otomatik ölçeklendirme ayarı kaynak kimliği. |
+| operationId |Tek bir işleme karşılık gelen olaylar arasında paylaşılan bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük). |
-| Özellikler. Açıklama | Otomatik ölçeklendirme altyapısı yapmakta olduğu ayrıntılı açıklaması. |
-| Özellikler. ResourceName | Etkilenen kaynağının kaynak kimliği (kaynak üzerinde ölçek eylemi gerçekleştirilir) |
-| properties.OldInstancesCount | Otomatik ölçeklendirme eylemi etkisi sürdü önce örneği sayısı. |
-| Özellikler. NewInstancesCount | Otomatik ölçeklendirme eylemi etkisi sürdü sonra örneği sayısı. |
-| Özellikler. LastScaleActionTime | Otomatik ölçeklendirme eylemi gerçekleştiği damgası. |
-| durum |İşlemin durumunu açıklayan dize. Bazı genel değerler şunlardır:, ilerleme, başarılı, başarısız, etkin, çözümlenmiş başlatıldı. |
-| alt durum | Genellikle otomatik ölçeklendirme için null. |
-| eventTimestamp |Olay işleme olay karşılık gelen isteği Azure hizmeti tarafından oluşturulan zaman damgası. |
-| submissionTimestamp |Olay sorgulama için kullanılabilir duruma zaman damgası. |
+| özellikleri. Açıklaması | Otomatik ölçeklendirme altyapısı yapmakta olduğu ayrıntılı açıklaması. |
+| özellikleri. ResourceName | Etkilenen kaynak kaynak kimliği (kaynak üzerinde ölçeklendirme eylemi gerçekleştirilmedi) |
+| properties.OldInstancesCount | Etkin otomatik ölçeklendirme eylemin önce örnek sayısı. |
+| özellikleri. NewInstancesCount | Etkin otomatik ölçeklendirme eylemin sonra örnek sayısı. |
+| özellikleri. LastScaleActionTime | Otomatik ölçeklendirme eylemi gerçekleştiği, zaman damgası. |
+| durum |İşlemin durumunu açıklayan bir dize. Sık karşılaşılan bazı değerler şunlardır:, ilerleme, başarılı, başarısız, etkin, çözümlenmiş başlatıldı. |
+| alt durumu | Genellikle, otomatik ölçeklendirme için null. |
+| eventTimestamp |Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
+| submissionTimestamp |Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
 | subscriptionId |Azure abonelik kimliği |
 
 ## <a name="security"></a>Güvenlik
-Bu kategori, Azure Güvenlik Merkezi tarafından oluşturulan tüm uyarıları kayıt içeriyor. Bu kategorideki görür olayın türünü, "yürütülen şüpheli çift uzantısının." örneğidir
+Bu kategori, Azure Güvenlik Merkezi tarafından oluşturulan herhangi bir uyarı kaydını içerir. Bu kategoride göreceğiniz olay türünü, "şüpheli çift uzantılı dosya yürütüldü." örneğidir
 
-### <a name="sample-event"></a>Örnek olayı
+### <a name="sample-event"></a>Örnek olay
 ```json
 {
     "channels": "Operation",
@@ -460,30 +460,30 @@ Bu kategori, Azure Güvenlik Merkezi tarafından oluşturulan tüm uyarıları k
 | Öğe adı | Açıklama |
 | --- | --- |
 | kanallar | Her zaman "işlem" |
-| correlationId | Dize biçimindeki bir GUID. |
-| açıklama |Güvenlik Olay açıklaması statik metin. |
+| correlationId | Dize biçiminde bir GUID. |
+| açıklama |Güvenlik olayı açıklaması statik metin. |
 | eventDataId |Güvenlik olayı benzersiz tanımlayıcısı. |
 | EventName |Güvenlik olayı kolay adı. |
-| id |Güvenlik olayı benzersiz kaynak tanımlayıcısı. |
-| düzey |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" veya "Ayrıntılı" |
+| id |Güvenlik olayı benzersiz bir kaynak tanımlayıcısı. |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error"Uyarı",", "Bilgilendirici" veya "Ayrıntılı" |
 | resourceGroupName |Kaynak için kaynak grubunun adı. |
-| resourceProviderName |Azure Güvenlik Merkezi için kaynak sağlayıcısının adı. Her zaman "Microsoft.Security". |
-| Kaynak türü |"Microsoft.Security/locations/alerts" gibi güvenlik olayı oluşturulan kaynak türü |
+| resourceProviderName |Azure Güvenlik Merkezi kaynak sağlayıcısının adı. Her zaman "Microsoft.Security". |
+| Kaynak türü |"Microsoft.Security/locations/alerts" gibi bir güvenlik olayı oluşturulan kaynak türü |
 | resourceId |Güvenlik Uyarısı kaynak kimliği. |
-| operationId |Tek bir işleme karşılık gelen olayları arasında paylaşılan bir GUID. |
+| operationId |Tek bir işleme karşılık gelen olaylar arasında paylaşılan bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük). Bu özellikler, güvenlik uyarısı türüne bağlı olarak değişir. Bkz: [bu sayfayı](../security-center/security-center-alerts-type.md) gelen güvenlik Merkezi'nden uyarı türlerini açıklaması. |
-| Özellikler. Önem derecesi |Önem düzeyi. Olası değerler şunlardır: "Yüksek" "Orta" veya "Düşük." |
-| durum |İşlemin durumunu açıklayan dize. Bazı genel değerler şunlardır:, ilerleme, başarılı, başarısız, etkin, çözümlenmiş başlatıldı. |
-| alt durum | Genellikle güvenlik olayları için null. |
-| eventTimestamp |Olay işleme olay karşılık gelen isteği Azure hizmeti tarafından oluşturulan zaman damgası. |
-| submissionTimestamp |Olay sorgulama için kullanılabilir duruma zaman damgası. |
+| özellikleri. Önem derecesi |Önem düzeyi. Olası değerler şunlardır: "Yüksek" "Orta" veya "Düşük." |
+| durum |İşlemin durumunu açıklayan bir dize. Sık karşılaşılan bazı değerler şunlardır:, ilerleme, başarılı, başarısız, etkin, çözümlenmiş başlatıldı. |
+| alt durumu | Genellikle, güvenlik olaylarında null. |
+| eventTimestamp |Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
+| submissionTimestamp |Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
 | subscriptionId |Azure abonelik kimliği |
 
 ## <a name="recommendation"></a>Öneri
-Bu kategori hizmetlerinizi için oluşturulan tüm yeni önerileri kaydını içerir. Bir öneri örneği "kullanım kullanılabilirlik geliştirilmiş hataya dayanıklılık için ayarlar." olacaktır Oluşturulabilecek öneri olayları 4 tür vardır: yüksek kullanılabilirlik, performans, güvenlik ve maliyet iyileştirmesi. 
+Bu kategori, hizmetlerinizi için oluşturulan yeni önerisi kaydını içerir. Bir öneri örneği "kullanımı kullanılabilirlik kümeleri için hataya dayanıklılık." olacaktır Oluşturulabilecek öneri olayları 4 tür vardır: yüksek kullanılabilirlik, performans, güvenlik ve maliyet iyileştirmesi. 
 
-### <a name="sample-event"></a>Örnek olayı
+### <a name="sample-event"></a>Örnek olay
 ```json
 {
     "channels": "Operation",
@@ -540,28 +540,52 @@ Bu kategori hizmetlerinizi için oluşturulan tüm yeni önerileri kaydını iç
 | Öğe adı | Açıklama |
 | --- | --- |
 | kanallar | Her zaman "işlem" |
-| correlationId | Dize biçimindeki bir GUID. |
+| correlationId | Dize biçiminde bir GUID. |
 | açıklama |Öneri Olay açıklaması statik metin |
-| eventDataId | Öneri olay benzersiz tanımlayıcısı. |
+| eventDataId | Öneri etkinliğin benzersiz tanımlayıcısı. |
 | category | Her zaman "öneri" |
-| id |Öneri olay benzersiz kaynak tanımlayıcısı. |
-| düzey |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" veya "Ayrıntılı" |
+| id |Öneri olayın benzersiz bir kaynak tanımlayıcısı. |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error"Uyarı",", "Bilgilendirici" veya "Ayrıntılı" |
 | operationName |İşlemin adı.  Her zaman "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |Kaynak için kaynak grubunun adı. |
-| resourceProviderName |Bu öneri, "MICROSOFT.COMPUTE" gibi uygulandığı kaynak için kaynak sağlayıcısının adı |
-| Kaynak türü |Bu öneri, "MICROSOFT.COMPUTE/virtualmachines" gibi uygulandığı kaynak için kaynak türü adı |
-| resourceId |Öneri uygulandığı kaynağının kaynak kimliği |
-| durum | Her zaman "Active" |
-| submissionTimestamp |Olay sorgulama için kullanılabilir duruma zaman damgası. |
+| resourceProviderName |"Gibi MICROSOFT.COMPUTE" için bu önerinin geçerli kaynak için kaynak sağlayıcısının adı |
+| Kaynak türü |Kaynak türü için "Gibi MICROSOFT.COMPUTE/virtualmachines" için bu önerinin geçerli kaynak adı |
+| resourceId |Önerinin geçerli kaynağının kaynak kimliği |
+| durum | Her zaman "etkin" |
+| submissionTimestamp |Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
 | subscriptionId |Azure abonelik kimliği |
 | properties |Kümesi `<Key, Value>` öneri ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük).|
-| properties.recommendationSchemaVersion| Etkinlik günlüğü girişinde öneri özellikleri şema sürümü yayımlandı |
+| properties.recommendationSchemaVersion| Etkinlik günlüğü girişinde öneri özelliklerini şema sürümü yayımlandı |
 | properties.recommendationCategory | Öneri kategorisi. "Yüksek kullanılabilirlik", "Performans", "Güvenlik" ve "Maliyet" olası değerler şunlardır: |
-| properties.recommendationImpact| Öneri etkisini. Olası değerler şunlardır: "High", "Orta", "Düşük" |
-| properties.recommendationRisk| Öneri riskini. Olası değerler şunlardır: "Error"Uyarı",", "None" |
+| properties.recommendationImpact| Öneri etkisini. Olası değerler şunlardır: "Yüksek", "Orta", "Düşük" |
+| properties.recommendationRisk| Risk öneri. Olası değerler şunlardır: "Error"Uyarı",", "None" |
 
+## <a name="mapping-to-diagnostic-logs-schema"></a>Tanılama günlükleri şemaya eşleme
+
+Azure etkinlik günlüğünün Event Hubs ad alanı veya bir depolama hesabını akış, verileri izleyen [Azure tanılama günlükleri şema](./monitoring-diagnostic-logs-schema.md). Şemayı özelliklerinden tanılama günlükleri şemaya eşleme şu şekildedir:
+
+| Tanılama günlükleri şema özelliği | Etkinlik günlüğü REST API şema özelliği | Notlar |
+| --- | --- | --- |
+| time | eventTimestamp |  |
+| resourceId | resourceId | Subscriptionıd, resourceType, resourceGroupName tüm çıkarılan ResourceId. |
+| operationName | operationName.value |  |
+| category | İşlem adının parçası | "Yazma" / "Sil" işlemi türü - kırılımı / "Action" |
+| resultType | Status.Value | |
+| resultSignature | SubStatus.Value | |
+| resultDescription | açıklama |  |
+| durationMs | Yok | Her zaman 0 |
+| callerIpAddress | httpRequest.clientIpAddress |  |
+| correlationId | correlationId |  |
+| identity | Talepler ve yetkilendirme özellikleri |  |
+| Düzey | Düzey |  |
+| location | Yok | Olay işleneceği konumu. *Bu kaynak konumu değildir, ancak bunun yerine burada olay işlendi. Bu özellik gelecek bir güncelleştirmede kaldırılacak.* |
+| Özellikler | properties.eventProperties |  |
+| properties.eventCategory | category | Properties.eventCategory mevcut değilse, "Yönetim" kategorisidir |
+| properties.eventName | EventName |  |
+| properties.operationId | operationId |  |
+| properties.eventProperties | properties |  |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Etkinlik günlüğü (önceki adıyla denetim günlüklerini) hakkında daha fazla bilgi edinin](monitoring-overview-activity-logs.md)
-* [Akış Event hubs'a Azure etkinlik günlüğü](monitoring-stream-activity-logs-event-hubs.md)
+* [Etkinlik günlüğü'nü (eski adıyla denetim günlükleri) hakkında daha fazla bilgi edinin](monitoring-overview-activity-logs.md)
+* [Azure etkinlik günlüğünün Event Hubs'a Stream](monitoring-stream-activity-logs-event-hubs.md)

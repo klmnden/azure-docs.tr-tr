@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 66964e4ed0877cc47dd7d2b5f3c6a62f4fa006b1
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 336e6e163178cd6d244460dbf9bee2a5bc9d714e
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348193"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37935794"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -125,6 +125,10 @@ Hayır. Bilgisayar adı özelliği güncelleştirilemiyor. Yeni sanal makine iş
 **Vm'leri yönetilen disklerle oluşturmak için Azure Resource Manager şablonları kullanarak nerede bulabilirim?**
 * [Yönetilen Diskler'i kullanarak şablonları listesi](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
+
+**Yönetilmeyen ve yönetilen diskleri aynı VM'de birlikte bulabilirim?**
+
+Hayır.
 
 ## <a name="standard-ssd-disks-preview"></a>Standart SSD disk (Önizleme)
 
@@ -286,7 +290,7 @@ Azure destekleyen bir işletim sistemi diski için bölüm ana önyükleme kayd�
 
 **Desteklenen en büyük sayfa blob boyutu nedir?**
 
-Azure'un desteklediği en büyük sayfa blob boyutu 8 TB (8191 GB) ' dir. Bir VM'ye veri veya işletim sistemi diskleri olarak bağlanıldığında maxmium sayfa blog (4.095 GB) 4 TB boyutudur.
+Azure'un desteklediği en büyük sayfa blob boyutu 8 TB (8191 GB) ' dir. Bir VM'ye veri veya işletim sistemi diskleri olarak bağlanıldığında en fazla sayfa blog (4.095 GB) 4 TB boyutudur.
 
 **Azure Araçları'nın yeni bir sürüm oluşturma, ekleme, yeniden boyutlandırma ve 1 TB'den büyük diskleri karşıya yükleme için kullanılacak gerekiyor mu?**
 

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: 6c9bd93cf6e67aa815d289260f2b37bd3189c1d1
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: d6cbba2a5bf9ff44439c6e98debde5cd47d4bfc3
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887598"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950398"
 ---
 # <a name="testing-in-luis"></a>LUIS test etme
 
@@ -45,7 +45,7 @@ Bir uç noktasına karşı test etmek ve günlüğe utterance istemediğiniz kul
 ## <a name="where-to-find-utterances"></a>Konuşma nerede bulacağını
 LUIS, ücretsiz olarak kullanılabilir sorgu günlüğü günlüğe kaydedilen tüm konuşma depolar [LUIS](luis-reference-regions.md) Web sitesi **uygulamaları** LUIS yanı sıra, liste sayfası [yazma API'leri](https://aka.ms/luis-authoring-apis). 
 
-LUIS emin değilseniz, herhangi bir konuşma listelenir **[gözden geçirin, konuşma uç noktası](label-suggested-utterances.md)** sayfasının [LUIS](luis-reference-regions.md) Web sitesi. 
+LUIS emin değilseniz, herhangi bir konuşma listelenir **[gözden geçirin, konuşma uç noktası](luis-how-to-review-endoint-utt.md)** sayfasının [LUIS](luis-reference-regions.md) Web sitesi. 
 
 ![Uç nokta konuşmasını gözden geçirme](./media/luis-concept-test/review-endpoint-utterances.png)
  

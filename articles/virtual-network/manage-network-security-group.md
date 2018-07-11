@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 774d429b960e56e998e9d964b9de1e6461816734
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 5ca70b085b5ac9db4d108966fa695f042c20489d
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901706"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920520"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Oluşturma, değiştirme veya bir ağ güvenlik grubunu sil
 
@@ -253,21 +253,25 @@ Uygulama güvenlik grubu, sıfır veya daha fazla ağ arabirimlerini içerir. Da
 
 Ağ güvenlik grupları, güvenlik kuralları ve uygulama güvenlik grupları görevleri gerçekleştirmek için hesabınızı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) atanan Aşağıdaki tablolarda listelenenler uygun izinleri:
 
-### <a name="network-security-groups"></a>Ağ güvenlik grupları
+### <a name="network-security-group"></a>Ağ güvenlik grubu
 
 | Eylem                                                        |   Ad                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
-| Microsoft.Network/ruleTables/read                             |   Ağ güvenlik grubunu Al                                          |
-| Microsoft.Network/ruleTables/write                            |   Ağ güvenlik grubu veya güncelleştirilemiyor                             |
-| Microsoft.Network/ruleTables/delete                           |   Ağ güvenlik grubunu sil                                       |
-| Microsoft.Network/ruleTables/join/action                      |   Bir ağ güvenlik grubu bir alt ağ veya ağ arabirimine ilişkilendirin |
-| Microsoft.Network/ruleTables/rules/read                       |   Kuralı alma                                                            |
-| Microsoft.Network/ruleTables/rules/write                      |   Kuralı oluşturun veya güncelleştirin                                               |
-| Microsoft.Network/ruleTables/rules/delete                     |   Kuralı Sil                                                         |
-| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   Ağ arabiriminin etkin ağ güvenlik grubunu Al              |
-| Microsoft.Network/networkWatchers/nextHop/action              |   Sonraki atlama bir VM'den alır                                         |
+| Microsoft.Network/networkSecurityGroups/read                  |   Ağ güvenlik grubunu Al                                          |
+| Microsoft.Network/networkSecurityGroups/write                 |   Ağ güvenlik grubu veya güncelleştirilemiyor                             |
+| Microsoft.Network/networkSecurityGroups/delete                |   Ağ güvenlik grubunu sil                                       |
+| Microsoft.Network/networkSecurityGroups/join/action           |   Bir ağ güvenlik grubu bir alt ağ veya ağ arabirimine ilişkilendirin 
 
-### <a name="application-security-groups"></a>Uygulama güvenliği grupları
+
+### <a name="network-security-group-rule"></a>Ağ güvenlik grubu kuralı
+
+| Eylem                                                        |   Ad                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/networkSecurityGroups/rules/read            |   Kuralı alma                                                            |
+| Microsoft.Network/networkSecurityGroups/rules/write           |   Kuralı oluşturun veya güncelleştirin                                               |
+| Microsoft.Network/networkSecurityGroups/rules/delete          |   Kuralı Sil                                                         |
+
+### <a name="application-security-group"></a>Uygulama güvenlik grubu
 
 | Eylem                                                                     | Ad                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |

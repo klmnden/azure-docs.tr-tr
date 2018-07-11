@@ -1,9 +1,9 @@
 ---
-title: Temel bir Linux VM oluşturmak için Ansible kullanın | Microsoft Docs
-description: Ansible oluşturmak ve azure'da temel bir Linux sanal makine yönetmek için nasıl kullanılacağını öğrenin
+title: Azure'da temel bir Linux VM oluşturmak için Ansible'ı kullanma | Microsoft Docs
+description: Oluşturmak ve azure'da temel bir Linux sanal makinesi yönetmek için Ansible'ı kullanmayı öğrenin
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
@@ -14,37 +14,37 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/30/2018
-ms.author: iainfou
-ms.openlocfilehash: e36bdbf84b275fb8a6a4e42496b3080bebf1b193
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: cynthn
+ms.openlocfilehash: 35dfe8348718e0edf8683f7eeddf286831697d89
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716644"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931438"
 ---
-# <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Azure Ansible ile temel bir sanal makine oluşturun
-Ansible dağıtma ve yapılandırmanın ortamınızdaki kaynakların otomatikleştirmenizi sağlar. Azure, aynı herhangi bir kaynağa olduğu gibi sanal makineleri (VM'ler) yönetmek için Ansible kullanabilirsiniz. Bu makalede Ansible ile temel bir VM oluşturulacağını gösterir. Ayrıca öğrenebilirsiniz nasıl [Ansible ile eksiksiz bir VM ortamı oluşturma](ansible-create-complete-vm.md).
+# <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Azure'da Ansible ile temel bir sanal makine oluşturma
+Ansible, dağıtımını ve yapılandırmasını, ortamınızdaki kaynakları otomatikleştirmenize olanak tanır. Azure, aynı diğer herhangi bir kaynağa olduğu gibi sanal makinelerinizde (VM'ler) yönetmek için Ansible'ı kullanabilirsiniz. Bu makalede Ansible ile temel bir VM oluşturma işlemini gösterir. Ayrıca edinebilirsiniz nasıl [Ansible ile eksiksiz bir VM ortamı oluşturma](ansible-create-complete-vm.md).
 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Ansible ile Azure kaynaklarınızı yönetmek için aşağıdakiler gerekir:
+Ansible ile Azure kaynaklarını yönetmek için aşağıdakiler gerekir:
 
-- Ansible ve ana bilgisayar sisteminizde yüklü Azure Python SDK'sını modüller.
-    - Ansible yüklemek [CentOS 7.4](ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), ve [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
-- Azure kimlik ve onları kullanmak üzere yapılandırılmış Ansible.
-    - [Azure kimlik bilgileri oluşturun ve Ansible yapılandırın](ansible-install-configure.md#create-azure-credentials)
-- Azure CLI Sürüm 2.0.4 veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. 
-    - Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). Aynı zamanda [Azure bulut Kabuk](/azure/cloud-shell/quickstart) web tarayıcınızdan.
+- Ansible'ı ve konak sisteminizde yüklü Azure Python SDK'sı modüller.
+    - Ansible'ı yükleyin [CentOS 7.4](ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), ve [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
+- Azure kimlik bilgileri ve bunları kullanmak üzere yapılandırılmış ansible'ı.
+    - [Azure kimlik bilgileri oluşturun ve ansible'ı yapılandırma](ansible-install-configure.md#create-azure-credentials)
+- Azure CLI 2.0.4 sürümü veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. 
+    - Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). Ayrıca [Azure Cloud Shell](/azure/cloud-shell/quickstart) web tarayıcınızdan.
 
 
-## <a name="create-supporting-azure-resources"></a>Azure kaynaklarını destekleyen oluşturma
-Bu örnekte, var olan bir altyapısının bir VM dağıtır bir runbook oluşturun. İlk olarak, kaynak grubu ile oluşturma [az grubu oluşturma](/cli/azure/group#az-group-create). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
+## <a name="create-supporting-azure-resources"></a>Destekleyici Azure kaynakları oluşturma
+Bu örnekte, mevcut bir altyapı VM dağıtır bir runbook oluşturun. İlk olarak, kaynak grubu oluşturun [az grubu oluşturma](/cli/azure/group#az-group-create). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-İle VM için sanal ağ oluşturma [az ağ vnet oluşturma](/cli/azure/network/vnet#az-network-vnet-create). Aşağıdaki örnek adlı bir sanal ağ oluşturur *myVnet* ve adlı bir alt ağ *mySubnet*:
+Sanal ağ ile sanal Makineniz için oluşturma [az ağ sanal ağ oluşturma](/cli/azure/network/vnet#az-network-vnet-create). Aşağıdaki örnekte adlı bir sanal ağ oluşturur *myVnet* ve adlı bir alt ağ *mySubnet*:
 
 ```azurecli
 az network vnet create \
@@ -56,8 +56,8 @@ az network vnet create \
 ```
 
 
-## <a name="create-and-run-ansible-playbook"></a>Oluşturma ve Ansible playbook çalıştırma
-Adlı bir Ansible playbook oluşturma *azure_create_vm.yml* ve aşağıdaki içeriğini yapıştırın. Bu örnek, tek bir VM'ye oluşturur ve SSH kimlik bilgilerini yapılandırır. Kendi tam genel anahtar verilerde *key_data* gibi eşleştirin:
+## <a name="create-and-run-ansible-playbook"></a>Oluşturun ve Ansible playbook çalıştırın
+Adlı bir Ansible playbook oluşturmak *azure_create_vm.yml* ve aşağıdaki içeriği yapıştırın. Bu örnek, tek bir VM oluşturur ve SSH kimlik bilgileri yapılandırır. Kendi tam genel anahtar verilerde *key_data* şu şekilde eşleştirin:
 
 ```yaml
 - name: Create Azure VM
@@ -81,13 +81,13 @@ Adlı bir Ansible playbook oluşturma *azure_create_vm.yml* ve aşağıdaki içe
         version: latest
 ```
 
-VM ile Ansible oluşturmak için playbook aşağıdaki gibi çalıştırın:
+Ansible ile sanal makine oluşturmak için şu şekilde playbook çalıştırın:
 
 ```bash
 ansible-playbook azure_create_vm.yml
 ```
 
-Çıktı VM başarıyla oluşturulup oluşturulmadığını gösteren aşağıdaki örneğe benzer:
+Çıktı, sanal Makinenin başarıyla oluşturulduğunu gösteren aşağıdaki örneğe benzer:
 
 ```bash
 PLAY [Create Azure VM] ****************************************************
@@ -104,4 +104,4 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu örnek bir VM varolan bir kaynak grubu ve dağıtılmış bir sanal ağ oluşturur. Bir sanal ağ ve ağ güvenlik grubu kuralları gibi destekleyici kaynakları oluşturmak için Ansible kullanma hakkında daha ayrıntılı bir örnek için bkz: [Ansible ile eksiksiz bir VM ortamı oluşturma](ansible-create-complete-vm.md).
+Bu örnekte, mevcut bir kaynak grubu ve zaten dağıtılmış bir sanal ağ ile bir VM oluşturur. Bir sanal ağ ve ağ güvenlik grubu kuralları gibi destekleyici kaynakları oluşturmak için Ansible'ı kullanma hakkında daha ayrıntılı bir örnek için bkz [Ansible ile eksiksiz bir VM ortamı oluşturma](ansible-create-complete-vm.md).

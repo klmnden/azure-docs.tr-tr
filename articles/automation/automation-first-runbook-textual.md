@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4f91cfcce3643d96f241cb5408efc2455367c336
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 32ad5ef4f297a64f0925febb247ccb117dffedf0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435713"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928599"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>İlk PowerShell İş Akışı runbook uygulamam
 
@@ -113,7 +113,10 @@ Test ve runbook'unuzu yayımlanan ancak şu ana kadar faydalı bir şey yapmadı
    ```
 
    > [!IMPORTANT]
-   > **Add-AzureRmAccount** ve **Login-AzureRmAccount** artık diğer adlarıdır **Connect-AzureRMAccount**. Varsa **Connect-AzureRMAccount** cmdlet'i mevcut değil, kullanabileceğiniz **Add-AzureRmAccount** veya **Login-AzureRmAccount**, veya Otomasyon modüllerinizi güncelleştirebilirsiniz En son sürümlerine hesap.
+   > **Add-AzureRmAccount** ve **Login-AzureRmAccount** artık diğer adlarıdır **Connect-AzureRMAccount**. Varsa **Connect-AzureRMAccount** cmdlet'i mevcut değil, kullanabileceğiniz **Add-AzureRmAccount** veya **Login-AzureRmAccount**, veya [modüllerinizi güncelleştir ](automation-update-azure-modules.md) Otomasyon hesabınızda en son sürümlerine. 
+
+> [!NOTE]
+> Gerekebilir [modüllerinizi güncelleştirme](automation-update-azure-modules.md) karşın yalnızca yeni bir Otomasyon hesabı oluşturdunuz.
 
 5. Tıklayın **Test bölmesi** böylece runbook'u test edebilirsiniz.
 6. Testi başlatmak için **Başlat**’a tıklayın. Tamamlandığında, hesabınızdaki temel bilgileri görüntüleyen bir aşağıdakine benzer bir çıktı almalısınız. Böylece kimlik bilgisinin geçerli olduğunu doğrulanmış olur.<br><br> ![Kimlik Doğrulaması](media/automation-first-runbook-textual/runbook-auth-output.png)
