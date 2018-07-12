@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8892f9a2699d18fbaf9161ffb01906a071ab2243
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856765"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971083"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında bulunan oturum açma etkinlik raporundaki hata kodları
 
@@ -78,7 +78,7 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |50012| Bu kimlik doğrulamasının başarısız gösteren bir genel hata iletisidir. Bu, eksik veya geçersiz kimlik bilgileri veya istek talepleri gibi nedenlerle ortaya çıkabilir. Doğru kimlik bilgilerini ve talepleri ile istek gönderilir emin olun. |
 |50013|Onay çeşitli nedenlerden dolayı geçersiz: Belirteci veren, geçerli zaman aralığı içinde api sürümü ile eşleşmiyor -süresi dolmuş -yanlış biçimlendirilmiş - Onaydaki yenileme belirteci birincil yenileme belirteci değil.|
 |50017|Sertifika doğrulaması aşağıdaki nedenlerden dolayı başarısız oldu:<ul><li>Güvenilir sertifika listesinde verme sertifikası bulunamıyor</li><li>Beklenen CrlSegment bulunamıyor</li><li>Güvenilir sertifika listesinde verme sertifikası bulunamıyor</li><li>Delta CRL dağıtım noktası, karşılık gelen bir CRL dağıtım noktası olmadan yapılandırılmış</li><li>Zaman aşımı sorunu nedeniyle geçerli CRL segmentleri alınamıyor</li><li>CRL indirilemiyor</li></ul>Kiracı yöneticisine başvurun.|
-|50020|Kullanıcı yetkisiz - Sürüm sorunu nedeniyle belirteçler verilemiyor - Veren adı belirtilmemiş - Veren adı ile ilgili sorunlar var (null -max uzunluk). Uygulama sahibine başvurun|
+|50020|Kullanıcı aşağıdaki nedenlerden biri için yetkilendirilmemiş.<ul><li>Kullanıcıya v1 uç noktası ile bir MSA hesapla oturum açmak çalışıyor</li><li>Kullanıcı, kiracıda mevcut değil.</li></ul> Uygulama sahibine başvurun.|
 |50027|Aşağıdaki nedenlerden dolayı geçersiz JWT belirteci:<ul><li>Bir kerelik anahtar talebi içermiyor, alt talep</li><li>konu tanımlayıcısı uyuşmazlığı</li><li>idToken taleplerinde yinelenen talep</li><li>beklenmeyen veren</li><li>beklenmeyen hedef kitle</li><li>geçerli zaman aralığı içinde değil </li><li>belirteç biçimi doğru değil</li><li>Verenin dış kimlik belirteci imza doğrulaması başarısız oldu.</li></ul>Uygulama sahibine başvurun|
 |50029|Geçersiz URI - etki alanı adı geçersiz karakterler içeriyor. Kiracı yöneticisine başvurun.|
 |50034|Kullanıcı dizinde yok. Kiracı yöneticinize başvurun.|
@@ -100,7 +100,7 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |50089|Akış belirtecinin süresi doldu - Kimlik Doğrulaması Başarısız Oldu. Kullanıcıdan kullanıcı adı-parola ile yeniden oturum açmasını isteyin|
 |50097|Cihaz Kimlik Doğrulaması Gerekli - DeviceId -DeviceAltSecId talepleri null VEYA cihaz tanımlayıcısına karşılık gelen bir cihaz yok|
 |50099|JWT imzası geçersiz. Uygulama sahibine başvurun.|
-|50105|Oturum açmış kullanıcı, oturum açmış uygulama için bir role atanmadı. Kullanıcıyı uygulamaya atayın. Daha fazla bilgi için: [https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
+|50105|Oturum açmış kullanıcı, oturum açmış uygulama için bir role atanmadı. Kullanıcıyı uygulamaya atayın. Daha fazla bilgi için: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
 |50107|İstenen federasyon bölgesi nesnesi yok. Kiracı yöneticisine başvurun.|
 |50120|JWT üst bilgisi ile ilgili sorun var. Kiracı yöneticisine başvurun.|
 |50124|Talep Dönüşümü, geçersiz giriş parametresi içeriyor. İlke güncelleştirmek için kiracı yöneticisine başvurun.|
@@ -174,9 +174,10 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |81001|Kullanıcının Kerberos anahtarı fazla büyük. Bu durum, kullanıcı çok fazla grupta ise ve sonuç olarak Kerberos bileti çok fazla grup üyeliği içeriyorsa gerçekleşebilir. Kullanıcının grup üyeliklerini azaltın ve yeniden deneyin.|
 |81005|Kimlik Doğrulaması Paketi Desteklenmiyor|
 |81007|Kiracı Sorunsuz SSO için etkinleştirilmedi|
-|90014| Bir protokol iletisi için gerekli bir alan eksik, uygulama sahibine başvurun. Uygulama sahibi bu durumda, oturum açma isteği için gerekli tüm parametreleri olduğundan emin olun. 
+|90010|İstek, çeşitli nedenlerle desteklenmiyor. Örneğin, istek (yalnızca POST yöntemini desteklenir) bir desteklenmeyen istek yöntemi kullanılarak yapılan veya istenen belirteç imzalama algoritması desteklenmiyor. Uygulama geliştiricisine başvurun.|
+|90014| Bir protokol iletisi için gerekli bir alan eksik, uygulama sahibine başvurun. Uygulama sahibi bu durumda, oturum açma isteği için gerekli tüm parametreleri olduğundan emin olun. |
 |90072| Hesabın kiracıda bir dış kullanıcı olarak önce eklenmesi gerekir. Oturum kapatma ve yeniden farklı bir Azure AD ile oturum açma hesabı.|
-|90094| Grant yönetici izinleri gerektirir. Bu uygulama için rıza sağlamanın Kiracı yöneticinize başvurun.
+|90094| Grant yönetici izinleri gerektirir. Bu uygulama için rıza sağlamanın Kiracı yöneticinize başvurun.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

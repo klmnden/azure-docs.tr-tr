@@ -1,8 +1,8 @@
 ---
-title: Microsoft Flow Azure bir işlevi çağırmak | Microsoft Docs
-description: Özel bir bağlayıcı oluşturun ardından bu Bağlayıcısı'nı kullanarak bir işlevini çağırın.
+title: Microsoft Flow bir Azure işlevini çağırabilir | Microsoft Docs
+description: Özel bağlayıcı oluşturma, ardından bu bağlayıcıyı kullanarak bir işlev çağırın.
 services: functions
-keywords: Bulut uygulamaları, bulut Hizmetleri, Microsoft Flow iş süreçlerini iş uygulaması
+keywords: Bulut uygulamaları, bulut Hizmetleri, Microsoft Flow, iş süreçleri, iş kolu uygulaması
 documentationcenter: ''
 author: ggailey777
 manager: cfowler
@@ -18,51 +18,51 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234810"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38467753"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Microsoft Flow’dan işlev çağırma
 
-[Microsoft Flow](https://flow.microsoft.com/) iş akışları ve sık kullanılan uygulamalar ve hizmetler arasındaki iş süreçlerini otomatikleştirmek daha kolay hale gelir. Profesyonel geliştiricilere akış oluşturucular teknik ayrıntıları koruma sırasında Microsoft Flow yeteneklerini artırmak için Azure işlevleri kullanabilirsiniz.
+[Microsoft Flow](https://flow.microsoft.com/) iş akışları ve sık kullandığınız uygulamalar ve hizmetler arasında iş süreçlerini otomatik hale getirmek kolay hale getirir. Profesyonel Geliştiriciler, Azure işlevleri, teknik ayrıntıları gelen akış oluşturucular koruma sırasında Microsoft Flow yeteneklerini genişletmek için kullanabilirsiniz.
 
-Bu konuda bakım senaryo Rüzgar turbines için temel akış oluşturun. Bu konu içinde tanımlı bir işlevi çağırmak gösterilmiştir [işlevi için bir OpenAPI tanımı oluşturma](functions-openapi-definition.md). İşlev acil bir onarım Rüzgar Türbin üzerinde uygun maliyetli olup olmadığını belirler. Düşük maliyetli, akış onarım önermek için e-posta gönderir.
+Bu konuda bakım senaryosunda Rüzgar turbines için temel bir akış oluşturun. Bu konu içinde tanımlanan işlevinin nasıl çağrıldığını gösterir [bir işlev için Openapı tanımı oluşturma](functions-openapi-definition.md). İşlevi, bir Rüzgar türbini Acil onarımın uygun maliyetli olup olmadığını belirler. Akış, uygun maliyetli olması durumunda, onarım önermek için e-posta gönderir.
 
-PowerApps aynı işlevi çağırma hakkında daha fazla bilgi için bkz: [PowerApps bir işlevi çağırmak](functions-powerapps-scenario.md).
+PowerApps ile aynı işlevi çağırma hakkında daha fazla bilgi için bkz: [Powerapps'ten bir işlev çağırma](functions-powerapps-scenario.md).
 
-Bu konuda, bilgi nasıl yapılır:
+Bu konu başlığında, şunların nasıl yapılır:
 
 > [!div class="checklist"]
 > * SharePoint'te bir liste oluşturur.
-> * API tanımı verin.
-> * API için bağlantı ekleyin.
-> * Onarım uygun maliyetli olması durumunda e-posta göndermek için bir akış oluşturun.
-> * Akış çalıştırın.
+> * Bir API tanımını dışarı aktarın.
+> * API için bir bağlantı ekleyin.
+> * Bir onarım uygun maliyetli olması durumunda e-posta göndermek için bir akış oluşturun.
+> * Akışı çalıştırın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-+ Etkin bir [Microsoft Flow hesap](https://flow.microsoft.com/documentation/sign-up-sign-in/) kimlik bilgileri Azure hesabınız olarak işaretli. 
++ Etkin bir [Microsoft Flow hesabı](https://flow.microsoft.com/documentation/sign-up-sign-in/) Azure hesabınızla oturum açma kimlik ile. 
 + SharePoint, bu akış için bir veri kaynağı olarak kullanın. Kaydolun [bir Office 365 deneme](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) SharePoint zaten yoksa.
-+ Öğreticiyi tamamlamak [işlevi için bir OpenAPI tanımı oluşturma](functions-openapi-definition.md).
++ Bu öğreticiyi tamamlamak [bir işlev için Openapı tanımı oluşturma](functions-openapi-definition.md).
 
-## <a name="create-a-sharepoint-list"></a>Bir SharePoint listesi oluşturma
-Akış veri kaynağı olarak kullanmak bir liste oluşturarak başlayın. Listesinde aşağıdaki sütunlar var.
+## <a name="create-a-sharepoint-list"></a>Bir SharePoint listesi oluşturun
+Akış veri kaynağı olarak kullanan bir liste oluşturarak başlayın. Listesinde aşağıdaki sütunlar vardır.
 
 | Liste sütunu     | Veri Türü           | Notlar                                    |
 |-----------------|---------------------|------------------------------------------|
-| **Başlık**           | Tek satırlık metin | Türbin adı                      |
+| **Başlık**           | Tek metin satırı | Türbinin adı                      |
 | **LastServiceDate** | Tarih                |                                          |
-| **MaxOutput**       | Sayı              | Kwh Türbin çıktısı            |
+| **MaxOutput**       | Sayı              | Kwh türbinin çıktısı            |
 | **ServiceRequired** | Evet/Hayır              |                                          |
 | **EstimatedEffort** | Sayı              | Saat cinsinden onarım için tahmini süre |
 
-1. SharePoint siteniz tıklayın veya dokunun **yeni**, ardından **listesi**.
+1. SharePoint sitenizde tıklayın veya dokunun **yeni**, ardından **listesi**.
 
     ![Yeni SharePoint listesi oluşturun](./media/functions-flow-scenario/new-list.png)
 
-2. Bir ad girin `Turbines`, ardından tıklayın veya dokunun **oluşturma**.
+2. Bir ad girin `Turbines`'a tıklayın veya dokunun **Oluştur**.
 
     ![Yeni liste için bir ad belirtin](./media/functions-flow-scenario/create-list.png)
 
@@ -70,15 +70,15 @@ Akış veri kaynağı olarak kullanmak bir liste oluşturarak başlayın. Listes
 
     ![Turbines listesi](./media/functions-flow-scenario/initial-list.png)
 
-3. ' A tıklayın veya dokunun ![yeni öğesi simgesi](./media/functions-flow-scenario/icon-new.png) sonra **tarih**.
+3. ' A tıklayın veya dokunun ![yeni öğe simgesi](./media/functions-flow-scenario/icon-new.png) ardından **tarih**.
 
     ![Tek satır metin alanı ekleyin](./media/functions-flow-scenario/add-column.png)
 
-4. Bir ad girin `LastServiceDate`, ardından tıklayın veya dokunun **oluşturma**.
+4. Bir ad girin `LastServiceDate`'a tıklayın veya dokunun **Oluştur**.
 
-    ![LastServiceDate bir sütun oluşturun](./media/functions-flow-scenario/date-column.png)
+    ![LastServiceDate sütunu oluşturma](./media/functions-flow-scenario/date-column.png)
 
-5. Diğer üç sütun listesinde için son iki adımı tekrarlayın:
+5. Diğer üç sütun listesinde için son iki adımı yineleyin:
 
     1. **Sayı** > "MaxOutput"
 
@@ -86,152 +86,152 @@ Akış veri kaynağı olarak kullanmak bir liste oluşturarak başlayın. Listes
 
     3. **Sayı** > "EstimatedEffort"
 
-Şu an için bu kadar - aşağıdaki görüntü gibi görünen boş bir liste olması gerekir. Akış oluşturduktan sonra veri listesine ekleyin.
+Şimdilik hepsi bu kadar - şu resimdeki gibi görünür, boş bir liste olması gerekir. Akış oluşturduktan sonra veri listesine ekleyin.
 
 ![Boş liste](media/functions-flow-scenario/empty-list.png)
 
 [!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
 
-## <a name="add-a-connection-to-the-api"></a>API için bir bağlantı Ekle
-Özel API (özel bir bağlayıcı olarak da bilinir) Microsoft Flow kullanılabilir, ancak bir akışı kullanabilmeniz için önce bir API için bağlantısı gerekir.
+## <a name="add-a-connection-to-the-api"></a>API'ye bağlantı ekleme
+Özel API (aynı zamanda özel bağlayıcı olarak da bilinir), Microsoft Flow içinde kullanılabilir, ancak bir akışta kullanabilmek için önce bir API'ye bağlantısı gerekir.
 
-1. İçinde [flow.microsoft.com](https://flow.microsoft.com), dişli simgesine (sağ üstte) tıklayın ve ardından **bağlantıları**.
+1. İçinde [flow.microsoft.com](https://flow.microsoft.com), dişli simgesine (sağ üst köşede) tıklayın ve ardından tıklayın **bağlantıları**.
 
     ![Akış bağlantıları](media/functions-flow-scenario/flow-connections.png)
 
-1. ' I tıklatın **bağlantı oluşturma**, doğru aşağı kaydırın **Türbin onarım** bağlayıcısını ve tıklatın.
+1. Tıklayın **bağlantı oluştur**, ekranı aşağı kaydırarak **Türbin onarımı** bağlayıcısını bulup tıklayın.
 
     ![Bağlantı oluşturma](media/functions-flow-scenario/create-connection.png)
 
-1. API anahtarını girin ve **bağlantı oluşturmak**.
+1. API anahtarını girin ve tıklayın **Mumbai'ye**.
 
-    ![API anahtarını girin ve oluşturma](media/functions-flow-scenario/api-key.png)
+    ![API anahtarını girin ve Oluştur](media/functions-flow-scenario/api-key.png)
 
 > [!NOTE]
-> Akışınız başkalarıyla paylaşıyorsanız, çalışır veya akış kullanan her kişi API'sine bağlanmak için API anahtarı da girmeniz gerekir. Bu davranış gelecekte değişebilir ve bu konuda, yansıtacak şekilde güncelleştireceğiz.
+> Akışınız başkalarıyla paylaştığınızda, çalışıyor veya flow kullanan her kişi API'sine bağlanmak için API anahtarı da girmeniz gerekir. Bu davranış gelecekte değişebilir ve, değişimi yansıtmak için bu konuyu güncelleştireceğiz.
 
 
-## <a name="create-a-flow"></a>Bir akış oluşturma
+## <a name="create-a-flow"></a>Akış oluşturun
 
-Artık özel bağlayıcı ve oluşturduğunuz SharePoint listesi kullanan bir akışı oluşturmak hazırsınız.
+Artık özel bağlayıcı ile oluşturduğunuz SharePoint listesi kullanan bir akış oluşturmak hazırsınız.
 
-### <a name="add-a-trigger-and-specify-a-condition"></a>Bir tetikleyici ekleyin ve bir koşul belirtin
+### <a name="add-a-trigger-and-specify-a-condition"></a>Bir tetikleyici ekleme ve bir koşulu belirtin
 
-İlk (olmadan bir şablon) boş bir akış oluşturun ve ekleme bir *tetikleyici* SharePoint listesindeki bir öğeyi oluşturulduğunda ateşlenir. Ardından eklediğiniz bir *koşulu* ne olacağını belirlemek için.
+İlk (şablon) olmadan boş bir akış oluşturma ve ekleme bir *tetikleyici* SharePoint listesinde bir öğe oluşturulduğunda tetiklenir. Daha sonra eklediğiniz bir *koşul* ne olacağını belirlemek için.
 
-1. İçinde [flow.microsoft.com](https://flow.microsoft.com), tıklatın **My akar**, ardından **boş oluştur**.
+1. İçinde [flow.microsoft.com](https://flow.microsoft.com), tıklayın **Akışlarım**, ardından **boş akış Oluştur**.
 
-    ![boş iken oluşturma](media/functions-flow-scenario/create-from-blank.png)
+    ![Boş akış oluştur](media/functions-flow-scenario/create-from-blank.png)
 
-2. SharePoint tetikleyici tıklatın **öğeyi oluşturulduğunda**.
+2. SharePoint tetikleyicisini tıklayın **bir öğe oluşturulduğunda**.
 
     ![Tetikleyici seçin](media/functions-flow-scenario/choose-trigger.png)
 
-    SharePoint ile zaten oturum açtınız, bunu yapmak için istenir.
+    SharePoint ile henüz oturum açmadıysanız, bunu yapmak için istenir.
 
-3. İçin **Site adres**, SharePoint site adınızı girin ve **listesi adı**, Türbin veri içeren listesini girin.
+3. İçin **Site adresi**, SharePoint site adınızı girin ve **liste adı**, türbinin verileri içeren bir liste girin.
 
     ![Tetikleyici seçin](media/functions-flow-scenario/site-list.png)
 
-4. Tıklatın **yeni adım**, ardından **bir koşul eklemek**.
+4. Tıklayın **yeni adım**, ardından **koşul Ekle**.
 
     ![Koşul ekle](media/functions-flow-scenario/add-condition.png)
 
-    Microsoft Flow akışına iki dalı ekler: **Evet ise** ve **yoksa**. Eşleştirmek istediğiniz koşulu tanımladıktan sonra biri veya her ikisi dalları adımlarını ekleyin.
+    Microsoft Flow, akışı için iki dal ekler: **Evet ise** ve **hiçbir**. Eşleştirmek istediğiniz koşulu tanımlandıktan sonra bir veya iki dalı için adımları ekleyin.
 
-    ![Koşul dalları](media/functions-flow-scenario/condition-branches.png)
+    ![Koşul dallar](media/functions-flow-scenario/condition-branches.png)
 
-5. Üzerinde **koşulu** kartı, ilk kutusuna tıklayın ve sonra seçin **ServiceRequired** gelen **dinamik içerik** iletişim kutusu.
+5. Üzerinde **koşul** kart, ilk kutuyu tıklayın ve ardından seçin **ServiceRequired** gelen **dinamik içerik** iletişim kutusu.
 
-    ![Koşul için alanını seçin](media/functions-flow-scenario/condition1-field.png)
+    ![Koşul için bir alan seçin](media/functions-flow-scenario/condition1-field.png)
 
 6. Değeri girin `True` koşul.
 
     ![Koşul için true girin](media/functions-flow-scenario/condition1-yes.png)
 
-    Değeri olarak gösterilen `Yes` veya `No` SharePoint listesi, ancak depolanan olarak bir *boolean*, her iki `True` veya `False`. 
+    Değeri olarak gösterilen `Yes` veya `No` SharePoint listesi, ancak depolanan olarak bir *Boole*, ya da `True` veya `False`. 
 
-7. Tıklatın **akışı oluşturmak** sayfanın üst kısmındaki. Tıklattığınızdan emin olun **güncelleştirme akış** düzenli aralıklarla.
+7. Tıklayın **akış oluşturma** sayfanın üstünde. Tıkladığınızdan emin olun **güncelleştirme akış** düzenli aralıklarla.
 
-Listede oluşturulan tüm öğeler için akışını denetler **ServiceRequired** alan ayarlanmış `Yes`, ardından gider **Evet ise** şube veya **yoksa** olarak dal uygun. Yalnızca belirttiğiniz eylemler için bu konudaki zaman kazanmak için **Evet ise** dal.
+Varsa, akış listesinde oluşturduğunuz tüm öğeler için denetler **ServiceRequired** ayarlanmış `Yes`, ardından gider **Evet ise** dal veya **hiçbir** olarak dal uygun. Yalnızca belirttiğiniz eylemleri için bu konudaki zaman kazanmak için **Evet ise** dal.
 
 ### <a name="add-the-custom-connector"></a>Özel bağlayıcıyı ekleyin
 
-Şimdi, Azure'da işlevi çağırır özel bağlayıcı de ekleyin. Standart bir bağlayıcı gibi akış özel bağlayıcı ekleyin. 
+Artık Azure'da işlevi çağıran özel bağlayıcıyı ekleyin. Flow standart bir bağlayıcı gibi özel bağlayıcıyı ekleyin. 
 
-1. İçinde **Evet ise** dal, tıklatın **Eylem Ekle**.
+1. İçinde **Evet ise** dal, tıklayın **Eylem Ekle**.
 
     ![Eylem ekleme](media/functions-flow-scenario/condition1-yes-add-action.png)
 
-2. İçinde **bir eylem seçin** iletişim kutusu, arama `Turbine Repair`, eylemi seçin **Türbin onarma - maliyetleri hesaplar**.
+2. İçinde **eylem seçin** iletişim kutusu, arama `Turbine Repair`, eylemin ardından **Türbin onarımı - maliyetleri hesaplar**.
 
     ![Eylem seçin](media/functions-flow-scenario/choose-turbine-repair.png)
 
-    Aşağıdaki resimde akışına eklenir kartı gösterir. Alanları ve açıklamaları bağlayıcı OpenAPI tanımından gelir.
+    Aşağıdaki görüntüde akışına eklenen kart gösterilmektedir. Bağlayıcı için Openapı tanımını alanları ve açıklamalar gelir.
 
-    ![Maliyetleri Varsayılanları hesaplar](media/functions-flow-scenario/calculates-costs-default.png)
+    ![Maliyetleri varsayılan hesaplar](media/functions-flow-scenario/calculates-costs-default.png)
 
-3. Üzerinde **hesaplar maliyetleri** kartı, kullanın **dinamik içerik** işlevi için girişleri seçmek için iletişim kutusu. Microsoft Flow, sayısal alanlar ancak tarih alanı OpenAPI tanımı belirttiğinden gösterilmektedir **saatleri** ve **kapasite** sayısal şunlardır.
+3. Üzerinde **hesaplar maliyetleri** kartında, kullanın **dinamik içerik** girişleri için işlev seçmek için iletişim kutusu. Microsoft Flow, sayısal alanlar, ancak tarih alanı Openapı tanımını belirttiğinden gösterir **saat** ve **kapasite** sayısal olmasına.
 
-    İçin **saatleri**seçin **EstimatedEffort**ve **kapasite**seçin **MaxOutput**.
+    İçin **saat**seçin **EstimatedEffort**ve **kapasite**seçin **MaxOutput**.
 
     ![Eylem seçin](media/functions-flow-scenario/calculates-costs-fields.png)
 
-     Şimdi işlevi çıktıya dayalı başka bir koşul ekleyin.
+     Şimdi temel işlev çıkışı üzerinde başka bir koşul ekleyin.
 
-4. Ekranın alt kısmındaki **Evet ise** dal, tıklatın **daha fazla**, ardından **bir koşul eklemek**.
+4. Sayfanın alt kısmında **Evet ise** dal, tıklayın **daha fazla**, ardından **koşul Ekle**.
 
     ![Koşul ekle](media/functions-flow-scenario/condition2-add.png)
 
-5. Üzerinde **koşul 2** kartı, ilk kutusuna tıklayın ve sonra seçin **ileti** gelen **dinamik içerik** iletişim kutusu.
+5. Üzerinde **koşul 2** kart, ilk kutuyu tıklayın ve ardından seçin **ileti** gelen **dinamik içerik** iletişim kutusu.
 
-    ![Koşul için alanını seçin](media/functions-flow-scenario/condition2-field.png)
+    ![Koşul için bir alan seçin](media/functions-flow-scenario/condition2-field.png)
 
-6. Değeri girin `Yes`. Akış sonraki gider **Evet ise** şube veya **yoksa** şube temel işlev tarafından döndürülen ileti (olun onarım) Evet veya Hayır alır (onarım yapmayın). 
+6. Değeri girin `Yes`. Sonraki akışı gider **Evet ise** dal veya **hiçbir** dalı temel işlev tarafından döndürülen ileti (olun onarım) yes veya no alır (onarım yapmayın). 
 
-    ![Koşul için Evet girin](media/functions-flow-scenario/condition2-yes.png)
+    ![Evet koşulunu girin](media/functions-flow-scenario/condition2-yes.png)
 
-Akış, aşağıdaki görüntü gibi görünmelidir.
+Akış şimdi şu resimdeki gibi görünmelidir.
 
-![Koşul için Evet girin](media/functions-flow-scenario/flow-checkpoint1.png)
+![Evet koşulunu girin](media/functions-flow-scenario/flow-checkpoint1.png)
 
-### <a name="send-email-based-on-function-results"></a>İşlev sonuçlarına dayalı e-posta Gönder
+### <a name="send-email-based-on-function-results"></a>İşlev sonuçlarına göre e-posta Gönder
 
-Akış içinde işlevi bu noktada döndürdü bir **ileti** değerini `Yes` veya `No` maliyetleri ve olası geliri üzerindeki diğer bilgilerin yanı sıra işlevi. İçinde **Evet ise** şube ikinci koşulu, bir e-posta gönderir, ancak herhangi bir sayıda SharePoint listesine geri yazma veya başlatma gibi şeyler yapabilirsiniz, bir [onay işlemi](https://flow.microsoft.com/documentation/modern-approvals/).
+Bu noktada, işlevi flow'da döndürdü bir **ileti** değerini `Yes` veya `No` maliyetleri ve olası gelir üzerindeki diğer bilgilerin yanı sıra işlev. İçinde **Evet ise** dal ikinci koşulu, bir e-posta gönderir, ancak herhangi bir sayıda SharePoint listesine geri yazma veya başlatma gibi şeyleri yapabilirsiniz bir [onay işlemi](https://flow.microsoft.com/documentation/modern-approvals/).
 
-1. İçinde **Evet ise** şube ikinci durumunu tıklatın **Eylem Ekle**.
+1. İçinde **Evet ise** dal ikinci koşulu, tıklayın **Eylem Ekle**.
 
     ![Eylem ekleme](media/functions-flow-scenario/condition2-yes-add-action.png)
 
-2. İçinde **bir eylem seçin** iletişim kutusu, arama `email`, (Bu örnek Outlook'ta) e-posta sistemine dayalı bir gönderme e-posta eylemi seçin.
+2. İçinde **eylem seçin** iletişim kutusu, arama `email`, ardından (Bu durum Outlook'ta) e-posta sistemine dayalı bir gönderme e-posta eylemini seçin.
 
-    ![Outlook gönderme bir e-posta](media/functions-flow-scenario/outlook-send-email.png)
+    ![Outlook Gönder e-posta](media/functions-flow-scenario/outlook-send-email.png)
 
-3. Üzerinde **bir e-posta Gönder** kart, bir e-posta oluştur. Kuruluşunuz için geçerli bir ad girin **için** alan. Aşağıdaki resimde, diğer alanları metin ve gelen belirteçleri bileşimi olduğunu görebilirsiniz **dinamik içerik** iletişim kutusu. 
+3. Üzerinde **bir e-posta** kartında, e-posta oluştur. Kuruluşunuz için geçerli bir ad girin **için** alan. Aşağıdaki resimde, diğer alanlara metin ve belirteçleri olduğunu görebilirsiniz **dinamik içerik** iletişim kutusu. 
 
     ![E-posta alanları](media/functions-flow-scenario/email-fields.png)
 
-    **Başlık** belirteci gelen SharePoint listesinden ve **CostToFix** ve **RevenueOpportunity** işlev tarafından döndürülen.
+    **Başlık** belirteci gelen SharePoint listesinden ve **CostToFix** ve **RevenueOpportunity** işlevi tarafından döndürülür.
 
-    Tamamlanan akış aşağıdaki görüntü gibi görünmelidir (biz sol ilk **yoksa** alanından tasarruf etmek için şube).
+    Tamamlanmış akış aşağıdaki görüntüye benzemesi gerekir (biz sol ilk **hiçbir** yer kazanmak için dal).
 
     ![Tam akış](media/functions-flow-scenario/complete-flow.png)
 
-4. Tıklatın **güncelleştirme akış** sayfanın en üstünde ardından **Bitti**.
+4. Tıklayın **güncelleştirme akış** sayfanın üstünde, ardından **Bitti**.
 
-## <a name="run-the-flow"></a>Akış çalıştırın
+## <a name="run-the-flow"></a>Akışı Çalıştır
 
-Akış tamamladığınıza göre SharePoint listesi bir satır ekleyin ve akışını nasıl yanıt vereceğini görebilirsiniz.
+Akış tamamlandı, SharePoint listesine bir satır ekleyin ve akışın nasıl yanıt vereceğini bakın.
 
-1. SharePoint listesine geri dönün ve tıklatın **hızlı Düzenle**.
+1. SharePoint listesine geri dönün ve tıklayın **hızlı düzenleme**.
 
     ![Hızlı Düzenle](media/functions-flow-scenario/quick-edit.png)
 
-2. Düzen kılavuzunda aşağıdaki değerleri girin.
+2. Düzen kılavuz aşağıdaki değerleri girin.
 
     | Liste sütunu     | Değer           |
     |-----------------|---------------------|
-    | **Başlık**           | Türbin 60 |
+    | **Başlık**           | Türbinin 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
     | **ServiceRequired** | Evet |
@@ -241,38 +241,38 @@ Akış tamamladığınıza göre SharePoint listesi bir satır ekleyin ve akış
 
     ![Hızlı düzenleme bitti](media/functions-flow-scenario/quick-edit-done.png)
 
-    Öğe eklediğinizde, sonraki bakalım akışını tetikler.
+    Öğe eklemek sonraki göz atın akışı tetikler.
 
-4. İçinde [flow.microsoft.com](https://flow.microsoft.com), tıklatın **My akar**, oluşturduğunuz akış'a tıklayın.
+4. İçinde [flow.microsoft.com](https://flow.microsoft.com), tıklayın **Akışlarım**, oluşturduğunuz akış'a tıklayın.
 
-    ![My akışlar](media/functions-flow-scenario/my-flows.png)
+    ![Akışlarım](media/functions-flow-scenario/my-flows.png)
 
-5. Altında **ÇALIŞTIRMA GEÇMİŞİ**, akış Çalıştır'ı tıklatın.
+5. Altında **ÇALIŞTIRMA GEÇMİŞİ**, akış çalıştırması tıklayın.
 
     ![Çalıştırma geçmişi](media/functions-flow-scenario/run-history.png)
 
-    Çalıştır başarılı olduysa, bir sonraki sayfada akış işlemleri gözden geçirebilirsiniz. Çalıştır herhangi bir nedenle başarısız olursa, sonraki sayfaya sorun giderme bilgileri sağlar.
+    Çalıştırma başarılı olduysa, akış işlemleri bir sonraki sayfada inceleyebilirsiniz. Çalıştırma için herhangi bir nedenle başarısız olursa, sonraki sayfaya sorun giderme bilgileri sağlar.
 
-6. Akışı sırasında ne olduğunu görmek için kartları genişletin. Örneğin, genişletin **hesaplar maliyetleri** için girişleri ve çıkışları işlevden görmek için kart. 
+6. Kartların akışı sırasında ne olduğunu görmek için genişletin. Örneğin, genişletme **hesaplar maliyetleri** girişleri ve çıkışları işlevi görmek için kart. 
 
-    ![Maliyetleri girişleri ve çıkışları hesaplar](media/functions-flow-scenario/calculates-costs-outputs.png)
+    ![Maliyetleri girişler ve çıkışlar hesaplar](media/functions-flow-scenario/calculates-costs-outputs.png)
 
-7. E-posta hesabı, belirttiğiniz kişi denetleyin **için** alanını **bir e-posta Gönder** kart. Akıştan gönderilen e-posta aşağıdaki görüntü gibi görünmelidir.
+7. E-posta hesabı olarak belirtilen kişinin kontrol edin **için** alanını **bir e-posta** kart. Flow'dan gönderilen e-posta, aşağıdaki resimdeki gibi görünmelidir.
 
-    ![Akış e-posta](media/functions-flow-scenario/flow-email.png)
+    ![Flow e-posta](media/functions-flow-scenario/flow-email.png)
 
-    SharePoint listesi ve işlev doğru değerlerle belirteçleri nasıl değiştirilmiştir görebilirsiniz.
+    SharePoint listesi ve işlevi doğru değerlerle belirteçlerin nasıl değiştirilmiştir görebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu konuda, öğrenilen nasıl yapılır:
+Bu konu başlığında, öğrendiğiniz nasıl yapılır:
 
 > [!div class="checklist"]
 > * SharePoint'te bir liste oluşturur.
-> * API tanımı verin.
-> * API için bağlantı ekleyin.
-> * Onarım uygun maliyetli olması durumunda e-posta göndermek için bir akış oluşturun.
-> * Akış çalıştırın.
+> * Bir API tanımını dışarı aktarın.
+> * API için bir bağlantı ekleyin.
+> * Bir onarım uygun maliyetli olması durumunda e-posta göndermek için bir akış oluşturun.
+> * Akışı çalıştırın.
 
-Microsoft Flow hakkında daha fazla bilgi için bkz: [Microsoft Flow başlama](https://flow.microsoft.com/documentation/getting-started/).
+Microsoft Flow hakkında daha fazla bilgi için bkz: [Microsoft Flow ile çalışmaya başlama](https://flow.microsoft.com/documentation/getting-started/).
 
-Azure işlevleri kullanan diğer ilginç senaryoları hakkında bilgi edinmek için [PowerApps bir işlevi çağırmak](functions-powerapps-scenario.md) ve [Azure Logic Apps ile tümleşen bir işlev oluşturun](functions-twitter-email.md).
+Azure işlevleri'ni kullanan diğer ilginç senaryoları hakkında bilgi edinmek için [Powerapps'ten bir işlev çağırma](functions-powerapps-scenario.md) ve [Azure Logic Apps ile tümleşen bir işlev oluşturma](functions-twitter-email.md).

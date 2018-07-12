@@ -1,6 +1,6 @@
 ---
-title: Azure uygulama Öngörüler genel bakış Panosu'na | Microsoft Docs
-description: Azure Application Insights ve genel bakış Panosu'na işlevselliğiyle uygulamalarını izleyin.
+title: Azure Application Insights Genel Bakış Panosu | Microsoft Docs
+description: Azure Application Insights ve genel bakış Panosu'nu işlevsellikle uygulamalarını izleyin.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -11,61 +11,55 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a639b51fd930c5c74ee78b37fbe8e97e39dbc32
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337565"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970981"
 ---
-# <a name="application-insights-overview-dashboard"></a>Uygulama Öngörüler Genel Bakış Panosu
+# <a name="application-insights-overview-dashboard"></a>Application Insights Genel Bakış Panosu
 
-Application Insights her zaman, uygulamanızın sistem durumunu ve performansını hızlı, bir bakışta değerlendirmesi izin vermek için bir Özet genel bakış bölmesinde sağlanan. Yeni genel bakış Panosu'na daha hızlı bir daha esnek deneyimi sağlar.
+Application ınsights'ı her zaman hızlı ve bir bakışta değerlendirmesi uygulamanızın sistem durumu ve performans izin vermek için bir Özet genel bakış bölmesi sağlanan. Yeni genel bakış Panosu'nu daha hızlı, daha esnek bir deneyim sağlar.
 
-## <a name="how-do-i-test-out-the-new-experience"></a>Yeni deneyimi test nasıl?
+## <a name="how-do-i-test-out-the-new-experience"></a>Nasıl erişemiyorsa yeni deneyimi test?
 
-Yeni bir genel bakış Pano artık varsayılan olarak başlatır:
+Yeni genel bakış panosunun artık varsayılan olarak başlatılır:
 
-![Genel Bakış önizleme bölmesinde](.\media\app-insights-overview-dashboard\overview-0001.png)
+![Genel Önizleme Bölmesi](.\media\app-insights-overview-dashboard\overview.png)
 
 ## <a name="better-performance"></a>Daha iyi performans
 
-Zaman aralığı seçim için basit bir tek tıklamayla arabirim basitleştirilmiştir.
+Zaman aralığı seçimi için basit bir tek tıklamayla arabirimi basitleştirilmiştir.
 
 ![Zaman aralığı](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
 
-Genel performansı önemli ölçüde çıkarılmıştır. Gibi popüler özellikleri tek tıklatmayla erişiminiz **arama** ve **Analytics**. Dinamik olarak KPI döşeme güncelleştirme her varsayılan karşılık gelen Application Insights özellikleri hakkında bilgi sağlar. Daha fazla bilgi edinmek için istekleri seçim başarısız **hataları** altında **Araştır** üstbilgisi:
+Genel performans büyük ölçüde artırıldı. Tek tıklamayla erişim gibi popüler özelliklere sahip **arama** ve **Analytics**. Dinamik olarak KPI kutucuk güncelleştirme her varsayılan karşılık gelen Application Insights özellikleri hakkında Öngörüler sağlar. Hakkında daha fazla bilgi edinmek için istekleri seçin başarısız **hataları** altında **Araştır** üst bilgi:
 
 ![Başarısızlıklar](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Uygulama panosu
 
-Uygulama Panosu uygulama sağlık ve performans tamamen özelleştirilebilir bölmeden görünümünü sağlamak için Azure içinde varolan Pano teknolojisini kullanır.
+Uygulama Panosu, uygulama durumunu ve performansını tamamen özelleştirilebilir bölmeden bir görünümünü sağlamak için Azure var olan Pano teknolojisi yararlanır.
 
-Varsayılan Pano seçin erişmek için _uygulama Panosu_ sol üst köşedeki.
+Varsayılan Pano seçme erişmeye _uygulama Panosu_ sol üst köşedeki.
 
 ![Pano görünümü](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
 
-Bu panoyu erişme ilk kez ise, varsayılan görünüm başlatılır:
+Bu panoya erişme ilk kez ise, varsayılan görünüm başlatılır:
 
 ![Pano görünümü](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
 
-Bunu istiyorsanız varsayılan görünüm kullanmaya devam edebilir. Veya Ayrıca, ekleyebilir ve panodan ekibinizin gereksinimlerine en uygun silin.
+Bu şekilde, varsayılan görünüm tutabilirsiniz. Veya, ayrıca, ekleyebilir ve panodan, takımınızın ihtiyaçlarını en iyi sığacak kadar sil.
 
 > [!NOTE]
-> Application Insights kaynağı erişimi olan tüm kullanıcılar aynı uygulama pano deneyimi paylaşın. Bir kullanıcı tarafından yapılan değişiklikler tüm kullanıcılar için Görünüm değiştirecektir.
+> Application Insights kaynağına erişimi olan tüm kullanıcılar, aynı uygulama Pano deneyimini paylaşır. Bir kullanıcı tarafından yapılan değişiklikleri tüm kullanıcılara ait görünümü değiştirir.
 
-Gezinmek için genel bakış deneyimi geriye yalnızca seçin:
+Gitmek için yalnızca bir genel bakış deneyime geri seçin:
 
 ![Genel Bakış düğmesi](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
-
-## <a name="access-the-classic-overview-dashboard"></a>Klasik genel bakış Panosu'na erişim
-
-Eski genel bakış kaçırılması durumunda seçin **Klasik genel bakış**.
-
-![Klasik genel bakış](.\media\app-insights-overview-dashboard\overview-classic.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

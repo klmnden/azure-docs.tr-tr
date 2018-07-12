@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 63659b5606e4bab8365f4f7a94c42a0fa5eafee6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 4d51b099532d3052acc190231ec4be17765a427e
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928381"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971032"
 ---
 # <a name="introduction"></a>Giriş
 Azure İzleyicisi'ni destekler bir [yeni ölçüm uyarı türü](monitoring-overview-unified-alerts.md) olduğu önemli avantajlar eski [Klasik ölçüm uyarıları](insights-alerts-portal.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](monitoring-supported-metrics.md). Yeni uyarılarda kaynak türlerini (artan) kümesini destekler. Bu makalede, bu alt listeler. 
@@ -28,7 +28,7 @@ Yeni ölçüm uyarılarının ölçümleriniz ölçümler (Önizleme) günlükle
 > Özel ölçüm ve/veya boyut yalnızca veriler için seçilen süre içinde olup olmadığını gösterilir. Bu ölçümler, Azure Log Analytics çalışma alanlarında Doğu ABD, Batı Orta ABD ve Batı Avrupa sahip müşteriler için kullanılabilir. Log Analytics ölçümleri şu anda genel Önizleme aşamasındadır ve dedir aşamasındadır.
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, destek PowerShell, CLI, REST
-Şu anda yalnızca Azure portalında yeni ölçüm uyarılarının oluşturabilirsiniz [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) veya [Resource Manager şablonları](monitoring-create-metric-alerts-with-templates.md). PowerShell ve Azure komut satırı arabirimi (Azure CLI 2.0) kullanarak yeni uyarılar yapılandırma desteği yakında sunulacaktır.
+Şu anda yalnızca Azure portalında yeni ölçüm uyarılarının oluşturabilirsiniz [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) veya [Resource Manager şablonları](monitoring-create-metric-alerts-with-templates.md). PowerShell ve Azure komut satırı arabirimi (Azure CLI 2.0) kullanarak yeni uyarılar yapılandırma desteği yakında sunulacaktır.
 
 ## <a name="metrics-and-dimensions-supported"></a>Ölçümler ve desteklenen boyutlar
 Yeni ölçüm uyarılarının boyutlar kullanmak için ölçümleri uyarı destekler. Ölçümünüzün doğru düzeyine filtrelemek için boyutları kullanabilirsiniz. Geçerli boyut yanı sıra tüm desteklenen ölçümler incelediniz ve gelen görselleştirilmiş [Azure İzleyici - ölçüm Gezgini (Önizleme)](monitoring-metric-charts.md).

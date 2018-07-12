@@ -64,7 +64,7 @@ Azure portalı, Azure Kaynak Gezgini veya diğer Azure araçlarında kümeniz i�
 
 ### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>Kümemde hangi orchestrator sürümünün çalıştığını nasıl öğrenirim?
 
-* DC/OS: Bkz. [Mesosphere belgeleri](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* DC/OS: Bkz. [Mesosphere belgeleri](https://docs.mesosphere.com/1.7/usage/cli/command-reference/)
 * Docker Swarm: `docker version` çalıştırın
 * Kubernetes: `kubectl version` çalıştırın
 
