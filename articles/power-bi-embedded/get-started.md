@@ -15,12 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: maghan
-ms.openlocfilehash: 7a860742192227e92a14d9bb5622dc9b61f6cb99
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 33d948ee283ff3ee873e2f17ee07a7a889889925
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716032"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969502"
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Microsoft Power BI Embedded kullanmaya başlama
 
@@ -49,7 +49,7 @@ Başlamanıza yardımcı olmak size birkaç örnek sunuyoruz. Örnek bir kılavu
 Uygulamanıza üretim aşamasına geçirmek için Microsoft Azure'da Power BI Embedded kapasitesi oluşturun. Kapasite oluşturma hakkında bilgi almak için bkz. [Azure portalında Power BI Embedded kapasitesi oluşturma](create-capacity.md).
 
 > [!IMPORTANT]
-> Ekleme belirteçleri yalnızca geliştirme testlerine yönelik olduğu için, bir Power BI ana hesabının oluşturabileceği ekleme belirteçlerinin sayısı sınırlıdır. Üretim ekleme senaryoları için [kapasite satın alınmalıdır](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). Ayrılmış bir kapasite satın alındığında ekleme belirteci oluşturma ile ilgili herhangi bir sınır yoktur. Geçerli eklenen kullanım yüzdesini denetlemek için [Kullanılabilir Özellikleri Al](https://msdn.microsoft.com/en-us/library/mt846473.aspx)’a gidin.
+> Ekleme belirteçleri yalnızca geliştirme testlerine yönelik olduğu için, bir Power BI ana hesabının oluşturabileceği ekleme belirteçlerinin sayısı sınırlıdır. Üretim ekleme senaryoları için [kapasite satın alınmalıdır](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). Ayrılmış bir kapasite satın alındığında ekleme belirteci oluşturma ile ilgili herhangi bir sınır yoktur. Geçerli eklenen kullanım yüzdesini denetlemek için [Kullanılabilir Özellikleri Al](https://msdn.microsoft.com/library/mt846473.aspx)’a gidin.
 
 Kapasitenizi Power BI yönetim portalından yönetin. Uygulama çalışma alanlarınız hakkında destek almak için çalışma alanı yöneticisi atayın. Daha fazla bilgi için bkz. [Power BI Premium ve Power BI Embedded kapasitelerini yönetme](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: 4eaae22f1ccbcb73eb7244f55ea4629aae053171
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2d1144a94a74e56cae6ff0a4b026a64540086c11
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597765"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968587"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure’da PHP web uygulaması oluşturma
 
@@ -30,7 +30,7 @@ ms.locfileid: "34597765"
 
 [Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisinde, Azure Web Apps'te bir PHP uygulamasının nasıl dağıtılacağı gösterilmektedir. Cloud Shell’de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) kullanarak web uygulamasını oluşturabilir ve örnek PHP kodunu web uygulamasına dağıtmak için Git kullanabilirsiniz.
 
-![Azure'da çalışan örnek uygulama]](media/app-service-web-get-started-php/hello-world-in-browser.png)
+![Azure'da çalışan örnek uygulama](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 Mac, Windows veya Linux makinesi kullanarak buradaki adımları izleyebilirsiniz. Önkoşullar yüklendikten sonra adımların tamamlanması yaklaşık olarak beş dakika sürer.
 
@@ -92,6 +92,7 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gibi bilgiler gösterir:
 
 ```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -104,6 +105,11 @@ Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gi
   < JSON data removed for brevity. >
 }
 ```
+Git dağıtımı etkin boş bir yeni web uygulaması oluşturdunuz.
+
+> [!NOTE]
+> Git uzak URL’si `deploymentLocalGitUrl` özelliği içinde `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git` biçiminde gösterilir. Bu URL’ye daha sonra ihtiyacınız olacağı için URL’yi kaydedin.
+>
 
 Yeni oluşturduğunuz web uygulamasına göz atın. _&lt;uygulama adı>_’nı, önceki adımda oluşturulan benzersiz uygulama adınızla değiştirin.
 

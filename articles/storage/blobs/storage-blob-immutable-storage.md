@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 4a83ebbcf045ac2b74957effceadfe80609e960c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36237488"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970253"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Azure Blob depolamanın Sabit Depolama özelliği (Önizleme)
 
@@ -42,7 +42,7 @@ Sabit depolama özelliği şu işlevleri sunar:
 
 - **Kapsayıcı düzeyinde yapılandırma:** Sabit Depolama özelliği kullanıcıların kapsayıcı düzeyinde zaman tabanlı saklama ilkeleri ve yasal tutma etiketleri yapılandırmasını sağlar.  Kullanıcılar kapsayıcı düzeyindeki basit ayarlarla zaman tabanlı saklama ilkeleri oluşturup kilitleyebilir, saklama aralıklarını uzatabilir ve yasal tutma ayarlayıp silebilir.  Bu ilkeler kapsayıcıdaki mevcut ve yeni tüm bloblara uygulanır.
 
-- **Denetim Günlüğü desteği:** Her kapsayıcıda saklama aralığı uzatmaları için en fazla üç günlük dosyası olmak üzere kilitli zaman tabanlı saklama ilkeleri için en fazla beş zaman tabanlı saklama komutunu gösteren bir denetim günlüğü bulunur.  Zaman tabanlı saklama olaylarında günlük girişinde kullanıcı kimliği, komut türü, zaman damgaları ve saklama aralığı yer alır. Yasal tutma olaylarında günlük girişinde kullanıcı kimliği, komut türü, zaman damgaları ve yasal tutma etiketleri yer alır. Bu günlük, SEC 17a-4(f) düzenleme şartları doğrultusunda kapsayıcının tutulduğu süre boyunca muhafaza edilir. Tüm denetim ortamı etkinliklerinin daha ayrıntılı günlük kaydına [Azure Etkinlik günlüğü](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) sayfasından ulaşabilirsiniz. Düzenlemeler veya diğer amaçlar doğrultusunda ihtiyaç duyulabilecek günlüklerin düzenli olarak depolanması kullanıcının sorumluluğundadır.
+- **Denetim Günlüğü desteği:** Her kapsayıcıda saklama aralığı uzatmaları için en fazla üç günlük dosyası olmak üzere kilitli zaman tabanlı saklama ilkeleri için en fazla beş zaman tabanlı saklama komutunu gösteren bir denetim günlüğü bulunur.  Zaman tabanlı saklama olaylarında günlük girişinde kullanıcı kimliği, komut türü, zaman damgaları ve saklama aralığı yer alır. Yasal tutma olaylarında günlük girişinde kullanıcı kimliği, komut türü, zaman damgaları ve yasal tutma etiketleri yer alır. Bu günlük, SEC 17a-4(f) düzenleme şartları doğrultusunda kapsayıcının tutulduğu süre boyunca muhafaza edilir. Tüm denetim ortamı etkinliklerinin daha ayrıntılı günlük kaydına [Azure Etkinlik günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) sayfasından ulaşabilirsiniz. Düzenlemeler veya diğer amaçlar doğrultusunda ihtiyaç duyulabilecek günlüklerin düzenli olarak depolanması kullanıcının sorumluluğundadır.
 
  Bu özellik genel Azure bölgelerinin tamamında etkin durumdadır.
 
@@ -68,7 +68,7 @@ Yasal tutma ayarlama ve silme hakkında bilgi almak için lütfen [Başlarken](#
 
 Bir kapsayıcıda aynı anda hem yasal tutma hem de zaman tabanlı saklama ilkesi bulunabilir. Geçerli saklama süresi sona erse dahi tüm yasal tutma durumları kaldırılana kadar kapsayıcı içindeki tüm bloblar sabit durumda kalacaktır. Buna karşın tüm yasal tutma ilkeleri silinse dahi geçerli olan saklama süresi boyunca blob sabit durumda kalacaktır.
 Aşağıdaki tabloda farklı sabit tutma senaryolarında devre dışı bırakılacak blob işlemi türleri gösterilmektedir.
-Blob REST API hakkında ayrıntılı bilgi için [Azure Blob Hizmeti API](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api) belgelerine bakın.
+Blob REST API hakkında ayrıntılı bilgi için [Azure Blob Hizmeti API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) belgelerine bakın.
 
 |Senaryo  |Blob Durumu  |İzin verilmeyen Blob İşlemleri  |
 |---------|---------|---------|
@@ -79,7 +79,7 @@ Blob REST API hakkında ayrıntılı bilgi için [Azure Blob Hizmeti API](https:
 
 > [!NOTE]
 > Yukarıdaki tabloda yer alan ilk iki senaryoda blob oluşturmak için gerekli ilk Put Blob, Put Block List ve Put Block işlemlerine izin verilir ve sonrasındaki tüm işlemler engellenir.
-> Sabit Depolama özelliği yalnızca GPv2 ve blob depolama hesaplarında kullanılabilir ve [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) ile oluşturulması gerekir.
+> Sabit Depolama özelliği yalnızca GPv2 ve blob depolama hesaplarında kullanılabilir ve [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) ile oluşturulması gerekir.
 
 ## <a name="pricing"></a>Fiyatlandırma
 
@@ -94,7 +94,7 @@ Genel önizleme boyunca aşağıdaki kısıtlamalar geçerli olacaktır:
 
 ## <a name="getting-started"></a>Başlarken
 
-Azure Blobları için Azure Sabit Depolama özelliği [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) ve Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) hizmetlerinin son sürümlerinde desteklenmektedir
+Azure Blobları için Azure Sabit Depolama özelliği [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ve Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) hizmetlerinin son sürümlerinde desteklenmektedir
 
 ### <a name="azure-portal"></a>Azure portalına
 
@@ -130,7 +130,7 @@ Azure Blobları için Azure Sabit Depolama özelliği [Azure Portal](http://port
 
 ### <a name="cli-20"></a>CLI 2.0
 
-`az extension add -n storage-preview` komutuyla [CLI uzantısını](http://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) yükleyin
+`az extension add -n storage-preview` komutuyla [CLI uzantısını](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) yükleyin
 
 Uzantı zaten yüklüyse Sabit Depolama özelliğini etkinleştirmek için şu komutu kullanın: `az extension update -n storage-preview`
 

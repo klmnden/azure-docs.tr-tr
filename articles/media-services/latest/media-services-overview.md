@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 06/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 489801852202163ef40d57da0082e39793196d85
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 5205a6746f6a698768a60375e2e77db9cb535a71
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264103"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971916"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3 nedir?
 
@@ -45,7 +45,7 @@ Media Services, bulutta çeşitli medya iş akışı derlemenize olanak sağlar.
 * Bir müşterinin (örneğin, bir filmi stüdyosu), telif hakkıyla korunan bir çalışmaya erişimi ve kullanım yetkisini kısıtlaması gerektiğinde bir abonelik video hizmeti oluşturun ve DRM korumalı içeriği akışa alın.
 * Uçak, tren ve otomobillerde kayıttan yürütülmesi için çevrimdışı içerik sunun. Bir müşterinin, ağ bağlantısının kesileceğini tahmin ettiğinde kayıttan yürütülmesi için içeriği telefonuna veya tabletine indirmesi gerekebilir.
 * Daha geniş bir kitleye (örneğin, işitme engelli kişilere veya farklı bir dilde okumak isteyen kişilere) sunulacak videolara altyazılar ve açıklamalı alt yazılar ekleyin. 
-* Konuşmayı metne dönüştürme, birden fazla dile çevirme vb. için Azure Media Services ve [Azure Bilişsel Hizmetler API’leri](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai) ile eğitim amaçlı bir e-öğrenme video platformu uygulayın.
+* Konuşmayı metne dönüştürme, birden fazla dile çevirme vb. için Azure Media Services ve [Azure Bilişsel Hizmetler API’leri](https://docs.microsoft.com/azure/#pivot=products&panel=ai) ile eğitim amaçlı bir e-öğrenme video platformu uygulayın.
 * Azure CDN’nin, anlık yüksek düzeyde yükü (örneğin, bir ürün sunumu etkinliğinin başlangıcında) daha iyi işleyebilmek için büyük ölçeklendirme elde etmesini sağlayın. 
 
 ## <a name="v3-capabilities"></a>v3 özellikleri

@@ -3,7 +3,7 @@ title: Öğretici - Jenkins ile Azure’da bir geliştirme işlem hattı oluştu
 description: Bu öğreticide, Azure’da işlenen her kodu GitHub’dan çeken ve uygulamanızı çalıştırmak için yeni bir Docker kapsayıcısı oluşturan bir Jenkins sanal makinesi oluşturmayı öğrenirsiniz.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f50555775d369da7cf9321d5493bf4e1d84a7bf2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b19d02e7d2bcbd696a7256c06b067f976fd36161
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211200"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931737"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Öğretici: Azure’da Jenkins, GitHub ve Docker ile bir Linux sanal makinesi üzerinde geliştirme altyapısı oluşturma
 
@@ -148,8 +148,8 @@ Jenkins’in GitHub’daki kod işleme gibi olaylara yanıt vermesini sağlamak 
 Jenkins web sitenizde, giriş sayfasından **Yeni iş oluştur**’u seçin:
 
 - İş adı olarak *HelloWorld* adını girin. **Serbest tarzda proje**’yi seçip **Tamam**’ı seçin.
-- **Genel** bölümünden **GitHub projesi**’ni seçip çatalı oluşturulan deponuzun URL’sini *https://github.com/iainfoulds/nodejs-docs-hello-world* şeklinde girin
-- **Kaynak kodu yönetimi** bölümünden **Git**’i seçip çatalı oluşturulan deponuzun *.git* URL’sini *https://github.com/iainfoulds/nodejs-docs-hello-world.git* şeklinde girin
+- **Genel** bölümünden **GitHub projesi**’ni seçip çatalı oluşturulan deponuzun URL’sini *https://github.com/cynthn/nodejs-docs-hello-world* şeklinde girin
+- **Kaynak kodu yönetimi** bölümünden **Git**’i seçip çatalı oluşturulan deponuzun *.git* URL’sini *https://github.com/cynthn/nodejs-docs-hello-world.git* şeklinde girin
 - **Derleme Tetikleyicileri** bölümünden **GITScm yoklaması için GitHub kanca tetikleyicisi**’ni seçin.
 - **Derleme** bölümünden **Derleme adımı ekle**’yi seçin. **Kabuğu yürüt**’ü seçin ve komut penceresine `echo "Testing"` ifadesini girin.
 - İşler penceresinin en altından **Kaydet**’i belirleyin.

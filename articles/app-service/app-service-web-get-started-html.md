@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 9002d0636a5abaf24cc2bcd1e531f38ec5c8d2eb
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: e48c2aceb2a8f45d01b922a186900780c1c5ef51
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294021"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968765"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure'da statik bir HTML web uygulaması oluşturma
 
-[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisinde, temel bir HTML+CSS sitesinin Azure'a nasıl dağıtılacağı gösterilmektedir. Bu hızlı başlangıcı [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)'de tamamlayacaksınız ama bu komutları [Azure CLI](/cli/azure/install-azure-cli) ile yerel olarak da çalıştırabilirsiniz.
+[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisinde, temel bir HTML+CSS sitesinin Azure'a nasıl dağıtılacağı gösterilmektedir. Bu hızlı başlangıcı [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)'de tamamlayacaksınız ama bu komutları [Azure CLI](/cli/azure/install-azure-cli) ile yerel olarak da çalıştırabilirsiniz.
 
 ![Örnek uygulamanın giriş sayfası](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -34,7 +34,7 @@ ms.locfileid: "36294021"
 
 ## <a name="install-web-app-extension-for-cloud-shell"></a>Cloud Shell için web uygulama uzantısını yükleme
 
-Bu hızlı başlangıcı tamamlamak için, [az web uygulama uzantısını](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add) eklemelisiniz. Uzantı zaten yüklenmişse, bunu en son sürüme güncelleştirmeniz gerekir. Web uygulama uzantısını güncelleştirmek için `az extension update -n webapp` yazın.
+Bu hızlı başlangıcı tamamlamak için, [az web uygulama uzantısını](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) eklemelisiniz. Uzantı zaten yüklenmişse, bunu en son sürüme güncelleştirmeniz gerekir. Web uygulama uzantısını güncelleştirmek için `az extension update -n webapp` yazın.
 
 Webapp uzantısını yüklemek için aşağıdaki komutu çalıştırın:
 
@@ -84,7 +84,7 @@ az webapp up -n <app_name>
 
 - Belirtilen adla bir uygulama oluşturur.
 
-- Dosyaları geçerli çalışma dizininden web uygulamasına [sıkıştırıp dağıtır](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip).
+- Dosyaları geçerli çalışma dizininden web uygulamasına [sıkıştırıp dağıtır](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip).
 
 Bu komutun çalıştırılması birkaç dakika sürebilir. Çalıştırıldığında, aşağıdaki örneğe benzer bilgiler görüntüler:
 

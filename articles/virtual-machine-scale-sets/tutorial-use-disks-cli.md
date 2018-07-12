@@ -3,7 +3,7 @@ title: Öğretici - Azure CLI 2.0 ile ölçek kümeleri için diskler oluşturma
 description: Disk ekleme, hazırlama, listeleme ve ayırma gibi, Azure CLI 2.0 kullanılarak sanal makine ölçek kümesi ile Yönetilen Diskler oluşturma ve kullanma işlemlerinin nasıl yapılacağını öğrenin.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 86ab38fffa8099f2f9f758a4da89fdfcbb3c7543
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3c34ebda3700bb34952fb067bc965069004aee75
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30246721"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719488"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli-20"></a>Öğretici: Azure CLI 2.0 ile sanal makine ölçek kümesi içeren diskler oluşturma ve kullanma
 Sanal makine ölçek kümeleri, sanal makine örneğinin işletim sistemini, uygulamalarını ve verilerini depolamak için diskleri kullanır. Bir ölçek kümesi oluştururken ve yönetirken, beklenen iş yüküne uygun disk boyutu ve yapılandırmasını seçmek önemlidir. Bu öğretici, sanal makine disklerinin oluşturulmasını ve yönetilmesini kapsar. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -130,7 +130,7 @@ az vmss disk attach \
 ## <a name="prepare-the-data-disks"></a>Veri disklerini hazırlama
 Oluşturulan ve ölçek kümesi sanal makine örneklerinize eklenen diskler, ham disklerdir. Bunları veri ve uygulamalarınızla kullanabilmeniz için disklerin hazırlanması gerekir. Diskleri hazırlamak için bir bölüm oluşturun, bir dosya sistemi oluşturun ve bunları bağlayın.
 
-Bir ölçek kümesindeki birden çok sanal makine örneğinde işlemi otomatikleştirmek için Azure Özel Betik Uzantısını kullanabilirsiniz. Bu uzantı, örneğin, eklenen veri disklerini hazırlamak için her bir sanal makine örneğinde betikleri yerel olarak yürütebilir. Daha fazla bilgi için bkz. [Özel Betik Uzantısı'na genel bakış](../virtual-machines/linux/extensions-customscript.md).
+Bir ölçek kümesindeki birden çok sanal makine örneğinde işlemi otomatikleştirmek için Azure Özel Betik Uzantısı’nı kullanabilirsiniz. Bu uzantı, örneğin, eklenen veri disklerini hazırlamak için her bir sanal makine örneğinde betikleri yerel olarak yürütebilir. Daha fazla bilgi için bkz. [Özel Betik Uzantısı'na genel bakış](../virtual-machines/linux/extensions-customscript.md).
 
 Aşağıdaki örnek, tüm eklenen ham veri disklerini hazırlayan [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) komutuyla her bir sanal makine örneğindeki GitHub örnek deposundan bir betik yürütür:
 

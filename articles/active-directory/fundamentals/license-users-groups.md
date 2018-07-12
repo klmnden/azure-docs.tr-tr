@@ -17,12 +17,12 @@ ms.date: 08/22/2017
 ms.author: lizross
 ms.reviewer: jeffgilb
 custom: it-pro
-ms.openlocfilehash: 738e96bf631833b8d35847114ee08fc3f5bec2a4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6fc1d808fb712f7acb60e490663cb7301e22153c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767574"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856098"
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Hızlı başlangıç: Azure Active Directory'de kullanıcı lisanslama
 Lisans tabanlı Azure AD hizmetlerini kullanabilmek için Azure kiracınızda bir Azure Active Directory (Azure AD) aboneliğini etkinleştirmeniz gerekir. Abonelik etkinleştirildikten sonra hizmet özellikleri Azure AD yöneticileri tarafından yönetilir ve lisanslı kullanıcılar tarafından kullanılır. Enterprise Mobility + Security, Azure AD Premium veya Azure AD Basic hizmetlerini satın aldığınızda kiracınız geçerlilik süresi ve ön ödemeli lisanslar dahil olmak üzere bu aboneliği kapsayacak şekilde güncelleştirilir. Atanmış veya kullanılabilir durumdaki lisans sayısı dahil olmak üzere abonelik bilgilerinize Azure portaldaki **Lisanslar** kutucuğunun **Azure Active Directory** bölümünden erişebilirsiniz. Lisans atamalarınızı yönetmek için **Lisanslar** dikey penceresini de kullanabilirsiniz.
@@ -35,7 +35,7 @@ Lisans tabanlı Azure AD hizmetlerini kullanabilmek için Azure kiracınızda bi
 * Kararı kuruluştaki diğer yöneticilere de bırakabilirsiniz ([self-service gruplarını](../users-groups-roles/groups-self-service-management.md) kullanarak)
 
 > [!TIP]
-> Gelişmiş senaryolar ve Office 365 lisanslama senaryoları dahil olmak üzere gruplara ayrıntılı lisans ataması hakkında ayrıntılı bilgiler için bkz. [Azure Active Directory'de grup üyeliği ile kullanıcılara lisans atama](../active-directory-licensing-group-assignment-azure-portal.md).
+> Gelişmiş senaryolar ve Office 365 lisanslama senaryoları dahil olmak üzere gruplara ayrıntılı lisans ataması hakkında ayrıntılı bilgiler için bkz. [Azure Active Directory'de grup üyeliği ile kullanıcılara lisans atama](../users-groups-roles/licensing-groups-assign.md).
 
 ## <a name="assign-licenses-to-users-and-groups"></a>Kullanıcılara ve gruplara lisans atama
 Öncelikle etkin bir aboneliği kullanarak kendinize lisans atamanız ve tarayıcı sayfasını yenileyerek aboneliğinizin kapsamında olması gereken tüm özellikleri gördüğünüzden emin olmanız gerekir. Bir sonraki adım, ücretli Azure AD özelliklerine erişmesi gereken kullanıcılara lisans atamaktır. Lisans atamanın kolay yollarından biri, lisansları kullanıcılar yerine gruplara atamaktır. Lisansları bir gruba atadığınızda gruptaki tüm üyelere lisans atamış olursunuz. Gruba eklenen veya gruptan kaldırılan kullanıcılara otomatik olarak lisans atanır veya lisansı kaldırılır. 

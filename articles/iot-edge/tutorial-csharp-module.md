@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8cd4f87e690d64e1f69ef39f3422ebc73d79974a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 73b6397ecc97b9e289749aabddfdc4c6161375d4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053101"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38667354"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Öğretici: C# IoT Edge modülü geliştirme ve simülasyon cihazınıza dağıtma
 
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 * Hızlı başlangıçta [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md) için oluşturduğunuz Azure IoT Edge cihazı.
 * IoT Edge cihazı için birincil anahtar bağlantı dizesi.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* Visual Studio Code uygulamasında [Visual Studio Code için C# (OmniSharp tarafından desteklenen) uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [Visual Studio Code için C# (OmniSharp tarafından desteklenen) uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * Visual Studio Code için [Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [.NET Core 2.1 SDK'sı](https://www.microsoft.com/net/download).
 * Geliştirme makinenizde [Docker CE](https://docs.docker.com/install/). 

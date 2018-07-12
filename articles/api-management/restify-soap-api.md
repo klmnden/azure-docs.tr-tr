@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: 940756917c8f377e7d134818409e6287a4031e15
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935592"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38239817"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>SOAP API'sini içeri aktarma ve REST’e dönüştürme
 
@@ -51,8 +51,8 @@ Bu makalede şunları öğreneceksiniz:
 5. Sekme tuşuna basın.
 
     Şu alanlar, SOAP API’sinde bulunan bilgilerle doldurulur: Görünen ad, Ad, Açıklama.
-6. API URL'si soneki ekleyin. Sonek, belirli API’yi bu APIM örneğinde tanımlayan bir addır. Sonekin bu APIM örneğinde benzersiz olması gerekir.
-9. API’yi bir ürünle ilişkilendirerek yayımlayın. Bu durumda, "*Sınırsız*" ürünü kullanılır.  API’nin yayımlanmasını ve geliştiricilerin kullanımına sunulmasını istiyorsanız, bir ürüne ekleyin. API oluşturması sırasında yapabilir ya da daha sonra ayarlayabilirsiniz.
+6. API URL'si soneki ekleyin. Sonek, bu belirli API’yi bu APIM örneğinde tanımlayan bir addır. Son ekin bu APIM örneğinde benzersiz olması gerekir.
+9. API’yi bir ürünle ilişkilendirerek yayımlayın. Bu durumda, "*Sınırsız*" ürünü kullanılır.  API’nin yayımlanmasını ve geliştiricilerin kullanımına sunulmasını istiyorsanız, bir ürüne ekleyin. Bunu API oluşturması sırasında yapabilir ya da daha sonra ayarlayabilirsiniz.
 
     Ürünler bir veya daha fazla API arasındaki ilişkilendirmelerdir. Bir dizi API ekleyebilir ve geliştirici portalı aracılığıyla geliştiricilere sunabilirsiniz. Geliştiricilerin bir API’ye erişebilmesi için önce ürüne abone olması gerekir. Abone olduklarında, ilgili üründeki tüm API’ler için geçerli olan bir abonelik anahtarı edinirler. APIM örneğini siz oluşturduysanız zaten bir yöneticisinizdir ve varsayılan olarak tüm ürünlere abone olmuşsunuz demektir.
 
@@ -84,7 +84,7 @@ API’leri test etmek için **Geliştirici portalından** da işlemler çağrıl
 
     "Geliştirici portalı" sitesi açılır.
 3. Oluşturduğunuz **API**’yi seçin.
-4. Test etmek istediğiniz işlemi seçin.
+4. Test etmek istediğiniz işleme tıklayın.
 5. **Deneyin**’e basın.
 6. **Gönder**’e basın.
     

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0af6ea05b663f0954785ce966440e3f698ad14a8
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048647"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867095"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı çalıştırma ve tetikleyiciler
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -105,8 +105,8 @@ Parametreleri istek yükünün gövde kısmında iletirsiniz. .NET SDK, Azure Po
 
 ```json
 {
-  “sourceBlobContainer”: “MySourceFolder”,
-  “sinkBlobCountainer”: “MySinkFolder”
+  "sourceBlobContainer": "MySourceFolder",
+  "sinkBlobCountainer": "MySinkFolder"
 }
 ```
 
@@ -137,7 +137,7 @@ Tetikleyiciler, işlem hattı çalıştırmasını yürütmenin bir diğer yolud
 
 - Zamanlama tetikleyicisi: Bir işlem hattını duvar saati zamanlamasıyla çağıran bir tetikleyici.
 
-- Atlayan pencere tetikleyicisi: Durumunu koruyarak düzenli bir aralıkta çalışan bir tetikleyici. Azure Data Factory şu anda olay tabanlı tetikleyicileri desteklememektedir. Örneğin, bir dosya varış olayına yanıt veren işlem hattı çalıştırmasının tetikleyicisi desteklenmez.
+- Atlayan pencere tetikleyicisi: Durumunu koruyarak düzenli bir aralıkta çalışan bir tetikleyici.
 
 - Olay tabanlı tetikleyici: Bir olaya yanıt veren tetikleyicidir.
 

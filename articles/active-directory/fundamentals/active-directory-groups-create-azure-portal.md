@@ -14,12 +14,12 @@ ms.date: 08/04/2017
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 82d475e5adadb4e7670f24a6193348c9e1b37a16
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3c71c9c49413045e3a730c10e90ea3c12648b4cb
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767582"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857736"
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Azure Active Directory'de grup oluşturma ve üye ekleme
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Bu makalede Azure Active Directory'de yeni bir grup oluşturma ve üye ekleme ad
 
    ![Ekle komutunu seçme](./media/active-directory-groups-create-azure-portal/add-group-command.png)
 5. **Grup** dikey penceresinde grup için bir ad ve açıklama girin.
-6. Gruba eklenecek üyeleri seçmek için **Üyelik türü** kutusunda **Atanmış**'ı ve ardından **Üyeler**'i seçin. Grup üyeliklerini dinamik olarak yönetme hakkında daha fazla bilgi için bkz. [Grup üyeliği için gelişmiş kurallar oluşturmak üzere öznitelikleri kullanma](../active-directory-groups-dynamic-membership-azure-portal.md).
+6. Gruba eklenecek üyeleri seçmek için **Üyelik türü** kutusunda **Atanmış**'ı ve ardından **Üyeler**'i seçin. Grup üyeliklerini dinamik olarak yönetme hakkında daha fazla bilgi için bkz. [Grup üyeliği için gelişmiş kurallar oluşturmak üzere öznitelikleri kullanma](../users-groups-roles/groups-dynamic-membership.md).
 
    ![Eklenecek üyeleri seçme](./media/active-directory-groups-create-azure-portal/select-members.png)
 7. **Üyeler** dikey penceresinde gruba eklemek üzere bir veya daha fazla kullanıcı ya da cihaz seçin ve bunları gruba eklemek için dikey pencerenin en altında yer alan **Seç** düğmesini seçin. **Kullanıcı** kutusu görünen sonuçları girişinizle eşleşen kullanıcı veya cihaz adlarını gösterecek şekilde filtreler. Bu kutuda joker karakter kullanılamaz.
@@ -56,4 +56,4 @@ Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 * [Bir grubun ayarlarını yönetme](active-directory-groups-settings-azure-portal.md)
 * [Bir grubun üyelerini yönetme](active-directory-groups-members-azure-portal.md)
 * [Bir grubun üyeliklerini yönetme](active-directory-groups-membership-azure-portal.md)
-* [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](../users-groups-roles/groups-dynamic-membership.md)

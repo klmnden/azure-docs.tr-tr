@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: eb1c769e034f37d05de63896f65290db79103637
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 44c3f8ce05854e993ad551a025eec447d882c326
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293913"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969553"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Linux’ta Azure App Service’te bir Node.js web uygulaması oluşturma
 
@@ -28,7 +28,7 @@ ms.locfileid: "35293913"
 > Bu makalede bir uygulamanın Linux üzerinde App Service'e dağıtımı yapılır. _Windows_'da App Service dağıtmak için bkz. [Azure'da Node.js web uygulaması oluşturma](../app-service-web-get-started-nodejs.md).
 >
 
-[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıçta Linux üzerinde [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) kullanarak bir Node.js uygulamasını App Service’e dağıtma gösterilmektedir.
+[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıçta Linux üzerinde [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) kullanarak bir Node.js uygulamasını App Service’e dağıtma gösterilmektedir.
 
 Bu hızlı başlangıcı Cloud Shell'de tamamlayacaksınız ama bu komutları [Azure CLI](/cli/azure/install-azure-cli) ile yerel olarak da çalıştırabilirsiniz.
 
@@ -40,7 +40,7 @@ Bu hızlı başlangıcı Cloud Shell'de tamamlayacaksınız ama bu komutları [A
 
 ## <a name="install-web-app-extension-for-cloud-shell"></a>Cloud Shell için web uygulama uzantısını yükleme
 
-Bu hızlı başlangıcı tamamlamak için, [az web uygulama uzantısını](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add) eklemelisiniz. Uzantı zaten yüklenmişse, bunu en son sürüme güncelleştirmeniz gerekir. Web uygulama uzantısını güncelleştirmek için `az extension update -n webapp` yazın.
+Bu hızlı başlangıcı tamamlamak için, [az web uygulama uzantısını](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) eklemelisiniz. Uzantı zaten yüklenmişse, bunu en son sürüme güncelleştirmeniz gerekir. Web uygulama uzantısını güncelleştirmek için `az extension update -n webapp` yazın.
 
 Webapp uzantısını yüklemek için aşağıdaki komutu çalıştırın:
 
@@ -136,7 +136,7 @@ All done.
 
 - Belirtilen adla bir uygulama oluşturur.
 
-- Dosyaları geçerli çalışma dizininden web uygulamasına [sıkıştırıp dağıtır](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip).
+- Dosyaları geçerli çalışma dizininden web uygulamasına [sıkıştırıp dağıtır](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip).
 
 ## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 

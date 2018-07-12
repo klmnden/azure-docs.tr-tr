@@ -16,17 +16,17 @@ ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 63bab0e5c77204ea1e122c32a508e31ed9bcd114
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660614"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696968"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-a-net-core-app"></a>Hızlı başlangıç: .NET Core uygulaması ile Azure Redis Cache kullanma
 
 
 
-Bu hızlı başlangıçta, .NET Core ile Microsoft Azure Redis Cache kullanmaya nasıl başlayacağınız gösterilmektedir. Microsoft Azure Redis Cache, popüler açık kaynak Redis Cache’i temel alır. Microsoft tarafından yönetilen güvenli, ayrılmış bir Redis Cache’e erişmenizi sağlar. Azure Redis Cache kullanılarak oluşturulan bir önbelleğe Microsoft Azure’daki her uygulamadan erişilebilir.
+Bu hızlı başlangıçta, .NET Core ile Microsoft Azure Redis Cache kullanmaya nasıl başlayacağınız gösterilmektedir. Microsoft Azure Redis Cache popüler açık kaynak Redis Cache’i temel alır. Microsoft tarafından yönetilen güvenli, ayrılmış bir Redis Cache’e erişmenizi sağlar. Azure Redis Cache kullanılarak oluşturulan bir önbelleğe Microsoft Azure’daki her uygulamadan erişilebilir.
 
 Bu hızlı başlangıçta, .NET Core konsol uygulamasında C\# kodu ile [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) istemcisini kullanacaksınız. Bir önbellek oluşturacak, .NET Core istemci uygulamasını yapılandıracaksınız. Daha sonra, önbelleğe nesneler ekleyecek ve önbellekteki nesneleri güncelleştireceksiniz. 
 
@@ -39,7 +39,7 @@ Bu hızlı başlangıçtaki adımları tamamlamak için herhangi bir kod düzenl
 ## <a name="prerequisites"></a>Ön koşullar
 
 * [.Net SDK 2.0](https://www.microsoft.com/net/learn/get-started/windows) veya üzeri.
-* StackExchange.Redis istemcisi, [.NET Framework 4 veya üzerini](https://www.microsoft.com/net/download/dotnet-framework-runtime) gerektirir.
+* StackExchange.Redis istemcisi [.NET Framework 4 veya üst sürümünü](https://www.microsoft.com/net/download/dotnet-framework-runtime) gerektirir.
 
 ## <a name="create-a-cache"></a>Bir önbellek oluşturma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -162,7 +162,7 @@ Azure Redis Cache bağlantısı `ConnectionMultiplexer` sınıfı tarafından y�
         }
 ```
 
-Uygulamanızda bir `ConnectionMultiplexer` örneğini paylaşmaya ilişkin bu yaklaşım, bağlı bir örnek döndüren statik özelliği kullanmaktır. Kod yalnızca tek bir bağlı `ConnectionMultiplexer` örneği başlatmak için iş parçacığı güvenli bir yol sağlar. `abortConnect` false olarak ayarlanır; başka bir deyişle, Azure Redis Cache’e bağlantı kurulmasa bile çağrı başarılır olur. `ConnectionMultiplexer` temel özelliklerinden biri ağ sorunu ya da diğer nedenler çözümlendiğinde önbellek bağlantısını otomatik olarak geri yüklemesidir.
+Uygulamanızda bir `ConnectionMultiplexer` örneğini paylaşmaya ilişkin bu yaklaşım, bağlı bir örnek döndüren bir statik özelliği kullanır. Kod yalnızca tek bir bağlı `ConnectionMultiplexer` örneği başlatmak için iş parçacığı güvenli bir yol sağlar. `abortConnect` false olarak ayarlanır; başka bir deyişle, Azure Redis Cache’e bağlantı kurulmasa bile çağrı başarılır olur. `ConnectionMultiplexer` temel özelliklerinden biri ağ sorunu ya da diğer nedenler çözümlendiğinde önbellek bağlantısını otomatik olarak geri yüklemesidir.
 
 *CacheConnection* gizli dizisinin değerine, Gizli Dizi Yöneticisi yapılandırma sağlayıcısı kullanılarak erişilir ve bu gizli dizi, parola parametresi olarak kullanılır.
 
@@ -229,7 +229,7 @@ Ardından aşağıdaki komutla uygulamayı çalıştırın:
 dotnet run
 ```
 
-Aşağıdaki örnekte, `Message` anahtarının Azure portalındaki Redis Konsolu kullanılarak ayarlanan, önceden önbelleğe alınmış bir değer içerdiğini görebilirsiniz. Uygulama, önbelleğe alınan bu değeri güncelleştirdi. Ayrıca uygulama, `PING` ve `CLIENT LIST` komutlarını da yürüttü.
+Aşağıdaki örnekte, `Message` anahtarının Azure portaldaki Redis Konsolu kullanılarak ayarlanan, önceden önbelleğe alınmış bir değer içerdiğini görebilirsiniz. Uygulama, önbelleğe alınan bu değeri güncelleştirdi. Ayrıca uygulama, `PING` ve `CLIENT LIST` komutlarını da yürüttü.
 
 ![Kısmi konsol uygulaması](./media/cache-dotnet-core-quickstart/cache-console-app-partial.png)
 

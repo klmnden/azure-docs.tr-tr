@@ -4,7 +4,7 @@ description: Bu belgede AD FS’yi yüksek kullanılabilirlik için Azure’a da
 keywords: azure’da AD FS dağıtma, azure adfs dağıtma, azure adfs, azure ad fs, adfs dağıtma, ad fs dağıtma, azure’da adfs, azure’da adfs dağıtma, azure’da AD FS dağıtma, adfs azure, AD FS’ye giriş, Azure, Azure’da AD FS, iaas, ADFS, adfs’yi azure’a taşıma
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
-ms.author: anandy; billmath
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34a5e223dfc8ff51ce03a973e88a962643c71202
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212681"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917144"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Azure'da Active Directory Federasyon Hizmetlerini dağıtma
 AD FS basitleştirilmiş, güvenli kimlik federasyonu ve Web’de çoklu oturum açma (SSO) özellikleri sağlar. Azure AD veya O365 ile federasyon, kullanıcıların şirket içi kimlik bilgilerini kullanarak kimlik doğrulaması yapmasını ve buluttaki tüm kaynaklara erişmesini sağlar. Sonuç olarak, hem şirket içindeki hem de buluttaki kaynaklara erişimi sağlamak için yüksek oranda kullanılabilir bir AD FS altyapısına sahip olunması önemlidir. AD FS'nin Azure’da dağıtılması en az çaba ile yüksek kullanılabilirlik elde etmeye yardımcı olabilir.

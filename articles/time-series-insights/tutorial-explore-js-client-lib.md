@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: bryanla
 ms.openlocfilehash: 70e29b1a6b8a4443ae6545ec7960f1d2370218e3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36295409"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969937"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Öğretici: Azure Time Series Insights JavaScript istemci kitaplığını keşfetme
 
@@ -90,7 +90,7 @@ Bu öğreticide, TSI JavaScript istemci kitaplığının kullanımı da dahil ol
 Ayrıntılı olarak gözden geçirmesek de, temelde TSI İstemci kitaplığı **tsclient.js** iki önemli kategorinin soyutlamasını sağlar:
 
 - **TSI Sorgu API'lerini çağırmaya yönelik sarmalayıcı yöntemleri**: Toplama ifadelerini kullanarak TSI verilerini sorgulamanıza olanak tanıyan REST API'leri. Yöntemler, kitaplığın `TsiClient.Server` ad alanı altında düzenlenir.
-- **Çeşitli türlerdeki grafik denetimlerini oluşturma ve doldurma yöntemleri**: Bir web sayfasındaki TSI toplama verilerini işlemek için kullanılan yöntemler. Yöntemler, kitaplığın `TsiClient.UX` ad alanı altında düzenlenir.
+- **Çeşitli türlerdeki grafik denetimlerini oluşturma ve doldurma yöntemleri**: Bir web sayfasındaki TSI toplama verilerini işlemek için kullanılan yöntemler. Metotlar, kitaplığın `TsiClient.UX` ad alanı altında düzenlenmiştir.
 
 Aşağıdaki kavramlar evrenseldir ve genel olarak TSI İstemci kitaplığı API'lerine uygulanabilir.
 

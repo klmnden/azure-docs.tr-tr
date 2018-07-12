@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 209fdda974dee2386328da43991cc9d453e61aa7
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: edfabf1f93c78cf29ff3561f437053df11e15bd5
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062174"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857489"
 ---
 # <a name="security-management-in-azure"></a>Azure’da Güvenlik Yönetimi
 Azure aboneleri yönetim iş istasyonları, geliştirici PC’leri ve hatta göreve özel izinleri bulunan ayrıcalıklı son kullanıcı cihazları dahil birden fazla cihazda kendi bulut ortamlarını yönetebilir. Bazı durumlarda, yönetim işlevleri [Azure portal](https://azure.microsoft.com/features/azure-portal/) gibi web tabanlı konsollar aracılığıyla gerçekleştirilir Diğer durumlarda, Sanal Özel Ağlar (VPN), Terminal Hizmetleri, istemci uygulaması protokolleri ya da (programlı olarak) Azure Service Management API (SMAPI) üzerinden şirket için sistemlerden Azure’a bağlantılar olabilir. Ayrıca, istemci uç noktaları ya da etki alanına katılmış veya yalıtılmış ve yönetilmeyen olabilir, tabletler veya akıllı telefonlar gibi.
@@ -93,7 +93,7 @@ Sağlamlaştırılmış bir iş istasyonunda, yönetici standart kullanıcı hes
 * Yürütme kısıtlama. Yalnızca yürütmek üzere yönetime gerekli olarak önceden tanımlanmış yürütülebilir dosyalar kümesine izin verin (“varsayılan ret” olarak bilinir). Varsayılan olarak, açıkça izin verilenler listesinde tanımlı olmadığı sürece kullanıcılara herhangi bir programı çalıştırma izni reddedilmelidir.
 * En düşük öncelik. Yönetim iş istasyonu kullanıcıları yerel makinenin kendisinde yönetim ayrıcalıklarına sahip olmamalıdır. Bu şekilde, sistem yapılandırmasını veya sistem dosyalarını, kasıtlı veya kasıtsız olarak değiştiremezler.
 
-Bunların tümünü, Active Directory Domain Services’da (AD DS) [Grup İlkesi Nesneleri](https://www.microsoft.com/download/details.aspx?id=2612) (GPO) kullanarak ve bunları tüm yönetim hesaplarınıza (yerel) yönetim etki alanınız aracılığıyla uygulayarak gerçekleştirebilirsiniz.
+Bunların tümünü, Active Directory Domain Services’da (AD DS) [Grup İlkesi Nesneleri](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy) (GPO) kullanarak ve bunları tüm yönetim hesaplarınıza (yerel) yönetim etki alanınız aracılığıyla uygulayarak gerçekleştirebilirsiniz.
 
 ### <a name="managing-services-applications-and-data"></a>Hizmetleri, uygulamaları ve verileri yönetme
 Azure bulut hizmetleri yapılandırması Azure portal ya da SMAPI üzerinden, Windows PowerShell komut satırı arabirimi veya bu RESTful arabirimlerinden yararlanan özel olarak geliştirilmiş uygulama aracılığıyla gerçekleştirilir. Bu mekanizmaları kullanan hizmetler Azure Active Directory (Azure AD), Azure Storage, Azure Websites ve Azure Virtual Network’ü içerir.

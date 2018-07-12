@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: fc301edf13f8e6874f0b77440e2b0dc01b2a55fc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6b74ab4d97df7e1e6b9bec8e3bcb150c99bd5b5c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189940"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903460"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Öğretici: Jenkins ve Visual Studio Team Services kullanarak uygulamanızı Azure üzerinde Linux sanal makinelerine dağıtma
 
@@ -49,7 +49,7 @@ Bu öğreticide, Node.js web uygulaması derlemek için Jenkins’i kullanacaks�
 
 *  Dağıtım hedefi için bir Linux sanal makinesi gerekir.  Daha fazla bilgi için bkz. [Azure CLI ile Linux sanal makineleri oluşturma ve yönetme](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Sanal makineniz için 80 numaralı gelen bağlantı noktasını açın. Daha fazla bilgi için bkz. [Azure portalını kullanarak ağ güvenlik grupları oluşturma](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Sanal makineniz için 80 numaralı gelen bağlantı noktasını açın. Daha fazla bilgi için bkz. [Azure portalını kullanarak ağ güvenlik grupları oluşturma](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic).
 
 ## <a name="get-the-sample-app"></a>Örnek uygulamayı alma
 

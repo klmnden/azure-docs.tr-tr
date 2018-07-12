@@ -7,15 +7,17 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: 12a34bc98db396482d9fde8da778db0f0ef7de4b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 30795f542bca52159f2ff0fe052a94de3743f0e8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767162"
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Hızlı Başlangıç: Azure Machine Learning hizmetlerini yükleme ve kullanmaya başlama
 Azure Machine Learning hizmetleri (önizleme) tümleşik ve uçtan uca bir veri bilimi ve gelişmiş analiz çözümüdür. Bu çözüm uzman veri bilimcilerin bulut ölçeğinde veri hazırlamasına, deneme geliştirmesine ve model dağıtmasına yardımcı olur.
@@ -145,7 +147,7 @@ Burada, [Süsen çiçeği veri kümesini](https://en.wikipedia.org/wiki/Iris_flo
    Proje adı | myIris |Hesabınızı tanımlayan benzersiz bir ad girin. Kendi adınızı veya denemeyi en iyi şekilde tanımlayan departman ya da proje adını kullanabilirsiniz. Adı 2-32 karakter arasında olmalıdır. Yalnızca alfasayısal karakterler ve kısa çizgi (-) karakteri kullanılabilir. 
    Proje dizini | c:\Temp\ | Projenin oluşturulduğu dizini belirtin.
    Proje açıklaması | _boş bırakın_ | Projeleri açıklamak için kullanışlı bir isteğe bağlı alan.
-   Visualstudio.com GIT Deposu URL’si |_boş bırakın_ | İsteğe bağlı alan. Bir proje, kaynak denetimi ve işbirliği için isteğe bağlı olarak Visual Studio Team Services’de bir Git deposuyla ilişkilendirilebilir. [Bunun nasıl ayarlanacağını öğrenin](/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Visualstudio.com GIT Deposu URL’si |_boş bırakın_ | İsteğe bağlı alan. Bir proje, kaynak denetimi ve işbirliği için isteğe bağlı olarak Visual Studio Team Services’de bir Git deposuyla ilişkilendirilebilir. [Bunun nasıl ayarlanacağını öğrenin](../desktop-workbench/using-git-ml-project.md#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Seçili çalışma alanı | IrisGarden (varsa) | Azure portalında Deneme hesabınız için oluşturduğunuz bir çalışma alanını seçin. <br/>Hızlı Başlangıç’ı izlediyseniz, IrisGarden adlı bir çalışma alanınız olmalıdır. Bu çalışma alanı yoksa, Deneme hesabınızı açtığınızda oluşturduğunuz çalışma alanını veya kullanmak istediğiniz başka bir çalışma alanını seçin.
    Proje şablonu | Classifying Iris | Şablonlar, ürünü keşfetmek için kullanabileceğiniz betikleri ve verileri içerir. Bu şablon, bu hızlı başlangıcın yanı sıra bu belge sitesindeki diğer öğreticiler için gereksinim duyduğunuz betikleri ve verileri de içerir. 
 

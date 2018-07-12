@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a0a50c4315540fba014c4f152f108a61b328a936
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c1a8b18062f61be9eb020beefd3ad741c41b55f8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109435"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652711"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Öğretici: Yerel Service Fabric kümesinde dağıtılan bir Java uygulamasının hatasını ayıklama
 
@@ -66,7 +66,7 @@ Uygulamayı derleyin ve yerel geliştirme kümesine [dağıtın](service-fabric-
 4. Hatasını ayıklamak istediğiniz hizmetin entryPoint.sh öğesini güncelleştirin; böylece hizmet, uzaktan hata ayıklama parametreleriyle Java işlemini başlatır. Bu öğretici için durum bilgisi olmayan ön uç kullanılır: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Bu örnekte, hata ayıklama için 8001 numaralı bağlantı noktası ayarlanmıştır.
 
     ```bash
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
     ```
 
 5. Hatası ayıklanmakta olan hizmet için çoğaltma sayısını veya örnek sayısını ayarlayarak Uygulama Bildirimini güncelleştirin. Bu ayar, hata ayıklama için kullanılan bağlantı noktası için çakışmaları önler. Örneğin, şu işlemleri izleyerek durum bilgisi olmayan hizmetler için ``InstanceCount="1"`` ayarını yapın ve durum bilgisi olan hizmetler için hedefi ve en az çoğaltma kümesi boyutlarını 1 olarak ayarlayın: ``TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
@@ -116,7 +116,7 @@ Aşağıdaki adımlarda, varsayılan */var/log/syslog* konumundaki uygulama gün
     Aşağıdaki örnekte, örnek bir yürütme gösterilmektedir:
 
     ```bash
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
     ```
 
 Bu aşamada, Service Fabric Java uygulamalarınızı geliştirirken nasıl hata ayıklaması yapacağınızı ve uygulama günlüklerinize erişeceğinizi öğrendiniz.

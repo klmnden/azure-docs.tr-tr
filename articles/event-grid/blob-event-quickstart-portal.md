@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 06/26/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 604bb45c7da5ba6d99600b57d4b957a1f7dafb13
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 4e547a97cde896acc4b6c8b19bc6c6cebf512adb
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37024602"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867639"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Azure portalı ve Event Grid ile Blob depolama olayları oluşturma ve yönlendirme
 
@@ -56,6 +56,8 @@ Blob depolamasındaki olaylara abone olmadan önce olay iletisi için uç noktay
 1. Siteyi görürsünüz ancak henüz yayımlanmış olay yoktur.
 
    ![Yeni siteyi görüntüleme](./media/blob-event-quickstart-portal/view-site.png)
+
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## <a name="subscribe-to-the-blob-storage"></a>Blob depolamaya abone olma
 

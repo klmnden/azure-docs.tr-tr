@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: ae97a41835c61155fe3fc7174fd93be00eb22873
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cce3b4f15acbcc6ce78ea0623c6b9f3c23941cb0
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767573"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859634"
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Azure Active Directory grupları ile kaynaklara erişimi yönetme
 Azure Active Directory (Azure AD), Office 365 gibi Microsoft çevrimiçi hizmetlerini de kapsayan şirket içi ve bulut uygulamalarıyla kaynakların yanı sıra Microsoft tarafından sunulmayan SaaS uygulamalarına da güvenli erişim sağlayan, kapsamlı bir kimlik ve erişim yönetimi çözümüdür. Bu makale özelliklere genel bir bakış sunmaktadır ancak Azure AD gruplarını hemen kullanmaya başlamak istiyorsanız [Azure AD'deki güvenlik gruplarını yönetme](active-directory-groups-create-azure-portal.md) talimatlarını uygulayın. Azure Active Directory gruplarını yönetme amacıyla PowerShell'i kullanma hakkında bilgi almak için bkz. [Grup yönetimi için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-v2-cmdlets.md).
@@ -74,7 +74,7 @@ Başlamaya hazır mısınız? Azure AD gruplarını kullanarak gerçekleştirebi
 ## <a name="next-steps"></a>Sonraki adımlar
 Erişim yönetiminin temellerini kavradığınıza göre Azure Active Directory'de uygulamalarınıza ve kaynaklarınıza erişimi yönetmek için kullanabileceğiniz ek gelişmiş özelliklere göz atabilirsiniz.
 
-* [Gelişmiş kurallar oluşturmak için öznitelikleri kullanma](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [Gelişmiş kurallar oluşturmak için öznitelikleri kullanma](../users-groups-roles/groups-dynamic-membership.md)
 * [Azure AD'deki güvenlik grubunu yönetme](active-directory-groups-create-azure-portal.md)
 * [Gruplar için Graph API'si başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 * [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-cmdlets.md)

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 4ce2b133ed4266028f1d99151939538fb8ce60f5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aeb94a430e633299637d4e9b96ef6b2c0309b163
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190777"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722924"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>Öğretici: Azure CLI 2.0 ile Linux sanal makine yönetimi hakkında bilgi edinin
 
@@ -55,7 +55,7 @@ Sanal makine çözümlerini yönetmek için yaygın olarak gereken erişimi sağ
 * [Ağ Katılımcısı](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Depolama Hesabı Katılımcısı](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Kullanıcılara rolleri tek tek atamak yerine, benzer eylemlerde bulunması gereken kullanıcılar için [bir Azure Active Directory grubu](../../active-directory/active-directory-groups-create-azure-portal.md) oluşturmak genellikle daha kolaydır. Ardından, bu grubu uygun role atayabilirsiniz. Bu makaleyi basitleştirmek için, üyeleri olmayan bir Azure Active Directory grubu oluşturun. Bu grubu hala bir kapsamın rolüne atayabilirsiniz. 
+Kullanıcılara rolleri tek tek atamak yerine, benzer eylemlerde bulunması gereken kullanıcılar için [bir Azure Active Directory grubu](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) oluşturmak genellikle daha kolaydır. Ardından, bu grubu uygun role atayabilirsiniz. Bu makaleyi basitleştirmek için, üyeleri olmayan bir Azure Active Directory grubu oluşturun. Bu grubu hala bir kapsamın rolüne atayabilirsiniz. 
 
 Aşağıdaki örnek, posta takma adı *vmDemoGroup* olan *VMDemoContributors* adlı bir Azure Active Directory grubu oluşturur. Posta takma adı, grubun diğer adı olarak görev yapar.
 

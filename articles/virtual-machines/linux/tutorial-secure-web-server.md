@@ -3,7 +3,7 @@ title: Öğretici - Azure’da SSL sertifikalarıyla Linux web sunucusunun güve
 description: Bu öğreticide, Azure Key Vault’ta depolanan SSL sertifikaları ile NGINX web sunucusunda çalışan bir Linux sanal makinesinin güvenliğini sağlamak için Azure CLI 2.0 kullanmayı öğreneceksiniz.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/30/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f86cc891b67cddf3a4046260d2977371af3d0596
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: f1d8576791a569007efd7d3fa446ab32a130919d
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32313367"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927990"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Öğretici: Azure’da Linux sanal makinesi üzerinde Key Vault’ta depolanan SSL sertifikalarını kullanarak bir web sunucusunun güvenliğini sağlama
 Web sunucularının güvenliğini sağlamak için, web trafiğini şifrelemek üzere Güvenli Yuva Katmanı (SSL) sertifikası kullanılabilir. SSL sertifikaları Azure Key Vault’ta depolanabilir ve sertifikaların Azure’daki Linux sanal makinelerine (VM’ler) güvenli bir şekilde dağıtılabilmesini sağlar. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:

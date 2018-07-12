@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: e5b8cc9285d9637a04c4bec47b0185652aa7c84e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 314ffce8a9f8dde62cac670099afbc2223df37e4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114233"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972007"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Öğretici: Azure Media Services ile videoları analiz etme 
 
@@ -112,7 +112,7 @@ Bir **Dönüşüm** oluştururken ilk olarak aşağıdaki kodda gösterildiği g
 
 #### <a name="job"></a>İş
 
-Yukarıda bahsedildiği gibi [Transform](https://docs.microsoft.com/rest/api/media/transforms) nesnesi tarif, [Job](https://docs.microsoft.com/en-us/rest/api/media/jobs) ise bu **Transform** nesnesini belirli bir giriş videosu veya ses içeriğine uygulamak için Media Services’e gönderilen gerçek istektir. **İş** giriş videosunun konumu ve çıktının konumu gibi bilgileri belirtir. Videonuzun konumunu, Media Services hesabınızda bulunan HTTPS URL’lerini, SAS URL’lerini veya Varlıkları kullanarak belirtebilirsiniz. 
+Yukarıda bahsedildiği gibi [Transform](https://docs.microsoft.com/rest/api/media/transforms) nesnesi tarif, [Job](https://docs.microsoft.com/rest/api/media/jobs) ise bu **Transform** nesnesini belirli bir giriş videosu veya ses içeriğine uygulamak için Media Services’e gönderilen gerçek istektir. **İş** giriş videosunun konumu ve çıktının konumu gibi bilgileri belirtir. Videonuzun konumunu, Media Services hesabınızda bulunan HTTPS URL’lerini, SAS URL’lerini veya Varlıkları kullanarak belirtebilirsiniz. 
 
 Bu örnekte, iş girdisi yerel bir videodur.  
 
@@ -120,7 +120,7 @@ Bu örnekte, iş girdisi yerel bir videodur.
 
 ### <a name="wait-for-the-job-to-complete"></a>İşin tamamlanmasını bekleyin
 
-İşin tamamlanması biraz sürüyor ve tamamlandığında bildirim almak istiyorsunuz. [İşin](https://docs.microsoft.com/en-us/rest/api/media/jobs) tamamlanması hakkında bildirim almaya ilişkin farklı seçenekler mevcuttur. En basit seçenek (burada gösterilir), yoklama kullanmaktır. 
+İşin tamamlanması biraz sürüyor ve tamamlandığında bildirim almak istiyorsunuz. [İşin](https://docs.microsoft.com/rest/api/media/jobs) tamamlanması hakkında bildirim almaya ilişkin farklı seçenekler mevcuttur. En basit seçenek (burada gösterilir), yoklama kullanmaktır. 
 
 Yoklama, olası gecikme süresi nedeniyle üretim uygulamaları için önerilen en iyi uygulamalardan biri değildir. Yoklama, bir hesap üzerinde gereğinden fazla kullanılırsa kısıtlanabilir. Geliştiricilerin onun yerine Event Grid kullanmalıdır.
 
