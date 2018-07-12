@@ -224,6 +224,8 @@
           href: virtual-machine-scale-sets-networking.md
         - name: Bir şablonu yönetilen disklere dönüştürme
           href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Planlı bakım
+          href: virtual-machine-scale-sets-maintenance-notifications.md
     - name: Sorun giderme
       items:
         - name: Otomatik Ölçeklendirme

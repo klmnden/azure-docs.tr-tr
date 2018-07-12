@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
 ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29530175"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630106"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Hızlı başlangıç: Linux bilgisayarlarını Azure Güvenlik Merkezi’ne ekleme
 Azure aboneliklerinizi ekledikten sonra Linux Aracısı’nı sağlayarak Azure dışında (örneğin, şirket içinde veya diğer bulutlarda) çalışan Linux kaynakları için Güvenlik Merkezi’ni etkinleştirebilirsiniz.
@@ -30,20 +30,20 @@ Bu hızlı başlangıçta bir Linux bilgisayara Linux Aracısı'nın nasıl yük
 ## <a name="prerequisites"></a>Ön koşullar
 Güvenlik Merkezi ile çalışmaya başlamak için Microsoft Azure aboneliğinizin olması gerekir. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 
-Bu hızlı başlangıçtaki adımlara geçmeden önce Güvenlik Merkezi’nin Standart fiyatlandırma katmanında olmanız gerekir. Yükseltme yönergeleri için bkz. [Azure Aboneliğinizi Güvenlik Merkezi Standart’a ekleme](security-center-get-started.md). Güvenlik Merkezi’nin Standart katmanını ilk 60 gün boyunca hiçbir ücret ödemeden deneyebilirsiniz.
+Bu hızlı başlangıca başlamadan önce Güvenlik Merkezi’nin Standart fiyatlandırma katmanında olmanız gerekir. Yükseltme yönergeleri için bkz. [Azure aboneliğinizi Güvenlik Merkezi Standart katmanına ekleme](security-center-get-started.md). Güvenlik Merkezi’nin Standart katmanını ilk 60 gün boyunca hiçbir ücret ödemeden deneyebilirsiniz.
 
 ## <a name="add-new-linux-computer"></a>Yeni Linux bilgisayarı ekleme
 
 1. [Azure portal](https://azure.microsoft.com/features/azure-portal/) oturum açın.
 2. **Microsoft Azure** menüsünde **Güvenlik Merkezi**’ni seçin. **Güvenlik Merkezi - Genel Bakış** açılır.
 
- ![Güvenlik Merkezi’ne genel bakış][2]
+ ![Güvenlik Merkezine genel bakış][2]
 
-3. Güvenlik Merkezi ana menüsünden **Onboarding to advanced security** (Gelişmiş güvenliğe ekleme) seçeneğini belirleyin.
+3. Güvenlik Merkezi ana menüsünde **Gelişmiş güvenliğe ekleme** seçeneğini belirleyin.
 4. **Do you want to add non-Azure computers** (Azure dışı bilgisayarlar eklemek istiyor musunuz?) seçeneğini belirleyin.
    ![Gelişmiş güvenliğe ekleme][3]
 
-5. **Add new non-Azure computers** (Azure dışı yeni bilgisayarlar ekle) sayfasında Log Analytics çalışma alanlarınızın listesi gösterilir. Bu liste, uygun durumlarda, otomatik sağlama etkinleştirildiğinde Güvenlik Merkezi tarafından sizin için oluşturulmuş varsayılan çalışma alanını içerir. Bu çalışma alanını veya kullanmak istediğiniz başka bir çalışma alanını seçin.
+5. **Add new non-Azure computers** (Azure dışı yeni bilgisayarlar ekle) sayfasında Log Analytics çalışma alanlarınızın listesi gösterilir. Listede, varsa, otomatik sağlama etkinleştirildiğinde Güvenlik Merkezi tarafından sizin için oluşturulan varsayılan çalışma alanı bulunur. Bu çalışma alanını veya kullanmak istediğiniz başka bir çalışma alanını seçin.
 
     ![Azure dışı bilgisayar ekleme][4]
 
@@ -64,11 +64,11 @@ Linux için Güvenlik Merkezi Aracısı günlükleri şu yolda bulunabilir: */va
 
 30 dakikayı bulabilecek bir süre geçtikten sonra Linux bilgisayarı Güvenlik Merkezi’nde görünür.
 
-Artık Azure VM’lerinizi ve Azure dışı bilgisayarlarınızı tek bir yerde izleyebilirsiniz. **Compute** (İşlem) bölümünde tüm VM’lere ve bilgisayarlara genel bakışın yanı sıra öneriler sunulur. Her sütun, bir dizi öneriyi temsil eder. Renk, ilgili öneri için VM'nin ya da bilgisayarın geçerli güvenlik durumunu temsil eder. Güvenlik Merkezi ayrıca bu bilgisayarlara yönelik tüm algılamaları Güvenlik uyarıları bölümünde gösterir.
+Artık Azure VM’lerinizi ve Azure dışı bilgisayarlarınızı tek bir yerde izleyebilirsiniz. **Bilgi İşlem** dikey penceresinde, önerilerle birlikte tüm VM’lere ve bilgisayarlara ilişkin bir genel bakış görürsünüz. Her sütunda bir dizi öneri sunulur. Renk VM'nin veya bilgisayarın söz konusu öneri için geçerli güvenlik durumunu belirtir. Güvenlik Merkezi ayrıca bu bilgisayarlara yönelik tüm algılamaları Güvenlik uyarıları bölümünde gösterir.
 
   ![Compute (İşlem) dikey penceresi][7] **Compute** (İşlem) dikey penceresinde temsil edilen iki tür simge vardır:
 
-  ![simge1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Azure dışı bilgisayar
+  ![simge1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Azure olmayan bilgisayar
 
   ![simge2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 

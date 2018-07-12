@@ -6,14 +6,15 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 2e9a46f2a99bc9b530ac5859068bde58bf5b5098
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8edb35b91327bde1fa824ec456b8a98962adb7ce
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634096"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Öğretici: Güncelleştirilmiş bir görüntüyü bölgesel dağıtımlara gönderme
 
@@ -70,7 +71,7 @@ Değiştirdiğiniz `Index.cshtml` şuna benzemelidir:
 
 ## <a name="rebuild-the-image"></a>Görüntüyü yeniden derleme
 
-Web uygulamasını güncelleştirdiğinize göre artık kapsayıcı görüntüsünü yeniden derleyebilirsiniz. Daha önce olduğu gibi, etiket için oturum açma sunucusu URL’si de dahil olmak üzere, tam görüntü adını kullanın:
+Web uygulamasını güncelleştirdiğinize göre artık kapsayıcı görüntüsünü yeniden derleyebilirsiniz. Daha önce olduğu gibi, etiket için oturum açma sunucusu tam etki alanı adı (FQDN) da dahil olmak üzere, tam görüntü adını kullanın:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
@@ -84,9 +85,10 @@ docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-hellowo
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Çıktı aşağıdakine benzer görünmelidir:
+`docker push` çıktınızın aşağıdakine benzer olması gerekir:
 
-```bash
+```console
+$ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
 5b9454e91555: Pushed
 d6803756744a: Layer already exists
@@ -126,19 +128,17 @@ Güncelleştirilmiş kapsayıcı görüntüsünü tarayıcınızda görüntüley
 
 ![Doğu ABD bölgesinde çalıştırılan değiştirilmiş web uygulamasının tarayıcı görünümü][deployed-app-eastus-modified]
 
-Tek bir `docker push` ile, her iki bölgesel Web Uygulaması dağıtımını güncelleştirdiniz ve Azure Container Registry de ağa yakın depolardan kapsayıcı görüntüleri sundu.
+Tek bir `docker push` ile, her iki bölgesel Web App dağıtımında çalışan web uygulamasını otomatik olarak güncelleştirdiniz. Ve Azure Container Registry, her dağıtıma en yakın konumda bulunan depolardaki kapsayıcı görüntülerini sundu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, web uygulaması kapsayıcısını güncelleştirdiniz ve web uygulaması kapsayıcısının yeni bir sürümünü coğrafi olarak çoğaltılmış kayıt defterinize gönderdiniz. Azure Container Registry’deki web kancaları, Kapsayıcılar için Web Uygulamalarına güncelleştirmeyi bildirdi ve bu da kayıt defteri çoğaltmalarından yerel bir çekme işlemini tetikledi.
+Bu öğreticide, web uygulaması kapsayıcısını güncelleştirdiniz ve web uygulaması kapsayıcısının yeni bir sürümünü coğrafi olarak çoğaltılmış kayıt defterinize gönderdiniz. Azure Container Registry’deki web kancaları, Kapsayıcılar için Web Apps’e güncelleştirmeyi bildirdi ve bu da en yakın kayıt defteri çoğaltmasından yerel bir çekme işlemini tetikledi.
 
-Serinin son öğreticisi olan bu öğreticide:
+### <a name="acr-build-automated-image-build-and-patch"></a>ACR yapı: Otomatik görüntü oluşturma ve düzeltme eki uygulama
 
-> [!div class="checklist"]
-> * Web uygulaması HTML’ini güncelleştirdiniz
-> * Docker görüntüsünü derleyip etiketlediniz
-> * Azure Container Registry’ye değişikliği gönderdiniz
-> * Güncelleştirilmiş uygulamayı iki farklı bölgede görüntülediniz
+Coğrafi çoğaltmaya ek olarak ACR Build, Azure Container Registry’nin kapsayıcı dağıtım işlem hattınızın iyileştirilmesine yardımcı olabilecek başka bir özelliğidir. Özellikleri hakkında bir fikir edinmek için ACR Build’a genel bakış ile başlayın:
+
+[ACR Build ile işletim sistemi ve çerçeve düzeltme eki uygulamayı otomatikleştirme](container-registry-build-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png
