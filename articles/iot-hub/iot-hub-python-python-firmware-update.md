@@ -1,6 +1,6 @@
 ---
-title: Cihaz üretici yazılımı güncelleştirme ile Azure IOT hub'ı (Python) | Microsoft Docs
-description: Cihaz Yönetimi Azure IOT hub'ına aygıt üretici yazılımı güncelleştirmesi başlatmak için nasıl kullanılacağını. Sanal cihaz uygulaması ve bellenim güncelleştirme tetikleyen bir hizmet uygulaması uygulamak için Python için Azure IOT SDK'ları kullanın.
+title: Azure IOT hub'ı (Python) ile cihaz üretici yazılımını güncelleştirme | Microsoft Docs
+description: Cihaz üretici yazılımı güncelleştirme başlatmak için Azure IOT Hub cihaz Yönetimi kullanma Python için Azure IOT SDK'ları, bir sanal cihaz uygulaması ve üretici yazılımı güncelleştirmesi tetikleyen bir hizmet uygulaması'nı uygulamak için kullanın.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -10,29 +10,29 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: kgremban
 ms.openlocfilehash: d2ebdf54e595c2f02464c0c2446a6e5f5feefb9c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634650"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38482029"
 ---
-# <a name="use-device-management-to-initiate-a-device-firmware-update-pythonpython"></a>Cihaz üretici yazılımı başlatmak için cihaz yönetimini kullanma güncelleştirme (Python/Python)
+# <a name="use-device-management-to-initiate-a-device-firmware-update-pythonpython"></a>Cihaz üretici yazılımını başlatmak için cihaz yönetimini kullanma güncelleştirin (Python/Python)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-İçinde [aygıt Management'i kullanmaya başlama] [ lnk-dm-getstarted] Öğreticisi, nasıl kullanılacağını gördüğünüz [cihaz çifti] [ lnk-devtwin] ve [doğrudan yöntemleri ] [ lnk-c2dmethod] temelleri uzaktan bir aygıt yeniden başlatma. Bu öğretici aynı IOT hub'ı temelleri kullanır ve rehberlik sağlar ve bir uçtan uca sanal üretici yazılımı güncelleştirme yapmak nasıl gösterir.  Bu deseni bellenim güncelleştirme uygulamasında Intel Edison'u aygıt örnek için kullanılır.
+İçinde [cihaz yönetimini kullanmaya başlama] [ lnk-dm-getstarted] eğitmen, nasıl kullanılacağını gördüğünüz [cihaz ikizi] [ lnk-devtwin] ve [doğrudan yöntemler ] [ lnk-c2dmethod] ilkel bir cihazı Uzaktan yeniden başlatmak için. Bu öğretici aynı IOT hub'ı temelleri kullanır ve rehberlik sağlar ve bir uçtan uca sanal üretici yazılımı güncelleştirme işlemini gösterir.  Bu düzen, bellenim güncelleştirme uygulamasında Intel Edison cihaz örnek için kullanılır.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 
-* IOT hub'ınız aracılığıyla sanal cihaz uygulamasında firmwareUpdate doğrudan yöntemini çağıran bir Python konsol uygulaması oluşturun.
-* Arabirimini uygulayan bir sanal cihaz uygulaması oluşturma bir **firmwareUpdate** doğrudan yöntemi. Bu yöntem bellenim görüntüsünü karşıdan yüklemek için bekleyeceği, bellenim görüntüyü indirir ve son bellenim görüntü geçerli bir çok aşama işlemi başlatır. Güncelleştirme her aşaması sırasında aygıt ilerlemesini bildirmek için bildirilen özelliklerini kullanır.
+* IOT hub'ınız aracılığıyla sanal cihaz uygulamasında firmwareUpdate doğrudan yöntemi çağıran bir Python konsol uygulaması oluşturacaksınız.
+* Uygulayan bir sanal cihaz uygulaması oluşturma bir **firmwareUpdate** doğrudan yöntemi. Bu yöntem, üretici yazılımı görüntüsünü indirmeye bekler, üretici yazılımı görüntüsünü indirir ve son olarak üretici yazılımı görüntüsünü geçerlidir çok aşamalı bir işlem başlatır. Güncelleştirmenin her aşamasında cihaz ilerlemesini bildirmek üzere bildirilen özellikleri kullanır.
 
-Bu öğreticinin sonunda, iki Python konsol uygulamaları vardır:
+Bu öğreticinin sonunda iki Python konsol uygulaması vardır:
 
-**dmpatterns_fwupdate_service.PY**yanıt görüntüler, sanal cihaz uygulamada, doğrudan bir yöntemi çağırır ve düzenli aralıklarla (her 500ms) görüntüler güncelleştirilmiş bildirilen özellikleri.
+**dmpatterns_fwupdate_service.PY**bir doğrudan yöntem sanal cihaz uygulamasında çağıran yanıt görüntüler ve düzenli aralıklarla (her 500ms) görüntüler güncelleştirilmiş bildirilen özellikler.
 
-**dmpatterns_fwupdate_device.PY**, daha önce oluşturulan cihaz kimliğiyle IOT hub'ınızı bağlayan firmwareUpdate doğrudan bir yöntem alır, bellenim güncelleştirme dahil benzetimini yapmak için çok durumlu bir işlem çalışır: görüntü için bekleniyor , yeni görüntüyü indirme ve son olarak görüntüyü uygulamadan indirin.
+**dmpatterns_fwupdate_device.PY**, daha önce oluşturulan cihaz kimliğiyle IOT hub'ınıza bağlanan firmwareUpdate bir doğrudan yöntem alır, üretici yazılımı güncelleştirme dahil benzetimini yapmak için çok durumlu bir işlem yapması çalıştırır: görüntüsü için bekleniyor İndirme, yeni görüntüyü indirme ve son olarak görüntüsü uygulanıyor.
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -44,18 +44,18 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Doğrudan bir yöntem kullanarak aygıt bir uzak bellenim güncelleştirme Tetikle
-Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Python konsol uygulaması oluşturun. Uygulama güncelleştirme başlatmak için doğrudan bir yöntem kullanır ve etkin bellenim güncelleştirme durumunu düzenli aralıklarla almak için cihaz çifti sorgularını kullanır.
+## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Bir doğrudan yöntem kullanarak cihaz üzerinde bir uzak üretici yazılımı güncelleştirmesini tetikleme
+Bu bölümde, bir cihazda uzak üretici yazılımı güncelleştirme başlatan bir Python konsol uygulaması oluşturun. Uygulamayı bir doğrudan yöntem güncelleştirmeyi başlatmak için ve cihaz çifti sorguları etkin üretici yazılımı güncelleştirme durumunu düzenli aralıklarla almak için kullanır.
 
-1. Komut isteminizde yüklemek için aşağıdaki komutu çalıştırın **azure-iothub-service-client** paketi:
+1. Komut isteminizde yüklemek için aşağıdaki komutu çalıştırın **azure-iothub-service-client** paket:
    
     ```cmd/sh
     pip install azure-iothub-service-client
     ```
 
-1. Çalışma dizininizi bir metin düzenleyicisi kullanarak oluşturduğunuz bir **dmpatterns_getstarted_service.py** dosya.
+1. Çalışma dizininizde bir metin düzenleyicisi kullanarak oluşturduğunuz bir **dmpatterns_getstarted_service.py** dosya.
 
-1. Aşağıdaki 'Import' deyimleri değişkenleri başlangıcında ekleyip **dmpatterns_getstarted_service.py** dosya. Değiştir `IoTHubConnectionString` ve `deviceId` daha önce not ettiğiniz değerleriniz ile:
+1. Aşağıdaki 'import' deyimlerini ve değişkenlerini başlangıcına ekleyin **dmpatterns_getstarted_service.py** dosya. Değiştirin `IoTHubConnectionString` ve `deviceId` daha önce not aldığınız değerlerinizi içeren:
    
     ```python
     import sys
@@ -73,7 +73,7 @@ Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Python
     MESSAGE_COUNT = 5
     ```
 
-1. Aşağıdakileri ekleyin doğrudan yöntemini çağırın ve firmwareUpdate değerini görüntülemek için işlev özelliği bildirdi. Ayrıca ekleyin `main` yordamı:
+1. Aşağıdaki işlev doğrudan yöntemini çağırın ve firmwareUpdate değerini görüntülemek için bildirilen özellik. Ayrıca `main` yordam:
    
     ```python
     def iothub_firmware_sample_run():
@@ -134,11 +134,11 @@ Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Python
 ## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
 Bu bölümde şunları yapacaksınız:
 
-* Bulut tarafından adlı doğrudan bir yöntem yanıtlaması bir Python konsol uygulaması oluşturma
+* Bulut tarafından çağrılan doğrudan bir yönteme yanıt veren bir Python konsol uygulaması oluşturma
 * Sanal bir üretici yazılımı güncelleştirmesini tetikleme
 * Cihaz ikizi sorgularının cihazları ve bir üretici yazılımı güncelleştirmesini en son ne zaman tamamladığını belirlemesi için rapor edilen özellikleri kullanın
 
-1. Komut isteminizde yüklemek için aşağıdaki komutu çalıştırın **azure-iothub-aygıt-client** paketi:
+1. Komut isteminizde yüklemek için aşağıdaki komutu çalıştırın **azure-iothub-cihaz-client** paket:
    
     ```cmd/sh
     pip install azure-iothub-device-client
@@ -146,7 +146,7 @@ Bu bölümde şunları yapacaksınız:
 
 1. Bir metin düzenleyicisi kullanarak oluşturduğunuz bir **dmpatterns_fwupdate_device.py** dosya.
 
-1. Aşağıdaki 'Import' deyimleri değişkenleri başlangıcında ekleyip **dmpatterns_fwupdate_device.py** dosya. Değiştir `deviceConnectionString` IOT hub'ınızın cihaz bağlantı dizesi ile:
+1. Aşağıdaki 'import' deyimlerini ve değişkenlerini başlangıcına ekleyin **dmpatterns_fwupdate_device.py** dosya. Değiştirin `deviceConnectionString` , IOT hub'dan cihaz bağlantı dizesiyle:
    
     ```python
     import time, datetime
@@ -167,7 +167,7 @@ Bu bölümde şunları yapacaksınız:
     CLIENT = IoTHubClient(CONNECTION_STRING, PROTOCOL)
     ```
 
-1. Özellikler güncelleştirmeleri bildirilen sağlamak ve doğrudan yöntemi uygulamak için kullanılan aşağıdaki işlevi ekleyin:
+1. Bildirilen özellikler güncelleştirmeleri sağlamak ve doğrudan yöntemi uygulamak için kullanılan aşağıdaki işlevleri ekleyin:
    
     ```python
     def send_reported_state_callback(status_code, user_context):
@@ -215,7 +215,7 @@ Bu bölümde şunları yapacaksınız:
         CLIENT.send_reported_state(reported_state, len(reported_state), send_reported_state_callback, SEND_REPORTED_STATE_CONTEXT)
     ```
 
-8. Cihaz çifti 's başlatır aşağıdaki işlevi özellikleri rapor ekleyin ve doğrudan yönteminin çağrılması için bekleyin. Ayrıca ekleyin `main` yordamı:
+8. Bildirilen özellikler cihaz ikizinin başlatan aşağıdaki işlevi ekleyin ve çağrılacak doğrudan yöntemin için bekleyin. Ayrıca `main` yordam:
    
     ```python
     def iothub_firmware_sample_run():
@@ -248,34 +248,34 @@ Bu bölümde şunları yapacaksınız:
     ```
 
 > [!NOTE]
-> Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (üstel geri alma), önerilen MSDN makalesinde uygulamalıdır [geçici hata işleme](https://msdn.microsoft.com/library/hh675232.aspx).
+> Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (örneğin, bir üstel geri alma), MSDN makalesinde önerildiği uygulamalıdır [geçici hata işleme](https://msdn.microsoft.com/library/hh675232.aspx).
 > 
 
 
 ## <a name="run-the-apps"></a>Uygulamaları çalıştırma
 Şimdi uygulamaları çalıştırmaya hazırsınız.
 
-1. Komut isteminde yeniden başlatma doğrudan yöntemi için dinleme başlamak için aşağıdaki komutu çalıştırın.
+1. Komut isteminde, yeniden başlatma doğrudan yöntem için dinleme başlamak için aşağıdaki komutu çalıştırın.
    
     ```cmd/sh
     python dmpatterns_fwupdate_device.py
     ```
 
-1. Başka bir komut isteminde aşağıdaki komutu tetikleyici Uzaktan yeniden başlatma ve son bulmak cihaz çifti için sorgu zaman yeniden çalıştırın.
+1. Başka bir komut isteminde Uzaktan yeniden başlatma ve son bulmak cihaz ikizi sorgusu zaman yeniden tetikleyici için aşağıdaki komutu çalıştırın.
    
     ```cmd/sh
     python dmpatterns_fwupdate_service.py
     ```
 
-1. Konsolunda doğrudan yöntemi aygıt yanıta bakın. Ardından bellenim güncelleştirme boyunca bildirilen özelliklerinde değişiklik unutmayın.
+1. Doğrudan yöntem konsolunda cihaz yanıtı görürsünüz. Ardından, bildirilen özellikleri üretici yazılımı güncelleştirme boyunca değişiklik unutmayın.
 
-    ![Program çıktısı][1]
+    ![program çıktısı][1]
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, doğrudan bir yöntem bir cihazda uzaktan Bellenim güncelleştirmesini tetiklemek için bildirilen özellikleri bellenim güncelleştirme durumunu izlemek için kullanılır ve.
+Bu öğreticide, bir cihazda bir uzak üretici yazılımı güncelleştirmesini tetikleme için kullanılan bir doğrudan yöntem ve bildirilen özellikleri üretici yazılımı güncelleştirme durumunu izlemek için kullanılır.
 
-Çözüm ve zamanlama yöntemini çağıran birden fazla cihazda, IOT genişletmek öğrenmek için bkz: [zamanlama ve yayın işleri] [ lnk-tutorial-jobs] Öğreticisi.
+IOT çözümü ve zamanlama yöntemi çağıran birden çok cihazda genişletmek öğrenmek için bkz [işleri zamanlama ve yayınlama] [ lnk-tutorial-jobs] öğretici.
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

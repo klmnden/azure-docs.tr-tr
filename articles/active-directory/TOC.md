@@ -404,7 +404,7 @@
 
 ## Kimliklerinizi güvenli hale getirme
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
-#### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Kullanmaya Başlama](active-directory-conditional-access-azure-portal-get-started.md)
 #### Hızlı Başlangıçlar
 ##### [Bulut uygulaması MFA başına yapılandırma](active-directory-conditional-access-app-based-mfa.md)
 ##### [Kullanım koşullarının kabul edilmesini gerektirme](active-directory-conditional-access-tou.md)
@@ -434,7 +434,7 @@
 ### Sertifika Tabanlı Kimlik Doğrulaması
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Kullanmaya başlama](active-directory-certificate-based-authentication-get-started.md)
+#### [Kullanmaya Başlama](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Kimlik Koruması](active-directory-identityprotection.md)
 #### [Etkinleştirme](active-directory-identityprotection-enable.md)
@@ -447,7 +447,7 @@
 #### [SSS](active-directory-identity-protection-faqs.md)
 #### [Sözlük](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
+### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## Diğer hizmetleri Azure AD ile tümleştirme 
 ### [LinkedIn’i Azure AD ile tümleştirme](users-groups-roles/linkedin-integration.md)
@@ -477,7 +477,7 @@
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Geliştiriciler için Azure AD](./develop/active-directory-how-to-integrate.md)
-## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Kaynaklar
 ## [Azure geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)

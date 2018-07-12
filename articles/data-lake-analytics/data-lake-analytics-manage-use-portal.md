@@ -1,6 +1,6 @@
 ---
-title: Azure portalı kullanarak Azure Data Lake Analytics'i yönetme
-description: Bu makalede, Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri yönetmek için Azure Portalı'nı kullanmayı açıklar.
+title: Azure portalını kullanarak Azure Data Lake Analytics'i yönetme
+description: Bu makalede, Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işlerini yönetmek için Azure portalını kullanmayı açıklar.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -10,17 +10,17 @@ editor: jasonwhowell
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 1ccd4dd6b8d4ee15b7d9f14e7436ccd87392121e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dcf1a853f00f047a6d8beb8599a5b74c7f8f084d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623715"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969521"
 ---
-# <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Data Lake Analytics'i Azure Portalı'nı kullanarak yönetme
+# <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure portalını kullanarak Azure Data Lake Analytics'i yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Bu makalede, Azure portalını kullanarak Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri Yönet açıklar.
+Bu makalede, Azure portalını kullanarak Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işlerini yönetmek açıklar.
 
 
 <!-- ################################ -->
@@ -31,20 +31,20 @@ Bu makalede, Azure portalını kullanarak Azure Data Lake Analytics hesapların�
 ### <a name="create-an-account"></a>Hesap oluşturma
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Tıklatın **kaynak oluşturma** > **Intelligence + analiz** > **Data Lake Analytics**.
+2. Tıklayın **kaynak Oluştur** > **zeka + analiz** > **Data Lake Analytics**.
 3. Aşağıdaki öğeler için değerleri seçin: 
    1. **Ad**: Data Lake Analytics hesabının adı.
    2. **Abonelik**: hesap için kullanılan Azure aboneliği.
-   3. **Kaynak grubu**: hesap oluşturmak üzere Azure kaynak grubu. 
+   3. **Kaynak grubu**: hesabın oluşturulacağı Azure kaynak grubu. 
    4. **Konum**: Data Lake Analytics hesabı için Azure veri merkezi. 
-   5. **Data Lake Store**: Data Lake Analytics hesabı için kullanılacak varsayılan deposu. Azure Data Lake Store hesabı ve Data Lake Analytics hesabı aynı konumda olması gerekir.
+   5. **Data Lake Store**: Data Lake Analytics hesabı için kullanılacak varsayılan depolama. Azure Data Lake Store hesabı ve Data Lake Analytics hesabı aynı konumda olmalıdır.
 4. **Oluştur**’a tıklayın. 
 
-### <a name="delete-a-data-lake-analytics-account"></a>Bir Data Lake Analytics hesabı silme
+### <a name="delete-a-data-lake-analytics-account"></a>Bir Data Lake Analytics hesabını Sil
 
-Bir Data Lake Analytics hesabı silmeden önce varsayılan Data Lake Store hesabını silin.
+Data Lake Analytics hesabı silmeden önce varsayılan Data Lake Store hesabı silin.
 
-1. Azure Portal'da Data Lake Analytics hesabınıza gidin.
+1. Azure portalında Data Lake Analytics hesabınıza gidin.
 2. **Sil**'e tıklayın.
 3. Hesap adını yazın.
 4. **Sil**'e tıklayın.
@@ -52,73 +52,73 @@ Bir Data Lake Analytics hesabı silmeden önce varsayılan Data Lake Store hesab
 <!-- ################################ -->
 <!-- ################################ -->
 
-## <a name="manage-data-sources"></a>Veri kaynaklarını yönet
+## <a name="manage-data-sources"></a>Veri kaynaklarını yönetme
 
-Data Lake Analytics aşağıdaki veri kaynaklarını destekler:
+Data Lake Analytics, aşağıdaki veri kaynaklarını destekler:
 
 * Data Lake Store
 * Azure Storage
 
-Veri kaynağına Gözat ve temel dosya yönetimi işlemlerini gerçekleştirmek için Veri Gezgini'ni kullanın. 
+Veri Gezgini, bir veri kaynağına Gözat ve temel dosyanın yönetim işlemleri gerçekleştirmek için kullanabilirsiniz. 
 
-### <a name="add-a-data-source"></a>Veri kaynağı ekleme
+### <a name="add-a-data-source"></a>Veri Kaynağı Ekle
 
-1. Azure Portal'da Data Lake Analytics hesabınıza gidin.
-2. Tıklatın **veri kaynakları**.
-3. Tıklatın **veri kaynağı ekleme**.
+1. Azure portalında Data Lake Analytics hesabınıza gidin.
+2. Tıklayın **veri kaynakları**.
+3. Tıklayın **veri kaynağı ekleme**.
     
-   * Bir Data Lake Store hesabı eklemek için hesap adı ve onu sorgulayabilmesi için hesabına erişim izni gerekir.
-   * Azure Blob depolama alanına eklemek için depolama hesabı ve hesap anahtarı gerekir. Bunları bulmak için Portalı'nda depolama hesabına gidin.
+   * Bir Data Lake Store hesabı eklemek için hesap adını ve bu sorgu için hesabına erişimi gerekir.
+   * Azure Blob Depolama alanı eklemek için depolama hesabı ve hesap anahtarı gerekir. Bunları bulmak için Portalı'nda depolama hesabına gidin.
 
-## <a name="set-up-firewall-rules"></a>Güvenlik duvarı kuralları ayarlamak
+## <a name="set-up-firewall-rules"></a>Güvenlik duvarı kurallarını ayarlayın
 
-Data Lake Analytics hesabınızla ağ düzeyinde daha ayrıntılı erişim kilitleme için Data Lake Analytics kullanabilirsiniz. Bir güvenlik duvarını etkinleştir, bir IP adresi belirtin veya güvenilen istemcileriniz için bir IP adresi aralığı tanımlayın. Bu ölçüleri etkinleştirdikten sonra IP adreslerini tanımlı aralığın içinde olan istemciler deposuna bağlanabilirsiniz.
+Data Lake Analytics ağ düzeyinde Data Lake Analytics hesabınıza erişim başka kilitleme için kullanabilirsiniz. Bir Güvenlik Duvarı'nı etkinleştirme, bir IP adresi belirtin veya güvenilen istemcileriniz için bir IP adresi aralığı tanımlayın. Bu ölçüleri etkinleştirdikten sonra yalnızca IP adresleri tanımlı aralığın içinde olan istemciler Store'a bağlanabilirsiniz.
 
-Azure Data Factory veya VM gibi diğer Azure hizmetleriyle Data Lake Analytics hesabına bağlanırsanız, emin olun **izin Azure Hizmetleri** açık **üzerinde**. 
+Azure Data Factory veya VM gibi diğer Azure Hizmetleri Data Lake Analytics hesabına bağlanırsanız, emin **izin Azure Hizmetleri** açıktır **üzerinde**. 
 
 ### <a name="set-up-a-firewall-rule"></a>Güvenlik duvarı kuralı ayarlama
 
-1. Azure Portal'da Data Lake Analytics hesabınıza gidin.
-2. Sol taraftaki menüsünde **Güvenlik Duvarı**.
+1. Azure portalında Data Lake Analytics hesabınıza gidin.
+2. Soldaki menüsünde **Güvenlik Duvarı**.
 
 ## <a name="add-a-new-user"></a>Yeni kullanıcı ekleme
 
-Kullanabileceğiniz **Kullanıcı Ekleme Sihirbazı** kolayca yeni Data Lake kullanıcılar sağlamak için.
+Kullanabileceğiniz **kullanıcı ekleme sihirbazını** kolayca yeni Data Lake kullanıcıları sağlama.
 
-1. Azure Portal'da Data Lake Analytics hesabınıza gidin.
-2. Solda, altında **Başlarken**, tıklatın **Kullanıcı Ekleme Sihirbazı**.
+1. Azure portalında Data Lake Analytics hesabınıza gidin.
+2. Sol taraftaki altında **Başlarken**, tıklayın **kullanıcı ekleme sihirbazını**.
 3. Bir kullanıcı seçin ve ardından **seçin**.
-4. Bir rol seçin ve ardından **seçin**. Azure Data Lake kullanmak üzere yeni bir geliştirici ayarlamak için seçin **Data Lake Analytics Geliştirici** rol.
-5. U-SQL veritabanları için erişim denetim listelerini (ACL'ler) seçin. Seçimlerinizi yaptıktan sonra tıklatın **seçin**.
-6. Dosyalar için ACL'leri seçin. Varsayılan deposu için kök klasör için ACL'ler değişmez "/" ve/sistem klasörü için. **Seç**'e tıklayın.
-7. Tüm seçili değişikliklerinizi gözden geçirin ve ardından **çalıştırmak**.
-8. Sihirbaz sona erdiğinde tıklatın **Bitti**.
+4. Bir rol seçin ve ardından **seçin**. Azure Data Lake kullanmak için yeni bir geliştiricinin ayarlamak için seçin **Data Lake Analytics geliştiricisi** rol.
+5. U-SQL veritabanları için erişim denetim listelerini (ACL'ler) seçin. Seçimlerinizi ile memnun kaldığınızda, tıklayın **seçin**.
+6. Dosyaları için ACL'leri seçin. Varsayılan depo için kök klasörün ACL'lerini değiştirme "/" ve/sistem klasörü için. **Seç**'e tıklayın.
+7. Seçili tüm değişikliklerinizi gözden geçirin ve ardından **çalıştırma**.
+8. Sihirbaz tamamlandığında, tıklayın **Bitti**.
 
-## <a name="manage-role-based-access-control"></a>Rol tabanlı erişim denetimini yönetmek
+## <a name="manage-role-based-access-control"></a>Rol tabanlı erişim denetimini yönetme
 
-Diğer Azure hizmetlerinde olduğu gibi kullanıcıların hizmetle nasıl etkileşim denetlemek için rol tabanlı erişim denetimi (RBAC) kullanabilirsiniz.
+Diğer Azure Hizmetleri gibi kullanıcıların hizmetle nasıl etkileşim denetlemek için rol tabanlı erişim denetimi (RBAC) kullanabilirsiniz.
 
 Standart RBAC rolleri aşağıdaki özelliklere sahiptir:
-* **Sahibi**: iş göndermek, izleyebilir işleri, herhangi bir kullanıcı işlerini iptal edin ve hesabı yapılandırın.
-* **Katkıda bulunan**: iş göndermek, izleyebilir işleri, herhangi bir kullanıcı işlerini iptal edin ve hesabı yapılandırın.
+* **Sahibi**: işleri göndermek, işleri izlemek, herhangi bir kullanıcının işlerini iptal et ve hesabı yapılandırın.
+* **Katkıda bulunan**: işleri göndermek, işleri izlemek, herhangi bir kullanıcının işlerini iptal et ve hesabı yapılandırın.
 * **Okuyucu**: işleri izleyebilirsiniz.
 
-U-SQL geliştiriciler Data Lake Analytics hizmetini kullanmak üzere etkinleştirmek için Data Lake Analytics Geliştirici rol kullanın. Data Lake Analytics Geliştirici rolüne kullanabilirsiniz:
-* İşlerini gönderin.
-* İş durumu ve herhangi bir kullanıcı tarafından gönderilen işlerin ilerleme durumunu izleyin.
-* U-SQL betikleri herhangi bir kullanıcı tarafından gönderilen işlerine bakın.
+U-SQL geliştiricilerin Data Lake Analytics hizmeti kullanmak için Data Lake Analytics Geliştirici rolünü kullanın. Data Lake Analytics geliştiricisi rolüne kullanabilirsiniz:
+* İşleri göndermek.
+* İş durumunu ve herhangi bir kullanıcı tarafından gönderilen bir iş ilerlemesini izleyin.
+* U-SQL betikleri herhangi bir kullanıcı tarafından gönderilen bir iş öğesinden bakın.
 * Yalnızca kendi işlerini iptal edin.
 
-### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Kullanıcıların veya güvenlik gruplarının bir Data Lake Analytics hesabı Ekle
+### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Bir Data Lake Analytics hesabı için kullanıcıların veya güvenlik grupları Ekle
 
-1. Azure Portal'da Data Lake Analytics hesabınıza gidin.
-2. Tıklatın **erişim denetimi (IAM)** > **Ekle**.
+1. Azure portalında Data Lake Analytics hesabınıza gidin.
+2. Tıklayın **erişim denetimi (IAM)** > **Ekle**.
 3. Bir rol seçin.
 4. Bir kullanıcı ekleyin.
 5. **Tamam**’a tıklayın.
 
 >[!NOTE]
->İşlerini göndermek bir kullanıcı veya güvenlik grubu gerekirse, bunlar ayrıca depolama hesabındaki izni gerekir. Daha fazla bilgi için bkz: [güvenli Data Lake Store içinde depolanan verileri](../data-lake-store/data-lake-store-secure-data.md).
+>İşleri göndermek bir kullanıcı veya güvenlik grubu gerekiyorsa, bunlar ayrıca depolama hesabındaki izni gerekir. Daha fazla bilgi için [Secure Data Lake Store içinde depolanan verileri](../data-lake-store/data-lake-store-secure-data.md).
 >
 
 <!-- ################################ -->
@@ -126,44 +126,44 @@ U-SQL geliştiriciler Data Lake Analytics hizmetini kullanmak üzere etkinleşti
 
 ## <a name="manage-jobs"></a>İşleri yönetme
 
-### <a name="submit-a-job"></a>Bir işi gönderin
+### <a name="submit-a-job"></a>Bir iş gönderdiniz
 
-1. Azure Portal'da Data Lake Analytics hesabınıza gidin.
+1. Azure portalında Data Lake Analytics hesabınıza gidin.
 
-2. Tıklatın **yeni iş**. Her bir iş yapılandırın:
+2. Tıklayın **yeni iş**. Her bir iş için yapılandırın:
 
-    1. **İş adı**: İş adı.
-    2. **Öncelik**: alt numaraları yüksek önceliği vardır. İki işi sıraya alınmışsa, düşük öncelik değerine sahip ilk çalışır.
-    3. **Paralellik**: Bu proje için ayrılan işlem işlemlerin sayısı.
+    1. **İş adı**: işin adı.
+    2. **Öncelik**: düşük rakamlı daha yüksek önceliğe sahip. Düşük öncelik değerine sahip iki işi kuyruğa alınır, ilk olarak çalışır.
+    3. **Paralellik**: Bu proje için ayrılacak işlem işleme sayısı.
 
 3. **İşi Gönder**'e tıklayın.
 
 ### <a name="monitor-jobs"></a>İşleri izleme
 
-1. Azure Portal'da Data Lake Analytics hesabınıza gidin.
-2. Tıklatın **tüm işleri görüntüleyin**. Hesaptaki tüm etkin ve en son bitmiş işlerin bir listesini gösterilir.
+1. Azure portalında Data Lake Analytics hesabınıza gidin.
+2. Tıklayın **işlerin tümünü görüntülemek**. Bir hesaptaki tüm etkin ve yakın zamanda tamamlanan işleri listesi gösterilir.
 3. İsteğe bağlı olarak, tıklayın **filtre** işleri tarafından bulmanıza yardımcı olmak için **zaman aralığı**, **iş adı**, ve **Yazar** değerleri. 
 
-### <a name="monitoring-pipeline-jobs"></a>Ardışık Düzen işlerini izleme
-Bir işlem hattı parçası olan birlikte, genellikle bir sırayla, belirli bir senaryoyu gerçekleştirmek için işler. Örneğin, temizler, ayıklar, dönüşümleri, müşteri Öngörüler için kullanım toplayan bir ardışık düzen olabilir. Ardışık Düzen işleri, iş gönderildiğinde "Ardışık düzen" özelliği kullanılarak tanımlanır. ADF V2 kullanılarak zamanlanan işleri otomatik olarak doldurulmuş bu özelliğe sahip. 
+### <a name="monitoring-pipeline-jobs"></a>İşlem hattı işlerini izleme
+Bir işlem hattı bir parçası olan işleri belirli bir senaryoyu gerçekleştirmek için birlikte, genellikle bir sırayla çalışır. Örneğin, temizler, ayıklar, dönüştüren, customer ınsights için kullanım toplayan bir işlem hattı olabilir. İşlem hattı işleri, iş gönderildiğinde "İşlem hattı" özelliği kullanılarak tanımlanır. ADF V2 kullanarak zamanlanmış işleri otomatik olarak doldurulmuş bu özellik gerekir. 
 
-Ardışık Düzen parçası olan U-SQL işlerin bir listesini görüntülemek için: 
+İşlem hatları parçası olan U-SQL işleri listesini görüntülemek için: 
 
-1. Azure Portal'da Data Lake Analytics hesaplarına gidin.
-2. Tıklatın **iş Öngörüler**. "Tüm işleri" sekmesini olacak varsayılan, çalışan, listesini gösteren sıraya ve işleri sona erdi.
-3. Tıklatın **ardışık düzen işleri** sekmesi. Ardışık Düzen işlerin bir listesini her ardışık düzeni için toplu istatistikler birlikte gösterilir.
+1. Azure portalında Data Lake Analytics hesaplarınızın gidin.
+2. Tıklayın **iş öngörüleri**. "Tüm işler" sekmesinde olacak varsayılan olarak, çalışan, listesini gösteren sıraya alındı ve işleri sona erdi.
+3. Tıklayın **işlem hattı işlerini** sekmesi. İşlem hattı işlerin bir listesini, her işlem hattı için toplu istatistikleri birlikte gösterilir.
 
-### <a name="monitoring-recurring-jobs"></a>Yinelenen işlerini izleme
-Yinelenen bir işi aynı iş mantığı vardır, ancak her çalıştığında, farklı giriş verilerini kullanan biridir. İdeal olarak, yinelenen işleri her zaman başarılı ve göreceli olarak tutarlı yürütme süresi vardır; Bu davranışların izleme iş sağlıklı olduğundan emin olun yardımcı olur. Yinelenen işleri "Recurrence" özelliği kullanılarak tanımlanır. ADF V2 kullanılarak zamanlanan işleri otomatik olarak doldurulmuş bu özelliğe sahip.
+### <a name="monitoring-recurring-jobs"></a>Yinelenen işleri izleme
+Yinelenen bir iş, aynı iş mantığına sahip, ancak her çalıştırıldığında, farklı giriş verilerini kullanan biridir. İdeal olarak, yinelenen işleri her zaman başarılı ve göreceli olarak kararlı yürütme zamanlarının; Bu davranışların izleme, iş iyi durumda olmanıza yardımcı olur. Yinelenen işleri "Yinelenme" özelliği kullanılarak tanımlanır. ADF V2 kullanarak zamanlanmış işleri otomatik olarak doldurulmuş bu özellik gerekir.
 
-Yinelenen U-SQL işlerin bir listesini görüntülemek için: 
+Yinelenen U-SQL işleri listesini görüntülemek için: 
 
-1. Azure Portal'da Data Lake Analytics hesaplarına gidin.
-2. Tıklatın **iş Öngörüler**. "Tüm işleri" sekmesini olacak varsayılan, çalışan, listesini gösteren sıraya ve işleri sona erdi.
-3. Tıklatın **yinelenen işleri** sekmesi. Yinelenen işlerin bir listesini, yinelenen her iş için toplu istatistikler birlikte gösterilir.
+1. Azure portalında Data Lake Analytics hesaplarınızın gidin.
+2. Tıklayın **iş öngörüleri**. "Tüm işler" sekmesinde olacak varsayılan olarak, çalışan, listesini gösteren sıraya alındı ve işleri sona erdi.
+3. Tıklayın **yinelenen işleri** sekmesi. Yinelenen işler listesi yinelenen her iş için toplu istatistikleri birlikte gösterilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md)
 * [Azure PowerShell kullanarak Azure Data Lake Analytics'i yönetme](data-lake-analytics-manage-use-powershell.md)
-* [İlkeleri kullanarak Azure Data Lake Analytics yönetme](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-policies)
+* [İlkeleri kullanarak Azure Data Lake Analytics'i yönetme](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-policies)

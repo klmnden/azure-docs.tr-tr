@@ -1,6 +1,6 @@
 ---
-title: Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama | Microsoft Docs
-description: Visual Studio bağlantılı hizmetler kullanarak bir depolama hesabı bağlandıktan sonra Visual Studio'da ASP.NET projesinde Azure kuyruk depolama kullanarak nereden başlayacaksınız
+title: Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) ile çalışmaya başlama | Microsoft Docs
+description: Nasıl Visual Studio bağlı Hizmetler'i kullanarak bir depolama hesabına bağlandıktan sonra Visual Studio'da ASP.NET projesinde Azure kuyruk depolama kullanmaya başlama
 services: storage
 author: ghogen
 manager: douge
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
 ms.openlocfilehash: d06fde0dc6c289a09b9fe4c9e2ffbb50c3027490
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798330"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719451"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure kuyruk depolama uygulama bileşenleri arasında Mesajlaşma bulut sağlar. Ölçeklendirmek üzere uygulama tasarlarken, uygulama bileşenleri birbirinden bağımsız şekilde ölçeklenebilmek için genellikle birbirinden ayrılır. Kuyruk depolama bulutta, masaüstünde, şirket içi sunucuda veya mobil bir cihazda çalışan uygulama bileşenleri arasındaki iletişim için zaman uyumsuz mesajlaşma sunar. Kuyruk depolama ayrıca zaman uyumsuz görevlerin yönetilmesini ve süreç iş akışlarının oluşturulmasını destekler.
+Azure kuyruk depolama, uygulama bileşenleri arasında bulut Mesajlaşma sağlar. Ölçeklendirmek üzere uygulama tasarlarken, uygulama bileşenleri birbirinden bağımsız şekilde ölçeklenebilmek için genellikle birbirinden ayrılır. Kuyruk depolama bulutta, masaüstünde, şirket içi sunucuda veya mobil bir cihazda çalışan uygulama bileşenleri arasındaki iletişim için zaman uyumsuz mesajlaşma sunar. Kuyruk depolama ayrıca zaman uyumsuz görevlerin yönetilmesini ve süreç iş akışlarının oluşturulmasını destekler.
 
-Bu öğretici Azure kuyruk depolama varlıkları kullanarak bazı genel senaryolar için ASP.NET kodunun nasıl yazılacağını gösterir. Bu senaryolar, bir Azure kuyruk oluşturma ve ekleme, değiştirme, okuma ve iletileri kuyruğa kaldırma gibi genel görevleri içerir.
+Bu öğretici, Azure kuyruk depolama varlıkları kullanarak bazı genel senaryolar için ASP.NET kodunun nasıl yazılacağını gösterir. Bu senaryolar, bir Azure kuyruk oluşturma ve ekleme, değiştirme, okuma ve kuyruk iletilerine kaldırma gibi ortak görevleri içerir.
 
 ##<a name="prerequisites"></a>Önkoşullar
 
@@ -38,21 +38,21 @@ Bu öğretici Azure kuyruk depolama varlıkları kullanarak bazı genel senaryol
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 
-### <a name="create-an-mvc-controller"></a>Bir MVC denetleyicisi oluşturun. 
+### <a name="create-an-mvc-controller"></a>MVC denetleyicisi oluşturma 
 
-1. İçinde **Çözüm Gezgini**, sağ **denetleyicileri**ve bağlam menüsünden seçin **Ekle -> denetleyicisi**.
+1. İçinde **Çözüm Gezgini**, sağ **denetleyicileri**, bağlam menüsünden seçin **Ekle -> denetleyicisi**.
 
-    ![Bir ASP.NET MVC uygulamasına denetleyici ekleme](./media/vs-storage-aspnet-getting-started-queues/add-controller-menu.png)
+    ![ASP.NET MVC uygulaması için denetleyici ekleme](./media/vs-storage-aspnet-getting-started-queues/add-controller-menu.png)
 
 1. Üzerinde **İskele Ekle** iletişim kutusunda **MVC 5 denetleyici - boş**seçip **Ekle**.
 
-    ![MVC denetleyicisi türünü belirtin](./media/vs-storage-aspnet-getting-started-queues/add-controller.png)
+    ![MVC denetleyici türü belirtin](./media/vs-storage-aspnet-getting-started-queues/add-controller.png)
 
 1. Üzerinde **denetleyici Ekle** iletişim kutusunda, denetleyici adı *QueuesController*seçip **Ekle**.
 
     ![MVC Denetleyici adı](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
 
-1. Aşağıdakileri ekleyin *kullanarak* yönergeleri `QueuesController.cs` dosyası:
+1. Aşağıdaki *kullanarak* yönergelerini `QueuesController.cs` dosyası:
 
     ```csharp
     using Microsoft.Azure;
@@ -62,7 +62,7 @@ Bu öğretici Azure kuyruk depolama varlıkları kullanarak bazı genel senaryol
     ```
 ## <a name="create-a-queue"></a>Bir kuyruk oluşturma
 
-Aşağıdaki adımlar bir sıranın nasıl oluşturulacağını gösterir:
+Aşağıdaki adımlar, bir kuyruk oluşturulacağını göstermektedir:
 
 > [!NOTE]
 > 
@@ -70,7 +70,7 @@ Aşağıdaki adımlar bir sıranın nasıl oluşturulacağını gösterir:
 
 1. `QueuesController.cs` dosyasını açın. 
 
-1. Adlı bir yöntem ekleyin **CreateQueue** döndüren bir **ActionResult**.
+1. Adlı bir yöntem ekleyin **CreateQueue** döndüren bir **actionresult öğesini**.
 
     ```csharp
     public ActionResult CreateQueue()
@@ -81,41 +81,41 @@ Aşağıdaki adımlar bir sıranın nasıl oluşturulacağını gösterir:
     }
     ```
 
-1. İçinde **CreateQueue** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)
+1. İçinde **CreateQueue** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.
+1. Alma bir **CloudQueueClient** nesnesi bir kuyruk hizmeti istemcisi temsil eder.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
-1. Alma bir **CloudQueue** istenen sıra adı için bir başvuru temsil eden nesne. **CloudQueueClient.GetQueueReference** yöntemi kuyruk depolama doğrulamasını yapmaz. Sıranın var olup olmadığına bakılmaksızın başvuru döndürülür. 
+1. Alma bir **CloudQueue** istenen kuyruk adı bir başvuru temsil eden nesne. **CloudQueueClient.GetQueueReference** yöntemi, kuyruk depolama doğrulamasını yapmaz. Sıranın var olup olmadığını başvurusu döndürülür. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Çağrı **CloudQueue.CreateIfNotExists** henüz yoksa, kuyruk oluşturmak için yöntem. **CloudQueue.CreateIfNotExists** yöntemi döndürür **true** sıranın var olmadığından ve başarıyla oluşturuldu. Aksi takdirde, **false** döndürülür.    
+1. Çağrı **CloudQueue.CreateIfNotExists** kuyruk henüz yoksa, oluşturmak için yöntemi. **CloudQueue.CreateIfNotExists** yöntemi döndürür **true** kuyruk yok ve başarıyla oluşturuldu. Aksi takdirde, **false** döndürülür.    
 
     ```csharp
     ViewBag.Success = queue.CreateIfNotExists();
     ```
 
-1. Güncelleştirme **ViewBag** sıra adı.
+1. Güncelleştirme **ViewBag** ile Kuyruğun adı.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve bağlam menüsünden seçin **Ekle -> Görünüm**.
+1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörüne sağ tıklayın **kuyrukları**ve bağlam menüsünden seçin **Ekle -> View**.
 
-1. Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **CreateQueue** Görünüm adı ' nı seçip için **Ekle**.
+1. Üzerinde **Görünüm Ekle** iletişim kutusunda girin **CreateQueue** görünüm adını ve seçin için **Ekle**.
 
-1. Açık `CreateQueue.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:
+1. Açık `CreateQueue.cshtml`ve aşağıdaki kod parçacığı gibi görünüyor şekilde değiştirin:
 
     ```csharp
     @{
@@ -127,23 +127,23 @@ Aşağıdaki adımlar bir sıranın nasıl oluşturulacağını gösterir:
     Creation of @ViewBag.QueueName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
+1. İçinde **Çözüm Gezgini**, genişletme **görünümleri, paylaşılan ->** klasörü ve açık `_Layout.cshtml`.
 
-1. Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:
+1. En son **Html.ActionLink**, aşağıdaki **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. Uygulamayı çalıştırmak ve seçmek **Oluşturma sırası** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:
+1. Uygulamayı çalıştırmak ve seçmek **kuyruk Oluştur** aşağıdaki ekran görüntüsüne benzer bir sonuç görmek için:
   
     ![Kuyruk oluştur](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    Daha önce belirtildiği gibi **CloudQueue.CreateIfNotExists** yöntemi döndürür **doğru** yalnızca sıranın yok ve oluşturulur. Bu nedenle, sıranın mevcut olduğunda uygulama çalıştırırsanız, yöntem döndürür **false**. Birden çok kez uygulamayı çalıştırmak için uygulamayı yeniden çalıştırmadan önce sıranın silmeniz gerekir. Aracılığıyla sıra silme yapılabilir **CloudQueue.Delete** yöntemi. Kuyruğu kullanarak silebilirsiniz [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) veya [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Daha önce de belirtildiği **CloudQueue.CreateIfNotExists** yöntemi döndürür **true** yalnızca kuyruk yok ve oluşturulur. Bu nedenle, sıranın mevcut olduğunda uygulama çalıştırırsanız, yöntem döndürür **false**. Uygulama birden çok kez çalıştırmak için uygulamayı yeniden çalıştırmadan önce sıranın silmeniz gerekir. Aracılığıyla bir sırayı silmek yapılabilir **CloudQueue.Delete** yöntemi. Kuyruk kullanarak silebilirsiniz [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040) veya [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
-## <a name="add-a-message-to-a-queue"></a>Kuyruğa bir ileti Ekle
+## <a name="add-a-message-to-a-queue"></a>Kuyruğa bir ileti ekleyin
 
-Seçtiğiniz sonra [bir kuyruk oluşturan](#create-a-queue), bu kuyruğa iletileri ekleyebilirsiniz. Bu bölümde, bir sıraya bir ileti eklerken size yol gösterir *sınama sırası*. 
+Kaydederler [bir kuyruk oluşturan](#create-a-queue), iletileri bu kuyruğa ekleyebilirsiniz. Bu bölümde, bir kuyruğa bir ileti eklerken size kılavuzluk eder *test kuyruk*. 
 
 > [!NOTE]
 > 
@@ -151,7 +151,7 @@ Seçtiğiniz sonra [bir kuyruk oluşturan](#create-a-queue), bu kuyruğa iletile
 
 1. `QueuesController.cs` dosyasını açın.
 
-1. Adlı bir yöntem ekleyin **AddMessage** döndüren bir **ActionResult**.
+1. Adlı bir yöntem ekleyin **AddMessage** döndüren bir **actionresult öğesini**.
 
     ```csharp
     public ActionResult AddMessage()
@@ -162,49 +162,49 @@ Seçtiğiniz sonra [bir kuyruk oluşturan](#create-a-queue), bu kuyruğa iletile
     }
     ```
  
-1. İçinde **AddMessage** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)
+1. İçinde **AddMessage** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.
+1. Alma bir **CloudQueueClient** nesnesi bir kuyruk hizmeti istemcisi temsil eder.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Alma bir **CloudQueueContainer** sıranın başvuru temsil eden nesne. 
+1. Alma bir **CloudQueueContainer** kuyruğuna başvuru temsil eden nesne. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Oluşturma **CloudQueueMessage** sıraya eklemek istediğiniz iletiyi temsil eden nesne. A **CloudQueueMessage** bir dizeden (UTF-8 biçiminde) veya bir bayt dizisi nesne oluşturulabilir.
+1. Oluşturma **CloudQueueMessage** kuyruğa eklemek istediğiniz iletiyi temsil eden nesne. A **CloudQueueMessage** nesne oluşturulabilir, bir dizeden (UTF-8 biçiminde) veya bayt dizisi.
 
     ```csharp
     CloudQueueMessage message = new CloudQueueMessage("Hello, Azure Queue Storage");
     ```
 
-1. Çağrı **CloudQueue.AddMessage** messaged sıraya eklemek için yöntem.
+1. Çağrı **CloudQueue.AddMessage** messaged kuyruğa eklemek için yöntemi.
 
     ```csharp
     queue.AddMessage(message);
     ```
 
-1. Birkaç oluşturup **ViewBag** görünümü görüntülemek özelliklerini.
+1. Birkaç oluşturup **ViewBag** görünümünde görüntülenmesi için özellikleri.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Message = message.AsString;
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve bağlam menüsünden seçin **Ekle -> Görünüm**.
+1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörüne sağ tıklayın **kuyrukları**ve bağlam menüsünden seçin **Ekle -> View**.
 
-1. Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **AddMessage** Görünüm adı ' nı seçip için **Ekle**.
+1. Üzerinde **Görünüm Ekle** iletişim kutusunda girin **AddMessage** görünüm adını ve seçin için **Ekle**.
 
-1. Açık `AddMessage.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:
+1. Açık `AddMessage.cshtml`ve aşağıdaki kod parçacığı gibi görünüyor şekilde değiştirin:
 
     ```csharp
     @{
@@ -216,23 +216,23 @@ Seçtiğiniz sonra [bir kuyruk oluşturan](#create-a-queue), bu kuyruğa iletile
     The message '@ViewBag.Message' was added to the queue '@ViewBag.QueueName'.
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
+1. İçinde **Çözüm Gezgini**, genişletme **görünümleri, paylaşılan ->** klasörü ve açık `_Layout.cshtml`.
 
-1. Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:
+1. En son **Html.ActionLink**, aşağıdaki **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. Uygulamayı çalıştırmak ve seçmek **Ekle ileti** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:
+1. Uygulamayı çalıştırmak ve seçmek **ileti Ekle** aşağıdaki ekran görüntüsüne benzer bir sonuç görmek için:
   
-    ![Mesaj ekleyin.](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
+    ![İleti Ekle](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
-İki bölüm - [kaldırmadan bir sıradan ileti okumak](#read-a-message-from-a-queue-without-removing-it) ve [ekleme ve kaldırma bir iletiyi bir kuyruktan okunur](#read-and-remove-a-message-from-a-queue) -kuyruktan iletileri okumak nasıl gösterilmektedir.    
+İki bölüm - [iletiyi kuyruktan kaldırmadan okuma](#read-a-message-from-a-queue-without-removing-it) ve [okuyun ve iletiyi bir kuyruktan Kaldır](#read-and-remove-a-message-from-a-queue) -kuyruktan iletileri okumak işlemini göstermektedir.    
 
-## <a name="read-a-message-from-a-queue-without-removing-it"></a>Bir ileti kuyruktan kaldırmadan okuma
+## <a name="read-a-message-from-a-queue-without-removing-it"></a>İletiyi kuyruktan kaldırmadan okuyun
 
-Bu bölümde, (ilk iletiyi kaldırmadan okuma) kuyruğa alınan iletinin peek göstermektedir.  
+Bu bölümde, (ilk ileti okuma kaldırmadan) kuyruğa alınan iletinin peek gösterilmektedir.  
 
 > [!NOTE]
 > 
@@ -240,7 +240,7 @@ Bu bölümde, (ilk iletiyi kaldırmadan okuma) kuyruğa alınan iletinin peek g�
 
 1. `QueuesController.cs` dosyasını açın.
 
-1. Adlı bir yöntem ekleyin **PeekMessage** döndüren bir **ActionResult**.
+1. Adlı bir yöntem ekleyin **PeekMessage** döndüren bir **actionresult öğesini**.
 
     ```csharp
     public ActionResult PeekMessage()
@@ -251,43 +251,43 @@ Bu bölümde, (ilk iletiyi kaldırmadan okuma) kuyruğa alınan iletinin peek g�
     }
     ```
  
-1. İçinde **PeekMessage** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)
+1. İçinde **PeekMessage** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.
+1. Alma bir **CloudQueueClient** nesnesi bir kuyruk hizmeti istemcisi temsil eder.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Alma bir **CloudQueueContainer** sıranın başvuru temsil eden nesne. 
+1. Alma bir **CloudQueueContainer** kuyruğuna başvuru temsil eden nesne. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Çağrı **CloudQueue.PeekMessage** sıradaki ilk iletiyi sıradan kaldırarak olmadan okumak için yöntem. 
+1. Çağrı **CloudQueue.PeekMessage** kuyruktan kaldırmadan kuyruktaki ilk iletinin okumak için yöntem. 
 
     ```csharp
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. Güncelleştirme **ViewBag** iki değerlerle: kuyruk adı ve okundu ileti. **CloudQueueMessage** nesne nesnenin değeri almak için iki özellik sunar: **CloudQueueMessage.AsBytes** ve **CloudQueueMessage.AsString**. **AsString** (Bu örnekte kullanılan) bir dize döndürür sırada **AsBytes** bir bayt dizisi döndürür.
+1. Güncelleştirme **ViewBag** iki değerlerle: sıra adı ve okundu ileti. **CloudQueueMessage** nesne, nesnenin değerini almak için iki özellik sunar: **CloudQueueMessage.AsBytes** ve **CloudQueueMessage.AsString**. **AsString** (Bu örnekte kullanılan) bir dize döndürür ancak **AsBytes** bir bayt dizisi döndürür.
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
     ViewBag.Message = (message != null ? message.AsString : "");
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve bağlam menüsünden seçin **Ekle -> Görünüm**.
+1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörüne sağ tıklayın **kuyrukları**ve bağlam menüsünden seçin **Ekle -> View**.
 
-1. Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **PeekMessage** Görünüm adı ' nı seçip için **Ekle**.
+1. Üzerinde **Görünüm Ekle** iletişim kutusunda girin **PeekMessage** görünüm adını ve seçin için **Ekle**.
 
-1. Açık `PeekMessage.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:
+1. Açık `PeekMessage.cshtml`ve aşağıdaki kod parçacığı gibi görünüyor şekilde değiştirin:
 
     ```csharp
     @{
@@ -302,21 +302,21 @@ Bu bölümde, (ilk iletiyi kaldırmadan okuma) kuyruğa alınan iletinin peek g�
     </table>    
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
+1. İçinde **Çözüm Gezgini**, genişletme **görünümleri, paylaşılan ->** klasörü ve açık `_Layout.cshtml`.
 
-1. Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:
+1. En son **Html.ActionLink**, aşağıdaki **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. Uygulamayı çalıştırmak ve seçmek **gözlem ileti** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:
+1. Uygulamayı çalıştırmak ve seçmek **Özet iletisi** aşağıdaki ekran görüntüsüne benzer bir sonuç görmek için:
   
     ![İletiye Gözat](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
-## <a name="read-and-remove-a-message-from-a-queue"></a>Okuma ve bir ileti kuyruktan kaldırma
+## <a name="read-and-remove-a-message-from-a-queue"></a>Okuyun ve iletiyi bir kuyruktan kaldırın
 
-Bu bölümde, okuma ve bir ileti kuyruktan kaldırma öğrenin.   
+Bu bölümde, okuma ve kuyruktan bir ileti kaldırma konusunda bilgi edinin.   
 
 > [!NOTE]
 > 
@@ -324,7 +324,7 @@ Bu bölümde, okuma ve bir ileti kuyruktan kaldırma öğrenin.
 
 1. `QueuesController.cs` dosyasını açın.
 
-1. Adlı bir yöntem ekleyin **ReadMessage** döndüren bir **ActionResult**.
+1. Adlı bir yöntem ekleyin **ReadMessage** döndüren bir **actionresult öğesini**.
 
     ```csharp
     public ActionResult ReadMessage()
@@ -335,50 +335,50 @@ Bu bölümde, okuma ve bir ileti kuyruktan kaldırma öğrenin.
     }
     ```
  
-1. İçinde **ReadMessage** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)
+1. İçinde **ReadMessage** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.
+1. Alma bir **CloudQueueClient** nesnesi bir kuyruk hizmeti istemcisi temsil eder.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Alma bir **CloudQueueContainer** sıranın başvuru temsil eden nesne. 
+1. Alma bir **CloudQueueContainer** kuyruğuna başvuru temsil eden nesne. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Çağrı **CloudQueue.GetMessage** sıradaki ilk iletiyi okumak için yöntem. **CloudQueue.GetMessage** yöntemi yapar ileti görünmez başka bir kod değiştirmek veya ileti, onu işlenirken silmek böylece iletileri okuyan herhangi bir kod için 30 saniye (varsayılan). İleti görünmez süre miktarını değiştirmek için değiştirmek **visibilityTimeout** için geçirilen parametre **CloudQueue.GetMessage** yöntemi.
+1. Çağrı **CloudQueue.GetMessage** sıradaki ilk iletiye okumak için yöntem. **CloudQueue.GetMessage** hale getirdiğini ileti görünmez 30 saniye (varsayılan), böylece başka bir kod değiştirebilir veya ileti, onu işlenirken silebilirsiniz iletileri okuyan herhangi bir kod için. İleti görünmez süre miktarını değiştirmek için değiştirme **visibilityTimeout** parametresi için geçirilen **CloudQueue.GetMessage** yöntemi.
 
     ```csharp
     // This message will be invisible to other code for 30 seconds.
     CloudQueueMessage message = queue.GetMessage();     
     ```
 
-1. Çağrı **CloudQueueMessage.Delete** iletiyi sıradan silmek için yöntem.
+1. Çağrı **CloudQueueMessage.Delete** iletiyi kuyruktan silmek için yöntemi.
 
     ```csharp
     queue.DeleteMessage(message);
     ```
 
-1. Güncelleştirme **ViewBag** silinmiş ileti ve sıra adı.
+1. Güncelleştirme **ViewBag** ileti silindi ve kuyruğun adı.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Message = message.AsString;
     ```
  
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve bağlam menüsünden seçin **Ekle -> Görünüm**.
+1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörüne sağ tıklayın **kuyrukları**ve bağlam menüsünden seçin **Ekle -> View**.
 
-1. Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **ReadMessage** Görünüm adı ' nı seçip için **Ekle**.
+1. Üzerinde **Görünüm Ekle** iletişim kutusunda girin **ReadMessage** görünüm adını ve seçin için **Ekle**.
 
-1. Açık `ReadMessage.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:
+1. Açık `ReadMessage.cshtml`ve aşağıdaki kod parçacığı gibi görünüyor şekilde değiştirin:
 
     ```csharp
     @{
@@ -393,21 +393,21 @@ Bu bölümde, okuma ve bir ileti kuyruktan kaldırma öğrenin.
     </table>
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
+1. İçinde **Çözüm Gezgini**, genişletme **görünümleri, paylaşılan ->** klasörü ve açık `_Layout.cshtml`.
 
-1. Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:
+1. En son **Html.ActionLink**, aşağıdaki **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Uygulamayı çalıştırmak ve seçmek **okuma/silme iletisi** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:
+1. Uygulamayı çalıştırmak ve seçmek **okuma/silme iletisi** aşağıdaki ekran görüntüsüne benzer bir sonuç görmek için:
   
-    ![Okuma ve silme iletisi](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
+    ![İleti okuma ve silme](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
 ## <a name="get-the-queue-length"></a>Kuyruk uzunluğu alma
 
-Bu bölümde, kuyruk uzunluğu (iletilerinin sayısı) alma gösterilmektedir. 
+Bu bölümde, kuyruk uzunluğu (ileti sayısı) almak nasıl gösterir. 
 
 > [!NOTE]
 > 
@@ -415,7 +415,7 @@ Bu bölümde, kuyruk uzunluğu (iletilerinin sayısı) alma gösterilmektedir.
 
 1. `QueuesController.cs` dosyasını açın.
 
-1. Adlı bir yöntem ekleyin **GetQueueLength** döndüren bir **ActionResult**.
+1. Adlı bir yöntem ekleyin **GetQueueLength** döndüren bir **actionresult öğesini**.
 
     ```csharp
     public ActionResult GetQueueLength()
@@ -426,49 +426,49 @@ Bu bölümde, kuyruk uzunluğu (iletilerinin sayısı) alma gösterilmektedir.
     }
     ```
  
-1. İçinde **ReadMessage** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)
+1. İçinde **ReadMessage** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.
+1. Alma bir **CloudQueueClient** nesnesi bir kuyruk hizmeti istemcisi temsil eder.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Alma bir **CloudQueueContainer** sıranın başvuru temsil eden nesne. 
+1. Alma bir **CloudQueueContainer** kuyruğuna başvuru temsil eden nesne. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Çağrı **CloudQueue.FetchAttributes** (uzunluğu dahil) kuyruğun öznitelikleri alma yöntemi. 
+1. Çağrı **CloudQueue.FetchAttributes** sıranın öznitelikleri (uzunluğu dahil) almak için yöntemi. 
 
     ```csharp
     queue.FetchAttributes();
     ```
 
-6. Erişim **CloudQueue.ApproximateMessageCount** sıra uzunluğu alınacağı özellik.
+6. Erişim **CloudQueue.ApproximateMessageCount** kuyruğun uzunluğu alınacağı özellik.
  
     ```csharp
     int? nMessages = queue.ApproximateMessageCount;
     ```
 
-1. Güncelleştirme **ViewBag** sırası uzunluğu ve ada sahip.
+1. Güncelleştirme **ViewBag** kuyruk uzunluğunu ve ada sahip.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Length = nMessages;
     ```
  
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve bağlam menüsünden seçin **Ekle -> Görünüm**.
+1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörüne sağ tıklayın **kuyrukları**ve bağlam menüsünden seçin **Ekle -> View**.
 
-1. Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **GetQueueLength** Görünüm adı ' nı seçip için **Ekle**.
+1. Üzerinde **Görünüm Ekle** iletişim kutusunda girin **GetQueueLength** görünüm adını ve seçin için **Ekle**.
 
-1. Açık `GetQueueLengthMessage.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:
+1. Açık `GetQueueLengthMessage.cshtml`ve aşağıdaki kod parçacığı gibi görünüyor şekilde değiştirin:
 
     ```csharp
     @{
@@ -480,21 +480,21 @@ Bu bölümde, kuyruk uzunluğu (iletilerinin sayısı) alma gösterilmektedir.
     The queue '@ViewBag.QueueName' has a length of (number of messages): @ViewBag.Length
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
+1. İçinde **Çözüm Gezgini**, genişletme **görünümleri, paylaşılan ->** klasörü ve açık `_Layout.cshtml`.
 
-1. Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:
+1. En son **Html.ActionLink**, aşağıdaki **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. Uygulamayı çalıştırmak ve seçmek **alma sırası uzunluğu** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:
+1. Uygulamayı çalıştırmak ve seçmek **kuyruk uzunluğu alma** aşağıdaki ekran görüntüsüne benzer bir sonuç görmek için:
   
     ![Kuyruk uzunluğu alma](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
 
 ## <a name="delete-a-queue"></a>Bir kuyruk silme
-Bu bölümde, bir kuyruk silme göstermektedir. 
+Bu bölümde, bir kuyruk silme gösterilmektedir. 
 
 > [!NOTE]
 > 
@@ -502,7 +502,7 @@ Bu bölümde, bir kuyruk silme göstermektedir.
 
 1. `QueuesController.cs` dosyasını açın.
 
-1. Adlı bir yöntem ekleyin **DeleteQueue** döndüren bir **ActionResult**.
+1. Adlı bir yöntem ekleyin **DeleteQueue** döndüren bir **actionresult öğesini**.
 
     ```csharp
     public ActionResult DeleteQueue()
@@ -513,42 +513,42 @@ Bu bölümde, bir kuyruk silme göstermektedir.
     }
     ```
  
-1. İçinde **DeleteQueue** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)
+1. İçinde **DeleteQueue** yöntemi almak bir **CloudStorageAccount** depolama hesap bilgilerini temsil eden nesne. Azure hizmet yapılandırmasından bir depolama bağlantı dizesi ve depolama hesabı bilgileri almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* işiniz için Azure depolama hesabı adı erişiliyor.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.
+1. Alma bir **CloudQueueClient** nesnesi bir kuyruk hizmeti istemcisi temsil eder.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Alma bir **CloudQueueContainer** sıranın başvuru temsil eden nesne. 
+1. Alma bir **CloudQueueContainer** kuyruğuna başvuru temsil eden nesne. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Çağrı **CloudQueue.Delete** yöntemi tarafından temsil edilen sıra silmek için **CloudQueue** nesnesi.
+1. Çağrı **CloudQueue.Delete** yöntemi tarafından temsil edilen bir sırayı silmek için **CloudQueue** nesne.
 
     ```csharp
     queue.Delete();
     ```
 
-1. Güncelleştirme **ViewBag** sırası uzunluğu ve ada sahip.
+1. Güncelleştirme **ViewBag** kuyruk uzunluğunu ve ada sahip.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ```
  
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve bağlam menüsünden seçin **Ekle -> Görünüm**.
+1. İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörüne sağ tıklayın **kuyrukları**ve bağlam menüsünden seçin **Ekle -> View**.
 
-1. Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **DeleteQueue** Görünüm adı ' nı seçip için **Ekle**.
+1. Üzerinde **Görünüm Ekle** iletişim kutusunda girin **DeleteQueue** görünüm adını ve seçin için **Ekle**.
 
-1. Açık `DeleteQueue.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:
+1. Açık `DeleteQueue.cshtml`ve aşağıdaki kod parçacığı gibi görünüyor şekilde değiştirin:
 
     ```csharp
     @{
@@ -560,15 +560,15 @@ Bu bölümde, bir kuyruk silme göstermektedir.
     @ViewBag.QueueName deleted.
     ```
 
-1. İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.
+1. İçinde **Çözüm Gezgini**, genişletme **görünümleri, paylaşılan ->** klasörü ve açık `_Layout.cshtml`.
 
-1. Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:
+1. En son **Html.ActionLink**, aşağıdaki **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. Uygulamayı çalıştırmak ve seçmek **alma sırası uzunluğu** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:
+1. Uygulamayı çalıştırmak ve seçmek **kuyruk uzunluğu alma** aşağıdaki ekran görüntüsüne benzer bir sonuç görmek için:
   
     ![Kuyruğu silme](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
@@ -576,4 +576,4 @@ Bu bölümde, bir kuyruk silme göstermektedir.
 Azure’da veri depolama ile ilgili ek seçenekler hakkında daha fazla bilgi edinmek için daha fazla özellik kılavuzu görüntüleyin.
 
   * [Azure blob depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [Azure tablo depolaması ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama](vs-storage-aspnet-getting-started-tables.md)
+  * [Azure tablo depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama](vs-storage-aspnet-getting-started-tables.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: d2a63a1a9b335b7765c5eaf8c90e1d755b2ce9c9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867129"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38451708"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook prova: yapı taşları
 
@@ -45,7 +45,7 @@ Azure AD Premium ile istediğiniz POC için gereken bazı ön koşullar aşağı
 | Tanımlanan ve doğrulanmış etki alanları | [Azure Active Directory'ye özel etki alanı adı ekleme](active-directory-domains-add-azure-portal.md)<br/>**Not:** Power BI gibi bazı iş yükleri bir azure AD kiracısı altında kapsar sağlamış. Belirli bir etki alanı için bir kiracı ile ilişkili olup olmadığını denetlemek için gidin https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Etki alanı zaten bir kiracıya atanan sonra başarılı bir yanıt almak ve konuşturabilirsiniz çözümüyse gerekli. Bu durumda, Ek Yardım için Microsoft ile iletişime geçin. Devralma seçenekleri hakkında daha fazla bilgi: [Azure için Self Servis kaydolma nedir?](users-groups-roles/directory-self-service-signup.md) |
 | Azure AD Premium veya EMS deneme etkin | [Azure Active Directory Premium bir ay boyunca ücretsiz](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Azure AD Premium veya EMS lisanslarınız PoC kullanıcılara atadığınız | [Kendiniz ve kullanıcılarınızın Azure Active Directory lisansı](active-directory-licensing-get-started-azure-portal.md) |
-| Azure AD genel yönetici kimlik bilgileri | [Azure Active Directory'de yönetici rolleri atama](users-groups-roles/directory-assign-admin-roles.md) |
+| Azure AD genel yönetici kimlik bilgileri | [Azure Active Directory’de yönetici rolü atama](users-groups-roles/directory-assign-admin-roles.md) |
 | İsteğe bağlı ancak önerilir: bir geri dönüş olarak paralel bir laboratuvar ortamı | [Azure AD Connect Önkoşulları](./connect/active-directory-aadconnect-prerequisites.md) |
 
 ## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>Dizin eşitleme - parola karma eşitlemesi (PHS) - yeni yükleme
@@ -468,24 +468,24 @@ Yaklaşık tamamlama süresi: 15 dakika
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
-| PIM için POC parçası olacak bir genel yönetici tanımlayın | [Azure AD Privileged Identity Management'ı kullanmaya başlayın](active-directory-privileged-identity-management-getting-started.md) |
-| Güvenlik Yöneticisi olacak genel yönetici tanımlayın | [Azure AD Privileged Identity Management'ı kullanmaya başlayın](active-directory-privileged-identity-management-getting-started.md)<br/> [Azure Active Directory PIM farklı yönetim rolleri](active-directory-privileged-identity-management-roles.md) |
-| İsteğe bağlı: Genel Yöneticiler e-posta bildirimleri PIM kullanmak için e-posta erişimi olup olmadığını onaylayın | [Azure AD Privileged Identity Management nedir?: rol etkinleştirme ayarlarını yapılandırma](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)
+| PIM için POC parçası olacak bir genel yönetici tanımlayın | [Azure AD Privileged Identity Management'ı kullanmaya başlayın](privileged-identity-management/pim-getting-started.md) |
+| Güvenlik Yöneticisi olacak genel yönetici tanımlayın | [Azure AD Privileged Identity Management'ı kullanmaya başlayın](privileged-identity-management/pim-getting-started.md)<br/> [Azure Active Directory PIM farklı yönetim rolleri](privileged-identity-management/pim-roles.md) |
+| İsteğe bağlı: Genel Yöneticiler e-posta bildirimleri PIM kullanmak için e-posta erişimi olup olmadığını onaylayın | [Azure AD Privileged Identity Management nedir?: rol etkinleştirme ayarlarını yapılandırma](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)
 
 
 ### <a name="steps"></a>Adımlar
 
 | Adım | Kaynaklar |
 | --- | --- |
-| Oturum açma https://portal.azure.com bir genel yönetici (GA) ve önyükleme PIM dikey olarak. Bu adımı gerçekleştirir genel yönetici güvenlik yöneticisi olarak sağlanmış.  Bu aktör GA1 adlandıralım | [İçinde Azure AD Privileged Identity Management Güvenlik Sihirbazı'nı kullanarak](active-directory-privileged-identity-management-security-wizard.md) |
-| Genel yönetici tanımlamak ve kalıcı uygun şekilde taşıyın. Bu, 1. adımda daha anlaşılır olması için kullanılan hesaptan farklı bir yönetici olmanız gerekir. Bu aktör GA2 adlandıralım | [Azure AD Privileged Identity Management: nasıl kullanıcı rolü ekleme veya kaldırma](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[Azure AD Privileged Identity Management nedir?: rol etkinleştirme ayarlarını yapılandırma](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
+| Oturum açma https://portal.azure.com bir genel yönetici (GA) ve önyükleme PIM dikey olarak. Bu adımı gerçekleştirir genel yönetici güvenlik yöneticisi olarak sağlanmış.  Bu aktör GA1 adlandıralım | [İçinde Azure AD Privileged Identity Management Güvenlik Sihirbazı'nı kullanarak](privileged-identity-management/pim-security-wizard.md) |
+| Genel yönetici tanımlamak ve kalıcı uygun şekilde taşıyın. Bu, 1. adımda daha anlaşılır olması için kullanılan hesaptan farklı bir yönetici olmanız gerekir. Bu aktör GA2 adlandıralım | [Azure AD Privileged Identity Management: nasıl kullanıcı rolü ekleme veya kaldırma](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[Azure AD Privileged Identity Management nedir?: rol etkinleştirme ayarlarını yapılandırma](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Şimdi, oturum için GA2 olarak https://portal.azure.com ve "Kullanıcı ayarları" değiştirmeyi deneyin. Bazı seçenekler gri unutmayın. | |
-| Şimdi gidin yeni bir sekmede ve 3. adım ile aynı oturumda https://portal.azure.com ve PIM dikey pencereyi panoya ekleyin. | [Etkinleştirmek veya Azure AD Privileged Identity Management içinde rol devre dışı bırakma: Privileged Identity Management uygulamasını ekleme](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
-| Genel yönetici rolü etkinleştirme isteği | [Nasıl etkinleştirme veya devre dışı rolleri Azure AD Privileged Identity Management: rol etkinleştirme](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
+| Şimdi gidin yeni bir sekmede ve 3. adım ile aynı oturumda https://portal.azure.com ve PIM dikey pencereyi panoya ekleyin. | [Etkinleştirmek veya Azure AD Privileged Identity Management içinde rol devre dışı bırakma: Privileged Identity Management uygulamasını ekleme](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Genel yönetici rolü etkinleştirme isteği | [Nasıl etkinleştirme veya devre dışı rolleri Azure AD Privileged Identity Management: rol etkinleştirme](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | GA2 hiçbir zaman MFA için kaydolduysanız, kayıt için Azure mfa'yı gerekli olduğunu unutmayın |  |
 | Adım 3'teki özgün sekmesine geri dönün ve tarayıcıyı yenile düğmesine tıklayın. Artık "kullanıcı ayarları" erişiminiz olduğunu unutmayın. | |
 | İsteğe bağlı olarak, genel Yöneticiler e-posta etkin olması, GA1 ve GA2'ın gelen kutusunu kontrol edin ve bildirim etkinleştirilmekte olan rolünün bakın |  |
-| 8 denetim geçmişini denetleyin ve raporun GA2 ayrıcalıkların onaylamak için gösterilen gözlemleyin. | [Azure AD Privileged Identity Management nedir?: rol etkinliği gözden geçirin](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| 8 denetim geçmişini denetleyin ve raporun GA2 ayrıcalıkların onaylamak için gösterilen gözlemleyin. | [Azure AD Privileged Identity Management nedir?: rol etkinliği gözden geçirin](privileged-identity-management/pim-configure.md#review-role-activity) |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 

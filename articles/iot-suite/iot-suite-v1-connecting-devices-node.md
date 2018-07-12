@@ -1,12 +1,12 @@
 ---
-title: "Node.js kullanarak bir cihazı bağlanma | Microsoft Docs"
-description: "Node.js içinde yazılmış bir uygulaması kullanarak Azure IOT paketi önceden yapılandırılmış Uzaktan izleme çözümü bir aygıt bağlanmaya açıklar."
-services: 
+title: Node.js kullanarak bir cihazı bağlayın | Microsoft Docs
+description: Bir cihaz, node.js'de yazılmış bir Web uygulaması kullanarak Azure IOT paketi önceden yapılandırılmış Uzaktan izleme çözümüne bağlanmak açıklar.
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
@@ -16,30 +16,31 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 87a2e97638508eef1d90a219cfb38d1fcac81d55
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723885"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Cihazınızı Uzaktan izleme önceden yapılandırılmış çözümü (Node.js) bağlanma
+# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Cihazınızı Uzaktan izleme önceden yapılandırılmış çözüme (Node.js) bağlama
 [!INCLUDE [iot-suite-v1-selector-connecting](../../includes/iot-suite-v1-selector-connecting.md)]
 
-## <a name="create-a-nodejs-sample-solution"></a>Node.js örnek bir çözüm oluşturun
+## <a name="create-a-nodejs-sample-solution"></a>Node.js örnek bir çözüm oluşturma
 
-Bu Node.js sürümünü 0.11.5 sağlayın ya da daha sonra dağıtım makinenize yüklü. Çalıştırabilirsiniz `node --version` sürümünü denetlemek için komut satırında.
+Bu Node.js sürümü 0.11.5 sağlayın ya da üzeri geliştirme makinenizde yüklü. Çalıştırabileceğiniz `node --version` sürümü denetlemek için komut satırına.
 
 1. Adlı bir klasör oluşturun **RemoteMonitoring** geliştirme makinenizde. Komut satırı ortamınızda bu klasöre gidin.
 
-1. Örnek uygulaması tamamlamanız gereken indirmek ve paketleri yüklemek için aşağıdaki komutları çalıştırın:
+1. Örnek uygulamayı tamamlamanız gereken paketleri indirme ve yükleme için aşağıdaki komutları çalıştırın:
 
     ```
     npm init
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. İçinde **RemoteMonitoring** klasörünü adlı bir dosya oluşturun **remote_monitoring.js**. Bu dosyayı bir metin düzenleyicisinde açın.
+1. İçinde **RemoteMonitoring** klasöründe adlı bir dosya oluşturun **remote_monitoring.js**. Bu dosyayı bir metin düzenleyicisinde açın.
 
-1. İçinde **remote_monitoring.js** dosya, aşağıdaki ekleyin `require` deyimleri:
+1. İçinde **remote_monitoring.js** dosyasında, aşağıdaki ekleyin `require` ifadeleri:
 
     ```nodejs
     'use strict';
@@ -65,7 +66,7 @@ Bu Node.js sürümünü 0.11.5 sağlayın ya da daha sonra dağıtım makinenize
     var externalTemperature = 55;
     ```
 
-1. İşlem sonuçları yazdırmak için aşağıdaki yardımcı işlevi ekleyin:
+1. İşlem sonuçlarını yazdırmak için aşağıdaki yardımcı işlevi ekleyin:
 
     ```nodejs
     function printErrorFor(op) {
@@ -75,7 +76,7 @@ Bu Node.js sürümünü 0.11.5 sağlayın ya da daha sonra dağıtım makinenize
     }
     ```
 
-1. Telemetri değerleri rastgele seçmek için kullanmak için aşağıdaki yardımcı işlevi ekleyin:
+1. Telemetri değerleri rastgele seçmek için kullanılacak aşağıdaki yardımcı işlevi ekleyin:
 
     ```nodejs
     function generateRandomIncrement() {
@@ -83,7 +84,7 @@ Bu Node.js sürümünü 0.11.5 sağlayın ya da daha sonra dağıtım makinenize
     }
     ```
 
-1. Aşağıdaki tanımı Ekle **Deviceınfo** cihaz gönderir başlangıçta nesnesi:
+1. Aşağıdaki tanım ekleyin **Deviceınfo** cihazın gönderdiği Başlangıç nesnesi:
 
     ```nodejs
     var deviceMetaData = {
@@ -97,7 +98,7 @@ Bu Node.js sürümünü 0.11.5 sağlayın ya da daha sonra dağıtım makinenize
     };
     ```
 
-1. Aşağıdaki cihaz çifti için tanım bildirilen değerler. Bu tanım aygıt destekler doğrudan yöntemleri açıklamalarını içerir:
+1. Aşağıdaki cihaz ikizinde tanımı bildirilen değerler. Bu tanım, cihazın desteklediği direkt yöntemlerle açıklamalarını içerir:
 
     ```nodejs
     var reportedProperties = {
@@ -150,7 +151,7 @@ Bu Node.js sürümünü 0.11.5 sağlayın ya da daha sonra dağıtım makinenize
     }
     ```
 
-1. İşlemek için aşağıdaki işlevi ekleyin **InitiateFirmwareUpdate** doğrudan yöntem çağrısı. Başlatır bellenimi güncelleştirme cihazda zaman uyumsuz olarak ve indirmek için bellenim görüntü konumunu belirtmek için bir parametre doğrudan bu yöntemi kullanır:
+1. İşlemek için aşağıdaki işlevi ekleyin **Initiatefirmwareupdate** doğrudan yöntem çağrısı. Başlatır üretici yazılımını güncelleştirmek cihaz üzerinde zaman uyumsuz olarak ve üretici yazılımı görüntüsünü indirmek için konumunu belirtmek için bir parametre doğrudan bu yöntemi kullanır:
 
     ```nodejs
     function onInitiateFirmwareUpdate(request, response) {
@@ -178,11 +179,11 @@ Bu Node.js sürümünü 0.11.5 sağlayın ya da daha sonra dağıtım makinenize
 1. Aşağıdaki kodu ekleyin:
 
     * Bağlantıyı açın.
-    * Gönderme **Deviceınfo** nesnesi.
+    * Gönderme **Deviceınfo** nesne.
     * İstenen özellikleri için bir işleyici ayarlayın.
-    * Bildirilen özellikleri gönderin.
-    * Doğrudan yöntemleri için işleyiciler kaydedin.
-    * Telemetri göndermeye başlayın.
+    * Bildirilen özellikleri gönderir.
+    * Doğrudan yöntemler için işleyiciler kaydedin.
+    * Telemetri göndermeye başlaması.
 
     ```nodejs
     client.open(function (err) {

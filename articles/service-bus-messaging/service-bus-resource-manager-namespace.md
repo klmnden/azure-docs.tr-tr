@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager şablonu kullanarak Service Bus Mesajlaşma hizmeti ad oluşturma | Microsoft Docs
-description: Service Bus Mesajlaşma hizmeti ad alanı oluşturmak için Azure Resource Manager şablonu kullanın
+title: Azure Resource Manager şablonu kullanarak Service Bus Mesajlaşması ad alanı oluşturma | Microsoft Docs
+description: Bir Service Bus Mesajlaşması ad alanı oluşturmak için Azure Resource Manager şablonu kullanma
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -15,35 +15,35 @@ ms.workload: na
 ms.date: 04/11/2018
 ms.author: sethm
 ms.openlocfilehash: e7e811b86d1ea0454b964fb297cb05b6a4734abd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411843"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232429"
 ---
-# <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir hizmet veri yolu ad alanı oluşturma
+# <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir Service Bus ad alanı oluşturma
 
-Bu makalede, bir hizmet veri yolu ad alanı türü oluşturan bir Azure Resource Manager şablonu kullanmayı açıklar **ileti** standart SKU ile. Makale ayrıca dağıtım yürütme için belirtilen parametreleri tanımlar. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
+Bu makalede türünde bir Service Bus ad alanı oluşturan bir Azure Resource Manager şablonunun nasıl kullanılacağı **Mesajlaşma** standart SKU ile. Makale ayrıca dağıtım yürütülmesi için belirtilen parametreleri tanımlar. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
 
 Şablon oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
 
-Tam şablon için bkz: [hizmet veri yolu ad alanı şablonu] [ Service Bus namespace template] github'da.
+Tam şablon için bkz: [Service Bus ad alanı şablon] [ Service Bus namespace template] GitHub üzerinde.
 
 > [!NOTE]
 > Aşağıdaki Azure Resource Manager şablonları, yükleme ve dağıtım için kullanılabilir. 
 > 
-> * [Sıra ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-queue.md)
-> * [Hizmet veri yolu ad alanı konu ve abonelik oluşturma](service-bus-resource-manager-namespace-topic.md)
-> * [Kuyruk ve yetkilendirme kuralı ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Konu, abonelik ve kuralı ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Kuyruk ile bir Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-queue.md)
+> * [Konu ve abonelik ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-topic.md)
+> * [Kuyruk ve yetkilendirme kuralı ile bir Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Konusu, aboneliği ve kuralı ile bir Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Son şablonları denetlemek için ziyaret edin [Azure hızlı başlangıç şablonlarını] [ Azure Quickstart Templates] Galerisi ve Service Bus arayın.
+> En yeni şablonları denetlemek için ziyaret [Azure hızlı başlangıç şablonları] [ Azure Quickstart Templates] galeri ve Service Bus arayın.
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Ne dağıtacaksınız?
 
-Bu şablonla dağıttığınız bir hizmet veri yolu ad alanı ile bir [standart veya Premium](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
+Bu şablonu kullanarak bir Service Bus ad alanı ile dağıttığınız bir [standart veya Premium](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
 
 Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıklayın:
 
@@ -51,13 +51,13 @@ Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıkla
 
 ## <a name="parameters"></a>Parametreler
 
-Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Şablon adlı bir bölüm içerir `Parameters` , tüm parametre değerlerini içerir. Dağıtmakta olduğunuz projeye veya dağıtım yaptığınız ortama göre değişen değerler için bir parametre tanımlamanız gerekir. Her zaman aynı kalan değerler için parametre tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır.
+Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Adlı bir bölüm şablonu içerir `Parameters` , tüm parametre değerlerini içerir. Dağıtmakta olduğunuz projeye veya dağıtım yaptığınız ortama göre değişen değerler için bir parametre tanımlamanız gerekir. Her zaman aynı kalan değerler için parametre tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır.
 
-Bu şablon, aşağıdaki parametreleri tanımlar:
+Bu şablon aşağıdaki parametreleri tanımlar:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 
-Oluşturmak için hizmet veri yolu ad alanı adı.
+Oluşturmak için Service Bus ad alanı adı.
 
 ```json
 "serviceBusNamespaceName": {
@@ -70,7 +70,7 @@ Oluşturmak için hizmet veri yolu ad alanı adı.
 
 ### <a name="servicebussku"></a>serviceBusSKU
 
-Hizmet veri yolu adı [SKU](https://azure.microsoft.com/pricing/details/service-bus/) oluşturmak için.
+Service Bus adını [SKU](https://azure.microsoft.com/pricing/details/service-bus/) oluşturmak için.
 
 ```json
 "serviceBusSku": { 
@@ -86,13 +86,13 @@ Hizmet veri yolu adı [SKU](https://azure.microsoft.com/pricing/details/service-
 
 ```
 
-Şablon (standart veya Premium) Bu parametre için izin verilen değerleri tanımlar. Herhangi bir değer belirtilirse, varsayılan değer (standart) Kaynak Yöneticisi'ni atar.
+Şablon (standart veya Premium) Bu parametre için izin verilen değerleri tanımlar. Hiçbir değer belirtilmemişse, varsayılan değer (standart) Kaynak Yöneticisi'ni atar.
 
-Hizmet veri yolu fiyatlandırma hakkında daha fazla bilgi için bkz: [Service fiyatlandırma ve faturalama Bus][Service Bus pricing and billing].
+Service Bus fiyatlandırması hakkında daha fazla bilgi için bkz. [fiyatlandırma ve faturalama Service Bus][Service Bus pricing and billing].
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 
-Şablon hizmet veri yolu API'sini sürümü.
+Hizmet veri yolu API'sini şablon sürümü.
 
 ```json
 "serviceBusApiVersion": { 
@@ -107,7 +107,7 @@ Hizmet veri yolu fiyatlandırma hakkında daha fazla bilgi için bkz: [Service f
 
 ### <a name="service-bus-namespace"></a>Service Bus ad alanı
 
-Standart bir hizmet veri yolu ad alanı türü oluşturur **ileti**.
+Standart bir Service Bus ad alanı türü oluşturur **Mesajlaşma**.
 
 ```json
 "resources": [
@@ -145,10 +145,10 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Oluşturulan ve Azure Resource Manager kullanarak kaynakları dağıtılan göre bu kaynakları bu makaleleri okuyarak yönetmeyi öğrenin:
+Oluşturulan ve dağıtılan kaynakları Azure Resource Manager kullanarak göre bu kaynakları bu makaleleri okuyarak yönetmeyi öğrenin:
 
 * [Service Bus PowerShell ile yönetme](service-bus-manage-with-ps.md)
-* [Hizmet veri yolu Gezgini ile Service Bus kaynaklarını yönetme](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Service Bus Explorer ile Service Bus kaynaklarını yönetme](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/

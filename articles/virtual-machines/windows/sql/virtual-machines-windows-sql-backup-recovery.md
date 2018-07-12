@@ -1,6 +1,6 @@
 ---
-title: Yedekleme ve geri yükleme için Azure VM'ler, SQL Server | Microsoft Docs
-description: Azure sanal makinelerde çalışan SQL Server veritabanları için yedekleme ve geri yükleme noktaları açıklar.
+title: Yedekleme ve Azure Vm'lerde SQL Server için geri yükleme | Microsoft Docs
+description: Azure sanal makineler üzerinde çalışan SQL Server veritabanları için yedekleme ve geri yükleme noktaları açıklar.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -15,141 +15,141 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 4b90d1b9b2ee64722d3c92bcbd8fa205c9b59ebd
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: d46c55f809d24529ea5deeb4d84de44dae876a4b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809616"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968995"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler’de SQL Server için Yedekleme ve Geri Yükleme
 
-Bu makalede Windows Azure sanal makinelerde çalışan yedekleme ve geri yükleme seçenekleri kullanılabilir SQL Server için yönergeler sağlar. Azure depolama, veri kaybı veya fiziksel veri bozulmasına karşı koruma sağlamak için her Azure sanal disk üç kopyasını tutar. Bu nedenle, şirket içi, donanım hataları üzerinde odaklanmak gerekmez. Ancak, yanlışlıkla veri eklemeleri ya da silme işlemleri gibi uygulama veya kullanıcıya hatalara karşı korumak için SQL Server veritabanlarınızı hala yedeklemeniz gerekir. Bu durumda, zaman içinde belirli bir noktaya geri olması önemlidir.
+Bu makalede Windows Azure sanal Makineler'de çalışan yedekleme ve geri yükleme seçenekleri için SQL Server hakkında yönergeler sağlanır. Azure depolama, veri kaybı veya fiziksel veri bozulmasına karşı koruma sağlamak için her Azure VM disk üç kopyasını tutar. Bu nedenle, şirket içi, donanım hatalarını üzerinde odaklanın gerekmez. Ancak, yine de yanlışlıkla veri eklemeler ve silmeleri gibi uygulama veya kullanıcıya hatalara karşı korumak için SQL Server veritabanlarını yedeklemeniz gerekir. Bu durumda, belirli bir noktaya geri yükleme önemlidir.
 
-Bu makalenin ilk bölümü kullanılabilir yedekleme ve geri yükleme seçeneklerini genel bakış sağlar. Bu, her stratejisi hakkında daha fazla bilgi sağlayan bölümleri tarafından izlenir.
+Bu makalenin ilk bölümünü kullanılabilir yedekleme ve geri yükleme seçenekleri hakkında genel bir bakış sağlar. Bu, her stratejisi hakkında daha fazla bilgi sağlayan bir bölüm tarafından izlenir.
 
 ## <a name="backup-and-restore-options"></a>Yedekleme ve geri yükleme seçenekleri
 
-Aşağıdaki tabloda Azure Vm'lerinde çalıştırılan SQL Server için çeşitli yedekleme ve geri yükleme seçenekleri hakkında bilgi sağlar:
+Aşağıdaki tabloda Azure Vm'lerinde çalışan SQL Server için çeşitli yedekleme ve geri yükleme seçenekleri hakkında bilgi sağlar:
 
 | Stratejisi | SQL sürümleri | Açıklama |
 |---|---|---|---|
-| [Otomatik Yedekleme](#automated) | 2014<br/> 2016<br/> 2017 | Otomatik yedekleme SQL Server VM üzerinde tüm veritabanları için düzenli yedeklemeler zamanlamanıza olanak sağlar. Yedeklemeler, 30 güne kadar Azure depolama alanında depolanır. SQL Server 2016 ile başlayarak, otomatik yedekleme v2 el ile planlama ve tam sıklığını ve günlük yedekleri yapılandırma gibi ek seçenekler sunar. |
-| [SQL VM'ler için Azure yedekleme](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup, Azure Vm'lerinde çalışan SQL Server için bir kurumsal sınıf yedekleme özelliği sağlar. Bu hizmet ile birden çok sunucu ve binlerce veritabanının yedeklerini merkezi olarak yönetebilir. Veritabanları, Portalı'nda zaman içinde belirli bir noktaya geri yüklenebilir. Yedeklemeleri yıldır koruyabilirsiniz özelleştirilebilir bekletme ilkesi sunar. Bu özellik şu anda genel önizlemede değil. |
-| [El ile yedekleme](#manual) | Tümü | SQL Server sürümüne bağlı olarak, el ile yedekleme ve bir Azure VM üzerinde çalışan SQL Server geri yüklemek için çeşitli teknikler vardır. Bu senaryoda, veritabanlarınızı nasıl yedeklenir ve depolama konumu ve bu yedeklemeler yönetimi için sorumludur. |
+| [Otomatik Yedekleme](#automated) | 2014<br/> 2016<br/> 2017 | Otomatik yedekleme, SQL Server VM üzerindeki tüm veritabanları için normal yedeklemelerinin zamanlamasını olanak tanır. Yedeklemeler, 30 gün boyunca Azure depolama alanında depolanır. Otomatik yedekleme v2, SQL Server 2016 ile başlayarak, el ile zamanlama ve tam sıklığını ve günlük yedekleri yapılandırma gibi ek seçenekleri sunar. |
+| [SQL Vm'leri için Azure yedekleme](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup, Azure Vm'lerinde çalışan SQL Server için kurumsal sınıf yedekleme özelliği sağlar. Bu hizmet ile birden çok sunucu ve binlerce veritabanının yedeklerini merkezi olarak yönetebilir. Veritabanları, portalında zaman içinde belirli bir noktaya geri yüklenebilir. Yedeklemeleri yıllarca saklayabilirsiniz bir özelleştirilebilir bekletme ilkesi sunar. Bu özellik şu anda genel Önizleme aşamasındadır. |
+| [El ile yedekleme](#manual) | Tümü | SQL Server sürümüne bağlı olarak, el ile yedekleme ve bir Azure sanal makinesinde çalışan SQL Server'a geri yüklemek için çeşitli teknikler vardır. Bu senaryoda, veritabanlarınızı nasıl yedeklenir ve depolama konumu ve bu yedeklemeler yönetimini sorumludur. |
 
-Aşağıdaki bölümlerde her seçenek daha ayrıntılı açıklanmıştır. Son bölümü, bu makalenin özelliği matrisi biçiminde bir özetini sağlar.
+Aşağıdaki bölümlerde her seçeneği daha ayrıntılı açıklanmaktadır. Bu makalenin son bölümü, bir özellik matrisi biçiminde bir özetini sağlar.
 
 ## <a id="autoamted"></a> Otomatik yedekleme
 
-Otomatik yedekleme bir otomatik yedekleme hizmeti SQL Server Standard ve Enterprise sürümleri için bir Windows Azure VM'de çalıştıran sağlar. Bu hizmet tarafından sağlanan [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md), otomatik olarak yüklendiği SQL Server, Windows sanal makine görüntüleri Azure portalında.
+Otomatik yedekleme, otomatik bir yedekleme hizmeti için bir Windows Azure VM'de çalışan SQL Server Standard ve Enterprise sürümleri sağlar. Bu hizmet tarafından sağlanan [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md), otomatik olarak yüklendiği SQL Server Windows sanal makine görüntüleri Azure portalında üzerinde.
 
-Tüm veritabanları, yapılandırdığınız bir Azure depolama hesabı yedeklenir. Yedeklemeleri şifrelenir ve 30 gün boyunca tutulur.
+Tüm veritabanları, yapılandırdığınız Azure depolama hesabı için desteklenir. Yedeklemeleri şifrelenir ve 30 gün boyunca tutulur.
 
-SQL Server 2016 ve daha yüksek VM'ler otomatik yedekleme v2 ile daha fazla özelleştirme seçenekleri sunar. Bu geliştirmeler içerir:
+SQL Server 2016 ve üzeri Vm'leri otomatik yedekleme v2 ile daha fazla özelleştirme seçenekleri sunar. Bu geliştirmeler şunları içerir:
 
 - Sistem Veritabanı Yedeklemeleri
 - El ile yedekleme zamanlaması ve zaman penceresi
-- Yedekleme sıklığı tam ve günlük dosyası
+- Tam ve günlük dosyasını yedekleme sıklığı
 
-Bir veritabanını geri yüklemek için depolama hesabında gerekli yedekleme dosyaları bulun ve SQL Server Management Studio (SSMS) veya Transact-SQL komutlarını kullanarak, SQL VM bir geri yükleme gerçekleştirin.
+Bir veritabanını geri yüklemek için gerekli yedekleme dosyalarının depolama hesabında bulun ve SQL SQL Server Management Studio (SSMS) ya da Transact-SQL komutlarını kullanarak sanal makinenizde bir geri yükleme gerçekleştirin.
 
-Otomatik yedekleme SQL VM'ler için yapılandırma hakkında daha fazla bilgi için aşağıdaki makaleler birine bakın:
+SQL VM'ler için otomatik yedekleme yapılandırma hakkında daha fazla bilgi için aşağıdaki makalelerden birine bakın:
 
-- **SQL Server 2016/2017**: [Azure sanal makineler için yedekleme v2 otomatik ](virtual-machines-windows-sql-automated-backup-v2.md)
-- **SQL Server 2014**: [SQL Server 2014 sanal makineler için otomatik yedekleme](virtual-machines-windows-sql-automated-backup.md)
+- **SQL Server 2016/2017**: [yedekleme v2 için Azure sanal makineler otomatik ](virtual-machines-windows-sql-automated-backup-v2.md)
+- **SQL Server 2014**: [SQL Server 2014 sanal makineleri için otomatik yedekleme](virtual-machines-windows-sql-automated-backup.md)
 
-## <a id="azbackup"></a> Azure yedekleme için SQL VM'ler (genel Önizleme)
+## <a id="azbackup"></a> SQL Vm'leri (genel Önizleme) için Azure yedekleme
 
-[Azure yedekleme](/azure/backup/) Azure Vm'lerinde çalışan SQL Server için bir kurumsal sınıf yedekleme özelliği sağlar. Tüm yedeklemeler saklanır ve bir kurtarma Hizmetleri kasasına yönetilir. Bu çözüm, özellikle kuruluşlar için sağlayan çeşitli avantajları vardır:
+[Azure yedekleme](/azure/backup/) Azure Vm'lerinde çalışan SQL Server için kurumsal sınıf yedekleme özelliği sağlar. Tüm yedeklemeler depolanır ve bir kurtarma Hizmetleri Kasası'nda yönetilen. Bu çözüm, özellikle kuruluşlar için sağladığı çeşitli avantajları vardır:
 
-- **Sıfır altyapı yedekleme**: yedekleme sunucusu veya depolama konumları yönetmek zorunda değilsiniz.
-- **Ölçek**: birçok SQL VM ve veritabanları binlerce koruyun.
-- **Kullandıkça Öde**: Bu özellik Azure yedekleme tarafından sağlanan ayrı bir hizmet olmakla birlikte, tüm Azure hizmetlerinde gibi yalnızca, kullanım için ödeme yaparsınız.
-- **Merkezi Yönetim ve izleme**: tüm azure'da tek bir panosundan Azure Backup destekleyen diğer iş yükleri de dahil olmak üzere Yedeklemelerinizin merkezi olarak yönetin.
-- **Yedekleme ve bekletme güdümlü İlkesi**: düzenli yedeklemeler için standart yedekleme ilkeleri oluşturun. Yedeklemeleri yıldır korumak için bekletme ilkeleri oluşturun.
-- **SQL her zaman açık desteği**: algılar ve bir SQL Server Always On yapılandırmayı korumak ve yedekleme kullanılabilirlik grubu yedekleme tercihi kabul.
+- **Sıfır altyapı yedeklemesine**: yedekleme sunucusu veya depolama konumlarına yönetmek zorunda değilsiniz.
+- **Ölçek**: çok sayıda SQL VM ve binlerce koruyun.
+- **Kullandıkça Öde**: Bu özellik Azure Backup tarafından sağlanan ayrı bir hizmet olduğundan, ancak tüm Azure hizmetlerinde olduğu gibi ile yalnızca kullandığınız kadarı için ödeme yaparsınız.
+- **Merkezi Yönetim ve izleme**: tüm destekleyen Azure Backup, azure'daki tek bir panodan diğer iş yükleri de dahil olmak üzere Yedeklemelerinizin merkezi olarak yönetin.
+- **Yedekleme ve bekletme temelli İlkesi**: düzenli yedeklemeler için standart yedekleme ilkeleri oluşturun. Yıllık yedeklemeler için bekletme ilkeleri oluşturun.
+- **SQL Always On desteği**: algılamak ve SQL Server Always On yapılandırmayı korumak ve yedekleme kullanılabilirlik grubu yedekleme tercihini uymanız.
 - **15 dakikalık kurtarma noktası hedefi (RPO)**: yapılandırma SQL işlem günlüğü yedeklemeleri 15 dakikada bir kadar.
-- **Geri yükleme noktası**: el ile birden fazla tam, fark, geri yüklemek zorunda kalmadan zamanında veritabanları belirli bir noktaya kurtarmak üzere portalı kullanın ve günlük yedekleri.
-- **E-posta uyarıları hataları için birleştirilmiş**: yapılandırma hatalar için e-posta bildirimleri birleştirilir.
-- **Rol tabanlı erişim denetimi**: kimin yedekleme yönetmek ve geri yükleme işlemleri Portalı aracılığıyla belirler.
+- **Noktaya geri yükleme noktası**: birden fazla tam, değişiklik, el ile geri yüklemeye gerek kalmadan veritabanları belirli bir noktaya geri için portalı kullanma ve günlük yedeklemeler.
+- **Hatalar için e-posta uyarıları birleştirilmiş**: yapılandırma hatalar için e-posta bildirimleri birleştirilir.
+- **Rol tabanlı erişim denetimi**: kimin yedeklemeyi yönetme ve geri yükleme işlemleri portal üzerinden belirler.
 
-Bir tanıtım birlikte nasıl çalıştığına ilişkin hızlı bir genel bakış için aşağıdaki videoyu izleyin:
+Bir tanıtım ile birlikte nasıl çalıştığını ilişkin hızlı genel bakış için aşağıdaki videoyu izleyin:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2dNbw]
 
-Bu Azure Backup çözümü SQL VM'ler için şu anda genel önizlemede değil. Daha fazla bilgi için bkz: [Azure SQL Server veritabanına yedekleme](../../../backup/backup-azure-sql-database.md).
+Bu SQL VM'ler için Azure Backup çözümü şu anda genel Önizleme aşamasındadır. Daha fazla bilgi için [SQL Server veritabanını azure'a yedekleme](../../../backup/backup-azure-sql-database.md).
 
 ## <a id="manual"></a> El ile yedekleme
 
-El ile yedekleme yönetmek ve geri yükleme işlemleri, SQL vm'lerde istiyorsanız, kullanmakta olduğunuz SQL Server sürümüne bağlı olarak birkaç seçeneğiniz vardır. Yedekleme ve geri yüklemeye genel bakış için SQL Server sürümüne bağlı aşağıdaki makalelere bakın:
+El ile yedeklemeyi yönetme ve SQL Vm'lerinizi işlemleri geri yüklemek istiyorsanız, kullanmakta olduğunuz SQL Server sürümüne bağlı olarak birkaç seçenek vardır. Yedekleme ve geri yüklemeye genel bakış için SQL Server sürümünü temel alan aşağıdaki makalelerden birine bakın:
 
-- [Yedekleme ve geri yükleme ve sonraki sürümler için SQL Server 2016](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
-- [Yedekleme ve geri yükleme için SQL Server 2014](https://msdn.microsoft.com/en-us/library/ms187048%28v=sql.120%29.aspx)
+- [Yedekleme ve geri yükleme için SQL Server 2016 ve üzeri](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
+- [Yedekleme ve geri yükleme için SQL Server 2014](https://msdn.microsoft.com/library/ms187048%28v=sql.120%29.aspx)
 - [Yedekleme ve geri yükleme için SQL Server 2012](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx)
-- [Yedekleme ve geri yüklemek için SQL Server SQL Server 2008 R2](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx)
+- [Yedekleme ve geri yükleme için SQL Server SQL Server 2008 R2](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx)
 - [Yedekleme ve geri yükleme için SQL Server 2008](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx)
 
-Aşağıdaki bölümlerde, çeşitli el ile yedekleme açıklar ve geri yükleme seçenekleri daha ayrıntılı.
+Aşağıdaki bölümlerde, çeşitli el ile yedekleme açıklar ve geri yükleme seçenekleri ayrıntılı.
 
-### <a name="backup-to-attached-disks"></a>Ekli diske yedekleme
+### <a name="backup-to-attached-disks"></a>Bağlı diskleri yedekleme
 
-Azure Vm'lerinde çalışan SQL Server için yerel yedekleme kullanın ve teknikleri bağlı disklerde VM için yedekleme dosyalarının hedef kullanarak geri yükleyin. Ancak, temel bir Azure sanal makinesine, attach disk sayısı için bir sınır yoktur [sanal makine boyutu](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Dikkate alınması gereken disk Yönetimi ek yükünü yoktur.
+Azure Vm'lerinde çalışan SQL Server için yerel yedekleme kullanın ve teknikleri kullanıma açılan diskler, sanal makinede yedekleme dosyalarının hedefini kullanarak geri yükleyebilirsiniz. Ancak, disk sayısına ilişkin temel bir Azure sanal makinesine, eklemek için bir sınır yoktur [sanal makinenin boyutunu](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Dikkate alınması gereken disk Yönetimi ek yükü de mevcuttur.
 
-El ile SQL Server Management Studio (SSMS) veya Transact-SQL kullanarak tam bir veritabanı yedeği oluşturma örneği için bkz: [tam bir veritabanı yedekleme oluşturma](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
+El ile SQL Server Management Studio (SSMS) ya da Transact-SQL kullanarak tam bir veritabanı yedeği oluşturma örneği için bkz: [tam bir veritabanı yedekleme oluşturma](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
 
 ### <a name="backup-to-url"></a>URL'ye yedekleme
 
-SQL Server 2012 SP1 CU2 ile başlayarak, yedekleme ve URL'ye yedek olarak da bilinen doğrudan Microsoft Azure Blob depolama alanına, geri yükleme. SQL Server 2016 Ayrıca bu özellik için aşağıdaki geliştirmeleri sunulmuştur:
+SQL Server 2012 SP1 CU2 ile başlayarak, yedekleme ve URL'sine yedek olarak da bilinen doğrudan Microsoft Azure Blob depolama alanına geri yükleyebilirsiniz. SQL Server 2016, bu özellik için aşağıdaki geliştirmeler de kullanıma sunulmuştur:
 
 | 2016 geliştirme | Ayrıntılar |
 | --- | --- |
-| **Şeritleme** |Microsoft Azure blob depolama alanına yedeklerken SQL Server 2016 12,8 TB'lık en büyük veritabanlarını yedeklemek etkinleştirmek için birden çok BLOB yedekleme destekler. |
-| **Anlık görüntü yedekleme** |Azure anlık görüntüleri kullanımı ile neredeyse anlık yedeklemeler ve hızlı geri yüklemeler Azure Blob Depolama hizmetinin kullanarak depolanan veritabanı dosyaları için SQL Server dosya anlık görüntüsü yedekleme sağlar. Bu özellik, yedekleme basitleştirmek ve ilkelerini geri olanak sağlar. Dosya anlık görüntüsü yedekleme, geri yükleme noktası da destekler. Daha fazla bilgi için bkz: [azure'da veritabanı dosyaları için anlık görüntü yedeklerini](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
+| **Şeritleme** |Microsoft Azure blob depolama alanına yedeklenmesi, SQL Server 2016'yı etkinleştirmek 12,8 TB en büyük veritabanlarını yedeklemek için birden çok BLOB'ları yedeklemenin destekler. |
+| **Anlık görüntü yedekleme** |Azure anlık görüntüleri kullanarak SQL Server dosya anlık görüntüsü Backup neredeyse anında yedekleme ile depolanan Azure Blob Depolama hizmetini kullanarak veritabanı dosyaları için hızlı geri yüklemeler sağlar. Bu özellik, yedekleme basitleştirin ve ilkeleri geri yüklemenize olanak sağlar. Dosya anlık görüntüsü backup, zaman geri yükleme noktası da destekler. Daha fazla bilgi için [azure'daki veritabanı dosyaları için anlık görüntüsü yedekleri](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
 
-Daha fazla bilgi için biri olan SQL Server sürümüne bağlı aşağıdaki makalelere bakın:
+Daha fazla bilgi için bir SQL Server sürümünü temel alan aşağıdaki makalelere bakın:
 
-- **SQL Server 2016/2017**: [URL SQL Server Yedekleme](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
-- **SQL Server 2014**: [URL SQL Server 2014 yedekleme](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)
-- **SQL Server 2012**: [URL SQL Server 2012 yedekleme](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx)
+- **SQL Server 2016/2017**: [URL'ye SQL Server Yedekleme](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+- **SQL Server 2014**: [URL'ye SQL Server 2014 yedekleme](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)
+- **SQL Server 2012**: [URL'ye SQL Server 2012 yedekleme](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx)
 
 ### <a name="managed-backup"></a>Yönetilen yedekleme
 
-SQL Server 2014 ile başlayarak, yönetilen yedekleme yedeklemeleri Azure depolamaya oluşturulmasını otomatik hale getirir. Arka planda URL özelliği, bu makalenin önceki bölümde açıklanan yedekleme kullanımı yönetilen yedekleme yapar. Yönetilen yedekleme de SQL Server VM otomatik yedekleme hizmetini destekleyen temel özelliğidir.
+SQL Server 2014 ile başlayarak, yönetilen yedekleme Azure depolama için yedeklemeleri oluşturulmasını otomatik hale getirir. Arka planda URL özelliği bu makalenin önceki bölümde açıklanan yedekleme kullanımı yönetilen yedekleme yapar. Yönetilen yedekleme de SQL Server VM otomatik yedekleme hizmetinin desteklediği temel özelliğidir.
 
-SQL Server 2016'den itibaren yönetilen yedekleme zamanlaması, yedekleme ve tam sistem veritabanı ve günlük yedekleme sıklığı için ek seçenekler aldı.
+SQL Server 2016'dan başlayarak, yönetilen yedekleme zamanlaması, yedekleme ve tam sistem veritabanı ve günlük yedekleme sıklığı için ek seçenekler alındı.
 
-Daha fazla bilgi için bir SQL Server sürümüne bağlı aşağıdaki makalelere bakın:
+Daha fazla bilgi için SQL Server sürümünü temel alan aşağıdaki makalelerden birine bakın:
 
-- [SQL Server 2016 için Microsoft Azure yedekleme ve daha sonra yönetilen](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure)
-- [Yönetilen yedekleme SQL Server 2014 için Microsoft Azure](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx)
+- [Yönetilen SQL Server 2016 için Microsoft Azure yedekleme ve üzeri](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure)
+- [SQL Server 2014 için Microsoft Azure tarafından yönetilen yedekleme](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx)
 
 ## <a name="decision-matrix"></a>Karar Matrisi
 
-Aşağıdaki tabloda her azure'da SQL Server sanal makineler için yedekleme ve geri yükleme seçeneği yeteneklerini özetler.
+Aşağıdaki tabloda, her Azure sanal makineler'de SQL Server için yedekleme ve geri yükleme seçeneği yeteneklerini özetler.
 
 || **Otomatik Yedekleme** | **SQL Azure yedekleme** | **El ile yedekleme** |
 |---|---|---|---|
 | Ek Azure hizmeti gerektirir |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Azure portalında yedekleme ilkesini yapılandırma | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Azure portalında veritabanlarını geri yükleyin |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Tek bir Panoda birden çok sunucuyu yönetmek |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Azure portalında yedekleme ilkesi yapılandırma | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Azure Portalı'nda veritabanlarını geri yükleme |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Tek bir Panoda birden çok sunucuyu yönetme |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Belirli bir noktaya geri yükleme | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | 15 dakikalık kurtarma noktası hedefi (RPO) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Kısa vadeli yedekleme bekletme ilkesi (gün) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Uzun vadeli yedekleme bekletme ilkesi (ay, yıl) |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Uzun süreli yedek saklama ilkesini (ay, yıl) |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | SQL Server Always On için yerleşik destek |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Azure depolama hesapları için yedekleme | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(otomatik) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(otomatik) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(müşteri yönetilen) |
-| Depolama ve yedekleme dosyalarının yönetimi | | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
-| VM ekli disklerde yedekleme |   |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Merkezi özelleştirilebilir yedekleme raporlar |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Hataları görmek için birleştirilmiş bir e-posta uyarıları |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| OMS üzerinde temel izleme özelleştirme |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| SSMS veya Transact-SQL komut dosyaları ile yedekleme işlerini izleme | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| SSMS veya Transact-SQL komut dosyaları ile veritabanlarını geri yükleyin | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Azure depolama hesapları için yedekleme | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(otomatik) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(otomatik) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(müşteri tarafından yönetilen) |
+| Depolama ve yedekleme dosyaların Yönetimi | | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
+| VM üzerinde kullanıma açılan diskler için yedekleme |   |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Merkezi özelleştirilebilir yedekleme raporları |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Hatalar için birleştirilmiş e-posta uyarıları |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Üzerinde OMS izlemeyi özelleştirme |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| SSMS veya Transact-SQL betikleri ile yedekleme işleri İzle | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| SSMS veya Transact-SQL betikleri ile veritabanlarını geri yükleme | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Dağıtımınızı Azure VM'deki SQL Server'ın planlıyorsanız aşağıdaki kılavuzda sağlama yönergeler bulabilirsiniz: [Azure portalında Windows SQL Server sanal makine sağlamak nasıl](virtual-machines-windows-portal-sql-server-provision.md).
+Aşağıdaki kılavuzda bir Azure VM'de SQL Server dağıtımını planlıyorsanız, sağlama kılavuzu bulabilirsiniz: [Azure portalında Windows SQL Server bir sanal makine sağlamak nasıl](virtual-machines-windows-portal-sql-server-provision.md).
 
-Yedekleme ve geri yükleme, verileri geçirmek için kullanılabilir olmasa da, Azure VM'de SQL Server potansiyel olarak daha kolay veri geçiş yolu vardır. Geçiş seçenekleri ve öneriler tam bir tartışma için bkz: [SQL Server'a Azure VM'de bir veritabanını geçirme](virtual-machines-windows-migrate-sql.md).
+Yedekleme ve geri yükleme, verileri geçirmek için kullanılabilir olsa da, Azure VM'deki SQL Server'a potansiyel olarak daha kolay veri geçiş yolu vardır. Geçiş seçenekleri ve öneriler tam bir irdelemesi için bkz. [bir veritabanını Azure VM'deki SQL Server'a geçirme](virtual-machines-windows-migrate-sql.md).

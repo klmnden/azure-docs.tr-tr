@@ -1,6 +1,6 @@
 ---
-title: Azure App Service Mobile Apps özelliğini bir Apache Cordova uygulaması için anında iletme bildirimleri ekleme | Microsoft Docs
-description: Mobile Apps Apache Cordova uygulamanıza anında iletme bildirimleri göndermek için nasıl kullanılacağını öğrenin.
+title: Azure App Service Mobile Apps özelliğini bir Apache Cordova uygulamasında anında iletme bildirimleri ekleme | Microsoft Docs
+description: Apache Cordova uygulamanıza anında iletme bildirimleri göndermek için Mobile Apps'ı kullanmayı öğrenin.
 services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
@@ -15,54 +15,54 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 13c1a53cfa3f998c9e3fa3ee1ee2dcec37357095
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598003"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38547276"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Apache Cordova uygulamanıza anında iletme bildirimleri ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğreticide, anında iletme bildirimleri ekleme [Apache Cordova quickstart] [ 5] proje böylece bir kayda eklenen her zaman bir anında iletme bildirimi cihaza gönderilir.
+Bu öğreticide, anında iletme bildirimleri ekleme [Apache Cordova hızlı] [ 5] anında iletme bildirimi kayıt eklenen her zaman cihaza gönderilir, böylece proje.
 
-İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantısı paketi gerekir. Daha fazla bilgi için bkz: [mobil uygulamalar için .NET arka uç sunucusu SDK çalışma][1].
+İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantı paketi gerekir. Daha fazla bilgi için [Mobile Apps için .NET arka uç sunucu SDK'sı ile çalışma][1].
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu öğreticide, Visual Studio 2015 ile geliştirilmiş bir Apache Cordova uygulaması olduğunu varsayar. Bu cihaz, Google Android öykünücüsü, bir Android cihazında, bir Windows aygıtı veya bir iOS aygıtı çalıştırmanız gerekir.
+Bu öğreticide, Visual Studio 2015 ile geliştirilmiş bir Apache Cordova uygulaması sahibi olduğunuzu varsayar. Bu cihaz, Google Android öykünücüsü, bir Android cihazı, bir Windows cihazı veya bir iOS cihazı çalıştırmanız gerekir.
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Bir bilgisayarla [Visual Studio Community 2015] [ 2] veya daha yenisi
+* Bir bilgisayarla [Visual Studio Community 2015] [ 2] veya üzeri
 * [Apache Cordova için Visual Studio Araçları][4]
-* Bir [etkin Azure hesabı][3]
-* Bir tamamlanmış [Apache Cordova quickstart] [ 5] proje
+* Bir [etkin bir Azure hesabı][3]
+* Tamamlanmış bir [Apache Cordova hızlı] [ 5] proje
 * (Android) A [Google hesabı] [ 6] doğrulanmış e-posta adresi
-* (iOS) Bir [Apple Developer Program üyeliği] [ 7] ve bir iOS cihazı (Simulator desteklemiyor iOS anında iletme bildirimleri)
-* (Windows) A [Microsoft mağazası Geliştirici hesabınızla] [ 8] ve Windows 10 cihaz
+* (iOS) Bir [Apple Developer Program üyeliği] [ 7] ve bir iOS cihazı (iOS Simulator desteklemiyor anında iletme bildirimleri)
+* (Windows) A [Microsoft Store Geliştirici hesabı] [ 8] ve Windows 10 cihaz
 
 ## <a name="configure-hub"></a>Bildirim hub'ı yapılandırma
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-[Bu bölümdeki adımları gösteren bir video izlemek][9].
+[Bu bölümdeki adımları gösteren bir video izleyin][9].
 
-## <a name="update-the-server-project"></a>Güncelleştirme sunucusu projesi
+## <a name="update-the-server-project"></a>Sunucu projesini güncelleştir
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 ## <a name="add-push-to-app"></a>Cordova uygulamanızı değiştirme
-Apache Cordova uygulaması projenize anında iletme bildirimleri işlemeye hazır olduğundan emin olmak için Cordova itme eklentisi artı platforma özgü anında hizmetlerin yükleyin.
+Apache Cordova uygulaması projenizi anında iletme bildirimleri işlemeye hazır olmasını sağlamak için Cordova anında iletme eklentisi artı herhangi bir platforma özgü anında iletme hizmetlerini yükleyin.
 
-#### <a name="update-the-cordova-version-in-your-project"></a>Projenizdeki Cordova sürümünü güncelleştirin.
-Projenizi 6.1.1 sürümden daha eski bir Apache Cordova sürümü kullanılıyorsa, istemci projesi güncelleştirin. Projeyi güncelleştirmek için aşağıdaki adımları uygulayın: 
+#### <a name="update-the-cordova-version-in-your-project"></a>Projenizi Cordova sürümünü güncelleştirin.
+Projeniz Apache Cordova 6.1.1 sürümünden önceki bir sürümünü kullanıyorsa, istemci projesinin güncelleştirin. Projeyi güncelleştirmek için aşağıdaki adımları uygulayın: 
 
-* Yapılandırma Tasarımcısı'nı açmak için sağ `config.xml`.
+* Yapılandırma tasarımcısını açmak için sağ `config.xml`.
 * Seçin **platformları** sekmesi.
 * İçinde **Cordova CLI** metin kutusunda **6.1.1**. 
-* Projeyi güncelleştirmek için seçin **yapı**ve ardından **yapı çözümü**.
+* Proje güncelleştirmeye seçin **derleme**ve ardından **Çözümü Derle**.
 
 #### <a name="install-the-push-plugin"></a>Anında iletme eklentisini yükleme
-Apache Cordova uygulamaları aygıt ya da ağ yetenekleri yerel işleyemez.  Bu özellikler tarafından sağlanan olan eklentileri üzerinde ya da yayımlanan [npm] [ 10] veya github'da. `phonegap-plugin-push` Eklentisi ağ anında iletme bildirimleri işler.
+Apache Cordova uygulamalarını yerel olarak cihazı veya ağ özellikleri işleyemez.  Bu özellikler tarafından sağlanan olan eklentiler üzerinde ya da yayımlanan [npm] [ 10] veya GitHub üzerinde. `phonegap-plugin-push` Eklentisi ağ anında iletme bildirimleri işler.
 
 Anında iletme eklentisi aşağıdaki yöntemlerle yükleyebilirsiniz:
 
@@ -74,29 +74,29 @@ Anında iletme eklentisi aşağıdaki yöntemlerle yükleyebilirsiniz:
 
 **Gelen Visual Studio içinde:**
 
-1. Çözüm Gezgini'nde Aç `config.xml` dosya. Ardından, **eklentileri** > **özel**. Ardından **Git** yükleme kaynağı olarak. 
+1. Çözüm Gezgini'nde açın `config.xml` dosya. Ardından, **eklentileri** > **özel**. Ardından **Git** yükleme kaynağı olarak. 
     
 2. Girin `https://github.com/phonegap/phonegap-plugin-push` kaynağı olarak.
 
-    ![Çözüm Gezgini'nde config.xml dosyasını açın][img1]
+    ![Çözüm Gezgini'nde Config.cml dosyasını açın][img1]
 
-3. Yükleme kaynağını yanındaki oka seçin.
+3. Yükleme kaynağı yanındaki oku seçin.
 
-4. İçinde **SENDER_ID**, Google Developer konsol projesi için bir sayısal proje kimliği zaten varsa, bunu burada ekleyebilirsiniz. Aksi takdirde, 777777 gibi bir yer tutucu değerini girin. Android hedefliyorsanız, bu değer dosyasında daha sonra güncelleştirebilirsiniz.
+4. İçinde **SENDER_ID**, Google Geliştirici Konsolu proje için bir sayısal proje kimliği zaten varsa, burada ekleyebilirsiniz. Aksi takdirde, 777777 gibi bir yer tutucu değerini girin. Android hedefliyorsanız, bu değer daha sonra config.xml dosyasında güncelleştirebilirsiniz.
 
     >[!NOTE]
-    >Sürüm 2.0.0 itibariyle google services.json Gönderen Kimliği yapılandırmak için projenin kök klasöründe yüklü olması gerekir Daha fazla bilgi için bkz: [yükleme belgeleri.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
+    >2.0.0 sürümü itibarıyla, google-services.json Gönderen Kimliği yapılandırmak için projenizin kök klasöründe yüklü olması gerekir Daha fazla bilgi için [yükleme belgelerine.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
 5. **Add (Ekle)** seçeneğini belirleyin.
 
 Anında iletme eklentisi artık yüklüdür.
 
 #### <a name="install-the-device-plugin"></a>Cihaz eklentisini yükleme
-Anında iletme eklentisini yüklemek için kullandığınız yordamın aynısını izleyin. Cihaz eklentisi çekirdek eklentiler listesinden ekleyin. (Bunu bulmak için seçin **eklentileri** > **çekirdek**.) Platform adı almak için bu eklentinin gerekir.
+Anında iletme eklentisini yüklemek için kullandığınız yordamın aynısını izleyin. Çekirdek eklentiler listesinden cihaz eklentisini ekleyin. (Bulmak için seçin **eklentileri** > **çekirdek**.) Platform adı almak için bu eklentiyi ihtiyacınız vardır.
 
 #### <a name="register-your-device-when-the-application-starts"></a>Uygulama başlatıldığında Cihazınızı kaydedin 
-Başlangıçta, biz bazı çok az kod Android için içerir. Daha sonra iOS veya Windows 10 çalıştırmak için uygulamayı değiştirebilirsiniz.
+Başlangıçta, bazı çok az kod için Android ekliyoruz. Daha sonra uygulamayı iOS veya Windows 10 çalışacak şekilde değiştirebilirsiniz.
 
-1. Bir çağrı ekleyin **registerForPushNotifications** oturum açma işlemi için geri çağırma sırasında. Alternatif olarak, alt kısmındaki ekleyebilirsiniz **onDeviceReady** yöntemi:
+1. Bir çağrı ekleyin **registerForPushNotifications** sırasında oturum açma işlemi için geri çağırma. Alternatif olarak, alt kısmında ekleyebilirsiniz **onDeviceReady** yöntemi:
 
         // Log in to the service.
         client.login('google')
@@ -162,27 +162,27 @@ Başlangıçta, biz bazı çok az kod Android için içerir. Daha sonra iOS veya
 
         pushRegistration.on('error', handleError);
         }
-3. (Android) Önceki kodla `Your_Project_ID` uygulamanızdan için kimliği ile sayısal proje [Google Developer konsolunda][18].
+3. (Android) Önceki kod içinde `Your_Project_ID` uygulamanızdan için kimliği ile sayısal proje [Google Developer Console][18].
 
-## <a name="optional-configure-and-run-the-app-on-android"></a>(İsteğe bağlı) Yapılandırma ve uygulamayı Android çalıştırma
-Android için anında iletme bildirimleri etkinleştirmek için bu bölümü tamamlayın.
+## <a name="optional-configure-and-run-the-app-on-android"></a>(İsteğe bağlı) Yapılandırma ve uygulama Android'de çalıştırma
+Android için anında iletme bildirimlerini etkinleştirmek için bu bölümü tamamlayın.
 
-#### <a name="enable-gcm"></a>Firebase etkinleştirmek bulut Mesajlaşma
-Google Android platformu başlangıçta hedeflediğiniz beri Firebase Cloud Messaging etkinleştirmeniz gerekir.
+#### <a name="enable-gcm"></a>Etkinleştirme Firebase Cloud Messaging
+Google Android platformu başlangıçta hedeflediğiniz olduğundan, Firebase Cloud Messaging etkinleştirmeniz gerekir.
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-#### <a name="configure-backend"></a>Mobil uygulama arka ucu FCM kullanarak anında iletme istekleri göndermek için yapılandırma
+#### <a name="configure-backend"></a>FCM kullanarak anında iletme istekleri göndermek için mobil uygulama arka ucu yapılandırın
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
-#### <a name="configure-your-cordova-app-for-android"></a>Android için Cordova uygulamanızı yapılandırma
-Cordova uygulamanızı config.xml açın. Yerine `Your_Project_ID` uygulamanızdan için kimliği ile sayısal proje [Google Developer konsolunda][18].
+#### <a name="configure-your-cordova-app-for-android"></a>Android için Cordova uygulamanızı yapılandırın
+Cordova uygulamanızı config.xml açın. Ardından değiştirin `Your_Project_ID` uygulamanızdan için kimliği ile sayısal proje [Google Developer Console][18].
 
         <plugin name="phonegap-plugin-push" version="1.7.1" src="https://github.com/phonegap/phonegap-plugin-push.git">
             <variable name="SENDER_ID" value="Your_Project_ID" />
         </plugin>
 
-İndex.js açın. Sayısal proje kimliğinizi kullanmak için kodu güncelleştirme
+İndex.js açın. Ardından, sayısal proje kimliği kullanmak için kodu güncelleştirin
 
         pushRegistration = PushNotification.init({
             android: { senderID: 'Your_Project_ID' },
@@ -190,117 +190,117 @@ Cordova uygulamanızı config.xml açın. Yerine `Your_Project_ID` uygulamanızd
             wns: {}
         });
 
-#### <a name="configure-device"></a>USB hata ayıklama için Android Cihazınızı yapılandırın
-Android Cihazınızı uygulamanıza dağıtmadan önce USB hata ayıklamayı etkinleştirmek gerekir. Android telefonunuzda aşağıdaki adımları uygulayın:
+#### <a name="configure-device"></a>USB hata ayıklama için Android Cihazınızı yapılandırma
+Android cihazınıza uygulamanızı dağıtabilmeniz için önce USB hata ayıklamayı etkinleştirmek gerekir. Android telefonunuzda aşağıdaki adımları uygulayın:
 
-1. Git **ayarları** > **telefon hakkında**. ' A dokunun **yapı numarası** geliştirici modunu (yaklaşık yedi defa) etkinleştirilene kadar.
-2. Geri **ayarları** > **Geliştirici seçenekleri**, etkinleştirme **USB hata ayıklama**. Ardından Android telefonunuz bir USB kablosu ile geliştirme bilgisayarınıza bağlayın.
+1. Git **ayarları** > **telefon hakkında**. Ardından dokunun **yapı numarası** Geliştirici modu (yaklaşık yedi kat) etkinleştirilene kadar.
+2. Geri **ayarları** > **Geliştirici seçenekleri**, etkinleştirme **USB hata ayıklamanın**. Ardından Android telefonunuz geliştirme PC bir USB kablosu ile bağlayın.
 
-Bu Android 6.0 (Marshmallow) çalıştıran bir Google Nexus 5 X aygıtı kullanarak test. Ancak, tüm modern Android sürüm arasında ortak tekniklerdir.
+Biz Android 6.0 (Marshmallow) çalıştıran bir Google Nexus 5 X cihaz kullanarak test. Ancak, herhangi bir modern Android yayın arasında teknikleri yaygındır.
 
 #### <a name="install-google-play-services"></a>Google Play hizmetlerini yükleyin
-Anında iletme eklentisi Android Google Play Hizmetleri'nin anında iletme bildirimleri için kullanır.
+Android Google Play Hizmetleri için anında iletme bildirimleri gönderme eklenti kullanır.
 
-1. Visual Studio'da seçin **Araçları** > **Android** > **Android SDK Manager**. Ardından **ek özellikler** klasör. Her biri aşağıdaki SDK'ları yüklendiğinden emin olmak için uygun onay kutularını işaretleyin:
+1. Visual Studio'da **Araçları** > **Android** > **Android SDK Yöneticisi**. Ardından **ek özellikler** klasör. Her biri aşağıdaki Sdk'lardan yüklendiğinden emin olmak için uygun kutuları işaretleyin:
 
-   * Android 2.3 veya daha yüksek
-   * Google depo düzeltme 27 veya daha yüksek
-   * Google Play hizmetlerini 9.0.2 veya üzeri
+   * Android 2.3 veya üstü
+   * Google deposu düzeltme 27 veya daha yüksek
+   * Google Play Services 9.0.2 veya üstü
 
-2. Seçin **yükleme paketleri**. Daha sonra yüklemesinin tamamlanması için bekleyin.
+2. Seçin **yükleme paketleri**. Ardından yüklemenin tamamlanmasını bekleyin.
 
-Geçerli gerekli kitaplıklar listelenen [phonegap eklentiyi itme yükleme belgelerini][19].
+Geçerli gerekli kitaplıkları listelenen [modul phonegap plugin push yükleme belgelerine][19].
 
-#### <a name="test-push-notifications-in-the-app-on-android"></a>Android uygulamasına anında iletme bildirimlerini test
-Uygulamayı çalıştırarak ve öğeleri Todoıtem tabloda ekleme şimdi test anında iletme bildirimleri olabilir. Aynı arka uç kullandığınız sürece, aynı aygıttan veya ikinci bir cihaz test edebilirsiniz. Android platformunda Cordova uygulamanızı aşağıdaki yollardan biriyle test edin:
+#### <a name="test-push-notifications-in-the-app-on-android"></a>Android uygulamasında test anında iletme bildirimleri
+Şimdi test anında iletme bildirimleri, uygulamayı çalıştırarak ve öğeleri Todoıtem tablosu ekleme yapabilirsiniz. Aynı arka uç kullanmakta olduğunuz sürece, aynı cihaza ikinci bir CİHAZDAN veya test edebilirsiniz. Cordova uygulamanızı Android platformunda aşağıdaki yollardan biriyle test edin:
 
-* *Bir fiziksel cihaz üzerindeki:* geliştirme bilgisayarınıza bir USB kablosu ile Android Cihazınızı ekleyin.  Yerine **Google Android öykünücüsü**seçin **aygıt**. Visual Studio aygıta uygulama dağıtır ve uygulamayı çalıştırır. Cihazda uygulama ile etkileşim kurabilirsiniz.
+* *Fiziksel bir cihazda:* geliştirme bilgisayarınıza bir USB kablosu ile Android Cihazınızı ekleme.  Yerine **Google Android öykünücüsü**seçin **cihaz**. Visual Studio, cihaza uygulama dağıtır ve uygulamayı çalıştırır. Cihazdaki uygulama ile etkileşim kurabilir.
 
-  Ekran paylaşımı uygulamalar gibi [Mobizen] [ 20] Android uygulamaları geliştirmeye yardımcı olabilir. Mobizen bilgisayarınıza bir web tarayıcısı Android ekrana projeleri.
+  Ekran paylaşımı gibi uygulamalar [Mobizen] [ 20] Android uygulamaları geliştirmenize yardımcı olabilir. Mobizen Bilgisayarınızda bir web tarayıcısı Android ekrana yansıtıyor.
 
-* *Android öykünücüsünde üzerinde:* bir öykünücü kullanırken gerekli olan ek yapılandırma adımları vardır.
+* *Bir Android emulator'da:* bir öykünücü kullanılırken gerekli olan ek yapılandırma adımları vardır.
 
-    Google API'leri hedef olarak ayarlanmış Android sanal cihazı (AVD) Yöneticisi'nde gösterildiği gibi sanal cihaza dağıttığınız emin olun.
+    Android sanal cihazı (AVD) Yöneticisi'nde gösterildiği Google API'leri hedef olarak ayarlanmış olan bir sanal cihaza dağıttığınız emin olun.
 
     ![Android sanal cihaz Yöneticisi](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-    Daha hızlı x86 kullanmak istiyorsanız öykünücüsü, [HAXM sürücüyü yüklemek][11]ve ardından öykünücü kullanmak için yapılandırın.
+    Daha hızlı x86 kullanmak istiyorsanız öykünücüsü [HAXM sürücüsü yüklemek][11]ve ardından öykünücü kullanmak için yapılandırın.
 
-    Bir Google hesabı Android aygıtına seçerek eklemek **uygulamaları** > **ayarları** > **hesabı eklemek**. Ardından yönergeleri izleyin.
+    Bir Google hesabı seçerek Android cihaza ekleyin **uygulamaları** > **ayarları** > **Hesap Ekle**. Ardından yönergeleri izleyin.
 
-    ![Android cihazına bir Google hesabı Ekle](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
+    ![Android cihaza bir Google hesabı ekleme](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
 
-    Önce Yapılacaklar listesi uygulaması gibi çalıştırabilir ve yeni bir Yapılacaklar öğesi ekleyin. Bu süre, bildirim alanında bir bildirim simgesi görüntülenir. Tam metin bildirimi görüntülemek için bildirim çekmecesini açabilirsiniz.
+    Önce Yapılacaklar listesi uygulaması olarak çalıştırmak ve yeni bir todo öğesini ekleyin. Bu kez, bildirim alanında bir bildirim simgesi görüntülenir. Bildirimin tam metin görüntülemek için bildirim çekmecesini açabilirsiniz.
 
-    ![Görünüm bildirim](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
+    ![Görünüm bildirimi](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
 
 ## <a name="optional-configure-and-run-on-ios"></a>(İsteğe bağlı) Yapılandırma ve İos'ta çalıştırma
-Bu bölümde, iOS cihazlarda Cordova projesi çalıştırmaya yöneliktir. İOS aygıtları ile çalışıyorsanız değil, bu bölümü atlayabilirsiniz.
+Bu bölümde, iOS cihazlarında Cordova projesi çalıştırmaya yöneliktir. İOS cihazları ile çalışmayan, bu bölümü atlayabilirsiniz.
 
-#### <a name="install-and-run-the-ios-remote-build-agent-on-a-mac-or-cloud-service"></a>Yükleme ve bir Mac veya Bulut hizmetinde iOS uzak derleme Aracısı'nı çalıştırın
-Visual Studio kullanarak iOS Cordova uygulaması çalıştırmadan önce içinde adımlarını [iOS Kurulum Kılavuzu] [ 12] yükleyip uzak derleme Aracısı'nı çalıştırın.
+#### <a name="install-and-run-the-ios-remote-build-agent-on-a-mac-or-cloud-service"></a>Yükleme ve bir Mac veya Bulut hizmeti iOS uzak derleme Aracısı'nı çalıştırın
+Visual Studio kullanarak iOS üzerinde bir Cordova uygulaması çalıştırmadan önce adımları inceleyin [iOS Kurulum Kılavuzu] [ 12] yükleme ve uzak derleme Aracısı'nı çalıştırın.
 
-İOS için uygulama oluşturduğunuzdan emin olun. Kurulum Kılavuzu'ndaki adımları, Visual Studio'dan iOS için uygulama oluşturmak için gereklidir. Mac yoksa, iOS için Uzak derleme aracısı MacInCloud gibi bir hizmet kullanarak oluşturabilirsiniz. Daha fazla bilgi için bkz: [iOS uygulamanızı bulutta çalışan][21].
+İOS için uygulama oluşturabileceğinizi emin olun. Kurulum Kılavuzu'ndaki adımları Visual Studio'dan iOS için uygulama oluşturmak için gereklidir. Bir Mac yoksa, iOS için Macıncloud gibi bir hizmet üzerindeki uzak derleme aracısını kullanarak oluşturabilirsiniz. Daha fazla bilgi için [iOS uygulamanızı bulutta çalıştırma][21].
 
 > [!NOTE]
-> XCode 7 veya daha büyük İos'ta anında iletme eklentisi kullanmak için gereklidir.
+> XCode 7 veya üst sürümü, İos'ta anında iletme eklentisini kullanmak için gereklidir.
 
-#### <a name="find-the-id-to-use-as-your-app-id"></a>Uygulama Kimliğiniz kullanmak üzere bir kimlik bulunamıyor
-Anında iletme bildirimleri, Cordova uygulamanızı açık Config.XML'de için uygulamanızı kaydetme önce Bul `id` öznitelik değeri pencere öğesinde ve daha sonra kullanmak üzere kopyalayın. Aşağıdaki XML dosyasında kimliğidir `io.cordova.myapp7777777`.
+#### <a name="find-the-id-to-use-as-your-app-id"></a>Uygulama Kimliğinize kullanmak üzere bir kimlik bulunamadı
+Uygulamanız için anında iletme bildirimleri, Cordova uygulamanızı açık Config.XML'de kaydetmeden önce Bul `id` öznitelik değeri pencere öğesinde bulunan ve daha sonra kullanmak üzere kopyalayın. Aşağıdaki XML'de Kimliğin şöyle olduğunu `io.cordova.myapp7777777`.
 
         <widget defaultlocale="en-US" id="io.cordova.myapp7777777"
           version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="http://www.w3.org/ns/widgets"
             xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
 
-Apple Geliştirici Portalı üzerinde bir uygulama kimliği oluşturduğunuzda, daha sonra bu tanımlayıcı kullanın. Farklı bir uygulama kimliği Geliştirici portalında oluşturursanız, daha sonra Bu öğreticide birkaç ek adımlar atmanız gerekir. Pencere öğesi kimliği Geliştirici Portalı Uygulama Kimliğinin eşleşmesi gerekir.
+Daha sonra Apple'nın Geliştirici Portalı'nda bir uygulama kimliği oluşturduğunuzda bu tanımlayıcıyı kullanın. Farklı bir uygulama kimliği Geliştirici portalında oluşturursanız, bu öğreticinin ilerleyen bölümlerinde birkaç ek adımlar uygulaması gerekir. Pencere öğesi kimliği, geliştirici portalında uygulama Kimliğinin eşleşmesi gerekir.
 
-#### <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>Apple Geliştirici portalındaki anında iletme bildirimleri için uygulamanızı kaydetmeniz
+#### <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>Apple'nın Geliştirici portalında anında iletme bildirimleri için uygulamayı kaydetme
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
 [Benzer adımları gösteren bir video izleyin](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-5-Set-up-apns-for-push)
 
-#### <a name="configure-azure-to-send-push-notifications"></a>Anında iletme bildirimleri göndermek için Azure yapılandırma
+#### <a name="configure-azure-to-send-push-notifications"></a>Anında iletme bildirimleri göndermek için Azure'ı yapılandırma
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-#### <a name="verify-that-your-app-id-matches-your-cordova-app"></a>Uygulama Kimliğiniz Cordova uygulamanızı eşleştiğini doğrulayın
-Apple Geliştirici hesabınızda zaten oluşturulmuş uygulama kimliği dosyasında pencere öğesinin kimliği eşleşiyorsa, bu adımı atlayabilirsiniz. Kimlikler eşleşmezse, ancak aşağıdaki adımları uygulayın:
+#### <a name="verify-that-your-app-id-matches-your-cordova-app"></a>Uygulama Kimliğinize Cordova uygulamanızı eşleştiğini doğrulayın
+Apple Geliştirici hesabınızda önceden oluşturulmuş bir uygulama kimliği config.xml dosyasında pencere öğesinin kimliği eşleşiyorsa, bu adımı atlayabilirsiniz. Kimlikler eşleşmezse, ancak aşağıdaki adımları uygulayın:
 
-1. Platformlar klasörü projenizden silin.
+1. Platforms klasörünün projenizden silin.
 2. Eklenti klasörü projenizden silin.
 3. Node_modules klasörü projenizden silin.
-4. Dosyasında Apple Geliştirici hesabınızda oluşturduğunuz uygulama Kimliğini kullanmak için pencere öğesinin kimliği özniteliği güncelleştirin.
+4. ID özniteliği pencere öğesi öğenin Apple Geliştirici hesabınızı oluşturduğunuz uygulama Kimliğini kullanmanız için Config.cml dosyasını güncelleştirin.
 5. Projenizi yeniden derleyin.
 
-##### <a name="test-push-notifications-in-your-ios-app"></a>İOS uygulamanızı test anında iletme bildirimleri
-1. Visual Studio'da olduğundan emin olun **iOS** dağıtım hedefi olarak seçilir. Ardından **aygıt** anında iletme bildirimleri, bağlı iOS Cihazınızda çalıştırmak için.
+##### <a name="test-push-notifications-in-your-ios-app"></a>Test iOS uygulamanıza anında iletme bildirimleri
+1. Visual Studio'da emin **iOS** dağıtım hedefi olarak seçilir. Ardından **cihaz** bağlı iOS Cihazınızda anında iletme bildirimleri çalıştırılacak.
 
-    İTunes PC'NİZLE bağlı bir iOS cihazına anında iletme bildirimleri çalıştırabilirsiniz. İOS simülatörü'nü anında iletme bildirimlerini desteklemiyor.
+    Anında iletme bildirimleri, iOS cihazında iTunes ile bilgisayarınıza bağlı çalıştırabilirsiniz. İOS simülatörü anında iletme bildirimlerini desteklemiyor.
 
-2. Seçin **çalıştırmak** düğmesini veya **F5** projeyi oluşturun ve uygulamayı bir iOS aygıtı başlatmak için Visual Studio'da. Ardından **Tamam** anında iletme bildirimleri kabul etmek için.
+2. Seçin **çalıştırma** düğmesini veya **F5** Visual Studio projeyi oluşturun ve uygulamayı bir iOS cihazının başlatın. Ardından **Tamam** anında iletme bildirimleri kabul etmek için.
 
    > [!NOTE]
-   > Uygulamayı anında iletme bildirimleri için ilk çalıştırma sırasında onay ister.
+   > Uygulamayı ilk çalıştırma sırasında anında iletme bildirimleri için onay ister.
 
-3. Uygulamasında bir görev yazın ve ardından artı seçin **(+)** simgesi.
-4. Bir bildirim alındı doğrulayın. Ardından **Tamam** bildirim kapatılamadı.
+3. Uygulamasında, bir görev yazın ve ardından artı seçin **(+)** simgesi.
+4. Bir bildirim alındı doğrulayın. Ardından **Tamam** bildirimi kapatmak için.
 
-## <a name="optional-configure-and-run-on-windows"></a>(İsteğe bağlı) Yapılandırma ve Windows'ta çalıştırma
-Bu bölümde, Apache Cordova uygulaması projesi (PhoneGap itme eklentisi üzerinde Windows 10 desteklenir) Windows 10 cihazlarda çalışan açıklar. Windows cihazlarıyla çalışmıyorsanız, bu bölümü atlayabilirsiniz.
+## <a name="optional-configure-and-run-on-windows"></a>(İsteğe bağlı) Yapılandırma ve Windows üzerinde çalıştırma
+Bu bölümde, Apache Cordova uygulaması projesi (PhoneGap anında iletme eklentisi, Windows 10'da desteklenir), Windows 10 cihazlarda çalıştırmak açıklar. Windows cihazlarıyla çalışmıyorsanız, bu bölümü atlayabilirsiniz.
 
-#### <a name="register-your-windows-app-for-push-notifications-with-wns"></a>Windows uygulamanızı anında iletme bildirimleri için WNS ile kaydetme
-Visual Studio'da depolama seçenekleri kullanmak için bir Windows hedef çözüm platformları gibi listesinden **Windows x64** veya **Windows x86**. (Kaçının **Windows AnyCPU** anında iletme bildirimleri için.)
+#### <a name="register-your-windows-app-for-push-notifications-with-wns"></a>WNS ile anında iletme bildirimleri için Windows uygulamanızı kaydetme
+Visual Studio'da Store seçenekleri kullanmak için bir Windows hedef çözüm platformları gibi listesinden **Windows x64** veya **Windows x86**. (Önlemek **Windows AnyCPU** anında iletme bildirimleri için.)
 
 [!INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
 
-[Benzer adımları gösteren bir videoyu izleyin][13]
+[Benzer adımları gösteren bir video izleyin][13]
 
 #### <a name="configure-the-notification-hub-for-wns"></a>WNS için bildirim hub'ı yapılandırma
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-#### <a name="configure-your-cordova-app-to-support-windows-push-notifications"></a>Windows anında iletme bildirimlerini desteklemek için Cordova uygulamanızı yapılandırma
-Yapılandırma Tasarımcısı'nı sağ tıklayarak açın **config.xml**. Ardından **Görünüm Tasarımcısı**. Ardından, **Windows** sekmesini tıklatın ve ardından **Windows 10** altında **Windows hedef sürüm**.
+#### <a name="configure-your-cordova-app-to-support-windows-push-notifications"></a>Windows anında iletme bildirimlerini desteklemek için Cordova uygulamanızı yapılandırın
+Yapılandırma tasarımcısını açın, sağ tıklayarak **config.xml**. Ardından **Görünüm Tasarımcısı**. Ardından, **Windows** sekmesine tıklayın ve ardından **Windows 10** altında **Windows hedef sürümü**.
 
-Varsayılan (hata ayıklama) derlemeleriniz anında iletme bildirimlerini desteklemek için build.json dosyasını açın. Ardından, hata ayıklama yapılandırmasını "yayın" yapılandırma kopyalayın.
+Varsayılan (hata ayıklama) yapılarınızı anında iletme bildirimlerini desteklemek için Build.JSON dosyası dosyasını açın. Ardından, hata ayıklama yapılandırması için "Sürüm" yapılandırmasını kopyalayın.
 
         "windows": {
             "release": {
@@ -309,7 +309,7 @@ Varsayılan (hata ayıklama) derlemeleriniz anında iletme bildirimlerini destek
             }
         }
 
-Güncelleştirme tamamlandıktan sonra aşağıdaki kodu build.json dosyası içermelidir:
+Güncelleştirme tamamlandıktan sonra aşağıdaki kodu Build.JSON dosyası dosya içermesi gerekir:
 
     "windows": {
         "release": {
@@ -322,26 +322,26 @@ Güncelleştirme tamamlandıktan sonra aşağıdaki kodu build.json dosyası iç
             }
         }
 
-Uygulamayı derleyin ve hata sahip olduğunuzu doğrulayın. İstemci uygulamanızın artık Mobile Apps arka ucundan bildirim kaydetmelisiniz. Bu bölümde, çözümünüz içinde her Windows projesi için tekrarlayın.
+Uygulama derleme ve hata olup olmadığını doğrulayın. İstemci uygulamanızın artık Mobile Apps arka ucu gelen bildirimlere kaydolması. Bu bölümde, çözümünüzdeki her Windows projesi için tekrarlayın.
 
 #### <a name="test-push-notifications-in-your-windows-app"></a>Windows uygulamanızı test anında iletme bildirimleri
-Visual Studio'da Windows platformu aşağıdaki gibi dağıtım hedefteki seçildiğinden emin olun **Windows x64** veya **Windows x86**. Windows 10 Visual Studio barındıran Bilgisayara uygulamayı çalıştırmak için tercih **yerel makine**.
+Visual Studio'da bir Windows platformu dağıtım hedefi gibi seçili olduğundan emin olun **Windows x64** veya **Windows x86**. Visual Studio barındırma bir Windows 10 bilgisayarı üzerinde uygulamayı çalıştırmak için tercih **yerel makine**.
 
-1. Seçin **çalıştırmak** düğmesine projeyi oluşturun ve uygulamayı başlatın.
+1. Seçin **çalıştırma** düğmesi projeyi oluşturun ve uygulamayı başlatın.
 
-2. Uygulamasındaki yeni todoıtem için bir ad yazın ve ardından artı seçin **(+)** eklemek için simge.
+2. Uygulamada, yeni bir todoıtem için'bir ad yazın ve ardından artı seçin **(+)** simgesi ekleyin.
 
-Öğe eklendiğinde, bir bildirim alındığında doğrulayın.
+Bir öğe eklendiğinde bir bildiriminin alındığını doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [bildirim hub'ları] [ 17] anında iletme bildirimleri hakkında bilgi edinmek için.
-* Zaten yapmadıysanız, Öğreticisi tarafından devam [kimlik doğrulaması ekleme] [ 14] Apache Cordova uygulamanıza.
+* Hakkında bilgi edinin [Notification hubs'ı] [ 17] anında iletme bildirimleri hakkında bilgi edinmek için.
+* Zaten yapmadıysanız, öğreticiyle devam [kimlik doğrulaması ekleme] [ 14] Apache Cordova uygulamanıza.
 
-Aşağıdaki SDK'ları kullanmayı öğrenin:
+Aşağıdaki Sdk'lardan kullanmayı öğrenin:
 
 * [Apache Cordova SDK'sı][15]
 * [ASP.NET sunucusu SDK][1]
-* [Node.js sunucusu SDK][16]
+* [Node.js sunucu SDK'sı][16]
 
 <!-- Images -->
 [img1]: ./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png

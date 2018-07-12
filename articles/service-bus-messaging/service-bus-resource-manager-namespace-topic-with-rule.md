@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus konu aboneliği oluşturun ve Azure Resource Manager şablonu kullanarak kural | Microsoft Docs
-description: Hizmet veri yolu ad alanı konu, aboneliği ve Azure Resource Manager şablonu kullanarak kural oluşturma
+description: Konu aboneliği ve Azure Resource Manager şablonu kullanarak bir kural ile bir Service Bus ad alanı oluşturma
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/11/2018
 ms.author: sethm
-ms.openlocfilehash: 50fd07e4c979cfb415589ba721adb7998cfbe7bd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: 4650bb3b24172e2c649a67f52e37294fb1bb7e4f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410718"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38314416"
 ---
-# <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Hizmet veri yolu ad alanı konu, aboneliği ve Azure Resource Manager şablonu kullanarak kural oluşturma
+# <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Konusu, aboneliği ve kuralı bir Azure Resource Manager şablonu kullanarak bir Service Bus ad alanı oluşturma
 
-Bu makale bir hizmet veri yolu ad alanı bir konu, abonelik, kural (Filtresi) oluşturur ve bir Azure Resource Manager şablonu kullanmayı gösterir. Makalede nasıl belirtmek için hangi kaynağın dağıtılan ve ne zaman dağıtım yürütülen parametreler tanımlamak nasıl belirtilen açıklanmaktadır. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz
+Bu makalede, bir konu, aboneliği ve kuralı (filtre) ile bir Service Bus ad alanı oluşturan bir Azure Resource Manager şablonunun nasıl kullanılacağı gösterilmektedir. Makalede nasıl belirtmek için hangi kaynaklara dağıtılır ve parametrelerin nasıl dağıtıldığının ve dağıtım yürütülürken belirtilen açıklanmaktadır. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz
 
 Şablon oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
 
-Adlandırma kuralları Azure kaynaklarını uygulama ve desenleri hakkında daha fazla bilgi için bkz: [Azure kaynakları için adlandırma kurallarını önerilen][Recommended naming conventions for Azure resources].
+Azure kaynakları adlandırma kuralları hakkında uygulama ve desenler hakkında daha fazla bilgi için bkz. [Azure kaynakları için önerilen adlandırma kuralları][Recommended naming conventions for Azure resources].
 
-Tam şablon için bkz: [konu, abonelik ve kuralı ile Service Bus ad alanı] [ Service Bus namespace with topic, subscription, and rule] şablonu.
+Tam şablon için bkz: [konusu, aboneliği ve kuralı ile Service Bus ad alanı] [ Service Bus namespace with topic, subscription, and rule] şablonu.
 
 > [!NOTE]
 > Aşağıdaki Azure Resource Manager şablonları, yükleme ve dağıtım için kullanılabilir.
 > 
-> * [Kuyruk ve yetkilendirme kuralı ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Sıra ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-queue.md)
-> * [Hizmet veri yolu ad alanı oluşturma](service-bus-resource-manager-namespace.md)
-> * [Hizmet veri yolu ad alanı konu ve abonelik oluşturma](service-bus-resource-manager-namespace-topic.md)
+> * [Kuyruk ve yetkilendirme kuralı ile bir Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Kuyruk ile bir Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-queue.md)
+> * [Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace.md)
+> * [Konu ve abonelik ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-topic.md)
 > 
-> Son şablonları denetlemek için ziyaret edin [Azure hızlı başlangıç şablonlarını] [ Azure Quickstart Templates] Galerisi ve Service Bus arayın.
+> En yeni şablonları denetlemek için ziyaret [Azure hızlı başlangıç şablonları] [ Azure Quickstart Templates] galeri ve Service Bus arayın.
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Ne dağıtacaksınız?
 
-Bu şablon kullanılarak konu, abonelik ve kural (Filtresi) içeren bir hizmet veri yolu ad dağıtın.
+Bu şablonu kullanarak bir Service Bus ad alanı konusu, aboneliği ve kuralı (filtre) ile dağıtın.
 
-[Service Bus konuları ve abonelikleri](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) iletişim, bir çok form sağladığınız bir *Yayınla/Abone ol* düzeni. Bunun yerine konular ve abonelikler, dağıtılmış uygulamanın bileşenleri birbirleriyle doğrudan, iletişim kurmazlar kullanıldığında bir aracı gibi davranan bir konu aracılığıyla iletileri değiş. Bir konu başlığına bir abonelik konu başlığına gönderilen iletilerin kopyalarını alan sanal kuyruğa benzer. Abonelik etkinleştirir filtre, bir konu başlığına gönderilen iletilerden hangilerinin belirtmek için belirli konu aboneliği içinde görüntülenmelidir.
+[Service Bus konuları ve abonelikleri](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) bir-çok form iletişim, sağladığınız bir *yayımlama/abone olma* deseni. Bunun yerine konuları ve Abonelikleri, dağıtılmış uygulamanın bileşenleri birbirleriyle doğrudan, iletişim kurmazlar kullanırken, aracı olarak davranan bir konu aracılığıyla iletileri değiş. Bir konu başlığına bir abonelik konu başlığına gönderilen iletilerin kopyaların alan sanal kuyruğa benzer. Filtre abonelik etkinleştirir, konu başlığına gönderilen iletilerden hangilerinin belirtmek için bir özel konu başlığı aboneliğinde görüntülenmesi gerekir.
 
-## <a name="what-are-rules-filters"></a>Kuralları (filtreleri) nelerdir?
+## <a name="what-are-rules-filters"></a>(Filtreler) kuralları nelerdir?
 
-Birçok senaryoda belirli özelliklere sahip iletileri farklı şekillerde işlenmelidir. Bu özel işleme etkinleştirmek için belirli özelliklere sahip ve bu değişiklikleri gerçekleştirmek iletileri bulmak için abonelik yapılandırabilirsiniz. Hizmet veri yolu abonelikleri konu başlığına gönderilen tüm iletiler görmenize rağmen bu iletiler bir kısmı yalnızca sanal abonelik kuyruğuna kopyalayabilirsiniz. Bu, abonelik filtreleri kullanılarak gerçekleştirilir. Kurallar (filtreleri) hakkında daha fazla bilgi için bkz: [kurallar ve Eylemler](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+Birçok senaryoda belirli özelliklere sahip iletileri farklı yollarla işlenmesi gerekir. Bu özel işlemeyi etkinleştirmek için belirli özelliklere sahip ve ardından bu değişiklikleri uygulamak iletilerini bulmak için abonelik yapılandırabilirsiniz. Service Bus abonelikleri konu başlığına gönderilen tüm iletilerin görmenize karşın, yalnızca sanal abonelik kuyruğuna iletiler kümesini kopyalayabilirsiniz. Bu abonelik filtreleri kullanarak gerçekleştirilir. (Filtreler) kuralları hakkında daha fazla bilgi için bkz: [kurallar ve Eylemler](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıklayın:
 
@@ -59,12 +59,12 @@ Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıkla
 
 ## <a name="parameters"></a>Parametreler
 
-Azure Resource Manager ile şablonu dağıtıldığında belirtmek istediğiniz değerleri için parametreleri tanımlamanız gerekir. Şablon, tüm parametre değerlerini içeren `Parameters` adlı bir bölüm içerir. Dağıtmakta olduğunuz projeye veya dağıtım yaptığınız ortama göre değişen değerler için bir parametre tanımlamanız gerekir. Her zaman aynı kalan değerler için parametre tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır.
+Azure Resource Manager ile şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini tanımlamanız gerekir. Şablon, tüm parametre değerlerini içeren `Parameters` adlı bir bölüm içerir. Dağıtmakta olduğunuz projeye veya dağıtım yaptığınız ortama göre değişen değerler için bir parametre tanımlamanız gerekir. Her zaman aynı kalan değerler için parametre tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır.
 
 Şablon aşağıdaki parametreleri tanımlar:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-Oluşturmak için hizmet veri yolu ad alanı adı.
+Oluşturmak için Service Bus ad alanı adı.
 
 ```json
 "serviceBusNamespaceName": {
@@ -73,7 +73,7 @@ Oluşturmak için hizmet veri yolu ad alanı adı.
 ```
 
 ### <a name="servicebustopicname"></a>serviceBusTopicName
-Hizmet veri yolu ad alanında oluşturulan konu adı.
+Service Bus ad alanında oluşturulan konu adı.
 
 ```json
 "serviceBusTopicName": {
@@ -82,7 +82,7 @@ Hizmet veri yolu ad alanında oluşturulan konu adı.
 ```
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
-Hizmet veri yolu ad alanında oluşturulan abonelik adı.
+Service Bus ad alanında oluşturulan abonelik adı.
 
 ```json
 "serviceBusSubscriptionName": {
@@ -90,7 +90,7 @@ Hizmet veri yolu ad alanında oluşturulan abonelik adı.
 }
 ```
 ### <a name="servicebusrulename"></a>serviceBusRuleName
-Hizmet veri yolu ad alanında oluşturulan rule(filter) adı.
+Service Bus ad alanında oluşturulan rule(filter) adı.
 
 ```json
    "serviceBusRuleName": {
@@ -98,7 +98,7 @@ Hizmet veri yolu ad alanında oluşturulan rule(filter) adı.
   }
 ```
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-Şablon hizmet veri yolu API'sini sürümü.
+Hizmet veri yolu API'sini şablon sürümü.
 
 ```json
 "serviceBusApiVersion": { 
@@ -109,7 +109,7 @@ Hizmet veri yolu ad alanında oluşturulan rule(filter) adı.
        }
 ```
 ## <a name="resources-to-deploy"></a>Dağıtılacak kaynaklar
-Standart bir hizmet veri yolu ad alanı türü oluşturur **ileti**, konu ve abonelik ve kuralları ile.
+Standart bir Service Bus ad alanı türü oluşturur **Mesajlaşma**, konu ve abonelik kuralları.
 
 ```json
  "resources": [{
@@ -146,8 +146,10 @@ Standart bir hizmet veri yolu ad alanı türü oluşturur **ileti**, konu ve abo
                         "[parameters('serviceBusSubscriptionName')]"
                     ],
                     "properties": {
-                        "filter": {
-                            "sqlExpression": "StoreName = 'Store1'"
+                        "filterType": "SqlFilter",
+                        "sqlFilter": {
+                            "sqlExpression": "StoreName = 'Store1'",
+                            "requiresPreprocessing": "false"
                         },
                         "action": {
                             "sqlExpression": "set FilterTag = 'true'"
@@ -175,11 +177,11 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Oluşturulan ve Azure Resource Manager kullanarak kaynakları dağıtılan göre bu kaynakları Bu makaleler görüntüleyerek yönetmeyi öğrenin:
+Oluşturulan ve dağıtılan kaynakları Azure Resource Manager kullanarak göre bu kaynakları Bu makaleler görüntüleyerek yönetmeyi öğrenin:
 
-* [Azure hizmet veri yolu yönetme](service-bus-management-libraries.md)
+* [Azure Service Bus'ı yönetme](service-bus-management-libraries.md)
 * [Service Bus PowerShell ile yönetme](service-bus-manage-with-ps.md)
-* [Hizmet veri yolu Gezgini ile Service Bus kaynaklarını yönetme](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Service Bus Explorer ile Service Bus kaynaklarını yönetme](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus

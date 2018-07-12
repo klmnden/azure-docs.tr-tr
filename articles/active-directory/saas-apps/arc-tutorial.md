@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 9decab5c35cda03e8532c48654203be7d95a5801
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: c1bf5ba68d8242a0ef0831987ac6fd041c62ace9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858852"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969376"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Öğretici: Azure Active Directory Tümleştirme ile yayımlama yay - SSO
 
@@ -149,7 +149,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     1. Tıklayın **Tamam**
 
     > [!NOTE]
-    > Burada **grupları** özniteliği ile eşlendi **user.assignedroles**. Bu grup adlarını uygulama yeniden eşlemek için Azure AD'de oluşturulan özel rolleridir. Daha fazla rehberliğe bulabilirsiniz [burada](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) Azure AD'de özel roller oluşturma. 
+    > Burada **grupları** özniteliği ile eşlendi **user.assignedroles**. Bu grup adlarını uygulama yeniden eşlemek için Azure AD'de oluşturulan özel rolleridir. Daha fazla rehberliğe bulabilirsiniz [burada](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) Azure AD'de özel roller oluşturma. 
 
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 

@@ -1,31 +1,31 @@
 ---
-title: Azure Resource Manager şablonu kaynaklarını | Microsoft Docs
-description: Bildirim temelli JSON sözdizimini kullanarak Azure Resource Manager şablonları kaynakları bölümünde açıklanır.
+title: Azure Resource Manager şablonu kaynakları | Microsoft Docs
+description: Bildirim temelli JSON söz dizimini kullanarak Azure Resource Manager şablonları, kaynaklar bölümü açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 12dc5921cc1977b53f0457d89537193eadded188
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1619f3bfdf49820ec529947ea02d1602a7b2aa8c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723836"
 ---
-# <a name="resources-section-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları kaynakları bölümü
+# <a name="resources-section-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, kaynaklar bölümü
 
-Kaynaklar bölümünde dağıtılan veya güncelleştirilen kaynakları tanımlayın. Sağ değerlerini sağlamak için dağıtıyorsanız türlerini anlamanız gerekir çünkü bu bölümde karmaşık elde edebilirsiniz.
+Kaynaklar bölümünde, dağıtılan veya güncelleştirilen kaynakları tanımlayın. Bu bölümde, doğru değerleri sağlamak üzere dağıtıyorsanız türlerini anlamanız gerekir çünkü karmaşık alabilirsiniz.
 
 ## <a name="available-properties"></a>Kullanılabilir özellikler
 
-Aşağıdaki Yapı kaynaklarını tanımlayın:
+Aşağıdaki yapıya sahip kaynakları tanımlarsınız:
 
 ```json
 "resources": [
@@ -84,33 +84,56 @@ Aşağıdaki Yapı kaynaklarını tanımlayın:
 | Öğe adı | Gerekli | Açıklama |
 |:--- |:--- |:--- |
 | koşul | Hayır | Kaynak dağıtılabilir olup olmadığını gösteren Boole değeri. |
-| apiVersion |Evet |Kaynak oluşturmak için kullanmak için REST API sürümü. |
-| type |Evet |Kaynak türü. Bu değer, kaynak sağlayıcısı ve kaynak türü ad birleşimidir (gibi **Microsoft.Storage/storageAccounts**). |
-| ad |Evet |Kaynağın adı. Ad RFC3986 içinde tanımlanan URI bileşeni kısıtlamaları izlemelidir. Ayrıca, emin olmak için adı dışında tarafların doğrulamak için kaynak adı kullanıma Azure Hizmetleri değil başka bir kimlik aldatma girişimi. |
-| location |Değişir |Sağlanan kaynak coğrafi konumda desteklenmiyor. Kullanılabilir konumlardan herhangi birinden seçebilirsiniz, ancak genellikle kullanıcılarınızın yakın olan bir seçmek için mantıklıdır. Genellikle, bu da aynı bölgede birbiriyle etkileşimde kaynakları yerleştirin mantıklıdır. Çoğu kaynak türleri bir konum gerektirir, ancak bazı türleri (örneğin, bir rol ataması) bir konum gerektirmez. |
-| etiketler |Hayır |Kaynakla ilişkilendirilmiş etiketler. Aboneliğinizi arasında kaynakları mantıksal olarak düzenlemek için etiketleri uygulayın. |
-| Açıklamaları |Hayır |Şablonunuzda kaynaklar belgeleme için notları |
-| kopyala |Hayır |Birden fazla örneği gerekirse oluşturmak için kaynak sayısı. Paralel varsayılan moddur. Tüm kullanmak istemiyorsanız, seri modu veya aynı anda dağıtmak amacıyla kaynaklarınızı belirtin. Daha fazla bilgi için bkz: [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md). |
-| dependsOn |Hayır |Bu kaynak dağıtılmadan önce dağıtılmalıdır kaynaklar. Resource Manager kaynakları arasındaki bağımlılıkları değerlendirir ve doğru sırada dağıtır. Kaynakları birbirlerine bağımlı olmadıkları zaman bunların paralel olarak dağıtılır. Değer bir kaynağın virgülle ayrılmış bir liste olabilir adları veya kaynak benzersiz tanımlayıcıları. Yalnızca bu şablonda dağıtılan kaynakları listeler. Bu şablonda tanımlı değil kaynakları önceden var olmalıdır. Dağıtımınızı yavaş ve döngüsel bağımlılıklar oluşturma gibi gereksiz bağımlılıkları eklemekten kaçının. Bağımlılıklarını ayarlama hakkında yönergeler için bkz [Azure Resource Manager'da bağımlılıkları tanımlama](resource-group-define-dependencies.md). |
-| properties |Hayır |Kaynak özgü yapılandırma ayarları. Özelliklerine ilişkin değerleri kaynak oluşturmak REST API işlemi için (PUT yöntemini) istek gövdesinde sağladığınız değerleri ile aynıdır. Ayrıca bir özelliği birden çok örneğini oluşturmak için bir kopya dizisi belirtebilirsiniz. |
-| SKU | Hayır | Bazı kaynaklar dağıtmak için SKU tanımlayan değerleri izin verin. Örneğin, bir depolama hesabı için artıklık türünü belirtebilirsiniz. |
-| türü | Hayır | Bazı kaynaklar dağıttığınız kaynak türünü tanımlayan bir değeri izin verir. Örneğin, Cosmos oluşturmak için DB türünü belirtebilirsiniz. |
-| plan | Hayır | Bazı kaynaklar dağıtmayı planlıyorsunuz tanımlayan değerleri izin verin. Örneğin, bir sanal makine için Market görüntüsü belirtebilirsiniz. | 
-| kaynaklar |Hayır |Tanımlanan kaynağına bağımlı alt kaynakları. Yalnızca üst kaynak şema tarafından izin verilen kaynak türleri sağlar. Tam olarak nitelenmiş tür alt kaynağının üst kaynak türü gibi içerir **Microsoft.Web/sites/extensions**. Üst Kaynak bağımlılığı kullanılmaz. Bu bağımlılık açıkça tanımlamanız gerekir. |
+| apiVersion |Evet |Kaynak oluşturmak için REST API sürümü. |
+| type |Evet |Kaynak türü. Kaynak sağlayıcıya ve kaynak türü için ad alanı, bu değer oluşur (gibi **Microsoft.Storage/storageAccounts**). |
+| ad |Evet |Kaynağın adı. Ad URI bileşeni kısıtlamaları RFC3986 içinde tanımlanan izlemelidir. Ayrıca, kaynak adı dışında tarafların emin olmak için adını doğrulamak için kullanıma sunan Azure Hizmetleri başka bir kimlik sızmasını girişimi değildir. |
+| location |Değişir |Sağlanan kaynak coğrafi konumda desteklenmiyor. Mevcut konumlardan birini seçebilirsiniz, ancak genellikle kullanıcılarınıza yakın olan bir çekme mantıklıdır. Genellikle, da aynı bölgede birbiriyle etkileşim kaynakları yerleştirin mantıklıdır. Çoğu kaynak türleri bir konum gerektirme, ancak bazı türleri (örneğin, bir rol ataması) bir konuma gerektirmez. |
+| etiketler |Hayır |Kaynakla ilişkili etiketler. Kaynakları aboneliğiniz arasında mantıksal olarak düzenlemek için etiketler. |
+| Açıklamaları |Hayır |Şablonunuzda kaynaklar belgelemek için Notlar |
+| kopyala |Hayır |Birden fazla örneği gerekiyorsa oluşturmak için kaynak sayısı. Paralel varsayılan moddur. Tüm istemediğinizde seri modu veya aynı anda dağıtmak amacıyla kaynaklarınızı belirtin. Daha fazla bilgi için [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md). |
+| dependsOn |Hayır |Bu kaynak dağıtılmadan önce dağıtılmalıdır kaynaklar. Resource Manager, kaynaklar arasındaki bağımlılıkları değerlendirir ve bunları doğru sırayla dağıtır. Kaynakları birbirlerine bağımlı olmayan, paralel olarak dağıtılan. Değer bir kaynağa virgülle ayrılmış bir listesini olabilir adlarına veya kaynak benzersiz tanımlayıcıları. Yalnızca bu şablon dağıtılan kaynakları listeler. Bu şablonda tanımlı olmayan kaynakları önceden var olmalıdır. Dağıtımınızı yavaş ve döngüsel bağımlılıklar oluşturma gibi gereksiz bağımlılıkları eklemekten kaçının. Bağımlılıklarını ayarlama hakkında yönergeler için bkz [Azure Resource Manager şablonlarında bağımlılık tanımlama](resource-group-define-dependencies.md). |
+| properties |Hayır |Kaynağa özgü yapılandırma ayarları. Özellikleri için değer, istek gövdesinde bir kaynak oluşturmak REST API işlemi için (PUT yöntemini) sağladığınız değerler ile aynıdır. Ayrıca, bir özelliği birden çok örneği oluşturmak için bir kopya dizisi belirtebilirsiniz. |
+| SKU | Hayır | Bazı kaynaklar dağıtmak için SKU tanımlama değerlerini sağlar. Örneğin, bir depolama hesabı için yedeklilik türünü belirtebilirsiniz. |
+| tür | Hayır | Bazı kaynaklar dağıttığınız kaynak türünü tanımlayan bir değeri sağlar. Örneğin, Cosmos DB, oluşturulacak türünü belirtebilirsiniz. |
+| plan | Hayır | Bazı kaynaklar dağıtmayı planlıyorsunuz tanımlayan değerleri sağlar. Örneğin, bir sanal makine için Market görüntüsüne belirtebilirsiniz. | 
+| kaynaklar |Hayır |Tanımlanan kaynağına bağımlı alt kaynakları. Yalnızca üst kaynak şema tarafından izin verilen kaynak türleri sağlar. Üst kaynak türü gibi tam olarak nitelenmiş tür alt kaynak içerir **Microsoft.Web/sites/extensions**. Üst Kaynak bağımlılığı kapsanan değil. Ayrıca, bu bağımlılık açıkça tanımlamanız gerekir. |
 
-## <a name="resource-specific-values"></a>Kaynak özgü değerleri
+## <a name="condition"></a>Koşul
 
-**ApiVersion**, **türü**, ve **özellikleri** öğeleri her kaynak türü için farklıdır. **Sku**, **türü**, ve **planı** bazı kaynak türleri için kullanılabilir, ancak tüm öğeler. Bu özelliklerin değerlerini belirlemek için bkz: [şablon başvurusu](/azure/templates/).
+Kaynak Oluştur gerekip gerekmediğini dağıtım sırasında karar vermelisiniz kullanırsanız `condition` öğesi. Bu öğenin değeri true veya false olarak çözümler. Değer true ise, kaynak dağıtılır. Kaynak değeri false olduğunda, dağıtılan değil. Örneğin, yeni bir depolama hesabı dağıtıldığına veya mevcut bir depolama hesabını belirtmek için kullanılan, kullanın:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+Kullanan bir tam örnek şablonu için `condition` öğesi bkz [yeni veya mevcut bir sanal ağ, depolama ve genel IP ile VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+
+## <a name="resource-specific-values"></a>Kaynağa özgü değer
+
+**ApiVersion**, **türü**, ve **özellikleri** öğeleri her kaynak türü için farklıdır. **Sku**, **tür**, ve **planı** bazı kaynak türleri için kullanılabilir, ancak tüm öğeler. Bu özelliklerin değerlerini belirlemek için bkz: [şablon başvurusu](/azure/templates/).
 
 ## <a name="resource-names"></a>Kaynak adları
-Genellikle, kaynak adları Kaynak Yöneticisi'nde üç türleri ile çalışır:
+
+Genel olarak, kaynak adları Kaynak Yöneticisi'nde üç türde çalışır:
 
 * Kaynak adları benzersiz olmalıdır.
-* Kaynak adları, benzersiz olması gerekmez, ancak kaynak belirlemenize yardımcı olabilecek bir ad vermek seçin.
+* Kaynak adları benzersiz olması gerekmez, ancak kaynak belirlemenize yardımcı olabilecek bir ad vermek seçin.
 * Genel kaynak adları.
 
 ### <a name="unique-resource-names"></a>Benzersiz kaynak adları
-Veri erişim uç noktası olan herhangi bir kaynak türü için bir benzersiz kaynak adı sağlamanız gerekir. Benzersiz bir ad gerektiren bazı yaygın kaynak türleri şunlardır:
+
+Veri erişim uç noktası olan herhangi bir kaynak türü için benzersiz bir kaynak adı belirtin. Benzersiz bir ad gerektiren bazı yaygın kaynak türleri şunlardır:
 
 * Azure depolama<sup>1</sup> 
 * Azure Uygulama Hizmeti’nin Web Apps özelliği
@@ -120,11 +143,11 @@ Veri erişim uç noktası olan herhangi bir kaynak türü için bir benzersiz ka
 * Azure Batch
 * Azure Traffic Manager
 * Azure Search
-* Azure Hdınsight
+* Azure HDInsight
 
-<sup>1</sup> depolama hesabı adları de küçük olmalıdır, 24 karakter veya daha az ve tire sahip değil.
+<sup>1</sup> depolama hesabı adları da küçük olmalıdır, 24 karakterden daha az veya ve herhangi bir kısa çizgi zorunda kalmazsınız.
 
-Ayar adı, el ile benzersiz bir ad oluşturun veya kullanmak [uniqueString()](resource-group-template-functions-string.md#uniquestring) bir ad oluşturmak için işlev. Bir önek ekleyip için soneki isteyebilirsiniz **uniqueString** sonucu. Benzersiz bir ad değiştirerek daha fazla kolayca kaynak türü adı belirlemenize yardımcı olabilir. Örneğin, aşağıdaki değişkeni kullanarak bir depolama hesabı için benzersiz bir ad oluşturabilirsiniz:
+Ayar adı, el ile benzersiz bir ad oluşturun veya kullanın [uniqueString()](resource-group-template-functions-string.md#uniquestring) bir ad oluşturmak için işlev. Bir ön ek ekleme veya için soneki isteyebilirsiniz **uniqueString** sonucu. Benzersiz bir ad değiştirerek daha fazla kaynak türü adı, kolayca belirlemenize yardımcı olabilir. Örneğin, aşağıdaki değişkeni kullanarak bir depolama hesabı için benzersiz bir ad oluşturabilirsiniz:
 
 ```json
 "variables": {
@@ -133,7 +156,7 @@ Ayar adı, el ile benzersiz bir ad oluşturun veya kullanmak [uniqueString()](re
 ```
 
 ### <a name="resource-names-for-identification"></a>Tanımlama için kaynak adları
-Ad ancak adlarını isteyebilirsiniz bazı kaynak türleri benzersiz olması gerekmez. Bu kaynak türleri için hem kaynak bağlamı hem de kaynak türünü tanımlayan bir ad sağlayabilirsiniz.
+Adı, ancak adlarını isteyebileceğiniz bazı kaynak türleri benzersiz olması gerekmez. Bu kaynak türleri için hem kaynak bağlamı hem de kaynak türünü tanımlayan bir ad sağlayabilirsiniz.
 
 ```json
 "parameters": {
@@ -148,7 +171,7 @@ Ad ancak adlarını isteyebilirsiniz bazı kaynak türleri benzersiz olması ger
 ```
 
 ### <a name="generic-resource-names"></a>Genel kaynak adları
-Farklı bir kaynak çoğunlukla erişim kaynak türleri için şablonda sabit kodlanmış olan bir ad kullanabilirsiniz. Örneğin, bir SQL Server'da Güvenlik duvarı kuralları için standart, genel bir ad ayarlayabilirsiniz:
+Çoğunlukla farklı bir kaynak erişim kaynak türleri için şablonda sabit kodlanmış bir genel ad kullanabilirsiniz. Örneğin, bir SQL Server'da Güvenlik duvarı kuralları için standart, genel bir ad ayarlayabilirsiniz:
 
 ```json
 {
@@ -159,7 +182,7 @@ Farklı bir kaynak çoğunlukla erişim kaynak türleri için şablonda sabit ko
 ```
 
 ## <a name="location"></a>Konum
-Bir şablon dağıtılırken, her kaynak için bir konum sağlamanız gerekir. Farklı kaynak türleri, farklı konumlarda desteklenir. Aboneliğiniz belirli bir kaynak türü için kullanılabilir konumların bir listesini görmek için Azure PowerShell veya Azure CLI kullanın. 
+Şablon dağıtırken, her kaynak için bir konum sağlamalısınız. Farklı kaynak türlerinin farklı konumlarda desteklenir. Aboneliğiniz belirli bir kaynak türü için kullanılabilir konumların bir listesini görmek için Azure PowerShell veya Azure CLI'yı kullanın. 
 
 Aşağıdaki örnek PowerShell konumlarını almak için kullanır. `Microsoft.Web\sites` kaynak türü:
 
@@ -167,15 +190,15 @@ Aşağıdaki örnek PowerShell konumlarını almak için kullanır. `Microsoft.W
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
-Aşağıdaki örnek konumlarını almak için Azure CLI 2.0 kullanan `Microsoft.Web\sites` kaynak türü:
+Aşağıdaki örnek, konumlarını almak için Azure CLI'yı kullanır. `Microsoft.Web\sites` kaynak türü:
 
 ```azurecli
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-Kaynaklarınız için desteklenen konumlardan belirlendikten sonra bu konuma şablonunuzda ayarlayın. Kaynak türlerini destekleyen bir konumda bir kaynak grubu oluşturun ve her konum ayarlamak bu değeri ayarlamak için en kolay yolu olan `[resourceGroup().location]`. Farklı konumlarda kaynak gruplarına şablonu yeniden ve şablon ya da parametre değerleri değiştirin değil. 
+Kaynaklarınız için desteklenen konumlar belirledikten sonra bu konum, şablonunuzda ayarlayın. Kaynak türlerini destekleyen bir konumda bir kaynak grubu oluşturun ve her konum ayarlamak bu değeri ayarlamak için en kolay yolu olan `[resourceGroup().location]`. Kaynak gruplarına farklı konumlarda şablonu yeniden ve herhangi bir değer şablon veya parametreleri değiştirin değil. 
 
-Aşağıdaki örnek, kaynak grubu olarak aynı konuma dağıtılan bir depolama hesabı gösterir:
+Aşağıdaki örnekte kaynak grubu ile aynı konumda dağıtılan bir depolama hesabı gösterilmektedir:
 
 ```json
 {
@@ -204,7 +227,7 @@ Aşağıdaki örnek, kaynak grubu olarak aynı konuma dağıtılan bir depolama 
 }
 ```
 
-Şablonunuzda konumu stillerinizin gerekiyorsa, desteklenen bölgelerinden adını sağlayın. Aşağıdaki örnek, Kuzey Orta ABD için her zaman dağıtılan bir depolama hesabı gösterir:
+Şablonunuzda konumu gömülmesi gerekiyorsa, desteklenen bölgelerden birine adını sağlayın. Aşağıdaki örnekte Kuzey Orta ABD için her zaman dağıtılan bir depolama hesabı gösterilmektedir:
 
 ```json
 {
@@ -233,13 +256,13 @@ Aşağıdaki örnek, kaynak grubu olarak aynı konuma dağıtılan bir depolama 
 ## <a name="tags"></a>Etiketler
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
-### <a name="add-tags-to-your-template"></a>Şablonunuz için etiketler ekleme
+### <a name="add-tags-to-your-template"></a>Etiket şablonunuza ekleme
 
 [!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
 
 ## <a name="child-resources"></a>Alt kaynakları
 
-Bazı kaynak türleri içinde bir dizi alt kaynakları da tanımlayabilirsiniz. Alt kaynakları yalnızca başka bir kaynak bağlamı içinde mevcut kaynaklardır. Örneğin, veritabanı sunucusunun bir alt olacak şekilde bir SQL veritabanı bir SQL server var olamaz. Veritabanı sunucusu için tanımı içinde tanımlayabilirsiniz.
+İçindeki bazı kaynak türleri, bir dizi alt kaynakları tanımlayabilirsiniz. Alt kaynakları yalnızca başka bir kaynak bağlamı içinde mevcut kaynaklardır. Örneğin, veritabanı sunucusunun bir alt, bu nedenle bir SQL veritabanı bir SQL server var olamaz. Veritabanı sunucusu için tanımı içinde tanımlayabilirsiniz.
 
 ```json
 {
@@ -258,13 +281,13 @@ Bazı kaynak türleri içinde bir dizi alt kaynakları da tanımlayabilirsiniz. 
 }
 ```
 
-İç içe geçmiş zaman türü kümesine `databases` ancak kendi tam kaynak türü `Microsoft.Sql/servers/databases`. Sunmaz `Microsoft.Sql/servers/` üst kaynak türünden varsayıldığından. Alt kaynak adı ayarlamak `exampledatabase` ancak üst adı tam adını içerir. Sunmaz `exampleserver` üst kaynak varsayıldığından.
+İç içe olduğunda tür kümesine `databases` ancak kendi tam kaynak türü `Microsoft.Sql/servers/databases`. Sağlaması gerekmez `Microsoft.Sql/servers/` üst kaynak türünden varsayıldığından. Alt kaynak adı kümesine `exampledatabase` ancak üst adı tam adını içerir. Sağlaması gerekmez `exampleserver` üst kaynak varsayıldığından.
 
-Alt öğe kaynak türünü biçimdedir: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+Alt kaynak türünün biçimi şu şekildedir: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
-Alt kaynak adının biçimi şöyledir: `{parent-resource-name}/{child-resource-name}`
+Alt kaynak adı biçimi şöyledir: `{parent-resource-name}/{child-resource-name}`
 
-Ancak, sunucu veritabanında tanımlamak zorunda değilsiniz. En üst düzeyinde alt kaynak tanımlayabilirsiniz. Üst kaynak şablonun aynı dağıtılmamışsa, ya da varsa bu yaklaşımı kullanabilir kullanmak istediğiniz `copy` birden çok alt kaynaklarını oluşturun. Bu yaklaşımda, tam kaynak türü sağlayın ve üst kaynak adı alt kaynak adında gerekir.
+Ancak veritabanı sunucusu içinde tanımlamanız gerekmez. Alt kaynak en üst düzeyde tanımlayabilirsiniz. Üst kaynak aynı şablonun dağıttıysanız değil veya bu yaklaşımı kullanabilirsiniz kullanmak istediğiniz `copy` birden çok alt kaynakları oluşturmak için. Bu yaklaşımda, tam kaynak türü sağlayın ve üst kaynak adı alt kaynak adında gerekir.
 
 ```json
 {
@@ -283,7 +306,7 @@ Ancak, sunucu veritabanında tanımlamak zorunda değilsiniz. En üst düzeyinde
 }
 ```
 
-Bir kaynağa tam bir başvuru oluşturulurken, tür ve ad bölümlerinin birleştirmek için sipariş iki yalnızca bir birleşimini değil.  Bunun yerine, sonra ad alanı, bir dizi kullanın *türü/adı* en az belirli bir çiftlerinden en belirli:
+Tam başvuru için bir kaynak oluşturulurken, yalnızca bir birleştirme iki tür ve ad kesimlerinden birleştirilecek sırası değildir. Bunun yerine, sonra ad alanı, bir dizi kullanın *türü/ad* en az belirli bir çiftlerinden en belirgin için:
 
 ```json
 {resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
@@ -294,9 +317,9 @@ Bir kaynağa tam bir başvuru oluşturulurken, tür ve ad bölümlerinin birleş
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` doğru `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` doğru değil
 
 ## <a name="recommendations"></a>Öneriler
-Kaynakları ile çalışırken aşağıdaki bilgiler yararlı olabilir:
+Kaynaklar ile çalışırken aşağıdaki bilgiler yararlı olabilir:
 
-* Diğer katkıda bulunanlar kaynak amacını anlamalarına yardımcı olmak için belirtin **açıklamaları** şablondaki her bir kaynak için:
+* Diğer Katkı Sağlayanlar kaynak amacını anlamalarına yardımcı olmak için belirtin **açıklamaları** şablondaki her bir kaynak için:
    
    ```json
    "resources": [
@@ -311,7 +334,7 @@ Kaynakları ile çalışırken aşağıdaki bilgiler yararlı olabilir:
    ]
    ```
 
-* Kullanırsanız, bir *ortak uç nokta* şablonunuzda (örneğin, bir Azure Blob Depolama ortak uç nokta), *olmayan sabit kodlu* ad alanı. Kullanım **başvuru** ad alanı dinamik olarak almak için işlevi. El ile şablon uç değiştirmeden farklı genel ad alanı ortamlar için şablonu dağıtmak için bu yaklaşımı kullanın. Şablonunuzda depolama hesabı için kullandığınız aynı sürüme API sürümü ayarlayın:
+* Kullanıyorsanız bir *genel uç nokta* (örneğin, bir Azure Blob Depolama genel uç nokta), şablonunuzda *sabit* ad alanı. Kullanım **başvuru** ad alanını dinamik olarak almak için işlevi. Şablonu farklı bir genel ad alanı ortamlar için el ile uç nokta şablondaki değiştirmeden dağıtmak için bu yaklaşımı kullanabilirsiniz. API sürümü, şablonunuzda depolama hesabı için kullandığınız aynı sürüme ayarlayın:
    
    ```json
    "osDisk": {
@@ -322,7 +345,7 @@ Kaynakları ile çalışırken aşağıdaki bilgiler yararlı olabilir:
    }
    ```
    
-   Depolama hesabı oluşturmakta olduğunuz şablonda dağıtılırsa, kaynak başvurduğunuzda sağlayıcı ad alanı belirtmek gerekmez. Aşağıdaki örnekte, Basitleştirilmiş sözdizimi gösterilmektedir:
+   Depolama hesabı aynı şablonda oluşturmakta olduğunuz dağıtılırsa, kaynağa başvuran sağlayıcı ad alanı belirtmeniz gerekmez. Aşağıdaki örnek, Basitleştirilmiş sözdizimi gösterilmektedir:
    
    ```json
    "osDisk": {
@@ -333,7 +356,7 @@ Kaynakları ile çalışırken aşağıdaki bilgiler yararlı olabilir:
    }
    ```
    
-   Ortak ad alanını kullanmak için yapılandırılmış olan diğer değerleri şablonunuzda varsa, aynı yansıtmak üzere bu değerleri değiştirmek **başvuru** işlevi. Örneğin, ayarlayabileceğiniz **storageUri** sanal makine tanılama profili özelliği:
+   Genel bir ad alanını kullanacak şekilde yapılandırılmış olan diğer değerleri şablonunuzdaki varsa, aynı yansıtacak şekilde bu değerleri değiştirmek **başvuru** işlevi. Örneğin, ayarlayabilirsiniz **storageUri** sanal makine tanılama profili özelliği:
    
    ```json
    "diagnosticsProfile": {
@@ -344,7 +367,7 @@ Kaynakları ile çalışırken aşağıdaki bilgiler yararlı olabilir:
    }
    ```
    
-   Ayrıca, farklı kaynak grubunda bulunan mevcut bir depolama hesabını başvurabilir:
+   Ayrıca, farklı bir kaynak grubunda olan mevcut bir depolama hesabını başvurabilirsiniz:
 
    ```json
    "osDisk": {
@@ -355,16 +378,16 @@ Kaynakları ile çalışırken aşağıdaki bilgiler yararlı olabilir:
    }
    ```
 
-* Yalnızca bir uygulama gerektirdiğinde, bir sanal makineye genel IP adresleri atayın. Bir sanal makine (VM) hata ayıklama için ya da Yönetim veya yönetim amacıyla bağlanmak için gelen NAT kuralları, bir sanal ağ geçidi ya da bir jumpbox kullanın.
+* Yalnızca bir uygulama gerektirdiğinde, sanal makinenin genel IP adresleri atayın. Bir sanal makine (VM) hata ayıklama veya yönetim veya yönetim amaçları için bağlanmak için gelen NAT kuralları, bir sanal ağ geçidi veya bir Sıçrama kutusu kullanın.
    
      Sanal makinelere bağlanma hakkında daha fazla bilgi için bkz:
    
-   * [N katmanlı mimari Azure VM'ler çalıştırın](../guidance/guidance-compute-n-tier-vm.md)
-   * [Azure Kaynak Yöneticisi'nde yer alan VM'ler için WinRM erişimini Ayarla](../virtual-machines/windows/winrm.md)
-   * [Azure Portalı'nı kullanarak, VM'nin dış erişmesine izin vermek](../virtual-machines/windows/nsg-quickstart-portal.md)
-   * [PowerShell kullanarak, VM'nin dış erişmesine izin vermek](../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Azure CLI kullanarak Linux VM dış erişmesine izin vermek](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
-* **DomainNameLabel** özelliği genel IP adresleri için benzersiz olmalıdır. **DomainNameLabel** değeri gerekir 3 ile 63 karakter uzunluğunda olmalıdır ve bu normal bir ifadeyle belirtilen kurallara uyar: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Çünkü **uniqueString** işlevi 13 karakter uzunluğunda bir dize oluşturur **dnsPrefixString** parametresi 50 karakterle sınırlıdır:
+   * [Azure'da N katmanlı mimari için Vm'leri çalıştırma](../guidance/guidance-compute-n-tier-vm.md)
+   * [Azure Resource Manager'daki VM'ler için WinRM erişimi ayarlama](../virtual-machines/windows/winrm.md)
+   * [Azure portalını kullanarak, bir VM'ye dış erişim izni ver](../virtual-machines/windows/nsg-quickstart-portal.md)
+   * [PowerShell kullanarak, bir VM'ye dış erişim izni ver](../virtual-machines/windows/nsg-quickstart-powershell.md)
+   * [Azure CLI kullanarak Linux vm'nize dış erişim verme](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+* **Etkialanıadetiketi** özelliği genel IP adresleri için benzersiz olmalıdır. **Etkialanıadetiketi** değeri gerekir 3 ile 63 karakter uzunluğunda olmalıdır ve bu normal bir ifadeyle belirtilen kurallara uyar: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Çünkü **uniqueString** işlevi 13 karakter uzunluğunda bir dize oluşturur **dnsPrefixString** parametresi 50 karakterle sınırlıdır:
 
    ```json
    "parameters": {
@@ -381,7 +404,7 @@ Kaynakları ile çalışırken aşağıdaki bilgiler yararlı olabilir:
    }
    ```
 
-* Bir özel betik uzantısı için bir parola eklediğinizde kullanmak **commandToExecute** özelliğinde **protectedSettings** özelliği:
+* Bir özel betik uzantısı için bir parola eklediğinizde, kullanın **commandToExecute** özelliğinde **protectedSettings** özelliği:
    
    ```json
    "properties": {
@@ -401,14 +424,14 @@ Kaynakları ile çalışırken aşağıdaki bilgiler yararlı olabilir:
    ```
    
    > [!NOTE]
-   > VM'ler ve uzantıları için parametre olarak geçirilen zaman gizli şifrelendiğinden emin olmak için kullanın **protectedSettings** özelliği ilgili uzantılar.
+   > Vm'leri ve uzantıları için parametre olarak geçirilir, gizli dizileri şifrelendiğinden emin olmak için kullanın **protectedSettings** ilgili uzantı özelliği.
    > 
    > 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Farklı türlerde çözümler için tam şablonları görüntülemek üzere bkz. [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/documentation/templates/).
-* Kullanabileceğiniz gelen bir şablonda işlevleri hakkında daha fazla ayrıntı için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
-* Birden fazla şablon dağıtımı sırasında birleştirmek için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
-* Farklı bir kaynak grubu içinde mevcut kaynakları kullanmanız gerekebilir. Bu senaryo, depolama hesapları veya birden çok kaynak grupları arasında paylaşılan sanal ağlar ile çalışırken yaygındır. Daha fazla bilgi için bkz: [ResourceId işlevi](resource-group-template-functions-resource.md#resourceid).
-* Kaynak adı kısıtlamaları hakkında daha fazla bilgi için bkz: [Azure kaynakları için adlandırma kurallarını önerilen](../guidance/guidance-naming-conventions.md).
+* Kullanabileceğiniz gelen içinde şablon işlevleri hakkında daha fazla ayrıntı için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
+* Birden fazla şablon dağıtımı sırasında kullanmak için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
+* Farklı bir kaynak grubu içinde mevcut kaynakları kullanmanız gerekebilir. Bu depolama hesaplarını veya birçok kaynak grupları arasında paylaşılan sanal ağlar ile çalışırken yaygın senaryodur. Daha fazla bilgi için [ResourceId işlevi](resource-group-template-functions-resource.md#resourceid).
+* Kaynak adı kısıtlamaları hakkında daha fazla bilgi için bkz: [Azure kaynakları için önerilen adlandırma kuralları](../guidance/guidance-naming-conventions.md).

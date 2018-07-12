@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: aa309abecdf0fb0c0acaf18e53bde4600c101a44
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: b2bb5e0f9b138af5ff69599b7ba35457788c8a65
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34655388"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968456"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure haritalar kategoriler desteklenir.
 
-Yaparken bir [kategori arama](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoicategory) ilgi noktası üzerinde bir yüz desteklenen kategorisi vardır. Desteklenen kategori adları için kategori kodlarının listesi aşağıdadır. Kategori kodları en üst düzey kategorilerini oluşturulur. Tüm alt kategorileri aynı kategoriye kod paylaşın. Bu kategori listesi yeni veri sürümlerle değişebilir olduğunu lütfen unutmayın.
+Yaparken bir [kategori arama](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) ilgi noktası üzerinde bir yüz desteklenen kategorisi vardır. Desteklenen kategori adları için kategori kodlarının listesi aşağıdadır. Kategori kodları en üst düzey kategorilerini oluşturulur. Tüm alt kategorileri aynı kategoriye kod paylaşın. Bu kategori listesi yeni veri sürümlerle değişebilir olduğunu lütfen unutmayın.
 
 <br/>
 

@@ -1,6 +1,6 @@
 ---
-title: Uzaktan izleme C - Azure için Windows cihazlara sağlamak | Microsoft Docs
-description: Windows üzerinde çalışan C yazılmış bir uygulama kullanarak Uzaktan izleme Çözüm Hızlandırıcısı bir aygıt bağlanmaya açıklar.
+title: Windows cihazları uzaktan C - Azure izleme sağlama | Microsoft Docs
+description: Windows üzerinde çalışan C dilinde yazılmış bir Web uygulaması kullanarak Uzaktan izleme çözüm Hızlandırıcısını için bir cihaz bağlamak açıklar.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
 ms.openlocfilehash: 139daea3e885636b352d4c9a1ba2651a24195b21
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626964"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309879"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Cihazınızı bağlama Uzaktan izleme Çözüm Hızlandırıcısı için (Windows)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Cihazınızı Uzaktan izleme çözüm Hızlandırıcısını için (Windows) bağlama
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Bu öğretici, fiziksel bir aygıtı için Uzaktan izleme Çözüm Hızlandırıcısı bağlanmak nasıl gösterir.
+Bu öğreticide, fiziksel bir cihazı Uzaktan izleme çözüm hızlandırıcısına bağlamayı gösterilmektedir.
 
-## <a name="create-a-c-client-solution-on-windows"></a>Windows üzerinde bir C istemci çözümü oluşturma
+## <a name="create-a-c-client-solution-on-windows"></a>Windows üzerinde C istemci çözümü oluşturmak
 
-Kısıtlanmış cihazlarda çalıştırılan en katıştırılmış uygulamalarında olduğu gibi cihaz uygulaması için istemci kodu, c dilinde yazılır Bu öğreticide, uygulamayı Windows çalıştıran bir makinede oluşturun.
+Kısıtlanmış cihazlarında çalışan en katıştırılmış uygulamalarında olduğu gibi cihaz uygulaması için istemci kodu c dilinde yazılan Bu öğreticide, Windows çalıştıran bir makinede uygulama oluşturun.
 
 ### <a name="create-the-starter-project"></a>Başlangıç projesi oluşturma
 
-Visual Studio 2017 içinde bir başlangıç projesi oluşturun ve IOT Hub cihaz istemcisi NuGet paketleri ekleyin:
+Visual Studio 2017'de bir başlangıç projesi oluşturun ve IOT Hub cihazı istemci NuGet paketlerini ekleyin:
 
-1. Visual Studio'da Visual C++ kullanarak C konsol uygulaması oluşturma **Windows konsol uygulaması** şablonu. Proje adı **RMDevice**.
+1. Visual Studio'da C, Visual C++ kullanarak bir konsol uygulaması oluşturma **Windows konsol uygulaması** şablonu. Projeyi adlandırın **RMDevice**.
 
     ![Visual C++ Windows konsol uygulaması oluşturun](./media/iot-accelerators-connecting-devices/visualstudio01.png)
 
@@ -39,47 +39,47 @@ Visual Studio 2017 içinde bir başlangıç projesi oluşturun ve IOT Hub cihaz 
 
     ![Çözüm Gezgini gösteren RMDevice.c dosyası yeniden adlandırıldı](./media/iot-accelerators-connecting-devices/visualstudio02.png)
 
-1. İçinde **Çözüm Gezgini**, sağ **RMDevice** proje ve ardından **Manage NuGet paketleri**. Seçin **Gözat**, ardından aramak ve aşağıdaki NuGet paketlerini yükleyin:
+1. İçinde **Çözüm Gezgini**, sağ **RMDevice** proje ve ardından **NuGet paketlerini Yönet**. Seçin **Gözat**, ardından için aşağıdaki NuGet paketlerini arayıp yükleyin:
 
     * Microsoft.Azure.IoTHub.Serializer
     * Microsoft.Azure.IoTHub.IoTHubClient
     * Microsoft.Azure.IoTHub.MqttTransport
 
-    ![NuGet Paket Yöneticisi yüklü Microsoft.Azure.IoTHub paketleri gösterir](./media/iot-accelerators-connecting-devices/visualstudio03.png)
+    ![NuGet Paket Yöneticisi yüklü Microsoft.Azure.IoTHub paketler gösterilmektedir.](./media/iot-accelerators-connecting-devices/visualstudio03.png)
 
-1. İçinde **Çözüm Gezgini**, sağ tıklayın **RMDevice** proje ve ardından **özellikleri** projenin açmak için **özellik sayfaları** iletişim kutusu. Ayrıntılar için bkz [Visual C++ proje özelliklerini ayarlama](https://docs.microsoft.com/cpp/ide/working-with-project-properties).
+1. İçinde **Çözüm Gezgini**, sağ **RMDevice** proje ve ardından **özellikleri** projenin açmak için **özellik sayfaları** iletişim kutusu. Ayrıntılar için bkz [Visual C++ proje özelliklerini ayarlama](https://docs.microsoft.com/cpp/ide/working-with-project-properties).
 
-1. Seçin **C/C++** klasörü, ardından **önceden derlenmiş üstbilgiler** özellik sayfası.
+1. Seçin **C/C++** klasörü seçin **önceden derlenmiş üst bilgiler** özellik sayfası.
 
-1. Ayarlama **önceden derlenmiş üstbilgi** için **önceden derlenmiş üstbilgiler kullanmıyorsa**. Ardından **Uygula**.
+1. Ayarlama **Ön derlenmiş üstbilgi** için **önceden derlenmiş üst bilgiler kullanılmıyor**. Ardından **Uygula**.
 
-    ![Önceden derlenmiş başlıkları kullanma değil proje proje özelliklerini göster](./media/iot-accelerators-connecting-devices/visualstudio04.png)
+    ![Önceden derlenmiş üst bilgiler kullanmayan proje proje özelliklerini göster](./media/iot-accelerators-connecting-devices/visualstudio04.png)
 
-1. Seçin **bağlayıcı** klasörü, ardından **giriş** özellik sayfası.
+1. Seçin **bağlayıcı** klasörü seçin **giriş** özellik sayfası.
 
-1. Ekleme `crypt32.lib` için **ek bağımlılıklar** özelliği. Proje özellik değerlerini kaydetmek üzere seçim yapın **Tamam** ve ardından **Tamam** yeniden.
+1. Ekleme `crypt32.lib` için **ek bağımlılıklar** özelliği. Proje özellik değerlerini kaydetmek için seçin **Tamam** ardından **Tamam** yeniden.
 
-    ![Proje Özellikleri crypt32.lib dahil olmak üzere bağlayıcı Göster](./media/iot-accelerators-connecting-devices/visualstudio05.png)
+    ![Bağlayıcı crypt32.lib dahil olmak üzere proje özelliklerini göster](./media/iot-accelerators-connecting-devices/visualstudio05.png)
 
 ### <a name="add-the-parson-json-library"></a>Parson JSON kitaplığı Ekle
 
-Parson JSON kitaplığa eklemek **RMDevice** proje ve gerekli eklemek `#include` deyimleri:
+Parson JSON kitaplığa eklemek **RMDevice** proje ve gerekli olanları Ekle `#include` ifadeleri:
 
-1. Bilgisayarınızda uygun klasöründe aşağıdaki komutu kullanarak Parson GitHub deposunu kopyalayın:
+1. Bilgisayarınızda uygun bir klasörde aşağıdaki komutu kullanarak Parson GitHub deposunu kopyalayın:
 
     ```cmd
     git clone https://github.com/kgabis/parson.git
     ```
 
-1. Kopya `parson.h` ve `parson.c` Parson depoya yerel kopyasını dosyalarından, **RMDevice** proje klasörü.
+1. Kopyalama `parson.h` ve `parson.c` Parson deposunun yerel kopyasındaki dosyaları, **RMDevice** proje klasörü.
 
-1. Visual Studio'da sağ **RMDevice** seçin, proje **Ekle**ve ardından **varolan öğeyi**.
+1. Visual Studio'da sağ **RMDevice** projesinin **Ekle**ve ardından **var olan öğe**.
 
 1. İçinde **varolan öğeyi Ekle** iletişim kutusunda `parson.h` ve `parson.c` dosyalar **RMDevice** proje klasörü. Bu iki dosyayı projenize eklemek için **Ekle**.
 
-    ![Çözüm Gezgini parson.h ve parson.c dosyaları gösterir](./media/iot-accelerators-connecting-devices/visualstudio06.png)
+    ![Çözüm Gezgini parson.h ve parson.c dosyaları gösterir.](./media/iot-accelerators-connecting-devices/visualstudio06.png)
 
-1. Visual Studio'da açın `RMDevice.c` dosya. Varolan `#include` deyimleri ile aşağıdaki kodu:
+1. Visual Studio'da açın `RMDevice.c` dosya. Varolan `#include` deyimlerini aşağıdaki kod ile:
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -93,15 +93,15 @@ Parson JSON kitaplığa eklemek **RMDevice** proje ve gerekli eklemek `#include`
     ```
 
     > [!NOTE]
-    > Şimdi projenizi çözümü oluşturma tarafından ayarlanan doğru bağımlılıkları olduğunu doğrulayabilirsiniz.
+    > Artık projenize çözümü oluşturarak ayarlanan doğru bağımlılıkları olduğunu doğrulayabilirsiniz.
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
 ## <a name="build-and-run-the-sample"></a>Örneği derleme ve çalıştırma
 
-Çağırmak için kodu ekleyin **uzak\_izleme\_çalıştırmak** işlev, ardından yapı ve cihaz uygulamayı çalıştırın:
+Çağırmak için kod ekleme **uzak\_izleme\_çalıştırma** işlevini sonra oluşturun ve cihaz uygulamayı çalıştırın:
 
-1. Çağrılacak **uzak\_izleme\_çalıştırmak** işlev, yerini **ana** işlevi aşağıdaki kod ile:
+1. Çağrılacak **uzak\_izleme\_çalıştırma** işlev, değiştirin **ana** işlevi aşağıdaki kod ile:
 
     ```c
     int main()
@@ -111,12 +111,12 @@ Parson JSON kitaplığa eklemek **RMDevice** proje ve gerekli eklemek `#include`
     }
     ```
 
-1. Seçin **yapı** ve ardından **yapı çözümü** aygıt uygulama oluşturmak için.
+1. Seçin **derleme** ardından **Çözümü Derle** cihaz uygulamayı oluşturmak için.
 
-1. İçinde **Çözüm Gezgini**, sağ **RMDevice** projesi, seçin **hata ayıklama**ve ardından **başlangıç yeni örnek** örneği çalıştırmak için . Konsol iletileri olarak görüntüler:
+1. İçinde **Çözüm Gezgini**, sağ **RMDevice** projesinin **hata ayıklama**ve ardından **yeni örnek Başlat** örneği çalıştırmak için . Konsol iletileri olarak gösterir:
 
-    * Uygulama için Çözüm Hızlandırıcısı örnek telemetri gönderir.
-    * İstenen özellik değerleri çözüm panosunda alır.
-    * Çözüm panodan çağrılan yöntemlerine yanıt verir.
+    * Uygulama, çözüm hızlandırıcısına örnek telemetri gönderir.
+    * Çözüm panosunda ayarlanan istenen özellik değerlerini alır.
+    * Çözüm panosundan çağrılan yöntemlere verir.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

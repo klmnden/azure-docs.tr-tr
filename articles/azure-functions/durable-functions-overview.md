@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4f09fa7b3f2aff38a016626af2d538f1eab3f5e8
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0bc88a510c05e88351b4ac7d69839a37c0e4fdd8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856632"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970498"
 ---
 # <a name="durable-functions-overview"></a>Dayanıklı işlevler genel bakış
 
 *Dayanıklı işlevler* uzantısıdır [Azure işlevleri](functions-overview.md) ve [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) durum bilgisi olan işlevleri, sunucusuz bir ortamda yazmanızı sağlayan. Uzantı durumu ve kontrol noktaları yeniden sizin yerinize yönetir.
 
-Uzantı çağrılan işlev yeni bir tür durum bilgisi olan iş akışları tanımlamanızı sağlar bir *orchestrator işlevi*. Orchestrator işlevleri avantajlarından bazıları şunlardır:
+Uzantı çağrılan işlev yeni bir tür durum bilgisi olan iş akışları tanımlamanızı sağlar bir [ *orchestrator işlevi*](durable-functions-types-features-overview.md#orchestrator-functions). Orchestrator işlevleri avantajlarından bazıları şunlardır:
 
 * Kod içinde iş akışları tanımlarlar. Herhangi bir JSON şemalarının veya tasarımcıları gereklidir.
 * Zaman uyumlu ve zaman uyumsuz olarak bunlar diğer işlevler çağırabilir. Çağrılan işlevler çıkışını yerel değişkenlere kaydedilebilir.
@@ -340,7 +340,7 @@ Orchestrator İşlevler, yürütme durumlarını olarak bilinen bir bulut tasar�
 
 Olay kaynağını belirleme kullanımını bu uzantı tarafından saydamdır. Kapak altında `await` orchestrator işlevde işlecini verir orchestrator iş parçacığının denetim dayanıklı görev Framework dağıtıcısıyla. Dağıtıcı, orchestrator işlevi (bir veya daha fazla alt işlevlerini çağırma veya kalıcı bir zamanlayıcı zamanlama) planlanan yeni eylemler ardından depolama alanına kaydeder. Bu saydam işleme eylemi ekler *yürütme geçmişini* düzenleme örneği. Geçmiş depolama tablosunda depolanır. İşleme işlem iletileri asıl işi zamanlamak için bir kuyruk ekler. Bu noktada, orchestrator işlevi bellekten olabilir. Azure işlevleri tüketim planı kullanıyorsanız, bunu faturalandırması durdurur.  Yapmak için daha fazla iş olduğunda işlevi yeniden başlatılır ve durumunu yeniden düzenlenir.
 
-Daha fazla iş yapmak için bir düzenleme işlevi verildikten sonra (örneğin, bir yanıt iletisi alındı veya sağlam bir süreölçerin süresi), orchestrator yeniden uyanır ve tüm işlevi en başından itibaren yerel durumu yeniden oluşturmak için yeniden yürütür. Bu yeniden yürütme sırasında bir işlevi çağırmak kod çalışırsa (veya diğer zaman uyumsuz iş), dayanıklı görev Framework ile danışır *yürütme geçmişini* geçerli düzenleme. Bulursa etkinlik işlevi zaten yürütüldü ve bazı sonucunu veriyor, onu o işlevin sonucu yeniden yürütür ve orchestrator kod çalışmaya devam eder. Bu işlev kodunu alır burada tamamlandıktan veya zamanlanmış yeni zaman uyumsuz çalışma sahip bir noktaya kadar'olmuyor devam eder.
+Daha fazla iş yapmak için bir düzenleme işlevi verildikten sonra (örneğin, bir yanıt iletisi alındı veya sağlam bir süreölçerin süresi), orchestrator yeniden uyanır ve tüm işlevi en başından itibaren yerel durumu yeniden oluşturmak için yeniden yürütür. Bu yeniden yürütme sırasında bir işlevi çağırmak kod çalışırsa (veya diğer zaman uyumsuz iş), dayanıklı görev Framework ile danışır *yürütme geçmişini* geçerli düzenleme. Bu, bulunursa [etkinlik işlevi](durable-functions-types-features-overview.md#activity-functions) yürütülen ve veriyor bazı sonucu zaten, bu işlevin sonucu başlayarak yeniden oynatılır ve orchestrator kod çalışmaya devam eder. Bu işlev kodunu alır burada tamamlandıktan veya zamanlanmış yeni zaman uyumsuz çalışma sahip bir noktaya kadar'olmuyor devam eder.
 
 ### <a name="orchestrator-code-constraints"></a>Orchestrator kod kısıtlamaları
 
@@ -384,7 +384,7 @@ Tüm bilinen sorunları izlenmesi gereken [GitHub sorunları](https://github.com
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Dayanıklı işlevler belgeleri okumaya devam edin](durable-functions-bindings.md)
+> [Dayanıklı işlevler belgeleri okumaya devam edin](durable-functions-types-features-overview.md)
 
 > [!div class="nextstepaction"]
 > [Örnekler ve dayanıklı işlevler uzantısını yükleme](durable-functions-install.md)

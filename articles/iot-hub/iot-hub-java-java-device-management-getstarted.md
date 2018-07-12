@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Hub cihaz Yönetimi (Java) ile çalışmaya başlama | Microsoft Docs
-description: Uzak aygıt yeniden başlatma işlemi başlatmak için Azure IOT Hub cihaz yönetimini kullanma Doğrudan bir yöntem ve Azure IOT hizmeti doğrudan yöntemini çağıran bir hizmet uygulaması uygulamak için Java SDK'sını içeren bir sanal cihaz uygulamasının uygulamak için Azure IOT cihaz SDK'sı Java için kullanın.
+title: Azure IOT Hub cihaz yönetimini (Java) kullanmaya başlama | Microsoft Docs
+description: Uzak cihazı yeniden başlatmak için Azure IOT Hub cihaz Yönetimi'ni kullanma Bir doğrudan yöntem ve Azure IOT hizmeti doğrudan yöntemini çağıran bir hizmet uygulaması uygulamak için Java SDK'sını içeren bir sanal cihaz uygulaması uygulamak için Azure IOT cihaz SDK'sı için Java kullanın.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -10,69 +10,69 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
 ms.openlocfilehash: 6a4ba8c2b88520dff028610cf64aa9b3a6e3fefd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636197"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38481982"
 ---
-# <a name="get-started-with-device-management-java"></a>Aygıt Yönetimi (Java) ile çalışmaya başlama
+# <a name="get-started-with-device-management-java"></a>Cihaz yönetimini (Java) kullanmaya başlama
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 
-* IOT hub'ı oluşturun ve IOT hub'ınızda bir cihaz kimliği oluşturma için Azure Portalı'nı kullanın.
-* Cihaz yeniden başlatmak için doğrudan bir yöntem uygulayan bir sanal cihaz uygulaması oluşturursunuz. Doğrudan yöntemleri buluttan çağrılır.
-* IOT hub'ınız aracılığıyla sanal cihaz uygulama yeniden başlatma doğrudan yöntemini çağıran bir uygulama oluşturun. Bu uygulama daha sonra yeniden başlatma işlemi tamamlandığında görmek için aygıt bildirilen özelliklerinden izler.
+* IOT Hub oluşturma ve IOT hub'ınızda bir cihaz kimliği oluşturmak için Azure portalını kullanın.
+* Cihazı yeniden başlatmak için bir doğrudan yöntem uygulayan bir sanal cihaz uygulaması oluşturma. Doğrudan yöntemler buluttan çağrılır.
+* Sanal cihaz uygulamasının, IOT hub'ı üzerinden doğrudan yeniden başlatma yöntemi çağıran bir uygulama oluşturun. Bu uygulama CİHAZDAN yeniden başlatma işlemi tamamlandığında görmek için bildirilen özellikleri sonra izler.
 
-Bu öğreticinin sonunda iki Java konsol uygulamaları vardır:
+Bu öğreticinin sonunda, iki Java konsol uygulamanız olacak:
 
 **simulated-device**. Bu uygulama:
 
 * Daha önce oluşturulan cihaz kimliğiyle IOT hub'ınıza bağlanır.
-* Yeniden başlatma doğrudan yöntem çağrısı alır.
-* Fiziksel bir yeniden başlatma benzetimini yapar.
-* Bildirilen bir özellik aracılığıyla son yeniden başlatma zamanı raporlar.
+* Yeniden başlatma doğrudan yöntem çağırma alır.
+* Fiziksel sistemin yeniden başlatılması benzetimini yapar.
+* Bildirilen özellik aracılığıyla son yeniden başlatma süresini bildiriyor.
 
-**Tetikleyici yeniden başlatma**. Bu uygulama:
+**tetikleyiciyi yeniden başlatma**. Bu uygulama:
 
-* Sanal cihaz uygulamasının doğrudan bir yöntem çağırır.
-* Sanal aygıt tarafından gönderilen doğrudan yöntem çağrısının yanıtı görüntüler
-* Güncelleştirilmiş görüntüler özellikleri bildirdi.
+* Sanal cihaz uygulamasında bir doğrudan yöntem çağırır.
+* Sanal cihaz tarafından gönderilen bir doğrudan yöntem çağrısına yanıt görüntüler
+* Bildirilen özellikler güncelleştirilmiş görüntüler.
 
 > [!NOTE]
-> Aygıtları ve çözüm arka ucunuz çalıştırmak için uygulamalar oluşturmak için kullanabileceğiniz SDK'ları hakkında daha fazla bilgi için bkz: [Azure IOT SDK'ları][lnk-hub-sdks].
+> Cihazlar ve çözüm arka ucunuz üzerinde çalıştırılacak uygulamalar oluşturmak için kullanabileceğiniz SDK'lar hakkında daha fazla bilgi için bkz. [Azure IOT SDK'ları][lnk-hub-sdks].
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Java SE 8. <br/> [Geliştirme ortamınızı hazırlama][lnk-dev-setup], bu öğretici için Java'nın Windows veya Linux'ta nasıl yükleneceğini açıklar.
 * Maven 3.  <br/> [Geliştirme ortamınızı hazırlama][lnk-dev-setup], bu öğretici için [Maven][lnk-maven]'ın Windows veya Linux'ta nasıl yükleneceğini açıklar.
-* [Node.js sürümünü 0.10.0 veya üzeri](http://nodejs.org).
+* [Node.js sürümü: 0.10.0 veya üzeri](http://nodejs.org).
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Tetikleyici doğrudan bir yöntem kullanarak cihaz üzerinde Uzaktan yeniden başlatma
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Bir doğrudan yöntem kullanarak cihaz üzerinde Uzaktan yeniden başlatma tetikleyin
 
-Bu bölümde, bir Java konsol uygulaması, oluşturun:
+Bu bölümde, bir Java konsol uygulaması oluşturun:
 
-1. Sanal cihaz uygulamasının yeniden başlatma doğrudan yöntemi çağırır.
+1. Sanal cihaz uygulaması yeniden başlatma doğrudan yöntemini çağırır.
 1. Yanıt görüntüler.
-1. Anketler yeniden başlatmanın ne zaman tamamlandığını belirlemek için cihazın gönderilen bildirilen özellikleri.
+1. Polls – yeniden başlatma ne zaman tamamlandığını belirlemek için CİHAZDAN gönderilen bildirilen özellikleri.
 
-Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen özellikleri okumak için Hub'ınıza bağlanır.
+Bu konsol uygulamasını IOT doğrudan yöntem çağırma ve bildirilen özellikler okumak için Hub'ınıza bağlanır.
 
 1. DM-get-started adlı boş bir klasör oluşturun.
 
-1. Dm-get-started klasöründe adlı bir Maven projesi oluşturun **tetikleyici yeniden başlatma** , komut isteminde aşağıdaki komutu kullanarak. Tek ve uzun bir komut gösterir:
+1. Dm-get-started klasöründe adlı bir Maven projesi oluşturun **tetikleyici-reboot** komut isteminizde aşağıdaki komutu kullanarak. Tek ve uzun bir komut aşağıda gösterilmiştir:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. Komut isteminizde tetikleyici yeniden başlatma klasöre gidin.
+1. Komut isteminizde tetikleyici yeniden klasöre gidin.
 
-1. Bir metin düzenleyicisi kullanarak, tetikleyici yeniden başlatma klasöründeki pom.xml dosyasını açın ve aşağıdaki bağımlılığı eklemek **bağımlılıkları** düğümü. Bu bağımlılık, IOT hub ile iletişim kurmak için uygulamanızda IOT-service-client paketini kullanmanıza olanak sağlar:
+1. Bir metin düzenleyicisi kullanarak, tetikleyici yeniden başlatma klasöründeki pom.xml dosyasını açın ve aşağıdaki bağımlılığı ekleyin **bağımlılıkları** düğümü. Bu bağımlılık, IOT hub ile iletişim kurmak için uygulamanızda IOT-service-client paketini kullanmanıza olanak sağlar:
 
     ```xml
     <dependency>
@@ -86,7 +86,7 @@ Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen öze
     > [!NOTE]
     > [Maven arama][lnk-maven-service-search] kullanarak en yeni **iot-service-client** sürümünü kontrol edebilirsiniz.
 
-1. Aşağıdakileri ekleyin **yapı** düğümünden sonraki **bağımlılıkları** düğümü. Bu yapılandırma, uygulamanızı oluşturmak için Java 1.8 kullanmak için Maven bildirir:
+1. Aşağıdaki **derleme** düğümünün sonra **bağımlılıkları** düğümü. Bu yapılandırma, uygulama oluşturmak için Java 1.8 kullanmak için Maven bildirir:
 
     ```xml
     <build>
@@ -123,7 +123,7 @@ Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen öze
     import java.util.concurrent.ExecutorService;
     ```
 
-1. Aşağıdaki sınıf düzeyi değişkenleri **App** sınıfına ekleyin. Değiştir `{youriothubconnectionstring}` , not ettiğiniz, IOT hub bağlantı dizesine sahip *IOT Hub oluşturma* bölümü:
+1. Aşağıdaki sınıf düzeyi değişkenleri **App** sınıfına ekleyin. Değiştirin `{youriothubconnectionstring}` not ettiğiniz IOT hub bağlantı dizenizle *IOT Hub oluşturma* bölümü:
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -134,7 +134,7 @@ Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen öze
     private static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
     ```
 
-1. Bildirilen özellikleri cihaz çifti 10 saniyede okuyan bir iş parçacığı uygulamak için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı:
+1. Bildirilen özellikler cihaz ikizinden 10 saniyede okuyan bir iş parçacığı uygulamak için aşağıdaki iç içe geçmiş Sınıf Ekle **uygulama** sınıfı:
 
     ```java
     private static class ShowReportedProperties implements Runnable {
@@ -155,13 +155,13 @@ Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen öze
     }
     ```
 
-1. İmzası değiştirme **ana** yöntemi aşağıdaki özel durum:
+1. Değişiklik imzası **ana** yönteminin şu özel durum:
 
     ```java
     public static void main(String[] args) throws IOException
     ```
 
-1. Sanal cihaz için yeniden başlatma doğrudan yöntemini çağırmak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. Sanal cihazı yeniden başlatma doğrudan yöntemini çağırmak için aşağıdaki kodu ekleyin. **ana** yöntemi:
 
     ```java
     System.out.println("Starting sample...");
@@ -186,7 +186,7 @@ Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen öze
     }
     ```
 
-1. Sanal cihaz bildirilen özelliklerinden yoklamak için iş parçacığı başlatmak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. Bildirilen özellikler sanal CİHAZDAN yoklamak için iş parçacığı başlatmak için aşağıdaki kodu ekleyin. **ana** yöntemi:
 
     ```java
     ShowReportedProperties showReportedProperties = new ShowReportedProperties();
@@ -194,7 +194,7 @@ Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen öze
     executor.execute(showReportedProperties);
     ```
 
-1. Uygulamayı durdurun sağlamak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. Uygulamayı durdurun sağlamak için aşağıdaki kodu ekleyin. **ana** yöntemi:
 
     ```java
     System.out.println("Press ENTER to exit.");
@@ -205,21 +205,21 @@ Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen öze
 
 1. Trigger-reboot\src\main\java\com\mycompany\app\App.java dosyasını kaydedip kapatın.
 
-1. Yapı **tetikleyici yeniden başlatma** arka uç uygulama ve olan hataları düzeltin. Komut isteminde, tetikleyici yeniden başlatma klasörüne gidin ve aşağıdaki komutu çalıştırın:
+1. Derleme **tetikleyici-reboot** arka uç uygulaması ve olan hataları düzeltin. Komut isteminizde tetikleyici yeniden klasöre gidin ve aşağıdaki komutu çalıştırın:
 
     `mvn clean package -DskipTests`
 
 ## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
 
-Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yeniden başlatma uygulama dinler yöntem çağrısı IOT hub'ınızı ve hemen o aramayı yanıtlar doğrudan. Uygulama sonra uykuya geçme bildirmek için bildirilen bir özellik kullanmadan önce yeniden başlatma işleminin benzetimini yapmak bir süre için **tetikleyici yeniden başlatma** yeniden başlatma tamamlandıktan arka uç uygulama.
+Bu bölümde, bir cihaza benzetim yapan bir Java konsol uygulaması oluşturun. Yeniden başlatma uygulama dinler, bu çağrı için metot çağrısı IOT hub'ınıza ve hemen yanıt doğrudan. Uygulama sonra uyku bildirmek üzere bildirilen özellik kullanmadan önce yeniden başlatma işleminin benzetimini yapmak, bir süredir **tetikleyici yeniden başlatma** yeniden başlatma tamamlandıktan arka uç uygulaması.
 
-1. Dm-get-started klasöründe adlı bir Maven projesi oluşturun **simulated-device** , komut isteminde aşağıdaki komutu kullanarak. Tek ve uzun bir komut verilmiştir:
+1. Dm-get-started klasöründe adlı bir Maven projesi oluşturun **simulated-device** komut isteminizde aşağıdaki komutu kullanarak. Tek ve uzun bir komut aşağıda verilmiştir:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
 1. Komut isteminizde simulated-device klasörüne gidin.
 
-1. Bir metin düzenleyicisi kullanarak simulated-device klasöründeki pom.xml dosyasını açın ve aşağıdaki bağımlılığı eklemek **bağımlılıkları** düğümü. Bu bağımlılık, IOT hub ile iletişim kurmak için uygulamanızda IOT-service-client paketini kullanmanıza olanak sağlar:
+1. Bir metin düzenleyicisi kullanarak simulated-device klasöründeki pom.xml dosyasını açın ve aşağıdaki bağımlılığı ekleyin **bağımlılıkları** düğümü. Bu bağımlılık, IOT hub ile iletişim kurmak için uygulamanızda IOT-service-client paketini kullanmanıza olanak sağlar:
 
     ```xml
     <dependency>
@@ -232,7 +232,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     > [!NOTE]
     > [Maven arama][lnk-maven-device-search] kullanarak en yeni **iot-device-client** sürümünü kontrol edebilirsiniz.
 
-1. Aşağıdakileri ekleyin **yapı** düğümünden sonraki **bağımlılıkları** düğümü. Bu yapılandırma, uygulamanızı oluşturmak için Java 1.8 kullanmak için Maven bildirir:
+1. Aşağıdaki **derleme** düğümünün sonra **bağımlılıkları** düğümü. Bu yapılandırma, uygulama oluşturmak için Java 1.8 kullanmak için Maven bildirir:
 
     ```xml
     <build>
@@ -268,7 +268,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     import java.util.HashSet;
     ```
 
-1. Aşağıdaki sınıf düzeyi değişkenleri **App** sınıfına ekleyin. Değiştir `{yourdeviceconnectionstring}` , not ettiğiniz aygıt bağlantı dizesiyle *bir cihaz kimliği oluşturma* bölümü:
+1. Aşağıdaki sınıf düzeyi değişkenleri **App** sınıfına ekleyin. Değiştirin `{yourdeviceconnectionstring}` not ettiğiniz cihaz bağlantı dizesiyle *bir cihaz kimliği oluşturma* bölümü:
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -279,7 +279,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     private static DeviceClient client;
     ```
 
-1. Doğrudan yöntem durum olayları için bir geri çağırma işleyici uygulamak için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı:
+1. Doğrudan yöntem durum olayları için bir geri çağırma işleyici uygulamak için aşağıdaki iç içe geçmiş Sınıf Ekle **uygulama** sınıfı:
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -291,7 +291,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     }
     ```
 
-1. Cihaz çifti durum olayları için bir geri çağırma işleyici uygulamak için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı:
+1. Cihaz ikizi durumu olayları için bir geri çağırma işleyici uygulamak için aşağıdaki iç içe geçmiş Sınıf Ekle **uygulama** sınıfı:
 
     ```java
     protected static class DeviceTwinStatusCallback implements IotHubEventCallback
@@ -303,7 +303,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     }
     ```
 
-1. Özellik olayları için bir geri çağırma işleyici uygulamak için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı:
+1. Özellik olayları için bir geri çağırma işleyici uygulamak için aşağıdaki iç içe geçmiş Sınıf Ekle **uygulama** sınıfı:
 
     ```java
     protected static class PropertyCallback implements PropertyCallBack<String, String>
@@ -316,7 +316,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     }
     ```
 
-1. Aygıt yeniden başlatma benzetimini yapmak için bir iş parçacığı uygulamak için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı. İş parçacığı beş saniye için uyku moduna geçer ve ardından ayarlar **lastReboot** özelliği bildirdi:
+1. Cihaz önyüklemesi benzetmek için bir iş parçacığı uygulamak için aşağıdaki iç içe geçmiş Sınıf Ekle **uygulama** sınıfı. İş parçacığı beş saniye için uyku moduna geçer ve ardından ayarlar **lastReboot** bildirilen özellik:
 
     ```java
     protected static class RebootDeviceThread implements Runnable {
@@ -337,7 +337,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     }
     ```
 
-1. Cihazda doğrudan yöntemi uygulamak için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı. Ne zaman sanal uygulama alan bir çağrı **yeniden** doğrudan yöntemi, bir bildirim çağırana döndürür ve ardından yeniden işlemek için bir iş parçacığı başlatır:
+1. Doğrudan yöntemi cihazda uygulamak için aşağıdaki iç içe geçmiş Sınıf Ekle **uygulama** sınıfı. Sanal uygulama için bir çağrı aldığında **yeniden** doğrudan yöntem, bir bildirim çağırana döner ve daha sonra yeniden başlatma işlemi için bir iş parçacığı başlatır:
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -369,7 +369,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     }
     ```
 
-1. İmzası değiştirme **ana** aşağıdaki özel durumlar oluşturma yöntemi:
+1. Değişiklik imzası **ana** aşağıdaki özel durumlar oluşturan yöntemi:
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException
@@ -382,7 +382,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     client = new DeviceClient(connString, protocol);
     ```
 
-1. Doğrudan yöntem çağrıları için dinleme başlatmak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. Doğrudan yöntem çağrıları için dinleme başlatmak için aşağıdaki kodu ekleyin. **ana** yöntemi:
 
     ```java
     try
@@ -400,7 +400,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     }
     ```
 
-1. Aygıt benzeticisi kapatmak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. Cihaz simülatörü kapatmak için aşağıdaki kodu ekleyin. **ana** yöntemi:
 
     ```java
     System.out.println("Press any key to exit...");
@@ -413,7 +413,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
 
 1. Simulated-device\src\main\java\com\mycompany\app\App.java dosyasını kaydedip kapatın.
 
-1. Yapı **simulated-device** arka uç uygulama ve olan hataları düzeltin. Komut isteminde, simulated-device klasörüne gidin ve aşağıdaki komutu çalıştırın:
+1. Derleme **simulated-device** arka uç uygulaması ve olan hataları düzeltin. Komut isteminizde simulated-device klasörüne gidin ve aşağıdaki komutu çalıştırın:
 
     `mvn clean package -DskipTests`
 
@@ -421,21 +421,21 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
 
 Şimdi uygulamaları çalıştırmaya hazırsınız.
 
-1. Simulated-device klasöründeki bir komut isteminde IOT hub'ınızı gelen yeniden başlatma yöntemi çağrıları dinleme yapmaya başlamak için aşağıdaki komutu çalıştırın:
+1. Simulated-device klasöründeki komut isteminde IOT hub'ınıza yeniden başlatma yöntemine yapılan çağrılar için dinleme başlamak için aşağıdaki komutu çalıştırın:
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![Dinlemek için Java IOT hub'ı sanal cihaz uygulamasının yeniden doğrudan yöntem çağrıları][1]
+    ![Java IOT Hub sanal cihaz uygulaması dinlemek için doğrudan yöntem çağrılarını yeniden başlatma][1]
 
-1. Tetikleyici yeniden başlatma klasöründeki bir komut isteminde IOT hub'ından sanal cihazınız üzerinde yeniden başlatma yöntemini çağırmak için aşağıdaki komutu çalıştırın:
+1. Tetikleyici yeniden başlatma klasöründeki bir komut isteminde, yeniden başlatma yöntemi sanal Cihazınızı IOT hub'ından çağırmak için aşağıdaki komutu çalıştırın:
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![Yeniden başlatma doğrudan yöntemini çağırmak için Java IOT Hub hizmeti uygulaması][2]
+    ![Yeniden başlatma doğrudan yöntem çağırma yönelik Java IOT Hub hizmet uygulaması][2]
 
-1. Sanal cihaz yeniden başlatma doğrudan yöntem çağrısı yanıt verir:
+1. Sanal cihazı yeniden başlatma doğrudan yöntem çağrısına yanıt verir:
 
-    ![Java IOT hub'ı sanal cihaz uygulamasının doğrudan yöntem çağrısı yanıt verir.][3]
+    ![Java IOT Hub sanal cihaz uygulaması doğrudan yöntem çağrısına yanıt verir.][3]
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 

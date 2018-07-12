@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 7b813500eecba3aa1902c28b9b7c56da6c4516b7
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-ms.translationtype: MT
+ms.openlocfilehash: cf24810c0aa414e751e55df163563f013c1a0081
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967554"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969954"
 ---
 # <a name="trusted-internet-connection-guidance"></a>Güvenilir bir Internet bağlantısı Kılavuzu
 
@@ -199,7 +199,7 @@ Aşağıdaki örnek ilkeleri TIC uyumluluk senaryoları için yararlı olabilir:
 |İzin verilen konumlar | Tüm kaynaklar bölgelere uyumlu sanal ağlar ve Ağ İzleyicisi yapılandırmayla dağıtıldığından emin olun  | https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs |
 |İzin verilmeyen kaynak türleri gibi genel IP'ler  | Kaynak türleri, uyumluluk planınız yok dağıtımını engelliyor. Örnek olarak, bu ilke, genel IP adresi kaynakları dağıtımını engellemek üzere kullanılabilir. NSG kuralları etkili bir şekilde gelen Internet trafiği engellemek için kullanılabilse de, ek kullanımını genel IP'lerin engelleme saldırı yüzeyi küçültülür.    | https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type  |
 
-### <a name="azure-traffic-analytics"></a>Azure trafik analizi
+### <a name="azure-traffic-analyticshttpsazuremicrosoftcomen-inblogtraffic-analytics-in-preview"></a>Azure [trafik analizi](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/)
 
 Azure Ağ İzleyicisi'nin trafik analizi, akış günlüğü verileri ve diğer günlükler, ağ trafiğini üst düzey genel bakış sağlamak için kullanır. Bu veriler TIC uyumluluk denetim ve sorunlu noktaları tanımlamak için yararlı olabilir. Üst düzey bir pano, hızlı bir şekilde Vm'leri odaklanmış listesini TIC yönlendirme için sağlandığından internet ile iletişim kuran ekran için kullanılabilir.
 

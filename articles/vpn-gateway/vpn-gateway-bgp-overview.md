@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/12/2017
 ms.author: yushwang
 ms.openlocfilehash: 13a17eb3d78e70a09864bf218f1027d6e98486a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23883512"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38720059"
 ---
 # <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Azure VPN Gateways ile BGP’ye genel bakış
 Bu makale Azure VPN Gateways içindeki BGP (Sınır Ağ Geçidi Protokolü) desteğine genel bakış sağlar.
@@ -35,10 +35,10 @@ BGP’nin çeşitli avantajları ve yeni özellikleri vardır:
 ### <a name="prefix"></a>Otomatik ve esnek ön ek güncelleştirmelerini destekler
 BGP ile yalnızca belirli bir BGP eşliğine IPSec S2S VPN tüneli üzerinden en küçük ön eki bildirmeniz gerekir. Şirket içi VPN cihazınızın BGP eşliği IP adresinin ana bilgisayar ön eki (/32) kadar küçük olabilir. Azure Virtual Network’un erişmesine izin vermek üzere hangi şirket içi ağ ön eklerinin Azure’a tanıtılacağını denetleyebilirsiniz.
 
-Ayrıca, büyük özel bir IP adres alanı (örneğin, 10.0.0.0/8) gibi VNet adres ön bazıları içerebilir büyük ön ekler tanıtabilirsiniz. Ön ekler VNet ön herhangi biri ile aynı olamaz olsa unutmayın. VNet ön eklerinizle aynı olan yollar reddedilir.
+Ayrıca, bir büyük özel IP adres alanı (örn. 10.0.0.0/8) gibi VNet adres ön bazılarını içerebilecek büyük ön ekler tanıtabilirsiniz. Ön ekler VNet ön eklerinden biri ile aynı olamaz ancak unutmayın. VNet ön eklerinizle aynı olan yollar reddedilir.
 
-### <a name="multitunnel"></a>Birden fazla tünel VNet ve bir şirket içi site arasında BGP'yi temel alan otomatik yük devretme desteği
-Azure VNet ile şirket içi VPN cihazlarınız arasında aynı konumda birden fazla bağlantı kurabilirsiniz. Bu özellik aktif-aktif bir yapılandırmadaki iki ağ arasında birden fazla tünel (yol) sağlar. Tünellerden birinin bağlantısı kesilirse karşılık gelen yollar BGP aracılığıyla geri çekilir ve trafik kalan tünellere otomatik olarak geçer.
+### <a name="multitunnel"></a>Birden fazla tünel VNet ve şirket içi site arasında BGP'yi temel alan otomatik yük devretme ile desteği
+Azure VNet ile şirket içi VPN cihazlarınız arasında aynı konumda birden fazla bağlantı kurabilirsiniz. Bu özellik aktif-aktif bir yapılandırmadaki iki ağ arasında birden fazla tünel (yol) sağlar. Birinin bağlantısı kesilirse karşılık gelen yollar BGP aracılığıyla Tünellerden ve trafik kalan tünellere için otomatik olarak geçer.
 
 Aşağıdaki diyagramda yüksek oranda kullanılabilen bu kurulumun basit bir örneği gösterilmiştir:
 

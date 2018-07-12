@@ -1,6 +1,6 @@
 ---
-title: Power BI - Azure kullanarak Uzaktan izleme verilerini Görselleştirme | Microsoft Docs
-description: Bu öğretici Power BI Desktop ve Cosmos DB integerate verileri, bir uzaktan izleme çözümü özelleştirilmiş bir görsel öğe kullanır. Bu şekilde, kullanıcılar kendi özel panolar oluşturun ve bunları çözümü değil, kullanıcılara paylaşın.
+title: Power BI - Azure'ı kullanarak Uzaktan izleme verilerini Görselleştirme | Microsoft Docs
+description: Bu öğreticide Power BI Desktop ve Cosmos DB integerate verileri, bir uzaktan izleme çözümü özelleştirilmiş görselleştirmemizdeki kullanılır. Bu şekilde, kullanıcılar, kendi özel panolar oluşturma ve kullanıcılara çözüm üzerinde değil paylaşın.
 author: asdonald
 manager: hegate
 ms.author: asdonald
@@ -8,69 +8,69 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: e396d69a61679a85fdfbd3e8fd43216635dec51d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627799"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970414"
 ---
-# <a name="visualize-remote-monitoring-data-using-power-bi"></a>Power BI kullanarak Uzaktan izleme verileri Görselleştir
+# <a name="visualize-remote-monitoring-data-using-power-bi"></a>Uzaktan izleme verilerini Power BI kullanarak Görselleştirme
 
-Bu öğretici, Uzaktan izleme çözümü verilerinizi Power bı'da CosmosDB takın konusunda size yol gösterecek. Bu bağlantı kuruldu, daha sonra kendi özel panolar oluşturabilir ve bunları geri Uzaktan izleme çözümü panonuz ekleyin. Bu iş akışı olanları kutunun dışında ek olarak oluşturulması daha özel grafikler sağlar. Bu öğreticide daha sonra Uzaktan izleme çözümü dışında kullanılması özel panolar yapı veya diğer veri akışları ile tümleştirmek için de kullanabilirsiniz. Power BI panoları oluşturma belirli parça seçerken birbiriyle etkileşim her paneli de yapabilirsiniz anlamına gelir. Örneğin, benzetimli kamyonlar hakkında tüm bilgiler gösterilmiştir bir filtre olabilir ve panonuz her parçasının kamyon bilgileri yalnızca benzetimli göstermek için etkileşimde bulunur. Power BI dışında bir aracı kullanmak istiyorsanız, seçeceğiniz görselleştirme araç kullanın ve, bir oluşturduysanız Cosmos veritabanı veya özel veritabanı kanca için aşağıdaki adımları da genişletebilirsiniz. 
+Bu öğreticide, Uzaktan izleme çözümü verilerinizi Power bı'a CosmosDB takın konusunda size yol gösterir. Bu bağlantı kuruldu, ardından kendi özel panolar oluşturabilir ve bunları, Uzaktan izleme çözümü panosuna dönün ekleyin. Hazır ek olarak oluşturulması daha özel grafikler bu iş akışı sağlar. Bu öğreticide daha sonra diğer veri akışları ile tümleştirin veya Uzaktan izleme çözümünüzü dışında kullanılması için özel panolar oluşturmak için de kullanabilirsiniz. Power bı'da panolar oluşturmaya belirli parçaları seçerken birbiriyle etkileşim kuran her paneli de yapabilirsiniz anlamına gelir. Örneğin, yalnızca, sanal kamyon ilgili bilgilerin gösteren bir filtre olabilir ve panonuz her parça yalnızca kamyon bilgi benzetimli göstermek için etkileşimde. Power BI dışındaki bir aracı kullanmak istiyorsanız, Cosmos veritabanı veya özel bir veritabanı, bir oluşturduysanız kanca ve tercih ettiğiniz görselleştirme aracı kullanmak için bu adımları da genişletebilirsiniz. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Şu anda çalışan bir uzaktan izleme çözümü olması gerekir
-- Erişiminiz olmalıdır [Azure Portal](https://portal.azure.com) ve aboneliğiniz üzerinde IOT hub'ı ve çözüm çalışıyor
-- Bilmeniz gereken [Power BI desktop](https://powerbi.microsoft.com) yüklü herhangi bir sürümü ne yapacağını
+- Şu anda çalışan bir uzaktan izleme çözümü olmalıdır
+- Erişiminiz olmalıdır [Azure portalı](https://portal.azure.com) ve aboneliğinizi üzerinde IOT hub'ı ve çözüm çalışıyor
+- Olmalıdır [Power BI desktop](https://powerbi.microsoft.com) herhangi bir sürümü yüklü yapar
 
 
 ## <a name="information-needed-from-azure-portal"></a>Azure Portalı'ndan gerekli bilgiler
 
-1. Gidin [Azure Portal](https://portal.azure.com) ve gerekirse oturum açın
+1. Gidin [Azure portalı](https://portal.azure.com) ve gerekirse oturum açın
 
-2. Sol panelde kaynak Gruplar'ı tıklatın.
+2. Sol panelde, kaynak gruplar
 
     ![Yan paneli Nav](./media/iot-accelerators-integrate-data-powerbi/side_panel.png)
 
-3. Hangi IOT çözümünüzü çalıştığı kaynak grubuna gidin ve bu kaynak grubunun genel bakış sayfasına ulaşmak için tıklatın. 
+3. Hangi IOT çözümünüzü çalıştığı kaynak grubuna gidin ve bu kaynak grubunun genel bakış sayfasına ulaşmak için tıklayın. 
 
-4. Bu genel bakış sayfasında türü "Azure Cosmos DB hesabı" öğesini tıklatın, ardından Cosmos DB akışı genel bakış sayfasına bu IOT çözüm için gerçekleştirilecek.
+4. Bu genel bakış sayfasında türü "Azure Cosmos DB hesabı" öğesini tıklatın, ardından Cosmos DB akışa Genel Bakış sayfasına bu IOT çözüm için alınır.
 
     ![Kaynak Grubu](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
 
-5. Sol panelindeki "Anahtarlar" bölümüne tıklayın ve Powerbı kullanılması için aşağıdaki değerleri not edin:
+5. Sol panelde, "Anahtarlar" bölümüne tıklayın ve Power bı'da kullanılacak aşağıdaki değerleri not alın:
 
     - URI
     - Birincil Anahtar
 
     ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
-## <a name="setting-up-the-stream-in-power-bi"></a>Power BI akışında ayarlama
+## <a name="setting-up-the-stream-in-power-bi"></a>Power bı'da Stream ayarlama
   
-1. Power BI Masaüstü uygulamasını açın ve sol üst köşeden "Veri Al"'i tıklatın. 
+1. Power BI Masaüstü uygulamasını açın ve sol üst köşesinden "Veri Al"'a tıklayın. 
 
-    ![Veri Al](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
+    ![Veri alma](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
 
-2. Veri girmek için sorulduğunda, "Azure Cosmos VT" için arama seçin ve bu bağlayıcıyı seçin. Bu bağlayıcı temelde doğrudan Azure IOT çözümünüzün cosmos veritabanından veri çeker
+2. Veri girmeniz istendiğinde, "Azure Cosmos DB" için arama seçin ve bu bağlayıcıyı seçin. Bu bağlayıcı, temelde doğrudan cosmos veritabanı, Azure IOT çözümünüzün veri çeker
   
     ![Cosmos DB](./media/iot-accelerators-integrate-data-powerbi/cosmos_db.png)
   
-3. Yukarıdaki kaydettiğiniz bilgileri girin:
+3. Yukarıda kaydettiğiniz bilgileri girin:
 
     * URI
     * Birincil Anahtar
 
-4. Power BI içeri aktarılacak tüm tabloları seçin. Bu eylem verileri yüklenirken kapalı tetiklersiniz. Çözümünüzü bir uzun süre çalışan, uzun, veri yüklemek alabilir (kadar birkaç saat). 
+4. Power BI'a alınması için tüm tabloları seçin. Bu eylem verileri yüklenmesini devre dışı başlatır. Çözümünüze bir uzun süre çalışan, daha uzun, veri yüklemek sürebilir (en fazla birkaç saat). 
 
-    ![Tabloları](./media/iot-accelerators-integrate-data-powerbi/import_tables.png)
+    ![Tabloları İçeri Aktar](./media/iot-accelerators-integrate-data-powerbi/import_tables.png)
 
-5. Veri tamamlandıktan sonra yükleme, Power BI en üstündeki satırda "sorgular Düzenle"'ı tıklatın ve her tablo için sarı çubuğu okları tıklatarak tüm tabloları genişletin. Bu temelde tüm sütunları gösterecek şekilde genişletir. Nasıl veri nem, süresini hızlandırmak, vb. gibi şeyler için doğru türde olmayan fark edeceksiniz.
+5. Veri tamamlandıktan sonra yükleme, Power BI'ın üst satırdaki "sorguları Düzenle"'a tıklayın ve sarı çubuk her tablo için okları tıklayarak tüm tabloları genişletin. Bu temelde tüm sütunları gösterecek şekilde genişletir. Nasıl veri nem süresini hızlandırmak, vb. gibi şeyler için doğru türde olmadığı fark edeceksiniz.
 
     ![Yeni bir sütun](./media/iot-accelerators-integrate-data-powerbi/new_column.png)
   
-    Örneğin, Power BI'a gelen veriler bağlayıcı üzerinden gelen zaman UNIX zaman içinde değiştirildi. Bu dönüştürme için ayarlamak için ileriye dönük yeni bir sütun oluşturup bu denklemi tarih saat biçiminde almak için kullanabilirsiniz: 
+    Örneğin, UNIX zamanına bağlayıcı aracılığıyla zaman geldiğini Power BI'a gelen verileri değiştirildi. Bu dönüştürme için ayarlamak için bundan sonra yeni bir sütun oluşturup bu eşitlik tarih saat biçiminde almak için kullanabilirsiniz: 
 
     ```text
     #datetime(1970, 1, 1, 0, 0, 0) + #duration(0, 0, 0, [Document.device.msg.received]/1000)
@@ -78,33 +78,33 @@ Bu öğretici, Uzaktan izleme çözümü verilerinizi Power bı'da CosmosDB tak�
 
     ![Güncelleştirilmiş tablo](./media/iot-accelerators-integrate-data-powerbi/updated_table.png)
   
-    Document.Device.msg.Received UNIX biçimlendirmeye sahip sütunlar biridir ve dönüştürme gereken diğer kişilerle değiştirdi. 
+    Document.Device.msg.Received sadece UNIX biçimlendirmeye sahip sütunları biridir ve dönüştürme gereken diğer kullanıcılarla değiştirdi. 
   
-    Diğer veri noktaları dize çiftleri değiştirilebilir türü ya da nerede uygun aynı kullanarak olarak yukarıdaki adımları Int dönüştürüldü.
+    Diğer veri noktası türü dize çiftler değiştirilebilir veya burada uygun olarak yukarıdaki adımları kullanarak Int dönüştürüldü.
 
 ## <a name="creating-a-dashboard"></a>Bir pano oluşturma
 
-Akış bağlandıktan sonra kişiselleştirilmiş panolar oluşturmaya hazırsınız! Pano, telemetri immmited bizim sanal cihazlar tarafından olmasına ve farklı gösteren çevresinde gibi döner alma örneğidir: 
+Akış Bağlantı kurulduktan sonra kişiselleştirilmiş panolar oluşturmaya hazırsınız! Aşağıda Pano alma gibi etrafında immmited bizim sanal cihazlar tarafından oluşturuluyor ve farklı gösteren telemetri özetleyen bir örneğidir: 
 
-* Aygıt konumu bir harita (sağdaki)
-* Kendi durum ve önem derecesi olan cihazlar. (sol üst)
-* Kurallar, yerinde aygıtlarıyla ve bunları (sol alt) giderek uyarıları varsa
+* Cihaz konumu (sağdaki) bir haritada
+* Cihaz durum ve önem derecesi. (sol üst)
+* Bir yerde kuralları ile cihazları ve varsa bunları (sol alt) giderek tüm uyarıları
 
-![Powerbı Görselleştirme](./media/iot-accelerators-integrate-data-powerbi/visual_data.png)
+![Power BI Görselleştirme](./media/iot-accelerators-integrate-data-powerbi/visual_data.png)
 
-## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>Pano yayımlama ve verileri yenileme
+## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>Panoyu yayımlama ve veri yenileme
 
-Panolarınızı başarıyla oluşturduktan sonra öneririz, [Power BI panolarınızı yayımlama](https://docs.microsoft.com/en-us/power-bi/desktop-upload-desktop-files) kişilerle paylaşmak için.
+Panolarınızı başarıyla oluşturduktan sonra olmasını öneririz, [Power BI panolarınızı yayımlama](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files) başkalarıyla paylaşmak için.
 
-Ayrıca istersiniz [veri yenileme](https://docs.microsoft.com/en-us/power-bi/refresh-data) yayımlanan Panoda en son veri kümesi olduğundan emin olun.
+Ayrıca isteyebilirsiniz [veri yenileme](https://docs.microsoft.com/power-bi/refresh-data) yayımlanan Panoda en yeni veri kümesi olduğundan emin olun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, Power BI'ı kullanarak Uzaktan izleme verilerini görselleştirmek hakkında öğrendiniz
+Bu makalede, Power BI'ı kullanarak Uzaktan izleme verileri görselleştirme hakkında bilgi edindiniz
 
 Uzaktan izleme çözümü özelleştirme hakkında daha fazla bilgi için bkz:
 
-* [Uzaktan izleme çözümü UI Özelleştirme](iot-accelerators-remote-monitoring-customize.md)
+* [Uzaktan izleme çözüm kullanıcı arabirimini özelleştirme](iot-accelerators-remote-monitoring-customize.md)
 * [Geliştirici Başvuru Kılavuzu](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Geliştirici Sorun Giderme Kılavuzu](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 

@@ -1,6 +1,6 @@
 ---
-title: Ölçek Azure kapsayıcı hizmeti kümesi
-description: Azure CLI veya Azure portal kullanarak Azure kapsayıcı hizmeti DC/OS, Docker Swarm veya Kubernetes bir kümede de Aracısı düğümleri ölçeklendirmek nasıl.
+title: Azure Container Service kümesini ölçeklendirme
+description: Azure CLI veya Azure portalını kullanarak Azure Container Service DC/OS, Docker Swarm veya Kubernetes kümesindeki aracı düğümlerini ölçeklendirme yapma.
 services: container-service
 author: sauryadas
 manager: jeconnoc
@@ -10,10 +10,11 @@ ms.date: 03/01/2017
 ms.author: saudas
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: 8fc78a84d624f9339b9b77e748b3c36e38d3ae5a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38310156"
 ---
 # <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Container Service kümesindeki aracı düğümlerini ölçekleme
 

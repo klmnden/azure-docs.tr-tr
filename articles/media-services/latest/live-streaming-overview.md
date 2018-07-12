@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services'i kullanarak canlı akış bakış | Microsoft Docs
-description: Bu konu genel bir bakış Canlı Azure Media Services v3 kullanarak akış olanağı sağlar.
+title: Azure Media Services'i kullanarak canlı akış genel bakış | Microsoft Docs
+description: Bu konuda genel bir bakış Canlı Azure Media Services v3 kullanarak akış olanağı sağlar.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,120 +13,120 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: juliako
-ms.openlocfilehash: b8c9375d8ad915200cbc8b2e1a62979fd1b7d179
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35238303"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972188"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Canlı akış ile Azure Media Services v3
 
-Azure Media Services ile etkinliklerin canlı akış teslim edilirken aşağıdaki bileşenler yaygın olarak kullanılır:
+Azure Media Services ile etkinliklerin canlı akış sunarken aşağıdaki bileşenler yaygın olarak kullanılır:
 
 * Etkinliği yayınlamak için kullanılan bir kamera.
-* Media Services gönderilen akışlara kamera (veya dizüstü bilgisayar gibi başka bir aygıt) sinyalleri dönüştürür canlı bir video Kodlayıcısı canlı akış hizmeti. Sinyaller SCTE-35 ve Ad yardımlar reklam de içerebilir. 
-* Media Services canlı akış hizmeti, alma, Önizleme, paketi, kayıt, şifrelemek ve müşterilerinize veya daha fazla dağıtım için bir CDN içeriği yayını olanak sağlar.
+* Media Services'e gönderilen akışlara kamera (veya başka bir cihaz, dizüstü bilgisayar gibi) sinyalleri dönüştürür canlı bir video Kodlayıcısı canlı akış hizmeti. Sinyaller SCTE-35 ve Ad ipuçları reklam de içerebilir. 
+* Media Services canlı akış hizmeti, alma, Önizleme, paketleme, kaydetme, şifrelemek ve müşterilerinize veya başkalarına dağıtım için bir CDN içeriği yayını sağlar.
 
-Bu makalede, ayrıntılı bir genel bakış sağlar ve Media Services ile canlı akış söz konusu ana bileşen diyagramları içerir.
+Bu makalede ayrıntılı bir genel bakış sağlar ve Media Services ile canlı akış ilgili ana bileşenleri diyagramları içerir.
 
-## <a name="overview-of-main-components"></a>Ana bileşenler genel bakış
+## <a name="overview-of-main-components"></a>Ana bileşenlerini genel bakış
 
-Media Services [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) canlı akış içeriğinin işlemekten sorumludur. Bir giriş uç noktası bir LiveEvent sağlar (URL alma) sonra bir şirket içi gerçek zamanlı Kodlayıcı sağlayın. LiveEvent Canlı giriş akışları gerçek zamanlı Kodlayıcı, RTMP veya kesintisiz akış biçiminde alır ve bir veya daha fazla akış kullanımına [akış](https://docs.microsoft.com/rest/api/media/streamingendpoints). A [LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) yayımlama, kaydetme ve canlı akış DVR penceresi ayarlarını denetlemenize olanak verir. LiveEvent Önizleme ve başka bir işleme ve teslim önce akışınızı doğrulamak için kullanacağınız bir önizleme uç noktası (Önizleme URL) de sağlar. 
+Media Services'de canlı akış içeriğini işlemekten [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) sorumludur. Bir Livestream giriş uç noktası sağlar (alma URL'si) bir şirket içi Canlı Kodlayıcı ardından sağlayın. Livestream RTMP veya kesintisiz akış biçiminde gerçek zamanlı Kodlayıcı giriş Canlı akışlarınızdan aldığında ve bir veya daha fazla akış için kullanılabilir hale getirir [akış](https://docs.microsoft.com/rest/api/media/streamingendpoints). A [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) yayımlama, kayıt ve canlı akış'ın DVR penceresi ayarlarını denetlemenize olanak verir. Livestream ayrıca daha fazla işleme edip teslime geçmeden önce akışınızı onaylama için kullandığınız bir önizleme uç noktası (Önizleme URL'si) sağlar. 
 
-Medya hizmetleri sağlayan **dinamik paketleme**, olanak sağlayan Önizleme ve MPEG DASH, HLS, kesintisiz akış içeriğinizi yayınlamak, bu akış biçimlerine el ile yeniden paketleyin zorunda kalmadan akış biçimlerine. Herhangi HLS, DASH veya kesintisiz uyumlu oynatıcıları oynatabilirsiniz. Aynı zamanda [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) akışınızı test etmek için.
+Medya hizmetleri sağlayan **dinamik paketleme**, Önizleme ve yayın, MPEG DASH, HLS, kesintisiz akış içeriğinizi olanak tanıyan akış biçimlerinde gerek kalmadan bu akış biçimlerinin el ile yeniden paketleyin. Tüm HLS, DASH veya kesintisiz uyumlu oyuncuların oynatabilirsiniz. Ayrıca [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) akışınızı test etmek için.
 
-Media Services, dinamik olarak şifrelenmiş içeriğinizi teslim etmek sağlar (**dinamik şifreleme**) Gelişmiş Şifreleme Standardı (AES-128) veya üç ana dijital hak yönetimi (DRM) sistemlerinden herhangi birini: Microsoft PlayReady Google Widevine ve Apple FairPlay. Media Services de AES anahtarları ve DRM teslim etmek için bir hizmet sunar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere.
+Media Services dinamik olarak şifrelenmiş içerik teslim etmenizi sağlar (**dinamik şifreleme**) Gelişmiş Şifreleme Standardı (AES-128) veya herhangi bir üç ana dijital hak yönetimi (DRM) sistemi: Microsoft PlayReady Google Widevine ve FairPlay Apple. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere.
 
-İsterseniz, ayrıca uygulayabilirsiniz **dinamik filtreleme**, izler, biçimleri, oyunculara gönderilen bit sayısını kontrol etmek için kullanılabilir. Media Services, reklam eklemeyi de destekler.
+İsterseniz, ayrıca uygulayabilirsiniz **dinamik filtreleme**, parçalar, biçimleri, oyuncular gönderilen bit hızlarına dönüştürme sayısını kontrol etmek için kullanılabilir. Media Services, reklam yerleştirme de destekler.
 
 
-## <a name="liveevent-types"></a>LiveEvent türleri
+## <a name="liveevent-types"></a>Livestream türleri
 
-A [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) iki türden biri olabilir: Gerçek zamanlı kodlama ve doğrudan. 
+A [Livestream](https://docs.microsoft.com/rest/api/media/liveevents) iki türden biri olabilir: live encoding ve doğrudan. 
 
-### <a name="live-encoding-with-media-services"></a>Media Services ile kodlama Canlı
+### <a name="live-encoding-with-media-services"></a>Gerçek zamanlı ile Media Services encoding
 
-![Kodlama Canlı](./media/live-streaming/live-encoding.png)
+![live Encoding](./media/live-streaming/live-encoding.png)
 
-Bir şirket içi gerçek zamanlı Kodlayıcı aşağıdaki protokollerden birini Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş LiveEvent tek bit hızlı akış gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). LiveEvent ardından gelen gerçek zamanlı kodlama gerçekleştiren tek bit hızlı akışın Çoklu bit hızlı (Uyarlamalı) video akışına. İstendiğinde, Media Services akışı müşterilere teslim eder.
+Aşağıdaki protokollerden birini Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş Livestream tek bit hızında akışa bir şirket içi Canlı Kodlayıcı gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Livestream ardından gelen gerçek zamanlı kodlama gerçekleştiren tek bit hızlı akışın Çoklu bit hızlı (Uyarlamalı) video akışı. İstendiğinde, Media Services akışı müşterilere teslim eder.
 
-Bu tür LiveEvent oluştururken belirtin **temel** (LiveEventEncodingType.Basic).
+Bu tür bir Livestream oluştururken belirtmeniz **temel** (LiveEventEncodingType.Basic).
 
 ### <a name="pass-through"></a>Geçiş
 
-![Doğrudan geçiş](./media/live-streaming/pass-through.png)
+![geçiş](./media/live-streaming/pass-through.png)
 
-Doğrudan uzun süre çalışan Canlı akışlar veya 7 x 24 doğrusal gerçek zamanlı bir şirket içi gerçek zamanlı Kodlayıcı kullanarak kodlama için optimize edilmiştir. Şirket içi Kodlayıcı Çoklu bit hızlı gönderir **RTMP** veya **kesintisiz akış** (parçalanmış MP4) için yapılandırılmış LiveEvent için **doğrudan** teslim. **Doğrudan** teslim alınan akışların geçirir olduğunda **LiveEvent**herhangi başka bir işleme olmadan s. 
+Geçiş, uzun süre çalışan Canlı akışlar veya 24 x 7 doğrusal canlı bir şirket içi Canlı Kodlayıcı kullanarak kodlama için optimize edilmiştir. Şirket içi Kodlayıcı, Çoklu bit hızına sahip gönderir **RTMP** veya **kesintisiz akış** (parçalanmış MP4) için yapılandırılmış Livestream **doğrudan** teslim. **Doğrudan** teslimi, alınan akışların gerektiğinde **Livestream**herhangi başka bir işlemeye olmadan s. 
 
-Doğrudan LiveEvents destekleyebilmesi yukarı 4 K bir çözüm ve HEVC geçirin aracılığıyla kesintisiz akış ile kullanıldığında alma protokolü. 
+Doğrudan LiveEvents destekleyebilir yukarı 4 K çözünürlüğe ve HEVC geçirmek aracılığıyla kesintisiz akış ile kullanıldığında alma protokolü. 
 
-Bu tür LiveEvent oluştururken belirtin **hiçbiri** (LiveEventEncodingType.None).
+Bu tür bir Livestream oluştururken belirtmeniz **hiçbiri** (LiveEventEncodingType.None).
 
 > [!NOTE]
 > Uzun bir dönem içerisinde birden çok etkinlik gerçekleştirecekseniz ve zaten şirket içi kodlayıcılara yatırım yaptıysanız, doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/) detaylarına bakın.
 > 
 
-## <a name="liveevent-types-comparison"></a>LiveEvent türleri karşılaştırma 
+## <a name="liveevent-types-comparison"></a>Livestream türlerini karşılaştırma 
 
-Aşağıdaki tabloda iki LiveEvent türlerinin özellikleri karşılaştırılır.
+Aşağıdaki tabloda, iki Livestream tür özellikleri karşılaştırılır.
 
-| Özellik | Doğrudan LiveEvent | Temel LiveEvent |
+| Özellik | Doğrudan Livestream | Temel Livestream |
 | --- | --- | --- |
-| Tek bit hızlı giriş bulutta Çoklu bit içine kodlanmış |Hayır |Evet |
-| Maksimum çözünürlük, Katmanlar sayısı |4Kp30  |720p, 6 Katmanlar 30 fps |
+| Tekli bit hızı girişi Çoklu bit hızlarında buluta halinde kodlanır |Hayır |Evet |
+| En yüksek çözünürlük, Katmanlar sayısı |4Kp30  |720p, 6 katmanları 30 fps |
 | Giriş protokolleri |RTMP, kesintisiz akış |RTMP, kesintisiz akış |
-| Fiyat |Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) ve "Canlı Video" sekmesini tıklatın |Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) |
-| En fazla çalışma süresi |7/24 |7/24 |
+| Fiyat |Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) ve "Canlı Video" sekmesine tıklayın |Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) |
+| Maksimum Çalıştırma süresi |7/24 |7/24 |
 | Maskeleme görüntülerini ekleme desteği |Hayır |Evet |
-| API üzerinden sinyal ad desteği|Hayır |Evet |
-| Ad SCTE35 ınband sinyal desteği|Evet |Evet |
-| Doğrudan CEA 608/708 resim yazıları |Evet |Evet |
-| Akış katkı içinde kısa takılması kurtarma olanağı |Evet |Hayır (LiveEvent slating giriş verisi olmadan 6 + saniye sonra başlayacak)|
-| Tekdüzen olmayan giriş GOPs desteği |Evet |Giriş 2 sn GOPs Hayır – düzeltilmesi gerekir |
-| Değişken kare hızı giriş desteği |Evet |Hayır – giriş kare hızı düzeltilmesi gerekir.<br/>İkincil Çeşitlemeler, örneğin, yüksek hareket planda sırasında izin verilir. Ancak Kodlayıcı 10 Çerçeve/sn için bırakılamıyor. |
-| Otomatik-akış kesici LiveEvent kullanıldığında, kaybolur |Hayır |12 çalışan hiçbir LiveOutput ise saat sonra |
+| API aracılığıyla sinyal ad desteği|Hayır |Evet |
+| Sinyal SCTE35 ınband ad desteği|Evet |Evet |
+| Doğrudan CEA 608/708 açıklamalı alt yazılar |Evet |Evet |
+| Akış katkısı kısa takılması kurtarma olanağı |Evet |Hayır (Livestream slating giriş verileri olmadan 6 + saniye sonra başlayacak)|
+| Tekdüzen olmayan giriş GOPs desteği |Evet |Yok – giriş 2 sn GOPs giderilmiş olmalıdır |
+| Değişken kare hızı girişi için destek |Evet |Yok – giriş kare hızı düzeltilmesi gerekir.<br/>Küçük farklılıklar, örneğin, yüksek bir hareket sahneler sırasında izin verilir. Ancak, kodlayıcı 10 Çerçeve/sn için bırakılamıyor. |
+| Otomatik akışı kapatmaya Livestream anahtar kullanıldığında, kaybolur |Hayır |12 çalışan hiçbir LiveOutput ise saat sonra |
 
-## <a name="liveevent-states"></a>LiveEvent durumları 
+## <a name="liveevent-states"></a>Livestream durumları 
 
-Bir LiveEvent geçerli durumu. Olası değerler şunlardır:
+Bir Livestream geçerli durumu. Olası değerler şunlardır:
 
 |Durum|Açıklama|
 |---|---|
-|**Durduruldu**| Bu ilk LiveEvent oluşturulduktan sonra bir durumda (autostart seçmediyseniz belirtilen.) Bu durumda hiçbir faturalama oluşur. Bu durumda, LiveEvent özellikleri güncelleştirildi ancak Akış verilmez.|
-|**Başlatma**| LiveEvent başlatılıyor. Bu durumda hiçbir faturalama oluşur. Bu durum süresince güncelleştirmelere veya akışa izin verilmez. Bir hata oluşursa LiveEvent durduruldu durumuna döndürür.|
-|**Çalışan**| LiveEvent Canlı akışlar işleyebilen ' dir. Şimdi kullanım faturalama. Daha fazla faturalama önlemek için LiveEvent durdurmanız gerekir.|
-|**Durdurma**| LiveEvent durduruluyor. Hiçbir faturalama bu geçici durumunda oluşur. Bu durum süresince güncelleştirmelere veya akışa izin verilmez.|
-|**Silme**| LiveEvent siliniyor. Hiçbir faturalama bu geçici durumunda oluşur. Bu durum süresince güncelleştirmelere veya akışa izin verilmez.|
+|**Durduruldu**| Bu ilk Livestream oluşturulduktan sonra durumudur (autostart seçmediyseniz belirtilir.) Bu durumda hiçbir faturalandırma gerçekleşir. Bu durumda Livestream özellikleri güncelleştirilebilir ama akışa izin verilmiyor.|
+|**Başlatma**| Livestream başlatılıyor. Bu durumda hiçbir faturalandırma gerçekleşir. Bu durum süresince güncelleştirmelere veya akışa izin verilmez. Bir hata oluşursa Livestream durduruldu durumuna döndürülür.|
+|**Çalıştıran**| Livestream Canlı akışları işleyebilir. Artık kullanım faturalandırma. Daha fazla faturalama önlemek için Livestream durdurmanız gerekir.|
+|**Durduruluyor**| Livestream durduruluyor. Bu geçici bir durumda hiçbir faturalandırma gerçekleşir. Bu durum süresince güncelleştirmelere veya akışa izin verilmez.|
+|**Silme**| Livestream siliniyor. Bu geçici bir durumda hiçbir faturalandırma gerçekleşir. Bu durum süresince güncelleştirmelere veya akışa izin verilmez.|
 
 ## <a name="liveoutput"></a>LiveOutput
 
-A [LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) yayımlama, kaydetme ve canlı akış DVR penceresi ayarlarını denetlemenize olanak verir. Burada bir kanal (LiveEvent) sabit bir içerik akışının bulunduğu ve programın (LiveOutput) bu LiveEvent üzerinde zamanlanmış bir olayı kapsamlıdır geleneksel bir ortama LiveEvent ve LiveOutput ilişki benzer.
-Ayarlayarak LiveOutput için kaydedilen içeriği korumak istediğiniz saat sayısını belirtebilirsiniz **ArchiveWindowLength** özelliği. **ArchiveWindowLength** arşiv penceresi uzunluğu (Dijital Video Kaydedici veya DVR) bir ISO 8601 timespan süresi. Bu değer en az 5 dakika, en çok 25 saat olarak ayarlanabilir. 
+A [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) yayımlama, kayıt ve canlı akış'ın DVR penceresi ayarlarını denetlemenize olanak verir. Livestream ve LiveOutput ilişki burada sabit bir içerik akışının bir kanal (Livestream) sahip ve bir program (LiveOutput) bu Livestream üzerinde zamanlanmış bir olayı kapsamlı geleneksel Medyadaki benzer.
+Saat ayarlayarak LiveOutput için kaydedilen içeriği tutmak istediğinizi belirtebilirsiniz **ArchiveWindowLength** özelliği. **ArchiveWindowLength** bir ISO 8601 zaman aralığı süresince arşiv penceresi uzunluğu (Dijital Video Kaydedici veya DVR). Bu değer en az 5 dakika, en çok 25 saat olarak ayarlanabilir. 
 
-**ArchiveWindowLength** maksimum süre istemci sayısı geçmişe arama geçerli Canlı konumdan de belirler. Belirtilen süre miktarından uzun LiveOutputs çalıştırabilirsiniz, ancak pencere uzunluğunun gerisine düşen içerik sürekli olarak atılır. Bu özelliğin değeri, istemci bildiriminin ne kadar süreyle büyüyebilir de belirler.
+**ArchiveWindowLength** zaman istemcilerin sayısı geçerli Canlı konumdan geçmişe arama de belirler. Belirtilen süre LiveOutputs çalıştırabilirsiniz, ancak pencere uzunluğunun gerisine düşen içerik sürekli olarak atılır. Bu özelliğin değeri, ne kadar istemci uzayabileceğini de belirler.
 
-Her LiveOutput ile ilişkili bir [varlık](https://docs.microsoft.com/rest/api/media/assets)ve Media Services hesabına bağlı Azure depolama alanında bir kapsayıcı halinde verilerini kaydeder. LiveOutput yayımlamak için oluşturmalısınız bir [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) ilişkili varlığa yönelik. Bu bulucuya sahip olmak, istemcilerinize sağlayabileceğiniz bir akış URL’si oluşturmanıza olanak tanır.
+Her LiveOutput ile ilişkili bir [varlık](https://docs.microsoft.com/rest/api/media/assets)ve Media Services hesabına bağlı Azure depolamadaki bir kapsayıcıda içine verileri kaydeder. LiveOutput yayımlamak için oluşturmanız gereken bir [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) ilişkili varlığa yönelik. Bu bulucuya sahip olmak, istemcilerinize sağlayabileceğiniz bir akış URL’si oluşturmanıza olanak tanır.
 
-Bir LiveEvent eşzamanlı çalışan Üçe LiveOutputs destekler, böylece aynı gelen akışın birden çok arşivini oluşturabilirsiniz. Bu özellik, gerektiğinde bir olayın farklı kısımlarını yayımlamanıza ve arşivlemenize olanak tanır. Örneğin, iş gereksiniminiz bir 7 x 24 Canlı doğrusal akışı yayınlamak için ancak Programlar "kayıtları" yakalama görüntülemek için isteğe bağlı içerik olarak müşterilere sunmak için gün boyunca oluşturmak istediğiniz.  Bu senaryo için önce birincil LiveOutput 1 saat ile bir kısa arşiv penceresi oluşturmanız veya müşterilerin içine birincil canlı akış olarak ayarlamak daha az. Bu LiveOutput için bir StreamingLocator oluşturun ve uygulama veya web sitesi "Canlı" akışı olarak yayımlamak.  Akış çalışıyor gibi bir Göster (veya bazı tanıtıcıları sağlamak için 5 dakika erken. daha sonra kırpmaya) başında ikinci eşzamanlı LiveOutput program aracılığıyla oluşturabilirsiniz Bu ikinci LiveOutput 5 dakika ve program veya olay sona erdikten sonra durdurulabilir ve daha sonra uygulamanızın katalog bir isteğe bağlı varlığı olarak bu programı yayımlamak için yeni bir StreamingLocator oluşturabilirsiniz.  Bu işlem için diğer program sınırları birden çok kez yineleyin veya vurgular, isteğe bağlı hemen paylaşmak istediğiniz, tüm ilk LiveOutput "Canlı" akışı sırasında doğrusal akış yayın denemeye devam eder.  Ayrıca, head ve Arşiv programlar arasında tail "çakışma güvenliği" sunulan LiveOutput gelen kırpma ve daha doğru bir başlangıç ve bitiş içeriğin elde etmek için dinamik filtre destek yararlanabilir. Arşivlenen içeriği de gönderilebilir için bir [dönüştürme](https://docs.microsoft.com/rest/api/media/transforms) kodlama veya diğer hizmetler için dağıtım olarak kullanılmak üzere birden çok çıktı biçimi için doğru subclipping çerçeve.
+Bir Livestream eşzamanlı çalışan Üçe kadar LiveOutputs destekler, böylece aynı gelen akışın birden fazla arşiv oluşturabilirsiniz. Bu özellik, gerektiğinde bir olayın farklı kısımlarını yayımlamanıza ve arşivlemenize olanak tanır. Örneğin, iş gereksiniminiz bir 24 x 7 Canlı doğrusal akış yayını için olan, ancak oldukça görüntülemek için isteğe bağlı içerik olarak müşterilere sunmak için gün boyunca programlar "kayıt" oluşturmak istediğiniz.  Bu senaryo için öncelikle bir birincil LiveOutput bir kısa arşiv penceresi 1 saat ile oluşturmanız veya müşterilerin içine birincil canlı akış olarak ayarlamak daha az. Bir StreamingLocator oluşturmak için bu LiveOutput ve uygulama veya web sitesi "Live" akış olarak yayımlayın.  Akış çalışırken bir Göster (veya bazı işler sağlamak için 5 dakika erken. daha sonra kırpılacak) başında ikinci bir eş zamanlı LiveOutput programlı olarak oluşturabilirsiniz Bu ikinci LiveOutput programı veya olay sona erdikten sonra 5 dakika durdurulabilir ve daha sonra uygulama Kataloğu'nda bir isteğe bağlı varlık olarak bu programı yayımlamak için yeni bir StreamingLocator oluşturabilirsiniz.  Bu işlem, diğer program sınırları için birden çok kez yineleyebilirsiniz ya da isteğe bağlı hemen paylaşmak istiyorsanız, tüm ilk LiveOutput "Live" akışı sırasında devam doğrusal akış yayını vurgular.  Ayrıca, baş ve Arşiv programlar arasında kuyruk "çakışma güvenliği" sunulan LiveOutput gelen trim ve bir daha doğru başlangıç ve bitiş içeriğin elde etmek için dinamik filtre desteği yararlanabilir. Arşivlenen içeriği da gönderilebilir için bir [dönüştürme](https://docs.microsoft.com/rest/api/media/transforms) kodlama veya diğer hizmetler için dağıtım olarak kullanılmak üzere birden çok çıkış biçimleri için doğru klip çerçeve.
 
 ## <a name="streamingendpoint"></a>StreamingEndpoint
 
-LiveEvent akan akış olduktan sonra bir varlık, LiveOutput ve StreamingLocator oluşturarak akış olayını başlayabilirsiniz. Bu akış arşivlemek ve aracılığıyla izleyiciler için kullanılabilir hale getirmek [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).
+Akışın LiveEvent'e akmasını sağladıktan sonra bir Asset, LiveOutput ve StreamingLocator oluşturarak etkinliği akışla göndermeye başlayabilirsiniz. Bu akışı arşivler ve aracılığıyla izleyiciler kullanabilmesi [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).
 
-Media Services hesabınızı oluştururken bir varsayılan akış uç noktası durduruldu durumunda hesabınıza eklenir. İçeriğinizi akış başlatmak ve dinamik paketleme ve dinamik şifreleme yararlanmak için içerik akışını gerçekleştirmek istediğiniz akış uç çalışıyor durumda olması gerekir.
+Media Services hesabınız oluşturulduğunda hesabınıza durdurulmuş durumda bir varsayılan akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının çalışıyor durumda olması gerekir.
 
 ## <a name="billing"></a>Faturalandırma
 
-Bir LiveEvent durumu "Çalışıyor" geçişleri hemen faturalama başlar. Faturalama gelen LiveEvent durdurmak için LiveEvent durdurmak zorunda.
+Bir Livestream "Çalışıyor" durumuna geçiş hemen sonra Fatura başlar. Faturalandırma gelen Livestream durdurmak için Livestream durdurmak zorunda.
 
 > [!NOTE]
-> Zaman **LiveEventEncodingType** üzerinde [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) ayarlanmış temel olarak 12 saat Giriş akışı kaybedilir ve vardır sonra hala "Çalışır" durumda olan tüm LiveEvent kesici Media Services otomatik yok LiveOutputs çalışıyor. Ancak, yine "Çalışır" durumda LiveEvent saat için faturalandırılır.
+> Zaman **LiveEventEncodingType** üzerinde [Livestream](https://docs.microsoft.com/rest/api/media/liveevents) ayarlanmış temel olarak 12 saat sonra giriş akışı kaybolur ve başka hala "Çalışıyor" durumda olan tüm Livestream kesici Media Services otomatik yok LiveOutputs çalışıyor. Ancak, yine de "Livestream çalışıyor" konumunda olduğu süre için faturalandırılırsınız.
 >
 
-Aşağıdaki tabloda nasıl fatura moduna LiveEvent durumları eşleme gösterir.
+Aşağıdaki tabloda, Livestream durumları faturalandırma modu nasıl eşleştiği gösterilmektedir.
 
-| LiveEvent durumu | Faturalama mi? |
+| Livestream durumu | Faturalandırma nedir? |
 | --- | --- |
 | Başlatılıyor |Hayır (geçici durum) |
 | Çalışıyor |EVET |

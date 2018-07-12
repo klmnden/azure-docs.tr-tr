@@ -1,5 +1,5 @@
 ---
-title: Birden çok NIC - Azure PowerShell ile bir VM'ye (Klasik) oluşturun | Microsoft Docs
+title: Birden çok NIC ile - Azure PowerShell (Klasik) VM oluşturma | Microsoft Docs
 description: PowerShell kullanarak birden çok NIC ile VM (Klasik) oluşturmayı öğrenin.
 services: virtual-network
 documentationcenter: na
@@ -17,20 +17,20 @@ ms.date: 05/22/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ca4e9e77d0e0ca62c04fbbfe132a41fb3e01df46
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34658783"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477667"
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>PowerShell kullanarak birden çok NIC ile VM (Klasik) oluşturun
+# <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>PowerShell kullanarak birden çok NIC ile VM (Klasik) oluşturma
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
-Azure'da sanal makineleri (VM'ler) oluşturun ve her Vm'leriniz için birden çok ağ arabirimlerine (NIC'ler) ekleyin. Birden çok NIC NIC'ler arasında trafik türlerini ayrılması etkinleştirin. Örneğin, yalnızca Internet'e bağlı iç kaynaklara kurduğu başka bir sırada bir NIC Internet ile iletişim kuran. Birden çok NIC'ler arasında ağ trafiğini ayırmak olanağı uygulama sunma ve WAN iyileştirmesi çözümleri gibi birçok ağ sanal uygulamaları için gereklidir.
+Azure'da sanal makineler (VM) oluşturma ve birden çok ağ arabirimine (NIC) sanal makinelerinizin her birine ekleyin. Birden çok NIC NIC'ler arasında trafik türlerinin ayrımı sağlar. Örneğin, yalnızca iç kaynaklara Internet'e bağlı olmayan başka bir iletişim kurar, ancak bir NIC Internet ile iletişim kuran. Birden çok NIC arasında ağ trafiğini ayırmak olanağı, uygulama teslimi ve WAN iyileştirme çözümleri gibi birçok ağ sanal Gereçleri için gereklidir.
 
 > [!IMPORTANT]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Kullanarak bu adımların nasıl gerçekleştirileceğini öğrenin [Resource Manager dağıtım modeli](../virtual-machines/windows/multiple-nics.md).
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Bu adımları kullanarak gerçekleştirmeyi öğrenin [Resource Manager dağıtım modeli](../virtual-machines/windows/multiple-nics.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -38,21 +38,21 @@ Adlı bir kaynak grubu aşağıdaki adımları kullanın *IaaSStory* WEB sunucul
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-DB sunucuları oluşturabilmeniz için önce oluşturmanız gerekir *IaaSStory* bu senaryo için gereken tüm kaynakların kaynak grubuyla. Bu kaynakları oluşturmak için izlediği adımları tamamlayın. İçindeki adımları izleyerek bir sanal ağ oluşturma [bir sanal ağ oluşturma](virtual-networks-create-vnet-classic-netcfg-ps.md) makalesi.
+DB sunucuları oluşturabilmeniz için önce oluşturmanız gerekir *IaaSStory* bu senaryo için gerekli tüm kaynakları kaynak grubu. Bu kaynakları oluşturmak için aşağıdaki adımları tamamlayın. İçindeki adımları izleyerek bir sanal ağ oluşturma [sanal ağ oluşturma](virtual-networks-create-vnet-classic-netcfg-ps.md) makalesi.
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-the-back-end-vms"></a>Arka uç VM'ler oluşturma
-Arka uç VM'ler aşağıdaki kaynaklara oluşturulmasını bağlıdır:
+## <a name="create-the-back-end-vms"></a>Arka uç VM oluşturma
+Arka uç sanal makinelerin oluşturulmasını aşağıdaki kaynaklar üzerinde bağlıdır:
 
-* **Arka uç alt**. Veritabanı sunucuları trafiği kurabilmeleri için ayrı bir alt parçası olacak. Aşağıdaki komut dosyası bu alt ağ adlı bir vnet mevcut bekliyor *WTestVnet*.
-* **Veri diskleri için depolama hesabı**. Daha iyi performans için veritabanı sunucularında veri diskler bir premium depolama hesabı gerektirir katı hal sürücüsü (SSD) teknolojisi kullanır. Premium depolama desteklemek için dağıtmanız Azure konumu emin olun.
-* **Kullanılabilirlik kümesi**. Tüm veritabanı sunucuları, en az bir sanal makineleri çalışır durumda emin olmak için ayarlayın ve bakım sırasında çalıştıran tek bir kullanılabilirlik eklenir.
+* **Arka uç alt ağını**. Veritabanı sunucuları, trafiği ayırmak için ayrı bir alt bölümü olacaktır. Aşağıdaki betiği bu alt ağ adlı bir sanal ağda bulunmasını bekliyor *WTestVnet*.
+* **Veri diskleri için depolama hesabı**. Daha iyi performans için veritabanı sunucularında veri diskleri gerektiren bir premium depolama hesabı, katı hal sürücüsü (SSD) teknolojisi kullanır. Premium depolamayı destekler dağıttığınız Azure konumu emin olun.
+* **Kullanılabilirlik kümesi**. Tüm veritabanı sunucuları, sanal makinelerin en az biri çalışır durumda emin olmak için ayarlayabilir ve bakım sırasında çalışan tek bir kullanılabilirlik eklenir.
 
-### <a name="step-1---start-your-script"></a>1. adım - kodunuzu Başlat
-Kullanılan tam PowerShell komut dosyası indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Ortamınızda çalışması için komut dosyasını değiştirmek için aşağıdaki adımları izleyin.
+### <a name="step-1---start-your-script"></a>1. adım - betiğinizi Başlat
+Kullanılan tam PowerShell betiğini indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Ortamınızda çalışması için komut dosyasını değiştirmek için aşağıdaki adımları izleyin.
 
-1. Yukarıdaki dağıtılmış varolan kaynak grubunuz temelinde değişkenleri aşağıdaki değerlerini değiştirmek [Önkoşullar](#Prerequisites).
+1. Yukarıda dağıtılmış mevcut kaynak grubunuzun göre aşağıdaki değişkenlerin değerlerini değiştirmek [önkoşulları](#Prerequisites).
 
     ```powershell
     $location              = "West US"
@@ -60,7 +60,7 @@ Kullanılan tam PowerShell komut dosyası indirebilirsiniz [burada](https://raw.
     $backendSubnetName     = "BackEnd"
     ```
 
-2. Arka uç dağıtımınız için kullanmak istediğiniz değerleri temel alarak aşağıdaki değişkenlerinin değerlerini değiştirin.
+2. Arka uç dağıtımınız için kullanmak istediğiniz değerleri temel alarak aşağıdaki değişkenlerin değerlerini değiştirin.
 
     ```powershell
     $backendCSName         = "IaaSStory-Backend"
@@ -74,8 +74,8 @@ Kullanılan tam PowerShell komut dosyası indirebilirsiniz [burada](https://raw.
     $numberOfVMs           = 2
     ```
 
-### <a name="step-2---create-necessary-resources-for-your-vms"></a>2. adım - Vm'leriniz için gerekli kaynakları oluşturma
-Tüm VM'ler için yeni bir bulut hizmeti ve veri diskleri için bir depolama hesabı oluşturmanız gerekir. Ayrıca VM'ler için bir görüntü ve yerel yönetici hesabı belirtmeniz gerekir. Bu kaynakları oluşturmak için aşağıdaki adımları tamamlayın:
+### <a name="step-2---create-necessary-resources-for-your-vms"></a>2. adım - sanal makineleriniz için gerekli kaynakları oluşturma
+Tüm VM'ler için yeni bir bulut hizmeti ve veri diskleri için depolama hesabı oluşturmanız gerekir. VM'ler için bir görüntü ve yerel yönetici hesabı belirtmeniz gerekir. Bu kaynakları oluşturmak için aşağıdaki adımları tamamlayın:
 
 1. Yeni bir bulut hizmeti oluşturun.
 
@@ -89,7 +89,7 @@ Tüm VM'ler için yeni bir bulut hizmeti ve veri diskleri için bir depolama hes
     New-AzureStorageAccount -StorageAccountName $prmStorageAccountName `
     -Location $location -Type Premium_LRS
     ```
-3. Aboneliğiniz için geçerli depolama hesabı, yukarıda oluşturduğunuz depolama hesabı ayarlayın.
+3. Aboneliğiniz için geçerli bir depolama hesabı, yukarıda oluşturduğunuz depolama hesabını ayarlayın.
 
     ```powershell
     $subscription = Get-AzureSubscription | where {$_.IsCurrent -eq $true}  
@@ -112,16 +112,16 @@ Tüm VM'ler için yeni bir bulut hizmeti ve veri diskleri için bir depolama hes
     $cred = Get-Credential -Message "Enter username and password for local admin account"
     ```
 
-### <a name="step-3---create-vms"></a>3. adım - VMs oluşturma
-Ve gerekli NIC ve sanal makineleri döngüye içinde gibi birçok VM oluşturmak için bir döngü kullanmanız gerekir. NIC ve sanal makineleri oluşturmak için aşağıdaki adımları yürütün.
+### <a name="step-3---create-vms"></a>3. adım - VM oluşturma
+Bir döngü ve döngü içinde gerekli NIC'ler ve VM'ler oluşturma gibi birçok VM oluşturmak için kullanmanız gerekir. NIC'ler ve VM'ler oluşturmak için aşağıdaki adımları uygulayın.
 
-1. Başlangıç bir `for` değerine göre bir VM ve gerektiği pek çok, iki NIC oluşturmak için komutları yinelemek için döngü `$numberOfVMs` değişkeni.
+1. Başlangıç bir `for` değerine göre bir VM ile gerekli sayıda iki NIC oluşturmak için komutları yinelemek için döngü `$numberOfVMs` değişkeni.
 
     ```powershell
     for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
     ```
 
-2. Oluşturma bir `VMConfig` görüntüsü, boyutu ve VM için ayarlanmış kullanılabilirlik belirtme nesnesi.
+2. Oluşturma bir `VMConfig` görüntüsü, boyutu ve VM'nin kullanılabilirlik kümesini belirten nesne.
 
     ```powershell
     $vmName = $vmNamePrefix + $suffixNumber
@@ -139,14 +139,14 @@ Ve gerekli NIC ve sanal makineleri döngüye içinde gibi birçok VM oluşturmak
         -Password $cred.GetNetworkCredential().Password
     ```
 
-4. NIC varsayılan ayarlayabilir ve statik bir IP adresi atayabilirsiniz.
+4. ' % S'varsayılan NIC ve statik IP adresi atayın.
 
     ```powershell
     Set-AzureSubnet         -SubnetNames $backendSubnetName -VM $vmConfig
     Set-AzureStaticVNetIP   -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
     ```
 
-5. Her VM için ikinci bir NIC ekleyin.
+5. Her VM için ikinci NIC ekleyin.
 
     ```powershell
     Add-AzureNetworkInterfaceConfig -Name ("RemoteAccessNIC"+$suffixNumber) `
@@ -171,7 +171,7 @@ Ve gerekli NIC ve sanal makineleri döngüye içinde gibi birçok VM oluşturmak
     -LUN 1
     ```
 
-7. Her bir VM oluşturun ve döngü sona erdirmek.
+7. Her VM oluşturma ve döngü bitmelidir.
 
     ```powershell
     New-AzureVM -VM $vmConfig `
@@ -181,10 +181,10 @@ Ve gerekli NIC ve sanal makineleri döngüye içinde gibi birçok VM oluşturmak
     }
     ```
 
-### <a name="step-4---run-the-script"></a>Adım 4 - komut dosyasını çalıştır
-İndirilen ve değiştirilen betik gereksinimlerinize bağlı olarak birden çok NIC VM'ler arka uç veritabanı oluşturmak için komut dosyası çalışma temel.
+### <a name="step-4---run-the-script"></a>Adım 4 - betiği çalıştırın
+İndirilen ve değiştirilmiş betiği, birden çok NIC içeren VM'ler arka uç veritabanı oluşturmak için komut dosyası çalışma ihtiyaçlarınıza.
 
-1. Komut dosyanızı kaydedin ve çalıştırın **PowerShell** komut istemi veya **PowerShell ISE**. Aşağıda gösterildiği gibi ilk çıkış göreceksiniz.
+1. Kodunuzu kaydedin ve çalıştırın **PowerShell** komut istemi veya **PowerShell ISE**. İlk çıkış, aşağıda gösterildiği gibi göreceksiniz.
 
         OperationDescription    OperationId                          OperationStatus
 
@@ -192,14 +192,14 @@ Ve gerekli NIC ve sanal makineleri döngüye içinde gibi birçok VM oluşturmak
         New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         
         WARNING: No deployment found in service: 'IaaSStory-Backend'.
-2. Kimlik bilgileri istemi ve tıklatın gerekli bilgileri doldurun **Tamam**. Aşağıdaki çıkış döndürülür.
+2. ' A tıklayın ve kimlik bilgileri istemi gerekli bilgileri doldurun **Tamam**. Aşağıdaki çıktı döndürülür.
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>5. adım - sanal makinenin işletim sistemi içinde yönlendirmeyi yapılandırma
 
-Azure DHCP, sanal makineye bağlı ilk (birincil) ağ arabirimi için varsayılan ağ geçidi atar. Azure, bir sanal makineye bağlı ek (ikincil) ağ arabirimlerine varsayılan ağ geçidi atamaz. Bu nedenle varsayılan olarak, alt ağın dışında kalan ve ikincil bir ağ arabirimi içeren kaynaklarla iletişim kurulamaz. İkincil ağ arabirimlerine ancak, kendi alt ağı dışından kaynaklarla iletişim kurabilirsiniz. İkincil ağ arabirimleri için yönlendirmeyi yapılandırmak için aşağıdaki makalelere bakın:
+Azure DHCP, varsayılan bir ağ geçidi sanal makinesine bağlı ilk (birincil) ağ arabirimine atar. Azure, bir sanal makineye bağlı ek (ikincil) ağ arabirimlerine varsayılan ağ geçidi atamaz. Bu nedenle varsayılan olarak, alt ağın dışında kalan ve ikincil bir ağ arabirimi içeren kaynaklarla iletişim kurulamaz. Ancak, ikincil ağ arabirimlerine kendi alt dışındaki kaynaklarla iletişim kurabilirsiniz. İkincil ağ arabirimleri için yönlendirmeyi yapılandırmak için aşağıdaki makalelere bakın:
 
 - [Bir Windows VM için birden çok NIC yapılandırın](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics
 )

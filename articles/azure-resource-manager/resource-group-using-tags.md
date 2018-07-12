@@ -1,6 +1,6 @@
 ---
-title: Etiket mantıksal kuruluşunuz için Azure kaynaklarını | Microsoft Docs
-description: Faturalama ve yönetmek için Azure kaynaklarını düzenlemek için etiketleri uygulamak gösterilmiştir.
+title: Etiket Azure kaynakları için mantıksal kuruluş | Microsoft Docs
+description: Faturalama ve yönetmek için Azure kaynaklarını düzenlemek için etiketleri uygulamak gösterilmektedir.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: tomfitz
 ms.openlocfilehash: 8c828bb49548adfdb02ed6fb1611eb405ebf4ff2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602933"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38466269"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Azure kaynaklarınızı düzenlemek için etiketleri kullanma
 
@@ -29,7 +29,7 @@ ms.locfileid: "34602933"
 
 ## <a name="powershell"></a>PowerShell
 
-Bu makaledeki örneklerde sürüm 6.0 veya üstü Azure PowerShell gerektirir. Sürüm 6.0 veya üstü, yoksa [sürümünüzü güncelleştirme](/powershell/azure/install-azurerm-ps).
+Bu makaledeki örnekler Azure PowerShell’in 6.0 veya üzeri bir sürümünü gerektirir. 6.0 veya sonraki sürüme sahip değilseniz [sürümünüzü güncelleştirin](/powershell/azure/install-azurerm-ps).
 
 Bir *kaynak grubunun* mevcut etiketlerini görmek şunu kullanın:
 
@@ -70,7 +70,7 @@ Environment                    Test
 (Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
 ```
 
-Alınacak *bir özel etiket adına sahip kaynaklar*, kullanın:
+Alınacak *belirli bir etiket adı olan kaynakları*, kullanın:
 
 ```powershell
 (Get-AzureRmResource -TagName Dept).Name
@@ -168,25 +168,25 @@ Bu betik aşağıdaki biçimde veri döndürür:
 }
 ```
 
-Veya varolan etiketleri için görmek için bir *belirtilen adını, türünü ve kaynak grubuna sahip kaynak*, kullanın:
+Veya mevcut etiketlerini görmek için bir *belirtilen bir adı, türü ve kaynak grubu kaynağın*, kullanın:
 
 ```azurecli
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
 ```
 
-Kaynaklar koleksiyonu döngü sırasında kaynak tarafından kaynak kimliği Göster isteyebilirsiniz Bu makalenin sonraki bölümlerinde tam bir örnek gösterilmektedir. *Kaynak kimliği belirtilmiş bir kaynağın* mevcut etiketlerini görmek için şunu kullanın:
+Bir kaynak koleksiyonu döngü sırasında kaynak tarafından kaynak kimliği göstermek isteyebilirsiniz Bu makalenin sonraki bölümlerinde tam bir örnek gösterilmektedir. *Kaynak kimliği belirtilmiş bir kaynağın* mevcut etiketlerini görmek için şunu kullanın:
 
 ```azurecli
 az resource show --id <resource-id> --query tags
 ```
 
-Belirli bir etikete sahip kaynak gruplarını elde etmek için kullanın `az group list`:
+Belirli bir etikete sahip kaynak gruplarını almak için kullanın `az group list`:
 
 ```azurecli
 az group list --tag Dept=IT
 ```
 
-Özel etiket ve değerine sahip tüm kaynakları almak için `az resource list`:
+Belirli bir etiket ve değere sahip tüm kaynakları almak için kullanın `az resource list`:
 
 ```azurecli
 az resource list --tag Dept=Finance
@@ -206,7 +206,7 @@ az group update -n examplegroup --set tags.Environment=Test tags.Dept=IT
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Etiketleri zaten olan bir kaynağın etiketleri eklemek için varolan etiketleri almak, bu değeri yeniden biçimlendirin ve var olan ve yeni etiketler yeniden uygulayın: 
+Etiketler zaten olan bir kaynağa etiket eklemek için mevcut etiketleri alın, bu değeri yeniden biçimlendirme ve mevcut ve yeni etiketleri yeniden uygulayın: 
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
@@ -230,7 +230,7 @@ do
 done
 ```
 
-Tüm etiketleri kaynaklarını için bir kaynak grubundan uygulamak için ve *kaynaklardaki varolan etiketleri korumak*, aşağıdaki komut dosyasını kullanın:
+Bir kaynak grubundan kaynaklara tüm etiketleri uygulamak ve *kaynaklardaki mevcut etiketleri korumak*, aşağıdaki betiği kullanın:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -258,22 +258,22 @@ done
 
 ## <a name="rest-api"></a>REST API
 
-Azure portalı ve her ikisini de kullanmanız PowerShell [Resource Manager REST API'si](https://docs.microsoft.com/rest/api/resources/) arka planda. Başka bir ortama etiketleme tümleştirme gerekiyorsa, etiketleri kullanarak alabileceğiniz **almak** kaynak kimliği ile güncelleştirme kullanarak etiketleri kümesi üzerinde bir **düzeltme eki** çağırın.
+Azure portalı ve ikisi de PowerShell [Resource Manager REST API'si](https://docs.microsoft.com/rest/api/resources/) arka planda. Başka bir ortama etiketleme tümleştirme gerekiyorsa, etiketleri kullanarak alabilirsiniz **alma** kaynak kimliği ve güncelleştirme kullanarak etiket kümesinin bir **düzeltme eki** çağırın.
 
-## <a name="tags-and-billing"></a>Etiketleri ve faturalama
+## <a name="tags-and-billing"></a>Etiketleri ve faturalandırma
 
-Faturalama verileriniz gruplandırmak için etiketler kullanın. Örneğin, birden çok VM farklı kuruluşlarda çalıştırıyorsanız, etiketleri Grup kullanım için maliyet merkezi tarafından kullanın. Etiketler, maliyetleri üretim ortamında çalışan sanal makineler için fatura kullanımı gibi çalışma zamanı ortamı tarafından kategorilere ayırmak için de kullanabilirsiniz.
+Faturalama verilerinize gruplandırmak için etiketleri kullanabilirsiniz. Örneğin, birden çok VM farklı kuruluşlarda çalıştırıyorsanız, maliyet merkezi tarafından grubu kullanımı için etiketleri kullanın. Etiketleri, maliyetler üretim ortamında çalışan VM'ler için fatura kullanımı gibi çalışma zamanı ortamı tarafından kategorilere ayırmak için de kullanabilirsiniz.
 
-Etiketler hakkında bilgi alabilir [Azure kaynak kullanımı ve RateCard API'leri](../billing/billing-usage-rate-card-overview.md) veya kullanım virgülle ayrılmış değerler (CSV) dosyası. Kullanım dosyasını indirin [Azure hesap portalı](https://account.windowsazure.com/) veya [EA portal](https://ea.azure.com). Faturalandırma bilgileri programlı erişim hakkında daha fazla bilgi için bkz: [Microsoft Azure kaynak tüketimini Öngörüler elde](../billing/billing-usage-rate-card-overview.md). REST API işlemleri için bkz: [Azure faturalama REST API Başvurusu](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Etiketler hakkında bilgi alabilirsiniz [Azure kaynak kullanım ve RateCard API'leri](../billing/billing-usage-rate-card-overview.md) veya kullanım virgülle ayrılmış değerler (CSV) dosyası. Kullanım dosyası indirin [Azure hesap portalı](https://account.windowsazure.com/) veya [EA portal](https://ea.azure.com). Fatura bilgileri programlı erişim hakkında daha fazla bilgi için bkz. [Microsoft Azure kaynak tüketiminize öngörü](../billing/billing-usage-rate-card-overview.md). REST API işlemleri için bkz: [Azure faturalandırma REST API Başvurusu](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
-Faturalama etiketleriyle destekleyen hizmetler için kullanım CSV yüklediğinizde etiketler görünür **etiketleri** sütun. Daha fazla bilgi için bkz: [faturanızı anlamak için Microsoft Azure](../billing/billing-understand-your-bill.md).
+Etiketler fatura Destek Hizmetleri için kullanım CSV indirdiğinizde, etiketler görünür **etiketleri** sütun. Daha fazla bilgi için [Microsoft Azure için faturanızı anlayın bölümü](../billing/billing-understand-your-bill.md).
 
-![Faturalama etiketlerinde bakın](./media/resource-group-using-tags/billing_csv.png)
+![Faturalandırma etiketleri bakın](./media/resource-group-using-tags/billing_csv.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Özelleştirilmiş ilkeler kullanarak aboneliğinizi arasında kısıtlamaları ve kuralları uygulayabilirsiniz. Tanımladığınız bir ilke tüm kaynakların belirli bir etiket için bir değere sahip gerektirebilir. Daha fazla bilgi için bkz: [Azure ilke nedir?](../azure-policy/azure-policy-introduction.md)
-* Kaynakları dağıtırken Azure PowerShell kullanarak bir giriş için bkz: [Azure PowerShell kullanarak Azure Resource Manager ile](powershell-azure-resource-manager.md).
-* Kaynakları dağıtırken Azure CLI kullanarak bir giriş için bkz: [Mac, Linux ve Windows Azure Resource Manager ile Azure CLI kullanarak](xplat-cli-azure-resource-manager.md).
-* Portalı kullanarak bir giriş için bkz: [Azure kaynaklarınızı yönetmek için Azure portalını kullanarak](resource-group-portal.md).  
+* Özelleştirilmiş ilkeler kullanarak, aboneliğinizi arasında kısıtlamaları ve kuralları uygulayabilirsiniz. Tanımladığınız bir ilke, tüm kaynakların belirli bir etiket için bir değer olmasını gerektirebilir. Daha fazla bilgi için [Azure İlkesi nedir?](../azure-policy/azure-policy-introduction.md)
+* Kaynak dağıtırken Azure PowerShell kullanarak bir giriş için bkz. [Azure PowerShell kullanarak Azure Resource Manager ile](powershell-azure-resource-manager.md).
+* Kaynak dağıtırken Azure CLI kullanarak bir giriş için bkz. [Mac, Linux ve Windows Azure Resource Manager ile Azure CLI kullanarak](xplat-cli-azure-resource-manager.md).
+* Portalı kullanarak bir giriş için bkz. [Azure kaynaklarınızı yönetmek için Azure portalını kullanarak](resource-group-portal.md).  
 * Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).

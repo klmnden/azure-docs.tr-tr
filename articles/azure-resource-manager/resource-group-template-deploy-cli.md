@@ -1,5 +1,5 @@
 ---
-title: Azure CLI ve şablon kaynaklarla dağıtma | Microsoft Docs
+title: Azure CLI ve şablon kaynakları dağıtma | Microsoft Docs
 description: Bir kaynakları Azure'a dağıtmak için Azure Resource Manager ve Azure CLI kullanın. Kaynaklar, bir Resource Manager şablonunda tanımlanır.
 services: azure-resource-manager
 documentationcenter: na
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: ee8ce8453c24d19b3912d0f6cc506b3d3e72548f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5a6b227cee3765593adbda430d8c47312f996c18
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603013"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723843"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma
 
-Bu makalede Azure CLI 2.0 Resource Manager şablonları ile kaynakları Azure'a dağıtmak için nasıl kullanılacağı açıklanmaktadır. Dağıtma ile ilgili kavramları hakkında bilgi sahibi değilseniz ve Azure çözümlerinizi bkz [Azure Resource Manager'a genel bakış](resource-group-overview.md).  
+Bu makalede, Azure CLI'yı Resource Manager şablonları ile kaynakları Azure'a dağıtmak için nasıl kullanılacağını açıklanmaktadır. Dağıtma ile ilgili kavramları hakkında bilgi sahibi değilseniz ve Azure çözümlerinizi bkz [Azure Resource Manager'a genel bakış](resource-group-overview.md).  
 
-Resource Manager şablonu ya da makinenizde yerel bir dosya ya da GitHub gibi bir havuzda bulunan dış dosyası dağıtabilirsiniz. Bu makalede dağıttığınız şablonu kullanılabilir [örnek şablonu](#sample-template) bölümünde, ya da farklı bir [depolama hesabı şablonu github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
+Resource Manager şablonu makinenizde yerel bir dosya veya GitHub gibi bir depoda bulunan bir dış dosya olabilir dağıtın. Bu makalede dağıttığınız şablonu kullanılabilir [örnek şablonu](#sample-template) bölümünde veya farklı bir [depolama hesabı GitHub şablonunda](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
-Azure CLI yüklenmiş yoksa kullanabileceğiniz [bulut Kabuk](#deploy-template-from-cloud-shell).
+Azure CLI'yı yüklü değilse, kullanabileceğiniz [Cloud Shell](#deploy-template-from-cloud-shell).
 
 ## <a name="deploy-local-template"></a>Yerel şablonu dağıtma
 
 Kaynakları Azure'a dağıtırken:
 
 1. Azure hesabınızda oturum açma
-2. Dağıtılan kaynaklar için kapsayıcı görevi gören bir kaynak grubu oluşturun. Kaynak grubu adı yalnızca alfasayısal karakterler, nokta, alt çizgi, kısa çizgi ve parantez içerebilir. En fazla 90 karakter olabilir. Bir nokta ile bitemez.
-3. Kaynak grubu oluşturmak için kaynakları tanımlayan şablonu dağıtma
+2. Dağıtılan kaynaklar için kapsayıcı görevi gören bir kaynak grubu oluşturun. Kaynak grubu adı yalnızca alfasayısal karakterler, nokta, alt çizgi, kısa çizgi ve parantez içerebilir. Bu, en fazla 90 karakter olabilir. Bu nokta ile bitemez.
+3. Kaynak grubunu oluşturmak için gereken kaynakları tanımlayan şablonu dağıtma
 
-Bir şablon dağıtımı özelleştirmenize olanak sağlayan parametreler içerebilir. Örneğin, belirli bir ortamda (örneğin, geliştirme, test ve üretim) için uyarlanabilir değerler sağlayabilirsiniz. Örnek şablon SKU depolama hesabı için bir parametre tanımlar. 
+Şablon dağıtımı özelleştirmenize olanak sağlayan parametreler ekleyebilir. Örneğin, belirli bir ortama (örneğin, geliştirme, test ve üretim gibi) için uygun değerler sağlayabilirsiniz. Örnek şablonu, depolama hesabı SKU'su için parametre tanımlar. 
 
-Aşağıdaki örnek, bir kaynak grubu oluşturur ve yerel makinenize bir şablondan dağıtır:
+Aşağıdaki örnek, bir kaynak grubu oluşturur ve yerel makinenizden bir şablon dağıtır:
 
 ```azurecli
 az login
@@ -54,7 +54,7 @@ az group deployment create \
     --parameters storageAccountType=Standard_GRS
 ```
 
-Dağıtımın tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonuç içeren bir ileti görür:
+Dağıtımın tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonuçları içeren bir ileti görürsünüz:
 
 ```azurecli
 "provisioningState": "Succeeded",
@@ -62,9 +62,9 @@ Dağıtımın tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonu�
 
 ## <a name="deploy-external-template"></a>Dış şablonu dağıtma
 
-Resource Manager şablonları yerel makinenizde depolamak yerine bir dış konuma depolamak tercih edebilirsiniz. Şablonları bir kaynak denetimi deponuza (örneğin, GitHub) depolayabilirsiniz. Veya, bunları paylaşılan erişim için bir Azure depolama hesabı, kuruluşunuzda depolayabilirsiniz.
+Resource Manager şablonları, yerel makinenizde depolamak yerine dış bir konumda depolanması tercih edebilirsiniz. Şablonları bir kaynak denetim deposu (örneğin GitHub) depolayabilirsiniz. Veya, bunları paylaşılan erişim için bir Azure depolama hesabında kuruluşunuzda depolayabilirsiniz.
 
-Dış bir şablonu dağıtmak için kullandığınız **şablonu URI** parametresi. URI örnekte github'dan örnek şablonu dağıtmak için kullanın.
+Dış bir şablonu dağıtmak için **URI şablonu** parametresi. URI örnekte, github'dan örnek şablonu dağıtmak için kullanın.
    
 ```azurecli
 az login
@@ -77,11 +77,11 @@ az group deployment create \
     --parameters storageAccountType=Standard_GRS
 ```
 
-Önceki örnekte şablonunuzu hassas bir veri içermemesi çünkü çoğu senaryo için çalışır ve şablona için genel olarak erişilebilir bir URI gerektirir. Hassas veriler (örneğin, bir yönetici parolası) belirtmeniz gerekiyorsa, bu değeri güvenli bir parametre olarak geçirin. Ancak, şablonunuzu genel olarak erişilebilir olmasını istemiyorsanız, bir özel depolama kapsayıcısı depolayarak koruyabilirsiniz. Bir paylaşılan erişim imzası (SAS) belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [dağıtma özel şablonu SAS belirteci ile](resource-manager-cli-sas-token.md).
+Yukarıdaki örnekte genel olarak erişilebilen bir URI şablonu için çoğu senaryo için şablonunuzu hassas bir veri içermemesi çünkü düşünülerek gerektirir. Hassas verileri (örneğin, bir yönetici parolası) belirtmeniz gerekiyorsa, bu değeri güvenli bir parametre geçirin. Ancak, şablonunuzu genel olarak erişilebilir olmasını istemiyorsanız, bir özel depolama kapsayıcısında depolayarak koruyabilirsiniz. Paylaşılan erişim imzası (SAS) belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [SAS belirteci ile özel şablonu Dağıt](resource-manager-cli-sas-token.md).
 
 [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-Bulut Kabuğu'nda aşağıdaki komutları kullanın:
+Cloud Shell'de aşağıdaki komutları kullanın:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "South Central US"
@@ -92,11 +92,11 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Birden fazla kaynak grubuna veya aboneliğe dağıtma
 
-Genellikle, tüm kaynakları tek bir kaynak grubu için şablonunuzdaki dağıtın. Ancak, bir kaynak kümesi birlikte dağıtmasını ancak bunları farklı kaynak grupları ya da abonelik yerleştirmek istediğiniz senaryolar vardır. Tek bir dağıtımda yalnızca beş kaynak gruplarına dağıtabilirsiniz. Daha fazla bilgi için bkz: [birden fazla abonelik veya kaynak grubu dağıtma Azure kaynaklarına](resource-manager-cross-resource-group-deployment.md).
+Genellikle, tüm kaynakları tek bir kaynak grubu için şablonunuzdaki dağıtın. Ancak, bir kaynak kümesini birlikte dağıtmak ancak farklı kaynak gruplarında ya da abonelik yerleştirmek istediğiniz senaryolar da vardır. Tek bir dağıtımda yalnızca beş kaynak gruplarına dağıtabilirsiniz. Daha fazla bilgi için [birden fazla abonelik veya kaynak grubu dağıtma Azure kaynaklarına](resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="parameter-files"></a>Parametre dosyaları
 
-Satır içi değerler olarak komut parametreleri geçirme yerine parametre değerlerini içeren bir JSON dosyası kullanmak daha kolay. Parametre dosyası şu biçimde olmalıdır:
+Betiğinizde değerleri satır içi olarak parametre geçirme yerine parametre değerlerini içeren bir JSON dosyası kullanmak daha kolay. Parametre dosyasını şu biçimde olmalıdır:
 
 ```json
 {
@@ -110,11 +110,11 @@ Satır içi değerler olarak komut parametreleri geçirme yerine parametre değe
 }
 ```
 
-Parametreler bölümünde şablonunuzda (storageAccountType) tanımlanan parametre eşleşen bir parametre adı içerdiğine dikkat edin. Parametre dosyası parametresi için bir değer içerir. Bu değer, dağıtım sırasında şablona otomatik olarak geçirilir. Farklı dağıtım senaryoları için birden çok parametre dosyası oluşturun ve ardından uygun parametre dosyası geçirin. 
+Parametreler bölümü (storageAccountType), şablonunuzda tanımlanan parametre eşleşen bir parametre adı içerdiğine dikkat edin. Parametre dosyasını, parametre için bir değer içerir. Bu değer, şablona dağıtım sırasında otomatik olarak geçirilir. Farklı dağıtım senaryoları için birden çok parametre dosyası oluşturun ve ardından uygun bir parametre dosyası geçirin. 
 
-Önceki örnekte kopyalayın ve adlı bir dosya kaydedin `storage.parameters.json`.
+Önceki örneği kopyalayabilir ve adlı bir dosya kaydedin `storage.parameters.json`.
 
-Bir yerel parametre dosyası geçirmek için kullanmak `@` storage.parameters.json adlı bir yerel dosya belirtmek için.
+Bir yerel parametre dosyası geçirmek için kullanmak `@` storage.parameters.json adlı yerel bir dosya belirtmek için.
 
 ```azurecli
 az group deployment create \
@@ -126,7 +126,7 @@ az group deployment create \
 
 ## <a name="test-a-template-deployment"></a>Şablon dağıtımı test etme
 
-Herhangi bir kaynağa dağıtmadan şablonu ve parametre değerlerini sınamak için kullanın [az grup dağıtımı doğrulamak](/cli/azure/group/deployment#az_group_deployment_validate). 
+Şablonu ve parametre değerleriniz tüm kaynakları gerçekten dağıtmadan test etmek için [az grubu dağıtımını doğrula](/cli/azure/group/deployment#az_group_deployment_validate). 
 
 ```azurecli
 az group deployment validate \
@@ -135,7 +135,7 @@ az group deployment validate \
     --parameters @storage.parameters.json
 ```
 
-Hiçbir hata algılanırsa, komut sınama dağıtımı hakkında bilgi döndürür. Özellikle dikkat **hata** değeri NULL'dur.
+Hata algılanırsa, komut test dağıtım hakkında bilgi döndürür. Özellikle dikkat **hata** değeri NULL'dur.
 
 ```azurecli
 {
@@ -144,7 +144,7 @@ Hiçbir hata algılanırsa, komut sınama dağıtımı hakkında bilgi döndür�
       ...
 ```
 
-Bir hata algılandığında, komutu bir hata iletisi döndürür. Örneğin, SKU, depolama hesabı için hatalı bir değer geçirmek çalışılırken aşağıdaki hata döndürür:
+Hata algılanırsa, komutu bir hata iletisi döndürür. Örneğin, depolama hesabının SKU, yanlış bir değer geçirmeye çalışırken şu hatayı döndürür:
 
 ```azurecli
 {
@@ -160,7 +160,7 @@ Bir hata algılandığında, komutu bir hata iletisi döndürür. Örneğin, SKU
 }
 ```
 
-Şablonunuzun söz dizimi hatası varsa, komut şablon ayrıştırılamadı belirten bir hata döndürür. İleti satır numarası ve ayrıştırma hatası konumunu gösterir.
+Komut, şablonunuzun söz dizimi hatası varsa, şablon ayrıştırılamadı belirten bir hata döndürür. İleti satır numarasını ve ayrıştırma hatası konumunu gösterir.
 
 ```azurecli
 {
@@ -177,7 +177,7 @@ Bir hata algılandığında, komutu bir hata iletisi döndürür. Örneğin, SKU
 
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
-Tam modu kullanmak için `mode` parametre:
+Tam modda kullanmak için `mode` parametresi:
 
 ```azurecli
 az group deployment create \
@@ -190,7 +190,7 @@ az group deployment create \
 
 ## <a name="sample-template"></a>Örnek şablon
 
-Aşağıdaki şablonu, bu makaledeki örnekler için kullanılır. Kopyalayın ve storage.json adlı bir dosya kaydedin. Bu şablonun nasıl oluşturulacağını anlamak için bkz: [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).  
+Bu makaledeki örneklerde aşağıdaki şablonu kullanılır. Kopyalayıp storage.json adlı bir dosya olarak kaydedin. Bu şablonu oluşturma hakkında bilgi almak için bkz. [ilk Azure Resource Manager şablonunuzu oluşturma](resource-manager-create-first-template.md).  
 
 ```json
 {
@@ -238,9 +238,9 @@ Aşağıdaki şablonu, bu makaledeki örnekler için kullanılır. Kopyalayın v
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bu makaledeki örneklerde kaynakları varsayılan aboneliğinizde bir kaynak grubuna dağıtın. Farklı bir abonelik kullanmak için bkz: [birden çok Azure Aboneliklerini yönetmek](/cli/azure/manage-azure-subscriptions-azure-cli).
-* Bir şablon dağıtan bir tam örnek betik için bkz: [Resource Manager şablonu dağıtım betiği](resource-manager-samples-cli-deploy.md).
-* Şablonunuzda parametrelerini tanımlamak nasıl anlamak için bkz: [yapısı ve Azure Resource Manager şablonları sözdizimini anlamanız](resource-group-authoring-templates.md).
-* Genel dağıtım hatalarını giderme ipuçları için bkz: [ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme](resource-manager-common-deployment-errors.md).
-* Bir SAS belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [dağıtma özel şablonu SAS belirteci ile](resource-manager-cli-sas-token.md).
+* Bu makaledeki örneklerde, varsayılan aboneliğinizde bir kaynak grubunda kaynak dağıtın. Farklı bir aboneliği kullanmak için bkz: [birden çok Azure aboneliklerini yönetme](/cli/azure/manage-azure-subscriptions-azure-cli).
+* Bir şablon dağıtan bir tam örnek betik için bkz. [Resource Manager şablonu dağıtım betiği](resource-manager-samples-cli-deploy.md).
+* Şablonunuzda parametreleri tanımlayan anlamak için bkz. [yapısını ve Azure Resource Manager şablonları söz dizimini anlamak](resource-group-authoring-templates.md).
+* Sık karşılaşılan dağıtım hataları çözümleme hakkında daha fazla ipucu için bkz. [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](resource-manager-common-deployment-errors.md).
+* Bir SAS belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [SAS belirteci ile özel şablonu Dağıt](resource-manager-cli-sas-token.md).
 * Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).

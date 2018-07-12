@@ -1,5 +1,5 @@
 ---
-title: StorSimple Cihazınızı güncelleştirin | Microsoft Docs
+title: StorSimple Cihazınızı güncelleştirme | Microsoft Docs
 description: StorSimple güncelleştirme özelliğini normal ve Bakım modu güncelleştirmeleri ve düzeltmeleri yüklemeniz için nasıl kullanılacağını açıklar.
 services: storsimple
 documentationcenter: NA
@@ -15,111 +15,111 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: v-sharos
 ms.openlocfilehash: 412978d2c343394f295e336690ec72153dda4b79
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103617"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452626"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>StorSimple 8000 serisi Cihazınızı güncelleştirin
 > [!NOTE]
 > StorSimple için klasik portal kullanım dışıdır. StorSimple Cihaz Yöneticileriniz, yeni Azure portalına kullanımdan kaldırma zamanlamasına göre otomatik olarak taşınacaktır. Bu taşımayla ilgili bir e-posta ve portal bildirimi alacaksınız. Bu belge de yakında kullanımdan kaldırılacaktır. Taşıma hakkında tüm sorularınız için bkz. [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Genel Bakış
-StorSimple güncelleştirme özellikler kolayca StorSimple cihazınız güncel tutmanıza olanak sağlar. Güncelleştirme türüne bağlı olarak, Windows PowerShell arabirimi üzerinden veya Klasik Azure Portalı aracılığıyla aygıta güncelleştirmelerini uygulayabilirsiniz. Bu öğretici, güncelleştirme türlerini ve bunların her birine yüklemek açıklar.
+StorSimple güncelleştirme özellikleri, diğer bir kolayca StorSimple cihazınızın güncel tutmak imkan tanır. Güncelleştirme türüne bağlı olarak, Klasik Azure Portalı aracılığıyla ya da Windows PowerShell arabirimi üzerinden cihaz güncelleştirmeleri uygulayabilirsiniz. Bu öğretici, güncelleştirme türlerini ve bunların her birini yüklemeyi açıklar.
 
-Cihaz güncelleştirmeleri iki tür uygulayabilirsiniz: 
+İki tür cihaz güncelleştirmeleri uygulayabilirsiniz: 
 
-* Normal (veya Normal modda) güncelleştirmeleri
+* Normal (veya Normal Mod) güncelleştirmeleri
 * Bakım modu güncelleştirmeleri
 
-Klasik Azure portalı veya Windows PowerShell aracılığıyla düzenli olarak güncelleştirmeleri yükleyebilirsiniz; Ancak, Bakım modu güncelleştirmeleri yüklemek için Windows PowerShell kullanmanız gerekir. 
+Klasik Azure portalı veya Windows PowerShell aracılığıyla düzenli güncelleştirmeler yükleyebilirsiniz; Ancak, Bakım modu güncelleştirmeleri yüklemek için Windows PowerShell kullanmanız gerekir. 
 
-Ayrıca, aşağıda açıklanan her güncelleştirme türüdür.
+Ayrıca, aşağıda açıklandığı gibi her güncelleştirme türüdür.
 
-### <a name="regular-updates"></a>Düzenli olarak güncelleştirmeleri
-Normal cihaz Normal modda olduğunda, yüklenebilen benzer güncelleştirmelerdir. Bu güncelleştirmeleri Microsoft Update Web sitesi aracılığıyla her aygıt denetleyiciye uygulanır. 
+### <a name="regular-updates"></a>Düzenli güncelleştirmeler
+Düzenli güncelleştirmeler cihaz Normal modda olduğunda, yüklenebilen kesintiye uğratmayan güncelleştirmelerin. Bu güncelleştirmeleri Microsoft Update Web sitesi üzerinden her bir cihaz denetleyicisi için uygulanır. 
 
 > [!IMPORTANT]
-> Denetleyici yük devretmesi güncelleştirme işlemi sırasında ortaya çıkabilir. Ancak, bu sistem kullanılabilirliğini veya işlem etkilemez.
+> Denetleyici yük devretmesi, güncelleştirme işlemi sırasında meydana gelebilir. Ancak, bu işlemi ya da sistem kullanılabilirliği etkilemez.
 > 
 > 
 
-* Klasik Azure Portalı aracılığıyla normal güncelleştirmelerinin nasıl yükleneceği hakkında daha fazla bilgi için bkz: [Klasik Azure Portalı aracılığıyla normal güncelleştirmelerini yükleme](#install-regular-updates-via-the-azure-classic-portal).
-* StorSimple için Windows PowerShell aracılığıyla düzenli olarak güncelleştirmeleri de yükleyebilirsiniz. Ayrıntılar için bkz [StorSimple için Windows PowerShell aracılığıyla normal güncelleştirmelerini yükleme](#install-regular-updates-via-windows-powershell-for-storsimple).
+* Klasik Azure Portalı aracılığıyla düzenli olarak güncelleştirmeleri yükleme hakkında daha fazla ayrıntı için bkz. [yükleme Klasik Azure Portalı aracılığıyla düzenli güncelleştirmeler](#install-regular-updates-via-the-azure-classic-portal).
+* StorSimple için Windows PowerShell aracılığıyla düzenli güncelleştirmeler de yükleyebilirsiniz. Ayrıntılar için bkz [StorSimple için Windows PowerShell aracılığıyla düzenli güncelleştirmeler yüklemek](#install-regular-updates-via-windows-powershell-for-storsimple).
 
 ### <a name="maintenance-mode-updates"></a>Bakım modu güncelleştirmeleri
-Bakım modu kesintiye uğratan disk bellenim yükseltmeleri gibi güncelleştirmelerdir. Bu güncelleştirmeler bakım moduna aygıta gerektirir. Ayrıntılar için bkz [2. adım: girin Bakım modu](#step2). Bakım modu güncelleştirmeleri yüklemek için Azure Klasik portalı kullanamazsınız. Bunun yerine, StorSimple için Windows PowerShell kullanmanız gerekir. 
+Bakım modu güncelleştirmeleri, disk üretici yazılımını yükseltme gibi kesintiye uğratan güncelleştirmelerdir. Bu güncelleştirmeler, cihaz, bakım moduna yerleştirilecek gerektirir. Ayrıntılar için bkz [2. adım: girin Bakım modu](#step2). Bakım modu güncelleştirmeleri yüklemek için Azure Klasik portalı kullanamazsınız. Bunun yerine, StorSimple için Windows PowerShell kullanmanız gerekir. 
 
-Bakım modu güncelleştirmelerinin nasıl yükleneceği hakkında daha fazla bilgi için bkz: [yükleme Bakım modu güncelleştirmeleri StorSimple için Windows PowerShell aracılığıyla](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
+Bakım modu güncelleştirmeleri yükleme hakkında daha fazla ayrıntı için bkz. [yükleme Bakım modu güncelleştirmeleri StorSimple için Windows PowerShell aracılığıyla](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
 > [!IMPORTANT]
-> Bakım modu güncelleştirmeleri ayrı ayrı her denetleyiciye uygulanmış olması gerekir. 
+> Bakım modu güncelleştirmeleri her denetleyici için ayrı ayrı uygulanması gerekir. 
 > 
 > 
 
-## <a name="install-regular-updates-via-the-azure-classic-portal"></a>Klasik Azure Portalı aracılığıyla düzenli olarak güncelleştirmeleri yükle
-StorSimple Cihazınızı güncelleştirmeleri uygulamak için Klasik Azure portalını kullanabilirsiniz.
+## <a name="install-regular-updates-via-the-azure-classic-portal"></a>Klasik Azure Portalı aracılığıyla düzenli güncelleştirmeler yükleyin
+Klasik Azure portalında StorSimple Cihazınızı güncelleştirmeleri uygulamak için kullanabilirsiniz.
 
 [!INCLUDE [storsimple-install-updates-manually](../../includes/storsimple-install-updates-manually.md)]
 
-## <a name="install-regular-updates-via-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell aracılığıyla düzenli olarak güncelleştirmeleri yükle
-Alternatif olarak, normal (Normal modda) güncelleştirmeleri uygulamak için StorSimple için Windows PowerShell'i kullanabilirsiniz.
+## <a name="install-regular-updates-via-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell aracılığıyla düzenli güncelleştirmeler yükleyin
+Alternatif olarak, normal (Normal Mod) güncelleştirmeleri uygulamak için StorSimple için Windows PowerShell kullanabilirsiniz.
 
 > [!IMPORTANT]
-> StorSimple için Windows PowerShell kullanarak düzenli olarak güncelleştirmeleri yükleyebilmenize rağmen Klasik Azure Portalı aracılığıyla düzenli olarak güncelleştirmeleri yüklemenizi öneririz. Güncelleştirme 1'den başlayarak, ön denetimleri portaldan güncelleştirmeleri yüklemeden önce gerçekleştirilir. Bu ön denetimleri hatalarını önüne geçer ve daha sorunsuz bir deneyim emin olun. 
+> StorSimple için Windows PowerShell kullanarak düzenli güncelleştirmeler yükleyebilmenize rağmen Klasik Azure Portalı aracılığıyla düzenli güncelleştirmeler yüklemeniz önerilir. Güncelleştirme 1'den başlayarak, ön denetimleri portaldan güncelleştirmeleri yüklemeden önce gerçekleştirilir. Bu ön denetimleri hatalarını etkisiz hale ve daha sorunsuz bir deneyim emin olun. 
 > 
 > 
 
 [!INCLUDE [storsimple-install-regular-updates-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
 
 ## <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell aracılığıyla Bakım modu güncelleştirmeleri yükle
-StorSimple Cihazınızı Bakım modu güncelleştirmeleri uygulamak için StorSimple için Windows PowerShell kullanın. Tüm g/ç istekleri bu modda duraklatıldı. Geçici olmayan rasgele erişim belleği (NVRAM) gibi hizmetleri veya Küme hizmeti de durdurulur. Girin ya da bu modundan çıkmak hem denetleyicileri yeniden başlatılır. Bu mod çıktığınızda, tüm hizmetleri devam eder ve iyi durumda olmalıdır. (Bu işlem birkaç dakika sürebilir.)
+StorSimple için Windows PowerShell, StorSimple cihazınız için Bakım modu güncelleştirmeleri uygulamak için kullanın. Tüm g/ç istekleri bu modda duraklatıldı. Geçici olmayan rastgele erişim belleği (NVRAM) gibi hizmetler veya Küme hizmetini de durduruldu. Her iki denetleyicilerinin girin ya da bu modundan çıkmak yeniden başlatılır. Bu mod çıktığınızda tüm hizmetleri devam eder ve iyi durumda olması gerekir. (Bu işlem birkaç dakika sürebilir.)
 
-Bakım modu güncelleştirmeleri uygulamak gerekiyorsa, Klasik Azure Portalı aracılığıyla yüklenmesi gereken güncelleştirmelerin yüklü olduğundan uyarı alırsınız. Bu uyarı güncelleştirmeleri yüklemek için StorSimple için Windows PowerShell kullanma yönergeleri içerir. Cihazınızı güncelleştirdikten sonra aygıtın normal moduna geçmek için aynı yordamı kullanın. Adım adım yönergeler için bkz: [4. adım: çıkış Bakım modu](#step4).
+Bakım modu güncelleştirmeleri uygulamak gerekiyorsa, Klasik Azure Portalı aracılığıyla yüklenmesi gereken güncelleştirmelerin sahip uyarı alırsınız. Bu uyarı güncelleştirmeleri yüklemek üzere StorSimple için Windows PowerShell kullanımıyla ilgili yönergeleri içerir. Cihazınızı güncelleştirmeden sonra cihaz normal moda geçmek için aynı yordamı kullanın. Adım adım yönergeler için bkz: [4. adım: çıkış Bakım modu](#step4).
 
 > [!IMPORTANT]
-> * Bakım modu girmeden önce denetleyerek hem de cihaz denetleyicilerinin sağlıklı olduğunu doğrula **donanım durum** üzerinde **Bakım** Klasik Azure portalındaki sayfası. Denetleyicisi iyi durumda değil, Microsoft Support sonraki adımlar için başvurun. Daha fazla bilgi için ilgili kişi Microsoft Desteği'ne gidin. 
-> * Bakım modunda olduğunda, önce bir denetleyici ve ardından diğer denetleyici güncelleştirmesini gerekir.
+> * Bakım modu girmeden önce kontrol ederek her iki cihaz denetleyicilerinin sağlıklı olduğunu doğrulayın **donanım durumunu** üzerinde **Bakım** Klasik Azure portalında sayfa. Denetleyicinin sağlam değilse Microsoft Support için sonraki adımlara başvurun. Daha fazla bilgi için ilgili Microsoft Desteği'ne gidin. 
+> * Bakım modunda olduğunda, güncelleştirme, öncelikle bir denetleyici ve ardından diğer denetleyiciye uygulamanız gerekir.
 > 
 > 
 
-### <a name="step-1-connect-to-the-serial-console-a-namestep1"></a>1. adım: seri konsoluna Bağlan<a name="step1">
-İlk olarak, seri konsoluna erişmek için PuTTY gibi bir uygulama kullanın. Aşağıdaki yordamda, seri konsoluna bağlanmak için PuTTY kullanın açıklanmaktadır.
+### <a name="step-1-connect-to-the-serial-console-a-namestep1"></a>1. adım: seri konsoluna Bağlan <a name="step1">
+İlk olarak, seri konsoluna erişmek için PuTTY gibi bir uygulama kullanın. Aşağıdaki yordam seri konsoluna bağlanmak için PuTTY kullanın açıklanmaktadır.
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>2. adım: Bakım modu girin<a name="step2">
-Konsola bağlandıktan sonra yüklemek ve bunları yüklemek için bakım moduna girmek için güncelleştirmeler olup olmadığını belirleyin.
+### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>2. adım: Bakım Moduna gir <a name="step2">
+Konsola bağlandıktan sonra yüklemek ve bunları yüklemek için bakım moduna girmek için güncelleştirmeler olup olmadığını belirler.
 
 [!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### <a name="step-3-install-your-updates-a-namestep3"></a>3. adım: güncellemelerinizi yükleme<a name="step3">
+### <a name="step-3-install-your-updates-a-namestep3"></a>3. adım: güncelleştirmelerinizi yükleme <a name="step3">
 Ardından, güncelleştirmelerinizi yükleyin.
 
 [!INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
 
-### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>4. adım: Çıkış Bakım modu<a name="step4">
+### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>4. adım: Çıkış Bakım modu <a name="step4">
 Son olarak, bakım modundan çıkın.
 
 [!INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]
 
-## <a name="install-hotfixes-via-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell aracılığıyla düzeltmeleri yükleme
-Microsoft Azure StorSimple güncelleştirmeleri, paylaşılan bir klasörden düzeltmeleri yüklenir. Güncelleştirmelerinde olduğu gibi düzeltmeler iki tür vardır: 
+## <a name="install-hotfixes-via-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell aracılığıyla düzeltmelerini
+Microsoft Azure StorSimple güncelleştirmeleri, düzeltmeler bir paylaşılan klasöre yüklenir. Güncelleştirmelerinde olduğu gibi düzeltmeleri iki tür vardır: 
 
-* Normal düzeltmeleri 
-* Bakım modu düzeltmeleri  
+* Normal düzeltmeler 
+* Bakım modu düzeltmelerini  
 
-Aşağıdaki yordamlarda, StorSimple için Windows PowerShell normal ve Bakım modu düzeltmeleri yüklemeniz için nasıl kullanılacağı açıklanmaktadır.
+Aşağıdaki yordamlarda, normal ve Bakım modu düzeltmelerini yüklemek için StorSimple için Windows PowerShell kullanma açıklanmaktadır.
 
 [!INCLUDE [storsimple-install-regular-hotfixes](../../includes/storsimple-install-regular-hotfixes.md)]
 
 [!INCLUDE [storsimple-install-maintenance-mode-hotfixes](../../includes/storsimple-install-maintenance-mode-hotfixes.md)]
 
-## <a name="what-happens-to-updates-if-you-perform-a-factory-reset-of-the-device"></a>Bir cihazı fabrika ayarlarına gerçekleştirmek güncelleştirmeleri ne olur?
-Bir cihazı fabrika ayarlarına sıfırlarsanız tüm güncelleştirmeler kaybolur. Fabrika sıfırlaması cihaz kayıtlı yapılandırıldıktan sonra Klasik Azure portalı ve/veya Windows PowerShell aracılığıyla güncelleştirmeleri StorSimple için el ile yüklemeniz gerekir. Fabrika sıfırlaması hakkında daha fazla bilgi için bkz: [cihazı fabrika varsayılan ayarlarına sıfırlama](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+## <a name="what-happens-to-updates-if-you-perform-a-factory-reset-of-the-device"></a>Cihazın Fabrika sıfırlaması yapmasını güncelleştirmeleri ne olur?
+Bir cihazı fabrika ayarlarına sıfırlarsanız tüm güncelleştirmeleri kaybolur. Fabrika sıfırlaması cihaz kaydedildikten ve yapılandırıldıktan sonra el ile StorSimple için Klasik Azure portalı ve/veya Windows PowerShell aracılığıyla güncelleştirmeleri yüklemeniz gerekir. Fabrika sıfırlaması hakkında daha fazla bilgi için bkz: [cihazı fabrika varsayılan ayarlarına geri döndürmeyi](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinmek [StorSimple Cihazınızı yönetmek için StorSimple için Windows PowerShell kullanarak](storsimple-windows-powershell-administration.md).
-* Daha fazla bilgi edinmek [StorSimple Cihazınızı yönetmek için StorSimple Yöneticisi hizmetini kullanma](storsimple-manager-service-administration.md).
+* Daha fazla bilgi edinin [StorSimple Cihazınızı yönetmek için StorSimple için Windows PowerShell kullanarak](storsimple-windows-powershell-administration.md).
+* Daha fazla bilgi edinin [StorSimple Cihazınızı yönetmek için StorSimple Yöneticisi hizmetini kullanarak](storsimple-manager-service-administration.md).
 

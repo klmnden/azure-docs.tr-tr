@@ -11,12 +11,12 @@
   items:
     - name: İşlev oluşturma - Portal
       href: functions-create-first-azure-function.md
-    - name: İşlev oluşturma - Azure CLI
-      href: functions-create-first-azure-function-azure-cli.md
     - name: İşlev oluşturma - Visual Studio
       href: functions-create-your-first-function-visual-studio.md
     - name: İşlev oluşturma - Java/Maven
       href: functions-create-first-java-maven.md
+    - name: İşlev oluşturma - Azure CLI
+      href: functions-create-first-azure-function-azure-cli.md
     - name: İşlev oluşturma - Linux
       href: functions-create-first-azure-function-azure-cli-linux.md
     - name: Tetikleyiciler
@@ -97,6 +97,8 @@
       items:
         - name: Genel Bakış
           href: durable-functions-overview.md
+        - name: İşlev türleri ve özellikleri
+          href: durable-functions-types-features-overview.md
         - name: Bağlamalar
           href: durable-functions-bindings.md
         - name: Denetim noktası ve yeniden yürütme

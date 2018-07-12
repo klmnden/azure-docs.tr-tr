@@ -14,20 +14,20 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: tdykstra
-ms.openlocfilehash: 0179a48b74ef0e37d3ac2e7fd18d43e488a89823
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 020a775c45ef3c46f9dfc5da7d4a7e470def4705
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341391"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969920"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Azure Event Grid'e (Önizleme) yayımlama dayanıklı İşlevler
 
-Bu makalede, Azure dayanıklı İşlevler ' için özel bir düzenleme yaşam döngüsü olayları (gibi tamamlanan ve hatalı oluşturulmuş) yayımlamak için ayarlama işlemi gösterilmektedir [Azure Event Grid konusu](https://docs.microsoft.com/en-us/azure/event-grid/overview). 
+Bu makalede, Azure dayanıklı İşlevler ' için özel bir düzenleme yaşam döngüsü olayları (gibi tamamlanan ve hatalı oluşturulmuş) yayımlamak için ayarlama işlemi gösterilmektedir [Azure Event Grid konusu](https://docs.microsoft.com/azure/event-grid/overview). 
 
 Bu özellik yararlı olduğu bazı senaryolar aşağıda verilmiştir:
 
-* **Mavi/yeşil dağıtımları gibi DevOps senaryolar**: uygulamadan önce herhangi bir görevi çalışıp çalışmadığını bilmek isteyebilirsiniz [yan yana dağıtım stratejisini](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-versioning#side-by-side-deployments).
+* **Mavi/yeşil dağıtımları gibi DevOps senaryolar**: uygulamadan önce herhangi bir görevi çalışıp çalışmadığını bilmek isteyebilirsiniz [yan yana dağıtım stratejisini](https://docs.microsoft.com/azure/azure-functions/durable-functions-versioning#side-by-side-deployments).
 
 * **Gelişmiş izleme ve tanılama desteği**: SQL veritabanı veya CosmosDB gibi sorgular için en iyi duruma getirilmiş bir dış deposunda düzenleme durum bilgileri takip.
 
@@ -36,19 +36,19 @@ Bu özellik yararlı olduğu bazı senaryolar aşağıda verilmiştir:
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Yükleme [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc veya dayanıklı işlevler projenizdeki sonraki bir sürümü.
-* Yükleme [Azure Storage öykünücüsü](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator).
-* Yükleme [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) veya [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
+* Yükleme [Azure Storage öykünücüsü](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
+* Yükleme [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) veya [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Event Grid özel konusu oluşturma
 
 Dayanıklı işlevler olayları göndermek için bir Event Grid konusu oluşturun. Aşağıdaki yönergeler, Azure CLI kullanarak bir konu oluşturmak nasıl göstermektedir. PowerShell veya Azure portalını kullanarak nasıl yapılacağı hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [EventGrid hızlı başlangıç: özel olay - PowerShell oluşturma](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-powershell)
-* [EventGrid hızlı başlangıç: özel olay - Azure portalında oluşturma](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-portal)
+* [EventGrid hızlı başlangıç: özel olay - PowerShell oluşturma](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
+* [EventGrid hızlı başlangıç: özel olay - Azure portalında oluşturma](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Bir kaynak grubu oluşturun `az group create` komutu. Event Grid, tüm bölgeler şu anda desteklemiyor. Hangi bölgeler desteklenir daha fazla bilgi için bkz: [Event Grid genel bakış](https://docs.microsoft.com/en-us/azure/event-grid/overview). 
+Bir kaynak grubu oluşturun `az group create` komutu. Event Grid, tüm bölgeler şu anda desteklemiyor. Hangi bölgeler desteklenir daha fazla bilgi için bkz: [Event Grid genel bakış](https://docs.microsoft.com/azure/event-grid/overview). 
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -115,7 +115,7 @@ Yapılandırmadan sonra `host.json` dosya, yaşam döngüsü olayları Event Gri
 }
 ```
 
-Emin olun [depolama öykünücüsü](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) çalışmaktadır. Çalıştırmak için iyi bir fikirdir `AzureStorageEmulator.exe clear all` yürütmeden önce komutu.
+Emin olun [depolama öykünücüsü](https://docs.microsoft.com/azure/storage/common/storage-use-emulator) çalışmaktadır. Çalıştırmak için iyi bir fikirdir `AzureStorageEmulator.exe clear all` yürütmeden önce komutu.
 
 ## <a name="create-functions-that-listen-for-events"></a>Olayları dinleme yapan işlevler oluştur
 
@@ -147,7 +147,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-`Add Event Grid Subscription` öğesini seçin. Bu işlem, oluşturduğunuz Event Grid konusu için Event Grid aboneliği ekler. Daha fazla bilgi için [Azure Event Grid kavramları](https://docs.microsoft.com/en-us/azure/event-grid/concepts)
+`Add Event Grid Subscription` öğesini seçin. Bu işlem, oluşturduğunuz Event Grid konusu için Event Grid aboneliği ekler. Daha fazla bilgi için [Azure Event Grid kavramları](https://docs.microsoft.com/azure/event-grid/concepts)
 
 ![Olay Kılavuzu tetikleyicisi bağlantıyı seçin.](media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
@@ -262,10 +262,10 @@ Yaşam döngüsü olayları Şeması aşağıdaki listede açıklanmıştır:
 * **Kimliği**: Event Grid olayı için benzersiz tanımlayıcı.
 * **konu**: olay konu yolu. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` olacaktır `Running`, `Completed`, `Failed`, ve `Terminated`.  
 * **veri**: dayanıklı işlevler belirli parametreleri.
-    * **hubName**: [TaskHub](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-task-hubs) adı.
+    * **hubName**: [TaskHub](https://docs.microsoft.com/azure/azure-functions/durable-functions-task-hubs) adı.
     * **functionName**: Orchestrator işlev adı.
     * **InstanceId**: dayanıklı işlevler InstanceId.
-    * **neden**: izleme olay ile ilişkili ek veriler. Daha fazla bilgi için [Tanılama'da dayanıklı işlevler (Azure işlevleri)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-diagnostics)
+    * **neden**: izleme olay ile ilişkili ek veriler. Daha fazla bilgi için [Tanılama'da dayanıklı işlevler (Azure işlevleri)](https://docs.microsoft.com/azure/azure-functions/durable-functions-diagnostics)
     * **runtimeStatus**: düzenleme çalışma zamanı durumu. , Çalışan tamamlandı, başarısız, iptal edildi. 
 * **eventType**: "orchestratorEvent"
 * **eventTime**: Olay saati (UTC).

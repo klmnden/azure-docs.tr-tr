@@ -1,6 +1,6 @@
 ---
-title: Azure'da bir şablondan bir Windows VM oluşturma | Microsoft Docs
-description: Resource Manager şablonu ve PowerShell kolayca yeni bir Windows VM oluşturmak için kullanın.
+title: Azure'da bir şablondan Windows VM oluşturma | Microsoft Docs
+description: Kolayca yeni bir Windows VM oluşturmak için bir Resource Manager şablonu ve PowerShell kullanın.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -17,19 +17,19 @@ ms.date: 07/18/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1c911d7500b61218323dd736aa51f50980d702cc
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "31601847"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38720087"
 ---
-# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Bir Windows sanal makine bir Resource Manager şablonu oluşturma
+# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Bir Resource Manager şablonundan bir Windows sanal makine oluşturma
 
-Bu makalede PowerShell kullanarak bir Azure Resource Manager şablonu dağıtma gösterilmektedir. Oluşturduğunuz şablon, tek bir alt ağ ile yeni bir sanal ağ içinde Windows Server çalıştıran tek bir sanal makine dağıtır.
+Bu makalede, PowerShell kullanarak bir Azure Resource Manager şablonu dağıtma işlemini göstermektedir. Oluşturduğunuz şablonun yeni bir sanal ağda tek bir alt ağ ile Windows Server çalıştıran tek bir sanal makine dağıtır.
 
-Sanal makine kaynağı ayrıntılı bir açıklaması için bkz: [sanal makineleri bir Azure Resource Manager şablonunda](template-description.md). Bir şablona tüm kaynaklar hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonu Kılavuzu](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Sanal makine kaynağı ayrıntılı bir açıklaması için bkz. [sanal makineler bir Azure Resource Manager şablonunda](template-description.md). Bir şablonda tüm kaynaklar hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonu Kılavuzu](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-Bu makaledeki adımları yapmak için yaklaşık beş dakika sürer.
+Bu, bu makaledeki adımların tamamlanması yaklaşık beş dakika sürer.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -37,7 +37,7 @@ PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, 
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Tüm kaynaklar dağıtılmalıdır bir [kaynak grubu](../../azure-resource-manager/resource-group-overview.md).
+Tüm kaynaklar içinde dağıtılmış olması gereken bir [kaynak grubu](../../azure-resource-manager/resource-group-overview.md).
 
 1. Kaynakların oluşturulabileceği kullanılabilir konumların bir listesini alın.
    
@@ -45,7 +45,7 @@ Tüm kaynaklar dağıtılmalıdır bir [kaynak grubu](../../azure-resource-manag
     Get-AzureRmLocation | sort DisplayName | Select DisplayName
     ```
 
-2. Kaynak grubu seçtiğiniz konumda oluşturun. Bu örnek, bir kaynak grubu oluşturulmasını gösterir **myResourceGroup** içinde **Batı ABD** konumu:
+2. Seçtiğiniz konumda kaynak grubu oluşturun. Bu örnek adlı bir kaynak grubu oluşturmayı gösterir **myResourceGroup** içinde **Batı ABD** konumu:
 
     ```powershell   
     New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
@@ -53,9 +53,9 @@ Tüm kaynaklar dağıtılmalıdır bir [kaynak grubu](../../azure-resource-manag
 
 ## <a name="create-the-files"></a>Dosyaları oluşturma
 
-Bu adımda, kaynakları dağıtan bir şablon dosyası ve şablon parametre değerlerini sağlayan bir parametre dosyası oluşturun. Ayrıca Azure Resource Manager işlemlerini gerçekleştirmek için kullanılan bir yetkilendirme dosyasını oluşturursunuz.
+Bu adımda, kaynakları dağıtan bir şablon dosyası ve şablon parametre değerlerini sağlayan bir parametre dosyası oluşturun. Azure Resource Manager işlemlerini gerçekleştirmek için kullanılan bir yetkilendirme dosyası oluşturabilir.
 
-1. Adlı bir dosya oluşturun *CreateVMTemplate.json* ve bu JSON kodu ekleyin:
+1. Adlı bir dosya oluşturun *CreateVMTemplate.json* ve bu JSON kodunu ekleyin:
 
     ```json
     {
@@ -160,7 +160,7 @@ Bu adımda, kaynakları dağıtan bir şablon dosyası ve şablon parametre değ
     }
     ```
 
-2. Adlı bir dosya oluşturun *Parameters.json* ve bu JSON kodu ekleyin:
+2. Adlı bir dosya oluşturun *Parameters.json* ve bu JSON kodunu ekleyin:
 
     ```json
     {
@@ -173,7 +173,7 @@ Bu adımda, kaynakları dağıtan bir şablon dosyası ve şablon parametre değ
     }
     ```
 
-3. Yeni depolama hesabı ve kapsayıcı oluşturun:
+3. Yeni depolama hesabı ve kapsayıcı oluşturma:
 
     ```powershell
     $storageName = "st" + (Get-Random)
@@ -183,7 +183,7 @@ Bu adımda, kaynakları dağıtan bir şablon dosyası ve şablon parametre değ
     New-AzureStorageContainer -Name "templates" -Context $context -Permission Container
     ```
 
-4. Dosyaları karşıya yükleme için depolama hesabı:
+4. Depolama hesabına dosya yükleme:
 
     ```powershell
     Set-AzureStorageBlobContent -File "C:\templates\CreateVMTemplate.json" -Context $context -Container "templates"
@@ -192,9 +192,9 @@ Bu adımda, kaynakları dağıtan bir şablon dosyası ve şablon parametre değ
 
     Değişiklik dosyaların depolandığı konumun dosya yolları.
 
-## <a name="create-the-resources"></a>Kaynakları oluşturun
+## <a name="create-the-resources"></a>Kaynakları oluşturma
 
-Parametreleri kullanarak şablonu dağıtmak:
+Parametreleri kullanarak şablonu dağıtın:
 
 ```powershell
 $templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
@@ -203,10 +203,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 ```
 
 > [!NOTE]
-> Ayrıca, şablonları ve yerel dosyaları parametrelerinden dağıtabilirsiniz. Daha fazla bilgi için bkz: [Azure Storage ile Azure PowerShell'i kullanma](../../storage/common/storage-powershell-guide-full.md).
+> Ayrıca, şablon ve parametre yerel dosyalarından da dağıtabilirsiniz. Daha fazla bilgi için bkz. [Azure PowerShell kullanarak Azure depolama ile](../../storage/common/storage-powershell-guide-full.md).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- Dağıtım ile ilgili sorunlar varsa, bir göz atalım [ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme](../../resource-manager-common-deployment-errors.md).
-- Oluşturma ve bir sanal makinede yönetme hakkında bilgi edinin [oluşturma ve Azure PowerShell modülü ile Windows sanal makineleri yönetme](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Dağıtımla ilgili sorunlar varsa, göz atın [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](../../resource-manager-common-deployment-errors.md).
+- Oluşturma ve içinde bir sanal makineyi yönetmeyi öğrenin [oluşturun ve Azure PowerShell modülü ile Windows Vm'leri yönetme](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 6/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7ae3818795cddf5dfbb93ca6cc8dfff9d1c44c03
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: e75577ae917cbe14a123ff5e2d44da2edc8062ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341254"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307322"
 ---
 # <a name="integrate-azure-active-directory-with-aks---preview"></a>Azure Active Directory Tümleştirme ile AKS - Önizleme
 
 Azure Kubernetes Service (AKS), Azure Active Directory kullanıcı kimlik doğrulaması için kullanmak üzere yapılandırılabilir. Bu yapılandırmada, Azure Active Directory kimlik doğrulama belirtecinizi kullanarak bir Azure Kubernetes hizmeti kümesine oturum açabilirsiniz. Ayrıca, küme yöneticileri bir kullanıcı kimliği veya dizin grubu üyeliğine göre Kubernetes rol tabanlı erişim denetimini yapılandırmak kullanabilirsiniz.
 
-Bu belge, AKS ve Azure AD için tüm gerekli Önkoşullar oluşturma, Azure AD etkin küme dağıtma ve AKS kümesinde basit bir RBAC rolü oluşturma ayrıntıları.
+Bu belge, AKS ve Azure AD için tüm gerekli Önkoşullar oluşturma, Azure AD etkin küme dağıtma ve AKS kümesinde basit bir RBAC rolü oluşturma ayrıntıları. RBAC kullanmak için mevcut olmayan-RBAC AKS kümeleri etkin Not şu anda güncelleştirilemiyor.
 
 > [!IMPORTANT]
 > Azure Kubernetes Service (AKS) RBAC ve Azure AD tümleştirmesi, şu anda **Önizleme**. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.

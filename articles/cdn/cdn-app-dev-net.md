@@ -1,6 +1,6 @@
 ---
 title: .NET için Azure CDN kitaplığını kullanmaya başlama | Microsoft Docs
-description: Visual Studio kullanarak Azure CDN yönetmek için .NET uygulamaları yazma öğrenin.
+description: Visual Studio kullanarak Azure CDN'yi yönetmek üzere .NET uygulamalar yazmayı öğrenin.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23843052"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38454473"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN ile geliştirmeye başlama
 > [!div class="op_single_selector"]
@@ -28,40 +28,40 @@ ms.locfileid: "23843052"
 > 
 > 
 
-Kullanabileceğiniz [.NET için Azure CDN Kitaplığı](https://msdn.microsoft.com/library/mt657769.aspx) oluşturulması ve CDN profili ve uç noktaları Yönetimi otomatik hale getirmek için.  Bu öğreticide, kullanılabilir işlemleri çeşitli gösteren basit bir .NET konsol uygulaması oluşturma aşamasından açıklanmaktadır.  Bu öğretici, ayrıntılı olarak .NET için Azure CDN kitaplığı tüm yönlerini açıklamak için tasarlanmamıştır.
+Kullanabileceğiniz [.NET için Azure CDN Kitaplığı](https://msdn.microsoft.com/library/mt657769.aspx) oluşturma ve CDN profili ve uç noktaları yönetimini otomatikleştirmek için.  Bu öğreticide, birkaç kullanılabilir işlemleri gösteren basit bir .NET konsol uygulaması oluşturulmasını adım adım göstermektedir.  Bu öğreticide, ayrıntılı olarak .NET için Azure CDN kitaplığı tüm yönlerini açıklamak için tasarlanmamıştır.
 
-Bu öğreticiyi tamamlamak için Visual Studio 2015 gerekir.  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) ücretsiz olarak karşıdan yüklenebilir.
+Bu öğreticiyi tamamlamak için Visual Studio 2015 ihtiyacınız vardır.  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) ücretsiz olarak indirebilirsiniz.
 
 > [!TIP]
-> [Bu öğreticinin tamamlanan projeden](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) MSDN'de indirilebilir.
+> [Projeyi bu öğreticiden](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) MSDN'de indirilebilir.
 > 
 > 
 
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
-## <a name="create-your-project-and-add-nuget-packages"></a>Projenizi oluşturmak ve Nuget paketleri ekleme
-Bizim CDN profili için bir kaynak grubu oluşturduk artık ve CDN profili ve uç noktaları grubu içindeki yönetmek için Azure AD uygulama izni verilen göre biz uygulamamızı oluşturmaya başlayabilirsiniz.
+## <a name="create-your-project-and-add-nuget-packages"></a>Projenizi oluşturmak ve Nuget paketleri Ekle
+Size sunduğumuz CDN profili için bir kaynak grubu oluşturduğunuz ve CDN profili ve uç noktaları grubu içindeki yönetmek için Azure AD uygulama izin verilen göre biz uygulamamızı oluşturmaya başlayabilir.
 
-Visual Studio 2015'içinde ' ı tıklatın **dosya**, **yeni**, **proje...**  yeni proje iletişim kutusunu açın.  Genişletme **Visual C#** seçeneğini belirleyip **Windows** sol taraftaki bölmede.  Tıklatın **konsol uygulaması** Orta bölmede.  Projenizi adlandırın ve ardından **Tamam**.  
+İçinde Visual Studio 2015 ' i **dosya**, **yeni**, **proje...**  yeni proje iletişim kutusunu açın.  Genişletin **Visual C#**, ardından **Windows** soldaki bölmede.  Tıklayın **konsol uygulaması** Orta bölmedeki.  Projenizi adlandırın ve ardından tıklayın **Tamam**.  
 
 ![Yeni Proje](./media/cdn-app-dev-net/cdn-new-project.png)
 
-Projemizin Nuget paketlerini içinde yer alan bazı Azure kitaplıkları kullanmak zordur.  Bu projeye ekleyelim.
+Projemizin Nuget paketleri içinde yer alan bazı Azure kitaplıkları kullanmayı düşünüyor olabilir.  Bu projeye ekleyelim.
 
-1. Tıklatın **Araçları** menüsünde **Nuget Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**.
+1. Tıklayın **Araçları** menüsünde **Nuget Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**.
    
-    ![Nuget paketlerini yönetme](./media/cdn-app-dev-net/cdn-manage-nuget.png)
-2. Paket Yöneticisi konsolunda yüklemek için aşağıdaki komutu yürütün **Active Directory Authentication Library (ADAL)**:
+    ![Nuget paketlerini Yönet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
+2. Paket Yöneticisi Konsolu'nda yüklemek için aşağıdaki komutu yürütün **Active Directory Authentication Library (ADAL)**:
    
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
-3. Yüklemek için aşağıdakileri yürütün **Azure CDN Yönetimi Kitaplığı**:
+3. Yüklemek için aşağıdakileri yürütün **Azure CDN Yönetim kitaplığı**:
    
     `Install-Package Microsoft.Azure.Management.Cdn`
 
-## <a name="directives-constants-main-method-and-helper-methods"></a>Yönergeleri, sabitleri, ana yöntemi ve yardımcı yöntemler
-Şimdi yazılmış programımız temel yapısını alın.
+## <a name="directives-constants-main-method-and-helper-methods"></a>Yönergeleri, sabitleri, main yöntemi ve yardımcı yöntemler
+Yazılan programımız temel yapısını geçelim.
 
-1. Program.cs sekmesinde geri, yerini `using` üst aşağıdaki yönergeleri:
+1. Program.cs sekmede geri değiştirin `using` üst aşağıdaki yönergeleri:
    
     ```csharp
     using System;
@@ -73,7 +73,7 @@ Projemizin Nuget paketlerini içinde yer alan bazı Azure kitaplıkları kullanm
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. Bizim yöntemler kullanacağı bazı sabitleri tanımlamak gerekir.  İçinde `Program` sınıfı, ancak önce `Main` yöntemi, aşağıdaki ekleyin.  Dahil olmak üzere, yer tutucular değiştirdiğinizden emin olun  **&lt;köşeli&gt;**, gerektiği gibi kendi değerlere sahip.
+2. Bizim yöntemleri kullanacaksınız bazı sabitleri tanımlamak ihtiyacımız var.  İçinde `Program` sınıfı, ancak önce `Main` yöntemi aşağıdakileri ekleyin.  Dahil olmak üzere, yer tutucuları değiştirdiğinizden emin olun  **&lt;açılı ayraçlar&gt;**, gerektiğinde kendi değerlerinizle.
    
     ```csharp
     //Tenant app constants
@@ -88,13 +88,13 @@ Projemizin Nuget paketlerini içinde yer alan bazı Azure kitaplıkları kullanm
     private const string resourceGroupName = "CdnConsoleTutorial";
     private const string resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
     ```
-3. Ayrıca sınıf düzeyinde iki bu değişkenleri tanımlayın.  Bunlar daha sonra profil ve uç nokta zaten var olup olmadığını belirlemek için kullanacağız.
+3. Ayrıca sınıf düzeyinde bu iki değişkenleri tanımlayın.  Bunlar daha sonra profil ve uç noktası zaten mevcut olup olmadığını belirlemek için kullanacağız.
    
     ```csharp
     static bool profileAlreadyExists = false;
     static bool endpointAlreadyExists = false;
     ```
-4. Değiştir `Main` yöntemini aşağıdaki şekilde:
+4. Değiştirin `Main` yöntemini aşağıdaki şekilde:
    
    ```csharp
    static void Main(string[] args)
@@ -129,7 +129,7 @@ Projemizin Nuget paketlerini içinde yer alan bazı Azure kitaplıkları kullanm
        Console.ReadLine();
    }
    ```
-5. Bizim diğer yöntemlerden bazıları "Evet/Hayır" sorularını kullanıcıdan adımıdır.  Biraz daha kolay yapmak için aşağıdaki yöntemi ekleyin:
+5. Bizim diğer yöntemlerden bazıları "Evet/Hayır" sorularınız varsa kullanıcıdan istemek için oluşturacaksınız.  Bunu biraz kolaylaştırmak için aşağıdaki yöntemi ekleyin:
    
     ```csharp
     private static bool PromptUser(string Question)
@@ -153,10 +153,10 @@ Projemizin Nuget paketlerini içinde yer alan bazı Azure kitaplıkları kullanm
     }
     ```
 
-Programımız temel yapısını yazılır, çağıran yöntemleri oluşturmanız gerekir `Main` yöntemi.
+Temel yapısını programımız yazılır, çağıran yöntemleri oluşturmanız gerekir `Main` yöntemi.
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
-Azure CDN Yönetimi Kitaplığı kullanabilmeniz için önce kimliğinizi bizim hizmet sorumlusunun kimliğini doğrulamak ve kimlik doğrulama belirtecini almak gerekiyor.  Bu yöntem, belirtecini almak için ADAL kullanır.
+Azure CDN Yönetim kitaplığı kullanabiliriz önce bizim hizmet sorumlusu kimlik doğrulaması ve kimlik doğrulama belirteci almak ihtiyacımız var.  Bu yöntem, belirteci almak için ADAL kullanır.
 
 ```csharp
 private static AuthenticationResult GetAccessToken()
@@ -170,10 +170,10 @@ private static AuthenticationResult GetAccessToken()
 }
 ```
 
-Tek tek kullanıcı kimlik doğrulaması kullanıyorsanız, `GetAccessToken` yöntemi biraz farklı görünür.
+Tek tek kullanıcı kimlik doğrulaması kullanıyorsanız `GetAccessToken` yöntemi biraz farklı görünür.
 
 > [!IMPORTANT]
-> Yalnızca bireysel kullanıcı kimlik doğrulaması, bir hizmet sorumlusu yerine seçmek, bu kod örneği kullanın.
+> Yalnızca bireysel kullanıcı kimlik doğrulaması yerine bir hizmet sorumlusu seçme durumlarda bu kod örneği kullanın.
 > 
 > 
 
@@ -188,10 +188,10 @@ private static AuthenticationResult GetAccessToken()
 }
 ```
 
-Değiştirdiğinizden emin olun `<redirect URI>` yeniden yönlendirme URI'si Azure AD'de uygulama kaydolurken girdiğiniz ile.
+Değiştirdiğinizden emin olun `<redirect URI>` yeniden yönlendirme URI'si uygulamayı Azure AD'ye kaydettiniz, girdiğiniz ile.
 
 ## <a name="list-cdn-profiles-and-endpoints"></a>Liste CDN profili ve uç noktaları
-Şimdi biz CDN işlemlerini gerçekleştirmek için hazır.  Bizim yöntemi yapacağı ilk şey tüm profil ve uç noktaları bizim kaynak grubunda listesidir ve bizim sabitler belirtilen profil ve uç nokta adları için bir eşleşme bulursa, çoğaltmaları oluşturmak denemeyin şekilde, Not için daha sonra sağlar.
+Artık CDN işlemleri gerçekleştirmek hazırız.  Bizim yöntemi yapacağı ilk şey profilleri ve uç noktaları, kaynak grubundaki listesidir ve bizim sabitlerle belirtilen profil ve uç nokta adları için bir eşleşme bulduğunda biz çoğaltmaları oluşturmak çalışmaması, Not daha sonra kullanmak üzere sağlar.
 
 ```csharp
 private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
@@ -270,12 +270,12 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> Yukarıdaki örnekte uç nokta adlı bir kaynak atar *Contoso* bir ana bilgisayar adı ile `www.contoso.com`.  Bu, kendi kaynağın konak adına işaret edecek şekilde değiştirmeniz gerekir.
+> Yukarıdaki örnek adlı bir kaynak uç noktası atar *Contoso* bir ana bilgisayar adı ile `www.contoso.com`.  Bu ana bilgisayar adı için kendi kaynağın işaret edecek şekilde değiştirmeniz gerekir.
 > 
 > 
 
-## <a name="purge-an-endpoint"></a>Bir uç noktası
-Uç noktası oluşturuldu varsayıldığında, biz bizim programında gerçekleştirmek isteyebileceğiniz ortak bir görev bizim endpoint içeriği temizleme.
+## <a name="purge-an-endpoint"></a>Bir uç noktasını temizleme
+Uç noktası oluşturuldu varsayıldığında, biz Programımıza gerçekleştirmek isteyebileceğiniz yaygın görevlerden biri içeriği bizim uç noktasını temizleme.
 
 ```csharp
 private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
@@ -291,12 +291,12 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> Dize yukarıdaki örnekte `/*` bitiş noktası yolu kök her şeyi temizlemek istediğiniz gösterir.  Bu denetimi için eşdeğerdir **temizleme tüm** Azure portal'ın "Temizle" iletişim. İçinde `CreateCdnProfile` yöntemi, oluşturduğum bizim profili için farklı bir **verizon'dan Azure CDN** kod kullanarak profil `Sku = new Sku(SkuName.StandardVerizon)`, böylece bu başarılı olur.  Ancak, **akamai'den Azure CDN** profilleri desteklemez **temizleme tüm**, Bu öğretici için bir Akamai profili kullanıyordu, t belirli yolları eklemeniz gerekir.
+> Yukarıdaki örnekte, dize içinde `/*` bitiş noktası yolu kök dizinindeki her şeyi temizlemek istediğiniz gösterir.  Bu denetimi için eşdeğerdir **temizleme tüm** Azure portalının "temizleme" iletişim kutusunda. İçinde `CreateCdnProfile` yöntemi oluşturduğum bizim profili olarak bir **verizon'dan Azure CDN** kodu kullanarak profil `Sku = new Sku(SkuName.StandardVerizon)`, böylece bu başarılı olur.  Ancak, **akamai'den Azure CDN** profilleri desteklemez **temizleme tüm**, Bu öğretici için Akamai profili kullanıyordu, ı temizlemek için belirli yollar eklemeniz gerekir.
 > 
 > 
 
-## <a name="delete-cdn-profiles-and-endpoints"></a>CDN profili ve uç noktaları Sil
-Son yöntemleri bizim uç noktası ve profil silinmesine neden olur.
+## <a name="delete-cdn-profiles-and-endpoints"></a>CDN profili ve uç noktalarını silme
+Son yöntemleri, bizim uç nokta ve profili siler.
 
 ```csharp
 private static void PromptDeleteCdnEndpoint(CdnManagementClient cdn)
@@ -322,23 +322,23 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 }
 ```
 
-## <a name="running-the-program"></a>Programın çalıştırılması
-Biz artık derleyebilir ve tıklayarak program Çalıştır **Başlat** Visual Studio'da düğmesi.
+## <a name="running-the-program"></a>Programı çalıştırma
+Biz artık derleyebilir ve program tıklayarak çalıştırın **Başlat** Visual Studio'daki düğmesi.
 
-![Program çalışıyor](./media/cdn-app-dev-net/cdn-program-running-1.png)
+![Çalışan bir program](./media/cdn-app-dev-net/cdn-program-running-1.png)
 
-Program yukarıdaki istemi ulaştığında, kaynak grubunuzdaki Azure portalına dönün ve profilin oluşturulduğunu görmek mümkün olması gerekir.
+Program yukarıdaki istemi ulaştığında, kaynak grubunuzda Azure portalına dönün ve profili oluşturulmuş olması gerekir.
 
 ![Başarılı!](./media/cdn-app-dev-net/cdn-success.png)
 
-Biz, ardından program kalan çalıştırmak ister onaylayabilirsiniz.
+Biz, programın geri kalanını çalıştırmak için istemleri ardından doğrulayabilirsiniz.
 
 ![Program Tamamlanıyor](./media/cdn-app-dev-net/cdn-program-running-2.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Bu kılavuzda tamamlanmış projeden görmek için [örneği indirmek](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+Bu kılavuz, tamamlanan projeden görmek için [örneği indirin](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
-.NET için Azure CDN Yönetimi Kitaplığı hakkındaki ek belgeleri bulmak için görüntülemek [MSDN'de başvuru](https://msdn.microsoft.com/library/mt657769.aspx).
+.NET için Azure CDN Yönetim kitaplığı hakkındaki ek belgeleri bulmak için görüntüleme [MSDN başvuru](https://msdn.microsoft.com/library/mt657769.aspx).
 
 CDN kaynaklarınızı yönetmek [PowerShell](cdn-manage-powershell.md).
 

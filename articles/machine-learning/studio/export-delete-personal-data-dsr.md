@@ -1,6 +1,6 @@
 ---
-title: Dışarı aktarma ve Machine Learning Studio - Azure verilerinizi silmek | Microsoft Docs
-description: Azure Machine Learning Studio tarafından depolanan ürün verileri dışarı aktarma ve Azure Portalı aracılığıyla ve ayrıca kimliği doğrulanmış REST API'leri aracılığıyla silme işlemi için kullanılabilir. Telemetri verileri Azure gizlilik Portalı aracılığıyla erişilebilir. Bu makale size nasıl gösterir.
+title: Dışarı aktarma ve Machine Learning Studio - Azure verilerinizi silme | Microsoft Docs
+description: Azure Machine Learning Studio'da tarafından depolanan ürün içi verileri dışarı aktarma ve silme işlemi Azure portalından ve kimliği doğrulanmış REST API aracılığıyla da kullanılabilir. Telemetri verilerini Azure gizlilik Portal üzerinden erişilebilir. Bu makalede, nasıl gösterir.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -10,68 +10,68 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 6317d4baba5775c1e5a4fda66de80dd8299d8fed
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ebd777a9723732de6ebbdf07020802190cb4b61
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655777"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969291"
 ---
-# <a name="export-and-delete-in-product-user-data-from-machine-learning-studio"></a>Dışarı aktarma ve Machine Learning Studio'dan ürün kullanıcı verilerini sil
+# <a name="export-and-delete-in-product-user-data-from-machine-learning-studio"></a>Dışarı aktarma ve Machine Learning Studio'dan ürün içi kullanıcı verilerini sil
 
-Silebilmek için veya ürün verileri dışa Studio arabirimi, PowerShell Azure portalını kullanarak Azure Machine Learning Studio tarafından depolanır ve REST API'leri kimlik doğrulaması. Bu makalede bunun nasıl yapılacağı açıklanmaktadır. 
+Silmeniz veya ürün içi verileri dışa Studio arabirimini, PowerShell, Azure portalı kullanarak Azure Machine Learning Studio'da tarafından depolanan ve kimliği doğrulanmış REST API'leri. Bu makalede nasıl yapılacağı açıklanmaktadır. 
 
-Telemetri verileri Azure gizlilik Portalı aracılığıyla erişilebilir. 
+Telemetri verilerini Azure gizlilik portal üzerinden erişilebilir. 
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="what-kinds-of-user-data-does-studio-collect"></a>Kullanıcı verilerini ne tür Studio topluyor?
+## <a name="what-kinds-of-user-data-does-studio-collect"></a>Studio hangi tür kullanıcı verileri toplar?
 
-Bu hizmet için kullanıcı verilerini çalışma alanları ve hizmeti ile kullanıcı etkileşimleri telemetri kayıtları erişimi için yetkilendirilmiş kullanıcılar hakkında bilgi içerir.
+Bu hizmet için kullanıcı verileri çalışma alanları ve telemetri kayıt hizmeti ile kullanıcı etkileşimi sonucu oluşan erişimi için yetkilendirilmiş kullanıcılar hakkında bilgi içerir.
 
-İki tür kullanıcı veri Machine Learning Studio'da vardır:
-- **Kişisel hesap verilerini:** hesap kimlikleri ve hesapla ilişkili e-posta adresi.
-- **Müşteri verileri:** çözümlemek için yüklenen veriler.
+Machine Learning Studio'da kullanıcı verilerini iki tür vardır:
+- **Kişisel hesap verileri:** hesabı kimlikleri ve hesapla ilişkili e-posta adresleri.
+- **Müşteri verileri:** çözümlemek için yüklediğiniz verileri.
 
-## <a name="studio-account-types-and-how-data-is-stored"></a>Studio hesap türleri ve verilerin depolanma şeklini
+## <a name="studio-account-types-and-how-data-is-stored"></a>Studio hesap türleri ve veriler nasıl depolanır
 
-Üç türde Machine Learning Studio'da hesapları vardır. Sahip olduğunuz hesap türü, verilerin depolanma şeklini ve nasıl silin veya dışa belirler.
+Machine Learning Studio'da hesapları üç tür vardır. Verilerinizin nasıl depolandığını ve nasıl silebilir veya dışarı aktarmak, sahip olduğunuz hesap türünü belirler.
 
-- A **Konuk çalışma** ücretsiz, anonim bir hesaptır. Size bir e-posta adresi veya parola gibi kimlik bilgilerini sağlamadan kaydolun.
-    -  Konuk çalışma süresi dolduktan sonra veri temizlenir.
-    - Konuk kullanıcılar, kullanıcı Arabirimi, REST API'leri veya PowerShell paket müşteri verilerine dışarı aktarabilirsiniz.
-- A **ücretsiz çalışma** oturum açtığınızda Microsoft hesap kimlik - bir e-posta adresi ve parola ücretsiz bir hesap.
-    - Dışarı aktarma ve veri konu hakları (DSR) istekleri tabi kişisel ve müşteri verilerini silin.
-    - Kullanıcı Arabirimi, REST API'leri veya PowerShell paket müşteri verilerine dışarı aktarabilirsiniz.
-    - Ücretsiz Azure AD hesapları kullanmayan çalışma alanları, telemetri gizlilik Portalı'nı kullanarak dışa aktarılabilir.
-    - Çalışma alanı sildiğinizde, tüm kişisel müşteri verilerini silin.
-- A **standart çalışma** oturum açma kimlik bilgileriyle erişim bir Ücretli hesabıdır.
-    - Dışarı aktarma ve tabi DSR istekleri, kişisel ve müşteri verilerini silin.
-    - Azure gizlilik Portalı aracılığıyla verilere erişebilir
-    - Kullanıcı Arabirimi, REST API'leri veya PowerShell paket kişisel ve müşteri verilerine verebilirsiniz
-    - Verilerinizi Azure portalında silebilirsiniz.
+- A **Konuk çalışma** ücretsiz, anonim bir hesaptır. Size bir e-posta adresi veya parola gibi kimlik bilgilerini girmeden kaydolun.
+    -  Veri Konuk çalışma süresi dolduktan sonra temizlenir.
+    - Konuk kullanıcılar, kullanıcı Arabirimi, REST API veya PowerShell paketi aracılığıyla müşteri verilerini dışarı aktarabilirsiniz.
+- A **ücretsiz çalışma alanı** oturum açtığınızda kimlik bilgileri - bir e-posta adresi ve parola ile Microsoft hesabı, ücretsiz bir hesap.
+    - Dışarı aktarma ve veri sahibi hakları (DSR) isteklerini tabi olan kişisel ve müşteri verilerini sil.
+    - Kullanıcı Arabirimi, REST API veya PowerShell paketi aracılığıyla müşteri verilerini dışarı aktarabilirsiniz.
+    - Ücretsiz çalışma alanları, Azure AD hesapları kullanmayan telemetri gizlilik portalını kullanarak dışarı aktarılabilir.
+    - Çalışma alanını sildiğinizde, tüm kişisel müşteri verilerini silin.
+- A **standart çalışma** bir Ücretli hesap oturum açma kimlik bilgileriyle erişim.
+    - Dışarı aktarma ve DSR isteklerini tabi olan kişisel ve müşteri verilerini sil.
+    - Azure gizlilik portal aracılığıyla verilere erişebilir
+    - Kullanıcı Arabirimi, REST API veya PowerShell paketi aracılığıyla kişisel ve müşteri verilerini dışarı aktarma
+    - Azure portalındaki verilerinize silebilirsiniz.
 
 ## <a name="delete-workspace-data-in-studio"></a>Studio çalışma alanı verilerini sil 
 
 ### <a name="delete-individual-assets"></a>Tek tek varlığını silme
 
-Kullanıcılar çalışma alanındaki varlıklar bunları seçerek ve ardından Sil düğmesini seçerek silebilirsiniz.
+Kullanıcılar, bunları seçerek ve ardından Sil düğmesini seçerek bir çalışma alanında varlıklar silebilir.
 
 ![Machine Learning Studio'da varlığını silme](./media/export-delete-personal-data-dsr/delete-studio-asset.png)
 
-### <a name="delete-an-entire-workspace"></a>Tüm çalışma alanını silme
+### <a name="delete-an-entire-workspace"></a>Tüm bir çalışma alanını silme
 
-Kullanıcılar kendi tüm çalışma alanını silebilirsiniz:
-- Çalışma alanı Ücretli: Azure portalı üzerinden silin.
-- Ücretsiz çalışma: Sil düğmesini kullanarak **ayarları** bölmesi.
+Kullanıcılar, kendi tüm çalışma alanını silebilirsiniz:
+- Çalışma alanını Ücretli: Azure portalından silin.
+- Ücretsiz çalışma alanı: Sil düğmesini kullanın **ayarları** bölmesi.
 
-![Machine Learning Studio'da boş bir çalışma alanı silme](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
+![Machine Learning Studio'da ücretsiz çalışma alanını silme](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-data-with-powershell"></a>PowerShell ile Studio verileri dışarı aktarma
-Tüm bilgilerinizi taşınabilir bir biçim Azure Machine Learning komutları kullanarak Studio'dan vermek için PowerShell kullanın. Bilgi için bkz: [Azure Machine Learning için PowerShell Modülü](powershell-module.md) makalesi.
+Tüm bilgiler, Azure Machine Learning komutları kullanarak Studio'dan taşınabilir bir biçime dışarı aktarmak için PowerShell kullanın. Bilgi için [Azure Machine Learning için PowerShell Modülü](powershell-module.md) makalesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Web Hizmetleri ve faturalama taahhüt plan kapsayan belgeler için bkz: [Azure Machine Learning REST API Başvurusu](https://docs.microsoft.com/en-us/rest/api/machinelearning/). 
+Web Hizmetleri ve faturalama Taahhütlü bir plana kapsayan belgeler için bkz: [Azure Machine Learning REST API Başvurusu](https://docs.microsoft.com/rest/api/machinelearning/). 

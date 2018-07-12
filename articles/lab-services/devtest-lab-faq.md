@@ -1,6 +1,6 @@
 ---
 title: Azure DevTest Labs SSS | Microsoft Docs
-description: Azure DevTest Labs ilgili sık sorulan soruların yanıtlarını bulun.
+description: Azure DevTest Labs hakkında sık sorulan sorulara yanıtlar bulun.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,64 +15,64 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: a295cad2bf1cafce4dc64909174e9417daa7918e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787678"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38235457"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs SSS
-Bazı Azure DevTest Labs ilgili en sık sorulan soruların yanıtlarını alın.
+Azure DevTest Labs hakkında en yaygın soruların yanıtlarını alın.
 
 **Genel**
-## <a name="what-if-my-question-isnt-answered-here"></a>Ne sorumun cevabı burada cevaplanıp değil mi?
-Sorunuzun yanıtını burada listelenmiyorsa, biz yanıt bulmanıza yardımcı olmak için bize bildirin.
+## <a name="what-if-my-question-isnt-answered-here"></a>Peki sorumun cevabı burada bulamadığınız?
+Sorunuzu burada listelenmemişse yanıt bulmanıza yardımcı olabiliriz. Bu nedenle, bize bildirin.
 
-* Bu SSS, sonunda bir soru gönderin. Azure önbelleği ekip ve diğer topluluk üyeleri bu makale hakkında göster.
-* Daha geniş bir kitleye ulaşmak için üzerinde bir soru gönderin [Azure DevTest Labs MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Azure DevTest Labs ekip ve diğer topluluk üyeleri göster.
-* Özellik istekleri için istekleri ve için fikirleri göndermek [Azure DevTest Labs kullanıcı sesi](https://feedback.azure.com/forums/320373-azure-devtest-labs).
+* Bu SSS, sonunda bir soru gönderin. Azure Cache takım ve diğer topluluk üyelerinin bu makaleyle ilgili etkileşim kurun.
+* Geniş bir kitleye ulaşmak için bir soru gönderin [Azure DevTest Labs MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Azure DevTest Labs takım ve diğer topluluk üyelerinin ile etkileşim kurun.
+* Özellik istekleri için istek ve fikirleri için gönderme [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ## <a name="why-should-i-use-azure-devtest-labs"></a>Azure DevTest Labs neden kullanmalıyım?
-Azure DevTest Labs takım zaman ve para kaydedebilirsiniz. Geliştiriciler kendi ortamlarında birkaç farklı tabanları kullanarak oluşturabilirsiniz. Bunlar ayrıca, yapıları hızlı bir şekilde dağıtmak ve uygulamaları yapılandırmak için kullanabilirsiniz. Özel resimler ve formülleri kullanarak sanal makineleri (VM'ler) şablon olarak Kaydet ve kolayca takımda yeniden oluşturun. DevTest Labs Ayrıca Yöneticiler atık küçültmek ve bir ekibin ortamları yönetmek için kullanabilirsiniz, Laboratuvar birkaç yapılandırılabilir ilkeleri de sunar. Bu ilkeler Otomatik kapatma, maliyet eşik, kullanıcı ve en fazla VM boyutu başına en fazla VMs içerir. DevTest Labs daha ayrıntılı bir açıklaması için bkz: [genel bakış](devtest-lab-overview.md) veya [tanıtım videosunu](https://channel9.msdn.com/Blogs/Azure/what-is-azure-devtest-labs).
+Azure DevTest Labs, takımınızın zamandan ve paradan tasarruf edebilirsiniz. Geliştiriciler, çeşitli farklı tabanlarını kullanarak kendi ortamlarını oluşturabilir. Bunlar ayrıca, yapıtları hızla dağıtın ve uygulamaları yapılandırmak için kullanabilirsiniz. Özel görüntüleri ve formülleri kullanarak sanal makineleri (VM'ler) şablon olarak kaydedin ve kolayca takım arasında yeniden oluşturun. DevTest Labs, yöneticiler israfı azaltın ve bir takımın ortamlarını yönetmek için kullanabilir, Laboratuvar ayrıca çeşitli yapılandırılabilir ilkeler sunar. Bu ilkeler, otomatik kapatma, maliyet eşik, kullanıcı ve en fazla VM boyutu başına en fazla VM içerir. DevTest Labs hakkında daha ayrıntılı açıklama için bkz: [genel bakış](devtest-lab-overview.md) veya [tanıtım videosunu](https://channel9.msdn.com/Blogs/Azure/what-is-azure-devtest-labs).
 
-## <a name="what-does-worry-free-self-service-mean"></a>"Sorunsuz Self-Servis" ne anlama geliyor?
-Self Servis sorunsuz geliştiriciler ve sınayıcılar kendi ortamları gerektiği şekilde oluşturun anlamına gelir. Yöneticiler DevTest Labs atık ve denetim maliyetleri en aza indirmenize yardımcı bilmesinin güvenliğe sahip değildir. Yöneticiler hangi VM boyutları, VM'ler, üst sınırını izin verilir ve ne zaman VM'ler başlatıldı ve bilgisayarı kapat belirtebilirsiniz. DevTest Labs ayrıca maliyetleri izlemek ve nasıl Laboratuvar kaynaklarını kullanıldığını farkında olmanıza yardımcı olmak için uyarıları ayarlamak kolaylaştırır.
+## <a name="what-does-worry-free-self-service-mean"></a>"Sorunsuz Self-Servis" ne demektir?
+Sorunsuz Self Servis, geliştiricilere ve test edicilere kendi ortamlarını gerektiğinde oluşturmak anlamına gelir. Yöneticiler, DevTest Labs harcamaların azaltılmasına ve maliyetlerin en aza yardımcı olduğunu bilmesinin güvenliğe sahip. Yöneticiler, en fazla VM sayısı, hangi VM boyutlarının izin verilir ve VM'ler çalışmaya ve kapatma zaman belirtebilirsiniz. DevTest Labs ayrıca nasıl Laboratuvar kaynaklarını kullanıldığını haberdar olmanıza yardımcı olmak için uyarılar ayarlayın ve maliyetleri izleme kolaylaştırır.
 
-## <a name="how-can-i-use-devtest-labs"></a>DevTest Labs nasıl kullanabilir miyim?
-DevTest Labs dilediğiniz zaman, geliştirme gerektirir veya sınama ortamlarında ve hızlı bir şekilde yeniden oluşturun ya da maliyet tasarrufu ilkeleri kullanarak bunları yönetmek istediğiniz yararlıdır.
+## <a name="how-can-i-use-devtest-labs"></a>DevTest Labs nasıl kullanabilirim?
+DevTest Labs, istediğiniz zaman, geliştirme gerektirir veya test ortamları ve hızla yeniden oluşturmak veya maliyet tasarrufu ilkeleri kullanarak yönetmek istiyorsanız kullanışlıdır.
 
-Burada, müşterilerimizin DevTest Labs için kullandığı bazı senaryolar vardır:
+Müşterilerimiz için DevTest Labs kullanan bazı senaryolar aşağıda verilmiştir:
 
-* Tek bir yerde ortamlarında test ve geliştirme yönetin. Maliyetleri azaltmak ve paylaşmak için özel görüntülerinizi oluşturmak için kullanım ilkeleri takımda oluşturur.
-* Uygulama geliştirme aşamaları boyunca disk durumunu kaydetmek için özel resimler kullanarak geliştirin.
-* Maliyet ilerleme durumu ile ilgili olarak izler.
-* Kalite Güvence test etmek için yığın test ortamları oluşturma.
-* Yapılar ve formülleri kolayca yapılandırmak ve çeşitli ortamlar uygulamada yeniden oluşturmak için kullanın.
-* VM'ler hackathons (işbirlikçi geliştirme veya test çalışma) dağıtın ve olay sona erdiğinde sonra kolayca bunları sağlamayı sonlandırın.
+* Geliştirme yönetme ve test ortamları tek bir yerde. Maliyetleri azaltmak ve paylaşmak için özel görüntü oluşturma için ilkeleri kullanma takım arasında oluşturur.
+* Geliştirme aşamaları boyunca disk durumunu kaydetmek için özel görüntüleri kullanarak bir uygulama geliştirin.
+* Maliyet ilerleme durumu ile ilgili olarak izleyin.
+* Kalite güvencesi test etmek için yığın test ortamları oluşturun.
+* Yapıtlar ve formülleri kolayca yapılandırmak ve çeşitli ortamlarda bir uygulama oluşturmak için kullanın.
+* Sonları gerçekleştirilen HACK (işbirliğine dayalı geliştirme veya test çalışma) için sanal makineleri dağıtmak ve olay sona erdiğinde daha sonra kolayca bunları sağlamasını kaldırma.
 
-## <a name="how-am-i-billed-for-devtest-labs"></a>DevTest Labs için nasıl faturalandırılır?
-DevTest Labs ücretsiz bir hizmettir. Labs oluşturma ve ilkeleri, şablonları ve yapıları DevTest Labs'de yapılandırma ücretsizdir. Yalnızca sanal makineleri, depolama hesapları ve sanal ağlar gibi labs kullanılan Azure kaynakları için ücret ödersiniz. Laboratuvar kaynaklarını maliyeti hakkında daha fazla bilgi için bkz [Azure DevTest Labs fiyatlandırma](https://azure.microsoft.com/pricing/details/devtest-lab/).
+## <a name="how-am-i-billed-for-devtest-labs"></a>DevTest Labs için nasıl faturalandırılırım?
+DevTest Labs ücretsiz bir hizmettir. Laboratuvarları oluşturma ve ilkeleri, şablonlar ve yapıtlar DevTest Labs'de yapılandırma ücretsizdir. Yalnızca VM'ler, depolama hesapları ve sanal ağlar gibi laboratuvarlarınızı kullanılan Azure kaynakları için ödeme yaparsınız. Laboratuvar kaynaklarını maliyeti hakkında daha fazla bilgi için bkz. [Azure DevTest Labs fiyatlandırma](https://azure.microsoft.com/pricing/details/devtest-lab/).
 
 
 **Güvenlik**
-## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>DevTest Labs içinde farklı güvenlik düzeylerine nelerdir?
-Güvenlik erişimi belirlenir [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/built-in-roles.md). Erişim nasıl çalıştığını öğrenin izin, bir rolü ve bir kapsam arasındaki farklar öğrenmek için RBAC tarafından tanımlanan yardımcı olabilir.
+## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Farklı güvenlik düzeylerine DevTest Labs nedir?
+Güvenlik erişimi göre belirlenir [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/built-in-roles.md). Erişimi nasıl çalıştığını öğrenmek için bu izin, bir rolü olan ve bir kapsam arasındaki farkları öğrenmek için RBAC tarafından tanımlandığı şekilde yardımcı olur.
 
-* **İzni**: belirli bir eylemi için tanımlanmış bir erişim bir izni yok. Örneğin, bir izin tüm VM'ler için okuma erişimi olabilir.
-* **Rol**: gruplandırılır ve bir kullanıcıya atanmış izinleri rolüdür. Örneğin, bir abonelik sahibi rolüne sahip bir kullanıcı bir abonelik içindeki tüm kaynaklara erişebilir.
-* **Kapsam**: bir Azure kaynak hiyerarşi içinde bir düzey kapsamıdır. Örneğin, bir kapsam bir kaynak grubu, tek bir laboratuvar veya tüm abonelik olabilir.
+* **İzni**: belirli bir eylem için tanımlanmış bir erişim izindir. Örneğin, bir izin, tüm sanal makineler için okuma erişimi olabilir.
+* **Rol**: gruplandırılmış ve bir kullanıcıya atanmış izinler kümesini rolüdür. Örneğin, bir abonelik sahibi rolüne sahip bir kullanıcı bir Abonelikteki tüm kaynaklara erişebilir.
+* **Kapsam**: kapsam içinde bir Azure kaynak hiyerarşisini düzeyidir. Örneğin, bir kapsam bir kaynak grubu, tek bir laboratuvar veya tüm abonelik olabilir.
 
 DevTest Labs kapsamında, kullanıcı izinlerini tanımlamak rolleri iki tür vardır:
 
-* **Laboratuvar sahibi**: bir laboratuvar sahibi laboratuar ortamında tüm kaynaklara erişim izni vardır. Bir laboratuvar sahibi ilkeleri değiştirmek, okuma ve herhangi bir VM yazma, sanal ağı değiştirin ve benzeri.
-* **Laboratuvar kullanıcı**: Laboratuvar kullanıcı VM'ler, ilkeleri ve sanal ağlar gibi tüm Laboratuvar kaynaklarını görüntüleyebilir. Ancak, Laboratuvar kullanıcı ilkeleri veya diğer kullanıcılar tarafından oluşturulan herhangi bir VM değiştirilemiyor. 
+* **Laboratuvar sahibi**: Laboratuvar sahibi laboratuar ortamında tüm kaynaklara erişebilir. Laboratuvar sahibi ilkeleri değiştirebilir, okuma ve yazma için herhangi bir VM, sanal ağı değiştirin ve benzeri.
+* **Laboratuvar kullanıcı**: Laboratuvar kullanıcı Vm'leri, ilkeleri ve sanal ağlar gibi tüm Laboratuvar kaynaklarını görüntüleyebilir. Ancak, bir laboratuvar kullanıcı ilkeleri veya diğer kullanıcılar tarafından oluşturulmuş tüm Vm'leri değiştiremez. 
 
-DevTest Labs'de özel roller de oluşturabilirsiniz. DevTest Labs'de özel roller oluşturma konusunda bilgi almak için bkz: [belirli Laboratuvar ilkeleri için kullanıcı izinleri verin](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
+Ayrıca, DevTest Labs'de özel roller oluşturabilirsiniz. DevTest Labs'de özel roller oluşturma konusunda bilgi almak için bkz: [belirli Laboratuvar ilkeleri için kullanıcı izinleri verin](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
-Kullanıcının belirli bir kapsamda izinleri olduğunda kapsamları hiyerarşik olduğundan kullanıcı otomatik olarak kapsamdaki her alt düzey kapsamındaki bu izinler verilir. Örneği için abonelik sahibi rolü atanmış bir kullanıcı, kullanıcı bir abonelikte tüm kaynaklara erişim izni vardır. Bu kaynaklar, tüm sanal makineleri, tüm sanal ağları ve tüm labs içerir. Abonelik sahibi Laboratuvar sahibi rolünü otomatik olarak devralır. Ancak, bunun tersi geçerli değildir. Bir laboratuvar sahibi abonelik düzeyinden daha düşük bir kapsam bir laboratuvar erişebilir. Bu nedenle, bir laboratuvar sahip sanal makineleri, sanal ağları veya Laboratuvar dışında olan diğer kaynakları göremiyorum.
+Kapsamları hiyerarşik olduğundan, bir kullanıcı belirli bir kapsamda izinlere sahip olduğunda kullanıcı kapsamı içindeki her alt düzey kapsamda Bu izinler otomatik olarak verilir. Örneği için abonelik sahibi rolüne atanmış bir kullanıcı, kullanıcı bir Abonelikteki tüm kaynaklara erişim izni vardır. Bu kaynaklar, tüm sanal makineler, tüm sanal ağları ve tüm labs içerir. Abonelik sahibi, Laboratuvar sahibi rolünü otomatik olarak devralır. Ancak, bunun tersi doğru değildir. Laboratuvar sahibi abonelik düzeyinden daha düşük bir kapsam bir laboratuvar erişebilir. Bu nedenle, Laboratuvar sahibi Vm'leri, sanal ağlar veya Laboratuvar dışında olan diğer kaynakları göremez.
 
-## <a name="how-do-i-create-a-role-to-allow-users-to-perform-a-specific-task"></a>Belirli bir görevi gerçekleştirmek kullanıcıların izin vermek için bir rolü nasıl oluşturulur?
-Özel roller oluşturmanızı ve izinleri rol atama hakkında kapsamlı bir makale için bkz: [belirli Laboratuvar ilkeleri için kullanıcı izinleri verin](devtest-lab-grant-user-permissions-to-specific-lab-policies.md). Bir rol oluşturur bir komut dosyası örneği burada verilmiştir *DevTest Labs gelişmiş kullanıcı*, laboratuarda tüm sanal makineleri durdurmak ve başlatmak için izni vardır:
+## <a name="how-do-i-create-a-role-to-allow-users-to-perform-a-specific-task"></a>Kullanıcıların belirli bir görevi gerçekleştirmek bir rolü nasıl oluşturulur?
+Özel roller oluşturma ve izinleri için rol atama hakkında kapsamlı bir makale için bkz: [belirli Laboratuvar ilkeleri için kullanıcı izinleri verin](devtest-lab-grant-user-permissions-to-specific-lab-policies.md). Bir rol oluşturur, bir komut dosyası örneği aşağıdadır *DevTest Labs kullanıcısı Gelişmiş*, tüm Vm'leri Laboratuvardaki durdurmak ve başlatmak iznine sahip:
 
     $policyRoleDef = Get-AzureRmRoleDefinition "DevTest Labs User"
     $policyRoleDef.Actions.Remove('Microsoft.DevTestLab/Environments/*')
@@ -86,71 +86,71 @@ Kullanıcının belirli bir kapsamda izinleri olduğunda kapsamları hiyerarşik
     $policyRoleDef = New-AzureRmRoleDefinition -Role $policyRoleDef  
 
 
-**CI/CD tümleştirme ve Otomasyon**
-## <a name="does-devtest-labs-integrate-with-my-cicd-toolchain"></a>DevTest Labs my CI/CD araç zinciri ile tümleşik çalışıyor mu?
-Visual Studio Team Services kullanıyorsanız, kullanabileceğiniz bir [DevTest Labs görevler uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) yayın hattınızı DevTest Labs otomatik hale getirmek için. Bu uzantı ile gerçekleştirebileceğiniz görevlerden bazıları şunlardır:
+**CI/CD tümleştirmesi ve Otomasyon**
+## <a name="does-devtest-labs-integrate-with-my-cicd-toolchain"></a>DevTest Labs, my CI/CD araç zinciri ile tümleştiriliyor mu?
+Visual Studio Team Services kullanıyorsanız, kullanabileceğiniz bir [DevTest Labs görevlerini uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) DevTest labs'deki yayın işlem hattınızı otomatik hale getirmek için. Bu uzantı ile gerçekleştirebileceğiniz görevlerden bazıları şunlardır:
 
-* Oluşturabilir ve otomatik olarak bir VM dağıtabilirsiniz. VM ile en son sürüme Azure dosya kopyalama veya PowerShell Team Services görevleri kullanarak da yapılandırabilirsiniz.
-* Daha fazla araştırma için aynı VM'de bir hatayı yeniden test sonra otomatik olarak bir VM durumunu yakalayın.
-* Artık gerekli olmadığında yayın ardışık düzen sonunda VM silin.
+* Oluşturun ve otomatik olarak bir VM dağıtın. VM en son sürümle Azure dosya kopyalama ya da PowerShell Team Services görevleri kullanarak da yapılandırabilirsiniz.
+* Daha fazla bilgi için aynı VM'de bir hatayı yeniden oluşturmak için test edildikten sonra otomatik olarak bir VM'nin durumunu yakalayın.
+* Sürüm ardışık düzeninin sonunda sanal makine artık gerekli değilse silin.
 
-Teklif yönerge ve Team Services uzantısı kullanma hakkında bilgi için aşağıdaki blog yazılarını:
+Aşağıdaki blog teklif rehberlik ve Team Services uzantısı kullanma hakkında bilgi gönderir:
 
 * [DevTest Labs ve Visual Studio Team Services uzantısı](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
-* [Yeni bir VM Team Services bir DevTest Labs laboratuarda dağıtma](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-* [DevTest Labs sürekli dağıtımları için Team Services sürüm Yönetimi'ni kullanma](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+* [Yeni bir VM içinde varolan bir DevTest Labs Laboratuvar Team Services'ten dağıtma](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
+* [DevTest Labs'de sürekli dağıtımlar için Team Services sürüm Yönetimi'ni kullanma](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-Diğer sürekli tümleştirme (CI) / kesintisiz teslim (CD) toolchains aynı senaryolarla elde edebileceğiniz dağıtma [Azure Resource Manager şablonları](https://aka.ms/dtlquickstarttemplate) kullanarak [Azure PowerShell cmdlet'lerini](../azure-resource-manager/resource-group-template-deploy.md) ve [.NET SDK'ları](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Aynı zamanda [DevTest Labs için REST API'leri](http://aka.ms/dtlrestapis) , araç zinciri ile tümleştirmek için.  
+Diğer sürekli tümleştirme (CI) için / sürekli teslim (CD) araç zincirlerinden, aynı senaryoları elde edebileceğiniz dağıtma [Azure Resource Manager şablonları](https://aka.ms/dtlquickstarttemplate) kullanarak [Azure PowerShell cmdlet'lerini](../azure-resource-manager/resource-group-template-deploy.md) ve [.NET SDK'ları](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Ayrıca [için DevTest Labs REST API'leri](http://aka.ms/dtlrestapis) araç zincirinizi ile tümleştirmek için.  
 
 
 **Sanal makineler**
-## <a name="why-cant-i-see-vms-on-the-virtual-machines-blade-that-i-see-in-devtest-labs"></a>DevTest Labs'de bakın sanal makineleri dikey penceresinde VM'ler neden göremiyorum?
-DevTest Labs'de VM oluşturduğunuzda, bu VM'ye erişmesine izin verilir. VM labs dikey penceresinde hem de görüntüleyebilirsiniz **sanal makineleri** dikey. DevTest Labs Laboratuvar kullanıcı rolüne atanan kullanıcılar Laboratuvar Laboratuvar 's üzerinde oluşturulan tüm sanal makineleri görebilir **tüm sanal makineleri** dikey. Ancak, DevTest Labs Laboratuvar kullanıcı rolüne sahip kullanıcılar diğer kullanıcıların oluşturduğu VM kaynakları okuma erişimi otomatik olarak verilmez. Bu nedenle, bu sanal makineleri üzerinde görüntülenmez **sanal makineleri** dikey.
+## <a name="why-cant-i-see-vms-on-the-virtual-machines-blade-that-i-see-in-devtest-labs"></a>Vm'leri görüyorum DevTest Labs'de sanal makineler dikey penceresinde neden göremiyorum?
+DevTest Labs'de bir VM oluşturduğunuzda, bu VM'ye erişmesine izin verilir. Laboratuvar dikey penceresinde hem üzerinde VM görüntüleyebilirsiniz **sanal makineler** dikey penceresi. DevTest Labs Laboratuvar kullanıcı rolüne atanan kullanıcılar, Laboratuvar Laboratuvar içinde oluşturulmuş tüm Vm'leri görebilirsiniz **tüm sanal makineler** dikey penceresi. Ancak, DevTest Labs Laboratuvar kullanıcı rolüne sahip kullanıcılar diğer kullanıcıların oluşturduğu VM kaynaklarına okuma erişimi otomatik olarak verilmez. Bu nedenle, bu sanal makineler üzerinde görüntülenmez **sanal makineler** dikey penceresi.
 
-## <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>Özel görüntü formül arasındaki fark nedir?
-Bir sanal sabit disk (VHD) bir özel görüntüdür. Ek ayarlarla yapılandırın ve ardından kaydedebilir ve yeniden bir görüntü formülüdür. Özel görüntü aynı temel, değişmez görüntüsünü kullanarak hızlı bir şekilde çeşitli ortamlar oluşturmak istiyorsanız tercih edilebilir. Bir formülü son bitle VM yapılandırmasına bir sanal ağ veya alt ağ bir parçası olarak ya da belirli bir boyutu VM'i olarak yeniden istiyorsanız daha iyi olabilir. Daha ayrıntılı bir açıklama için bkz: [özel resimler ve DevTest Labs formüller karşılaştırma](devtest-lab-comparing-vm-base-image-types.md).
+## <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>Özel bir görüntü ile bir formül arasındaki fark nedir?
+Bir özel görüntü sanal sabit disk (VHD) hizmetidir. Formül, ek ayarlarla yapılandırın ve ardından kaydedebilir ve yeniden bir görüntüsüdür. Özel bir görüntü, aynı temel, sabit görüntüsünü kullanarak çeşitli ortamları hızlıca oluşturmak istiyorsanız tercih edilebilir. Formül, bir sanal ağın veya alt ağın bir parçası olarak veya belirli bir boyutta bir VM ile en son parçaları, sanal Makinenizin yapılandırmasını yeniden oluşturmak istiyorsanız daha iyi olabilir. Daha ayrıntılı bir açıklama için bkz. [özel görüntüleri ve formülleri DevTest labs'deki karşılaştırma](devtest-lab-comparing-vm-base-image-types.md).
 
-## <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>Nasıl birden çok VM aynı şablonu aynı anda oluşturulur?
+## <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>Nasıl birden çok VM aynı şablondan tek seferde oluşturabilirim?
 Aynı anda birden çok VM aynı şablonu oluşturmak için iki seçeneğiniz vardır:
-* Kullanabileceğiniz [Visual Studio Team Services görevleri uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
-* Yapabilecekleriniz [Resource Manager şablonu oluştur](devtest-lab-add-vm.md#save-azure-resource-manager-template) bir VM oluştururken ve [Windows PowerShell'i Resource Manager şablonu dağıtmayı](../azure-resource-manager/resource-group-template-deploy.md).
+* Kullanabileceğiniz [Visual Studio Team Services görevleri uzantı](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
+* Yapabilecekleriniz [Resource Manager şablonu oluşturma](devtest-lab-add-vm.md#save-azure-resource-manager-template) bir VM oluştururken ve [Windows PowerShell Resource Manager şablonu dağıtmayı](../azure-resource-manager/resource-group-template-deploy.md).
 
-## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>My DevTest Labs laboratuara nasıl mevcut Azure Vm'lerimin hareket?
-Varolan Vm'leriniz için DevTest Labs kopyalamak için:
+## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>Mevcut Azure Vm'lerimi my DevTest Labs Laboratuvar nasıl taşırım?
+DevTest Labs mevcut Vm'lerinizi kopyalamak için:
 
-1. Var olan VM VHD dosyasını kullanarak kopyalayın bir [Windows PowerShell komut dosyası](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyVHDFromVMToLab.ps1).
+1. Mevcut sanal makinenizin VHD dosyasını kullanarak kopyalama bir [Windows PowerShell Betiği](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyVHDFromVMToLab.ps1).
 2. [Özel görüntü oluşturma](devtest-lab-create-template.md) DevTest Labs Laboratuvarınızı içinde.
-3. Özel görüntüsünden laboratuarda bir VM oluşturun.
+3. Laboratuvarda özel görüntü bir VM oluşturun.
 
-## <a name="can-i-attach-multiple-disks-to-my-vms"></a>Birden çok disk Vm'lerimin için ekleyebilir miyim?
-Evet, Vm'leriniz için birden çok disk ekleyebilirsiniz.  
+## <a name="can-i-attach-multiple-disks-to-my-vms"></a>Birden çok disk planlamadığım Vm'lerime ne ekleyebilir miyim?
+Evet, sanal makineleriniz için birden fazla disk ekleyebilirsiniz.  
 
-## <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>My test etmek için bir Windows işletim sistemi görüntüsünü kullanmak istiyorsanız bir MSDN aboneliği satın var mı?
-Windows istemci işletim sistemi görüntülerini (Windows 7 veya sonraki bir sürümünü), geliştirme veya Azure'da sınama kullanmak için aşağıdakilerden birini yapmalısınız:
+## <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Test için bir Windows işletim sistemi görüntüsü kullanmak isterseniz bir MSDN aboneliği satın almanız gerekir mi?
+Windows istemci işletim sistemi görüntüleri (Windows 7 veya sonraki bir sürümü), geliştirme veya Azure'da test kullanmak için aşağıdakilerden birini yapmalısınız:
 
-- [Bir MSDN aboneliği satın](https://www.visualstudio.com/products/how-to-buy-vs).
-- bir Kurumsal Anlaşma varsa, bir Azure aboneliği ile oluşturma [Enterprise geliştirme ve Test teklif](https://azure.microsoft.com/offers/ms-azr-0148p).
+- [Bir MSDN aboneliği satın alma](https://www.visualstudio.com/products/how-to-buy-vs).
+- Bir Kurumsal Sözleşme yaptıysanız, bir Azure aboneliği ile oluşturma [Kurumsal geliştirme ve Test teklifi](https://azure.microsoft.com/offers/ms-azr-0148p).
 
-Her bir MSDN teklif için Azure kredisi hakkında daha fazla bilgi için bkz: [Visual Studio aboneleri için aylık Azure kredi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Her MSDN teklifi için Azure KREDİLERİ hakkında daha fazla bilgi için bkz. [Visual Studio aboneleri için aylık Azure kredisi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-## <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>Özel görüntülerinizi oluşturmak için VHD dosyaları karşıya yükleme işleminin nasıl otomatikleştirmek?
-Özel görüntülerinizi oluşturmak için karşıya yükleme VHD dosyalarını otomatikleştirmek için iki seçeneğiniz vardır:
+## <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>Özel görüntüleri oluşturmak için VHD dosyalarını karşıya yükleme işleminin nasıl otomatikleştirebilirim?
+Özel görüntüleri oluşturmak için VHD dosyalarını karşıya yükleme otomatikleştirmek için iki seçeneğiniz vardır:
 
-* Kullanım [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage) kopyalamanız veya laboratuvarı ile ilişkili depolama hesabı VHD dosyaları karşıya yükleme.
-* Kullanım [Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md). Depolama Gezgini, Windows, OS X ve Linux çalıştıran tek başına bir uygulamadır.   
+* Kullanım [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage) kopyalayın veya lab ile ilişkili depolama hesabına VHD dosyalarını yükleyin.
+* Kullanım [Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md). Depolama Gezgini Windows, OS X ve Linux'ta çalışan tek başına bir uygulamadır.   
 
 Laboratuvarınızı ile ilişkili hedef depolama hesabını bulmak için:
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
-2. Soldaki menüden seçin **kaynak grupları**.
-3. Bul ve Laboratuvarınızı ile ilişkili kaynak grubunu seçin.
+2. Sol menüden **kaynak grupları**.
+3. Bulun ve Laboratuvarınızı ile ilişkili kaynak grubunu seçin.
 4. Altında **genel bakış**, depolama hesaplarından birini seçin.
-5. Seçin **BLOB'lar**.
-6. Karşıya listesinde arayın. Hiçbiri yoksa, 4. adıma dönün ve başka bir depolama hesabı deneyin.
-7. Kullanım **URL** AzCopy komut hedef olarak.
+5. Seçin **Blobları**.
+6. Karşıya yükleme listesinde arayın. Yoksa, 4. adıma geri dönün ve başka bir depolama hesabı deneyin.
+7. Kullanım **URL** , AzCopy komutunda hedef olarak.
 
-## <a name="how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>My Laboratuvar tüm sanal makineleri silme işlemini nasıl otomatikleştirmek?
-Laboratuvarınızı Azure portalında VM'ler silebilirsiniz. Ayrıca, bir PowerShell komut dosyası kullanarak tüm sanal makineleri laboratuvarınızda silebilirsiniz. Aşağıdaki örnekte, altında **değiştirmek için değerleri** açıklama, parametre değerlerini değiştirin. Alabilirsiniz `subscriptionId`, `labResourceGroup`, ve `labName` Azure portalında Laboratuvar bölmesinden değerleri.
+## <a name="how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>My Laboratuvardaki tüm Vm'leri silme işleminin nasıl otomatikleştirebilirim?
+Vm'leri Azure portalında Laboratuvarınızı silebilirsiniz. Ayrıca, tüm VM'lerin bir PowerShell Betiği kullanarak laboratuvarınızda silebilirsiniz. Aşağıdaki örnekte, altında **değiştirmek için değerleri** açıklama, parametre değerlerini değiştirin. Alabileceğiniz `subscriptionId`, `labResourceGroup`, ve `labName` Azure portalında Laboratuvar bölmesinden değerleri.
 
     # Delete all the VMs in a lab.
 
@@ -180,58 +180,58 @@ Laboratuvarınızı Azure portalında VM'ler silebilirsiniz. Ayrıca, bir PowerS
         Remove-AzureRmResource -ResourceId $labVM.ResourceId -Force
     }
 
-**Yapıları**
-## <a name="what-are-artifacts"></a>Yapıları nelerdir?
-En son BITS dağıtmak veya bir VM'ye geliştirme araçları dağıtmak için kullanabileceğiniz özelleştirilebilir öğeler ürünleridir. VM oluşturduğunuzda, yapılar, VM'e ekleyin. VM sağlandıktan sonra yapıları dağıtabilir ve VM yapılandırabilirsiniz. Çeşitli önceden var olan yapıları kullanılabilir bizim [ortak GitHub deposunu](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Ayrıca [kendi yapıları Yazar](devtest-lab-artifact-author.md).
+**Yapıtlar**
+## <a name="what-are-artifacts"></a>Yapıtları nelerdir?
+Yapıtlar, en yeni güncelleştirmeleri dağıtmak veya bir VM'ye geliştirme araçlarınızı dağıtmak için kullanabileceğiniz özelleştirilebilir öğeleridir. Sanal Makineyi oluştururken sanal makinenizde yapıtları ekleyin. VM sağlandıktan sonra yapıtları dağıtın ve sanal makinenize yapılandırın. Önceden var olan çeşitli yapıtları kullanılabilir bizim [ortak GitHub deposu](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Ayrıca [kendi yapıtları Yazar](devtest-lab-artifact-author.md).
 
 
-**Laboratuvarı yapılandırması**
-## <a name="how-do-i-create-a-lab-from-a-resource-manager-template"></a>Resource Manager şablonu nasıl bir laboratuvar oluşturulsun mu?
-Sunduğumuz bir [GitHub deposunu Laboratuvar Azure Resource Manager şablonları](https://aka.ms/dtlquickstarttemplate) olarak dağıtabileceğiniz- ya da sizin labs için özel şablonlar oluşturmak için değiştirin. Her bir şablon olarak Laboratuvar dağıtmak için bir bağlantı vardır-kendi Azure aboneliği. Veya, şablon özelleştirebilirsiniz ve [PowerShell veya Azure CLI kullanarak dağıtmak](../azure-resource-manager/resource-group-template-deploy.md).
+**Laboratuvar yapılandırma**
+## <a name="how-do-i-create-a-lab-from-a-resource-manager-template"></a>Bir Resource Manager şablonundan bir laboratuvarı nasıl oluşturabilirim?
+Sunuyoruz bir [Laboratuvar Azure Resource Manager şablonları GitHub deposunda](https://aka.ms/dtlquickstarttemplate) olarak dağıtabileceğiniz- ya da laboratuvarlarınızı için özel şablonlar oluşturmak için değiştirin. Her şablonda laboratuvarını olarak dağıtmak için bir bağlantı-kendi Azure aboneliğinizdir. Veya şablonu özelleştirebilirsiniz ve [PowerShell veya Azure CLI kullanarak dağıtma](../azure-resource-manager/resource-group-template-deploy.md).
 
-## <a name="why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups"></a>Neden Vm'lerimin farklı kaynak gruplarında, rasgele adları oluşturulur? Yeniden adlandırma veya miyim bu kaynak gruplarını değiştirme?
-DevTest Labs kullanıcı izinleri ve VM'ler için erişimi yönetebilmeniz için kaynak gruplarını bu şekilde oluşturulur. Bir VM başka bir kaynak grubuna taşımak ve istediğiniz adı kullanın, ancak kaynak gruplarına değişiklik yapma öneririz. Daha fazla esneklik izin vermek için bu deneyimini geliştirir üzerinde çalışıyoruz.   
+## <a name="why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups"></a>Neden Vm'lerimin rastgele adlara sahip farklı kaynak gruplarında oluşturulur? Yeniden adlandırdığımda veya bu kaynak gruplarını değiştirme?
+DevTest Labs sanal makineleri için kullanıcı izni veya erişimi yönetebilmeniz için kaynak gruplarını, bu şekilde oluşturulur. Bir VM için başka bir kaynak grubuna taşımak ve istediğiniz adını kullanmak olsa da, kaynak gruplarına değişiklikler yapmayın öneririz. Bu deneyimi daha fazla esneklik sağlayan geliştirme konusunda durmaksızın çalışıyoruz.   
 
-## <a name="how-many-labs-can-i-create-under-the-same-subscription"></a>Kaç tane labs aynı abonelik altında oluşturabilirim?
-Abonelik başına oluşturulan labs sayısı belirli bir sınırı yoktur. Ancak, abonelik başına kullanılan kaynak miktarını sınırlıdır. Hakkında bilgi edinebilirsiniz [sınırlarını ve kotaları Azure aboneliklerinin](../azure-subscription-service-limits.md) ve [bu sınırları artırmak nasıl](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+## <a name="how-many-labs-can-i-create-under-the-same-subscription"></a>Aynı abonelik altında kaç labs oluşturabilirim?
+Abonelik başına oluşturulabilecek labs sayısı belirli bir sınırı yoktur. Ancak, abonelik başına kullanılan kaynakları miktarı sınırlıdır. Okuyabilirsiniz [limitler ve kotalar Azure aboneliklerinin](../azure-subscription-service-limits.md) ve [bu sınırları artırmak nasıl](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
-## <a name="how-many-vms-can-i-create-per-lab"></a>Kaç VM Laboratuvar oluşturabilirim?
-Laboratuvar oluşturulan VM'ler üzerinde belirli bir sınır yoktur. Ancak, abonelik başına kullanılan kaynaklar (VM çekirdek, genel IP adresleri ve benzeri) sınırlıdır. Hakkında bilgi edinebilirsiniz [sınırlarını ve kotaları Azure aboneliklerinin](../azure-subscription-service-limits.md) ve [bu sınırları artırmak nasıl](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+## <a name="how-many-vms-can-i-create-per-lab"></a>Laboratuvar sanal makine sayısı oluşturabilirim?
+Laboratuvar oluşturulan VM'ler sayısı belirli bir sınır yoktur. Ancak, abonelik başına kullanılan kaynakların (sanal makine çekirdeklerine, genel IP adresleri ve benzeri) sınırlıdır. Okuyabilirsiniz [limitler ve kotalar Azure aboneliklerinin](../azure-subscription-service-limits.md) ve [bu sınırları artırmak nasıl](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
-## <a name="how-do-i-share-a-direct-link-to-my-lab"></a>My Laboratuvar nasıl doğrudan bir bağlantı paylaşmak?
+## <a name="how-do-i-share-a-direct-link-to-my-lab"></a>Doğrudan bağlantısını benim laboratuvara nasıl paylaşırım?
 
-1. Azure portalında Laboratuvar gidin.
-2. Tarayıcınızdan Laboratuvar URL'yi kopyalayın ve Laboratuvar Kullanıcılarınızla paylaşabilirsiniz.
+1. Azure portalında laboratuvara gidin.
+2. Tarayıcınızdan Laboratuvar URL'yi kopyalayın ve ardından Laboratuvar Kullanıcılarınızla paylaşabilirsiniz.
 
 > [!NOTE]
-> Laboratuvarı kullanıcısı olan bir dış kullanıcının olup olmadığını bir [Microsoft hesabı](#what-is-a-microsoft-account), ancak paylaşılan bağlantıyı erişmeye çalıştığınızda kimin kuruluşunuzun Active Directory örneğine üyesi değil, kullanıcı bir hata iletisi görebilirsiniz. Bir dış kullanıcı bir hata iletisi görür adlarının ilk Azure portalının sağ üst köşesinde seçmesini isteyin. Ardından **Directory** menüsünde, kullanıcı bölümünü Laboratuvar bulunduğu dizini seçin.
+> Bir laboratuvar kullanıcının olan bir dış kullanıcı olup olmadığını bir [Microsoft hesabı](#what-is-a-microsoft-account), ancak paylaşılan bağlantı erişmeye çalıştıklarında kimin kuruluşunuzun Active Directory örneğine üye değil, kullanıcı bir hata iletisini görebilirsiniz. Bir dış kullanıcı bir hata iletisi görürse, adlarının ilk Azure portalının sağ üst köşedeki seçmesini isteyin. Ardından **dizin** menüsü, kullanıcının bölümünü Laboratuvar bulunduğu dizin seçebilirsiniz.
 >
 >
 
 ## <a name="what-is-a-microsoft-account"></a>Microsoft hesabı nedir?
-Bir Microsoft hesabı neredeyse Microsoft cihazları ve Hizmetleri ile yaptığınız her şey için kullandığınız hesaptır. Bir e-posta adresi ve Skype, Outlook.com, OneDrive, oturum açmak için kullandığınız parola olan Windows phone ve Xbox Live. Tek bir hesap, dosyaları, fotoğraflarınızı, kişiler ve ayarları, herhangi bir cihazda izleyebilirsiniz anlamına gelir.
+Bir Microsoft hesabı olan neredeyse her şey Microsoft cihazlar ve hizmetler ile yapmak için kullandığınız hesaptır. Bir e-posta adresi ve Skype, Outlook.com, OneDrive, oturum açmak için kullandığınız parola olan Windows phone ve Xbox Live. Tek bir hesap, dosyaları, fotoğraflar, kişiler ve ayarları, tüm cihazlardan izleyebilirsiniz anlamına gelir.
 
 > [!NOTE]
-> Bir Microsoft hesabı kullanılan çağrılacak bir *Windows Live ID*.
+> Bir Microsoft hesabı kullanılan çağrılabilir bir *Windows Live ID*.
 >
 >
 
 
 **Sorun giderme**
-## <a name="my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it"></a>My yapı VM oluşturma sırasında başarısız oldu. Bunu nasıl giderebilirim?
-İçin başarısız, yapı günlükleri alma hakkında bilgi için bkz: [DevTest Labs de yapı hataları tanılamak nasıl](devtest-lab-troubleshoot-artifact-failure.md).
+## <a name="my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it"></a>My yapıt VM oluşturma sırasında başarısız oldu. Bunu nasıl giderebilirim?
+Başarısız bir yapıt için günlükleri alma hakkında bilgi için bkz: [DevTest labs'deki yapıt hatalarını tanılama nasıl](devtest-lab-troubleshoot-artifact-failure.md).
 
-## <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>Neden değil my sanal varolan ağ düzgün bir şekilde kaydediliyor?
-Bir olasılık, sanal ağ adı nokta içeriyor olabilir. Bu durumda, dönemleri kaldırma veya kısa çizgi ile değiştirmeyi deneyin. Ardından, sanal ağ kaydetmeyi yeniden deneyin.
+## <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>Neden olmayan mevcut sanal ağ düzgün bir şekilde kaydediliyor?
+Sanal ağ adı nokta içeren bir olasılıktır. Bu durumda, dönemleri kaldırarak veya bunları çizgilerle değiştirerek deneyin. Ardından, sanal ağ kaydetmeyi yeniden deneyin.
 
-## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>PowerShell VM'den sağladığınızda neden "üst kaynağı bulunamadı" hatası alıyorum?
-Bir kaynağı başka bir kaynak için bir üst olduğunda, üst kaynak alt kaynağı oluşturmadan önce mevcut olması gerekir. Üst kaynak mevcut değilse, gördüğünüz bir **ParentResourceNotFound** ileti. Üst kaynakta bir bağımlılık belirtmezseniz, alt kaynak önce üst dağıtılmış olabilir.
+## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Ben bir VM'den PowerShell sağladığınızda neden "üst kaynağı bulunamadı" hatası alıyorum?
+Bir kaynak başka bir kaynak için bir üst, alt kaynak oluşturmadan önce üst kaynak mevcut olması gerekir. Üst kaynak mevcut değilse, gördüğünüz bir **ParentResourceNotFound** ileti. Üst kaynak üzerinde bir bağımlılık belirtmezseniz, alt kaynak önce üst dağıtılmış olabilir.
 
-Sanal makineleri bir laboratuar ortamında bir kaynak grubu altında alt kaynaklardır. PowerShell kullanarak sanal makineleri dağıtmak için Resource Manager şablonları kullandığınızda, PowerShell Betiği sağlanan kaynak grubu adı laboratuvarı kaynak grubu adı olmalıdır. Daha fazla bilgi için bkz: [ortak Azure dağıtım hatalarını giderme](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Sanal makineleri bir laboratuar ortamında bir kaynak grubu altında alt kaynaklardır. PowerShell kullanarak Vm'leri dağıtmak için Resource Manager şablonları kullandığınızda, PowerShell Betiği belirtilen kaynak grubu adı Laboratuvar tamamlandığında, kaynak grubu adı olmalıdır. Daha fazla bilgi için [yaygın Azure dağıtım hatalarını giderme](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
-## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>VM dağıtımı başarısız olursa daha fazla hata bilgileri nereden bulabilirim?
-VM Dağıtım hataları, etkinlik günlükleri yakalanır. Laboratuvar VM etkinlik günlükleri altında bulabilirsiniz **denetim günlüklerini** veya **sanal makine tanılamaları** Laboratuvar 's VM dikey penceresinde kaynak menüsünde (sanal makineden seçtikten sonra dikey penceresi görünür **My sanal makineler** listesi).
+## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Bir VM dağıtımı başarısız olursa daha fazla hata bilgilerini nerede bulabilirim?
+Sanal makine dağıtım hataları, etkinlik günlüklerinde yakalanır. Laboratuvar VM etkinlik günlükleri altında bulabilirsiniz **denetim günlükleri** veya **sanal makine tanılama** Laboratuvar VM dikey penceresinde kaynak menüsündeki (VM'den seçtikten sonra dikey penceresi görünür **My sanal makineleri** listesi).
 
-Bazı durumlarda, VM dağıtımı başlamadan önce dağıtım hatası oluşur. VM ile oluşturulmuş bir kaynak için abonelik sınırı aşıldığında bir örnektir. Bu durumda, hata ayrıntılarını Laboratuvar düzeyi etkinlik günlüklerde yakalanır. Etkinlik günlükleri alt kısmında bulunan **yapılandırma ve ilkeleri** ayarlar. Etkinlik kullanma hakkında daha fazla bilgi Azure'da oturum için bkz: [görüntülemek kaynakları eylemlerini denetlemek için etkinlik günlükleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
+Bazı durumlarda, VM dağıtımı başlamadan önce dağıtım hatası oluşur. Sanal makine ile oluşturulan bir kaynak için abonelik sınırı aşıldığında bir örnektir. Bu durumda, hata ayrıntılarını Laboratuvar düzeyinde etkinlik günlüğünde yakalanır. Etkinlik günlükleri alt kısmında bulunan **yapılandırması ve ilkelerini** ayarları. Azure'da günlüklerini etkinlik kullanma hakkında daha fazla bilgi için bkz: [kaynaklara uygulanan eylemleri denetlemek için etkinlik günlüklerini görüntüleme](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
 ms.openlocfilehash: 4cc4da130d9253bf40e5d02806088a95b2195e7c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915917"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531730"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Olağanüstü durum kurtarma, Hyper-V Vm'leri için ikincil şirket içi siteye ayarlayın.
 

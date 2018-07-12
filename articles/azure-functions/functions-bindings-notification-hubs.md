@@ -1,13 +1,13 @@
 ---
-title: Azure işlevleri için bildirim hub'ları bağlamaları
-description: Azure bildirim hub'ı bağlama Azure işlevlerini kullanmak nasıl anlayın.
+title: Azure işlevleri için Notification Hubs bağlamaları
+description: Azure işlevleri'nde Azure bildirim hub'ı bağlama kullanma hakkında bilgi edinin.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
-keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem sunucusuz mimarisi
+keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz mimari
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -16,23 +16,23 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
 ms.openlocfilehash: 4208a7be3c002bcefed273015d002cb1aee0fecd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724984"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38467673"
 ---
-# <a name="notification-hubs-output-binding-for-azure-functions"></a>Bildirim hub'ları Azure işlevleri için bağlama çıktı
+# <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification hubs'ı çıkışı bağlama için Azure işlevleri
 
-Bu makalede kullanarak anında iletme bildirimleri göndermek nasıl açıklanmaktadır [Azure Notification Hubs](../notification-hubs/notification-hubs-push-notification-overview.md) Azure işlevlerinde bağlar. Azure işlevleri destekler çıkış bağlamaları bildirim hub'ları için.
+Bu makalede kullanarak anında iletme bildirimleri göndermek açıklanmaktadır [Azure Notification hubs'ı](../notification-hubs/notification-hubs-push-notification-overview.md) Azure işlevleri'nde bağlar. Azure işlevleri destekler çıkış bağlamaları bildirim hub'ları için.
 
-Azure bildirim hub'ları Platform bildirim hizmeti (kullanmak istediğiniz PNS için) yapılandırılması gerekir. Anında iletme bildirimleri istemci uygulamanızı bildirim hub'larından alma hakkında bilgi için bkz: [Notification Hubs ile çalışmaya başlama](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) ve sayfanın üstünde yanında aşağı açılan listeden, hedef istemci platformu seçin.
+Azure Notification hubs'ı, Platform bildirim sistemi (kullanmak istediğiniz PNS için) yapılandırılması gerekir. Anında iletme bildirimleri istemci uygulamanızı Notification Hubs'a ait alma hakkında bilgi için bkz: [Notification Hubs ile çalışmaya başlama](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) ve hedef istemci platformunuzu sayfanın üst kısmındaki açılan listeden seçin.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
-Bildirim hub'ları bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet paketi, sürüm 1.x. Paket için kaynak kodunu konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub depo.
+Notification Hubs bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet paketi sürüm 1.x. Paket için kaynak kodu konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub deposu.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -40,22 +40,22 @@ Bildirim hub'ları bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.N
 
 Bu bağlama işlevlerinde kullanılamaz 2.x.
 
-## <a name="example---template"></a>Örnek - şablonu
+## <a name="example---template"></a>Örnek - şablon
 
-Gönderdiğiniz bildirimleri yerel bildirimler olabilir veya [şablon bildirimleri](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Yerel bildirimler yapılandırılmış gibi belirli istemci platformu hedefleyen `platform` çıkış bağlama özelliği. Bir şablon bildirim hedef birden çok platform için kullanılabilir.   
+Gönderdiğiniz bildirimleri yerel bildirimleri olabilir veya [şablon bildirimleri](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Yerel bildirimleri yapılandırılan belirli istemci platformu hedefleyen `platform` çıkış bağlaması özelliğidir. Şablon bir bildirim, birden çok platformu hedefleyecek şekilde kullanılabilir.   
 
 Dile özgü örneğe bakın:
 
-* [C# betik - çıkış parametresi](#c-script-template-example---out-parameter)
-* [C# betik - zaman uyumsuz](#c-script-template-example---asynchronous)
-* [C# betik - JSON](#c-script-template-example---json)
-* [C# betik - kitaplık türleri](#c-script-template-example---library-types)
+* [C# betiği - out parametresi](#c-script-template-example---out-parameter)
+* [C# betiği - zaman uyumsuz](#c-script-template-example---asynchronous)
+* [C# betiği - JSON](#c-script-template-example---json)
+* [C# betiği - kitaplık türleri](#c-script-template-example---library-types)
 * [F#](#f-template-example)
 * [JavaScript](#javascript-template-example)
 
-### <a name="c-script-template-example---out-parameter"></a>C# betik şablon örnek - çıkış parametresi
+### <a name="c-script-template-example---out-parameter"></a>C# betik şablon örneği - out parametresi
 
-Bu örnek, bir bildirim gönderir bir [şablonu kayıt](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) içeren bir `message` şablonunda yer tutucu.
+Bu örnek, bir bildirim gönderir bir [şablon kayıt](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) içeren bir `message` şablonunda yer tutucu.
 
 ```cs
 using System;
@@ -76,9 +76,9 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 }
 ```
 
-### <a name="c-script-template-example---asynchronous"></a>C# betik şablon örnek - zaman uyumsuz
+### <a name="c-script-template-example---asynchronous"></a>C# betik şablon örneği - zaman uyumsuz
 
-Zaman uyumsuz kod kullanıyorsanız, out Parametreleri izin verilmiyor. Bu durumda kullanarak `IAsyncCollector` , şablon bildirim dönün. Aşağıdaki kod, yukarıdaki kod zaman uyumsuz bir örnektir. 
+Zaman uyumsuz kod kullanıyorsanız, parametrelerine izin verilmez. Bu durumda `IAsyncCollector` , şablon bildirim dönün. Aşağıdaki kod, yukarıdaki kod, zaman uyumsuz bir örnektir. 
 
 ```cs
 using System;
@@ -101,9 +101,9 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 }
 ```
 
-### <a name="c-script-template-example---json"></a>C# betik şablon örnek - JSON
+### <a name="c-script-template-example---json"></a>C# betik şablon örneği - JSON
 
-Bu örnek, bir bildirim gönderir bir [şablonu kayıt](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) içeren bir `message` kullanarak geçerli bir JSON dizesi şablonunda yer tutucu.
+Bu örnek, bir bildirim gönderir bir [şablon kayıt](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) içeren bir `message` geçerli bir JSON dizesi kullanarak şablonu yer tutucusu.
 
 ```cs
 using System;
@@ -115,9 +115,9 @@ public static void Run(string myQueueItem,  out string notification, TraceWriter
 }
 ```
 
-### <a name="c-script-template-example---library-types"></a>C# betik şablon örnek - kitaplık türleri
+### <a name="c-script-template-example---library-types"></a>C# betik şablon örneği - kitaplık türleri
 
-Bu örnek tanımlanan türleri kullanmayı gösterir [Microsoft Azure bildirim hub'ları Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). 
+Bu örnek, tanımlanan türleri kullanmayı gösterir. [Microsoft Azure Notification Hubs Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"
@@ -142,7 +142,7 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 ### <a name="f-template-example"></a>F # şablon örneği
 
-Bu örnek, bir bildirim gönderir bir [şablonu kayıt](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) içeren `location` ve `message`.
+Bu örnek, bir bildirim gönderir bir [şablon kayıt](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) içeren `location` ve `message`.
 
 ```fsharp
 let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
@@ -151,7 +151,7 @@ let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
 
 ### <a name="javascript-template-example"></a>JavaScript şablon örneği
 
-Bu örnek, bir bildirim gönderir bir [şablonu kayıt](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) içeren `location` ve `message`.
+Bu örnek, bir bildirim gönderir bir [şablon kayıt](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) içeren `location` ve `message`.
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -172,7 +172,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="example---apns-native"></a>Örnek - APNS yerel
 
-Bu C# betik örnek yerel APNS bildirim göndermek nasıl gösterir. 
+Bu C# betiği örneği, yerel APNS bildirim göndermek nasıl gösterir. 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"
@@ -203,7 +203,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## <a name="example---gcm-native"></a>Örnek - GCM yerel
 
-Bu C# betik örnek yerel GCM bildirim göndermek nasıl gösterir. 
+Bu C# betiği örneği, yerel GCM bildirim göndermek nasıl gösterir. 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"
@@ -234,7 +234,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## <a name="example---wns-native"></a>Örnek - WNS yerel
 
-Bu C# kod örneğinde tanımlanan türleri kullanmayı gösterir [Microsoft Azure bildirim hub'ları Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) yerel WNS bildirim göndermek için. 
+Bu C# betiği örneği, türleri içinde tanımlanan işlemi gösterilir [Microsoft Azure Notification Hubs Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) yerel WNS bildirim göndermek için. 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"
@@ -279,27 +279,27 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) özniteliği.
 
-Özniteliğin Oluşturucusu parametreleri ve özellikleri açıklanan [yapılandırma](#configuration) bölümü.
+Öznitelik oluşturucu parametresi ve özellikleri açıklanmıştır [yapılandırma](#configuration) bölümü.
 
 ## <a name="configuration"></a>Yapılandırma
 
-Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `NotificationHub` özniteliği:
+Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini açıklayan *function.json* dosya ve `NotificationHub` özniteliği:
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**type** |yok| "NotificationHub" olarak ayarlanmalıdır. |
-|**direction** |yok| Out"için" olarak ayarlanmalıdır. | 
-|**Adı** |yok| Bildirim hub'ı ileti için işlevi kod içinde kullanılan değişken adı. |
-|**tagExpression** |**TagExpression** | Etiket ifadeleri bildirimleri etiketi ifadeyle eşleşecek bildirimleri almak için kayıtlı cihazlar kümesine teslim edilmesi belirtmenizi sağlar.  Daha fazla bilgi için bkz: [Yönlendirme ve etiket ifadeleri](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
-|**hubName** | **hubName** | Azure Portalı'ndaki bildirim hub'ı kaynağının adı. |
-|**Bağlantı** | **ConnectionStringSetting** | Bildirim hub'ları bağlantı dizesi içeren bir uygulama ayarı adı.  Bağlantı dizesi ayarlanmalıdır *DefaultFullSharedAccessSignature* bildirim hub'ınız için değer. Bkz: [bağlantı dizesi kurulumu](#connection-string-setup) bu makalenin ilerisinde yer.|
-|**Platform** | **Platform** | Platform özelliği istemci platformu bildirim hedeflerinizi gösterir. Platform özellik çıkış bağlamanın dışında atlanırsa varsayılan olarak, şablon bildirim Azure bildirim hub'ına yapılandırılmış herhangi bir platform hedeflemek için kullanılabilir. Çapraz bir Azure bildirim hub'ı ile platform bildirimleri göndermek için genel şablonları kullanma hakkında daha fazla bilgi için bkz: [şablonları](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Ayarlandığında, **platform** aşağıdaki değerlerden biri olmalıdır: <ul><li><code>apns</code>&mdash;Apple anında bildirim hizmeti. APNS için bildirim hub'ı yapılandırma ve bir istemci uygulamasında bildirim alma hakkında daha fazla bilgi için bkz: [Azure Notification Hubs ile ios'a gönderme anında iletme bildirimleri](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). ADM için bildirim hub'ı yapılandırma ve bir Kindle uygulaması bildirim alma hakkında daha fazla bilgi için bkz: [Kindle uygulamaları için Notification Hubs ile çalışmaya başlama](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>gcm</code>&mdash;[Google Cloud Messaging'i](https://developers.google.com/cloud-messaging/). Firebase bulut GCM yeni sürümü olan ileti, da desteklenir. Daha fazla bilgi için bkz: [Azure Notification Hubs ile android'e gönderme anında iletme bildirimleri](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>&mdash;[Windows anında bildirim Hizmetleri](https://msdn.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) Windows platformları hedefleme. Windows Phone 8.1 ve üzeri WNS tarafından da desteklenir. Daha fazla bilgi için bkz: [uygulamaları için Notification Hubs Windows Evrensel Platform ile çalışmaya başlama](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Microsoft anında bildirim hizmeti](https://msdn.microsoft.com/library/windows/apps/ff402558.aspx). Bu platform, Windows Phone 8 ve daha önceki Windows Phone platformlarını destekler. Daha fazla bilgi için bkz: [Windows Phone üzerinde Azure Notification Hubs ile anında iletme bildirimleri gönderme](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
+|**type** |yok| "NotificationHub için" olarak ayarlanmalıdır. |
+|**direction** |yok| "Out" ayarlanmalıdır. | 
+|**Adı** |yok| İşlev kodu bildirim hub'ı iletide kullanılan değişken adı. |
+|**tagExpression** |**TagExpression** | Etiket ifadeleri bir etiket ifadeyle eşleşecek bildirimleri almak için kayıtlı cihazlar kümesine bildirimleri teslim edilmesini belirtmenizi sağlar.  Daha fazla bilgi için [Yönlendirme ve etiket ifadeleri](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
+|**HubName** | **HubName** | Azure Portalı'ndaki bildirim hub'ı kaynağının adı. |
+|**bağlantı** | **ConnectionStringSetting** | Notification hubs'ı bağlantı dizesi içeren bir uygulama ayarı adı.  Bağlantı dizesini ayarlamak *DefaultFullSharedAccessSignature* bildirim hub'ınız için bir değer. Bkz: [bağlantı dizesi kurulumu](#connection-string-setup) bu makalenin ilerleyen bölümlerinde.|
+|**Platform** | **Platform** | Platform özelliği bildirim hedeflerinizi istemci platformları gösterir. Platform özelliği çıkış bağlamanın dışında belirtilmezse varsayılan olarak, Azure bildirim Hub'ındaki yapılandırılmış herhangi bir platformu hedefleyecek şekilde şablon bildirimleri kullanılabilir. Genel çapraz platform bildirimleri bir Azure bildirim hub'ına göndermek için şablonları kullanma hakkında daha fazla bilgi için bkz. [şablonları](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Ayarlandığında, **platform** aşağıdaki değerlerden biri olmalıdır: <ul><li><code>apns</code>&mdash;Apple anında iletilen bildirim servisi. APNS için bildirim hub'ı yapılandırma ve bir istemci uygulamasında bildirim alma hakkında daha fazla bilgi için bkz. [iOS için Azure Notification Hubs ile Android'e anında iletme bildirimleri](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon cihaz Mesajlaşma](https://developer.amazon.com/device-messaging). ADM için bildirim hub'ı yapılandırma ve bir Kindle uygulaması bildirim alma hakkında daha fazla bilgi için bkz. [Kindle uygulamaları için Notification Hubs ile çalışmaya başlama](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>gcm</code>&mdash;[Google Cloud Messaging'i](https://developers.google.com/cloud-messaging/). GCM yeni sürümü olan firebase Cloud Messaging, ayrıca desteklenir. Daha fazla bilgi için [Android için Azure Notification Hubs ile Android'e anında iletme bildirimleri](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>&mdash;[Windows anında bildirim Hizmetleri](https://msdn.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) Windows platformlarını hedefleyen. Windows Phone 8.1 ve üzeri, WNS tarafından da desteklenir. Daha fazla bilgi için [için Windows Evrensel Platform uygulamaları Notification Hubs ile çalışmaya başlama](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Microsoft anında bildirim hizmeti](https://msdn.microsoft.com/library/windows/apps/ff402558.aspx). Bu platform, Windows Phone 8 ve önceki Windows Phone platformları destekler. Daha fazla bilgi için [Windows Phone üzerinde Azure Notification Hubs ile Android'e anında iletme bildirimleri](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ### <a name="functionjson-file-example"></a>Function.JSON dosyası örneği
 
-Örneği bir bildirim hub'ları bağlamanın bir *function.json* dosya.
+İşte bir bildirim hub'ları bağlamanın ilişkin bir örnek bir *function.json* dosya.
 
 ```json
 {
@@ -320,15 +320,15 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 ### <a name="connection-string-setup"></a>Bağlantı dizesi kurulumu
 
-Bağlama bildirim hub'ı çıkışı kullanmak için bağlantı dizesi hub için yapılandırmanız gerekir. Varolan bir bildirim hub'ı seçin veya yeni bir sağ üstten oluşturma *tümleştir* Azure portalında sekmesi. Bağlantı dizesi el ile de yapılandırabilirsiniz. 
+Bir bildirim hub'ı çıkış bağlaması kullanmak için hub için bağlantı dizesini de yapılandırmanız gerekir. Mevcut bir bildirim hub'ı seçin veya yeni bir sağ taraftan oluşturma *tümleştir* Azure portalında sekmesi. Bağlantı dizesi el ile yapılandırabilirsiniz. 
 
-Varolan bir bildirim hub'ına bağlantı dizesini yapılandırmak için:
+Mevcut bir bildirim hub'ına bağlantı dizesini yapılandırmak için:
 
-1. Bildirim hub'ınıza gidin [Azure portal](https://portal.azure.com), seçin **erişim ilkeleri**ve ardından Kopyala düğmesini işaretleyin **DefaultFullSharedAccessSignature** ilkesi. Bu bağlantı dizesini kopyalar *DefaultFullSharedAccessSignature* bildirim hub'ınıza ilkesi. Bu bağlantı dizesi hub'ına bildirim iletilerini göndermek, işlev sağlar.
+1. Bildirim hub'ınıza gidin [Azure portalında](https://portal.azure.com), seçin **erişim ilkeleri**ve ardından Kopyala düğmesini işaretleyin **DefaultFullSharedAccessSignature** ilkesi. Bu bağlantı dizesini kopyalar *DefaultFullSharedAccessSignature* bildirim hub'ınıza ilkesi. Bu bağlantı dizesi, bildirim hub'ına göndermek, işlevinizi olanak tanır.
     ![Bildirim hub'ı bağlantı dizesini kopyalayın](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
-1. Azure portalında işlevi uygulamanıza gidin, seçin **uygulama ayarları**, bir anahtar ekleyin **MyHubConnectionString**, kopyalanan Yapıştır *DefaultFullSharedAccessSignature* değeri ve ardından olarak bildirim hub'ınız için **kaydetmek**.
+1. Azure portalında işlev uygulamanıza gidin, **uygulama ayarları**, bir anahtar ekleyin **MyHubConnectionString**, kopyalanan yapıştırın *DefaultFullSharedAccessSignature* değeri ve ardından olarak bildirim hub'ınız için **Kaydet**.
 
-Bu uygulama ayarını çıkış bağlama bağlantı ayarında unsurları adıdır *function.json* veya .NET özniteliği. Bkz: [yapılandırma bölümü](#configuration) bu makalenin önceki.
+Çıkış bağlaması bağlantı ayarında unsurları bu uygulama ayarının adı olan *function.json* veya .NET özniteliği. Bkz: [yapılandırma bölümü](#configuration) bu makalenin üst kısmındaki.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -1,35 +1,35 @@
 ---
-title: CloudEvents şemasında olaylarla Azure olay kılavuzunu kullanın
-description: Azure olay kılavuzunda CloudEvents şema olayları için ayarlamak üzere açıklar.
+title: CloudEvents şeması olayları ile Azure Event grid'i kullanın
+description: CloudEvents şeması olayları Azure Event Grid ayarlama işlemi açıklanmaktadır.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/14/2018
 ms.author: babanisa
-ms.openlocfilehash: a2cccbb4feaa7b6f3f51ac7204af4a3e1efc6349
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f3541fb3dbca6243f6c10611aa968603745f97a1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625602"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38314437"
 ---
-# <a name="use-cloudevents-schema-with-event-grid"></a>Olay kılavuzla CloudEvents şeması kullanma
+# <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid ile CloudEvents şeması kullanma
 
-Ek olarak kendi [varsayılan olay şema](event-schema.md), Azure olay kılavuz yerel olarak destekleyen olaylarda [CloudEvents JSON şeması](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](http://cloudevents.io/) olan bir [standart belirtimi açmak](https://github.com/cloudevents/spec/blob/master/spec.md) olay verilerini yaygın bir şekilde tanımlamak için.
+Ek olarak kendi [varsayılan olay şeması](event-schema.md), Azure Event Grid, olayları yerel olarak destekleyen [CloudEvents JSON şeması](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](http://cloudevents.io/) olduğu bir [standart bir belirtim açın](https://github.com/cloudevents/spec/blob/master/spec.md) olay verilerini yaygın bir şekilde tanımlamak için.
 
-Yayımlama için ortak bir olay şema sağlayarak birlikte çalışabilirlik CloudEvents basitleştirir ve bulut kullanan tabanlı olaylar. Bu şemayı Tekdüzen araçları, yönlendirme & olayları işleme standart yolları ve dış olay şema seri durumdan Evrensel yolu için izin verir. Ortak bir şema ile iş platformları arasında daha kolay tümleştirebilirsiniz.
+Yayımlama için ortak bir olay şema sağlayarak birlikte çalışabilirlik CloudEvents basitleştirir ve bulut kullanan olaylara bağlı. Bu şema Tekdüzen araçları, standart yolu yönlendirme & olayları işleme ve dış olay şeması seri durumdan çıkarılırken Evrensel yollarını sağlar. Ortak bir şema ile platformlar arasında iş daha kolayca tümleştirebilirsiniz.
 
-CloudEvents yapı birkaç tarafından olan [ortak](https://github.com/cloudevents/spec/blob/master/community/contributors.md), Microsoft, aracılığıyla dahil [bulut yerel işlem Foundation](https://www.cncf.io/). Sürüm 0.1 şu anda kullanılabilir değil.
+CloudEvents birkaç yapıdan okunuyor [ortak çalışanlar](https://github.com/cloudevents/spec/blob/master/community/contributors.md), Microsoft, dahil olmak üzere [bulut yerel işlem Foundation](https://www.cncf.io/). 0.1 sürüm olarak şu anda kullanılabilir.
 
-Bu makalede, olay kılavuzla CloudEvents şema kullanmayı açıklar.
+Bu makalede, Event Grid ile CloudEvents şeması kullanmayı açıklar.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="cloudevent-schema"></a>CloudEvent şeması
 
-Bir Azure Blob Storage olay CloudEvents biçiminde bir örneği burada verilmiştir:
+Bir Azure Blob Depolama olayı CloudEvents biçiminde bir örnek aşağıda verilmiştir:
 
 ``` JSON
 {
@@ -56,44 +56,44 @@ Bir Azure Blob Storage olay CloudEvents biçiminde bir örneği burada verilmiş
 }
 ```
 
-CloudEvents v0.1 kullanılabilir aşağıdaki özelliklere sahiptir:
+CloudEvents v0.1, aşağıdaki özelliklere sahiptir:
 
-| CloudEvents        | Tür     | Örnek JSON değer             | Açıklama                                                        | Olay kılavuz eşleme
+| CloudEvents        | Tür     | Örnek JSON değeri             | Açıklama                                                        | Event Grid eşleme
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| Olay türü          | Dize   | "com.example.someevent"          | Oldu oluşumu türü                                   | Olay türü
+| olay türü          | Dize   | "com.example.someevent"          | Gerçekleşen, oluşumunu türü                                   | olay türü
 | eventTypeVersion   | Dize   | "1.0"                            | (İsteğe bağlı) eventType sürümü                            | dataVersion
-| cloudEventsVersion | Dize   | "0,1"                            | Olay kullanan CloudEvents belirtiminin sürümü        | *Geçirilecek*
+| cloudEventsVersion | Dize   | "0.1"                            | Olay kullanır CloudEvents belirtim sürümü        | *doğrudan geçiş*
 | source             | URI      | "/ mycontext"                     | Olay üretici açıklar                                       | Konu #subject
-| Olay Kimliği            | Dize   | "1234-1234-1234"                 | Olay Kimliği                                                    | id
-| EventTime          | Zaman damgası| "2018-04-05T17:31:00Z"           | (İsteğe bağlı) olay zaman olmadan, zaman damgası                    | EventTime
-| schemaURL          | URI      | "https://myschema.com"           | (İsteğe bağlı) veri özniteliği aynılarını şema Bağla | *kullanılmıyor*
-| ContentType        | Dize   | "application/json"               | Veri kodlama biçimi (isteğe bağlı) açıklanır                       | *kullanılmıyor*
-| Uzantıları         | Eşleme      | {"extA": "vA", "extB", "vB"}  | Tüm ek meta veriler (isteğe bağlı)                                 | *kullanılmıyor*
-| veriler               | Nesne   | {"objA": "vA", "objB", "vB"}  | Olay Yükü (isteğe bağlı)                                       | veriler
+| EventID            | Dize   | "1234-1234-1234"                 | Etkinliğin kimliği                                                    | id
+| eventTime          | Zaman damgası| "2018-04-05T17:31:00Z"           | Olay (isteğe bağlı) ne zaman oluştuğunu, zaman damgası                    | eventTime
+| schemaURL          | URI      | "https://myschema.com"           | Veri özniteliği uyar (isteğe bağlı) şemayı Bağla | *kullanılmıyor*
+| contentType        | Dize   | "application/json"               | Veri kodlama biçimi (isteğe bağlı) açıklayın                       | *kullanılmıyor*
+| Uzantıları         | Eşleme      | {"yapıştırmadan": "vA", "extB", "vB"}  | Ek meta verileri (isteğe bağlı)                                 | *kullanılmıyor*
+| veri               | Nesne   | {"objA": "vA", "objB", "vB"}  | Olay Yükü (isteğe bağlı)                                       | veri
 
-Daha fazla bilgi için bkz: [CloudEvents spec](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
+Daha fazla bilgi için [CloudEvents spec](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
-## <a name="configure-event-grid-for-cloudevents"></a>Olay kılavuz CloudEvents için yapılandırma
+## <a name="configure-event-grid-for-cloudevents"></a>Event Grid CloudEvents için yapılandırma
 
-Şu anda Azure olay kılavuz desteklemek için CloudEvents JSON biçimi giriş ve çıkış içinde önizleme sahip **Batı Orta ABD**, **Orta ABD**, ve **Kuzey Avrupa**.
+Şu anda, Azure Event Grid desteklemek için CloudEvents JSON biçimi giriş ve çıkış Önizleme sahip **Batı Orta ABD**, **Orta ABD**, ve **Kuzey Avrupa**.
 
-Giriş ve çıkış CloudEvents şemasında olayların olay kılavuzunu kullanabilirsiniz. Blob Storage olayları ve IOT hub'ı olayları ve özel olaylar gibi sistem olayları için CloudEvents kullanabilirsiniz. Ayrıca, olaylar ve geriye hattaki de dönüştürebilirsiniz.
+Event Grid, hem giriş hem de çıkış olayların CloudEvents şeması için kullanabilirsiniz. Blob Depolama olaylarını ve IOT Hub olaylarını ve özel olaylar gibi sistem olaylarını CloudEvents kullanabilirsiniz. Ayrıca, bu olaylara kablo ve geriye de dönüştürebilirsiniz.
 
 
-| Giriş şemasını       | Çıkış şeması
+| Giriş şeması       | Çıkış şeması
 |--------------------|---------------------
 | CloudEvents biçimi | CloudEvents biçimi
-| Olay kılavuz biçimi  | CloudEvents biçimi
-| CloudEvents biçimi | Olay kılavuz biçimi
-| Olay kılavuz biçimi  | Olay kılavuz biçimi
+| Event Grid biçimi  | CloudEvents biçimi
+| CloudEvents biçimi | Event Grid biçimi
+| Event Grid biçimi  | Event Grid biçimi
 
-Tüm olay şemaları için bir olay kılavuz konusu yayımlarken ve bir olay abonelik oluştururken doğrulama olay kılavuz gerektirir. Daha fazla bilgi için bkz: [olay kılavuz güvenlik ve kimlik doğrulama](security-authentication.md).
+Tüm olay şemaları için Event Grid için event grid konusu yayımlarken ve bir olay aboneliği oluşturulurken doğrulama gerektirir. Daha fazla bilgi için [Event Grid güvenliğini ve kimlik doğrulaması](security-authentication.md).
 
-### <a name="input-schema"></a>Giriş şemasını
+### <a name="input-schema"></a>Giriş şeması
 
-Konunuzu oluşturduğunuzda CloudEvents özel bir konuya giriş şemasını ayarlamak için aşağıdaki parametresini Azure CLI kullanın `--input-schema cloudeventv01schema`. Özel Konu gelen olayları CloudEvents v0.1 biçiminde şimdi bekliyor.
+Konunuzu oluşturduğunuzda giriş şemasını CloudEvents için özel bir konuya ayarlamak için aşağıdaki parametreyi Azure CLI'yi kullanın `--input-schema cloudeventv01schema`. Özel konuya gelen olayları CloudEvents v0.1 biçiminde artık bekliyor.
 
-Bir olay kılavuz konusu oluşturmak için kullanın:
+Event grid konusu oluşturmak için kullanın:
 
 ```azurecli
 # if you have not already installed the extension, do it now.
@@ -107,11 +107,11 @@ az eventgrid topic create \
   --input-schema cloudeventv01schema
 ```
 
-Olayların toplu işleme CloudEvents geçerli sürümünü desteklemiyor. Bir konuya CloudEvent şemasıyla olayları yayımlamak için her olay ayrı ayrı yayımlayın.
+Olayların toplu işleme CloudEvents geçerli sürümünü desteklemiyor. Bir konuya CloudEvent şema ile olayları yayımlamak için ayrı ayrı her bir olay yayımlayın.
 
 ### <a name="output-schema"></a>Çıkış şeması
 
-Olay aboneliğinizi oluşturduğunuzda, çıkış şeması CloudEvents için bir olay aboneliği ayarlamak için aşağıdaki parametresini Azure CLI kullanın `--event-delivery-schema cloudeventv01schema`. Bu olay aboneliği için olayları artık olması teslim edilir CloudEvents v0.1 biçiminde.
+Olay aboneliği oluşturduğunuzda, çıkış şeması CloudEvents olay aboneliği ayarlamak için aşağıdaki parametreyi Azure CLI'yi kullanın `--event-delivery-schema cloudeventv01schema`. Bu olay aboneliğine olayları artık olması teslim edilir CloudEvents v0.1 biçiminde.
 
 Bir olay aboneliği oluşturmak için kullanın:
 
@@ -124,10 +124,10 @@ az eventgrid event-subscription create \
   --event-delivery-schema cloudeventv01schema
 ```
 
-Olayların toplu işleme CloudEvents geçerli sürümünü desteklemiyor. CloudEvent şeması için yapılandırılmış bir olay aboneliği ayrı ayrı her olay alır. Şu anda, olay CloudEvents şemada teslim edildiğinde bir Azure işlevleri uygulama için bir olay kılavuz tetikleyicisi kullanamazsınız. Bir HTTP tetikleyicisi kullanmanız gerekir.
+Olayların toplu işleme CloudEvents geçerli sürümünü desteklemiyor. CloudEvent şema için yapılandırılmış bir olay aboneliği ayrı ayrı her bir olay alır. Şu anda CloudEvents şeması olay iletildiğinde bir Azure işlev uygulaması için bir olay Kılavuzu tetikleyicisi kullanamazsınız. HTTP tetikleyicisi kullanmanız gerekir. CloudEvents şeması içinde olaylarını alır bir HTTP tetikleyici uygulama örnekleri için bkz [HTTP tetikleyicisi bir Event Grid tetikleyici olarak kullanma](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Olay teslimler izleme hakkında daha fazla bilgi için bkz: [İzleyicisi olay kılavuz ileti teslimi](monitor-event-delivery.md).
-* Test, yorum öneririz ve [katkıda](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md) CloudEvents için.
-* Bir Azure olay kılavuz abonelik oluşturma hakkında daha fazla bilgi için bkz: [olay kılavuz abonelik şema](subscription-creation-schema.md).
+* Olay teslimat izleme hakkında daha fazla bilgi için bkz: [İzleyici Event Grid iletiyi teslim](monitor-event-delivery.md).
+* Öneririz, test etmenize, açıklama ve [katkıda](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md) CloudEvents için.
+* Azure Event Grid aboneliği oluşturma hakkında daha fazla bilgi için bkz. [Event Grid aboneliği şema](subscription-creation-schema.md).

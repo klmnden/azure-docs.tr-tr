@@ -1,6 +1,6 @@
 ---
 title: Anomali algılama Javascript uygulaması - Microsoft Bilişsel hizmetler | Microsoft Docs
-description: Microsoft Bilişsel Hizmetleri'nde Anomali algılama API'sini kullanan bir Javascript Web uygulaması keşfedin. API için özgün veri noktaları göndermek ve beklenen değer ve anomali noktaları alabilirsiniz.
+description: Microsoft Bilişsel hizmetler Anomali algılama API'sini kullanan bir Javascript Web apps'i keşfedin. Özgün veri noktaları API'ye gönderin ve beklenen değerini ve anomali noktalarını alın.
 services: cognitive-services
 author: wenya
 manager: bix
@@ -10,64 +10,64 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: wenya
 ms.openlocfilehash: 42c3941a05efe8b74f818cd99f3606b3073892a9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353338"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453178"
 ---
 # <a name="anomaly-detection-javascript-application"></a>Anomali algılama Javascript uygulama
 
-Bir anomali algılama için Anomali algılama REST API'sini kullanan bir Web uygulaması keşfedin. Örnek abonelik anahtarınızla Anomali algılama API için zaman serisi veri gönderir, ardından tüm anomali noktaları ve beklenen değer her veri noktası için API alır.
+Bir anomali algılama için Anomali algılama REST API kullanan bir Web uygulaması keşfedin. Örnek abonelik anahtarınız ile zaman serisi verilerini Anomali algılama API'sine gönderir, ardından tüm anomali noktaları ve beklenen değer, her veri noktası için API'den alır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="platform-requirements"></a>Platform gereksinimleri
 
-Bu öğreticide, basit bir metin düzenleyicisi kullanarak geliştirilmiştir.
+Bu öğreticide, bir basit metin düzenleyicisi kullanarak geliştirilmiştir.
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Anomali algılama abone olma ve aboneliği anahtarı alma 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Anomali algılama için abone ve bir abonelik anahtarı edinirler 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="get-and-use-the-example"></a>Alın ve örnek kullanın
+## <a name="get-and-use-the-example"></a>Örneği kullanın ve alma
 
-Bu öğretici için zaman serisi veri anomali algılama iki senaryo sunar. Haydi başlayalım.
+Bu öğretici, zaman serisi verileri anomali algılamaya yönelik iki senaryo sunar. Haydi başlayalım.
 
 <a name="Step1"></a> 
-### <a name="download-the-tutorial-project"></a>Eğitmen projenizi indirin
+### <a name="download-the-tutorial-project"></a>Öğretici projesinin indirin
 
 Kopya [Bilişsel hizmetler JavaScript Anomali algılama öğretici](https://github.com/MicrosoftAnomalyDetection/javascript-sample), .zip dosyasını indirin ve boş bir dizine ayıklayın.
 
 <a name="Step2"></a>
 ### <a name="run-the-example"></a>Örneği çalıştırın
 
-Örnek deneyebilirsiniz iki senaryo vardır.
-1. PUT, **abonelik anahtarı** üzerinde abonelik anahtarı alanına anomalydetection.html işlevini algıla.
-2. Anomali algılama API uç noktası koyabilir ve abonelik bölgede doğru bölgeyi kullandığınızdan emin olun.
-3. Açık **anomalydetection.html** dosyasını bir Web tarayıcısında.
+Örnek yapabileceğiniz iki senaryo vardır.
+1. Yerleştirme, **abonelik anahtarı** üzerinde bir abonelik anahtarı alanına anomalydetection.html işlevi algılayın.
+2. Anomali algılama API'si uç nokta koyun ve abonelik bölgede doğru bölgeyi kullandığınızdan emin olun.
+3. Açık **anomalydetection.html** bir Web tarayıcısında dosya.
 
-**Senaryo 1 Algıla haftalık zaman serisi veri**
-1. Dönem alanında dönemi giriş **7**. 
-2. Örnek verileri, haftalık zaman serisi veri noktaları (Json) noktaları alanında değiştirin veya örnek verileri doğrudan kullanın.
+**Senaryo 1 Algıla haftalık zaman serisi verileri**
+1. Dönem Dönem alanında giriş **7**. 
+2. Örnek verileri, haftalık zaman serisi veri noktaları (Json) noktaları alanında değiştirin veya doğrudan örnek verileri kullanabilirsiniz.
 3. Anomali algılama düğmesine tıklayın ve sağ yanıt metin kutusuna sonucu doğrulayın.
 
-**Senaryo 2 Algıla bir dönem olmadan zaman serisi veri**
-1. Dönemde boş süre Dosyalanan, bırakın zaman serisi süre tanımadığınız varsayalım.
-2. Aynı zaman serisi veri Senaryo 1 kullanma.
-3. Anomali algılama düğmesine tıklayın ve sağ yanıt metin kutusunda dönem alanı doğrulayın.
+**Senaryo 2 Algıla bir nokta olmadan zaman serisi verileri**
+1. Dönem Dönem içinde boş Dosyalanan, bırakın varsayılır zaman serisi süre bilinmiyor.
+2. Senaryo 1 aynı zaman serisi verileri kullanıyor.
+3. Anomali algılama düğmesine tıklayın ve sağ yanıt metin kutusuna dönem alanı doğrulayın.
 
 <a name="Step3"></a>
-### <a name="read-the-result"></a>Sonucunu oku
+### <a name="read-the-result"></a>Sonuç okuyun
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 
 <a name="Review"></a>
-### <a name="review-and-learn"></a>Gözden geçirin ve öğrenin
+### <a name="review-and-learn"></a>Gözden geçirin ve bilgi edinin
 
-Artık çalışan bir uygulama alın. Şimdi örnek uygulama Bilişsel hizmetler teknolojisi ile nasıl tümleşik çalıştığını gözden geçirin. Bu adım, üzerinde bu uygulamayı oluşturmaya devam etmek veya Microsoft Anomali algılama kullanarak kendi uygulamanızı geliştirin daha kolay hale getirir.
+Artık çalışan bir uygulamayı alın. Örnek uygulamayı Bilişsel hizmetler teknolojisi ile nasıl tümleştirildiğini gözden geçirelim. Bu adım bu uygulama üzerinde oluşturmaya devam edin veya Microsoft Anomali algılama kullanarak kendi uygulamanızı geliştirmek kolaylaştırır.
 Bu örnek uygulama Anomali algılama Restful API'si yararlanır uç noktası.
-Örnek uygulamasında Restful API'si kullanılma gözden geçirme, kod parçacığında anomalydetection.html bakalım.
+Restful API'yi nasıl örnek uygulamada kullanılan gözden geçirme, bir kod parçacığı anomalydetection.html göz atalım.
 ```JavaScript
 function anomalyDetection(url, subscriptionKey, points, period) {
     var obj = new Object();

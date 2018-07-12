@@ -1,6 +1,6 @@
 ---
 title: Node.js için Azure CDN SDK'sı ile çalışmaya başlama | Microsoft Docs
-description: Azure CDN yönetmek için Node.js uygulamalarını yazmayı öğrenin.
+description: Azure CDN'yi yönetmek için Node.js uygulamalarını yazmayı öğrenin.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 46ae8cd9775432d126cbde856c1fb06ea319297e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23843199"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38301574"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN ile geliştirmeye başlama
 > [!div class="op_single_selector"]
@@ -28,34 +28,34 @@ ms.locfileid: "23843199"
 > 
 > 
 
-Kullanabileceğiniz [Node.js için Azure CDN SDK](https://www.npmjs.com/package/azure-arm-cdn) oluşturulması ve CDN profili ve uç noktaları Yönetimi otomatik hale getirmek için.  Bu öğreticide birkaç kullanılabilir işlemleri gösteren basit bir Node.js konsol uygulaması oluşturma aşamasından açıklanmaktadır.  Bu öğretici Azure CDN SDK'sını tüm yönlerini Node.js için ayrıntılı bir şekilde tanımlamak üzere tasarlanmamıştır.
+Kullanabileceğiniz [Node.js için Azure CDN SDK](https://www.npmjs.com/package/azure-arm-cdn) oluşturma ve CDN profili ve uç noktaları yönetimini otomatikleştirmek için.  Bu öğreticide, birkaç kullanılabilir işlemleri gösteren basit bir Node.js konsol uygulaması oluşturulmasını adım adım göstermektedir.  Bu öğreticide, ayrıntılı olarak Node.js için Azure CDN SDK'sı tüm yönlerini açıklamak için tasarlanmamıştır.
 
-Bu öğreticiyi tamamlamak için zaten yüklü olmalıdır [Node.js](http://www.nodejs.org) **4.x.x** veya üzeri yüklenir ve yapılandırılır.  Node.js uygulamanızı oluşturmak istediğiniz herhangi bir metin düzenleyicisi kullanabilirsiniz.  Bu öğretici yazmak için kullandığım [Visual Studio Code](https://code.visualstudio.com).  
+Bu öğreticiyi tamamlamak için zaten olmalıdır [Node.js](http://www.nodejs.org) **4.x.x** veya üzeri yüklü ve yapılandırılmış.  Node.js uygulamanızı oluşturmak istediğiniz herhangi bir metin düzenleyicisi kullanabilirsiniz.  Bu öğreticide yazmak için kullandım [Visual Studio Code](https://code.visualstudio.com).  
 
 > [!TIP]
-> [Bu öğreticinin tamamlanan projeden](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) MSDN'de indirilebilir.
+> [Projeyi bu öğreticiden](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) MSDN'de indirilebilir.
 > 
 > 
 
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
-## <a name="create-your-project-and-add-npm-dependencies"></a>Projenizi oluşturmak ve NPM bağımlılıkları ekleyin.
-Bizim CDN profili için bir kaynak grubu oluşturduk artık ve CDN profili ve uç noktaları grubu içindeki yönetmek için Azure AD uygulama izni verilen göre biz uygulamamızı oluşturmaya başlayabilirsiniz.
+## <a name="create-your-project-and-add-npm-dependencies"></a>Projenizi oluşturma ve NPM bağımlılıkları Ekle
+Size sunduğumuz CDN profili için bir kaynak grubu oluşturduğunuz ve CDN profili ve uç noktaları grubu içindeki yönetmek için Azure AD uygulama izin verilen göre biz uygulamamızı oluşturmaya başlayabilir.
 
-Uygulamanızı depolamak için bir klasör oluşturun.  Geçerli yolda Node.js araçları ile bir konsoldan bu yeni klasöre konumunuzu ayarlamak ve projenizin yürüterek başlatma:
+Uygulamanızı depolamak için bir klasör oluşturun.  Geçerli yolda Node.js araçları ile bir konsoldan bu yeni klasör için geçerli konumunuzu ayarlayın ve yürüterek projenizi başlatın:
 
     npm init
 
-Ardından, projenizin başlatılamadı sorular bir dizi sunulur.  İçin **giriş noktası**, Bu öğretici kullanır *app.js*.  Aşağıdaki örnekte my diğer seçenekleri görebilirsiniz.
+Ardından bir dizi soru projenizi başlatmak için sunulur.  İçin **giriş noktası**, bu öğreticide *app.js*.  Aşağıdaki örnekte diğer bir seçenek my görebilirsiniz.
 
-![NPM init çıktı](./media/cdn-app-dev-node/cdn-npm-init.png)
+![NPM init çıkış](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-Projemizin şimdi ile başlatılmış bir *packages.json* dosya.  Projemizin NPM paketlerinde bulunan bazı Azure kitaplıkları kullanmak zordur.  (Azure arm cd) Node.js için Azure istemci çalışma zamanı ' Node.js (ms-rest-azure) için ve Azure CDN istemci kitaplığı kullanacağız.  Bu proje için bağımlılıklar olarak ekleyelim.
+Projemizin artık ile başlatılmış bir *packages.json* dosya.  Projemizin NPM paketlerinde bulunan bazı Azure kitaplıkları kullanmayı düşünüyor olabilir.  (Azure-arm-cd) Node.js için Azure istemci çalışma zamanı (ms-rest-azure) node.js ve Azure CDN istemci kitaplığı kullanacağız.  Bu proje bağımlılıkları olarak ekleyelim.
 
     npm install --save ms-rest-azure
     npm install --save azure-arm-cdn
 
-Paketleri tamamladıktan sonra yükleme, *package.json* dosyası bu örneğe (sürüm numaralarını farklı olabilir) benzer görünmelidir:
+Paketleri tamamladıktan sonra yükleme, *package.json* dosyası (sürüm numaralarını farklı olabilir) bu örnektekine benzer görünmelidir:
 
 ``` json
 {
@@ -75,18 +75,18 @@ Paketleri tamamladıktan sonra yükleme, *package.json* dosyası bu örneğe (s�
 }
 ```
 
-Son olarak, Metin Düzenleyicisi'ni kullanarak bir boş metin dosyası oluşturun ve bizim proje klasörü olarak kök Kaydet *app.js*.  Biz artık kod yazmaya başlamak hazırsınız.
+Son olarak, Metin Düzenleyicisi'ni kullanarak ve bir boş metin dosyası oluşturun, proje klasörünün kaydedin *app.js*.  Artık kod yazmaya başlamak hazırız.
 
-## <a name="requires-constants-authentication-and-structure"></a>Sabitler, kimlik doğrulama ve yapısı gerektirir
-İle *app.js* bizim düzenleyicisinde açın, şimdi yazılmış programımız temel yapısını Al.
+## <a name="requires-constants-authentication-and-structure"></a>Gerektirir, sabitleri, kimlik doğrulama ve yapısı
+İle *app.js* bizim düzenleyicisinde açın, yazılan programımız temel yapısını geçelim.
 
-1. "" NPM paketlerimize en üstünde aşağıdakileri gerektirir ile ekleyin:
+1. "Gerektirir" bizim NPM paketleri için en üstünde şu ekleyin:
    
     ``` javascript
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. Bizim yöntemler kullanacağı bazı sabitleri tanımlamak gerekir.  Aşağıdakileri ekleyin.  Dahil olmak üzere, yer tutucular değiştirdiğinizden emin olun  **&lt;köşeli&gt;**, gerektiği gibi kendi değerlere sahip.
+2. Bizim yöntemleri kullanacaksınız bazı sabitleri tanımlamak ihtiyacımız var.  Aşağıdakileri ekleyin.  Dahil olmak üzere, yer tutucuları değiştirdiğinizden emin olun  **&lt;açılı ayraçlar&gt;**, gerektiğinde kendi değerlerinizle.
    
     ``` javascript
     //Tenant app constants
@@ -99,17 +99,17 @@ Son olarak, Metin Düzenleyicisi'ni kullanarak bir boş metin dosyası oluşturu
     const resourceGroupName = "CdnConsoleTutorial";
     const resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
     ```
-3. Ardından, CDN management istemcisi örneği ve bizim kimlik bilgileri verin.
+3. Ardından, CDN yönetim istemci örneği oluşturun ve kendi kimlik bilgilerini verin.
    
     ``` javascript
     var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    Tek tek kullanıcı kimlik doğrulaması kullanıyorsanız, bu iki satır biraz farklı görünecektir.
+    Tek tek kullanıcı kimlik doğrulaması kullanıyorsanız, şu iki satırı biraz farklı görünür.
    
    > [!IMPORTANT]
-   > Yalnızca bireysel kullanıcı kimlik doğrulaması, bir hizmet sorumlusu yerine seçmek, bu kod örneği kullanın.  Bireysel kullanıcı kimlik bilgileri koruması ve gizli tutmak dikkatli olun.
+   > Yalnızca bireysel kullanıcı kimlik doğrulaması yerine bir hizmet sorumlusu seçme durumlarda bu kod örneği kullanın.  Bireysel kullanıcı kimlik bilgilerinizi korumak ve bunları gizli tutmanız konusunda dikkatli olun.
    > 
    > 
    
@@ -119,8 +119,8 @@ Son olarak, Metin Düzenleyicisi'ni kullanarak bir boş metin dosyası oluşturu
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    Öğeleri değiştirdiğinizden emin olun  **&lt;köşeli&gt;**  doğru bilgileri.  İçin `<redirect URI>`, yeniden yönlendirme URI'si Azure AD'de uygulama kaydolurken girdiğiniz kullanın.
-4. Bazı komut satırı parametreleri yapılacak bizim Node.js konsol uygulaması geçiyor.  Şimdi en az bir doğrulama parametresi geçirildi.
+    Öğeleri değiştirdiğinizden emin olun **&lt;açılı ayraçlar&gt;** doğru bilgileri.  İçin `<redirect URI>`, yeniden yönlendirme URI'si, girdiğiniz uygulamanın Azure AD'de kayıtlı olduğunda kullanın.
+4. Bizim Node.js konsol uygulaması bazı komut satırı parametreleri almak zordur.  Şimdi en az bir doğrulama parametresi geçirildi.
    
    ```javascript
    //Collect command-line parameters
@@ -134,7 +134,7 @@ Son olarak, Metin Düzenleyicisi'ni kullanarak bir boş metin dosyası oluşturu
        process.exit(1);
    }
    ```
-5. Bize burada size hangi parametreler geçirilmiş bağlı diğer işlevleri dallanma programımız ana kısmına beraberinde getirir.
+5. Burada size hangi parametreler geçirilmiş tabanlı diğer işlevlere dal programımız ana bölümü için olduk.
    
     ```javascript
     switch(parms[0].toLowerCase())
@@ -160,7 +160,7 @@ Son olarak, Metin Düzenleyicisi'ni kullanarak bir boş metin dosyası oluşturu
             process.exit(1);
     }
     ```
-6. Programımız çeşitli yerlerde biz doğru sayıda parametre olarak geçirilen ve doğru görünmüyorsa bazı Yardım görüntüleme emin olmak gerekir.  Bunu yapmak için işlevleri oluşturalım.
+6. Programımız çeşitli yerlerde en doğru sayıda parametre olarak geçirilen ve doğru görünmüyorsa Yardım görüntüleme emin olmak biz gerekir.  Bunu yapmak için işlevleri oluşturalım.
    
    ```javascript
    function requireParms(parmCount) {
@@ -198,7 +198,7 @@ Son olarak, Metin Düzenleyicisi'ni kullanarak bir boş metin dosyası oluşturu
        }
    }
    ```
-7. Son olarak, bu nedenle geri işiniz bittiğinde çağrılacak bir yöntem gerekir biz CDN yönetim istemcisini kullanmaya başlayacağınız işlevleri zaman uyumsuz,.  CDN Yönetimi istemcisi (varsa) çıkışı görüntülemek ve program sessizce Çık olalım.
+7. Son olarak, ihtiyaç duydukları geri işiniz bittiğinde çağrılacak bir yöntem için CDN yönetim istemcide kullanacağız işlevleri zaman uyumsuz.  CDN yönetim istemci (varsa) çıktısını görüntülemek ve düzgün bir şekilde programdan çıkmak olalım.
    
     ```javascript
     function callback(err, result, request, response) {
@@ -212,10 +212,10 @@ Son olarak, Metin Düzenleyicisi'ni kullanarak bir boş metin dosyası oluşturu
     }
     ```
 
-Programımız temel yapısını yazılır, biz bizim parametrelere göre çağrılan işlevler oluşturmanız gerekir.
+Temel yapısını programımız yazılır, biz bizim parametrelere göre çağrılan işlevler oluşturmanız gerekir.
 
 ## <a name="list-cdn-profiles-and-endpoints"></a>Liste CDN profili ve uç noktaları
-Bizim varolan profil ve uç noktaları listesinde koduyla başlayalım.  My kod açıklamaları beklenen sözdizimi sağlar, bu nedenle, her bir parametreyi gider biliyoruz.
+Bizim varolan profillerini ve uç noktalarını listelemek için kod ile başlayalım.  My kod açıklamaları, beklenen söz dizimi sağlar, bu nedenle burada her parametre gider biliyoruz.
 
 ```javascript
 // list profiles
@@ -243,7 +243,7 @@ function cdnList(){
 ```
 
 ## <a name="create-cdn-profiles-and-endpoints"></a>CDN profili ve uç noktaları oluşturma
-Ardından, biz profilleri ve uç noktaları oluşturmak için işlevleri yazacaksınız.
+Ardından, biz profillerini ve uç noktaları oluşturmak için işlevleri yazacaksınız.
 
 ```javascript
 function cdnCreate() {
@@ -294,8 +294,8 @@ function cdnCreateEndpoint() {
 }
 ```
 
-## <a name="purge-an-endpoint"></a>Bir uç noktası
-Uç noktası oluşturuldu varsayıldığında, biz bizim programında gerçekleştirmek isteyebileceğiniz ortak görev bizim endpoint içeriğinde temizleme.
+## <a name="purge-an-endpoint"></a>Bir uç noktasını temizleme
+Uç noktası oluşturuldu varsayıldığında, biz Programımıza gerçekleştirmek isteyebileceğiniz yaygın görevlerden biri içerik bizim uç noktasını temizleme.
 
 ```javascript
 // purge <profile name> <endpoint name> <path>
@@ -307,8 +307,8 @@ function cdnPurge() {
 }
 ```
 
-## <a name="delete-cdn-profiles-and-endpoints"></a>CDN profili ve uç noktaları Sil
-Biz içerecektir son işlevi uç noktaları ve profilleri siler.
+## <a name="delete-cdn-profiles-and-endpoints"></a>CDN profili ve uç noktalarını silme
+Son işlevi dahil edilir, uç noktaları ve profilleri siler.
 
 ```javascript
 function cdnDelete() {
@@ -336,11 +336,11 @@ function cdnDelete() {
 }
 ```
 
-## <a name="running-the-program"></a>Programın çalıştırılması
-Biz şimdi sık kullanılan bizim hata ayıklayıcıyı kullanma Node.js programımız yürütebilir veya konsolda.
+## <a name="running-the-program"></a>Programı çalıştırma
+Biz artık Node.js programımız bizim sık kullanılan hata ayıklayıcıyı kullanarak çalıştırabilirsiniz veya Konsolu.
 
 > [!TIP]
-> Visual Studio Code, hata ayıklayıcı olarak kullanıyorsanız, komut satırı parametreleri ortamınızı ayarlamanız gerekir.  Visual Studio Code yaptığı bu da **lanuch.json** dosya.  Adlı bir özellik arayın **args** ve dize değerleri, parametre için bir dizi ekleyebilirsiniz, böylece şuna benzer: `"args": ["list", "profiles"]`.
+> Visual Studio Code, hata ayıklayıcı kullanıyorsanız, komut satırı parametreleri geçirmek için ortamı oluşturmanız gerekir.  Visual Studio Code bunu yapar **lanuch.json** dosya.  Adlı bir özellik arayın **args** ve dize değerleri, parametre için bir dizi ekleyebilirsiniz, böylece şuna benzer: `"args": ["list", "profiles"]`.
 > 
 > 
 
@@ -348,24 +348,24 @@ Bizim profilleri listeleyerek başlayalım.
 
 ![Liste profilleri](./media/cdn-app-dev-node/cdn-list-profiles.png)
 
-Biz, boş bir dizi geri aldı.  Herhangi bir profil bizim kaynak grubunda yok olduğundan, bu beklenir.  Artık bir profili oluşturalım.
+Boş bir dizi geri aldık.  Herhangi bir profil kaynak grubumuz yoksa, bekleniyor.  Artık bir profili oluşturalım.
 
-![Profil oluşturma](./media/cdn-app-dev-node/cdn-create-profile.png)
+![Profil Oluştur](./media/cdn-app-dev-node/cdn-create-profile.png)
 
-Şimdi, bir uç nokta ekleyelim.
+Artık, bir uç nokta ekleyelim.
 
-![Uç noktası oluşturma](./media/cdn-app-dev-node/cdn-create-endpoint.png)
+![Uç nokta oluşturma](./media/cdn-app-dev-node/cdn-create-endpoint.png)
 
-Son olarak, şirketinizdeki bizim profilini silin.
+Son olarak, bizim profili şimdi silin.
 
-![Profili Sil](./media/cdn-app-dev-node/cdn-delete-profile.png)
+![Profili sil](./media/cdn-app-dev-node/cdn-delete-profile.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Bu kılavuzda tamamlanmış projeden görmek için [örneği indirmek](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
+Bu kılavuz, tamamlanan projeden görmek için [örneği indirin](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
-Başvuru için Node.js için Azure CDN SDK'sı görmek için görüntüleyin [başvuru](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
+Başvuru için Azure CDN SDK'sı için Node.js görmek için görüntüleyin [başvuru](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
 
-Node.js için Azure SDK'sı üzerinde ek belgeleri bulmak için görüntülemek [tam başvuru](http://azure.github.io/azure-sdk-for-node/).
+Ek belgeler Node.js için Azure SDK'sı üzerinde bulmak için görüntüleme [tam başvuru](http://azure.github.io/azure-sdk-for-node/).
 
 CDN kaynaklarınızı yönetmek [PowerShell](cdn-manage-powershell.md).
 

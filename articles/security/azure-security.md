@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: bda8f72de16d1d8d95823de98aab8ec209908e63
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a1cd2ecc738434fc8d5de03ef538be3ea896fa2b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437799"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971015"
 ---
 # <a name="introduction-to-azure-security"></a>Azure güvenliğine giriş
 ## <a name="overview"></a>Genel Bakış
@@ -113,7 +113,7 @@ Bölüm, bu özellikleri hakkında daha fazla uygulama güvenlik ve Özet bilgil
 Güvenlik açıklarına karşı testini kullanmaya başlamanın en kolay yollarından biri, [App Service uygulaması](https://docs.microsoft.com/azure/app-service/app-service-web-overview) kullanmaktır [Tinfoil Security ile tümleştirme](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) tek tıklamayla güvenlik açığı uygulamanız üzerinde tarama gerçekleştirmek için. Anlaşılması kolay bir raporda test sonuçlarını görüntülemek ve adım adım yönergeler içeren her bir güvenlik açığı düzeltmeyi öğrenin.
 
 ### <a name="penetration-testing"></a>Sızma Testi
-Kendi sızma testleri gerçekleştirmeniz veya başka bir tarayıcı suite veya sağlayıcısı kullanmak isterseniz, izlemeniz gereken [onay işlemi Azure sızma](https://docs.microsoft.com/en-us/azure/security/azure-security-pen-testing ) ve istenen sızma testleri gerçekleştirmeniz için önceki onay alın.
+Kendi sızma testleri gerçekleştirmeniz veya başka bir tarayıcı suite veya sağlayıcısı kullanmak isterseniz, izlemeniz gereken [onay işlemi Azure sızma](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) ve istenen sızma testleri gerçekleştirmeniz için önceki onay alın.
 
 ### <a name="web-application-firewall"></a>Web uygulaması güvenlik duvarı
 Web uygulaması Güvenlik Duvarı (WAF) [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) SQL ekleme gibi yaygın web tabanlı saldırıları, siteler arası komut dosyası saldırıları ve oturum ele geçirme web uygulamaları korumaya yardımcı olur. Bunu tarafından belirlenen tehditlerden koruma ile önceden yapılandırılmış olarak gelir [açık Web uygulaması güvenlik Project (OWASP) ilk 10 yaygın güvenlik açıklarına olarak](https://msdn.microsoft.com/library/).

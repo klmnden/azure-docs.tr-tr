@@ -1,6 +1,6 @@
 ---
-title: HPC Pack küme Excel ve SOA | Microsoft Docs
-description: Büyük ölçekli Excel ve SOA iş yüklerini Azure HPC Pack kümede çalışan kullanmaya başlama
+title: HPC Pack kümesinde Excel ve SOA | Microsoft Docs
+description: Azure'da bir HPC Pack kümesinde Excel ve SOA büyük ölçekli iş yüklerini çalıştırmaya başlama
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
@@ -16,87 +16,87 @@ ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
 ms.openlocfilehash: aaf26e04fdb38fd76f4ab8211f9fdda8ebafd668
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30917413"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971868"
 ---
-# <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Excel ve SOA iş yüklerini Azure HPC Pack kümede çalışan kullanmaya başlama
-Bu makalede Azure Hızlı Başlangıç şablonu veya isteğe bağlı olarak bir Azure PowerShell dağıtım komut dosyası kullanarak bir Azure sanal makineler Microsoft HPC Pack 2012 R2 kümesinde dağıtma gösterilmektedir. Küme, Microsoft Excel ya da hizmet odaklı mimari (SOA) iş yükleri HPC paketi ile çalışacak biçimde tasarlanan Azure Market VM görüntüleri kullanır. Küme, bir şirket içi istemci bilgisayarından Excel HPC ve SOA hizmetlerini çalıştırmak için kullanabilirsiniz. Excel çalışma kitabı aktarma ve Excel kullanıcı tanımlı işlevler veya UDF'ler Excel HPC hizmetleri içerir.
+# <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Azure'da bir HPC Pack kümesinde Excel ve SOA iş yüklerini çalıştırmaya başlama
+Bu makalede Azure Hızlı Başlangıç şablonu veya isteğe bağlı olarak bir Azure PowerShell dağıtım betiğini kullanarak bir Azure sanal makineler'de Microsoft HPC Pack 2012 R2 kümesi dağıtmayı gösterir. Küme, Microsoft Excel veya hizmet odaklı mimari (SOA) iş yükleri HPC Pack ile çalışmak üzere tasarlanmış Azure Market VM görüntülerini kullanır. Bir şirket içi istemci bilgisayarından HPC Excel ve SOA hizmetlerini çalıştırmak için kümeyi kullanabilirsiniz. Excel çalışma kitabı aktarma ve Excel kullanıcı tanımlı işlevleri ya da UDF'ler Excel HPC hizmetleri içerir.
 
 > [!IMPORTANT] 
-> Bu makalede özellikleri, şablonları ve komut dosyaları HPC Pack 2012 R2 için temel alır. Bu senaryo HPC Pack 2016'şu anda desteklenmiyor.
+> Bu makalede, özellikleri, şablonları ve betikler için HPC Pack 2012 R2 dayanır. Bu senaryoda, HPC Pack 2016'da şu anda desteklenmiyor.
 >
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Yüksek düzeyde, aşağıdaki diyagramda, oluşturduğunuz HPC paketi küme gösterir.
+Yüksek bir düzeyde, aşağıdaki diyagramda oluşturduğunuz HPC Pack kümesine gösterilmektedir.
 
-![Excel iş yükleri çalıştıran düğümlerle HPC Kümesi][scenario]
+![Excel iş yükleri çalıştıran düğümleriyle HPC Kümesi][scenario]
 
 ## <a name="prerequisites"></a>Önkoşullar
-* **İstemci bilgisayar** -kümeye örnek Excel ve SOA işleri göndermek için bir Windows tabanlı bir istemci bilgisayar gerekir. (Bu dağıtım yöntemi seçerseniz) Azure PowerShell küme dağıtım betiğini çalıştırmak için bir Windows bilgisayar da gerekir.
+* **İstemci bilgisayar** -küme örnek Excel ve SOA iş göndermek için bir Windows tabanlı bir istemci bilgisayara ihtiyacı vardır. (Bu dağıtım yöntemi seçerseniz), Azure PowerShell küme dağıtım betiğini çalıştırmak için bir Windows bilgisayara da gerekir.
 * **Azure aboneliği** -bir Azure aboneliğiniz yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.
-* **Çekirdek kota** -özellikle çok çekirdekli VM boyutları birkaç küme düğümleri dağıtırsanız, çekirdek, Kotayı artırmak gerekebilir. Çekirdek kota Kaynağı Yöneticisi'nde bir Azure Hızlı Başlangıç şablonu kullanıyorsanız, Azure bölgesidir. Bu durumda, belirli bir bölgedeki Kotayı artırmak gerekebilir. Bkz: [Azure aboneliği sınırları, kotaları ve kısıtlamaları](../../azure-subscription-service-limits.md). Bir Kotayı artırmak için [bir çevrimiçi müşteri destek isteği açma](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) herhangi bir ücret alınmaz.
-* **Microsoft Office lisansı** - işlem düğümleri, Microsoft Excel ile bir Market HPC Pack 2012 R2 VM görüntüsü kullanarak Microsoft Excel Professional Plus 2013 30 günlük değerlendirme sürümü yüklüyse dağıtırsanız. Değerlendirme sürümünden sonra iş yüklerini çalıştırmaya devam etmek için Excel etkinleştirmek için geçerli bir Microsoft Office lisansı sağlamanız gerekir. Bkz: [Excel etkinleştirme](#excel-activation) bu makalenin ilerisinde yer. 
+* **Çekirdek kota** -özellikle birden fazla çekirdekli VM boyutlarının birden çok küme düğümüyle dağıtırsanız, çekirdek kotasını artırmanız gerekebilir. Azure Hızlı Başlangıç şablonu kullanıyorsanız, Kaynak Yöneticisi'nde Çekirdek kotasını Azure Bölgesi ' dir. Bu durumda, belirli bir bölgede Kotayı artırmak gerekebilir. Bkz: [Azure abonelik limitleri, kotalar ve kısıtlamalar](../../azure-subscription-service-limits.md). Bir Kotayı artırmak için [bir çevrimiçi müşteri destek isteği açın](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) ücret olmadan.
+* **Microsoft Office lisansı** - işlem düğümleri, Microsoft Excel ile bir Market HPC Pack 2012 R2 sanal makine görüntüsünü kullanarak Microsoft Excel Professional Plus 2013 30 günlük değerlendirme sürümü yüklü dağıtın. Değerlendirme sürümünden sonra iş yüklerini çalıştırmaya devam etmek için Excel etkinleştirmek için geçerli bir Microsoft Office lisansı sağlamanız gerekir. Bkz: [Excel etkinleştirme](#excel-activation) bu makalenin ilerleyen bölümlerinde. 
 
-## <a name="step-1-set-up-an-hpc-pack-cluster-in-azure"></a>1. Adım Azure HPC Pack kümede ayarlama
-HPC Pack 2012 R2 kümesini ayarlamak için iki seçenek gösteriyoruz: öncelikle, bir Azure Hızlı Başlangıç şablonu ile Azure Portalı '; ve ikincisi, bir Azure PowerShell dağıtım komut dosyası kullanarak.
+## <a name="step-1-set-up-an-hpc-pack-cluster-in-azure"></a>1. Adım Azure'da bir HPC Pack kümesi ayarlama
+HPC Pack 2012 R2 kümesini ayarlamak için iki seçenek göstereceğiz: ilk olarak, bir Azure Hızlı Başlangıç şablonu; Azure portal ile ve ikinci bir Azure PowerShell dağıtım betiğini kullanarak.
 
-### <a name="option-1-use-a-quickstart-template"></a>1. Seçenek Hızlı Başlatma şablonunu kullanma
-HPC Pack küme Azure portalında hızlı bir şekilde dağıtmak için bir Azure Hızlı Başlangıç şablonu kullanın. Portalda şablonu açtığınızda ayarları, kümeniz için girdiğiniz basit bir kullanıcı Arabirimi alma. Adımlar şunlardır. 
+### <a name="option-1-use-a-quickstart-template"></a>1. Seçenek Hızlı Başlangıç şablonu kullanın
+Azure Hızlı Başlangıç şablonu Azure portalında bir HPC Pack kümesine hızla dağıtmak için kullanın. Şablonu portalda açın, kümeniz için ayarları girin burada basit bir kullanıcı Arabirimi alın. Adımlar aşağıda verilmiştir. 
 
 > [!TIP]
-> İsterseniz, kullanın bir [Azure Marketi şablonu](https://portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn) özellikle Excel iş yükleri için benzer bir küme oluşturur. Adımları aşağıdakiler arasından biraz farklılık gösterir.
+> İsterseniz, kullanan bir [Azure Market şablonu](https://portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn) Excel iş yükleri için özellikle benzer bir küme oluşturur. Adımları aşağıdakilerden biraz farklılık gösterir.
 > 
 > 
 
-1. Ziyaret [HPC küme oluşturma şablonu GitHub sayfasında](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). İsterseniz, şablon ve kaynak kodu hakkında bilgileri gözden geçirin.
-2. Tıklatın **Azure'a Dağıt** Azure portalında şablonuyla bir dağıtımı başlatmak için.
+1. Ziyaret [HPC kümesi oluşturma şablonu GitHub sayfasında](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). İsterseniz, şablon ve kaynak kodu hakkında bilgileri gözden geçirin.
+2. Tıklayın **azure'a Dağıt** şablonu Azure portalında bir dağıtım başlatmak üzere.
    
-   ![Şablon Azure'a dağıtma][github]
-3. Portalda, HPC küme şablonu parametreleri girmek için şu adımları izleyin.
+   ![Şablonu Azure'a dağıtma][github]
+3. Portalda, HPC küme şablonu parametreleri girmek için aşağıdaki adımları izleyin.
    
-   a. Üzerinde **parametreleri** sayfasında, girin veya şablon parametre değerlerini değiştirin. (Yardım bilgileri için her ayarın yanındaki simgesine tıklayın.) Örnek değerler aşağıdaki ekran görüntüsünde gösterilir. Bu örnek adlı bir küme oluşturur *hpc01* içinde *hpc.local* bir baş düğüm ve 2 oluşan etki alanı işlem düğümlerini. İşlem düğümleri, Microsoft Excel içeren bir HPC Pack VM görüntüden oluşturulur.
+   a. Üzerinde **parametreleri** sayfasında girin veya şablon parametreleri için değerleri değiştirin. (Yardım bilgileri için her ayarın yanındaki simgeye tıklayın.) Örnek değerler, aşağıdaki ekran gösterilir. Bu örnek adlı bir küme oluşturulmuştur *hpc01* içinde *hpc.local* etki alanı bir baş düğüm ve 2 oluşan işlem düğümleri. İşlem düğümleri, Microsoft Excel içeren bir HPC Pack VM görüntüden oluşturulur.
    
    ![Parametreleri girin][parameters-new-portal]
    
    > [!NOTE]
-   > VM oluşturuldu. otomatik olarak baş düğüm [son Market görüntüsü](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) HPC paketi 2012 R2'in Windows Server 2012 R2. Şu anda görüntü HPC Pack 2012 R2 güncelleştirme 3 ' temel alır.
+   > VM oluşturuldu otomatik olarak baş düğümü [son Market görüntüsü](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) , HPC Pack 2012 R2'de Windows Server 2012 R2. Şu anda görüntü HPC Pack 2012 R2 güncelleştirme 3 temel alır.
    > 
-   > İşlem düğümü VM'ler seçilen işlem düğümü ailesi son görüntüden oluşturulur. Seçin **ComputeNodeWithExcel** seçeneği en son HPC paketi için Microsoft Excel Professional Plus 2013'in değerlendirme sürümünü içeren bir düğüm görüntü işlem. Genel SOA oturumları için veya Excel UDF aktarması için bir küme dağıtmak için tercih **ComputeNode** (Excel yüklü olmadan) seçeneği.
+   > İşlem düğümü Vm'leri seçili işlem düğümü ailesinin son görüntüden oluşturulur. Seçin **ComputeNodeWithExcel** işlem seçeneğiyle en son HPC Pack için Microsoft Excel Professional Plus 2013'in değerlendirme sürümünü içeren bir düğüm görüntü. Genel SOA oturumları Excel UDF aktarması için veya bir küme dağıtmak için seçmeyi **ComputeNode** (Excel yüklü olmadan) seçeneği.
    > 
    > 
    
-   b. Abonelik seçin.
+   b. Aboneliği seçin.
    
-   c. Küme için bir kaynak grubu oluşturun *hpc01RG*.
+   c. Küme için bir kaynak grubu gibi oluşturma *hpc01RG*.
    
-   d. Orta ABD gibi kaynak grubu için bir konum seçin.
+   d. Orta ABD gibi bir kaynak grubu için bir konum seçin.
    
-   e. Üzerinde **yasal koşulları** sayfasında, koşulları gözden geçirin. Kabul ediyorsa **satın alma**. Şablon için değerleri ayarlama işiniz bittiğinde, ardından **oluşturma**.
-4. Dağıtım tamamlandığında (genellikle yaklaşık 30 dakika sürer), küme baş düğümünden export küme sertifika dosyası. Bir sonraki adımda Güvenli HTTP bağlama için sunucu tarafı kimlik doğrulaması sağlamak için istemci bilgisayarda ortak bu sertifikayı içeri aktarın.
+   e. Üzerinde **yasal koşulları** sayfasında, koşulları gözden geçirin. Kabul ediyorsanız tıklayın **satın alma**. Şablon değerlerini ayarlama işiniz bittiğinde, ardından tıklayın **Oluştur**.
+4. Dağıtım tamamlandığında (genellikle yaklaşık 30 dakika sürer), küme baş düğümünden küme sertifika dosyasını dışarı aktarın. Daha sonraki bir adımda Güvenli HTTP bağlaması için sunucu tarafı kimlik doğrulaması sağlamak için istemci bilgisayarda ortak bu sertifikayı içeri aktarın.
    
-   a. Azure portalında panoya baş düğüm seçin ve tıklayın Git **Bağlan** sayfanın üst kısmındaki Uzak Masaüstü kullanarak bağlanmak için.
+   a. Azure portalında panoya baş düğümü seçin ve tıklayın Git **Connect** Uzak Masaüstü kullanarak bağlanmak için sayfanın üst kısmındaki.
    
     <!-- ![Connect to the head node][connect] -->
    
-   b. Standart yordamları Sertifika Yöneticisi'nde (Cert: \LocalMachine\My altında bulunur) baş düğümüne sertifika özel anahtarı dışarı aktarmak için kullanın. Bu örnekte, verme *CN = hpc01.eastus.cloudapp.azure.com*.
+   b. Standart yordamları Sertifika Yöneticisi'nde (Cert: \LocalMachine\My altında bulunur) baş düğümüne sertifika özel anahtar olmadan dışarı aktarmak için kullanın. Bu örnekte, dışarı aktarma *CN = hpc01.eastus.cloudapp.azure.com*.
    
-   ![Sertifika verme][cert]
+   ![Sertifika dışarı aktarma][cert]
 
-### <a name="option-2-use-the-hpc-pack-iaas-deployment-script"></a>2. Seçenek HPC Pack Iaas dağıtım komut dosyası kullan
-HPC Pack Iaas dağıtım betiği bir HPC Pack kümeyi dağıtma için çok yönlü başka bir yol sağlar. Şablon Azure Resource Manager dağıtım modelini kullanır ancak klasik dağıtım modelinde bir küme oluşturur. Ayrıca, komut dosyası Azure genel veya Azure Çin hizmetindeki bir abonelik ile uyumludur.
+### <a name="option-2-use-the-hpc-pack-iaas-deployment-script"></a>2. Seçenek HPC Pack Iaas dağıtım betiği kullanın
+HPC Pack Iaas dağıtım betiği bir HPC Pack kümesine dağıtmak için çok yönlü başka bir yol sağlar. Azure Resource Manager dağıtım modeli şablonu kullanan ise Klasik dağıtım modelinde, bir küme oluşturur. Ayrıca, betiği bir abonelikte Azure Global veya Azure China hizmeti ile uyumludur.
 
-**Ek önkoşulları**
+**Ek Önkoşullar**
 
-* **Azure PowerShell** - [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview) (sürüm 0.8.10 veya üzeri) istemci bilgisayarınızda.
-* **HPC Pack Iaas dağıtım betiği** - karşıdan yükleme ve komut dosyasını en son sürümünü paket [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Komut dosyası sürümünü çalıştırarak denetleme `New-HPCIaaSCluster.ps1 –Version`. Bu makalede, sürüm 4.5.0 veya daha sonra komut dosyasını temel alır.
+* **Azure PowerShell** - [yüklemek ve Azure PowerShell yapılandırma](/powershell/azure/overview) (0.8.10 sürümü veya üzeri) istemci bilgisayarınızda.
+* **HPC Pack Iaas dağıtım betiği** : indirin ve komut dosyasından en son sürümünü paketten [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Komut dosyasının sürümünü denetleyin `New-HPCIaaSCluster.ps1 –Version`. Bu makalede, sürüm 4.5.0 veya daha sonra komut dosyasını temel alır.
 
 **Yapılandırma dosyası oluşturma**
 
- HPC Pack Iaas dağıtım betiği HPC küme altyapısı açıklayan giriş olarak bir XML yapılandırma dosyasını kullanır. Bir baş düğüm ve Microsoft Excel içeren işlem düğümü görüntüden oluşturulan 18 işlem düğümleri oluşan bir küme dağıtmak için aşağıdaki örnek yapılandırma dosyası ortamınıza değerlerini değiştirin. Yapılandırma dosyası hakkında daha fazla bilgi için komut dosyası klasöründeki Manual.rtf dosyasına bakın ve [HPC Kümesi ile HPC Pack Iaas dağıtım komut dosyası oluşturma](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+ HPC Pack Iaas dağıtım betiği, HPC küme altyapısı açıklayan giriş olarak bir XML yapılandırma dosyasını kullanır. Bir baş düğüm ve Microsoft Excel içeren işlem düğümü görüntüden oluşturulan 18 işlem düğümleri oluşan bir küme dağıtmak için aşağıdaki örnek yapılandırma dosyası ortamınıza değerlerini değiştirin. Yapılandırma dosyası hakkında daha fazla bilgi için betik klasöründeki Manual.rtf dosyasına bakın ve [HPC Pack Iaas dağıtım betiği ile bir HPC kümesi oluşturma](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -142,9 +142,9 @@ HPC Pack Iaas dağıtım betiği bir HPC Pack kümeyi dağıtma için çok yönl
 
 **Yapılandırma dosyası ile ilgili notlar**
 
-* **VMName** baş düğümü **gerekir** aynı **ServiceName**, veya SOA işleri başarısız çalıştırmak.
-* Belirttiğinizden emin olun **EnableWebPortal** baş düğümüne sertifika oluşturulan dışarı aktarılır ve böylece.
-* Dosyayı bir yapılandırma sonrası PowerShell komut dosyası baş düğüm üzerinde çalışan PostConfig.ps1 belirtir. Aşağıdaki örnek komut dosyası Azure depolama bağlantı dizesi yapılandırır, bilgi işlem düğümü rolü baş düğümünden kaldırır ve bunlar dağıtıldığında tüm düğümlerin çevrimiçi duruma getirir. 
+* **VMName** baş düğümün **gerekir** aynı **ServiceName**, veya SOA işleri başarısız çalıştırılacak.
+* Belirttiğinizden emin olun **EnableWebPortal** baş düğümüne sertifika oluşturulur ve dışarı aktarılan.
+* Dosyayı bir baş düğüm üzerinde çalışan PostConfig.ps1 yapılandırma sonrası PowerShell komut dosyası belirtir. Aşağıdaki örnek betik, Azure depolama bağlantı dizesi yapılandırır, işlem düğümü rolünü baş düğümünden kaldırır ve VM'ler dağıtıldığı sırada tüm düğümlerin çevrimiçi duruma getirir. 
 
 ```
     # add the HPC Pack powershell cmdlets
@@ -174,48 +174,48 @@ HPC Pack Iaas dağıtım betiği bir HPC Pack kümeyi dağıtma için çok yönl
         }
 ```
 
-**Komut dosyasını çalıştır**
+**Betiği çalıştırın**
 
 1. İstemci bilgisayarda PowerShell konsolunu yönetici olarak açın.
-2. (Bu örnekte E:\IaaSClusterScript) komut dosyası klasöre dizini değiştirin.
+2. (Bu örnekte E:\IaaSClusterScript) betik klasörüne dizin değiştirin.
    
    ```
    cd E:\IaaSClusterScript
    ```
-3. HPC Pack küme dağıtmak için aşağıdaki komutu çalıştırın. Bu örnekte, yapılandırma dosyasını E:\HPCDemoConfig.xml içinde bulunduğu varsayılır.
+3. HPC Pack kümesine dağıtmak için aşağıdaki komutu çalıştırın. Bu örnek yapılandırma dosyası içinde E:\HPCDemoConfig.xml bulunduğunu varsayar.
    
    ```
    .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
    ```
 
-HPC Pack dağıtım betiği süre için çalışır. Komut dosyası gerçekleştirir bir dışarı aktarma ve küme sertifikayı indirin ve geçerli kullanıcının Belgeler klasöründe istemci bilgisayarda kaydetmek için şeydir. Komut dosyası aşağıdakine benzer bir ileti oluşturur. Aşağıdaki adımda, uygun sertifika deposundaki sertifikayı içeri aktarın.    
+HPC Pack dağıtım betiği için biraz zaman çalışır. Dışarı aktarma ve küme sertifikasını indirin ve geçerli kullanıcının Belgeler klasöründe istemci bilgisayarda kaydetmek için komut bir şey var. Komut dosyası aşağıdakine benzer bir ileti oluşturur. Aşağıdaki bir adımda uygun sertifika deposundaki sertifikayı içeri aktarın.    
 
     You have enabled REST API or web portal on HPC Pack head node. Please import the following certificate in the Trusted Root Certification Authorities certificate store on the computer where you are submitting job or accessing the HPC web portal:
     C:\Users\hpcuser\Documents\HPCWebComponent_HPCExcelHN004_20150707162011.cer
 
-## <a name="step-2-offload-excel-workbooks-and-run-udfs-from-an-on-premises-client"></a>2. Adım Excel çalışma kitaplarını boşaltması ve bir şirket içi istemciden UDF'ler çalıştırın
+## <a name="step-2-offload-excel-workbooks-and-run-udfs-from-an-on-premises-client"></a>2. Adım Excel çalışma kitaplarını yük boşaltma ve şirket içi bir istemciden UDF çalıştırma
 ### <a name="excel-activation"></a>Excel etkinleştirme
-ComputeNodeWithExcel VM görüntüsü üretim iş yükleri için kullanırken, işlem düğümlerinde Excel etkinleştirmek için geçerli bir Microsoft Office lisans anahtarı sağlamanız gerekir. Aksi takdirde Excel Değerlendirme sürümü 30 gün sonra süresi dolar ve Excel çalışma kitaplarını çalıştıran (0x800AC472) COMException ile başarısız olur. 
+ComputeNodeWithExcel VM görüntüsünü üretim iş yükleri için kullanılırken, Excel ve işlem düğümleri üzerinde etkinleştirmek için geçerli bir Microsoft Office lisans anahtarı sağlamanız gerekir. Aksi halde, Excel değerlendirme sürümünü 30 gün sonra sona erer ve Excel çalışma kitaplarını çalıştıran (0x800AC472) COMException ile başarısız olur. 
 
-Excel başka bir sonraki 30 gün için değerlendirme süresi rearm: oturum açın baş düğüm ve clusrun `%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe` tüm Excel işlem düğümleri aracılığıyla HPC Küme Yöneticisi. En fazla iki kez yeniden etkinleştirin. Bundan sonra geçerli bir Office lisans anahtarı sağlamanız gerekir.
+Excel değerlendirme zaman başka bir 30 gün boyunca rearm: baş düğüm ve clusrun oturum `%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe` tüm Excel üzerinde işlem düğümleriyle HPC Küme Yöneticisi aracılığıyla. En fazla iki kez yeniden etkinleştirin. Bundan sonra geçerli bir Office lisans anahtarı sağlamanız gerekir.
 
-Office Professional Plus 2013 VM görüntüsü üzerinde yüklü bir birim bir genel toplu lisans anahtarı (GVLK) ile sürümüdür. Anahtar Yönetim Hizmeti (KMS) aracılığıyla etkinleştirebilir / etkinleştirmeyi (AD BA) veya çoklu etkinleştirme anahtarı (MAK). 
+Office Professional Plus 2013 yüklü bir VM görüntüsü üzerinde bir birim bir genel toplu lisans anahtarı (GVLK) ile sürümüdür. Anahtar Yönetim Hizmeti (KMS) aracılığıyla etkinleştirebilir / etkinleştirmeyi (AD BA) ya da çoklu etkinleştirme anahtarı (MAK). 
 
-    * AD/KMS-BA kullanmak için var olan bir KMS sunucusu kullanın veya yeni bir Microsoft Office 2013 toplu lisans paketi kullanarak ayarlayın. (İstiyorsanız, sunucuyu baş düğüm ayarlayın.) Ardından Internet veya telefon üzerinden KMS ana bilgisayar anahtarı etkinleştirin. Ardından clusrun `ospp.vbs` Excel işlem düğümlerini KMS sunucusunu ve bağlantı noktası ayarlamak ve tüm Office etkinleştirmek için. 
+    * KMS/AD-BA kullanmak için mevcut bir KMS sunucusunu kullanabilir veya yeni bir Microsoft Office 2013 toplu lisans paketi kullanarak ayarlayın. (İsterseniz, baş düğüm sunucuda ayarlayın.) Ardından, Internet veya telefon üzerinden KMS ana bilgisayar anahtarını etkinleştirir. Ardından clusrun `ospp.vbs` KMS sunucusunda hem de bağlantı noktası ayarlayın ve tüm Office etkinleştirmek için Excel işlem düğümleri. 
 
-    * MAK, ilk clusrun kullanmak için `ospp.vbs` Excel işlem düğümlerini Internet veya telefon üzerinden anahtarı girin ve ardından tüm etkinleştirin. 
+    * MAK, ilk clusrun kullanılacak `ospp.vbs` Excel işlem düğümleri Internet veya telefon üzerinden anahtarı girin ve sonra tüm etkinleştirin. 
 
 > [!NOTE]
-> Office Professional Plus 2013 için perakende ürün anahtarlarını bu VM görüntüsü ile kullanılamaz. Geçerli anahtarlar ve Office veya Excel sürümü bu Office Professional Plus 2013 toplu edition dışında bir yükleme medyası varsa, bunun yerine kullanabilirsiniz. Önce bu birimin sürümü kaldırın ve sahip sürümü yükleyin. Yeniden yüklenmesi Excel işlem düğümü ölçekte bir dağıtımında kullanmak için özelleştirilmiş bir VM görüntü olarak yakalanır.
+> Office Professional Plus 2013 perakende ürün anahtarları, bu VM görüntüsü ile kullanılamaz. Geçerli anahtarları ve bu Office Professional Plus 2013 toplu edition dışında Office veya Excel sürümü için yükleme medyası varsa, bunun yerine kullanabilirsiniz. Önce bu birimin sürümü kaldırın ve sahip olduğunuz sürümü olarak yükle. Yeniden yüklenen Excel işlem düğümü, uygun ölçekte bir dağıtımında kullanmak için özelleştirilmiş bir VM görüntüsü olarak yakalanabilir.
 > 
 > 
 
 ### <a name="offload-excel-workbooks"></a>Excel çalışma kitaplarını boşaltma
-Böylece Azure HPC Pack kümesinde çalışan bir Excel çalışma kitabı boşaltmak için şu adımları izleyin. Bunu yapmak için Excel 2010 veya 2013 istemci bilgisayarda yüklü olması gerekir.
+Azure'da HPC Pack kümesinde çalışır, böylece bir Excel çalışma kitabı boşaltmak için bu adımları izleyin. Bunu yapmak için Excel 2010 veya 2013 istemci bilgisayarda zaten yüklü olması gerekir.
 
-1. İşlem düğümü görüntü Excel ile bir HPC paketi küme dağıtmak için adım 1'deki seçeneklerden birini kullanın. Küme sertifika dosyasını (.cer) ve küme kullanıcı adı ve parola edinin.
-2. İstemci bilgisayarda Cert: \CurrentUser\Root altında küme sertifikasını içeri aktarın.
-3. Excel yüklü olduğundan emin olun. Aynı klasörde Excel.exe istemci bilgisayarda aşağıdaki içeriğe sahip bir Excel.exe.config dosyası oluşturun. Bu adım, HPC Pack 2012 R2 Excel COM eklentisi başarıyla yüklendiğini sağlar.
+1. İşlem düğümü görüntü Excel ile bir HPC Pack kümesine dağıtmak için adım 1'deki seçeneklerden birini kullanın. Küme sertifikası dosyasını (.cer) ve küme kullanıcı adı ve parola edinin.
+2. İstemci bilgisayarda Cert: \CurrentUser\Root altında küme sertifikası alın.
+3. Excel yüklü olduğundan emin olun. Excel.exe istemci bilgisayarda aynı klasörde aşağıdaki içerikle Excel.exe.config dosyası oluşturun. Bu adım, HPC Pack 2012 R2 Excel COM eklentisi başarıyla yüklendiğini sağlar.
    
     ```
     <?xml version="1.0"?>
@@ -225,13 +225,13 @@ Böylece Azure HPC Pack kümesinde çalışan bir Excel çalışma kitabı boşa
         </startup>
     </configuration>
     ```
-4. HPC Pack kümeye iş göndermek için istemcisi ayarlama. Bir seçenektir tam yüklemeye [HPC Pack 2012 R2 güncelleştirme 3'ü yükleme](http://www.microsoft.com/download/details.aspx?id=49922) ve HPC Pack istemcisini yükleyin. Alternatif olarak, indirin ve yükleyin [HPC Pack 2012 R2 güncelleştirme 3 istemci yardımcı programları](https://www.microsoft.com/download/details.aspx?id=49923) ve uygun Visual C++ 2010 bilgisayarınızı yeniden dağıtılabilir ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
-5. Bu örnekte, ConvertiblePricing_Complete.xlsb adlandırılmış bir örnek Excel çalışma kitabı kullanırız. Karşıdan yükleyebileceğiniz [burada](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
-6. Excel çalışma kitabı D:\Excel\Run gibi çalışma klasörüne kopyalayın.
-7. Excel çalışma kitabı açın. Üzerinde **geliştirme** Şerit, tıklatın **COM eklentileri** ve HPC Pack Excel COM eklentisi başarıyla yüklendiğini doğrulayın.
+4. HPC Pack kümesine göndermek için istemci ayarlayın. Bir seçenektir tam yüklemeye [HPC Pack 2012 R2 güncelleştirme 3'ü yükleme](http://www.microsoft.com/download/details.aspx?id=49922) ve HPC Pack istemciyi yükleyin. Alternatif olarak, indirme ve yükleme [HPC Pack 2012 R2 güncelleştirme 3 istemci programları](https://www.microsoft.com/download/details.aspx?id=49923) ve uygun Visual C++ 2010 için bilgisayarınızı yeniden dağıtılabilir ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555) ).
+5. Bu örnekte, ConvertiblePricing_Complete.xlsb adlı örnek Excel çalışma kitabını kullanırız. İndirebilirsiniz [burada](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
+6. Excel çalışma kitabını D:\Excel\Run gibi bir çalışma klasörüne kopyalayın.
+7. Excel çalışma kitabını açın. Üzerinde **geliştirme** Şerit ye **COM eklentileri** ve HPC Pack Excel COM eklentisi başarıyla yüklendiğini doğrulayın.
    
-   ![HPC Pack eklentisi excel][addin]
-8. Aşağıdaki kodda gösterildiği gibi açıklamalı satırları değiştirerek VBA makrosu Excel'de HPCControlMacros düzenleyin. Ortamınız için uygun değerleri değiştirin.
+   ![Excel için HPC Pack eklentisi][addin]
+8. Aşağıdaki kodda gösterildiği gibi açıklamalı satırları değiştirerek VBA makrosu HPCControlMacros Excel'de düzenleyin. Ortamınız için uygun değerleri değiştirin.
    
    ![HPC Pack için Excel makrosu][macro]
    
@@ -251,41 +251,41 @@ Böylece Azure HPC Pack kümesinde çalışan bir Excel çalışma kitabı boşa
    'HPCExcelClient.OpenSession headNode:=HPC_ClusterScheduler, remoteWorkbookPath:=HPCWorkbookPath
    HPCExcelClient.OpenSession headNode:=HPC_ClusterScheduler, remoteWorkbookPath:=HPCWorkbookPath, UserName:="hpc\azureuser", Password:="<YourPassword>"
    ```
-9. Excel çalışma kitabı D:\Excel\Upload gibi bir karşıya yükleme dizinine kopyalayın. Bu dizin VBA makrosu HPC_DependsFiles sabitinde belirtildi.
-10. Çalışma kitabı Azure kümesinde çalıştırmak için tıklatın **küme** çalışma sayfası üzerinde düğmesi.
+9. Excel çalışma kitabını D:\Excel\Upload gibi bir karşıya yükleme dizinine kopyalayın. Bu dizin VBA makrosu HPC_DependsFiles sabitinde belirtilir.
+10. Çalışma kitabı azure'da kümede çalıştırmak için tıklayın **küme** çalışma sayfasında düğme.
 
 ### <a name="run-excel-udfs"></a>Excel UDF'leri çalıştırın
-Excel UDF'leri çalıştırmak için istemci bilgisayarı ayarlamak için 1-3'ü yukarıdaki adımları izleyin. Excel UDF'leri için Excel uygulamanın işlem düğümlerinde yüklü olması gerekmez. Bu nedenle, düğümleri, küme oluşturma işlem zaman normal işlem düğümü görüntü Excel Hesaplama düğümü görüntüsüyle yerine seçebilir.
+Excel UDF'leri çalıştırmak için istemci bilgisayar'kurmak için 1-3'ü önceki adımları izleyin. Excel UDF'leri için Excel uygulamanın işlem düğümlerinde yüklü olması gerekmez. Bu nedenle, düğümleri kümenizi oluşturma işlem olduğunda, normal bir işlem düğümünün görüntüsü yerine Excel işlem düğümü görüntüsüyle seçebilirsiniz.
 
 > [!NOTE]
-> 34 karakter sınırı Excel 2010 ve 2013 Küme Bağlayıcısı iletişim kutusu yok. UDF'ler çalıştıran küme belirtmek için bu iletişim kutusunu kullanın. Tam küme adı uzunsa (örneğin, hpcexcelhn01.southeastasia.cloudapp.azure.com) iletişim kutusunda uygun değildir. Makine genelinde değişkeni ayarlamak için geçici bir çözüm değildir *CCP_IAASHN* uzun küme adı değerine sahip. Ardından, girin *CCP_IAASHN %* küme baş düğüm adı olarak iletişim kutusunda. 
+> 2013 Küme Bağlayıcısı iletişim kutusu ve Excel 2010'daki 34 karakter sınırlaması yoktur. UDF çalıştıran kümesi belirtmek için bu iletişim kutusunu kullanın. Tam küme adı uzunsa (örneğin, hpcexcelhn01.southeastasia.cloudapp.azure.com) iletişim kutusunda uygun değildir. Makine genelinde değişkeni ayarlamak için geçici çözüm olan *CCP_IAASHN* uzun küme adı değerine sahip. Ardından, girin *CCP_IAASHN %* küme baş düğümü adı olarak iletişim kutusunda. 
 > 
 > 
 
-Küme başarıyla dağıtıldıktan sonra yerleşik bir örneği çalıştırmak için aşağıdaki adımlarla devam Excel UDF. Bu özelleştirilmiş Excel UDF'leri bkz [kaynakları](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) XLL'ler oluşturmak ve bunları Iaas kümede dağıtmak için.
+Küme başarıyla dağıtıldıktan sonra yerleşik bir örneği çalıştırmak için aşağıdaki adımlarla devam Excel UDF. Özelleştirilmiş Excel UDF'leri için bkz: [kaynakları](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) XLL'ler oluşturup bunları Iaas kümede dağıtın.
 
-1. Yeni bir Excel çalışma kitabı açın. Üzerinde **geliştirme** Şerit, tıklatın **eklentileri**. İletişim kutusunda, ardından **Gözat**%CCP_HOME%Bin\XLL32 klasörüne gidin ve örnek ClusterUDF32.xll seçin. İstemci makinesinde ClusterUDF32 yoksa, baş düğüm %CCP_HOME%Bin\XLL32 klasöründen kopyalayın.
+1. Yeni bir Excel çalışma kitabını açın. Üzerinde **geliştirme** Şerit ye **eklentileri**. İletişim kutusunda, ardından **Gözat**%CCP_HOME%Bin\XLL32 klasöre gidin ve örnek ClusterUDF32.xll seçin. İstemci makinesinde ClusterUDF32 yoksa, baş düğüm %CCP_HOME%Bin\XLL32 klasöründen kopyalayın.
    
    ![UDF seçin][udf]
-2. Tıklatın **dosya** > **seçenekleri** > **Gelişmiş**. Altında **formüller**, denetleme **XLL işlevlerini kullanıcı tanımlı bir işlem kümesi çalışmasına izin**. Ardından **seçenekleri** ve tam küme adını girin **küme baş düğüm adı**. (Bir uzun küme adını değil sığar belirtildiği gibi daha önce bu giriş kutusu 34 karakterle sınırlıdır. "Bir makineye değişken uzun küme adı için kullanabilirsiniz.)
+2. Tıklayın **dosya** > **seçenekleri** > **Gelişmiş**. Altında **formülleri**, kontrol **XLL işlevler kullanıcı tarafından tanımlanan bir işlem kümesini çalıştırmak izin**. Ardından **seçenekleri** ve tam küme adı girin **küme baş düğümü adı**. (Bir uzun küme adı olmayan bir çözüm için belirtildiği gibi daha önce bu giriş kutusu 34 karakter ile sınırlıdır. "Bir makineye değişken için bir uzun küme adı kullanabilirsiniz.)
    
    ![UDF yapılandırın][options]
-3. UDF hesaplama küme üzerinde çalıştırmak için değer =XllGetComputerNameC() içeren hücreyi tıklatın ve Enter tuşuna basın. İşlevi yalnızca UDF çalıştığı işlem düğümündeki adını alır. İlk çalıştırmak için bir kimlik bilgileri iletişim kutusu, Iaas kümeye bağlanmak için kullanıcı adı ve parola ister.
+3. UDF hesaplamayı küme üzerinde çalıştırmak için değer =XllGetComputerNameC() içeren hücreyi tıklatın ve sonra Enter tuşuna basın. İşlevi yalnızca UDF üzerinde çalıştığı işlem düğümündeki adını alır. İlk çalıştırma için bir kimlik bilgileri iletişim kutusu, Iaas kümeye bağlanmak için kullanıcı adı ve parola ister.
    
-   ![UDF çalıştırın][run]
+   ![UDF çalıştırma][run]
    
-   Hesaplamak için çok sayıda hücre olduğunda Alt Shift Ctrl + F9 tüm hücre hesaplaması çalıştırmak için tuşuna basın.
+   Hesaplamak için çok sayıda hücre olduğunda, tüm hücreleri üzerinde hesaplama çalıştırmak için Alt-Shift-Ctrl + F9 tuşuna basın.
 
-## <a name="step-3-run-a-soa-workload-from-an-on-premises-client"></a>3. Adım Bir şirket içi istemciden bir SOA iş yükü çalıştırın
-HPC Pack Iaas kümede genel SOA uygulamalarını çalıştırmak için önce yöntemlerden birini adım 1'de küme dağıtmak için kullanın. İşlem düğümlerinde Excel gerekmediği için genel işlem düğümü görüntüsü bu durumda, belirtin. Ardından aşağıdaki adımları izleyin.
+## <a name="step-3-run-a-soa-workload-from-an-on-premises-client"></a>3. Adım Şirket içi bir istemciden bir SOA iş yükü çalıştırma
+HPC Pack Iaas kümede genel SOA uygulamaları çalıştırmak için ilk yöntemlerden birini 1. adımda kümeyi dağıtmak için kullanın. Genel işlem düğümünün görüntüsü bu durumda, işlem düğümlerinde Excel gerekmediği belirtin. Ardından aşağıdaki adımları izleyin.
 
-1. Küme sertifikası aldıktan sonra onu Cert: \CurrentUser\Root altında istemci bilgisayarda içeri aktarın.
-2. Yükleme [HPC Pack 2012 R2 güncelleştirme 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) ve [HPC Pack 2012 R2 güncelleştirme 3 istemci yardımcı programları](https://www.microsoft.com/download/details.aspx?id=49923). Bu araçlar geliştirme ve SOA istemci uygulamaları çalıştırmak etkinleştirin.
-3. HelloWorldR2 karşıdan [örnek koduna](https://www.microsoft.com/download/details.aspx?id=41633). Visual Studio 2010 veya 2012 HelloWorldR2.sln açın. (Bu örnek, Visual Studio'nun daha yeni sürümleri ile şu anda uyumlu değildir.)
-4. EchoService projeyi önce oluşturun. Ardından, hizmet için bir şirket içi kümeyi dağıtma aynı şekilde Iaas kümeye dağıtın. Ayrıntılı adımlar için HelloWordR2 içinde Benioku.doc bakın. Değiştirin ve yapı HellWorldR2 ve diğer projeler aşağıdaki bölümde açıklandığı gibi Azure Iaas kümede çalışan SOA istemci uygulamaları oluşturmak için.
+1. Küme sertifikası aldıktan sonra istemci bilgisayarının Cert: \CurrentUser\Root altında içe aktarın.
+2. Yükleme [HPC Pack 2012 R2 Update 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) ve [HPC Pack 2012 R2 güncelleştirme 3 istemci programları](https://www.microsoft.com/download/details.aspx?id=49923). Bu araçlar, SOA istemci uygulamaları geliştirme ve çalıştırma olanak tanır.
+3. HelloWorldR2 indirme [örnek kod](https://www.microsoft.com/download/details.aspx?id=41633). Visual Studio 2010 veya 2012 HelloWorldR2.sln açın. (Bu örnekte şu anda, Visual Studio'nun daha yeni sürümleriyle uyumlu değildir.)
+4. EchoService projeyi ilk derleyin. Ardından, hizmet Iaas kümeye bir şirket içi kümesine dağıttığınız şekilde dağıtın. Ayrıntılı adımlar için HelloWordR2 içinde Benioku.doc bakın. Değiştirebilir ve bir Azure Iaas kümesinde çalışan SOA istemci uygulamaları oluşturmak için HellWorldR2 ve aşağıdaki bölümde açıklandığı gibi diğer projeler oluşturun.
 
-### <a name="use-http-binding-with-azure-storage-queue"></a>HTTP bağlaması ile Azure depolama kuyruğu kullanın
-HTTP bağlaması bir Azure depolama kuyruğu ile kullanmak için örnek kod birkaç değişiklikleri yapın.
+### <a name="use-http-binding-with-azure-storage-queue"></a>Azure depolama kuyruğu ile HTTP bağlaması kullanın
+HTTP bağlaması bir Azure depolama kuyruğu ile kullanmak için örnek koda birkaç değişiklik yapın.
 
 * Küme adını güncelleştirin.
   
@@ -297,7 +297,7 @@ HTTP bağlaması bir Azure depolama kuyruğu ile kullanmak için örnek kod birk
   or
   const string headnode = "hpc01.cloudapp.net";
   ```
-* İsteğe bağlı olarak, TransportScheme varsayılan SessionStartInfo kullanın veya açık olarak Http için ayarlayın.
+* İsteğe bağlı olarak, varsayılan TransportScheme SessionStartInfo içinde kullanın veya Http açıkça ayarlayın.
 
 ```
     info.TransportScheme = TransportScheme.Http;
@@ -312,39 +312,39 @@ HTTP bağlaması bir Azure depolama kuyruğu ile kullanmak için örnek kod birk
   using (BrokerClient<IService1> client = new BrokerClient<IService1>(session))
   ```
   
-    Veya açıkça basicHttpBinding kullanarak ayarlayın.
+    Veya basicHttpBinding kullanarak açıkça ayarlayabilirsiniz.
   
     ```
   BasicHttpBinding binding = new BasicHttpBinding(BasicHttpSecurityMode.TransportWithMessageCredential);
   binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.UserName;    binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.None;
   ```
-* İsteğe bağlı olarak UseAzureQueue bayrağını SessionStartInfo true olarak ayarlayın. Ayarlanmazsa, ayarlanacak varsa Azure etki alanı sonekleri küme adına sahip ve TransportScheme Http olduğunda varsayılan olarak true.
+* İsteğe bağlı olarak, true olarak SessionStartInfo UseAzureQueue bayrağını ayarlayın. Ayarlanmazsa, ayarlanacak, küme adının Azure etki alanı sonekleri sahip olduğunda ve TransportScheme HTTP'dir. varsayılan olarak true.
   
     ```
     info.UseAzureQueue = true;
   ```
 
-### <a name="use-http-binding-without-azure-storage-queue"></a>Azure depolama kuyruğu olmadan HTTP bağlaması kullanın
-Bir Azure depolama kuyruğu olmadan HTTP bağlaması kullanmak için açıkça UseAzureQueue bayrağı false olarak SessionStartInfo ayarlayın.
+### <a name="use-http-binding-without-azure-storage-queue"></a>HTTP bağlaması Azure depolama kuyruğu olmadan kullanın
+HTTP bağlaması olmadan bir Azure depolama kuyruğu kullanmak için açıkça false olarak SessionStartInfo UseAzureQueue bayrağını ayarlayın.
 
 ```
     info.UseAzureQueue = false;
 ```
 
 ### <a name="use-nettcp-binding"></a>NetTcp bağlama kullanın
-NetTcp bağlama kullanmak için yapılandırmayı bir şirket içi kümeye bağlanma benzer. Baş düğüm VM birkaç uç noktaları açmanız gerekir. Örneğin, küme oluşturmak için HPC Pack Iaas dağıtım betiği kullandıysanız, Azure portalında uç noktaları aşağıdaki gibi ayarlayın.
+NetTcp bağlama kullanmak için yapılandırmanın bir şirket içi kümesine bağlamakla aynıdır. Üstbilgi düğüm VM'ine birkaç Uç noktalara açmanız gerekir. Örneğin, kümeyi oluşturmak için HPC Pack Iaas dağıtım betiği kullandıysanız, Azure portalında uç noktaları şu şekilde ayarlayın.
 
-1. VM'yi durdurun.
-2. TCP bağlantı noktaları 9090, 9087, ekleme 9091, oturum için 9094 Aracısı, alt ve Veri Hizmetleri, sırasıyla Aracısı
+1. Sanal Makineyi durdurun.
+2. TCP bağlantı noktaları 9090'dır, 9087, ekleme, 9091 9094 oturumu için aracı, çalışan ve veri hizmetlerini, sırasıyla aracı
    
     ![Uç noktaları yapılandırma][endpoint-new-portal]
 3. VM’yi başlatın.
 
-SOA istemci uygulaması Iaas küme tam adı baş adına değiştirme dışında herhangi bir değişiklik gerektirmez.
+SOA istemci uygulaması Iaas küme tam adı baş adının değiştirilmesi dışında herhangi bir değişiklik gerektirmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bkz: [bu kaynakları](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) Excel iş yükleri HPC paketi ile çalıştırma hakkında daha fazla bilgi için.
-* Bkz: [SOA Hizmetleri'nde yönetme Microsoft HPC Pack](https://technet.microsoft.com/library/ff919412.aspx) dağıtma ve SOA Hizmetleri HPC paketi ile yönetme hakkında daha fazla bilgi için.
+* Bkz: [bu kaynakları](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) HPC Pack ile Excel iş yükleri çalıştırma hakkında daha fazla bilgi için.
+* Bkz: [SOA Hizmetleri'nde yönetme Microsoft HPC Pack](https://technet.microsoft.com/library/ff919412.aspx) HPC Pack ile SOA hizmetlerini dağıtıp yönetmeye hakkında daha fazla bilgi için.
 
 <!--Image references-->
 [scenario]: ./media/excel-cluster-hpcpack/scenario.png

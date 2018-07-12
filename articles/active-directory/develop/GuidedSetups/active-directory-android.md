@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory v2 Android Başlarken | Microsoft Docs
-description: Nasıl bir Android uygulaması bir erişim belirteci alın ve Microsoft Graph API'si veya bir Azure Active Directory v2 uç noktasından erişim belirteçleri gerektiren API'leri çağırın.
+title: Azure Active Directory v2 Android kullanmaya başlama | Microsoft Docs
+description: Nasıl bir Android uygulamasına erişim belirteci almak ve Microsoft Graph API'si veya bir Azure Active Directory v2 uç noktasından erişim belirteçlerini gerektiren API çağrısı.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -16,14 +16,10 @@ ms.date: 04/05/2018
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 79f241a11ca0033fcaf5def3d3f4cef787e2c2e0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32148871"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38443487"
 ---
-[!INCLUDE [1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-android-introduction.md)]
-[!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-android-setup.md)]
-[!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-android-use.md)]
-[!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-android-configure.md)]
-[!INCLUDE [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-android-test.md)]
+[[1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-android-introduction.md)] [!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-android-setup.md)] [!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-android-use.md)] [!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-android-configure.md)] [!INCLUDE [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-android-test.md)]

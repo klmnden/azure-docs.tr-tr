@@ -1,6 +1,6 @@
 ---
-title: Özel olayları ve ölçümleri için Application Insights API'si | Microsoft Docs
-description: Birkaç satır kod, cihaz veya masaüstü uygulaması, Web sayfası veya kullanımı izlemek ve sorunlarını tanılamak için hizmetinizi ekleyin.
+title: Özel olaylar ve ölçümler için Application Insights API | Microsoft Docs
+description: Birkaç satır kod, cihaz veya masaüstü uygulaması, Web sayfası veya kullanımını izlemek ve sorunları tanılamak için hizmetinizi ekleyin.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -14,43 +14,43 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
 ms.openlocfilehash: 5c33e1a5568de5fffb5ea9cedb43bdc04aeaeba7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293860"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306769"
 ---
-# <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olayları ve ölçümleri için Application Insights API'si
+# <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olaylar ve ölçümler için Application Insights API
 
-Birkaç satır kod uygulamanızda kullanıcıların ne ile yaptıklarını bulmak için veya sorunları tanılamak için ekleyin. Aygıt ve Masaüstü uygulamaları, web istemcileri ve web sunucuları telemetri gönderebilir. Kullanım [Azure Application Insights](app-insights-overview.md) çekirdek özel olayları ve ölçümleri ve kendi sürümleri standart telemetri göndermeyi telemetri API'si. Bu API standart Application Insights veri toplayıcıları kullanan aynı API'dir.
+Uygulamanızda hangi kullanıcılar ile nasıl kullandığını görün veya sorunlarının tanılanmasına yardımcı olmak için birkaç satırlık bir kod ekleyin. Cihaz ve Masaüstü uygulamaları, web istemcileri ve web sunucularından telemetri gönderebilir. Kullanım [Azure Application Insights](app-insights-overview.md) çekirdek özel olaylar ve ölçümler ve kendi sürümleri standart telemetri göndermek için API telemetri. Bu API, standart Application Insights veri toplayıcıları kullanın aynı bir API'dir.
 
 ## <a name="api-summary"></a>API özeti
-Birkaç küçük Çeşitlemeler dışında tüm platformlar genelinde Tekdüzen API'dir.
+Birkaç küçük farklılıklar dışında tüm platformlar arasında Tekdüzen bir API'dir.
 
-| Yöntem | İçin kullanılır |
+| Yöntem | İçin kullanılan |
 | --- | --- |
-| [`TrackPageView`](#page-views) |Sayfalar, ekranlar, dikey veya formlar. |
-| [`TrackEvent`](#trackevent) |Kullanıcı eylemleri ve diğer olaylar. Kullanıcı davranışı izlemek veya performansını izlemek için kullanılır. |
-| [`TrackMetric`](#trackmetric) |Performans ölçümleri gibi sıra uzunlukları belirli olayları ile ilgili değildir. |
-| [`TrackException`](#trackexception) |Tanılama için günlük özel durumları. İzleme burada bunlar ile ilgili diğer olaylar oluşur ve Yığın izlemeleri inceleyin. |
-| [`TrackRequest`](#trackrequest) |Sunucu istek süresi Performans Analizi ve sıklığı günlüğü. |
-| [`TrackTrace`](#tracktrace) |Tanılama günlük iletileri. Üçüncü taraf günlükleri de yakalayabilirsiniz. |
-| [`TrackDependency`](#trackdependency) |Uygulamanızı bağlıdır dış bileşenlere çağrılar sıklığı ve süresi günlüğü. |
+| [`TrackPageView`](#page-views) |Sayfalar, ekranlar, dikey pencereleri veya forms. |
+| [`TrackEvent`](#trackevent) |Kullanıcı eylemlerini ve diğer olayları. Kullanıcı davranışını izleme veya performansını izlemek için kullanılır. |
+| [`TrackMetric`](#trackmetric) |Belirli olayları ile ilgili olmayan kuyruk uzunluğu gibi performans ölçümleri. |
+| [`TrackException`](#trackexception) |Tanılama için özel durumları günlüğe kaydetme. Diğer olayları ile ilgili olarak ortaya ve Yığın izlemeleri inceleyin burada izleme. |
+| [`TrackRequest`](#trackrequest) |Günlüğe kaydetme sıklığı ve performans analizi için sunucu isteği süresi. |
+| [`TrackTrace`](#tracktrace) |Tanılama günlüğü iletileri. Üçüncü taraf günlükleri de yakalayabilirsiniz. |
+| [`TrackDependency`](#trackdependency) |Uygulamanızın bağımlı dış bileşenlere çağrılar sıklığı ve süresi günlüğe kaydetme. |
 
-Yapabilecekleriniz [özellikleri ve ölçümleri ekleme](#properties) bu telemetri çağrılardan bir çoğuna.
+Yapabilecekleriniz [özellikler ve ölçümler ekleme](#properties) çoğu bu telemetri çağrıları.
 
 ## <a name="prep"></a>Başlamadan önce
-Application Insights SDK'sı üzerinde bir başvuru henüz yoksa:
+Application Insights SDK'sı hakkında başvuru henüz yoksa:
 
-* Application Insights SDK'sı projenize ekleyin:
+* Application Insights SDK'sını projenize ekleyin:
 
   * [ASP.NET projesi](app-insights-asp-net.md)
   * [Java projesi](app-insights-java-get-started.md)
   * [Node.js projesi](app-insights-nodejs.md)
-  * [Her Web sayfasındaki JavaScript](app-insights-javascript.md) 
+  * [Her bir Web sayfasındaki JavaScript](app-insights-javascript.md) 
 * Cihazınıza veya web sunucusu kodunuza şunu ekleyin:
 
-    *C# ' TA:* `using Microsoft.ApplicationInsights;`
+    *C# İÇİN:* `using Microsoft.ApplicationInsights;`
 
     *Visual Basic:* `Imports Microsoft.ApplicationInsights`
 
@@ -58,8 +58,8 @@ Application Insights SDK'sı üzerinde bir başvuru henüz yoksa:
     
     *Node.js:* `var applicationInsights = require("applicationinsights");`
 
-## <a name="get-a-telemetryclient-instance"></a>Bir TelemetryClient örneği Al
-Bir örneğini almak `TelemetryClient` (Web sayfalarındaki JavaScript'te hariç):
+## <a name="get-a-telemetryclient-instance"></a>TelemetryClient örneği Al
+Bir kopyasını almak `TelemetryClient` (JavaScript'te sayfalarında hariç):
 
 *C#*
 
@@ -78,9 +78,9 @@ Bir örneğini almak `TelemetryClient` (Web sayfalarındaki JavaScript'te hariç
     var telemetry = applicationInsights.defaultClient;
 
 
-TelemetryClient iş parçacığı güvenlidir.
+TelemetryClient, iş parçacığı açısından güvenlidir.
 
-ASP.NET ve Java projeleri için gelen HTTP isteklerini otomatik olarak yakalanır. Uygulamanızın başka bir modül için TelemetryClient ek örneklerini oluşturmak isteyebilirsiniz. Örneğin, rapor iş mantığı olaylarını ara yazılım sınıfı bir TelemetryClient örneği olabilir. Kullanıcı kimliği ve DeviceID makine tanımlamak için gibi özellikleri ayarlayabilirsiniz. Bu bilgiler örneği gönderdiği tüm olayları eklenir. 
+ASP.NET ve Java projeleri için gelen HTTP isteklerini otomatik olarak yakalanır. Uygulamanızın başka bir modül için ek TelemetryClient örneklerini oluşturmak isteyebilirsiniz. Örneğin, bir TelemetryClient örneği raporu iş mantığı olayları ara yazılım sınıfı olabilir. Makineyi tanımlamak için kullanıcı kimliği ve cihaz kimliği gibi özellikleri ayarlayabilirsiniz. Bu bilgileri, örnek gönderen tüm olayları eklenir. 
 
 *C#*
 
@@ -92,14 +92,14 @@ ASP.NET ve Java projeleri için gelen HTTP isteklerini otomatik olarak yakalanı
     telemetry.getContext().getUser().setId("...);
     telemetry.getContext().getDevice().setId("...");
 
-Node.js projelerinde kullandığınız `new applicationInsights.TelemetryClient(instrumentationKey?)` yeni bir örneği, ancak bu oluşturmak için tekli yalıtılmış yapılandırmasından gerektiren senaryolar için önerilir `defaultClient`.
+Node.js projelerinde kullanabileceğiniz `new applicationInsights.TelemetryClient(instrumentationKey?)` yeni bir örneği, ancak bu oluşturmak için tekli yalıtılmış yapılandırmasından gerektiren senaryolar için önerilir `defaultClient`.
 
 ## <a name="trackevent"></a>TrackEvent
-Application ınsights'ta bir *özel olay* içinde görüntüleyebilirsiniz bir veri noktası [ölçüm Gezgini](app-insights-metrics-explorer.md) toplanan sayılara olarak ve buna [tanılama arama](app-insights-diagnostic-search.md) olarak tek tek yineleme. (Bu MVC veya diğer framework "olayları." ile ilişkili değil)
+Application ınsights'ta bir *özel olay* görüntülemek için bir veri noktasıdır [ölçüm Gezgini](app-insights-metrics-explorer.md) toplam bir sayı olarak ve buna [tanılama araması](app-insights-diagnostic-search.md) olarak tek tek tekrar. (Bu MVC veya diğer framework "olaylar" ilgili değildir)
 
-INSERT `TrackEvent` çeşitli olaylarının sayılacağı kodunuzda çağırır. Ne sıklıkla kullanıcıların belirli bir özellik, ne sıklıkta bunlar belirli hedeflere ulaşmak veya hatalar belirli tür belki ne sıklıkta yaptıkları seçin.
+INSERT `TrackEvent` çeşitli olaylarının kodunuzda çağırır. Ne sıklıkla kullanıcıların belirli bir özellik, ne sıklıkta bunlar belirli hedeflere ulaşmak veya hatalarının belirli türlerini yaptıkları belki de ne sıklıkta seçin.
 
-Örneğin, bir oyun uygulamada bir kullanıcı oyun WINS bir olay gönderebilir:
+Örneğin, bir oyun uygulaması, bir kullanıcı oyun WINS bir olay gönderebilir:
 
 *JavaScript*
 
@@ -122,44 +122,44 @@ INSERT `TrackEvent` çeşitli olaylarının sayılacağı kodunuzda çağırır.
     telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="view-your-events-in-the-microsoft-azure-portal"></a>Microsoft Azure Portalı'nda, olayları görüntülemek
-Olaylarınızı sayısını görmek için açık bir [ölçüm Gezgini](app-insights-metrics-explorer.md) dikey penceresinde, yeni bir grafik ekleyin ve seçin **olayları**.  
+Olayların sayısını görmek için bir [ölçüm Gezgini](app-insights-metrics-explorer.md) dikey penceresinde, yeni bir grafik ekleyin ve seçin **olayları**.  
 
-![Özel olaylar sayısını bakın](./media/app-insights-api-custom-events-metrics/01-custom.png)
+![Özel olay sayısı bakın](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
-Farklı olayları sayısı karşılaştırmak için grafik türünü ayarlamak **kılavuz**ve olay adı tarafından Grup:
+Grafik türü farklı olay sayısını Karşılaştırılacak kümesine **kılavuz**ve olay adıyla Grup:
 
-![Gruplandırma ve grafik türünü ayarlayın](./media/app-insights-api-custom-events-metrics/07-grid.png)
+![Grafik türünü ve gruplandırma](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
-Kılavuzda, bu olay oluşumlarını görmek için bir olay adı tıklayın. Daha fazla ayrıntı - listedeki olayı tıklatın.
+Kılavuzda, bu olay oluşumlarını görmek için bir olay adı tıklayın. -Daha fazla ayrıntı görmek için listedeki olayı tıklayın.
 
-![Aracılığıyla olaylarını incelemek](./media/app-insights-api-custom-events-metrics/03-instances.png)
+![Olayları detaya gidin](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
-Arama veya ölçüm Gezgini belirli olayları odaklanmak için dikey 's filtresi ilgilendiğiniz olay adları ayarla:
+Arama veya ölçüm Gezgini belirli olayları odaklanmak için ilgilendiğiniz olay adları için filtre dikey penceresinin ayarlayın:
 
-![Filtreler açın, olay adı'nı genişletin ve bir veya daha fazla değerleri seçin](./media/app-insights-api-custom-events-metrics/06-filter.png)
+![Filtreler açın, olay adını genişletin ve bir veya daha fazla değer seçin](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
 ### <a name="custom-events-in-analytics"></a>Analytics'te özel olaylar
 
-Telemetriyi kullanılabilir `customEvents` tablosundaki [uygulama Öngörüler Analytics](app-insights-analytics.md). Her satır için bir çağrı temsil eden `trackEvent(..)` uygulamanızda. 
+Telemetriyi kullanılabilir `customEvents` tablosundaki [Application Insights Analytics](app-insights-analytics.md). Her satır için bir çağrı temsil eden `trackEvent(..)` uygulamanızda. 
 
-Varsa [örnekleme](app-insights-sampling.md) içinde ItemCount özelliği 1'den büyük bir değer gösterir işlemdir. Örnek ItemCount == trackEvent() için 10 çağrıları, örnekleme işlemi yalnızca bunlardan birinin aktarılan 10 anlamına gelir. Özel olaylar doğru sayısını almak için bu nedenle kullanım kodu gibi kullanmalısınız `customEvent | summarize sum(itemCount)`.
+Varsa [örnekleme](app-insights-sampling.md) ItemCount özelliği 1'den büyük bir değer gösterir, işlemde olduğu. İçin örnek ItemCount == trackEvent() 10 çağrısına örnekleme işlemi yalnızca bir tanesi aktarılan 10 anlamına gelir. Özel olaylar doğru sayısını almak için bu nedenle gibi bir kod kullanın kullanmalısınız `customEvent | summarize sum(itemCount)`.
 
 
 ## <a name="trackmetric"></a>TrackMetric
 
-Application Insights belirli olaylara bağlı olmayan ölçümleri grafik. Örneğin, bir kuyruk uzunluğu düzenli aralıklarla izlemek. Ölçümleri, bağımsız değişkenleri ve eğilimleri daha az ilgi ölçümlerdir ve böylece istatistiksel grafikler kullanışlıdır.
+Application Insights belirli olaylara bağlı olmayan ölçümleri grafik. Örneğin, bir kuyruk uzunluğu düzenli aralıklarla izleyebilir. Ölçümler, tek tek ölçüler çözümlenmeyebileceği ve eğilimleri daha az ilgi çeken ve bu nedenle istatistiksel grafikleri kullanışlıdır.
 
-Ölçümleri Application Insights'a gönderme için kullanabileceğiniz `TrackMetric(..)` API. Ölçüm göndermek için iki yolu vardır: 
+Ölçümler Application Insights'a gönderme için kullanabileceğiniz `TrackMetric(..)` API. Bir ölçüm göndermek için iki yolu vardır: 
 
-* Tek bir değer. Uygulamanızda bir ölçüm gerçekleştirdiğiniz her zaman, karşılık gelen değerle Application Insights'a gönderme. Örneğin, bir kapsayıcı öğe sayısını açıklayan bir ölçüm olduğunu varsayalım. Belirli bir zaman diliminde ilk üç öğeleri kapsayıcıya yerleştirdiğiniz ve ardından iki öğeyi kaldırın. Buna göre çağırırdı `TrackMetric` iki kez: ilk değer geçirme `3` ve ardından değeri `-2`. Application Insights, sizin adınıza her iki değerin de depolar. 
+* Tek bir değer. Uygulamanızda bir ölçüm gerçekleştirdiğiniz her seferinde, karşılık gelen değerle Application Insights'a gönderme. Örneğin, bir kapsayıcı içindeki öğe sayısını açıklayan bir ölçüm olduğunu varsaymaktadır. Belirli bir zaman diliminde ilk üç öğe kapsayıcının içine yerleştirin ve ardından, iki öğeyi kaldırın. Buna çağrı yapıyordu `TrackMetric` iki kez: ilk değeri geçirdiğini `3` ve değer `-2`. Application Insights sizin adınıza her iki değeri depolar. 
 
-* Toplama. Ölçümleri ile çalışırken, her tek nadiren ilgi ölçüsüdür. Bunun yerine belirli bir süre içinde ne Özet önemlidir. Bu tür bir özeti adlı _toplama_. Yukarıdaki örnekte, toplama ölçüm bu döneme ait toplamıdır `1` ve ölçüm değerlerin sayısını `2`. Toplama yaklaşım kullanırken, yalnızca çağırma `TrackMetric` zaman süresi başına bir kez ve toplam değerler gönderin. Bu önemli ölçüde performans ve maliyet ek yükü daha az veri noktası Application Insights'a hala ilgili tüm bilgileri toplanırken göndererek küçültebilirsiniz beri önerilen yaklaşımdır.
+* Toplama. Ölçümler ile çalışırken, her tek bir ölçüm nadiren ilgi çekecektir. Bunun yerine belirli bir dönemde ne bir özeti önemlidir. Böyle bir özeti adlı _toplama_. Yukarıdaki örnekte, bu döneme ait toplam ölçüm toplamı olan `1` ve ölçüm değerleri sayısı `2`. Toplama yaklaşımı kullanarak, yalnızca çağırma `TrackMetric` zaman süresi başına bir kez ve toplam değerler gönderin. Bu önemli ölçüde performans ve maliyet ek yükü daha az veri noktası için Application Insights, yine de ilgili tüm bilgileri toplanırken göndererek küçültebilirsiniz olduğundan bu önerilen bir yaklaşımdır.
 
 ### <a name="examples"></a>Örnekler:
 
-#### <a name="single-values"></a>Tek değer
+#### <a name="single-values"></a>Tek değerler
 
-Tek bir ölçü değeri göndermek için:
+Tek bir ölçüm değeri göndermek için:
 
 *JavaScript*
 
@@ -190,10 +190,10 @@ Tek bir ölçü değeri göndermek için:
      telemetry.trackMetric({name: "queueLength", value: 42.0});
  ```
 
-#### <a name="aggregating-metrics"></a>Ölçümleri toplama
+#### <a name="aggregating-metrics"></a>Ölçüm toplama
 
-Birleşik ölçümleri uygulamanızdan göndermeden önce önerilir, bant genişliğini azaltmak için maliyet ve performansı artırmak için.
-Kod bir araya getirildiği bir örneği burada verilmiştir:
+İçin toplu ölçümleri uygulamanızdan göndermeden önce önerilir, bant genişliğini azaltmak için maliyet ve performansı artırmak için.
+Toplama koduna ilişkin bir örnek aşağıda verilmiştir:
 
 *C#*
 
@@ -337,30 +337,30 @@ namespace MetricAggregationExample
 }
 ```
 
-### <a name="custom-metrics-in-metrics-explorer"></a>Ölçümleri Explorer'da özel ölçümleri
+### <a name="custom-metrics-in-metrics-explorer"></a>Ölçüm Gezgini'nde özel ölçümler
 
-Sonuçları görmek için ölçümleri Gezgini'ni açın ve yeni bir grafik ekleyin. Ölçüm göstermek için grafik düzenleyin.
+Sonuçları görmek için ölçüm Gezgini'ni açın ve yeni bir grafik ekleyin. Grafiği, ölçümü gösterecek şekilde düzenleyin.
 
 > [!NOTE]
-> Özel ölçüm, kullanılabilir ölçümlere listesinde görünmesi birkaç dakika sürebilir.
+> Özel ölçüm, kullanılabilir ölçümler listede görünmesi birkaç dakika sürebilir.
 >
 
-![Yeni bir grafik ekleyin veya bir grafik seçin ve özel altında ölçüm seçin](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
+![Yeni bir grafik ekleyin veya bir grafiği seçin ve özel'ın altında ölçüm seçin](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-### <a name="custom-metrics-in-analytics"></a>Analytics'te özel ölçümleri
+### <a name="custom-metrics-in-analytics"></a>Analytics'te özel ölçümler
 
-Telemetriyi kullanılabilir `customMetrics` tablosundaki [uygulama Öngörüler Analytics](app-insights-analytics.md). Her satır için bir çağrı temsil eden `trackMetric(..)` uygulamanızda.
-* `valueSum` -Bu ölçümler toplamıdır. Ortalama değer almak için bölün `valueCount`.
-* `valueCount` -Bu toplanan ölçümleri sayısını `trackMetric(..)` çağırın.
+Telemetriyi kullanılabilir `customMetrics` tablosundaki [Application Insights Analytics](app-insights-analytics.md). Her satır için bir çağrı temsil eden `trackMetric(..)` uygulamanızda.
+* `valueSum` -Bu ölçümler toplamıdır. Ortalama değer almak için bölen `valueCount`.
+* `valueCount` -Bu toplanan ölçümlerin sayısı `trackMetric(..)` çağırın.
 
 ## <a name="page-views"></a>Sayfa görünümleri
-Her ekranı veya sayfa yüklendiğinde, bir aygıt veya Web sayfası uygulamasında varsayılan olarak sayfa görünümü telemetrisi gönderilir. Ancak, sayfa görünümleri ek veya farklı zamanlarda izlemek için değiştirebilirsiniz. Örneğin, sekmeler veya dikey pencereler görüntüleyen bir uygulama, kullanıcının yeni bir dikey pencere açıldığında bir sayfayı izlemek isteyebilirsiniz.
+Her ekran veya bir sayfa yüklendiğinde bir cihaz veya Web uygulamasında sayfa görünümü telemetrisini varsayılan olarak gönderilir. Ancak, ek veya bunlardan farklı zamanlarda sayfa görünümleri izlemek için değiştirebilirsiniz. Örneğin, sekmeler veya dikey pencereleri görüntüleyen bir uygulama, kullanıcının yeni bir dikey pencere açıldığında bir sayfayı izlemek isteyebilirsiniz.
 
-![Genel Bakış dikey penceresinde kullanım Mercek](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
+![Genel Bakış dikey penceresinde kullanım odağı](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
 
-Sayfa görünümü telemetrisi olduğunda kullanıcı ve oturum grafikleri Canlı gelmesi için kullanıcı ve oturum verilerini sayfa görünümleri birlikte özellikleri olarak gönderilir.
+Sayfa görünümü telemetrisini olduğunda kullanıcı ve oturum grafikleri Canlı gelmesi için kullanıcı ve oturum verilerini birlikte sayfa görüntüleme özellikleri olarak gönderilir.
 
-### <a name="custom-page-views"></a>Özel sayfa görünümleri
+### <a name="custom-page-views"></a>Özel sayfa görüntülemeleri
 *JavaScript*
 
     appInsights.trackPageView("tab1");
@@ -378,17 +378,17 @@ Sayfa görünümü telemetrisi olduğunda kullanıcı ve oturum grafikleri Canl�
     telemetry.TrackPageView("GameReviewPage")
 
 
-Farklı HTML sayfaları içinde birden çok sekme varsa, URL çok belirtebilirsiniz:
+Farklı HTML sayfaları içinde birkaç sekme varsa, URL'yi çok belirtebilirsiniz:
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
-### <a name="timing-page-views"></a>Zamanlama sayfası görünümleri
-Varsayılan olarak, kez bildirildi **sayfa görünümü yükleme süresi** tarayıcı isteği gönderdiğinde tarayıcının sayfası yük olayı çağrılıncaya kadar gelen ölçülür.
+### <a name="timing-page-views"></a>Zamanlama sayfa görüntülemeleri
+Varsayılan olarak kez bildirilen **sayfa görüntüleme yükleme süresi** tarayıcı sayfa yükleme olayı çağrılana kadar tarayıcı isteği gönderdiğinde, gelen ölçülür.
 
 Bunun yerine, şunlardan birini yapabilirsiniz:
 
-* Açık bir süre kümesinde [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview) çağırın: `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`.
-* Çağrıları zamanlama sayfası görünümü kullanmak `startTrackPage` ve `stopTrackPage`.
+* Açık bir süre kümesinde [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview) çağrı: `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`.
+* Zamanlama çağrı sayfa görünümünü kullanın `startTrackPage` ve `stopTrackPage`.
 
 *JavaScript*
 
@@ -400,48 +400,48 @@ Bunun yerine, şunlardan birini yapabilirsiniz:
     // To stop timing and log the page:
     appInsights.stopTrackPage("Page1", url, properties, measurements);
 
-İlk parametre olarak kullandığınız adı başlatma ve durdurma çağrıları ilişkilendirir. Geçerli sayfa adı varsayar.
+İlk parametre olarak kullandığınız adı başlatma ve durdurma çağrıları ilişkilendirir. Geçerli sayfa adı için varsayılan olarak ayarlanır.
 
-Ölçümleri Gezgini'nde görüntülenen sonuç sayfa yükleme süreleri başlatma ve durdurma çağrıları arasındaki aralığı türetilir. Bu size gerçekten zaman hangi aralığı bağlıdır.
+Ölçüm Gezgini'nde görüntülenen sonuç sayfa yükleme süreleri başlatma ve durdurma aramaları aralığını türetilmiştir. Bu, gerçekten zaman hangi aralığı aittir.
 
-### <a name="page-telemetry-in-analytics"></a>Sayfa telemetri analizi
+### <a name="page-telemetry-in-analytics"></a>Analytics'te sayfa telemetrisi
 
-İçinde [Analytics](app-insights-analytics.md) iki tablo tarayıcı işlemleri verileri göster:
+İçinde [Analytics](app-insights-analytics.md) iki tablo tarayıcı işlemlerden verileri göster:
 
-* `pageViews` Tablosu URL ve sayfa başlığını hakkındaki verileri içerir
-* `browserTimings` Tablosu gelen verileri işlemek için geçen süre gibi istemci performansı hakkında veri içerir
+* `pageViews` Tablo URL ve sayfa başlığını hakkındaki verileri içerir
+* `browserTimings` Tablo gelen veriyi işlemek için geçen süre gibi istemci performansıyla ilgili verileri içerir
 
-Tarayıcı farklı sayfaları işlemek için gereken süreyi bulmak için:
+Ne kadar tarayıcı farklı sayfalar işlenme bulmak için:
 
 ```
 browserTimings | summarize avg(networkDuration), avg(processingDuration), avg(totalDuration) by name 
 ```
 
-Farklı tarayıcılar popularities bulmak için:
+Farklı tarayıcıların popularities bulmak için:
 
 ```
 pageViews | summarize count() by client_Browser
 ```
 
-Sayfa görünümleri AJAX çağrıları ilişkilendirilecek bağımlılıklarla Katıl:
+Sayfa görüntülemeleri için AJAX çağrıları ilişkilendirilecek bağımlılıklarla Katıl:
 
 ```
 pageViews | join (dependencies) on operation_Id 
 ```
 
 ## <a name="trackrequest"></a>TrackRequest
-SDK sunucusu, HTTP isteklerini günlüğe kaydetmek için TrackRequest kullanır.
+Sunucu SDK'sı TrackRequest HTTP isteklerini günlüğe kaydetmek için kullanır.
 
-İstekleri bir bağlamda benzetimini yapmak istiyorsanız, ayrıca kendiniz çalışan web hizmeti modülü burada yok çağırabilirsiniz.
+Bir bağlamda istek benzetimi yapmak istiyorsanız, ayrıca kendiniz, çalışan web hizmeti modülünüzün olmadığı burada çağırabilirsiniz.
 
-Ancak, istek telemetri göndermek için önerilen burada isteği görevi gören yoludur bir <a href="#operation-context">işlemi bağlam</a>.
+Ancak, burada isteği olarak görev yapar istek telemetrisi göndermek için önerilen yöntem olduğu bir <a href="#operation-context">işlemi bağlam</a>.
 
 ## <a name="operation-context"></a>İşlem bağlamı
-İşlem bağlamı ile ilişkilendirerek telemetri öğeleri birlikte ilişkilendirebilirsiniz. Standart isteği izleme modülü, özel durumlar ve bir HTTP istek gerçekleştirilirken gönderilen diğer olayları için bunu yapar. İçinde [arama](app-insights-diagnostic-search.md) ve [Analytics](app-insights-analytics.md), kendi işlemi kimliği kullanarak istek ile ilişkili herhangi bir olayı kolayca bulabilirsiniz
+İşlem bağlamı ile ilişkilendirerek telemetri öğelerinin birlikte ilişkilendirebilirsiniz. Standart istek izleme modülü, özel durumlar ve bir HTTP isteği işlenirken gönderilen diğer olayları için bunu yapar. İçinde [arama](app-insights-diagnostic-search.md) ve [Analytics](app-insights-analytics.md), kendi işlem kimliği kullanarak istekle ilişkili olaylar kolayca bulabilirsiniz
 
-Bkz: [Telemetri bağıntı Application ınsights'ta](application-insights-correlation.md) bağıntı hakkında daha fazla ayrıntı için.
+Bkz: [Application ınsights Telemetri bağıntısı](application-insights-correlation.md) bağıntı hakkında daha fazla ayrıntı için.
 
-Telemetri el ile izlerken bu yöntemi kullanarak telemetri bağıntı emin olmak için en kolay yolu:
+Telemetri el ile izleme sırasında bu deseni kullanılarak telemetri bağıntısı sağlamanın en kolay yolu:
 
 *C#*
 
@@ -462,21 +462,21 @@ using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operati
 } // When operation is disposed, telemetry item is sent.
 ```
 
-Bir işlemin bağlamını ayarlanması birlikte `StartOperation` telemetri öğesi, belirttiğiniz türü oluşturur. İşlemi çıkardığınızda veya açıkça çağırırsanız telemetri öğesi gönderir `StopOperation`. Kullanırsanız `RequestTelemetry` telemetri türü olarak başlatma ve durdurma arasında zaman aralıklarında süresinin ayarlanır.
+Bir işlem bağlamını ayarlayarak birlikte `StartOperation` belirttiğiniz türünde bir telemetri öğesi oluşturur. İşlemi çıkardığınızda veya açıkça çağırmak telemetri öğesinin gönderir `StopOperation`. Kullanırsanız `RequestTelemetry` telemetri türü olarak başlatma ve durdurma arasındaki zaman aralığı süresi ayarlanır.
 
-Bir işlem kapsamı içinde bildirilen telemetri öğeler 'alt' gibi işlem haline gelir. İşlem bağlamı iç içe geçmiş. 
+Telemetri öğelerinin bir işlem kapsamı içinde bildirilen 'alt' gibi bir işlem haline gelir. İşlem bağlamları iç içe. 
 
-Aramada, işlem bağlamı oluşturmak için kullanılan **ilgili öğeler** listesi:
+Oluşturmak için kullanılan araması için işlem bağlamı **ilgili öğeleri** listesi:
 
 ![İlgili öğeler](./media/app-insights-api-custom-events-metrics/21.png)
 
-Bkz: [izlemek Application Insights .NET SDK ile özel işlemler](application-insights-custom-operations-tracking.md) izleme özel işlemler hakkında daha fazla bilgi için.
+Bkz: [Application Insights .NET SDK ile özel işlemleri izleme](application-insights-custom-operations-tracking.md) özel işlemleri izleme hakkında daha fazla bilgi için.
 
-### <a name="requests-in-analytics"></a>Analytics istekleri 
+### <a name="requests-in-analytics"></a>Analytics'te istekleri 
 
-İçinde [uygulama Öngörüler Analytics](app-insights-analytics.md), içinde Göster istekleri `requests` tablo.
+İçinde [Application Insights Analytics](app-insights-analytics.md), içinde Göster istekleri `requests` tablo.
 
-Varsa [örnekleme](app-insights-sampling.md) olduğundan, işlem ItemCount özelliği bir değer 1'den büyük gösterir. Örnek ItemCount == trackRequest() için 10 çağrıları, örnekleme işlemi yalnızca bunlardan birinin aktarılan 10 anlamına gelir. İstek ve istek adlarıyla kesimli ortalama süresi doğru sayısı almak için kodu gibi kullanın:
+Varsa [örnekleme](app-insights-sampling.md) olduğundan, işlem ItemCount özelliği bir değer 1'den büyük gösterir. İçin örnek ItemCount == trackRequest() 10 çağrısına örnekleme işlemi yalnızca bir tanesi aktarılan 10 anlamına gelir. İstek ve ortalama süresi isteğin adlarına göre segmentlere doğru sayısını almak için kod aşağıdaki gibi kullanın:
 
 ```AIQL
 requests | summarize count = sum(itemCount), avgduration = avg(duration) by name
@@ -484,12 +484,12 @@ requests | summarize count = sum(itemCount), avgduration = avg(duration) by name
 
 
 ## <a name="trackexception"></a>TrackException
-Özel durumlar Application Insights'a gönderme:
+Özel durumlar, Application Insights'a gönder:
 
-* İçin [saymanız](app-insights-metrics-explorer.md), bir sorun sıklığını belirtisi olarak.
-* İçin [ayrı ayrı oluşumları inceleyin](app-insights-diagnostic-search.md).
+* İçin [saymanız](app-insights-metrics-explorer.md), olarak sıklık bir sorunun göstergesidir.
+* İçin [ayrı ayrı örnekleri inceleyin](app-insights-diagnostic-search.md).
 
-Raporları Yığın izlemeleri içerir.
+Raporlar, yığın izlemelerini içerir.
 
 *C#*
 
@@ -532,11 +532,11 @@ Raporları Yığın izlemeleri içerir.
        telemetry.trackException({exception: ex});
     }
 
-Her zaman TrackException açıkça çağırın zorunda kalmamak için SDK'ları birçok özel durumlarını otomatik olarak yakalama.
+Her zaman TrackException açıkça çağırmak zorunda kalmamak için SDK'ları çok sayıda özel durumları otomatik olarak yakalayın.
 
 * ASP.NET: [özel durumları yakalamak için kod yazma](app-insights-asp-net-exceptions.md).
-* J2EE: [özel durumları yakalanan otomatik olarak](app-insights-java-get-started.md#exceptions-and-request-failures).
-* JavaScript: Özel durumları otomatik olarak yakalanır. Otomatik olarak toplanmasını devre dışı bırakmak istiyorsanız, bir satırı, Web sayfalarındaki Ekle kod parçacığını ekleyin:
+* J2EE: [özel durumları otomatik olarak yakalanır](app-insights-java-get-started.md#exceptions-and-request-failures).
+* JavaScript: Özel durumları otomatik olarak yakalanır. Otomatik olarak toplanmasını devre dışı bırakmak isterseniz, bir satırı, Web sayfalarındaki eklediğiniz kod parçacığını ekleyin:
 
     ```
     ({
@@ -545,17 +545,17 @@ Her zaman TrackException açıkça çağırın zorunda kalmamak için SDK'ları 
     })
     ```
 
-### <a name="exceptions-in-analytics"></a>Analytics özel durumları
+### <a name="exceptions-in-analytics"></a>Analytics'te özel durumları
 
-İçinde [uygulama Öngörüler Analytics](app-insights-analytics.md), özel durumlar gösterilmiyor `exceptions` tablo.
+İçinde [Application Insights Analytics](app-insights-analytics.md), özel durumlar gösterilir `exceptions` tablo.
 
-Varsa [örnekleme](app-insights-sampling.md) işlem içinde `itemCount` özelliği değeri 1'den büyük gösterir. Örnek ItemCount == 10 trackException() çağrıları ekleme, örnekleme işlemi yalnızca bunlardan birinin aktarılan 10 anlamına gelir. Özel durum türüne göre kesimli özel durumlarının doğru bir sayıyı almak için kodu gibi kullanın:
+Varsa [örnekleme](app-insights-sampling.md) işleminde, `itemCount` özelliği değeri 1'den büyük gösterir. İçin örnek ItemCount == 10 trackException() çağrıları ekleme, örnekleme işlemi yalnızca bir tanesi aktarılan 10 anlamına gelir. Özel durum türüne göre segmentlere özel durumlarını doğru sayısını almak için kod aşağıdaki gibi kullanın:
 
 ```
 exceptions | summarize sum(itemCount) by type
 ```
 
-Önemli yığın bilgilerin çoğunu ayrı değişkenlere zaten ayıklanan ancak birbirinden çekme `details` daha fazlasına yapısı. Bu yapı dinamik olduğundan, beklediğiniz türü sonucu atamalısınız. Örneğin:
+En önemli yığın bilgileri ayrı değişkenlere zaten ayıklanan ancak uzaklıkta çekme `details` yapısını daha fazla yararlanın. Bu yapı dinamik olduğundan, beklediğiniz türü sonucu atamalısınız. Örneğin:
 
 ```AIQL
 exceptions
@@ -570,11 +570,11 @@ exceptions
 ```
 
 ## <a name="tracktrace"></a>TrackTrace
-Application Insights "içerik haritası Kılavuzu" göndererek sorunların tanılanmasına yardımcı olmak için TrackTrace kullanın. Tanılama veri öbekleri göndermek ve bunları inceleyin [tanılama arama](app-insights-diagnostic-search.md).
+TrackTrace "içerik haritası Kılavuzu" Application Insights'a göndererek, sorunların tanılanmasına yardımcı olmak için kullanın. Tanılama veri öbekleri göndermek ve bunları İnceleme [tanılama araması](app-insights-diagnostic-search.md).
 
-.NET içinde [oturum bağdaştırıcıları](app-insights-asp-net-trace-logs.md) portalına üçüncü taraf günlükleri göndermek için bu API'yi kullanın.
+. NET'te [oturum bağdaştırıcıları](app-insights-asp-net-trace-logs.md) Portalı'na üçüncü taraf günlükleri göndermek için bu API'yi kullanın.
 
-Java için [standart günlükçüleri ister Log4J, Logback](app-insights-java-trace-logs.md) portalına üçüncü taraf günlükleri göndermek için uygulama Öngörüler Log4j veya Logback Appenders kullanın.
+Java için [standart günlükçüleri ister Log4J, Logback](app-insights-java-trace-logs.md) Portalı'na üçüncü taraf günlükleri göndermek için Application Insights Log4j veya Logback Appenders kullanın.
 
 *C#*
 
@@ -589,12 +589,12 @@ Java için [standart günlükçüleri ister Log4J, Logback](app-insights-java-tr
     telemetry.trackTrace({message: message, severity:applicationInsights.Contracts.SeverityLevel.Warning, properties:properties});
 
 
-İleti içeriği arama yapabilirsiniz ancak (özellik değerlerini), üzerinde filtre uygulayamazsınız.
+İleti içeriği arama yapabilirsiniz, ancak (özellik değerlerini), üzerinde filtre uygulanamıyor.
 
-Boyut sınırını `message` özellikleri sınırından daha yüksektir.
-TrackTrace avantajı, iletide oldukça uzun veri koyabilirsiniz ' dir. Örneğin, POST verilerini şifreleyebilirsiniz.  
+Üzerindeki boyut sınırı `message` özellikleri sınırdan çok daha yüksek.
+TrackTrace bir avantajı, iletide görece uzun veri koyabilirsiniz ' dir. Örneğin, gönderme verisi şifreleyebilirsiniz.  
 
-Ayrıca, bir önem düzeyi iletinize ekleyebilirsiniz. Ve diğer telemetri gibi filtre veya arama izlemeleri farklı kümeleri için yardımcı olmak için özellik değerlerini ekleyebilirsiniz. Örneğin:
+Ayrıca, önem derecesi mesajınızı ekleyebilirsiniz. Ve diğer telemetri verilerinin filtre veya arama izlemeler farklı kümeleri için yardımcı olması için özellik değerlerini ekleyebilirsiniz. Örneğin:
 
 *C#*
 
@@ -615,17 +615,17 @@ Ayrıca, bir önem düzeyi iletinize ekleyebilirsiniz. Ve diğer telemetri gibi 
 
 ```
 
-İçinde [arama](app-insights-diagnostic-search.md), daha sonra kolayca belirli bir veritabanı ile ilgili tüm iletileri belirli önem düzeyine sahip bir filtre.
+İçinde [arama](app-insights-diagnostic-search.md), daha sonra kolayca için belirli bir veritabanı ile ilgili tüm iletileri belirli bir önem derecesi düzeyi filtreleyebilirsiniz.
 
 
-### <a name="traces-in-analytics"></a>İçindeki analizi
+### <a name="traces-in-analytics"></a>Analytics'te izlemeleri
 
-İçinde [uygulama Öngörüler Analytics](app-insights-analytics.md), TrackTrace çağrıları gösterilmiyor `traces` tablo.
+İçinde [Application Insights Analytics](app-insights-analytics.md), TrackTrace çağrıları gösterilir `traces` tablo.
 
-Varsa [örnekleme](app-insights-sampling.md) içinde ItemCount özelliği 1'den büyük bir değer gösterir işlemdir. Örnek ItemCount == 10, 10 çağrı anlamına gelir `trackTrace()`, örnekleme işlemi yalnızca bunlardan birinin aktarılan. İzleme çağrıları doğru sayısını almak için bu nedenle kod gibi kullanmalısınız `traces | summarize sum(itemCount)`.
+Varsa [örnekleme](app-insights-sampling.md) ItemCount özelliği 1'den büyük bir değer gösterir, işlemde olduğu. İçin örnek ItemCount == 10, 10 yapılan çağrıların anlamına gelir `trackTrace()`, örnekleme işlemi yalnızca bir tanesi aktarılan. İzleme çağrıları doğru sayısını almak için bu nedenle kod gibi kullanmalısınız `traces | summarize sum(itemCount)`.
 
 ## <a name="trackdependency"></a>TrackDependency
-TrackDependency çağrısı bir dış kod parçası, yapılan çağrıların başarı oranları ve yanıt sürelerini izlemek için kullanın. Sonuçlar portalında bağımlılık grafiklerinde görüntülenir.
+TrackDependency çağrı yanıt süreleri ve başarı oranları bir dış kod parçasına yapılan çağrıların izlemek için kullanın. Sonuçlar, portaldaki bağımlılık grafiklerinde görüntülenir.
 
 *C#*
 
@@ -680,33 +680,33 @@ finally
 }
 ```
 
-Sunucu SDK'ları içerdiğini unutmayın bir [bağımlılık Modülü](app-insights-asp-net-dependencies.md) bulur ve bazı bağımlılık çağrıları otomatik olarak--Örneğin, veritabanları ve REST API'leri izler. İş modülü yapmak için sunucunuzda bir aracı yüklemeniz gerekir. 
+Sunucu SDK'ları içerdiğini unutmayın bir [bağımlılık Modülü](app-insights-asp-net-dependencies.md) bulur ve belirli bir bağımlılık çağrıları otomatik olarak--Örneğin, veritabanları ve REST API'leri için izler. İş modülü yapmak sunucunuza bir aracı yüklemek zorunda. 
 
-Java'da, bazı bağımlılık çağrıları otomatik olarak kullanarak izlenebilir [Java Agent](app-insights-java-agent.md).
+Java dilinde bazı bağımlılık çağrıları otomatik olarak kullanarak izlenebilir [Java aracı](app-insights-java-agent.md).
 
-Bu çağrı otomatik izleme catch değil çağrılarını izlemek istiyorsanız veya aracıyı yüklemek istemiyorsanız kullanın.
+Bu çağrı, otomatik izleme catch değil çağrıları izlemek istiyorsanız veya aracıyı yüklemek istemiyorsanız kullanın.
 
-C# standart bağımlılık izleme modül devre dışı bırakmak için düzenleme [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md) ve başvuru silme `DependencyCollector.DependencyTrackingTelemetryModule`. Standart bağımlılıkları otomatik olarak toplamasını istemiyorsanız, Java, java aracı Lütfen yüklemeyin.
+C# ' de standart bağımlılık izleme Modülü'devre dışı bırakmak için düzenleme [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md) ve başvurusunu silmek `DependencyCollector.DependencyTrackingTelemetryModule`. Java dilinde standart bağımlılıkları otomatik olarak toplamasını istemiyorsanız lütfen java aracı yüklemeyin.
 
 ### <a name="dependencies-in-analytics"></a>Analytics bağımlılıkları
 
-İçinde [uygulama Öngörüler Analytics](app-insights-analytics.md), trackDependency çağrıları Göster `dependencies` tablo.
+İçinde [Application Insights Analytics](app-insights-analytics.md), trackDependency çağrıları Göster `dependencies` tablo.
 
-Varsa [örnekleme](app-insights-sampling.md) içinde ItemCount özelliği 1'den büyük bir değer gösterir işlemdir. Örnek ItemCount == trackDependency() için 10 çağrıları, örnekleme işlemi yalnızca bunlardan birinin aktarılan 10 anlamına gelir. Hedef bileşen tarafından kesimli bağımlılıkların doğru bir sayıyı almak için kodu gibi kullanın:
+Varsa [örnekleme](app-insights-sampling.md) ItemCount özelliği 1'den büyük bir değer gösterir, işlemde olduğu. İçin örnek ItemCount == trackDependency() 10 çağrısına örnekleme işlemi yalnızca bir tanesi aktarılan 10 anlamına gelir. Bölümlenmiş hedef bileşen tarafından bağımlılıkları doğru sayısını almak için kod aşağıdaki gibi kullanın:
 
 ```
 dependencies | summarize sum(itemCount) by target
 ```
 
-Bağımlılıkları ile ilgili isteklerinde ilişkilendirilecek bir birleşim kullanın:
+Bağımlılıkları ilgili isteklerinde ile ilişkilendirilecek bir birleşim kullanın:
 
 ```
 dependencies
 | join (requests) on operation_Id 
 ```
 
-## <a name="flushing-data"></a>Düzenleniyor veri
-Normalde, SDK zamanlarda kullanıcı üzerindeki etkiyi en aza indirmek için seçilen verileri gönderir. Uygulamada kapandıktan SDK kullanıyorsanız, ancak, bazı durumlarda, arabellek--Örneğin, temizlemek isteyebilirsiniz.
+## <a name="flushing-data"></a>Veri düzenleniyor
+Normalde, SDK, bazen kullanıcının üzerindeki etkiyi en aza indirmek için seçilen veri gönderir. Uygulamada kapanırken SDK kullanıyorsanız, ancak bazı durumlarda, arabellek--örneğin temizlemek isteyebilirsiniz.
 
 *C#*
  
@@ -729,14 +729,14 @@ Normalde, SDK zamanlarda kullanıcı üzerindeki etkiyi en aza indirmek için se
 
     telemetry.flush();
 
-İşlevi için zaman uyumsuz olduğuna dikkat edin [server telemetri kanalı](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
+İşlev için zaman uyumsuz olduğunu unutmayın [sunucu telemetri kanalı](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
-İdeal olarak, flush() yöntemini uygulama kapatma etkinliğinde kullanılmalıdır.
+İdeal olarak, uygulamayı kapatma etkinliğinde flush() yöntemini kullanılmalıdır.
 
 ## <a name="authenticated-users"></a>Kimliği doğrulanmış kullanıcılar
-Bir web uygulaması, kullanıcıların (varsayılan) tanımlama bilgileri tarafından tanımlanır. Bir kullanıcı birden çok kez uygulamanız farklı makine ya da tarayıcı erişimi engelliyorsa veya tanımlama bilgilerini sildiğinizde sayılması.
+Bir web uygulaması kullanıcılar tarafından tanımlama (varsayılan) tanımlanır. Bir kullanıcı birden çok kez bunlar başka bir makine ya da tarayıcı uygulamanıza erişmek veya kullanıcılar tanımlama bilgilerini silmeniz halinde sayılması.
 
-Kullanıcılar uygulamanıza oturum açarsa, tarayıcı kodda kimliği doğrulanmış kullanıcı kimliği ayarlayarak daha doğru bir sayı elde edebilirsiniz:
+Kullanıcıların uygulamanızda oturum açarsa, kimliği doğrulanmış kullanıcı kimliği tarayıcı kodda ayarlayarak daha doğru sayısı alabilirsiniz:
 
 *JavaScript*
 
@@ -749,7 +749,7 @@ function Authenticated(signInId) {
 }
 ```
 
-Bir ASP.NET web örneğin MVC uygulaması:
+Bir ASP.NET web MVC uygulama, örneğin:
 
 *Razor*
 
@@ -762,30 +762,30 @@ Bir ASP.NET web örneğin MVC uygulaması:
             </script>
         }
 
-Oturum açma kullanıcı asıl adını kullanmak gerekli değildir. Yalnızca o kullanıcı için benzersiz bir kimliği olmak zorundadır. Boşluk veya karakterlerden herhangi birini içermemelidir `,;=|`.
+Oturum açma kullanıcı asıl adı kullanmak için gerekli değildir. Bunu yalnızca söz konusu kullanıcı için benzersiz bir kimliği olması gerekir. Boşluk veya karakterlerin hiçbirini içermemesi `,;=|`.
 
-Kullanıcı Kimliği ayrıca bir oturum tanımlama bilgisinde ayarlamak ve sunucuya gönderilen. SDK sunucusu yüklediyseniz, kimliği doğrulanmış kullanıcı kimliği hem istemci hem de sunucu telemetri bağlamı özelliklerini bir parçası olarak gönderilir. Daha sonra filtre ve onu Search'te.
+Kullanıcı Kimliği ayrıca bir oturum tanımlama bilgilerinde ayarlayın ve sunucuya gönderilen. Kimliği doğrulanmış kullanıcı kimliği, sunucu SDK'sı yüklü değilse, istemci ve sunucu telemetri bağlam özelliklerini bir parçası olarak gönderilir. Ardından filtre uygulayabilirsiniz ve üzerindeki arama.
 
-Uygulamanız kullanıcıların hesaplara grupları varsa, (aynı karakter kısıtlamalarla birlikte) hesabı için bir tanıtıcı geçiş yapabilir.
+Uygulamanız kullanıcıların hesaplarına veri grupları, Hesapla (aynı karakter kısıtlamaları) için bir tanımlayıcı de geçirebilirsiniz.
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-İçinde [ölçüm Gezgini](app-insights-metrics-explorer.md), sayar bir grafik oluşturabilirsiniz **kimliği doğrulanmış kullanıcılar,**, ve **kullanıcı hesaplarını**.
+İçinde [ölçüm Gezgini](app-insights-metrics-explorer.md), sayan bir grafik oluşturabilir miyim **kimliği doğrulanmış kullanıcılar,**, ve **kullanıcı hesaplarını**.
 
 Ayrıca [arama](app-insights-diagnostic-search.md) belirli kullanıcı adları ve hesapları ile istemci veri noktaları için.
 
 ## <a name="properties"></a>Filtreleme, aramayı ve özelliklerini kullanarak verilerinizi kesimlere
-Özellikleri ve ölçülerini, olaylar ekleme (ve ayrıca ölçümlere görünümleri, özel durumlar ve diğer telemetri verilerini sayfasında).
+Açabilir özellikler ve ölçümler olaylarınızı (ve ölçümler için görünümleri, özel durumlar ve diğer telemetri verilerini de sayfa).
 
-*Özellikler* kullanım raporlarında telemetrinizi filtrelemek için kullanabileceğiniz dize değerlerdir. Örneğin, uygulamanızı birkaç oyunlar sağlıyorsa, oyunun adından da her olay için ekleyebilirsiniz, böylece hangi oyunlar daha popüler görebilirsiniz.
+*Özellikleri* telemetrinizi kullanım raporları filtrelemek için kullanabileceğiniz dize değerlerdir. Örneğin, uygulamanız çeşitli oyunlar sağlıyorsa, oyunun adından da her olaya ekleyebilirsiniz, böylece hangi oyunlar daha popüler olduğunu görebilirsiniz.
 
-8192 bir dize uzunluk sınırı yoktur. (Büyük veri parçalarını göndermek istiyorsanız, ileti parametresini kullanmak [TrackTrace](#track-trace).)
+8192 bir dize uzunluk sınırı yoktur. (İleti parametresini büyük öbekler halinde veri göndermek istiyorsanız, kullanın [TrackTrace](#track-trace).)
 
-*Ölçümleri* grafik sunulan sayısal değerlerdir. Örneğin, aşamalı bir artış, oyun severler elde puanları içinde olup olmadığını görmek isteyebilirsiniz. Böylece ayrı alabilir grafikleri olay ile gönderilen özelliklerine göre kesimlere ayrılmıştır veya yığın grafik farklı oyunlar için.
+*Ölçümleri* grafik olarak sunulan sayısal değerlerdir. Örneğin, oyuncularınıza elde puanları aşamalı bir artış olup olmadığını görmek isteyebilirsiniz. Olay ile gönderilen özelliklere göre ayrı alabilmesi grafikler bölümlenebilecek veya Yığılmış grafikler için farklı oyunlar.
 
-Ölçüm değerleri doğru görüntülenebilmesi için bunlar büyük veya 0 değerine eşit olmalıdır.
+Doğru şekilde görüntülenecek ölçüm değerleri için bunlar büyük veya 0'a eşit olmalıdır.
 
-Bazı vardır [özellikleri, özellik değerlerini ve ölçümleri sayısı sınırları](#limits) kullanabileceğiniz.
+Bazı kısıtlamalar var. [özellikleri, özellik değerlerini ve ölçümleri sayısına yönelik sınırlar](#limits) kullanabileceğiniz.
 
 *JavaScript*
 
@@ -856,33 +856,33 @@ Bazı vardır [özellikleri, özellik değerlerini ve ölçümleri sayısı sın
 
 
 > [!NOTE]
-> Kişisel bilgi özelliklerinde oturum değil dikkatli olun.
+> Kişisel olarak tanımlanabilen bilgiler özelliklerinde günlüğe kaydetmemeyi dikkat edin.
 >
 >
 
-*Ölçümleri kullandıysanız*, ölçümleri Gezgini'ni açın ve gelen ölçümü seçin **özel** Grup:
+*Ölçümleri kullandıysanız*ölçüm Gezgini'ni açın ve gelen bir ölçüm seçin **özel** Grup:
 
-![Ölçümleri Gezgini'ni açın, grafiği seçin ve ölçümü seçin](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
+![Ölçüm Gezgini'ni açın, grafik seçin ve bir ölçüm seçin](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
 > [!NOTE]
-> Ölçüm görünmüyorsa veya **özel** başlık değil vardır, seçimi dikey penceresini kapatın ve daha sonra yeniden deneyin. Ölçümleri bazen ardışık düzen üzerinden toplanacak bir saat sürebilir.
+> Ölçümünüzün görünmüyorsa veya **özel** başlık var olmadığından, seçimi dikey pencereyi kapatın ve daha sonra tekrar deneyin. Ölçümleri bazen işlem hattı toplanacak saat arasında sürebilir.
 
-*Özellikleri ve ölçümleri kullandıysanız*, ölçüm özelliği tarafından segmentlere:
+*Özellikler ve ölçümler kullandıysanız*, ölçüm özelliğiyle segmentlere ayırın:
 
-![Gruplandırma ayarlayın ve ardından grupla altında özellik seçin](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
+![Gruplandırma ayarlayın ve ardından özelliği altında gruplandırma ölçütü seçin](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
 
-*Tanılama arama*, özellikleri ve bir olay oluşumlarını ölçümlerini görüntüleyebilirsiniz.
+*Tanılama aramasındaki*, özellikleri ve bir olay oluşumlarını ölçümlerini görüntüleyebilirsiniz.
 
 ![Bir örnek seçin ve ardından "..."](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-4.png)
 
-Kullanım **arama** belirli bir özellik değeri olan olay örnekleri görmek için alanı.
+Kullanım **arama** belirli bir özellik değeri olan olayın tekrarlarının görmek için alan.
 
 ![Arama terimi yazın](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
 
 [Arama ifadeleri hakkında daha fazla bilgi](app-insights-diagnostic-search.md).
 
-### <a name="alternative-way-to-set-properties-and-metrics"></a>Özellikler ve ölçümleri ayarlamak için alternatif yol
-Daha kullanışlı ise, ayrı bir nesne olayda parametrelerinin toplayabilirsiniz:
+### <a name="alternative-way-to-set-properties-and-metrics"></a>Özellikler ve ölçümler için alternatif bir yolu
+Daha kolay ise ayrı bir nesnede bir olay parametrelerinin toplayabilirsiniz:
 
     var event = new EventTelemetry();
 
@@ -896,15 +896,15 @@ Daha kullanışlı ise, ayrı bir nesne olayda parametrelerinin toplayabilirsini
     telemetry.TrackEvent(event);
 
 > [!WARNING]
-> Aynı telemetriyi öğesi örneği yeniden yok (`event` Bu örnekte) Track*() birden çok kez çağrılması. Bu yanlış yapılandırma ile gönderilecek telemetri neden olabilir.
+> Aynı telemetriyi öğesi örneği yeniden kullanmayın (`event` Bu örnekte) Track*() birden çok kez çağırmak için. Bu, yanlış yapılandırma ile gönderilecek telemetri neden olabilir.
 >
 >
 
-### <a name="custom-measurements-and-properties-in-analytics"></a>Özel ölçümleri ve analizi özellikleri
+### <a name="custom-measurements-and-properties-in-analytics"></a>Özel Ölçümler ve analiz özellikleri
 
-İçinde [Analytics](app-insights-analytics.md), özel Ölçümler ve özelliklerini göster `customMeasurements` ve `customDimensions` her telemetri kayıt öznitelikleri.
+İçinde [Analytics](app-insights-analytics.md), özel Ölçümler ve özelliklerini göster `customMeasurements` ve `customDimensions` her telemetri kaydının öznitelikleri.
 
-Örneğin, istek telemetrinizi "oyuna" adlı bir özellik eklediyseniz, bu sorgu "oyunun" farklı değerler oluşumlarını sayar ve özel ölçüm "puan" ortalama göster:
+Örneğin, istek telemetrinizi "oyuna" adlı bir özellik eklediyseniz, bu sorgu farklı değerler "oyunun" oluşumlarını sayar ve özel ölçüm "puan" ortalamasını gösterir:
 
 ```
 requests
@@ -913,13 +913,13 @@ requests
 
 Şunlara dikkat edin:
 
-* Bir değer customDimensions ya da customMeasurements JSON ayıkladığınızda, dinamik türüne sahip ve bu nedenle, gereken cast onu `tostring` veya `todouble`.
-* Hesaba olasılığı için [örnekleme](app-insights-sampling.md), kullanmanız gereken `sum(itemCount)`değil `count()`.
+* CustomDimensions veya customMeasurements JSON değeri ayıklamak, dinamik türünde ve bu nedenle, gereken dönüştürme, `tostring` veya `todouble`.
+* Hesaba algılanması için [örnekleme](app-insights-sampling.md), kullanmanız gereken `sum(itemCount)`değil `count()`.
 
 
 
 ## <a name="timed"></a> Zamanlama olayları
-Bazen bir eylemi gerçekleştirmek için gereken süreyi grafik istersiniz. Örneğin, ne kadar kullanıcılar bilmek isteyebilirsiniz oyun seçimlerini göz önüne alın. Bu ölçüm parametresini kullanabilirsiniz.
+Bazen bir eylemi gerçekleştirmek için ne kadar sürer grafik istersiniz. Örneğin, ne kadar kullanıcılar bilmek isteyebilirsiniz bir oyun seçeneklerini göz önünde bulundurmanız için gerçekleştirin. Bu ölçüm parametresini kullanabilirsiniz.
 
 *C#*
 
@@ -963,7 +963,7 @@ Bazen bir eylemi gerçekleştirmek için gereken süreyi grafik istersiniz. Örn
 
 
 ## <a name="defaults"></a>Özel telemetri için varsayılan özellikler
-Varsayılan özellik değerleri bazı yazdığınız özel olaylar için ayarlamak istiyorsanız, bunları TelemetryClient örneğinde ayarlayabilirsiniz. Bu istemciden gönderilen her telemetri öğesine eklenir.
+Varsayılan özellik değerlerini bazı yazdığınız özel olaylar için ayarlamak istiyorsanız, bunları bir TelemetryClient örneğinde ayarlayabilirsiniz. Bu istemciden gönderilen her telemetri öğesine eklenir.
 
 *C#*
 
@@ -1003,20 +1003,20 @@ Varsayılan özellik değerleri bazı yazdığınız özel olaylar için ayarlam
 
 
 
-Tek tek telemetri çağrıları kendi özelliği sözlükler varsayılan değerleri geçersiz kılabilirsiniz.
+Tek bir telemetri çağrıları kendi özellik sözlükleri varsayılan değerleri geçersiz kılabilirsiniz.
 
-*JavaScript için web istemcileri*, [JavaScript telemetri başlatıcıları kullanmak](#js-initializer).
+*JavaScript için web istemcileri*, [JavaScript telemetri başlatıcıları kullanın](#js-initializer).
 
-*Tüm telemetri özellikleri eklemek için*, standart toplama modüllerden verileri dahil olmak üzere [uygulamak `ITelemetryInitializer` ](app-insights-api-filtering-sampling.md#add-properties).
+*Tüm telemetri özellikleri eklemek için*, standart toplama modüllerden veri dahil olmak üzere [uygulamak `ITelemetryInitializer` ](app-insights-api-filtering-sampling.md#add-properties).
 
-## <a name="sampling-filtering-and-processing-telemetry"></a>Örnekleme, filtreleme ve telemetri işleniyor
-SDK'dan gelen gönderilmeden önce telemetri işlemek üzere kod yazabilirsiniz. İşleme HTTP isteği koleksiyonu ve bağımlılık koleksiyonu gibi standart telemetri modüllerden gönderilen veriler içerir.
+## <a name="sampling-filtering-and-processing-telemetry"></a>Örnekleme, filtreleme ve telemetri işleme
+SDK'sından gönderilmeden önce telemetrinizi işlemek için kod yazabilirsiniz. HTTP isteği koleksiyonu ve bağımlılık toplama gibi standart telemetri modüllerden gönderilen verileri işlemeyi içerir.
 
-[Özellikler ekleme](app-insights-api-filtering-sampling.md#add-properties) uygulayarak telemetri için `ITelemetryInitializer`. Örneğin, diğer özelliklerinden sürüm numaraları veya hesaplanan değerler ekleyebilirsiniz.
+[Özellikler ekleme](app-insights-api-filtering-sampling.md#add-properties) uygulayarak telemetriye `ITelemetryInitializer`. Örneğin, diğer özelliklerden sürüm numaraları veya hesaplanan değerler ekleyebilirsiniz.
 
-[Filtreleme](app-insights-api-filtering-sampling.md#filtering) değiştirebilir veya SDK'dan gelen uygulayarak gönderilmeden önce telemetri atmak `ITelemetryProcesor`. Ne gönderildiğinde veya atılan denetlemek, ancak ölçümlerinizi etkisi hesaba sahip. Öğeler atılsın nasıl bağlı olarak, ilgili öğeleri arasında gezinme becerisini kaybedebilirsiniz.
+[Filtreleme](app-insights-api-filtering-sampling.md#filtering) değiştirebilir veya telemetri SDK'sından uygulayarak gönderilmeden önce iptal `ITelemetryProcesor`. Ne gönderildiğinde veya iptal denetimi ancak ölçümlerinizi üzerindeki etkisini hesabı gerekir. Öğeler atılsın nasıl bağlı olarak, ilgili öğeleri arasında gezinme olanağı kaybedebilirsiniz.
 
-[Örnekleme](app-insights-api-filtering-sampling.md) uygulamanızdan portala gönderilen verilerin hacmi azaltmak için paketlenmiş bir çözümdür. Bunu görüntülenen ölçümlerin etkilemeden yapar. Ve bunu özel durumlar, istekleri ve sayfa görünümleri gibi ilgili öğeleri arasında gezinme tarafından sorunları tanılama yeteneğinizi etkilemeden yapar.
+[Örnekleme](app-insights-api-filtering-sampling.md) portala uygulamanızdan gönderilen veri hacmini azaltmak için paketlenmiş bir çözümdür. Bunu görüntülenen ölçümlerin etkilemeden yapar. Ve bunu özel durumlar, istekler ve sayfa görüntülemeleri gibi ilgili öğeleri arasında giderek sorunları tanılama yeteneğinizi etkilemeden yapar.
 
 [Daha fazla bilgi edinin](app-insights-api-filtering-sampling.md).
 
@@ -1040,7 +1040,7 @@ SDK'dan gelen gönderilmeden önce telemetri işlemek üzere kod yazabilirsiniz.
 
 ```
 
-İçin *seçili standart toplayıcıları devre dışı*--Örneğin, performans sayaçları, HTTP isteklerini veya bağımlılıkları--silin veya açıklama ilgili satırları çıkışı [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md). Örneğin, kendi TrackRequest veri göndermek istiyorsanız, bunu yapabilirsiniz.
+İçin *seçili standart Toplayıcı devre dışı*--Örneğin, performans sayaçları, HTTP istekleri ve bağımlılıkları--silin veya ilgili satırları açıklama [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md). Örneğin, kendi TrackRequest veri göndermek istiyorsanız bunu yapabilirsiniz.
 
 *Node.js*
 
@@ -1049,7 +1049,7 @@ SDK'dan gelen gönderilmeden önce telemetri işlemek üzere kod yazabilirsiniz.
     telemetry.config.disableAppInsights = true;
 ```
 
-İçin *seçili standart toplayıcıları devre dışı*--Örneğin, performans sayaçları, HTTP isteklerini veya bağımlılıkları--başlatma zamanında SDK başlatma kodunuza yapılandırma yöntemleri zincir:
+İçin *seçili standart Toplayıcı devre dışı*--Örneğin, performans sayaçları, HTTP istekleri ve bağımlılıkları--başlatma sırasında yapılandırma yöntemleri, SDK'sını başlatma kodunuzun zincir:
 
 ```Javascript
 
@@ -1062,10 +1062,10 @@ SDK'dan gelen gönderilmeden önce telemetri işlemek üzere kod yazabilirsiniz.
         .start();
 ```
 
-Bu toplayıcıları başlatma devre dışı bırakmak için yapılandırma nesnesi kullanın: `applicationInsights.Configuration.setAutoCollectRequests(false)`
+Başlatmadan sonra bu toplayıcıları devre dışı bırakmak için Yapılandırma nesnesini kullanın: `applicationInsights.Configuration.setAutoCollectRequests(false)`
 
 ## <a name="debug"></a>Geliştirici modu
-Hata ayıklama sırasında sonuçları hemen görebilmeniz için ardışık düzen üzerinden öncelikli telemetrinizi sağlamak kullanışlıdır. Size yardımcı ayrıca get ek ileti telemetri herhangi bir sorun izleme. Uygulamanızı azaltabileceğinden, bir üretim ortamına kapatın.
+Hata ayıklama sırasında işlem hattı sonuçları hemen görmenize olanak tanıyan hızlandırılmış telemetrinizi sağlamak kullanışlıdır. Size yardımcı ayrıca Al ek ileti telemetri herhangi bir sorun izleme. Uygulamanızı azaltabileceğinden, bir üretim ortamında kapatın.
 
 *C#*
 
@@ -1076,7 +1076,7 @@ Hata ayıklama sırasında sonuçları hemen görebilmeniz için ardışık düz
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 
-## <a name="ikey"></a> Seçili özel telemetri izleme anahtarı ayarlama
+## <a name="ikey"></a> Seçili özel telemetri için izleme anahtarını ayarlama
 *C#*
 
     var telemetry = new TelemetryClient();
@@ -1085,9 +1085,9 @@ Hata ayıklama sırasında sonuçları hemen görebilmeniz için ardışık düz
 
 
 ## <a name="dynamic-ikey"></a> Dinamik izleme anahtarı
-Geliştirme, test ve üretim ortamlarını telemetri karıştırma önlemek için şunları yapabilirsiniz [ayrı Application Insights kaynakları oluşturmak](app-insights-create-new-resource.md) ve kendi anahtarları ortamına bağlı olarak değiştirin.
+Telemetri geliştirme, test ve üretim ortamları ayarlama karıştırmaktan kaçının için [ayrı bir Application Insights kaynakları oluşturma](app-insights-create-new-resource.md) ve ortamına bağlı olarak kendi anahtarlarını değiştirin.
 
-Yapılandırma dosyasından izleme anahtarını almak yerine onu kodunuzda ayarlayabilirsiniz. Anahtar başlatma yöntemini, bir ASP.NET hizmetinde global.aspx.cs gibi ayarlayın:
+İzleme anahtarını yapılandırma dosyasından almak yerine, kodunuzda ayarlayabilirsiniz. Bir ASP.NET hizmetinde global.aspx.cs gibi bir başlatma yöntemi anahtarını ayarlayın:
 
 *C#*
 
@@ -1105,9 +1105,9 @@ Yapılandırma dosyasından izleme anahtarını almak yerine onu kodunuzda ayarl
 
 
 
-Web sayfalarındaki, web sunucusunun durumu, yerine tam anlamıyla betiğe kodlama ayarlamak isteyebilirsiniz. Bir ASP.NET uygulamasında oluşturulan Örneğin, bir Web sayfasında:
+Web sayfalarındaki, web sunucusunun durumu yerine tam anlamıyla bir betiğe kodlama ayarlamak isteyebilirsiniz. Bir ASP.NET uygulamasında oluşturulan Örneğin, bir Web sayfasında:
 
-*Razor JavaScript'te*
+*Razor, JavaScript*
 
     <script type="text/javascript">
     // Standard Application Insights webpage script:
@@ -1121,30 +1121,30 @@ Web sayfalarındaki, web sunucusunun durumu, yerine tam anlamıyla betiğe kodla
 
 
 ## <a name="telemetrycontext"></a>TelemetryContext
-TelemetryClient tüm telemetri verilerinin yanı sıra gönderilen değerleri içeren bir içerik özelliği vardır. Normalde standart telemetri modülleri tarafından ayarlanmış, ancak Ayrıca bunları kendiniz ayarlayabilirsiniz. Örneğin:
+TelemetryClient gönderilen yanı sıra tüm telemetri veri değerlerini içeren bir içerik özelliğine sahiptir. Standart telemetri modülleri tarafından normal olarak ayarlanır, ancak Ayrıca bunları kendiniz ayarlayabilirsiniz. Örneğin:
 
     telemetry.Context.Operation.Name = "MyOperationName";
 
-Bu değerleri kendiniz ayarlarsanız, ilgili satırından kaldırmayı düşünün [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md), böylece bilgilerinizi ve standart değerlerini kafası yok.
+Bu değerlerden herhangi birini kendinize ayarlarsanız, ilgili satırından kaldırmayı göz önünde bulundurun [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md), böylece, değerler ve değerlerin standart karıştırılması yok.
 
-* **Bileşen**: uygulama ve onun sürümü.
-* **Aygıt**: uygulamanın çalıştığı cihaz hakkındaki verileri. (Web uygulamalarında sunucu veya telemetri gönderilen istemci aygıt budur.)
-* **InstrumentationKey**: Application Insights kaynağı telemetri göründüğü azure'da. Bu genellikle Applicationınsights.config kayıt.
-* **Konum**: cihazın coğrafi konumunu.
-* **İşlem**: web uygulamalarında, geçerli HTTP isteği. Diğer uygulama türleri, bu Grup olaylarına birlikte ayarlayabilirsiniz.
-  * **Kimliği**: öğeleri ilişkili herhangi bir olay tanılama arama incelediğinizde, bulabilmesi için farklı olayları, karşılık gelen oluşturulan bir değer.
-  * **Ad**: bir tanımlayıcı, genellikle HTTP istek URL'si.
-  * **SyntheticSource**: değilse null veya boş, isteğin kaynak robot veya web testine belirlenmiştir gösteren bir dize. Varsayılan olarak, ölçüm Gezgini hesaplamalarda gelen dışlanır.
-* **Özellikleri**: tüm telemetri verileri ile gönderilen özellikleri. Tek tek parça * çağrılarında geçersiz kılınabilir.
-* **Oturum**: kullanıcı oturumu. Kimliği, kullanıcı bir süredir etkin ayarlanmadı bağlandığınızda değiştirilir oluşturulan bir değere ayarlanır.
+* **Bileşen**: uygulama ve sürümü.
+* **Cihaz**: uygulamanın çalıştığı cihazın ilgili veriler. (Web apps'te, sunucu veya telemetri gönderen bir istemci cihaz budur.)
+* **Instrumentationkey**: telemetri göründüğü Azure Application Insights kaynağı. Bunu Applicationınsights.config genellikle seçilir.
+* **Konum**: cihaz coğrafi konumu.
+* **İşlem**: web Apps, geçerli HTTP isteği. Diğer uygulama türleri, bu grubu olayları birlikte ayarlayabilirsiniz.
+  * **Kimliği**: ilgili öğeleri herhangi bir olay tanılama aramasındaki incelediğinizde, bulabilmesi için farklı olaylara karşılık gelen bir oluşturulan bir değer.
+  * **Ad**: bir tanımlayıcı, genellikle bir HTTP isteği URL'si.
+  * **SyntheticSource**: değilse null veya boşsa, isteğin kaynak bir robot veya web testi belirlenmiştir gösteren bir dize. Varsayılan olarak, bu hesaplamalar ölçüm Gezgini'nde'den çıkarılır.
+* **Özellikler**: gönderilen tüm telemetri veri ile özellikleri. Tek parça * çağrılarında kılınabilir.
+* **Oturum**: kullanıcının oturumu. Kimlik, kullanıcı bir süredir etkin olmayan kaldırıldığında, değiştirildiğinde oluşturulan bir değere ayarlanır.
 * **Kullanıcı**: kullanıcı bilgileri.
 
 ## <a name="limits"></a>Sınırlar
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
-Veri hızı sınırı basarsa önlemek için [örnekleme](app-insights-sampling.md).
+Veri hızı sınırı ulaşmaktan kaçınmak için kullanın [örnekleme](app-insights-sampling.md).
 
-Verileri Tutuluyor ne kadar süreyle belirlemek için bkz: [veri saklama ve gizlilik](app-insights-data-retention-privacy.md).
+Veriler tutulur ne kadar süreyle belirlemek için bkz: [veri saklama ve gizlilik](app-insights-data-retention-privacy.md).
 
 ## <a name="reference-docs"></a>Başvuru belgeleri
 * [ASP.NET başvurusu](https://msdn.microsoft.com/library/dn817570.aspx)
@@ -1153,8 +1153,8 @@ Verileri Tutuluyor ne kadar süreyle belirlemek için bkz: [veri saklama ve gizl
 * [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
 * [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 
-## <a name="sdk-code"></a>SDK kod
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+## <a name="sdk-code"></a>SDK kodu
+* [ASP.NET Core SDK'sı](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server paketleri](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
@@ -1163,12 +1163,12 @@ Verileri Tutuluyor ne kadar süreyle belirlemek için bkz: [veri saklama ve gizl
 * [Tüm platformlar](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## <a name="questions"></a>Sorular
-* *Hangi özel durumları Track_() çağrıları throw?*
+* *Hangi özel durumları Track_() çağrıları fırlatabilir?*
 
-    Yok. Try-catch yan tümcelerinde kaydırma gerek yoktur. SDK sorunla karşılaşırsa, hata ayıklama konsol çıktısı iletileri kaydedecek ve--tanılama Arama'da iletileri üzerinden--alırsanız.
-* *Portaldan veri almak için bir REST API var mı?*
+    Yok. Try-catch yan tümcelerinde kaydırılmasına gerekmez. SDK'sı sorunla karşılaşırsa, hata ayıklama konsol çıkışında iletileri başlar.SSH ve--tanılama araması'nda iletileri üzerinden--alırsanız.
+* *Portaldan veri almak için bir REST API'si var mı?*
 
-    Evet, [veri erişim API](https://dev.applicationinsights.io/). Veri ayıklamak için diğer yolları dahil [Analytics'ten Power BI verme](app-insights-export-power-bi.md) ve [sürekli verme](app-insights-export-telemetry.md).
+    Evet, [veri erişimi API'si](https://dev.applicationinsights.io/). Verileri ayıklamak için diğer yolları [Power BI'a Analytics'ten dışarı](app-insights-export-power-bi.md) ve [sürekli dışarı aktarma](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Sonraki adımlar
 * [Arama olayları ve günlükleri](app-insights-diagnostic-search.md)

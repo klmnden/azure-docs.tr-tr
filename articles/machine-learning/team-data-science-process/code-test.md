@@ -1,6 +1,6 @@
 ---
-title: Azure üzerinde UCI yetişkin geliri tahmin ile dataset - takım veri bilimi işlemi ve Visual Studio Team Services sınama veri bilimi kodu
-description: Veri bilimi kod UCI yetişkin geliri tahmin verileri ile test etme
+title: Veri bilimi kodu Azure'da UCI yetişkinlere yönelik gelir tahmin kümesiyle - Team Data Science Process ve Visual Studio Team Services test etme
+description: Veri bilimi kodu UCI yetişkinlere yönelik gelir tahmin verileriyle test etme
 services: machine-learning, team-data-science-process
 documentationcenter: ''
 author: weig
@@ -15,151 +15,151 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: de1ed0b85957413a254503fc72375866dfd1bea1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7d9d63d6c3d5c8ccf1777a46832457670d307d4a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837166"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970868"
 ---
-# <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Veri bilimi kod UCI yetişkin geliri tahmin veri kümesi ile test etme
-Bu makalede, bir veri bilimi akışı kodu test etmek için ön yönergeleri sağlar. Bu tür sınama veri bilimcilerine kalitesini ve kendi kod beklenen sonucu denetlemek için sistematik ve verimli bir yol sağlar. Bir takım veri bilimi işlem (TDSP) kullanıyoruz [UCI yetişkin gelir veri kümesi kullanan proje](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) biz kodu test etme nasıl yapılabilir göstermek için daha önce yayımlanan. 
+# <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Veri bilimi kodu UCI yetişkinlere yönelik gelir tahmin veri kümesi ile test etme
+Bu makalede, kodu test etmek için bir veri bilimi iş akışında başlangıç yönergeleri sağlar. Veri bilimcileri, bu tür bir testi beklenen sonuç kodlarını ve kalite kontrol etmek için sistematik ve etkili bir yol sağlar. Team Data Science işlem (TDSP) kullanıyoruz [UCI yetişkinlere yönelik gelir veri kümesini kullanan proje](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) biz nasıl kodu test yapılabilir göstermek için daha önce yayımlanmış. 
 
-## <a name="introduction-on-code-testing"></a>Kodu test etme hakkında giriş
-"Birim testi" yazılım geliştirme için döngümüzün bir uygulamadır. Ancak veri bilimi için hangi Temizle olmayan genellikle anlamına gelir ve nasıl, kodu farklı bir veri bilimi yaşam döngüsünün aşamaları gibi test etmeniz gerekir:
+## <a name="introduction-on-code-testing"></a>Sınama kodu giriş
+"Birim testi", yazılım geliştirme çalışmalarını uzun süredir davam bir uygulamadır. Ancak veri bilimi için hangi, NET değildir anlamına gelir ve nasıl kod bir veri bilimi yaşam döngüsünün farklı aşamalarında gibi test etmelisiniz:
 
 * Veri hazırlama
 * Veri Kalitesi İnceleme
 * Modelleme
 * Model dağıtımı 
 
-Bu makalede "Birim"kod testi ile."test" terimi değiştirir. "Beklendiği." sonuçları veri bilimi yaşam döngüsünün belirli adım için kod üretme olmadığını değerlendirmek için yardımcı işlevleri test etme için başvurur Test "beklendiği gibi" nedir tanımlar--işlevi sonuca bağlı olarak örneğin yazıyor kişiye, veri kalitesi denetimi veya model.
+Bu makale, "" kod testiyle."birim testi" terimi yerine geçer Belirli bir adımında bir veri bilimi yaşam döngüsü için kod, "bekleniyor." olarak sonuçları üreten, değerlendirmek için yardımcı işlevleri test başvuruyor Test "beklendiği gibi" nedir tanımlar bağlı olarak işlevi--sonucunu örneğin yazıyor kişiye, veri kalite denetimi veya model.
 
-Bu makalede, kullanışlı kaynaklar olarak başvuru sağlar.
+Bu makalede, başvuru faydalı kaynaklar sağlar.
 
-## <a name="visual-studio-team-services-for-the-testing-framework"></a>Test framework için Visual Studio Team Services
-Bu makalede, Visual Studio Team Services (VSTS) kullanarak testleri otomatikleştirmek ve gerçekleştirmek açıklar. Alternatif araçlarını kullanmaya karar verebilirsiniz. Biz de VSTS kullanarak bir otomatik bir yapı ayarlayın ve yapı aracılarını gösterilmektedir. Derleme aracıları için Azure veri bilimi sanal makineler (DSVMs) kullanın.
+## <a name="visual-studio-team-services-for-the-testing-framework"></a>Test çerçevesi için Visual Studio Team Services
+Bu makalede, Visual Studio Team Services (VSTS) kullanarak testi otomatikleştirme ve gerçekleştirmek açıklar. Diğer araçları kullanmaya karar verebilirsiniz. VSTS kullanarak otomatik bir derlemeyi Ayarla ve yapı aracılarını nasıl da gösteriyoruz. Derleme aracıları için Azure veri bilimi sanal makineleri (Dsvm'leri) kullanıyoruz.
 
-## <a name="flow-of-code-testing"></a>Kodu test etme akışı
-Veri bilimi projesindeki sınama kodu genel iş akışı şu şekildedir: 
+## <a name="flow-of-code-testing"></a>Kodu test akışı
+Genel iş akışını bir veri bilimi proje test kod şöyle görünür: 
 
-![Kodu test etme, akış çizelgesi](./media/code-test/test-flow-chart.PNG)
+![Kodu test akış çizelgesi](./media/code-test/test-flow-chart.PNG)
 
     
 ## <a name="detailed-steps"></a>Ayrıntılı adımlar
 
-Ayarlama ve kodu test etme ve otomatik derleme bir yapı aracısı ve VSTS kullanarak çalıştırmak için aşağıdaki adımları kullanın:
+Ayarlanmış ve bir yapı aracısı ve VSTS kullanarak kodu test etme ve otomatik bir yapı çalıştırmak için aşağıdaki adımları kullanın:
 
 1. Visual Studio masaüstü uygulaması, bir proje oluşturun:
 
-    ![Visual Studio ekranında "Yeni proje oluşturma"](./media/code-test/create_project.PNG)
+    ![Visual Studio'da "Yeni Proje oluştur" Ekran](./media/code-test/create_project.PNG)
 
-   Projenizi oluşturduktan sonra sağ bölmede Çözüm Gezgini'nde bulabilirsiniz:
+   Projenizi oluşturduktan sonra sağ bölmeden Çözüm Gezgini'nde bulabilirsiniz:
     
-    ![Proje oluşturma adımları](./media/code-test/create_python_project_in_vs.PNG)
+    ![Bir proje oluşturma adımları](./media/code-test/create_python_project_in_vs.PNG)
 
     ![Çözüm Gezgini](./media/code-test/solution_explorer_in_vs.PNG)
 
-3. Proje kodunuza VSTS proje kodunu depoya akış: 
+3. Proje kodunuzu VSTS proje kod deposuna akış: 
 
-    ![Proje kodunu deposu](./media/code-test/create_repo.PNG)
+    ![Proje kod deposu](./media/code-test/create_repo.PNG)
 
-4. Veri alımı, özellik Mühendisliği ve etiket sütunlar oluşturma gibi bazı veri hazırlık çalışması yaptığınızı varsayalım. Kodunuzu beklediğiniz sonuç üretiyor emin olmak istersiniz. Veri işleme kod düzgün çalışıp çalışmadığını sınamak için kullanabileceğiniz bazı kod aşağıdadır:
+4. Veri alımı, özellik Mühendisliği ve etiket sütun oluşturma gibi bazı veri hazırlama çalışmalarınız yaptığınızı varsayalım. Kodunuzu beklediğiniz sonuçlar üretiyor emin olmanız gerekir. Veri işleme kodunu doğru şekilde çalışıp çalışmadığını sınamak için kullanabileceğiniz bazı kodlar aşağıda verilmiştir:
 
-    * Sütun adlarının doğru olduğunu denetleyin:
+    * Sütun adlarının doğru olduğunu kontrol edin:
     
       ![Sütun adlarını eşleştirmek için kod](./media/code-test/check_column_names.PNG)
 
     * Yanıt düzeyleri doğru olduğundan emin olun:
 
-      ![Düzeyleri eşleştirmek için kod](./media/code-test/check_response_levels.PNG)
+      ![Düzeylerini eşleştirmek için kod](./media/code-test/check_response_levels.PNG)
 
     * Yanıt yüzdesi makul olup olmadığını denetleyin:
 
       ![Kod yanıt yüzdesi](./media/code-test/check_response_percentage.PNG)
 
-    * Her sütunun veri eksik oranını denetleyin:
+    * Her bir sütunun veri eksik oranı denetleyin:
     
-      ![Kod eksik hızı](./media/code-test/check_missing_rate.PNG)
+      ![Kod için eksik oranı](./media/code-test/check_missing_rate.PNG)
 
 
-5. Veri işleme ve özellik Mühendisliği iş yaptıktan ve iyi bir modeli eğittiğimize sonra eğitilmiş model yeni veri kümeleri doğru puan olduğundan emin olun. Tahmin düzeyleri ve etiket değerlerini dağıtımını denetlemek için aşağıdaki iki sınama kullanabilirsiniz:
+5. Veri işleme ve mühendislik özellik çalışmalarına yaptıktan ve iyi bir modeli eğittiğimize sonra eğitilen modeli yeni veri kümelerini doğru Puanlama emin emin olun. Aşağıdaki iki sınama için öngörü düzeyleri ve etiket değerlerini dağıtımını kontrol etmek için kullanabilirsiniz:
 
-    * Tahmin düzeyleri denetleyin:
+    * Öngörü düzeyleri denetleyin:
     
-      ![Tahmin düzeyleri denetleme kodu](./media/code-test/check_prediction_levels.PNG)
+      ![Kod öngörü düzeyleri](./media/code-test/check_prediction_levels.PNG)
 
-    * Tahmin değerleri dağıtımını kontrol edin:
+    * Dağıtım tahmin değerleri kontrol edin:
 
-      ![Tahmin değerleri denetleme kodu](./media/code-test/check_prediction_values.PNG)
+      ![Kod tahmin değerleri](./media/code-test/check_prediction_values.PNG)
 
 6. Tüm test işlevleri birlikte adlı bir Python komut dosyasına put **test_funcs.py**:
 
-    ![Test işlevleri için Python komut dosyası](./media/code-test/create_file_test_func.PNG)
+    ![Test işlevleri için Python betiği](./media/code-test/create_file_test_func.PNG)
 
 
 7. Test kodları hazırladıktan sonra Visual Studio test ortamında ayarlayabilirsiniz.
 
-   Adlı bir Python dosyası oluşturun **test1.py**. Bu dosyada yapmak istediğiniz tüm testleri içeren bir sınıf oluşturun. Aşağıdaki örnek, hazırlanan altı testleri gösterir:
+   Adlı bir Python dosyası oluşturun **test1.py**. Bu dosyada, yapmak istediğiniz tüm testleri içeren bir sınıf oluşturun. Aşağıdaki örnek, altı testleri hazırlanmış gösterir:
     
-    ![Bir sınıf testlerinde listesini içeren Python dosyası](./media/code-test/create_file_test1_class.PNG)
+    ![Bir sınıftaki testleri listesiyle soubor Pythonu](./media/code-test/create_file_test1_class.PNG)
 
-8. Bu testler, yerleştirirseniz otomatik olarak bulunabileceğini **codetest.testCase** sonra sınıf adı. Sağ bölmede Test Explorer'ı açın ve seçin **tümünü Çalıştır**. Tüm testleri sıralı olarak çalışır ve test başarılı olup olmadığını bildirir.
+8. Koyarsanız bu testler otomatik olarak bulunabileceğini **codetest.testCase** sonra sınıf adı. Sağ bölmede Test Gezgini'ni açın ve seçin **tümünü Çalıştır**. Tüm testler sırayla çalışır ve testin başarılı olup olmadığını size bildirir.
 
     ![Testleri çalıştırma](./media/code-test/run_tests.PNG)
 
-9. Proje deponuza kodunuzda Git komutlarını kullanarak denetleyin. En son iş kısa süre içinde VSTS yansıtılır.
+9. Proje deposu için Git komutlarını kullanarak iade edin. En son işi, kısa bir süre sonra VSTS'de yansıtılır.
 
-    ![Kodda denetleme Git komutları](./media/code-test/git_check_in.PNG)
+    ![Kodu iade etme Git komutları](./media/code-test/git_check_in.PNG)
 
     ![VSTS en son iş](./media/code-test/git_check_in_most_recent_work.PNG)
 
-10. Otomatik bir yapı ayarlayın ve VSTS içinde test edin:
+10. Otomatik yapı ayarlayın ve VSTS'de test:
 
-    a. Proje deposu seçmeye **derleme ve sürüm**ve ardından **+ yeni** yeni bir derleme işlemi oluşturmak için.
+    a. Proje deposu seçin **derleme ve yayın**ve ardından **+ yeni** yeni bir yapı işlemi oluşturmak için.
 
-       ![Yeni bir derleme işlemi başlatmak için seçimleri](./media/code-test/create_new_build.PNG)
+       ![Yeni bir yapı işlemi başlatmak için seçimleri](./media/code-test/create_new_build.PNG)
 
-    b. Kaynak kodu konumu, proje adı, depo ve şube bilgilerini seçmek için istemleri izleyin.
+    b. Kaynak kodu konumu, proje adı, depo ve dal bilgilerini seçmek için yönergeleri izleyin.
     
-       ![Kaynak, ad, depo ve dal bilgisi](./media/code-test/fill_in_build_info.PNG)
+       ![Kaynak, adı, depo ve dal bilgileri](./media/code-test/fill_in_build_info.PNG)
 
     c. Bir şablon seçin. Hiçbir Python proje şablonu olduğundan seçerek başlayın **boş işlem**. 
 
-       ![Şablonlar ve "işlemi boş" düğmesi listesi](./media/code-test/start_empty_process_template.PNG)
+       ![Şablonları ve "işlem boş" düğmesi listesi](./media/code-test/start_empty_process_template.PNG)
 
-    d. Derleme adı ve Aracısı'nı seçin. Derleme işlemi sonlandırmak için bir DSVM kullanmak istiyorsanız varsayılan burada seçebilirsiniz. Ayar aracıları hakkında daha fazla bilgi için bkz: [derleme ve sürüm aracıları](https://docs.microsoft.com/en-us/vsts/build-release/concepts/agents/agents?view=vsts).
+    d. Derleme adı ve Aracı'nı seçin. Yapı işlemini tamamlamak için bir DSVM kullanmak istiyorsanız, varsayılan buradan seçebilirsiniz. Ayar aracıları hakkında daha fazla bilgi için bkz. [derleme ve yayın aracıları](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
     
        ![Derleme ve aracı seçimleri](./media/code-test/select_agent.PNG)
 
-    e. Seçin **+** bu yapı aşama için bir görev eklemek için sol bölmede. Python komut dosyasını çalıştırmak için yapacağız çünkü **test1.py** tüm denetimler bitirmek için bu görev bir PowerShell komut Python kodu çalıştırmak için kullanıyor.
+    e. Seçin **+** bu derleme aşaması için bir görev eklemek için sol bölmedeki. Python betiğini çalıştırılacak yapacağız çünkü **test1.py** tüm denetimleri tamamlamak için bu görev bir PowerShell komutu Python kodu çalıştırmak için kullanıyor.
     
-       !["Görevleri Ekle" bölmesinde seçili PowerShell ile](./media/code-test/add_task_powershell.PNG)
+       ![Seçili PowerShell ile "görevleri Ekle" bölmesi](./media/code-test/add_task_powershell.PNG)
 
-    f. PowerShell sürümü ve adı gibi gerekli bilgileri PowerShell ayrıntıları doldurun. Seçin **satır içi betiği** türü. 
+    f. PowerShell ayrıntılarında adı ve PowerShell sürümü gibi gerekli bilgileri doldurun. Seçin **satır içi betik** türü. 
     
-       Altındaki kutuya **satır içi betiği**, yazabilirsiniz **python test1.py**. Ortam değişkeni Python için doğru ayarlandığından emin olun. Farklı bir sürüm veya Python çekirdek gerekiyorsa, aşağıdaki şekilde gösterildiği gibi açıkça yolu belirtebilirsiniz: 
+       Altındaki kutuya **satır içi betik**, yazabilirsiniz **python test1.py**. Ortam değişkenini Python için doğru ayarlandığından emin olun. Farklı bir sürüm veya Python çekirdek gerekiyorsa, aşağıdaki şekilde gösterildiği gibi açıkça olan yolu belirtebilirsiniz: 
     
        ![PowerShell ayrıntıları](./media/code-test/powershell_scripts.PNG)
 
-    g. Seçin **sıraya & Kaydet** derleme tanımı işlemini bitirmek için.
+    g. Seçin **Kaydet ve kuyruğa** derleme tanımı işlemini tamamlamak için.
 
-       !["& Sıraya Kaydet" düğmesi](./media/code-test/save_and_queue_build_definition.PNG)
+       !["Kaydet ve kuyruğa al" düğmesine](./media/code-test/save_and_queue_build_definition.PNG)
 
-Şimdi yeni bir yürütme kodu depoya gönderilen her zaman, yapılandırma işlemi otomatik olarak başlatılacak. (Burada biz asıl deposu olarak kullanabilirsiniz, ancak herhangi bir dal tanımlayabilirsiniz.) İşlemi çalıştırılan **test1.py** kod içinde tanımlanan her şeyin doğru şekilde çalıştığından emin olmak için aracı makine dosyasında. 
+Artık her seferinde yeni bir işleme kodu depoya gönderildiğinde, yapı işlemi otomatik olarak başlatılacak. (Ana depo burada kullanıyoruz, ancak herhangi bir dala tanımlayabilirsiniz.) İşlem sürerken **test1.py** kod içinde tanımlanan her şeyin düzgün çalıştığından emin olmak için aracı makinede dosyasında. 
 
-Uyarıları doğru şekilde ayarlanmışsa, yapı tamamlandığında e-posta ile bildirilir. Ayrıca VSTS yapı durumu kontrol edebilirsiniz. Başarısız olursa, yapı ayrıntılarını kontrol edin ve hangi parça bozuk olduğunu öğrenin.
+Uyarılar doğru şekilde ayarlanmışsa, derleme tamamlandığında e-posta ile bildirilir. Ayrıca vsts'de yapı durumunu kontrol edebilirsiniz. Başarısız olursa, derleme ayrıntılarını kontrol edin ve hangi parçanın bozuk olduğunu öğrenin.
 
 ![Yapı Başarı e-posta bildirimi](./media/code-test/email_build_succeed.PNG)
 
-![Yapı Başarısı VSTS bildirimi](./media/code-test/vs_online_build_succeed.PNG)
+![VSTS bildirim derleme başarısı](./media/code-test/vs_online_build_succeed.PNG)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bkz: [UCI geliri tahmin depo](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) veri bilimi senaryoları için birim testleri somut örnekleri için.
-* Önceki anahat ve kendi veri bilimi projeleri UCI geliri tahmin senaryoda örneklerinden izleyin.
+* Bkz: [UCI gelir tahmin depo](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) veri bilimi senaryoları için birim testleri somut örnekleri için.
+* Önceki anahat ve kendi veri bilimi projeleri UCI gelir tahmin senaryoda örneklerden izleyin.
 
 ## <a name="references"></a>Başvurular
 * [Team Data Science Process](https://aka.ms/tdsp)
 * [Visual Studio Test Araçları](https://www.visualstudio.com/vs/features/testing-tools/)
 * [VSTS test kaynakları](https://www.visualstudio.com/team-services/)
-* [Veri bilimi sanal makineler](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
+* [Veri bilimi sanal makineleri](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

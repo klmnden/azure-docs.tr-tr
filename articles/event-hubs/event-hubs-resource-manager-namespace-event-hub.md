@@ -1,6 +1,6 @@
 ---
-title: Bir şablonu kullanarak bir Azure Event Hubs ad alanı ve tüketici grubu oluşturun | Microsoft Docs
-description: Azure Resource Manager şablonları kullanarak bir tüketici grubu ve bir event hub ile Event Hubs ad alanı oluşturma
+title: Şablon kullanarak bir Azure Event Hubs ad alanı ve tüketici grubu oluştur | Microsoft Docs
+description: Bir olay hub'ı ve Azure Resource Manager şablonlarını kullanarak bir tüketici grubu ile bir Event Hubs ad alanı oluşturma
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 04/30/2018
 ms.author: sethm
 ms.openlocfilehash: 4b4dc5be9697bb96aec658fccbdf13b299e79e9e
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311269"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309860"
 ---
-# <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak olay hub'ı ve tüketici grubu ile bir olay hub'ları ad alanı oluşturma
+# <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Bir Event Hubs ad alanı bir Azure Resource Manager şablonu kullanarak olay hub'ı ve tüketici grubu oluşturun
 
-Bu makalede Azure Resource Manager şablonu türü bir ad alanı oluşturmak için nasıl kullanılacağı gösterilmektedir [olay hub'ları](event-hubs-what-is-event-hubs.md), bir olay hub'ı ve tek bir tüketici grubundaki ile. Makaleyi nasıl tanımlamak için hangi kaynağın dağıtılan ve ne zaman dağıtım yürütülen parametreler tanımlamak nasıl belirtilen gösterir. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
+Bu makalede, türünde bir ad alanı oluşturmak için bir Azure Resource Manager şablonu kullanma işlemi gösterilmektedir [Event Hubs](event-hubs-what-is-event-hubs.md)bir olay hub'ı ve tek bir tüketici grubu. Makalede nasıl tanımlamak için hangi kaynaklara dağıtılır ve parametrelerin nasıl dağıtıldığının ve dağıtım yürütülürken belirtilen gösterilmektedir. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
 
 Şablonları oluşturma hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
 
-Tam şablon için bkz: [olay hub'ı ve tüketici grubu şablonunu] [ Event Hub and consumer group template] github'da.
+Tam şablon için bkz: [olay hub'ı ve tüketici grubu şablonunu] [ Event Hub and consumer group template] GitHub üzerinde.
 
 > [!NOTE]
 > En yeni şablonları denetlemek için [Azure Hızlı Başlangıç Şablonları][Azure Quickstart Templates] galerisini ziyaret edin ve Event Hubs araması yapın.
@@ -36,7 +36,7 @@ Tam şablon için bkz: [olay hub'ı ve tüketici grubu şablonunu] [ Event Hub a
 
 ## <a name="what-will-you-deploy"></a>Ne dağıtacaksınız?
 
-Bu şablon kullanılarak bir olay hub'ı ve bir tüketici grubu içeren bir olay hub'ları ad dağıtın.
+Bu şablonu kullanarak bir Event Hubs ad alanı bir olay hub'ı ve bir tüketici grubu ile dağıtın.
 
 Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıklayın:
 
@@ -44,7 +44,7 @@ Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıkla
 
 ## <a name="parameters"></a>Parametreler
 
-Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Şablon, tüm parametre değerlerini içeren `Parameters` adlı bir bölüm içerir. Dağıttığınız projesini temel alan veya dağıtmakta olduğunuz ortamına bağlı olarak değişir değerleri için bir parametre tanımlamanız gerekir. Her zaman aynı kalan değerler için parametre tanımlamayın. Her parametre değeri şablondaki dağıtılan kaynakları tanımlar.
+Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Şablon, tüm parametre değerlerini içeren `Parameters` adlı bir bölüm içerir. Dağıtmakta olduğunuz projeye veya dağıtım yaptığınız ortama bağlı değişir değerleri için bir parametre tanımlamanız gerekir. Her zaman aynı kalan değerler için parametre tanımlamayın. Her bir şablon parametre değeri, dağıtılan kaynakları tanımlar.
 
 Şablon aşağıdaki parametreleri tanımlar:
 
@@ -70,7 +70,7 @@ Event Hubs ad alanında oluşturulan olay hub’ının adı.
 
 ### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
 
-Olay hub'ı için oluşturulan tüketici grubu adı.
+Oluşturulan olay hub'ı için tüketici grubunun adıdır.
 
 ```json
 "eventHubConsumerGroupName": {
@@ -90,7 +90,7 @@ Olay hub'ı için oluşturulan tüketici grubu adı.
 
 ## <a name="resources-to-deploy"></a>Dağıtılacak kaynaklar
 
-Tür bir ad oluşturur **EventHubs**, bir olay hub'ı ve bir tüketici grubu ile:
+Türünde bir ad alanı oluşturur **EventHubs**bir olay hub'ı ve bir tüketici grubu:
 
 ```json
 "resources":[  

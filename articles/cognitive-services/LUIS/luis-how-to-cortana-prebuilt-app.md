@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: v-geberr
-ms.openlocfilehash: 27900068d4420b3e70dacc6d1bdfdf0c52053ceb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f5cc97e49d3c127ffe7f53a315c42ab872782a49
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767313"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968733"
 ---
 # <a name="cortana-prebuilt-app"></a>Önceden oluşturulmuş Cortana uygulamasını
 
@@ -69,6 +69,8 @@ Tarayıcıda önceden oluşturulmuş Cortana uygulamasını tanımladığını g
   ]
 }
 ```
+
+LUIS, önceden oluşturulmuş Cortana uygulamasını kullanıldığından puanları döndürmeyen. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]

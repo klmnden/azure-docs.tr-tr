@@ -1,6 +1,6 @@
 ---
-title: DNS Azure yığınında | Microsoft Docs
-description: DNS kullanarak Azure yığını
+title: Azure Stack'te DNS | Microsoft Docs
+description: Azure Stack'te DNS kullanma
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -13,62 +13,62 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4e854a2751ce366e3ca3a353487f2c972401c248
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8459a5f88bf660ac460f778f67618e9805afa29d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196534"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970718"
 ---
-# <a name="using-dns-in-azure-stack"></a>DNS kullanarak Azure yığını
+# <a name="using-dns-in-azure-stack"></a>Azure Stack'te DNS kullanma
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure yığın aşağıdaki etki alanı adı sistemi (DNS) özellikleri destekler:
+Azure Stack aşağıdaki etki alanı adı sistemi (DNS) özellikleri destekler:
 
 * DNS ana bilgisayar adı çözümlemesi
-* DNS bölgeleri ve API kullanarak kayıtları oluşturma ve yönetme
+* DNS bölgelerini ve kayıtlarını API'sini kullanarak oluşturma ve yönetme
 
 ## <a name="support-for-dns-hostname-resolution"></a>DNS ana bilgisayar adı çözümlemesi için destek
 
-Genel IP kaynakları için bir DNS etki alanı adı etiketi belirtebilirsiniz. Azure yığınını kullanan *domainnamelabel.location*. etiket adı ve Azure yığınında genel IP adresi eşlemelerini cloudapp.azurestack.external yönetilen DNS sunucuları.
+Genel IP kaynağı için bir DNS etki alanı ad etiketi belirtebilirsiniz. Azure Stack kullanan *domainnamelabel.location*. etiket adının ve Azure Stack'te genel IP adresi eşlemeleri için cloudapp.azurestack.external yönetilen DNS sunucuları.
 
-Örneğin, bir ortak IP kaynağıyla oluşturursanız **contoso** bir etki alanı adı etiketi yerel Azure yığın konum olarak [tam etki alanı adı](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN)  **contoso.Local.cloudapp.azurestack.external** kaynağı ortak IP adresine çözümler. Bu FQDN, özel bir etki alanı Azure yığınında ortak IP adresine işaret eden bir CNAME kaydı oluşturmak için kullanabilirsiniz.
+Örneğin, bir genel IP kaynağı oluşturursanız **contoso** yerel Azure Stack konumda bir etki alanı adı etiketi olarak [tam etki alanı adı](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN)  **contoso.Local.cloudapp.azurestack.external** kaynağın genel IP adresine çözümler. Bu FQDN, özel bir etki alanını Azure Stack'te genel IP adresini işaret eden bir CNAME kaydı oluşturmak için kullanabilirsiniz.
 
-Ad çözümlemesi hakkında daha fazla bilgi için bkz [DNS çözümlemesi](https://docs.microsoft.com/en-us/azure/dns/dns-for-azure-services?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) makalesi.
+Ad çözümlemesi hakkında daha fazla bilgi için bkz [DNS çözümlemesi](https://docs.microsoft.com/azure/dns/dns-for-azure-services?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) makalesi.
 
 > [!IMPORTANT]
-> Oluşturduğunuz her etki alanı adı etiketi Azure yığın konumuna içinde benzersiz olmalıdır.
+> Oluşturduğunuz her etki alanı ad etiketi kendi Azure Stack konumunda benzersiz olmalıdır.
 
-Sonraki ekran yakalama programları **ortak IP adresi oluştur** Portalı'nı kullanarak bir ortak IP adresi oluşturmak için iletişim.
+Sonraki ekran yakalama programları **genel IP adresi oluşturma** portalını kullanarak genel bir IP adresi oluşturmak için iletişim.
 
-![Ortak IP adresi oluştur](media/azure-stack-whats-new-dns/image01.png)
+![Genel IP adresi oluşturma](media/azure-stack-whats-new-dns/image01.png)
 
 **Örnek senaryo**
 
-Bir web uygulamasından istekleri işlemeyi bir yük dengeleyiciye sahip. Yük Dengeleyici bir veya daha fazla sanal makine üzerinde çalışan bir web sitesi ' dir. Yük dengeli bir DNS adı yerine IP adresi kullanarak web sitesi erişebilir.
+Bir web uygulamasından isteklerini işleme bir yük dengeleyici var. Yük Dengeleyici bir veya daha fazla sanal makineler üzerinde çalışan bir web sitesi ' dir. Yük dengeli bir DNS adı yerine IP adresi kullanarak web sitesi erişebilirsiniz.
 
-## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>DNS bölgeleri ve API kullanarak kayıtları oluşturma ve yönetme
+## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>DNS bölgeleri ve kayıtları API'sini kullanarak oluşturma ve yönetme
 
-Oluşturun ve DNS bölgeleri ve Azure yığınında kayıtları yönetin.
+Oluşturun ve DNS bölgeleri ve kayıtlarını Azure Stack'te yönetme.
 
-Azure yığını, Azure'nın DNS API'leri ile tutarlı API'lerini kullanarak Azure'nın gibi bir DNS hizmet sağlar.  Azure yığın DNS'de etki alanlarınızı barındırarak DNS kayıtlarınızı aynı kimlik bilgileri, API ve araçları kullanarak yönetebilirsiniz. Ayrıca, aynı fatura kullanın ve diğer Azure hizmetlerinizi destekler.
+Azure Stack, Azure'nın DNS API'leri ile tutarlı API'lerini kullanarak Azure'nın gibi bir DNS hizmeti sağlar.  Azure Stack DNS etki alanlarınızı barındırarak aynı kimlik bilgilerini, API'leri ve araçları kullanarak DNS kayıtlarınızı yönetebilirsiniz. Ayrıca, aynı faturalandırma kullanın ve diğer Azure hizmetlerinde destekler.
 
-Azure yığın DNS altyapısı Azure'un daha kısadır. Bir Azure yığın dağıtımına konumunu ve boyutunu DNS kapsam, ölçek ve performans etkiler. Bu ayrıca performans, kullanılabilirlik, genel dağıtım ve yüksek kullanılabilirlik dağıtımı dağıtım değişebilir anlamına gelir.
+Azure Stack DNS altyapısı, Azure'un daha kısadır. Azure Stack dağıtım konumunu ve boyutunu DNS kapsam, ölçek ve performans etkiler. Bu durum, performans, kullanılabilirlik, genel dağıtım ve yüksek kullanılabilirlik dağıtımı dağıtım değişebilir da gelir.
 
 ## <a name="comparison-with-azure-dns"></a>Azure DNS ile karşılaştırma
 
-Azure DNS'de DNS Azure yığınında benzer, ancak ana özel durumları anlamanız gerekir.
+Azure Stack'te DNS, Azure DNS'de benzerdir, ancak büyük özel durumlar anlamak için ihtiyacınız vardır.
 
 * **AAAA kayıt desteklemiyor**
 
-    Azure yığın IPv6 adresleri desteklemediğinden azure yığın AAAA kayıt desteklemez.  Azure DNS'de ve Azure yığın arasında önemli bir fark budur.
+    Azure Stack, Azure Stack IPv6 adreslerini desteklemediğinden AAAA kayıt desteklemez.  Azure DNS'de ve Azure Stack arasında önemli bir fark budur.
 * **Çok kiracılı değil**
 
-    Azure yığınında DNS hizmeti çok kiracılı değil. Her bir kiracı aynı DNS bölgesi oluşturulamıyor. Bölge oluşturma girişiminde ilk abonelik başarılı olursa ve sonraki istekleri başarısız olur.  Bu bilinen bir sorundur ve Azure ve Azure yığın DNS arasındaki en önemli fark olur. Bu sorun gelecekteki bir sürümde çözümlenir.
+    Azure Stack'te DNS hizmeti çok kiracılı değil. Her Kiracı aynı DNS bölgesi oluşturulamıyor. Bölge oluşturma girişimi şu ilk abonelik başarılı ve başarısız istekler.  Bu bilinen bir sorundur ve Azure ve Azure Stack DNS arasındaki en önemli fark olur. Bu sorun gelecek sürümde çözülecektir.
 * **Etiketler, meta verileri ve Etag'ler**
 
-    Etiketler, meta verileri, Etag'ler ve sınırları Azure yığın nasıl işlediğini küçük farklar vardır.
+    Azure Stack, etiketler, meta verileri, Etag'ler ve sınırları nasıl işlediğini küçük farklılıklar vardır.
 
 Azure DNS hakkında daha fazla bilgi için bkz: [DNS bölgeleri ve kayıtları](../../dns/dns-zones-records.md).
 
@@ -76,39 +76,39 @@ Azure DNS hakkında daha fazla bilgi için bkz: [DNS bölgeleri ve kayıtları](
 
 **Etiketler**
 
-DNS bölge kaynakları Azure Resource Manager etiketleri kullanarak Azure yığın DNS destekler. Alternatif 'meta verileri' desteklenir gibi DNS kaydı sonraki açıklandığı gibi ayarlar ancak DNS kayıt kümelerini üzerinde etiketleri desteklemez.
+Azure Stack DNS, DNS bölgesi kaynakları Azure Resource Manager etiketleri kullanarak destekler. 'Metadata' alternatif desteklenir gibi sonraki açıklandığı gibi DNS kayıt kümelerinin ancak DNS kayıt kümeleri üzerinde etiketleri desteklememektedir.
 
-**Meta veriler**
+**Meta verileri**
 
-Kayıt kümesi etiketleri alternatif olarak, Azure yığın DNS kayıt kümelerini 'meta verileri' kullanarak açıklanmasını destekler. Benzer şekilde etiketleri, meta verileri, ad-değer çiftleri her bir kayıt kümesi ile ilişkilendirmek sağlar. Örneğin, bu amacı, her bir kayıt kümesi kaydetmek yararlı olabilir. Etiketler, aksine meta verileri Azure faturasını filtre uygulanmış bir görünümünü sağlamak için kullanılamaz ve bir Azure Resource Manager ilkesinde belirtilemez.
+Kayıt kümesi etiketleri alternatif, Azure Stack DNS yorumlama 'metadata' kullanarak kayıt kümelerini destekler. Benzer şekilde etiketler, meta verileri, ad-değer çiftleri her bir kayıt kümesi ile ilişkilendirmek sağlar. Örneğin, bu amacı, her bir kayıt kümesi kaydetmek yararlı olabilir. Etiketleri farklı meta verileri Azure faturanızı filtrelenmiş bir görünümünü sağlamak için kullanılamaz ve bir Azure Resource Manager ilkesinde belirtilemez.
 
 **Etag'ler**
 
-İki kişinin veya iki işlemler aynı anda bir DNS kaydı değiştirmeye çalıştığınızda varsayalım. Hangisinin WINS? Ve başkaları tarafından oluşturulan değişikliklerin üzerine kazanan bilir?
+Aynı anda bir DNS kaydı değiştirmek iki kişinin veya iki işlem ile deneyin varsayalım. Hangisinin kazandı? Ve kazanan başkaları tarafından oluşturulan değişikliklerin üzerine bilir?
 
-Azure yığın DNS Etag'ler aynı kaynak eşzamanlı değişiklikleri güvenli bir şekilde işlemek için kullanır. Azure Kaynak Yöneticisi'nden 'Etiketleri' Etag'ler ayrıdır. Her DNS kaynak (bölge veya kayıt kümesi) ilişkili bir ETag değerine sahip. Bir kaynak alınır olduğunda, kendi Etag de alınır. Bir kaynak güncelleştirirken Azure yığın DNS doğrulayın şekilde Etag sunucu eşleşmeleri ile Etag geri geçirmek seçebilirsiniz. Yeniden Etag bir kaynağa her bir güncelleştirme sonuçları olduğundan, bir Etag uyuşmazlığı eşzamanlı bir değişiklik oluştuğunu gösterir. Etag'ler da yeni bir kaynak oluştururken kaynak zaten yoksa emin olmak için kullanılabilir.
+Azure Stack DNS Etag'ler aynı kaynağa eş zamanlı değişiklikleri güvenli bir şekilde işlemek için kullanır. Azure Resource Manager'dan 'Etiketleri' Etag'ler ayrıdır. Her DNS kaynak (bölge ya da kayıt kümesi), kendisiyle ilişkili bir Etag'e sahiptir. Bir kaynak alınan her dosyanın etag değeri de alınır. Bir kaynak güncelleştirirken, Azure Stack DNS doğrulayabilmeniz için Etag sunucu eşleşmeleri ile Etag geri geçirmek seçebilirsiniz. Bir kaynağa her bir güncelleştirme yeniden oluşturuluyor Etag sonuçları olduğundan, bir Etag uyuşmazlığı eşzamanlı bir değişiklik meydana geldiğini gösterir. Etag'ler de yeni bir kaynak oluşturulurken kaynak zaten yoksa emin olmak için kullanılabilir.
 
-Varsayılan olarak, Azure yığın DNS PowerShell Etag'ler bölgelere eşzamanlı değişiklikleri engellemek ve kayıt kümeleri için kullanır. İsteğe bağlı *-üzerine* anahtar Etag denetimlerini gizlemek için kullanılabilir, her eşzamanlı durumda oluşan değişikliklerin üzerine yazılır.
+Varsayılan olarak, Azure Stack DNS PowerShell bölgelere eş zamanlı değişiklikleri engellemek ve kaydı kümeleri için Etag'ler kullanır. İsteğe bağlı *-üzerine* anahtar Etag denetimlerini gizlemek için kullanılabilir, eş zamanlı her durumda, gerçekleşen değişikliklerin üzerine yazılır.
 
-Azure yığın DNS REST API düzeyinde Etag'ler HTTP üstbilgileri kullanılarak belirtilir. Davranışlarını aşağıdaki tabloda verilmiştir:
+Azure Stack DNS REST API düzeyinde Etag'ler HTTP üst bilgilerini kullanarak belirtilir. Davranışları aşağıdaki tabloda verilmiştir:
 
 | Üst bilgi | Davranış|
 |--------|---------|
-| Hiçbiri   | PUT (Etag denetimleri) her zaman başarılı|
+| None   | PUT (herhangi bir Etag denetimi) her zaman başarılı|
 | IF-match| PUT yalnızca kaynak var ve Etag eşleşiyorsa başarılı|
-| IF-match *| Kaynak varsa PUT yalnızca başarılı|
-| IF-none-match *| Kaynak yoksa, PUT yalnızca başarılı|
+| IF-match *| Kaynak yoksa PUT yalnızca başarılı|
+| IF-none-match *| Kaynak yoksa PUT yalnızca başarılı|
 
 ### <a name="limits"></a>Sınırlar
 
-Aşağıdaki varsayılan sınırları Azure yığın DNS kullanırken geçerlidir:
+Azure Stack DNS kullanırken aşağıdaki varsayılan sınırlar geçerlidir:
 
 | Kaynak| Varsayılan limit|
 |---------|--------------|
-| Abonelik başına bölgeleri| 100|
-| Her bölge için kayıt kümeleri| 5000|
+| Abonelik başına bölge| 100|
+| Bölge başına kayıt kümeleri| 5000|
 | Kayıt kümesi başına kayıt| 20|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[IDN'ler için Azure yığınına Tanıtımı](azure-stack-understanding-dns.md)
+[Azure Stack için iDNS ile tanışın](azure-stack-understanding-dns.md)

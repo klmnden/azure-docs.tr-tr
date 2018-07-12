@@ -10,6 +10,8 @@
   items:
     - name: Uzaktan izleme çözümü dağıtma
       href: quickstart-remote-monitoring-deploy.md
+    - name: Tahmine dayalı bakım çözümü dağıtma
+      href: quickstart-predictive-maintenance-deploy.md
     - name: Cihaz benzetimi çözümü dağıtma
       href: quickstart-device-simulation-deploy.md
 - name: Öğreticiler

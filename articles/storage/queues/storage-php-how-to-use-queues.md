@@ -1,6 +1,6 @@
 ---
 title: Php'den kuyruk depolama kullanma | Microsoft Docs
-description: Oluşturmak ve Kuyruklar silmek için Azure kuyruk depolama hizmeti kullanmayı öğrenin ve Ekle, Al ve iletilerini silin. Örnekleri PHP ile yazılmıştır.
+description: Oluşturmak ve Kuyruklar, silmek için Azure kuyruk depolama hizmetini kullanmayı öğrenin ve Ekle, Al ve iletilerini silin. Örnek PHP ile yazılmıştır.
 documentationcenter: php
 services: storage
 author: roygara
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: rogarana
 ms.openlocfilehash: 737054aefa684b3fc486c860253c69afbb6eaf0c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30924809"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295815"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP’den Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -27,20 +27,20 @@ ms.locfileid: "30924809"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu kılavuz Azure kuyruk depolama hizmetini kullanarak yaygın senaryolar gerçekleştirme gösterir. Örnekler sınıflardan aracılığıyla yazılır [PHP için Azure Storage istemci Kitaplığı][download]. Kapsanan senaryolar ekleme, gözatma, alma ve kuyruk iletileri silme yanı sıra oluşturma ve silme içerir.
+Bu kılavuz Azure kuyruk depolama hizmetini kullanarak, yaygın senaryoları gerçekleştirmek nasıl gösterir. Örnekleri sınıflardan aracılığıyla yazılır [PHP için Azure depolama istemci Kitaplığı][download]. Kapsanan senaryolar, ekleme, gözatma, alma ve kuyruk iletileri siliniyor yanı sıra oluşturma ve kuyrukları silme içerir.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>PHP uygulaması oluşturma
-Azure kuyruk depolamaya erişen bir PHP uygulaması oluşturmak için yalnızca sınıflarda başvuran gereksinimdir [PHP için Azure Storage istemci Kitaplığı] [ download] gelen kodunuzu içinde. Not Defteri dahil olmak üzere uygulamanızı oluşturmak için tüm geliştirme araçlarını kullanabilirsiniz.
+Sınıflarda başvuran Azure kuyruk depolama erişen bir PHP uygulaması oluşturmak için tek gereksinim olmasıdır [PHP için Azure depolama istemci Kitaplığı] [ download] gelen kod içinde. Uygulamanızı oluşturmak için Not Defteri dahil olmak üzere tüm geliştirme araçlarını kullanabilirsiniz.
 
-Bu kılavuzda, bir PHP uygulamanızda yerel olarak veya bir Azure web rolü, çalışan rolü veya Web sitesi içinde çalışan kodu çağrılabilir kuyruk depolama hizmet özelliklerini kullanın.
+Bu kılavuzda, yerel olarak PHP uygulaması içinde veya bir Azure web rolü, çalışan rolü veya Web sitesi içinde çalışan kod çağrılabilir kuyruk depolama hizmeti özelliklerini kullanın.
 
-## <a name="get-the-azure-client-libraries"></a>Azure istemci kitaplıkları Al
-### <a name="install-via-composer"></a>Oluşturucu yükleyin
-1. Adlı bir dosya oluşturun **composer.json** projenizi kök ve aşağıdaki kodu ekleyin:
+## <a name="get-the-azure-client-libraries"></a>Azure istemci kitaplıkları alma
+### <a name="install-via-composer"></a>Oluşturucu yükleme
+1. Adlı bir dosya oluşturun **composer.json** projenizin kökünde ve aşağıdaki kodu ekleyin:
    
     ```json
     {
@@ -49,49 +49,49 @@ Bu kılavuzda, bir PHP uygulamanızda yerel olarak veya bir Azure web rolü, ça
       }
     }
     ```
-2. Karşıdan **[composer.phar] [ composer-phar]** proje kök.
-3. Bir komut istemi açın ve proje kök dizininde aşağıdaki komutu yürütün
+2. İndirme **[composer.phar] [ composer-phar]** proje kökünüze içinde.
+3. Bir komut istemi açın ve proje kökünde aşağıdaki komutu yürütün
    
     ```
     php composer.phar install
     ```
 
-Alternatif olarak gidin [Azure Storage PHP istemci Kitaplığı] [ download] kaynak kodunu kopyalama github'da.
+Alternatif olarak Git [Azure Storage PHP istemci Kitaplığı] [ download] kaynak kodu kopyalamak için GitHub üzerindeki.
 
-## <a name="configure-your-application-to-access-queue-storage"></a>Kuyruk depolama erişmek için uygulamanızı yapılandırın
-Azure kuyruk depolama API'leri kullanmak için aktarmanız gerekir:
+## <a name="configure-your-application-to-access-queue-storage"></a>Kuyruk depolamaya erişmek için uygulamanızı yapılandırma
+Azure kuyruk depolama API'leri kullanmak için yapmanız:
 
 1. Otomatik Yükleyici dosyasını kullanarak başvuru [require_once] deyimi.
-2. Kullanabileceğinize sınıfları başvuru.
+2. Kullanabileceğiniz tüm sınıflar başvuru.
 
-Aşağıdaki örnek otomatik Yükleyiciden dosya ve başvuru dahil gösterilmektedir **QueueRestProxy** sınıfı.
+Aşağıdaki örnekte, başvuru ve otomatik yükleyici dosyasını içerecek şekilde gösterilmektedir **QueueRestProxy** sınıfı.
 
 ```php
 require_once 'vendor/autoload.php';
 use MicrosoftAzure\Storage\Queue\QueueRestProxy;
 ```
 
-Aşağıdaki örneklerde, `require_once` deyimi her zaman gösterilir, ancak örneğin yürütmek için gerekli olan sınıfları başvurulur.
+Aşağıdaki örneklerde, `require_once` ifade her zaman gösterilir, ancak örneğin yürütmek için gerekli olan sınıfları başvurulur.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Bir Azure depolama bağlantı kurma
 Bir Azure kuyruk depolama istemcisi örneği oluşturmak için öncelikle geçerli bir bağlantı dizesi olması gerekir. Kuyruk hizmeti bağlantı dizesi biçimi aşağıdaki gibidir.
 
-Canlı hizmetine erişmek için:
+Bir live hizmetine erişmek için:
 
 ```php
 DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 ```
 
-Öykünücü depolama erişmek için:
+Depolama öykünücüsü erişmek için:
 
 ```php
 UseDevelopmentStorage=true
 ```
 
-Azure kuyruk hizmeti istemcisi oluşturmak için kullanmanız gerekir **QueueRestProxy** sınıfı. Aşağıdaki yöntemlerden birini kullanabilirsiniz:
+Bir Azure kuyruk hizmeti istemcisi oluşturmak için kullanmanız gerekir **QueueRestProxy** sınıfı. Aşağıdaki tekniklerden birini kullanabilirsiniz:
 
-* Bağlantı dizesi doğrudan geçirin.
-* Ortam değişkenleri Web uygulamanız bağlantı dizesini depolamak için kullanın. Bkz: [Azure web uygulaması yapılandırma ayarları](../../app-service/web-sites-configure.md) bağlantı dizelerini yapılandırma belge.
+* Doğrudan bağlantı dizesini geçirin.
+* Ortam değişkenlerini kullanarak Web uygulamanızda bağlantı dizesini depolamak için kullanın. Bkz: [Azure web uygulaması yapılandırma ayarları](../../app-service/web-sites-configure.md) bağlantı dizelerini yapılandırma belge.
 Burada özetlenen örnekler için bağlantı dizesi doğrudan geçirilir.
 
 ```php
@@ -104,7 +104,7 @@ $queueClient = QueueRestProxy::createQueueService($connectionString);
 ```
 
 ## <a name="create-a-queue"></a>Bir kuyruk oluşturma
-A **QueueRestProxy** nesnesi kullanarak bir kuyruk oluşturma olanak tanır **createQueue** yöntemi. Bir kuyruk oluştururken, sıranın seçeneklerini ayarlayabilirsiniz, ancak bunun nedenle gerekli değildir. (Aşağıdaki örnekte nasıl bulunan bir sıra meta veri ayarlanacağını gösterir.)
+A **QueueRestProxy** nesnesi kullanarak bir kuyruk oluşturmanıza olanak tanıyan **createQueue** yöntemi. Bir kuyruğu oluştururken, kuyruktaki seçeneklerini ayarlayabilirsiniz ancak bunu yaparsanız bu nedenle gerekli değildir. (Aşağıdaki örnekte bir kuyruğa meta verileri ayarlama işlemini gösterir.)
 
 ```php
 require_once 'vendor/autoload.php';
@@ -138,12 +138,12 @@ catch(ServiceException $e){
 ```
 
 > [!NOTE]
-> Meta veri anahtarları için büyük/küçük harfe duyarlılık dayanarak doğrulamamalısınız. Tüm anahtarları küçük hizmetinden salt okunurdur.
+> Meta veri anahtarları için büyük/küçük harfe duyarlılık dayanarak doğrulamamalısınız. Tüm anahtarları küçük hizmetten okunur.
 > 
 > 
 
-## <a name="add-a-message-to-a-queue"></a>Kuyruğa bir ileti Ekle
-Kuyruğa bir ileti eklemek için kullanın **QueueRestProxy -> CreateMessage nesne**. Yöntem, kuyruk adı, ileti metni ve (olan isteğe bağlı) ileti seçeneklerini alır.
+## <a name="add-a-message-to-a-queue"></a>Kuyruğa bir ileti ekleyin
+Bir kuyruğa ileti eklemek için **QueueRestProxy CreateMessage Nesne ->**. Yöntem, kuyruk adı, ileti metni ve (isteğe bağlı) iletinin seçeneklerini alır.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -172,7 +172,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="peek-at-the-next-message"></a>Sonraki iletiye gözatın
-Size bir ileti (ya da iletileri) bir sıranın öne sıradan çağırarak kaldırmadan iletiye göz atabilirsiniz **QueueRestProxy -> peekMessages**. Varsayılan olarak, **peekMessage** yöntemi tek bir ileti döndürür, fakat kullanarak bu değeri değiştirebilirsiniz **PeekMessagesOptions -> setNumberOfMessages** yöntemi.
+Bir ileti (ya da iletileri) kuyruğun önündeki kuyruktan kaldırmadan çağırarak Özet **QueueRestProxy -> peekMessages**. Varsayılan olarak, **peekMessage** yöntemi tek bir ileti döndürür, ancak kullanarak bu değeri değiştirebilirsiniz **PeekMessagesOptions -> setNumberOfMessages** yöntemi.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -220,7 +220,7 @@ else{
 ```
 
 ## <a name="de-queue-the-next-message"></a>Sonraki iletiyi sıradan çıkarmak
-Kodunuzun bir iletiyi bir kuyruktan iki adımda kaldırır. İlk olarak, arama **QueueRestProxy -> listMessages**, hangi yapar iletiyi sıradan okuyan herhangi bir kod görünmez. Varsayılan olarak bu ileti 30 saniye görünmez kalır. (Bu süre içinde ileti silinmez, onu yeniden sıraya görünür haline gelir.) İletiyi kuyruktan kaldırmayı tamamlamak için çağırmalısınız **QueueRestProxy -> deleteMessage**. Bir ileti kaldırmanın bu iki adımlı işlem donanım veya yazılım hatası nedeniyle bir ileti işlemek kodunuzu başarısız olduğunda, kodunuzu başka bir örneği aynı ileti alma ve yeniden deneyin sağlar. Kod çağrılarınızı **deleteMessage** ileti işlendikten sonra sağ.
+Kodunuzun bir iletiyi bir kuyruktan iki adımda kaldırır. İlk olarak, çağrı **QueueRestProxy -> listMessages**, getiren iletiyi kuyruktan okuyan herhangi bir kod görünmez. Varsayılan olarak bu ileti 30 saniye görünmez kalır. (İleti bu zaman aralığında değil silinirse, yeniden sıraya görünür duruma gelir.) İletiyi kuyruktan kaldırmayı tamamlamak için çağırmalıdır **QueueRestProxy -> deleteMessage**. Kodunuzun bir iletiyi donanım veya yazılım hatası nedeniyle başarısız olduğunda, kodunuzun başka bir örneği aynı iletiyi alıp yeniden deneyin, bu iki adımlı işlem, bir iletinin sağlar. Kod çağrılarınızı **deleteMessage** ileti işlendikten sonra sağ.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -261,7 +261,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="change-the-contents-of-a-queued-message"></a>Kuyruğa alınan iletinin içeriğini değiştirme
-Çağırarak bir ileti yerinde sırasındaki içeriğini değiştirebilirsiniz **QueueRestProxy -> updateMessage**. Eğer ileti bir iş görevini temsil ediyorsa, bu özelliği kullanarak iş görevinin durumunu güncelleştirebilirsiniz. Aşağıdaki kod kuyruk iletisini yeni içeriklerle güncelleştirir ve görünürlük zaman aşımını 60 saniye daha uzatır ayarlar. Bu iletiyle ilişkili iş durumunu kaydeder ve istemciye ileti üzerinde çalışmaya devam etmek için bir dakika daha zaman verir. Bir işleme adımı donanım veya yazılım arızasından dolayı başarısız olursa baştan başlamanıza gerek kalmadan kuyruk iletilerindeki çok adımlı iş akışlarını izlemek için bu yöntemi kullanabilirsiniz. Genellikle bir yeniden deneme sayacı tutmanı gerekir ve bir ileti *n* seferden daha fazla yeniden denenirse, silebilirsiniz. Bu, her işlendiğinde bir uygulama hatası tetikleyen bir iletiye karşı koruma sağlar.
+Bir ileti yerinde sırasındaki içeriğini çağırarak değiştirebilirsiniz **QueueRestProxy -> updateMessage**. Eğer ileti bir iş görevini temsil ediyorsa, bu özelliği kullanarak iş görevinin durumunu güncelleştirebilirsiniz. Aşağıdaki kod kuyruk iletisini yeni içeriklerle güncelleştirir ve görünürlük zaman aşımını 60 saniye daha uzatır ayarlar. Bu iletiyle ilişkili iş durumunu kaydeder ve istemciye ileti üzerinde çalışmaya devam etmek için başka bir dakika sağlar. Bir işleme adımı donanım veya yazılım arızasından dolayı başarısız olursa baştan başlamanıza gerek kalmadan kuyruk iletilerindeki çok adımlı iş akışlarını izlemek için bu yöntemi kullanabilirsiniz. Genellikle bir yeniden deneme sayacı tutmanı gerekir ve bir ileti *n* seferden daha fazla yeniden denenirse, silebilirsiniz. Bu, her işlendiğinde bir uygulama hatası tetikleyen bir iletiye karşı koruma sağlar.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -305,8 +305,8 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="additional-options-for-de-queuing-messages"></a>Çıkarılması iletileri için ek seçenekleri
-Bir sıradan ileti alma özelleştirebilirsiniz iki yolu vardır. İlk olarak toplu iletiler alabilirsiniz (en fazla 32). İkinci olarak, kodunuzun her iletiyi tamamen işlemesi için zaman daha az veya daha fazla izin vererek daha uzun veya kısaysa görünürlük zaman aşımını ayarlayabilirsiniz. Aşağıdaki kod örneğinde **getMessages** tek çağrıda 16 iletileri almak için yöntemi. Kullanarak her ileti işler sonra bir **için** döngü. Ayrıca her ileti için görünmezlik zaman aşımı beş dakika olarak ayarlanır.
+## <a name="additional-options-for-de-queuing-messages"></a>İletilerin kuyruktan çıkarılması için ek seçenekler
+Bir kuyruktan ileti alma özelleştirebilirsiniz iki yolu vardır. İlk olarak toplu iletiler alabilirsiniz (en fazla 32). İkinci olarak, bir uzun veya kısaysa görünebilirlik zaman aşımı, kodunuzun daha fazla veya daha az zaman her iletiyi tamamen işlemesi için izin ayarlayabilirsiniz. Aşağıdaki kod örneğinde **getMessages** tek çağrıda 16 ileti almak için yöntemi. Kullanarak her iletiyi işleyen sonra bir **için** döngü. Ayrıca her ileti için görünmezlik zaman aşımı beş dakika olarak ayarlanır.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -356,7 +356,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="get-queue-length"></a>Kuyruk uzunluğu alma
-Bir kuyruktaki ileti sayısı ile ilgili bir tahmin alabilirsiniz. **QueueRestProxy -> getQueueMetadata** yöntemi kuyruk hakkındaki meta verileri döndürmek için sıra hizmeti sorar. Çağırma **getApproximateMessageCount** yöntemi döndürülen nesne üzerinde kaç iletiler bir kuyrukta olan sayısına sağlar. İletileri eklenen veya sıra hizmeti isteğinize yanıt sonra kaldırıldığı için yalnızca yaklaşık sayısıdır.
+Bir kuyruktaki ileti sayısı ile ilgili bir tahmin alabilirsiniz. **QueueRestProxy -> getQueueMetadata** yöntemi kuyruk hakkındaki meta verileri döndürmek için kuyruk hizmeti sorar. Çağırma **getApproximateMessageCount** yöntemi döndürülen nesne üzerinde bir kuyrukta ileti sayısını olduğunun sayısını sağlar. İletileri eklenebilir veya kuyruk hizmeti, isteğine yanıt vermeden sonra kaldırılan sayısı yalnızca yaklaşık olmasıdır.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -387,7 +387,7 @@ echo $approx_msg_count;
 ```
 
 ## <a name="delete-a-queue"></a>Bir kuyruk silme
-Bir kuyruk ve tüm iletileri silmek için arama **QueueRestProxy -> deleteQueue** yöntemi.
+Bir kuyruk ve tüm iletileri silmek için çağrı **QueueRestProxy -> deleteQueue** yöntemi.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -415,12 +415,12 @@ catch(ServiceException $e){
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık Azure kuyruk depolamanın temellerini öğrendiğinize göre daha karmaşık depolama görevleri hakkında bilgi edinmek için aşağıdaki bağlantıları izleyin:
+Azure kuyruk depolamanın temellerini öğrendiğinize göre daha karmaşık depolama görevleri hakkında bilgi edinmek için bu bağlantıları izleyin:
 
-* Ziyaret [depolama PHP istemci kitaplığı için API Başvurusu](http://azure.github.io/azure-storage-php/)
-* Bkz: [Gelişmiş sıra örnek](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
+* Ziyaret [Azure depolama PHP istemci kitaplığı için API Başvurusu](http://azure.github.io/azure-storage-php/)
+* Bkz: [kuyruk Gelişmiş örnek](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
-Daha fazla bilgi için Ayrıca bkz. [PHP Geliştirici Merkezi](/develop/php/).
+Daha fazla bilgi için Ayrıca bkz: [PHP Geliştirici Merkezi](/develop/php/).
 
 [download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php

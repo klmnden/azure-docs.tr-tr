@@ -1,7 +1,7 @@
 ---
-title: Azure uygulama hizmeti tanılama genel bakış | Microsoft Docs
-description: Uygulama hizmeti Tanılama, web uygulamanızı ile sorunları nasıl giderebileceğinizi öğrenin.
-keywords: uygulama hizmeti, azure app service, tanılama, destek, web uygulaması, sorun giderme, kendi kendine yardım
+title: Azure App Service tanılama genel bakış | Microsoft Docs
+description: Web uygulamanızı App Service tanılamasını ile sorunları nasıl giderebileceğinizi öğrenin.
+keywords: App service, azure app service, tanılama, destek, web uygulaması, sorun giderme, kendi kendine yardım
 services: app-service
 documentationcenter: ''
 author: jen7714
@@ -14,57 +14,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: 50e0e9f5edc18aac42ee80e232f70e09736124bc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7ad205c75a02b496abe2cb910c7eb459cdb16c97
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33761896"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969247"
 ---
-# <a name="azure-app-service-diagnostics-overview"></a>Azure uygulama hizmeti tanılama genel bakış 
+# <a name="azure-app-service-diagnostics-overview"></a>Azure App Service tanılama genel bakış 
 
-Bir web uygulaması çalıştırırken, sitenizi çalışmıyor, kullanıcılarınıza söyleyen 500 hataları ortaya çıkabilecek sorunlar için hazırlanması istiyor. Uygulama hizmeti Tanılama, web uygulamanızın yapılandırma gerektirmeden gidermenize yardımcı olması için akıllı ve etkileşimli bir deneyimdir. Web uygulamanızı ile sorunla çalıştırdığınızda, uygulama hizmeti tanılama daha kolay ve hızlı bir şekilde ve sorunu gidermek için doğru bilgileri göstermesi yanlış gelin. 
+Bir web uygulaması çalıştırırken, sitenizin kapalı olması, kullanıcılara bildiren 500 hataları kaynaklanabilecek sorunları için hazırlıklı olmak istiyorsunuz. App Service tanılamasını yapılandırma gerektirmeden web uygulamanızı gidermenize yardımcı olması için akıllı ve etkileşimli bir deneyimdir. Web uygulamanızla bir sorunla karşılaşırsanız çalıştırdığınızda, App Service tanılamasını daha kolay ve hızlı bir şekilde ve sorunu gidermek için doğru bilgileri size yol göstermesi sorunun ne olduğunu gösterir. 
  
-Son 24 saat içinde web uygulamanızı ile sorunları karşılaştığınızda bir bu deneyim en yararlı olsa da, tüm tanılama grafikleri, her zaman çözümlemek kullanılabilir. Ek sorun giderme araçları ve yardımcı belgelerine ve forumlar bağlantılar sağ taraftaki sütunda yer alır.
+Son 24 saat içinde web uygulamanızla sorunları yaşıyorsanız, bir bu deneyim en yararlı olsa da, tüm tanılama grafikler, her zaman analiz etmek kullanılabilir. Ek sorun giderme araçları ve yardımcı belgeleri ve forumlar için bağlantılar sağ sütunda yer alır.
 
-Uygulama hizmeti tanılama çalışır yalnızca, uygulama Windows, ancak uygulamalar için de [Linux/kapsayıcıları](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro), [uygulama hizmeti ortamı](https://docs.microsoft.com/en-us/azure/app-service/environment/intro), ve [Azure işlevleri](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview). 
+App Service tanılamasını çalışır yalnızca, uygulama Windows üzerinde ancak uygulamalar için de [Linux/kapsayıcılar](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [App Service ortamı](https://docs.microsoft.com/azure/app-service/environment/intro), ve [Azure işlevleri](https://docs.microsoft.com/azure/azure-functions/functions-overview). 
 
-## <a name="open-app-service-diagnostics"></a>Açık uygulama hizmeti tanılama
+## <a name="open-app-service-diagnostics"></a>App Service tanılamasını Aç
 
-Uygulama hizmeti tanılama erişmek için uygulama hizmeti uygulamanızı veya uygulama hizmeti ortamı'nda gidin [Azure portal](https://portal.azure.com). Sol gezinti bölmesinde tıklayın **Tanıla ve sorunları**. 
+App Service tanılamasını erişmek için App Service uygulamanızı veya App Service Ortamı'nda gidin [Azure portalında](https://portal.azure.com). Sol gezinti bölmesinde, tıklayarak **tanılayın ve sorunlarını çözmek**. 
 
-Azure işlevleri için işlevi uygulamanıza ve üst gezinti gidin, tıklayın **Platform özellikleri** seçip **Tanıla ve sorunları** gelen **izleme**bölümü. 
+Azure işlevleri için işlev uygulamanıza ve üst gezinti gidin, tıklayarak **Platform özellikleri** seçip **Tanıla ve problemleri çözmenize** gelen **izleme**bölümü. 
 
 ![Giriş sayfası](./media/app-service-diagnostics/Homepage1.png)
 
-## <a name="health-checkup"></a>Sistem durumu checkup
+## <a name="health-checkup"></a>Sistem durumu kontrolü
 
-Web uygulamanızı ile sorunun ne olduğunu bilmiyorsanız veya sorunlarını gidermek için başlangıç noktası bilmiyorsanız, sistem durumu checkup başlatmak için uygun bir yerdir. Sistem durumu checkup sağlıklı nedir ve sorunu araştırmak için nereye bakması söyleyen sorunun ne olduğunu öğrenmek işaret eden bir hızlı, etkileşimli genel bakış vermek için web uygulamalarınızı analiz eder. Akıllı ve etkileşimli arabirimiyle sorun giderme işlemi boyunca rehberlik sağlar.  
+Web uygulamanızı nerede olduğunu bilmiyorsanız veya sorunlarınızı giderme araştırmaya nereden başlayacağınızı bilmiyorsanız, sistem durumu kontrolü başlatmak için iyi bir yerdir. Sistem durumu kontrolü size sağlıklı nedir ve sorunu araştırmak için aranacağı belirten, sorunun ne olduğunu işaret eden bir hızlı, etkileşimli genel bakış sağlayacak, web uygulamalarınızın analiz eder. Akıllı ve etkileşimli arabirimi, sorun giderme işlemi boyunca rehberlik sağlar.  
 
-![Sistem durumu checkup](./media/app-service-diagnostics/HealthCheckup2.png)
+![Sistem durumu kontrolü](./media/app-service-diagnostics/HealthCheckup2.png)
 
-Son 24 saat içinde belirli bir sorun kategorisi ile ilgili bir sorun algılanırsa, daha fazla sorun giderme öneriler ve sonraki adımlar daha Kılavuzlu bir deneyim görüntülemek için uygulama hizmeti tanılama isteyebilir ve tam tanılama raporu görüntüleyebilir.
+Bir sorun, son 24 saat içinde belirli bir sorun kategorisi ile algılanırsa, tam tanılama raporu görüntüleyebilir ve daha fazla sorun giderme tavsiyeleri ve daha destekli bir deneyim için sonraki adımları görüntülemek için App Service tanılamasını isteyebilir.
 
 ![Sorun giderme ve sonraki adımlar](./media/app-service-diagnostics/Troubleshooting3.png)
 
-## <a name="tile-shortcuts"></a>Döşeme kısayolları
+## <a name="tile-shortcuts"></a>Kutucuk kısayolları
 
-Sorun giderme bilgileri için arıyorsanız, ne tür tam olarak biliyorsanız, döşeme kısayolları, ilgilendiğiniz sorun kategorisi tam tanılama raporu için doğrudan yönlendirir. Sistem durumu checkup ile karşılaştırıldığında, daha fazla doğrudan döşeme kısayolları bağlıdır, ancak daha az tanılama ölçümlerinizi erişme yolu destekli. Döşeme kısayolları bir parçası olarak da bulabileceğiniz budur **tanılama araçları** hangi daha gelişmiş uygulama kodu sorunları, yavaşlığı, bağlantı dizeleri ve daha fazla bilgi için ilgili sorunları araştırmanıza yardımcı olacak araçlar. 
+Aradığınız bilgiler sorun giderme ne tür tam olarak biliyorsanız, kutucuk kısayolları doğrudan ilgilendiğiniz sorun kategorisi tam tanılama raporu yönlendirilirsiniz. İçin sistem durumu kontrolü karşılaştırıldığında daha fazla doğrudan kutucuk kısayollarıdır, ancak daha az destekli tanılama ölçümlerinizi erişme yolu. Kutucuk kısayolları bir parçası olarak da burada bulabilirsiniz budur **tanılama araçları** hangi daha gelişmiş uygulama kod sorunlarını, yavaşlık, bağlantı dizeleri ve daha fazla bilgi için ilgili sorunları araştırmanıza yardımcı olacak araçlar. 
 
-![Döşeme kısayolları](./media/app-service-diagnostics/TileShortcuts4.png)
+![Kutucuk kısayolları](./media/app-service-diagnostics/TileShortcuts4.png)
 
 ## <a name="diagnostic-report"></a>Tanılama raporu
 
-Daha fazla bilgi çalıştırdıktan sonra isteyip istemediğiniz bir [sistem durumu checkup](#health-checkup) veya biri üzerinde tıkladığınız [döşeme kısayolları](#tile-shortcuts), tam tanılama raporu son 24 saat ilgili grafiği çıkarılan ölçümleri gösterir. Uygulamanızı herhangi kesinti oluşursa, zaman çizelgesi altındaki turuncu çubuk olarak temsil edilir. Bu kapalı kalma süresi ve önerilen sorun giderme adımları hakkında gözlemleri görmek için kapalı kalma süresi seçmek için turuncu çubukları birini seçebilirsiniz. 
+Çalıştırdıktan sonra daha fazla bilgi isteyip istemediğiniz bir [sistem durumu kontrolü](#health-checkup) veya üzerine tıkladığınız [kutucuğuna kısayolları](#tile-shortcuts), son 24 saat oluşturabilme ilgili ölçümleri tam tanılama raporu gösterilir. Uygulamanızı kapalı kalma süresi karşılaşırsa, zaman çizelgesi alttaki turuncu bir çubuk gösterilir. Bu kapalı kalma süresi ve önerilen sorun giderme adımları hakkında daha fazla gözlem görmek için kapalı kalma süresi seçmek için turuncu çubuklardan birine seçebilirsiniz. 
 
 ![Tanılama raporu](./media/app-service-diagnostics/DiagnosticReport5.png)
 
 
-## <a name="investigating-application-code-issues"></a>Uygulama kodu sorunları araştırma
+## <a name="investigating-application-code-issues"></a>Uygulama kodu sorunlarını araştırma
 
-Birçok uygulama sorunlarını sorunları, uygulama kodunuzda ilişkili olduğundan uygulama hizmeti Tanılama ile tümleştirilir [Application Insights](https://azure.microsoft.com/services/application-insights/) özel durumları ve seçili kapalı kalma süresi ile ilişkilendirmek için bağımlılık sorunlarını vurgulayın. Application Insights ayrı olarak etkinleştirilmesi gerekir. 
+Birçok uygulama sorunları için uygulama kodunuzdaki sorunları birbiriyle ilişkili olduğundan, App Service tanılamasını ile tümleşir [Application Insights](https://azure.microsoft.com/services/application-insights/) özel durumları ve seçili kapalı kalma süresi ile ilişkilendirmek için bağımlılık sorunlarını vurgulayın. Application Insights ayrı olarak etkinleştirilmesi gerekir. 
 
-Application Insights özel durumlar ve bağımlılıkları görüntülemek için seçin **Web uygulaması aşağı** veya **Web uygulama yavaş** döşeme kısayolları. 
+Application Insights özel durumları ve bağımlılıklarını görüntülemek için seçin **Web uygulaması kapalı** veya **Web uygulaması yavaş** kutucuğuna kısayolları. 
 
 ![Application Insights](./media/app-service-diagnostics/AppInsights6.png)
 

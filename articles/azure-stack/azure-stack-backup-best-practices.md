@@ -1,6 +1,6 @@
 ---
-title: Altyapı Backup hizmeti en iyi uygulamalar Azure yığınının | Microsoft Docs
-description: Azure yığın yıkıcı bir hata varsa veri kaybı azaltmaya yardımcı olmak için veri merkezinizde yönetmek ve dağıttığınızda en iyi yöntemler kümesi izleyebilirsiniz.
+title: Azure Stack için altyapı Backup hizmeti en iyi yöntemler | Microsoft Docs
+description: Dağıtıp geri dönülemez bir hata varsa, veri kaybını önlemeye yardımcı olmak için veri merkezinizde Azure Stack yönettiğinizde, en iyi yöntem kümesi takip edebilirsiniz.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,38 +15,36 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: ec30832e6863ad92eff8f5c2e613adc503c73af5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 06a2d4ab12d2a7e03a538a98f5232a417fb39e4f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075757"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969478"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Altyapı Backup hizmeti en iyi uygulamalar
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Yıkıcı bir hata durumunda veri kaybını azaltmaya yardımcı olmak için veri merkezinizdeki Azure yığın yönetmek ve dağıttığınızda en iyi uygulamaları takip edebilirsiniz.
+Dağıtıp bir arıza durumunda veri kaybını önlemeye yardımcı olmak için veri merkezinizde Azure Stack yönettiğinizde, en iyi uygulamaları takip edebilirsiniz.
 
-İşlemi akış değişiklik yapıldığında yüklemenizi hala uyumlu olup olmadığını doğrulamak için düzenli aralıklarla en iyi uygulamaları gözden geçirmelidir. Bu en iyi yöntemleri uygulayarak sırasında sorunları karşılaşmamanız gerekir, Yardım için Microsoft Support başvurun.
+En iyi uygulamalar, değişiklikler için işlem akışı yapıldığında yüklemenizi hala uyumlu olup olmadığını doğrulamak için düzenli aralıklarla gözden geçirmelidir. Bu en iyi uygulama çalışırken herhangi bir sorun karşılaşmamanız gerekir, Yardım için Microsoft Support başvurun.
 
 ## <a name="configuration-best-practices"></a>Yapılandırma en iyi uygulamalar
 
 ### <a name="deployment"></a>Dağıtım
 
-Her Azure yığın bulut dağıtımdan sonra altyapı yedeklemeyi etkinleştirin. Tüm istemci/sunucu erişimi olan bir yedeklemelerden işleci yönetim API uç zamanlayabilirsiniz AzureStack araçlarını kullanma.
+Her Azure Stack Bulutu dağıtıldıktan sonra altyapı yedeklemeyi etkinleştirin. Tüm istemci/sunucu erişimi olan bir yedeklerden işleci yönetim API uç noktasına zamanlayabilirsiniz AzureStack araçlarını kullanma.
 
 ### <a name="networking"></a>Ağ
 
-Yol için Evrensel Adlandırma Kuralı (UNC) dize bir tam etki alanı adı (FQDN) kullanmanız gerekir. IP adresi, ad çözümlemesi mümkün değilse mümkündür. Bir UNC dize paylaşılan dosyaları veya aygıt konumunu belirtir.
+Yolu için Evrensel Adlandırma Kuralı (UNC) dizesi, bir tam etki alanı adı (FQDN) kullanmanız gerekir. IP adresi, ad çözümlemesi mümkün değilse mümkündür. Bir UNC dize paylaşılan dosyalarını veya cihazları gibi kaynakların konumunu belirtir.
 
 ### <a name="encryption"></a>Şifreleme
 
-Şifreleme anahtarı, dış depolama birimine dışarı yedekleme verilerini şifrelemek için kullanılır. Anahtar AzureStack araçlarla oluşturulabilir. 
+Şifreleme anahtarı, dış depolama birimine dışarı, yedekleme verilerini şifrelemek için kullanılır. Anahtar parçası olarak oluşturulan [PowerShell ile Azure Stack için yedeklemeyi etkinleştirme](azure-stack-backup-enable-backup-powershell.md).
 
-![AzureStack araçları](media\azure-stack-backup\azure-stack-backup-encryption1.png)
-
-Anahtar (örneğin, ortak Azure anahtar kasası gizli) güvenli bir konumda depolanması gerekir. Bu anahtar Azure yığını yeniden dağıtım sırasında kullanılması gerekir. 
+Anahtarı güvenli bir konuma (örneğin, ortak Azure Key Vault gizli) depolanması gerekir. Azure Stack yeniden dağıtım sırasında bu anahtarı kullanılması gerekir. 
 
 ![Anahtarı güvenli bir konuma depolanır.](media\azure-stack-backup\azure-stack-backup-encryption2.png)
 
@@ -54,16 +52,16 @@ Anahtar (örneğin, ortak Azure anahtar kasası gizli) güvenli bir konumda depo
 
 ### <a name="backups"></a>Yedeklemeler
 
- - Altyapı yedekleme denetleyicisi isteğe bağlı olarak tetiklenmesi gerekiyor. Günde en az iki kez yedekleme önerilir.
- - Bu yüzden kapalı kalma süresi management deneyimleri ya da kullanıcı uygulamaları sistem çalışırken yedekleme işleri yürütün. Yedekleme işleri makul bir yük altında bir çözüm için 20-40 dakika bekler.
- - Yönerge sağlanan OEM kullanarak, el ile yedekleme ağ anahtarları ve donanım yaşam döngüsü ana bilgisayar (HLH) burada altyapı yedek denetleyicisi depoları denetim düzlemine yedekleme verileri aynı yedekleme paylaşımında depolanması gerekir. Anahtar ve HLH yapılandırmaları bölge klasöre depolamayı düşünün. Aynı bölgede birden çok Azure yığın örneği varsa, bir ölçek birimi ait her yapılandırma için bir tanımlayıcı kullanmayı düşünün.
+ - Altyapı yedekleme denetleyicisi isteğe bağlı olarak tetiklenmesi gerekiyor. Günde en az iki kez yedekleme için önerilir.
+ - Kapalı kalma süresi olmadan kullanıcı uygulamaları ve yönetim deneyimleri olduğundan sistem çalışırken yedekleme işlerini Yürüt. Yedekleme işlerinin makul yük altında bir çözüm için 20-40 dakika bekler.
+ - Yönerge sağlanan OEM kullanarak, el ile yedekleme ağ anahtarları ve donanım yaşam döngüsü ana bilgisayar (HLH) burada altyapısını yedekleme denetleyicisi depoları denetim düzlemi yedekleme verilerini aynı yedekleme paylaşımında depolanması gerekir. Anahtar ve HLH yapılandırmaları bölge klasöre depolamayı düşünün. Azure Stack birden fazla aynı bölgede olması Ölçek birimine ait her bir yapılandırma için bir tanımlayıcı kullanmayı düşünün.
 
 ### <a name="folder-names"></a>Klasör adları
 
- - Altyapı MASBACKUP klasörü otomatik olarak oluşturur. Microsoft tarafından yönetilen bir paylaşım budur. MASBACKUP ile aynı düzeyde paylaşımları oluşturabilirsiniz. Klasör veya Azure yığın oluşturmaz MASBACKUP içinde depolama veri oluşturma önerilmez. 
- -  Kullanıcı FQDN ve klasör adını bölgesindeki farklı Bulutlar gelen yedekleme verilerinin ayırt etmek için. Azure yığın dağıtımı ve uç noktaları tam etki alanı adını (FQDN) bölge parametresi ve dış etki alanı adı parametresi birleşimidir. Daha fazla bilgi için bkz: [Azure yığın datacenter tümleştirmesi - DNS](azure-stack-integrate-dns.md).
+ - Altyapı MASBACKUP klasörü otomatik olarak oluşturur. Microsoft tarafından yönetilen bir paylaşım budur. MASBACKUP ile aynı düzeyde paylaşımları oluşturabilirsiniz. Klasörleri veya Azure Stack oluşturmaz MASBACKUP içinde depolama veri oluşturma önerilmez. 
+ -  Kullanıcı FQDN ve bölge adı klasörde farklı bulut yedekleme verilerden ayırmak için. Azure Stack dağıtımı ve uç noktalarına tam etki alanı adı (FQDN) bölge parametresi ve dış etki alanı adı parametresi birleşimidir. Daha fazla bilgi için [Azure Stack'i veri merkezi tümleştirmesi - DNS](azure-stack-integrate-dns.md).
 
-Örneğin, yedekleme fileserver01.contoso.com üzerinde barındırılan AzSBackups paylaşımıdır. Bu dosya paylaşımına dış etki alanı adı ve bölge adını kullanan bir alt kullanarak Azure yığın dağıtım başına bir klasör olabilir. 
+Örneğin, yedekleme fileserver01.contoso.com üzerinde barındırılan AzSBackups paylaşımıdır. Bu dosya paylaşımı başına dış etki alanı adı ve bölge adını kullanan bir alt klasör Azure Stack dağıtımı bir klasör olabilir. 
 
 FQDN: contoso.com  
 Bölge: nyc
@@ -74,9 +72,9 @@ Bölge: nyc
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\MASBackup
 
-MASBackup Azure yığın yedekleme verilerini depoladığı klasörüdür. Bu klasör, kendi verilerinizi depolamak için kullanmamalısınız. OEM ya tüm yedekleme verilerini depolamak için bu klasörün kullanmamalısınız. 
+Azure Stack yedekleme verilerini depoladığı MASBackup klasörü olur. Kendi verilerinizi depolamak için bu klasör kullanmamanız gerekir. OEM ya tüm yedekleme verilerini depolamak için bu klasör kullanmamalısınız. 
 
-OEM'ler bölge klasörü altında bileşenleri için yedek verileri depolamak için önerilir. Her ağ anahtarları, donanım yaşam döngüsü ana bilgisayar (HLH) ve benzeri kendi alt klasöründe depolanabilir. Örneğin:
+OEM'lerin bileşenlerinin bölge klasörü altındaki yedekleme verilerini depolamak için önerilir. Her ağ anahtarları, donanım yaşam döngüsü ana bilgisayar (HLH) ve benzeri kendi alt klasöründe depolanabilir. Örneğin:
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
@@ -89,13 +87,13 @@ Aşağıdaki uyarıları, sistem tarafından desteklenir:
 
 | Uyarı                                                   | Açıklama                                                                                     | Düzeltme                                                                                                                                |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Dosya Paylaşımı kapasitesi yetersiz olduğundan yedekleme başarısız oldu | Dosya Paylaşımı kapasitesi dışında yedekleme denetleyicisi yedekleme dosyalarının konumuna veremezsiniz. | Daha fazla depolama kapasitesi ekleyin ve yedekleme yeniden deneyin. Alan boşaltmak için var olan yedekleri (eskisinden ilk başlayarak) silin.                    |
-| Yedekleme bağlantı sorunları nedeniyle başarısız oldu.             | Ağ Azure yığın arasında dosya paylaşımı sorunları yaşıyor.                          | Ağ sorunu gidermek ve yedekleme işlemini yeniden deneyin.                                                                                            |
-| Yolda bir hata nedeniyle yedekleme başarısız oldu                | Dosya Paylaşımı yolu çözümlenemiyor                                                          | Paylaşım erişilebilir olduğundan emin olmak için farklı bir bilgisayara paylaşımından eşleyin. Artık geçerli değilse yolu güncelleştirmeniz gerekebilir.       |
-| Kimlik doğrulama sorunu nedeniyle yedekleme başarısız oldu               | Kimlik bilgileri ile ilgili bir sorun veya kimlik doğrulama etkiler bir ağ sorunu olabilir.    | Paylaşım erişilebilir olduğundan emin olmak için farklı bir bilgisayara paylaşımından eşleyin. Artık geçerliyse kimlik bilgilerini güncelleştirmeniz gerekebilir. |
-| Genel bir hata nedeniyle yedekleme başarısız oldu                    | Başarısız istek aralıklı bir sorun nedeniyle olabilir. Yedekleme yeniden deneyin.                    | destek çağrısı                                                                                                                               |
+| Dosya Paylaşımı kapasitesi dışında olduğu için yedekleme başarısız oldu. | Dosya paylaşımıdır kapasitesi azalıyor ve yedekleme denetleyicisi yedekleme dosyalarının konumuna dışarı aktaramazsınız. | Daha fazla depolama kapasitesi eklemenize ve yedekleme yeniden deneyin. Yer kazanmak için mevcut yedeklemeler (ilk başlanarak) silin.                    |
+| Yedekleme bağlantısı sorunları nedeniyle başarısız oldu.             | Ağ paylaşımı dosya ve Azure Stack arasında sorun yaşıyor.                          | Ağ sorunu giderin ve yedekleme işlemini yeniden deneyin.                                                                                            |
+| Yedekleme yolunda bir hata nedeniyle başarısız oldu                | Dosya Paylaşımı yolu çözümlenemiyor                                                          | Paylaşımı erişilebilir olduğundan emin olmak için farklı bir bilgisayara paylaşımından eşleyin. Artık geçerli değilse yolu güncelleştirmeniz gerekebilir.       |
+| Kimlik doğrulama sorunu nedeniyle yedekleme başarısız oldu               | Kimlik bilgileri ile ilgili bir sorun veya kimlik doğrulaması etkileyen bir ağ sorunu olabilir.    | Paylaşımı erişilebilir olduğundan emin olmak için farklı bir bilgisayara paylaşımından eşleyin. Artık geçerli olmayan kimlik bilgilerini güncelleştirmeniz gerekebilir. |
+| Genel bir hata nedeniyle yedekleme başarısız oldu                    | Başarısız istek aralıklı olarak ortaya çıkan bir sorun nedeniyle olabilir. Yedekleme yeniden deneyin.                    | Desteği arayın                                                                                                                               |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
- - İçin başvuru materyallerini gözden [Yedekleme hizmet altyapı](azure-stack-backup-reference.md).  
- - Etkinleştirme [altyapı yedekleme hizmeti](azure-stack-backup-enable-backup-console.md).
+ - Gözden geçirme için başvuru materyalleri [altyapı Backup hizmeti](azure-stack-backup-reference.md).  
+ - Etkinleştirme [altyapısını yedekleme hizmeti](azure-stack-backup-enable-backup-console.md).

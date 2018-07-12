@@ -1,6 +1,6 @@
 ---
-title: 'Zorlamalı tünel Azure siteden siteye bağlantıları için yapılandırın: Resource Manager | Microsoft Docs'
-description: Yeniden yönlendirme veya 'force' tüm Internet'e bağlı trafik, şirket içi konumuna geri nasıl.
+title: 'Azure siteden siteye bağlantılar için zorlamalı tünel yapılandırma: Resource Manager | Microsoft Docs'
+description: Nasıl yeniden yönlendirme veya 'tüm İnternet'e bağlı trafiği şirket içi konumunuza geri force'.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
 ms.openlocfilehash: 00330f49d4acc9bd2d720a60b743b78c86b08f86
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984150"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308161"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager dağıtım modelini kullanarak zorlamalı tünel yapılandırma
 
-Zorlamalı tünel yeniden yönlendirme veya "tüm Internet'e bağlı trafik, denetleme ve denetim için bir siteden siteye VPN tüneli aracılığıyla şirket içi konumunuza geri zorla" olanak sağlar. Bu, çoğu kurumsal BT için kritik güvenlik gereksinimdir ilkeleri. Olmadan tünel oluşturma, Internet'e bağlı trafik, vm'lerden azure'da her zaman Internet inceleme veya trafiği denetlemek için izin verme seçeneği olmadan Azure ağ altyapısından doğrudan geçer zorlandı. Yetkisiz Internet erişimine potansiyel olarak bilgilerin açığa çıkmasına veya diğer tür güvenlik ihlallerini yol açabilir.
+Zorlamalı tünel yeniden yönlendirme veya tüm İnternet'e bağlı trafiği, inceleme ve denetim için bir siteden siteye VPN tüneli aracılığıyla şirket içi konumunuza geri "force" sağlar. Bu, çoğu kurumsal BT için kritik güvenlik gereksinimdir ilkeleri. Olmadan tünel oluşturma, İnternet'e bağlı trafiği azure'daki sanal makinelerinize her zaman Azure ağ altyapısından doğrudan ilişkilerinden geçen inceleme veya trafiği denetlemek için izin verme seçeneği olmadan Internet'e zorlandı. Yetkisiz Internet erişimi, bilgilerin açıklanması veya diğer tür güvenlik ihlallerini olası neden olabilir.
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-Bu makalede Resource Manager dağıtım modeli kullanılarak oluşturulan sanal ağlar için tünel zorlanmış'ı yapılandıracağınız anlatılmaktadır. Zorlamalı tünel, Portalı aracılığıyla değil, PowerShell kullanarak yapılandırılabilir. Klasik dağıtım modeli için zorlamalı tünel yapılandırmak istiyorsanız, Klasik makale aşağıdaki açılan listeden seçin:
+Bu makalede, zorlamalı tünel Resource Manager dağıtım modeli kullanılarak oluşturulmuş sanal ağlar için nasıl yapılandıracağınız anlatılmaktadır. Zorlamalı tünel, portal üzerinden değil, PowerShell kullanarak yapılandırılabilir. Klasik makale, Klasik dağıtım modeli için zorlamalı tünel yapılandırmak istiyorsanız, aşağıdaki açılır listeden seçin:
 
 > [!div class="op_single_selector"]
 > * [PowerShell - Klasik](vpn-gateway-about-forced-tunneling.md)
@@ -36,41 +36,41 @@ Bu makalede Resource Manager dağıtım modeli kullanılarak oluşturulan sanal 
 > 
 > 
 
-## <a name="about-forced-tunneling"></a>Zorlanan tünel hakkında
+## <a name="about-forced-tunneling"></a>Zorlamalı tünel hakkında
 
-Aşağıdaki diyagramda, nasıl zorlamalı tünel works gösterilmektedir. 
+Aşağıdaki diyagram, nasıl zorlamalı tünel çalıştığını gösterir. 
 
 ![Zorlamalı Tünel Oluşturma](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
 
-Yukarıdaki örnekte, ön uç alt ağı değil zorlamalı tünel. Ön uç alt iş yükleri kabul etmek ve doğrudan Internet'ten müşteri isteklerine yanıt vermek devam edebilirsiniz. Orta katman ve arka uç alt zorlamalı tünel. Bu iki alt internet tüm giden bağlantılar zorlanmış veya siteye bir şirket içi S2S VPN tünelleri biri aracılığıyla yeniden yönlendirildi.
+Yukarıdaki örnekte, ön uç alt ağı değil zorlamalı tünel uygulanmaz. Frontend alt iş yüklerinin kabul etmek ve doğrudan Internet'ten müşteri isteklerine yanıt vermek devam edebilirsiniz. Orta katman ve arka uç alt ağları zorlamalı tünel. Bu iki alt ağa giden tüm bağlantılarından İnternet'e zorlamalı veya bir şirket içi sitede bir S2S VPN tünelleri aracılığıyla yeniden.
 
-Bu kısıtlama ve Internet erişimi, sanal makinelerden inceleme veya Bulut Hizmetleri, azure'da çok katmanlı bir hizmet Mimarinizi gerekli etkinleştirmek devam ederken olanak sağlar. Sanal ağlarınıza hiçbir Internet'e iş yükleri varsa, tüm sanal ağların zorlamalı tünel de uygulayabilirsiniz.
+Bu kısıtlama ve sanal makinelerinizdeki Internet erişimi denetleme veya çok katmanlı bir hizmet Mimarinizi gerekli etkinleştirmek devam ederken bulut Hizmetleri, azure'da sağlar. Sanal ağlarınızda hiçbir Internet'e yönelik iş yükü varsa, tüm sanal ağları için zorlamalı tünel de uygulayabilirsiniz.
 
 ## <a name="requirements-and-considerations"></a>Gereksinimleri ve konular
 
-Zorlamalı tünel Azure'da sanal ağ kullanıcı tanımlı yollar yapılandırılır. Bir şirket içi siteye trafiği yönlendirerek Azure VPN ağ geçidi için varsayılan bir yol olarak ifade edilir. Kullanıcı tanımlı Yönlendirme ve sanal ağlar hakkında daha fazla bilgi için bkz: [kullanıcı tanımlı yollar ve IP iletimini](../virtual-network/virtual-networks-udr-overview.md).
+Zorlamalı tünel Azure'da sanal ağ kullanıcı tanımlı yollar yapılandırılır. Bir şirket içi siteye trafik yönlendirme Azure VPN ağ geçidi için varsayılan bir yol olarak ifade edilir. Kullanıcı tanımlı Yönlendirme ve sanal ağlar hakkında daha fazla bilgi için bkz: [kullanıcı tanımlı yollar ve IP iletme](../virtual-network/virtual-networks-udr-overview.md).
 
-* Her sanal ağ alt yerleşik sistem yönlendirme tablosu vardır. Sistem yönlendirme tablosu yolların aşağıdaki üç grup vardır:
+* Her sanal ağ alt ağı, yerleşik bir sistem yönlendirme tablosu vardır. Sistem yönlendirme tablosu yolların aşağıdaki üç grup vardır:
   
-  * **Yerel VNet yollar:** doğrudan hedefe Vm'leri aynı sanal ağda.
-  * **Şirket içi yollar:** için Azure VPN ağ geçidi.
-  * **Varsayılan yol:** doğrudan Internet'e. Önceki iki yoldan tarafından kapsanmayan özel IP adreslerine hedeflenen paketlerin bırakılır.
-* Bu yordamı bu alt ağlardaki zorlamalı tüneli etkinleştirmek için sanal ağ alt ağı için varsayılan bir yol ekleyin ve ardından yönlendirme tablosu ilişkilendirmek için bir yönlendirme tablosu oluşturmak için kullanıcı tanımlı yolları (UDR) kullanır.
-* Zorlamalı tünel rota tabanlı VPN ağ geçidi sahip bir sanal ağ ile ilişkilendirilmiş olması gerekir. "Sanal ağa bağlı bir varsayılan site" şirket içi yerel siteleri arasında ayarlamanız gerekir. Ayrıca, şirket içi VPN cihazı trafiğini Seçici 0.0.0.0/0 kullanılarak yapılandırılmalıdır. 
-* Zorlanan tünel ExpressRoute bu düzenek yapılandırılmamış, ancak bunun yerine, varsayılan rota ExpressRoute BGP eşliği oturumlarını üzerinden reklam tarafından etkinleştirilir. Daha fazla bilgi için bkz: [ExpressRoute belgeleri](https://azure.microsoft.com/documentation/services/expressroute/).
+  * **Yerel sanal ağ yolları:** aynı sanal ağdaki VM'ler hedef için doğrudan.
+  * **Şirket içi yolları:** için Azure VPN ağ geçidi.
+  * **Varsayılan yol:** doğrudan Internet'e. Önceki iki yol tarafından kapsandığından değil özel IP adreslerini hedefleyen paketler bırakılır.
+* Bu yordam bu alt ağlarda zorlamalı tüneli etkinleştirmek için sanal ağ alt ağı, başarılı için varsayılan bir yol ekleyin ve sonra yönlendirme tablosunu ilişkilendirme için bir yönlendirme tablosu oluşturmak için kullanıcı tanımlı yollar (UDR) kullanır.
+* Zorlamalı tünel rota tabanlı VPN ağ geçidi olan bir sanal ağ ile ilişkilendirilmiş olması gerekir. "Sanal ağa bağlı bir varsayılan site" şirket içi yerel siteleri arasında ayarlamanız gerekir. Ayrıca, şirket içi VPN cihazının 0.0.0.0/0 trafik seçicileri kullanılarak yapılandırılması gerekir. 
+* Zorlamalı tünel ExpressRoute Bu mekanizma yapılandırılmamış, ancak bunun yerine, bir varsayılan rota üzerinden ExpressRoute BGP eşliği oturumlarını reklam tarafından etkinleştirilir. Daha fazla bilgi için [ExpressRoute belgeleri](https://azure.microsoft.com/documentation/services/expressroute/).
 
 ## <a name="configuration-overview"></a>Yapılandırmasına genel bakış
 
-Aşağıdaki yordamı, bir kaynak grubu ve bir sanal ağ oluşturmanıza yardımcı olur. Sonra bir VPN ağ geçidi oluşturabilir ve zorlamalı tüneli yapılandırma. Bu yordamda, sanal ağ 'MultiTier-VNet' üç alt ağa sahip değil: 'Ön uç', 'Midtier' ve 'Backend' dört ile şirket içi bağlantılar: 'DefaultSiteHQ' ve üç dalları.
+Aşağıdaki yordam bir kaynak grubunu ve sanal ağ oluşturmanıza yardımcı olur. Ardından, bir VPN gateway oluşturma ve zorlamalı tünel yapılandırma. Bu yordamda, sanal ağ 'MultiTier-VNet' üç alt sahip: 'Ön uç', 'Midtier' ve 'Backend' dört ile şirketler arası bağlantılar: 'DefaultSiteHQ' ve üç dalları.
 
-Yordamdaki adımları 'zorlamalı tünel DefaultSiteHQ' varsayılan site bağlantı olarak ayarlayın ve 'Midtier' yapılandırmak ve kullanmak için 'Backend' alt ağlar zorlanan tünel.
+Yordamdaki adımları 'zorlamalı tünel DefaultSiteHQ' varsayılan site bağlantı olarak ayarlayın ve 'Midtier' yapılandırmak ve zorlamalı tünel kullanmak için 'Backend' alt ağlar.
 
 ## <a name="before"></a>Başlamadan önce
 
 Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
 
 > [!IMPORTANT]
-> PowerShell cmdlet'lerinin en yeni sürümünü yükleme gereklidir. Aksi takdirde, bazı cmdlet'ler çalışırken doğrulama hataları alabilirsiniz.
+> PowerShell cmdlet'lerinin en son sürümü yükleme gereklidir. Aksi takdirde, bazı cmdlet'ler çalışırken, doğrulama hataları alabilirsiniz.
 >
 >
 
@@ -81,7 +81,7 @@ Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. 
 ## <a name="configure-forced-tunneling"></a>Zorlamalı tünel yapılandırma
 
 > [!NOTE]
-> "Bu cmdlet'in çıktısı nesne türü gelecekteki bir sürümde değiştirilecek" bildiren uyarıları görebilirsiniz. Bu beklenen davranıştır ve bu uyarılar güvenle yok sayabilirsiniz.
+> "Bu cmdlet'in çıktısı nesne türü gelecekteki bir sürümde değiştirilecek" belirten bir uyarı görebilirsiniz. Bu beklenen bir davranıştır ve bu uyarılar güvenle yok sayabilirsiniz.
 >
 >
 
@@ -91,7 +91,7 @@ Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. 
   ```powershell
   New-AzureRmResourceGroup -Name 'ForcedTunneling' -Location 'North Europe'
   ```
-2. Bir sanal ağ oluşturun ve alt ağları belirtin.
+2. Sanal ağ oluşturma ve alt ağları belirtin.
 
   ```powershell 
   $s1 = New-AzureRmVirtualNetworkSubnetConfig -Name "Frontend" -AddressPrefix "10.1.0.0/24"
@@ -100,7 +100,7 @@ Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. 
   $s4 = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix "10.1.200.0/28"
   $vnet = New-AzureRmVirtualNetwork -Name "MultiTier-VNet" -Location "North Europe" -ResourceGroupName "ForcedTunneling" -AddressPrefix "10.1.0.0/16" -Subnet $s1,$s2,$s3,$s4
   ```
-3. Yerel ağ geçitleri oluşturun.
+3. Yerel ağ geçidi oluşturun.
 
   ```powershell
   $lng1 = New-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -GatewayIpAddress "111.111.111.111" -AddressPrefix "192.168.1.0/24"
@@ -116,7 +116,7 @@ Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. 
   Add-AzureRmRouteConfig -Name "DefaultRoute" -AddressPrefix "0.0.0.0/0" -NextHopType VirtualNetworkGateway -RouteTable $rt
   Set-AzureRmRouteTable -RouteTable $rt
   ```
-5. Yol tablosu Midtier ve arka uç alt ağlara ilişkilendirebilirsiniz.
+5. Midtier ve arka uç alt ağların yol tablosuna ilişkilendirin.
 
   ```powershell
   $vnet = Get-AzureRmVirtualNetwork -Name "MultiTier-Vnet" -ResourceGroupName "ForcedTunneling"
@@ -124,7 +124,7 @@ Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. 
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-6. Sanal ağ geçidi oluşturun. Bu adımı oluşturma ve ağ geçidi yapılandırma olduğundan, bazen 45 dakika veya daha fazla tamamlanması biraz zaman alır. GatewaySKU değeri ilgili ValidateSet hatalar görürseniz, yüklü olduğunu doğrulayın [PowerShell cmdlet'lerinin en yeni sürümünü](#before). PowerShell cmdlet'lerinin en yeni sürümünü en son ağ geçidi SKU'ları için yeni doğrulanmış değerlerini içerir.
+6. Sanal ağ geçidi oluşturun. Bu adım, oluşturma ve ağ geçidini yapılandırma olduğundan, bazen 45 dakika veya daha fazla tamamlanması biraz zaman alabilir. GatewaySKU değeri ilgili ValidateSet hatalar görürseniz, yüklediğinizden emin olun [PowerShell cmdlet'lerinin en son sürümünü](#before). PowerShell cmdlet'lerinin en son sürümünü en son ağ geçidi SKU'ları için yeni doğrulanmış değerlerini içerir.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
@@ -132,7 +132,7 @@ Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. 
   $ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwIpConfig" -SubnetId $gwsubnet.Id -PublicIpAddressId $pip.Id
   New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $false
   ```
-7. Varsayılan bir site için sanal ağ geçidi atayın. **- GatewayDefaultSite** çalışmak için bu nedenle bu düzgün ayarını yapılandırmak için dikkatli zorlanmış yönlendirme yapılandırması sağlar cmdlet parametresi. 
+7. Varsayılan site için sanal ağ geçidi atayabilirsiniz. **- GatewayDefaultSite** çalışır, bu nedenle bu ayarı düzgün şekilde yapılandırmak için ilgileniriz zorla yönlendirme yapılandırması sağlar cmdlet'i parametredir. 
 
   ```powershell
   $LocalGateway = Get-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling"

@@ -12,7 +12,7 @@ Bir işlem sunucusunun kaydını kaldırma adımları, Yapılandırma Sunucusu�
 > [!WARNING]
 > İşlem Sunucusunun yüklü olduğu sanal makinenin canlandırılması mümkün değilse aşağıdaki adımlar kullanılmalıdır.
 
-1. Yapılandırma sunucunuza yönetici olarak oturum açın.
+1. Yapılandırma sunucunuzda yönetici olarak oturum açın.
 2. Bir Yönetici komut istemi açın ve `%ProgramData%\ASR\home\svsystems\bin` dizinine gidin.
 3. Şimdi komutu çalıştırın.
 

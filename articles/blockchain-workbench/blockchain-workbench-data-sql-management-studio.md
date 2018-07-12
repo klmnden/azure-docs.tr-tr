@@ -10,20 +10,20 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: b640aec322d6dc184a428e67d9576cf162c8f394
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5c5a2e2b42cd9c19810e6579159b228369ee8f7f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075264"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969308"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Azure Blockchain Workbench verilerini SQL Server Management Studio ile kullanma
 
 Microsoft SQL Server Management Studio, Azure Blockhain Workbench'in SQL Veritabanı’na yönelik olarak hızla sorgu yazma ve test etme olanağı sağlar. Bu bölüm, SQL Server Management Studio’nun içinden Azure Blockchain Workbench'in SQL Veritabanı’na nasıl bağlanılacağını gösteren adım adım bir kılavuz içerir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-* [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)’yu indirin.
+* [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)’yu indirin.
 
 ## <a name="connecting-sql-server-management-studio-to-data-in-azure-blockchain-workbench"></a>SQL Server Management Studio’yu Azure Blockchain Workbench’teki verilere bağlama
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 2c2b6e25cd86cadf070fdb8bf73ec4fa4acb28a9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 9c6d819234111c461bf4793376324dbe77e85ae2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872730"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Öğretici: Azure Active Directory Imagineer WebVision ile tümleştirme
 
@@ -107,9 +107,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve I
 
     ![Imagineer WebVision etki alanı ve URL'ler tek oturum açma bilgileri](./media/imagineerwebvision-tutorial/tutorial_imagineerwebvision_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<YOUR SERVER URL>/SSO/?azure`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
 
-    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<YOUR SERVER URL>/default.aspx`
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Imagineer WebVision istemci Destek ekibine](mailto:support@itgny.com) bu değerleri almak için.

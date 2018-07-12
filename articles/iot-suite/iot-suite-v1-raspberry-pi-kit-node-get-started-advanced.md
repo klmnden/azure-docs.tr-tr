@@ -1,6 +1,6 @@
 ---
-title: Bellenim güncelleştirmeleri desteklemek için Node.js kullanarak Azure IOT paketi için Raspberry Pi'yi bağlanma | Microsoft Docs
-description: Microsoft Azure IOT Starter Kit Böğürtlenli pi 3 kullanın ve Azure IOT paketi. Uzaktan izleme çözümüne Raspberry Pi'yi bağlanmak için kullanım Node.js telemetri algılayıcı buluta göndermek ve bir uzak bellenim güncelleştirme gerçekleştirin.
+title: Raspberry Pi'yi üretici yazılımı güncelleştirmeleri destekleyecek şekilde Node.js kullanarak Azure IOT Paketi'ne bağlanın | Microsoft Docs
+description: Raspberry Pi 3 için Microsoft Azure IOT başlangıç seti kullanın ve Azure IOT paketi. Raspberry Pi'yi Uzaktan izleme çözümüne bağlanmak için node.js'yi kullanma buluta sensörden telemetri gönderin ve bir uzak üretici yazılımı güncelleştirmesi gerçekleştirmek.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -15,41 +15,41 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 31bbeff8049c6005671b991f965fae7316e3adf6
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24012116"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309600"
 ---
-# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-nodejs"></a>Raspberry Pi 3 Uzaktan izleme çözümüne bağlama ve Node.js kullanarak uzak Bellenim güncelleştirmeleri etkinleştir
+# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-nodejs"></a>Raspberry Pi 3 ', Uzaktan izleme çözümüne bağlama ve Node.js kullanarak uzak üretici yazılımı güncelleştirmelerini etkinleştir
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-selector](../../includes/iot-suite-v1-raspberry-pi-kit-selector.md)]
 
-Bu öğretici Raspberry Pi 3 için Microsoft Azure IOT Starter Kit kullanmayı gösterir:
+Bu öğreticide, Raspberry Pi 3 için Microsoft Azure IOT başlangıç Seti kullanma işlemini gösterir:
 
 * Bulut ile iletişim kurabilen bir sıcaklık ve nem okuyucu geliştirin.
-* Etkinleştirmek ve bir uzak bellenim güncelleştirme için güncelleştirme istemci uygulaması Raspberry Pi'yi üzerinde gerçekleştirin.
+* Etkinleştirme ve uzak bir üretici yazılımı güncelleştirme için güncelleştirme istemci uygulaması Raspberry Pi üzerinde gerçekleştirin.
 
 Öğretici kullanır:
 
-- Raspbian işletim sistemi, Node.js programlama dili ve Node.js için Microsoft Azure IOT SDK'sı bir örnek aygıt uygulamak için.
-- IOT paketi Uzaktan izleme çözümü bulut tabanlı arka uç önceden yapılandırılmış.
+- Raspbian işletim sistemi, Node.js programlama diline ve Node.js için Microsoft Azure IOT SDK'sı bir örnek cihaz uygulamak için.
+- IOT paketi Uzaktan izleme çözümü, bulut tabanlı arka uç önceden yapılandırılmış.
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu öğreticide, aşağıdaki adımları tamamlayın:
+Bu öğreticide, aşağıdaki adımları tamamlayacaksınız:
 
-- Önceden yapılandırılmış Uzaktan izleme çözümü örneği Azure aboneliğinize dağıtın. Bu adım, otomatik olarak dağıtır ve birden çok Azure hizmetlerini yapılandırır.
-- Bilgisayarınız ve Uzaktan izleme çözümü ile iletişim kurmak için aygıt ve algılayıcılar ayarlayın.
-- Uzaktan izleme çözümüne bağlama için örnek cihaz kod güncelleştirin ve çözüm panosunda görüntüleyebilirsiniz telemetri gönderebilir.
-- İstemci uygulaması güncelleştirmek için örnek aygıt kodu kullanın.
+- Önceden yapılandırılmış Uzaktan izleme çözümünün bir örneği, Azure aboneliğinize dağıtın. Bu adım, otomatik olarak dağıtır ve birden çok Azure hizmetini yapılandırır.
+- Bilgisayarınızı uzaktan izleme çözümü ile iletişim kurmak için cihaz ve sensörlerden ayarlayın.
+- Uzaktan izleme çözümüne bağlanmak için örnek cihaz kodu güncelleştirme ve çözüm panosunda görüntüleyebilirsiniz telemetri gönderin.
+- İstemci uygulamayı güncelleştirmek için cihaz örnek kodu kullanın.
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-prerequisites](../../includes/iot-suite-v1-raspberry-pi-kit-prerequisites.md)]
 
 [!INCLUDE [iot-suite-v1-provision-remote-monitoring](../../includes/iot-suite-v1-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> Uzaktan izleme çözümü Azure aboneliğinizde Azure Hizmetleri kümesi sağlar. Dağıtım gerçek Kurumsal Mimarisi yansıtır. Gereksiz Azure tüketim ücretleri önlemek için kendisiyle tamamladığınızda azureiotsuite.com önceden yapılandırılmış çözüm örneğiniz silin. Önceden yapılandırılmış çözümü yeniden gerekiyorsa, kolayca yeniden oluşturabilirsiniz. Uzaktan izleme çözümü çalışırken tüketiminin azaltılması hakkında daha fazla bilgi için bkz: [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri tanıtım amacıyla][lnk-demo-config].
+> Uzaktan izleme çözümü, Azure aboneliğinizdeki Azure Hizmetleri kümesi sağlar. Dağıtımın gerçek bir kurumsal mimari yansıtır. Gereksiz Azure tüketim ücreti ödememek için örneğiniz azureiotsuite.com önceden yapılandırılmış çözüm ile işiniz bittiğinde silin. Önceden yapılandırılmış çözümü yeniden gerekiyorsa, kolayca yeniden oluşturabilirsiniz. Uzaktan izleme çözümü çalışırken tüketiminin azaltılması hakkında daha fazla bilgi için bkz. [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri Tanıtım amaçlı][lnk-demo-config].
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-view-solution](../../includes/iot-suite-v1-raspberry-pi-kit-view-solution.md)]
 
@@ -57,11 +57,11 @@ Bu öğreticide, aşağıdaki adımları tamamlayın:
 
 ## <a name="download-and-configure-the-sample"></a>İndirme ve örnek yapılandırma
 
-Şimdi, indirin ve Uzaktan izleme istemci uygulaması, Raspberry Pi'yi yapılandırın.
+Şimdi indirin ve Raspberry Pi'yi Uzaktan izleme istemci uygulaması yapılandırın.
 
 ### <a name="install-nodejs"></a>Node.js yükleme
 
-Henüz yapmadıysanız, Node.js, Raspberry Pi'yi yükleyin. Node.js için IOT SDK'sı 0.11.5 Node.js veya sonraki sürümünü gerektirir. Aşağıdaki adımlar, Raspberry Pi'yi Node.js v6.10.2 yükleme gösterir:
+Bunu henüz yapmadıysanız, Raspberry Pi üzerinde Node.js yükleyin. Node.js için IOT SDK'sı 0.11.5 Node.js veya sonraki sürümü gerektirir. Aşağıdaki adımlar, Raspberry Pi üzerinde Node.js v6.10.2 yükleme işlemini gösterir:
 
 1. Raspberry Pi'yi güncelleştirmek için aşağıdaki komutu kullanın:
 
@@ -69,7 +69,7 @@ Henüz yapmadıysanız, Node.js, Raspberry Pi'yi yükleyin. Node.js için IOT SD
     sudo apt-get update
     ```
 
-1. Raspberry Pi'yi Node.js ikilileri indirmek için aşağıdaki komutu kullanın:
+1. Raspberry Pi'yi Node.js ikili dosyaları indirmek için aşağıdaki komutu kullanın:
 
     ```sh
     wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz
@@ -87,26 +87,26 @@ Henüz yapmadıysanız, Node.js, Raspberry Pi'yi yükleyin. Node.js için IOT SD
     node --version
     ```
 
-### <a name="clone-the-repositories"></a>Depoları kopyalama
+### <a name="clone-the-repositories"></a>Depoları kopyalayın
 
-Henüz yapmadıysanız, gerekli depoları, Pi üzerinde aşağıdaki komutları çalıştırarak kopyalama:
+Henüz yapmadıysanız, Pi'yi üzerinde aşağıdaki komutları çalıştırarak gerekli depoları kopyalayın:
 
 ```sh
 cd ~
 git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git
 ```
 
-### <a name="update-the-device-connection-string"></a>Güncelleştirme cihaz bağlantı dizesi
+### <a name="update-the-device-connection-string"></a>Cihaz bağlantı dizesini güncelleştirme
 
-Örnek yapılandırma dosyasını açın **nano** Düzenleyicisi aşağıdaki komutu kullanarak:
+Örnek yapılandırma dosyasını açın **nano** aşağıdaki komutu kullanarak Düzenleyicisi:
 
 ```sh
 nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/config/deviceinfo
 ```
 
-Cihaz kimliği ve oluşturulan ve bu öğreticinin başlangıcında kaydedilen IOT hub'ı bilgi yer tutucu değerlerini değiştirin.
+Cihaz kimliği ve IOT hub'ı bilgileriyle oluşturduğunuz ve kaydettiğiniz Bu öğreticinin başında yer tutucu değerlerini değiştirin.
 
-İşiniz bittiğinde, deviceınfo dosyasının içeriğini aşağıdaki gibi görünmelidir:
+İşiniz bittiğinde deviceınfo dosyasının içeriğini aşağıdaki örnekteki gibi görünmelidir:
 
 ```conf
 yourdeviceid
@@ -115,64 +115,64 @@ HostName=youriothubname.azure-devices.net;DeviceId=yourdeviceid;SharedAccessKey=
 
 Değişikliklerinizi kaydetmek (**Ctrl-O**, **Enter**) ve düzenleyiciden çıkın (**Ctrl-X**).
 
-## <a name="run-the-sample"></a>Örnek çalıştırın
+## <a name="run-the-sample"></a>Örneği çalıştırma
 
-Örnek önkoşul paketleri yüklemek için aşağıdaki komutları çalıştırın:
+Örnek için önkoşul paketleri yüklemek için aşağıdaki komutları çalıştırın:
 
 ```sh
 cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advance/1.0
 npm install
 ```
 
-Örnek program Raspberry Pi'yi şimdi çalıştırabilirsiniz. Aşağıdaki komutu girin:
+Bu gibi durumlarda, örnek program artık Raspberry Pi üzerinde çalıştırabilirsiniz. Aşağıdaki komutu girin:
 
 ```sh
 sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/1.0/remote_monitoring.js
 ```
 
-Aşağıdaki örnek çıkış Raspberry Pi'yi komut satırına bakın çıkış örneğidir:
+Aşağıdaki örnek çıktıda, Raspberry Pi üzerinde komut satırında gördüğünüz çıkış örneğidir:
 
-![Böğürtlenli Pi uygulamadan çıktı][img-raspberry-output]
+![Raspberry Pi uygulama çıktısı][img-raspberry-output]
 
-Tuşuna **Ctrl-C** herhangi bir zamanda programı'ndan çıkmak için.
+Tuşuna **Ctrl-C** istediğiniz zaman programdan çıkmak için.
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-view-telemetry-advanced](../../includes/iot-suite-v1-raspberry-pi-kit-view-telemetry-advanced.md)]
 
-1. Çözüm panosunda tıklatın **aygıtları** ziyaret etmek için **aygıtları** sayfası. Böğürtlenli Pi seçin **cihaz listesi**. Ardından **yöntemleri**:
+1. Çözüm panosunda tıklayın **cihazları** ziyaret etmek için **cihazları** sayfası. Raspberry Pi'yi seçin **cihaz listesi**. Ardından **yöntemleri**:
 
-    ![Panoda aygıtları listele][img-list-devices]
+    ![Pano listesi cihazları][img-list-devices]
 
-1. Üzerinde **yöntemi çağırma** sayfasında, **InitiateFirmwareUpdate** içinde **yöntemi** açılır.
+1. Üzerinde **yöntemi Çağır** sayfasında **Initiatefirmwareupdate** içinde **yöntemi** açılır.
 
-1. İçinde **FWPackageURI** alanına, **https://raw.githubusercontent.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. Bu dosya 2.0 sürümünde bellenimin uygulamasını içerir.
+1. İçinde **Fwpackageurı** alanına **https://raw.githubusercontent.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. Bu dosya, üretici yazılımı sürümü 2.0 uygulamasını içerir.
 
-1. Seçin **InvokeMethod**. Uygulamasını Raspberry Pi'yi çözüm panosuna geri bildirim gönderir. Ardından, bellenim güncelleştirme işlemi'nin yeni bellenim sürümünü indirerek başlar:
+1. Seçin **InvokeMethod**. Raspberry Pi üzerinde uygulama, çözüm panosuna geri bildirim gönderir. Ardından, üretici yazılımı güncelleştirme işlemi'nin yeni bellenim sürümünü indirerek başlatır:
 
-    ![Yöntem geçmişini göster][img-method-history]
+    ![Yöntem Geçmişi Göster][img-method-history]
 
-## <a name="observe-the-firmware-update-process"></a>İşlem güncelleştirme bellenim inceleyin
+## <a name="observe-the-firmware-update-process"></a>Üretici yazılımı güncelleştirme işlemi gözlemleyin
 
-Cihazda ve çözüm panosunda bildirilen özelliklerini görüntüleyerek çalışan işlem güncelleştirme bellenim görebilirsiniz:
+Cihazda ve çözüm panosunda bildirilen özellikleri görüntüleyerek çalışan işlemi güncelleştirme bellenim görebilirsiniz:
 
-1. Üzerinde Raspberry Pi'yi güncelleştirme işleminin devam görüntüleyebilirsiniz:
+1. Raspberry Pi üzerinde güncelleştirme işleminin ilerleme durumunu görüntüleyebilirsiniz:
 
-    ![Güncelleştirme ilerlemesini Göster][img-update-progress]
+    ![Güncelleştirme ilerleme durumunu göster][img-update-progress]
 
     > [!NOTE]
-    > Güncelleştirme tamamlandığında Uzaktan izleme uygulama sessizce yeniden başlatır. Komutunu `ps -ef` çalıştığından doğrulanamadı. İşlemi sonlandırmak istiyorsanız kullanın `kill` işlem kimlikli komutu.
+    > Uzaktan izleme uygulama sessizce güncelleştirme tamamlandığında yeniden başlatır. Komutunu `ps -ef` çalıştırdığı doğrulayın. İşlemi sonlandırmak istiyorsanız kullanın `kill` işlem kimliğine komutu.
 
-1. Çözüm Portalı'nda bir aygıt tarafından belirlendiği şekilde, bellenim güncelleştirme durumunu görüntüleyebilirsiniz. Aşağıdaki ekran görüntüsü durum ve süresini, güncelleştirme işlemini yeni üretici yazılımı sürümüne ve her bir aşamaya gösterir:
+1. Çözüm portalında cihaz tarafından bildirilen üretici yazılımı güncelleştirme durumunu görüntüleyebilirsiniz. Aşağıdaki ekran görüntüsünde, durum ve güncelleştirme işlemi ve yeni bellenim sürümünü her aşaması süresince gösterir:
 
     ![İş durumunu göster][img-job-status]
 
-    Panosuna geri gidin, cihaz yine bellenim güncelleştirme aşağıdaki telemetri gönderiyor doğrulayabilirsiniz.
+    Panosuna geri gidin, cihaz yine de şu üretici yazılımı güncelleştirme telemetri gönderdiği doğrulayabilirsiniz.
 
 > [!WARNING]
-> Azure hesabınızda çalıştıran uzaktan izleme çözümü bırakırsanız çalıştırıldığında için faturalandırılır. Uzaktan izleme çözümü çalışırken tüketiminin azaltılması hakkında daha fazla bilgi için bkz: [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri tanıtım amacıyla][lnk-demo-config]. Bunu kullanmayı bitirdikten sonra önceden yapılandırılmış çözümü Azure hesabınızdan silin.
+> Azure hesabınızda çalışan Uzaktan izleme çözümü değiştirmeden bırakırsanız, çalıştığı süre için faturalandırılırsınız. Uzaktan izleme çözümü çalışırken tüketiminin azaltılması hakkında daha fazla bilgi için bkz. [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri Tanıtım amaçlı][lnk-demo-config]. Kullanmayı bitirdikten sonra önceden yapılandırılmış çözümü Azure hesabınızdan silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ziyaret [Azure IOT Geliştirme Merkezi](https://azure.microsoft.com/develop/iot/) daha fazla örnekleri ve Azure IOT belgeler.
+Ziyaret [Azure IOT Geliştirici Merkezi](https://azure.microsoft.com/develop/iot/) daha fazla örnekleri ve Azure IOT belgeler.
 
 
 [img-raspberry-output]: ./media/iot-suite-v1-raspberry-pi-kit-node-get-started-advanced/app-output.png

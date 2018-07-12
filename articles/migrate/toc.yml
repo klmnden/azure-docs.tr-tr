@@ -42,6 +42,10 @@
           href: contoso-migration-refactor-linux-app-service-mysql.md
         - name: 11. Contoso-TFS’yi VSTS’ye geçirme
           href: contoso-migration-tfs-vsts.md
+        - name: 12. Contoso-Bir uygulamayı Azure Service Fabric ve Azure SQL Veritabanı üzerinde yeniden tasarlama
+          href: contoso-migration-rearchitect-container-sql.md
+        - name: 13. Contoso-Bir uygulamayı Azure’da yeniden derleme
+          href: contoso-migration-rebuild.md
     - name: Büyük bir ortamı keşfetme ve değerlendirme
       href: how-to-scale-assessment.md
     - name: Grup makineleri

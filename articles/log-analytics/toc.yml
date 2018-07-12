@@ -35,6 +35,8 @@
           href: log-analytics-oms-portal-faq.md
     - name: Log Analytics SSS
       href: log-analytics-faq.md
+    - name: Veri alımı zamanı
+      href: log-analytics-data-ingestion-time.md
     - name: Veri güvenliği
       href: log-analytics-data-security.md
     - name: Erişimi yönetme

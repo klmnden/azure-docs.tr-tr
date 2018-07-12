@@ -1,6 +1,6 @@
 ---
 title: Ruby ile Azure Service Bus kuyruklarını kullanma | Microsoft Docs
-description: Azure'da Service Bus kuyruklarını kullanmayı öğrenin. Ruby içinde yazılan kod örnekleri.
+description: Azure'da Service Bus kuyruklarını kullanmayı öğrenin. Ruby'de yazılan kod örneklerini içerir.
 services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
 ms.openlocfilehash: 357a7277dd42b6973cf35a9f642b8eec36a745e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23868448"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232947"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Ruby ile Service Bus kuyruklarını kullanma
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Bu kılavuz, Service Bus kuyruklarını kullanmayı açıklar. Örnekler Ruby yazılır ve Azure gem kullanır. Kapsamdaki senaryolar dahil **ileti gönderme ve alma sıra oluşturma**, ve **sıraları silme**. Service Bus kuyruklarını hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
+Bu kılavuzda, Service Bus kuyruklarını kullanmayı açıklar. Örnekler, Ruby'de yazılan ve Azure gem kullanır. Senaryoları ele alınmaktadır **ileti gönderme ve alma sıra oluşturma**, ve **sıraları silme**. Service Bus kuyrukları hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -33,8 +33,8 @@ Bu kılavuz, Service Bus kuyruklarını kullanmayı açıklar. Örnekler Ruby ya
    
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
-## <a name="how-to-create-a-queue"></a>Bir sıra oluşturma
-**Azure::ServiceBusService** nesne kuyruklarla çalışmanıza olanak sağlar. Bir kuyruk oluşturmak için kullanmak `create_queue()` yöntemi. Aşağıdaki örnekte bir kuyruk oluşturur veya hataları yazdırır.
+## <a name="how-to-create-a-queue"></a>Bir kuyruk oluşturma
+**Azure::ServiceBusService** nesnesi kuyrukları ile çalışmanıza olanak sağlar. Bir kuyruk oluşturmak için kullanın `create_queue()` yöntemi. Aşağıdaki örnek, bir sıra oluşturur veya tüm hataları yazdırır.
 
 ```ruby
 azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})
@@ -45,7 +45,7 @@ rescue
 end
 ```
 
-Ayrıca iletebilirsiniz bir **Azure::ServiceBus::Queue** nesne ek seçenekleri, Canlı veya en büyük sıra boyutu ileti süresi gibi varsayılan sırası ayarlarını geçersiz kılmanıza olanak sağlar. Aşağıdaki örnekte, en büyük sıra boyutu 5 GB ve saat 1 dakika Canlı ayarlamak gösterilmektedir:
+De geçirebilirsiniz bir **Azure::ServiceBus::Queue** ek seçeneklere nesne, Canlı ya da en büyük sıra boyutu ileti süresi gibi varsayılan kuyruk ayarlarını geçersiz kılmanıza olanak sağlar. Aşağıdaki örnek, en büyük sıra boyutu 5 GB ve saat 1 dakika için dinamik olarak ayarlamak gösterilmektedir:
 
 ```ruby
 queue = Azure::ServiceBus::Queue.new("test-queue")
@@ -55,10 +55,10 @@ queue.default_message_time_to_live = "PT1M"
 queue = azure_service_bus_service.create_queue(queue)
 ```
 
-## <a name="how-to-send-messages-to-a-queue"></a>Kuyruğa ileti göndermek nasıl
-Uygulama çağrılarınızı bir Service Bus kuyruğuna bir ileti göndermek için `send_queue_message()` yöntemi **Azure::ServiceBusService** nesnesi. İletileri gönderilen (ve öğesinden alınan) hizmet kuyruklar veri yolu **Azure::ServiceBus::BrokeredMessage** nesneleri ve bir standart özellikler kümesi sahip (gibi `label` ve `time_to_live`), bir uygulamaya özgü özel özellikleri tutmak için kullanılan bir sözlük ve rastgele uygulama verileri gövdesi içerir. Uygulamanın iletiyi olarak bir dize değeri geçirerek ileti gövdesini ayarlayabilir ve gerekli tüm standart özellikleri varsayılan değerlerle doldurulur.
+## <a name="how-to-send-messages-to-a-queue"></a>Bir kuyruğa ileti göndermek nasıl
+Uygulama çağrılarınızı, bir Service Bus kuyruğuna bir ileti göndermek için `send_queue_message()` metodunda **Azure::ServiceBusService** nesne. Gönderilen (ve öğesinden alınan) hizmet sıraları Bus iletileri **Azure::ServiceBus::BrokeredMessage** nesneleri ve yüklü bir standart özellikler kümesi (gibi `label` ve `time_to_live`), özel tutmak için kullanılan bir sözlüğü uygulamaya özgü özellikler ve rastgele uygulama verileri gövdesi. Bir uygulama iletisi olarak bir dize değeri geçirerek ileti gövdesini ayarlayabilirsiniz ve gerekli tüm standart özellikleri varsayılan değerlerle doldurulur.
 
-Aşağıdaki örnek adlı sırasına sınama iletisi göndermek nasıl gösterir `test-queue` kullanarak `send_queue_message()`:
+Aşağıdaki örnekte adlı kuyruk için bir test iletisi göndermek nasıl gösterir `test-queue` kullanarak `send_queue_message()`:
 
 ```ruby
 message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
@@ -69,13 +69,13 @@ azure_service_bus_service.send_queue_message("test-queue", message)
 Service Bus kuyrukları, [Standart katmanda](service-bus-premium-messaging.md) maksimum 256 KB ve [Premium katmanda](service-bus-premium-messaging.md) maksimum 1 MB ileti boyutunu destekler. Standart ve özel uygulama özelliklerini içeren üst bilginin maksimum dosya boyutu 64 KB olabilir. Kuyrukta tutulan ileti sayısına ilişkin bir sınır yoktur ancak kuyruk tarafından tutulan iletilerin toplam boyutu için uç sınır vardır. Bu kuyruk boyutu, üst sınır 5 GB olacak şekilde oluşturulma zamanında belirlenir.
 
 ## <a name="how-to-receive-messages-from-a-queue"></a>Kuyruktan ileti alma
-İletileri kullanarak bir Sıraya alınan `receive_queue_message()` yöntemi **Azure::ServiceBusService** nesnesi. Varsayılan olarak, iletileri okumak ve sıradan silinir olmadan kilitli. Ayarlayarak okunduğu gibi ancak, ileti kuyruktan silebilirsiniz `:peek_lock` için seçenek **false**.
+İletilerin kullanarak bir sıraya alındığı `receive_queue_message()` metodunda **Azure::ServiceBusService** nesne. Varsayılan olarak, iletileri okuyun ve sıradan silinir olmadan kilitli. Ayarlayarak okunurlar ancak, iletileri kuyruktan silebilirsiniz `:peek_lock` seçeneğini **false**.
 
-Varsayılan davranış, okuma ve ayrıca, iletilere uygulamaları desteklemek mümkün kılar bir iki aşamalı işlemi silme yapar. Service Bus bir istek aldığında bir sonraki kullanılacak iletiyi bulur, diğer tüketicilerin bu iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya sonra işlemek için depoladıktan sonra), çağırarak alma işleminin ikinci aşamasını tamamlar `delete_queue_message()` yöntemi ve parametre olarak silinecek ileti sağlama. `delete_queue_message()` Yöntemi iletiyi kullanılıyor olarak işaretler ve kuyruktan kaldırır.
+Varsayılan davranışı, okuma ve silme ayrıca, atlanan iletilere uygulamaları desteklemek mümkün kılar bir iki aşamalı işlemi yapar. Service Bus bir istek aldığında bir sonraki kullanılacak iletiyi bulur, diğer tüketicilerin bu iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya güvenilir bir şekilde işlemek üzere depolar sonra) çağırarak alma işleminin ikinci aşamasını tamamlar `delete_queue_message()` yöntemi ve iletiyi bir parametre olarak silinmesini sağlar. `delete_queue_message()` Yöntemi iletiyi kullanılıyor olarak işaretler ve kuyruktan kaldırın.
 
-Varsa `:peek_lock` parametrenin ayarlanmış **yanlış**, okuma ve iletisi siliniyor basit model olur ve senaryoları bir uygulama içinde tolerans bir arıza olması durumunda bir ileti işlenirken değil en iyi şekilde çalışır. Bu durumu daha iyi anlamak için müşterinin bir alma isteği bildirdiğini ve bu isteğin işlenmeden çöktüğünü varsayın. Hizmet veri yolu ileti uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında, kullanılan olarak işaretlenmiş olduğundan, çökmenin öncesinde kullanılan iletiyi atlamış olur.
+Varsa `:peek_lock` parametrenin ayarlanmış **false**, okuma ve ileti silme basit model haline gelir ve içinde bir uygulama tolere edebilen bir arıza olması durumunda bir iletiyi işlememeye izin senaryolarda en iyi şekilde çalışır. Bu durumu daha iyi anlamak için müşterinin bir alma isteği bildirdiğini ve bu isteğin işlenmeden çöktüğünü varsayın. Service Bus iletisi, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında, Tüketilmekte olan olarak işaretlediğinden çökmenin öncesinde kullanılan iletiyi atlamış olur.
 
-Aşağıdaki örnek, kullanarak iletileri almak ve işlemek gösterilmiştir `receive_queue_message()`. Örnek ilk alır ve bir iletiyi kullanarak siler `:peek_lock` kümesine **false**, başka bir ileti alır ve kullanarak iletiyi siler `delete_queue_message()`:
+Aşağıdaki örneği kullanarak iletileri almak ve işlemek nasıl gösterir `receive_queue_message()`. Örneğin ilk alır ve bir iletiyi kullanarak siler `:peek_lock` kümesine **false**, başka bir iletiyi alır ve ardından iletiyi kullanarak siler `delete_queue_message()`:
 
 ```ruby
 message = azure_service_bus_service.receive_queue_message("test-queue",
@@ -85,17 +85,17 @@ azure_service_bus_service.delete_queue_message(message)
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Uygulama çökmelerini ve okunmayan iletileri giderme
-Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Alıcı uygulamanın iletiyi herhangi bir nedenden dolayı işleyemedi sonra işleyememesi `unlock_queue_message()` yöntemi **Azure::ServiceBusService** nesnesi. Bu çağrı, Service Bus hizmetinin Kuyruktaki iletinin kilidini açmasına ve iletiyi aynı veya başka bir kullanıcı uygulama tarafından tekrar alınabilir hale getirmesine neden olur.
+Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Alıcı uygulamanın iletiyi işlemek için herhangi bir nedenle silemiyor sonra çağırabilirsiniz `unlock_queue_message()` metodunda **Azure::ServiceBusService** nesne. Bu çağrı Bus hizmetinin Kuyruktaki iletinin kilidini açmasına ve iletiyi aynı kullanıcı uygulama veya başka bir kullanıcı uygulama tarafından tekrar alınabilir hale neden olur.
 
-Ayrıca kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı vardır ve uygulama önce iletiyi işleyemezse (örneğin, uygulama çökerse) Service Bus otomatik olarak iletinin kilidini açar ve tekrar alınabilmesini sağlar kilit zaman aşımı dolmadan.
+Ayrıca kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı yoktur ve uygulama önce iletiyi işleyemezse (örneğin, uygulama çökerse) Service Bus otomatik olarak iletinin kilidini açar ve alınabilmesini kilit zaman aşımı dolmadan tekrar kullanılabilir.
 
-Uygulama iletiyi ancak önce çökmesi durumunda, `delete_queue_message()` yöntemi çağrıldıktan sonra yeniden başlatıldığında ileti uygulamaya tekrar teslim. Bu işlem genellikle adlı *en az bir kez işleme*; diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bu genellikle kullanılarak elde edilen `message_id` iletinin teslimat denemelerinde özelliği.
+Uygulama iletiyi ancak önce çökmesi durumunda, `delete_queue_message()` yöntemi çağrılır, ardından yeniden başlatıldığında ileti uygulamaya yeniden teslim. Bu işlem genellikle çağrılırken *en az bir kez işleme*; diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim edilebilir. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bu genellikle kullanılmasıdır `message_id` özelliğini iletinin teslim denemeleri arasında sabit kalır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Artık Service Bus kuyruklarına ilişkin temel bilgileri öğrendiğinize göre, daha fazla bilgi edinmek için aşağıdaki bağlantıları izleyin.
 
-* Genel Bakış [kuyruklar, konu başlıkları ve abonelikler](service-bus-queues-topics-subscriptions.md).
-* Ziyaret [Ruby için Azure SDK](https://github.com/Azure/azure-sdk-for-ruby) github'daki.
+* Genel Bakış [kuyruklar, konular ve abonelikler](service-bus-queues-topics-subscriptions.md).
+* Ziyaret [Ruby için Azure SDK'sı](https://github.com/Azure/azure-sdk-for-ruby) github deposu.
 
-Bu makalede ele alınan Azure Service Bus kuyrukları ve Azure ele sıraları arasında bir karşılaştırma için [ruby'den kuyruk depolama kullanma](../storage/queues/storage-ruby-how-to-use-queue-storage.md) makale için bkz: [Azure kuyrukları ve Karşılaştırılan ve Contrasted Azure hizmet veri yolu kuyrukları -](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Bu makalede ele alınan Azure Service Bus kuyrukları ve Azure kuyrukları ele arasında bir karşılaştırma için [ruby'den kuyruk depolama kullanma](../storage/queues/storage-ruby-how-to-use-queue-storage.md) makale için bkz: [Azure kuyrukları ve Azure hizmet veri yolu kuyrukları - karşılaştırıldığında ve Karşıtlıklar](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 

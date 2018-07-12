@@ -1,6 +1,6 @@
 ---
-title: Uzaktan izleme verilerini Azure zaman serisi Insights ile Görselleştirme | Microsoft Docs
-description: Keşfetmek ve Uzaktan izleme çözümünün zaman serisi verileri çözümlemek için zaman serisi Öngörüler ortamınızı yapılandırmayı öğrenin.
+title: Uzaktan izleme Azure Time Series Insights ile verileri Görselleştirme | Microsoft Docs
+description: Time Series Insights ortamınızı keşfedin ve Uzaktan izleme çözümünüzü öğelerin zaman serisi verilerini analiz etmek için yapılandırmayı öğrenin.
 author: philmea
 manager: timlt
 ms.author: philmea
@@ -8,31 +8,31 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 7a0a5d4f1fbba5d7bd2813e8b9c300a37853e06c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f16fdfca704b8f8cb175de637ad7f3ef143d3ed7
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111485"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968964"
 ---
-# <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Zaman serisi Insights ile Uzaktan izleme verileri görselleştirin
+# <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Time Series Insights ile Uzaktan izleme verileri Görselleştirme
 
-Daha fazla çıkış genişletmek bir işleç isteyebilirsiniz kutusu verilerini görselleştirme Uzaktan izleme tarafından sağlanan önceden çözüm. Bizim Çözüm Hızlandırıcısı TSI kutusunu tümleşme dışında sağlar. Bu yöntem, cihaz telemetrisi çözümlemek ve anormallikleri algılamak için zaman serisi Öngörüler yapılandırma öğreneceksiniz.
+Operatör daha fazla çıkış genişletmek isteyebilirsiniz veri görselleştirme Uzaktan izleme tarafından sağlanan önceden çözüm. TSI ile tümleştirmesi dışında sayfamızda Çözüm Hızlandırıcısı sağlar. Bu nasıl yapılır makalesinde Time Series Insights'ı, cihaz telemetrisini çözümlemek ve anormallikleri için yapılandırma öğreneceksiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu yöntem tamamlamak için aşağıdakiler gerekir:
+Bu nasıl yapılır tamamlamak için aşağıdakiler gerekir:
 
 * [Önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](iot-accelerators-remote-monitoring-deploy.md)
 
-## <a name="create-a-consumer-group"></a>Bir tüketici grubu oluştur
+## <a name="create-a-consumer-group"></a>Bir tüketici grubu oluşturun
 
-Zaman serisi Öngörüler veri akış için kullanılacak IOT hub'ayrılmış bir tüketici grubu oluşturmanız gerekir.
+Time Series Insights veri akışı için kullanılmak üzere IOT hub'ınızda ayrılmış bir tüketici grubu oluşturmanız gerekir.
 
 > [!NOTE]
-> Tüketici grupları, Azure IOT Hub'ından veri çekmek için uygulamalar tarafından kullanılır. Her bir tüketici grubu en fazla beş çıkış tüketicileri sağlar. Her beş havuzlarını çıkış ve en fazla 32 tüketici grupları oluşturmak için yeni bir tüketici grubu oluşturmanız gerekir.
+> Tüketici grupları, Azure IOT Hub'ından veri çekmek için uygulamalar tarafından kullanılır. Her bir tüketici grubu en fazla beş çıkış tüketiciler sağlar. 32 adede kadar tüketici grubu oluşturabilirsiniz ve her beş havuzlarını çıktısı, yeni bir tüketici grubu oluşturmanız gerekir.
 
-1. Azure portalında bulut Kabuk düğmesini tıklatın.
+1. Azure portalında Cloud Shell düğmesine tıklayın.
 
 1. Yeni bir tüketici grubu oluşturmak için aşağıdaki komutu yürütün:
 
@@ -40,109 +40,109 @@ Zaman serisi Öngörüler veri akış için kullanılacak IOT hub'ayrılmış bi
 az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsights --resource-group ContosoRM
 ```
 
-## <a name="create-a-new-time-series-insights-environment"></a>Yeni bir zaman serisi Öngörüler ortamı oluşturma
+## <a name="create-a-new-time-series-insights-environment"></a>Yeni bir zaman serisi görüşleri ortamı oluşturma
 
-Azure Time Series Insights, bulutta IoT ölçekli zaman serisi verilerinin yönetimi için tam olarak yönetilen bir analiz, depolama ve görselleştirme hizmetidir. Büyük oranda ölçeklenebilir zaman serisi verileri depolama olanağı sağlar ve dünyanın her yerinden akışı yapılan milyarlarca olayı saniyeler içinde keşfetmenize ve analiz etmenize imkan tanır. Zaman serisi Öngörüler depolamak ve terabayt zaman serisi veri yönetme, keşfetme ve olayları milyarlarca aynı anda görselleştirme, kök neden analizi yürütmek ve birden çok site ve varlıklar karşılaştırmak için kullanın.
+Azure Time Series Insights, bulutta IoT ölçekli zaman serisi verilerinin yönetimi için tam olarak yönetilen bir analiz, depolama ve görselleştirme hizmetidir. Büyük oranda ölçeklenebilir zaman serisi verileri depolama olanağı sağlar ve dünyanın her yerinden akışı yapılan milyarlarca olayı saniyeler içinde keşfetmenize ve analiz etmenize imkan tanır. Time Series Insights, depolamak ve terabaytlarca zaman serisi verileri yönetmek, keşfedin ve milyarlarca olayı eşzamanlı olarak görselleştirin, kök neden analizi gerçekleştirin ve birden çok siteyi ve varlığı karşılaştırın için kullanın.
 
 1. [Azure Portal](http://portal.azure.com/)’da oturum açın.
 
-1. Seçin **kaynak oluşturma** > **nesnelerin interneti** > **zaman serisi Öngörüler**.
+1. Seçin **kaynak Oluştur** > **nesnelerin interneti** > **Time Series Insights**.
 
-    ![Yeni zaman serisi Öngörüler](./media/iot-accelerators-time-series-insights/new-time-series-insights.png)
+    ![Yeni zaman serisi görüşleri](./media/iot-accelerators-time-series-insights/new-time-series-insights.png)
 
-1. Zaman serisi Öngörüler ortamınızı oluşturmak için aşağıdaki tabloda değerleri kullanın:
+1. Time Series Insights ortamınızı oluşturmak için aşağıdaki tablodaki değerleri kullanın:
 
     | Ayar | Değer |
     | ------- | ----- |
-    | Ortam adı | Aşağıdaki ekran adını kullanır **contorosrmtsi**. Bu adımı tamamladığınızda, kendi benzersiz bir ad seçin. |
+    | Ortam adı | Aşağıdaki ekran adı kullanan **contorosrmtsi**. Bu adımı tamamladığınızda, kendi benzersiz bir ad seçin. |
     | Abonelik | Açılan listeden Azure aboneliğinizi seçin. |
     | Kaynak grubu | **Yeni Oluştur**. Adı kullanıyoruz **ContosoRM**. |
-    | Konum | Kullanıyoruz **Doğu ABD**. Uzaktan izleme çözümü ile aynı bölgede ortamınızı oluşturun. |
+    | Konum | Kullanıyoruz **Doğu ABD**. Uzaktan izleme çözümünüzü aynı bölgede ortamınızı oluşturun. |
     | Sku |**S1** |
     | Kapasite | **1** |
     | Panoya sabitle | **Evet** |
 
-    ![Zaman serisi Öngörüler oluşturun](./media/iot-accelerators-time-series-insights/new-time-series-insights-create.png)
+    ![Zaman serisi görüşleri oluşturma](./media/iot-accelerators-time-series-insights/new-time-series-insights-create.png)
 
-1. **Oluştur**’a tıklayın. Oluşturulacak Ortam için bir dakika sürebilir.
+1. **Oluştur**’a tıklayın. Uygulamanın oluşturulması için ortamı için biraz sürebilir.
 
 ## <a name="create-event-source"></a>Olay kaynağı oluşturma
 
-IOT hub'ınıza bağlanmak için yeni bir olay kaynağı oluşturun. Önceki adımlarda oluşturduğunuz tüketici grubu kullandığınızdan emin olun. Zaman serisi Öngörüler ayrılmış bir tüketici grubu başka bir hizmet tarafından kullanımda olan her hizmet gerektirir.
+IOT hub'ınıza bağlanmak için yeni bir olay kaynağı oluşturun. Önceki adımlarda oluşturulan tüketici grubu kullandığınızdan emin olun. Zaman serisi görüşleri her hizmeti, ayrılmış bir tüketici grubu başka bir hizmet tarafından kullanımda olması gerekir.
 
 1. Yeni zaman serisi ortamınıza gidin.
 
-1. Sol tarafta seçin **olay kaynakları**.
+1. Sol tarafta, seçin **olay kaynakları**.
 
-    ![Görünüm olay kaynakları](./media/iot-accelerators-time-series-insights/time-series-insights-event-sources.png)
+    ![Olay kaynakları görüntüle](./media/iot-accelerators-time-series-insights/time-series-insights-event-sources.png)
 
 1. **Ekle**'ye tıklayın.
 
-    ![Olay Kaynağı Ekle](./media/iot-accelerators-time-series-insights/time-series-insights-event-sources-add.png)
+    ![Olay kaynağı ekleme](./media/iot-accelerators-time-series-insights/time-series-insights-event-sources-add.png)
 
-1. IOT hub'ınızı yeni olay kaynağı olarak yapılandırmak için aşağıdaki tabloda değerleri kullanın:
+1. IOT hub'ınıza yeni bir olay kaynağı yapılandırmak için aşağıdaki tablodaki değerleri kullanın:
 
     | Ayar | Değer |
     | ------- | ----- |
-    | Olay kaynağı adı | Aşağıdaki ekran adını kullanır **contosorm IOT hub**. Bu adımı tamamladığınızda, kendi benzersiz bir ad kullanın. |
+    | Olay kaynağı adı | Aşağıdaki ekran adı kullanan **contosorm IOT hub**. Bu adımı tamamladığınızda, kendi benzersiz bir ad kullanın. |
     | Kaynak | **IoT Hub’ı** |
-    | İçeri aktarma seçeneği | **Kullanılabilir aboneliklerden IOT hub'ı kullanın** |
+    | İçeri aktarma seçeneği | **Mevcut aboneliklerden IOT hub'ı kullanın** |
     | Abonelik Kimliği | Açılan listeden Azure aboneliğinizi seçin. |
     | IOT hub'ı adı | **contosorma57a6**. Uzaktan izleme çözümünüzden IOT hub'ınızın adını kullanın. |
-    | IOT hub ilke adı | **iothubowner** kullanılan ilkeyi bir sahibi İlkesi olduğundan emin olun. |
-    | IOT hub ilke anahtarı | Bu alan otomatik olarak doldurulur. |
+    | IOT hub'ı ilke adı | **iothubowner** kullanılan ilkeyi sahibi ilke olduğundan emin olun. |
+    | IOT hub'ı ilke anahtarı | Bu alan otomatik olarak doldurulur. |
     | IOT hub tüketici grubu | **timeseriesinsights** |
-    | Olay serileştirme biçimi | **JSON**     | Zaman damgası özelliği adı | Boş bırakın |
+    | Olay serileştirme biçimi | **JSON**     | Zaman damgası özellik adı | Boş bırakın |
 
     ![Olay kaynağı oluşturma](./media/iot-accelerators-time-series-insights/time-series-insights-event-source-create.png)
 
 1. **Oluştur**’a tıklayın.
 
 > [!NOTE]
-> Zaman serisi Öngörüler Gezgini'ne ek kullanıcılar erişim gerekiyorsa, aşağıdaki adımları kullanabilirsiniz [veri erişim](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access#grant-data-access).
+> Ek kullanıcılar için Time Series Insights gezgininin erişim gerekiyorsa, bu adımlara kullanabileceğiniz [veri erişim izni verme](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access#grant-data-access).
 
 ## <a name="time-series-insights-explorer"></a>Time Series Insights Gezgini
 
-Zaman serisi Öngörüler explorer veri görselleştirmeleri oluşturmanıza yardımcı olan bir web uygulamasıdır.
+Time Series Insights gezgininin verilerinizin görselleştirmeler oluşturmanıza yardımcı olan bir web uygulamasıdır.
 
 1. Seçin **genel bakış** sekmesi.
 
-1. Tıklatın **ortam Git**, zaman serisinin Öngörüler explorer web uygulaması açılır.
+1. Tıklayın **ortam Git**, Time Series Insights Gezgini web uygulaması açılır.
 
     ![Time Series Insights Gezgini](./media/iot-accelerators-time-series-insights/time-series-insights-environment.png)
 
-1. Saat seçimi panelinde seçin **son 12 saat** menüsüne ve ardından kez hızlı gelen **arama**.
+1. Zaman seçimi paneli içinde seçin **son 12 saat** hızlı menüsüne ve ardından süreleri'nden **arama**.
 
-    ![Zaman serisi Öngörüler Explorer arama](./media/iot-accelerators-time-series-insights/time-series-insights-search-time.png)
+    ![Time Series Insights Gezgini araması](./media/iot-accelerators-time-series-insights/time-series-insights-search-time.png)
 
-1. Sol taraftaki koşulları panelinde, bir ölçü birimi değeri seçin **sıcaklık** ve bölünmüş tarafından değerini **bağlantı cihaz kimliği ıothub**.
+1. Sol taraftaki terimler paneli, bir ölçü değerini seçin **sıcaklık** bölünmüş tarafından değerini **iothub-bağlantı-cihaz-ID**.
 
-    ![Zaman serisi Öngörüler Explorer sorgu](./media/iot-accelerators-time-series-insights/time-series-insights-query1.png)
+    ![Time Series Insights Gezgini sorgu](./media/iot-accelerators-time-series-insights/time-series-insights-query1.png)
 
-1. Sağ tıklatın ve grafik **olayları keşfedin**.
+1. Sağ tıklatın ve grafik **olayları keşfet**.
 
-    ![Zaman serisi Öngörüler Explorer olayları](./media/iot-accelerators-time-series-insights/time-series-insights-explore-events.png)
+    ![Zaman serisi öngörüleri Gezgini olaylar](./media/iot-accelerators-time-series-insights/time-series-insights-explore-events.png)
 
-1. Olayları kılavuzda tablo biçiminde işlenir.
+1. Olaylar, tablo biçiminde bir kılavuzda işlenir.
 
-    ![Zaman serisi Öngörüler Explorer tablosu](./media/iot-accelerators-time-series-insights/time-series-insights-table.png)
+    ![Zaman serisi öngörüleri Gezgini tablosu](./media/iot-accelerators-time-series-insights/time-series-insights-table.png)
 
-1. Perspektif Görünüm düğmesini tıklatın.
+1. Perspektif görüntüle düğmesine tıklayın.
 
-    ![Zaman serisi Öngörüler Explorer perspektifi](./media/iot-accelerators-time-series-insights/time-series-insights-explorer-perspective.png)
+    ![Zaman serisi öngörüleri Gezgini perspektifi](./media/iot-accelerators-time-series-insights/time-series-insights-explorer-perspective.png)
 
-1. Tıklatın **Ekle** perspektife yeni bir sorgu oluşturmak için.
+1. Tıklayın **Ekle** perspektife yeni bir sorgu oluşturmak için.
 
-    ![Zaman serisi Öngörüler Explorer sorgu ekleme](./media/iot-accelerators-time-series-insights/time-series-insights-new-query.png)
+    ![Time Series Insights Gezgini, Sorgu Ekle](./media/iot-accelerators-time-series-insights/time-series-insights-new-query.png)
 
-1. Bir hızlı saatini seçin **son 12 saat**, bir ölçü **nem** ve bir bölme tarafından **bağlantı cihaz kimliği ıothub**.
+1. Bir hızlı saati **son 12 saat**, bir ölçü **nem** ile bir bölme, **iothub-bağlantı-cihaz-id**.
 
-    ![Zaman serisi Öngörüler Explorer sorgu](./media/iot-accelerators-time-series-insights/time-series-insights-query2.png)
+    ![Time Series Insights Gezgini sorgu](./media/iot-accelerators-time-series-insights/time-series-insights-query2.png)
 
-1. Panonuz aygıt ölçümleri görüntülemek üzere perspektif Görünüm düğmesini tıklatın.
+1. Cihaz ölçümleri panoyu görüntülemek üzere perspektif görüntüle düğmesine tıklayın.
 
-    ![Zaman serisi öngörüleri Explorer Panosu](./media/iot-accelerators-time-series-insights/time-series-insights-dashboard.png)
+    ![Zaman serisi öngörüleri Gezgini Panosu](./media/iot-accelerators-time-series-insights/time-series-insights-dashboard.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Keşfetmek ve zaman serisi Öngörüler Explorer'da veri sorgulama hakkında bilgi edinmek için [Azure zaman serisi Öngörüler explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
+Keşfedin ve Time Series Insights gezgininin verilerde sorgulama hakkında bilgi edinmek için [Azure Time Series Insights gezgininin](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).

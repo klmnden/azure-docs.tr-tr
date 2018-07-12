@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services API - CLI 2.0 erişim | Microsoft Docs
-description: Azure Media Services API erişmek için bu nasıl yapılır adımları izleyin.
+title: Azure Media Services API'sine - Azure CLI erişim | Microsoft Docs
+description: Bu yöntem, Azure Media Services API'sine erişmek için adımları izleyin.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,27 +12,27 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 9295c3f9dfabc8ef7749758e926df443843720a1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e20cac5f1063589bdbfee0f384ac6af5a39811ed
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639784"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38724032"
 ---
-# <a name="access-azure-media-services-api-with-cli-20"></a>CLI 2.0 ile erişim Azure Media Services API
+# <a name="access-azure-media-services-api-with-the-azure-cli"></a>Azure CLI ile API erişim Azure medya Hizmetleri
  
-Azure Media Services API'sine bağlanmak için Azure AD hizmet sorumlusu kimlik doğrulaması kullanmanız gerekir. Aşağıdaki parametreleri olan bir Azure AD belirteç istemek uygulamanız gerekir:
+Azure Media Services API'sine bağlanmak için Azure AD hizmet sorumlusu kimlik doğrulaması kullanmanız gerekir. Aşağıdaki parametrelere sahip bir Azure AD belirteç istemek uygulamanız gerekir:
 
 * Azure AD Kiracı uç noktası
 * Media Services kaynak URI'si
-* Kaynak URI'si REST Media Services için
-* Azure AD uygulama değerleri: istemci Kimliğini ve istemci parolası
+* Kaynak URI REST Media Services için
+* Azure AD uygulama değerlerini: istemci Kimliğini ve istemci gizli anahtarı
 
-Bu makale, CLI 2.0 bir Azure AD uygulaması ve hizmet sorumlusu oluşturma ve Azure Media Services kaynaklara erişmek için gerekli değerleri almak için nasıl kullanılacağını gösterir.
+Bu makalede bir Azure AD uygulaması ve hizmet sorumlusu oluşturma ve Azure Media Services kaynaklarına erişmek için gerekli değerleri almak için Azure CLI'yı kullanmayı gösterir.
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
-Bölümünde açıklandığı gibi yeni bir Azure Media Services hesabı oluşturma [Bu Hızlı Başlangıç](create-account-cli-quickstart.md).
+Açıklanan şekilde yeni bir Azure Media Services hesabı oluşturma [Bu hızlı başlangıçta](create-account-cli-quickstart.md).
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -40,7 +40,7 @@ Bölümünde açıklandığı gibi yeni bir Azure Media Services hesabı oluştu
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI'yı yükleme](/cli/azure/install-azure-cli). 
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -51,4 +51,4 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı i
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

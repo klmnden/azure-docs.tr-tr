@@ -17,11 +17,11 @@ ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b0e8153f1d0cecd4efe66dc7cce64addd6ed62aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31424066"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307679"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>PowerShell kullanarak bir sanal makine için özel IP adreslerini yapılandırın
 
@@ -29,16 +29,16 @@ ms.locfileid: "31424066"
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-Azure'un iki dağıtım modeli vardır: Azure Resource Manager ve klasik. Microsoft, kaynakların Resource Manager dağıtım modeliyle oluşturulmasını önerir. İki model arasındaki farkları öğrenmek için [Azure dağıtım modellerini anlama](../azure-resource-manager/resource-manager-deployment-model.md) makalesini okuyun. Bu makalede Resource Manager dağıtım modeli anlatılmaktadır. Ayrıca [Klasik dağıtım modelinde statik özel IP adresi yönetmek](virtual-networks-static-private-ip-classic-ps.md).
+Azure'un iki dağıtım modeli vardır: Azure Resource Manager ve klasik. Microsoft, kaynakların Resource Manager dağıtım modeliyle oluşturulmasını önerir. İki model arasındaki farkları öğrenmek için [Azure dağıtım modellerini anlama](../azure-resource-manager/resource-manager-deployment-model.md) makalesini okuyun. Bu makalede Resource Manager dağıtım modeli anlatılmaktadır. Ayrıca [Klasik dağıtım modelinde statik özel IP adresi yönetme](virtual-networks-static-private-ip-classic-ps.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Aşağıdaki komutları önceden oluşturulmuş basit bir ortam beklediğiniz PowerShell örnek yukarıdaki senaryo tabanlı. Bu belgede gösterildiği komutları çalıştırmak istiyorsanız, önce açıklanan test ortamı oluşturmak [bir sanal ağ oluşturma](quick-create-powershell.md).
+Önceden oluşturulmuş basit bir ortam aşağıdaki komutları beklediğiniz PowerShell örneği, yukarıdaki senaryo temel alınarak. Bu belgede gösterildiği komutları çalıştırmak istiyorsanız, önce açıklanan test ortamında yapı [sanal ağ oluşturma](quick-create-powershell.md).
 
 ## <a name="create-a-vm-with-a-static-private-ip-address"></a>Statik özel IP adresiyle VM oluşturma
-Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt ağı *TestVNet* özel bir statik IP *192.168.1.101*, aşağıdaki adımları izleyin:
+Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt ağı *TestVNet* bir statik özel IP'si ile *192.168.1.101*, izleyin Aşağıdaki adımlar:
 
-1. Depolama hesabı, konumu, kaynak grubu ve kimlik bilgileri kullanılacak değişkenleri ayarlayın. VM için bir kullanıcı adı ve parola girmeniz gerekir. Depolama hesabı ve kaynak grubu zaten mevcut olmalıdır.
+1. Depolama hesabı, konum, kaynak grubu ve kimlik bilgileri kullanılacak değişkenleri ayarlayın. VM için bir kullanıcı adı ve parola girmeniz gerekir. Depolama hesabı ve kaynak grubu mevcut olmalıdır.
 
     ```powershell
     $stName  = "vnetstorage"
@@ -47,21 +47,21 @@ Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt
     $cred    = Get-Credential -Message "Type the name and password of the local administrator account."
     ```
 
-2. VM'yi oluşturmak istediğiniz alt ağ ve sanal ağ alın.
+2. Sanal ağ ve VM'yi oluşturmak istediğiniz alt alın.
 
     ```powershell
     $vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
     $subnet = $vnet.Subnets[0].Id
     ```
 
-3. Gerekirse, VM Internet'ten erişmek için genel bir IP adresi oluşturun.
+3. Gerekirse, Internet'ten sanal Makineye erişmek için genel bir IP adresi oluşturun.
 
     ```powershell
     $pip = New-AzureRmPublicIpAddress -Name TestPIP -ResourceGroupName $rgName `
     -Location $locName -AllocationMethod Dynamic
     ```
 
-4. VM atamak istediğiniz özel statik IP adresi kullanarak bir NIC oluşturun. IP alt ağı aralığından VM'ye ekleniyor olduğundan emin olun. Statik olarak özel IP ayarladığınız Bu makale için ana adım budur.
+4. Sanal Makineye atamak istediğiniz özel statik IP adresini kullanarak bir NIC oluşturun. Sanal Makineye eklediğiniz alt ağı aralığından IP olduğundan emin olun. Bu, özel IP statik olarak ayarlandığı için bu makalede ana adımdır.
 
     ```powershell
     $nic = New-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName $rgName `
@@ -69,7 +69,7 @@ Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt
     -PrivateIpAddress 192.168.1.101
     ```
 
-5. VM, NIC oluşturun:
+5. NIC ile VM oluşturun:
 
     ```powershell
     $vm = New-AzureRmVMConfig -VMName DNS01 -VMSize "Standard_A1"
@@ -84,10 +84,10 @@ Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt
     New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm 
     ```
 
-Statik olarak bir VM işletim sistemi içinde Azure sanal makineye atanan özel IP sürece atadığınız değil, önerilir gerekirse, ne zaman gibi [birden çok IP adresleri atama bir Windows VM](virtual-network-multiple-ip-addresses-powershell.md). İşletim sistemi içinde özel IP adresini el ile ayarlarsanız, Azure için atanan özel IP adresi aynı adresi olduğundan emin olun [ağ arabirimi](virtual-network-network-interface-addresses.md#change-ip-address-settings), ya da sanal makineye bağlantısını kaybedebilir. Daha fazla bilgi edinmek [özel IP adresi](virtual-network-network-interface-addresses.md#private) ayarlar. Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir.
+Önerilen, statik olarak bir sanal makinenin işletim sistemi içinde Azure sanal makinesine atanmış özel IP sürece atamayın, gerekli olduğunda gibi [birden çok IP adresleri atama bir Windows VM'ye](virtual-network-multiple-ip-addresses-powershell.md). İşletim sistemi içinde özel IP adresini el ile ayarlamanız durumunda Azure atanmış özel IP adresiyle aynı adresi olduğundan emin olun [ağ arabirimi](virtual-network-network-interface-addresses.md#change-ip-address-settings), ya da sanal makineye bağlantı kaybedebilir. Daha fazla bilgi edinin [özel IP adresi](virtual-network-network-interface-addresses.md#private) ayarları. Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir.
 
-## <a name="retrieve-static-private-ip-address-information-for-a-network-interface"></a>Bir ağ arabirimi için özel statik IP adresi bilgilerini alma
-Komut dosyası yukarıdaki VM oluşturulan için statik özel IP adresi bilgilerini görüntülemek için aşağıdaki PowerShell komutunu çalıştırın ve değerlerini uyun *PrivateIpAddress* ve *Privateıpallocationmethod*:
+## <a name="retrieve-static-private-ip-address-information-for-a-network-interface"></a>Bir ağ arabirimi için statik özel IP adresi bilgilerini alma
+Komut dosyası yukarıdaki oluşturulan VM için statik özel IP adresi bilgilerini görüntülemek için aşağıdaki PowerShell komutunu çalıştırın ve değerlerini gözlemleyin *Privateıpaddress* ve *Privateıpallocationmethod*:
 
 ```powershell
 Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -133,8 +133,8 @@ Beklenen çıktı:
     NetworkSecurityGroup : null
     Primary              : True
 
-## <a name="remove-a-static-private-ip-address-from-a-network-interface"></a>Özel bir statik IP adresi bir ağ arabiriminden Kaldır
-Özel statik IP adresi kaldırmak için yukarıdaki komut VM'ye aşağıdaki PowerShell komutlarını çalıştırın ekledi:
+## <a name="remove-a-static-private-ip-address-from-a-network-interface"></a>Statik özel IP adresi ağ arabiriminden Kaldır
+Statik özel IP adresini kaldırmak için yukarıdaki komut VM'ye aşağıdaki PowerShell komutlarını çalıştırın eklendi:
 
 ```powershell
 $nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -182,8 +182,8 @@ Beklenen çıktı:
     NetworkSecurityGroup : null
     Primary              : True
 
-## <a name="add-a-static-private-ip-address-to-a-network-interface"></a>Bir ağ arabirimi için özel bir statik IP adresi Ekle
-Yukarıdaki komut dosyası kullanılarak oluşturulan VM için özel bir statik IP adresi eklemek için aşağıdaki komutları çalıştırın:
+## <a name="add-a-static-private-ip-address-to-a-network-interface"></a>Statik özel IP adresi için bir ağ arabirimi ekleme
+Yukarıdaki komut dosyası kullanılarak oluşturulan VM'ye statik özel IP adresi eklemek için aşağıdaki komutları çalıştırın:
 
 ```powershell
 $nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -192,11 +192,11 @@ $nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
 
-Statik olarak bir VM işletim sistemi içinde Azure sanal makineye atanan özel IP sürece atadığınız değil, önerilir gerekirse, ne zaman gibi [birden çok IP adresleri atama bir Windows VM](virtual-network-multiple-ip-addresses-powershell.md). İşletim sistemi içinde özel IP adresini el ile ayarlarsanız, Azure için atanan özel IP adresi aynı adresi olduğundan emin olun [ağ arabirimi](virtual-network-network-interface-addresses.md#change-ip-address-settings), ya da sanal makineye bağlantısını kaybedebilir. Daha fazla bilgi edinmek [özel IP adresi](virtual-network-network-interface-addresses.md#private) ayarlar. Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir.
+Önerilen, statik olarak bir sanal makinenin işletim sistemi içinde Azure sanal makinesine atanmış özel IP sürece atamayın, gerekli olduğunda gibi [birden çok IP adresleri atama bir Windows VM'ye](virtual-network-multiple-ip-addresses-powershell.md). İşletim sistemi içinde özel IP adresini el ile ayarlamanız durumunda Azure atanmış özel IP adresiyle aynı adresi olduğundan emin olun [ağ arabirimi](virtual-network-network-interface-addresses.md#change-ip-address-settings), ya da sanal makineye bağlantı kaybedebilir. Daha fazla bilgi edinin [özel IP adresi](virtual-network-network-interface-addresses.md#private) ayarları. Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir.
 
-## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>Bir ağ arabirimine atanmış özel bir IP adresi ayırma yöntemini değiştirme
+## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>Bir ağ arabirimine atanan özel bir IP adresi için ayırma yöntemini değiştirme
 
-Özel bir IP adresi statik veya dinamik ayırma yöntemiyle bir NIC'ye atanır. Dinamik IP adresleri, daha önce durduruldu (serbest bırakıldığında) durumdaydı bir VM başlattıktan sonra değiştirebilirsiniz. VM durduruldu (serbest bırakıldığında) durumundan yeniden başlatıldıktan sonra bile aynı IP adresi gerektiren bir hizmeti barındırma varsa bu olası sorunlara neden olabilir. Statik IP adresleri, VM silinene kadar bekletilir. Bir IP adresi ayırma yöntemini değiştirmek için ayırma yöntemi dinamik statik olarak değiştirir aşağıdaki betiği çalıştırın. Geçerli özel IP adresi için ayırma yöntemi statik ise, değiştirme *statik* için *dinamik* komut dosyasını çalıştırmadan önce.
+Özel bir IP adresi statik veya dinamik atama yöntemiyle bir NIC'ye atanır. Dinamik IP adresleri, daha önce durduruldu (serbest bırakıldı) durumda olan bir sanal makine başlatıldıktan sonra değiştirebilirsiniz. VM durduruldu (serbest bırakıldı) durumundan yeniden başlatıldıktan sonra bile aynı IP adresi gerektiren bir hizmeti barındıran varsa bu olası sorunlara neden olabilir. Statik IP adresleri, VM silinene kadar korunur. Bir IP adresi ayırma yöntemini değiştirmek için ayırma yöntemini statik olarak değiştirir dinamik olan aşağıdaki betiği çalıştırın. Geçerli özel IP adresi için ayırma yöntemini statik ise, *statik* için *dinamik* betiği çalıştırmadan önce.
 
 ```powershell
 $RG = "TestRG"
@@ -210,7 +210,7 @@ $IP = $nic.IpConfigurations[0].PrivateIpAddress
 Write-Host "The allocation method is now set to"$nic.IpConfigurations[0].PrivateIpAllocationMethod"for the IP address" $IP"." -NoNewline
 ```
 
-NIC adını bilmiyorsanız, aşağıdaki komutu girerek NIC'ler listesini bir kaynak grubu içinde görüntüleyebilirsiniz:
+NIC adını bilmiyorsanız, aşağıdaki komutu girerek bir kaynak grubu içinde NIC listesini görüntüleyebilirsiniz:
 
 ```powershell
 Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.ProvisioningState -eq 'Succeeded'} 
@@ -218,4 +218,4 @@ Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.Provisioni
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Yönetme hakkında bilgi edinin [IP adresi ayarlarını](virtual-network-network-interface-addresses.md).
+Yönetme hakkında daha fazla bilgi [IP adresi ayarları](virtual-network-network-interface-addresses.md).

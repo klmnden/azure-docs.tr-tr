@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric düzeltme orchestration uygulaması | Microsoft Docs
-description: Service Fabric kümesi üzerinde işletim sistemi düzeltme eki uygulama otomatikleştirmek için uygulama.
+title: Azure Service Fabric düzeltme eki düzenleme uygulaması | Microsoft Docs
+description: Bir Service Fabric kümesinde işletim sistemi düzeltme eki uygulama otomatik hale getirmek için uygulama.
 services: service-fabric
 documentationcenter: .net
 author: novino
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 69806520f3d57cb1d383999ba53fefb7e0bd56b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cbd5a0ea5fbeb7becbfc33bf72af73425630bff6
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642820"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970729"
 ---
-# <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümesi Windows işletim sistemi düzeltme eki
+# <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-patch-orchestration-application.md)
@@ -29,54 +29,54 @@ ms.locfileid: "34642820"
 >
 >
 
-Düzeltme eki orchestration uygulama kapalı kalma süresi olmadan bir Service Fabric kümesindeki düzeltme eki uygulama işletim sistemi otomatikleştiren bir Azure Service Fabric uygulamasıdır.
+Düzeltme eki düzenleme uygulama işletim sistemi düzeltme eki uygulama kapalı kalma süresi olmadan bir Service Fabric kümesinde otomatik hale getiren bir Azure Service Fabric uygulamasıdır.
 
-Düzeltme eki orchestration uygulama aşağıdaki özellikleri sağlar:
+Orchestration düzeltme eki uygulama, aşağıdaki özellikleri sağlar:
 
-- **Otomatik işletim sistemi güncelleştirme yüklemesini**. İşletim sistemi güncelleştirmeleri otomatik olarak karşıdan yüklenir ve. Küme düğümleri küme kapalı kalma süresi olmadan gerektiği gibi yeniden başlatılır.
+- **Otomatik işletim sistemi güncelleştirme yüklemesi**. İşletim sistemi güncelleştirmeleri otomatik olarak indirilip yüklendiği. Küme düğümleri, küme kapalı kalma süresi olmadan gerektiği gibi yeniden başlatılır.
 
-- **Küme durumunu algılayan düzeltme eki uygulama ve sistem durumu tümleştirme**. Güncelleştirmeler uygulanırken düzeltme eki orchestration uygulama küme düğümlerinin sistem durumunu izler. Küme düğümü yükseltilmiş bir düğümde aynı anda bir saat ya da bir yükseltme etki alanı olan. Küme durumunu düzeltme eki uygulama işlemi nedeniyle kullanılamaz hale gelirse, düzeltme eki uygulama sorun aggravating önlemek için durduruldu.
+- **Küme durumunu algılayan düzeltme eki uygulama ve sistem durumu tümleştirme**. Güncelleştirmeleri uygulanırken, düzeltme eki düzenleme uygulama küme düğümlerinin izler. Küme düğümleri yükseltilmiş bir düğüm teker teker teker veya bir yükseltme etki alanı yer. Küme durumunu nedeniyle düzeltme eki uygulama işlemini kalırsa, düzeltme eki uygulama sorunu aggravating önlemek için durduruldu.
 
-## <a name="internal-details-of-the-app"></a>Uygulamanın iç ayrıntıları
+## <a name="internal-details-of-the-app"></a>İç uygulama ayrıntıları
 
-Düzeltme eki orchestration uygulama aşağıdaki bileşenleri oluşur:
+Orchestration düzeltme eki uygulama aşağıdaki bileşenleri oluşur:
 
 - **Düzenleyicisi hizmeti**: Bu durum bilgisi olan hizmet sorumludur:
-    - Windows güncelleştirme işi tüm küme üzerinde Eşgüdümleme.
-    - Tamamlanmış Windows Update işlemlerin sonucunu depolamak.
-- **Düğüm Aracısı hizmeti**: Bu durum bilgisiz hizmet tüm Service Fabric küme düğümleri üzerinde çalışır. Hizmet için sorumludur:
-    - Düğüm Aracısı NTService önyükleme.
+    - Tüm küme üzerinde Windows güncelleştirme işi koordine.
+    - Tamamlanan Windows güncelleştirme işlemleri sonucu depolama.
+- **Düğüm Aracısı**: Bu durum bilgisi olmayan hizmet tüm Service Fabric küme düğümleri üzerinde çalışır. Hizmet için sorumludur:
+    - Düğüm Aracısı NTService önyükleniyor.
     - Düğüm Aracısı NTService izleme.
-- **Düğüm Aracısı NTService**: Bu Windows NT hizmeti, üst düzey bir ayrıcalık (Sistem) çalışır. Buna karşılık, düğüm Aracısı hizmeti ve Coordinator hizmeti bir alt düzey önceliği (ağ hizmeti) çalıştırın. Hizmet, tüm küme düğümleri üzerinde aşağıdaki Windows Update işlerini gerçekleştirmek için sorumludur:
-    - Düğümde otomatik Windows Update devre dışı bırakılıyor.
-    - Karşıdan yükleme ve Windows Update ilkesine göre kullanıcı sağlamıştır.
+- **Düğüm Aracısı NTService**: Bu Windows NT hizmeti, bir üst düzey önceliği (Sistem) çalışır. Buna karşılık, düğüm Aracısı hizmeti ve düzenleyici hizmetini bir alt düzey önceliği (ağ hizmeti) çalıştırın. Hizmet, tüm küme düğümlerinde aşağıdaki Windows güncelleştirme işlerini gerçekleştirmek için sorumludur:
+    - Düğüm Windows Update'te otomatik devre dışı bırakılıyor.
+    - Windows güncelleştirme ilkesine göre yükleyip kullanıcı sağlamıştır.
     - Makine post Windows Güncelleştirme yüklemesini yeniden başlatılıyor.
-    - Windows güncelleştirmelerini sonuçlarını Coordinator hizmeti yükleniyor.
-    - Tüm yeniden denemeler tükenmesinden sonra bir işlem başarısız oldu durumda raporlama durumu raporları.
+    - Windows güncelleştirmeleri sonuçlarını Düzenleyici hizmete karşıya yükleniyor.
+    - Bir işlem tüketme tüm yeniden deneme sonrasında başarısız olduysa raporlama sistem durumu bildirir.
 
 > [!NOTE]
-> Düzeltme eki orchestration app Service Fabric onarım Yöneticisi sistem hizmeti devre dışı bırakın veya düğüm etkinleştirmek ve sistem durumu denetimleri gerçekleştirmek için kullanır. Düzeltme eki orchestration uygulama tarafından oluşturulan onarım görevi her düğüm için Windows Update ilerleme durumunu izler.
+> Düzeltme eki düzenleme uygulama devre dışı bırakın veya düğüm etkinleştirmek ve sistem durumu denetimleri gerçekleştirmek için Service Fabric onarım Yöneticisi sistem hizmeti kullanır. Onarım görevi düzeltme eki düzenleme uygulama tarafından oluşturulan her düğüm için Windows güncelleştirme ilerleme durumunu izler.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>(Bu zaten çalışmıyorsa) onarım Yöneticisi hizmetini etkinleştirme
+### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>(Bunu zaten çalışmıyorsa) onarım Yöneticisi hizmetini etkinleştirme
 
-Düzeltme eki orchestration uygulama kümede etkinleştirilmesi için onarım Yöneticisi sistem hizmeti gerektirir.
+Düzeltme eki düzenleme uygulama küme üzerinde etkinleştirilmesini onarım Yöneticisi sistem hizmeti gerekiyor.
 
 #### <a name="azure-clusters"></a>Azure kümeleri
 
-Gümüş dayanıklılık katmanı Azure kümelerinde varsayılan olarak etkin onarım Yöneticisi hizmeti sahip. Altın dayanıklılık katmanı Azure kümelerde olabilir ya da bu kümeleri oluşturulduğu bağlı olarak, etkin onarım Yöneticisi hizmeti sahip olmayabilir. Varsayılan olarak, Bronz dayanıklılık katmanı Azure kümelerde etkin onarım Yöneticisi hizmeti yok. Hizmet zaten etkin değilse, Service Fabric Explorer Sistem Hizmetleri bölümünde çalışmasını görebilirsiniz.
+Azure silver dayanıklılık katmanı kümelerde varsayılan olarak etkin onarım Yöneticisi hizmetiniz varsa. Azure gold dayanıklılık katmanı kümelerde olabilir veya onarım Yöneticisi hizmeti bu kümeler yaptığınızda oluşturulan bağlı olarak, etkin olmayabilir. Onarım Yöneticisi hizmetinin etkinleştirilmiş Azure kümelerde varsayılan olarak, Bronz dayanıklılık katmanı yok. Hizmet zaten etkin değilse, Service Fabric Explorer'da Sistem Hizmetleri bölümündeki çalışmasını görebilirsiniz.
 
 ##### <a name="azure-portal"></a>Azure portalına
-Kümenin kurma sırasında onarım Yöneticisi Azure portalından etkinleştirebilirsiniz. Seçin **dahil onarım Yöneticisi** altında seçeneği **eklenti özellikleri** küme yapılandırması zaman.
+Onarım Yöneticisi Azure Portalı'ndan kümesini ayarlama sırasında etkinleştirebilirsiniz. Seçin **onarım Yöneticisi dahil** altındaki **eklenti özellikleri** küme yapılandırmasının zaman.
 ![Azure portalından etkinleştirme onarım Yöneticisi'nin resmi](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-deployment-model"></a>Azure Resource Manager dağıtım modeli
-Alternatif olarak kullanabileceğiniz [Azure Resource Manager dağıtım modeli](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) yeni ve mevcut Service Fabric kümeleri üzerinde onarım Yöneticisi hizmeti etkinleştirmek için. Şablonu dağıtmak istediğiniz kümenin alın. Örnek şablonları kullanabilir veya özel bir Azure Resource Manager dağıtım modeli şablon oluşturabilirsiniz. 
+Alternatif olarak [Azure Resource Manager dağıtım modeli](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) yeni ve mevcut Service Fabric kümeleri üzerinde onarım Yöneticisi hizmetini etkinleştirmek için. Şablonu dağıtmak istediğiniz küme için alın. Örnek şablonları kullanabilir veya özel bir Azure Resource Manager dağıtım modeli şablon oluşturabilirsiniz. 
 
 Onarım Yöneticisi hizmetini kullanarak etkinleştirmek için [Azure Resource Manager dağıtım modeli şablonu](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
 
-1. İlk denetleyin `apiversion` ayarlanır `2017-07-01-preview` için `Microsoft.ServiceFabric/clusters` kaynak. Farklı sonra güncelleştirmek gereken `apiVersion` değerine `2017-07-01-preview` veya üstü:
+1. İlk maddeyi `apiversion` ayarlanır `2017-07-01-preview` için `Microsoft.ServiceFabric/clusters` kaynak. Farklı sonra güncelleştirmeye gerek duyduğunuz `apiVersion` değerine `2017-07-01-preview` veya üzeri:
 
     ```json
     {
@@ -88,7 +88,7 @@ Onarım Yöneticisi hizmetini kullanarak etkinleştirmek için [Azure Resource M
     }
     ```
 
-2. Aşağıdakileri ekleyerek onarım Yöneticisi hizmeti şimdi etkinleştirmek `addonFeatures` sonra bölümünde `fabricSettings` bölümü:
+2. Şimdi aşağıdakileri ekleyerek onarım Yöneticisi hizmetini etkinleştirmek `addonFeatures` sonra bölüm `fabricSettings` bölümü:
 
     ```json
     "fabricSettings": [
@@ -99,15 +99,15 @@ Onarım Yöneticisi hizmetini kullanarak etkinleştirmek için [Azure Resource M
     ],
     ```
 
-3. Bu değişikliklerle küme şablonunuzu güncelleştirildikten sonra bunları uygulamak ve son yükseltme sağlayabilirsiniz. Kümenizde çalışan onarım Yöneticisi sistem hizmeti şimdi görebilirsiniz. Çağrılır `fabric:/System/RepairManagerService` Service Fabric Explorer Sistem Hizmetleri bölümünde. 
+3. Bu değişikliklerle küme şablonunuza güncelleştirildikten sonra bunları uygulamak ve son yükseltme izin verin. Artık, kümenizde çalışan onarım Yöneticisi sistem hizmeti de görebilirsiniz. Çağrıldığı `fabric:/System/RepairManagerService` Sistem Hizmetleri bölümündeki Service Fabric Explorer. 
 
 ### <a name="standalone-on-premises-clusters"></a>Tek başına şirket içi kümeleri
 
-Kullanabileceğiniz [tek başına Windows kümesi için yapılandırma ayarlarını](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest) yeni ve mevcut Service Fabric kümesi üzerinde onarım Yöneticisi hizmeti etkinleştirmek için.
+Kullanabileceğiniz [tek başına Windows Küme için yapılandırma ayarlarını](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest) yeni ve mevcut Service Fabric kümesinde onarım Yöneticisi hizmetini etkinleştirmek için.
 
-Onarım Yöneticisi hizmeti etkinleştirmek için:
+Onarım Yöneticisi hizmetini etkinleştirmek için:
 
-1. İlk denetleyin `apiversion` içinde [genel küme yapılandırmaları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest#general-cluster-configurations) ayarlanır `04-2017` veya üstü:
+1. İlk maddeyi `apiversion` içinde [genel küme yapılandırmalarını](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest#general-cluster-configurations) ayarlanır `04-2017` veya üzeri:
 
     ```json
     {
@@ -118,7 +118,7 @@ Onarım Yöneticisi hizmeti etkinleştirmek için:
     }
     ```
 
-2. Aşağıdakileri ekleyerek onarım Yöneticisi hizmeti şimdi etkinleştirmek `addonFeatures` sonra bölümünde `fabricSettings` bölümünde aşağıda gösterildiği gibi:
+2. Şimdi aşağıdakileri ekleyerek onarım Yöneticisi hizmeti etkinleştirmek `addonFeatures` sonra bölüm `fabricSettings` bölümünde aşağıda gösterildiği gibi:
 
     ```json
     "fabricSettings": [
@@ -129,70 +129,70 @@ Onarım Yöneticisi hizmeti etkinleştirmek için:
     ],
     ```
 
-3. Küme bildiriminizi güncelleştirilmiş küme bildirimini kullanarak bu değişikliklerle güncelleştirmek [yeni küme oluşturma](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) veya [küme yapılandırmasını yükseltme](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Küme güncelleştirilmiş küme bildirimini ile çalışmaya başladıktan sonra olarak adlandırılır, kümede çalışan onarım Yöneticisi sistem hizmeti şimdi görebilirsiniz `fabric:/System/RepairManagerService`altında sistem hizmetleri Service Fabric explorer bölümünde.
+3. Küme bildiriminizi güncelleştirilmiş küme bildiriminde kullanarak bu değişikliklerle güncelleştirmek [yeni küme oluşturma](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) veya [küme yapılandırmasını yükseltme](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Güncelleştirilmiş küme bildirimi ile küme çalışmaya başladıktan sonra çağrılır, kümede çalışan onarım Yöneticisi sistem hizmeti artık görebilirsiniz `fabric:/System/RepairManagerService`altında Service Fabric explorer bölümünde sistem hizmetleri.
 
-### <a name="disable-automatic-windows-update-on-all-nodes"></a>Tüm düğümlerde otomatik Windows Update devre dışı bırak
+### <a name="disable-automatic-windows-update-on-all-nodes"></a>Tüm düğümlerde otomatik Windows güncelleştirme devre dışı bırak
 
-Aynı anda birden çok küme düğümüne yeniden başlatabilirsiniz olduğundan otomatik Windows güncelleştirmelerini kullanılabilirlik kaybına neden olabilir. Düzeltme eki orchestration uygulama varsayılan olarak, her küme düğümünde otomatik Windows Update devre dışı bırakmak çalışır. Ancak, ayarları Grup İlkesi veya bir yönetici tarafından yönetiliyorsa, "Bildirim önce karşıdan" Windows Update ilke açık olarak ayarlanması önerilir.
+Aynı anda birden çok küme düğümüne yeniden başlatabilirsiniz çünkü Windows Otomatik Güncelleştirmeler kullanılabilirlik kaybına neden olabilir. Düzeltme eki düzenleme uygulama varsayılan olarak, her küme düğümünde otomatik Windows güncelleştirme devre dışı bırakmak çalışır. Ancak, ayarları Grup İlkesi veya bir yönetici tarafından yönetiliyorsa, "Bildirim önce indirin" için Windows Update ilke açık olarak ayarlama öneririz.
 
-## <a name="download-the-app-package"></a>Uygulama paketi yükle
+## <a name="download-the-app-package"></a>Uygulama paketini indirme
 
-Uygulamayı yükleme komut dosyaları ile birlikte gelen indirilebilir [arşiv bağlantı](https://go.microsoft.com/fwlink/?linkid=869566).
+Uygulamayı yükleme betikleri ile birlikte gelen indirilebilir [arşiv bağlantı](https://go.microsoft.com/fwlink/?linkid=869566).
 
-Uygulaması sfpkg biçiminde adresinden yüklenebilir [sfpkg bağlantı](https://go.microsoft.com/fwlink/?linkid=869567). Bu kullanışlı gelir [Azure Resource Manager tabanlı uygulama dağıtımı](service-fabric-application-arm-resource.md).
+Uygulama sfpkg biçimde nden indirilebilir [sfpkg bağlantı](https://go.microsoft.com/fwlink/?linkid=869567). Bu için kullanışlı gelir [Azure Resource Manager tabanlı uygulama dağıtımı](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Uygulamayı yapılandırma
 
-Düzeltme eki orchestration uygulamanın davranışı gereksinimlerinizi karşılayacak şekilde yapılandırılabilir. Uygulama oluşturma veya güncelleştirme işlemi sırasında uygulama parametresini geçirerek varsayılan değerleri geçersiz. Uygulama parametreleri belirterek sağlanabilir `ApplicationParameter` için `Start-ServiceFabricApplicationUpgrade` veya `New-ServiceFabricApplication` cmdlet'leri.
+Düzeltme eki düzenleme uygulamanın davranış şekli, gereksinimlerinizi karşılayacak şekilde yapılandırılabilir. Uygulama oluşturma veya güncelleştirme işlemi sırasında uygulama parametresi olarak geçirerek varsayılan değerleri geçersiz. Uygulama parametreleri belirterek sağlanabilir `ApplicationParameter` için `Start-ServiceFabricApplicationUpgrade` veya `New-ServiceFabricApplication` cmdlet'leri.
 
 |**Parametre**        |**Tür**                          | **Ayrıntılar**|
 |:-|-|-|
-|MaxResultsToCache    |Uzun                              | Önbelleğe alınması gereken Windows Update sonuçlarının maksimum sayısı. <br>Varsayılan değer 3000 varsayılır: <br> -Düğüm sayısı 20'dir. <br> -Ayda bir düğümde gerçekleştiği güncelleştirme sayısı beştir. <br> -İşlemi başına sonuç sayısı 10 olabilir. <br> -Son üç ay için sonuçları depolanması gerekir. |
-|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında Windows güncelleştirmelerini yüklemek için Koordinatör hizmeti tarafından kullanılacak ilkeyi TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler: <br>                                                           <b>NodeWise</b>. Windows Update yüklü bir aynı anda düğümdür. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update aynı anda yüklü bir yükseltme etki alanıdır. (Üst sınırda bir yükseltme etki alanına ait tüm düğümlerde Windows güncelleştirmesi gidebilirsiniz.)
-|LogsDiskQuotaInMB   |Uzun  <br> (Varsayılan: 1024)               |Yerel olarak düğümlerinde kalıcı MB cinsinden en büyük boyutunu düzeltme eki orchestration uygulama kaydeder.
-| WUQuery               | dize<br>(Varsayılan: "IsInstalled = 0")                | Windows güncelleştirmelerini almak için sorgu. Daha fazla bilgi için bkz: [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Boole <br> (varsayılan: True)                 | Bu bayrak Windows işletim sistemi güncelleştirmelerinin yüklenmesine izin verir.            |
-| WUOperationTimeOutInMinutes | Int <br>(Varsayılan: 90).                   | (Arama veya indirme veya yükleme) herhangi bir Windows Update işlemi için zaman aşımını belirtir. İşlemi belirtilen zaman aşımı süresi içinde tamamlanmazsa durdurulur.       |
-| WURescheduleCount     | Int <br> (Varsayılan: 5).                  | Bir işlem kalıcı olarak başarısız olursa en fazla kaç kez Windows hizmet reschedules güncelleştirin.          |
-| WURescheduleTimeInMinutes | Int <br>(Varsayılan: 30). | Hata devam ederse durumunda, hizmet Windows update reschedules aralığı. |
-| WUFrequency           | Virgülle ayrılmış dize (varsayılan: "Haftalık, Çarşamba, 7:00:00")     | Windows Update yükleme sıklığı. Biçim ve olası değerler şunlardır: <br>-Örneğin, aylık, 5, 12 aylık, gg ss: 22:32. <br> -Örneğin, haftalık, Salı, 12:22:32 için haftalık, gün, ss.  <br> -Örneğin, günlük, 12:22:32 günlük, ss.  <br> -Hiçbiri, Windows Update yapılması döndürmemelidir gösterir.  <br><br> Saatler UTC biçiminde olduğunu unutmayın.|
-| AcceptWindowsUpdateEula | Boole <br>(Varsayılan: true) | Bu bayrak ayarlayarak, uygulamanın Windows Update için son kullanıcı lisans sözleşmesi makine sahibi adına kabul eder.              |
+|MaxResultsToCache    |Uzun                              | Önbelleğe alınan Windows Update sonuçlarının maksimum sayısı. <br>Varsayılan değer: 3000 varsayılarak: <br> -Düğüm sayısı 20'dir. <br> -Bir düğüm / ay üzerinde gerçekleştirilecek güncelleştirme sayısı beştir. <br> -İşlem başına sonuç sayısı 10 olabilir. <br> -Son üç ay için sonuçları depolanması gerekir. |
+|TaskApprovalPolicy   |Sabit listesi <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında Windows güncelleştirmeleri yüklemek için Düzenleyici hizmeti tarafından kullanılacak olan ilke TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler şunlardır: <br>                                                           <b>NodeWise</b>. Windows güncelleştirme yüklü tek bir düğüm bir kerede olur. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update, aynı anda yüklü bir yükseltme etki alanıdır. (En bir yükseltme etki alanına ait olan tüm düğümleri için Windows Update gidebilirsiniz.)
+|LogsDiskQuotaInMB   |Uzun  <br> (Varsayılan: 1024)               |Yerel olarak düğümlerinde kalıcı MB, düzeltme eki düzenleme uygulama en büyük boyutunu kaydeder.
+| WUQuery               | dize<br>(Varsayılan: "IsInstalled = 0")                | Windows güncelleştirmeleri almak için sorgulayın. Daha fazla bilgi için [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| InstallWindowsOSOnlyUpdates | Boole <br> (varsayılan: True)                 | Bu bayrak yüklenecek Windows işletim sistemi güncelleştirmeleri sağlar.            |
+| WUOperationTimeOutInMinutes | Int <br>(Varsayılan: 90).                   | (Arama ya da indirme veya yükleme) herhangi bir Windows güncelleştirme işlemi için zaman aşımını belirtir. İşlemi belirtilen süre içinde tamamlanmazsa, iptal edildi.       |
+| WURescheduleCount     | Int <br> (Varsayılan: 5).                  | Bir işlem kalıcı olarak başarısız olması durumunda en fazla kaç kez Windows hizmeti tarih değiştirdiğinde güncelleştirin.          |
+| WURescheduleTimeInMinutes | Int <br>(Varsayılan: 30). | Hata devam ederse durumunda, hizmet Windows update tarih değiştirdiğinde aralığı. |
+| WUFrequency           | Virgülle ayrılmış bir dize (varsayılan: "Haftalık, Çarşamba, 7:00:00")     | Windows güncelleştirme sıklığı. Biçim ve olası değerler şunlardır: <br>-Örneğin, aylık, 5, 12 aylık, gg ss: 22:32. <br> -Örneğin, haftalık, Salı, 12:22:32 için haftalık, gün, ss.  <br> -Örneğin, günlük, 12:22:32 günlük, ss.  <br> -Hiçbiri, Windows güncelleştirme yapılması olmamalıdır belirtir.  <br><br> Saatleri UTC biçiminde olduğunu unutmayın.|
+| AcceptWindowsUpdateEula | Boole <br>(Varsayılan: true) | Bu bayrak ayarlandığında, uygulamayı Windows güncelleştirmesi için son kullanıcı lisans sözleşmesi makinenin sahibi adına kabul eder.              |
 
 > [!TIP]
-> Windows Update hemen olmasını istiyorsanız, ayarlayın `WUFrequency` uygulama dağıtım süresini göre. Örneğin, beş düğümlü test kümesi olduğunu ve yaklaşık 5: 00'da uygulama dağıtmayı planladığınız varsayalım UTC. Uygulama yükseltme veya dağıtım en 30 dakika sürer olduğunu varsayarsak, WUFrequency "Günlük, 17:30:00." ayarlayın.
+> Windows Update, hemen gerçekleşmeye istiyorsanız ayarlayın `WUFrequency` göre uygulama dağıtım süresi. Örneğin, beş düğümlü test kümesi vardır ve uygulaması yaklaşık 5: 00'da dağıtmayı planladığınız varsayalım UTC. Uygulama yükseltme veya dağıtım sırasında en fazla 30 dakika sürer olduğunu varsayarsak, WUFrequency "Günlük, 17:30:00" ayarlayın.
 
 ## <a name="deploy-the-app"></a>Uygulamayı dağıtma
 
-1. Küme hazırlama tüm önkoşul adımlarını tamamlayın.
-2. Düzeltme eki orchestration uygulamayı başka bir Service Fabric uygulaması gibi dağıtın. PowerShell kullanarak uygulamayı dağıtabilirsiniz. Adımları [PowerShell kullanarak uygulamaları dağıtma ve Kaldır](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
-3. Geçişi dağıtım zamanında uygulama yapılandırmak için `ApplicationParamater` için `New-ServiceFabricApplication` cmdlet'i. Size kolaylık olması için uygulamanın yanı sıra Deploy.ps1 komut dosyası sağladık. Betik kullanmak için:
+1. Küme hazırlamak için tüm önkoşul adımlarını tamamlayın.
+2. Herhangi bir Service Fabric uygulaması gibi düzeltme eki düzenleme uygulaması dağıtın. PowerShell kullanarak uygulama dağıtabilirsiniz. Bağlantısındaki [PowerShell kullanarak dağıtma ve Kaldır uygulamaları](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+3. Dağıtım sırasında uygulama yapılandırmak için geçirmek `ApplicationParamater` için `New-ServiceFabricApplication` cmdlet'i. Kolaylık olması için uygulamanın yanı sıra betik Deploy.ps1 sağladık. Betiği kullanmak için:
 
-    - Bir Service Fabric kümeye bağlanırken `Connect-ServiceFabricCluster`.
-    - Uygun olan Deploy.ps1 PowerShell betiğini yürütün `ApplicationParameter` değeri.
+    - Kullanarak bir Service Fabric kümesine bağlanın `Connect-ServiceFabricCluster`.
+    - Uygun Deploy.ps1 PowerShell betiğini yürütün `ApplicationParameter` değeri.
 
 > [!NOTE]
-> Komut dosyası ve uygulama klasörü PatchOrchestrationApplication aynı dizinde tutun.
+> Betik ve uygulama klasörü PatchOrchestrationApplication aynı dizinde tutun.
 
 ## <a name="upgrade-the-app"></a>Uygulama yükseltme
 
-PowerShell kullanarak var olan bir düzeltme eki orchestration uygulamaya yükseltmek için adımları [PowerShell kullanarak Service Fabric uygulama yükseltme](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-tutorial-powershell).
+PowerShell kullanarak mevcut bir düzeltme eki düzenleme uygulamaya yükseltmek için adımları izleyin. [PowerShell kullanarak Service Fabric uygulaması yükseltme](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-tutorial-powershell).
 
-## <a name="remove-the-app"></a>Uygulamayı kaldırma
+## <a name="remove-the-app"></a>Uygulamayı Kaldır
 
-Uygulamayı kaldırmak için adımları [PowerShell kullanarak uygulamaları dağıtma ve Kaldır](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+Uygulamayı kaldırmak için adımları [PowerShell kullanarak dağıtma ve Kaldır uygulamaları](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
 
-Size kolaylık olması için uygulamanın yanı sıra Undeploy.ps1 komut dosyası sağladık. Betik kullanmak için:
+Kolaylık olması için uygulamanın yanı sıra betik Undeploy.ps1 sağladık. Betiği kullanmak için:
 
-  - Bir Service Fabric kümeye bağlanırken ```Connect-ServiceFabricCluster```.
+  - Kullanarak bir Service Fabric kümesine bağlanın ```Connect-ServiceFabricCluster```.
 
   - Undeploy.ps1 PowerShell betiğini yürütün.
 
 > [!NOTE]
-> Komut dosyası ve uygulama klasörü PatchOrchestrationApplication aynı dizinde tutun.
+> Betik ve uygulama klasörü PatchOrchestrationApplication aynı dizinde tutun.
 
-## <a name="view-the-windows-update-results"></a>Windows Update sonuçları görüntüleme
+## <a name="view-the-windows-update-results"></a>Windows güncelleştirme sonuçlarını görüntüleme
 
-Düzeltme eki orchestration uygulama kullanıcıya geçmiş sonuçlarını görüntülemek için REST API'lerini kullanıma sunar. JSON sonuç örneği:
+Düzeltme eki düzenleme uygulama kullanıcı için geçmiş sonuçlarını görüntülemek için REST API'lerini kullanıma sunar. Sonuç JSON örneği:
 ```json
 [
   {
@@ -221,159 +221,159 @@ Düzeltme eki orchestration uygulama kullanıcıya geçmiş sonuçlarını gör�
 ]
 ```
 
-JSON alanları aşağıda açıklanmıştır.
+JSON alanlarının aşağıda açıklanmıştır.
 
 Alan | Değerler | Ayrıntılar
 -- | -- | --
-OperationResult | 0 - başarılı<br> 1 - hatalarıyla başarılı oldu<br> 2 - başarısız oldu<br> 3 - durduruldu<br> 4 - zaman aşımı ile iptal edildi | Genel işlemin (genellikle bir veya daha fazla güncelleştirme yüklemesini içeren) sonucunu gösterir.
+OperationResult | 0 - başarılı<br> 1 - hatalarıyla başarılı oldu<br> 2 - başarısız oldu<br> 3 - durduruldu<br> 4 - zaman aşımı ile iptal edildi | Genel işlemin (genellikle bir veya daha fazla güncelleştirmelerin yüklenmesini içeren) sonucunu gösterir.
 ResultCode | OperationResult aynı | Bu alan tek güncelleştirme için yükleme işleminin sonucu gösterir.
-OperationType | 1 - yükleme<br> 0 - arayın ve yükleyin.| Varsayılan olarak sonuçlarda gösterilen yalnızca OperationType bir yüklemedir.
-WindowsUpdateQuery | Varsayılan değer "IsInstalled = 0" |Windows güncelleştirmeleri aramak için kullanılan sorgu güncelleştirin. Daha fazla bilgi için bkz: [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-RebootRequired | TRUE - yeniden başlatma gerekli<br> false - yeniden başlatma gerekli değildi | Yeniden başlatma güncelleştirmeleri yüklemesini tamamlamak için gerekli olup olmadığını gösterir.
+OperationType | 1 - yükleme<br> 0 - arayın ve yükleyin.| Yükleme Sonuçları varsayılan olarak gösteriliyordu yalnızca OperationType olur.
+WindowsUpdateQuery | Varsayılan değer "IsInstalled = 0" |Windows güncelleştirmeleri aramak için kullanılan sorguyu güncelleştirin. Daha fazla bilgi için [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+RebootRequired | TRUE - yeniden başlatma gerekli<br> false - yeniden başlatma gerekli değil | Yeniden başlatma güncelleştirmeleri yüklemesini tamamlamak için gerekli olup olmadığını gösterir.
 
-Hiçbir güncelleştirme henüz zamanladıysanız JSON sonuç boştur.
+Hiçbir güncelleştirme henüz zamanlanmış, JSON sonuç boş olur.
 
-Sorgu Windows Update kümeye sonuçları oturum açın. Ardından Coordinator hizmeti birincil çoğaltma adresi bulmak ve tarayıcı URL'den isabet: http://&lt;çoğaltma IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1 / GetWindowsUpdateResults.
+Sorgu Windows Update kümeye sonuçları oturum açın. Ardından Coordinator hizmetinin birincil çoğaltması adresini öğrenmek ve tarayıcı URL'den isabet: http://&lt;çoğaltma IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1 / GetWindowsUpdateResults.
 
-REST uç noktası Coordinator hizmeti için dinamik bir bağlantı noktası var. Tam URL'yi denetlemek için Service Fabric Explorer bakın. Örneğin, sonuçların kullanılabilir `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults`.
+REST uç noktasını Koordinatör hizmeti için dinamik bir bağlantı noktası var. Tam URL'yi kontrol etmek için Service Fabric Explorer'a bakın. Örneğin, sonuçları kullanılabilir `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults`.
 
-![REST uç noktasını görüntüsü](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
+![REST uç noktası görüntüsü](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
 
 
-Ters proxy kümede etkinleştirilirse, küme de dışındaki URL'yi erişebilir.
+Ters proxy kümede etkinleştirilirse, aynı zamanda kümedeki dışında URL'den erişebilirsiniz.
 Http:// isabet gereken uç noktadır&lt;SERVERURL&gt;:&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults.
 
-Ters proxy küme üzerinde etkinleştirmek için adımları [ters proxy Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). 
+Ters proxy küme üzerinde etkinleştirmek için adımları [ters proxy Azure Service fabric'te](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). 
 
 > 
 > [!WARNING]
-> Ters proxy yapılandırıldıktan sonra bir HTTP uç noktası kullanıma tüm mikro hizmetler kümedeki küme dışında adreslenebilir.
+> Ters proxy yapılandırdıktan sonra bir HTTP uç noktasını açığa tüm mikro hizmetler kümedeki küme dışında'ten adreslenebilir.
 
 ## <a name="diagnosticshealth-events"></a>Tanılama/sistem durumu olayları
 
 ### <a name="diagnostic-logs"></a>Tanılama günlükleri
 
-Düzeltme eki orchestration uygulama günlükleri Service Fabric çalışma zamanı günlükleri bir parçası olarak toplanır.
+Düzeltme eki düzenleme uygulama günlükleri, Service Fabric çalışma zamanı günlüklerini bir parçası olarak toplanır.
 
-Tanılama Aracı/ardışık düzen tercih ettiğiniz aracılığıyla günlükleri yakalamak istediğiniz durumda. Düzeltme eki orchestration uygulama aracılığıyla olaylarını günlüğe kaydedecek şekilde sabit sağlayıcısını kimlikleri kullanır [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+Tanılama Aracı/ardışık seçtiğiniz aracılığıyla günlükleri tutmak istemeniz durumunda. Düzeltme eki düzenleme uygulaması aracılığıyla olaylarını günlüğe kaydedecek şekilde sabit sağlayıcısını kimlikleri kullanır [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
 - 24afa313-0d3b-4c7c-b485-1047fd964b60
 - 05dc046c-60e9-4ef7-965e-91660adffa68
 
-### <a name="health-reports"></a>Sistem durumu raporları
+### <a name="health-reports"></a>Sistem durumu raporlarının sayısı
 
-Düzeltme eki orchestration uygulama sistem durumu raporlarının Düzenleyicisi hizmeti veya düğüm Aracısı hizmeti karşı aşağıdaki durumlarda da yayımlar:
+Orchestration düzeltme eki uygulama, aşağıdaki durumlarda karşı Coordinator hizmetini veya düğüm Aracısı sistem durumu raporlarının de yayımlar:
 
-#### <a name="a-windows-update-operation-failed"></a>Windows Update işlemi başarısız oldu
+#### <a name="a-windows-update-operation-failed"></a>Bir Windows güncelleştirme işlemi başarısız oldu
 
-Bir düğümde Windows güncelleştirme işlemi başarısız olursa, bir sistem durumu raporu karşı düğüm Aracısı hizmeti oluşturulur. Sistem Durumu raporu ayrıntılarını sorunlu bir düğüm adı içeriyor.
+Bir düğümde Windows güncelleştirme işlemi başarısız olursa, sistem durumu raporu karşı düğüm Aracısı hizmeti oluşturulur. Sistem Durumu raporu ayrıntılarını sorunlu düğüm adını içerir.
 
-Düzeltme eki uygulama sorunlu bir düğüm üzerinde başarıyla tamamlandıktan sonra raporu otomatik olarak temizlenir.
+Düzeltme eki uygulama sorunlu düğümde başarıyla tamamlandıktan sonra raporu otomatik olarak temizlenir.
 
 #### <a name="the-node-agent-ntservice-is-down"></a>Düğüm Aracısı NTService çalışmıyor
 
-Düğüm Aracısı NTService bir düğümde çalışmıyorsa, bir uyarı düzeyi sistem durumu raporu karşı düğüm Aracısı hizmeti oluşturulur.
+Düğüm Aracısı NTService bir düğüm üzerinde çalışmıyorsa, bir uyarı düzeyi sistem durumu raporu karşı düğüm Aracısı hizmeti oluşturulur.
 
 #### <a name="the-repair-manager-service-is-not-enabled"></a>Onarım Yöneticisi hizmeti etkin değil
 
-Onarım Yöneticisi hizmeti kümede bulunmazsa, bir uyarı düzeyi sistem durumu raporu Düzenleyicisi hizmeti için oluşturulur.
+Onarım Yöneticisi hizmeti kümede bulunamazsa bir uyarı düzeyi sistem durumu rapor Düzenleyicisi hizmeti için oluşturulur.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-Q. **Düzeltme eki orchestration uygulama çalışırken neden bir hata durumuna my küme görüyor?**
+SORU. **Düzeltme eki düzenleme uygulama çalışırken hata durumunda kümem neden görüyorum?**
 
-A. Yükleme işlemi sırasında düzeltme eki orchestration uygulama devre dışı bırakır veya geçici olarak giderek küme durumunu sonuçlanabilir düğümleri yeniden başlatılır.
+A. Yükleme işlemi sırasında orchestration düzeltme eki uygulamayı devre dışı bırakır veya geçici olarak giderek kümesinin sistem sonuçlanabilir düğümü yeniden başlatır.
 
-İlke uygulama için bağlı olarak, herhangi bir düğümün bir düzeltme eki uygulama işlemi sırasında gidebilirsiniz *veya* tüm yükseltme etki alanı aynı anda Git aşağı.
+İlke uygulama için bağlı olarak, ya da bir düğüm bir düzeltme eki uygulama işlemi sırasında gidebilirsiniz *veya* tüm yükseltme etki alanı aynı anda Git aşağı.
 
-Windows Update yükleme sonuna düğümlerin yeniden iler hale getirilir yeniden başlatma gönderin.
+Windows güncelleştirme yüklemesi sonunda, düğümler yeniden iler hale getirilir yeniden başlatma gönderin.
 
-Bir hata durumu kümeyi aşağıdaki örnekte, geçici olarak oluştu çünkü iki düğüm olan aşağı ve MaxPercentageUnhealthNodes ilke ihlal. Düzeltme eki uygulama işlemi devam eden olana kadar geçici bir hatadır.
+Geçici bir hata durumu aşağıdaki örnekte, küme oluştu çünkü iki düğümü olan aşağı ve MaxPercentageUnhealthNodes ilke ihlal. Düzeltme eki uygulama işlemi devam ediyor kadar geçici bir hatadır.
 
-![Sağlıksız küme görüntüsü](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
+![Sağlıksız kümesinin görüntüsü](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 
 Sorun devam ederse, sorun giderme bölümüne bakın.
 
-Q. **Düzeltme eki orchestration uygulama uyarı durumunda**
+SORU. **Uyarı durumunda düzeltme eki düzenleme uygulama**
 
-A. Uygulamaya karşı gönderilen bir sistem durumu raporu kök neden olup olmadığını denetleyin. Genellikle, uyarı sorunun ayrıntılarını içerir. Sorun geçici ise, uygulama otomatik kurtarma bu durumdan olması beklenir.
+A. Uygulamaya karşı gönderilen bir sistem durumu raporu, kök neden olup olmadığını denetleyin. Genellikle, uyarı sorunun ayrıntılarını içerir. Geçici bir sorundur, uygulamayı bu durumdan otomatik olarak kurtarmak için bekleniyor.
 
-Q. **My küme sağlıksız ise ve Acil işletim sistemi güncelleştirmesi yapmanız ne yapabilirim?**
+SORU. **Kümem sağlıksız olduğunu ve Acil işletim sistemi güncelleştirme yapmanız durumunda neler yapabilirim?**
 
-A. Küme sağlıksız durumdayken düzeltme eki orchestration uygulama güncelleştirmelerini yüklemez. Kümenizi düzeltme eki orchestration uygulama iş akışı engellemesini kaldırmak için sağlıklı bir duruma getirmek deneyin.
+A. Küme sağlıksız durumdayken düzeltme eki düzenleme uygulama güncelleştirmelerini yüklemez. Kümenizi düzenleme düzeltme eki uygulama iş akışı engelini kaldırmak için sağlıklı bir duruma getirmek deneyin.
 
-Q. **Neden kümelerinde düzeltme eki uygulama kadar çalıştırmak için sürer?**
+SORU. **Neden kümelerinde düzeltme eki uygulama kadar çalıştırmak için sürüyor?**
 
-A. Düzeltme eki orchestration uygulama tarafından gereken süre genellikle aşağıdaki etkenlere bağlıdır:
+A. Düzeltme eki düzenleme uygulama tarafından gereken süre, genellikle aşağıdaki etkenlere bağlıdır:
 
-- Düzenleyici hizmet ilkesi. 
-  - Varsayılan ilke `NodeWise`, sonuçlarını aynı anda yalnızca tek bir düğüme düzeltme eki uygulama içinde. Özellikle varsa daha büyük bir küme, kullanmanız önerilir `UpgradeDomainWise` kümeler arasında daha hızlı düzeltme eki uygulama elde etmek için ilke.
-- İndirme ve yükleme için kullanılabilir güncelleştirmeleri sayısı. 
-- Karşıdan yüklemek ve bir güncelleştirmeyi yüklemek için gereken ortalama süre, birkaç saat aşamaz.
-- VM ve ağ bant genişliği performans.
+- İlke Düzenleyicisi hizmeti. 
+  - Varsayılan ilkeyi `NodeWise`, aynı anda yalnızca tek bir düğüme düzeltme eki uygulama neden olur. Özellikle varsa daha büyük bir küme kullanmanızı öneririz `UpgradeDomainWise` kümeler arasında daha hızlı düzeltme eki uygulama elde etmek için ilke.
+- Güncelleştirme indirme ve yükleme için kullanılabilir sayısı. 
+- İndirmek ve bir güncelleştirmeyi yüklemek için gereken ortalama süre, birkaç saat aşmamalıdır.
+- VM ve ağ bant genişliği performansını.
 
-Q. **Bazı güncelleştirmeler Windows Update sonuçlarında REST API aracılığıyla ancak makinedeki Windows Update geçmişi altında elde neden görüyor musunuz?**
+SORU. **Bazı güncelleştirmeler Windows Update sonuçlarında REST API aracılığıyla ancak makinedeki Windows güncelleştirme geçmişini altında elde neden görüyorum?**
 
-A. Bazı ürün güncelleştirmeleri yalnızca ilgili güncelleştirme/düzeltme eki geçmişlerini görüntülenir. Örneğin, Windows Defender'ın güncelleştirmeleri Windows Update geçmişinde Windows Server 2016 görünmüyor.
+A. Bazı ürün güncelleştirmeleri, yalnızca ilgili güncelleştirme/düzeltme eki geçmişlerini görünür. Örneğin, Windows Defender'ın güncelleştirmeleri Windows Server 2016, Windows Update geçmişinde gösterilmez.
 
-Q. **Düzeltme eki Orchestration uygulama my geliştirme küme (tek düğümlü kümenize) düzeltme eki için kullanılabilir mi?**
+SORU. **Düzeltme ekini düzenlemeyi uygulama geliştirme kümem (tek düğümlü kümenize) düzeltme eki için kullanılabilir mi?**
 
-A. Hayır, düzeltme eki orchestration uygulama düzeltme eki tek düğümlü kümeye kullanılamaz. Bu tasarım gereği, olarak kısıtlamadır [service fabric Sistem Hizmetleri](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) veya müşteri uygulamalardan kapalı kalma süresi yüz ve bu nedenle düzeltme eki uygulama için herhangi bir onarım işi hiçbir zaman onarım Yöneticisi tarafından onay almanız.
+A. Hayır, düzeltme eki düzenleme uygulama düzeltme eki tek düğümlü küme için kullanılamaz. Bu tasarım gereği, olarak sınırlamasıdır [service fabric sistem hizmetlerinin](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) veya herhangi bir müşteri uygulama kapalı kalma süresi karşılaşır ve bu nedenle düzeltme eki uygulama için herhangi bir onarım işi hiçbir zaman onarım Yöneticisi tarafından onaylanan.
 
 ## <a name="disclaimers"></a>Bildirimler
 
-- Düzeltme eki orchestration uygulama Windows Update, son kullanıcı lisans sözleşmesi kullanıcı adına kabul eder. İsteğe bağlı olarak, ayar uygulama yapılandırmasında kapatılabilir.
+- Orchestration düzeltme eki uygulama, kullanıcı adına Windows Update, son kullanıcı lisans sözleşmesi kabul eder. İsteğe bağlı olarak, ayar uygulama yapılandırmasında kapatılabilir.
 
-- Düzeltme eki orchestration uygulama kullanımını ve performansını izlemek için telemetri toplar. Uygulamanın telemetri (varsayılan olarak etkindir) Service Fabric çalışma zamanı telemetri ayarını ayarı izler.
+- Düzeltme eki düzenleme uygulama kullanımını ve performansını izlemek için telemetri toplar. Uygulamanın telemetri (Bu varsayılan olarak etkindir) Service Fabric çalışma zamanı telemetri ayarı ayarını izler.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>Bir düğüm geri durumu yukarı geliyor değil
 
-**Düğümü devre dışı bırakma durumunda olduğundan takılmış olabilir**:
+**Düğümü devre dışı bırakma bir durumda olduğundan takılmış olabilir**:
 
-Güvenlik onay bekliyor. Bu durumu düzeltmek için sağlam bir durumda yeterli düğüm kullanılabilir olduğundan emin olun.
+Bir güvenlik onay bekliyor. Bu durumu ortadan kaldırmak için sağlam durumda yeterli düğümleri kullanılabilir olduğundan emin olun.
 
 **Düğümü devre dışı durumda olduğundan takılmış olabilir**:
 
 - Düğüm el ile devre dışı bırakıldı.
-- Düğüm, devam eden Azure altyapı iş nedeniyle devre dışı bırakıldı.
-- Düğüm düğüm düzeltme eki için düzeltme eki orchestration uygulama tarafından geçici olarak devre dışı bırakıldı.
+- Düğüm bir devam eden Azure altyapı işi nedeniyle devre dışı bırakıldı.
+- Düğüm düğüm düzeltme eki uygulama düzeltme eki düzenleme uygulama tarafından geçici olarak devre dışı bırakıldı.
 
-**Düğüm aşağı bir durumda olduğundan takılmış olabilir**:
+**Düğümü aşağı bir durumda olduğundan takılmış olabilir**:
 
-- Düğüm aşağı durumda el ile askıya alınmış.
-- Düğüm (hangi düzeltme eki orchestration uygulama tarafından tetiklenen) yeniden yapılıyor.
-- Düğümü hatalı VM veya makine ya da ağ bağlantısı sorunları nedeniyle çalışmıyor.
+- Düğümü aşağı bir durumda el ile durumuna alındı.
+- Düğümü yeniden başlatma (Bu düzeltme eki düzenleme uygulama tarafından tetiklenebilir) bir kayma yaşanıyor.
+- Düğümü hatalı bir VM veya makine veya ağ bağlantı sorunları nedeniyle çalışmıyor.
 
-### <a name="updates-were-skipped-on-some-nodes"></a>Güncelleştirmeleri bazı düğümler üzerinde atlandı
+### <a name="updates-were-skipped-on-some-nodes"></a>Bazı düğümlerinde güncelleştirmeleri atlandı
 
-Düzeltme eki orchestration uygulama bir Windows güncelleştirmesi yeniden zamanlama ilkesine göre yüklemeye çalışır. Düğüm kurtarmak ve uygulama ilkesi göre güncelleştirme atlamak hizmeti çalışır.
+Düzeltme eki düzenleme uygulaması, yeniden zamanlama ilkesine göre bir Windows güncelleştirmesi yüklemeyi dener. Hizmet, düğüm kurtarmak ve uygulama ilkesine göre güncelleştirmeyi atlama dener.
 
-Böyle bir durumda, bir uyarı düzeyi sistem durumu raporu karşı düğüm Aracısı hizmeti oluşturulur. Windows Update için sonucu hatanın olası nedenini de içerir.
+Böyle bir durumda bir uyarı düzeyi sistem durumu raporu karşı düğüm Aracısı hizmeti oluşturulur. İçin Windows Update sonucu, hatanın olası nedeni de içerir.
 
 ### <a name="the-health-of-the-cluster-goes-to-error-while-the-update-installs"></a>Güncelleştirmeyi yüklerken küme durumunu hata durumuna geçer
 
-Bir uygulama veya belirli düğüme veya yükseltme etki alanı küme durumunu aşağı hatalı bir Windows güncelleştirmesi kullanıma sunabilirsiniz. Düzeltme eki orchestration uygulama kümeye yeniden sağlıklı duruma gelene kadar sonraki tüm Windows Update işlemi sona erdirir.
+Hatalı bir Windows güncelleştirmesi, bir uygulama veya belirli bir düğüm veya yükseltme etki alanı küme durumunu aşağı getirebilirsiniz. Düzeltme eki düzenleme uygulama yeniden kümenin sağlıklı olup kadar sonraki tüm Windows güncelleştirme işlemi sona erdirir.
 
-Bir yönetici, müdahale ve uygulama ya da küme neden nedeniyle Windows Update sağlıksız olduğunu belirler.
+Bir yönetici, müdahale ve uygulama veya küme neden Windows güncelleştirmesi nedeniyle sağlıksız olduğunu belirleyin.
 
 ## <a name="release-notes"></a>Sürüm Notları
 
 ### <a name="version-110"></a>Sürüm 1.1.0
-- Ortak sürüm
+- Genel sürüm
 
 ### <a name="version-111"></a>Sürüm 1.1.1
-- Bir hata SetupEntryPoint, NodeAgentNTService yüklemesini engelleyen NodeAgentService içinde sabit.
+- SetupEntryPoint, NodeAgentNTService yüklenmesini önleyen NodeAgentService içinde bir hata düzeltildi.
 
-### <a name="version-120"></a>Sürüm 1.2.0
+### <a name="version-120"></a>Sürümü 1.2.0
 
-- Hata düzeltmeleri sistem geçici iş akışını yeniden başlatın.
-- Hangi sistem durumu nedeniyle, beklendiği gibi onarım görevlerin hazırlanması sırasında onay gerçekleştiği değildi RM görevler oluşturma hata düzeltmesi.
-- Windows POANodeSvc otomatik otomatik Gecikmeli hizmetinin başlangıç modu değiştirildi.
+- Sistem geçici hata düzeltmeleri, iş akışını yeniden başlatın.
+- Hata düzeltmesi hangi sistem durumu nedeniyle onarım görevlerin hazırlanması sırasında onay beklendiği gibi olduğunu değildi RM görevler oluşturma.
+- Windows POANodeSvc otomatik otomatik Gecikmeli hizmetinin başlatma modu değiştirildi.
 
-### <a name="version-121-latest"></a>Sürüm 1.2.1 (en yeni)
+### <a name="version-121-latest"></a>1.2.1 sürümü (son sürüm)
 
-- Küme ölçek azaltma iş akışında hata düzeltmesi. Çöp toplama mantığı mevcut olmayan düğümlere ait POA onarım görevler için kullanıma sunuldu.
+- Küme ölçek azaltma iş akışında hata düzeltmesi. Çöp toplama mantıksal var olmayan düğümlerine ait POA onarım görevler için kullanıma sunuldu.

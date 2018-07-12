@@ -1,6 +1,6 @@
 ---
-title: Azure ortak Windows sanal makine hata kodları | Microsoft Docs
-description: Sağlamak ve azure'da Windows sanal makineleri yönetme karşılaşılan yaygın hata kodları anlama
+title: Genel Windows azure'da sanal makine hata kodları | Microsoft Docs
+description: Bazı sağlamanıza ve azure'daki Windows sanal makineleri yönetme karşılaşılan yaygın hata kodlarını anlama
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing-ms
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: xujing;genli
-ms.openlocfilehash: 365fdcc8c7bf4ae8ec68b98734971d324032797f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4addf714ca18a7b5428025473111d96537ff4c99
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913224"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723794"
 ---
-# <a name="understand-common-error-messages-when-you-manage-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineler yönetirken genel hata iletileri anlama
+# <a name="understand-common-error-messages-when-you-manage-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineleri yönetirken genel hata iletileri anlama
 
-Bu makalede en sık karşılaşılan hata kodları ve iletileri oluşturmak ve azure'da Windows sanal makineler (VM'ler) yönetmek kullanırken karşılaşabileceğiniz bazıları açıklanmaktadır.
+Bu makalede en yaygın hata kodları ve iletiler oluşturduğunuzda ya da azure'da Windows sanal makineleri (VM'ler) yönetmek, karşılaşabileceğiniz bazılarını açıklar.
 
 [!INCLUDE [virtual-machines-common-error-messages](../../../includes/virtual-machines-common-error-messages.md)]

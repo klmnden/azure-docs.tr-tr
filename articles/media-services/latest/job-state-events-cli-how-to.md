@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services olayları özel web uç noktasına rota | Microsoft Docs
-description: Media Services iş durum değişiklik olayı için abone olmak için Azure olay kılavuzunu kullanın.
+title: Azure Media Services olaylarını bir özel web uç noktasına yönlendirme | Microsoft Docs
+description: Media Services iş durum değişiklik olayı için abone olmak için Azure Event grid'i kullanın.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6a098f43819bb6581b2c5978fbcc4a378a8514c1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e9df0cd24ef890765b78c25a073d671889be10a7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638509"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38724067"
 ---
-# <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>CLI kullanarak bir özel web uç noktası için rota Azure Media Services olayları
+# <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>CLI kullanarak bir özel web uç noktası için Azure Media Services olaylarını yönlendirme
 
-Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure Media Services iş durum değişikliği olayları için abone olmak için Azure CLI kullanın ve sonuçları görüntülemek için olay tetikler. 
+Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure Media Services iş durum değişikliği olayları abone olmak için Azure CLI'yı kullanın ve sonucu görüntülemek için olayı tetiklersiniz. 
 
-Normalde olayları olaya yanıt veren bir uç noktaya (web kancası veya Azure İşlevi gibi) gönderirsiniz. Bu öğretici nasıl oluşturulacağı ve bir Web kancası ayarlamak gösterir.
+Normalde olayları olaya yanıt veren bir uç noktaya (web kancası veya Azure İşlevi gibi) gönderirsiniz. Bu öğreticide, bir Web kancası oluşturma ve nasıl gösterir.
 
 Bu makalede açıklanan adımları tamamladıktan sonra olay verilerinin bir uç noktaya gönderildiğini görürsünüz.
 
@@ -32,43 +32,43 @@ Bu makalede açıklanan adımları tamamladıktan sonra olay verilerinin bir uç
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI sürüm 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI sürüm 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI'yı yükleme](/cli/azure/install-azure-cli). 
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
-Media Services hesap adını, depolama ad ve kaynak adı için kullanılan değerleri anımsaması emin olun.
+Media Services hesap adını, depolama adı ve kaynak adı için kullanılan değerleri unutmayın emin olun.
 
-## <a name="enable-event-grid-resource-provider"></a>Olay kılavuz kaynak sağlayıcısını etkinleştir
+## <a name="enable-event-grid-resource-provider"></a>Event Grid kaynak sağlayıcısını etkinleştirme
 
-Yapmanız gereken ilk şey, olay kılavuz kaynak sağlayıcısı, aboneliğinizde etkin olduğundan emin olun ' dir. 
+Yapmanız gereken ilk şey, Event Grid kaynak sağlayıcısı, aboneliğinizde etkin olduğundan emin olun ' dir. 
 
-İçinde **Azure** portal aşağıdakileri yapın:
+İçinde **Azure** portal, şunları yapın:
 
-1. Abonelikleri gidin.
+1. Aboneliklere Git.
 2. Aboneliğinizi seçin.
 3. Ayarlar altında kaynak sağlayıcılarını seçin.
 4. "EventGrid" arayın.
-5. Olay kılavuz kayıtlı olduğundan emin olun. Aksi takdirde, basın **kaydetmek** düğmesi.  
+5. Event Grid kayıtlı olduğundan emin olun. Aksi takdirde, basın **kaydetme** düğmesi.  
 
-## <a name="create-a-generic-azure-function-webhook"></a>Genel bir Azure işlevi Web kancası oluşturma 
+## <a name="create-a-generic-azure-function-webhook"></a>Genel bir Azure işlevi Web kancası oluştur 
 
 ### <a name="create-a-message-endpoint"></a>İleti uç noktası oluşturma
 
-Olay kılavuz makalesine abone önce bunları görüntüleyebilmeniz iletileri toplayan bir uç nokta oluşturun.
+Olay kılavuz makalesine abone olmadan önce bunları görüntüleyebilmeniz için iletileri toplayan bir uç nokta oluşturun.
 
-Bölümünde açıklandığı gibi genel bir Web kancası tarafından tetiklenen bir işlev oluşturun [Genel Web kancası](https://docs.microsoft.com/azure/azure-functions/functions-create-generic-webhook-triggered-function) makalesi. Bu öğreticide **C#** kodu kullanılır.
+Bölümünde anlatıldığı gibi bir genel Web kancası tarafından tetiklenen bir işlev oluşturma [Genel Web kancası](https://docs.microsoft.com/azure/azure-functions/functions-create-generic-webhook-triggered-function) makalesi. Bu öğreticide **C#** kod kullanılır.
 
-Web kancası oluşturulduktan sonra tıklayarak URL'yi kopyalayın *Al işlevi URL* en üstündeki bağlantı **Azure** portal penceresi. URL son parçası gerekmez (*& ClientID = varsayılan*).
+Web kancası oluşturulduktan sonra üzerine tıklayarak URL'yi kopyalayın *işlev URL'sini Al* en üstündeki bağlantıyı **Azure** portalı penceresi. Son kısmını URL gerekmez (*& ClientID = default*).
 
-![Bir Web kancası oluşturma](./media/job-state-events-cli-how-to/generic_webhook_files.png)
+![Bir Web kancası oluştur](./media/job-state-events-cli-how-to/generic_webhook_files.png)
 
 ### <a name="validate-the-webhook"></a>Web kancası doğrula
 
-Kendi Web kancası bitiş noktası içeren olay kılavuz kaydettiğinizde, uç nokta sahipliği kanıtlamak için basit bir doğrulama kodu içeren bir POST isteği gönderir. Uygulamanızın geri doğrulama kodu Yankı tarafından yanıt vermesi gerekir. Olay kılavuz doğrulamayı geçen henüz Web kancası Uç noktalara olayları teslim değil. Daha fazla bilgi için bkz: [olay kılavuz güvenlik ve kimlik doğrulama](https://docs.microsoft.com/azure/event-grid/security-authentication). Bu bölümde, doğrulamanın başarılı tanımlanmalıdır iki bölümden tanımlar.
+Event Grid ile kendi Web kancası uç noktası kaydettiğinizde, uç nokta sahipliği kanıtlamak için basit bir doğrulama kodunu içeren bir POST isteği gönderir. Uygulamanızın bir doğrulama kodu geri Yankı tarafından yanıt vermesi gerekir. Event Grid doğrulamayı geçen henüz Web kancası uç noktalar için olayları teslim değil. Daha fazla bilgi için [Event Grid güvenliğini ve kimlik doğrulaması](https://docs.microsoft.com/azure/event-grid/security-authentication). Bu bölümde, doğrulamanın başarılı tanımlanmalıdır iki bölümden tanımlar.
 
-#### <a name="update-the-source-code"></a>Kaynak kodunu güncelleştirin
+#### <a name="update-the-source-code"></a>Kaynak kodunu güncelleştirme
 
-Web kancası oluşturduktan sonra **run.csx** dosyası tarayıcıda görünür. Varsayılan kodu aşağıdaki kodla değiştirin. 
+Web kancanız oluşturduktan sonra **run.csx** dosyası tarayıcıda görüntülenir. Varsayılan kodu aşağıdaki kodla değiştirin. 
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -108,7 +108,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 #### <a name="update-test-request-body"></a>Test istek gövdesi güncelleştir
 
-Sağ tarafındaki **Azure** iki sekme gördüğünüz portal penceresinin: **dosyaları görüntüleyebilir** ve **Test**. **Test** sekmesini seçin. İçinde **istek gövdesinde**, aşağıdaki json yapıştırın. Tüm değerleri değiştirmek için gerekli olduğu gibi yapıştırabilirsiniz.
+Sağ tarafındaki **Azure** iki sekme gördüğünüz portalı penceresi: **dosyaları görüntüleyin** ve **Test**. **Test** sekmesini seçin. İçinde **istek gövdesi**, aşağıdaki json yapıştırın. Olduğu gibi herhangi bir değeri değiştirmenize gerek yapıştırabilirsiniz.
 
 ```json
 [{
@@ -124,15 +124,15 @@ Sağ tarafındaki **Azure** iki sekme gördüğünüz portal penceresinin: **dos
 ]
 ```
 
-Tuşuna **kaydedip çalıştırın** pencerenin üstündeki.
+Tuşuna **Kaydet ve Çalıştır** pencerenin üst kısmındaki.
 
 ![İstek gövdesi](./media/job-state-events-cli-how-to/generic_webhook_test.png)
 
-## <a name="register-for-the-event-grid-subscription"></a>Olay kılavuz abonelik için kaydolun 
+## <a name="register-for-the-event-grid-subscription"></a>Event Grid aboneliği için kaydolun 
 
-İzlemek istediğiniz olayları olay kılavuz bildirmek için makaleye abone olun. Aşağıdaki örnek, Media Services hesabı oluşturulur ve olay bildirimi için uç noktaya olarak oluşturulan Azure işlevi Web kancası URL'si geçirir abone olur. 
+Abone olduğunuz bir makalede Event Grid'e hangi olayları izlemek istediğinizi bildirmek için. Aşağıdaki örnek, oluşturduğunuz ve olay bildirimi için uç nokta olarak oluşturduğunuz Azure işlevi Web kancası URL'sini geçirir Media Services hesabına abone olur. 
 
-Değiştir `<event_subscription_name>` olay aboneliğiniz için benzersiz bir ada sahip. `<resource_group_name>` ve `<ams_account_name>` için daha önce oluşturduğunuz değerleri kullanın.  İçin `<endpoint_URL>` , uç nokta URL'sini yapıştırın. Kaldırma *& ClientID = varsayılan* URL'den. Abone olurken bir uç nokta belirttiğinizde, Event Grid olayların bu uç noktaya yönlendirilmesini sağlar. 
+Değiştirin `<event_subscription_name>` olay aboneliğiniz için benzersiz bir ada sahip. `<resource_group_name>` ve `<ams_account_name>` için daha önce oluşturduğunuz değerleri kullanın.  İçin `<endpoint_URL>` uç nokta URL'nizi yapıştırın. Kaldırma *& ClientID = default* URL'den. Abone olurken bir uç nokta belirttiğinizde, Event Grid olayların bu uç noktaya yönlendirilmesini sağlar. 
 
 ```cli
 amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -149,9 +149,9 @@ Media Services hesabı kaynak kimliği değeri şuna benzer:
 
 ## <a name="test-the-events"></a>Olayları test etme
 
-Bir kodlama işi çalıştırın. Örneğin, açıklandığı gibi [akış video dosyaları](stream-files-dotnet-quickstart.md) hızlı başlangıç.
+Bir kodlama işi çalıştırın. Örneğin, açıklandığı gibi [Stream video dosyaları](stream-files-dotnet-quickstart.md) hızlı başlangıç.
 
-Olayı tetiklediniz ve Event Grid iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Daha önce oluşturduğunuz Web kancası göz atın. Tıklatın **İzleyici** ve **yenileme**. İş durumu değişir olayları Bkz: "Sıraya alınan", "Zamanlanmış", "İşlem", "Tamamlandı", "Error", "İptal", "İptal".  Daha fazla bilgi için bkz: [Media Services olay şemaları](media-services-event-schemas.md).
+Olayı tetiklediniz ve Event Grid iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Daha önce oluşturduğunuz Web kancası'na göz atın. Tıklayın **İzleyici** ve **Yenile**. İşin durum değişikliği olayları görmek: "Sıraya alınan", "Zamanlandı", "İşleme", "Bitti", "Error", "İptal", "İptal".  Daha fazla bilgi için [Media Services olay şemaları](media-services-event-schemas.md).
 
 Örneğin:
 
@@ -185,8 +185,8 @@ az group delete --name <resource_group_name>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Olaylarına tepki](reacting-to-media-services-events.md)## Ayrıca bkz.
+[Olaylara tepki verme](reacting-to-media-services-events.md)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

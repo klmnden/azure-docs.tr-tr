@@ -1,6 +1,6 @@
 ---
-title: Sağlama Node.js - Azure Uzaktan izleme için Böğürtlenli Pi | Microsoft Docs
-description: Node.js içinde yazılmış bir uygulama kullanarak Uzaktan izleme Çözüm Hızlandırıcısı Raspberry Pi'yi aygıt bağlanmaya açıklar.
+title: Uzaktan izleme - Azure Node.js Raspberry Pi sağlama | Microsoft Docs
+description: Node.js'de yazılmış bir Web uygulaması kullanarak Uzaktan izleme çözüm Hızlandırıcısını bir Raspberry Pi cihazın bağlanması açıklar.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,41 +9,41 @@ ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
 ms.openlocfilehash: 78647612fc747ec328279536d82fb31bb4858688
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626879"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309785"
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Uzaktan izleme Çözüm Hızlandırıcısı için (Node.js) Raspberry Pi'yi Cihazınızı bağlama
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Raspberry Pi'yi Cihazınızı Uzaktan izleme çözüm hızlandırıcısına (Node.js) bağlama
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Bu öğretici, fiziksel bir aygıtı için Uzaktan izleme Çözüm Hızlandırıcısı bağlanmak nasıl gösterir. Bu öğreticide, en az kaynak kısıtlamaları ortamlar için iyi bir seçenek olan Node.js kullanın.
+Bu öğreticide, fiziksel bir cihazı Uzaktan izleme çözüm hızlandırıcısına bağlamayı gösterilmektedir. Bu öğreticide, Node.js, en az kaynak kısıtlamalarıyla ortamlar için iyi bir seçenek olduğu kullanın.
 
 ### <a name="required-hardware"></a>Gerekli donanım
 
-Komut satırı Raspberry Pi'yi üzerinde uzaktan bağlanmak etkinleştirmek için bir masaüstü bilgisayar.
+Raspberry Pi komut satırında bilgisayarlarına uzaktan bağlanabilmelerini sağlamak için bir masaüstü bilgisayar.
 
-[Microsoft IOT Starter Kit Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) veya eşdeğer bileşenleri. Bu öğretici Seti'nden aşağıdaki öğeleri kullanır:
+[Microsoft IOT Starter Kit, Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) veya eşdeğer bileşenleri. Bu öğreticide setindeki aşağıdaki öğeleri kullanır:
 
-- Böğürtlenli Pi 3
-- MicroSD kartı (ile NOOBS)
-- Bir USB Mini kablosu
+- Raspberry Pi 3
+- (İle NOOBS) MicroSD kartı
+- Bir Mini USB kablosu
 - Ethernet kablosu
 
 ### <a name="required-desktop-software"></a>Gerekli masaüstü yazılımı
 
-Komut satırı Raspberry Pi'yi üzerinde uzaktan erişim sağlamak için Masaüstü makinenizde SSH istemcisi gerekir.
+Komut satırı Raspberry Pi üzerinde uzaktan erişim sağlamak için Masaüstü makinenizde SSH istemcisi gerekir.
 
 - Windows, bir SSH istemcisi içermez. Kullanmanızı öneririz [PuTTY](http://www.putty.org/).
-- Çoğu Linux dağıtımları ve Mac OS komut satırı SSH yardımcı programı içerir. Daha fazla bilgi için bkz: [SSH kullanarak Linux veya Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
+- Çoğu Linux dağıtımları ve MAC'te SSH komut satırı yardımcı programı içerir. Daha fazla bilgi için [SSH kullanarak Linux veya Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
-### <a name="required-raspberry-pi-software"></a>Gerekli Raspberry Pi'yi yazılım
+### <a name="required-raspberry-pi-software"></a>Raspberry Pi'yi yazılım gerekli
 
-Henüz yapmadıysanız, Raspberry Pi'yi Node.js sürüm 4.0.0 veya sonraki bir sürümü yükleyin. Aşağıdaki adımlar, Raspberry Pi'yi Node.js v6 yükleme gösterir:
+Henüz yapmadıysanız, Raspberry Pi'yi Node.js sürüm 4.0.0 veya sonraki bir sürümü yükleyin. Aşağıdaki adımlar, Raspberry Pi üzerinde Node.js v6'yı yükleme işlemini gösterir:
 
-1. Kullanarak Raspberry Pi'yi bağlanmak `ssh`. Daha fazla bilgi için bkz: [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) üzerinde [Raspberry Pi'yi Web sitesi](https://www.raspberrypi.org/).
+1. Kullanarak, Raspberry Pi bağlanmak `ssh`. Daha fazla bilgi için [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) üzerinde [Raspberry Pi Web sitesi](https://www.raspberrypi.org/).
 
 1. Raspberry Pi'yi güncelleştirmek için aşağıdaki komutu kullanın:
 
@@ -51,7 +51,7 @@ Henüz yapmadıysanız, Raspberry Pi'yi Node.js sürüm 4.0.0 veya sonraki bir s
     sudo apt-get update
     ```
 
-1. Node.js olan herhangi bir yüklemesini, Raspberry Pi'yi kaldırmak için aşağıdaki komutları kullanın:
+1. Raspberry Pi'yi Node.js tüm var olan bir yüklemesini kaldırmak için aşağıdaki komutları kullanın:
 
     ```sh
     sudo apt-get remove nodered -y
@@ -59,7 +59,7 @@ Henüz yapmadıysanız, Raspberry Pi'yi Node.js sürüm 4.0.0 veya sonraki bir s
     sudo apt-get remove npm  -y
     ```
 
-1. Node.js v6, Raspberry Pi'yi yükleyip için aşağıdaki komutu kullanın:
+1. İndirip Raspberry Pi'yi Node.js v6'yı yüklemek için aşağıdaki komutu kullanın:
 
     ```sh
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
@@ -72,11 +72,11 @@ Henüz yapmadıysanız, Raspberry Pi'yi Node.js sürüm 4.0.0 veya sonraki bir s
     node --version
     ```
 
-## <a name="create-a-nodejs-solution"></a>Bir Node.js çözümü oluşturma
+## <a name="create-a-nodejs-solution"></a>Bir Node.js çözümü oluşturun
 
-Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
+Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantısı:
 
-1. Adlı bir klasör oluşturun `remotemonitoring` Raspberry Pi'yi, ev klasöründedir. Komut satırında bu klasöre gidin:
+1. Adlı bir klasör oluşturun `remotemonitoring` giriş klasörünüzde Raspberry Pi üzerinde. Komut satırınızda bu klasöre gidin:
 
     ```sh
     cd ~
@@ -84,16 +84,16 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
     cd remotemonitoring
     ```
 
-1. Karşıdan yüklemek ve örnek uygulaması tamamlamanız gereken paketleri yüklemek için aşağıdaki komutları çalıştırın:
+1. Örnek uygulamayı tamamlamanız gereken paketleri indirme ve yükleme için aşağıdaki komutları çalıştırın:
 
     ```sh
     npm init
     npm install async azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. İçinde `remotemonitoring` klasörünü adlı bir dosya oluşturun **remote_monitoring.js**. Bu dosyayı bir metin düzenleyicisinde açın. Raspberry Pi'yi üzerinde kullandığınız `nano` veya `vi` metin düzenleyicileri.
+1. İçinde `remotemonitoring` klasöründe adlı bir dosya oluşturun **remote_monitoring.js**. Bu dosyayı bir metin düzenleyicisinde açın. Raspberry Pi üzerinde kullanabileceğiniz `nano` veya `vi` metin düzenleyiciler.
 
-1. İçinde **remote_monitoring.js** dosya, aşağıdaki ekleyin `require` deyimleri:
+1. İçinde **remote_monitoring.js** dosyasında, aşağıdaki ekleyin `require` ifadeleri:
 
     ```nodejs
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
@@ -103,7 +103,7 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
     var async = require('async');
     ```
 
-1. `require` deyimlerinden sonra aşağıdaki değişken bildirimlerini ekleyin. Yer tutucu değerini değiştirin `{device connection string}` Uzaktan izleme çözümünde sağladığınız cihaz için not ettiğiniz değere sahip:
+1. `require` deyimlerinden sonra aşağıdaki değişken bildirimlerini ekleyin. Yer tutucu değerini değiştirin `{device connection string}` cihaz için belirtilen değer ile'Uzaktan izleme çözümünde sağlanan:
 
     ```nodejs
     var connectionString = '{device connection string}';
@@ -121,7 +121,7 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
     var pressureUnit = 'psig';
     ```
 
-1. Bazı özellik değerleri tanımlamak için aşağıdaki değişkenleri ekleyin:
+1. Bazı özellik değerlerini tanımlamak için aşağıdaki değişkenleri ekleyin:
 
     ```nodejs
     var temperatureSchema = 'chiller-temperature;v1';
@@ -137,7 +137,7 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
     var deviceOnline = true;
     ```
 
-1. Çözüme göndermek için bildirilen özelliklerini tanımlamak için aşağıdaki değişkeni ekleyin. Bu özellikler yöntemleri açıklamak için meta verileri içerir ve telemetri aygıt kullanır:
+1. Çözüme göndermek için bildirilen özellikleri tanımlamak için aşağıdaki değişkeni ekleyin. Bu özellikler yöntemleri tanımlamak için meta verileri içerir ve telemetri cihaz kullanır:
 
     ```nodejs
     var reportedProperties = {
@@ -191,7 +191,7 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
     }
     ```
 
-1. İşlem sonuçları yazdırmak için aşağıdaki yardımcı işlevi ekleyin:
+1. İşlem sonuçlarını yazdırmak için aşağıdaki yardımcı işlevi ekleyin:
 
     ```nodejs
     function printErrorFor(op) {
@@ -201,7 +201,7 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
     }
     ```
 
-1. Telemetri değerleri rastgele seçmek için kullanmak için aşağıdaki yardımcı işlevi ekleyin:
+1. Telemetri değerleri rastgele seçmek için kullanılacak aşağıdaki yardımcı işlevi ekleyin:
 
     ```nodejs
     function generateRandomIncrement() {
@@ -209,7 +209,7 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
     }
     ```
 
-1. Çözümden doğrudan yöntem çağrıları işlemek için aşağıdaki genel işlevi ekleyin. İşlev çağrıldı, ancak bu örnekte herhangi bir yolla cihaz değiştirmez doğrudan yöntemi hakkında bilgi görüntüler. Çözüm cihazlarda yapması doğrudan yöntemleri kullanır:
+1. Çözümden doğrudan yöntem çağrıları işlemek için aşağıdaki genel işlevi ekleyin. İşlev çağrıldı, ancak bu örnekte, cihazın herhangi bir şekilde değiştirmez doğrudan yöntem hakkında bilgi görüntüler. Çözüm, cihazlarda işlem yapmak için doğrudan yöntemleri kullanır:
 
     ```nodejs
     function onDirectMethod(request, response) {
@@ -224,7 +224,7 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
     }
     ```
 
-1. İşlemek için aşağıdaki işlevi ekleyin **FirmwareUpdate** doğrudan çözümden yöntem çağrıları. İşlev doğrudan yöntemi yükünde geçirilen parametreler doğrular ve bellenim güncelleştirme benzetimi zaman uyumsuz olarak çalışır:
+1. İşlemek için aşağıdaki işlevi ekleyin **FirmwareUpdate** doğrudan çözümünden yöntem çağrıları. İşlev doğrudan yöntem yükteki geçirilen parametreler doğrular ve bir üretici yazılımı güncelleştirme simülasyonu zaman uyumsuz olarak çalışır:
 
     ```node.js
     function onFirmwareUpdate(request, response) {
@@ -253,7 +253,7 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
     }
     ```
 
-1. İlerleme durumu geri çözüme raporları bir uzun süre çalışan bellenim güncelleştirme akış benzetimini yapmak için aşağıdaki işlevi ekleyin:
+1. İlerlemeyi çözüme geri raporlar bir uzun süre çalışan üretici yazılımı güncelleştirme akış benzetimini yapmak için aşağıdaki işlevi ekleyin:
 
     ```node.js
     // Simulated firmwareUpdate flow
@@ -331,7 +331,7 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
     }
     ```
 
-1. Çözüme telemetri verileri göndermek için aşağıdaki kodu ekleyin. İstemci uygulama ileti şeması tanımlamak için iletiye özellikleri ekler:
+1. Çözüme telemetri verileri göndermek için aşağıdaki kodu ekleyin. İstemci uygulaması, iletinin ileti şeması tanımlamak için özellikleri ekler:
 
     ```node.js
     function sendTelemetry(data, schema) {
@@ -361,9 +361,9 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
 
     * Bağlantıyı açın.
     * İstenen özellikleri için bir işleyici ayarlayın.
-    * Bildirilen özellikleri gönderin.
-    * Doğrudan yöntemleri için işleyiciler kaydedin. Örnek, bellenim güncelleştirme doğrudan yöntemi için ayrı bir işleyici kullanır.
-    * Telemetri göndermeye başlayın.
+    * Bildirilen özellikleri gönderir.
+    * Doğrudan yöntemler için işleyiciler kaydedin. Örnek, üretici yazılımı güncelleştirme doğrudan yöntemi için ayrı bir işleyici kullanır.
+    * Telemetri göndermeye başlaması.
 
     ```nodejs
     client.open(function (err) {
@@ -439,7 +439,7 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
 
 1. Değişiklikleri kaydetmek **remote_monitoring.js** dosya.
 
-1. Örnek uygulamayı başlatmak için üzerinde Raspberry Pi'yi, komut isteminde aşağıdaki komutu çalıştırın:
+1. Örnek uygulamayı başlatmak için Raspberry Pi üzerinde komut isteminizde aşağıdaki komutu çalıştırın:
 
     ```sh
     node remote_monitoring.js

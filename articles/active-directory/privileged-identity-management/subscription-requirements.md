@@ -16,12 +16,12 @@ ms.component: protection
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b4322ab5c90b04cf4eb0591e97e5e026664a2769
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 681169fc3db69c2dfb8aa36d6e2896e0ddba8b56
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442381"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548137"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Azure Active Directory Privileged Identity Management abonelik gereksinimleri
 
@@ -38,7 +38,7 @@ Aboneliği satın aldığı veya kuruluşunuzun bir deneme sürümü olup emin d
 2. Girin `Connect-MsolService` kiracınızdaki bir kullanıcı olarak kimlik doğrulaması için.
 3. Girin `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`.
 
-Bu komut, kiracınızdaki Aboneliklerin listesini alır. Döndürülen satır varsa, bir Azure AD Premium P2 aboneliği veya Azure AD Privileged Identity Management'ı kullanmak için EMS E5 aboneliği bir Azure AD Premium P2 deneme satın almak gerekir.  Bir deneme sürümü ve Azure AD Privileged Identity Management'ı kullanmaya başlayın almak için okuma [Azure AD Privileged Identity Management ile çalışmaya başlama](../active-directory-privileged-identity-management-getting-started.md).
+Bu komut, kiracınızdaki Aboneliklerin listesini alır. Döndürülen satır varsa, bir Azure AD Premium P2 aboneliği veya Azure AD Privileged Identity Management'ı kullanmak için EMS E5 aboneliği bir Azure AD Premium P2 deneme satın almak gerekir.  Bir deneme sürümü ve Azure AD Privileged Identity Management'ı kullanmaya başlayın almak için okuma [Azure AD Privileged Identity Management ile çalışmaya başlama](pim-getting-started.md).
 
 Bu komut bir satır döndürürse hangi SkuPartNumber "AAD_PREMIUM_P2" veya "EMSPREMIUM" ve IsTrial "True" ise, bu kiracıda mevcut bir Azure AD Premium P2 deneme sürümü olduğunu gösterir.  Sonra abonelik durumu etkin değil ve bir Azure AD Premium P2 veya EMS E5 aboneliği satın almak zorunda kalmazsınız, bir Azure AD Premium P2 aboneliği veya Azure AD Privileged Identity Management'ı kullanmaya devam etmek için EMS E5 aboneliği satın almalısınız.
 
@@ -61,5 +61,5 @@ Bir Azure AD Premium P2 aboneliği veya EMS E5 aboneliği sona erdiğinde veya b
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure AD Privileged Identity Management ile çalışmaya başlama](../active-directory-privileged-identity-management-getting-started.md)
-- [Azure AD Privileged Identity Management içinde rol](../active-directory-privileged-identity-management-roles.md)
+- [Azure AD Privileged Identity Management ile çalışmaya başlama](pim-getting-started.md)
+- [Azure AD Privileged Identity Management içinde rol](pim-roles.md)

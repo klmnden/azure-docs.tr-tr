@@ -1,6 +1,6 @@
 ---
-title: Azure App Service'te, Yük Dengeleme için trafik Yöneticisi kullanan bir web uygulaması için bir özel etki alanı adı yapılandırın.
-description: Bir özel etki alanı adı için bir web uygulamasını Azure App Service'te, Yük Dengeleme için trafik Yöneticisi'ni içerir.
+title: Traffic Manager Yük Dengeleme için kullanan Azure App Service'te bir web uygulaması için özel etki alanı adı yapılandırın.
+description: Bir özel etki alanı adı için bir Azure App Service, Traffic Manager Yük Dengeleme için içeren bir web uygulaması.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.openlocfilehash: c78fb7883559e46ebaa1d8dab59a15c55fb76fdf
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
-ms.locfileid: "27713860"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317399"
 ---
-# <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Trafik Yöneticisi'ni kullanarak Azure App Service içinde bir web uygulaması için bir özel etki alanı adı yapılandırma
+# <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Traffic Manager'ı kullanarak Azure App Service içinde bir web uygulaması için özel etki alanı adı yapılandırma
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-Bu makalede bir özel etki alanı adı ile kullanmak için genel yönergeler sağlar bir [uygulama hizmeti](app-service-web-overview.md) ile tümleşik uygulama [trafik Yöneticisi](../traffic-manager/traffic-manager-overview.md) Yük Dengeleme için.
+Bu makalede bir özel etki alanı adı ile kullanmak için genel yönergeler sağlayan bir [App Service](app-service-web-overview.md) ile tümleşik uygulama [Traffic Manager](../traffic-manager/traffic-manager-overview.md) Yük Dengeleme için.
 
 [!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -39,33 +39,33 @@ Bu makalede bir özel etki alanı adı ile kullanmak için genel yönergeler sa�
 
 <a name="bkmk_configsharedmode"></a>
 
-## <a name="configure-your-web-apps-for-standard-mode"></a>Web uygulamalarınızı Standart mod için yapılandırma
+## <a name="configure-your-web-apps-for-standard-mode"></a>Standart mod, web uygulamalarını yapılandırma
 [!INCLUDE [modes](../../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
 
-## <a name="add-a-dns-record-for-your-custom-domain"></a>Özel etki alanınız için DNS kaydı ekleyin
+## <a name="add-a-dns-record-for-your-custom-domain"></a>Özel etki alanınız için bir DNS kaydı ekleyin
 > [!NOTE]
-> Azure App Service Web Apps aracılığıyla etki alanı satın aldıktan sonra aşağıdaki adımları atlayın ve son adımına başvurmak [Web uygulamaları için etki alanı satın](custom-dns-web-site-buydomains-web-app.md) makalesi.
+> Azure App Service Web Apps aracılığıyla etki alanı satın aldıysanız sonra aşağıdaki adımları atlayın ve son adımına başvurmak [etki alanı satın almak için Web Apps](custom-dns-web-site-buydomains-web-app.md) makalesi.
 > 
 > 
 
-Özel etki alanınızı Azure App Service'in web uygulamasında ilişkilendirmek için yeni bir giriş özel etki alanınız için DNS tabloda eklemeniz gerekir. Bunun için etki alanı sağlayıcınızdan yönetim araçlarını kullanarak.
+Özel etki alanınızı Azure App Service'te bir web uygulaması ile ilişkilendirmek için yeni bir giriş özel etki alanınız için DNS tablosunda eklemeniz gerekir. Bunun için etki alanı sağlayıcınızın yönetim araçlarını kullanarak.
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-Her etki alanı sağlayıcısının özellikleri değişir, ancak eşledikten *gelen* özel etki alanı adınızı (gibi **contoso.com**) *için* trafik yöneticisi etki alanı adı ( **contoso.trafficmanager.NET**) web uygulamanızı ile tümleşiktir.
+Her etki alanı sağlayıcısının özellikleri göstermekle eşlemeniz *gelen* özel etki alanı adınızı (gibi **contoso.com**) *için* Traffic Manager etki alanı adı ( **contoso.trafficmanager.NET**) web uygulamanızı ile tümleşiktir.
    
 > [!NOTE]
-> Bir kayıt zaten kullanımda ve uygulamalarınızı erken önlem bağlamak gerekiyorsa, ek bir CNAME kaydı oluşturabilirsiniz. Örneğin, erken önlem bağlamak için **www.contoso.com** web uygulamanız için bir CNAME kayıt oluşturma **awverify.www** için **contoso.trafficmanager.net**. Ardından "www.contoso.com", "www" CNAME kaydı değiştirmeden, Web uygulamanızın ekleyebilirsiniz. Daha fazla bilgi için bkz: [özel bir etki alanındaki bir web uygulaması oluşturma DNS kayıtlarını][CREATEDNS].
+> Bir kaydı zaten kullanımda ve uygulamalarınızı sıd'lerde bağlamak gerekiyorsa, ek bir CNAME kaydı oluşturabilirsiniz. Örneğin, sıd'lerde bağlamak için **www.contoso.com** web uygulamanız için bir CNAME kayıt oluşturma **awverify.www** için **contoso.trafficmanager.net**. Ardından "www.contoso.com", "www" CNAME kaydı değiştirmeden Web uygulamanıza ekleyebilirsiniz. Daha fazla bilgi için [özel bir etki alanı içinde bir web uygulaması için oluşturma DNS kayıtlarını][CREATEDNS].
 > 
 > 
 
-Ekleme veya etki alanı Sağlayıcınızdaki DNS kayıtlarını değiştirme tamamladıktan sonra değişiklikleri kaydedin.
+Etki alanı sağlayıcınız, DNS kayıtlarını değiştirme veya ekleme işlemini tamamladıktan sonra değişiklikleri kaydedin.
 
 <a name="enabledomain"></a>
 
-## <a name="enable-traffic-manager"></a>Trafik Yöneticisi'ni etkinleştir
+## <a name="enable-traffic-manager"></a>Traffic Manager'ı etkinleştir
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar

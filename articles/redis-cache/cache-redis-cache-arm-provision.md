@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager kullanarak bir Redis önbelleği sağlama | Microsoft Docs
-description: Bir Azure Redis önbelleği dağıtmak için Azure Resource Manager şablonunu kullanın.
+title: Azure Resource Manager kullanarak Redis önbelleği sağlama | Microsoft Docs
+description: Azure Redis Cache dağıtmak için Azure Resource Manager şablonu kullanın.
 services: app-service
 documentationcenter: ''
 author: wesmc7777
@@ -15,68 +15,68 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
 ms.openlocfilehash: b26116b974abbfe410b0a6ebc0186d73f4eea1bf
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27910750"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452592"
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Şablon kullanarak Redis Önbelleği oluşturma
-Bu konuda, bir Azure Redis önbelleği dağıtan bir Azure Resource Manager şablonunun nasıl oluşturulacağını öğrenin. Önbellek tanılama verilerini korumak için varolan bir depolama hesabı ile kullanılabilir. Ayrıca nasıl tanımlamak için hangi kaynağın dağıtılan ve ne zaman dağıtım yürütülen parametreler tanımlamak nasıl belirtilen öğrenin. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
+Bu konu başlığında, bir Azure Redis Cache'e dağıtan bir Azure Resource Manager şablonunun nasıl oluşturulacağını öğrenin. Önbellek ile mevcut bir depolama hesabı Tanılama verileri tutmak için kullanılabilir. Ayrıca tanımlamak için hangi kaynaklara dağıtılır ve parametrelerin nasıl dağıtıldığının ve dağıtım yürütülürken belirtilen nasıl öğrenin. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
 
-Şu anda bir abonelik için aynı bölgede tüm önbellekler için tanılama ayarları paylaşılır. Bir önbellek bölgede güncelleştirme bölgedeki tüm diğer önbellekleri etkiler.
+Şu anda, tanılama ayarları için bir abonelik için aynı bölgede tüm önbellekleri paylaşılır. Bir önbellek bölgede güncelleştirme bölgesindeki tüm önbellekleri etkiler.
 
-Şablonları oluşturma hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md).
+Şablonları oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Tam şablon için bkz: [Redis önbelleği şablon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
+Tam şablon için bkz: [Redis Cache şablon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
 > [!NOTE]
-> Resource Manager şablonları yeni [Premium katmanı](cache-premium-tier-intro.md) kullanılabilir. 
+> Yeni Resource Manager şablonları [Premium katmanı](cache-premium-tier-intro.md) kullanılabilir. 
 > 
-> * [Kümeleme Premium Redis önbelleği oluşturma](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
-> * [Premium Redis önbelleği ile veri kalıcılığını oluşturma](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
-> * [VNet ve isteğe bağlı kümeleme Premium Redis önbelleği oluşturma](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
+> * [Kümeleme ile Premium Redis önbelleği oluşturma](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
+> * [Veri kalıcılığı Premium Redis önbelleği oluşturma](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
+> * [VNet ve isteğe bağlı Kümeleme ile Premium Redis önbelleği oluşturma](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 > 
-> Son şablonları denetlemek için bkz: [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/documentation/templates/) arayın ve `Redis Cache`.
+> En yeni şablonları denetlemek için bkz: [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/documentation/templates/) araması `Redis Cache`.
 > 
 > 
 
-## <a name="what-you-will-deploy"></a>Dağıtmak
-Bu şablonda bir Azure Redis Tanılama verileri için mevcut bir depolama hesabını kullanan önbelleği dağıtır.
+## <a name="what-you-will-deploy"></a>Ne dağıtacaksınız
+Bu şablonda bir Azure depolama hesabınız için Tanılama verileri kullanan cache'i dağıtır.
 
 Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıklayın:
 
 [![Azure’a dağıtma](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametreler
-Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Şablon tüm parametre değerleri içeren parametre adlı bir bölüm içerir.
+Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Şablon parametreleri olarak adlandırılan bir tüm parametre değerlerini içeren bölüm içerir.
 Dağıtmakta olduğunuz projeye veya dağıtım yaptığınız ortama göre değişen değerler için bir parametre tanımlamanız gerekir. Her zaman aynı kalan değerler için parametre tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır. 
 
 [!INCLUDE [app-service-web-deploy-redis-parameters](../../includes/cache-deploy-parameters.md)]
 
 ### <a name="rediscachelocation"></a>redisCacheLocation
-Redis önbelleği konumu. En iyi performans için aynı konuma önbellek ile kullanılmak üzere bir uygulama olarak kullanın.
+Redis önbelleği konumu. En iyi performans için önbellek ile kullanılmak üzere bir uygulama olarak aynı konumu kullanın.
 
     "redisCacheLocation": {
       "type": "string"
     }
 
 ### <a name="existingdiagnosticsstorageaccountname"></a>existingDiagnosticsStorageAccountName
-Tanılama için kullanmak üzere var olan depolama hesabı adı. 
+Tanılama için kullanılacak mevcut depolama hesabı adı. 
 
     "existingDiagnosticsStorageAccountName": {
       "type": "string"
     }
 
-### <a name="enablenonsslport"></a>EnableNonSslPort
-SSL olmayan bağlantı noktaları erişimine izin verilip verilmeyeceğini gösteren bir Boole değeri.
+### <a name="enablenonsslport"></a>enableNonSslPort
+SSL olmayan bağlantı noktaları erişime izin verilip verilmeyeceğini gösteren bir Boole değeri.
 
     "enableNonSslPort": {
       "type": "bool"
     }
 
 ### <a name="diagnosticsstatus"></a>diagnosticsStatus
-Tanılama etkin olup olmadığını belirten bir değer. Kullanım açık veya kapalı.
+Tanılama etkinleştirilip etkinleştirilmeyeceğini gösteren bir değer. Kullanım açık veya kapalı.
 
     "diagnosticsStatus": {
       "type": "string",
@@ -88,7 +88,7 @@ Tanılama etkin olup olmadığını belirten bir değer. Kullanım açık veya k
     }
 
 ## <a name="resources-to-deploy"></a>Dağıtılacak kaynaklar
-### <a name="redis-cache"></a>Redis Önbelleği
+### <a name="redis-cache"></a>Redis Cache
 Azure Redis önbelleği oluşturur.
 
     {

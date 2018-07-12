@@ -1,12 +1,12 @@
 ---
-title: "Linux'ta C kullanarak bir cihazı bağlanma | Microsoft Docs"
-description: "Linux üzerinde çalışan C yazılmış bir uygulama kullanarak Azure IOT paketi önceden yapılandırılmış Uzaktan izleme çözümü bir aygıt bağlanmaya açıklar."
-services: 
+title: Linux üzerinde C kullanarak bir cihazı bağlayın | Microsoft Docs
+description: Bir cihaz, Linux üzerinde çalışan C dilinde yazılmış bir Web uygulaması kullanarak Azure IOT paketi önceden yapılandırılmış Uzaktan izleme çözümüne bağlanmak açıklar.
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0c7c8039-0bbf-4bb5-9e79-ed8cff433629
 ms.service: iot-suite
 ms.devlang: na
@@ -16,40 +16,41 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: a5768041a13d5ddc355c054dc85ba651b0752aba
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723878"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>Cihazınızı bağlama Uzaktan izleme önceden yapılandırılmış çözümü (Linux)
+# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>Cihazınızı Uzaktan izleme önceden yapılandırılmış çözüme (Linux) bağlama
 [!INCLUDE [iot-suite-v1-selector-connecting](../../includes/iot-suite-v1-selector-connecting.md)]
 
-## <a name="build-and-run-a-sample-c-client-linux"></a>Derleme ve örnek C istemcisi Linux çalıştırın
-Aşağıdaki adımlar iletişim kuran bir istemci uygulamasının Uzaktan izleme önceden yapılandırılmış çözümü nasıl oluşturulacağını gösterir. Bu uygulama C'de yazılmış ve yerleşik ve Ubuntu Linux üzerinde çalıştırın.
+## <a name="build-and-run-a-sample-c-client-linux"></a>Derleme ve örnek C istemci Linux çalıştırma
+Aşağıdaki adımlarda, Uzaktan izleme önceden yapılandırılmış çözümü ile iletişim kuran istemci uygulaması oluşturma gösterilmektedir. Bu uygulama C dilinde yazılan ve yerleşik ve Ubuntu Linux üzerinde çalıştırın.
 
-Bu adımları tamamlamak için Ubuntu 15.04 veya 15.10 sürümünü çalıştıran bir cihazda gerekir. Devam etmeden önce aşağıdaki komutu kullanarak, Ubuntu aygıtınızda önkoşul yükleyin:
+Bu adımları tamamlamak için sürüm 15.04 veya 15.10 Ubuntu çalıştıran bir cihaza gerekir. Devam etmeden önce aşağıdaki komutu kullanarak Ubuntu Cihazınızda önkoşul paketleri yükleyin:
 
 ```
 sudo apt-get install cmake gcc g++
 ```
 
-## <a name="install-the-client-libraries-on-your-device"></a>İstemci kitaplıkları cihazınıza yükleyin
-Azure IOT Hub istemci kitaplıkları, Ubuntu aygıt kullanarak yükleyebilirsiniz bir paketi olarak kullanılabilir **get apt** komutu. Ubuntu bilgisayarınızdaki IOT Hub istemci kitaplığı ve başlık dosyaları içeren paket yüklemek için aşağıdaki adımları tamamlayın:
+## <a name="install-the-client-libraries-on-your-device"></a>Cihazınıza istemci kitaplıkları yükleme
+Azure IOT Hub istemci kitaplıkları, Ubuntu cihaz kullanarak yükleyebileceğiniz bir paket olarak kullanılabilir **apt-get** komutu. Ubuntu bilgisayarınızdaki IOT Hub istemci kitaplığı ve üstbilgi dosyaları içeren paket yüklemek için aşağıdaki adımları tamamlayın:
 
-1. Bir Kabuğu'nda, bilgisayarınıza AzureIoT deposunu ekleyin:
+1. Bir Kabuğu'nda AzureIoT depoyu bilgisayarınıza ekleyin:
    
     ```
     sudo add-apt-repository ppa:aziotsdklinux/ppa-azureiot
     sudo apt-get update
     ```
-2. Azure-IOT-sdk-c-dev paketini yükle
+2. Azure-IOT-sdk-c-geliştirme paketi yükleyin
    
     ```
     sudo apt-get install -y azure-iot-sdk-c-dev
     ```
 
-## <a name="install-the-parson-json-parser"></a>Parson JSON ayrıştırıcı yükleyin
-IOT Hub istemci kitaplıkları Parson JSON ayrıştırıcı ileti yükü ayrıştırmak için kullanın. Bilgisayarınızda uygun klasöründe aşağıdaki komutu kullanarak Parson GitHub deposunu kopyalayın:
+## <a name="install-the-parson-json-parser"></a>Parson JSON ayrıştırıcısını yüklemek
+IOT Hub istemci kitaplıkları Parson JSON ayrıştırıcı ileti yüklerini ayrıştırmak için kullanın. Bilgisayarınızda uygun bir klasörde aşağıdaki komutu kullanarak Parson GitHub deposunu kopyalayın:
 
 ```
 git clone https://github.com/kgabis/parson.git
@@ -58,10 +59,10 @@ git clone https://github.com/kgabis/parson.git
 ## <a name="prepare-your-project"></a>Projenizi hazırlama
 Ubuntu makinenizde adlı bir klasör oluşturun **uzak\_izleme**. İçinde **uzak\_izleme** klasörü:
 
-- Dört dosyaları oluşturma **main.c**, **uzak\_monitoring.c**, **uzak\_monitoring.h**, ve **CMakeLists.txt**.
-- Adlı bir klasör oluşturun **parson**.
+- Dört dosyaları oluşturmak **main.c**, **uzak\_monitoring.c**, **uzak\_monitoring.h**, ve **CMakeLists.txt**.
+- Adlı bir klasör oluşturma **parson**.
 
-Dosyaları kopyalamak **parson.c** ve **parson.h** Parson depoya yerel kopyasından **uzak\_izleme parson** klasör.
+Dosyaları kopyalama **parson.c** ve **parson.h** Parson depoya yerel kopyasından **uzak\_izleme parson** klasör.
 
 Bir metin düzenleyicisinde açın **uzak\_monitoring.c** dosya. Aşağıdaki `#include` deyimlerini ekleyin:
    
@@ -78,7 +79,7 @@ Bir metin düzenleyicisinde açın **uzak\_monitoring.c** dosya. Aşağıdaki `#
 
 [!INCLUDE [iot-suite-v1-connecting-code](../../includes/iot-suite-v1-connecting-code.md)]
 
-## <a name="call-the-remotemonitoringrun-function"></a>Uzak çağrı\_izleme\_işlevini çalıştırma
+## <a name="call-the-remotemonitoringrun-function"></a>Uzak çağrı\_izleme\_işlevi çalıştırın
 Bir metin düzenleyicisinde açın **remote_monitoring.h** dosya. Aşağıdaki kodu ekleyin:
 
 ```
@@ -99,11 +100,11 @@ int main(void)
 ```
 
 ## <a name="build-and-run-the-application"></a>Uygulamayı derleme ve çalıştırma
-Aşağıdaki adımlar nasıl kullanılacağını açıklamaktadır *CMake* istemci Uygulamanızı yapılandırmak için.
+Aşağıdaki adımları nasıl kullanılacağını açıklayan *CMake* istemci uygulamanızı oluşturmak için.
 
-1. Bir metin düzenleyicisinde açın **CMakeLists.txt** dosyasını **remote_monitoring** klasör.
+1. Bir metin düzenleyicisinde açın **CMakeLists.txt** dosyası **remote_monitoring** klasör.
 
-1. İstemci uygulamanızı oluşturmak nasıl tanımlamak için aşağıdaki yönergeleri ekleyin:
+1. İstemci uygulamanızı nasıl tanımlamak için aşağıdaki yönergeleri ekleyin:
    
     ```
     macro(compileAsC99)
@@ -151,7 +152,7 @@ Aşağıdaki adımlar nasıl kullanılacağını açıklamaktadır *CMake* istem
         m
     )
     ```
-1. İçinde **remote_monitoring** klasörünü depolamak için bir klasör oluşturun *olun* CMake oluşturur dosyaları ve çalıştırın **cmake** ve **olun** gibi komutlar:
+1. İçinde **remote_monitoring** klasörünü depolamak için bir klasör oluşturun *olun* CMake oluşturan dosyalar ve ardından çalıştırın **cmake** ve **olun** aşağıdaki gibi komutlar:
    
     ```
     mkdir cmake
@@ -160,7 +161,7 @@ Aşağıdaki adımlar nasıl kullanılacağını açıklamaktadır *CMake* istem
     make
     ```
 
-1. İstemci uygulaması çalıştırın ve IOT Hub'ına telemetri gönder:
+1. İstemci uygulamasını çalıştırın ve IOT Hub'ına telemetri gönderme:
    
     ```
     ./sample_app

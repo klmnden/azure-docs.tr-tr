@@ -11,16 +11,16 @@ ms.date: 01/26/2017
 ms.author: davidmu
 ms.component: B2C
 ms.openlocfilehash: 5c89f39b2f94309ea3d99230f5265d834c7093d9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444841"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477458"
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: Yerleşik ilkeler
 
 
-Azure Active Directory (Azure AD) B2C'in Genişletilebilir ilke çerçevesi hizmet çekirdek gücünü ' dir. İlkeleri tam olarak açıklayan tüketici kimlik deneyimleri gibi kaydolma, oturum açma ve profil düzenleme. Örneğin, bir kaydolma İlkesi, aşağıdaki ayarları yapılandırarak davranışları denetlemenize olanak tanır:
+Azure Active Directory (Azure AD) B2C'in Genişletilebilir ilke çerçevesi hizmet çekirdek gücünü ' dir. İlkeleri tam olarak açıklayan tüketici kimlik deneyimleri gibi kaydolma, oturum açma ve profil düzenleme. Örneğin bir kaydolma ilkesi aşağıdaki ayarları yapılandırarak davranışları denetlemenizi sağlar:
 
 * Tüketiciler, uygulama için kaydolmak için kullanabileceğiniz hesap türleri (Facebook gibi sosyal medya hesapları) veya e-posta adresleri gibi yerel hesaplar
 * Kayıt sırasında tüketiciden toplanacak öznitelikleri (örneğin, ad, posta kodu ve ayakkabı)

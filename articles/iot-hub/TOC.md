@@ -263,6 +263,11 @@
 ### [IoT Cihaz SDK'ları](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # Kaynaklar
+## [C# için Azure IoT Örnekleri (.NET)](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/)
+## [Node.js için Azure IoT Örnekleri](https://azure.microsoft.com/resources/samples/azure-iot-samples-node/)
+## [Java için Azure IoT Örnekleri](https://azure.microsoft.com/resources/samples/azure-iot-samples-java/)
+## [Python için Azure IoT Örnekleri](https://azure.microsoft.com/resources/samples/azure-iot-samples-python/)
+## [iOS Platformu için Azure IoT Örnekleri](https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/)
 ## [IoT için Azure Sertifikalı cihaz kataloğu](https://catalog.azureiotsuite.com/)
 ## [Azure IoT Geliştirici Merkezi](https://azure.microsoft.com/develop/iot/)
 ## [Müşteri verisi istekleri](iot-hub-customer-data-requests.md)

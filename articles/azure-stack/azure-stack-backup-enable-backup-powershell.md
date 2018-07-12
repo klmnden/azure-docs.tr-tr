@@ -1,6 +1,6 @@
 ---
-title: PowerShell ile Azure yığınının yedeklemeyi etkinleştirme | Microsoft Docs
-description: Böylece bir hata olduğunda Azure yığın geri Windows PowerShell ile hizmet altyapı yedeklemeyi etkinleştirin.
+title: PowerShell ile Azure Stack için yedeklemeyi etkinleştirme | Microsoft Docs
+description: Windows PowerShell ile hizmet altyapı yedeklemeyi etkinleştirin; böylelikle bir hata varsa, Azure Stack geri yüklenebilir.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,69 +14,61 @@ ms.topic: article
 ms.date: 5/10/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 5fab656734d0984cf44a9fe1f29fd73530bd9aa8
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 4fb40904e59e78e416d4598472a6adeb498e49f4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259864"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968893"
 ---
-# <a name="enable-backup-for-azure-stack-with-powershell"></a>PowerShell ile Azure yığınının yedeklemeyi etkinleştirme
+# <a name="enable-backup-for-azure-stack-with-powershell"></a>PowerShell ile Azure Stack için yedeklemeyi etkinleştirme
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Windows PowerShell ile hizmet altyapı yedekleme etkinleştir şekilde düzenli yedeklemelerini alın:
+Windows PowerShell ile hizmet altyapı yedeklemeyi etkinleştir, bu nedenle düzenli yedeklemelerini alın:
  - İç kimlik hizmeti ve kök sertifikası
- - Kullanıcı planları, teklifler, abonelik
- - Keyvault gizli
+ - Kullanıcı planları, teklifleri ve abonelikleri
+ - Keyvault gizli dizileri
  - Kullanıcı RBAC rolleri ve ilkeleri
 
-Yedeklemeyi etkinleştirmek için yedekleme başlatın ve işleci yönetim uç noktası aracılığıyla yedekleme bilgi almak için PowerShell cmdlet'leri erişebilir.
+Yedeklemeyi etkinleştirmek için yedekleme başlatın ve işleci yönetim uç noktası aracılığıyla Yedekleme bilgileri almak için PowerShell cmdlet'lerini erişebilirsiniz.
 
-## <a name="prepare-powershell-environment"></a>PowerShell ortamını hazırlayın
+## <a name="prepare-powershell-environment"></a>PowerShell ortamını hazırlama
 
-PowerShell ortamını yapılandırma ile ilgili yönergeler için bkz: [Azure yığını için PowerShell yükleme ](azure-stack-powershell-install.md).
+PowerShell ortamını yapılandırma ile ilgili yönergeler için bkz: [Azure Stack için PowerShell yükleme ](azure-stack-powershell-install.md). Azure Stack'e oturum açmak için bkz: [işleci ortamı yapılandırmak ve Azure Stack için oturum açma](azure-stack-powershell-configure-admin.md).
 
-## <a name="generate-a-new-encryption-key"></a>Yeni bir şifreleme anahtarı oluştur
+## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Yedeklemeyi etkinleştirmek için yedek paylaşımı, kimlik bilgilerini ve şifreleme anahtarını sağlayın
 
-Yükleme ve Azure yığını için yapılandırılmış PowerShell ve Azure yığın araçları.
- - Bkz: [Azure yığınında PowerShell ile başlamak ve çalıştırmak](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
- - Bkz: [github'dan indirin Azure yığın araçları](azure-stack-powershell-download.md)
-
-Windows PowerShell ile yükseltilmiş istemi açın ve aşağıdaki komutları çalıştırın:
-   
-   ```powershell
-    cd C:\tools\AzureStack-Tools-master\Infrastructure
-    Import-Module .\AzureStack.Infra.psm1 
-   ```
-   
-Aynı PowerShell oturumunda aşağıdaki komutları çalıştırın:
-
-   ```powershell
-   $encryptionkey = New-EncryptionKeyBase64
-   ```
-
-> [!Warning]  
-> Anahtarı oluşturmak için AzureStack araçları kullanmanız gerekir.
-
-## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Yedeklemeyi etkinleştirmek için yedekleme paylaşımı, kimlik bilgileri ve şifreleme anahtarı sağlayın
-
-Aynı PowerShell oturumunda, aşağıdaki PowerShell komut dosyası değişkenleri ortamınız için ekleyerek düzenleyin. Altyapı yedekleme hizmetine yedekleme paylaşımı, kimlik bilgileri ve şifreleme anahtarı sağlamak için güncelleştirilmiş komut dosyasını çalıştırın.
+Aynı PowerShell oturumunda, değişkenleri ortamınız için ekleyerek, aşağıdaki PowerShell betiğini düzenleyin. Altyapı yedekleme hizmetine yedekleme paylaşımı, kimlik bilgilerini ve şifreleme anahtarı sağlamak için güncelleştirilmiş betiği çalıştırın.
 
 | Değişken        | Açıklama   |
 |---              |---                                        |
-| $username       | Tür **kullanıcıadı** etki alanı ve kullanıcı adı için yeterli erişimi olan paylaşılan sürücü konumunu dosyaları okuma ve yazma için kullanma. Örneğin, `Contoso\backupshareuser`. |
-| $password       | Tür **parola** kullanıcı için. |
-| $sharepath      | Yolunu yazın **yedekleme depolama konumu**. Ayrı bir cihaz üzerinde barındırılan bir dosya paylaşımına yol için bir Evrensel Adlandırma Kuralı (UNC) dize kullanmanız gerekir. Bir UNC dize paylaşılan dosyaları veya aygıt konumunu belirtir. Yedekleme verilerini kullanılabilirliğini sağlamak için aygıt ayrı bir konumda olmalıdır. |
+| $username       | Tür **kullanıcıadı** etki alanını ve kullanıcı adı için yeterli erişimi olan paylaşılan sürücü konumunu dosyalarını okuma ve yazma için kullanma. Örneğin, `Contoso\backupshareuser`. |
+| $key            | Tür **şifreleme anahtarı** her yedeklemeyi şifrelemek için kullanılır. |
+| $password       | Tür **parola** kullanıcı. |
+| $sharepath      | Yolunu yazın **yedekleme depolama konumu**. Ayrı bir cihazda barındırılan bir dosya paylaşımı yolu için bir Evrensel Adlandırma Kuralı (UNC) dize kullanmanız gerekir. Bir UNC dize paylaşılan dosyalarını veya cihazları gibi kaynakların konumunu belirtir. Yedekleme verilerini kullanılabilirliğini sağlamak için cihazı ayrı bir konumda olmalıdır. |
 
    ```powershell
-    $username = "domain\backupoadmin"
-    $password = "password"
-    $credential = New-Object System.Management.Automation.PSCredential($username, ($password| ConvertTo-SecureString -asPlainText -Force))  
-    $location = Get-AzsLocation
-    $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+    $username = "domain\backupadmin"
+   
+    $Secure = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+    $Encrypted = ConvertFrom-SecureString -SecureString $Secure
+    $password = ConvertTo-SecureString -String $Encrypted
     
-    Set-AzSBackupShare -Location $location.Name -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey
+    $BackupEncryptionKeyBase64 = ""
+    $tempEncryptionKeyString = ""
+    foreach($i in 1..64) { $tempEncryptionKeyString += -join ((65..90) + (97..122) | Get-Random | % {[char]$_}) }
+    $tempEncryptionKeyBytes = [System.Text.Encoding]::UTF8.GetBytes($tempEncryptionKeyString)
+    $BackupEncryptionKeyBase64 = [System.Convert]::ToBase64String($tempEncryptionKeyBytes)
+    $BackupEncryptionKeyBase64
+    
+    $Securekey = ConvertTo-SecureString -String $BackupEncryptionKeyBase64 -AsPlainText -Force
+    $Encryptedkey = ConvertFrom-SecureString -SecureString $Securekey
+    $key = ConvertTo-SecureString -String $Encryptedkey
+    
+    $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+
+    Set-AzSBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
    ```
    
 ##  <a name="confirm-backup-settings"></a>Yedekleme ayarlarını Onayla
@@ -84,22 +76,18 @@ Aynı PowerShell oturumunda, aşağıdaki PowerShell komut dosyası değişkenle
 Aynı PowerShell oturumunda aşağıdaki komutları çalıştırın:
 
    ```powershell
-   Get-AzsBackupLocation | Select-Object -ExpandProperty externalStoreDefault | Select-Object -Property Path, UserName, Password | ConvertTo-Json
+    Get-AzsBackupLocation | Select-Object -Property Path, UserName, AvailableCapacity
    ```
 
-Sonuç aşağıdaki JSON çıktısını gibi görünmelidir:
+Sonuç aşağıdaki çıktı gibi görünmelidir:
 
-   ```json
-      {
-    "ExternalStoreDefault":  {
-        "Path":  "\\\\serverIP\\AzSBackupStore\\contoso.com\\seattle",
-        "UserName":  "domain\backupoadmin",
-        "Password":  null
-       }
-   } 
+   ```powershell
+    Path                        : \\serverIP\AzSBackupStore\contoso.com\seattle
+    UserName                    : domain\backupadmin
+    AvailableCapacity           : 60 GB
    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
- - Yedekleme, bkz: çalıştırmayı öğrenin [Azure yığın yedekleme](azure-stack-backup-back-up-azure-stack.md ).  
- - Yedekleme çalıştığını doğrulamak bilgi [Onayla yedekleme Yönetim Portalı'nda tamamlandı](azure-stack-backup-back-up-azure-stack.md ).
+ - Yedekleme, see çalıştırmayı öğrenin [Azure Stack yedekleme](azure-stack-backup-back-up-azure-stack.md ).  
+ - Yedekleme çalıştırdığını doğrulamak hakkında bilgi edinmek için bkz: [Onayla yedekleme Yönetim Portalı'nda tamamlandı](azure-stack-backup-back-up-azure-stack.md ).

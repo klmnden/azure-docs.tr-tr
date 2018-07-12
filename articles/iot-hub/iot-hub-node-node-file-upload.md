@@ -1,6 +1,6 @@
 ---
-title: Düğüm ile Azure IOT Hub'ına aygıtlardan dosyaları karşıya yükleme | Microsoft Docs
-description: Node.js için Azure IOT cihaz SDK'sını kullanarak buluta bir aygıttan dosyaları karşıya yükleme yapma. Karşıya yüklenen dosyaların bir Azure depolama blob kapsayıcısında depolanır.
+title: Azure IOT hub'a düğümle cihazlardan dosya yükleme | Microsoft Docs
+description: Node.js için Azure IOT cihaz SDK'sını kullanarak bulutta bir CİHAZDAN dosyaları karşıya yükleme. Karşıya yüklenen dosyaları bir Azure depolama blob kapsayıcısında depolanır.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -10,48 +10,48 @@ ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
 ms.openlocfilehash: 48a2d302727f2f8e9c87552a05bc7506fbef3120
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634633"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38235568"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>IOT Hub ile bulut cihazınızdan dosyaları karşıya yükleme
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Cihazınızı IOT Hub ile buluta dosyaları karşıya yükleme
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Bu öğretici kodda inşa edilmiştir [IOT Hub ile bulut cihaza ileti gönderme](iot-hub-node-node-c2d.md) kullanmayı gösteren öğretici [dosya karşıya yükleme özellikleri IOT Hub'ın](iot-hub-devguide-file-upload.md) bir dosyayı karşıya yüklemeyi [Azure blob depolama](../storage/index.yml). Öğretici şunların nasıl yapıldığını gösterir için:
+Bu öğreticide kodda geliştirir [IOT Hub ile bulut buluttan cihaza ileti gönderme](iot-hub-node-node-c2d.md) nasıl kullanılacağını göstermek için öğretici [dosya karşıya yükleme özellikleri IOT Hub'ın](iot-hub-devguide-file-upload.md) bir dosyayı karşıya yüklemek için [Azure blob Depolama](../storage/index.yml). Öğretici şunların nasıl yapıldığını göstermektedir:
 
-- Güvenli bir şekilde bir aygıt ile Azure sağlayan bir dosya yüklemek için URI blob.
-- IOT hub'ı dosya karşıya yükleme bildirimleri, uygulama arka uç dosya işleme tetiklemek için kullanın.
+- Bir cihaz Azure ile güvenli bir şekilde sağlayan bir dosya karşıya yükleme için URI blob.
+- IOT hub'ı dosya karşıya yükleme bildirimlerini, uygulama arka ucu dosyasında bir işlem tetiklemek için kullanın.
 
-[IOT Hub ile çalışmaya başlama](iot-hub-node-node-getstarted.md) öğretici, IOT hub'ı temel cihaz bulut Mesajlaşma işlevlerini gösterir. Ancak, bazı senaryolarda aygıtlarınızı IOT hub'ı kabul görece küçük bir cihaz bulut iletilerini göndermek verileri kolayca eşlenemiyor. Örneğin:
+[IOT Hub ile çalışmaya başlama](iot-hub-node-node-getstarted.md) öğretici, IOT hub'ı temel cihaz-bulut Mesajlaşma işlevlerini gösterir. Ancak, bazı senaryolarda cihazlarınızı IOT hub'ı kabul görece küçük bir CİHAZDAN buluta ileti gönderme verileri kolayca eşlenemiyor. Örneğin:
 
 * Görüntüleri içeren büyük dosyaları
 * Videolar
-* Yüksek sıklıkta örneklenen titreşimi veri
-* Önceden işlenmiş veri çeşit.
+* Titreşim veri yüksek sıklıkta örneklenir
+* Önceden işlenmiş verilerin bazı formlarıyla.
 
-Bu dosyalar genellikle gibi araçları kullanılarak bulutta işlenen toplu olan [Azure Data Factory](../data-factory/introduction.md) veya [Hadoop](../hdinsight/index.yml) yığını. Bir aygıttan upland dosyalara ihtiyacınız olduğunda, güvenlik ve güvenilirlik IOT Hub'ının kullanmaya devam edebilirsiniz.
+Bu dosyalar genellikle toplu işleme gibi araçları kullanarak bulutta olduğu [Azure Data Factory](../data-factory/introduction.md) veya [Hadoop](../hdinsight/index.yml) yığını. Bir CİHAZDAN upland dosyalara ihtiyacınız olduğunda, güvenlik ve güvenilirlik IOT hub'ı kullanmaya devam edebilirsiniz.
 
-Bu öğreticinin sonunda iki Node.js konsol uygulamaları çalıştırın:
+Bu öğreticinin sonunda iki Node.js konsol uygulaması çalıştırın:
 
-* **SimulatedDevice.js**, hangi yükleyen bir dosya, IOT hub tarafından sağlanan bir SAS URI'sini kullanarak depolama.
-* **ReadFileUploadNotification.js**, IOT hub'ından dosya karşıya yükleme bildirimlerini alır.
+* **SimulatedDevice.js**, hangi yükler bir dosya depolama, IOT hub tarafından sağlanan bir SAS URI'sini kullanarak.
+* **ReadFileUploadNotification.js**, IOT hub'ından dosya karşıya yükleme bildirimleri alır.
 
 > [!NOTE]
-> IOT Hub, birçok cihaz platformları ve Azure IOT cihaz SDK'ları aracılığıyla (C, .NET, Javascript, Python ve Java dahil) dilleri destekler. Başvurmak [Azure IoT Geliştirici Merkezi] Cihazınızı Azure IOT Hub'ına bağlamak adım adım yönergeler için.
+> IOT hub'ı, çok sayıda cihaz platformları ve Azure IOT cihaz SDK'ları aracılığıyla (C, .NET, Javascript, Python ve Java dahil) dilleri destekler. Başvurmak [Azure IOT Geliştirici Merkezi] Cihazınızı Azure IOT Hub'ına bağlanmak adım adım yönergeler için.
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Node.js 4.0.x sürümü veya sonraki bir sürüm.
-* Etkin bir Azure hesabı. (Bir hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](http://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.)
+* Etkin bir Azure hesabı. (Hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](http://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
-## <a name="upload-a-file-from-a-device-app"></a>Bir aygıt uygulamasından bir dosyayı karşıya yüklemek
+## <a name="upload-a-file-from-a-device-app"></a>Bir cihaz uygulamasından bir dosyayı karşıya yükleyin
 
-Bu bölümde, bir dosyayı karşıya yüklemeyi IOT hub'ına cihaz uygulaması oluşturun.
+Bu bölümde, IOT hub'ına bir dosyayı karşıya yüklemek için cihaz uygulaması oluşturun.
 
 1. ```simulateddevice``` adlı bir boş klasör oluşturun.  Komut isteminizde aşağıdaki komutu kullanarak ```simulateddevice``` klasöründe bir package.json dosyası oluşturun.  Tüm varsayılanları kabul edin:
 
@@ -77,7 +77,7 @@ Bu bölümde, bir dosyayı karşıya yüklemeyi IOT hub'ına cihaz uygulaması o
     var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     ```
 
-1. Bir ```deviceconnectionstring``` değişkeni ekleyin ve bir **İstemci** örneği oluşturmak için bunu kullanın.  Değiştir ```{deviceconnectionstring}``` oluşturduğunuz cihaz adı ile _IOT Hub oluşturma_ bölümü:
+1. Bir ```deviceconnectionstring``` değişkeni ekleyin ve bir **İstemci** örneği oluşturmak için bunu kullanın.  Değiştirin ```{deviceconnectionstring}``` oluşturduğunuz cihaz adıyla _IOT Hub oluşturma_ bölümü:
 
     ```nodejs
     var connectionString = '{deviceconnectionstring}';
@@ -85,7 +85,7 @@ Bu bölümde, bir dosyayı karşıya yüklemeyi IOT hub'ına cihaz uygulaması o
     ```
 
     > [!NOTE]
-    > Basitleştirmek amacıyla bağlantı dizesini kodda eklenmiştir: Bu önerilen bir uygulama değildir ve kullanım örneği ve mimarisine bağlı olarak, bu parolayı saklama daha güvenli şekilde isteyebilirsiniz.
+    > Basitleştirmek amacıyla bağlantı dizesini koda dahil edilmiş: Bu önerilen bir yöntem değildir ve mimarisi ve kullanım örneği bağlı olarak, bu gizli dizi depolama daha güvenli şekilde düşünmek isteyebilirsiniz.
 
 1. İstemci bağlanmak için aşağıdaki kodu ekleyin:
 
@@ -94,7 +94,7 @@ Bu bölümde, bir dosyayı karşıya yüklemeyi IOT hub'ına cihaz uygulaması o
     console.log('Client connected');
     ```
 
-1. Bir geri çağırma oluşturma ve kullanma **uploadToBlob** dosyayı karşıya yüklemeyi işlevi.
+1. Bir geri çağırma oluşturun ve kullanın **uploadToBlob** dosyayı karşıya yüklemek için işlevi.
 
     ```nodejs
     fs.stat(filename, function (err, stats) {
@@ -112,13 +112,13 @@ Bu bölümde, bir dosyayı karşıya yüklemeyi IOT hub'ına cihaz uygulaması o
 
 1. **SimulatedDevice.js** dosyasını kaydedin ve kapatın.
 
-1. Bir görüntü dosyasına kopyalayın `simulateddevice` klasörü ve yeniden adlandırmak `myimage.png`.
+1. Bir görüntü dosyasına kopyalama `simulateddevice` klasörü ve yeniden adlandırmak `myimage.png`.
 
-## <a name="receive-a-file-upload-notification"></a>Dosya karşıya yükleme bildirimi
+## <a name="receive-a-file-upload-notification"></a>Dosya karşıya yükleme bildirim alma
 
-Bu bölümde IOT hub'dan dosya karşıya yükleme bildirim iletileri alan bir Node.js konsol uygulaması oluşturun.
+Bu bölümde, IOT Hub'ından dosya karşıya yükleme bildirim iletileri alan bir Node.js konsol uygulaması oluşturun.
 
-Kullanabileceğiniz **iothubowner** Bu bölümde tamamlamak için IOT Hub'ınızı bağlantı dizesi. Bağlantı dizesinde bulacaksınız [Azure portal](https://portal.azure.com/) üzerinde **paylaşılan erişim ilkesi** dikey.
+Kullanabileceğiniz **iothubowner** bu bölümünü tamamlamak için IOT Hub'ınızın bağlantı dizesinden. Bağlantı dizesinde bulabilirsiniz [Azure portalında](https://portal.azure.com/) üzerinde **paylaşılan erişim ilkesi** dikey penceresi.
 
 1. ```fileuploadnotification``` adlı bir boş klasör oluşturun.  Komut isteminizde aşağıdaki komutu kullanarak ```fileuploadnotification``` klasöründe bir package.json dosyası oluşturun.  Tüm varsayılanları kabul edin:
 
@@ -132,9 +132,9 @@ Kullanabileceğiniz **iothubowner** Bu bölümde tamamlamak için IOT Hub'ınız
     npm install azure-iothub --save
     ```
 
-1. Bir metin düzenleyicisi kullanarak oluşturduğunuz bir **FileUploadNotification.js** dosyasını ```fileuploadnotification``` klasör.
+1. Bir metin düzenleyicisi kullanarak oluşturduğunuz bir **FileUploadNotification.js** dosyası ```fileuploadnotification``` klasör.
 
-1. Aşağıdakileri ekleyin ```require``` deyimleri başlangıcında **FileUploadNotification.js** dosyası:
+1. Aşağıdaki ```require``` başlangıcında deyimleri **FileUploadNotification.js** dosyası:
 
     ```nodejs
     'use strict';
@@ -142,14 +142,14 @@ Kullanabileceğiniz **iothubowner** Bu bölümde tamamlamak için IOT Hub'ınız
     var Client = require('azure-iothub').Client;
     ```
 
-1. Bir ```iothubconnectionstring``` değişkeni ekleyin ve bir **İstemci** örneği oluşturmak için bunu kullanın.  Değiştir ```{iothubconnectionstring}``` IOT hub'ına oluşturduğunuz bağlantı dizesiyle _IOT Hub oluşturma_ bölümü:
+1. Bir ```iothubconnectionstring``` değişkeni ekleyin ve bir **İstemci** örneği oluşturmak için bunu kullanın.  Değiştirin ```{iothubconnectionstring}``` oluşturduğunuz IOT hub bağlantı dizesiyle _IOT Hub oluşturma_ bölümü:
 
     ```nodejs
     var connectionString = '{iothubconnectionstring}';
     ```
 
     > [!NOTE]
-    > Basitleştirmek amacıyla bağlantı dizesini kodda eklenmiştir: Bu önerilen bir uygulama değildir ve kullanım örneği ve mimarisine bağlı olarak, bu parolayı saklama daha güvenli şekilde isteyebilirsiniz.
+    > Basitleştirmek amacıyla bağlantı dizesini koda dahil edilmiş: Bu önerilen bir yöntem değildir ve mimarisi ve kullanım örneği bağlı olarak, bu gizli dizi depolama daha güvenli şekilde düşünmek isteyebilirsiniz.
 
 1. İstemci bağlanmak için aşağıdaki kodu ekleyin:
 
@@ -157,7 +157,7 @@ Kullanabileceğiniz **iothubowner** Bu bölümde tamamlamak için IOT Hub'ınız
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
 
-1. İstemci açmak ve kullanmak **getFileNotificationReceiver** durum güncelleştirmeleri almak için işlevi.
+1. İstemci açmak ve kullanmak **getFileNotificationReceiver** durum güncelleştirmeleri almak için işlev.
 
     ```nodejs
     serviceClient.open(function (err) {
@@ -197,24 +197,24 @@ Bir komut isteminde `simulateddevice` klasörü, aşağıdaki komutu çalıştı
 node SimulatedDevice.js
 ```
 
-Aşağıdaki ekran görüntüsünde çıktısını gösterir **SimulatedDevice** uygulama:
+Aşağıdaki ekran görüntüsünde çıktısında **SimulatedDevice** uygulama:
 
-![Simulated-device uygulamadan çıktı](./media/iot-hub-node-node-file-upload/simulated-device.png)
+![Simulated-device uygulama çıktısı](./media/iot-hub-node-node-file-upload/simulated-device.png)
 
-Aşağıdaki ekran görüntüsünde çıktısını gösterir **FileUploadNotification** uygulama:
+Aşağıdaki ekran görüntüsünde çıktısında **FileUploadNotification** uygulama:
 
-![Dosya karşıya yükleme bildirimi okuma uygulamadan çıktı](./media/iot-hub-node-node-file-upload/read-file-upload-notification.png)
+![Dosya karşıya yükleme bildirimini okuma uygulama çıktısı](./media/iot-hub-node-node-file-upload/read-file-upload-notification.png)
 
-Yüklenen dosya yapılandırdığınız depolama kapsayıcısı içinde görüntülemek için portalı kullanabilirsiniz:
+Karşıya yüklenen dosya yapılandırdığınız depolama kapsayıcısında görüntülemek için portalı kullanabilirsiniz:
 
-![Yüklenen dosya](./media/iot-hub-node-node-file-upload/uploaded-file.png)
+![Karşıya yüklenen dosya](./media/iot-hub-node-node-file-upload/uploaded-file.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, dosya yüklemelerini basitleştirmek için IOT hub'ı dosya karşıya yükleme becerilerini kullanacak öğrendiniz. IOT hub özelliklerini ve aşağıdaki makalelerde senaryolarını keşfetmeye devam edebilirsiniz:
+Bu öğreticide, cihazlardan karşıya dosya yükleme işlemleri basitleştirmek için dosya karşıya yükleme özellikleri IOT hub'ı kullanmayı öğrendiniz. IOT hub özelliklerini ve aşağıdaki makalelerde senaryolarını keşfetmeye devam edebilirsiniz:
 
-* [IOT hub'ı program aracılığıyla oluşturma][lnk-create-hub]
-* [C SDK Giriş][lnk-c-sdk]
+* [Programlamalı IOT hub oluşturma][lnk-create-hub]
+* [C SDK'ya giriş][lnk-c-sdk]
 * [Azure IOT SDK'ları][lnk-sdks]
 
 <!-- Links -->

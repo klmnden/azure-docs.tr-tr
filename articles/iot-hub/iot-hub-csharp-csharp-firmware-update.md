@@ -1,59 +1,55 @@
 ---
-title: Cihaz üretici yazılımı güncelleştirmesi ile Azure IOT hub'ı (.NET/.NET) | Microsoft Docs
-description: Cihaz Yönetimi Azure IOT hub'ına aygıt üretici yazılımı güncelleştirmesi başlatmak için nasıl kullanılacağını. Sanal cihaz uygulaması ve Azure IOT hizmeti SDK'sını bellenim güncelleştirme tetikleyen bir hizmet uygulaması uygulamak .NET için uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın.
-services: iot-hub
-documentationcenter: .net
+title: Cihaz üretici yazılımını güncelleştirme ile Azure IOT hub'ı (.NET/.NET) | Microsoft Docs
+description: Cihaz üretici yazılımı güncelleştirme başlatmak için Azure IOT Hub cihaz Yönetimi kullanma Bir sanal cihaz uygulaması ve Azure IOT hizmeti SDK'sını üretici yazılımı güncelleştirmesini tetikler bir hizmet uygulaması uygulamak .NET için Azure IOT cihaz SDK'sı .NET için kullanın.
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 10/19/2017
-ms.author: v-jamebr;dobett
-ms.openlocfilehash: 50bb2ada9cf848bdcfb4f958272ff918996bf411
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: dobett
+ms.openlocfilehash: 1bf7a647ab2fdc175231133b0cfd8abdd51b6d43
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723934"
 ---
-# <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Bir cihaz üretici yazılımı güncelleştirmesi (.NET/.NET) başlatmak için cihaz Yönetimi'ni kullanın
+# <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Cihaz üretici yazılımını güncelleştirme (.NET/.NET) başlatmak için cihaz Yönetimi'ni kullanın
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>Giriş
-İçinde [aygıt Management'i kullanmaya başlama] [ lnk-dm-getstarted] Öğreticisi, nasıl kullanılacağını gördüğünüz [cihaz çifti] [ lnk-devtwin] ve [doğrudan yöntemleri ] [ lnk-c2dmethod] temelleri uzaktan bir aygıt yeniden başlatma. Bu öğretici aynı IOT hub'ı temelleri kullanır ve bir uçtan uca sanal üretici yazılımı güncelleştirme yapmak nasıl gösterir.  Bu desen bellenim güncelleştirme uygulaması için kullanılan [Raspberry Pi'yi cihaz uygulaması örnek][lnk-rpi-implementation].
+İçinde [cihaz yönetimini kullanmaya başlama] [ lnk-dm-getstarted] eğitmen, nasıl kullanılacağını gördüğünüz [cihaz ikizi] [ lnk-devtwin] ve [doğrudan yöntemler ] [ lnk-c2dmethod] ilkel bir cihazı Uzaktan yeniden başlatmak için. Bu öğretici aynı IOT hub'ı temelleri kullanır ve uçtan uca sanal üretici yazılımı güncelleştirme işlemini gösterir.  Bu düzen üretici yazılımı güncelleştirme uygulaması için kullanılan [Raspberry Pi cihaz uygulama örnek][lnk-rpi-implementation].
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 
-* Çağıran bir .NET konsol uygulaması oluşturma **firmwareUpdate** yöntemi, IOT hub'ı aracılığıyla sanal cihaz uygulamasında doğrudan.
-* Arabirimini uygulayan bir sanal cihaz uygulaması oluşturma bir **firmwareUpdate** doğrudan yöntemi. Bu yöntem bellenim görüntüsünü karşıdan yüklemek için bekleyeceği, bellenim görüntüyü indirir ve son bellenim görüntü geçerli bir çok aşama işlemi başlatır. Güncelleştirme her aşaması sırasında aygıt ilerlemesini bildirmek için bildirilen özelliklerini kullanır.
+* Çağıran bir .NET konsol uygulaması oluşturacaksınız **firmwareUpdate** yöntemi doğrudan IOT hub'ınız aracılığıyla sanal cihaz uygulamasında.
+* Uygulayan bir sanal cihaz uygulaması oluşturma bir **firmwareUpdate** doğrudan yöntemi. Bu yöntem, üretici yazılımı görüntüsünü indirmeye bekler, üretici yazılımı görüntüsünü indirir ve son olarak üretici yazılımı görüntüsünü geçerlidir çok aşamalı bir işlem başlatır. Güncelleştirmenin her aşamasında cihaz ilerlemesini bildirmek üzere bildirilen özellikleri kullanır.
 
-Bu öğreticinin sonunda bir .NET (C#) konsol cihaz uygulaması ve bir .NET (C#) konsol arka uç uygulaması sahiptir:
+Bu öğreticinin sonunda, bir .NET (C#) konsol cihaz uygulaması ve bir .NET (C#) konsol arka uç uygulaması vardır:
 
-* **SimulatedDeviceFwUpdate**, daha önce oluşturulan cihaz kimliğiyle IOT hub'ınızı bağlayan alan **firmwareUpdate** doğrudan yöntemi, bir ürün yazılımı güncelleştirmesi benzetimini yapmak için çok durumlu bir işlem aracılığıyla çalıştırır dahil: görüntü yükleme bekleniyor, yeni görüntüyü indirme ve son olarak görüntüyü uygulamadan.
+* **SimulatedDeviceFwUpdate**, daha önce oluşturulan cihaz kimliğiyle IOT hub'ınıza bağlanan alır **firmwareUpdate** doğrudan yöntemini, üretici yazılımı güncelleştirme benzetimini yapmak için çok durumlu bir işlem çalıştırır dahil olmak üzere: görüntü yükleme bekleniyor, yeni görüntüyü indirme ve son olarak görüntüsü uygulanıyor.
 
-* **TriggerFWUpdate**, uzaktan çağrılacak hizmeti SDK'sını kullanan **firmwareUpdate** doğrudan sanal cihaz yöntemi yanıtı görüntüler ve (500ms her) görüntüler güncelleştirilmiş rapor düzenli aralıklarla Özellikler.
+* **TriggerFWUpdate**, uzaktan çağrılacak hizmeti SDK'sını kullanan **firmwareUpdate** doğrudan sanal cihaz üzerinde yöntem yanıt görüntüler ve (her 500ms) görüntüler güncelleştirilmiş rapor düzenli aralıklarla özellikleri.
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Visual Studio 2015 veya Visual Studio 2017.
 * Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
 
-İzleyin [aygıt Management'i kullanmaya başlama](iot-hub-csharp-csharp-device-management-get-started.md) IOT hub'ınızı oluşturun ve IOT Hub bağlantı dizenizi almak için makale.
+İzleyin [cihaz yönetimini kullanmaya başlama](iot-hub-csharp-csharp-device-management-get-started.md) IOT hub'ınızı oluşturması ve IOT Hub bağlantı dizesini almak için makale.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Doğrudan bir yöntem kullanarak aygıt bir uzak bellenim güncelleştirme Tetikle
-Bu bölümde, bir cihazda uzaktan yazılımı güncelleştirmesi başlatır (C# kullanarak) bir .NET konsol uygulaması oluşturun. Uygulama güncelleştirme başlatmak için doğrudan bir yöntem kullanır ve etkin bellenim güncelleştirme durumunu düzenli aralıklarla almak için cihaz çifti sorgularını kullanır.
+## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Bir doğrudan yöntem kullanarak cihaz üzerinde bir uzak üretici yazılımı güncelleştirmesini tetikleme
+Bu bölümde, bir cihazda uzak üretici yazılımı güncelleştirme işlemini başlatır (C# kullanarak) bir .NET konsol uygulaması oluşturun. Uygulamayı bir doğrudan yöntem güncelleştirmeyi başlatmak için ve cihaz çifti sorguları etkin üretici yazılımı güncelleştirme durumunu düzenli aralıklarla almak için kullanır.
 
-1. Visual Studio'da **Konsol Uygulaması** proje şablonunu kullanarak geçerli çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. Proje adı **TriggerFWUpdate**.
+1. Visual Studio'da **Konsol Uygulaması** proje şablonunu kullanarak geçerli çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. Projeyi adlandırın **TriggerFWUpdate**.
 
     ![Yeni Visual C# Windows Klasik Masaüstü projesi][img-createserviceapp]
 
@@ -68,7 +64,7 @@ Bu bölümde, bir cihazda uzaktan yazılımı güncelleştirmesi başlatır (C# 
     using Microsoft.Azure.Devices.Shared;
     ```
 
-5. **Program** sınıfına aşağıdaki alanları ekleyin. Birden çok yer tutucu değerlerini önceki bölümde ve Cihazınızı Kimliğini oluşturulan hub'ın IOT Hub bağlantı dizesiyle değiştirin.
+5. **Program** sınıfına aşağıdaki alanları ekleyin. Birden fazla yer tutucu değerlerini, cihaz Kimliğini ve önceki bölümde oluşturduğunuz hub'ın IOT Hub bağlantı dizesiyle değiştirin.
    
     ```csharp   
     static RegistryManager registryManager;
@@ -77,7 +73,7 @@ Bu bölümde, bir cihazda uzaktan yazılımı güncelleştirmesi başlatır (C# 
     static string targetDevice = "{deviceIdForTargetDevice}";
     ```
         
-6. **Program** sınıfına aşağıdaki yöntemi ekleyin. Bu yöntem, her 500 milisaniye güncelleştirilmiş durumu için cihaz çifti yoklar. Yalnızca durum gerçekte değiştiğinde konsola yazar. Aboneliğinize ek IOT hub'ı iletilerinde tüketen önlemek için bu örnek için yoklama durakları cihaz durumu bildirdiğinde **applyComplete** veya bir hata oluştu.  
+6. **Program** sınıfına aşağıdaki yöntemi ekleyin. Bu yöntem, güncelleştirilmiş durumu için cihaz ikizi her aralığını 500 milisaniyenin yoklar. Yalnızca durum gerçekten değiştiğinde konsola yazar. Ek IOT hub'ı iletileri, aboneliğinizdeki kullanmaya önlemek için bu örnek için yoklama durakları cihaz durumunu bildirdiğinde **applyComplete** veya bir hata oluştu.  
    
     ```csharp   
     public static async Task QueryTwinFWUpdateReported(DateTime startTime)
@@ -124,7 +120,7 @@ Bu bölümde, bir cihazda uzaktan yazılımı güncelleştirmesi başlatır (C# 
     }
     ```
 
-8. Son olarak aşağıdaki satırları ekleyin **ana** yöntemi. Bu Yöneticisi bir çalışan iş parçacığı yoklama görevde cihaz çifti ile başlar okumak için bir kayıt defteri oluşturur ve bellenim güncelleştirmesini tetikler.
+8. Son olarak, aşağıdaki satırları ekleyin **ana** yöntemi. Bu cihaz ikizi ile başlar, yoklama görev bir çalışan iş parçacığı üzerinde okumak için Yöneticisi bir kayıt defteri oluşturur ve ardından üretici yazılımı güncelleştirmesini tetikler.
    
     ```csharp   
     registryManager = RegistryManager.CreateFromConnectionString(connString);
@@ -141,16 +137,16 @@ Bu bölümde, bir cihazda uzaktan yazılımı güncelleştirmesi başlatır (C# 
 ## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
 Bu bölümde şunları yapacaksınız:
 
-* Bulut tarafından adlı doğrudan bir yöntem yanıtlaması bir .NET konsol uygulaması oluşturma
-* Doğrudan bir yöntem bir arka uç hizmeti tarafından tetiklenen bir üretici yazılımı güncelleştirmesi benzetimi
+* Bulut tarafından çağrılan doğrudan bir yönteme yanıt veren bir .NET konsol uygulaması oluşturma
+* Bir doğrudan yöntem aracılığıyla arka uç hizmeti tarafından tetiklenen bir üretici yazılımı güncelleştirmesini benzetimi
 * Cihaz ikizi sorgularının cihazları ve bir üretici yazılımı güncelleştirmesini en son ne zaman tamamladığını belirlemesi için rapor edilen özellikleri kullanın
 
-1. Visual Studio'da **Konsol Uygulaması** proje şablonunu kullanarak geçerli çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. Proje adı **SimulateDeviceFWUpdate**.
+1. Visual Studio'da **Konsol Uygulaması** proje şablonunu kullanarak geçerli çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. Projeyi adlandırın **SimulateDeviceFWUpdate**.
    
-    ![Yeni Visual C# Klasik Windows cihaz uygulaması][img-createdeviceapp]
+    ![Yeni Windows Visual C# Klasik cihaz uygulaması][img-createdeviceapp]
     
 2. Çözüm Gezgini'nde sağ **SimulateDeviceFWUpdate** proje ve ardından **NuGet paketlerini Yönet**.
-3. İçinde **NuGet Paket Yöneticisi** penceresinde, seçin **Gözat** arayın ve **microsoft.azure.devices.client**. Seçin **yükleme** yüklemek için **Microsoft.Azure.Devices.Client** paketini ve kullanım koşullarını kabul edin. Bu yordam indirir, yükler ve bir başvuru ekler [Azure IOT cihaz SDK'sı] [ lnk-nuget-client-sdk] NuGet paketi ve bağımlılıklarını.
+3. İçinde **NuGet Paket Yöneticisi** penceresinde **Gözat** araması **microsoft.azure.devices.client**. Seçin **yükleme** yüklemek için **Microsoft.Azure.Devices.Client** paketini ve kullanım koşullarını kabul edin. Bu yordam indirir, yükler ve bir başvuru ekler [Azure IOT cihaz SDK'sını] [ lnk-nuget-client-sdk] NuGet paketi ve bağımlılıkları.
    
     ![NuGet Paket Yöneticisi penceresi istemci uygulaması][img-clientnuget]
 4. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
@@ -161,14 +157,14 @@ Bu bölümde şunları yapacaksınız:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-5. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini de not ettiğiniz aygıt bağlantı dizesiyle değiştirin **bir cihaz kimliği oluşturma** bölümü.
+5. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini de not ettiğiniz cihaz bağlantı dizesiyle değiştirin **bir cihaz kimliği oluşturma** bölümü.
    
     ```csharp   
     static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
     static DeviceClient Client = null;
     ```
 
-6. Cihaz çifti aracılığıyla bulut dön durumu raporlamak için aşağıdaki yöntemi ekleyin: 
+6. Cihaz ikizi aracılığıyla buluta rapor durumu aşağıdaki yöntemi ekleyin: 
 
     ```csharp   
     static async Task reportFwUpdateThroughTwin(Twin twin, TwinCollection fwUpdateValue)
@@ -192,7 +188,7 @@ Bu bölümde şunları yapacaksınız:
     }
     ```
 
-7. Bellenim görüntü indirme benzetimini yapmak için aşağıdaki yöntemi ekleyin:
+7. Bellenim görüntüsü indiriliyor benzetimini yapmak için aşağıdaki yöntemi ekleyin:
         
     ```csharp   
     static async Task<byte[]> simulateDownloadImage(string imageUrl)
@@ -208,7 +204,7 @@ Bu bölümde şunları yapacaksınız:
     }
     ```
 
-8. Bellenim görüntü cihaza uygulama benzetimini yapmak için aşağıdaki yöntemi ekleyin:
+8. Cihaza üretici yazılımı görüntüsünü uygulama benzetimini yapmak için aşağıdaki yöntemi ekleyin:
         
     ```csharp   
     static async Task simulateApplyImage(byte[] imageData)
@@ -223,7 +219,7 @@ Bu bölümde şunları yapacaksınız:
     }
     ```
  
-9.  Bellenim görüntüsünü karşıdan yüklemek için bekleyen benzetimini yapmak için aşağıdaki yöntemi ekleyin. Durumunu güncelleştirmek **bekleyen** ve diğer bellenim güncelleştirme özellikleri twin temizleyin. Bu özellikler, var olan tüm değerleri önceki Bellenim güncelleştirmeleri kaldırmak için temizlenir. Düzeltme eki işlemi (delta) ve değil PUT işlemi (tüm önceki değerleri değiştiren eksiksiz bir kümesini özellikleri) bildirilen özellikleri gönderildiğinden, bu gereklidir. Genellikle, cihazlar kullanılabilir güncelleştirmeden haberdar edilir ve yönetici tarafından tanımlanan bir ilke, cihazın güncelleştirmeyi indirip uygulamaya başlamasına neden olur. Bu işlev, ilgili ilkeyi etkinleştirme mantığının çalışması gereken yerdir. 
+9.  Üretici yazılımı görüntüsünü indirmeye bekleyen benzetimini yapmak için aşağıdaki yöntemi ekleyin. Güncelleştirme durumu için **bekleyen** ikizi diğer üretici yazılımı güncelleştirme özellikleri temizleyin. Bu özellikler, mevcut değerlerle önceki üretici yazılımı güncelleştirmelerini kaldırmak için temizlenir. Bunun gerekli olmasının nedeni, bildirilen özellikleri düzeltme eki işlemi (delta) ve (tüm önceki değerleri yerini alan eksiksiz bir kümesini özellikleri) değil PUT işlemi gönderilir. Genellikle, cihazlar kullanılabilir güncelleştirmeden haberdar edilir ve yönetici tarafından tanımlanan bir ilke, cihazın güncelleştirmeyi indirip uygulamaya başlamasına neden olur. Bu işlev, ilgili ilkeyi etkinleştirme mantığının çalışması gereken yerdir. 
         
     ```csharp   
     static async Task waitToDownload(Twin twin, string fwUpdateUri)
@@ -244,7 +240,7 @@ Bu bölümde şunları yapacaksınız:
     }
     ```
 
-10. Karşıdan yükleme gerçekleştirmek için aşağıdaki yöntemi ekleyin. Durum güncelleştirmeleri **indirme** cihaz çifti benzetim indirme yöntemini çağırır ve durumunu rapor **downloadComplete** veya **downloadFailed** yükleme işleminin sonuçlarını bağlı olarak twin. 
+10. Yüklemeyi gerçekleştirmek için aşağıdaki yöntemi ekleyin. Durum güncelleştirmeleri **indirme** cihaz ikizi, benzetim indirme yöntemini çağırır ve bir durumunu raporlar **downloadComplete** veya **downloadFailed** İndirme işlemi sonuçlarına bağlı olarak ikizi. 
         
     ```csharp   
     static async Task<byte[]> downloadImage(Twin twin, string fwUpdateUri)
@@ -276,7 +272,7 @@ Bu bölümde şunları yapacaksınız:
     }
     ```
 
-11. Yansıma uygulamak için aşağıdaki yöntemi ekleyin. Durum güncelleştirmeleri **uygulama** cihaz çifti benzetim uygulamak çağrıları görüntü yöntemi ve güncelleştirme durumunu **applyComplete** veya **applyFailed** aracılığıyla uygulama işleminin sonuçları bağlı olarak çifti. 
+11. Görüntüsünü uygulamak için aşağıdaki yöntemi ekleyin. Durum güncelleştirmeleri **uygulama** cihaz ikizi, benzetim uygulama çağrıları görüntü yöntemi ve güncelleştirme durumu **applyComplete** veya **applyFailed** aracılığıyla ikiz uygulama işleminin sonuçlarına bağlı olarak. 
         
     ```csharp   
     static async Task applyImage(Twin twin, byte[] imageData)
@@ -308,7 +304,7 @@ Bu bölümde şunları yapacaksınız:
     }
     ```
 
-12. Görüntü cihaza uygulama aracılığıyla görüntüsünü karşıdan yüklemek için beklemesini bellenim güncelleştirme işlemi sıralamak için aşağıdaki yöntemi ekleyin:
+12. Görüntüyü uygulamadan cihaza aracılığıyla üzere görüntüyü indirmek için bekleyen üretici yazılımı güncelleştirme işleminin sıralamak için aşağıdaki yöntemi ekleyin:
         
     ```csharp   
     static async Task doUpdate(string fwUpdateUrl)
@@ -328,7 +324,7 @@ Bu bölümde şunları yapacaksınız:
     }
     ```
 
-13. İşlemek için aşağıdaki yöntemi ekleyin **updateFirmware** doğrudan buluttan yöntemi. URL için bellenim güncelleştirme ileti yükü ayıklar ve buna ileten **doUpdate** başka bir iş parçacığı havuzu iş parçacığı üzerinde başlatır görev. Daha sonra hemen bulut yöntemi yanıtı döndürür.
+13. İşlemek için aşağıdaki yöntemi ekleyin **updateFirmware** doğrudan buluttan yöntemi. URL üretici yazılımı güncelleştirme iletisi yükten ayıklar ve buna ileten **doUpdate** başka bir iş parçacığı havuzu iş parçacığı üzerinde başlayan bir görev. Daha sonra hemen buluta yöntemi yanıtı döndürür.
         
     ```csharp   
     static Task<MethodResponse> onFirmwareUpdate(MethodRequest methodRequest, object userContext)
@@ -343,11 +339,11 @@ Bu bölümde şunları yapacaksınız:
     }
     ```
 > [!NOTE]
-> Bu yöntem olarak çalıştırmak için benzetimli güncelleştirme tetikleyen bir **görev** ve hizmet bellenim güncelleştirme başlatılmış olduğunu bildiren yöntemi çağrısına hemen yanıt verir. Güncelleştirme durumu ve tamamlama cihaz çifti bildirilen özelliklerini aracılığıyla hizmetine gönderilir. Güncelleştirme başlatırken yöntemi çağrısına yerine kendi tamamlandıktan sonra yanıt vermemiz nedeni:
-> * Gerçek güncelleştirme işlemi yöntem çağrısı zaman aşımından daha uzun sürer olasılığı yüksektir.
-> * Bu uygulama yapma yeniden başlatma bir yeniden başlatma gerektiren büyük olasılıkla gerçek güncelleştirme işlemidir **MetodRequest** nesnesi kullanılamıyor. (Bildirilen özelliklerini güncelleştirme ancak yeniden başlatmadan sonra bile mümkündür.) 
+> Sanal bir güncelleştirme olarak çalıştırmak için bu yöntem tetikleyen bir **görev** ve üretici yazılımı güncelleştirmesi başlatıldı hizmet bildiren yöntem çağrısına hemen yanıt verir. Güncelleştirme durumu ve tamamlanmayı cihaz çiftinin bildirilen özelliklerini üzerinden hizmetine gönderilir. Güncelleştirmeden yöntemi çağrısını yerine kendi tamamlandıktan sonra yanıtlıyoruz. nedeni:
+> * Gerçek güncelleştirme işlemi yöntemi çağrısı zaman aşımı süresinden daha uzun sürmesine olasılıktır.
+> * Bu uygulama oluşturma, yeniden başlatma bir yeniden başlatma gerektiren büyük olasılıkla gerçek güncelleştirme işlemidir **MethodRequest** nesnesi kullanılabilir değil. (Bildirilen özellikleri güncelleştirmek ancak yeniden başlatmanın ardından bile mümkündür.) 
 
-14. Son olarak, aşağıdaki kodu ekleyin **ana** IOT hub'ınıza bağlantıyı açın ve yöntemi dinleyicisini başlatmak için yöntem:
+14. Son olarak, aşağıdaki kodu ekleyin **ana** yöntemi, IOT hub'ınıza bağlantıyı açın ve yöntemi dinleyicisi başlatılamıyor:
    
     ```csharp   
     try
@@ -381,17 +377,17 @@ Bu bölümde şunları yapacaksınız:
 
 ## <a name="run-the-apps"></a>Uygulamaları çalıştırma
 Şimdi uygulamaları çalıştırmaya hazırsınız.
-1. .NET cihaz uygulama çalıştırma **SimulatedDeviceFWUpdate**.  Sağ **SimulatedDeviceFWUpdate** proje, select **hata ayıklama**ve ardından **başlangıç yeni örnek**. IOT Hub'ınızı gelen yöntem çağrıları için dinleme başlamanız gerekir: 
+1. .NET cihaz uygulamasını çalıştırın **SimulatedDeviceFWUpdate**.  Sağ **SimulatedDeviceFWUpdate** proje, select **hata ayıklama**ve ardından **yeni örnek Başlat**. IOT Hub'ınıza yöntemine yapılan çağrılar için dinleme başlamanız gerekir: 
 
-2. Cihaz bağlı ve .NET çalıştırmak için yöntem çağrılarına, bekleyen bir kez **TriggerFWUpdate** sanal cihaz uygulamasının bellenim update yöntemini çağırmak için uygulama. Sağ **TriggerFWUpdate** proje, select **hata ayıklama**ve ardından **başlangıç yeni örnek**. Görmeniz gerekir güncelleştirme yazılan dizisi **SimulatedDeviceFWUpdate** konsol ve ayrıca dizisi bildirilen aygıtı bildirilen özellikleri aracılığıyla **TriggerFWUpdate** konsol. İşlemin tamamlanması birkaç saniye sürer. 
+2. Cihaz bağlı ve .NET çalıştırmak için yöntem çağrılarına, bekleyen sonra **TriggerFWUpdate** sanal cihaz uygulaması, üretici yazılımı güncelleştirme yöntemini çağırmak için uygulama. Sağ **TriggerFWUpdate** proje, select **hata ayıklama**ve ardından **yeni örnek Başlat**. Görmelisiniz güncelleştirme dizisi yazılan **SimulatedDeviceFWUpdate** konsolu ve ayrıca dizisi bildirilen cihazın rapor edilen özelliklerle **TriggerFWUpdate** Konsolu. İşlemin tamamlanması birkaç saniye sürer. 
    
-    ![Çalıştırma hizmet ve cihaz uygulaması][img-combinedrun]
+    ![Hizmet ve cihaz uygulama çalıştırma][img-combinedrun]
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, doğrudan bir yöntem bir cihazda uzaktan Bellenim güncelleştirmesini tetiklemek için bildirilen özellikleri bellenim güncelleştirme durumunu izlemek için kullanılır ve.
+Bu öğreticide, bir cihazda bir uzak üretici yazılımı güncelleştirmesini tetikleme için kullanılan bir doğrudan yöntem ve bildirilen özellikleri üretici yazılımı güncelleştirme durumunu izlemek için kullanılır.
 
-Çözüm ve zamanlama yöntemini çağıran birden fazla cihazda, IOT genişletmek öğrenmek için bkz: [zamanlama ve yayın işleri] [ lnk-tutorial-jobs] Öğreticisi.
+IOT çözümü ve zamanlama yöntemi çağıran birden çok cihazda genişletmek öğrenmek için bkz [işleri zamanlama ve yayınlama] [ lnk-tutorial-jobs] öğretici.
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-csharp-firmware-update/servicesdknuget.png
@@ -403,7 +399,7 @@ Bu öğreticide, doğrudan bir yöntem bir cihazda uzaktan Bellenim güncelleşt
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-dm-getstarted]: iot-hub-csharp-csharp-device-management-get-started.md
-[lnk-tutorial-jobs]: iot-hub-csharp-node-schedule-jobs.md
+[lnk-tutorial-jobs]: iot-hub-csharp-csharp-schedule-jobs.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

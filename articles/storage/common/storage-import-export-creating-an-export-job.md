@@ -1,6 +1,6 @@
 ---
-title: Dışa aktarma işi için Azure içeri/dışarı aktarma oluşturun | Microsoft Docs
-description: Microsoft Azure içeri/dışarı aktarma hizmeti için bir dışarı aktarma işinin oluşturmayı öğrenin.
+title: Bir dışarı aktarma için Azure içeri/dışarı aktarma işi oluşturma | Microsoft Docs
+description: Microsoft Azure içeri/dışarı aktarma hizmeti için dışarı aktarma işi oluşturmayı öğrenin.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,86 +15,86 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: 3fb3f2af5e5cebcac21f4372bc9d9dc9ee837202
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363256"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232276"
 ---
-# <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için bir dışa aktarma işi oluşturma
-REST API kullanarak Microsoft Azure içeri/dışarı aktarma hizmeti için bir dışarı aktarma işinin oluşturma, aşağıdaki adımları içerir:
+# <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için dışarı aktarma işi oluşturma
+Microsoft Azure içeri/dışarı aktarma hizmeti REST API kullanarak dışarı aktarma işi oluşturma, aşağıdaki adımları içerir:
 
--   BLOB'ları dışarı aktarmak için seçme.
+-   Dışarı aktarılacak bloblar seçme.
 
--   Bir sevkiyat konum alma.
+-   Sevkiyat konumu edinme.
 
--   Dışarı aktarma işinin oluşturuluyor.
+-   Dışarı aktarma işi oluşturma.
 
--   Microsoft'a boş sürücülerinizin desteklenen taşıyıcı hizmeti üzerinden aktarma.
+-   Microsoft'a boş sürücülerinizin desteklenen taşıyıcı hizmeti aracılığıyla aktarma.
 
--   Dışarı aktarma işinin paket bilgilerle güncelleştiriliyor.
+-   Dışarı aktarma işi paket bilgileriyle güncelleştiriliyor.
 
--   Sürücüleri Microsoft'tan geri alınıyor.
+-   Sürücüleri, Microsoft'tan geri alınıyor.
 
- Bkz: [Blob depolama alanına veri aktarmak için Windows Azure içeri/dışarı aktarma hizmetini kullanarak](storage-import-export-service.md) genel bir bakış içeri/dışarı aktarma hizmeti ve nasıl kullanılacağını gösteren bir öğretici için [Azure portal](https://portal.azure.com/) oluşturmak ve içeri aktarma yönetmek ve işleri vermek için.
+ Bkz: [Blob depolama alanına veri aktarmak için Windows Azure içeri/dışarı aktarma hizmetini kullanarak](storage-import-export-service.md) içeri/dışarı aktarma hizmeti ile nasıl kullanılacağını gösteren bir öğreticiye genel bakış [Azure portalında](https://portal.azure.com/) oluşturmak için ve içeri aktarma yönetin ve dışarı aktarma işleri.
 
-## <a name="selecting-blobs-to-export"></a>BLOB'ları dışarı aktarmak için seçme
- Dışarı aktarma işini oluşturmak için depolama hesabınızdan dışarı aktarmak istediğiniz BLOB'ları listesini sağlamanız gerekir. BLOB'ları dışarı seçmek için birkaç yolu vardır:
+## <a name="selecting-blobs-to-export"></a>Dışarı aktarılacak bloblar seçme
+ Dışarı aktarma işi oluşturmak için depolama hesabınızdan dışarı aktarmak istediğiniz BLOB listesini sağlamanız gerekir. Dışarı aktarılacak bloblar seçmek için birkaç yolu vardır:
 
--   Tek bir blob ve tüm alt anlık görüntü seçmek için göreli blob yolu kullanabilirsiniz.
+-   Tek bir blob ve tüm anlık görüntüleri seçmek için göreli blob yolu kullanabilirsiniz.
 
--   Kendi anlık görüntüleri hariç olmak üzere tek bir blob seçmek için göreli blob yolu kullanabilirsiniz.
+-   Tek bir blob anlık görüntüleri hariç seçmek için göreli blob yolu kullanabilirsiniz.
 
--   Tek bir anlık görüntü seçmek için göreli blob yolu ve bir anlık görüntü saati kullanabilirsiniz.
+-   Tek bir anlık görüntü seçmek için göreli blob yolu ve anlık görüntü zaman kullanabilirsiniz.
 
--   Bir blob öneki tüm BLOB'ları ve anlık görüntüleri verilen önekiyle seçmek için kullanabilirsiniz.
+-   Tüm BLOB'ları ve belirtilen öneke sahip anlık görüntü seçmek için blob öneki kullanabilirsiniz.
 
 -   Tüm BLOB'ları ve anlık görüntü depolama hesabındaki dışarı aktarabilirsiniz.
 
- BLOB'ları dışarı aktarmak için belirtme hakkında daha fazla bilgi için bkz: [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi.
+ Dışarı aktarılacak bloblar belirtme hakkında daha fazla bilgi için bkz. [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi.
 
-## <a name="obtaining-your-shipping-location"></a>Sevkiyat Konumunuz alma
-Sevkiyat konumu ad ve adres çağırarak elde etmeniz bir dışarı aktarma işinin oluşturmadan önce [alma konumu](https://portal.azure.com) veya [listesi konumları](/rest/api/storageimportexport/listlocations) işlemi. `List Locations` konumlar ve posta adresleri listesi döndürür. Döndürülen listeden bir konum seçin ve bu adresi, sabit sürücüler sevk. Aynı zamanda `Get Location` işlemi belirli bir konuma için teslimat adresi doğrudan elde edilir.
+## <a name="obtaining-your-shipping-location"></a>Sevkiyat konumunuz edinme
+Bir dağıtımı konum adı ve adresi çağırarak elde etmeniz dışarı aktarma işi oluşturmadan önce [alma konumu](https://portal.azure.com) veya [List Locations](/rest/api/storageimportexport/listlocations) işlemi. `List Locations` konumlar ve posta adresleri listesi döndürür. Döndürülen listeden bir konum seçin ve sabit sürücülerinizi bu adrese gönderin. Ayrıca `Get Location` doğrudan belirli bir konumun teslimat adresini edinme işlemi.
 
 Sevkiyat konum elde etmek için aşağıdaki adımları izleyin:
 
--   Konumun depolama hesabınızın adını belirleyin. Bu değer altında bulunabilir **konumu** depolama hesabının alanını **Pano** Azure portal ya da hizmet yönetimi API işlemi kullanarak için sorgulanan [depolama hesabı özellikleri Al](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Konumun depolama hesabınızın adını belirleyin. Bu değeri altında bulunabilir **konumu** depolama hesabının ile sekmesindeki **Pano** Azure portal ya da hizmet yönetimi API işlemi'ni kullanarak için sorgulanan [depolama hesabı edinin Özellikleri](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
 
--   Bu depolama hesabını çağırarak işlemek için kullanılabilecek konumu almak `Get Location` işlemi.
+-   Bu depolama hesabı çağırarak işlemek için uygun olan konumu almak `Get Location` işlemi.
 
--   Varsa `AlternateLocations` özelliği konumun Konum içerir ve ardından bu konumu kullanmak uygundur. Aksi halde çağrı `Get Location` alternatif konumlar biriyle yeniden işlemi. Özgün konuma bakım için geçici olarak kapalı.
+-   Varsa `AlternateLocations` özelliği konumun Konum içerir ve bu konumu kullanmak uygundur. Aksi takdirde, çağrı `Get Location` alternatif konumlar biriyle yeniden işlemi. Özgün konuma geçici olarak bakım için kapalı olabilir.
 
-## <a name="creating-the-export-job"></a>Dışa aktarma işi oluşturma
- Dışarı aktarma işini oluşturmak için arama [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi. Aşağıdaki bilgileri sağlamanız gerekir:
+## <a name="creating-the-export-job"></a>Dışarı aktarma işi oluşturma
+ Dışarı aktarma işi oluşturmak için arama [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi. Aşağıdaki bilgileri sağlamanız gerekir:
 
 -   İş için bir ad.
 
 -   Depolama hesabı adı.
 
--   Önceki adımda elde sevkiyat konum adı.
+-   Önceki adımda elde edilen sevkiyat konum adı.
 
--   İş türü (verme).
+-   Bir iş türü (dışarı aktarma).
 
--   Dönüş adresi dışa aktarma işi tamamlandıktan sonra sürücüleri burada gönderilmelidir.
+-   Sürücüleri, dışarı aktarma işi tamamlandıktan sonra nereye gönderileceğini dönüş adresi.
 
--   Dışa aktarılacak BLOB'lar (veya blob önekler) listesi.
+-   Dışa aktarılacak bloblar (veya blob ön ekleri) listesi.
 
-## <a name="shipping-your-drives"></a>Sürücülerinizin aktarma
- Ardından, Azure içeri/dışarı aktarma aracı göndermek istediğiniz sürücü sayısını belirlemek için verilecek seçtiğiniz BLOB'ları ve disk boyutu göre kullanın. Bkz: [Azure içeri/dışarı aktarma aracı başvurusu](storage-import-export-tool-how-to-v1.md) Ayrıntılar için.
+## <a name="shipping-your-drives"></a>Sürücülerinizi aktarma
+ Ardından, Azure içeri/dışarı aktarma aracı göndermek istediğiniz sürücü sayısını belirlemek için aktarılabilmesi için seçtiğiniz BLOB'ları ve sürücünün boyutuna bağlı olarak kullanın. Bkz: [Azure içeri/dışarı aktarma aracı başvurusu](storage-import-export-tool-how-to-v1.md) Ayrıntılar için.
 
- Tek bir paket sürücüleri paketini ve bunları önceki adımda elde adrese gönderme. Paketinizin bir sonraki adım için izleme sayısını not edin.
+ Tek bir pakette sürücü paketi ve bunları önceki adımda elde edilen adresine gönderin. Paketinizin bir sonraki adım için takip numarasını not edin.
 
 > [!NOTE]
->  Sürücülerinizin paketiniz için bir izleme numarası sağlayacak bir desteklenen taşıyıcı hizmeti aracılığıyla hazırlamalısınız.
+>  Sürücülerinizi paketiniz için bir izleme numarası sağlayacak bir desteklenen taşıyıcı hizmeti aracılığıyla göndermeniz gerekir.
 
-## <a name="updating-the-export-job-with-your-package-information"></a>Dışarı aktarma işinin paket bilgilerinizi ile güncelleştirme
- İzleme numaranızın aldıktan sonra arama [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs#Jobs_Update) taşıyıcı adı ve iş numaralı izleme işlemi için güncelleştirildi. İsteğe bağlı olarak, sürücüler, dönüş adresi ve sevkiyat tarihi de sayısını belirtebilirsiniz.
+## <a name="updating-the-export-job-with-your-package-information"></a>Paket bilgileriyle dışarı aktarma işi güncelleştiriliyor
+ İzleme numaranızı sonra çağrı [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs#Jobs_Update) taşıyıcı adı ve numarası iş için izleme işlemi için güncelleştirildi. İsteğe bağlı olarak, sürücüleri, dönüş adresi ve gönderim tarihi de sayısını belirtebilirsiniz.
 
-## <a name="receiving-the-package"></a>Paket alma
- Sürücülerinizin dışarı aktarma işini işlendikten sonra size, şifrelenmiş verilerle döndürülür. Çağırarak her sürücüleri için BitLocker anahtarını alabilir [alma işi](/rest/api/storageimportexport/jobs#Jobs_Get) işlemi. Ardından anahtar kullanılarak sürücünün kilidini açabilirsiniz. Her sürücüde sürücü bildirim dosyası, her dosya için özgün blob adresi yanı sıra, sürücü dosyaları listesini içerir.
+## <a name="receiving-the-package"></a>Paketi alma
+ Sürücüler, dışarı aktarma işi işlendikten sonra şifrelenmiş verilerinizle döndürülür. Çağırarak her sürücüleri için BitLocker anahtarı alabilirsiniz [alma işi](/rest/api/storageimportexport/jobs#Jobs_Get) işlemi. Ardından anahtar kullanılarak sürücünün kilidini açabilirsiniz. Her sürücüde sürücü bildirim dosyası, her dosya için özgün blob adresini yanı sıra, sürücü dosyaları listesini içerir.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [İçeri/dışarı aktarma hizmeti REST API'si kullanma](storage-import-export-using-the-rest-api.md)
+* [İçeri/dışarı aktarma hizmeti REST API'sini kullanma](storage-import-export-using-the-rest-api.md)

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 50cf905a53ebb9c9eb7bb1ea1660999b11b15bef
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 1d08518a23dfe4a9cc63bf3f35ee69ea1815595f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872725"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38239960"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD'de karma ve bulut dağıtımları için ayrıcalıklı erişim güvenliğini sağlama
 
@@ -251,7 +251,7 @@ Ulusal Standartlar ve teknoloji (NIST) özellikle olayı ile ilgili verileri ç�
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>Privileged Identity Management (PIM) için ek yönetim rolleri için JIT uygulayın.
 
-Azure Active Directory kullanan [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) yeteneği. Ayrıcalıklı rol etkinleştirme süre sınırlı olanak sağlayarak çalışır:
+Azure Active Directory kullanan [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) yeteneği. Ayrıcalıklı rol etkinleştirme süre sınırlı olanak sağlayarak çalışır:
 
 * Belirli bir görevi gerçekleştirmek için yönetici ayrıcalıkları etkinleştir
 * Etkinleştirme işlemi sırasında MFA zorlama
