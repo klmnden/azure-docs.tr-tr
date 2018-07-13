@@ -1,5 +1,5 @@
-## <a name="issue-custom-image-provisioning-errors"></a>Sorun: Özel görüntü; Hazırlama hataları
-Karşıya yükleme veya özelleştirilmiş bir VM görüntüsü olarak veya genelleştirilmiş bir VM görüntüsü yakalama sağlama hatalar ortaya çıkar. Eski sağlama zaman aşımı hatası neden olur ve ikincisi sağlama başarısız olmasına neden. Özel görüntünüzü hatasız dağıtmak için resim türünü yakalama işlemi sırasında değişmez emin olmalısınız.
+## <a name="issue-custom-image-provisioning-errors"></a>Sorun: Özel görüntü; sağlama hataları
+Karşıya yükleme veya özel bir VM görüntüsü olarak ya da tam tersi genelleştirilmiş bir VM görüntüsü yakalama sağlama hataları ortaya çıkar. Eski bir sağlama zaman aşımı hatası neden olur ve ikincisi sağlama başarısız olmasına neden. Özel görüntünüzü hatasız dağıtılacağı resmin türünü yakalama işlemi sırasında değiştirmez emin olmanız gerekir.
 
-Aşağıdaki tabloda olası birleşimlerini genelleştirilmiş ve özelleştirilmiş görüntüleri, karşınıza çıkacak hata türü ve hataları düzeltmek için yapmanız gerekenler listelenmektedir.
+Aşağıdaki tabloda, genelleştirilmiş ve özelleştirilmiş görüntüler, karşılaştığınız hata türü ve hataları düzeltmek için yapmanız gerekenler olası eşleştirme birleşimlerini listelenmektedir.
 

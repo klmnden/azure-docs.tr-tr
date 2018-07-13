@@ -9,21 +9,21 @@ ms.date: 04/04/2018
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 8a4f794c8ef24a90498954629c131904621c5b43
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30844101"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38756230"
 ---
-Yalnızca her katmanını izin verilen hizmetler sayısı sınırlı belirli bir katman, sağlanan her biri bir abonelik içindeki birden fazla hizmet oluşturabilirsiniz. Örneğin, 12 temel katmana adresindeki ve başka bir 12 Hizmetleri aynı abonelik içindeki S1 katmanı adresindeki kadar oluşturabilirsiniz. Katmanları hakkında daha fazla bilgi için bkz: [bir SKU katmanı için Azure Search seçin veya](../articles/search/search-sku-tier.md).
+Yalnızca her katmanında izin verilen hizmetler sayısı tarafından sınırlı, belirli bir katman, sağlanan her bir aboneliği içinde birden çok hizmeti oluşturabilirsiniz. Örneğin, en fazla 12 temel katmanında ve başka bir 12 Hizmetleri aynı abonelik içindeki S1 katmanında oluşturabilirsiniz. Katmanları hakkında daha fazla bilgi için bkz. [Azure Search için SKU veya katman seçin](../articles/search/search-sku-tier.md).
 
-Maksimum hizmet sınırları, istek üzerine yükseltilebilir. Daha fazla hizmet aynı abonelik içindeki ihtiyacınız varsa Azure desteğine başvurun.
+En yüksek hizmet sınırları, istek üzerine oluşturulabilir. Diğer hizmetler aynı abonelik içindeki ihtiyacınız olursa Azure Destek'e başvurun.
 
 | Kaynak            | Ücretsiz&nbsp;<sup>1</sup> | Temel | S1  | S2 | S3 | S3&nbsp;HD |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- |
 | En fazla Hizmetleri    |1     | 12    | 12  | 6  | 6  | 6     |
-| SU en fazla ölçek&nbsp;<sup>2</sup> |Yok |3 SU |36 SU |36 SU |36 SU |36 SU |
+| Maksimum ölçek SU&nbsp;<sup>2</sup> |Yok |3 SU |36 SU |36 SU |36 SU |36 SU |
 
-<sup>1</sup> serbest paylaşılan, ayrılmış değil, kaynakları dayanır. Büyütme paylaşılan kaynakları desteklenmez.
+<sup>1</sup> ücretsiz, paylaşılan ve ayrılmış, kaynaklarda dayanır. Ölçek büyütme paylaşılan kaynaklar üzerinde desteklenmiyor.
 
-<sup>2</sup> arama birimi (SU) ya da ayrılan birimler, faturalama bir *çoğaltma* veya *bölüm*. Depolama, dizin oluşturma ve sorgu işlemleri için her iki kaynağın gerekir. SU hesaplamalar hakkında daha fazla bilgi için bkz: [ölçeklendirme sorgu ve dizin iş yükleri için kaynak düzeylerinin](../articles/search/search-capacity-planning.md). 
+<sup>2</sup> arama birimleri (SU) olarak ayrılmış birim, faturalama bir *çoğaltma* veya *bölüm*. Her iki kaynakları, depolama, dizinleme ve sorgu işlemleri için gerekir. SU hesaplamalar hakkında daha fazla bilgi için bkz: [sorgu ve dizin iş yükleri için kaynak düzeylerini ölçeklendirme](../articles/search/search-capacity-planning.md). 

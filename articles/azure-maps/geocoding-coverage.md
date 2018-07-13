@@ -1,27 +1,27 @@
 ---
-title: Coğrafi kodlama kapsamı Azure Maps | Microsoft Docs
-description: Coğrafi kodlama kapsamı Azure Maps hakkında bilgi edinin
-author: kgremban
-ms.author: kgremban
+title: Azure haritalar, coğrafi kodlama kapsamı | Microsoft Docs
+description: Azure haritalar, coğrafi kodlama kapsamı hakkında bilgi edinin
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6602453abd02bf91b135980b4d2c7f99ba60c236
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d7c1eaa26edef830ca156eef943fcb256d737d77
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600298"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989886"
 ---
-# <a name="azure-maps-geocoding-coverage"></a>Azure eşlemeleri coğrafi kodlama kapsamı
+# <a name="azure-maps-geocoding-coverage"></a>Azure haritalar coğrafi kodlama kapsamı
 
-Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğrafi kodlama adlı bir işlem enlem ve boylam koordinatları döndürür. Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler ve ülkeler için. Ne tür bir konumları güvenilir bir şekilde her bölgede arayabilirsiniz belirlemek için bu makaleyi kullanın. 
+Azure Haritalar ile konum için arama yaparken, arama hizmeti arama terimlerinizi alır ve coğrafi kodlama adlı bir işlem enlem ve boylam koordinatlarını döndürür. Ancak, Maps yok aynı düzeyde bilgi ve tüm bölge ve ülke doğruluk. Konumlar ne tür güvenilir bir şekilde her bölgede arayabilirsiniz belirlemek için bu makaleyi kullanın. 
 
 ## <a name="americas"></a>Kuzey ve Güney Amerika
 
-| Bölge             | Adres noktaları | Ev numaraları | Sokak düzeyi | Şehir düzeyi | İlgilenilen noktaları |
+| Bölge             | Adres noktaları | Ev numaraları | Sokak düzeyi | Şehir düzeyinde | İlgi noktaları |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguilla                                            |                 |                |              |      ✓     |          ✓         |
 | Antarktika                                          |                 |                |              |      ✓     |          ✓         |
@@ -77,12 +77,12 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 | Amerika Birleşik Devletleri                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Þehirlerini - İngiliz                            |                 |                |              |      ✓     |          ✓         |
-| Þehirlerini - ABD                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Virgin Adaları - İngiliz                            |                 |                |              |      ✓     |          ✓         |
+| Virgin Adaları - Amerika Birleşik Devletleri                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Asya Pasifik
 
-| Bölge             | Adres noktaları |Ev numaraları | Sokak düzeyi | Şehir düzeyi | İlgilenilen noktaları |
+| Bölge             | Adres noktaları |Ev numaraları | Sokak düzeyi | Şehir düzeyinde | İlgi noktaları |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Amerikan Samoası                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Avustralya                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -142,7 +142,7 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 
 ## <a name="europe"></a>Avrupa
 
-| Bölge             | Adres noktaları |Ev numaraları | Sokak düzeyi | Şehir düzeyi | İlgilenilen noktaları |
+| Bölge             | Adres noktaları |Ev numaraları | Sokak düzeyi | Şehir düzeyinde | İlgi noktaları |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Arnavutluk                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Andorra                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -211,7 +211,7 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 
 ## <a name="middle-east-and-africa"></a>Orta Doğu ve Afrika
 
-| Bölge             | Adres noktaları |Ev numaraları | Sokak düzeyi | Şehir düzeyi | İlgilenilen noktaları |
+| Bölge             | Adres noktaları |Ev numaraları | Sokak düzeyi | Şehir düzeyinde | İlgi noktaları |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Afganistan                                         |                 |                |              |      ✓     |          ✓         |
 | Cezayir                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -231,7 +231,7 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 | Kongo Demokratik Cumhuriyeti                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Cibuti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Mısır                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Ekvator Gine Cumhuriyeti                      |                 |                |       ✓      |      ✓     |          ✓         |
+| Ekvator Ginesi Cumhuriyeti                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Eritre                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Etiyopya                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Fransız Güney Toprakları|                 |                |              |      ✓     |          ✓         |
@@ -285,7 +285,7 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 | Tunus                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Uganda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Birleşik Arap Emirlikleri                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Batı banka                                           |                 |                |              |      ✓     |          ✓         |
+| Batı Şeria                                           |                 |                |              |      ✓     |          ✓         |
 | Yemen                                               |                 |                |              |      ✓     |          ✓         |
 | Zambiya                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabve                                            |                 |                |       ✓      |      ✓     |          ✓         |
@@ -294,7 +294,7 @@ Azure eşlemeleri konumla ararken arama hizmeti arama terimleri alır ve coğraf
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure eşlemeleri coğrafi kodlama hakkında daha fazla bilgi için bkz: [arama](https://docs.microsoft.com/rest/api/maps/search) başvuru sayfaları.
+Azure Haritalar ile coğrafi kodlama hakkında daha fazla bilgi için bkz: [arama](https://docs.microsoft.com/rest/api/maps/search) başvuru sayfalarına.
 
-Hakkında bilgi edinin [kapsamı alanları eşlemeleri için trafiği hizmeti](traffic-coverage.md). 
+Hakkında bilgi edinin [kapsamı alanları haritalar için hizmet trafiği](traffic-coverage.md). 
 

@@ -1,9 +1,9 @@
 ---
-title: PowerShell kullanarak Azure Cloud Services rolünde için Uzak Masaüstü Bağlantısı etkinleştir
-description: Uzak Masaüstü bağlantılara izin vermek için PowerShell kullanarak azure bulut hizmeti uygulamanızı yapılandırma
+title: PowerShell kullanarak Azure Cloud Services'ta bir rol için Uzak Masaüstü Bağlantısı etkinleştirme
+description: Uzak Masaüstü bağlantılarına izin verecek şekilde PowerShell kullanarak azure bulut hizmeti uygulamanızı yapılandırma
 services: cloud-services
 documentationcenter: ''
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: bf2f70a4-20dc-4302-a91a-38cd7a2baa62
@@ -13,30 +13,30 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 84fe7ba418399562b6e36ed009c5e6e47fbe24da
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: jeconnoc
+ms.openlocfilehash: 1b1aa8105ab90b0016863f0bf3c47f6aa815d3e7
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874149"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001043"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>PowerShell kullanarak Azure Cloud Services rolünde için Uzak Masaüstü Bağlantısı etkinleştir
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>PowerShell kullanarak Azure Cloud Services'ta bir rol için Uzak Masaüstü Bağlantısı etkinleştirme
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
-Uzak Masaüstü, Azure'da çalışan rolü Masaüstü erişmenize olanak tanır. Uzak Masaüstü Bağlantısı çalışırken, uygulamanızın sorunları tanılamak ve gidermek için kullanabilirsiniz.
+Uzak Masaüstü, Azure'da çalışan rolünün erişmenizi sağlar. Sorun giderme ve çalışırken uygulamanızdaki sorunları tanılamak için Uzak Masaüstü Bağlantısı'nı kullanabilirsiniz.
 
-Bu makalede, Uzak Masaüstü'nü PowerShell kullanarak, bulut hizmeti rollerinizi etkinleştirmek açıklar. Bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) Bu makale için gereken önkoşulları için. Uygulama dağıtıldıktan sonra Uzak Masaüstü'nü etkinleştirmek için PowerShell Uzak Masaüstü uzantısı kullanır.
+Bu makalede, PowerShell kullanarak, bulut hizmeti rolleri, Uzak Masaüstü'nü etkinleştirme açıklar. Bkz: [Azure PowerShell'i yükleme ve yapılandırma konusunda](/powershell/azure/overview) Bu makale için gereken önkoşulları için. Uygulama dağıtıldıktan sonra Uzak Masaüstü verebilmeniz için PowerShell Uzak Masaüstü uzantısı kullanır.
 
-## <a name="configure-remote-desktop-from-powershell"></a>Uzak Masaüstü PowerShell üzerinden yapılandırmak
+## <a name="configure-remote-desktop-from-powershell"></a>Uzak Masaüstü'nden PowerShell yapılandırma
 
-[Kümesi AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet'i belirtilen roller veya Bulut hizmeti dağıtımınızın tüm roller üzerinde Uzak Masaüstü etkinleştirmenize olanak sağlar. Cmdlet'i Uzak Masaüstü kullanıcı için kullanıcı adı ve parola belirtmenize olanak tanır *kimlik bilgisi* bir PSCredential nesnesi kabul parametresi.
+[Kümesi AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet'i, belirtilen roller veya Bulut hizmeti dağıtımınızın tüm roller üzerinde Uzak Masaüstü'nü etkinleştirmenizi sağlar. Cmdlet ile Uzak Masaüstü kullanıcı için kullanıcı adı ve parola belirtmenize olanak tanır *kimlik bilgisi* bir PSCredential nesnesi kabul eden bir parametre.
 
-PowerShell etkileşimli olarak kullanıyorsanız, kolayca PSCredential nesnesinin çağırarak ayarlayabilirsiniz [Get-kimlik bilgilerinin](https://technet.microsoft.com/library/hh849815.aspx) cmdlet'i.
+Etkileşimli olarak PowerShell kullanıyorsanız, kolayca PSCredential nesnesinin çağırarak ayarlayabileceğiniz [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) cmdlet'i.
 
 ```
 $remoteusercredentials = Get-Credential
@@ -44,22 +44,22 @@ $remoteusercredentials = Get-Credential
 
 Bu komut, güvenli bir şekilde uzak kullanıcı için kullanıcı adı ve parola girmesini sağlayan bir iletişim kutusu görüntüler.
 
-PowerShell Otomasyon senaryolarda yardımcı olduğundan, ayrıca ayarlayabilirsiniz **PSCredential** , kullanıcı etkileşimi gerektirmeyen şekilde nesnesi. İlk olarak, güvenli bir parola ayarlamanız gerekir. Düz metinli bir parola dönüştürür kullanarak bir güvenli dize belirterek başlamadan [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Bir şifrelenmiş standart dize kullanarak bu güvenli dize dönüştürmeniz gerekir sonraki [ConvertFrom SecureString](https://technet.microsoft.com/library/hh849814.aspx). Bu şifreli bir standart dize kullanarak bir dosyaya kaydedebilirsiniz [kümesi içeriği](https://technet.microsoft.com/library/ee176959.aspx).
+Otomasyon senaryolarda PowerShell yardımcı olduğundan, ayrıca ayarlayabilirsiniz **PSCredential** kullanıcı etkileşimi gerektirmeyen bir şekilde nesne. İlk olarak, güvenli bir parola ayarlamanız gerekir. Belirten bir düz metin parola dönüştürür kullanarak bir güvenli dize ile başlayan [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Ardından bu güvenli dize bir şifrelenmiş standart dize kullanarak usercontrol'e dönüştürebilirsiniz gerekir [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). Bu şifreli standart dize kullanarak bir dosyaya kaydedebilirsiniz [Set-Content](https://technet.microsoft.com/library/ee176959.aspx).
 
-Böylece her zaman parola yazmak zorunda kalmazsınız güvenli parola dosyası da oluşturabilirsiniz. Ayrıca, güvenli parola dosyasına düz metin dosyasından daha iyidir. Güvenli parola dosyası oluşturmak için aşağıdaki PowerShell kullanın:
+Her defasında parolayı yazmanız gerekmez, güvenli parola dosyası da oluşturabilirsiniz. Ayrıca, güvenli parola dosyasına düz metin dosyası iyidir. Güvenli parola dosyası oluşturmak için aşağıdaki PowerShell kullanın:
 
 ```
 ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ```
 
 > [!IMPORTANT]
-> Parolayı ayarlarken, karşıladığından emin olun [karmaşıklık gereksinimlerini](https://technet.microsoft.com/library/cc786468.aspx).
+> Parolayı ayarlarken karşıladığınızı doğrulayın [karmaşıklık gereksinimlerini](https://technet.microsoft.com/library/cc786468.aspx).
 
-Güvenli parola dosyasından kimlik bilgisi nesnesi oluşturmak için dosya içeriğini okumak ve bunları geri bir güvenli dize kullanmaya Dönüştür [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
+Güvenli parola dosyasından kimlik bilgisi nesnesi oluşturmak için dosya içeriğini okumak ve bunları geri güvenli kullanarak bir dize dönüştürmek [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
-[Kümesi AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet'ini de kabul eder bir *sona erme* belirten parametresi bir **DateTime** hangi kullanıcı hesabının süresi sırasında. Örneğin, geçerli tarih ve saat birkaç gün süresi dolacak şekilde hesabı ayarlayabilirsiniz.
+[Kümesi AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet de kabul eder bir *sona erme* belirten parametresi bir **DateTime** , hangi kullanıcı hesabının süresi. Örneğin, geçerli tarih ve saat birkaç gün süresi dolacak şekilde hesabı ayarlayabilirsiniz.
 
-Bu PowerShell örnek bir bulut hizmeti Uzak Masaüstü uzantısı kümesi gösterilmektedir:
+Bu PowerShell örneği, bir bulut hizmetinde Uzak Masaüstü uzantısı ayarlama işlemini göstermektedir:
 
 ```
 $servicename = "cloudservice"
@@ -69,40 +69,40 @@ $expiry = $(Get-Date).AddDays(1)
 $credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
 Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry
 ```
-Dağıtım yuvası ve Uzak Masaüstü'nü etkinleştirmek istediğiniz rolleri Ayrıca isteğe bağlı olarak belirtebilirsiniz. Bu parametre belirtilmezse, Uzak Masaüstü'nü tüm rollerde cmdlet sağlar **üretim** dağıtım yuvası.
+Ayrıca isteğe bağlı olarak, dağıtım yuvası ve Uzak Masaüstü'nü etkinleştirmek istediğiniz rolleri de belirtebilirsiniz. Cmdlet, Uzak Masaüstü'nü tüm rollerdeki etkinleştirir, bu parametre belirtilmezse, **üretim** dağıtım yuvası.
 
-Dağıtımla ilişkili Uzak Masaüstü uzantısıdır. Hizmeti için yeni bir dağıtım oluşturursanız, bu dağıtımda, Uzak Masaüstü'nü etkinleştirin sahip. Her zaman Uzak Masaüstü etkin olmasını istiyorsanız, PowerShell komut dosyalarını iş akışınıza dağıtım tümleştirme düşünmelisiniz.
+Dağıtımla ilgili Uzak Masaüstü uzantısıdır. Hizmet için yeni bir dağıtımını oluşturun, bu dağıtım üzerinde Uzak Masaüstü'nü etkinleştirme gerekir. Her zaman Uzak Masaüstü etkin olmasını istiyorsanız, PowerShell betikleri, dağıtım iş akışınıza tümleştirme düşünmelisiniz.
 
-## <a name="remote-desktop-into-a-role-instance"></a>Rol örneği içine Uzak Masaüstü
+## <a name="remote-desktop-into-a-role-instance"></a>Uzak Masaüstü Bağlantısı bir rol örneği
 
-[Get-AzureRemoteDesktopFile](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet'tir kullanılan Uzak Masaüstü bulut hizmetinizin belirli rol örneği başlatın. Kullanabileceğiniz *LocalPath* RDP indirmek için parametre dosyası yerel olarak. Veya kullanabilirsiniz *başlatma* doğrudan bulut Hizmeti rol örneğine erişmek için Uzak Masaüstü Bağlantısı iletişim kutusunu başlatmak için parametre.
+[Get-AzureRemoteDesktopFile](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet'tir uzaktan kullanılan Desktop'a bulut hizmetinizin belirli rol örneği. Kullanabileceğiniz *LocalPath* RDP indirmek için parametre dosyasını yerel olarak. Ya da *başlatma* doğrudan bulut Hizmeti rol örneğine erişmek için Uzak Masaüstü Bağlantısı iletişim kutusunu başlatmak için parametre.
 
 ```
 Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
 ```
 
-## <a name="check-if-remote-desktop-extension-is-enabled-on-a-service"></a>Uzak Masaüstü uzantısı'nda bir hizmeti etkin olup olmadığını denetleyin
+## <a name="check-if-remote-desktop-extension-is-enabled-on-a-service"></a>Uzak Masaüstü uzantısı bir hizmette etkin olup olmadığını denetleyin
 
-The [Get-AzureServiceRemoteDesktopExtension](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet displays that remote desktop is enabled or disabled on a service deployment. Cmdlet Uzak Masaüstü kullanıcı ve Uzak Masaüstü uzantısı için etkin rolleri için kullanıcı adını döndürür. Varsayılan olarak, bu dağıtım yuvasına gerçekleşir ve hazırlama yuvası kullanmayı seçebilirsiniz.
+[Get-AzureServiceRemoteDesktopExtension](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet'i görüntüler Uzak Masaüstü etkin veya bir hizmet dağıtımı için devre dışı. Cmdlet'i, Uzak Masaüstü kullanıcı ve Uzak Masaüstü genişletme için etkin bir rol için kullanıcı adını döndürür. Varsayılan olarak, bu dağıtım yuvasına gerçekleşir ve hazırlama yuvası kullanmayı seçebilirsiniz.
 
 ```
 Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ```
 
-## <a name="remove-remote-desktop-extension-from-a-service"></a>Uzak Masaüstü uzantısı bir hizmetten kaldırın
+## <a name="remove-remote-desktop-extension-from-a-service"></a>Bir hizmetten Uzak Masaüstü uzantısını kaldırma
 
-Uzak Masaüstü uzantısı bir dağıtımda zaten etkinleştirdiyseniz ve uzak masaüstü ayarlarını güncelleştirmek ihtiyacınız varsa, ilk uzantısını kaldırın. Ve yeni ayarlarla yeniden etkinleştirin. Örneğin, uzak kullanıcı hesabı için yeni bir parola ayarlayın veya hesabın süresi istiyorsanız. Bunun yapılması, etkin Uzak Masaüstü uzantısına sahip var olan dağıtımlar üzerinde gereklidir. Yeni dağıtımlar için yalnızca uzantısı doğrudan uygulayabilirsiniz.
+İlk dağıtımı Uzak Masaüstü uzantının zaten etkinleştirdiyseniz ve Uzak Masaüstü ayarları güncelleştirmeniz gerekiyor, uzantıyı kaldırın. Ve yeni ayarlarla yeniden etkinleştirin. Örneğin, uzak kullanıcı hesabı için yeni bir parola ayarlamak istiyorsanız veya hesabın süresi doldu. Bunun yapılması, etkin Uzak Masaüstü uzantılı varolan dağıtımları gereklidir. Yeni dağıtımlar için yalnızca uzantıyı doğrudan uygulayabilirsiniz.
 
-Uzak Masaüstü uzantısı dağıtımından kaldırmak için kullanabileceğiniz [Kaldır AzureServiceRemoteDesktopExtension](/powershell/module/azure/remove-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet'i. Dağıtım yuvası ve Uzak Masaüstü uzantıyı kaldırmak istediğiniz rol Ayrıca isteğe bağlı olarak belirtebilirsiniz.
+Uzak Masaüstü uzantısı dağıtımdan kaldırmak için kullanabileceğiniz [Remove-AzureServiceRemoteDesktopExtension](/powershell/module/azure/remove-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet'i. Ayrıca isteğe bağlı olarak, dağıtım yuvası ve Uzak Masaüstü uzantısı kaldırmak istediğiniz rol de belirtebilirsiniz.
 
 ```
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
 ```
 
 > [!NOTE]
-> Uzantı yapılandırması tamamen kaldırmak için çağırmalıdır *kaldırmak* cmdlet'iyle **UninstallConfiguration** parametresi.
+> Uzantı yapılandırmasını tamamen kaldırmak için çağırmalıdır *Kaldır* cmdlet'iyle **UninstallConfiguration** parametresi.
 >
-> **UninstallConfiguration** parametresi hizmetine uygulanan herhangi bir uzantı yapılandırma kaldırır. Hizmet yapılandırmasıyla ilişkili her uzantı yapılandırmadır. Çağırma *kaldırmak* cmdlet olmadan **UninstallConfiguration** keser <mark>dağıtım</mark> uzantısı yapılandırmasından nedenle etkili bir şekilde kaldırılıyor uzantı. Ancak, uzantısı Yapılandırma hizmeti ile ilişkili olarak kalır.
+> **UninstallConfiguration** hizmetine uygulanan herhangi bir uzantı yapılandırma parametresi kaldırır. Hizmet yapılandırması ile ilişkili her uzantı yapılandırmadır. Çağırma *Kaldır* olmadan cmdlet'i **UninstallConfiguration** ayırır <mark>dağıtım</mark> uzantısı yapılandırmadan okuyoruz, bu nedenle etkili bir şekilde kaldırılıyor uzantı. Ancak, uzantı yapılandırması hizmetiyle ilişkili olarak kalır.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

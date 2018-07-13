@@ -1,6 +1,6 @@
 ---
-title: Powershell komut dosyalarıyla Azure Search yönetme | Microsoft Docs
-description: PowerShell komut dosyalarıyla Azure Search hizmetinizi yönetme. Oluşturma veya güncelleştirme bir Azure Search hizmeti ve Azure Search yönetici anahtarları Yönet
+title: Powershell betikleri ile Azure Search yönetme | Microsoft Docs
+description: PowerShell betikleri ile Azure arama hizmetinizi yönetin. Oluşturun veya bir Azure Search Hizmeti güncelleştirin ve Azure Search yönetici anahtarları yönetme
 author: HeidiSteen
 manager: cgronlun
 tags: azure-resource-manager
@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: 8f83f2652f7bd34f53dde1674c022f8792ae7658
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1d0024af3bbf9edfe8c43032878a8b61e35cea9c
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181996"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39000999"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell ile Azure Search hizmetinizi yönetme
 > [!div class="op_single_selector"]
@@ -24,22 +24,22 @@ ms.locfileid: "32181996"
 > 
 > 
 
-Bu konu Azure arama hizmetleri için yönetim görevlerinin çoğunu gerçekleştirmek için PowerShell komutlarını açıklar. Bir arama hizmeti oluşturma, ölçeklendirme ve API anahtarını yönetme size yol gösterir.
-Bu komutlar kullanılabilir yönetim seçenekleri paralel [Azure Search Yönetimi REST API'si](https://docs.microsoft.com/rest/api/searchmanagement).
+Bu konuda, Azure Search Hizmetleri için birçok yönetim görevlerini gerçekleştirmek için PowerShell komutlarını açıklanmaktadır. Bir arama hizmeti oluşturma, ölçeklendirme ve kendi API anahtarlarını yönetme aracılığıyla yol gösterir.
+Bu komutları kullanılabilir yönetim seçenekleri paralel [Azure arama yönetimi REST API'si](https://docs.microsoft.com/rest/api/searchmanagement).
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Azure PowerShell 1.0 veya daha büyük olmalıdır. Yönergeler için bkz: [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview).
-* Aşağıda açıklandığı gibi PowerShell'de Azure aboneliğinizde oturum açmanız gerekir.
+* Azure PowerShell 1.0 veya üstü olmalıdır. Yönergeler için [yüklemek ve Azure PowerShell yapılandırma](/powershell/azure/overview).
+* PowerShell'de, aşağıda açıklandığı gibi Azure aboneliğinizde oturum açmanız gerekir.
 
-İlk olarak, şunları yapmalısınız bu komutla Azure oturum açma:
+İlk olarak, yapmanız gerekenler şu komutla Azure'da oturum aç:
 
     Connect-AzureRmAccount
 
-Microsoft Azure oturum açma iletişim kutusunda Azure hesabınızı ve kendi parolasını e-posta adresini belirtin.
+Microsoft Azure oturum açma iletişim kutusunda Azure hesabınızı ve kendi parola e-posta adresini belirtin.
 
-Alternatif olarak [bir hizmet sorumlusu ile etkileşimli oturum açma](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Alternatif olarak [etkileşimli olmayan bir hizmet sorumlusu ile oturum açma](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
-Birden çok Azure aboneliğiniz varsa, Azure aboneliğinizin ayarlamanız gerekir. Geçerli Aboneliklerin listesini görmek için bu komutu çalıştırın.
+Birden çok Azure aboneliğiniz varsa, Azure aboneliğinizi ayarlama gerekir. Geçerli aboneliklerinizin bir listesini görmek için şu komutu çalıştırın.
 
     Get-AzureRmSubscription | sort SubscriptionName | Select SubscriptionName
 
@@ -47,7 +47,7 @@ Aboneliği belirtmek için aşağıdaki komutu çalıştırın. Aşağıdaki ör
 
     Select-AzureRmSubscription -SubscriptionName ContosoSubscription
 
-## <a name="commands-to-help-you-get-started"></a>Yardımcı olması için komutları çalışmaya başlama
+## <a name="commands-to-help-you-get-started"></a>Size yardımcı olan komutlar çalışmaya başlama
     $serviceName = "your-service-name-lowercase-with-dashes"
     $sku = "free" # or "basic" or "standard" for paid services
     $location = "West US"
@@ -126,11 +126,11 @@ Aboneliği belirtmek için aşağıdaki komutu çalıştırın. Aşağıdaki ör
     $resource | Remove-AzureRmResource
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Hizmetiniz oluşturulur, sonraki adımlar alabilir: derleme bir [dizin](search-what-is-an-index.md), [dizin sorgu](search-query-overview.md)ve son olarak oluşturun ve Azure Search kullanan kendi arama uygulamasını Yönet.
+Hizmetiniz oluşturulur, şu adımları izleyin: derleme bir [dizin](search-what-is-an-index.md), [dizin sorgulama](search-query-overview.md)ve son olarak oluşturun ve Azure Search kullanan kendi arama uygulaması yönetin.
 
-* [Azure portalda Azure Search dizini oluşturma](search-create-index-portal.md)
-* [Azure Portalı'nda arama Gezgini kullanarak Azure Search dizini sorgulama](search-explorer.md)
-* [Veri hizmetlerinden yüklemek için bir dizin oluşturucu ayarlayın](search-indexer-overview.md)
+* [Azure portalında bir Azure Search dizini oluşturma](search-create-index-portal.md)
+* [Arama Gezgini'ni kullanarak Azure portalında bir Azure Search dizinini sorgulama](search-explorer.md)
+* [Kurulum hizmetlerinden verileri yüklemek için bir dizin oluşturucu](search-indexer-overview.md)
 * [.NET’te Azure Search kullanma](search-howto-dotnet-sdk.md)
-* [Azure Search trafiğini analiz](search-traffic-analytics.md)
+* [Azure Search trafiğiniz analiz edin](search-traffic-analytics.md)
 

@@ -9,12 +9,12 @@ ms.date: 04/17/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 8c6f08a916d8e2bdc28ae2b51100a65bd074bb27
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "31613398"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38755126"
 ---
-## <a name="supported-ssh-key-formats"></a>Desteklenen SSH anahtar biçimleri
+## <a name="supported-ssh-key-formats"></a>SSH anahtar biçimleri desteklenir
 
-Azure şu anda desteklediği SSH minimum uzunluğu 2048 bit ile 2 (SSH-2) RSA genel-özel anahtar çifti protokolü. ED25519 ve ECDSA gibi anahtar diğer biçimlere desteklenmez. 
+Azure şu anda desteklediği SSH en az 2048 bit uzunluğu 2 (2 SSH) RSA ortak-özel anahtar çiftleri protokolü. Anahtar diğer biçimlere ED25519 ve ECDSA gibi desteklenmez. 

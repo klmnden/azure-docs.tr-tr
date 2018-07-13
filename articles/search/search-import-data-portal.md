@@ -1,22 +1,22 @@
 ---
 title: Verileri portalda Azure Search’e aktarma | Microsoft Docs
-description: Azure VM’lerde bulunan NoSQL Azure Cosmos DB, Blob depolama, tablo depolama, SQL Veritabanı ve SQL Server verilerinde gezinmek için Azure portalındaki Azure Search Veri İçeri Aktarma Sihirbazı’nı kullanın.
+description: Azure Vm'lerde bulunan Azure veri Cosmos DB, Blob Depolama, tablo depolama, SQL veritabanı ve SQL Server gezinmek için Azure portalında veri İçeri Aktar Sihirbazı'nı kullanmayı öğrenin.
 author: HeidiSteen
 manager: cgronlun
-tags: Azure Portal
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 05/01/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: ee27b63a5df658ff5d575f0599dadd1cbafd3c18
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: dcdc0501d94191cf2c281a4f880ddab3db023fc0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795893"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004958"
 ---
-# <a name="import-data-to-azure-search-using-the-portal"></a>Portalı kullanarak Azure Search'e veri aktarma
+# <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>Azure portalını kullanarak Azure Search dizinine veri içeri aktarma
+
 Azure portalı, Azure Search panosunda verileri bir dizine yüklemeye yönelik **Verileri içeri aktarma** sihirbazını içerir. 
 
   ![Komut çubuğunda İçeri Aktarma Verileri][1]
@@ -26,8 +26,6 @@ Sihirbaz kendi içinde bir *dizin oluşturucu* yapılandırıp çağırır ve di
 * Aynı Azure aboneliğindeki bir dış veri kaynağına bağlanma
 * Kaynak veri yapısına dayalı değiştirilebilir dizin şeması oluşturma
 * JSON belgelerini veri kaynağından alınan bir satır kümesi kullanarak dizine yükleme
-
-Azure Cosmos DB’deki örnek verileri kullanarak bu iş akışını deneyebilirsiniz. Yönergeler için [Azure Portal'da Azure Search ile çalışmaya başlama](search-get-started-portal.md) başlıklı sayfayı ziyaret edin.
 
 > [!NOTE]
 > İlgili veri kaynağı için dizin oluşturmayı kolaylaştırmak üzere Azure Cosmos DB panosundan **Verileri içeri aktarma** sihirbazını başlatabilirsiniz. Başlamak için sol gezinti bölmesinde **Koleksiyonlar** > **Azure Search Ekle** menüsüne gidin.
@@ -45,8 +43,10 @@ Düzleştirilmiş veri kümesi gerekli bir giriştir. Yalnızca tek bir tablo, v
 
 ## <a name="connect-to-your-data"></a>Verilerinize bağlanma
 1. [Azure portalında](https://portal.azure.com) oturum açın ve hizmet panosunu açın. Atlama çubuğundaki **Tüm hizmetler**’e tıklayarak geçerli abonelikteki mevcut "arama hizmetleri" için arama yapabilirsiniz. 
-2. Veri İçeri Aktar dikey penceresini kaydırarak açmak için komut çubuğundaki **Veri İçeri Aktar**'a tıklayın.  
-3. Bir dizin oluşturucu tarafından kullanılan bir veri kaynağı tanımını belirtmek için **Verilerinize bağlanın**'a tıklayın. Abonelik içi veri kaynakları için sihirbaz genellikle bağlantı bilgilerini algılayıp okuyabilir ve genel yapılandırma gereksinimlerini en aza indirebilir.
+
+1. Veri İçeri Aktar dikey penceresini kaydırarak açmak için komut çubuğundaki **Veri İçeri Aktar**'a tıklayın.
+
+1. Bir dizin oluşturucu tarafından kullanılan bir veri kaynağı tanımını belirtmek için **Verilerinize bağlanın**'a tıklayın. Abonelik içi veri kaynakları için sihirbaz genellikle bağlantı bilgilerini algılayıp okuyabilir ve genel yapılandırma gereksinimlerini en aza indirebilir.
 
 |  |  |
 | --- | --- |
@@ -61,25 +61,32 @@ Düzleştirilmiş veri kümesi gerekli bir giriştir. Yalnızca tek bir tablo, v
 Başlangıç dizini genellikle veri kümesinden çıkarılır. Şemayı tamamlamak için alan ekleyin, düzenleyin veya silin. Ayrıca, sonraki arama davranışlarını belirlemek üzere alan düzeyinde öznitelikler ayarlayın.
 
 1. **Hedef dizini özelleştir** menüsünde her bir belgeyi benzersiz bir şekilde tanımlamak için kullanılan adı ve **Anahtarı** belirtin. Anahtar bir dize olmalıdır. Alan değerleri boşluk veya tire içeriyorsa **Verilerinizi içeri aktarın** menüsündeki gelişmiş seçenekleri, bu karakterler üzerinde doğrulama denetimini gizleyecek şekilde ayarlayın.
-2. Kalan alanları gözden geçirin ve düzeltin. Alan adı ve türü genellikle sizin için doldurulur. Sonraki dizin oluşturulana veri türünü değiştirebilirsiniz. Daha sonra değiştirmeniz için yeniden derleme gerekir.
-3. Her bir alan için dizin özniteliklerini ayarlayın:
+
+1. Kalan alanları gözden geçirin ve düzeltin. Alan adı ve türü genellikle sizin için doldurulur. Sonraki dizin oluşturulana veri türünü değiştirebilirsiniz. Daha sonra değiştirmeniz için yeniden derleme gerekir.
+
+1. Her bir alan için dizin özniteliklerini ayarlayın:
    
    * Alınabilir, arama sonuçlarındaki alanı döndürür.
    * Filtrelenebilir, alana filtre ifadelerinde başvurulabilmesini sağlar.
    * Sıralanabilir, alanın bir sıralamada kullanılabilmesini sağlar.
    * Modellenebilir, alanın modellenmiş gezinmesine olanak sağlar.
    * Aranabilir, tam metin aramayı etkinleştirir.
-4. Alan düzeyinde bir dil çözümleyicisi belirtmek istiyorsanız **Çözümleyici** sekmesine tıklayın. Şu anda yalnızca dil çözümleyicileri belirtilebilir. Özel bir çözümleyici veya Keyword, Pattern gibi dil dışı bir çözümleyici kullanılması kod gerektirir.
+
+1. Alan düzeyinde bir dil çözümleyicisi belirtmek istiyorsanız **Çözümleyici** sekmesine tıklayın. Şu anda yalnızca dil çözümleyicileri belirtilebilir. Özel bir çözümleyici veya Keyword, Pattern gibi dil dışı bir çözümleyici kullanılması kod gerektirir.
    
    * Alan üzerinde tam metin araması belirlemek ve Çözümleyici açılır listesini etkinleştirmek için **Aranabilir** öğesine tıklayın.
    * İstediğiniz çözümleyiciyi seçin. Ayrıntılı bilgi için bkz. [Birden çok dildeki belgeler için dizin oluşturma](search-language-support.md).
-5. Seçili alanlarda yazarken tamamlanan sorgu önerilerini etkinleştirmek için **Öneri Aracı**’na tıklayın.
+
+1. Seçili alanlarda yazarken tamamlanan sorgu önerilerini etkinleştirmek için **Öneri Aracı**’na tıklayın.
 
 ## <a name="import-your-data"></a>Verilerinizi içeri aktarma
 1. **Verilerinizi içeri aktarın** menüsünde dizin oluşturucu için bir ad belirtin. Dizin oluşturucunun, Verileri İçeri Aktarma sihirbazının bir ürünü olduğunu unutmayın. Daha sonra görüntülemek veya düzenlemek isterseniz sihirbazı yeniden çalıştırmak yerine portaldan seçebilirsiniz. 
-2. Hizmetin sağlandığı bölgesel saat dilimine dayalı zamanlamayı belirtin.
-3. Bir belge bırakılırsa dizin oluşturmanın devam edip etmeyeceğini belirlemeye yönelik eşikleri belirtmek için gelişmiş seçenekleri ayarlayın. Ek olarak, **Anahtar** alanlarının boşluk ve eğik çizgi içermesine izin verilip verilmeyeceğini belirtebilirsiniz.  
-4. Dizini oluşturup verileri içeri aktarmak için **Tamam**’a tıklayın.
+
+1. Hizmetin sağlandığı bölgesel saat dilimine dayalı zamanlamayı belirtin.
+
+1. Bir belge bırakılırsa dizin oluşturmanın devam edip etmeyeceğini belirlemeye yönelik eşikleri belirtmek için gelişmiş seçenekleri ayarlayın. Ek olarak, **Anahtar** alanlarının boşluk ve eğik çizgi içermesine izin verilip verilmeyeceğini belirtebilirsiniz.  
+
+1. Dizini oluşturup verileri içeri aktarmak için **Tamam**’a tıklayın.
 
 Dizin oluşturma işlemini portalda izleyebilirsiniz. Belgeler yüklendikçe, tanımladığınız dizine ait belge sayısı artacaktır. Bazı durumlarda portal sayfasının en son güncelleştirmeleri seçmesi birkaç dakika sürer.
 
@@ -87,9 +94,9 @@ Tüm belgeler yüklendikten sonra dizin, sorgulamaya hazırdır.
 
 ## <a name="query-an-index-using-search-explorer"></a>Arama Gezgini kullanarak dizin sorgulama
 
-Portaldaki **Arama Gezgini**'ni kullanarak kod yazmadan dizin sorgulama yapabilirsiniz. [Arama Gezgini](search-explorer.md)'ni herhangi bir dizinde kullanabilirsiniz.
+Portaldaki **arama Gezgini** herhangi bir kod yazmadan dizin sorgulama yapabilirsiniz. Kullanabileceğiniz [arama Gezgini](search-explorer.md) üzerinde herhangi bir dizinde.
 
-Arama deneyimi, [basit söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ve varsayılan [searchMode sorgu parametresi(https://docs.microsoft.com/rest/api/searchservice/search-documents) gibi varsayılan ayarlara bağlıdır. 
+Arama deneyimi [basit söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ve varsayılan [searchMode sorgu parametresi](https://docs.microsoft.com/rest/api/searchservice/search-documents) gibi varsayılan ayarlara bağlıdır. 
 
 Belgenin tamamını inceleyebilmeniz için sonuçlar ayrıntılı bir JSON biçiminde döndürülür.
 

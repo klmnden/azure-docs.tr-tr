@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: f9ab9b9af81bf1827c2da646908e204bd051706b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 6635906b6aae418fa3754f1152fae3e0d8903ffc
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970943"
+ms.locfileid: "38989777"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core için Application Insights
 
@@ -188,7 +188,7 @@ Yapay işlemler uygulamanızla istekler otomatik hale getirmek için.
 
 1. IIS Express tıklayarak uygulamanızı çalıştırma ![Ekran görüntüsü, Visual Studio IIS Express simgesi](./media/app-insights-asp-net-core/004-iis-express.png)
 
-2. Tarayıcınızın adres çubuğundan URL'yi kopyalayın. Şu biçimdedir http://localhost:{random bağlantı noktası numarası}
+2. Tarayıcınızın adres çubuğundan URL'yi kopyalayın. Biçimindedir `http://localhost:{random port number}`
 
    ![Tarayıcı url adres çubuğunun ekran görüntüsü](./media/app-insights-asp-net-core/0013-copy-url.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services ile PlayReady lisans şablonu
+title: Azure Media Services PlayReady lisans şablonu ile
 description: Bu konu, PlayReady lisansları yapılandırmak için kullanılan bir PlayReady lisans şablonu genel bir bakış sağlar.
 author: juliako
 manager: cfowler
@@ -11,36 +11,40 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 07/08/2018
 ms.author: juliako
-ms.openlocfilehash: 00a5e6df532e30deec0f6755ec0309c7fc58e0bb
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 29b8f37f33dd81cfd703fb79c5c69a3d2d82e434
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133106"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003680"
 ---
-# <a name="media-services-playready-license-template-overview"></a>Medya Hizmetleri PlayReady lisans şablonu genel bakış
+# <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady lisans şablonuna genel bakış 
 
-Azure Media Services şimdi PlayReady lisansları teslim etmek için bir hizmet sunar. PlayReady korumalı içeriği yürütmek (örneğin, Silverlight) player çalıştığında, bir istek lisans edinmeye yönelik lisans teslimat hizmeti gönderilir. Lisans hizmeti isteği onaylarsa, istemciye gönderilen ve şifresini çözmek ve belirtilen içeriği yürütmek için kullanılan lisans verir.
+Azure Media Services ile içeriğinizi şifrelemenizi sağlar **Microsoft PlayReady**. Media Services PlayReady lisans sunma için bir hizmet de sağlar. PlayReady lisansları yapılandırmak için medya Hizmetleri API'leri kullanabilirsiniz. Bir oynatıcı PlayReady korumalı içeriğinizi oynatma çalıştığında, bir lisans almak için bir istek için lisans teslimat hizmetinin gönderilir. Lisans hizmeti isteği onaylarsa, istemciye gönderilen ve şifresini çözmek ve belirtilen içeriğin yürütmek için kullanılan lisans verir.
 
-Media Services, PlayReady lisanslarınızı yapılandırmak için kullanabileceğiniz API'ler de sağlar. Korumalı içeriği kayıttan yürütmek bir kullanıcı çalıştığında zorlamak için PlayReady dijital hak yönetimi (DRM) çalışma zamanı istediğiniz kısıtlamaları ve lisansları hakları içerir.
-Belirleyebileceğiniz PlayReady lisans kısıtlamaları bazı örnekleri şunlardır:
+PlayReady lisans hakları içerir ve korumalı içeriği kayıttan yürütme bir kullanıcı çalıştığında zorlamak için PlayReady dijital hak yönetimi (DRM) runtime istediğiniz kısıtlamaları. Belirtebileceğiniz PlayReady lisans kısıtlamaları bazı örnekleri aşağıda verilmiştir:
 
-* Tarih ve saat Lisans geçerli.
+* Lisans geçerli saat ve tarihi.
 * Lisans sona erdiğinde tarih saat değeri. 
-* Kalıcı depolama alanına istemcide kaydedilmesi için lisans. Kalıcı lisanslar genellikle çevrimdışı kayıttan yürütme içeriğin izin vermek için kullanılır.
-* Bir oynatıcı içeriğinizi yürütmek için gereken en düşük güvenlik düzeyi. 
-* Audio\video içerik için çıkış denetimleri için çıkış koruma düzeyi. 
-* Daha fazla bilgi için "Çıkış denetimleri" (3.5) bölümüne bakın [PlayReady uyumluluk kuralları](https://www.microsoft.com/playready/licensing/compliance/) belge.
+* Lisans istemcide kalıcı depolama alanında kaydedilecek. Kalıcı lisans genellikle çevrimdışı kayıttan yürütme içeriği izin vermek için kullanılır.
+* Bir oynatıcı içeriğinizi oynatmak için gereken en düşük güvenlik düzeyi. 
+* Çıkış denetimleri audio\video içerik için çıkış koruma düzeyi. 
+* Daha fazla bilgi için bkz: "Çıkış denetimleri" bölümüne (3.5) [PlayReady uyumluluk kuralları](https://www.microsoft.com/playready/licensing/compliance/) belge.
 
 > [!NOTE]
-> Şu anda, PlayReady lisans PlayRight yalnızca yapılandırabilirsiniz. Bu hak gereklidir. PlayRight istemci içeriği kayıttan olanağı sağlar. Kayıttan yürütme için belirli kısıtlamalar yapılandırmak için PlayRight de kullanabilirsiniz. 
+> Şu anda yalnızca PlayReady lisans PlayRight yapılandırabilirsiniz. Bu hakkı gereklidir. PlayRight istemci içeriği kayıttan yürütme olanağı sağlar. PlayRight kayıttan yürütmek üzere belirli kısıtlamalarını yapılandırmak için de kullanabilirsiniz. 
 > 
 
-PlayReady lisansları Media Services kullanarak yapılandırmak için Media Services PlayReady lisans şablonu yapılandırmanız gerekir. Şablon XML içinde tanımlandı.
+Bu konuda ile Media Services PlayReady lisans yapılandırma açıklanmaktadır.
 
-Aşağıdaki örnek, bir temel akış lisans yapılandırır basit (ve en yaygın) şablonu gösterir. Bu lisansı ile istemcileriniz PlayReady korumalı içeriği oynatabilirsiniz.
+## <a name="basic-streaming-license-example"></a>Temel akış lisans örneği
+
+Aşağıdaki örnek, temel bir akış lisans yapılandırır en basit (ve yaygın) şablonu gösterir. Bu lisans ile istemcilerinize PlayReady korumalı içerik geri oynatabilirsiniz. 
+
+XML içinde tanımlanan PlayReady lisans şablonu XML şemasına uyan [PlayReady lisans şablonu XML Şeması](#schema) bölümü.
+
 
     <?xml version="1.0" encoding="utf-8"?>
     <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
@@ -53,18 +57,17 @@ Aşağıdaki örnek, bir temel akış lisans yapılandırır basit (ve en yaygı
       </LicenseTemplates>
     </PlayReadyLicenseResponseTemplate>
 
-"PlayReady lisans şablonu XML Şeması" bölümünde tanımlanan PlayReady lisans şablonu XML şeması için XML uyumlu.
 
-## <a id="classes"></a>Lisans şablonları yapılandırmak için Media Services API'ları kullanın
+## <a id="classes"></a>Lisans şablonları yapılandırmak için medya Hizmetleri API'lerini kullanma
 
-Media Services, PlayReady lisans şablonu yapılandırmak için kullanabileceğiniz türler sağlar. Bu tür eşleme tanımlanan türlerine [PlayReady lisans şablonu XML Şeması](#schema).
+Media Services PlayReady lisans şablonu yapılandırmak için kullanabileceğiniz türleri sağlar. 
 
-Aşağıdaki kod parçacığında, PlayReady lisans şablonu yapılandırmak için Media Services .NET PlayReady sınıfları kullanır. Sınıfları tanımlanan [Microsoft.Azure.Management.Media.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) ad alanı. Kod parçacığını PlayReady lisans PlayRight yapılandırır. PlayRight kullanıcı lisansı ve (için kayıttan yürütme özel ilke) PlayRight kendisini yapılandırılmış herhangi bir kısıtlamanın tabi içeriği kayıttan olanağı verir. Bir PlayRight ilkesindeki çoğunu üzerinden içerik çalınabilir çıkışları türlerini denetlemek çıkış kısıtlamaları ilgilidir. Ayrıca, belirli bir çıkış kullanıldığında yerinde konulmalıdır kısıtlamaları içerir. Örneğin, DigitalVideoOnlyContentRestriction etkinleştirilirse, DRM çalışma zamanı dijital çıkışları görüntülenecek video yalnızca izin verir. (Analog video çıkışına içeriği geçmesine izin verilmez.)
+Aşağıdaki kod parçacığı, PlayReady lisans şablonu yapılandırmak için Media Services .NET sınıfları kullanır. Sınıfları, şurada tanımlanan [Microsoft.Azure.Management.Media.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) ad alanı. Kod parçacığı PlayReady lisans PlayRight yapılandırır. PlayRight kullanıcı lisans ve (için kayıttan yürütme özel ilke) PlayRight kendisi üzerinde yapılandırılmış herhangi bir kısıtlama tabi içeriği kayıttan yürütme yeteneği verir. Büyük bir PlayRight ilkesindeki içerik üzerinde yürütülen çıkışları türlerini kontrol çıkış kısıtlama ilgilidir. Ayrıca, belirli bir çıkış kullanıldığında, bir yere koymak herhangi bir kısıtlama da içerir. Örneğin, DigitalVideoOnlyContentRestriction etkinleştirilirse, DRM çalışma zamanının yalnızca videonun dijital çıktıların görüntülenmesini sağlar. (Analog video çıkışına içeriği geçmesine izin verilmez.)
 
 > [!IMPORTANT]
-> Bu tür kısıtlamaların güçlü olabilir, ancak müşteri deneyimi de etkileyebilir. Çıktı korumaları çok kısıtlayıcı varsa, içeriği bazı istemcilerde unplayable olabilir. Daha fazla bilgi için bkz: [PlayReady uyumluluk kuralları](https://www.microsoft.com/playready/licensing/compliance/).
-> 
-> 
+> PlayReady lisans güçlü sınırlamalar vardır. Çıkış korumaları çok fazla kısıtlayıcıysa içeriği bazı istemcilerde unplayable olabilir. Daha fazla bilgi için [PlayReady uyumluluk kuralları](https://www.microsoft.com/playready/licensing/compliance/).
+
+### <a name="configure-playready-license-template-with-net"></a>.NET ile PlayReady lisans şablonu yapılandırma
 
 ```csharp
 ContentKeyPolicyPlayReadyLicense objContentKeyPolicyPlayReadyLicense;
@@ -84,8 +87,6 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
     }
 };
 ```
-
-Silverlight destekleyen bir örnek koruma düzeyleri için bkz: [çıkışı korumalardan Silverlight desteği](http://go.microsoft.com/fwlink/?LinkId=617318).
 
 ## <a id="schema"></a>PlayReady lisans şablonu XML Şeması
     <?xml version="1.0" encoding="utf-8"?>

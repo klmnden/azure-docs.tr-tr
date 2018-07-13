@@ -1,44 +1,44 @@
 ---
-title: Azure eşlemeleri Search hizmetini kullanarak bir adres için arama yapma | Microsoft Docs
-description: Azure eşlemeleri Search hizmetini kullanarak bir adres için arama öğrenin
-author: kgremban
-ms.author: kgremban
+title: Azure haritalar Arama Hizmeti'ni kullanarak bir adres için arama yapma | Microsoft Docs
+description: Azure haritalar Arama Hizmeti'ni kullanarak bir adres arama hakkında bilgi edinin
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 1acb95af7b62641c371627d6250067f9c2eac99c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8b7d2119e1eef8532c30b0a45ae2684493462277
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36320768"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990022"
 ---
-# <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Azure eşlemeleri arama hizmetini kullanarak bir adres bulma
+# <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Azure haritalar arama hizmetini kullanarak bir adres bulma
 
-Maps arama hizmeti adresleri, yerler, ilgi, iş listelerini ve diğer coğrafi bilgi noktaları için aranacak geliştiricileri için tasarlanmış API'leri RESTful kümesidir. Hizmet, belirli bir adresi, çapraz Sokak, coğrafi özelliği veya ilgi çekici (s) için enlem/boylam atar. Araması tarafından döndürülen enlem ve boylam değerleri, rota ve trafik akışı gibi diğer eşlemeleri hizmetlerini parametre olarak kullanılabilir.
+Hizmet eşlemeleri arama API'leri geliştiriciler, adresler, yerler, ilgi alanı, iş dökümleri ve diğer coğrafi bilgileri noktaları için arama yapmak için tasarlanmış bir RESTful kümesi özelliğidir. Hizmet belirli bir adresi, çapraz olan Sokak, coğrafi özellik veya ilgi çekici (POI) için enlem/boylam atar. Arama sonucunda döndürülen enlem ve boylam değerleri, rota ve trafik akışı gibi diğer haritalar Hizmetleri parametreler olarak kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Maps hizmet API'leri yapılan her çağrı yapmak için Maps hesabı ve anahtarı gerekir. Bir hesap oluşturma ve bir anahtar alma hakkında daha fazla bilgi için bkz: [Azure eşlemeleri hesabınızın ve anahtarlarını yönetme](how-to-manage-account-keys.md).
+Haritalar hizmetini API çağrıları yapmak için bir haritalar hesabı ve anahtarı gereklidir. Hesap oluşturma ve anahtar alma hakkında daha fazla bilgi için bkz: [Azure haritalar hesabı ve anahtarları yönetme](how-to-manage-account-keys.md).
 
-Bu makalede kullanan [Postman uygulama](https://www.getpostman.com/apps) REST çağrılarını oluşturmak için. Tercih ettiğiniz herhangi bir API geliştirme ortamında kullanabilirsiniz. 
+Bu makalede [Postman uygulamasını](https://www.getpostman.com/apps) REST çağrılarını oluşturulacak. Tercih ettiğiniz herhangi bir API geliştirme ortamında kullanabilirsiniz. 
 
 
-## <a name="using-fuzzy-search"></a>Benzer arama kullanma
+## <a name="using-fuzzy-search"></a>Belirsiz aramayı kullanma
 
-Arama hizmeti için varsayılan API [benzer arama](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy), adres veya POI belirteçlerin herhangi bir bileşimini girişleri işler. Bu arama API kurallı ' tek satırlı arama ' ve bir arama sorgusu, hangi kullanıcı girişleri bilmiyorsanız durumlarda faydalıdır. Benzer arama API POI arama ve coğrafi kodlama birleşimidir. API bağlamsal bir konum (LAT/lon. Ayrıca ağırlıklı , tam olarak bir koordinat ve RADIUS, tarafından kısıtlı eşleştirin) veya daha genel bağlantı noktası biasing herhangi bir coğrafi çalıştırılabilir.
+Arama hizmeti için varsayılan API [belirsiz arama](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy), adres veya POI belirteçlerin herhangi bir birleşimini girişleri işler. Bu arama API'si, canonical ' tek satır arama ' ve bir arama sorgusu, hangi kullanıcı girişleri biliyor musunuz gerektiğinde faydalıdır. Belirsiz arama API'si, POI arama ve coğrafi kodlama birleşimidir. API bağlamsal bir konum (LAT/lon. Ayrıca ağırlıklı , tam olarak bir koordinatları ve yarıçap tarafından kısıtlanmış pair) veya daha genel bağlantı noktası biasing herhangi bir coğrafi yürütülmek üzere.
 
-Varsayılan olarak çoğu arama sorguları ' maxFuzzyLevel performans elde etmek ve olağan dışı sonuçları azaltmak için = 1'. Her istek için sorgu parametresi geçirerek gerektiğinde bu varsayılanı geçersiz kılınabilir ' maxFuzzyLevel = 2' veya '3'.
+Çoğu arama sorguları için varsayılan ' maxFuzzyLevel performans elde edin ve olağan dışı sonuçları azaltmak için = 1'. Bu varsayılan sorgu parametresini geçirerek her istek için gerektiği gibi geçersiz kılınabilir ' maxFuzzyLevel = 2' veya '3'.
 
-### <a name="search-for-an-address-using-fuzzy-search"></a>Benzer arama özelliğini kullanarak bir adres arayın
+### <a name="search-for-an-address-using-fuzzy-search"></a>Belirsiz arama kullanarak adres arama
 
-1. Postman uygulamasını açın, Yeni'ye tıklayın | Yeni oluşturun ve seçin **GET isteğini**. Bir istek adını girin **benzer arama**, koleksiyon veya kaydetmesi ve'klasörü seçin **kaydetmek**.
+1. Postman uygulamasını açın, yeni | Yeni oluşturun ve seçin **GET isteği**. Bir istek adı girin **belirsiz arama**, bir koleksiyon ya da kaydedin ve klasör seç **Kaydet**.
 
-2. Oluşturucu sekmesinde seçin **almak** HTTP yöntemi ve istek URL'si, API uç noktası için girin.
+2. Oluşturucu sekmesinde **alma** HTTP yöntemi ve API uç noktanız için istek URL'sini girin.
 
-    ![Benzer arama ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![Belirsiz arama ](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
@@ -46,51 +46,51 @@ Varsayılan olarak çoğu arama sorguları ' maxFuzzyLevel performans elde etmek
     | İstek URL'si | https://atlas.microsoft.com/search/fuzzy/json? |
     | Yetkilendirme | Hiçbir kimlik doğrulama |
 
-    **Json** URL yolunu özniteliğinde yanıt biçimi belirler. Bu makale boyunca json kullanım kolaylığı ve Okunabilirlik için kullanıyorsunuz. Kullanılabilir yanıt biçimlerde bulabilirsiniz **arama belirsiz alma** [eşlemeleri işlevsel API başvuru] tanımını (https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
+    **Json** özniteliği URL yolunda yanıt biçimi belirler. Kullanım kolaylığı ve Okunabilirlik için bu makalenin tamamında json kullanıyor. Kullanılabilir yanıt biçimlerde bulabilirsiniz **arama belirsiz alma** tanımı [haritalar işlevsel API Başvurusu] (https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 
-3. Tıklatın **Params**ve aşağıdaki anahtarı girin / değer çiftleri sorgu veya yol parametreleri istek URL'sindeki olarak kullanın:
+3. Tıklayın **Params**ve aşağıdaki anahtarı girin / değer çiftleri olarak istek URL'si içinde sorgu veya yol parametrelerini kullanmak için:
 
-    ![Benzer arama ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![Belirsiz arama ](./media/how-to-search-for-address/fuzzy_search_params.png)
 
     | Anahtar | Değer |
     |------------------|-------------------------|
     | API sürümü | 1.0 |
-    | Abonelik anahtarı | \<Azure eşlemeleri anahtarınızı\> |
+    | Abonelik anahtarı | \<Azure haritalar anahtarınız\> |
     | sorgu | pizza |
 
-4. Tıklatın **Gönder** ve yanıt gövdesi gözden geçirin. 
+4. Tıklayın **Gönder** ve yanıt gövdesinin gözden geçirin. 
 
-    "Pizza" belirsiz sorgu dizesi "pizza" ve "Restoran" dönmeden kategorilerle 10 nokta faiz (POI) sonuç döndürdü. Bir adresi enlem her sonucunu döndürür / boylam değerleri görünümü bağlantı noktası ve konumu için giriş noktası.
+    "Pizza" belirsiz sorgu dizesi "pizza" ve "Restoran" dönülüyor kategorileri 10 noktası (POI) ilgilendiğiniz sonuçları döndürdü. Her sonuç döndüren bir adresin enlem / boylam değerleri, bağlantı noktasını ve giriş noktası konumu için görünümü.
     
-    Sonuçlar herhangi bir belirli başvuru konuma bağlanmayan bu sorgu için farklılık gösterir. Kullanabileceğiniz **countrySet** olası gereksiz sonuçları döndüren dünyaya aramak için varsayılan davranış olduğu gibi yalnızca uygulamanız gereken kapsamı, ülkelerin belirtmek için parametre.
+    Sonuçları herhangi bir belirli başvuru konuma bağlı değildir, bu sorgu için farklılık gösterir. Kullanabileceğiniz **countrySet** potansiyel olarak gereksiz sonuçları döndüren dünyaya aramak için varsayılan davranış olduğu gibi yalnızca uygulamanızın gereken kapsama, ülkelerin belirtmek için parametre.
 
-5. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
+5. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
 
     | Anahtar | Değer |
     |------------------|-------------------------|
     | countrySet | ABD |
     
-    Sonuçları şimdi ülke kodu tarafından ilişkisindeki ve sorgu pizza Restoran Amerika Birleşik Devletleri'nde döndürür.
+    Sonuçları artık ülke kodu tarafından sınırlanan ve sorgu Amerika Birleşik Devletleri'nde pizza restoranlar döndürür.
     
-    Belirli bir konuma yönelik sonuçları sağlamak için bir ilgi sorgular ve döndürülen enlem ve boylam değerleri belirsiz arama hizmeti için aramayı kullanın. Bu durumda, arama hizmeti Seattle alanı iğnenin konumunu döndürmek için kullanılan ve LAT kullanılan / lon. Arama yönlendirmek için değerler.
+    Belirli bir konuma yönelik sonuçları sağlamak için ilgi noktası sorgulamak ve, belirsiz arama hizmeti çağrısı döndürülen enlem ve boylam değerleri kullanın. Bu durumda, arama hizmeti Seattle alanı iğne konumu döndürmek için kullanılan ve LAT kullanılan / lon. Arama yönlendirmek için değerler.
     
-4. Params içinde aşağıdaki anahtarı girin / değer çiftleri ve tıklatın **Gönder**:
+4. Params içinde aşağıdaki anahtarını girin / değer çiftlerini ve tıklayın **Gönder**:
 
-    ![Benzer arama ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![Belirsiz arama ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
     
     | Anahtar | Değer |
     |-----|------------|
     | LAT | 47.62039 |
     | lon | -122.34928 |
 
-## <a name="search-for-address-properties-and-coordinates"></a>Adres özellikleri ve koordinatları arayın 
+## <a name="search-for-address-properties-and-coordinates"></a>Adres özelliklerini ve koordinatları Ara 
 
-Tam veya kısmi bir adres arama adresine API geçirebilir ve enlem ve boylam konumsal değerlerinin yanı sıra belediye veya alt bölümü gibi ayrıntılı adres özellikleri içeren bir yanıtı alırsınız.
+API arama adresine tam veya kısmi bir adres geçirin ve enlem ve boylam belediye veya alt yanı sıra, konumsal değerleri gibi ayrıntılı adres özelliklerini içeren bir yanıt alırsınız.
 
-1. Postman içinde tıklatın **yeni istek** | **GET isteğini** ve adlandırın **adresi arama**.
-2. Oluşturucu sekmesinde seçin **almak** HTTP yöntemi, API uç noktası için istek URL'sini girin ve varsa bir yetkilendirme protokolünü seçin.
+1. Postman içinde tıklayın **yeni istek** | **GET isteği** ve adlandırın **adresi arama**.
+2. Oluşturucu sekmesinde **alma** HTTP yöntemi, API uç noktanız için istek URL'sini girin ve varsa bir Yetkilendirme Protokolü seçin.
 
-    ![Adresi arama ](./media/how-to-search-for-address/address_search_url.png)
+    ![Adres Arama ](./media/how-to-search-for-address/address_search_url.png)
     
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
@@ -98,39 +98,39 @@ Tam veya kısmi bir adres arama adresine API geçirebilir ve enlem ve boylam kon
     | İstek URL'si | https://atlas.microsoft.com/search/address/json? |
     | Yetkilendirme | Hiçbir kimlik doğrulama |
 
-2. Tıklatın **Params**ve aşağıdaki anahtarı girin / değer çiftleri sorgu veya yol parametreleri istek URL'sindeki olarak kullanın:
+2. Tıklayın **Params**ve aşağıdaki anahtarı girin / değer çiftleri olarak istek URL'si içinde sorgu veya yol parametrelerini kullanmak için:
     
-    ![Adresi arama ](./media/how-to-search-for-address/address_search_params.png)
+    ![Adres Arama ](./media/how-to-search-for-address/address_search_params.png)
     
     | Anahtar | Değer |
     |------------------|-------------------------|
     | API sürümü | 1.0 |
-    | Abonelik anahtarı | \<Azure eşlemeleri anahtarınızı\> |
+    | Abonelik anahtarı | \<Azure haritalar anahtarınız\> |
     | sorgu | 400 geniş St, Seattle, WA 98109 |
     
-3. Tıklatın **Gönder** ve yanıt gövdesi gözden geçirin. 
+3. Tıklayın **Gönder** ve yanıt gövdesinin gözden geçirin. 
     
-    Bu durumda, belirtilen bir tam adresi sorgu ve yanıt gövdesi içinde tek bir sonuç almak. 
+    Bu durumda, belirtilen tam adresi sorgu ve yanıt gövdesi içinde tek bir sonuç alırsınız. 
     
-4. Parametreleri sorgu dizesi şu değere düzenleyin:
+4. Params içinde aşağıdaki değerle sorgu dizesini düzenleyin:
     ```
         400 Broad, Seattle
     ```
 
-5. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
+5. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
 
     | Anahtar | Değer |
     |-----|------------|
     | typeahead | true |
 
-    **Typeahead** bayrağı sorgu kısmi bir girdi olarak kabul eder ve Tahmine dayalı değerler dizisi dönmek için adres arama API söyler.
+    **Typeahead** bayrağı sorgu kısmi bir girdi olarak kabul et ve Tahmine dayalı bir değerler dizisini döndürmek için adres arama API'si söyler.
 
-## <a name="search-for-a-street-address-using-reverse-address-search"></a>Ters adresi arama özelliğini kullanarak bir adres arayın
-1. Postman içinde tıklatın **yeni istek** | **GET isteğini** ve adlandırın **ters adresi arama**.
+## <a name="search-for-a-street-address-using-reverse-address-search"></a>Adres Arama ters kullanarak bir adres arayın
+1. Postman içinde tıklayın **yeni istek** | **GET isteği** ve adlandırın **ters adresi arama**.
 
-2. Oluşturucu sekmesinde seçin **almak** HTTP yöntemi ve istek URL'si, API uç noktası için girin.
+2. Oluşturucu sekmesinde **alma** HTTP yöntemi ve API uç noktanız için istek URL'sini girin.
     
-    ![Geriye doğru adresi arama URL'si ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Ters adresi arama URL'si ](./media/how-to-search-for-address/reverse_address_search_url.png)
     
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
@@ -138,67 +138,67 @@ Tam veya kısmi bir adres arama adresine API geçirebilir ve enlem ve boylam kon
     | İstek URL'si | https://atlas.microsoft.com/search/address/reverse/json? |
     | Yetkilendirme | Hiçbir kimlik doğrulama |
     
-2. Tıklatın **Params**ve aşağıdaki anahtarı girin / değer çiftleri sorgu veya yol parametreleri istek URL'sindeki olarak kullanın:
+2. Tıklayın **Params**ve aşağıdaki anahtarı girin / değer çiftleri olarak istek URL'si içinde sorgu veya yol parametrelerini kullanmak için:
     
     ![Adres arama parametrelerini ters çevir ](./media/how-to-search-for-address/reverse_address_search_params.png)
     
     | Anahtar | Değer |
     |------------------|-------------------------|
     | API sürümü | 1.0 |
-    | Abonelik anahtarı | \<Azure eşlemeleri anahtarınızı\> |
+    | Abonelik anahtarı | \<Azure haritalar anahtarınız\> |
     | sorgu | 47.59093,-122.33263 |
     
-3. Tıklatın **Gönder** ve yanıt gövdesi gözden geçirin. 
+3. Tıklayın **Gönder** ve yanıt gövdesinin gözden geçirin. 
     
-    Yanıt POI giriş Safeco alanı için "stadyum" ile bir poı kategorisi içerir. 
+    Yanıt, bir "stadyum" poı kategorisiyle Safeco Field'daki sayı için POI giriş içeriyor. 
     
-4. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
+4. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
 
     | Anahtar | Değer |
     |-----|------------|
     | number | true |
 
-    Varsa [numarası](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi istekle birlikte gönderilen, yanıt Sokak (sol/sağ) ve ayrıca bu sayıyı için uzaklık konumu tarafında içerebilir.
+    Varsa [numarası](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi istekle birlikte gönderilen, yanıt Sokak (sol/sağ) ve ayrıca kaydırmak için bu sayıyı tarafında içerebilir.
     
-5. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
+5. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
 
     | Anahtar | Değer |
     |-----|------------|
     | spatialKeys | true |
 
-    Zaman [spatialKeys](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, yanıt belirtilen konum için özel coğrafi uzamsal anahtar bilgileri içerir.
+    Zaman [spatialKeys](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, yanıtta belirtilen bir konuma için özel Jeo-uzamsal anahtar bilgilerini içerir.
 
-6. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
+6. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
 
     | Anahtar | Değer |
     |-----|------------|
     | returnSpeedLimit | true |
     
-    Zaman [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmış, yanıt dönüş gönderilen hız sınırı.
+    Zaman [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) yanıtı döndürür gönderilen Hız sınırını sorgu parametresi ayarlanır.
 
-7. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
+7. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
 
     | Anahtar | Değer |
     |-----|------------|
     | returnRoadUse | true |
 
-    Zaman [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, yanıt Sokak düzeyinde reversegeocodes için yol kullanım dizisi döndürür.
+    Zaman [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, yol kullanmak dizi reversegeocodes Sokak düzeyinde için yanıtı döndürür.
 
-8. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
+8. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
 
     | Anahtar | Değer |
     |-----|------------|
     | roadUse | true |
 
-    Yol kullanarak bir özel tür için ters geocode sorgu kısıtlayabilirsiniz [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi.
+    Yol kullanarak, belirli bir türe ters geocode sorgu kısıtlayabilirsiniz [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi.
     
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Çapraz sokak adresi arası Sokak arama ters kullanarak arayın
 
-1. Postman içinde tıklatın **yeni istek** | **GET isteğini** ve adlandırın **Sokak arama arası adresi ters**.
+1. Postman içinde tıklayın **yeni istek** | **GET isteği** ve adlandırın **Sokak arama çapraz adresi ters**.
 
-2. Oluşturucu sekmesinde seçin **almak** HTTP yöntemi ve istek URL'si, API uç noktası için girin.
+2. Oluşturucu sekmesinde **alma** HTTP yöntemi ve API uç noktanız için istek URL'sini girin.
     
-    ![Adres arası Sokak arama ters çevir ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Ters adresi arası Sokak arama ](./media/how-to-search-for-address/reverse_address_search_url.png)
     
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
@@ -206,15 +206,15 @@ Tam veya kısmi bir adres arama adresine API geçirebilir ve enlem ve boylam kon
     | İstek URL'si | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
     | Yetkilendirme | Hiçbir kimlik doğrulama |
     
-3. Tıklatın **Params**ve aşağıdaki anahtarı girin / değer çiftleri sorgu veya yol parametreleri istek URL'sindeki olarak kullanın:
+3. Tıklayın **Params**ve aşağıdaki anahtarı girin / değer çiftleri olarak istek URL'si içinde sorgu veya yol parametrelerini kullanmak için:
     
     | Anahtar | Değer |
     |------------------|-------------------------|
     | API sürümü | 1.0 |
-    | Abonelik anahtarı | \<Azure eşlemeleri anahtarınızı\> |
+    | Abonelik anahtarı | \<Azure haritalar anahtarınız\> |
     | sorgu | 47.59093,-122.33263 |
     
-4. Tıklatın **Gönder** ve yanıt gövdesi gözden geçirin. 
+4. Tıklayın **Gönder** ve yanıt gövdesinin gözden geçirin. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Araştır [Azure eşlemeleri search hizmeti](https://docs.microsoft.com/rest/api/maps/search) API belgeleri 
+- Keşfedin [Azure haritalar, arama hizmetinizi](https://docs.microsoft.com/rest/api/maps/search) API belgeleri 

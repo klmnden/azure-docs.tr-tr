@@ -1,6 +1,6 @@
 ---
-title: Market'te veriş Publisher'da hale | Azure
-description: Bu makalede, bir yayımcı Market'te hale açıklar.
+title: Bir yayımcı olarak Market'te vitrinler olur | Azure
+description: Bu makalede, bir yayımcının Market'te haline açıklar.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,85 +14,97 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 58e3646588e500c4dd5334966d559aaed333b689
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 9795beca93ab4dbbeb1e0e99a50952ea23ca1568
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083170"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005494"
 ---
-# <a name="become-a-publisher-in-the-storefronts-on-the-marketplace"></a>Market'te veriş Publisher'da olur  
-Aşağıdaki adımlar, yayımcı Market'te veriş olarak kaydetme yardımcı. Microsoft ile var olan katılım temel ve liste türü seçili, aşağıdaki adımlardan bazıları gerekli olmayabilir.  
+# <a name="become-a-cloud-marketplace-publisher"></a>Bulut Market yayımcısı olur
 
-|  | Kayıt adımı | Zaman | Ayrıntılar |  
+Bu makale, bir bulut Market yayımcısı kaydetme kapsar. Seçilen yayımlama seçeneğinizi ve Microsoft iş ortağı ağı, geçerli üyeliğine bağlı olarak aşağıdaki adımlardan bazıları gerekli olmayabilir. Bir kez kayıtlı şunları yapabileceksiniz Market teklifleri için Azure Market veya Appsource'ta oluşturmak.
+
+
+|  | Kayıt adımı | Süre | Ayrıntılar |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Microsoft iş ortağı ağı kaydet | 15 dakika | [Microsoft iş ortağı ağı kaydet](#register-in-microsoft-partner-network) |  
-| 2 | Microsoft kimlik oluşturun | 15 dakika | [Microsoft kimlik oluşturun](#create-a-microsoft-id) |  
-| 3 | Market Adaylığı form gönderme | 1-3 gün | [Market Adaylığı form gönderme](#submit-the-marketplace-nomination-form) |  
-| 4 | Microsoft Developer Center'da (Dev Center) kaydetme | 5-10 gün | [Geliştirme Merkezi'ne Kaydolma](#register-in-dev-center) |  
-| 5 |  Bulut iş ortağı portalında oturum açın | 15 dakika | [Bulut iş ortağı portalında oturum açın](#sign-into-cloud-partner-portal) |  
+| 1 | Microsoft İş Ortağı Ağı'kaydetme | 15 dakika | [Microsoft İş Ortağı Ağı'kaydetme](#register-in-microsoft-partner-network) |  
+| 2 | Bir Microsoft hesabı oluşturun <ul>(teklifleri Azure Marketi transact için gerekli; diğerleri için önerilir)</ul> | 15 dakika | [Microsoft kimliği oluşturma](#create-a-microsoft-id) |  
+| 3 | Market kayıt formu gönderin | 15 dakika | [Market ADAYLIK formu gönderin](#submit-the-marketplace-nomination-form) |  
+| 4 |  Bulut iş ortağı Portalı'nda oturum açın | 1 ila 3 gün | [Bulut iş ortağı Portalı'nda oturum açın](#sign-into-cloud-partner-portal) |  
+| 5 | Microsoft Developer Center'da (Dev Merkezi) (Azure Marketi'nde transact teklifleri için) kaydetme | 5-10 gün | [Geliştirme Merkezi'ne Kaydolma](#register-in-dev-center) |  
 
-## <a name="register-in-microsoft-partner-network"></a>Microsoft iş ortağı ağı kaydet  
+
+## <a name="1-register-in-microsoft-partner-network"></a>1. Microsoft İş Ortağı Ağı'kaydetme  
 | 15 dakika |  
-Bir resmi Microsoft iş ortağı haline gelir ve başka avantajları almak ve Azure Marketi'nde yayımlama desteği için Microsoft Partner Network (MPN) katılın. MPN içinde kaydetmek ve tıklayın `Enroll`.  
-*   MPN kaydetmek için konumunda bulunan üyelik sayfasını ziyaret edin [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
+Üyelik, Microsoft iş ortağı ağı (Ayrıca temel avantajlar, programlar ve iş ortağı performans izleme sağlayan MPN), Microsoft'un bulut Market katılım gerektirir. Kuruluşunuz henüz bir üyesi değilse resmi bir Microsoft iş ortağı ve ek avantajlardan yararlanabilir ve Market'te yayımlamak için desteklemek için Microsoft iş ortağı ağı (MPN) katılın. 
+
+*   Microsoft İş Ortağı Ağı'kaydetmek için ziyaret [üyelik sayfa](https://partner.microsoft.com/membership), kayıt işlemini başlatmak için bu adımları izleyin.  
+
+Kaydolduktan sonra kuruluşunuz için Microsoft iş ortağı ağ Kimliğini kaydedin. Bu adım 3'sırasında Market kaydı formunuza gönderirken ihtiyacınız olacak.
+*   Avantajları hakkında bilgi edinin [Microsoft iş ortağı ağı](https://partner.microsoft.com/en-us/commercial)
+*   Ardından, kuruluşunuzun varolan bir üyelik varsa, kayıt sırasında kuruluşunuzun katılır. Kullanırsanız [iş ortağı Merkezi](https://partnercenter.microsoft.com/partner/home), iş ortağı merkezi hesabınız kimliği görmeye devam. Kullanırsanız [iş ortağı üyelik Merkezi'nde (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), iş ortağı üyelik Merkezi'nde hesabınızdaki görmeye devam. 
 
 ---  
 
-Kuruluşunuzda varolan bir üyelik varsa, kayıt sırasında kuruluşunuzun katılın. Kaydolduktan sonra kuruluşunuz için MPN kimliği kaydedin. Microsoft publisher profilinizde bulut iş ortağı portalını etkinleştirmeden önce MPN Kimliğinizi ister. 
-*   Yayımcı profilinizi etkinleştirme hakkında daha fazla bilgi için ziyaret [kaydetmek geliştirme Merkezi'nde](#register-in-dev-center) bölümü.  
-
----  
-
-## <a name="create-a-microsoft-id"></a>Microsoft kimlik oluşturun  
+## <a name="2-create-a-microsoft-account"></a>2. Bir Microsoft hesabı oluşturun  
 | 15 dakika |  
-Microsoft ID, bulut iş ortağı portalını erişmenize olanak tanır. E-posta adresi a Microsoft ID kayıtlı olması gerekir ve bulut iş ortağı portalı ve Geliştirme Merkezi için kullanılır. Seçilen e-posta adresi şirket etki alanınızda tercihen olmalıdır ve BT ekibi tarafından denetlenir.  
-*   Geliştirme Merkezi'nde kaydetme hakkında daha fazla bilgi için ziyaret [kaydetmek geliştirme Merkezi'nde](#register-in-dev-center) bölümü.  
-*   Bulut iş ortağı Portalı'na imzalama hakkında daha fazla bilgi için ziyaret [bulut iş ortağı portalında oturum açın](#sign-into-cloud-partner-portal) bölümü.  
-*   A Microsoft ID oluşturma yönergeleri gözden geçirmek için ziyaret [Market hesabını yönetmek için a Microsoft ID oluşturma yönergeleri](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) bölümü.  
+Bir Microsoft hesabı, örneğin *@outlook.com veya @live.com*, birçok Microsoft cihazlara ve hizmetlere erişmek için kullanılır. Azure Marketi teklifleri transact ve tüm bulut yayımcılar için kullanılmasını öneririz gereklidir. Bir Microsoft hesabı'nın kullanır ve avantajları hakkında daha fazla bilgi için [bu sayfayı ziyaret](https://account.microsoft.com/account/). Bulut iş ortağı portalına erişmek için kişisel bir Microsoft hesabıyla kullanın, oluşturmak ve yönetmek, Market'ten için kullanacağınız yayımlama platformu sunar. 
+
+[! İş e-postanız ile ilişkili Microsoft hesabınız portalına erişmek izin vermez, önemli] lütfen unutmayın.
+
+>[!Note]
+>Zaten bir Microsoft hesabınız varsa gözden [marketplace hesabı yönetmek için a Microsoft ID oluşturma yönergeleri](https://review.docs.microsoft.com/en-us/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) Market yayımlama için kullanılabilir olmadığını belirlemek için. 
+
+>Kullanıcılar Azure Active Directory Federasyon Kurumsal hesap ile kimler [bu makalede](https://review.docs.microsoft.com/en-us/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) oluşturmayı veya mevcut Microsoft Account kullanmayı denemeden önce.
+
+*   Oluşturma veya Microsoft hesabınızı yönetme konusunda yardım için ziyaret [Microsoft hesabı Yardım desteği sayfaları](https://support.microsoft.com/en-us/products/microsoft-account?category=manage-account).
+
 
 ---  
 
-## <a name="submit-the-marketplace-nomination-form"></a>Market Adaylığı form gönderme  
-| 1-3 gün |  
-Kuruluşunuz Market'te veriş Publisher'da olmasını belirler. 
-*   Azure Market Adaylığı form göndermek için Azure Market Adaylığı sayfasında bulunan Form ziyaret edin [aka.ms/listonazuremarketplace](http://aka.ms/listonazuremarketplace)  
-*   AppSource Adaylığı form göndermek için uygulama sayfanızı Hakkımızda bulunan iletin ziyaret edin [aka.ms/listonappsource](http://aka.ms/listonappsource)  
+## <a name="3-submit-the-marketplace-registration-form"></a>3. Market kayıt formu gönderin  
+| 15 dakika |  
+Market yayımcısı olmaya bu kısa kayıt formunu doldurun. Bu form üzerinde gönderilen bilgiler, bulut iş ortağı oluşturun, yayımlayın ve Market tekliflerini yönetmenize izin veren portalında bir yayımcı hesabı oluşturmak için kullanılır.
 
-Adaylığı formunuzda aşağıdaki bilgileri içermelidir.  
-*   Kuruluşunuz hakkında ayrıntılar  
-*   İlk app veya teklif hakkında ayrıntılar  
-*   Müşterilerinize verme destek düzeyini hakkındaki ayrıntıları  
-
-Uygulama veya teklif gözden ve formu gönderdikten sonra doğrulandı. Ardından onaylanırsa, onaylanmış bir iş ortağı olun için sonraki adımları içeren bir e-posta alırsınız. E-posta ayrıca Geliştirme Merkezi hesabı oluşturmak için kayıt ücret waives bir promosyon kodu içerir. Aynı zamanda bulut iş ortağı portalını veya AppSource erişim sahibi olursunuz. AppSource üzerinde ilk uygulamanızı veya Bulut iş ortağı portalınızda ilk teklif tamamlayın. AppSource veya Bulut iş ortağı portalını teklifler ek uygulamalar oluşturun.  
-*   Geliştirme Merkezi'nde kaydetme hakkında daha fazla bilgi için ziyaret [kaydetmek geliştirme Merkezi'nde](#register-in-dev-center) bölümü.  
+Aşağıdaki bilgiler istenir:
+*   Kuruluşunuz, Microsoft iş ortağı ağ Kimliğini de dahil olmak üzere ilgili ayrıntıları (hangi ya da göz atabilirsiniz [iş ortağı Merkezi](https://partnercenter.microsoft.com/partner/home) veya [iş ortağı üyelik Merkezi'nde](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))
+*   İlk uygulamanızı veya danışmanlık hizmetleri kısa bir açıklamasını sunar, yayımlama, Microsoft Ürün veya hizmet teklifinizi en yakın beraber hizalar dahil olmak üzere planladığınız
+*   Uygulamanız veya hizmetiniz için hedef kitle 
 
 ---  
+## <a name="4-sign-into-cloud-partner-portal"></a>4. Bulut iş ortağı Portalı'nda oturum açın
+| 1 ila 3 gün | Market ekleme ekibimiz gözden geçirin ve adım 3'te sağlanan Market kayıt ayrıntılarını doğrulayın. Onaylandıktan sonra bir Hoş Geldiniz e-posta ile hesap kimlik bilgilerini ve oturum açma için yönergeler alırsınız [bulut iş ortağı portalı](https://cloudpartner.azure.com).
 
-## <a name="register-in-dev-center"></a>Geliştirme Merkezi'ne kaydetme  
+Kullanacağınız [bulut iş ortağı portalı](https://cloudpartner.azure.com) oluşturmak için yayımlama ve Market teklifleri yönetin. Onay Hoş Geldiniz e-postası aldıktan sonra hemen üzerinde oturum açabileceğiniz [bulut iş ortağı portalı](https://cloudpartner.azure.com) Market'te yayımlama ve teklifinizi oluşturma hakkında ek teknik bilgiler erişmek için Microsoft hesabınızla. 
+*   Bulut iş ortağı portalı kullanma hakkında daha fazla bilgi için [edinin bölümünde Başlarken makaleyi ziyaret](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Bu ayrıntılar erişmek için bulut iş ortağı portalı oturum açmanız gerekir.
+*   Sizin sorularınız varsa veya bir ekleme genel bakış çağrı zamanlama gibi diğer makalelerden Bu yayımcı Kılavuzu gözden geçirin veya sorun türü altında bir destek isteği açın > bulut iş ortağı portalı içinden gelen Market ekleme.
+*   Hoş Geldiniz e-postayı almadıysanız, lütfen konu satırını içeren bir e-posta için istenmeyen posta klasörünüzü kontrol edin "için Microsoft Marketplace Hoş Geldiniz!." İstenmeyen posta klasörünüzü hiç e-posta varsa, lütfen [Microsoft desteğine başvurun](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Destek sayfasında Lütfen seçin: sorun türü > Market ekleme.  Market yayımcı ekleme ekibimiz, sorguları ile yardımcı olmaktan mutluluk duyarız. 
+
+
+## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5. (Yalnızca seçeneğin yayımlama Transact için) geliştirme Merkezi'ne kaydolun 
 | 5-10 gün |  
-Bir Geliştirici Merkezi hesabına sahip liste türü Transact yayımlama uygulamaları için gereklidir; Sanal makineler, Azure uygulamaları gibi: Çözüm şablonları ve Azure uygulamaları: yönetilen uygulamalar. Bu gereksinim, hukuk doğrulamak Microsoft etkinleştirir vergi ve şirketiniz için bankacılık bilgilerini. Kaydetme kişi, kuruluşunuzun geçerli bir temsilcisi olmalıdır ve kimliğini doğrulamak için kişisel bilgileri sağlamanız gerekir. Bir Microsoft ID. kullanarak kaydetmeniz gerekir Şirketiniz için Microsoft ID paylaşılması gerekir. Bulut iş ortağı portalında aynı Microsoft ID kullanmanız gerekir.  
-*   A Microsoft ID oluşturma hakkında daha fazla bilgi için ziyaret [a Microsoft ID oluşturmak](#create-a-microsoft-id) bölümü.  
+A [Geliştirme Merkezi](https://developer.microsoft.com/en-us/store/register) hesabı seçeneği yayımlama transact kullanan teklifleri için gereklidir: sanal makineler, Azure uygulamaları ve SaaS uygulamalarını Azure üzerinden satış için yapılandırılmış içerir. [Geliştirme Merkezi](https://developer.microsoft.com/en-us/store/register) hesap ayrıntılarını yasal, vergi doğrulamak için Microsoft tarafından kullanılır ve Azure ile bankacılık bilgilerini satmak ve yazılım lisansı fatura ödeme amacıyla kullanılacak kuruluşunuz için fees Market. 
 
->[!NOTE]
->Market Adaylığı form tamamlamazsanız 99 kayıt ücret ödemeniz gerekir. Bu ücret feragat etmiş için Market Adaylığı formu doldurun ve promosyon kodu içeren bir e-posta alırsınız.  
+[Geliştirme Merkezi](https://developer.microsoft.com/en-us/store/register) kayıt işlemini bulut iş ortağı Portalı'nda teklifinizi oluşturmadan önce başlatılabilir, ancak Market teklifinizi yayımlamadan önce tamamlanmış olması gerekir. Bu adım 5-10 gün tipik süresini göz önünde bulundurulduğunda, transact yayımlama seçeneğini kullanmak istiyorsanız bu işlemi hemen başlamanızı öneririz. 
+
+İçinde tek tek kaydetme [Geliştirme Merkezi](https://developer.microsoft.com/en-us/store/register) kuruluşunuzun geçerli bir temsilcisi olması ve kullanıcıların kimliğini doğrulamak için kişisel bilgilerini sağlamanız gerekir. 2. adımda oluşturduğunuz Microsoft hesabınız ile kaydedin ve bulut iş ortağı portalına erişmek için kullandığınız aynı Microsoft hesabını kullanın.
+
+*   Kaydolmak için bir [Geliştirme Merkezi](https://developer.microsoft.com/en-us/store/register) hesabı [kaydolma işlemini başlatmak](https://developer.microsoft.com/en-us/store/register).
+*   Bir Microsoft hesabı oluşturma hakkında daha fazla bilgi için ziyaret *Microsoft hesabı oluşturmanızda* bölümü.
+ 
+Tamamladıktan sonra [Geliştirme Merkezi](https://developer.microsoft.com/en-us/store/register) kayıt, bulut iş ortağı profilinizle birlikte bağlantı, [Geliştirme Merkezi](https://developer.microsoft.com/en-us/store/register) hesap (burada ayrıntılı adımlara bakın). Transact teklifinizi yayımlamadan önce bu adımın tamamlanması gerekir. 
+
+>[!Note]
+>99 Geliştirici Merkezi kayıt ücret ayları için Market kayıt formunu tamamladıktan ve promosyon kodunuzu içeren bir e-posta alırsınız. 
 
 >[!Important]
->Bir Geliştirme Merkezi hesabı oluşturmak, doğrulamak, çalışmadan önce şirketinizin zaten bir Geliştirici Merkezi hesabına sahip değil. 
->*   Daha fazla bilgi için ziyaret [Dev Center kayıttaki nasıl](#how-to-register-in-dev-center) bölümü.  
+>Microsoft Dev Center hesabı oluşturmadan önce kuruluşunuzun zaten yinelenen önlemek için bir Geliştirme Merkezi hesabı yok doğrulayın. Daha fazla bilgi için ziyaret [Geliştirme Merkezi kayıttaki nasıl](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-44571#how-to-register-in-dev-center) bölümü.
 
----  
-
-## <a name="sign-into-cloud-partner-portal"></a>Bulut iş ortağı portalında oturum açın
-| 15 dakika |  
-Adaylığı onaylandıktan sonra MPN ve Geliştirme Merkezi kayıtlı, Market hesabınızı bulut iş ortağı portalına erişim ile oluşturulur. İlk kez oturum açma kimlik bilgileri, Adaylığı onay e-postayla gönderilir. 
-*   MPN erişmek için konumunda bulunan üyelik sayfasını ziyaret edin [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
-*   Geliştirici Merkezi'ne erişmek için Windows Geliştirme Merkezi sayfasında bulunan ziyaret edin [dev.windows.com](https://dev.windows.com).  
-*   Microsoft bulut iş ortağı portalına erişmek için sayfa bulunan bulut iş ortağı portalını ziyaret edin [cloudpartner.azure.com](https://cloudpartner.azure.com).  
-*   Bulut iş ortağı portalını kullanma hakkında daha fazla bilgi için konumunda bulunan öğrenin bölümünü ziyaret edin ve [cloudpartner.azure.com/#Learn](https://cloudpartner.azure.com/#Learn).  
-*   Bulut iş ortağı portalını ilgili belgeler için konumunda bulunan bir belge bölümü ziyaret [cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation).  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-*   Ziyaret [Azure Marketi ve AppSource yayımcı Kılavuzu](./marketplace-publishers-guide.md) sayfası.  
+* Market vitrininin birleşiminden hakkında bilgi edinin: AppSource ve Azure Market
+*   Teklifinizi Market'e belirleme
+
  
 ---  

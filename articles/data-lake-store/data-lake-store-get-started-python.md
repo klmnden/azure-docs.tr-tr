@@ -9,16 +9,15 @@ editor: cgronlun
 ms.assetid: 75f6de6f-6fd8-48f4-8707-cb27d22d27a6
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 89d4110679d7a02d1468a9dab6816fb9e6b02181
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: HT
+ms.openlocfilehash: e5b04a4cfbf26011753715f02baea689ec3065b6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39009248"
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Python kullanılarak gerçekleştirilen Azure Data Lake Store'daki hesap yönetimi işlemleri
 > [!div class="op_single_selector"]
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/10/2018
 
 Azure Data Lake Store için Python SDK'yı Data Lake Store hesabı oluşturma, Data Lake Store hesaplarını listeleme gibi temel hesap yönetim işlemlerini gerçekleştirme amacıyla kullanmayı öğrenin. Data Lake Store'da dosya sistemi işlemlerini Python kullanarak gerçekleştirme talimatları için bkz. [Data Lake Store'da Python kullanılarak gerçekleştirilen dosya sistemi işlemleri](data-lake-store-data-operations-python.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Python**. Python’u [buradan](https://www.python.org/downloads/) indirebilirsiniz. Bu makalede Python 3.6.2 kullanılmıştır.
 
@@ -135,6 +134,6 @@ Aşağıdaki kod parçacığı ilk olarak Data Lake Store hesabı istemcisini ol
 * [Data Lake Store'da Python kullanılarak gerçekleştirilen dosya sistemi işlemleri](data-lake-store-data-operations-python.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Azure Data Lake Store Python (Hesap yönetimi) Başvurusu](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+
 * [Azure Data Lake Store Python (Dosya sistemi) Başvurusu](http://azure-datalake-store.readthedocs.io/en/latest)
 * [Azure Data Lake Store ile uyumlu Açık Kaynak Büyük Veri uygulamaları](data-lake-store-compatible-oss-other-applications.md)

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 313f4915a8c522ae2b9fc5ebbbe85fdfb4741cc4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ecd5f242d2dcb5662376541ac0a9e75ce533b59f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969587"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005841"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Bir olaya yanıt olarak bir işlem hattı çalıştırmalarını tetiği oluşturma
 
@@ -51,6 +51,14 @@ Dosya depolama konumunuz ulaştığında ve karşılık gelen blob oluşturulduk
 
 ![Olay türü tetikleyiciyi seçin](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
+### <a name="map-trigger-properties-to-pipeline-parameters"></a>İşlem hattı parametrelerinin harita tetikleyici özellikleri
+
+Belirli bir blob için bir Olay Tetikleyici etkinleştirildiğinde, olay özelliklerini blob klasörü yolu ve dosya adını yakalar `@triggerBody().folderPath` ve `@triggerBody().fileName`. Bir işlem hattı, bu özelliklerin değerlerini kullanmak için işlem hattı parametrelerinin özelliklerini eşlemeniz gerekir. Parametreleri eşleme özellikleri sonra Tetikleyici tarafından yakalanan değerlerine erişebilirsiniz `@pipeline.parameters.parameterName` işlem hattı boyunca ifade.
+
+![İşlem hattı parametrelerinin özellikleri eşleme](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+Örneğin, önceki ekran görüntüsünde. Tetikleyici ne zaman sonu bir blob yolu ateşlenmesine yapılandırılmış `.csv` içinde depolama hesabı oluşturulur. Sonuç olarak, bir blob olduğunda `.csv` uzantısı her yerde depolama hesabında oluşturulan `folderPath` ve `fileName` özellikleri yeni blobunun konumunu yakalama. Örneğin, `@triggerBody().folderPath` gibi bir değere sahip `/containername/foldername/nestedfoldername` ve `@triggerBody().fileName` gibi bir değere sahip `filename.csv`. Bu değerleri örnek işlem hattı parametrelerine eşlenen `sourceFolder` ve `sourceFile`. İşlem hattı boyunca kullanabilirsiniz `@pipeline.parameters.sourceFolder` ve `@pipeline.parameters.sourceFile` sırasıyla.
+
 ## <a name="json-schema"></a>JSON şeması
 
 Aşağıdaki tabloda, olay tabanlı Tetikleyicileri için ilgili şema öğelerinin genel bir bakış sağlar:
@@ -75,14 +83,6 @@ Bu bölümde, olay tabanlı tetikleyici ayarlarını örnekleri sağlar.
 
 > [!NOTE]
 > Dahil etmek zorunda `/blobs/` kapsayıcı ve klasöre, kapsayıcı ve dosya ya da kapsayıcı, klasör belirtin ve dosya yolunun segmenti.
-
-## <a name="map-trigger-properties-to-pipeline-parameters"></a>İşlem hattı parametrelerinin harita tetikleyici özellikleri
-
-Belirli bir blob için bir Olay Tetikleyici etkinleştirildiğinde, olay özelliklerini blob klasörü yolu ve dosya adını yakalar `@triggerBody().folderPath` ve `@triggerBody().fileName`. Bir işlem hattı, bu özelliklerin değerlerini kullanmak için işlem hattı parametrelerinin özelliklerini eşlemeniz gerekir. Parametreleri eşleme özellikleri sonra Tetikleyici tarafından yakalanan değerlerine erişebilirsiniz `@pipeline.parameters.parameterName` işlem hattı boyunca ifade.
-
-![İşlem hattı parametrelerinin özellikleri eşleme](media/how-to-create-event-trigger/event-based-trigger-image4.png)
-
-Örneğin, önceki ekran görüntüsünde. Tetikleyici ne zaman sonu bir blob yolu ateşlenmesine yapılandırılmış `.csv` içinde depolama hesabı oluşturulur. Sonuç olarak, bir blob olduğunda `.csv` uzantısı her yerde depolama hesabında oluşturulan `folderPath` ve `fileName` özellikleri yeni blobunun konumunu yakalama. Örneğin, `@triggerBody().folderPath` gibi bir değere sahip `/containername/foldername/nestedfoldername` ve `@triggerBody().fileName` gibi bir değere sahip `filename.csv`. Bu değerleri örnek işlem hattı parametrelerine eşlenen `sourceFolder` ve `sourceFile`. İşlem hattı boyunca kullanabilirsiniz `@pipeline.parameters.sourceFolder` ve `@pipeline.parameters.sourceFile` sırasıyla.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Tetikleyiciler hakkında ayrıntılı bilgi için bkz. [işlem hattı yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md#triggers).

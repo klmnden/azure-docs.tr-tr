@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: cf24810c0aa414e751e55df163563f013c1a0081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 9d71efa35713500911c67d1df15612b64c8e97da
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969954"
+ms.locfileid: "38990838"
 ---
 # <a name="trusted-internet-connection-guidance"></a>Güvenilir bir Internet bağlantısı Kılavuzu
 
@@ -30,7 +30,7 @@ Kısacası, bilmek, kuruluşları için TIC amacı şudur:
 
 Bugün, tüm Ajans dış bağlantıları bir OMB onaylı TIC yönlendirilmesi gerekir. Federal kurumlar, bir TIC erişim sağlayıcısı (TICAP) olarak veya temel katmanı 1 Internet hizmet sağlayıcıları birini hizmetleriyle ihtiyaçlarımıza göre yönetilen güvenilir Internet Protokolü hizmet (MTIPS) sağlayıcıları olarak başvurulan TIC programı'na katılmak için gereklidir.  TIC bugün kurumu ve MTIPS sağlayıcısı tarafından gerçekleştirilen zorunlu kritik özellikleri içerir. Hızlandırılmış geçerli sürümünde TIC EINSTEIN sürüm 2 izinsiz giriş algılama ve EINSTEIN sürüm 3 (3A) yetkisiz erişim önleme cihazlar her TICAP ve MTIPS dağıtılan ve kurum, Memorandum anlama bölümünü ile oluşturur Anlarında güvenlik (EINSTEIN özellikleri federal sistemlerini dağıtmak için DHS).
 
-Sorumluluğunu .gov ağı korumak için bir parçası olarak, ham veri akışı Aracısı Netflow veri federal kuruluş genelinde olayları ilişkilendirmenize ve özel araçlar kullanarak analizler DHS gerektirir. DHS yönlendiriciler girer veya bir arabirim çıkar IP ağ trafiğini toplama olanağı sağlar. Net akış verileri analiz ederek, bir ağ yöneticisi kaynak ve hedef trafiği, hizmet vs. sınıfı gibi şeyler belirleyebilirsiniz. NET akış veri "içerik data" olarak kabul edilir (örneğin, üst bilgisi, kaynak IP, hedef IP, vb.) ve; içeriği çevresinde yukarıdakileri bilmesine DHS sağlar diğer bir deyişle, kimin ne ve ne kadar süreyle yapmakta olduğu.
+Sorumluluğunu .gov ağı korumak için bir parçası olarak, ham veri akışı Aracısı Netflow veri federal kuruluş genelinde olayları ilişkilendirmenize ve özel araçlar kullanarak analizler DHS gerektirir. DHS yönlendiriciler girer veya bir arabirim çıkar IP ağ trafiğini toplama olanağı sağlar. Yönetici, bir ağ net akış verileri çözümleyerek kaynak ve hedef trafiği, hizmet vs. sınıfı gibi şeyler belirleyebilirsiniz. NET akış veri "içerik data" olarak kabul edilir (örneğin, üst bilgisi, kaynak IP, hedef IP, vb.) ve; içeriği çevresinde yukarıdakileri bilmesine DHS sağlar diğer bir deyişle, kimin ne ve ne kadar süreyle yapmakta olduğu.
 
 Girişim, güvenlik ilkeleri, Kılavuzlar ve şirket içi altyapı varsayar çerçeveleri de içerir. Devlet kurumları, maliyet tasarrufu, işlem verimliliğini ve yenilik yapmanın buluta taşıdığınızda, ağ trafiği yavaşlatmasını ve hız ve çeviklikle hangi devlet kurumları ile kullanıcılar şunları yapabilir sınırlama bazı durumlarda TIC uygulama gereksinimleri olan bulut tabanlı verilerine erişebilirler.
 
@@ -250,4 +250,3 @@ Microsoft Azure, Office 365 ve Dynamics 365 erişim TIC 2.0 ek H kılavuzu olara
 
 *: Mayıs 2018'den itibaren Azure kamu genel önizlemede  
 **: Mayıs 2018'den itibaren Azure kamu'da özel Önizleme
-

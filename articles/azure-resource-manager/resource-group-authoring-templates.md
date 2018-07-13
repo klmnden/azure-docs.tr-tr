@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager şablonu yapısı ve sözdizimi | Microsoft Docs
-description: Yapı ve bildirim temelli JSON sözdizimini kullanarak Azure Resource Manager şablonları özelliklerini açıklar.
+title: Azure Resource Manager şablon yapısını ve söz dizimi | Microsoft Docs
+description: Yapısını ve bildirim temelli JSON söz dizimini kullanarak Azure Resource Manager şablonları özelliklerini açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 826dcf13a6e29fd4631e1078dd2ac0fa65b14e14
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334807"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001693"
 ---
-# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Yapı ve Azure Resource Manager şablonları sözdizimi anlama
-Bu makalede Azure Resource Manager şablonu yapısını tanımlar. Bir şablon ve bu bölümlerdeki özellikler farklı bölümlerini gösterir. JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler, şablon oluşur. Şablon oluşturmanın adım adım öğretici için bkz [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).
+# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, söz dizimi ve yapısı anlama
+Bu makalede, Azure Resource Manager şablon yapısını açıklar. Bu, bir şablon ve bu bölümlerdeki kullanılabilir olan özellikleri farklı bölümlerini sayısını gösterir. Şablonda, JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler bulunur. Şablon oluşturmanın adım adım öğretici için bkz: [ilk Azure Resource Manager şablonunuzu oluşturma](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Şablon biçimi
-En basit yapısını şablon aşağıdaki öğelere sahiptir:
+En basit yapısına bir şablon aşağıdaki öğelere sahiptir:
 
 ```json
 {
@@ -41,15 +41,15 @@ En basit yapısını şablon aşağıdaki öğelere sahiptir:
 
 | Öğe adı | Gerekli | Açıklama |
 |:--- |:--- |:--- |
-| $schema |Evet |Şablon dili sürümü açıklanmaktadır JSON Şeması dosyasının konumu. Önceki örnekte gösterilen URL'yi kullanın. |
-| contentVersion |Evet |Şablon (örneğin, 1.0.0.0) sürümü. Bu öğe için herhangi bir değer sağlayabilir. Şablonunuzda önemli değişiklikleri belgelemek için bu değeri kullanın. Şablonu kullanarak kaynak dağıtırken, bu değer doğru şablonu kullanılmakta olduğunu emin olmak için kullanılabilir. |
-| parametreler |Hayır |Dağıtım kaynağı dağıtım özelleştirmek için yürütüldüğünde, sağlanan değerler. |
-| değişkenleri |Hayır |Şablondaki JSON parçaları olarak şablon dili ifadeleri basitleştirmek için kullanılan değerler. |
-| işlevler |Hayır |Şablonda mevcut kullanıcı tanımlı işlevler. |
-| kaynaklar |Evet |Dağıtılan veya bir kaynak grubunda güncelleştirilmiş kaynak türleri. |
-| çıkışlar |Hayır |Dağıtımdan sonra döndürülen değer. |
+| $schema |Evet |Şablon dil sürümünü tanımlayan JSON şema dosyasının konumu. Önceki örnekte gösterilen URL'yi kullanın. |
+| contentVersion |Evet |Şablon (örneğin, 1.0.0.0) sürümü. Bu öğe için herhangi bir değer sağlayabilirsiniz. Şablonunuzda önemli değişiklikleri belgelemek için bu değeri kullanın. Şablon kullanarak kaynakları dağıtırken, bu değer, en uygun şablonu kullanıldığından emin emin olmak için kullanılabilir. |
+| parametreler |Hayır |Kaynak bir dağıtımı özelleştirmek için dağıtım çalıştırıldığında, sağlanan değerler. |
+| Değişkenleri |Hayır |Şablonda, JSON parçaları olarak şablon dili ifadeleri basitleştirmek için kullanılan değerleri. |
+| işlevler |Hayır |Şablonda kullanılabilir olan kullanıcı tanımlı işlevler. |
+| kaynaklar |Evet |Dağıtılan ya da bir kaynak grubunda güncelleştirilmiş kaynak türleri. |
+| çıkışlar |Hayır |Dağıtımdan sonra döndürülen değerleri. |
 
-Her öğenin ayarlayabileceğiniz özellikleri vardır. Aşağıdaki örnekte, bir şablon için tam sözdizimi gösterilmektedir:
+Her öğesinin özellikleri ayarlayabilirsiniz. Aşağıdaki örnek, bir şablon için tam sözdizimini gösterir:
 
 ```json
 {
@@ -159,14 +159,14 @@ Her öğenin ayarlayabileceğiniz özellikleri vardır. Aşağıdaki örnekte, b
 }
 ```
 
-Bu makalede daha ayrıntılı şablon bölümlerini açıklanmaktadır.
+Bu makalede daha ayrıntılı şablon bölümlerini açıklar.
 
 ## <a name="syntax"></a>Sözdizimi
-Şablonun temel sözdizimi JSON şeklindedir. Ancak, ifadeler ve işlevleri şablonu içinde kullanılabilir olan JSON değerlerin genişletir.  İfadeler, ilk JSON dize değişmez değerleri içinde yazılır ve son karakterler olan ayraçlar: `[` ve `]`sırasıyla. Şablon dağıtıldığında ifade değeri değerlendirilir. Bir dize yazılmış olsa da, ifade değerlendirme sonucu gibi bir dizi veya tamsayı, gerçek ifade bağlı olarak farklı bir JSON türde olabilir.  Başlangıç noktası ile sabit değerli bir dize olması `[`, ancak olmayan bir ifade olarak yorumlanır olması, dizesiyle başlatmak için ek bir köşeli ayraç eklemek `[[`.
+Temel söz dizimi şablonu JSON ' dir. Ancak, ifadeler ve İşlevler, şablonda kullanılabilir JSON değerlerinin genişletin.  İfadeleri JSON dize değişmez değerleri içinde ayarlanmış ilk yazılır ve son karakter olan ayraçlar: `[` ve `]`sırasıyla. Şablon dağıtıldığında ifade değeri değerlendirilir. Dize sabit değeri olarak yazılmış olsa da ifade değerlendirme sonucu gibi bir dizi ya da tamsayı, gerçek ifade bağlı olarak farklı bir JSON türünde olabilir.  Bir sabit dize köşeli ayraç ile başlatmak için `[`, ancak değil bir ifade olarak yorumlanır olması, dizesiyle başlatmak için ek bir köşeli ayraç Ekle `[[`.
 
-Genellikle, ifadeler işlevleriyle dağıtım yapılandırma işlemleri gerçekleştirmek için kullanın. JavaScript'te, işlev çağrıları olarak biçimlendirilmiş gibi yalnızca `functionName(arg1,arg2,arg3)`. Nokta ve [dizin] işleçleri kullanarak özellikleri başvuru.
+Genellikle, ifadeleri işlevleri ile dağıtım yapılandırma işlemleri gerçekleştirmek için kullanırsınız. JavaScript'te, işlev çağrıları olarak biçimlendirilmiş gibi yalnızca `functionName(arg1,arg2,arg3)`. Özellikler, nokta ve [dizin] işleçleri kullanarak başvuru.
 
-Aşağıdaki örnek bir değer oluşturulurken, çeşitli işlevleri kullanmayı gösterir:
+Aşağıdaki örnek, bir değer oluştururken çeşitli işlevler kullanma işlemini gösterir:
 
 ```json
 "variables": {
@@ -174,12 +174,12 @@ Aşağıdaki örnek bir değer oluşturulurken, çeşitli işlevleri kullanmayı
 }
 ```
 
-Şablon işlevleri tam listesi için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md). 
+Şablon işlevlerinin tam listesi için bkz. [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md). 
 
 ## <a name="parameters"></a>Parametreler
-Şablon parametreleri bölümünde kaynakları dağıtırken giriş hangi değerlerini belirtin. Bu parametre değerleri (örneğin, geliştirme, test ve üretim) belirli bir ortam için uyarlanabilir değerleri sağlayarak dağıtım özelleştirmenize olanak sağlar. Şablonunuzdaki parametreleri sağlamak zorunda değilsiniz ancak parametresiz şablonunuzu her zaman aynı kaynakları adları, konumları ve özellikleri ile dağıtmak için kullanacağınız.
+Şablon parametreleri bölümünde kaynakları dağıtırken giriş değerleri belirtin. Bu parametre değerleri (örneğin, geliştirme, test ve üretim) belirli bir ortam için uygun değerleri sağlayarak bir dağıtımı özelleştirmek etkinleştirin. Şablonunuzdaki parametrelerle sağlamanıza gerek yoktur, ancak parametre olmadan, şablonunuzu her zaman aynı adları, konumları ve özellikleri ile aynı kaynakları dağıtmak için kullanacağınız.
 
-Aşağıdaki örnekte basit parametrenin tanımını gösterir:
+Aşağıdaki örnek, bir basit parametre tanımı gösterilmektedir:
 
 ```json
 "parameters": {
@@ -192,12 +192,12 @@ Aşağıdaki örnekte basit parametrenin tanımını gösterir:
 },
 ```
 
-Parametreleri tanımlama hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları parametreleri bölümünü](resource-manager-templates-parameters.md).
+Parametreleri tanımlama hakkında daha fazla bilgi için bkz: [parametreleri bölümünde Azure Resource Manager şablonları](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>Değişkenler
-Değişkenler bölümünde şablonunuzu kullanılabilir değerleri oluşturun. Değişkenleri tanımlamak gerekli değildir, ancak bunlar karmaşık ifadeler azaltarak genellikle şablonunuzu basitleştirin.
+Değişkenler bölümünde kullanılabilir değerler, şablonun tamamında oluşturun. Değişkenleri tanımlamanız gerekmez, ancak bunlar karmaşık ifadeleri azaltarak genellikle şablonunuzu basitleştirin.
 
-Aşağıdaki örnekte basit bir değişken tanımını gösterir:
+Aşağıdaki örnek, basit bir değişken tanımı gösterilmektedir:
 
 ```json
 "variables": {
@@ -205,18 +205,19 @@ Aşağıdaki örnekte basit bir değişken tanımını gösterir:
 },
 ```
 
-Değişkenleri tanımlama hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları değişkenleri bölümünde](resource-manager-templates-variables.md).
+Değişkenleri tanımlama hakkında daha fazla bilgi için bkz: [değişkenler bölümü Azure Resource Manager şablonlarının](resource-manager-templates-variables.md).
 
 ## <a name="functions"></a>İşlevler
 
-Şablonunuzu içinde kendi işlevlerinizi oluşturabilirsiniz. Şablonunuzu bu işlevler kullanılabilir. Genellikle, şablonunuzu tekrar etmek istemediğiniz karmaşık ifade tanımlayın. Kullanıcı tanımlı işlevler gelen ifadeleri oluşturmak ve [işlevleri](resource-group-template-functions.md) şablonlarında desteklenir.
+Şablonunuzun içindeki işlevleri kendi oluşturabilirsiniz. Bu işlevler şablonunuzdaki kullanılabilir. Genellikle, şablonunuzu yinelemek için istemediğiniz karmaşık bir ifadeyi tanımlar. Gelen ifadeleri kullanıcı tanımlı işlevler oluşturma ve [işlevleri](resource-group-template-functions.md) şablonlarında desteklenir.
 
-Bir kullanıcı işlevi tanımlanırken, bazı sınırlamalar vardır:
+Bir kullanıcı işlevi tanımlanırken, bazı kısıtlamalar vardır:
 
-* İşlevin değişkenleri erişemiyor.
-* Diğer kullanıcı tanımlı işlevler işlevi çağrılamaz.
-* İşlevini kullanamazsınız [başvuru işlevi](resource-group-template-functions-resource.md#reference).
-* İşlev parametreleri varsayılan değerlere sahip olamaz.
+* İşlev değişkenleri erişemez.
+* İşlev şablonu parametreleri erişemez. Diğer bir deyişle, [parametreleri işlevi](resource-group-template-functions-deployment.md#parameters) işlev parametrelerini sınırlıdır.
+* İşlev diğer kullanıcı tanımlı işlevleri çağrılamaz.
+* İşlev kullanamazsınız [başvuru işlevi](resource-group-template-functions-resource.md#reference).
+* İşlev parametrelerini varsayılan değerlere sahip olamaz.
 
 İşlevlerinizi adlandırma şablon işlevleri ile çakışmalarını önlemek için bir ad alanı değeri gerektirir. Aşağıdaki örnek, bir depolama hesabı adı döndüren bir işlev gösterir:
 
@@ -242,7 +243,7 @@ Bir kullanıcı işlevi tanımlanırken, bazı sınırlamalar vardır:
 ],
 ```
 
-İşlev çağrısı:
+İşlevini kullanarak çağırırsınız:
 
 ```json
 "resources": [
@@ -262,7 +263,7 @@ Bir kullanıcı işlevi tanımlanırken, bazı sınırlamalar vardır:
 ```
 
 ## <a name="resources"></a>Kaynaklar
-Kaynaklar bölümünde dağıtılan veya güncelleştirilen kaynakları tanımlayın. Sağ değerlerini sağlamak için dağıtıyorsunuz türlerini anlamanız gerekir çünkü bu bölümde karmaşık elde edebilirsiniz.
+Kaynaklar bölümünde, dağıtılan veya güncelleştirilen kaynakları tanımlayın. Bu bölümde, doğru değerleri sağlamak üzere dağıtıyorsanız türlerini anlamanız gerekir çünkü karmaşık alabilirsiniz.
 
 ```json
 "resources": [
@@ -278,10 +279,10 @@ Kaynaklar bölümünde dağıtılan veya güncelleştirilen kaynakları tanımla
 ],
 ```
 
-Daha fazla bilgi için bkz: [Azure Resource Manager şablonları kaynakları bölümünü](resource-manager-templates-resources.md).
+Daha fazla bilgi için [Azure Resource Manager şablonları, kaynaklar bölümü](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Çıkışlar
-Çıkış bölümünde dağıtımından döndürülen değerlerini belirtin. Örneğin, dağıtılan bir kaynağa erişmek için URI döndürebilirsiniz.
+Çıkış bölümünde dağıtımdan döndürülen değerlerini belirtin. Örneğin, dağıtılmış bir kaynağa erişmek için URI döndürebilir.
 
 ```json
 "outputs": {
@@ -292,24 +293,24 @@ Daha fazla bilgi için bkz: [Azure Resource Manager şablonları kaynakları bö
 }
 ```
 
-Daha fazla bilgi için bkz: [çıkarır Azure Resource Manager şablonları bölümünü](resource-manager-templates-outputs.md).
+Daha fazla bilgi için [çıktısını alır, Azure Resource Manager şablonları bölümünü](resource-manager-templates-outputs.md).
 
 ## <a name="template-limits"></a>Şablon sınırları
 
-Şablonunuzu 1 MB ve her parametre dosyası 64 KB boyutu sınırı. Yinelemeli Kaynak tanımları ve değişkenleri ve parametreleri için değerler ile genişletilmiştir sonra 1 MB sınırını şablonunun son durumuna uygulanır. 
+Şablonunuza 1 MB ve her 64 KB parametre dosyası boyutunu sınırlama. Yinelemeli Kaynak tanımları ve değişkenler ve parametreler için değerleri genişletildi sonra şablonunun son duruma 1 MB'lık sınırı uygular. 
 
-İçin sınırlı:
+İçin sınırlama getirilir:
 
 * 256 parametreleri
 * 256 değişkenleri
-* 800 kaynakları (kopya sayısı dahil)
+* 800 kaynakları (kopya sayısı da dahil olmak üzere)
 * 64 çıkış değerleri
-* bir şablon ifadesinde 24.576 karakterleri
+* bir şablon ifadesi 24.576 karakter
 
-İç içe geçmiş bir şablon kullanarak bazı şablonu sınırı aşabilir. Daha fazla bilgi için bkz: [Azure kaynaklarını dağıtırken bağlı şablonları kullanma](resource-group-linked-templates.md). Parametreler, değişkenleri veya çıkışları sayısını azaltmak için değerlerden bir nesnede birleştirebilirsiniz. Daha fazla bilgi için bkz: [nesneleri parametreleri olarak](resource-manager-objects-as-parameters.md).
+İç içe geçmiş bir şablon kullanarak bazı şablonu sınırlar aşabilir. Daha fazla bilgi için [Azure kaynakları dağıtılırken bağlı şablonları kullanma](resource-group-linked-templates.md). Parametreler, değişkenleri veya çıkış sayısını azaltmak için değerlerden bir nesnesi olarak birleştirebilirsiniz. Daha fazla bilgi için [parametre olarak nesnelerin](resource-manager-objects-as-parameters.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Farklı türlerde çözümler için tam şablonları görüntülemek üzere bkz. [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/documentation/templates/).
-* Kullanabileceğiniz gelen bir şablonda işlevleri hakkında daha fazla ayrıntı için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
+* Kullanabileceğiniz gelen içinde şablon işlevleri hakkında daha fazla ayrıntı için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
 * Birden fazla şablon dağıtımı sırasında birleştirmek için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
-* Farklı bir kaynak grubu içinde mevcut kaynakları kullanmanız gerekebilir. Bu senaryo, depolama hesapları veya birden çok kaynak grupları arasında paylaşılan sanal ağlar ile çalışırken yaygındır. Daha fazla bilgi için bkz: [ResourceId işlevi](resource-group-template-functions-resource.md#resourceid).
+* Farklı bir kaynak grubu içinde mevcut kaynakları kullanmanız gerekebilir. Bu depolama hesaplarını veya birden çok kaynak grupları arasında paylaşılan sanal ağlar ile çalışırken yaygın senaryodur. Daha fazla bilgi için [ResourceId işlevi](resource-group-template-functions-resource.md#resourceid).

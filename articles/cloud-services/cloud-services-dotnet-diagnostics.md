@@ -1,9 +1,9 @@
 ---
-title: Bulut Hizmetleri ile Azure tanılama (.NET) kullanmak üzere nasıl | Microsoft Docs
-description: Hata ayıklama, performans, izleme, trafik analizi ve daha fazla ölçmek için Azure bulut hizmetlerinden veri toplamak üzere Azure Tanılama'yı kullanarak.
+title: Azure tanılama (.NET) bulut Hizmetleri ile kullanma | Microsoft Docs
+description: Hata ayıklama, performans, izleme, trafik çözümlemesi ve daha fazla ölçüm için Azure bulut hizmetlerinden veri toplamak için Azure Tanılama'yı kullanma.
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
@@ -13,33 +13,33 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: adegeo
-ms.openlocfilehash: a8d6b16fa363062e06d48bfc5af2ca37697d5cd8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: jeconnoc
+ms.openlocfilehash: f9f26f14944986bc673a3b7529adb055ad16d058
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29460908"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003070"
 ---
-# <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure Cloud Services, Azure Tanılama'yı etkinleştirme
-Bkz: [Azure tanılama genel bakış](../azure-diagnostics.md) bir arka planda Azure tanılama için.
+# <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure bulut hizmetlerinde Azure tanılamayı etkinleştirme
+Bkz: [Azure tanılama genel bakış](../azure-diagnostics.md) arka plan Azure tanılama.
 
-## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Çalışan rolü tanılamada etkinleştirme
-Bu kılavuz, .NET EventSource sınıfı kullanarak telemetri verileri gösterdiği Azure çalışan rolüne uygulamak açıklar. Azure tanılama telemetri verilerini toplamak ve bir Azure depolama hesabında depolamak için kullanılır. Çalışan rolü oluştururken, Visual Studio tanılama 1.0 Azure SDK'ları ve önceki sürümler için .NET 2.4 çözümde bir parçası olarak otomatik olarak etkinleştirir. Aşağıdaki yönergeler tanılama 1.0 çözüm ve dağıtma tanılama 1.2 veya 1.3 çalışan rolünüzün devre dışı bırakma çalışan rolü oluşturma işlemi açıklar.
+## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Bir çalışan rolünde tanılamayı etkinleştirme
+Bu kılavuzda, .NET EventSource sınıfı kullanarak telemetri verilerini yayan bir Azure çalışan rolünde uygulamak açıklar. Azure Tanılama'yı telemetri verilerini toplamak ve bir Azure depolama hesabında depolamak için kullanılır. Bir çalışan rolü oluştururken, Visual Studio tanılama 1.0 ve önceki sürümleri .NET 2.4 için Azure SDK'çözümün bir parçası olarak otomatik olarak etkinleştirir. Aşağıdaki yönergeler, tanılama 1.0, çalışan rolü için devre dışı, çözüm ve dağıtma tanılama 1.2 veya 1.3 çalışan rolü, oluşturma işlemi açıklanmaktadır.
 
 ### <a name="prerequisites"></a>Önkoşullar
-Bu makale bir Azure aboneliğiniz varsa ve Azure SDK ile Visual Studio'ya varsayar. Bir Azure aboneliğiniz yoksa için kaydolabilirsiniz [ücretsiz deneme][Free Trial]. Emin olun [yükleyin ve Azure PowerShell sürüm 0.8.7 yapılandırın veya daha sonra][Install and configure Azure PowerShell version 0.8.7 or later].
+Bu makale, bir Azure aboneliğiniz varsa ve Visual Studio Azure SDK'sı ile kullandığınızı varsayar. Azure aboneliğiniz yoksa için kaydolabilirsiniz [ücretsiz deneme][Free Trial]. Emin olun [yüklemek ve Azure PowerShell sürümü 0.8.7 yapılandırma veya üzeri][Install and configure Azure PowerShell version 0.8.7 or later].
 
-### <a name="step-1-create-a-worker-role"></a>1. adım: Çalışan rolü oluşturma
+### <a name="step-1-create-a-worker-role"></a>1. adım: bir çalışan rolü oluşturma
 1. **Visual Studio**’yu başlatın.
-2. Oluşturma bir **Azure bulut hizmeti** gelen proje **bulut** .NET Framework 4. 5'i hedefleyen şablonu.  "WadExample" Projeyi adlandırın ve Tamam'ı tıklatın.
-3. Seçin **çalışan rolü** ve Tamam'ı tıklatın. Proje oluşturulur.
-4. İçinde **Çözüm Gezgini**, çift **WorkerRole1** özellikleri dosya.
-5. İçinde **yapılandırma** sekmesinde, kaldırma onay **tanılamayı etkinleştir** tanılama 1.0 (Azure SDK 2.4 ve önceki) devre dışı bırakmak için.
-6. Herhangi bir hata olduğunu doğrulamak için çözümünüzü oluşturun.
+2. Oluşturma bir **Azure bulut hizmeti** gelen proje **bulut** .NET Framework 4.5 hedefleyen şablonu.  "WadExample" Projeyi adlandırın ve Tamam'a tıklayın.
+3. Seçin **çalışan rolü** ve Tamam'a tıklayın. Proje oluşturulur.
+4. İçinde **Çözüm Gezgini**, çift **WorkerRole1** özellikler dosyası.
+5. İçinde **yapılandırma** sekmesi işaretini kaldırın **tanılamayı etkinleştir** tanılama 1.0 (Azure SDK 2.4 ve önceki) devre dışı bırakmak için.
+6. Herhangi bir hata olduğunu doğrulamak için çözümünüzü derleyin.
 
 ### <a name="step-2-instrument-your-code"></a>2. adım: kodunuzu izleme
-WorkerRole.cs içeriğini aşağıdaki kodla değiştirin. Sınıf SampleEventSourceWriter, devralınan [EventSource sınıfı][EventSource Class], dört günlük yöntemlerini uygular: **SendEnums**, **MessageMethod**, **SetOther** ve **HighFreq**. İlk parametre olarak **WriteEvent** yöntemi ilgili olay kimliği tanımlar. Run yöntemi uygulanan günlük yöntemlerin her biri çağırır sonsuz bir döngüde uygulayan **SampleEventSourceWriter** 10 saniyede sınıfı.
+WorkerRole.cs içeriğini aşağıdaki kodla değiştirin. ' % S'sınıfı, SampleEventSourceWriter öğesinden devralınan [EventSource sınıfı][EventSource Class], dört günlük yöntemlerini uygular: **SendEnums**, **MessageMethod** , **SetOther** ve **HighFreq**. İlk parametre olarak **WriteEvent** yöntemi için ilgili olay kimliği tanımlar. Run yöntemi çağıran uygulanan günlük yöntemlerin her biri bir sonsuz döngüye uygulayan **SampleEventSourceWriter** 10 saniyede sınıfı.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -122,30 +122,30 @@ namespace WorkerRole1
 ```
 
 
-### <a name="step-3-deploy-your-worker-role"></a>Adım 3: çalışan rolünüzün dağıtma
+### <a name="step-3-deploy-your-worker-role"></a>3. adım: çalışan rolünüzün dağıtma
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
-1. Seçerek, çalışan rolü Azure'dan Visual Studio içinde dağıtmak **WadExample** sonra Çözüm Gezgini'nde projeye **Yayımla** gelen **yapı** menüsü.
+1. Seçerek, çalışan rolü Visual Studio'dan azure'a dağıtma **WadExample** sonra Çözüm Gezgini'nde proje **Yayımla** gelen **derleme** menüsü.
 2. Aboneliğinizi seçin.
 3. İçinde **Microsoft Azure yayımlama ayarları** iletişim kutusunda **yeni oluştur...** .
-4. İçinde **bulut hizmeti oluşturma ve depolama hesabı** iletişim kutusunda, girin bir **adı** (örneğin, "WadExample") ve bir bölge veya benzeşim grubu seçin.
+4. İçinde **bulut hizmeti oluşturma ve depolama hesabı** iletişim kutusunda girin bir **adı** (örneğin, "WadExample") ve bir bölge veya benzeşim grubu seçin.
 5. Ayarlama **ortam** için **hazırlama**.
-6. Diğer değiştirme **ayarları** olarak uygun ve tıklatın **Yayımla**.
-7. Dağıtım tamamlandıktan sonra bulut hizmeti olan Azure portalında doğrulayın bir **çalıştıran** durumu.
+6. Diğer değiştirme **ayarları** olarak uygun ve tıklayın **Yayımla**.
+7. Dağıtım tamamlandıktan sonra bulut hizmeti olan Azure portalında doğrulamak bir **çalıştıran** durumu.
 
-### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>4. adım: Tanılama yapılandırma dosyanızı oluşturun ve uzantısını yükle
-1. Genel yapılandırma dosyası şeması tanımı aşağıdaki PowerShell komutunu yürüterek yükleyin:
+### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>4. adım: Tanılama yapılandırma dosyanızı oluşturun ve uzantıyı yükleme
+1. Genel yapılandırma dosyası şeması tanımı aşağıdaki PowerShell komutunu çalıştırarak yükleyin:
 
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. Bir XML dosyasına eklemek, **WorkerRole1** sağ tıklayarak projeyi **WorkerRole1** proje ve seçin **Ekle** -> **yeni öğe...** -> **Visual C# öğeleri** -> **veri** -> **XML dosyası**. "WadExample.xml" dosya adı.
+2. Bir XML dosyasına ekleyin, **WorkerRole1** sağ tıklayarak proje **WorkerRole1** seçin ve proje **Ekle** -> **yeni öğe...** -> **Visual C# öğeleri** -> **veri** -> **XML dosyası**. "WadExample.xml" dosya adı.
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. WadConfig.xsd yapılandırma dosyası ile ilişkilendirin. Etkin pencereyi WadExample.xml Düzenleyicisi penceresini olduğundan emin olun. Tuşuna **F4** açmak için **özellikleri** penceresi. Tıklatın **şemaları** özelliğinde **özellikleri** penceresi. Tıklatın **...** içinde **şemaları** özelliği. **Ekle…** düğmesine düğmesini ve XSD dosyasını kaydettiğiniz konuma gidin ve WadConfig.xsd dosyasını seçin. **Tamam**’a tıklayın.
+3. WadConfig.xsd yapılandırma dosyası ile ilişkilendirin. Etkin pencereyi WadExample.xml Düzenleyicisi penceresi olduğundan emin olun. Tuşuna **F4** açmak için **özellikleri** penceresi. Tıklayın **şemaları** özelliğinde **özellikleri** penceresi. Tıklayın **...** içinde **şemaları** özelliği. **Ekle…** düğmesine düğme, XSD dosyasını kaydettiğiniz konuma gidin ve WadConfig.xsd dosyasını seçin. **Tamam**’a tıklayın.
 
-4. Aşağıdaki XML WadExample.xml yapılandırma dosyasının içeriğini değiştirin ve dosyayı kaydedin. Bu yapılandırma dosyasını toplamak için birkaç performans sayaçlarını tanımlar: CPU kullanımı, diğeri bellek kullanımı için. Ardından yapılandırmasını SampleEventSourceWriter sınıftaki yöntemlerin karşılık gelen dört olayları tanımlar.
+4. Aşağıdaki XML WadExample.xml yapılandırma dosyasının içeriğini değiştirin ve dosyayı kaydedin. Birkaç performans sayaçları toplamak için bu yapılandırma dosyasını tanımlar: CPU kullanımı ve bellek kullanımı için. Daha sonra yapılandırmayı SampleEventSourceWriter sınıftaki yöntemlerin karşılık gelen dört olayları tanımlar.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -170,11 +170,11 @@ namespace WorkerRole1
 </PublicConfig>
 ```
 
-### <a name="step-5-install-diagnostics-on-your-worker-role"></a>5. adım: Tanılama, çalışan rolü yükleyin.
-Bir web veya çalışan rolü tanılama yönetmek için PowerShell cmdlet'leri şunlardır: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension ve Kaldır-AzureServiceDiagnosticsExtension.
+### <a name="step-5-install-diagnostics-on-your-worker-role"></a>5. adım: Tanılama çalışan rolünde yükleme
+Tanılama bir web veya çalışan rolü yönetmek için PowerShell cmdlet'leri şunlardır: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension ve Remove-AzureServiceDiagnosticsExtension.
 
-1. Open Azure PowerShell.
-2. Tanılama, çalışan rolü yüklemek için komut dosyası yürütme (Değiştir *StorageAccountKey* wadexample depolama hesabınız için depolama hesabınızın anahtarıyla ve *config_path* yoluyla *WadExample.xml* dosyası):
+1. Azure PowerShell'i açın.
+2. Çalışan rolünde tanılama yüklemek için bu betiği yürütün (Değiştir *StorageAccountKey* wadexample depolama hesabınız için depolama hesabınızın anahtarıyla ve *config_path* yoluyla *WadExample.xml* dosyası):
 
 ```powershell
 $storage_name = "wadexample"
@@ -185,19 +185,19 @@ $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -Sto
 Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging -Role WorkerRole1
 ```
 
-### <a name="step-6-look-at-your-telemetry-data"></a>6. adım: Telemetri verilerinizi bakma
-Visual Studio'da **Sunucu Gezgini**, wadexample depolama hesabınıza gidin. Bulut hizmeti yaklaşık beş (5) dakika yürütüldükten sonra tabloları görmelisiniz **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** ve **WADSetOtherTable**. Toplanan telemetri görüntülemek için tablolar birini çift tıklatın.
+### <a name="step-6-look-at-your-telemetry-data"></a>6. adım: Telemetri verileriniz bakma
+Visual Studio **Sunucu Gezgini**, wadexample depolama hesabına gidin. Bulut hizmeti yaklaşık beş (5) dakikalık çalıştırıldıktan sonra tabloları görmelisiniz **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** ve **WADSetOtherTable**. Tabloların toplanan telemetri verilerini görüntülemek için çift tıklayın.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>Yapılandırma dosyası şeması
-Tanılama yapılandırma dosyası Tanılama aracı başladığında tanılama yapılandırma ayarlarını başlatmak için kullanılan değerleri tanımlar. Bkz: [en son şema başvurusu](https://msdn.microsoft.com/library/azure/mt634524.aspx) geçerli değerler ve örnekler için.
+Tanılama yapılandırma dosyası, tanılama aracısını başladığında tanılama yapılandırma ayarları başlatmak üzere kullanılan değerleri tanımlar. Bkz: [en son şema başvurusu](https://msdn.microsoft.com/library/azure/mt634524.aspx) için geçerli değerler ve örnekler.
 
 ## <a name="troubleshooting"></a>Sorun giderme
-Konusunda sorun yaşıyorsanız, bkz: [sorun giderme Azure tanılama](../azure-diagnostics-troubleshooting.md) sık karşılaşılan sorunları ile ilgili Yardım.
+Sorun varsa, bkz: [Azure tanılama sorunlarını giderme](../azure-diagnostics-troubleshooting.md) ortak sorunları ile ilgili Yardım için.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-[İlgili Azure sanal makinesi tanılama makaleler listesini görmek](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) toplama verileri değiştirmek için ilgili sorunları giderme veya Tanılama hakkında daha fazla genel bilgi edinin.
+[İlgili Azure sanal makinesi tanılama makaleler listesini](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) toplama verileri değiştirmek için ilgili sorunları giderme veya genel Tanılama hakkında daha fazla bilgi edinin.
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

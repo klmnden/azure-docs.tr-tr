@@ -1,6 +1,6 @@
 ---
-title: Azure örneği düzeyinde (Klasik) ortak IP adresleri | Microsoft Docs
-description: Örnek düzeyinde ortak IP (ILPIP) yöneliktir ve bunların nasıl yönetileceğini anlamak PowerShell kullanarak.
+title: Azure örnek düzeyi genel IP (Klasik) adresleri | Microsoft Docs
+description: Örnek düzeyi genel IP (ILPIP) yöneliktir ve bunların nasıl yönetileceğini anlamak PowerShell kullanarak.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: genli
-ms.openlocfilehash: 4b4350e6b1616450ce45f9e947cc3b639a341ae7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a10bf96f06c3917913c479d81e8772cb86cfe36e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796029"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005275"
 ---
-# <a name="instance-level-public-ip-classic-overview"></a>Örnek düzeyinde ortak IP (Klasik) genel bakış
-Bir örnek düzeyinde ortak IP (ILPIP), VM veya Bulut Hizmetleri rol örneği için doğrudan yerine, VM'deki veya rol örneğindeki bulunan bulut hizmetine atayabilirsiniz genel bir IP adresi ' dir. Bir ILPIP, sanal IP (bulut Hizmetinize atanmış VIP) yer almaz. Bunun yerine, doğrudan, VM'deki veya rol örneğine bağlanmak için kullanabileceğiniz ek bir IP adresi değil.
+# <a name="instance-level-public-ip-classic-overview"></a>Örnek düzeyi genel IP (Klasik) genel bakış
+Bir örnek düzeyi genel IP (ILPIP) doğrudan bir sanal makine veya Bulut Hizmetleri rolü örneği yerine, VM veya rol örneğindeki bulunan bir bulut hizmeti atayabileceğiniz genel bir IP adresi ' dir. Bir ILPIP sanal IP (bulut hizmetinize atanan VIP) yer almaz. Bunun yerine, bu doğrudan, VM'deki veya rol örneğine bağlanmak için kullanabileceğiniz bir ek IP adresidir.
 
 > [!IMPORTANT]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bu makale klasik dağıtım modelini incelemektedir. Microsoft, VM'ler Resource Manager aracılığıyla oluşturma önerir. Anladığınızdan emin olun nasıl [IP adreslerini](virtual-network-ip-addresses-overview-classic.md) Azure içinde çalışır.
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bu makale klasik dağıtım modelini incelemektedir. Microsoft, Vm'leri Resource Manager üzerinden oluşturulmasını önerir. Anladığınızdan emin olun nasıl [IP adresleri](virtual-network-ip-addresses-overview-classic.md) azure'da çalışır.
 
-![ILPIP VIP arasındaki fark](./media/virtual-networks-instance-level-public-ip/Figure1.png)
+![VIP ILPIP arasındaki fark](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
-Şekil 1'de gösterildiği gibi bulut hizmeti bir VIP kullanırken, tek tek sanal makineleri, normalde VIP kullanılarak erişilir erişilir:&lt;bağlantı noktası numarası&gt;. Belirli bir VM'yi bir ILPIP atayarak bu VM, bu IP adresi kullanarak doğrudan erişilebilir.
+Şekil 1'de gösterildiği gibi bulut hizmetine tek tek sanal makineleri, normalde VIP kullanılarak erişilir sırasında bir VIP kullanılarak erişilir:&lt;bağlantı noktası numarası&gt;. Belirli bir VM'ye bir ILPIP atayarak, o sanal IP adresi kullanarak doğrudan erişilebilir.
 
-Azure'da bulut hizmeti oluşturduğunuzda, karşılık gelen DNS A kayıtlarını otomatik olarak bir tam etki alanı adı (FQDN) üzerinden hizmete erişmesine izin vermek için gerçek VIP kullanmak yerine oluşturulur. FQDN ILPIP yerine VM veya rol örneğine izin veren bir ILPIP için aynı işlem gerçekleşir. Örneği için adlı bir bulut hizmeti oluşturursanız *contosoadservice*, ve adında bir web rolü yapılandırma *contosoweb* iki örnekleriyle aşağıdaki Azure kaydeder A kayıtlarını örnekleri için:
+Azure'da bir bulut hizmeti oluşturduğunuzda, karşılık gelen DNS A kayıtlarını otomatik olarak bir tam etki alanı adı (FQDN) üzerinden hizmete erişmesine izin vermek için gerçek VIP kullanmak yerine oluşturulur. ILPIP yerine FQDN DEĞERİNE göre VM veya rol örneğine erişmesine izin vererek, bir ILPIP için aynı işlem gerçekleşir. Örneği için adlı bir bulut hizmeti oluşturursanız *contosoadservice*, adında bir web rolü yapılandırmanız *contosoweb* iki örneği ile Azure aşağıdaki kaydeder A kayıtlarını örnekleri için:
 
 * contosoweb\_IN_0.contosoadservice.cloudapp.net
 * contosoweb\_IN_1.contosoadservice.cloudapp.net 
 
 > [!NOTE]
-> Her VM veya rol örneği için yalnızca bir ILPIP atayabilirsiniz. Abonelik başına en fazla 5 ILPIPs kullanabilirsiniz. ILPIPs multi-NIC VM'ler için desteklenmez.
+> Her sanal makine veya rol örneği için yalnızca bir ILPIP atayabilirsiniz. Abonelik başına en fazla 5 ILPIPs kullanabilirsiniz. ILPIPs multi-NIC sanal makineler için desteklenmez.
 > 
 > 
 
-## <a name="why-would-i-request-an-ilpip"></a>Bir ILPIP isteme neden?
-Bulut kullanmak yerine VIP Doğrudan kendisine atanmış bir IP adresine göre VM'deki veya rol örneğine bağlanmak istiyorsanız, hizmet:&lt;bağlantı noktası numarası&gt;, VM veya rol örneği için bir ILPIP isteyin.
+## <a name="why-would-i-request-an-ilpip"></a>Bir ILPIP istek neden?
+Bulut kullanmak yerine VIP Doğrudan kendisine atanmış bir IP adresiyle VM veya rol Örneğinize bağlanmak istiyorsanız, hizmet:&lt;bağlantı noktası numarası&gt;, VM'nize veya rol Örneğiniz için bir ILPIP istek.
 
-* **Etkin FTP** -bir VM için bir ILPIP atayarak onu herhangi bir bağlantı noktasında trafik alabilir. Uç noktaları VM trafiği almak gerekli değildir.  Bakın (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP Protokolü genel bakış] FTP protokolünü hakkında ayrıntılı bilgi için.
-* **Giden IP** - sanal makineden giden trafiği ILPIP kaynağı olarak eşleştirilir ve ILPIP dış varlıklar VM benzersiz şekilde tanımlar.
+* **Etkin FTP** -bir VM için bir ILPIP atayarak herhangi bir bağlantı noktasında trafik alabilir. Uç noktaları trafiği almak sanal makine için gerekli değildir.  Bkz. [FTP protokolünü genel bakış] (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) FTP protokolünü hakkında ayrıntılı bilgi için.
+* **Giden IP** - sanal makineden kaynaklanan giden trafik kaynağı olarak ILPIP eşleştirilir ve ILPIP dış varlıklar VM benzersiz olarak tanımlar.
 
 > [!NOTE]
-> Geçmişte, bir ILPIP adresi genel bir IP (PIP) adresi başvuruldu.
+> Geçmişte, ILPIP adresi genel IP (PIP) adresi başvuruldu.
 > 
 
-## <a name="manage-an-ilpip-for-a-vm"></a>Bir VM için bir ILPIP yönetme
-Aşağıdaki görevler oluşturun, atamak ve VM'lerin ILPIPs kaldırmak etkinleştir:
+## <a name="manage-an-ilpip-for-a-vm"></a>VM için bir ILPIP yönetme
+Aşağıdaki görevler, oluşturmak, atamak ve ILPIPs Vm'lerinizden kaldırın olanak sağlar:
 
-### <a name="how-to-request-an-ilpip-during-vm-creation-using-powershell"></a>PowerShell kullanarak VM oluşturma sırasında bir ILPIP istemek nasıl
-Aşağıdaki PowerShell betiğini adlı bir bulut hizmeti oluşturur *FTPService*, Azure'dan bir görüntü alır, adlandırılmış bir VM'nin oluşturur *FTPInstance* alınan görüntü kullanarak bir ILPIP kullanmak için VM ayarlar ve ekler Yeni hizmet VM'ye:
+### <a name="how-to-request-an-ilpip-during-vm-creation-using-powershell"></a>PowerShell kullanarak VM oluşturma sırasında bir ILPIP nasıl
+Aşağıdaki PowerShell betiğini adlı bir bulut hizmeti oluşturur *FTPService*, Azure'dan bir görüntü alır, adlı bir VM oluşturur *FTPInstance* alınan görüntüsünü kullanarak bir ILPIP kullanmak üzere VM ayarlar ve ekler Yeni hizmet VM:
 
 ```powershell
 New-AzureService -ServiceName FTPService -Location "Central US"
@@ -67,7 +67,7 @@ New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageN
 ```
 
 ### <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>Bir VM için ILPIP bilgi alma
-Önceki komut dosyasıyla VM oluşturulan için ILPIP bilgileri görüntülemek için aşağıdaki PowerShell komutunu çalıştırın ve değerlerini uyun *Publicıpaddress* ve *PublicIPName*:
+Önceki betiği ile oluşturulan VM için ILPIP bilgileri görüntülemek için aşağıdaki PowerShell komutunu çalıştırın ve değerlerini gözlemleyin *Publicıpaddress* ve *PublicIPName*:
 
 ```powershell
 Get-AzureVM -Name FTPInstance -ServiceName FTPService
@@ -103,25 +103,25 @@ Beklenen çıktı:
     OperationStatus             : OK
 
 ### <a name="how-to-remove-an-ilpip-from-a-vm"></a>Bir sanal makineden bir ILPIP kaldırma
-Önceki komut dosyasında VM eklenen ILPIP kaldırmak için aşağıdaki PowerShell komutunu çalıştırın:
+Önceki komut VM'yi eklenen ILPIP kaldırmak için aşağıdaki PowerShell komutunu çalıştırın:
 
 ```powershell
 Get-AzureVM -ServiceName FTPService -Name FTPInstance | Remove-AzurePublicIP | Update-AzureVM
 ```
 
-### <a name="how-to-add-an-ilpip-to-an-existing-vm"></a>Mevcut bir VM'yi bir ILPIP ekleme
-Önceki komut dosyası kullanılarak oluşturulan VM bir ILPIP eklemek için aşağıdaki komutu çalıştırın:
+### <a name="how-to-add-an-ilpip-to-an-existing-vm"></a>Mevcut bir VM'ye bir ILPIP ekleme
+Önceki komut dosyası kullanılarak oluşturulan sanal Makineye bir ILPIP eklemek için aşağıdaki komutu çalıştırın:
 
 ```powershell
 Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -PublicIPName ftpip2 | Update-AzureVM
 ```
 
-## <a name="manage-an-ilpip-for-a-cloud-services-role-instance"></a>Bulut Hizmetleri rol örneği için bir ILPIP yönetme
+## <a name="manage-an-ilpip-for-a-cloud-services-role-instance"></a>Cloud Services rol örneği için bir ILPIP yönetme
 
-Bulut Hizmetleri rol örneği için bir ILPIP eklemek için aşağıdaki adımları tamamlayın:
+Cloud Services rol örneği için bir ILPIP eklemek için aşağıdaki adımları tamamlayın:
 
-1. İçindeki adımları tamamlayarak bulut hizmeti için .cscfg dosyasını indirin [bulut hizmetlerini yapılandırma](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) makalesi.
-2. .Cscfg dosyasını ekleyerek güncelleştirme `InstanceAddress` öğesi. Aşağıdaki örnek adlı bir ILPIP ekler *MyPublicIP* adlı bir rol örneği *WebRole1*: 
+1. Bulut hizmeti için .cscfg dosyası içindeki adımları tamamlayarak indirme [bulut hizmetlerini yapılandırma](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) makalesi.
+2. .Cscfg dosyasını ekleyerek güncelleştirme `InstanceAddress` öğesi. Aşağıdaki örnek adlı bir ILPIP ekler *Mypublicıp* adlı rol örneği için *WebRole1*: 
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -143,7 +143,7 @@ Bulut Hizmetleri rol örneği için bir ILPIP eklemek için aşağıdaki adımla
       </NetworkConfiguration>
     </ServiceConfiguration>
     ```
-3. İçindeki adımları tamamlayarak bulut hizmeti için .cscfg dosyasını karşıya [bulut hizmetlerini yapılandırma](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) makalesi.
+3. Bulut hizmeti için .cscfg dosyasını karşıya yükleme adımları tamamlayarak [bulut hizmetlerini yapılandırma](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) makalesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Anlamak nasıl [IP adresleme](virtual-network-ip-addresses-overview-classic.md) Klasik dağıtım modelinde çalışır.

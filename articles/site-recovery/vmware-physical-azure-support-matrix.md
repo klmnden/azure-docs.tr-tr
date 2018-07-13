@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: cb01e71ae45ae8a7e37e8ab5cdf60e3b3fcb9983
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eecf608a712e6a29180b797bbef491501653dfd6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919769"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006487"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware ve fiziksel sunucu çoğaltması azure'a destek matrisi
 
@@ -24,13 +24,13 @@ Bu makalede kullanarak desteklenen bileşenler ve Azure'da VMware vm'lerinin ola
 **Senaryo** | **Ayrıntılar**
 --- | ---
 VMware Sanal Makineleri | Şirket içi VMware Vm'lerini azure'a çoğaltma. Bu senaryo Azure portalında veya kullanarak dağıtabileceğiniz [PowerShell](vmware-azure-disaster-recovery-powershell.md).
-Fiziksel sunucular | Şirket içi Windows/Linux fiziksel serversto Azure çoğaltma. Bu senaryoda Azure Portalı'nda dağıtabilirsiniz.
+Fiziksel sunucular | Şirket içi Windows/Linux fiziksel sunucuları azure'a çoğaltma. Bu senaryoda Azure Portalı'nda dağıtabilirsiniz.
 
 ## <a name="on-premises-virtualization-servers"></a>Şirket içi sanallaştırma sunucuları
 
 **Sunucu** | **Gereksinimleri** | **Ayrıntılar**
 --- | --- | ---
-VMware | vCenter Server 6.5, 6.0 veya 5.5 veya vSphere 6.5, 6.0 veya 5.5 | Bir vCenter sunucusu kullanmanızı öneririz.<br/><br/> VSphere konaklarını ve vCenter sunucularını işlem sunucusu aynı ağda bulunan öneririz. İşlem sunucusu bileşenleri çalıştırır yapılandırma sunucusunda bir adanmış işlem sunucusu ayarlamadıysanız ayarlamadığınız sürece bu yapılandırma sunucusunu, ayarladığınız ağ olur.
+VMware | vCenter Server 6.7 6.5, 6.0 veya 5.5 veya vSphere 6.7, 6.5, 6.0 veya 5.5 | Bir vCenter sunucusu kullanmanızı öneririz.<br/><br/> VSphere konaklarını ve vCenter sunucularını işlem sunucusu aynı ağda bulunan öneririz. İşlem sunucusu bileşenleri çalıştırır yapılandırma sunucusunda bir adanmış işlem sunucusu ayarlamadıysanız ayarlamadığınız sürece bu yapılandırma sunucusunu, ayarladığınız ağ olur.
 Fiziksel | Yok
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery yapılandırma sunucusu
@@ -61,7 +61,7 @@ Site Recovery, desteklenen bir makinede çalışan tüm iş yüklerini çoğalt�
 **Bileşen** | **Ayrıntılar**
 --- | ---
 Makine ayarları | Azure'a çoğaltılan makineler karşılamalıdır [Azure gereksinimleri](#azure-vm-requirements).
-Windows işletim sistemi | 64 bit Windows Server 2016 (Sunucu Çekirdeği, masaüstü deneyimi ile sunucu), Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1. Windows 2016 Nano sunucu desteklenmiyor.
+Windows işletim sistemi | 64 bit Windows Server 2016 (Sunucu Çekirdeği, masaüstü deneyimi ile sunucu), Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1.</br></br>  [Windows Server 2008 ile en az SP2 - 32 bit ve 64 bit](migrate-tutorial-windows-server-2008.md) (yalnızca geçiş). </br></br> * *Windows 2016 Nano sunucu desteklenmiyor.*
 Linux işletim sistemi | Red Hat Enterprise Linux: 5.2 için 5.11 ya, 6.1 için 6.9, 7.0 için 7.4 <br/><br/>CentOS: 5.2 için 5.11 ya, 6.1 için 6.9, 7.0 için 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (çekirdek sürümleri desteklenir)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 Red Hat uyumlu çekirdek veya kesilemeyen Enterprise çekirdeği sürüm 3 (UEK3) yüklü <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>Çoğaltılan makineler SP4 ' SP3 yükseltme desteklenmez. Yükseltmek için çoğaltmayı devre dışı bırakın ve yükseltmeden sonra yeniden etkinleştirin.
 
 >[!NOTE]
@@ -70,6 +70,7 @@ Linux işletim sistemi | Red Hat Enterprise Linux: 5.2 için 5.11 ya, 6.1 için 
 >
 > - Korumalı makineler arasında önemli Linux dağıtım sürümleri desteklenmez yükseltiliyor. Yükseltmek için çoğaltmayı devre dışı bırak, işletim sistemini yükseltin ve ardından çoğaltmayı yeniden etkinleştirin.
 >
+> - Red Hat Enterprise Linux 5.2 5.11 veya CentOS 5.2 için 5.11 çalıştıran sunucular, Linux Tümleştirme Services(LIS) bileşenlerini makineleri Azure'da önyüklemesini yapmak için sırayla yüklemiş olmanız gerekir.
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu çekirdek sürümleri
 

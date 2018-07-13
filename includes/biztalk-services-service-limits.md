@@ -9,11 +9,11 @@ ms.date: 11/09/2017
 ms.author: mandia
 ms.custom: include file
 ms.openlocfilehash: 7fa6930acf4d19b3939bb8a5b0306d216346c2b3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "29765926"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38755991"
 ---
 | KAYNAK | ÜCRETSİZ (ÖNİZLEME) | GELİŞTİRİCİ | TEMEL | STANDART | PREMIUM |
 | --- | --- | --- | --- | --- | --- |
@@ -23,7 +23,7 @@ ms.locfileid: "29765926"
 | Birim başına EDI Sözleşmesi |Yok |10 |50 |250 |1000 |
 | Birim başına karma bağlantılar |5 |5 |10 |50 |100 |
 | Birim başına Karma Bağlantı Veri Aktarımı (GB) |5 |5 |50 |250 |500 |
-| BizTalk bağdaştırıcı hizmeti birim başına kullanarak bağlantı sayısı |Yok |1 |2 |5 |25 |
+| Birim başına BizTalk bağdaştırıcı hizmetini kullanan bağlantı sayısı |Yok |1 |2 |5 |25 |
 | Arşivleme |Yok |Kullanılabilir |Yok |Yok |Kullanılabilir |
 | Yüksek Kullanılabilirlik |Yok |Yok |Kullanılabilir |Kullanılabilir |Kullanılabilir |
 

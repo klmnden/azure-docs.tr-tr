@@ -1,9 +1,9 @@
 ---
-title: Bir Azure bulut hizmeti izleme | Microsoft Docs
-description: Hangi Azure bulut hizmeti izleme içerir ve hangi seçeneklerinizi bazı açıklar şunlardır.
+title: Azure bulut hizmeti izleme | Microsoft Docs
+description: Hangi Azure bulut hizmeti izleme içerir ve hangi seçeneklerinizi bazılarını açıklar olan.
 services: cloud-services
 documentationcenter: ''
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,60 +13,60 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: adegeo
-ms.openlocfilehash: f3a3a1beb8540ee8ab0502379396c06ea505fb44
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.author: jeconnoc
+ms.openlocfilehash: 725a705f746bbf5e32fcc410ba4153ac29e3fc3d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
-ms.locfileid: "29149915"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003862"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Bulut hizmeti izleme giriş
 
-Herhangi bir bulut hizmeti için temel performans ölçümlerini izleyebilir. Her bulut hizmet rolü en düşük düzeyde veri toplar: CPU kullanımı, ağ kullanımını ve disk kullanımı. Bulut hizmeti varsa `Microsoft.Azure.Diagnostics` bir rolü, bu rolü uygulanan uzantısı ek veri noktalarını toplayabilir. Bu makalede bulut Hizmetleri için Azure tanılama tanıtılmaktadır.
+Herhangi bir bulut hizmeti için temel performans ölçümlerini izleyebilir. Her bulut hizmeti rolü en düşük düzeyde veri toplar: CPU kullanımı, ağ kullanımı ve disk kullanımı. Bulut hizmetine sahipse `Microsoft.Azure.Diagnostics` uzantısı bir rolü, bu rolü uygulanan ek noktaları veri toplayabilir. Bu makalede bulut Hizmetleri için Azure tanılama tanıtır.
 
-Temel izleme ile performans sayacı verilerini rol örneklerinden örneklenen ve 3 dakika aralıklarla toplanır. Bu temel izleme verilerini depolama hesabınızdaki depolanmaz ve ek ücret ödemeden kendisiyle ilişkili.
+Temel izleme ile performans sayacı verileri rol örneklerindeki örneklenir ve 3 dakikalık aralıklarla toplanır. Bu temel izleme verilerini depolama hesabınızda depolanmaz ve hiçbir ek ücret ile ilişkili.
 
-Gelişmiş izleme ile ek ölçümler örneklenen ve 5 dakika, 1 saat ve 12 saat aralıklarla toplanır. Toplanan veri tabloları, bir depolama hesabında depolanır ve 10 gün sonra temizlenir. Kullanılan depolama hesabı role göre yapılandırılmıştır; farklı depolama hesapları için farklı roller kullanabilirsiniz. Bu bir bağlantı dizesi ile yapılandırılmış [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) ve [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) dosyaları.
+Gelişmiş izleme ile ek ölçümler örneklenir ve 1 saat ile 12 saat 5 dakikalık aralıklarla toplanır. Toplanan veriler, tablolar, bir depolama hesabında depolanır ve 10 gün sonra temizlenir. Kullanılan depolama hesabı, rolü tarafından yapılandırılır; farklı depolama hesapları için farklı roller kullanabilirsiniz. Bu bağlantı dizesinde yapılandırılmış [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) ve [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) dosyaları.
 
 
 ## <a name="basic-monitoring"></a>Temel izleme
 
-Girişte belirtildiği gibi bir bulut hizmeti temel izleme verilerini otomatik olarak ana bilgisayar sanal makineden toplar. Bu veriler, CPU yüzdesi, ağ giriş/çıkış ve disk okuma/yazma içerir. Toplanan izleme verilerini otomatik olarak Azure portalındaki bulut hizmetinin genel bakış ve ölçümleri sayfalarında görüntülenir. 
+Giriş belirtildiği gibi bir bulut hizmeti temel izleme verilerini otomatik olarak konak sanal makineden toplar. Bu veriler, CPU yüzdesi, ağ daraltma/genişletme ve disk okuma/yazma içerir. Toplanan izleme verilerinin otomatik olarak Azure portalındaki bulut hizmetinin genel bakış ve ölçümleri sayfalarında görüntülenir. 
 
-Temel izleme bir depolama hesabı gerektirmez. 
+Temel izleme, bir depolama hesabı gerektirmez. 
 
-![temel bulut hizmeti döşeme izleme](media/cloud-services-how-to-monitor/basic-tiles.png)
+![kutucukları izleme temel bir bulut hizmeti](media/cloud-services-how-to-monitor/basic-tiles.png)
 
 ## <a name="advanced-monitoring"></a>Gelişmiş izleme
 
-Gelişmiş izleme içerir kullanarak **Azure tanılama** uzantısı (ve isteğe bağlı olarak Application Insights SDK'sı) izlemek istediğiniz rolü. Tanılama uzantısını adlı bir yapılandırma dosyası (her bir rolü) kullanan **diagnostics.wadcfgx** izlenen tanılama ölçümleri yapılandırmak için. Azure tanılama uzantısını toplar ve bir Azure depolama hesabında verileri depolar. Bu ayarları yapılandırılan **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef), ve [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) dosyaları. Bu fazladan olduğu anlamına gelir ilişkili maliyet Gelişmiş izleme.
+Gelişmiş izlemeyi içerir kullanarak **Azure tanılama** uzantısı (ve isteğe bağlı olarak Application Insights SDK'sı) izlemek istediğiniz rol. Tanılama uzantısını adlı bir yapılandırma dosyası (her bir rolü) kullanan **diagnostics.wadcfgx** izlenen tanılama ölçümünü yapılandırmak için. Azure tanılama uzantısı, toplar ve bir Azure depolama hesabında verileri depolar. Bu ayarları içinde yapılandırılmış **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef), ve [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) dosyaları. Bu ek olduğu anlamına gelir ile ilişkili maliyetini Gelişmiş izleme.
 
-Her rol oluşturulduğundan, Visual Studio için Azure tanılama uzantısını ekler. Bu tanılama uzantısını aşağıdaki bilgi türlerini toplayabilirsiniz:
+Her rolün oluşturulduğundan, Visual Studio için Azure tanılama uzantısını ekler. Bu tanılama uzantısı, aşağıdaki bilgi türlerini toplayabilirsiniz:
 
 * Özel performans sayaçları
 * Uygulama günlükleri
 * Windows olay günlükleri
 * .NET olay kaynağı
 * IIS günlükleri
-* Temel ETW bildirimi
+* Bildirim tabanlı ETW
 * Kilitlenme bilgi dökümleri
 * Müşteri hata günlükleri
 
 > [!IMPORTANT]
-> Bu veriler storage hesabına toplanır olsa da, portal mu **değil** grafik verileri için yerel bir yol sağlar. Uygulamanıza Application Insights gibi başka bir hizmet tümleştirmek önerilir.
+> Tüm bu veriler depolama hesabında toplanır, ancak portalda mu **değil** verilerin grafiğini oluşturmak için yerel bir yol sağlar. Uygulamanıza Application Insights gibi başka bir hizmete tümleştirme önemle tavsiye edilir.
 
-## <a name="setup-diagnostics-extension"></a>Tanılama uzantısını Kurulumu
+## <a name="setup-diagnostics-extension"></a>Kurulum tanılama uzantısı
 
-Ürününe sahip değilseniz, ilk olarak, bir **Klasik** depolama hesabı [oluşturmak](../storage/common/storage-create-storage-account.md#create-a-storage-account). Emin olun depolama hesabı ile oluşturulur **Klasik dağıtım modeli** belirtilen.
+Öğeniz yoksa ilk olarak, bir **Klasik** depolama hesabı [oluşturmak](../storage/common/storage-create-storage-account.md#create-a-storage-account). Emin depolama hesabı ile oluşturulduğundan **Klasik dağıtım modelini** belirtilen.
 
-Ardından, gitmek **depolama hesabı (Klasik)** kaynak. Seçin **ayarları** > **erişim anahtarları** ve kopyalama **birincil bağlantı dizesi** değeri. Bulut hizmeti için bu değer gerekir. 
+Ardından, gitmek **depolama hesabı (Klasik)** kaynak. Seçin **ayarları** > **erişim anahtarları** ve kopyalama **birincil bağlantı dizesi** değeri. Bulut hizmeti için bu değere ihtiyacınız. 
 
-Etkinleştirilmesi Gelişmiş tanılama değiştirmelisiniz iki yapılandırma dosyası yok **ServiceDefinition.csdef** ve **ServiceConfiguration.cscfg**.
+İki yapılandırma dosyası etkinleştirilmesi Gelişmiş tanılama değiştirmelisiniz **ServiceDefinition.csdef** ve **ServiceConfiguration.cscfg**.
 
 ### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
-İçinde **ServiceDefinition.csdef** dosya, adlı yeni bir ayar Ekle `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` her rol için Gelişmiş tanılama kullanır. Yeni bir proje oluşturduğunuzda, visual Studio bu değer dosyasına ekler. Eksik olması durumunda, artık ekleyebilirsiniz. 
+İçinde **ServiceDefinition.csdef** adlı yeni bir ayar ekleyin `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` her rol için Gelişmiş tanılama kullanır. Yeni bir proje oluşturduğunuzda, visual Studio dosyayı bu değeri ekler. Eksik olması durumunda, artık ekleyebilirsiniz. 
 
 ```xml
 <ServiceDefinition name="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -75,9 +75,9 @@ Etkinleştirilmesi Gelişmiş tanılama değiştirmelisiniz iki yapılandırma d
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
-Bu her eklenmelidir yeni bir ayar tanımlar **ServiceConfiguration.cscfg** dosya. 
+Bu, her eklenmelidir yeni bir ayarı tanımlar **ServiceConfiguration.cscfg** dosya. 
 
-İki büyük olasılıkla sahip **.cscfg** dosyaları, bir adlı **ServiceConfiguration.cloud.cscfg** Azure ve adlı bir dağıtmak için **ServiceConfiguration.local.cscfg** Bu adres benzetilmiş ortamında yerel dağıtımları için kullanılır. Açın ve her değişiklik **.cscfg** dosya. Adlı bir ayar Ekle `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Değer kümesine **birincil bağlantı dizesi** Klasik depolama hesabının. Geliştirme makinenizde yerel depolama kullanmak istiyorsanız, kullanmak `UseDevelopmentStorage=true`.
+Büyük olasılıkla iki tane **.cscfg** dosyaları, bir adlı **ServiceConfiguration.cloud.cscfg** Azure ve adlı bir dağıtmak için **ServiceConfiguration.local.cscfg** benzetilmiş ortamında yerel dağıtımlar için kullanılmıştır. Açın ve her **.cscfg** dosya. Adlı bir ayar ekleyin `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Değerine **birincil bağlantı dizesi** Klasik depolama hesabı. Geliştirme makinenizde yerel depolama kullanmak istiyorsanız, kullanın `UseDevelopmentStorage=true`.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
@@ -93,9 +93,9 @@ Bu her eklenmelidir yeni bir ayar tanımlar **ServiceConfiguration.cscfg** dosya
 
 ## <a name="use-application-insights"></a>Application Insights kullanın
 
-Visual Studio bulut hizmetinden yayımladığınızda, tanılama verilerini Application Insights'a gönderme seçeneği verilir. O anda uygulama Öngörüler Azure kaynak oluşturabilir veya mevcut bir Azure kaynağı için verileri gönderin. Bulut hizmetiniz, kullanılabilirlik, performans, hataları ve kullanım için Application Insights tarafından izlenebilir. Özel grafikler verileri görebilmesi için Application Insights eklenebilir, önemli en. Rol örneği verileri bulut hizmeti projenizi Application Insights SDK'sı kullanarak toplanabilir. Application Insights tümleştirme hakkında daha fazla bilgi için bkz: [Application Insights bulut hizmetleriyle](../application-insights/app-insights-cloudservices.md).
+Visual Studio bulut hizmetinden yayımladığınızda, Application Insights'a tanılama verilerini gönderme seçeneği sunulur. O anda Application Insights Azure kaynak oluşturabilir veya mevcut bir Azure kaynak verileri gönderin. Kullanılabilirlik, performans, hatalar ve kullanım için bulut hizmetinizi Application Insights tarafından izlenebilir. Özel grafikler verileri görebilmesi için Application Insights eklenebilir en, önemlidir. Rol örneği veri, bulut hizmeti projenizi Application Insights SDK'sını kullanarak toplanabilir. Application Insights'ı tümleştirme hakkında daha fazla bilgi için bkz. [Cloud Services ile Application Insights](../application-insights/app-insights-cloudservices.md).
 
-Performans sayaçlarını (ve diğer ayarları) görüntülemek için Application Insights kullanabilmenize karşın, Windows Azure Diagnostics uzantısı aracılığıyla, yalnızca sizin belirttiğiniz not içine Application Insights SDK'sı ile tümleştirerek zengin bir deneyim almak için Worker ve web rolleri.
+Performans sayaçlarını (ve diğer ayarları) görüntülemek için Application Insights kullanabilmenize karşın Windows Azure tanılama uzantısı, yalnızca belirttiğiniz Not uygulamasına Application Insights SDK'sı ile tümleştirerek daha zengin bir deneyim elde, Worker ve web rolleri.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

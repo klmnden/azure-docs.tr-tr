@@ -1,85 +1,89 @@
 ---
-title: "Azure yığın güvenlik denetimleri anlama | Microsoft Docs"
-description: "Hizmet Yöneticisi olarak Azure yığına uygulanan güvenlik denetimleri hakkında bilgi edinin"
+title: Azure Stack güvenlik denetimleri anlama | Microsoft Docs
+description: Hizmet Yöneticisi olarak Azure Stack için uygulanan güvenlik denetimleri hakkında bilgi edinin
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: c1d92f8f2ed9e8ab504afc65bab861e1f7bb3689
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a3bd314a1df3c45c76b2e3a5acb31c1474d0fdf5
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008835"
 ---
-# <a name="azure-stack-infrastructure-security-posture"></a>Azure yığın altyapı güvenlik yaklaşımı
+# <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack altyapısını güvenlik durumu
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri*
 
-Karma bulut kullanmak için ana sürücüleri güvenlik konuları ve uyumluluk düzenlemeleri arasındadır. Azure yığın bu senaryoları için tasarlanmıştır ve Azure yığın benimsenmesi zaman denetimlerin zaten anlamak önemlidir.
+Güvenlik hususlarının yanı sıra uyumluluk düzenlemelerini kullanarak karma Bulutlar için ana sürücüleri arasındadır. Azure Stack bu senaryolar için tasarlanmıştır ve Azure Stack zaten yerinde denetimleri anlamak önemlidir.
 
-Azure yığınında bir arada iki güvenlik tutumunu katman vardır. İlk katman donanım bileşenleri tamamen kadar Azure Resource Manager duruma geçtiğinde ve yönetici ve Kiracı portalı içerir Azure yığın altyapı oluşur. İkinci katman, kiracılar oluşturmak, dağıtmak ve yönetmek iş yükü oluşur ve sanal makine ya da uygulama hizmetleri web siteleri gibi şeyleri içerir.  
+İki güvenlik duruşunu katmanları Azure Stack'te bir arada. Donanım bileşenleri kadar Azure Resource Manager içeren Azure Stack altyapısının ilk katmanıdır. İlk katman, yönetici ve Kiracı portalı içerir. Yönetilen kiracılar tarafından oluşturulan ve dağıtılan iş yüklerinin ikinci katman oluşur. İkinci Katman sanal makine ve uygulama hizmetleri web siteleri gibi öğeleri içerir.
 
 ## <a name="security-approach"></a>Güvenlik yaklaşımı
-Azure yığını ile güvenlik tutumunu modern tehditlere karşı korumak için tasarlanmıştır ve ana uyumluluk standartlarını gereksinimlerden karşılamak için oluşturuldu. Sonuç olarak, güvenlik tutumunu Azure yığın altyapısının üzerinde iki ayaklar yerleşik olarak bulunur:
 
- - **İhlali varsayalım.**  
-Odağı sistem zaten ihlal edildiği varsayılır başlayarak, *algılama ve ihlallerinden etkilerini sınırlayarak* karşı saldırıları önlemek yalnızca çalışıyor. 
- - **Varsayılan olarak sıkı.**  
-İyi tanımlanmış donanım ve yazılım, altyapı çalışır olduğundan biz *etkinleştirmek, yapılandırmak ve tüm güvenlik özellikleri doğrulama* varsayılan olarak.
+Azure Stack güvenlik duruşu modern tehditlere karşı korumak için tasarlanmıştır ve gereksinimlerden en önemli uyumluluk standartları karşılamak amacıyla oluşturulmuştur. Sonuç olarak, Azure Stack altyapısının güvenlik duruşunu iki yapı taşları üzerinde oluşturulmuştur:
 
+ - **İhlal varsayımı**  
+Sistem zaten ihlal varsayımına başlayarak, odaklanmak *algılama ve İhlallerin etkisini sınırlandırma* karşı saldırıları önlemek yalnızca çalışıyor. 
+ - **Varsayılan olarak sağlamlaştırılmış**  
+Altyapı iyi tanımlanmış donanım ve yazılım, Azure Stack üzerinde çalıştığından sunucu *sağlar, yapılandırır ve güvenlik özellikleri doğrular* varsayılan olarak.
 
-
-Azure yığın tümleşik bir sistem olarak teslim edildiğinden Azure yığın altyapısının güvenlik tutumunu Microsoft tarafından tanımlanır. Gibi Azure'da, kiracılar, Kiracı iş yüklerini güvenlik duruşunu tanımlamak için sorumludur. Bu belge, Azure yığın altyapı güvenlik yaklaşımı hakkında temel bilgi sağlar.
+Azure Stack tümleşik bir sistem halinde teslim edildiğinden, Azure Stack altyapısının güvenlik duruşunu Microsoft tarafından tanımlanır. Tıpkı Azure'da kiracılar Kiracı iş yüklerini güvenlik duruşunu sorumludur. Bu belge, Azure Stack altyapısının güvenlik açısından duruşunu temel bilgi sağlar.
 
 ## <a name="data-at-rest-encryption"></a>Veri bekleyen şifreleme
-Tüm Azure yığın altyapı ve Kiracı verileri Bitlocker kullanılarak bekleme sırasında şifrelenir. Bu şifreleme fiziksel kaybedilmesi veya çalınması Azure yığın depolama bileşenlerinin karşı korur. 
+Tüm Azure Stack altyapı ve Kiracı verileri, Bitlocker kullanılarak, bekleme sırasında şifrelenir. Bu şifreleme, fiziksel kaybedilmesi veya çalınması Azure Stack depolama bileşenleri karşı korur. 
 
 ## <a name="data-in-transit-encryption"></a>Veri aktarım sırasında şifreleme
-Azure yığın altyapı bileşenlerini TLS 1.2 ile şifrelenmiş kanalları kullanarak iletişim kurar. Şifreleme sertifikaları altyapısı tarafından otomatik olarak yönetilir. 
+Azure Stack altyapı bileşenleri, TLS 1.2 ile şifrelenmiş kanalları kullanarak iletişim kurar. Şifreleme sertifikaları Self altyapısı tarafından yönetilir. 
 
-Tüm dış altyapı uç noktaları, REST uç noktaları ya da Azure yığın portalı gibi güvenli iletişimler için TLS 1.2 destekler. Şifreleme sertifikaları, bir üçüncü taraf veya sertifika yetkilisi, kuruluşunuz için bu uç noktaları sağlanmalıdır. 
+Tüm dış altyapı uç noktaları, REST uç noktalarını ya da Azure Stack portalı gibi güvenli iletişim için TLS 1.2 desteği. Şifreleme sertifikaları, bir üçüncü taraf veya Kurumsal Sertifika yetkilisi için bu Uç noktalara sağlanmalıdır. 
 
-Bu dış uç noktalar için otomatik olarak imzalanan sertifikalar kullanılabilir, ancak Microsoft bunları kullanılmamasını önerir. 
+Otomatik olarak imzalanan sertifikalar bu dış uç noktaları için kullanılabilir, ancak Microsoft bunları kullanılmamasını önerir. 
 
-## <a name="secret-management"></a>Gizlilik Yönetimi
-İşlev için parolalar gibi gizli çok sayıda Azure yığın altyapısını kullanır. Bunların çoğu otomatik olarak her 24 saatte döndürme Grup yönetilen hizmet hesapları olduklarından sık döndürülür.
+## <a name="secret-management"></a>Gizli dizi Yönetimi
+Azure Stack altyapısının parolalar gibi gizli dizileri birçok işlev için kullanır. 24 saatte bir döndürme Grup yönetilen hizmet hesapları, çünkü çoğu, sık sık otomatik olarak döndürülür.
 
-Grup yönetilen hizmet hesapları el ile ayrıcalıklı uç noktada bir betik ile döndürülüp olmayan kalan gizli.
+Grup yönetilen hizmet hesapları, bir komut dosyası ayrıcalıklı uç noktasını el ile döndürülebilen olmayan diğer gizli dizileri.
 
 ## <a name="code-integrity"></a>Kod bütünlüğü
-Azure yığın yapar en son Windows Server 2016 kullanmak güvenlik özellikleri. Bunları Windows Defender'ın cihaz uygulamaları güvenilir listesine ekleme sağlayan ve sağlar, yalnızca Azure yığın altyapısındaki kodu çalıştırır yetkili koruyucusu, biridir. 
+Azure Stack yapar en son Windows Server 2016 ' kullanan güvenlik özellikleri. Windows Defender cihaz uygulama beyaz listesini sağlayan ve sağlar, yalnızca Azure Stack altyapısının içinde kod çalıştırır yetkili koruyucusu, bunlardan biridir. 
 
-Yetkili kod Microsoft veya OEM ortağı tarafından imzalanır ve Microsoft tarafından tanımlanan bir ilke belirtilen izin verilen yazılım listesi dahil. Diğer bir deyişle, Azure yığın altyapısında çalıştırmak için onaylı yazılım çalıştırılabilir. Yetkisiz kod yürütmek için tüm girişimler engellenir ve bir denetim oluşturulur.
+Yetkili kod Microsoft veya OEM iş ortağı tarafından imzalanır ve Microsoft tarafından tanımlanan bir ilkede belirtilen izin verilen yazılım listesine eklenir. Diğer bir deyişle, yalnızca Azure Stack altyapısının içinde çalıştırmak için onaylanmış yazılımlar çalıştırılabilir. Yetkisiz kod yürütme girişimi engellenir ve bir denetim oluşturulur.
 
-Cihaz koruyucusu İlkesi de üçüncü taraf aracılarını veya yazılımını Azure yığın altyapısında çalışmasını engeller.
+Device Guard İlkesi de üçüncü taraf aracılarını veya yazılımını Azure Stack altyapısının çalışmasını engeller.
 
-## <a name="credential-guard"></a>Kimlik bilgisi koruma
-Başka bir Windows Server 2016 güvenlik Azure yığınında Azure yığın altyapı kimlik Pass--Hash ve geçişi anahtar saldırılarından korumak için kullanılan Windows Defender'ın kimlik bilgisi koruma özelliğidir.
+## <a name="credential-guard"></a>Credential Guard
+Başka bir Windows Server 2016 güvenlik Azure Stack'te Azure Stack altyapısını kimlik Pass--Hash ve Pass--Ticket saldırılara karşı korumak için kullanılan Windows Defender Credential Guard özelliğidir.
 
 ## <a name="antimalware"></a>Kötü Amaçlı Yazılımdan Koruma
-Her bileşen Azure yığınında (Hyper-V konakları ve sanal makineler), Windows Defender virüsten korunur.
+Azure Stack'te (Hyper-V konakları ve sanal makineler) her bir bileşeni, Windows Defender virüsten koruma ile korunur.
 
-## <a name="constrained-administration-model"></a>Kısıtlanmış yönetim modeli
-Azure yığınında yönetimi, her biri belirli bir amaca sahip üç giriş noktaları kullanımı ile kontrol edilir: 
-1. [Yönetici portalı](azure-stack-manage-portals.md) günlük yönetimi işlemleri için noktası tıklatma deneyimi sağlar.
-2. Azure Resource Manager PowerShell ve Azure CLI tarafından kullanılan bir REST API'si aracılığıyla Yönetici portalı'nı tüm yönetim işlemlerini gösterir. 
-3. Belirli düşük düzey işlemler, örneğin veri merkezi tümleştirme veya senaryoları desteklemek için Azure yığın adlı bir PowerShell uç noktasını kullanıma sunar [ayrıcalıklı uç nokta](azure-stack-privileged-endpoint.md). Yalnızca Güvenilenler listesine kümesi cmdlet'leri Bu uç noktasını kullanıma sunar ve yoğun olarak denetlenir.
+Birbirine bağlı senaryolarda, virüsten koruma tanımı ve motor güncelleştirmelerini günde birden çok kez uygulanır. Bağlantısı kesilmiş senaryolarda, kötü amaçlı yazılımdan koruma güncelleştirmeleri aylık Azure Stack güncelleştirmelerin bir parçası uygulanır. Bkz: [Windows Defender virüsten koruma Azure Stack'te güncelleştirme](azure-stack-security-av.md) daha fazla bilgi için.
+
+## <a name="constrained-administration-model"></a>Kısıtlı yönetim modeli
+Azure Stack yönetiminde, her biri belirli bir amaca sahip üç giriş noktaları kullanılarak denetlenir: 
+1. [Yönetici portalı](azure-stack-manage-portals.md) noktası tıklama deneyimindeki için günlük yönetimi işlemleri sağlar.
+2. Azure Resource Manager PowerShell ve Azure CLI tarafından kullanılan bir REST API aracılığıyla Yönetici portalı tüm yönetim işlemlerini gösterir. 
+3. Belirli düşük düzey işlemler, örneğin veri merkezi tümleştirmesi veya senaryoları desteklemek için Azure Stack adlı bir PowerShell uç noktasını kullanıma sunar [ayrıcalıklı uç nokta](azure-stack-privileged-endpoint.md). Bu uç nokta yalnızca izin verilenler listesinde cmdlet'ler kümesi sunan ve yoğun olarak denetlenir.
 
 ## <a name="network-controls"></a>Ağ denetimleri
-Azure yığın altyapı birden çok ağ erişim denetimi List(ACL) katman ile birlikte gelir. ACL'ler altyapı bileşenleri için yetkisiz erişimi engellemek ve altyapı iletişimi kendi çalışması için gerekli olan yollara kısıtlayabilirsiniz. 
+Azure Stack altyapısının, birden çok ağ erişim denetimi List(ACL) katmanlarla sunulur. ACL, altyapı bileşenleri için yetkisiz erişimi önlemek ve kendi işlevi için gerekli olan yollar için altyapı iletişimi sınırlayabilirsiniz. 
 
-Ağ ACL'leri üç katmanında uygulanır:
-1.  Raf üstündeki geçer
+Ağ ACL'leri, üç katmanda uygulanır:
+1.  Raf üstü anahtarları
 2.  Yazılım tanımlı ağ
-3.  Konak ve VM işletim sistemi güvenlik duvarları 
+3.  Konak ve sanal makine işletim sistemi güvenlik duvarları
 
+## <a name="next-steps"></a>Sonraki adımlar
 
+- [Azure stack'teki dizilerinizin döndürme hakkında bilgi edinin](azure-stack-rotate-secrets.md)

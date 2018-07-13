@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 30ebe4f990dc65e53c34673f0948d3aa2240385c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: fb8ae3b6225b2029ced3687083777ae47cb54acf
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37859709"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002339"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB ile ilgili SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB ile ilgili temel bilgiler
@@ -120,6 +120,9 @@ Bir bölge kümesi, Azure Cosmos DB bağımsız ve kamu bulutlarında uyar unutm
 
 Kapsayıcı ve veritabanı düzeyi aktarım hızı sağlama ayrı teklifleri ve ya da bunların arasında geçiş gerektiren geçirme kaynaktan hedef veri. Yeni bir veritabanı veya yeni bir koleksiyon oluşturun ve ardından verileri kullanarak geçirmek için anlamına gelir [toplu Yürütücü Kitaplığı](bulk-executor-overview.md) veya [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
+### <a name="how-do-i-create-fixed-collection-with-partition-key"></a>Bölüm anahtarıyla sabit koleksiyon nasıl oluşturabilirim
+
+Bir bölüm anahtarı aktarım hızı ile kullanarak koleksiyon şu anda oluşturabilirsiniz [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) yöntemi kullanarak veya .net SDK'sı [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Azure portalını kullanarak bir sabit koleksiyon oluşturma, şu anda desteklenen değil.  
 
 ## <a name="develop-against-the-sql-api"></a>SQL API'si ile programlama geliştirin
 

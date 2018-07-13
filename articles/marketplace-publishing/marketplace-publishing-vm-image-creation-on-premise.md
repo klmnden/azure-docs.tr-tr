@@ -1,6 +1,6 @@
 ---
-title: Bir şirket içi sanal makine görüntüsü için Azure Marketi oluşturma | Microsoft Docs
-description: Anlama ve şirket içi VM görüntü oluşturma ve Azure satın almak için Marketinde başkalarının dağıtma adımları yürütün.
+title: Azure Marketi için bir şirket içi sanal makine görüntüsü oluşturma | Microsoft Docs
+description: Anlama ve bir şirket içi VM görüntüsü oluşturma ve dağıtma satın almak için Azure Market'ten için diğer adımları yürütün.
 services: marketplace-publishing
 documentationcenter: ''
 author: msmbaldwin
@@ -14,118 +14,118 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 6b927ce6032092ce258eeebca49da0571439dbfb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 58be44e05a0b293b1f8f200cb01b4a483bae10b2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29944440"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006521"
 ---
-# <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Bir şirket içi sanal makine görüntüsü için Azure Marketi geliştirin
-Uzak Masaüstü Protokolü kullanarak Azure sanal sabit diskleri (VHD) doğrudan bulutta geliştirmek öneririz. Ancak, gerekirse, bir VHD karşıdan yüklemek ve şirket içi altyapıyı kullanarak geliştirmek mümkündür.  
+# <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketi için bir şirket içi sanal makine görüntüsü geliştirin
+Uzak Masaüstü Protokolü'nü kullanarak Azure sanal sabit diskleri (VHD'ler) doğrudan bulutta geliştirmeniz kesinlikle önerilir. Ancak, gerekirse, VHD indirme ve şirket içi altyapıyı kullanarak geliştirme mümkün.  
 
-Şirket içi geliştirme için işletim sistemi oluşturulan VM VHD indirmeniz gerekir. Bu adımları adım 3.3, bir parçası olarak yukarıda gerçekleşmesi.  
+Şirket içi geliştirme için işletim sistemi VHD'si oluşturulan VM'nin indirmeniz gerekir. Yukarıdaki adım 3.3, bir parçası olarak bir yerde şu adımları uygulayın.  
 
 ## <a name="download-a-vhd-image"></a>Bir VHD görüntüsü indirin
-### <a name="locate-a-blob-url"></a>Bir blob URL'si bulun
-VHD indirmek için önce işletim sistemi diski blob URL'si bulun.
+### <a name="locate-a-blob-url"></a>Bir blob URL'si ile bulun
+VHD indirmek için önce işletim sistemi diski blob URL'sini bulun.
 
-Yeni blob URL'den bulun [Microsoft Azure portal](https://portal.azure.com):
+Yeni blob URL'den bulun [Microsoft Azure Portal'da](https://portal.azure.com):
 
-1. Git **Gözat** > **VM'ler**ve ardından dağıtılan VM seçin.
-2. Altında **yapılandırma**seçin **diskleri** döşeme, hangi diskleri bir dikey pencere açılır.
+1. Git **Gözat** > **Vm'leri**ve ardından dağıtılmış VM'yi seçin.
+2. Altında **yapılandırma**seçin **diskleri** kutucuğunda, diskleri dikey penceresi açılır.
    
    ![Çizim](media/marketplace-publishing-vm-image-creation-on-premise/img01.png)
-3. Seçin **işletim sistemi diski**, disk özellikleri, VHD konumu dahil olmak üzere görüntüler başka bir dikey pencere açılır.
+3. Seçin **işletim sistemi diski**, VHD konumu dahil olmak üzere, disk özelliklerini görüntüler başka bir dikey pencere açılır.
 4. Bu blob URL'sini kopyalayın.
    
    ![Çizim](media/marketplace-publishing-vm-image-creation-on-premise/img02.png)
-5. Şimdi, dağıtılan VM yedekleme diskleri silmeden silin. Ayrıca silmeden yerine VM durdurabilirsiniz. VM çalışırken işletim sistemi VHD yüklemeyin.
+5. Şimdi, dağıtılan VM yedekleme diskleri silmeden silin. Ayrıca, VM'yi silmek yerine durdurabilirsiniz. VM çalışırken işletim sistemi VHD'si yüklemeyin.
    
    ![Çizim](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
 
 ### <a name="download-a-vhd"></a>VHD indirme
-Blob URL'si öğrendikten sonra kullanarak VHD indirebilirsiniz [Azure portal](http://manage.windowsazure.com/) veya PowerShell.  
+Blob URL'si bulduktan sonra VHD kullanarak indirebilirsiniz [Azure portalında](http://manage.windowsazure.com/) veya PowerShell.  
 
 > [!NOTE]
-> Bu kılavuz oluşturma sırasında bir VHD yüklemek için işlevsellik henüz yeni Microsoft Azure Portalı'nda mevcut değil.  
+> Bu kılavuz oluşturma sırasında VHD indirme için gereken işlevleri henüz yeni Microsoft Azure Portalı'nda mevcut değil.  
 > 
 > 
 
-**Bir işletim sistemi geçerli aracılığıyla karşıdan [Azure portalı](http://manage.windowsazure.com/)**
+**İndirme yoluyla geçerli işletim sistemi VHD'si [Azure portalı](http://manage.windowsazure.com/)**
 
-1. Siz bunu zaten yapmadıysanız, Azure portalında oturum açın.
-2. Tıklatın **depolama** sekmesi.
-3. VHD depolandığı depolama hesabını seçin.
+1. Bunu zaten yapmadıysanız, Azure portalında oturum açın.
+2. Tıklayın **depolama** sekmesi.
+3. VHD'nin depolandığı depolama hesabını seçin.
    
    ![Çizim](media/marketplace-publishing-vm-image-creation-on-premise/img04.png)
-4. Bu depolama hesabı özellikleri görüntüler. Seçin **kapsayıcıları** sekmesi.
+4. Bu depolama hesabı özelliklerini görüntüler. Seçin **kapsayıcıları** sekmesi.
    
    ![Çizim](media/marketplace-publishing-vm-image-creation-on-premise/img05.png)
-5. VHD depolandığı kapsayıcısı seçin. Varsayılan olarak, portalından oluşturulması sırasında VHD'yi bir VHD kapsayıcısında depolanır.
+5. VHD'nin depolandığı kapsayıcıyı seçin. Varsayılan olarak, portaldan oluştururken VHD'yi bir VHD kapsayıcısı içinde depolanır.
    
    ![Çizim](media/marketplace-publishing-vm-image-creation-on-premise/img06.png)
-6. Kaydedilen bir URL karşılaştırarak doğru işletim sistemi VHD seçin.
+6. Doğru işletim sistemi VHD'si, kaydettiğiniz bir URL'ye karşılaştırarak seçin.
 7. **İndir**’e tıklayın.
    
    ![Çizim](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### <a name="download-a-vhd-by-using-powershell"></a>PowerShell kullanarak bir VHD'yi indirin
-Azure Portalı'nı kullanarak ek olarak, kullanabileceğiniz [Kaydet AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) VHD işletim sistemi yüklemek için cmdlet'i.
+Azure portalını kullanmaya ek olarak kullanabilirsiniz [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) cmdlet'ini işletim sistemi VHD'si indirin.
 
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
-Örneğin, kaydetme AzureVhd-kaynak "https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd" - LocalFilePath "C:\Users\Administrator\Desktop\baseimagevm.vhd" - depolama anahtarı <String>
+Örneğin, Save-AzureVhd-kaynak "https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd" - LocalFilePath "C:\Users\Administrator\Desktop\baseimagevm.vhd" - depolama anahtarı <String>
 
 > [!NOTE]
-> **Kaydet-AzureVhd** de sahip bir **NumberOfThreads** indirme için kullanılabilir bant genişliğini en iyi kullanılmasını sağlamak üzere paralelliği artırmak için kullanılan seçeneği.
+> **Kaydet-AzureVhd** de sahip bir **NumberOfThreads** indirme için kullanılabilir bant genişliğini en iyi kullanılmasını sağlamak için paralellik artırmak için kullanılan seçeneği.
 > 
 > 
 
-## <a name="upload-vhds-to-an-azure-storage-account"></a>VHD bir Azure storage hesabına yükleme
-VHD'ler şirket içi hazırlanmış, Azure depolama hesabında içine karşıya yüklemeniz gerekir. Bu adım, VHD oluşturma şirket içi sonra ancak VM görüntüsü için sertifika alma önce gerçekleşir.
+## <a name="upload-vhds-to-an-azure-storage-account"></a>Azure depolama hesabınız VHD yükleme
+VHD'ler şirket içi hazırladığınız, bunları azure'da bir depolama hesabına dosya yükleme gerekir. Bu adım, VHD oluştururken şirket içi sonra ancak VM görüntünüz için sertifika alma önce gerçekleşir.
 
 ### <a name="create-a-storage-account-and-container"></a>Bir depolama hesabı ve kapsayıcı oluşturma
-VHD'ler Amerika Birleşik Devletleri'nde bir bölgede depolama hesaba yüklenebilmesi öneririz. Tüm VHD'leri tek bir SKU için tek bir depolama hesabına içindeki tek bir kapsayıcıda yerleştirilmelidir.
+Amerika Birleşik Devletleri'nde bulunan bir bölgede depolama hesabına VHD yüklenmesini öneririz. Tek bir SKU için tüm VHD'ler, tek bir depolama hesabında içindeki tek bir kapsayıcıda yerleştirilmelidir.
 
-Bir depolama hesabı oluşturmak için kullanabileceğiniz [Microsoft Azure portal](https://portal.azure.com/), PowerShell veya Linux komut satırı aracı.  
+Bir depolama hesabı oluşturmak için kullanabileceğiniz [Microsoft Azure Portal'da](https://portal.azure.com/), PowerShell veya Linux komut satırı aracı.  
 
-**Microsoft Azure Portalı'ndan bir depolama hesabı oluşturma**
+**Microsoft Azure Portal'da depolama hesabı oluşturma**
 
 1. **Kaynak oluştur**’a tıklayın.
-2. Seçin **depolama**.
-3. Depolama hesabı adı girin ve ardından bir konum seçin.
+2. **Depolama**’yı seçin.
+3. Depolama hesabı adını girin ve ardından bir konum seçin.
    
    ![Çizim](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
 4. **Oluştur**’a tıklayın.
-5. Oluşturulan depolama hesabı için dikey penceresi açık olması gerekir. Aksi takdirde, seçin **Gözat** > **depolama hesapları**. Depolama hesabı dikey penceresinde, oluşturduğunuz depolama hesabını seçin.
+5. Oluşturulan depolama hesabı için dikey pencereyi açık olmalıdır. Aksi takdirde, seçin **Gözat** > **depolama hesapları**. Depolama hesabı dikey penceresinde, oluşturduğunuz depolama hesabını seçin.
 6. Seçin **kapsayıcıları**.
    
    ![Çizim](media/marketplace-publishing-vm-image-creation-on-premise/img09.png) 
-7. Kapsayıcıları dikey penceresinde, seçin **Ekle**ve ardından bir kapsayıcı adı hem kapsayıcı izinleri girin. Seçin **özel** kapsayıcı izinleri.
+7. Kapsayıcıları dikey penceresinde seçin **Ekle**ve ardından bir kapsayıcı adı ve kapsayıcı izinlerini girin. Seçin **özel** kapsayıcı izinleri.
 
 > [!TIP]
-> Bir kapsayıcıya yayımlamak için planlama SKU başına oluşturmanızı öneririz.
+> Bir kapsayıcı başına yayımlamayı planlama SKU oluşturmanızı öneririz.
 > 
 > 
 
   ![Çizim](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### <a name="create-a-storage-account-by-using-powershell"></a>PowerShell kullanarak bir depolama hesabı oluşturma
-PowerShell kullanarak oluşturduğunuz bir depolama hesabı kullanarak [yeni AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) cmdlet'i.
+PowerShell'i kullanarak bir depolama hesabı oluştur kullanarak [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) cmdlet'i.
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-Ardından kullanarak bu depolama hesabı içindeki bir kapsayıcı oluşturabilirsiniz [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx) cmdlet'i.
+Bu depolama hesabında bir kapsayıcı kullanarak oluşturabileceğiniz daha sonra [NewAzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) cmdlet'i.
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 
 > [!NOTE]
-> Bu komutlar, geçerli depolama hesabı bağlamını PowerShell'de zaten ayarlanmış varsayalım.   Başvurmak [Azure PowerShell ayarı](marketplace-publishing-powershell-setup.md) PowerShell kurulumu hakkında daha fazla ayrıntı için.  
+> Bu komutları, geçerli depolama hesabı bağlamını PowerShell'de zaten ayarlanmış varsayılır.   Başvurmak [Azure PowerShell ayarlama ayarlama](marketplace-publishing-powershell-setup.md) PowerShell kurulumu hakkında daha fazla bilgi.  
 > 
 > ### <a name="create-a-storage-account-by-using-the-command-line-tool-for-mac-and-linux"></a>Mac ve Linux için komut satırı aracını kullanarak bir depolama hesabı oluşturma
-> Gelen [Linux komut satırı aracı](../virtual-machines/linux/cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), aşağıdaki gibi bir depolama hesabı oluşturun.
+> Gelen [Linux komut satırı aracı](../virtual-machines/linux/cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), şu şekilde bir depolama hesabı oluşturun.
 > 
 > 
 
@@ -136,17 +136,17 @@ Ardından kullanarak bu depolama hesabı içindeki bir kapsayıcı oluşturabili
         azure storage container create containername --account-name mystorageaccount --accountkey <accountKey>
 
 ## <a name="upload-a-vhd"></a>VHD’yi karşıya yükleme
-Depolama hesabı ve kapsayıcı oluşturduktan sonra hazırlanan Vhd'lerinizi karşıya yükleyebilirsiniz. PowerShell, Linux komut satırı aracını veya diğer Azure Depolama Yönetimi araçlarını kullanabilirsiniz.
+Depolama hesabı ve kapsayıcı oluşturulduktan sonra hazırlanmış Vhd'lerinizi karşıya yükleyebilirsiniz. PowerShell, Linux komut satırı aracı veya diğer Azure Depolama Yönetimi araçlarını kullanabilirsiniz.
 
-### <a name="upload-a-vhd-via-powershell"></a>Bir VHD PowerShell aracılığıyla karşıya yükleme
-Kullanım [Ekle AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdlet'i.
+### <a name="upload-a-vhd-via-powershell"></a>PowerShell aracılığıyla bir VHD'yi karşıya yükleme
+Kullanım [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdlet'i.
 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
-### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Mac ve Linux için komut satırı aracını kullanarak bir VHD'yi karşıya yükle
-İle [Linux komut satırı aracı](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), aşağıdakileri kullanın: azure vm görüntüsü oluşturma <image name> --konum <Location of the data center> --OS Linux <LocationOfLocalVHD>
+### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Mac ve Linux için komut satırı aracını kullanarak bir VHD'yi karşıya yükleme
+İle [Linux komut satırı aracı](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), aşağıdakileri kullanın: azure sanal makine görüntüsü oluşturma <image name> --konum <Location of the data center> --OS Linux <LocationOfLocalVHD>
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Market bir sanal makine görüntüsü oluşturma](marketplace-publishing-vm-image-creation.md)
+* [Market'te bir sanal makine görüntüsü oluşturma](marketplace-publishing-vm-image-creation.md)
 * [Azure PowerShell ayarlama](marketplace-publishing-powershell-setup.md)
 

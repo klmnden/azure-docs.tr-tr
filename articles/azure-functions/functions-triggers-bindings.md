@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 912176df2681f890cf3bbe6f69395ad39c9263fc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887479"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004906"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 
@@ -32,7 +32,7 @@ A *tetikleyici* nasıl bir işlev çağrılır tanımlar. Bir işlev tam olarak 
 
 Giriş ve çıkış *bağlamaları* kodunuz içinde verilere bağlanmak için bildirim temelli bir yöntemini sağlar. Bağlamaları isteğe bağlıdır ve bir işlev sahip birden fazla giriş ve çıkış bağlamaları. 
 
-Tetikleyicileri ve bağlamaları, runbook'a kod ile çalışıyorsanız Hizmetleri ayrıntılarını önlemenize olanak tanır. İşlevinizi verileri (örneğin, bir kuyruk iletisinin içeriği) işlevi parametreleri alır. İşlevin dönüş değerini kullanarak (örneğin, bir kuyruk iletisi oluşturmak için) veri gönderdiğiniz bir `out` parametresi veya [Toplayıcı nesnesi](functions-reference-csharp.md#writing-multiple-output-values).
+Tetikleyicileri ve bağlamaları, runbook'a kod ile çalışıyorsanız Hizmetleri ayrıntılarını önlemenize olanak tanır. İşlevinizi verileri (örneğin, bir kuyruk iletisinin içeriği) işlevi parametreleri alır. Verileri (örneğin, bir kuyruk iletisi oluşturmak için), işlev dönüş değeri kullanarak gönderin. C# ve C# betiği, veri göndermek için alternatif yöntemler, `out` parametreleri ve [toplayıcısı nesneleri](functions-reference-csharp.md#writing-multiple-output-values).
 
 Azure portalını kullanarak işlevleri geliştirirken, Tetikleyicileri ve bağlamaları yapılandırılan bir *function.json* dosya. Portal, bu yapılandırma için bir kullanıcı Arabirimi sağlar ancak doğrudan değiştirerek dosyayı düzenleyebilirsiniz **Gelişmiş Düzenleyici**.
 
@@ -224,9 +224,11 @@ Dönüş değerine sahip dillerde dönüş değerini bir çıkış bağlaması b
 * Bir C# sınıf kitaplığında, yöntemin dönüş değerini çıkış bağlama özniteliğini uygulayın.
 * Diğer dillerde ayarlamak `name` özelliğinde *function.json* için `$return`.
 
-Birden fazla öğe yazmanız gereken kullanırsanız bir [Toplayıcı nesnesi](functions-reference-csharp.md#writing-multiple-output-values) yerine dönüş değeri. Dönüş değeri, birden çok çıkış bağlamaları varsa, bunlardan yalnızca biri için kullanın.
+Dönüş değeri, birden çok çıkış bağlamaları varsa, bunlardan yalnızca biri için kullanın.
 
-Dile özgü örneğe bakın:
+C# ve C# betiği için bir çıkış bağlaması veri göndermek için alternatif yöntemler, `out` parametreleri ve [toplayıcısı nesneleri](functions-reference-csharp.md#writing-multiple-output-values).
+
+Dönüş değeri kullanımını gösteren dile özgü örneğe bakın:
 
 * [C#](#c-example)
 * [C# betiği (.csx)](#c-script-example)

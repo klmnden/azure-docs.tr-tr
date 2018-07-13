@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7cdc4f0ef436fbd7ea3bdf1431b08be3b840290f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e401508fc5ffc1de666f727ffbb7790005384fc1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857210"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003806"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Data Lake depolama Gen1 içine veri yükleme
 
@@ -35,6 +35,7 @@ Bu makale, Data Factory-veri kopyalama aracını işlemini göstermektedir _veri
 
 > [!NOTE]
 > Daha fazla bilgi için [veri kopyalama veya Azure Data Lake Store için Azure Data Factory kullanarak](connector-azure-data-lake-store.md).
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Azure aboneliği: Azure aboneliğiniz yoksa, oluşturun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) başlamadan önce.
@@ -109,7 +110,7 @@ Bu makale, Data Factory-veri kopyalama aracını işlemini göstermektedir _veri
    3. **İleri**’yi seçin.
    
    > [!IMPORTANT]
-   > Bu kılavuzda, kullandığınız bir _yönetilen hizmet kimliği_ , Data Lake Store kimlik doğrulaması için. Takip ederek hizmet sorumlusunu Azure Data Lake Store içinde uygun izinleri vermek mutlaka [bu yönergeleri](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > Bu kılavuzda, kullandığınız bir _yönetilen hizmet kimliği_ , Data Lake Store kimlik doğrulaması için. MSI izleyerek Azure Data Lake Store içinde uygun izinleri vermek mutlaka [bu yönergeleri](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Azure Data Lake Store hesabını belirtin](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. İçinde **çıktı dosyasını veya klasörünü seçin** want **copyfroms3** çıkış klasörü adı ' nı seçip olarak **sonraki**: 

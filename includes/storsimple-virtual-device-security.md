@@ -1,8 +1,8 @@
 <!--v-sharos 10/13/2105 virtual device security-->
 
-StorSimple sanal cihaz kullandığınızda aşağıdaki güvenlik konuları göz önünde bulundurun:
+StorSimple sanal cihaz kullandığınızda aşağıdaki güvenlik konularını göz önünde bulundurun:
 
-* Sanal cihaz Microsoft Azure aboneliğiniz ile güvenli hale getirilir. Bu sanal cihaz kullanıyorsanız ve Azure aboneliğinize tehlikeye, sanal Cihazınızda depolanan verileri de uygulanmadıkça anlamına gelir.
-* Azure StorSimple içinde depolanan verileri şifrelemek için kullanılan sertifikanın ortak anahtarını güvenli bir şekilde Klasik Azure portalında kullanılabilir hale getirilir ve özel anahtarı StorSimple cihazı korunur. StorSimple sanal cihazda ortak ve özel anahtarları Azure'da depolanır.
-* Sanal cihaz Microsoft Azure veri merkezinde barındırılır.
+* Sanal cihazın, Microsoft Azure aboneliğiniz üzerinden sağlanır. Bu, sanal bir cihaz kullandığınızı ve Azure aboneliğinizde tehlikeye, sanal Cihazınızda depolanan verileri de maruz olduğunu anlamına gelir.
+* Azure Storsimple'da depolanan verileri şifrelemek için kullanılan sertifikanın ortak anahtarı güvenli bir şekilde Klasik Azure portalında kullanılabilir hale getirileceğini ve özel anahtar StorSimple cihazı ile korunur. StorSimple sanal cihazda ortak ve özel anahtarlar Azure'da depolanır.
+* Sanal cihazın Microsoft Azure veri merkezinde barındırılır.
 

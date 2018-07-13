@@ -1,9 +1,9 @@
 ---
-title: Azure bulut Hizmetleri performans sayaçları toplama | Microsoft Docs
-description: Bul, kullanın ve performans sayaçları Azure Diagnostics ve Application Insights ile birlikte bulut hizmetlerini oluşturma hakkında bilgi edinin.
+title: Azure bulut Hizmetleri'nde performans sayaçları toplamak | Microsoft Docs
+description: Bulma, kullanma ve bulut hizmetlerinde Azure Diagnostics ve Application Insights ile performans sayaçları oluşturma hakkında bilgi edinin.
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
-ms.author: adegeo
-ms.openlocfilehash: 3e0af48c172fa912f0ac9e05b7b761dd7eaad795
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: jeconnoc
+ms.openlocfilehash: d3aeb930dcb325aebc8c6b0a9dfde3602312618b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29134354"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001472"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure bulut hizmetiniz için performans sayaçlarını Topla
 
-Performans sayaçları uygulamanız ve ana bilgisayar ne kadar iyi performans gösterdiğini izlemek bir yol sağlar. Windows Server donanım, uygulamalar, işletim sistemi ve daha fazla bilgi için ilgili birçok farklı performans sayaçları sağlar. Toplama ve performans sayaçları için Azure gönderme daha iyi kararlar almanıza yardımcı olmak için bu bilgileri analiz edebilirsiniz. 
+Performans sayaçları, uygulamanızı ve ana bilgisayarın ne kadar iyi gerçekleştiriyorsanız izlemek bir yol sağlar. Windows Server donanım, uygulamalar, işletim sistemi ve daha fazla bilgi için ilgili pek çok farklı performans sayaçları sağlar. Toplama ve performans sayaçları Azure'a göndermek için daha iyi kararlar vermemize yardımcı olmak için bu bilgileri analiz edebilirsiniz. 
 
-## <a name="discover-available-counters"></a>Kullanılabilir sayaçlar Bul
+## <a name="discover-available-counters"></a>Kullanılabilir sayaçları keşfedin
 
-Bir performans sayacı kümesi adı (kategori olarak da bilinir) ve bir veya daha fazla sayaç olmak üzere iki bölümden oluşur. Kullanılabilir performans sayaçları listesini almak için PowerShell kullanın:
+Performans sayaç kümesi adı (kategori olarak da bilinir) ve bir veya daha fazla sayaç olmak üzere iki bölümden oluşur. Performans sayaçlarının bir listesini almak için PowerShell kullanabilirsiniz:
 
 ```PowerShell
 Get-Counter -ListSet * | Select-Object CounterSetName, Paths | Sort-Object CounterSetName
@@ -52,9 +52,9 @@ Authorization Manager Applications              {\Authorization Manager Appl...
 #... results cut to save space ...
 ```
 
-`CounterSetName` Özellik kümesi (veya kategori) temsil eder ve performans sayaçları için ilişkili iyi göstergesidir. `Paths` Özellik kümesi için sayaçları koleksiyonunu temsil eder. Ayrıca alabilir `Description` özelliği sayaç kümesi hakkında daha fazla bilgi için.
+`CounterSetName` Özellik kümesi (veya kategori) temsil eder ve performans sayaçları için ilişkili iyi göstergedir. `Paths` Özelliğini sayaç kümesi için bir koleksiyonunu temsil eder. Ayrıca Al `Description` özelliği sayaç kümesi hakkında daha fazla bilgi için.
 
-Tüm sayaçları için bir kümesi almak için `CounterSetName` değer ve genişletin `Paths` koleksiyonu. Her bir yol öğesi Sorgulayabileceğiniz bir sayacıdır. Örneğin, ilgili kullanılabilir sayaçlar almak için `Processor` ayarlayın, Genişlet `Paths` koleksiyonu:
+Tüm sayaçları için bir kümesi almak için kullanın `CounterSetName` genişletin ve değer `Paths` koleksiyonu. Her yol öğesi Sorgulayabileceğiniz bir sayacıdır. Örneğin, ilgili kullanılabilir sayaçları almak için `Processor` ayarlayın, genişletme `Paths` koleksiyonu:
 
 ```PowerShell
 Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -ExpandProperty Paths
@@ -76,17 +76,17 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 \Processor(*)\C3 Transitions/sec
 ```
 
-Bu tek tek sayaç yolları tanılama çerçevesi eklenebilir, bulut hizmeti kullanır. Nasıl bir performans sayacı yolunu oluşturulan hakkında daha fazla bilgi için bkz: [sayaç yolu belirterek](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)).
+Bu ayrı ayrı sayaç yolları için tanılama çerçevesi eklenebilir, bulut hizmetinizin kullanır. Nasıl bir performans sayacı yol oluşturulan hakkında daha fazla bilgi için bkz. [sayaç yolunu belirterek](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)).
 
 ## <a name="collect-a-performance-counter"></a>Bir performans sayacı Topla
 
-Bir performans sayacı Azure Tanılama veya Application Insights bulut hizmetinizin eklenebilir.
+Bulut hizmetiniz Azure Tanılama veya Application Insights için bir performans sayacı eklenebilir.
 
 ### <a name="application-insights"></a>Application Insights
 
-Bulut Hizmetleri için Azure Application Insights toplamak istediğiniz hangi performans sayaçlarını belirttiğiniz sağlar. Çalıştırdıktan sonra [projenize Application Insights ekleyin](../application-insights/app-insights-cloudservices.md#sdk), adlı bir yapılandırma dosyası **Applicationınsights.config** Visual Studio projenize eklenir. Bu yapılandırma dosyası, hangi tür bilgileri Application Insights toplar ve Azure'a gönderilmeden tanımlar.
+Bulut Hizmetleri için Azure Application Insights, belirttiğiniz toplamak istediğiniz hangi performans sayaçlarını sağlar. Çalıştırdıktan sonra [projenize Application Insights ekleme](../application-insights/app-insights-cloudservices.md#sdk), adlı bir yapılandırma dosyası **Applicationınsights.config** Visual Studio projenize eklenir. Bu yapılandırma dosyası, hangi türde bilgileri Application ınsights'ı toplar ve Azure'a gönderilmeden tanımlar.
 
-Açık **Applicationınsights.config** dosya ve Bul **Applicationınsights** > **TelemetryModules** öğesi. Her `<Add>` alt öğesi yapılandırmasıyla birlikte toplanacak telemetri türünü tanımlar. Performans sayacı telemetri modül türü `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. Bu öğe zaten tanımlanmış olması durumunda, ikinci kez eklemeyin. Her performans sayacı toplamak için adlı düğümün altında tanımlanan `<Counters>`. Sürücü performans sayaçlarını toplayan örnek aşağıda verilmiştir:
+Açık **Applicationınsights.config** dosya ve bulma **Applicationınsights** > **TelemetryModules** öğesi. Her `<Add>` alt öğesi yapılandırmasıyla birlikte toplanacak telemetri türü tanımlar. Performans sayacı telemetri modülü türü `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. Bu öğe zaten tanımlanmış olması durumunda, ikinci kez eklemeyin. Adlı bir düğüm altında her performans sayacı toplamak için tanımlanan `<Counters>`. Sürücü performans sayaçlarını toplayan bir örnek aşağıda verilmiştir:
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
@@ -105,9 +105,9 @@ Açık **Applicationınsights.config** dosya ve Bul **Applicationınsights** > *
 <!-- ... cut to save space ... -->
 ```
 
-Her performans sayacı olarak temsil edilen bir `<Add>` öğesinin altında `<Counters>`. `PerformanceCounter` Özniteliği toplamak için performans sayacı tanımlar. `ReportAs` Performans sayacı için Azure portalında görüntülenecek olan başlık bir özniteliktir. Topladığınız tüm performans sayacı adlı bir kategoriye put **özel** Portalı'nda. Azure Tanılama, bu performans sayaçlarını toplanan ve Azure'a gönderilen aralığı ayarlanamıyor. Application Insights ile performans sayaçları toplanır ve dakikada gönderilen. 
+Her performans sayacı olarak temsil edilen bir `<Add>` öğesi altında `<Counters>`. `PerformanceCounter` Özniteliği toplamak için performans sayacı tanımlar. `ReportAs` Özniteliktir performans sayacı için Azure Portalı'nda görüntülenecek başlığı. Topladığınız herhangi bir performans sayacı adlı bir kategori yerleştirilir **özel** portalında. Azure Tanılama, bu performans sayaçlarını toplanır ve gönderilen aralığı ayarlanamıyor. Application Insights ile performans sayaçları toplanır ve dakikada gönderilen. 
 
-Application Insights otomatik olarak aşağıdaki performans sayaçlarını toplar:
+Application Insights, aşağıdaki performans sayaçları otomatik olarak toplar:
 
 * \Process(??APP_WIN32_PROC??)\% İşlemci Süresi
 * \Memory\Available Bytes
@@ -116,22 +116,22 @@ Application Insights otomatik olarak aşağıdaki performans sayaçlarını topl
 * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 * \Processor(_Total)\% Processor Time
 
-Daha fazla bilgi için bkz: [sistem performans sayaçları Application ınsights'ta](../application-insights/app-insights-performance-counters.md) ve [Azure bulut Hizmetleri için Application Insights](../application-insights/app-insights-cloudservices.md#performance-counters).
+Daha fazla bilgi için [sistem performans sayaçları Application ınsights'ta](../application-insights/app-insights-performance-counters.md) ve [Azure Cloud Services için Application Insights](../application-insights/app-insights-cloudservices.md#performance-counters).
 
 ### <a name="azure-diagnostics"></a>Azure Tanılama
 
 > [!IMPORTANT]
-> Bu veriler storage hesabına toplanır olsa da, portal mu **değil** grafik verileri için yerel bir yol sağlar. Uygulamanıza Application Insights gibi başka bir tanılama hizmeti tümleştirmek önerilir.
+> Tüm bu veriler depolama hesabında toplanır, ancak portalda mu **değil** verilerin grafiğini oluşturmak için yerel bir yol sağlar. Uygulamanıza Application Insights gibi başka bir Tanılama Hizmeti Tümleştirme önemle tavsiye edilir.
 
-Bulut Hizmetleri için Azure tanılama uzantısını toplamak istediğiniz hangi performans sayaçlarını belirttiğiniz sağlar. Azure tanılama ayarlamak için bkz: [bulut hizmetini izleme genel görünümü](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
+Bulut Hizmetleri için Azure tanılama uzantısı, toplamak istediğiniz hangi performans sayaçlarını belirttiğiniz sağlar. Azure Tanılama'yı ayarlamak için bkz [bulut hizmeti izleme genel görünümü](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
 
-Toplamak istediğiniz performans sayaçlarını tanımlanan **diagnostics.wadcfgx** dosya. Visual Studio'da (Bu rol tanımlanmış) bu dosyayı açın ve Bul **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **performans sayaçları** öğesi. Yeni bir ekleme **PerformanceCounterConfiguration** alt öğesi olarak. Bu öğe iki özniteliklere sahiptir: `counterSpecifier` ve `sampleRate`. `counterSpecifier` Öznitelik tanımlar hangi sistem performans sayacı toplamak için (önceki bölümde Anahatlı) ayarlayın. `sampleRate` Değeri gösterir bu değeri ne sıklıkta sorgulanan. Bir bütün olarak tüm performans sayaçlarının göre üst Azure'a aktarılır `PerformanceCounters` öğenin `scheduledTransferPeriod` öznitelik değeri.
+Toplamak istediğiniz performans sayaçlarını tanımlanan **diagnostics.wadcfgx** dosya. Visual Studio'da (tanımlanmış olduğu her rolü) bu dosyayı açın ve bulun **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **PerformanceCounters** öğesi. Yeni bir **PerformanceCounterConfiguration** alt öğesi olarak. Bu öğe iki öznitelikleri: `counterSpecifier` ve `sampleRate`. `counterSpecifier` Özniteliği, hangi sistem performansı sayaç (önceki bölümde belirtilen) toplayacak tanımlar. `sampleRate` Değeri bu değer ne sıklıkta sorgulandığı zamanı gösterir. Bir bütün olarak göre üst Azure'a tüm performans sayaçlarını aktarılan `PerformanceCounters` öğenin `scheduledTransferPeriod` öznitelik değeri.
 
-Hakkında daha fazla bilgi için `PerformanceCounters` schema öğesi için bkz: [Azure tanılama şema](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element).
+Hakkında daha fazla bilgi için `PerformanceCounters` şema öğesi bkz [Azure tanılama şeması](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element).
 
-Tarafından tanımlanan süre `sampleRate` XML süresi veri türü performans sayacı ne sıklıkta sorgulanan belirtmek için özniteliğini kullanır. Aşağıdaki örnek hızı ayarlamak `PT3M`, anlamına `[P]eriod[T]ime[3][M]inutes`: üç dakikada.
+Tarafından tanımlanan süre `sampleRate` XML süre veri türü ne sıklıkla performans sayacı sorgulandığı zamanı belirtmek için özniteliği kullanır. Aşağıdaki örnekte, oranını ayarlamak `PT3M`, yani `[P]eriod[T]ime[3][M]inutes`: üç dakikada bir.
 
-Nasıl hakkında daha fazla bilgi için `sampleRate` ve `scheduledTransferPeriod` olan tanımlanan bkz **süre veri türü** bölümüne [W3 XML tarih ve saat tarih türleri](https://www.w3schools.com/XML/schema_dtypes_date.asp) Öğreticisi.
+Nasıl hakkında daha fazla bilgi için `sampleRate` ve `scheduledTransferPeriod` olan tanımlanan, bkz: **süresi veri türü** konusundaki [W3 XML tarih ve saat tarih türleri](https://www.w3schools.com/XML/schema_dtypes_date.asp) öğretici.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -167,9 +167,9 @@ Nasıl hakkında daha fazla bilgi için `sampleRate` ve `scheduledTransferPeriod
 
 ## <a name="create-a-new-perf-counter"></a>Yeni bir performans sayacı oluşturun
 
-Yeni bir performans sayacı oluşturulur ve kodunuz tarafından kullanılır. Yeni bir performans sayacı oluşturan kodunuzu, aksi takdirde başarısız olur, yükseltilmiş çalıştırması gerekir. Bulut hizmetinizi `OnStart` başlatma kodunu rolü yükseltilmiş bağlamında gerek performans sayacı oluşturabilirsiniz. Veya yükseltilmiş çalıştırır ve performans sayacı oluşturan bir başlangıç görevi oluşturabilirsiniz. Başlangıç görevleri hakkında daha fazla bilgi için bkz: [nasıl yapılandırılacağı ve bir bulut hizmeti için başlangıç görevleri çalıştırmak](cloud-services-startup-tasks.md).
+Yeni bir performans sayacı, oluşturulur ve kodunuz tarafından kullanılır. Kodunuzu yeni bir performans sayacı oluşturur, aksi takdirde işlem başarısız olur, yükseltilmiş çalıştırılması gerekir. Bulut hizmetinizin `OnStart` başlatma kodunu, yükseltilmiş bir bağlamda rolünü çalıştırmak zorunlu kılma, performans sayacı oluşturabilirsiniz. Veya yükseltilmiş çalıştırır ve performans sayacı oluşturan bir başlangıç görevi oluşturabilirsiniz. Başlangıç görevleri hakkında daha fazla bilgi için bkz: [nasıl yapılandırılacağı ve bir bulut hizmeti için başlangıç görevleri çalıştırma](cloud-services-startup-tasks.md).
 
-Yükseltilmiş çalıştırmak için rolünü yapılandırmak için Ekle bir `<Runtime>` öğesine [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) dosya.
+Rolünüz yükseltilmiş ayrıcalıklarla çalıştır'ı yapılandırmak için Ekle bir `<Runtime>` öğesine [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) dosya.
 
 ```xml
 <ServiceDefinition name="CloudServiceLoadTesting" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -187,7 +187,7 @@ Yükseltilmiş çalıştırmak için rolünü yapılandırmak için Ekle bir `<R
 </ServiceDefinition>
 ```
 
-Oluşturun ve birkaç kod satırıyla, yeni bir performans sayacı kaydedin. Kullanım `System.Diagnostics.PerformanceCounterCategory.Create` kategoriye ve sayaç oluşturur yöntemi aşırı yüklemesini. Kategori varsa ve eksikse, kategoriye ve sayaç oluşturur, aşağıdaki kodu ilk denetler.
+Oluşturun ve birkaç kod satırıyla yeni bir performans sayacı kaydedin. Kullanım `System.Diagnostics.PerformanceCounterCategory.Create` kategori hem sayaç oluşturur yöntemi aşırı yüklemesi. Aşağıdaki kod ilk kategori varsa ve eksikse, kategori hem sayaç oluşturur, denetler.
 
 ```csharp
 using System.Diagnostics;
@@ -237,12 +237,12 @@ Sayaç kullanmak istediğinizde, çağrı `Increment` veya `IncrementBy` yöntem
 counterServiceUsed.Increment();
 ```
 
-Uygulamanız, özel sayaç kullanır, Azure Tanılama veya Application Insights sayaç izlemek için yapılandırmanız gerekir.
+Uygulamanızın kullandığı özel sayaç, sayaç izlemek için Azure Tanılama veya Application Insights'ı yapılandırmanız gerekir.
 
 
 ### <a name="application-insights"></a>Application Insights
 
-Daha önce belirtildiği gibi performans sayaçlarını Application Insights tanımlanan için **Applicationınsights.config** dosya. Açık **Applicationınsights.config** ve Bul **Applicationınsights** > **TelemetryModules** > **Ekle**  >  **Sayaçları** öğesi. Oluşturma bir `<Add>` alt öğesi ve kümesi `PerformanceCounter` kodunuzda oluşturduğunuz performans sayacının adını ve Kategori özniteliği. Ayarlama `ReportAs` portalında görmek istediğiniz bir kolay ad özniteliği.
+Daha önce belirtildiği gibi performans sayaçlarını Application Insights içinde tanımlı **Applicationınsights.config** dosya. Açık **Applicationınsights.config** ve bulma **Applicationınsights** > **TelemetryModules** > **Ekle**  >  **Sayaçları** öğesi. Oluşturma bir `<Add>` alt öğesi ve kümesi `PerformanceCounter` özniteliği kategorisi ve kodunuzda oluşturduğunuz performans sayacının adı. Ayarlama `ReportAs` portalında görmek istediğiniz bir kolay ad özniteliği.
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
@@ -265,7 +265,7 @@ Daha önce belirtildiği gibi performans sayaçlarını Application Insights tan
 
 ### <a name="azure-diagnostics"></a>Azure Tanılama
 
-Daha önce belirtildiği gibi toplamak istediğiniz performans sayaçlarını tanımlanan **diagnostics.wadcfgx** dosya. Visual Studio'da (Bu rol tanımlanmış) bu dosyayı açın ve Bul **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **performans sayaçları** öğesi. Yeni bir ekleme **PerformanceCounterConfiguration** alt öğesi olarak. Ayarlama `counterSpecifier` kodunuzda oluşturduğunuz performans sayacının adını ve Kategori özniteliği. 
+Daha önce belirtildiği gibi toplamak istediğiniz performans sayaçlarını tanımlanan **diagnostics.wadcfgx** dosya. Visual Studio'da (tanımlanmış olduğu her rolü) bu dosyayı açın ve bulun **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **PerformanceCounters** öğesi. Yeni bir **PerformanceCounterConfiguration** alt öğesi olarak. Ayarlama `counterSpecifier` özniteliği kategorisi ve kodunuzda oluşturduğunuz performans sayacının adı. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -294,7 +294,7 @@ Daha önce belirtildiği gibi toplamak istediğiniz performans sayaçlarını ta
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
-- [Azure bulut Hizmetleri için Application Insights](../application-insights/app-insights-cloudservices.md#performance-counters)
-- [Application Insights sistem performans sayaçları](../application-insights/app-insights-performance-counters.md)
-- [Sayaç yolu belirtme](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
-- [Azure tanılama şema - performans sayaçları](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element)
+- [Azure Cloud Services için Application Insights](../application-insights/app-insights-cloudservices.md#performance-counters)
+- [Application ınsights'ta sistem performans sayaçları](../application-insights/app-insights-performance-counters.md)
+- [Bir sayaç yolunu belirtme](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
+- [Azure tanılama şeması - performans sayaçları](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element)

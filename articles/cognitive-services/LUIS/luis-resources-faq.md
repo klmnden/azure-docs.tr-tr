@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 291eb9ef7d8d089b443b55ac181e9fdd65fcb413
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 55b0b40bdcb9f9be4d4d11d957f43ab35e61d759
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888866"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989947"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding hakkında SSS
 
@@ -52,6 +52,10 @@ Bkz: [varlıkları](luis-concept-entity-types.md) ve [veri ayıklama](luis-conce
 
 ### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>Bir örnek utterance çeşitleri noktalama dahil edilsin mi? 
 Amaç için örnek konuşma olarak farklı çeşitlemeleri ekleyebilir veya ekleme ile örnek utterance desenini [yok saymak için söz dizimi](luis-concept-patterns.md#pattern-syntax) noktalama işareti. 
+
+### <a name="does-luis-currently-support-cortana"></a>LUIS, şu anda cortana'yı destekliyor mu?
+
+Cortana önceden oluşturulmuş uygulamalar, 2017'de kullanım dışı bırakıldı. Bunlar artık desteklenir. 
 
 ## <a name="luis-endpoint"></a>LUIS uç noktası
 

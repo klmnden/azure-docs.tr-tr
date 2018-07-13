@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: bf9d9368207f8791c33db84e1467d44201d6a5af
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30929368"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38765955"
 ---
 Azure portalında, bağlantıya giderek bir Resource Manager VPN Gateway bağlantısının durumunu görüntüleyebilirsiniz. Aşağıdaki adımlarda, bağlantınıza gitmek ve doğrulamak için bir yol gösterilmiştir.
 

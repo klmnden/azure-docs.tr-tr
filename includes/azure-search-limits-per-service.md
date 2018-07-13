@@ -9,13 +9,13 @@ ms.date: 04/04/2018
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: b4062aab5a453505ef4586f422a124d4bbf715cb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30844088"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38756286"
 ---
-Depolama kısıtlanması disk alanı veya bir sabit sınır tarafından üzerinde *en fazla* dizinleri, belge veya diğer üst düzey kaynakları, hangisi önce gelirse. Aşağıdaki tabloda, depolama sınırları belgeler. Dizinleri, belgeler ve diğer nesneleri maksimum sınırları için bkz: [sınırları kaynak tarafından](../articles/search/search-limits-quotas-capacity.md#index-limits).
+Depolama je omezeno disk alanı veya sabit bir sınır üzerinde *en büyük sayı* dizinleri, belge veya diğer üst düzey kaynaklar, hangisi önce gelirse. Aşağıdaki tabloda, depolama sınırları belgelenir. Dizin, belgeler ve diğer nesneler üzerinde en fazla limitleri için bkz [kaynak sınırları](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
 | Kaynak | Ücretsiz | Temel&nbsp;<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>2</sup> |
 | -------- | --- | --- | --- | --- | --- | --- |
@@ -25,8 +25,8 @@ Depolama kısıtlanması disk alanı veya bir sabit sınır tarafından üzerind
 | Bölüm boyutu |Yok |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Çoğaltmalar |Yok |3 |12 |12 |12 |12 |
 
-<sup>1</sup> basic bir sabit disk bölümü vardır. Bu katman ek SUs artırılmış sorgu iş yükleri için daha fazla çoğaltmaları tahsis etmek için kullanılır.
+<sup>1</sup> temel bir sabit disk bölümü vardır. Bu katman ek SUs daha yüksek sorgu iş yükleri için çok kopya tahsis etmek için kullanılır.
 
 <sup>2</sup> S3 HD’nin sabit sınırı 3 bölümdür ve S3’ün bölüm sınırından düşüktür. S3 HD dizin sınırı çok daha yüksek olduğu için daha düşük bir bölüm sınırı uygulanmaktadır. Hem işlem kaynakları (depolama ve işleme) hem de içerik (dizinler ve belgeler) için hizmet sınırları mevcut olduğu için içerik sınırına ilk önce ulaşılır.
 
-<sup>3</sup> hizmet düzeyi sözleşmelerine (SLA) ile ayrılmış kaynaklarda Faturalanabilir Hizmetleri için sunulur. Ücretsiz Hizmetler ve önizleme özellikleri hiçbir SLA vardır. Hizmetiniz için yeterli artıklık sağladığınızda Faturalanabilir Hizmetleri için SLA etkili olur. İki veya daha fazla çoğaltmaları için (okuma) sorgu SLA gereklidir. Üç veya daha fazla çoğaltmalar, sorgu ve dizin oluşturma (okuma-yazma) SLA için gereklidir. Bölüm sayısı bir SLA önem verilmez. 
+<sup>3</sup> olarak ayrılmış kaynaklarda Faturalanabilir Hizmetleri için hizmet düzeyi sözleşmeleri (SLA) sunulur. Ücretsiz Hizmetleri ve önizleme özellikleri, SLA vardır. Hizmetiniz için yeterli yedeklilik sağlarken, Faturalanabilir hizmetler için SLA etkili olur. İki veya daha fazla çoğaltma için sorgu (okuma) SLA gereklidir. Üç veya daha fazla çoğaltma, sorgu ve dizin oluşturma (okuma-yazma) SLA'sı için gereklidir. Bölüm sayısı, bir SLA husus değil. 

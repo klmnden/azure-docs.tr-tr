@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 7ea233f3d5b0e0b6ad1470af146f963fce6c4e94
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 51f64f6f74875c6afac350dc9cc235573b89c524
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970681"
+ms.locfileid: "38989597"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
@@ -367,6 +367,8 @@ Bkz: [kod örnekleri](#trigger---example) bu makalenin önceki bölümlerinde bu
 ## <a name="output"></a>Çıktı
 
 Event Hubs çıkış olayları için olay akışının yazmaya bağlaması kullanın. Olaylar için yazma olay hub'ına gönderme izni olmalıdır.
+
+Gerekli paket başvuruları yerinde olduğundan emin olun: [1.x işlevleri](#packages---functions-1.x) veya [2.x işlevleri](#packages---functions-2.x) 
 
 ## <a name="output---example"></a>Çıkış - örnek
 

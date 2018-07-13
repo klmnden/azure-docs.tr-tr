@@ -1,8 +1,8 @@
 | Kaynak | Hedef |
 |----------|---------------|
-| Tek bir tablo en büyük boyutu | 500 Tıb |
-| Tablo varlığı en büyük boyutu | 1 MIB |
-| Tablo varlığı özelliklerinde sayısı üst sınırı | 255 (3 sistem özelliği de dahil olmak üzere: PartitionKey ve RowKey zaman damgası) |
-| Tablo başına depolanmış erişim ilkeleri sayısı üst sınırı | 5 |
-| Depolama hesabı başına en fazla istek oranı | 20.000 işlemleri / saniye (olduğunu varsayarak 1 KiB varlık boyutu) |
-| Tek bir tablo bölüm (1 KiB varlıklar) için hedef işleme | Saniye başına en fazla 2000 varlıklar |
+| Tek tablo en büyük boyutu | 500 TiB |
+| Tablo varlığı en büyük boyutu | 1 MiB |
+| Tablo varlığı özelliklerinde en fazla sayısı | 255 (3 sistem özelliği dahil olmak üzere: PartitionKey ve RowKey zaman damgası) |
+| Saklı erişim ilkeleri tablo başına en fazla sayısı | 5 |
+| Depolama hesabı başına en fazla istek hızı | (varsayılıyor 1 KiB varlık boyutu) saniyede 20.000 işlem |
+| Hedef performans düzeyleri (1 KiB varlıklar) tek bir tablo bölümleme | Saniye başına en fazla 2000 varlıklar |

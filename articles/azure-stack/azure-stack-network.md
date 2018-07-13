@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 2d16d1dc7a53ca388b00ba02b6447e178a9f6edb
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989246"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003622"
 ---
 # <a name="network-connectivity"></a>Ağ bağlantısı
 Bu makalede, Azure Stack mevcut ağ ortamınıza en iyi şekilde tümleştirmek nasıl karar vermenize yardımcı olmak için Azure Stack ağ altyapı bilgileri sağlar. 
@@ -29,7 +29,7 @@ Bu makalede, Azure Stack mevcut ağ ortamınıza en iyi şekilde tümleştirmek 
 > Azure Stack (örneğin, www.bing.com) dış DNS adları çözümlemek için DNS sunucuları, DNS istekleri iletmek üzere vermeniz gerekir. Azure Stack DNS gereksinimleri hakkında daha fazla bilgi için bkz. [Azure Stack'i veri merkezi tümleştirmesi - DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Fiziksel ağ tasarımı
-Azure Stack çözüm, işlem ve hizmetlerini desteklemek için esnek ve yüksek oranda kullanılabilir fiziksel bir altyapı gerektirir. Yukarı bağlantılar ToR üzerinden kenarlık anahtarlar, SFP + medya ve 1 GB veya 10 GB hızları için sınırlıdır. Kullanılabilirlik için orijinal ekipman üreticisi (OEM) donanım satıcınıza başvurun. Aşağıdaki diyagramda, bizim önerilen tasarımı gösterir:
+Azure Stack çözüm, işlem ve hizmetlerini desteklemek için esnek ve yüksek oranda kullanılabilir fiziksel bir altyapı gerektirir. Yukarı bağlantılar ToR üzerinden kenarlık anahtarlar, SFP + veya SFP28 medya ve 1 GB, 10 GB ve 25 GB hızları için sınırlıdır. Kullanılabilirlik için orijinal ekipman üreticisi (OEM) donanım satıcınıza başvurun. Aşağıdaki diyagramda bizim önerilen tasarımı gösterir:
 
 ![Önerilen Azure Stack ağ tasarımı](media/azure-stack-network/recommended-design.png)
 

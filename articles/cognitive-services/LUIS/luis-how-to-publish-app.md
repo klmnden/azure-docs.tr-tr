@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 0f6ba76ede48502e4f3308b11d41bf141f0188fb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 43a26f9e81b788c2a110c24bf2e02c56c0714f1e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927783"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988845"
 ---
 # <a name="publish-your-trained-app"></a>Eğitilen uygulamanızı yayımlayın
 Oluşturma ve LUIS uygulamanızı test etme bitirdikten sonra yayımlayın. Uygulamayı yayımladıktan sonra yayımlama sayfası, ilişkili tüm HTTP gösterir [uç noktaları](luis-glossary.md#endpoint). Bu uç noktaları başına [bölge](luis-reference-regions.md) ve başına [anahtarı](luis-how-to-manage-keys.md), ardından istemci, sohbet botu veya arka uç uygulamasına tümleştirilmiştir. 
@@ -91,9 +91,9 @@ Hedefleri ve puanlarını Ayrıca, uç nokta günlükleri dahil. Yapabilecekleri
 ```
 
 ### <a name="enable-bing-spell-checker"></a>Bing yazım denetimi etkinleştir 
-İçinde **uç nokta URL'si ayarları**, **etkinleştirme Bing yazım denetleyicisi** LUIS sözcüklerin tahmin önce düzeltmek onay kutusu sağlar. Bu oluşturmanızı gerektiren bir  **[Bing yazım denetimi anahtarı](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. Anahtar oluşturulduktan sonra iki querystring parametreleri Yayımla sayfasında uç noktası URL'sine eklenir. 
+İçinde **uç nokta URL'si ayarları**, **etkinleştirme Bing yazım denetleyicisi** LUIS sözcüklerin tahmin önce düzeltmek onay kutusu sağlar. Oluşturma bir  **[Bing yazım denetimi anahtarı](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. Anahtar oluşturulduktan sonra iki querystring parametreleri Yayımla sayfasında uç noktası URL'sine eklenir. 
 
-LUIS arama uygulamanız için kendi URL'ler oluşturulurken, emin **yazım denetimi = true** querystring parametresi ve **bing-yazım-onay-subscription-key = {YOUR_BING_KEY_HERE}**. Değiştirin `{YOUR_BING_KEY_HERE}` Bing yazım denetleyicisi anahtarınızı.
+Ekleme **yazım denetimi = true** querystring parametresi ve **bing-yazım-onay-subscription-key = {YOUR_BING_KEY_HERE}** . Değiştirin `{YOUR_BING_KEY_HERE}` Bing yazım denetleyicisi anahtarınızı.
 
 ```JSON
 {

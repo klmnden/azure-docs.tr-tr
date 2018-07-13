@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2c1fce35749dee12caec0bcd15a9eccdf81b8d1d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: adfc854fc24b9e285c405f3038a21ec84cd2f4c2
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856782"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989344"
 ---
 # <a name="what-is-the-speech-service-preview"></a>Konuşma hizmeti (Önizleme) nedir?
 
@@ -68,7 +68,7 @@ Metin okuma API'si için ortak kullanım durumları verilmiştir.
 * Ses isteyen gezintisi gibi araç uygulamalar
 * Konuşmayı metne dönüştürme API'si ile uyumlu etkileşimli kullanıcı arabirimleri
 
-Metin okuma API'si, yalnızca uygulamanız için benzersiz bir ses istiyorsanız veya desteklenmeyen bir diyalekt için gerekir, destekler [özel sesli modelleri](how-to-customize-voice-font.md).
+Metin okuma API'si, desteklenmeyen bir diyalekt gerekir veya yalnızca uygulamanız için benzersiz bir ses istiyorsanız destekler [özel sesli modelleri](how-to-customize-voice-font.md).
 
 ## <a name="speech-translation"></a>Konuşma Çevirisi
 

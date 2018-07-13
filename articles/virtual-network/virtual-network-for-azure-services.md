@@ -1,6 +1,6 @@
 ---
 title: Azure Hizmetleri için sanal ağ | Microsoft Docs
-description: Bir sanal ağa dağıtma kaynakları avantajları hakkında bilgi edinin. Sanal ağlarda bulunan Kaynaklar birbirleri ile iletişim kurabilir ve kaynakları, Internet geçen trafik şirket.
+description: Bir sanal ağa dağıtma kaynakları avantajları hakkında bilgi edinin. Sanal ağlardaki kaynaklar birbiriyle iletişim kurabilir ve kaynaklar olmadan, Internet'e geçiş trafiği şirket.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,63 +15,63 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: eeb5fd765a6cad10be5706162566605feaa8af4c
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 3e31dbce7bd24b3c3bb0f24561464e6303f3908e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802570"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990605"
 ---
-# <a name="virtual-network-integration-for-azure-services"></a>Azure Hizmetleri için sanal ağ tümleştirme
+# <a name="virtual-network-integration-for-azure-services"></a>Azure Hizmetleri için sanal ağ tümleştirmesi
 
-Bir Azure sanal ağı Azure hizmetlerine tümleştirme sanal ağda dağıtılmış bir hizmet örneklerini özel erişim sağlar.
+Azure Hizmetleri için bir Azure sanal ağ tümleştirme sanal ağ içinde dağıtılan bir hizmetin örneklerine özel erişim sağlar.
 
-Aşağıdaki seçenekler ile sanal ağınız ile Azure Hizmetleri Tümleştirme:
-- Doğrudan hizmetin adanmış örneğini bir sanal ağ uygulamasına dağıtma. Bu hizmetler ayrılmış örneklerinin özel olarak şirket içi ağlar ve sanal ağda erişilebilir.
-- Hizmet, hizmet uç noktaları aracılığıyla bir sanal ağa genişleterek. Hizmet uç noktaları sanal ağa güvenli olması ayrı ayrı hizmet kaynakları izin verir.
+Aşağıdaki seçeneklerle sanal ağınız ile Azure hizmetleriyle tümleştirebilirsiniz:
+- Doğrudan bir sanal ağa hizmetinin ayrılmış örnekleri dağıtılıyor. Şirket içi ağlara gelen ve sanal ağ içinde ayrılmış örnekleri bu hizmetlerin özel olarak erişilebilir.
+- Bir sanal ağ hizmet uç noktaları aracılığıyla hizmetine genişleterek. Hizmet uç noktaları sanal ağa güvenli olması için bireysel hizmet kaynakları sağlar.
  
-## <a name="deploy-azure-services-into-virtual-networks"></a>Azure Hizmetleri sanal ağlar dağıtın
+## <a name="deploy-azure-services-into-virtual-networks"></a>Azure hizmetlerini sanal ağlara dağıtma
 
-Genel IP adresleri üzerinden Internet üzerinden en Azure kaynakları ile iletişim kurabilir. Azure hizmetlerinde dağıttığınızda bir [sanal ağ](virtual-networks-overview.md), özel IP adresleri özel olarak, hizmet kaynaklarla kurabilir.
+Genel IP adresleri üzerinden Internet üzerinden en Azure kaynaklarıyla iletişim kurabilir. Azure hizmetlerinde dağıtırken bir [sanal ağ](virtual-networks-overview.md), hizmet kaynakları ile özel olarak, özel IP adresleri aracılığıyla iletişim kurabilir.
 
-![Bir sanal ağda dağıtılmış hizmetleri](./media/virtual-network-for-azure-services/deploy-service-into-vnet.png)
+![Bir sanal ağda dağıtılan hizmetler](./media/virtual-network-for-azure-services/deploy-service-into-vnet.png)
 
-Bir sanal ağ içindeki Hizmetler dağıtmak aşağıdaki yetenekleri sağlar:
+Bir sanal ağ içindeki Hizmetleri dağıtımı aşağıdaki özellikleri sağlar:
 
-- Sanal ağ içindeki kaynakların birbirleri ile özel olarak, özel IP adresleri ile iletişim kurabilir. Örneğin, doğrudan Hdınsight ve sanal ağda bir sanal makinede çalışan SQL Server arasında veri aktarma.
-- Şirket içi kaynaklara üzerinden özel IP adresleri kullanarak sanal ağınızdaki kaynaklara erişmek bir [siteden siteye VPN (VPN ağ geçidi)](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti) veya [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Sanal ağlar olabilir [eşlenen](virtual-network-peering-overview.md) birbirleri ile iletişim kurmak üzere sanal ağ kaynaklarında etkinleştirmek için özel IP adresleri.
-- Bir sanal ağ hizmeti örneklerinin tam olarak örneklerinin durumunu izleyin ve yüküne göre gerekli ölçek sağlamak üzere Azure hizmeti tarafından yönetilir.
-- Hizmet örneği, bir sanal ağ içinde ayrılmış bir alt ağ içinde dağıtılır. Gelen ve giden ağ erişimi açılır, aracılığıyla [ağ güvenlik grubu](security-overview.md#network-security-groups) Hizmetleri tarafından sağlanan rehberliğinde alt ağ.
+- Sanal ağ içindeki kaynakların birbiriyle özel olarak, özel IP adresleri aracılığıyla iletişim kurabilir. Örneğin, doğrudan sanal ağdaki bir sanal makinede çalışan SQL Server ile HDInsight arasındaki veri aktarımı.
+- Şirket kaynakları, özel IP adresleri üzerinden bir sanal ağdaki kaynaklara erişebilir bir [siteden siteye VPN (VPN ağ geçidi)](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti) veya [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Sanal ağların [eşlenmiş](virtual-network-peering-overview.md) birbirleri ile iletişim kurmak için sanal ağlarda bulunan kaynaklar etkinleştirmek için özel IP adresleri kullanarak.
+- Bir sanal ağ hizmet örnekleri örneklerinin sistem durumunu izleme ve yüküne göre gerekli ölçek sağlamak için Azure hizmeti tarafından tamamen yönetilir.
+- Hizmet örnekleri, bir sanal ağ içinde ayrılmış bir alt ağa dağıtılır. Gelen ve giden ağ erişimi açılır, aracılığıyla [ağ güvenlik grupları](security-overview.md#network-security-groups) alt ağına göre hizmetler tarafından sağlanan yönergeler için.
 
-### <a name="services-that-can-be-deployed-into-a-virtual-network"></a>Bir sanal ağ içinde dağıtılabilir Hizmetleri
+### <a name="services-that-can-be-deployed-into-a-virtual-network"></a>Bir sanal ağa dağıtılan hizmetler
 
-Sanal ağa doğrudan dağıtılan her bir hizmet yönlendirmesi için belirli gereksinimleri ve içine ve dışına alt ağlar için izin verilmelidir trafik türlerini vardır. Daha fazla bilgi için bkz. 
+Doğrudan sanal ağa dağıtılan her bir hizmet yönlendirmesi için belirli gereksinimler ve içine ve dışına alt ağlar izin verilmelidir trafik türlerini sahiptir. Daha fazla bilgi için bkz. 
  
 - Sanal makineler: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Service fabric](../service-fabric/service-fabric-patterns-networking.md?toc=%2fazure%2fvirtual-network%2ftoc.json#existingvnet)
-- [Sanal makine ölçekleme kümeleri](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Sanal makine ölçek kümeleri](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [App Service Ortamı](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [RedisCache](../redis-cache/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Uygulama ağ geçidi (iç)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure Kubernetes hizmeti (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure kapsayıcı Hizmeti altyapısının](https://github.com/Azure/acs-engine) Azure sanal ağ CNI ile [eklentisi](https://github.com/Azure/acs-engine/tree/master/examples/vnet)
-- [Azure Active Directory etki alanı Hizmetleri](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json): sanal ağ (Klasik) yalnızca
+- [Azure Kubernetes Service'i (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure Container Service altyapısı](https://github.com/Azure/acs-engine) ile Azure sanal ağ CNI [eklentisi](https://github.com/Azure/acs-engine/tree/master/examples/vnet)
+- [Azure Active Directory etki alanı Hizmetleri](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [Bulut Hizmetleri](https://msdn.microsoft.com/library/azure/jj156091): sanal ağ (Klasik) yalnızca
 
-Dağıtabilmeniz için bir [iç Azure yük dengeleyici](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) yüklemek için önceki listede bulunan kaynaklar çoğunu dengeleyin. Bazı durumlarda, hizmet otomatik olarak oluşturur ve bir kaynak oluşturduğunuzda, bir yük dengeleyici dağıtır.
+Dağıtabileceğiniz bir [iç Azure yük dengeleyici](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) yüklemek için önceki listede kaynak Dengeleme. Bazı durumlarda, hizmet otomatik olarak oluşturur ve bir kaynak oluştururken, bir yük dengeleyicinin dağıtır.
 
-## <a name="service-endpoints-for-azure-services"></a>Azure Hizmetleri için hizmet uç noktaları
+## <a name="service-endpoints-for-azure-services"></a>Azure Hizmetleri için hizmet uç noktası
 
-Bazı Azure Hizmetleri sanal ağlarda dağıtılamıyor. Bir sanal ağ hizmeti uç noktası etkinleştirerek tercih ederseniz, bazı yalnızca belirli bir sanal ağ alt ağlara hizmet kaynaklara erişimi kısıtlayabilirsiniz. Daha fazla bilgi edinmek [sanal ağ hizmet uç noktaları](virtual-network-service-endpoints-overview.md)ve uç noktaları için etkin hale getirilebilir Hizmetleri.
+Bazı Azure Hizmetleri, sanal ağları dağıtılamıyor. Bir sanal ağ hizmet uç noktası etkinleştirerek seçerseniz, bazı hizmet kaynaklarının yalnızca belirli bir sanal ağ alt ağları için erişimi kısıtlayabilirsiniz. Daha fazla bilgi edinin [sanal ağ hizmet uç noktaları](virtual-network-service-endpoints-overview.md)ve uç noktaları için etkin hale getirilebilir Hizmetleri.
 
-## <a name="virtual-network-integration-across-multiple-azure-services"></a>Sanal ağ tümleştirmesinin birden çok Azure hizmetleri arasında
+## <a name="virtual-network-integration-across-multiple-azure-services"></a>Birden çok Azure hizmetleri arasında sanal ağ tümleştirmesi
 
-Bir Azure hizmetini bir alt ağ bir sanal ağ ve bu alt ağ kaynaklarına güvenli kritik hizmet uygulamasına dağıtabilirsiniz. Örneğin, sanal ağınıza Hdınsight dağıtın ve bir depolama hesabı Hdınsight alt ağa güvenli.
+Bir Azure hizmeti, bir sanal ağ ve alt ağın güvenli kritik hizmet kaynaklarını bir alt ağa dağıtabilirsiniz. Örneğin, HDInsight'ı, sanal ağa dağıtma ve güvenli HDInsight alt ağ için bir depolama hesabı.
 
 
 

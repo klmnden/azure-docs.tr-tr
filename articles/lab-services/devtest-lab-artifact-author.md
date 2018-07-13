@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 268b9af7835c51d78812b35aff5aaac585961b01
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 0414fa16f277c7495cc7fe4bdd7a51fc3a23ad93
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619198"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988631"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs sanal makineniz için özel yapıtlar oluşturma
 
@@ -113,7 +113,7 @@ Aşağıdaki örnek, ifadeler ve İşlevler bir değer oluşturmak için nasıl 
 1. Bir JSON Düzenleyicisi'ni yükleyin. Yapıt tanımı dosyaları ile çalışmak için bir JSON Düzenleyicisi gerekir. Kullanmanızı öneririz [Visual Studio Code](https://code.visualstudio.com/), Windows, Linux ve OS X için kullanılabilen.
 2. Bir örnek artifactfile.json tanım dosyasını alın. DevTest Labs ekibi tarafından oluşturulan yapılar kullanıma sunduğumuz [GitHub deposu](https://github.com/Azure/azure-devtestlab). Kendi yapıtları oluşturmanıza yardımcı olabilecek yapıtlar içeren zengin bir kitaplık oluşturduk. Bir yapı tanımı dosyasını indirin ve kendi yapıtlar oluşturmak için ona değişiklikler.
 3. IntelliSense yararlanır. Bir yapı tanımı dosyası oluşturmak için kullanabileceğiniz geçerli öğelerini görmek için IntelliSense'i kullanın. Ayrıca, bir öğenin değerler için farklı seçenekleri görebilirsiniz. Örneğin, ne zaman düzenleme **targetOsType** öğe, IntelliSense gösterir, iki seçenek, Windows veya Linux için.
-4. Yapıt içinde Store bir [Git deposu](devtest-lab-add-artifact-repo.md).
+4. Yapıt içinde Store [genel bir Git deposu için DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) veya [kendi Git deponuzda](devtest-lab-add-artifact-repo.md).
    
    1. Her bir yapıt için ayrı bir dizin oluşturun. Dizin adı yapıt adıyla aynı olmalıdır.
    2. Yapıt tanımı dosyası (artifactfile.json), oluşturduğunuz dizine Store.
@@ -122,9 +122,8 @@ Aşağıdaki örnek, ifadeler ve İşlevler bir değer oluşturmak için nasıl 
       Bir yapı klasörüne nasıl görünebileceği örnek aşağıda verilmiştir:
       
       ![Yapıt klasör örneği](./media/devtest-lab-artifact-author/git-repo.png)
-5. Laboratuvara yapıt deposu ekleme. Bkz: [yapıtlar ve şablonlar için Git deposu ekleme](devtest-lab-add-artifact-repo.md).
+5. Yapıtları depolamak için kendi deposu kullanıyorsanız, depo makaledeki yönergeleri izleyerek laboratuvara ekleme: [yapıtlar ve şablonlar için Git deposu ekleme](devtest-lab-add-artifact-repo.md).
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [DevTest Labs yapıt hatalarını tanılama](devtest-lab-troubleshoot-artifact-failure.md)

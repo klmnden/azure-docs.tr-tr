@@ -8,23 +8,24 @@ ms.topic: include
 ms.date: 2/7/2018
 ms.author: trinadhk;sogup
 ms.custom: include file
-ms.openlocfilehash: b345283f87c446ff3b583b0c5dd8a4be222303ae
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1f41567f7d5dcc9b6536b47ef639ba53abff8ec4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38756019"
 ---
-Aşağıdaki sınırları Azure yedekleme hizmeti için geçerlidir.
+Azure Backup için aşağıdaki sınırlar geçerlidir.
 
-| Sınır tanımlayıcısı | Varsayılan Sınır |
+| Sınır tanımlayıcı | Varsayılan Sınır |
 | --- | --- |
-| Her kasa için kaydedilebilen kayıtlı sunucuları/makine sayısı |Windows Server/istemci/SCDPM için 50 <br/> Iaas VM'ler için 200 |
-| Azure kasası depolamada depolanan veriler için bir veri kaynağı boyutu |54400 GB max<sup>1</sup> |
-| Her Azure aboneliğinizde oluşturduğunuz yedek kasalarını sayısı |Her bölge 25 kurtarma Hizmetleri kasaları |
-| Yedekleme günde zamanlanabilir sayısı |Windows Server/istemcisi için günde 3 <br/> SCDPM için gün başına 2 <br/> Iaas VM'ler için günde bir kez |
-| Yedekleme için bir Azure sanal makinesine bağlı veri diskleri |16 |
-| Yedekleme için bir Azure sanal makineye bağlı tek bir veri diski boyutu| 4095 GB <sup>2</sup>|
+| Her kasaya yönelik olarak kaydedilebilen sunucu/makine sayısı |Windows Server/istemci/SCDPM için 50 <br/> Iaas Vm'leri için 1000 |
+| Kasa Azure Depolama'da depolanan veriler için bir veri kaynağı boyutu |54400 GB maksimum<sup>1</sup> |
+| Her bir Azure aboneliği için oluşturulan yedekleme kasalarının sayısı |Bölge başına 500 kurtarma Hizmetleri kasası |
+| Günlük yedekleme zamanlanabilir sayısı |Windows Server/istemcisi için günde 3 <br/> SCDPM için günde 2 <br/> Iaas VM'ler için günde bir kez |
+| Bir Azure sanal makinesine bağlı veri diskleri |16 |
+| Bir Azure sanal makinesine bağlı tek tek veri disk boyutu| 4095 GB <sup>2</sup>|
 
-* <sup>1</sup>54400 GB sınırını Iaas VM yedekleme için geçerli değildir.
+* <sup>1</sup>54400 GB sınırına Iaas VM yedekleme için geçerli değildir.
  
 

@@ -1,6 +1,6 @@
 ---
-title: Yalnızca zaman sanal makineye erişim Azure Güvenlik Merkezi'nde | Microsoft Docs
-description: Bu belgede Azure Güvenlik Merkezi'nde VM erişim yardımcı nasıl zamanında Azure sanal makinelerinizi erişimi denetleme gösterir.
+title: Tam zamanında sanal makine, Azure Güvenlik Merkezi'nde erişim | Microsoft Docs
+description: Bu belgenin nasıl tam zamanında VM erişimi, Azure Güvenlik Merkezi'nde yardımcı olan erişimi denetlemek için Azure sanal makinelerinizin gösterir.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,188 +12,188 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2018
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 60a5de16f4146e112a85d74634c662e228a0854f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 288524e58efd64670df098f249f3ad0b1cca464c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640566"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990587"
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında kullanarak sanal makine erişimini yönetme
+# <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında özelliğini kullanarak sanal makine erişimini yönetme
 
-Yalnızca zaman sanal makine (VM) erişim gerektiğinde VM'ler bağlamak için kolay erişim sağlarken saldırılara maruz kalma azaltma, Azure vm'lerine gelen trafik kilitlemek için kullanılabilir.
+Tam zamanında sanal makine içinde (VM) erişimi, Vm'lere gerektiğinde bağlanılabilmesi için kolay erişim sağlamanın yanı sıra saldırılara maruz kalma riskinizi azaltır, Azure Vm'lere gelen trafiği kilitlemek için kullanılabilir.
 
 > [!NOTE]
-> Yalnızca zamanında özellik Güvenlik Merkezi'nin standart katmanında mevcuttur.  Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
+> Tam zamanında özelliği Güvenlik Merkezi'nin standart katmanında kullanılabilir.  Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
 >
 >
 
 ## <a name="attack-scenario"></a>Saldırı senaryosu
 
-Deneme yanılma saldırısı hedef yönetim noktaları VM erişmek için bir yol olarak sık saldırıları. Başarılı olursa, bir saldırganın VM üzerinden denetimini ele geçirmek ve bir açısından ortamınıza oluşturun.
+Deneme yanılma hedef yönetim noktaları bir sanal makineye erişmek için bir yol olarak genellikle saldırıları. Başarılı olursa, bir saldırganın VM yükü denetimini ve ortamınıza bir köprübaşı oluşturmak.
 
-Saldırılarına maruz azaltmak için tek bir bağlantı noktasının açık olduğundan süre miktarını sınırlamak için bir yoludur. Yönetim bağlantı noktalarının her zaman açık olması gerekmez. Bunların yalnızca VM’ye bağlı olduğunuzda (örneğin, yönetim veya bakım görevleri gerçekleştirmek için) açık olması gerekir. Tam zamanında etkinleştirilmişse, Güvenlik Merkezi kullanır [ağ güvenlik grubu](../virtual-network/security-overview.md#security-rules) saldırganlar tarafından hedeflenemez, yönetim bağlantı noktalarına erişimi sınırlayan (NSG) kuralları.
+Bir deneme yanılma saldırısı maruz kalma riskinizi azaltmak için bir bağlantı noktası açık olduğu süre miktarını sınırlamak için yoludur. Yönetim bağlantı noktalarının her zaman açık olması gerekmez. Bunların yalnızca VM’ye bağlı olduğunuzda (örneğin, yönetim veya bakım görevleri gerçekleştirmek için) açık olması gerekir. Tam zamanında etkinleştirildiğinde Güvenlik Merkezi kullanan [ağ güvenlik grubu](../virtual-network/security-overview.md#security-rules) saldırganlar tarafından hedeflenemez yönetim bağlantı noktalarına erişimi kısıtlama (NSG) kuralları.
 
 ![Yalnızca zaman senaryoda][1]
 
-## <a name="how-does-just-in-time-access-work"></a>Nasıl yalnızca süresi erişimi çalışıyor mu?
+## <a name="how-does-just-in-time-access-work"></a>Nasıl tam zamanında erişim çalışır mı?
 
-Tam zamanında etkinleştirildiğinde, Güvenlik Merkezi bir NSG kuralı oluşturarak Azure VM’lere gelen trafiği kilitler. Aşağı gelen trafik için kilitlenir VM bağlantı noktalarını seçin. Bu bağlantı noktaları yalnızca tarafından denetlenen zaman çözümde.
+Tam zamanında etkinleştirildiğinde, Güvenlik Merkezi bir NSG kuralı oluşturarak Azure VM’lere gelen trafiği kilitler. Sizin için gelen trafiği kilitlenir VM bağlantı noktalarını seçin. Bu bağlantı noktaları yalnızca tarafından denetlenen çözümünü.
 
-Bir kullanıcı bir VM erişim istediğinde, Güvenlik Merkezi kullanıcının sahip olduğunu denetler [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md) VM için yazma erişimi sağlayan izinler. Belirtilen yazma izinlerine sahip oldukları isteğini onayladı ve Güvenlik Merkezi ağ güvenlik zaman miktarı için seçilen bağlantı noktalarına gelen trafiğe izin verecek şekilde grupları (Nsg'ler) otomatik olarak yapılandırır. Güvenlik Merkezi Nsg'ler süresi dolduktan sonra önceki durumlarına geri yükler. Önceden oluşturulmuş bu bağlantılar, ancak kesilmez.
+Bir kullanıcı bir sanal makine erişimine izin istediğinde, Güvenlik Merkezi kullanıcı olup olmadığını denetler [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md) VM için yazma erişimi sağlayan izinleri. Belirtilen yazma iznine sahip oldukları isteğin onaylanacağını ve Güvenlik Merkezi, ağ güvenlik süre Seçili bağlantı noktalarına gelen trafiğe izin veren grupları (Nsg'ler) otomatik olarak yapılandırır. Süresi dolduktan sonra Güvenlik Merkezi Nsg'ler önceki durumlarına geri yükler. Önceden oluşturulmuş bu bağlantılar, ancak kesilmez.
 
 > [!NOTE]
-> Güvenlik Merkezi'nde yalnızca zaman VM erişim şu anda yalnızca Azure Resource Manager aracılığıyla dağıtılan VM'ler destekler. Klasik ve Resource Manager dağıtım modelleri hakkında daha fazla bilgi için [Azure Resource Manager ve klasik dağıtım](../azure-resource-manager/resource-manager-deployment-model.md).
+> Güvenlik Merkezi tam zamanında VM erişimi şu anda yalnızca Azure Resource Manager üzerinden dağıtılan Vm'leri desteklemektedir. Klasik ve Resource Manager dağıtım modelleri hakkında daha fazla bilgi için [Azure Resource Manager ve klasik dağıtım](../azure-resource-manager/resource-manager-deployment-model.md).
 >
 >
 
-## <a name="using-just-in-time-access"></a>Yalnızca süresi erişimi kullanma
+## <a name="using-just-in-time-access"></a>Tam zamanında erişim kullanma
 
 1. **Güvenlik Merkezi** panosunu açın.
 
-2. Sol bölmede seçin **saat VM erişimi hemen**.
+2. Sol bölmede seçin **tam zamanında VM erişimi**.
 
-![Tam zamanında VM erişim döşeme][2]
+![Tam zamanında VM erişimi Döşe][2]
 
-**Saat VM erişimi hemen** penceresi açılır.
+**Tam zamanında VM erişimi** penceresi açılır.
 
-![Tam zamanında VM erişim döşeme][10]
+![Tam zamanında VM erişimi Döşe][10]
 
 **Tam zamanında VM erişimi**, VM’lerinizin durumu hakkında bilgiler sağlar:
 
-- **Yapılandırılan** - Tam zamanında VM erişimini destekleyecek şekilde yapılandırılmış VM’lerdir. Sunulan veriler son hafta ve her VM için onaylanan istekleri, son erişim tarihi ve saati ve son kullanıcı sayısını içerir.
-- **Önerilen** - Tam zamanında VM erişimini destekleyebilen ancak bunun için yapılandırılmamış VM’lerdir. Yalnızca zaman VM erişim denetimi bu VM'ler için etkinleştirmenizi öneririz. Bkz: [yalnızca bir yapılandırma saat erişim ilkesinde](#configuring-a-just-in-time-access-policy).
+- **Yapılandırılan** - Tam zamanında VM erişimini destekleyecek şekilde yapılandırılmış VM’lerdir. Sunulan veriler geçen haftaya aittir ve her VM için onaylanan istekler, son erişim tarihi ve saati ve son kullanıcı sayısını içerir.
+- **Önerilen** - Tam zamanında VM erişimini destekleyebilen ancak bunun için yapılandırılmamış VM’lerdir. Bu VM'ler için yalnızca zaman VM erişim denetimi etkinleştirmenizi öneririz. Bkz [yapılandırma tam zamanında erişim ilkesi](#configuring-a-just-in-time-access-policy).
 - **Öneri olmayan** - Bir VM’nin önerilmemesinin olası nedenleri şunlardır:
   - NSG yok - Tam zamanında erişim çözümü için NSG’nin mevcut olması gerekir.
-  - Klasik VM - Güvenlik Merkezi tam zamanında VM erişimi şu anda yalnızca Azure Resource Manager üzerinden dağıtılan VM’leri desteklemektedir. Klasik dağıtım yalnızca tarafından desteklenmeyen zaman çözümde.
+  - Klasik VM - Güvenlik Merkezi tam zamanında VM erişimi şu anda yalnızca Azure Resource Manager üzerinden dağıtılan VM’leri desteklemektedir. Klasik dağıtım yalnızca tarafından desteklenmeyen çözümünü.
   - Diğer - Aboneliğin veya kaynak grubunun güvenlik ilkesinde tam zamanında erişim çözümü kapatılmışsa VM bu kategoridedir ya da bu kategorideki bir VM’de genel IP adresi eksik olabilir ve bir NSG mevcut olmayabilir.
 
-## <a name="configuring-a-just-in-time-access-policy"></a>Yalnızca bir yapılandırma saat erişim ilkesinde
+## <a name="configuring-a-just-in-time-access-policy"></a>Yapılandırma tam zamanında erişim ilkesi
 
-Etkinleştirmek istediğiniz sanal makineleri seçmek için:
+Etkinleştirmek istediğiniz Vm'leri seçmek için:
 
-1. Altında **saat VM erişimi hemen**seçin **önerilen** sekmesi.
+1. Altında **tam zamanında VM erişimi**seçin **önerilen** sekmesi.
 
-  ![Yalnızca süresi erişimi etkinleştir][3]
+  ![Tam zamanında erişim etkinleştir][3]
 
-2. Altında **sanal makine**, etkinleştirmek istediğiniz sanal makineleri seçin. Bir VM yanında bir onay işareti koyar.
-3. Seçin **etkinleştirmek JIT vm'lerde**.
+2. Altında **sanal makine**, etkinleştirmek istediğiniz Vm'leri seçin. Bu, bir VM yanında bir onay işareti koyar.
+3. Seçin **etkinleştirme vm'lerde JIT**.
 4. **Kaydet**’i seçin.
 
 ### <a name="default-ports"></a>Varsayılan bağlantı noktaları
 
-Güvenlik Merkezi tam zamanında etkinleştirme önerir varsayılan bağlantı noktalarını görebilirsiniz.
+Güvenlik Merkezi tam zamanında etkinleştirme önerdiği varsayılan bağlantı noktalarını görebilirsiniz.
 
-1. Altında **saat VM erişimi hemen**seçin **önerilen** sekmesi.
+1. Altında **tam zamanında VM erişimi**seçin **önerilen** sekmesi.
 
   ![Varsayılan bağlantı noktalarını görüntüle][6]
 
-2. Altında **VM'ler**, bir VM seçin. Bu VM yanında bir onay işareti koyar ve açılır **JIT VM erişim yapılandırması**. Bu dikey varsayılan bağlantı noktalarını görüntüler.
+2. Altında **Vm'leri**, bir sanal Makineyi seçin. Bu sanal Makinenin yanında bir onay işareti koyar ve açılır **JIT VM erişimi Yapılandırması**. Bu dikey pencere varsayılan bağlantı noktalarını görüntüler.
 
 ### <a name="add-ports"></a>Bağlantı noktaları ekleme
 
-Altında **JIT VM erişim yapılandırması**, ayrıca eklemek ve yapılandırmak istediğiniz yalnızca etkinleştirmek yeni bir bağlantı noktası zaman çözümde.
+Altında **JIT VM erişimi Yapılandırması**, ayrıca ekleyebilir ve tam olarak etkinleştirmek istediğiniz yeni bir bağlantı noktasını yapılandıran çözümünü.
 
-1. Altında **JIT VM erişim yapılandırması**seçin **Ekle**. Bu açılır **Ekle bağlantı noktası yapılandırmasını**.
+1. Altında **JIT VM erişimi Yapılandırması**seçin **Ekle**. Bu açılır **bağlantı noktası yapılandırması Ekle**.
 
   ![Bağlantı noktası yapılandırması][7]
 
-2. Altında **Ekle bağlantı noktası yapılandırmasını**, bağlantı noktası, protokol türü, izin verilen kaynak IP'leri ve en fazla istek süresi tanımlayın.
+2. Altında **bağlantı noktası yapılandırması Ekle**, bağlantı noktası, protokol türü, izin verilen kaynak IP'leri ve en fazla istek süresi tanımlayın.
 
-  İzin verilen IP kaynağıdır onaylanmış bir istek üzerine erişmek için izin verilen IP aralıkları.
+  Onaylanan bir isteğin ardından erişim elde etmesine izin verilen IP aralıkları izin verilen kaynak IP'leri var.
 
-  En fazla istek süresi, belirli bir bağlantı noktasını açılabilir en uzun süre penceredir.
+  En fazla istek süresi, belirli bir bağlantı noktası açılabilir en uzun süreyi penceredir.
 
 3. **Tamam**’ı seçin.
 
-## <a name="requesting-access-to-a-vm"></a>Bir VM erişim isteyen
+## <a name="requesting-access-to-a-vm"></a>Bir VM için erişim isteği
 
-Bir VM erişim istemek için:
+VM'ye erişime izin istemek için:
 
-1. Altında **saat VM erişimi hemen**seçin **yapılandırıldı** sekmesi.
-2. Altında **VM'ler**, erişimini etkinleştirmek istediğiniz sanal makineleri seçin. Bir VM yanında bir onay işareti koyar.
+1. Altında **tam zamanında VM erişimi**seçin **yapılandırıldı** sekmesi.
+2. Altında **Vm'leri**, erişim sağlamak istediğiniz Vm'leri seçin. Bu, bir VM yanında bir onay işareti koyar.
 3. Seçin **erişim isteği**. Bu açılır **erişim isteği**.
 
-  ![Erişim isteğinde bulunmak için bir VM][4]
+  ![VM'ye erişime izin iste][4]
 
-4. Altında **erişim isteği**, her VM için bağlantı noktası için açılmış kaynak IP ve bağlantı noktası açıldığı zaman penceresi birlikte açmak için bağlantı noktalarını yapılandırın. Yalnızca içinde yapılandırılmış olan bağlantı noktalarına erişim isteğinde bulunabileceği zaman ilkesi. Her bağlantı noktası yalnızca türetilen süresi izin verilen maksimum olan zaman ilkesi.
+4. Altında **erişim isteği**, her VM için bağlantı noktası için açık kaynak IP ve bağlantı noktası açıldığı zaman penceresi ile birlikte açmak için bağlantı noktalarını yapılandırın. Yalnızca yapılandırılan bağlantı noktaları için erişim isteğinde bulunabileceği zamanında ilkesi. Her bağlantı noktası yalnızca türetilmiş süresi izin verilen en fazla olan zamanında ilkesi.
 5. Seçin **bağlantı noktalarını açmak**.
 
 > [!NOTE]
-> Bir kullanıcı bir VM erişim istediğinde, Güvenlik Merkezi kullanıcının sahip olduğunu denetler [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md) VM için yazma erişimi sağlayan izinler. Yazma izinlerine sahipseniz, isteğini onayladı.
+> Bir kullanıcı bir sanal makine erişimine izin istediğinde, Güvenlik Merkezi kullanıcı olup olmadığını denetler [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md) VM için yazma erişimi sağlayan izinleri. Yazma izinleriniz varsa, isteği onaylandı.
 >
 >
 
 > [!NOTE]
-> Erişim isteyen bir kullanıcı bir proxy'nin arkasında ise, "My IP" seçeneği çalışmayabilir. Kuruluş tam aralığını tanımlamak için bir gereksinimi olabilir.
+> Erişim isteyen bir kullanıcı bir proxy'nin arkasındayken, "IP'mi" seçeneği çalışmayabilir. Kuruluş tam aralığını tanımlamak için bir gereksinim olabilir.
 >
 >
 
-## <a name="editing-a-just-in-time-access-policy"></a>Yalnızca bir düzenleme zaman erişim ilkesinde
+## <a name="editing-a-just-in-time-access-policy"></a>Düzenleme tam zamanında erişim ilkesi
 
-VM'in yalnızca zaman ilkesinde varolan ekleyerek ve o VM için açmak için yeni bir bağlantı noktası yapılandırma ya da zaten korumalı bir bağlantı noktasına ilgili herhangi bir parametre değiştirerek değiştirebilirsiniz.
+Bir sanal makinenin yalnızca zaman ilkesinde varolan ekleyip bu VM için açmak için yeni bir bağlantı noktası yapılandırma ya da zaten korumalı bir bağlantı noktasına ilgili herhangi bir parametre değiştirerek değiştirebilirsiniz.
 
-Varolan yalnızca bir VM zaman İlkesi'nde düzenlemek için **yapılandırıldı** sekmesi kullanılır:
+Yalnızca bir sanal makinenin saat İlkesi içinde varolan bir düzen için **yapılandırıldı** sekmesi kullanılır:
 
-1. Altında **VM'ler**, o VM için üç nokta satırdaki tıklayarak bir bağlantı noktası eklemek için VM seçin. Bir menüdeki açılır.
-2. Seçin **Düzenle** menüde. Bu açılır **JIT VM erişim yapılandırması**.
+1. Altında **Vm'leri**, o sanal makine için satır içinde üç noktaya tıklayarak bir bağlantı eklemek için bir sanal Makineyi seçin. Bu, bir menü açılır.
+2. Seçin **Düzenle** menüsünde. Bu açılır **JIT VM erişimi Yapılandırması**.
 
   ![İlkeyi düzenleme][8]
 
-3. Altında **JIT VM erişim yapılandırması**, kendi bağlantı noktasında tıklayarak ya da zaten korumalı olan bir bağlantı noktası var olan ayarları düzenleyebilirsiniz veya seçebileceğiniz **Ekle**. Bu açılır **Ekle bağlantı noktası yapılandırmasını**.
+3. Altında **JIT VM erişimi Yapılandırması**ya da kendi bağlantı noktasına tıklayarak zaten korumalı olan bir bağlantı noktası var olan ayarları düzenleyebilirsiniz veya seçebilirsiniz **Ekle**. Bu açılır **bağlantı noktası yapılandırması Ekle**.
 
-  ![Bir bağlantı noktası ekleme][7]
+  ![Bağlantı Noktası Ekle][7]
 
-4. Altında **Ekle bağlantı noktası yapılandırmasını**, bağlantı noktasını belirlemek, protokol türü, izin verilen kaynak IP'leri ve en fazla istek süresi.
+4. Altında **bağlantı noktası yapılandırması Ekle**, bağlantı noktasını belirlemek, protokol türü, izin verilen kaynak IP'leri ve en fazla istek süresi.
 5. **Tamam**’ı seçin.
 6. **Kaydet**’i seçin.
 
-## <a name="auditing-just-in-time-access-activity"></a>Yalnızca zaman erişim etkinliğinde denetleme
+## <a name="auditing-just-in-time-access-activity"></a>Yalnızca zaman erişim etkinliğini denetleme
 
-Günlük arama kullanarak VM etkinlikleri Öngörüler elde edebilirsiniz. Günlükleri görüntülemek için:
+Günlük araması'nı kullanarak VM etkinlikleri hakkında Öngörüler elde edebilirsiniz. Günlükleri görüntülemek için:
 
-1. Altında **saat VM erişimi hemen**seçin **yapılandırıldı** sekmesi.
-2. Altında **VM'ler**, o VM için üç nokta satırdaki tıklayarak ilgili bilgileri görüntülemek için VM seçin. Bir menüdeki açılır.
-3. Seçin **etkinlik günlüğü** menüde. Bu açılır **etkinlik günlüğü**.
+1. Altında **tam zamanında VM erişimi**seçin **yapılandırıldı** sekmesi.
+2. Altında **Vm'leri**, o sanal makine için satır içinde üç noktaya tıklayarak ilgili bilgileri görüntülemek için bir sanal Makineyi seçin. Bu, bir menü açılır.
+3. Seçin **etkinlik günlüğü** menüsünde. Bu açılır **etkinlik günlüğü**.
 
   ![Etkinlik günlüğü seçin][9]
 
-  **Etkinlik günlüğü** önceki işlem saati, tarih ve abonelik ile birlikte bu VM için filtre uygulanmış bir görünümünü sağlar.
+  **Etkinlik günlüğü** önceki işlem saati, tarih ve abonelik yanı sıra bu VM için filtrelenmiş bir görünüm sağlar.
 
   ![Etkinlik Günlüğü Görüntüle][5]
 
-Günlük bilgilerini seçerek yükleyebilirsiniz **tüm öğeler CSV olarak indirmek için buraya tıklayın**.
+Günlük bilgilerini seçerek indirebilirsiniz **tüm öğeleri CSV olarak indirmek için buraya tıklayın**.
 
-Seç ve filtreleri değiştirmek **Uygula** bir arama ve günlük oluşturmak için.
+Seç ve filtreleri değiştirmek **Uygula** arama ve günlük oluşturmak için.
 
-## <a name="using-just-in-time-vm-access-via-powershell"></a>Tam zamanında PowerShell aracılığıyla VM erişim kullanma
+## <a name="using-just-in-time-vm-access-via-powershell"></a>Zamanında VM erişimi PowerShell aracılığıyla kullanarak
 
 Yalnızca kullanmak için PowerShell aracılığıyla zaman çözümde olduğundan emin olun [son](/powershell/azure/install-azurerm-ps) Azure PowerShell sürümü.
-Bunu yaptığınızda, yüklemek gereken [son](https://aka.ms/asc-psgallery) Azure Güvenlik Merkezi PowerShell Galerisi'nden.
+Bunu yaptığınızda, yüklemeniz gerekir [son](https://aka.ms/asc-psgallery) Azure Güvenlik Merkezi PowerShell Galerisi'ndeki.
 
-### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Yalnızca bir yapılandırma bir VM için zaman İlkesi
+### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Yapılandırma tam zamanında ilkesi için bir VM
 
-Bir yalnızca yapılandırmak için PowerShell oturumunda bu komutu çalıştırmak gereken belirli bir VM'de zaman ilkesinde: Set-ASCJITAccessPolicy.
+Yalnızca bir yapılandırma İlkesi zaman belirli bir VM'de PowerShell oturumunuzda bu komutu çalıştırmanız gerekir: Set-ASCJITAccessPolicy.
 Daha fazla bilgi için cmdlet belgeleri izleyin.
 
-### <a name="requesting-access-to-a-vm"></a>Bir VM erişim isteyen
+### <a name="requesting-access-to-a-vm"></a>Bir VM için erişim isteği
 
-Yalnızca ile korunan belirli bir VM'yi erişmek için PowerShell oturumunda bu komutu çalıştırmak gereken zaman çözümde: çağırma ASCJITAccess.
+Yalnızca korunan belirli bir sanal Makineye erişmek için PowerShell oturumunuzda bu komutu çalıştırmak gereken zaman çözümde: çağırma ASCJITAccess.
 Daha fazla bilgi için cmdlet belgeleri izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, nasıl tam zamanında VM erişim Güvenlik Merkezi yardımcı olur, Azure sanal makineleriniz için erişim denetim öğrendiniz.
+Bu makalede, nasıl yalnızca zamanında VM erişimi, Güvenlik Merkezi yardımcı olur, Azure sanal makineleri için erişim denetim öğrendiniz.
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-- [Güvenlik ilkelerini ayarlama](security-center-policies.md) — Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkeleri yapılandırmayı öğrenin.
-- [Güvenlik önerilerini yönetme](security-center-recommendations.md) — nasıl önerilerin Azure kaynaklarınızı korumanıza yardımcı öğrenin.
-- [Güvenlik durumunu izleme](security-center-monitoring.md) — Azure kaynaklarınızı sağlığını izlemek öğrenin.
-- [Yönetme ve güvenlik uyarılarını yanıt](security-center-managing-and-responding-alerts.md) — yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinin.
-- [İş ortağı çözümlerini izleme](security-center-partner-solutions.md) — iş ortağı çözümlerinizin sistem durumunu öğrenin.
-- [Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) — hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+- [Güvenlik ilkelerini ayarlama](security-center-policies.md) — Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+- [Güvenlik önerilerini yönetme](security-center-recommendations.md) -önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
+- [Güvenlik durumunu izleme](security-center-monitoring.md) — Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
+- [Yönetme ve güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md) — yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinin.
+- [İş ortağı çözümlerini izleme](security-center-partner-solutions.md) — iş ortağı çözümlerinizin sistem durumunu izleme hakkında bilgi edinin.
+- [Güvenlik Merkezi SSS](security-center-faq.md) — hizmet kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 - [Azure Güvenlik blogu](https://blogs.msdn.microsoft.com/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
 
 

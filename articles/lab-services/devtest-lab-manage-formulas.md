@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 40c30958c5e0e24f2b35475848c1828df4a40d0c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: b7a68f545f60829e5da83f0734c57a4d210cb843
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "33787615"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001490"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs formülleri yönetme
 
@@ -61,7 +61,7 @@ Aşağıdaki adımlar özel bir görüntü, Market görüntüsü ya da başka bi
     * **Formül adı** -formülünüz için bir ad girin. Bir VM oluşturduğunuzda, bu değeri temel görüntüleri listesinde görüntülenir. Adı, türü ve geçerli değil, bir ileti geçerli bir adı gereksinimlerini gösterir doğrulanır.
     * **Açıklama** -formülünüz için anlamlı bir açıklama girin. Bir VM oluşturduğunuzda, bu değer formülün bağlam menüsünden kullanılabilir.
     * **Kullanıcı adı** -yönetici ayrıcalıkları verilmiş bir kullanıcı adı girin.
-    * **Parola** - girin - veya açılan listeden seçin - belirtilen kullanıcı için kullanmak istediğiniz gizli dizisini (parola) ile ilişkili olan bir değer. Gizli dizileri hakkında daha fazla bilgi için bkz: [Azure DevTest Labs: Kişisel gizli dizi deposu](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/).
+    * **Parola** - girin - veya açılan listeden seçin - belirtilen kullanıcı için kullanmak istediğiniz gizli dizisini (parola) ile ilişkili olan bir değer. Bir anahtar kasasındaki gizli dizileri kaydetme ve Laboratuvar kaynaklarını oluştururken kullanma hakkında bilgi edinmek için [gizli dizileri Azure Key Vault'ta Store](devtest-lab-store-secrets-in-key-vault.md).
     * **Sanal makine diski türünü** - ya da HDD (sabit disk sürücüsü) belirtin veya bu temel görüntü kullanılarak sağlanan sanal makineler için hangi depolama disk türüne belirtmek için SSD (katı hal sürücüsü) izin verilir.
     * ** Sanal makine boyutu ** - işlemci çekirdeği ve RAM boyutu oluşturmak için sanal sabit sürücü boyutu belirlediğiniz önceden tanımlanmış öğeleri birini seçin. 
     * **Yapıtları** - açmak için seçin **yapıt Ekle** dikey penceresinde, seçin ve temel görüntüye eklemek istediğiniz yapıtları yapılandırın. Yapılar hakkında daha fazla bilgi için bkz: [Azure DevTest Labs'teki sanal makineniz için özel yapıtlar oluşturma](devtest-lab-artifact-author.md).

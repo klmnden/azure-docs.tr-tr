@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: fc7c5b4ab025666fc7fa1d9073198ec90d8e71c3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 59e74ee586a28935b5fde4b5c1089264e98e5087
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611036"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003104"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Azure depolama bir SAS kimlik bilgisi erişmek için bir Linux VM yönetilen hizmet Kimliği'ni kullanın
 
@@ -53,7 +53,7 @@ Bu öğretici için yeni bir Linux VM'yi oluştururuz. Mevcut VM'yi MSI de etkin
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
 3. Sanal makine bilgilerini girin. İçin **kimlik doğrulama türü**seçin **SSH ortak anahtarı** veya **parola**. Oluşturulan kimlik bilgilerini, VM'de oturum açmak izin verin.
 
-    ![Alt resim metni](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alt resim metni](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Seçin bir **abonelik** sanal makinenin açılır.
 5. Yeni bir seçilecek **kaynak grubu** sanal makinenin oluşturulması, seçmek istediğiniz **Yeni Oluştur**. İşlem tamamlandığında **Tamam**’a tıklayın.
@@ -68,11 +68,11 @@ Bir sanal makine MSI, kimlik bilgilerini kodunuza koyma gereksinimi olmadan Azur
 3. Kaydolun ve MSI etkinleştirmek için **Evet**, devre dışı bırakmak istiyorsanız seçin No
 4. Tıkladığınız olun **Kaydet** yapılandırmayı kaydetmek için.
 
-    ![Alt resim metni](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alt resim metni](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Hangi uzantıların denetlemek istiyorsanız, sanal makinede olan, tıklayın **uzantıları**. MSI etkin olduğunda **ManagedIdentityExtensionforLinux** listesinde görünür.
 
-    ![Alt resim metni](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+    ![Alt resim metni](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 

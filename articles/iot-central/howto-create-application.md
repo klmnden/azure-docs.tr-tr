@@ -1,84 +1,84 @@
 ---
-title: Azure IOT Merkezi uygulama oluşturma | Microsoft Docs
-description: Bir yönetici olarak Azure IOT merkezi bir uygulama oluşturma.
+title: Azure IoT Central uygulaması oluşturma | Microsoft Docs
+description: Bir yönetici olarak bir Azure IOT Central uygulaması oluşturmayı öğrenin.
+services: iot-central
+ms.service: iot-central
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 03/20/2018
+ms.date: 07/09/2018
 ms.topic: conceptual
-ms.service: iot-central
-services: iot-central
 manager: peterpr
-ms.openlocfilehash: 39992a1cc36d00a64ee6430cad5f24af3e1e1157
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1fbe3ea142e1dd738cd341f57d2b8f48b539ac75
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629295"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003775"
 ---
-# <a name="create-your-azure-iot-central-application"></a>Azure IOT Orta uygulamanızı oluşturma
+# <a name="create-your-azure-iot-central-application"></a>Azure IoT Central uygulamanızı oluşturma
 
-Microsoft Azure IOT merkezi uygulamanızdan oluşturduğunuz [uygulama oluştur](https://apps.microsoftiotcentral.com/create) sayfası. Azure IOT merkezi bir uygulama oluşturmak için bu sayfadaki tüm alanları doldurun ve ardından **oluşturma**. Bu makalede alanların her biri hakkında daha fazla bilgi vardır.
+Microsoft Azure IOT Central uygulamanızı oluşturduğunuz [uygulama oluşturma](https://apps.microsoftiotcentral.com/create) sayfası. Azure IOT Central bir uygulama oluşturmak için bu sayfadaki tüm alanları doldurun ve ardından **Oluştur**. Aşağıdaki alanların her biri hakkında daha fazla bilgi bulabilirsiniz.
 
 ![Uygulama sayfası oluşturma](media\howto-create-application\image1.png)
 
 ## <a name="payment-plan"></a>Ödeme planı
 
-Bir deneme ya da Ücretli bir uygulama oluşturabilirsiniz. Bu sayfada deneme aboneliği ve Ücretli uygulamalar hakkında daha fazla bilgi edinin.
+Bir deneme veya Ücretli bir uygulama oluşturabilirsiniz. Deneme ve Ücretli uygulamalar hakkında daha fazla bilgi [Azure IOT fiyatlandırma sayfası Merkezi](https://azure.microsoft.com/pricing/details/iot-central/)...
 
 ## <a name="application-name"></a>Uygulama Adı
 
-Uygulamanızın ad **Uygulama Yöneticisi** sayfa ve her Azure IOT merkezi bir uygulama içinde. Azure IOT merkezi uygulamanız için herhangi bir ad seçebilirsiniz. Size ve diğerleri için kuruluşunuzda anlamlı bir ad seçin.
+Uygulamanızın ad **Uygulama Yöneticisi** sayfası ve her bir Azure IOT Central uygulaması içinde. Azure IOT Central uygulamanız için herhangi bir ad seçebilirsiniz. Size ve diğer kullanıcılarla kuruluşunuzda anlamlı bir ad seçin.
 
 ## <a name="application-url"></a>Uygulama URL'si
 
-Uygulama URL'si uygulamanıza bağlantıdır. Tarayıcınızda bir yer işareti kaydetmesi veya başkalarıyla paylaşabilirsiniz.
+Uygulama URL'si uygulamanıza bağlantıdır. Tarayıcınızda yer işareti kaydetmesi veya başkalarıyla paylaşabilirsiniz.
 
-Uygulamanız için bir ad girin, uygulama URL'sini otomatik olarak üretilir. Tercih ederseniz, uygulamanız için farklı bir URL seçebilirsiniz. Her Azure IOT merkezi URL'si benzersiz olmalıdır. Seçtiğiniz URL zaten kullanımda değilse, hata iletisi görürsünüz.
+Uygulamanız için bir ad girin, uygulama URL'nizi otomatik olarak üretilir. Tercih ederseniz, uygulamanız için farklı bir URL seçebilirsiniz. Her Azure IOT Central URL, Azure IOT Central içinde benzersiz olmalıdır. Seçtiğiniz URL önceden alınmış bir hata iletisi görürsünüz.
 
 ## <a name="directory"></a>Dizin
 
 Yalnızca ücretli uygulamalarında.
 
-Azure IOT merkezi bir uygulama oluşturmak için bir Azure Active Directory Kiracı seçin. Bir Azure Active Directory Kiracı Kullanıcı kimlikleri, kimlik bilgileri ve diğer kuruluş bilgilerini içerir. Birden çok Azure aboneliği tek bir Azure Active Directory Kiracı ile ilişkilendirilebilir.
+Azure IOT Central uygulaması oluşturmak için bir Azure Active Directory kiracısı seçin. Azure Active Directory kiracısı, kullanıcı kimliklerini, kimlik bilgilerini ve diğer kuruluş bilgilerini içerir. Birden çok Azure aboneliği, tek bir Azure Active Directory kiracısı ile ilişkili olabilir.
 
-Bir Azure Active Directory Kiracı yoksa, bir Azure aboneliği oluşturduğunuzda, sizin için oluşturulur.
+Bir Azure Active Directory kiracınız yoksa, bir Azure aboneliği oluşturduğunuzda bir sizin için oluşturulur.
 
-Daha fazla bilgi için bkz: [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
+Daha fazla bilgi için bkz. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
 
 ## <a name="azure-subscription"></a>Azure aboneliği
 
-Bir Azure aboneliği, Azure Hizmetleri örneklerini oluşturmanıza olanak sağlar. Azure IOT Orta otomatik olarak erişiminiz tüm Azure abonelikleri bulur ve bunları açılır listede görüntüler **uygulama oluştur** sayfası. Yeni bir Azure IOT merkezi uygulaması oluşturmak için Azure aboneliği seçin.
+Bir Azure aboneliği, Azure Hizmetleri örneklerini oluşturmanıza olanak sağlar. Azure IOT Central otomatik olarak erişim iznine sahip olduğunuz tüm Azure abonelikleri bulur ve bunları açılır menüde görüntüler **uygulama oluşturma** sayfası. Yeni bir Azure IOT Central uygulaması oluşturmak için bir Azure aboneliği seçin.
 
-Bir Azure aboneliğiniz yoksa, bu sayfada oluşturabilirsiniz. Azure aboneliği oluşturduktan sonra geri gittiğinizde **uygulama oluştur** sayfası. Yeni Abonelik görünür **Azure aboneliği** açılır.
+Azure aboneliğiniz yoksa, bir temel oluşturabilirsiniz [Azure kayıt sayfasına](https://aka.ms/createazuresubscription). Azure abonelik oluşturduktan sonra geri gidin **uygulama oluşturma** sayfası. Yeni aboneliğinizi görünür **Azure abonelik** açılır.
 
-Daha fazla bilgi için bkz: [Azure abonelikleri](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
+Daha fazla bilgi için bkz. [Azure abonelikleri](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
 ## <a name="region"></a>Bölge
 
 Yalnızca ücretli uygulamalarında.
 
-Burada Azure IOT merkezi uygulamanızı oluşturmak istediğiniz bölgeyi seçin. Genellikle, en iyi performansı elde etmek, cihazlara fiziksel olarak en yakın bölgeyi seçmeniz gerekir.
+Azure IOT Central uygulaması oluşturmak için istediğiniz bölgeyi seçin. Genellikle, en iyi performansı elde etmek için fiziksel olarak cihazlarınıza en yakın bölgeyi seçmeniz gerekir.
 
-Daha fazla bilgi için bkz: [Azure bölgeleri](https://docs.microsoft.com/en-us/azure/guides/developer/azure-developer-guide#azure-regions).
+Daha fazla bilgi için bkz. [Azure bölgeleri](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions).
 
-Azure IOT merkezi olduğu bulunan bölgelere görebilirsiniz [bölgeye göre ürünleri](https://azure.microsoft.com/regions/services/) sayfası.
+Azure IOT Central olduğu kullanılabilir bölgeler gördüğünüz [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/regions/services/) sayfası.
 
 > [!Note]
-> Bir bölge seçtikten sonra daha sonra farklı bir bölgeye uygulamanıza taşıyamazsınız.
+> Bir bölge seçtikten sonra daha sonra uygulamanızı farklı bir bölgeye taşıyamazsınız.
 
 ## <a name="application-template"></a>Uygulama şablonu
 
-Yeni Azure IOT merkezi uygulamanız için kullanılabilir uygulama şablonlarından birini seçebilirsiniz. Bir uygulama şablonunu aygıt şablonlar gibi önceden tanımlanmış öğeleri içerebilir ve yardımcı olması için panolar başlayın:
+Yeni Azure IOT Central uygulamanız için mevcut uygulama şablonlarından birini seçebilirsiniz. Bir uygulama şablonunu gibi cihaz şablonları önceden tanımlanmış öğeleri içerebilir ve yardımcı olması için panoları kullanmaya başlayın.
 
 | Uygulama şablonu | Açıklama |
 | -------------------- | ----------- |
-| Özel uygulama   | Kendi cihaz şablonları ve aygıtlarını doldurmak boş bir uygulama oluşturur. |
-| Örnek Contoso       | Basit bağlı bir aygıt için bir aygıt şablonu içeren bir uygulama oluşturur. Azure IOT merkezi keşfetmeye başlamak için bu şablonu kullanın. |
-| Örnek Devkits       | Uygulama aygıt şablonlarıyla MXChip veya Raspberry Pi'yi bir aygıt bağlanmaya hazır oluşturur. Cihaz geliştiriciyseniz bu cihazların birinde koduyla denemeler bu şablonu kullanın. |
+| Özel uygulama   | Kendi cihaz şablonlarını ve cihazlarla doldurmak, boş bir uygulama oluşturur. |
+| Örnek Contoso       | Basit bağlı bir cihaz için cihaz şablon içeren bir uygulama oluşturur. Azure IOT Central'ı keşfetmeye başlamak için bu şablonu kullanın. |
+| Örnek Devkits       | Uygulama cihaz şablonları ile MXChip veya Raspberry Pi bir aygıt bağlanmaya hazır oluşturur. Cihaz geliştiriciyseniz bu cihaz üzerinde kodla denemeler bu şablonu kullanın. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure IOT merkezi bir uygulama oluşturmak öğrendiniz, önerilen sonraki adım aşağıda verilmiştir:
+Bir Azure IOT Central uygulaması oluşturmayı öğrendiniz, önerilen sonraki adım aşağıda verilmiştir:
 
 > [!div class="nextstepaction"]
 > [Uygulamanızı yönetme](howto-administer.md)

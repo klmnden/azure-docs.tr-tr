@@ -1,6 +1,6 @@
 ---
-title: Desteklenen ülke ve dilleri Bing Web arama API'si Azure üzerinde | Microsoft Docs
-description: Hangi ülke ve dilleri Bing Web arama API'si tarafından desteklenen bulun.
+title: Desteklenen ülkeler/bölgeler ve diller için azure'da Bing Web araması API'si | Microsoft Docs
+description: Hangi ülkeler/bölgeler ve diller Bing Web araması API'si tarafından desteklendiğini öğrenin.
 services: cognitive-services
 author: v-jerkin
 manager: jhubbard
@@ -9,24 +9,24 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 10/06/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 7b62c4a4feb7144662a8fe4d692f11f1efe5db1b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e1994ddf3bf71d01adeac4ff8688bdd1e6eac660
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351808"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001727"
 ---
-# <a name="bing-web-search-countries-and-languages"></a>Bing Web araması ülke ve dilleri
+# <a name="bing-web-search-countriesregions-and-languages"></a>Bing Web araması ülkeler/bölgeler ve diller
 
-Bing Web arama API birden fazla üç düzine ülkelerde, birçok birden fazla dili destekler. Öncelikle söz konusu ülkenin ilgi göre arama sonuçlarını daraltmak için bir ülke ile bir sorgu belirtmeyi işlevi görür. Ayrıca, sonuçları Bing bağlantılar içerebilir ve bu bağlantıları Bing kullanıcı deneyimi belirlenen ülke veya dil göre yerelleştirme.
+Bing Web araması API'si birden üç düzine ülkeler/bölgeler, çoğu birden fazla dili destekler. Öncelikle bu ülke/bölge ilgi göre arama sonuçlarını daraltmak için bir sorgu ile bir ülke/bölge belirtme işlevi görür. Ayrıca, sonuçları Bing bağlantılarını içerebilir ve bu bağlantıları Bing kullanıcı deneyimini belirtilen ülke/bölge ve dil göre yerelleştirin.
 
-Kullanarak bir ülke belirtebilirsiniz `cc` sorgu parametresi. Bir ülke belirtirseniz kullanarak bir veya daha fazla dil kodunu da belirtmeniz gerekir `Accept-Language` HTTP üstbilgisi. Desteklenen diller ülkeye göre değişiklik gösterir; Her ülkenin pazarda tablosundaki verilir.
+Kullanarak bir ülke/bölge belirtin `cc` sorgu parametresi. Bir ülke/bölge belirtirseniz, kullanarak bir veya daha fazla dil kodunu da belirtmeniz gerekir `Accept-Language` HTTP üstbilgisi. Desteklenen diller, ülke/bölgeye göre değişiklik gösterir; pazarlara tablodaki her ülke/bölge için verilir.
 
-Alternatif olarak, Pazar kullanarak belirtebilir `mkt` sorgu parametresi ve bir kodundan **pazarda** tablo. Bir pazar eşzamanlı olarak belirterek, bir ülke ve tercih edilen dili belirtir. `setLang` Sorgu parametresi ayarlanmış olabilir bir dil kodu bu durumda; genellikle bu tarafından belirtilen aynı dildir `mkt` Bing başka bir dilde görmek kullanıcının tercih sürece.
+Alternatif olarak, Pazar kullanarak belirtebilir `mkt` sorgu parametresi ve bir kod **pazarlara** tablo. Aynı anda bir pazar belirterek, bir ülke/bölge ve tercih edilen dili belirtir. `setLang` Sorgu parametresi ayarlanabilir bir dil kodu bu durumda; genellikle bu tarafından belirtilen aynı dilde `mkt` başka bir dilde Bing görmek kullanıcının tercih ettiği sürece.
 
-## <a name="countries"></a>Ülke
+## <a name="countries"></a>Ülkeler
 
-|Ülke|Kod|
+|Ülke/bölge|Kod|
 |-------|----|
 |Arjantin|AR|
 |Avustralya|Otomatik Olarak Güncelleştir|
@@ -40,12 +40,12 @@ Alternatif olarak, Pazar kullanarak belirtebilir `mkt` sorgu parametresi ve bir 
 |Fransa|GS|
 |Almanya|GİZLE|
 |Hong Kong|HK|
-|Hindistan|IN|
+|Hindistan|GİRİŞ|
 |Endonezya|Kimlik|
 |İtalya|BT|
 |Japonya|JP|
 |Kore|KR|
-|Malezya|UYGULAMAM|
+|Malezya|BİLGİSAYARIM|
 |Meksika|MX|
 |Hollanda|NL|
 |Yeni Zelanda|NZ|
@@ -66,30 +66,30 @@ Alternatif olarak, Pazar kullanarak belirtebilir `mkt` sorgu parametresi ve bir 
 |Amerika Birleşik Devletleri|ABD|
 
 
-## <a name="markets"></a>Pazarda
+## <a name="markets"></a>Pazarlar
 
-|Ülke|Dil|Pazar kodu|
+|Ülke/bölge|Dil|Pazar kod|
 |-------|--------|-----------|
 |Arjantin|İspanyolca |ES AR|
-|Avustralya|Türkçe|tr AU|
-|Avusturya|Almanca |de AT|
+|Avustralya|Türkçe|tr-AU|
+|Avusturya|Almanca |de-AT|
 |Belçika|Felemenkçe|NL-olabilir|
 |Belçika|Fransızca |FR-olabilir|
 |Brezilya|Portekizce|pt-BR|
-|Kanada|Türkçe|tr-CA|
+|Kanada|Türkçe|CA tr|
 |Kanada|Fransızca |fr-CA|
 |Şili|İspanyolca |ES-CL|
-|Danimarka|Danca|da DK|
-|Finlandiya|Fince|Fi-FI|
+|Danimarka|Danca|v-DK|
+|Finlandiya|Fince|FI-FI|
 |Fransa|Fransızca |fr-FR|
 |Almanya|Almanca |de-DE|
 |Hong Kong|Geleneksel Çince|zh-HK|
-|Hindistan|Türkçe|tr-IN|
+|Hindistan|Türkçe|tr-giriş|
 |Endonezya|Türkçe|tr kimliği|
 |İtalya|İtalyanca|it-IT|
 |Japonya|Japonca|ja-JP|
 |Kore|Kore dili|ko-KR|
-|Malezya|Türkçe|tr MY|
+|Malezya|Türkçe|MY tr|
 |Meksika|İspanyolca |es-MX|
 |Hollanda|Felemenkçe|NL-NL|
 |Yeni Zelanda|Türkçe|tr NZ|
@@ -97,16 +97,16 @@ Alternatif olarak, Pazar kullanarak belirtebilir `mkt` sorgu parametresi ve bir 
 |Çin|Çince|zh-CN|
 |Polonya|Lehçe|pl-PL|
 |Portekiz|Portekizce|pt-PT|
-|Filipinler|Türkçe|en FAZ|
+|Filipinler|Türkçe|tr PH|
 |Rusya|Rusça|ru-RU|
-|Suudi Arabistan|Arapça|ar-SA'sı|
+|Suudi Arabistan|Arapça|ar-SA|
 |Güney Afrika|Türkçe|tr-ZA|
 |İspanya|İspanyolca |es-ES|
 |İsveç|İsveç dili|sv-SE|
-|İsviçre|Fransızca |FR CH|
-|İsviçre|Almanca |de CH|
+|İsviçre|Fransızca |FR-CH|
+|İsviçre|Almanca |de-CH|
 |Tayvan|Geleneksel Çince|zh-TW|
 |Türkiye|Türkçe|tr-TR|
-|Birleşik Krallık|Türkçe|tr GB|
+|Birleşik Krallık|Türkçe|en-GB|
 |Amerika Birleşik Devletleri|Türkçe|tr-TR|
 |Amerika Birleşik Devletleri|İspanyolca |ES-ABD|

@@ -1,30 +1,23 @@
 ---
-title: Dizin Sorgulama (portal - Azure Search) | Microsoft Docs
-description: Azure Portal'ın Arama Gezgini'ninde arama sorgusu gönderin.
+title: Azure Search'te dizinler sorgulamak için arama Gezgini | Microsoft Docs
+description: Azure Search'te dizin sorgulama için arama Gezgini'ni kullanma hakkında bilgi edinin.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 07/10/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: a3592bd0c304dfb78374eeba432c0d28203980c9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 520d9e7b1899c54d922ff6fb77e0901f9609b029
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790517"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004142"
 ---
-# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Azure Portal’ın Arama Gezgini’ni kullanarak Azure Search dizinini sorgulama
-> [!div class="op_single_selector"]
-> * [Genel Bakış](search-query-overview.md)
-> * [Portal](search-explorer.md)
-> * [.NET](search-query-dotnet.md)
-> * [REST](search-query-rest-api.md)
-> 
-> 
+# <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Azure Search'te sorgu dizinler için arama Gezgini'ni kullanma 
 
-Bu makalede, Azure Portal’ın **Arama Gezgini**’ni kullanarak bir Azure Search dizininin nasıl sorgulanacağı gösterilir. Hizmetinizde var olan herhangi bir dizine basit veya tam Lucene sorgu dizeleri göndermek için Arama Gezgini’ni kullanabilirsiniz.
+Bu makale, mevcut bir Azure Search dizini kullanarak nasıl sorgulanacağını gösterir **arama Gezgini** Azure portalında. Hizmetinizde var olan bir dizine basit veya tam Lucene sorgu dizeleri göndermek için arama Gezgini'ni kullanabilirsiniz.
 
 ## <a name="open-the-service-dashboard"></a>Hizmet panosunu açma
 1. [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)'ın sol tarafındaki atlama çubuğunda **Tüm kaynaklar**’a tıklayın.
@@ -36,15 +29,15 @@ Bu makalede, Azure Portal’ın **Arama Gezgini**’ni kullanarak bir Azure Sear
 
    ![](./media/search-explorer/pick-index.png)
 
-## <a name="open-search-explorer"></a>Arama Gezgini’ni açma
+## <a name="open-search-explorer"></a>Arama Gezgini'ni Aç
 
-Arama çubuğunu ve sonuçlar bölmesini kaydırarak açmak için Arama Gezgini kutucuğuna tıklayın.
+Ve sonuçlar bölmesinde arama çubuğuna kaydırarak açmak için arama Gezgini kutucuğuna tıklayın.
 
    ![](./media/search-explorer/search-explorer-tile.png)
 
 ## <a name="start-searching"></a>Aramayı başlatma
 
-Arama Gezgini'ni kullanırken sorguyu formüle etmek için [sorgu parametreleri](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) belirtebilirsiniz.
+Arama Gezgini'ni kullanırken belirtebileceğiniz [sorgu parametreleri](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) sorguyu formüle etmek için.
 
 1. **Sorgu dizesi**’nde sorguyu yazın ve **Ara**’ya basın. 
 

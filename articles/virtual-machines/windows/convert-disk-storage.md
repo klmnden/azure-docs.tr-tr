@@ -1,6 +1,6 @@
 ---
-title: Azure Dönüştür yönetilen diskleri depolama standart, premium ve tersi yönde | Microsoft Docs
-description: Azure dönüştürme diskleri standart Premium'a ve tersi, Azure PowerShell kullanarak tarafından yönetilir.
+title: Dönüştürme Azure yönetilen diskler depolaması standart, premium ve tersi | Microsoft Docs
+description: Azure dönüştürmek standart katmandan Premium ve tersi, Azure PowerShell kullanarak yönetilen diskleri
 services: virtual-machines-windows
 documentationcenter: ''
 author: ramankum
@@ -15,29 +15,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.openlocfilehash: 19979240e13ac822921b7f43a158d171aeea0123
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8ab7745c6b600ac20b6e6064108e15e7f8ab8b09
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365245"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991513"
 ---
-# <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure Dönüştür yönetilen diskleri depolama standart, premium ve tersi yönde
+# <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Dönüştürme Azure yönetilen diskler depolaması standart, premium ve bunun tersi de geçerlidir
 
-Yönetilen diskleri iki depolama seçenekleri sunar: [Premium](premium-storage.md) (SSD tabanlı) ve [standart](standard-storage.md) (HDD tabanlı). Performans ihtiyaçlarınıza göre en düşük kapalı kalma süresi ile iki seçenek arasında kolayca geçiş yapmanızı sağlar. Bu özellik, yönetilmeyen diskler için kullanılamaz. Ancak kolayca [yönetilen Diske Dönüştür](convert-unmanaged-to-managed-disks.md) kolayca iki seçenek arasında geçiş yapmak için.
+Yönetilen diskler, üç depolama seçeneği sunar: [Premium SSD](../windows/premium-storage.md), standart SSD(Preview) ve [standart HDD](../windows/standard-storage.md). Performans ihtiyaçlarınıza göre en düşük kapalı kalma süresi ile seçenekleri arasında kolayca geçiş yapmanızı sağlar. Yönetilmeyen diskler için desteklenmiyor. Ancak kolayca [yönetilen disklere dönüştürme](convert-unmanaged-to-managed-disks.md) disk türleri arasında kolayca geçiş için.
 
-Bu makalede yönetilen diskleri standart dönüştürme Premium'a ve bunun tersi de Azure PowerShell kullanarak gösterilmiştir. Gerekirse yüklemek veya yükseltmek için bkz: [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps.md).
+Bu makalede, Premium ve bunun tersi de Azure PowerShell kullanarak standart yönetilen diskleri dönüştürme gösterilmektedir. Gerekirse yüklemek veya yükseltmek bkz [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps.md).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-* Dönüştürme VM yeniden başlatma gerektiriyorsa, bu nedenle, diskleri depolama geçiş önceden var olan bir bakım penceresi sırasında zamanlayın. 
-* Yönetilmeyen diskler, ilk kez kullanıyorsanız, [yönetilen Diske Dönüştür](convert-unmanaged-to-managed-disks.md) iki depolama seçenekleri arasında geçiş yapmak için bu makalede kullanılacak. 
-* Bu makale Azure PowerShell modülü sürümü 6.0.0 gerektirir veya sonraki bir sürümü. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). Çalıştırmanız gereken `Connect-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
+* Dönüştürme sanal makinenin yeniden başlatılması gerekiyor, bu nedenle, diskleri depolama geçişini önceden var olan bir bakım penceresi sırasında zamanlayın. 
+* İlk yönetilmeyen diskler kullanıyorsanız [yönetilen disklere dönüştürme](convert-unmanaged-to-managed-disks.md) için depolama seçenekleri arasında geçiş yapmak için bu makaleyi kullanın. 
+* Bu makale Azure PowerShell modülü sürüm 6.0.0'dan gerekir veya üzeri. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). Ayrıca Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırmanız gerekir.
 
 
-## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Yönetilen tüm diskleri bir VM, standart, premium dönüştürmek ve tersi yönde
+## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Bir VM'nin tüm yönetilen diskler için premium, standart dönüştürmek ve bunun tersi de geçerlidir
 
-Aşağıdaki örnekte, standart bir VM'den premium depolama için tüm disklerin geçiş yapma gösterir. Yönetilen premium diskleri kullanmak için VM kullanmanız gerekir bir [VM boyutu](sizes.md) premium storage destekler. Bu örnek ayrıca premium depolama destekleyen bir boyuta geçer.
+Aşağıdaki örnek, tüm diskleri VM standart katmandan premium depolamaya geçiş gösterilmektedir. Premium yönetilen diskleri kullanmak için sanal makinenizin kullanmalısınız bir [VM boyutu](sizes.md) , premium depolamayı destekler. Bu örnek ayrıca premium Depolama'yı destekleyen bir boyuta geçer.
 
 ```azurepowershell-interactive
 # Name of the resource group that contains the VM
@@ -47,7 +47,7 @@ $rgName = 'yourResourceGroup'
 $vmName = 'yourVM'
 
 # Choose between StandardLRS and PremiumLRS based on your scenario
-$storageType = 'PremiumLRS'
+$storageType = 'Premium_LRS'
 
 # Premium capable size
 # Required only if converting storage from standard to premium
@@ -79,9 +79,9 @@ foreach ($disk in $vmDisks)
 
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
-## <a name="convert-a-managed-disk-from-standard-to-premium-and-vice-versa"></a>Premium için standart yönetilen disk dönüştürmek ve tersi yönde
+## <a name="convert-a-managed-disk-from-standard-to-premium-and-vice-versa"></a>Yönetilen disk standart katmandan premium, dönüştürmek ve bunun tersi de geçerlidir
 
-Geliştirme ve test iş yükü için maliyetini azaltmak için standart ve premium disklerin karışımına sahip isteyebilirsiniz. Premium depolama alanına, daha iyi performans gerektiren disk yükselterek gerçekleştirebilirsiniz. Aşağıdaki örnekte, tek bir disk standardı VM premium Depolama'ya geçiş yapma gösteriyoruz tersi. Yönetilen premium diskleri kullanmak için VM kullanmanız gerekir bir [VM boyutu](sizes.md) premium storage destekler. Bu örnek ayrıca premium depolama destekleyen bir boyuta geçer.
+Geliştirme/test yükünüz için maliyetlerinizi azaltmak için standart ve premium diskleri karışımına sahip isteyebilirsiniz. Daha iyi performans gerektiren diskleri premium Depolama'ya yükselterek gerçekleştirebilirsiniz. Aşağıdaki örnek, tek bir disk, standart bir VM'den premium depolamaya geçiş işlemi gösterilmektedir ve bunun tersi de geçerlidir. Premium yönetilen diskleri kullanmak için sanal makinenizin kullanmalısınız bir [VM boyutu](sizes.md) , premium depolamayı destekler. Bu örnek ayrıca premium Depolama'yı destekleyen bir boyuta geçer.
 
 ```azurepowershell-interactive
 
@@ -89,13 +89,13 @@ $diskName = 'yourDiskName'
 # resource group that contains the managed disk
 $rgName = 'yourResourceGroupName'
 # Choose between StandardLRS and PremiumLRS based on your scenario
-$storageType = 'PremiumLRS'
+$storageType = 'Premium_LRS'
 # Premium capable size 
 $size = 'Standard_DS2_v2'
 
 $disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
 
-# Get the ARM resource to get name and resource group of the VM
+# Get parent VM resource
 $vmResource = Get-AzureRmResource -ResourceId $disk.diskId
 
 # Stop and deallocate the VM before changing the storage type
@@ -107,6 +107,36 @@ $vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName
 # Skip this step if converting storage from premium to standard
 $vm.HardwareProfile.VmSize = $size
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+
+# Update the storage type
+$diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
+Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
+-DiskName $disk.Name
+
+Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
+```
+
+## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd-and-vice-versa"></a>Yönetilen disk standart HDD standart SSD için dönüştürmek ve bunun tersi de geçerlidir
+
+Aşağıdaki örnek, tek bir standart HDD bir VM'den için standart SSD disk geçiş işlemi gösterilmektedir ve bunun tersi de geçerlidir.
+
+```azurepowershell-interactive
+
+$diskName = 'yourDiskName'
+# resource group that contains the managed disk
+$rgName = 'yourResourceGroupName'
+# Choose between Standard_LRS and StandardSSD_LRS based on your scenario
+$storageType = 'StandardSSD_LRS'
+
+$disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
+
+# Get parent VM resource
+$vmResource = Get-AzureRmResource -ResourceId $disk.diskId
+
+# Stop and deallocate the VM before changing the storage type
+Stop-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Force
+
+$vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName 
 
 # Update the storage type
 $diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB

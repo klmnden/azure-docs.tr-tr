@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: df4c60be8a29ab397424e9e5f9de7050f64d87c2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b7fd880683eed9e742007d6e595e1f275467b664
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859794"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990124"
 ---
 # <a name="log-analytics-data-security"></a>Oturum Analytics veri güvenliği
 Bu belgede Azure Log Analytics hakkında bilgi desteklemek için belirli bilgiler sağlamaya yönelik [Azure Güven Merkezi](../security/security-microsoft-trust-center.md).  
@@ -29,16 +29,34 @@ Bu makalede nasıl veri toplanan, işlenen ve Log Analytics tarafından güvenli
 
 Log Analytics hizmetine aşağıdaki yöntemleri kullanarak buluttaki verilerinizi güvenli bir şekilde yönetir:
 
-* Veriler arasında ayrım yapma
+* veriler arasında ayrım yapma
 * Veri saklama
 * Fiziksel güvenlik
 * Olay yönetimi
 * Uyumluluk
-* Güvenlik standartları sertifikaları
+* güvenlik standartları sertifikaları
 
 Tüm soruları, öneri veya bizim güvenlik ilkeleri de dahil olmak üzere aşağıdaki bilgileri ile ilgili sorunlar ile bizimle [Azure destek seçenekleri](http://azure.microsoft.com/support/options/).
 
-## <a name="data-segregation"></a>Veriler arasında ayrım yapma
+## <a name="sending-data-securely-using-tls-12"></a>TLS 1.2 kullanarak güvenli bir şekilde veri gönderme 
+
+Log analytics'e Aktarımdaki verilerin güvenliğini sağlamak üzere en az kullanmak üzere yapılandırmak için önemle öneririz Aktarım Katmanı Güvenliği (TLS) 1.2. TLS/Güvenli Yuva Katmanı (SSL) daha eski sürümleri, savunmasız bulundu ve bunlar yine de şu anda geriye dönük uyumluluk izin vermek için çalışırken, bunlar **önerilmez**, ve sektör hızla destek bırakmasını taşıma Bu eski protokolleri için. 
+
+[PCI güvenlik standartları Council](https://www.pcisecuritystandards.org/) olarak ayarlanmış bir [son 30 Haziran 2018'ın](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) TLS/SSL ve yükseltme daha da protokolleri güvenli hale getirmek için eski sürümlerini devre dışı bırakmak için. Sonra aracılar üzerinde en az iletişim kuramıyorsa eski destek, Azure bırakır TLS 1.2 değil okunup verileri Log Analytics'e gönderebilirsiniz. 
+
+Açıkça aracınızı sürece bu otomatik olarak algılamak ve daha yeni avantajlarından yararlanmanıza olanak tanıyan platform düzeyi güvenlik özelliklerinin daha güvenli bozabilir olarak kesinlikle gerekli çıktıkça gibi protokoller yalnızca TLS 1.2 kullanmak üzere ayarlanması önerilmez TLS 1.3. 
+
+### <a name="platform-specific-guidance"></a>Platform özel Kılavuzu
+
+|Platform/dili | Destek | Daha Fazla Bilgi |
+| --- | --- | --- |
+|Linux | Linux dağıtımları eğilimli etmenin [OpenSSL](https://www.openssl.org) TLS 1.2 desteği.  | Denetleme [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) OpenSSL sürümünüz desteklenir onaylamak için.|
+| Windows 8.0 10 | Desteklenen ve varsayılan olarak etkindir. | Yine de kullandığınızı doğrulamak için [varsayılan ayarları](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012-2016 | Desteklenen ve varsayılan olarak etkindir. | Yine de kullandığınızı doğrulamak için [varsayılan ayarları](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 ve Windows Server 2008 R2 SP1 | , Varsayılan olarak etkin değildir ancak desteklenir. | Bkz: [Aktarım Katmanı Güvenliği (TLS) kayıt defteri ayarları](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) nasıl etkinleştirileceği hakkında daha fazla ayrıntı için.  |
+| Windows Server 2008 SP2 | TLS 1.2 desteği güncelleştirilmesi gerekiyor. | Bkz: [TLS 1.2 desteği eklemek için güncelleştirme](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) Windows Server 2008 SP2. |
+
+## <a name="data-segregation"></a>veriler arasında ayrım yapma
 Log Analytics hizmeti tarafından alınan ve verilerinizi sonra veriler hizmet boyunca her bir bileşende mantıksal olarak ayrı tutulur. Tüm veriler çalışma alanı etiketlendiğini. Bu etiketleme, veri yaşam döngüsü boyunca devam eder ve her bir hizmet katmanında uygulanır. Verilerinizi, seçtiğiniz bölgede depolama kümesi adanmış bir veritabanında depolanır.
 
 ## <a name="data-retention"></a>Veri saklama

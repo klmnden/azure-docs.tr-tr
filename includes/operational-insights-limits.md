@@ -9,11 +9,11 @@ ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: 66cd09df128d454973d008adf4ffc5dd1017a18f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34307497"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38756047"
 ---
 Abonelik başına Log Analytics kaynakları için aşağıdaki sınırlar geçerlidir:
 
@@ -23,7 +23,7 @@ Abonelik başına Log Analytics kaynakları için aşağıdaki sınırlar geçer
 | Abonelik başına ücretli çalışma alanı sayısı | Yok | Bir kaynak grubundaki kaynak sayısı ve abonelik başına kaynak grubu sayısı ile sınırlıdır | 
 
 >[!NOTE]
->2 Nisan 2018 itibariyle, yeni bir abonelik yeni çalışma alanları otomatik olarak kullanacak *GB başına* planı fiyatlandırma.  2 Nisan önce oluşturulmuş mevcut abonelikleri veya varolan bir EA kayıt bağlı bir abonelik için yeni çalışma alanları için üç fiyatlandırma katmanları arasında seçim devam edebilirsiniz. 
+>2 Nisan 2018'den itibaren yeni çalışma alanlarında yeni bir aboneliği otomatik olarak kullanacak *GB başına* fiyatlandırma planı.  2 Nisan'dan önce oluşturulmuş mevcut abonelikleri veya mevcut bir EA kaydına bağlı bir abonelik için yeni çalışma alanları için üç fiyatlandırma katmanları arasında seçim yapma devam edebilirsiniz. 
 >
 
 Aşağıdaki sınırlamalar Log Analytics çalışma alanlarının her biri için geçerlidir:
@@ -35,7 +35,7 @@ Aşağıdaki sınırlamalar Log Analytics çalışma alanlarının her biri içi
 
 <sup>1</sup> Müşteriler 500 MB günlük veri aktarımı sınırına ulaştığında veri analizi durur ve sonraki günün başlangıcında devam eder. Bir gün için UTC temel alınır.
 
-<sup>2</sup> tek başına, OMS ve fiyatlandırma planı GB başına veri saklama süresi 730 gün sayısı artırılabilir.
+<sup>2</sup> tek başına, OMS ve fiyatlandırma planları GB başına veri saklama süresi 730 güne artırılabilir.
 
 | Kategori | Sınırlar | Yorumlar
 | --- | --- | --- |

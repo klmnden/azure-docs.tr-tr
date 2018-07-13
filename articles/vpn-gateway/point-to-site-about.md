@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2668d92b5b933f7ccf8ebcccbe7ea77ea6ea1e86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8cdc80e8e4f8d3feb36ca82740d5610e60716ec6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38721437"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003368"
 ---
 # <a name="about-point-to-site-vpn"></a>Noktadan siteye VPN hakkında
 
@@ -58,7 +58,7 @@ AD etki alanı kimlik doğrulaması, kuruluş etki alanı kimlik bilgilerini kul
 
 Bir RADIUS sunucusu, ayrıca diğer dış kimlik sistemleri ile tümleştirebilirsiniz. Bu, çok faktörlü seçenekleri dahil olmak üzere, P2S VPN için kimlik doğrulama seçenekleri bolca yukarı açar.
 
-! [-siteye]] (./media/point-to-site-about/p2s.png "Noktadan siteye")
+![Noktadan siteye](./media/point-to-site-about/p2s.png "noktadan siteye")
 
 ## <a name="what-are-the-client-configuration-requirements"></a>İstemci yapılandırma gereksinimleri nelerdir?
 

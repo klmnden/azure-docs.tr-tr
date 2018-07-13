@@ -12,7 +12,7 @@
 
 | Premium Depolama Diski Türü | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- |
-| Disk boyutu |128 GiB |512 GiB |1024 GiB (1 TB) |2048 GiB (2 TB)|4095 GiB (4 TB)|
+| Disk boyutu |128 GiB |512 GiB |1024 GiB (1 TB) |2048 giB (2 TB)|4095 giB (4 TB)|
 | Disk başına en fazla IOPS |500 |2300 |5000 |7500 |7500 |
 | Disk başına en fazla aktarım hızı |100 MB/s | 150 MB/s |200 MB/sn |250 MB/sn |250 MB/sn |
 | Depolama hesabı başına en fazla disk sayısı |280 |70 |35 | 17 | 8 |

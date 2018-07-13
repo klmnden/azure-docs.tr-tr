@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: SQL söz dizimi sorgu başvurusu | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL söz dizimi sorgusu başvurusu | Microsoft Docs'
 description: Azure Cosmos DB SQL sorgu dili için başvuru belgeleri.
 services: cosmos-db
 author: LalithaMV
@@ -10,25 +10,25 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 13337e7979a378382df5e62661b04bac8dffa689
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: b8f20bc9e3a46901c88648f89e5b69fda62d8c8f
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798840"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990083"
 ---
-# <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos veritabanı SQL söz dizimi başvurusu
+# <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL söz dizimi başvurusu
 
-Tanıdık SQL (yapılandırılmış sorgu dili) kullanan belgeleri sorgulama azure Cosmos DB destekler gerektirmeden açık şema veya ikincil dizinlerin oluşturulmasını dilbilgisi hiyerarşik JSON belgeleri ister. Bu konu, SQL API'yi hesapları ile uyumlu SQL sorgu dili başvuru belgelerine sağlar.
+Tanıdık bir SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını azure Cosmos DB destekler, bir açık şema veya ikincil dizinlerin oluşturulmasını gerek kalmadan, hiyerarşik JSON belgelerini dilbilgisi ister. Bu konu, SQL API'si hesapları ile uyumlu SQL sorgu dili için başvuru belgeleri sağlar.
 
-SQL sorgu dili için bkz [SQL sorgularını Azure Cosmos DB için](sql-api-sql-query.md).  
+SQL sorgu dili için bkz [Azure Cosmos DB SQL sorgularında](sql-api-sql-query.md).  
   
-Ayrıca ziyaret etmek için davet ediyoruz [Query Playground](http://www.documentdb.com/sql/demo) burada Azure Cosmos DB deneyin ve SQL sorgularını kümemize karşı çalıştırabilirsiniz.  
+Biz de ziyaret etmek için sizi davet [sorgu oyun alanı](http://www.documentdb.com/sql/demo) , Azure Cosmos DB'yi deneyin ve bizim veri kümesinde SQL sorguları çalıştırın.  
   
-## <a name="select-query"></a>SEÇME sorgusu  
-JSON belgeleri veritabanından alır. İfade değerlendirme, filtreleme tahminleri destekler ve birleştirir.  Seçim deyimleri tanımlamak için kullanılan kuralları sözdizimi kuralları bölümünde tabloda verilmiştir.  
+## <a name="select-query"></a>SELECT sorgusu  
+JSON belgelerini veritabanından alır. İfade değerlendirme, filtreleme, projeksiyonlar destekler ve birleştirir.  SELECT deyimleri tanımlamak için kullanılan kuralları söz dizimi kuralları bölümünde tabloda verilmiştir.  
   
-**Sözdizimi**  
+**Söz dizimi**  
   
 ```
 <select_query> ::=  
@@ -40,7 +40,7 @@ SELECT <select_specification>
   
  **Açıklamalar**  
   
- Ayrıntılar için bölümlere her yan tümcesi aşağıdaki bakın:  
+ Her yan tümcesi için bölümlere aşağıdaki bakın:  
   
 -   [SELECT yan tümcesi](#bk_select_query)  
   
@@ -50,9 +50,9 @@ SELECT <select_specification>
   
 -   [ORDER BY yan tümcesi](#bk_orderby_clause)  
   
-SELECT deyiminde yan tümceleri, yukarıda gösterildiği gibi sıralanmalıdır. İsteğe bağlı bir yan tümceleri herhangi biri atlanabilir. Ancak isteğe bağlı bir yan tümceleri kullanıldığında, doğru sırayla görünmesi gerekir.  
+Yan tümceleri SELECT deyiminde, yukarıda gösterildiği gibi sıralanmış olmaları gerekmektedir. İsteğe bağlı yan tümceleri herhangi biri atlanabilir. Ancak, isteğe bağlı yan tümceleri kullanıldığında, doğru sırada yer almalıdır.  
   
-**SELECT deyimi mantıksal işleme sırası**  
+**Mantıksal sipariş işleme SELECT deyiminin**  
   
 Yan tümceleri işlenme sırası şöyledir:  
 
@@ -61,22 +61,22 @@ Yan tümceleri işlenme sırası şöyledir:
 3.  [ORDER BY yan tümcesi](#bk_orderby_clause)  
 4.  [SELECT yan tümcesi](#bk_select_query)  
 
-Bu sözdiziminde görünme sırasını farklı olduğunu unutmayın. İşlenen yan tümcesi ile sunulan tüm yeni sembolleri görünür ve daha sonra işlenen yan tümcelerinde kullanılabilir gibi sıralama olmamasıdır. Örneğin, bir FROM yan tümcesinde bildirilen diğer adlar WHERE erişilebilir ve SELECT yan tümceleri.  
+Bu söz diziminde görünme sırasını farklı olduğunu unutmayın. İşlenen bir yan tümce tarafından kullanıma sunulan tüm yeni simgeler görünür ve daha sonra işlenen yan tümcelerinde kullanılabilir olacağı şekilde sıralamadır. Örneğin, bir FROM yan tümcesinde bildirilen diğer adlar nerede erişilebilir ve SELECT yan.  
 
-**Boşluk karakterleri ve açıklamaları**  
+**Boşluk karakterleri ve açıklamalar**  
 
-Tırnak içine alınan bir dizeyi bir parçası olmayan veya tanımlayıcı tırnak içine alınmış tüm boşluk karakterleri dil dilbilgisi parçası olmayan ve ayrıştırma sırasında yok sayılır.  
+Tırnak işaretli dize parçası olmayan veya teklif tanımlayıcısı tüm boşluk karakterlerinin dil dilbilgisi parçası değildir ve ayrıştırma sırasında yok sayılır.  
 
-T-SQL stili yorumlar gibi sorgu dili destekler  
+T-SQL stili açıklamaları gibi sorgu dili destekler  
 
 -   SQL deyimi `-- comment text [newline]`  
 
-Boşluk karakterleri ve açıklamalar herhangi anlamlı dilbilgisi değil olsa da, belirteçlerin ayırmak için kullanılmalıdır. Örneğin: `-1e5` bir tek sayı belirteç süre olan`: – 1 e5` eksi bir belirteç numarası 1 ve tanımlayıcı e5 tarafından izlenir.  
+Boşluk karakterleri ve açıklamalar herhangi bir anlam dilbilgisi değil olsa da, belirteçlerin ayırmak için kullanılmalıdır. Örneğin: `-1e5` tek bir sayı belirteç süre olan`: – 1 e5` eksi bir belirteç sayısı 1 ve tanımlayıcı e5 tarafından izlenir.  
 
 ##  <a name="bk_select_query"></a> SELECT yan tümcesi  
-SELECT deyiminde yan tümceleri, yukarıda gösterildiği gibi sıralanmalıdır. İsteğe bağlı bir yan tümceleri herhangi biri atlanabilir. Ancak isteğe bağlı bir yan tümceleri kullanıldığında, doğru sırayla görünmesi gerekir.  
+Yan tümceleri SELECT deyiminde, yukarıda gösterildiği gibi sıralanmış olmaları gerekmektedir. İsteğe bağlı yan tümceleri herhangi biri atlanabilir. Ancak, isteğe bağlı yan tümceleri kullanıldığında, doğru sırada yer almalıdır.  
 
-**Sözdizimi**  
+**Söz dizimi**  
 ```  
 SELECT <select_specification>  
 
@@ -90,33 +90,33 @@ SELECT <select_specification>
   
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
  `<select_specification>`  
   
- Özellikler veya sonuç kümesi için seçilecek değeri.  
+ Özellikleri veya sonuç kümesi için seçilecek değeri.  
   
  `'*'`  
   
-Değer herhangi bir değişiklik yapmadan alınması gerektiğini belirtir. İşlenen değer bir nesne ise, özellikle, tüm özellikler alınır.  
+Değer herhangi bir değişiklik yapmadan alınması gerektiğini belirtir. İşlenen değer bir nesne ise, özellikle, tüm özellikleri alınır.  
   
  `<object_property_list>`  
   
-Alınacak özellikler listesini belirtir. Her döndürülen değeri, belirtilen özellikleri olan bir nesne olacaktır.  
+Alınacak özelliklerinin listesini belirtir. Her döndürülen değer, belirtilen özellikleri içeren bir nesne olacaktır.  
   
 `VALUE`  
   
-JSON değeri yerine tam JSON nesnesi alınması gerektiğini belirtir. Bu, aksine `<property_list>` Öngörülen Değer bir nesne içinde kaymasını değil.  
+JSON değerinin yerine tam JSON nesne alınacağını belirtir. Bunun aksine `<property_list>` Öngörülen Değer nesneyi kaydırma değil.  
   
 `<scalar_expression>`  
   
-Hesaplanacak değerin temsil eden ifadesi. Bkz: [skaler ifadelerin](#bk_scalar_expressions) ayrıntıları bölümü.  
+Hesaplanmasını değeri gösteren ifade. Bkz: [skaler ifadelerin](#bk_scalar_expressions) ayrıntıları bölümü.  
   
 **Açıklamalar**  
   
-`SELECT *` Sözdizimi geçerli yalnızca tam olarak bir diğer ad belirtmiş FROM yan tümcesi varsa. `SELECT *` projeksiyon gerektiğinde yararlı olabilecek bir kimlik projeksiyon sağlar. SEÇİN * yalnızca FROM yan tümcesi belirtilirse geçerlidir ve yalnızca tek bir giriş kaynağı sunmuştur.  
+`SELECT *` Söz dizimi FROM yan tümcesi tam olarak bir diğer ad bildirilmişlerse geçerli yalnızca. `SELECT *` projeksiyon gerekirse yararlı olabilecek bir kimlik yansıtma sağlar. SEÇİN * yalnızca FROM yan tümcesi belirtilmiş ise geçerlidir ve yalnızca tek bir giriş kaynağı kullanıma sunulmuştur.  
   
-Unutmayın `SELECT <select_list>` ve `SELECT *` "söz dizimi sugar" olduğunu ve bunun yerine aşağıda gösterildiği gibi basit SELECT deyimi kullanılarak belirtilebilir.  
+Unutmayın `SELECT <select_list>` ve `SELECT *` "söz dizimi sugar" olan ve aşağıda gösterildiği gibi basit bir SELECT deyimi kullanarak alternatif olarak belirtilebilir.  
   
 1.  `SELECT * FROM ... AS from_alias ...`  
   
@@ -130,15 +130,15 @@ Unutmayın `SELECT <select_list>` ve `SELECT *` "söz dizimi sugar" olduğunu ve
   
      `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
-**Ayrıca bkz.**  
+**Ayrıca bkz:**  
   
 [Skaler ifade](#bk_scalar_expressions)  
 [SELECT yan tümcesi](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM yan tümcesi  
-Kaynak veya birleştirilmiş kaynakları belirtir. FROM yan tümcesi isteğe bağlıdır. Aksi durumda belirtilen, diğer yan tümceleri hala FROM yan tümcesi tek bir belgenin sağladıysanız olarak yürütülür.  
+Kaynak veya birleştirilmiş kaynakları belirtir. FROM yan tümcesi isteğe bağlıdır. Aksi durumda belirtilirse, diğer yan tümceleri hala FROM yan tümcesi tek bir belge sağladıysanız olarak yürütülür.  
   
-**Sözdizimi**  
+**Söz dizimi**  
   
 ```  
 FROM <from_specification>  
@@ -158,39 +158,39 @@ FROM <from_specification>
      | <collection_expression> '[' "property_name" | array_index ']'  
 ```  
   
-**Bağımsız değişkenler**  
+**Bağımsız Değişkenler**  
   
 `<from_source>`  
   
-Bir veri kaynağı olan veya olmayan bir diğer ad belirtir. Diğer ad belirtilmezse, gelen çıkarılabilir olacaktır `<collection_expression>` kuralları kullanarak:  
+Bir veri kaynağı olan veya olmayan bir diğer ad belirtir. Diğer ad belirtilmezse, içinden gösterilen `<collection_expression>` kuralları kullanarak:  
   
--   İfade bir toplama_adı ise, toplama_adı bir diğer ad olarak kullanılır.  
+-   İfade bir toplama_adı ise toplama_adı diğer ad olarak kullanılır.  
   
--   İfade ise `<collection_expression>`, property_name sonra property_name bir diğer ad olarak kullanılır. İfade bir toplama_adı ise, toplama_adı bir diğer ad olarak kullanılır.  
+-   İfade ise `<collection_expression>`, property_name sonra property_name diğer ad olarak kullanılır. İfade bir toplama_adı ise toplama_adı diğer ad olarak kullanılır.  
   
-OLARAK `input_alias`  
+FARKLI `input_alias`  
   
-Belirleyen `input_alias` temel Toplama ifadesi tarafından döndürülen değerler kümesidir.  
+Belirten `input_alias` temel Toplama ifadesi tarafından döndürülen değerler kümesidir.  
  
-`input_alias` IN  
+`input_alias` GİRİŞ  
   
-Belirleyen `input_alias` temel Toplama ifadesi tarafından döndürülen her dizinin tüm dizi öğeleri üzerinde yineleme tarafından elde edilen değerleri kümesi temsil etmelidir. Dizi olmayan temel Toplama ifadesi tarafından döndürülen herhangi bir değer yok sayılır.  
+Belirten `input_alias` temel Toplama ifadesi tarafından döndürülen her dizinin tüm dizi öğeleri üzerinde yineleme tarafından alınan değerler kümesini temsil etmelidir. Bir dizi değil temel Toplama ifadesi tarafından döndürülen herhangi bir değer yoksayılır.  
   
 `<collection_expression>`  
   
-Belge almak için kullanılacak Toplama ifadesi belirtir.  
+Belgeleri almak için kullanılacak koleksiyon ifadesi belirtir.  
   
 `ROOT`  
   
-Bu belge varsayılan olarak şu anda bağlı koleksiyonu alınması gerektiğini belirtir.  
+Bu belge, varsayılan, bağlı durumda koleksiyon alınması gerektiğini belirtir.  
   
 `collection_name`  
   
-Bu belgede sağlanan koleksiyondan alınması gerektiğini belirtir. Koleksiyon adı şu anda bağlı koleksiyonunun adı eşleşmelidir.  
+Bu belgede sağlanan koleksiyondan alınacağını belirtir. Koleksiyonun adı şu anda bağlı koleksiyonun adı eşleşmelidir.  
   
 `input_alias`  
   
-Bu belgede sağlanan diğer adı tarafından tanımlanan diğer kaynaktan alınması gerektiğini belirtir.  
+Bu belgede sağlanan diğer ad tarafından tanımlanan diğer kaynaktan alınması gerektiğini belirtir.  
   
 `<collection_expression> '.' property_`  
   
@@ -202,45 +202,45 @@ Bu belge erişerek alınabilir belirtir `property_name` özelliği veya dizi_diz
   
 **Açıklamalar**  
   
-Tüm diğer adlar sağlanan veya içinde çıkarımı yapılan `<from_source>(`s) benzersiz olması gerekir. Sözdizimi `<collection_expression>.`property_name aynı olup `<collection_expression>' ['"property_name"']'`. Ancak, bir özellik adı tanımlayıcı olmayan karakterleri içeriyorsa, ikinci sözdizimi kullanılabilir.  
+Tüm diğer adları içinde çıkarımı yapılan veya sağlanan `<from_source>(`s) benzersiz olmalıdır. Söz dizimi `<collection_expression>.`property_name aynıdır `<collection_expression>' ['"property_name"']'`. Ancak, bir özellik adı bir tanımlayıcı olmayan karakter içeriyorsa, ikinci sözdizimi kullanılabilir.  
   
-**Dizi öğeleri eksik özellikleri eksik değerleri işleme tanımlanmamış**  
+**Dizi öğeleri eksik özellikleri, eksik değerleri işleme tanımsız**  
   
-Bir toplama ifadesi özellikleri veya dizi öğeleri ve değer yok erişirse, bu değeri göz ardı ve daha fazla işlenmedi.  
+Bir toplama ifadesi özellikleri veya dizi öğeleri ve değeri yok erişirse, bu değer yoksayılır ve daha fazla işlenmedi.  
   
-**Toplama ifadesi içerik kapsamı**  
+**Koleksiyon ifadesi bağlam kapsamı**  
   
-Bir toplama ifadesi koleksiyonu kapsamlı veya belge kapsamlı olabilir:  
+Bir toplama ifadesi, toplama kapsamlı veya belge kapsamlı olabilir:  
   
--   Temel alınan kaynak koleksiyonu ifadesinin ya da kök ise koleksiyonu kapsamlı, ifade olan veya `collection_name`. Bu tür bir ifade koleksiyondan doğrudan alınan belgeleri kümesini temsil eder ve diğer toplama ifadeleri işlenmesini bağımlı değildir.  
+-   Temel alınan kaynak toplama ifadesinin ya da kök ise koleksiyon kapsamlı, bir ifade veya `collection_name`. Böyle bir ifade bir koleksiyondan doğrudan alınan belge kümesini temsil eder ve diğer koleksiyon ifadeleri işleme bağımlı değildir.  
   
--   Belge temel alınan kaynak koleksiyonu ifadesinin ise kapsamlı, ifade olan `input_alias` sorgu sunmuştur. Bu tür bir ifade diğer koleksiyonla ilişkili kümesine ait her bir belgenin kapsamında toplama ifadesinin hesaplanmasıyla elde belgeleri kümesini temsil eder.  Sonuç kümesi her temel kümesindeki belgelerin toplama ifadesinin hesaplanmasıyla elde edilen kümeleri birleşim olacaktır.  
+-   Bir ifade belge temel alınan kaynak toplama ifadesinin ise kapsamlı, `input_alias` sorgu daha önce sunulan. Böyle bir ifade, diğer adlı koleksiyonla ilişkili bir kümeye ait her bir belgenin kapsamında toplama ifadesinin değerlendirilmesi elde belgeleri kümesini temsil eder.  Sonuç kümesi her belgeler temel alınan bir toplama ifadesinin değerlendirilmesi elde edilen kümeleri birleşimi olacaktır.  
   
 **Birleşimler**  
   
-Geçerli sürümde Azure Cosmos DB iç birleştirmeler destekler. Ek birleştirme özellikleri yeni çıkacak.
+Geçerli sürümde, Azure Cosmos DB iç birleştirmeler destekler. Ek birleştirme özellikleri yeni çıkacak.
 
-İç birleşimler birleştirme katılan kümelerinin eksiksiz bir çapraz ürün sonuçlanır. Burada yer alan tanımlama grubu içindeki her değerin katılmasını birleştirme ayarlamak diğer adı ile ilişkili ve söz konusu diğer ad diğer yan tümcelerinde başvurarak erişilen N-öğe başlık kümesi bir N yönlü birleştirme sonucudur.  
+İç birleştirmeler birleştirme işleminde katılan kümeleri, eksiksiz bir çapraz ürün sonuçlanır. Çok yönlü birleştirme sonucunu, burada her bir tanımlama grubu değeri katılan birleştirme işleminde ayarlamak diğer adlı ile ilişkilendirilir ve bu diğer ad diğer yan tümceleri içinde başvurarak erişilebilir N-öğe dizilerini kümesidir.  
   
-Değerlendirme katılma katılımcı ayarlar bağlamı kapsamına bağlıdır:  
+Birleşimin değerlendirme katılımcı kümelerinin bağlam kapsamına bağlıdır:  
   
--  Bir birleştirme arasında koleksiyon kümesi A ve koleksiyon kapsamlı B, A ve b kümelerindeki tüm öğelerin çapraz ürün sonuçları ayarlayın
+-  Bir birleştirme arasında koleksiyon-set A ve koleksiyon kapsamlı B, A ve b kümelerindeki tüm öğelerin çapraz ürün sonuçları ayarlayın
   
--   Tüm ayarlar her belge için B A. belge kapsamlı ayarlama değerlendirerek elde birleşimi sonuçlanıyor kümesi belge kapsamlı kümesi B arasındaki bir birleştirme  
+-   A. B her belge için olarak belge kapsamı ayarlayın değerlendirerek alınan tüm ayarlar birleşimini kümesi belge kapsamı küme B arasında birleştirme sonuçlanıyor  
   
- Geçerli sürümde, bir koleksiyon kapsamlı ifade maksimum Sorgu işlemcisi tarafından desteklenir.  
+ Geçerli sürümde, koleksiyon kapsamlı bir ifadenin en fazla sorgu işlemcisi tarafından desteklenir.  
   
 **Birleştirme örnekleri:**  
   
-Aşağıdaki FROM yan tümcesi bakalım: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+Aşağıdaki FROM yan tümcesi göz atalım: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- Tanımlamak her kaynak izin `input_alias1, input_alias2, …, input_aliasN`. Bu FROM yan tümcesi N-diziler (tuple N değerlerle) kümesini döndürür. Her tanımlama grubu tüm koleksiyon diğer adları kendi ilgili ayarlar yineleme tarafından üretilen değerler içeriyor.  
+ Her kaynak tanımlamak olanak `input_alias1, input_alias2, …, input_aliasN`. Bu FROM yan tümcesi, N-tanımlama grubu (N değeri ile tanımlama grubu) kümesini döndürür. Her bir tanımlama grubunu tüm koleksiyon diğer adları kendi ilgili ayarlar yineleme tarafından üretilen değerler içeriyor.  
   
 *Örnek 1, 2 kaynaklarıyla KATIL:*  
   
-- Let `<from_source1>` koleksiyonu kapsamlı ve kümesi {A, B, C} temsil eder.  
+- İzin `<from_source1>` koleksiyonu kapsamına- ve set {A, B, C} temsil eder.  
   
-- Let `<from_source2>` input_alias1 başvuran belge kapsamlı ve ayarlar temsil eder:  
+- İzin `<from_source2>` input_alias1 başvuran belge kapsamlı ve kümeleri temsil eder:  
   
     {1, 2} için `input_alias1 = A,`  
   
@@ -248,7 +248,7 @@ Aşağıdaki FROM yan tümcesi bakalım: `<from_source1> JOIN <from_source2> JOI
   
     {4, 5} için `input_alias1 = C,`  
   
-- FROM yan tümcesi `<from_source1> JOIN <from_source2>` aşağıdaki başlıklar neden olur:  
+- FROM yan tümcesi `<from_source1> JOIN <from_source2>` de aşağıdaki tanımlama gruplarına neden olur:  
   
     (`input_alias1, input_alias2`):  
   
@@ -256,9 +256,9 @@ Aşağıdaki FROM yan tümcesi bakalım: `<from_source1> JOIN <from_source2> JOI
   
 *Örnek 2, 3 kaynaklarıyla KATIL:*  
   
-- Let `<from_source1>` koleksiyonu kapsamlı ve kümesi {A, B, C} temsil eder.  
+- İzin `<from_source1>` koleksiyonu kapsamına- ve set {A, B, C} temsil eder.  
   
-- Let `<from_source2>` belge kapsamlı başvuran olması `input_alias1` ve ayarlar temsil eder:  
+- İzin `<from_source2>` belge kapsamlı başvuran olması `input_alias1` ve kümeleri temsil eder:  
   
     {1, 2} için `input_alias1 = A,`  
   
@@ -266,28 +266,28 @@ Aşağıdaki FROM yan tümcesi bakalım: `<from_source1> JOIN <from_source2> JOI
   
     {4, 5} için `input_alias1 = C,`  
   
-- Let `<from_source3>` belge kapsamlı başvuran olması `input_alias2` ve ayarlar temsil eder:  
+- İzin `<from_source3>` belge kapsamlı başvuran olması `input_alias2` ve kümeleri temsil eder:  
   
     {100, 200} için `input_alias2 = 1,`  
   
     {300} için `input_alias2 = 3,`  
   
-- FROM yan tümcesi `<from_source1> JOIN <from_source2> JOIN <from_source3>` aşağıdaki başlıklar neden olur:  
+- FROM yan tümcesi `<from_source1> JOIN <from_source2> JOIN <from_source3>` de aşağıdaki tanımlama gruplarına neden olur:  
   
     (input_alias1, input_alias2, input_alias3):  
   
-    (A, 1, 100), (A, 1, 200), (B, 3, 300)  
+    (BİR, 1, 100), (A, 1, 200), (B, 3, 300)  
   
 > [!NOTE]
-> Diğer değerler için diziler eksikliği `input_alias1`, `input_alias2`, kendisi için `<from_source3>` hiçbir değer döndürmedi.  
+> Diğer değerler için demetleri eksikliği `input_alias1`, `input_alias2`, kendisi için `<from_source3>` herhangi bir değer döndürmedi.  
   
 *Örnek 3, 3 kaynaklarıyla KATIL:*  
   
-- < Koleksiyon kapsamlı ve {A, B, C} kümesini temsil eden from_source1 > olanak tanır.  
+- < Koleksiyon kapsamlı ve set {A, B, C} temsil from_source1 > sağlar.  
   
-- Let `<from_source1>` koleksiyonu kapsamlı ve kümesi {A, B, C} temsil eder.  
+- İzin `<from_source1>` koleksiyonu kapsamına- ve set {A, B, C} temsil eder.  
   
-- < Belge kapsamlı başvuru input_alias1 olması ve ayarlar temsil from_source2 > sağlar:  
+- < Belge kapsamlı başvuru input_alias1 olması ve kümelerini göstermek from_source2 > sağlar:  
   
     {1, 2} için `input_alias1 = A,`  
   
@@ -295,29 +295,29 @@ Aşağıdaki FROM yan tümcesi bakalım: `<from_source1> JOIN <from_source2> JOI
   
     {4, 5} için `input_alias1 = C,`  
   
-- Let `<from_source3>` kapsamlı `input_alias1` ve ayarlar temsil eder:  
+- İzin `<from_source3>` kapsamı `input_alias1` ve kümeleri temsil eder:  
   
     {100, 200} için `input_alias2 = A,`  
   
     {300} için `input_alias2 = C,`  
   
-- FROM yan tümcesi `<from_source1> JOIN <from_source2> JOIN <from_source3>` aşağıdaki başlıklar neden olur:  
+- FROM yan tümcesi `<from_source1> JOIN <from_source2> JOIN <from_source3>` de aşağıdaki tanımlama gruplarına neden olur:  
   
     (`input_alias1, input_alias2, input_alias3`):  
   
-    (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), (C, 4, 300) (C, 5, 300)  
+    (BİR, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), (C, 4, 300), (C, 5, 300)  
   
 > [!NOTE]
-> Bu arasında çapraz ürün ile sonuçlandı `<from_source2>` ve `<from_source3>` her ikisi de aynı kapsamındaki çünkü `<from_source1>`.  Bu 4 (2 x 2) sonuçlandı diziler değerini 0 diziler B (1 x 0) değeri sahip olması ve 2 (2 x 1) değeri C. diziler  
+> Bu arasında çapraz ürün içinde sonuçlanan `<from_source2>` ve `<from_source3>` her ikisi de aynı belirlenir çünkü `<from_source1>`.  (2 x 2) 4'te bu durum diziler değerini 0 tanımlama grubu B (1 x 0) değerine sahip olan ve 2 (2 x 1) değeri c diziler  
   
-**Ayrıca bkz.**  
+**Ayrıca bkz:**  
   
  [SELECT yan tümcesi](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> WHERE yan tümcesi  
- Sorgu tarafından döndürülen belgeler için arama koşulu belirtir.  
+ Sorgu tarafından döndürülen belgeler için arama koşulunu belirtir.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 WHERE <filter_condition>  
@@ -325,24 +325,24 @@ WHERE <filter_condition>
   
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `<filter_condition>`  
   
-     Döndürülecek belgeler için karşılanması gereken koşulu belirtir.  
+     Döndürülecek belgeler için karşılanması gereken bir koşulu belirtir.  
   
 -   `<scalar_expression>`  
   
-     Hesaplanacak değerin temsil eden ifadesi. Bkz: [skaler ifadelerin](#bk_scalar_expressions) ayrıntıları bölümü.  
+     Hesaplanmasını değeri gösteren ifade. Bkz: [skaler ifadelerin](#bk_scalar_expressions) ayrıntıları bölümü.  
   
  **Açıklamalar**  
   
- Filtre olarak belirtilen bir ifade döndürülecek belge için sırayla koşulunu true olarak değerlendirmeniz gerekir. Boole değeri true koşulu, başka bir değer yerine getirecek yalnızca: tanımlanmamış, null, false, sayı, dizi veya nesne uygun olmadığı koşul.  
+ Filtre olarak belirtilen bir ifade döndürülecek belge sırada koşul true olarak değerlendirilmelidir. Başka bir değer koşulu, Boole değeri true yerine getirecek yalnızca: tanımsız, null, false, sayı, dizi veya nesne karşılamaz koşul.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY yan tümcesi  
  Sorgu tarafından döndürülen sonuçları sıralama düzenini belirtir.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ORDER BY <sort_specification>  
@@ -351,19 +351,19 @@ ORDER BY <sort_specification>
   
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `<sort_specification>`  
   
-     Bir özellik veya sorgu sonucu kümesi sıralama yapılacak ifade belirtir. Sıralama sütunu adı veya sütun diğer adı belirtilebilir.  
+     Bir özellik ya da üzerinde sorgu sonucu kümesini sıralama yapılacak ifade belirtir. Sıralama sütunu adı ya da sütun diğer adı belirtilebilir.  
   
-     Birden çok sütunları sıralama belirtilebilir. Sütun adları benzersiz olmalıdır. ORDER BY yan tümcesinde sütunları sıralama sırasını sıralanmış sonuç kümesi organizasyonu tanımlar. Diğer bir deyişle, sonuç kümesi ilk özelliği tarafından sıralanır ve ardından bu sıralı liste ikinci özelliği vb. göre sıralanır.  
+     Sütunları Sırala birden çok belirtilebilir. Sütun adları benzersiz olmalıdır. Sıralanmış bir sonuç kümesi organizasyonu ORDER BY yan tümcesindeki sıralama sütun sırasını tanımlar. Diğer bir deyişle, sonuç kümesi ilk özelliği tarafından sıralanır ve ardından bu sıralı liste ikinci özelliği vb. göre sıralanır.  
   
-     ORDER BY yan tümcesinde başvurulan sütun adları seçim listesindeki bir sütun veya herhangi belirsizlikleri olmadan FROM yan tümcesinde belirtilen bir tablodaki tanımlanmış bir sütuna karşılık gelmelidir.  
+     ORDER BY yan tümcesinde başvurulan sütun adları ya da bir sütuna seçim listesinde veya tanımlanan tüm belirsizlikleri olmadan FROM yan tümcesinde belirtilen bir tablodaki bir sütuna karşılık gelmelidir.  
   
 -   `<sort_expression>`  
   
-     Tek bir özellik veya sorgu sonucu kümesi sıralama yapılacak ifade belirtir.  
+     Tek bir özellik veya üzerinde sorgu sonucu kümesini sıralama yapılacak ifade belirtir.  
   
 -   `<scalar_expression>`  
   
@@ -371,18 +371,18 @@ ORDER BY <sort_specification>
   
 -   `ASC | DESC`  
   
-     Belirtilen sütunundaki değerler artan veya azalan sırada sıralanması gerektiğini belirtir. ASC en düşük değerden yüksek değere sıralar. DESC en yüksek değerden düşük değere sıralar. ASC varsayılan sıralama düzeni ' dir. Null değerler en düşük olası değerler kabul edilir.  
+     Belirtilen sütundaki değerleri artan veya azalan olarak sıralanması gerektiğini belirtir. ASC en düşük değerden yüksek değer sıralar. DESC en yüksek değerden en düşük değere doğru sıralar. ASC varsayılan sıralama sırasıdır. Null değerler, en düşük olası değerler kabul edilir.  
   
  **Açıklamalar**  
   
- Sorgu dilbilgisi özellikleri tarafından birden çok sipariş desteklerken, yalnızca tek bir özellik, yalnızca adlarla ve özellik adları, yani, hesaplanan özellikleri karşı sıralama Azure Cosmos DB sorgu çalışma zamanı destekler. Sıralama, ayrıca dizin oluşturma ilkesi özelliği ve en yüksek duyarlık ile belirtilen tür için bir aralığı dizini içerir gerektirir. Daha fazla ayrıntı için dizin oluşturma ilkesi belgelerine bakın.  
+ Sorgu dil bilgisi, özellik tarafından birden çok sipariş desteklese de, Azure Cosmos DB sorgu çalışma zamanı yalnızca tek bir özelliğe karşı ve özellik adları, yalnızca karşı başka bir deyişle, hesaplanan özellikleri karşı sıralamayı destekler. Sıralama, aynı zamanda dizin oluşturma ilkesini özelliği ve verilen duyarlık ile belirtilen tür için bir aralık dizini içerir gerektirir. Daha fazla ayrıntı için dizin oluşturma ilkesi belgeleri bakın.  
   
 ##  <a name="bk_scalar_expressions"></a> Skaler ifade  
- Skaler bir ifade, simgeler ve tek bir değer almak için değerlendirilen işleçleri birleşimidir. Basit ifadeler sabitler, özellik başvuruları, dizi öğesi başvuruları, diğer başvurular veya işlev çağrılarını olabilir. Basit ifadeler işleçleri kullanarak karmaşık ifadelere birleştirilebilir.  
+ Skaler bir ifade, semboller ve işleçleri tek bir değer almak için değerlendirilen bir birleşimidir. Basit ifadeler sabitler, özellik başvuru, dizi öğesi başvuruları, diğer başvurular veya işlev çağrıları olabilir. Basit ifadeler işleçleri kullanarak karmaşık ifadelere birleştirilebilir.  
   
- Hangi skaler ifade olabilir değerleri hakkında daha fazla bilgi için bkz: [sabitleri](#bk_constants) bölümü.  
+ Hangi skaler bir ifade olabilir değerleri hakkında daha fazla bilgi için bkz: [sabitleri](#bk_constants) bölümü.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 <scalar_expression> ::=  
@@ -411,7 +411,7 @@ ORDER BY <sort_specification>
   
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `<constant>`  
   
@@ -420,19 +420,19 @@ ORDER BY <sort_specification>
 -   `input_alias`  
   
      Tarafından tanımlanan bir değeri temsil `input_alias` sunulan `FROM` yan tümcesi.  
-    Bu değer olmayan olması garanti **tanımsız** –**tanımsız** giriş değerleri atlanır.  
+    Bu değer olmaması garanti **tanımlanmamış** –**tanımlanmamış** giriş değerleri atlanır.  
   
 -   `<scalar_expression>.property_name`  
   
-     Bir nesnenin özellik değerini temsil eder. Özelliği mevcut değil veya özellik bir nesne olmayan bir değer başvurulan durumunda için ifadeyi hesaplar **tanımsız** değeri.  
+     Bir nesnenin özellik değerini temsil eder. Özellik mevcut değil veya özelliği bir nesne olmayan bir değer başvurulan durumunda ifadenin değerlendirdiği **tanımlanmamış** değeri.  
   
 -   `<scalar_expression>'['"property_name"|array_index']'`  
   
-     Ada sahip özelliğin değerini temsil eden `property_name` veya dizi öğesi dizine sahip `array_index` nesne/dizisi. Özellik/dizi dizini yok veya nesne/dizi olmayan bir değer özelliği/dizi dizini başvurulan, ifade için Tanımsız değer değerlendirir.  
+     Bir ada sahip özelliğin değerini temsil eder `property_name` veya dizi öğesi `array_index` nesne/dizi. Özellik/dizi dizini mevcut değil veya özellik/dizi dizini bir nesne/dizisi olmayan bir değer başvuruluyor, ifadesi tanımlanmamış değerini değerlendirir.  
   
 -   `unary_operator <scalar_expression>`  
   
-     Tek bir değer uygulanan bir işleç temsil eder. Bkz: [işleçleri](#bk_operators) ayrıntıları bölümü.  
+     Tek bir değer için uygulanan bir işleç temsil eder. Bkz: [işleçleri](#bk_operators) ayrıntıları bölümü.  
   
 -   `<scalar_expression> binary_operator <scalar_expression>`  
   
@@ -440,115 +440,115 @@ ORDER BY <sort_specification>
   
 -   `<scalar_function_expression>`  
   
-     İşlev çağrısının sonucunu tarafından tanımlanan bir değeri temsil eder.  
+     Bir işlev çağrısı sonucunu tarafından tanımlanan bir değeri temsil eder.  
   
 -   `udf_scalar_function`  
   
-     Kullanıcının adını skaler işlev tanımlı.  
+     Skaler işlevi tanımlanan kullanıcı adı.  
   
 -   `builtin_scalar_function`  
   
-     Yerleşik skaler işlev adı.  
+     Yerleşik skaler işlevin adı.  
   
 -   `<create_object_expression>`  
   
-     Belirtilen özelliklere sahip yeni bir nesne oluşturarak alınan bir değer ve bunların değerleri temsil eder.  
+     Belirtilen özelliklere sahip yeni bir nesne oluşturarak elde ettiği değerle ve bunların değerlerini temsil eder.  
   
 -   `<create_array_expression>`  
   
-     Öğeleri olarak belirtilen değerlerle yeni bir dizi oluşturarak elde bir değeri temsil eder  
+     Öğeleri olarak belirtilen değerlerle yeni bir dizi oluşturarak elde ettiği değerle temsil eder  
   
 -   `parameter_name`  
   
-     Belirtilen parametre adı değerini temsil eder. Parametre adları @ tek bir ilk karakter olarak olması gerekir.  
+     Belirtilen parametre adı değerini temsil eder. Parametre adları, ilk karakter olarak tek bir @ olması gerekir.  
   
  **Açıklamalar**  
   
- Bir yerleşik veya kullanıcı çağırma skaler işlev tanımlandığında tüm bağımsız değişkenler tanımlanması gerekir. Bağımsız değişkenlerden biri ise tanımlanmamış, işlev çağrılmaz ve sonucu tanımsız olacaktır.  
+ Yerleşik veya kullanıcı tanımlı skaler işlevi tüm bağımsız değişkenler tanımlanması gerekir. Bağımsız değişken tanımlanmamış, işlev çağrılmaz ve sonuç tanımsız olur.  
   
- Bir nesne oluştururken Tanımsız değer atanmış herhangi bir özelliği atlandı ve oluşturulan nesnesinde yer almayan.  
+ Bir nesne oluştururken, tanımlanmamış değeri atanır. herhangi bir özelliği atlandı ve oluşturulan nesneyi dahil değildir.  
   
- Ne zaman herhangi bir öğeyi değer bir dizi oluşturma atanmış **tanımsız** değeri atlandı ve oluşturulan nesnesinde dahil değildir. Bu, oluşturulan dizi dizinleri atlandı değil, şekilde yerini alacak sonraki tanımlanan öğe neden olur.  
+ Zaman dizisi, herhangi bir öğe değer oluşturma atandığı **tanımlanmamış** değeri atlandı ve oluşturulan nesneyi dahil değildir. Bu şekilde oluşturulan dizi dizinleri atlandı değil, onun yerine almak sonraki tanımlanan öğe neden olur.  
   
-##  <a name="bk_operators"></a> İşleçler  
- Bu bölümde desteklenen işleçleri açıklanmaktadır. Her işleci tam olarak bir kategoriye atayabilirsiniz.  
+##  <a name="bk_operators"></a> İşleçleri  
+ Bu bölümde, desteklenen işleçleri açıklanmaktadır. Her işleç tam olarak bir kategoriye atayabilirsiniz.  
   
- Bkz: **işleci kategorileri** Ayrıntılar için aşağıdaki tabloya işlenmesi ile ilgili **tanımsız** değerleri, giriş değerleri ve işleme türlerini eşleşmeyen ile değerlerin türü gereksinimleri.  
+ Bkz: **işleci kategorileri** Ayrıntılar için aşağıdaki tabloya işlenmesi ilgili **tanımlanmamış** değerleri, giriş değerleri ve işleme ile eşleşmeyen türler değer türü gereksinimleri.  
   
- **İşleç kategoriler:**  
+ **İşleç kategorisi:**  
   
 |**Kategori**|**Ayrıntılar**|  
 |-|-|  
-|**Aritmetik**|İşleç input(s) istendiğiniz olmasını bekler. Çıktı ayrıca bir sayıdır. Herhangi biri ise **tanımsız** veya numarası sonra sonuç dışında türüdür **tanımsız**.|  
-|**Bit düzeyinde**|İşleç input(s) 32-bit işaretli tamsayıyı istendiğiniz olmasını bekler. Çıktı da 32 bit imzalı numarası tamsayıdır.<br /><br /> Herhangi bir tamsayı olmayan değer yuvarlanır. Pozitif bir değer yuvarlanacağı, negatif değerleri yuvarlanan.<br /><br /> 32 bit tamsayı aralığın dışında herhangi bir değer, son 32 bitlik, iki kişinin tamamlama gösterimi gerçekleştirerek dönüştürülür.<br /><br /> Herhangi biri ise **tanımsız** sonuç sonra diğer, sayıdan yazın veya **tanımsız**.<br /><br /> **Not:** yukarıdaki davranışı JavaScript bit düzeyinde işleci davranışı ile uyumludur.|  
-|**Mantıksal**|İşleç input(s) Boolean(s) olmasını bekler. Çıktı de bir Boole değeri olur.<br />Herhangi biri ise **tanımsız** sonucu olacaktır sonra Boolean, diğerinden yazın veya **tanımsız**.|  
-|**Karşılaştırma**|İşleci, aynı türe sahip ve tanımsız olmaması için input(s) bekliyor. Çıktı bir Boole değeri değil.<br /><br /> Herhangi biri ise **tanımsız** veya girişleri farklı türlerine sahip sonra sonuç **tanımsız**.<br /><br /> Bkz: **karşılaştırma için değerlerin sıralama** ayrıntıları sıralama değeri için tablo.|  
-|**Dize**|İşleç input(s) dizelerini olmasını bekler. Çıktı ayrıca bir dizedir.<br />Herhangi biri ise **tanımsız** sonuç sonra dize dışında yazın veya **tanımsız**.|  
+|**Aritmetik**|İşleç girişlere numaralarını olmasını bekliyor. Çıkış ayrıca bir sayıdır. Herhangi biri ise **tanımlanmamış** veya sayı sonuç dışında türü **tanımlanmamış**.|  
+|**bit düzeyinde**|İşleci, girişlere 32 bitlik işaretli tamsayı numaraları olmasını bekliyor. Çıkışı, 32 bitlik işaretli tamsayı numarası da yapılır.<br /><br /> Herhangi bir tamsayı olmayan değer yuvarlanır. Pozitif değer aşağı yuvarlanır, negatif değerleri yuvarlanır.<br /><br /> Son 32 biti kendi ikiye tamamlayıcı gösterimini yararlanarak 32-bit tamsayı aralığın dışında herhangi bir değer dönüştürülür.<br /><br /> Herhangi biri ise **tanımlanmamış** veya sonuç ise sayı,'den başka **tanımlanmamış**.<br /><br /> **Not:** yukarıdaki davranışı JavaScript bit düzeyinde işleci davranışı ile uyumludur.|  
+|**Mantıksal**|İşleci, girişlere Boolean(s) olmasını bekliyor. Çıkış, ayrıca bir Boole değeri.<br />Herhangi biri ise **tanımlanmamış** veya sonucu sonra Boolean, dışındaki **tanımlanmamış**.|  
+|**Karşılaştırma**|İşleci, aynı türe sahip ve tanımlanmamış olmaması için girişlere bekliyor. Çıkış bir Boole değeri.<br /><br /> Herhangi biri ise **tanımlanmamış** veya girişleri farklı türlere sahip ve ardından sonuç **tanımlanmamış**.<br /><br /> Bkz: **değerleri karşılaştırma için sıralama** ayrıntıları sıralama değeri için tablo.|  
+|**dize**|İşleci, girişlere dizelerini olmasını bekliyor. Çıkış de bir dizedir.<br />Herhangi biri ise **tanımlanmamış** veya sonuç sonra dize dışındaki **tanımlanmamış**.|  
   
- **Birli işleçleri:**  
+ **Birli işleçler:**  
   
-|**Ad**|**işleci**|**Ayrıntılar**|  
+|**Ad**|**İşleci**|**Ayrıntılar**|  
 |-|-|-|  
-|**Aritmetik**|+<br /><br /> -|Sayı değeri döndürür.<br /><br /> Bit tabanlı değil işlecini. Sayı değeri tasarruflarını döndürür.|  
-|**Bit düzeyinde**|~|Olanları tamamlama. Tamamlama sayı değeri döndürür.|  
+|**Aritmetik**|+<br /><br /> -|Sayı değerini döndürür.<br /><br /> Bitwise olumsuzlama. Sayı değeri negatif döndürür.|  
+|**bit düzeyinde**|~|Olanları tamamlama. Bir tamamlayıcı bir sayı değeri döndürür.|  
 |**Mantıksal**|**DEĞİL**|Değilleme. Boole değeri döndürür tasarruflarını.|  
   
  **İkili işleçler:**  
   
-|**Ad**|**işleci**|**Ayrıntılar**|  
+|**Ad**|**İşleci**|**Ayrıntılar**|  
 |-|-|-|  
 |**Aritmetik**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Ayrıca.<br /><br /> Çıkarma.<br /><br /> Çarpma.<br /><br /> Bölme.<br /><br /> Modülasyon.|  
-|**Bit düzeyinde**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bit düzeyinde OR.<br /><br /> Bit düzeyinde and<br /><br /> Bit düzeyinde XOR.<br /><br /> Sola kaydırma.<br /><br /> Sağa kaydırma.<br /><br /> Sıfır dolgu sağa kaydırma.|  
-|**Mantıksal**|**VE**<br /><br /> **VEYA**|Mantıksal ve işlecini. Döndürür **true** iki bağımsız değişkenler ise **true**, döndürür **false** Aksi takdirde.<br /><br /> Mantıksal ve işlecini. Döndürür **true** iki bağımsız değişkenler ise **true**, döndürür **false** Aksi takdirde.|  
-|**Karşılaştırma**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Eşittir. Döndürür **true** bağımsız değişkenleri eşit olup olmadığını döndürür **false** Aksi takdirde.<br /><br /> Eşit değil. Döndürür **true** bağımsız değişkenleri eşit değilse döndürür **false** Aksi takdirde.<br /><br /> Büyüktür. Döndürür **true** ilk bağımsız değişken ikinci sürümden daha büyükse, dönüş **false** Aksi takdirde.<br /><br /> Büyüktür veya eşittir. Döndürür **true** ilk bağımsız değişkeni sıfırdan büyük veya eşit ikincisi ise, döndürür **false** Aksi takdirde.<br /><br /> Küçüktür. Döndürür **true** ilk bağımsız değişken düşükse ikinci bir dönüş daha **false** Aksi takdirde.<br /><br /> Küçük veya eşittir. Döndürür **true** ilk bağımsız değişken ikinci eşit veya daha az ise, döndürür **false** Aksi takdirde.<br /><br /> Birleşim. İlk bağımsız değişkeni ise, ikinci bağımsız değişkeni döndürür bir **tanımsız** değeri.|  
-|**Dize**|**&#124;&#124;**|Birleştirme. Her iki değişken birleşimini döndürür.|  
+|**bit düzeyinde**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bit düzeyinde OR.<br /><br /> Bit düzeyinde and<br /><br /> Bit düzeyinde XOR.<br /><br /> Sola kaydırma.<br /><br /> Sağa kaydırma.<br /><br /> Sıfır dolgu sağa kaydırma.|  
+|**Mantıksal**|**VE**<br /><br /> **VEYA**|Mantıksal ve işlecini. Döndürür **true** her iki bağımsız değişkenler ise **true**, döndürür **false** Aksi takdirde.<br /><br /> Mantıksal ve işlecini. Döndürür **true** her iki bağımsız değişkenler ise **true**, döndürür **false** Aksi takdirde.|  
+|**Karşılaştırma**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Eşittir. Döndürür **true** bağımsız değişkenlerin eşit olup olmadığını döndürür **false** Aksi takdirde.<br /><br /> Eşit değildir. Döndürür **true** bağımsız değişkenleri eşit değilse döndürür **false** Aksi takdirde.<br /><br /> Büyüktür. Döndürür **true** ilk bağımsız değişken ikinci sürümden daha büyük ise, dönüş **false** Aksi takdirde.<br /><br /> Büyüktür veya eşittir. Döndürür **true** ilk bağımsız değişken büyüktür veya eşittir ikincisi için ise, dönüş **false** Aksi takdirde.<br /><br /> Küçüktür. Döndürür **true** ilk bağımsız değişken küçükse değerinden ikinci bir dönüş **false** Aksi takdirde.<br /><br /> Küçüktür veya eşittir. Döndürür **true** ilk bağımsız değişken ikinci bir veya daha az ise, dönüş **false** Aksi takdirde.<br /><br /> Birleşim. İlk bağımsız değişken ikinci bağımsız değişkeni döndürür bir **tanımlanmamış** değeri.|  
+|**dize**|**&#124;&#124;**|Birleştirme. Her iki bağımsız değişkenler birleşimi döndürür.|  
   
  **Üçlü işleçler:**  
   
-|Üçlü işleci|?|İlk bağımsız değişken değerlendirilirse ikinci bağımsız değişkeni döndürür **true**; üçüncü bağımsız değişken yoksa döndürür.|  
+|Üçlü işleci|?|İlk bağımsız değişken için değerlendiriliyorsa, ikinci bağımsız değişkeni döndürür **true**; üçüncü bağımsız değişken Aksi halde döndürür.|  
 |-|-|-|  
   
- **Karşılaştırma için değerlerin sıralama**  
+ **Değerleri karşılaştırma için sıralama**  
   
-|**Tür**|**Değerleri sırası**|  
+|**Tür**|**Değerleri sırasını**|  
 |-|-|  
-|**Tanımlanmamış**|Karşılaştırılabilir değil.|  
+|**Tanımsız**|Karşılaştırılabilir değil.|  
 |**Null**|Tek değer: **null**|  
-|**Sayı**|Doğal bir gerçek sayı.<br /><br /> Negatif sonsuz değerle diğer sayı değeri küçüktür.<br /><br /> Pozitif sonsuz değerle diğer numara değerden daha büyük. **NaN** değeri karşılaştırılabilir değil. İle karşılaştırma **NaN** sonuçlanır **tanımsız** değeri.|  
-|**Dize**|Lexicographical sırası.|  
-|**Dizi**|Yoktur, ancak Tarafsız sıralaması.|  
-|**Nesne**|Yoktur, ancak Tarafsız sıralaması.|  
+|**Sayı**|Doğal bir gerçek sayı.<br /><br /> Negatif sonsuz değerle başka sayı değeri küçüktür.<br /><br /> Pozitif sonsuz değer diğer sayı değeri büyüktür. **NaN** değeri karşılaştırılabilir değil. İle karşılaştırma **NaN** sonuçlanır **tanımlanmamış** değeri.|  
+|**dize**|Lexicographical sırası.|  
+|**Dizi**|Ancak equitable sıralama yok.|  
+|**Nesne**|Ancak equitable sıralama yok.|  
   
  **Açıklamalar**  
   
- Veritabanından alınan gerçekte kadar Azure Cosmos DB'de değerlerin türleri bilinen genellikle değil. Sorguları verimli yürütülmesini desteklemek için işleçler çoğunu sıkı tür gereksinimleri vardır. Ayrıca kendilerini işleçleriyle örtük dönüşümler gerçekleştirmeyin.  
+ Aslında bir veritabanından alınan kadar Azure Cosmos DB'de değer türleri bilinen değildir. Verimli sorgular yürütülmesini desteklemek için işleçlerin en katı tür gereksinimleri vardır. Ayrıca işleçleri kendileri tarafından örtülü dönüştürmeler yapmayın.  
   
- Bu sorguda ister anlamına gelir: seçin * gelen kök r WHERE r.Age = 21 yalnızca döndürecektir özelliği geçerlilik süresi ile belgeleri sayısına eşit 21. Belgeleri özelliği geçerlilik süresi dizesi "21" veya "0021" dizesi eşit ile eşleşmez, "21" ifadesi olarak = 21 çok tanımsız değerlendirir. Dizinlerin, daha iyi kullanımı için çünkü böylece belirli bir değer arama (yani 21 sayı) (yani numarası 21 veya dizeler "21", "021", "21.0"...) olası eşleşmeler sonsuz sayıda ara daha hızlıdır. Bu, JavaScript farklı türlerde değerler işleçlerini nasıl değerlendirir alanından farklıdır.  
+ Bu sorgu gibi sağladığı anlamına gelir: seçin * ÖĞESİNDEN kök r nerede r.Age = 21 yalnızca döndürecektir özelliği yaş belgelerle sayı 21 eşittir. Belge özelliği yaş dize "21" veya "0021" dizesi ile eşleşmez, "21" ifadesiyle = 21 için tanımlanmamış değerlendirir. Çünkü bu dizin, daha iyi bir kullanımı için sağlar arama belirli bir değer (yani 21 sayı) (21 sayı veya dize "21", "021", "21.0"...) bir olası eşleşme sonsuz sayıda arama daha hızlıdır. Bu, farklı türlerde değerler işleçlerin nasıl JavaScript değerlendirir öğesinden farklıdır.  
   
  **Diziler ve nesneleri eşitlik ve karşılaştırma**  
   
- Aralık işleçleri kullanarak dizi veya nesne değerleri karşılaştırma (>, > =, <, < =) üzerinde nesne ya da dizi değerleri tanımlanan sırasını değil olarak tanımlanmamış sonuçlanır. Ancak eşitlik/eşitsizlik işleçlerini kullanma (=,! =, <>) desteklenir ve değerleri karşılaştırılabilir yapısal olarak.  
+ Aralık işleçleri kullanarak dizi veya nesne değerleri karşılaştırma (>, > =, <, < =) nesne veya dizi değerleri üzerinde tanımlanan sırası olarak tanımlanmamış sonuçlanır. Ancak eşitlik/eşitsizlik işleçlerini kullanma (=,! =, <>) desteklenir ve değerler karşılaştırılabilir yapısal olarak.  
   
- Diziler, her iki diziler aynı sayıda öğe varsa ve konumlarını eşleşen adresindeki öğeleri de eşit eşit. Tüm öğeleri sonuçlarında çiftinin karşılaştırma tanımlanmamış, dizi karşılaştırma sonucu tanımlanmamıştır.  
+ Diziler, iki dizi aynı sayıda öğe varsa ve konumlarını eşleşen en öğeleri de eşit eşit olur. Tüm öğeleri sonuçlarında çiftinin karşılaştırma tanımlı değil, dizi karşılaştırma sonucu tanımsızdır.  
   
- Her iki nesne tanımlanan aynı özelliklere sahipse ve Özellikler eşleşen değerleri de aynıysa eşit nesneleridir. Nesne karşılaştırma sonucunu, herhangi bir özellik değerleri sonuçlarında çifti karşılaştırma tanımlanmamış, tanımlanmamıştır.  
+ Her iki nesne tanımlanan aynı özelliklere sahipse ve özellikleri eşleşen değer de eşitse, nesneler eşit olur. Herhangi bir özellik değerleri sonuçlarında çifti ile karşılaştırma tanımlı değil, nesne karşılaştırma sonucu tanımsızdır.  
   
 ##  <a name="bk_constants"></a> Sabitleri  
- Bir sabit olarak da bilinen bir hazır değer veya bir skaler değere belirli veri değeri temsil eden bir simge ' dir. Bir sabit biçimi temsil ettiği değer veri türüne bağlıdır.  
+ Bir sabit olarak da bilinen bir sabit değer ya da bir skalar değer belirli bir veri değerini temsil eden bir semboldür. Biçimi bir sabiti temsil ettiği değerin veri türüne göre değişir.  
   
- **Skaler veri türleri desteklenir:**  
+ **Skaler türleri desteklenir:**  
   
-|**Tür**|**Değerleri sırası**|  
+|**Tür**|**Değerleri sırasını**|  
 |-|-|  
-|**Tanımlanmamış**|Tek değer: **tanımlanmamış**|  
+|**Tanımsız**|Tek değer: **tanımlanmamış**|  
 |**Null**|Tek değer: **null**|  
-|**Boole değeri**|Değerler: **false**, **doğru**.|  
-|**Sayı**|Çift duyarlıklı kayan noktalı sayı, standart IEEE 754.|  
-|**Dize**|Sıfır veya daha fazla Unicode karakter dizisi. Dizeleri tek veya çift tırnak içine alınmalıdır.|  
-|**Dizi**|Sıfır veya daha fazla öğeleri dizisi. Her öğe tanımlanmamış dışında herhangi bir skaler veri türü değeri olabilir.|  
-|**Nesne**|Sırasız bir sıfır veya daha fazla ad/değer çiftleri kümesi. Adı bir UNICODE dizesi, değeri dışında herhangi bir skaler veri türde olabilir **tanımlanmamış**.|  
+|**Boole değeri**|Değerler: **false**, **true**.|  
+|**Sayı**|Bir çift duyarlıklı kayan noktalı sayı, standart IEEE 754.|  
+|**dize**|Sıfır veya daha fazla Unicode karakter dizisi. Dizeleri tek veya çift tırnak içine alınmalıdır.|  
+|**Dizi**|Sıfır veya daha fazla öğe dizisi. Her öğe tanımlanmamış dışındaki tüm skaler veri türünde bir değer olabilir.|  
+|**Nesne**|Sırasız bir sıfır veya daha fazla ad/değer çiftleri kümesi. Adı bir Unicode dize, değer dışında herhangi bir skaler veri türde olabilir **tanımlanmamış**.|  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 <constant> ::=  
@@ -578,23 +578,23 @@ ORDER BY <sort_specification>
   
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 1.  `<undefined_constant>; undefined`  
   
-     Türü tanımlanmamış değeri tanımsız temsil eder.  
+     Türü tanımlanmamış değerini tanımsız temsil eder.  
   
 2.  `<null_constant>; null`  
   
-     Temsil eden **null** türü değeri **Null**.  
+     Temsil eden **null** türünün değerini **Null**.  
   
 3.  `<boolean_constant>`  
   
-     Boolean türünde sabiti temsil eder.  
+     Boole türünde bir sabiti temsil eder.  
   
 4.  `false`  
   
-     Temsil eden **yanlış** türü Boolean değeri.  
+     Temsil eden **false** türü Boolean değeri.  
   
 5.  `true`  
   
@@ -606,21 +606,21 @@ ORDER BY <sort_specification>
   
 7.  `decimal_literal`  
   
-     Ondalık değişmez değerleri ondalık sayı veya bilimsel gösterim kullanılarak temsil numaralarıdır.  
+     Ondalık sabit değerleri ondalık gösterim veya bilimsel gösterim kullanılarak temsil sayılardır.  
   
 8.  `hexadecimal_literal`  
   
-     Onaltılık değişmez değerler, önek '0 x bir veya daha fazla onaltılık basamak ile izlenen' kullanılarak temsil numaralarıdır.  
+     Onaltılık değişmez değerler, önek '0 x'ı bir veya daha fazla onaltılık basamağın geldiği' kullanılarak temsil sayılardır.  
   
 9. `<string_constant>`  
   
-     Dize türünde bir sabiti temsil eder.  
+     String türünde bir sabiti temsil eder.  
   
 10. `string _literal`  
   
-     Dize değişmez değerleri, sıfır veya daha fazla Unicode karakter dizisi veya kaçış sıraları tarafından temsil edilen Unicode dizelerdir. Dize değişmez değerleri tek tırnak içine alınmış (kesme işareti: ') veya çift tırnak (tırnak işareti: ").  
+     Dize değişmez değerleri, sıfır veya daha fazla Unicode karakter dizisi veya kaçış dizileri tarafından temsil edilen Unicode dizelerdir. Dize sabit değerlerinin tek tırnak içine alınmış (kesme işareti: ') veya çift tırnak (tırnak işareti: ").  
   
- Aşağıdaki kaçış sıralarına izin vermesi:  
+ Aşağıdaki kaçış dizileri izin verilir:  
   
 |**Kaçış sırası**|**Açıklama**|**Unicode karakter**|  
 |-|-|-|  
@@ -629,67 +629,67 @@ ORDER BY <sort_specification>
 |\\\|Ters solidus (\\)|U + 005C|  
 |\\/|solidus (/)|U + 002F|  
 |\b|Geri Al|U + 0008|  
-|\f|sonraki sayfaya geçme|U + 000C|  
+|\f|form besleme|U + 000C|  
 |\n|satır besleme|U + 000A|  
 |\r|satır başı|U + 000D|  
 |\t|sekme|U + 0009|  
-|\uXXXX|4 onaltılık basamak tarafından tanımlanan bir Unicode karakter.|U + XXXX|  
+|\uXXXX|4 onaltılık basamak tarafından tanımlanan Unicode karakter.|U + XXXX|  
   
-##  <a name="bk_query_perf_guidelines"></a> Sorgu performans kuralları  
- Büyük bir koleksiyon için verimli bir şekilde yürütülmek üzere bir sorgu için sırasıyla bir veya daha fazla dizinleri sunulan filtreleri kullanmanız gerekir.  
+##  <a name="bk_query_perf_guidelines"></a> Sorgu performans yönergeleri  
+ Büyük bir koleksiyon için verimli bir şekilde yürütülecek bir sorgu için sırayla bir veya daha fazla dizin sunulan filtreleri kullanmanız gerekir.  
   
- Aşağıdaki filtreler için dizin arama olarak kabul edilir:  
+ Aşağıdaki filtreler için dizin arama kabul edilir:  
   
--   Eşitlik işleci (=), bir belge yol ifadesi ve bir sabit ile kullanın.  
+-   Eşitlik işleci (=), bir belge yol ifadesi ve bir sabiti kullanın.  
   
 -   Aralık işleçleri kullanın (<, \<=, >, > =) bir belge yol ifadesi ve sayı sabitleri.  
   
--   Belge yol ifadesi sabit bir yol başvurulan veritabanı koleksiyonundan belgelerdeki tanımlayan herhangi bir ifade gösterir.  
+-   Başvurulan bir veritabanı koleksiyonu belgelerinden sabit bir yolda tanımlayan herhangi bir ifade belge yol ifadesi gösterir.  
   
  **Belge yol ifadesi**  
   
- Belge yol ifadelerini ifadeleri, özelliği veya dizi dizin oluşturucu assessors veritabanı koleksiyon belgelerden gelen bir belge üzerinden yolu. Bu yol, doğrudan veritabanı koleksiyonundaki belgelerde bir filtrede başvurulan değerleri konumunu tanımlamak için kullanılabilir.  
+ Belge yolu ifadelerdir ifadeleri, özelliği veya dizi dizin oluşturucu denetçiler üzerinden bir belge veritabanı koleksiyonu belgelerden yakında yolu. Bu yol, doğrudan veritabanı koleksiyonu içindeki belgeler içinde bir filtrede başvurulan değerleri konumunu tanımlamak için kullanılabilir.  
   
- Bir ifadenin bir belge yol ifadesi olarak kabul edilmesi bunu yapmalısınız:  
+ Bir ifade belge yol ifadesi kabul edilmelidir:  
   
-1.  Koleksiyon kök doğrudan başvurun.  
+1.  Koleksiyon kök doğrudan başvuru.  
   
-2.  Bazı belge yol ifadesi başvuru özelliği ya da sabiti dizi Oluşturucusu  
+2.  Bazı belge yol ifadesi başvuru özelliği veya sabiti dizisi Oluşturucusu  
   
-3.  Bazı belge yol ifadesi temsil eden bir diğer ad başvuru.  
+3.  Bazı belge yol ifadesi temsil eden bir diğer ada başvuru.  
   
-     **sözdizimi kuralları**  
+     **Söz dizimi kuralları**  
   
-     Aşağıdaki tabloda, aşağıdaki SQL Başvurusu sözdiziminde tanımlamak için kullanılan kuralları açıklar.  
+     Aşağıdaki tabloda, söz dizimi aşağıdaki SQL Başvurusu açıklamak için kullanılan kuralları açıklar.  
   
-    |**Kuralı**|**İçin kullanılır**|  
+    |**Kuralı**|**İçin kullanılan**|  
     |-|-|    
     |BÜYÜK HARF|Büyük küçük harf duyarlı anahtar sözcükler.|  
-    |küçük harf|Büyük küçük harfe duyarlı anahtar sözcükler.|  
-    |\<nonterminal >|Terminal dışı, ayrı olarak tanımlı.|  
-    |\<nonterminal >:: =|Nonterminal sözdizimi tanımı.|  
-    |other_terminal|Sözcük içindeki ayrıntısı açıklanan Terminal (belirteç).|  
-    |Tanımlayıcı|Tanımlayıcı. Aşağıdaki karakterleri yalnızca sağlar: a-z A-Z 0-9 _First karakter, bir sayı olamaz.|  
-    |"dize"|Tırnak işaretli dizesi. Geçerli bir dize verir. Bir string_literal açıklamasına bakın.|  
-    |'simgesi'|Sözdizimi parçası olan değişmez değer simge.|  
-    |&#124;(dikey çubuk)|Alternatifleri sözdizimi öğeleri için. Belirtilen öğeleri yalnızca birini kullanabilirsiniz.|  
-    |[] /(brackets)|Köşeli bir veya daha fazla isteğe bağlı öğeleri kapatın.|  
-    |[,.. .n]|Önündeki öğeyi yinelenen n kaç kez uygulanıp uygulanamayacağını gösterir. Yineleme virgülle ayrılır.|  
-    |[...n]|Önündeki öğeyi yinelenen n kaç kez uygulanıp uygulanamayacağını gösterir. Yineleme boşlukla ayrılır.|  
+    |Küçük|Büyük küçük harfe duyarlı anahtar sözcükler.|  
+    |\<bildirimlere >|Bildirimlere, ayrı olarak tanımlanır.|  
+    |\<bildirimlere >:: =|Bildirimlere tanımı söz dizimi.|  
+    |other_terminal|Ayrıntılı sözcükler olarak açıklanan Terminal (belirteç).|  
+    |tanımlayıcı|Tanımlayıcısı. Şu karakterlere yalnızca sağlar: a-z A-Z 0-9 _First karakter, bir sayı olamaz.|  
+    |"dize"|Tırnak işaretli dize. Herhangi bir geçerli dize verir. Bir string_literal açıklamasına bakın.|  
+    |'symbol'|Söz dizimi parçasıdır değişmez değer simge.|  
+    |&#124;(dikey çubuk)|Alternatifleri için söz dizimi öğeleri. Belirtilen öğelerin yalnızca birini kullanabilirsiniz.|  
+    |[] /(brackets)|Köşeli ayraç bir veya daha fazla isteğe bağlı öğeleri alın.|  
+    |[,.. .n]|Önündeki öğeyi yinelenen n sayıda olabilir gösterir. Örnekleri virgülle ayrılır.|  
+    |[...n]|Önündeki öğeyi yinelenen n sayıda olabilir gösterir. Örnekleri boşlukla ayrılır.|  
   
 ##  <a name="bk_built_in_functions"></a> Yerleşik işlevler  
- Azure Cosmos DB birçok yerleşik SQL işlevleri sağlar. Yerleşik işlevler kategorilerini aşağıda listelenmiştir.  
+ Azure Cosmos DB, çok sayıda yerleşik SQL işlevleri sağlar. Yerleşik işlevler kategorileri aşağıda listelenmiştir.  
   
 |İşlev|Açıklama|  
 |--------------|-----------------|  
-|[Matematik işlevleri](#bk_mathematical_functions)|Matematik işlevleri her genellikle, bağımsız değişken olarak sağlanır ve sayısal bir değeri döndürme giriş değerlerine göre bir hesaplama gerçekleştirir.|  
-|[Denetimi işlevleri yazın](#bk_type_checking_functions)|Tür denetleme işlevleri SQL sorguları içinde bir ifade türünü kontrol olanak sağlar.|  
-|[Dize işlevleri](#bk_string_functions)|Dize işlevleri dizesi giriş değeri üzerinde bir işlemi gerçekleştirmek ve bir dize, sayısal ya da Boole değeri döndürür.|  
-|[Dizi işlevleri](#bk_array_functions)|Dizi işlevleri bir Boole değeri veya dizi değeri, bir dizi giriş değeri ve return sayısal işlem gerçekleştirir.|  
-|[Uzamsal işlevleri](#bk_spatial_functions)|Uzamsal işlevleri uzamsal nesne giriş değeri üzerinde bir işlemi gerçekleştirmek ve bir sayısal ya da Boole değeri döndürür.|  
+|[Matematik işlevleri](#bk_mathematical_functions)|Matematik işlevleri her, genellikle bağımsız değişken olarak sağlanan ve sayısal bir değer döndürmesi giriş değerlerine göre bir hesaplama gerçekleştirir.|  
+|[Tür denetimini işlevleri](#bk_type_checking_functions)|Tür denetimi işlevleri SQL sorgusu içindeki bir ifadenin türü denetlemenizi sağlar.|  
+|[Dize işlevleri](#bk_string_functions)|Dize işlevleri, bir dize giriş değeri bir işlem gerçekleştirmek ve bir dize, sayısal veya Boolean değeri döndürür.|  
+|[Dizi işlevleri](#bk_array_functions)|Dizi İşlevler, bir işlemi bir dizi giriş değeri ve dönüş sayısal, Boole veya dizi değeri gerçekleştirir.|  
+|[Uzamsal İşlevler](#bk_spatial_functions)|Uzamsal İşlevler, uzamsal nesne giriş değeri bir işlem gerçekleştirmek ve bir sayısal veya Boolean değeri döndürür.|  
   
 ###  <a name="bk_mathematical_functions"></a> Matematik işlevleri  
- Aşağıdaki işlevleri her genellikle, bağımsız değişken olarak sağlanır ve sayısal bir değeri döndürme giriş değerlerine göre bir hesaplama gerçekleştirir.  
+ Aşağıdaki işlevler her, genellikle bağımsız değişken olarak sağlanan ve sayısal bir değer döndürmesi giriş değerlerine göre bir hesaplama gerçekleştirir.  
   
 ||||  
 |-|-|-|  
@@ -705,13 +705,13 @@ ORDER BY <sort_specification>
 ####  <a name="bk_abs"></a> ABS  
  Belirtilen sayısal ifade (pozitif) mutlak değerini döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ABS (<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -719,11 +719,11 @@ ABS (<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnekte, üç farklı numaralarında ABS işlevi kullanarak sonuçlarını gösterir.  
+ Aşağıdaki örnek, üç farklı numaralarında ABS işlevi kullanarak sonuçları gösterir.  
   
 ```  
 SELECT ABS(-1), ABS(0), ABS(1)  
@@ -736,15 +736,15 @@ SELECT ABS(-1), ABS(0), ABS(1)
 ```  
   
 ####  <a name="bk_acos"></a> ACOS  
- Açının kosinüsü belirtilen sayısal ifadesidir radyan cinsinden döndürür; arccosine olarak da bilinir.  
+ Kosinüsü belirtilen sayısal ifadesidir radyan cinsinden açı döndürür; arkkosinüsünü olarak da adlandırılır.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ACOS(<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -752,7 +752,7 @@ ACOS(<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
@@ -771,13 +771,13 @@ SELECT ACOS(-1)
 ####  <a name="bk_asin"></a> ASIN  
  Açının sinüsü belirtilen sayısal ifadesidir radyan cinsinden döndürür. Bu arksinüsünü olarak da adlandırılır.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ASIN(<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -785,11 +785,11 @@ ASIN(<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek ASIN-1 döndürür.  
+ Aşağıdaki örnek, ASIN-1 döndürür.  
   
 ```  
 SELECT ASIN(-1)  
@@ -802,15 +802,15 @@ SELECT ASIN(-1)
 ```  
   
 ####  <a name="bk_atan"></a> ATAN  
- Açının tanjantı belirtilen sayısal ifadesidir radyan cinsinden döndürür. Bu arktanjantını olarak da adlandırılır.  
+ Tanjantı belirtilen sayısal ifadesidir radyan cinsinden açı döndürür. Bu arktanjantını olarak da adlandırılır.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ATAN(<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -818,11 +818,11 @@ ATAN(<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, belirtilen değer ATAN döndürür.  
+ Aşağıdaki örnek, ATAN belirtilen değeri döndürür.  
   
 ```  
 SELECT ATAN(-45.01)  
@@ -835,15 +835,15 @@ SELECT ATAN(-45.01)
 ```  
   
 ####  <a name="bk_atn2"></a> ATN2  
- Radyan cinsinden ifade edilen y / x, ark tanjantını döndürür.  
+ Radyan cinsinden ifade edilen x, y / Ark tanjant değerini döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ATN2(<numeric_expression>, <numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -851,7 +851,7 @@ ATN2(<numeric_expression>, <numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
@@ -868,15 +868,15 @@ SELECT ATN2(35.175643, 129.44)
 ```  
   
 ####  <a name="bk_ceiling"></a> TAVAN  
- Büyüktür veya eşittir, belirtilen sayısal ifadenin en küçük tamsayı değeri döndürür.  
+ Büyüktür veya eşittir, belirtilen sayısal ifadenin en küçük tamsayı değerini döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 CEILING (<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -884,11 +884,11 @@ CEILING (<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, pozitif sayısal, negatif ve TAVAN işlevi ile sıfır değerleri gösterir.  
+ Aşağıdaki örnek, pozitif bir sayısal, negatif ve sıfır değerlerini CEILING işlevi ile gösterilir.  
   
 ```  
 SELECT CEILING(123.45), CEILING(-123.45), CEILING(0.0)  
@@ -901,15 +901,15 @@ SELECT CEILING(123.45), CEILING(-123.45), CEILING(0.0)
 ```  
   
 ####  <a name="bk_cos"></a> COS  
- Radyan cinsinden belirtilen ifade trigonometrik belirtilen açının kosinüsünü döndürür.  
+ Radyan cinsinden belirtilen ifade trigonometrik belirtilen bir açının kosinüsünü döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 COS(<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -917,11 +917,11 @@ COS(<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, belirtilen açının COS hesaplar.  
+ Aşağıdaki örnek belirtilen bir açının COS hesaplar.  
   
 ```  
 SELECT COS(14.78)  
@@ -934,15 +934,15 @@ SELECT COS(14.78)
 ```  
   
 ####  <a name="bk_cot"></a> COT  
- Belirtilen açının trigonometrik kotanjantını radyan cinsinden belirtilen sayısal ifade döndürür.  
+ Trigonometrik belirtilen bir açının kotanjantını radyan cinsinden belirtilen bir sayısal ifade döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 COT(<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -950,11 +950,11 @@ COT(<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, belirtilen açının COT hesaplar.  
+ Aşağıdaki örnek belirtilen bir açının COT hesaplar.  
   
 ```  
 SELECT COT(124.1332)  
@@ -967,15 +967,15 @@ SELECT COT(124.1332)
 ```  
   
 ####  <a name="bk_degrees"></a> DERECE  
- Radyan cinsinden Açı derece cinsinden karşılık gelen açıyı döndürür.  
+ Karşılık gelen açıyı derece için radyan cinsinden belirtilen bir açı cinsinden döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 DEGREES (<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -983,11 +983,11 @@ DEGREES (<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, PI/2 radyan cinsinden Açı derece sayısını döndürür.  
+ Aşağıdaki örnek, PI/2 radyan cinsinden açı dereceye döndürür.  
   
 ```  
 SELECT DEGREES(PI()/2)  
@@ -1000,15 +1000,15 @@ SELECT DEGREES(PI()/2)
 ```  
   
 ####  <a name="bk_floor"></a> KAT  
- Belirtilen sayısal ifade küçük veya eşit en büyük tamsayıyı döndürür.  
+ Belirtilen sayısal ifade küçük veya eşit en büyük tamsayı döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 FLOOR (<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -1016,11 +1016,11 @@ FLOOR (<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, pozitif sayısal, negatif ve FLOOR işlevi sıfır değerleri gösterir.  
+ Aşağıdaki örnek, pozitif bir sayısal, negatif ve sıfır değerlerini FLOOR işlevi ile gösterilir.  
   
 ```  
 SELECT FLOOR(123.45), FLOOR(-123.45), FLOOR(0.0)  
@@ -1035,13 +1035,13 @@ SELECT FLOOR(123.45), FLOOR(-123.45), FLOOR(0.0)
 ####  <a name="bk_exp"></a> EXP  
  Üstel belirtilen sayısal ifadenin değerini döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 EXP (<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -1049,19 +1049,19 @@ EXP (<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Açıklamalar**  
   
  Sabit **e** (2.718281...) Doğal logaritmanın tabanıdır.  
   
- Bir sayının üs. sabit olduğunda **e** sayının üssünün. Örneğin EXP(1.0) e = ^ 1.0 = 2.71828182845905 ve EXP(10) e = ^ 10 = 22026.4657948067.  
+ Bir sayının üssünü sabittir **e** sayının üssü. Örneğin EXP(1.0) = e ^ 1.0 = 2.71828182845905 ve EXP(10) = e ^ 10 = 22026.4657948067.  
   
- Bir sayının doğal logaritmasını üstel sayıdır kendisini: EXP (günlüğü (n)) = n. Ve üstel bir sayının doğal logaritmasını sayı kendisini: günlük (EXP (n)) = n.  
+ Bir sayının doğal logaritmasını üssü sayıdır kendisini: EXP (günlüğü (n)) = n. Ve üstel bir sayının doğal logaritmasını sayı kendisini: günlük (EXP (n)) = n.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, bir değişken bildirir ve belirtilen değişkeni (10) üstel değerini döndürür.  
+ Aşağıdaki örnek, bir değişken bildirir ve üstel belirtilen değişkeni (10) değerini döndürür.  
   
 ```  
 SELECT EXP(10)  
@@ -1073,7 +1073,7 @@ SELECT EXP(10)
 [{$1: 22026.465794806718}]  
 ```  
   
- Aşağıdaki örnek üstel değeri 20 natural logarithm ve üstel 20 doğal logaritmasını döndürür. Bu işlevler inverse işlevleri birbirinden olduğundan, dönüş değeri için her iki durumda da kayan nokta matematik yuvarlama ile 20'dir.  
+ Aşağıdaki örnek, üstel değeri 20 natural logarithm ve üstel 20 doğal logaritmasını döndürür. Bu işlevler, başka bir ters işlevler olduğundan, dönüş değeri her iki durumda kayan nokta Matematiği için yuvarlama ile 20'dir.  
   
 ```  
 SELECT EXP(LOG(20)), LOG(EXP(20))  
@@ -1086,15 +1086,15 @@ SELECT EXP(LOG(20)), LOG(EXP(20))
 ```  
   
 ####  <a name="bk_log"></a> GÜNLÜK  
- Belirtilen sayısal ifade doğal logaritmasını döndürür.  
+ Belirtilen sayısal ifadenin doğal logaritmasını döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 LOG (<numeric_expression> [, <base>])  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -1102,23 +1102,23 @@ LOG (<numeric_expression> [, <base>])
   
 -   `base`  
   
-     Logaritmanın tabanı ayarlar isteğe bağlı sayısal değişkeni.  
+     Logaritmanın tabanı ayarlayan isteğe bağlı sayısal bağımsız değişken.  
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Açıklamalar**  
   
- Varsayılan olarak, LOG() doğal logaritmasını döndürür. İsteğe bağlı temel parametresini kullanarak başka bir değere logaritmanın tabanı değiştirebilirsiniz.  
+ Varsayılan olarak, LOG() doğal logaritmasını döndürür. Logaritmanın tabanı, isteğe bağlı temel parametresini kullanarak başka bir değere değiştirebilirsiniz.  
   
- Logaritmanın tabanı için doğal logaritmasını olan **e**, burada **e** Irrational sabiti 2.718281828 için yaklaşık eşittir.  
+ Logaritmanın tabanı için doğal logaritmasını olan **e**burada **e** bir Irrational 2.718281828 için yaklaşık olarak eşit sabittir.  
   
- Üstel bir sayının doğal logaritmasını sayıdır kendisini: günlük (EXP (n)) = n. Ve sayının doğal logaritmasını Üstel sayı kendisini: EXP (günlüğü (n)) = n.  
+ Üstel bir sayının doğal logaritmasını sayıdır kendisini: günlük (EXP (n)) = n. Ve üstel bir sayının doğal logaritma sayı kendisini: EXP (günlüğü (n)) = n.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, bir değişken bildirir ve belirtilen değişkeni (10) logaritmasını değerini döndürür.  
+ Aşağıdaki örnek, bir değişken bildirir ve belirtilen değişkeni (10) logaritmasını döndürür.  
   
 ```  
 SELECT LOG(10)  
@@ -1130,7 +1130,7 @@ SELECT LOG(10)
 [{$1: 2.3025850929940459}]  
 ```  
   
- Aşağıdaki örnek, bir sayı üs için günlük hesaplar.  
+ Aşağıdaki örnek günlük için sayının üssünü hesaplar.  
   
 ```  
 SELECT EXP(LOG(10))  
@@ -1145,13 +1145,13 @@ SELECT EXP(LOG(10))
 ####  <a name="bk_log10"></a> LOG10  
  Belirtilen sayısal ifade 10 tabanında logaritmasını döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 LOG10 (<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -1159,7 +1159,7 @@ LOG10 (<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Açıklamalar**  
   
@@ -1180,15 +1180,15 @@ SELECT LOG10(100)
 ```  
   
 ####  <a name="bk_pi"></a> PI  
- PI sayısının sabit değeri döndürür.  
+ PI sayısının sabit değerini döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 PI ()  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -1196,11 +1196,11 @@ PI ()
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek PI değerini döndürür.  
+ Aşağıdaki örnek, PI değerini döndürür.  
   
 ```  
 SELECT PI()  
@@ -1213,15 +1213,15 @@ SELECT PI()
 ```  
   
 ####  <a name="bk_power"></a> GÜÇ  
- Belirtilen güç belirtilen ifadenin değerini döndürür.  
+ Belirtilen güç için belirtilen ifadenin değerini döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 POWER (<numeric_expression>, <y>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -1233,11 +1233,11 @@ POWER (<numeric_expression>, <y>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, bir sayı (sayının küp) 3 üssüne yükseltme gösterir.  
+ Aşağıdaki örnek, bir sayı değerini 3 (numarası küp) için yükseltme gösterir.  
   
 ```  
 SELECT POWER(2, 3), POWER(2.5, 3)  
@@ -1252,13 +1252,13 @@ SELECT POWER(2, 3), POWER(2.5, 3)
 ####  <a name="bk_radians"></a> RADYAN CİNSİNDEN  
  Derece sayısal bir ifadenin girildiğinde radyan cinsinden döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 RADIANS (<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -1266,7 +1266,7 @@ RADIANS (<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
@@ -1289,15 +1289,15 @@ SELECT RADIANS(-45.01), RADIANS(-181.01), RADIANS(0), RADIANS(0.1472738), RADIAN
 ```  
   
 ####  <a name="bk_round"></a> YUVARLAK  
- En yakın tamsayı değerine yuvarlanan sayısal bir değer döndürür.  
+ En yakın tamsayı değerine yuvarlanır sayısal bir değer döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ROUND(<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -1305,11 +1305,11 @@ ROUND(<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek şu pozitif ve negatif sayıları en yakın tamsayıya yuvarlar.  
+ Aşağıdaki örnek, aşağıdaki pozitif ve negatif sayıları en yakın tamsayıya yuvarlar.  
   
 ```  
 SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)  
@@ -1322,15 +1322,15 @@ SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)
 ```  
   
 ####  <a name="bk_sign"></a> OTURUM  
- Artı (+ 1), sıfır (0) veya belirtilen sayısal ifadenin eksi (-1) işareti döndürür.  
+ (+ 1) pozitif, sıfır (0) veya eksi (-1) belirtilen sayısal ifade döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 SIGN(<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -1338,11 +1338,11 @@ SIGN(<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, 2 -2 ' sayıların oturum değerleri döndürür.  
+ Aşağıdaki örnekte, -2 ' 2'ye sayıların işaretini değerleri döndürür.  
   
 ```  
 SELECT SIGN(-2), SIGN(-1), SIGN(0), SIGN(1), SIGN(2)  
@@ -1355,15 +1355,15 @@ SELECT SIGN(-2), SIGN(-1), SIGN(0), SIGN(1), SIGN(2)
 ```  
   
 ####  <a name="bk_sin"></a> SIN  
- Radyan cinsinden belirtilen ifade trigonometrik belirtilen açının sinüsünü döndürür.  
+ Radyan cinsinden belirtilen ifade trigonometrik belirtilen bir açının sinüsünü döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 SIN(<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -1371,11 +1371,11 @@ SIN(<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, belirtilen açının SIN hesaplar.  
+ Aşağıdaki örnek belirtilen bir açının SIN hesaplar.  
   
 ```  
 SELECT SIN(45.175643)  
@@ -1388,15 +1388,15 @@ SELECT SIN(45.175643)
 ```  
   
 ####  <a name="bk_sqrt"></a> SQRT  
- Belirtilen sayısal değer kare kökünü döndürür.  
+ Belirtilen sayısal değerinin kare kökünü döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 SQRT(<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -1404,11 +1404,11 @@ SQRT(<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, 1-3 sayının kare kökleri döndürür.  
+ Aşağıdaki örnek sayılar 1-3 kareköklerini döndürür.  
   
 ```  
 SELECT SQRT(1), SQRT(2.0), SQRT(3)  
@@ -1421,15 +1421,15 @@ SELECT SQRT(1), SQRT(2.0), SQRT(3)
 ```  
   
 ####  <a name="bk_square"></a> KARE  
- Kare belirtilen sayısal değeri döndürür.  
+ Belirtilen bir sayısal değer karesini döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 SQUARE(<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -1437,11 +1437,11 @@ SQUARE(<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek numaraları 1-3 kareleri döndürür.  
+ Aşağıdaki örnek, 1-3 sayıların kareler döndürür.  
   
 ```  
 SELECT SQUARE(1), SQUARE(2.0), SQUARE(3)  
@@ -1454,15 +1454,15 @@ SELECT SQUARE(1), SQUARE(2.0), SQUARE(3)
 ```  
   
 ####  <a name="bk_tan"></a> TAN  
- Belirtilen ifadedeki radyan cinsinden belirtilen açının tanjantını döndürür.  
+ Radyan cinsinden belirtilen ifadesi belirtilen bir açının tanjantını döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 TAN (<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -1470,11 +1470,11 @@ TAN (<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek PI () tanjantını hesaplar / 2.  
+ Aşağıdaki örnek, PI () tanjantını hesaplar / 2.  
   
 ```  
 SELECT TAN(PI()/2);  
@@ -1489,13 +1489,13 @@ SELECT TAN(PI()/2);
 ####  <a name="bk_trunc"></a> TRUNC  
  En yakın tamsayı değerine kesilmiş sayısal bir değer döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 TRUNC(<numeric_expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `numeric_expression`  
   
@@ -1503,11 +1503,11 @@ TRUNC(<numeric_expression>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek şu pozitif ve negatif sayıları yakın tamsayı değeri tamsayıya dönüştürür.  
+ Aşağıdaki örnek, aşağıdaki pozitif ve negatif sayıları en yakın tamsayı değerine keser.  
   
 ```  
 SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)  
@@ -1519,8 +1519,8 @@ SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)
 [{$1: 2, $2: 2, $3: 2, $4: -2, $5: -2}]  
 ```  
   
-###  <a name="bk_type_checking_functions"></a> Denetimi işlevleri yazın  
- Aşağıdaki işlevleri karşı giriş değerleri denetleme türünü destekleyen ve her bir Boole değeri döndürür.  
+###  <a name="bk_type_checking_functions"></a> Tür denetimini işlevleri  
+ Tür denetimini karşı giriş değerleri aşağıdaki işlevleri destekler ve her bir Boole değeri döndürür.  
   
 ||||  
 |-|-|-|  
@@ -1531,25 +1531,25 @@ SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)
 ####  <a name="bk_is_array"></a> IS_ARRAY  
  Belirtilen ifade türü bir dizi olup olmadığını gösteren bir Boole değeri döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 IS_ARRAY(<expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `expression`  
   
-     Geçerli bir ifade değil.  
+     Herhangi bir geçerli ifade var.  
   
  **Dönüş türleri**  
   
- Boole ifadesi döndürür.  
+ Bir Boolean ifadesi döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, JSON Boolean, sayı, dize, null nesneleri, nesne, dizi ve IS_ARRAY işlevini kullanarak tanımsız türleri denetler.  
+ Aşağıdaki örnek JSON Boolean, sayı, dize, null Nesne, nesne, dizi ve IS_ARRAY işlevi kullanarak tanımlanmamış türler denetler.  
   
 ```  
 SELECT   
@@ -1569,27 +1569,27 @@ SELECT
 ```  
   
 ####  <a name="bk_is_bool"></a> IS_BOOL  
- Belirtilen ifade türü bir Boole değeri olup olmadığını gösteren bir Boole değeri döndürür.  
+ Belirtilen ifade türünü bir Boole değeri olup olmadığını gösteren bir Boole değeri döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 IS_BOOL(<expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `expression`  
   
-     Geçerli bir ifade değil.  
+     Herhangi bir geçerli ifade var.  
   
  **Dönüş türleri**  
   
- Boole ifadesi döndürür.  
+ Bir Boolean ifadesi döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, JSON Boolean, sayı, dize, null nesneleri, nesne, dizi ve IS_BOOL işlevini kullanarak tanımsız türleri denetler.  
+ Aşağıdaki örnek JSON Boolean, sayı, dize, null Nesne, nesne, dizi ve IS_BOOL işlevi kullanarak tanımlanmamış türler denetler.  
   
 ```  
 SELECT   
@@ -1609,27 +1609,27 @@ SELECT
 ```  
   
 ####  <a name="bk_is_defined"></a> IS_DEFINED  
- Özellik değeri atanmış olan gösteren bir Boole değeri döndürür.  
+ Özellik değeri atanıp atanmadığını gösteren bir Boole değeri döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 IS_DEFINED(<expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `expression`  
   
-     Geçerli bir ifade değil.  
+     Herhangi bir geçerli ifade var.  
   
  **Dönüş türleri**  
   
- Boole ifadesi döndürür.  
+ Bir Boolean ifadesi döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek belirtilen JSON belgesi içinde bir özellik varlığını denetler. İlk, "a" var, ancak "b" mevcut olduğundan ikinci false döndürür beri true değerini döndürür.  
+ Aşağıdaki örnek, bir özelliği belirtilen JSON belgesi içinde varlığını denetler. İlk "a" var, ancak "b" eksik olduğundan ikinci false döndürürse bu yana true döndürür.  
   
 ```  
 SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)  
@@ -1645,27 +1645,27 @@ SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)
 ```  
   
 ####  <a name="bk_is_null"></a> IS_NULL  
- Belirtilen ifade türü null olup olmadığını gösteren bir Boole değeri döndürür.  
+ Belirtilen ifadenin türü null olup olmadığını gösteren bir Boole değeri döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 IS_NULL(<expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `expression`  
   
-     Geçerli bir ifade değil.  
+     Herhangi bir geçerli ifade var.  
   
  **Dönüş türleri**  
   
- Boole ifadesi döndürür.  
+ Bir Boolean ifadesi döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, JSON Boolean, sayı, dize, null nesneleri, nesne, dizi ve IS_NULL işlevini kullanarak tanımsız türleri denetler.  
+ Aşağıdaki örnek JSON Boolean, sayı, dize, null Nesne, nesne, dizi ve IS_NULL işlevi kullanarak tanımlanmamış türler denetler.  
   
 ```  
 SELECT   
@@ -1685,27 +1685,27 @@ SELECT
 ```  
   
 ####  <a name="bk_is_number"></a> IS_NUMBER  
- Belirtilen ifade türü bir sayı olup olmadığını gösteren bir Boole değeri döndürür.  
+ Belirtilen ifade türünü bir sayı olup olmadığını gösteren bir Boole değeri döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 IS_NUMBER(<expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `expression`  
   
-     Geçerli bir ifade değil.  
+     Herhangi bir geçerli ifade var.  
   
  **Dönüş türleri**  
   
- Boole ifadesi döndürür.  
+ Bir Boolean ifadesi döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, JSON Boolean, sayı, dize, null nesneleri, nesne, dizi ve IS_NULL işlevini kullanarak tanımsız türleri denetler.  
+ Aşağıdaki örnek JSON Boolean, sayı, dize, null Nesne, nesne, dizi ve IS_NULL işlevi kullanarak tanımlanmamış türler denetler.  
   
 ```  
 SELECT   
@@ -1725,27 +1725,27 @@ SELECT
 ```  
   
 ####  <a name="bk_is_object"></a> IS_OBJECT  
- Belirtilen ifade türü bir JSON nesnesi olup olmadığını gösteren bir Boole değeri döndürür.  
+ Belirtilen ifade türünü bir JSON nesnesi olup olmadığını gösteren bir Boole değeri döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 IS_OBJECT(<expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `expression`  
   
-     Geçerli bir ifade değil.  
+     Herhangi bir geçerli ifade var.  
   
  **Dönüş türleri**  
   
- Boole ifadesi döndürür.  
+ Bir Boolean ifadesi döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, JSON Boolean, sayı, dize, null nesneleri, nesne, dizi ve IS_OBJECT işlevini kullanarak tanımsız türleri denetler.  
+ Aşağıdaki örnek JSON Boolean, sayı, dize, null Nesne, nesne, dizi ve IS_OBJECT işlevi kullanarak tanımlanmamış türler denetler.  
   
 ```  
 SELECT   
@@ -1765,27 +1765,27 @@ SELECT
 ```  
   
 ####  <a name="bk_is_primitive"></a> IS_PRIMITIVE  
- Belirtilen ifade türü bir basit tür olup olmadığını gösteren bir Boole değeri döndürür (dize, Boolean, sayısal veya null).  
+ Belirtilen ifadenin türü basit bir tür olup olmadığını gösteren bir Boole değeri döndürür (string, Boolean, sayısal ya da null).  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 IS_PRIMITIVE(<expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `expression`  
   
-     Geçerli bir ifade değil.  
+     Herhangi bir geçerli ifade var.  
   
  **Dönüş türleri**  
   
- Boole ifadesi döndürür.  
+ Bir Boolean ifadesi döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, JSON Boolean, sayı, dize, null nesneleri, nesne, dizi ve IS_PRIMITIVE işlevini kullanarak tanımsız türleri denetler.  
+ Aşağıdaki örnek JSON Boolean, sayı, dize, null Nesne, nesne, dizi ve IS_PRIMITIVE işlevi kullanarak tanımlanmamış türler denetler.  
   
 ```  
 SELECT   
@@ -1805,27 +1805,27 @@ SELECT
 ```  
   
 ####  <a name="bk_is_string"></a> IS_STRING  
- Belirtilen ifade türü bir dize olup olmadığını gösteren bir Boole değeri döndürür.  
+ Belirtilen ifadenin türü dize olup olmadığını gösteren bir Boole değeri döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 IS_STRING(<expression>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `expression`  
   
-     Geçerli bir ifade değil.  
+     Herhangi bir geçerli ifade var.  
   
  **Dönüş türleri**  
   
- Boole ifadesi döndürür.  
+ Bir Boolean ifadesi döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, JSON Boolean, sayı, dize, null nesneleri, nesne, dizi ve IS_STRING işlevini kullanarak tanımsız türleri denetler.  
+ Aşağıdaki örnek JSON Boolean, sayı, dize, null Nesne, nesne, dizi ve IS_STRING işlevi kullanarak tanımlanmamış türler denetler.  
   
 ```  
 SELECT   
@@ -1845,31 +1845,31 @@ SELECT
 ```  
   
 ###  <a name="bk_string_functions"></a> Dize işlevleri  
- Aşağıdaki skaler işlevler dize giriş değeri üzerinde bir işlemi gerçekleştirmek ve bir dize, sayısal ya da Boole değeri döndürür.  
+ Aşağıdaki skaler İşlevler, bir dize giriş değeri bir işlem gerçekleştirmek ve bir dize, sayısal veya Boolean değeri döndürür.  
   
 ||||  
 |-|-|-|  
 |[CONCAT](#bk_concat)|[İÇERİR](#bk_contains)|[ENDSWITH](#bk_endswith)|  
 |[INDEX_OF](#bk_index_of)|[SOL](#bk_left)|[UZUNLUĞU](#bk_length)|  
 |[DAHA DÜŞÜK](#bk_lower)|[LTRIM](#bk_ltrim)|[DEĞİŞTİR](#bk_replace)|  
-|[ÇOĞALTILAN](#bk_replicate)|[TERS ÇEVİR](#bk_reverse)|[SAĞ](#bk_right)|  
-|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
-|[ÜST](#bk_upper)|||  
+|[ÇOĞALTILAN](#bk_replicate)|[GERİYE DOĞRU](#bk_reverse)|[SAĞ](#bk_right)|  
+|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[ALT DİZE](#bk_substring)|  
+|[ToString](#bk_tostring)|[ÜST](#bk_upper)|||  
   
 ####  <a name="bk_concat"></a> CONCAT  
- İki veya daha fazla dize değerlerini birleştirme sonucu olan bir dize döndürür.  
+ İki veya daha fazla dize değerlerini birleştirirken sonucu olan bir dize döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 CONCAT(<str_expr>, <str_expr> [, <str_expr>])  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
  **Dönüş türleri**  
   
@@ -1890,27 +1890,27 @@ SELECT CONCAT("abc", "def")
 ```  
   
 ####  <a name="bk_contains"></a> İÇERİR  
- Döndüren bir Boolean belirten ikinci ilk ifade dize olup olmadığını içerir.  
+ Döndürür bir Boolean gösteren ikinci ilk dize ifade olup olmadığını içerir.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 CONTAINS(<str_expr>, <str_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
  **Dönüş türleri**  
   
- Boole ifadesi döndürür.  
+ Bir Boolean ifadesi döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnekte, "abc" "ab" ve "d" içerir olmadığını denetler.  
+ Aşağıdaki örnek, "abc" "ab" ve "d" içerir, denetler.  
   
 ```  
 SELECT CONTAINS("abc", "ab"), CONTAINS("abc", "d")  
@@ -1923,27 +1923,27 @@ SELECT CONTAINS("abc", "ab"), CONTAINS("abc", "d")
 ```  
   
 ####  <a name="bk_endswith"></a> ENDSWITH  
- Döndürür Boolean belirten bir ilk ifade dize olup olmadığını ve ikinci sona erer.  
+ Boole döndürüp döndüremeyeceğini belirten döndürür ilk dize ifade olup olmadığını ve ikinci sona erer.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ENDSWITH(<str_expr>, <str_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
  **Dönüş türleri**  
   
- Boole ifadesi döndürür.  
+ Bir Boolean ifadesi döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnekte, "abc", "b" ve "bc" ile biten döndürür.  
+ Aşağıdaki örnek, "abc", "b" ve "bc" ile biten döndürür.  
   
 ```  
 SELECT ENDSWITH("abc", "b"), ENDSWITH("abc", "bc")  
@@ -1956,27 +1956,27 @@ SELECT ENDSWITH("abc", "b"), ENDSWITH("abc", "bc")
 ```  
   
 ####  <a name="bk_index_of"></a> INDEX_OF  
- İkinci ilk örneğinin başlangıç konumunu döndürür dizesi ifade ilk belirtilen dize ifadesi veya -1 içinde dizesi bulunamadı.  
+ İkinci dizenin başlangıç konumunu döndürür dize bulunamazsa, ilk belirtilen dize ifadesi veya -1 içindeki ifadenin dize.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 INDEX_OF(<str_expr>, <str_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnekte, "abc" içinde çeşitli alt dizeler dizinini döndürür.  
+ Aşağıdaki örnek, "abc" içindeki çeşitli alt dizeler dizinini döndürür.  
   
 ```  
 SELECT INDEX_OF("abc", "ab"), INDEX_OF("abc", "b"), INDEX_OF("abc", "c")  
@@ -1989,23 +1989,23 @@ SELECT INDEX_OF("abc", "ab"), INDEX_OF("abc", "b"), INDEX_OF("abc", "c")
 ```  
   
 ####  <a name="bk_left"></a> SOL  
- Sol bölümü belirtilen sayıda karakteri içeren bir dize döndürür.  
+ Belirtilen sayıda karakteri içeren bir dize sol bölümünü döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 LEFT(<str_expr>, <num_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
 -   `num_expr`  
   
-     Geçerli herhangi bir sayısal ifadeye ' dir.  
+     Geçerli bir sayısal ifade var.  
   
  **Dönüş türleri**  
   
@@ -2013,7 +2013,7 @@ LEFT(<str_expr>, <num_expr>)
   
  **Örnekler**  
   
- Aşağıdaki örnekte "abc" sol bölümü için çeşitli uzunluk değeri döndürür.  
+ Aşağıdaki örnek, çeşitli uzunluğu değerler için sol "abc" bölümünü döndürür.  
   
 ```  
 SELECT LEFT("abc", 1), LEFT("abc", 2)  
@@ -2026,19 +2026,19 @@ SELECT LEFT("abc", 1), LEFT("abc", 2)
 ```  
   
 ####  <a name="bk_length"></a> UZUNLUĞU  
- Belirtilen dize ifadesinin karakterlerin sayısını döndürür.  
+ Belirtilen dize ifadesinin karakter sayısını döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 LENGTH(<str_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
  **Dönüş türleri**  
   
@@ -2046,7 +2046,7 @@ LENGTH(<str_expr>)
   
  **Örnekler**  
   
- Aşağıdaki örnek, bir dize uzunluğunu döndürür.  
+ Aşağıdaki örnek bir dizenin uzunluğunu döndürür.  
   
 ```  
 SELECT LENGTH("abc")  
@@ -2059,19 +2059,19 @@ SELECT LENGTH("abc")
 ```  
   
 ####  <a name="bk_lower"></a> DAHA DÜŞÜK  
- Büyük harf karakter verileri küçük harfe dönüştürmek sonra bir dize ifadesi döndürür.  
+ Büyük harf karakter verileri küçük harfe dönüştürmenin sonra bir dize ifadesi döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 LOWER(<str_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
  **Dönüş türleri**  
   
@@ -2079,7 +2079,7 @@ LOWER(<str_expr>)
   
  **Örnekler**  
   
- Aşağıdaki örnek sorguda düşük kullanmayı gösterir.  
+ Aşağıdaki örnek sorguda DÜŞÜREBİLİRSİNİZ kullanmayı gösterir.  
   
 ```  
 SELECT LOWER("Abc")  
@@ -2093,19 +2093,19 @@ SELECT LOWER("Abc")
 ```  
   
 ####  <a name="bk_ltrim"></a> LTRIM  
- Öndeki boşlukları kaldırır sonra bir dize ifadesi döndürür.  
+ Baştaki boşluklar kaldırdıktan sonra bir dize ifadesi döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 LTRIM(<str_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
  **Dönüş türleri**  
   
@@ -2113,7 +2113,7 @@ LTRIM(<str_expr>)
   
  **Örnekler**  
   
- Aşağıdaki örnek bir sorgu içinde LTRIM kullanmayı gösterir.  
+ Aşağıdaki örnek, bir sorgu içinde LTRIM kullanmayı gösterir.  
   
 ```  
 SELECT LTRIM("  abc"), LTRIM("abc"), LTRIM("abc   ")  
@@ -2128,17 +2128,17 @@ SELECT LTRIM("  abc"), LTRIM("abc"), LTRIM("abc   ")
 ####  <a name="bk_replace"></a> DEĞİŞTİR  
  Belirtilen dize değeri tüm oluşumlarını başka bir dize değeri ile değiştirir.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 REPLACE(<str_expr>, <str_expr>, <str_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
  **Dönüş türleri**  
   
@@ -2146,7 +2146,7 @@ REPLACE(<str_expr>, <str_expr>, <str_expr>)
   
  **Örnekler**  
   
- Aşağıdaki örnek sorguda Değiştir kullanmayı gösterir.  
+ Aşağıdaki örnek, bir sorgu Değiştir kullanmayı gösterir.  
   
 ```  
 SELECT REPLACE("This is a Test", "Test", "desk")  
@@ -2161,21 +2161,21 @@ SELECT REPLACE("This is a Test", "Test", "desk")
 ####  <a name="bk_replicate"></a> ÇOĞALTMA  
  Bir dize değeri, belirtilen sayıda yineler.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 REPLICATE(<str_expr>, <num_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
 -   `num_expr`  
   
-     Geçerli herhangi bir sayısal ifadeye ' dir.  
+     Geçerli bir sayısal ifade var.  
   
  **Dönüş türleri**  
   
@@ -2183,7 +2183,7 @@ REPLICATE(<str_expr>, <num_expr>)
   
  **Örnekler**  
   
- Aşağıdaki örnek sorguda REPLICATE kullanmayı gösterir.  
+ Aşağıdaki örnek, bir sorgu çoğaltma kullanmayı gösterir.  
   
 ```  
 SELECT REPLICATE("a", 3)  
@@ -2195,20 +2195,20 @@ SELECT REPLICATE("a", 3)
 [{"$1": "aaa"}]  
 ```  
   
-####  <a name="bk_reverse"></a> TERS ÇEVİR  
- Ters sırada bir dize değerini döndürür.  
+####  <a name="bk_reverse"></a> GERİYE DOĞRU  
+ Bir dize değerinin ters sırada döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 REVERSE(<str_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
  **Dönüş türleri**  
   
@@ -2216,7 +2216,7 @@ REVERSE(<str_expr>)
   
  **Örnekler**  
   
- Aşağıdaki örnek sorguda ters kullanmayı gösterir.  
+ Aşağıdaki örnek, bir sorgu ters kullanmayı gösterir.  
   
 ```  
 SELECT REVERSE("Abc")  
@@ -2231,21 +2231,21 @@ SELECT REVERSE("Abc")
 ####  <a name="bk_right"></a> SAĞ  
  Belirtilen sayıda karakteri içeren bir dize sağ bölümünü döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 RIGHT(<str_expr>, <num_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
 -   `num_expr`  
   
-     Geçerli herhangi bir sayısal ifadeye ' dir.  
+     Geçerli bir sayısal ifade var.  
   
  **Dönüş türleri**  
   
@@ -2253,7 +2253,7 @@ RIGHT(<str_expr>, <num_expr>)
   
  **Örnekler**  
   
- Aşağıdaki örnekte, "abc" sağ parçası için çeşitli uzunluk değeri döndürür.  
+ Aşağıdaki örnek, çeşitli uzunluğu değerleri için "abc" sağ bölümünü döndürür.  
   
 ```  
 SELECT RIGHT("abc", 1), RIGHT("abc", 2)  
@@ -2266,19 +2266,19 @@ SELECT RIGHT("abc", 1), RIGHT("abc", 2)
 ```  
   
 ####  <a name="bk_rtrim"></a> RTRIM  
- Sondaki boşlukları kaldırır sonra bir dize ifadesi döndürür.  
+ Sonundaki boşlukları kaldırdıktan sonra bir dize ifadesi döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 RTRIM(<str_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
  **Dönüş türleri**  
   
@@ -2286,7 +2286,7 @@ RTRIM(<str_expr>)
   
  **Örnekler**  
   
- Aşağıdaki örnek bir sorgu içinde RTRIM kullanmayı gösterir.  
+ Aşağıdaki örnek, bir sorgu içinde RTRIM kullanmayı gösterir.  
   
 ```  
 SELECT RTRIM("  abc"), RTRIM("abc"), RTRIM("abc   ")  
@@ -2299,27 +2299,27 @@ SELECT RTRIM("  abc"), RTRIM("abc"), RTRIM("abc   ")
 ```  
   
 ####  <a name="bk_startswith"></a> STARTSWITH  
- Döndüren bir Boolean belirten ilk ifade dize olup olmadığını ve ikinci başlatır.  
+ Boole döndürüp döndüremeyeceğini belirten döndürür ilk dize ifade olup olmadığını ve ikinci başlatır.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 STARTSWITH(<str_expr>, <str_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
  **Dönüş türleri**  
   
- Boole ifadesi döndürür.  
+ Bir Boolean ifadesi döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnekte "abc" dize "b" ile başlayıp başlamadığını denetler ve "a".  
+ Aşağıdaki örnek, "abc" dize "b" ile başlayıp başlamadığını denetler ve "a".  
   
 ```  
 SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")  
@@ -2331,24 +2331,24 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
 [{"$1": false, "$2": true}]  
 ```  
   
-####  <a name="bk_substring"></a> SUBSTRING  
- Belirtilen karakter sıfır tabanlı konumdan başlayarak bir dize ifadesi bölümünü döndürür ve belirtilen uzunlukta veya dize sonu devam eder.  
+####  <a name="bk_substring"></a> ALT DİZE  
+ Belirtilen karakterin sıfır tabanlı konumunda başlayan bir dize ifadesi bölümünü döndürür ve belirtilen uzunlukta veya dizenin sonuna kadar devam eder.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `str_expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Herhangi bir geçerli dize ifade var.  
   
 -   `num_expr`  
   
-     Geçerli herhangi bir sayısal ifadeye ' dir.  
+     Geçerli bir sayısal ifade var.  
   
  **Dönüş türleri**  
   
@@ -2356,7 +2356,7 @@ SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])
   
  **Örnekler**  
   
- Aşağıdaki örnek, 1 ve 1 karakter uzunluğu için başlangıç "abc" alt dizeyi döndürür.  
+ Aşağıdaki örnek, "abc" alt 1 ve 1 karakter uzunluğunu başlangıç döndürür.  
   
 ```  
 SELECT SUBSTRING("abc", 1, 1)  
@@ -2367,21 +2367,20 @@ SELECT SUBSTRING("abc", 1, 1)
 ```  
 [{"$1": "b"}]  
 ```  
+####  <a name="bk_tostring"></a> ToString  
+ Skaler ifade bir dize gösterimini döndürür. 
   
-####  <a name="bk_upper"></a> ÜST  
- Küçük harf karakter verileri büyük harfe dönüştürme sonra bir dize ifadesi döndürür.  
-  
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
-UPPER(<str_expr>)  
+ToString(<expr>)
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
--   `str_expr`  
+-   `expr`  
   
-     Tüm geçerli bir dize ifadesidir.  
+     Geçerli bir skaler ifade var.  
   
  **Dönüş türleri**  
   
@@ -2389,7 +2388,81 @@ UPPER(<str_expr>)
   
  **Örnekler**  
   
- Aşağıdaki örnek sorguda üst kullanmayı gösterir  
+ Aşağıdaki örnek, ToString farklı türleri arasında nasıl davranacağını gösterir.   
+  
+```  
+SELECT ToString(1.0000), ToString("Hello World"), ToString(NaN), ToString(Infinity),
+ToString(IS_STRING(ToString(undefined))), IS_STRING(ToString(0.1234), ToString(false), ToString(undefined))
+```  
+  
+ Sonuç kümesini burada verilmiştir.  
+  
+```  
+[{"$1": "1", "$2": "Hello World", "$3": "NaN", "$4": "Infinity", "$5": "false", "$6": true, "$7": "false"}]  
+```  
+ Şu giriş verilen:
+```  
+{"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
+```    
+ Aşağıdaki örnek, diğer CONCAT gibi dize işlevlerle ToString'ın nasıl kullanılabileceğini gösterir.   
+ 
+```  
+SELECT 
+CONCAT(ToString(p.Weight), p.WeightUnits) 
+FROM p in c.Products 
+```  
+
+ Sonuç kümesini burada verilmiştir.  
+  
+```  
+[{"$1":"4lb" },
+ {"$1":"32kg"},
+ {"$1":"400g" },
+ {"$1":"8999mg" }]
+
+```  
+Şu giriş verilir.
+```
+{"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
+```
+ Aşağıdaki örnek, diğer değiştirme gibi dize işlevlerle ToString'ın nasıl kullanılabileceğini gösterir.   
+```
+SELECT 
+    n.id AS nutrientID,
+    REPLACE(ToString(n.nutritionValue), "6", "9") AS nutritionVal
+FROM food 
+JOIN n IN food.nutrients
+```
+ Sonuç kümesini burada verilmiştir.  
+ ```
+[{"nutrientID":"305"},
+{"nutrientID":"306","nutritionVal":"30"},
+{"nutrientID":"307","nutritionVal":"912"},
+{"nutrientID":"308","nutritionVal":"90"},
+{"nutrientID":"309","nutritionVal":"null"}]
+ ```  
+####  <a name="bk_upper"></a> ÜST  
+ Küçük harf karakter verileri büyük harfe dönüştürmenin sonra bir dize ifadesi döndürür.  
+  
+ **Söz dizimi**  
+  
+```  
+UPPER(<str_expr>)  
+```  
+  
+ **Bağımsız Değişkenler**  
+  
+-   `str_expr`  
+  
+     Herhangi bir geçerli dize ifade var.  
+  
+ **Dönüş türleri**  
+  
+ Bir dize ifadesi döndürür.  
+  
+ **Örnekler**  
+  
+ Aşağıdaki örnek sorguda üst kullanma işlemi gösterilmektedir  
   
 ```  
 SELECT UPPER("Abc")  
@@ -2402,7 +2475,7 @@ SELECT UPPER("Abc")
 ```  
   
 ###  <a name="bk_array_functions"></a> Dizi işlevleri  
- Aşağıdaki skaler işlevler bir dizi giriş değeri ve return sayısal, Boole veya dizi değer üzerinde bir işlemi gerçekleştirme  
+ Aşağıdaki skaler işlevler bir dizi giriş değeri ve dönüş sayısal, Boole veya dizi değeri üzerinde bir işlem gerçekleştirme  
   
 ||||  
 |-|-|-|  
@@ -2410,15 +2483,15 @@ SELECT UPPER("Abc")
 |[ARRAY_SLICE](#bk_array_slice)|||  
   
 ####  <a name="bk_array_concat"></a> ARRAY_CONCAT  
- İki veya daha fazla dizi değerlerini birleştirme sonucu olan bir dizi döndürür.  
+ İki veya daha fazla dizi değerlerini birleştirirken sonucu olan bir dizi döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `arr_expr`  
   
@@ -2430,7 +2503,7 @@ ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])
   
  **Örnekler**  
   
- Aşağıdaki örnek dizilerinin birleştirmek nasıl.  
+ Aşağıdaki örnek iki diziyi birleştirme.  
   
 ```  
 SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])  
@@ -2445,13 +2518,13 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
 Dizi belirtilen değeri içerip içermediğini gösteren bir Boole değeri döndürür. Tam veya kısmi eşleşme olup olmadığını belirtebilirsiniz. 
 
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `arr_expr`  
   
@@ -2459,19 +2532,19 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
 -   `expr`  
   
-     Geçerli bir ifade değil.  
+     Herhangi bir geçerli ifade var.  
 
 -   `bool_expr`  
   
-     Boole herhangi ifadesidir.       
+     Herhangi bir boolean ifadesi var.       
   
  **Dönüş türleri**  
   
- Bir Boole değeri döndürür.  
+ Bir Boolean değer döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnekte nasıl ARRAY_CONTAINS kullanarak bir dizi üyeliği denetlenir.  
+ Aşağıdaki örnek nasıl ARRAY_CONTAINS kullanarak bir diziye üyeliğini denetleyin.  
   
 ```  
 SELECT   
@@ -2485,7 +2558,7 @@ SELECT
 [{"$1": true, "$2": false}]  
 ```  
 
- Aşağıdaki örnekte nasıl ARRAY_CONTAINS kullanarak bir dizi JSON'de kısmi bir eşleşme için denetlenir.  
+ Aşağıdaki örnek nasıl bir JSON dizi ARRAY_CONTAINS kısmi bir eşleşme olup olmadığını denetleyin.  
   
 ```  
 SELECT  
@@ -2505,15 +2578,15 @@ SELECT
 ```  
   
 ####  <a name="bk_array_length"></a> ARRAY_LENGTH  
- Belirtilen dizi ifadesi öğe sayısını döndürür.  
+ Belirtilen bir dizi ifadesinin öğelerin sayısını döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ARRAY_LENGTH(<arr_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `arr_expr`  
   
@@ -2521,11 +2594,11 @@ ARRAY_LENGTH(<arr_expr>)
   
  **Dönüş türleri**  
   
- Sayısal ifade döndürür.  
+ Sayısal bir ifade döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek ARRAY_LENGTH kullanarak bir dizi uzunluğu alma.  
+ Aşağıdaki örnek nasıl ARRAY_LENGTH kullanarak bir dizinin uzunluğu.  
   
 ```  
 SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])  
@@ -2540,13 +2613,13 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])
 ####  <a name="bk_array_slice"></a> ARRAY_SLICE  
  Bir dizi ifadesi bölümünü döndürür.
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `arr_expr`  
   
@@ -2554,15 +2627,15 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
 -   `num_expr`  
   
-     Geçerli herhangi bir sayısal ifadeye ' dir.  
+     Geçerli bir sayısal ifade var.  
   
  **Dönüş türleri**  
   
- Bir Boole değeri döndürür.  
+ Bir Boolean değer döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek ARRAY_SLICE kullanarak bir dizi parçası alma.  
+ Aşağıdaki örnek nasıl ARRAY_SLICE kullanarak bir diziye bir parçası.  
   
 ```  
 SELECT   
@@ -2579,8 +2652,8 @@ SELECT
        }]  
 ```  
   
-###  <a name="bk_spatial_functions"></a> Uzamsal işlevleri  
- Aşağıdaki skaler işlevler uzamsal nesne giriş değeri üzerinde bir işlemi gerçekleştirmek ve bir sayısal ya da Boole değeri döndürür.  
+###  <a name="bk_spatial_functions"></a> Uzamsal İşlevler  
+ Aşağıdaki skaler işlevler bir uzamsal nesne giriş değeri bir işlem gerçekleştirmek ve bir sayısal veya Boolean değeri döndürür.  
   
 ||||  
 |-|-|-|  
@@ -2588,15 +2661,15 @@ SELECT
 |[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)|||  
   
 ####  <a name="bk_st_distance"></a> ST_DISTANCE  
- İki GeoJSON noktası, çokgen veya LineString ifadeleri uzaklığı döndürür.  
+ İki GeoJSON noktası, çokgen veya LineString ifadeler uzaklığı döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ST_DISTANCE (<spatial_expr>, <spatial_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `spatial_expr`  
   
@@ -2604,11 +2677,11 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
  **Dönüş türleri**  
   
- Uzaklığı içeren sayısal bir ifade döndürür. Bu varsayılan başvuru sistemi metre cinsinden ifade edilir.  
+ Uzaklık içeren sayısal bir ifade döndürür. Bu varsayılan başvuru sistemi için ölçümleri ifade edilir.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, içinde 30 km st_dıstance yerleşik işlevini kullanarak belirtilen konumun olan tüm ailesi belgeleri döndürülecek gösterilmiştir. .  
+ Aşağıdaki örnek, ST_DISTANCE yerleşik işlevi kullanarak belirtilen konumun içinde 30 KM tüm ailesi belgeler döndürülecek gösterilmektedir. .  
   
 ```  
 SELECT f.id   
@@ -2625,15 +2698,15 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 ```  
   
 ####  <a name="bk_st_within"></a> ST_WITHIN  
- İlk bağımsız değişkeninde belirtilen GeoJSON nesne (noktası, çokgen veya LineString) ikinci bağımsız GeoJSON (noktası, çokgen veya LineString) içinde olup olmadığını gösteren bir Boole ifadesi döndürür.  
+ İlk bağımsız değişkende belirtilen GeoJSON nesne (noktası, çokgen veya LineString) ikinci bağımsız değişkende GeoJSON (noktası, çokgen veya LineString) içinde olup olmadığını gösteren bir Boole ifadesi döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ST_WITHIN (<spatial_expr>, <spatial_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `spatial_expr`  
   
@@ -2645,11 +2718,11 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
  **Dönüş türleri**  
   
- Bir Boole değeri döndürür.  
+ Bir Boolean değer döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, ST_WITHIN kullanarak bir Çokgen içindeki tüm ailesi belgeleri bulmak gösterilmiştir.  
+ Aşağıdaki örnek, tüm ailesi bulmanın ST_WITHIN kullanarak bir Çokgen içinde gösterilmektedir.  
   
 ```  
 SELECT f.id   
@@ -2667,15 +2740,15 @@ WHERE ST_WITHIN(f.location, {
 ```  
 
 ####  <a name="bk_st_intersects"></a> ST_INTERSECTS  
- İlk bağımsız değişkeninde belirtilen GeoJSON nesne (noktası, çokgen veya LineString) ikinci bağımsız GeoJSON (noktası, çokgen veya LineString) kesiştiğinden olup olmadığını gösteren bir Boole ifadesi döndürür.  
+ İlk bağımsız değişkende belirtilen GeoJSON nesne (noktası, çokgen veya LineString) ikinci bağımsız değişkende GeoJSON (noktası, çokgen veya LineString) kesişip kesişmediğini belirten bir Boole ifadesi döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ST_INTERSECTS (<spatial_expr>, <spatial_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `spatial_expr`  
   
@@ -2687,11 +2760,11 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
  **Dönüş türleri**  
   
- Bir Boole değeri döndürür.  
+ Bir Boolean değer döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek ile belirtilen Çokgen kesiştiğinden tüm alanlar bulmak nasıl gösterir.  
+ Aşağıdaki örnek ile belirtilen Çokgen kesişen tüm alanların nasıl bulunacağını gösterir.  
   
 ```  
 SELECT a.id   
@@ -2711,29 +2784,29 @@ WHERE ST_INTERSECTS(a.location, {
 ####  <a name="bk_st_isvalid"></a> ST_ISVALID  
  Belirtilen GeoJSON noktası, çokgen veya LineString ifade geçerli olup olmadığını gösteren bir Boole değeri döndürür.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ST_ISVALID(<spatial_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `spatial_expr`  
   
-     Tüm geçerli GeoJSON noktası, çokgen veya LineString ifadesidir.  
+     Herhangi bir geçerli GeoJSON noktası, çokgen veya LineString ifade var.  
   
  **Dönüş türleri**  
   
- Boole ifadesi döndürür.  
+ Bir Boolean ifadesi döndürür.  
   
  **Örnekler**  
   
- Aşağıdaki örnek, bir nokta ST_VALID kullanarak geçerli olup olmadığını denetlemek gösterilmiştir.  
+ Aşağıdaki örnek, bir nokta ST_VALID kullanarak geçerli olup olmadığını denetlemek gösterilmektedir.  
   
- Örneğin, bu nokta değerleri [-90, 90], geçerli aralıkta şekilde sorgu döndürür false değil bir enlem değer içeriyor.  
+ Örneğin, bu nokta geçerli değerler [-90, 90] aralığında böylece sorgu döndürür false değil bir enlem değeri vardır.  
   
- Çokgenler için sağlanan son koordinat çifti kapalı bir şekil oluşturmak için ilk olarak, aynı olmalıdır GeoJSON belirtilmesini gerektiriyor. Çokgen içindeki noktaları yönünün sırayla belirtilmelidir. Belirtilen saat yönünde sırayla Çokgen bölge içindeki tersini temsil eder.  
+ Çokgen için GeoJSON belirtimi sağlanan son koordinat çifti kapalı şekli oluşturmak için birinci ile aynı olması gerekir. İçinde bir Çokgen noktalarının saat yönünün tersi düzende belirtilmesi gerekir. Bir çokgenin belirtilen saat yönünde sırayla bölgesinde tersini temsil eder.  
   
 ```  
 SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })  
@@ -2746,15 +2819,15 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 ```  
   
 ####  <a name="bk_st_isvaliddetailed"></a> ST_ISVALIDDETAILED  
- Belirtilen GeoJSON noktası, çokgen veya LineString ifade geçerli olup olmadığını ve geçersiz bir Boole değeri içeren bir JSON değeri değeri döndürür, ayrıca bir dize değeri olarak nedeni.  
+ Bir Boole değeri içeren bir JSON değeri, belirtilen GeoJSON noktası, çokgen veya LineString ifade geçerliyse ve geçersiz değeri döndürür, ayrıca bir dize değeri olarak nedeni.  
   
- **Sözdizimi**  
+ **Söz dizimi**  
   
 ```  
 ST_ISVALID(<spatial_expr>)  
 ```  
   
- **Bağımsız değişkenler**  
+ **Bağımsız Değişkenler**  
   
 -   `spatial_expr`  
   
@@ -2762,11 +2835,11 @@ ST_ISVALID(<spatial_expr>)
   
  **Dönüş türleri**  
   
- Belirtilen GeoJSON noktası veya Çokgen ifade geçerli olup olmadığını ve geçersiz bir Boole değeri içeren bir JSON değeri değeri döndürür, ayrıca bir dize değeri olarak nedeni.  
+ Bir Boole değeri içeren bir JSON değeri, belirtilen GeoJSON noktası veya Çokgen ifade geçerliyse ve geçersiz değeri döndürür, ayrıca bir dize değeri olarak nedeni.  
   
  **Örnekler**  
   
- Aşağıdaki örnekte nasıl ST_ISVALIDDETAILED kullanarak geçerlilik (ayrıntılarla gibi) denetlenir.  
+ Aşağıdaki örnek nasıl (Ayrıntılar ile) ST_ISVALIDDETAILED kullanarak geçerliliğini denetlemek.  
   
 ```  
 SELECT ST_ISVALIDDETAILED({   

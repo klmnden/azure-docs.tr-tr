@@ -1,9 +1,9 @@
 ---
-title: Bir bulut hizmeti bir özel etki alanı denetleyicisine bağlanma | Microsoft Docs
-description: Web/çalışan rolleri bir özel AD PowerShell ve AD etki alanı uzantısını kullanarak etki alanına bağlayın öğrenin
+title: Bulut hizmetini özel bir etki alanı denetleyicisine bağlama | Microsoft Docs
+description: Bir özel AD PowerShell ve AD etki alanı uzantısı kullanarak etki alanı için web/çalışan rollerinizi bağlantı kurmayı öğrenin
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1e2d7c87-d254-4e7a-a832-67f84411ec95
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 4a50ae5e19ff9bf79b7f5361e5a274a2aba350f5
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: jeconnoc
+ms.openlocfilehash: b05e20b5c99c6f1b5b1bf93ca781ec97284fba79
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29845664"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004924"
 ---
-# <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure bulut Hizmetleri rolleri bir özel AD etki alanı denetleyicisi Azure'da barındırılan bağlanma
-Sanal ağ (VNet) İlk Azure içinde ayarlarsınız. Ardından bir Active Directory etki alanı (bir Azure sanal makinede barındırılan) denetleyicisi Vnet'e ekleyeceğiz. Ardından, biz mevcut bulut hizmeti rollerinizi önceden oluşturulmuş Vnet'e ekleyin, sonra etki alanı denetleyicisine bağlanma.
+# <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure Cloud Services rolleri bir özel AD etki alanı denetleyicisi Azure'da barındırılan bağlanma
+İlk sanal ağ (VNet) Azure'da ayarlayacağız. Ardından bir Active Directory etki alanı (bir Azure sanal makinesinde barındırılan) denetleyicisi Vnet'e ekleyeceğiz. Ardından, biz mevcut bulut hizmeti rolleri önceden oluşturulmuş bir sanal ağa ekleyin, sonra bunları etki alanı denetleyicisine bağlanma.
 
-Başlamadan önce birkaç şey göz önünde bulundurun:
+Başlamadan önce göz önünde bulundurmanız gereken şey birkaç:
 
-1. Bu öğreticide PowerShell kullanır, böylece Azure PowerShell yüklenmiş ve Git hazır olduğundan emin olun. Azure PowerShell ayarlama konusunda yardım almak için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
-2. AD etki alanı denetleyicisi ve Web/çalışan rolü örneklerinizi ağda olması gerekir.
+1. Bu öğreticide, PowerShell kullanılır, bu nedenle Azure PowerShell yüklenmiş ve kullanılmaya hazır olduğundan emin olun. Azure PowerShell ayarlama ayarlama konusunda yardım almak için bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
+2. AD etki alanı denetleyicisi ve Web/çalışan rolü örneklerinizi VNet içinde olması gerekir.
 
-Bu adım adım kılavuz izleyin ve herhangi bir sorunla çalıştırırsanız, bize makalenin sonunda bir yorum yazın. Birisi geri için karşılaşırsınız (Evet, biz yorumları okuma).
+Bu adım adım kılavuzu izleyin ve herhangi bir sorunla karşılaşırsanız çalıştırırsanız, bize makale sonuna bir yorum yazın. Birisi geri dönelim (Evet, biz yorumları okuyun).
 
 Bulut hizmeti tarafından başvurulan ağ olmalıdır bir **Klasik sanal ağ**.
 
 ## <a name="create-a-virtual-network"></a>Sanal Ağ Oluştur
-Azure portal veya PowerShell kullanarak Azure'da bir sanal ağ oluşturabilirsiniz. Bu öğretici için PowerShell kullanılır. Azure Portalı'nı kullanarak bir sanal ağ oluşturmak için bkz: [bir sanal ağ oluşturma](../virtual-network/quick-create-portal.md). Sanal ağ (Resource Manager) oluşturma makalede yer almaktadır, ancak bulut Hizmetleri için bir sanal ağ (Klasik) oluşturmanız gerekir. Bunun portalda seçin **kaynak oluşturma**, türü *sanal ağ* içinde **arama** kutusuna ve ardından tuşuna basın **Enter**. Arama sonuçlarında altında **her şeyi**seçin **sanal ağ**. Altında **dağıtım modeli seçin**seçin **Klasik**seçeneğini belirleyip **oluşturma**. Ardından makalesindeki adımları izleyebilirsiniz.
+Azure portal veya PowerShell kullanarak Azure'da bir sanal ağ oluşturabilirsiniz. Bu öğreticide, PowerShell kullanılır. Azure portalını kullanarak bir sanal ağ oluşturmak için bkz [sanal ağ oluşturma](../virtual-network/quick-create-portal.md). Bu makalede, sanal ağ (Resource Manager) oluşturma yer almaktadır, ancak bulut Hizmetleri için sanal ağ (Klasik) oluşturmanız gerekir. Portalda Bunu yapmak için **kaynak Oluştur**, türü *sanal ağ* içinde **arama** kutusuna ve ardından basın **Enter**. Arama sonuçlarında altında **her şeyi**seçin **sanal ağ**. Altında **dağıtım modeli seçin**seçin **Klasik**, ardından **Oluştur**. Ardından, bu makaledeki adımları izleyebilirsiniz.
 
 ```powershell
 #Create Virtual Network
@@ -64,7 +64,7 @@ Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath
 ```
 
 ## <a name="create-a-virtual-machine"></a>Bir Sanal Makine Oluşturun
-Sanal ağı kurma tamamladıktan sonra bir AD etki alanı denetleyicisi oluşturmanız gerekir. Bu öğretici için size bir AD etki alanı denetleyicisi üzerinde bir Azure sanal makine ayarlarını yapacak.
+Sanal ağ ayarlama tamamladıktan sonra AD etki alanı denetleyicisi oluşturmak gerekir. Bu öğretici için size bir AD etki alanı denetleyicisi üzerinde bir Azure sanal makine ayarlarını yapacak.
 
 Bunu yapmak için aşağıdaki komutları kullanarak PowerShell aracılığıyla bir sanal makine oluşturun:
 
@@ -86,19 +86,19 @@ New-AzureQuickVM -Windows -ServiceName $vmsvc1 -Name $vm1 -ImageName $imgname -A
 ```
 
 ## <a name="promote-your-virtual-machine-to-a-domain-controller"></a>Sanal makinenize bir etki alanı denetleyicisine Yükselt
-Sanal makineyi bir AD etki alanı denetleyicisi olarak yapılandırmak için VM için oturum açın ve yapılandırmanız gerekir.
+Sanal makine bir AD etki alanı denetleyicisi olarak yapılandırmak için VM'de oturum açın ve yapılandırmanız gerekir.
 
-VM oturum açmak için RDP dosyasını PowerShell aracılığıyla almak, aşağıdaki komutları kullanın:
+VM'de oturum açmak için PowerShell üzerinden RDP dosyası alma, aşağıdaki komutları kullanın:
 
 ```powershell
 # Get RDP file
 Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-path>
 ```
 
-VM oturum açtıktan sonra sanal makineniz adım adım kılavuzu izleyerek bir AD etki alanı denetleyicisi ayarlamak [müşterinizi AD etki alanı denetleyicisi ayarlamak nasıl](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
+VM'de oturum açtıktan sonra sanal makineyi bir AD etki alanı denetleyicisi olarak adım adım kılavuzu izleyerek ayarlayın. [müşterinizi AD etki alanı denetleyicisini ayarlama](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
-## <a name="add-your-cloud-service-to-the-virtual-network"></a>Bulut hizmetiniz için sanal ağ ekleme
-Ardından, yeni Vnet'in bulut hizmeti dağıtımınızı eklemeniz gerekir. Bunu yapmak için Visual Studio ya da bir düzenleyiciyi kullanarak, cscfg ilgili bölümlerine ekleyerek, bulut hizmeti cscfg değiştirin.
+## <a name="add-your-cloud-service-to-the-virtual-network"></a>Bulut hizmetinizin sanal ağa ekleyin.
+Ardından, bulut hizmeti dağıtımınız yeni bir sanal ağa eklemeniz gerekir. Bunu yapmak için Visual Studio veya tercih ettiğiniz düzenleyiciyi kullanarak, cscfg için ilgili bölümlerine ekleyerek, bulut hizmeti cscfg değiştirin.
 
 ```xml
 <ServiceConfiguration serviceName="[hosted-service-name]" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="[os-family]" osVersion="*">
@@ -129,10 +129,10 @@ Ardından, yeni Vnet'in bulut hizmeti dağıtımınızı eklemeniz gerekir. Bunu
 </ServiceConfiguration>
 ```
 
-Sonraki bulut Hizmetleri projeyi oluşturun ve Azure'a dağıtın. Bulut Hizmetleri paketinizi Azure'a dağıtma konusunda yardım almak için bkz: [nasıl oluşturulacağı ve bir bulut hizmeti dağıtma](cloud-services-how-to-create-deploy-portal.md)
+Ardından cloud services projenizi derleyin ve Azure'a dağıtın. Azure'a, bulut Hizmetleri paketi dağıtma konusunda yardım almak için bkz: [nasıl bir bulut hizmeti oluşturma ve dağıtma](cloud-services-how-to-create-deploy-portal.md)
 
-## <a name="connect-your-webworker-roles-to-the-domain"></a>Web/çalışan rolleri etki alanına bağlayın
-Bulut hizmeti projenizi Azure üzerinde dağıtıldığında, rolü örneklerinizi AD etki alanı uzantısını kullanarak özel AD etki alanına bağlayın. AD etki alanı uzantısı, var olan bulut Hizmetleri dağıtımına eklemek ve özel etki alanına katılmak için PowerShell içinde aşağıdaki komutları çalıştırın:
+## <a name="connect-your-webworker-roles-to-the-domain"></a>Web/çalışan rollerinizi etki alanına bağlayın.
+Bulut hizmeti projenizi Azure'da dağıtıldığında, rol örneklerinizin AD etki alanı uzantısı kullanarak özel AD etki alanına bağlayın. AD etki alanı uzantısı var olan bulut Hizmetleri dağıtıma ekleme ve özel etki alanına katılmak için PowerShell'de aşağıdaki komutları yürütün:
 
 ```powershell
 # Initialize domain variables
@@ -148,9 +148,9 @@ $dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd
 Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-name> -Role <your-role-name> -Slot <staging-or-production> -DomainName $domain -Credential $dmcred -JoinOption 35
 ```
 
-Ve bu kadar.
+Ve İşte bu kadar.
 
-Bulut Hizmetleri, özel etki alanı denetleyicisine katılması. AD etki alanı uzantısını yapılandırmak nasıl kullanılabilir farklı seçenekler hakkında daha fazla bilgi edinmek istiyorsanız, PowerShell Yardımı kullanın. Örnekler izleyin birkaç:
+Cloud services, özel etki alanı denetleyicisine katılması. AD etki alanı uzantısı nasıl yapılandıracağınızı öğrenmek için kullanılabilen farklı seçenekler hakkında daha fazla bilgi edinmek istiyorsanız, PowerShell Yardımı kullanın. Birkaç örnek izleyin:
 
 ```powershell
 help Set-AzureServiceADDomainExtension

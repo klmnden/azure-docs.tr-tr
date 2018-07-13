@@ -56,7 +56,7 @@ Aşağıdaki örnekte TextFormat için bazı biçim özellikleri gösterilmişti
 * Bir metin dosyasından kopyalama yapıyorsunuz ve dosyanın başındaki veri içermeyen veya üst bilgi bilgilerini içeren birkaç satırı atlamak istiyorsunuz. Atlanacak satır sayısını belirtmek için `skipLineCount` değerini belirtin. Dosyanın geri kalan kısmında üst bilgi satırı varsa `firstRowAsHeader` değerini de belirtebilirsiniz. Hem `skipLineCount` hem de `firstRowAsHeader` parametresi belirtilirse önce satırlar atlanır, ardından giriş dosyasındaki üst bilgi bilgileri okunur.
 
 ### <a name="specifying-jsonformat"></a>JsonFormat belirtme
-İçin **içeri/dışarı aktarma olarak JSON dosyaları-olduğu içine/Azure Cosmos DB'den**, bkz: [içeri/dışarı aktarma JSON belgeleri](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) ayrıntıları Azure Cosmos DB bağlayıcısıyla bölümünde.
+İçin **olarak JSON dosyalarını içeri/dışarı aktarma-olan içine buralardan Azure Cosmos DB**, bkz: [içeri/dışarı aktarma JSON belgelerini](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) Azure Cosmos DB Bağlayıcısı ile Ayrıntılar bölümünde.
 
 JSON dosyalarını ayrıştırmak veya verileri JSON biçiminde yazmak istiyorsanız `format` `type` özelliğini **JsonFormat** olarak ayarlayın. İsterseniz `format` bölümünde aşağıdaki **isteğe bağlı** özellikleri de belirtebilirsiniz. Yapılandırma adımları için [JsonFormat örneği](#jsonformat-example) bölümünü inceleyin.
 
@@ -201,7 +201,7 @@ ve hem nesne hem de diziden veri ayıklayarak bir Azure SQL tablosuna aşağıda
 **JsonFormat** türüne sahip giriş veri kümesi şu şekilde tanımlanır: (yalnızca ilgili bölümlerin gösterildiği kısmi tanım). Daha ayrıntılı belirtmek gerekirse:
 
 - `structure` bölümü, tablo verilerine dönüştürme sırasında kullanılan özelleştirilmiş sütun adlarını ve karşılık gelen veri türünü tanımlar. Bu bölüm **isteğe bağlıdır** ve yalnızca sütun eşleme için kullanmanız gerekir. Ayrıntılı bilgi için bkz. [Dikdörtgen veri kümeleri için yapı tanımını belirtme](#specifying-structure-definition-for-rectangular-datasets).
-- `jsonPathDefinition`, her sütun için verilerin ayıklanacağı JSON yolunu belirtir. Verileri diziden kopyalamak için **array[x].property** öğesini kullanarak söz konusu özelliğin değerini xth nesnesinden ayıklayabilir veya **array[*].property** öğesini kullanarak bu özelliği içeren herhangi bir nesneden değeri bulabilirsiniz.
+- `jsonPathDefinition`, her sütun için verilerin ayıklanacağı JSON yolunu belirtir. Verileri diziden kopyalamak için kullanabilirsiniz **array [x] .property** belirtilen özelliğin değerini xth nesne veya, ayıklamak için kullanabileceğiniz **array [*] .property** gibi içeren herhangi bir nesneden değeri bulmak için özellik.
 
 ```json
 "properties": {

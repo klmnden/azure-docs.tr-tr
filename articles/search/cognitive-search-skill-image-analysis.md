@@ -1,48 +1,45 @@
 ---
-title: Analiz bilişsel arama nitelik (Azure Search) görüntü | Microsoft Docs
-description: Bir Azure Search iyileştirmesini ardışık düzeninde ImageAnalysis bilişsel yeteneği kullanarak görüntü analiz aracılığıyla anlamsal metin çıkarın.
+title: Görüntü analizi bilişsel arama beceri (Azure Search) | Microsoft Docs
+description: Bir Azure Search zenginleştirme hattında ImageAnalysis bilişsel yeteneği kullanarak görüntü analizi aracılığıyla anlam metin ayıklayın.
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: dd26dbe34cd04d1ad3184e2cd62afae5166ac914
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ad1946436b2b5bab55ff53dcce09446ef1220829
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640515"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008877"
 ---
-#   <a name="image-analysis-cognitive-skill"></a>Görüntü analiz bilişsel nitelik
+#   <a name="image-analysis-cognitive-skill"></a>Görüntü analizi bilişsel beceri
 
-**Görüntü analiz** yetenek zengin bir görüntü içeriğine göre görsel özellikleri ayıklar. Örneğin, bir resim yazısı görüntüden oluşturmak, etiketleri oluşturmak veya çok ünlüler ve bilinen yerler belirlemek.
+**Görüntü analizi** beceri zengin görsel özellikleri görüntüsü içeriğine göre ayıklar. Örneğin, bir görüntüden bir açıklamalı alt yazı oluştur, etiketleri oluşturmak veya ünlüleri ve önemli yerleri belirlemek.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
 
 ## <a name="skill-parameters"></a>Yetenek parametreleri
 
-Parametreleri büyük/küçük harfe duyarlıdır.
+Parametreler büyük/küçük harfe duyarlıdır.
 
 | Parametre adı     | Açıklama |
 |--------------------|-------------|
-| defaultLanguageCode   |  Döndürülecek dil gösteren bir dize. Hizmet, belirtilen bir dilde tanıma sonuçlarını döndürür. Bu parametre belirtilmezse, varsayılan değer "tr" dir. <br/><br/>Desteklenen diller şunlardır: <br/>*tr* -İngilizce (varsayılan) <br/> *zh* -Basitleştirilmiş Çince|
-|visualFeatures |   Döndürülecek görsel özellik türleri belirten bir dizeler dizisi. Geçerli görsel özellik türleri şunlardır:  <ul><li> *Kategoriler* -görüntü içeriği Bilişsel hizmetler tanımlı bir sınıflandırma göre kategorilere ayıran [belgelerine](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *Etiketler* -ayrıntılı görüntü içerikle ilgili sözcüklerin listesini görüntüyle etiketler.</li><li>*Açıklama* -görüntü ile İngilizce tam bir cümle içeriği açıklar.</li><li>*Yazıtipleri* -yüzeyleri mevcut olup olmadığını algılar. Varsa, koordinatları, cinsiyetiniz ve yaş oluşturur.</li><li> *ImageType* -görüntü küçük resim veya çizgi çizme olup olmadığını algılar.</li><li>   *Renk* -Aksan rengi, baskın rengi belirler ve bir görüntü siyah olup beyaz.</li><li>*Yetişkin* -görüntü (çıplak görüntüler veya seks act gösterilmektedir) doğası gereği pornografik olup olmadığını algılar. Cinsel müstehcen içerik de algılandı.</li></ul> Görsel özellik adları büyük/küçük harfe duyarlıdır.|
-| ayrıntılar   | Döndürülecek hangi etki alanına özgü ayrıntıları gösteren bir dizeler dizisi. Geçerli görsel özellik türleri şunlardır: <ul><li>*Çok ünlüler* -çok ünlüler görüntüde algıladıysa tanımlar.</li><li>*Yer işaretlerini* -görüntüde algıladıysa işaretleri tanımlar.</li></ul>
+| defaultLanguageCode   |  Döndürülecek dil belirten bir dize. Hizmet, belirli bir dilde tanıma sonuçları döndürür. Bu parametre belirtilmezse, varsayılan değer "en" dir. <br/><br/>Desteklenen diller şunlardır: <br/>*tr* -İngilizce (varsayılan) <br/> *zh* -Basitleştirilmiş Çince|
+|visualFeatures |   Döndürülecek visual özelliği türlerini belirten bir dize dizisi. Geçerli görsel özellik türleri şunlardır:  <ul><li> *kategorileri* -görüntü içeriğini Bilişsel hizmetler tanımlanmış bir taksonomi göre kategorilere ayırır [belgeleri](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *etiketleri* -görüntünün bir kelimelerin görüntü içerikle ilgili ayrıntılı bir liste ile etiketler.</li><li>*Açıklama* -tam İngilizce bir cümle ile içerik görüntüsü açıklar.</li><li>*Yüzleri* -yüzleri mevcut olup olmadığını algılar. Varsa, koordinatları, cinsiyet ve yaş oluşturur.</li><li> *ImageType* -görüntüyü küçük resim veya çizim olup olmadığını algılar.</li><li>   *Renk* -baskın renk, Vurgu rengi belirler ve bir resmin siyah olup olmadığını beyaz.</li><li>*Yetişkin* -görüntü (çıplaklık veya seks Yasası gösterilmektedir) doğası gereği pornografik olup olmadığını algılar. Cinsel müstehcen içerik de algılandı.</li></ul> Görsel özellikleri adları büyük/küçük harfe duyarlıdır.|
+| ayrıntılar   | Döndürülecek hangi etki alanına özgü ayrıntıları belirten bir dize dizisi. Geçerli görsel özellik türleri şunlardır: <ul><li>*Ünlüleri* -ünlüleri görüntüde algılanırsa tanımlar.</li><li>*Yer işareti* -görüntüde algılanırsa yer işareti tanımlar.</li></ul>
  |
 
-## <a name="skill-inputs"></a>Yetenek girişleri
+## <a name="skill-inputs"></a>Beceri girişleri
 
-| Giriş adı      | Açıklama                                          |
+| Adı girin      | Açıklama                                          |
 |---------------|------------------------------------------------------|
-| görüntü         | Karmaşık türü. "/ Belge/normalized_images" alan şu anda yalnızca çalışır Azure Blob Oluşturucu tarafından üretilen zaman ```imageAction``` ayarlanır ```generateNormalizedImages```. Bkz: [örnek](#sample-output) daha fazla bilgi için.|
+| image         | Karmaşık tür. "/ Belge/normalized_images" alan şu anda yalnızca çalışır, Azure Blob Dizin Oluşturucu tarafından üretilen olduğunda ```imageAction``` ayarlanır ```generateNormalizedImages```. Bkz: [örnek](#sample-output) daha fazla bilgi için.|
 
 
 
@@ -51,6 +48,7 @@ Parametreleri büyük/küçük harfe duyarlıdır.
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+    "context": "/document/normalized_images/*",
     "visualFeatures": [
         "Tags",
         "Faces",
@@ -233,20 +231,20 @@ Parametreleri büyük/küçük harfe duyarlıdır.
 
 
 ## <a name="error-cases"></a>Hata durumları
-Aşağıdaki hata durumlarda öğe ayıklanır.
+Aşağıdaki hata durumlarda hiçbir öğe ayıklanır.
 
 | Hata Kodu | Açıklama |
 |------------|-------------|
-| NotSupportedLanguage | Sağlanan dili desteklenmiyor. |
+| NotSupportedLanguage | Sağlanan dil desteklenmiyor. |
 | InvalidImageUrl | Resim URL'si hatalı biçimlendirilmiş veya erişilebilir değil.|
 | InvalidImageFormat | Giriş verileri geçerli bir görüntü değil. |
-| InvalidImageSize | Giriş resim çok büyük. |
+| InvalidImageSize | Girdi görüntüsünün çok büyük. |
 | NotSupportedVisualFeature  | Belirtilen özellik türü geçerli değil. |
-| NotSupportedImage | Desteklenmeyen bir görüntü, örneğin, çocuk pornografisi. |
-| InvalidDetails | Desteklenmeyen etki alanına özgü modeli. |
+| NotSupportedImage | Desteklenmeyen görüntü, örneğin, çocuk pornografisi. |
+| InvalidDetails | Desteklenmeyen özel etki alanı modeli. |
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-+ [Önceden tanımlanmış yetenekleri](cognitive-search-predefined-skills.md)
-+ [Bir skillset tanımlama](cognitive-search-defining-skillset.md)
++ [Önceden tanımlanmış beceriler](cognitive-search-predefined-skills.md)
++ [Bir beceri kümesi tanımlama](cognitive-search-defining-skillset.md)
 + [Dizin Oluşturucu (REST) oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

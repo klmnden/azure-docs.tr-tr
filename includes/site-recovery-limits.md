@@ -1,6 +1,6 @@
 ---
-title: Site kurtarma sınırları tablosu
-description: Sistem sınırları için Site Recovery açıklar.
+title: Tablo Site Recovery limitleri
+description: Site Recovery için sistem sınırlarını açıklar.
 services: site recovery
 documentationcenter: NA
 author: csilauraa
@@ -14,20 +14,20 @@ ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
 ms.openlocfilehash: e0694aa8c5226b794be59358e73751cc493a7e95
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23906967"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38756103"
 ---
-Aşağıdaki sınırları Azure Site kurtarma için geçerlidir:
+Azure Site Recovery için aşağıdaki sınırlar geçerlidir:
 
-| SINIR TANIMLAYICISI | VARSAYILAN SINIRI |
+| SINIR TANIMLAYICI | VARSAYILAN SINIR |
 | --- | --- | --- | --- |
-| Kasa abonelik başına sayısı |25 |
-| Sunucuları Azure kasa başına sayısı |250 |
-| Koruma grupları Azure kasa başına sayısı |Sınırsız |
-| Azure kurtarma planlarınızı sayısı kasa |Sınırsız |
-| Koruma grubu başına sunucularının sayısı |Sınırsız |
+| Kasaları başına abonelik sayısı |25 |
+| Azure kasası başına sunucularının sayısı |250 |
+| Koruma grupları Azure kasası başına sayısı |Sınırsız |
+| Kurtarma planlarına Azure başına sayısını kasası |Sınırsız |
+| Koruma grubu başına sunucu sayısı |Sınırsız |
 | Kurtarma planı başına sunucularının sayısı |50 |
 

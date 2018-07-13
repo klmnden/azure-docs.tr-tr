@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: e9bd1f91f7e7fac1b882c89ffb2195491ca2c07b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: bbbfc495f1ec262ccc067f3cd00b75e1a3e0c178
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929942"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990202"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Azure Active Directory ile SaaS uygulama tümleştirmesi
 
@@ -109,7 +109,7 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-blackboard-learn-shibboleth-tutorial.png)| [-Shibboleth Yazı tahtası öğrenin](blackboard-learn-shibboleth-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-bluejeans-tutorial.png)| [BlueJeans](bluejeans-tutorial.md)|[BlueJeans - kullanıcı sağlama](bluejeans-provisioning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-bomgarremotesupport-tutorial.png)| [Bomgar uzak destek](bomgarremotesupport-tutorial.md)|
-| ![Logo](./media/tutorial-list/active-directory-saas-bonus-tutorial.png)| [Bonusly](bonus-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-bonus-tutorial.png)| [Bonusly](bonus-tutorial.md)|[Bonusly - kullanıcı sağlama](bonusly-provisioning-tutorial.md)
 | ![Logo](./media/tutorial-list/active-directory-saas-boomi-tutorial.png)| [Boomi](boomi-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-box-tutorial.png)| [Kutusu](box-tutorial.md)| [Kutusu - kullanıcı sağlama](box-userprovisioning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-boxcryptor-tutorial.png)| [Boxcryptor](boxcryptor-tutorial.md)|
@@ -139,7 +139,7 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-ciscocloud-tutorial.png)| [Cisco bulut](ciscocloud-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-ciscocloudlock-tutorial.png)| [Cisco Cloudlock](ciscocloudlock-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|[Cisco Spark - kullanıcı sağlama](cisco-spark-provisioning-tutorial.md)|
-| ![Logo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|[Cisco Webex - kullanıcı sağlama](cisco-webex-provisioning-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|)|[Cisco Webex - kullanıcı sağlama](cisco-webex-provisioning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](sharefile-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)|[Clarizen - kullanıcı sağlama](clarizen-provisioning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Gözden geçirme Temizle](clearreview-tutorial.md)|
@@ -178,7 +178,7 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-dome9arc-tutorial.png)| [Dome9 yay](dome9arc-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-domo-tutorial.png)| [Domo](domo-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-dowjones-factiva-tutorial.png)| [Pencere Jones Factiva](dowjones-factiva-tutorial.md)|
-| ![Logo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [İş için Dropbox](dropboxforbusiness-tutorial.md)| [Dropbox - iş için kullanıcı sağlama](dropboxforbusiness-provisioning-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [İş için Dropbox](dropboxforbusiness-tutorial.md)| [Dropbox - iş için kullanıcı sağlama](dropboxforbusiness-provisioning-tutorial.md)| 
 | ![Logo](./media/tutorial-list/active-directory-saas-druva-tutorial.png)| [Druva](druva-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-dynamicsignal-tutorial.png)| [Dinamik sinyali](dynamicsignal-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-easyterritory-tutorial.png)| [EasyTerritory](easyterritory-tutorial.md)|

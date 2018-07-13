@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: SQL zaman uyumsuz Java API, SDK & kaynakları | Microsoft Docs'
-description: SQL zaman uyumsuz Java API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB SQL zaman uyumsuz Java SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
+title: 'Azure Cosmos DB: SQL Async Java API, SDK ve kaynakları | Microsoft Docs'
+description: Tüm SQL Async Java API'si ve yayın tarihleri, sona erme tarihlerini ve her bir Azure Cosmos DB SQL Async Java SDK'sı sürümü arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -10,17 +10,17 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 06/20/2018
 ms.author: sngun
-ms.openlocfilehash: e4a3b3a482f56065c54525a4d9cd7971f50f5b2a
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 97c7051252ecc8a29cf487f74a68055cd2b3e163
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300688"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990285"
 ---
-# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Cosmos DB zaman uyumsuz Java için Azure SDK SQL API: sürüm notları ve kaynakları
+# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET değişiklik besleme](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET değişiklik akışı](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -29,26 +29,26 @@ ms.locfileid: "36300688"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Kaynak Sağlayıcısı](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Bulkexecutor'a - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulkexecutor'a - Java](sql-api-sdk-bulk-executor-java.md)
 
-SQL API zaman uyumsuz Java SDK'sını desteği ile zaman uyumsuz işlemleri sağlayarak SQL API Java SDK'sını farklı [Netty Kitaplığı](http://netty.io/). Önceden varolan [SQL API Java SDK'sını](sql-api-sdk-java.md) zaman uyumsuz işlemleri desteklemez. 
+SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL API Java SDK'sından farklıdır [Netty Kitaplığı](http://netty.io/). Önceden varolan [SQL API Java SDK'sı](sql-api-sdk-java.md) zaman uyumsuz işlemleri desteklemez. 
 
 <table>
 
-<tr><td>**SDK yükleme**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
+<tr><td>**SDK'sını indirme**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**API belgeleri**</td><td>[Java API başvuru belgeleri](https://azure.github.io/azure-cosmosdb-java/)</td></tr>
+<tr><td>**API belgeleri**</td><td>[Java API başvuru belgeleri](https://docs.microsoft.com/java/api/cosmosdb/client/async?view=azure-java-stable)</td></tr>
 
-<tr><td>**SDK katkıda bulunan**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
+<tr><td>**SDK'sı için katkıda bulunan**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
-<tr><td>**Kullanmaya başlama**</td><td>[Zaman uyumsuz Java SDK'sı ile çalışmaya başlama](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
+<tr><td>**Kullanmaya başlama**</td><td>[Async Java SDK'sı ile çalışmaya başlama](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
 
-<tr><td>**kod örneği**</td><td>[Github](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
+<tr><td>**Kod örneği**</td><td>[Github](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
 
-<tr><td>**Performans ipuçları**</td><td>[Github Benioku dosyası](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
+<tr><td>**Performans ipuçları**</td><td>[Github Benioku](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
 
-<tr><td>**Minimum desteklenen çalışma zamanı**</td><td>[JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)</td></tr>
+<tr><td>**En düşük desteklenen çalışma zamanı**</td><td>[JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
@@ -56,51 +56,51 @@ SQL API zaman uyumsuz Java SDK'sını desteği ile zaman uyumsuz işlemleri sağ
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * Performansı artırmak ve lisans nedeniyle org.JSON bağımlılık jackson tarafından değiştirildi ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
 * Kullanım dışı OfferV2 sınıfı kaldırıldı.
-* Üretilen iş içerik teklif sınıfına yöntemi eklenen erişimcisi.
-* Herhangi bir yöntem belge/kaynak nesne türü bir jackson döndürülecek değiştirilen org.json türleri döndürüyor.
-* jackson ObjectNode dönmek için genişletme JsonSerializable değiştirilen sınıfların getObject(.) yöntemi yazın.
-* getCollection(.) yöntemi, koleksiyon ObjectNode döndürülecek değişti.
-* Kaldırılan JsonSerializable alt sınıfların oluşturucularla org.json.JSONObject bağımsız değişken.
-* JsonSerializable.toJson (SerializationFormattingPolicy.Indented), artık girintileme için iki alanları kullanır.
+* İçerik aktarım hızı için teklif sınıfı eklendi erişimci yöntemi.
+* Herhangi bir yöntem belge/kaynağında org.json türleri bir jackson nesne türü döndürmek için değiştirildi.
+* jackson ObjectNode döndürülecek genişletme JsonSerializable değiştirilen sınıfları getObject(.) yöntemi yazın.
+* getCollection(.) yöntemi, koleksiyon ObjectNode döndürülecek değiştirildi.
+* Kaldırılan JsonSerializable kılabileceği oluşturucularla org.json.JSONObject bağımsız değişken.
+* JsonSerializable.toJson (SerializationFormattingPolicy.Indented), artık iki boşluk girintileme için kullanır.
   
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
-* Benzersiz bir dizin ilke desteği eklendi.
-* Yanıt devamlılık belirteci boyutu akışı seçenekleri sınırlamak için destek eklendi.
-* Bölüm sorgusu çapraz bölüm bölmedeki desteği eklendi.
-* Json zaman damgası seri hale getirme hatanın düzeltildiğini ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
-* Bir hata Json enum seri hale getirme sabit.
-* 2 MB boyutunda belgeleri yönetme hatanın düzeltildiğini ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
-* Bağımlılık com.fasterxml.jackson.core:jackson-databind 2.9.5 bir hata nedeniyle yükseltildiğinde ([jackson databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
-* Bir hata nedeniyle 0.8.0.17 yükseltildiğinde rxjava-ek özellikler bağımlılığını ([rxjava ek özellikler: #30 github](https://github.com/davidmoten/rxjava-extras/issues/30)).
-* Meta veri açıklamasını pom dosyasında satır içi belgelerine kalanıyla olacak şekilde güncelleştirildi.
-* Sözdizimi geliştirme ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+* Benzersiz bir dizin ilke için destek eklendi.
+* Akış seçenekleri yanıt devamlılık belirteci boyutu sınırlama için destek eklendi.
+* Çapraz bölüm sorgusunun bölüm bölmedeki desteği eklendi.
+* Json zaman damgası serileştirme düzeltildi ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Json enum serileştirme düzeltildi.
+* 2 MB boyutunda Belge yönetiminde bir hata düzeltildi ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Bağımlılık com.fasterxml.jackson.core:jackson-databind 2.9.5 bir hata nedeniyle yükseltme ([jackson databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
+* Bir hata nedeniyle 0.8.0.17 yükseltme rxjava-ek özellikler bağımlılık ([rxjava ek özellikler: #30 github](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* Meta veri açıklamasını pom dosyasına satır içi belgeler geri kalanıyla olacak şekilde güncelleştirildi.
+* Söz dizimi geliştirme ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
 
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
-* Sorgu geri baskısı destek eklendi.
-* Bölüm anahtarı aralığının kimliği sorgusunda desteği eklendi.
-* İstek üstbilgisinde (bugfix github #24) daha büyük devamlılık belirteci izin verecek şekilde düzeltin.
-* Ana iş parçacığı bittikten sonra JVM emin olmak için 4.1.22.Final için yükseltilmiş netty bağımlılık kapanır.
-* Oturum belirteci ana kaynaklar okunurken geçirmemek düzeltin.
+* Sorgu geri baskısı desteği eklendi.
+* Sorgu bölüm anahtar aralığı kimliği desteği eklendi.
+* Daha büyük bir devamlılık belirteci (hata düzeltmesi github #24) istek üst bilgisinde izin verecek şekilde düzeltin.
+* Ana iş parçacığı sonlandırıldıktan sonra JVM sağlamak için 4.1.22.Final yükseltilmiş netty bağımlılık kapanır.
+* Oturum belirteci ana kaynaklarını okurken geçirmekten kaçının düzeltin.
 * Daha fazla örnek eklendi.
 * Daha fazla Kıyaslama senaryoları eklenir.
-* Sabit Java üstbilgi dosyaları uygun java belge oluşturma için.
+* Uygun java belge oluşturma için sabit Java üst bilgi dosyaları.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* GA SDK engelleyici olmayan g/ç kullanarak uçtan uca desteği ile [Netty Kitaplığı](http://netty.io/) ağ geçidi modunda. 
+* GA SDK'sı ile engelleyici olmayan g/ç kullanarak uçtan uca Destek [Netty Kitaplığı](http://netty.io/) ağ geçidi modunda. 
 
 ## <a name="release-and-retirement-dates"></a>Yayın ve sona erme tarihleri
-Microsoft sağlayacaktır bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş kesintisiz için bir SDK devre dışı bırakmadan önce.
+Sağlar; Microsoft bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş hafifletmek için bir SDK'yı devre dışı bırakmadan önce.
 
-Yalnızca yeni özellikler ve işlevsellik ve en iyi duruma getirme geçerli SDK'sına eklenir. Bu nedenle, her zaman en son SDK sürüm olabildiğince erken yükseltmeniz önerilir.
+Yeni özellikleri ve işlevselliği ve iyileştirmeler yalnızca geçerli SDK'sı eklenir. Bu nedenle, her zaman en son SDK sürümüne mümkün olduğunca erken yükseltmeniz önerilir.
 
-Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir istek hizmeti tarafından reddedilir.
+Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm istekleri hizmet tarafından reddedilir.
 
 <br/>
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
-| [2.0.0](#2.0.0) |20 Haziran 2018|--- |
-| [1.0.2](#1.0.2) |18 May 2018|--- |
+| [2.0.0](#2.0.0) |20 Haziran 2018'e|--- |
+| [1.0.2](#1.0.2) |18 Mayıs 2018|--- |
 | [1.0.1](#1.0.1) |20 Nisan 2018|--- |
 | [1.0.0](#1.0.0) |27 Şubat 2018|--- |
 
@@ -108,5 +108,5 @@ Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir is
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Cosmos DB hakkında daha fazla bilgi için bkz: [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hizmet sayfası.
+Cosmos DB hakkında daha fazla bilgi için bkz: [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hizmeti sayfası.
 

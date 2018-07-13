@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 503dfc0c7606d44a1b9ab635aa0d479df61f3820
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: f4a9c14a63e2cab84ccc20f8f36b272d21eb8332
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435482"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004193"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Linux kapsayıcıları ile kullanmak için Windows Azure IOT Edge çalışma zamanını yükleyin
 
@@ -50,8 +50,9 @@ Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.z
 Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
 Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
 rmdir C:\ProgramData\iotedge\iotedged-windows
-$env:Path += ";C:\ProgramData\iotedge"
-SETX /M PATH "$env:Path"
+$sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+$path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+Set-ItemProperty -Path $sysenv -Name Path -Value $path
 ```
 
 Vcruntime kullanarak yükleyin:
@@ -140,7 +141,7 @@ IP adresiniz almak için girin `ipconfig` , PowerShell penceresinde. IP adresini
 
 ![DockerNat][img-docker-nat]
 
-Güncelleştirme **workload_uri** ve **management_uri** içinde **bağlanın:** yapılandırma dosyasının. Değiştirin **\<GATEWAY_ADDRESS\>** kopyaladığınız IP adresine sahip. 
+Güncelleştirme **workload_uri** ve **management_uri** içinde **bağlanın:** yapılandırma dosyasının. Değiştirin **\<GATEWAY_ADDRESS\>** kopyaladığınız DockerNAT IP adresine sahip. 
 
 ```yaml
 connect:
@@ -148,7 +149,7 @@ connect:
   workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Aynı adresi girin **dinleme:** ağ geçidi adresi IP adresinizi kullanarak yapılandırma bölümü.
+Aynı adresi girin **dinleme:** bölümü.
 
 ```yaml
 listen:
@@ -162,7 +163,7 @@ PowerShell penceresinde, bir ortam değişkenini oluşturmak **IOTEDGE_HOST** il
 [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
 ```
 
-Ortam değişkeni yeniden başlatmalar arasında kalıcı hale getirin.
+Ortam değişkenini yeniden başlatma işlemlerinden sonra kalıcı hale getirin.
 
 ```powershell
 SETX /M IOTEDGE_HOST "http://<GATEWAY_ADDRESS>:15580"

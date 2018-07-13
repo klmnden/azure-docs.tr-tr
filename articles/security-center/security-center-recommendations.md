@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme | Microsoft D
 description: Bu belge Azure Güvenlik Merkezi'nde öneriler, Azure kaynaklarınızı korumanıza ve güvenlik ilkelerine uygun kalın nasıl yardımcı aracılığıyla size yol gösterir.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: TerryLan
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2018
-ms.author: rkarlin
-ms.openlocfilehash: 7bb7f36338fe117a3e31834570b3ee5c3ae1b83b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.date: 07/12/2018
+ms.author: terrylan
+ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856442"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006623"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme
 Bu belge, Azure kaynaklarınızı korumanıza yardımcı olması için Azure Güvenlik Merkezi'nde öneriler kullanma hakkında bilgi vermektedir.
@@ -76,7 +76,7 @@ Aşağıdaki tabloda kullanılabilir öneriler ve uygulamanız durumunda her bir
 | [Abonelikler için veri toplamayı etkinleştirin](security-center-enable-data-collection.md) |Her abonelik sayınıza ve tüm Azure sanal makineleri (VM'ler) ve Azure olmayan bilgisayarlar için güvenlik ilkesinde veri toplamayı kapatma önerir. |
 | [Güvenlik yapılandırmalarını düzeltme](security-center-remediate-os-vulnerabilities.md) |İşletim sistemi yapılandırmalarınızı önerilen güvenlik yapılandırması kurallarını, örneğin hizalama, parolaların kaydedilmesine izin verme önerir. |
 | [Sistem güncelleştirmelerini uygulayın](security-center-apply-system-updates.md) |Windows ve Linux sanal makineleri ve bilgisayarlar için eksik sistem güvenliği güncelleştirmelerini ve kritik güncelleştirmeleri dağıtmanızı önerir. |
-| [Just-ın-Time geçerli ağ erişim denetimi](security-center-just-in-time.md) | Tam zamanında VM erişimini uygulanmasını önerir. Yalnızca zaman özellik önizlemededir ve Güvenlik Merkezi'nin standart katmanında kullanılabilir. Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md). |
+| [Just-ın-Time geçerli ağ erişim denetimi](security-center-just-in-time.md) | Tam zamanında VM erişimini uygulanmasını önerir. Tam zamanında özelliği Güvenlik Merkezi'nin standart katmanında kullanılabilir. Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md). |
 | [Sistem güncelleştirmelerinden sonra yeniden başlatın](security-center-apply-system-updates.md#reboot-after-system-updates) |Sistem güncelleştirmelerini uygulama işlemini tamamlamak için VM’yi yeniden başlatmanızı önerir. |
 | [Web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md) |Web uç noktaları için web uygulaması Güvenlik Duvarı (WAF) dağıtmanızı önerir. Bir WAF öneri, bir giden açık web bağlantı noktaları (80,443) ile ilişkili ağ güvenlik grubu olan tüm genel kullanıma yönelik IP için (örnek düzeyi IP veya yük dengeli IP) gösterilir. </br>Güvenlik Merkezi, sanal makinelerde ve App Service ortamında web uygulamalarınızı hedefleyen saldırılara karşı korumaya yardımcı olmak için bir WAF sağlamanızı önerir. App Service ortamı (ASE) olan bir [Premium](https://azure.microsoft.com/pricing/details/app-service/) hizmet planı seçeneği Azure App Service, Azure App Service uygulamalarını güvenli olarak çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlar. ASE hakkında daha fazla bilgi için bkz: [App Service ortamı belgeleri](../app-service/environment/intro.md).</br>Var olan WAF dağıtımlarınız için bu uygulamaları ekleyerek, birden çok web uygulaması Güvenlik Merkezi'nde koruyabilirsiniz. |
 | [Uygulama korumasını sonlandırma](security-center-add-web-application-firewall.md#finalize-application-protection) |Bir WAF yapılandırmasını tamamlamak için WAF gerecine trafiği gelmesi gerekir. Bu öneriyi şu gerekli Kurulum değişiklikleri tamamlar. |
@@ -95,6 +95,7 @@ Aşağıdaki tabloda kullanılabilir öneriler ve uygulamanız durumunda her bir
 | [Güvenlik açığı değerlendirmesi yüklü değil](security-center-vulnerability-assessment-recommendations.md) |Sanal makinenize bir güvenlik açığı değerlendirme çözümü yüklemenizi önerir. |
 | [Güvenlik açıklarını düzeltin](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |VM’nize yüklü güvenlik açığı değerlendirme çözümü tarafından algılanan sistem ve uygulama güvenlik açıklarını görmenizi sağlar. |
 | [Azure depolama hesabı için şifrelemeyi etkinleştirme](security-center-enable-encryption-for-storage-account.md) | Bekleyen veri için Azure depolama hizmeti şifrelemesi etkinleştirmenizi önerir. Azure depolama alanına yazılır ve alma önce şifrelerini çözer, verileri şifreleyerek depolama hizmeti şifrelemesi (SSE) çalışır. SSE, şu anda yalnızca Azure Blob hizmeti için kullanılabilir ve blok blobları, sayfa blobları için kullanılabilir ve ekleme blobları. Daha fazla bilgi için bkz. [bekleyen veriler için depolama hizmeti şifrelemesi](../storage/common/storage-service-encryption.md).</br>SSE, yalnızca Resource Manager depolama hesaplarında desteklenir. |
+| [Uyarlamalı uygulama denetimlerini etkinleştir](security-center-adaptive-application.md) | Uyarlamalı uygulama denetimleri, Windows vm'lerinde uygulanmasını önerir. Bu özellik Önizleme aşamasındadır ve Güvenlik Merkezi'nin standart katmanında kullanılabilir. Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md). |
 | App Service yalnızca HTTPS üzerinden erişilebilir olmalıdır | App Service'in erişim HTTPS üzerinden sınırı, yalnızca, önerir. |
 | Web uygulaması için Web yuvalarını devre dışı bırakılmalıdır| Web uygulamaları içinde Web yuvaları kullanımını dikkatle gözden geçirin önerir.  Web yuvaları Protokolü farklı güvenlik tehdidi türlerine savunmasızdır. |
 | Web uygulamanız için özel etki alanları kullanın | Bir web uygulaması kimlik avı gibi genel saldırılara ve DNS ile ilgili diğer saldırılara karşı korumak için özel etki alanları kullanmanızı önerir. |

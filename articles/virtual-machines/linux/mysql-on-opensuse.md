@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 88bd895cb3a384f1ada0394fe2da206aca86b981
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a5a6a43c41760e22a7aeb0e97aacc145c69957ff
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38670939"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006405"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Azure'da OpenSUSE Linux çalıştıran bir sanal makineye MySQL yükleme
 
@@ -33,13 +33,13 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya so
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>OpenSUSE Linux çalıştıran bir sanal makine oluşturma
 
-İlk olarak bir kaynak grubu oluşturun. Bu örnekte, kaynak grubunu şu adlandırma *mySQSUSEResourceGroup* ve içinde oluşturma *Doğu ABD* bölge.
+İlk olarak bir kaynak grubu oluşturun. Bu örnekte, kaynak grubunun adı *mySQSUSEResourceGroup* içinde oluşturulan ve *Doğu ABD* bölge.
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Bir VM oluşturun. Bu örnekte biz VM adlandırma *myVM*. Biz de bir VM boyutu kullanacaksanız *Standard_D2s_v3*, ancak seçmeniz gereken [VM boyutu](sizes.md) yükünüz için en uygun olduğunu düşündüğünüz.
+Bir VM oluşturun. Bu örnekte, VM adlı *myVM* ve VM boyutu *Standard_D2s_v3*, ancak seçmeniz gereken [VM boyutu](sizes.md) yükünüz için en uygun olduğunu düşündüğünüz.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -96,17 +96,30 @@ systemctl is-enabled mysql
 
 Bu döndürmelidir: etkin.
 
+Sunucuyu yeniden başlatın.
+
+```bash
+sudo reboot
+```
+
 
 ## <a name="mysql-password"></a>MySQL parolası
 
-Yüklemeden sonra MySQL kök parolası varsayılan olarak boştur. Çalıştırma **mysql\_güvenli\_yükleme** MySQL güvenli hale getirmek için komut dosyası. Betiği, MySQL kök parolası değiştirmek, anonim kullanıcı hesaplarını kaldırın, uzak kök oturum açmalar devre dışı bırakmak, test veritabanlarını kaldırmanız ve ayrıcalıkları tablo yeniden isteyip istemediğinizi sorar. 
+Yüklemeden sonra MySQL kök parolası varsayılan olarak boştur. Çalıştırma **mysql\_güvenli\_yükleme** MySQL güvenli hale getirmek için komut dosyası. Betiği, MySQL kök parolası değiştirmek, anonim kullanıcı hesaplarını kaldırın, uzak kök oturum açma devre dışı bırakmak, test veritabanlarını kaldırmanız ve ayrıcalıkları tablo yeniden isteyip istemediğinizi sorar. 
+
+Sunucu, ssh için VM yeniden yeniden başlatıldıktan sonra.
+
+```azurecli-interactive  
+ssh 10.111.112.113
+```
+
 
 
 ```bash
 mysql_secure_installation
 ```
 
-## <a name="log-in-to-mysql"></a>MySQL için oturum açın
+## <a name="sign-in-to-mysql"></a>MySQL için oturum açın
 
 Şimdi oturum açın ve MySQL isteminden girin.
 
@@ -136,7 +149,7 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
 Yalnızca veritabanı kullanıcı adları ve parolalar veritabanına bağlanırken betikler tarafından kullanılır.  Veritabanı kullanıcı hesabı adları gerçek kullanıcı hesapları sistem üzerindeki göstermez.
 
-Oturum açma başka bir bilgisayardan etkinleştirin. Bu örnekte, oturum açmak için istediğimiz bilgisayar IP adresidir *10.112.113.114*.
+Oturum açma başka bir bilgisayardan etkinleştirin. Bu örnekte, gelen oturum açma izin vermek için bilgisayar IP adresidir *10.112.113.114*.
 
 ```   
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';

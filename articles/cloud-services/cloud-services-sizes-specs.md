@@ -3,7 +3,7 @@ title: Sanal makine boyutları için Azure bulut Hizmetleri | Microsoft Docs
 description: Farklı sanal makine boyutları (ve kimlikleri) için Azure bulut hizmeti web ve çalışan rolleri listeler.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 490fd248cdd14858e2ca71f94dcb9dbaa5726f9c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: jeconnoc
+ms.openlocfilehash: 60ee7c2be29791db91db78472cc002e15390d36b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34608823"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004797"
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services boyutları
 Bu konuda sunulan boyutlar ve bulut Hizmeti rol örnekleri (web rolleri ve çalışan rolleri) için seçenekler açıklanmaktadır. Ayrıca, bu kaynakları kullanmayı planlarken dikkat edilmesi gereken dağıtım konuları sağlar. Her boyut, içine girdiğiniz Kimliğine sahip, [Hizmet tanım dosyası](cloud-services-model-and-package.md#csdef). Her boyut için fiyatlar kullanılabilir [bulut Hizmetleri fiyatlandırması](https://azure.microsoft.com/pricing/details/cloud-services/) sayfası.

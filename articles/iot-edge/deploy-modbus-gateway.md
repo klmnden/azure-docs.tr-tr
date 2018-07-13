@@ -8,14 +8,14 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 9e69faf1b07af0e60cfd21cd6eb9f00e211ab91e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 7c0ef019536d527775e4f5b959a155db3eacebbf
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031762"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006107"
 ---
-# <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Bir IOT kenar aygıt ağ geçidi üzerinden Modbus TCP aygıtları bağlayın
+# <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Bir IOT Edge ağ geçidi cihazı aracılığıyla Modbus TCP cihazlarını bağlama
 
 Modbus TCP veya RTU protokollerini kullanan IoT cihazlarını bir Azure IoT hub’ına bağlamak istiyorsanız ağ geçidi olarak bir IoT Edge cihazı kullanın. Ağ geçidi cihazı Modbus cihazlarınızdan verileri okur, sonra desteklenen bir protokolü kullanarak bu verileri buluta iletir. 
 
@@ -43,10 +43,10 @@ Kendi modülünüzü oluşturmak ve ortamınız için özelleştirmek istiyorsan
 
 ## <a name="run-the-solution"></a>Çözümü çalıştırın
 1. [Azure portalında](https://portal.azure.com/) IoT hub'ınıza gidin.
-2. Git **IOT kenar** ve IOT kenar Cihazınızda'ı tıklatın.
+2. Git **IOT Edge** ve IOT Edge Cihazınızda'ı tıklatın.
 3. **Modül ayarla**’yı seçin.
 4. Modbus modülünü ekleyin:
-   1. Tıklatın **Ekle** seçip **IOT kenar Modülü**.
+   1. Tıklayın **Ekle** seçip **IOT Edge Modülü**.
    2. **Ad** alanına "modbus" yazın.
    3. **Resim** alanına örnek kapsayıcının resim URI’sini girin: `microsoft/azureiotedge-modbus-tcp:1.0-preview`.
    4. Modül ikizinin istenen özelliklerini güncelleştirmek için **Etkinleştir** kutusunu işaretleyin.
@@ -87,8 +87,8 @@ Kendi modülünüzü oluşturmak ve ortamınız için özelleştirmek istiyorsan
    ```
 
 8. **İleri**’yi seçin. 
-9. İçinde **gözden geçirme dağıtım** adım, select **gönderme**. 
-10. Cihaz ayrıntıları sayfasına dönüp **Yenile**’yi seçin. Yeni görmelisiniz **modbus** IOT kenar çalışma zamanı ile birlikte çalışan modülü.
+9. **Dağıtımı Gözden Geçirin** adımında **Gönder**'i seçin. 
+10. Cihaz ayrıntıları sayfasına dönüp **Yenile**’yi seçin. Yeni görmelisiniz **modbus** IOT Edge çalışma zamanıyla birlikte çalıştığını modülü.
 
 ## <a name="view-data"></a>Verileri görüntüleme
 Modbus modülü üzerinden gelen verileri görüntüleyin:
@@ -96,11 +96,11 @@ Modbus modülü üzerinden gelen verileri görüntüleyin:
 docker logs -f modbus
 ```
 
-Ayrıca, [IoT Hub Gezgini aracını](https://github.com/azure/iothub-explorer) kullanarak cihazın gönderdiği telemetriyi görüntüleyebilirsiniz. 
+Ayrıca cihaz kullanarak gönderdiği telemetriyi görüntüleyebilirsiniz [IOT Hub Gezgini aracını](https://github.com/azure/iothub-explorer) veya [Visual Studio Code için Azure IOT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- IOT sınır cihazları ağ geçitleri olarak davranıp nasıl hakkında daha fazla bilgi için bkz: [saydam bir ağ geçidi olarak davranan bir IOT sınır cihazı oluşturma][lnk-transparent-gateway-linux]
+- IOT Edge cihazları nasıl ağ geçidi olarak görev yapabilir hakkında daha fazla bilgi için bkz: [saydam bir ağ geçidi olarak davranır bir IOT Edge cihazı oluşturma][lnk-transparent-gateway-linux]
 - IoT Edge modüllerinin nasıl çalıştığı hakkında daha fazla bilgi edinmek için bkz. [Azure IoT Edge modüllerini anlama](iot-edge-modules.md)
 
 <!-- Links -->

@@ -1,8 +1,8 @@
 ---
-title: Azure Application Insights analizleri için verilerinizi alma | Microsoft Docs
-description: Uygulama telemetri ile katılmak için statik verileri almak veya Analytics sorgusu için ayrı veri akışı alın.
+title: Azure Application Insights analiz için verilerinizi içeri aktarma | Microsoft Docs
+description: Ayrı veri akışını analiz ile sorgu aktarın veya uygulama telemetrisi ile birleştirmek için statik veri içeri aktarın.
 services: application-insights
-keywords: Şema, veri alma açın
+keywords: şeması, verileri içeri aktarma
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
@@ -13,92 +13,92 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293630"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989774"
 ---
-# <a name="import-data-into-analytics"></a>İçeri aktarma veri analizi
+# <a name="import-data-into-analytics"></a>Analiz verilerini içeri aktarma
 
-Hiç tablo verisi içine alın [Analytics](app-insights-analytics.md), kendisiyle katılmaya ya da [Application Insights](app-insights-overview.md) , uygulamanızdan alınan telemetri veya böylece ayrı bir akış olarak çözümleyebilirsiniz. Analytics telemetri yüksek hacimli zaman damgalı akışları çözümleme için oldukça uygun bir güçlü sorgu dildir.
+Herhangi bir tablo verileri içine aktarmak [Analytics](app-insights-analytics.md), ile katılmak için ya da [Application Insights](app-insights-overview.md) , uygulamanızdan alınan telemetri veya ayrı bir akış olarak analiz etmek. Analytics telemetri akışlarını yüksek hacimli zaman damgalı çözümleme için uygun bir güçlü sorgu dilidir.
 
-Veri kendi Şeması'nı kullanarak Analytics aktarabilirsiniz. İstek veya izleme gibi standart Application Insights şemalar kullanılacak sahip değil.
+Kendi şemanızı kullanarak Analytics'e verileri içeri aktarabilirsiniz. İstek veya izleme gibi standart Application Insights şemaları kullanın gerekmez.
 
-JSON veya DSV (sınırlayıcı virgülle ayrılmış değerler - virgül, noktalı virgül veya sekme) içe aktarabilirsiniz dosyaları.
+JSON veya DSV (sınırlayıcı sekmeyle ayrılmış değerler - virgül, noktalı virgül veya sekme) içe aktarabilirsiniz dosyaları.
 
-Analitik alma yararlı olduğu üç durumlar vardır:
+Analiz için içeri aktarma kullanışlı olduğu üç durumlar vardır:
 
-* **Uygulama telemetriyle katılın.** Örneğin, URL'ler, Web sitesinden daha okunabilir sayfa başlıkları eşleşen bir tablo içe aktarılamadı. Analizleri, on en popüler sayfa, Web sitenizdeki gösteren bir Pano grafiği rapor oluşturabilirsiniz. Şimdi bu URL'leri yerine sayfa başlıklarını gösterebilir.
-* **Uygulama telemetrinin bağıntısını** ağ trafiğini gibi diğer kaynaklar ile sunucu verilerini ya da CDN günlük dosyaları.
-* **Analiz için ayrı veri akışı uygulayın.** Uygulama Öngörüler Analytics seyrek, zaman damgalı akışları - SQL birçok durumda daha iyi ile iyi çalışan bir güçlü aracıdır. Bu tür bir akış başka bir kaynak sunucudan varsa Analytics ile analiz edebilirsiniz.
+* **Uygulama telemetrisi ile katılın.** Örneğin, URL'leri, Web sitesinden daha okunabilir sayfa başlığı eşleyen tablo içe aktaramadı. Analytics'te Web sitenize on en popüler sayfa gösteren bir Pano grafiği rapor oluşturabilirsiniz. Artık bu URL'leri yerine sayfa başlıklarının gösterebilirsiniz.
+* **Uygulama telemetrinizi bağıntısını** ağ trafiği gibi diğer kaynaklar ile sunucu verileri veya CDN günlük dosyaları.
+* **Analytics, ayrı bir veri akışı için geçerlidir.** Application Insights Analytics, seyrek olarak zaman damgalı akışları - SQL çoğu durumda çok daha iyi çalışan güçlü bir araç olan. Böyle bir akışa başka bir kaynaktan varsa, Analytics ile çözümleyebilirsiniz.
 
-Veri kaynağına veri gönderilirken kolaydır. 
+Veri kaynağınıza veri göndermek çok kolaydır. 
 
-1. (Bir saat) Verilerinizi 'veri kaynağında' şeması tanımlayın.
-2. (Düzenli aralıklarla) Verilerinizi Azure Storage'a yükler ve yeni veri alımı için bekliyor bize bildirin için REST API çağrısı. Birkaç dakika içinde veri analizi sorgu için kullanılabilir.
+1. (Bir kez) 'Veri kaynağında' verilerinizin şemasını tanımlar.
+2. (Düzenli aralıklarla) Verilerinizi Azure Depolama'ya yükler ve yeni veri alımı için bekleyen bize bildirmek için REST API çağrısı. Birkaç dakika içinde veri analytics'te sorgu için kullanılabilir.
 
-Karşıya yükleme frekansı sizin tarafınızdan ve ne kadar hızlı verilerinizi sorgular için kullanılabilir olmasını istediğiniz tanımlanır. Daha büyük öbek, ancak 1 GB'den büyük verileri yüklemek için daha verimli olur.
+Karşıya yükleme sıklığını, tarafından ve ne kadar hızlı sorgular için kullanılabilir olması için verilerinizi istediğiniz tanımlanır. Daha büyük öbekler halinde, ancak 1 GB'tan büyük veri yüklemek için daha verimlidir.
 
 > [!NOTE]
-> *Çok sayıda çözümlemek için veri kaynakları var mı?* [*Kullanmayı* logstash *verilerinizi uygulama Öngörüler sevk etmek.*](https://github.com/Microsoft/logstash-output-application-insights)
+> *Analiz etmek için veri kaynakları çok sayıda var mı?* [*Kullanmayı* logstash *Application Insights'a veri göndermeye.*](https://github.com/Microsoft/logstash-output-application-insights)
 > 
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
 Gerekenler:
 
-1. Microsoft Azure Application Insights kaynağı.
+1. Microsoft azure'da Application Insights kaynağı.
 
- * Verilerinizden ayrı olarak diğer telemetri analiz etmek isterseniz [yeni bir Application Insights kaynağı oluşturma](app-insights-create-new-resource.md).
- * Birleştirme ya da Application Insights ile zaten ayarlanmış bir uygulamadan telemetri verilerinizle karşılaştırma, bu uygulama için kaynak kullanabilirsiniz.
- * Bu kaynak katkıda bulunan veya sahibi erişim.
+ * Verilerinizden ayrı olarak diğer telemetriyi analiz etmek istiyorsanız [yeni bir Application Insights kaynağı oluşturun](app-insights-create-new-resource.md).
+ * Birleştirme ya da Application Insights ile önceden kurulmuş bir uygulamadan telemetri ile verilerinizi karşılaştırma, bu uygulama için kaynak kullanabilirsiniz.
+ * Bu kaynağa erişim katkıda bulunan veya sahip.
  
-2. Azure depolama. Azure depolama alanına yükleme ve analiz verilerinizi buradan alır. 
+2. Azure depolama. Azure depolama alanına yükleyin ve Analytics verilerinizi buradan alır. 
 
- * Bloblarınızın için ayrılmış depolama hesabı oluşturma öneririz. Diğer işlemlerle bloblarınızın paylaştırılmışsa bloblarınızın okumak bizim işlemleri için daha uzun sürer.
+ * Bloblarınızın için ayrılmış depolama hesabı oluşturma öneririz. Bloblarınızın diğer işlemlerle paylaşılır, bloblarınızın okumak sunduğumuz işlemleri için daha uzun sürer.
 
 
 ## <a name="define-your-schema"></a>Şemanızı tanımlayın
 
-Veri almadan önce tanımlamalısınız bir *veri kaynağı* verilerinizi şeması belirtir.
-Tek bir Application Insights kaynağı en fazla 50 veri kaynaklarına sahip olabilir
+Verileri içeri aktarmadan önce tanımlamalısınız bir *veri kaynağı* verilerinizin şemasını belirtir.
+Tek bir Application Insights kaynağı 50 adede kadar veri kaynaklarında olabilir
 
-1. Veri kaynağı Sihirbazı'nı başlatın. "Yeni veri kaynağı Ekle" düğmesini kullanın. Alternatif olarak - sağ üst köşedeki ayarlar düğmesine tıklayın ve açılan menüde "Veri kaynakları" seçin.
+1. Veri kaynağı Sihirbazı başlatın. "Yeni veri kaynağı Ekle" düğmesini kullanın. Alternatif olarak - sağ üst köşedeki ayarları düğmesine tıklayın ve açılan menüde "Veri kaynakları" öğesini seçin.
 
-    ![Yeni veri kaynağı ekleme](./media/app-insights-analytics-import/add-new-data-source.png)
+    ![Yeni veri kaynağı Ekle](./media/app-insights-analytics-import/add-new-data-source.png)
 
-    Yeni veri kaynağı için bir ad sağlayın.
+    Yeni veri kaynağınız için bir ad sağlayın.
 
-2. Karşıya yükleyecek dosyalarının biçimi tanımlayın.
+2. Karşıya yükleyeceğiniz dosyalarının biçimi tanımlayın.
 
-    Biçim manuel olarak tanımlamak veya bir örnek dosya karşıya yükleme.
+    Biçim manuel olarak tanımlamak veya örnek dosya yükleyin.
 
-    Veri CSV biçiminde ise, örnek ilk satırında sütun üst bilgileri olabilir. Sonraki adımda alan adlarını değiştirebilirsiniz.
+    CSV biçiminde verilerin ise örnek ilk satırını sütun üst bilgilerini olabilir. Sonraki adımda alan adlarını değiştirebilirsiniz.
 
-    Örnek, en az 10 satır veya veri kayıtlarının içermesi gerekir.
+    Örnek en az 10 satır veya veri kayıtlarının içermelidir.
 
-    Sütun veya alan adı alfasayısal adlarını (olmadan, boşluk veya noktalama) olması gerekir.
+    Sütun veya alan adları (olmadan, boşluk veya noktalama işareti) alfasayısal adlara sahip olmalıdır.
 
-    ![Örnek dosya karşıya yükleme](./media/app-insights-analytics-import/sample-data-file.png)
+    ![Örnek dosya yükleyin](./media/app-insights-analytics-import/sample-data-file.png)
 
 
-3. Sihirbaz var şema gözden geçirin. Bir örnek türlerinden çıkarımı yapılan sütunların oluşturulursa türlerini ayarlamak gerekebilir.
+3. Sihirbaz var şema gözden geçirin. Bir örnek türlerinden çıkarılan sütunları çıkarsanan tür ayarlamak gerekebilir.
 
     ![Çıkarsanan şema gözden geçirin](./media/app-insights-analytics-import/data-source-review-schema.png)
 
  * (İsteğe bağlı.) Bir şema tanımı karşıya yükleyin. Aşağıdaki biçimde bakın.
 
- * Bir zaman damgası seçin. Tüm veriler Analytics, zaman damgası alanı olması gerekir. Türü olmalıdır `datetime`, ancak 'timestamp' adlandırılmış olması sahip değil. Verilerinizi bir tarih ve saati ISO biçiminde içeren bir sütun varsa, bu zaman damgası sütunu olarak seçin. Aksi takdirde, "veri olarak gelen" seçin ve içeri aktarma işlemi zaman damgası alanı ekler.
+ * Bir zaman damgası'ı seçin. Analytics'te tüm verileri, zaman damgası alanı olması gerekir. Türü olmalıdır `datetime`, ancak 'timestamp' olarak adlandırılmasını gerekli değildir. Verilerinizi bir tarih ve saati ISO biçiminde içeren bir sütun varsa, bunu zaman damgası sütununu seçin. Aksi takdirde, "veri gelen"'i seçin ve içeri aktarma işlemi zaman damgası alanı ekler.
 
 5. Veri kaynağı oluşturun.
 
 ### <a name="schema-definition-file-format"></a>Şema tanımlama dosyası biçimi
 
-UI şemada düzenlemek yerine, bir dosyanın şema tanımını yükleyebilirsiniz. Şema tanım biçimi aşağıdaki gibidir: 
+Şema kullanıcı arabiriminde düzenleme yerine, bir dosyadan şema tanımı yükleyebilirsiniz. Şema tanımı biçimi aşağıdaki gibidir: 
 
-Sınırlandırılmış biçimi 
+Ayrılmış biçimi 
 ```
 [ 
     {"location": "0", "name": "RequestName", "type": "string"}, 
@@ -116,37 +116,38 @@ JSON biçimi
 ]
 ```
  
-Her sütun, adını ve konumunu türü tarafından tanımlanır. 
+Her sütun, konum, adı ve türüne göre tanımlanır.
 
-* Konum – ayrılmış dosya biçimlendirmek için eşlenen değer konumu değil. JSON için onu eşlenen anahtar jpath biçimidir.
+* Konum – ayrılmış dosya biçimlendirmek için konumudur eşlenen değer. JSON biçimi, bu eşlenen anahtarının jpath değil.
 * Adı – sütunun görüntülenen adı.
 * Türü – bu sütunun veri türü.
  
-Örnek verileri kullanıldı ve dosya biçimi ayrılmış durumda, şema tanımı tüm sütunları eşleme ve sonunda yeni sütunlar eklemeniz gerekir. 
-
-JSON veri kısmi bir eşleme sağlar, bu nedenle örnek verilerde bulunan her anahtar eşlemek JSON biçimini şema tanımı yok. Ayrıca, örnek verileri parçası olmayan sütunları de eşleyebilirsiniz. 
+> [!NOTE]
+> Örnek verileri kullanıldı ve dosya biçimi ayrılmış durumda şema tanımı tüm sütunları eşlemeniz ve sonunda yeni sütunlar eklemeniz gerekir.
+> 
+> JSON verileri kısmi bir eşleme sağlar, bu nedenle örnek verileri bulunan her anahtar eşleştirmek şema tanımı JSON biçiminde yok. Ayrıca, örnek verileri parçası olmayan sütunları da eşleyebilirsiniz. 
 
 ## <a name="import-data"></a>Veri içeri aktarma
 
-Veri almak için Azure depolama alanına yükleme, bir erişim anahtarı oluşturmak ve ardından bir REST API çağrısı yapın.
+Verileri içeri aktarmak için Azure depolamaya yükleme, bir erişim anahtarı oluşturun ve sonra bir REST API çağrısı yapın.
 
-![Yeni veri kaynağı ekleme](./media/app-insights-analytics-import/analytics-upload-process.png)
+![Yeni veri kaynağı Ekle](./media/app-insights-analytics-import/analytics-upload-process.png)
 
-El ile aşağıdaki işlemi gerçekleştirin veya düzenli aralıklarla yapmak için otomatikleştirilmiş bir sistemi ayarlarsınız. Veri içeri aktarmak istediğiniz her bir bloğunda için aşağıdaki adımları izlemeniz gerekir.
+El ile aşağıdaki işlemi gerçekleştirin veya düzenli aralıklarla yapmak için bir Otomatik Sistem ayarlayın. Her içeri aktarmak istediğiniz veri bloğu için şu adımları izlemesi gerekir.
 
-1. Verileri karşıya [Azure blob depolama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
+1. Verileri karşıya yükleme [Azure blob depolama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
 
- * BLOB'ları olabilir herhangi en fazla 1 GB sıkıştırılmamış boyut. Yüzlerce MB büyük BLOB'lar performans açısından idealdir.
- * Karşıya yükleme zamanı ve verilerin sorgu için kullanılabilir olması gecikme süresini artırmak için Gzip ile sıkıştırabilirsiniz. Kullanım `.gz` dosya adı uzantısı.
- * Farklı hizmetlerde performans yavaşlamasının gelen çağrıları önlemek için bu amaç için ayrı bir depolama hesabı kullanmak en iyisidir.
- * Yüksek yoğunlukta veri gönderirken, her birkaç saniyede birden fazla depolama hesabı, performans nedenleriyle kullanmak için önerilir.
+ * Blobları olabilir herhangi sıkıştırılmamış en fazla 1 GB boyut. Büyük BLOB'ları, yüzlerce MB, performans açısından bakılırsa idealdir.
+ * Karşıya yükleme zamanı ve gecikme süresi verilerin sorgu için kullanılabilir geliştirmek için Gzip ile sıkıştırabilirsiniz. Kullanım `.gz` dosya adı uzantısı.
+ * Farklı Hizmetleri performans düşmesi çağrılarından önlemek için bu amaç için ayrı bir depolama hesabı kullanmak en iyisidir.
+ * Veri yüksek frekanslı gönderirken her birkaç saniyede performansla ilgili nedenlerden dolayı birden fazla depolama hesabı kullanmak için önerilir.
 
  
-2. [Blob için bir paylaşılan erişim imzası anahtar oluşturma](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). Bu anahtar, bir sona erme süresi bir gün sahip ve okuma erişimi sağlar.
-3. Veri bekliyor Application Insights bildirmek için REST çağrısı yapın.
+2. [Blob için paylaşılan erişim imzası anahtar oluşturma](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). Bu anahtar, bir günlük bir zaman aşımı süresine sahip olacak ve okuma erişimi sağlar.
+3. Application Insights, veri bekleniyor bildirmek için REST çağrısı yapın.
 
  * Uç noktası: `https://dc.services.visualstudio.com/v2/track`
- * HTTP yöntemini: POST
+ * HTTP yöntemi: POST
  * Yük:
 
 ```JSON
@@ -170,30 +171,30 @@ El ile aşağıdaki işlemi gerçekleştirin veya düzenli aralıklarla yapmak i
 
 Yer tutucuları şunlardır:
 
-* `Blob URI with Shared Access Key`: Bu yordamdan bir anahtar oluşturmak için size. Blob özeldir.
-* `Schema ID`:, Tanımlı bir şeması için oluşturulan şema kimliği. Bu blob verileri şemaya uygun olmalıdır.
-* `DateTime`: Hangi istek gönderildikten saati UTC. Biz bu biçimlerini kabul: ISO8601 (gibi "2016-01-01 13:45:01"); Rfc822 ("Çar, 14 Ara 16 14:57:01 + 0000"); RFC850 ("Çarşamba, 14 Ara 16 14:57:00 UTC"); RFC1123 ("Çar, 14 Ara 2016 14:57:00 + 0000").
+* `Blob URI with Shared Access Key`: Bu yordamdan bir anahtar oluşturmak için sahip olursunuz. Blob için özeldir.
+* `Schema ID`:, Tanımlı bir şeması için üretilen şema kimliği. Bu BLOB veri şemasına uygun olmalıdır.
+* `DateTime`: Başlangıçtan istek gönderildikten saati UTC. Biz bu biçimlerini kabul: ISO8601 (gibi "2016-01-01 13:45:01"); Rfc822 ("Çarşamba, 14 Ara 16 14:57:01 + 0000"); RFC850 ("Çarşamba, 14 Ara 16 14:57:00 UTC"); RFC1123 ("Çarşamba, 14 Aralık 2016 14:57:00 + 0000").
 * `Instrumentation key` Application Insights kaynağınıza.
 
-Veri analizleri birkaç dakika sonra kullanılabilir.
+Veriler, birkaç dakika sonra Analytics'te kullanılabilir.
 
 ## <a name="error-responses"></a>Hata yanıtları
 
-* **400 Hatalı istek**: isteği yükü geçersiz olduğunu belirtir. Denetleme:
+* **400 Hatalı istek**: isteği yükü geçersiz olduğunu gösterir. Kontrol edin:
  * Doğru izleme anahtarı.
- * Geçerli saat değeri. Şimdi, UTC saat olmalıdır.
- * JSON olayın şemasıyla uyumlu.
-* **403 Yasak**: gönderilen blob erişilebilir değil. Paylaşılan erişim anahtarı geçerli değil ve süresi geçmemiş emin olun.
-* **404 Bulunamadı**:
+ * Geçerli saat değeri. Şimdi, UTC zamanı olmalıdır.
+ * Olayın bir JSON şemaya uygun.
+* **403 Yasak**: gönderdiğiniz blobu erişilebilir değil. Paylaşılan erişim anahtarının geçerli olduğundan ve sona ermediğinden emin olun.
+* **404 Bulunamadı Hatası**:
  * Blob yok.
  * SourceId yanlış olur.
 
-Yanıt hata iletisinde daha ayrıntılı bilgi bulabilirsiniz.
+Daha ayrıntılı bilgi yanıt hata iletisinde kullanılabilir.
 
 
 ## <a name="sample-code"></a>Örnek kod
 
-Bu kodu kullanır [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) NuGet paketi.
+Bu kod [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) NuGet paketi.
 
 ### <a name="classes"></a>Sınıfları
 
@@ -354,7 +355,7 @@ namespace IngestionClient
 
 ### <a name="ingest-data"></a>Veriyi çekme
 
-Bu kodu her bir blob için kullanın. 
+Bu kod, her blob için kullanın. 
 
 ```csharp
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
@@ -366,5 +367,5 @@ Bu kodu her bir blob için kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Günlük analizi sorgu dili turu](app-insights-analytics-tour.md)
-* Logstash kullanıyorsanız, [Logstash eklentisi için Application Insights veri göndermek için](https://github.com/Microsoft/logstash-output-application-insights)
+* [Log Analytics sorgu dili turu](app-insights-analytics-tour.md)
+* Logstash kullanıyorsanız, [Logstash eklentisini verilerini Application Insights'a gönderme](https://github.com/Microsoft/logstash-output-application-insights)
