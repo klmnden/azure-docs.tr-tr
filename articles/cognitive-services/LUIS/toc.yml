@@ -201,8 +201,6 @@
           href: luis-prebuilt-entities.md
         - name: Etki alanlarını kullanma
           href: luis-how-to-use-prebuilt-domains.md
-        - name: Cortana kullanma
-          href: luis-how-to-cortana-prebuilt-app.md
     - name: Uygulama yönetme
       items:
         - name: Panoyu kullanma
@@ -271,8 +269,6 @@
           href: luis-reference-prebuilt-url.md
     - name: Önceden derlenmiş etki alanı başvurusu
       href: luis-reference-prebuilt-domains.md
-    - name: Cortana önceden derlenmiş uygulama başvurusu
-      href: luis-reference-cortana-prebuilt.md
     - name: Yazma V2 API’leri
       href: 'https://aka.ms/luis-authoring-apis'
     - name: Uç nokta V2 API’si

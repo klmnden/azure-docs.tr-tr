@@ -289,6 +289,9 @@
     - name: ExpressRoute
       tocHref: /azure/expressroute/
       topicHref: /azure/expressroute/
+    - name: Güvenlik duvarı
+      tocHref: /azure/firewall/
+      topicHref: /azure/firewall/
     - name: Rehber
       tocHref: /azure/guidance/
       topicHref: /azure/guidance/

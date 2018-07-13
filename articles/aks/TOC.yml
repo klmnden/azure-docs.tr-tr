@@ -109,7 +109,7 @@
         - name: Jenkins sürekli dağıtım
           href: jenkins-continuous-deployment.md
         - name: AKS için Azure DevOps Projesi
-          href: 'https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks'
+          href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
     - name: Kubernetes hakkında temel bilgiler
       items:

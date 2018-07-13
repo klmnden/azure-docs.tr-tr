@@ -29,12 +29,12 @@
   items:
     - name: 'C#'
       href: Tutorials/FaceAPIinCSharpTutorial.md
+    - name: Android
+      href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: İlk Yüz Tanıma API'si uygulamaları
       items:
-        - name: Android için Java
-          href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
         - name: Python
           href: Tutorials/FaceAPIinPythonTutorial.md
     - name: Resimdeki yüzleri algılama

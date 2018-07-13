@@ -318,8 +318,6 @@ items:
                 href: mongodb-readpreference.md
               - name: Dizinleme
                 href: mongodb-indexing.md
-              - name: MongoDB’de TTL
-                href: mongodb-ttl.md
               - name: Power BI ile verilerinizi görselleştirme
                 href: powerbi-visualize.md
           - name: Kaynaklar

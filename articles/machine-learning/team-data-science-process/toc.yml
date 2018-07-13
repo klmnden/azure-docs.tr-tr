@@ -218,8 +218,6 @@
           items:
             - name: Genel Bakış
               href: create-features.md
-            - name: Pandas kullanma
-              href: create-features-blob.md
             - name: SQL+Python kullanma
               href: create-features-sql-server.md
             - name: Hive sorguları kullanma
