@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f40f2102729cc317f74bd5a91b17a349a7824476
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d58418b45192a6c1e31b4c3c918a27fe253d8c34
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850000"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473995"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
 Yükleme için daha fazla seçenek istediğinizde Azure AD Connect **Özel ayarları** kullanılır. Birden fazla ormanınız varsa veya hızlı yükleme kapsamında yer almayan isteğe bağlı özellikleri yapılandırmak istiyorsanız kullanılır. [**Hızlı yükleme**](active-directory-aadconnect-get-started-express.md) seçeneğinin dağıtımınız veya topolojiniz için uygun olmadığı tüm durumlarda kullanılır.
@@ -67,7 +67,7 @@ Bu hesap yalnızca Azure AD'de hizmet hesabı oluşturmak için kullanılır ve 
 Genel yönetici hesabınızda MFA etkinse açılır oturum açma penceresine parolayı tekrar girmeniz ve MFA testini tamamlamanız gerekir. Test için bir doğrulama kodu sağlanır veya telefon görüşmesi yapılır.  
 ![MFA’da kullanıcı Oturumu açma](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
-Genel yönetici hesabında [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md) seçeneği de etkin olabilir.
+Genel yönetici hesabında [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) seçeneği de etkin olabilir.
 
 Bir hatayla karşılaştıysanız ve bağlantı sorunlarınız varsa bkz. [Bağlantı sorunlarını giderme](active-directory-aadconnect-troubleshoot-connectivity.md).
 

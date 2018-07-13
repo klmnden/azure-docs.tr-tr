@@ -13,11 +13,11 @@ ms.custom: mvc
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.openlocfilehash: 8ed6df3a0aee500192e401f1089925bf6e2d84d8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933857"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38472636"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Yeni bir Azure API Management hizmeti örneği oluşturma
 
