@@ -1,6 +1,6 @@
 ---
-title: Azure yığın 1804 güncelleştirme | Microsoft Docs
-description: Azure yığın 1804 güncelleştirmesi nedir hakkında bilgi edinin tümleşik sistemleri, bilinen sorunlar ve güncelleştirme karşıdan yükleme konumu.
+title: Azure Stack 1804 güncelleştirme | Microsoft Docs
+description: Azure Stack 1804 güncelleştirmesi nedir hakkında bilgi edinin tümleşik sistemleri, bilinen sorunlar ve nerede güncelleştirmeyi indirin.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,45 +12,45 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 9fc58d971db18db63e4dc76123ff1311b77e0191
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 496aea1195885c582d3529d7ddb43210aad5fea1
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316442"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990141"
 ---
-# <a name="azure-stack-1804-update"></a>Azure yığın 1804 güncelleştirme
+# <a name="azure-stack-1804-update"></a>Azure Stack 1804 güncelleştirme
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri*
 
-Bu makalede yenilikleri ve bilinen sorunlar bu sürüm ve güncelleştirmeyi yüklemek nereye 1804 güncelleştirme paketindeki giderir. Bilinen sorunlar için güncelleştirme işlemini doğrudan ilgili sorunlar ve yapı (yükleme sonrası) ile ilgili sorunları ayrılır.
+Bu makalede geliştirmeleri açıklar ve bilinen sorunlar için bu sürüm ve güncelleştirme karşıdan yükleme konumu 1804 güncelleştirme paketindeki giderir. Bilinen sorunlar için güncelleştirme işlemini doğrudan ilgili sorunları ve derleme (yükleme sonrası) ile ilgili sorunlar ayrılır.
 
 > [!IMPORTANT]        
-> Bu güncelleştirme paketi, yalnızca Azure tümleşik yığını sistemleri içindir. Bu güncelleştirme paketi Azure yığın Geliştirme Seti için geçerli değildir.
+> Yalnızca Azure Stack tümleşik sistemleri için bu güncelleştirme paketidir. Bu güncelleştirme paketi için Azure Stack geliştirme Seti'ni geçerli değildir.
 
-## <a name="build-reference"></a>Derleme başvurusu    
-Azure yığın 1804 güncelleştirme yapı numarası **20180513.1**.   
+## <a name="build-reference"></a>Yapı Başvurusu    
+Azure Stack 1804 güncelleştirmenin yapı numarasıdır **20180513.1**.   
 
 ### <a name="new-features"></a>Yeni Özellikler
-Bu güncelleştirme Azure yığını için aşağıdaki geliştirmeleri içerir.
+Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
 
-- <!-- 15028744 - IS -->  **AD FS kullanarak bağlantısı kesilmiş Azure yığın dağıtımları için Visual Studio desteği**. Şimdi abonelikleri ekleyebilir ve kimlik doğrulaması Visual Studio içinde AD FS kullanarak kullanıcı kimlik bilgilerini Federasyon. 
+- <!-- 15028744 - IS -->  **AD FS kullanarak, bağlantısı kesilmiş Azure Stack dağıtımları için Visual Studio desteği**. Şimdi abonelikler ekleyebilir ve kimlik doğrulaması Visual Studio içinde AD FS kullanarak kullanıcı kimlik bilgilerini sürümüyle federasyona eklenenler. 
  
-- <!-- 1779474, 1779458 - IS --> **Av2 ve F serisi sanal makineleri kullanmak**. Azure yığın artık sanal makinelerin Av2 serisi ve F-serisi sanal makine boyutlarına bağlı olarak kullanabilirsiniz. Daha fazla bilgi için bkz: [Azure yığınında desteklenen sanal makine boyutlarını](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). 
+- <!-- 1779474, 1779458 - IS --> **Av2 ve F serisi sanal makineler kullanın**. Azure Stack artık sanal makinelerin Av2 serisi ve F serisi sanal makine boyutlarına göre kullanabilirsiniz. Daha fazla bilgi için [Azure Stack'te desteklenen sanal makine boyutları](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). 
 
-- <!-- 1759172 - IS, ASDK --> **Yeni Yönetim abonelikler**. İle 1804 portalda kullanılabilecek iki yeni abonelik türü vardır. Bu yeni abonelik varsayılan sağlayıcı abonelik yanı sıra ve görünür 1804 sürümünden başlayarak yeni Azure yığın yüklemelerde türleridir. *Bu yeni abonelik türleri Azure yığını, bu sürümü ile kullanmayın*. Biz bu abonelik türleri gelecekteki bir güncelleştirme ile kullanmak için kullanılabilirlik Duyurusu. 
+- <!-- 1759172 - IS, ASDK --> **Yeni Yönetim abonelikler**. 1804 ile portalda kullanılabilir iki yeni abonelik türü vardır. Bu yeni abonelik türleriyle 1804 sürümünden başlayarak yeni Azure Stack yükleme varsayılan sağlayıcı aboneliği yanı sıra ve görünür olan. *Azure Stack bu sürümü bu yeni abonelik türleriyle kullanmayın*. Bu abonelik türleri gelecek güncelleştirmelerden oturum kullanmak için kullanılabilirlik duyuracağız. 
 
-  Azure yığın 1804 sürümüne güncelleştirirseniz, iki yeni abonelik türü görünür değildir. Ancak, Azure yığınının yeni dağıtımlar sistemleri tümleşik ve Azure yığın Geliştirme Seti sürüm 1804 veya üstü yüklemeleri tüm üç abonelik türlerini erişimi.  
+  Azure Stack 1804 sürüme güncelleştirirseniz, iki yeni abonelik türleriyle görünür değildir. Ancak, yeni dağıtımların Azure Stack tümleşik sistemleri ve yüklemeleri 1804 veya sonraki bir sürümü Azure Stack geliştirme Seti'ni sürümünün üç abonelik türlü erişimi.  
 
-  Bu yeni abonelik türleri daha büyük bir değişiklik varsayılan sağlayıcı abonelik güvenli ve SQL barındırma sunucuları gibi paylaşılan kaynakları dağıtmayı kolaylaştırmak için bir parçasıdır. Daha fazla bölümlerini gelecekteki güncelleştirmeleri büyük bu değişikliği Azure yığınına ekledikçe bu yeni abonelik türleri altında dağıtılan kaynak kaybolmuş olabilir. 
+  Bu yeni abonelik türleriyle daha büyük bir değişiklik varsayılan sağlayıcı aboneliği güvenli ve SQL barındırma sunucuları gibi paylaşılan kaynakları dağıtma daha kolay hale getirmek için bir parçasıdır. Daha fazla parçasına ileride yapılacak güncelleştirmelerle daha büyük bu değişikliği Azure Stack'e ekledikçe bu yeni abonelik türleriyle altında dağıtılan kaynakların kaybolmuş olabilir. 
 
   Artık görünür üç abonelik türleri şunlardır:  
-  - Sağlayıcı abonelik varsayılan: Bu abonelik türünde kullanmaya devam edin. 
-  - Abonelik ölçümü: *Bu abonelik türünde kullanmayın.*
-  - Tüketim abonelik: *Bu abonelik türünde kullanmayın*
+  - Sağlayıcı aboneliği varsayılan: Bu abonelik türü kullanmaya devam edin. 
+  - Abonelik ölçümü: *Bu abonelik türü kullanmayın.*
+  - Tüketim abonelik: *Bu abonelik türü kullanmayın*
 
   
 
@@ -58,39 +58,39 @@ Bu güncelleştirme Azure yığını için aşağıdaki geliştirmeleri içerir.
 
 ## <a name="fixed-issues"></a>Giderilen sorunlar
 
-- <!-- IS, ASDK -->  Yönetim Portalı'nda artık bilgi görüntülemeden önce güncelleştirme döşeme Yenile yok.
+- <!-- IS, ASDK -->  Yönetim Portalı'nda artık bir bilgi görüntülemeden önce güncelleştirme kutucuk yenilemeniz gerekir.
  
-- <!-- 2050709  -->  Blob hizmeti, tablo hizmeti ve kuyruk hizmeti için depolama ölçümlerini düzenlemek için Yönetim Portalı'nı şimdi kullanabilirsiniz.
+- <!-- 2050709  -->  Ayrıca, Blob hizmeti, tablo hizmeti ve kuyruk hizmeti depolama ölçümleri düzenlemek için artık Yönetici portalını kullanabilir.
  
 - <!-- IS, ASDK --> Altında **ağ**'ye tıkladığınızda **bağlantı** bir VPN bağlantısı kurmak için **siteden siteye (IPSec)** kullanılabilir tek seçenek sunulmuştur.
 
-- **Çeşitli düzeltmeleri** performans, sağlamlık, güvenlik ve Azure yığını tarafından kullanılan işletim sistemi için.
+- **Çeşitli düzeltmeleri** performans, kararlılık, güvenlik ve Azure Stack tarafından kullanılan işletim sistemi için.
 
-## <a name="additional-releases-timed-with-this-update"></a>Bu güncelleştirmeyle zaman aşımına ek sürümler  
-Aşağıdaki artık kullanılabilir, ancak Azure yığın güncelleştirme 1804 gerektirmez.
-- **Güncelleştirme izleme paketi Microsoft Azure yığın System Center Operations Manager**. Yeni bir sürümünü (1.0.3.0) Microsoft System Center Operations Manager izleme paketi Azure yığın kullanılabilir [karşıdan](https://www.microsoft.com/download/details.aspx?id=55184). Bağlı bir Azure yığın dağıtımına eklediğinizde bu sürümle birlikte, hizmet asıl adı kullanabilirsiniz. Bu sürüm ayrıca Operations Manager içinde düzeltme eyleme doğrudan izin veren bir güncelleştirme yönetim deneyimi sunar. Kaynak sağlayıcıları görüntülemek, birimleri ölçeklendirme ve birim düğümleri ölçeklendirme yeni panolar vardır.
+## <a name="additional-releases-timed-with-this-update"></a>Bu güncelleştirme ile zaman aşımına ek sürümleri  
+Aşağıdaki kullanıma sunulmuştur, ancak Azure Stack güncelleştirme 1804 gerektirmez.
+- **Güncelleştirmek için Microsoft Azure Stack System Center Operations Manager izleme paketi**. Yeni bir sürümünü (1.0.3.0) Microsoft System Center Operations Manager izleme paketi Azure Stack için kullanılabilir [indirme](https://www.microsoft.com/download/details.aspx?id=55184). Bağlı bir Azure Stack dağıtımı eklediğinizde, bu sürümü ile hizmet sorumluları kullanabilirsiniz. Bu sürüm ayrıca düzeltme doğrudan Operations Manager içinde harekete geçmenizi sağlayan bir güncelleştirme yönetim deneyimi sunar. Kaynak sağlayıcılarını görüntüleme birimlerini ölçeklendirebilir ve birim düğümlerini ölçeklendirme yeni panolar da vardır.
 
-- **Yeni Azure yığın yönetici PowerShell sürümü 1.3.0**.  Azure yığın PowerShell 1.3.0 yükleme için kullanıma sunulmuştur. Bu sürüm Azure yığın yönetmek tüm yönetim kaynak sağlayıcıları için komutları sağlar.  Bu sürümle birlikte, bazı içerikler Azure yığın araçları Github'dan kullanım dışı kalacaktır [depo](https://github.com/Azure/AzureStack-Tools). 
+- **Yeni Azure Stack yönetici PowerShell sürümü 1.3.0**.  Azure Stack PowerShell 1.3.0 artık yükleme için kullanılabilir. Bu sürüm, Azure Stack yönetmek tüm yönetici kaynak sağlayıcıları için komutlar sağlar.  Bu sürümle birlikte, bazı içeriklerin Azure Stack araçları Github'dan kaldırılacak [depo](https://github.com/Azure/AzureStack-Tools). 
 
-   Yükleme ayrıntılarını izleyin [yönergeleri](azure-stack-powershell-install.md) veya [yardımcı](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) Azure yığın modülü 1.3.0 için içerik. 
+   Yükleme ayrıntılarını izleyin [yönergeleri](azure-stack-powershell-install.md) veya [yardımcı](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) Azure Stack modülü 1.3.0 içeriği. 
 
-- **İlk Azure yığın API Rest başvurusu sürümü**. [Tüm Azure yığın yönetici kaynak sağlayıcıları için API Başvurusu](https://docs.microsoft.com/rest/api/azure-stack/) şimdi yayımlanır. 
+- **İlk Azure Stack Rest API sürümü**. [Tüm Azure Stack yönetici kaynak sağlayıcıları için API Başvurusu](https://docs.microsoft.com/rest/api/azure-stack/) artık yayımlanır. 
 
 
 ## <a name="before-you-begin"></a>Başlamadan önce    
 
 ### <a name="prerequisites"></a>Önkoşullar
-- Azure yığın yükleme [1803 güncelleştirme](azure-stack-update-1803.md) Azure yığın 1804 güncelleştirmeyi uygulamadan önce.    
+- Azure yığını'nı yükleme [1803 güncelleştirme](azure-stack-update-1803.md) Azure Stack 1804 güncelleştirmeyi uygulamadan önce.    
 
 ### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar   
-- 1804 güncelleştirme yüklemesi sırasında başlık uyarılarla görebilirsiniz *hatası – FaultType UserAccounts.New için şablon eksik.*  Bu uyarılar güvenle yok sayabilirsiniz. 1804 Güncelleştirme tamamlandıktan sonra bu uyarılar otomatik olarak kapatılacak.   
+- 1804 güncelleştirme yüklemesi sırasında başlık uyarılarla görebileceğiniz *hatası – şablon FaultType UserAccounts.New için eksik.*  Bu uyarılar güvenle yok sayabilirsiniz. 1804 Güncelleştirme tamamlandıktan sonra bu uyarıları otomatik olarak kapatılacak.   
  
-- <!-- TBD - IS --> Bu güncelleştirmenin yüklenmesi sırasında sanal makineler oluşturmak çalışmayın. Güncelleştirmeleri yönetme hakkında daha fazla bilgi için bkz: [yönetmek Azure yığın genel bakış güncelleştirmelerinde](azure-stack-updates.md#plan-for-updates).
+- <!-- TBD - IS --> Bu güncelleştirme yüklemesi sırasında sanal makineleri oluşturmaya çalışmayın. Güncelleştirmeleri yönetme hakkında daha fazla bilgi için bkz. [Azure Stack genel bakış güncelleştirmeleri yönetme](azure-stack-updates.md#plan-for-updates).
 
 
 ### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
-1804 yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek yanı sıra bizim [hizmet İlkesi](azure-stack-servicing-policy.md).  
- - [KB 4341392 - Azure yığın düzeltme 1.0.180523.11](https://support.microsoft.com/en-us/help/4341392).
+1804 yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek hem de bizim [hizmet İlkesi](azure-stack-servicing-policy.md).  
+ - [KB 4344114 - Azure Stack düzeltme 1.0.180527.15](https://support.microsoft.com/help/4344114).
 
 
 
@@ -99,58 +99,58 @@ Aşağıdaki artık kullanılabilir, ancak Azure yığın güncelleştirme 1804 
 Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180513.1**.
 
 #### <a name="portal"></a>Portal
-- <!-- 1272111 - IS --> Azure yığınının bu sürüme güncelleştirin veya yükledikten sonra Yönetim Portalı'nda Azure yığın ölçek birimleri görmeye olmayabilir.  
-  Geçici çözüm: ölçek birimleri hakkında bilgi görüntülemek için kullanım PowerShell. Daha fazla bilgi için bkz: [yardımcı](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) Azure yığın modülü 1.3.0 için içerik. 
+- <!-- 1272111 - IS --> Bu Azure Stack sürümüne güncelleştirin veya yükledikten sonra Yönetim Portalı'nda Azure Stack ölçek birimlerini görüntülemek mümkün olmayabilir.  
+  Geçici çözüm: ölçek birimleri hakkında bilgi görüntülemek için PowerShell kullanma. Daha fazla bilgi için [yardımcı](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) Azure Stack modülü 1.3.0 içeriği. 
 
-- <!-- 2332636 - IS -->  Azure yığınının bu sürüme güncelleştirin ve Azure yığın kimlik sistemi için AD FS kullandığınızda, varsayılan sağlayıcı aboneliğin varsayılan sahibi yerleşik olarak sıfırlanır **CloudAdmin** kullanıcı.  
-  Geçici çözüm: Bu güncelleştirmeyi yükledikten sonra bu sorunu çözmek için 3 adımından kullanmak [yapılandırmak için tetikleyici Otomasyon Talep sağlayıcı güveni Azure yığınında](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) varsayılan sağlayıcı aboneliğin sahibi sıfırlamak için yordamı.   
+- <!-- 2332636 - IS -->  Bu Azure Stack sürümüne güncelleştirin ve Azure Stack kimlik sistemi için AD FS kullanıyorsanız, varsayılan sağlayıcı aboneliği varsayılan sahibi yerleşik olarak sıfırlanır **CloudAdmin** kullanıcı.  
+  Geçici çözüm: Bu güncelleştirmeyi yükledikten sonra bu sorunu çözmek için 3 adımda kullanın [yapılandırmak için tetikleyici Otomasyon Talep sağlayıcı güveni Azure Stack'te](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) varsayılan sağlayıcı aboneliğin sahibi sıfırlamak için yordamı.   
 
-- <!-- TBD - IS ASDK --> Bazı yönetim abonelik türleri kullanılabilir değildir.  Azure yığın bu sürüme yükselttiğinizde, olduğunu iki abonelik türlerini [1804 sürümü ile sunulan](#new-features) konsolunda görünmez. Bu beklenen bir durumdur. Kullanılabilir abonelik türleri *abonelik ölçümü*, ve *tüketim abonelik*. Bu abonelik türleri 1804 sürümünden başlayarak yeni Azure yığın ortamlarda görünür ancak henüz kullanıma hazır değil. Kullanmaya devam etmelidir *varsayılan sağlayıcı* abonelik türü.  
+- <!-- TBD - IS ASDK --> Bazı yönetim abonelik türlerinde kullanılamaz.  Azure Stack bu sürüme yükseltme yaptığınızda iki abonelik türlerini başlatılmalı [1804 sürümü ile sunulan](#new-features) konsolunda görünmez. Bu beklenen bir durumdur. Kullanılabilir abonelik türleridir *abonelik ölçümü*, ve *tüketim abonelik*. Bu abonelik türlerini 1804 sürümünden başlayarak yeni Azure Stack ortamlarında görülebilir ancak henüz kullanıma sunulmamıştır. Kullanmaya devam etmelidir *varsayılan sağlayıcı* abonelik türü.  
 
 
-- <!-- TBD -  IS ASDK -->Özelliği [aşağı açılır listeden yeni bir destek isteği açma](azure-stack-manage-portals.md#quick-access-to-help-and-support) gelen içinde Yönetici portalı kullanılamıyor. Bunun yerine, aşağıdaki bağlantıyı kullanın:     
-    - Azure yığını için tümleşik sistemleri kullanan https://aka.ms/newsupportrequest.
+- <!-- TBD -  IS ASDK -->Özelliği [açılan listeden yeni bir destek isteği açmak için](azure-stack-manage-portals.md#quick-access-to-help-and-support) gelen içinde Yönetici portalı kullanılamıyor. Bunun yerine, aşağıdaki bağlantıyı kullanın:     
+    - İçin Azure Stack tümleşik sistemleri kullanan https://aka.ms/newsupportrequest.
 
-- <!-- 2403291 - IS ASDK --> Yatay kaydırma çubuğunun alt kısmındaki yönetici ve kullanıcı portalı kullanımını sahip olmayabilir. Yatay kaydırma çubuğu erişemiyorsanız, önceki bir dikey pencerede portal dikey adını seçerek, gitmek için içerik haritalarında en üstünde bulunan içerik haritası listeden görüntülemek istediğiniz kullanım portalın sol.
+- <!-- 2403291 - IS ASDK --> Yatay kaydırma çubuğunun alt kısmında bulunan yönetici ve Kullanıcı Portalı'nın kullanımını olmayabilir. Yatay kaydırma çubuğunun erişemiyorsanız, önceki bir dikey pencere portaldaki dikey penceresinin adı seçerek, gitmek için içerik haritaları en üstünde bulunan içerik haritası listeden görüntülemek istediğiniz kullanım portalın sol.
   ![İçerik haritası](media/azure-stack-update-1804/breadcrumb.png) 
 
-- <!-- TBD - IS --> Yönetici portalı'nda işlem ve depolama kaynaklarını görüntülemek mümkün olmayabilir. Bu sorunun nedeni yanlış başarılı olarak bildirilmesini güncelleştirme neden güncelleştirmenin yüklenmesi sırasında bir hata var. Bu sorun devam ederse, Yardım için Microsoft Müşteri Destek Hizmetleri'ne başvurun.
+- <!-- TBD - IS --> Yönetici portalı'nda işlem ve depolama kaynaklarını görüntülemek mümkün olmayabilir. Bu sorunun nedeni, yanlış başarılı olarak raporlanacak güncelleştirilecek neden olan güncelleştirme yüklemesi sırasında bir hata var. Bu sorun devam ederse Yardım için Microsoft Müşteri Destek Hizmetleri'ne başvurun.
 
-- <!-- TBD - IS --> Boş bir portal panosunda görebilirsiniz. Pano kurtarmak için portalın sağ üst köşesindeki dişli simgesini seçin ve ardından **varsayılan ayarları geri**.
+- <!-- TBD - IS --> Bir boş Pano portalında görebilirsiniz. Pano kurtarmak için portalın sağ üst köşesindeki dişli simgesini seçin ve ardından **varsayılan ayarları geri**.
 
-- <!-- TBD - IS ASDK --> Kullanıcı abonelikleri yalnız bırakılmış kaynakları sonuçlarında siliniyor. Geçici bir çözüm olarak ilk kullanıcı kaynakları veya tüm kaynak grubunu silme ve kullanıcı abonelikleri silin.
+- <!-- TBD - IS ASDK --> Kullanıcı abonelikleri sonuçlarında yalnız bırakılmış kaynakları siliniyor. Geçici bir çözüm olarak kullanıcı kaynaklar veya kaynak grubunun tamamını silin ve sonra kullanıcı abonelikleri silin.
 
-- <!-- TBD - IS ASDK --> Azure yığın Portal kullanımı aboneliğinizi izinleri görüntüleyemezsiniz. Geçici bir çözüm olarak, izinleri doğrulamak için PowerShell kullanın.
+- <!-- TBD - IS ASDK --> Azure Stack portalı kullanarak aboneliğinize izinleri görüntüleyemezsiniz. Geçici bir çözüm olarak, izinleri doğrulamak için PowerShell kullanın.
 
-- <!-- TBD - IS ASDK --> Yönetim Portalı'nda bir kritik uyarı görebilirsiniz *Microsoft.Update.Admin* bileşeni. Uyarı adı, açıklama ve düzeltmesi tümü olarak görüntülenir:  
-    - *HATA - FaultType ResourceProviderTimeout için şablon eksik.*
+- <!-- TBD - IS ASDK --> Yönetim Portalı'nda bir kritik uyarı görebileceğiniz *Microsoft.Update.Admin* bileşeni. Uyarı adı, açıklaması ve düzeltme tüm olarak görüntüle:  
+    - *HATA - şablon FaultType ResourceProviderTimeout için eksik.*
 
-  Bu uyarı güvenle yoksayılabilir. 
+  Bu uyarıyı güvenle yoksayılabilir. 
 
 
 #### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
-- <!-- 1264761 - IS ASDK -->  Uyarılar için görebilirsiniz *sistem durumu denetleyicisi* aşağıdaki ayrıntıları olan bileşen:  
+- <!-- 1264761 - IS ASDK -->  Uyarıları görebilirsiniz *sistem durumu denetleyicisi* aşağıdaki ayrıntıları olan bir bileşeni:  
 
    Uyarı #1:
-   - Ad: Altyapı rolü sağlıksız
+   - ADI: Sağlıksız altyapı rolü
    - Önem DERECESİ: uyarı
-   - Bileşen: Sistem durumu denetleyicisi
-   - Açıklama: Sistem durumu denetleyicisi sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporları ve ölçümleri etkileyebilir.  
+   - BİLEŞENİ: Sistem durumu denetleyicisi
+   - Açıklama: Sistem durumu denetleyici sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.  
 
   Uyarı #2:
-   - Ad: Altyapı rolü sağlıksız
+   - ADI: Sağlıksız altyapı rolü
    - Önem DERECESİ: uyarı
-   - Bileşen: Sistem durumu denetleyicisi
-   - Açıklama: Sistem durumu denetleyicisi hataya tarayıcı kullanılamıyor. Bu sistem durumu raporları ve ölçümleri etkileyebilir.
+   - BİLEŞENİ: Sistem durumu denetleyicisi
+   - Açıklama: Hata tarayıcı durumu denetleyicisi kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.
 
-  Her iki uyarı güvenle yoksayılabilir. Bunlar zaman içinde otomatik olarak kapatılacak.  
+  Her iki uyarılar güvenle yoksayılabilir. Bunlar, zaman içinde otomatik olarak kapatılacak.  
  
 
 #### <a name="compute"></a>İşlem
-- <!-- TBD - IS --> Bir sanal makine dağıtımı için bir sanal makine boyutu seçerken, bazı F-serisi VM boyutları görünür olmayan bir VM oluştururken boyutu seçici bir parçası olarak. Aşağıdaki VM boyutları seçicide görünmez: *F8s_v2*, *F16s_v2*, *F32s_v2*, ve *F64s_v2*.  
+- <!-- TBD - IS --> Bir sanal makine dağıtımı için bir sanal makine boyutu seçerken, bazı F serisi VM boyutlarının görünür olmayan bir VM oluşturduğunuzda boyut seçici bir parçası olarak. Aşağıdaki VM boyutları seçicide görünmez: *F8s_v2*, *F16s_v2*, *F32s_v2*, ve *F64s_v2*.  
   Geçici bir çözüm olarak, bir VM'yi dağıtmak için aşağıdaki yöntemlerden birini kullanın. Her bir yöntemin, kullanmak istediğiniz VM boyutu belirtmeniz gerekir.
 
-  - **Azure Resource Manager şablonu:** bir şablonu kullandığınızda ayarlamak *vmSize* şablonda istenen VM boyutu eşit. Örneğin, aşağıdakileri kullanan bir VM'yi dağıtmak için kullanılan *F32s_v2* boyutu:  
+  - **Azure Resource Manager şablonu:** bir şablon kullandığınızda *vmSize* şablondaki istenen VM boyutu eşit. Örneğin, aşağıdaki kullanan bir VM dağıtmak için kullanılan *F32s_v2* boyutu:  
 
     ```
         "properties": {
@@ -158,53 +158,53 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180513.1**.
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI:** kullanabileceğiniz [az vm oluşturma](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) komut ve benzer bir parametre olarak VM boyutu belirtin `--size "Standard_F32s_v2"`.
+  - **Azure CLI:** kullanabileceğiniz [az vm oluşturma](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) benzer bir parametre olarak bir VM boyutu belirtin ve komutu `--size "Standard_F32s_v2"`.
 
-  - **PowerShell:** kullanabileceğiniz PowerShell ile [yeni AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) benzer VM boyutunu belirleyen parametresiyle `-VMSize "Standard_F32s_v2"`.
+  - **PowerShell:** kullanabileceğiniz PowerShell ile [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) benzer VM boyutunu belirten parametresiyle `-VMSize "Standard_F32s_v2"`.
 
 
-- <!-- TBD - IS ASDK --> Sanal makine ölçek kümeleri için ölçeklendirme ayarları portalda kullanılabilir değildir. Geçici bir çözüm olarak, kullandığınız [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). PowerShell sürümü farklılıkları nedeniyle kullanmalısınız `-Name` yerine parametre `-VMScaleSetName`.
+- <!-- TBD - IS ASDK --> Ölçeklendirme ayarları sanal makine ölçek kümeleri için portalda kullanılabilir değildir. Geçici çözüm olarak, kullandığınız [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). PowerShell sürüm farklar nedeniyle, kullanmanız gereken `-Name` yerine parametre `-VMScaleSetName`.
 
-- <!-- TBD - IS --> Kullanılabilirlik giderek portalda kümesi oluşturduğunuzda **yeni** > **işlem** > **kullanılabilirlik kümesi**, oluşturabilmeniz için bir kullanılabilirlik, bir hata etki alanı ve güncelleştirme etki alanı 1 ile ayarlayın. Yeni bir sanal makine oluştururken, bir geçici çözüm olarak, kullanılabilirlik PowerShell'i, CLI, kullanarak veya içinden kümesini oluşturmak portal.
+- <!-- TBD - IS --> Portaldaki giderek bir kullanılabilirlik kümesi oluşturduğunuzda, **yeni** > **işlem** > **kullanılabilirlik kümesi**, oluşturabilmeniz için bir bir hata etki alanı ve 1 güncelleştirme etki alanı ile kullanılabilirlik kümesi. Yeni bir sanal makine oluştururken bir geçici çözüm olarak, PowerShell, CLI kullanarak veya içinden kullanılabilirlik oluşturma portalı.
 
-- <!-- TBD - IS ASDK --> Sanal makineler Azure yığın kullanıcı portalında oluşturduğunuzda, portal D serisinin VM iliştirebilirsiniz veri diskleri yanlış sayıda görüntüler. Tüm desteklenen D serisinin VM'ler sayıda veri diski Azure yapılandırması sağlayabilir.
+- <!-- TBD - IS ASDK --> Portal, Azure Stack kullanıcı portalında sanal makine oluşturduğunuzda, D serisi VM ekleyebilirsiniz veri diskleri yanlış sayıda görüntüler. Tüm desteklenen D serisi VM'ler gibi çok sayıda veri diski Azure yapılandırması sağlayabilir.
 
-- <!-- TBD - IS ASDK --> Oluşturulacak bir VM görüntüsü başarısız olduğunda, VM görüntüleri işlem dikey penceresine eklenen silemezsiniz başarısız bir öğe.
+- <!-- TBD - IS ASDK --> Bir VM görüntüsü oluşturulması başarısız olduğunda, nelze odstranit başarısız bir öğe için VM görüntüleri işlem dikey eklenebilir.
 
-  Geçici bir çözüm olarak, Hyper-V ile oluşturulan bir kukla VHD ile yeni bir VM görüntüsü oluşturma (yeni-VHD-yol C:\dummy.vhd-- SizeBytes sabit 1 GB). Bu işlem başarısız öğesini silmeden engeller sorunu çözer. Ardından, kukla görüntüsünü oluşturduktan sonra 15 dakika başarılı bir şekilde silebilirsiniz.
+  Geçici çözüm olarak, Hyper-V ile oluşturduğunuz işlevsiz bir VHD ile yeni bir VM görüntüsü oluşturma (yeni-VHD-yolu C:\dummy.vhd-- SizeBytes sabit 1 GB). Bu işlem başarısız öğesini silme engelleyen sorunu çözer. Ardından, işlevsiz bir görüntü oluşturduktan sonra 15 dakika başarıyla silebilirsiniz.
 
-  Ayrıca, daha önce başarısız VM görüntüsü yeniden indirin daha sonra deneyebilirsiniz.
+  Ardından, daha önce başarısız bir VM görüntüsü yeniden indirilemiyor deneyebilirsiniz.
 
-- <!-- TBD - IS ASDK --> VM dağıtımı üzerinde uzantı sağlama çok uzun sürerse, kullanıcıların serbest bırakma veya VM silme işlemi durdurulmaya çalışılırken yerine sağlama zaman aşımı izin vermemelisiniz.  
+- <!-- TBD - IS ASDK --> VM dağıtımı üzerinde bir uzantı sağlama çok uzun sürerse, kullanıcıların serbest bırakma veya VM silme işlemini durdurulmaya çalışılırken yerine sağlama zaman aşımı izin vermelisiniz.  
 
-- <!-- 1662991 IS ASDK --> Linux VM tanılama Azure yığınında desteklenmiyor. VM tanılaması etkin bir Linux VM dağıttığınızda, dağıtım başarısız olur. Tanılama ayarları aracılığıyla Linux VM temel ölçümleri etkinleştirirseniz dağıtım de başarısız olur.  
+- <!-- 1662991 IS ASDK --> Linux VM tanılama Azure Stack'te desteklenmiyor. VM tanılaması etkin bir Linux sanal makinesi dağıttığınızda, dağıtım başarısız olur. Tanılama ayarları aracılığıyla Linux VM temel ölçümleri etkinleştirirseniz, ayrıca dağıtım başarısız olur.  
 
 
 #### <a name="networking"></a>Ağ
-- <!-- 1766332 - IS ASDK --> Altında **ağ**, tıklatırsanız **VPN ağ geçidi Oluştur** bir VPN bağlantısı kurmak için **İlkesi tabanlı** bir VPN türü olarak listelenir. Bu seçeneği belirlemeyin. Yalnızca **rota tabanlı** seçeneği Azure yığınında desteklenir.
+- <!-- 1766332 - IS ASDK --> Altında **ağ**, tıklarsanız **VPN ağ geçidi Oluştur** bir VPN bağlantısı kurmak için **ilkesine** bir VPN türü listelenir. Bu seçeneği belirlemeyin. Yalnızca **rota tabanlı** seçeneği Azure Stack'te desteklenir.
 
-- <!-- 2388980 - IS ASDK --> Bir VM oluşturulur ve bir ortak IP adresi ile ilişkili sonra bu VM IP adresinden ilişkisini olamaz. Çalışmak için disassociation görünür, ancak daha önce atanan genel IP adresi orijinal VM ile ilişkili olarak kalır.
+- <!-- 2388980 - IS ASDK --> Bir VM oluşturulur ve bir genel IP adresiyle ilişkili sonra o VM'den bir IP adresi ilişkisini olamaz. İlişkisi kaldırma çalışıyor gibi görünür, ancak daha önce atanan genel IP adresi orijinal VM ile ilişkili olarak kalır.
 
   Şu anda, oluşturduğunuz yeni VM'ler için yalnızca yeni ortak IP adreslerini kullanmanız gerekir.
 
-  Yeni bir VM için IP adresi yeniden atama olsa bile bu davranış oluşur (genellikle olarak adlandırılan bir *VIP takası*). Tüm gelecekte bu IP adresi sonucu başlangıçta ilişkili VM değil de yeni bir bağlantı üzerinden bağlanma girişiminde bulunur.
+  Yeni bir VM için IP adresi yeniden atama olsa bile bu durumda (genellikle olarak adlandırılan bir *VIP takas*). Tüm gelecek bu IP adresi sonuç başlangıçta ilişkili VM ve yeni bir bağlantı üzerinden bağlanma girişiminde bulunur.
 
-- <!-- 2292271 - IS ASDK --> Bir teklif ve Kiracı abonelikle ilişkili planı parçası olan bir ağ kaynağı için kota sınırı yükseltirseniz, bu abonelik için yeni sınır uygulanmaz. Ancak, yeni sınır kota artışı sonra oluşturulan yeni abonelikler için geçerlidir. 
+- <!-- 2292271 - IS ASDK --> Bir teklif ve Kiracı abonelikle ilişkilendirilmiş planı parçası olan bir ağ kaynağı için bir kota sınırı yükseltirseniz, bu abonelik için yeni sınır uygulanmaz. Ancak, yeni sınır kota artırılır sonra oluşturulan yeni abonelikler için geçerlidir. 
 
-  Bu sorunu geçici olarak çözmek için plan zaten bir aboneliği ile ilişkili olduğunda ağ Kotayı artırmak için bir eklenti planı kullanın. Daha fazla bilgi için bkz: nasıl yapılır [bir eklenti planı kullanılabilir hale](azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
+  Bu sorunu gidermek için plan aboneliği ile ilişkili olduğunda, bir ağ Kotayı artırmak için bir eklenti planı kullanın. Daha fazla bilgi için bkz. nasıl [eklenti planı kullanılabilmesini](azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
-- <!-- 2304134 IS ASDK --> DNS bölgesi kaynakları veya yol tablosu kaynakları ilişkili olan bir abonelik silinemiyor. Abonelik başarıyla silmek için DNS bölgesi ve yol tablosu kaynakları Kiracı abonelikten silmeniz gerekir. 
+- <!-- 2304134 IS ASDK --> DNS bölgesi veya yol tablosu kaynaklar ile ilişkili olan bir abonelik silinemiyor. Abonelik başarıyla silmek için DNS bölgesi ve yol tablosu kaynakları Kiracı abonelikten silmeniz gerekir. 
   
 
-- <!-- 1902460 - IS ASDK --> Azure yığın destekleyen tek bir *yerel ağ geçidi* her bir IP adresi. Bu Kiracı abonelikler arasında geçerlidir. Aynı IP adresiyle bir yerel ağ geçidi kaynağı oluşturmak ilk yerel ağ geçidi bağlantısı sonraki oluşturulmasını denemesinden sonra engellenir.
+- <!-- 1902460 - IS ASDK --> Azure Stack destekleyen tek bir *yerel ağ geçidi* her bir IP adresi. Bu tüm Kiracı abonelikler arasında geçerlidir. Aynı IP adresine sahip bir yerel ağ geçidi kaynağı oluşturmak ilk yerel ağ geçidi bağlantısı, sonraki oluşturulmasını denemeden sonra engellenir.
 
-- <!-- 16309153 - IS ASDK --> Bir DNS sunucusu ayarı ile oluşturulan bir sanal ağda *otomatik*, özel bir DNS sunucusunun başarısız olması için değiştirilmesi. Bu Vnet vm'lerinin güncelleştirilmiş ayarları gönderilir değil.
+- <!-- 16309153 - IS ASDK --> DNS sunucusu ayarı ile oluşturulan bir sanal ağda *otomatik*, özel bir DNS sunucusunun başarısız olması için değiştirilmesi. Bu vnet'teki VM'ler için güncelleştirilmiş ayarları gönderiliyor değil.
 
-- <!-- TBD - IS ASDK --> Azure yığın VM dağıtıldıktan sonra ek ağ arabirimleri VM örneğine eklemeyi desteklemez. VM birden fazla ağ arabirimi gerektiriyorsa, dağıtım sırasında tanımlanmalıdır.
+- <!-- TBD - IS ASDK --> Azure Stack, VM dağıtıldıktan sonra ek ağ arabirimi bir sanal makine örneğine eklemeyi desteklemez. VM birden fazla ağ arabirimi gerektiriyorsa, dağıtım sırasında tanımlanmalıdır.
 
-- <!-- 2096388 IS --> Bir ağ güvenlik grubu kuralları için Yönetim Portalı'nı kullanamazsınız. 
+- <!-- 2096388 IS --> Bir ağ güvenlik grubu kurallarını güncelleştirmek için Yönetim Portalı'nı kullanamazsınız. 
 
-    Uygulama hizmeti için geçici çözüm: Denetleyici örnekleri için Uzak Masaüstü'nü gerekiyorsa, PowerShell ile ağ güvenlik grupları içindeki güvenlik kuralları Değiştir.  Nasıl yapılır örnekleri şunlardır *izin*ve yapılandırmasını geri yüklemek *Reddet*:  
+    App Service için geçici çözüm: denetleyici örneği Uzak Masaüstü bağlantısı için gerekiyorsa, PowerShell ile ağ güvenlik grupları içindeki güvenlik kurallarını değiştirin.  Nasıl yapılır örnekleri aşağıda verilmiştir *izin*ve ardından yapılandırmasına geri *Reddet*:  
     
     - *İzin ver:*
  
@@ -267,39 +267,39 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180513.1**.
 
 #### <a name="sql-and-mysql"></a>SQL ve MySQL
 
-- <!-- TBD - IS --> Yalnızca kaynak sağlayıcısı, o ana bilgisayar SQL veya MySQL sunucuları üzerinde öğeleri oluşturmak için desteklenir. Kaynak sağlayıcısı tarafından oluşturulmamış bir ana bilgisayar sunucusunda oluşturulan öğeleri eşleşmeyen bir duruma neden olabilir.  
+- <!-- TBD - IS --> Yalnızca kaynak sağlayıcısı, ana bilgisayar SQL veya MySQL sunucuları üzerinde öğeleri oluşturmak için desteklenir. Kaynak sağlayıcısı tarafından oluşturulmamış bir ana bilgisayar sunucusunda oluşturulan öğeler, eşleşmeyen bir duruma neden olabilir.  
 
-- <!-- IS, ASDK --> Özel karakterler, boşluklar ve dönemleri dahil olmak üzere desteklenmiyor **ailesi** veya **katmanı** SQL ve MySQL kaynak sağlayıcıları için bir SKU oluşturduğunuzda adları.
+- <!-- IS, ASDK --> Özel karakterler, boşluk ve nokta dahil olmak üzere desteklenmez **ailesi** veya **katmanı** adları, SQL ve MySQL kaynak sağlayıcıları için bir SKU oluşturduğunuzda.
 
 
 > [!NOTE]  
-> <!-- TBD - IS --> Azure yığın 1804 güncelleştirdikten sonra daha önce dağıtmış SQL ve MySQL kaynak sağlayıcıları kullanmaya devam edebilirsiniz.  Yeni bir sürüm kullanılabilir olduğunda SQL ve MySQL güncelleştirme öneririz. Azure yığın gibi güncelleştirmeleri sırayla SQL ve MySQL kaynak sağlayıcıları için geçerlidir.  Örneğin, 1802 sürümünü kullanıyorsanız, önce sürüm 1803 uygulayın ve ardından 1804 için güncelleştirin.      
+> <!-- TBD - IS --> Azure Stack 1804 için güncelleştirdikten sonra daha önce dağıttığınız SQL ve MySQL kaynak sağlayıcıları kullanmaya devam edebilirsiniz.  Yeni bir sürüm kullanıma sunulduğunda SQL ve MySQL güncelleştirme öneririz. Azure Stack gibi güncelleştirmeleri sırayla SQL ve MySQL kaynak sağlayıcıları için geçerlidir.  Örneğin, sürüm 1802 kullanıyorsanız, önce sürüm 1803 uygulayın ve ardından 1804 için güncelleştirin.      
 >   
-> Güncelleştirme 1804 yüklemesini SQL veya MySQL kaynak sağlayıcıları kullanıcılarınız tarafından geçerli kullanımını etkilemez.
-> Kullandığınız kaynak sağlayıcıları sürümü, bağımsız olarak kendi veritabanlarını kullanıcılar verilerinizi touched değil ve erişilebilir kalır.    
+> 1804 güncelleştirme yüklemesi, SQL veya MySQL kaynak sağlayıcıları kullanıcılarınız tarafından geçerli kullanımını etkilemez.
+> Kullandığınız kaynak sağlayıcıları sürümünden bağımsız olarak kullanıcılar verilerinizi veritabanlarındaki bilgiler değildir ve erişilebilir kalır.    
 
 
 
 #### <a name="app-service"></a>App Service
-- <!-- 2352906 - IS ASDK --> Kullanıcılar, bunlar ilk Azure işlevlerine abonelikte oluşturmadan önce depolama kaynak sağlayıcısı kaydetmeniz gerekir.
+- <!-- 2352906 - IS ASDK --> Kullanıcılar, bunlar, ilk Azure işlevinizi aboneliği oluşturmadan önce depolama kaynak sağlayıcısı kaydetmeniz gerekir.
 
-- <!-- TBD - IS ASDK --> (Çalışanları, yönetim, ön uç rolleri) altyapıyı ölçeklendirme için PowerShell işlem için Sürüm Notları'nda açıklandığı şekilde kullanmanız gerekir.
+- <!-- TBD - IS ASDK --> (Çalışan, yönetim, ön uç rollerini) altyapıyı ölçeklendirme için sürüm notları için işlem açıklandığı PowerShell kullanmanız gerekir.
 
-- <!-- TBD - IS ASDK --> Uygulama hizmeti yalnızca dağıtılabilir içine **varsayılan sağlayıcı abonelik** şu anda.  Gelecek bir güncelleştirmede yeni ölçüm Azure yığın 1804 sunulan aboneliğe uygulama hizmeti dağıtacağınız ve tüm mevcut dağıtımları için yeni Bu abonelik ayrıca geçirilecektir.
+- <!-- TBD - IS ASDK --> App Service yalnızca dağıtılabilir içine **varsayılan sağlayıcı aboneliği** şu anda.  Gelecekteki bir güncelleştirmede App Service uygulamasına yeni ölçümü Azure Stack 1804 ' sunulan abonelik dağıtmak ve bu yeni abonelik için tüm mevcut dağıtımları da geçirilecektir.
 
 #### <a name="usage"></a>Kullanım  
-- <!-- TBD - IS ASDK --> Kullanım genel IP adresi kullanım ölçüm verileri gösterilir aynı *olay tarihi-saati* yerine her kayıt için değer *TimeDate* kaydının oluşturulduğu gösterilir Damga. Şu anda, ortak IP adresi kullanımının doğru hesap gerçekleştirmek için bu verileri kullanamazsınız.
+- <!-- TBD - IS ASDK --> Kullanım genel IP adresi kullanım ölçümü verilerini gösterir aynı *olay tarihi-saati* yerine her kaydın değerini *TimeDate* gösteren kaydın oluşturulduğu zaman damgası. Şu anda, genel IP adresi kullanımının doğru hesap gerçekleştirmek için bu verileri kullanamazsınız.
 
 
 <!-- #### Identity -->
 <!-- #### Marketplace --> 
 
 
-## <a name="download-the-update"></a>Güncelleştirme karşıdan yükle
-Azure yığın 1804 güncelleştirme paketinden indirebilirsiniz [burada](https://aka.ms/azurestackupdatedownload).
+## <a name="download-the-update"></a>Güncelleştirmeyi indirin
+Azure Stack 1804 güncelleştirme paketinden indirebileceğiniz [burada](https://aka.ms/azurestackupdatedownload).
 
 
 ## <a name="see-also"></a>Ayrıca bkz.
-- İzleme ve güncelleştirmeleri sürdürmek için ayrıcalıklı uç noktası (CESARETLENDİRİCİ) kullanmak için bkz: [izlemek Azure kullanan ayrıcalıklı uç noktasını yığınında güncelleştirmeleri](azure-stack-monitor-update.md).
-- Güncelleştirme yönetimi Azure yığınında genel bakış için bkz: [yönetmek güncelleştirmeleri Azure yığın genel bakış](azure-stack-updates.md).
-- Azure yığın güncelleştirmeleriyle uygulama hakkında daha fazla bilgi için bkz: [Azure yığınında güncelleştirmelerini](azure-stack-apply-updates.md).
+- Ayrıcalıklı uç noktasına (CESARETLENDİRİCİ) izlemek ve güncelleştirmelerini sürdürmek üzere kullanmak için bkz [izleme ayrıcalıklı uç noktayı kullanarak Azure stack'teki güncelleştirmeleri](azure-stack-monitor-update.md).
+- Azure Stack'te güncelleştirme yönetimi genel bakış için bkz. [Azure Stack genel bakış güncelleştirmeleri yönetme](azure-stack-updates.md).
+- Azure Stack güncelleştirmeleriyle uygulama hakkında daha fazla bilgi için bkz. [güncelleştirmelerini Azure Stack'te](azure-stack-apply-updates.md).

@@ -1,6 +1,6 @@
 ---
-title: Ağ Azure tümleşik yığını sistemleri için tümleştirme konuları | Microsoft Docs
-description: Birden çok düğümlü Azure yığını ile veri merkezi ağ tümleştirme planlamak için yapabileceğinizi öğrenin.
+title: Ağ tümleştirme konuları için Azure Stack tümleşik sistemleri | Microsoft Docs
+description: Çok düğümlü Azure Stack ile veri merkezi ağ tümleştirmesi planlamak için neler yapabileceğinizi öğrenin.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,80 +12,80 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 07/11/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 752481186167fccb46d5bf3beb87c1507e0f4feb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: MT
+ms.openlocfilehash: 2d16d1dc7a53ca388b00ba02b6447e178a9f6edb
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936526"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989246"
 ---
 # <a name="network-connectivity"></a>Ağ bağlantısı
-Bu makale Azure yığın mevcut ağ ortamınıza en iyi tümleştirmek nasıl karar vermenize yardımcı olacak Azure yığın ağ altyapı bilgileri sağlar. 
+Bu makalede, Azure Stack mevcut ağ ortamınıza en iyi şekilde tümleştirmek nasıl karar vermenize yardımcı olmak için Azure Stack ağ altyapı bilgileri sağlar. 
 
 > [!NOTE]
-> Dış DNS adlarını (örneğin, www.bing.com) Azure yığından çözümlemek için DNS isteklerini iletmek için DNS sunucuları sağlamanız gerekir. Azure yığın DNS gereksinimleri hakkında daha fazla bilgi için bkz: [Azure yığın datacenter tümleştirmesi - DNS](azure-stack-integrate-dns.md).
+> Azure Stack (örneğin, www.bing.com) dış DNS adları çözümlemek için DNS sunucuları, DNS istekleri iletmek üzere vermeniz gerekir. Azure Stack DNS gereksinimleri hakkında daha fazla bilgi için bkz. [Azure Stack'i veri merkezi tümleştirmesi - DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Fiziksel ağ tasarımı
-Azure yığın çözüm, işlem ve hizmetlerini desteklemek için esnek ve yüksek oranda kullanılabilir fiziksel bir altyapı gerektirir. Aşağıdaki diyagramda, önerilen tasarımı gösterir:
+Azure Stack çözüm, işlem ve hizmetlerini desteklemek için esnek ve yüksek oranda kullanılabilir fiziksel bir altyapı gerektirir. Yukarı bağlantılar ToR üzerinden kenarlık anahtarlar, SFP + medya ve 1 GB veya 10 GB hızları için sınırlıdır. Kullanılabilirlik için orijinal ekipman üreticisi (OEM) donanım satıcınıza başvurun. Aşağıdaki diyagramda, bizim önerilen tasarımı gösterir:
 
-![Önerilen Azure yığın ağ tasarımı](media/azure-stack-network/recommended-design.png)
+![Önerilen Azure Stack ağ tasarımı](media/azure-stack-network/recommended-design.png)
 
 
 ## <a name="logical-networks"></a>Mantıksal ağlar
-Mantıksal ağlar temeldeki fiziksel ağ altyapısının bir soyutlamasını temsil eder. Bunlar, konaklar, sanal makineleri ve Hizmetleri için ağ atamalarını düzenlemek ve kolaylaştırmak için kullanılır. Mantıksal ağ oluşturmanın bir parçası ağ alanları sanal yerel ağlar (VLAN'lar), IP alt ağları ve her fiziksel konumdaki mantıksal ağ ile ilişkili IP alt ağı/VLAN çiftleri tanımlamak için oluşturulur.
+Mantıksal ağlar temeldeki fiziksel ağ altyapısının bir soyutlamasını temsil eder. Bunlar, konaklar, sanal makineler ve hizmetler için ağ atamalarını düzenlemek ve kolaylaştırmak için kullanılır. Mantıksal ağ oluşturmanın bir parçası, ağ siteleri, sanal yerel ağları (VLAN'lar), IP alt ağları ve her fiziksel konumdaki mantıksal ağ ile ilişkili IP alt ağı/VLAN çiftleri tanımlamak için oluşturulur.
 
-Aşağıdaki tabloda, mantıksal ağlar ve planlamanız gerekir ilişkili IPv4 alt ağ aralıklarını gösterilmektedir:
+Aşağıdaki tabloda, mantıksal ağlar ve planlamanız gereken ilişkili IPv4 alt ağ aralıklarını gösterilmektedir:
 
 | Mantıksal ağ | Açıklama | Boyut | 
 | -------- | ------------- | ------------ | 
-| Genel VIP | Azure yığını, bu ağ 32 adreslerini toplam kullanır. Rest, Kiracı sanal makineler tarafından kullanılır ve sekiz genel IP adresleri küçük bir Azure yığın Hizmetleri kümesi için kullanılır. Uygulama hizmeti ve SQL kaynak sağlayıcıları kullanmayı planlıyorsanız, 7 daha fazla adresleri kullanılır. | / 26 (62 konakları) - /22 (1022 ana bilgisayarları)<br><br>Önerilen /24 (254 ana) = | 
-| Anahtar altyapısı | Noktadan noktaya IP adreslerini yönlendirme amacıyla, ayrılmış yönetim arabirimleri ve anahtara atanmalıdır geri döngü adresleri geçin. | /26 | 
-| Altyapı | Azure yığın iç bileşenleri için iletişim kurmak için kullanılır. | /24 |
+| Genel VIP | Azure Stack 32 adresleri bu ağ üzerinden toplam kullanır. Rest, Kiracı sanal makineler tarafından kullanılır ve sekiz genel IP adresleri Azure Stack'i Hizmetleri küçük bir kümesi için kullanılır. App Service ve SQL kaynak Sağlayıcısı'nı kullanmayı planlıyorsanız, 7 daha fazla adresleri kullanılır. | / 26 (62 konakları) - /22 (1022 ana)<br><br>Önerilen /24 (254 ana bilgisayardan) = | 
+| Geçiş altyapısı | Noktadan noktaya yönlendirme amacıyla, adanmış IP adresleri yönetim arabirimleri ve anahtara atanmış geri döngü adresi geçin. | /26 | 
+| Altyapı | Azure Stack iç bileşenleri için iletişim kurmak için kullanılır. | /24 |
 | Özel | Depolama ağı ve özel VIP'ler için kullanılır. | /24 | 
-| BMC | Fiziksel ana bilgisayarlarda bmc'li iletişim kurmak için kullanılır. | /27 | 
+| BMC | Fiziksel konaklardaki bmc ile iletişim kurmak için kullanılır. | /27 | 
 | | | |
 
 ## <a name="network-infrastructure"></a>Ağ altyapısı
-Azure yığını için ağ altyapısı anahtarlar yapılandırılmış birden fazla mantıksal ağları oluşur. Aşağıdaki diyagramda, bu mantıksal ağları ve bunlar üst üstü ile (TOR), temel kart yönetim denetleyicisi (BMC) tümleştirme ve nasıl (müşteri ağ) anahtarları kenarlık gösterilmektedir.
+Azure Stack için ağ altyapısını anahtarlar üzerinde yapılandırılmış birkaç mantıksal ağları oluşur. Aşağıdaki diyagramda, bu mantıksal ağları ve nasıl bunların üst raf ile (TOR), temel kart yönetim denetleyicisine (BMC) tümleştirin ve (müşteri ağı) anahtarları kenarlık gösterilmektedir.
 
-![Mantıksal ağ bağlantılarının diyagramını ve anahtarı oluştur](media/azure-stack-network/NetworkDiagram.png)
+![Mantıksal ağ diyagramı ve anahtar bağlantıları](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>BMC ağ
-Bu ağ yönetim ağı için tüm temel kart yönetim denetleyicileri (olarak da bilinen Hizmet işlemciler, örneğin, iDRAC, Ilo, iBMC, vb.) bağlanma ayrılır. Varsa, donanım yaşam döngüsü ana bilgisayar (HLH) bu ağ üzerinde bulunan ve donanım Bakım veya izleme için OEM belirli yazılım sağlayabilir. 
+Bu ağ tüm temel kart yönetim denetleyicileri (olarak da bilinen hizmet işlemcileri, örneğin iDRAC, iLO, iBMC, vb.) bağlanma yönetim ağına ayrılır. Varsa, donanım yaşam döngüsü ana bilgisayar (HLH) Bu ağda bulunan ve OEM-belirli yazılım, donanım bakım ya da izleme için sağlayabilir. 
 
-HLH (DVM) dağıtım VM da barındırır. DVM Azure yığın dağıtımı sırasında kullanılır ve dağıtım tamamlandıktan sonra kaldırılır. DVM bağlı dağıtım senaryolarında sınamak için doğrulamak ve birden çok bileşenlerine erişmek için Internet erişimi gerektirir. Bu bileşenler içinde ve Şirket ağınızın dışındaki olabilir; Örneğin NTP, DNS ve Azure. Bağlantı gereksinimleri hakkında daha fazla bilgi için bkz: [Azure yığın güvenlik duvarı tümleştirmesi NAT bölümünde](azure-stack-firewall.md#network-address-translation). 
+HLH ayrıca dağıtım VM (DVM) barındırır. DVM Azure Stack dağıtımı sırasında kullanılan ve dağıtım tamamlandıktan sonra kaldırılır. DVM bağlı dağıtım senaryolarında sınamak için doğrulama ve birden çok bileşenlerine erişmek için Internet erişimi gerektirir. Bu bileşenler, içinde ve Şirket ağınızın dışında olabilir. Örneğin, NTP, DNS ve Azure. Bağlantı gereksinimleri hakkında daha fazla bilgi için bkz: [Azure Stack güvenlik duvarı tümleştirmesi NAT bölümünde](azure-stack-firewall.md#network-address-translation). 
 
 ### <a name="private-network"></a>Özel ağ
-Bu /24 (254 ana bilgisayar IP'ın) ağ (Azure yığın bölgesinin kenarlık anahtar aygıtları genişletmez) Azure yığın bölgeye özeldir ve iki alt ağa ayrılmıştır:
+Bu /24 (254 ana bilgisayarı IP'ler) ağ (Azure Stack bölgesinin kenarlık anahtar cihazları genişletmeyen) Azure Stack bölgeye özeldir ve iki alt ağına bölünür:
 
-- **Depolama ağı**. Dinamik geçiş (126 ana bilgisayar IP'ın) ağ alanları doğrudan ve sunucu ileti bloğu (SMB) depolama trafiği ve sanal makine kullanımını desteklemek için kullanılan bir /25. 
-- **İç sanal IP ağ**. A/25-yalnızca iç atanmış VIP'ler yazılım yük dengeleyici için ağ.
+- **Depolama ağı**. Bir /25 (126 konak IP'ler) ağ alanları doğrudan'ı ve sunucu ileti bloğu (SMB) depolama trafiği ve sanal makine dinamik geçişi desteklemek için kullanılır. 
+- **İç sanal IP ağ**. A/25 yazılım yük dengeleyici için yalnızca dahili ayrılmış VIP ağ.
 
-### <a name="azure-stack-infrastructure-network"></a>Azure yığın altyapı ağı
-Bu/24 ağ iletişim kurmak ve aralarında veri değişimi iç Azure yığın bileşenleri için ayrılmış. Bu alt ağ olarak yönlendirilebilir IP adreslerinin gerektiriyor, ancak erişim denetim listeleri (ACL'ler) kullanarak çözüme özel tutulur. Kenarlık anahtarlar için/27 boyutu eşdeğer küçük bir aralık dışında ötesinde yönlendirilecek beklenen değil dış kaynaklara ve/veya internet erişimi gerektirdiğinde bu hizmetlerden bazılarını tarafından kullanılan ağ. 
+### <a name="azure-stack-infrastructure-network"></a>Azure Stack altyapı ağı
+Bu/24 ağ iletişim kurmak ve aralarında veri değişimi iç Azure Stack bileşenleri için ayrılmış. Bu alt ağ yönlendirilebilir IP adreslerinin gerektirir, ancak erişim denetim listeleri (ACL'ler) kullanarak çözüme özel tutulur. Kenarlık anahtarlar için bir/27 boyutu eşdeğer küçük bir aralık dışında ötesinde yönlendirilmesini beklenen değil, dış kaynaklara ve/veya internet erişimi gerektirdiğinde bu hizmetlerden bazıları tarafından kullanılan ağ. 
 
 ### <a name="public-infrastructure-network"></a>Ortak altyapı ağı
-Bu/27 ağdır daha önce bahsedilen Azure yığın altyapı alt ağdan küçük bir aralık, genel IP adresleri gerektirmez, ancak bir NAT veya saydam Proxy üzerinden Internet erişimi gerektirir. Bu ağ Acil Durum Kurtarma Konsolu sistem (ERCS) için ayrılacak, Azure kayıt sırasında ve altyapı yedekleme sırasında ERCS VM Internet erişimi gerektirir. ERCS VM sorun giderme amacıyla yönetim ağınıza yönlendirilebilir olmalıdır.
+Bunun/27 ağdır küçük bir aralık daha önce bahsedilen Azure Stack altyapısını alt ağ, genel IP adresleri olması gerekmez, ancak bir NAT veya saydam Ara sunucu üzerinden internet erişimi gerektirmez. Bu ağ, Acil Durum Kurtarma konsolunu sistemini (ERCS) için atanacak, azure'a kayıt sırasında ve altyapı yedekleme sırasında ERCS VM Internet erişimi gerektirir. ERCS VM sorun giderme amacıyla yönetim ağınıza yönlendirilebilir olmalıdır.
 
-### <a name="public-vip-network"></a>Ortak VIP ağ
-Ortak VIP ağ Azure yığınında Ağ denetleyicisi atanır. Bir mantıksal ağ anahtarı üzerindeki değil. SLB adres havuzu kullanır ve atar/32 Kiracı İş yükleri için ağları. Geçiş yönlendirme tablosu üzerinde bu 32 IP'leri BGP aracılığıyla kullanılabilir bir yolu olarak bildirildiğini. Bu ağ, dış erişilebilir veya genel IP adresleri içerir. Kalan Kiracı VM'ler tarafından kullanılırken Azure yığın altyapısı bu ortak VIP ağ ilk 31 adreslerinden ayırır. Bu alt ağ boyutu en fazla /22 (1022 konakları) için en az /26 (64 konakları) aralığı, bir/24 için planlama öneririz ağ.
+### <a name="public-vip-network"></a>Genel VIP ağları
+Genel VIP ağları Ağ denetleyicisi Azure Stack'te atanır. Bir mantıksal ağ anahtarı üzerindeki değil. SLB adres havuzu kullanır ve atar/Kiracı İş yükleri için 32 ağlar. Geçiş yönlendirme tablosunda 32 bu IP'lerin BGP aracılığıyla kullanılabilir olan bir yol olarak bildirildiğini. Bu ağa harici erişilebilir veya genel IP adreslerini içerir. Azure Stack altyapısının kalan Vm'leri Kiracı tarafından kullanılırken bu genel VIP ağları ilk 31 adreslerinden saklı tutar. Bu alt ağ boyutu en fazla /22 (1022 ana) en az /26 (64 ana) değişebilir, için bir/24 planlamanızı öneririz ağ.
 
-### <a name="switch-infrastructure-network"></a>Anahtar altyapı ağı
-Bu/26 ağdır (2 ana bilgisayar IP's) yönlendirilebilir noktadan noktaya IP/30 alt ve ayrılmış geri döngüler içeren alt ağ/32 alt ağlar için bant dışı yönetim ve BGP yönlendirici kimliği geçiş Bu IP adresi aralığı dışarıdan merkeziniz için Azure yığın çözümün yönlendirilebilir olmalıdır, özel veya genel IP'ler olabilir.
+### <a name="switch-infrastructure-network"></a>Altyapı ağı Değiştir
+Bu/26 ağdır yönlendirilebilir noktadan noktaya IP 30 (2 ana bilgisayar IP) alt ve ayrılmış geri döngüler içeren alt ağ/32 alt ağlar için bant dışı yönetimi ile BGP yönlendiricisi kimliği geçiş Bu IP adresi aralığı, veri merkeziniz için Azure Stack çözümün dışarıdan yönlendirilebilen olmalıdır, özel veya genel IP'ler olması olabilir.
 
 ### <a name="switch-management-network"></a>Anahtar Yönetim ağı
-Bu /29 (6 ana bilgisayar IP) ayrılmış ağ anahtarlarını yönetim bağlantı noktalarını bağlanma. Dağıtım, yönetim ve sorun giderme için bant dışı erişim sağlar. Yukarıda belirtilen anahtar altyapı ağ üzerinden hesaplanır.
+Bu /29 (6 konak IP'ler) ağ ayrılmış yönetim bağlantı noktalarına anahtarların bağlanma. Dağıtım, yönetim ve sorun giderme için bant dışı erişim sağlar. Yukarıda belirtilen anahtar altyapı ağ üzerinden hesaplanır.
 
-## <a name="publish-azure-stack-services"></a>Azure yığın Hizmetleri'ne yayımlama
-Azure yığın Hizmetleri kullanıcıların dış Azure yığınından kullanılabilmesi gerekir. Azure yığın altyapı rolleri için çeşitli uç noktaları ayarlar. Bu uç noktalar VIP'ler ortak IP adresi havuzundan atanır. Dağıtım sırasında belirtilen dış DNS bölge içindeki her bir uç nokta için bir DNS girişi oluşturulur. Örneğin, kullanıcı portalı Portalı'nın DNS ana bilgisayar girişi atanır.  *&lt;bölge >.&lt; FQDN >*.
+## <a name="publish-azure-stack-services"></a>Azure Stack hizmetleri yayımlama
+Azure Stack Hizmetleri kullanıcıların dış Azure yığını kullanılabilmesi gerekir. Azure Stack altyapısını rolleri için çeşitli uç ayarlar. Bu uç noktaları VIP'ler genel IP adresi havuzundan atanır. Dağıtım sırasında belirtilen dış DNS bölgesi içindeki her bir uç nokta için bir DNS girişi oluşturulur. Örneğin, kullanıcı portalı, portal'ın DNS konak girişi atanır.  *&lt;bölge >.&lt; FQDN >*.
 
-### <a name="ports-and-urls"></a>Bağlantı noktaları ve URL'leri
-Azure yığın Hizmetleri yapma (portalları gibi Azure Resource Manager, DNS, vb.) kullanılabilir dış ağlara, gelen trafiğe Bu uç noktalar için belirli URL'leri, bağlantı noktalarını ve protokolleri izin vermeniz gerekir.
+### <a name="ports-and-urls"></a>Bağlantı noktaları ve URL'ler
+Azure Stack hizmetlerinin yapma (portalları gibi Azure Resource Manager, DNS, vb.) dış ağlara kullanılabilir, bu uç noktalarına gelen trafiği belirli URL'ler, bağlantı noktaları ve protokoller için izin vermeniz gerekir.
  
-Bir dağıtımda saydam proxy yukarı bağlantılar burada geleneksel proxy sunucusu belirli bağlantı noktalarını ve URL'leri her ikisi için izin vermelidir [gelen](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) ve [giden](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) iletişim. Bu bağlantı noktaları ve URL'leri kimlik, Market dağıtım, düzeltme ve güncelleştirme, kayıt ve kullanım verilerini içerir.
+Bir dağıtımda saydam proxy yukarı bağlantılar burada geleneksel proxy sunucusu için belirli bağlantı noktaları ve URL'ler için izin vermelidir [gelen](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) ve [giden](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) iletişim. Bu bağlantı noktaları ve URL'ler kimlik, Market dağıtım, düzeltme eki ve güncelleştirme, kayıt ve kullanım verilerini içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Kenarlık bağlantısı](azure-stack-border-connectivity.md)

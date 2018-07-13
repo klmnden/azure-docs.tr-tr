@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 iOS Başlarken | Microsoft Docs
-description: İOS (Swift) uygulamaları, Azure Active Directory v2 bitiş noktası tarafından erişim belirteçleri gerektiren bir API nasıl çağırabilirsiniz
+title: Azure AD v2 iOS kullanmaya başlama | Microsoft Docs
+description: Nasıl iOS (Swift) uygulamaları Azure Active Directory v2 uç noktası tarafından erişim belirteçlerini gerektiren bir API çağrısı
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -16,13 +16,10 @@ ms.date: 04/09/2018
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: b73e443c95257c9216d71d73aa3d1dee0d3eee5e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38294927"
 ---
-[!INCLUDE [1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-introduction.md)]
-[!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-setup.md)]
-[!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-use.md)]
-[!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-configure.md)]
-[!INCLUDE [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-test.md)]
+[[1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-introduction.md)] [!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-setup.md)] [!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-use.md)] [!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-configure.md)] [!INCLUDE [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-test.md)]

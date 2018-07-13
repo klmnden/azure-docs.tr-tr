@@ -51,4 +51,4 @@ Kavram, Azure işlem birimi (ACU) açısından, bilgi işlem (CPU) performansın
 
 * işaretli ACU'lar, CPU frekansını artırmak ve performans artışı sağlamak için Intel® Turbo Boost teknolojisinden faydalanır.  Performans artışının oranı VM boyutuna, iş yüküne ve aynı ana bilgisayarda çalışan iş yüklerine göre değişiklik gösterebilir.
 
-** Hiper iş parçacığı. 
+\*\* Hiper iş parçacığı. 

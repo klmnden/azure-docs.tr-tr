@@ -1,6 +1,6 @@
 ---
-title: 'Rota tabanlı Azure VPN ağ geçidi oluşturmak: PowerShell | Microsoft Docs'
-description: Hızlı rota tabanlı VPN PowerShell kullanarak ağ geçidi oluşturma
+title: 'Rota tabanlı Azure VPN gateway oluşturma: PowerShell | Microsoft Docs'
+description: Bir rota tabanlı VPN Gateway'de PowerShell kullanarak hızlıca oluşturun
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,16 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: cherylmc
 ms.openlocfilehash: efa07a68cda60ea2d8256a8d068639305f7f4c86
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295464"
 ---
-# <a name="create-a-route-based-vpn-gateway-using-powershell"></a>PowerShell kullanarak bir rota tabanlı VPN ağ geçidi oluşturma
+# <a name="create-a-route-based-vpn-gateway-using-powershell"></a>PowerShell kullanarak rota temelli VPN ağ geçidi oluşturma
 
-Bu makalede PowerShell kullanarak bir rota tabanlı Azure VPN ağ geçidi hızlı bir şekilde oluşturmanıza yardımcı olur. Bir VPN ağ geçidi, şirket içi ağınıza bir VPN bağlantısı oluşturulurken kullanılır. Sanal ağlara bağlanmak için bir VPN ağ geçidi'ni de kullanabilirsiniz.
+Bu makalede, PowerShell kullanarak rota temelli Azure VPN ağ geçidi hızlı bir şekilde oluşturmanıza yardımcı olur. Bir VPN ağ geçidi, şirket içi ağınıza bir VPN bağlantısı oluşturulurken kullanılır. Vnet'leri bağlamak için bir VPN ağ geçidi'ni de kullanabilirsiniz.
 
-Bu makaledeki adımları bir sanal ağ, bir alt ağ, bir ağ geçidi alt ağı ve rota tabanlı VPN ağ geçidi (sanal ağ geçidi) oluşturur. Ağ geçidi oluşturma tamamlandıktan sonra ardından bağlantı oluşturabilirsiniz. Bu adımları bir Azure aboneliği gerektirir. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+Bu makaledeki adımlarda, sanal ağ, bir alt ağ, ağ geçidi alt ağı ve rota tabanlı VPN ağ geçidi (sanal ağ geçidi) oluşturur. Ağ geçidi oluşturma tamamlandıktan sonra ardından bağlantıları oluşturabilirsiniz. Bu adımlar, bir Azure aboneliği gerekir. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -39,9 +40,9 @@ PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, 
 New-AzureRmResourceGroup -Name TestRG1 -Location EastUS
 ```
 
-## <a name="vnet"></a>Bir sanal ağ oluşturma
+## <a name="vnet"></a>Sanal ağ oluşturma
 
-[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) ile sanal ağ oluşturun. Aşağıdaki örnek adlı bir sanal ağ oluşturur **VNet1** içinde **EastUS** konumu:
+[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) ile sanal ağ oluşturun. Aşağıdaki örnekte adlı bir sanal ağ oluşturur **VNet1** içinde **EastUS** konumu:
 
 ```azurepowershell-interactive
 $virtualNetwork = New-AzureRmVirtualNetwork `
@@ -51,7 +52,7 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
   -AddressPrefix 10.1.0.0/16
 ```
 
-Kullanarak bir alt ağ yapılandırması oluşturma [yeni AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) cmdlet'i.
+Kullanarak bir alt ağ yapılandırması oluşturun [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) cmdlet'i.
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
@@ -60,16 +61,16 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-Sanal ağ kullanan bir alt ağ yapılandırması ayarlayın [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork) cmdlet'i.
+Kullanarak sanal ağ için alt ağ yapılandırması ayarlayın [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork) cmdlet'i.
 
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="gwsubnet"></a>Bir ağ geçidi alt ağı Ekle
+## <a name="gwsubnet"></a>Bir ağ geçidi alt ağı ekleme
 
-Ağ geçidi alt ağı sanal ağ geçidi hizmetlerini kullanmak ayrılmış IP adresleri içerir. Aşağıdaki örnekler, bir ağ geçidi alt ağı eklemek için kullanın:
+Ağ geçidi alt ağı sanal ağ geçidi hizmetlerinin kullandığı ayrılmış IP adreslerini içerir. Bir ağ geçidi alt ağı eklemek için aşağıdaki örnekleri kullanın:
 
 Vnet'inizi için bir değişken ayarlayın.
 
@@ -77,27 +78,27 @@ Vnet'inizi için bir değişken ayarlayın.
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
 ```
 
-Ağ geçidi alt ağı kullanarak oluşturduğunuz [Ekle AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/Add-AzureRmVirtualNetworkSubnetConfig) cmdlet'i.
+Ağ geçidi alt ağı kullanarak oluşturduğunuz [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/Add-AzureRmVirtualNetworkSubnetConfig) cmdlet'i.
 
 ```azurepowershell-interactive
 Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
 ```
 
-Sanal ağ kullanan bir alt ağ yapılandırması ayarlayın [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork) cmdlet'i.
+Kullanarak sanal ağ için alt ağ yapılandırması ayarlayın [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork) cmdlet'i.
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="PublicIP"></a>İstek bir ortak IP adresi
+## <a name="PublicIP"></a>Genel bir IP adresi isteme
 
-Bir VPN ağ geçidi dinamik olarak ayrılan bir ortak IP adresi olmalıdır. Bir VPN ağ geçidi bağlantı oluşturduğunuzda, bu, belirttiğiniz IP adresidir. Bir ortak IP adresi istemek için aşağıdaki örneği kullanın:
+Bir VPN ağ geçidi, dinamik olarak ayrılan bir genel IP adresi olmalıdır. Bir VPN ağ geçidine bir bağlantı oluşturduğunuzda, belirttiğiniz IP adresi budur. Genel bir IP adresi istemek için aşağıdaki örneği kullanın:
 
 ```azurepowershell-interactive
 $gwpip= New-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
-## <a name="GatewayIPConfig"></a>Ağ geçidi IP adresi yapılandırması oluştur
+## <a name="GatewayIPConfig"></a>Ağ geçidi IP adresi yapılandırması oluşturma
 
 Ağ geçidi yapılandırması, kullanılacak alt ağı ve genel IP adresini tanımlar. Ağ geçidi yapılandırmanızı oluşturmak için aşağıdaki örneği kullanın:
 
@@ -108,7 +109,7 @@ $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -Subnet
 ```
 ## <a name="CreateGateway"></a>VPN ağ geçidi oluşturma
 
-Bir VPN ağ geçidi 45 dakika veya oluşturmak için daha fazla sürebilir. Ağ geçidi tamamlandıktan sonra sanal ağınız ve başka bir VNet arasında bir bağlantı oluşturabilirsiniz. Veya, sanal ağ ve bir şirket içi konum arasında bir bağlantı oluşturun. Kullanarak bir VPN ağ geçidi oluşturma [yeni AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/New-AzureRmVirtualNetworkGateway) cmdlet'i.
+VPN ağ geçidinin oluşturulması 45 dakika veya daha uzun sürebilir. Ağ geçidi tamamlandıktan sonra sanal ağınız ile başka bir sanal ağ arasında bir bağlantı oluşturabilirsiniz. Veya sanal ağınız ile şirket içi konumunuz arasında bir bağlantı oluşturun. [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/New-AzureRmVirtualNetworkGateway) cmdlet’ini kullanarak bir VPN ağ geçidi oluşturun.
 
 ```azurepowershell-interactive
 New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
@@ -118,13 +119,13 @@ New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 
 ## <a name="viewgw"></a>VPN ağ geçidi görüntüleyin
 
-VPN ağ geçidi kullanarak görüntüleyebileceği [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/Get-AzureRmVirtualNetworkGateway) cmdlet'i.
+VPN ağ geçidi kullanarak görüntüleyebileceğiniz [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/Get-AzureRmVirtualNetworkGateway) cmdlet'i.
 
 ```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGateway -Name Vnet1GW -ResourceGroup TestRG1
 ```
 
-Çıktı bu örneğe benzer görünür:
+Çıktı şu örneğe benzer görünecektir:
 
 ```
 Name                   : VNet1GW
@@ -169,15 +170,15 @@ BgpSettings            : {
      
 ```
 
-## <a name="viewgwpip"></a>Genel IP adresi görüntüleyin
+## <a name="viewgwpip"></a>Genel IP adresini görüntüleyin
 
-VPN ağ geçidiniz için genel IP adresi görüntülemek için kullanın [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/Get-AzureRmPublicIpAddress) cmdlet'i.
+VPN ağ geçidiniz için genel IP adresini görüntülemek için kullanın [Get-Azurermpublicıpaddress](/powershell/module/azurerm.network/Get-AzureRmPublicIpAddress) cmdlet'i.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1
 ```
 
-Örnek yanıt olarak, genel IP adresi IPADDRESS değerdir.
+Örnek yanıt olarak, genel IP adresini IPADDRESS değerdir.
 
 ```
 Name                     : VNet1GWIP
@@ -216,9 +217,9 @@ Remove-AzureRmResourceGroup -Name TestRG1
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ağ geçidi oluşturmayı tamamlandıktan sonra sanal ağınız ve başka bir VNet arasında bir bağlantı oluşturabilirsiniz. Veya, sanal ağ ve bir şirket içi konum arasında bir bağlantı oluşturun.
+Ağ geçidi oluşturma tamamlandıktan sonra başka bir sanal ağ ve sanal ağınız arasında bir bağlantı oluşturabilirsiniz. Veya sanal ağınız ile şirket içi konumunuz arasında bir bağlantı oluşturun.
 
 > [!div class="nextstepaction"]
 > [Siteden siteye bağlantı oluşturma](vpn-gateway-create-site-to-site-rm-powershell.md)<br><br>
-> [Bir noktadan siteye bağlantı oluşturma](vpn-gateway-howto-point-to-site-rm-ps.md)<br><br>
-> [Başka bir VNet bağlantı oluşturun.](vpn-gateway-vnet-vnet-rm-ps.md)
+> [Noktadan siteye bağlantı oluşturma](vpn-gateway-howto-point-to-site-rm-ps.md)<br><br>
+> [Başka bir sanal ağa bağlantı oluşturma](vpn-gateway-vnet-vnet-rm-ps.md)

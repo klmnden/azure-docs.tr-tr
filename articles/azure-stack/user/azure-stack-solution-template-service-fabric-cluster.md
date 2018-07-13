@@ -1,6 +1,6 @@
 ---
-title: Azure yığınında güvenli bir Service Fabric kümesini dağıtma | Microsoft Docs
-description: Azure yığınında güvenli bir Service Fabric kümesi dağıtmayı öğrenin
+title: Azure stack'teki güvenli bir Service Fabric kümesine dağıtma | Microsoft Docs
+description: Azure stack'teki güvenli bir Service Fabric kümesi dağıtmayı öğrenin
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,49 +14,49 @@ ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: a88d8dd2af94ac796a3b2e3c667fd40a308f02a1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: acf850bdc56e55d13b13a40ef343f2f20c4a77ca
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33883028"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969121"
 ---
-# <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure yığınında Service Fabric kümesi dağıtma
+# <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack'te bir Service Fabric kümesine dağıtma
 
-Kullanım **Service Fabric kümesi** Azure yığınında güvenli bir Service Fabric kümesi dağıtmak için Azure Marketi'nden öğesi. 
+Kullanım **Service Fabric kümesi** Azure Stack'te güvenli bir Service Fabric kümesini dağıtmak için Azure Market'ten öğesi. 
 
-Service Fabric ile çalışma hakkında daha fazla bilgi için bkz: [Azure hizmet Frabric genel bakış](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) ve [Service Fabric kümesi güvenlik senaryoları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), Azure belgelerinde.
+Service Fabric ile çalışma hakkında daha fazla bilgi için bkz. [Azure hizmeti Frabric genel bakış](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) ve [Service Fabric kümesi güvenlik senaryoları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), Azure belgeleri.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Service Fabric kümesi dağıtmak için aşağıdakiler gereklidir:
+Service Fabric kümesine dağıtmak için aşağıdakiler gereklidir:
 1. **Küme sertifikası**  
-   KeyVault için Service Fabric dağıtırken eklemek X.509 sunucu sertifikasıdır. 
-   - **CN** bu sertifikayı üzerinde tam etki alanı adı (FQDN) oluşturduğunuz Service Fabric kümesi ile eşleşmesi gerekir. 
-   - Ortak ve özel anahtarlarını gerektiği şekilde sertifika biçimi PFX, olması gerekir. 
-   Bkz: [gereksinimleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) bu sunucu tarafı sertifikayı oluşturmak için.
+   Anahtar kasası için Service Fabric dağıtırken ekleme X.509 sunucu sertifikasıdır. 
+   - **CN** üzerinde bu sertifika, tam etki alanı adı (FQDN) oluşturduğunuz Service Fabric kümesinin eşleşmelidir. 
+   - Ortak ve özel anahtarlar gerektiğinde, PFX sertifika biçimi olmalıdır. 
+   Bkz: [gereksinimleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) bu sunucu tarafı sertifika oluşturmak için.
 
     > [!NOTE]  
-    > Test amaçları için otomatik olarak imzalanan sertifika inplace x.509 sunucu sertifikası kullanabilirsiniz. Otomatik olarak imzalanan sertifikalar kümesi FQDN'si eşleşmesi gerekmez.
+    > Test amaçları için x.509 sunucu sertifikasının bir otomatik olarak imzalanan sertifika yerinde kullanabilirsiniz. Otomatik olarak imzalanan sertifikalar kümenin FQDN'sini eşleşmesi gerekmez.
 
-2.  **Yönetici istemci sertifikası** Bu, istemci otomatik imzalanan Service Fabric kümesi için kimlik doğrulaması için kullanacağınız sertifikadır. Bkz: [gereksinimleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) bu istemci sertifikası oluşturmak için.
+2.  **Yönetici istemci sertifikası** bu istemci otomatik imzalı Service Fabric kümesi için kimlik doğrulaması için kullanacağı sertifikadır. Bkz: [gereksinimleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) bu istemci sertifikası oluşturmak için.
 
-3.  **Aşağıdaki öğeler Azure yığın Marketi'nde kullanılabilir olması gerekir:**
-     - **Windows Server 2016** – küme oluşturmak için Windows Server 2016 görüntü şablonu kullanır.  
-     - **Müşteri betik uzantısı** -Microsoft sanal makine uzantısı.  
-     - **PowerShell istenen hazırlamak Yapılandırması** -Microsoft sanal makine uzantısı.
+3.  **Aşağıdaki öğeler Azure Stack Market'te kullanılabilir olmalıdır:**
+     - **Windows Server 2016** – kümeyi oluşturmak için Windows Server 2016 görüntüsü şablonu kullanır.  
+     - **Müşteri betik uzantısını** -Microsoft gelen sanal makine uzantısı.  
+     - **PowerShell istenen aşama yapılandırma** -Microsoft gelen sanal makine uzantısı.
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault’a gizli dizi ekleme
-Service Fabric kümesi dağıtmak için doğru KeyVault belirtin *gizli tanımlayıcı* veya Service Fabric kümesi için URL. Azure Resource Manager şablonu KeyVault giriş olarak alır ve ardından küme sertifika Service Fabric kümesi yükleme sırasında alır. 
+Bir Service Fabric kümesi dağıtmayı doğru anahtar kasası belirtin *gizli dizi tanımlayıcısı* veya Service Fabric kümesi için URL. Azure Resource Manager şablonu, bir anahtar kasası giriş olarak alır ve ardından Service Fabric kümesine yüklemesi sırasında küme sertifikası alır. 
 
 > [!IMPORTANT]  
-> Service Fabric ile kullanılmak KeyVault bir gizlilik eklemek için PowerShell kullanmanız gerekir. Portal kullanmayın.  
+> Service Fabric ile kullanılmak için KeyVault gizli dizi eklemek için PowerShell kullanmanız gerekir. Portal kullanmayın.  
 
-KeyVault oluşturmak ve eklemek için aşağıdaki komut dosyasını kullanın *küme sertifika* ona. (Bkz [Önkoşullar](#prerequisites).) Komut dosyasını çalıştırmadan önce örnek komut dosyasını gözden geçirin ve ortamınıza uyum sağlaması için belirtilen parametreleri güncelleştirin. Bu komut dosyası ayrıca Azure Resource Manager şablonu sağlamanız gereken değerleri çıkarır. 
+Anahtar kasası oluşturmak ve eklemek için aşağıdaki betiği kullanın *küme sertifikası* ona. (Bkz [önkoşulları](#prerequisites).) Betiği çalıştırmadan önce örnek komut dosyasını gözden geçirin ve ortamınızla eşleşecek şekilde belirtilen parametreleri güncelleştirin. Bu betik ayrıca Azure Resource Manager şablonu için sağlamanız gereken değerleri çıkarır. 
 
 > [!TIP]  
-> Betik başarılı olabilmesi için önce işlem, ağ, depolama ve KeyVault hizmetleri içeren ortak bir teklif olmalıdır. 
+> Betik başarılı olabilmesi için önce bilgi işlem, ağ, depolama ve KeyVault hizmetleri içeren genel bir teklif olmalıdır. 
 
   ```PowerShell
     function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
@@ -116,7 +116,7 @@ KeyVault oluşturmak ve eklemek için aşağıdaki komut dosyasını kullanın *
    ``` 
 
 
-Daha fazla bilgi için bkz: [yönetmek KeyVault PowerShell ile Azure yığında](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell).
+Daha fazla bilgi için [yönetme anahtar kasası PowerShell ile Azure Stack'te](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell).
 
 ## <a name="deploy-the-marketplace-item"></a>Market öğesi dağıtma
 
@@ -124,89 +124,89 @@ Daha fazla bilgi için bkz: [yönetmek KeyVault PowerShell ile Azure yığında]
 
    ![Service Fabric kümesi seçin](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
-2. Her bir sayfa için gibi *Temelleri*, dağıtım formu doldurun. Değerini emin değilseniz varsayılan ayarları kullanın. Seçin **Tamam** sonraki sayfaya geçmek için:
+2. Her sayfa için gibi *Temelleri*, dağıtım formu doldurun. Değerini emin değilseniz varsayılan ayarları kullanın. Seçin **Tamam** sonraki sayfaya ilerlemek için:
 
    ![Temel Bilgiler](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
-3. Üzerinde *ağ ayarlarını* sayfasında, uygulamalarınız için açmak için belirli bağlantı noktalarını belirtebilirsiniz:
+3. Üzerinde *ağ ayarlarını* sayfasında, uygulamalarınız için açmak için belirli bağlantı noktaları belirleyebilirsiniz:
 
-   ![Ağ ayarları](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
+   ![Ağ Ayarları](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
-4. Üzerinde *güvenlik* sayfasında, gelen aldığınız değerlerini eklemek [Azure KeyVault oluşturma](#add-a-secret-to-key-vault) ve gizli karşıya yükleme.
+4. Üzerinde *güvenlik* sayfasında, aldığınız değerleri eklemek [Azure anahtar kasası oluşturma](#add-a-secret-to-key-vault) ve gizli dizi karşıya yükleniyor.
 
-   İçin *yönetici istemci sertifikası parmak izi*, parmak izini girin *yönetici istemci sertifikası*. (Bkz [Önkoşullar](#prerequisites).)
+   İçin *yönetici istemci sertifikası parmak izi*, parmak izini girin *yönetici istemci sertifikası*. (Bkz [önkoşulları](#prerequisites).)
    
-   - Kaynak anahtar kasasının: tüm belirtin *keyVault kimliği* betik sonuçlarından dize. 
-   - Küme sertifikası URL'si: tüm URL'yi belirtin *gizli kimliği* betik sonuçlarından. 
-   - Sertifika parmak izi küme: belirtin *küme sertifika parmak izi* betik sonuçlarından.
-   - Yönetici istemci sertifikası parmak: Belirtin *yönetici istemci sertifikası parmak izi* Önkoşullar oluşturdunuz. 
+   - Kaynak Key Vault: tüm belirtin *keyVault kimliği* betik sonuçlarını dizeden. 
+   - Küme sertifikası URL'si: tüm URL'den belirtin *gizli kimliği* betik sonuçlarından. 
+   - Küme sertifikası parmak izi: belirtin *küme sertifikası parmak izi* betik sonuçlarından.
+   - Yönetici istemci sertifikası parmak izleri: Belirtin *yönetici istemci sertifikası parmak izi* önkoşullarda oluşturdunuz. 
 
    ![Betik çıktısı](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
    ![Güvenlik](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
-5. Sihirbazı tamamlayın ve ardından **oluşturma** Service Fabric kümesi dağıtmak için.
+5. Sihirbazı tamamlayın ve ardından **Oluştur** Service Fabric kümesi dağıtmayı.
 
 
 
-## <a name="access-the-service-fabric-cluster"></a>Service Fabric kümesi erişim
-Service Fabric Explorer veya Service Fabric PowerShell kullanarak Service Fabric kümesi erişebilirsiniz.
+## <a name="access-the-service-fabric-cluster"></a>Service Fabric kümenize erişim
+Service Fabric PowerShell veya Service Fabric Explorer'ı kullanarak Service Fabric kümesine erişebilirsiniz.
 
 
-### <a name="use-service-fabric-explorer"></a>Service Fabric Explorer kullanın
-1.  Web tarayıcısı yönetici istemci sertifikanızın erişimi ve Service Fabric kümenize doğrulanabilir doğrulayın.  
+### <a name="use-service-fabric-explorer"></a>Service Fabric Explorer kullanacaksınız
+1.  Web tarayıcısı yönetici istemci sertifikanızın erişebilir ve Service Fabric kümenize doğrulanabilir doğrulayın.  
 
-    a. Internet Explorer'ı açın ve gidin **Internet Seçenekleri** > **içerik** > **Sertifikalar**.
+    a. Internet Explorer'ı açın ve gidin **Internet Seçenekleri** > **içerik** > **sertifikaları**.
   
-    b. Sertifika Seç **alma** başlatmak için *Sertifika Alma Sihirbazı'nı*ve ardından **sonraki**. Üzerinde *Alınacak dosya* sayfasında **Gözat**seçip **yönetici istemci sertifikası** Azure Resource Manager şablonu sağlanan.
+    b. Sertifika Seç **alma** başlatmak için *Sertifika Alma Sihirbazı*ve ardından **sonraki**. Üzerinde *içeri aktarılacak dosya* sayfasında **Gözat**seçip **yönetici istemci sertifikası** Azure Resource Manager şablonu için sağlanan.
         
        > [!NOTE]  
-       > Bu sertifika KeyVault için önceden eklendi küme sertifika değil.  
+       > Bu sertifika için anahtar kasası daha önceden eklenmiş küme sertifikası değil.  
 
-    c. "Kişisel bilgi dosya Gezgini penceresi uzantısı açılır listede seçilen Değişimi" olduğundan emin olun.  
+    c. "Kişisel bilgi dosya Gezgini penceresinin uzantısı açılan menüde seçtiğiniz Değişimi" olduğundan emin olun.  
 
        ![Kişisel bilgi değişimi](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
 
-    d. Üzerinde *sertifika deposu* sayfasında, **kişisel**ve ardından Sihirbazı tamamlayın.  
+    d. Üzerinde *sertifika Store* sayfasında **kişisel**ve ardından Sihirbazı tamamlayın.  
        ![Sertifika deposu](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
-2. Service Fabric kümesi FQDN'sini bulmak için:  
+2. Service Fabric kümenizi FQDN'sini bulmak için:  
 
-    a. Service Fabric ile ilişkili kaynak grubu için küme bulun gidip *genel IP adresi* kaynak. Açmak için genel IP adresi ile ilişkili nesneyi seçin *genel IP adresi* dikey.  
+    a. Bulun ve küme, Service Fabric ile ilişkili kaynak grubuna gidin *genel IP adresi* kaynak. Açmak için genel IP adresi ile ilişkili nesneyi seçin *genel IP adresi* dikey penceresi.  
 
       ![Genel IP adresi](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
 
-    b. Genel IP adresi dikey olarak FQDN görüntüler *DNS adı*.  
+    b. Genel IP adresi dikey penceresinde, FQDN olarak görüntüler. *DNS adı*.  
 
       ![DNS adı](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
 
-3. Service Fabric Explorer ve istemci bağlantı uç noktasının URL'sini bulmak için şablon dağıtımı sonuçlarını gözden geçirin.
+3. Service Fabric Explorer ve istemci bağlantı uç noktası URL'sini bulmak için şablon dağıtımının sonuçlarını gözden geçirin.
 
-4. Tarayıcınızda, https:// için Git*FQDN*: 19080. Değiştir *FQDN* 2. adımda, Service Fabric kümesi FQDN'si ile.   
-   Otomatik olarak imzalanan sertifika kullandıysanız, bağlantının güvenli olmadığını bildiren bir uyarı alırsınız. Web sitesine devam etmek için seçmeniz **daha fazla bilgi**ve ardından **Web sayfasına gidin**. 
+4. Tarayıcınızda, https:// Git*FQDN*: 19080. Değiştirin *FQDN* 2. adım, Service Fabric kümenizden FQDN'si ile.   
+   Kendinden imzalı bir sertifika kullandıysanız, bağlantının güvenli olmadığını bildiren bir uyarı alırsınız. Web sitesine devam etmek için seçmeniz **daha fazla bilgi**, ardından **Web sayfasına gidin**. 
 
-5. Site için kimlik doğrulaması için kullanılacak bir sertifika seçmeniz gerekir. Seçin **daha fazla seçenek**, uygun sertifikayı seçin ve ardından **Tamam** Service Fabric Gezgini'ne bağlanmak için. 
+5. Site için kimlik doğrulaması için kullanılacak bir sertifika seçmeniz gerekir. Seçin **daha fazla seçenek**uygun sertifikayı seçin ve ardından **Tamam** Service Fabric Explorer'a bağlanmak için. 
 
    ![Kimlik doğrulaması](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
 
 
-## <a name="use-service-fabric-powershell"></a>Service Fabric PowerShell kullanın
+## <a name="use-service-fabric-powershell"></a>Service Fabric PowerShell kullanma
 
-1. Yükleme *Microsoft Azure Service Fabric SDK* gelen [Windows geliştirme ortamınızı hazırlama](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) Azure Service Fabric belgelerinde.  
+1. Yükleme *Microsoft Azure Service Fabric SDK'sı* gelen [Windows üzerinde geliştirme ortamınızı hazırlama](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) Azure Service Fabric belgelerinde.  
 
-2. Yükleme tamamlandıktan sonra Service Fabric cmdlet'leri Powershell'den erişilebilir olduğundan emin olmak için sistem ortam değişkenlerini yapılandırın.  
+2. Yükleme tamamlandıktan sonra Service Fabric cmdlet'leri PowerShell üzerinden erişilebilir olmasını sağlamak için sistem ortam değişkenlerini yapılandırın.  
     
     a. Git **Denetim Masası** > **sistem ve güvenlik** > **sistem**ve ardından **Gelişmiş Sistem ayarları**.  
     
       ![Denetim Masası](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 
-    b. Üzerinde **Gelişmiş** sekmesinde *Sistem Özellikleri*seçin **ortam değişkenleri**.  
+    b. Üzerinde **Gelişmiş** sekmesinde *Sistem Özellikleri*seçin **ortam değişkenlerini**.  
 
-    c. İçin *sistem değişkenleri*, düzenleme **yolu** emin olun **C:\\Program Files\\Microsoft Service Fabric\\bin\\yapı \\Fabric.Code** en üstünde ortam değişkenleri listesi yer alır.  
+    c. İçin *sistem değişkenlerini*, Düzen **yolu** emin olun **C:\\Program dosyaları\\Microsoft Service Fabric\\bin\\Fabric \\Fabric.Code** ortam değişkenlerinin bir listesini üstte.  
 
       ![Ortam değişken listesi](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
 
-3. Ortam değişkenleri sırasını değiştirme sonra PowerShell yeniden başlatın ve sonra Service Fabric kümesi erişmek için şu PowerShell betiğini çalıştırın:
+3. Ortam değişkenlerini sırasını değiştirme sonra PowerShell yeniden başlatın ve ardından Service Fabric kümesine erişmek için aşağıdaki PowerShell betiğini çalıştırın:
 
    ````PowerShell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
@@ -222,5 +222,5 @@ Service Fabric Explorer veya Service Fabric PowerShell kullanarak Service Fabric
    ````
    
    > [!NOTE]  
-   > Var olan hiçbir *https://* betikteki kümenin adını önce. Bağlantı noktası 19000 gereklidir.
+   > Var olan hiçbir *https://* betiğinde kümesinin addan önce. 19000 bağlantı noktası gereklidir.
  

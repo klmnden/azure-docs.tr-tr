@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/3/2018
 ms.author: raiye
-ms.openlocfilehash: 8f9bb69a334858d5d039c76d6c0d0aec3f0cf6f0
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 518e55de440daa93dc0a9a9eebc207ebcde07d57
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858097"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970171"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler ile bulut Hizmetleri için sürümleri sağlar. Bu bilgiler bir konuk işletim sistemi devre dışı bırakılmasına sıranız yükseltme yolunuza planlamanıza yardımcı olur. Kullanılacak rollerinizi yapılandırırsanız *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -232,7 +232,7 @@ El ile konuk işletim sistemi güncelleştirme olup [konuk işletim sistemi kull
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Konuk işletim sistemi Desteklenebilirliği ve kullanımdan kaldırma İlkesi
 Konuk işletim sistemi desteklenebilirliği ve kullanımdan kaldırma İlkesi açıklanan [burada][retirepolicy].
 
-[cloud updates]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-update-azure-service
+[cloud updates]: https://docs.microsoft.com/azure/cloud-services/cloud-services-update-azure-service
 [Konuk işletim sistemi güncelleştirme RSS akışı]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
@@ -245,7 +245,7 @@ Konuk işletim sistemi desteklenebilirliği ve kullanımdan kaldırma İlkesi a�
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
 [azuresupport]: http://azure.microsoft.com/support/options/
 [net install pkg]: http://www.microsoft.com/download/details.aspx?id=42643
-[msrc]: https://technet.microsoft.com/en-us/security/dn440717.aspx
+[msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
 [restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx

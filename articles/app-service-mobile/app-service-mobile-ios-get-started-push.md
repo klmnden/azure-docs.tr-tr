@@ -1,6 +1,6 @@
 ---
 title: İOS uygulaması ile Azure Mobile Apps için anında iletme bildirimleri ekleme
-description: İOS uygulamanıza anında iletme bildirimleri göndermek için Azure Mobile Apps kullanmayı öğrenin.
+description: İOS uygulamanıza anında iletme bildirimleri göndermek için Azure Mobile Apps'ı kullanmayı öğrenin.
 services: app-service\mobile
 documentationcenter: ios
 manager: crdun
@@ -15,46 +15,46 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: crdun
 ms.openlocfilehash: 1fd90df3b6935d35834e1f571e80b945716b55ff
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29116679"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307264"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>İOS uygulamasına anında iletme bildirimleri ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğreticide, anında iletme bildirimleri ekleme [iOS quickstart] proje böylece bir kayda eklenen her zaman bir anında iletme bildirimi cihaza gönderilir.
+Bu öğreticide, anında iletme bildirimleri ekleme [iOS hızlı başlangıç] anında iletme bildirimi kayıt eklenen her zaman cihaza gönderilir, böylece proje.
 
-İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantısı paketi gerekir. Daha fazla bilgi için bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) Kılavuzu.
+İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantı paketi gerekir. Daha fazla bilgi için [Azure Mobile Apps için .NET arka uç sunucu SDK'sı ile çalışma](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) Kılavuzu.
 
-[İOS simülatörü anında iletme bildirimlerini desteklemiyor](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). Fiziksel bir iOS cihazına gerekir ve bir [Apple Developer Program üyeliği](https://developer.apple.com/programs/ios/).
+[Anında iletme bildirimlerini iOS simülatörü desteklemiyor](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). Fiziksel bir iOS cihazına gerekir ve bir [Apple Developer Program üyeliği](https://developer.apple.com/programs/ios/).
 
 ## <a name="configure-hub"></a>Bildirim hub'ı yapılandırma
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-## <a id="register"></a>Anında iletme bildirimleri için uygulamanızı kaydetmeniz
+## <a id="register"></a>Anında iletme bildirimleri için uygulamayı kaydetme
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
-## <a name="configure-azure-to-send-push-notifications"></a>Anında iletme bildirimleri göndermek için Azure yapılandırma
+## <a name="configure-azure-to-send-push-notifications"></a>Anında iletme bildirimleri göndermek için Azure'ı yapılandırma
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
 ## <a id="update-server"></a>Anında iletme bildirimleri göndermek için arka uç güncelleştir
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a id="add-push"></a>Uygulamasına anında iletme bildirimleri ekleme
+## <a id="add-push"></a>Uygulamaya anında iletme bildirimleri ekleme
 [!INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
 ## <a id="test"></a>Test anında iletme bildirimleri
 [!INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
 ## <a id="more"></a>Daha fazla
-* Şablonları platformlar arası gönderim ve yerelleştirilmiş bildirim göndermek için esneklik sağlar. [Kullanım iOS için Azure Mobile Apps istemci kitaplığı nasıl](app-service-mobile-ios-how-to-use-client-library.md#templates) şablonlarını kaydetmek gösterilmektedir.
+* Şablonlar, platformlar arası bildirimler ve yerelleştirilmiş bildirimler göndermek için esneklik sağlar. [Kullanım iOS için Azure Mobile Apps istemci kitaplığı nasıl](app-service-mobile-ios-how-to-use-client-library.md#templates) şablonları kaydettirmek gösterilmektedir.
 
 <!-- Anchors.  -->
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[iOS quickstart]: app-service-mobile-ios-get-started.md
+[iOS hızlı başlangıç]: app-service-mobile-ios-get-started.md

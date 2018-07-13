@@ -1,6 +1,6 @@
 ---
-title: Azure yığın genel bakış güncelleştirmelerini yönetme | Microsoft Docs
-description: Güncelleştirme yönetimi için Azure tümleşik yığını sistemleri hakkında bilgi edinin.
+title: Azure Stack genel bakış güncelleştirmeleri yönetme | Microsoft Docs
+description: Güncelleştirme yönetimi için Azure Stack tümleşik sistemleri hakkında bilgi edinin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,60 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 07/11/2017
 ms.author: mabrigg
-ms.openlocfilehash: 23b05909bda7785b45aeaeed0bd75a90de9ffe50
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e80c114b06390a72dcdcc614dffaa97b9761381e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
-ms.locfileid: "27620932"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988917"
 ---
-# <a name="manage-updates-in-azure-stack-overview"></a>Azure yığın genel bakış güncelleştirmelerini yönetme
+# <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack genel bakış güncelleştirmelerini yönetme
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri*
 
-Microsoft Azure tümleşik yığını genellikle her ay dördüncü Salı günü döner normal bir tempoyla sistemlerde için güncelleştirme paketleri genel kullanılabilirliğine başlangıç serbest bırakır. Kuruluşunuz güncelleştirme bildirimlerini erişim sağlamak için belirli bildirim işlemi hakkında OEM isteyin veya Overview\Release Notes\Integrated sistemlerinde sürüm notları belirli sürümler hakkında daha fazla bilgi için burayı tıklatın.
+Azure Stack tümleşik sistemleri genellikle için yeni güncelleştirme paketleri, her ayın dördüncü Salı geçici olarak bırakın. OEM güncelleştirme bildirimlerini kuruluşunuz ulaştığından emin olmak için belirli bildirim süreci hakkında isteyin. Bu belge kitaplığındaki altında altında de göz atabilirsiniz **genel bakış** > **sürüm notları** etkin desteği olan sürümler hakkında daha fazla bilgi için. 
 
-Microsoft yazılım güncelleştirmeleri her bir sürümü tek güncelleştirme paketi olarak gelir. Bir Azure yığın işleç olarak kolayca içeri aktarabilirsiniz, güncelleştirme paketleri Yönetici portalı'ndan yükleyin ve bu yükleme ilerleyişini izleyin. 
+Her bir sürümü Microsoft yazılım güncelleştirmeleri bir tek güncelleştirme paketi olarak gelir. Azure Stack operatör olarak içeri aktarabilirsiniz, yükleme ve yükleme ilerleme durumunu bu İzleyici, yönetici portalından paketleri güncelleştirin. 
 
-Özgün donatım üreticisi (OEM) donanım satıcınıza güncelleştirmeler, sürücü ve bellenim güncelleştirmeleri gibi de serbest bırakır. Bu güncelleştirmeler ayrı paketler OEM donanım satıcınız tarafından teslim edilir ve Microsoft güncelleştirmelerini ayrı olarak yönetilir.
+Özgün ekipman üreticisi (OEM) donanım satıcınıza güncelleştirmeler, sürücü ve bellenim güncelleştirmeleri gibi da serbest bırakır. Bu güncelleştirmeler, OEM donanım satıcınız tarafından ayrı bir paket olarak sunulur ve Microsoft Güncelleştirmeleri ayrı olarak yönetilir.
 
-Sisteminizi destek kapsamında tutmak için Azure özel sürüm düzeyi için güncelleştirilmiş yığın tutmanız gerekir. Gözden geçirmenizi emin olun [Azure ilke bakım yığını](azure-stack-servicing-policy.md).
+Sisteminizi desteği altında tutmak için Azure Stack belirli sürüm düzeyi için güncelleştirilmiş tutmanız gerekir. Gözden geçirmenizi emin [Azure Stack hizmet İlkesi](azure-stack-servicing-policy.md).
 
 > [!NOTE]
-> Azure yığın Geliştirme Seti için Azure yığın güncelleştirme paketleri uygulanamıyor. Güncelleştirme paketleri tümleşik sistemler için tasarlanmıştır.
+> Azure Stack Geliştirme Seti için Azure Stack güncelleştirme paketleri uygulanamıyor. Güncelleştirme paketlerini tümleşik sistemler için tasarlanmıştır. Bilgi için [ASDK yeniden](https://docs.microsoft.com/en-us/azure/azure-stack/asdk).
 
-## <a name="the-update-resource-provider"></a>Güncelleştirme kaynak sağlayıcısı
+## <a name="the-update-resource-provider"></a>Güncelleştirme kaynağı sağlayıcısı
 
-Azure yığın uygulama Microsoft yazılım güncelleştirmeleri düzenler bir güncelleştirme kaynak sağlayıcısı içerir. Bu kaynak sağlayıcısı, güncelleştirmeleri tüm fiziksel ana bilgisayarların, Service Fabric uygulamaları ve çalışma zamanları ve tüm altyapı sanal makineleri ve ilişkili hizmetler arasında uygulanması sağlanır.
+Azure yığını, Microsoft yazılım güncelleştirmeleri uygulama düzenleyen bir güncelleştirme kaynak sağlayıcısı içerir. Bu kaynak sağlayıcısını güncelleştirmeleri tüm fiziksel konaklar, Service Fabric uygulamaları ve çalışma zamanları ve tüm altyapı sanal makineleri ve bunların ilişkili hizmetler arasında uygulanmasını sağlar.
 
-Güncelleştirmeleri yüklemek gibi güncelleştirme işlemi hedefleri çeşitli alt sistemleri Azure yığınında (örneğin, fiziksel ana bilgisayarlar ve altyapı sanal makineler) olarak kolayca üst düzey durumunu görüntüleyebilirsiniz.
+Güncelleştirmeleri yüklemek gibi çeşitli alt sistemlerde (örneğin, fiziksel ana bilgisayarlar ve altyapı sanal makinelerine) Azure Stack'te güncelleştirme işlemi hedefleri olarak üst düzey durumunu görüntüleyebilirsiniz.
 
-## <a name="plan-for-updates"></a>Güncelleştirmeleri planlama
+## <a name="plan-for-updates"></a>Güncelleştirmelerini planlama
 
-Bakım işlemleri kullanıcılara bildirmek ve iş saatleri sırasında mümkün olduğunca normal bakım pencereleri zamanlama öneririz. Bakım işlemleri, Kiracı İş yükleri ve portal işlemlerini etkileyebilir.
+Herhangi bir bakım işlemi kullanıcılara bildirmek ve, normal bakım pencereleri çalışma saatleri sırasında mümkünse zamanlamanızı öneririz. Bakım işlemleri hem Kiracı iş yüklerini ve portal işlemlerini etkileyebilir.
 
-## <a name="using-the-update-tile-to-manage-updates"></a>Güncelleştirmelerini yönetmek için güncelleştirme döşeme kullanma
-Yönetici portalı'ndan güncelleştirmeleri yönetme basit bir işlemdir. Bir Azure yığın işleç panoya güncelleştirme parçasında gidebilirsiniz:
+## <a name="using-the-update-tile-to-manage-updates"></a>Güncelleştirmeleri yönetmek için kutucuğu Güncelleştir'ı kullanma
+Yönetici portalı'ndan güncelleştirmeleri yönettiğiniz. Azure Stack operatörü panoya, kutucuğu güncelleştir kullanabilirsiniz:
 
 - geçerli sürümü gibi önemli bilgileri görüntüleyin.
-- güncelleştirmeleri yüklemek ve ilerleme durumunu izleyin.
+- güncelleştirmeleri yükleyin ve ilerleme durumunu izleyin.
 - Güncelleştirme geçmişini daha önce yüklenen güncelleştirmeleri gözden geçirin.
  
-## <a name="determine-the-current-version"></a>Geçerli sürüm belirleme
+## <a name="determine-the-current-version"></a>Geçerli sürümünü belirleme
 
-Güncelleştirme döşeme Azure yığın geçerli sürümünü gösterir. Yönetici portalı'nda aşağıdaki yöntemlerden birini kullanarak güncelleştirme döşemenin alabilirsiniz:
+Güncelleştirme kutucuğu, Azure yığını'nın geçerli sürümü gösterir. Yönetici portalı'nda aşağıdaki yöntemlerden birini kullanarak güncelleştirme kutucuğu alabilirsiniz:
 
-- Geçerli sürümde Panoda görüntülemek **güncelleştirme** döşeme.
+- Geçerli sürümde Panoda görüntüleme **güncelleştirme** Döşe.
  
-   ![Varsayılan Panoda güncelleştirmeleri döşeme](./media/azure-stack-updates/image1.png)
+   ![Güncelleştirmeleri varsayılan pano kutucuk](./media/azure-stack-updates/image1.png)
  
-- Üzerinde **bölge Yönetimi** döşeme, bölge adını tıklatın. Geçerli sürümde görüntülemek **güncelleştirme** döşeme.
+- Üzerinde **bölge Yönetimi** kutucuğunda, bölge adına tıklayın. Geçerli sürümde görüntülemek **güncelleştirme** Döşe.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [İlke bakım azure yığını](azure-stack-servicing-policy.md) 
-- [Azure yığınında bölge Yönetimi](azure-stack-region-management.md)     
+- [Azure Stack hizmet İlkesi](azure-stack-servicing-policy.md) 
+- [Azure stack'teki bölge Yönetimi](azure-stack-region-management.md)     
 
 

@@ -13,19 +13,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/04/2018
+ms.date: 7/6/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 13876991583292ec04120b9d59fb150ad236e864
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 32f45b66c4b1d22da3ffc4310a8a47c17319301f
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858570"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918059"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Azure'da SQL Server veritabanını yedekleyin
 
-SQL Server veritabanları, düşük kurtarma noktası hedefi (RPO) ve uzun süreli saklama gerektiren kritik iş yükleri değildir. Azure Backup, karmaşık bir yedekleme sunucusu değildir, hiçbir yönetim aracısı veya yedek depolama yönetmek için anlamına gelir sıfır altyapı gerektiren bir SQL Serveryedeği çözümü sağlar. Azure yedekleme, tüm SQL sunucuları veya hatta farklı iş yükleri arasında yedeklemeleriniz için merkezi yönetim sağlar.
+SQL Server veritabanları, düşük kurtarma noktası hedefi (RPO) ve uzun süreli saklama gerektiren kritik iş yükleri değildir. Azure Backup, karmaşık bir yedekleme sunucusu değildir, hiçbir yönetim aracısı veya yedek depolama yönetmek için anlamına gelir sıfır altyapı gerektiren bir SQL Server yedekleme çözümü sağlar. Azure yedekleme, tüm SQL sunucuları veya hatta farklı iş yükleri arasında yedeklemeleriniz için merkezi yönetim sağlar.
 
  Bu makalede şunları öğreneceksiniz:
 
@@ -78,7 +78,7 @@ Bilinen sınırlamalar genel Önizleme aşamasında olan aşağıdaki öğelerdi
 
 ## <a name="supported-operating-systems-and-versions-of-sql-server"></a>Desteklenen işletim sistemleri ve SQL server sürümleri
 
-Aşağıdaki desteklenen işletim sistemleri ve SQL Server sürümleri Azure sanal makineler için SQL marketplace uygulamak ve (SQL Server elle yüklendiği) Market dışı sanal makineleri.
+Aşağıdaki işletim sistemlerinde desteklenir. SQL marketplace Azure sanal makineleri ve Market dışı sanal makineler (SQL Server el ile yüklü olduğu) desteklenir.
 
 ### <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
@@ -131,7 +131,7 @@ Bir denge Seçenekler şunlardır: yönetilebilirlik, ayrıntılı bir denetim v
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Market dışı SQL VM'ler için izinleri ayarlama
 
-Bir sanal makineyi yedeklemek için Azure Backup gerektirir **AzureBackupWindowsWorkload** uzantısı yüklü olmalıdır. Azure Market sanal makineler kullanıyorsanız atlayın [Bul SQL server veritabanları](backup-azure-sql-database.md#discover-sql-server-databases). SQL veritabanlarınızı barındıran sanal makine Azure Marketi'nden oluşturulmamışsa, uzantıyı yüklemek ve uygun izinleri ayarlamak için aşağıdaki bölümü tamamlayın. Ek olarak **AzureBackupWindowsWorkload** uzantısı, Azure Backup, SQL veritabanlarını korumak için SQL sysadmin ayrıcalıkları gerektirir. Sanal makine veritabanlarında bulunurken bir hesap NT Service\AzureWLBackupPluginSvc Azure Backup oluşturur. Azure Backup'ın SQL veritabanlarını bulmak NT Service\AzureWLBackupPluginSvc hesabın SQL oturum açma ve SQL sysadmin izinleri olmalıdır. Aşağıdaki yordam, bu izinleri ver açıklanmaktadır.
+Bir sanal makineyi yedeklemek için Azure Backup gerektirir **AzureBackupWindowsWorkload** uzantısı yüklü olmalıdır. Azure Market sanal makineler kullanıyorsanız atlayın [Bul SQL server veritabanları](backup-azure-sql-database.md#discover-sql-server-databases). SQL veritabanlarınızı barındıran sanal makine Azure Marketi'nden oluşturulmamışsa, uzantıyı yüklemek ve uygun izinleri ayarlamak için aşağıdaki bölümü tamamlayın. Ek olarak **AzureBackupWindowsWorkload** uzantısı, Azure Backup, SQL veritabanlarını korumak için SQL sysadmin ayrıcalıkları gerektirir. Sanal makine veritabanlarında bulunurken bir hesap NT Service\AzureWLBackupPluginSvc Azure Backup oluşturur. Azure Backup'ın SQL veritabanlarını bulmak NT Service\AzureWLBackupPluginSvc hesabın olmalıdır, SQL ve SQL sysadmin izinleri. Aşağıdaki yordam, bu izinleri ver açıklanmaktadır.
 
 İzinleri yapılandırmak için:
 
@@ -168,13 +168,13 @@ Veritabanı kurtarma Hizmetleri kasası ile ilişkilendirdikten sonra sonraki ad
 
 ### <a name="fixing-sql-sysadmin-permissions"></a>SQL sysadmin izinleri düzeltme
 
-Yükleme sırasında bir hata görürseniz **UserErrorSQLNoSysadminMembership**, SQL Server Management Studio (SSMS) içine SQL sysadmin iznine sahip bir hesapla oturum. Özel izinler gerektirmedikçe hesap tanımak için Windows kimlik doğrulaması kullanmanız mümkün olması gerekir.
+Yükleme sırasında bir hata görürseniz **UserErrorSQLNoSysadminMembership**, SQL Server Management Studio (SSMS) oturum açmak için SQL sysadmin izinleri olan bir hesap kullanın. Özel izinler gerekmedikçe, Windows kimlik doğrulama çalışması gerekir.
 
 1. SQL Server'da açın **güvenlik/oturum açma bilgileri** klasör.
 
     ![Hesapları görmek için SQL Server ve güvenlik ve oturum açma klasörlerini açın](./media/backup-azure-sql-database/security-login-list.png)
 
-2. Oturum açma bilgileri klasörüne sağ tıklayın ve seçin **yeni oturum açma**, oturum açma - yeni iletişim kutusu, tıklatıp **arama**
+2. Oturum açma bilgileri klasörü sağ tıklatın ve seçin **yeni oturum açma**, oturum açma - yeni iletişim kutusu, tıklatıp **arama**
 
     ![Oturum açma - yeni bir arama iletişim kutusunu açın.](./media/backup-azure-sql-database/new-login-search.png)
 
@@ -190,7 +190,7 @@ Yükleme sırasında bir hata görürseniz **UserErrorSQLNoSysadminMembership**,
 
     Gerekli izinleri olması gerekir.
 
-6. İzinleri hatasını düzelttik rağmen yine de veritabanı kurtarma Hizmetleri kasası ile ilişkilendirmeniz gerekir. Azure portalında **korumalı sunucuların** listesinde, hata sunucuya sağ tıklayın ve seçin **yeniden Bul DBs**.
+6. İzinleri hatasını düzelttik rağmen yine de veritabanı kurtarma Hizmetleri kasası ile ilişkilendirmeniz gerekir. Azure portalında **korumalı sunucuların** listesinde hata sunucuya sağ tıklayın ve seçin **yeniden Bul DBs**.
 
     ![Sunucunun uygun izinlere sahip olun](./media/backup-azure-sql-database/check-erroneous-server.png)
 
@@ -335,7 +335,7 @@ SQL veritabanınız için koruma yapılandırılamadı:
 
 Bir yedekleme İlkesi yedeklemelerin ne zaman alınacağının ve yedeklemelerin ne kadar saklanır bir matrisini tanımlar. Üç tür SQL veritabanları için yedekleme zamanlamak için Azure Backup kullanabilirsiniz:
 
-* Tam yedekleme - tam bir veritabanı yedeği tüm veritabanını yedekler. Belirli bir veritabanı veya dosya grubu veya dosyaları kümesi içindeki tüm verileri ve bu verileri kurtarmak için yeterli günlük tam yedekleme içerir. En fazla günde bir tam yedekleme tetikleyin. Tam günlük veya haftalık bir aralıkta yedek almak seçebilirsiniz. 
+* Tam yedekleme - tam bir veritabanı yedeği tüm veritabanını yedekler. Tam yedekleme, tüm verileri belirli veritabanı veya dosya grubu veya dosyaları ve verileri kurtarmak için yeterli günlük içerir. En fazla günde bir tam yedekleme tetikleyin. Tam günlük veya haftalık bir aralıkta yedek almak seçebilirsiniz. 
 * Değişiklik yedeği - değişiklik yedeği en son, önceki tam veri yedeği temel alır. Değişiklik yedeği tam yedeklemeden itibaren değişmiş verileri yakalar. En fazla günde bir fark yedekleme tetikleyebilirsiniz. Aynı gün tam yedekleme ve bir değişiklik yedeği yapılandıramazsınız.
 * İşlem günlüğü yedeklemesi - bir günlük yedeği ikinci kadar belirli bir zaman içinde nokta geri yükleme sağlar. En fazla 15 dakikada bir işlem günlüğü yedeklemeleri yapılandırabilirsiniz.
 
@@ -394,13 +394,16 @@ Bir yedekleme ilkesi oluşturmak için
 
 8. Yedekleme ilkesi için tüm düzenlemeler yapıldığında tıklayın **Tamam**. 
 
-   ![farklı bekletme aralığı](./media/backup-azure-sql-database/differential-backup-policy.png)
+   ![Yeni ilkeyi kabul et](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Bir SQL veritabanını geri yükleme
 
 Azure Backup, işlem günlüğü yedeklemeleri kullanarak tek veritabanlarına belirli bir tarih veya saat, belirli bir kadar ikinci olarak, geri yüklemek için işlevsellik sağlar. Geri yükleme süreleri sağlarsanız, Azure Backup otomatik olarak uygun belirler, tam, değişiklik yedeği ve verilerinizi geri yüklemek için gerekli günlük yedekleme zincirini temel.
 
 Alternatif olarak, belirli bir zaman yerine belirli bir kurtarma noktasını geri yüklemek için belirli bir tam veya değişiklik yedeği seçebilirsiniz.
+ > [!Note]
+ > "Ana" veritabanı geri yükleme tetiklemeden önce lütfen SQL Server tek kullanıcı modunda başlatma seçeneği ile Başlat "-m AzureWorkloadBackup". İstemci adı olmayan bağımsız değişken - m, yalnızca bu istemci izin verilecek bağlantıyı açmak için. (Master, model, msdb) tüm sistem veritabanları için geri yüklemeyi tetikleme önce lütfen SQL Aracısı hizmetini durdurun. Bu veritabanları, herhangi bir bağlantı çalmak için çalışabilir tüm uygulamaları kapatın.
+>
 
 Bir veritabanını geri yüklemek için
 
@@ -613,7 +616,7 @@ Bu bölümde, Azure sanal makinelerinde çeşitli Azure yedekleme yönetim işle
 ### <a name="monitor-jobs"></a>İşleri İzleme
 Kurumsal sınıf bir çözümü olan azure Backup, Gelişmiş yedekleme uyarıları ve hatalar için bildirim (Yedekleme uyarıları bölümüne bakın) sağlar. Hala belirli işleri izlemek istiyorsanız, ihtiyacınıza göre aşağıdaki seçeneklerden herhangi birini kullanabilirsiniz:
 
-#### <a name="using-azure-portal---recovery-services-vault-for-all-ad-hoc-operations"></a>Azure portalını kullanarak -> Kurtarma Hizmetleri kasası için tüm geçici işlemleri
+#### <a name="use-azure-portal-for-all-adhoc-operations"></a>Tüm geçici işlemleri için Azure portalını kullanma
 Azure yedekleme gösterir tüm el ile tetiklenen veya geçici, yedekleme işleri portalında işler. Portal Ekle kullanılabilir işleri: tüm yedekleme işlemleri yapılandırmak, el ile tetiklenen yedekleme işlemleri, geri yükleme işlemleri, kayıt ve veritabanı işlemleri bulmak ve yedekleme işlemleri durdurun. 
 ![Gelişmiş Yapılandırma menüsü](./media/backup-azure-sql-database/jobs-list.png)
 
@@ -621,10 +624,10 @@ Azure yedekleme gösterir tüm el ile tetiklenen veya geçici, yedekleme işleri
 > Tam da dahil olmak üzere tüm zamanlanan yedekleme işlerinin değişiklik ve günlük yedekleme portalında gösterilmez ve aşağıda açıklandığı gibi SQL Server Management Studio kullanılarak izlenebilir.
 >
 
-#### <a name="using-sql-server-management-studio-ssms-for-backup-jobs"></a>Yedekleme işleri için SQL Server Management Studio (SSMS) kullanma
-Azure Backup, SQL yerel API'lerin tüm yedekleme işlemleri için kullanır. Yerel API'leri kullanarak tüm iş bilgileri getirebilir [SQL yedek kümesi tablo](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) msdb veritabanında. 
+#### <a name="use-sql-server-management-studio-for-backup-jobs"></a>Yedekleme işleri için SQL Server Management Studio kullanma
+Azure Backup, SQL yerel API'lerin tüm yedekleme işlemleri için kullanır. Yerel API ile tüm iş bilgileri getirebilir [SQL yedek kümesi tablo](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) msdb veritabanında.
 
-Kullanabileceğiniz tüm yedekleme işleri "DB1" adlı belirli bir veritabanı için getirmek için örnek olarak sorgu aşağıda. Özelleştirebileceğiniz sorgu daha fazla bilgi için aşağıdaki gelişmiş izleme.
+Aşağıdaki örnekte adlı bir veritabanı için tüm yedekleme işleri getirilecek bir sorgudur **DB1**. Daha gelişmiş izleme sorgu özelleştirin.
 ```
 select CAST (
 Case type
@@ -745,6 +748,42 @@ Bir SQL server korumasını kaldırdıktan sonra ancak kasayı silmeden önce ka
 5. Korumalı sunucular menüsünde, korumalı sunucuya sağ tıklayın ve seçin **Sil**. 
 
    ![Veritabanı korumasını sürdürme](./media/backup-azure-sql-database/delete-protected-server.png)
+
+## <a name="sql-database-backup-faq"></a>SQL veritabanını yedekleme hakkında SSS
+
+Aşağıdaki bölümde, SQL veritabanı yedeklemesi hakkında ek bilgi sağlar.
+
+### <a name="can-i-throttle-the-speed-of-the-sql-backup-policy-so-it-minimizes-impact-on-the-sql-server"></a>SQL yedekleme İlkesi hızını, SQL server üzerindeki etkiyi en aza indirir şekilde kısıtlayabilir miyim
+
+Evet, yedekleme İlkesi yürütür oranı'sini kısıtlayabilir. Bu ayarı değiştirmek için:
+
+1. SQL Server'da içinde `C:\Program Files\Azure Workload Backup\bin` açık klasör **TaskThrottlerSettings.json**.
+
+2. İçinde **TaskThrottlerSettings.json** dosya, değişiklik **DefaultBackupTasksThreshold** daha düşük bir değere, örneğin, 5.
+
+3. Değişikliğinizi kaydedin ve dosyayı kapatın.
+
+4. SQL Server, Görev Yöneticisi'ni açın ve yeniden **Azure Backup iş yükü Koordinatör hizmeti**.
+
+### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Bir ikincil çoğaltma tam yedekleme çalıştırabilir miyim
+
+Hayır, bu özellik desteklenmiyor.
+
+### <a name="do-successful-backup-jobs-create-alerts"></a>Başarılı yedekleme işleri uyarılar oluşturulur
+
+Hayır. Başarılı yedekleme işleri uyarılar oluşturmaz. Uyarılar, başarısız olan yedekleme işleri için gönderilir.
+
+### <a name="are-scheduled-backup-job-details-shown-in-the-jobs-menu"></a>Zamanlanmış yedekleme işinin ayrıntılarını işler menüde gösterilir
+
+Hayır. İşleri menüsünden geçici işi ayrıntılarını gösterir, ancak zamanlanan yedekleme işlerinin göstermez. Zamanlanmış tüm yedekleme işleri başarısız olursa, başarısız işi uyarıları tüm ayrıntıları bulabilirsiniz. İzleyici tüm zamanlanan ve geçici yedekleme işleri istiyorsanız [SQL Server Management Studio'yu](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs).
+
+### <a name="if-i-select-a-sql-server-will-future-databases-automatically-be-added"></a>Gelecekteki veritabanları, otomatik olarak bir SQL sunucusu eklenir
+
+Hayır. Sunucu düzeyinde onay kutusunu seçerseniz, bir SQL server için koruma yapılandırılıyor, tüm veritabanları ekler. Ancak, koruma yapılandırdıktan sonra SQL Server'a veritabanları ekleme, bunları korumak için yeni veritabanlarını elle eklemeniz gerekir. Veritabanlarını yapılandırılmış korumayı otomatik olarak dahil edilmez.
+
+### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>Kurtarma modeli değiştirirsem nasıl koruma yeniden
+
+Kurtarma modeli değiştirirseniz, bir tam yedekleme tetikleyin ve günlük yedeklemeler beklendiği gibi başlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: PowerShell kullanarak Azure Windows VM için bir veri diski ekleme | Microsoft Docs
-description: Windows PowerShell ile Resource Manager dağıtım modeli kullanarak bir VM yeni veya var olan veri diski ekleme yapma.
+title: PowerShell kullanarak azure'da bir Windows VM'ye veri diski ekleme | Microsoft Docs
+description: Windows PowerShell ile Resource Manager dağıtım modelini kullanarak bir VM için yeni veya var olan veri diski ekleme.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -16,27 +16,28 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: cynthn
 ms.openlocfilehash: 384203134d1588053f91b66d32e9b0bf1ec69306
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38680924"
 ---
-# <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>Bir Windows PowerShell kullanarak bir VM için bir veri diski Ekle
+# <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>Windows PowerShell kullanarak bir VM'ye veri diski ekleme
 
-Bu makalede bir Windows PowerShell kullanarak sanal makine için yeni ve mevcut diskleri ekleme gösterilmiştir. 
+Bu makalede hem yeni hem de mevcut diski, PowerShell kullanarak bir Windows sanal makine gösterilmektedir. 
 
-Bunu önce bu ipuçlarını gözden geçirin:
-* Sanal makinenin boyutunu, iliştirebilirsiniz kaç tane veri diskleri denetler. Ayrıntılar için bkz [sanal makineler için Boyutlar](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Premium depolama kullanmak için bir Premium depolama ihtiyaç duyarsınız DS serisi veya GS serisi sanal makine gibi VM boyutu etkin. Ayrıntılar için bkz [Premium Storage: Azure sanal makine iş yükleri için yüksek performanslı depolama](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Bunu yapmadan önce bu ipuçlarını gözden geçirin:
+* Sanal makinenin boyutunu, iliştirebilirsiniz kaç veri diskinin denetler. Ayrıntılar için bkz [sanal makine boyutları](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Premium depolama kullanmak için bir Premium depolama gerekir DS serisi veya GS serisi bir sanal makine gibi VM boyutu etkin. Ayrıntılar için bkz [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Yüklemek ve PowerShell yerel olarak kullanmak seçerseniz, bu öğreticide Azure PowerShell modülü sürümü 6.0.0 gerektirir veya sonraki bir sürümü. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz, bu öğretici Azure PowerShell modülü 6.0.0 veya sonraki bir sürümü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
 
-## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Bir sanal makineye bir boş veri diski Ekle
+## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Boş veri diski bir sanal makineye ekleyin.
 
-Bu örnek, varolan bir sanal makineye bir boş veri diski Ekle gösterilmektedir.
+Bu örnek, varolan bir sanal makineye boş veri diski ekleme gösterir.
 
 ### <a name="using-managed-disks"></a>Yönetilen diskleri kullanma
 
@@ -56,8 +57,8 @@ $vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -Ma
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
 
-### <a name="using-managed-disks-in-an-availability-zone"></a>Bir kullanılabilirlik bölgesinde yönetilen diskleri kullanma
-Bir kullanılabilirlik bölgesinde bir disk oluşturmak için kullanmak [yeni AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) ile `-Zone` parametresi. Aşağıdaki örnek, bölgesinde bir disk oluşturur *1*.
+### <a name="using-managed-disks-in-an-availability-zone"></a>Bir kullanılabilirlik alanında yönetilen diskleri kullanma
+Bir kullanılabilirlik alanında bir disk oluşturmak için kullanın [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) ile `-Zone` parametresi. Aşağıdaki örnek, bölgesinde bir disk oluşturur *1*.
 
 
 ```powershell
@@ -79,7 +80,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="initialize-the-disk"></a>Diski başlatın
 
-Boş disk ekledikten sonra bunu başlatmak için gerekir. Diskini başlatmak için bir VM için oturum açın ve disk Yönetimi'ni kullanın. WinRM ve VM sertifikadaki etkinleştirilirse, oluşturduğunuz sırada diskini başlatmak için uzaktan PowerShell kullanabilirsiniz. Bir özel betik uzantısı de kullanabilirsiniz: 
+Boş disk ekledikten sonra bunu başlatmak gerekir. Diski başlatmak için bir VM için oturum açın ve disk Yönetimi'ni kullanın. WinRM ve VM üzerindeki bir sertifika etkinleştirilirse, bunları oluşturduğunda diski başlatmak için Uzak PowerShell kullanın. Özel betik uzantısı da kullanabilirsiniz: 
 
 ```azurepowershell-interactive
     $location = "location-name"
@@ -88,7 +89,7 @@ Boş disk ekledikten sonra bunu başlatmak için gerekir. Diskini başlatmak iç
     Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
         
-Komut dosyası gibi bir diskleri başlatmak için bu kodu içerebilir:
+Betik dosyasının aşağıdaki gibi diskleri başlatmak için bu kodu içerebilir:
 
 ```azurepowershell-interactive
     $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
@@ -108,9 +109,9 @@ Komut dosyası gibi bir diskleri başlatmak için bu kodu içerebilir:
 ```
 
 
-## <a name="attach-an-existing-data-disk-to-a-vm"></a>Varolan bir veri diski bir VM'e ekleyin
+## <a name="attach-an-existing-data-disk-to-a-vm"></a>Bir VM'ye olan bir veri diski ekleme
 
-Varolan bir yönetilen diski bir VM'ye veri diski olarak ekleyebilirsiniz. 
+Bir VM'ye veri diski olarak mevcut bir yönetilen disk ekleyebilirsiniz. 
 
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
