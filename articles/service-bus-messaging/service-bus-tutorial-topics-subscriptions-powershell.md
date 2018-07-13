@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 824235cfdae6df9d852875281346e35a18277f74
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651679"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531669"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Öğretici: PowerShell ve konular/abonelikler kullanarak stok güncelleştirme
 
@@ -43,7 +43,7 @@ Bu öğreticiyi tamamlamak için şunları yüklediğinizden emin olun:
 1. [Visual Studio 2017 Güncelleştirme 3 (sürüm 15.3, 26730.01)](http://www.visualstudio.com/vs) veya sonraki sürümler.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), sürüm 2.0 veya sonraki sürümler.
 
-Bu öğretici için Azure PowerShell’in en yeni sürümünü çalıştırmanız gerekir. Yüklemeniz veya yükseltmeniz gerekirse bkz. [Azure PowerShell’i Yükleme ve Yapılandırma][].
+Bu öğretici için Azure PowerShell’in en yeni sürümünü çalıştırmanız gerekir. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell'i Yükleme ve Yapılandırma][].
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -106,7 +106,7 @@ Kodu çalıştırmak için aşağıdakileri yapın:
 
 3. `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart` örnek klasörüne gidin.
 
-4. Henüz yapmadıysanız, aşağıdaki PowerShell cmdlet’ini kullanarak bağlantı dizesini edinin. `my-resourcegroup` ve `namespace-name` değerini kendi değerlerinizle değiştirdiğinizden emin olun: 
+4. Henüz yapmadıysanız, aşağıdaki PowerShell cmdlet’ini kullanarak bağlantı dizesini alın. `my-resourcegroup` ve `namespace-name` değerini kendi değerlerinizle değiştirdiğinizden emin olun: 
 
    ```azurepowershell-interactive
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
@@ -117,7 +117,7 @@ Kodu çalıştırmak için aşağıdakileri yapın:
    dotnet build
    ```
 6.  `\bin\Debug\netcoreapp2.0` klasörüne gidin.
-7.  Programı çalıştırmak için aşağıdaki komutu yazın. `myConnectionString` yerine daha önce edindiğiniz değeri ve `myQueueName` yerine oluşturduğunuz kuyruğun adını koymayı unutmayın:
+7.  Programı çalıştırmak için aşağıdaki komutu yazın. `myConnectionString` yerine daha önce aldığınız değeri ve `myQueueName` yerine oluşturduğunuz kuyruğun adını koymayı unutmayın:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
@@ -136,7 +136,7 @@ Remove-AzureRmResourceGroup -Name my-resourcegroup
 
 ## <a name="understand-the-sample-code"></a>Örnek kodu anlama
 
-Bu bölümde, örnek kodun yaptıkları hakkında daha fazla ayrıntı bulunmaktadır. 
+Bu bölümde örnek kodun işlevleri hakkında daha fazla ayrıntı bulunmaktadır. 
 
 ### <a name="get-connection-string-and-queue"></a>Bağlantı dizesini ve kuyruğu alma
 
@@ -272,7 +272,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 Bu öğreticide Azure PowerShell kullanarak kaynaklar sağladınız, sonra bir Service Bus bir konusundan ve aboneliklerinden iletiler gönderip aldınız. Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Azure portalını kullanarak bir Service Bus konusu ve bu konuya bir veya daha fazla abonelik oluşturma
+> * Azure portalı kullanarak bir Service Bus konu başlığı ve bunun için bir veya daha fazla abonelik oluşturma
 > * .NET kodu kullanarak konu filtreleri ekleme
 > * Farklı içerikle iki ileti oluşturma
 > * İletileri gönderme ve bunların beklenen aboneliklere vardığını doğrulama
@@ -286,4 +286,4 @@ Service Bus’ın yayımlama/abone olma özelliklerini kullanma hakkında daha f
 > [PowerShell ve konular/abonelikler kullanarak stok güncelleştirme](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Azure PowerShell’i Yükleme ve Yapılandırma]: /powershell/azure/install-azurerm-ps
+[Azure PowerShell'i Yükleme ve Yapılandırma]: /powershell/azure/install-azurerm-ps

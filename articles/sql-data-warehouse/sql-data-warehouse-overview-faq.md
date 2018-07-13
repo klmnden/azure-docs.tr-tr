@@ -1,6 +1,6 @@
 ---
-title: Azure SQL veri ambarı sık sorulan sorular | Microsoft Docs
-description: Bu makalede Azure SQL veri ambarı hakkında sık sorulan sorular müşteriler ve geliştiricilerin çıkışı listeler
+title: Azure SQL veri ambarı hakkında sık sorulan sorular | Microsoft Docs
+description: Bu makalede, Azure SQL veri ambarı hakkında sık sorulan soruların müşterilere ve geliştiricilerinden kullanıma listelenir.
 services: sql-data-warehouse
 author: acomet
 manager: craigg-msft
@@ -11,109 +11,109 @@ ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
 ms.openlocfilehash: 7a570dfa6e0a2812a8dd3a25b8903c70fe07befc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187081"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971712"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL veri ambarı sık sorulan sorular
 
 ## <a name="general"></a>Genel
 
-Q. Ne SQL DW veri güvenliği için sunar?
+SORU. Hangi SQL DW veri güvenliği için sunduğu?
 
-A. SQL DW TDE gibi verileri korumak ve denetlemek için çeşitli çözümler sunar. Daha fazla bilgi için bkz: [güvenlik].
+A. SQL DW TDE gibi veri koruma ve denetim için çeşitli çözümler sunar. Daha fazla bilgi için [güvenlik].
 
-Q. Hangi yasal veya iş standartları SQL DW olduğunu uyumlu nereden bulabilirim?
+SORU. Hangi yasal veya iş standartları olduğunu SQL DW ile uyumlu nereden edinebilirim?
 
-A. Ziyaret [Microsoft Compliance] ürün SOC ve ISO gibi çeşitli uyumluluk sunumları için sayfa. İlk uyumluluk başlığı seçin, ardından Azure genişletin Microsoft kapsam içinde bulut hizmetlerini bölümünde Azure hangi hizmetlerin olduğunu görmek için sayfanın sağ tarafında Hizmetleri uyumludur.
+A. Ziyaret [Microsoft Uyumluluk] ürün SOC ve ISO gibi çeşitli uyumluluk teklifleri için sayfa. İlk uyumluluk başlığı seçin, ardından Azure genişletin Microsoft kapsamındaki bulut Hizmetleri bölümünde Azure olan hizmetler görmek için sayfanın sağ tarafındaki Hizmetleri uyumludur.
 
-Q. Powerbı bağlayabilir miyim?
+SORU. Power BI bağlayabilirim?
 
-A. Evet! SQL DW ile doğrudan sorgu Powerbı destekler ancak çok sayıda kullanıcı veya gerçek zamanlı verileri için tasarlanmamıştır. Powerbı üretim kullanımı için Azure Analysis Services ya da analiz hizmeti Iaas üstünde Powerbı kullanmanızı öneririz. 
+A. Evet! SQL DW ile doğrudan sorgu Powerbı destekler ancak çok sayıda kullanıcı veya gerçek zamanlı veriler için tasarlanmamıştır. Power BI'ın üretim sırasında kullanım için Azure Analysis Services veya Analysis Service Iaas üzerine Power BI'ı kullanmanızı öneririz. 
 
-Q. SQL veri ambarı kapasite sınırları nelerdir?
+SORU. SQL veri ambarı kapasite sınırları nelerdir?
 
-A. Bizim geçerli bkz [kapasite limitlerini] sayfası. 
+A. Bizim geçerli bkz [kapasite sınırları] sayfası. 
 
-Q. Neden my ölçek/Duraklat/Sürdür çok uzun sürüyor?
+SORU. Neden benim ölçek/duraklatın/sürdürün kadar uzun sürüyor?
 
-A. İşlem yönetimi işlemleri için süre çeşitli etkenlere etkileyebilir. Bir ortak işlemleri uzun süre çalışan işlem geri alma için durumda. Bir ölçek veya duraklatma işlemi başlatıldığında, tüm gelen oturumları engellenir ve sorguları boşaltmış. Bir işlem yeniden başlatılmadan önce sistem kararlı durumda bırakın için işlemleri geri alınması gerekir. Büyük sayı ve daha büyük günlük boyutu hareketlerinin, uzun işlemi sistem kararlı bir duruma geri yükleme durduruldu.
+A. İşlem yönetimi işlemleri için süre çeşitli etkenlere etkileyebilir. Ortak işlemler uzun süre çalışan işlem geri alma için durumda. Bir ölçek veya duraklatma işlemi başlatıldığında, tüm gelen oturumları engellenir ve sorguları boşaltılır. Bir işlemin yeniden başlatılmadan önce sistem kararlı bir duruma ayrılabilmeniz işlemleri alınması gerekir. Büyük sayı ve daha büyük günlük boyutunu işlemler, uzun işlemi sistemi kararlı bir duruma geri durmuş.
 
 ## <a name="user-support"></a>Kullanıcı desteği
 
-Q. Özellik isteği burada gönderme sahip miyim?
+SORU. Burada gönderme bir özellik isteği sahibim?
 
-A. Özellik isteği varsa, üzerinde gönderme bizim [UserVoice] sayfası
+A. Bir özellik isteği varsa, üzerinde iletin bizim [UserVoice] sayfası
 
-Q. Nasıl yapabilirim x?
+SORU. Ne yapabilirim x?
 
-A. SQL veri ambarı ile geliştirilmesi konusunda daha fazla yardım için üzerinde sorular sorabilirsiniz bizim [yığın taşması] sayfası. 
+A. SQL veri ambarı ile geliştirmeye yardımcı olmak için hakkında sorular sorabilirsiniz bizim [Stack Overflow] sayfası. 
 
-Q. Bir destek bileti nasıl gönderilsin mi?
+SORU. Bir destek bileti nasıl gönderebilirim?
 
-A. [Destek biletlerini Göster] Azure portalı üzerinden kaydedildi.
+A. [Destek bileti] Azure portalı üzerinden Dosyalanan.
 
 ## <a name="sql-languagefeature-support"></a>SQL dil/özellik desteği 
 
-Q. Hangi veri türleri SQL Data Warehouse destekliyor mu?
+SORU. Hangi veri türleri, SQL veri ambarı destekliyor mu?
 
 A. SQL veri ambarı bkz [veri türleri].
 
-Q. Tablo özellikleri destekliyor?
+SORU. Tablo Özellikleri destekliyorsunuz?
 
-A. SQL veri ambarı birçok özellik desteklerken, bazı desteklenmez ve belgelenmiştir [desteklenmeyen Tablo Özellikler].
+A. SQL veri ambarı birçok özellik desteklese de, bazı desteklenmez ve belgelenen [desteklenmeyen tablo özellikleri].
 
-## <a name="tooling-and-administration"></a>Araçları ve yönetim
+## <a name="tooling-and-administration"></a>Araçlar ve yönetim
 
-Q. Visual Studio veritabanı projelerini desteklemez.
+SORU. Visual Studio veritabanı projelerini desteklemez.
 
-A. Şu anda veritabanı projeleri Visual Studio ile SQL Data Warehouse için desteklemiyoruz. Bu özellik almak için bir oy dönüştürmek istiyorsanız, bizim kullanıcı sesi ziyaret [veritabanı projeleri özellik isteği].
+A. Şu anda veritabanı projeleri Visual Studio'da SQL veri ambarı için desteklemiyoruz. Bu özelliği etkinleştirmek için oy dönüştürme yapmak isterseniz, bizim User Voice ziyaret [veritabanı projeleri özellik isteği].
 
-Q. SQL Data Warehouse, REST API'leri destekliyor mu?
+SORU. SQL veri ambarı, REST API'lerini destekliyor mu?
 
-A. Evet. SQL veritabanı ile kullanılan çoğu REST işlevselliği de SQL Data Warehouse ile kullanılabilir. REST belge sayfalarının içinde API bilgi bulabilirsiniz veya [MSDN].
+A. Evet. SQL veritabanı ile kullanılabilecek en iyi REST işlevselliği de SQL veri ambarı ile kullanılabilir. REST belgeleri sayfaları içinde API bilgi bulabilirsiniz veya [MSDN].
 
 
 ## <a name="loading"></a>Yükleniyor
 
-Q. Hangi istemci sürücüleri destekliyor?
+SORU. Hangi istemci sürücüleri destekliyorsunuz?
 
 A. DW sürücü desteği bulunabilir [bağlantı dizeleri] sayfası
 
-S: hangi dosya biçimleri, SQL veri ambarı ile PolyBase tarafından desteklenir?
+S: hangi dosya biçimlerine PolyBase ile SQL veri ambarı tarafından destekleniyor mu?
 
-Y: Orc, RC, Parquet ve düz sınırlandırılmış metin
+Y: Orc, RC, Parquet ve sınırlandırılmış düz metin
 
-S: ne ı PolyBase kullanarak SQL DW bağlanabilir mi? 
+S: hangi PolyBase aracılığıyla SQL DW'ye bağlanabilirim? 
 
 Y: [Azure Data Lake Store] ve [Azure depolama BLOB'ları]
 
-S: hesaplama aşağı itme Azure Storage Bloblarında veya ADLS bağlanırken mi? 
+S: itme hesaplama Azure depolama Blobları veya ADLS bağlanırken mi? 
 
-A: Hayır SQL DW PolyBase yalnızca depolama bileşenleri etkileşim kurar. 
+C: Hayır, SQL DW PolyBase yalnızca depolama bileşenleri etkileşim kurar. 
 
-S: HDI için bağlanabilir?
+HDI için bağlanabilirim miyim?
 
-Y: HDI ADLS veya WASB HDFS katmanı olarak kullanabilirsiniz. HDFS katmanı olarak ya da varsa, bu verileri SQL DW yükleyebilirsiniz. Ancak, aşağı itme hesaplama HDI örneği oluşturulamıyor. 
+Y: HDI ADLS ya da WASB HDFS katman olarak kullanabilirsiniz. HDFS katmanınızdaki olarak varsa, bu verileri SQL DW'ye yükleyebilirsiniz. Ancak, itme hesaplama HDI örneği oluşturulamıyor. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir bütün olarak SQL Data Warehouse hakkında daha fazla bilgi için bkz: bizim [genel bakış] sayfası.
+Bir bütün olarak SQL veri ambarı hakkında daha fazla bilgi için bkz. bizim [genel bakış] sayfası.
 
 
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[bağlantı dizeleri]: ./sql-data-warehouse-connection-strings.md
-[yığın taşması]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[Destek biletlerini Göster]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[güvenlik]: ./sql-data-warehouse-overview-manage-security.md
-[Microsoft Compliance]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
-[kapasite limitlerini]: ./sql-data-warehouse-service-capacity-limits.md
+[Bağlantı Dizeleri]: ./sql-data-warehouse-connection-strings.md
+[Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Destek bileti]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Güvenlik]: ./sql-data-warehouse-overview-manage-security.md
+[Microsoft Uyumluluk]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
+[Kapasite sınırları]: ./sql-data-warehouse-service-capacity-limits.md
 [veri türleri]: ./sql-data-warehouse-tables-data-types.md
-[desteklenmeyen Tablo Özellikler]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
+[Desteklenmeyen tablo özellikleri]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [Azure depolama BLOB'ları]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[veritabanı projeleri özellik isteği]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
+[Veritabanı projeleri özellik isteği]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
-[genel bakış]: ./sql-data-warehouse-overview-faq.md
+[Genel Bakış]: ./sql-data-warehouse-overview-faq.md

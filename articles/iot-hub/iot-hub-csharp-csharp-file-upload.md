@@ -1,6 +1,6 @@
 ---
-title: .NET ile Azure IOT Hub'ına aygıtlardan dosyaları karşıya yükleme | Microsoft Docs
-description: .NET için Azure IOT cihaz SDK'sını kullanarak buluta bir aygıttan dosyaları karşıya yükleme yapma. Karşıya yüklenen dosyaların bir Azure depolama blob kapsayıcısında depolanır.
+title: .NET ile Azure IOT Hub'ına cihazlardan dosya yükleme | Microsoft Docs
+description: .NET için Azure IOT cihaz SDK'sını kullanarak bulutta bir CİHAZDAN dosyaları karşıya yükleme. Karşıya yüklenen dosyaları bir Azure depolama blob kapsayıcısında depolanır.
 author: fsautomata
 manager: ''
 ms.service: iot-hub
@@ -10,37 +10,37 @@ ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: elioda
 ms.openlocfilehash: 8c57f93a755d01dc17b369e712285c2ac8f0ef37
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807501"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309922"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Cihazınızı dosyalarından buluta IOT Hub .NET kullanarak karşıya yükle
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>.NET kullanarak IOT Hub'la cihazınızdan dosyaları buluta yükleyin
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Bu öğretici kodda inşa edilmiştir [IOT Hub ile bulut cihaza ileti gönderme](iot-hub-csharp-csharp-c2d.md) IOT hub'ı dosya karşıya yükleme özelliklerini kullanmayı gösteren öğretici. Size bir nasıl gösterir için:
+Bu öğreticide kodda geliştirir [IOT Hub ile bulut buluttan cihaza ileti gönderme](iot-hub-csharp-csharp-c2d.md) dosya karşıya yükleme özellikleri IOT hub'ı kullanmak nasıl gösteren öğretici. Bunun nasıl yapılacağı anlatılmaktadır için:
 
-- Güvenli bir şekilde bir aygıt ile Azure sağlayan bir dosya yüklemek için URI blob.
-- IOT hub'ı dosya karşıya yükleme bildirimleri, uygulama arka uç dosya işleme tetiklemek için kullanın.
+- Bir cihaz Azure ile güvenli bir şekilde sağlayan bir dosya karşıya yükleme için URI blob.
+- IOT hub'ı dosya karşıya yükleme bildirimlerini, uygulama arka ucu dosyasında bir işlem tetiklemek için kullanın.
 
-[IOT Hub ile çalışmaya başlama](iot-hub-csharp-csharp-getstarted.md) ve [IOT Hub ile bulut cihaza ileti gönderme](iot-hub-csharp-csharp-c2d.md) öğreticiler IOT Hub'ın temel cihaz Bulut ve bulut-cihaz Mesajlaşma işlevlerini gösterir. [İşlem cihaz-bulut iletileri](tutorial-routing.md) öğretici Azure blob depolama alanına cihaz bulut iletilerini güvenilir bir şekilde depolamak için bir yol açıklar. Ancak, bazı senaryolarda aygıtlarınızı IOT hub'ı kabul görece küçük bir cihaz bulut iletilerini göndermek verileri kolayca eşlenemiyor. Örneğin:
+[IOT Hub ile çalışmaya başlama](iot-hub-csharp-csharp-getstarted.md) ve [IOT Hub ile bulut buluttan cihaza ileti gönderme](iot-hub-csharp-csharp-c2d.md) öğreticiler, IOT Hub'ın temel CİHAZDAN buluta ve bulut-cihaz Mesajlaşma işlevlerini gösterir. [İşlem CİHAZDAN buluta iletileri](tutorial-routing.md) Öğreticisi, CİHAZDAN buluta iletileri Azure blob depolama alanında güvenilir bir şekilde depolamak için bir yol açıklar. Ancak, bazı senaryolarda cihazlarınızı IOT hub'ı kabul görece küçük bir CİHAZDAN buluta ileti gönderme verileri kolayca eşlenemiyor. Örneğin:
 
 * Görüntüleri içeren büyük dosyaları
 * Videolar
-* Yüksek sıklıkta örneklenen titreşimi veri
-* Önceden işlenmiş veri çeşit
+* Titreşim veri yüksek sıklıkta örneklenir
+* Önceden işlenmiş verilerin bazı formlarıyla
 
-Bu dosyalar genellikle gibi araçları kullanılarak bulutta işlenen toplu olan [Azure Data Factory](../data-factory/introduction.md) veya [Hadoop](../hdinsight/index.yml) yığını. Bir CİHAZDAN dosyaları karşıya yükleme gerektiğinde, güvenlik ve güvenilirlik IOT Hub'ın kullanmaya devam edebilirsiniz.
+Bu dosyalar genellikle toplu işleme gibi araçları kullanarak bulutta olduğu [Azure Data Factory](../data-factory/introduction.md) veya [Hadoop](../hdinsight/index.yml) yığını. Bir CİHAZDAN karşıya dosya yükleme gerektiğinde, güvenlik ve güvenilirlik IOT hub'ı kullanmaya devam edebilirsiniz.
 
-Bu öğreticinin sonunda iki .NET konsol uygulamaları çalıştırın:
+Bu öğreticinin sonunda iki .NET konsol uygulaması çalıştırın:
 
-* **SimulatedDevice**, oluşturduğunuz uygulama değiştirilmiş bir sürümünü [IOT Hub ile bulut cihaza ileti gönderme](iot-hub-csharp-csharp-c2d.md) Öğreticisi. Bu uygulama, IOT hub tarafından sağlanan bir SAS URI'sini kullanarak depolama için bir dosya yükler.
-* **ReadFileUploadNotification**, IOT hub'ından dosya karşıya yükleme bildirimlerini alır.
+* **SimulatedDevice**, oluşturulan uygulamayı değiştirilmiş bir sürümünü [IOT Hub ile bulut buluttan cihaza ileti gönderme](iot-hub-csharp-csharp-c2d.md) öğretici. Bu uygulama bir dosya depolama, IOT hub tarafından sağlanan bir SAS URI'sini kullanarak yükler.
+* **ReadFileUploadNotification**, IOT hub'ından dosya karşıya yükleme bildirimleri alır.
 
 > [!NOTE]
-> IOT hub'ı Azure IOT cihaz SDK'ları çok sayıda cihaz platformları ve (C, Java ve Javascript gibi) dilleri destekler. Başvurmak [Azure IoT Geliştirici Merkezi] Cihazınızı Azure IOT Hub'ına bağlamak adım adım yönergeler için.
+> IOT Hub, Azure IOT cihaz SDK'ları birçok cihaz platformlarını ve dilini (C, Java ve Javascript gibi) destekler. Başvurmak [Azure IOT Geliştirici Merkezi] Cihazınızı Azure IOT Hub'ına bağlanmak adım adım yönergeler için.
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -49,17 +49,17 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
-## <a name="upload-a-file-from-a-device-app"></a>Bir aygıt uygulamasından bir dosyayı karşıya yüklemek
+## <a name="upload-a-file-from-a-device-app"></a>Bir cihaz uygulamasından bir dosyayı karşıya yükleyin
 
-Bu bölümde, oluşturduğunuz cihaz uygulamayı değiştirmek [IOT Hub ile bulut cihaza ileti gönderme](iot-hub-csharp-csharp-c2d.md) IOT hub'ından bulut cihaz iletileri almak için.
+Bu bölümde oluşturduğunuz cihaz uygulamasını değiştirmek [IOT Hub ile bulut buluttan cihaza ileti gönderme](iot-hub-csharp-csharp-c2d.md) IOT hub'ından bulut-cihaz iletilerini almak için.
 
-1. Visual Studio'da sağ **SimulatedDevice** proje, tıklatın **Ekle**ve ardından **varolan öğeyi**. Bir görüntü dosyasına gidin ve projenize ekleyin. Bu öğretici görüntü adlandırılan varsayar `image.jpg`.
+1. Visual Studio'da sağ tıklayıp **SimulatedDevice** proje, tıklayın **Ekle**ve ardından **varolan öğe**. Bir görüntü dosyasına gidin ve projenize ekleyin. Bu öğreticide, görüntüyü adlı varsayılır `image.jpg`.
 
-1. Görüntüde sağ tıklayın ve ardından **özellikleri**. Olduğundan emin olun **çıktı dizinine Kopyala** ayarlanır **her zaman Kopyala**.
+1. Görüntü üzerinde sağ tıklayın ve ardından **özellikleri**. Emin olun **çıkış dizinine Kopyala** ayarlanır **her zaman Kopyala**.
 
     ![][1]
 
-1. İçinde **Program.cs** dosyasında, dosyanın üst kısmında aşağıdaki deyimleri ekleyin:
+1. İçinde **Program.cs** dosyasının en üstüne aşağıdaki deyimleri ekleyin:
 
     ```csharp
     using System.IO;
@@ -84,38 +84,38 @@ Bu bölümde, oluşturduğunuz cihaz uygulamayı değiştirmek [IOT Hub ile bulu
     }
     ```
 
-    `UploadToBlobAsync` Yöntemi dosya adı ve akış kaynak dosyası karşıya yüklenecek alır ve depolama için karşıya yükleme işler. Konsol uygulama dosyasını karşıya yüklemek için gereken süreyi görüntüler.
+    `UploadToBlobAsync` Yöntemi karşıya yüklenecek dosyanın adı ve akış kaynağında dosyanın alır ve depolama için karşıya yükleme işleme. Konsol uygulaması, dosyayı karşıya yüklemek için gereken süreyi görüntüler.
 
-1. Aşağıdaki yöntemi ekleyin **ana** yöntemi, hemen önce `Console.ReadLine()` satır:
+1. Aşağıdaki yöntemi ekleyin **ana** yöntemi, hemen önce `Console.ReadLine()` satırı:
 
     ```csharp
     SendToBlobAsync();
     ```
 
 > [!NOTE]
-> Basitlik'ın artırmak amacıyla için bu öğreticiyi herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (üstel geri alma), önerilen MSDN makalesinde uygulamalıdır [geçici hata işleme].
+> Basitlik'ın çok için bu öğreticiyi herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (üstel geri alma), örneğin MSDN makalesinde önerildiği uygulamalıdır [geçici hata işleme].
 
-## <a name="receive-a-file-upload-notification"></a>Dosya karşıya yükleme bildirimi
+## <a name="receive-a-file-upload-notification"></a>Dosya karşıya yükleme bildirim alma
 
-Bu bölümde IOT hub'dan dosya karşıya yükleme bildirim iletileri alan bir .NET konsol uygulaması yazma.
+Bu bölümde, IOT Hub'ından dosya karşıya yükleme bildirim iletileri alan bir .NET konsol uygulaması yazma.
 
-1. Geçerli Visual Studio çözümünde kullanarak bir Visual C# Windows projesi oluşturma **konsol uygulaması** proje şablonu. Proje adı **ReadFileUploadNotification**.
+1. Geçerli Visual Studio çözümünde kullanarak bir Visual C# Windows projesi oluşturma **konsol uygulaması** proje şablonu. Projeyi adlandırın **ReadFileUploadNotification**.
 
     ![Visual Studio'da yeni proje][2]
 
 1. Çözüm Gezgini'nde sağ **ReadFileUploadNotification** proje ve ardından **NuGet paketlerini Yönet...** .
 
-1. İçinde **NuGet Paket Yöneticisi** penceresinde, arama **Microsoft.Azure.Devices**, tıklatın **yükleme**ve kullanım koşullarını kabul edin.
+1. İçinde **NuGet Paket Yöneticisi** penceresinde, arama **Microsoft.Azure.Devices**, tıklayın **yükleme**ve kullanım koşullarını kabul edin.
 
-    Bu eylem indirir, yükler ve bir başvuru ekler [Azure IOT hizmeti SDK'sı NuGet paketi] içinde **ReadFileUploadNotification** projesi.
+    Bu eylem indirir, yükler ve bir başvuru ekler [Azure IOT hizmeti SDK'sı NuGet paketi] içinde **ReadFileUploadNotification** proje.
 
-1. İçinde **Program.cs** dosyasında, dosyanın üst kısmında aşağıdaki deyimleri ekleyin:
+1. İçinde **Program.cs** dosyasının en üstüne aşağıdaki deyimleri ekleyin:
 
     ```csharp
     using Microsoft.Azure.Devices;
     ```
 
-1. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini IOT hub bağlantı dizesi ile değiştirin [IOT Hub ile çalışmaya başlama]:
+1. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini IOT hub'ı bağlantı dizesi ile değiştirin [IOT Hub ile çalışmaya başlama]:
 
     ```csharp
     static ServiceClient serviceClient;
@@ -144,7 +144,7 @@ Bu bölümde IOT hub'dan dosya karşıya yükleme bildirim iletileri alan bir .N
     }
     ```
 
-    Bu alma düzeni aygıt uygulamadan bulut-cihaz iletilerini almak için kullanılan aynı olmasına dikkat edin.
+    Bu alma Düzen cihaz uygulamasından bulut-cihaz iletilerini almak için kullanılan aynı olduğuna dikkat edin.
 
 1. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
 
@@ -160,21 +160,21 @@ Bu bölümde IOT hub'dan dosya karşıya yükleme bildirim iletileri alan bir .N
 
 Şimdi uygulamaları çalıştırmaya hazırsınız.
 
-1. Visual Studio'da Çözümünüze sağ tıklayın ve seçin **başlangıç projelerini Ayarla**. Seçin **birden fazla başlangıç projesi**seçeneğini belirleyip **Başlat** eylemi için **ReadFileUploadNotification** ve **SimulatedDevice**.
+1. Visual Studio Çözümünüze sağ tıklayın ve seçin **başlangıç projelerini Ayarla**. Seçin **birden fazla başlangıç projesi**, ardından **Başlat** için eylem **ReadFileUploadNotification** ve **SimulatedDevice**.
 
-1. Tuşuna **F5**. Her iki uygulamayı başlamanız gerekir. Bir konsol uygulamasında tamamlandı karşıya yükleme ve bir konsol uygulaması tarafından alınan karşıya yükleme bildirim iletisini görmeniz gerekir. Kullanabileceğiniz [Azure portal] veya Visual Studio Sunucu Gezgini aygıtını karşıya yüklenen dosyanın Azure depolama hesabınızdaki varlığını denetle.
+1. Tuşuna **F5**. Her iki uygulamayı başlamanız gerekir. Bir konsol uygulamasında tamamlandı karşıya yükleme ve bir konsol uygulaması tarafından alınan karşıya yükleme bildirim iletisini görmeniz gerekir. Kullanabileceğiniz [Azure portal] veya Visual Studio sunucu Gezgini'nde aygıtını karşıya yüklenen dosya, Azure depolama hesabınızdaki varlığını denetleyin.
 
     ![][50]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, dosya yüklemelerini basitleştirmek için IOT hub'ı dosya karşıya yükleme becerilerini kullanacak öğrendiniz. IOT hub özelliklerini ve aşağıdaki makalelerde senaryolarını keşfetmeye devam edebilirsiniz:
+Bu öğreticide, cihazlardan karşıya dosya yükleme işlemleri basitleştirmek için dosya karşıya yükleme özellikleri IOT hub'ı kullanmayı öğrendiniz. IOT hub özelliklerini ve aşağıdaki makalelerde senaryolarını keşfetmeye devam edebilirsiniz:
 
-* [IOT hub'ı program aracılığıyla oluşturma][lnk-create-hub]
-* [C SDK Giriş][lnk-c-sdk]
+* [Programlamalı IOT hub oluşturma][lnk-create-hub]
+* [C SDK'ya giriş][lnk-c-sdk]
 * [Azure IOT SDK'ları][lnk-sdks]
 
-Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
+Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:
 
 * [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
 
@@ -186,7 +186,7 @@ Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
 <!-- Links -->
 
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Azure IoT Geliştirici Merkezi]: http://azure.microsoft.com/develop/iot
 
