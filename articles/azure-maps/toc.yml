@@ -4,7 +4,7 @@
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Azure Haritalar hakkında
+    - name: Azure Haritalar nedir?
       href: about-azure-maps.md
 - name: Hızlı Başlangıçlar
   items:
@@ -22,22 +22,10 @@
   items:
     - name: Yakınlaştırma düzeyleri ve kutucuk kılavuzu
       href: zoom-levels-and-tile-grid.md
-    - name: Coğrafi kodlama kapsamı
-      href: geocoding-coverage.md
-    - name: Trafik kapsamı
-      href: traffic-coverage.md
-    - name: İşleme kapsamı
-      href: render-coverage.md
-    - name: Yönlendirme kapsamı
-      href: routing-coverage.md
     - name: Desteklenen arama kategorileri
       href: supported-search-categories.md
     - name: Desteklenen diller
       href: supported-languages.md
-    - name: Tüketim modeli
-      href: consumption-model.md
-    - name: GeoJSON’u genişletme
-      href: extend-geojson.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Haritalar hesaplarını yönetme
@@ -76,6 +64,22 @@
           href: map-accessibility.md
 - name: Başvuru
   items:
+    - name: Hizmet kapsamı
+      items:
+        - name: Coğrafi kodlama
+          href: geocoding-coverage.md
+        - name: Trafik
+          href: traffic-coverage.md
+        - name: İşleme
+          href: render-coverage.md
+        - name: Yönlendirme
+          href: routing-coverage.md
+    - name: API ve parametre uzantıları
+      items:
+        - name: Araç kullanım modeli
+          href: consumption-model.md
+        - name: GeoJSON biçimini genişletme
+          href: extend-geojson.md
     - name: REST
       items:
         - name: İşleme hizmeti
@@ -139,4 +143,4 @@
     - name: Teknik örnek olay incelemeleri
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Videolar
-      href: 'https://azure.microsoft.com/documentation/videos'
+      href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'

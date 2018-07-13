@@ -6,12 +6,12 @@ description: Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 7e177705e5d8587f89018f4febefaf34fc5f669c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 60105912b075e1fa595a31f8274e02025335ec00
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970960"
+ms.locfileid: "38990923"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -686,6 +686,12 @@ Azure ile DevOps öğrenme </a>
                                                 <p>Ağ İzleyicisi</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/firewall/">
+                                                <img src="media/index/azure_firewall.svg" alt="" />
+                                                <p>Azure Güvenlik Duvarı</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Yapay Zeka ve Makine Öğrenmesi</h3>
                                     <ul>
@@ -923,8 +929,6 @@ Azure ile DevOps öğrenme </a>
                                                 <p>Bing Görsel Arama API’si</p>
                                             </a>
                                         </li>
-
-
                                         <li>
                                             <a href="/azure/cognitive-services/Bing-Autosuggest/">
                                                 <img src="media/index/API_Bing_AutoSuggest.svg" alt="" />
@@ -2125,18 +2129,18 @@ s" alt="" />
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-wan/">
+                                <a href="/azure/firewall/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/WAN.svg" alt="" />
+                                                        <img src="media/index/azure_firewall.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Sanal WAN</h3>
-                                                    <p>Güvenli küresel ölçekli dal bağlantısı oluşturma</p>
+                                                    <h3>Azure Güvenlik Duvarı</h3>
+                                                    <p>Yüksek kullanılabilirliğe ve ölçeklenebilirliğe sahip bulut tabanlı ağ güvenlik hizmeti</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3552,7 +3556,6 @@ s" alt="" />
                                                                     <span>Answer Search</span>
                                                                 </a>
                                                             </li>
-
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview">
                                                                     <img src="media/index/API_Anomaly_Finder.svg" alt="" />
@@ -3565,8 +3568,6 @@ s" alt="" />
                                                                     <span>Conversation Learner</span>
                                                                 </a>
                                                             </li>
-
-
                                                         </ul>
                                                     </div>
                                                 </div>

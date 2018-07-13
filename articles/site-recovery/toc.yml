@@ -51,6 +51,8 @@
           href: tutorial-prepare-azure.md
         - name: Şirket içi makineleri Azure’a geçirme
           href: migrate-tutorial-on-premises-azure.md
+        - name: 'Windows Server 2008, 2008 R2 sunucularını Azure''a geçirme'
+          href: migrate-tutorial-windows-server-2008.md
         - name: AWS örneklerini Azure’a geçirme
           href: migrate-tutorial-aws-azure.md
         - name: Azure VM’lerini başka bir bölgeye geçirme

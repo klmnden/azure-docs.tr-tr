@@ -28,6 +28,8 @@
       href: visual-search-sdk-python.md
 - name: Öğreticiler
   items:
+    - name: Görsel Arama resim karşıya yükleme
+      href: tutorial-visual-search-image-upload.md
     - name: Tek sayfalı web uygulaması
       href: tutorial-bing-visual-search-single-page-app.md
     - name: Tek sayfalı web uygulaması (kaynak kodu)

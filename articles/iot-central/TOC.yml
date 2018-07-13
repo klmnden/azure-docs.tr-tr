@@ -49,8 +49,8 @@
           href: howto-version-devicetemplate.md
         - name: Telemetri kuralı oluşturma
           href: howto-create-telemetry-rules.md
-        - name: Olay kuralı oluşturma
-          href: howto-create-event-rules.md
+        - name: Giriş sayfasını yapılandırma
+          href: howto-configure-homepage.md
         - name: Görüntüleri karşıya hazırlama ve yükleme
           href: howto-prepare-images.md
     - name: İşleç

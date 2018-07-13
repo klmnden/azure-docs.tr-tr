@@ -1,0 +1,51 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Güvenlik Duvarı Belgeleri
+metadata:
+  title: Azure Güvenlik Duvarı Belgeleri - Öğreticiler, API Başvurusu
+  meta.description: Learn how to create Azure Firewalls. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.
+  services: firewall
+  author: vhorne
+  ms.service: firewall
+  ms.topic: landing-page
+  ms.date: 7/11/2018
+  ms.author: victorh
+  ms.openlocfilehash: 979ce06a38e397a42b9f34c7eb82aa9c8a2e141e
+  ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 07/12/2018
+  ms.locfileid: "38991816"
+abstract:
+  description: Bulut tabanlı bir ağ güvenlik hizmeti olan Azure Güvenlik Duvarı'nı dağıtmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler, Azure sanal ağ kaynaklarınızı korumaya yönelik uygulama düzeyi ve ağ düzeyi ilkelerin nasıl ayarlanacağını gösterir.
+sections:
+- title: Adım Adım Öğreticiler
+  items:
+  - type: paragraph
+    text: Azure Güvenlik Duvarı'nı dağıtmayı öğrenin
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Azure portalını kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma</a>
+    - html: <a href="/azure/firewall/tutorial-diagnostics">Azure Güvenlik Duvarı günlüklerini izleme</a>
+- title: Örnekler
+  items:
+  - type: paragraph
+    text: Sık kullanılan görevler için betik örnekleri.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/firewall/sample-powershell">Azure PowerShell</a>
+- title: Başvuru
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Komut Satırı
+      html: <p><a href="/powershell/resourcemanager">Azure PowerShell</a></p>
+    - title: Diller
+      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/firewall/">İşlem REST API’si Başvurusu</a></p>

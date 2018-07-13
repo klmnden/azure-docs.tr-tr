@@ -28,7 +28,7 @@
 - name: Örnekler
   items:
     - name: Azure kod örnekleri
-      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
     - name: Azure CLI
       href: cli-samples.md
 - name: Kavramlar
@@ -95,12 +95,14 @@
       href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: Olay şemaları
       href: media-services-event-schemas.md
-    - name: DRM lisans şemaları
+    - name: DRM lisansları
       items:
         - name: PlayReady lisans şablonu
           href: playready-license-template-overview.md
         - name: Widevine lisans şablonu
           href: widevine-license-template-overview.md
+        - name: FairPlay lisans gereksinimleri
+          href: fairplay-license-overview.md
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası

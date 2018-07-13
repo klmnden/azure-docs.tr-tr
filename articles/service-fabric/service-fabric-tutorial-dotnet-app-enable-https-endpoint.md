@@ -337,7 +337,7 @@ Sonra, VotingWebPkg **ServiceManifestImport** bölümünde bir **RunAsPolicy** y
 
 ## <a name="run-the-application-locally"></a>Uygulamayı yerel olarak çalıştırma
 
-Çözüm Gezgini'nde, **Voting** uygulamasını seçin ve **Uygulama URL'si** özelliğini “https://localhost:443” olarak ayarlayın.
+Çözüm Gezgini'nde, **Voting** uygulamasını seçin ve **Uygulama URL'si** özelliğini “ https://localhost:443 ” olarak ayarlayın.
 
 Tüm dosyaları kaydedin ve F5’e basarak uygulamayı yerel olarak çalıştırın.  Uygulama dağıtıldıktan sonra bir web tarayıcısında [https://localhost:443](https://localhost:443) sayfası açılır. Otomatik olarak imzalanan bir sertifika kullanıyorsanız, bilgisayarınızın bu web sitesinin güvenliğine güvenmediğini bildiren bir uyarı görürsünüz.  Web sayfasına devam edin.
 

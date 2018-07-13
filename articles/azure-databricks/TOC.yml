@@ -31,6 +31,9 @@
       href: 'https://docs.azuredatabricks.net/user-guide/jobs.html'
     - name: Veri kaynaklarına bağlanma
       href: databricks-connect-to-data-sources.md
+    - name: Azure Data Factory ile kullanma
+      href: ../data-factory/transform-data-using-databricks-notebook.md
+      maintainContext: true
     - name: 'Excel, R ve Python ile bağlanma'
       href: connect-databricks-excel-python-r.md
     - name: Azure Cloud Shell’den Databricks CLI kullanma

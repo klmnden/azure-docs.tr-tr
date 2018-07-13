@@ -1,0 +1,34 @@
+- name: Sanal WAN Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Sanal WAN Hakkında
+      href: virtual-wan-about.md
+- name: Öğreticiler
+  items:
+    - name: Siteden siteye bağlantı oluşturma
+      href: virtual-wan-site-to-site-portal.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Otomasyonu yapılandırma - WAN İş Ortakları
+      href: virtual-wan-configure-automation-providers.md
+- name: Başvuru
+  items:
+    - name: REST
+      href: /rest/api/azure
+- name: Kaynaklar
+  items:
+    - name: SSS
+      href: virtual-wan-faq.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Abonelik ve hizmet sınırlamaları
+      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/vpn-gateway'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla'

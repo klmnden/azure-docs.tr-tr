@@ -7,18 +7,10 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: Bilişsel aramayı deneme
-      href: cognitive-search-quickstart-blob.md
     - name: Hizmet oluşturma
       href: search-create-service-portal.md
-    - name: Portal
-      items:
-        - name: Dizin oluşturma
-          href: search-create-index-portal.md
-        - name: Veri içeri aktarma
-          href: search-import-data-portal.md
-        - name: Arama Gezgini
-          href: search-explorer.md
+    - name: Bilişsel aramayı deneme
+      href: cognitive-search-quickstart-blob.md
     - name: .NET
       items:
         - name: Dizin oluşturma
@@ -39,18 +31,18 @@
           href: search-fiddler.md
 - name: Öğreticiler
   items:
+    - name: Yerleşik araçları kullanma
+      href: search-get-started-portal.md
     - name: Bilişsel arama geliştirme
       href: cognitive-search-tutorial-blob.md
-    - name: Azure SQL Veritabanı'nı dizinleme
-      href: search-indexer-tutorial.md
     - name: Azure bloblarını dizinleme
       href: search-semi-structured-data.md
+    - name: Azure SQL Veritabanı'nı dizinleme
+      href: search-indexer-tutorial.md
     - name: .NET’e eş anlamlı sözcükler ekleme
       href: search-synonyms-tutorial-sdk.md
     - name: .NET’e otomatik tamamlama ekleme
       href: search-autocomplete-tutorial.md
-    - name: Portal kılavuzu
-      href: search-get-started-portal.md
 - name: Örnekler
   items:
     - name: Azure kod örnekleri
@@ -129,6 +121,8 @@
       items:
         - name: Dizin tanımı
           href: search-what-is-an-index.md
+        - name: Dizin oluşturma (portal)
+          href: search-create-index-portal.md
         - name: Çözümleyiciler
           items:
             - name: Metin Çözümleyicileri
@@ -151,6 +145,8 @@
       items:
         - name: Gönderme - Çekme dizini oluşturma
           href: search-what-is-data-import.md
+        - name: İçeri aktarma sihirbazı (portal)
+          href: search-import-data-portal.md
         - name: Bir dizini yeniden derleme
           href: search-howto-reindex.md
         - name: Büyük veri kümelerini dizinleme
@@ -181,6 +177,8 @@
       items:
         - name: Temel sorgu oluşturma
           href: search-query-overview.md
+        - name: Arama Gezgini (portal)
+          href: search-explorer.md
         - name: Basit sorgu söz dizimi
           href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
         - name: Lucene sorgu söz dizimi
