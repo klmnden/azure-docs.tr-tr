@@ -1,6 +1,6 @@
 ---
-title: Bing varlık arama nedir? | Microsoft Docs
-description: Bing varlık arama API varlıkları ve yerler Web'de aramak için nasıl kullanılacağını öğrenin.
+title: Bing Varlık Arama nedir? | Microsoft Docs
+description: Bing varlık arama API'si, varlıkları ve basamak için Web'de arama yapmak için kullanmayı öğrenin.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -10,24 +10,24 @@ ms.component: bing-entity-search
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: f1b87c07d5b56307fd6b3fc68999598aeab6eb82
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 275430bc6ee8f935978243e61f68713974648189
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354898"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008119"
 ---
-# <a name="what-is-bing-entity-search"></a>Bing varlık arama nedir?
+# <a name="what-is-bing-entity-search"></a>Bing Varlık Arama nedir?
 
-Bing varlık arama API için Bing arama sorgusu gönderir ve varlıkları ve basamak içeren sonuçları alır. Yerleştir sonuçları Restoran, otel veya diğer yerel işletmeler içerir. Sorgu yerel iş adını belirtir ya da bir tür bir iş (örneğin, Restoran bana yakın) ister Bing yerler döndürür. Sorgu iyi bilinen kişiler, yerler (turistik yerleri, durumları, ülke, vb.) veya şeyler belirtiyorsa Bing varlıklar döndürüyor.
+Bing varlık arama API'si, Bing arama sorgusu gönderir ve varlıkları ve basamak içeren sonuçları alır. Bir yerde sonuçları Restoran, otel veya diğer yerel işletmeler içerir. Bing sorgu yerel iş adını belirtir veya bir tür bir iş (örneğin, Yakınımdaki restoranlar) ister yerler döndürür. Sorgu iyi bilinen kişiler, yerler (turistik yerleri, durumları, ülke, vb.) veya şeyler belirtiyorsa Bing varlıkları döndürür.
 
-## <a name="suggesting--using-search-terms"></a>Öneren & arama terimleri kullanma
+## <a name="suggesting--using-search-terms"></a>Arama terimlerini önerme ve kullanma
 
-Burada kullanıcının girdiği kendi arama terimi bir arama kutusu sağlayan kullanırsanız [Bing otomatik öneri API](../bing-autosuggest/get-suggested-search-terms.md) deneyimini iyileştirmek üzere. API kısmi arama terimleri kullanıcı türleri olarak dizeleri dayalı önerilen sorgu döndürür.
+Kullanıcıların arama terimlerini gireceği bir arama kutusu sağlıyorsanız deneyimi geliştirmek için [Bing Otomatik Öneri API'sini](../bing-autosuggest/get-suggested-search-terms.md) kullanın. API, kullanıcı yazarken kısmi arama terimlerine dayalı önerilen sorgu dizelerini yönetin.
 
-Kullanıcı kendi arama terimi girdikten sonra URL kodlama ayarlamadan önce terim [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) sorgu parametresi. Örneğin, kullanıcının girdiği *Marcus Appel*ayarlayın `q` için *Marcus + Appel* veya *Marcus % 20Appel*.
+Kullanıcı arama terimini girdikten sonra [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) sorgu parametresini ayarlamadan önce terimi URL ile kodlayın. Örneğin, kullanıcının girdiği *Marcus Appel*ayarlayın `q` için *Marcus + Appel* veya *Marcus % 20Appel*.
 
-Arama terimi yazım hata içeriyorsa, arama yanıtı içeren bir [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) nesnesi. Nesne özgün yazım ve Bing arama için kullanılan düzeltilmiş yazım gösterir.
+Arama terimi yazım hatası içeriyorsa, arama yanıt içeren bir [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) nesne. Nesne, özgün yazım ve Bing arama için kullanılan düzeltilmiş yazım denetimi gösterir.
 
 ```json
 "queryContext": {
@@ -40,17 +40,19 @@ Arama terimi yazım hata içeriyorsa, arama yanıtı içeren bir [QueryContext](
 
 ## <a name="requesting-entities"></a>İstekte bulunan varlık
 
-Bir örnek isteği için bkz: [ilk isteği yapan](./quick-start.md).
+Bir örnek istek için bkz: [ilk istekte](./quick-start.md).
 
 ## <a name="the-response"></a>Yanıt
 
-Yanıtı içeren bir [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) nesnesi. Bing bir varlık veya ilgili yere bulursa, nesneyi içeren `entities` alanı `places` alan veya her ikisi de. Aksi takdirde, yanıt nesnesi ya da alan içermez.
+Yanıt içeren bir [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) nesne. Bing varlık veya ilgili bir yerde bulursa, nesneyi içeren `entities` alan `places` alan veya her ikisi de. Aksi takdirde, yanıt nesnesini ya da alanı içermez.
+> [!NOTE]
+> Varlık yanıtları birden fazla Pazarı desteklese de, yerler yanıt yalnızca ABD iş konumları destekler. 
 
-`entities` Alan bir [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) listesini içeren nesne [varlık](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) nesneleri (bkz `value` alan). Liste, tek bir baskın varlık, birden çok Kesinleştirme varlık veya her ikisini içerebilir. 
+`entities` Alan bir [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) listesini içeren nesne [varlık](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) nesneleri (bkz `value` alan). Listeden tek bir baskın varlık, birden çok Kesinleştirme varlıkları veya her ikisi de içerebilir. 
 
-Bir baskın varlıktır Bing istek karşılayan yalnızca varlık olduğunu düşündüğünü bir varlık (varlık için istek karşılayan belirsizlik yoktur). Birden çok varlık isteği karşılamak, liste birden fazla Kesinleştirme varlık içerir. Örneğin, istek film Acentelik genel başlığı kullanıyorsa, büyük olasılıkla listesi Kesinleştirme varlıkları içerir. Ancak, isteği Acentelik belirli başlıktan belirtiyorsa, büyük olasılıkla listesi tek bir baskın varlık içeriyor.
+Baskın varlık olduğundan istek karşılayan yalnızca varlık Bing düşündüğü bir varlık (varlık için istek karşılayan bir belirsizlik olmaz yoktur). Birden çok varlık isteği karşılamak, listeyi birden fazla Kesinleştirme varlık içerir. Örneğin, istek bir film franchise genel başlığı kullanıyorsa, büyük olasılıkla liste Kesinleştirme varlıkları içerir. Ancak, isteği franchise belirli bir başlığı belirtiyorsa, büyük olasılıkla listesi tek bir baskın varlık içerir.
 
-Varlıkları içerir singers, aktörler, sporcu, modelleri vb. gibi bilinen kullanıcının kişisel özelliklerine.; yerler ve bağlama Sunucu1 veya Lincoln Anma gibi bilinen yerler; ve Muz, goldendoodle, kitap veya film başlık gibi şeyler. [EntityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) alan varlığın tür belirleme ipuçları içerir. Örneğin, bir kişinin, film, hayvan ya da çekim ise. Olası türlerinin listesi için bkz: [varlık türleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
+İyi bilinen inancı singers, aktör, atletlerine, modelleri vb. gibi varlıkları içerir.; basamakları ve bağlama Sunucu1 veya Lincoln Anma gibi yer işareti; ve Muz, goldendoodle, kitap veya film başlık gibi şeyler. [EntityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) alan varlığın türü tanımlayan ipuçları içerir. Örneğin, bir kişi, film, donatarak veya çekim ise. Olası türlerinin bir listesi için bkz. [varlık türleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 
 ```json
 "entityPresentationInfo": {
@@ -60,7 +62,7 @@ Varlıkları içerir singers, aktörler, sporcu, modelleri vb. gibi bilinen kull
 }, ...
 ```
 
-Baskın ve Kesinleştirme varlığı içeren bir yanıtı gösterir.
+Baskın ve Kesinleştirme bir varlık içeren bir yanıt aşağıda gösterilmiştir.
 
 ```json
 {
@@ -146,7 +148,7 @@ Baskın ve Kesinleştirme varlığı içeren bir yanıtı gösterir.
 }
 ```
 
-Varlık içeren bir `name`, `description`, ve `image` alan. Kullanıcı deneyiminiz bu alanlar görüntülediğinizde, bunları öznitelik gerekir. `contractualRules` Alan uygulamalısınız nitelikleri listesini içerir. Sözleşme kural attribution uygulandığı alan tanımlar. Attribution uygulama hakkında daha fazla bilgi için bkz: [Attribution](#data-attribution).
+Varlık içeren bir `name`, `description`, ve `image` alan. Bu alanlar kullanıcı deneyiminizi görüntülediğinizde, bunları özniteliği gerekir. `contractualRules` Alan uygulamalısınız özniteliklerinin bir listesini içerir. Sözleşme kural attribution uygulandığı alanın tanımlar. Attribution uygulama hakkında daha fazla bilgi için bkz: [Attribution](#data-attribution).
 
 ```json
 "contractualRules": [{
@@ -174,12 +176,12 @@ Varlık içeren bir `name`, `description`, ve `image` alan. Kullanıcı deneyimi
 }], ...
 ```
 
-Varlık bilgileri (ad, açıklama ve görüntü) görüntülediğinizde, URL'de de kullanmanız gerekir `webSearchUrl` Bing arama bağlamak için alan sonuçları varlığı içeren sayfa.
+Varlık bilgilerini (ad, açıklama ve resim) görüntülediğinizde, URL'de de kullanmanız gerekir `webSearchUrl` Bing arama bağlamak için alan sonuçları varlığı içeren sayfa.
 
 
-`places` Alan bir [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer) listesini içeren nesne [yer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) nesneleri (bkz `value` alan). Liste isteği karşılamak bir veya daha fazla yerel varlıkları içerir.
+`places` Alan bir [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer) listesini içeren nesne [yerde](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) nesneleri (bkz `value` alan). Liste, istek uygun bir veya daha fazla yerel varlık içerir.
 
-Yerler Restoran, Oteller veya yerel işletmeler içerir. [EntityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) alan yerel varlığın tür belirleme ipuçları içerir. Liste Yerleştir, LocalBusiness, Restoran gibi ipucu listesi içerir. Dizideki her art arda ipucu varlığın türü daraltır. Olası türlerinin listesi için bkz: [varlık türleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
+Basamak Restoran, otel ve yerel işletmeler içerir. [EntityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) alan yerel varlığın türü tanımlayan ipuçları içerir. Listesi bir yerde, LocalBusiness, Restoran ipuçları içerir. Art arda gelen her ipucu dizisinde, varlığın türü daraltır. Olası türlerinin bir listesi için bkz. [varlık türleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 
 ```json
 "entityPresentationInfo": {
@@ -189,8 +191,10 @@ Yerler Restoran, Oteller veya yerel işletmeler içerir. [EntityPresentationInfo
     "Restaurant"]
 }, ...
 ```
+> [!NOTE]
+> Varlık yanıtları birden fazla Pazarı desteklese de, yerler yanıt yalnızca ABD iş konumları destekler. 
 
-Yerel odaklı varlığın sorgular gibi *bana yakın Restoran* doğru sonuçlar sağlamak için kullanıcının konumunu gerektirir. İsteklerinizi, kullanıcının konumunu belirtmek için X arama konumunu ve X MSEdge ClientIP üstbilgileri her zaman kullanmalısınız. Sorgu, kullanıcının konumdan yararlı Bing düşündüğü, ayarlar `askUserForLocation` alanını [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) için **doğru**. 
+Yerel kullanan varlık gibi sorguların *Restoran Yakınımda* doğru sonuçlar sağlamak için kullanıcının konumuna gerektirir. İsteklerinizi her zaman, kullanıcının konumunu belirtmek için X MSEdge Clientıp üstbilgileri ve X arama konumunu kullanmalısınız. Bing sorgu kullanıcının konumdan yararlı gördüğü değilse, ayarlar `askUserForLocation` alanını [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) için **true**. 
 
 ```json
 {
@@ -203,7 +207,7 @@ Yerel odaklı varlığın sorgular gibi *bana yakın Restoran* doğru sonuçlar 
 }
 ```
 
-Bir yerde sonuç varlığın Web sitesine konumunun ad, adres, telefon numarası ve URL içerir. Varlık bilgilerini görüntülediğinizde de URL'de kullanmalısınız `webSearchUrl` Bing arama bağlamak için alan sonuçları varlığı içeren sayfa.
+Bir yerde sonuç varlığın Web sitesine konumunun ad, adres, telefon numarası ve URL içerir. Varlık bilgilerini görüntülediğinizde de URL'yi kullanmanız gerekir `webSearchUrl` Bing arama bağlamak için alan sonuçları varlığı içeren sayfa.
 
 ```json
 "places": {
@@ -231,15 +235,15 @@ Bir yerde sonuç varlığın Web sitesine konumunun ad, adres, telefon numarası
 ```
 
 > [!NOTE]
-> Siz veya bir üçüncü taraf sizin adınıza kullanın, korumak, depolamaz, önbellek, paylaşım, veya test, geliştirme, eğitim, dağıtma veya herhangi bir Microsoft dışı hizmeti kullanılabilir hale getirme amacıyla varlıklar API'sinden herhangi bir veri dağıtmak veya özellik.  
+> Veya sizin adınıza bir üçüncü taraf değil kullanın, korumak, depolamak, önbellek, paylaşın, herhangi bir veri varlıkları API'sinden test, geliştirme, eğitim, dağıtma veya Microsoft olmayan bir hizmette kullanılabilir hale getirme amacıyla dağıtmak veya özellik.  
 
 ## <a name="data-attribution"></a>Veri attribution
 
-Bing varlık API yanıtları üçüncü taraflarca ait bilgileri içerir. Örneğin, kullanıcı deneyimi üzerinde dayanabileceği herhangi bir creative commons lisans ile uymak tarafından kullanımınız uygun olduğundan emin olmak için sorumlu.
+Bing varlık API yanıtları, üçüncü taraflarca ait bilgileri içerir. Örneğin kullanıcı deneyiminizi ihtiyaç duyabilir herhangi creative commons lisansı ile uymak tarafından kullanımınız, uygun olduğundan emin olmak için sorumlu olursunuz.
 
-Bir yanıt veya sonuç içeriyorsa `contractualRules`, `attributions`, veya `provider` alanları, veri özniteliği gerekir. Yanıt bu alanlar içermiyorsa hiçbir attribution gereklidir. Yanıt içeriyorsa `contractualRules` alan ve `attributions` ve/veya `provider` alanları, veri özniteliği için sözleşme kurallarını kullanmalısınız.
+Bir yanıt veya sonuç içeriyorsa `contractualRules`, `attributions`, veya `provider` alanlar, veri özniteliği gerekir. Yanıtını bu alanlar içermiyorsa, hiçbir attribution gereklidir. Yanıt içeriyorsa `contractualRules` alan ve `attributions` ve/veya `provider` alanlar, veri özniteliği için sözleşmeye dayalı kurallar kullanmalısınız.
 
-Aşağıdaki örnek, bir MediaAttribution sözleşme kural ve içeren bir görüntü içeren bir varlık gösterir bir `provider` alan. Resmin görmezden MediaAttribution kural resmi kuralın hedefi tanımlar. `provider` alan ve bunun yerine MediaAttribution kural attribution sağlamak için kullanın.  
+Aşağıdaki örnek, bir MediaAttribution sözleşmeye dayalı kural ve içeren bir görüntü içeren bir varlık gösterir. bir `provider` alan. Görüntünün yoksay böylece MediaAttribution kural resmi, kuralın hedefi olarak tanımlar. `provider` alan ve MediaAttribution kural attribution sağlamak için kullanın.  
 
 ```json
 "value": [{
@@ -268,9 +272,9 @@ Aşağıdaki örnek, bir MediaAttribution sözleşme kural ve içeren bir görü
 }]
 ```
 
-Bir sözleşme kural içeriyorsa `targetPropertyName` alan, kural, yalnızca hedeflenen alan için geçerlidir. Aksi takdirde, kuralı içeren üst nesne uygular `contractualRules` alan.
+Sözleşmeye dayalı bir kural içeriyorsa `targetPropertyName` alan kuralı, yalnızca hedeflenen alana uygular. Aksi takdirde, kuralı içeren üst nesneye uygular `contractualRules` alan.
 
-Aşağıdaki örnekte, `LinkAttribution` kuralını içeren `targetPropertyName` alan kuralın uygulanacağı şekilde `description` alan. Belirli alanlara uygulama kuralları için sağlayıcının Web sitesine köprü içeren hedeflenen verileri hemen ardından bir satır içermelidir. Bu durumda oluşturmak için sağlayıcının Web sitesinde veri köprü içeren açıklama metnini aşağıdaki hemen contoso.com bağlantı Örneğin, Açıklama özniteliği için bir satır ekleyin.
+Aşağıdaki örnekte, `LinkAttribution` kuralını içeren `targetPropertyName` alanında kuralın uygulanacağı şekilde `description` alan. Belirli alanlara uygulanan kuralları için sağlayıcının Web sitesinde bir köprü içeren hedeflenen verileri hemen izleyen bir çizgi içermesi gerekir. Bu durumda veri sağlayıcısı'nın Web sitesinde bir köprü içeren açıklama metnini aşağıdaki oluşturma hemen contoso.com için bir bağlantı gibi Açıklama özniteliği için bir satır ekleyin.
 
 ```json
 "entities": {
@@ -291,42 +295,42 @@ Aşağıdaki örnekte, `LinkAttribution` kuralını içeren `targetPropertyName`
 
 ### <a name="license-attribution"></a>Lisans attribution
 
-Sözleşme kurallar listesinin içeriyorsa, bir [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) kural lisans uygulandığı içerik hemen ardından satırında bildirim görüntülemelidir. `LicenseAttribution` Kural kullanır `targetPropertyName` alan lisans uygulandığı özelliği tanımlayın.
+Sözleşmeye dayalı kurallar listesinin içeriyorsa bir [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) kural lisans uygulandığı içeriği takip satırında bildirim görüntülemelidir. `LicenseAttribution` Kural kullandığı `targetPropertyName` lisans uygulandığı özelliği tanımlamak için alan.
 
-Aşağıdakileri içeren bir örnektir bir `LicenseAttribution` kuralı.
+Aşağıdakileri içeren bir örnek gösterir bir `LicenseAttribution` kuralı.
 
 ![Lisans attribution](./media/cognitive-services-bing-entities-api/licenseattribution.png)
 
-Görüntü lisans bildirim lisans bilgilerini içeren Web sitesinin köprü eklemeniz gerekir. Genellikle, lisans adını bir köprü oluşturun. Örneğin, bildirim ise **SA tarafından CC lisans altındaki metin** ve SA tarafından CC lisans adıdır, SA tarafından CC yapacağı köprü.
+Görüntü lisans dikkat edin, köprü Lisansı hakkında bilgileri içeren bir Web sitesine eklemeniz gerekir. Genellikle, lisans adı bir köprü oluşturun. Örneğin dikkat edin, **SA tarafından CC lisansı altındaki metin** ve SA tarafından CC lisans adıdır, CC tarafından SA yapacağınız köprü.
 
 ### <a name="link-and-text-attribution"></a>Bağlantı ve metin attribution
 
-[LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) ve [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) kuralları genellikle veri sağlayıcısı tanımlamak için kullanılır. `targetPropertyName` Alan kuralın uygulanacağı alanı tanımlar.
+[LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) ve [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) kuralları genellikle veri sağlayıcısı tanımlamak için kullanılır. `targetPropertyName` Kuralın uygulanacağı alanın alan tanımlar.
 
-Sağlayıcılar özniteliği için hemen nitelikleri uygulama içeriği (örneğin, hedeflenen alana) aşağıdaki satırı ekleyin. Satır sağlayıcıları veri kaynağını olduğunu belirtmek için açıkça etiketli. Örneğin, "verilerden: contoso.com". İçin `LinkAttribution` kuralları için sağlayıcının Web sitesinde köprü oluşturmanız gerekir.
+Sağlayıcılar özniteliği atıfları geçerli içerik (örneğin, hedeflenen alana) takip bir satır ekleyin. Satır sağlayıcıları veri kaynağı olduğunu belirtmek için açıkça etiketlenmesi gereken. Örneğin, "veri: contoso.com". İçin `LinkAttribution` kuralları için sağlayıcının Web sitesinde bir köprü oluşturması gerekir.
 
-Aşağıdakileri içeren bir örnektir `LinkAttribution` ve `TextAttribution` kuralları.
+Aşağıdakileri içeren bir örnek gösterilmektedir `LinkAttribution` ve `TextAttribution` kuralları.
 
 ![Bağlantı metni attribution](./media/cognitive-services-bing-entities-api/linktextattribution.png)
 
 ### <a name="media-attribution"></a>Medya attribution
 
-Varlık bir görüntüsünü içerir ve onu görüntülemek, sağlayıcının Web sitesinde tıklatın aracılığıyla bağlantısını sağlamanız gerekir. Varlık içeriyorsa, bir [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution) kural, kuralın URL'yi tıklatın bağlantıyı oluşturmak için kullanın. Görüntüye ait dahil URL kullanmayacak `provider` tıklatın bağlantıyı oluşturmak için alan.
+Görüntü varlık içerir ve bunu görüntüleyebilir, sağlayıcının Web sitesi tıklama bağlantısını sağlamanız gerekir. Varlık içeriyorsa bir [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution) kural, kuralın URL'si tıklama ile bağlantı oluşturmak için kullanın. Aksi takdirde, görüntü içinde bulunan URL'sini kullanarak `provider` tıklama ile bağlantı oluşturmak için alan.
 
-Aşağıdaki görüntünün içeren bir örnektir `provider` alan ve sözleşme kuralları. Örnek sözleşme kural içerdiğinden, görüntünün Yoksay `provider` alan ve geçerli `MediaAttribution` kuralı.
+Aşağıdaki bir görüntü içeren bir örnek gösterilmektedir `provider` alan ve sözleşmeye dayalı kurallar. Örnek sözleşmeye dayalı kural içerdiğinden, görüntünün Yoksay `provider` alan ve geçerli `MediaAttribution` kuralı.
 
 ![Medya attribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)
 
-### <a name="search-or-search-like-experience"></a>Arama veya arama benzer deneyim
+### <a name="search-or-search-like-experience"></a>Arama veya arama deneyimini
 
-Gibi Bing Web arama API'si ile Bing varlık arama API yalnızca doğrudan kullanıcı sorgu veya arama sonucunda ya da bir uygulama ya da mantıksal bir kullanıcının arama isteği yorumlanabilen deneyimi içinde bir eylem sonucu olarak kullanılabilir. Gösterim amaçları için kabul edilebilir arama veya arama benzeri deneyimleri bazı örnekleri verilmiştir.
+Gibi ile Bing Web araması API'si, Bing varlık arama API'si yalnızca doğrudan kullanıcı sorgusu veya arama sonucunda ya da bir uygulama veya mantıksal olarak bir kullanıcının arama talep yorumlanabilir deneyimi içinde bir eylem sonucu olarak kullanılabilir. Gösterim amacıyla, kabul edilebilir bir arama ya da benzer arama deneyimleri bazı örnekleri şunlardır:
 
-- Kullanıcı, bir uygulama Ara kutusuna doğrudan bir sorgu girer.
-- Belirli bir metin veya görüntü ve istekleri "daha fazla bilgi" veya "ek bilgiler" kullanıcı seçer
-- Kullanıcı bir arama bot ile ilgili belirli bir konu sorar.
-- Belirli nesne veya varlık visual arama türü senaryoda kullanıcı dwells
+- Kullanıcı, doğrudan bir uygulamada arama kutusuna bir sorgu girer.
+- Kullanıcı belirli bir metin veya görüntü ve istekleri "daha fazla bilgi" veya "ek bilgileri" seçer.
+- Kullanıcı Arama bot hakkında belirli bir konu ister.
+- Kullanıcı belirli bir nesne veya bir görsel arama türü senaryosunda varlık dwells
 
-Deneyiminizi bir arama deneyimini kabul edilebilir değilse emin değilseniz, Microsoft ile denetleyin önerilir.
+Deneyiminizi bir arama deneyimini kabul edilebilir olup olmadığından emin değilseniz, Microsoft ile kontrol etmenizi öneririz.
 
 ## <a name="throttling-requests"></a>İstekleri azaltma
 
@@ -334,10 +338,10 @@ Deneyiminizi bir arama deneyimini kabul edilebilir değilse emin değilseniz, Mi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İlk isteklerinize hızlı bir şekilde başlamak için bkz: [yapmadan bilgisayarınızı ilk istek](./quick-start.md).
+İlk isteğinizi hızlıca başlamak için bkz: [yapmadan bilgisayarınızı ilk istek](./quick-start.md).
 
-İle öğrenmeniz [Bing varlık arama API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) başvuru. Üstbilgiler ve arama sonuçlarında istek için kullandığınız sorgu parametreleri başvurusu içeriyor. Ayrıca yanıt nesnelerin tanımları içerir. 
+İle kendinizi alıştırın [Bing varlık arama API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) başvuru. Başvuru arama sonuçları istemek için kullandığınız sorgu parametreleri ve üst bilgileri içerir. Ayrıca yanıt nesnelerinin tanımları da bulunur. 
 
-Arama kutusuna kullanıcı deneyimini artırmak için bkz: [Bing otomatik öneri API](../bing-autosuggest/get-suggested-search-terms.md). Kendi sorgu Terime kullanıcının girdiği gibi başkaları tarafından kullanılan ilgili sorgu terimlerinin almak için bu API çağırabilir.
+Arama kutusu kullanıcı deneyiminizi geliştirmek için bkz. [Bing Otomatik Öneri API'si](../bing-autosuggest/get-suggested-search-terms.md). Kullanıcı sorgu terimini girerken bu API'yi çağırarak başkaları tarafından kullanılan ilgili sorgu terimlerini alabilirsiniz.
 
-Okuduğunuzdan emin olun [Bing kullanın ve görüntü gereksinimleri](./use-display-requirements.md) arama sonuçlarını kullanma hakkında kurallardan herhangi birinin kesmeyin şekilde.
+Arama sonuçlarını kullanma kurallarına uygun hareket ettiğinizden emin olmak için [Bing Kullanım ve Görüntüleme Gereksinimleri](./use-display-requirements.md)'ni okumayı unutmayın.

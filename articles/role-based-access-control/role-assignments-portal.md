@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/11/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6544503353f085a9dd9b0fe7207bbf8d4e0bc9d0
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: aaa36d850516ff4d8e40b62c588347468da5c6d2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435626"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008170"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>RBAC ve Azure portalı kullanarak erişimi yönetme
 
@@ -88,7 +88,9 @@ Erişim yönetimi sırasında erişim sahibi olanları, izinlerini ve izin düze
 
    ![Azure Active Directory kullanıcısı Azure kaynakları](./media/role-assignments-portal/aad-user-azure-resources.png)
 
-   Azure kaynakları dikey penceresinde seçilen kullanıcıya atanan rolleri görebilirsiniz. Bu listede yalnızca okuma izniniz olan kaynakların rol atamaları yer alır. Örneğin kullanıcıya okuma izninizin olmadığı farklı bir abonelikte atanmış roller varsa bu rol atamaları listede görünmez.
+   Azure kaynaklarını dikey penceresinde, seçili abonelik ve seçilen kullanıcı için rol atamalarını görebilirsiniz. Bu liste yalnızca Rol atamaları için okuma iznine sahip olduğunuz kaynakları içerir. Örneğin, kullanıcı aynı zamanda, okunamıyor rol atamaları varsa, bu rol atamaları listede görünmez.
+
+1. Birden fazla aboneliğiniz varsa, seçebileceğiniz **abonelik** rol atamaları farklı bir abonelikte görmek için aşağı açılan listesi.
 
 ## <a name="grant-access"></a>Erişim verme
 
@@ -161,14 +163,6 @@ RBAC'de erişimi kaldırmak için rol atamasını kaldırmanız gerekir.
 1. Açılan rol atamasını kaldırma mesajında **Evet**'i seçin.
 
 Devralınmış rol atamaları kaldırılamaz. Devralınmış bir rol atamasını kaldırmanız gerekiyorsa bu işlemi rol atamasının oluşturulduğu kapsamda gerçekleştirmeniz gerekir. **Kapsam** sütunundaki **Devralınmış** seçeneğinin yanında, sizi rolün oluşturulduğu kaynaklara götüren bir bağlantı yer alır. Rol atamasını kaldırmak için orada listelenen kapsama gidin.
-
-## <a name="other-tools-to-manage-access"></a>Erişimi yönetmeye yönelik diğer araçlar
-
-Azure portal dışındaki araçlarda Azure RBAC komutları ile roller atayabilir ve erişimi yönetebilirsiniz. Daha fazla bilgi için aşağıdaki bağlantılara bakın:
-
-* [Azure PowerShell](role-assignments-powershell.md)
-* [Azure CLI](role-assignments-cli.md)
-* [REST API](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: daef85164793dd6183c41604f200864aabadf8d8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a35d99ae6fd41ae840c5e2710135c6a2f840be65
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610890"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007732"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Azure Data Lake Store erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanma
 
@@ -53,7 +53,7 @@ Bu öğretici için yeni bir Windows VM'yi oluştururuz.  Mevcut VM'yi MSI de et
 5. Yeni bir seçilecek **kaynak grubu** seçin, sanal makinenizi oluşturmak, **Yeni Oluştur**. İşlem tamamlandığında **Tamam**’a tıklayın.
 6. Sanal makine için boyutu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarları sayfasında, varsayılan değerleri koruyun ve tıklayın **Tamam**.
 
-   ![Alt resim metni](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Alt resim metni](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Vm'nizde MSI etkinleştir 
 
@@ -63,11 +63,11 @@ VM MSI, kimlik bilgilerini kodunuza koyma gereksinimi olmadan Azure AD'den eriş
 2. Sol gezinti çubuğunda Koruma'ya tıklayın **yapılandırma**. 
 3. Gördüğünüz **yönetilen hizmet kimliği**. Kaydolun ve MSI etkinleştirmek için **Evet**, devre dışı bırakmak istiyorsanız seçin No 
 4. Tıkladığınız olun **Kaydet** yapılandırmayı kaydetmek için.  
-   ![Alt resim metni](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Alt resim metni](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Denetleyin ve bu VM üzerinde hangi uzantıları doğrulamak isterseniz tıklayın **uzantıları**. MSI, ardından etkinse **ManagedIdentityExtensionforWindows** listesinde görünür.
 
-   ![Alt resim metni](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+   ![Alt resim metni](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Azure Data Lake Store için VM erişimi
 

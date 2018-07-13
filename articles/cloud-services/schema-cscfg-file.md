@@ -10,27 +10,27 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 3ddc7fea-3339-4fc0-bdf9-853c32b25f69
 caps.latest.revision: 35
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 6347314e7f279356f4f3944f3238deda84f10fc0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 96df87a0d49296280140e392509c0d735f904957
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358226"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007031"
 ---
-# <a name="azure-cloud-services-config-schema-cscfg-file"></a>Config şeması (.cscfg dosyası) Azure bulut Hizmetleri
-Hizmet yapılandırma dosyası, her rol hizmet dağıtmak için rol örneği sayısı, tüm yapılandırma ayarlarını ve bir rolle ilişkili herhangi bir sertifika parmak izleri değerlerini belirtir. Hizmet sanal ağın bir parçası ise, hizmet yapılandırma dosyası ve aynı zamanda sanal ağ yapılandırma dosyasındaki ağ yapılandırma bilgilerini sağlanmalıdır. Varsayılan hizmet yapılandırma dosyası için .cscfg uzantısıdır.
+# <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure Cloud Services yapılandırma şeması (.cscfg dosyası)
+Hizmet yapılandırma dosyası, her rol için dağıtmak için rol örneklerinin sayısını, tüm yapılandırma ayarlarını ve bir rolle ilişkili herhangi bir sertifika parmak izleri değerlerini belirtir. Hizmet, bir sanal ağın parçası ise, sanal ağ yapılandırma dosyasını yanı sıra hizmet yapılandırma dosyası, ağ yapılandırma bilgileri sağlanmalıdır. Hizmet yapılandırma dosyası için varsayılan .cscfg uzantısıdır.
 
 Hizmet modeli tarafından açıklanan [bulut hizmeti (Klasik) tanım Şeması](schema-csdef-file.md).
 
-Azure tanılama yapılandırması şema dosyası varsayılan olarak, yüklü `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` dizini. Değiştir `<version>` yüklü olan sürümü ile [Azure SDK'sı](https://azure.microsoft.com/downloads/).
+Azure tanılama yapılandırma şema dosyası varsayılan olarak yüklü `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` dizin. Değiştirin `<version>` 'ın yüklü sürümü ile [Azure SDK'sı](https://azure.microsoft.com/downloads/).
 
-Rolleri bir hizmet olarak yapılandırma hakkında daha fazla bilgi için bkz: [bulut hizmeti modeli nedir](cloud-services-model-and-package.md).
+Rolleri bir hizmet olarak yapılandırma hakkında daha fazla bilgi için bkz. [bulut hizmeti modeli nedir](cloud-services-model-and-package.md).
 
-## <a name="basic-service-configuration-schema"></a>Temel hizmeti yapılandırma şeması
-Hizmet yapılandırma dosyasının temel biçimini aşağıdaki gibidir.
+## <a name="basic-service-configuration-schema"></a>Temel hizmet yapılandırma şeması
+Hizmet yapılandırma dosyasının temel biçimi aşağıdaki gibidir.
 
 ```xml
 <ServiceConfiguration serviceName="<service-name>" osFamily="<osfamily-number>" osVersion="<os-version>" schemaVersion="<schema-version>">
@@ -47,7 +47,7 @@ Hizmet yapılandırma dosyasının temel biçimini aşağıdaki gibidir.
 ```
 
 ## <a name="schema-definitions"></a>Şema tanımları
-Aşağıdaki konular için şemayı açıklar `ServiceConfiguration` öğe:
+Aşağıdaki konular için şema tanımlamak `ServiceConfiguration` öğesi:
 
 - [Rol Şeması](schema-cscfg-role.md)
 - [NetworkConfiguration Şeması](schema-cscfg-networkconfiguration.md)
@@ -58,13 +58,13 @@ Hizmet yapılandırma dosyası için XML ad alanı: `http://schemas.microsoft.co
 ##  <a name="ServiceConfiguration"></a> ServiceConfiguration öğesi
 `ServiceConfiguration` Hizmet yapılandırma dosyasının en üst düzey öğesi bir öğedir.
 
-Aşağıdaki tabloda özniteliklerini açıklayan `ServiceConfiguration` öğesi. Tüm öznitelikleri değerleri dize türleridir.
+Aşağıdaki tabloda özniteliklerini açıklayan `ServiceConfiguration` öğesi. Tüm öznitelik değerleri dize türleridir.
 
 | Öznitelik | Açıklama |
 | --------- | ----------- |
-|ServiceName|Gereklidir. Bulut hizmeti adı. Burada verilen adı Hizmet tanımı dosyasında belirtilen adı eşleşmelidir.|
-|osFamily|İsteğe bağlı. Bulut Hizmeti rol örnekleri üzerinde çalışacak konuk işletim sistemi belirtir. Desteklenen konuk işletim sistemi sürümleri hakkında daha fazla bilgi için bkz: [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](cloud-services-guestos-update-matrix.md).<br /><br /> Dahil bir `osFamily` değeri ve ayarlanmadı `osVersion` özniteliği belirli bir konuk işletim sistemi sürümü, varsayılan değer olan 1 için kullanılır.|
-|OsVersion|İsteğe bağlı. Bulut Hizmeti rol örnekleri üzerinde çalışacak konuk işletim sistemi sürümünü belirtir. Konuk işletim sistemi sürümleri hakkında daha fazla bilgi için bkz: [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](cloud-services-guestos-update-matrix.md).<br /><br /> Konuk işletim sistemi otomatik olarak en son sürüme yükseltilmelidir belirtebilirsiniz. Bunu yapmak için değerini ayarlayın `osVersion` özniteliğini `*`. Ayarlandığında `*`, rol örnekleri için belirtilen işletim sistemi ailesi konuk işletim sistemi en son sürümüne kullanılarak dağıtılır ve konuk işletim sistemi yeni sürümleri yayımlandığında otomatik olarak yükseltilecek.<br /><br /> Belirli bir sürümü el ile belirtmek için kullanın `Configuration String` tablodaki **gelecekteki, geçerli ve geçici konuk işletim sistemi sürümleri** bölümünü [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](cloud-services-guestos-update-matrix.md) .<br /><br /> İçin varsayılan değer `osVersion` özniteliği `*`.|
-|schemaVersion|İsteğe bağlı. Hizmet yapılandırma şeması sürümünü belirtir. Şema sürümü yan yana SDK birden fazla sürümü yüklüyse, şema doğrulama için kullanılacak doğru SDK Araçları seçmek Visual Studio sağlar. Şema ve sürüm uyumluluğu hakkında daha fazla bilgi için bkz: [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](cloud-services-guestos-update-matrix.md)|
+|serviceName|Gereklidir. Bulut hizmeti adı. Burada verilen ad, hizmet tanımı dosyasında belirtilen adı eşleşmelidir.|
+|osFamily|İsteğe bağlı. Bulut hizmetindeki rol örneklerinde çalıştırılacak konuk işletim sistemi belirtir. Desteklenen konuk işletim sistemi sürümleri hakkında daha fazla bilgi için bkz: [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](cloud-services-guestos-update-matrix.md).<br /><br /> Dahil etmezseniz bir `osFamily` değeri ve ayarlanmadı `osVersion` özniteliği belirli bir konuk işletim sistemi sürümü, varsayılan değer olan 1'için kullanılır.|
+|işletim sistemi sürümü|İsteğe bağlı. Bulut hizmetindeki rol örneklerinde çalıştırılacak konuk işletim sistemi sürümünü belirtir. Konuk işletim sistemi sürümleri hakkında daha fazla bilgi için bkz. [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](cloud-services-guestos-update-matrix.md).<br /><br /> Konuk işletim Sisteminin en son sürüme otomatik olarak yükseltilmelidir belirtebilirsiniz. Bunu yapmak için değeri ayarlamak `osVersion` özniteliğini `*`. Ayarlandığında `*`, rol örnekleri için belirtilen işletim sistemi ailesi konuk işletim Sisteminin en son sürümü kullanılarak dağıtılır ve yeni konuk işletim sistemi sürümleri yayımlandığında otomatik olarak yükseltilecektir.<br /><br /> Belirli bir sürümünü el ile belirtmek için kullanın `Configuration String` tablosundan **gelecekteki, geçerli ve geçiş konuk işletim sistemi sürümleri** bölümünü [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](cloud-services-guestos-update-matrix.md) .<br /><br /> İçin varsayılan değer `osVersion` özniteliği `*`.|
+|schemaVersion|İsteğe bağlı. Hizmet yapılandırma şeması sürümünü belirtir. Şema sürümü yan yana Visual Studio SDK'ın birden fazla sürümü yüklüyse, şema doğrulama için kullanılacak doğru SDK Araçları seçmenizi sağlar. Şema ve sürüm uyumluluğu hakkında daha fazla bilgi için bkz. [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](cloud-services-guestos-update-matrix.md)|
 
-Hizmet yapılandırma dosyasının bir içermelidir `ServiceConfiguration` öğesi. `ServiceConfiguration` Öğesi, herhangi bir sayıda içerebilir `Role` öğeleri ve sıfır ya da 1 `NetworkConfiguration` öğeleri.
+Hizmet yapılandırma dosyasının bir içermelidir `ServiceConfiguration` öğesi. `ServiceConfiguration` Herhangi bir sayıda öğe içerebilir `Role` öğeleri ve sıfır ya da 1 `NetworkConfiguration` öğeleri.

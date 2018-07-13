@@ -1,9 +1,9 @@
 ---
-title: Bulut Hizmetleri rolünü config XPath kopya sayfası | Microsoft Docs
-description: Çeşitli XPath ayarları bulut hizmeti rolünü yapılandırma ayarlarını bir ortam değişkeni göstermek için kullanabilirsiniz.
+title: Cloud Services rolü yapılandırması XPath hızlı başvuru sayfası | Microsoft Docs
+description: Çeşitli XPath ayarları, ayarları bir ortam değişkeni kullanıma sunmak için bulut hizmeti rolü yapılandırması kullanabilirsiniz.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: c51e4493-0643-4d05-bc44-06c76bcbf7d1
@@ -13,52 +13,52 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
-ms.author: adegeo
-ms.openlocfilehash: e71adbca34390bda3a7d4067742ffb3a28201449
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: jeconnoc
+ms.openlocfilehash: 2db63be6c6997840f7409a3ca79f1845f30e4ceb
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
-ms.locfileid: "24860380"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008068"
 ---
-# <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Rol yapılandırma ayarlarını XPath olan bir ortam değişkeni olarak kullanıma sunma
-Bulut hizmeti çalışan ya da web rolü hizmet tanımı dosyası ortam değişkenleri olarak çalışma zamanı yapılandırma değerlerini getirebilir. Aşağıdaki XPath değerleri (hangi API değerlerine karşılık gelen) desteklenir.
+# <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>XPath ile bir ortam değişkeni olarak rol yapılandırma ayarlarını kullanıma sunma
+Bulut hizmeti çalışan veya web rolü Hizmet tanım dosyası, ortam değişkenleri olarak çalışma zamanı yapılandırma değerlerini getirebilir. Aşağıdaki XPath değerleri (Bu API değerlere karşılık gelir) desteklenir.
 
-Bu XPath değerleri de aracılığıyla kullanılabilir [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) kitaplığı. 
+Bu XPath değerleri de aracılığıyla [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) kitaplığı. 
 
-## <a name="app-running-in-emulator"></a>Öykünücüde çalışan uygulama
-Uygulamayı öykünücüde çalışmadığını gösterir.
+## <a name="app-running-in-emulator"></a>Öykünücüsünde çalışan uygulama
+Uygulamayı öykünücüde çalıştığını gösterir.
 
 | Tür | Örnek |
 | --- | --- |
 | XPath |XPath = "/RoleEnvironment/Deployment/@emulated" |
 | Kod |var x RoleEnvironment.IsEmulated; = |
 
-## <a name="deployment-id"></a>Dağıtım kimliği
-Örneğin dağıtım kimliği alır.
+## <a name="deployment-id"></a>Dağıtım Kimliği
+Örneği için dağıtım Kimliğini alır.
 
 | Tür | Örnek |
 | --- | --- |
 | XPath |XPath = "/RoleEnvironment/Deployment/@id" |
-| Kod |var Deploymentıd = RoleEnvironment.DeploymentId; |
+| Kod |Varyasyon Deploymentıd RoleEnvironment.DeploymentId; = |
 
 ## <a name="role-id"></a>Rol Kimliği
-Örnek için geçerli rol kimliği alır.
+Örneğinin geçerli rol Kimliğini alır.
 
 | Tür | Örnek |
 | --- | --- |
 | XPath |XPath = "/RoleEnvironment/CurrentInstance/@id" |
-| Kod |var kimliği = RoleEnvironment.CurrentRoleInstance.Id; |
+| Kod |değişken kimliği RoleEnvironment.CurrentRoleInstance.Id; = |
 
-## <a name="update-domain"></a>etki alanı güncelleştirme
-Güncelleştirme etki alanı örneği alır.
+## <a name="update-domain"></a>Etki alanını güncelleştirme
+Güncelleme etki alanı örneği alır.
 
 | Tür | Örnek |
 | --- | --- |
 | XPath |XPath = "/RoleEnvironment/CurrentInstance/@updateDomain" |
 | Kod |var ud RoleEnvironment.CurrentRoleInstance.UpdateDomain; = |
 
-## <a name="fault-domain"></a>hata etki alanı
+## <a name="fault-domain"></a>Hata etki alanı
 Hata etki alanı örneği alır.
 
 | Tür | Örnek |
@@ -67,28 +67,28 @@ Hata etki alanı örneği alır.
 | Kod |var fd RoleEnvironment.CurrentRoleInstance.FaultDomain; = |
 
 ## <a name="role-name"></a>Rol adı
-Bu rol adı örneği alır.
+Örnek rol adını alır.
 
 | Tür | Örnek |
 | --- | --- |
 | XPath |XPath = "/RoleEnvironment/CurrentInstance/@roleName" |
-| Kod |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
+| Kod |Varyasyon rname RoleEnvironment.CurrentRoleInstance.Role.Name; = |
 
 ## <a name="config-setting"></a>Yapılandırma ayarı
-Belirtilen yapılandırma ayarının değeri alır.
+Belirtilen bir yapılandırma ayarı değerini alır.
 
 | Tür | Örnek |
 | --- | --- |
 | XPath |XPath = "/ RoleEnvironment/currentınstance değerinin/ConfigurationSettings/ConfigurationSetting [@name'Setting1' =]/@value" |
 | Kod |değişken ayarı RoleEnvironment.GetConfigurationSettingValue("Setting1"); = |
 
-## <a name="local-storage-path"></a>Yerel depolama alanı yolu
+## <a name="local-storage-path"></a>Yerel depolama yolu
 Örneğin yerel depolama yolunu alır.
 
 | Tür | Örnek |
 | --- | --- |
 | XPath |XPath = "/ RoleEnvironment/currentınstance değerinin/LocalResources/LocalResource [@name'LocalStore1' =]/@path" |
-| Kod |var localResourcePath RoleEnvironment.GetLocalResource("LocalStore1") =. RootPath; |
+| Kod |Varyasyon localResourcePath RoleEnvironment.GetLocalResource("LocalStore1") =. RootPath; |
 
 ## <a name="local-storage-size"></a>Yerel depolama boyutu
 Örneğin yerel depolama boyutunu alır.
@@ -96,34 +96,34 @@ Belirtilen yapılandırma ayarının değeri alır.
 | Tür | Örnek |
 | --- | --- |
 | XPath |XPath = "/ RoleEnvironment/currentınstance değerinin/LocalResources/LocalResource [@name'LocalStore1' =]/@sizeInMB" |
-| Kod |var localResourceSizeInMB RoleEnvironment.GetLocalResource("LocalStore1") =. MaximumSizeInMegabytes; |
+| Kod |Varyasyon localResourceSizeInMB RoleEnvironment.GetLocalResource("LocalStore1") =. MaximumSizeInMegabytes; |
 
-## <a name="endpoint-protocol"></a>Uç nokta Protokolü
-Örneği için uç nokta Protokolü alır.
-
-| Tür | Örnek |
-| --- | --- |
-| XPath |XPath = "/ RoleEnvironment/currentınstance değerinin/uç noktalar/uç noktanın [@name'Bitiş noktası 1' =]/@protocol" |
-| Kod |var KOR RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. Protokol; |
-
-## <a name="endpoint-ip"></a>Uç nokta IP
-Belirtilen uç noktanın IP adresini alır.
+## <a name="endpoint-protocol"></a>Protokol uç noktası
+Uç nokta Protokolü örneği alır.
 
 | Tür | Örnek |
 | --- | --- |
-| XPath |XPath = "/ RoleEnvironment/currentınstance değerinin/uç noktalar/uç noktanın [@name'Bitiş noktası 1' =]/@address" |
+| XPath |XPath = "/ RoleEnvironment/currentınstance değerinin/uç noktalar/uç noktanın [@name'bitiş noktası 1' =]/@protocol" |
+| Kod |değişken değerler bağlantı noktası RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. Protokol; |
+
+## <a name="endpoint-ip"></a>Uç noktası IP
+Belirtilen uç noktasının IP adresini alır.
+
+| Tür | Örnek |
+| --- | --- |
+| XPath |XPath = "/ RoleEnvironment/currentınstance değerinin/uç noktalar/uç noktanın [@name'bitiş noktası 1' =]/@address" |
 | Kod |var adresi RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. IPEndpoint.Address |
 
-## <a name="endpoint-port"></a>uç nokta bağlantı noktası
-Örneği için uç nokta bağlantı noktası alır.
+## <a name="endpoint-port"></a>Uç nokta bağlantı noktası
+Uç nokta bağlantı noktası örneği alır.
 
 | Tür | Örnek |
 | --- | --- |
-| XPath |XPath = "/ RoleEnvironment/currentınstance değerinin/uç noktalar/uç noktanın [@name'Bitiş noktası 1' =]/@port" |
-| Kod |bağlantı noktası var RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. IPEndpoint.Port; |
+| XPath |XPath = "/ RoleEnvironment/currentınstance değerinin/uç noktalar/uç noktanın [@name'bitiş noktası 1' =]/@port" |
+| Kod |var bağlantı noktası RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. IPEndpoint.Port; |
 
 ## <a name="example"></a>Örnek
-Bir başlangıç görevi adında bir ortam değişkeni oluşturan çalışan rolü bir örneği burada verilmiştir `TestIsEmulated` kümesine [ @emulated xpath değeri](#app-running-in-emulator). 
+İşte bir örnek adlı bir ortam değişkeni başlangıç görevi oluşturan bir çalışan rolünün `TestIsEmulated` kümesine [ @emulated xpath değeri](#app-running-in-emulator). 
 
 ```xml
 <WorkerRole name="Role1">
@@ -163,7 +163,7 @@ Bir başlangıç görevi adında bir ortam değişkeni oluşturan çalışan rol
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinmek [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) dosya.
+Daha fazla bilgi edinin [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) dosya.
 
 Oluşturma bir [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) paket.
 

@@ -6,18 +6,20 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 83ba437e699eb150e86e6c89e478377394966419
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232686"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008425"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti nedir?
 
 Azure içeri/dışarı aktarma hizmeti, güvenli bir şekilde büyük miktarda veriyi Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine bir sürücü sevkiyat tarafından içeri aktarmak için kullanılır. Bu hizmet, verileri Azure Blob depolama alanından disk sürücülerine aktarmak ve şirket içi sitelerinize teslim etme için de kullanılabilir. Bir veya daha fazla disk verileri Azure Blob Depolama veya Azure dosyaları içeri aktarılabilir. 
+
+Azure içeri/dışarı aktarma hizmeti, kendi disklerinizi sağlamayı gerektirir. Microsoft tarafından sağlanan diskleri kullanarak verileri aktarmak istiyorsanız, Azure'a veri almak için Azure Data Box Disk kullanabilirsiniz. Microsoft en fazla 5 şifrelenmiş katı hal diskleri (SSD'ler), bölgesel bir taşıyıcı aracılığıyla veri merkeziniz için bir sipariş 40 TB kapasite ile birlikte gelir. Hızlı bir şekilde diskler yapılandırmak, verileri bir USB 3.0 bağlantısı üzerinden disklere kopyalayın ve diskleri azure'a geri gönderin. Daha fazla bilgi için Git [Azure Data Box Disk genel bakış](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
 ## <a name="azure-importexport-usecases"></a>Azure içeri/dışarı aktarma usecases
 
