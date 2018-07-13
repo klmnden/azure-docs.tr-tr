@@ -1,35 +1,35 @@
 ---
-title: Bellek ve eşzamanlılık sınırları - Azure SQL Data Warehouse | Microsoft Docs
-description: Çeşitli performans düzeylerini ve Azure SQL Data Warehouse kaynak sınıfları için ayrılan bellek ve eşzamanlılık sınırları görüntüleyin.
+title: Bellek ve eşzamanlılık sınırları - Azure SQL veri ambarı | Microsoft Docs
+description: Çeşitli performans düzeylerini ve Azure SQL veri ambarı kaynak sınıflarında ayrılan bellek ve eşzamanlılık sınırları görüntüleyin.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 05/07/2018
+ms.date: 07/10/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 46d41e3ee85deb20f189bc9c82a255178f3d7eee
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 802dbcdf797147d4f4dcf7835aea9c952127113e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942274"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652277"
 ---
-# <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse için bellek ve eşzamanlılık sınırları
-Çeşitli performans düzeylerini ve Azure SQL Data Warehouse kaynak sınıfları için ayrılan bellek ve eşzamanlılık sınırları görüntüleyin. Daha fazla bilgi için ve bu özellikler, iş yükü yönetim plana uygulamak için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md). 
+# <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için bellek ve eşzamanlılık sınırları
+Çeşitli performans düzeylerini ve Azure SQL veri ambarı kaynak sınıflarında ayrılan bellek ve eşzamanlılık sınırları görüntüleyin. Daha fazla bilgi için ve bu özellikler iş yükü yönetimi planınızı uygulamak için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md). 
 
-Şu anda iki nesil ile SQL veri ambarı – Gen1 ve Gen2 kullanılabilir yok. Gen2, SQL veri, veri ambarı iş yükü için en iyi performansı elde etmek ambarı yararlanan öneririz. Gen2 CPU yakın en sık erişilen verileri tutan yeni bir NVMe düz durumu Disk önbelleği tanıtır. Bu uzak g/ç en yoğun ve yoğun iş yükleri için kaldırır. Performans ek olarak, Gen2 30.000 kadar Data Warehouse birimleri ölçeklendirmenizi etkinleştirme ve sınırsız sütunlu depolama sağlama ölçeğin en büyük düzeyi sunar. Biz hala SQL Data Warehouse önceki nesil (Gen1) desteği ve aynı özellikleri korumak; Ancak, öneririz [Gen2 yükseltme](upgrade-to-latest-generation.md) erken kolaylık. 
+Şu anda iki nesil vardır SQL veri ambarı – Gen1 ve 2. nesil ile kullanılabilir. 2. nesil, SQL, veri ambarı iş yükü için en iyi performansı elde etmek için veri ambarı yararlanarak öneririz. 2. nesil CPU'lar yakın en sık erişilen verileri tutan yeni NVMe katı hal Disk önbelleği tanıtır. Bu, uzak g/ç için en yoğun ve zorlu iş yüklerinizi kaldırır. Performansa ek olarak, böylece en fazla 30.000 veri ambarı birimlerini ölçeklendirebilir ve sınırsız sütunlu depolamayı sağlayan ölçek en yüksek düzeyde Gen2 sunar. Yine de SQL veri ambarı'nın önceki nesil (Gen1) destek eder ve aynı özelliklerini korumak; Ancak, öneriyoruz [Gen2'ye yükseltme](upgrade-to-latest-generation.md) fırsatta. 
 
 ## <a name="data-warehouse-capacity-settings"></a>Veri ambarı kapasite ayarları
-Aşağıdaki tablolar veri ambarı farklı performans düzeyleri için maksimum kapasiteyi gösterir. Performans düzeyini değiştirmek için bkz: [ölçek işlem - portal](quickstart-scale-compute-portal.md).
+Aşağıdaki tablolar, farklı performans düzeylerinde veri ambarı için en yüksek kapasiteyi gösterir. Performans düzeyini değiştirmek için bkz: [ölçek işlem - portal](quickstart-scale-compute-portal.md).
 
 ### <a name="gen2"></a>Gen2
 
-Sorgu başına daha fazla bellek Gen1 x 2.5 Gen2 sağlar. Bu ek bellek hızlı performansını teslim Gen2 yardımcı olur.  Performans düzeyleri için DW30000c ile DW1000c Gen2 arasındadır. 
+Gen2 2,5 x Gen1 sorgu başına daha fazla bellek sağlar. Bu ek bellek, hızlı bir performans sunun Gen2'ye yardımcı olur.  Performans düzeyleri için DW30000c ile DW1000c Gen2 arasındadır. 
 
-| Performans düzeyi | İşlem düğümleri | İşlem düğümü başına dağıtımları | Veri ambarı (GB) başına bellek |
+| Performans düzeyi | İşlem düğümleri | İşlem düğümü başına dağıtımları | Bellek (GB) veri ambarı başına |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
@@ -43,15 +43,15 @@ Sorgu başına daha fazla bellek Gen1 x 2.5 Gen2 sağlar. Bu ek bellek hızlı p
 | DW15000c          | 30            | 2                              |  9000                          |
 | DW30000c          | 60            | 1                              | 18000                          |
 
-En fazla Gen2 DWU 60 işlem düğümlerini ve işlem düğümü başına tek bir dağıtım sahip DW30000c ' dir. Örneğin, bir DW30000c 600 TB veri ambarında işlem düğümü başına yaklaşık 10 TB işler.
+En fazla 2. nesil DWU 60 işlem düğümlerini ve işlem düğümü başına tek bir dağıtım olan DW30000c ' dir. Örneğin, 600 TB veri ambarında DW30000c işlem düğüm başına yaklaşık 10 TB işler.
 
 ### <a name="gen1"></a>Gen1
 
-Hizmet düzeyleri için DW100 DW6000 ile Gen1 arasındadır. 
+Hizmet düzeyleri için DW100 DW6000-Gen1 arasındadır. 
 
-| Performans düzeyi | İşlem düğümleri | İşlem düğümü başına dağıtımları | Veri ambarı (GB) başına bellek |
+| Performans düzeyi | İşlem düğümleri | İşlem düğümü başına dağıtımları | Bellek (GB) veri ambarı başına |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
-| DW100             | 1             | 60                             |  24                            |
+| DEĞERİ DW100             | 1             | 60                             |  24                            |
 | DW200             | 2             | 30                             |  48                            |
 | DW300             | 3             | 20                             |  72                            |
 | DW400             | 4             | 15                             |  96                            |
@@ -64,22 +64,22 @@ Hizmet düzeyleri için DW100 DW6000 ile Gen1 arasındadır.
 | DW3000            | 30            | 2                              | 720                            |
 | DW6000            | 60            | 1                              | 1440                           |
 
-## <a name="concurrency-maximums"></a>Eşzamanlılık üst sınırlar
-Her sorgu verimli bir şekilde yürütmek için yeterli kaynaklara sahip olmak için her sorgu eşzamanlılık yuvaları atayarak SQL Data Warehouse kaynak kullanımını izler. Sistem sorgular nerede bunlar yetecek kadar bekleyin bir sıraya koyar [eşzamanlılık yuvaları](resource-classes-for-workload-management.md#concurrency-slots) kullanılabilir. Eşzamanlılık yuvası da CPU Öncelik belirler. Daha fazla bilgi için bkz: [, iş yükünü Çözümle](analyze-your-workload.md)
+## <a name="concurrency-maximums"></a>Eşzamanlılık sınırları
+Her sorgu verimli bir şekilde yürütmek için yeterli kaynakları içerdiğinden emin olmak için her sorgu için eşzamanlılık yuvaları atayarak SQL veri ambarı kaynak kullanımını izler. Sistem sorgular nerede bunlar yetecek kadar bekleyin bir sıraya koyar [eşzamanlılık yuvaları](resource-classes-for-workload-management.md#concurrency-slots) kullanılabilir. Eşzamanlılık yuvaları, ayrıca CPU önceliği belirleyin. Daha fazla bilgi için [iş yükünüzü çözümleme](analyze-your-workload.md)
 
 ### <a name="gen2"></a>Gen2
  
 **Statik kaynak sınıfları**
 
-Aşağıdaki tabloda en fazla eş zamanlı sorgular ve eşzamanlılık yuvaları her biri için gösterir [statik kaynak sınıfı](resource-classes-for-workload-management.md).  
+Aşağıdaki tabloda en fazla eş zamanlı sorguları ve eşzamanlılık yuvaları her biri için gösterir [statik kaynak sınıfı](resource-classes-for-workload-management.md).  
 
-| Hizmet Düzeyi | En fazla eş zamanlı sorgular | Eşzamanlılık yuvaları kullanılabilir |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Hizmet Düzeyi | En fazla eş zamanlı sorguları | Eşzamanlılık yuvası yok |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW2000c       | 48                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW2500c       | 48                         |  100                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW3000c       | 64                         |  120                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW3000c       | 64                         |  120                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW5000c       | 64                         |  200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW6000c       | 128                        |  240                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW7500c       | 128                        |  300                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
@@ -90,13 +90,13 @@ Aşağıdaki tabloda en fazla eş zamanlı sorgular ve eşzamanlılık yuvaları
 **Dinamik kaynak sınıfları**
 
 > [!NOTE]
-> Hizmet düzeyi artar ve yalnızca en fazla 32 eş zamanlı sorguları destekler smallrc kaynak sınıf Gen2 üzerinde dinamik olarak bellek ekler.  Eşzamanlılık yuvaları ve hizmet düzeyi arttıkça smallrc artar tarafından kullanılan bellek. 
+> Gen2 smallrc kaynak sınıfını dinamik olarak bellek ekler, hizmet düzeyini artırır ve yalnızca en fazla 32 eş zamanlı sorguları destekler.  Eşzamanlılık yuvaları ve hizmet düzeyi arttıkça smallrc arttıkça tarafından kullanılan bellek. 
 >
 >
 
-Aşağıdaki tabloda en fazla eş zamanlı sorgular ve eşzamanlılık yuvaları her biri için gösterir [dinamik kaynak sınıfı](resource-classes-for-workload-management.md). Gen1 farklı olarak, dinamik kaynak Gen2 üzerinde gerçekten dinamik sınıflarıdır.  Gen2 3-10-22-70 bellek yüzdesi ayırma tüm hizmet düzeyleri için küçük-Orta-büyük-xlarge kaynak sınıfları kullanır.
+Aşağıdaki tabloda en fazla eş zamanlı sorguları ve eşzamanlılık yuvaları her biri için gösterir [dinamik kaynak sınıfı](resource-classes-for-workload-management.md). Gen1 dinamik kaynak sınıflarında Gen2 gerçekten dinamiktir.  2. nesil bir 3-10-22-70 bellek yüzdesi ayırma, küçük-Orta-büyük-xlarge kaynak sınıfları için tüm hizmet düzeyleri arasında kullanır.
 
-| Hizmet Düzeyi | En fazla eş zamanlı sorgular | Eşzamanlılık yuvaları kullanılabilir | Smallrc tarafından kullanılan yuvaları | Mediumrc tarafından kullanılan yuvaları | Largerc tarafından kullanılan yuvaları | Xlargerc tarafından kullanılan yuvaları |
+| Hizmet Düzeyi | En fazla eş zamanlı sorguları | Eşzamanlılık yuvası yok | Smallrc tarafından kullanılan yuvaları | Mediumrc tarafından kullanılan yuvaları | Largerc tarafından kullanılan yuvaları | Xlargerc tarafından kullanılan yuvaları |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
 | DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |
@@ -116,11 +116,11 @@ Aşağıdaki tabloda en fazla eş zamanlı sorgular ve eşzamanlılık yuvaları
 
 Statik kaynak sınıfları
 
-Aşağıdaki tabloda en fazla eş zamanlı sorgular ve eşzamanlılık yuvaları her biri için gösterir [statik kaynak sınıfı](resource-classes-for-workload-management.md) üzerinde **Gen1**.
+Aşağıdaki tabloda en fazla eş zamanlı sorguları ve eşzamanlılık yuvaları her biri için gösterir [statik kaynak sınıfı](resource-classes-for-workload-management.md) üzerinde **Gen1**.
 
-| Hizmet düzeyi | En fazla eş zamanlı sorgular | En fazla eşzamanlılık yuvaları |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Hizmet düzeyi | En fazla eş zamanlı sorguları | En fazla eşzamanlılık yuvası |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-| DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
+| DEĞERİ DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
 | DW300         | 12                         |  12                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
 | DW400         | 16                         |  16                       | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
@@ -135,15 +135,15 @@ Aşağıdaki tabloda en fazla eş zamanlı sorgular ve eşzamanlılık yuvaları
 
 Dinamik kaynak sınıfları
 > [!NOTE]
-> Gen1 smallrc kaynak sınıfında sabit bir sorgu için statik kaynak sınıfı staticrc10 şekilde benzer başına bellek miktarını ayırır.  Smallrc statik olduğundan, 128 eş zamanlı sorguları ölçeklendirmenizi yoktur. 
+> Sabit miktarlı bellek her sorgu için statik kaynak sınıfı staticrc10 biçimde benzer Gen1 smallrc kaynak sınıfında ayırır.  Smallrc statik olduğundan, 128 eş zamanlı sorguları ölçeklendirme olanağı vardır. 
 >
 >
 
-Aşağıdaki tabloda en fazla eş zamanlı sorgular ve eşzamanlılık yuvaları her biri için gösterir [dinamik kaynak sınıfı](resource-classes-for-workload-management.md) üzerinde **Gen1**.
+Aşağıdaki tabloda en fazla eş zamanlı sorguları ve eşzamanlılık yuvaları her biri için gösterir [dinamik kaynak sınıfı](resource-classes-for-workload-management.md) üzerinde **Gen1**.
 
-| Hizmet düzeyi | En fazla eş zamanlı sorgular | Eşzamanlılık yuvaları kullanılabilir | smallrc | mediumrc | largerc | xlargerc |
+| Hizmet düzeyi | En fazla eş zamanlı sorguları | Eşzamanlılık yuvası yok | smallrc | mediumrc | largerc | xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
-| DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
+| DEĞERİ DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |
 | DW300         | 12                         |  12                         | 1       |  2       |  4      |   8      |
 | DW400         | 16                         |  16                         | 1       |  4       |  8      |  16      |
@@ -157,11 +157,11 @@ Aşağıdaki tabloda en fazla eş zamanlı sorgular ve eşzamanlılık yuvaları
 | DW6000        | 128                        | 240                         | 1       | 32       | 64      | 128      |
 
 
-Bu eşikler biri karşılandığında yeni sorgular sıraya ve bir ilk giren ilk çıkar özelliğine sahip temelinde yürütülür.  Bir sorgu tamamlandıktan ve sorgular ve yuva sayısı sınırları ayrılır gibi SQL Data Warehouse sıraya alınan sorguları serbest bırakır. 
+Bu eşiklerden birine karşılandığında yeni sorgular sıraya ve ilk giren ilk çıkar olarak yürütülür.  SQL veri ambarı, bir sorgu tamamlanır ve sorgular ve yuva sayısı sınırları denk olarak sıraya alınan sorguları serbest bırakır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki makaleleri gözden geçirme daha fazla İş yükünüzün Lütfen iyileştirmek için kaynak sınıfları yararlanan hakkında daha fazla bilgi için:
+Nasıl yararlanacağınızı iyileştirmek için kaynak sınıfları hakkında daha fazla bilgi edinmek için daha fazla iş yükünüz Lütfen inceleyin aşağıdaki makaleleri:
 * [İş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md)
-* [İş yükünüzün analiz etme](analyze-your-workload.md)
+* [İş yükünüzü çözümleme](analyze-your-workload.md)
 

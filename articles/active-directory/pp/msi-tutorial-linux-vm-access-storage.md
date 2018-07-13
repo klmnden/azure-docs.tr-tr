@@ -1,6 +1,6 @@
 ---
-title: Azure Storage erişmek için bir Linux VM üzerinde MSI atanmış bir kullanıcı kullanın
-description: Azure depolama alanına erişmek için bir Linux VM üzerinde bir kullanıcı atanan yönetilen hizmet kimliği (MSI) kullanarak sürecinde anlatan öğretici.
+title: Azure depolamaya erişmek için bir kullanıcı tarafından atanan bir Linux VM MSI kullanma
+description: Öğretici Azure depolamaya erişmek için bir Linux VM'de bir kullanıcıya atanmış yönetilen hizmet kimliği (MSI) kullanma işlemi gösterilmektedir.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -15,23 +15,23 @@ ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 4a1a2d0c40012649f6cd89193fd3f704f325e38a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31513933"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611053"
 ---
-# <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI), Azure Storage erişmek için bir Linux VM üzerinde kullanın.
+# <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI), Azure depolama alanına erişmek için bir Linux VM üzerinde kullanın.
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Bu öğretici oluşturup bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI) bir Linux sanal makinenin kullanın, ardından Azure Storage erişmek için kullandığınız gösterilmektedir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide oluşturmak ve bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI) gelen bir Linux sanal makinesini kullanın ve ardından Azure Depolama'ya erişmek için bunu kullanmaya gösterilmektedir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Yönetilen hizmet kimliği (MSI) atanmış bir kullanıcı oluşturun
-> * Linux sanal makine için kullanıcı tarafından atanan MSI atayın
-> * Azure Storage örneğine MSI erişim
-> * Kullanıcı tarafından atanan MSI kimliğini kullanarak bir erişim belirteci alın ve Azure Storage erişmek için kullanın
+> * Linux sanal makinesi için kullanıcı tarafından atanan MSI atayın
+> * Azure depolama örneğini MSI erişimi verme
+> * Kullanıcı tarafından atanan MSI kimlik kullanarak bir erişim belirteci alma ve Azure depolamaya erişmek için kullanın
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -39,44 +39,44 @@ Bu öğretici oluşturup bir kullanıcı tarafından atanan yönetilen hizmet ki
 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
-Bu öğreticide CLI komut dosyası örnekleri çalıştırmak için iki seçeneğiniz vardır:
+Bu öğreticide CLI betiği örnekleri çalıştırmak için iki seçeneğiniz vardır:
 
-- Kullanım [Azure bulut Kabuk](~/articles/cloud-shell/overview.md) Azure portalından veya "deneyin" düğmesini, aracılığıyla her kod bloğunun sağ üst köşesinde bulunan.
-- [CLI 2.0'ın en son sürümünü yüklemek](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 veya sonrası) yerel CLI konsol kullanmayı tercih ederseniz.
+- Kullanım [Azure Cloud Shell](~/articles/cloud-shell/overview.md) Azure portalından veya "Try It" düğmesi aracılığıyla, her kod bloğunun sağ üst köşesinde bulunur.
+- [CLI 2. 0'ın en son sürümünü yüklemek](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 veya sonraki) yerel bir CLI konsol kullanmak istiyorsanız.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Linux sanal makine oluşturun
+## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Linux sanal makinesi oluşturma
 
-İlk olarak, yeni bir Linux VM oluşturun. İsterseniz var olan bir VM üzerinde MSI de etkinleştirebilirsiniz.
+İlk olarak, yeni bir Linux VM oluşturun. Dilerseniz de mevcut VM'deki MSI etkinleştirebilirsiniz.
 
-1. Tıklatın **+/ yeni hizmet oluşturma** düğme Azure portalında sol üst köşesinde bulundu.
+1. Tıklayın **+/ yeni hizmet oluşturma** düğmesi Azure portalının sol üst köşedeki üzerinde bulunamadı.
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
-3. Sanal makine bilgilerini girin. İçin **kimlik doğrulama türü**seçin **SSH ortak anahtarını** veya **parola**. Oluşturulan kimlik bilgileri, VM'ye oturum açmak izin verir.
+3. Sanal makine bilgilerini girin. İçin **kimlik doğrulama türü**seçin **SSH ortak anahtarı** veya **parola**. Oluşturulan kimlik bilgilerini, VM'de oturum açmak izin verin.
 
-    ![Alt görüntü metin](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alt resim metni](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
-4. Seçin bir **abonelik** sanal makine açılır.
-5. Yeni bir seçmek için **kaynak grubu** sanal makinenin oluşturulması, seçmek istediğiniz **Yeni Oluştur**. İşlem tamamlandığında **Tamam**’a tıklayın.
-6. VM boyutunu seçin. Daha fazla boyutları görmek için seçin **tüm görüntüle** veya desteklenen disk türü filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
+4. Seçin bir **abonelik** sanal makinenin açılır.
+5. Yeni bir seçilecek **kaynak grubu** sanal makinenin oluşturulması, seçmek istediğiniz **Yeni Oluştur**. İşlem tamamlandığında **Tamam**’a tıklayın.
+6. Sanal makine için boyutu seçin. Daha fazla boyut görmek için seçin **tümünü görüntüle** veya desteklenen disk türü filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
 
 ## <a name="create-a-user-assigned-msi"></a>Kullanıcı tarafından atanan bir MSI oluşturma
 
-1. CLI konsol (yerine bir Azure bulut kabuk oturumu) kullanıyorsanız, Azure'da oturum açma tarafından başlatın. Altında yeni MSI oluşturmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
+1. CLI konsol (yerine bir Azure Cloud Shell oturumu) kullanıyorsanız Azure'da oturum açma tarafından başlatın. Altında yeni MSI oluşturmak istediğiniz Azure aboneliği ile ilişkili olan bir hesabı kullanın:
 
     ```azurecli
     az login
     ```
 
-2. Bir kullanıcı tarafından atanan MSI kullanarak oluşturduğunuz [az kimliği oluşturma](/cli/azure/identity#az_identity_create). `-g` Parametresi, burada MSI oluşturulur, kaynak grubu belirtir ve `-n` parametresi adını belirtir. Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<MSI NAME>` parametre değerlerini kendi değerlerinizi ile:
+2. Bir kullanıcı tarafından atanan MSI kullanarak oluşturduğunuz [az kimliği oluşturma](/cli/azure/identity#az_identity_create). `-g` Parametresi MSI oluşturulduğu, kaynak grubunu belirtir ve `-n` parametre adını belirtir. Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<MSI NAME>` parametre değerlerini kendi değerlerinizle:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
 
-    Yanıt, kullanıcı tarafından atanan MSI oluşturulan, aşağıdaki örneğe benzer şekilde ayrıntıları içerir. Not `id` sonraki adımda kullanılacağından, MSI, değer:
+    Yanıt, kullanıcı tarafından atanan MSI oluşturulan, aşağıdaki örneğe benzer ayrıntıları içerir. Not `id` sonraki adımda kullanılacağından, bir MSI için değer:
 
     ```json
     {
@@ -93,11 +93,11 @@ Bu öğreticide CLI komut dosyası örnekleri çalıştırmak için iki seçene�
     }
     ```
 
-## <a name="assign-your-user-assigned-msi-to-your-linux-vm"></a>Kullanıcı tarafından atanan MSI Linux VM'NİZDE atayın
+## <a name="assign-your-user-assigned-msi-to-your-linux-vm"></a>Linux VM'nize, kullanıcı tarafından atanan MSI atayın
 
-Sistem tarafından atanan bir MSI, bir kullanıcı tarafından atanan MSI birden çok Azure kaynaklarına istemciler tarafından kullanılabilir. Bu öğretici için bunu tek bir VM öğesine atayın. Ayrıca birden fazla VM atayabilirsiniz.
+Sistem tarafından atanan bir MSI, kullanıcı tarafından atanan bir MSI birden çok Azure kaynaklarına istemciler tarafından kullanılabilir. Bu öğretici için bunu tek bir VM'ye atayın. Ayrıca birden fazla VM'ye atayabilirsiniz.
 
-Kullanıcı tarafından atanan MSI kullanarak, Linux VM atamak [az vm Ata-identity](/cli/azure/vm#az-vm-identity-assign). Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlere sahip. Kullanım `id` özelliği döndürülen için önceki adımda `--identities` parametre değeri:
+Kullanıcı tarafından atanan MSI kullanarak Linux VM'nize atama [az vm Ata-identity](/cli/azure/vm#az-vm-identity-assign). Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle. Kullanım `id` özelliği döndürülen için önceki adımda `--identities` parametre değeri:
 
 ```azurecli-interactive
 az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
@@ -105,37 +105,37 @@ az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 
-Şimdi zaten yoksa, bir depolama hesabı oluşturun. Ayrıca, bu adımı atlayın ve tercih ederseniz, varolan bir depolama hesabını kullanabilirsiniz. 
+Zaten yoksa, artık bir depolama hesabı oluşturun. Ayrıca, bu adımı atlayın ve tercih ederseniz, mevcut bir depolama hesabını kullanabilirsiniz. 
 
-1. Tıklatın **+/ yeni hizmet oluşturma** düğme Azure portalında sol üst köşesinde bulundu.
-2. Tıklatın **depolama**, ardından **depolama hesabı**, ve yeni bir "depolama hesabı oluşturma" panelinde görüntülenir.
-3. Girin bir **adı** daha sonra kullandığınız depolama hesabı için.  
-4. **Dağıtım modeli** ve **tür hesap** "Resource manager" ve "Genel amaçlı", sırasıyla ayarlanmalıdır. 
+1. Tıklayın **+/ yeni hizmet oluşturma** düğmesi Azure portalının sol üst köşedeki üzerinde bulunamadı.
+2. Tıklayın **depolama**, ardından **depolama hesabı**, ve "depolama hesabı oluştur" yeni bir panel görüntüler.
+3. Girin bir **adı** depolama hesabı, daha sonra kullanmak için.  
+4. **Dağıtım modeli** ve **hesap türü** sırasıyla "Resource manager" ve "Genel amaç" için ayarlanmalıdır. 
 5. Olun **abonelik** ve **kaynak grubu** VM'nizi oluşturduğunuzda önceki adımda belirttiğiniz olanlarla eşleşmesi.
 6. **Oluştur**’a tıklayın.
 
     ![Yeni depolama hesabı oluştur](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## <a name="create-a-blob-container-in-the-storage-account"></a>Depolama hesabında blob kapsayıcısı oluşturma
+## <a name="create-a-blob-container-in-the-storage-account"></a>Depolama hesabındaki bir blob kapsayıcısı oluşturma
 
-Dosya blob depolama gerektirdiğinden dosyasının depolanacağı bir blob kapsayıcısı oluşturmanız gerekir. Ardından indirin ve blob kapsayıcısında yeni depolama hesabı için bir dosya yükleyin.
+Dosyaları blob depolama gerektirdiğinden dosyasının depolanacağı bir blob kapsayıcısı oluşturmak gerekir. Daha sonra karşıya yükleme ve yeni depolama hesabındaki blob kapsayıcısına bir dosya indirin.
 
-1. Yeni oluşturulan depolama hesabınıza geri gidin.
-2. Tıklatın **kapsayıcıları** "Blob hizmeti" altındaki sol bağlantı
-3. Tıklatın **+ kapsayıcı** sayfa ve "yeni bir kapsayıcı" üst kısmında çıkış paneli slayt.
-4. Kapsayıcı bir ad verin, erişim düzeyi seçin ve ardından **Tamam**. Belirtilen ad, daha sonra öğreticide de kullanılır. 
+1. Yeni oluşturulan depolama hesabına geri gidin.
+2. Tıklayın **kapsayıcıları** sol tarafında "Blob hizmeti" altında bağlantı
+3. Tıklayın **+ kapsayıcı** sayfasına ve "yeni bir kapsayıcı" üst kısmındaki çıkış paneli slaytlar.
+4. Kapsayıcıya bir ad verin, bir erişim düzeyi seçin ve ardından tıklayın **Tamam**. Belirtilen ad aynı zamanda öğreticinin ilerleyen bölümlerinde kullanılır. 
 
     ![Depolama kapsayıcısı oluşturma](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-5. Kapsayıcı adına sonra tıklatarak yeni oluşturulan bir kapsayıcıya bir dosyayı karşıya **karşıya**, ardından bir dosya seçin ve ardından **karşıya**.
+5. Ardından kapsayıcı adına tıklayarak yeni oluşturduğunuz kapsayıcıya bir dosya yüklemek **karşıya**, bir dosyayı seçtikten sonra tıklayın **karşıya**.
 
-    ![Metin dosyasını karşıya yükle](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![Metin dosyasını karşıya yükleyin](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-your-user-assigned-msi-access-to-an-azure-storage-container"></a>Bir Azure depolama kapsayıcısı, kullanıcı atanan MSI erişim
+## <a name="grant-your-user-assigned-msi-access-to-an-azure-storage-container"></a>Bir Azure depolama kapsayıcısı için kullanıcı atanan MSI erişimi verme
 
-Bir MSI kullanarak kodunuzu Azure AD kimlik doğrulamasını destekleyen kaynaklar için kimlik doğrulaması için erişim belirteçleri elde edebilirsiniz. Bu öğreticide, Azure depolama kullanın.
+MSI kullanarak kodunuzu Azure AD kimlik doğrulamasını destekleyen kaynakların kimliğini doğrulamak için erişim belirteçleri elde edebilirsiniz. Bu öğreticide, Azure depolama kullanın.
 
-İlk Azure Storage kapsayıcısı MSI kimlik erişim izni. Bu durumda, daha önce oluşturduğunuz kapsayıcı kullanın. İçin değerleri güncelleştirmek `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, ve `<CONTAINER NAME>` ortamınız için uygun şekilde. Ayrıca, yerine `<MSI PRINCIPALID>` ile `principalId` özellik tarafından döndürülen `az identity create` komutunu [kullanıcı tarafından atanan bir MSI oluşturmak](#create-a-user-assigned-msi):
+Öncelikle bir Azure depolama kapsayıcısı MSI kimlik erişimi verin. Bu durumda, daha önce oluşturduğunuz kapsayıcıya kullanın. İçin değerleri güncelleştirmek `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, ve `<CONTAINER NAME>` ortamınız için uygun şekilde. Ayrıca, değiştirin `<MSI PRINCIPALID>` ile `principalId` özelliği tarafından döndürülen `az identity create` komutunu [kullanıcı tarafından atanan bir MSI oluşturma](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
 az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
@@ -157,25 +157,25 @@ Yanıt oluşturulan rol ataması ayrıntılarını içerir:
 }
 ```
 
-## <a name="get-an-access-token-using-the-user-assigned-msis-identity-and-use-it-to-call-azure-storage"></a>Kullanıcı tarafından atanan MSI kimliğini kullanarak bir erişim belirteci alın ve Azure Storage çağırmak için kullanın
+## <a name="get-an-access-token-using-the-user-assigned-msis-identity-and-use-it-to-call-azure-storage"></a>Kullanıcı tarafından atanan MSI kimlik kullanarak bir erişim belirteci alma ve Azure depolama çağırmak için kullanın
 
-Öğretici kalanı için daha önce oluşturduğunuz sanal makineden çalışması gerekir.
+Bu öğreticinin geri kalanında için daha önce oluşturduğunuz sanal makineden çalışması gerekir.
 
-Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsanız, SSH İstemcisi'nde kullanabileceğiniz [Linux için Windows alt](https://msdn.microsoft.com/commandline/wsl/about). SSH istemcinin anahtarları yapılandırma yardıma gereksinim duyarsanız, bkz: [kullanmak SSH anahtarları nasıl Windows Azure üzerinde ile](~/articles/virtual-machines/linux/ssh-from-windows.md), veya [nasıl oluşturulacağı ve Linux VM'ler için Azure'da bir SSH ortak ve özel anahtar çifti kullanılmak](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
+Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsanız, SSH İstemcisi'nde kullanabileceğiniz [Linux için Windows alt sistemi](https://msdn.microsoft.com/commandline/wsl/about). SSH istemcinizin anahtarları yapılandırılıyor yardıma ihtiyacınız varsa bkz [azure'da Windows ile SSH kullanma anahtarları nasıl](~/articles/virtual-machines/linux/ssh-from-windows.md), veya [oluşturmak ve azure'da Linux VM'ler için SSH ortak ve özel anahtar çifti kullanmak nasıl](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. Azure portalında gidin **sanal makineleri**gidin, Linux sanal makine, daha sonra **genel bakış** sayfasında **Bağlan** üstünde. VM'nize bağlanmak için dizesini kopyalayın.
-2. **Connect** tercih ettiğiniz SSH istemcisi ile VM. 
-3. Terminal penceresinde CURL, kullanarak Azure Storage için bir erişim belirteci almak üzere yerel MSI uç nokta için bir isteği oluşturun.
+1. Azure portalında gidin **sanal makineler**gidin, Linux sanal makinesi, ardından **genel bakış** sayfasında **Connect** en üstünde. VM'nize bağlanmak için dizesini kopyalayın.
+2. **Connect** VM'ye SSH istemcisine sahip. 
+3. Terminal penceresinde CURL, kullanarak Azure depolama için bir erişim belirteci almak için yerel MSI uç noktasına bir istek olun.
 
-   Bir erişim belirteci almak üzere CURL isteği aşağıdaki örnekte gösterilir. Değiştirdiğinizden emin olun `<CLIENT ID>` ile `clientId` özellik tarafından döndürülen `az identity create` komutunu [kullanıcı tarafından atanan bir MSI oluşturmak](#create-a-user-assigned-msi):
+   CURL isteği bir erişim belirteci almak için aşağıdaki örnekte gösterilir. Değiştirdiğinizden emin olun `<CLIENT ID>` ile `clientId` özelliği tarafından döndürülen `az identity create` komutunu [kullanıcı tarafından atanan bir MSI oluşturma](#create-a-user-assigned-msi):
    
    ```bash
    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fstorage.azure.com/&client_id=<MSI CLIENT ID>" 
    ```
 
    > [!NOTE]
-   > Değerini önceki isteğindeki `resource` parametresi, Azure AD tarafından beklenen bir tam eşleşme olmalıdır. Azure Storage kaynak kimliği'ni kullanırken eğik URI üzerinde eklemeniz gerekir.
-   > Aşağıdaki yanıtı, okumanızdır kısaltılmış olarak access_token öğesi.
+   > Değerini önceki isteğindeki `resource` parametresi, Azure AD tarafından beklenen değer için bir tam eşleşme olmalıdır. Azure depolama kaynak kimliği kullanıldığında, URI üzerinde sonunda eğik çizgi içermelidir.
+   > Şu yanıtı, konuyu uzatmamak amacıyla kısalttık olarak access_token öğesi.
 
    ```bash
    {"access_token":"eyJ0eXAiOiJ...",
@@ -187,13 +187,13 @@ Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsan
    "token_type":"Bearer"}
    ```
 
-4. Şimdi, örneğin, daha önce kapsayıcıya karşıya örnek dosyanın içeriğini okumak Azure Storage erişmek için erişim belirteci kullanın. Değerlerini değiştirmek `<STORAGE ACCOUNT>`, `<CONTAINER NAME>`, ve `<FILE NAME>` daha önce belirttiğiniz değerleri içeren ve `<ACCESS TOKEN>` önceki adımda döndürülen belirteci ile.
+4. Örneğin kapsayıcıya daha önce yüklenmiş örnek dosyanın içeriğini okumak Azure depolama alanına erişmek için artık erişim belirtecini kullanın. Değerleri Değiştir `<STORAGE ACCOUNT>`, `<CONTAINER NAME>`, ve `<FILE NAME>` daha önce belirttiğiniz değerleri ve `<ACCESS TOKEN>` önceki adımda döndürülen belirteci ile.
 
    ```bash
    curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME> -H "x-ms-version: 2017-11-09" -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
-   Yanıt dosyasının içeriğini içerir:
+   Yanıt, dosyanın içeriğini içerir:
 
    ```bash
    Hello world! :)
@@ -201,13 +201,13 @@ Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsan
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](msi-overview.md).
-- Depolama SAS kimlik bilgilerini kullanarak bu öğreticiyi yapmak öğrenmek için bkz: [bir SAS kimlik bilgisi Azure depolama erişmek için bir Linux VM yönetilen hizmet kimliği kullanın](msi-tutorial-linux-vm-access-storage-sas.md)
+- MSI genel bakış için bkz. [yönetilen hizmet Kimliği'ne genel bakış](msi-overview.md).
+- Bir depolama SAS kimlik bilgisi kullanarak bu öğreticiyi yapma hakkında bilgi için bkz: [bir SAS kimlik bilgisi Azure depolamaya erişmek için bir Linux VM yönetilen hizmet kimliği kullan](msi-tutorial-linux-vm-access-storage-sas.md)
 - Azure depolama hesabı SAS özelliği hakkında daha fazla bilgi için bkz:
   - [Paylaşılan erişim imzaları (SAS) kullanma](~/articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)
   - [Hizmet SAS oluşturma](/rest/api/storageservices/Constructing-a-Service-SAS.md)
 
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
+Aşağıdaki yorum bölümünde geri bildirim sağlamak ve geliştirmek ve içeriklerimizde şekil yardımcı kullanın.
 
 
 

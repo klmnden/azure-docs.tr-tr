@@ -1,6 +1,6 @@
 ---
-title: Bir VHD dosyasından Azure DevTest Labs özel görüntü oluşturma | Microsoft Docs
-description: Azure DevTest Labs Azure portalını kullanarak bir VHD'yi dosyasından içinde özel bir görüntü oluşturmayı öğrenin
+title: Azure DevTest Labs özel görüntü VHD dosyasından oluşturma | Microsoft Docs
+description: Azure DevTest labs'teki Azure portalını kullanarak bir VHD dosyasından özel bir görüntü oluşturmayı öğrenin
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: a961565815ca0d89dc98a8d6a3e14b338b649398
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787468"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687817"
 ---
-# <a name="create-a-custom-image-from-a-vhd-file"></a>Bir VHD dosyasındaki özel bir görüntü oluşturun
+# <a name="create-a-custom-image-from-a-vhd-file"></a>Bir VHD dosyasından özel bir görüntü oluşturma
 
 [!INCLUDE [devtest-lab-create-custom-image-from-vhd-selector](../../includes/devtest-lab-create-custom-image-from-vhd-selector.md)]
 
@@ -31,7 +31,7 @@ ms.locfileid: "33787468"
 
 ## <a name="step-by-step-instructions"></a>Adım adım yönergeler
 
-Aşağıdaki adımlar, Azure portalını kullanarak bir VHD'yi dosyasından özel görüntü oluşturmada size yol:
+Aşağıdaki adımlar, Azure portalını kullanarak bir VHD dosyasından bir özel görüntü oluşturma işleminde size yol:
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
@@ -39,50 +39,50 @@ Aşağıdaki adımlar, Azure portalını kullanarak bir VHD'yi dosyasından öze
 
 1. İstenen Laboratuvar labs listesinden seçin.  
 
-1. Laboratuvar ait ana bölmede, seçin **yapılandırma ve ilkeleri**. 
+1. Laboratuvar ana bölmeden **yapılandırması ve ilkelerini**. 
 
-1. Üzerinde **yapılandırma ve ilkeleri** bölmesinde, **özel görüntüleri**.
+1. Üzerinde **yapılandırması ve ilkelerini** bölmesinde **özel görüntüleri**.
 
-1. Üzerinde **özel görüntüleri** bölmesinde, **+ Ekle**.
+1. Üzerinde **özel görüntüleri** bölmesinde **+ Ekle**.
 
     ![Özel görüntü ekleme](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. Özel görüntü adı girin. Bu ad, bir VM oluşturulurken temel görüntü listesinde görüntülenir.
+1. Özel görüntü adını girin. Bu ad, bir VM oluştururken, temel görüntüleri listesinde görüntülenir.
 
-1. Özel görüntü açıklamasını girin. Bu açıklama, bir VM oluşturulurken temel görüntü listesinde görüntülenir.
+1. Özel görüntü açıklamasını girin. Bu açıklama, VM oluşturduğunuz sırada temel görüntüleri listesinde görüntülenir.
 
 1. İçin **işletim sistemi türü**, şunlardan birini seçin **Windows** veya **Linux**.
 
-    - Seçerseniz **Windows**, onay kutusu belirtin olup olmadığını *sysprep* makinede çalıştırın. 
-    - Seçerseniz **Linux**, onay kutusu belirtin olup olmadığını *deprovision* makinede çalıştırın. 
+    - Seçerseniz **Windows**, onay kutusu belirtin olmadığını *sysprep* makinede çalıştırın. 
+    - Seçerseniz **Linux**, onay kutusu belirtin olmadığını *sağlamayı kaldırma* makinede çalıştırın. 
 
-1. Seçin bir **VHD** açılır menüsünden. Yeni özel görüntü oluşturmak için kullanılan VHD budur. Gerekirse, seçin **PowerShell kullanarak bir VHD'yi karşıya**.
+1. Seçin bir **VHD** aşağı açılan menüden. Yeni özel görüntü oluşturmak için kullanılan VHD budur. İçin gerekirse seçin **PowerShell kullanarak bir VHD'yi karşıya yükleme**.
 
-1. Özel görüntü oluşturmak için kullanılan görüntü (Microsoft tarafından yayımlanan) lisanslı bir görüntü değilse plan adı, planı teklif ve planı yayımcı da girebilirsiniz.
+1. Özel görüntü oluşturma için kullanılan görüntü (Microsoft tarafından yayımlanan) lisanslı bir görüntü değilse bir plan adı, teklif ve plan yayımcı girebilirsiniz.
 
-   - **Plan adı:** bu özel görüntü oluşturulurken gelen Market görüntüsü (SKU) adını girin 
-   - **Teklif planlama:** bu özel görüntü oluşturulduğu Market görüntüsü ürününü (teklif) girin 
-   - **Yayımcı planlama:** bu özel görüntü oluşturulduğu Market görüntüsü yayımcısı girin
+   - **Plan adı:** bu özel görüntüyü oluşturan gelen Market görüntüsü (SKU) adını girin 
+   - **Teklif planı:** bu özel görüntüyü oluşturulduğu Market görüntüsü ürününü (teklif) girin 
+   - **Yayımcı planlama:** yayımcısının bu özel görüntüyü oluşturulduğu Market görüntüsü adını girin
 
    > [!NOTE]
-   > Özel bir görüntü oluşturmak için kullandığınız görüntü olup olmadığını **değil** lisanslı bir görüntü, ardından bu alanları boş ve seçerseniz doldurulabilir. Varsa görüntü **olan** lisanslı bir görüntü sonra alanları planı bilgilerle doldurulmuş otomatik ayarlanır. Bu durumda değiştirmeye çalışırsanız, bir uyarı iletisi görüntülenir.
+   > Özel bir görüntü oluşturmak için kullandığınız görüntü olup olmadığını **değil** lisanslı görüntü daha sonra bu alanları boş olan ve seçerseniz doldurulabilir. Varsa görüntüyü **olduğu** lisanslı görüntü ve alanların otomatik plan bilgileriyle doldurulmuş olan. Bu durumda değiştirmeye çalışırsanız, bir uyarı iletisi görüntülenir.
    >
    >
 
-1. Seçin **Tamam** özel görüntüsü oluşturulamadı.
+1. Seçin **Tamam** özel görüntü oluşturmak için.
 
-Birkaç dakika sonra özel görüntü oluşturulur ve Laboratuvar ait depolama hesabı içinde depolanır. Yeni bir VM oluşturmak bir laboratuvar kullanıcı istediği zaman, görüntü temel görüntü listesinde tarafından kullanılabilir.
+Birkaç dakika sonra özel bir görüntü oluşturulur ve Laboratuvar depolama hesabı içinde depolanır. Yeni bir VM oluşturmak bir laboratuvar kullanıcı istediği zaman, temel görüntüleri listesinde kullanılabilir bir görüntüsüdür.
 
-![Özel görüntü temel görüntü listesinde kullanılabilir](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+![Temel görüntüleri listesinde kullanılabilen özel görüntü](./media/devtest-lab-create-template/custom-image-available-as-base.png)
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>İlgili blog gönderileri
 
-- [Özel resimler veya formüller?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Azure DevTest Labs arasında özel resimler kopyalama](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Özel görüntü veya formül?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Azure DevTest Labs arasında özel görüntüleri kopyalama](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Laboratuvarınızı için bir VM ekleme](./devtest-lab-add-vm.md)
+- [Laboratuvarınız için bir VM ekleme](./devtest-lab-add-vm.md)

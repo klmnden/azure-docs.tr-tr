@@ -1,6 +1,6 @@
 ---
-title: 'Oluştur ve noktası Site için sertifikalar verme: PowerShell: Azure | Microsoft Docs'
-description: Bir otomatik olarak imzalanan sertifika oluşturmak, ortak anahtarını dışarı aktarmak ve Windows 10 veya Windows Server 2016 PowerShell kullanarak istemci sertifikalarını oluşturmak.
+title: 'Oluşturma ve noktadan siteye için sertifika dışarı aktarma: PowerShell: Azure | Microsoft Docs'
+description: Otomatik olarak imzalanan kök sertifika oluşturma, ortak anahtarını dışarı aktarmak ve Windows 10 veya Windows Server 2016 üzerinde PowerShell kullanarak istemci sertifikalarını oluşturmak.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,35 +16,35 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: cherylmc
 ms.openlocfilehash: 385b6ed2e8104fd2e15e6e55d46dcd12b963ec6b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31423057"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696557"
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Oluştur ve noktası Site için sertifikalar verme PowerShell'i kullanma
+# <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Oluşturma ve noktadan siteye için sertifika dışarı aktarma PowerShell'i kullanma
 
-Noktadan siteye bağlantılar, kimlik doğrulaması için sertifikaları kullanır. Bu makalede bir otomatik olarak imzalanan sertifika oluşturmak ve Windows 10 veya Windows Server 2016 PowerShell kullanarak istemci sertifikalarını oluşturmak nasıl gösterir. Kök sertifikalarını yüklemek nasıl gibi noktadan siteye yapılandırma adımlarını arıyorsanız ' yapılandırma noktası siteye ' makaleleri birini aşağıdaki listeden seçin:
+Noktadan siteye bağlantılar, kimlik doğrulaması için sertifikaları kullanır. Bu makalede bir otomatik olarak imzalanan kök sertifika oluşturma ve Windows 10 veya Windows Server 2016 üzerinde PowerShell kullanarak istemci sertifikalarını oluşturmak nasıl gösterir. Kök sertifikalarını karşıya yükleme gibi noktadan siteye yapılandırma adımlarını arıyorsanız ' yapılandırma noktadan siteye ' makaleleri birini aşağıdaki listeden seçin:
 
 > [!div class="op_single_selector"]
-> * [Otomatik olarak imzalanan sertifikalar - PowerShell oluşturma](vpn-gateway-certificates-point-to-site.md)
-> * [Otomatik olarak imzalanan sertifikalar - MakeCert oluşturma](vpn-gateway-certificates-point-to-site-makecert.md)
-> * [Noktası-Site - Resource Manager - Azure portalında yapılandırın](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Otomatik olarak imzalanan sertifika oluşturma - PowerShell](vpn-gateway-certificates-point-to-site.md)
+> * [MakeCert - otomatik olarak imzalanan sertifikalar oluşturma](vpn-gateway-certificates-point-to-site-makecert.md)
+> * [Noktadan siteye - Resource Manager - Azure portalında yapılandırma](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Noktadan siteye - Resource Manager - PowerShell yapılandırma](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Noktası-Site - Classic - Azure portalında yapılandırın](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Noktadan siteye - Klasik - Azure portalında yapılandırma](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 > 
 > 
 
-Windows 10 veya Windows Server 2016 çalıştıran bir bilgisayarda bu makaledeki adımları uygulamanız gerekir. Sertifikalarını oluşturmak için kullandığınız PowerShell cmdlet'leri işletim sisteminin bir parçasıdır ve diğer Windows sürümlerinde çalışmaz. Windows 10 veya Windows Server 2016 bilgisayar yalnızca sertifikalarını oluşturmak için gereklidir. Sertifikaları oluşturduktan sonra bunları karşıya yükleyebilir veya tüm desteklenen istemci işletim sistemine yükleyin. 
+Windows 10 veya Windows Server 2016 çalıştıran bir bilgisayarda bu makaledeki adımları gerçekleştirmeniz gerekir. Sertifikaları oluşturmak için kullanabileceğiniz PowerShell cmdlet'leri, işletim sisteminin bir parçasıdır ve diğer Windows sürümlerinde çalışmaz. Windows 10 veya Windows Server 2016 bilgisayarı, yalnızca sertifikalarını oluşturmak için gereklidir. Sertifikaları oluşturduktan sonra bunları karşıya yükleyebilir veya bunları tüm desteklenen istemci işletim sistemine yükleyin. 
 
-Windows 10 veya Windows Server 2016 bir bilgisayara erişiminiz yoksa kullanabileceğiniz [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) sertifikalarını oluşturmak için. Her iki yöntemi kullanarak oluşturduğunuz sertifikalar herhangi yüklenebilir [desteklenen](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) istemci işletim sistemi.
+Windows 10 veya Windows Server 2016'ya bir bilgisayara erişiminiz yoksa, kullanabileceğiniz [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) sertifikalarını oluşturmak için. Her iki yöntemi kullanarak oluşturduğunuz sertifika birinde yüklenebilir [desteklenen](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) istemci işletim sistemi.
 
-## <a name="rootcert"></a>1. Otomatik olarak imzalanan sertifika oluştur
+## <a name="rootcert"></a>1. Otomatik olarak imzalanan kök sertifika oluşturma
 
-Bir otomatik olarak imzalanan sertifika oluşturmak için New-SelfSignedCertificate cmdlet'ini kullanın. Ek parametre bilgi için bkz: [yeni SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Bir otomatik olarak imzalanan kök sertifika oluşturmak için New-SelfSignedCertificate cmdlet'ini kullanın. Ek bir parametre için bilgi [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
 1. Windows 10 veya Windows Server 2016 çalıştıran bir bilgisayarda, yükseltilmiş ayrıcalıklarla bir Windows PowerShell konsolu açın.
-2. Otomatik olarak imzalanan sertifika oluşturmak için aşağıdaki örneği kullanın. Aşağıdaki örnek, '' Sertifikalar-Geçerli User\Personal\Certificates' otomatik olarak yüklenen P2SRootCert' adlı otomatik olarak imzalanan bir sertifika oluşturur. Sertifika açarak görüntüleyebileceğiniz *certmgr.msc*, veya *kullanıcı sertifikaları yönetme*.
+2. Otomatik olarak imzalanan kök sertifika oluşturmak için aşağıdaki örneği kullanın. Aşağıdaki örnek, '' Sertifikalar-Geçerli kullanıcı\kişisel\sertifikalar' otomatik olarak yüklenen P2SRootCert' adlı bir otomatik olarak imzalanan kök sertifika oluşturur. Sertifika açarak görüntüleyebilirsiniz *certmgr.msc*, veya *kullanıcı sertifikalarını Yönet*.
 
   ```powershell
   $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -55,17 +55,17 @@ Bir otomatik olarak imzalanan sertifika oluşturmak için New-SelfSignedCertific
 
 ## <a name="clientcert"></a>2. İstemci sertifikası oluşturma
 
-Noktadan Siteye bağlantı kullanarak bir sanal ağa bağlanan her istemci bilgisayarda bir istemci sertifikası yüklü olmalıdır. Ardından dışa otomatik olarak imzalanan kök sertifikasından bir istemci sertifikasını oluşturmak ve istemci sertifikasını yükleyin. İstemci sertifikası yüklü değilse, kimlik doğrulaması başarısız olur. 
+Noktadan Siteye bağlantı kullanarak bir sanal ağa bağlanan her istemci bilgisayarda bir istemci sertifikası yüklü olmalıdır. Ardından vermek otomatik olarak imzalanan kök sertifikadan istemci sertifikası oluşturma ve istemci sertifikasını yükleme. İstemci sertifikası yüklü değilse, kimlik doğrulaması başarısız olur. 
 
-Aşağıdaki adımlarda, otomatik olarak imzalanan kök sertifikasından bir istemci sertifikası oluşturma aracılığıyla yol. Birden çok istemci sertifikaları aynı kök sertifikası oluşturabilir. Aşağıdaki adımları kullanarak istemci sertifikalarını oluşturmak, istemci sertifikasının, sertifikayı oluşturmak için kullanılan bilgisayarda otomatik olarak yüklenir. Bir istemci sertifikası başka bir istemci bilgisayara yüklemek istiyorsanız, sertifikayı dışa aktarabilirsiniz.
+Aşağıdaki adımlarda bir otomatik olarak imzalanan kök sertifikadan bir istemci sertifikası oluşturma aracılığıyla yol. Birden çok istemci sertifikaları aynı kök sertifikadan oluşturabilir. Aşağıdaki adımları kullanarak istemci sertifikası oluşturduğunuzda, istemci sertifikasının, sertifikayı oluşturmak için kullandığınız bilgisayarda otomatik olarak yüklenir. Bir istemci sertifikasını başka bir istemci bilgisayara yüklemek istiyorsanız, sertifikayı dışarı aktarabilirsiniz.
 
-Örnekler, bir yıl içinde süresi dolar bir istemci sertifikasını oluşturmak için yeni SelfSignedCertificate cmdlet'ini kullanın. İstemci sertifikası için farklı süre sonu değeri ayarlama gibi ek parametre bilgi için bkz [yeni SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Örnekler, bir yıl içinde süresi dolan bir istemci sertifikası oluşturmak için New-SelfSignedCertificate cmdlet'ini kullanın. İstemci sertifikası farklı bir zaman aşımı değerini ayarlama gibi ek parametre bilgi edinmek için bkz [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
 ### <a name="example-1"></a>Örnek 1
 
-Bu örnek önceki bölümden bildirilen '$cert' değişkeni kullanır. PowerShell Konsolu otomatik olarak imzalanan sertifika oluşturduktan sonra kapalı veya yeni bir PowerShell konsol oturumda ek istemci sertifikaları oluşturma, içindeki adımları kullanın [örnek 2](#ex2).
+Bu örnek, bildirilmiş '$cert' değişkeni önceki bölümden kullanır. Otomatik olarak imzalanan kök sertifikayı oluşturduktan sonra PowerShell konsolunu kapalı ya da ek istemci sertifikaları yeni bir PowerShell Konsolu oturumu oluşturuyorsunuz içindeki adımları kullanın [örnek 2](#ex2).
 
-Değiştirme ve bir istemci sertifikasını oluşturmak için örnek çalıştırın. Değişiklik yapmadan aşağıdaki örneği çalıştırırsanız, 'P2SChildCert' adlı bir istemci sertifikası sonucudur.  Alt sertifika başka bir ad vermek istiyorsanız, CN değeri değiştirin. Bu örnek çalıştırırken TextExtension değiştirmeyin. Oluşturduğunuz istemci sertifikası, bilgisayarınızda 'Sertifikalar - Geçerli User\Personal\Certificates' otomatik olarak yüklenir.
+Değiştirebilir ve bir istemci sertifikası oluşturmak için örneği çalıştırın. Değişiklik yapmadan aşağıdaki örneği çalıştırırsanız, sonuç 'P2SChildCert' adlı bir istemci sertifikası olur.  Başka bir alt sertifikayı Adlandır istiyorsanız, CN değeri değiştirin. Bu örnekte çalıştırırken TextExtension değiştirmeyin. Oluşturduğunuz istemci sertifikası, bilgisayarınızda 'Sertifikalar - Geçerli kullanıcı\kişisel\sertifikalar' otomatik olarak yüklenir.
 
 ```powershell
 New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
@@ -77,14 +77,14 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 
 ### <a name="ex2"></a>Örnek 2
 
-Ek istemci sertifikalarını oluşturmakta ya da otomatik olarak imzalanan sertifika oluşturmak için kullanılan aynı PowerShell oturumunda kullanmıyorsanız, aşağıdaki adımları kullanın:
+Ek istemci sertifikalarını oluşturma ya da otomatik olarak imzalanan kök sertifikanızı oluşturmak için kullanılan aynı PowerShell oturumunda kullanmıyorsanız, aşağıdaki adımları kullanın:
 
-1. Bilgisayarda yüklü otomatik olarak imzalanan kök sertifikayı belirleyin. Bu cmdlet, bilgisayarınızda yüklü sertifikaların listesini döndürür.
+1. Bilgisayarda yüklü otomatik olarak imzalanan kök sertifikayı belirleyin. Bu cmdlet, bilgisayarınızda yüklü sertifikaların bir listesini döndürür.
 
   ```powershell
   Get-ChildItem -Path “Cert:\CurrentUser\My”
   ```
-2. Konu adı döndürülen listesinden bulun ve sonra onu yanında bir metin dosyasına bulunur parmak izini kopyalayın. Aşağıdaki örnekte, iki sertifika vardır. CN adı bir alt sertifika oluşturmak istediğiniz otomatik olarak imzalanan sertifika adıdır. Bu durumda, 'P2SRootCert'.
+2. Döndürülen listeden konu adını bulun ve ardından bir metin dosyasına yanında bulunan parmak izini kopyalayın. Aşağıdaki örnekte, iki sertifika vardır. CN adının bir alt sertifikası oluşturmak istediğiniz otomatik olarak imzalanan kök sertifika adıdır. Bu durumda, 'P2SRootCert'.
 
   ```
   Thumbprint                                Subject
@@ -92,7 +92,7 @@ Ek istemci sertifikalarını oluşturmakta ya da otomatik olarak imzalanan serti
   AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
   7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
   ```
-3. Önceki adımdan parmak kullanarak kök sertifikası için bir değişken bildirin. Parmak İZİ alt sertifika oluşturmak istediğiniz kök sertifika parmak iziyle değiştirin.
+3. Önceki adımdaki parmak izini kullanarak kök sertifikası için bir değişken bildirir. Parmak İZİ alt sertifika oluşturmak istediğiniz kök sertifika parmak iziyle değiştirin.
 
   ```powershell
   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
@@ -103,7 +103,7 @@ Ek istemci sertifikalarını oluşturmakta ya da otomatik olarak imzalanan serti
   ```powershell
   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
   ```
-4.  Değiştirme ve bir istemci sertifikasını oluşturmak için örnek çalıştırın. Değişiklik yapmadan aşağıdaki örneği çalıştırırsanız, 'P2SChildCert' adlı bir istemci sertifikası sonucudur. Alt sertifika başka bir ad vermek istiyorsanız, CN değeri değiştirin. Bu örnek çalıştırırken TextExtension değiştirmeyin. Oluşturduğunuz istemci sertifikası, bilgisayarınızda 'Sertifikalar - Geçerli User\Personal\Certificates' otomatik olarak yüklenir.
+4.  Değiştirebilir ve bir istemci sertifikası oluşturmak için örneği çalıştırın. Değişiklik yapmadan aşağıdaki örneği çalıştırırsanız, sonuç 'P2SChildCert' adlı bir istemci sertifikası olur. Başka bir alt sertifikayı Adlandır istiyorsanız, CN değeri değiştirin. Bu örnekte çalıştırırken TextExtension değiştirmeyin. Oluşturduğunuz istemci sertifikası, bilgisayarınızda 'Sertifikalar - Geçerli kullanıcı\kişisel\sertifikalar' otomatik olarak yüklenir.
 
   ```powershell
   New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
@@ -113,14 +113,14 @@ Ek istemci sertifikalarını oluşturmakta ya da otomatik olarak imzalanan serti
   -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
   ```
 
-## <a name="cer"></a>3. Kök sertifika ortak anahtarı (.cer) dışarı aktarma
+## <a name="cer"></a>3. Kök sertifikanın ortak anahtarı (.cer) dışarı aktarma
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
 
-### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Otomatik olarak imzalanan kök sertifikayı ve (isteğe bağlı) depolamak için özel anahtarı dışarı aktar
+### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Otomatik olarak imzalanan kök sertifika ve (isteğe bağlı) depolamak için özel anahtarı dışarı aktar
 
-Otomatik olarak imzalanan sertifika vermek ve depolamak güvenli olarak yedekleme isteyebilirsiniz. Varsa olabilir, daha sonra başka bir bilgisayara yükleyin ve daha fazla istemci certifiates oluşturur. Bir .pfx otomatik olarak imzalanan kök sertifikasını dışarı aktarmak için kök sertifikasını seçin ve açıklandığı gibi aynı adımları kullanın [bir istemci sertifikası verme](#clientexport).
+Otomatik olarak imzalanan kök sertifikasını dışarı aktarma ve depolamak güvenli olarak yedekleme isteyebilirsiniz. Varsa olabilir, daha sonra başka bir bilgisayara yükleyin ve daha fazla istemci certifiates oluşturur. Otomatik olarak imzalanan kök sertifika .pfx dışarı aktarmak için kök sertifika Seç ve açıklandığı gibi aynı adımları kullanın [bir istemci sertifikasını dışarı aktarma](#clientexport).
 
 ## <a name="clientexport"></a>4. İstemci sertifikasını dışarı aktarma
 
@@ -129,14 +129,14 @@ Otomatik olarak imzalanan sertifika vermek ve depolamak güvenli olarak yedeklem
 
 ## <a name="install"></a>5. Dışarı aktarılan bir istemci sertifikasını yükleme
 
-Vnet'e P2S bağlantısı üzerinden bağlanan her bir istemci bir istemci sertifikası, yerel olarak yüklü olmasını gerektirir.
+P2S bağlantısı üzerinden Vnet'e bağlanan her istemcinin bir istemci sertifikası, yerel olarak yüklü olmasını gerektirir.
 
-Bir istemci sertifikası yüklemek için bkz: [noktadan siteye bağlantıları için bir istemci sertifikası yüklemek](point-to-site-how-to-vpn-client-install-azure-cert.md).
+Bir istemci sertifikası yüklemek için bkz [noktadan siteye bağlantılar için bir istemci sertifikasını yükleme](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
 ## <a name="install"></a>6. P2S yapılandırma adımlarını uygulayın
 
-Noktası Site yapılandırmanızı ile devam edin.
+Noktadan siteye yapılandırmanızı ile devam edin.
 
-* İçin **Resource Manager** dağıtım modeli adımları bkz [yapılandırma P2S yerel Azure sertifika kimlik doğrulaması kullanarak](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
-* İçin **Klasik** dağıtım modeli adımları bkz [bir sanal ağ (Klasik) bir noktadan siteye VPN bağlantısı yapılandırma](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
-* P2S için sorun giderme bilgileri için bkz: [sorun giderme Azure noktadan siteye bağlantıları](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+* İçin **Resource Manager** dağıtım modeli adımlara bakın [yapılandırma P2S yerel Azure sertifika doğrulaması kullanarak](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
+* İçin **Klasik** dağıtım modeli adımlara bakın [(Klasik) bir sanal ağa noktadan siteye VPN bağlantısı yapılandırma](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+* P2S için sorun giderme bilgileri için bkz. [sorun giderme Azure noktadan siteye bağlantılar](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

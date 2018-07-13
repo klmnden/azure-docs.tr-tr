@@ -1,6 +1,6 @@
 ---
-title: StorSimple erişim denetimi kayıtları yönetme | Microsoft Docs
-description: Erişim denetimi kayıtları (ACRs) barındıran bir birime bağlanabilir belirlemek için StorSimple cihazında nasıl kullanılacağını açıklar.
+title: StorSimple, erişim denetimi kayıtları yönetme | Microsoft Docs
+description: Erişim denetimi kayıtları (Acr'leri) barındıran bir birime bağlanabilir belirlemek için StorSimple cihazında nasıl kullanılacağını açıklar.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,119 +15,119 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
 ms.openlocfilehash: 9173e34f889ce1c082b20bb382cb6ca9a03dd797
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23874909"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38597506"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Erişim denetimi kayıtları yönetmek için StorSimple Yöneticisi hizmetini kullanma
 
 ## <a name="overview"></a>Genel Bakış
-Erişim denetimi kayıtları (ACRs), StorSimple cihaz üzerindeki bir birimi hangi ana bilgisayarların bağlanabileceği belirtmenize olanak verir. ACRs belirli bir birimi ayarlayın ve ana bilgisayarların iSCSI nitelikli adlar (IQN'ler) içerir. Bir ana bilgisayara bir birime bağlanmaya çalıştığında, cihaz IQN adının bu birimde ACR ilişkili ve bir eşleşme varsa, ardından bağlantı kurulur denetler. Erişim denetimi kayıtları **yapılandırma** StorSimple cihaz Yöneticisi hizmeti dikey pencerenize bölümünü konak karşılık gelen IQN'ler ile tüm erişim denetimi kayıtları görüntüler.
+Erişim denetimi kayıtları (Acr'leri), StorSimple cihazında bir birim hangi ana bilgisayarların bağlanabileceği belirtmenizi sağlar. Acr'leri belirli bir birim için ayarlanır ve konağın iSCSI tam adları (IQN'ler) içerir. Bir konak, bir birime bağlanmaya çalıştığında, cihaz IQN adı söz konusu birimde ACR ilişkili ve bir eşleşme varsa, daha sonra bağlantı kurulur denetler. Erişim denetimi kayıtları içinde **yapılandırma** StorSimple cihaz Yöneticisi hizmet dikey bölümünü karşılık gelen IQN'ler konakları ile tüm erişim denetimi kayıtları görüntüler.
 
-Bu öğretici ACR ile ilgili aşağıdaki ortak görevler açıklanmaktadır:
+Bu öğreticide, ACR ile ilgili aşağıdaki ortak görevler açıklanmaktadır:
 
-* Bir erişim denetimi kaydı ekleme
-* Bir erişim denetimi kaydı Düzenle
-* Bir erişim denetimi kaydını sil
+* Erişim denetimi kaydı ekleme
+* Bir erişim denetimi kaydını Düzenle
+* Bir erişim denetim kaydını silme
 
 > [!IMPORTANT]
-> * Bir ACR bir birime atarken, bu birim bozuk olabilir çünkü birim aynı anda birden fazla kümelenmemiş ana bilgisayar tarafından erişmediğinden dikkatli olun.
-> * Bir ACR bir birimden silerken, silme, okuma-yazma kesilme neden olabilir çünkü karşılık gelen ana birim eriştiğini değil emin olun.
+> * Bir ACR'yi bir birime atarken, bu birimin bozuk olabilir çünkü birim eşzamanlı olarak birden fazla kümelenmemiş konağıyla erişmediğinden ilgileniriz.
+> * Bir ACR'yi bir birimden silerken, silme, okuma-yazma kesinti neden olabileceğinden karşılık gelen konak birimi eriştiğini değil emin olun.
 
-## <a name="get-the-iqn"></a>IQN'sini Al
+## <a name="get-the-iqn"></a>IQN Al
 
 Windows Server 2012 çalıştıran bir Windows konağının IQN'sini almak için aşağıdaki adımları gerçekleştirin.
 
 [!INCLUDE [storsimple-get-iqn](../../includes/storsimple-get-iqn.md)]
 
 
-## <a name="add-an-access-control-record"></a>Bir erişim denetimi kaydı ekleme
-Kullandığınız **yapılandırma** ACRs eklemek için StorSimple cihaz Yöneticisi hizmeti dikey bölümde. Genellikle, bir birimle bir ACR ilişkilendireceğiniz.
+## <a name="add-an-access-control-record"></a>Erişim denetimi kaydı ekleme
+Kullandığınız **yapılandırma** Acr'leri eklemek için StorSimple cihaz Yöneticisi hizmet dikey bölümde. Genellikle, bir ACR ile tek bir birim ilişkilendireceksiniz.
 
-Bir ACR eklemek için aşağıdaki adımları gerçekleştirin.
+Bir ACR'yi eklemek için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="to-add-an-acr"></a>Bir ACR eklemek için
+#### <a name="to-add-an-acr"></a>Bir ACR'yi eklemek için
 
-1. StorSimple cihaz Yöneticisi hizmetinize gidin, hizmet adına çift tıklayın ve ardından içinde **yapılandırma** 'yi tıklatın **erişim denetimi kayıtları**.
-2. İçinde **erişim denetimi kayıtları** dikey penceresinde tıklatın **+ ACR eklemek**.
+1. StorSimple cihaz Yöneticisi hizmetinize gidin, hizmet adına çift tıklayın ve ardından içinde **yapılandırma** bölümünde **erişim denetimi kayıtları**.
+2. İçinde **erişim denetimi kayıtları** dikey penceresinde tıklayın **+ ACR ekleme**.
 
-    ![ACR Ekle'yi tıklatın](./media/storsimple-8000-manage-acrs/createacr1.png)
+    ![ACR Ekle seçeneğine tıklayın](./media/storsimple-8000-manage-acrs/createacr1.png)
 
-3. İçinde **eklemek ACR** dikey penceresinde, aşağıdaki adımları uygulayın:
+3. İçinde **ACR ekleme** dikey penceresinde aşağıdaki adımları uygulayın:
 
     1. Bir ad verin sağlayın.
     
-    2. Windows Server konağınızda altında IQN adını sağlayın **iSCSI başlatıcısı adı (IQN)**.
+    2. Windows Server konağınızda IQN adı sağlayın **iSCSI başlatıcısı adı (IQN)**.
 
-    3. Tıklatın **Ekle** ACR oluşturmak için.
+    3. Tıklayın **Ekle** ACR oluşturma.
 
-        ![ACR Ekle'yi tıklatın](./media/storsimple-8000-manage-acrs/createacr2.png)
+        ![ACR Ekle seçeneğine tıklayın](./media/storsimple-8000-manage-acrs/createacr2.png)
 
-4.  Yeni eklenen ACR ACRs Tablo listesinde görüntülenir.
+4.  Yeni eklenen ACR Acr'leri tablosal listesinde görüntülenir.
 
-    ![ACR Ekle'yi tıklatın](./media/storsimple-8000-manage-acrs/createacr5.png)
+    ![ACR Ekle seçeneğine tıklayın](./media/storsimple-8000-manage-acrs/createacr5.png)
 
 
-## <a name="edit-an-access-control-record"></a>Bir erişim denetimi kaydı Düzenle
-Kullandığınız **yapılandırma** ACRs düzenlemek için StorSimple cihaz Yöneticisi hizmeti dikey bölümde.
+## <a name="edit-an-access-control-record"></a>Bir erişim denetimi kaydını Düzenle
+Kullandığınız **yapılandırma** Acr'leri düzenlemek için StorSimple cihaz Yöneticisi hizmet dikey bölümde.
 
 > [!NOTE]
-> Şu anda kullanımda olmayan ACRs değiştirmeniz önerilir. Şu anda kullanılmakta olan bir birimi ile ilişkili bir ACR düzenlemek için önce birim çevrimdışı duruma getirmeniz gerekir.
+> Şu anda kullanımda olmayan Acr'leri değiştirmeniz önerilir. Şu anda kullanılmakta olan bir birimi ile ilişkilendirilmiş bir ACR'yi düzenlemek için önce birimi çevrimdışı duruma getirmeniz gerekir.
 
-Bir ACR düzenlemek için aşağıdaki adımları gerçekleştirin.
+Bir ACR'yi düzenlemek için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="to-edit-an-access-control-record"></a>Bir erişim denetimi kaydını düzenlemek için
-1.  StorSimple cihaz Yöneticisi hizmetinize gidin, hizmet adına çift tıklayın ve ardından içinde **yapılandırma** 'yi tıklatın **erişim denetimi kayıtları**.
+#### <a name="to-edit-an-access-control-record"></a>Erişim denetimi kaydı düzenlemek için
+1.  StorSimple cihaz Yöneticisi hizmetinize gidin, hizmet adına çift tıklayın ve ardından içinde **yapılandırma** bölümünde **erişim denetimi kayıtları**.
 
     ![Erişim denetimi kayıtları gidin](./media/storsimple-8000-manage-acrs/createacr1.png)
 
-2. Erişim denetimi kayıtları Tablo listesi, tıklayın ve değiştirmek istediğiniz ACR seçin.
+2. Erişim denetimi kayıtları tablosal listesinde,'a tıklayın ve değiştirmek istediğiniz ACR seçin.
 
     ![Erişim denetimi kayıtları düzenleme](./media/storsimple-8000-manage-acrs/editacr1.png)
 
-3. İçinde **düzenleme erişim denetimi kaydı** dikey penceresinde, başka bir ana bilgisayara karşılık gelen farklı bir IQN sağlayın.
+3. İçinde **düzenleme erişim denetim kaydını** dikey penceresinde, başka bir konağa karşılık gelen farklı bir IQN sağlayın.
 
     ![Erişim denetimi kayıtları düzenleme](./media/storsimple-8000-manage-acrs/editacr2.png)
 
-4. **Kaydet** düğmesine tıklayın. Onayınız istendiğinde **Evet**’e tıklayın. 
+4. **Kaydet**’e tıklayın. Onayınız istendiğinde **Evet**’e tıklayın. 
 
     ![Erişim denetimi kayıtları düzenleme](./media/storsimple-8000-manage-acrs/editacr3.png)
 
-5. ACR güncelleştirildiğinde size bildirilir. Tablo listeleme ayrıca değişikliği yansıtacak şekilde güncelleştirir.
+5. ACR güncelleştirildiğinde size bildirilir. Tablo listesi de değişikliği yansıtacak şekilde güncelleştirir.
 
    
-## <a name="delete-an-access-control-record"></a>Bir erişim denetimi kaydını sil
-Kullandığınız **yapılandırma** ACRs silmek için StorSimple cihaz Yöneticisi hizmeti dikey bölümde.
+## <a name="delete-an-access-control-record"></a>Bir erişim denetim kaydını silme
+Kullandığınız **yapılandırma** Acr'leri silmek için StorSimple cihaz Yöneticisi hizmet dikey bölümde.
 
 > [!NOTE]
-> Şu anda kullanımda olmayan ACRs silebilirsiniz. Şu anda kullanılmakta olan bir birimi ile ilişkili bir ACR silmek için önce birim çevrimdışı duruma getirmeniz gerekir.
+> Şu anda kullanımda olmayan Acr'leri silebilirsiniz. Şu anda kullanılmakta olan bir birimi ile ilişkilendirilmiş bir ACR'yi silmek için önce birimi çevrimdışı duruma getirmeniz gerekir.
 
-Bir erişim denetimi kaydını silmek için aşağıdaki adımları gerçekleştirin.
+Bir erişim denetim kaydını silmek için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="to-delete-an-access-control-record"></a>Bir erişim denetimi kaydını silmek için
-1.  StorSimple cihaz Yöneticisi hizmetinize gidin, hizmet adına çift tıklayın ve ardından içinde **yapılandırma** 'yi tıklatın **erişim denetimi kayıtları**.
+#### <a name="to-delete-an-access-control-record"></a>Bir erişim denetim kaydını silmek için
+1.  StorSimple cihaz Yöneticisi hizmetinize gidin, hizmet adına çift tıklayın ve ardından içinde **yapılandırma** bölümünde **erişim denetimi kayıtları**.
 
     ![Erişim denetimi kayıtları gidin](./media/storsimple-8000-manage-acrs/createacr1.png)
 
-2. Erişim denetimi kayıtları Tablo listesi, tıklayın ve silmek istediğiniz ACR seçin.
+2. Erişim denetimi kayıtları tablosal listesinde,'a tıklayın ve silmek istediğiniz ACR seçin.
 
     ![Erişim denetimi kayıtları gidin](./media/storsimple-8000-manage-acrs/deleteacr1.png)
 
-3. Bağlam menüsü çağırma ve seçmek için sağ **silmek**.
+3. Bağlam menüsünü açmak ve seçmek için sağ tıklama **Sil**.
 
     ![Erişim denetimi kayıtları gidin](./media/storsimple-8000-manage-acrs/deleteacr2.png)
 
-4. Onaylamanız istendiğinde, bilgileri gözden geçirin ve ardından **silmek**.
+4. Onayınız istendiğinde bilgileri gözden geçirin ve ardından **Sil**.
 
     ![Erişim denetimi kayıtları gidin](./media/storsimple-8000-manage-acrs/deleteacr3.png)
 
-5. Silme işlemi tamamlandığında size bildirilir. Sekmeli liste silme yansıtacak şekilde güncelleştirilir.
+5. Silme işlemi tamamlandığında size bildirilir. Tablosal silinmesini yansıtacak şekilde güncelleştirilir.
 
     ![Erişim denetimi kayıtları gidin](./media/storsimple-8000-manage-acrs/deleteacr5.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinmek [StorSimple birimlerini yönetme](storsimple-8000-manage-volumes-u2.md).
-* Daha fazla bilgi edinmek [StorSimple Cihazınızı yönetmek için StorSimple Yöneticisi hizmetini kullanma](storsimple-8000-manager-service-administration.md).
+* Daha fazla bilgi edinin [StorSimple birimlerini yönetme](storsimple-8000-manage-volumes-u2.md).
+* Daha fazla bilgi edinin [StorSimple Cihazınızı yönetmek için StorSimple Yöneticisi hizmetini kullanarak](storsimple-8000-manager-service-administration.md).
 

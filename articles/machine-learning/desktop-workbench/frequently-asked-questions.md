@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning 2017 Önizleme SSS | Microsoft Docs
-description: Bu makalede Azure Machine Learning Önizleme özellikleri için yanıtlar ve sık sorulan soruların içerir
+title: Azure Machine Learning 2017 önizleme hakkında SSS | Microsoft Docs
+description: Bu makalede, sık sorulan sorular ve yanıtlar için Azure Machine Learning Önizleme özellikleri
 services: machine-learning
 author: serinakaye
 ms.author: serinak
@@ -11,165 +11,165 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 43da51e389fa899d912a60bfe90e7b4e39390382
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 94a1f3bbba83e8e71cf9440b5ded0784f4616c99
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37116193"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674164"
 ---
-# <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning sık sorulan sorular
+# <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning hakkında sık sorulan sorular
 
-Azure Machine Learning oluşturmak, sınamak, yönetmek ve makine öğrenme ve AI modelleri dağıtmak izin veren bir tam olarak yönetilen Azure hizmetidir. Bizim Hizmetleri ve indirilebilir uygulama bulut, şirket içi ve eğitimi sağlamak için dağıtmak, yönetmek kenar yararlanır ilk kod yaklaşımı sunar ve güç, hız ve esneklik modelleriyle izleyebilirsiniz. Alternatif olarak, Azure Machine Learning Studio hiçbir kodlama gerekli olduğu bir tarayıcı tabanlı, visual sürükle ve bırak yazma ortamı sağlar. 
+Azure Machine Learning oluşturun, test etmek, yönetmek ve makine öğrenimi ve yapay ZEKA modelleri dağıtın olanak tanıyan bir tam olarak yönetilen Azure hizmetidir. Sunduğumuz Hizmetleri ve indirilebilir uygulama bulut, şirket içi ve eğitimi sağlayın, dağıtma, yönetme, edge yararlanan kod öncelikli bir yaklaşım sunar ve modelleri power, hız ve esneklik ile izleyin. Alternatif olarak, Azure Machine Learning Studio kodlama gerekli olduğu bir tarayıcı tabanlı, görsel sürükle ve bırak geliştirme ortamı sunar. 
 
-## <a name="general-product-questions"></a>Genel ürün soruları
+## <a name="general-product-questions"></a>Ürün genel sorular
 
-**Diğer Azure hizmetleriyle gereklidir?**
+**Diğer Azure Hizmetleri gereklidir?**
 
-Azure Blob Storage ve Azure kapsayıcı kayıt defteri Azure Machine Learning tarafından kullanılır. Ayrıca, bir veri bilimi VM veya Hdınsight kümesi gibi işlem kaynakları sağlamanız gerekir. İşlem ve barındırma da gerekli web hizmetlerinizi gibi dağıtırken [Azure kapsayıcı hizmeti](https://docs.microsoft.com/azure/aks).
+Azure Blob Depolama ve Azure Container Registry, Azure Machine Learning tarafından kullanılır. Ayrıca, bir veri bilimi sanal makinesi veya HDInsight kümesi gibi bilgi işlem kaynakları sağlamak gerekir. İşlem ve barındırma da gerekli, web Hizmetleri gibi dağıtım yaparken [Azure Container Service](https://docs.microsoft.com/azure/aks).
 
-**Azure Machine Learning Microsoft Machine Learning SQL Server 2017 Hizmetleri'nde ne şekilde ilişkilidir?**   
+**SQL Server 2017'de Microsoft Machine Learning Hizmetleri için nasıl Azure Machine Learning ilişkilidir?**   
 
-SQL Server 2017 makine öğrenme Hizmetleri veritabanı iş akışlarıyla birleştirilerek makine öğrenimi görevlerini tümleştirmek için genişletilebilir, ölçeklenebilir bir platformdur. Mükemmel bir şirket içi çözüm, veri taşıma pahalı veya untenable olduğu örnek için gerekli olduğu senaryolar için olur. Buna karşılık, Bulut veya karma iş yükleri yeni Azure hizmetlerimizle için harika bir Sığdırma ' dir. 
+SQL Server 2017 Machine Learning Hizmetleri makine öğrenimi görevlerini veritabanı iş akışlarınızla tümleştirmek için genişletilebilir, ölçeklenebilir bir platformdur. Bu, şirket içi bir çözüm, örnek veri taşıma pahalı veya untenable olduğu için gerekli olduğu senaryolar için mükemmel olur. Buna karşılık, Bulut veya hibrit iş yükleri için yeni Azure hizmetlerimizi harika uygun olan. 
 
-**Python ve R destekliyor musunuz? C++ gibi programlama diğer diller hakkında**
+**Hem Python hem de R destekliyorsunuz? Diğer C++ gibi programlama dilleri hakkında**
 
-Python şu anda yalnızca destekler. Biz R tümleştirme üzerinde çalışıyorsunuz ve kullanılabilen en kısa sürede beklediğiniz. 
+Python şu anda yalnızca destekler. Biz, R tümleştirmesi üzerinde çalışıyoruz ve kullanılabilir olan en kısa sürede sahip olmayı beklediğiniz. 
 
-**Azure Machine Learning nasıl için Spark Microsoft Machine Learning ile ilişkilidir?**
+**Azure Machine Learning'i nasıl Spark için Microsoft Machine Learning ile ilişkilidir?**
 
-Derin öğrenme MMLSpark sağlar ve veri bilimi araçlarıyla Apache Spark için üretkenliği indirimlere deneme ve durum resim algoritmaları kolaylaştırır. MMLSpark Spark Machine Learning ardışık düzen OpenCV ve Microsoft Bilişsel araç seti ile tümleştirilmesi sunar. Güçlü, ölçeklendirilebilir Tahmine dayalı ve analitik modeller resim ve metin verileri için oluşturabilirsiniz. MMLSpark bir açık kaynak lisansı altında kullanılabilir ve AML çalışma ekranı bir dizi tüketilebilir modelleri ve algoritmaları eklenir. MMLSpark hakkında daha fazla bilgi için ürün Belgelerimizi ziyaret edin. 
+Derin öğrenme MMLSpark sağlar ve üretkenlik, indirimlere ile Apache Spark için veri bilimi araçlarını deneme ve durum resim algoritmaları kolaylaştırır. MMLSpark Spark Machine Learning işlem hatlarını OpenCV ve Microsoft Bilişsel araç seti ile tümleştirme sağlar. Güçlü, yüksek oranda ölçeklenebilir Tahmine dayalı ve analitik modeller resim ve metin veri oluşturabilirsiniz. MMLSpark, bir açık kaynak lisansı altında sunulur ve AML Workbench'te tüketim modelleri ve algoritmaları kümesi olarak dahil edilir. MMLSpark hakkında daha fazla bilgi için belgelerimize ürün kaydedilir. 
 
-**Spark'ın hangi sürümleri, yeni araçlar ve hizmetler tarafından destekleniyor mu?**
+**Yeni araç ve Hizmetleri tarafından Spark'ın hangi sürümleri destekleniyor?**
 
-Çalışma ekranı şu anda içerir ve MMLSpark sürüm 0,8, Apache Spark 2.1 ile uyumlu olduğu destekler. Linux sanal makineleri MMLSpark 0,8 GPU etkin Docker görüntüsünü kullanmak için bir seçeneğiniz de vardır.
+Workbench, şu anda içerir ve Apache Spark 2.1 ile uyumlu sürümü 0.8 MMLSpark destekler. Linux sanal makinelerinde MMLSpark 0.8 GPU özellikli bir Docker görüntüsü kullanmak için bir seçeneğiniz de vardır.
 
 ## <a name="experimentation-service"></a>Deneme hizmeti
 
 **Azure Machine Learning deneme hizmeti nedir?**
 
-Deneme hizmeti bir sonraki düzeye machine learning deneme alır yönetilen bir Azure hizmetidir. Denemeler yerel olarak veya bulutta oluşturulabilir. Hızlı bir şekilde prototip bir masaüstünde, sonra ölçek sanal makine ya da Spark kümeleri. Azure VM son GPU teknolojisi ile birlikte hızlı ve etkili şekilde derin öğrenme içinde gerçekleştirmesine olanak sağlar. İzleme kodu, yapılandırma ve işbirliği için var olan iş akışlarını içine kolayca ekleyebilirsiniz böylece biz Git ile derin tümleştirme de dahil ettiğiniz. 
+Deneme hizmeti, machine learning denemesi bir sonraki düzeye alan yönetilen bir Azure hizmetidir. Yerel olarak veya bulutta denemeleri oluşturulabilir. Hızlı bir şekilde prototip masaüstünde, sonra ölçeği sanal makine ya da Spark kümeleri. En son GPU teknolojisi ile Azure Vm'leri hızla ve etkili bir şekilde derin öğrenme de gerçekleştirmesine imkan sağlar. İzleme kodu, yapılandırma ve işbirliği için mevcut iş akışları halinde kolayca takılabilir için Git ile kapsamlı tümleştirme de ekledik. 
 
-**Nasıl ı deneme hizmeti için sizden ücret alınır?**
+**Deneme hizmeti için nasıl ücretlendirilirim?**
 
-Azure Machine Learning deneme hizmetiniz ile ilişkili ilk iki kullanıcılar ücretsizdir. Ek kullanıcılar $50/ay genel Önizleme hızında ücretlendirilir. Fiyatlandırma ve faturalama hakkında daha fazla bilgi için fiyatlandırma sayfamızı ziyaret edin.
+Azure Machine Learning deneme hizmeti ile ilişkili ilk iki kullanıcı ücretsizdir. Ek kullanıcılar, aylık 50 $ genel Önizleme fiyatı üzerinden ücretlendirilirsiniz. Fiyatlandırma ve faturalandırma hakkında daha fazla bilgi için fiyatlandırma sayfamızı ziyaret edin.
 
-**I çalıştırabilirim kaç denemeler göre ücretlendirilir?**
+**Kaç tane denemeleri çalıştırabilir göre ücretlendirilirim?**
 
-Hayır, Deneme hizmet gereksinimi ve yalnızca kullanıcı sayısına göre ücretleri aynı sayıda denemeler sağlar. Deneme işlem kaynakları ayrı olarak ücretlendirilir. Çözümünüz için model sığdırma en iyi bulabilmek için birden çok denemeler gerçekleştirmenizi öneririz.   
+Hayır, deneme hizmeti dilediğiniz sayıda denemeye gereksinimini ve yalnızca kullanıcı sayısına göre ücret sağlar. Deneme işlem kaynakları ayrı olarak ücretlendirilir. Çözümünüz için model sığdırma en iyi bulabilmesi için birden çok deneme yapmaya öneririz.   
 
-**İşlem ve depolama kaynaklarını belirli ne tür kullanabilir miyim?**
+**Hangi tür işlem ve depolama kaynakları kullanabilirim?**
 
-Deneme hizmeti yerel makine üzerinde (doğrudan veya Docker tabanlı), denemelerinizi yürütebilir [Azure sanal makineleri](https://azure.microsoft.com/services/virtual-machines/), ve [Hdınsight](https://azure.microsoft.com/services/hdinsight/). Ayrıca hizmete erişen bir [Azure Storage](https://azure.microsoft.com/services/storage/) hesap yürütme çıkışları depolamak için ve yararlanabilirsiniz bir [Visual Studio Team hizmeti](https://azure.microsoft.com/services/visual-studio-team-services/) sürüm denetimi ve Git depolama hesabı. Bağımsız olarak tüm tüketilen hesaplama ve depolama kaynakları, tek tek veritabanlarının fiyatlandırma üzerine dayalı için Fatura edilecek olduğunu unutmayın.  
+Deneme hizmeti, yerel makine üzerinde (doğrudan veya Docker tabanlı), denemelerinizi yürütebilirsiniz [Azure sanal makineler](https://azure.microsoft.com/services/virtual-machines/), ve [HDInsight](https://azure.microsoft.com/services/hdinsight/). Ayrıca hizmete erişen bir [Azure depolama](https://azure.microsoft.com/services/storage/) yararlanabilir ve hesap yürütme çıktılarının depolanması için bir [Visual Studio Team Service](https://azure.microsoft.com/services/visual-studio-team-services/) sürüm denetimi ve Git depolama hesabı. Bağımsız olarak tüketilen tüm işlem ve depolama kaynaklarını tek tek kendi fiyatı temel alınarak faturalandırılırsınız olduğunu unutmayın.  
 
 
 ## <a name="model-management"></a>Model Yönetimi
 
-**Azure Machine Learning modeli Management nedir?**
+**Azure Machine Learning Model yönetimi nedir?**
 
-Azure Machine Learning modeli yönetim Tahmine dayalı modelleri çok çeşitli ortamlar güvenilir bir şekilde dağıtmak veri bilimcilerine ve geliştirme ops ekipleri sağlayan yönetilen bir Azure hizmetidir. Git depoları ve Docker kapsayıcıları izlenebilirlik ve Yinelenebilirlik sağlar. Modeller, güvenilir bulut, şirket içi veya edge dağıtılabilir. Üretimde modeli performans yönetebilirsiniz sonra performans düşerse sonra önceden çağırma. Yerel makinede modelleri için dağıtabilirsiniz [Azure Vm'leri](https://azure.microsoft.com/services/virtual-machines/), üzerinde Spark [Hdınsight](https://azure.microsoft.com/services/hdinsight/) veya Kubernetes bağımsızlıklar [Azure kapsayıcı hizmeti](https://azure.microsoft.com/services/container-service/) kümeleri.  
+Azure Machine Learning Model Yönetimi Tahmine dayalı modelleri çok çeşitli ortamlar içinde güvenilir bir şekilde dağıtmak veri bilimcilerine ve geliştirme ekipleri sağlayan yönetilen bir Azure hizmetidir. Git depoları ve Docker kapsayıcılarını izlenebilirlik ve yinelenebilirliği sağlamak. Bulut, şirket içinde veya uç modelleri güvenilir bir şekilde dağıtılabilir. Üretim ortamında, model performansını yönetebilirsiniz. sonra performansı düşürür, ardından proaktif olarak yeniden eğitme. Yerel makinede modelleri için dağıtabileceğiniz [Azure Vm'leri](https://azure.microsoft.com/services/virtual-machines/), üzerinde Spark [HDInsight](https://azure.microsoft.com/services/hdinsight/) veya Kubernetes düzenlenen [Azure Container Service](https://azure.microsoft.com/services/container-service/) kümeleri.  
 
 **"Modeli" nedir?**
 
-Çalıştıran bir deneme çıktısı model yönetimi için yükseltilmiş bir modeldir. Barındırma hesabında kayıtlı bir modeli yeniden eğitme veya sürüm yineleme güncelleştirilmiş modelleri de dahil olmak üzere planınıza göre hesaplanır.
+Model yönetimi için çalışan bir deneme çıktısını yükseltildi bir modeldir. Barındırma hesabında kayıtlı bir modeli yeniden eğitme veya sürüm yineleme güncelleştirilmiş modelleri de dahil olmak üzere, planınıza göre sayılır.
 
-**Bir "yönetilen modeli?" nedir**
+**"Yönetilen model?" nedir**
 
-Model terimi, bir eğitim işleminin çıktısıdır ve eğitim verilerine bir makine öğrenimi algoritmasının uygulanmasını ifade eder. Model yönetim modelleri web Hizmetleri olarak dağıtmak, Modellerinizi çeşitli sürümlerini yönetmek ve kendi performansını ve ölçümleri izleme sağlar. "Yönetilen" modelleri bir Azure Machine Learning modeli yönetim hesabıyla kaydettiniz. Örneğin, satışları tahmin etmeye çalıştığınız bir senaryoyu ele alalım. Deneme aşamasında, farklı veri kümeleri veya algoritmaları kullanarak birçok modelleri oluşturun. Değişen accuracies dört modelleriyle oluşturulmasını ancak yalnızca model yüksek doğruluk ile kaydetmek seçin. Kayıtlı modeli ilk yönetilen modelinizi olur.
+Model terimi, bir eğitim işleminin çıktısıdır ve eğitim verilerine bir makine öğrenimi algoritmasının uygulanmasını ifade eder. Model yönetimi, Modellerinizi web Hizmetleri olarak dağıtmanıza, modellerin çeşitli sürümlerini yönetmek ve performans ve ölçümleri izleme sağlar. "Yönetilen" modeller bir Azure Machine Learning Model Yönetimi hesabı ile kaydedilmiş. Örneğin, satışları tahmin etmeye çalıştığınız bir senaryoyu ele alalım. Deneme aşaması boyunca farklı veri kümeleri veya algoritmalar kullanarak birçok modelleri oluşturun. Dört model oluşturduğunuz doğruluk ancak en yüksek doğruluğa sahip modeli kaydetmeyi tercih. Kayıtlı modeli ilk yönetilen modeliniz olur.
  
 **Bir "dağıtım?" nedir**
 
-Model yönetim modelleri paketlenmiş web hizmeti Azure kapsayıcılarında olarak dağıtmanızı sağlar. Bu web hizmetleri REST API'lerini kullanarak çağrılabilir. Her web hizmeti tek bir dağıtım kabul edilir ve etkin dağıtım toplam sayısı planınıza doğru sayılır. Örnek, model gerçekleştirme en iyi dağıttığınızda tahmin satış kullanarak, bir dağıtım tarafından planınız artırılır. Daha sonra yeniden eğitme ve başka bir sürümü dağıtırsanız, iki dağıtım sahip. Karar verirseniz daha yeni model iyidir ve delete özgün dağıtım sayısı tarafından düşülür.  
+Model Yönetimi modelleri azure'da paketlenmiş web hizmeti kapsayıcıları olarak dağıtmanıza olanak tanır. Bu web Hizmetleri, REST API'lerini kullanarak çağrılabilir. Her web hizmeti tek bir dağıtım olarak kabul edilir ve etkin dağıtımların toplam sayısı planınızdan sayılır. Örnek, en iyi performansa sahip model dağıttığınızda tahmini satış kullanarak, planınızı bir dağıtım tarafından artırılır. Daha sonra yeniden eğitme ve başka bir sürümü dağıtırsanız iki dağıtımınız. Karar verirseniz yeni modelin daha iyi ve delete özgün, dağıtım sayınız bir azaltılır.  
 
-**Hangi belirli işlem kaynakları my dağıtımlar için kullanılabilir mi?** 
+**Hangi belirli işlem kaynakları my dağıtımları için kullanılabilir mi?** 
 
-Model yönetimi için Docker kapsayıcıları kayıtlı olarak dağıtımlarınızı çalıştırabilirsiniz [Azure kapsayıcı hizmeti](https://azure.microsoft.com/services/container-service/), olarak [Azure sanal makineleri](https://azure.microsoft.com/services/virtual-machines/), veya yerel makine üzerinde. Ek dağıtım hedefleri kısa süre içinde eklenir. Bağımsız olarak tek tek veritabanlarının fiyatlandırma üzerine dayalı herhangi tüketilen işlem kaynakları faturalandırılır olduğunu unutmayın.     
+Model yönetimi, dağıtımlarınızı çalıştırabilir, Docker kapsayıcıları için kayıtlı [Azure Container Service](https://azure.microsoft.com/services/container-service/), olarak [Azure sanal makineler](https://azure.microsoft.com/services/virtual-machines/), veya yerel makine üzerinde. Ek dağıtım hedefleri kısa bir süre sonra eklenecektir. Sizin için bireysel kullanıcıların fiyatı temel alınarak tüketilen tüm işlem kaynakları, faturalandırılacağınızı olduğunu unutmayın.     
 
-**Deneme hizmeti dışındaki araçlar kullanılarak oluşturulan modelleri dağıtmak için Azure Machine Learning modeli Management kullanabilir miyim?**
+**Deneme hizmeti dışındaki araçlarla oluşturulmuş modelleri dağıtabilir Azure Machine Learning Model Yönetimi kullanabilir miyim?**
 
-Deneme hizmeti kullanılarak oluşturulan modelleri dağıtırken en iyi deneyimi alın. Ancak, diğer çerçeveler ve araçlar kullanılarak oluşturulan modelleri dağıtabilirsiniz. Modelleri MMLSpark, TensorFlow, Microsoft Bilişsel araç seti, scikit dahil olmak üzere çeşitli destekliyoruz-öğrenme, Keras, vs. 
+Deneme hizmeti kullanılarak oluşturulmuş modelleri dağıttığınızda en iyi deneyimi alın. Ancak, diğer çerçeveleri ve araçları kullanılarak oluşturulmuş modelleri dağıtabilirsiniz. Modelleri MMLSpark, TensorFlow, Microsoft Bilişsel araç seti, scikit dahil olmak üzere çeşitli destekliyoruz-learn ve Keras, vs. 
 
-**Azure Kaynaklarım kullanabilir miyim?**
+**Kendi Azure kaynaklarını kullanabilir miyim?**
 
-Evet, deneme hizmeti ve Model yönetim birden çok Azure veri depoları ile birlikte çalışma, işlem iş yükleri ve diğer hizmetler. Gerekli Azure hizmetleri hakkında daha fazla ayrıntı için teknik belgelerimize bakın.
+Evet, deneme hizmeti ve Model Yönetimi birden çok Azure veri deposu ile birlikte çalışma, işlem iş yükleri ve diğer hizmetleri. Gerekli Azure hizmetleri hakkında daha ayrıntılı bilgi için teknik belgelerimize bakın.
 
-**Hem şirket içi desteklemek ve dağıtım senaryoları bulut?**
+**Hem şirket içi ve bulut dağıtım senaryolarına?**
 
-Evet. Biz şirket içi desteklemek ve dağıtım senaryoları Docker kapsayıcıları aracılığıyla bulut. Yerel yürütme hedefleri şunlardır: tek düğümlü Docker dağıtımları [ML Hizmetleri ile Microsoft SQL Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services), Hadoop veya Spark. Ayrıca bulut destekliyoruz Docker, aracılığıyla dağıtımlar dahil olmak üzere: Kümelenmiş dağıtımları Azure kapsayıcı hizmeti ve Kubernetes, Hdınsight veya Spark kümeleri. Edge senaryoları Docker kapsayıcıları ve Azure IOT kenar aracılığıyla desteklenir. 
+Evet. Biz şirket içi ve bulut dağıtım senaryolarına Docker kapsayıcıları aracılığıyla. Yerel yürütme hedefler içerir: tek düğümlü Docker dağıtımları [Microsoft SQL Server ML Hizmetleri ile](https://docs.microsoft.com/sql/advanced-analytics/r/r-services), Hadoop ve Spark. Bulut da destekliyoruz Docker'ı aracılığıyla dağıtımları da dahil olmak üzere: Azure Container Service ve Kubernetes, HDInsight ve Spark kümeleri kümelenmiş dağıtımları. Edge senaryolar, Docker kapsayıcıları ve Azure IOT Edge ile desteklenir. 
 
-**Azure Machine Learning CLI başka bir ana bilgisayarda kullanılarak oluşturulmuş bir Docker görüntüsü çalıştırabilir miyim?**
+**Başka bir konakta Azure Machine Learning CLI kullanılarak oluşturulmuş bir Docker görüntüsü çalıştırabilir miyim?**
 
-Evet. Ana bilgisayar docker görüntü barındırmak için yeterli işlem kaynakları olduğu sürece herhangi bir docker ana bilgisayar üzerinde bir web hizmeti olarak görüntüsü kullanabilirsiniz.
+Evet. Docker görüntüsünü barındırmak için yeterli işlem kaynakları konak sahip olduğu sürece herhangi bir docker konağı üzerinde bir web hizmeti olarak görüntü kullanabilirsiniz.
 
-**Dağıtılan modelleri yeniden eğitme destekliyor musunuz?**
+**Dağıtılan modelleri yeniden eğitme destekliyorsunuz?**
 
-Evet, birden çok sürümü aynı modelin dağıtabilirsiniz. Model yönetim tüm güncelleştirilmiş modelleri ve görüntüleri için hizmet güncelleştirmeleri destekler.
+Evet, birden çok sürümünü aynı modelin dağıtabilirsiniz. Model Yönetimi tüm güncelleştirilmiş modelleri ve görüntüleri için hizmet güncelleştirmeleri destekler.
 
 ## <a name="workbench"></a>Workbench
 
-**Azure Machine Learning çalışma ekranı nedir?**
+**Azure Machine Learning Workbench nedir?**
 
-Azure Machine Learning çalışma ekranı, profesyonel veri bilimcilerine için yerleşik yardımcı bir uygulamadır. Windows ve Mac için kullanılabilir, Machine Learning çalışma ekranı genel bakış, yönetim ve denetimi için makine öğrenimi çözümleri sağlar. Machine Learning çalışma ekranı erişim modern AI çerçeveleri hem Microsoft hem de açık kaynak topluluğu içerir. TensorFlow, Microsoft Bilişsel araç seti, Spark ML, scikit dahil olmak üzere en popüler veri bilimi araç takımları dahil ettiğiniz-öğrenin ve daha fazlası. Biz de Jupyter not defterleri, PyCharm ve Visual Studio Code gibi popüler veri bilimi IDE ile tümleştirme etkinleştirdikten. Machine Learning çalışma ekranı hızlı bir şekilde örnek, anlamak ve yapılandırılmış veya yapılandırılmamış verileri, hazırlamak için yerleşik veri hazırlık özellikleri vardır. Adlı bizim yeni verileri Hazırlama aracı [bir yazı olabilir](https://microsoft.github.io/prose/), Microsoft Research modern teknolojisi üzerine kurulmuştur.  
+Azure Machine Learning Workbench, Uzman veri bilimcilerinin için yerleşik yardımcı bir uygulamadır. Windows ve Mac için kullanılabilir, Machine Learning Workbench genel bakış, yönetim ve denetimi için makine öğrenimi çözümleri sağlar. Machine Learning Workbench modern AI çerçeveleri için hem Microsoft hem de açık kaynak topluluğundan erişimi içerir. TensorFlow, Microsoft Cognitive Toolkit, Spark ML ve scikit dahil olmak üzere en popüler veri bilimi araç Setleri ekledik-öğrenin ve daha fazlası. Jupyter Notebook belgeleri, PyCharm ve Visual Studio Code gibi popüler veri bilimi IDE'ler ile tümleştirme de etkinleştirdik. Machine Learning Workbench, hızlı bir şekilde örnek, anlamak ve yapılandırılmış veya yapılandırılmamış verileri hazırlamak için yerleşik veri hazırlama özellikleri vardır. Adlı sunduğumuz yeni veri Hazırlama aracı [PROSE](https://microsoft.github.io/prose/), Microsoft Research tarafından hazırlanan son teknoloji ürünü teknolojisi üzerine kurulmuştur.  
 
-**Çalışma ekranı bir IDE mi?**
+**Workbench, bir IDE mi?**
 
-Hayır. Machine Learning çalışma ekranı Jupyter not defterleri, Visual Studio Code ve PyCharm gibi popüler IDE için özel olarak tasarlanmış ancak tam olarak işlevsel bir IDE değil. Machine Learning çalışma ekranı bazı temel metin düzenleme özellikleri, ancak hata ayıklama, IntelliSense ve diğer yaygın olarak kullanılan IDE özellikleri desteklenmez sunar. Sık kullanılan IDE'yi kod geliştirme için düzenleme ve hata ayıklama kullanmanızı öneririz. Denemek isteyebilirsiniz [AI için Visual Studio kod Araçları](https://www.visualstudio.com/downloads/ai-tools-vscode).
+Hayır. Machine Learning Workbench, Jupyter Notebook belgeleri, Visual Studio Code ve PyCharm gibi popüler Ide'leri için eşlikçi olarak tasarlanmıştır ancak tam olarak işlevsel bir IDE değil. Machine Learning Workbench, bazı düzenleme özellikleri, ancak hata ayıklama temel metin, IntelliSense ve diğer yaygın olarak kullanılan IDE özellikleri desteklenmez sunar. En sevdiğiniz IDE için kod geliştirme, düzenleme ve hata ayıklama kullanmanızı öneririz. Ayrıca denemeyi düşünebileceğiz [yapay ZEKA için Visual Studio Code Araçları](https://www.visualstudio.com/downloads/ai-tools-vscode).
 
-**Azure Machine Learning çalışma ekranı kullanmak için bir ücret var mı?**
+**Azure Machine Learning Workbench'i kullanarak ücreti var mıdır?**
 
-Hayır. Azure Machine Learning çalışma ekranı ücretsiz bir uygulamasıdır. Bu uygulamayı dilediğiniz sayıda makinede ve dilediğiniz sayıda kullanıcı için indirebilirsiniz. Azure Machine Learning Workbench’i kullanabilmeniz için bir Deneme hesabınız olmalıdır. .  
+Hayır. Azure Machine Learning Workbench ücretsiz bir uygulamadır. Bu uygulamayı dilediğiniz sayıda makinede ve dilediğiniz sayıda kullanıcı için indirebilirsiniz. Azure Machine Learning Workbench’i kullanabilmeniz için bir Deneme hesabınız olmalıdır. .  
 
 **Komut satırı özelliklerini destekler mi?**
 
-Evet, Azure Machine Learning tam CLI sunar. Machine Learning CLI, Azure Machine Learning çalışma ekranı varsayılan olarak yüklenir. Ayrıca Azure Linux veri bilimi sanal makinede bir parçası olarak sağlanır ve içine tümleştirilmiştir [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
+Evet, Azure Machine Learning, tam bir CLI arabirimi sunar. Machine Learning CLI, Azure Machine Learning Workbench ile varsayılan olarak yüklenir. Azure üzerinde Linux veri bilimi sanal makinesi bir parçası olarak sağlanır ve içine tümleşik [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 
 
-**Jupyter not defterleri ile çalışma ekranı kullanabilir miyim?**
+**Jupyter not defterleri Workbench ile kullanabilir miyim?**
 
-Evet! Yalnızca bir tarayıcı istemci olarak kullanacağınız gibi istemci barındırma uygulaması gibi çalışma ekranı ile çalışma ekranındaki Jupyter not defterleri çalıştırabilirsiniz. 
+Evet! Yeni bir tarayıcı istemci olarak kullandığınız gibi Jupyter not defterleri Workbench'te Workbench istemci barındırma uygulaması olarak çalıştırabilirsiniz. 
 
-**Hangi Jupyter not defterlerinde çekirdekler destekleniyor mu?**
+**Hangi Jupyter not defterleri destekleniyor mu?**
 
-Geçerli sürümü ile çalışma ekranı dahil Jupyter, Python 3 Çekirdek ve aml_config klasördeki her "runconfig" dosyası için ek bir çekirdeği başlatır. Desteklenen yapılandırmalar şunlardır:
+Workbench'te dahil Jupyter'ın geçerli sürümü Python 3 Çekirdek ve aml_config klasörünüzde her "runconfig" dosyası için ek bir çekirdeği başlatır. Desteklenen yapılandırmalar şunlardır:
 - Yerel Python
-- Yerel veya uzak Docker Python'da
+- Yerel veya uzak bir Docker Python
 
 ## <a name="data-formats-and-capabilities"></a>Veri biçimleri ve özellikleri
 
-**Hangi dosya biçimleri, çalışma ekranı veri alımında için destekleniyor mu?**
+**Hangi dosya biçimleri, workbench'teki veri alımı için destekleniyor mu?**
 
-Çalışma ekranı veri hazırlık araçları şu anda aşağıdaki biçimlerden alım destekler: 
-- CSV, vb. TSV sınırlandırılmış dosyalar.  
-- Sabit genişlikte dosyaları
+Workbench uygulamasında veri hazırlama araçları şu anda aşağıdaki biçimlerde alma destekler: 
+- CSV, TSV, vb. gibi ayrılmış dosyalar.  
+- Sabit genişlikli dosyalar
 - Düz metin dosyaları
 - Excel (.xls/xlsx)
 - JSON dosyaları
-- Parquet dosyaları 
-- Özel dosyaları (ek kaynaklardan veri alımı çözümünüzü gerektiriyorsa, komut dosyaları), Python kodu için kullanılabilir... 
+- Parquet dosyalarını 
+- Özel dosyaları (ek kaynaklardan veri alımı, çözümünüzün gerektiriyorsa, komut dosyaları), Python kodu için kullanılabilir... 
 
-**Hangi veri depolama konumları şu anda destekleniyor mu?**
+**Hangi veri depolama konumları, şu anda destekleniyor mu?**
 
-Genel Önizleme için çalışma ekranı gelen veri alımı destekler: 
-- Yerel sabit diske veya eşlenen ağ depolama konumu
-- Azure BLOB veya Azure Storage (bir Azure aboneliği gerektirir)
+Genel Önizleme için veri alma Workbench destekler: 
+- Yerel sabit diske veya eşlenmiş ağ depolama konumu
+- Azure BLOB veya Azure depolama (Azure aboneliği gerektirir)
 - Azure SQL Server
 - Microsoft SQL Server
 
 
-**Hangi türde veri wrangling, hazırlık ve dönüşümleri var mı?**
+**Ne tür veri denetimi, hazırlama ve dönüşümleri var mı?**
 
-Genel Önizleme için çalışma ekranı "Sütun örneği tarafından türetilen", "Örnek tarafından bölünmüş sütun", "Metin Kümeleme", "Eksik değerleri işlemek" ve diğer birçok destekler.  Çalışma ekranı, veri türü dönüşümü, veri toplama (sayısı, ortalama, fark, vb.) ve karmaşık veri birleştirmeler da destekler. Desteklenen yeteneklerin tam listesi için ürün Belgelerimizi ziyaret edin. 
+Genel Önizleme için "Sütun örneği tarafından türetilir", "Örneği tarafından bölünen sütun", "Metin Kümeleme", "Eksik değerleri işlemek" ve diğer birçok Workbench destekler.  Workbench, veri türü dönüşümü, veri toplama (sayısı, ortalama, FARKI, vb.) ve karmaşık veri birleşimleri de destekler. Desteklenen yeteneklerin tam listesi için ürün belgeler sayfamızı ziyaret edin. 
 
-**Azure Machine Learning çalışma ekranı, deneme veya Model Yönetimi tarafından zorlanan veri boyut sınırlarını var mı?**
+**Azure Machine Learning Workbench, deneme ve Model Yönetimi tarafından zorlanan herhangi bir veri boyutu sınırlar var mıdır?**
 
-Hayır, yeni hizmetler veri sınırlamalar zorunlu tuttukları değil. Ancak, veri hazırlığı, model eğitim, deneme veya dağıtım gerçekleştiriyorsanız ortamı tarafından sunulan sınırlamaları vardır. Örneğin, eğitim için yerel bir ortam hedefliyorsanız, kullanılabilir alanı tarafından sabit diskinize sınırlıdır. Alternatif olarak, Hdınsight hedefliyorsanız, ilişkili tüm boyutuyla sınırlı veya ayarlarıdır işlem. 
+Hayır, yeni hizmetleri herhangi bir veri kısıtlamaları dayatır değil. Ancak, veri hazırlama, model eğitiminin, deneme ya da dağıtımı yapıyorsanız ortamı tarafından sunulan sınırlamaları vardır. Örneğin, eğitim için yerel bir ortamı hedefliyorsanız, sabit sürücünüzde kullanılabilir alanı tarafından sınırlandırılmıştır. Alternatif olarak, HDInsight'ı hedefliyorsanız, ilişkili tüm boyutuyla sınırlıdır veya kısıtlamaları işlem. 
 
-## <a name="algorithms-and-libraries"></a>Algoritmaları ve kitaplıklar
+## <a name="algorithms-and-libraries"></a>Algoritmalar ve kitaplıkları
 
-**Hangi algoritmaları Azure Machine Learning çalışma destekleniyor mu?**
+**Azure Machine Learning Workbench'te hangi algoritmalar destekleniyor?**
 
-Önizleme ürünlerimizi ve hizmetlerimizi açık kaynak Topluluğu'nun en iyi içerir. Çok çeşitli algoritmalar ve TensorFlow, scikit dahil olmak üzere kitaplıkları destekliyoruz-öğrenme, Apache Spark ve Microsoft Bilişsel Araç Seti. Azure Machine Learning çalışma ekranı ayrıca paketleri [Microsoft revoscalepy](https://docs.microsoft.com/sql/advanced-analytics/python/what-is-revoscalepy) paket.
+Önizleme Ürünlerimiz ve hizmetlerimiz, açık kaynak topluluğundan en iyi şekilde içerir. Çok çeşitli algoritmalar ve kitaplıkları TensorFlow, scikit dahil olmak üzere destekliyoruz-learn ve Apache Spark ve Microsoft Bilişsel Araç Seti. Ayrıca Azure Machine Learning Workbench paketleri [Microsoft revoscalepy](https://docs.microsoft.com/sql/advanced-analytics/python/what-is-revoscalepy) paket.
 
 **Azure Machine Learning Microsoft Bilişsel araç seti nasıl ilişkilidir?**
 
-[Microsoft Bilişsel Araç Seti](https://www.microsoft.com/cognitive-toolkit/) bizim yeni araçlar ve hizmetler tarafından desteklenen birçok çerçeveleri biridir. Bilişsel Araç Seti kullanabilir ve popüler machine learning modellerini akış İleri derin sinir ağları, Convolutional ağ dahil olmak üzere birleştirme olanak sağlayan bir birleşik derin öğrenme araç takımıdır sırası dizisi ve yinelenen ağlar. Microsoft Bilişsel araç seti ile ilgili daha fazla bilgi için ziyaret bizim [ürün belgelerine](https://docs.microsoft.com/cognitive-toolkit/). 
+[Microsoft Bilişsel Araç Seti](https://www.microsoft.com/en-us/cognitive-toolkit/) sunduğumuz yeni araçları ve Hizmetleri tarafından desteklenen çok sayıda çerçeveleri biridir. Bilişsel Araç Seti kullanmak ve popüler makine öğrenimi modellerini akış iletme derin sinir ağları, karmaşık ağ dahil olmak üzere birleştirmek sağlayan bir birleşik derin öğrenme araç seti olan Sequence Sequence ve yinelenen ağlar. Microsoft Bilişsel araç seti ile ilgili daha fazla bilgi için müşterilerimize [ürün belgelerine](https://docs.microsoft.com/cognitive-toolkit/). 

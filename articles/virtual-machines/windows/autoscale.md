@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/21/2017
 ms.author: cynthn
 ms.openlocfilehash: 6c759364d90fd0ef8d3569a8830e26ff5d0507ac
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929629"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688786"
 ---
 # <a name="automatically-scale-virtual-machines-in-azure"></a>Azure'da sanal makineleri otomatik olarak ölçeklendirin
 

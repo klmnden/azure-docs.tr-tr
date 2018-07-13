@@ -15,12 +15,12 @@ ms.workload: identity
 ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 7cf628495a79fe775528080ae6ec31df8e9a0f37
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 07fe49be9fcb879b86d2b8a33799d11deb7d7446
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447598"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38528629"
 ---
 # <a name="pim-for-azure-resources"></a>Azure kaynakları için PIM
 
@@ -59,7 +59,7 @@ Rollerim, etkin ve uygun rol atamaları Azure AD Dizin rolleri ve Azure kaynak r
 
 ## <a name="activate-roles"></a>Rollerini etkinleştir
 
-Azure kaynakları için rol etkinleştirme, etkinleştirme için gelecekteki bir tarih/saat zamanlamak ve bir belirli etkinleştirme süresi üst sınırı (yönetici tarafından yapılandırılır) içinde seçmek uygun rolü üyeleri izin veren yeni bir deneyim sağlanıyor. Hakkında bilgi edinin [Azure AD rolleri etkinleştirme](../active-directory-privileged-identity-management-how-to-activate-role.md).
+Azure kaynakları için rol etkinleştirme, etkinleştirme için gelecekteki bir tarih/saat zamanlamak ve bir belirli etkinleştirme süresi üst sınırı (yönetici tarafından yapılandırılır) içinde seçmek uygun rolü üyeleri izin veren yeni bir deneyim sağlanıyor. Hakkında bilgi edinin [Azure AD rolleri etkinleştirme](pim-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -156,7 +156,7 @@ Gözden geçirme mevcut erişim gözden geçirmeleri görüntülemek ve yeni bir
 
 ![](media/azure-pim-resource-rbac/owner.png)
 
-[Erişim gözden geçirmeleri hakkında daha fazla bilgi edinin](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
+[Erişim gözden geçirmeleri hakkında daha fazla bilgi edinin](pim-how-to-perform-security-review.md)
 
 >[!NOTE]
 İncelemeler, şu anda yalnızca abonelik kaynak türleri için desteklenir.
@@ -196,5 +196,5 @@ Rollerim sol gezinti menüsünden ve etkinleştirmek için uygun rolü seçin. R
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure kaynakları için yerleşik roller](../../role-based-access-control/built-in-roles.md)
-- Hakkında bilgi edinin [Azure AD rolleri etkinleştirme](../active-directory-privileged-identity-management-how-to-activate-role.md)
+- Hakkında bilgi edinin [Azure AD rolleri etkinleştirme](pim-how-to-activate-role.md)
 - [PIM onayı iş akışı](azure-ad-pim-approval-workflow.md)

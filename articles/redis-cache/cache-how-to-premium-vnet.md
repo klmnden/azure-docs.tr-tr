@@ -1,6 +1,6 @@
 ---
-title: Premium Azure Redis önbelleği için sanal ağ yapılandırma | Microsoft Docs
-description: Oluşturma ve Premium katmanı Azure Redis önbelleği örnekleri için sanal ağ desteğini yönetme hakkında bilgi edinin
+title: Premium Azure Redis Cache için sanal ağ yapılandırma | Microsoft Docs
+description: Oluşturma ve yönetme, Premium katman Azure Redis Cache örnekleri için sanal ağ desteği hakkında bilgi edinin
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -15,57 +15,57 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
 ms.openlocfilehash: 250c66c3a39519a6eddc1ecb51259ec1944c88a9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31522229"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38671131"
 ---
-# <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Premium Azure Redis önbelleği için sanal ağ desteğini yapılandırma
-Azure Redis önbelleği, önbellek boyutunu ve özelliklerini, kümeleme, sürdürme ve sanal ağ desteği gibi Premium katmanı özellikleri dahil olmak üzere seçimi esneklik sağlayan farklı önbellek teklifleri vardır. Bir sanal ağ bulutta özel bir ağdır. Bir Azure Redis önbelleği örneğine sahip bir VNet yapılandırıldığında, genel olarak adreslenebilir değildir ve yalnızca sanal makineler ve sanal ağ içinden uygulamalardan erişilebilir. Bu makalede, premium Azure Redis önbelleği örneği için sanal ağ desteğini yapılandırma açıklar.
+# <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Premium Azure Redis Cache için sanal ağ desteğini yapılandırma
+Azure Redis önbelleği, önbellek boyutunu ve özelliklerini, kümeleme, Kalıcılık ve sanal ağ desteği gibi Premium katman özellikleri dahil olmak üzere tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Bir sanal ağ, bulutta özel bir ağdır. Azure Redis Cache örneğine bir VNet ile yapılandırıldığında, genel olarak adreslenebilir değildir ve yalnızca sanal makineler ve sanal ağ içindeki uygulamalardan erişilebilir. Bu makalede, bir premium Azure Redis Cache örneği için sanal ağ desteğini yapılandırma açıklanır.
 
 > [!NOTE]
-> Azure Redis önbelleği destekleyen her iki Klasik ve Resource Manager sanal ağlar.
+> Azure Redis Cache destekleyen her iki Klasik ve Resource Manager sanal ağları.
 > 
 > 
 
-Diğer premium önbellek özellikleri hakkında daha fazla bilgi için bkz: [Azure Redis önbelleği Premium katmanına giriş](cache-premium-tier-intro.md).
+Diğer premium önbellek özelliklerini hakkında daha fazla bilgi için bkz: [Azure Redis önbelleği Premium katmanına giriş](cache-premium-tier-intro.md).
 
-## <a name="why-vnet"></a>Neden VNet?
-[Azure sanal ağı (VNet)](https://azure.microsoft.com/services/virtual-network/) Gelişmiş Güvenlik ve yalıtım, Azure Redis önbelleği yanı sıra alt ağlar, erişim denetimi ilkeleri için dağıtım sağlar ve diğer özellikleri daha da fazla erişimi kısıtlayabilirsiniz.
+## <a name="why-vnet"></a>Neden Vnet'e?
+[Azure sanal ağı (VNet)](https://azure.microsoft.com/services/virtual-network/) dağıtım geliştirilmiş güvenlik ve yalıtım için Azure Redis Cache yanı sıra alt ağlar, erişim denetim ilkeleri sağlar ve diğer özellikleri daha da fazla erişimi.
 
 ## <a name="virtual-network-support"></a>Sanal ağ desteği
-Sanal ağ (VNet) desteği üzerinde yapılandırılmış **yeni Redis önbelleği** dikey önbellek oluşturma sırasında. 
+Sanal ağ (VNet) desteği üzerinde yapılandırılmış **yeni Redis Cache** önbellek oluşturma sırasında dikey. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Premium fiyatlandırma katmanına seçtikten sonra aynı abonelik ve konum önbelleğiniz olarak bir sanal ağı seçerek Redis VNet tümleştirme yapılandırabilirsiniz. Yeni bir VNet kullanmak için önce içindeki adımları izleyerek oluşturun [Azure portalını kullanarak bir sanal ağ oluşturma](../virtual-network/manage-virtual-network.md#create-a-virtual-network) veya [Azure portalını kullanarak bir sanal ağ (Klasik) oluşturmak](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) ve daha sonra geri dönüp **yeni Redis önbelleği** oluşturmak ve premium önbelleğiniz yapılandırmak için dikey.
+Premium fiyatlandırma katmanının seçtikten sonra aynı abonelik ve konumdaki önbelleğinizi olan bir sanal ağ'ı seçerek Redis VNet tümleştirmesi yapılandırabilirsiniz. Yeni bir sanal ağ kullanmak için ilk adımları izleyerek oluşturun [Azure portalını kullanarak bir sanal ağ oluşturma](../virtual-network/manage-virtual-network.md#create-a-virtual-network) veya [Azure portalını kullanarak bir sanal ağ (Klasik) oluşturmak](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) ve ardından içindönüş**Yeni Redis Cache** oluşturma ve premium önbelleğinizi yapılandırma dikey penceresi.
 
-VNet yeni önbelleğiniz için yapılandırmak için tıklatın **sanal ağ** üzerinde **yeni Redis önbelleği** dikey ve istenen VNet aşağı açılan listeden seçin.
+VNet yeni önbelleğiniz için yapılandırmak için tıklayın **sanal ağ** üzerinde **yeni Redis Cache** dikey penceresinde ve aşağı açılan listesinden istediğiniz sanal ağ seçin.
 
 ![Sanal ağ][redis-cache-vnet]
 
-İstenen alt ağ üzerinden seçin **alt** aşağı açılan listesinde ve istenen belirtin **statik IP adresi**. Klasik bir VNet kullanıyorsanız **statik IP adresi** alan isteğe bağlıdır ve belirtilmemişse, bir seçilen alt ağından seçilir.
+İstenen alt ağdan seçin **alt** aşağı açılan liste ve istenen belirtin **statik IP adresi**. Klasik bir VNet kullanıyorsanız **statik IP adresi** alan isteğe bağlıdır ve belirtilmezse, seçilen alt ağından bir seçilir.
 
 > [!IMPORTANT]
-> Bir Azure Redis önbelleği için Resource Manager Vnet'i dağıtırken, önbellek Azure Redis önbelleği örnekleri dışında başka kaynaklar içeren özel bir alt ağda olmalıdır. Bir Azure Redis önbelleği bir alt ağı için Resource Manager Vnet'i dağıtmak için bir girişimde diğer kaynakları içeren, dağıtım başarısız olur.
+> Azure Redis Cache için Resource Manager Vnet'i dağıtırken, önbellek Azure Redis Cache örneğinin dışında başka kaynaklar içeren ayrılmış alt ağında olmalıdır. Azure Redis Cache bir alt ağ için bir Resource Manager Vnet'i dağıtmak için bir girişimde diğer kaynakları içeren, dağıtım başarısız olur.
 > 
 > 
 
 ![Sanal ağ][redis-cache-vnet-ip]
 
 > [!IMPORTANT]
-> Her alt ağ içindeki bazı IP adreslerini Azure ayırır ve bu adresleri kullanılamaz. Alt ağlar ilk ve son IP adreslerini Azure Hizmetleri için kullanılan üç daha fazla adres birlikte Protokolü uyum için ayrılmıştır. Daha fazla bilgi için bkz: [bu alt ağ içindeki IP adresleri kullanma kısıtlamaları vardır?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+> Azure her alt ağ içinde bazı IP adreslerini ayırır ve bu adresi kullanılamaz. Alt ağların ilk ve son IP adresleri, Azure Hizmetleri için kullanılan üç daha fazla adres birlikte protokol uyumluluğu için ayrılmıştır. Daha fazla bilgi için [bu alt ağları içindeki IP adresleri kullanarak herhangi bir kısıtlama var mıdır?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 > 
-> Azure sanal ağ altyapısı tarafından kullanılan IP adreslerinin yanı sıra, her Redis örnek parça her alt ağ kullanan iki IP adresi ve yük dengeleyici için bir ek IP adresi. Kümelenmemiş bir önbellek, bir parça olduğu kabul edilir.
+> Azure sanal ağ altyapısı tarafından kullanılan IP adreslerinin yanı sıra, her Redis örneği parça başına alt ağı kullanan iki IP adresi ve yük dengeleyici için bir ek IP adresi. Kümelenmemiş bir önbellek bir parça olduğu kabul edilir.
 > 
 > 
 
-Önbellek oluşturulduktan sonra sanal ağ yapılandırması tıklayarak görüntüleyebilirsiniz **sanal ağ** gelen **kaynak menü**.
+Önbellek oluşturulduktan sonra VNet yapılandırmasını tıklayarak görüntüleyebilirsiniz **sanal ağ** gelen **kaynak menüsünde**.
 
 ![Sanal ağ][redis-cache-vnet-info]
 
-Bir sanal ağ kullanırken, Azure Redis önbelleği örneğine bağlanmak için aşağıdaki örnekte gösterildiği gibi bağlantı dizesindeki önbelleğiniz ana bilgisayar adını belirtin:
+Bir sanal ağ kullanılırken, Azure Redis cache örneğine bağlanmak için aşağıdaki örnekte gösterildiği gibi bağlantı dizesinde önbelleğinizin konak adı belirtin:
 
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -80,22 +80,22 @@ Bir sanal ağ kullanırken, Azure Redis önbelleği örneğine bağlanmak için 
         }
     }
 
-## <a name="azure-redis-cache-vnet-faq"></a>Azure Redis önbelleği sanal ağ ile ilgili SSS
-Aşağıdaki listede, Azure Redis önbelleği ölçeklendirme hakkında sık sorulan soruların yanıtlarını içerir.
+## <a name="azure-redis-cache-vnet-faq"></a>Azure Redis Cache sanal ağ hakkında SSS
+Aşağıdaki liste, Azure Redis Cache ölçeklendirme hakkında sık sorulan soruların yanıtlarını içerir.
 
-* [Azure Redis önbelleği ve Vnet ile ilgili bazı ortak yetersizliğini sorunları nelerdir?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
-* [My önbelleği sanal ağ içinde çalıştığını nasıl doğrulayabilirsiniz?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
-* [Neden bir VNET my Redis önbelleğine bağlanmaya çalışırken uzak sertifika geçersiz bildiren bir hata alıyorum?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
-* [Sanal ağlar ile standart ya da temel bir önbellek kullanabilir miyim?](#can-i-use-vnets-with-a-standard-or-basic-cache)
-* [Neden Redis önbelleği oluşturma bazı alt ağların ancak diğer başarısız oluyor?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+* [Azure Redis Cache ve sanal ağlar ile bazı yaygın hatalı yapılandırma sorunları nelerdir?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+* [Önbelleğimin sanal ağ içinde çalıştığını nasıl doğrulayabilirim?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
+* [My Redis önbelleğinde bir sanal AĞA bağlanmaya çalışırken uzak sertifika geçersiz bildiren bir hata neden alıyorum?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
+* [Sanal ağlar bir standart veya temel önbellek ile kullanabilir miyim?](#can-i-use-vnets-with-a-standard-or-basic-cache)
+* [Neden Redis önbelleği oluşturma bazı alt ağlar, ancak diğerlerini başarısız oluyor?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
 * [Alt ağ adres alanı gereksinimleri nelerdir?](#what-are-the-subnet-address-space-requirements)
-* [Tüm önbellek özellikleri, bir VNET önbelleğinde barındırdığında çalışıyor mu?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
+* [Tüm önbellek özellikleri, bir sanal ağ içindeki bir önbellek barındırırken çalışıyor mu?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
-### <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>Azure Redis önbelleği ve Vnet ile ilgili bazı ortak yetersizliğini sorunları nelerdir?
-Azure Redis önbelleği sanal ağ içinde barındırıldığında, aşağıdaki tablolarda bağlantı noktaları kullanılır. 
+### <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>Azure Redis Cache ve sanal ağlar ile bazı yaygın hatalı yapılandırma sorunları nelerdir?
+Azure Redis Cache sanal ağ içinde barındırıldığında, bağlantı noktaları aşağıdaki tablolarda kullanılır. 
 
 >[!IMPORTANT]
->Aşağıdaki tablolarda bağlantı noktaları engellenirse, önbellek düzgün çalışmayabilir. Bir veya daha fazla engellenen Bu bağlantı noktalarına sahip en yaygın yetersizliğini Azure Redis Önbelleği'nde bir sanal ağ kullanırken bir sorundur.
+>Bağlantı noktalarını aşağıdaki tablolarda engellenirse, önbellek düzgün çalışmayabilir. Bir veya daha fazla engellenen Bu bağlantı noktalarına sahip bir vnet'te Azure Redis Cache kullanırken en yaygın hatalı yapılandırma sorunu olduğunu.
 > 
 > 
 
@@ -106,135 +106,135 @@ Azure Redis önbelleği sanal ağ içinde barındırıldığında, aşağıdaki 
 
 Yedi giden bağlantı noktası gereksinimleri vardır.
 
-- İstenen, tüm giden bağlantıları Internet üzerinden yapılan, istemcinin denetim cihaz şirket içi.
-- Üç bağlantı noktalarının Azure Storage ve Azure DNS hizmeti Azure uç noktaları için trafiği yönlendirmek.
-- Kalan bağlantı noktası aralıklarını ve iç Redis alt ağ iletişimleri için. Hiçbir alt ağ NSG kuralları iç Redis alt ağ iletişimleri için gerekli değildir.
+- İstenen, tüm giden bağlantılar internet üzerinden yapılan, istemcinin denetim cihaz şirket içi.
+- Üç bağlantı noktalarının Azure depolama ve Azure DNS hizmeti Azure uç noktaları için trafiği yönlendirme.
+- Kalan bağlantı noktası aralıkları ve dahili Redis alt ağ iletişimi için. Hiçbir alt ağda NSG kuralları iç Redis alt ağ iletişimleri için gerekli değildir.
 
 | Bağlantı noktaları | Yön | Aktarım Protokolü | Amaç | Yerel IP | Uzak IP |
 | --- | --- | --- | --- | --- | --- |
-| 80, 443 |Giden |TCP |Bağımlılıklar üzerinde Azure depolama/PKI (Internet) redis | (Alt ağ redis) |* |
+| 80, 443 |Giden |TCP |Redis bağımlılıklar üzerinde Azure depolama/PKI (Internet) | (Alt ağ redis) |* |
 | 53 |Giden |TCP/UDP |DNS (Internet/VNet) bağımlılıkları redis | (Alt ağ redis) |* |
-| 8443 |Giden |TCP |Redis iç iletişiminde | (Alt ağ redis) | (Alt ağ redis) |
-| 10221-10231 |Giden |TCP |Redis iç iletişiminde | (Alt ağ redis) | (Alt ağ redis) |
-| 20226 |Giden |TCP |Redis iç iletişiminde | (Alt ağ redis) |(Alt ağ redis) |
-| 13000-13999 |Giden |TCP |Redis iç iletişiminde | (Alt ağ redis) |(Alt ağ redis) |
-| 15000-15999 |Giden |TCP |Redis iç iletişiminde | (Alt ağ redis) |(Alt ağ redis) |
-| 6379-6380 |Giden |TCP |Redis iç iletişiminde | (Alt ağ redis) |(Alt ağ redis) |
+| 8443 |Giden |TCP |Redis için iç iletişimler | (Alt ağ redis) | (Alt ağ redis) |
+| 10221-10231 |Giden |TCP |Redis için iç iletişimler | (Alt ağ redis) | (Alt ağ redis) |
+| 20226 |Giden |TCP |Redis için iç iletişimler | (Alt ağ redis) |(Alt ağ redis) |
+| 13000-13999 |Giden |TCP |Redis için iç iletişimler | (Alt ağ redis) |(Alt ağ redis) |
+| 15000-15999 |Giden |TCP |Redis için iç iletişimler | (Alt ağ redis) |(Alt ağ redis) |
+| 6379-6380 |Giden |TCP |Redis için iç iletişimler | (Alt ağ redis) |(Alt ağ redis) |
 
 
 #### <a name="inbound-port-requirements"></a>Gelen bağlantı noktası gereksinimleri
 
-Sekiz gelen bağlantı noktası aralığı gereksinimi yoktur. Bu aralıklardaki gelen istekleri aynı VNET içinde barındırılan diğer hizmetlerden gelen veya Redis alt ağ iletişimleri için iç.
+Sekiz gelen bağlantı noktası aralığı gereksinimi yoktur. Bu aralıklardaki gelen istekler, aynı sanal ağda barındırılan diğer hizmetlerden gelen veya iç Redis alt ağ iletişimi için.
 
 | Bağlantı noktaları | Yön | Aktarım Protokolü | Amaç | Yerel IP | Uzak IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Gelen |TCP |İstemci iletişimi için Redis, Azure Yük Dengeleme | (Alt ağ redis) | (Redis. alt ağ), sanal ağ, Azure yük dengeleyici |
-| 8443 |Gelen |TCP |Redis iç iletişiminde | (Alt ağ redis) |(Alt ağ redis) |
+| 6379, 6380 |Gelen |TCP |Redis, Azure Yük Dengeleme istemci iletişimi | (Alt ağ redis) | (Redis. alt ağ), sanal ağ, Azure Load Balancer |
+| 8443 |Gelen |TCP |Redis için iç iletişimler | (Alt ağ redis) |(Alt ağ redis) |
 | 8500 |Gelen |TCP/UDP |Azure Yük Dengeleme | (Alt ağ redis) |Azure Load Balancer |
-| 10221-10231 |Gelen |TCP |Redis iç iletişiminde | (Alt ağ redis) |(Redis. alt ağ), Azure yük dengeleyici |
-| 13000-13999 |Gelen |TCP |İstemci iletişimi Redis kümelerine, Azure Yük Dengeleme | (Alt ağ redis) |Sanal ağ, Azure yük dengeleyici |
+| 10221-10231 |Gelen |TCP |Redis için iç iletişimler | (Alt ağ redis) |(Redis. alt ağ), Azure Load Balancer |
+| 13000-13999 |Gelen |TCP |İstemci iletişimi için Redis kümeleri, Azure Yük Dengeleme | (Alt ağ redis) |Sanal ağ, Azure yük dengeleyici |
 | 15000-15999 |Gelen |TCP |İstemci iletişimi Redis kümeleri için Azure Yük Dengeleme | (Alt ağ redis) |Sanal ağ, Azure yük dengeleyici |
 | 16001 |Gelen |TCP/UDP |Azure Yük Dengeleme | (Alt ağ redis) |Azure Load Balancer |
-| 20226 |Gelen |TCP |Redis iç iletişiminde | (Alt ağ redis) |(Alt ağ redis) |
+| 20226 |Gelen |TCP |Redis için iç iletişimler | (Alt ağ redis) |(Alt ağ redis) |
 
-#### <a name="additional-vnet-network-connectivity-requirements"></a>Ek sanal ağ bağlantı gereksinimleri
+#### <a name="additional-vnet-network-connectivity-requirements"></a>Ek sanal ağ ağ bağlantı gereksinimleri
 
-Azure Redis önbelleği sanal bir ağa başlangıçta karşılanır değil için ağ bağlantı gereksinimleri vardır. Azure Redis önbelleği sanal ağ içindeki kullanıldığında düzgün çalışması için tüm aşağıdaki öğeleri gerektirir.
+Azure Redis Cache sanal ağ içinde başlangıçta karşılanıyor değil için ağ bağlantı gereksinimleri vardır. Azure Redis Cache sanal ağ içinde kullanıldığında düzgün şekilde çalışabilmesi için aşağıdaki tüm öğeleri gerektirir.
 
-* Azure depolama uç noktaları dünya çapında giden ağ bağlantısı. Bu depolama uç noktaları bulunan yanı sıra, Azure Redis önbelleği örneği aynı bölgede bulunan uç noktaları içerir **diğer** Azure bölgeleri. Azure depolama uç noktaları çözmek aşağıdaki DNS etki alanı altında: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net*, ve *file.core.windows.net*. 
-* Giden ağ bağlantısı *ocsp.msocsp.com*, *mscrl.microsoft.com*, ve *crl.microsoft.com*. Bu bağlantılar, SSL işlevleri desteklemek için gereklidir.
-* Sanal ağ için DNS yapılandırmasını tüm uç noktaları ve önceki noktaların belirtilen etki alanları çözme yeteneğinin olması gerekir. Geçerli bir DNS altyapısının yapılandırılmış ve sanal ağ için tutulan sağlayarak bu DNS gereksinimleri karşılanabilir.
-* Aşağıdaki DNS etki alanı altında çözmek aşağıdaki Azure izleme uç noktaları, giden ağ bağlantısı: shoebox2-black.shoebox2.metrics.nsatc.net, Kuzey-prod2.prod2.metrics.nsatc.net azglobal-black.azglobal.metrics.nsatc.net , shoebox2-red.shoebox2.metrics.nsatc.net, Doğu-prod2.prod2.metrics.nsatc.net azglobal-red.azglobal.metrics.nsatc.net.
+* Dünya çapındaki Azure depolama uç noktalarına giden ağ bağlantısını. Bu depolama uç noktaları yer yanı sıra, Azure Redis Cache örneği aynı bölgede bulunan uç noktaları içerir **diğer** Azure bölgeleri. Azure depolama uç noktaları aşağıdaki DNS etki alanları altında çözün: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net*ve *file.core.windows.net*. 
+* Giden ağ bağlantısını *ocsp.msocsp.com*, *mscrl.microsoft.com*, ve *crl.microsoft.com*. Bu bağlantı, SSL işlevselliği desteklemek için gereklidir.
+* Sanal ağ için DNS yapılandırmasını tüm uç noktaları ve etki alanları önceki noktaların bahsedilen çözme özelliğine sahip olması gerekir. Bu DNS gereksinimleri, geçerli bir DNS altyapısının yapılandırılmış ve sanal ağ için tutulan sağlayarak karşılanabilir.
+* Aşağıdaki DNS etki alanları altında çözümlemek, aşağıdaki Azure izleme uç noktaları, giden ağ bağlantısını: shoebox2-black.shoebox2.metrics.nsatc.net Kuzey-prod2.prod2.metrics.nsatc.net azglobal black.azglobal.metrics.nsatc.net , shoebox2-red.shoebox2.metrics.nsatc.net Doğu-prod2.prod2.metrics.nsatc.net azglobal red.azglobal.metrics.nsatc.net.
 
-### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>My önbelleği sanal ağ içinde çalıştığını nasıl doğrulayabilirsiniz?
+### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Önbelleğimin sanal ağ içinde çalıştığını nasıl doğrulayabilirim?
 
 >[!IMPORTANT]
->Sanal ağ içinde barındırılan bir Azure Redis önbelleği örneğine bağlanırken önbellek istemcileriniz aynı sanal veya sanal ağda VNET eşlemesi etkin olması gerekir. Bu, herhangi bir sınama uygulamalarını veya tanılama ping araçları içerir. İstemcinin ağ trafiğini Redis örneği ulaşmasına izin verilir, istemci uygulaması barındırıldığı bağımsız olarak, ağ güvenlik grupları yapılandırılması gerekir.
+>Sanal ağ içinde barındırılan bir Azure Redis Cache örneğine bağlanırken, önbellek istemcilerinize aynı sanal ağda veya bir sanal ağ içindeki etkin VNET eşlemesi ile olmalıdır. Bu, herhangi bir test uygulamaları veya ping işlemi tanılama araçları içerir. İstemcinin ağ trafiğini Redis örneği ulaşmasına izin verilir, istemci uygulamanın barındırıldığı bağımsız olarak, ağ güvenlik grupları yapılandırılması gerekir.
 >
 >
 
-Bağlantı noktası gereksinimleri önceki bölümde açıklandığı gibi yapılandırıldıktan sonra önbelleğiniz aşağıdaki adımları gerçekleştirerek çalışıp çalışmadığını doğrulayabilirsiniz.
+Bağlantı noktası gereksinimleri önceki bölümde açıklandığı gibi yapılandırıldıktan sonra aşağıdaki adımları uygulayarak önbelleğinizi çalışıp çalışmadığını doğrulayabilirsiniz.
 
-- [Yeniden başlatma](cache-administration.md#reboot) tüm önbellek düğümleri. Tüm gerekli önbellek bağımlılıklarını ulaşılamıyor varsa (açıklandığı gibi [gelen bağlantı noktası gereksinimleri](cache-how-to-premium-vnet.md#inbound-port-requirements) ve [giden bağlantı noktası gereksinimleri](cache-how-to-premium-vnet.md#outbound-port-requirements)), Önbelleği başarıyla yeniden yükleyemezsiniz.
-- Ön bellek düğümleri (Azure Portalı'nda önbellek durumu tarafından belirlendiği şekilde) yeniden başlattıktan sonra aşağıdaki testleri gerçekleştirebilirsiniz:
-  - Önbellek uç noktası (bağlantı noktası 6380 kullanarak) önbelleği olarak aynı sanal ağ içindeki bir makineden ping kullanarak [tcping](https://www.elifulkerson.com/projects/tcping.php). Örneğin:
+- [Yeniden başlatma](cache-administration.md#reboot) tüm önbellek düğümleri. Tüm gerekli önbellek bağımlılıklarını ulaşılamıyor varsa (açıklandığı gibi [gelen bağlantı noktası gereksinimleri](cache-how-to-premium-vnet.md#inbound-port-requirements) ve [giden bağlantı noktası gereksinimleri](cache-how-to-premium-vnet.md#outbound-port-requirements)), önbellek başarıyla yeniden başlatmanız mümkün olmayacaktır.
+- Önbellek düğümleri (Azure Portalı'nda önbellek durumu tarafından bildirilen gibi) yeniden başlattıktan sonra aşağıdaki testleri gerçekleştirebilirsiniz:
+  - (bağlantı noktası 6380 kullanarak) önbellek uç noktası önbelleği olarak aynı VNET içindeki bir makineden ping işlemi kullanarak [Telnet](https://www.elifulkerson.com/projects/tcping.php). Örneğin:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
-    Varsa `tcping` aracı raporları bağlantı noktasının açık olduğundan, önbellek VNET içindeki istemcilerinden gelen bağlantı için kullanılabilir.
+    Varsa `tcping` aracın bildirdiği bağlantı noktasının açık olduğundan, önbellek sanal ağ içindeki istemcilerden gelen bağlantı için kullanılabilir.
 
-  - Test etmek için başka bir test önbellek istemcisi oluşturmak için yoldur (basit bir olabilir konsol uygulaması StackExchange.Redis kullanarak), önbelleğe bağlanır ve ekler ve bazı öğeler önbellekten alır. Örnek istemci uygulaması önbelleği olarak aynı sanal ağda ve çalıştırın, önbellek bağlantısını doğrulamak için bir VM üzerine yükleyin.
+  - Test etmek için başka bir yolu, bir test önbellek istemcisi oluşturmaktır (basit olabilir StackExchange.Redis kullanarak bir konsol uygulaması), önbelleğe bağlanır ve ekler ve önbellekten bazı öğeleri alır. Örnek istemci uygulama, önbellek aynı sanal AĞA ve uygulamayı önbelleğe bağlantısını doğrulamak için bir VM üzerine yükleyin.
 
 
-### <a name="when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid"></a>Neden bir VNET my Redis önbelleğine bağlanmaya çalışırken uzak sertifika geçersiz bildiren bir hata alıyorum?
+### <a name="when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid"></a>My Redis önbelleğinde bir sanal AĞA bağlanmaya çalışırken uzak sertifika geçersiz bildiren bir hata neden alıyorum?
 
-Bir sanal ağda bir Redis önbelleğine bağlanmaya çalışırken bunun gibi bir sertifika doğrulama hatası bakın:
+Bir sanal ağda bir Redis önbelleğine bağlantı kurmaya çalıştığında, bunun gibi bir sertifika doğrulama hatası görürsünüz:
 
 `{"No connection is available to service this operation: SET mykey; The remote certificate is invalid according to the validation procedure.; …"}`
 
-IP adresine göre ana bilgisayara bağlanan neden olabilir. Ana bilgisayar adı kullanmanızı öneririz. Diğer bir deyişle, aşağıdakileri kullanın:     
+IP adresine göre konağa bağlanırken neden olabilir. Ana bilgisayar adı kullanmanızı öneririz. Diğer bir deyişle, aşağıdakini kullanın:     
 
 `[mycachename].redis.windows.net:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Aşağıdaki bağlantı dizesini benzer IP adresi kullanmaktan kaçının:
+Aşağıdaki bağlantı dizesi benzer bir IP adresi kullanmaktan kaçının:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-DNS adı çözümleyemiyor varsa, bazı istemci kitaplıkları gibi yapılandırma seçeneklerini kapsar `sslHost` StackExchange.Redis istemcisi tarafından sağlanır. Bu sertifika doğrulama için kullanılan ana bilgisayar adı geçersiz kılmanıza olanak sağlar. Örneğin:
+DNS adı çözümlenemiyor na erişemiyorsanız, bazı istemci kitaplıkları gibi yapılandırma seçeneklerini kapsar `sslHost` StackExchange.Redis istemcisi tarafından sağlanır. Bu sertifika doğrulama için kullanılan ana bilgisayar adı geçersiz kılmanıza da olanak sağlar. Örneğin:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 
-### <a name="can-i-use-vnets-with-a-standard-or-basic-cache"></a>Sanal ağlar ile standart ya da temel bir önbellek kullanabilir miyim?
-Sanal ağlar yalnızca premium önbelleklere ile kullanılabilir.
+### <a name="can-i-use-vnets-with-a-standard-or-basic-cache"></a>Sanal ağlar bir standart veya temel önbellek ile kullanabilir miyim?
+Sanal ağlar, yalnızca premium önbellekler ile kullanılabilir.
 
-### <a name="why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others"></a>Neden Redis önbelleği oluşturma bazı alt ağların ancak diğer başarısız oluyor?
-Bir Azure Redis önbelleği için Resource Manager Vnet'i dağıtıyorsanız, önbelleği başka bir kaynak türünü içeren özel bir alt ağda olmalıdır. Bir Resource Manager Vnet'i alt ağa bir Azure Redis önbelleği dağıtmak için bir girişimde diğer kaynakları içeren, dağıtım başarısız olur. Yeni Redis önbelleği oluşturmadan önce alt ağ içindeki mevcut kaynakların silmeniz gerekir.
+### <a name="why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others"></a>Neden Redis önbelleği oluşturma bazı alt ağlar, ancak diğerlerini başarısız oluyor?
+Bir Resource Manager sanal ağı için bir Azure Redis Cache'e dağıtıyorsanız, önbelleği başka bir kaynak türü içeren bir ayrılmış alt ağında olmalıdır. Bir Resource Manager sanal ağ alt ağı için bir Azure Redis Cache dağıtmak için bir girişimde diğer kaynakları içeren, dağıtım başarısız olur. Yeni bir Redis önbelleği oluşturmadan önce alt ağ içinde mevcut kaynakları silmeniz gerekir.
 
-Kullanılabilir yeterli IP adresine sahip olduğu sürece, birden çok tür kaynak klasik bir Vnet'e dağıtabilirsiniz.
+Yeterli IP adresi kullanılabilir olduğu sürece, birden çok kaynak klasik bir sanal ağa dağıtabilirsiniz.
 
 ### <a name="what-are-the-subnet-address-space-requirements"></a>Alt ağ adres alanı gereksinimleri nelerdir?
-Her alt ağ içindeki bazı IP adreslerini Azure ayırır ve bu adresleri kullanılamaz. Alt ağlar ilk ve son IP adreslerini Azure Hizmetleri için kullanılan üç daha fazla adres birlikte Protokolü uyum için ayrılmıştır. Daha fazla bilgi için bkz: [bu alt ağ içindeki IP adresleri kullanma kısıtlamaları vardır?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+Azure her alt ağ içinde bazı IP adreslerini ayırır ve bu adresi kullanılamaz. Alt ağların ilk ve son IP adresleri, Azure Hizmetleri için kullanılan üç daha fazla adres birlikte protokol uyumluluğu için ayrılmıştır. Daha fazla bilgi için [bu alt ağları içindeki IP adresleri kullanarak herhangi bir kısıtlama var mıdır?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-Azure sanal ağ altyapısı tarafından kullanılan IP adreslerinin yanı sıra, her Redis örnek parça her alt ağ kullanan iki IP adresi ve yük dengeleyici için bir ek IP adresi. Kümelenmemiş bir önbellek, bir parça olduğu kabul edilir.
+Azure sanal ağ altyapısı tarafından kullanılan IP adreslerinin yanı sıra, her Redis örneği parça başına alt ağı kullanan iki IP adresi ve yük dengeleyici için bir ek IP adresi. Kümelenmemiş bir önbellek bir parça olduğu kabul edilir.
 
-### <a name="do-all-cache-features-work-when-hosting-a-cache-in-a-vnet"></a>Tüm önbellek özellikleri, bir VNET önbelleğinde barındırdığında çalışıyor mu?
-Önbelleğinizi VNET parçası olduğunda, yalnızca sanal ağ istemcilerinde önbelleğe erişebilir. Sonuç olarak, aşağıdaki önbellek yönetim özellikleri şu anda çalışmıyor.
+### <a name="do-all-cache-features-work-when-hosting-a-cache-in-a-vnet"></a>Tüm önbellek özellikleri, bir sanal ağ içindeki bir önbellek barındırırken çalışıyor mu?
+Önbelleğinizi bir sanal ağın parçası olduğunda, yalnızca sanal ağ istemcilerinde önbelleğe erişebilir. Sonuç olarak, aşağıdaki önbellek yönetim özellikleri, şu anda çalışmıyor.
 
-* Konsol redis - Redis konsol sanal ağ dışında olan yerel tarayıcınızda çalıştığından, önbelleğiniz bağlanamıyor.
+* Redis Konsolu - Redis Konsolu sanal ağ dışında olan yerel tarayıcınızda çalıştığından önbelleğinize bağlantı kurulamıyor.
 
 
-## <a name="use-expressroute-with-azure-redis-cache"></a>ExpressRoute ile Azure Redis önbelleğini kullanma
+## <a name="use-expressroute-with-azure-redis-cache"></a>ExpressRoute ile Azure Redis önbelleği kullanmalısınız?
 
-Müşteriler bağlanabileceği bir [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) böylece Azure için kendi şirket içi ağ genişletme sanal ağ altyapılarını devresine. 
+Müşteriler bağlanabilir bir [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) bağlantı hattına sanal ağ altyapılarını böylece kendi şirket içi ağı Azure'a genişletme. 
 
-Varsayılan olarak, yeni oluşturulan bir expressroute bağlantı hattı zorlamalı tünel gerçekleştirmez (varsayılan yol tanıtım 0.0.0.0/0) bir VNET üzerinde. Sonuç olarak, giden Internet bağlantısı sanal ağdan doğrudan izin verilir ve istemci uygulamaları Azure Redis önbelleği dahil olmak üzere diğer Azure uç noktaları için bağlantı kuramaz.
+Varsayılan olarak, yeni oluşturulan bir ExpressRoute bağlantı hattı zorlamalı tünel gerçekleştirmez (varsayılan bir yol reklam 0.0.0.0/0) bir VNET üzerinde. Sonuç olarak, doğrudan sanal ağdan giden Internet bağlantısına izin verilir ve istemci uygulamaları Azure Redis Cache de dahil olmak üzere diğer Azure Uç noktalara bağlanmak olanağına sahip olursunuz.
 
-Ancak ortak bir müşteri yapılandırması kullanmaktır zorlanan tünel (varsayılan rota tanıtma) yerine şirket içi giden Internet akışına zorlar. Bu trafik akışı giden trafik ise, Azure Redis önbelleği ile bağlantısını keser. ardından Azure Redis önbelleği örneği bağımlılıklarını ile iletişim kurabildiğinden değil, şirket içi engellendi.
+Ancak yaygın müşteri kullanmak için bir yapılandırmadır zorlamalı tünel (varsayılan rota tanıtma) bunun yerine şirket içi akış giden Internet trafiğini zorlar. Bu trafik akışını giden trafik ise Azure Redis Cache ile bağlantısını keser. ardından Azure Redis Cache örneği bağımlılıkları ile iletişim kurabildiğini değil, şirket içi engellendi.
 
-Azure Redis önbelleği içeren alt ağda bir (veya daha fazla) kullanıcı tanımlı yollar (Udr'ler) tanımlamak için kullanılan çözümüdür. Bir UDR yerine varsayılan yol uyulacaktır alt özel yollar tanımlar.
+Azure Redis Cache içeren alt ağda bir (veya daha fazla) kullanıcı tanımlı yollar (Udr) tanımlamak için kullanılan çözümüdür. Varsayılan yol yerine getirilmez alt özel yollar UDR tanımlar.
 
-Mümkünse, aşağıdaki yapılandırmayı kullanmak için önerilir:
+Mümkün olduğunda, aşağıdaki yapılandırmayı kullanın önerilir:
 
-* ExpressRoute yapılandırma 0.0.0.0/0 tanıtır ve varsayılan olarak tüm giden trafiği şirket içi zorlamalı tünel oluşturur.
-* Azure Redis önbelleği içeren alt ağa uygulanan UDR genel internet'e TCP/IP'yi trafiği için bir çalışma rotayla 0.0.0.0/0 tanımlar; Örneğin sonraki atlama türü 'İnternet' olarak ayarlanıyor.
+* ExpressRoute yapılandırması 0.0.0.0/0 tanıtır ve varsayılan olarak, tüm giden trafiği şirket içi zorla tünel oluşturur.
+* Azure Redis Cache içeren alt ağa uygulanan UDR, genel internet'e TCP/IP'yi trafiği için bir çalışma rotayla 0.0.0.0/0 tanımlar; Örneğin sonraki atlama türü 'İnternet' olarak ayarlanıyor.
 
-Bu adımları etkilerini, alt düzey UDR tünel, zorunlu ExpressRoute böylece Azure Redis Önbelleği'nden giden Internet erişimi sağlama öncelikli olacağını ' dir.
+Bu adımların etkilerini, alt düzey UDR tünel, zorlamalı ExpressRoute üzerinden bu nedenle Azure Redis Cache'e gelen giden Internet erişimini sağlama öncelikli olacağını ' dir.
 
-ExpressRoute kullanarak bir şirket içi uygulamasından Azure Redis önbelleği örneğine bağlanmayı performans nedenleriyle (en iyi performans Azure Redis önbelleği istemcileri Azure Redis önbelleği ile aynı bölgede olması gerekir) nedeniyle tipik kullanım bir senaryo değildir.
+ExpressRoute kullanarak bir şirket içi uygulamasından bir Azure Redis Cache örneğine bağlanma, performans nedenleriyle (en iyi performans Azure Redis Cache istemciler, Azure Redis Cache ile aynı bölgede olmalıdır) nedeniyle bir tipik kullanım senaryosu değil.
 
 >[!IMPORTANT] 
->Bir UDR tanımlanan rotalar **gerekir** ExpressRoute yapılandırma tarafından tanıtılan rotaları önceliklidir için belirli olabilir. Aşağıdaki örnek geniş 0.0.0.0/0 adres aralığını kullanır ve bu nedenle olası yanlışlıkla daha belirli adres aralıkları kullanarak Yol tanıtımlarını tarafından geçersiz kılınabilir.
+>Bir UDR'de tanımlanan yollar **gerekir** ExpressRoute yapılandırması tarafından tanıtılan herhangi bir yoldan öncelikli olacak kadar spesifik olmalıdır. Aşağıdaki örnekte geniş 0.0.0.0/0 adres aralığı kullanır ve bu nedenle büyük olasılıkla yanlışlıkla daha spesifik adres aralıkları kullanan yol tanıtımları tarafından geçersiz kılınabilir.
 
 >[!WARNING]  
->Azure Redis önbelleği ile ExpressRoute yapılandırmaları desteklenmez, **yanlış arası-özel eşleme yoluna ortak eşleme yolu yolları tanıtma**. Yapılandırılmış, ortak eşleme sahip ExpressRoute yapılandırmaları çok sayıda Microsoft Azure IP adres aralıkları için Microsoft'tan Yol tanıtımlarını alırsınız. Bu adres aralıklarını yanlış cross-özel eşleme yoluna üzerinde tanıtılan varsa, tüm giden ağ paketlerinin Azure Redis önbelleği örneğinin alt ağdan hatalı zorla bir müşterinin şirket içi ağ altyapısına tünelli sonucudur . Bu ağ akışı Azure Redis önbelleği keser. Bu sorun için çözüm ortak eşleme yolu arası reklam yolları özel eşleme yoluna önlemektir.
+>Azure Redis Cache ile ExpressRoute yapılandırmaları desteklenmez, **yanlış çapraz-yolları genel eşleme yolundan özel eşleme yoluna tanıtmak**. Genel eşlemesi yapılandırılmış, olan ExpressRoute yapılandırmaları çok sayıda Microsoft Azure IP adresi aralığı için Microsoft'tan yol tanıtımları alırsınız. Bu adres aralıkları yanlış çapraz-özel eşleme yolunda tanıtılırsa, giden tüm ağ paketleri Azure Redis Cache örneğinin alt ağdan hatalı bir müşterinin şirket içi ağ altyapısı için zorlamalı sonucudur . Bu ağ akışı, Azure Redis Cache keser. Bu sorunun çözümü, genel eşleme yolundan özel eşleme yoluna çapraz tanıtımını durdurmaktır yolları önlemektir.
 
 
-Kullanıcı tanımlı yollar hakkında arka plan bilgileri kullanılabilir bu [genel bakış](../virtual-network/virtual-networks-udr-overview.md).
+Kullanıcı tanımlı yollar hakkında arka plan bilgileri bu kullanılabilir [genel bakış](../virtual-network/virtual-networks-udr-overview.md).
 
-ExpressRoute hakkında daha fazla bilgi için bkz: [ExpressRoute teknik genel bakış](../expressroute/expressroute-introduction.md).
+ExpressRoute hakkında daha fazla bilgi için bkz. [Expressroute'a teknik genel bakış](../expressroute/expressroute-introduction.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla premium önbellek özelliklerinin nasıl kullanılacağını öğrenin.
+Daha fazla premium önbellek özelliklerini kullanmayı öğrenin.
 
 * [Azure Redis önbelleği Premium katmanına giriş](cache-premium-tier-intro.md)
 

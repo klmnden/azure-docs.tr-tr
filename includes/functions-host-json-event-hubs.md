@@ -10,6 +10,6 @@
 
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------| 
-|maxBatchSize|64|Alma döngü alınan en fazla olay sayısı.|
-|prefetchCount|yok|Temel alınan EventProcessorHost tarafından kullanılacak PrefetchCount varsayılan.| 
-|batchCheckpointFrequency|1|EventHub imleç denetim noktası oluşturmadan önce işlemek için olay yığını sayısı.| 
+|maxBatchSize|64|Alma döngü alınan en yüksek olay sayısı.|
+|prefetchCount|yok|Varsayılan temel alınan EventProcessorHost tarafından kullanılacak PrefetchCount.| 
+|batchCheckpointFrequency|1|Bir EventHub imleç denetim noktası oluşturmadan önce işlenecek olay yığın sayısı.| 

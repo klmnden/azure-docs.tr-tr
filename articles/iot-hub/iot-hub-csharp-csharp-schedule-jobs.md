@@ -1,6 +1,6 @@
 ---
-title: Zamanlama işlerini ile Azure IOT hub'ı (.NET/.NET) | Microsoft Docs
-description: Birden çok aygıta doğrudan bir yöntemi çağırmak için bir Azure IOT Hub işini zamanlamak nasıl. Sanal cihaz uygulamaları ve işi çalıştırmak için bir hizmet uygulaması uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın.
+title: Azure IOT hub'ı (.NET/.NET) ile işleri zamanlama | Microsoft Docs
+description: Birden fazla cihazda doğrudan yöntem çağırmak için bir Azure IOT hub'ı işini zamanlamak nasıl. Sanal cihaz uygulamaları ve işi çalıştırmak için bir hizmet uygulaması'nı uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -9,41 +9,41 @@ ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: dobett
 ms.openlocfilehash: beb1e1e166325cb41a5d4e4fa07565b1f3d4b3bb
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308593"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38666925"
 ---
-# <a name="schedule-and-broadcast-jobs-netnet"></a>Zamanlama ve yayın işleri (.NET/.NET)
+# <a name="schedule-and-broadcast-jobs-netnet"></a>İşleri (.NET/.NET) zamanlama ve yayınlama
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
-Zamanlama ve milyonlarca cihaza güncelleştirme işleri izlemek için Azure IOT hub'ı kullanın. İşlerini kullanın:
+Zamanlama ve milyonlarca cihaza güncelleştirme işleri izlemek için Azure IOT Hub'ı kullanın. İşleri kullanın:
 
 * İstenen özellikleri güncelleştirme
-* Güncelleştirme etiketleri
-* Doğrudan yöntemleri çağırma
+* Etiketleri güncelleştirin
+* Doğrudan metotları çağırma
 
-Bir işi şu eylemlerden birini sarmalar ve yürütme cihaz çifti sorgu tarafından tanımlanan bir dizi aygıtları izler. Örneğin, bir arka uç uygulaması, aygıtların yeniden 10.000 cihazlarda doğrudan yöntemini çağırmak için bir iş kullanabilirsiniz. Cihaz kümesini içeren bir cihaz çifti sorgu belirtin ve gelecek bir zamanda çalıştırmak için iş zamanlama. Her aygıt olarak ilerleyişini izler almak ve yeniden başlatma doğrudan yöntemi yürütün.
+Bir iş, aşağıdaki eylemlerden birini sarmalar ve bir cihaz ikizi sorgu tarafından tanımlanan bir dizi cihazda yürütmeyi izler. Örneğin, bir arka uç uygulaması, bir iş cihazları yeniden bir doğrudan yöntem 10.000 cihaz üzerinde çağırmak için kullanabilirsiniz. Bir dizi cihazda cihaz ikizi sorgusu ile belirtin ve gelecekteki bir tarihte çalışmaya planlayın. CİHAZDAN her biri olarak ilerleyişini izler, alma ve yeniden başlatma doğrudan yöntem yürütün.
 
 Bu özelliklerin her biri hakkında daha fazla bilgi için bkz:
 
-* Cihaz çifti ve özellikleri: [cihaz çiftlerini ile çalışmaya başlama] [ lnk-get-started-twin] ve [öğretici: cihaz çifti özellikleri kullanma][lnk-twin-props]
-* Doğrudan yöntemleri: [IOT Hub Geliştirici Kılavuzu - doğrudan yöntemleri] [ lnk-dev-methods] ve [Öğreticisi: doğrudan yöntemleri kullanın][lnk-c2d-methods]
+* Cihaz ikizi ve özellikleri: [cihaz ikizlerini kullanmaya başlama] [ lnk-get-started-twin] ve [öğretici: cihaz ikizi özelliklerini kullanma][lnk-twin-props]
+* Doğrudan yöntemler: [IOT Hub Geliştirici Kılavuzu - doğrudan yöntemler] [ lnk-dev-methods] ve [Öğreticisi: doğrudan yöntemler kullanma][lnk-c2d-methods]
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 
-* Adlı doğrudan bir yöntem uygulayan bir cihaz uygulaması oluşturma **LockDoor** arka uç uygulama tarafından çağrılabilir.
-* Aranacak bir işi oluşturan bir arka uç uygulaması oluşturma **LockDoor** birden fazla cihazda yöntemi doğrudan. Başka bir iş birden çok aygıta istenen özelliği güncelleştirmeleri gönderir.
+* Çağrılan doğrudan bir yönteme uygulayan bir cihaz uygulaması oluşturma **LockDoor** arka uç uygulama tarafından çağrılabilir.
+* Çağırmak için bir iş oluşturur bir arka uç uygulaması oluşturma **LockDoor** birden fazla cihazda doğrudan yöntem. Başka bir iş birden çok cihaz için istenen özellik güncelleştirmeleri gönderir.
 
-Bu öğreticinin sonunda iki .NET (C#) konsol uygulamaları vardır:
+Bu öğreticinin sonunda, iki .NET (C#) konsol uygulamanız olacak:
 
 **SimulateDeviceMethods** uygular ve IOT hub'a bağlanan **LockDoor** doğrudan yöntemi.
 
-**ScheduleJob** çağırmak için işleri kullanan **LockDoor** doğrudan yöntemi ve birden çok aygıta cihaz çifti istenen özelliklerini güncelleştirir.
+**ScheduleJob** çağırmak için işleri kullanan **LockDoor** doğrudan yöntemini ve birden fazla cihazda cihaz çiftinin istenen özelliklerini güncelleştirin.
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -56,15 +56,15 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 
 ## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
-Bu bölümde, çözüm tarafından arka uç adlı doğrudan bir yönteme yanıt veren bir .NET konsol uygulaması oluşturun.
+Bu bölümde, çözüm tarafından arka uç olarak adlandırılan doğrudan bir yönteme yanıt veren bir .NET konsol uygulaması oluşturun.
 
-1. Visual Studio'da **Konsol Uygulaması** proje şablonunu kullanarak geçerli çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. Proje adı **SimulateDeviceMethods**.
+1. Visual Studio'da **Konsol Uygulaması** proje şablonunu kullanarak geçerli çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. Projeyi adlandırın **SimulateDeviceMethods**.
    
-    ![Yeni Visual C# Klasik Windows cihaz uygulaması][img-createdeviceapp]
+    ![Yeni Windows Visual C# Klasik cihaz uygulaması][img-createdeviceapp]
     
 1. Çözüm Gezgini'nde sağ **SimulateDeviceMethods** proje ve ardından **NuGet paketlerini Yönet...** .
 
-1. İçinde **NuGet Paket Yöneticisi** penceresinde, seçin **Gözat** arayın ve **microsoft.azure.devices.client**. Seçin **yükleme** yüklemek için **Microsoft.Azure.Devices.Client** paketini ve kullanım koşullarını kabul edin. Bu yordam indirir, yükler ve bir başvuru ekler [Azure IOT cihaz SDK'sı] [ lnk-nuget-client-sdk] NuGet paketi ve bağımlılıklarını.
+1. İçinde **NuGet Paket Yöneticisi** penceresinde **Gözat** araması **microsoft.azure.devices.client**. Seçin **yükleme** yüklemek için **Microsoft.Azure.Devices.Client** paketini ve kullanım koşullarını kabul edin. Bu yordam indirir, yükler ve bir başvuru ekler [Azure IOT cihaz SDK'sını] [ lnk-nuget-client-sdk] NuGet paketi ve bağımlılıkları.
    
     ![NuGet Paket Yöneticisi penceresi istemci uygulaması][img-clientnuget]
 
@@ -77,14 +77,14 @@ Bu bölümde, çözüm tarafından arka uç adlı doğrudan bir yönteme yanıt 
     using Newtonsoft.Json;
     ```
 
-1. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini önceki bölümünde belirtildiği cihaz bağlantı dizesiyle değiştirin:
+1. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini önceki bölümde not ettiğiniz cihaz bağlantı dizesiyle değiştirin:
 
     ```csharp
     static string DeviceConnectionString = "<yourDeviceConnectionString>";
     static DeviceClient Client = null;
     ```
 
-1. Cihazda doğrudan yöntemi uygulamak için aşağıdakileri ekleyin:
+1. Bir cihazda doğrudan yöntem uygulamak için aşağıdakileri ekleyin:
 
     ```csharp
     static Task<MethodResponse> LockDoor(MethodRequest methodRequest, object userContext)
@@ -98,7 +98,7 @@ Bu bölümde, çözüm tarafından arka uç adlı doğrudan bir yönteme yanıt 
     }
     ```
 
-1. Cihaz çiftlerini dinleyicisi cihazda uygulamak için aşağıdakileri ekleyin:
+1. Cihaz ikizlerini dinleyici cihazda uygulamak için aşağıdakileri ekleyin:
 
     ```csharp
     private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
@@ -108,7 +108,7 @@ Bu bölümde, çözüm tarafından arka uç adlı doğrudan bir yönteme yanıt 
     }
     ```
 
-1. Son olarak, aşağıdaki kodu ekleyin **ana** IOT hub'ınıza bağlantıyı açın ve yöntemi dinleyicisini başlatmak için yöntem:
+1. Son olarak, aşağıdaki kodu ekleyin **ana** yöntemi, IOT hub'ınıza bağlantıyı açın ve yöntemi dinleyicisi başlatılamıyor:
    
     ```csharp
     try
@@ -137,21 +137,21 @@ Bu bölümde, çözüm tarafından arka uç adlı doğrudan bir yönteme yanıt 
 1. Çalışmanızı kaydedin ve çözümünüzü oluşturun.         
 
 > [!NOTE]
-> Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (bağlantı yeniden deneme), önerilen MSDN makalesinde uygulamalıdır [geçici hata işleme][lnk-transient-faults].
+> Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (örneğin, bağlantı yeniden deneme), MSDN makalesinde önerildiği uygulamalıdır [geçici hata işleme][lnk-transient-faults].
 > 
 
 
-## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>Doğrudan bir yöntem çağırma ve cihaz çifti güncelleştirmeleri göndermek için zamanlama işleri
+## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>Bir doğrudan yöntem çağırma ve cihaz ikizi güncelleştirmeleri göndermek için işleri zamanlama
 
-Bu bölümde, işleri çağırmak için kullanır (C# kullanarak) bir .NET konsol uygulaması oluşturma **LockDoor** doğrudan yöntemi ve istenen özelliği güncelleştirmeleri birden fazla cihaza Gönder.
+Bu bölümde, çağırmak için işleri kullanır (C# kullanarak) bir .NET konsol uygulaması oluşturma **LockDoor** doğrudan yöntemini ve birden çok cihaz için istenen özellik güncelleştirmeleri gönderir.
 
-1. Visual Studio'da **Konsol Uygulaması** proje şablonunu kullanarak geçerli çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. Proje adı **ScheduleJob**.
+1. Visual Studio'da **Konsol Uygulaması** proje şablonunu kullanarak geçerli çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. Projeyi adlandırın **ScheduleJob**.
 
     ![Yeni Visual C# Windows Klasik Masaüstü projesi][img-createapp]
 
 1. Çözüm Gezgini'nde sağ **ScheduleJob** proje ve ardından **NuGet paketlerini Yönet...** .
 
-1. **NuGet Paket Yöneticisi** penceresinde **Gözat**'ı seçin, **microsoft.azure.devices**'ı aratın, **Microsoft.Azure.Devices** paketini yüklemek için **Yükle**'yi seçin ve kullanım koşullarını kabul edin. Bu adım indirir, yükler ve bir başvuru ekler [Azure IOT hizmeti SDK'sını] [ lnk-nuget-service-sdk] NuGet paketi ve bağımlılıklarını.
+1. **NuGet Paket Yöneticisi** penceresinde **Gözat**'ı seçin, **microsoft.azure.devices**'ı aratın, **Microsoft.Azure.Devices** paketini yüklemek için **Yükle**'yi seçin ve kullanım koşullarını kabul edin. Bu adım indirir, yükler ve bir başvuru ekler [Azure IOT hizmeti SDK'sını] [ lnk-nuget-service-sdk] NuGet paketi ve bağımlılıkları.
 
     ![NuGet Paket Yöneticisi penceresi][img-servicenuget]
 
@@ -162,14 +162,14 @@ Bu bölümde, işleri çağırmak için kullanır (C# kullanarak) bir .NET konso
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Aşağıdakileri ekleyin `using` deyimi yoksa varsayılan deyimlerinde.
+1. Aşağıdaki `using` deyimi yoksa varsayılan deyimlerinde.
 
     ```csharp
     using System.Threading;
     using System.Threading.Tasks;
     ```
 
-1. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucuları, önceki bölümde ve Cihazınızı adını oluşturulan hub'ın IOT Hub bağlantı dizesiyle değiştirin.
+1. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucuları, cihaz adını ve önceki bölümde oluşturduğunuz hub'ın IOT Hub bağlantı dizesiyle değiştirin.
 
     ```csharp
     static JobClient jobClient;
@@ -209,7 +209,7 @@ Bu bölümde, işleri çağırmak için kullanır (C# kullanarak) bir .NET konso
     }
     ```
 
-1. Başka bir yöntem ekleyin **Program** sınıfı:
+1. Başka bir yöntemi ekleyin **Program** sınıfı:
 
     ```csharp
     public static async Task StartTwinUpdateJob(string jobId)
@@ -234,7 +234,7 @@ Bu bölümde, işleri çağırmak için kullanır (C# kullanarak) bir .NET konso
     ```
 
     > [!NOTE]
-    > Sorgu sözdizimi hakkında daha fazla bilgi için bkz: [IOT hub'ı sorgu dili][lnk-query].
+    > Sorgu söz dizimi hakkında daha fazla bilgi için bkz: [IOT Hub sorgu dili][lnk-query].
     > 
 
 1. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
@@ -267,22 +267,22 @@ Bu bölümde, işleri çağırmak için kullanır (C# kullanarak) bir .NET konso
 
 Şimdi uygulamaları çalıştırmaya hazırsınız.
 
-1. Visual Studio Çözüm Gezgini'nde Çözümünüze sağ tıklayın ve ardından **yapı**. **Birden fazla başlangıç projesi**. Emin olun `SimulateDeviceMethods` arkasından listenin en `ScheduleJob`. Her iki eylemlerini kümesine **Başlat** tıklatıp **Tamam**.
+1. Visual Studio Çözüm Gezgini'nde Çözümünüze sağ tıklayın ve ardından **yapı**. **Birden fazla başlangıç projesi**. Emin `SimulateDeviceMethods` ardından listenin en `ScheduleJob`. Her iki eylemlerini kümesine **Başlat** tıklatıp **Tamam**.
 
-1. Tıklayarak projelerini çalıştırmak **Başlat** veya gitmek **hata ayıklama** menüsüne ve ardından **hata ayıklamayı Başlat**.
+1. Projeleri tıklayarak çalıştırın **Başlat** veya Git **hata ayıklama** menüsüne ve ardından **hata ayıklamayı Başlat**.
 
-1. Cihaz ve arka uç uygulamaları çıktısını görürsünüz.
+1. Hem cihaz hem de arka uç uygulamaları çıktısını görürsünüz.
 
-    ![İşlerini zamanlamak için uygulamaları çalıştırma][img-schedulejobs]
+    ![İşleri zamanlamak için uygulamaları çalıştırma][img-schedulejobs]
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir cihaz ve cihaz çifti'nın özelliklerini güncelleştirmek için doğrudan bir yöntem zamanlamak için bir iş kullanılır.
+Bu öğreticide, bir işi bir doğrudan yöntem bir cihaz ve cihaz ikizinin özelliklerini güncelleştirme için zamanlamak için kullanılır.
 
-IOT Hub ve Uzaktan gibi cihaz yönetim düzenleri hava bellenim güncelleştirme kullanmaya Başlarken devam etmek için okuma [öğretici: bir üretici yazılımı güncelleştirmesi nasıl][lnk-fwupdate].
+IOT Hub ve cihaz yönetim modellerini uzaktan gibi hava üretici yazılımı güncelleştirme kullanmaya başlama devam etmek için okuma [öğretici: bir üretici yazılımı güncelleştirme yapmak nasıl][lnk-fwupdate].
 
-AI sınır cihazları için Azure IOT Edge dağıtma hakkında bilgi edinmek için bkz: [IOT Edge ile çalışmaya başlama][lnk-iot-edge].
+Yapay ZEKA ile Azure IOT Edge uç cihazlarına dağıtma hakkında bilgi edinmek için [IOT Edge'i kullanmaya başlama][lnk-iot-edge].
 
 <!-- images -->
 [img-createdeviceapp]: ./media/iot-hub-csharp-csharp-schedule-jobs/create-device-app.png

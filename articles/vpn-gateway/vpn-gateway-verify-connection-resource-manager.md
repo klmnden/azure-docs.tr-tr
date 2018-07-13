@@ -1,6 +1,6 @@
 ---
-title: Bir VPN ağ geçidi bağlantısını doğrulama | Microsoft Docs
-description: Bu makalede, bir sanal ağ VPN ağ geçidi bağlantı doğrulamak gösterilmiştir.
+title: Bir VPN Gateway bağlantısını doğrulama | Microsoft Docs
+description: Bu makalede bir sanal ağ VPN ağ geçidi bağlantısını doğrulama gösterilmektedir.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
 ms.openlocfilehash: 037c1c7dd73f668bd8ad95568743b223b1e11c79
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750206"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38706006"
 ---
-# <a name="verify-a-vpn-gateway-connection"></a>Bir VPN ağ geçidi bağlantısını doğrulama
+# <a name="verify-a-vpn-gateway-connection"></a>Bir VPN Gateway bağlantısını doğrulama
 
-Bu makale VPN ağ geçidi bağlantısı Klasik ve Resource Manager dağıtım modelleri için doğrulama gösterilmiştir.
+Bu makalede, hem Klasik hem de Resource Manager dağıtım modeli için bir VPN ağ geçidi bağlantısını doğrulama işlemini göstermektedir.
 
 ## <a name="azure-portal"></a>Azure portalına
 
@@ -32,24 +32,24 @@ Bu makale VPN ağ geçidi bağlantısı Klasik ve Resource Manager dağıtım mo
 
 ## <a name="powershell"></a>PowerShell
 
-PowerShell kullanarak Resource Manager dağıtım modeli için bir VPN ağ geçidi bağlantısı doğrulamak için en son sürümünü yükleyin [Azure Resource Manager PowerShell cmdlet'lerini](/powershell/azure/overview).
+PowerShell kullanarak Resource Manager dağıtım modeli için bir VPN ağ geçidi bağlantısını doğrulama için en son sürümünü yükleyin. [Azure Resource Manager PowerShell cmdlet'lerinin](/powershell/azure/overview).
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Azure CLI kullanarak Resource Manager dağıtım modeli için bir VPN ağ geçidi bağlantısı doğrulamak için en son sürümünü yükleyin [CLI komutları](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 veya üstü).
+Azure CLI kullanarak Resource Manager dağıtım modeli için bir VPN ağ geçidi bağlantısını doğrulama için en son sürümünü yükleyin. [CLI komutları](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 veya üzeri).
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 
-## <a name="azure-portal-classic"></a>Azure portal (Klasik)
+## <a name="azure-portal-classic"></a>Azure portalını (Klasik)
 
 [!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 ## <a name="powershell-classic"></a>PowerShell (Klasik)
 
-VPN ağ geçidi bağlantınızı PowerShell kullanarak Klasik dağıtım modeli için doğrulamak için Azure PowerShell cmdlet'lerinin en son sürümlerini yükleyin. İndirmek ve yüklemek mutlaka [Hizmet Yönetimi](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets) modülü. Klasik dağıtım modeli için oturum açmak için 'Add-AzureAccount' kullanın.
+PowerShell kullanarak Klasik dağıtım modeli için VPN ağ geçidi bağlantınızı doğrulamak için Azure PowerShell cmdlet'lerinin en son sürümlerini yükleyin. İndirme ve yükleme yapılmasını [Hizmet Yönetimi](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets) modülü. Klasik dağıtım modeli için oturum açma 'Add-AzureAccount' kullanın.
 
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 

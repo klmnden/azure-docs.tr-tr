@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs'de sahipleri ve kullanıcılar ekleme | Microsoft Docs
-description: Azure portal veya PowerShell kullanarak Azure DevTest Labs içinde sahipleri ve kullanıcılar ekleme
+title: Azure DevTest Labs'de sahibini ve kullanıcıları ekleme | Microsoft Docs
+description: Azure portal veya PowerShell kullanarak Azure DevTest Labs sahibi ve kullanıcıları ekleme
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
@@ -15,77 +15,77 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736196"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38573409"
 ---
-# <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs'de sahipleri ve kullanıcılar ekleme
+# <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs'de sahibini ve kullanıcıları ekleme
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-Azure DevTest Labs Access'te tarafından denetlenir [Azure rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md). RBAC kullanarak, ekibiniz içinde içinde görevlerini ayırabilirsiniz *rolleri* vermek burada yalnızca kullanıcıların işlerini gerçekleştirmek için gerekli erişim miktarı. Üç RBAC rolde olan *sahibi*, *DevTest Labs kullanıcı*, ve *katkıda bulunan*. Bu makalede, hangi eylemlerin her üç ana RBAC rolü gerçekleştirilebilir öğrenin. Buradan, laboratuvara - Portalı aracılığıyla hem bir PowerShell komut dosyası aracılığıyla kullanıcı ekleme ve abonelik düzeyinde kullanıcı ekleme öğrenin.
+Azure DevTest labs'deki erişim tarafından denetlenir [Azure rol tabanlı Access Control (RBAC)](../role-based-access-control/overview.md). RBAC kullanarak, ekibiniz içinde görevleri ayırabilirsiniz *rolleri* vermek burada yalnızca kullanıcıların işlerini yapmak için gerekli erişim miktarını. Üç bu RBAC rolleri olan *sahibi*, *DevTest Labs kullanıcısı*, ve *katkıda bulunan*. Bu makalede, her üç ana RBAC rollerini hangi eylemlerin yapılabileceği öğrenin. Burada, Laboratuvar - portalından hem bir PowerShell Betiği aracılığıyla kullanıcıları eklemek ve abonelik düzeyinde kullanıcı ekleme öğrenin.
 
-## <a name="actions-that-can-be-performed-in-each-role"></a>Her rol gerçekleştirilen eylemler
-Bir kullanıcı atayabilirsiniz üç ana rol vardır:
+## <a name="actions-that-can-be-performed-in-each-role"></a>Her rolde gerçekleştirilebilecek eylemleri
+Bir kullanıcı atayabilir üç ana rolü vardır:
 
 * Sahip
 * DevTest Labs Kullanıcısı
 * Katılımcı
 
-Aşağıdaki tabloda bu rollerin her biri bulunan kullanıcılar tarafından gerçekleştirilen eylemler gösterilmektedir:
+Aşağıdaki tabloda, bu rollerin her birini kullanıcılar tarafından gerçekleştirilen eylemleri gösterir:
 
-| **Bu roldeki kullanıcılar eylemleri gerçekleştirebilirsiniz** | **DevTest Labs kullanıcı** | **Sahibi** | **Katkıda bulunan** |
+| **Bu roldeki kullanıcılar eylemler gerçekleştirebilir** | **DevTest Labs kullanıcısı** | **Sahip** | **Katılımcı** |
 | --- | --- | --- | --- |
 | **Laboratuvar görevleri** | | | |
 | Kullanıcılar bir laboratuvara ekleme |Hayır |Evet |Hayır |
 | Maliyet ayarlarını güncelleştirme |Hayır |Evet |Evet |
 | **VM temel görevleri** | | | |
-| Özel resimler ekleyip |Hayır |Evet |Evet |
-| Ekleme, güncelleştirme ve formülleri silme |Evet |Evet |Evet |
-| Beyaz liste Azure Marketi görüntüleri |Hayır |Evet |Evet |
+| Ekleme ve özel görüntüleri kaldırma |Hayır |Evet |Evet |
+| Ekleme, güncelleştirme ve formülleri silin |Evet |Evet |Evet |
+| Beyaz liste Azure Market görüntüleri |Hayır |Evet |Evet |
 | **VM görevleri** | | | |
 | VM oluşturma |Evet |Evet |Evet |
-| Başlatma, durdurma ve sanal makineleri silin |Yalnızca kullanıcı tarafından oluşturulan sanal makineleri |Evet |Evet |
-| VM ilkelerini güncelleştirme |Hayır |Evet |Evet |
-| Veri diskleri için/VMs Ekle/Kaldır |Yalnızca kullanıcı tarafından oluşturulan sanal makineleri |Evet |Evet |
+| Başlatma, durdurma ve Vm'leri Sil |Yalnızca kullanıcı tarafından oluşturulan sanal makineler |Evet |Evet |
+| Güncelleştirme VM ilkeleri |Hayır |Evet |Evet |
+| VM'ler/deposundan veri diskleri ekleme/kaldırma |Yalnızca kullanıcı tarafından oluşturulan sanal makineler |Evet |Evet |
 | **Yapı görevleri** | | | |
-| Ekleme ve yapı depoları kaldırma |Hayır |Evet |Evet |
-| Yapıları Uygula |Evet |Evet |Evet |
+| Yapıt deposu ekleyip |Hayır |Evet |Evet |
+| Yapıtları Uygula |Evet |Evet |Evet |
 
 > [!NOTE]
-> Bir kullanıcı bir VM oluşturduğunda, o kullanıcı için otomatik olarak atanır **sahibi** oluşturulan VM rolü.
+> Bir kullanıcı bir VM oluşturur, bu kullanıcı için otomatik olarak atanır **sahibi** oluşturulan VM rolü.
 > 
 > 
 
 ## <a name="add-an-owner-or-user-at-the-lab-level"></a>Laboratuvar düzeyinde sahibi veya kullanıcı ekleyin
-Azure Portalı aracılığıyla Laboratuvar düzeyinde sahipleri ve kullanıcıların eklenebilir. Bir kullanıcı bir dış kullanıcı geçerli bir ile olabilir [Microsoft hesabı (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
-Aşağıdaki adımlar bir laboratuar ortamında Azure DevTest Labs sahibi veya kullanıcı ekleme işleminde size kılavuzluk eder:
+Azure portal aracılığıyla Laboratuvar düzeyinde sahibini ve kullanıcıları eklenebilir. Kullanıcı, geçerli bir dış kullanıcıyla olabilir [Microsoft hesabı (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
+Aşağıdaki adımlar bir sahibi veya kullanıcı Azure DevTest labs'deki bir laboratuvara ekleme işleminde size kılavuzluk eder:
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 2. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 3. İstenen Laboratuvar labs listesinden seçin.
-4. Laboratuvar 's dikey penceresinde, seçin **yapılandırma ve ilkeleri**. 
-5. Üzerinde **yapılandırma ve ilkeleri** sayfasında, **erişim denetimi (IAM)** sol taraftaki menüden. 
-6. Seçin **Ekle** bir role bir kullanıcı eklemek için araç.
+4. Laboratuvar dikey penceresinde seçin **yapılandırması ve ilkelerini**. 
+5. Üzerinde **yapılandırması ve ilkelerini** sayfasında **erişim denetimi (IAM)** sol taraftaki menüden. 
+6. Seçin **Ekle** bir role kullanıcı eklemek için araç çubuğunda.
 
     ![Kullanıcı ekle](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-1. İçinde **izinleri eklemek** penceresinde, aşağıdaki eylemleri gerçekleştirebilirsiniz: 
-    1. Bir rol seçin (örneğin: DevTest Labs kullanıcı). Bölüm [her rolünde gerçekleştirilen eylemler](#actions-that-can-be-performed-in-each-role) sahibi, DevTest kullanıcı ve katkıda bulunan rollerdeki kullanıcılar tarafından gerçekleştirilen çeşitli eylemleri listeler.
+1. İçinde **izinleri eklemek** penceresinde aşağıdaki eylemleri gerçekleştirin: 
+    1. Bir rol seçin (örneğin: DevTest Labs kullanıcısı). Bölüm [her rolde gerçekleştirilebilecek eylemleri](#actions-that-can-be-performed-in-each-role) sahibi, DevTest kullanıcı ve katılımcı rollerdeki kullanıcılar tarafından gerçekleştirilen çeşitli eylemleri listeler.
     2. Role eklenecek kullanıcıyı seçin. 
     3. **Kaydet**’i seçin. 
 
         ![Kullanıcı rolüne Ekle](./media/devtest-lab-add-devtest-user/add-user.png) 
-11. Ne zaman döndürmek için **kullanıcılar** dikey penceresinde kullanıcı eklendi.  
+11. İçin döndüğünüzde **kullanıcılar** dikey penceresinde kullanıcı eklendi.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>PowerShell kullanarak Laboratuvar için bir dış kullanıcı ekleme
-Azure portalında kullanıcı ekleme ek olarak, bir PowerShell Betiği kullanılarak Laboratuvarınızı bir dış kullanıcı ekleyebilirsiniz. Aşağıdaki örnekte, altında parametre değerlerini değiştirmek **değiştirmek için değerleri** açıklama.
-Alabilirsiniz `subscriptionId`, `labResourceGroup`, ve `labName` Azure portalında Laboratuvar dikey penceresinden değerleri.
+Azure portalında kullanıcılar eklemenin yanı sıra, laboratuvarınız için bir PowerShell betiğini kullanarak bir dış kullanıcı ekleyebilirsiniz. Aşağıdaki örnekte, parametre değerlerini altındaki değiştirme **değiştirmek için değerleri** açıklaması.
+Alabileceğiniz `subscriptionId`, `labResourceGroup`, ve `labName` Azure portalında Laboratuvar dikey penceresinden değerleri.
 
 > [!NOTE]
-> Örnek komut dosyasını belirtilen kullanıcının Active Directory'ye konuk olarak eklendi ve, yoksa başarısız olur varsayar. Laboratuvara değil Active Directory'de bir kullanıcı eklemek için kullanıcının bölümünde gösterildiği gibi bir role atamak için Azure portalını kullanın [sahibi veya kullanıcı Laboratuvar düzeyinde ekleme](#add-an-owner-or-user-at-the-lab-level).   
+> Örnek betik, belirtilen kullanıcı Active Directory'ye konuk olarak eklendi ve bu durumda değilse oynatılamaz varsayar. Bir laboratuvar için Active Directory'de bir kullanıcı eklemek için kullanıcı bölümünde gösterildiği gibi bir role atamak için Azure portalını kullanın [sahibi veya kullanıcı Laboratuvar düzeyinde ekleme](#add-an-owner-or-user-at-the-lab-level).   
 > 
 > 
 
@@ -113,10 +113,10 @@ Alabilirsiniz `subscriptionId`, `labResourceGroup`, ve `labName` Azure portalın
     $labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
     New-AzureRmRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
 
-## <a name="add-an-owner-or-user-at-the-subscription-level"></a>Abonelik düzeyinde sahibi veya kullanıcı ekleyin
-Azure izinleri Azure alt kapsamda için üst kapsamdan yayılır. Dolayısıyla, labs içeren Azure aboneliği sahipleri, otomatik olarak bu labs sahipleri altındadır. Ayrıca sanal makineleri ve Laboratuvar'ın kullanıcılar ve Azure DevTest Labs hizmeti tarafından oluşturulan diğer kaynaklara sahip. 
+## <a name="add-an-owner-or-user-at-the-subscription-level"></a>Abonelik düzeyinde sahibi veya kullanıcı ekleme
+Azure izinleri Azure alt kapsamda için üst kapsamlardan yayılır. Bu nedenle, laboratuvarlar içeren bir Azure aboneliği sahiplerine otomatik olarak bu laboratuvarlar sahipleri altındadır. Vm'leri ve Laboratuvar kullanıcıları ve Azure DevTest Labs hizmeti tarafından oluşturulan diğer kaynaklar da sahip. 
 
-Laboratuvar Laboratuvar 's dikey penceresinde aracılığıyla ek sahipleri ekleyebilirsiniz [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). Ancak, eklenen sahibinin yönetim abonelik sahibinin kapsamı daha dar kapsamıdır. Örneğin, eklenen sahipleri, bazı abonelikte DevTest Labs hizmeti tarafından oluşturulan kaynaklara tam erişim sahip değil. 
+Bir laboratuvar Laboratuvar dikey penceresi aracılığıyla ek sahipleri ekleyebileceğiniz [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040). Ancak eklenen sahibinin yönetim kapsamını daha fazla abonelik sahibinin kapsamı dar olabilir. Örneğin, eklenen sahipleri tam abonelikte DevTest Labs hizmeti tarafından oluşturulan kaynakların bazıları için erişiminiz yok. 
 
 Bir Azure aboneliğine sahip eklemek için aşağıdaki adımları izleyin:
 
@@ -126,15 +126,15 @@ Bir Azure aboneliğine sahip eklemek için aşağıdaki adımları izleyin:
 4. Seçin **erişim** simgesi. 
    
     ![Erişim kullanıcıları](./media/devtest-lab-add-devtest-user/access-users.png)
-5. Üzerinde **kullanıcılar** dikey penceresinde, select **Ekle**.
+5. Üzerinde **kullanıcılar** dikey penceresinde **Ekle**.
    
     ![Kullanıcı ekle](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-6. Üzerinde **bir rol seçin** dikey penceresinde, seçin **sahibi**.
-7. Üzerinde **kullanıcıları eklemek** dikey penceresinde, e-posta adresi veya bir sahibi olarak eklemek istediğiniz kullanıcının adını girin. Kullanıcı bulunamazsa, sorunu açıklayan bir hata iletisi alırsınız. Kullanıcı bulunursa, o kullanıcı altında listelenen **kullanıcı** metin kutusu.
-8. Bulunduğu kullanıcı adını seçin.
+6. Üzerinde **bir rol seçin** dikey penceresinde seçin **sahibi**.
+7. Üzerinde **kullanıcı ekleme** dikey penceresinde e-posta adresi veya sahip olarak eklemek istediğiniz kullanıcının adını girin. Kullanıcı bulunamazsa, sorunu açıklayan bir hata iletisi alırsınız. Kullanıcı bulunamazsa, bu kullanıcı altında listelenir **kullanıcı** metin kutusu.
+8. Bulunan kullanıcı adı seçin.
 9. Seçin **seçin**.
-10. Seçin **Tamam** kapatmak için **erişim Ekle** dikey.
-11. Ne zaman döndürmek için **kullanıcılar** dikey penceresinde kullanıcı sahibi olarak eklendi. Bu kullanıcı artık bu abonelik altında oluşturulan labs sahibi ve böylece sahibi görevlerini gerçekleştirebilir. 
+10. Seçin **Tamam** kapatmak için **erişim Ekle** dikey penceresi.
+11. İçin döndüğünüzde **kullanıcılar** dikey penceresinde kullanıcı, sahip olarak eklendi. Bu kullanıcı artık bu abonelik altında oluşturulmuş tüm Laboratuvar sahibi olduğu ve bu nedenle sahibi görevlerini gerçekleştirebilir. 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

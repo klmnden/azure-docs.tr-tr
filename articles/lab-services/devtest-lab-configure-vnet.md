@@ -1,6 +1,6 @@
 ---
 title: Azure DevTest Labs'de sanal ağ yapılandırma | Microsoft Docs
-description: Bir varolan sanal ağ ve alt yapılandırmak ve bir VM'de Azure DevTest Labs kullanılacakları hakkında bilgi edinin
+description: Mevcut bir sanal ağ ve alt ağ yapılandırın ve bunları Azure DevTest Labs ile bir sanal makinede kullanmak hakkında bilgi edinin
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,56 +15,56 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 0141ea8a88c0322e6f56cbea56d3a43c923769af
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787412"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687797"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Azure DevTest Labs'de sanal ağ yapılandırma
-Makalesinde açıklandığı gibi [bir VM'yi laboratuvara ekleme](devtest-lab-add-vm.md), bir laboratuar ortamında bir VM oluştururken yapılandırılmış bir sanal ağ belirtin. Örneğin, ExpressRoute veya siteden siteye VPN ile yapılandırılmış sanal ağını kullanarak, Vm'lerde, corpnet kaynaklarına gerekebilir.
+Makalesinde açıklandığı gibi [bir VM'yi bir laboratuvara ekleme](devtest-lab-add-vm.md), laboratuvarda, bir VM oluşturduğunuzda, yapılandırılmış bir sanal ağ da belirtebilirsiniz. Örneğin, ExpressRoute veya siteden siteye VPN ile yapılandırılan sanal ağ'ı kullanarak sanal makinelerinize kaynaklarınızı corpnet erişimi gerekebilir.
 
-Bu makalede, varolan sanal ağınızda, Laboratuvar ait sanal ağ ayarlarını ekleyebilirsiniz, böylece sanal makineleri oluştururken seçtiğiniz kullanılabilir açıklanmaktadır.
+Bu makalede, böylece VM'ler oluşturulurken seçmek kullanılabilir var olan sanal ağınızda bir laboratuvar sanal ağ ayarlarını ekleme açıklanmaktadır.
 
-## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir laboratuvar için bir sanal ağ yapılandırma
-Aşağıdaki adımlar, böylece aynı laboratuar ortamında bir VM oluştururken, kullanılabilir var olan sanal ağ (ve alt ağ), laboratuvara eklerken size yol. 
+## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Sanal ağ için Azure portalını kullanarak bir laboratuvar yapılandırma
+Aşağıdaki adımlar aynı laboratuvarda VM oluşturduğunuz sırada kullanılabilir böylece var olan sanal ağı (ve alt ağ), laboratuvara eklerken size kılavuzluk. 
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 1. İstenen Laboratuvar labs listesinden seçin. 
-1. Laboratuvar ait ana bölmede, seçin **yapılandırma ve ilkeleri**.
+1. Laboratuvar ana bölmeden **yapılandırması ve ilkelerini**.
 
-    ![Laboratuvar ait yapılandırma ve ilkeleri erişim](./media/devtest-lab-configure-vnet/policies-menu.png)
-1. İçinde **dış KAYNAKLARA** bölümünde, select **sanal ağlar**. Laboratuvarınız için oluşturulan varsayılan sanal ağ yanı sıra geçerli Laboratuvar için yapılandırılan sanal ağlar listesi görüntülenir. 
+    ![Laboratuvar yapılandırması ve ilkelerini erişim](./media/devtest-lab-configure-vnet/policies-menu.png)
+1. İçinde **dış KAYNAKLARA** bölümünden **sanal ağları**. Geçerli Laboratuvar için yapılandırılan sanal ağların bir listesini, laboratuvarınız için oluşturulan varsayılan sanal ağ yanı sıra görüntülenir. 
 1. **+ Ekle** öğesini seçin.
    
-    ![Laboratuvarınız için varolan bir sanal ağ ekleme](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
-1. Üzerinde **sanal ağ** bölmesinde, **[Select sanal ağ]**.
+    ![Laboratuvarınız için mevcut bir sanal ağı Ekle](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
+1. Üzerinde **sanal ağ** bölmesinde **[sanal ağ seçin]**.
    
-    ![Varolan bir sanal ağı seçin](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
-1. Üzerinde **Seç sanal ağ** bölmesinde, istenen sanal ağı seçin. Tüm abonelik Laboratuvar olarak aynı bölgede altındaki sanal ağlar gösteren bir liste görüntülenir.
-1. Bir sanal ağı seçtikten sonra döndürülürsünüz **sanal ağ** bölmesi. Alt kısımdaki listesinden seçin.
+    ![Mevcut bir sanal ağ seçin](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
+1. Üzerinde **sanal ağ Seç** bölmesinde istediğiniz sanal ağı seçin. Tüm Laboratuvar abonelikte aynı bölgede altında olan sanal ağların gösteren bir liste görüntülenir.
+1. Bir sanal ağ'ı seçtikten sonra döndürülürsünüz **sanal ağ** bölmesi. Listenin altındaki alt ağ seçin.
 
     ![Alt ağ listesi](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
     
-    Laboratuvar alt bölmesinde görüntülenir.
+    Laboratuvar alt bölmesi görüntülenir.
 
     ![Laboratuvar alt bölmesi](./media/devtest-lab-configure-vnet/lab-subnet.png)
      
    - Belirtin bir **Laboratuvar alt ağ adı**.
-   - VM oluşturma laboratuvarda kullanılacak bir alt ağ izin vermek için seçin **sanal makine oluşturma kullanımda**.
-   - Etkinleştirmek için bir [genel IP adresi paylaşılan](devtest-lab-shared-ip.md)seçin **etkinleştir paylaşılan ortak IP**.
-   - Genel IP adresleri bir alt ağda izin vermek için seçin **ortak IP oluşturmaya izin**.
-   - İçinde **kullanıcı başına en fazla sanal makine** alan, her alt ağ için kullanıcı başına en fazla VMs belirtin. Sanal makineleri sınırsız sayıda istiyorsanız bu alanı boş bırakın.
+   - Laboratuvarda VM oluşturma kullanılacak bir alt ağ izin vermek için seçin **sanal makine oluşturma işlemi kullanımda**.
+   - Etkinleştirmek için bir [genel IP adresi paylaşılan](devtest-lab-shared-ip.md)seçin **etkinleştir paylaşılan genel IP**.
+   - Genel IP adresleri bir alt ağında izin vermek için seçin **genel IP oluşturmaya izin ver**.
+   - İçinde **kullanıcı başına en fazla sanal makine** alan, her alt ağ için kullanıcı başına en fazla VM belirtin. Sınırsız sayıda sanal makineleri istiyorsanız bu alanı boş bırakın.
 1. Seçin **Tamam** Laboratuvar alt bölmesini kapatın.
-1. Seçin **kaydetmek** sanal ağ bölmesini kapatın.
+1. Seçin **Kaydet** sanal ağ bölmesini kapatın.
 
-Sanal ağ yapılandırıldıysa, bir VM oluşturulurken seçilebilir. Bir VM oluşturma ve bir sanal ağ belirtin, makalesine başvurun görmek için [bir VM'yi laboratuvara ekleme](devtest-lab-add-vm.md). 
+Yapılandırılmış bir sanal ağ, VM oluşturduğunuz sırada seçilebilir. VM oluşturma ve bir sanal ağ belirtin, makaleye bakın yapılacağını görmek için [bir VM'yi bir laboratuvara ekleme](devtest-lab-add-vm.md). 
 
-Azure'nın [sanal ağ belgeleri](https://docs.microsoft.com/azure/virtual-network) ayarlamak ve VNet yönetmek ve şirket içi ağınıza bağlanmak nasıl dahil olmak üzere sanal ağlar kullanma hakkında daha fazla bilgi sağlar.
+Azure'nın [sanal ağ belgeleri](https://docs.microsoft.com/azure/virtual-network) sanal ağlar, ayarlamak ve VNet yönetmek ve şirket içi ağınıza bağlanmak nasıl dahil olmak üzere kullanma hakkında daha fazla bilgi sağlar.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Laboratuvarınız için istenen sanal ağ ekledikten sonra sıradaki adım olacak [Laboratuvarınızı için bir VM eklemek](devtest-lab-add-vm.md).
+Laboratuvarınız için istenen sanal ağ ekledikten sonra sonraki adım olarak [bir VM, laboratuvara ekleme](devtest-lab-add-vm.md).
 

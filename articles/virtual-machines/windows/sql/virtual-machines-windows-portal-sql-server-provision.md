@@ -1,6 +1,6 @@
 ---
-title: Azure portalında Kılavuzu Windows SQL Server VM'ler için sağlama | Microsoft Docs
-description: Nasıl yapılır bu kılavuz, Azure portalında Windows SQL Server 2017 sanal makineler oluşturmak için seçeneklerinizi açıklar.
+title: Sağlama, Azure portalında Windows SQL Server Vm'leri için kılavuz | Microsoft Docs
+description: Bu nasıl yapılır kılavuzunda, Azure portalında Windows SQL Server 2017 sanal makinelerine oluşturmaya yönelik seçeneklerinizi açıklar.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -15,26 +15,26 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: jroth
 ms.openlocfilehash: d2bcabf845a2178abbebe8f2998d58b462e37c78
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072326"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704547"
 ---
-# <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure portalında Windows SQL Server sanal makine sağlama
+# <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure portalında bir Windows SQL Server sanal makinesi sağlama
 
-Azure portalında bir Windows SQL Server sanal makine oluşturduğunuzda, bu kılavuzda kullanılabilir farklı seçenekler hakkında ayrıntılar sağlar. Bu makalede daha fazla yapılandırma seçeneği ele alınmaktadır [SQL Server VM quickstart](quickstart-sql-vm-create-portal.md), daha fazla ile bir olası görev sağlama gider. 
+Azure portalında Windows SQL Server sanal makine oluşturduğunuzda, bu kılavuzda kullanılabilir farklı seçenekler hakkında ayrıntılar sağlar. Bu makalede daha fazla yapılandırma seçeneği ele alınmaktadır [SQL Server VM Hızlı Başlangıç](quickstart-sql-vm-create-portal.md), daha fazla ile bir olası görev sağlama gider. 
 
-Kendi SQL Server VM oluşturmak için bu kılavuzu kullanın. Veya, Azure portalında kullanılabilir seçenekler için bir başvuru olarak kullanabilirsiniz.
+Kendi SQL Server VM oluşturmak için bu kılavuzu kullanın. Veya Azure portalında kullanılabilir seçenekler için referans olarak kullanın.
 
 > [!TIP]
 > SQL Server sanal makineleri hakkında sorularınız olursa [Sık Sorulan Sorular](virtual-machines-windows-sql-server-iaas-faq.md) bölümüne bakın.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a id="select"></a> SQL Server sanal makineye Galerisi görüntüleri
+## <a id="select"></a> SQL Server sanal makine galeri görüntüleri
 
-Bir SQL Server sanal makine oluşturduğunuzda, sanal makine Galeriden birkaç önceden yapılandırılmış görüntülerden birini seçebilirsiniz. Aşağıdaki adımlar SQL Server 2017 görüntülerden birini seçmek nasıl ekleyebileceğiniz gösterilmektedir.
+Bir SQL Server sanal makine oluşturduğunuzda, sanal makine galerisinden birden fazla önceden yapılandırılmış görüntülerden birini seçebilirsiniz. Aşağıdaki adımlarda, SQL Server 2017 görüntülerinden birini seçme gösterilmektedir.
 
 1. Hesabınızı kullanarak [Azure portal](https://portal.azure.com)da oturum açın.
 
@@ -57,10 +57,10 @@ Bir SQL Server sanal makine oluşturduğunuzda, sanal makine Galeriden birkaç �
 1. **Ücretsiz SQL Server Lisansı: Windows Server 2016 üzerinde SQL Server 2017 Developer** görüntüsünü seçin.
 
    > [!TIP]
-   > Geliştirici sürümü geliştirme test etmek için bir tam özellikli, ücretsiz sürümü SQL Server'ın olduğu için bu kılavuzda kullanılır. Yalnızca çalışan VM'ler için ücret ödersiniz. Ancak, bu kılavuzda kullanılacak görüntüleri birini seçmek ücretsizdir. Kullanılabilir görüntüleri açıklaması için bkz: [SQL Server Windows sanal makinelere genel bakış](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
+   > Geliştirme testi için bir tam özellikli ve ücretsiz SQL Server sürümü olduğundan bu izlenecek yolda Developer sürümü kullanılır. Yalnızca çalışan VM'ler için ücret ödersiniz. Ancak, bu izlenecek yolda kullanmak üzere istediğiniz görüntüyü birini seçebilirsiniz. Kullanılabilir görüntüleri açıklaması için bkz: [SQL Server Windows sanal makinelerine genel bakış](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
    > [!TIP]
-   > SQL Server Lisans maliyetlerini edition ve çekirdek tarafından saniyede oluşturmak ve değişir VM fiyatlandırma içine birleştirilir. Ancak, geliştirme/test (üretim değil) ve SQL Express'in hafif iş yüklerini (küçüktür 10 GB depolama alanı değerinden 1 GB bellek) ücretsiz için SQL Server Geliştirici sürümü ücretsizdir. Ayrıca Getir bilgisayarınızı-kendi-lisans (KLG) ve yalnızca VM için ödeme. Bu görüntü adlarının başına {BYOL} ön eki getirilir. 
+   > SQL Server Lisans maliyetlerini saniye başına fiyatına VM oluşturma ve değişir çekirdek sürümü ile birleştirilir. Geliştirme/test için (üretim için değil), SQL Express ise hafif iş yükleri (1 GB bellek, küçüktür 10 GB depolama alanı) için ancak SQL Server Developer sürümü ücretsizdir. Ayrıca--kendi-lisansını getir (KLG) ve yalnızca VM için ödeme. Bu görüntü adlarının başına {BYOL} ön eki getirilir. 
    >
    > Bu seçeneklerle ilgili daha fazla bilgi için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
 
@@ -100,7 +100,7 @@ Bir SQL Server sanal makinesini yapılandırmak için beş pencere vardır.
   > [!NOTE]
   > Yalnızca Azure’daki SQL Server dağıtımlarını test ediyor veya öğreniyorsanız, yeni bir kaynak grubu kullanmak faydalıdır. Test işleminizi tamamladıktan sonra, sanal makineyi ve bu kaynak grubu ile ilişkili tüm kaynakları otomatik olarak silmek için kaynak grubunu silin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a Genel Bakış](../../../azure-resource-manager/resource-group-overview.md).
 
-* Seçin bir **konumu** bu dağıtım barındırmak Azure bölgesi.
+* Seçin bir **konumu** bu dağıtımı barındıracak Azure bölgesi.
 
 * Ayarları kaydetmek için **Tamam**’a tıklayın.
 
@@ -111,7 +111,7 @@ Bir SQL Server sanal makinesini yapılandırmak için beş pencere vardır.
 **Boyut** adımında, **Boyutu seç** penceresinde bir sanal makine boyutunu seçin. Pencere ilk başta seçtiğiniz görüntüye göre önerilen makine boyutlarını görüntüler.
 
 > [!IMPORTANT]
-> **Boyut seçin** penceresinde gösterilen tahmini aylık maliyet, SQL Server lisans maliyetlerini içermez. Bu tahmin tek başına VM maliyetidir. Express ve geliştirici SQL Server sürümleri için bu tahmini toplam tahmini maliyet olur. Diğer sürümler için [Windows Sanal Makineler fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) bakın ve hedef SQL Server sürümünüzü seçin. Ayrıca bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
+> **Boyut seçin** penceresinde gösterilen tahmini aylık maliyet, SQL Server lisans maliyetlerini içermez. Bu tahmin yalnızca VM'nin maliyetidir maliyetidir. SQL Server Express ve Developer sürümleri için bu, toplam tahmini maliyeti tahminidir. Diğer sürümler için [Windows Sanal Makineler fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) bakın ve hedef SQL Server sürümünüzü seçin. Ayrıca bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 ![SQL VM Boyut Seçenekleri](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -129,20 +129,20 @@ Makine boyutunuzu seçin ve ardından **Seç**’e tıklayın.
 * **Depolama** altında, **Yönetilen Diskler** altındaki **Evet**’i seçin.
 
    > [!NOTE]
-   > Microsoft, SQL Server için Yönetilen Diskleri önerir. Yönetilen Diskler, depolama alanını arka planda yönetir. Ayrıca, Yönetilen Disklere sahip sanal makineler aynı kullanılabilirlik kümesinde olduğunda Azure uygun artıklık düzeyini sağlamak için depolama kaynaklarını dağıtır. Daha fazla bilgi için bkz. [Azure yönetilen diskleri genel bakış] [.. / Yönetilen-diskleri-overview.md). Bir kullanılabilirlik kümesindeki yönetilen diskler hakkında daha fazla ayrıntı için bkz. [Kullanılabilirlik kümesindeki VM’ler için yönetilen diskleri kullanma](../manage-availability.md).
+   > Microsoft, SQL Server için Yönetilen Diskleri önerir. Yönetilen Diskler, depolama alanını arka planda yönetir. Ayrıca, Yönetilen Disklere sahip sanal makineler aynı kullanılabilirlik kümesinde olduğunda Azure uygun artıklık düzeyini sağlamak için depolama kaynaklarını dağıtır. Daha fazla bilgi için bkz. [Azure yönetilen disklere genel bakış] [… / Yönetilen-disk-overview.md). Bir kullanılabilirlik kümesindeki yönetilen diskler hakkında daha fazla ayrıntı için bkz. [Kullanılabilirlik kümesindeki VM’ler için yönetilen diskleri kullanma](../manage-availability.md).
 
-* Altında **ağ**, tüm gelen seçin, bağlantı noktaları **seçin ortak gelen bağlantı noktalarının** listesi. Örneğin, VM'de oturum için Uzak Masaüstü istiyorsanız seçin **RDP (3389)** bağlantı noktası.
+* Altında **ağ**, select herhangi bir gelen bağlantı noktaları, **seçin ortak gelen bağlantı noktası** listesi. Örneğin, VM'ye Uzak Masaüstü Bağlantısı isterseniz seçin **RDP (3389)** bağlantı noktası.
 
    ![Gelen bağlantı noktaları](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
 
    > [!NOTE]
-   > Seçebileceğiniz **MS SQL (1433)** SQL Server uzaktan erişmek için bağlantı noktası. Ancak, bunu burada, gerekli olmadığından **SQL Server ayarları** adım bu seçenek de sağlar. Bu adımda 1433 numaralı bağlantı noktasını seçerseniz, seçimlerinizi bakılmaksızın açılacak **SQL Server ayarları** adım.
+   > SQL Server’a uzaktan erişmek için **MS SQL (1433)** bağlantı noktasını seçebilirsiniz. Ancak, bunu burada, gerekli olmadığından **SQL Server ayarları** adımı, bu seçeneği de sağlar. Bu adımda 1433 numaralı bağlantı noktasını seçerseniz, bu bağlantı noktası **SQL Server ayarları** adımındaki seçimlerinize bakılmaksızın açılır.
 
-   Ağ ayarları başka değişiklikler yapmak veya varsayılan değerleri tutun.
+   Ağ ayarları başka değişiklikler yapmak veya varsayılan değerleri koruyun.
 
 * Azure varsayılan olarak, VM için belirlenen aynı depolama hesabıyla **İzleme**’yi etkinleştirir. Burada bu ayarları değiştirebilirsiniz.
 
-* Altında **kullanılabilirlik kümesi**, varsayılan değerini bırakın **hiçbiri** bu gözden geçirme. SQL AlwaysOn Kullanılabilirlik Grupları kurulumunu planlıyorsanız, sanal makinenin yeniden oluşturulmasını önlemek için kullanılabilirliği yapılandırın.  Daha fazla bilgi için bkz. [Sanal Makinelerin Kullanılabilirliğini Yönetme](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Altında **kullanılabilirlik kümesi**, varsayılan bırakabilirsiniz **hiçbiri** bu gözden geçirme. SQL AlwaysOn Kullanılabilirlik Grupları kurulumunu planlıyorsanız, sanal makinenin yeniden oluşturulmasını önlemek için kullanılabilirliği yapılandırın.  Daha fazla bilgi için bkz. [Sanal Makinelerin Kullanılabilirliğini Yönetme](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Yapılandırma ayarlarını tamamladığınızda, **Tamam**’a tıklayın.
 
@@ -161,12 +161,12 @@ Yapılandırma ayarlarını tamamladığınızda, **Tamam**’a tıklayın.
 
 ### <a name="connectivity"></a>Bağlantı
 
-**SQL bağlantısı** altında, bu VM’de SQL Server örneğini istediğiniz erişim türünü belirtin. Bu kılavuzda amaçları doğrultusunda seçin **genel (internet)** makineler ve hizmetlerden Internet üzerindeki SQL Server bağlantılarına izin verecek şekilde. Bu seçenek seçildiğinde, Azure güvenlik duvarı ve ağ güvenlik grubunu bağlantı noktası 1433'te trafiğe izin verecek şekilde otomatik olarak yapılandırır.
+**SQL bağlantısı** altında, bu VM’de SQL Server örneğini istediğiniz erişim türünü belirtin. Bu izlenecek yolda amacı doğrultusunda, seçin **genel (internet)** makineler ve hizmetlerden internet üzerindeki SQL Server bağlantılarına izin verecek şekilde. Bu seçenek seçildiğinde, Azure güvenlik duvarı ve ağ güvenlik grubunu bağlantı noktası 1433'te trafiğe izin verecek şekilde otomatik olarak yapılandırır.
 
 ![SQL Bağlantı Seçenekleri](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
 
 > [!TIP]
-> Varsayılan olarak, SQL Server **1433** gibi iyi bilinen bir bağlantı noktasını dinler. Daha yüksek güvenlik için önceki iletişim kutusunda dinleme bağlantı noktasını 1401 gibi varsayılan olmayan bir bağlantı noktasıyla değiştirin. Bağlantı noktasını değiştirirseniz, bu bağlantı noktasından SSMS gibi herhangi bir istemci aracı kullanarak bağlanmanız gerekir.
+> Varsayılan olarak, SQL Server **1433** gibi iyi bilinen bir bağlantı noktasını dinler. Daha yüksek güvenlik için önceki iletişim kutusunda dinleme bağlantı noktasını 1401 gibi varsayılan olmayan bir bağlantı noktasıyla değiştirin. Bağlantı noktasını değiştirirseniz, bu bağlantı noktasına SSMS gibi bir istemci aracı kullanarak bağlanmanız gerekir.
 
 İnternet üzerinden SQL Server'a bağlanmak için, sonraki bölümde açıklanan, SQL Server Kimlik Doğrulamasını etkinleştirmeniz gerekir.
 
@@ -255,7 +255,7 @@ Daha fazla bilgi için bkz. [Azure VM’lerde SQL Server için Azure Anahtar Kas
 
 ### <a name="sql-server-machine-learning-services"></a>SQL Server Machine Learning Hizmetleri
 
-[SQL Server Machine Learning Hizmetleri](https://msdn.microsoft.com/library/mt604845.aspx) seçeneğini etkinleştirebilirsiniz. Bu seçenek, gelişmiş analizler ile SQL Server 2017 kullanmanıza olanak sağlar. **SQL Server Ayarları** penceresinde **Etkinleştir** seçeneğini belirleyin.
+[SQL Server Machine Learning Hizmetleri](https://msdn.microsoft.com/library/mt604845.aspx) seçeneğini etkinleştirebilirsiniz. Bu seçenek, SQL Server 2017 ile Gelişmiş analizi kullanmanıza olanak sağlar. **SQL Server Ayarları** penceresinde **Etkinleştir** seçeneğini belirleyin.
 
 ![SQL Server Machine Learning Hizmetlerini etkinleştirin](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
@@ -282,12 +282,12 @@ Makineye erişim, gereksinimlerinize göre makineyi ve SQL Server ayarlarını d
 
 ## <a id="connect"></a> SQL Server'a uzaktan bağlanma
 
-Bu kılavuzda, seçtiğiniz **ortak** sanal makine için erişim ve **SQL Server kimlik doğrulaması**. Bu ayarlar, İnternet üzerinden tüm istemcilerden gelen (doğru SQL oturum açma bilgilerine sahip oldukları varsayılarak) SQL Server bağlantılarına izin verecek şekilde sanal makineyi yapılandırdı.
+Bu kılavuzda, seçtiğiniz **genel** sanal makine için erişim ve **SQL Server kimlik doğrulaması**. Bu ayarlar, İnternet üzerinden tüm istemcilerden gelen (doğru SQL oturum açma bilgilerine sahip oldukları varsayılarak) SQL Server bağlantılarına izin verecek şekilde sanal makineyi yapılandırdı.
 
 > [!NOTE]
 > Sağlama sırasında Genel’i seçmediyseniz, sağlamadan sonra SQL bağlantı ayarlarınızı portal üzerinden değiştirebilirsiniz. Daha fazla bilgi edinmek için bkz. [SQL bağlantı ayarlarınızı değiştirme](virtual-machines-windows-sql-connect.md#change).
 
-Aşağıdaki bölümlerde, SQL Server VM örneğine Internet üzerinden bağlanmak nasıl gösterir.
+Aşağıdaki bölümlerde, SQL Server sanal makine Örneğinize internet üzerinden bağlanmak gösterilmektedir.
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 

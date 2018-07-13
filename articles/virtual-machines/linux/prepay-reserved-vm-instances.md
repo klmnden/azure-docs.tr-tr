@@ -1,6 +1,6 @@
 ---
-title: Azure paradan tasarruf için sanal makineler için ön ödeme | Microsoft Docs
-description: Azure ayrılmış sanal makine örneklerinin işlem maliyetlerinde kaydetmek için satın alma öğrenin.
+title: Azure tam kapasiteye ulaşmadığında tasarruf için sanal makineler için ön ödeme | Microsoft Docs
+description: Azure ayrılmış sanal makine örnekleri hesaplama maliyetlerinizden kaydetmek için satın alma konusunda bilgi edinin.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vikramdesai01
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
 ms.openlocfilehash: 8ba738baecdfb48cc411ca06480afffca612ec75
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774004"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606300"
 ---
 [!INCLUDE [virtual-machines-buy-compute-reservations](../../../includes/virtual-machines-common-prepay-reserved-vm-instances.md)]
 

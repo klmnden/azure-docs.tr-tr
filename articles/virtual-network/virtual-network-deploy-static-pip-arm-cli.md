@@ -1,6 +1,6 @@
 ---
-title: Bir statik genel IP adresi ile - Azure CLI bir VM oluşturma | Microsoft Docs
-description: Azure komut satırı arabirimi (CLI) kullanarak bir statik genel IP adresi ile VM oluşturmayı öğrenin.
+title: Bir statik genel IP adresiyle - Azure CLI VM oluşturma | Microsoft Docs
+description: Azure komut satırı arabirimi (CLI) kullanarak statik genel IP adresiyle VM oluşturma konusunda bilgi edinin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,34 +17,34 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bd44971162a79e53b731c5c89316f14e8bb0a1a6
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31524866"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38651968"
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Azure CLI kullanarak bir statik genel IP adresiyle bir VM oluşturma
+# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Azure CLI kullanarak bir statik genel IP adresiyle VM oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [PowerShell (Klasik)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bu makalede, Klasik dağıtım modeli yerine en yeni dağıtımlar için Microsoft önerir Resource Manager dağıtım modelini kullanarak yer almaktadır.
+Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bu makale Klasik dağıtım modeli yerine en yeni dağıtımlar için Microsoft'un önerdiği Resource Manager dağıtım modelini incelemektedir.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 ## <a name = "create"></a>VM oluşturma
 
-Değerler "" izlediği adımları değişkenlerde senaryodan ayarlarla kaynakları oluşturun. Değerleri, ortamınız için uygun şekilde değiştirin.
+Değerler "" adımları değişkenlerinde senaryosundaki ayarlarla kaynakları oluşturun. Ortamınız için uygun değerleri değiştirin.
 
 1. Yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) , zaten yüklü değilse.
-2. İçindeki adımları tamamlayarak Linux VM'ler için bir SSH ortak ve özel anahtar çifti oluşturma [Linux VM'ler için bir SSH ortak ve özel anahtar çifti oluşturma](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-3. Oturum açma komutunu bir komut kabuğu'ndan `az login`.
-4. VM, bir Linux veya Mac bilgisayarda aşağıdaki komut dosyasını çalıştırarak oluşturun. Azure genel IP adresi, sanal ağ, ağ arabirimi ve VM kaynakları tüm aynı konumda bulunmalıdır. Kaynakların tümü aynı kaynak grubunda mevcut gerekmez ancak, aşağıdaki komut dosyasında yaparlar.
+2. İçindeki adımları tamamlayarak Linux VM'ler için SSH ortak ve özel anahtar çifti oluşturma [Linux VM'ler için SSH ortak ve özel anahtar çifti oluşturma](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+3. Oturum açma komutu ile bir komut kabuğu'ndan `az login`.
+4. VM, bir Linux veya Mac bilgisayarda aşağıdaki komut dosyasını çalıştırarak oluşturun. Azure genel IP adresi, sanal ağ, ağ arabirimi ve VM kaynaklarının tümünü aynı konumda bulunmalıdır. Kaynakların tümü aynı kaynak grubunda olması gerekmez ancak bunlar aşağıdaki betikte yapın.
 
 ```bash
 RgName="IaaSStory"
@@ -128,28 +128,28 @@ az vm create \
 # If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
 ```
 
-Bir VM oluşturmaya ek olarak, komut dosyası oluşturur:
-- Tek bir premium disk varsayılan olarak yönetilen, ancak oluşturabileceğiniz disk türü için diğer seçeneğiniz vardır. Okuma [Azure CLI 2.0 kullanarak bir Linux VM oluşturma](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Ayrıntılar için makale.
-- Sanal ağ, alt ağ, NIC ve ortak IP adresi kaynakları. Alternatif olarak, kullanabileceğiniz *varolan* sanal ağ, alt ağ, NIC veya ortak IP adresi kaynakları. Oluşturma ek kaynaklar yerine var olan ağ kaynaklarını kullanmayı öğrenmek için girin `az vm create -h`.
+Bir sanal makine oluşturmaya ek olarak, komut dosyası oluşturur:
+- Varsayılan olarak tek bir premium yönetilen disk, ancak diğer seçenekler için oluşturabileceğiniz disk türü vardır. Okuma [Azure CLI 2.0 kullanarak bir Linux VM oluşturma](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makale Ayrıntılar için.
+- Sanal ağ, alt ağ, NIC ve genel IP adresi kaynakları. Alternatif olarak, *mevcut* sanal ağ, alt ağ, NIC veya genel IP adresi kaynakları. Ek kaynak oluşturmaya yerine var olan ağ kaynaklarını kullanmayı öğrenmek için girin `az vm create -h`.
 
-## <a name = "validate"></a>VM oluşturma ve genel IP adresi doğrula
+## <a name = "validate"></a>VM oluşturma ve genel IP adresini doğrula
 
-1. Aşağıdaki komutu girin `az resource list --resouce-group IaaSStory --output table` komut dosyası tarafından oluşturulan kaynakların bir listesini görmek için. Döndürülen çıktısında beş kaynakları olmalıdır: ağ arabirimi, disk, genel IP adresi, sanal ağ ve bir sanal makine.
-2. Aşağıdaki komutu girin `az network public-ip show --name PIPWEB1 --resource-group IaaSStory --output table`. Döndürülen çıkış değerini not edin **IPADDRESS** ve değerini **Publicıpallocationmethod** olan *statik*.
-3. Aşağıdaki komutu yürütmeden önce <> kaldırmak, değiştirmek *kullanıcı adı* için kullanılan adla **kullanıcıadı** komut dosyası ve değiştirme değişkeni *IPADDRESS*ile **IPADDRESS** önceki adımdan. VM'e bağlanmak için aşağıdaki komutu çalıştırın: `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`. 
+1. Komutu girdikten `az resource list --resouce-group IaaSStory --output table` betiği tarafından oluşturulan kaynakların bir listesini görmek için. Döndürülen çıktısında beş kaynaklar olmalıdır: ağ arabirimi, disk, genel IP adresi, sanal ağ ve sanal makine.
+2. Komutu girdikten `az network public-ip show --name PIPWEB1 --resource-group IaaSStory --output table`. Döndürülen çıktısında değerini not edin **IPADDRESS** ve değerini **Publicıpallocationmethod** olduğu *statik*.
+3. Aşağıdaki komutu yürütmeden önce çatal karakterini kaldırın ve değiştirin *kullanıcıadı* için kullanılan ad ile **kullanıcı adı** betik ve değiştirme değişkeni *IPADDRESS*ile **IPADDRESS** önceki adımdan. VM'ye bağlanmak için aşağıdaki komutu çalıştırın: `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`. 
 
-## <a name= "clean-up"></a>VM ve ilişkili kaynakları Kaldır
+## <a name= "clean-up"></a>Sanal Makineyi ve ilişkili kaynakları Kaldır
 
-Üretimde kullanmaz, bu alıştırmada oluşturulan kaynakları silmeniz önerilir. Sağlanan sürece ücretler, VM, genel IP adresi ve disk kaynakları uygulanır. Bu alıştırmada sırasında oluşturulan kaynakları kaldırmak için aşağıdaki adımları tamamlayın:
+Üretimde kullanmaz, bu alıştırmada oluşturulan kaynakları silmeniz önerilir. Sağlanan sürece VM, genel IP adresi ve disk kaynakları, ücretleri. Bu alıştırmada sırasında oluşturulan kaynakları kaldırmak için aşağıdaki adımları tamamlayın:
 
-1. Kaynak grubunda olan kaynakları görüntülemek için Çalıştır `az resource list --resource-group IaaSStory` komutu.
-2. Bu makalede betik tarafından oluşturulan kaynakları dışında kaynak grubunda hiç kaynak yok onaylayın. 
-3. Bu alıştırmada oluşturulan tüm kaynakları silmek için çalıştırın `az group delete -n IaaSStory` komutu. Komut kaynak grubu ve içerdiği tüm kaynakları siler.
+1. Kaynak grubundaki kaynakları görüntülemek için çalıştırın `az resource list --resource-group IaaSStory` komutu.
+2. Bu makalede betik tarafından oluşturulan kaynakları dışındaki kaynak grubunda kaynak yok onaylayın. 
+3. Bu alıştırmada oluşturulan tüm kaynakları silmek için çalıştırın `az group delete -n IaaSStory` komutu. Komut, kaynak grubunu ve içerdiği tüm kaynakları siler.
  
 ## <a name="set-ip-addresses-within-the-operating-system"></a>İşletim sistemi içinde IP adreslerini ayarlayın
 
-Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir. Statik olarak bir VM işletim sistemi içinde Azure sanal makineye atanan özel IP sürece atadığınız değil, önerilir gerekirse, ne zaman gibi [birden çok IP adresleri atama bir Windows VM](virtual-network-multiple-ip-addresses-cli.md). İşletim sistemi içinde özel IP adresini el ile ayarlarsanız, Azure için atanan özel IP adresi aynı adresi olduğundan emin olun [ağ arabirimi](virtual-network-network-interface-addresses.md#change-ip-address-settings), ya da sanal makineye bağlantısını kaybedebilir. Daha fazla bilgi edinmek [özel IP adresi](virtual-network-network-interface-addresses.md#private) ayarlar.
+Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir. Önerilen, statik olarak bir sanal makinenin işletim sistemi içinde Azure sanal makinesine atanmış özel IP sürece atamayın, gerekli olduğunda gibi [birden çok IP adresleri atama bir Windows VM'ye](virtual-network-multiple-ip-addresses-cli.md). İşletim sistemi içinde özel IP adresini el ile ayarlamanız durumunda Azure atanmış özel IP adresiyle aynı adresi olduğundan emin olun [ağ arabirimi](virtual-network-network-interface-addresses.md#change-ip-address-settings), ya da sanal makineye bağlantı kaybedebilir. Daha fazla bilgi edinin [özel IP adresi](virtual-network-network-interface-addresses.md#private) ayarları.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Herhangi bir ağ trafiği için ve bu makalede oluşturulan VM akabilir. Ağ arabirimi, alt ağ ya da her ikisini de gelen ve giden akış trafiğini sınırlandırmak gelen ve giden güvenlik kuralları bir ağ güvenlik grubu içinde tanımlayabilirsiniz. Ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [ağ güvenlik grubu genel bakış](security-overview.md).
+Bu makalede oluşturulan VM'ye gelen ve giden ağ trafiğini akabilir. Ağ arabirimi, alt ağ veya her ikisi de gelen ve giden akış trafiğini sınırlandırmak gelen ve giden güvenlik kuralları bir ağ güvenlik grubu içinde tanımlayabilirsiniz. Ağ güvenlik grupları hakkında daha fazla bilgi için bkz. [ağ güvenlik grubu genel bakış](security-overview.md).

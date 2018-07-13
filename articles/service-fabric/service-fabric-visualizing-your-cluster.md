@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric Explorer kullanarak kümenizi Görselleştirme | Microsoft Docs
-description: Service Fabric Explorer inceleme ve bulut uygulamaları ve Microsoft Azure Service Fabric kümesindeki düğümler yönetmek için bir uygulamadır.
+description: Service Fabric Explorer, inceleme ve bulut uygulamaları ve Microsoft Azure Service Fabric kümesindeki düğümlere yönetmek için kullanılan bir uygulamadır.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: mikhegn
-ms.openlocfilehash: 916742d89447af4097d37b5d78e97ff86c12834c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 459dd86fd614cb185801b074cea70c36dc7f6ccb
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210190"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972341"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Service Fabric Explorer ile kümenizi görselleştirme
 
-Service Fabric Explorer (SFX) inceleme ve Azure Service Fabric kümeleri yönetmek için bir açık kaynak aracıdır. Service Fabric Explorer, Windows ve Linux için bir masaüstü uygulamasıdır. MacOS desteği yakında geliyor.
+Service Fabric Explorer (SFX), inceleme ve Azure Service Fabric kümelerini yönetmeye yönelik bir açık kaynak aracıdır. Service Fabric Explorer, Windows, macOS ve Linux için bir masaüstü uygulamasıdır.
 
 ## <a name="service-fabric-explorer-download"></a>Service Fabric Explorer indirme
 
-Service Fabric Explorer masaüstü uygulaması olarak indirmek için aşağıdaki bağlantıları kullanın:
+Bir masaüstü uygulaması olarak Service Fabric Explorer'ı indirmek için aşağıdaki bağlantıları kullanın:
 
 - Windows
   - https://aka.ms/sfx-windows
@@ -40,86 +40,86 @@ Service Fabric Explorer masaüstü uygulaması olarak indirmek için aşağıdak
   - https://aka.ms/sfx-macos
 
 > [!NOTE]
-> Service Fabric Explorer'ın Masaüstü sürümünü küme desteği az veya daha fazla özelliğe sahip olabilir. Tam özellik uyumluluğundan emin olmak için kümeye dağıtılan Service Fabric Explorer sürümüne geri dönebilir.
+> Service Fabric Explorer'ın Masaüstü sürümünü küme desteği daha az veya daha fazla özellik olabilir. Tam özellik uyumluluğu sağlamak için kümeye dağıtılmış Service Fabric Explorer sürümüne geri dönebilirsiniz.
 >
 >
 
-### <a name="running-service-fabric-explorer-from-the-cluster"></a>Service Fabric Explorer kümeden çalıştırma
+### <a name="running-service-fabric-explorer-from-the-cluster"></a>Kümedeki çalışan Service Fabric Explorer
 
-Service Fabric Explorer ayrıca bir Service Fabric kümenin HTTP yönetim uç barındırılır. Bir web tarayıcısında SFX başlatmak için kümenin HTTP yönetim uç noktasına herhangi bir tarayıcıdan - örneğin Gözat https://clusterFQDN:19080.
+Service Fabric Explorer, bir Service Fabric küme HTTP yönetim uç noktası da barındırılır. Bir web tarayıcısında SFX başlatmak için kümenin HTTP yönetim uç noktası için herhangi bir tarayıcıdan - örneğin göz https://clusterFQDN:19080.
 
-Geliştirici iş istasyonu kurulumu için Service Fabric Explorer yerel kümenizde giderek başlatabilirsiniz https://localhost:19080/Explorer. Bu makalede bakabilir [geliştirme ortamınızı hazırlama](service-fabric-get-started.md).
+Geliştirici iş istasyonu kurulumu için Service Fabric Explorer kullanarak yerel kümenizde giderek başlatabilirsiniz https://localhost:19080/Explorer. Bu makaleye bakın [geliştirme ortamınızı hazırlama](service-fabric-get-started.md).
 
-## <a name="connect-to-a-service-fabric-cluster"></a>Service Fabric kümeye bağlanın
-Bir Service Fabric kümeye bağlanmak için küme yönetim uç noktası'nı (FQDN/IP) ve HTTP yönetim uç nokta bağlantı noktası (varsayılan olarak 19080) gerekir. Örneğin, https://mysfcluster.westus.cloudapp.azure.com:19080. İstasyonunuzda yerel kümeye bağlanmak için "Localhost'a Bağlan" onay kutusunu kullanın.
+## <a name="connect-to-a-service-fabric-cluster"></a>Bir Service Fabric kümesine bağlanın
+Bir Service Fabric kümesine bağlanmak için küme yönetim uç noktası'nı (FQDN/IP) ve HTTP yönetim uç noktası 19080 bağlantı noktasına (varsayılan) gerekir. Örneğin, https://mysfcluster.westus.cloudapp.azure.com:19080. İş istasyonunuzda yerel kümeye bağlanmak için "Localhost bağlanma" onay kutusunu kullanın.
 
 ### <a name="connect-to-a-secure-cluster"></a>Güvenli bir kümeye bağlanma
-Service Fabric kümenize, sertifikalar veya Azure Active Directory (AAD) kullanarak, istemci erişimi denetleyebilirsiniz.
+Service Fabric kümenize sertifikalar veya Azure Active Directory (AAD) kullanarak istemci erişimi denetleyebilirsiniz.
 
-Güvenli bir kümeye bağlanmaya çalışırsanız, sonra küme yapılandırmasına bağlı olarak, bir istemci sertifikası sunan veya AAD kullanarak oturum gerekecektir.
+Güvenli bir kümeye bağlanmayı denerseniz, ardından küme yapılandırmasına bağlı olarak, bir istemci sertifikası sunmak veya AAD kullanarak oturum gerekecektir.
 
 ## <a name="video-tutorial"></a>Video öğretici
 
-Service Fabric Explorer kullanmayı öğrenmek için aşağıdaki Microsoft Virtual Academy videoyu izleyin:
+Service Fabric Explorer'ı kullanmayı öğrenmek için aşağıdaki Microsoft Virtual Academy video izleyin:
 
 > [!NOTE]
-> Bu videoda, Service Fabric Explorer değil Masaüstü sürümünü bir Service Fabric kümesi içinde barındırılan gösterir.
+> Bu video, Service Fabric Explorer barındırılan Service Fabric kümesinde değil Masaüstü sürümünü gösterir.
 >
 >
 
 [<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
-## <a name="understand-the-service-fabric-explorer-layout"></a>Service Fabric Explorer düzeni anlama
-Soldaki ağaç kullanarak Service Fabric Explorer gidebilirsiniz. Ağaç kökünde küme Panosu uygulama ve düğüm durumu özetini dahil olmak üzere kümenizi genel bir bakış sağlar.
+## <a name="understand-the-service-fabric-explorer-layout"></a>Service Fabric Explorer düzenini anlama
+Soldaki ağaç kullanarak Service Fabric Explorer gidebilirsiniz. Ağaç kökünde, küme Panosu, kümenize uygulama ve düğüm durumunun özetini de dahil olmak üzere, genel bir bakış sağlar.
 
 ![Service Fabric Explorer küme Panosu][sfx-cluster-dashboard]
 
-### <a name="view-the-clusters-layout"></a>Kümenin düzeni görüntüleyin
-Bir Service Fabric kümesindeki düğümler hata etki alanı arasında iki boyutlu bir kılavuz yerleştirilir ve etki alanlarını yükseltme. Bu yerleştirme uygulamalarınızı donanım hataları ve uygulama yükseltmelerini varlığında kullanılabilir kalmasını sağlar. Nasıl geçerli Küme Küme eşlemesi kullanarak düzenlendiğini görüntüleyebilirsiniz.
+### <a name="view-the-clusters-layout"></a>Kümenin Düzen görüntüleyin
+Service Fabric kümesi, hata etki alanı arasında iki boyutlu bir kılavuz yerleştirilir ve yükseltme etki alanlarında. Bu yerleştirme uygulamalarınızı donanım arızalarında ve uygulama yükseltmeleri saklanacaktır kullanılabilir kalmasını sağlar. Nasıl geçerli Küme Küme eşlemesi kullanarak düzenlendiğini görüntüleyebilirsiniz.
 
 ![Service Fabric Explorer küme eşleme][sfx-cluster-map]
 
 ### <a name="view-applications-and-services"></a>Görünüm uygulamaları ve Hizmetleri
-Küme iki alt ağaçları içerir: biri uygulamaları ve diğer düğümleri için.
+İki alt kümeyi içerir: biri uygulamalar, diğer düğümler için.
 
-Service Fabric'ın mantıksal hiyerarşide gezinmek için uygulama görünümü kullanabilirsiniz: uygulamaları, hizmetleri, bölümler ve çoğaltmalar.
+Service Fabric'in mantıksal hiyerarşisi aracılığıyla gitmek için uygulama görünümü kullanabilirsiniz: uygulamaları, hizmetleri, bölümler ve çoğaltmalar.
 
-Uygulama aşağıdaki örnekte **Uygulamam** iki hizmetinden, oluşan **Mystatefulservice'ten** ve **WebService**. Bu yana **Mystatefulservice'ten** durum bilgisi olan bir birincil ve iki ikincil çoğaltma sahip bir bölüm içerir. Bunun aksine, WebSvcService durum bilgisiz ve tek bir örnek içerir.
+Uygulama aşağıdaki örnekte **MyApp** iki hizmetten oluşur **MyStatefulService** ve **WebService**. Bu yana **MyStatefulService** durum bilgisi olan bir birincil ve iki ikincil çoğaltma ile bir bölüm içerir. Bunun aksine, WebSvcService durum bilgisiz olduğundan ve tek bir örnek içerir.
 
 ![Service Fabric Explorer uygulama görünümü][sfx-application-tree]
 
-Her ağacı düzeyinde ana bölmede öğe hakkında bilgileri gösterir. Örneğin, belirli bir hizmet için sürüm ve sistem durumunu görebilirsiniz.
+Ana bölmede, her ağaç düzeyinde öğe hakkındaki bilgileri gösterir. Örneğin, belirli bir hizmet için sürümü ve sistem durumunu görebilirsiniz.
 
-![Service Fabric Explorer essentials bölmesi][sfx-service-essentials]
+![Service Fabric Explorer temel bileşenler bölmesi][sfx-service-essentials]
 
-### <a name="view-the-clusters-nodes"></a>Küme düğümlerini görüntüleme
-Düğüm görünümü, kümenin fiziksel düzenini gösterir. Belirli bir düğümde, hangi uygulamalara kod dağıtıldığını denetleyebilirsiniz. Daha açık belirtmek gerekirse, çoğaltmalar var. çalışmakta görebilirsiniz.
+### <a name="view-the-clusters-nodes"></a>Küme düğümleri görüntüleyin
+Düğüm görünümü, kümenin fiziksel düzenini gösterir. Belirli bir düğümde, hangi uygulamalara kod dağıtıldığını denetleyebilirsiniz. Daha açık belirtmek gerekirse çoğaltmalar var. çalışmakta olduğunu görebilirsiniz.
 
 ## <a name="actions"></a>Eylemler
-Service Fabric Explorer düğümleri, uygulamaları ve Hizmetleri, küme içindeki eylemleri çağırmak için hızlı bir yol sunar.
+Service Fabric Explorer, düğümler, uygulamaları ve Hizmetleri kümenizdeki eylemleri çağırmak için hızlı bir yol sunar.
 
-Örneğin, bir uygulama örneği silmek için soldaki ağaç uygulamayı seçin ve ardından **Eylemler** > **uygulama Sil**.
+Örneğin, bir uygulama örneğini silmek için soldaki ağaç oluşturulacak uygulamayı seçin ve ardından **eylemleri** > **uygulama Sil**.
 
-![Bir Service Fabric Explorer'da uygulama silme][sfx-delete-application]
+![Service Fabric Explorer'da uygulamanın siliniyor][sfx-delete-application]
 
 > [!TIP]
-> Her öğe yanındaki üç nokta işaretine tıklayarak aynı eylemleri gerçekleştirebilirsiniz.
+> Her öğenin yanındaki üç noktaya tıklayarak aynı eylemleri gerçekleştirebilirsiniz.
 >
-> Service Fabric Explorer gerçekleştirilebilir her eylem otomasyonunu sağlamak için PowerShell veya bir REST API'si gerçekleştirilebilir.
+> Service Fabric Explorer gerçekleştirilen her eylemi, Otomasyon etkinleştirmek için PowerShell veya bir REST API'si gerçekleştirilebilir.
 >
 >
 
-Service Fabric Explorer, verilen uygulama türü ve sürümü için uygulama örnekleri oluşturmak için de kullanabilirsiniz. Ağaç görünümünde uygulama türünü seçin ve ardından **oluşturma uygulama örneği** gibi sağ bölmede sürüm yanındaki bağlantı.
+Service Fabric Explorer, belirli uygulama türü ve sürümü için uygulama örnekleri oluşturmak için de kullanabilirsiniz. Ağaç görünümünde uygulama türünü seçin ve ardından tıklayın **uygulama örneği oluştur** sağ bölmede istediğiniz sürüm yanındaki bağlantı.
 
 ![Service Fabric Explorer'da uygulama örneğini oluşturma][sfx-create-app-instance]
 
 > [!NOTE]
-> Uygulama örnekleri oluştururken Service Fabric Explorer parametreleri desteklemez. Uygulama örnekleri varsayılan parametre değerlerini kullanın.
+> Service Fabric Explorer, uygulama örnekleri oluştururken, parametreleri desteklemiyor. Uygulama örnekleri, varsayılan parametre değerlerini kullanın.
 >
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Visual Studio'da, Service Fabric uygulamaları yönetme](service-fabric-manage-application-in-visual-studio.md)
+* [Visual Studio'da Service Fabric uygulamalarınızı yönetme](service-fabric-manage-application-in-visual-studio.md)
 * [PowerShell kullanarak Service Fabric uygulama dağıtımı](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->

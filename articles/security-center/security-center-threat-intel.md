@@ -3,23 +3,23 @@ title: Azure Güvenlik Merkezi'ndeki tehdit bilgileri | Microsoft Docs
 description: Azure Güvenlik Merkezi'ndeki tehdit bilgilerini kullanarak VM'lerinizdeki ve bilgisayarlarınızdaki potansiyel tehditleri tanımlamayı öğrenin.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
-ms.openlocfilehash: 9654c25bf6b51d48dc195d6a536b61312fdcbeff
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.date: 07/10/2018
+ms.author: terrylan
+ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774582"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561373"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki tehdit bilgileri
 Bu makale Azure Güvenlik Merkezi'ndeki tehdit bilgilerini kullanarak güvenlikle ilgili sorunları gidermenizi sağlar.
@@ -43,20 +43,24 @@ Güvenlik Merkezi bu tehdit bilgilerini toplamak için Microsoft içindeki farkl
 - Gizliliği tehlikeye girmiş sistemleri tanımlayın.
 - Erişilen dosyaları ve bu dosyaların gizlilik düzeyini tanımlayın.
 
-Bu görevlerde yardımcı olması için Güvenlik Merkezi'ndeki tehdit bilgilerini kullanabilirsiniz. 
+Bu görevlerde yardımcı olması için Güvenlik Merkezi'ndeki tehdit bilgilerini kullanabilirsiniz.
 
 ## <a name="access-the-threat-intelligence"></a>Tehdit bilgilerine erişme
 Ortamınız için güncel tehdit bilgilerini görselleştirmek için bilgilerinizin bulunduğu çalışma alanını seçmeniz gerekir. Birden fazla çalışma alanınız yoksa çalışma alanı seçicisini atlayıp doğrudan **Tehdit Bilgileri** panosuna gidersiniz. Panoya erişmek için:
 
 1. **Güvenlik Merkezi** panosunu açın.
 
-2. Sol bölmede **Algılama**'nın altında **Tehdit bilgileri**'ni seçin. **Tehdit Bilgileri** panosu açılır.
+2. Sol bölmede altında **tehdit koruması** seçin **tehdit bilgileri**. Bir harita açar.
+
+    ![Tehdit bilgileri haritası](./media/security-center-threat-intel/security-center-threat-intel.png)
+
+3. Haritanın üstünde seçin **görüntülemek Klasik tehdit zekası**. **Tehdit bilgileri** panosu açılır.
 
     ![Tehdit bilgileri panosu](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
-    > En sağdaki sütunda **PLANI YÜKSELT** görünüyorsa çalışma alanı ücretsiz aboneliği kullanmaktadır. Bu özelliği kullanmak için Standart sürüme yükseltin. En sağdaki sütunda **YÜKSELTME GEREKİYOR** görünüyorsa bu özelliği kullanmak için [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)'i yükseltin. Fiyatlandırma planı hakkında daha fazla bilgi için Azure Güvenlik Merkezi fiyatlandırma sayfasını inceleyin. 
-    > 
+    > En sağdaki sütunda **PLANI YÜKSELT** görünüyorsa çalışma alanı ücretsiz aboneliği kullanmaktadır. Bu özelliği kullanmak için Standart sürüme yükseltin. En sağdaki sütunda **YÜKSELTME GEREKİYOR** görünüyorsa bu özelliği kullanmak için [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)'i yükseltin. Fiyatlandırma planı hakkında daha fazla bilgi için Azure Güvenlik Merkezi fiyatlandırma sayfasını inceleyin.
+    >
 3. Araştırmanız gereken birden fazla çalışma alanı varsa **Kötü Amaçlı IP** sütununa göre araştırmada öncelik belirleyin. Bu alan çalışma alanındaki güncel kötü amaçlı IP sayısını gösterir. Kullanmak istediğiniz çalışma alanını seçtiğinizde **Tehdit bilgileri** panosu açılır.
 
     ![Tehdit bilgileri](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
@@ -97,7 +101,6 @@ Bu makalede Güvenlik Merkezi'ndeki tehdit bilgilerini kullanarak şüpheli etki
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Güvenlik Merkezi'nde uyarıları yönetme ve güvenlik olaylarına yanıt vermeyi öğrenin.
 * [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md). Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Farklı güvenlik uyarısı türleri hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi sorun giderme kılavuzu](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Güvenlik Merkezi’nde sık karşılaşılan sorunları gidermeyi öğrenin. 
+* [Azure Güvenlik Merkezi sorun giderme kılavuzu](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Güvenlik Merkezi’nde sık karşılaşılan sorunları gidermeyi öğrenin.
 * [Azure Güvenlik Merkezi SSS](security-center-faq.md). Hizmet kullanımı ile ilgili sık sorulan soruların yanıtlarını bulun.
 * [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/). Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun.
-

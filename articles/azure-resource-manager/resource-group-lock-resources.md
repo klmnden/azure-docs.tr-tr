@@ -1,6 +1,6 @@
 ---
 title: Değişiklikleri önlemek için Azure kaynakları kilitleme | Microsoft Docs
-description: Kullanıcının güncelleştirme veya tüm kullanıcılar ve roller için bir kilit uygulayarak kritik Azure kaynakları silmesini engeller.
+description: Kullanıcının güncelleştiriliyor veya tüm kullanıcılar ve roller için bir kilit uygulayarak kritik Azure kaynakları silmesini engeller.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -15,37 +15,37 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: tomfitz
 ms.openlocfilehash: 1a0f813e1857d2f1c1cc36b34b6339d26fa91c13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602695"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488610"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Beklenmeyen değişiklikleri önlemek için kaynakları kilitleme 
 
-Yönetici olarak, abonelik, kaynak grubu veya kaynak yanlışlıkla silinmesi ya da kritik kaynaklara değiştirme kuruluşunuzda bulunan diğer kullanıcıların önlemek için kilitleme gerekebilir. Kilit düzeyini **CanNotDelete** veya **ReadOnly** olarak ayarlayabilirsiniz. Portalda, kilitler denir **silmek** ve **salt okunur** sırasıyla.
+Bir yönetici olarak bir aboneliğe, kaynak grubuna ya da kaynak yanlışlıkla kritik kaynakları silmesini veya kuruluşunuzdaki diğer kullanıcıların önlemek için kilit gerekebilir. Kilit düzeyini **CanNotDelete** veya **ReadOnly** olarak ayarlayabilirsiniz. Portalda, kilitler denir **Sil** ve **salt okunur** sırasıyla.
 
-* **CanNotDelete** yetkili kullanıcıların, hala okuyun ve kaynak değiştirebilirsiniz, ancak bir kaynağı silemezsiniz anlamına gelir. 
-* **Salt okunur** yetkili kullanıcılar, bir kaynak okuyabilir, ancak silebilir veya kaynak güncelleştirme anlamına gelir. Bu kilit uygulama benzer tüm yetkili kullanıcılar tarafından verilen izinleri kısıtlamak için **okuyucu** rol. 
+* **CanNotDelete** yetkili kullanıcılar hala okuyabilir ve bir kaynağı değiştirme, ancak bunlar bir kaynağı silemezsiniz anlamına gelir. 
+* **Salt okunur** yetkili kullanıcılar, bir kaynak okuyabilir, ancak silebilir veya kaynak güncelleştirme anlamına gelir. Bu kilit uygulama tarafından verilen izinleri tüm yetkili kullanıcılara kısıtlama için benzer **okuyucu** rol. 
 
 ## <a name="how-locks-are-applied"></a>Kilitleri nasıl uygulanır
 
-Bir üst kapsamda kilit uyguladığınızda, kapsamı içindeki tüm kaynakların aynı kilit devralır. Daha sonra eklediğiniz bile kaynakları kilidi üst devralır. Devralmada en kısıtlayıcı kilidi önceliklidir.
+Bir üst kapsamda bir kilit uyguladığınızda, ilgili kapsam içindeki tüm kaynaklar aynı kilit devralır. Kaynaklar daha sonra eklediğiniz kilit üst öğeden devralır. Devralmada en kısıtlayıcı kilit önceliklidir.
 
-Rol tabanlı erişim denetimi farklı olarak, tüm kullanıcılar ve roller bir kısıtlama uygulamak için yönetim kilitleri kullanın. Kullanıcılar ve roller için izinleri ayarlama bilgi edinmek için [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
+Rol tabanlı erişim denetimi, tüm kullanıcılar ve roller bir kısıtlama uygulamak yönetim kilitleri kullanın. Kullanıcılar ve roller için izinleri ayarlama bilgi edinmek için [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 
-Resource Manager kilitleri uygulamak gönderilen işlemleri oluşan yönetim düzeyi gerçekleşen işlemlerine `https://management.azure.com`. Kilitler nasıl kaynakları kendi işlevleri gerçekleştirmek kısıtlamaz. Kaynak kısıtlı değişir, ancak kaynak işlemlerinin sınırlı değildir. Örneğin, bir SQL veritabanı salt okunur kilit silme veya veritabanı değiştirme engeller, ancak bu, oluşturma, güncelleştirme veya silme verilerden veritabanındaki engellemez. Bu işlemler için gönderilmediği için veri hareketlerini izin verilen `https://management.azure.com`.
+Resource Manager kilitleri uygulamak gönderilen operations oluşan yönetim düzlemi gerçekleşen işlemlere `https://management.azure.com`. Kilitler nasıl kaynakları kendi işlevleri gerçekleştiren kısıtlamaz. Kaynak değişiklikleri kısıtlıdır, ancak kaynak işlemleri sınırlı değildir. Örneğin, bir salt okunur kilidi SQL veritabanı, veritabanı silmesini veya engeller, ancak bu, oluşturma, güncelleştirme veya silme verileri veritabanındaki engellemez. Bu işlemler için gönderilmediği için veri işlem izin verilen `https://management.azure.com`.
 
-Uygulama **ReadOnly** gibi görünen bazı işlemler gerçekten ek eylemleri gerektirir okuma olduğundan beklenmeyen sonuçlara yol açabilir. Örneğin, yerleştirme bir **ReadOnly** kilit bir depolama hesabında anahtarları listeleme tüm kullanıcıları engeller. Yazma işlemlerini listenin döndürülen anahtarları için kullanılabilir olmadığından anahtarları işlemi bir POST isteği gerçekleştirilir. Başka bir örneğin yerleştirme bir **ReadOnly** kilit bir uygulama hizmeti kaynağına yazma erişimi bu etkileşimi gerektirmesi nedeniyle kaynak dosyalarını görüntüleme Visual Studio Sunucu Gezgini engeller.
+Uygulama **salt okunur** gibi görünen bazı işlemleri operations gerçekten gerekli ek eylemler okunur beklenmeyen sonuçlara neden olabilir. Örneğin, yerleştirme bir **salt okunur** bir depolama hesabı üzerindeki kilidi anahtarları listeleme gelen tüm kullanıcıları engeller. Yazma işlemlerini listenin döndürülen anahtarları için kullanılabilir olmadığından anahtarları işlemi bir POST isteği gerçekleştirilir. Başka bir örnek için yerleştirme bir **salt okunur** bir App Service kaynak kilidi, o etkileşime yazma erişim gerektirdiğinden kaynak dosyalarını görüntüleme Visual Studio sunucu Gezgini'nde engeller.
 
-## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Kimin oluşturmak veya kuruluşunuzdaki kilitleri silmek mi
-Oluşturmak veya yönetim kilitleri silmek için erişimi olmalıdır `Microsoft.Authorization/*` veya `Microsoft.Authorization/locks/*` eylemler. Yerleşik rollerden yalnızca **Sahip** ve **Kullanııcı Erişiimi Yöneticisi** bu eylemleri kullanabilir.
+## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Kimler oluşturabilir ve kuruluşunuzdaki kilitlerini Sil
+Yönetim kilitlerini Sil ya da oluşturmak için erişimi olmalıdır. `Microsoft.Authorization/*` veya `Microsoft.Authorization/locks/*` eylemler. Yerleşik rollerden yalnızca **Sahip** ve **Kullanııcı Erişiimi Yöneticisi** bu eylemleri kullanabilir.
 
 ## <a name="portal"></a>Portal
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Şablon
-Aşağıdaki örnek bir uygulama hizmeti planı, bir web sitesi ve bir kilit üzerinde web sitesi oluşturur bir şablonu gösterir. Kaynak türü kilit kilitlemek için kaynak kaynak türüdür ve **/sağlayıcıları/kilitleri**. Kilit adı ile kaynak adı birleştirerek oluşturulan **/Microsoft.Authorization/** ve kilit adı.
+Aşağıdaki örnek, bir app service planı, bir web sitesi ve bir kilit üzerinde web sitesi oluşturan bir şablon gösterir. Kaynak türü kilit kilitlenecek kaynağın kaynak türüdür ve **/providers/kilitleri**. Kilit adı kaynak adı ile birleştirerek oluşturulur **/Microsoft.Authorization/** ve kilit adı.
 
 ```json
 {
@@ -102,14 +102,14 @@ Aşağıdaki örnek bir uygulama hizmeti planı, bir web sitesi ve bir kilit üz
 }
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroup -Name sitegroup -Location southcentralus
 New-AzureRmResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
 ```
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli
 az group create --name sitegroup --location southcentralus
@@ -117,33 +117,33 @@ az group deployment create --resource-group sitegroup --template-uri https://raw
 ```
 
 ## <a name="powershell"></a>PowerShell
-Kilit kullanarak kaynakları Azure PowerShell ile dağıtılan [yeni AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock) komutu.
+Kilit dağıtılan kaynakların Azure PowerShell ile kullanarak [yeni AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock) komutu.
 
-Bir kaynağı kilitlemek için adını kaynak, kaynak türü ve kaynak grubu adını sağlayın.
+Bir kaynak kilitlemek için kaynak, kaynak türünü ve kaynak grubu adını adını sağlayın.
 
 ```powershell
 New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
-Bir kaynak grubu kilitlemek için kaynak grubu adını sağlayın.
+Bir kaynak grubu kilitlemek için kaynak grubunun adını sağlayın.
 
 ```powershell
 New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-Kilit hakkında bilgi almak için kullanmak [Get-AzureRmResourceLock](/powershell/module/azurerm.resources/get-azurermresourcelock). Aboneliğinizdeki tüm kilitler almak için kullanın:
+Bir kilitleme hakkında bilgi almak için kullanın [Get-AzureRmResourceLock](/powershell/module/azurerm.resources/get-azurermresourcelock). Aboneliğinizdeki tüm kilitleri almak için kullanın:
 
 ```powershell
 Get-AzureRmResourceLock
 ```
 
-Bir kaynak için tüm kilitleri almak için kullanın:
+Bir kaynak için tüm kilit almak için kullanın:
 
 ```powershell
 Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
-Bir kaynak grubu için tüm kilitleri almak için kullanın:
+Bir kaynak grubu için tüm kilit almak için kullanın:
 
 ```powershell
 Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
@@ -158,33 +158,33 @@ Remove-AzureRmResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Kilit kullanarak Azure CLI kaynaklarla dağıtılan [az kilit oluşturmak](/cli/azure/lock#az_lock_create) komutu.
+Kilit dağıtılan kaynaklar ile Azure CLI kullanarak [az lock oluşturma](/cli/azure/lock#az_lock_create) komutu.
 
-Bir kaynağı kilitlemek için adını kaynak, kaynak türü ve kaynak grubu adını sağlayın.
+Bir kaynak kilitlemek için kaynak, kaynak türünü ve kaynak grubu adını adını sağlayın.
 
 ```azurecli
 az lock create --name LockSite --lock-type CanNotDelete --resource-group exampleresourcegroup --resource-name examplesite --resource-type Microsoft.Web/sites
 ```
 
-Bir kaynak grubu kilitlemek için kaynak grubu adını sağlayın.
+Bir kaynak grubu kilitlemek için kaynak grubunun adını sağlayın.
 
 ```azurecli
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-Kilit hakkında bilgi almak için kullanmak [az kilit listesi](/cli/azure/lock#az_lock_list). Aboneliğinizdeki tüm kilitler almak için kullanın:
+Bir kilitleme hakkında bilgi almak için kullanın [az lock listesi](/cli/azure/lock#az_lock_list). Aboneliğinizdeki tüm kilitleri almak için kullanın:
 
 ```azurecli
 az lock list
 ```
 
-Bir kaynak için tüm kilitleri almak için kullanın:
+Bir kaynak için tüm kilit almak için kullanın:
 
 ```azurecli
 az lock list --resource-group exampleresourcegroup --resource-name examplesite --namespace Microsoft.Web --resource-type sites --parent ""
 ```
 
-Bir kaynak grubu için tüm kilitleri almak için kullanın:
+Bir kaynak grubu için tüm kilit almak için kullanın:
 
 ```azurecli
 az lock list --resource-group exampleresourcegroup
@@ -198,15 +198,15 @@ az lock delete --ids $lockid
 ```
 
 ## <a name="rest-api"></a>REST API
-Dağıtılan kaynaklarla kilitleyebilirsiniz [yönetim kilitleri için REST API](https://docs.microsoft.com/rest/api/resources/managementlocks). REST API oluşturmak ve kilitleri silin ve varolan kilitler hakkında bilgi almak etkinleştirir.
+Dağıtılan kaynaklarla kilitleyebilirsiniz [yönetim kilitleri için REST API](https://docs.microsoft.com/rest/api/resources/managementlocks). REST API oluşturma ve kilitleri silin ve mevcut kilitleri hakkında bilgi almak sağlar.
 
-Kilit oluşturmak için çalıştırın:
+Kilit oluşturabilmeniz için çalıştırın:
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-Kapsamı bir abonelik, kaynak grubu veya kaynak olabilir. Kilit-ne olursa olsun kilidi aramak istediğiniz addır. API sürümü için kullanmak **2015-01-01**.
+Kapsam abonelik, kaynak grubu veya kaynak olabilir. Kilit adı, kilit çağırmak istediğiniz ' dir. Api-version, kullanın **2015-01-01**.
 
-İstekte kilidi özelliklerini belirten bir JSON nesnesi içerir.
+İstekte kilit özelliklerini belirten bir JSON nesnesi içerir.
 
     {
       "properties": {
@@ -216,8 +216,8 @@ Kapsamı bir abonelik, kaynak grubu veya kaynak olabilir. Kilit-ne olursa olsun 
     } 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Mantıksal olarak kaynaklarınızı düzenleme hakkında bilgi edinmek için [etiketleri kullanarak kaynaklarınızı düzenleme](resource-group-using-tags.md)
-* Kaynağın bulunduğu hangi kaynak grubunu değiştirmek için bkz: [kaynakları yeni kaynak grubuna taşıma](resource-group-move-resources.md)
-* Özelleştirilmiş ilkeler aboneliğinizle arasında kısıtlamaları ve kuralları uygulayabilirsiniz. Daha fazla bilgi için bkz. [Azure İlkesi nedir?](../azure-policy/azure-policy-introduction.md).
+* Kaynaklarınızı mantıksal olarak düzenleme hakkında bilgi edinmek için [kaynaklarınızı düzenlemek için etiketleri kullanma](resource-group-using-tags.md)
+* Kaynağın bulunduğu kaynak grubunu değiştirmek için bkz [kaynakları yeni kaynak grubuna taşıma](resource-group-move-resources.md)
+* Özelleştirilmiş ilkeler ile aboneliğinizin genelindeki kısıtlamaları ve kuralları uygulayabilirsiniz. Daha fazla bilgi için bkz. [Azure İlkesi nedir?](../azure-policy/azure-policy-introduction.md).
 * Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

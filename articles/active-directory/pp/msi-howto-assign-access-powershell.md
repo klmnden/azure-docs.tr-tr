@@ -1,6 +1,6 @@
 ---
-title: PowerShell kullanarak bir Azure kaynağı için geçersiz bir MSI erişimi atama
-description: Adım adım yönergeleri bir kaynakta bir MSI atamak için PowerShell kullanarak başka bir kaynağa erişim.
+title: PowerShell kullanarak bir Azure kaynağına MSI erişimi atama
+description: Adım adım yönergeler bir kaynakta bir MSI atamak için PowerShell kullanarak başka bir kaynağa erişin.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -15,34 +15,34 @@ ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ac8cca1e80defca33a879db5d4c160362314931a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31587954"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38610971"
 ---
-# <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>PowerShell kullanarak bir kaynak için bir yönetilen hizmet kimliği (MSI) erişimi atayın
+# <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>PowerShell kullanarak bir kaynak için bir yönetilen hizmet kimliği (MSI) erişim atama
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Bir Azure kaynağı ile bir MSI yapılandırdıktan sonra herhangi bir güvenlik asıl gibi başka bir kaynak MSI erişim izni verebilirsiniz. Bu örnek PowerShell kullanarak bir Azure depolama hesabı için bir Azure sanal makinenin MSI erişmesini sağlamak nasıl gösterir.
+Bir MSI ile bir Azure kaynağı yapılandırdıktan sonra herhangi bir güvenlik sorumlusu gibi başka bir kaynak için MSI erişimi verebilirsiniz. Bu örnek PowerShell kullanarak Azure depolama hesabınız için bir Azure sanal makinenin MSI erişimi verme gösterir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
-Ayrıca, yükleme [Azure PowerShell sürüm 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1) yapmadıysanız.
+Ayrıca, yükleme [Azure PowerShell 4.3.1 sürümü](https://www.powershellgallery.com/packages/AzureRM/4.3.1) henüz yapmadıysanız.
 
-## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Başka bir kaynağa MSI erişim atamak için RBAC kullanın
+## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Başka bir kaynağa MSI erişimi atamak için RBAC kullanma
 
-Bir Azure kaynağı üzerinde MSI etkinleştirdikten sonra [bir Azure VM gibi](msi-qs-configure-powershell-windows-vm.md):
+Bir Azure kaynağında MSI etkinleştirdikten sonra [Azure VM'deki gibi](msi-qs-configure-powershell-windows-vm.md):
 
-1. Oturum Azure kullanmaya `Connect-AzureRmAccount` cmdlet'i. MSI altında yapılandırdığınız Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
+1. Oturum açmak için Azure kullanarak `Connect-AzureRmAccount` cmdlet'i. MSI altında yapılandırdığınız Azure aboneliği ile ilişkili olan bir hesabı kullanın:
 
    ```powershell
    Connect-AzureRmAccount
    ```
-2. Bu örnekte, biz bir depolama hesabı için bir Azure VM erişimi vermiş olursunuz. İlk kullanırız [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) "biz MSI etkinleştirildiğinde oluşturulduğu myVM", adlı VM için hizmet sorumlusu alınamıyor. Ardından, kullanırız [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) "Okuyucu" erişimi bir depolama hesabı VM vermek için "myStorageAcct" olarak adlandırılan:
+2. Bu örnekte biz bir depolama hesabı için bir Azure VM erişimini vermiş olursunuz. Önce kullandığımız [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) "MSI etkinleştirdik oluşturulduğu myVM", adlı VM için hizmet sorumlusu alınamıyor. Ardından, kullandığımız [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) VM vermek için "Okuyucu" erişimi bir depolama hesabına "myStorageAcct" olarak adlandırılan:
 
     ```powershell
     $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
@@ -51,17 +51,17 @@ Bir Azure kaynağı üzerinde MSI etkinleştirdikten sonra [bir Azure VM gibi](m
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Kaynak için MSI kullanılabilir kimlikleri listesinde görünmüyor, MSI doğru etkin olduğunu doğrulayın. Örneğimizde, biz Azure VM'yi dönebilirsiniz [Azure portal](https://portal.azure.com) ve:
+Kaynak için MSI kullanılabilir kimlikleri listesinde görünmüyor, MSI doğru etkin olduğunu doğrulayın. Örneğimizde, biz Azure VM gidip [Azure portalında](https://portal.azure.com) ve:
 
-- "Yapılandırma" sayfasına bakın ve etkin MSI olun = "Yes."
-- "Uzantılarla" sayfasına bakın ve başarılı bir şekilde dağıtılan MSI uzantısı emin olun.
+- "Yapılandırma" sayfasına bakın ve MSI etkin olmak = "Yes"
+- "Uzantıları" sayfasına bakın ve MSI uzantı başarıyla dağıtıldığından emin olun.
 
-Ya da yanlışsa, kaynakta MSI yeniden dağıtmanız veya dağıtım hatası sorun giderme gerekebilir.
+Ya da yanlışsa kaynağınızda MSI yeniden dağıtmanız veya dağıtım hatasıyla ilgili sorunları giderme gerekebilir.
 
 ## <a name="related-content"></a>İlgili içerik
 
-- MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](msi-overview.md).
-- Azure VM'de MSI etkinleştirmek için bkz: [bir Azure VM yönetilen hizmet kimliği (PowerShell kullanarak MSI) yapılandırma](msi-qs-configure-powershell-windows-vm.md).
+- MSI genel bakış için bkz. [yönetilen hizmet Kimliği'ne genel bakış](msi-overview.md).
+- Azure VM'deki MSI etkinleştirmek için bkz: [bir Azure VM yönetilen hizmet kimliği (PowerShell kullanarak MSI) yapılandırma](msi-qs-configure-powershell-windows-vm.md).
 
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
+Aşağıdaki yorum bölümünde geri bildirim sağlamak ve geliştirmek ve içeriklerimizde şekil yardımcı kullanın.
 

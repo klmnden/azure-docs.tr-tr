@@ -1,6 +1,6 @@
 ---
-title: Yerel ağ geçidi IP adresi öneklerini ve VPN ağ geçidi IP adresini değiştirme | Azure | Portal | Microsoft Docs
-description: Bu makalede Azure Portalı'nı kullanarak yerel ağ geçidinizin IP adresi ön eklerini değiştirme aracılığıyla anlatılmaktadır.
+title: Yerel ağ geçidi IP adresi ön eklerini ve VPN ağ geçidi IP adresini değiştirme | Azure | Portal | Microsoft Docs
+description: Bu makalede Azure portalını kullanarak yerel ağ geçidinizin IP adresi ön eklerini değiştirme aracılığıyla gösterilmektedir.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,33 +16,33 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
 ms.openlocfilehash: bdd6f90fe97408bd45a72adf58bfdc190207de46
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23883827"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38651945"
 ---
-# <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Azure Portalı'nı kullanarak yerel ağ geçidi ayarlarını değiştirme
+# <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Azure portalını kullanarak yerel ağ geçidi ayarlarını değiştirme
 
-Bazen yerel ağ geçidinizin AddressPrefix veya Gatewayıpaddress ayarlarını değiştirin. Bu makalede, yerel ağ geçidi ayarlarınızı değiştirmek nasıl gösterir. Aşağıdaki listeden farklı bir seçeneği seçerek farklı bir yöntem kullanarak bu ayarları değiştirebilirsiniz:
+Bazen yerel ağ geçidinizin AddressPrefix veya Gatewayıpaddress ayarlarını değiştirin. Bu makalede, yerel ağ geçidi ayarlarını değiştirme gösterilmektedir. Ayrıca aşağıdaki listeden farklı bir seçenek belirleyerek, farklı bir yöntem kullanarak bu ayarları değiştirebilirsiniz:
 
 > [!div class="op_single_selector"]
-> * [Azure portalı](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 >
 >
 
 
-## <a name="ipaddprefix"></a>IP adres öneklerini değiştirme
+## <a name="ipaddprefix"></a>IP adresi ön eklerini değiştirme
 
-IP adresi öneklerini değiştirirken, izleyeceğiniz adımlar yerel ağ geçidinizin bir bağlantı olup bağlıdır.
+IP adresi öneklerini değiştirirken, izlediğiniz adımlar, yerel ağ geçidinizin bağlantı olup bağlıdır.
 
 [!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
 
 ## <a name="gwip"></a>Ağ geçidi IP adresini değiştirme
 
-Bağlanmak istediğiniz VPN cihazının genel IP adresi değiştiyse, yerel ağ geçidini bu değişikliği yansıtacak şekilde değiştirmeniz gerekir. Ortak IP adresini değiştirirseniz, yerel ağ geçidinizin bir bağlantı olup izleyeceğiniz adımlar bağlıdır.
+Bağlanmak istediğiniz VPN cihazının genel IP adresi değiştiyse, yerel ağ geçidini bu değişikliği yansıtacak şekilde değiştirmeniz gerekir. Genel IP adresini değiştirdiğinizde, izlediğiniz adımlar, yerel ağ geçidinizin bağlantı olup bağlıdır.
 
 [!INCLUDE [modify gateway IP](../../includes/vpn-gateway-modify-lng-gateway-ip-portal-include.md)]
 

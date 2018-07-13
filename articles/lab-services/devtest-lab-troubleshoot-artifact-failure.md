@@ -1,6 +1,6 @@
 ---
-title: Bir Azure DevTest Labs sanal makinede yapı hataları tanılamak | Microsoft Docs
-description: Azure DevTest Labs de yapı hataları giderme öğrenin.
+title: Azure DevTest Labs sanal makine'de yapıt hatalarını tanılama | Microsoft Docs
+description: Azure DevTest labs'deki yapıt hatalarını giderme hakkında bilgi edinin.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,48 +15,48 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: ebc64215683989ce07f4dd88dc352ecaefe184cd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788728"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697281"
 ---
-# <a name="diagnose-artifact-failures-in-the-lab"></a>Laboratuvara yapı hataları tanılama 
-Bir yapı oluşturduktan sonra başarılı veya başarısız olup olmadığını görmek için kontrol edebilirsiniz. Azure DevTest Labs yapı günlükleri, bir yapı sorunu tanılamak için kullanabileceğiniz bilgileri sağlar. Yapı günlük bilgilerini bir Windows VM için görüntüleme seçeneklerini birkaç vardır:
+# <a name="diagnose-artifact-failures-in-the-lab"></a>Laboratuvardaki yapıt hatalarını tanılama 
+Bir yapıt oluşturduktan sonra başarılı veya başarısız olduğunu görmek için kontrol edebilirsiniz. Azure DevTest labs'deki yapıt günlükleri, bir yapı hatası tanılamak için kullanabileceğiniz bilgileri sağlar. Birkaç bir Windows VM yapıt günlük bilgilerini görüntülemek için bir seçenek vardır:
 
 * Azure portalında
 * VM
 
 > [!NOTE]
-> Hataları doğru tanımlanan ve açıklanan emin olmak için yapıyı uygun yapısı olması önemlidir. Doğru bir yapı oluşturma hakkında daha fazla bilgi için bkz: [özel yapılar oluşturma](devtest-lab-artifact-author.md). Düzgün şekilde yapılandırılmış bir yapı örneği görmek için kullanıma [Test parametre türleri](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes) yapı.
+> Hataları doğru tanımlanan ve açıklanan emin olmak için yapıt uygun yapısı olması önemlidir. Doğru bir yapı oluşturmak nasıl hakkında daha fazla bilgi için bkz. [özel yapıtlar oluşturma](devtest-lab-artifact-author.md). Düzgün yapılandırılmış bir yapıt bir örneğini görmek için kullanıma [Test parametre türleri](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes) yapıt.
 
-## <a name="troubleshoot-artifact-failures-by-using-the-azure-portal"></a>Azure portalını kullanarak yapı hatalarını giderme
+## <a name="troubleshoot-artifact-failures-by-using-the-azure-portal"></a>Azure portalını kullanarak yapıt hatalarını giderme
 
-1. Azure portalındaki kaynakları listesini Laboratuvarınızı seçin.
-2. İncelemek istediğiniz yapıyı içeren Windows VM seçin.
-3. Sol bölmede altında **genel**seçin **yapıları**. Bu VM ile ilişkili yapıları listesi görüntülenir. Adını yapı ve yapı durumu gösterilir.
+1. Azure portalında kaynakları listesini Laboratuvarınızı seçin.
+2. Araştırmak istediğiniz yapıt içeren Windows VM'yi seçin.
+3. Sol bölmede altında **genel**seçin **Yapıtları**. Bu VM ile ilişkili yapıların listesi görüntülenir. Yapıt ve yapı durumu adı gösterilir.
 
    ![Yapı durumu](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
 
-4. Gösteren bir yapı seçin bir **başarısız** durumu. Yapı açılır. Hatanın yapısı hakkındaki ayrıntıları içeren bir uzantı iletisi görüntülenir.
+4. Gösteren bir yapı seçin bir **başarısız** durumu. Yapıt açılır. Yapıt hata ayrıntılarını içeren bir uzantı iletisi görüntülenir.
 
-   ![Yapı hata iletisi](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
+   ![Yapıt hata iletisi](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
 
 
-## <a name="troubleshoot-artifact-failures-from-within-the-virtual-machine"></a>Sanal makine içindeki yapı hatalarından sorun giderme
+## <a name="troubleshoot-artifact-failures-from-within-the-virtual-machine"></a>Sanal makine içinde yapıt hatalarını giderme
 
-1. Tanılamak istediğiniz yapı içeren VM için oturum açın.
-2. C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension gidin\\*1.9*\Status, burada *1.9* Azure özel betik uzantısı sürüm numarasıdır.
+1. Tanılamak istediğiniz yapıt içeren VM için oturum açın.
+2. Git C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\*1.9*\Status, burada *1.9* Azure özel betik uzantısı sürüm numarasıdır.
 
    ![Durum dosyası](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status.png)
 
-3. Açık **durum** dosya.
+3. Açık **durumu** dosya.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>İlgili blog gönderileri
-* [DevTest Labs'de bir Resource Manager şablonu kullanarak bir VM mevcut bir Active Directory etki alanına katılma](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [DevTest Labs'de bir Resource Manager şablonu kullanarak bir sanal makine mevcut bir Active Directory etki alanına katılın](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgi edinmek için nasıl [Laboratuvar için bir Git deposu ekleme](devtest-lab-add-artifact-repo.md).
+* Bilgi edinmek için nasıl [bir Git deposu bir laboratuvara ekleme](devtest-lab-add-artifact-repo.md).
 

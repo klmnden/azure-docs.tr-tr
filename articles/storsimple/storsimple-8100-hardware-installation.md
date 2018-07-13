@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure StorSimple 8100 aygıt yükleme | Microsoft Docs
-description: Kutusundan çıkarma, rafa monte etme ve dağıtma ve yazılım yapılandırmadan önce StorSimple 8100 cihazınız kablo açıklar.
+title: Microsoft Azure StorSimple 8100 cihaz yükleme | Microsoft Docs
+description: Cihazınızı kutusundan çıkarma, rafa takma ve dağıtmak ve yazılım yapılandırma önce StorSimple 8100 cihazınızın kablolarını bağlama açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,195 +15,195 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27743475"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38701951"
 ---
-# <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Kutusundan çıkarma, rafa monte ve StorSimple 8100 cihazınızın kablolarını bağlama
+# <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Cihazınızı kutusundan çıkarma, rafa monte ve StorSimple 8100 cihazınızın kablolarını bağlama
 ## <a name="overview"></a>Genel Bakış
-Microsoft Azure StorSimple 8100 tek kasası, rafa monte edilen aygıt olur. Bu öğretici, açmak açıklanmaktadır rafa monte ve yapılandırmak ve StorSimple Cihazınızı dağıtma önce kablo StorSimple 8100 aygıt donanım.
+Microsoft Azure StorSimple 8100 tek kutu, rafa monte edilen cihaz olur. Bu öğreticide, ambalajını açmak açıklanmaktadır rafa monte yanı sıra, yapılandırmak ve StorSimple Cihazınızı dağıtma önce StorSimple 8100 kablo cihaz donanım.
 
 ## <a name="unpack-your-storsimple-8100-device"></a>StorSimple 8100 model Cihazınızı kutusundan çıkarma
-Aşağıdaki adımlar StorSimple 8100 depolama Cihazınızı paketinden çıkarma hakkında NET, ayrıntılı yönergeler sağlar. Bu cihazı tek bir kutusunda geliyordu.
+Aşağıdaki adımlar, StorSimple 8100 depolama Cihazınızı paketinden çıkarma hakkında NET, ayrıntılı yönergeler sağlar. Bu cihaz, tek bir kutuda gönderilir.
 
-### <a name="prepare-to-unpack-your-device"></a>Cihazınızı paketinden çıkarma hazırlanma
+### <a name="prepare-to-unpack-your-device"></a>Cihazınızı paketinden çıkarma hazırlama
 Cihazınızı paketinden çıkarma önce aşağıdaki bilgileri gözden geçirin.
 
 ![Uyarı simgesi](./media/storsimple-safety/IC740879.png)![büyük ağırlık simgesi](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **uyarı!**
 
-1. İki kişinin el ile işleme muhafaza ağırlığını yönetmek kullanılabilir olduğundan emin olun. Tam olarak yapılandırılmış bir muhafaza 32 kg (70 lb.) tartmanız.
-2. Kutuya bir düz, düzey yüzeyine koyun.
+1. El ile işlemekte olduğunuz kasa ağırlığı yönetmek için kullanılabilecek iki kişinin bilgisayarınızda yüklü olduğundan emin olun. Tam olarak yapılandırılmış bir kutu, en fazla 32 kg (70'ten lb.) Tart.
+2. Kutuya bir düz, düzey yüzeyinde koyun.
 
 Ardından, Cihazınızı paketinden çıkarma için aşağıdaki adımları tamamlayın.
 
 #### <a name="to-unpack-your-device"></a>Cihazınızı paketinden çıkarma için
-1. Kutunun ve paketleme köpük zemine crushes, keser, su hasar ya da belirgin herhangi bir zarar için inceleyin. Kutusu veya paketleme ciddi bir şekilde bozuksa, kutunun açmayın. Lütfen [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) aygıt iyi çalışma sırayla olup olmadığını değerlendirin yardımcı olacak.
-2. Kutunun ayıklayın. Aşağıdaki resimde, StorSimple Cihazınızı paketten görünümünü gösterir.
+1. Kutunun ve paketleme köpük crushes, keser, su zarar veya herhangi bir belirgin hasar inceleyin. Paketleme ve kutusu ciddi zarar, kutunun açmayın. Lütfen [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) , cihazın iyi çalışma sırayla olup değerlendirmenize yardımcı olmak için.
+2. Kutunun ayıklayın. Aşağıdaki görüntüde, StorSimple Cihazınızı paketten çıkarılan görünümünü gösterir.
    
      ![Depolama Cihazınızı paketinden çıkarma](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
    
-    **Depolama Cihazınızı paketten görünümü**
+    **Depolama Cihazınızı paketten çıkarılan görünümü**
    
    | Etiket | Açıklama |
    | --- | --- |
    |   1 |Paketleme kutusu |
-   |   2 |Alt köpük zemine |
+   |   2 |Alt köpük |
    |   3 |Cihaz |
-   |   4 |Üst köpük zemine |
+   |   4 |Üst köpük |
    |   5 |Aksesuar kutusu |
-3. Kutunun paketi açılırken sonra sahip olduğunuzdan emin olun:
+3. Kutunun akışının paketi açılırken sonra sahip olduğunuzdan emin olun:
    
-   * 1 tek muhafaza cihaz
+   * 1 tek kutu cihaz
    * 2 güç kablosu
-   * 1 çapraz Ethernet kablosu
+   * 1 çakışma Ethernet kablosu
    * 2 seri konsol kabloları
-   * seri erişim için 1 seri USB dönüştürücü
-   * 1 yetkisiz değiştirmeye karşı kanıt T10 tornavida
-   * 4 QSFP-için-SFP + bağdaştırıcılar 10 GbE ağ arabirimleri ile kullanmak için
-   * 1 raf-Seti (donanım bağlama ile 2 yan rayları) bağlama
-   * Alma başlatıldı belgeleri
+   * seri erişim için 1 USB seri dönüştürücü
+   * 1 artıklığının T10 tornavida
+   * 4 QSFP-için-SFP + bağdaştırıcıları 10 GbE ağ arabirimleri ile kullanmak için
+   * 1 raf-Seti (donanım bağlama ile 2 yan rails) bağlama
+   * Başlangıç belgeleri alma
      
-     Yukarıda listelenen öğelerden herhangi birini almadı varsa [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md).
+     Yukarıda listelenen öğelerden herhangi birini almadı, [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md).
 
-Sonraki adım rafa monte Cihazınızı olacak.
+Sonraki adım rafa monte Cihazınızı sağlamaktır.
 
-## <a name="rack-mount-your-storsimple-8100-device"></a>Rafa monte StorSimple 8100 cihazınız
-Bir standart 19 inç dolapta ön ve arka postalar ile StorSimple 8100 depolama aygıtı yüklemek için sonraki adımları izleyin. StorSimple 8100 cihazınız tek bir birincil muhafazada sahiptir.
+## <a name="rack-mount-your-storsimple-8100-device"></a>StorSimple 8100 cihazınızın rafa monte
+StorSimple 8100 depolama cihazınızın standart 19 inç raf ön ve arka gönderiler ile yüklemek için sonraki adımları izleyin. StorSimple 8100 cihazda tek bir birincil kutu vardır.
 
-Birden çok adımı, her biri aşağıdaki yordamlarda açıklanan yükleme oluşur.
+Her biri aşağıdaki yordamlarda açıklanan birden çok adım yükleme oluşur.
 
 > [!IMPORTANT]
-> StorSimple cihazları düzgün çalışması için rafa monte edilen olması gerekir.
+> StorSimple cihazları, rafa monte düzgün çalışması için olmalıdır.
 > 
 > 
 
 ### <a name="prepare-the-site"></a>Site hazırlama
-Cihaz ön ve arka gönderileri sahip standart bir 19 inç rafa yüklü olması gerekir. Raf yüklemesine hazırlanmak için aşağıdaki yordamı kullanın.
+Cihazın ön ve arka gönderileri olan standart bir 19 inç rafa yüklü olması gerekir. Raf yüklemesine hazırlanmak için aşağıdaki yordamı kullanın.
 
-#### <a name="to-prepare-the-site-for-rack-installation"></a>Site raf yüklemesine hazırlanmak için
-1. Cihaz bir düz, kararlı ve düzey çalışmaları yüzey (veya benzeri) güvenli bir şekilde ye dayanıyorsa emin olun.
-2. Burada, ayarlamak istediğiniz site bağımsız bir kaynak veya bir raf güç dağıtım birimi (PDU) bir kesintisiz güç kaynağı (UPS) ile standart AC gücünden sahip olduğunu doğrulayın.
-3. Bu bir 2U yuvası cihaz bağlamak istediğiniz rafa monte kullanılabilir olduğundan emin olun.
+#### <a name="to-prepare-the-site-for-rack-installation"></a>Site, raf yüklemesine hazırlanmak için
+1. Cihaz güvenli bir şekilde düz, kararlı ve düzeyi iş surface (veya benzeri) üzerine emin olun.
+2. Burada ayarlamak için istediğinize site bağımsız bir kaynak veya bir raf güç dağıtım birimi (PDU) bir kesintisiz güç kaynağı (UPS) ile standart AC gücü sahip olduğunu doğrulayın.
+3. 2U yuvanın bir cihaz bağlamak istediğiniz rafa kullanılabilir olduğundan emin olun.
 
 ![Uyarı simgesi](./media/storsimple-safety/IC740879.png)![büyük ağırlık simgesi](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **uyarı!**
 
-İki kişinin aygıt ayarları el ile işleniyorsa ağırlık yönetmek kullanılabilir olduğundan emin olun. Tam olarak yapılandırılmış bir muhafaza 32 kg (70 lb.) tartmanız.
+Cihaz Kurulumu el ile işleniyorsa ağırlığı yönetmek için kullanılabilen iki kişinin bilgisayarınızda yüklü olduğundan emin olun. Tam olarak yapılandırılmış bir kutu, en fazla 32 kg (70'ten lb.) Tart.
 
 ### <a name="rack-prerequisites"></a>Raf önkoşulları
-8100 kasası ile dolap bir standart 19 inç dolapta yüklemesi için tasarlanmıştır:
+8100 muhafaza dolap ile standart 19 inç raf yüklenmesi için tasarlanmıştır:
 
-* Raf post için post 27.84 inç minimum derinliği.
-* Cihaz için 32 kg maksimum ağırlığı
-* 5 Pascal (0,5 mm su ölçer) en fazla arka baskısı.
+* Raf post için post 27.84 inç en düşük derinliği.
+* En yüksek ağırlığı cihazın 32 kg
+* En fazla ters baskı denen, 5 Pascal (0,5 mm su ölçer).
 
-### <a name="rack-mounting-rail-kit"></a>Raf bağlama raylar Seti
-Rayları takma kümesi 19 inç raf dolap ile kullanım için sağlanır. Rayları maksimum muhafaza ağırlığı işlemek üzere test edilmiştir. Bu rayları raftaki alanının herhangi bir kayıp olmadan birden fazla kasaları yüklemesini de izin verir.
+### <a name="rack-mounting-rail-kit"></a>Raf montaj parmaklık Kiti
+Rails bağlama kümesi 19 inç raf dolap ile kullanım için sağlanır. Rails maksimum kasa ağırlığı işlemek üzere test edilmiştir. Bu rails raftaki alanının herhangi bir kayıp olmadan birden çok kasaları yüklenmesini de izin verir.
 
-#### <a name="to-install-the-device-on-the-rails"></a>Cihaz üzerinde rayları yüklemek için
-1. Yalnızca iç rayları aygıtınızda yüklü değilse bu adımı gerçekleştirin. Genellikle, iç rayları fabrikada yüklenir. Rayları yüklü değilse raylar sol ve sağ raylar slayt muhafaza kasa yanlarından yükleyin. Bunlar, her bir tarafta altı ölçüm Vida kullanarak ekleyin. Raylar yönü yardımcı olmak için işaretlenen **LH – ön** ve **RH – ön**, ve muhafaza arka yapıştırılmış son Konik bitiş vardır.<br/>
+#### <a name="to-install-the-device-on-the-rails"></a>Cihaz on rails yüklemek için
+1. Yalnızca iç rails Cihazınızda yüklü değilse, bu adımı gerçekleştirin. Genellikle, iç rails fabrikada yüklenir. Rails yüklü değilse, parmaklık sol ve sağ parmaklık slaytları raylar yanlarını yükleyin. Bunlar, her bir tarafta altı ölçüm Vida kullanarak ekleyin. Parmaklık slaytları yönle yardımcı olmak için işaretlenmiş **LH – ön** ve **RH – ön**, ve muhafaza arka yapıştırılmış son Konik son sahiptir.<br/>
    
-    ![Sürgülü raylar ekleme](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+    ![Kutu gövdesine Sürgülü raylar ekleme](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-    **Muhafaza yanlarından iç raylar ekleme**
+    **İç kutu gövdesine Sürgülü muhafaza yanlarını ekleme**
    
     Etiket | Açıklama
     ----- | -----------
-    1     | M 3 x 4 düğmesi head Vida
+    1     | M 3 x 4 düğmesi baş Vida
     2     | Kasa slayt
 
-2. Dış sol raylar ve dış sağda derlemeleri raf dolap dikey üyeleri ekleyin. Köşeli ayraçlar işaretlenmiş **LH**, **RH**, ve **bu tarafı yukarı** doğru yönlendirme size yol gösterecek.
-3. Ön ve arka raylar derlemenin raylar PIN'ler bulun. Raf gönderimler arasında sığacak ve ön ve arka raf post dikey üye delik halinde PIN'ler eklemek için raylar genişletir. Raylar derleme düzeyi olduğundan emin olun.
-4. İki sağlanan ölçüm Vida raf raylar derlemeye dikey üyeleri güvenliğini sağlamak için kullanın. Ön ve arka birinde bir Vidayı kullanın.
-5. Diğer raylar derleme için bu adımları yineleyin.<br/>
+2. Sol dış parmaklık ve dış doğru parmaklık derlemeleri raf dolap dikey üyeleri ekleyin. Köşeli ayraçlar işaretlenmiş **LH**, **RH**, ve **bu tarafı yukarı** doğru yönlendirmeyi size yol gösterecek.
+3. Ön ve arka parmaklık derlemenin parmaklık PIN'ler bulun. Parmaklık arasında rafa gönderileri uygun ve PIN'leri ön ve arka raf post dikey üye boşluklarını eklemek için genişletin. Parmaklık derleme düzeyinde olduğundan emin olun.
+4. İki sağlanan ölçüm Vida rafa parmaklık derlemeye dikey üyeleri güvenliğini sağlamak için kullanın. Ön ve arka birinde tek Sarmal kullanın.
+5. Diğer parmaklık derleme için bu adımları yineleyin.<br/>
    
      ![Raflı dolaba Sürgülü raylar ekleme](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
    
-    **Dış raylar derlemeleri dolaba ekleme**
+    **Dış parmaklık derlemeler için raf ekleme**
    
    | Etiket | Açıklama |
    | --- | --- |
-   |   1 |Vidayı clamping |
-   |   2 |Kare delik ön raf post Vidayı |
-   |   3 |Sol raylar ön konumu PIN'ler |
-   |   4 |Vidayı clamping |
-   |   5 |Sol raylar arka konumu PIN'ler |
+   |   1 |Clamping Sarmal |
+   |   2 |Köşeli çift yuvalı ön raf post Sarmal |
+   |   3 |Sol parmaklık ön konumu PIN'ler |
+   |   4 |Clamping Sarmal |
+   |   5 |Sol parmaklık arka konumu PIN'ler |
 
-### <a name="mounting-the-device-in-the-rack"></a>Cihazı rafa monte
-Yeni yüklenen raf rayları kullanarak, raf aygıtı bağlamak için aşağıdaki adımları gerçekleştirin.
+### <a name="mounting-the-device-in-the-rack"></a>Cihazı rafa takma
+Yeni yüklenen raf rails kullanarak cihazı rafa bağlamak için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="to-mount-the-device"></a>Cihaz bağlamak için
-1. Bir Yardımcısı ile muhafaza kaldırın ve raf rayları ile Hizala.
-2. Dikkatle cihaz rayları yerleştirin ve sonra cihaz tamamen rafa dolap itme.<br/>
+#### <a name="to-mount-the-device"></a>Bir cihaz bağlamak için
+1. Bir yardımcı olan muhafaza lift- and ile raf rails Hizala.
+2. Dikkatli bir şekilde cihaz rails eklemek ve ardından cihazın tamamen rafa dolap gönderin.<br/>
    
     ![Cihazı rafa yerleştirme](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
    
-    **Cihazı rafa monte**
-3. Sol ve sağ ön Flanş başlıklarını ücretsiz caps çekerek kaldırın. Flanş başlıklarını yalnızca çıkıntıları ek.
-4. Raf muhafazada sol ve sağ her Flanş aracılığıyla sağlanan bir yıldız head Vidayı yükleyerek güvenli hale getirin.
-5. Konumda basarak ve yerinde tutturma Flanş başlıklarını yükleyin.<br/>
+    **Cihazı rafa takma**
+3. Flanş sol ve sağ ön uçlara ücretsiz caps çekerek kaldırın. Flanş caps yalnızca çıkıntıları yapışır.
+4. Rafa muhafazada sol ve sağ her Flanş aracılığıyla sağlanan bir Phillips baş Sarmal yükleyerek güvenli hale getirin.
+5. Bunları konumuna tuşuna basarak ve bunları yerinde yaslama Flanş caps yükleyin.<br/>
    
-     ![Flanş başlıklarını takma](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
+     ![Flanş başlıklarını](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
    
-    **Flanş başlıklarını takma**
+    **Flanş**
    
    | Etiket | Açıklama |
    | --- | --- |
-   |   1 |Muhafaza birleşme Vidayı |
+   |   1 |Kasa birleşme Sarmal |
 
-Sonraki adım, güç, ağ ve seri erişim için Cihazınızı kablo olacak.
+Sonraki adım, güç, ağ ve seri erişim için cihazınızın kablolarını bağlama sağlamaktır.
 
 ## <a name="cable-your-storsimple-8100-device"></a>StorSimple 8100 cihazınızın kablolarını bağlama
-Aşağıdaki yordamlar, StorSimple 8100 cihazınız güç, ağ ve seri bağlantılar için kablo açıklanmaktadır.
+Aşağıdaki yordamlarda, güç, ağ ve seri bağlantı için StorSimple 8100 cihazınızın kablolarını bağlama işlemleri açıklanmaktadır.
 
 ### <a name="prerequisites"></a>Önkoşullar
-Cihazınızı kablolama başlamadan önce ihtiyacınız:
+Cihazınızın kablo başlamadan önce ihtiyacınız olacak:
 
-* Depolama aygıtı, tamamen açılmış ve raf bağladı.
+* Depolama cihazı tamamen açılmış ve raf bağlanır.
 * cihazınızla birlikte gelen 2 güç kabloları
 * 2 güç dağıtım birimleri (önerilen) erişim.
-* Ağ kabloları
-* Seri kablolar sağlanan
-* Seri USB Dönüştürücü uygun sürücüsü (gerekirse) Bilgisayarınızda yüklü
-* 4 QSFP sağlanan-için-SFP + bağdaştırıcılar 10 GbE ağ arabirimleri ile kullanmak için
+* Ağ kablosu
+* Sağlanan seri kablo
+* (Gerekirse) Bilgisayarınızda yüklü uygun sürücüsü ile seri USB dönüştürücü
+* 4 QSFP sağlanan-için-SFP + bağdaştırıcıları 10 GbE ağ arabirimleri ile kullanmak için
 * [StorSimple Cihazınızda 10 GbE ağ arabirimleri için desteklenen donanım](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### <a name="power-cabling"></a>Güç kabloları
-Cihazınızı yedek güç ve soğutma modüllerini (PCMs) içerir. Hem PCMs yüklü ve yüksek kullanılabilirlik sağlamak için farklı güç kaynaklarına bağlandınız.
+Cihazınız, gereksiz güç ve soğutma modülleri (PCMs) içerir. Hem PCMs yüklenmeli ve yüksek kullanılabilirlik sağlamak için farklı güç kaynaklarına bağlandınız.
 
-Cihazınızı güç kablosu için aşağıdaki adımları gerçekleştirin.
+Güç için cihazınızın kablolarını bağlama için aşağıdaki adımları gerçekleştirin.
 
 [!INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
-### <a name="network-cabling"></a>Ağ kabloları
-Cihazınızı bir etkin bekleme yapılandırmadır: belirli bir zamanda bir denetleyici modülü etkin ve bir Denetleyici Modülü sırasında tüm disk ve ağ işlemlerini işleme bekleme. Bir denetleyici başarısız olursa, bekleme denetleyicisi hemen etkinleştirilir ve tüm disk ve ağ işlemleri devam eder.
+### <a name="network-cabling"></a>Ağ kablosunun
+Cihazınızı bir etkin bekleme yapılandırmadır: herhangi bir zamanda bir denetleyici modülü etkin ve bekleme olan tüm disk ve ağ Denetleyici Modülü hata işleme. Bir denetleyici başarısız olursa, hazır bekleyen denetleyicinin hemen etkinleştirilir ve tüm disk ve ağ işlemleri devam eder.
 
-Bu yedek denetleyici yük devretmesi desteklemek için aşağıdaki adımlarda açıklandığı gibi cihaz ağınız kablo gerekir.
+Bu yedekli denetleyici yük devretmesi desteklemek için aşağıdaki adımlarda açıklandığı gibi cihaz ağınıza kablo gerekir.
 
-#### <a name="to-cable-for-network-connection"></a>Ağ bağlantısı için kablo için
-1. Cihazınızı her denetleyicisinde altı ağ arabirimi bulunur: dört 1 GB/sn, ve iki 10 GB/sn Ethernet bağlantı noktaları. Cihazınızı devre kartı çeşitli veri noktalarına tanımlayın.
+#### <a name="to-cable-for-network-connection"></a>Kablo ağ bağlantısı
+1. Cihazınızı her denetleyicisinde altı ağ arabirimi bulunur: dört 1 Gbps ve iki 10 GB/sn Ethernet bağlantı noktası. Devre kartına cihazınızın çeşitli veri noktalarına belirleyin.
    
-    ![8100 aygıt devre kartı](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
+    ![8100 cihazının devre kartı](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
    
-    **Aygıt geri veri bağlantı noktalarını gösterme**
+    **Veri bağlantı noktaları gösteren cihazının arkasına**
    
    | Etiket | Açıklama |
    | --- | --- |
    |   0,1,4,5 |1 GbE ağ arabirimleri |
    |   2,3 |10 GbE ağ arabirimleri |
    |   6 |Seri bağlantı noktaları |
-2. Ağ kablosunun için aşağıdaki diyagramda bakın. (En düşük ağ yapılandırması düz mavi çizgilerle gösterilir. Yüksek kullanılabilirlik ve performans için gereken ek yapılandırma noktalı çizgilerle gösterilir.)
+2. Aşağıdaki diyagramda ağ kablosunun için bkz. (En düşük ağ yapılandırmasını düz mavi çizgilerle gösterilir. Yüksek kullanılabilirlik ve performans için gereken ek yapılandırma noktalı çizgiyle gösterilir.)
 
-    ![Kabloyla 2U cihazınızın ağ bağlantısını yapma](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
+    ![Kabloyla 2U cihazınızın ağ bağlantısını yapın](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-    **Cihazınız için kablo ağ**
+    **Cihazınız için kablo ağı**
 
    |Etiket | Açıklama |
    |----- | ----------- |
    | A    | Internet erişimi olan LAN |
    | B    | Denetleyici 0 |
-   | C    | PCM 0 |
+   | C    | PCM 0'DA |
    | D    | Denetleyici 1 |
    | E    | PCM 1 |
    | F, G | Ana bilgisayarlar |
@@ -213,38 +213,38 @@ Bu yedek denetleyici yük devretmesi desteklemek için aşağıdaki adımlarda a
 
 Cihaz kablo, en düşük yapılandırmayı gerektirir:
 
-* En az iki ağ arabirimi her denetleyicisi bulut erişimi için diğeri için iSCSI ile bağlı. VERİ bağlantı noktası otomatik olarak etkinleştirilmiş ve cihaz seri Konsolu yapılandırılmış 0. Veri 0 dışında başka bir veri bağlantı noktası da Klasik Azure portalı yapılandırılması gerekir. Bu durumda, veri 0 bağlanmak birincil yerel ağa (Internet erişimi olan ağ) bağlantı noktası. Diğer veri bağlantı noktalarına SAN/iSCSI LAN (VLAN) segment hedeflenen rolü bağlı olarak ağ bağlanabilir.
-* Her denetleyicisinde aynı arabirimleri bir denetleyici yük devretme gerçekleşirse kullanılabilirliğini sağlamak için aynı ağa bağlı. Örneğin, veri 0 ve veri 3 denetleyicileri birine bağlanmayı seçerseniz, ilgili veri 0 ve veri 3 diğer denetleyicisinde bağlanmanız gerekir.
+* Her Denetleyici ile bulut erişimi için diğeri iSCSI için en az iki ağ arabirimi bağlı. Veri 0 bağlantı noktası otomatik olarak etkin ve cihaz seri Konsolu yapılandırılır. Veri 0 dışında başka bir veri bağlantı noktası da Klasik Azure portalı yapılandırılması gerekir. Bu durumda, veri 0 bağlama bağlantı noktası birincil yerel ağa (Internet erişimi olan ağ). Diğer veri bağlantı noktalarına SAN/iSCSI LAN (VLAN) kesimi hedeflenen rolü bağlı olarak ağ bağlantılı olabilir.
+* Her denetleyici aynı arabirimlerde, denetleyici yük devretme gerçekleşirse kullanılabilirliğini sağlamak için aynı ağa bağlı. Örneğin, DATA 0 ve veri 3 denetleyicilerin birine bağlanmayı seçerseniz, ilgili veri 0 ve veri 3 diğer denetleyiciye bağlanmanız gerekmez.
 
 Yüksek kullanılabilirlik ve performans için göz önünde bulundurun:
 
-* Mümkün olduğunda, bir çift ağ arabiriminin bulut erişim (1 GbE) ve iSCSI (10 GbE önerilen) için başka bir çifti her denetleyicisinde yapılandırın.
-* Mümkün olduğunda, ağ arabirimlerinin her denetleyicisinden anahtar arızasına karşı kullanılabilirliğini sağlamak için iki farklı anahtarlara bağlayın. Şekilde gösterilmektedir iki 10 GbE ağ arabirimleri, veri 2 ve veri 3, iki farklı anahtarlara bağlı her denetleyicisinden.
+* Mümkün olduğunda, bir çift ağ arabirimi için bulut erişimi'ni (1 GbE) ve iSCSI (10 GbE önerilir) için başka bir çift her denetleyicisinde yapılandırın.
+* Mümkün olduğunda, ağ arabirimlerinin her denetleyicisinden anahtar hataya karşı kullanılabilirliğini sağlamak için iki farklı anahtarlara bağlayın. Şekilde gösterilmektedir iki 10 GbE ağ arabirimleri, veri 2 ve DATA 3 ', iki farklı anahtarlara bağlı her denetleyicisinden.
 
-Daha fazla bilgi için bkz **ağ arabirimleri** altında [StorSimple cihazınız için yüksek kullanılabilirlik gereksinimlerini](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
+Daha fazla bilgi için **ağ arabirimleri** altında [StorSimple cihazınız için yüksek kullanılabilirlik gereksinimleri](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
-> SFP + vericilerinin, 10 GbE ağ arabirimleri ile kullanıyorsanız, sağlanan QSFP kullanın-SFP + bağdaştırıcıları. Daha fazla bilgi için Git [, StorSimple Cihazınızda 10 GbE ağ arabirimleri için desteklenen donanım](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
+> İle 10 GbE ağ arabirimleri SFP + vericilerinin kullanıyorsanız, sağlanan QSFP kullanın-SFP + bağdaştırıcıları. Daha fazla bilgi için Git [StorSimple Cihazınızda 10 GbE ağ arabirimleri için desteklenen donanım](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 > 
 > 
 
-### <a name="serial-port-cabling"></a>Seri bağlantı kabloları
-Seri bağlantı noktanızın kablo için aşağıdaki adımları gerçekleştirin.
+### <a name="serial-port-cabling"></a>Seri bağlantı noktası kabloları
+Seri bağlantı kablolarını bağlama için aşağıdaki adımları gerçekleştirin.
 
 #### <a name="to-cable-for-serial-connection"></a>Seri bağlantı için kablo
-1. Cihazınızı bir İngiliz anahtarı simgesi tarafından tanımlanan her denetleyicisinde seri bağlantı noktası var. Çizimde başvurmak [ağ kablo](#network-cabling) Cihazınızı devre kartı seri bağlantı noktalarına bulmak için bölüm.
-2. Aygıt devre kartı etkin denetleyicisinde tanımlayın. Yanıp sönen bir mavi LED denetleyicisi etkin olduğunu gösterir.
-3. (Gerekirse, dizüstü bilgisayarınız için USB seri dönüştürücü) sağlanan seri kablolar ve konsol veya bilgisayarla (terminal öykünme aygıta) etkin denetleyicisi seri bağlantı noktasına bağlayın.
-4. (Aygıtla birlikte gelen) seri USB sürücüleri bilgisayarınıza yükleyin.
-5. Seri bağlantı aşağıdaki gibi ayarlayın: 115.200 baud, 8 veri bitleri, 1 dur biti, eşlik yok ve akış denetimi için ayarlanmamış.
-6. Bağlantı konsolda Enter tuşuna basarak çalışmakta olduğunu doğrulayın. Seri konsol menüsünde görüntülenmelidir.
+1. Cihazınızın seri bağlantı noktası İngiliz anahtarı simgesi tarafından tanımlanan her denetleyicisinde sahiptir. Çizimde başvurmak [ağ kablosunun](#network-cabling) devre kartına cihazınızın seri bağlantı noktalarını bulmak için bölüm.
+2. Etkin denetleyicide, aygıt devre kartı belirleyin. Yanıp sönen bir mavi LED denetleyici etkin olduğunu gösterir.
+3. (Gerekirse, dizüstü bilgisayarınız için USB seri dönüştürücü) sağlanan seri kablo kullanın ve konsolu veya (terminal öykünme cihaza ile) bilgisayarınızın etkin denetleyiciyi seri bağlantı noktasına bağlanın.
+4. (Cihazı ile birlikte gelen) seri USB sürücüleri bilgisayarınıza yükleyin.
+5. Seri bağlantı aşağıdaki gibi ayarlayın: 115.200 baud, 8 veri bitleri, 1 dur bit, eşlik yok ve akış denetimi hiçbiri olarak ayarlayın.
+6. Bağlantı Konsolu'nda Enter tuşuna basarak çalıştığını doğrulayın. Seri konsol menüsünde görüntülenmelidir.
 
 > [!NOTE]
-> **Uzaktan Yönetim**: cihaz bir uzak veri merkezinde veya sınırlı erişimi olan bir bilgisayar odada yüklendiğinde hem denetleyicileri seri bağlantılarda her zaman bir seri konsol anahtarı veya benzer ekipman bağlı olduğunuzdan emin olun. Ağ kesintilerine veya beklenmeyen arıza varsa bu bant dışı uzaktan denetim ve Destek işlemler sağlar.
+> **Uzaktan Yönetim**: cihaz uzak bir veri merkezinde veya sınırlı erişimli bilgisayar odasında yüklendiğinde, her iki denetleyicilerinin seri bağlantıları her zaman bir seri konsol anahtarı veya benzer ekipman bağlandığınızdan emin olun. Ağ kesintileri veya beklenmeyen hatalar varsa bu bant uzaktan denetim ve Destek işlemleri sağlar.
 > 
 > 
 
-Cihazınız artık güç, ağ erişimi ve seri bağlantı kablolu. Yazılım yapılandırmak ve Cihazınızı dağıtmak için sonraki adım olacaktır.
+Cihazınız artık güç, ağ erişimi ve seri bağlantı kablolu. Sonraki adım, Cihazınızı dağıtmak ve yazılım yapılandırma sağlamaktır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bilgi edinmek için nasıl [şirket içi StorSimple Cihazınızı yapılandırmak ve dağıtmak](storsimple-8000-deployment-walkthrough-u2.md).

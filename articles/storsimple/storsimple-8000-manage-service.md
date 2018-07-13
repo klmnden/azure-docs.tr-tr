@@ -1,6 +1,6 @@
 ---
-title: Azure StorSimple cihaz Yöneticisi Hizmeti'ni dağıtma | Microsoft Docs
-description: Oluşturma ve Azure portalında StorSimple cihaz Yöneticisi hizmetini silmek açıklar ve hizmet kayıt anahtarını yönetme açıklar.
+title: Azure'da StorSimple cihaz Yöneticisi hizmetini dağıtma | Microsoft Docs
+description: Oluşturma ve Azure portalında StorSimple cihaz Yöneticisi hizmetini silme açıklar ve hizmet kayıt anahtarını yönetme işlemi açıklanır.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,201 +15,201 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012752"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38701929"
 ---
-# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 serisi cihazlar için StorSimple cihaz Yöneticisi hizmeti dağıtma
+# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 serisi cihazlar için StorSimple cihaz Yöneticisi hizmetini dağıtma
 
 ## <a name="overview"></a>Genel Bakış
 
-StorSimple cihaz Yöneticisi hizmeti Microsoft Azure üzerinde çalışır ve birden çok StorSimple cihazını bağlanır. Hizmeti oluşturduktan sonra böylece yönetici yükünü en aza tek, merkezi bir konumdan StorSimple cihaz Yöneticisi hizmetine bağlanan tüm cihazları yönetmek için kullanabilirsiniz.
+StorSimple cihaz Yöneticisi hizmeti, Microsoft Azure'da çalışan ve birden çok StorSimple aygıtına bağlanır. Hizmeti oluşturduktan sonra böylece yönetici yükünü en aza indirmek için StorSimple cihaz Yöneticisi hizmeti tek, merkezi bir konumdan bağlı olan tüm cihazları yönetmek için kullanabilirsiniz.
 
-Bu öğretici oluşturma, silme, hizmetinin geçişini ve hizmet kayıt anahtarı yönetimi için gereken adımları açıklar. Bu makalede yer alan bilgileri yalnızca StorSimple 8000 serisi cihazlar için geçerlidir. StorSimple sanal dizileri hakkında daha fazla bilgi için Git [, StorSimple sanal dizisi için StorSimple Aygıt Yöneticisi'ni hizmet dağıtma](storsimple-virtual-array-manage-service.md).
+Bu öğreticide, oluşturma, silme, geçiş hizmetinin ve hizmet kayıt anahtarı yönetimi için gereken adımlar açıklanmaktadır. Bu makalede yer alan bilgileri yalnızca StorSimple 8000 serisi cihazlar için geçerlidir. StorSimple sanal dizilerine hakkında daha fazla bilgi için Git [bir StorSimple Virtual Array'iniz için StorSimple cihaz Yöneticisi hizmetini dağıtma](storsimple-virtual-array-manage-service.md).
 
 > [!NOTE]
-> -  Azure Portalı'nı güncelleştirme 5.0 veya üstünü çalıştıran cihazları destekler. Cihazınız güncel değilse, güncelleştirme 5 hemen yükleme. Daha fazla bilgi için Git [yükleme güncelleştirme 5](storsimple-8000-install-update-5.md). 
-> - Bir StorSimple bulut uygulaması (8010/8020) kullanıyorsanız, bulut uygulaması güncelleştirilemiyor. En son sürümünü yazılım güncelleştirme 5.0 ile yeni bir bulut uygulaması oluşturun ve sonra oluşturulan yeni bulut uygulaması yük için kullanın. 
-> - Güncelleştirme 4.0 veya önceki sürümleri çalıştıran tüm cihazlara yaşar [yönetim işlevleri azaltılmış](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> -  Azure portalında güncelleştirme 5.0 veya sonraki sürümleri çalıştıran cihazları destekler. Güncelleştirme 5 hemen cihazınız güncel değilse, yükleyin. Daha fazla bilgi için Git [güncelleştirme 5'i yükleme](storsimple-8000-install-update-5.md). 
+> - StorSimple bulut Gereci (8010/8020) kullanıyorsanız, bir bulut gerecini güncelleştiremezsiniz. Güncelleştirme 5. 0'ile yeni bir bulut Gereci oluşturmak ve sonra oluşturulan yeni bulut gerecine yük devretme için yazılımın en son sürümünü kullanın. 
+> - Güncelleştirme 4.0 veya önceki sürümleri çalıştıran tüm cihazlara yaşar [yönetim işlevselliği azaltılmış](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Hizmet oluşturma
-StorSimple cihaz Yöneticisi hizmet oluşturmak için sahip olmanız gerekir:
+StorSimple cihaz Yöneticisi hizmeti oluşturmak için sahip olmanız gerekir:
 
-* Bir aboneliği bir kurumsal anlaşma ile
+* Bir kurumsal anlaşma kapsamında olan bir abonelik
 * Etkin bir Microsoft Azure depolama hesabı
-* Erişim yönetimi için kullanılan faturalama bilgileri
+* Erişim yönetimi için kullanılan faturalandırma bilgileri
 
-Yalnızca bir kurumsal anlaşma ile aboneliklerine izin verilir. Hizmet oluşturduğunuzda, varsayılan depolama hesabı oluşturmak seçebilirsiniz.
+Yalnızca bir Kurumsal Anlaşma abonelikleri izin verilir. Hizmet oluşturduğunuzda, varsayılan depolama hesabı oluşturmak seçebilirsiniz.
 
-Tek bir hizmet birden çok cihazları yönetebilirsiniz. Ancak, bir aygıt birden fazla hizmet yayılamaz. Büyük bir kuruluş farklı Aboneliklerde, kuruluşlar veya bile Dağıtım konumları ile çalışmak için birden fazla hizmet örneği olabilir. 
+Tek bir hizmet birden çok cihazları yönetebilirsiniz. Ancak, bir cihaz birden fazla hizmet yayılamaz. Büyük bir kuruluş, farklı Aboneliklerde, kuruluşlar veya bile Dağıtım konumları ile çalışmak için birden çok hizmeti örneği olabilir. 
 
 > [!NOTE]
-> StorSimple 8000 serisi cihazlar ve StorSimple sanal dizileri yönetmek için StorSimple cihaz Yöneticisi hizmeti ayrı ayrı örnekleri gerekir.
+> StorSimple 8000 serisi cihazlar ve StorSimple sanal dizilerini yönetmek için StorSimple cihaz Yöneticisi hizmeti ayrı örneklerini ihtiyacınız vardır.
 
 Bir hizmet oluşturmak için aşağıdaki adımları gerçekleştirin.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
 
 
-Her StorSimple cihaz Yöneticisi hizmeti için aşağıdaki öznitelikler mevcuttur:
+Her bir StorSimple cihaz Yöneticisi hizmeti için şu öznitelikler bulunur:
 
-* **Ad** – oluşturulduğunda StorSimple cihaz Yöneticisi hizmetinize atanmış adı. **Hizmet adı, hizmet oluşturulduktan sonra değiştirilemez. Bu, aynı zamanda cihazları, birimler, birim kapsayıcıları ve Azure portalında yeniden adlandırılamaz yedekleme ilkeleri gibi diğer varlıklar için de geçerlidir.**
+* **Adı** – oluşturulduğunda, StorSimple cihaz Yöneticisi hizmetinize atanan ad. **Hizmet adı, hizmet oluşturulduktan sonra değiştirilemez. Bu, aynı zamanda cihazları, birimleri, birim kapsayıcıları ve Azure portalında yeniden adlandırılamaz yedekleme ilkeleri gibi diğer varlıklar için de geçerlidir.**
 * **Durum** – olabilir hizmetinin durumunu **etkin**, **oluşturma**, veya **çevrimiçi**.
-* **Konum** –, StorSimple cihazı dağıtılacak coğrafi konum.
-* **Abonelik** – hizmetiniz ile ilişkili fatura abonelik.
+* **Konum** –, StorSimple cihaz dağıtılacağı coğrafi konum.
+* **Abonelik** – hizmetiniz ile ilişkili olan faturalama aboneliği.
 
-## <a name="delete-a-service"></a>Bir hizmeti silin
+## <a name="delete-a-service"></a>Bir hizmeti Sil
 
-Bir hizmet silmeden önce hiçbir bağlı aygıtlar, kullandığınızdan emin olun. Hizmet kullanımdaysa bağlı aygıtları devre dışı bırakın. Devre dışı bırakma işlemi cihaz ile hizmet arasında bağlantı sever ancak bulutta cihaz verileri koruma.
+Bir hizmet silmeden önce bağlı cihaz yok, kullandığınızdan emin olun. Hizmet kullanılıyorsa, bağlı cihazları devre dışı bırakın. Devre dışı bırakma işlemi cihaz ile hizmet arasında bağlantı sever, ancak bulutta cihaz verilerini koruma.
 
 > [!IMPORTANT]
-> Hizmet silindikten sonra işlemi geri alınamaz. Hizmet tarafından kullanılan herhangi bir aygıtı başka bir hizmetle kullanılabilmesi için önce fabrika ayarlarına sıfırlanması gerekir. Bu senaryoda, cihaz olarak yapılandırma üzerinde yerel veriler kaybolur.
+> Hizmet silindikten sonra işlemi geri alınamaz. Hizmeti kullanan herhangi bir CİHAZDAN başka bir hizmet ile kullanılabilmesi için fabrika ayarlarına sıfırlanması gerekiyor. Bu senaryoda, yapılandırmanın yanı sıra, cihaz üzerinde yerel veriler kaybolur.
 
 Bir hizmeti silmek için aşağıdaki adımları gerçekleştirin.
 
 ### <a name="to-delete-a-service"></a>Bir hizmeti silmek için
 
-1. Silmek istediğiniz hizmet arayın. Tıklatın **kaynakları** simgesi ve aramak için uygun koşulları girin. Arama sonuçlarında, silmek istediğiniz hizmete tıklayın.
+1. Silmek istediğiniz hizmeti arayın. Tıklayın **kaynakları** simgesine ve ardından aramak için uygun bir koşulları girin. Arama sonuçlarında, silmek istediğiniz service'ı tıklatın.
 
-    ![Arama hizmeti silmek için](./media/storsimple-8000-manage-service/deletessdevman1.png)
+    ![Arama hizmeti silinemedi](./media/storsimple-8000-manage-service/deletessdevman1.png)
 
-2. Bu sizi, StorSimple cihaz Yöneticisi hizmeti dikey penceresine götürür. **Sil**'e tıklayın.
+2. Bu StorSimple cihaz Yöneticisi hizmet dikey penceresine götürür. **Sil**'e tıklayın.
 
     ![Hizmeti sil](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
-3. Tıklatın **Evet** onay bildirim. Hizmetin silinmesi birkaç dakika sürebilir.
+3. Tıklayın **Evet** onay bildirimi içinde. Bu hizmetin silinmesi birkaç dakika sürebilir.
 
     ![Silme işlemini onaylama](./media/storsimple-8000-manage-service/deletessdevman3.png)
 
 ## <a name="get-the-service-registration-key"></a>Hizmet kayıt anahtarı alma
 
-Bir hizmeti başarıyla oluşturduktan sonra StorSimple Cihazınızı hizmete kaydolmak gerekir. İlk StorSimple Cihazınızı kaydetmek için hizmet kayıt anahtarı gerekir. Mevcut bir StorSimple hizmetiyle ek cihazlar kaydetmek için kayıt anahtarını ve (ilk cihazda kayıt sırasında oluşturulan) hizmeti veri şifreleme anahtarı gerekir. Hizmet verileri şifreleme anahtarı hakkında daha fazla bilgi için bkz: [StorSimple güvenlik](storsimple-8000-security.md). Kayıt anahtarını erişerek alabileceğiniz **anahtarları** StorSimple Aygıt Yöneticisi'ni dikey penceresinde.
+Bir hizmeti başarıyla oluşturduktan sonra StorSimple Cihazınızı hizmetine kaydetmeniz gerekir. İlk StorSimple Cihazınızı kaydetmek için hizmet kayıt anahtarı gerekir. Mevcut bir StorSimple hizmetiyle ek cihazlar kaydetmek için kayıt anahtarını hem de (Bu cihaz üzerinde ilk kayıt sırasında oluşturulan) hizmet veri şifreleme anahtarı gerekir. Hizmet veri şifreleme anahtarı hakkında daha fazla bilgi için bkz: [StorSimple güvenlik](storsimple-8000-security.md). Kayıt anahtarını erişerek alabileceğiniz **anahtarları** , StorSimple cihaz Yöneticisi dikey penceresinde.
 
-Hizmet kayıt anahtarını almak için aşağıdaki adımları gerçekleştirin.
+Hizmet kayıt anahtarı almak için aşağıdaki adımları gerçekleştirin.
 
 [!INCLUDE [storsimple-8000-get-service-registration-key](../../includes/storsimple-8000-get-service-registration-key.md)]
 
-Hizmet kayıt anahtarını güvenli bir yerde tutun. Bu hizmetiyle ek cihazlar kaydetmek için hizmet verileri şifreleme anahtarı, yanı sıra, bu anahtar gerekir. Hizmet kayıt anahtarı aldıktan sonra Windows PowerShell aracılığıyla cihazınızın StorSimple arabirimi için yapılandırmanız gerekir.
+Hizmet kayıt anahtarı güvenli bir yerde saklayın. Bu hizmetiyle ek cihazlar kaydetmek için hizmet veri şifreleme anahtarı, yanı sıra, bu anahtar gerekir. Hizmet kayıt anahtarını aldıktan sonra Windows PowerShell aracılığıyla cihazınızın StorSimple arabirimi için yapılandırmanız gerekir.
 
-Bu kayıt anahtarı kullanma hakkında daha fazla bilgi için bkz: [adım 3: yapılandırmak ve storsimple için Windows PowerShell üzerinden cihazı](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Bu kayıt anahtarı kullanma hakkında daha fazla ayrıntı için bkz. [3. adım: StorSimple için Windows PowerShell üzerinden cihazı kaydetme ve yapılandırma](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
-## <a name="regenerate-the-service-registration-key"></a>Hizmet kayıt anahtarını yeniden oluşturma
-Hizmet kayıt anahtarını anahtar döndürmeyi gerçekleştirmek için gerekli olduğunu veya hizmet yöneticilerinin listesini değiştirilmişse yeniden oluşturulması gerekir. Anahtarı yeniden oluşturmak, yeni anahtar yalnızca sonraki cihazları kaydetmek için kullanılır. Bu işlem tarafından zaten kayıtlı olan cihazları etkilenmez.
+## <a name="regenerate-the-service-registration-key"></a>Hizmet kayıt anahtarını yeniden oluştur
+Anahtar döndürme gerçekleştirmek için gerekli olduğunda veya hizmet yöneticilerinin listesini değişmişse bir hizmet kayıt anahtarını yeniden oluşturmak gerekir. Anahtarı yeniden ürettiğinizde, yeni anahtar yalnızca sonraki cihazları kaydetmek için kullanılır. Bu işlem tarafından zaten kayıtlı cihazlar etkilenmez.
 
-Hizmet kayıt anahtarını yeniden oluşturmak için aşağıdaki adımları gerçekleştirin.
+Bir hizmet kayıt anahtarını yeniden oluşturmak için aşağıdaki adımları gerçekleştirin.
 
 ### <a name="to-regenerate-the-service-registration-key"></a>Hizmet kayıt anahtarını yeniden oluşturmak için
-1. İçinde **StorSimple Aygıt Yöneticisi'ni** dikey penceresinde, Git **Yönetim &gt;**  **anahtarları**.
+1. İçinde **StorSimple cihaz Yöneticisi** dikey penceresinde, Git **Yönetim &gt;**  **anahtarları**.
     
     ![Anahtarlar dikey penceresi](./media/storsimple-8000-manage-service/regenregkey2.png)
 
-2. İçinde **anahtarları** dikey penceresinde tıklatın **yeniden**.
+2. İçinde **anahtarları** dikey penceresinde tıklayın **yeniden**.
 
-    ![Yeniden tıklatın](./media/storsimple-8000-manage-service/regenregkey3.png)
-3. İçinde **üretme hizmet kayıt anahtarını** dikey penceresinde, gözden geçirme eylem gerekli olduğunda anahtarları yeniden oluşturulur. Bu hizmetle kaydedilen tüm sonraki cihazlar yeni kayıt anahtarını kullanın. Tıklatın **yeniden** onaylamak için. Yeniden oluşturma işlemi tamamlandıktan sonra size bildirilir.
+    ![Regenerate tıklayın](./media/storsimple-8000-manage-service/regenregkey3.png)
+3. İçinde **Regenerate hizmet kayıt anahtarını** dikey penceresinde, gözden geçirme eylem gerekli olduğunda anahtarları yeniden oluşturulur. Bu hizmete kayıtlı olan tüm sonraki cihazlar yeni kayıt anahtarını kullanın. Tıklayın **yeniden** onaylamak için. Yeniden oluşturma işlemi tamamlandığında size bildirilir.
 
-    ![Yeniden onaylayın](./media/storsimple-8000-manage-service/regenregkey4.png)
+    ![Regenerate onaylayın](./media/storsimple-8000-manage-service/regenregkey4.png)
 
 4. Yeni bir hizmet kayıt anahtarı görüntülenir.
 
-5. Bu anahtarı kopyalayın ve bu hizmeti ile yeni aygıtları kaydetme için kaydedin.
+5. Bu anahtarı kopyalayın ve bu hizmetle yeni cihazları kaydetmek için kaydedin.
 
 
 
-## <a name="change-the-service-data-encryption-key"></a>Değişiklik hizmeti veri şifreleme anahtarı
-Hizmet veri şifreleme anahtarları, StorSimple Yöneticisi hizmetiniz StorSimple cihaza gönderilen depolama hesabının kimlik bilgilerini gibi gizli müşteri verilerini şifrelemek için kullanılır. BT kuruluşunuzun depolama cihazlarında bir anahtar döndürme ilke varsa bu anahtarlar düzenli olarak değiştirmeniz gerekir. Anahtar değişim işlemini bağlı olarak biraz farklı olabilir bir tek veya birden çok cihazı StorSimple Yöneticisi hizmeti tarafından yönetilen yoktur. Daha fazla bilgi için Git [StorSimple güvenlik ve veri koruması](storsimple-8000-security.md).
+## <a name="change-the-service-data-encryption-key"></a>Hizmet veri şifreleme anahtarı değiştirme
+Hizmet veri şifreleme anahtarları için StorSimple cihazı StorSimple Yöneticisi hizmetiniz gönderilen depolama hesabı kimlik bilgileri gibi müşteri gizli verileri şifrelemek için kullanılır. BT kuruluşunuzun depolama cihazlarında bir anahtar döndürme ilke varsa bu anahtarlar düzenli olarak değiştirmeniz gerekir. Anahtar değiştirme işlemi bağlı olarak biraz farklı olabilir. bir tek veya birden çok cihazı StorSimple Yöneticisi hizmeti tarafından yönetilen yoktur. Daha fazla bilgi için Git [StorSimple güvenlik ve veri koruma](storsimple-8000-security.md).
 
-Hizmet verileri şifreleme anahtarı değiştirme 3 adımlı bir işlemdir:
+Hizmet veri şifreleme anahtarı değiştirilirken 3 adımlık bir işlemdir:
 
-1. Azure Resource Manager için Windows PowerShell komut dosyalarını kullanarak hizmet verileri şifreleme anahtarı değiştirmek için bir aygıt yetkilendirin.
-2. StorSimple için Windows PowerShell kullanarak hizmet verileri şifreleme anahtarı değişikliği başlatır.
-3. Birden çok StorSimple cihazınız varsa, diğer cihazlarda hizmet verileri şifreleme anahtarı güncelleştirin.
+1. Azure Resource Manager için Windows PowerShell betiklerini kullanarak, hizmet veri şifreleme anahtarını değiştirmek için bir cihaz yetkilendirin.
+2. StorSimple için Windows PowerShell kullanarak, hizmet veri şifreleme anahtarı değişikliği başlatın.
+3. Birden fazla StorSimple cihazınız varsa, hizmet veri şifreleme anahtarı diğer cihazlarda güncelleştirin.
 
-### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>1. adım: hizmet verileri şifreleme anahtarı değiştirmek için bir aygıt yetkilendirmek için kullanım Windows PowerShell Betiği
-Genellikle, cihaz yönetici Hizmet Yöneticisi hizmeti veri şifreleme anahtarları değiştirmek için bir aygıt yetkilendirmek ister. Hizmet Yöneticisi, ardından anahtarı değiştirmek için aygıtı yetkilendirecek.
+### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>1. adım: hizmet veri şifreleme anahtarını değiştirmek için bir cihaz son noktanın yetkilendirilmesi için Windows PowerShell kullanarak betiği
+Genellikle, cihaz Yöneticisi hizmet Yöneticisi bir cihazın hizmet veri şifreleme anahtarlarını değiştirmek için yetki verdiğiniz ister. Hizmet Yöneticisi daha sonra anahtarı değiştirmek için cihaz yetkilendirirsiniz.
 
-Bu adım, Azure Resource Manager temelli komut dosyası kullanılarak gerçekleştirilir. Hizmet Yöneticisi yetki verilmesi uygun bir aygıtı seçebilirsiniz. Cihaz sonra hizmet verileri şifreleme anahtar değiştirme işlemini başlatmak için yetkili. 
+Bu adım, Azure Resource Manager tabanlı betik kullanarak gerçekleştirilir. Hizmet Yöneticisi yetki verilmesi uygun olan bir cihaz seçebilirsiniz. Cihaz ardından hizmet veri şifreleme anahtar değiştirme işlemini başlatmak için yetkili. 
 
-Komut dosyası kullanma hakkında daha fazla bilgi için Git [Authorize ServiceEncryptionRollover.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Authorize-ServiceEncryptionRollover.ps1)
+Komut dosyası kullanma hakkında daha fazla bilgi için Git [ServiceEncryptionRollover.ps1 Yetkilendir](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Authorize-ServiceEncryptionRollover.ps1)
 
-#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Hangi cihazların hizmeti veri şifreleme anahtarları değiştirme yetkisi?
-Hizmet verileri şifreleme anahtarı değişiklikleri başlatmak için yetkili önce bir aygıt aşağıdaki ölçütleri karşılamalıdır:
+#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Hizmet veri şifreleme anahtarlarını değiştirmek için hangi cihazların yetkilendirilebilir?
+Bir cihaz, hizmet veri şifreleme anahtarı değişiklikleri başlatmak için yetkilendirilebilir önce aşağıdaki ölçütleri karşılaması gerekir:
 
-* Aygıt hizmeti veri şifreleme anahtarı değişiklik yetkilendirme için uygun olması için çevrimiçi olması gerekir.
-* Anahtar değişikliği başlatılmaz, 30 dakika sonra yeniden aynı aygıt yetki verebilir.
-* Anahtar değişikliği daha önceden yetkili aygıt tarafından başlatılmamış olması koşuluyla farklı bir cihaz yetki verebilir. Yeni cihaz yetkilendirildikten sonra eski aygıt değişikliği başlatamaz.
-* Hizmet verileri şifreleme anahtarı geçiş işlemi sürerken bir aygıtı yetkilendirilemiyor.
-* Başkalarının olmamasına karşın bazı hizmetine kayıtlı cihazlar üzerinde şifrelemeyi gezinirken bir aygıtı yetki verebilir. 
+* Cihazın hizmet veri şifreleme anahtar değiştirme yetkilendirme için uygun olması için çevrimiçi olması gerekir.
+* Anahtar değişikliği başlatılamadı, aynı cihaza 30 dakika sonra tekrar yetki verebilir.
+* Anahtar değiştirme ve daha önce yetkili bir cihaz tarafından başlatılmamış koşuluyla farklı bir cihaz yetki verebilir. Yeni cihaz yetkilendirildikten sonra eski cihaz değişikliği başlatamazsınız.
+* Hizmet veri şifreleme anahtarı geçiş işlemi devam ederken bir cihaz yetkilendirilemiyor.
+* Başkalarının yok ancak bazı hizmete kayıtlı cihazlar şifrelemeyi gezinirken bir cihaz yetki verebilir. 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>2. adım: Hizmet verileri şifreleme anahtarı değişikliğini başlatmak StorSimple için Windows PowerShell'i kullanın
-Bu adım, StorSimple arabirimi yetkili StorSimple cihazında için Windows PowerShell'de gerçekleştirilir.
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>2. adım: Hizmet veri şifreleme anahtar değişikliğini başlatmak StorSimple için Windows PowerShell kullanma
+Bu adım, yetkili StorSimple cihazında arabirimi StorSimple için Windows PowerShell'de gerçekleştirilir.
 
 > [!NOTE]
-> Anahtar geçişi tamamlanana kadar hiçbir işlem, StorSimple Yöneticisi hizmetiniz Azure portalında gerçekleştirilebilir.
+> Anahtar geçişi tamamlanana kadar hiçbir işlem StorSimple Yöneticisi hizmetiniz Azure portalında gerçekleştirilebilir.
 
 
-Windows PowerShell arabirimine bağlamak için cihaz seri konsoluna kullanıyorsanız, aşağıdaki adımları gerçekleştirin.
+Cihaz seri konsoluna bağlanmak için Windows PowerShell arabirimi için kullanıyorsanız, aşağıdaki adımları gerçekleştirin.
 
-#### <a name="to-initiate-the-service-data-encryption-key-change"></a>Hizmet verileri şifreleme anahtarı değişikliğini başlatmak için
+#### <a name="to-initiate-the-service-data-encryption-key-change"></a>Hizmet veri şifreleme anahtar değişikliğini başlatmak için
 1. Tam erişimle oturum açmak için 1 seçeneğini belirleyin.
-2. Komut istemine yazın:
+2. Komut isteminde aşağıdakini yazın:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
-3. Cmdlet başarıyla tamamlandıktan sonra yeni bir hizmet verileri şifreleme anahtarı alır. Kopyalayın ve bu anahtarı kullanmak için bu işlem 3. adımında kaydedin. Bu anahtar StorSimple Yöneticisi hizmetine kayıtlı kalan tüm aygıtlar güncelleştirmek için kullanılır.
+3. Cmdlet başarıyla tamamlandıktan sonra yeni bir hizmet veri şifreleme anahtarı alırsınız. Kopyalayın ve bu işlem 3. adımında kullanmak için bu anahtarı kaydedin. Bu anahtar, StorSimple Yöneticisi hizmetine kayıtlı tüm diğer cihazları güncelleştirmek için kullanılır.
    
    > [!NOTE]
-   > Bu işlem, StorSimple cihaz yetkilendirme dört saat içinde başlatılmalıdır.
+   > Bu işlem, bir StorSimple cihaz yetkilendirme sonra dört saat içinde başlatılmalıdır.
    > 
    > 
    
-   Bu yeni anahtarı, ardından hizmetle kaydedilen tüm aygıtlara edilmesini hizmetine gönderilir. Bir uyarı sonra hizmet panosunda görüntülenir. Hizmet kayıtlı cihazlarda tüm işlemleri devre dışı bırakır ve cihaz Yöneticisi daha sonra diğer cihazlarda hizmet verileri şifreleme anahtarı güncelleştirmeniz gerekir. Ancak, g/ç (ana bilgisayardan verileri buluta gönderme) kesilmiş olabilir değil.
+   Bu yeni anahtar, hizmete kayıtlı olan tüm cihazlara gönderilecek hizmete sonra gönderilir. Bir uyarı, ardından hizmet panosunda görünür. Hizmet kayıtlı cihazlarda tüm işlemleri devre dışı bırakır ve cihaz Yöneticisi daha sonra diğer cihazlar üzerinde hizmet veri şifreleme anahtarı güncelleştirmeniz gerekir. Ancak, g/ç (verileri buluta göndermeden ana) açması engellenecek değil.
    
-   Hizmete kayıtlı tek bir aygıtta varsa, geçiş işlemi tamamlanmıştır ve sonraki adıma atlayabilirsiniz. Birden çok aygıt hizmete kayıtlı varsa, 3. adıma geçin.
+   Hizmete kayıtlı tek bir cihaz varsa, geçiş işlemi tamamlanmıştır ve sonraki adıma atlayabilirsiniz. Birden çok cihaz hizmete kayıtlı varsa, 3. adıma geçin.
 
-### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>3. adım: hizmet verileri şifreleme anahtarı başka StorSimple cihazlar üzerinde güncelleştir
-StorSimple Yöneticisi hizmetinize kayıtlı birden çok aygıt varsa, bu adımları StorSimple Cihazınızı Windows PowerShell arabiriminde gerçekleştirilmesi gerekir. 2. adımda elde ettiğiniz anahtarı StorSimple Yöneticisi hizmetine kayıtlı tüm kalan StorSimple Cihazınızı güncelleştirmek için kullanılmalıdır.
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>3. adım: başka StorSimple cihazlar üzerinde hizmet veri şifreleme anahtarı güncelleştirme
+Birden çok cihaz için StorSimple Yöneticisi hizmetine kayıtlı varsa bu adımlar StorSimple cihazınızın Windows PowerShell arabiriminde gerçekleştirilmesi gerekir. 2. adımda elde edilen anahtar, StorSimple Yöneticisi hizmetine kayıtlı tüm kalan StorSimple cihaz güncelleştirmek için kullanılmalıdır.
 
-Hizmet verileri şifreleme aygıtınızda güncelleştirmek için aşağıdaki adımları gerçekleştirin.
+Hizmet veri şifreleme Cihazınızda güncelleştirmek için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Hizmet verileri şifreleme anahtarı fiziksel cihazlarda güncelleştirmek için
+#### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Hizmet veri şifreleme anahtarı fiziksel cihazlarda güncelleştirmek için
 1. StorSimple için Windows PowerShell konsoluna bağlanmak için kullanın. Tam erişimle oturum açmak için 1 seçeneğini belirleyin.
-2. Komut istemine yazın:  `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Makalesinde aldığınız hizmet verileri şifreleme anahtarı sağlayan [2. adım: hizmet verileri şifreleme anahtarı değişikliğini başlatmak StorSimple için Windows PowerShell'i kullanın](#to-initiate-the-service-data-encryption-key-change).
+2. Komut isteminde aşağıdakini yazın:  `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
+3. Aldığınız hizmet veri şifreleme anahtarını sağlamalı [2. adım: hizmet veri şifreleme anahtar değişikliğini başlatmak StorSimple için Windows PowerShell kullanarak](#to-initiate-the-service-data-encryption-key-change).
 
-#### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Hizmet verileri şifreleme anahtarı tüm 8010/8020 bulut cihazları üzerinde güncelleştirmek için
+#### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>8010/8020 bulut Gereçleri üzerinde hizmet veri şifreleme anahtarını güncelleştirmek için
 1. Karşıdan yükleme ve Kurulum [güncelleştirme CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) PowerShell Betiği. 
 2. PowerShell'i açın ve komut istemine yazın:  `Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
-Bu komut dosyası, bu hizmet verileri şifreleme anahtarı Aygıt Yöneticisi'ni altındaki tüm 8010/8020 bulut cihazları ayarlanan güvence altına alır.
+Bu betik, cihaz Yöneticisi altındaki tüm 8010/8020 bulut Gereçleri, hizmet veri şifreleme anahtarı ayarlanır sağlayacaktır.
 
-## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Operations güncelleştirme 5.0'den önceki sürümleri çalıştıran cihazlarda desteklenir
-Azure Portal'da, yalnızca güncelleştirme 5.0 ve üstünü çalıştıran StorSimple cihazlar desteklenir. Eski sürümlerini çalıştıran cihazlar sınırlı bir desteği. Azure portalına geçirdikten sonra hangi işlemleri güncelleştirme 5.0'den önceki sürümleri çalıştıran cihazlarda desteklenir anlamak için aşağıdaki tabloyu kullanın.
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>İşlemleri güncelleştirme 5.0 önceki sürümleri çalıştıran cihazlarda desteklenir
+Azure portalında, yalnızca güncelleştirme 5.0 ve üzeri çalıştıran StorSimple cihazlar desteklenir. Eski sürümlerini çalıştıran cihazları sınırlı destek. Azure portalına geçiş yaptıktan sonra hangi işlemleri güncelleştirme 5.0 önceki sürümleri çalıştıran cihazlarda desteklenir anlamak için aşağıdaki tabloyu kullanın.
 
 | İşlem                                                                                                                       | Desteklenen      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
 | Cihaz kaydetme                                                                                                               | Evet            |
-| Cihaz ayarları genel gibi ağ ve güvenlik yapılandırma                                                                | Evet            |
-| Tarama, indirme ve güncelleştirmeleri yükle                                                                                             | Evet            |
-| Aygıt devre dışı bırakma                                                                                                               | Evet            |
+| Cihaz ayarları genel gibi ağ ve güvenliği yapılandırma                                                                | Evet            |
+| Tarama, indirme ve güncelleştirmeleri yükleyin                                                                                             | Evet            |
+| Cihazı devre dışı                                                                                                               | Evet            |
 | Cihazı silme                                                                                                                   | Evet            |
-| Oluşturma, değiştirme ve bir birim kapsayıcısı Sil                                                                                   | Hayır             |
-| Oluşturma, değiştirme ve bir birim Sil                                                                                             | Hayır             |
-| Oluşturma, değiştirme ve bir yedekleme ilkesi silme                                                                                      | Hayır             |
+| Oluşturabilir, değiştirebilir ve bir birim kapsayıcısını silme                                                                                   | Hayır             |
+| Oluşturabilir, değiştirebilir ve bir birimini silme                                                                                             | Hayır             |
+| Oluşturabilir, değiştirebilir ve yedekleme ilkesini silme                                                                                      | Hayır             |
 | El ile yedekleyin                                                                                                            | Hayır             |
 | Zamanlanmış yedekleyin                                                                                                         | Uygulanamaz |
-| Bir yedekleme kümesini geri yükleme                                                                                                        | Hayır             |
-| Güncelleştirme 3.0 ve sonraki sürümleri çalıştıran bir cihaza kopyalama <br> Kaynak aygıt güncelleştirme 3.0 sürümünü çalıştırıyor.                                | Evet            |
-| Update 3. 0'den önceki sürümleri çalıştıran bir cihazda kopyalamak                                                                          | Hayır             |
-| Yük devretme kaynak aygıt olarak <br> (güncelleştirme 3.0 çalıştıran bir cihazda güncelleştirme 3.0 için önceki ve sonraki sürümünü çalıştıran bir aygıttan)                                                               | Evet            |
-| Hedef aygıt olarak yük devretme <br> (güncelleştirme 3.0 önce yazılım sürümü çalıştıran bir cihaza)                                                                                   | Hayır             |
-| Bir uyarı temizleyin                                                                                                                  | Evet            |
-| Görünüm yedekleme ilkeleri, yedekleme kataloğu, birimler, birim kapsayıcıları, izleme grafikleri, işleri ve klasik Portalı'nda oluşturulan uyarılar | Evet            |
-| Açma veya aygıt denetleyicileri kapatma                                                                                              | Evet            |
+| Bir yedek kümesi ' geri yükleme                                                                                                        | Hayır             |
+| Güncelleştirme 3.0 ve üzerini çalıştıran bir cihaza Kopyala <br> Kaynak cihaz güncelleştirme 3.0 sürümünü çalıştırıyor.                                | Evet            |
+| Güncelleştirme 3.0 önceki sürümlerini çalıştıran bir cihaza Kopyala                                                                          | Hayır             |
+| Kaynak cihaz olarak yük devretme <br> (önceki güncelleştirme 3.0 çalıştıran bir cihazda güncelleştirme 3.0 ve sonraki sürümünü çalıştıran bir CİHAZDAN)                                                               | Evet            |
+| Hedef cihaz olarak yük devretme <br> (yazılım sürümü güncelleştirme 3.0 çalıştıran bir cihaz için)                                                                                   | Hayır             |
+| Bir uyarıyı temizleyin                                                                                                                  | Evet            |
+| Yedekleme ilkelerini, yedekleme kataloğunu, birimler, birim kapsayıcıları, izleme grafiklerini, işleri ve klasik portalda oluşturulan uyarıları görüntüleme | Evet            |
+| Açma ve kapatma cihaz denetleyicileri                                                                                              | Evet            |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinmek [StorSimple dağıtım işlemi](storsimple-8000-deployment-walkthrough-u2.md).
-* Daha fazla bilgi edinmek [StorSimple depolama hesabınızı yönetme](storsimple-8000-manage-storage-accounts.md).
-* Nasıl yapılır hakkında daha fazla bilgi [StorSimple Cihazınızı yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-8000-manager-service-administration.md).
+* Daha fazla bilgi edinin [StorSimple dağıtım işlemi](storsimple-8000-deployment-walkthrough-u2.md).
+* Daha fazla bilgi edinin [StorSimple depolama hesabınızı yönetme](storsimple-8000-manage-storage-accounts.md).
+* Kullanma hakkında daha fazla bilgi edinin [StorSimple Cihazınızı yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-8000-manager-service-administration.md).

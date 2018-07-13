@@ -1,5 +1,5 @@
 ---
-title: Müşteri verileri istek özellikleri
+title: Müşteri verilerini talep özellikleri
 author: dominicbetts
 ms.author: dobett
 manager: timlt
@@ -8,60 +8,60 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: d6355926c8fac62b01c36d28265842b1233ce213
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629329"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38666955"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Müşteri verileri isteği özelliklerinin özeti
+# <a name="summary-of-customer-data-request-features"></a>Müşteri verilerini talep özelliklerin özeti
 
-Azure IOT Hub cihaz sağlama hizmeti sorunsuz, otomatik zero touch Azure IOT Hub'ına aygıtların konumunda aygıttan başlar ve Bulutu ile biten güvenlik sağlama sağlayan kurumsal müşteriler hedeflenen bir REST API tabanlı bulut hizmetidir.
+Azure IOT Hub cihazı sağlama hizmeti sorunsuz, otomatik sıfır dokunma cihazlarını Azure IOT hub'a cihazda başlar ve bulut ile biten güvenlik sağlama sağlayan kurumsal müşteriler hedeflenen bir REST API tabanlı bir bulut hizmetidir.
 
 [!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
-Bireysel aygıtlar bir kayıt kimliği ve cihaz kimliği bir kiracı Yöneticisi tarafından atanır. Gelen ve bu aygıtlar hakkında veri üzerinde bu kimlikleri temel alır. Microsoft hiçbir bilgi tutar ve bu aygıtların bir kişiye bağıntı izin verilere erişim yok.
+Tek cihazlara bir kayıt kimliği ve cihaz Kimliğini, bir kiracı Yöneticisi tarafından atanır. Veri ve bu cihazlar hakkında bu kimliklerine göre temel alır. Microsoft hiçbir bilgi tutar ve bu cihazların bir kişiye bağıntı izin verilerine erişim yok.
 
-Birçok cihaz sağlama hizmetinde yönetilen aygıtlar örneğin office thermostat veya Fabrika robot kişisel aygıtlar değildir. Müşteriler, ancak, bazı cihazların kişisel olmasını düşünebilirsiniz ve kendi istediğiniz kadar kendi varlık veya izleme kişiler cihazlara tie yöntemlerini stok korumak. Cihaz sağlama hizmeti yönetir ve kişisel veriler gibi cihazlar ile ilişkili tüm verileri depolar.
+Birçok cihaz sağlama hizmetinde yönetilen cihazların, örneğin bir office thermostat veya Fabrika robot kişisel cihazlarını değildir. Müşteriler, ancak bazı cihazların kişisel olmasını dikkate almanız ve kendi kararımıza kendi varlık veya envanter izleme cihazlar kişilere tie yöntemi olması. Cihaz sağlama hizmeti yönetir ve kişisel veriler gibi cihazlar ile ilişkili tüm verileri depolar.
 
-Kiracı Yöneticiler vererek bilgi isteklerini karşılamak için kullanabilir Azure portalından veya hizmetin REST API'leri veya verileri silme bir cihaz kimliği veya kayıt kimliği ile ilişkili
+Kiracı yöneticileri vererek bilgi istekleri için kullanabilir Azure portalından veya hizmetin REST API'leri veya bir cihaz kimliği veya kayıt kimliği ile ilişkili verileri silme
 
 > [!NOTE]
-> Azure IOT hub cihaz sağlama hizmeti aracılığıyla sağlanan cihazları Azure IOT Hub hizmetinde depolanan ek veriler var. Bkz: [Azure IOT Hub başvuru belgeleri](../iot-hub/iot-hub-customer-data-requests.md) belirli bir aygıt için tam bir isteği tamamlamak için.
+> Azure IOT hub cihazı sağlama hizmeti aracılığıyla sağlanan cihazların Azure IOT hub'ı hizmetinde depolanan ek veri vardır. Bkz: [Azure IOT hub'ı başvuru belgeleri](../iot-hub/iot-hub-customer-data-requests.md) belirli bir cihaz için tam bir istek tamamlamak için.
 
 ## <a name="deleting-customer-data"></a>Müşteri verileri silme
 
-Cihaz sağlama hizmeti kayıtlarını ve kayıt kayıtları depolar. Kayıtları sağlanacak izin cihazlar ve aygıtları üzerinden sağlama işlemine zaten ilerlemiş kayıt kayıtlarını Göster hakkındaki bilgileri içerir.
+Cihaz sağlama hizmeti, kayıtlar ve kayıt kayıt depolar. Kayıtları sağlanması için izin verilen cihazları ve hangi cihazlar sağlama sürecinde zaten sahiplikten kaydı kayıtlarını Göster hakkında bilgiler içerir.
 
-Kiracı Yöneticiler kayıtları Azure portalından kaldırabilir ve bu ilişkili kayıt kayıtları de kaldırır.
+Kiracı yöneticileri kayıtlarını Azure portalından kaldırabilir ve bu da tüm ilişkili kayıt kayıtları kaldırır.
 
-Daha fazla bilgi için bkz: [cihaz kayıtlarını yönetme](how-to-manage-enrollments.md).
+Daha fazla bilgi için [cihaz kayıtlarını yönetme](how-to-manage-enrollments.md).
 
-Kayıtları ve REST API'lerini kullanarak kayıt kayıtları için silme işlemlerini gerçekleştirmek mümkündür:
+Kayıtlar ve REST API'leri kullanarak kayıt kayıt silme işlemleri gerçekleştirmek mümkündür:
 
-* Tek bir cihaz kayıt bilgilerini silmek için kullanabileceğiniz [cihaz kaydı - Delete](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/delete).
-* Aygıt grubu kayıt bilgilerini silmek için kullanabileceğiniz [cihaz kayıt grubu - Delete](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/delete).
-* Sağlanan aygıtlar hakkındaki bilgileri silmek için kullanabileceğiniz [kayıt durumu - Delete kayıt durumu](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/deleteregistrationstate).
+* Tek bir cihaz kayıt bilgilerini silmek için kullanabileceğiniz [cihaz kaydı - silme](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/delete).
+* Cihaz grubu için kayıt bilgileri silmek için kullanabileceğiniz [cihaz kayıt grubu - silme](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/delete).
+* Sağlanan cihazlara ilişkin bilgileri silmek için kullanabileceğiniz [kayıt durumu - silme kayıt durumu](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/deleteregistrationstate).
 
-## <a name="exporting-customer-data"></a>Müşteri verileri dışarı aktarma
+## <a name="exporting-customer-data"></a>Müşteri verilerini dışarı aktarma
 
-Cihaz sağlama hizmeti kayıtlarını ve kayıt kayıtları depolar. Kayıtları sağlanacak izin cihazlar ve aygıtları üzerinden sağlama işlemine zaten ilerlemiş kayıt kayıtlarını Göster hakkındaki bilgileri içerir.
+Cihaz sağlama hizmeti, kayıtlar ve kayıt kayıt depolar. Kayıtları sağlanması için izin verilen cihazları ve hangi cihazlar sağlama sürecinde zaten sahiplikten kaydı kayıtlarını Göster hakkında bilgiler içerir.
 
-Kiracı Yöneticiler kayıtları ve Azure portalı üzerinden kayıt kayıtları görüntülemek ve bunları dışarı aktarmak kopyalama ve yapıştırmayı kullanma.
+Kiracı yöneticileri, kayıtlar ve kayıt kayıtlarını Azure portalından görüntülemek ve bunları dışarı aktarmak kopyalama ve yapıştırmayı kullanma.
 
-Kayıtları yönetme hakkında daha fazla bilgi için bkz: [cihaz kayıtlarını yönetme](how-to-manage-enrollments.md).
+Kayıtları yönetme hakkında daha fazla bilgi için bkz. [cihaz kayıtlarını yönetme](how-to-manage-enrollments.md).
 
-Kayıtları ve REST API'lerini kullanarak kayıt kayıtları için verme işlemlerini gerçekleştirmek mümkündür:
+Kayıtlar ve kayıt kayıtları REST API'lerini kullanarak dışa aktarma işlemleri gerçekleştirmek mümkündür:
 
-* Tek bir cihaz için kayıt bilgilerini dışarı aktarmak için kullanabileceğiniz [cihaz kaydı - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/get).
-* Aygıtları grubu için kayıt bilgilerini dışarı aktarmak için kullanabileceğiniz [cihaz kayıt grubu - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/get).
+* Tek bir cihaz için kayıt bilgileri dışa aktarmak için kullanabileceğiniz [cihaz kaydı - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/get).
+* Bir cihaz grubu için kayıt bilgileri dışa aktarmak için kullanabileceğiniz [cihaz kayıt grubu - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/get).
 * Önceden hazırlanmış cihazlar hakkında bilgi vermek için kullanabileceğiniz [kayıt durumu - Get kayıt durumu](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/getregistrationstate).
 
 > [!NOTE]
-> Microsoft'un enterprise hizmetlerini kullandığınızda, sistem tarafından oluşturulan günlükleri bilinen bazı bilgiler, Microsoft oluşturur. Sistem tarafından oluşturulan bazı aygıt sağlama hizmeti günlükleri erişilebilir veya Kiracı Yöneticiler tarafından verilebilir değil. Bu günlükler hizmet ve tek cihazlara ilgili Tanılama verileri içinde gerçekleştirilen factual Eylemler oluşturur.
+> Microsoft'un Kurumsal hizmet kullandığınızda, sistem tarafından oluşturulan günlükleri olarak bilinen bazı bilgiler, Microsoft oluşturur. Bazı cihaz sağlama hizmeti sistem tarafından oluşturulan günlükler, erişilebilir veya Kiracı yöneticileri tarafından verilebilir değildir. Bu günlükler, cihazlara ayrı ayrı ilgili tanılama veri ve hizmet içinde gerçekleştirilen yansıttığından eylemleri oluşturur.
 
-## <a name="links-to-additional-documentation"></a>Ek belgelere bağlantıları
+## <a name="links-to-additional-documentation"></a>Ek belgelere bağlantılar
 
-Cihaz sağlama hizmet API'leri için tam belgelerine adresindedir [ https://docs.microsoft.com/rest/api/iot-dps ](https://docs.microsoft.com/rest/api/iot-dps).
+Tüm belgeler için cihaz sağlama hizmeti API'lerine adresindedir [ https://docs.microsoft.com/rest/api/iot-dps ](https://docs.microsoft.com/rest/api/iot-dps).
 
-Azure IOT Hub [istek özellikleri müşteri verilerini](../iot-hub/iot-hub-customer-data-requests.md).
+Azure IOT hub'ı [istek özellikleri müşteri verilerini](../iot-hub/iot-hub-customer-data-requests.md).

@@ -1,4 +1,4 @@
-Yalnızca etkinleştirmek kaydolma, uygulamanızda istiyorsanız, kullandığınız bir **kaydolma** ilkesi. Bu ilke müşteriler kayıt sırasında geçtikleri deneyimleri açıklar ve uygulama başarılı oturum-ups alır belirteçleri içeriğini.
+Yalnızca etkinleştirmek kaydolma uygulama istiyorsanız, kullandığınız bir **kaydolma** ilkesi. Bu ilke, kayıt sırasında müşteriler üzerinden geçerek deneyimleri açıklar ve üzerinde başarılı kaydolma işlemlerinde uygulamanın aldığı belirteçlerin içeriğini.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

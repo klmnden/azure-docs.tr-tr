@@ -1,6 +1,6 @@
 ---
-title: Bir Oracle veritabanına bir Azure VM oluşturma | Microsoft Docs
-description: Hızla bir Oracle veritabanına 12 c veritabanı ve Azure ortamınızda çalışan alın.
+title: Bir Azure sanal Makinesinde Oracle veritabanı oluşturma | Microsoft Docs
+description: Bir Oracle Database 12 c veritabanı ve Azure ortamınızda çalışan hızla alın.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: rclaus
 ms.openlocfilehash: 8ff463b89b395947a66db6d067b6ba32281087ba
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657907"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688075"
 ---
-# <a name="create-an-oracle-database-in-an-azure-vm"></a>Bir Oracle veritabanına bir Azure VM oluşturma
+# <a name="create-an-oracle-database-in-an-azure-vm"></a>Bir Azure sanal Makinesinde Oracle veritabanı oluşturma
 
-Bir Azure sanal makineyi dağıtmak için Azure CLI kullanarak bu kılavuzu ayrıntılarını [Oracle Market galeri görüntüsü](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) 12 c Oracle veritabanı oluşturmak için. Sunucu dağıtıldığında, Oracle veritabanını yapılandırmak için SSH yoluyla bağlanır. 
+Bu kılavuzda, Azure CLI kullanarak bir Azure sanal makine dağıtma Ayrıntılar [Oracle Market Galerisi görüntüsünü](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) Oracle 12 c veritabanı oluşturmak için. Sunucu dağıtıldıktan sonra Oracle veritabanına yapılandırmak için SSH bağlanır. 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -43,9 +43,9 @@ az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
-Bir sanal makine (VM) oluşturmak için kullanmak [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. 
+Bir sanal makine (VM) oluşturmak için kullanın [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. 
 
-Aşağıdaki örnekte `myVM` adlı bir VM oluşturulur. Zaten bir varsayılan anahtar konumda yoksa, ayrıca SSH anahtarları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  
+Aşağıdaki örnekte `myVM` adlı bir VM oluşturulur. Bunlar varsayılan anahtar konumunda zaten yoksa, ayrıca SSH anahtarlarını oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  
 
 ```azurecli-interactive 
 az vm create \
@@ -57,7 +57,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-VM oluşturduktan sonra Azure CLI aşağıdaki örneğe benzer bilgiler görüntüler. Değeri Not `publicIpAddress`. VM erişmek için bu adresi kullanın.
+VM oluşturduktan sonra Azure CLI aşağıdaki örneğe benzer bilgiler görüntüler. Değerini not edin `publicIpAddress`. Sanal Makineye erişmek için bu adresi kullanın.
 
 ```azurecli
 {
@@ -74,7 +74,7 @@ VM oluşturduktan sonra Azure CLI aşağıdaki örneğe benzer bilgiler görünt
 
 ## <a name="connect-to-the-vm"></a>VM’ye bağlanma
 
-VM ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. IP adresiyle değiştirin `publicIpAddress` , VM için değer.
+Sanal makine ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. IP adresi ile değiştirin `publicIpAddress` VM'niz için değer.
 
 ```bash 
 ssh <publicIpAddress>
@@ -82,9 +82,9 @@ ssh <publicIpAddress>
 
 ## <a name="create-the-database"></a>Veritabanı oluşturma
 
-Oracle yazılım Market görüntüsü üzerinde zaten yüklü. Bir örnek veritabanı gibi oluşturun. 
+Oracle yazılımları Market görüntüsü üzerinde zaten yüklü. Aşağıda örnek bir veritabanı oluşturun. 
 
-1.  Geçiş *oracle* süper kullanıcı sonra günlüğe kaydetme için dinleyici başlatılamadı:
+1.  Geçiş *oracle* süper kullanıcı ve günlüğe kaydetme için dinleyici başlatılamadı:
 
     ```bash
     $ sudo su - oracle
@@ -119,7 +119,7 @@ Oracle yazılım Market görüntüsü üzerinde zaten yüklü. Bir örnek verita
     The command completed successfully
     ```
 
-2.  Veritabanı oluştur:
+2.  Veritabanı oluşturun:
 
     ```bash
     dbca -silent \
@@ -141,9 +141,9 @@ Oracle yazılım Market görüntüsü üzerinde zaten yüklü. Bir örnek verita
            -ignorePreReqs
     ```
 
-    Veritabanını oluşturmak için birkaç dakika sürer.
+    Veritabanının oluşturulması birkaç dakika sürer.
 
-3. Oracle değişkenlerini ayarlama
+3. Oracle değişkenleri ayarlama
 
 Bağlanmadan önce iki ortam değişkenleri ayarlamanız gerekir: *ORACLE_HOME* ve *ORACLE_SID*.
 
@@ -151,7 +151,7 @@ Bağlanmadan önce iki ortam değişkenleri ayarlamanız gerekir: *ORACLE_HOME* 
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
-.Bashrc dosyasına ORACLE_HOME ve ORACLE_SID değişkenlerini de ekleyebilirsiniz. Bu ortam değişkenleri gelecekteki oturum açma işlemleri için kaydeder. Aşağıdaki deyimleri eklenmiştir onaylayın `~/.bashrc` düzenleyiciyi kullanarak dosya.
+.Bashrc dosyaya ORACLE_HOME ve ORACLE_SID değişkenlerini de ekleyebilirsiniz. Bunu, gelecekteki oturum açma işlemleri için ortam değişkenlerini kaydetmek. Aşağıdaki deyimleri eklenmiştir onaylayın `~/.bashrc` tercih ettiğiniz düzenleyiciyi kullanarak dosyası.
 
 ```bash
 # Add ORACLE_HOME. 
@@ -160,17 +160,17 @@ export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 export ORACLE_SID=cdb1 
 ```
 
-## <a name="oracle-em-express-connectivity"></a>Oracle EM hızlı bağlantı
+## <a name="oracle-em-express-connectivity"></a>Oracle EM Express bağlantısı
 
-Veritabanı keşfetmek için kullanabileceğiniz bir GUI yönetim aracı için Oracle EM Express'i ayarlayın. Oracle EM Express'e bağlanmak için önce Oracle bağlantı noktasına ayarlamanız gerekir. 
+Veritabanı keşfetmek için kullanabileceğiniz bir GUI yönetim aracı için Oracle EM Express'i ayarlayın. Oracle EM Express bağlanmak için önce Oracle bağlantı noktasına ayarlamanız gerekir. 
 
-1. Sqlplus kullanarak veritabanınızı Bağlan:
+1. Sqlplus kullanarak veritabanınıza bağlanın:
 
     ```bash
     sqlplus / as sysdba
     ```
 
-2. Bağlandıktan sonra bağlantı noktası 5502 EM Express için ayarlama
+2. Bağlantı kurulduktan sonra 5502 bağlantı noktası için EM Express ayarlayın.
 
     ```bash
     exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
@@ -191,25 +191,25 @@ Veritabanı keşfetmek için kullanabileceğiniz bir GUI yönetim aracı için O
       3           PDB1                      MOUNT
     ```
 
-4. Varsa için OPEN_MODE `PDB1` okuma PDB1 açmak için aşağıdakilere komutları çalıştırmak yazma, değil:
+4. Varsa için OPEN_MODE `PDB1` okuyun, sonra PDB1 açmak için aşağıdakilere komutları çalıştırın yazma, değil:
 
    ```bash
     alter session set container=pdb1;
     alter database open;
    ```
 
-Yazmanız gerekir `quit` türü ve sqlplus oturumu sona erdirmek için `exit` oracle kullanıcının oturum kapatma için.
+Yazmanız gereken `quit` türü ve sqlplus oturumu sona erdirmek için `exit` oracle kullanıcının oturumunu kapatma.
 
-## <a name="automate-database-startup-and-shutdown"></a>Veritabanı başlatma ve kapatma otomatikleştirme
+## <a name="automate-database-startup-and-shutdown"></a>Veritabanı başlatma ve kapatma otomatikleştirin
 
-VM yeniden başlattığınızda Oracle veritabanı varsayılan tarafından otomatik olarak başlamıyor. Oracle veritabanı otomatik olarak başlayacak şekilde ayarlamak için ilk kök olarak oturum açın. Ardından, oluşturun ve bazı sistem dosyaları güncelleştirin.
+Oracle veritabanı varsayılan olarak, VM yeniden başlatıldığında otomatik olarak başlamaz. Oracle veritabanı otomatik olarak başlayacak şekilde ayarlamak için önce kök olarak oturum açın. Ardından, oluşturun ve bazı sistem dosyaları güncelleştirin.
 
-1. Kök olarak oturum açma
+1. Kök olarak oturum açın
     ```bash
     sudo su -
     ```
 
-2.  Dosyasını düzenleyin, sık kullanılan düzenleyicisini kullanarak `/etc/oratab` ve varsayılan değeri değiştirmek `N` için `Y`:
+2.  Dosyasını düzenleyin, tercih ettiğiniz düzenleyiciyi kullanarak `/etc/oratab` varsayılan değiştirip `N` için `Y`:
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
@@ -253,7 +253,7 @@ VM yeniden başlattığınızda Oracle veritabanı varsayılan tarafından otoma
     chmod 750 /etc/init.d/dbora
     ```
 
-5.  Sembolik bağlantılar için başlatma ve kapatma gibi oluşturun:
+5.  Başlatma ve kapatma için simgesel bağlantılar gibi oluşturun:
 
     ```bash
     ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
@@ -261,17 +261,17 @@ VM yeniden başlattığınızda Oracle veritabanı varsayılan tarafından otoma
     ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
     ```
 
-6.  Değişikliklerinizi test etmek için VM yeniden başlatın:
+6.  Değişikliklerinizi test etmek için VM'yi yeniden başlatın:
 
     ```bash
     reboot
     ```
 
-## <a name="open-ports-for-connectivity"></a>Bağlantı için açık bağlantı noktaları
+## <a name="open-ports-for-connectivity"></a>Bağlantı için bağlantı noktalarını açma
 
-Son görev bazı dış uç noktalar yapılandırmaktır. Azure ağ güvenliği VM koruma grubu ayarlamak için önce SSH oturumunuzun (dışında SSH önceki adımda yeniden başlatıldığı zaman başlayacağı zamana) VM'deki çıkın. 
+Son görev bazı dış uç noktalar yapılandırmaktır. Ayarlamak için VM koruyan Azure ağ güvenlik grubu çıkmadan SSH oturumunuzda VM (SSH dışında yeniden başlatmadan önceki adımda, devreye girdi). 
 
-1.  Oracle veritabanına uzaktan erişmek için kullandığınız uç nokta açmak için bir ağ güvenlik grubu kural oluştururken [az ağ nsg kuralını](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) gibi: 
+1.  Oracle veritabanı uzaktan erişmek için kullandığınız uç noktası'nı açmak için ağ güvenlik grubu kural oluştururken [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) gibi: 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -283,7 +283,7 @@ Son görev bazı dış uç noktalar yapılandırmaktır. Azure ağ güvenliği V
         --destination-port-range 1521
     ```
 
-2.  Oracle EM Express uzaktan erişmek için kullandığınız uç nokta açmak için bir ağ güvenlik grubu kural oluştururken [az ağ nsg kuralını](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) gibi:
+2.  Oracle EM Express uzaktan erişmek için kullandığınız uç noktası'nı açmak için ağ güvenlik grubu kural oluştururken [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) gibi:
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -295,7 +295,7 @@ Son görev bazı dış uç noktalar yapılandırmaktır. Azure ağ güvenliği V
         --destination-port-range 5502
     ```
 
-3. Gerekirse, VM'yi yeniden ile ortak IP adresi elde [az ağ ortak IP Göster](/cli/azure/network/public-ip#az_network_public_ip_show) gibi:
+3. Gerekirse, tekrar ile sanal makinenizin genel IP adresini elde [az ağ public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) gibi:
 
     ```azurecli-interactive
     az network public-ip show \
@@ -305,19 +305,19 @@ Son görev bazı dış uç noktalar yapılandırmaktır. Azure ağ güvenliği V
         --output tsv
     ```
 
-4.  EM Express tarayıcınızdan bağlayın. Tarayıcınız EM (Flash yükleme gereklidir) Express ile uyumlu olduğundan emin olun: 
+4.  EM Express tarayıcınızdan bağlanın. Tarayıcınız EM (Flash yükleme gereklidir) Express ile uyumlu olduğundan emin olun: 
 
     ```
     https://<VM ip address or hostname>:5502/em
     ```
 
-Kullanarak oturum açtığınızda **SYS** hesap ve denetleme **SYSDBA'ın olarak** onay kutusu. Parolayı kullanmak **OraPasswd1** yüklemesi sırasında ayarladığınız. 
+Kullanarak oturum **SYS** hesap ve kontrol **SYSDBA'ın olarak** onay kutusu. Parola **OraPasswd1** yüklemesi sırasında ayarladığınız. 
 
-![Oracle OEM hızlı oturum açma sayfasının ekran görüntüsü](./media/oracle-quick-start/oracle_oem_express_login.png)
+![OEM Oracle hızlı oturum açma sayfasının ekran görüntüsü](./media/oracle-quick-start/oracle_oem_express_login.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Azure üzerinde ilk Oracle veritabanınızı keşfetme tamamladıktan ve VM artık gerekli olmadığında, kullanabileceğiniz [az grubu Sil](/cli/azure/group#az_group_delete) VM, kaynak grubunu kaldırmak için komut ve ilişkili tüm kaynakları.
+Azure'da ilk Oracle veritabanı keşfetmeye tamamladıktan ve VM artık gerekli olmadığında, kullanabilirsiniz sonra [az grubu Sil](/cli/azure/group#az_group_delete) komutunu kaynak grubunu, VM'yi ve tüm ilgili kaynakları.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -325,6 +325,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Diğer hakkında bilgi edinin [Oracle çözümleri Azure üzerinde](oracle-considerations.md). 
+Diğer hakkında bilgi edinin [azure'da Oracle çözümleri](oracle-considerations.md). 
 
-Deneyin [yükleme ve Oracle otomatik Depolama Yönetimi yapılandırma](configure-oracle-asm.md) Öğreticisi.
+Deneyin [yükleme ve Oracle otomatik Depolama Yönetimi yapılandırma](configure-oracle-asm.md) öğretici.

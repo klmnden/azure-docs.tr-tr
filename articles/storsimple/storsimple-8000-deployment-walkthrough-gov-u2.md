@@ -1,6 +1,6 @@
 ---
-title: StorSimple 8000 serisi Cihazınızı kamu portalında dağıtma | Microsoft Docs
-description: Güncelleştirme 3 ve sonraki sürümleri ve hizmet Azure kamu Portalı'nda çalışan StorSimple 8000 serisi cihaz dağıtmak için en iyi yöntemler ve adımları açıklar.
+title: Kamu Portalı'nda StorSimple 8000 serisi Cihazınızı dağıtma | Microsoft Docs
+description: Güncelleştirme 3 ve sonraki sürümleri ve hizmet Azure kamu Portalı'nda çalıştıran StorSimple 8000 serisi cihaz dağıtmak için en iyi yöntemler ve adımları açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: 5a622eb5ae14a6c6b0c2dd4eceb6ffdb9733dcff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875154"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681545"
 ---
-# <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Kamu portalında şirket içi StorSimple Cihazınızı dağıtma
+# <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Kamu Portalı'nda şirket içi StorSimple Cihazınızı dağıtma
 
 ## <a name="overview"></a>Genel Bakış
-Microsoft Azure StorSimple cihaz dağıtımına hoş geldiniz. Bu dağıtım öğreticileri StorSimple 8000 serisi güncelleştirme 3'ü yazılımı çalıştıran veya daha sonra Azure kamu portal geçerlidir. Bu dizi öğreticiler bir yapılandırma denetim listesi, yapılandırma önkoşulları ve StorSimple cihazınız için ayrıntılı yapılandırma adımlarını listesini içerir.
+Microsoft Azure StorSimple cihaz dağıtımına hoş geldiniz. Bu dağıtım öğreticileri StorSimple 8000 serisi güncelleştirme 3'ü yazılımı çalıştıran ve daha sonra Azure kamu portalında geçerlidir. Bu öğretici serisinde, yapılandırma denetim listesi, yapılandırma önkoşulları ve ayrıntılı yapılandırma adımlarını StorSimple cihazınız için bir listesini içerir.
 
 Bu öğreticilerdeki bilgiler, güvenlik önlemlerini gözden geçirdiğinizi ve StorSimple cihazınızı kutusundan çıkardığınızı, yerleştirdiğinizi ve kablolarını taktığınızı varsayar. Bu görevleri henüz gerçekleştirmediyseniz, [güvenlik önlemlerini](storsimple-safety.md) inceleyerek başlayın. Cihazınızı açmak, rafa monte etmek ve kablo bağlantısını yapmak için cihaza özel yönergeleri izleyin.
 
@@ -38,7 +38,7 @@ Kurulum ve yapılandırma işlemini tamamlamak için yönetici ayrıcalıkları 
 
 
 ## <a name="deployment-steps"></a>Dağıtım adımları
-StorSimple cihazınızı yapılandırmak ve StorSimple Cihaz Yöneticisi hizmetine bağlamak için gerekli adımları gerçekleştirin. Gerekli adımlara ek olarak, isteğe bağlı adımlar ve dağıtım sırasında tamamlamak için gereken yordamları vardır. Bu adım adım dağıtım yönergelerinde isteğe bağlı adımların her birini ne zaman gerçekleştirmeniz gerektiği belirtilmiştir.
+StorSimple cihazınızı yapılandırmak ve StorSimple Cihaz Yöneticisi hizmetine bağlamak için gerekli adımları gerçekleştirin. Gerekli adımlara ek olarak, isteğe bağlı adımları ve dağıtım sırasında tamamlamak için gereken yordamları vardır. Bu adım adım dağıtım yönergelerinde isteğe bağlı adımların her birini ne zaman gerçekleştirmeniz gerektiği belirtilmiştir.
 
 | Adım | Açıklama |
 | --- | --- |
@@ -48,7 +48,7 @@ StorSimple cihazınızı yapılandırmak ve StorSimple Cihaz Yöneticisi hizmeti
 |  | |
 | **ADIM ADIM DAĞITIM** |Bu adımlar, StorSimple cihazınızı üretim ortamına dağıtmak için gereklidir. |
 | [1. Adım: Yeni bir hizmet oluşturun](#step-1-create-a-new-service) |StorSimple cihazınız için bulut yönetimi ve depolamayı ayarlayın. *Başka StorSimple cihazlar için bir hizmetiniz varsa, bu adımı atlayın*. |
-| [2. Adım: Hizmet kayıt anahtarını alın](#step-2-get-the-service-registration-key) |Kaydolun ve StorSimple Cihazınızı yönetim hizmetine bağlamak için bu anahtarı kullanın. |
+| [2. Adım: Hizmet kayıt anahtarını alın](#step-2-get-the-service-registration-key) |Kaydolun ve StorSimple Cihazınızı yönetim hizmetine bağlamak için bu anahtarı kullanırsınız. |
 | [3. Adım: StorSimple için Windows PowerShell üzerinden cihazı yapılandırın ve kaydedin](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Yönetim hizmetini kullanarak kurulumu tamamlamak için cihazı ağınıza bağlayın ve Azure ile kaydedin. |
 | [4. adım: minimum cihaz kurulumunu tamamlayın](#step-4-complete-minimum-device-setup) </br>İsteğe bağlı: StorSimple cihazınızı güncelleştirin. |Depolama alanı sağlamak için, yönetim hizmetini kullanarak cihaz kurulumunu tamamlayın ve etkinleştirin. |
 | [5. Adım: Birim kapsayıcısı oluşturun](#step-5-create-a-volume-container) |Birimleri sağlamak için bir kapsayıcı oluşturun. Birim kapsayıcısı, kapsadığı tüm birimler için depolama hesabı, bant genişliği ve şifreleme ayarlarını içerir. |
@@ -65,7 +65,7 @@ StorSimple cihazınızı yapılandırmak ve StorSimple Cihaz Yöneticisi hizmeti
 
 
 ## <a name="deployment-configuration-checklist"></a>Dağıtım yapılandırma denetim listesi
-StorSimple Cihazınızı dağıtmadan önce Cihazınızda yazılımı yapılandırmak amacıyla bilgi toplamanız gerekecektir. Bu bilgilerin bir bölümünü önceden hazırlamak, ortamınızda StorSimple cihazını dağıtma işlemini kolaylaştırmaya yardımcı olur. Karşıdan yükleyip Cihazınızı dağıtırken yapılandırma ayrıntılarını not etmek için bu denetim listesini kullanın.
+StorSimple Cihazınızı dağıtmadan önce Cihazınızda yazılımı yapılandırmak amacıyla bilgi toplamanız gerekecektir. Bu bilgilerin bir bölümünü önceden hazırlamak, ortamınızda StorSimple cihazını dağıtma işlemini kolaylaştırmaya yardımcı olur. Karşıdan yükleyip Cihazınızı dağıtırken yapılandırma ayrıntılarını Not Bu denetim listesini kullanın.
 
 [StorSimple dağıtım yapılandırma denetim listesini indirme](http://www.microsoft.com/download/details.aspx?id=49159)
 
@@ -109,9 +109,9 @@ Bir StorSimple Cihaz Yöneticisi hizmeti birden çok StorSimple cihazını yöne
 
 
 ## <a name="step-2-get-the-service-registration-key"></a>2. Adım: Hizmet kayıt anahtarını alın
-StorSimple Cihaz Yöneticisi hizmeti çalışır duruma geldikten sonra, hizmet kayıt anahtarını almanız gerekir. Bu anahtar kaydetmek ve StorSimple Cihazınızı hizmete bağlanmak için kullanılır.
+StorSimple Cihaz Yöneticisi hizmeti çalışır duruma geldikten sonra, hizmet kayıt anahtarını almanız gerekir. Bu anahtar, kaydedin ve StorSimple Cihazınızı hizmete bağlanmak için kullanılır.
 
-Kamu portalında aşağıdaki adımları gerçekleştirin.
+Kamu Portalı'nda aşağıdaki adımları gerçekleştirin.
 
 [!INCLUDE [storsimple-8000-get-service-registration-key](../../includes/storsimple-8000-get-service-registration-key.md)]
 
@@ -139,7 +139,7 @@ Birim kapsayıcısı oluşturmak için kamu portalında aşağıdaki adımları 
 [!INCLUDE [storsimple-8000-create-volume-container](../../includes/storsimple-8000-create-volume-container.md)]
 
 ## <a name="step-6-create-a-volume"></a>6. Adım: Birim oluşturun
-Bir birim kapsayıcısı oluşturduktan sonra, sunucularınız için StorSimple cihazında bir depolama birimi sağlayabilirsiniz. Birim oluşturmak için kamu portalında aşağıdaki adımları gerçekleştirin.
+Bir birim kapsayıcısı oluşturduktan sonra, sunucularınız için StorSimple cihazında bir depolama birimi sağlayabilirsiniz. Birim oluşturmak için kamu Portalı'nda aşağıdaki adımları gerçekleştirin.
 
 > [!IMPORTANT]
 > StorSimple cihaz Yöneticisi yalnızca ölçülü kaynak kullanan birimler oluşturabilir.  Ancak kısmen sağlanan birimler oluşturamazsınız.
@@ -172,7 +172,7 @@ Bu yalnızca hizmetinizle bir depolama hesabının otomatik olarak oluşturulmas
 
 Farklı bir bölgede bir Azure Storage hesabı oluşturmanız gerekiyorsa, adım adım yönergeler için bkz. [Azure Storage hesapları hakkında](../storage/common/storage-create-storage-account.md).
 
-Kamu portalında aşağıdaki adımları gerçekleştirin **StorSimple cihaz Yöneticisi hizmeti** sayfası.
+Kamu Portalı'nda aşağıdaki adımları gerçekleştirin **StorSimple cihaz Yöneticisi hizmeti** sayfası.
 
 [!INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-8000-configure-new-storage-account-u2.md)]
 

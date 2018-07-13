@@ -1,6 +1,6 @@
 ---
-title: Azure Backup sunucusu v2 yükleyin
-description: Azure yedekleme sunucusu v2, VM'ler, dosyalar ve klasörler, iş yükleri ve daha fazla korunması için geliştirilmiş yedekleme özellikleri sunar. Yüklemek veya yükseltmek için Azure yedekleme sunucusu v2 öğrenin.
+title: Azure Backup Sunucusu'nu v2 yükleyin
+description: Azure Backup Sunucusu'nu v2, VM'ler, dosyaları ve klasörleri, iş yükleri ve daha fazla korumak için yedekleme gelişmiş özellikler sunar. Yükleme veya Azure Backup Sunucusu'nu v2'ye yükseltme konusunda bilgi edinin.
 services: backup
 author: markgalioto
 manager: carmonm
@@ -8,68 +8,68 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: adigan
-ms.openlocfilehash: 27da52a46b52e06a8ea4f80fa06487aca34c1c3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fdf69003566f704354a17335b1f46fc3077aedbc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606962"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598399"
 ---
-# <a name="install-azure-backup-server-v2"></a>Azure Backup sunucusu v2 yükleyin
+# <a name="install-azure-backup-server-v2"></a>Azure Backup Sunucusu'nu v2 yükleyin
 
-Azure yedekleme sunucusu sanal makineleri (VM'ler), iş yükleri, dosyaları ve klasörleri ve daha fazla korunmasına yardımcı olur. Azure yedekleme sunucusu v2 üzerinde Azure yedekleme sunucusu v1 oluşturur ve v1 kullanılabilir değil yeni özellikleri sağlar. Özellikler v1 ve v2 arasındaki karşılaştırması için bkz: [Azure yedekleme sunucusu koruma matris](backup-mabs-protection-matrix.md). 
+Azure Backup sunucusu, sanal makinelerinizi (VM), iş yükleri, dosyaları ve klasörleri ve diğer korunmasına yardımcı olur. Azure Backup Sunucusu'nu v2 Azure Backup sunucusu v1 oluşturur ve v1'de kullanılabilir olan yeni özellikleri sunar. V1 ve v2 arasında özellik karşılaştırması için bkz: [Azure Backup sunucusu koruma matrisi](backup-mabs-protection-matrix.md). 
 
-Ek yedekleme sunucusu v2 olarak yedekleme sunucusu v1'den yükseltme özellikleridir. Ancak, yedekleme sunucusu v1 yedekleme sunucusu v2 yüklemek için bir önkoşul değil. Yedekleme sunucusu v1 ile yedekleme sunucusu v2'ye yükseltmek istiyorsanız, yedekleme sunucusu v2 yedekleme sunucusu koruma sunucuya yükleyin. Var olan yedekleme sunucusu ayarlarınızı değişmeden kalır.
+Ek özellikler Backup Sunucusu'nu v2'de, Backup sunucusu v1'den yükseltme olabilir. Ancak, Backup sunucusu v1 Backup Sunucusu'nu v2 yüklemek için bir önkoşul olmamasına. Backup sunucusu v1'den Backup Sunucusu'nu v2'ye yükseltmek istiyorsanız, Backup Sunucusu'nu v2 Backup sunucusu koruma sunucusuna yükleyin. Mevcut Backup sunucusu ayarlarınızı değişmeden kalır.
 
-Windows Server 2012 R2 veya Windows Server 2016 yedekleme sunucusu v2 yükleyebilirsiniz. System Center 2016 veri koruma Yöneticisi Modern yedekleme depolama alanı gibi yeni özelliklerden yararlanmak için Windows Server 2016 yedekleme sunucusu v2 yüklemeniz gerekir. Yükseltme veya yedekleme sunucusu v2 yüklemeden önce okuyun [yükleme önkoşulları](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites).
+Backup Sunucusu'nu v2 Windows Server 2012 R2 veya Windows Server 2016'yı yükleyebilirsiniz. System Center 2016 veri koruma Yöneticisi'ni Modern yedekleme depolama alanı gibi yeni özelliklerden yararlanmak için Backup Sunucusu'nu v2 Windows Server 2016'da yüklemeniz gerekir. Yükseltme veya Backup Sunucusu'nu v2'ı yüklemeden önce okumanız [yükleme önkoşulları](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites).
 
 > [!NOTE]
-> Azure yedekleme sunucusu olarak System Center Data Protection Manager temel aynı koduna sahip. Yedek sunucu v1 Data Protection Manager 2012 R2'ye eşdeğerdir ve yedekleme sunucusu v2 Data Protection Manager 2016 eşdeğerdir. Bu makalede, Data Protection Manager belge bazen başvurur.
+> Azure Backup sunucusu, aynı kod tabanını System Center Data Protection Manager olarak sahiptir. Yedek sunucu v1 Data Protection Manager 2012 R2'ye eşdeğerdir ve Backup sunucusu v2 Data Protection Manager 2016'ya eşdeğerdir. Bu makale, Data Protection Manager belgeleri bazen başvuruyor.
 >
 >
 
-## <a name="upgrade-backup-server-to-v2"></a>Yedek sunucu v2'ye yükseltme
-Yedekleme sunucusu v1 ile yedekleme sunucusu v2'ye yükseltmek için gerekli güncelleştirmeleri yüklemenizi olduğundan emin olun:
+## <a name="upgrade-backup-server-to-v2"></a>Backup Sunucusu'nu v2'ye yükseltme
+Backup sunucusu v1'den Backup Sunucusu'nu v2'ye yükseltmek için yüklemenizi gerekli güncelleştirmeleri içerdiğinden emin olun:
 
 - [Koruma aracılarını güncelleştirme](backup-mabs-upgrade-to-v2.md#update-the-data-protection-manager-protection-agent) korumalı sunuculardaki.
-- Windows Server 2012 R2, Windows Server 2016 yükseltme.
-- Azure yedekleme sunucusu uzak yönetici tüm üretim sunucularında yükseltin.
-- Yedeklemeleri üretim sunucunuzu yeniden başlatmanıza gerek kalmadan devam etmek için ayarlandığından emin olun.
+- Windows Server 2012 R2, Windows Server 2016'ya yükseltin.
+- Azure Backup sunucusu uzak yönetici, tüm üretim sunucularında yükseltin.
+- Yedeklemeler, üretim sunucunuz yeniden başlatılmadan devam etmek için ayarlandığından emin olun.
 
 
-### <a name="upgrade-steps-for-backup-server-v2"></a>Yedekleme sunucusu v2 yükseltme adımları
+### <a name="upgrade-steps-for-backup-server-v2"></a>Backup Sunucusu'nu v2 için yükseltme adımları
 
-1. İndirme Merkezi'nde [yükseltme yükleyici indirmek](https://go.microsoft.com/fwlink/?LinkId=626082).
+1. İndirme Merkezi'nde [yükseltme yükleyiciyi indirin](https://go.microsoft.com/fwlink/?LinkId=626082).
 
-2. Kurulum Sihirbazı'nı ayıkladıktan sonra olduğundan emin olun **setup.exe yürütme** seçili ve ardından **son**.
+2. Kurulum Sihirbazı'nı ayıkladıktan sonra emin **setup.exe yürütme** seçili ve ardından **son**.
 
-  ![Kurulum Yükleyici - Çalıştır kurulum](./media/backup-mabs-upgrade-to-v2/run-setup.png)
+  ![Kurulum Yükleyici - Kurulumu çalıştırın](./media/backup-mabs-upgrade-to-v2/run-setup.png)
 
-3. Microsoft Azure Yedekleme Sunucusu Sihirbazı'nda altında **yükleme**seçin **Microsoft Azure yedekleme sunucusu**.
+3. Microsoft Azure Backup Sunucusu Sihirbazı'nda altında **yükleme**seçin **Microsoft Azure Backup sunucusu**.
 
-  ![Kurulum Yükleyici - Select yükleme](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
+   ![Kurulum Yükleyici - Select yükleme](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
 
 4. Üzerinde **Hoş Geldiniz** sayfasında, Uyarıları gözden geçirin ve ardından **sonraki**.
 
-  ![Kurulum Yükleyici - Karşılama sayfası](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
+   ![Kurulum Yükleyici - Karşılama sayfası](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
 
-5. Kurulum Sihirbazı'nı ortamınızı yükseltebilirsiniz emin olmak için önkoşul denetimleri de gerçekleştirir. Üzerinde **önkoşul denetler** sayfasında, **denetleyin**.
+5. Kurulum Sihirbazı, ortamınızı yükseltebilirsiniz emin olmak için önkoşul denetimlerini yapar. Üzerinde **önkoşul denetimleri** sayfasında **denetleyin**.
 
-  ![Kurulum Yükleyici - önkoşul denetler sayfası](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
+   ![Kurulum Yükleyici - sayfasında önkoşul denetimleri](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
 
-6. Ortamınız önkoşul denetimleri geçmesi gerekir. Ortamınızı denetimleri geçmiyor sorunlara dikkat edin ve düzeltin. Ardından, seçin **yeniden denetle**. Önkoşul denetimleri geçirdiğiniz sonra seçin **sonraki**.
+6. Ortamınız önkoşul denetimleri geçmesi gerekir. Ortamınızı denetimler başarısız olursa, sorunlara dikkat edin ve bunları da onarabilir. Ardından, **tekrar kontrol edin**. Önkoşul denetimleri geçirdiğiniz sonra seçin **sonraki**.
 
-  ![Kurulum Yükleyici - yeniden denetle düğmesi](./media/backup-mabs-upgrade-to-v2/mabs-installer-s4-pass-checks.png)
+  ![Kurulum Yükleyici - düğmesini tekrar kontrol edin](./media/backup-mabs-upgrade-to-v2/mabs-installer-s4-pass-checks.png)
 
-7. Üzerinde **SQL ayarlarını** sayfasında, SQL yüklemeniz için ilgili seçeneği seçin ve ardından **denetle ve Yükle**.
+7. Üzerinde **SQL ayarları** sayfasında, SQL yüklemesi için ilgili seçeneği seçin ve ardından **denetle ve Yükle**.
 
-  ![Kurulum Yükleyici - SQL Ayarları sayfası](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
+   ![Kurulum Yükleyici - SQL Ayarları sayfası](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
 
-  Denetimleri birkaç dakika sürebilir. Denetimleri bittiğinde seçin **sonraki**.
+  Denetimler, birkaç dakika sürebilir. Denetimleri bittiğinde seçin **sonraki**.
 
-  ![Kurulum Yükleyici - SQL ayarlarını denetleyin ve Yükle düğmesini](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
+   ![Kurulum Yükleyici - SQL ayarları denetle ve yükle düğmesine](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and-fix-settings.png)
 
-8. Üzerinde **yükleme ayarları** sayfasında, yedekleme sunucusu yüklü olduğu bir konuma ya da sıfırdan konuma değişiklikleri yapın. **İleri**’yi seçin.
+8. Üzerinde **yükleme ayarları** sayfasında, yedekleme sunucusu yüklü olduğu konuma veya karalama konumu için herhangi bir değişiklik yapın. **İleri**’yi seçin.
 
   ![Kurulum Yükleyici - yükleme ayarları sayfası](./media/backup-mabs-upgrade-to-v2/mabs-installer-s6-installation-settings.png)
 
@@ -79,40 +79,40 @@ Yedekleme sunucusu v1 ile yedekleme sunucusu v2'ye yükseltmek için gerekli gü
 
 
 
-## <a name="add-storage-for-modern-backup-storage"></a>Modern yedekleme depolama için depolama ekleme
+## <a name="add-storage-for-modern-backup-storage"></a>Modern yedekleme depolama alanı için depolama ekleme
 
-Yedekleme depolama verimliliği artırmak için yedekleme sunucusuna v2 birimler için destek ekler. Yedekleme sunucusu v1 gibi yedekleme sunucusu v2 diskleri destekler.
+Yedekleme depolama verimliliğini artırmak için Backup Sunucusu'nu v2 birimler için destek ekler. Backup sunucusu v1 gibi Backup Sunucusu'nu v2 diskleri destekler.
 
-### <a name="add-volumes-and-disks"></a>Birimler ve diskleri ekleme
-Windows Server 2016 yedekleme sunucusu v2 çalıştırırsanız, yedek verileri depolamak için birimler kullanabilirsiniz. Birimleri depolama alanından tasarruf etmenizi ve daha hızlı yedekleme sunar. Birimleri yedekleme sunucusuna yeni olduğundan, bunları eklemeniz gerekir. 
+### <a name="add-volumes-and-disks"></a>Birimleri ve diskler ekleme
+Windows Server 2016'da Backup Sunucusu'nu v2 çalıştırırsanız, yedek verileri depolamak için birimler kullanabilirsiniz. Birimler depolama tasarrufu ve daha hızlı yedeklemeler sağlar. Birimler için yedekleme sunucusu yeni olduğundan, bunları eklemeniz gerekir. 
 
-Bir birim için yedekleme sunucusu eklediğinizde, birim kolay bir ad verin. Tıklatın **kolay ad** sütun adı istediğiniz birimin. Gerekirse, ad daha sonra değiştirebilirsiniz. Eklemek veya birimler için kolay adlar değiştirmek için PowerShell de kullanabilirsiniz.
+Bir birim için Backup sunucusu eklediğinizde, birimin bir kolay ad verebilirsiniz. Tıklayın **kolay ad** biriminin adını istediğiniz sütun. Gerekirse daha sonra adı değiştirebilirsiniz. Eklemek veya birimlere kolay ad değiştirmek için PowerShell de kullanabilirsiniz.
 
 Yönetici konsolunda bir birim eklemek için:
 
-1. Azure yedekleme sunucusu Yönetici konsolunda seçin **Yönetim** > **Disk Depolama** > **Ekle**.
+1. Azure Backup Sunucu Yöneticisi Konsolu'ndaki seçin **Yönetim** > **Disk Depolama** > **Ekle**.
 
-    ![Disk Depolama Alanı Ekle Sihirbazı'nı açın](./media//backup-mabs-upgrade-to-v2/open-add-disk-storage-wizard.png)
+    ![Disk Depolama Ekle Sihirbazı'nı açın](./media//backup-mabs-upgrade-to-v2/open-add-disk-storage-wizard.png)
 
-    Bu, Disk Depolama Alanı Ekle Sihirbazı'nı açar.
+    Bu, Disk Depolama Ekle Sihirbazı'nı açar.
 
-2. Üzerinde **Disk Depolama Alanı Ekle** sayfasında **kullanılabilir birimleri** kutusunda, bir birim seçin ve ardından **Ekle**.
-3. İçinde **seçili birimleri** kutusuna, birim için bir kolay ad girin ve ardından **Tamam**.
+2. Üzerinde **Disk Depolama Ekle** sayfasında **kullanılabilir birimler** kutusuna bir birim seçin ve ardından **Ekle**.
+3. İçinde **seçilen birimler** kutusuna birim için bir kolay ad girin ve ardından **Tamam**.
 
       ![Disk depolama alanı Ekle Sihirbazı - birim ekleme](./media/backup-mabs-upgrade-to-v2/add-volume.png)
 
-  Disk, bir disk eklemek istiyorsanız, eski depolama alanına sahip bir koruma grubuna ait olmalıdır. Bu diskleri yalnızca bu koruma grupları için kullanılabilir. Yedekleme sunucusu eski koruma kaynakları yoksa, diskin listede yok.
+  Disk, bir disk eklemek istiyorsanız, eski depolama alanına sahip bir koruma grubuna ait olmalıdır. Bu diskler yalnızca bu koruma grupları için kullanılabilir. Disk yedekleme sunucusu eski koruması olan kaynaklar yoksa, listede yok.
 
-  Diskleri ekleme hakkında daha fazla bilgi için bkz: [eski depolama alanını büyütmek için diskleri ekleme](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). Kolay bir ad bir disk veremez.
+  Disk ekleme hakkında daha fazla bilgi için bkz. [eski depolama alanını artırmak için disk ekleme](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). Bir diski bir kolay ad veremezsiniz.
 
 
-### <a name="assign-workloads-to-volumes"></a>İş yükleri için birimler atamak
+### <a name="assign-workloads-to-volumes"></a>Birimlere iş yükleri atama
 
-Yedekleme Server'da hangi iş yükleri için hangi birimlerin atanan belirtin. Örneğin, sık kullanılan, yüksek hacimli yedeklemeler gerektiren iş yüklerini depolamak için çok sayıda giriş/çıkış işlemi (IOPS) saniyede destekleyen pahalı birimler ayarlayabilirsiniz. SQL Server ile işlem günlükleri örneğidir.
+Backup sunucusu iş yüklerini hangi birimlere atanan belirtin. Örneğin, sık sık, yüksek hacimli yedeklemeler gerektiren iş yükleri depolamak için çok sayıda giriş/çıkış işlemi (IOPS) saniyede destekleyen pahalı birimler ayarlayabilirsiniz. SQL Server ile işlem günlüklerini örneğidir.
 
-#### <a name="update-dpmdiskstorage"></a>Güncelleştirme DPMDiskStorage
+#### <a name="update-dpmdiskstorage"></a>Update = DPMDiskStorage
 
-Yedekleme sunucusu depolama havuzu biriminde özelliklerini güncelleştirmek için güncelleştirme DPMDiskStorage PowerShell cmdlet'ini kullanın.
+Backup sunucusu, depolama havuzundaki bir birimin özelliklerini güncelleştirmek için Update = DPMDiskStorage PowerShell cmdlet'ini kullanın.
 
 Sözdizimi:
 
@@ -122,15 +122,15 @@ Sözdizimi:
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
 
-PowerShell kullanarak yaptığınız tüm değişiklikler kullanıcı Arabiriminde yansıtılır.
+PowerShell kullanarak yaptığınız tüm değişiklikler UI'de yansıtılır.
 
 
 ## <a name="protect-data-sources"></a>Veri kaynaklarını korumak
-Veri kaynaklarını korumaya başlamak için bir koruma grubu oluşturun. Aşağıdaki adımları değişiklik veya yeni koruma grubu Sihirbazı'nı eklemeleri vurgulayın.
+Veri kaynaklarını korumaya başlamak için bir koruma grubu oluşturun. Aşağıdaki adımlar değişiklikleri veya eklemeler yeni koruma grubu Sihirbazı'nı vurgulayın.
 
 Bir koruma grubu oluşturmak için:
 
-1. Yedek sunucu Yönetici konsolunda seçin **koruma**.
+1. Yedek sunucu yöneticisi Konsolu'ndaki seçin **koruma**.
 
 2. Araç şeridinde seçin **yeni**.
 
@@ -139,146 +139,146 @@ Bir koruma grubu oluşturmak için:
   ![Yeni koruma grubu oluşturma Sihirbazı](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-1.png)
 
 3. **Hoş Geldiniz** sayfasında, **İleri**’yi seçin.
-4. Üzerinde **koruma grubu türünü seçin** sayfasında, oluşturmak ve ardından istediğiniz koruma grubu türünü seçin **sonraki**.
+4. Üzerinde **koruma grubu türünü seçin** sayfasında, oluşturun ve ardından istediğiniz koruma grubu türünü seçin **sonraki**.
 
   ![Koruma grubu seç türü sayfası](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-2.png)
 
-5. Üzerinde **grup üyelerini seçin** sayfasında **kullanılabilir üyeler** bölmesinde, koruma aracılarını listelenen üyeleriyle. Bu örnekte, D:\ birimi seçin ve E:\ ve bunları Ekle **seçili üyeleri** bölmesi. **İleri**’yi seçin.
+5. Üzerinde **grup üyelerini seçin** sayfasında **kullanılabilir üyeler** bölmesinde, koruma aracıları listelenen üyeleriyle. Bu örnekte D:\ birimi seçin ve E:\ ve bunları Ekle **seçili üyeleri** bölmesi. **İleri**’yi seçin.
 
-  ![Grup Seç üyeleri sayfası](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
+  ![Grup üyeleri sayfasında](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
 
 6. Üzerinde **veri koruma yöntemini seçin** want bir **koruma grubu adı**koruma yöntemini seçin ve ardından **sonraki**. Kısa vadeli koruma istiyorsanız seçmelisiniz **Disk** yedekleme yöntemi.
 
-  ![Veri koruma yöntemini sayfa seçin](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-4.png)
+  ![Veri koruma yöntemini seçin sayfası](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-4.png)
 
-7. Üzerinde **kısa vadeli hedefleri belirtin** sayfasında, ayrıntıları **bekletme aralığı** ve **eşitleme sıklığı**. Ardından, seçin **sonraki**. Kurtarma noktalarının ne zaman gerçekleştirilecek zamanlamasını değiştirmek için isteğe bağlı olarak seçin **Değiştir**.
+7. Üzerinde **kısa vadeli hedefleri belirtin** sayfasında, ayrıntıları **bekletme aralığı** ve **eşitleme sıklığı**. Sonra **İleri**’yi seçin. Kurtarma noktalarının ne zaman alınacağına zamanlamasını değiştirmek için isteğe bağlı olarak seçin **Değiştir**.
 
-  ![Kısa vadeli hedefleri sayfasında belirtin](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-5.png)
+  ![Sayfa kısa vadeli hedefleri belirtin](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-5.png)
 
-8. Üzerinde **Disk Depolaması ayırmasını gözden** , gözden geçirme Ayrıntıları sayfası veri kaynakları hakkında seçtiğiniz, boyutu ve sağlanacak alan ve hedef depolama birimi değerleri.
+8. Üzerinde **Disk Depolama ayırmayı gözden** , gözden geçirme Ayrıntıları sayfası veri kaynakları hakkında seçtiğiniz, boyutu ve sağlanacak alan ve hedef depolama birimi için değerler.
 
-  ![Gözden geçirme Disk Depolaması ayırması sayfası](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-6.png)
+  ![Disk Depolama ayırmayı İncele sayfası](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-6.png)
 
-  Depolama birimleri (PowerShell kullanarak ayarlayın) iş yükü birim ayırma ve kullanılabilir depolama alanına bağlıdır. Depolama birimleri, aşağı açılan menüsünde diğer birimleri'i seçerek değiştirebilirsiniz. Değeri değiştirirseniz **hedef depolama**, değeri **kullanılabilir disk depolama** altında değerleri yansıtacak şekilde değişir dinamik olarak **boş alan** ve  **Underprovisioned alanı**.
+  Depolama birimleri iş yükü birimi ayırma işlemi (PowerShell kullanarak ayarlama) ve kullanılabilir depolama alanına bağlıdır. Depolama birimlerini, açılır menüden diğer birimleri seçerek değiştirebilirsiniz. Değerini değiştirirseniz **hedef depolama**, değeri **kullanılabilir disk depolama** altında değerleri yansıtacak şekilde dinamik olarak değişir **boş alan** ve  **Eksik sağlanmış alan**.
 
-  Veri kaynakları için değer planlı olarak büyümesine **Underprovisioned alanı** sütununda **kullanılabilir disk depolama** gerekli olan ek depolama alanı miktarını gösterir. Kesintisiz yedeklemeler için depolama gereksinimlerini planlamaya yardımcı olması için bu değeri kullanın. Değerin sıfır ise, öngörülebilir gelecekte depolama alanı hiçbir olası sorunları vardır. Değerin sıfır dışındaki bir sayı ise, ayrılmış yeterli depolama alanı yok (koruma ilkeniz ve korumalı üyeleri veri boyutuna göre).
+  Veri kaynakları için değer planlandığı gibi büyümesi durumunda **eksik sağlanmış alan** sütununda **kullanılabilir disk depolama** gerekli olan ek depolama alanı miktarını gösterir. Kesintisiz yedeklemeleri için depolama ihtiyaçlarınızı planlamanıza yardımcı olacak bu değeri kullanın. Değer sıfır ise, öngörülebilir gelecekte depolama ile herhangi bir olası sorun vardır. Değer sıfır dışındaki bir sayı ise, ayrılmış yeterli depolama alanınız yok (koruma ilkenize ve korumalı üyelerinizin veri boyutuna göre).
 
-  ![Eksik yüklenmiş disk depolama](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-7.png)
+  ![Eksik ayrılmış disk depolama](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-7.png)
 
-   Koruma grubu oluşturmayı tamamlamak için sihirbazı tamamlayın.
+   Koruma grubunuzu oluşturmayı tamamlamak için sihirbazı tamamlayın.
 
-## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Eski depolama Modern bir yedekleme depolama alanına geçiş
-Veya yedekleme sunucusu v2 yüklemek ve Windows Server 2016 için işletim sistemini yükseltmek için yükseltme yaptıktan sonra koruma gruplarınızı Modern yedekleme depolama kullanacak şekilde güncelleştirin. Varsayılan olarak, koruma grupları değiştirilmez. Bunlar başlangıçta kurulmuş gibi çalışmaya devam eder. 
+## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Eski depolamayı Modern yedekleme depolama alanına geçirme
+Backup Sunucusu'nu v2 veya işletim sistemini Windows Server 2016'ya yükseltme sürümüne yükselttikten sonra koruma gruplarınızı Modern yedekleme depolama kullanacak şekilde güncelleştirin. Varsayılan olarak, koruma grupları değiştirilmez. Bunların başlangıçta ayarlanan gibi çalışmaya devam eder. 
 
-Modern yedekleme depolama kullanmak için koruma grupları güncelleştirme isteğe bağlıdır. Koruma grubunu güncelleştirmek için verileri tutma seçeneğini kullanarak tüm veri kaynaklarının korumasını durdurun. Ardından, veri kaynaklarını yeni bir koruma grubuna ekleyin.
+Modern yedekleme depolama alanı kullanmak için koruma gruplarını güncelleştirmek isteğe bağlıdır. Koruma grubunu güncelleştirmek için verileri tut seçeneğini kullanarak tüm veri kaynaklarının korumasını durdurun. Ardından, veri kaynaklarını yeni bir koruma grubuna ekleyin.
 
-1. Yönetici Konsolu'nda seçin **koruma** özelliği. İçinde **koruma grubu üyesi** listesi, üye sağ tıklayın ve ardından **üyenin korumasını Durdur**.
+1. Yönetici Konsolu'nda seçin **koruma** özelliği. İçinde **koruma grubu üyesi** listesinde üyeye sağ tıklayın ve ardından **üyenin korumasını Durdur**.
 
   ![Üyenin korumasını Durdur](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. İçinde **grubundan** iletişim kutusunda, kullanılan disk alanı ve depolama havuzu için kullanılabilir boş alanı gözden geçirin. Disk üzerinde kurtarma noktaları bırakın ve bunları kendi ilişkili bekletme ilkesi süresi dolacak şekilde izin vermek için varsayılandır. **Tamam**’a tıklayın.
+2. İçinde **grubundan** iletişim kutusunda, kullanılan disk alanı ve depolama havuzu için kullanılabilir boş alanı gözden geçirin. Diskte kurtarma noktalarını bırakmak ve kendi ilişkilendirildikleri bekletme ilkesine göre sürelerinin dolmasına izin vermek için varsayılandır. **Tamam**’a tıklayın.
 
-  Kullanılan disk alanı boş depolama havuzuna derhal döndürülmesini istiyorsanız seçin **diskteki çoğaltmayı Sil** yedekleme verilerini (ve kurtarma noktaları) silmek için onay kutusunu bu üye ile ilişkili.
+  Kullanılan disk alanını hemen boş depolama havuzuna döndürülecek istiyorsanız belirleyin **diskteki çoğaltmayı Sil** yedekleme verileri (ve kurtarma noktalarını) silmek için onay kutusunu, bu üye ile ilişkili.
 
-  ![Grup iletişim kutusundan Kaldır](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+  ![Grup iletişim kutusundan kaldırma](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
-3. Modern yedekleme depolama kullanan bir koruma grubu oluşturun. Korunmayan veri kaynaklarını içerir.
+3. Modern yedekleme depolama alanı kullanan bir koruma grubu oluşturun. Korumasız veri kaynaklarını içerir.
 
 
-## <a name="add-disks-to-increase-legacy-storage"></a>Eski depolama alanını büyütmek için disk ekleme
+## <a name="add-disks-to-increase-legacy-storage"></a>Eski depolama alanını artırmak için disk ekleme
 
-Eski depolama yedekleme sunucusu ile kullanmak istiyorsanız, eski depolama alanını büyütmek için disk eklemeniz gerekebilir. 
+Backup sunucusu ile eski depolama kullanmak istiyorsanız, eski depolama alanını artırmak için disk eklemek gerekebilir. 
 
-Disk depolama alanı eklemek için:
+Disk depolama eklemek için:
 
 1. Yönetici Konsolu'nda seçin **Yönetim** > **Disk Depolama** > **Ekle**.
 
-    ![Disk depolama iletişim ekleyin](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+    ![Disk depolama alanı iletişim kutusu Ekle](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
-4. İçinde **Disk Depolama Alanı Ekle** iletişim kutusunda **eklemek diskleri**.
+4. İçinde **Disk Depolama Ekle** iletişim kutusunda **disk Ekle**.
 
-5. Kullanılabilir diskler listesinde, eklemek, seçmek istediğiniz diskleri seçin **Ekle**ve ardından **Tamam**.
+5. Kullanılabilir diskler listesi, seçin, eklemek istediğiniz diskleri seçin **Ekle**ve ardından **Tamam**.
 
-## <a name="update-the-data-protection-manager-protection-agent"></a>Data Protection Manager koruma aracısını güncelleştirin
+## <a name="update-the-data-protection-manager-protection-agent"></a>Data Protection Manager koruma Aracısı güncelleştirmesi
 
-Yedekleme sunucusu System Center Data Protection Manager koruma Aracısı güncelleştirmeleri için kullanır. Ağa bağlı olmayan bir koruma aracısını yükseltiyorsanız, bağlı aracı yükseltme işlemini tamamlamak için veri koruma Yöneticisi konsolunu kullanamazsınız. Etkin olmayan etki alanı ortamında koruma aracısını yükseltmeniz gerekir. İstemci bilgisayar ağa bağlanana kadar veri koruma Yöneticisi konsolunu koruma Aracısı güncelleştirmesinin Beklemede olduğunu gösterir.
+Backup sunucusu, güncelleştirmeleri System Center Data Protection Manager koruma Aracısı kullanır. Ağa bağlı olmayan bir koruma aracısını yükseltiyorsanız, bağlı aracı yükseltme işlemini tamamlamak için veri koruma Yöneticisi Yönetici Konsolu'nu kullanamazsınız. Etkin olmayan bir etki alanı ortamında koruma aracısını yükseltmeniz gerekir. Data Protection Manager Yönetici Konsolu, istemci bilgisayar ağa bağlanana kadar koruma Aracısı güncelleştirmesinin Beklemede olduğunu gösterir.
 
-Aşağıdaki bölümler, bağlı olan istemci bilgisayarları ve bağlı olmayan istemci bilgisayarlar için koruma aracılarını güncelleştirme açıklar.
+Aşağıdaki bölümlerde, bağlı olan istemci bilgisayarlar ve bağlı olmayan istemci bilgisayarlar için koruma aracılarını güncelleştirme konusunda açıklanmaktadır.
 
-### <a name="update-a-protection-agent-for-a-connected-client-computer"></a>Bağlantılı bir istemci bilgisayarda koruma aracısını güncelleştir
+### <a name="update-a-protection-agent-for-a-connected-client-computer"></a>Bağlantılı bir istemci bilgisayarda koruma aracısını güncelleştirme
 
-1. Yedek sunucu Yönetici konsolunda seçin **Yönetim** > **aracıları**.
-
-2. Görüntü bölmesinde, koruma aracısını güncelleştirmek istediğiniz bilgisayarları seçin.
-
-  > [!NOTE]
-  > **Aracı güncelleştirmeleri** sütun gösteren bir koruma Aracısı güncelleştirmesi her korumalı bilgisayar için kullanılabilir olduğunda. İçinde **Eylemler** bölmesinde **güncelleştirme** eylem, yalnızca korumalı bir bilgisayarın seçili olduğundan ve kullanılabilir güncelleştirmeler olduğunda kullanılabilir.
-  >
-  >
-
-3. Seçili bilgisayarlara güncelleştirilmiş koruma aracıları yüklemek için **Eylemler** bölmesinde, **güncelleştirme**.
-
-### <a name="update-a-protection-agent-on-a-client-computer-that-is-not-connected"></a>Bağlı olmayan bir istemci bilgisayarda koruma aracısını güncelleştirin
-
-1. Yedek sunucu Yönetici konsolunda seçin **Yönetim** > **aracıları**.
+1. Yedek sunucu yöneticisi Konsolu'ndaki seçin **Yönetim** > **aracıları**.
 
 2. Görüntü bölmesinde, koruma aracısını güncelleştirmek istediğiniz bilgisayarları seçin.
 
   > [!NOTE]
-   > **Aracı güncelleştirmeleri** sütun gösteren bir koruma Aracısı güncelleştirmesi her korumalı bilgisayar için kullanılabilir olduğunda. İçinde **Eylemler** bölmesinde **güncelleştirme** eylemi kullanılabilir değil korumalı bir bilgisayar seçildiğinde kullanılabilir güncelleştirme yoksa.
+  > **Aracı güncelleştirmeleri** sütunu her korumalı bilgisayar için bir koruma Aracısı güncelleştirmesi çıktığında gösterir. İçinde **eylemleri** bölmesinde **güncelleştirme** eylemi, yalnızca korumalı bir bilgisayarın seçili olduğundan ve güncelleştirmeleri kullanılabilir.
+  >
+  >
+
+3. Seçili bilgisayarlara güncelleştirilmiş koruma aracıları yüklemek için **eylemleri** bölmesinde **güncelleştirme**.
+
+### <a name="update-a-protection-agent-on-a-client-computer-that-is-not-connected"></a>Bağlı olmayan istemci bilgisayarda koruma aracısını güncelleştirme
+
+1. Yedek sunucu yöneticisi Konsolu'ndaki seçin **Yönetim** > **aracıları**.
+
+2. Görüntü bölmesinde, koruma aracısını güncelleştirmek istediğiniz bilgisayarları seçin.
+
+  > [!NOTE]
+   > **Aracı güncelleştirmeleri** sütunu her korumalı bilgisayar için bir koruma Aracısı güncelleştirmesi çıktığında gösterir. İçinde **eylemleri** bölmesinde **güncelleştirme** eylemi kullanılabilir değil korumalı bir bilgisayar seçildiğinde kullanılabilir güncelleştirme yoksa.
   >
   >
 
 3. Seçili bilgisayarlara güncelleştirilmiş koruma aracıları yüklemek için seçin **güncelleştirme**.
 
-4. Bilgisayar ağa bağlanana kadar ağa bağlı olmayan bir istemci bilgisayar için **aracı durumu** sütunda görüntülenir durumunu **güncelleştirme Beklemede**.
+4. Bilgisayar ağa bağlanana kadar ağa bağlı olmayan bir istemci bilgisayar için **aracı durumu** sütun bir durumu gösterir **güncelleştirme Beklemede**.
 
-  Bir istemci bilgisayar ağa bağlandıktan sonra **aracı güncelleştirmeleri** sütun istemci bilgisayar için bir durumu gösterir **güncelleştirme**.
+  Bir istemci bilgisayar ağa bağlandıktan sonra **aracı güncelleştirmeleri** sütununda istemci bilgisayar durumunu gösteren **güncelleştirme**.
   
-### <a name="move-legacy-protection-groups-from-old-version-and-sync-the-new-version-with-azure"></a>Eski koruma grupları eski sürümden taşıyın ve yeni sürümü Azure ile eşitleme
+### <a name="move-legacy-protection-groups-from-old-version-and-sync-the-new-version-with-azure"></a>Eski bir sürümünden eski koruma grupları Taşı ve yeni sürümü Azure ile eşitleme
 
-Azure yedekleme sunucusu ve işletim sistemi hem de güncelleştirilmiştir sonra Modern yedekleme depolama kullanarak yeni veri kaynaklarını korumak hazırsınız. Ancak zaten korumalı veri kaynakları Azure yedekleme sunucusu ancak tüm yeni koruma oldukları gibi eski biçimde korunmaya devam eder, Modern yedekleme depolama kullanır.
+Azure Backup sunucusu ve işletim sistemi hem de güncelleştirildikten sonra Modern yedekleme depolama alanı'nı kullanarak yeni veri kaynaklarını korumak hazır olursunuz. Ancak zaten korunan veri kaynakları, Azure Backup sunucusu ancak tüm yeni koruma oldukları gibi eski biçimde korunacak devam eder, Modern yedekleme depolama alanı kullanacaktır.
 
-Aşağıdaki adımları olan veri kaynaklarını koruma eski modundan Modern yedekleme depolama alanına geçirmek için.
+Adımlarla Modern yedekleme depolama alanı koruma eski modundan veri kaynakları geçirilemedi.
 
-• Yeni birimlerin DPM depolama havuzuna ekleyin ve isterseniz kolay adlarını ve veri kaynağı etiketleri atayın.
-• Eski modunda, "Korumalı verileri Koru" ve veri kaynaklarını korumayı durdurun her veri kaynağı için.  Bu kurtarma eski kurtarma noktaları geçişten sonra olanak tanır.
+• Yeni birimleri DPM depolama havuzuna ekleyin ve isterseniz kolay adları ve veri kaynağı etiketleri atayın.
+• Eski modda korumasını durdurun ve veri kaynakları "Korumalı verileri Koru" olan her veri kaynağı için.  Bu kurtarma eski kurtarma noktalarını geçişten sonra olanak tanır.
 
-• Yeni PG oluşturun ve yeni biçimi kullanarak depolanacağı yeri veri kaynaklarını seçin.
-• DPM yerel olarak Modern yedekleme depolama birimine yerleştirilebilmesi eski yedekleme depolama biriminden çoğaltma kopyasını yapın.
-Not: Bu görülür tüm yeni eşitleme ve kurtarma noktalarını sonra Modern yedekleme depolama alanında depolanacak kurtarma sonrası işlemi iş • olarak.
-Süresi dolacak ve sonunda disk alanını boşaltmanız • eski kurtarma noktalarını kullanıma ayıklanır.
-Tüm eski birimleri eski depolama alanından disk silindikten sonra • Azure yedekleme ve sistem kaldırılabilir.
-• Azure DPMDB yedeklemesini alın.
+•, Yeni bir sayfa oluşturun ve yeni format kullanılarak depolanması için olan veri kaynaklarını seçin.
+• DPM Modern yedekleme depolama birimine yerel olarak eski yedekleme depolama alanından çoğaltma kopyasını yaparsınız.
+Not: Bu görülür olarak bir kurtarma sonrası işlem işi • tüm yeni eşitleme ve kurtarma noktalarını ardından Modern yedekleme depolama alanı depolanır.
+Süresi dolacak ve sonunda disk alanı boşaltın • eski kurtarma noktalarını kullanıma ayıklanır.
+Eski olan tüm birimler, eski depolama alanından disk silindikten sonra • Azure backup ve sisteminden kaldırabilirsiniz.
+• Azure DPMDB yedeklemesini alır.
 
-2. Kısım:-Önemli öğeleri > Yeni sunucunun özgün Azure yedekleme sunucusu olarak aynı adlı gerekir. Eski depolama havuzu ve DPMDB korumak için kullanmak istiyorsanız, yeni Azure yedekleme sunucusu adını değiştiremezsiniz geri gerekeceğinden, Kurtarma noktaları - DPMDB yedeklemesini olması gerekir
+2. Bölüm:-Önemli öğeleri > Yeni sunucunun aynı özgün Azure Backup sunucusu olarak adlandırılması gerekir. Eski depolama havuzu ve DPMDB korumak için kullanmak istiyorsanız, yeni Azure backup sunucusu adını değiştiremezsiniz geri eklemesi gerekeceğinden, Kurtarma noktaları - DPMDB yedeklemesini olması gerekir
 
-1) Kapatma özgün Azure sunucuyu yedekleme veya devre dışı kablo alır.
+1) Kapatma özgün Azure backup sunucusu veya kablo devre dışı duruma.
 2) Makine hesabı active Directory'de sıfırlayın.
-3) Server 2016 yeni makineye yüklemek ve onu aynı makine özgün Azure yedekleme sunucusu adı.
+3) Server 2016 yeni makineye yüklemek ve aynı makine adı özgün Azure Backup sunucusu olarak adlandırın.
 4) Etki alanına katılma
-5) Azure yedekleme sunucusu V2 yükleyin (taşıma DPM depolama havuzu diskleri eski sunucu ve içeri aktarma)
-6) 2. Bölüm sonundan itibaren geçen DPMDB geri yükleme
-7) Depolama özgün yedekleme sunucudan yeni bir sunucuya ekleyin.
+5) Azure Backup Sunucusu'nu V2 yüklemeye (taşıma DPM depolama havuzu diskleri eski sunucu ve içeri aktarma)
+6) Geçen bölüm 2 sonundan DPMDB geri yükleme
+7) Depolama, yedekleme özgün sunucudan yeni sunucuya ekleyin.
 8) DPMDB'yi SQL geri yükleme
-9) Yönetici olarak komut satırı Microsoft Azure yedekleme için yeni sunucu CD'sindeki yükleme konumu ve bin klasörü
+9) Microsoft Azure Backup'a yeni server CD'sinde yönetici komut satırından konumu ve bin klasörüne yükleyin
 
-Yol örnek: C:\windows\system32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
-Azure için yedekleme Çalıştır DPMSYNC-SYNC
+Örnek yol: C:\windows\system32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
+Azure'a yedekleme çalıştırmak DPMSYNC-SYNC
 
-10) Dpmsync aracını çalıştırın-eşitleme Not eskilerle taşıma yerine DPM depolama havuzuna yeni diskler ekledikten sonra çalıştırırsanız DPMSYNC - reallocatereplica öğesini
+10) DPMSYNC çalıştırın-eşitleme Not eskileri taşıma yerine DPM depolama havuzuna yeni diskler ekledikten sonra çalıştırırsanız DPMSYNC - Reallocatereplica
 
-## <a name="new-powershell-cmdlets-in-v2"></a>V2 yeni PowerShell cmdlet'leri
+## <a name="new-powershell-cmdlets-in-v2"></a>V2'de yeni PowerShell cmdlet'leri
 
-Azure yedekleme sunucusu v2 yüklediğinizde, iki yeni cmdlet'leri kullanılabilir: 
+Azure Backup Sunucusu'nu v2 yüklediğinizde, iki yeni cmdlet kullanılabilir: 
 * [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)
 * [Dismount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sunucunuzu hazırlama ya da bir iş yükü korumaya başlamak öğrenin:
-- [Yedekleme sunucusu iş yükleri hazırlama](backup-azure-microsoft-azure-backup.md)
-- [VMware sunucusunu yedeklemek için yedekleme sunucusu kullanın](backup-azure-backup-server-vmware.md)
-- [SQL Server için yedekleme sunucusu kullanın](backup-azure-sql-mabs.md)
-- [Yedekleme sunucusu ile modern yedekleme depolama alanı kullanın](backup-mabs-add-storage.md)
+Sunucunuzu hazırlama veya bir iş yükü korumaya başlamak öğrenin:
+- [Backup sunucusu iş yükleri hazırlama](backup-azure-microsoft-azure-backup.md)
+- [Bir VMware sunucusunu yedeklemek için Backup sunucusu kullanma](backup-azure-backup-server-vmware.md)
+- [SQL sunucusunu yedeklemek için Backup sunucusu kullanma](backup-azure-sql-mabs.md)
+- [Modern yedekleme depolama alanı ile Backup sunucusu kullanma](backup-mabs-add-storage.md)
 

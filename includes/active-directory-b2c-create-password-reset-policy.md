@@ -1,4 +1,4 @@
-Hassas parola sıfırlama, uygulamanızda etkinleştirmek için kullandığınız bir **parola sıfırlama** ilkesi. Kiracı genelinde parola sıfırlama seçeneği Not [burada](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md) belirtilir. Bu ilke müşterilerin parola sıfırlama ve uygulama başarılı tamamlanma alacak belirteçleri içeriğini sırasında gidecek deneyimleri açıklanmaktadır.
+Hassas parola sıfırlama uygulamanızı etkinleştirmek için kullandığınız bir **parola sıfırlama** ilkesi. Kiracı genelinde parola sıfırlama seçeneği Not [burada](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md) belirtilir. Bu ilke, müşterilerin parola sıfırlama ve başarıyla tamamlandığında uygulamanın alacağı belirteçlerin içeriğini sırasında karşılaşacağı deneyimleri açıklar.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

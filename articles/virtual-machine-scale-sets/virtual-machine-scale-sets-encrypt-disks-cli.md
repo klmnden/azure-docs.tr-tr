@@ -1,9 +1,9 @@
 ---
-title: Azure CLI ile Azure ölçek ayarlar için diskleri şifrelemek | Microsoft Docs
-description: VM örnekleri ve Linux sanal makine ölçek kümesindeki bağlı disklerde şifrelemek için Azure CLI 2.0 kullanmayı öğrenin
+title: Azure CLI ile Azure ölçek kümeleri için diskleri şifreleme | Microsoft Docs
+description: Sanal makine örnekleri ve Linux sanal makine ölçek kümesi bağlı diskleri şifrelemek için Azure CLI 2. 0'ı kullanmayı öğrenin
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: iainfou
-ms.openlocfilehash: 22d3c763317def137b4e0beb155f28585d7c6ae1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: cynthn
+ms.openlocfilehash: a01a0ae09b91b550af4617a46f7c0d8647a5f4be
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776423"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704564"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-20-preview"></a>İşletim sistemi ve Azure CLI 2.0 (Önizleme) ayarlama bir sanal makine ölçek eklenen veri disklerini şifrele
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-20-preview"></a>İşletim sistemi ve sanal makine ölçek kümesi Azure CLI 2.0 (Önizleme) ile bağlı veri diskleri şifreleme
 
-Korumak ve rest endüstri standart şifreleme teknolojisi kullanarak verileri korumak için Azure Disk şifrelemesi (ADE) sanal makine ölçek kümesini destekler. Linux ve Windows sanal makine için şifreleme etkinleştirilebilir ölçek kümeleri. Daha fazla bilgi için bkz: [Linux ve Windows Azure Disk şifrelemesi](../security/azure-security-disk-encryption.md).
+Dosya korumak ve endüstri standardında bir şifreleme teknolojisi kullanılarak, bekleme sırasında verileri korumak için Azure Disk şifrelemesi (ADE) sanal makine ölçek kümelerini destekler. Linux ve Windows sanal makinesi için şifreleme etkinleştirilebilir ölçek kümeleri. Daha fazla bilgi için [Linux ve Windows için Azure Disk şifrelemesi](../security/azure-security-disk-encryption.md).
 
 > [!NOTE]
->  Sanal makine ölçek kümeleri için Azure disk şifrelemesi genel Önizleme, tüm Azure ortak bölgelerde kullanılabilir şu anda kullanılıyor.
+>  Sanal makine ölçek kümeleri için Azure disk şifrelemesi şu an Azure tüm ortak bölgelerde kullanılabilir genel Önizleme aşamasındadır.
 
-Azure disk şifrelemesi desteklenir:
+Azure disk şifrelemesi desteklenmez:
 - Ölçek kümeleri yönetilen diskler ile oluşturulan ve yerel (veya yönetilmeyen) disk ölçek kümeleri için desteklenmiyor.
-- işletim sistemi ve veri birimleri için Windows ölçek kümeleri. Devre dışı şifrelemesi, işletim sistemi ve veri birimleri Windows ölçek kümeleri için desteklenir.
-- Linux ölçek kümeleri veri birimleri için. İşletim sistemi disk şifrelemesi Linux ölçek kümeleri için geçerli Önizleme'de desteklenmez.
+- Windows ölçek kümesi işletim sistemi ve veri birimleri için. Devre dışı şifreleme, Windows ölçek kümesi için işletim sistemi ve veri birimleri için desteklenir.
+- Linux ölçek kümelerinde veri birimleri için. İşletim sistemi disk şifreleme geçerli Önizleme Linux ölçek kümeleri için desteklenmez.
 
-Ölçek kümesi VM yeniden görüntü oluşturma ve yükseltme işlemleri geçerli Önizleme'de desteklenmez. Sanal makine ölçek kümeleri Önizleme için Azure disk şifrelemesi yalnızca sınama ortamlarında önerilir. Önizleme'de, disk şifreleme yere bir şifrelenmiş ölçek kümesindeki bir işletim sistemi görüntüsüne yükseltmeniz gerekebilir üretim ortamlarında etkinleştirmeyin.
+Geçerli Önizleme sürümünde, Ölçek kümesi VM yeniden görüntü oluşturma ve yükseltme işlemleri desteklenmiyor. Azure disk şifrelemesi için sanal makine ölçek kümeleri önizlemesi yalnızca test ortamlarında önerilir. Önizleme sürümünde, burada bir şifrelenmiş bir ölçek kümesindeki bir işletim sistemi görüntüsüne yükseltmeniz gerekebilir üretim ortamlarında disk şifrelemesi etkinleştirmeyin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.31 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici, Azure CLI Sürüm 2.0.31 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="register-for-disk-encryption-preview"></a>Disk şifrelemesi önizlemesi için kaydolun
+## <a name="register-for-disk-encryption-preview"></a>Disk şifreleme Önizleme için kaydolun
 
-Sanal makine ölçek Önizleme ayarlar için Azure disk şifrelemesi aboneliğinizle kendi kendine kaydettirmek gerektirir [az özelliği kayıt](/cli/azure/feature#az_feature_register). Yalnızca ilk kez disk şifreleme önizleme özelliğini kullandığınızda aşağıdaki adımları gerçekleştirmeniz gerekir:
+Önizleme sanal makine ölçek kümeleri için Azure disk şifrelemesi, kendi aboneliğinize kaydetmeniz gerektirir [az özelliği kayıt](/cli/azure/feature#az_feature_register). Yalnızca ilk kez disk şifreleme önizleme özelliğini kullandığınızda aşağıdaki adımları gerekir:
 
 ```azurecli-interactive
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Yaymak kayıt isteği 10 dakika kadar sürebilir. Kayıt durumu ile denetleyebilirsiniz [az özelliği Göster](/cli/azure/feature#az_feature_show). Zaman `State` raporları *kayıtlı*, yeniden kaydettirin *Mirosoft.Compute* sağlayıcısıyla [az sağlayıcı kaydı](/cli/azure/provider#az_provider_register):
+Bu, kayıt isteği yaymak için 10 dakikaya kadar sürebilir. Kayıt durumunu denetleyebilirsiniz [az özelliği show](/cli/azure/feature#az_feature_show). Zaman `State` raporları *kayıtlı*, yeniden kaydetmeniz *Mirosoft.Compute* sağlayıcısıyla [az provider register](/cli/azure/provider#az_provider_register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -62,7 +62,7 @@ az provider register --namespace Microsoft.Compute
 az group create --name myResourceGroup --location eastus
 ```
 
-Bu adımda [az vmss create](/cli/azure/vmss#az_vmss_create) ile bir sanal makine ölçek kümesi oluşturun. Aşağıdaki örnek, değişiklikler uygulandıkça otomatik güncelleştirilecek şekilde ayarlanan *myScaleSet* adlı bir ölçek kümesi oluşturur ve *~/.ssh/id_rsa* içinde yoksa SSH anahtarları oluşturur. Bir 32Gb veri diski her VM örneği ve Azure bağlı [özel betik uzantısının](../virtual-machines/linux/extensions-customscript.md) ile veri diskleri hazırlamak için kullanılan [az vmss uzantı kümesi](/cli/azure/vmss/extension#az_vmss_extension_set):
+Bu adımda [az vmss create](/cli/azure/vmss#az_vmss_create) ile bir sanal makine ölçek kümesi oluşturun. Aşağıdaki örnek, değişiklikler uygulandıkça otomatik güncelleştirilecek şekilde ayarlanan *myScaleSet* adlı bir ölçek kümesi oluşturur ve *~/.ssh/id_rsa* içinde yoksa SSH anahtarları oluşturur. Her sanal makine örneği ve Azure için 32Gb veri diskine bağlı [özel betik uzantısı](../virtual-machines/linux/extensions-customscript.md) ile veri diskleri hazırlamak için kullanılan [az vmss uzantı kümesi](/cli/azure/vmss/extension#az_vmss_extension_set):
 
 ```azurecli-interactive
 # Create a scale set with attached data disk
@@ -89,9 +89,9 @@ Tüm ölçek kümesi kaynaklarının ve VM'lerin oluşturulup yapılandırılmas
 
 ## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Disk şifrelemesi için etkin bir Azure anahtar kasası oluşturma
 
-Azure anahtar kasası anahtarları, gizli ya da, uygulama ve hizmetlerinize güvenli bir şekilde uygulamak izin parolaları depolayabilirsiniz. Şifreleme anahtarları yazılım koruması'nı kullanarak Azure anahtar kasası içinde depolanır veya içe aktarmak ya da anahtarlarınızı FIPS 140-2 Düzey 2 standartları sertifikalı donanım güvenlik modüllerinde (HSM'ler) oluşturur. Bu şifreleme anahtarlarını şifrelemek ve şifresini çözmek, VM'ye bağlı sanal diskler için kullanılır. Bu şifreleme anahtarları denetimin korumak ve kullanımlarını denetleyebilirsiniz.
+Azure Key Vault, anahtarları, gizli dizileri veya uygulamalarınızda ve hizmetlerinizde güvenli bir şekilde uygulamak izin parolaları depolayabilirsiniz. Yazılım koruması kullanarak Azure Key Vault şifreleme anahtarlarını depolanır veya anahtarlarınızı FIPS 140-2 seviye 2 standartlarıyla sertifikalandırılmış donanım güvenlik modüllerinde (HSM'ler) oluşturun veya içeri aktarın. Bu şifreleme anahtarlarını, şifreleme ve şifre çözme, sanal Makineye eklenmiş sanal diskler için kullanılır. Bu şifreleme anahtarları denetiminizde korumak ve kullanımlarını denetleyebilirsiniz.
 
-Kendi benzersiz tanımlama *keyvault_name*. KeyVault ile oluşturursunuz [az keyvault oluşturma](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create) aynı abonelik ve bölge ve ayarlayın ölçek olarak *---için-disk-şifreleme etkin* erişim ilkesi.
+Kendi benzersiz olarak tanımlayan *keyvault_name*. Bir anahtar kasası ile oluşturup [az keyvault oluşturma](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create) aynı abonelikte ve bölgededir yapmak ve ölçek *--etkin-için-disk şifreleme* erişim ilkesi.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -101,11 +101,11 @@ keyvault_name=myuniquekeyvaultname
 az keyvault create --resource-group myResourceGroup --name $keyvault_name --enabled-for-disk-encryption
 ```
 
-### <a name="use-an-existing-key-vault"></a>Var olan bir anahtar kasası kullanın
+### <a name="use-an-existing-key-vault"></a>Var olan bir Key Vault kullanma
 
-Bu adım yalnızca olan disk şifrelemesi ile kullanmak istediğiniz bir anahtar kasası varsa gerekli. Bir anahtar kasası önceki bölümde oluşturduysanız, bu adımı atlayın.
+Bu adım yalnızca, disk şifrelemesi ile kullanmak istediğiniz bir anahtar kasası varsa gereklidir. Bir Key Vault önceki bölümde oluşturduğunuz bu adımı atlayın.
 
-Kendi benzersiz tanımlama *keyvault_name*. Ardından, KeyVault ile güncelleştirilmiş [az keyvault güncelleştirme](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update) ve *---için-disk-şifreleme etkin* erişim ilkesi.
+Kendi benzersiz olarak tanımlayan *keyvault_name*. Daha sonra anahtar kasası ile güncelleştirilmiş [az keyvault update](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update) ayarlayıp *--etkin-için-disk şifreleme* erişim ilkesi.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -117,7 +117,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>Şifrelemeyi etkinleştir
 
-Ölçek kümesindeki VM örnekleri şifrelemek için önce anahtar kasası kaynak kimliği ile ilgili bazı bilgi edinmek [az keyvault Göster](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-show). Bu değişkenleri ile şifreleme işlemini başlatmak için kullanılan [az vmss şifrelemeyi etkinleştirmek](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
+Bir ölçek kümesindeki sanal makine örnekleri şifrelemek için ilk Key Vault kaynak kimliği ile hakkında bazı bilgileri alın [az keyvault show](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-show). Bu değişkenler ardından ile şifreleme işlemi başlatmak için kullanılan [az vmss şifrelemeyi etkinleştirme](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -131,19 +131,19 @@ az vmss encryption enable \
     --volume-type DATA
 ```
 
-Bir veya iki başlatmak şifreleme işlemi için dakika sürebilir.
+Bir veya şifreleme işlemini başlatmak için iki dakika sürebilir.
 
-Bir önceki adımda ölçek kümesi içinde oluşturulan ayarlamak ölçekte yükseltme ilkesi olarak ayarlandığında *otomatik*, VM örnekleri otomatik olarak şifreleme işlemini başlatın. Burada yükseltme İlkesi, el ile ölçek kümeleri üzerinde şifreleme ilkesi ile VM örneklerinde Başlat [az vmss güncelleştirme-örnekleri](/cli/azure/vmss#az-vmss-update-instances).
+Daha önceki bir adımda ölçek kümesi içinde oluşturulan ölçek kümesini yükseltme ilkesi olarak ayarlanmış olan *otomatik*, sanal makine örneklerine otomatik olarak şifreleme işlemi başlatın. Yükseltme İlkesi el ile olarak nerede ölçek kümelerinde şifreleme ilkesi ile VM örneklerinde Başlat [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
 ## <a name="check-encryption-progress"></a>Şifreleme ilerleme durumunu denetleme
 
-Disk şifrelemesi durumunu denetlemek için kullanın [az vmss şifreleme Göster](/cli/azure/vmss/encryption#az-vmss-encryption-show):
+Disk şifreleme durumunu denetlemek için kullanmak [az vmss şifreleme show](/cli/azure/vmss/encryption#az-vmss-encryption-show):
 
 ```azurecli-interactive
 az vmss encryption show --resource-group myResourceGroup --name myScaleSet
 ```
 
-VM örnekleri şifreli olduğunda, durum kodu raporları *EncryptionState ve şifrelenmiş*aşağıdaki örnek çıktıda görüldüğü gibi:
+Sanal makine örnekleri şifrelenir, durum kodu raporları *EncryptionState ve şifrelenmiş*aşağıdaki örnek çıktıda gösterildiği gibi:
 
 ```bash
 [
@@ -170,9 +170,9 @@ VM örnekleri şifreli olduğunda, durum kodu raporları *EncryptionState ve şi
 ]
 ```
 
-## <a name="disable-encryption"></a>Şifreleme devre dışı bırak
+## <a name="disable-encryption"></a>Şifrelemeyi devre dışı bırakma
 
-Artık şifrelenmiş VM örnekleri diskleri kullanmak istiyorsanız, şifreleme ile devre dışı bırakabilirsiniz [az vmss şifrelemeyi devre dışı](/cli/azure/vmss/encryption?view=azure-cli-latest#az-vmss-encryption-disable) gibi:
+Artık şifrelenmiş VM örnekleri diskleri kullanmak istiyorsanız, şifrelemeyi devre dışı bırakabilirsiniz [az vmss şifrelemeyi devre dışı](/cli/azure/vmss/encryption?view=azure-cli-latest#az-vmss-encryption-disable) gibi:
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
@@ -180,6 +180,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, Azure CLI 2.0 bir sanal makine ölçek kümesi şifrelemek için kullanılır. Aynı zamanda [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) için ya da şablon [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) veya [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+Bu makalede, Azure CLI 2.0 bir sanal makine ölçek kümesi şifrelemek için kullanılır. Ayrıca [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) veya şablonları [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) veya [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
 
-Uçtan uca toplu iş dosyası örneği Linux ölçek kümesi veri disk şifrelemesi için bulunabilir [burada](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Bu örnek, bir kaynak grubu, Linux ölçek kümesi oluşturur, 5 GB veri diski bağlar ve sanal makine ölçek kümesi şifreler.
+Bir Linux ölçek kümesi veri disk şifrelemesi için uçtan uca toplu iş dosyası örneği bulunabilir [burada](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Bu örnek, bir kaynak grubu, Linux ölçek kümesi oluşturur, 5 GB'lık veri diskini bağlar ve sanal makine ölçek kümesi şifreler.

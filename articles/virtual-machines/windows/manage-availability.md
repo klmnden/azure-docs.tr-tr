@@ -1,6 +1,6 @@
 ---
-title: Azure'da Windows VM kullanılabilirliğini yönetme | Microsoft Docs
-description: Windows uygulamanızı Azure için yüksek kullanılabilirlik sağlamak için birden çok sanal makine kullanmayı öğrenin
+title: Azure'da Windows sanal makinelerinin kullanılabilirliğini yönetme | Microsoft Docs
+description: Azure'da Windows uygulamanız için yüksek kullanılabilirlik sağlamak için birden çok sanal makine kullanmayı öğrenin
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -17,20 +17,20 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7631205943efc827edd80d3a89ea68804d94153d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323194"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688139"
 ---
-# <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makinelerin kullanılabilirliğini yönetme 
+# <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Azure'daki Windows sanal makinelerin kullanılabilirliğini yönetme 
 
-Windows uygulamanızı Azure için yüksek kullanılabilirlik sağlamak için birden çok sanal makine ayarlamanıza yolları öğrenin. Ayrıca [Linux sanal makinelerin kullanılabilirliğini yönetme](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ayarlama ve azure'da Windows uygulamanız için yüksek kullanılabilirlik sağlamak için birden çok sanal makineleri yönetme yollarını öğrenin. Ayrıca [Linux sanal makinelerin kullanılabilirliğini yönetme](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Oluşturma ve klasik dağıtım modeli kullanılırken kullanılabilirlik kümelerini kullanma hakkında yönergeler için bkz: [bir kullanılabilirlik kümesi yapılandırmak nasıl](classic/configure-availability-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Oluşturma ve kullanılabilirlik kümeleri, Klasik dağıtım modeli kullanılırken kullanma yönergeleri için bkz: [bir kullanılabilirlik kümesi yapılandırma](classic/configure-availability-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yük Dengeleme sanal makinelerinizi hakkında daha fazla bilgi için bkz: [sanal makineler Yük Dengeleme](tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Yük Dengeleme, sanal makineler hakkında daha fazla bilgi için bkz. [sanal makinelerde Yük Dengeleme](tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

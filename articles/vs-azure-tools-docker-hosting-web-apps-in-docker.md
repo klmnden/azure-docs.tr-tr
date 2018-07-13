@@ -1,6 +1,6 @@
 ---
-title: Azure kapsayıcı kayıt defteri (ACR) için bir ASP.NET Docker kapsayıcısı dağıtma | Microsoft Docs
-description: Bir kapsayıcı kayıt defterine ASP.NET Core web uygulama dağıtmak için Docker için Visual Studio Araçları kullanmayı öğrenin
+title: Azure Container Registry (ACR) için bir ASP.NET Docker kapsayıcısı dağıtma | Microsoft Docs
+description: ASP.NET Core web uygulaması bir kapsayıcı kayıt defterine dağıtmak için Docker için Visual Studio Araçları'nı kullanmayı öğrenin
 services: azure-container-service
 documentationcenter: .net
 author: mlearned
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/21/2018
 ms.author: mlearned
-ms.openlocfilehash: 4442c1d763f4ed21a5efeedbe957727254e2a0b8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 58df17b17de1d93683875b68dd7c6c087bc6d16d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658480"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972317"
 ---
-# <a name="deploy-an-aspnet-container-to-a-container-registry-using-visual-studio"></a>Visual Studio kullanarak bir kapsayıcı kayıt defterine bir ASP.NET kapsayıcı dağıtma
+# <a name="deploy-an-aspnet-container-to-a-container-registry-using-visual-studio"></a>ASP.NET kapsayıcısını bir kapsayıcı kayıt defterine Visual Studio kullanarak dağıtma
 ## <a name="overview"></a>Genel Bakış
-Docker ana uygulamalar ve hizmetler için kullanabileceğiniz bir sanal makineye, bazı şekillerde benzer bir basit kapsayıcı alt yapısıdır.
-Bu öğretici, Kapsayıcılı uygulamanızı yayımlamak için Visual Studio kullanarak kılavuzluk bir [Azure kapsayıcı kayıt defteri](https://azure.microsoft.com/en-us/services/container-registry).
+Docker, bazı açılardan konak uygulamalar ve hizmetler için kullanabileceğiniz bir sanal makineye, benzer bir basit bir kapsayıcı alt yapısıdır.
+Bu öğreticide, kapsayıcıya alınmış uygulamanızı yayımlamak için Visual Studio kullanarak açıklanmaktadır bir [Azure Container Registry](https://azure.microsoft.com/services/container-registry).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/dotnet/?utm_source=acr-publish-doc&utm_medium=docs&utm_campaign=docs) oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için:
 
-* En son sürümünü yüklemek [Visual Studio 2017](https://azure.microsoft.com/en-us/downloads/) "ASP.NET ve web geliştirme" iş yükü ile
+* En son sürümünü yükleyin [Visual Studio 2017](https://azure.microsoft.com/downloads/) "ASP.NET ve web geliştirme" iş yüküyle birlikte sağlanır
 * Yükleme [Windows için Docker](https://docs.docker.com/docker-for-windows/install/)
 
 ## <a name="1-create-an-aspnet-core-web-app"></a>1. ASP.NET Core web uygulaması oluşturma
-Aşağıdaki adımlar Bu öğreticide kullanılan temel bir ASP.NET Core uygulama oluşturmada size yol.
+Aşağıdaki adımlar Bu öğreticide kullanılan temel bir ASP.NET Core uygulaması oluşturmada size yol.
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## <a name="2-publish-your-container-to-azure-container-registry"></a>2. Azure kapsayıcı kayıt defterine, kapsayıcı yayımlama
-1. Projenize sağ **Çözüm Gezgini** ve **Yayımla**.
+## <a name="2-publish-your-container-to-azure-container-registry"></a>2. Kapsayıcınızı Azure Container Registry'ye yayımlama
+1. Projenize sağ tıklayın **Çözüm Gezgini** ve **Yayımla**.
 2. Yayımlama hedefi iletişim kutusunda seçin **kapsayıcı kayıt defteri** sekmesi.
-3. Seçin **yeni Azure kapsayıcı kayıt defteri** tıklatıp **Yayımla**.
-4. İstenen değerlerinizi doldurun **yeni bir Azure kapsayıcı kayıt**.
+3. Seçin **yeni Azure Container Registry** tıklatıp **Yayımla**.
+4. İstenen değerleri doldurun **yeni bir Azure Container Registry oluşturma**.
 
     | Ayar      | Önerilen değer  | Açıklama                                |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **DNS öneki** | Genel olarak benzersiz bir ad | Kapsayıcı kaydınız benzersiz olarak tanıtan adı. |
+    | **DNS ön eki** | Genel olarak benzersiz bir ad | Kapsayıcı kayıt defterinizde benzersiz olarak tanımlayan ad. |
     | **Abonelik** | Aboneliğinizi seçin | Kullanılacak Azure aboneliği. |
-    | **[Kaynak Grubu](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Kapsayıcı kaydınız oluşturulacağı kaynak grubunun adı. Seçin **yeni** yeni bir kaynak grubu oluşturmak için.|
-    | **[SKU](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-skus)** | Standart | Hizmet katmanı kapsayıcı kayıt defteri  |
-    | **Kayıt defteri konumu** | Yakın bir konum | Bir konumdan seçin bir [bölge](https://azure.microsoft.com/regions/) yakın veya kapsayıcı kaydınız kullanacağı diğer hizmetler yakın. |
-    ![Visual Studio'nun Oluştur Azure kapsayıcı kayıt defteri iletişim kutusu][0]
+    | **[Kaynak Grubu](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Kapsayıcı kayıt defterinizde oluşturulacağı kaynak grubunun adı. Yeni kaynak grubu oluşturmak **Yeni**'yi seçin.|
+    | **[SKU](https://docs.microsoft.com/azure/container-registry/container-registry-skus)** | Standart | Hizmet katmanı kapsayıcı kayıt defterinin  |
+    | **Kayıt defteri konumu** | Size yakın bir konum | Bir konumdan seçin bir [bölge](https://azure.microsoft.com/regions/) yakınınızdaki veya kapsayıcı kayıt defterinizi kullanacak diğer hizmetlere yakın. |
+    ![Visual Studio'nun iletişim Azure Container Registry oluşturma][0]
 5. **Oluştur**'a tıklayın
 
-Artık kapsayıcı kayıt defterinden herhangi bir ana bilgisayara çalıştırabilen Docker görüntüler, örneğin çekebilir [Azure kapsayıcı örnekleri](./container-instances/container-instances-tutorial-deploy-app.md).
+Artık kapsayıcı kayıt defterinden herhangi bir konağa Docker görüntüleri, örneğin çalıştırma yeteneğine çekebilirsiniz [Azure Container Instances](./container-instances/container-instances-tutorial-deploy-app.md).
 
 [0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/vs-acr-provisioning-dialog.png

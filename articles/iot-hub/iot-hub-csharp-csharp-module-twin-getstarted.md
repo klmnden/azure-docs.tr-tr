@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
 ms.openlocfilehash: 5855396fc87b7d8de17be65a66af40963c59fc71
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633487"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687945"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>.NET arka ucu ile .NET cihaz IOT hub'ı modülü kimlik ve modül çifti ile çalışmaya başlama
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>.NET arka ucu ve cihaz .NET kullanarak IOT hub'ı modül kimlik ve modül ikizi ile çalışmaya başlama
 
 > [!NOTE]
 > [Modül kimlikleri ve modül ikizleri](iot-hub-devguide-module-twins.md), Azure IoT Hub cihaz kimliğine ve cihaz ikizine benzer, ancak daha hassas ayrıntı düzeyi sağlar. Azure IoT Hub cihaz kimliği ve cihaz ikizi, arka uç uygulamasının bir cihaz yapılandırmasına imkan tanıyıp cihazın koşullarına yönelik görünürlük sağlarken, modül kimliği ve modül ikizi de bir cihazın tek tek bileşenleri için bu özellikleri sağlar. İşletim sistemi tabanlı cihazlar veya üretici yazılımı cihazları gibi, birden fazla bileşen içeren ve bu özelliklere sahip cihazlarda her bir bileşen için yalıtılmış yapılandırma ve koşullara olanak sağlar.
@@ -51,7 +51,7 @@ Bu bölümde, modül ikizi tarafından raporlanan özelliklerini güncelleştire
 
     ![Visual studio projesi oluşturma][13]
 
-2. **En son Azure IOT Hub .NET cihaz SDK'sı yükleme** -modülü kimlik ve modül twin genel önizlemede değil. Yalnızca IoT Hub ön sürüm cihaz SDK’larında kullanılabilir. Visual Studio’da araçlar > Nuget paket yöneticisi > çözüm için Nuget paketlerini yönet seçeneğini açın. Microsoft.Azure.Devices.Client öğesini arayın. Ön sürümü dahil et onay kutusunu işaretlediğinizden emin olun. En son sürümü seçin ve yükleyin. Şimdi tüm modül özelliklerine erişiminiz vardır. 
+2. **En son Azure IOT hub'ı .NET cihaz SDK'sını yükleme** -modül kimlik ve modül ikizi şu genel Önizleme aşamasındadır. Yalnızca IoT Hub ön sürüm cihaz SDK’larında kullanılabilir. Visual Studio’da araçlar > Nuget paket yöneticisi > çözüm için Nuget paketlerini yönet seçeneğini açın. Microsoft.Azure.Devices.Client öğesini arayın. Ön sürümü dahil et onay kutusunu işaretlediğinizden emin olun. En son sürümü seçin ve yükleyin. Şimdi tüm modül özelliklerine erişiminiz vardır. 
 
     ![Azure IoT Hub .NET hizmet SDK’sı V1.16.0-preview-005’i yükleme][14]
 
@@ -134,7 +134,7 @@ Bu bölümde, modül ikizi tarafından raporlanan özelliklerini güncelleştire
 
     Bu kod örneği, AMQP protokolüyle raporlanan özellikleri güncelleştirme ve modül ikizini alma işlemini nasıl yapacağınızı gösterir. Genel önizleme aşamasında, modül ikizi işlemleri için yalnızca AMQP’yi destekleriz.
 
-5. Yukarıdakilerin yanı sıra **ana** yöntemi ekleyebilir, modülünden IOT Hub'ına olay göndermesini kod bloğunun altında:
+5. Yukarıdakilerin yanı sıra **ana** yöntemi ekleyebilirsiniz, modülünden IOT Hub'ına olay göndermek için kod bloğu aşağıda:
     ```csharp
     Byte[] bytes = new Byte[2];
     bytes[0] = 0;

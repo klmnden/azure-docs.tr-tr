@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs'de aylık tahmini Laboratuvar maliyet eğilim görüntülemek | Microsoft Docs
-description: Azure DevTest Labs aylık tahmini maliyet eğilim Grafiği hakkında bilgi edinin.
+title: Azure DevTest Labs'de aylık tahmini Laboratuvar maliyeti eğilimini görüntüleme | Microsoft Docs
+description: Azure DevTest Labs aylık tahmini maliyet eğilimi grafiği hakkında bilgi edinin.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,93 +15,93 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 13535dae82ef2c8896dad7d6221553d15e4e6a95
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787636"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38573820"
 ---
-# <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Azure DevTest Labs'de aylık tahmini Laboratuvar maliyet eğilim görüntüleyin
-DevTest Labs maliyet yönetim özelliği Laboratuvarınızı maliyetini izlemenize yardımcı olur. Bu makalede nasıl kullanılacağını anlatan **aylık tahmini maliyet eğilimi** geçerli Takvim ayı için geçerli Takvim ayın tahmini maliyet-to-date ve tahmini ayın son maliyet görüntülemek üzere grafik. Bu makalede ayrıca daha iyi harcama hedefleri ve eşikleri, erişildiğinde, tetikleyici sonuçları size bildirmek için DevTest Labs ayarlayarak Laboratuvar maliyetlerini yönetmek nasıl gösterir.
+# <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Azure DevTest Labs'de aylık tahmini Laboratuvar maliyeti eğilimini görüntüleyin
+Maliyet yönetimi özelliği DevTest Labs Laboratuvarınızı maliyetini izlemenize yardımcı olur. Bu makalede nasıl kullanılacağı gösterilmektedir **aylık tahmini maliyet eğilimi** geçerli Takvim ayı boyunca geçerli Takvim ayki tahmini maliyet başından bu yana ve tahmini aylık son maliyet görüntülemek için grafik. Bu makalede ayrıca harcama hedeflere ve eşiklere, erişildiğinde, tetikleyici sonuçları size bildirmek için DevTest Labs ayarlayarak Laboratuvar maliyetlerini daha iyi yönetmek nasıl gösterir.
 
-## <a name="viewing-the-monthly-estimated-cost-trend-chart"></a>Aylık tahmini maliyet eğilim grafiği görüntüleme
-Aylık tahmini maliyet eğilim Grafiği görüntülemek için aşağıdaki adımları izleyin: 
+## <a name="viewing-the-monthly-estimated-cost-trend-chart"></a>Aylık tahmini maliyet eğilimi grafiği görüntüleme
+Aylık tahmini maliyet eğilimi grafiği görüntülemek için aşağıdaki adımları izleyin: 
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
-1. Gerekirse, seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden. (Laboratuvarınızı altında bir Pano üzerinde zaten görüntülenebilir **tüm kaynakları**).
+1. Gerekirse, seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden. (Laboratuvarınızı zaten altında Panoda görüntülenebilir **tüm kaynakları**).
 1. İstenen Laboratuvar labs listesinden seçin.  
-1. Laboratuvar 's üzerinde **genel bakış** alanında **yapılandırma ve ilkeleri**.   
-1. Solda'nin altında **maliyet izleme**seçin **maliyet eğilimi**.
+1. Laboratuvar'ın **genel bakış** alanında **yapılandırması ve ilkelerini**.   
+1. Soldaki altında **maliyet izleme**seçin **maliyet eğilimi**.
 
-   Aşağıdaki ekran görüntüsünde bir maliyet grafik örneği gösterilmektedir. 
+   Aşağıdaki ekran görüntüsünde, maliyet grafik örneği gösterilmektedir. 
    
-    ![Maliyet grafik](./media/devtest-lab-configure-cost-management/graph.png)
+    ![Maliyet grafiği](./media/devtest-lab-configure-cost-management/graph.png)
 
-**Maliyet tahmini** geçerli Takvim ayın tahmini maliyet-to-date bir değerdir. **Tahmini maliyet** tahmini tüm geçerli Takvim ayı için önceki beş gün boyunca Laboratuvar maliyet kullanılarak hesaplanan maliyetidir.
+**Tahmini maliyet** geçerli Takvim ayki tahmini maliyet başından bu yana bir değerdir. **Öngörülen maliyet** Laboratuvar maliyeti önceki beş gün boyunca kullanılarak hesaplanan tüm geçerli Takvim ayı boyunca tahmini maliyeti olduğundan.
 
-Maliyet tutarlar sonraki tamsayıya yuvarlanır. Örneğin: 
+Ücret tutarları, sonraki tam sayıya yuvarlanır. Örneğin: 
 
-* 5.01 6 adede kadar yuvarlar 
-* 5.50 6 adede kadar yuvarlar
-* 5.99 6 adede kadar yuvarlar
+* en fazla 6 5.01 yuvarlar 
+* en fazla 6 5.50 yuvarlar
+* en fazla 6 5.99 yuvarlar
 
-Grafik durumları gibi varsayılan hesap olarak gördüğünüz maliyetleri olduğundan *tahmini* kullanarak maliyetlerini [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) hızları sunar. Grafikler tarafından görüntülenen kendi harcama hedefleri de ayarlayabilirsiniz [Laboratuvarınızı maliyet hedeflerini yönetme.](#managing-cost-targets-for-your-lab)
+Grafiğin üst kısmındaki durumları gibi varsayılan olarak grafikte gördüğünüz ücretlerdir *tahmini* kullanarak maliyetleri [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) hızları sunar. Grafikler tarafından görüntülenen kendi harcama hedefleri de ayarlayabilirsiniz [laboratuvarınız için maliyet hedefleri yönetme.](#managing-cost-targets-for-your-lab)
 
-Ayrıca, aşağıda verilmiştir *değil* maliyet hesaplamasında dahil:
+Ayrıca, aşağıdakiler, *değil* maliyetini hesaplamaya dahil:
 
-* CSP ve Dreamspark abonelik şu anda Azure DevTest Labs kullanır olarak desteklenmez [Azure fatura API'leri](../billing/billing-usage-rate-card-overview.md) maliyet, CSP veya Dreamspark abonelik desteklemiyor Laboratuvar hesaplamak için.
-* Teklif ücretlerinizi. Şu anda (abonelik altında Microsoft veya Microsoft iş ortakları anlaşılan olduğunu gösterilen) İndirim oranları kullanamazsınız. Yalnızca Kullandıkça Öde oranları kullanılır.
-* Vergiler
-* İndirim
-* Fatura para birimi. Şu anda, Laboratuvar maliyet yalnızca ABD Doları para birimi görüntülenir.
+* CSP ve Dreamspark abonelikleri şu anda desteklenmiyor Azure DevTest Labs kullandıkça [Azure faturalandırma API'leri](../billing/billing-usage-rate-card-overview.md) maliyet, CSP veya Dreamspark abonelikleri desteklemez Laboratuvar hesaplamak için.
+* Teklif ücretlerinizi. Şu anda (aboneliğiniz kapsamındaki, Microsoft veya Microsoft ile iş ortakları anlaşılan olduğunu gösterilen) teklif ücretler kullanamazsınız. Yalnızca Kullandıkça Öde tarifesine göre kullanılır.
+* Vergileri
+* Slevy
+* Faturalandırma, para birimi. Laboratuvar maliyeti şu anda yalnızca ABD Doları para biriminde görüntülenir.
 
 ## <a name="managing-cost-targets-for-your-lab"></a>Laboratuvarınız için maliyet hedefleri yönetme
-DevTest Labs aylık tahmini maliyet eğilim Grafiği sonra görüntüleyebileceğiniz bir harcama hedef ayarlayarak laboratuvarınızda maliyetleri daha iyi yönetmenize olanak tanır. Belirtilen hedef harcama veya Eşiğe ulaşıldığında DevTest Labs Ayrıca, bir bildirim gönderebilirsiniz. 
+DevTest Labs aylık tahmini maliyet eğilimi grafiği daha sonra görüntüleyebileceğiniz bir harcama hedef ayarlayarak laboratuvarınızda maliyetleri daha iyi yönetmenize olanak tanır. Belirtilen hedef harcama veya Eşiğe ulaşıldığında DevTest Labs Ayrıca, bir bildirim gönderebilirsiniz. 
 
-1. Laboratuvarınızı 's üzerinde **genel bakış** bölmesinde, **yapılandırma ve ilkeleri**.
-1. Solda'nin altında **maliyet izleme**seçin **maliyet eğilimi**.
+1. Üzerinde Laboratuvar **genel bakış** bölmesinde **yapılandırması ve ilkelerini**.
+1. Soldaki altında **maliyet izleme**seçin **maliyet eğilimi**.
 
     ![Hedef düğmesi yönetme](./media/devtest-lab-configure-cost-management/cost-trend.png)
 
-1. İçinde **maliyet eğilimi** bölmesinde, **Yönet hedef**.
+1. İçinde **maliyet eğilimi** bölmesinde **Yönet hedef**.
 
     ![Hedef düğmesi yönetme](./media/devtest-lab-configure-cost-management/cost-trend-manage-target.png)
 
-1. Yönet hedef bölmesinde istenen harcama hedef ve eşikleri belirtin. Seçilen her eşiği maliyet eğilimi grafik veya bir Web kancası bildirim aracılığıyla bildirilir olup olmadığını da ayarlayabilirsiniz.
+1. Yönet hedef bölmesinde istediğiniz harcama hedef ve eşikleri belirtin. Seçilen her eşiği maliyet eğilimi grafiği veya bir Web kancası bildirim aracılığıyla bildirilir olmadığını de ayarlayabilirsiniz.
 
     ![Hedef bölmesinde yönetme](./media/devtest-lab-configure-cost-management/cost-trend-manage-target-pane.png)
 
-   - İzlenen maliyet hedefleri istediğiniz zaman aralığını seçin.
-      - **Aylık**: Maliyet hedefleri, her ay izlenir.
-      - **Sabit**: Maliyet hedefleri başlangıç tarihi ve bitiş tarihi alanları, belirttiğiniz tarih aralığı için izlenir. Genellikle, bu ne kadar süreyle projenizi çalışacak şekilde zamanlanır ile karşılık gelebilir.
-   - Belirtin bir **hedef maliyet**. Örneğin, bu, üzerinde bu Laboratuvar tanımladığınız dönemde harcadığı planladığınız ne kadar olabilir.
-   - Etkinleştirme veya devre dışı herhangi eşik seçin, istediğiniz bildirilen – % 25 – artışlarla %125 kadar belirtilen **hedef maliyet**.
+   - İzlenen maliyet hedefleri istediğiniz bir zaman aralığı seçin.
+      - **Aylık**: aylık maliyet hedefleri izlenir.
+      - **Sabit**: Maliyet hedefleri, başlangıç tarihi ve bitiş tarihi alanları belirttiğiniz tarih aralığı için izlenir. Genellikle, bu ne kadar süreyle projenizi çalışacak şekilde zamanlanırsa ile karşılık gelebilir.
+   - Belirtin bir **hedef maliyet**. Örneğin, bu bu Laboratuvar harcama tanımladığınız dönemdeki planlıyorsanız ne kadar olabilir.
+   - Etkinleştirme veya devre dışı herhangi bir eşik seçin, istediğiniz bildirilen – – % 25 artışlarla kadar kaynağının % 125, belirtilen **hedef maliyet**.
       - **Bildirim**: Bu eşiğine ulaşıldığında, belirttiğiniz bir Web kancası URL'si bildirilir.
-      - **Çizim grafikte**: Bu eşiğine ulaşıldığında sonuçları görüntüleyebilir, maliyet eğilimi grafikte açıklandığı gibi çizilir [aylık tahmini maliyet eğilim grafiği görüntüleme](#viewing-the-monthly-estimated-cost-trend-chart).
-   - İsterseniz **bildirim** eşiğine ulaşıldığında, bir Web kancası URL'si belirtmeniz gerekir. Maliyet tümleştirmeler bölmesinde seçin **bir tümleştirme eklemek için burayı tıklatın**.
+      - **Grafik çizim**: Bu eşiğine ulaşıldığında, sonuçları görüntüleyebilir, maliyet eğilimi grafikte açıklandığı gibi çizilir [aylık tahmini maliyet eğilimi grafiği görüntüleme](#viewing-the-monthly-estimated-cost-trend-chart).
+   - İsterseniz **bildirim** eşiğine ulaşıldığında, bir Web kancası URL'si belirtmeniz gerekir. Maliyet tümleştirmeler alanında seçin **bir tümleştirme eklemek için burayı tıklatın**.
 
-      Yapılandırma bildirim Bölmesi'nde bir Web kancası URL'si girin ve ardından **Tamam**.
+      Yapılandırma bildirim Bölmesi'nde bir Web kancası URL'sini girin ve ardından **Tamam**.
 
        ![Bildirim bölmesini Yapılandır](./media/devtest-lab-configure-cost-management/configure-notification.png)
 
       - Belirtirseniz **bildirim**, bir Web kancası URL'si tanımlamanız gerekir.
-      - Benzer şekilde, bir Web kancası URL'si tanımlarsanız ayarlamalısınız **bildirim** için **üzerinde** maliyet eşiği bölmesinde.
-      - Bir Web kancası burada girme önce oluşturmanız gerekir.  
+      - Benzer şekilde, bir Web kancası URL'si tanımlarsanız, ayarlamalısınız **bildirim** için **üzerinde** maliyet eşiği bölmesinde.
+      - Buraya girilmesi önce bir Web kancası oluşturmanız gerekir.  
 
-      Web kancası hakkında daha fazla bilgi için bkz: [bir Web kancası veya API Azure işlevi oluşturma](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+      Web kancaları hakkında daha fazla bilgi için bkz: [bir Web kancası veya API Azure işlevi oluşturma](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
  
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>İlgili blog gönderileri
 * [DevTest Labs kanalındaki maliyetinizi tutmak için iki daha fazla şey](https://blogs.msdn.microsoft.com/devtestlab/2016/06/21/keep-your-cost-on-track/)
-* [Neden eşikleri maliyet?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/11/why-cost-thresholds/)
+* [Neden maliyet eşiklerine?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/11/why-cost-thresholds/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha sonra deneyin gereken bazı şeyler şunlardır:
+Daha sonra deneyin gereken bazı noktalar şunlardır:
 
-* [Laboratuvar ilkeleri tanımlar](devtest-lab-set-lab-policy.md) -Laboratuvarınızı ve Vm'lerini nasıl kullanıldığı yönetmek için kullanılan çeşitli ilkeler ayarlama öğrenin. 
-* [Özel görüntü oluşturma](devtest-lab-create-template.md) - bir VM oluşturduğunuzda, özel bir görüntü veya bir Market görüntüsü olabilecek bir taban belirtin. Bu makalede, bir VHD dosyasından özel bir görüntü oluşturmak nasıl gösterilmektedir.
-* [Market görüntülerini yapılandırma](devtest-lab-configure-marketplace-images.md) - VMs Azure Market görüntülerini temel oluşturmayı DevTest Labs destekler. Bu makalede, varsa, Azure Market görüntülerini olabilecek belirtmek verilmektedir VM'ler bir laboratuar ortamında oluşturulurken kullanılır.
-* [Bir laboratuar ortamında bir VM oluşturma](devtest-lab-add-vm.md) -temel bir görüntüden bir VM oluşturmak nasıl gösterir (ya da özel veya Market) ve VM yapıları çalışmak nasıl.
+* [Laboratuvar ilkeleri tanımlama](devtest-lab-set-lab-policy.md) -Laboratuvarınızı ve Vm'lerini nasıl kullanıldığını yönetmek için çeşitli ilkeler ayarlama hakkında bilgi edinin. 
+* [Özel görüntü oluşturma](devtest-lab-create-template.md) - bir VM oluşturduğunuzda, belirttiğiniz bir temel veya özel bir görüntü, hem de bir Market görüntüsü olabilir. Bu makalede, bir VHD dosyasından bir özel görüntü oluşturma işlemini göstermektedir.
+* [Market görüntülerini yapılandırma](devtest-lab-configure-marketplace-images.md) - Azure Market görüntüleri temel alan VM'ler oluşturma DevTest Labs destekler. Bu makalede, varsa, Azure Market görüntüleri olabilecek belirtmek verilmektedir bir laboratuvarda VM oluşturulurken kullanılan.
+* [Bir laboratuvarda VM oluşturma](devtest-lab-add-vm.md) -bir temel görüntüden VM oluşturma işlemini gösterir (ya da özel veya Market) ve vm'nizde yapıları ile çalışma.
 

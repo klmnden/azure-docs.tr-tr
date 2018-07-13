@@ -1,6 +1,6 @@
 ---
-title: VM ve PaaS ortamlarında test için Azure DevTest Labs kullanın | Microsoft Docs
-description: Azure DevTest Labs VM ve PaaS test ortamı senaryoları için kullanmayı öğrenin.
+title: Sanal makine ve PaaS test ortamları için Azure DevTest Labs kullanın | Microsoft Docs
+description: Sanal makine ve PaaS test ortamı senaryoları için Azure DevTest Labs'i kullanmayı öğrenin.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,139 +14,139 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 58ab6d502ec5397604c562aedffddb9f48cbb699
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788399"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697407"
 ---
-# <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Sınama ortamlarında kullanım Azure DevTest Labs VM ve PaaS
+# <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Kullanım Azure DevTest Labs sanal makine ve PaaS için test ortamları
 
-Birçok temel senaryolar uygulamak için Azure DevTest Labs kullanabilirsiniz, ancak birincil senaryo Sınayıcılar için ana makineler için DevTest Labs kullanmakla ilgilidir. 
+Azure DevTest Labs’i çok sayıda önemli senaryoyu uygulamak için kullanabilirsiniz ancak başlıca senaryolardan biri, test uzmanları için makineleri barındırmak üzere DevTest Labs kullanmayı içerir. 
 
-Bu senaryoda, DevTest Labs şu avantajları sağlar:
+Bu senaryoda DevTest Labs şu avantajları sağlar:
 
-- Sınayıcılar hızlı bir şekilde yeniden kullanılabilir şablonlar ve yapıları kullanarak Windows ve Linux ortamlar sağlama tarafından kendi uygulamasının en son sürümünü test edebilirsiniz.
-- Sınayıcılar kendi yükleme birden çok test aracılarını sağlama tarafından testi yukarı ölçeklendirebilirsiniz.
+- Test uzmanları, yeniden kullanılabilir şablonları ve yapıtları kullanarak Windows ve Linux ortamlarını hızla sağlayabilir ve bu sayede uygulamalarının en son sürümünü test edebilir.
+- Test uzmanları birden fazla test aracısı sağlayarak yük testlerinin ölçeğini artırabilirler.
 - Yöneticiler, sağlayarak maliyetleri denetleyebilirsiniz:
-  - Sınayıcılar ihtiyaç duydukları olandan daha fazla VMs alınamıyor.
-  - Sanal makineleri ne zaman kullanılmıyor kapatılır.
+  - Test edenler istedikleri çok daha fazla VM alınamıyor.
+  - Vm'leri zaman kullanımda kapatılır.
 
-![DevTest Labs için eğitim kullanın](./media/devtest-lab-developer-lab/devtest-lab-developer-lab.png)
+![Eğitim için DevTest Labs kullanma](./media/devtest-lab-developer-lab/devtest-lab-developer-lab.png)
 
-Bu makalede, tester gereksinimleri ve bir laboratuvarı ayarlamanız için ayrıntılı adımlar izlemek için karşılamak üzere kullanılan çeşitli Azure DevTest Labs özellikler hakkında bilgi edinin.
+Bu makalede, bir laboratuvarı ayarlama izlemek için test edici gereksinimleri ve ayrıntılı adımlar karşılamak için kullanılan çeşitli Azure DevTest Labs özellikleri hakkında bilgi edinin.
 
-## <a name="implementing-test-environments-with-azure-devtest-labs"></a>Azure DevTest Labs içeren test ortamlarında uygulama
+## <a name="implementing-test-environments-with-azure-devtest-labs"></a>Azure DevTest Labs ile uygulama test ortamları
 1. **Laboratuvar oluşturma** 
    
-    Labs Azure DevTest Labs başlangıç noktasıdır. Bir laboratuvar oluşturduktan sonra hızlı bir şekilde, oluşturabilirsiniz VM görüntülerini tanımlama maliyetleri ve daha fazlasını denetlemek için ilkeler ayarlama Laboratuvar için kullanıcı (sınayıcılar) ekleme gibi görevleri gerçekleştirebilir.  
+    Labs Azure DevTest labs'deki başlangıç noktasıdır. Bir laboratuvar oluşturduktan sonra hızlı bir şekilde oluşturabileceğiniz VM görüntülerini tanımlama, maliyetleri ve daha fazlasını denetlemek için ilkeler ayarlama kullanıcı (test edenler) laboratuvara ekleme gibi görevleri gerçekleştirebilir.  
    
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Azure DevTest Labs'de Laboratuvar oluşturma](devtest-lab-create-lab.md) |Azure portalında Azure DevTest Labs'de Laboratuvar oluşturma öğrenin. |
-2. **Sanal makineleri hazır Market görüntülerini ve özel görüntüleri kullanarak dakikalar içinde oluşturma** 
+   | [Azure DevTest Labs'de Laboratuvar oluşturma](devtest-lab-create-lab.md) |Azure portalında Azure DevTest Labs'de Laboratuvar oluşturma konusunda bilgi edinin. |
+2. **VM hazır Market görüntüleri hem de özel görüntüleri kullanarak dakikalar içinde oluşturun.** 
    
-    Azure Marketi'nde görüntüler çok geniş bir yelpazedeki hazır görüntülerden seçer ve laboratuvara kullanılabilmesini. Hazır görüntüleri gereksinimlerinizi karşılamıyorsa, Laboratuvar hazır resim Laboratuvar özel görüntü olarak Azure marketi, ihtiyacınız olan tüm yazılım yükleme ve kaydetme VM kullanarak VM oluşturarak özel bir görüntü oluşturabilirsiniz.
+    Azure Market'te çok çeşitli görüntüleri hazır görüntülerini çekme ve Laboratuvardaki ayıklanarak. Kullanıma hazır görüntüler gereksinimlerinizi karşılamıyorsa, bir laboratuvar Azure Market, ihtiyacınız olan tüm yazılım yükleme ve kaydetme VM bir laboratuvara özel görüntü olarak kullanıma hazır bir görüntü kullanarak sanal makine oluşturarak, özel bir görüntü oluşturabilirsiniz.
 
-    Özel resimler kullanacaksa, oluşturmak ve görüntüleri dağıtmak için bir resim Fabrika kullanmayı düşünün. Bir görüntü Fabrika düzenli olarak oluşturur ve yapılandırılmış görüntülerinizin otomatik olarak dağıtan bir yapılandırma olarak kodu çözümüdür. Bu, temel işletim sistemiyle bir VM oluşturulduktan sonra sistem el ile yapılandırmak için gereken süreyi kaydeder.
+    Özel görüntüleri kullanarak bir görüntü factory oluşturup görüntülerinizi dağıtmak için kullanmayı düşünün. Bir görüntü fabrikası düzenli olarak oluşturan ve yapılandırılmış görüntülerinizin otomatik olarak dağıtır yapılandırma olarak kodu bir çözümdür. Bu, temel işletim sistemi ile bir VM oluşturulduktan sonra sistemi el ile yapılandırmak için gereken süreyi kaydeder.
   
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Azure Market görüntülerini yapılandırın](devtest-lab-configure-marketplace-images.md) |Beyaz liste Azure Market görüntülerini, yalnızca Sınayıcılar için istediğiniz görüntüleri seçim için kullanılabilir hale getirme öğrenin.|
-   | [Özel bir görüntü oluşturun](devtest-lab-create-template.md) |Sınayıcılar hızla özel görüntü kullanarak bir VM oluşturmak için ihtiyacınız olan yazılım yüklenerek özel bir görüntü oluşturun.|
-   | [Görüntü Fabrika hakkında bilgi edinin](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Bir görüntü Fabrika ayarlamak ve nasıl kullanılacağını açıklayan bir videoyu izleyin.|
+   | [Azure Market görüntülerini yapılandırma](devtest-lab-configure-marketplace-images.md) |Beyaz liste Azure Market görüntüleri, yalnızca test edenler için istediğiniz görüntüleri seçim için kullanılabilir hale getirme öğrenin.|
+   | [Özel görüntü oluşturma](devtest-lab-create-template.md) |Test edicileri özel görüntüyü kullanarak VM'yi hızla oluşturabilmeniz ihtiyacınız olan yazılımları önceden yükleyerek özel bir görüntü oluşturun.|
+   | [Görüntü factory hakkında bilgi edinin](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Ayarlama ve görüntü factory'yi açıklayan bir video izleyin.|
 
-3. **Test makinelerini için yeniden kullanılabilir şablonlar oluşturma** 
+3. **Test makinesi için yeniden kullanılabilir şablonları oluşturma** 
    
-    Azure DevTest Labs formülde bir VM oluşturmak için kullanılan varsayılan özellik değerleri listesidir. Görüntü, VM boyutu (CPU ve RAM birleşimi) ve bir sanal ağı seçerek laboratuvarda bir formül oluşturabilirsiniz. Her tester Laboratuvar formülde görebilir ve bir VM oluşturmak için kullanın. 
+    Azure DevTest labs'deki bir formül, bir VM oluşturmak için kullanılan varsayılan özellik değerleri listesidir. Görüntü, bir VM boyutu (CPU ve RAM birleşimi) ve bir sanal ağ'ı seçerek, laboratuvarda bir formül oluşturabilirsiniz. Her test edici bir laboratuvar formülü görebilir ve bir VM oluşturmak için bunu kullanın. 
    
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
-   
-   | Görev | Öğrenecekleriniz |
-   | --- | --- |
-   | [Sanal makineleri oluşturmak için DevTest Labs formüller yönetme](devtest-lab-manage-formulas.md) |Görüntü, VM boyutu (CPU ve RAM birleşimi) ve bir sanal ağ seçerek bir formül nasıl oluşturabileceğinizi öğrenin.|
-
-3. **Çoklu VM test ortamları oluşturma** 
-   
-    Azure Resource Manager şablonları altyapısı ve Azure çözümünüzü yapılandırmasını tanımlayın ve art arda birden çok test tutarlı bir durumda sanal makineleri dağıtmak için kullanabilirsiniz.
-
-    Azure PaaS kaynaklarına bir ortamda bir Resource Manager şablonunda sağlanabilir ve maliyet izlemesi görünür. Ancak, VM otomatik kapatma PaaS kaynaklarına geçerli değildir.
-
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kaynakları oluşturma](devtest-lab-create-environment-from-arm.md) |Tutarlı bir durumda birden çok VM test ortamınızı nasıl dağıtabileceğiniz hakkında bilgi edinin.|
+   | [Sanal makineler oluşturmak için DevTest Labs formülleri yönetme](devtest-lab-manage-formulas.md) |Görüntü, VM boyutu (CPU ve RAM birleşimi) ve bir sanal ağ seçerek bir formülü nasıl oluşturacağınızı öğrenin.|
 
-4. **Esnek VM özelleştirmeyi etkinleştirmek için yapıları oluşturma**
+3. **Çoklu VM ortamları oluşturma** 
+   
+    Azure Resource Manager şablonları, altyapı ve Azure çözümünüzü yapılandırmasını tanımlamak ve art arda birden çok test tutarlı bir durumda Vm'leri dağıtmak için kullanabilirsiniz.
 
-   Yapılar, dağıtmak ve bir VM sağlandıktan sonra Uygulamanızı yapılandırmak için kullanılır. Yapıtlar şunlar olabilir:
+    Azure PaaS kaynakları Resource Manager şablonundan bir ortamda sağlanabilir ve izleme maliyeti görünür. Ancak, VM otomatik kapatma PaaS kaynakları için geçerli değildir.
 
-   - Aracılar, Fiddler ve Visual Studio gibi VM - yüklemek istediğiniz araçları.
-   - Bir depoyu kopyalama gibi VM üzerinde-çalıştırmak istediğiniz eylemleri.
+    Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
+   
+   | Görev | Öğrenecekleriniz |
+   | --- | --- |
+   | [Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kaynakları oluşturma](devtest-lab-create-environment-from-arm.md) |Tutarlı bir durumda birden çok VM için kendi test ortamınıza nasıl dağıtabileceğiniz hakkında bilgi edinin.|
+
+4. **Esnek VM özelleştirmeyi etkinleştirmek için yapıtlar oluşturma**
+
+   Yapıtlar, VM sağlandıktan sonra Uygulamanızı yapılandırmak ve dağıtmak için kullanılır. Yapıtlar şunlar olabilir:
+
+   - Aracılar, fiddler'ı ve Visual Studio gibi - VM üzerinde yüklemek istediğiniz araçlar.
+   - Bir depoyu kopyalama gibi VM üzerinde-çalıştırmak istediğiniz eylemler.
    - Test etmek istediğiniz uygulamalar.
 
-   Birçok zaten kullanılabilir out-of--box ürünleridir. Ancak, özel gereksinimlerinizi karşılamak için daha fazla özelleştirme istiyorsanız, özel yapıtları oluşturabilirsiniz.
+   Kullanılabilir çıkış,-hazır birçok yapıtları zaten var. Ancak özel ihtiyaçlarınız için daha fazla özelleştirme isterseniz kendi özel yapıtlar oluşturabilirsiniz.
 
-   Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+   Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [DevTest Labs VM için özel yapılar oluşturma](devtest-lab-artifact-author.md) |Sanal makineler için kendi özel yapılar laboratuvarınızda oluşturun.|
-   | [Özel yapılar ve kullanmak için Azure Resource Manager şablonları Azure DevTest Labs'de depolamak için bir Git deposu ekleme](devtest-lab-add-artifact-repo.md) |Özel yapıtları kendi özel Git deposuna depolamayı öğrenin.|
+   | [DevTest Labs sanal makinenizin özel yapıtlar oluşturma](devtest-lab-artifact-author.md) |Sanal makineler için kendi özel yapıtlar Laboratuvarınızı oluşturun.|
+   | [Özel yapıtlar ve Azure Resource Manager şablonlarını kullanmak için Azure DevTest Labs'de depolamak için bir Git deposu ekleme](devtest-lab-add-artifact-repo.md) |Kendi özel Git deposunda özel yapıtlarınızı depolamayı öğrenin.|
 
-5. **Denetim maliyetleri**
+5. **Maliyetleri**
    
-    Azure DevTest Labs laboratuvarda bir test laboratuvarında tarafından oluşturulan VM'ler en büyük sayısını belirtmek için bir ilke ayarlamanıza olanak sağlar. 
+    Azure DevTest Labs Laboratuvardaki Laboratuvardaki test edici tarafından oluşturulan VM'ler en fazla sayısını belirtmek için bir ilke ayarlamanıza olanak tanır. 
    
-    Çalışma kümesi test ekibiniz varsa, zamanlama ve günün belirli bir zamanda tüm sanal makineleri durdurmak ve ardından bunları sonraki gün otomatik olarak yeniden istiyorsanız, laboratuar ortamında otomatik kapatma ve otomatik başlatma ilkeleri ayarlayarak, kolayca gerçekleştirebilirsiniz. 
+    Çalışma kümesi, test takımınız varsa, zamanlama ve günün belirli bir zamanda tüm sanal makineleri durdurmak ve ardından bunları sonraki gün otomatik olarak yeniden istiyorsanız, laboratuar ortamında otomatik kapatma ve otomatik başlatma ilkeleri ayarlayarak, kolayca gerçekleştirebilirsiniz. 
    
-    Uygulama geliştirme tamamlandığında, son olarak, tüm sanal makineleri aynı anda tek bir PowerShell Betiği çalıştırarak silebilirsiniz. 
+    Uygulama geliştirme tamamlandığında, son olarak, tüm VM'ler aynı anda tek bir PowerShell betiğini çalıştırarak silebilirsiniz. 
    
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Laboratuvar ilkelerini tanımlama](devtest-lab-set-lab-policy.md) |Laboratuar ortamında ilkeleri ayarlayarak maliyetleri denetler. |
-   | [Tüm Laboratuvar bir PowerShell komut dosyası kullanarak sanal makineleri silin](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Test tamamlandığında tek bir işlemde tüm labs silin.|
+   | [Laboratuvar ilkelerini tanımlama](devtest-lab-set-lab-policy.md) |Laboratuvar ilkeleri ayarlayarak maliyetleri denetleyin. |
+   | [Tüm Laboratuvar bir PowerShell Betiği kullanarak Vm'leri Sil](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Test tamamlandığında tek bir işlemde tüm labs silin.|
 
-1. **Sanal ağ için bir laboratuvar ekleme** 
+1. **Bir sanal ağ bir laboratuvara ekleme** 
    
-    Her bir laboratuvar oluşturulduğunda DevTest Labs yeni bir sanal ağ (VNET) oluşturur. Kendi VNET-Örneğin, ExpressRoute veya siteden siteye VPN kullanarak – yapılandırdıysanız, sanal makineleri oluşturulurken kullanılabilir olmasını sağlamak için Laboratuvarınızı ait sanal ağ ayarları bu VNET ekleyebilirsiniz.
+    DevTest Labs, her bir laboratuvar oluşturulduğunda yeni bir sanal ağ (VNET) oluşturur. Kendi sanal ağ – Örneğin, ExpressRoute veya siteden siteye VPN kullanarak – yapılandırdıysanız, böylece VM'ler oluşturulurken kullanılabilir, bu sanal ağ, Laboratuvar sanal ağ ayarları ekleyebilirsiniz.
 
-    Ayrıca, VM oluşturulduğunda, bir VM için bir etki alanına katılan bir Azure Active Directory etki alanı katılma yapıya kullanılabilir yoktur. 
+    Ayrıca, VM oluşturulduğunda, VM bir etki alanına katılan bir Azure Active Directory etki alanı birleşim yapıya kullanılabilir yoktur. 
    
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Azure DevTest Labs'de sanal ağ yapılandırma](devtest-lab-configure-vnet.md) |Azure portalını kullanarak Azure DevTest Labs içinde bir sanal ağ yapılandırma konusunda bilgi edinin.|
+   | [Azure DevTest Labs'de sanal ağ yapılandırma](devtest-lab-configure-vnet.md) |Azure portalını kullanarak Azure DevTest Labs sanal ağ yapılandırma konusunda bilgi edinin.|
 
-6. **Laboratuvar her tester ile paylaşma**
+6. **Laboratuvar her test edici ile paylaşma**
    
-    Labs, denetleyicilerle paylaşmanızı bir bağlantıyı kullanarak doğrudan erişilebilir. Sahip oldukları sürece bile bir Azure hesabına sahip sahip olmayan bir [Microsoft hesabı](devtest-lab-faq.md#what-is-a-microsoft-account). Sınayıcılar diğer test eden tarafından oluşturulan VM'ler göremezsiniz.  
+    Laboratuvarlar, test edicilerinizin ile paylaştığınız bir bağlantıyı kullanarak doğrudan erişilebilir. Sahip oldukları sürece Yöneticiler bile bir Azure hesabınızın olması gerekmez bir [Microsoft hesabı](devtest-lab-faq.md#what-is-a-microsoft-account). Test ediciler, diğer test edenler tarafından oluşturulan sanal makineler göremez.  
    
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Azure DevTest Labs laboratuarda bir tester ekleyin](devtest-lab-add-devtest-user.md) |Sınayıcılar için Laboratuvarınızı eklemek için Azure Portalı'nı kullanın.|
-   | [Sınayıcılar bir PowerShell Betiği kullanılarak laboratuvara ekleme](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Laboratuvarınızı ekleme edenlere otomatikleştirmek için PowerShell kullanın. |
-   | [Laboratuvar bağlantısını Al](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Nasıl sınayıcılar Laboratuvar köprü üzerinden doğrudan erişebileceğiniz öğrenin.|
+   | [Bir test eden Azure DevTest labs'deki bir laboratuvara ekleme](devtest-lab-add-devtest-user.md) |Laboratuvarınız için test edicileri eklemek için Azure portalını kullanın.|
+   | [Test edenler bir PowerShell betiğini kullanarak laboratuvara ekleme](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Laboratuvarınızı ekleme test edicilere otomatikleştirmek için PowerShell kullanın. |
+   | [Laboratuvar için bir bağlantı alma](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Nasıl test edenler bir laboratuvar köprü üzerinden doğrudan erişebilirsiniz öğrenin.|
 
-7. **Daha fazla takımlar için laboratuvar oluşturmayı otomatikleştirmek** 
+7. **Diğer takımları için laboratuvar oluşturmayı otomatikleştirme** 
    
-    Laboratuvar oluşturma, özel ayarlar bir Resource Manager şablonu oluşturma ve aynı labs yeniden oluşturmak için kullanma dahil olmak üzere otomatik hale getirebilirsiniz. 
+    Laboratuvar oluşturma, Resource Manager şablonu oluşturarak ve onu tekrar tekrar aynı Laboratuarları oluşturmak için kullanılarak özel ayarları da dahil olmak üzere otomatik hale getirebilirsiniz. 
    
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Resource Manager şablonu kullanarak bir laboratuvar oluşturma](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Labs Resource Manager şablonları kullanarak Azure DevTest Labs içinde oluşturun. |
+   | [Resource Manager şablonu kullanarak Laboratuvar oluşturma](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Resource Manager şablonlarını kullanarak Azure DevTest Labs laboratuvarlar oluşturun. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

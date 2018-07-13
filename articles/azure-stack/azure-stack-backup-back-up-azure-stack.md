@@ -1,6 +1,6 @@
 ---
-title: Azure yığın yedekleme | Microsoft Docs
-description: Yerinde yedeklemeyle Azure yığında bir talep üzerine yedekleme gerçekleştirin.
+title: Azure Stack yedekleme | Microsoft Docs
+description: İsteğe bağlı yedekleme yerinde yedekleme ile Azure Stack üzerinde gerçekleştirin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,43 +15,60 @@ ms.topic: article
 ms.date: 5/08/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: c2a6727692a7a74b3e5fe32de8800722a9ed91b5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2570423a3cae2a15f0cfd294f1d91e6730748f68
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075196"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972610"
 ---
-# <a name="back-up-azure-stack"></a>Azure yığınına yedekleyin
+# <a name="back-up-azure-stack"></a>Azure yığını yedekleme
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Yerinde yedeklemeyle Azure yığında bir talep üzerine yedekleme gerçekleştirin. Altyapı Yedekleme hizmetini etkinleştirmek gerekirse bkz [Azure yığınının Yönetim Portalı'ndan yedeklemeyi etkinleştir](azure-stack-backup-enable-backup-console.md).
+İsteğe bağlı yedekleme yerinde yedekleme ile Azure Stack üzerinde gerçekleştirin. PowerShell ortamını yapılandırma ile ilgili yönergeler için bkz: [Azure Stack için PowerShell yükleme ](azure-stack-powershell-install.md). Azure Stack'e oturum açmak için bkz: [işleci ortamı yapılandırmak ve Azure Stack için oturum açma](azure-stack-powershell-configure-admin.md).
 
-> [!Note]  
->  PowerShell ortamını yapılandırma ile ilgili yönergeler için bkz: [Azure yığını için PowerShell yükleme ](azure-stack-powershell-install.md).
+## <a name="start-azure-stack-backup"></a>Azure Stack yedekleme Başlat
 
-## <a name="start-azure-stack-backup"></a>Azure yığın Yedeklemeyi Başlat
-
-Yükseltilmiş bir istemi işleci yönetim ortamında ile Windows PowerShell'i açın ve aşağıdaki komutları çalıştırın:
+İlerleme durumunu izlemek için - AsJob değişkenle yeni bir yedekleme başlatmak için başlangıç AzSBackup kullanın. 
 
 ```powershell
-    Start-AzSBackup -Location $location.Name
+    $backupjob = Start-AzsBackup -Force -AsJob
+    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
 ```
+
+## <a name="confirm-backup-completed-via-powershell"></a>Yedekleme PowerShell tamamlandı onaylayın
+
+```powershell
+    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+```
+
+- Sonuç aşağıdaki çıktı gibi görünmelidir:
+
+  ```powershell
+      BackupDataVersion : 1.0.1
+      BackupId          : <backup ID>
+      RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
+      Status            : Succeeded
+      CreatedDateTime   : 7/6/2018 6:46:24 AM
+      TimeTakenToCreate : PT20M32.364138S
+      DeploymentID      : <deployment ID>
+      StampVersion      : 1.1807.0.41
+      OemVersion        : 
+      Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
+      Name              : local/<local name>
+      Type              : Microsoft.Backup.Admin/backupLocations/backups
+      Location          : local
+      Tags              : {}
+  ```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>Yedekleme Yönetim Portalı'nda tamamlandı onaylayın
 
-1. Azure yığın Yönetim Portalı'ndaki açmak [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
-2. Seçin **daha fazla hizmet** > **altyapı yedekleme**. Seçin **yapılandırma** içinde **altyapı yedekleme** dikey.
-3. Bul **adı** ve **tamamlanma tarihi** yedeğin **kullanılabilir yedeklemeleri** listesi.
-4. Doğrulama **durumu** olan **başarılı**.
-
-<!-- You can also confirm the backup completed from the administration portal. Navigate to `\MASBackup\<datetime>\<backupid>\BackupInfo.xml`
-
-In ‘Confirm backup completed’ section, the path at the end doesn’t make sense (ie relative to what, datetime format, etc?)
-\MASBackup\<datetime>\<backupid>\BackupInfo.xml -->
-
+1. Azure Stack Yönetim Portalı'ndaki açın [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+2. Seçin **diğer hizmetler** > **altyapı yedeklemesine**. Seçin **yapılandırma** içinde **altyapı yedeklemesine** dikey penceresi.
+3. Bulma **adı** ve **tamamlanma tarihi** yedeğin **kullanılabilir yedekler** listesi.
+4. Doğrulama **durumu** olduğu **başarılı**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bir veri kaybı olayından kurtarmak için iş akışı hakkında daha fazla bilgi edinin. Bkz: [geri dönülemez veri kaybına karşı kurtarmak](azure-stack-backup-recover-data.md).
+- Bir veri kaybı olayından kurtarmak için iş akışı hakkında daha fazla bilgi edinin. Bkz: [geri dönülemez veri kaybından kurtarma](azure-stack-backup-recover-data.md).

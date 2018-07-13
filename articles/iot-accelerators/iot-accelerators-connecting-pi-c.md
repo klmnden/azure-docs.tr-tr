@@ -1,6 +1,6 @@
 ---
-title: Sağlama C - Azure kullanarak Uzaktan izleme için Raspberry Pi'yi | Microsoft Docs
-description: C dilinde yazılmış bir uygulama kullanarak Uzaktan izleme Çözüm Hızlandırıcısı Raspberry Pi'yi aygıt bağlanmaya açıklar
+title: Raspberry Pi C - Azure'ı kullanarak Uzaktan izleme sağlama | Microsoft Docs
+description: C dilinde yazılmış bir Web uygulaması kullanarak Uzaktan izleme çözüm Hızlandırıcısını bir Raspberry Pi cihazın bağlanması açıklar
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,43 +9,43 @@ ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
 ms.openlocfilehash: 23e84a8d577bb1c4950de3acd76b0f8528551ae0
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735503"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611450"
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Uzaktan izleme Çözüm Hızlandırıcısı için (C) Raspberry Pi'yi Cihazınızı bağlama
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Raspberry Pi'yi Cihazınızı Uzaktan izleme çözüm hızlandırıcısına (C) bağlama
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Bu öğretici, fiziksel bir aygıtı için Uzaktan izleme Çözüm Hızlandırıcısı bağlanmak nasıl gösterir. Kısıtlanmış cihazlarda çalıştırılan en katıştırılmış uygulamalarında olduğu gibi Raspberry Pi'yi cihaz uygulaması için istemci kodu, c dilinde yazılır Bu öğreticide, Raspbian işletim sistemi çalıştıran Raspberry Pi'yi uygulamayı derleyin.
+Bu öğreticide, fiziksel bir cihazı Uzaktan izleme çözüm hızlandırıcısına bağlamayı gösterilmektedir. Kısıtlanmış cihazlarında çalışan en katıştırılmış uygulamalarında olduğu gibi Raspberry Pi cihaz uygulaması için istemci kodu c dilinde yazılan Bu öğreticide, Raspbian işletim sistemi çalıştıran Raspberry Pi üzerinde uygulama oluşturun.
 
 ### <a name="required-hardware"></a>Gerekli donanım
 
-Komut satırı Raspberry Pi'yi üzerinde uzaktan bağlanmak etkinleştirmek için bir masaüstü bilgisayar.
+Raspberry Pi komut satırında bilgisayarlarına uzaktan bağlanabilmelerini sağlamak için bir masaüstü bilgisayar.
 
-[Microsoft IOT Starter Kit Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) veya eşdeğer bileşenleri. Bu öğretici Seti'nden aşağıdaki öğeleri kullanır:
+[Microsoft IOT Starter Kit, Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) veya eşdeğer bileşenleri. Bu öğreticide setindeki aşağıdaki öğeleri kullanır:
 
-- Böğürtlenli Pi 3
-- MicroSD kartı (ile NOOBS)
-- Bir USB Mini kablosu
+- Raspberry Pi 3
+- (İle NOOBS) MicroSD kartı
+- Bir Mini USB kablosu
 - Ethernet kablosu
 
 ### <a name="required-desktop-software"></a>Gerekli masaüstü yazılımı
 
-Komut satırı Raspberry Pi'yi üzerinde uzaktan erişim sağlamak için Masaüstü makinenizde SSH istemcisi gerekir.
+Komut satırı Raspberry Pi üzerinde uzaktan erişim sağlamak için Masaüstü makinenizde SSH istemcisi gerekir.
 
 - Windows, bir SSH istemcisi içermez. Kullanmanızı öneririz [PuTTY](http://www.putty.org/).
-- Çoğu Linux dağıtımları ve Mac OS komut satırı SSH yardımcı programı içerir. Daha fazla bilgi için bkz: [SSH kullanarak Linux veya Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
+- Çoğu Linux dağıtımları ve MAC'te SSH komut satırı yardımcı programı içerir. Daha fazla bilgi için [SSH kullanarak Linux veya Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
-### <a name="required-raspberry-pi-software"></a>Gerekli Raspberry Pi'yi yazılım
+### <a name="required-raspberry-pi-software"></a>Raspberry Pi'yi yazılım gerekli
 
-Bu makalede, en son sürümünü yüklediğinizden varsayılmaktadır [Raspbian işletim sisteminde Raspberry Pi'yi](https://www.raspberrypi.org/learning/software-guide/quickstart/).
+Bu makalede, en son sürümünü yüklediğinizden varsayılır [Raspberry Pi'yi Raspbian OS'de](https://www.raspberrypi.org/learning/software-guide/quickstart/).
 
-Aşağıdaki adımlar, Raspberry Pi'yi Çözüm Hızlandırıcısı bağlayan bir C uygulaması oluşturmak için hazırlamak nasıl gösterir:
+Aşağıdaki adımları Raspberry Pi'yi çözüm hızlandırıcısına bağlanan bir C uygulaması oluşturmak için hazırlama işlemini gösterir:
 
-1. Kullanarak Raspberry Pi'yi bağlanmak **ssh**. Daha fazla bilgi için bkz: [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) üzerinde [Raspberry Pi'yi Web sitesi](https://www.raspberrypi.org/).
+1. Kullanarak, Raspberry Pi bağlanmak **ssh**. Daha fazla bilgi için [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) üzerinde [Raspberry Pi Web sitesi](https://www.raspberrypi.org/).
 
 1. Raspberry Pi'yi güncelleştirmek için aşağıdaki komutu kullanın:
 
@@ -53,13 +53,13 @@ Aşağıdaki adımlar, Raspberry Pi'yi Çözüm Hızlandırıcısı bağlayan bi
     sudo apt-get update
     ```
 
-1. Gerekli geliştirme araçları ve kitaplıkları, Raspberry Pi'yi eklemek için aşağıdaki komutu kullanın:
+1. Raspberry Pi'yi gerekli geliştirme araçları ve kitaplıkları eklemek için aşağıdaki komutu kullanın:
 
     ```sh
     sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. Karşıdan yükle, yapı ve IOT Hub istemci kitaplıkları, Raspberry Pi'yi yüklemek için aşağıdaki komutları kullanın:
+1. İndirme, oluşturun ve IOT Hub istemci kitaplıkları Raspberry Pi'yi yüklemek için aşağıdaki komutları kullanın:
 
     ```sh
     cd ~
@@ -73,9 +73,9 @@ Aşağıdaki adımlar, Raspberry Pi'yi Çözüm Hızlandırıcısı bağlayan bi
 
 ## <a name="create-a-project"></a>Proje oluşturma
 
-Kullanarak aşağıdaki adımları tamamlayın **ssh** Raspberry Pi'yi bağlantı:
+Kullanarak aşağıdaki adımları tamamlayın **ssh** Raspberry Pi'yi bağlantısı:
 
-1. Adlı bir klasör oluşturun `remote_monitoring` Raspberry Pi'yi, ev klasöründedir. Kabuğunuzu bu klasöre gidin:
+1. Adlı bir klasör oluşturun `remote_monitoring` giriş klasörünüzde Raspberry Pi üzerinde. Kabuğunuz bu klasöre gidin:
 
     ```sh
     cd ~
@@ -83,9 +83,9 @@ Kullanarak aşağıdaki adımları tamamlayın **ssh** Raspberry Pi'yi bağlant�
     cd remote_monitoring
     ```
 
-1. Dört dosyaları oluşturma **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, ve **CMakeLists.txt** içinde `remote_monitoring` klasör.
+1. Dört dosyaları oluşturmak **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, ve **CMakeLists.txt** içinde `remote_monitoring` klasör.
 
-1. Bir metin düzenleyicisinde açın **remote_monitoring.c** dosya. Ya da kullanmak Raspberry Pi'yi üzerinde **nano** veya **VI** metin düzenleyici. Aşağıdaki `#include` deyimlerini ekleyin:
+1. Bir metin düzenleyicisinde açın **remote_monitoring.c** dosya. Raspberry Pi üzerinde kullanabilirsiniz **nano** veya **VI** metin düzenleyici. Aşağıdaki `#include` deyimlerini ekleyin:
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -102,7 +102,7 @@ Kullanarak aşağıdaki adımları tamamlayın **ssh** Raspberry Pi'yi bağlant�
 
 Kaydet **remote_monitoring.c** dosya ve düzenleyiciden çıkın.
 
-## <a name="add-code-to-run-the-app"></a>Uygulamayı çalıştırmak için kod ekleme
+## <a name="add-code-to-run-the-app"></a>Uygulamayı çalıştırmak için kod ekleyin
 
 Bir metin düzenleyicisinde açın **remote_monitoring.h** dosya. Aşağıdaki kodu ekleyin:
 
@@ -129,11 +129,11 @@ Kaydet **main.c** dosya ve düzenleyiciden çıkın.
 
 ## <a name="build-and-run-the-application"></a>Uygulamayı derleme ve çalıştırma
 
-Aşağıdaki adımlar nasıl kullanılacağını açıklamaktadır *CMake* istemci Uygulamanızı yapılandırmak için.
+Aşağıdaki adımları nasıl kullanılacağını açıklayan *CMake* istemci uygulamanızı oluşturmak için.
 
-1. Bir metin düzenleyicisinde açın **CMakeLists.txt** dosyasını `remote_monitoring` klasör.
+1. Bir metin düzenleyicisinde açın **CMakeLists.txt** dosyası `remote_monitoring` klasör.
 
-1. İstemci uygulamanızı oluşturmak nasıl tanımlamak için aşağıdaki yönergeleri ekleyin:
+1. İstemci uygulamanızı nasıl tanımlamak için aşağıdaki yönergeleri ekleyin:
 
     ```cmake
     macro(compileAsC99)
@@ -183,7 +183,7 @@ Aşağıdaki adımlar nasıl kullanılacağını açıklamaktadır *CMake* istem
 
 1. Kaydet **CMakeLists.txt** dosya ve düzenleyiciden çıkın.
 
-1. İçinde `remote_monitoring` klasörünü depolamak için bir klasör oluşturun *olun* CMake oluşturur dosyaları. Ardından çalıştırın **cmake** ve **olun** gibi komutlar:
+1. İçinde `remote_monitoring` klasörünü depolamak için bir klasör oluşturun *olun* CMake oluşturan dosyaları. Ardından çalıştırın **cmake** ve **olun** gibi komutlar:
 
     ```sh
     mkdir cmake
@@ -192,7 +192,7 @@ Aşağıdaki adımlar nasıl kullanılacağını açıklamaktadır *CMake* istem
     make
     ```
 
-1. İstemci uygulaması çalıştırın ve IOT Hub'ına telemetri gönder:
+1. İstemci uygulamasını çalıştırın ve IOT Hub'ına telemetri gönderme:
 
     ```sh
     ./sample_app

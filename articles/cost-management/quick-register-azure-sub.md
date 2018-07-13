@@ -11,11 +11,11 @@ ms.custom: ''
 ms.service: cost-management
 manager: dougeby
 ms.openlocfilehash: 254a7f2904a63381a4eeec02ee32b19890703ae1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296639"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38310114"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Ayrı bir Azure aboneliğini kaydetme ve maliyet verilerini görüntüleme
 

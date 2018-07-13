@@ -1,6 +1,6 @@
 ---
-title: Cihaz üretici yazılımı güncelleştirme ile Azure IOT hub'ı (Java/Java) | Microsoft Docs
-description: Cihaz Yönetimi Azure IOT hub'ına aygıt üretici yazılımı güncelleştirmesi başlatmak için nasıl kullanılacağını. Sanal cihaz uygulaması uygulamak ve bellenim güncelleştirme tetikleyen bir hizmet uygulaması uygulamak için Azure IOT cihaz SDK'sı Java için kullanın.
+title: Azure IOT hub'ı (Java/Java) ile cihaz üretici yazılımını güncelleştirme | Microsoft Docs
+description: Cihaz üretici yazılımı güncelleştirme başlatmak için Azure IOT Hub cihaz Yönetimi kullanma Bir sanal cihaz uygulaması uygulayın ve üretici yazılımı güncelleştirmesini tetikler bir hizmet uygulaması uygulamak için Azure IOT cihaz SDK'sı için Java kullanın.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -10,29 +10,29 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: dobett
 ms.openlocfilehash: 5991615bca26749e1f138b561260108f8bcf2646
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634616"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611336"
 ---
-# <a name="use-device-management-to-initiate-a-device-firmware-update-javajava"></a>Bir cihaz üretici yazılımı güncelleştirmesi (Java/Java) başlatmak için cihaz Yönetimi'ni kullanın
+# <a name="use-device-management-to-initiate-a-device-firmware-update-javajava"></a>Cihaz üretici yazılımını güncelleştirme (Java/Java) başlatmak için cihaz Yönetimi'ni kullanın
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-İçinde [aygıt Management'i kullanmaya başlama] [ lnk-dm-getstarted] Öğreticisi, nasıl kullanılacağını gördüğünüz [cihaz çifti] [ lnk-devtwin] ve [doğrudan yöntemleri ] [ lnk-c2dmethod] temelleri uzaktan bir aygıt yeniden başlatma. Bu öğretici aynı IOT hub'ı temelleri kullanır ve bir uçtan uca sanal üretici yazılımı güncelleştirme yapmak nasıl gösterir.  Bu desen bellenim güncelleştirme uygulaması için kullanılan [Raspberry Pi'yi cihaz uygulaması örnek][lnk-rpi-implementation].
+İçinde [cihaz yönetimini kullanmaya başlama] [ lnk-dm-getstarted] eğitmen, nasıl kullanılacağını gördüğünüz [cihaz ikizi] [ lnk-devtwin] ve [doğrudan yöntemler ] [ lnk-c2dmethod] ilkel bir cihazı Uzaktan yeniden başlatmak için. Bu öğretici aynı IOT hub'ı temelleri kullanır ve uçtan uca sanal üretici yazılımı güncelleştirme işlemini gösterir.  Bu düzen üretici yazılımı güncelleştirme uygulaması için kullanılan [Raspberry Pi cihaz uygulama örnek][lnk-rpi-implementation].
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 
-* Çağıran bir Java konsol uygulaması oluşturma **firmwareUpdate** yöntemi, IOT hub'ı aracılığıyla sanal cihaz uygulamasının üzerinde doğrudan.
-* Uygular ve cihaz benzetim yapan bir Java konsol uygulaması oluşturma **firmwareUpdate** doğrudan yöntemi. Bu yöntem bellenim görüntüsünü karşıdan yüklemek için bekleyeceği, bellenim görüntüyü indirir ve son bellenim görüntü geçerli bir çok aşama işlemi başlatır. Güncelleştirme her aşaması sırasında aygıt ilerlemesini bildirmek için bildirilen özelliklerini kullanır.
+* Çağıran bir Java konsol uygulaması oluşturacaksınız **firmwareUpdate** üzerinde sanal cihaz uygulamasının, IOT hub'ı aracılığıyla doğrudan yöntemi.
+* Uygular ve cihaza benzetim yapan bir Java konsol uygulaması oluşturma **firmwareUpdate** doğrudan yöntemi. Bu yöntem, üretici yazılımı görüntüsünü indirmeye bekler, üretici yazılımı görüntüsünü indirir ve son olarak üretici yazılımı görüntüsünü geçerlidir çok aşamalı bir işlem başlatır. Güncelleştirmenin her aşamasında cihaz ilerlemesini bildirmek üzere bildirilen özellikleri kullanır.
 
-Bu öğreticinin sonunda iki Java konsol uygulamaları vardır:
+Bu öğreticinin sonunda, iki Java konsol uygulamanız olacak:
 
-**Bellenim güncelleştirme**, sanal cihaz üzerinde doğrudan bir yöntem çağırır, yanıt ve düzenli aralıklarla görüntüler bildirilen özelliği güncelleştirmeleri
+**üretici yazılımı güncelleştirmesi**, sanal cihaz üzerinde doğrudan bir yöntem çağırır, yanıt ve düzenli aralıklarla görüntüler bildirilen özellik güncelleştirmeleri
 
-**simulated-device**, daha önce oluşturulan cihaz kimliğiyle IOT hub'ınıza bağlanır, firmwareUpdate doğrudan yöntem çağrısı alır ve bellenim güncelleştirme benzetimi çalıştırır
+**simulated-device**, daha önce oluşturulan cihaz kimliğiyle IOT hub'ınıza bağlanır, firmwareUpdate doğrudan yöntem çağrısı alır ve bir üretici yazılımı güncelleştirme simülasyonu çalıştırır
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -44,18 +44,18 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Doğrudan bir yöntem kullanarak aygıt bir uzak bellenim güncelleştirme Tetikle
-Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Java konsol uygulaması oluşturun. Uygulama güncelleştirme başlatmak için doğrudan bir yöntem kullanır ve etkin bellenim güncelleştirme durumunu düzenli aralıklarla almak için cihaz çifti sorgularını kullanır.
+## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Bir doğrudan yöntem kullanarak cihaz üzerinde bir uzak üretici yazılımı güncelleştirmesini tetikleme
+Bu bölümde, bir cihazda uzak üretici yazılımı güncelleştirme başlatan bir Java konsol uygulaması oluşturun. Uygulamayı bir doğrudan yöntem güncelleştirmeyi başlatmak için ve cihaz çifti sorguları etkin üretici yazılımı güncelleştirme durumunu düzenli aralıklarla almak için kullanır.
 
 1. FW-get-started adlı boş bir klasör oluşturun.
 
-1. Fw-get-started klasöründe adlı bir Maven projesi oluşturun **bellenim güncelleştirme** , komut isteminde aşağıdaki komutu kullanarak. Bunun tek ve uzun bir komut olduğunu unutmayın:
+1. Fw-get-started klasöründe adlı bir Maven projesi oluşturun **üretici yazılımı güncelleştirmesi** komut isteminizde aşağıdaki komutu kullanarak. Bunun tek ve uzun bir komut olduğunu unutmayın:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=firmware-update -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. Komut isteminizde bellenim güncelleştirme klasöre gidin.
+1. Komut isteminizde üretici yazılımı güncelleştirmesi klasöre gidin.
 
-1. Bir metin düzenleyicisi kullanarak, bellenim güncelleştirme klasöründeki pom.xml dosyasını açın ve aşağıdaki bağımlılığı eklemek **bağımlılıkları** düğümü. Bu bağımlılık, IOT hub ile iletişim kurmak için uygulamanızda IOT-service-client paketini kullanmanıza olanak sağlar:
+1. Bir metin düzenleyicisi kullanarak, üretici yazılımı güncelleştirmesi klasöründeki pom.xml dosyasını açın ve aşağıdaki bağımlılığı ekleyin **bağımlılıkları** düğümü. Bu bağımlılık, IOT hub ile iletişim kurmak için uygulamanızda IOT-service-client paketini kullanmanıza olanak sağlar:
 
     ```xml
     <dependency>
@@ -67,9 +67,9 @@ Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Java k
     ```
 
     > [!NOTE]
-    > En son sürümü için kontrol edebilirsiniz **IOT hizmeti istemcisi** kullanarak [Maven arama](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > En son sürümünü kontrol **IOT hizmeti istemcisi** kullanarak [Maven arama](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Aşağıdakileri ekleyin **yapı** düğümünden sonraki **bağımlılıkları** düğümü. Bu yapılandırma, uygulamanızı oluşturmak için Java 1.8 kullanmak için Maven bildirir:
+1. Aşağıdaki **derleme** düğümünün sonra **bağımlılıkları** düğümü. Bu yapılandırma, uygulama oluşturmak için Java 1.8 kullanmak için Maven bildirir:
 
     ```xml
     <build>
@@ -104,7 +104,7 @@ Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Java k
     import java.util.concurrent.TimeUnit;
     ```
 
-1. Aşağıdaki sınıf düzeyi değişkenleri **App** sınıfına ekleyin. Değiştir **{youriothubconnectionstring}** , not ettiğiniz, IOT hub bağlantı dizesine sahip *IOT Hub oluşturma* bölümü:
+1. Aşağıdaki sınıf düzeyi değişkenleri **App** sınıfına ekleyin. Değiştirin **{youriothubconnectionstring}** not ettiğiniz IOT hub bağlantı dizenizle *IOT Hub oluşturma* bölümü:
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -115,7 +115,7 @@ Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Java k
     private static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
     ```
 
-1. Bildirilen özellikleri cihaz çifti okuyan bir yöntem uygulamak için aşağıdakileri ekleyin **uygulama** sınıfı:
+1. Bildirilen özellikler cihaz ikizinden okuyan bir yöntem uygulamak için aşağıdaki ekleyin **uygulama** sınıfı:
 
     ```java
     public static void ShowReportedProperties() 
@@ -168,13 +168,13 @@ Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Java k
     }
     ```
 
-1. İmzası değiştirme **ana** aşağıdaki özel durumlar oluşturma yöntemi:
+1. Değişiklik imzası **ana** aşağıdaki özel durumlar oluşturan yöntemi:
 
     ```java
     public static void main( String[] args ) throws IOException
     ```
 
-1. Sanal cihaz için firmwareUpdate doğrudan yöntemini çağırmak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. Sanal cihaz üzerinde firmwareUpdate doğrudan yöntem çağırma için aşağıdaki kodu ekleyin. **ana** yöntemi:
 
     ```java
     DeviceMethod methodClient = DeviceMethod.createFromConnectionString(iotHubConnectionString);
@@ -202,13 +202,13 @@ Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Java k
     }
     ```
 
-1. Sanal cihaz bildirilen özelliklerinden yoklamak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. Bildirilen özellikler sanal CİHAZDAN yoklamak için aşağıdaki kodu ekleyin. **ana** yöntemi:
 
     ```java
     ShowReportedProperties();
     ```
 
-1. Uygulamayı durdurun sağlamak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. Uygulamayı durdurun sağlamak için aşağıdaki kodu ekleyin. **ana** yöntemi:
 
     ```java
     System.out.println("Press ENTER to exit.");
@@ -218,20 +218,20 @@ Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Java k
 
 1. Firmware-update\src\main\java\com\mycompany\app\App.java dosyasını kaydedip kapatın.
 
-1. Yapı **bellenim güncelleştirme** arka uç uygulama ve olan hataları düzeltin. Komut isteminde, bellenim güncelleştirme klasöre gidin ve aşağıdaki komutu çalıştırın:
+1. Derleme **üretici yazılımı güncelleştirmesi** arka uç uygulaması ve olan hataları düzeltin. Komut isteminizde üretici yazılımı güncelleştirmesi klasöre gidin ve aşağıdaki komutu çalıştırın:
 
     `mvn clean package -DskipTests`
 
-## <a name="simulate-a-device-to-handle-direct-method-calls"></a>Doğrudan yöntem çağrıları işlemek için bir cihazın benzetimini
-Bu bölümde, firmwareUpdate doğrudan yöntemi alabileceği bir Java konsol sanal cihaz uygulaması oluşturun. Uygulama daha sonra durum iletişim kurmak için reportedProperties kullanarak ürün yazılımı güncelleştirmesi benzetimini yapmak için çok durumlu bir işlem çalıştırır.
+## <a name="simulate-a-device-to-handle-direct-method-calls"></a>Doğrudan yöntem çağrıları işlemek için bir cihazın benzetimini gerçekleştirme
+Bu bölümde, firmwareUpdate doğrudan yöntem alabileceği bir Java konsol sanal cihaz uygulaması oluşturun. Uygulama durumu iletişim kurmak için reportedProperties kullanarak üretici yazılımı güncelleştirmesi benzetimini yapmak için çok durumlu bir işlem yapması sonra çalışır.
 
-1. Fw-get-started klasöründe adlı bir Maven projesi oluşturun **simulated-device** , komut isteminde aşağıdaki komutu kullanarak. Bunun tek ve uzun bir komut olduğunu unutmayın:
+1. Fw-get-started klasöründe adlı bir Maven projesi oluşturun **simulated-device** komut isteminizde aşağıdaki komutu kullanarak. Bunun tek ve uzun bir komut olduğunu unutmayın:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
 1. Komut isteminizde simulated-device klasörüne gidin.
 
-1. Bir metin düzenleyicisi kullanarak, bellenim güncelleştirme klasöründeki pom.xml dosyasını açın ve aşağıdaki bağımlılığı eklemek **bağımlılıkları** düğümü. Bu bağımlılık, IOT hub ile iletişim kurmak için uygulamanızda IOT-service-client paketini kullanmanıza olanak sağlar:
+1. Bir metin düzenleyicisi kullanarak, üretici yazılımı güncelleştirmesi klasöründeki pom.xml dosyasını açın ve aşağıdaki bağımlılığı ekleyin **bağımlılıkları** düğümü. Bu bağımlılık, IOT hub ile iletişim kurmak için uygulamanızda IOT-service-client paketini kullanmanıza olanak sağlar:
 
     ```xml
     <dependency>
@@ -243,9 +243,9 @@ Bu bölümde, firmwareUpdate doğrudan yöntemi alabileceği bir Java konsol san
     ```
 
     > [!NOTE]
-    > En son sürümü için kontrol edebilirsiniz **IOT cihaz istemci** kullanarak [Maven arama](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > En son sürümünü kontrol **IOT cihaz istemcisi** kullanarak [Maven arama](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Aşağıdakileri ekleyin **yapı** düğümünden sonraki **bağımlılıkları** düğümü. Bu yapılandırma, uygulamanızı oluşturmak için Java 1.8 kullanmak için Maven bildirir:
+1. Aşağıdaki **derleme** düğümünün sonra **bağımlılıkları** düğümü. Bu yapılandırma, uygulama oluşturmak için Java 1.8 kullanmak için Maven bildirir:
 
     ```xml
     <build>
@@ -282,7 +282,7 @@ Bu bölümde, firmwareUpdate doğrudan yöntemi alabileceği bir Java konsol san
     import java.util.HashMap;
     ```
 
-1. Aşağıdaki sınıf düzeyi değişkenleri **App** sınıfına ekleyin. Değiştir **{yourdeviceconnectionstring}** , not ettiğiniz aygıt bağlantı dizenizi ile *bir cihaz kimliği oluşturma* bölümü:
+1. Aşağıdaki sınıf düzeyi değişkenleri **App** sınıfına ekleyin. Değiştirin **{yourdeviceconnectionstring}** not ettiğiniz cihaz bağlantısı dizeniz ile *bir cihaz kimliği oluşturma* bölümü:
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -295,7 +295,7 @@ Bu bölümde, firmwareUpdate doğrudan yöntemi alabileceği bir Java konsol san
     private static String downloadURL = "unknown";
     ```
 
-1. Doğrudan yöntemi işlevselliği uygulamak için aşağıdaki iç içe geçmiş sınıflar ekleyerek geri aramalar sağlamak **uygulama** sınıfı:
+1. Doğrudan yöntem işlevselliği uygulamak için geri aramaları için aşağıdaki iç içe geçmiş sınıflar ekleyerek sağlamak **uygulama** sınıfı:
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -338,7 +338,7 @@ Bu bölümde, firmwareUpdate doğrudan yöntemi alabileceği bir Java konsol san
     }
     ```
 
-1. Cihaz çifti işlevlerini uygulamak için aşağıdaki iç içe geçmiş sınıflar ekleyerek geri aramalar sağlamak **uygulama** sınıfı:
+1. Cihaz ikizi işlevselliği uygulamak için geri aramaları için aşağıdaki iç içe geçmiş sınıflar ekleyerek sağlamak **uygulama** sınıfı:
 
     ```java
     protected static class DeviceTwinStatusCallback implements IotHubEventCallback
@@ -358,7 +358,7 @@ Bu bölümde, firmwareUpdate doğrudan yöntemi alabileceği bir Java konsol san
     }
     ```
 
-1. Bellenim güncelleştirme uygulamak için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı:
+1. Üretici yazılımı güncelleştirme uygulamak için aşağıdaki iç içe geçmiş Sınıf Ekle **uygulama** sınıfı:
 
     ```java
     protected static class FirmwareUpdateThread implements Runnable {
@@ -415,13 +415,13 @@ Bu bölümde, firmwareUpdate doğrudan yöntemi alabileceği bir Java konsol san
     }
     ```
 
-1. İmzası değiştirme **ana** aşağıdaki özel durumlar oluşturma yöntemi:
+1. Değişiklik imzası **ana** aşağıdaki özel durumlar oluşturan yöntemi:
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-1. Doğrudan yöntemleri ve cihaz çiftlerini yordamı başlatmak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. Cihaz ikizlerini yordamı ve doğrudan yöntemler başlatmak için aşağıdaki kodu ekleyin. **ana** yöntemi:
 
     ```java
     client = new DeviceClient(connString, protocol);
@@ -441,7 +441,7 @@ Bu bölümde, firmwareUpdate doğrudan yöntemi alabileceği bir Java konsol san
     }
     ```
 
-1. Uygulamayı durdurun sağlamak üzere sonuna aşağıdaki kodu ekleyin **ana** yöntemi:
+1. Uygulamayı durdurun sağlamak için sonuna aşağıdaki kodu ekleyin **ana** yöntemi:
 
     ```java
     System.out.println("Press any key to exit...");
@@ -454,29 +454,29 @@ Bu bölümde, firmwareUpdate doğrudan yöntemi alabileceği bir Java konsol san
 
 1. Simulated-device\src\main\java\com\mycompany\app\App.java dosyasını kaydedip kapatın.
 
-1. Yapı **simulated-device** uygulama ve olan hataları düzeltin. Komut isteminde, simulated-device klasörüne gidin ve aşağıdaki komutu çalıştırın:
+1. Derleme **simulated-device** uygulama ve olan hataları düzeltin. Komut isteminizde simulated-device klasörüne gidin ve aşağıdaki komutu çalıştırın:
 
     `mvn clean package -DskipTests`
 
 ## <a name="run-the-apps"></a>Uygulamaları çalıştırma
 Şimdi uygulamaları çalıştırmaya hazırsınız.
 
-1. Bir komut isteminde **simulated-device** klasörü, bellenim güncelleştirme doğrudan yöntemi için dinleme başlamak için aşağıdaki komutu çalıştırın.
+1. Bir komut isteminde **simulated-device** klasörü, üretici yazılımı güncelleştirme doğrudan yöntemi için dinleme başlamak için aşağıdaki komutu çalıştırın.
    
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-1. Bir komut isteminde **bellenim güncelleştirme** klasörü, bellenim güncelleştirme çağırma ve sanal Cihazınızı IOT hub'ınızı üzerinde cihaz çiftlerini sorgulamak için aşağıdaki komutu çalıştırın:
+1. Bir komut isteminde **üretici yazılımı güncelleştirmesi** klasörü, üretici yazılımı güncelleştirmesi çağırmak ve sanal cihazınızdan IOT hub'ınız üzerinde cihaz çiftlerini sorgulamak için aşağıdaki komutu çalıştırın:
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-3. Konsolunda doğrudan yöntemi yanıtlama sanal cihaz görebilirsiniz.
+3. Sanal cihazı bir doğrudan yöntem konsolunda yanıt verme görebilirsiniz.
 
-    ![Bellenim başarıyla güncelleştirildi][img-fwupdate]
+    ![Üretici yazılımı başarıyla güncelleştirildi][img-fwupdate]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, doğrudan bir yöntem bir cihazda uzaktan Bellenim güncelleştirmesini tetiklemek için bildirilen özellikleri bellenim güncelleştirme durumunu izlemek için kullanılır ve.
+Bu öğreticide, bir cihazda bir uzak üretici yazılımı güncelleştirmesini tetikleme için kullanılan bir doğrudan yöntem ve bildirilen özellikleri üretici yazılımı güncelleştirme durumunu izlemek için kullanılır.
 
-Çözüm ve zamanlama yöntemini çağıran birden fazla cihazda, IOT genişletmek öğrenmek için bkz: [zamanlama ve yayın işleri] [ lnk-tutorial-jobs] Öğreticisi.
+IOT çözümü ve zamanlama yöntemi çağıran birden çok cihazda genişletmek öğrenmek için bkz [işleri zamanlama ve yayınlama] [ lnk-tutorial-jobs] öğretici.
 
 <!-- images -->
 [img-fwupdate]: media/iot-hub-java-java-firmware-update/firmwareUpdated.png

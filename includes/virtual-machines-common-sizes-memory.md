@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 83dbe4b7bad8935e7d047a06d6d01ca74329027d
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: d7cae11314876bf07b9fcf3d3632a9f42b378626
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906652"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38945416"
 ---
 Bellek, ilişkisel veritabanı sunucuları, Orta veya büyük boyutlu önbellekler ve bellek içi analiz için harika olan yüksek bellek CPU oranı VM boyutları teklifi en iyi duruma getirilmiş. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra depolama aktarım hızı ve ağ bant genişliği için bu gruplandırma her boyutundaki sayısı hakkında bilgi sağlar. 
 
@@ -97,20 +97,20 @@ Yazma hızlandırıcı: [desteklenir](https://docs.microsoft.com/en-us/azure/vir
 
 | Boyut            | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10.000 / 100 (793)  | 5000 / 125 | 4 / 2.000 |
-| M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20.000 / 200 (1,587) | 10.000/250 | 8 / 4000 |
+| İşler için Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10.000 / 100 (793)  | 5000 / 125 | 4 / 2.000 |
+| İşler için Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20.000 / 200 (1,587) | 10.000/250 | 8 / 4000 |
 | İşler için standart_m32ts | 32 | 192    | 1,024 | 32 | 40.000 / 400 (3,174) | 20.000/500 | 8 / 8,000 |
 | İşler için standart_m32ls | 32 | 256    | 1,024 | 32 | 40.000 / 400 (3,174) | 20.000/500 | 8 / 8,000 |
-| M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1,024 | 32 | 40.000 / 400 (3,174) | 20.000/500 | 8 / 8,000 |
+| İşler için Standard_M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1,024 | 32 | 40.000 / 400 (3,174) | 20.000/500 | 8 / 8,000 |
 | İşler için standart_m64s  | 64 | 1,024   | 2.048 | 64 | 80.000 / 800 (6,348)| 40.000/1000 | 8 / 16,000          |
-|İşler için standart_m64ls  | 64 | 512    | 2.048 | 64 | 80.000 / 800 (6,348) | 40.000/1000 | 8 / 16,000 |
-| İşler için standart_m64ms&nbsp;<sup>3</sup>  | 64   | 1,792 | 2.048 | 64 | 80.000 / 800 (6,348)| 40.000/1000 | 8 / 160,00          |
+| İşler için standart_m64ls  | 64 | 512    | 2.048 | 64 | 80.000 / 800 (6,348) | 40.000/1000 | 8 / 16,000 |
+| İşler için standart_m64ms&nbsp;<sup>3</sup>  | 64   | 1,792 | 2.048 | 64 | 80.000 / 800 (6,348)| 40.000/1000 | 8 / 16,000          |
 | İşler için standart_m128s&nbsp;<sup>2&nbsp;3</sup> | 128  | 2.048        | 4.096  | 64 | 160,000 / 1,600 (12,696) | 80.000/2000                            | 8 / 30,000          |
 | İşler için standart_m128ms&nbsp;<sup>2&nbsp;3&nbsp;4</sup> | 128  | 3,892  | 4.096 | 64 | 160,000 / 1,600 (12,696) | 80.000/2000                            | 8 / 30,000          |
-| Standard_M64   | 64  | 1,024 | 7,168  | 64 | 80.000 / 800 (1,228) | 40.000 / 1000 | 8 / 16000 |
-| Standard_M64m  | 64  | 1,792 | 7,168  | 64 | 80.000 / 800 (1,228) | 40.000 / 1000 | 8 / 16000 |
-| Standard_M128&nbsp;<sup>2  | 128 | 2.048 | 14,336 | 64 | 250.000 / 1,600 (2,456) | 80.000 / 2000 | 8 / 32000 |
-| Standard_M128m&nbsp;<sup>2 | 128 | 3,892 | 14,336 | 64 | 250.000 / 1,600 (2,456) | 80.000 / 2000 | 8 / 32000 |
+| Standard_M64   | 64  | 1,024 | 7,168  | 64 | 80.000 / 800 (1,228) | 40.000/1000 | 8 / 16,000 |
+| Standard_M64m  | 64  | 1,792 | 7,168  | 64 | 80.000 / 800 (1,228) | 40.000/1000 | 8 / 16,000 |
+| Standard_M128&nbsp;<sup>2  | 128 | 2.048 | 14,336 | 64 | 250.000 / 1,600 (2,456) | 80.000/2000 | 8 / 32.000 |
+| Standard_M128m&nbsp;<sup>2 | 128 | 3,892 | 14,336 | 64 | 250.000 / 1,600 (2,456) | 80.000/2000 | 8 / 32.000 |
 
 
 

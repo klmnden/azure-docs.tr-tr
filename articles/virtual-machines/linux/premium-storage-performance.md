@@ -1,6 +1,6 @@
 ---
-title: "Azure Premium Storage: Tasarım performans Windows vm'lerde | Microsoft Docs"
-description: Azure Premium Storage kullanarak yüksek performanslı uygulamalar tasarlayın. Premium Storage, Azure sanal makinelerde çalışan g/Ç kullanımı yoğun iş yükleri için yüksek performanslı, düşük gecikmeli disk desteği sağlar.
+title: "Azure Premium Depolama: Tasarlamak için Windows Vm'leri üzerinde performans | Microsoft Docs"
+description: Azure Premium depolama kullanan yüksek performanslı uygulamalar tasarlayın. Premium depolama, Azure sanal makinelerinde çalışan g/Ç açısından yoğun iş yükleri için yüksek performanslı, düşük gecikme süreli disk desteği sunar.
 services: virtual-machines-windows
 documentationcenter: na
 author: aungoo-msft
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: aungoo
 ms.openlocfilehash: 788f00d899a57c6734c6f17ff67d2cb766b17394
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
-ms.locfileid: "23949485"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38680861"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]

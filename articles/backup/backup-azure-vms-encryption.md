@@ -6,27 +6,23 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/13/2017
+ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49361aef774e9eb5a0995bc106e73b236a71b0bb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 16620678c38dcdc1564d8cb18f3393352170cefe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441140"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598433"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Yedekleme ve Azure Backup ile şifrelenmiş sanal makineleri geri yükleme
 Bu makalede Azure Backup'ı kullanarak sanal makineleri (VM'ler) geri adım hakkında konuşuyor. Ayrıca hata durumları için desteklenen senaryolar, önkoşulları ve sorun giderme adımları hakkında ayrıntılar sağlar.
 
 ## <a name="supported-scenarios"></a>Desteklenen senaryolar
 
- * Azure Resource Manager dağıtım modelini kullanan VM'ler için yedekleme ve geri yükleme şifrelenmiş VM'lerin desteklenir. Klasik dağıtım modelini kullanan VM'ler için desteklenmiyor. <br>
- * Hem Windows hem de Linux Vm'leri, Azure Disk Şifrelemesi'ni kullanmak için yedekleme ve geri yükleme şifrelenmiş VM'lerin desteklenir. Disk şifrelemesi, disk şifreleme sağlamak için sektörde standart BitLocker özelliğini Windows ve Linux'ın dm-crypt özelliğini kullanır. <br>
- 
- Aşağıdaki tabloda, BitLocker şifreleme anahtarı (BEK) - yalnızca ve anahtar şifreleme anahtarı (KEK) - için desteklenen senaryolar şifrelenmiş VM'ler gösterilmektedir:
- 
- 
+ Azure Resource Manager dağıtım modelini kullanan VM'ler için yedekleme ve geri yükleme şifrelenmiş VM'lerin desteklenir. Klasik dağıtım modelini kullanan VM'ler için desteklenmiyor. Windows ve Linux Vm'leri, Azure Disk Şifrelemesi'ni kullanmak için yedekleme ve geri yükleme şifrelenmiş VM'lerin desteklenir. Disk şifrelemesi, disk şifreleme sağlamak için sektörde standart BitLocker özelliğini Windows ve Linux'ın dm-crypt özelliğini kullanır. Aşağıdaki tabloda şifreleme türü ve VM'ler için destek gösterilmektedir.
+
    |  | BEK ve KEK VM'ler | Yalnızca BEK VM'ler |
    | --- | --- | --- |
    | **Yönetilmeyen VM'ler**  | Evet | Evet  |

@@ -1,6 +1,6 @@
 ---
 title: Java ile Azure Service Bus kuyruklarını kullanma | Microsoft Docs
-description: Azure'da Service Bus kuyruklarını kullanmayı öğrenin. Java dilinde yazılan kod örnekleri.
+description: Azure'da Service Bus kuyruklarını kullanmayı öğrenin. Java dilinde yazılan kod örneklerini.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -14,27 +14,27 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
 ms.openlocfilehash: 170f431525ffdc93a01fc085e48e69c3a774968e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23868434"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696154"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Java ile Service Bus kuyruklarını kullanma
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Bu makalede, Service Bus kuyruklarının nasıl kullanılacağı açıklanır. Java ve kullanım örnekleri yazılır [Java için Azure SDK][Azure SDK for Java]. Kapsamdaki senaryolar dahil **sıra oluşturma**, **ileti gönderme ve alma**, ve **sıraları silme**.
+Bu makalede, Service Bus kuyruklarının nasıl kullanılacağı açıklanır. Java ve kullanım örnekleri yazılır [Java için Azure SDK'sı][Azure SDK for Java]. Senaryoları ele alınmaktadır **kuyruk oluşturma**, **ileti gönderme ve alma**, ve **sıraları silme**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="configure-your-application-to-use-service-bus"></a>Service Bus hizmetini kullanmak için uygulamanızı yapılandırın
-Yüklediğinizden emin olun [Java için Azure SDK] [ Azure SDK for Java] önce bu örnek oluşturma. Eclipse kullanıyorsanız, yükleyebileceğiniz [Eclipse için Azure Araç Seti] [ Azure Toolkit for Eclipse] Java için Azure SDK'sı içerir. Daha sonra ekleyebilirsiniz **Java için Microsoft Azure kitaplıkları** projenize:
+## <a name="configure-your-application-to-use-service-bus"></a>Service Bus hizmetini kullanmak için uygulamanızı yapılandırma
+Yüklediğinizden emin olun [Java için Azure SDK'sı] [ Azure SDK for Java] Bu örnek derlemeden önce. Eclipse kullanıyorsanız yükleyebileceğiniz [Eclipse için Azure Araç Seti] [ Azure Toolkit for Eclipse] , Java için Azure SDK'sı içerir. Daha sonra ekleyebilirsiniz **Microsoft Java için Azure kitaplıkları** projenize:
 
 ![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-Aşağıdakileri ekleyin `import` deyimlerini Java dosyanın en üstüne ekleyin:
+Aşağıdaki `import` Java dosyasının en üstüne ifadeleri:
 
 ```java
 // Include the following imports to use Service Bus APIs
@@ -45,9 +45,9 @@ import javax.xml.datatype.*;
 ```
 
 ## <a name="create-a-queue"></a>Bir kuyruk oluşturma
-Service Bus kuyruklarına yönelik yönetim işlemlerini aracılığıyla gerçekleştirilebilecek **ServiceBusContract** sınıfı. A **ServiceBusContract** nesnesi, yönetmek için gerekli izinlere sahip SAS belirteci yalıtır uygun bir yapılandırma ile oluşturulur ve **ServiceBusContract** sınıfı Azure ile iletişimin tek noktasıdır.
+Service Bus kuyruklarına yönelik yönetim işlemlerini aracılığıyla gerçekleştirilebilir **ServiceBusContract** sınıfı. A **ServiceBusContract** nesnesi, yönetim izinleriyle SAS belirteci kapsülleyen uygun bir yapılandırma ile oluşturulur ve **ServiceBusContract** tek yakınlardaki bir sınıftır Azure ile iletişim.
 
-**ServiceBusService** sınıfı oluşturmak, numaralandırır ve sırayı silmek için yöntemler sağlar. Gösterir aşağıdaki örnekte nasıl bir **ServiceBusService** nesne adında bir kuyruk oluşturmak için kullanılabilir `TestQueue`, adlı bir ad alanı ile `HowToSample`:
+**ServiceBusService** sınıfı oluşturmak, listeleme ve kuyruklarını silmek için yöntemler sağlar. Gösterir aşağıdaki örnekte nasıl bir **ServiceBusService** nesne adında bir kuyruk oluşturmak için kullanılabilir `TestQueue`, adlı bir ad alanı ile `HowToSample`:
 
 ```java
 Configuration config =
@@ -72,7 +72,7 @@ catch (ServiceException e)
 }
 ```
 
-Yöntemleri vardır `QueueInfo` ayarlanmasına kuyruğun özelliklerini izin ver (örneğin: kuyruğa gönderilen iletilere uygulanacak varsayılan yaşam süresi (TTL) değerini ayarlamak için). Aşağıdaki örnek adlı bir kuyruk oluşturulacağını gösterir `TestQueue` maksimum 5 GB boyuta sahip:
+Temel yöntem vardır `QueueInfo` ayarlanmasına kuyruğun özelliklerini izin ver (örneğin: kuyruğa gönderilen iletilere uygulanacak varsayılan yaşam süresi (TTL) değerini ayarlamak için). Aşağıdaki örnekte adlı bir kuyruğun nasıl oluşturulacağını gösterir `TestQueue` en fazla 5 GB'lık:
 
 ````java
 long maxSizeInMegabytes = 5120;
@@ -81,10 +81,10 @@ queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
 CreateQueueResult result = service.createQueue(queueInfo);
 ````
 
-Kullanabileceğiniz Not `listQueues` yöntemi **ServiceBusContract** nesneleri belirtilen ada sahip bir sıra hizmet ad alanı içinde olup olmadığını denetle.
+Kullanabileceğiniz Not `listQueues` metodunda **ServiceBusContract** nesneleri belirtilen adda bir kuyruk, bir hizmet ad alanı içinde zaten mevcut olup olmadığını denetleyin.
 
 ## <a name="send-messages-to-a-queue"></a>Kuyruğa ileti gönderme
-Service Bus kuyruğuna bir ileti göndermek için uygulamanızı alacağı bir **ServiceBusContract** nesnesi. Aşağıdaki kod bir ileti göndermek gösterilmektedir `TestQueue` daha önce oluşturulan sıra `HowToSample` ad alanı:
+Bir Service Bus kuyruğuna bir ileti göndermek için uygulamanızı alır bir **ServiceBusContract** nesne. Aşağıdaki kod bir ileti göndermek nasıl gösterir `TestQueue` daha önce oluşturulan kuyruk `HowToSample` ad alanı:
 
 ```java
 try
@@ -100,9 +100,9 @@ catch (ServiceException e)
 }
 ```
 
-Gönderilen iletileri ve Service Bus alınan örnekleridir [BrokeredMessage] [ BrokeredMessage] sınıfı. [BrokeredMessage] [ BrokeredMessage] nesneleri olan bir standart özellikler kümesi (gibi [etiket](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) ve [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), özel tutmak için kullanılan bir sözlük uygulamaya özgü özellikler ve rastgele uygulama verileri gövdesi. Bir uygulama herhangi bir seri hale getirilebilir nesne oluşturucusuna geçirerek ileti gövdesini ayarlayabilir [BrokeredMessage][BrokeredMessage], ve uygun seri hale getirici sonra nesneyi serileştirmek için kullanılır. Alternatif olarak, sağlayabilir bir **java. G/Ç. InputStream** nesnesi.
+İletileri gönderilen ve alınan Service Bus kuyrukları örnekleri olan [BrokeredMessage] [ BrokeredMessage] sınıfı. [BrokeredMessage] [ BrokeredMessage] nesneleri olan bir standart özellikler kümesi (gibi [etiket](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) ve [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), özel tutmak için kullanılan bir sözlüğü uygulamaya özgü özellikler ve rastgele uygulama verileri gövdesi. Uygulamanın herhangi bir seri hale getirilebilir nesnesi oluşturucusuna geçirerek ileti gövdesini ayarlayabilirsiniz [BrokeredMessage][BrokeredMessage], ve uygun seri hale getirici sonra nesneyi serileştirmek için kullanılır. Alternatif olarak, sağlayan bir **java. GÇ. InputStream** nesne.
 
-Aşağıdaki örnekte nasıl beş test iletisi göndereceğinizi gösterir `TestQueue` **MessageSender** biz önceki kod parçacığında elde:
+Aşağıdaki örnek nasıl beş test iletisi göndereceğinizi gösterir `TestQueue` **MessageSender** önceki kod parçacığında elde ediyoruz:
 
 ```java
 for (int i=0; i<5; i++)
@@ -118,15 +118,15 @@ for (int i=0; i<5; i++)
 
 Service Bus kuyrukları, [Standart katmanda](service-bus-premium-messaging.md) maksimum 256 KB ve [Premium katmanda](service-bus-premium-messaging.md) maksimum 1 MB ileti boyutunu destekler. Standart ve özel uygulama özelliklerini içeren üst bilginin maksimum dosya boyutu 64 KB olabilir. Kuyrukta tutulan ileti sayısına ilişkin bir sınır yoktur ancak kuyruk tarafından tutulan iletilerin toplam boyutu için uç sınır vardır. Bu kuyruk boyutu, üst sınır 5 GB olacak şekilde oluşturulma zamanında belirlenir.
 
-## <a name="receive-messages-from-a-queue"></a>Kuyruktan ileti alma
-Kuyruktan iletileri almak için birincil yolu bir **ServiceBusContract** nesnesi. Alınan iletiler, iki farklı modda çalışabilir: **ReceiveAndDelete** ve **PeekLock**.
+## <a name="receive-messages-from-a-queue"></a>Bir kuyruktan ileti alma
+Bir kuyruktan ileti almak için birincil yolu bir **ServiceBusContract** nesne. Alınan iletiler, iki farklı modda çalışabilir: **ReceiveAndDelete** ve **PeekLock**.
 
-Kullanırken **ReceiveAndDelete** modu, alma bir tek işlemi - diğer bir deyişle, hizmet veri yolu bir kuyrukta İletiye yönelik Okuma isteği aldığında, iletiyi kullanılıyor olarak işaretler ve uygulamaya döndürür. **ReceiveAndDelete** (varsayılan mod budur) modunda en basit modeldir ve senaryoları bir uygulama içinde tolerans bir arıza olması durumunda bir ileti işlenirken değil en iyi şekilde çalışır. Bu durumu daha iyi anlamak için müşterinin bir alma isteği bildirdiğini ve bu isteğin işlenmeden çöktüğünü varsayın.
-Service Bus iletiyi kullanılıyor olarak işaretlenmiş nedeniyle uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında, sonra da çökmenin öncesinde kullanılan iletiyi atlamış olur.
+Kullanırken **ReceiveAndDelete** modunda almak bir tek işlem - diğer bir deyişle, Service Bus kuyruk iletiye yönelik Okuma isteği aldığında, iletiyi kullanılıyor olarak işaretler ve uygulamaya döndürür. **ReceiveAndDelete** (varsayılan mod budur) mod en basit modeldir ve içinde bir uygulama tolere edebilen bir arıza olması durumunda bir iletiyi işlememeye izin senaryolarda en iyi şekilde çalışır. Bu durumu daha iyi anlamak için müşterinin bir alma isteği bildirdiğini ve bu isteğin işlenmeden çöktüğünü varsayın.
+Service Bus iletiyi kullanılıyor olarak işaretleyeceğinden, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında ardından onu çökmenin öncesinde kullanılan iletiyi atlamış olur.
 
-İçinde **PeekLock** modu, alma, iletilere veremeyen uygulamaları desteklemenin mümkün kılar bir iki aşamalı işlemi olur. Service Bus bir istek aldığında bir sonraki kullanılacak iletiyi bulur, diğer tüketicilerin bu iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya sonra işlemek için depoladıktan sonra), çağırarak alma işleminin ikinci aşamasını tamamlar **silmek** alınan iletide. Hizmet veri yolu gördüğünde **silmek** çağrısı iletiyi kullanılıyor olarak işaretler ve kuyruktan kaldırın.
+İçinde **PeekLock** modu, alma, atlanan iletilere veremeyen uygulamaları desteklemenin mümkün hale getiren bir iki aşamalıdır. Service Bus bir istek aldığında bir sonraki kullanılacak iletiyi bulur, diğer tüketicilerin bu iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya güvenilir bir şekilde işlemek üzere depolar sonra) çağırarak alma işleminin ikinci aşamasını tamamlar **Sil** alınan iletide. Service Bus gördüğünde **Sil** çağrı, bu iletiyi kullanılıyor olarak işaretler ve kuyruktan kaldırın.
 
-Aşağıdaki örnek nasıl ileti aldı ve işlenen kullanarak gösterir **PeekLock** modu (varsayılan mod değil). Aşağıdaki örnek sonsuz bir döngüde yapar ve içine geldikçe iletileri işleyen bizim `TestQueue`:
+Aşağıdaki örnek nasıl ileti alındı ve işlenen kullanarak gösterir **PeekLock** modu (varsayılan mod değil). Aşağıdaki örnek bir sonsuz döngü yapar ve içine geldikçe iletileri işleyen bizim `TestQueue`:
 
 ```java
 try
@@ -182,14 +182,14 @@ catch (Exception e) {
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Uygulama çökmelerini ve okunmayan iletileri giderme
-Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Alıcı uygulamanın iletiyi herhangi bir nedenden dolayı işleyemedi sonra işleyememesi **unlockMessage** alınan iletide yöntemi (yerine **deleteMessage** yöntemi). Bu işlem Service Bus hizmetinin kuyruktaki iletinin kilidini açmasına ve iletiyi aynı veya başka bir kullanıcı uygulama tarafından tekrar alınabilir hale getirmesine neden olur.
+Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Alıcı uygulamanın iletiyi işlemek için herhangi bir nedenle silemiyor sonra çağırabilirsiniz **unlockMessage** yöntemi alınan iletide (yerine **deleteMessage** yöntemi). Bu işlem Service Bus hizmetinin kuyruktaki iletinin kilidini açmasına ve iletiyi aynı veya başka bir kullanıcı uygulama tarafından tekrar alınabilir hale getirmesine neden olur.
 
-Ayrıca kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı vardır ve uygulama önce iletiyi işleyemezse (örneğin, uygulama çökerse) Service Bus otomatik olarak iletinin kilidini açar ve tekrar alınabilmesini sağlar kilit zaman aşımı dolmadan.
+Ayrıca kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı yoktur ve uygulama önce iletiyi işleyemezse (örneğin, uygulama çökerse) Service Bus otomatik olarak iletinin kilidini açar ve alınabilmesini kilit zaman aşımı dolmadan tekrar kullanılabilir.
 
-Uygulama iletiyi ancak önce çökmesi durumunda, **deleteMessage** isteği bildirilmeden, sonra yeniden başlatıldığında ileti uygulamaya tekrar teslim. Bu genellikle adlandırılır *en az bir kez işleme*; diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bu genellikle kullanılarak elde edilen **getMessageId** iletinin teslimat denemelerinde yöntemi.
+Uygulama iletiyi ancak önce çökmesi durumunda, **deleteMessage** isteği bildirilmeden, sonra yeniden başlatıldığında ileti uygulamaya yeniden teslim. Buna genellikle denir *en az bir kez işleme*; diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim edilebilir. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bu genellikle kullanılmasıdır **getMessageId** yöntemi iletinin teslim denemeleri arasında sabit kalır.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Service Bus kuyruklarına öğrendiğinize göre bkz: [kuyruklar, konu başlıkları ve abonelikler] [ Queues, topics, and subscriptions] daha fazla bilgi için.
+Service Bus kuyruklarına ilişkin temel bilgileri öğrendiğinize göre artık bkz [kuyruklar, konular ve abonelikler] [ Queues, topics, and subscriptions] daha fazla bilgi için.
 
 Daha fazla bilgi için bkz. [Java Geliştirici Merkezi](https://azure.microsoft.com/develop/java/).
 

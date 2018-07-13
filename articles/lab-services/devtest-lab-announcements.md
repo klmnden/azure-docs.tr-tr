@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs'de Laboratuvar için bir announcment gönderme | Microsoft Docs
-description: Duyuru Azure DevTest Labs laboratuvarda eklemeyi öğrenin
+title: Azure DevTest Labs'de bir laboratuvar için bir Duyurusu gönderin | Microsoft Docs
+description: Duyuru Azure DevTest labs'deki bir laboratuvara ekleme hakkında bilgi edinin
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
@@ -15,73 +15,73 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 3282a90069ecd119154df492ac6dc366d26b5300
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787475"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611214"
 ---
-# <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs'de Laboratuvar için bir duyuru sonrası
+# <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs'de bir laboratuvar için bir duyuru gönderin
 
-Laboratuar Yöneticisi olarak, kullanıcıları son değişiklikler veya Laboratuvar eklemeler hakkında bilgilendirmek için varolan bir laboratuvar özel bir duyuru nakledebilirsiniz. Örneğin, kullanıcılar hakkında bilgilendirmek isteyebilirsiniz:
+Laboratuvar Yöneticisi olarak, son değişiklikleri veya laboratuvara ekleme konusunda kullanıcıları bilgilendirmek üzere var olan bir laboratuvar içindeki özel bir duyuru gönderebilir. Örneğin, hakkında kullanıcılara bildirmek isteyebilirsiniz:
 
-- Kullanılabilir yeni VM boyutları
+- Kullanılabilir olan yeni sanal makine boyutları
 - Şu anda kullanılamaz durumda görüntüleri
 - Laboratuvar ilkeleri güncelleştirmeleri
 
-Sonra gönderilen, duyuruyu Laboratuvar ait genel bakış sayfasında görüntülenir ve kullanıcı bunu daha fazla ayrıntı için seçebilirsiniz.
+Sonra gönderilen, duyuru Laboratuvar genel bakış sayfasında görüntülenir ve kullanıcı bunu daha fazla ayrıntı için seçebilirsiniz.
 
-Duyuru özelliği geçici bildirimler için kullanılmak üzere tasarlanmıştır.  Artık gerekli olmadığında duyuru kolayca devre dışı bırakabilirsiniz.
+Duyuru özellik geçici bildirimler için kullanılmak üzere tasarlanmıştır.  Artık gerekli olmadığında bir duyuru kolayca devre dışı bırakabilirsiniz.
 
-## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Var olan bir laboratuar ortamında duyuru sonrası adımlar
+## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Mevcut bir laboratuvarda duyuru göndermek için adımları
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
-1. Gerekirse, seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden. (Laboratuvarınızı altında bir Pano üzerinde zaten görüntülenebilir **tüm kaynakları**).
-1. Duyuru sonrası istediğiniz Laboratuvar labs listesinden seçin.  
-1. Laboratuvar 's üzerinde **genel bakış** alanında **yapılandırma ve ilkeleri**.  
+1. Gerekirse, seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden. (Laboratuvarınızı zaten altında Panoda görüntülenebilir **tüm kaynakları**).
+1. Duyuru gönderin istediğiniz Laboratuvar labs listesinden seçin.  
+1. Laboratuvar'ın **genel bakış** alanında **yapılandırması ve ilkelerini**.  
 
-    ![Yapılandırma ve ilkeleri düğmesi](./media/devtest-lab-announcements/devtestlab-config-and-policies.png)
+    ![Yapılandırması ve ilkelerini düğmesi](./media/devtest-lab-announcements/devtestlab-config-and-policies.png)
 
-1. Solda'nin altında **ayarları**seçin **Laboratuvar duyuru**.
+1. Soldaki altında **ayarları**seçin **Laboratuvar duyuru**.
 
     ![Laboratuvar duyuru düğmesi](./media/devtest-lab-announcements/devtestlab-announcements.png)
 
-1. Kullanıcılar için bir mesaj bu laboratuvarda oluşturmak için **etkin** için **Evet**.
+1. Bu laboratuvarda kullanıcılar için bir ileti oluşturmak için **etkin** için **Evet**.
 
-1. Girdiğiniz bir **sona erme tarihi** bir tarih ve saat sonra duyuruyu artık gösterilen kullanıcılara belirtmek için. Sona erme tarihi girmezseniz, devre dışı kadar duyuruyu kalır.
+1. Girebileceğiniz bir **sona erme tarihi** bir tarih ve saat sonra bildiri artık gösterilen kullanıcıları belirtmek için. Sona erme tarihi girmezseniz, bunu devre dışı kadar duyuruyu kalır.
 
    > [!NOTE]
-   > Duyurunun sona erdikten sonra artık kullanıcılara gösterilir, ancak hala var. **Laboratuvar duyuru** bölmesi. Kendisine düzenlemeleri yapın ve yeniden etkinleştirmek için yeniden etkinleştirin.
+   > Duyurunun sona erdikten sonra artık kullanıcılara gösterilir, ancak hala var. **Laboratuvar duyuru** bölmesi. Düzenlemeler yapmak ve yeniden etkinleştirmek için yeniden etkinleştirin.
    >
    >
 
-1. Girin bir **duyuru başlık** ve **duyuru metin**.
+1. Girin bir **Duyurunun başlığını** ve **duyuru metin**.
 
-   Başlık en fazla 100 karakter olabilir ve Laboratuvar ait genel bakış sayfasında kullanıcıya gösterilir. Kullanıcı başlık seçerse, duyuru metin görüntülenir.
+   Başlık en fazla 100 karakter olabilir ve Laboratuvar genel bakış sayfasında kullanıcıya gösterilir. Kullanıcı başlığı seçerse, duyuru metni görüntülenir.
 
-   Duyuru metin markdown kabul eder. Duyuru metin girerken, ekranın altındaki önizleme alanında ileti görüntüleyebilirsiniz.
+   Duyuru metin markdown kabul eder. Duyuru metin girerken, ekranın alt kısmındaki Önizleme alanında ileti görüntüleyebilirsiniz.
 
-    ![İletiyi oluşturmak için laboratuvar duyuru ekranı.](./media/devtest-lab-announcements/devtestlab-post-announcement.png)
+    ![İleti oluşturmak üzere Laboratuvar duyuru ekranı.](./media/devtest-lab-announcements/devtestlab-post-announcement.png)
 
 
-1. Seçin **kaydetmek** duyurunuzun göndermeye hazır olduğunda.
+1. Seçin **Kaydet** , duyuru gönderilmeye hazır olduğunda.
 
-Artık bu duyuru Laboratuvar kullanıcılara göstermek istediğinizde, geri dönüp **Laboratuvar duyuru** sayfasında ve ayarlama **etkin** için **Hayır**. Sona erme tarihi belirtilen duyuru otomatik olarak en, tarih ve saat devre dışı bırakılır.
+Artık Laboratuvar kullanıcılara bu duyuru göstermek istediğiniz zaman dönün **Laboratuvar duyuru** sayfasında ve ayarlayın **etkin** için **Hayır**. Sona erme tarihi belirtilen duyuruyu otomatik olarak en, tarih ve saat devre dışı bırakılır.
 
-## <a name="steps-for-users-to-view-an-announcement"></a>Duyuru görüntülemek kullanıcılar için adımları
+## <a name="steps-for-users-to-view-an-announcement"></a>Bir duyurunun görüntülemek kullanıcılar için adımları
 
-1. Gelen [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), Laboratuvar seçin.
+1. Gelen [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040), Laboratuvar seçin.
 
-1. Laboratuvar için gönderilen bir duyuru varsa, bir bilgi uyarısı Laboratuvar ait genel bakış sayfanın en üstünde gösterilir. Bu bilgi bildirimin duyuruyu oluşturduğunuzda belirttiğiniz duyuru başlık ' dir.
+1. Laboratuvar için gönderilen bir duyuru varsa, bir bilgi uyarısı Laboratuvar genel bakış sayfasının en üstünde gösterilir. Bu bilgi uyarısı duyuruyu oluştururken belirttiğiniz Duyurunun başlığını ' dir.
 
     ![Genel bakış sayfasında Laboratuvar Duyurusu](./media/devtest-lab-announcements/devtestlab-user-announcement.png)
 
-1. Kullanıcı tüm duyuru görüntülemek için ileti seçebilirsiniz.
+1. Kullanıcının, iletinin tamamı duyuruyu görüntüleyin seçebilirsiniz.
 
-    ![Laboratuvar duyuru için daha fazla bilgi](./media/devtest-lab-announcements/devtestlab-user-announcement-text.png)
+    ![Daha fazla bilgi için laboratuvar Duyurusu](./media/devtest-lab-announcements/devtestlab-user-announcement-text.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Değiştirme ya da bir laboratuvar İlkesi ayarlama, kullanıcıları bilgilendirmek için duyuru sonrası isteyebilirsiniz. [İlkeleri ve zamanlamaları ayarlama](devtest-lab-set-lab-policy.md) kısıtlamaları ve kuralları aboneliğinizi arasında özelleştirilmiş ilkelerini kullanarak uygulama hakkında bilgi sağlar.
-* Araştır [DevTest Labs Azure Resource Manager hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Laboratuvar ilkesini ayarlamak veya değiştirirseniz, kullanıcılara bildiren bir duyuru gönderin isteyebilirsiniz. [İlke ve zamanlamalar ayarlama](devtest-lab-set-lab-policy.md) özelleştirilmiş ilkeler kullanılarak aboneliğiniz kısıtlamaları ve kurallarını uygulama hakkında bilgi sağlar.
+* Keşfedin [DevTest Labs Azure Resource Manager hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

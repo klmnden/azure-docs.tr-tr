@@ -1,4 +1,4 @@
-Uygulamanızda profil düzenleme etkinleştirmek istiyorsanız, kullandığınız bir **profil düzenleme** ilkesi. Bu ilke müşteriler profil düzenleme ve uygulama başarılı tamamlanma alacak belirteçleri içeriğini sırasında gidecek deneyimleri açıklanmaktadır.
+Uygulamanızda profili düzenlemeyi etkinleştirmek istiyorsanız, kullandığınız bir **profil düzenleme** ilkesi. Bu ilke, müşterilerin profil düzenleme ve başarıyla tamamlandığında uygulamanın alacağı belirteçlerin içeriğini sırasında karşılaşacağı deneyimleri açıklar.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

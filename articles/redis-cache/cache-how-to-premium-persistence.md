@@ -1,6 +1,6 @@
 ---
-title: Premium Azure Redis önbelleği için veri kalıcılığını yapılandırma
-description: Yapılandırma ve Premium katmanı Azure Redis önbelleği örnekleri veri kalıcılığını yönetme hakkında bilgi edinin
+title: Premium Azure Redis Cache için veri kalıcılığı yapılandırma
+description: Yapılandırma ve Premium katmanı Azure Redis önbelleği örneklerinizin veri kalıcılığı yönetme hakkında bilgi edinin
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -15,101 +15,101 @@ ms.topic: article
 ms.date: 08/24/2017
 ms.author: wesmc
 ms.openlocfilehash: 270158bbf85a58a48a367a091ad2b09a9d114b2b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27910863"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38700892"
 ---
-# <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>Premium Azure Redis önbelleği için veri kalıcılığını yapılandırma
-Azure Redis önbelleği, önbellek boyutunu ve özelliklerini, kümeleme, sürdürme ve sanal ağ desteği gibi Premium katmanı özellikleri dahil olmak üzere seçimi esneklik sağlayan farklı önbellek teklifleri vardır. Bu makalede, bir premium Azure Redis önbelleği örneğine kalıcılığı yapılandırma açıklar.
+# <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>Premium Azure Redis Cache için veri kalıcılığı yapılandırma
+Azure Redis önbelleği, önbellek boyutunu ve özelliklerini, kümeleme, Kalıcılık ve sanal ağ desteği gibi Premium katman özellikleri dahil olmak üzere tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Bu makalede, bir premium Azure Redis Cache örneğine kalıcılığı yapılandırma açıklanır.
 
-Diğer premium önbellek özellikleri hakkında daha fazla bilgi için bkz: [Azure Redis önbelleği Premium katmanına giriş](cache-premium-tier-intro.md).
+Diğer premium önbellek özelliklerini hakkında daha fazla bilgi için bkz: [Azure Redis önbelleği Premium katmanına giriş](cache-premium-tier-intro.md).
 
-## <a name="what-is-data-persistence"></a>Veri kalıcılığını nedir?
-[Redis kalıcılığı](https://redis.io/topics/persistence) Redis içinde depolanan veriler kalıcı olanak tanır. Ayrıca, anlık görüntülerini almak ve bir donanım hatası durumunda yük verileri yedekleyin. Burada tüm verileri bellekte depolanır ve ön bellek düğümleri aşağı nerede arıza durumunda olası veri kaybı olabilir temel veya standart katmanı üzerinde büyük bir avantaj budur. 
+## <a name="what-is-data-persistence"></a>Veri kalıcılığı nedir?
+[Redis kalıcılığı](https://redis.io/topics/persistence) Redis içinde depolanan verileri kalıcı hale getirmenize olanak tanır. Ayrıca, anlık ve bir donanım hata durumunda yükleyebilirsiniz verileri yedekleyin. Burada tüm verileri, bellekte depolanır ve önbellek düğümleri aşağı nerede arıza durumunda olası veri kaybı olabilir temel veya standart katman büyük avantaj budur. 
 
-Azure Redis önbelleği Redis kalıcılığı aşağıdaki modelleri kullanarak sunar:
+Azure Redis Cache, Redis kalıcılığı aşağıdaki modelleri kullanarak sunar:
 
-* **RDB kalıcılığı** -zaman RDB (Redis veritabanı) Kalıcılık yapılandırılır, Azure Redis önbelleği devam ederse, disk ikili biçime bağlı yapılandırılabilir bir yedekleme sıklığı Redis Redis önbelleğinde görüntüsünü. Hem birincil hem de çoğaltma önbelleği devre dışı bırakan geri dönülemez bir olay meydana gelirse, önbellek son anlık görüntü kullanılarak düzenlenir. Daha fazla bilgi edinmek [avantajları](https://redis.io/topics/persistence#rdb-advantages) ve [dezavantajları](https://redis.io/topics/persistence#rdb-disadvantages) RDB kalıcı olarak.
-* **AOF kalıcılığı** -zaman AOF (yalnızca dosya ekleme) Kalıcılık yapılandırılır, Azure Redis önbelleği her yazma işlemi bir Azure depolama hesabıyla saniye başına en az bir kez kaydedilmiş bir günlüğe kaydeder. Hem birincil hem de çoğaltma önbelleği devre dışı bırakan geri dönülemez bir olay meydana gelirse, önbellekte saklanan yazma işlemleri kullanarak düzenlenir. Daha fazla bilgi edinmek [avantajları](https://redis.io/topics/persistence#aof-advantages) ve [dezavantajları](https://redis.io/topics/persistence#aof-disadvantages) AOF kalıcı olarak.
+* **RDB Kalıcılık** -zaman RDB (Redis veritabanı) Kalıcılık yapılandırılır, Azure Redis Cache devam ederse, disk için ikili biçimi yapılandırılabilir bir yedekleme sıklığına göre bir Redis Redis önbelleğinde anlık görüntüsünü. Birincil ve çoğaltma önbellek devre dışı bırakan bir felaket ortaya çıkarsa, önbellek en son anlık görüntü kullanılarak düzenlenir. Daha fazla bilgi edinin [avantajları](https://redis.io/topics/persistence#rdb-advantages) ve [dezavantajları](https://redis.io/topics/persistence#rdb-disadvantages) RDB Kalıcılık.
+* **AOF Kalıcılık** -zaman AOF (yalnızca dosya ekleme) Kalıcılık yapılandırılır, Azure Redis Cache her yazma işlemi en az bir kez bir Azure depolama hesabına saniyede kaydedilen bir günlüğe kaydeder. Birincil ve çoğaltma önbellek devre dışı bırakan bir felaket ortaya çıkarsa, önbellekte saklanan yazma işlemleri kullanarak düzenlenir. Daha fazla bilgi edinin [avantajları](https://redis.io/topics/persistence#aof-advantages) ve [dezavantajları](https://redis.io/topics/persistence#aof-disadvantages) AOF Kalıcılık.
 
-Kalıcılık gelen yapılandırılmış **yeni Redis önbelleği** dikey önbellek oluşturma sırasında ve **kaynak menü** için varolan premium önbelleğe alır.
+Kalıcılık yapılandırıldı **yeni Redis Cache** dikey önbellek oluşturma sırasında ve **kaynak menüsünde** için var olan premium önbelleğe alır.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Premium fiyatlandırma katmanına seçildikten sonra tıklatın **Redis kalıcılığı**.
+Premium fiyatlandırma katmanının seçildikten sonra tıklayın **Redis kalıcılığı**.
 
 ![Redis kalıcılığı][redis-cache-persistence]
 
-Sonraki bölümde yer alan adımları yeni premium önbelleğiniz Redis kalıcılığı yapılandırma açıklanmaktadır. Redis kalıcılığı yapılandırıldıktan sonra tıklatın **oluşturma** yeni premium önbelleğiniz Redis kalıcılığı ile oluşturmak için.
+Sonraki bölümde yer alan adımları yeni premium önbelleğinizi Redis kalıcılığı yapılandırma açıklanmaktadır. Redis kalıcılığı yapılandırıldıktan sonra tıklayın **Oluştur** Redis kalıcılığı ile yeni premium önbellek oluşturmak için.
 
 ## <a name="enable-redis-persistence"></a>Redis kalıcılığı etkinleştir
 
-Redis kalıcılığı etkin **Redis veri kalıcılığını** ya da seçerek dikey **RDB** veya **AOF** Kalıcılık. Yeni önbellekler için bu dikey penceresinde önceki bölümde açıklandığı gibi önbelleği oluşturma işlemi sırasında erişilir. Varolan önbellekler için **Redis veri kalıcılığını** dikey erişilen **kaynak menü** önbelleğiniz için.
+Redis kalıcılığı etkin **Redis veri kalıcılığı** seçerek ya da dikey **RDB** veya **AOF** Kalıcılık. Yeni önbellekler için bu dikey pencere önceki bölümde açıklandığı gibi önbellek oluşturma işlemi sırasında erişilir. Mevcut önbellekler için **Redis veri kalıcılığı** dikey erişilen **kaynak menüsünde** önbelleğiniz.
 
-![Ayarları redis][redis-cache-settings]
+![Redis ayarları][redis-cache-settings]
 
 
 ## <a name="configure-rdb-persistence"></a>RDB kalıcılığı yapılandırma
 
-RDB kalıcılığını etkinleştirmek için **RDB**. Daha önce etkinleştirilmiş premium önbellekteki RDB Kalıcılık devre dışı bırakmak için **devre dışı**.
+RDB kalıcılığını etkinleştirmek için tıklayın **RDB**. Daha önce etkinleştirilmiş premium cache RDB kalıcılığı devre dışı bırakmak için **devre dışı bırakılmış**.
 
 ![Redis RDB kalıcılığı][redis-cache-rdb-persistence]
 
-Yedekleme aralığını yapılandırmak için seçin bir **yedekleme sıklığı** aşağı açılan listeden. Seçenekleri **15 dakika**, **30 dakika**, **60 dakika**, **6 saat**, **12 saat**ve **24 saat**. Bu aralık, önceki yedekleme işlemi başarıyla tamamlandıktan sonra sona erdiğinde yeni bir yedekleme başlatılır sayım başlatır.
+Yedekleme zaman aralığını yapılandırmak için seçin bir **yedekleme sıklığı** aşağı açılan listeden. Seçenekler şunlardır **15 dakika**, **30 dakika**, **60 dakika**, **6 saat**, **12 saat**ve **24 saat**. Bu aralık, önceki yedekleme işlemi başarıyla tamamlandıktan sonra sona erdiğinde, yeni bir yedekleme başlatılır sayım başlatır.
 
-Tıklatın **depolama hesabı** ve ya da seçin için depolama hesabı seçmek için **birincil anahtar** veya **ikincil anahtar** kullanmak için **depolama anahtarı** açılır. Önbellek ile aynı bölgede bir depolama hesabı seçmeniz gerekir ve bir **Premium depolama** hesabı, premium depolama daha yüksek verimlilik olduğundan önerilir. 
+Tıklayın **depolama hesabı** kullanın ve seçmeniz için depolama hesabını seçmek için **birincil anahtar** veya **ikincil anahtar** kullanmak için **Depolamaanahtarı** açılır. Önbellek ile aynı bölgede bir depolama hesabı seçin ve bir **Premium depolama** hesabı, premium depolama, yüksek aktarım hızı olduğundan önerilir. 
 
 > [!IMPORTANT]
-> Kalıcılık hesabınız için depolama anahtarı yeniden oluşturulursa istediğiniz anahtarı yapılandırmalısınız **depolama anahtarı** açılır.
+> Kalıcılık hesabınız için depolama anahtarı yeniden oluşturulursa, istediğiniz anahtarı yapılandırmalısınız **depolama anahtarı** açılır.
 > 
 > 
 
-Tıklatın **Tamam** kalıcı yapılandırmayı kaydetmek için.
+Tıklayın **Tamam** kalıcı yapılandırmayı kaydetmek için.
 
-Yedekleme sıklığı aralığı geçtikten sonra sonraki yedekleme (veya ilk yedek yeni önbellekler için) başlatılır.
+Yedekleme sıklığı aralığı sona erdiğinde sonra sonraki yedeklemeden (veya yeni önbellekler için ilk yedekleme) başlatılır.
 
 ## <a name="configure-aof-persistence"></a>AOF kalıcılığı yapılandırma
 
-AOF kalıcılığını etkinleştirmek için **AOF**. Daha önce etkinleştirilmiş premium önbellekteki AOF Kalıcılık devre dışı bırakmak için **devre dışı**.
+AOF kalıcılığını etkinleştirmek için tıklayın **AOF**. Daha önce etkinleştirilmiş premium önbellek kalıcılığı AOF devre dışı bırakmak için **devre dışı bırakılmış**.
 
 ![Redis AOF kalıcılığı][redis-cache-aof-persistence]
 
-AOF Kalıcılık yapılandırmak için belirtmeniz bir **ilk depolama hesabı**. Bu depolama hesabını önbellek ile aynı bölgede olması gerekir ve bir **Premium depolama** hesabı, premium depolama daha yüksek verimlilik olduğundan önerilir. Adlı bir ek depolama alanı hesabı isteğe bağlı olarak yapılandırabilirsiniz **ikinci depolama hesabı**. İkinci bir depolama hesabı yapılandırdıysanız, çoğaltma önbelleği yazmaları ikinci bu depolama hesabına yazılır. Her yapılandırılan depolama hesabı için ya da seçin **birincil anahtar** veya **ikincil anahtar** kullanmak için **depolama anahtarı** açılır. 
+AOF kalıcılığı yapılandırma için belirtin bir **ilk depolama hesabı**. Bu depolama hesabı, önbellek ile aynı bölgede olmalıdır ve bir **Premium depolama** hesabı, premium depolama, yüksek aktarım hızı olduğundan önerilir. İsteğe bağlı olarak adlı ek bir depolama hesabı yapılandırın **ikinci depolama hesabı**. Çoğaltma önbellek yazma işlemleri, ikinci bir depolama hesabı yapılandırdıysanız, bu ikinci depolama hesabına yazılır. Her bir yapılandırılmış depolama hesabı için seçin **birincil anahtar** veya **ikincil anahtar** kullanmak için **depolama anahtarı** açılır. 
 
 > [!IMPORTANT]
-> Kalıcılık hesabınız için depolama anahtarı yeniden oluşturulursa istediğiniz anahtarı yapılandırmalısınız **depolama anahtarı** açılır.
+> Kalıcılık hesabınız için depolama anahtarı yeniden oluşturulursa, istediğiniz anahtarı yapılandırmalısınız **depolama anahtarı** açılır.
 > 
 > 
 
-AOF Kalıcılık etkinleştirildiğinde, belirtilen depolama hesabı (veya ikinci bir depolama hesabı yapılandırdıysanız hesapları) işlemleri önbelleğe kaydedilir yazma. Hem birincil hem de çoğaltma önbelleği alan geri dönülemez bir arıza olması durumunda depolanan AOF günlük önbellek yeniden oluşturmak için kullanılır.
+AOF Kalıcılık etkin olduğunda, belirtilen depolama hesabı (veya ikinci bir depolama hesabı yapılandırdıysanız, hesapları) işlemleri önbelleğe kaydedilir yazın. Birincil ve çoğaltma önbellek alan bir arıza durumunda depolanan AOF günlük önbelleği yeniden oluşturmak için kullanılır.
 
 ## <a name="persistence-faq"></a>Kalıcılık SSS
-Aşağıdaki listede, Azure Redis önbelleği Kalıcılık hakkında sık sorulan soruların yanıtlarını içerir.
+Aşağıdaki liste, Azure Redis Cache kalıcılığı hakkında sık sorulan soruların yanıtlarını içerir.
 
-* [Önceden oluşturulmuş önbellekteki Kalıcılık etkinleştirebilirim?](#can-i-enable-persistence-on-a-previously-created-cache)
+* [Önceden oluşturulmuş bir önbellek kalıcılığı etkinleştirebilirim?](#can-i-enable-persistence-on-a-previously-created-cache)
 * [Aynı anda AOF ve RDB Kalıcılık etkinleştirebilirim?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
 * [Hangi Kalıcılık modeli seçmem gerekir?](#which-persistence-model-should-i-choose)
-* [Farklı bir boyutta ölçeklendirilebilir ve bir yedek ölçekleme işlemi önce yaptığınız geri ne olur?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+* [Farklı bir boyuta ölçeklendirilir ve ölçeklendirme işlemi önce yapılan bir yedekleme geri ne olur?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 
 
 ### <a name="rdb-persistence"></a>RDB kalıcılığı
-* [RDB yedekleme sıklığı, önbellek oluşturduktan sonra değiştirebilir miyim?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
-* [Neden 60 dakikada bir RDB yedekleme sıklığını varsa var 60 dakikadan uzun yedeklemeler arasında?](#why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
-* [Yeni bir yedekleme yapılan eski RDB yedeklemelerin ne olur?](#what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made)
+* [RDB yedekleme sıklığı, önbellek oluşturabilirim sonra değiştirebilir miyim?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
+* [Neden RDB yedekleme sıklığı 60 dakika varsa var 60 dakikadan fazla yedeklemeler arasında?](#why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
+* [Eski RDB yedekleri, yeni bir yedekleme yapıldığında ne olur?](#what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made)
 
 ### <a name="aof-persistence"></a>AOF kalıcılığı
 * [İkinci bir depolama hesabı ne zaman kullanmalıyım?](#when-should-i-use-a-second-storage-account)
-* [AOF Kalıcılık etkileyen boyunca, gecikme veya my önbelleğinin performansını mu?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
-* [İkinci depolama hesabı nasıl kaldırabilir miyim?](#how-can-i-remove-the-second-storage-account)
-* [Bir yeniden yazma nedir ve my önbellek nasıl etkiler?](#what-is-a-rewrite-and-how-does-it-affect-my-cache)
-* [Ne ı etkin AOF bir önbellek ölçeklendirme beklemeniz gerekir?](#what-should-i-expect-when-scaling-a-cache-with-aof-enabled)
-* [AOF verilerimi depolama nasıl düzenlenir?](#how-is-my-aof-data-organized-in-storage)
+* [AOF Kalıcılık etkileyen boyunca, gecikme süresi veya önbelleğimin performansını mu?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
+* [İkinci depolama hesabına nasıl kaldırabilir miyim?](#how-can-i-remove-the-second-storage-account)
+* [Bir yeniden yazma nedir ve önbelleğimin nasıl etkiler?](#what-is-a-rewrite-and-how-does-it-affect-my-cache)
+* [Ne AOF etkin bir önbellek ölçeklendirme beklemeliyim?](#what-should-i-expect-when-scaling-a-cache-with-aof-enabled)
+* [AOF verilerimi depolama nasıl düzenlendiği?](#how-is-my-aof-data-organized-in-storage)
 
 
-### <a name="can-i-enable-persistence-on-a-previously-created-cache"></a>Önceden oluşturulmuş önbellekteki Kalıcılık etkinleştirebilirim?
-Evet, Redis kalıcılığı önbellek oluşturmada ve varolan premium önbelleklere yapılandırılabilir.
+### <a name="can-i-enable-persistence-on-a-previously-created-cache"></a>Önceden oluşturulmuş bir önbellek kalıcılığı etkinleştirebilirim?
+Evet, Redis kalıcılığı önbellek oluşturma sırasında ve var olan premium önbellekler yapılandırılabilir.
 
 ### <a name="can-i-enable-aof-and-rdb-persistence-at-the-same-time"></a>Aynı anda AOF ve RDB Kalıcılık etkinleştirebilirim?
 
@@ -117,56 +117,56 @@ Hayır, yalnızca RDB veya AOF, ancak ikisini aynı anda etkinleştirebilirsiniz
 
 ### <a name="which-persistence-model-should-i-choose"></a>Hangi Kalıcılık modeli seçmem gerekir?
 
-AOF Kalıcılık kaydeder her yazma bazı etkisi üzerinde üretilen işi, bir günlük için yapılandırılan yedekleme, performansı üzerinde en az etkiyle aralığında yedeklemeleri kaydedileceği RDB Kalıcılık ile karşılaştırılan. Veri kaybını en aza indirmek için birincil amacınız ise ve önbelleğiniz için işleme düşüş işleyebilir AOF Kalıcılık seçin. RDB Kalıcılık önbelleğiniz üzerinde en iyi üretilen işi sürdürmek istiyor, ancak hala veri kurtarma için bir mekanizma istiyorsanız seçin.
+AOF Kalıcılık kaydeder her yazma bazı performans etkisi, bir günlük için yapılandırılan yedekleme, performans üzerinde en az etki ile aralığında yedeklemeleri kaydedileceği RDB kalıcılığı ile karşılaştırılır. AOF Kalıcılık, veri kaybını en aza indirmek için birincil amacınız ise ve önbelleğiniz için bir düşüş aktarım hızını işleyebilir seçin. RDB Kalıcılık önbelleğinizi en iyi aktarım hızını korumak, ancak yine de veri kurtarma için bir mekanizma istiyor istiyorsanız seçin.
 
-* Daha fazla bilgi edinmek [avantajları](https://redis.io/topics/persistence#rdb-advantages) ve [dezavantajları](https://redis.io/topics/persistence#rdb-disadvantages) RDB kalıcı olarak.
-* Daha fazla bilgi edinmek [avantajları](https://redis.io/topics/persistence#aof-advantages) ve [dezavantajları](https://redis.io/topics/persistence#aof-disadvantages) AOF kalıcı olarak.
+* Daha fazla bilgi edinin [avantajları](https://redis.io/topics/persistence#rdb-advantages) ve [dezavantajları](https://redis.io/topics/persistence#rdb-disadvantages) RDB Kalıcılık.
+* Daha fazla bilgi edinin [avantajları](https://redis.io/topics/persistence#aof-advantages) ve [dezavantajları](https://redis.io/topics/persistence#aof-disadvantages) AOF Kalıcılık.
 
-AOF Kalıcılık kullanırken performans hakkında daha fazla bilgi için bkz: [mu AOF Kalıcılık etkileyen boyunca, gecikme veya my önbelleğinin performansını?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
+AOF Kalıcılık kullanırken performans hakkında daha fazla bilgi için bkz. [boyunca mu AOF Kalıcılık etkiler, gecikme süresi veya önbelleğimin performansını?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
 
-### <a name="what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation"></a>Farklı bir boyutta ölçeklendirilebilir ve bir yedek ölçekleme işlemi önce yaptığınız geri ne olur?
+### <a name="what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation"></a>Farklı bir boyuta ölçeklendirilir ve ölçeklendirme işlemi önce yapılan bir yedekleme geri ne olur?
 
-RDB ve AOF kalıcılığını:
+RDB hem AOF Kalıcılık için:
 
-* Daha büyük bir boyutu ölçeği, üzerinde etkisi yoktur.
-* Daha küçük bir boyuta ölçeği ve özel bir sahip [veritabanları](cache-configure.md#databases) ayarından daha büyük [veritabanları sınırı](cache-configure.md#databases) yeni boyutunuz için bu veritabanlarını verileri geri değil. Daha fazla bilgi için bkz: [olan ölçeklendirme sırasında etkilenen ayarı my özel veritabanlarını?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
-* Daha küçük bir boyuta ölçeği ve tüm son yedekleme verileri tutmak için daha küçük boyutu yeterli alan yok, genellikle kullanarak geri yükleme işlemi sırasında anahtarları çıkarılacak [allkeys lru](http://redis.io/topics/lru-cache) çıkarma ilkesi.
+* Daha büyük bir boyuta ölçeklendirdiyseniz, herhangi bir etkisi yoktur.
+* Daha küçük bir boyuta ölçeklendirilir ve sahip olduğunuz özel bir [veritabanları](cache-configure.md#databases) ayarı büyüktür [veritabanları sınırı](cache-configure.md#databases) yeni boyutunuz için verileri bu veritabanlarını geri. Daha fazla bilgi için [olan ölçeklendirme sırasında etkilenen ayarı my özel veritabanları?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
+* Daha küçük bir boyuta ölçeklendirilir ve tüm son yedekleme veritabanından verileri tutmak için daha küçük boyutu yeterli yer yok, genellikle kullanarak geri yükleme işlemi sırasında anahtarları çıkarılacak [allkeys lru](http://redis.io/topics/lru-cache) çıkarma ilkesi.
 
-### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>RDB yedekleme sıklığı, önbellek oluşturduktan sonra değiştirebilir miyim?
-Evet, üzerinde RDB kalıcılığı için yedekleme sıklığını değiştirebilirsiniz **Redis veri kalıcılığını** dikey. Yönergeler için bkz: [yapılandırma Redis kalıcılığı](#configure-redis-persistence).
+### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>RDB yedekleme sıklığı, önbellek oluşturabilirim sonra değiştirebilir miyim?
+Evet, üzerinde RDB Kalıcılık için yedekleme sıklığını değiştirebilirsiniz **Redis veri kalıcılığı** dikey penceresi. Yönergeler için [yapılandırma Redis kalıcılığı](#configure-redis-persistence).
 
-### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>Neden 60 dakikada bir RDB yedekleme sıklığını varsa var 60 dakikadan uzun yedeklemeler arasında?
-RDB Kalıcılık yedekleme sıklığı aralığını önceki yedekleme işlemi başarıyla tamamlanana kadar başlatılmaz. Yedekleme sıklığı 60 dakikadır ve onu bir yedekleme işlemi 15 dakika başarıyla tamamlanması için gereken, sonraki yedekleme önceki yedekleme başlangıç zamanından sonra 75 dakika kadar başlatılmaz.
+### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>Neden RDB yedekleme sıklığı 60 dakika varsa var 60 dakikadan fazla yedeklemeler arasında?
+RDB Kalıcılık yedekleme sıklığı aralığını önceki yedekleme işlemi başarıyla tamamlanana kadar başlatılmaz. Yedekleme sıklığı 60 dakikadır ve başarıyla tamamlanması 15 dakikada bir yedekleme işlemi alır, sonraki yedekleme başlangıç saati önceki yedeklemeden sonra 75 dakika kadar başlatılmaz.
 
-### <a name="what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made"></a>Yeni bir yedekleme yapılan eski RDB yedeklemelerin ne olur?
-En sonuncudan hariç tüm RDB Kalıcılık yedeklemeler otomatik olarak silinir. Bu silme işleminin hemen olmayabilir ancak eski yedeklemeler süresiz olarak kalıcı değildir.
+### <a name="what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made"></a>Eski RDB yedekleri, yeni bir yedekleme yapıldığında ne olur?
+En son dışındaki tüm RDB Kalıcılık yedeklemeleri otomatik olarak silinir. Bu silme işlemi hemen olmayabilir ancak daha eski yedeklemelerin süresiz olarak kalıcı yapılmaz.
 
 
 ### <a name="when-should-i-use-a-second-storage-account"></a>İkinci bir depolama hesabı ne zaman kullanmalıyım?
 
-Önbellekteki beklenen ayarlama işlemleri daha yüksek olan düşünüyorsanız olduğunda AOF kalıcılığını ikinci bir depolama hesabı kullanmanız gerekir.  İkincil depolama hesabı ayarlama önbelleğiniz depolama bant genişliği sınırlarına ulaşma değil sağlamaya yardımcı olur.
+Önbellekteki beklenen ayarlama işlemleri daha yüksek olan düşündüğünüzde AOF Kalıcılık için ikinci bir depolama hesabı kullanmanız gerekir.  İkincil depolama hesabı ayarlama, özel olarak önbelleğinizin depolama bant genişliği sınırlarını ulaşmaz sağlamaya yardımcı olur.
 
-### <a name="does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache"></a>AOF Kalıcılık etkileyen boyunca, gecikme veya my önbelleğinin performansını mu?
+### <a name="does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache"></a>AOF Kalıcılık etkileyen boyunca, gecikme süresi veya önbelleğimin performansını mu?
 
-AOF kalıcılığı önbellek en yüksek yük altında olduğunda bu verimliliği yaklaşık % 15-20 oranında etkiler (CPU ve sunucu yükü hem % 90'altında). Olmamalıdır gecikmesi sorunları önbellek bu sınırlar içinde olduğunda. Ancak, önbellek bu sınırlamaları daha erken etkin AOF ile tamamlayacaktır.
+AOF kalıcılığı önbellek en yüksek yük altında olduğunda bu aktarım hızı yaklaşık % 15-20 oranında etkiler (CPU ve sunucu hem de yük altında %90). Olmamalıdır gecikme sorunlarını önbellek bu sınırlar içinde olduğunda. Ancak, önbellek limitler daha çabuk ile AOF etkin ulaşacak.
 
-### <a name="how-can-i-remove-the-second-storage-account"></a>İkinci depolama hesabı nasıl kaldırabilir miyim?
+### <a name="how-can-i-remove-the-second-storage-account"></a>İkinci depolama hesabına nasıl kaldırabilir miyim?
 
-İlk Depolama hesabı ile aynı olacak şekilde ikinci depolama hesabı ayarlayarak AOF Kalıcılık ikincil depolama hesabını kaldırabilirsiniz. Yönergeler için bkz: [yapılandırma AOF kalıcılığı](#configure-aof-persistence).
+İlk Depolama hesabı ile aynı olacak şekilde ikinci depolama hesabı ayarlayarak AOF Kalıcılık ikincil depolama hesabı kaldırabilirsiniz. Yönergeler için [yapılandırma AOF Kalıcılık](#configure-aof-persistence).
 
-### <a name="what-is-a-rewrite-and-how-does-it-affect-my-cache"></a>Bir yeniden yazma nedir ve my önbellek nasıl etkiler?
+### <a name="what-is-a-rewrite-and-how-does-it-affect-my-cache"></a>Bir yeniden yazma nedir ve önbelleğimin nasıl etkiler?
 
-AOF dosya yeterince büyük hale geldiğinde, bir yeniden yazma önbelleği sıraya alındı otomatik olarak. Yeniden yazma işlemleri geçerli veri kümesi oluşturmak için gereken en az sayıda AOF dosyasıyla göre yeniden boyutlandırır. Yeniden yazdırmaya sırasında performans sınırlarını er özellikle büyük veri kümeleriyle ilgilenirken ulaşmak bekler. Genellikle AOF dosyası büyük hale gelir, ancak önemli miktarda zaman zaman gerçekleşeceğini olacak şekilde yeniden yazdırmaya daha az oluşur.
+AOF dosya yeterince büyük olduğunda, bir yeniden yazma önbelleği üzerine otomatik olarak kuyruğa alınır. Yeniden yazma işlemleri geçerli veri kümesi oluşturmak için gereken en az sayıda AOF dosyasıyla yeniden boyutlandırır. Yeniden yazma işlemleri sırasında özellikle büyük veri kümeleriyle ilgilenirken daha çabuk performans sınırlarını ulaşmak bekler. Genellikle AOF dosyanın büyük hale gelir, ancak ne zaman olacağı süreyi önemli ölçüde olacak şekilde yeniden daha az oluşur.
 
-### <a name="what-should-i-expect-when-scaling-a-cache-with-aof-enabled"></a>Ne ı etkin AOF bir önbellek ölçeklendirme beklemeniz gerekir?
+### <a name="what-should-i-expect-when-scaling-a-cache-with-aof-enabled"></a>Ne AOF etkin bir önbellek ölçeklendirme beklemeliyim?
 
-Ölçeklendirme sırasındaki AOF dosya önemli ölçüde büyükse ölçeklendirme tamamlandıktan sonra dosyayı yeniden beri beklenenden daha uzun sürmesine ölçeklendirme işlemi bekler.
+AOF dosyanın ölçeklendirmenin zaman önemli ölçüde büyükse, ardından ölçeklendirme işlemi, ölçeklendirme tamamlandıktan sonra dosyayı yeniden beri beklenenden daha uzun sürmesine bekler.
 
-Ölçeklendirme ile ilgili daha fazla bilgi için bkz: [farklı bir boyutta ölçeklendirilebilir ve bir yedek ölçekleme işlemi önce yaptığınız geri ne olur?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+Ölçeklendirme hakkında daha fazla bilgi için bkz. [farklı bir boyuta ölçeklendirilir ve ölçeklendirme işlemi önce yapılan bir yedekleme geri ne olur?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 
-### <a name="how-is-my-aof-data-organized-in-storage"></a>AOF verilerimi depolama nasıl düzenlenir?
+### <a name="how-is-my-aof-data-organized-in-storage"></a>AOF verilerimi depolama nasıl düzenlendiği?
 
-AOF dosyalarında depolanan verileri depolama alanına veri kaydetme performansını artırmak için düğüm başına birden çok sayfa bloblarını ayrılmıştır. Aşağıdaki tabloda, kaç tane sayfa bloblarını her fiyatlandırma katmanının için kullanılan görüntüler:
+AOF dosyalarında depolanan veriler, veri depolamaya kaydetme performansını artırmak için düğüm başına birden çok sayfa blobları ayrılmıştır. Aşağıdaki tabloda, kaç sayfa BLOB'ları için her fiyatlandırma katmanının kullanılan görüntüler:
 
 | Premium katman | Bloblar |
 |--------------|-------|
@@ -175,13 +175,13 @@ AOF dosyalarında depolanan verileri depolama alanına veri kaydetme performans�
 | P3           | parça başına 16   |
 | P4           | parça başına 20   |
 
-Kümeleme etkinleştirildiğinde, her parça önbelleğinde önceki tabloda belirtildiği gibi sayfa BLOB'ları, kendi kümesi vardır. Örneğin, üç parça P2 önbellekle AOF dosya 24 sayfa blobları (8 BLOB'lar ile 3 parça parça başına) dağıtır.
+Kümeleme etkin olduğunda, her parça önbelleğinde önceki tabloda belirtildiği şekilde kendi sayfa BLOB'ları kümesi vardır. Örneğin, üç parça P2 önbellekle 24 sayfa blobları (3 parçalar ile bir parça başına 8 blobları) arasında AOF dosyası dağıtır.
 
-Bir yeniden yazma sonra depoda AOF dosyaları iki kümesi yok. Yeniden yazdırmaya arka planda oluşur ve ikinci kümesine ekleme önbelleğine yeniden yazma sırasında gönderilen ayarlama işlemleri sırasında dosyaların ilk kümesine ekleyin. Bir yedekleme hatası durumunda yeniden yazdırmaya sırasında geçici olarak depolanır, ancak bir yeniden yazma tamamlandıktan sonra hemen silinir.
+Sonra bir yeniden yazma, AOF dosyalarını iki depoda yok. Yeniden yazdırmaya, arka planda gerçekleşir ve ikinci kümeye ekleme sırasında yeniden yazma önbelleği için gönderilen kümesi işlemleri sırasında dosyaları ilk kümesine ekleyin. Bir yedekleme başarısız olması durumunda yeniden yazma işlemleri sırasında geçici olarak depolanır, ancak bir yeniden yazma tamamlandıktan sonra hemen silinir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla premium önbellek özelliklerinin nasıl kullanılacağını öğrenin.
+Daha fazla premium önbellek özelliklerini kullanmayı öğrenin.
 
 * [Azure Redis önbelleği Premium katmanına giriş](cache-premium-tier-intro.md)
 

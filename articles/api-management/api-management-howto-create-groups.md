@@ -1,6 +1,6 @@
 ---
-title: Azure API Management'te grupları kullanılarak Geliştirici hesaplarını yönetme | Microsoft Docs
-description: Geliştirici hesaplarının Azure API Management'te grupları kullanarak yönetmeyi öğrenin
+title: Grupları kullanarak Azure API Management'ta Geliştirici hesaplarını yönetme | Microsoft Docs
+description: Grupları kullanarak Azure API Management'ta Geliştirici hesaplarını yönetme hakkında bilgi edinin
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 3986b07c3568c3dcbb4077361d38f74d658458cd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151068"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38603073"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Oluşturma ve Azure API Management'ta Geliştirici hesaplarını yönetmek için grupları kullanma
-API Management’te, ürünlerin geliştiricilere görünürlüğünü yönetmek için gruplar kullanılır. Ürünler ilk gruplar tarafından görünür yapılır ve sonra bu gruplara geliştiriciler görüntülemek ve gruplarıyla ilişkili ürünlere abone. 
+API Management’te, ürünlerin geliştiricilere görünürlüğünü yönetmek için gruplar kullanılır. Ürünleri ilk gruplar tarafından görünür yapılır ve ardından bu gruplara geliştiriciler görüntüleyebilir ve gruplarıyla ilişkilendirilmiş ürünlere abone. 
 
 API Management şu sabit sistem gruplarına sahiptir:
 
@@ -29,73 +29,73 @@ API Management şu sabit sistem gruplarına sahiptir:
 * **Geliştiriciler**: Kimliği doğrulanmış geliştirici portalı kullanıcıları bu gruba girer. Geliştiriciler, API'lerinizi kullanarak uygulama oluşturan müşterilerdir. Geliştiriciler, geliştirici portalına erişim iznine sahiptir ve bir API’nin işlemlerini çağıran uygulamalar oluşturur.
 * **Konuklar**: Kimliği doğrulanmamış geliştirici portalı kullanıcıları (bir API Management örneğinin geliştirici portalını ziyaret eden olası müşteriler gibi) bu gruba girer. Bunlara API’leri görüntüleyebilme ancak çağıramama gibi bazı salt okunur erişimler verilebilir.
 
-Bu sistem gruplarına ek olarak, yöneticiler özel gruplar oluşturabilir veya [ilişkili Azure Active Directory kiracılarındaki dış grupları yararlanan][leverage external groups in associated Azure Active Directory tenants]. Özel ve dış gruplar, geliştiricilere görünürlük ve API ürünlerine erişim sağlayan sistem gruplarıyla birlikte kullanılabilir. Örneğin, belirli bir iş ortağı kuruluşla ilişkili geliştiriciler için özel bir grup oluşturabilir ve bunlara yalnızca ilgili API'leri içeren bir üründen API'lere erişim izni verebilirsiniz. Bir kullanıcı birden fazla grubun üyesi olabilir.
+Bu sistem gruplarına ek olarak, yöneticiler özel gruplar oluşturabilir veya [ilişkili Azure Active Directory kiracılarındaki dış grupları yararlanarak][leverage external groups in associated Azure Active Directory tenants]. Özel ve dış gruplar, geliştiricilere görünürlük ve API ürünlerine erişim sağlayan sistem gruplarıyla birlikte kullanılabilir. Örneğin, belirli bir iş ortağı kuruluşla ilişkili geliştiriciler için özel bir grup oluşturabilir ve bunlara yalnızca ilgili API'leri içeren bir üründen API'lere erişim izni verebilirsiniz. Bir kullanıcı birden fazla grubun üyesi olabilir.
 
-Bu kılavuz, nasıl bir API Management örneğinin yöneticileri yeni gruplar eklemek ve ürünleri ve geliştiricilerin ilişkilendirmek gösterir.
+Bu kılavuz, nasıl bir API Management örneğinin yöneticileri yeni gruplar eklemek ve ürün ve geliştiriciler ile ilişkilendirmek gösterir.
 
-Grup oluşturma ve yayımcı portalında yönetme ek olarak, oluşturmak ve gruplarınızı API Management REST API kullanarak yönetmek [grup](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) varlık.
+Oluşturma ve yayımcı portalı içinde grupları yönetme ek olarak, oluşturma ve API Management REST API kullanarak gruplarınızı yönetmek [grubu](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) varlık.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu makalede görevleri tamamlayın: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
+Bu makaledeki görevleri tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="create-group"> </a>Bir grup oluşturun
 
-Bu bölümde, API Management hesabınıza yeni bir grup eklemek gösterilmiştir.
+Bu bölümde, API Management hesabınıza yeni bir grup ekleme işlemi gösterilmektedir.
 
-1. Seçin **grupları** ekranın sol sekmesine.
-2. Tıklatın **+ Ekle**.
-3. Grup ve isteğe bağlı bir açıklama için benzersiz bir ad girin.
+1. Seçin **grupları** ekranın sol tarafındaki için sekmesinde.
+2. Tıklayın **+ Ekle**.
+3. Grubu ve isteğe bağlı bir açıklama için benzersiz bir ad girin.
 4. **Oluştur**’a basın.
 
-    ![Yeni bir Grup Ekle](./media/api-management-howto-create-groups/groups001.png)
+    ![Yeni grubu eklemek](./media/api-management-howto-create-groups/groups001.png)
 
-Grup oluşturulduğunda, eklendiğinden **grupları** listesi. <br/>Düzenlenecek **adı** veya **açıklama** grubunu, grubun adını tıklatın ve **ayarları**.<br/>Grubunu silmek için tuşuna basın ve grup adını tıklatın **silmek**.
+Grup oluşturulduktan sonra kümeye eklenirse **grupları** listesi. <br/>Düzenlenecek **adı** veya **açıklama** grubunun grubun adına tıklayın ve **ayarları**.<br/>Grubu silmek için Grup ve ENTER tuşuna adına **Sil**.
 
-Grubu oluşturulan, ürünleri ve geliştiriciler ile ilişkili olabilir.
+Grup oluşturulduktan sonra ürün ve geliştiriciler ile ilişkili olabilir.
 
-## <a name="associate-group-product"> </a>Bir grup ürünü ile ilişkilendirme
+## <a name="associate-group-product"> </a>Bir gruba bir ürünle ilişkilendirmek
 
-1. Seçin **ürünleri** sol sekmesi.
+1. Seçin **ürünleri** sol için sekmesinde.
 2. İstenen ürün adına tıklayın.
 3. Tuşuna **erişim denetimi**.
-4. Tıklatın **+ Grup Ekle**.
+4. Tıklayın **+ Grup Ekle**.
 
-    ![Bir grup ürünü ile ilişkilendirme](./media/api-management-howto-create-groups/groups002.png)
+    ![Bir gruba bir ürünle ilişkilendirmek](./media/api-management-howto-create-groups/groups002.png)
 5. Eklemek istediğiniz grubu seçin.
 
-    ![Bir grup ürünü ile ilişkilendirme](./media/api-management-howto-create-groups/groups003.png)
+    ![Bir gruba bir ürünle ilişkilendirmek](./media/api-management-howto-create-groups/groups003.png)
 
-    Ürün grubu kaldırmak için tıklatın **silmek**.
+    Bir grup, üründen kaldırmak için tıklayın **Sil**.
 
     ![Grup silme](./media/api-management-howto-create-groups/groups004.png)
 
-Bir ürün grubu ile ilişkili olduğunda, o gruptaki geliştiriciler görüntüleyebilir ve ürüne abone.
+Bir ürün grubu ile ilişkili olduğunda, o gruptaki geliştiriciler görüntüleyebilir ve ürüne abone olma.
 
 > [!NOTE]
-> Azure Active Directory grupları eklemek için bkz: [Azure API Management'te Azure Active Directory'yi kullanarak Geliştirici hesaplarını yetkilendirmede nasıl](api-management-howto-aad.md).
+> Azure Active Directory grupları eklemek için bkz [Azure Active Directory'yi kullanarak Azure API Management'ta Geliştirici hesaplarını yetkilendirme nasıl](api-management-howto-aad.md).
 
 ## <a name="associate-group-developer"> </a>Grupları geliştiricilerle ilişkilendirme
 
-Bu bölüm grupları üyeleriyle ilişkilendirme gösterir.
+Bu bölümde, grup üyeleriyle ilişkilendirme işlemi gösterilmektedir.
 
-1. Seçin **grupları** ekranın sol sekmesine.
+1. Seçin **grupları** ekranın sol tarafındaki için sekmesinde.
 2. Seçin **üyeleri**.
 
-    ![Üye ekleme](./media/api-management-howto-create-groups/groups005.png)
-3. Tuşuna **+ Ekle** ve bir üye seçin.
+    ![Üye ekle](./media/api-management-howto-create-groups/groups005.png)
+3. Tuşuna **+ Ekle** ve bir üyesini seçin.
 
-    ![Üye ekleme](./media/api-management-howto-create-groups/groups006.png)
+    ![Üye ekle](./media/api-management-howto-create-groups/groups006.png)
 4. Tuşuna **seçin**.
 
-Geliştirici ve grubu ilişki eklendikten sonra içinde görüntüleyebilirsiniz **kullanıcılar** sekmesi.
+Geliştirici ve grubu ilişki eklendikten sonra onu görüntüleyebilir **kullanıcılar** sekmesi.
 
 ## <a name="next-steps"> </a>Sonraki adımlar
 
-* Bir geliştirici bir gruba eklendikten sonra görüntüleyin ve bu grupla ilişkili ürünlere abone. Daha fazla bilgi için bkz: [oluşturma ve Azure API Management'te bir ürün yayımlama][How create and publish a product in Azure API Management],
-* Grup oluşturma ve yayımcı portalında yönetme ek olarak, oluşturmak ve gruplarınızı API Management REST API kullanarak yönetmek [grup](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) varlık.
+* Bir geliştirici grubuna eklendikten sonra görüntüleyebilir ve bu grupla ilişkili ürünlere abone. Daha fazla bilgi için [oluşturma ve Azure API Management'ta ürün yayımlama][How create and publish a product in Azure API Management],
+* Oluşturma ve yayımcı portalı içinde grupları yönetme ek olarak, oluşturma ve API Management REST API kullanarak gruplarınızı yönetmek [grubu](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) varlık.
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product

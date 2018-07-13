@@ -1,6 +1,6 @@
 ---
-title: Klasik Windows VM üzerindeki uç noktaları ayarlama | Microsoft Docs
-description: Azure portalında Klasik Windows VM için uç nokta Azure'da Windows sanal makine ile iletişime izin verecek şekilde ayarlamak öğrenin.
+title: Bir Klasik Windows VM'de uç noktaları ayarlama | Microsoft Docs
+description: Azure'da Windows sanal makineyle iletişimi izin vermek için Azure portalında Klasik Windows VM'de uç noktaları ayarlama öğrenin.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -16,26 +16,26 @@ ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
 ms.openlocfilehash: cca9adb40557cf7bf9e1d4129fc6bd61cbf0df4f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913799"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618248"
 ---
-# <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Azure Klasik Windows sanal makine üzerindeki uç noktaları kurma
-Tüm Windows Azure'da Klasik dağıtım modeli kullanarak oluşturduğunuz sanal makineleri otomatik olarak şunları yapabilecek özel ağ kanal diğer sanal makineler aynı bulut hizmetinde veya sanal ağ ile iletişim kurar. Ancak, Internet veya diğer sanal ağlardaki bilgisayarlara bir sanal makineye gelen ağ trafiğini yönlendirmek için uç noktalar gerektirir. Bu makalede ayrıca kullanılabilir [Linux sanal makineleri](../../linux/classic/setup-endpoints.md).
+# <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Azure'da klasik bir Windows sanal makinesinde uç noktaları ayarlama yapma
+Klasik dağıtım modelini kullanarak Azure'da oluşturduğunuz sanal makinelere otomatik olarak için tüm Windows üzerinde özel bir ağ kanalının aynı bulut hizmetinde veya sanal ağı diğer sanal makinelerle iletişim kurar. Ancak uç noktaları bir sanal makineye gelen ağ trafiği yönlendirmek için İnternet'te veya diğer sanal ağlara bilgisayarlarda gerektirir. Bu makale için de kullanılabilir olan [Linux sanal makineleri](../../linux/classic/setup-endpoints.md).
 
 > [!IMPORTANT]
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-İçinde **Resource Manager** dağıtım modeli, uç noktalar kullanılarak yapılandırılmış olan **ağ güvenlik grupları (Nsg'ler)**. Daha fazla bilgi için bkz: [VM'nizi Azure portalını kullanarak dış erişmesine izin vermek](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+İçinde **Resource Manager** dağıtım modelini kullanarak uç noktaları yapılandırılmış **ağ güvenlik grupları (Nsg'ler)**. Daha fazla bilgi için [Azure portalını kullanarak sanal makinelerinize dış erişime izin vermek](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Azure Portal'da Windows sanal makine oluşturduğunuzda, Uzak Masaüstü ve Windows PowerShell uzaktan iletişim için olanlar gibi ortak uç noktaları genellikle sizin için otomatik olarak oluşturulur. Sanal makine oluşturulurken veya daha sonra gerektikçe ek uç noktaları yapılandırabilirsiniz.
+Azure portalında bir Windows sanal makine oluşturduğunuzda, Uzak Masaüstü ve Windows PowerShell uzaktan iletişimini yönelik olanlar gibi ortak uç noktaları genellikle sizin için otomatik olarak oluşturulur. Sanal makine oluştururken veya daha sonra gerektiğinde ek uç noktası yapılandırabilirsiniz.
 
 [!INCLUDE [virtual-machines-common-classic-setup-endpoints](../../../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* VM uç nokta ayarlamayı bir Azure PowerShell cmdlet'ini kullanmak için bkz: [Ekle AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
-* Bir uç noktada bir ACL yönetmek için bir Azure PowerShell cmdlet'ini kullanmak için bkz: [yönetme erişim denetim listeleri (ACL'ler) uç noktaları için PowerShell kullanarak](../../../virtual-network/virtual-networks-acl-powershell.md).
-* Resource Manager dağıtım modelinde bir sanal makine oluşturduysanız, Azure PowerShell kullanabileceğiniz [ağ güvenlik grupları oluşturma](../../../virtual-network/tutorial-filter-network-traffic.md) VM denetim trafiği için.
+* Bir Azure PowerShell cmdlet'i bir VM uç nokta ayarlamayı kullanmak için bkz [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
+* Bir uç nokta ACL'sini yönetmek için Azure PowerShell cmdlet'ini kullanmak için bkz: [yönetme erişim denetim listeleri (ACL'ler) uç noktalar için PowerShell kullanarak](../../../virtual-network/virtual-networks-acl-powershell.md).
+* Resource Manager dağıtım modelinde bir sanal makine oluşturursanız, Azure PowerShell'i kullanarak [ağ güvenlik grupları oluşturma](../../../virtual-network/tutorial-filter-network-traffic.md) trafiği denetlemek için VM.

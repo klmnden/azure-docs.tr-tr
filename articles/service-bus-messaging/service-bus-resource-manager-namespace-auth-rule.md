@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager şablonu kullanarak bir Service Bus yetkilendirme kuralını | Microsoft Docs
-description: Ad alanı ve Azure Resource Manager şablonu kullanarak sıra için bir hizmet veri yolu yetkilendirme kuralı oluştur
+title: Azure Resource Manager şablonu kullanarak bir Service Bus yetkilendirme kuralı oluştur | Microsoft Docs
+description: Bir Service Bus yetkilendirme kuralı için ad alanı ve Azure Resource Manager şablonu kullanarak kuyruk oluşturma
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -15,37 +15,37 @@ ms.workload: na
 ms.date: 04/11/2018
 ms.author: sethm
 ms.openlocfilehash: e29045f43f5b80ffc66d7b10bac39f3d8d03ae3c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410817"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38698760"
 ---
-# <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Ad alanı ve bir Azure Resource Manager şablonu kullanarak sıra için bir hizmet veri yolu yetkilendirme kuralı oluştur
+# <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Bir Service Bus yetkilendirme kuralı için ad alanı ve bir Azure Resource Manager şablonu kullanarak kuyruk oluşturma
 
-Bu makalede oluşturan bir Azure Resource Manager şablonu kullanmayı gösterir bir [yetkilendirme kuralı](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) için bir hizmet veri yolu ad alanı ve sıra. Makalede nasıl belirtmek için hangi kaynağın dağıtılan ve ne zaman dağıtım yürütülen parametreler tanımlamak nasıl belirtilen açıklanmaktadır. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
+Bu makalede oluşturan bir Azure Resource Manager şablonunun nasıl kullanılacağı gösterilmektedir. bir [yetkilendirme kuralı](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) bir Service Bus ad alanı ve kuyruk. Makalede nasıl belirtmek için hangi kaynaklara dağıtılır ve parametrelerin nasıl dağıtıldığının ve dağıtım yürütülürken belirtilen açıklanmaktadır. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
 
 Şablonları oluşturma hakkında daha fazla bilgi için lütfen bkz [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
 
-Tam şablon için bkz: [Service Bus yetkilendirme kuralı şablonunu] [ Service Bus auth rule template] github'da.
+Tam şablon için bkz: [Service Bus yetkilendirme kuralı şablonunu] [ Service Bus auth rule template] GitHub üzerinde.
 
 > [!NOTE]
 > Aşağıdaki Azure Resource Manager şablonları, yükleme ve dağıtım için kullanılabilir.
 > 
-> * [Hizmet veri yolu ad alanı oluşturma](service-bus-resource-manager-namespace.md)
-> * [Sıra ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-queue.md)
-> * [Hizmet veri yolu ad alanı konu ve abonelik oluşturma](service-bus-resource-manager-namespace-topic.md)
-> * [Konu, abonelik ve kuralı ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace.md)
+> * [Kuyruk ile bir Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-queue.md)
+> * [Konu ve abonelik ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-topic.md)
+> * [Konusu, aboneliği ve kuralı ile bir Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Son şablonları denetlemek için ziyaret edin [Azure hızlı başlangıç şablonlarını] [ Azure Quickstart Templates] Galerisi ve arama **Service Bus**.
+> En yeni şablonları denetlemek için ziyaret [Azure hızlı başlangıç şablonları] [ Azure Quickstart Templates] galeri ve arama **Service Bus**.
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Ne dağıtacaksınız?
 
-Bu şablon kullanılarak bir hizmet veri yolu yetkilendirme kuralı için bir ad alanı ve mesajlaşma varlığıyla (Bu durumda, bir kuyruktaki) dağıtın.
+Bu şablonu kullanarak bir Service Bus yetkilendirme kuralı için bir ad alanı ve mesajlaşma varlığı (Bu durumda, bir kuyruktaki) dağıtın.
 
-Bu şablonu kullanan [paylaşılan erişim imzası (SAS)](service-bus-sas.md) kimlik doğrulaması için. SAS hizmet veri yolu ad alanı veya belirli haklar ilişkili Mesajlaşma varlığıyla (kuyruk veya konu) yapılandırılmış bir erişim anahtarı kullanarak kimlik doğrulaması uygulamaları etkinleştirir. Bu anahtar ardından istemcilerin sırayla Service Bus kimlik doğrulaması yapmak için kullanabileceği bir SAS belirteci oluşturmak için de kullanabilirsiniz.
+Bu şablonu kullanan [paylaşılan erişim imzası (SAS)](service-bus-sas.md) kimlik doğrulaması için. SAS, Service Bus ad alanı ya da belirli haklarla ilişkili Mesajlaşma varlığı (kuyruk veya konu) yapılandırılmış bir erişim anahtarı kullanılarak kimlik doğrulaması uygulamaları etkinleştirir. Ardından, istemcilerin sırayla Service Bus kimlik doğrulaması yapmak için kullanabileceği SAS belirteci oluşturmak için bu anahtarı kullanabilirsiniz.
 
 Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıklayın:
 
@@ -53,12 +53,12 @@ Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıkla
 
 ## <a name="parameters"></a>Parametreler
 
-Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Şablon adlı bir bölüm içerir `Parameters` , tüm parametre değerlerini içerir. Dağıttığınız projesini temel alan veya dağıttığınız ortamı dayanarak değişir bu değerleri için bir parametre tanımlamanız gerekir. Her zaman aynı kalır değerleri parametrelerini tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır.
+Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Adlı bir bölüm şablonu içerir `Parameters` , tüm parametre değerlerini içerir. Dağıtmakta olduğunuz projeye veya dağıtım yaptığınız ortama bağlı olarak değişir bu değerleri için bir parametre tanımlamanız gerekir. Her zaman aynı kalır değerler için parametre tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır.
 
 Şablon aşağıdaki parametreleri tanımlar.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-Oluşturmak için hizmet veri yolu ad alanı adı.
+Oluşturmak için Service Bus ad alanı adı.
 
 ```json
 "serviceBusNamespaceName": {
@@ -67,7 +67,7 @@ Oluşturmak için hizmet veri yolu ad alanı adı.
 ```
 
 ### <a name="namespaceauthorizationrulename"></a>namespaceAuthorizationRuleName
-Yetkilendirme kuralı adı ad.
+Ad alanı yetkilendirme kuralı adı.
 
 ```json
 "namespaceAuthorizationRuleName ": {
@@ -76,7 +76,7 @@ Yetkilendirme kuralı adı ad.
 ```
 
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
-Hizmet veri yolu ad alanında kuyruk adı.
+Service Bus ad alanındaki kuyruk adı.
 
 ```json
 "serviceBusQueueName": {
@@ -85,7 +85,7 @@ Hizmet veri yolu ad alanında kuyruk adı.
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-Şablon hizmet veri yolu API'sini sürümü.
+Hizmet veri yolu API'sini şablon sürümü.
 
 ```json
 "serviceBusApiVersion": { 
@@ -97,7 +97,7 @@ Hizmet veri yolu ad alanında kuyruk adı.
 ```
 
 ## <a name="resources-to-deploy"></a>Dağıtılacak kaynaklar
-Standart bir hizmet veri yolu ad alanı türü oluşturur **ileti**ve ad alanı ve varlık için bir hizmet veri yolu yetkilendirme kuralı.
+Standart bir Service Bus ad alanı türü oluşturur **Mesajlaşma**ve Service Bus yetkilendirme kuralı için ad alanı ve varlık.
 
 ```json
 "resources": [
@@ -165,11 +165,11 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Oluşturulan ve Azure Resource Manager kullanarak kaynakları dağıtılan göre bu kaynakları Bu makaleler görüntüleyerek yönetmeyi öğrenin:
+Oluşturulan ve dağıtılan kaynakları Azure Resource Manager kullanarak göre bu kaynakları Bu makaleler görüntüleyerek yönetmeyi öğrenin:
 
 * [Service Bus PowerShell ile yönetme](service-bus-powershell-how-to-provision.md)
-* [Hizmet veri yolu Gezgini ile Service Bus kaynaklarını yönetme](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
-* [Hizmet veri yolu kimlik doğrulama ve yetkilendirme](service-bus-authentication-and-authorization.md)
+* [Service Bus Explorer ile Service Bus kaynaklarını yönetme](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Service Bus kimlik doğrulama ve yetkilendirme](service-bus-authentication-and-authorization.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus

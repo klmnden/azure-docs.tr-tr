@@ -1,6 +1,6 @@
 ---
 title: Şirket içi Azure bağlantıları için VPN ağ geçidi ayarları | Microsoft Docs
-description: Azure sanal ağ geçitleri için VPN ağ geçidi ayarları hakkında bilgi edinin.
+description: Azure sanal ağ geçidi için VPN Gateway ayarları hakkında bilgi edinin.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,30 +16,30 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
 ms.openlocfilehash: 60cdc7bbe08df7816560e9720f96edc51769c342
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824855"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618230"
 ---
-# <a name="about-vpn-gateway-configuration-settings"></a>VPN ağ geçidi yapılandırma ayarları hakkında
+# <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway yapılandırma ayarları hakkında
 
-Bir VPN ağ geçidi, sanal ağınızı ve şirket içi konumunuz arasındaki şifrelenmiş trafik ortak bir bağlantı üzerinden gönderir sanal ağ geçidi türüdür. Azure omurga üzerinden sanal ağlar arasında trafiği göndermek için bir VPN ağ geçidi'ni de kullanabilirsiniz.
+Bir VPN ağ geçidi, ortak bir bağlantı üzerinden sanal ağınız ile şirket içi konumunuz arasında şifrelenmiş trafik gönderen sanal ağ geçidi türüdür. Azure omurgası üzerinden sanal ağlar arasında trafik göndermek için bir VPN ağ geçidi'ni de kullanabilirsiniz.
 
-Bir VPN gateway bağlantısı her biri yapılandırılabilir ayarları içeren yapılandırmasına göre birden fazla kaynağı kullanır. Bu makalede bölümlerde kaynakları ve Resource Manager dağıtım modelinde oluşturulmuş bir sanal ağ için bir VPN ağ geçidi ile ilgili ayarları açıklanmaktadır. Her bağlantı çözümünüz için açıklamaları ve topoloji diyagramları bulabilirsiniz [VPN Gateway hakkında](vpn-gateway-about-vpngateways.md) makalesi.
+Bir VPN ağ geçidi bağlantısı, her biri yapılandırılabilir ayarlar içeren yapılandırmasına birden çok kaynak kullanır. Bu makaledeki bölümler, kaynakları ve Resource Manager dağıtım modelinde oluşturulan sanal ağ için bir VPN ağ geçidi ile ilgili ayarları ele alınmıştır. Her bağlantı çözüm için açıklamalar ve topoloji diyagramlarını bulabilirsiniz [VPN Gateway hakkında](vpn-gateway-about-vpngateways.md) makalesi.
 
 >[!NOTE]
-> Bu makalede değerleri - GatewayType 'Vpn' kullanan sanal ağ geçitleri için geçerlidir. Bu belirli sanal ağ geçitlerini VPN ağ geçidi olarak adlandırılır nedeni budur. ExpressRoute ağ geçidi değerlerini VPN ağ geçitleri için kullandığınız aynı değerleri değildir.
+> Bu makalede değerleri - GatewayType 'Vpn' kullanan sanal ağ geçitleri için geçerlidir. Bu belirli sanal ağ geçitleri VPN ağ geçidi olarak adlandırılır nedeni budur. ExpressRoute ağ geçitleri için değerleri, VPN ağ geçitleri için kullandığınız aynı değerleri değildir.
 >
->-GatewayType için 'ExpressRoute' uygulamak değerleri için bkz: [ExpressRoute için sanal ağ geçitleri](../expressroute/expressroute-about-virtual-network-gateways.md).
+>-GatewayType için 'ExpressRoute' geçerli değerler için bkz: [ExpressRoute için sanal ağ geçitleri](../expressroute/expressroute-about-virtual-network-gateways.md).
 >
 >
 
 ## <a name="gwtype"></a>Ağ geçidi türleri
 
-Her sanal ağ, yalnızca bir sanal ağ geçidi her tür olabilir. Bir sanal ağ geçidi oluştururken, ağ geçidi türü yapılandırmanız için doğru olduğundan emin olmanız gerekir.
+Her sanal ağın yalnızca bir sanal ağ geçidi her türden olabilir. Bir sanal ağ geçidi oluştururken, ağ geçidi türünü yapılandırmanız için doğru olduğundan emin olmanız gerekir.
 
--GatewayType kullanılabilir değerler:
+-GatewayType için kullanılabilen değerler şunlardır:
 
 * VPN
 * ExpressRoute
@@ -58,15 +58,15 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-### <a name="configure-a-gateway-sku"></a>Bir ağ geçidi SKU'su yapılandırın
+### <a name="configure-a-gateway-sku"></a>Ağ geçidi SKU'sunu yapılandırın
 
 #### <a name="azure-portal"></a>Azure portalına
 
-Bir Resource Manager sanal ağ geçidi oluşturmak için Azure portalını kullanıyorsanız, açılan listeyi kullanarak ağ geçidi SKU'su seçebilirsiniz. İle sunulan seçenekler, seçtiğiniz VPN türü ve ağ geçidi türü için karşılık gelir.
+Resource Manager sanal ağ geçidi oluşturmak için Azure portalını kullanıyorsanız, açılan listeyi kullanarak ağ geçidi SKU'sunu seçebilirsiniz. İle sunulan seçenekler, seçtiğiniz VPN türü ve ağ geçidi türü için karşılık gelir.
 
 #### <a name="powershell"></a>PowerShell
 
-Aşağıdaki PowerShell örnek belirtir `-GatewaySku` VpnGw1 olarak. Bir ağ geçidi oluşturmak için PowerShell kullanılırken ilk IP yapılandırması oluşturun ve sonra başvurduğu için bir değişken kullanmak zorunda. Bu örnekte, $gwipconfig yapılandırma değişkenidir.
+Aşağıdaki PowerShell örneği belirtir `-GatewaySku` VpnGw1 olarak. Bir ağ geçidi oluşturmak için PowerShell kullanırken ilk IP yapılandırmasını oluşturun ve ardından buna başvurmak için bir değişken kullanın gerekir. Bu örnekte, yapılandırma değişkeni $gwipconfig ' dir.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
@@ -80,32 +80,32 @@ New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
 
-###  <a name="resizechange"></a>Yeniden boyutlandırma veya bir SKU değiştirme
+###  <a name="resizechange"></a>Yeniden boyutlandırma veya SKU değiştirme
 
-Bir VPN ağ geçidi varsa ve farklı bir ağ geçidi SKU'su kullanmak istiyorsanız, seçeneklerinizi ya da, ağ geçidi SKU'su yeniden boyutlandırmak veya başka bir SKU'ya değiştirmek için demektir. Başka bir ağ geçidi SKU'su değiştirdiğinizde, varolan ağ geçidi tamamen silin ve yeni bir tane oluşturun. Bu yapı 45 dakika kadar sürebilir. Bir ağ geçidi SKU'su, yeniden boyutlandırdığınızda silin ve ağ geçidi yeniden olmadığı için buna karşılık, çok az kapalı kalma süresi gerekir. Yerine, ağ geçidi SKU'su yeniden boyutlandırma değiştirmek seçeneği varsa, bunu yapmak isteyeceksiniz. Ancak, kuralları vardır yeniden boyutlandırma ile ilgili:
+Bir VPN ağ geçidi varsa ve farklı bir ağ geçidi SKU'sunu kullanmak istediğiniz ya da, ağ geçidi SKU'sunu yeniden boyutlandırmak için veya başka bir SKU'ya değiştirmek için seçenekleriniz şunlardır. Başka bir ağ geçidi SKU'su değiştirdiğinizde, mevcut ağ geçidini tamamen silin ve yeni bir tane oluşturun. Bu yapı 45 dakika kadar sürebilir. Ağ geçidi SKU'sunu, yeniden boyutlandırdığınızda silin ve ağ geçidini yeniden olmadığı için buna karşılık, çok az kapalı kalma süresi gerekir. Seçeneği değiştirmek yerine, ağ geçidi SKU'sunu yeniden boyutlandırma varsa, bunu istersiniz. Ancak, kural yok yeniden boyutlandırma ile ilgili:
 
 1. VpnGw1, VpnGw2 ve VpnGw3 SKU'ları arasında yeniden boyutlandırma gerçekleştirebilirsiniz.
 2. Eski ağ geçidi SKU'larıyla çalışırken Temel, Standart ve Yüksek Performanslı SKU'lar arasında yeniden boyutlandırma yapabilirsiniz.
-3. Temel/Standart/Yüksek Performanslı SKU'ları yeni VpnGw1/VpnGw2/VpnGw3 SKU'larıyla aynı olacak şekilde **yeniden boyutlandıramazsınız**. Bunun yerine, gerekir [değiştirmek](#change) yeni SKU'ları için.
+3. Temel/Standart/Yüksek Performanslı SKU'ları yeni VpnGw1/VpnGw2/VpnGw3 SKU'larıyla aynı olacak şekilde **yeniden boyutlandıramazsınız**. Bunun yerine, gerekir [değiştirme](#change) yeni SKU'lara.
 
 #### <a name="resizegwsku"></a>Bir ağ geçidi yeniden boyutlandırmak için
 
 [!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
 
-####  <a name="change"></a>Eski (eski) SKU için yeni bir SKU değiştirmek için
+####  <a name="change"></a>(Eski) eski bir SKU'dan yeni bir SKU'ya değiştirmek için
 
 [!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="connectiontype"></a>Bağlantı türleri
 
-Resource Manager dağıtım modelinde, her yapılandırma belirli sanal ağ geçidi bağlantı türü gerektirir. `-ConnectionType` için kullanılabilir Resource Manager PowerShell değerleri şunlardır:
+Resource Manager dağıtım modelinde, her yapılandırma bir özel sanal ağ geçidi bağlantı türü gerektirir. `-ConnectionType` için kullanılabilir Resource Manager PowerShell değerleri şunlardır:
 
 * IPsec
 * Vnet2Vnet
 * ExpressRoute
 * VPNClient
 
-Aşağıdaki PowerShell örnekte, bağlantı türü gerektiren bir S2S bağlantı oluşturuyoruz *IPSec*.
+Aşağıdaki PowerShell örneği, bağlantı türü gerektiren bir S2S bağlantısı oluşturacağız *IPSec*.
 
 ```powershell
 New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
@@ -115,15 +115,15 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 
 ## <a name="vpntype"></a>VPN türleri
 
-VPN ağ geçidi yapılandırması için sanal ağ geçidi oluşturduğunuzda, bir VPN türü belirtmeniz gerekir. Seçtiğiniz VPN türü oluşturmak istediğiniz bağlantı topolojisine bağlıdır. Örneğin, P2S bağlantısı RouteBased VPN türü gerektirir. Bir VPN türü ayrıca kullandığınız donanımda bağlı olabilir. S2S yapılandırmaları bir VPN cihazı gerektirir. Bazı VPN cihazlarının yalnızca belirli bir VPN türü destekler.
+VPN ağ geçidi yapılandırması için sanal ağ geçidi oluşturduğunuzda, bir VPN türünü belirtmeniz gerekir. Oluşturmak istediğiniz bağlantı topolojisine seçtiğiniz VPN türüne bağlıdır. Örneğin, P2S bağlantısı RouteBased VPN türü gerektirir. Bir VPN türü, ayrıca kullandığınız donanımda bağlı olabilir. S2S yapılandırmaları bir VPN cihazı gerektirir. Bazı VPN cihazlarının yalnızca belirli bir VPN türünü destekler.
 
-Seçtiğiniz VPN türü oluşturmak istediğiniz tüm bağlantı çözümünün gereksinimlerini karşılaması gerekir. Örneğin, bir S2S VPN gateway bağlantısı ve P2S VPN ağ geçidi bağlantısı aynı sanal ağ oluşturmak istiyorsanız, VPN türü kullanırsınız *RouteBased* çünkü P2S RouteBased VPN türü gerektirir. VPN Cihazınızı RouteBased VPN bağlantısı desteklenen doğrulamak gerekir. 
+Seçtiğiniz VPN türüne oluşturmak istediğiniz tüm bağlantı çözümünün gereksinimlerini karşılaması gerekir. Örneğin, bir S2S VPN gateway bağlantısı ve aynı sanal ağ için P2S VPN ağ geçidi bağlantısı oluşturmak istiyorsanız, VPN türü kullanırsınız *RouteBased* çünkü P2S RouteBased VPN türü gerektirir. VPN Cihazınızı RouteBased VPN bağlantısı desteklenen doğrulamak gerekir. 
 
 Bir sanal ağ geçidi oluşturulduktan sonra VPN türünü değiştiremezsiniz. Sanal ağ geçidini silin ve yeni bir tane oluşturmanız gerekir. İki VPN türü vardır:
 
 [!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-Aşağıdaki PowerShell örnek belirtir `-VpnType` olarak *RouteBased*. Bir ağ geçidi oluştururken, -VpnType öğesinin yapılandırmanız için doğru olduğundan emin olmanız gerekir.
+Aşağıdaki PowerShell örneği belirtir `-VpnType` olarak *RouteBased*. Bir ağ geçidi oluştururken, -VpnType öğesinin yapılandırmanız için doğru olduğundan emin olmanız gerekir.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -137,15 +137,15 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ## <a name="gwsub"></a>Ağ geçidi alt ağı
 
-Bir VPN ağ geçidi oluşturmadan önce bir ağ geçidi alt ağı oluşturmanız gerekir. Ağ geçidi alt ağı sanal ağ geçidi sanal makineleri ve hizmetleri kullanan IP adreslerini içerir. Sanal ağ geçidinizi oluşturduğunuzda, ağ geçidi VM ağ geçidi alt ağına dağıtılan ve gerekli VPN ağ geçidi ayarlarıyla yapılandırılır. Hiçbir zaman başka bir şey (örneğin, ek VM'ler) ağ geçidi alt ağına dağıtmalısınız. Ağ geçidi alt ağı 'GatewaySubnet' adlı gerekir düzgün çalışması için. Ağ geçidi alt ağı 'GatewaySubnet' adlandırma, bu sanal ağ geçidi sanal makineleri ve Hizmetleri dağıtmak için alt olduğunu biliyor Azure olanak sağlar.
+Bir VPN ağ geçidi oluşturmadan önce bir ağ geçidi alt ağı oluşturmanız gerekir. Ağ geçidi alt ağı sanal ağ geçidi Vm'lerini ve hizmetlerini kullanan IP adreslerini içerir. Sanal ağ geçidinizi oluştururken, ağ geçidi Vm'leri ağ geçidi alt ağına dağıtılır ve gerekli VPN ağ geçidi ayarlarla yapılandırılır. Başka bir şey (örneğin, ek VM'ler) ağ geçidi alt ağına hiçbir zaman dağıtmalısınız. Ağ geçidi alt ağı 'GatewaySubnet' olarak adlandırılmalıdır düzgün çalışması için. Ağ geçidi alt ağı "GatewaySubnet" adlandırma, bu alt ağ sanal ağ geçidi Vm'leri ve Hizmetleri dağıtmak için hazır olduğunu biliyor Azure olanak tanır.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 >
 
-Ağ geçidi alt ağı oluştururken, alt ağın içerdiği IP adresi sayısını belirtirsiniz. Ağ geçidi alt ağdaki IP adresleri ağ geçidi sanal makineleri ve ağ geçidi Hizmetleri ayrılır. Bazı yapılandırmalar için diğerlerinden daha fazla IP adresi gerekir. Oluşturma ve oluşturmak istediğiniz ağ geçidi alt ağı bu gereksinimleri karşıladığını doğrulamak istediğiniz yapılandırma yönergelerini bakın. Ayrıca, ağ geçidi alt ağınızı gelecekteki olası ek yapılandırmalar karşılamak için yeterli IP adreslerini içerdiğinden emin olmak isteyebilirsiniz. Bir ağ geçidi alt ağı/29 kadar küçük oluşturabilirsiniz, ancak 28 ya da daha büyük bir ağ geçidi alt ağı oluşturmanızı öneririz (/ 28, / 27, /26 vs.). İşlevselliği gelecekte eklerseniz, bu şekilde, ağ geçidiniz, kesmeden sonra silip için daha fazla IP adresine izin vermek için ağ geçidi alt ağı gerekmez.
+Ağ geçidi alt ağı oluştururken, alt ağın içerdiği IP adresi sayısını belirtirsiniz. Ağ geçidi alt ağı IP adresleri, ağ geçidi Vm'leri ve ağ geçidi hizmetlerine ayrılır. Bazı yapılandırmalar için diğerlerinden daha fazla IP adresi gerekir. Oluşturun ve oluşturmak istediğiniz ağ geçidi alt ağı bu gereksinimleri karşıladığını doğrulamak için istediğiniz yapılandırmayı yönergelerine bakın. Ayrıca, gelecekteki olası ek yapılandırmaları barındırmak için yeterli IP adresi, ağ geçidi alt ağı içerdiğinden emin olmak isteyebilirsiniz. Bir ağ geçidi alt ağı/29 kadar küçük oluşturmanız mümkün olsa da/28'lik veya daha büyük bir ağ geçidi alt ağı oluşturmanızı öneririz (/ 28, en az/27, / 26 vb..). İşlevselliğini gelecekte eklerseniz bu şekilde, ağ geçidiniz, ayırma sonra silin ve daha fazla IP adresi için izin vermek için ağ geçidi alt ağı oluşturmanız gerekmez.
 
-Aşağıdaki Resource Manager PowerShell örnek GatewaySubnet adlı bir ağ geçidi alt ağı gösterir. Şu anda mevcut çoğu yapılandırma için yeterli IP adresine izin veren bir/27 CIDR gösteriminde belirtir görebilirsiniz.
+Resource Manager PowerShell aşağıdaki örnek GatewaySubnet adlı bir ağ geçidi alt ağı gösterir. Şu anda mevcut çoğu yapılandırma için yeterli IP adresi izin veren bir/27 CIDR gösterimini belirtir görebilirsiniz.
 
 ```powershell
 Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
@@ -157,20 +157,20 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 
 Bir VPN ağ geçidi yapılandırması oluştururken, yerel ağ geçidi genellikle şirket içi konumunuzu temsil eder. Klasik dağıtım modelinde, yerel ağ geçidi için Yerel Site olara ifade edilir. 
 
-Yerel ağ geçidi, şirket içi VPN cihazının genel IP adresi olmak üzere bir ad verin ve şirket içi konumunda yer alan adres öneklerini belirtirsiniz. Azure ağ trafiği için hedef adres öneklerine bakar, yerel ağ geçidiniz için belirttiğiniz yapılandırma bakar ve paketleri buna uygun şekilde yönlendirir. Ayrıca, VPN ağ geçidi bağlantısı kullanma VNet-VNet yapılandırmaları için yerel ağ geçitleri de belirtin.
+Yerel ağ geçidi şirket içi VPN cihazının genel IP adresini bir ad verip şirket içi konumunda yer alan adres öneklerini belirtirsiniz. Azure ağ trafiği için hedef adres öneklerine bakar, yerel ağ geçidiniz için belirttiğiniz yapılandırma bakar ve paketleri buna göre yönlendirir. VPN ağ geçidi bağlantısı VNet-VNet yapılandırmaları için yerel ağ geçitleri de belirtirsiniz.
 
-Aşağıdaki PowerShell örnek yeni bir yerel ağ geçidi oluşturur:
+Aşağıdaki PowerShell örneği, yeni bir yerel ağ geçidi oluşturur:
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
-Bazen yerel ağ geçidi ayarlarını değiştirmeniz gerekir. Örneğin, eklediğinizde veya adres aralığını değiştirmek veya VPN cihazının IP adresi değişip değişmediğini. Bkz: [PowerShell kullanarak yerel ağ geçidi ayarlarını değiştirmek](vpn-gateway-modify-local-network-gateway.md).
+Bazen yerel ağ geçidi ayarlarını değiştirmeniz gerekir. Örneğin, eklediğinizde veya adres aralığını değiştirmek veya VPN cihazının IP adresi değişirse. Bkz: [PowerShell kullanarak yerel ağ geçidi ayarlarını değiştirme](vpn-gateway-modify-local-network-gateway.md).
 
-## <a name="resources"></a>REST API'ları, PowerShell cmdlet'leri ve CLI
+## <a name="resources"></a>REST API'ler, PowerShell cmdlet'leri ve CLI
 
-Ek teknik kaynaklar ve REST API'leri, PowerShell cmdlet'lerini veya Azure CLI için VPN ağ geçidi yapılandırmaları kullanırken belirli sözdizimi gereksinimleri için aşağıdaki sayfalarına bakın:
+Ek teknik kaynaklar ve REST API'ler, PowerShell cmdlet'leri veya Azure CLI için VPN ağ geçidi yapılandırmaları kullanırken belirli bir söz dizimi gereksinimler için şu sayfalara bakın:
 
 | **Klasik** | **Resource Manager** |
 | --- | --- |
@@ -180,4 +180,4 @@ Ek teknik kaynaklar ve REST API'leri, PowerShell cmdlet'lerini veya Azure CLI i�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir bağlantı yapılandırmaları hakkında daha fazla bilgi için bkz: [VPN Gateway hakkında](vpn-gateway-about-vpngateways.md).
+Kullanılabilir bağlantı yapılandırmaları hakkında daha fazla bilgi için bkz. [VPN Gateway hakkında](vpn-gateway-about-vpngateways.md).

@@ -1,22 +1,22 @@
-## <a name="customize-and-extend-the-device-management-actions"></a>Özelleştirme ve aygıt yönetimi eylemleri genişletme
+## <a name="customize-and-extend-the-device-management-actions"></a>Cihaz yönetim eylemleri genişletir ve özelleştirme
 
-IOT çözümlerinizi aygıt yönetimi desenleri tanımlı kümesini genişletin veya özel desenler cihaz çifti ve bulut-cihaz yöntemi temelleri kullanarak etkinleştirin. Aygıt Yönetimi eylemleri diğer örnekleri Fabrika sıfırlaması, ürün yazılımı güncelleştirmesi, yazılım güncelleştirmesi, güç yönetimi, ağ ve bağlantı yönetimi ve veri şifrelemesi içerir.
+IOT çözümlerinizi cihaz yönetim modellerini tanımlı bir dizi genişletebilir veya özel düzenleri cihaz ikizi ve bulut-cihaz yöntemi temelleri kullanarak etkinleştirin. Diğer cihaz yönetim eylemleri Fabrika sıfırlaması, üretici yazılımı güncelleştirmesi, yazılım güncelleştirmesi, güç yönetimi, ağ ve bağlantı yönetimi ve veri şifrelemesi örneklerindendir.
 
 ## <a name="device-maintenance-windows"></a>Cihaz bakım pencereleri
 
-Genellikle, cihazların kesintiler ve kapalı kalma süresini en aza indiren aynı anda eylemleri gerçekleştirmek üzere yapılandırın. Cihaz bakım pencereleri zaman bir aygıt yapılandırmasını güncelleştirmeniz gerekir zaman tanımlamak için yaygın olarak kullanılan bir desen ' dir. Arka uç çözümlerinizi cihaz çifti istenen özelliklerini tanımlamak ve bir ilke bir bakım penceresi sağlar, Cihazınızda etkinleştirmek için kullanabilirsiniz. Bir aygıt bakım penceresi İlkesi aldığında, bu ilkenin durumunu bildirmek için cihaz çiftinin bildirilen özelliğini kullanabilirsiniz. Arka uç uygulama için cihazlar ve her ilke uyumluluğunu şifreli olarak cihaz çiftine sorguları daha sonra kullanabilirsiniz.
+Genellikle, cihazları teker teker kesintiler ve kapalı kalma süresini en aza indirir eylemleri gerçekleştirmek için yapılandırın. Cihaz bakım pencereleri, bir cihaz yapılandırmasını güncelleştirmeniz gerekir süre tanımlamak için yaygın olarak kullanılan bir desen ' dir. Arka uç çözümlerinizi tanımlayın ve Cihazınızda bir bakım penceresi sağlayan bir ilke etkinleştirmek için cihaz çiftinin istenen özelliklerini kullanabilirsiniz. Bir cihaz, bakım penceresi İlkesi aldığında, bu ilkenin durumunu bildirmek için cihaz çiftinin bildirilen özellik kullanabilirsiniz. Arka uç uygulaması, cihazlar ve her ilke uyumluluğunu gerçekleştiğini doğrulamak için cihaz çifti sorguları daha sonra kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir cihazda Uzaktan yeniden başlatma tetiklemek için doğrudan bir yöntem kullanılır. Son yeniden başlatma zamanı aygıttan raporlamak için bildirilen özellikler kullanılan ve buluttan cihaza son yeniden başlatma zamanı bulmak için cihaz çifti sorgulanan.
+Bu öğreticide, bir doğrudan yöntem cihaz üzerinde Uzaktan yeniden başlatma tetiklemek için kullanılır. Bir CİHAZDAN son yeniden başlatma zamanı bildirmek üzere bildirilen özellikleri kullanılan ve buluttan cihazın son yeniden başlatma zamanı bulmak için cihaz ikizi sorgulandı.
 
-IOT Hub ve Uzaktan gibi cihaz yönetim düzenleri hava bellenim güncelleştirme kullanmaya Başlarken devam etmek için bkz:
+IOT Hub ve cihaz yönetim modellerini uzaktan gibi hava üretici yazılımı güncelleştirme kullanmaya başlama devam etmek için bkz:
 
-[Öğretici: bir üretici yazılımı güncelleştirmesi yapma][lnk-fwupdate]
+[Öğretici: nasıl üretici yazılımlarını güncelleştirme][lnk-fwupdate]
 
-Çözüm ve zamanlama yöntemini çağıran birden fazla cihazda, IOT genişletmek öğrenmek için bkz: [zamanlama ve yayın işleri] [ lnk-tutorial-jobs] Öğreticisi.
+IOT çözümü ve zamanlama yöntemi çağıran birden çok cihazda genişletmek öğrenmek için bkz [işleri zamanlama ve yayınlama] [ lnk-tutorial-jobs] öğretici.
 
-IOT Hub ile çalışmaya başlama devam etmek için bkz: [IOT Edge ile çalışmaya başlama][lnk-iot-edge].
+IOT Hub kullanmaya başlamaya devam etmek için bkz: [IOT Edge'i kullanmaya başlama][lnk-iot-edge].
 
 [lnk-fwupdate]: ../articles/iot-hub/iot-hub-node-node-firmware-update.md
 [lnk-tutorial-jobs]: ../articles/iot-hub/iot-hub-node-node-schedule-jobs.md

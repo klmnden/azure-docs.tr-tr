@@ -10,16 +10,16 @@ ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
 ms.openlocfilehash: 75be516dc3f23ee02638a6ca9981a6732b00e27a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063738"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38738939"
 ---
-Aşağıdaki tabloda, her geliştirme ortamında bu bağlama için destek ekleyeceğiniz anlatılmaktadır.
+Aşağıdaki tabloda, bu bağlama için destek her geliştirme ortamında nasıl ekleyeceğiniz anlatılmaktadır.
 
 | Geliştirme ortamı               | Desteği eklemek için <br>İşlevler 1.x  |
 |----------------------|----------------|---------------|
-|Yerel geliştirme - C# sınıf kitaplığı       | [Paketi Yükle](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) | 
-|Yerel geliştirme - C# kod, JavaScript, F # |Automatic         |
+|Yerel geliştirme - C# sınıf kitaplığı       | [Paketi yükleyin](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) | 
+|Yerel geliştirme - C# betiği, JavaScript, F # |Automatic         |
 |Portal geliştirme|  Automatic    |

@@ -1,6 +1,6 @@
 ---
-title: Twilio bağlayıcı Azure Logic apps içinde ekleme | Microsoft Docs
-description: REST API parametreleri Twilio bağlayıcısıyla genel bakış
+title: Twilio Bağlayıcısı, Azure Logic apps'te ekleyin | Microsoft Docs
+description: REST API parametrelerle Twilio bağlayıcısına genel bakış
 services: logic-apps
 documentationcenter: ''
 author: ecfan
@@ -16,37 +16,37 @@ ms.workload: integration
 ms.date: 09/19/2016
 ms.author: estfan; ladocs
 ms.openlocfilehash: 8bcf69a7c8e04cb45d795fd0d6f20d477c15865d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296144"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652014"
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Twilio Bağlayıcısı ile çalışmaya başlama
-Genel IP SMS ve MMS ileti gönderme ve alma için Twilio için bağlayın. Twilio ile şunları yapabilirsiniz:
+Genel SMS, MMS ve IP iletileri gönderip Twilio'ya bağlanın. Twilio ile şunları yapabilirsiniz:
 
-* İş akışınız Twilio alma verileri temel alan oluşturun. 
-* Bir ileti, liste iletiler ve daha fazlasını alma eylemlerini kullanın. Bu eylemler bir yanıt ve çıkış diğer eylemler için kullanılabilir yapın. Örneğin, yeni bir Twilio ileti aldığınızda, bu ileti almak ve bir hizmet veri yolu iş akışı kullanın. 
+* Twilio'dan alma verileri temel alan, iş akışınızı oluşturun. 
+* Bir ileti, iletileri Listele ve daha fazlasını edinin eylemlerini kullanın. Bu Eylemler, yanıt alın ve çıkış diğer eylemler için kullanılabilir yapın. Örneğin, bir yeni Twilio iletisini aldığınızda, bu iletiyi almak ve bir Service Bus iş akışını kullanın. 
 
-Bir mantıksal uygulama oluşturarak başlama; bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Mantıksal uygulama oluşturarak başlayın; bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="create-a-connection-to-twilio"></a>Twilio bağlantı oluşturun.
-Bu bağlayıcı mantıksal uygulamalarınızı eklediğinizde, aşağıdaki Twilio değerleri girin:
+## <a name="create-a-connection-to-twilio"></a>Twilio bağlantı oluşturun
+Bu bağlayıcı için logic apps eklediğinizde, Twilio aşağıdaki değerleri girin:
 
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
-| Hesap Kimliği |Evet |Twilio hesabı Kimliğinizi girin |
+| Hesap Kimliği |Evet |Twilio hesap Kimliğinizi girin |
 | Erişim Belirteci |Evet |Twilio erişim belirtecinizi girin |
 
 > [!INCLUDE [Steps to create a connection to Twilio](../../includes/connectors-create-api-twilio.md)]
 > 
 > 
 
-Twilio erişim belirteci sahip değilseniz, bkz: [kullanıcı kimliği ve erişim belirteçleri](https://www.twilio.com/docs/api/chat/guides/identity).
+Twilio erişim belirteci yoksa bkz [kullanıcı kimlik ve erişim belirteçleri](https://www.twilio.com/docs/api/chat/guides/identity).
 
-## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
+## <a name="connector-specific-details"></a>Özel bağlayıcı ayrıntıları
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/twilio/).
+Tetikleyiciler ve eylemlerin swagger'da tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınırlama Bkz [bağlayıcı ayrıntıları](/connectors/twilio/).
 
-## <a name="more-connectors"></a>Daha fazla bağlayıcılar
-Geri dönerek [API'leri listesi](apis-list.md).
+## <a name="more-connectors"></a>Daha fazla bağlayıcı
+Geri Git [API listesi](apis-list.md).

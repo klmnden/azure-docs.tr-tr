@@ -1,5 +1,5 @@
 ---
-title: PowerShell kullanarak bir ağ güvenlik grubu (Klasik) oluşturun | Microsoft Docs
+title: PowerShell kullanarak bir ağ güvenlik grubu (Klasik) oluşturmak | Microsoft Docs
 description: Oluşturma ve PowerShell kullanarak bir ağ güvenlik grubu (Klasik) dağıtma hakkında bilgi edinin
 services: virtual-network
 documentationcenter: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.openlocfilehash: ecb977660ed99a3cea2a71a867f50822b23e568c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793200"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634205"
 ---
 # <a name="create-a-network-security-group-classic-using-powershell"></a>PowerShell kullanarak bir ağ güvenlik grubu (Klasik) oluşturun
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
@@ -33,20 +33,20 @@ Bu makale, klasik dağıtım modelini kapsamaktadır. Ayrıca [Resource Manager 
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-Aşağıdaki komutları önceden oluşturulmuş basit bir ortam beklediğiniz PowerShell örnek yukarıdaki senaryo tabanlı. Bu belgede gösterildiği komutları çalıştırmak istiyorsanız, önce test ortamı tarafından yapı [bir VNet oluşturma](virtual-networks-create-vnet-classic-netcfg-ps.md).
+Önceden oluşturulmuş basit bir ortam aşağıdaki komutları beklediğiniz PowerShell örneği, yukarıdaki senaryo temel alınarak. Bu belgede gösterildiği komutlarını çalıştırmak isterseniz, test ortamı tarafından derlediğinizden [sanal ağ oluşturma](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 ## <a name="create-an-nsg-for-the-front-end-subnet"></a>Ön uç alt ağı için bir NSG oluşturma
 
-1. Azure PowerShell'i hiç kullanmadıysanız bkz [yükleme ve yapılandırma Azure PowerShell](/powershell/azure/overview).
+1. Azure PowerShell'i hiç kullanmadıysanız, [yükleme ve yapılandırma, Azure PowerShell](/powershell/azure/overview).
 
-2. Adlı bir ağ güvenlik grubu oluşturun *NSG ön uç*:
+2. Adlı bir ağ güvenlik grubu oluşturma *NSG ön uç*:
 
     ```powershell   
     New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location uswest `
       -Label "Front end subnet NSG"
    ```
 
-3. İnternet'ten 3389 numaralı bağlantı noktasına veren bir güvenlik kural oluşturun:
+3. Bir güvenlik kuralı internetten 3389 numaralı bağlantı noktasına erişimine oluşturun:
 
     ```powershell   
     Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
@@ -56,7 +56,7 @@ Aşağıdaki komutları önceden oluşturulmuş basit bir ortam beklediğiniz Po
       -DestinationAddressPrefix '*' -DestinationPortRange '3389'
    ```
 
-4. Erişim internet'ten, 80 numaralı bağlantı noktasına izin veren bir güvenlik kuralı oluşturun:
+4. 80 numaralı bağlantı noktasına internet'ten erişim veren bir güvenlik kuralı oluşturun:
 
     ```powershell   
     Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
@@ -68,14 +68,14 @@ Aşağıdaki komutları önceden oluşturulmuş basit bir ortam beklediğiniz Po
 
 ## <a name="create-an-nsg-for-the-back-end-subnet"></a>Arka uç alt ağı için bir NSG oluşturma
 
-1. Adlı bir ağ güvenlik grubu oluşturun *NSG arka uç*:
+1. Adlı bir ağ güvenlik grubu oluşturma *NSG arka uç*:
    
     ```powershell
     New-AzureNetworkSecurityGroup -Name "NSG-BackEnd" -Location uswest `
       -Label "Back end subnet NSG"
     ```
 
-2. Ön uç alt ağından gelen 1433 numaralı bağlantı noktasına (SQL Server tarafından kullanılan varsayılan bağlantı noktası) erişim izin veren bir güvenlik kuralı oluşturun:
+2. Ön uç alt ağından gelen 1433 numaralı bağlantı noktasına (SQL Server tarafından kullanılan varsayılan bağlantı noktası) erişim veren bir güvenlik kuralı oluşturun:
    
     ```powershell
     Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
@@ -85,7 +85,7 @@ Aşağıdaki komutları önceden oluşturulmuş basit bir ortam beklediğiniz Po
       -DestinationAddressPrefix '*' -DestinationPortRange '1433'
     ```
 
-3. İnternet alt ağdan erişimi engelleyen bir güvenlik kuralı oluşturun:
+3. Alt ağından internet erişimini engelleyen bir güvenlik kuralı oluşturun:
    
     ```powershell
     Get-AzureNetworkSecurityGroup -Name "NSG-BackEnd" `

@@ -1,6 +1,6 @@
 ---
-title: Ağ trafiği Azure PowerShell | Microsoft Docs
-description: Bu makalede, PowerShell kullanarak bir yol tablosu ile ağ trafiğini yönlendirmek öğrenin.
+title: Azure PowerShell ağ trafiğini yönlendirme | Microsoft Docs
+description: Bu makalede, PowerShell kullanarak bir yönlendirme tablosu ile ağ trafiğini yönlendirme hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -18,13 +18,13 @@ ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: 2aca1de567dbd4d37daf7f9dd7c407b669396a47
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "31603717"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630335"
 ---
-# <a name="route-network-traffic-with-a-route-table-using-powershell"></a>PowerShell kullanarak bir yol tablosu ile ağ trafiği yönlendirme
+# <a name="route-network-traffic-with-a-route-table-using-powershell"></a>PowerShell kullanarak bir yönlendirme tablosu ile ağ trafiğini yönlendirme
 
 Azure varsayılan olarak bir sanal ağ içindeki tüm alt ağlar arasında gerçekleşen trafiği otomatik olarak yönlendirir. Azure’ın varsayılan yönlendirmesini geçersiz kılmak için kendi yönlendirmelerinizi oluşturabilirsiniz. Örneğin, bir ağ sanal gereci üzerinden alt ağlar arasındaki trafiği yönlendirmek isteyebilirsiniz. Bu makalede şunları öğreneceksiniz:
 
@@ -44,13 +44,13 @@ PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu makale, Azur
 
 ## <a name="create-a-route-table"></a>Yönlendirme tablosu oluşturma
 
-Bir yol tablosu oluşturmadan önce bir kaynak grubuyla oluşturmanız [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* bu makalede oluşturulan tüm kaynaklar için. 
+Bir yol tablosu oluşturabilmeniz için önce bir kaynak grubu oluşturun [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *myResourceGroup* bu makalede oluşturulan tüm kaynaklar için. 
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-Bir yol tablosu ile oluşturma [yeni AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable). Aşağıdaki örnek, adında bir yol tablosu oluşturur *myRouteTablePublic*.
+Yönlendirme tablosu ile oluşturma [yeni AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable). Aşağıdaki örnekte adlı bir rota tablosu oluşturur *myRouteTablePublic*.
 
 ```azurepowershell-interactive
 $routeTablePublic = New-AzureRmRouteTable `
@@ -61,7 +61,7 @@ $routeTablePublic = New-AzureRmRouteTable `
 
 ## <a name="create-a-route"></a>Yönlendirme oluşturma
 
-Rota tablosu nesnesiyle alarak bir yol oluşturma [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable), bir rota oluşturmak [Ekle AzureRmRouteConfig](/powershell/module/azurerm.network/add-azurermrouteconfig), ileyoltablosunayolyapılandırmasıyazma[Kümesi AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable). 
+Rota tablosu nesnesiyle alarak yönlendirme oluşturma [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable), bir yol oluşturmak [Ekle AzureRmRouteConfig](/powershell/module/azurerm.network/add-azurermrouteconfig), rota tablosuyla yolyapılandırmasıyazılamadı[Kümesi AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable). 
 
 ```azurepowershell-interactive
 Get-AzureRmRouteTable `
@@ -77,7 +77,7 @@ Get-AzureRmRouteTable `
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Yönlendirme tablosunu bir alt ağ ile ilişkilendirme
 
-Bir alt ağ için bir yol tablosu ilişkilendirmeden önce bir sanal ağ ve alt ağ oluşturmanız gerekir. [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) ile sanal ağ oluşturun. Aşağıdaki örnek adlı bir sanal ağ oluşturur *myVirtualNetwork* adres ön ekine sahip *10.0.0.0/16*.
+Bir yönlendirme tablosunu bir alt ağ ilişkilendirmeden önce bir sanal ağ ve alt ağ oluşturmanız gerekir. [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) ile sanal ağ oluşturun. Aşağıdaki örnekte adlı bir sanal ağ oluşturur *myVirtualNetwork* adres ön eki ile *10.0.0.0/16*.
 
 ```azurepowershell-interactive
 $virtualNetwork = New-AzureRmVirtualNetwork `
@@ -87,7 +87,7 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Üç alt ağ yapılandırmaları oluşturarak üç alt ağ oluşturmak [yeni AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Aşağıdaki örnek için üç alt ağ yapılandırmalarını oluşturur *ortak*, *özel*, ve *DMZ* alt ağlar:
+Üç alt ağ ile üç alt ağ yapılandırmalarını oluşturarak oluşturma [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Aşağıdaki örnek için üç alt ağ yapılandırmalarını oluşturur *genel*, *özel*, ve *DMZ* alt ağlar:
 
 ```azurepowershell-interactive
 $subnetConfigPublic = Add-AzureRmVirtualNetworkSubnetConfig `
@@ -106,13 +106,13 @@ $subnetConfigDmz = Add-AzureRmVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-Sanal ağ ile alt ağ yapılandırmalarını yazmak [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork), sanal ağ alt ağlar oluşturur:
+Sanal ağ alt ağ yapılandırmalarını yazmak [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork), sanal ağ alt ağları oluşturur:
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-İlişkilendirme *myRouteTablePublic* yol tablosuna *ortak* alt ağ ile [kümesi AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) ve alt ağ yapılandırması yazma sanal ağ ile [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork).
+İlişkilendirme *myRouteTablePublic* yol tablosuna *genel* alt ağ ile [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) ve ardından için alt ağ yapılandırmasını yazma sanal ağ ile [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork).
 
 ```azurepowershell-interactive
 Set-AzureRmVirtualNetworkSubnetConfig `
@@ -127,11 +127,11 @@ Set-AzureRmVirtualNetwork
 
 NVA; yönlendirme, güvenlik duvarı oluşturma veya WAN iyileştirmesi gibi ağ işlevlerini gerçekleştiren bir VM'dir.
 
-Bir VM oluşturmadan önce bir ağ arabirimi oluşturur.
+VM oluşturmadan önce bir ağ arabirimi oluşturun.
 
-### <a name="create-a-network-interface"></a>Bir ağ arabirimi oluştur
+### <a name="create-a-network-interface"></a>Ağ arabirimini oluşturun
 
-Bir ağ arabirimi oluşturmadan önce sanal almak zorunda kimliğine sahip ağ [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork), alt kimliği ile [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig). Bir ağ arabirimi oluştur [yeni AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) içinde *DMZ* IP iletmenin etkin olan bir alt ağ:
+Bir ağ arabirimi oluşturmadan önce sanal almak sahip olduğunuz kimliğine sahip ağ [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork), alt kimliği ile [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig). Bir ağ arabirimi ile oluşturma [New-Azurermnetworkınterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) içinde *DMZ* IP iletme etkinleştirilmiş olan bir alt ağ:
 
 ```azurepowershell-interactive
 # Retrieve the virtual network object into a variable.
@@ -155,7 +155,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ### <a name="create-a-vm"></a>VM oluşturma
 
-Bir VM oluşturun ve mevcut bir ağ arabirimi için eklemek için önce bir VM yapılandırması ile oluşturmalısınız [yeni AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). Yapılandırma, önceki adımda oluşturulan ağ arabirimi içerir. Bir kullanıcı adı ve parola istendiğinde, kullanıcı adı ve parola ile VM içine günlüğe kaydetmek istediğiniz seçin. 
+Bir VM oluşturun ve buna bir mevcut ağ arabirimi eklemek için öncelikle bir VM yapılandırması ile oluşturmanız gerekir [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). Yapılandırma önceki adımda oluşturduğunuz ağ arabirimini içerir. Bir kullanıcı adı ve parola sorulduğunda, kullanıcı adı ve parola, VM ile oturum açmak istediğiniz seçin. 
 
 ```azurepowershell-interactive
 # Create a credential object.
@@ -176,7 +176,7 @@ $vmConfig = New-AzureRmVMConfig `
   Add-AzureRmVMNetworkInterface -Id $nic.Id
 ```
 
-VM yapılandırmayla kullanarak VM oluşturma [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVmNva*. 
+VM yapılandırması ile kullanarak VM oluşturma [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Aşağıdaki örnekte adlı bir VM oluşturur *myVmNva*. 
 
 ```azurepowershell-interactive
 $vmNva = New-AzureRmVM `
@@ -186,13 +186,13 @@ $vmNva = New-AzureRmVM `
   -AsJob
 ```
 
-`-AsJob` Seçeneği bir sonraki adıma devam etmek için bu VM arka planda oluşturur.
+`-AsJob` Seçeneği, sonraki adıma devam edebilmesi bu VM için arka planda oluşturur.
 
 ## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
-Bu trafiğinden doğrulamak için iki VM sanal ağ oluşturma *ortak* alt ağ için yönlendirilir *özel* sonraki adımda ağ sanal gereç aracılığıyla alt ağ. 
+Gelen trafiğin doğrulayabilmek sanal ağda iki VM oluşturma *genel* alt yönlendirileceğini *özel* sonraki bir adımda ağ sanal Gereci üzerinden alt ağ. 
 
-Bir VM oluşturma *ortak* alt ağ ile [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVmPublic* içinde *ortak* alt *myVirtualNetwork* sanal ağ. 
+Bir VM oluşturma *genel* alt ağ ile [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Aşağıdaki örnekte adlı bir VM oluşturur *myVmPublic* içinde *genel* alt *myVirtualNetwork* sanal ağ. 
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -217,11 +217,11 @@ New-AzureRmVm `
   -Name "myVmPrivate"
 ```
 
-Sanal makinenin oluşturulması birkaç dakika sürer. Sonraki adıma VM oluşturulur ve Azure PowerShell çıkış döndürür kadar devam yok.
+Sanal makinenin oluşturulması birkaç dakika sürer. VM oluşturulur ve Azure PowerShell'e çıktı döndürür kadar sonraki adıma geçmeyin.
 
 ## <a name="route-traffic-through-an-nva"></a>Trafiği NVA üzerinden yönlendirme
 
-Kullanım [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) genel IP adresi döndürülecek *myVmPrivate* VM. Aşağıdaki örnek genel IP adresi döndürür *myVmPrivate* VM:
+Kullanım [Get-Azurermpublicıpaddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) genel IP adresini döndürmek için *myVmPrivate* VM. Aşağıdaki örnek, genel IP adresini döndürür *myVmPrivate* VM:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -230,7 +230,7 @@ Get-AzureRmPublicIpAddress `
   | Select IpAddress
 ```
 
-İle Uzak Masaüstü oturumu oluşturmak için aşağıdaki komutu kullanın *myVmPrivate* yerel bilgisayarınızdan VM. `<publicIpAddress>` değerini önceki komutta döndürülen IP adresi ile değiştirin.
+Bir Uzak Masaüstü oturumu oluşturmak için aşağıdaki komutu kullanın *myVmPrivate* yerel bilgisayarınızdan VM. `<publicIpAddress>` değerini önceki komutta döndürülen IP adresi ile değiştirin.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -240,17 +240,17 @@ mstsc /v:<publicIpAddress>
 
 Sanal makineyi oluştururken belirttiğiniz kullanıcı adını ve parolayı girin (sanal makineyi oluştururken girdiğiniz kimlik bilgilerini belirtmek için **Diğer seçenekler**’i ve sonra **Farklı bir hesap kullan**’ı seçmeniz gerekebilir), ardından **Tamam**’ı seçin. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Bağlantıya devam etmek için **Evet**’i seçin. 
 
-Bir sonraki adımda tracert.exe komut yönlendirme test etmek için kullanılır. Tracert Windows Güvenlik Duvarı üzerinden reddedildi Internet Denetim İletisi Protokolü (ICMP) kullanır. PowerShell’den *myVmPrivate* sanal makinesinde aşağıdaki komutu girerek Windows güvenlik duvarı üzerinden ICMP’yi etkinleştirin:
+Daha sonraki bir adımda yönlendirmeyi test etmek için tracert.exe komutu kullanılır. Tracert Windows Güvenlik Duvarı üzerinden reddedilen Internet Denetim İletisi Protokolü (ICMP) kullanır. PowerShell’den *myVmPrivate* sanal makinesinde aşağıdaki komutu girerek Windows güvenlik duvarı üzerinden ICMP’yi etkinleştirin:
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 ```
 
-İzleme yolu, bu makaledeki yönlendirme test etmek için kullanılsa da ICMP üretim dağıtımları için Windows Güvenlik Duvarı aracılığıyla izin vererek önerilmez.
+Bu makalede yönlendirmeyi test etmek için izleme yönlendirme kullanılsa da, üretim dağıtımları için Windows Güvenlik Duvarı üzerinden ICMP'ye izin verilmesi önerilmez.
 
 [IP iletmeyi etkinleştirme](#enable-ip-forwarding) bölümünde, VM'nin ağ arabirimi için Azure’da IP iletimini etkinleştirdiniz. VM içindeki işletim sistemi veya VM içinde çalışan bir uygulama da ağ trafiğini iletebilmelidir. İşletim sistemi içinde IP iletimini etkinleştirmeniz *myVmNva*.
 
-Bir komut isteminden *myVmPrivate* VM, Uzak Masaüstü ' *myVmNva*:
+Bir komut isteminden *myVmPrivate* VM, Uzak Masaüstü Bağlantısı *myVmNva*:
 
 ``` 
 mstsc /v:myvmnva
@@ -321,7 +321,7 @@ Trafiğin *myVmPrivate* sanal makinesinden *myVmPublic* sanal makinesine doğrud
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerektiğinde kullanmak [Remove-AzureRmResourcegroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) kaynak grubu ve içerdiği kaynakların tümünü kaldırmak için.
+Artık gerekli değilse [Remove-AzureRmResourcegroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) kaynak grubunu ve içerdiği tüm kaynakları kaldırmak için.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -329,6 +329,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, bir yol tablosu oluşturulur ve bir alt ağa ilişkilendirilmiş. Ortak bir alt ağ trafiği için özel bir alt ağa yönlendirilmiş bir basit ağ sanal gereç oluşturuldu. Güvenlik Duvarı ve WAN iyileştirme dışında gibi ağ işlevleri gerçekleştirmek önceden yapılandırılmış ağ sanal Gereçleri çeşitli dağıtmak [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Yönlendirme hakkında daha fazla bilgi için bkz. [Yönlendirmeye genel bakış](virtual-networks-udr-overview.md) ve [Yönlendirme tablosunu yönetme](manage-route-table.md).
+Bu makalede, bir yönlendirme tablosu oluşturup bir alt ağ ile ilişkilendirilmiş. Trafiği bir genel alt ağdan özel alt ağa bir basit ağ sanal Gereci oluşturduğunuz. Çeşitli güvenlik duvarı ve WAN iyileştirme dışında gibi ağ işlevleri gerçekleştiren, önceden yapılandırılmış bir ağ sanal gereçlerini dağıtma [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Yönlendirme hakkında daha fazla bilgi için bkz. [Yönlendirmeye genel bakış](virtual-networks-udr-overview.md) ve [Yönlendirme tablosunu yönetme](manage-route-table.md).
 
-Bir sanal ağ içinde çok sayıda Azure kaynağına dağıtabilmenize karşın, bazı Azure PaaS hizmetlerinin kaynakları bir sanal ağa dağıtılamaz. Yine de, bazı Azure PaaS hizmetlerinin kaynaklarına erişimi yalnızca bir sanal ağ alt ağından gelecek trafikle kısıtlayabilirsiniz. Bilgi edinmek için bkz [PaaS kaynaklarına ağ erişimini kısıtlayabilir](tutorial-restrict-network-access-to-resources-powershell.md).
+Bir sanal ağ içinde çok sayıda Azure kaynağına dağıtabilmenize karşın, bazı Azure PaaS hizmetlerinin kaynakları bir sanal ağa dağıtılamaz. Yine de, bazı Azure PaaS hizmetlerinin kaynaklarına erişimi yalnızca bir sanal ağ alt ağından gelecek trafikle kısıtlayabilirsiniz. Bilgi edinmek için bkz. nasıl [PaaS kaynaklarına ağ erişimini kısıtlama](tutorial-restrict-network-access-to-resources-powershell.md).

@@ -1,6 +1,6 @@
 ---
-title: Bir statik genel IP adresi ile - Azure PowerShell bir VM oluşturma | Microsoft Docs
-description: PowerShell kullanarak bir statik genel IP adresi ile VM oluşturmayı öğrenin.
+title: Bir statik genel IP adresiyle - Azure PowerShell VM oluşturma | Microsoft Docs
+description: PowerShell kullanarak bir statik genel IP adresiyle VM oluşturma konusunda bilgi edinin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,16 +17,16 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 68656db0b76a29e7ab36fd6fa9ad4647712233ee
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525141"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696592"
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>PowerShell kullanarak bir statik genel IP adresiyle bir VM oluşturma
+# <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>PowerShell kullanarak bir statik genel IP adresiyle VM oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [PowerShell (Klasik)](virtual-networks-reserved-public-ip.md)
@@ -34,16 +34,16 @@ ms.locfileid: "31525141"
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
 > [!NOTE]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli yerine en yeni dağıtımlar için Microsoft önerir Resource Manager dağıtım modelini kullanarak yer almaktadır.
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makale Klasik dağıtım modeli yerine en yeni dağıtımlar için Microsoft'un önerdiği Resource Manager dağıtım modelini incelemektedir.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="start-your-script"></a>Kodunuzu Başlat
-Kullanılan tam PowerShell komut dosyası indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Ortamınızda çalışması için komut dosyasını değiştirmek için aşağıdaki adımları izleyin.
+## <a name="start-your-script"></a>Betiğinizi Başlat
+Kullanılan tam PowerShell betiğini indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Ortamınızda çalışması için komut dosyasını değiştirmek için aşağıdaki adımları izleyin.
 
-Dağıtımınız için kullanmak istediğiniz değerleri temel alarak aşağıdaki değişkenlerinin değerlerini değiştirin. Bu makalede kullanılan senaryo için aşağıdaki değerleri eşleyin:
+Dağıtımınız için kullanmak istediğiniz değerleri temel alarak aşağıdaki değişkenlerin değerlerini değiştirin. Bu makalede kullanılan senaryo aşağıdaki değerleri eşleyin:
 
 ```powershell
 # Set variables resource group
@@ -74,8 +74,8 @@ $pipName               = "PIPWEB1"
 $dnsName               = "iaasstoryws1"
 ```
 
-## <a name="create-the-necessary-resources-for-your-vm"></a>Gerekli kaynaklar için VM oluşturma
-Bir VM oluşturmadan önce bir kaynak grubu, VNet, genel IP ve NIC VM tarafından kullanılacak gerekir.
+## <a name="create-the-necessary-resources-for-your-vm"></a>Sanal Makineniz için gerekli kaynakları oluşturma
+VM oluşturmadan önce bir kaynak grubu, sanal ağ, genel IP ve NIC VM tarafından kullanılacak gerekir.
 
 1. Yeni bir kaynak grubu oluşturun.
 
@@ -102,7 +102,7 @@ Bir VM oluşturmadan önce bir kaynak grubu, VNet, genel IP ve NIC VM tarafında
         -AllocationMethod Static -DomainNameLabel $dnsName -Location $location
     ```
 
-4. Yukarıdaki genel IP ile oluşturulan alt ağdaki sanal makine için ağ arabirimi (NIC) oluşturun. Azure VNet alma ilk cmdlet dikkat edin, bu yana gereklidir bir `Set-AzureRmVirtualNetwork` mevcut VNet değiştirmek için yürütüldü.
+4. Genel IP ile yukarıda oluşturulan alt ağ içinde VM için ağ arabirimi (NIC) oluşturun. İlk cmdlet VNet Azure'dan alınırken dikkat edin, bu yana gereklidir bir `Set-AzureRmVirtualNetwork` mevcut bir VNet değiştirmek için yürütüldü.
 
     ```powershell
     $vnet = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
@@ -120,9 +120,9 @@ Bir VM oluşturmadan önce bir kaynak grubu, VNet, genel IP ve NIC VM tarafında
     ```
 
 ## <a name="create-the-vm"></a>Sanal makine oluşturma
-Gereken tüm kaynakların yerine getirildiğinden, yeni bir VM oluşturabilirsiniz.
+Tüm gerekli kaynakları yerinde olduğuna göre yeni bir VM oluşturabilirsiniz.
 
-1. VM için yapılandırma nesnesi oluşturun.
+1. Sanal makine için yapılandırma nesnesi oluşturun.
 
     ```powershell
     $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
@@ -155,13 +155,13 @@ Gereken tüm kaynakların yerine getirildiğinden, yeni bir VM oluşturabilirsin
     $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage
     ```
 
-6. NIC VM'ye ekleyin.
+6. NIC, sanal Makineye ekleyin.
 
     ```powershell
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id -Primary
     ```
 
-7. VM oluşturun.
+7. Bir VM oluşturun.
 
     ```powershell
     New-AzureRmVM -VM $vmConfig -ResourceGroupName $rgName -Location $location
@@ -169,14 +169,14 @@ Gereken tüm kaynakların yerine getirildiğinden, yeni bir VM oluşturabilirsin
 
 8. Komut dosyasını kaydedin.
 
-## <a name="run-the-script"></a>Komut dosyasını çalıştır
+## <a name="run-the-script"></a>Betiği çalıştırın
 
-Gerekli değişiklikleri yaptıktan sonra önceki komut dosyasını çalıştırın. Sanal makine, birkaç dakika sonra oluşturulur.
+Gerekli değişiklikleri yaptıktan sonra önceki betiği çalıştırın. Birkaç dakika sonra sanal makine oluşturulur.
 
 ## <a name="set-ip-addresses-within-the-operating-system"></a>İşletim sistemi içinde IP adreslerini ayarlayın
 
-Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir. Statik olarak bir VM işletim sistemi içinde Azure sanal makineye atanan özel IP sürece atadığınız değil, önerilir gerekirse, ne zaman gibi [birden çok IP adresleri atama bir Windows VM](virtual-network-multiple-ip-addresses-powershell.md). İşletim sistemi içinde özel IP adresini el ile ayarlarsanız, Azure için atanan özel IP adresi aynı adresi olduğundan emin olun [ağ arabirimi](virtual-network-network-interface-addresses.md#change-ip-address-settings), ya da sanal makineye bağlantısını kaybedebilir. Daha fazla bilgi edinmek [özel IP adresi](virtual-network-network-interface-addresses.md#private) ayarlar.
+Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir. Önerilen, statik olarak bir sanal makinenin işletim sistemi içinde Azure sanal makinesine atanmış özel IP sürece atamayın, gerekli olduğunda gibi [birden çok IP adresleri atama bir Windows VM'ye](virtual-network-multiple-ip-addresses-powershell.md). İşletim sistemi içinde özel IP adresini el ile ayarlamanız durumunda Azure atanmış özel IP adresiyle aynı adresi olduğundan emin olun [ağ arabirimi](virtual-network-network-interface-addresses.md#change-ip-address-settings), ya da sanal makineye bağlantı kaybedebilir. Daha fazla bilgi edinin [özel IP adresi](virtual-network-network-interface-addresses.md#private) ayarları.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Herhangi bir ağ trafiği için ve bu makalede oluşturulan VM akabilir. Ağ arabirimi, alt ağ ya da her ikisini de gelen ve giden akış trafiğini sınırlandırmak gelen ve giden güvenlik kuralları bir ağ güvenlik grubu içinde tanımlayabilirsiniz. Ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [ağ güvenlik grubu genel bakış](security-overview.md).
+Bu makalede oluşturulan VM'ye gelen ve giden ağ trafiğini akabilir. Ağ arabirimi, alt ağ veya her ikisi de gelen ve giden akış trafiğini sınırlandırmak gelen ve giden güvenlik kuralları bir ağ güvenlik grubu içinde tanımlayabilirsiniz. Ağ güvenlik grupları hakkında daha fazla bilgi için bkz. [ağ güvenlik grubu genel bakış](security-overview.md).

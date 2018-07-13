@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/31/2018
 ms.author: cynthn
 ms.openlocfilehash: 75ec087536d6f833a9a2106b1fdf4ed1fd73ef8e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: HT
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932420"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634629"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Azure'da bir Linux sanal makinesi şifreleme
 Geliştirilmiş sanal makine (VM) güvenlik ve uyumluluk için sanal diskleri ve VM şifrelenebilir. Vm'leri bir Azure Key Vault'ta güvenli şifreleme anahtarları kullanılarak şifrelenir. Bu şifreleme anahtarlarını denetlemek ve bunların kullanılması denetleyebilirsiniz. Bu makalede, Azure CLI 2.0 kullanarak bir Linux VM üzerinde sanal diskleri şifreleme işlemi açıklanmaktadır. 

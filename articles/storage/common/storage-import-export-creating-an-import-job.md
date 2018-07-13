@@ -1,6 +1,6 @@
 ---
 title: Azure içeri/dışarı aktarma için bir içeri aktarma işi oluşturma | Microsoft Docs
-description: Microsoft Azure içeri/dışarı aktarma hizmeti için bir alma oluşturmayı öğrenin.
+description: Microsoft Azure içeri/dışarı aktarma hizmeti alma oluşturmayı öğrenin.
 author: muralikk
 manager: syadav
 editor: syadav
@@ -15,33 +15,33 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: a80d2169f346238f997c727f0e9d82666897b608
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365891"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697647"
 ---
-# <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için bir alma işi oluşturma
+# <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için bir içeri aktarma işi oluşturma
 
-REST API kullanarak Microsoft Azure içeri/dışarı aktarma hizmeti için bir alma işi oluşturma, aşağıdaki adımları içerir:
+Microsoft Azure içeri/dışarı aktarma hizmeti REST API kullanarak içeri aktarma işi oluşturma, aşağıdaki adımları içerir:
 
--   Azure içeri/dışarı aktarma aracı olan sürücüleri hazırlanıyor.
+-   Azure içeri/dışarı aktarma aracı ile sürücüleri hazırlanıyor.
 
--   Sürücü dağıtmayı konum alma.
+-   Sürücü göndermeye konum edinme.
 
--   İçe aktarma işi oluşturuluyor.
+-   İçeri aktarma işi oluşturma.
 
--   Desteklenen taşıyıcı hizmeti üzerinden Microsoft'a sürücüleri aktarma.
+-   İçin Microsoft sürücüleri desteklenen taşıyıcı hizmeti aracılığıyla aktarma.
 
--   İçe aktarma işi ile sevkiyat ayrıntılarını güncelleştiriliyor.
+-   İçeri aktarma işi ile Sevkiyat ayrıntıları güncelleştiriliyor.
 
- Bkz: [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanılarak](storage-import-export-service.md) genel bir bakış içeri/dışarı aktarma hizmeti ve nasıl kullanılacağını gösteren bir öğretici için [Azure portal](https://portal.azure.com/) oluşturmak ve içeri aktarma yönetmek ve işleri vermek için.
+ Bkz: [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmetini kullanarak](storage-import-export-service.md) içeri/dışarı aktarma hizmeti ile nasıl kullanılacağını gösteren bir öğreticiye genel bakış [Azure portalında](https://portal.azure.com/) oluşturmak için içeri aktarma yönetme ve dışarı aktarma işleri.
 
-## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Azure içeri/dışarı aktarma aracı olan sürücüleri hazırlama
+## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Azure içeri/dışarı aktarma aracı ile sürücüleri hazırlama
 
-Sürücüleri içeri aktarma işi için hazırlamak üzere adımları portalı jobvia oluşturmak veya REST API aracılığıyla aynıdır.
+Sürücüleri içeri aktarma işine hazırlamak için adımları aynı jobvia portal oluşturma veya REST API aracılığıyla olabilir.
 
-Sürücü hazırlama kısa bir genel bakış aşağıdadır. Başvurmak [Azure alma ExportTool başvurusu](storage-import-export-tool-how-to-v1.md) tam yönergeler için. Azure içeri/dışarı aktarma aracı indirebilirsiniz [burada](http://go.microsoft.com/fwlink/?LinkID=301900).
+Sürücü hazırlık kısa bir genel bakış aşağıda verilmiştir. Başvurmak [Azure içeri aktarma ExportTool başvurusu](storage-import-export-tool-how-to-v1.md) eksiksiz yönergeler için. Azure içeri/dışarı aktarma aracı indirebileceğiniz [burada](http://go.microsoft.com/fwlink/?LinkID=301900).
 
 Sürücünüz hazırlanıyor içerir:
 
@@ -49,32 +49,32 @@ Sürücünüz hazırlanıyor içerir:
 
 -   Windows Azure depolama alanındaki hedef BLOB'ları tanımlama.
 
--   Bir veya daha fazla sabit sürücüler, verileri kopyalamak üzere Azure içeri/dışarı aktarma aracını kullanarak.
+-   Bir veya daha fazla sabit sürücüler için verilerinizi kopyalamak için Azure içeri/dışarı aktarma Aracı'nı kullanarak.
 
- Hazırlandığını gibi Azure içeri/dışarı aktarma aracı ayrıca her sürücü için bir bildirim dosyası oluşturur. Bildirim dosyası içerir:
+ Hazırlandığı sırada Azure içeri/dışarı aktarma aracı ayrıca her sürücü için bir bildirim dosyası oluşturur. Bir bildirim dosyası içerir:
 
--   Karşıya yükleme ve bu dosyaların eşlemeleri BLOB'lar için yönelik tüm dosyaların listesi.
+-   Karşıya yükleme ve bu dosyaların eşlemeleri bloblarına yönelik tüm dosyaları numaralandırması.
 
--   Her bir dosyanın parçalarını sağlama.
+-   Her dosyanın parçalarını sağlama.
 
--   Her bir blob ile ilişkilendirmek için özellikler ve meta verileri hakkında bilgiler.
+-   Her blob ile ilişkilendirmek için özellikleri ve meta verileri hakkında bilgiler.
 
--   Karşıya yüklenen bir blob aynı adı taşıyan bir blob kapsayıcısında varsa yapılacak eylem listesi. Olası seçenekler: a) blob ile bu dosyanın üzerine, b) mevcut blob ve dosyayı karşıya yüklemeyi atlayın tutmak, c) bir sonek adına başka dosyalarla çakışmayacak şekilde ekleme.
+-   Karşıya yüklenen bir blob kapsayıcısında mevcut bir bloba aynı ada sahipse gerçekleştirilecek eylemi bir listesi. Olası seçenekler: a) blob dosyanızın üzerine, (b) dosyayı karşıya yüklemeyi atlayın ve mevcut blob tutmak, c) bir sonek adına diğer dosyaları ile çakışmadığından emin Ekle.
 
-## <a name="obtaining-your-shipping-location"></a>Sevkiyat Konumunuz alma
+## <a name="obtaining-your-shipping-location"></a>Sevkiyat konumunuz edinme
 
-Sevkiyat konumu ad ve adres çağırarak elde etmeniz alma işi oluşturmadan önce [listesi konumları](/rest/api/storageimportexport/listlocations) işlemi. `List Locations` konumlar ve posta adresleri listesi döndürür. Döndürülen listeden bir konum seçin ve bu adresi, sabit sürücüler sevk. Aynı zamanda `Get Location` işlemi belirli bir konuma için teslimat adresi doğrudan elde edilir.
+Bir dağıtımı konum adı ve adresi çağırarak elde etmeniz içeri aktarma işine oluşturmadan önce [List Locations](/rest/api/storageimportexport/listlocations) işlemi. `List Locations` konumlar ve posta adresleri listesi döndürür. Döndürülen listeden bir konum seçin ve sabit sürücülerinizi bu adrese gönderin. Ayrıca `Get Location` doğrudan belirli bir konumun teslimat adresini edinme işlemi.
 
  Sevkiyat konum elde etmek için aşağıdaki adımları izleyin:
 
--   Konumun depolama hesabınızın adını belirleyin. Bu değer altında bulunabilir **konumu** depolama hesabının alanını **Pano** Azure portal ya da hizmet yönetimi API işlemi kullanarak için sorgulanan [depolama hesabı özellikleri Al](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Konumun depolama hesabınızın adını belirleyin. Bu değeri altında bulunabilir **konumu** depolama hesabının ile sekmesindeki **Pano** Azure portal ya da hizmet yönetimi API işlemi'ni kullanarak için sorgulanan [depolama hesabı edinin Özellikleri](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
 
--   Bu depolama hesabını çağırarak işlemek için konum almak `Get Location` işlemi.
+-   Bu depolama hesabı çağırarak işlemek kullanılabilir olan konumu almak `Get Location` işlemi.
 
--   Varsa `AlternateLocations` özelliği konumun Konum içerir ve ardından bu konumu kullanmak uygundur. Aksi halde çağrı `Get Location` alternatif konumlar biriyle yeniden işlemi. Özgün konuma bakım için geçici olarak kapalı.
+-   Varsa `AlternateLocations` özelliği konumun Konum içerir ve bu konumu kullanmak uygundur. Aksi takdirde, çağrı `Get Location` alternatif konumlar biriyle yeniden işlemi. Özgün konuma geçici olarak bakım için kapalı olabilir.
 
-## <a name="creating-the-import-job"></a>İçe aktarma işi oluşturma
-İçe aktarma işi oluşturmak için arama [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi. Aşağıdaki bilgileri sağlamanız gerekir:
+## <a name="creating-the-import-job"></a>İçeri aktarma işi oluşturma
+İçeri aktarma işi oluşturmak için arama [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi. Aşağıdaki bilgileri sağlamanız gerekir:
 
 -   İş için bir ad.
 
@@ -82,31 +82,31 @@ Sevkiyat konumu ad ve adres çağırarak elde etmeniz alma işi oluşturmadan ö
 
 -   Önceki adımda elde edilen sevkiyat konum adı.
 
--   İş türü (içe aktarma).
+-   Bir iş türü (alma).
 
--   Dönüş adresi alma işi tamamlandıktan sonra sürücüleri burada gönderilmelidir.
+-   Sürücüleri içeri aktarma işi tamamlandıktan sonra burada gönderilmesi gereken dönüş adresi.
 
--   İş sürücülerin listesi. Her bir sürücü için sürücü hazırlık adımında edinilen aşağıdaki bilgileri içermelidir:
+-   İş sürücülerin listesi. Her bir sürücü için sürücü hazırlık adımı sırasında edinilen aşağıdaki bilgileri içermelidir:
 
     -   Sürücü Kimliği
 
-    -   BitLocker anahtar
+    -   BitLocker anahtarı
 
-    -   Sabit sürücüde bildirim dosyası göreli yolu
+    -   Sabit sürücünün bildirim dosyasına göreli yol
 
-    -   Bildirim dosyası MD5 karma Base16 kodlanmış
+    -   Kodlamalı Base16 bildirim dosyası MD5 karma
 
-## <a name="shipping-your-drives"></a>Sürücülerinizin aktarma
-Önceki adımda elde ettiğiniz adrese sürücülerinizin hazırlamalısınız ve paket izleme numarasıyla içeri/dışarı aktarma hizmeti sağlamalısınız.
+## <a name="shipping-your-drives"></a>Sürücülerinizi aktarma
+Önceki adımda elde ettiğiniz adrese sürücülerinizin hazırlamalısınız ve içeri/dışarı aktarma hizmeti izleme paketi sayısı ile sağlamanız gerekir.
 
 > [!NOTE]
->  Sürücülerinizin paketiniz için bir izleme numarası sağlayacak bir desteklenen taşıyıcı hizmeti aracılığıyla hazırlamalısınız.
+>  Sürücülerinizi paketiniz için bir izleme numarası sağlayacak bir desteklenen taşıyıcı hizmeti aracılığıyla göndermeniz gerekir.
 
-## <a name="updating-the-import-job-with-your-shipping-information"></a>İçe aktarma işi ile sevkiyat bilgilerinizi güncelleştirme
-İzleme numaranızın aldıktan sonra arama [güncelleştirme işi özellikleri](/api/storageimportexport/jobs#Jobs_Update) Sevkiyat taşıyıcı adı, iş için izleme numarası ve dönüş Sevkiyat taşıyıcı hesap numarası güncelleştirmek için güncelleştirme işlemi. İsteğe bağlı olarak, sürücüler ve sevkiyat tarihi de sayısını belirtebilirsiniz.
+## <a name="updating-the-import-job-with-your-shipping-information"></a>Sevkiyat bilgilerinizi içeri aktarma işi güncelleştiriliyor
+İzleme numaranızı sonra çağrı [güncelleştirme işi özellikleri](/api/storageimportexport/jobs#Jobs_Update) Sevkiyat taşıyıcısı adı, iş için takip numarasını ve taşıyıcı hesap numarası iade gönderimi için güncelleştirme işlemi. İsteğe bağlı olarak, sürücüler ve gönderim tarihi de belirtebilirsiniz.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [İçeri/dışarı aktarma hizmeti REST API'si kullanma](storage-import-export-using-the-rest-api.md)
+* [İçeri/dışarı aktarma hizmeti REST API'sini kullanma](storage-import-export-using-the-rest-api.md)

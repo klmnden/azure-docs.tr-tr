@@ -9,11 +9,11 @@ ms.date: 04/09/2018
 ms.author: davidmu
 ms.custom: include file
 ms.openlocfilehash: 8363d023e89c77aabc0d123f19264c9a0758a656
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31529687"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38740484"
 ---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
@@ -24,7 +24,7 @@ Mobil veya yerel uygulamanızı kaydetmek için tabloda belirtilen ayarları kul
 | Ayar      | Örnek değer  | Açıklama                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Ad** | Contoso B2C uygulaması | Uygulamanızı tüketicilere tanımlayacak bir **Ad** girin. |
-| **Yerel istemci** | Yes | Mobil veya yerel bir uygulama için **Evet**’i seçin. |
+| **Yerel istemci** | Evet | Mobil veya yerel bir uygulama için **Evet**’i seçin. |
 | **Özel yeniden yönlendirme URI'si** | `com.onmicrosoft.contoso.appname://redirect/path` | Özel bir düzen ile yeniden yönlendirme URI’si girin. [İyi bir yeniden yönlendirme URI’si](../articles/active-directory-b2c/active-directory-b2c-app-registration.md) seçtiğinizden emin olun ve alt çizgi gibi özel karakterler kullanmayın. |
 
 Uygulamanızı kaydetmek için **Create (Oluştur)** seçeneğine tıklayın.

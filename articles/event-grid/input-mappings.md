@@ -1,6 +1,6 @@
 ---
-title: Azure olay kılavuz şemaya özel alan eşleme
-description: Özel şemanızı Azure olay kılavuz şemasına dönüştürmek açıklar.
+title: Özel alan Azure Event Grid şemaya eşleme
+description: Azure Event Grid şemaya özel şemanızı dönüştürüleceğini açıklar.
 services: event-grid
 author: tfitzmac
 manager: timlt
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: tomfitz
 ms.openlocfilehash: 32f93f383ec4044afb0696fcef1705c9ed65d673
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34301976"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38578926"
 ---
-# <a name="map-custom-fields-to-event-grid-schema"></a>Olay kılavuz şemaya özel alanlarını eşleme
+# <a name="map-custom-fields-to-event-grid-schema"></a>Özel alanları Event Grid şemaya eşleme
 
-Olay verileri beklenen eşleşmiyorsa [olay kılavuz şema](event-schema.md), aboneler için rota olay için olay kılavuz kullanmaya devam edebilirsiniz. Bu makalede, olay kılavuz şemaya şemanızı eşlemek açıklar.
+Olay verilerinizi beklenen eşleşmiyorsa [Event Grid şema](event-schema.md), rota olay aboneler için Event Grid kullanmaya devam edebilirsiniz. Bu makalede, şemanızı Event Grid şemaya eşleme açıklar.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="original-event-schema"></a>Özgün olay şeması
 
-Şimdi şu biçimde olayları gönderen bir uygulamaya sahip varsayın:
+Şu biçimde olayları gönderen bir uygulamaya sahip varsayalım:
 
 ```json
 [
@@ -35,19 +35,19 @@ Olay verileri beklenen eşleşmiyorsa [olay kılavuz şema](event-schema.md), ab
 ]
 ```
 
-Bu biçimi gerekli şema eşleşmiyor rağmen olay kılavuz alanlarınızı şemaya eşleme sağlar. Ya da özgün şemada değerlerini alabilir.
+Bu biçim gerekli şema eşleşmiyor olsa da, Event Grid, alanları şemaya eşleme sağlar. Veya, özgün şemada değerleri alabilir.
 
-## <a name="create-custom-topic-with-mapped-fields"></a>Eşlenen alanlarla özel konu oluştur
+## <a name="create-custom-topic-with-mapped-fields"></a>Eşlenen alanlar ile özel konu oluşturma
 
-Özel bir konu oluştururken, kılavuz şeması, özgün olaydan alanlarına eşlemek nasıl belirtin. Eşleme özelleştirmek için kullandığınız üç özellik vardır:
+Bir özel konu oluşturma sırasında özgün olay alanlarından event grid şemaya eşleme belirtin. Eşleme özelleştirmek için kullandığınız üç özellik vardır:
 
-* `--input-schema` Parametresi, şema türü belirtir. Kullanılabilir seçenekler *cloudeventv01schema*, *customeventschema*, ve *eventgridschema*. Eventgridschema varsayılan değerdir. Özel eşleme şemanızı ve olay kılavuz şeması arasındaki oluştururken customeventschema kullanın. Olayları CloudEvents şemada olduğunda cloudeventv01schema kullanın.
+* `--input-schema` Parametresi şema türünü belirtir. Kullanılabilir seçenekler *cloudeventv01schema*, *customeventschema*, ve *eventgridschema*. Eventgridschema varsayılan değerdir. Özel eşleme şemanızı ve event grid şema arasında oluştururken customeventschema kullanın. CloudEvents şeması olaylar, cloudeventv01schema kullanın.
 
-* `--input-mapping-default-values` Parametresi, olay kılavuz şemada alanlar için varsayılan değerleri belirtir. Varsayılan değerleri ayarlayabileceğiniz *konu*, *eventtype*, ve *dataversion*. Genellikle, özel şema, bu üç alan birine karşılık gelen bir alan içermiyor, bu parametreyi kullanın. Örneğin, bu dataversion ayarlanmış her zaman belirtebilirsiniz **1.0**.
+* `--input-mapping-default-values` Parametresi, Event Grid şemada alanlar için varsayılan değerler belirtir. Varsayılan değerleri ayarlayabileceğiniz *konu*, *eventtype*, ve *dataversion*. Genellikle, bu üç alan birine karşılık gelen bir alan özel şemanızı içermez, bu parametreyi kullanın. Örneğin, bu dataversion ayarlanmış her zaman belirtebilirsiniz **1.0**.
 
-* `--input-mapping-fields` Parametresi şemanızı alanlardan olay kılavuz şemaya eşler. Değerleri boşlukla ayrılmış bir anahtar/değer çiftlerini belirtin. Anahtar adı için olay kılavuz alanın adını kullanın. Değeri, alan adını kullanın. Anahtar adları kullanabilirsiniz *kimliği*, *konu*, *eventtime*, *konu*, *eventtype*ve *dataversion*.
+* `--input-mapping-fields` Parametre şemanızı alanları için event grid şema eşler. Değerler boşlukla ayrılmış bir anahtar/değer çiftlerini belirtin. Anahtar adı için event grid alanı adını kullanın. Değeri, alan adı kullanın. Anahtar adları için kullanabileceğiniz *kimliği*, *konu*, *eventtime*, *konu*, *eventtype*ve *dataversion*.
 
-Aşağıdaki örnek, eşlenen bazı ile özel bir konu oluşturur ve varsayılan alanları:
+Aşağıdaki örnek, bazı eşlenen ile özel bir konu oluşturur ve varsayılan alanları:
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -63,13 +63,13 @@ az eventgrid topic create \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
 
-## <a name="subscribe-to-event-grid-topic"></a>Olay kılavuz konuya abone olma
+## <a name="subscribe-to-event-grid-topic"></a>Event grid konuya abone olma
 
-Özel konuya abone olurken olayları almak için kullanmak istediğiniz şema belirtin. Kullandığınız `--event-delivery-schema` parametre ve ayarlamak *cloudeventv01schema*, *eventgridschema*, veya *inputeventschema*. Eventgridschema varsayılan değerdir.
+Özel konuya abone olurken olayları almak için kullanmak istediğiniz bir şema belirtin. Kullandığınız `--event-delivery-schema` parametresi ve *cloudeventv01schema*, *eventgridschema*, veya *inputeventschema*. Eventgridschema varsayılan değerdir.
 
-Bu bölümdeki örnekleri için olay işleyicisini bir kuyruk depolama kullanma. Daha fazla bilgi için bkz: [özel olaylar Azure kuyruk depolama alanına yönlendirmek](custom-event-to-queue-storage.md).
+Bu bölümdeki örneklerde, olay işleyicisi için bir kuyruk depolama kullanma. Daha fazla bilgi için [Azure kuyruk depolama için özel olayları yönlendirmek](custom-event-to-queue-storage.md).
 
-Aşağıdaki örnek, bir olay kılavuz konuya abone olur ve varsayılan olay kılavuz şemayı kullanır:
+Aşağıdaki örnek, bir olay Kılavuzu konusu için abone olur ve varsayılan event grid şemayı kullanır:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -80,7 +80,7 @@ az eventgrid event-subscription create \
   --endpoint <storage-queue-url>
 ```
 
-Sonraki örnek olay giriş şeması kullanır:
+Sonraki örnek, olayın giriş şemasını kullanır:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -92,9 +92,9 @@ az eventgrid event-subscription create \
   --endpoint <storage-queue-url>
 ```
 
-## <a name="publish-event-to-topic"></a>Konuya olay yayımlama
+## <a name="publish-event-to-topic"></a>Konuya olayı Yayımla
 
-Şimdi özel konu başlığına bir olay gönderin ve eşleme sonuç görmek hazırsınız. Bir olay sonrası için aşağıdaki betiği [şema örneği](#original-event-schema):
+Özel konuya bir olay göndermek ve eşlemenin sonucunu görmek artık hazırsınız. Bir olay göndermek için aşağıdaki betiği [örnek şema](#original-event-schema):
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
@@ -105,9 +105,9 @@ body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-jso
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Şimdi, adresinde depolama alanınızı sıra arayın. İki aboneliğin farklı şemalarda olayları teslim.
+Şimdi, kuyruk depolama bakın. İki aboneliğin farklı şemalarda olayları teslim.
 
-İlk aboneliğe olay kılavuz şema kullanılır. Teslim edilen olay biçimdedir:
+İlk abonelik olay ızgarası şeması kullanılır. Teslim edilen olay biçimdir:
 
 ```json
 {
@@ -126,9 +126,9 @@ curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 }
 ```
 
-Bu alanların özel konusundaki eşlemeleri içeriyor. **myEventTypeField** eşlenmiş **EventType**. İçin varsayılan değerler **DataVersion** ve **konu** kullanılır. **Veri** nesne özgün olay şema alanları içerir.
+Bu alanlar özel konu başlığından eşlemeleri içerir. **myEventTypeField** eşlenmiş **EventType**. İçin varsayılan değerler **DataVersion** ve **konu** kullanılır. **Veri** nesne özgün olay şema alanları içerir.
 
-İkinci abonelik giriş olayı şema kullanılır. Teslim edilen olay biçimdedir:
+İkinci abonelik giriş olay şeması kullanılır. Teslim edilen olay biçimdir:
 
 ```json
 {
@@ -142,6 +142,6 @@ Bu alanların özel konusundaki eşlemeleri içeriyor. **myEventTypeField** eşl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Olay teslimi ve yeniden denemeleri hakkında bilgi için [olay kılavuz ileti teslimi ve Yeniden Dene'yi](delivery-and-retry.md).
-* Olay kılavuz giriş için bkz: [hakkında olay kılavuz](overview.md).
-* Hızlı bir şekilde olay Kılavuzu ile çalışmaya başlamak için bkz: [Azure olay kılavuz oluşturma ve rota özel olaylarla](custom-event-quickstart.md).
+* Olay teslimi ve yeniden deneme hakkında bilgi için [Event Grid iletiyi teslim ve yeniden deneme](delivery-and-retry.md).
+* Event Grid’e giriş için bkz. [Event Grid hakkında](overview.md).
+* Event Grid ile hızla çalışmaya başlamak için bkz: [Azure Event Grid ile özel olaylar oluşturma ve yönlendirme](custom-event-quickstart.md).

@@ -21,4 +21,4 @@ PowerShell'de aşağıdaki hata iletisini alırsanız, PowerShell sürümünüz 
 
 `Set-AzureRmDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 
-PowerShell sürümünüz güncelleştirme Kasım 2016 (v2.3.0) ya da daha sonra ' ndaki yönergeleri kullanarak serbest [Azure PowerShell cmdlet'leri kullanmaya başlama](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) makalesi.
+Kasım 2016 (v2.3.0) PowerShell sürümünüzü güncelleştirin veya daha sonra yönergeleri kullanarak sürüm [Azure PowerShell cmdlet'lerini kullanmaya başlama](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) makalesi.

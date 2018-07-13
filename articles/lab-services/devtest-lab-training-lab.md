@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs için eğitim kullanın | Microsoft Docs
-description: Eğitim senaryoları için Azure DevTest Labs kullanmayı öğrenin.
+title: Eğitim için Azure DevTest Labs kullanma | Microsoft Docs
+description: Eğitim senaryoları için Azure DevTest Labs'i kullanmayı öğrenin.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,91 +14,91 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 85eddaaf101c3e85eca7514b04660163d23c1c80
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788000"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38666803"
 ---
-# <a name="use-azure-devtest-labs-for-training"></a>Azure DevTest Labs için eğitim kullanın
-Azure DevTest Labs, geliştirme ve test ek olarak birçok temel senaryolar uygulamak için kullanılabilir. Bu senaryolardan biri, eğitim için bir laboratuvar ayarlamaktır. Azure DevTest Labs, burada her Yardımcısı Eğitim aynı ve yalıtılmış ortamlar oluşturmak için kullanabileceğiniz özel şablonlar sağlayabilir Laboratuvar oluşturmanıza olanak sağlar. Yalnızca bunları ihtiyaç duydukları ve sanal makineleri için eğitim gerekli gibi-yeterli kaynak - içeren zaman eğitim ortamlar için her Yardımcısı kullanılabilir olduğundan emin olmak için ilkeleri uygulayabilirsiniz. Son olarak, tek bir tıklatmayla erişebilirsiniz trainees ile kolayca Laboratuvar paylaşabilirsiniz.
+# <a name="use-azure-devtest-labs-for-training"></a>Eğitim için Azure DevTest Labs kullanma
+Azure DevTest Labs, geliştirme/test yanı sıra birçok önemli senaryolar uygulamak için kullanılabilir. Bu senaryolardan biri, eğitim için laboratuvar ayarlamaktır. Azure DevTest Labs, burada her Yardımcısı Eğitim özdeş ve yalıtılmış ortamlar oluşturmak için kullanabileceğiniz özel şablonları sağlayabilir Laboratuvar oluşturmanıza olanak sağlar. Yalnızca bunlar ihtiyacınız ve eğitim için gereken sanal makineler gibi-yeterli kaynak - içeren eğitim ortamları her Yardımcısı için kullanılabilir olmasını sağlamak için ilkeler uygulayabilirsiniz. Son olarak, Laboratuvar, tek bir tıklamayla erişebilirsiniz yardımıyla ile kolayca paylaşabilirsiniz.
 
-![DevTest Labs için eğitim kullanın](./media/devtest-lab-training-lab/devtest-lab-training.png)
+![Eğitim için DevTest Labs kullanma](./media/devtest-lab-training-lab/devtest-lab-training.png)
 
-Azure DevTest Labs, herhangi bir sanal ortam eğitim yürütmek için gerekli aşağıdaki gereksinimleri karşılayan: 
+Azure DevTest Labs herhangi bir sanal ortam eğitim gerçekleştirmek için gerekli aşağıdaki gereksinimleri karşılar: 
 
-* Trainees diğer trainees tarafından oluşturulan VM'ler göremiyorum
-* Her eğitim makine özdeş olmalıdır
-* Trainees eğitim ortamlarının hızlı bir şekilde sağlayabilirsiniz
-* Bunları kullanmıyorsanız eğitim ve kapatma VM'ler için de gereksinim olandan daha fazla VMs trainees alınamıyor sağlayarak maliyet denetimi
+* Diğer yardımıyla tarafından oluşturulan sanal makineler yardımıyla göremiyorum
+* Her bir eğitim makinede aynı olmalıdır.
+* Yardımıyla eğitim ortamlarını hızla sağlayabilir
+* Yardımıyla bunları kullanmıyorsanız, eğitim ve kapatma sanal makineleri için Ayrıca bunlar gereksinim duyduğunuzdan daha fazla VM alınamıyor sağlayarak maliyet denetimi
 * Eğitim Laboratuvar her Yardımcısı ile kolayca paylaşın
-* Eğitim Laboratuvar yeniden yeniden
+* Eğitim Laboratuvar tekrar tekrar tekrar
 
-Bu makalede, eğitim için laboratuvarı ayarlamanız için izleyebileceğiniz ayrıntılı adımlar ve daha önce açıklanan eğitim gereksinimlerini karşılamak için kullanılabilecek çeşitli Azure DevTest Labs özellikleri hakkında bilgi edinin.  
+Bu makalede, eğitim için laboratuvar ayarlamak için izleyebileceğiniz ayrıntılı adımlar ve daha önce açıklandığı gibi eğitim gereksinimlerinizi karşılamak için kullanılabilecek çeşitli Azure DevTest Labs özellikler hakkında bilgi edinin.  
 
-## <a name="implementing-training-with-azure-devtest-labs"></a>Azure DevTest Labs eğitime uygulama
+## <a name="implementing-training-with-azure-devtest-labs"></a>Azure DevTest Labs ile eğitim uygulama
 1. **Laboratuvar oluşturma** 
    
-    Labs Azure DevTest Labs başlangıç noktasıdır. Bir laboratuvar oluşturduktan sonra görevleri gerçekleştirebilirsiniz gibi kullanıcıların (trainees) Laboratuvar için ekledikçe maliyetlerini denetlemenize, hızlı bir şekilde oluşturabilirsiniz VM görüntüleri ve daha fazlasını tanımlamak için ilkeler ayarlama.   
+    Labs Azure DevTest labs'deki başlangıç noktasıdır. Bir laboratuvarı oluşturduktan sonra görevleri gerçekleştirebileceğiniz gibi kullanıcı (yardımıyla) laboratuvara ekleme gibi hızlı bir şekilde oluşturabileceğiniz VM görüntüleri ve daha fazlasını tanımlayın, maliyetleri denetim yönelik ilkeler ayarlama.   
    
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
-   
-   | Görev | Öğrenecekleriniz |
-   | --- | --- |
-   | [Azure DevTest Labs'de Laboratuvar oluşturma](devtest-lab-create-lab.md) |Azure portalında Azure DevTest Labs'de Laboratuvar oluşturma öğrenin. |
-2. **Eğitim VM'ler hazır Market görüntülerini ve özel görüntüleri kullanarak dakikalar içinde oluşturma** 
-   
-    Azure Marketi'nde görüntüler çok geniş bir yelpazedeki hazır görüntülerden seçer ve laboratuvara trainees için kullanılabilir duruma getirmek. Hazır görüntüleri gereksinimlerinizi karşılamıyorsa, Laboratuvar Azure Laboratuvar özel görüntü olarak VM kaydetme ve eğitim için gereken tüm yazılım yükleme Marketi'nden hazır bir görüntü kullanarak VM oluşturarak özel bir görüntü oluşturabilirsiniz. 
-   
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Azure Market görüntülerini yapılandırın](devtest-lab-configure-marketplace-images.md) |Beyaz liste Azure Market görüntülerini öğrenin; yalnızca görüntüleri seçim için kullanılabilir hale getirme için eğitim istiyor. |
-   | [Özel bir görüntü oluşturun](devtest-lab-create-template.md) |Özel bir görüntü trainees hızlı bir şekilde özel görüntü kullanarak bir VM'i oluşturabilmeniz için eğitim gereken yazılımı yüklenerek oluşturun. |
-3. **Eğitim makineler için yeniden kullanılabilir şablonlar oluşturma** 
+   | [Azure DevTest Labs'de Laboratuvar oluşturma](devtest-lab-create-lab.md) |Azure portalında Azure DevTest Labs'de Laboratuvar oluşturma konusunda bilgi edinin. |
+2. **Kullanıma hazır Market görüntüleri hem de özel görüntüleri kullanarak dakikalar içinde eğitim VM oluşturma** 
    
-    Azure DevTest Labs formülde bir VM oluşturmak için kullanılan varsayılan özellik değerleri listesidir. Görüntü, VM boyutu (CPU ve RAM birleşimi) ve bir sanal ağı seçerek laboratuvarda bir formül oluşturabilirsiniz. Her Yardımcısı Laboratuvar formülde görebilir ve bir VM oluşturmak için kullanın. 
+    Azure Market'te çok çeşitli görüntüleri hazır görüntülerini çekme ve Laboratuvardaki yardımıyla için kullanılabilir duruma getirmek. Kullanıma hazır görüntüler gereksinimlerinizi karşılamıyorsa, Laboratuvardaki özel görüntü olarak VM kaydetme ve eğitim için gereken tüm yazılım yükleme, Azure Market'te kullanıma hazır bir görüntüyü kullanarak VM'yi bir laboratuvara oluşturarak, özel bir görüntü oluşturabilirsiniz. 
    
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
-   
-   | Görev | Öğrenecekleriniz |
-   | --- | --- |
-   | [Sanal makineleri oluşturmak için DevTest Labs formüller yönetme](devtest-lab-manage-formulas.md) |Görüntü, VM boyutu (CPU ve RAM birleşimi) ve bir sanal ağ seçerek bir formül nasıl oluşturabileceğinizi öğrenin. |
-4. **Denetim maliyetleri**
-   
-    Azure DevTest Labs laboratuvara Yardımcısı tarafından oluşturulan VM'ler en büyük sayısını belirtmek için laboratuvarda bir ilke ayarlamanıza olanak sağlar. 
-   
-    Birden çok gün eğitim gerçekleştirme ve tüm sanal makineleri günün belirli bir zamanda durdurun ve ardından bunları sonraki gün otomatik olarak yeniden istiyorsanız kolayca otomatik kapatma ayarlayarak bunu yapmaya ve otomatik başlatma Laboratuvar ilkeleri. 
-   
-    Eğitim tamamlandığında, son olarak, tüm sanal makineleri aynı anda tek bir PowerShell Betiği çalıştırarak silebilirsiniz. 
-   
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Laboratuvar ilkelerini tanımlama](devtest-lab-set-lab-policy.md) |Laboratuar ortamında ilkeleri ayarlayarak maliyetleri denetler. |
-   | [Tüm Laboratuvar bir PowerShell komut dosyası kullanarak sanal makineleri silin](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Eğitim tamamlandığında, tek bir işlemde tüm labs silin. |
+   | [Azure Market görüntülerini yapılandırma](devtest-lab-configure-marketplace-images.md) |Beyaz liste Azure Market görüntüleri öğrenin; yalnızca görüntü seçimi için kullanılabilir hale getirme için eğitim istersiniz. |
+   | [Özel görüntü oluşturma](devtest-lab-create-template.md) |Yardımıyla özel görüntüyü kullanarak VM'yi hızla oluşturabilmeniz için eğitim ihtiyacınız olan yazılımları önceden yükleyerek özel bir görüntü oluşturun. |
+3. **Eğitim makineler için yeniden kullanılabilir şablonları oluşturma** 
+   
+    Azure DevTest labs'deki bir formül, bir VM oluşturmak için kullanılan varsayılan özellik değerleri listesidir. Görüntü, bir VM boyutu (CPU ve RAM birleşimi) ve bir sanal ağ'ı seçerek, laboratuvarda bir formül oluşturabilirsiniz. Her Yardımcısı Laboratuvar formülü görebilir ve bir VM oluşturmak için bunu kullanın. 
+   
+    Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
+   
+   | Görev | Öğrenecekleriniz |
+   | --- | --- |
+   | [Sanal makineler oluşturmak için DevTest Labs formülleri yönetme](devtest-lab-manage-formulas.md) |Görüntü, VM boyutu (CPU ve RAM birleşimi) ve bir sanal ağ seçerek bir formülü nasıl oluşturacağınızı öğrenin. |
+4. **Maliyetleri**
+   
+    Azure DevTest Labs Laboratuvardaki Laboratuvardaki bir Yardımcısı tarafından oluşturulan VM'ler en fazla sayısını belirtmek için bir ilke ayarlamanıza olanak tanır. 
+   
+    Birden çok günlük eğitim yürütmek ve günün belirli bir zamanda tüm sanal makineleri durdurmak ve ardından bunları sonraki gün otomatik olarak yeniden istiyor, kolayca otomatik kapatma ayarlayarak bunu yapmaya ve Laboratuvar ilkelerini otomatik olarak başlat. 
+   
+    Eğitim tamamlandığında Son olarak, tüm VM'ler aynı anda tek bir PowerShell betiğini çalıştırarak silebilirsiniz. 
+   
+    Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
+   
+   | Görev | Öğrenecekleriniz |
+   | --- | --- |
+   | [Laboratuvar ilkelerini tanımlama](devtest-lab-set-lab-policy.md) |Laboratuvar ilkeleri ayarlayarak maliyetleri denetleyin. |
+   | [Tüm Laboratuvar bir PowerShell Betiği kullanarak Vm'leri Sil](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Alıştırma tamamlandıktan sonra tek bir işlemde tüm labs silin. |
 5. **Laboratuvar her Yardımcısı ile paylaşma**
    
-    Labs, trainees ile paylaştığınız bir bağlantıyı kullanarak doğrudan erişilebilir. Sahip oldukları sürece, trainees bile bir Azure hesabınızın olması gerekmez bir [Microsoft hesabı](devtest-lab-faq.md#what-is-a-microsoft-account). Trainees diğer trainees tarafından oluşturulan VM'ler göremezsiniz.  
+    Laboratuvarlar, yardımıyla ile paylaştığınız bir bağlantıyı kullanarak doğrudan erişilebilir. Sahip oldukları sürece, yardımıyla bile bir Azure hesabınızın olması gerekmez bir [Microsoft hesabı](devtest-lab-faq.md#what-is-a-microsoft-account). Yardımıyla diğer yardımıyla tarafından oluşturulan sanal makineler göremez.  
    
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
-   
-   | Görev | Öğrenecekleriniz |
-   | --- | --- |
-   | [Azure DevTest Labs laboratuarda bir Yardımcısı ekleyin](devtest-lab-add-devtest-user.md) |Eğitim Laboratuvarınızı trainees eklemek için Azure Portalı'nı kullanın. |
-   | [Bir PowerShell Betiği kullanılarak Laboratuvar trainees Ekle](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Eğitim laboratuvarınız için ekleme trainees otomatikleştirmek için PowerShell kullanın. |
-   | [Laboratuvar bağlantısını Al](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Nasıl bir laboratuvar doğrudan bir köprü erişilebilen öğrenin. |
-6. **Laboratuvar yeniden yeniden** 
-   
-    Laboratuvar oluşturma, özel ayarlar bir Resource Manager şablonu oluşturma ve aynı labs yeniden oluşturmak için kullanma dahil olmak üzere otomatik hale getirebilirsiniz. 
-   
-    Aşağıdaki tabloda bağlantıları tıklayarak edinin:
+    Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
    
    | Görev | Öğrenecekleriniz |
    | --- | --- |
-   | [Resource Manager şablonu kullanarak bir laboratuvar oluşturma](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Labs Resource Manager şablonları kullanarak Azure DevTest Labs içinde oluşturun. |
+   | [Azure DevTest labs'deki bir laboratuvara bir Yardımcısı ekleyin](devtest-lab-add-devtest-user.md) |Eğitim Laboratuvarınızı yardımıyla eklemek için Azure portalını kullanın. |
+   | [Bir PowerShell betiğini kullanarak laboratuvara yardımıyla ekleme](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Eğitim laboratuvarınız için ekleme yardımıyla otomatikleştirmek için PowerShell kullanın. |
+   | [Laboratuvar için bir bağlantı alma](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Nasıl bir laboratuvar doğrudan köprü erişilebilen öğrenin. |
+6. **Laboratuvar tekrar tekrar tekrar** 
+   
+    Laboratuvar oluşturma, Resource Manager şablonu oluşturarak ve onu tekrar tekrar aynı Laboratuarları oluşturmak için kullanılarak özel ayarları da dahil olmak üzere otomatik hale getirebilirsiniz. 
+   
+    Aşağıdaki tabloda bağlantıları tıklayarak daha fazla bilgi:
+   
+   | Görev | Öğrenecekleriniz |
+   | --- | --- |
+   | [Resource Manager şablonu kullanarak Laboratuvar oluşturma](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Resource Manager şablonlarını kullanarak Azure DevTest Labs laboratuvarlar oluşturun. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Azure'da Windows sanal makineleri için bakım zamanlama | Microsoft Docs
-description: Azure vm'lerinde planlı bakım zamanlama öğrenin.
+title: Azure'da Windows VM'ler için bakım zamanlaması hakkında | Microsoft Docs
+description: Azure vm'lerinde planlı bakım zamanlaması hakkında bilgi edinin.
 services: virtual-machines-windows
 documentationcenter: ''
 author: igalf
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: igalf
 ms.openlocfilehash: 583661e74260a86eab6a3632535d6e5e33d21a03
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913112"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561206"
 ---
-# <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>Azure Vm'lerinde nasıl zamanlanacağını planlı bakım
+# <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>Azure vm'lerinde planlı bakım zamanlaması hakkında
 > [!IMPORTANT]
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Resource Manager modelinde planlı bakım hakkında daha fazla bilgi için bkz: [burada](../planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Resource Manager modelinde planlı bakım hakkında daha fazla bilgi için bkz. [burada](../planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../../../includes/virtual-machines-common-planned-maintenance-schedule.md)]

@@ -1,6 +1,6 @@
 ---
-title: Azure Storage SAS kimlik bilgilerini kullanarak erişmek için bir Windows VM MSI kullanın
-description: Azure depolama, depolama hesabının erişim anahtarı yerine SAS kimlik bilgilerini kullanarak erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanmayı gösterir Öğreticisi.
+title: Bir SAS kimlik bilgisi kullanarak Azure Depolama'ya erişmek için bir Windows VM MSI kullanma
+description: Bir Windows VM yönetilen hizmet kimliği (MSI) Azure depolama, depolama hesabı erişim anahtarı yerine SAS kimlik bilgisi kullanarak erişmek için nasıl kullanılacağını gösteren öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -15,25 +15,25 @@ ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 9102ea255e533e4233b2cba77a6f7f38b992e2a5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28979995"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38610411"
 ---
-# <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Azure Storage bir SAS kimlik bilgisi erişmek için bir Windows VM yönetilen hizmet kimliği kullanın
+# <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Azure depolama bir SAS kimlik bilgisi erişmek için bir Windows VM yönetilen hizmet Kimliği'ni kullanın
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Bu öğretici bir Windows sanal makine için Yönetilen hizmet kimliği (MSI) etkinleştirmek, sonra bir depolama paylaşılan erişim imzası (SAS) kimlik bilgisi almak için MSI kullanın gösterilmektedir. Özellikle, bir [hizmet SAS kimlik bilgisi](~/articles/storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Bu öğreticide bir Windows sanal makinesi için Yönetilen hizmet kimliği (MSI) etkinleştirin ve ardından depolama paylaşılan erişim imzası (SAS) kimlik bilgisi elde etmek için MSI kullanma gösterilmektedir. Özellikle, bir [hizmet SAS kimlik bilgisi](~/articles/storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
-Hizmet SAS hesap erişim anahtarı sokmadan sınırlı bir süre için bir depolama hesabındaki nesnelere ve belirli bir hizmet (Bu örnekte, blob hizmeti), sınırlı erişim olanağı sağlar. Her zamanki gibi depolama SDK'yı kullanarak, örneğin depolama işlemleri yaparken bir SAS kimlik bilgisi kullanabilirsiniz. Bu öğretici için karşıya yükleme ve Azure Storage PowerShell kullanarak bir blob indirme göstermektedir. Şunları öğreneceksiniz nasıl yapılır:
+Hizmet SAS, bir hesap erişim anahtarına sokmadan sınırlı süre için bir depolama hesabındaki nesnelere ve belirli bir hizmete (Bu örnekte, blob hizmeti), sınırlı erişim olanağı sağlar. Her zaman olduğu gibi depolama SDK'sı kullanırken, örneğin, depolama işlemleri yaparken bir SAS kimlik bilgisini kullanabilirsiniz. Bu öğreticide, yükleme ve Azure Storage PowerShell kullanarak bir blob indirme gösterir. Şunların nasıl yapılır:
 
 
 > [!div class="checklist"]
 > * Bir Windows sanal makinesinde MSI etkinleştir 
-> * Bir depolama hesabı SAS Kaynak Yöneticisi'nde, VM erişim 
-> * VM kimliğini kullanarak bir erişim belirteci alın ve Kaynak Yöneticisi'nden SAS almak için kullanın 
+> * Bir depolama hesabı SAS Kaynak Yöneticisi'nde, VM erişimi verme 
+> * Sanal makinenin kimliğini kullanarak bir erişim belirteci alma ve Kaynak Yöneticisi'nden SAS almak için kullanın 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -43,108 +43,108 @@ Hizmet SAS hesap erişim anahtarı sokmadan sınırlı bir süre için bir depol
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[https://portal.azure.com](https://portal.azure.com) adresindeki Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Windows sanal makine oluşturma
+## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Windows sanal makine oluşturun
 
-Bu öğretici için yeni bir Windows VM oluşturun. Mevcut bir VM'yi üzerinde MSI de etkinleştirebilirsiniz.
+Bu öğretici için yeni bir Windows VM'yi oluştururuz. Mevcut VM'yi MSI de etkinleştirebilirsiniz.
 
-1.  Tıklatın **+/ yeni hizmet oluşturma** düğme Azure portalında sol üst köşesinde bulundu.
+1.  Tıklayın **+/ yeni hizmet oluşturma** düğmesi Azure portalının sol üst köşedeki üzerinde bulunamadı.
 2.  **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
-3.  Sanal makine bilgilerini girin. **Kullanıcıadı** ve **parola** için kullandığınız kimlik bilgileri İşte oluşturulan sanal makineye oturum açma.
-4.  Uygun seçin **abonelik** sanal makine açılır.
-5.  Yeni bir seçmek için **kaynak grubu** oluşturulması, seçmek için sanal makine için istediğiniz **Yeni Oluştur**. İşlem tamamlandığında **Tamam**’a tıklayın.
-6.  VM boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
+3.  Sanal makine bilgilerini girin. **Kullanıcıadı** ve **parola** için kullandığınız kimlik bilgilerini İşte oluşturulan sanal makineye oturum açma.
+4.  Uygun seçin **abonelik** sanal makinenin açılır.
+5.  Yeni bir seçilecek **kaynak grubu** oluşturulması, seçmek üzere sanal makineye istediğiniz **Yeni Oluştur**. İşlem tamamlandığında **Tamam**’a tıklayın.
+6.  Sanal makine için boyutu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
 
-    ![Alt görüntü metin](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alt resim metni](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>MSI VM üzerinde etkinleştir
+## <a name="enable-msi-on-your-vm"></a>Vm'nizde MSI etkinleştir
 
-Bir sanal makine MSI erişim belirteçleri, kimlik bilgileri kodunuza koyma gereksinimi olmadan Azure AD'den almanızı sağlar. Perde arkasında MSI etkinleştirme iki işlemi yapar: MSI VM uzantısı, VM yükler ve sanal makine için MSI sağlar.  
+Bir sanal makine MSI, kimlik bilgilerini kodunuza koyma gereksinimi olmadan Azure AD'den erişim belirteci alma olanak tanır. Perde MSI etkinleştirmesine iki şeyi yapar: VM'NİZDE MSI VM uzantısı yükler ve sanal makine için MSI sağlar.  
 
-1. Yeni bir sanal makine kaynak grubuna gidin ve önceki adımda oluşturduğunuz sanal makineyi seçin.
-2. VM Sol paneldeki "ayarlar" altında tıklatın **yapılandırma**.
-3. Kaydolun ve MSI etkinleştirmek için seçin **Evet**, devre dışı bırakmak istiyorsanız seçin No
-4. Tıklattığınız olun **kaydetmek** yapılandırmayı kaydetmek için.
+1. Yeni sanal makinenize kaynak grubuna gidin ve önceki adımda oluşturduğunuz sanal makineyi seçin.
+2. VM Sol paneldeki "ayarlar" altında tıklayın **yapılandırma**.
+3. Kaydolun ve MSI etkinleştirmek için **Evet**, devre dışı bırakmak istiyorsanız seçin No
+4. Tıkladığınız olun **Kaydet** yapılandırmayı kaydetmek için.
 
-    ![Alt görüntü metin](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alt resim metni](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. Denetlemek isterseniz, hangi uzantıları VM, tıklatın **uzantıları**. MSI etkinleştirilirse, **ManagedIdentityExtensionforWindows** listede görüntülenir.
+5. Hangi uzantıların denetlemek istiyorsanız, sanal makinede olan, tıklayın **uzantıları**. MSI etkin olduğunda **ManagedIdentityExtensionforWindows** listesinde görünür.
 
-    ![Alt görüntü metin](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+    ![Alt resim metni](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 
-Zaten yoksa, şimdi bir depolama hesabı oluşturacak. Ayrıca, bu adımı atlayın ve VM MSI erişim mevcut bir depolama hesabını SAS kimlik. 
+Zaten yoksa, artık bir depolama hesabı oluşturur. Ayrıca, bu adımı atlayıp mevcut bir depolama hesabı SAS kimlik bilgisi için VM MSI erişimi verme. 
 
-1. Tıklatın **+/ yeni hizmet oluşturma** düğme Azure portalında sol üst köşesinde bulundu.
-2. Tıklatın **depolama**, ardından **depolama hesabı**, ve yeni bir "depolama hesabı oluşturma" panelinde görüntülenir.
-3. Daha sonra kullanacaksınız depolama hesabı için bir ad girin.  
-4. **Dağıtım modeli** ve **tür hesap** "Resource manager" ve "Genel amaçlı", sırasıyla ayarlanmalıdır. 
+1. Tıklayın **+/ yeni hizmet oluşturma** düğmesi Azure portalının sol üst köşedeki üzerinde bulunamadı.
+2. Tıklayın **depolama**, ardından **depolama hesabı**, ve "depolama hesabı oluştur" yeni bir panel görüntülenir.
+3. Daha sonra kullanacağınız depolama hesabı için bir ad girin.  
+4. **Dağıtım modeli** ve **hesap türü** sırasıyla "Resource manager" ve "Genel amaç" için ayarlanmalıdır. 
 5. Olun **abonelik** ve **kaynak grubu** VM'nizi oluşturduğunuzda önceki adımda belirttiğiniz olanlarla eşleşmesi.
 6. **Oluştur**’a tıklayın.
 
     ![Yeni depolama hesabı oluştur](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## <a name="create-a-blob-container-in-the-storage-account"></a>Depolama hesabında blob kapsayıcısı oluşturma
+## <a name="create-a-blob-container-in-the-storage-account"></a>Depolama hesabındaki bir blob kapsayıcısı oluşturma
 
-Daha sonra biz karşıya yükleyin ve yeni depolama hesabı dosya indirme. Dosyaları blob depolama gerektirdiğinden, biz dosyasının depolanacağı bir blob kapsayıcısı oluşturmanız gerekir.
+Daha sonra karşıya eder ve yeni depolama hesabı için bir dosya indirin. Dosyaları blob depolama gerektirdiğinden dosyasının depolanacağı bir blob kapsayıcısı oluşturmak gerekir.
 
-1. Yeni oluşturulan depolama hesabınıza geri gidin.
-2. Tıklatın **kapsayıcıları** bağlantı sol panelinde, "Blob hizmeti."
-3. Tıklatın **+ kapsayıcı** sayfa ve "yeni bir kapsayıcı" üst kısmında çıkış paneli slayt.
-4. Kapsayıcı bir ad verin, erişim düzeyi seçin ve ardından **Tamam**. Belirtilen ad daha sonra öğreticide kullanılır. 
+1. Yeni oluşturulan depolama hesabına geri gidin.
+2. Tıklayın **kapsayıcıları** bağlantı sol bölmede, "Blob hizmeti."
+3. Tıklayın **+ kapsayıcı** sayfasına ve "yeni bir kapsayıcı" üst kısmındaki çıkış paneli slaytlar.
+4. Kapsayıcıya bir ad verin, bir erişim düzeyi seçin ve ardından tıklayın **Tamam**. Belirttiğiniz adı öğreticinin ilerleyen bölümlerinde kullanılacaktır. 
 
     ! [Depolama container]~/articles/active-directory/(media/msi-tutorial-linux-vm-access-storage/create-blob-container.png) oluştur
 
-## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>SAS depolama kullanmak için VM MSI erişim 
+## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>Bir SAS depolama kullanmak için sanal makinenizin MSI erişimi verme 
 
-Azure Storage, Azure AD kimlik doğrulaması yerel olarak desteklemez.  Ancak, bir MSI depolama SAS Kaynak Yöneticisi'nden almanızı sonra SAS depolama erişmek için kullanın.  Bu adımda, depolama hesabınıza SAS VM MSI erişim verin.   
+Azure depolama, yerel olarak Azure AD kimlik doğrulamasını desteklemez.  Ancak, Kaynak Yöneticisi'nden depolama SAS almak için bir MSI kullanma sonra depolamaya erişmek için SAS'ı kullanın.  Bu adımda, depolama hesabınıza SAS, VM MSI erişimi verme.   
 
-1. Yeni oluşturulan depolama hesabınıza geri gidin.   
-2. Tıklatın **erişim denetimi (IAM)** sol panelinde bağlantı.  
-3. Tıklatın **+ Ekle** VM için yeni bir rol ataması eklemek için sayfanın en üstünde
-4. Ayarlama **rol** "Depolama hesabı katkıda bulunan", sayfanın sağ tarafında için.  
-5. Sonraki açılır listede ayarlamak **atamak için erişim** "Sanal makine" kaynak.  
-6. Ardından, uygun abonelik listelenir olun **abonelik** açılan listesinde, daha sonra ayarlamak **kaynak grubu** "Tüm kaynak gruplarına".  
-7. Son olarak, altında **seçin** açılır listede, Windows sanal makine seçin ve ardından **kaydetmek**. 
+1. Yeni oluşturulan depolama hesabına geri gidin.   
+2. Tıklayın **erişim denetimi (IAM)** sol bölmede bağlantı.  
+3. Tıklayın **+ Ekle** VM'niz için yeni bir rol ataması eklemek için sayfanın en üstünde
+4. Ayarlama **rol** "Depolama hesabı Katılımcısı", sayfanın sağ tarafındaki için.  
+5. Sonraki açılır menüden ayarlamak **erişim Ata** "Sanal makinesi" kaynak.  
+6. Ardından, uygun abonelik listelendiğinden emin olmak **abonelik** açılır listesinde, ardından ayarlayın **kaynak grubu** "Tüm kaynak gruplarına".  
+7. Son olarak, altında **seçin** açılır menüde, Windows sanal makinenizi seçin, ardından tıklayın **Kaydet**. 
 
-    ![Alt görüntü metin](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
+    ![Alt resim metni](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>VM kimliğini kullanarak bir erişim belirteci alın ve Azure Resource Manager çağırmak için kullanın 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Sanal makinenin kimliğini kullanarak bir erişim belirteci alma ve Azure Resource Manager'ı çağırmak için kullanın 
 
-Öğretici kalanı için size daha önce oluşturduğumuz sanal makineden çalışmaz.
+Bu öğreticinin geri kalanında için daha önce oluşturduğumuz VM'den çalışacağız.
 
-Bu bölümünde Azure Resource Manager PowerShell cmdlet'lerini kullanmanız gerekecektir.  Yüklü, yoksa [en son sürümü karşıdan](https://docs.microsoft.com/powershell/azure/overview) devam etmeden önce.
+Bu bölümünde Azure Resource Manager PowerShell cmdlet'lerini kullanmanız gerekecektir.  Yüklü, yoksa [son sürümünü indirin](https://docs.microsoft.com/powershell/azure/overview) devam etmeden önce.
 
-1. Azure portalında gidin **sanal makineleri**gidin Windows sanal makinenizi, ardından **genel bakış** sayfasında **Bağlan** üstünde.
-2. Girin, **kullanıcıadı** ve **parola** Windows VM oluşturduğunuzda, eklediğiniz için. 
-3. Oluşturduğunuza göre bir **Uzak Masaüstü Bağlantısı** sanal makineyle PowerShell uzak oturum açın. 
-4. PowerShell'in Invoke-WebRequest kullanarak, Azure kaynak yöneticisi için bir erişim belirteci almak üzere yerel MSI uç nokta için bir isteği oluşturun.
+1. Azure portalında gidin **sanal makineler**gidin Windows sanal makinenizi, sonra **genel bakış** sayfasında **Connect** en üstünde.
+2. Girin, **kullanıcıadı** ve **parola** Windows sanal Makineyi oluştururken, eklediğiniz için. 
+3. Sizin oluşturduğunuz bir **Uzak Masaüstü Bağlantısı** sanal makineyle PowerShell uzak oturumu açın. 
+4. PowerShell'in Invoke-WebRequest kullanarak, Azure Resource Manager için bir erişim belirteci almak için yerel MSI uç noktasına bir istek olun.
 
     ```powershell
        $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
-    > "Kaynak" parametresinin değeri, Azure AD tarafından beklenen bir tam eşleşme olmalıdır. Azure Resource Manager kaynak kimliği'ni kullanırken eğik URI üzerinde eklemeniz gerekir.
+    > "Kaynak" parametresinin değerini, Azure AD tarafından beklenen değer için bir tam eşleşme olmalıdır. Azure Resource Manager kaynak kimliği kullanıldığında, URI üzerinde sonunda eğik çizgi içermelidir.
     
-    Ardından, bir JavaScript nesne gösterimi (JSON) biçimlendirilmiş dize $response nesnesi olarak depolanan "İçerik" öğesi ayıklayın. 
+    Ardından, $response nesneyi JavaScript nesne gösterimi (JSON) biçimlendirilen dizesinde olarak depolanan "İçerik" öğesi ayıklayın. 
     
     ```powershell
     $content = $response.Content | ConvertFrom-Json
     ```
-    Ardından, erişim belirteci yanıttan ayıklayın.
+    Ardından, erişim belirtecini yanıttan ayıklayın.
     
     ```powershell
     $ArmToken = $content.access_token
     ```
 
-## <a name="get-a-sas-credential-from-azure-resource-manager-to-make-storage-calls"></a>Depolama çağrı yapmak için Azure Resource Manager gelen bir SAS kimlik bilgilerini alamıyor 
+## <a name="get-a-sas-credential-from-azure-resource-manager-to-make-storage-calls"></a>Depolama çağrıları yapmak için Azure Resource Manager'dan bir SAS kimlik bilgileri Al 
 
-Şimdi Resource Manager depolama SAS kimlik bilgisi oluşturmak için önceki bölümde biz alınan erişim belirteci kullanarak çağırmak için PowerShell kullanın. Biz SAS kimlik bilgisi olduktan sonra biz depolama işlemleri çağırabilirsiniz.
+Artık depolama SAS kimlik bilgisi oluşturmak için önceki bölümde biz alınan erişim belirteci kullanarak Resource Manager'ı çağırmak için PowerShell kullanın. Biz SAS kimlik bilgilerini aldıktan sonra depolama işlemleri diyoruz.
 
-Bu istek için SAS kimlik bilgisi oluşturmak için izleme HTTP istek parametreleri kullanırız:
+Bu istek için SAS kimlik bilgisi oluşturmak için aşağıdaki HTTP istek parametrelerini kullanacağız:
 
 ```JSON
 {
@@ -156,9 +156,9 @@ Bu istek için SAS kimlik bilgisi oluşturmak için izleme HTTP istek parametrel
 }
 ```
 
-Bu parametreler, SAS kimlik bilgisi iste POST gövdesinde dahil edilir. Bir SAS kimlik bilgisi oluşturmak için parametreler hakkında daha fazla bilgi için bkz: [listesi hizmet SAS REST başvurusu](/rest/api/storagerp/storageaccounts/listservicesas).
+Bu parametreler, SAS kimlik bilgisi için istek POST gövdesinde dahil edilir. Bir SAS kimlik bilgisi oluşturmak için parametreler hakkında daha fazla bilgi için bkz. [listesi hizmet SAS REST başvurusu](/rest/api/storagerp/storageaccounts/listservicesas).
 
-İlk olarak, parametreleri JSON biçimine dönüştür ardından depolama birimi çağrısı `listServiceSas` SAS oluşturmak için uç noktası kimlik bilgileri:
+İlk olarak, Parametreler JSON biçimine dönüştür ve ardından depolama birimi çağrısı `listServiceSas` SAS oluşturmak için uç nokta kimlik bilgisi:
 
 ```powershell
 $params = @{canonicalizedResource="/blob/<STORAGE-ACCOUNT-NAME>/<CONTAINER-NAME>";signedResource="c";signedPermission="rcw";signedProtocol="https";signedExpiry="2017-09-23T00:00:00Z"}
@@ -169,7 +169,7 @@ $jsonParams = $params | ConvertTo-Json
 $sasResponse = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE-ACCOUNT-NAME>/listServiceSas/?api-version=2017-06-01 -Method POST -Body $jsonParams -Headers @{Authorization="Bearer $ArmToken"}
 ```
 > [!NOTE] 
-> URL büyük/küçük harfe duyarlıdır, bu nedenle olun "ResourceGroups." olarak büyük harf "G" gibi kaynak grubu adında daha önce kullanılan tam aynı durumda kullanın 
+> URL büyük/küçük harfe duyarlıdır, dolayısıyla sağlamak büyük harf "G" içinde "resourceGroups." içeren kaynak grubunu, adlı daha önce kullanılan tam aynı çalışması kullanın 
 
 Şimdi biz SAS kimlik bilgisi yanıttan ayıklayın:
 
@@ -178,27 +178,27 @@ $sasContent = $sasResponse.Content | ConvertFrom-Json
 $sasCred = $sasContent.serviceSasToken
 ```
 
-SAS ki inceleyin, şöyle bir şey görürsünüz:
+SAS kimlik bilgileri incelemek, şöyle bir şey görürsünüz:
 
 ```powershell
 PS C:\> $sasCred
 sv=2015-04-05&sr=c&spr=https&se=2017-09-23T00%3A00%3A00Z&sp=rcw&sig=JVhIWG48nmxqhTIuN0uiFBppdzhwHdehdYan1W%2F4O0E%3D
 ```
 
-Sonraki "sınama.txt" adlı bir dosya oluşturun. Kimlik doğrulaması yapmak için SAS kimlik bilgisi kullanmak `New-AzureStorageContent` cmdlet'ini bizim blob kapsayıcısına dosyasını karşıya yükleyin, ardından dosyasını indirin.
+Ardından "test.txt" adlı bir dosya oluşturun. SAS kimlik bilgisi ile kimlik doğrulaması kullanacağınızı `New-AzureStorageContent` cmdlet'i, dosyanın bizim blob kapsayıcısına yükleyin ve ardından dosyayı indirin.
 
 ```bash
 echo "This is a test text file." > test.txt
 ```
 
-Kullanarak Azure depolama cmdlet'leri ilk olarak, yüklediğinizden emin olun `Install-Module Azure.Storage`. Az önce oluşturduğunuz kullanarak blob karşıya yükleme `Set-AzureStorageBlobContent` PowerShell cmdlet:
+Azure depolama cmdlet'leri ilk olarak, yüklediğinizden emin olun'ı kullanarak `Install-Module Azure.Storage`. Ardından az önce oluşturduğunuz kullanarak blob karşıya `Set-AzureStorageBlobContent` PowerShell cmdlet:
 
 ```powershell
 $ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT-NAME> -SasToken $sasCred
 Set-AzureStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
 ```
 
-Yanıtı:
+Yanıt:
 
 ```powershell
 ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob
@@ -212,13 +212,13 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-Ayrıca, yeni karşıya yüklediğiniz, kullanarak blob indirebilirsiniz `Get-AzureStorageBlobContent` PowerShell cmdlet:
+Yüklediğiniz, kullanarak blob da indirebilirsiniz `Get-AzureStorageBlobContent` PowerShell cmdlet:
 
 ```powershell
 Get-AzureStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
 ```
 
-Yanıtı:
+Yanıt:
 
 ```powershell
 ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob
@@ -235,12 +235,12 @@ Name              : testblob
 
 ## <a name="related-content"></a>İlgili içerik
 
-- MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](msi-overview.md).
-- Bu öğreticiyi yapılacağı hakkında bilgi edinmek için bir depolama hesabı anahtarı kullanarak, bkz: [Azure Storage erişmek için bir Windows VM yönetilen hizmet kimliği kullanın](msi-tutorial-windows-vm-access-storage.md)
+- MSI genel bakış için bkz. [yönetilen hizmet Kimliği'ne genel bakış](msi-overview.md).
+- Bu öğreticiyi yapma hakkında bilgi için bkz. depolama hesabı anahtarı kullanma, [Azure depolamaya erişmek için bir Windows VM yönetilen hizmet kimliği kullan](msi-tutorial-windows-vm-access-storage.md)
 - Azure depolama hesabı SAS özelliği hakkında daha fazla bilgi için bkz:
   - [Paylaşılan erişim imzaları (SAS) kullanma](~/articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)
   - [Hizmet SAS oluşturma](/rest/api/storageservices/Constructing-a-Service-SAS.md)
 
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
+Aşağıdaki yorum bölümünde geri bildirim sağlamak ve geliştirmek ve içeriklerimizde şekil yardımcı kullanın.
 
 

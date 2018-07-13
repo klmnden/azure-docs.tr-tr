@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: sethm
 ms.openlocfilehash: 9c2501840b3c00a63b0344d48e3225fd2c9d1620
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30927678"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38702000"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Service Bus konuları ve abonelikleri Java ile kullanma
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Java ile Service Bus konu başlıklarını ve aboneliklerini kullanma
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Bu kılavuz, Service Bus konu başlıklarını ve aboneliklerini kullanmayı açıklar. Java ve kullanım örnekleri yazılır [Java için Azure SDK][Azure SDK for Java]. Kapsamdaki senaryolar dahil **konuları ve abonelikleri oluşturma**, **abonelik filtreleri oluşturma**, **konu başlığına ileti gönderme**, **abonelikten ileti alma**, ve **konuları ve abonelikleri silmeyi**.
+Bu kılavuzda, Service Bus konu başlıklarını ve aboneliklerini kullanmayı açıklar. Java ve kullanım örnekleri yazılır [Java için Azure SDK'sı][Azure SDK for Java]. Senaryoları ele alınmaktadır **konuları ve abonelikleri oluşturma**, **abonelik filtreleri oluşturma**, **konu başlığına ileti gönderme**, **alma bir Abonelikteki iletileri**, ve **konuları ve abonelikleri silmeyi**.
 
 ## <a name="what-are-service-bus-topics-and-subscriptions"></a>Service Bus konuları ve abonelikleri nelerdir?
 Service Bus konuları ve abonelikleri *publish/subscribe* mesajlaşma iletişim modelini destekler. Konular ve abonelikler kullanıldığında, dağıtılmış uygulamanın bileşenleri birbirleriyle doğrudan iletişim kurmazlar; bunun yerine bir aracı gibi davranan bir konu aracılığıyla iletileri değiş tokuş eder.
@@ -34,23 +34,23 @@ Service Bus konuları ve abonelikleri *publish/subscribe* mesajlaşma iletişim 
 
 Service Bus kuyruklarının tersine, burada her ileti bir tüketici tarafından işlenir; konular ve abonelikler, publish/subscribe modelini kullanarak iletişimin "bir-çok" biçimini sağlar. Bir konuya birden fazla abonelik kaydedilebilir. Bir konuya ileti gönderildiğinde, bundan sonra, bağımsız olarak ele almak/işlemek amacıyla her abonelik için kullanılabilir hale getirilir.
 
-Bir konuya abone olunması, konuya gönderilmiş olan iletilerin kopyaların alan sanal kuyruğa benzer. İsteğe bağlı olarak, filtre kuralları konuyla ilgili filtre/bir konunun hangi iletileri hangi konu abonelikleriyle kısıtlamanızı olanak tanıyan bir abonelik başına temelinde kaydedebilirsiniz.
+Bir konuya abone olunması, konuya gönderilmiş olan iletilerin kopyaların alan sanal kuyruğa benzer. İsteğe bağlı olarak bir konuyu/hangi konu aboneliklerinin bir konuya hangi mesajları alınan filtre kısıtlama olanak tanıyan bir başına abonelik temelinde filtre kuralları da kaydedebilirsiniz.
 
-Service Bus konuları ve Abonelikleri, çok sayıda kullanıcılar ve uygulamalar arasında çok sayıda iletileri işlemek için ölçeklendirmek etkinleştirin.
+Service Bus konuları ve Abonelikleri, çok sayıda kullanıcılar ve uygulamalar arasında çok sayıda iletileri işlemek üzere ölçeği sağlar.
 
 ## <a name="create-a-service-namespace"></a>Hizmet ad alanı oluşturma
-Azure'da Service Bus konu başlıklarını ve aboneliklerini kullanmaya başlamak için önce oluşturmanız gerekir bir *ad alanı*, uygulamanızın Service Bus kaynaklarını adreslemek için kapsam bir kapsayıcı sağlar.
+Azure'da Service Bus konu başlıklarını ve aboneliklerini kullanmaya başlamak için önce oluşturmanız gerekir bir *ad alanı*, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sağlar.
 
 Ad alanı oluşturmak için:
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="configure-your-application-to-use-service-bus"></a>Service Bus hizmetini kullanmak için uygulamanızı yapılandırın
-Yüklediğinizden emin olun [Java için Azure SDK] [ Azure SDK for Java] önce bu örnek oluşturma. Eclipse kullanıyorsanız, yükleyebileceğiniz [Eclipse için Azure Araç Seti] [ Azure Toolkit for Eclipse] Java için Azure SDK'sı içerir. Daha sonra ekleyebilirsiniz **Java için Microsoft Azure kitaplıkları** projenize:
+## <a name="configure-your-application-to-use-service-bus"></a>Service Bus hizmetini kullanmak için uygulamanızı yapılandırma
+Yüklediğinizden emin olun [Java için Azure SDK'sı] [ Azure SDK for Java] Bu örnek derlemeden önce. Eclipse kullanıyorsanız yükleyebileceğiniz [Eclipse için Azure Araç Seti] [ Azure Toolkit for Eclipse] , Java için Azure SDK'sı içerir. Daha sonra ekleyebilirsiniz **Microsoft Java için Azure kitaplıkları** projenize:
 
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
-Aşağıdakileri ekleyin `import` deyimlerini Java dosyanın en üstüne ekleyin:
+Aşağıdaki `import` Java dosyasının en üstüne ifadeleri:
 
 ```java
 import com.microsoft.windowsazure.services.servicebus.*;
@@ -59,12 +59,12 @@ import com.microsoft.windowsazure.core.*;
 import javax.xml.datatype.*;
 ```
 
-Java için Azure kitaplıkları, yapı yoluna ekleyin ve proje dağıtım derlemenizi içerir.
+Java için Azure kitaplıkları derleme yolunuza ekleyin ve proje dağıtım derlemenizi içerir.
 
 ## <a name="create-a-topic"></a>Konu başlığı oluşturma
-Service Bus konu başlıklarına yönelik yönetim işlemlerini aracılığıyla gerçekleştirilebilecek **ServiceBusContract** sınıfı. A **ServiceBusContract** nesnesi, yönetmek için gerekli izinlere sahip SAS belirteci yalıtır uygun bir yapılandırma ile oluşturulur ve **ServiceBusContract** sınıfı Azure ile iletişimin tek noktasıdır.
+Service Bus konu başlıklarına yönelik yönetim işlemlerini aracılığıyla gerçekleştirilebilir **ServiceBusContract** sınıfı. A **ServiceBusContract** nesnesi, yönetim izinleriyle SAS belirteci kapsülleyen uygun bir yapılandırma ile oluşturulur ve **ServiceBusContract** tek yakınlardaki bir sınıftır Azure ile iletişim.
 
-**ServiceBusService** sınıfı oluşturmak, numaralandırır ve konuları silmek için yöntemler sağlar. Aşağıdaki örnekte gösterildiği nasıl bir **ServiceBusService** nesnesi, adlandırılan bir konu oluşturmak için kullanılabilir `TestTopic`, adlı bir ad alanı ile `HowToSample`:
+**ServiceBusService** sınıfı oluşturmak, listeleme ve silme konuları için yöntemler sağlar. Aşağıdaki örnekte gösterildiği nasıl bir **ServiceBusService** nesne adlı bir konu oluşturmak için kullanılabilir `TestTopic`, ad alanı ile `HowToSample`:
 
 ```java
 Configuration config =
@@ -88,7 +88,7 @@ catch (ServiceException e) {
 }
 ```
 
-Yöntemleri vardır **TopicInfo** ayarlanacak konunun özelliklerini etkinleştirme (örneğin: konu başlığına gönderilen iletilere uygulanacak varsayılan yaşam süresi (TTL) değerini ayarlamak için). Aşağıdaki örnek adlı bir konu oluşturun gösterilmektedir `TestTopic` maksimum 5 GB boyuta sahip:
+Temel yöntem vardır **Topicınfo** ayarlamak için konunun özelliklerini etkinleştirme (örneğin: konu başlığına gönderilen iletilere uygulanacak varsayılan yaşam süresi (TTL) değerini ayarlamak için). Aşağıdaki örnekte adlı bir konu başlığının nasıl oluşturulacağını gösterir `TestTopic` en fazla 5 GB'lık:
 
 ```java
 long maxSizeInMegabytes = 5120;  
@@ -97,13 +97,13 @@ topicInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
 CreateTopicResult result = service.createTopic(topicInfo);
 ```
 
-Kullanabileceğiniz **listTopics** yöntemi **ServiceBusContract** nesneleri zaten bir hizmet ad alanında belirtilen ada sahip bir konu var olup olmadığını denetleyin.
+Kullanabileceğiniz **listTopics** metodunda **ServiceBusContract** nesneleri belirtilen ada sahip bir konu, bir hizmet ad alanı içinde zaten mevcut olup olmadığını denetleyin.
 
-## <a name="create-subscriptions"></a>Abonelikleri oluşturma
-Konular için abonelikleri ile de oluşturulur **ServiceBusService** sınıfı. Abonelikler adlandırılır ve aboneliğin sanal kuyruğuna gönderilen ileti kümesini sınırlayan isteğe bağlı bir filtre içerebilir.
+## <a name="create-subscriptions"></a>Abonelik oluşturma
+Konu abonelikleri ile de oluşturulur **ServiceBusService** sınıfı. Abonelikler adlandırılır ve aboneliğin sanal kuyruğuna gönderilen ileti kümesini sınırlayan isteğe bağlı bir filtre içerebilir.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Varsayılan (MatchAll) filtreyle abonelik oluşturma
-Yeni bir abonelik oluşturulurken filtre belirtilmezse kullanılan varsayılan filtre **MatchAll** filtresidir. Zaman **MatchAll** filtre kullanıldığında, konu başlığında yayımlanan tüm iletiler aboneliğin sanal kuyruğuna yerleştirilir. Aşağıdaki örnekte "AllMessages" adlı bir abonelik oluşturulur ve varsayılan **MatchAll** filtresi kullanılır.
+Yeni bir abonelik oluşturulurken filtre belirtilmezse kullanılan varsayılan filtre **MatchAll** filtresidir. Zaman **MatchAll** filtresinin kullanılacağının, konu başlığında yayımlanan tüm iletiler aboneliğin sanal kuyruğuna yerleştirilir. Aşağıdaki örnekte "AllMessages" adlı bir abonelik oluşturulur ve varsayılan **MatchAll** filtresi kullanılır.
 
 ```java
 SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
@@ -112,11 +112,11 @@ CreateSubscriptionResult result =
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Filtre içeren abonelik oluşturma
-Bir konu başlığına gönderilen iletileri içinde belirli konu aboneliği göstermelidir kapsamına sağlayan filtreler de oluşturabilirsiniz.
+Ayrıca, belirli bir konu aboneliğinde bir konu başlığına gönderilen iletilerin gösterilmesi gerekir kapsamı olanak sağlayan filtreler de oluşturabilirsiniz.
 
-Filtre abonelikler tarafından desteklenen en esnek türü [SqlFilter][SqlFilter], SQL92 alt kümesi uygular. SQL filtreleri, konu başlığında yayımlanan iletilerin özelliklerinde çalışır. SQL Filtresi ile kullanılabilen ifadeler hakkında daha fazla ayrıntı için gözden [SqlFilter.SqlExpression] [ SqlFilter.SqlExpression] sözdizimi.
+En esnek filtre türü, abonelikler tarafından desteklenen [SqlFilter][SqlFilter], SQL92 kümesini uygular. SQL filtreleri, konu başlığında yayımlanan iletilerin özelliklerinde çalışır. SQL Filtresi ile kullanılabilen ifadeler hakkında daha fazla ayrıntı için gözden [SqlFilter.SqlExpression] [ SqlFilter.SqlExpression] söz dizimi.
 
-Aşağıdaki örnek adlı bir abonelik oluşturur `HighMessages` ile bir [SqlFilter] [ SqlFilter] yalnızca özel iletileri seçen nesne **MessageNumber** özelliği 3'ten büyük:
+Aşağıdaki örnekte adlı bir abonelik oluşturur `HighMessages` ile bir [SqlFilter] [ SqlFilter] yalnızca özel bir bulunduran iletileri seçen nesneyi **Lowmessages** özellik 3'ten büyük:
 
 ```java
 // Create a "HighMessages" filtered subscription  
@@ -129,7 +129,7 @@ CreateRuleResult ruleResult = service.createRule("TestTopic", "HighMessages", ru
 service.deleteRule("TestTopic", "HighMessages", "$Default");
 ```
 
-Benzer şekilde, aşağıdaki örnekte adlı bir abonelik oluşturulur `LowMessages` ile bir [SqlFilter] [ SqlFilter] yalnızca sahip iletileri seçen nesnesi bir **MessageNumber** özelliğine daha az veya bu değere eşit 3:
+Benzer şekilde, aşağıdaki örnekte adlı bir abonelik oluşturur `LowMessages` ile bir [SqlFilter] [ SqlFilter] yalnızca bulunduran iletileri seçen nesneyi bir **Lowmessages** özellik daha az veya eşit 3:
 
 ```java
 // Create a "LowMessages" filtered subscription
@@ -142,20 +142,20 @@ CreateRuleResult ruleResult = service.createRule("TestTopic", "LowMessages", rul
 service.deleteRule("TestTopic", "LowMessages", "$Default");
 ```
 
-Ne zaman bir ileti artık gönderildiği `TestTopic`, her zaman alıcılara teslim edilir `AllMessages` aboneliği ve alıcılara teslim seçmeli olarak `HighMessages` ve `LowMessages` abonelikleri (bağlı olarak ileti içeriği).
+Ne zaman bir ileti hemen gönderilir `TestTopic`, abone alıcılar için her zaman teslim `AllMessages` aboneliği ve seçmeli olarak teslim edilen alıcılar abone için `HighMessages` ve `LowMessages` abonelikler (bağlı ileti içeriği).
 
 ## <a name="send-messages-to-a-topic"></a>Konu başlığına ileti gönderme
-Service Bus konu başlığına bir ileti göndermek için uygulamanızı alacağı bir **ServiceBusContract** nesnesi. Aşağıdaki kodda bir ileti göndermeye gösterilmiştir `TestTopic` konu içinde daha önce oluşturduğunuz `HowToSample` ad alanı:
+Bir Service Bus konusuna bir ileti göndermek için uygulamanızı alır bir **ServiceBusContract** nesne. Aşağıdaki kod bir ileti göndermek nasıl gösterir `TestTopic` konu içinde daha önce oluşturduğunuz `HowToSample` ad alanı:
 
 ```java
 BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
 
-Service Bus konu başlıklarına gönderilen iletiler örnekleridir [BrokeredMessage] [ BrokeredMessage] sınıfı. [BrokeredMessage][BrokeredMessage]* nesneler sahip bir dizi standart yöntem (gibi **setLabel** ve **TimeToLive**), özel tutmak için kullanılan bir sözlük uygulamaya özgü özellikler ve rastgele uygulama verileri gövdesi. Bir uygulama herhangi bir seri hale getirilebilir nesne oluşturucusuna geçirerek ileti gövdesini ayarlayabilir [BrokeredMessage][BrokeredMessage]ve uygun **DataContractSerializer** sonra nesneyi serileştirmek için kullanılır. Alternatif olarak, bir **java.io.InputStream** sağlanabilir.
+Service Bus konu başlıklarına gönderilen iletiler örnekleridir [BrokeredMessage] [ BrokeredMessage] sınıfı. [BrokeredMessage][BrokeredMessage]* nesnelerin bir dizi standart yöntemleri vardır (aşağıdaki gibi **setLabel** ve **TimeToLive**), özel tutmak için kullanılan bir sözlüğü uygulamaya özgü özellikler ve rastgele uygulama verileri gövdesi. Uygulamanın herhangi bir seri hale getirilebilir nesnesi oluşturucusuna geçirerek ileti gövdesini ayarlayabilirsiniz [BrokeredMessage][BrokeredMessage]ve uygun **DataContractSerializer** sonra nesneyi serileştirmek için kullanılır. Alternatif olarak, bir **java.io.InputStream** sağlanabilir.
 
-Aşağıdaki örnekte nasıl beş test iletisi göndereceğinizi gösterir `TestTopic` **MessageSender** biz önceki kod parçacığında elde.
-Not nasıl **MessageNumber** özellik değeri her iletinin tekrarına döngü üzerinde (Bu değer alacak abonelikleri belirler):
+Aşağıdaki örnek nasıl beş test iletisi göndereceğinizi gösterir `TestTopic` **MessageSender** önceki kod parçacığında elde ediyoruz.
+Not nasıl **Lowmessages** her ileti özelliği değerinin değişen döngü yinelemeyi (Bu değer alacak abonelikleri belirler):
 
 ```java
 for (int i=0; i<5; i++)  {
@@ -168,16 +168,16 @@ service.sendTopicMessage("TestTopic", message);
 }
 ```
 
-Service Bus konu başlıkları, [Standart katmanda](service-bus-premium-messaging.md) maksimum 256 KB ve [Premium katmanda](service-bus-premium-messaging.md) maksimum 1 MB ileti boyutunu destekler. Standart ve özel uygulama özelliklerini içeren üst bilginin maksimum dosya boyutu 64 KB olabilir. Bir konu başlığında tutulan ileti sayısına bir sınır yoktur ancak konu başlığı tarafından tutulan iletilerin toplam boyutu bir sınır yoktur. Bu konu başlığı boyutu, üst sınır 5 GB olacak şekilde oluşturulma zamanında belirlenir.
+Service Bus konu başlıkları, [Standart katmanda](service-bus-premium-messaging.md) maksimum 256 KB ve [Premium katmanda](service-bus-premium-messaging.md) maksimum 1 MB ileti boyutunu destekler. Standart ve özel uygulama özelliklerini içeren üst bilginin maksimum dosya boyutu 64 KB olabilir. Bir konu başlığında tutulan ileti sayısına bir sınır yoktur ancak konu başlığı tarafından tutulan iletilerin toplam boyutu sınırı yoktur. Bu konu başlığı boyutu, üst sınır 5 GB olacak şekilde oluşturulma zamanında belirlenir.
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Abonelikten ileti alma
-Abonelikten ileti almak için kullandığınız bir **ServiceBusContract** nesnesi. Alınan iletiler, iki farklı modda çalışabilir: **ReceiveAndDelete** ve **PeekLock** (varsayılan).
+Abonelikten ileti almak için kullanmak bir **ServiceBusContract** nesne. Alınan iletiler, iki farklı modda çalışabilir: **ReceiveAndDelete** ve **PeekLock** (varsayılan).
 
-Kullanırken **ReceiveAndDelete** modu, alma bir tek işlemi - diğer bir deyişle, Service Bus iletiye yönelik Okuma isteği aldığında, iletiyi kullanılıyor olarak işaretler ve uygulamaya döndürür. **ReceiveAndDelete** modu en basit modeldir ve senaryoları bir uygulama içinde tolerans bir hata oluşursa bir ileti işlenmiyor en iyi şekilde çalışır. Örneğin, tüketici alma isteği bildirdiğini ve isteğin işlenmeden çöktüğünü bir senaryo düşünün. Service Bus iletiyi kullanılıyor olarak işaretlenmiş olduğundan uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında, sonra da çökmenin öncesinde kullanılan iletiyi eksik olduğunu.
+Kullanırken **ReceiveAndDelete** modunda almak bir tek işlem - diğer bir deyişle, Service Bus iletiye yönelik Okuma isteği aldığında, iletiyi kullanılıyor olarak işaretler ve uygulamaya döndürür. **ReceiveAndDelete** modu en basit modeldir ve içinde bir uygulama tolere edebilen bir hata oluşursa bir iletiyi işlememeye izin senaryolarda en iyi şekilde çalışır. Örneğin, hangi tüketici alma isteği bildirdiğini ve ardından işlenmeden önce kilitleniyor bir senaryo düşünün. Service Bus iletiyi kullanılıyor olarak işaretlediğinden, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında ardından onu çökmenin öncesinde kullanılan iletiyi eksik.
 
-İçinde **PeekLock** modu, alma, iletilere veremeyen uygulamaları desteklemenin mümkün kılar bir iki aşamalı işlemi olur. Service Bus bir istek aldığında bir sonraki kullanılacak iletiyi bulur, diğer tüketicilerin bu iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya sonra işlemek için depoladıktan sonra), çağırarak alma işleminin ikinci aşamasını tamamlar **silmek** alınan iletide. Hizmet veri yolu gördüğünde **silmek** çağrısı, iletiyi kullanılıyor olarak işaretler ve konusundan kaldırır.
+İçinde **PeekLock** modu, alma, atlanan iletilere veremeyen uygulamaları desteklemenin mümkün hale getiren bir iki aşamalıdır. Service Bus bir istek aldığında bir sonraki kullanılacak iletiyi bulur, diğer tüketicilerin bu iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya güvenilir bir şekilde işlemek üzere depolar sonra) çağırarak alma işleminin ikinci aşamasını tamamlar **Sil** alınan iletide. Service Bus gördüğünde **Sil** çağrısı, bu iletiyi kullanılıyor olarak işaretler ve konu başlığından kaldırır.
 
-Aşağıdaki örnek nasıl ileti aldı ve işlenen kullanarak gösterir **PeekLock** (varsayılan mod). Örnek bir döngü gerçekleştirir ve iletileri işleyen `HighMessages` abonelik ve daha fazla ileti olduğunda çıkar (Alternatif olarak, bu yeni iletiler için beklenecek ayarlanabilir).
+Aşağıdaki örnek nasıl ileti alındı ve işlenen kullanarak gösterir **PeekLock** (varsayılan mod). Örnek döngü yapar ve iletileri işleyen `HighMessages` abonelik ve daha fazla ileti olduğunda çıkar (Alternatif olarak, bu yeni iletileri için beklenecek ayarlanabilir).
 
 ```java
 try
@@ -233,14 +233,14 @@ catch (Exception e) {
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Uygulama çökmelerini ve okunmayan iletileri giderme
-Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Alıcı uygulamanın iletiyi herhangi bir nedenden dolayı işleyemedi sonra işleyememesi **unlockMessage** alınan iletide yöntemi (yerine **deleteMessage** yöntemi). Bu konu içinde ileti kilidini açmak ve aynı kullanıcı uygulama tarafından veya başka bir kullanıcı uygulama tarafından tekrar alınabilir kullanılabilir hale getirmek Service Bus neden olur.
+Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Alıcı uygulamanın iletiyi işlemek için herhangi bir nedenle silemiyor sonra çağırabilirsiniz **unlockMessage** yöntemi alınan iletide (yerine **deleteMessage** yöntemi). Bu, Service Bus konu başlığı içindeki iletinin kilidini açmasına ve iletiyi aynı kullanıcı uygulama veya başka bir kullanıcı uygulama tarafından tekrar alınabilir hale neden olur.
 
-Ayrıca konusu içinde kilitli bir ileti ile ilişkili bir zaman aşımı vardır ve uygulama önce iletiyi işleyemezse (örneğin, uygulama çökerse) Service Bus otomatik olarak iletinin kilidini açar ve kolaylaştırır kilit zaman aşımı dolmadan yeniden alınabilmesi kullanılabilir.
+Ayrıca konusu içinde kilitli iletiye ilişkin bir zaman aşımı yoktur ve uygulama önce iletiyi işleyemezse (örneğin, uygulama çökerse) Service Bus otomatik olarak iletinin kilidini açar ve alınabilmesini kilit zaman aşımı dolmadan tekrar kullanılabilir.
 
-Uygulama iletiyi ancak önce çökmesi durumunda, **deleteMessage** isteği bildirilmeden, sonra yeniden başlatıldığında ileti uygulamaya tekrar teslim. Bu işlem genellikle adlı **en az bir kez işleme**; diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bu genellikle kullanılarak elde edilen **getMessageId** iletinin teslimat denemelerinde yöntemi.
+Uygulama iletiyi ancak önce çökmesi durumunda, **deleteMessage** isteği bildirilmeden, sonra yeniden başlatıldığında ileti uygulamaya yeniden teslim. Bu işlem genellikle çağrılırken **en az bir kez işleme**; diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim edilebilir. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bu genellikle kullanılmasıdır **getMessageId** yöntemi iletinin teslim denemeleri arasında sabit kalır.
 
 ## <a name="delete-topics-and-subscriptions"></a>Konu başlıklarını ve abonelikleri silme
-Konuları ve abonelikleri silmek için birincil yolu bir **ServiceBusContract** nesnesi. Bir konu başlığı silindiğinde bu konu başlığıyla kaydedilen tüm abonelikler de silinir. Ayrıca, abonelikler bağımsız olarak da silinebilir.
+Konuları ve abonelikleri silmek için birincil yolu bir **ServiceBusContract** nesne. Bir konu başlığı silindiğinde bu konu başlığıyla kaydedilen tüm abonelikler de silinir. Ayrıca, abonelikler bağımsız olarak da silinebilir.
 
 ```java
 // Delete subscriptions
@@ -253,7 +253,7 @@ service.deleteTopic("TestTopic");
 ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Service Bus kuyruklarına öğrendiğinize göre bkz: [Service Bus kuyrukları, konu başlıkları ve abonelikler] [ Service Bus queues, topics, and subscriptions] daha fazla bilgi için.
+Service Bus kuyruklarına ilişkin temel bilgileri öğrendiğinize göre artık bkz [Service Bus kuyrukları, konular ve abonelikler] [ Service Bus queues, topics, and subscriptions] daha fazla bilgi için.
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md

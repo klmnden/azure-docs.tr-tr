@@ -1,7 +1,7 @@
-Oturum açma, uygulamanızın üzerinde yalnızca etkinleştirmek istiyorsanız, kullandığınız bir **oturum açma** ilkesi. Bu ilke müşteriler oturum açma ve uygulama alacak belirteçleri içeriğini sırasında başarılı oturum açma işlemleri üzerinde çalışmaya başlayacaktır deneyimleri açıklanmaktadır.
+Yalnızca oturum açma, uygulamanızın üzerinde etkinleştirmek istiyorsanız, kullandığınız bir **oturum** ilkesi. Bu ilke, müşterilerin oturum açma ve uygulamanın alacağı belirteçlerin içeriğini sırasında başarılı oturum açma işlemleri üzerinde karşılaşacağı deneyimleri açıklar.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
-Tıklatın **oturum açma ilkeleri**.
+Tıklayın **oturum açma ilkeleri**.
 
 Dikey pencerenin en üstündeki **+Add (+Ekle)** seçeneğine tıklayın.
 

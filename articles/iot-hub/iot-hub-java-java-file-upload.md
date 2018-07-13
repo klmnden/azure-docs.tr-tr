@@ -1,6 +1,6 @@
 ---
-title: Java ile Azure IOT Hub'ına aygıtlardan dosyaları karşıya yükleme | Microsoft Docs
-description: Java için Azure IOT cihaz SDK'sını kullanarak buluta bir aygıttan dosyaları karşıya yükleme yapma. Karşıya yüklenen dosyaların bir Azure depolama blob kapsayıcısında depolanır.
+title: Java ile Azure IOT Hub'ına cihazlardan dosya yükleme | Microsoft Docs
+description: Java için Azure IOT cihaz SDK'sını kullanarak bulutta bir CİHAZDAN dosyaları karşıya yükleme. Karşıya yüklenen dosyaları bir Azure depolama blob kapsayıcısında depolanır.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -10,61 +10,61 @@ ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
 ms.openlocfilehash: 09580f3bb5d6f6f5ccb15adddf0cf1f9e19c2210
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807586"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619412"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>IOT Hub ile bulut cihazınızdan dosyaları karşıya yükleme
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Cihazınızı IOT Hub ile buluta dosyaları karşıya yükleme
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Bu öğretici kodda inşa edilmiştir [IOT Hub ile bulut cihaza ileti gönderme](iot-hub-java-java-c2d.md) kullanmayı gösteren öğretici [dosya karşıya yükleme özellikleri IOT Hub'ın](iot-hub-devguide-file-upload.md) bir dosyayı karşıya yüklemeyi [Azure blob depolama](../storage/index.yml). Öğretici şunların nasıl yapıldığını gösterir için:
+Bu öğreticide kodda geliştirir [IOT Hub ile bulut buluttan cihaza ileti gönderme](iot-hub-java-java-c2d.md) nasıl kullanılacağını göstermek için öğretici [dosya karşıya yükleme özellikleri IOT Hub'ın](iot-hub-devguide-file-upload.md) bir dosyayı karşıya yüklemek için [Azure blob Depolama](../storage/index.yml). Öğretici şunların nasıl yapıldığını göstermektedir:
 
-- Güvenli bir şekilde bir aygıt ile Azure sağlayan bir dosya yüklemek için URI blob.
-- IOT hub'ı dosya karşıya yükleme bildirimleri, uygulama arka uç dosya işleme tetiklemek için kullanın.
+- Bir cihaz Azure ile güvenli bir şekilde sağlayan bir dosya karşıya yükleme için URI blob.
+- IOT hub'ı dosya karşıya yükleme bildirimlerini, uygulama arka ucu dosyasında bir işlem tetiklemek için kullanın.
 
-[IOT Hub ile çalışmaya başlama](iot-hub-java-java-getstarted.md) ve [IOT Hub ile bulut cihaza ileti gönderme](iot-hub-java-java-c2d.md) öğreticiler IOT Hub'ın temel cihaz Bulut ve bulut-cihaz Mesajlaşma işlevlerini gösterir. [İşlem cihaz-bulut iletileri](tutorial-routing.md) öğretici Azure blob depolama alanına cihaz bulut iletilerini güvenilir bir şekilde depolamak için bir yol açıklar. Ancak, bazı senaryolarda aygıtlarınızı IOT hub'ı kabul görece küçük bir cihaz bulut iletilerini göndermek verileri kolayca eşlenemiyor. Örneğin:
+[IOT Hub ile çalışmaya başlama](iot-hub-java-java-getstarted.md) ve [IOT Hub ile bulut buluttan cihaza ileti gönderme](iot-hub-java-java-c2d.md) öğreticiler, IOT Hub'ın temel CİHAZDAN buluta ve bulut-cihaz Mesajlaşma işlevlerini gösterir. [İşlem CİHAZDAN buluta iletileri](tutorial-routing.md) Öğreticisi, CİHAZDAN buluta iletileri Azure blob depolama alanında güvenilir bir şekilde depolamak için bir yol açıklar. Ancak, bazı senaryolarda cihazlarınızı IOT hub'ı kabul görece küçük bir CİHAZDAN buluta ileti gönderme verileri kolayca eşlenemiyor. Örneğin:
 
 * Görüntüleri içeren büyük dosyaları
 * Videolar
-* Yüksek sıklıkta örneklenen titreşimi veri
-* Önceden işlenmiş veri çeşit.
+* Titreşim veri yüksek sıklıkta örneklenir
+* Önceden işlenmiş verilerin bazı formlarıyla.
 
-Bu dosyalar genellikle gibi araçları kullanılarak bulutta işlenen toplu olan [Azure Data Factory](../data-factory/introduction.md) veya [Hadoop](../hdinsight/index.yml) yığını. Bir aygıttan upland dosyalara ihtiyacınız olduğunda, güvenlik ve güvenilirlik IOT Hub'ının kullanmaya devam edebilirsiniz.
+Bu dosyalar genellikle toplu işleme gibi araçları kullanarak bulutta olduğu [Azure Data Factory](../data-factory/introduction.md) veya [Hadoop](../hdinsight/index.yml) yığını. Bir CİHAZDAN upland dosyalara ihtiyacınız olduğunda, güvenlik ve güvenilirlik IOT hub'ı kullanmaya devam edebilirsiniz.
 
-Bu öğreticinin sonunda iki Java konsol uygulamaları çalıştırın:
+Bu öğreticinin sonunda iki Java konsol uygulaması çalıştırın:
 
-* **simulated-device**, [IOT Hub ile gönderme bulut-cihaz iletilerini] öğreticide oluşturduğunuz uygulama değiştirilmiş bir sürümü. Bu uygulama, IOT hub tarafından sağlanan bir SAS URI'sini kullanarak depolama için bir dosya yükler.
-* **dosya karşıya yükleme bildirimi okuma**, IOT hub'ından dosya karşıya yükleme bildirimlerini alır.
+* **simulated-device**, [IOT Hub ile gönderme bulut-cihaz iletilerini] öğreticisinde oluşturulan uygulamanın değiştirilmiş bir sürümüdür. Bu uygulama bir dosya depolama, IOT hub tarafından sağlanan bir SAS URI'sini kullanarak yükler.
+* **dosya karşıya yükleme bildirimini oku**, IOT hub'ından dosya karşıya yükleme bildirimleri alır.
 
 > [!NOTE]
-> IOT hub'ı Azure IOT cihaz SDK'ları çok sayıda cihaz platformları ve (C, .NET ve Javascript dahil) dilleri destekler. Başvurmak [Azure IoT Geliştirici Merkezi] Cihazınızı Azure IOT Hub'ına bağlamak adım adım yönergeler için.
+> IOT Hub, Azure IOT cihaz SDK'ları birçok cihaz platformlarını ve dilini (C, .NET ve Javascript gibi) destekler. Başvurmak [Azure IOT Geliştirici Merkezi] Cihazınızı Azure IOT Hub'ına bağlanmak adım adım yönergeler için.
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * En güncel [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
-* Etkin bir Azure hesabı. (Bir hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](http://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.)
+* Etkin bir Azure hesabı. (Hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](http://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
-## <a name="upload-a-file-from-a-device-app"></a>Bir aygıt uygulamasından bir dosyayı karşıya yüklemek
+## <a name="upload-a-file-from-a-device-app"></a>Bir cihaz uygulamasından bir dosyayı karşıya yükleyin
 
-Bu bölümde, oluşturduğunuz cihaz uygulamayı değiştirmek [IOT Hub ile bulut cihaza ileti gönderme](iot-hub-java-java-c2d.md) IOT hub'ına bir dosyayı karşıya yüklemek için.
+Bu bölümde oluşturduğunuz cihaz uygulamasını değiştirmek [IOT Hub ile bulut buluttan cihaza ileti gönderme](iot-hub-java-java-c2d.md) IOT hub'ına bir dosyayı karşıya yüklemek için.
 
-1. Bir görüntü dosyasına kopyalayın `simulated-device` klasörü ve yeniden adlandırmak `myimage.png`.
+1. Bir görüntü dosyasına kopyalama `simulated-device` klasörü ve yeniden adlandırmak `myimage.png`.
 
 1. Bir metin düzenleyicisi kullanarak açın `simulated-device\src\main\java\com\mycompany\app\App.java` dosya.
 
-1. Değişken bildirimi ekleyin **uygulama** sınıfı:
+1. Değişken bildirimi olarak ekleme **uygulama** sınıfı:
 
     ```java
     private static String fileName = "myimage.png";
     ```
 
-1. Dosya karşıya yükleme durumu geri çağırma iletileri işlemek için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı:
+1. Dosya karşıya yükleme durumu geri çağırma iletileri işlemek için aşağıdaki iç içe geçmiş sınıf için ekleme **uygulama** sınıfı:
 
     ```java
     // Define a callback method to print status codes from IoT Hub.
@@ -76,7 +76,7 @@ Bu bölümde, oluşturduğunuz cihaz uygulamayı değiştirmek [IOT Hub ile bulu
     }
     ```
 
-1. Görüntüleri IOT Hub'ına karşıya yüklemek için aşağıdaki yöntemi ekleyin **uygulama** sınıfın görüntüleri IOT Hub'ına karşıya yüklemek için:
+1. IOT Hub'ına görüntüleri karşıya yüklemek için aşağıdaki yöntemi ekleyin. **uygulama** sınıfı IOT Hub'ına görüntüleri karşıya yüklemek için:
 
     ```java
     // Use IoT Hub to upload a file asynchronously to Azure blob storage.
@@ -110,19 +110,19 @@ Bu bölümde, oluşturduğunuz cihaz uygulamayı değiştirmek [IOT Hub ile bulu
     MessageSender sender = new MessageSender();
     ```
 
-1. Oluşturmak için aşağıdaki komutu kullanın **simulated-device** uygulama ve hataları denetleyin:
+1. Oluşturmak için aşağıdaki komutu kullanın **simulated-device** uygulama ve hatalar için denetleyin:
 
     ```cmd/sh
     mvn clean package -DskipTests
     ```
 
-## <a name="receive-a-file-upload-notification"></a>Dosya karşıya yükleme bildirimi
+## <a name="receive-a-file-upload-notification"></a>Dosya karşıya yükleme bildirim alma
 
-Bu bölümde IOT hub'dan dosya karşıya yükleme bildirim iletileri alan bir Java konsol uygulaması oluşturun.
+Bu bölümde, IOT Hub'ından dosya karşıya yükleme bildirim iletileri alan bir Java konsol uygulaması oluşturun.
 
-Gereksinim duyduğunuz **iothubowner** Bu bölümde tamamlamak IOT Hub'ınız için bağlantı dizesi. Bağlantı dizesinde bulabilirsiniz [Azure portal](https://portal.azure.com/) üzerinde **paylaşılan erişim ilkesi** dikey.
+Gereksinim duyduğunuz **iothubowner** bu bölümünü tamamlamak IOT Hub'ınız için bağlantı dizesi. Bağlantı dizesinde bulabilirsiniz [Azure portalında](https://portal.azure.com/) üzerinde **paylaşılan erişim ilkesi** dikey penceresi.
 
-1. Adlı bir Maven projesi oluşturun **dosya karşıya yükleme bildirimi okuma** , komut isteminde aşağıdaki komutu kullanarak. Bu komut tek ve uzun bir komut olduğuna dikkat edin:
+1. Adlı bir Maven projesi oluşturun **dosya karşıya yükleme bildirimini oku** komut isteminizde aşağıdaki komutu kullanarak. Bu komut, tek ve uzun bir komut olduğunu unutmayın:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-file-upload-notification -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -130,7 +130,7 @@ Gereksinim duyduğunuz **iothubowner** Bu bölümde tamamlamak IOT Hub'ınız i�
 
 1. Komut isteminizde yeni gidin `read-file-upload-notification` klasör.
 
-1. Bir metin düzenleyicisi kullanarak açın `pom.xml` dosyasını `read-file-upload-notification` klasörü ve aşağıdaki bağımlılığı eklemek **bağımlılıkları** düğümü. Bağımlılık ekleme kullanabilmenizi sağlar **iothub-java-service-client** IOT hub hizmeti ile iletişim kurmak için uygulamanızda paketi:
+1. Bir metin düzenleyicisi kullanarak açın `pom.xml` dosyası `read-file-upload-notification` klasörü ve aşağıdaki bağımlılığı ekleyin **bağımlılıkları** düğümü. Bağımlılık ekleme kullanmanıza olanak sağlar **iothub-java-service-client** , IOT hub hizmetiyle iletişim kurmak için uygulama paketi:
 
     ```xml
     <dependency>
@@ -141,7 +141,7 @@ Gereksinim duyduğunuz **iothubowner** Bu bölümde tamamlamak IOT Hub'ınız i�
     ```
 
     > [!NOTE]
-    > En son sürümü için kontrol edebilirsiniz **IOT hizmeti istemcisi** kullanarak [Maven arama](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > En son sürümünü kontrol **IOT hizmeti istemcisi** kullanarak [Maven arama](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 1. Kaydet ve Kapat `pom.xml` dosya.
 
@@ -165,7 +165,7 @@ Gereksinim duyduğunuz **iothubowner** Bu bölümde tamamlamak IOT Hub'ınız i�
     private static FileUploadNotificationReceiver fileUploadNotificationReceiver = null;
     ```
 
-1. Konsola dosya karşıya yükleme hakkında bilgi yazdırmak için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı:
+1. Konsola dosya karşıya yükleme hakkında bilgi yazdırmak için aşağıdaki iç içe geçmiş sınıf için ekleme **uygulama** sınıfı:
 
     ```java
     // Create a thread to receive file upload notifications.
@@ -192,7 +192,7 @@ Gereksinim duyduğunuz **iothubowner** Bu bölümde tamamlamak IOT Hub'ınız i�
     }
     ```
 
-1. Dosya karşıya yükleme bildirimleri için bekleyen iş parçacığı başlatmak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. Dosya karşıya yükleme bildirimleri için bekleyen iş parçacığı başlatmak için aşağıdaki kodu ekleyin. **ana** yöntemi:
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException, Exception {
@@ -222,7 +222,7 @@ Gereksinim duyduğunuz **iothubowner** Bu bölümde tamamlamak IOT Hub'ınız i�
 
 1. Kaydet ve Kapat `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` dosya.
 
-1. Oluşturmak için aşağıdaki komutu kullanın **dosya karşıya yükleme bildirimi okuma** uygulama ve hataları denetleyin:
+1. Oluşturmak için aşağıdaki komutu kullanın **dosya karşıya yükleme bildirimini oku** uygulama ve hatalar için denetleyin:
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -244,29 +244,29 @@ Bir komut isteminde `simulated-device` klasörü, aşağıdaki komutu çalışt�
 mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 ```
 
-Aşağıdaki ekran görüntüsünde çıktısını gösterir **simulated-device** uygulama:
+Aşağıdaki ekran görüntüsünde çıktısında **simulated-device** uygulama:
 
-![Simulated-device uygulamadan çıktı](media/iot-hub-java-java-upload/simulated-device.png)
+![Simulated-device uygulama çıktısı](media/iot-hub-java-java-upload/simulated-device.png)
 
-Aşağıdaki ekran görüntüsünde çıktısını gösterir **dosya karşıya yükleme bildirimi okuma** uygulama:
+Aşağıdaki ekran görüntüsünde çıktısında **dosya karşıya yükleme bildirimini oku** uygulama:
 
-![Dosya karşıya yükleme bildirimi okuma uygulamadan çıktı](media/iot-hub-java-java-upload/read-file-upload-notification.png)
+![Dosya karşıya yükleme bildirimini okuma uygulama çıktısı](media/iot-hub-java-java-upload/read-file-upload-notification.png)
 
-Yüklenen dosya yapılandırdığınız depolama kapsayıcısı içinde görüntülemek için portalı kullanabilirsiniz:
+Karşıya yüklenen dosya yapılandırdığınız depolama kapsayıcısında görüntülemek için portalı kullanabilirsiniz:
 
-![Yüklenen dosya](media/iot-hub-java-java-upload/uploaded-file.png)
+![Karşıya yüklenen dosya](media/iot-hub-java-java-upload/uploaded-file.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, dosya yüklemelerini basitleştirmek için IOT hub'ı dosya karşıya yükleme becerilerini kullanacak öğrendiniz. IOT hub özelliklerini ve aşağıdaki makalelerde senaryolarını keşfetmeye devam edebilirsiniz:
+Bu öğreticide, cihazlardan karşıya dosya yükleme işlemleri basitleştirmek için dosya karşıya yükleme özellikleri IOT hub'ı kullanmayı öğrendiniz. IOT hub özelliklerini ve aşağıdaki makalelerde senaryolarını keşfetmeye devam edebilirsiniz:
 
-* [IOT hub'ı program aracılığıyla oluşturma][lnk-create-hub]
-* [C SDK Giriş][lnk-c-sdk]
+* [Programlamalı IOT hub oluşturma][lnk-create-hub]
+* [C SDK'ya giriş][lnk-c-sdk]
 * [Azure IOT SDK'ları][lnk-sdks]
 
-Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
+Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:
 
-* [Bir cihaz IOT Edge benzetimini yapma][lnk-iotedge]
+* [IOT Edge ile cihaz benzetimi][lnk-iotedge]
 
 <!-- Images. -->
 
