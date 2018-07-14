@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: bde7a7788fd01bcbcc63296c0513af8eb4196021
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2308419ba79f6b482df6f68e865aafd0152ae090
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970188"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001897"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -195,11 +195,13 @@ Her bağlama desteklenen türlerinden; yine de sahip istiyor musunuz? Örneğin,
 
 ## <a name="binding-to-method-return-value"></a>Yöntemin dönüş değeri bağlama
 
-Yöntemin dönüş değerini özniteliği uygulayarak, bir yöntemin dönüş değeri bir çıkış bağlaması için kullanabilirsiniz. Örnekler için bkz [Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md#using-the-function-return-value).
+Yöntemin dönüş değerini özniteliği uygulayarak, bir yöntemin dönüş değeri bir çıkış bağlaması için kullanabilirsiniz. Örnekler için bkz [Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md#using-the-function-return-value). 
+
+Yalnızca her zaman başarılı işlevi yürütme için çıktı bağlama geçirmek için bir dönüş değeri sonuçlanırsa, dönüş değeri kullanın. Aksi takdirde kullanın `ICollector` veya `IAsyncCollector`aşağıdaki bölümde gösterildiği gibi.
 
 ## <a name="writing-multiple-output-values"></a>Birden çok çıkış değerleri yazılıyor
 
-Birden çok değer için bir çıkış bağlaması yazmak için kullanın [ `ICollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) veya [ `IAsyncCollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) türleri. Bu yöntem tamamlandığında, çıkış bağlaması için yazılan salt yazılır koleksiyonları türleridir.
+Bir çıkış bağlaması için birden çok değer yazın ya da başarılı işlev çağrısını çıkış bağlaması için geçirilecek herhangi bir şey de sağlamayabilir kullanırsanız [ `ICollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) veya [ `IAsyncCollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) türleri. Bu yöntem tamamlandığında, çıkış bağlaması için yazılan salt yazılır koleksiyonları türleridir.
 
 Bu örnek aynı kullanarak kuyruk birden fazla kuyruk iletileri Yazar `ICollector`:
 
@@ -209,12 +211,12 @@ public static class ICollectorExample
     [FunctionName("CopyQueueMessageICollector")]
     public static void Run(
         [QueueTrigger("myqueue-items-source-3")] string myQueueItem,
-        [Queue("myqueue-items-destination")] ICollector<string> myQueueItemCopy,
+        [Queue("myqueue-items-destination")] ICollector<string> myDestinationQueue,
         TraceWriter log)
     {
         log.Info($"C# function processed: {myQueueItem}");
-        myQueueItemCopy.Add($"Copy 1: {myQueueItem}");
-        myQueueItemCopy.Add($"Copy 2: {myQueueItem}");
+        myDestinationQueue.Add($"Copy 1: {myQueueItem}");
+        myDestinationQueue.Add($"Copy 2: {myQueueItem}");
     }
 }
 ```

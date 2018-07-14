@@ -8,12 +8,12 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/13/2017
-ms.openlocfilehash: 50e27cbc485259ea5ce744ba71feee5e90293bcb
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a7b32bad8a9f1d039b17fe0f1be167cffbc86547
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792918"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006214"
 ---
 # <a name="queries-in-azure-search"></a>Azure Search'te sorgular
 > [!div class="op_single_selector"]
@@ -60,6 +60,6 @@ Azure Search'te arama sonuçlarının arama sorgusuyla tam olarak eşleşen kıs
 
 Söz dizimi farklılıklarını anlamak için en iyi yol, sorgu göndermek ve sonuçları gözden geçirmektir.
 
-+ Azure portalında [Arama Gezgini](search-explorer.md)'ni kullanın. [Örnek dizini](search-get-started-portal.md) dağıttıktan sonra portaldaki araçları kullanarak dakikalar içinde dizini sorgulayabilirsiniz.
++ Kullanım [arama Gezgini](search-explorer.md) Azure portalında. [Örnek dizini](search-get-started-portal.md) dağıttıktan sonra portaldaki araçları kullanarak dakikalar içinde dizini sorgulayabilirsiniz.
 
 + Arama hizmetinize yüklediğiniz bir dizine sorgu göndermek için Telerik Fiddler'ı veya Chrome Postman'i kullanın. Her iki araç da HTTP uç noktalarına yönelik REST çağrılarını destekler. 

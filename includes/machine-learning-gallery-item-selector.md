@@ -1,5 +1,5 @@
-**[Azure AI galeri](http://gallery.cortanaintelligence.com)**  bulmak için topluluk odaklı bir site ve çözümleri paylaşımı Cortana Intelligence Suite ile oluşturulmuş.
-Galeri, kendi analiz çözümleri geliştirmek için kullanabileceğiniz kaynakları çeşitli vardır.
+**[Azure AI Gallery](http://gallery.cortanaintelligence.com)**  bulmak için bir topluluk odaklı site ve Cortana Intelligence Suite ile oluşturulan çözüm paylaşma.
+Galeri, kendi analiz çözümleri geliştirmek üzere kullanabileceği kaynakları çeşitli sahiptir.
 
 <!-- On the new DOCS platform, this is a drop-down list, not tabs, which doesn't work well in this context. So I'm just removing it for now.
 

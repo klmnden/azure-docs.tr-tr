@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7b58dc6e9bbfbf69358b30d29d93da6f6d6dc899
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: MT
+ms.openlocfilehash: ca25aaefee6c9746ff79bdca7668b510df9ac6c3
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922580"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002050"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Nasıl yapılır özel sesli için ses kaydetme örnekleri
 
@@ -23,7 +23,7 @@ Yüksek kaliteli üretim özel sesli sıfırdan oluşturma, sıradan bir iş de�
 
 Ancak, bu kayıtları yapmadan önce bir komut dosyası gerekir: Ses örneği oluşturmak için ses beceri tarafından konuşulan sözcükleri. En iyi sonuçlar için iyi fonetik kapsamı ve özel ses modeli eğitmek için yeterli çeşitli betiğinizi olması gerekir.
 
-Birçok malzemeler, iyi bir özel sesli gidin. Bu kılavuz, karşılaşabileceğiniz sorunları belirli odaklanarak işlem giriş olarak görev yapar.
+Birçok küçük ancak önemli ayrıntıları profesyonel ses kaydı oluşturma uygulamasına gidin. Bu kılavuz, iyi ve tutarlı sonuçlar elde etmenize yardımcı olacak bir işlem için bir yol haritası içindir.
 
 > [!TIP]
 > Yüksek kaliteli sonuçlar için özel sesli geliştirmenize yardımcı olmak amacıyla Microsoft ilgi çekici göz önünde bulundurun. Microsoft, Cortana ve Office gibi kendi ürünler için yüksek kaliteli ses üretme kapsamlı bir deneyimi vardır.
@@ -70,7 +70,7 @@ Başlangıç oturumu kaydetme herhangi bir özel sesli, sesli beceri tarafından
 
 Betiğinizde konuşma yerden gelebilir: kurgu kurgu olmayan, konuşmalarını, haber raporlar ve bulunan başka herhangi bir şey dökümleri yazdırılan form. De (örneğin, TIP terminolojisi veya programlama terminolojisinin) bir kelimelerin belirli tür üzerinde sesinizi desteklediğinden emin olmak istiyorsanız, cümleleri akademik incelemeler veya teknik belgelerden dahil etmek istediğiniz. (Ancak, [Legalities](#legalities) aşağıda.) Ayrıca, kendi metninizi yazabilirsiniz.
 
-Konuşma aynı kaynağa veya kaynak aynı türde birlikte gelmeyen. Birbiriyle yapmak için herhangi bir şey olması bile gerekmez. Ancak, eğer kullanım ayarlamak ifadeleri (örneğin, ", başarılı oturum açma"), konuşma uygulamanızda betiğinizde eklediğinizden emin olun. Bu süre sonundan sonra özel sesli bu tümcecikleri iyi pronouncing, daha iyi bir fırsat sunar. Ve Sentezlenen konuşma yerine bir kaydı kullanmaya karar verirseniz zaten aynı sesinizi Sentezlenen konuşmanızı olarak sahip.
+Konuşma aynı kaynağa veya kaynak aynı türde birlikte gelmeyen. Birbiriyle yapmak için herhangi bir şey olması bile gerekmez. Ancak, eğer kullanım ayarlamak ifadeleri (örneğin, ", başarılı oturum açma"), konuşma uygulamanızda betiğinizde eklediğinizden emin olun. Bu, özel sesli bu tümcecikleri iyi pronouncing, daha iyi bir fırsat sunar. Ve Sentezlenen konuşma yerine bir kaydı kullanmaya karar verirseniz zaten aynı sesinizi Sentezlenen konuşmanızı olarak sahip.
 
 Tutarlılık ses beceri seçme içinde anahtar olsa da, çeşitli iyi bir betiğin günlerinden ' dir. Betiğinizi birçok farklı sözcükleri ve tümceleri cümle uzunlukları, yapılar ve ruh çeşitli içermelidir. Her ses dilde gösterilen birden çok kez ve çeşitli bağlamlarda olmalıdır (adlı *fonetik kapsamı).* 
 
@@ -87,10 +87,13 @@ Microsoft Word içinde betiğinizi yazabilirsiniz. Bunu çalışmak kolay bir ş
 Temel betik biçimi üç sütunu içerir:
 
 * 1'den başlayarak utterance sayısı. Numaralandırma kolaylaştırır herkes için belirli bir utterance başvurmak için Studio ("sayı 356 yeniden deneyelim"). Tablonun satırlarını otomatik olarak numaralandırmak için özellik numaralandırma Word'ün paragraf kullanabilirsiniz.
-* Burada yazdığınız her utterance zaman kodda bir boş sütun: hangi bulabilirsiniz, kayıtlı bir ses dosyası içinde zaman.
+* Burada Al sayısında yazma veya tamamlanmış kayıt bulmanıza yardımcı olmak için her utterance kodunu zaman boş bir sütun.
 * Utterance metni.
 
 ![Örnek betik](media/custom-voice/script.png)
+
+> [!NOTE]
+> Çoğu studios "yararlanırken," on-24 konuşma içeren her ttake ypically başvurulan segmenti kısa kaydedin. Yalnızca alma sayısı belirtmeye verilen utterance daha sonra bulmak yeterli olacaktır. Bazı studios uzun kayıtları tercih edebilirsiniz. Bu durumda saati uzaklığı unutmayın (zaman kodu) dosyasına isteyebilirsiniz. Studio belirgin süre görüntü olacaktır.
 
 Her satır sonra notları yazmak için yeterli alan bırakın. Hiçbir utterance sayfalar arasında bölünür emin olun. Sayfa numarası ve kağıt bir tarafında kodunuzu yazdırın.
 
@@ -100,19 +103,19 @@ Komut dosyası üç kopyasını yazdırma: bir yetenek, mühendislik için diğe
 
 Telif hakkı yasaları altında bir aktörün okuma telif haklı metin iş yazarı dengelenebilecek bir performans olabilir. Bu performans yer alan son ürünü, özel sesli tanınabilir olmayacaktır. Buna rağmen yasallığı, telif haklı bir çözüm bu amaçla kullanma, tanınmış değil. Microsoft, bu sorunla ilgili yasal öneriler sağlayamaz; kendi Konseyi başvurun.
 
-Neyse ki, bu sorunları tamamen önlemek çok kolaydır. Metin izni veya lisans kullanabileceğiniz birçok kaynak vardır.
+Neyse ki, bu sorunları tamamen önlemek mümkündür. Metin izni veya lisans kullanabileceğiniz birçok kaynak vardır.
 
 |||
 |-|-|
 |[CMU kutup gövde](http://festvox.org/cmu_arctic/)|Yaklaşık 1100 cümleler çıkış, telif hakkı works konuşma sentezi projelerinde kullanılmak üzere özel olarak seçilir. Harika bir başlangıç noktası.|
 |Artık çalışır<br>Telif hakkı altında|Genellikle works önce 1923 yayımladı. İngilizce için proje Gutenberg on binlerce gibi çalışır sunar. Yeni çalışır, dil için modern İngilizce yakın olarak odaklanmak isteyebilirsiniz.|
 |Kamu&nbsp;çalışır|Kamu diğer ülkelerde telif hakkı talep ancak ABD hükümeti tarafından oluşturulan çalışır Amerika Birleşik Devletleri'nde telif hakkı vardır değil.|
-|Genel etki alanı|Hangi telif hakkı açıkça elverişlilik veya Works ortak etki alanı için ayrılmış.|
-|Permissively lisanslı çalışır|Dağıtılmış bir lisansı Creative Commons gibi veya GNU ücretsiz belgeleri lisansı altında çalışır. Wikipedia GFDL kullanır. Bazı lisans ancak bir özel sesli modeli oluşturulmasını etkileyebilecek lisanslı içerik performansının kısıtlamaları dayatır şekilde okuyun lisans dikkatli bir şekilde.|
+|Genel etki alanı|Hangi telif hakkı açıkça elverişlilik veya Works ortak etki alanı için ayrılmış. (Bu tamamen bazı telif hakkı ayları mümkün olmayabilir.)|
+|Permissively lisanslı çalışır|Creative Commons veya GNU ücretsiz belgeleri lisans gibi dağıtılmış bir lisansı altında çalışır. Wikipedia GFDL kullanır. Bazı lisans ancak bir özel sesli modeli oluşturulmasını etkileyebilecek lisanslı içerik performansının kısıtlamaları dayatır şekilde okuyun lisans dikkatli bir şekilde.|
 
 ## <a name="recording-your-script"></a>Betiğinizi kaydetme
 
-Tercihen, slayt gösterisi betiğinizi voiceover işlerinde uzmanlaşmış bir profesyonel kaydı studio konumunda olmalıdır. Bunlar bir kayıt standına, iş ve işlem yapmasına ve doğru kişiye doğru donanım gerekir. Bu kayıt skimp değil öder.
+Tercihen, betiğinizi uzmanlaşmış bir profesyonel kaydı studio adresindeki voiceover işlerinde kaydetmeniz gerekir. Bunlar bir kayıt standına, iş ve işlem yapmasına ve doğru kişiye doğru donanım gerekir. Bu kayıt skimp değil öder.
 
 Studio'nun kaydı mühendisiyle, projeyi tartışmak ve kendi öneriler için dinleyin. Kayıt, çok az kayıpla veya hiç dinamik aralık sıkıştırma (en fazla 4:1) sahip olmalıdır. Ses birimi tutarlı ve yüksek bir sinyal/gürültü oranına istenmeyen sesler ücretsiz olmanın yanı sıra olduğunu önemlidir.
 
@@ -124,7 +127,7 @@ Küçük bir oda belirgin Yankı veya "odası sesi", "kayıt standına" olmalı 
 
 Ses kaydetmek için hedeflenen yüksek kaliteli studio Kondansatör mikrofon ("MIC") kullanın. Sennheiser AKG ve hatta yeni yakınlaştırma mikrofonlardan iyi sonuçlara yol açabilir. Satın alma, MIC veya yerel işitsel kiralama kesin bir kira. USB arabirimi ile arayın. Bu tür bir MIC rahatça mikrofon öğesi, preamp ve -sayısala dönüştürücü birleştirme basitleştirme bir pakete birleştirir.
 
-Bir analog mikrofon de kullanabilirsiniz. Birçok kiralama görev açısından kritik uygulamaları için kendi ses karakter ünlü olan "Hasat Yılı" mikrofonlar sunar. Profesyonel analog dişli dengeli XLR bağlayıcıları kullanan yerine 1/4" Tak tüketici ekipmanını kullanılan unutmayın. Aynı zamanda analog giderseniz, bir preamp ve bu bağlayıcıları olan bir bilgisayarda ses arabirimi gerekir.
+Bir analog mikrofon de kullanabilirsiniz. Birçok kiralama görev açısından kritik uygulamaları için kendi ses karakter ünlü "Hasat Yılı" mikrofonlar sunar. Profesyonel analog dişli dengeli XLR bağlayıcıları kullanan yerine 1/4" Tak tüketici ekipmanını kullanılan unutmayın. Aynı zamanda analog giderseniz, bir preamp ve bu bağlayıcıları olan bir bilgisayarda ses arabirimi gerekir.
 
 Bir yedek veya ok mikrofon yükleyin ve pop filtre mikrofonu frot içinde "plosive" benzer "p" ve "b" paraziti ortadan kaldırmak için kullanın. Bazı mikrofonlar bunları vibrations yararlıdır bağımsız olarak öğesinden ayırır bir askıya alma bağlama gelir.
 
@@ -175,9 +178,11 @@ Beceri gereken *değil* kelimeler arasındaki farklı duraklamaları ekleyin. C�
 
 ### <a name="the-recording-session"></a>Kayıt oturumu
 
-Erken tipik utterance oturumunda kaydı başvuru oluşturmak ve düzenli olarak performanslarını tutarlı kalmasına yardımcı olmak için ses beceri geri oynatabilirsiniz. Mühendislik düzeyleri ve ses genel tutarlılık için bunu bir başvuru olarak kullanabilirsiniz. Bu sonra bir kesme veya başka bir günlük kaydı devam ettirme olduğunda özellikle önemlidir.
+Kaydı, bir başvuru veya *eşleşme dosyası* tipik bir utterance oturumunun başlangıcında. Bu satırı yinelenecek beceri her veya sayfası isteyin ve yarım ve karşılaştırma başvurmak için yeni kayıt. Bu birim, temposu, merkezi sıklık ve aralık yoğun ve vadisi tutarlı kalmasını beceri yardımcı olur. Bu arada, mühendislik eşleşme dosyasını bir başvuru olarak düzeyleri ve ses genel tutarlılık için kullanabilirsiniz. 
 
-Derin neden olan aktivitelere ve bir süre önce her utterance duraklatılıyor almak, beceri koltuk. Birkaç saniye arasında konuşma sessizlik kaydedin. Adımlama tutarlı olmalıdır; Beceri'nın kulaklık yürütülen bir metronome sorun yaşıyorsanız yararlı olabilir. Sözcükleri göründükleri her zaman aynı şekilde telaffuz.
+Eşleşen dosyanın sonra bir kesme veya başka bir günlük kaydı devam ettirme, özellikle önemlidir. Beceri için birkaç kez yürütmek ve bunları her zaman iyi eşleşen kadar yinelemek istersiniz.
+
+Derin neden olan aktivitelere ve bir süre önce her utterance duraklatılıyor almak, beceri koltuk. Birkaç saniye arasında konuşma sessizlik kaydedin. Sözcükleri telaffuz aynı şekilde her zaman bunlar görünür, bağlam göz önünde bulundurularak: "kayıt" gibi farklı "kaydından" bir fiil ifade eden isim olarak belirgin olur.
 
 Bir iyi beş "odası ton." yakalamak için saniye önce ilk kaydı sessizlik kaydedin Bu kayıtlar, kalan tüm gürültü dengelemek özel sesli portalı yardımcı olur.
 
@@ -187,9 +192,9 @@ Bir iyi beş "odası ton." yakalamak için saniye önce ilk kaydı sessizlik kay
 Yakın ses beceri'nın performans yerdeyseniz dinleyin. İyi ancak doğal diction, doğru telaffuz ve istenmeyen sesleri eksikliği bakıyorsunuz. Bu standartlar sağlamayan bir utterance yeniden kaydetmek için beceri isteyin çekinmeyin. 
 
 > [!TIP] 
-> Tek bir utterance kaybetme konuşma yüksek hacimli kaydederken ortaya çıkan ses herhangi bir belirgin şekilde etkilemeyebilir. Bu nedenle, yalnızca ilgili sorunlar, veri kümesinden dışlamak ve nasıl özel sesinizi ettik bkz herhangi bir konuşma Not daha gerekebilir. Her zaman Studio'ya geri dönün ve daha sonra kaçırılan örnekleri kaydedin.
+> Konuşma yüksek hacimli kaydederken tek utterance kaybetme fark edilir derecede elde edilen özel sesli etkileyebilir değil. Bu nedenle, yalnızca ilgili sorunlar, veri kümesinden dışlamak ve nasıl özel sesinizi ettik bkz herhangi bir konuşma Not daha gerekebilir. Her zaman Studio'ya geri dönün ve daha sonra kaçırılan örnekleri kaydedin.
 
-Çoğu studios kayıtta geçerli saati gösteren büyük bir "kod zaman" görüntü vardır. Bir süre için her utterance betiğinizle not edin. Bunlar her utterance sayfasındaki kaydı ait meta verileri veya işaret de işaretlemek, mühendislik isteyin.
+Alma sayısı bir yere not alın veya betiğinizi kodu için her utterance zaman. Bunlar her utterance sayfasındaki kaydı ait meta verileri veya işaret de işaretlemek, mühendislik isteyin.
 
 Kendi ses iyi durumda tutmak, sesli beceri izin vermek için normal sonları yararlanın. Bir şeyler kendi throat kuru büyümesini engellemek üzere içecek yetenek sağlar.
 
@@ -197,13 +202,13 @@ Kendi ses iyi durumda tutmak, sesli beceri izin vermek için normal sonları yar
 
 Modern kaydı studios bilgisayarlarda çalıştırın. Oturum sonunda, daha sonra bir veya daha fazla ses dosyaları, bir bant alırsınız. Bu dosyalar, büyük olasılıkla CD kalite (44,1 KHz 16-bit) ya da WAV AIFF biçiminde olması veya daha yüksek. Sık kullanılan ve istenen 48 kHz 24 bit. 96 KHz gibi daha yüksek bir örnekleme oranı genellikle gerekli değildir.
 
-Studio, birçok konuşma içeren bir veya daha fazla ses dosyaları büyük olasılıkla verecektir. Kayıtları özel sesli portalına karşıya yüklemek için her utterance kendi dosyasında olmalıdır. Kayıt mühendisi dosyasında bir işaretçi yerleştirilen (veya olabilir sağlanan ayrı işaret listesi) her utterance başladığı belirtmek için. Bu meta veriler, konuşma ayıklamak için kullanılabilir.
+Studio, birden çok konuşma içeren bir veya daha fazla ses dosyaları verecektir. Kayıtları özel sesli portalına karşıya yüklemek için her utterance kendi dosyasında olmalıdır. Kayıt mühendisi dosyasında bir işaretçi yerleştirilen (veya olabilir sağlanan ayrı işaret listesi) her utterance başladığı belirtmek için.
 
-Tam kayıt aracılığıyla gidin ve her utterance bir WAV dosyası yapmak gerekir. Ardından yardımcı programı gibi bir ses kullanmak tam konuşma bulmak için Notlar kullanın [Avid uzmanı araçlarını](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), veya ücretsiz [Audacity](https://www.audacityteam.org/) her içine kopyalamak için bir Yeni dosya.
+Git sesli kayıtlar ve her utterance bir WAV dosyası yapmak gerekir. Ardından yardımcı programı gibi bir ses kullanmak tam konuşma bulmak için Notlar kullanın [Avid uzmanı araçlarını](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), veya ücretsiz [Audacity](https://www.audacityteam.org/) her içine kopyalamak için bir Yeni dosya.
 
 Yalnızca yaklaşık 0.2 saniye sessizlik başlangıcına ve sonuna kadar her küçük ilk dışında bırakın. Bu dosyanın tam beş saniye sessizlik başlamanız gerekir. "Sıfır çıkış" sessiz dosyanın parçalarını ses düzenleyiciye kullanmayın. "Odası sesi" gibi algoritmalar için tüm kalan arka plan gürültüsü dengelemek özel sesli yardımcı olur.
 
-Her dosya için dikkatli bir şekilde dinler. Bu aşamada, kayıt sırasında kaçırdığınıza küçük istenmeyen ses çıkış düzenleyebileceğiniz — bunlar herhangi bir gerçek konuşma çakışmadığından sürece. Bir dosya giderilemezse, Veri kümenizi tamamen bunu gerçekleştirmiş Not yapmadan kaldırın.
+Her dosya için dikkatli bir şekilde dinler. Bu aşamada, bunlar herhangi bir konuşma çakışmadığından sürece, satırın önce bir hafif LIP smack gibi kayıt sırasında kaçırdığınıza küçük istenmeyen sesler düzenleyebilirsiniz. Bir dosya onaramazsa veri bunu gerçekleştirmiş Not yapma, kümesinden kaldırın.
 
 Alt örnekleyin her 16 KHz ve 16 bit kaydetmeden önce dosya ve stereo olarak kaydedilen ikinci kanalı kaldırın. Her dosyayı WAV biçiminde kaydedin.
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 5f953cd6f33e5d46098566740efbf83a5fd80799
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9ddf44ef933270c08b42f67387866cd7a3b34719
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635325"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004088"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara VM ekleme
 Zaten varsa [ilk VM'nizi oluşturulan](devtest-lab-create-first-vm.md), büyük olasılıkla bunu önceden yüklü yaptığınız [Market görüntüsü](devtest-lab-configure-marketplace-images.md). Şimdi, laboratuvarınız için sonraki VM'ler eklemek istiyorsanız, ayrıca seçebileceğiniz bir *temel* ya da diğer bir deyişle bir [özel görüntü](devtest-lab-create-template.md) veya [formül](devtest-lab-manage-formulas.md). Bu öğreticide, Azure portalını kullanarak bir VM için DevTest labs'deki bir laboratuvara ekleme yoluyla açıklanmaktadır.
@@ -40,12 +40,12 @@ Bu makalede ayrıca laboratuvarınızda bir VM yapıtları yönetme işlemini g�
     ![Laboratuvar VM bölmesi](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
 1. Girin bir **kullanıcı adı** sanal makinede yönetici ayrıcalıkları verildi.  
-1. Depolanan bir parola kullanmak istiyorsanız, [gizli dizi deposu](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store)seçin **kaydedilmiş bir gizli diziyi kullanın**ve, gizli dizisini (parola) karşılık gelen bir anahtar değeri belirtin. Aksi takdirde etiketli metin alanına bir parola girin **bir değer yazın**.
+1. Depolanan bir parola kullanmak istiyorsanız bir [Azure anahtar kasası](devtest-lab-store-secrets-in-key-vault.md)seçin **kaydedilmiş bir gizli diziyi kullanın**ve, gizli dizisini (parola) karşılık gelen bir anahtar değeri belirtin. Aksi takdirde etiketli metin alanına bir parola girin **bir değer yazın**. Bir anahtar kasasındaki gizli dizileri kaydetme ve Laboratuvar kaynaklarını oluştururken kullanma hakkında bilgi edinmek için [gizli dizileri Azure Key Vault'ta Store](devtest-lab-store-secrets-in-key-vault.md).
 1. **Sanal makine diski türünü** Laboratuvar sanal makineler için hangi depolama disk türüne izin belirler.
-1. Seçin **sanal makine boyutu** ve işlemci çekirdeği ve RAM boyutu oluşturmak için sanal sabit sürücü boyutu belirtin önceden tanımlanmış öğelerden birini seçin.
-1. Seçin **Yapıtları** - yapıtları - listesinden seçin ve temel görüntüye eklemek istediğiniz yapıtları yapılandırın.
+2. Seçin **sanal makine boyutu** ve işlemci çekirdeği ve RAM boyutu oluşturmak için sanal sabit sürücü boyutu belirtin önceden tanımlanmış öğelerden birini seçin.
+3. Seçin **Yapıtları** - yapıtları - listesinden seçin ve temel görüntüye eklemek istediğiniz yapıtları yapılandırın.
     **Not:** DevTest Labs kullanarak yeni veya yapıtları, yapılandırma başvurmak [var olan bir yapıyı bir VM'ye ekleme](#add-an-existing-artifact-to-a-vm) bölümüne ve ardından tamamladığınızda buraya dönün.
-1. Seçin **Gelişmiş ayarlar** sanal makinenin ağ seçeneklerini ve sona erme seçeneklerini yapılandırmak için. 
+4. Seçin **Gelişmiş ayarlar** sanal makinenin ağ seçeneklerini ve sona erme seçeneklerini yapılandırmak için. 
 
    Bir süre sonu seçeneğini ayarlamak için VM otomatik olarak silineceğini belirten bir tarih belirtmek için takvim simgesini seçin.  Varsayılan olarak, VM hiçbir zaman sona erecek. 
 1. Görüntülemek veya Azure Resource Manager şablonu kopyalamak istiyorsanız, başvurmak [Kaydet Azure Resource Manager şablonu](#save-azure-resource-manager-template) bölümünde ve bitirdikten sonra buraya dönün.

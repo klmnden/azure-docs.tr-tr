@@ -1,16 +1,16 @@
-## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Yapı tanımı dikdörtgen veri kümeleri için belirtme
-JSON veri kümesi yapısı bölümünde bir **isteğe bağlı** bölümünde dikdörtgen tablolar için (satırlar ve sütunlar) ve tablonun sütunlarını koleksiyonunu içerir. Yapısı bölüm iki tür bilgi sağlayan tür dönüştürmeleri için veya sütun eşlemelerini yapmak için kullanır. Aşağıdaki bölümlerde bu özellikler ayrıntılı açıklanmaktadır. 
+## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Dikdörtgen veri kümeleri için yapı tanımını belirtme
+JSON veri kümesi yapısı bölümünde bir **isteğe bağlı** bölümünde dikdörtgen tablolarla (satırlar ve sütunlar) için ve bir tablonun sütunlarını koleksiyonunu içerir. Tür dönüştürmeleri sağlayan iki tür bilgileri veya sütun eşlemelerini yapmak için yapı bölüm kullanır. Aşağıdaki bölümlerde, bu özelliklerin ayrıntılı açıklanmaktadır. 
 
-Her sütun aşağıdaki özellikleri içerir:
+Her sütun, aşağıdaki özellikleri içerir:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | ad |Sütunun adı. |Evet |
-| type |Sütunun veri türü. Zaman tür bilgileri belirtmelisiniz için aşağıdaki türü dönüşümleri bölümüne daha ayrıntılı bakın |Hayır |
-| Kültür |.NET türü belirtilir ve .NET türü Datetime veya Datetimeoffset olduğunda kullanılacak kültürü temel. Varsayılan değer "en-us". |Hayır |
-| Biçimi |Türü belirtilmiş ve .NET olduğunda kullanılacak biçim dizesi Datetime veya Datetimeoffset yazın. |Hayır |
+| type |Sütunun veri türü. Görmek için aşağıdaki tür dönüştürmeleri bölümüne daha fazla ayrıntı ile ilgili ne zaman tür bilgileri belirtmeniz gerekir |Hayır |
+| Kültür |.NET türü belirtildi ve .NET türü Datetime veya Datetimeoffset olduğunda kullanılacak kültürü temel. Varsayılan değer "en-us". |Hayır |
+| Biçim |Datetime veya Datetimeoffset türü belirtildi ve .NET olduğunda kullanılacak biçim dizesi yazın. |Hayır |
 
-Aşağıdaki örnek, üç sütun UserID, adı ve lastlogindate sahip bir tablo yapısı bölüm JSON gösterir.
+Aşağıdaki örnek, üç sütun kimliği, adı ve lastlogindate sahip bir tablo yapısı bölümü JSON gösterir.
 
 ```json
 "structure": 
@@ -21,31 +21,31 @@ Aşağıdaki örnek, üç sütun UserID, adı ve lastlogindate sahip bir tablo y
 ],
 ```
 
-Lütfen "yapı" bilgileri içerecek şekilde ne zaman ve ne dahil etmek için aşağıdaki kılavuzları kullanın **yapısı** bölümü.
+Lütfen "yapı" bilgileri içerecek şekilde ne zaman ve hangi eklemek için aşağıdaki yönergeleri kullanın **yapısı** bölümü.
 
-* **Yapılandırılmış veri kaynakları için** deposu veri şeması ve türü bilgileri verilerin kendisini (yalnızca istiyorsanız "yapısı" bölümü belirtmelidir kaynakları SQL Server, Oracle, Azure tablo vb. gibi), yanı sıra belirli bir kaynak sütun eşlemesi yapın Havuz ve adları belirli sütunlardaki sütunları (sütun eşleme bölümünde aşağıdaki ayrıntılarına bakın) aynı değildir. 
+* **Yapılandırılmış veri kaynakları için** deposu veri şema ve tür bilgilerini birlikte verilerin kendisi (yalnızca istiyorsanız "yapı" bölümünde belirtmelidir kaynakları SQL Server, Oracle, Azure tablo vb. gibi), belirli bir kaynak sütun eşlemesi yapın Havuz ve adları belirli sütunlardaki sütunları (sütun eşleme bölümüne aşağıdaki ayrıntılara bakın) aynı değildir. 
   
-    Yukarıda belirtildiği gibi tür bilgisi "yapısı" bölümünde isteğe bağlıdır. Yapılandırılmış kaynakları için tür bilgileri zaten kullanılabilir veri kümesi tanımı veri deposundaki bir parçası olarak, bu nedenle dahil türü bilgileri "yapısı" bölümünde eklediğinizde.
-* **Şema okuma veri kaynaklarında (özellikle Azure blob) için** herhangi bir şema veya türü bilgi verilerle depolamadan veri depolamayı seçebilirsiniz. Bu veri kaynağı türleri için aşağıdaki 2 durumlarda "yapısı" içermelidir:
-  * Sütun eşlemesi yapmak istiyor.
-  * Veri kümesi kopyalama etkinliğinde bir kaynak olduğunda, "yapısındaki" türü bilgileri sağlayabilir ve veri fabrikası dönüştürme havuz için yerel türleri için bu tür bilgileri kullanır. Bkz: [için ve Azure Blob veri taşıma](../articles/data-factory/v1/data-factory-azure-blob-connector.md) daha fazla bilgi için makalenin.
+    Yukarıda belirtildiği gibi tür bilgilerini "yapı" bölümünde isteğe bağlıdır. Yapılandırılmış kaynakları için tür bilgilerini zaten kullanılabilir veri deposundaki veri kümesi tanımının bir parçası, bu nedenle dahil tür bilgileri "yapı" bölümü eklediğinizde.
+* **Şema (özellikle, Azure blob) salt okunur veri kaynaklarında** herhangi bir şema veya türü bilgi veri depolamadan veri saklamayı da seçebilirsiniz. Bu veri kaynağı türleri için aşağıdaki 2 durumda "yapı" içermelidir:
+  * Sütun eşlemesi yapmak istiyorsunuz.
+  * Veri kümesi bir kopyalama etkinliği kaynağı olduğunda, "yapı" tür bilgilerini sağlayabilir ve data factory, bu tür bilgiler havuz için yerel türlere dönüşüm için kullanır. Bkz: [için ve Azure Blob veri taşıma](../articles/data-factory/v1/data-factory-azure-blob-connector.md) makale daha fazla bilgi için.
 
-### <a name="supported-net-based-types"></a>Desteklenir. NET tabanlı türleri
-Veri Fabrikası okuma veri kaynaklarında Azure blob gibi şema "yapısındaki" türü bilgileri sağlamak için aşağıdaki CLS uyumlu dayalı .NET türü değerleri destekler.
+### <a name="supported-net-based-types"></a>Desteklenmiyor. AĞ tabanlı türleri
+Data factory, Azure blob gibi salt okunur veri kaynakları üzerinde şema için "yapı" tür bilgileri sağlamak için aşağıdaki CLS uyumlu temel .NET türü değerleri destekler.
 
 * Int16
 * Int32 
 * Int64
 * Tek
-* Çift
+* çift
 * Ondalık
-* Byte]
+* Bayt]
 * bool
 * Dize 
-* GUID
+* Guid
 * Tarih saat
 * Datetimeoffset
 * Timespan 
 
-DateTime ve Datetimeoffset için de isteğe bağlı olarak, özel Datetime dizesini ayrıştırma kolaylaştırmak için "kültür" & "format" dizesini belirtebilirsiniz. Tür dönüşümü aşağıdaki örneğe bakın.
+DateTime ve Datetimeoffset için Ayrıca isteğe bağlı olarak, özel tarih saat dizesi ayrıştırma kolaylaştırmak için "kültür" & "biçim" dizesi belirtebilirsiniz. Aşağıdaki tür dönüştürme için örneğine bakın.
 

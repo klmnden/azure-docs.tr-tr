@@ -1,6 +1,6 @@
 ---
-title: Kullanım ve fatura Azure yığını için bir bulut hizmeti sağlayıcısı olarak yönetme | Microsoft Docs
-description: Bir bulut sağlayıcısı olarak Azure yığın kaydetme ve müşteriler ekleme aracılığıyla geçiliyor.
+title: Kullanım ve bulut hizmeti sağlayıcısı olarak Azure Stack için faturalandırma yönetme | Microsoft Docs
+description: Bir bulut sağlayıcısı (CSP) olarak Azure Stack kaydetme ve faturalandırma için müşterilerin ekleme yoluyla Yürüme.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,78 +11,76 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 07/12/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 21a52af4943004789b0a9bdbe4695ab1a603c046
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c4a266644bf5288e51e01523b6033082400387d4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796708"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39009262"
 ---
-# <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Kullanım ve fatura Azure yığını için bir bulut hizmeti sağlayıcısı olarak yönetme 
+# <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Kullanım ve faturalandırma için Azure Stack bulut hizmeti sağlayıcısı olarak yönetme 
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri*
 
-Bu makalede, bir bulut sağlayıcısı (CSP) olarak Azure yığın kaydetme ve müşteriler ekleme anlatılmaktadır.
+Bu makalede bir bulut sağlayıcısı (CSP) olarak Azure Stack kaydetme ve müşterilerin ekleme size yol gösterir.
 
-Bir CSP Azure yığın kullanarak birçok farklı müşterinin etkileyebilir. Her müşterinin Azure'da bir CSP abonelik ve her kullanıcının abonelik, Azure yığından kullanımı yönlendirmek gerekir.
+CSP olarak Azure Stack kullanarak çeşitli müşteriler ile çalışır. Her müşteri, Azure'da bir CSP aboneliği sahiptir. Azure Stack kullanımına her kullanıcı aboneliği doğrudan gerekecektir.
 
-Aşağıdaki diyagram, paylaşılan hizmetler hesabınızı seçin ve azure hesabı hesabınıza kaydetmeniz gerekir adımları gösterir. Bu işiniz bittiğinde, son müşterilerinizin gerçekleştirebilir.
+Aşağıdaki diyagramda, paylaşılan hizmetler hesabınızı seçin ve Azure Stack hesabı ile Azure hesabını kaydetmek için gereken adımları gösterilmektedir. Kayıtlı, son müşterileriniz ekleme yapabilirsiniz.
 
-**Kullanımı bir CSP izleme ekleme adımları**
+**Kullanımı izleme CSP olarak ekleme adımları**
 
-![Kullanım ve bir bulut hizmeti sağlayıcısı Yönetimi etkinleştirme işlemi.](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png)
+![Kullanımı ve bir bulut hizmeti sağlayıcısı Yönetimi etkinleştirme işlemi.](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png)
 
-## <a name="create-a-csp-or-cspss-subscription"></a>CSP veya CSPSS Abonelik Oluştur
+## <a name="create-a-csp-or-cspss-subscription"></a>CSP veya CSPSS abonelik oluşturma
 
 ### <a name="cloud-service-provider-subscription-types"></a>Bulut hizmeti sağlayıcısı abonelik türleri
 
-Azure yığını için kullandığınız paylaşılan hizmet hesabı türünü seçin gerekecektir. Çok kullanıcılı Azure yığın kaydı için kullanılabilir abonelikleri türleri şunlardır:
+Azure Stack için kullandığınız paylaşılan hizmetler hesap türünü seçmeniz gerekir. Çok kiracılı Azure Stack, kaydı için kullanılabilen abonelikler türleri şunlardır:
 
  - Bulut hizmeti sağlayıcısı 
- - İş ortağı paylaşılan hizmetler abonelik 
+ - İş ortağı paylaşılan Services aboneliği 
 
 #### <a name="csp-shared-services"></a>CSP paylaşılan hizmetler
 
-Bulut hizmeti sağlayıcısı paylaşılan hizmetler (CSPSS) abonelikleri doğrudan bir CSP zaman kaydı için tercih edilen seçenek ya da CSP dağıtıcı Azure yığın çalışır.
+Bulut hizmet sağlayıcısı paylaşılan hizmetler (CSPSS) abonelikleri doğrudan bir CSP, kayıt için tercih edilen seçenektir veya CSP dağıtıcı Azure Stack'te çalışır.
 
-CSPSS abonelik paylaşılan hizmetler Kiracı ile ilişkilendirilmiş. Azure yığın kaydolduğunuzda, aboneliğin sahibi olan bir hesabın kimlik bilgilerini sağlayın gerekir. Azure yığın kaydetmek için kullandığınız hesabın, dağıtım için kullandığınız yönetici hesabının farklı olabilir; iki yapmak *değil* aynı etki alanına ait olmaları gerekir. Diğer bir deyişle, zaten kullanıyorsanız kiracıyı kullanarak dağıtabilirsiniz. Örneğin, ContosoCSP.onmicrosoft.com kullanın, sonra farklı bir kiracı, örneğin IURContosoCSP.onmicrosoft.com kullanarak kaydedin. Yapmak için gün Azure yığın yönetim yaptığınızda ContosoCSP.onmicrosoft.com kullanarak oturum unutmayın gerekecektir. Kayıt işlemleri yapmanız gerektiğinde IURContosoCSP.onmicrosoft.com kullanarak Azure'da ne zaman oturum açın.
+CSPSS abonelikler, paylaşılan hizmetler Kiracı ile ilişkilidir. Azure Stack kaydolduğunuzda, bir aboneliğin sahibi olan bir hesap için kimlik bilgilerini sağlamanız gerekir. Azure Stack kaydetmek için kullandığınız hesabın, dağıtım için kullandığınız yönetici hesabına ait farklı olabilir. Ayrıca, iki hesap yapmak *değil* aynı etki alanına ait olmaları gerekir. Diğer bir deyişle, kullanmakta olduğunuz kiracıyı kullanarak dağıtabilirsiniz. Örneğin, ContosoCSP.onmicrosoft.com kullanın ve sonra Örneğin IURContosoCSP.onmicrosoft.com farklı bir kiracıya kullanarak kaydedin. Bunu yapmak için günlük Azure Stack yönetim yaptığınızda ContosoCSP.onmicrosoft.com kullanarak oturum unutmayın gerekecektir. Kayıt işlemleri yapmanız gerektiğinde IURContosoCSP.onmicrosoft.com kullanarak Azure'a ne zaman oturum açın.
 
-Abonelik oluşturma konusunda açıklamasını CSPSS abonelikleri ve yönergeler için aşağıdaki başvurmak [Azure ortak paylaşılan hizmetler](https://msdn.microsoft.com/partner-center/shared-services).
+Açıklamasını CSPSS abonelikleri ve yönergeler için aşağıdaki abonelik oluşturma başvurmak [Azure iş ortağı Paylaşılan Hizmetler](https://msdn.microsoft.com/partner-center/shared-services).
 
 #### <a name="csp-subscriptions"></a>CSP abonelikleri
 
-Bulut hizmeti sağlayıcısı (CSP) abonelikleri bir CSP satıcı zaman kaydı için tercih edilen seçimdir veya bir son müşteriye Azure yığın çalışır.
+Bulut hizmeti sağlayıcısı (CSP) abonelikleri CSP satıcısı, kayıt için tercih edilen seçenektir ya da son müşteri Azure Stack'te çalışır.
 
-## <a name="register-azure-stack"></a>Azure yığın kaydetme
+## <a name="register-azure-stack"></a>Azure Stack kaydetme
 
-Azure yığın ile kaydetmek için bkz: [kaydetmek Azure yığın Azure aboneliğinizle](azure-stack-registration.md).
+Azure Stack ile kaydetmek için bkz: [kaydetme Azure Stack, Azure aboneliğiniz ile](azure-stack-registration.md).
 
 ## <a name="add-end-customer"></a>Son müşteri ekleme
 
-Yeni bir kiracı kaynaklarına kullandığında kullanımları bulut hizmeti sağlayıcısı (CSP) aboneliğini raporlanır böylece Azure yığın yapılandırmak için bkz [Kiracı kullanımı için ekleyin ve Azure yığınına faturalama](azure-stack-csp-howto-register-tenants.md).
+Azure Stack, bulut hizmet sağlayıcısı (CSP) aboneliğini kullanımlarını yeni bir kiracı kaynaklarını kullanır zaman raporlanacaktır şekilde yapılandırmak için bkz. [Kiracı kullanımı için ekleyin ve Azure Stack'e faturalama](azure-stack-csp-howto-register-tenants.md).
 
-## <a name="charge-the-right-subscriptions"></a>Sağ abonelikleri gider
+## <a name="charge-the-right-subscriptions"></a>Doğru abonelik ücret
 
-Azure yığın kayıt adında bir özellik kullanır. Bir kayıt için belirli bir Azure yığınına kaydedilecek kullanmak için hangi Azure aboneliklerinden belgeler Azure içinde depolanan bir nesne değil. Bu bölümde kayıt önemini giderir.
+Azure Stack, kayıt adında bir özellik kullanır. Bir kayıt, Azure'da depolanan bir nesnedir. Kayıt nesne belirli bir Azure Stack için kaydedilecek kullanmak için hangi Azure abonelikleri belgeler. Bu bölümde kayıt önemini yöneliktir.
 
-Kayıt kullanarak Azure yığın yapabilirsiniz:
- - Azure ticaret Azure yığın kullanım verilerini iletmek ve bir Azure aboneliği fatura.
- - Çok kullanıcılı bir Azure yığın dağıtım ile farklı bir abonelik her müşterinin kullanım raporlama. Azure farklı kuruluşlarda aynı Azure yığın örneğinde desteklemek için yığın çoklu müşteri mimarisi sağlar.
+Azure Stack kayıt kullanabilirsiniz:
+ - Azure ticari için Azure Stack kullanım verilerini iletmek ve bir Azure aboneliğine fatura.
+ - Her bir müşterinin kullanım çok kiracılı bir Azure Stack dağıtımı ile farklı bir abonelikte rapor. Azure Stack, farklı kuruluşların aynı Azure Stack örneğinde desteklemek çok kiracılı mimari sağlar.
 
-Her Azure yığın için bir varsayılan abonelik yok ve çoğu abonelikleri gerektiğinde Kiracı olarak. Varsayılan abonelik Kiracı özgü abonelik ise doludur bir Azure aboneliğinizin olduğundan. Kaydedilecek ilk olmalıdır. Çalışmak için raporlama çok Kiracı kullanımı için abonelik bir CSP veya CSPSS abonelik olmalıdır.
+Her Azure Stack için varsayılan bir abonelik ve birçok abonelikleri Kiracı. Varsayılan bir kiracıya özgü abonelik yoksa ücretlendirilir bir Azure aboneliğine aboneliktir. Bu ilk aboneliğe kayıtlı olmalıdır. Çalışmak için raporlama çok kiracılı kullanım için abonelik bir CSP veya CSPSS aboneliğiniz olması gerekir.
 
-Ardından, kayıt Azure yığın kullanacak her bir kiracı için bir Azure aboneliği ile güncelleştirilir. Kiracı aboneliklerine CSP türünde olması gerekir ve varsayılan abonelik sahibi iş ortağı biriken gerekir. Diğer bir deyişle, başka birinin müşteriler kaydedilemiyor.
+Ardından, kayıt, Azure Stack kullanacak her Kiracı için bir Azure aboneliği ile güncelleştirilir. Kiracı abonelik CSP türünde olmalıdır ve varsayılan abonelik sahibi iş ortağı toplamak gerekir. Diğer bir deyişle, başkasının müşteriler kaydedilemiyor.
 
-Azure yığın kullanım bilgileri için genel Azure gönderdiğinde, bir hizmet olarak kayıt bakar ve her bir kiracının kullanım için uygun Kiracı aboneliği eşler. Bir kiracı kayıtlı değil, bu kullanım, kaynaklandığı Azure yığın örneği için varsayılan abonelik gider.
+Azure Stack için genel Azure kullanım bilgilerini ilettiğinde, bir Azure hizmeti kayıt bakar ve her bir kiracının kullanım için uygun Kiracı aboneliği eşler. Bir kiracı kayıtlı değil, bu kullanım kaynağı Azure Stack örneği için varsayılan abonelik gider.
 
-Kiracı aboneliklerine CSP abonelikler olduğundan, kendi fatura CSP ortağına gönderilir ve kullanım bilgilerini son müşteriye görünür değil.
-
-
+Kiracı aboneliklerine CSP abonelikleri olduğundan, CSP iş ortağı kendi fatura gönderilir ve kullanım bilgilerini son müşterinin görünür değil.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
- - CSP program hakkında daha fazla bilgi için bkz: [bulut çözümü sağlayıcısı programı](https://partnercenter.microsoft.com/en-us/partner/programs).
- - Azure yığınından kaynak kullanım bilgilerini alma hakkında daha fazla bilgi için bkz: [kullanım ve fatura Azure yığınında](azure-stack-billing-and-chargeback.md).
+ - CSP programı hakkında daha fazla bilgi için bkz: [bulut çözümü sağlayıcısı programı](https://partnercenter.microsoft.com/en-us/partner/programs).
+ - Azure yığını kaynak kullanım bilgilerini alma hakkında daha fazla bilgi için bkz: [kullanım ve faturalandırma Azure Stack'te](azure-stack-billing-and-chargeback.md).

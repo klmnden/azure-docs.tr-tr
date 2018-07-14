@@ -1,3 +1,20 @@
+---
+title: include dosyası
+description: include dosyası
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 55920b6c147626f68f51b9e0479949330c71a748
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "38756435"
+---
 > [!div class="op_single_selector"]
 > * [Windows üzerinde C](../articles/iot-suite/iot-suite-v1-connecting-devices.md)
 > * [Linux üzerinde C](../articles/iot-suite/iot-suite-v1-connecting-devices-linux.md)
@@ -24,13 +41,13 @@ Cihazınız için kod yazmadan önce, önceden yapılandırılmış uzaktan izle
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Önceden yapılandırılmış uzaktan izleme çözümünüzü sağlama
 Bu öğreticide oluşturduğunuz cihaz, önceden yapılandırılmış bir [uzaktan izleme][lnk-remote-monitoring] çözümü örneğine veri göndermektedir. Önceden yapılandırılmış uzaktan izleme çözümünüzü henüz Azure hesabınızda hazırlamadıysanız aşağıdaki adımları uygulayın:
 
-1. <https://www.azureiotsuite.com/> sayfasında çözüm oluşturmak için **+** öğesine tıklayın.
+1. Üzerinde <https://www.azureiotsolutions.com/> sayfasında **+** bir çözüm oluşturmak için.
 2. Çözümünüzü oluşturmak için **Uzaktan izleme** panelindeki **Seç**'e tıklayın.
 3. **Uzaktan izleme çözümü oluştur** sayfasında bir **Çözüm adı** belirleyin, dağıtmak istediğiniz **Bölgeyi** seçin ve kullanmak istediğiniz Azure aboneliğini belirtin. Ardından **Çözüm oluştur**'a tıklayın.
 4. Sağlama işleminin tamamlanmasını bekleyin.
 
 > [!WARNING]
-> Önceden yapılandırılmış çözümler, faturalanabilir Azure hizmetlerini kullanır. Gereksiz ücretlerden kaçınmak için işinizi tamamladıktan sonra önceden yapılandırılmış çözümü aboneliğinizden kaldırmayı unutmayın. Önceden yapılandırılmış çözümü aboneliğinizden tamamen kaldırmak için <https://www.azureiotsuite.com/> sayfasını ziyaret edin.
+> Önceden yapılandırılmış çözümler, faturalanabilir Azure hizmetlerini kullanır. Gereksiz ücretlerden kaçınmak için işinizi tamamladıktan sonra önceden yapılandırılmış çözümü aboneliğinizden kaldırmayı unutmayın. Tamamen önceden yapılandırılmış çözümü aboneliğinizden ederek kaldırabilirsiniz <https://www.azureiotsolutions.com/> sayfası.
 > 
 > 
 

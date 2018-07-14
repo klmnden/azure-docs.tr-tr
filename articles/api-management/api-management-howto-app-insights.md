@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights ile Azure API Management tümleştirme | Microsoft Docs
-description: Günlüğe kaydetme ve Azure Application Insights'ta Azure API Management olaylarını görüntüleme öğrenin.
+description: Günlüğe kaydetme ve Azure Application ınsights'ı Azure API Yönetimi'nden olayları görüntüleme hakkında bilgi edinin.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,103 +13,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 7740da505f7635944536252d60ec2c2039295975
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36320586"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001812"
 ---
-# <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Azure API Management Azure Application Insights ile tümleştirme
+# <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Azure API Management, Azure Application Insights ile tümleştirme
 
-Azure API Management Azure Application Insights - genişletilebilir bir hizmet oluşturma ve birden çok platformdaki uygulamaları yönetme web geliştiricileri için ile kolay tümleştirme sağlar. Bu kılavuz, böyle bir tümleştirme her adım anlatılmaktadır ve API Management hizmet örneği üzerindeki performans etkisini azaltmak için stratejilerini açıklar.
+Azure API yönetimi, Azure Application Insights - birden çok platformda uygulamalar oluşturmaya ve yönetmeye web geliştiricilerine yönelik genişletilebilir bir hizmet ile kolay tümleştirme sağlar. Bu kılavuzda Bu tümleştirme her adımında ve API Management hizmet örneğinizin performans etkisini azaltmak için stratejilerini açıklar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu kılavuz izlemek için Azure API Management örneği olması gerekir. Yoksa, tamamlamak [öğretici](get-started-create-service-instance.md) ilk.
+Bu kılavuzu takip etmek için Azure API Management örneği olması gerekir. Yoksa, tamamlama [öğretici](get-started-create-service-instance.md) ilk.
 
-## <a name="create-an-azure-application-insights-instance"></a>Azure Application Insights örneğini oluşturma
+## <a name="create-an-azure-application-insights-instance"></a>Azure Application Insights örneği oluşturma
 
-Azure Application Insights kullanabilmek için öncelikle Hizmeti'nin bir örneğini oluşturmanız gerekir.
+Azure Application ınsights'ı kullanabilmeniz için önce Hizmeti'nin bir örneğini oluşturmanız gerekir.
 
-1. Açık **Azure portal** gidin **Application Insights**.  
-    ![Uygulama Öngörüler oluşturun](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
+1. Açık **Azure portalında** gidin **Application Insights**.  
+    ![App Insights'ı oluşturma](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
 2. **+ Ekle**'ye tıklayın.  
-    ![Uygulama Öngörüler oluşturun](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
+    ![App Insights'ı oluşturma](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
 3. Formu doldurun. Seçin **genel** olarak **uygulama türü**.
 4. **Oluştur**’a tıklayın.
 
-## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>Azure Application Insights ile Azure API Management hizmet örneği arasında bir bağlantı oluştur
+## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>Azure Application Insights ile Azure API Management hizmet örneği arasında bir bağlantı oluşturun
 
-1. Gidin, **Azure API Management hizmet örneği** içinde **Azure portal**.
+1. Gidin, **Azure API Management hizmet örneği** içinde **Azure portalında**.
 2. Seçin **Application Insights** sol taraftaki menüden.
 3. **+ Ekle**'ye tıklayın.  
     ![App Insights Günlükçü](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
 4. Önceden oluşturulmuş seçin **Application Insights** örneği ve kısa bir açıklama sağlayın.
 5. **Oluştur**’a tıklayın.
-6. Azure Application Insights Günlükçü izleme anahtarı ile oluşturduğunuz. Şimdi listesinde görünmesi gerekir.  
+6. Yalnızca, bir izleme anahtarı ile bir Azure Application Insights Günlükçü oluşturdunuz. Artık listede görünmesi gerekir.  
     ![App Insights Günlükçü](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
-## <a name="enable-application-insights-logging-for-your-api"></a>API'nizi için Application Insights günlük kaydını etkinleştir
+> [!NOTE]
+> Sahne arkasında bir [Günlükçü](https://docs.microsoft.com/en-us/rest/api/apimanagement/logger/createorupdate) varlık örneğinin Application Insights izleme anahtarını içeren API Management örneğinizin içinde oluşturulur.
 
-1. Gidin, **Azure API Management hizmet örneği** içinde **Azure portal**.
+## <a name="enable-application-insights-logging-for-your-api"></a>API'niz için Application Insights günlük kaydını etkinleştirme
+
+1. Gidin, **Azure API Management hizmet örneği** içinde **Azure portalında**.
 2. Seçin **API'leri** sol taraftaki menüden.
-3. API'nizi, bu durumda tıklatın **Demo konferans API**.
-4. Git **ayarları** üst çubuğu sekmesinden.
+3. Bu durumda, API'nizi tıklayın **tanıtım konferansı API'si**.
+4. Git **ayarları** üst çubuktaki sekmesinden.
 5. Ekranı aşağı kaydırarak **tanılama günlükleri** bölümü.  
     ![App Insights Günlükçü](media/api-management-howto-app-insights/apim-app-insights-api-1.png)  
-6. Denetleme **etkinleştirmek** kutusu.
-7. Ekli Günlükçü seçin **hedef** açılır.
-8. Giriş **100** olarak **örnekleme (%)** ve değer **her zaman hataları günlüğe** onay kutusu.
-9. Giriş **1024** içinde **gövde ilk baytını** alan.
+6. Denetleme **etkinleştirme** kutusu.
+7. İçinde ekli Günlükçü seçin **hedef** açılır.
+8. Giriş **100** olarak **örnekleme (%)** ve işaretleyerek **hataları günlüğe her zaman** onay kutusu.
+9. Giriş **1024** içinde **gövdesi ilk baytı** alan.
 10. **Kaydet**’e tıklayın.
+
+> [!NOTE]
+> Sahne arkasında bir [tanılama](https://docs.microsoft.com/en-us/rest/api/apimanagement/diagnostic/createorupdate) 'applicationınsights' adlı varlık API düzeyinde oluşturulur.
 
 | Ayar adı                        | Değer türü                        | Açıklama                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Etkinleştirme                              | boole                           | Bu API günlüğe etkinleştirilip etkinleştirilmeyeceğini belirtir.                                                                                                                                                                                                                                                                                                |
+| Etkinleştirme                              | boole                           | Bu API'nin günlük kaydı etkin olup olmadığını belirtir.                                                                                                                                                                                                                                                                                                |
 | Hedef                         | Azure Application Insights Günlükçü | Azure Application Insights Günlükçü kullanılacak belirtir                                                                                                                                                                                                                                                                                           |
-| Örnekleme (%)                        | Ondalık                           | 100 (yüzde) için değerleri 0. <br/> Azure Application Insights'a isteklerinin yüzdesini kaydedilir belirtir. %0 örnekleme % 100 örnekleme tüm istekleri günlüğe anlamına gelmekle birlikte, oturum açmış sıfır istekleri anlamına gelir. <br/> Bu ayar, Azure Application Insights günlük isteklerini performans etkilerini azaltmak için kullanılır (aşağıdaki bölüme bakın). |
-| Her zaman günlük hataları                   | boole                           | Bu ayar seçili ise, tüm hataları Azure Application Insights'a bakılmaksızın kaydedilir **örnekleme** ayarı.                                                                                                                                                                                                                  |
-| Temel Seçenekler: üstbilgileri              | liste                              | Azure Application Insights'a isteklerini ve yanıtlarını günlüğe üstbilgileri belirtir.  Varsayılan: hiçbir üstbilgi günlüğe kaydedilir.                                                                                                                                                                                                             |
-| Temel seçenekleri: Gövde ilk baytını  | integer                           | Gövde kaç ilk baytını Azure Application Insights'a isteklerini ve yanıtlarını günlüğe belirtir.  Varsayılan: gövde günlüğe kaydedilmez.                                                                                                                                                                                              |
-| Gelişmiş Seçenekleri: Ön uç isteği  |                                   | Olup olmadığını ve nasıl belirtir *ön uç istekleri* Azure Application Insights'a günlüğe kaydedilir. *Ön uç isteği* bir Azure API Management hizmeti gelen isteğidir.                                                                                                                                                                        |
-| Gelişmiş Seçenekleri: Ön uç yanıt |                                   | Olup olmadığını ve nasıl belirtir *ön uç yanıtlarını* Azure Application Insights'a günlüğe kaydedilir. *Ön uç yanıt* olan bir yanıt giden Azure API Management hizmetinden.                                                                                                                                                                   |
-| Gelişmiş Seçenekleri: Arka uç isteği   |                                   | Olup olmadığını ve nasıl belirtir *arka uç istekleri* Azure Application Insights'a günlüğe kaydedilir. *Arka uç isteği* olan bir isteği giden Azure API Management hizmetinden.                                                                                                                                                                        |
-| Gelişmiş Seçenekleri: Arka uç yanıt  |                                   | Olup olmadığını ve nasıl belirtir *arka uç yanıtlarını* Azure Application Insights'a günlüğe kaydedilir. *Arka uç yanıt* yanıt Azure API Management hizmeti gelen olan.                                                                                                                                                                       |
+| Örnekleme (%)                        | Ondalık                           | -100 (yüzde) değerlerini 0. <br/> Azure Application ınsights'ı isteklerinin yüzdesini kaydedilir belirtir. %0 örnekleme sıfır istekleri günlüğe kaydedilen tüm istekleri % 100 örnekleme anlamına anlamına gelir. <br/> Bu ayar, Azure Application Insights günlük isteklerini performans etkilerini azaltmak için kullanılır (bölümüne bakın). |
+| Her zaman günlüğü hataları                   | boole                           | Bu ayar seçili ise, tüm hataları Azure Application Insights'a açmamasından kaydedilir **örnekleme** ayarı.                                                                                                                                                                                                                  |
+| Temel Seçenekler: üst bilgileri              | liste                              | Azure Application ınsights'ı, istekler ve yanıtlar için günlüğe kaydedilir üst bilgileri belirtir.  Varsayılan: üst bilgi olarak kaydedilir.                                                                                                                                                                                                             |
+| Temel Seçenekler: İlk baytı gövdesi  | integer                           | Gövde kaç ilk bayt için Azure Application Insights istekler ve yanıtlar için günlüğe belirtir.  Varsayılan: gövdesi günlüğe kaydedilmez.                                                                                                                                                                                              |
+| Gelişmiş Seçenekleri: Ön uç isteği  |                                   | Belirtir olup olmadığını ve nasıl *ön uç isteklerini* Azure Application ınsights'ı günlüğe kaydedilir. *Ön uç isteği* Azure API Management hizmeti için gelen isteğidir.                                                                                                                                                                        |
+| Gelişmiş Seçenekleri: Ön uç yanıtı |                                   | Belirtir olup olmadığını ve nasıl *ön uç yanıtlarını* Azure Application ınsights'ı günlüğe kaydedilir. *Ön uç yanıt* yanıt giden olan Azure API Management hizmetinden.                                                                                                                                                                   |
+| Gelişmiş Seçenekleri: Arka uç isteği   |                                   | Ve bunun nasıl yapılacağını belirtir *arka uç istekleri* Azure Application ınsights'ı günlüğe kaydedilir. *Arka uç isteği* istek giden olan Azure API Management hizmetinden.                                                                                                                                                                        |
+| Gelişmiş Seçenekleri: Arka uç yanıtı  |                                   | Belirtir olup olmadığını ve nasıl *arka uç yanıtlarını* Azure Application ınsights'ı günlüğe kaydedilir. *Arka uç yanıtı* bir Azure API Management hizmeti için gelen yanıttır.                                                                                                                                                                       |
 
 > [!NOTE]
-> Farklı düzeylerde - tek API Günlükçü veya Günlükçü tüm API'leri için günlükçüleri belirtebilirsiniz.
+> Farklı düzeylerde - tek API Günlükçü ya da tüm API'leri için bir Günlükçü günlükçüleri belirtebilirsiniz.
 >  
 > Her ikisini de belirtirseniz:
-> + bunların her ikisi de (günlükleri çoğullama) kullanılır farklı günlükçüleri olmaları durumunda
-> + Böyle bir durumda aynı günlükçüleri ancak farklı ayarlara sahip sonra tek API (daha ayrıntılı düzey) için tüm API'leri için geçersiz kılar.
+> + her ikisi de (günlükleri çoğullama) kullanılır farklı günlükçüleri olmaları durumunda
+> + olmaları durumunda aynı günlükçüler ancak farklı ayarlar ve ardından tüm API'leri için tek API (daha ayrıntılı düzeyde) için geçersiz kılar.
 
-## <a name="what-data-is-added-to-azure-application-insights"></a>Hangi verilerin Azure Application Insights'a eklenir
+## <a name="what-data-is-added-to-azure-application-insights"></a>Azure Application Insights için hangi verilerin eklenir
 
-Azure Application Insights alır:
+Azure Application ınsights'ı alır:
 
-+ *İstek* her gelen istek için telemetri öğesi (*ön uç isteği*, *ön uç yanıt*),
-+ *Bağımlılık* bir arka uç hizmetine iletilen her istek için telemetri öğesi (*arka uç isteği*, *arka uç yanıt*),
++ *İstek* her gelen istek için telemetri öğesinin (*ön uç isteği*, *ön uç yanıt*),
++ *Bağımlılık* bir arka uç hizmetine iletilmesini her istek için telemetri öğesinin (*arka uç isteği*, *arka uç yanıtı*),
 + *Özel durum* başarısız her istek için telemetri öğesi.
 
-Bir isteği başarısız bir istek olup hangi:
+Bir istek, başarısız bir istek olduğunu da:
 
-+ Kapalı istemci bağlantısı nedeniyle başarısız oldu veya
-+ tetiklenen bir *hata* API ilkeleri bölümünde veya
++ bir kapalı istemci bağlantısı nedeniyle başarısız oldu veya
++ tetiklenen bir *hata* API ilkeler bölümünü veya
 + bir yanıt HTTP durum kodu eşleşen 4xx veya 5xx sahiptir.
 
 ## <a name="performance-implications-and-log-sampling"></a>Performans etkileri ve günlük örnekleme
 
 > [!WARNING]
-> Tüm olayları günlüğe kaydetmeyi gelen istek oranı bağlı olarak önemli performans etkileri olabilir.
+> Tüm olayları günlüğe kaydetme, gelen istek oranı bağlı olarak performans ciddi etkileri olabilir.
 
-İstek hızı saniye başına 1.000 isteği aşıldığında iç yük testleri temel alan, bu özelliği etkinleştirmek % 40-%50 azaltma performansı neden oldu. Azure Application Insights istatistiksel çözümleme uygulama performanslarını değerlendirmek için kullanmak üzere tasarlanmıştır. Bir denetim sistemi olması amaçlanmamıştır ve tek tek her istek için yüksek hacimli API'leri günlüğü için uygun değildir.
+İstek hızı, saniye başına 1000 istek aşıldığında iç yük testleri bağlı olarak, bu özelliğin etkinleştirilmesi % 40-%50 azaltma verim neden oldu. Azure Application Insights, uygulama performanslarını değerlendirmek için istatistiksel analiz kullanması için tasarlanmıştır. Bir denetim sistemi olacak şekilde tasarlanmamıştır ve yüksek hacimli API'leri için tek tek her isteği günlüğe kaydetme için uygun değildir.
 
-Ayarlayarak günlüğe kaydedilmesini istek sayısı işleyebileceğiniz **örnekleme** (yukarıdaki adımları bakın) ayarlama. Değer % 0 hiçbir hiç günlük yansıtır sırada tüm istekleri günlüğe kaydedilen % 100 anlamına gelir. **Örnekleme** etkili bir şekilde hala günlük yararları taşıma sırasında önemli performans azalmasına önleme telemetri hacmi azaltılmasına yardımcı olur.
+Ayarlayarak günlüğe kaydedilmesini isteklerinin sayısı işleyebileceğiniz **örnekleme** ayarlama (yukarıdaki adımlara bakın). % 100 anlamına gelir hiçbir hiç oturum %0 yansıtır sırada tüm istekleri günlüğe kaydedilen değeri. **Örnekleme** etkili bir şekilde hala günlük avantajlarını taşıma sırasında önemli performans düşüşleri ' engelleyen, telemetri hacminin azaltılmasına yardımcı olur.
 
-Üstbilgiler ve gövde isteklerin ve yanıtların günlük kaydını atlanıyor de performans sorunlarını ortadan kaldırılmasına üzerinde pozitif etkisi olacaktır.
+Üstbilgi ve gövde isteklerin ve yanıtların günlüğe atlanıyor performans sorunlarını ortadan kaldırılmasına üzerinde olumlu bir etkisi olacaktır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-+ Daha fazla bilgi edinmek [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/).
-+ Göz önünde bulundurun [Azure Event Hubs ile oturum](api-management-howto-log-event-hubs.md).
++ Daha fazla bilgi edinin [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/).
++ Göz önünde bulundurun [Azure Event Hubs ile günlüğe kaydetme](api-management-howto-log-event-hubs.md).

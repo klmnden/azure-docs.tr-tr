@@ -9,30 +9,30 @@ ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 7b5bc37be660ea3958bf224d2911c5c2d4577524
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958716"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38944733"
 ---
-## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Farklı bir abonelik için bir VM taşımak üzere portalı kullanın
-Bir VM taşıyabilirsiniz ve ilişkili kaynakları Portalı'nı kullanarak farklı bir abonelik için.
+## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>VM'yi farklı bir aboneliğe taşıma için portalı kullanma
+Bir VM taşıyabilirsiniz ve kaynakları portalı kullanarak farklı bir aboneliğe ilişkili.
 
 1. [Azure portalı](https://portal.azure.com) açın.
-2. Tıklatın **Gözat** > **sanal makineleri** ve listeden taşımak istediğiniz VM seçin.
-3. VM için sayfanın en üstünde seçin &#8594; **taşıma** düğmesine tıklayın ve ardından **taşımak için başka bir abonelik**. **Taşıma kaynakları** sayfası açılır.
-4. Her taşımak istediğiniz kaynakları seçin. Çoğu durumda, tüm listelenen ilgili kaynakları taşımanız gerekir.
-5. Seçin **abonelik** istediğiniz yere taşınmasını VM.
-6. Var olan seçin **kaynak grubu** veya oluşturulan yeni bir kaynak grubu için bir ad yazın.
-7. İşiniz bittiğinde, yeni kaynak kimlikleri oluşturulur ve bu taşındıktan sonra VM ile kullanılması gerektiğini anlamak seçin ardından **Tamam**.
+2. Tıklayın **Gözat** > **sanal makineler** ve listeden taşımak istediğiniz VM'yi seçin.
+3. VM için sayfanın üst kısmında seçin &#8594; **taşıma** düğmesine ve ardından **taşımak, başka bir aboneliğe**. **Kaynakları taşıma** sayfası açılır.
+4. Her bir kaynağın taşımak için seçin. Çoğu durumda, listelenen tüm ilgili kaynakları taşımanız gerekir.
+5. Seçin **abonelik** istediğiniz VM taşınacak.
+6. Mevcut bir seçin **kaynak grubu** veya oluşturulan yeni bir kaynak grubu için bir ad yazın.
+7. İşiniz bittiğinde, yeni kaynak kimliklerini oluşturulur ve bu taşındıktan sonra VM ile kullanılması gerektiğini anladığınızdan seçin ardından **Tamam**.
 
-## <a name="use-the-portal-to-move-a-vm-to-another-resource-group"></a>Bir VM başka bir kaynak grubuna taşımak üzere portalı kullanın
-Bir VM taşıyabilirsiniz ve ilişkili kaynakları Portalı'nı kullanarak başka bir kaynak grubuna.
+## <a name="use-the-portal-to-move-a-vm-to-another-resource-group"></a>Bir VM için başka bir kaynak grubuna taşımak için portalı kullanma
+Bir VM taşıyabilirsiniz ve kaynakları portalını kullanarak başka bir kaynak grubu için ilişkili.
 
 1. [Azure portalı](https://portal.azure.com) açın.
-2. Tıklatın **Gözat** > **sanal makineleri** ve listeden taşımak istediğiniz VM seçin.
-3. VM için sayfanın en üstünde seçin &#8594; **taşıma** düğmesine tıklayın ve ardından **başka bir kaynak grubuna taşımak**. **Taşıma kaynakları** sayfası açılır.
-4. Her taşımak istediğiniz kaynakları seçin. Çoğu durumda, tüm listelenen ilgili kaynakları taşımanız gerekir.
-5. Var olan seçin **kaynak grubu** veya oluşturulan yeni bir kaynak grubu için bir ad yazın.
-6. İşiniz bittiğinde, yeni kaynak kimlikleri oluşturulur ve bu taşındıktan sonra VM ile kullanılması gerektiğini anlamak seçin ardından **Tamam**.
+2. Tıklayın **Gözat** > **sanal makineler** ve listeden taşımak istediğiniz VM'yi seçin.
+3. VM için sayfanın üst kısmında seçin &#8594; **taşıma** düğmesine ve ardından **başka bir kaynak grubuna taşımak**. **Kaynakları taşıma** sayfası açılır.
+4. Her bir kaynağın taşımak için seçin. Çoğu durumda, listelenen tüm ilgili kaynakları taşımanız gerekir.
+5. Mevcut bir seçin **kaynak grubu** veya oluşturulan yeni bir kaynak grubu için bir ad yazın.
+6. İşiniz bittiğinde, yeni kaynak kimliklerini oluşturulur ve bu taşındıktan sonra VM ile kullanılması gerektiğini anladığınızdan seçin ardından **Tamam**.
 

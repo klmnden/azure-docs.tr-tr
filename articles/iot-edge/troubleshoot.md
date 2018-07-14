@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4862e3aa976287512fd69fdfe9295e3f3328d5a7
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: ecd19acdeba57a29a28187d42783bbf146095190
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887785"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001914"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge için genel sorunlar ve çözümler
 
@@ -107,19 +107,43 @@ IOT Edge güvenlik arka plan programı çalışır duruma geçtikten sonra sorun
 
 ### <a name="view-the-messages-going-through-the-edge-hub"></a>Edge hub'ı aracılığıyla giden iletileri görüntüleyin
 
-Edge hub'ı aracılığıyla giden iletileri görüntüleyin ve edgeAgent ve edgeHub çalışma zamanı kapsayıcılarındaki ayrıntılı günlüklerle cihaz özellikleri güncelleştirmelerine ilişkin Öngörüler toplayın. Bu kapsayıcıların ayrıntılı günlüklerini etkinleştirmek için ayarlanmış `RuntimeLogLevel` ortam değişkeni: 
+Edge hub'ı aracılığıyla giden iletileri görüntüleyin ve edgeAgent ve edgeHub çalışma zamanı kapsayıcılarındaki ayrıntılı günlüklerle cihaz özellikleri güncelleştirmelerine ilişkin Öngörüler toplayın. Bu kapsayıcıların ayrıntılı günlüklerini etkinleştirmek için ayarlanmış `RuntimeLogLevel` yaml yapılandırma dosyanızdaki. Dosyayı açmak için:
 
 Linux üzerinde:
-    
-   ```cmd
-   export RuntimeLogLevel="debug"
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
    ```
-    
+
 Windows'da:
-    
-   ```powershell
-   [Environment]::SetEnvironmentVariable("RuntimeLogLevel", "debug")
+
+   ```cmd
+   notepad C:\ProgramData\iotedge\config.yaml
    ```
+
+Varsayılan olarak, `agent` öğesi şöyle görünür:
+
+   ```yaml
+   agent:
+     name: edgeAgent
+     type: docker
+     env: {}
+     config:
+       image: mcr.microsoft.com/azureiotedge-agent:1.0
+       auth: {}
+   ```
+
+Değiştirin `env: {}` ile:
+
+> [!WARNING]
+> YAML dosyaları sekmeler identation içeremez. Bunun yerine 2 alanları kullanın.
+
+   ```yaml
+   env:
+     RuntimeLogLevel: debug
+   ```
+
+Dosyayı kaydedin ve IOT Edge Güvenlik Yöneticisi'ni yeniden başlatın.
 
 IoT Hub ile IoT Edge cihazları arasında gönderilmekte olan iletileri de denetleyebilirsiniz. Visual Studio Code için [Azure IoT Araç Seti](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) uzantısını kullanarak bu iletileri görüntüleyin. Daha fazla yardım için bkz. [Azure IoT ile geliştirme sürecinde kullanışlı araç](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 

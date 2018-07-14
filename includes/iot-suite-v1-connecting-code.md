@@ -2,7 +2,7 @@
 
 IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletilerin biçimini belirtmek için bir model kullanır.
 
-1. `#include` deyimlerinden sonra aşağıdaki değişken bildirimlerini ekleyin. [Aygıt kimliği] yer tutucu değerlerini değiştirin ve [aygıt anahtarı] aygıtınızın Uzaktan izleme çözüm panosunu not ettiğiniz değerlerle. Çözüm panosundaki IoT Hub Ana Bilgisayar Adını [IoTHub Adı] yerine girin. Örneğin, IoT Hub Ana Bilgisayar Adınız **contoso.azure-devices.net** şeklindeyse [IoTHub Adı] yerine **contoso** yazın:
+1. `#include` deyimlerinden sonra aşağıdaki değişken bildirimlerini ekleyin. Yer tutucu değerlerini [cihaz kimliği] ve [cihaz anahtarı] için Cihazınızı Uzaktan izleme çözümü panosunda not ettiğiniz değerlerle. Çözüm panosundaki IoT Hub Ana Bilgisayar Adını [IoTHub Adı] yerine girin. Örneğin, IoT Hub Ana Bilgisayar Adınız **contoso.azure-devices.net** şeklindeyse [IoTHub Adı] yerine **contoso** yazın:
    
     ```c
     static const char* deviceId = "[Device Id]";
@@ -11,7 +11,7 @@ IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletile
 
 1. Cihazınızın IoT Hub ile iletişim kurmasını etkinleştiren modeli tanımlamak için aşağıdaki kodu ekleyin. Bu model, cihazın şu işlevlere sahip olduğunu belirtir:
 
-   - Sıcaklık, dış sıcaklığı, nem ve bir cihaz kimliği telemetri gönderebilir.
+   - Sıcaklık, dış ortam sıcaklığı, nem oranı ve cihaz Kimliğini telemetri olarak gönderebilir.
    - Cihaz hakkındaki meta verileri IoT Hub'a gönderebilir. Cihaz, temel meta verileri başlangıçta bir **DeviceInfo** nesnesinde gönderir.
    - Bildirilen özellikleri IoT Hub'daki cihaz ikizine gönderebilir. Bildirilen bu özellikler yapılandırma, cihaz ve sistem özellikleri olarak gruplandırılır.
    - IoT Hub'daki cihaz ikizinde ayarlanan istenen özellikleri alabilir ve bunlara göre hareket edebilir.

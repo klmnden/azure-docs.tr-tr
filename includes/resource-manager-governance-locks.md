@@ -8,26 +8,26 @@ ms.topic: include
 ms.date: 02/16/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 0cb3de7d893ccfe638468110b1b6f5fb61b2bc7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a69a739f36854cacd6b361ca2bd17d904e9c4c96
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29402499"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38753697"
 ---
-Kaynak kilitleri yanlışlıkla silinmesi ya da kritik kaynaklara değiştirme kuruluşunuzdaki kullanıcıların engelleyin. Rol tabanlı erişim denetimi farklı olarak, tüm kullanıcılar ve roller bir kısıtlama kaynak kilitleri uygulayın. 
+Kaynak kilitleri, yanlışlıkla kritik kaynakları silmesini veya kuruluşunuzdaki kullanıcıların engelleyin. Rol tabanlı erişim denetiminin aksine, kaynak kilitleri tüm kullanıcılar ve roller için bir kısıtlama uygular. 
 
-Kilit düzeyini ayarlayabilirsiniz **CanNotDelete** veya **salt okunur**. Portalı'nda kilitleri düzeyleri olarak görüntülenen **silmek** ve **salt okunur** sırasıyla.
+Kilit düzeyini **CanNotDelete** veya **ReadOnly** olarak ayarlayabilirsiniz. Kilit düzeyi görüntülenir Portalı'nda **Sil** ve **salt okunur** sırasıyla.
 
-* **CanNotDelete** yetkili kullanıcıların, hala okuyun ve kaynak değiştirebilirsiniz, ancak bir kaynağı silemezsiniz anlamına gelir. 
-* **Salt okunur** yetkili kullanıcılar, bir kaynak okuyabilir, ancak silebilir veya kaynak güncelleştirme anlamına gelir. Bu kilit uygulama benzer tüm yetkili kullanıcılar tarafından verilen izinleri kısıtlamak için **okuyucu** rol. 
+* **CanNotDelete** yetkili kullanıcılar hala okuyabilir ve bir kaynağı değiştirme, ancak bunlar bir kaynağı silemezsiniz anlamına gelir. 
+* **Salt okunur** yetkili kullanıcılar, bir kaynak okuyabilir, ancak silebilir veya kaynak güncelleştirme anlamına gelir. Bu kilit uygulama tarafından verilen izinleri tüm yetkili kullanıcılara kısıtlama için benzer **okuyucu** rol. 
 
 > [!TIP]
-> Uygularken dikkatli olun bir **ReadOnly** kilitle. İşlemler gerçekten ek eylemleri gerektirir göründüğü gibi bazı işlemler okuyun. Örneğin, bir **ReadOnly** kilit bir depolama hesabında anahtarları listeleme tüm kullanıcıları engeller. Yazma işlemlerini listenin döndürülen anahtarları için kullanılabilir olmadığından anahtarları işlemi bir POST isteği gerçekleştirilir. A **ReadOnly** kilit bir uygulama hizmeti kaynağına yazma erişimi bu etkileşimi gerektirmesi nedeniyle kaynak dosyalarını görüntüleme Visual Studio Sunucu Gezgini engeller.
+> Uygularken dikkat bir **salt okunur** kilit. Gibi görünen bazı işlemleri operations ek eylemler gerçekten gerekli okuyun. Örneğin, bir **salt okunur** bir depolama hesabı üzerindeki kilidi anahtarları listeleme gelen tüm kullanıcıları engeller. Yazma işlemlerini listenin döndürülen anahtarları için kullanılabilir olmadığından anahtarları işlemi bir POST isteği gerçekleştirilir. A **salt okunur** bir App Service kaynak kilidi, o etkileşime yazma erişim gerektirdiğinden kaynak dosyalarını görüntüleme Visual Studio sunucu Gezgini'nde engeller.
 
-Bir üst kapsamda kilit uyguladığınızda, kapsamı içindeki tüm kaynakların aynı kilit devralır. Daha sonra eklediğiniz bile kaynakları kilidi üst devralır. Devralmada en kısıtlayıcı kilidi önceliklidir.
+Bir üst kapsamda bir kilit uyguladığınızda, ilgili kapsam içindeki tüm kaynaklar aynı kilit devralır. Kaynaklar daha sonra eklediğiniz kilit üst öğeden devralır. Devralmada en kısıtlayıcı kilit önceliklidir.
 
-Resource Manager kilitleri uygulamak gönderilen işlemleri oluşan yönetim düzeyi gerçekleşen işlemlerine `https://management.azure.com`. Kilitler kaynakları kendi işlevleri işleminin nasıl kısıtlama yok. Kaynak kısıtlı değişir, ancak kaynak işlemlerinin sınırlı değildir. Örneğin, bir SQL veritabanı salt okunur kilit, silme veya veritabanı değiştirme engeller. Oluşturma, güncelleştirme ya da veritabanındaki verileri silme engellemez. Bu işlemler için gönderilmediği için veri hareketlerini izin verilen `https://management.azure.com`.
+Resource Manager kilitleri uygulamak gönderilen operations oluşan yönetim düzlemi gerçekleşen işlemlere `https://management.azure.com`. Kilit, kendi işlevleri nasıl işlem kaynakları kısıtlama. Kaynak değişiklikleri kısıtlıdır, ancak kaynak işlemleri sınırlı değildir. Örneğin, bir salt okunur kilidi SQL veritabanı, veritabanı silmesini veya engeller. Oluşturma, güncelleştirme ya da veritabanı verilerini silme engellemez. Bu işlemler için gönderilmediği için veri işlem izin verilen `https://management.azure.com`.
 
-### <a name="who-can-create-or-delete-locks-in-your-organization"></a>Kimin oluşturmak veya kuruluşunuzdaki kilitleri silmek mi
-Oluşturmak veya yönetim kilitleri silmek için erişimi olmalıdır `Microsoft.Authorization/locks/*` eylemler. Yerleşik roller, yalnızca **sahibi** ve **kullanıcı erişimi Yöneticisi** bu eylemleri verilir.
+### <a name="who-can-create-or-delete-locks-in-your-organization"></a>Kimler oluşturabilir ve kuruluşunuzdaki kilitlerini Sil
+Yönetim kilitlerini oluşturmak veya silmek için `Microsoft.Authorization/locks/*` eylemlerine erişiminiz olması gerekmektedir. Yerleşik rollerden yalnızca **Sahip** ve **Kullanııcı Erişiimi Yöneticisi** bu eylemleri kullanabilir.

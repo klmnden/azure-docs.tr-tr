@@ -31,6 +31,8 @@
       href: update-managed-resources.md
     - name: Yayımlamak için portalı kullanma
       href: publish-portal.md
+    - name: Key Vault’tan bir gizli anahtarı kullanma
+      href: key-vault-access.md
 - name: Başvuru
   items:
     - name: Azure CLI

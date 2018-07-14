@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: aecb687ea2352b482a97226219e9a075070c50a6
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610781"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990684"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -69,6 +69,7 @@ Aşağıdaki sınırlar yeni bir tablo, Azure Resource Manager kullanırken fark
 * [Veritabanı geçiş hizmeti](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
+* [Azure güvenlik duvarı](#azure-firewall-limits)
 * [IoT Hub’ı](#iot-hub-limits)
 * [IoT Hub Cihazı Sağlama Hizmeti](#iot-hub-device-provisioning-service-limits)
 * [Anahtar Kasası](#key-vault-limits)
@@ -152,6 +153,9 @@ Aşağıdaki tabloda temel, standart ve Premium sınırlamaları ve özellikleri
 
 #### <a name="dns-limits"></a>DNS sınırları
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
+
+#### <a name="azure-firewall-limits"></a>Azure güvenlik duvarı sınırları
+[!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
 
 ### <a name="storage-limits"></a>Depolama sınırları
 Depolama hesabı sınırları hakkında ek bilgi için bkz. [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage/common/storage-scalability-targets.md).

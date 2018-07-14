@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9eb7f74a365b51431aabd78de3c6d36c3c969bb6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.openlocfilehash: 3a7d657a21b414d51375f912513ae045adec6d6e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991452"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Bir SharePoint sitesini Application Insights ile izleme
 Azure Application Insights, uygulamalarınızın kullanılabilirliğini, performansını ve kullanımını izler. Burada, bir SharePoint sitesi için nasıl ayarlayacağınızı öğreneceksiniz.
@@ -33,7 +34,7 @@ Uygulamanızla ilgili performans ve kullanım verilerini açılan pencerede gör
 
 ```HTML
 <!-- 
-To collect end-user usage analytics about your application, 
+To collect user behavior analytics tools about your application, 
 insert the following script into each page you want to track.
 Place this code immediately before the closing </head> tag,
 and before any other scripts. Your first data will appear 
@@ -83,18 +84,6 @@ Uygulamanızın [Azure portalındaki](https://portal.azure.com) dikey penceresin
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Daha fazla veri bekliyorsanız, birkaç saniye geçtikten sonra Yenile’ye tıklayın.
-
-Kullanıcı, oturum ve sayfa görüntüleme grafiklerini görmek için genel bakış dikey penceresinden **Kullanım analizi**’ne tıklayın:
-
-![](./media/app-insights-sharepoint/06-usage.png)
-
-Daha fazla ayrıntı görmek için herhangi bir grafiğe tıklayın. Örneğin, Sayfa Görüntülemeleri:
-
-![](./media/app-insights-sharepoint/07-pages.png)
-
-Veya Kullanıcılar:
-
-![](./media/app-insights-sharepoint/08-users.png)
 
 ## <a name="capturing-user-id"></a>Kullanıcı Kimliğini Yakalama
 Standart web sayfası kod parçacığı SharePoint’ten kullanıcı kimliğini yakalamaz, ancak küçük bir değişiklikle bunu yapabilirsiniz.

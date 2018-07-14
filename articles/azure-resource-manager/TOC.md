@@ -13,6 +13,7 @@
 ## [Kaynak sağlayıcıları ve türleri](resource-manager-supported-services.md)
 ## [Yönetim grupları](management-groups-overview.md)
 ## [Abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Bulut tutarlılığına yönelik şablonlar](templates-cloud-consistency.md)
 
 # Nasıl yapılır
 ## Şablon oluşturma

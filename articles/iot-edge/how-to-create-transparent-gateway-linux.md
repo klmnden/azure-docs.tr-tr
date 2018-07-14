@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 45179f8f1f46be764144bdc22d5bab3548e9401d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
-ms.translationtype: MT
+ms.openlocfilehash: 789958874784f19169e79a177beb0d811d9f60d4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346068"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005715"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Saydam bir ağ geçidi olarak davranır bir Linux IOT Edge cihazı oluşturma
 
@@ -181,7 +181,7 @@ IOT Edge çalışma zamanı yalnızca modülleri tarafından gönderilen iletile
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
    ```
 
-[Modülü bileşim makalesine] bakın [lnk--için modül birleşimi] ileti yönlendirme hakkında daha fazla bilgi.
+Başvurmak [modülü oluşturma makale] [ lnk-module-composition] ileti yönlendirme hakkında daha fazla bilgi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [IOT Edge modülleri geliştirmek için Araçlar ve gereksinimleri anlamak][lnk-module-dev].
@@ -192,6 +192,7 @@ IOT Edge çalışma zamanı yalnızca modülleri tarafından gönderilen iletile
 <!-- Links -->
 [lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
 [lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
+[lnk-module-composition]: ./module-composition.md
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md

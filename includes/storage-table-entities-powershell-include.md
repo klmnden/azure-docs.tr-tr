@@ -1,20 +1,20 @@
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
 
-## <a name="managing-table-entities"></a>Tablo varlıkları yönetme
+## <a name="managing-table-entities"></a>Tablo varlıklarını yönetme
 
-Bir tablo sahip olduğunuza göre varlık veya tablosundaki satırları yönetme bakalım. 
+Bir tablonuz olduğuna göre varlıklar veya tablosundaki satırları yönetme göz atalım. 
 
-Bir varlık 3 sistem özelliği de dahil olmak üzere en fazla 255 özelliklere sahip olabilir: **PartitionKey**, **RowKey**, ve **zaman damgası**. Ekleme ve değerlerini güncelleştirme sorumlu **PartitionKey** ve **RowKey**. Sunucu değeri yöneten **zaman damgası**, hangi değiştirilemez. Birlikte **PartitionKey** ve **RowKey** tablo içindeki her varlık benzersiz şekilde tanımlar.
+Bir varlığın 3 sistem özelliği dahil olmak üzere, en fazla 255 özellikleri olabilir: **PartitionKey**, **RowKey**, ve **zaman damgası**. Ekleme ve güncelleştirme değerlerini sorumludur **PartitionKey** ve **RowKey**. Sunucu değeri yönetir **zaman damgası**, hangi değiştirilemez. Birlikte **PartitionKey** ve **RowKey** tablo içindeki her bir varlık benzersiz olarak tanımlanabilmesi.
 
 * **PartitionKey**: Varlık depolanan bölüm belirler.
-* **RowKey**: varlığın bölüm içinde benzersiz şekilde tanımlar.
+* **RowKey**: varlığı bölüm içinde benzersiz şekilde tanımlar.
 
-Bir varlık için en çok 252 özel özellikler tanımlayabilir. 
+Bir varlık için özel en çok 252 özellik tanımlayabilir. 
 
-### <a name="add-table-entities"></a>Tablo varlıkları ekleyin
+### <a name="add-table-entities"></a>Tablo varlık ekleme
 
-Kullanarak bir tablo varlıkları ekleyin **Ekle StorageTableRow**. Bu örnekler bölüm anahtarlarını değerlerle "Bölüm1" ve "bölüm2" ve satır anahtarları durumu kısaltmalar eşit kullanın. Her varlıkta kullanıcı adı ve kullanıcı kimliği özelliklerdir. 
+Varlıkları kullanarak bir tablo ekleyin **Ekle StorageTableRow**. Bu örnekler, bölüm anahtarı değerleri "Bölüm1" ve "bölüm2" ve satır anahtarı için durum kısaltmalar eşit kullanın. Her varlık özellikleri, kullanıcı adı ve kullanıcı kimliği ' dir. 
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -44,17 +44,17 @@ Add-StorageTableRow `
 
 ### <a name="query-the-table-entities"></a>Tablo varlıkları sorgulama
 
-Bir tablodaki varlıkları sorgulamak için birkaç farklı yolu vardır.
+Bir tablodaki varlıkları sorgulamak için çeşitli yollar vardır.
 
-#### <a name="retrieve-all-entities"></a>Tüm varlıkları almak
+#### <a name="retrieve-all-entities"></a>Tüm varlıkları alma
 
-Tüm varlıkları almak kullanın **Get-AzureStorageTableRowAll**.
+Tüm varlıkları almak için kullanın **Get-AzureStorageTableRowAll**.
 
 ```powershell
 Get-AzureStorageTableRowAll -table $storageTable | ft
 ```
 
-Bu komut, aşağıdaki tabloda benzer sonuçlar verir:
+Bu komut için aşağıdaki tabloda benzer sonuçlar verir:
 
 | Kullanıcı Kimliği | kullanıcı adı | bölüm | rowkey |
 |----|---------|---------------|----|
@@ -63,23 +63,23 @@ Bu komut, aşağıdaki tabloda benzer sonuçlar verir:
 | 2 | Jessie | Bölüm2 | NM |
 | 4 | Steven | Bölüm2 | TX |
 
-#### <a name="retrieve-entities-for-a-specific-partition"></a>Belirli bir bölüm için varlık alma
+#### <a name="retrieve-entities-for-a-specific-partition"></a>Belirli bir bölüm için varlıkları alma
 
-Belirli bir bölümdeki tüm varlıkları almak kullanın **Get-AzureStorageTableRowByPartitionKey**.
+Belirli bir bölümdeki tüm varlıkları almak için kullanın **Get-AzureStorageTableRowByPartitionKey**.
 
 ```powershell
 Get-AzureStorageTableRowByPartitionKey -table $storageTable -partitionKey $partitionKey1 | ft
 ```
-Sonuçlar aşağıdaki tabloya benzer görünür:
+Sonuçları aşağıdaki tabloda benzer görünmelidir:
 
 | Kullanıcı Kimliği | kullanıcı adı | bölüm | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | Bölüm1 | CA |
 | 3 | Christine | Bölüm1 | WA |
 
-#### <a name="retrieve-entities-for-a-specific-value-in-a-specific-column"></a>Belirli bir sütunda belirli bir değeri varlıkları alma
+#### <a name="retrieve-entities-for-a-specific-value-in-a-specific-column"></a>Belirli bir değeri belirli bir sütundaki varlıkları alma
 
-Burada belirli bir sütunun değeri eşittir belirli bir değeri varlık almaya kullanın **Get-AzureStorageTableRowByColumnName**.
+Burada belirli bir sütundaki değer belirli bir değere eşittir varlıkları almak için kullanın **Get-AzureStorageTableRowByColumnName**.
 
 ```powershell
 Get-AzureStorageTableRowByColumnName -table $storageTable `
@@ -88,7 +88,7 @@ Get-AzureStorageTableRowByColumnName -table $storageTable `
     -operator Equal
 ```
 
-Bu sorgu, bir kayıt alır.
+Bu sorgu, bir kaydı alır.
 
 |Alan|değer|
 |----|----|
@@ -99,7 +99,7 @@ Bu sorgu, bir kayıt alır.
 
 #### <a name="retrieve-entities-using-a-custom-filter"></a>Özel bir filtre kullanarak varlıkları alma 
 
-Özel bir filtre kullanarak varlıkları almak kullanın **Get-AzureStorageTableRowByCustomFilter**.
+Özel bir filtre kullanarak varlıkları almak için kullanın **Get-AzureStorageTableRowByCustomFilter**.
 
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
@@ -107,7 +107,7 @@ Get-AzureStorageTableRowByCustomFilter `
     -customFilter "(userid eq 1)"
 ```
 
-Bu sorgu, bir kayıt alır.
+Bu sorgu, bir kaydı alır.
 
 |Alan|değer|
 |----|----|
@@ -118,9 +118,9 @@ Bu sorgu, bir kayıt alır.
 
 ### <a name="updating-entities"></a>Varlıkları güncelleştirme 
 
-Varlıkları güncelleştirme için üç adım vardır. İlk olarak, değiştirmek için varlığı alır. İkinci olarak, değişikliği yapın. Üçüncü değişikliği kullanarak yürütme **güncelleştirme AzureStorageTableRow**.
+Varlıkları güncelleştirme için üç adım vardır. İlk olarak değiştirmek için varlık alın. İkinci olarak, değişikliği yapın. Üçüncü olarak, değişiklik kullanarak işleme **güncelleştirme AzureStorageTableRow**.
 
-Kullanıcı adı ile varlığı Güncelleştirme 'kullanıcı adına sahip Jessie' = 'Jessie2' =. Bu örnek ayrıca .NET türlerini kullanarak bir özel filtre oluşturmak için başka bir yol gösterir. 
+Kullanıcı adıyla varlığı Güncelleştirme 'kullanıcı adı için Jessie' = 'Jessie2' =. Bu örnek ayrıca .NET türlerini kullanarak özel bir filtre oluşturmak için başka bir yol gösterir. 
 
 ```powershell
 # Create a filter and get the entity to be updated.
@@ -142,7 +142,7 @@ Get-AzureStorageTableRowByCustomFilter -table $storageTable `
     -customFilter "(username eq 'Jessie2')"
 ```
 
-Sonuçları Jessie2 kaydını gösterir.
+Sonuçları Jessie2 kaydı gösterir.
 
 |Alan|değer|
 |----|----|
@@ -151,13 +151,13 @@ Sonuçları Jessie2 kaydını gösterir.
 | PartitionKey | Bölüm2 |
 | RowKey      | NM |
 
-### <a name="deleting-table-entities"></a>Tablo varlıkları silme
+### <a name="deleting-table-entities"></a>Tablo varlıklarını silme
 
-Bir varlık veya tablodaki tüm varlıkların silebilirsiniz.
+Bir varlık veya tablodaki tüm varlıkları silebilirsiniz.
 
 #### <a name="deleting-one-entity"></a>Bir varlığı silme
 
-Tek bir varlık silmek için bu varlığa bir başvuru almak ve içine kanal **Kaldır AzureStorageTableRow**.
+Tek bir varlığı silmek için bu varlığa bir başvuru almak ve içine kanal **Remove-AzureStorageTableRow**.
 
 ```powershell
 # Set filter.
@@ -177,7 +177,7 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>Tablodaki tüm varlıklarını silme 
 
-Tablosundaki tüm varlıkları silmek için bunları alın ve sonuçları Kaldır cmdlet'ine kanal. 
+Tablodaki tüm varlıkları silmek için bunları alın ve sonuçları Kaldır cmdlet'e kanal oluşturarak. 
 
 ```powershell
 # Get all rows and pipe the result into the remove cmdlet.
