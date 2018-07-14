@@ -1,6 +1,6 @@
 ---
-title: Azure SQL veritabanı bağlantısı mimarisi | Microsoft Docs
-description: Bu belgede Azure SQLDB bağlantı mimarisinden Azure içinde veya gelen açıklanmaktadır Azure dışında.
+title: Azure SQL veritabanı bağlantı mimarisi | Microsoft Docs
+description: Bu belge, Azure SQLDB bağlantı mimariden veya azure'daki açıklar Azure dışında.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,52 +9,55 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 628d1bd3c38237db1d49826646bba989e158ed99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644445"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036777"
 ---
-# <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL veritabanı bağlantısı mimarisi 
+# <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL veritabanı bağlantı mimarisi 
 
-Bu makalede, Azure SQL veritabanı bağlantısı mimarisini açıklar ve nasıl doğrudan trafiğe örneğinizi Azure SQL veritabanı için farklı bileşenleri işlev açıklanmaktadır. İçinden Azure bağlanan istemciler ve istemcilerin Azure dışında bağlantı ile Azure veritabanı ağ trafiğini yönlendirmek için bu Azure SQL veritabanı bağlantısı bileşenleri işlevi. Bu makalede ayrıca bağlantı nasıl gerçekleştiğini değiştirmek için kod örnekleri ve varsayılan bağlantı ayarlarını değiştirmek için ilgili dikkat edilecek noktalar sağlar. 
+Bu makale, Azure SQL veritabanı bağlantı mimarisi açıklamakta ve nasıl Azure SQL veritabanı örneğiniz trafiği yönlendirmek için farklı bileşenleri işlev açıklar. Ağ trafiği için Azure veritabanı Azure dışında bağlanırken istemcilerle içinden Azure bağlanan istemcileri ile yönlendirmek için bu Azure SQL veritabanı bağlantısı bileşenleri işlevi. Bu makalede ayrıca bağlantı nasıl gerçekleştirildiğini değiştirmek için kod örnekleri ve varsayılan bağlantı ayarlarını değiştirmek için ilgili konuları sağlar. 
 
 ## <a name="connectivity-architecture"></a>Bağlantı mimarisi
 
-Aşağıdaki diyagramda Azure SQL veritabanı bağlantısı mimarisinin üst düzey bir genel bakış sağlar.
+Aşağıdaki diyagram, Azure SQL veritabanı bağlantısı mimarisinin üst düzey bir genel bakış sağlar.
 
-![mimarisine genel bakış](./media/sql-database-connectivity-architecture/architecture-overview.png)
+![mimariye genel bakış](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
 
-Aşağıdaki adımlar, Azure SQL veritabanı yazılım yük dengeleyici (SLB) ve Azure SQL veritabanı ağ geçidi ile bir Azure SQL veritabanı için bir bağlantının nasıl kurulacağını açıklar.
+Aşağıdaki adımlar, Azure SQL veritabanı yazılım yük dengeleyici (SLB) ve Azure SQL veritabanı ağ geçidi aracılığıyla Azure SQL veritabanı için bir bağlantının nasıl kurulacağını açıklar.
 
-- İstemcileri Azure içinde veya Azure dışında bir ortak IP adresi vardır ve 1433 bağlantı noktasını dinler SLB bağlayın.
-- SLB Azure SQL veritabanı ağ trafiğini yönlendirir.
-- Ağ geçidi doğru proxy Ara trafiğini yönlendirir.
-- Proxy Ara trafiği uygun Azure SQL veritabanına yönlendirir.
+- İstemciler, azure'da veya Azure dışındaki ortak IP adresi ve bağlantı noktası 1433'ü dinler SLB bağlanır.
+- SLB, Azure SQL veritabanı ağ geçidi trafiği yönlendirir.
+- Ağ geçidi doğru proxy Ara yazılımıyla trafiği yönlendirir.
+- Proxy ara yazılım için uygun Azure SQL veritabanı trafiği yönlendirir.
 
 > [!IMPORTANT]
-> Bu bileşenlerin her birini koruma hizmeti (DDoS) ağ ve uygulama katmanı yerleşik reddi dağıtılmış.
+> Bu bileşenlerin her birinin reddi (DDoS) hizmeti koruma ağ ve uygulama katmanı yerleşik dağıtılmış.
 >
 
 ## <a name="connectivity-from-within-azure"></a>Azure içinde bağlantısı
 
-Azure içinde içinden bağlanan bağlantılarınızı bir bağlantı ilkesi varsa **yeniden yönlendirme** varsayılan olarak. Bir ilke **yeniden yönlendirme** TCP oturumu Azure SQL veritabanı için istemci oturum kurulduktan sonra bağlantıları sonra yönlendirildiği olduğunu proxy ara yazılımı için bir hedef sanal IP değişiklik olanlardan Azure ile anlamına gelir SQL veritabanı ağ geçidi, proxy ara yazılım. Bundan sonra tüm sonraki paketlere Azure SQL veritabanı ağ geçidi atlayarak doğrudan proxy ara yazılımı üzerinden, akış. Aşağıdaki diyagramda bu trafik akışı gösterilmektedir.
+Azure içinde gelen bağlanıyorsanız, bağlantı İlkesi bağlantılarınızı sahip **yeniden yönlendirme** varsayılan olarak. Bir ilke **yeniden yönlendirme** TCP oturumu, Azure SQL veritabanı için istemci oturum kurulduktan sonra bağlantıları sonra yeniden yönlendirilirse, proxy ara yazılım için hedef sanal IP değişiklik Azure verilerinden anlamına gelir. SQL veritabanı ağ geçidi, proxy ara yazılım. Bundan sonra Azure SQL veritabanı ağ geçidi atlayarak doğrudan proxy ara yazılımı üzerinden, sonraki tüm paketlere akış. Aşağıdaki diyagram Bu trafik akışını gösterir.
 
-![mimarisine genel bakış](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
+![mimariye genel bakış](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
 
-## <a name="connectivity-from-outside-of-azure"></a>Azure dışında bağlantısı
+## <a name="connectivity-from-outside-of-azure"></a>Azure dışındaki bağlantısı
 
-Dış Azure'dan bağlanıyorsanız, bir bağlantı İlkesi bağlantınız **Proxy** varsayılan olarak. Bir ilke **Proxy** Azure SQL veritabanı ağ geçidi TCP oturumun ve tüm sonraki paketlere akış yoluyla ağ geçidi anlamına gelir. Aşağıdaki diyagramda bu trafik akışı gösterilmektedir.
+Azure dışından bağlanıyorsanız, bağlantılarınızı, bağlantı İlkesi sahip **Proxy** varsayılan olarak. Bir ilke **Proxy** sonraki tüm paketlere akış yoluyla ağ geçidi ve Azure SQL veritabanı ağ geçidi üzerinden TCP oturumun anlamına gelir. Aşağıdaki diyagram Bu trafik akışını gösterir.
 
-![mimarisine genel bakış](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
+![mimariye genel bakış](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
-## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL veritabanı ağ geçidi IP adresi
+> [!IMPORTANT]
+> Hizmet uç noktaları Azure SQL veritabanı ile ilkenizi kullanıldığında **yeniden yönlendirme** varsayılan olarak. Bu nedenle, sanal ağ içinde bağlantısı etkinleştirmek için tüm Azure SQL veritabanı IP adresleri, yalnızca ağ geçidi için giden izin vermelidir. Yalnızca ağ geçidi IP'ler ayarınız için lütfen değiştirmek için giden izin vermek istiyorsanız bu NSG (ağ güvenlik grubu) hizmet etiketleri yardımıyla yapılabilir **Proxy**.
 
-Şirket içi kaynaklardan bir Azure SQL veritabanına bağlanmak için Azure SQL veritabanı ağ geçidi Azure bölgeniz için giden ağ trafiğine izin vermeniz gerekiyor. Bağlantılarınızı yoluyla ağ geçidi şirket içi kaynaklardan bağlanırken varsayılandır Proxy modunda bağlanırken yalnızca gidin.
+## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL veritabanı ağ geçidi IP adresleri
 
-Aşağıdaki tabloda Azure SQL veritabanı ağ geçidi tüm veri bölgeleri için birincil ve ikincil IP'leri listeler. Bazı bölgelerde, iki IP adresi vardır. Bu bölgelerde, birincil IP adresi ağ geçidi geçerli IP adresini ve ikinci IP adresi bir yük devretme IP adresidir. Yük devretme adresi için size hizmet kullanılabilirliği yüksek tutmak için sunucu taşıma adresidir. Bu bölgeler için her iki IP adreslerine giden izin öneririz. İkinci IP adresi, Microsoft tarafından sahip olunan ve bağlantıları kabul etmek üzere Azure SQL veritabanı tarafından etkinleştirilene kadar hizmetlerin üzerinde dinlemez.
+Şirket içi kaynaklardan bir Azure SQL veritabanına bağlanmak için Azure SQL veritabanı ağ geçidi, Azure bölgesi için giden ağ trafiğine izin vermeniz gerekir. Bağlantılarınızı yalnızca ağ geçidi üzerinden şirket içi kaynaklardan bağlanırken varsayılan değer olan ara sunucu modunda bağlanırken gidin.
+
+Aşağıdaki tablo, Azure SQL veritabanı ağ geçidi tüm veri bölgeleri için birincil ve ikincil IP'ler listeler. Bazı bölgeler için iki IP adresi vardır. Bu bölgede, birincil IP adresi geçerli bir ağ geçidi IP adresini ve ikinci IP adresini bir yük devretme IP adresidir. Yük devretme adresi size yüksek hizmet kullanılabilirliğini korumak için sunucunuzun taşıyabilirsiniz adresidir. Bu bölgeler için her iki IP adreslerine giden izin öneririz. İkinci IP adresi Microsoft'a ait ve bağlantıları kabul etmek üzere Azure SQL veritabanı tarafından etkinleştirilinceye kadar tüm hizmetleri dinlemez.
 
 | Bölge Adı | Birincil IP adresi | İkincil IP adresi |
 | --- | --- |--- |
@@ -79,7 +82,7 @@ Aşağıdaki tabloda Azure SQL veritabanı ağ geçidi tüm veri bölgeleri içi
 | Orta Güney ABD | 23.98.162.75 | 13.66.62.124 |
 | Güneydoğu Asya | 23.100.117.95 | 104.43.15.0 |
 | UK Kuzey | 13.87.97.210 | |
-| Birleşik Krallık Güney 1 | 51.140.184.11 | |
+| UK Güney 1 | 51.140.184.11 | |
 | UK Güney 2 | 13.87.34.7 | |
 | Birleşik Krallık Batı | 51.141.8.11  | |
 | Batı Orta ABD | 13.78.145.25 | |
@@ -88,22 +91,22 @@ Aşağıdaki tabloda Azure SQL veritabanı ağ geçidi tüm veri bölgeleri içi
 | Batı ABD 2 | 13.66.226.202  | |
 ||||
 
-\* **Not:** *Doğu ABD 2* üçüncül bir IP adresini de sahip `52.167.104.0`.
+\* **Not:** *Doğu ABD 2* üçüncül bir IP adresi de sahip `52.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Azure SQL veritabanı bağlantı ilkesini değiştirme
 
-Bir Azure SQL veritabanı sunucusu için Azure SQL veritabanı bağlantı ilkesini değiştirmek için kullanın [bağlantı İlkesi](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) komutu.
+Azure SQL veritabanı sunucusu için Azure SQL veritabanı bağlantı İlkesi değiştirmek için kullanın [conn ilke](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) komutu.
 
-- Bağlantı ilkeniz ayarlanmışsa **Proxy**, tüm Azure SQL veritabanı ağ geçidi üzerinden paket akışı ağ. Bu ayar, yalnızca Azure SQL veritabanı ağ geçidi IP giden izin vermeniz gerekir. Ayarı kullanarak **Proxy** ayarı'den daha fazla gecikme sahip **yeniden yönlendirme**.
-- Bağlantı ilkeniz ayarlıyorsanız **yeniden yönlendirme**, tüm paketler akışına doğrudan ara proxy ağ. Bu ayar için birden çok IP giden izin vermeniz gerekir.
+- Bağlantı ilkelerinizi ayarlanırsa **Proxy**, tüm Azure SQL veritabanı ağ geçidi üzerinden paket akışı ağ. Bu ayar için yalnızca Azure SQL veritabanı ağ geçidi IP giden izin vermeniz gerekir. Ayarı kullanarak **Proxy** ayarı üzerinde daha fazla gecikme sahip **yeniden yönlendirme**.
+- Bağlantı ilkelerinizi ayarlıyorsanız **yeniden yönlendirme**, tüm ağ ara yazılım proxy doğrudan paket akışı. Bu ayar için birden çok IP'yi giden izin vermeniz gerekir.
 
 ## <a name="script-to-change-connection-settings-via-powershell"></a>PowerShell aracılığıyla bağlantı ayarlarını değiştirmek için komut dosyası
 
 > [!IMPORTANT]
-> Bu komut dosyası gerektirir [Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
+> Bu betik [Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
 >
 
-Aşağıdaki PowerShell betiğini nasıl bir bağlantı İlkesi değiştirileceğini gösterir.
+Aşağıdaki PowerShell betiğini bağlantı ilkesini değiştirme işlemi gösterilmektedir.
 
 ```powershell
 Connect-AzureRmAccount
@@ -160,10 +163,10 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 ## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Azure CLI 2.0 aracılığıyla bağlantı ayarlarını değiştirmek için komut dosyası
 
 > [!IMPORTANT]
-> Bu komut dosyası gerektirir [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Bu betik [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
-Aşağıdaki CLI betiği nasıl bağlantı İlkesi değiştirileceğini gösterir.
+Aşağıdaki CLI betiği, bağlantı İlkesi değiştirme gösterir.
 
 <pre>
 # Get SQL Server ID
@@ -182,6 +185,6 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bir Azure SQL veritabanı sunucusu için Azure SQL veritabanı bağlantı ilkesini değiştirme hakkında daha fazla bilgi için bkz: [bağlantı İlkesi](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
-- ADO.NET 4.5 veya sonraki bir sürümünü kullanan istemciler için Azure SQL veritabanı bağlantı davranışı hakkında bilgi için bkz: [ADO.NET 4.5 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Genel uygulama geliştirme genel bakış bilgileri için bkz: [SQL veritabanı uygulaması geliştirmeye genel bakış](sql-database-develop-overview.md).
+- Azure SQL veritabanı sunucusu için Azure SQL veritabanı bağlantı İlkesi değiştirme hakkında daha fazla bilgi için bkz: [conn ilke](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- ADO.NET 4.5 veya sonraki bir sürümünü kullanan istemciler için Azure SQL veritabanı bağlantı davranışları hakkında ek bilgi için bkz. [ADO.NET 4.5 için 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Genel uygulama geliştirme genel bakış bilgileri için bkz. [SQL veritabanı uygulaması geliştirmeye genel bakış](sql-database-develop-overview.md).

@@ -1,53 +1,55 @@
 ---
-title: Yönetilmeyen (sayfa bloblarını) ve Microsoft Azure Linux VM'ler için diskleri depolama yönetilen hakkında | Microsoft Docs
-description: İle ilgili temel bilgileri öğrenin (sayfa bloblarını) yönetilmeyen ve yönetilen Azure Linux sanal makinelerinin diskleri depolama.
+title: (Sayfa blobları) yönetilmeyen ve yönetilen diskler depolaması için Microsoft Azure Linux Vm'leri hakkında | Microsoft Docs
+description: İle ilgili temel bilgileri öğrenin (sayfa blobları) yönetilmeyen ve yönetilen diskler depolaması için azure'da Linux sanal makineleri.
 services: virtual-machines
 author: roygara
-manager: jeconnoc
+manager: twooley
 ms.service: virtual-machines
 ms.workload: storage
 ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.openlocfilehash: 3742b05bceea7aed556d06ab4460abaa08aca7d1
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a1c867e97879b1830a8596683b8314fd6535aa7c
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "30286630"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036008"
 ---
-# <a name="about-disks-storage-for-azure-linux-vms"></a>Azure Linux VM'ler için diskleri depolama hakkında
-Yalnızca başka bir bilgisayarda gibi azure'daki sanal makinelerde bir işletim sistemini, uygulamaları ve verileri depolamak için bir yer olarak diskleri kullanın. Tüm Azure sanal makineler en az iki disk – Linux işletim sistemi diski ve geçici bir diske sahip. İşletim sistemi diski bir görüntüden oluşturulur ve hem işletim sistemi diski ve görüntünün gerçekte sanal bir Azure depolama hesabında depolanan sabit diskler (VHD). Sanal makineler ayrıca VHD'ler olarak da depolanan bir veya daha fazla veri diski olabilir. 
+# <a name="about-disks-storage-for-azure-linux-vms"></a>Azure Linux Vm'leri için diskleri depolama hakkında
+Yalnızca diğer bilgisayarlar gibi azure'da sanal makineler bir işletim sistemini, uygulamalarını ve verilerini depolamak için bir farkı şudur diskleri kullanın. Tüm Azure sanal makineler, en az iki diskin – Linux işletim sistemi diski ve geçici bir diskle sahiptir. İşletim sistemi diski bir görüntüden oluşturulur ve hem işletim sistemi diski ile görüntü sanal sabit bir Azure depolama hesabında depolanan diskleri (VHD). Sanal makineler, VHD'ler olarak da depolanan bir veya daha fazla veri diski olarak da olabilir.
 
-Bu makalede, biz diskler için farklı kullanımlar hakkında konuşun ve oluşturma ve kullanma disklerinin farklı türleri açıklanmaktadır. Bu makalede ayrıca kullanılabilir [Windows sanal makineleri](../windows/about-disks-and-vhds.md).
+Bu makalede, biz diskleri farklı kullanımları hakkında konuşacak ve ardından farklı tür diskler oluşturma ve kullanma tartışın. Bu makale için de kullanılabilir olan [Windows sanal makineleri](../windows/about-disks-and-vhds.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="disks-used-by-vms"></a>VM'ler tarafından kullanılan diskler
+## <a name="disks-used-by-vms"></a>Sanal makineleri tarafından kullanılan diskler
 
-Diskleri VM'ler tarafından nasıl kullanıldığı bir bakalım.
+Diskler, VM'ler tarafından nasıl kullanıldığı bir bakalım.
 
 ## <a name="operating-system-disk"></a>İşletim sistemi diski
-Her bir sanal makinede bir ekli işletim sistemi diski var. SATA sürücüsü olarak kaydedilir ve/dev/sda varsayılan olarak etiketlenir. Bu disk 2048 gigabayt (GB) en fazla kapasiteye sahiptir. 
+
+Her bir sanal makinede bir ekli işletim sistemi diski var. Bir SATA sürücüsü olarak kaydedilir ve/dev/sda varsayılan olarak etiketlenir. Bu disk 2048 gigabayt (GB) maksimum kapasiteye sahiptir.
 
 ## <a name="temporary-disk"></a>Geçici disk
-Her VM geçici disk içerir. Geçici disk uygulamalar ve işlemler için kısa vadeli depolama sağlar ve yalnızca sayfa veya takas dosyaları gibi verileri depolamak için kullanılması amaçlanmıştır. Geçici disk üzerindeki verileri kaybolabilir sırasında bir [bakım olayı](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) veya ne zaman, [VM yeniden](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Sırasında standart yeniden başlatma VM geçici sürücüdeki verilerin kalıcı olması.
 
-Linux sanal makineleri, genellikle disktir **/dev/sdb** ve biçimlendirilmiş ve bağlanan **/mnt** Azure Linux aracısı tarafından. Geçici diskin boyutunu, sanal makine boyutuna göre değişir. Daha fazla bilgi için bkz: [Linux sanal makineler için Boyutlar](../windows/sizes.md).
+Her sanal makine geçici bir diskle içerir. Geçici disk, uygulamalar ve işlemler için kısa vadeli depolama sağlar ve yalnızca sayfa veya takas dosyaları gibi verileri depolamak için tasarlanmıştır. Geçici diskteki veriler kaybolabilir sırasında bir [bakım olayı](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) veya ne zaman, [bir VM'yi yeniden dağıtma](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Sırasında standart yeniden başlatma VM'nin geçici sürücüdeki verilerin kalıcı olması. Bununla birlikte, burada verileri, yeni bir ana bilgisayara taşımayı gibi korunmayabilir durumlar vardır. Buna geçici sürücüdeki tüm verileri sisteme önemli olan verilerin olmamalıdır.
 
-Azure geçici disk nasıl kullandığı hakkında daha fazla bilgi için bkz: [geçici sürücü Microsoft Azure sanal makineler üzerinde anlama](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Linux sanal makinelerinde genellikle disktir **/dev/sdb** ve biçimlendirilmiş ve takılı **/mnt** Azure Linux aracısı tarafından. Geçici diskin boyutunu, sanal makine boyutuna göre değişir. Daha fazla bilgi için [Linux sanal makine boyutları](../windows/sizes.md).
+
+Azure geçici disk nasıl kullandığı hakkında daha fazla bilgi için bkz. [Microsoft Azure sanal makineler üzerinde geçici sürücüyü anlama](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ## <a name="data-disk"></a>Veri diski
-Uygulama verileri veya tutmak için gereksinim duyduğunuz diğer veri depolamak için bir sanal makineye bağlı VHD veri disktir. Veri diskleri SCSI sürücüsü olarak kaydedilir ve seçtiğiniz bir harf ile etiketlenir. Her veri diski maksimum 4095 GB kapasitesine sahiptir. Kaç tane veri diskleri ve depolama türü için iliştirebilirsiniz diskleri barındırmak için kullanabileceğiniz sanal makine boyutunu belirler.
+
+Veri diski uygulama verileri veya tutmak için ihtiyacınız olan diğer verileri depolamak için bir sanal makineye bağlı bir vhd'dir. Veri diskleri SCSI sürücüsü olarak kaydedilir ve seçtiğiniz bir harf ile etiketlenir. Her veri diski 4095 GB'lık maksimum kapasiteye sahiptir. Bunu ve depolama türünü ekleyebilirsiniz kaç veri diskinin diskleri barındırmak için kullanabileceğiniz sanal makinenin boyutunu belirler.
 
 > [!NOTE]
-> Sanal makineler kapasiteleri hakkında daha fazla ayrıntı için [Linux sanal makineler için Boyutlar](./sizes.md).
-> 
+> Sanal makineler kapasiteler hakkında daha fazla bilgi için bkz. [Linux sanal makine boyutları](./sizes.md).
 
-Bir görüntüden sanal makine oluşturduğunuzda azure bir işletim sistemi diski oluşturur. Veri diskleri içeren bir görüntü kullanırsanız, sanal makine oluştururken Azure ayrıca veri diskleri oluşturur. Aksi halde, sanal makineyi oluşturduktan sonra veri diski ekleyin.
+Bir görüntüden sanal makine oluşturduğunuzda azure, bir işletim sistemi diski oluşturur. Veri diskleri içeren bir görüntü kullanırsanız, sanal makine oluşturduğunda, Azure veri diskleri de oluşturur. Aksi takdirde, sanal makineyi oluşturduktan sonra veri diski ekleyin.
 
-Veri diski bir sanal makine için herhangi bir zamanda göre ekleyebileceğiniz **ekleme** sanal makineye disk. Karşıya veya depolama hesabınız veya bir Azure sizin için oluşturduğu kopyalanan VHD kullanabilirsiniz. Bir veri diski eklemeyi hala bağlıyken depolama biriminden silinemez şekilde VHD 'kira' koyarak VHD dosyasını VM ile ilişkilendirir.
+Veri diskleri için sanal makine herhangi bir zamanda göre ekleyebileceğiniz **ekleme** sanal makineye disk. Karşıya yüklenen veya depolama hesabınız ya da Azure sizin için oluşturduğu bir kopyalanan VHD kullanabilirsiniz. Bir veri diski eklemeyi hala bağlıyken depolamadan silinemez şekilde VHD'de 'kira' yerleştirerek VHD dosyasını VM ile ilişkilendirir.
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
 
@@ -55,7 +57,7 @@ Veri diski bir sanal makine için herhangi bir zamanda göre ekleyebileceğiniz 
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Bir diski kullanıma açın](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM için ek depolama alanı eklemek için.
-* [Anlık Görüntü](snapshot-copy-managed-disk.md).
-* [Yönetilen Diske Dönüştür](convert-unmanaged-to-managed-disks.md).
+* [Bir diski](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM'niz için ek depolama alanı eklemek için.
+* [Anlık görüntü oluşturma](snapshot-copy-managed-disk.md).
+* [Yönetilen disklere dönüştürme](convert-unmanaged-to-managed-disks.md).
 

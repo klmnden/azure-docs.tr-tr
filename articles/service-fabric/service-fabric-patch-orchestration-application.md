@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: cbd5a0ea5fbeb7becbfc33bf72af73425630bff6
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970729"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036947"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -148,7 +148,7 @@ Düzeltme eki düzenleme uygulamanın davranış şekli, gereksinimlerinizi kar�
 |**Parametre**        |**Tür**                          | **Ayrıntılar**|
 |:-|-|-|
 |MaxResultsToCache    |Uzun                              | Önbelleğe alınan Windows Update sonuçlarının maksimum sayısı. <br>Varsayılan değer: 3000 varsayılarak: <br> -Düğüm sayısı 20'dir. <br> -Bir düğüm / ay üzerinde gerçekleştirilecek güncelleştirme sayısı beştir. <br> -İşlem başına sonuç sayısı 10 olabilir. <br> -Son üç ay için sonuçları depolanması gerekir. |
-|TaskApprovalPolicy   |Sabit listesi <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında Windows güncelleştirmeleri yüklemek için Düzenleyici hizmeti tarafından kullanılacak olan ilke TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler şunlardır: <br>                                                           <b>NodeWise</b>. Windows güncelleştirme yüklü tek bir düğüm bir kerede olur. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update, aynı anda yüklü bir yükseltme etki alanıdır. (En bir yükseltme etki alanına ait olan tüm düğümleri için Windows Update gidebilirsiniz.)
+|TaskApprovalPolicy   |Sabit listesi <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında Windows güncelleştirmeleri yüklemek için Düzenleyici hizmeti tarafından kullanılacak olan ilke TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler şunlardır: <br>                                                           <b>NodeWise</b>. Windows güncelleştirme yüklü tek bir düğüm bir kerede olur. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update, aynı anda yüklü bir yükseltme etki alanıdır. (En bir yükseltme etki alanına ait olan tüm düğümleri için Windows Update gidebilirsiniz.)<br> Başvurmak [SSS](#frequently-asked-questions) , uygun ilke kümeniz için en iyi olduğuna karar vermeye yönelik bölümü.
 |LogsDiskQuotaInMB   |Uzun  <br> (Varsayılan: 1024)               |Yerel olarak düğümlerinde kalıcı MB, düzeltme eki düzenleme uygulama en büyük boyutunu kaydeder.
 | WUQuery               | dize<br>(Varsayılan: "IsInstalled = 0")                | Windows güncelleştirmeleri almak için sorgulayın. Daha fazla bilgi için [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Boole <br> (varsayılan: True)                 | Bu bayrak yüklenecek Windows işletim sistemi güncelleştirmeleri sağlar.            |
@@ -304,19 +304,36 @@ SORU. **Kümem sağlıksız olduğunu ve Acil işletim sistemi güncelleştirme 
 
 A. Küme sağlıksız durumdayken düzeltme eki düzenleme uygulama güncelleştirmelerini yüklemez. Kümenizi düzenleme düzeltme eki uygulama iş akışı engelini kaldırmak için sağlıklı bir duruma getirmek deneyin.
 
-SORU. **Neden kümelerinde düzeltme eki uygulama kadar çalıştırmak için sürüyor?**
+SORU. **İ kümem için TaskApprovalPolicy 'NodeWise' veya 'UpgradeDomainWise' olarak ayarlamalı mıyım?**
 
-A. Düzeltme eki düzenleme uygulama tarafından gereken süre, genellikle aşağıdaki etkenlere bağlıdır:
+A. 'UpgradeDomainWise' genel küme daha hızlı bir şekilde paralel bir yükseltme etki alanına ait olan tüm düğümleri düzeltme eki uygulama düzeltme eki uygulama sağlar. Bu tüm bir yükseltme etki alanına ait düğümleri kullanılabilir olacağı anlamına gelir (içinde [devre dışı](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) durumu) düzeltme eki uygulama işlemi sırasında.
 
-- İlke Düzenleyicisi hizmeti. 
-  - Varsayılan ilkeyi `NodeWise`, aynı anda yalnızca tek bir düğüme düzeltme eki uygulama neden olur. Özellikle varsa daha büyük bir küme kullanmanızı öneririz `UpgradeDomainWise` kümeler arasında daha hızlı düzeltme eki uygulama elde etmek için ilke.
-- Güncelleştirme indirme ve yükleme için kullanılabilir sayısı. 
-- İndirmek ve bir güncelleştirmeyi yüklemek için gereken ortalama süre, birkaç saat aşmamalıdır.
-- VM ve ağ bant genişliği performansını.
+Buna 'NodeWise' İlkesi aynı anda yalnızca tek bir düğüme yamaları, bu küme genel düzeltme eki uygulama uzun zaman alabileceğini anlamına gelir. Ancak, max yalnızca bir düğüm kullanılamaz durumda olurdu (içinde [devre dışı bırakılmış](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) durumu) düzeltme eki uygulama işlemi sırasında.
+
+Kümenizi yükseltme etki alanları N-1 sayısı daha sonra ilkeyi 'UpgradeDomainWise' olarak ayarlayabilir (N kümenizdeki yükseltme etki alanlarının sayısı olduğu) döngüsü, düzeltme eki uygulama sırasında çalışan toleransına sahipse, aksi takdirde 'NodeWise için' ayarlayın.
+
+SORU. **Ne kadar zaman mevcut bir düğüm düzeltme eki uygulama Al?**
+
+A. Bir düğüm düzeltme eki uygulama dakika sürebilir (örneğin: [Windows Defender tanım güncelleştirmeleri](https://www.microsoft.com/wdsi/definitions)) saat için (örneğin: [Windows toplu güncelleştirmeleri](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Bir düğüm düzeltme eki için gereken süre, çoğunlukla bağlıdır 
+ - Güncelleştirmeleri boyutu
+ - Düzeltme eki uygulayan bir pencere içinde uygulanacak olan güncelleştirme sayısı
+ - Bu güncelleştirmeleri yüklemek, (gerekirse) düğümü yeniden başlatma ve yeniden başlatma sonrası yükleme adımlarını tamamlamak için geçen süre.
+ - VM/makine ve ağ koşullarını performans.
+
+SORU. **Ne kadar bir kümenin tamamını düzeltme eki sürer?**
+
+A. Bir kümenin tamamını düzeltme eki için gereken süre aşağıdaki etkenlere bağlıdır:
+
+- Bir düğüm düzeltme eki için gereken süre.
+- İlke Düzenleyicisi hizmeti. -Varsayılan ilke `NodeWise`, sonuçları daha yavaş olacaktır bir anda yalnızca tek bir düğüme düzeltme `UpgradeDomainWise`. Örneğin: bir düğüm yama uygulanacak yaklaşık 1 saat sürerse, 20 düğüm (düğüm aynı türü) düzeltme eki uygulama edebilmesi küme 5 yükseltme etki alanları ile her biri 4 düğüm içeren.
+    - İlke, tüm küme düzeltme eki yaklaşık 20 saat sürer `NodeWise`
+    - İlke yaklaşık 5 saat sürer `UpgradeDomainWise`
+- Küme yükleme - düzeltme eki uygulama işlemi her müşterinin iş yükü için kullanılabilir diğer küme düğümleri yeniden konumlandırma gerektirir. Düzeltme eki aşamasında düğüm olacak [devre dışı bırakılması](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) bu süre boyunca durum. Küme yoğun yük çalışıyorsa, devre dışı bırakma işlemi uzun sürecektir. Bu nedenle genel düzeltme eki uygulama işlemini vurgulu böylesi yavaş görünebilir.
+- Sistem durumu hataları düzeltme sırasında - her küme [performans düşüşü](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) içinde [küme durumunu](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) düzeltme eki uygulama işlemini kesersiniz. Bu, tüm küme düzeltme eki için gereken toplam süreyi eklersiniz.
 
 SORU. **Bazı güncelleştirmeler Windows Update sonuçlarında REST API aracılığıyla ancak makinedeki Windows güncelleştirme geçmişini altında elde neden görüyorum?**
 
-A. Bazı ürün güncelleştirmeleri, yalnızca ilgili güncelleştirme/düzeltme eki geçmişlerini görünür. Örneğin, Windows Defender'ın güncelleştirmeleri Windows Server 2016, Windows Update geçmişinde gösterilmez.
+A. Bazı ürün güncelleştirmeleri, yalnızca ilgili güncelleştirme/düzeltme eki geçmişlerini görünür. Örneğin, Windows Defender'ın güncelleştirmeleri olabilir veya Windows Server 2016, Windows Update geçmişinde görünmeyebilir.
 
 SORU. **Düzeltme ekini düzenlemeyi uygulama geliştirme kümem (tek düğümlü kümenize) düzeltme eki için kullanılabilir mi?**
 

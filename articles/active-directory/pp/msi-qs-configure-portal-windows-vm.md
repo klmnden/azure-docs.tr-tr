@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 37710015904c8112e5d2de504ed5b42895ffb809
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 54bb2466a99569c124128ad3e08f276a0bc0262d
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610324"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035274"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Bir VM yönetilen hizmet kimliği (Azure portalını kullanarak MSI) yapılandırma
 
@@ -52,7 +52,7 @@ Ardından VM'deki MSI etkinleştirme hakkında daha fazla ayrıntı için sonrak
 
 2. "Yapılandırma" sayfası, VM'deki MSI "Yönetilen hizmet kimliği altında" "Evet"'i seçerek Etkinleştir'ı tıklatın **Kaydet**. Bu işlemi tamamlamak için 60 saniye veya daha fazlasını gerçekleştirebilirsiniz:
 
-   ![Yapılandırma sayfasında ekran görüntüsü](~/articles/active-directory/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Yapılandırma sayfasında ekran görüntüsü](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Bir Azure VM'den MSI Kaldır
 
@@ -64,7 +64,7 @@ Bir sanal makine varsa, artık bir MSI gerekir:
 
 3. "Yapılandırma" sayfası, MSI "Yönetilen hizmet kimliği" altında "Hayır"'i seçerek sanal makineden kaldırın, ardından tıklatın **Kaydet**. Bu işlemi tamamlamak için 60 saniye veya daha fazlasını gerçekleştirebilirsiniz:
 
-   ![Yapılandırma sayfasında ekran görüntüsü](~/articles/active-directory/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+   ![Yapılandırma sayfasında ekran görüntüsü](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## <a name="related-content"></a>İlgili içerik
 

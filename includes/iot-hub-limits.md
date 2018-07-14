@@ -14,7 +14,7 @@ Aşağıdaki tabloda IOT Hub kaynakları için geçerli olan sınırlar listelen
 
 | Kaynak | Sınır |
 | --- | --- |
-| Azure aboneliği başına en fazla ücretli IoT hub’ı sayısı |10 |
+| Azure aboneliği başına en fazla ücretli IoT hub’ı sayısı |50 |
 | Azure aboneliği başına en fazla ücretsiz IoT hub’ı sayısı |1 |
 | Bir cihaz kimliği karakter sayısı | 128 |
 | En fazla cihaz kimliği sayısı<br/> (tek bir çağrıda döndürülen) |1000 |
@@ -38,24 +38,24 @@ Aşağıdaki tabloda IOT Hub kaynakları için geçerli olan sınırlar listelen
 
 
 > [!NOTE]
-> Bir Azure aboneliğinde 10’dan fazla ücretli IoT hub’ı gerekirse Microsoft desteğine başvurun.
+> 50'den fazla Ücretli IOT hub'ı bir Azure aboneliğine ihtiyacınız varsa, Microsoft desteğine başvurun.
 
 
 > [!NOTE]
-> Şu anda en fazla tek bir IOT hub'ına bağlanabileceğiniz aygıtlar 500.000 sayısıdır. Bu sınırı artırmak istiyorsanız, ilgili kişi [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+> Şu anda en fazla cihazları tek bir IOT hub'ına bağlanabilir 500.000 sayısıdır. Bu sınırı artırmak istiyorsanız, ilgili kişi [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 Aşağıdaki kotalar aşıldığında IoT Hub hizmeti istekleri kısıtlar:
 
 | Kısıtlama | Hub başına değer |
 | --- | --- |
-| Kimlik kayıt defteri işlemleri <br/> (oluşturma, alma, listeleme, güncelleştirme, silme) <br/> tek tek veya toplu içeri/dışarı aktarma |(için S3) 83.33/sec/Unit (min/5000/birim) <br/> (için S1 ve S2) 1.67/sec/Unit (min/100/birimi). |
+| Kimlik kayıt defteri işlemleri <br/> (oluşturma, alma, listeleme, güncelleştirme, silme) <br/> tek tek veya toplu içeri/dışarı aktarma |(S3 için) 83.33/sec/Unit (5000/dk/birim) <br/> (100/dk/birim) 1.67/sec/Unit (için S1 ve S2 için). |
 | Cihaz bağlantıları |6000/sn/birim (S3 için), 120/sn/birim (S2 için), 12/sn/birim (S1 için). <br/>En az 100/sn. |
 | Cihazdan buluta gönderim |6000/sn/birim (S3 için), 120/sn/birim (S2 için), 12/sn/birim (S1 için). <br/>En az 100/sn. |
-| Buluttan cihaza gönderim | (için S1 ve S2) 83.33/sec/Unit (5000/min/birim) (S3) 1.67/sec/unit (min/100/birimi). |
-| Buluttan cihaza alım |833.33/sec/Unit (50000/min/birim) (S3) 16.67/sec/unit (1000/min/birim) (S1 ve S2). |
-| Dosya karşıya yükleme işlemleri |83.33 dosya karşıya yükleme bildirimleri/sn/birim (5000/min/birim) (S3), 1,67 dosya karşıya yükleme bildirimleri/sn/birimi (min/100/birimi) (S1 ve S2). <br/> Bir Azure Depolama hesabı için tek seferde 10000 SAS URI’si çıkarılabilir.<br/> Tek seferde 10 SAS URI’si/cihaz çıkarılabilir. |
-| Doğrudan yöntemler | 24MB/sn/birim (S3), 480KB/sn/birim (S2), 160KB/sn/birim (S1)<br/> 8 ölçer boyutunu azaltma KB temel. |
+| Buluttan cihaza gönderim | (S1 ve S2 için için) 83.33/sec/Unit (5000/dk/birim) (S3 için), 1.67/sec/unit (100/dk/birim). |
+| Buluttan cihaza alım |833.33/sec/Unit (50000/dk/birim) (S3 için), 16.67/sec/unit (1000/dk/birim) (S1 ve S2 için). |
+| Dosya karşıya yükleme işlemleri |83.33 dosya karşıya yükleme bildirimi/sn/birim (5000/dk/birim) (S3 için), 1,67 dosya karşıya yükleme bildirimler/sn/birim (100/dk/birim) (S1 ve S2 için). <br/> Bir Azure Depolama hesabı için tek seferde 10000 SAS URI’si çıkarılabilir.<br/> Tek seferde 10 SAS URI’si/cihaz çıkarılabilir. |
+| Doğrudan yöntemler | 24MB/sn/birim (S3 için), 480KB/sn/birim (S2 için), 160KB/sn/birim (S1 için)<br/> 8 ölçüt boyutu azaltma KB temel. |
 | Cihaz ikizi okumaları | 50/sn/birim (S3 için), En fazla 10/sn veya 1/sn/birim (S2 için), 10/sn (S1 için) |
 | Cihaz ikizi güncelleştirmeleri | 50/sn/birim (S3 için), En fazla 10/sn veya 1/sn/birim (S2 için), 10/sn (S1 için) |
-| İş işlemleri <br/> (oluşturma, güncelleştirme, listeleme, silme) | (için S2) 83.33/sec/Unit (5000/min/birim) (S3) 1.67/sec/unit (min/100/birimi), (için S1) 1.67/sec/unit (min/100/birim) |
+| İş işlemleri <br/> (oluşturma, güncelleştirme, listeleme, silme) | 83.33/sec/Unit (5000/dk/birim) (S3 için), 1.67/sec/unit (100/dk/birim) (S2 için), (S1 için) 1.67/sec/unit (100/dk/birim) |
 | İşler işlemleri için cihaz başına aktarım hızı | 50/sn/birim (S3 için), En fazla 10/sn veya 1/sn/birim (S2 için), 10/sn (S1 için) |

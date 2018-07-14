@@ -8,97 +8,125 @@ author: ghogen
 ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: article
-description: Kapsayıcılar ve Azure üzerinde mikro ile hızlı Kubernetes geliştirme
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes hizmeti, kapsayıcıları
+description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: 371bb9195266f3511d115de2532e6b64f49ef26f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fdf195d96bb455334cb4e898e560813ee8709a50
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199305"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035661"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
-Bu kılavuz Azure Dev alanları kullanılırken olabilir ortak sorunlar hakkında bilgi içerir.
+Bu kılavuz, Azure geliştirme alanları kullanılırken olabilir sık karşılaşılan sorunlar hakkında bilgi içerir.
 
-## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>Hata 'upstream bağlantı hatası veya kesin/reset önce üstbilgileri'
-Hizmetinize erişmek çalışırken, bu hatayı görebilirsiniz. Örneğin, ne zaman, bir tarayıcıda hizmetin URL'sine gidin. 
+## <a name="error-service-cannot-be-started"></a>Hata 'hizmeti başlatılamıyor.'
 
-### <a name="reason"></a>Neden 
-Kapsayıcı bağlantı noktası kullanılamaz. Bunun nedeni olabilir: 
-* , Yine yerleşik dağıtılan ve sürecinde kapsayıcıdır. Çalıştırıyorsanız bu durum, `azds up` veya hata ayıklayıcısını başlatın ve sonra başarıyla dağıtıldığını önce kapsayıcı erişmeyi deneyin.
-* Bağlantı noktası yapılandırmasını, Dockerfile, Helm grafik ve bağlantı noktası açar. herhangi bir sunucu kodu arasında tutarlı değil.
+Başlatmak hizmet kodunuzu başarısız olduğunda bu hatayı görebilirsiniz. Genellikle kullanıcı kodunda nedenidir. Daha fazla tanı bilgilerini almak için komutlar ve ayarlar aşağıdaki değişiklikleri yapın:
+
+Komut satırında:
+
+1. Kullanırken _azds.exe_, kullanın verbose komut satırı seçeneğini kullanıp çıkış biçimini belirtmek için output komut satırı seçeneği.
+ 
+    ```cmd
+    azds up --verbose --output json
+    ```
+
+Visual Studio'da:
+
+1. Açık **Araçlar > Seçenekler** altında **projeler ve çözümler**, seçin ve **derleme ve çalıştırma**.
+2. Ayarlarını değiştirmek için **MSBuild proje oluşturması çıkış ayrıntısı** için **ayrıntılı** veya **tanılama**.
+
+    ![Ekran Araçlar, Seçenekler iletişim kutusu](media/common/VerbositySetting.PNG)
+
+## <a name="error-required-tools-and-configurations-are-missing"></a>'Araçlar ve yapılandırmaları eksik gerekli' hatası
+
+VS Code başlatırken bu hata oluşabilir: "[Azure geliştirme alanları] araçları ve derleme ve '[Proje adı]' hata ayıklama yapılandırmaları gerekli eksik."
+Hata, o azds.exe yol ortam değişkeninde değil VS Code'da görüldüğü anlamına gelir.
 
 ### <a name="try"></a>Deneyin:
-1. Kapsayıcı yerleşik/dağıtılan sürecinde ise, 2-3 saniye bekleyin ve hizmet erişimi yeniden deneyin. 
-1. Bağlantı noktası yapılandırmanızı denetleyin. Belirtilen bağlantı noktası numaralarını olmalıdır **aynı** aşağıdaki tüm varlıklar içinde:
+
+VS Code, PATH ortam değişkenine düzgün olarak ayarlandığı bir komut isteminden başlatın.
+
+## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>Hata 'yukarı bağlantı hatası veya üst bilgileri önce bağlantıyı kes/reset'
+Hizmetinizi erişmeye çalışırken bu hatayı görebilirsiniz. Örneğin, ne zaman, hizmetin URL'sini bir tarayıcıda gidin. 
+
+### <a name="reason"></a>Neden 
+Kapsayıcı bağlantı noktası kullanılamaz. Bu sorun nedeniyle oluşabilir: 
+* , Yine yerleşik dağıtılan ve sürecinde kapsayıcıdır. Çalıştırırsanız bu sorun ortaya çıkabilecek `azds up` veya hata ayıklayıcıyı başlatın ve ardından başarıyla dağıtıldığını önce kapsayıcı erişmeyi deneyin.
+* Bağlantı noktası yapılandırması arasında tutarlı değil, _Dockerfile_, Helm grafiği ve sunucu kodlar bir bağlantı noktası açar.
+
+### <a name="try"></a>Deneyin:
+1. Kapsayıcı yerleşik/dağıtılan aşamasında olan 2-3 saniye bekleyin ve hizmete tekrar erişmeyi deneyin. 
+1. Bağlantı noktası yapılandırmanızı denetleyin. Belirtilen bağlantı noktası numaralarını olmalıdır **aynı** aşağıdaki tüm varlıkları içinde:
     * **Dockerfile:** tarafından belirtilen `EXPOSE` yönergesi.
-    * **[Helm grafik](https://docs.helm.sh):** tarafından belirtilen `externalPort` ve `internalPort` bir hizmet için değerleri (genellikle bulunan bir `values.yml` dosyası),
-    * Örneğin Node.js içinde uygulama kodundaki açılmakta tüm bağlantı noktaları: `var server = app.listen(80, function () {...}`
+    * **[Helm grafiği](https://docs.helm.sh):** tarafından belirtilen `externalPort` ve `internalPort` değerleri bir hizmet için (genellikle bulunan bir `values.yml` dosyası),
+    * Örneğin, Node.js içinde uygulama kodunda açılan tüm bağlantı noktaları: `var server = app.listen(80, function () {...}`
 
 
 ## <a name="config-file-not-found"></a>Yapılandırma dosyası bulunamadı
 Çalıştırmadan `azds up` ve aşağıdaki hatayı alıyorsunuz: `Config file not found: .../azds.yaml`
 
 ### <a name="reason"></a>Neden
-Çalıştırmalısınız `azds up` çalıştırmak istediğiniz kodu kök dizininden ve Azure Dev alanları ile çalıştırmak için kod klasörü başlatması gerekir.
+Çalıştırmalısınız `azds up` çalıştırmak istediğiniz kodu kök dizininden ve Azure Dev alanları ile çalıştırmak için kod klasörü başlatmanız gerekir.
 
 ### <a name="try"></a>Deneyin:
-1. Geçerli dizin hizmeti kodunuzu içeren kök klasör olarak değiştirin. 
-1. Kod klasöründe azds.yaml dosya yoksa çalıştırmak `azds prep` Docker, Kubernetes ve Azure Dev alanları varlıklar oluşturmak için.
+1. Geçerli dizin hizmeti kodunuzu içeren kök klasöre değiştirin. 
+1. Yoksa bir _azds.yaml_ çalıştırın kod klasörü dosyasında `azds prep` Docker, Kubernetes ve Azure Dev alanları varlıklar oluşturmak için.
 
-## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Hata: 'kanal programı '126 koduyla beklenmedik biçimde çıktı azds'.'
-VS Code hata ayıklayıcıyı başlatma bazen bu hatasına neden olabilir. Bu bilinen bir sorundur.
+## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Hata: 'kanal programına '126 koduyla beklenmedik bir şekilde çıkıldı azds'.'
+VS Code hata ayıklayıcı başlatılıyor, bazen bu hataya neden olabilir. Bu bilinen bir sorundur.
 
 ### <a name="try"></a>Deneyin:
 1. VS Code kapatıp yeniden açın.
-2. F5 yeniden ulaştı.
+2. F5'e yeniden'e basın.
 
 
-## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>'Yapılandırıldı hata ayıklama türü 'coreclr' desteklenmiyor' hata ayıklama
-Hata raporlarını VS Code hata ayıklayıcı çalıştırma: `Configured debug type 'coreclr' is not supported.`
+## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>'Yapılandırıldı hata ayıklama türü 'coreclr' desteklenmeyen' hata ayıklama
+VS Code hata ayıklayıcısı çalıştırma, hata raporları: `Configured debug type 'coreclr' is not supported.`
 
 ### <a name="reason"></a>Neden
-Azure Dev geliştirme makinenizde yüklü alanları VS Code uzantısına sahip değil.
+Azure geliştirme geliştirme makinenizde yüklü alanları için VS Code uzantı yoktur.
 
 ### <a name="try"></a>Deneyin:
-Yükleme [VS Code uzantısı Azure Dev alanları](get-started-netcore.md).
+Yükleme [Azure geliştirme alanları için VS Code uzantısı](get-started-netcore.md).
 
-## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>'Kitaplığım' türü veya ad alanı adı bulunamadı
+## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>'Kitaplığım' tür veya ad alanı bulunamadı
 
 ### <a name="reason"></a>Neden 
-Varsayılan proje/hizmet düzeyinde yapı bağlamdır, bu nedenle, kullanmakta olduğunuz bir kitaplık projesine bulunamadığından olmaz.
+Varsayılan olarak proje/hizmet düzeyinde derleme bağlamıdır, bu nedenle, kullanmakta olduğunuz bir kitaplık projesi bulunamadığından olmaz.
 
 ### <a name="try"></a>Deneyin:
-Yapılması gerekenler:
-1. Yapı bağlamı için çözüm düzeyini ayarlamak için azds.yaml dosyasını değiştirin.
-2. Csproj dosyaları yeni derleme bağlam göre doğru şekilde başvurmak için Dockerfile ve Dockerfile.develop dosyaları değiştirin.
-3. .Dockerignore dosya .sln dosyasını yerleştirin ve gerektiği gibi değiştirin.
+Yapmanız gerekenler:
+1. Değiştirme _azds.yaml_ derleme bağlamı için çözüm düzeyi ayarlamak için dosya.
+2. Değiştirme _Dockerfile_ ve _Dockerfile.develop_ projesine başvuruda bulunmak için dosyaları (_.csproj_) dosyaları doğru bir şekilde yeni göre derleme bağlamı.
+3. Bir yerde bir _.dockerignore_ dosya .sln dosyasını ve gerektiği gibi değiştirin.
 
-Bir örneğe bulabilirsiniz https://github.com/sgreenmsft/buildcontextsample
+Bir örneğe göz bulabilirsiniz https://github.com/sgreenmsft/buildcontextsample
 
-## <a name="microsoftconnectedenvironmentregisteraction-authorization-error"></a>'Microsoft.ConnectedEnvironment/register/action' Yetkilendirme hatası
-Bir Azure Dev alanı yönetme ve bir Azure aboneliğinin sahibi veya katkıda erişim sahip olduğunuz değil çalıştığınız aşağıdaki hatayı görebilirsiniz.
-`The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.ConnectedEnvironment/register/action' over scope '/subscriptions/<Subscription Id>'.`
+## <a name="microsoftdevspacesregisteraction-authorization-error"></a>'Microsoft.DevSpaces/register/action' Yetkilendirme hatası
+Bir Azure geliştirme alanı yönettiğiniz ve bir Azure aboneliği sahibi veya katkıda bulunan erişimi olan değil çalışıyorsanız, aşağıdaki hatayı görebilirsiniz.
+`The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
 ### <a name="reason"></a>Neden
-Seçili Azure aboneliği Microsoft.ConnectedEnvironment ad alanı kayıtlı değil.
+Seçilen Azure aboneliği kaydedilmemiş `Microsoft.DevSpaces` ad alanı.
 
 ### <a name="try"></a>Deneyin:
-Azure aboneliğinin sahibi veya katkıda erişim biriyle el ile Microsoft.ConnectedEnvironment ad alanı kaydetmek için aşağıdaki Azure CLI komutu çalıştırabilirsiniz:
+Azure aboneliğinin sahibi veya katkıda bulunan erişimi olan el ile kaydetmek için aşağıdaki Azure CLI komutunu çalıştırabilirsiniz `Microsoft.DevSpaces` ad alanı:
 
 ```cmd
-az provider register --namespace Microsoft.ConnectedEnvironment
+az provider register --namespace Microsoft.DevSpaces
 ```
 
-## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev alanları bir kapsayıcı oluşturmak için varolan my Dockerfile kullanma gibi görünüyor 
+## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure geliştirme alanları bir kapsayıcı oluşturmak için var olan my Dockerfile kullanmak gibi görünüyor 
 
 ### <a name="reason"></a>Neden
-Azure Dev alanları projenizdeki belirli bir Dockerfile işaret edecek şekilde yapılandırılabilir. Azure Dev alanları kapsayıcılarınızı yapı beklediğiniz Dockerfile kullanmıyor görünürse, açıkça Azure Dev olduğu alanları bildirmeniz gerekebilir. 
+Azure geliştirme alanları, belirli bir işaret edecek şekilde yapılandırılabilir _Dockerfile_ projenizdeki. Azure geliştirme alanları kullanmıyorsa görünürse _Dockerfile_ kapsayıcılarınızı derleme beklediğiniz, Azure geliştirme alanları açıkça olduğu bildirmeniz gerekebilir. 
 
 ### <a name="try"></a>Deneyin:
-Açık `azds.yaml` Azure Dev boşluklarla projenizde oluşturulan dosya. Kullanmak `configurations->develop->build->dockerfile` yönergesi Dockerfile işaret etmek için kullanmak istediğiniz:
+Açık _azds.yaml_ projenizde Azure geliştirme alanları tarafından oluşturulan dosya. Kullanma `configurations->develop->build->dockerfile` kullanmak için bir Dockerfile işaret edecek şekilde yönergesi:
 
 ```
 ...

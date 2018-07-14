@@ -1,6 +1,6 @@
 ---
-title: Yayın Application Insights için ek açıklamalar | Microsoft Docs
-description: Dağıtım ekleme veya Application Insights, ölçümleri explorer grafiklerde işaretleyicileri oluşturabilirsiniz.
+title: Sürüm ek açıklamaları Application ınsights | Microsoft Docs
+description: Dağıtım ekleyebilir veya, Application ınsights ölçüm Gezgini grafiklerini işaretleyicileri oluşturun.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,82 +13,82 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: fb4bcd57062017c0d7ee802ba1f46660476f6af2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 056716e243980f0a8aadc1ff7e9b8776809ad88e
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293444"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036406"
 ---
-# <a name="annotations-on-metric-charts-in-application-insights"></a>Application ınsights'ta ölçüm grafiklerde ek açıklamaları
-Ek açıklamalar [ölçüm Gezgini](app-insights-metrics-explorer.md) grafikleri Göster yeni bir yapı veya diğer önemli olay dağıtıldığı. Bunlar değişikliklerinizi uygulamanızın performansı üzerinde hiçbir etkisi sahip olup olmadığını görmek kolaylaştırır. Tarafından otomatik olarak oluşturulabilir [Visual Studio Team Services yapı sistem](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs). Tarafından gibi herhangi bir olay bayrak için ek açıklama oluşturabilirsiniz [Powershell'den oluşturma](#create-annotations-from-powershell).
+# <a name="annotations-on-metric-charts-in-application-insights"></a>Application ınsights ölçüm grafikleri ek açıklamalar
+Ek açıklamalar [ölçüm Gezgini](app-insights-metrics-explorer.md) grafikleri, yeni bir derleme veya diğer önemli olay dağıtıldığı gösterir. Bunlar, değişikliklerinizi uygulamanızın performansını herhangi bir etkisi sahip olup olmadığını görmek kolaylaştırır. Tarafından otomatik olarak oluşturulabilir [Visual Studio Team Services derleme sistemi](https://docs.microsoft.com/vsts/pipelines/tasks/). Bayrak olarak istediğiniz herhangi bir olay için ek açıklamaları da oluşturabilirsiniz [Powershell'den oluşturarak](#create-annotations-from-powershell).
 
-![Sunucu yanıt süresi ile görünür bağıntı ile ek açıklama örneği](./media/app-insights-annotations/00.png)
+![Sunucu yanıt süresi ile görünür bağıntı açıklamalarla örneği](./media/app-insights-annotations/00.png)
 
 
 
-## <a name="release-annotations-with-vsts-build"></a>VSTS derleme ile yayın ek açıklama
+## <a name="release-annotations-with-vsts-build"></a>VSTS derleme ile yayın ek açıklamaları
 
-Yayın ek açıklamalar, bulut tabanlı derleme özelliğidir ve Visual Studio Team Services hizmeti bırakın. 
+Sürüm ek açıklamaları, bulut tabanlı derleme özelliğidir ve Visual Studio Team Services'ın hizmet bırakın. 
 
-### <a name="install-the-annotations-extension-one-time"></a>Ek açıklamalar uzantısını (bir kez) yükleyin
-Yayın ek açıklamaları oluşturabilecek için Visual Studio Market'te bulunabilir birçok takım hizmet uzantılardan birine yüklemeniz gerekir.
+### <a name="install-the-annotations-extension-one-time"></a>Ek Açıklamalar (bir kez) uzantıyı yükleme
+Sürüm ek açıklamalarını oluşturabilmek için birçok Team Service uzantılara Visual Studio Market'te yüklemeniz gerekir.
 
-1. Oturum açın, [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) projesi.
-2. Visual Studio pazarında [yayın ek açıklamaları uzantı alınmaya](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations)ve Team Services hesabınıza ekleyin.
+1. Oturum açın, [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) proje.
+2. Visual Studio Market'te [sürüm ek açıklamalarını uzantısını Al](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), Team Services hesabınıza ekleyin.
 
-![AT Team Services web sayfasının açık Market sağ üst. Visual Team Services seçin ve ardından derleme ve sürüm altında daha bkz belirtin.](./media/app-insights-annotations/10.png)
+![AT sağ üst köşesinde Team Services web sayfası, açık Market. Visual Team Services'ı seçin ve ardından derleme ve yayın altında daha fazla seçin.](./media/app-insights-annotations/10.png)
 
-Yalnızca bu kez Visual Studio Team Services hesabınız için yapmanız gerekir. Yayın ek açıklamaları artık hesabınıza herhangi bir projede için yapılandırılabilir. 
+Yalnızca bu kez Visual Studio Team Services hesabınız için yapmanız gerekir. Sürüm ek açıklamaları, hesabınızdaki herhangi bir proje için artık yapılandırılabilir. 
 
-### <a name="configure-release-annotations"></a>Yayın ek açıklamaları yapılandırın
+### <a name="configure-release-annotations"></a>Sürüm ek açıklamalarını yapılandırın
 
-Her VSTS yayın şablonu için ayrı bir API anahtarı edinmeniz gerekir.
+Her VSTS yayın şablonu için ayrı bir API anahtarı alma gerekir.
 
-1. Oturum [Microsoft Azure portalı](https://portal.azure.com) ve uygulamanızı izler Application Insights kaynağı açın. (Veya [şimdi oluşturmak](app-insights-overview.md), henüz yapmadıysanız.)
-2. Açık **API erişimini**, **uygulama Öngörüler kimliği**.
+1. Oturum [Microsoft Azure Portal](https://portal.azure.com) ve uygulamanızı izler Application Insights kaynağını açın. (Veya [şimdi oluşturmak](app-insights-overview.md), siz henüz yapmadıysanız.)
+2. Açık **API erişimi**, **Application Insights kimliği**.
    
-    ![Portal.Azure.com adresinde Application Insights kaynağınıza açın ve Ayarlar'ı seçin. API erişimini açın. Uygulama Kimliğini kopyalayın](./media/app-insights-annotations/20.png)
+    ![Portal.Azure.com adresinde Application Insights kaynağınızı açın ve Ayarlar'ı seçin. API erişimi'ni açın. Uygulama Kimliğini kopyalama](./media/app-insights-annotations/20.png)
 
-4. Ayrı bir tarayıcı penceresi açın (veya oluşturun) Visual Studio Team Services dağıtımlarınızı yönetir yayın şablonu. 
+4. Ayrı bir tarayıcı penceresi açın (veya oluşturun) Visual Studio Team Services dağıtımlarınız yöneten sürüm şablonu. 
    
-    Bir görev eklemek ve uygulama Öngörüler yayın ek açıklama görev menüsünden seçin.
+    Bir görev ekleyin ve Application Insights sürüm ek açıklamasının görev menüden seçim yapın.
    
-    Yapıştır **uygulama kimliği** API erişimini dikey penceresinden kopyaladığınız.
+    Yapıştırma **uygulama kimliği** API erişimi dikey penceresinden kopyaladığınız.
    
-    ![Visual Studio Team Services sürüm açın, bir yayın tanımı seçin ve Düzenle'yi seçin. Görev Ekle'yi tıklatın ve uygulama Öngörüler yayın ek açıklama seçin. Uygulama Öngörüler kimliği yapıştırın](./media/app-insights-annotations/30.png)
-4. Ayarlama **apikey ile yapılan** bir değişkene alan `$(ApiKey)`.
+    ![Visual Studio Team Services, yayın açın, bir yayın tanımı seçin ve Düzenle'yi seçin. Görev Ekle tıklayın ve Application Insights sürüm ek açıklamasının'ı seçin. Application Insights kimliğini yapıştırın](./media/app-insights-annotations/30.png)
+4. Ayarlama **APIKey** alan bir değişkene `$(ApiKey)`.
 
-5. Azure penceresine geri döndüğünüzde yeni bir API anahtar oluşturun ve bir kopyasını alın.
+5. Azure penceresinde geri döndüğünüzde yeni bir API anahtarı oluşturma ve bir kopyasını alın.
    
-    ![Azure penceresinde API erişimini dikey penceresinde API anahtarı oluştur'a tıklayın. Bir açıklama sağlayın, yazma ek açıklamaları denetleyin ve anahtar oluştur'a tıklayın. Yeni anahtarı kopyalayın.](./media/app-insights-annotations/40.png)
+    ![Azure penceresinde API erişimi dikey pencerede API anahtarı oluştur'a tıklayın. Bir açıklama sağlayın, yazma ek açıklamalarını denetleyin ve anahtar oluştur'a tıklayın. Yeni anahtarı kopyalayın.](./media/app-insights-annotations/40.png)
 
 6. Yayın şablonu yapılandırma sekmesini açın.
    
-    İçin bir değişken tanımı oluşturun `ApiKey`.
+    Bir değişken tanımı oluşturma `ApiKey`.
    
-    API anahtarınıza apikey ile yapılan değişken tanımını yapıştırın.
+    ApiKey değişken tanımı için API anahtarınızı yapıştırın.
    
-    ![Team Services penceresinde yapılandırma sekmesini seçin ve değişken Ekle'yi tıklatın. Adı apikey ile yapılan ve değerine ayarlayın, az önce oluşturulan anahtarını yapıştırın ve kilit simgesini tıklatın.](./media/app-insights-annotations/50.png)
-7. Son olarak, **kaydetmek** yayın tanımı.
+    ![Team Services penceresinde, yapılandırma sekmesini seçin ve değişken Ekle'a tıklayın. ApiKey ve değerine ayarlayın, yalnızca oluşturulan anahtarı yapıştırın ve kilit simgesine tıklayın.](./media/app-insights-annotations/50.png)
+7. Son olarak, **Kaydet** yayın tanımı.
 
 
-## <a name="view-annotations"></a>Görünüm ek açıklamaları
-Artık, yeni bir sürüm dağıtmak için yayın şablonu kullandığınızda, ek açıklamanın Application Insights'a gönderilir. Ek açıklamalar ölçüm Gezgini grafiklerinde görüntülenir.
+## <a name="view-annotations"></a>Ek açıklamaları görüntüle
+Şimdi, yeni bir yayın dağıtmak için yayın şablonunu kullandığınızda, bir ek açıklama Application Insights'a gönderilir. Ek açıklamalar, grafiklerde ölçüm Gezgini'nde görünür.
 
-İstek sahibi, kaynak denetimi dalı dahil olmak üzere, yayın ayrıntılarını açmak için hiçbir ek açıklama işaretçisi tıklayın, tanımı, ortam ve daha fazlasını bırakın.
+İstek sahibi, kaynak denetimi dal dahil olmak üzere, yayın ayrıntılarını açmak için herhangi bir ek açıklama işaretçisi tıklayın, sürüm tanımı, ortam ve daha fazlası.
 
-![Tüm yayın ek açıklama işaretçisi'ı tıklatın.](./media/app-insights-annotations/60.png)
+![Herhangi bir sürüm ek açıklama işaretçisi tıklayın.](./media/app-insights-annotations/60.png)
 
-## <a name="create-custom-annotations-from-powershell"></a>Özel ek açıklama Powershell'den oluşturma
-(VS Team System kullanmadan) gibi herhangi bir işlem ek açıklamaları da oluşturabilirsiniz. 
+## <a name="create-custom-annotations-from-powershell"></a>Powershell'den özel ek açıklamaları oluşturma
+(Bir VS Team System'ı kullanmadan) gibi herhangi bir işlem ek açıklamaları da oluşturabilirsiniz. 
 
 
 1. Yerel bir kopyasını [Powershell betiği github'dan](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
 
-2. Uygulama Kimliği alın ve API erişimini dikey penceresinden bir API anahtarı oluşturun.
+2. Uygulama Kimliğini alın ve API erişimi dikey penceresinden bir API anahtarı oluşturun.
 
-3. Bu gibi komut dosyası çağırın:
+3. Bunun gibi bir betik çağırın:
 
 ```PS
 
@@ -101,7 +101,7 @@ Artık, yeni bir sürüm dağıtmak için yayın şablonu kullandığınızda, e
           "TriggerBy"="My Name" }
 ```
 
-Ek açıklamalar için geçmiş oluşturmak örnek için betik değiştirmek çok kolaydır.
+Örneğin son ek açıklamalarını oluşturmak komut dosyasını değiştirmek kolay bir işlemdir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

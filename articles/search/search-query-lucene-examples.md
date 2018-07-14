@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: liamca
-ms.openlocfilehash: a3baa17906e3bfede8a7fc5f8a0bfbde9d2a57ce
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 24fa427ad67a953020370a16b4d156c82a0a1cf6
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951031"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036675"
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene sorgu söz dizimi örnekleri, Azure Search'te sorgular oluşturmak için
 Azure arama için sorgular oluşturmak, ya da varsayılan kullanabilirsiniz [Basit Sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) veya alternatif [Azure Search'te Lucene sorgu ayrıştırıcısına](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Lucene sorgu ayrıştırıcısına alan kapsamlı sorgular, belirsiz arama, yakınlık araması, terimle ve normal ifade araması gibi daha karmaşık sorgu yapılarını destekler.
@@ -69,7 +69,7 @@ Belirtilen alan **fieldname:searchterm** aranabilir bir alanı olmalıdır. Bkz:
 ## <a name="fuzzy-search-example"></a>Belirsiz arama örneği
 Belirsiz arama eşleşme bulur benzer bir yapı olması koşuluyla. Başına [Lucene belgeleri](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), belirsiz arama temel [Damerau Levenshtein uzaklık](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
-Belirsiz arama yapmak için tilde ekleme "~" isteğe bağlı bir parametre, düzenleme uzaklığı belirten bir değeri 0. ve 2 arasındaki tek bir sözcük sonuna simgesi. Örneğin, "mavi ~" veya "mavi ~ 1" dönmek mavi, mavi ve bağlantılı.
+Belirsiz arama yapmak için tilde ekleme `~` isteğe bağlı bir parametre, düzenleme uzaklığı belirten bir değeri 0. ve 2 arasındaki tek bir sözcük sonuna simgesi. Örneğin, `blue~` veya `blue~1` mavi, mavi ve bağlantılı döndürür.
 
 **Örnek 3** --aşağıdaki sorgu kod parçacığı sağ tıklayın. Bu sorgu, (burada, yanlış yazılmış) terim ilişkilendirme işlerle arar:
 

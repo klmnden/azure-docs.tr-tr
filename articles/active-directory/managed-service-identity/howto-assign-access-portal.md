@@ -1,6 +1,6 @@
 ---
-title: Bir MSI erişim Azure Portalı'nı kullanarak bir Azure kaynak atama
-description: Azure portalını kullanarak başka bir kaynak için bir MSI bir kaynağa erişim atamak için adım adım yönergeler.
+title: Azure portalını kullanarak bir Azure kaynağına MSI erişimi atama
+description: Azure portalını kullanarak başka bir kaynağa bir MSI bir kaynağa erişim atamak için adım adım yönergeler.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,61 +14,61 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 06f316a7c96ff266e9f4593fa3a9ac871b2979aa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf6df6dd87de56ca3c8180d5377e35d9be9bbd79
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33929781"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036454"
 ---
-# <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Azure portalı kullanarak bir kaynak için bir yönetilen hizmet kimliği erişimi atayın
+# <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Azure portalını kullanarak bir kaynak için bir yönetilen hizmet kimliği erişim atama
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bir yönetilen hizmet kimliği (MSI ile) bir Azure kaynağı yapılandırdıktan sonra hiçbir güvenlik sorumlusu gibi başka bir kaynak MSI erişim izni verebilirsiniz. Bu makalede Azure portalını kullanarak bir Azure depolama hesabı için bir Azure sanal makine veya sanal makine ölçek kümesinin MSI erişim vermek nasıl gösterir.
+Bir Azure kaynağı bir yönetilen hizmet kimliği (MSI ile) yapılandırdıktan sonra herhangi bir güvenlik sorumlusu gibi başka bir kaynak için MSI erişimi verebilirsiniz. Bu makalede Azure portalını kullanarak bir Azure depolama hesabı için bir Azure sanal makine veya sanal makine ölçek kümesi'nin MSI erişimi vermek gösterilmektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Başka bir kaynağa MSI erişim atamak için RBAC kullanın
+## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Başka bir kaynağa MSI erişimi atamak için RBAC kullanma
 
-Bir Azure kaynağı üzerinde gibi MSI etkinleştirdikten sonra bir [Azure VM](qs-configure-portal-windows-vm.md) veya [Azure VMSS](qs-configure-portal-windows-vmss.md):
+MSI gibi bir Azure kaynağında etkinleştirdikten sonra bir [Azure VM](qs-configure-portal-windows-vm.md) veya [Azure VMSS](qs-configure-portal-windows-vmss.md):
 
-1. Oturum [Azure portal](https://portal.azure.com) MSI altında yapılandırdığınız Azure aboneliği ile ilişkili bir hesabı kullanarak.
+1. Oturum [Azure portalında](https://portal.azure.com) MSI altında yapılandırdığınız Azure aboneliği ile ilişkili bir hesap kullanarak.
 
-2. Erişim denetimi değiştirmek istediğiniz istenen kaynağa gidin. Bu örnekte, bir Azure sanal makinesi vermiş olursunuz ve biz depolama hesabınıza gidin Azure sanal makine ölçek erişimi bir depolama hesabına ayarlandı.
+2. Erişim denetimi değiştirmek istediğiniz istenen kaynağa gidin. Bu örnekte, biz de Azure sanal makinesi vermiş olursunuz ve biz depolama hesabına gidin. Bu nedenle Azure sanal makine ölçek bir depolama hesabına erişim ayarlayın.
 
-3. Bir Azure sanal makinesi için seçin **erişim denetimi (IAM)** sayfasında kaynak ve select **+ Ekle**. Ardından belirtin **rol**, **sanal makineye erişim atamak**ve karşılık gelen belirtin **abonelik** ve **kaynak grubu** kaynağın bulunduğu. Arama ölçütleri alanında kaynak görmeniz gerekir. Kaynak seçin ve Seç **kaydetmek**. 
+3. Bir Azure sanal makinesi için seçin **erişim denetimi (IAM)** seçin ve kaynak sayfasında **+ Ekle**. Ardından belirtin **rol**, **sanal makineye erişim atama**, karşılık gelen belirtin **abonelik** ve **kaynak grubu** kaynağın bulunduğu. Arama ölçütleri alanında kaynak görmeniz gerekir. Kaynak seçip **Kaydet**. 
 
-   ![Erişim denetimi (IAM) ekran görüntüsü](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
-   Bir Azure sanal makine ölçek kümesi için seçme **erişim denetimi (IAM)** sayfasında kaynak ve select **+ Ekle**. Ardından belirtin **rol**, **atamak için erişim**. Arama ölçütleri alanında, sanal makine ölçek kümesi için arama yapın. Kaynak seçin ve Seç **kaydetmek**.
+   ![Erişim denetimi (IAM) ekran görüntüsü](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   Bir Azure sanal makine ölçek kümesi için seçin **erişim denetimi (IAM)** seçin ve kaynak sayfasında **+ Ekle**. Ardından belirtin **rol**, **erişim Ata**. Arama ölçütleri alanında, sanal makine ölçek kümesi için arama yapın. Kaynak seçip **Kaydet**.
    
-   ![Erişim denetimi (IAM) ekran görüntüsü](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
+   ![Erişim denetimi (IAM) ekran görüntüsü](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
 
 4. Ana döndürülür **erişim denetimi (IAM)** gördüğünüz yeni bir giriş için kaynağın MSI sayfası.
 
-    Azure sanal makinesi:
+    Azure sanal makine:
 
-   ![Erişim denetimi (IAM) ekran görüntüsü](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![Erişim denetimi (IAM) ekran görüntüsü](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
     Azure sanal makine ölçek kümesi:
 
-    ![Erişim denetimi (IAM) ekran görüntüsü](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
+    ![Erişim denetimi (IAM) ekran görüntüsü](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Kaynak için MSI kullanılabilir kimlikleri listesinde görünmüyor, MSI doğru etkin olduğunu doğrulayın. Örneğimizde, biz Azure sanal makineye geri dönün ve aşağıdakileri denetleyin:
+Kaynak için MSI kullanılabilir kimlikleri listesinde görünmüyor, MSI doğru etkin olduğunu doğrulayın. Örneğimizde, biz Azure sanal makinesi için geri dönün ve aşağıdakileri denetleyin:
 
-- Bakmak **yapılandırma** sayfasında ve değeri emin **etkin MSI** olan **Evet**.
-- Bakmak **uzantıları** sayfasında ve başarıyla dağıtılan MSI uzantısı emin olun (**uzantıları** sayfa bir Azure sanal makine ölçek kümesi için kullanılabilir değil).
+- Bakmak **yapılandırma** değeri olduğundan emin olun ve sayfa **MSI etkin** olduğu **Evet**.
+- Bakmak **uzantıları** sayfasında ve MSI uzantı başarıyla dağıtıldığından emin olun (**uzantıları** sayfa bir Azure sanal makine ölçek kümesi için kullanılabilir değil).
 
-Ya da yanlışsa, kaynakta MSI yeniden dağıtmanız veya dağıtım hatası sorun giderme gerekebilir.
+Ya da yanlışsa kaynağınızda MSI yeniden dağıtmanız veya dağıtım hatasıyla ilgili sorunları giderme gerekebilir.
 
 ## <a name="related-content"></a>İlgili içerik
 
-- MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](overview.md).
-- Bir Azure sanal makinede MSI etkinleştirmek için bkz: [bir Azure VM yönetilen hizmet kimliği (Azure Portalı'nı kullanarak MSI) yapılandırma](qs-configure-portal-windows-vm.md).
-- Bir Azure sanal makine ölçek kümesinde MSI etkinleştirmek için bkz: [bir Azure sanal makine ölçek kümesi yönetilen hizmet kimlik (Azure Portalı'nı kullanarak MSI) yapılandırma](qs-configure-portal-windows-vmss.md)
+- MSI genel bakış için bkz. [yönetilen hizmet Kimliği'ne genel bakış](overview.md).
+- Azure sanal makinesinde MSI etkinleştirmek için bkz: [bir Azure VM yönetilen hizmet kimliği (Azure portalını kullanarak MSI) yapılandırma](qs-configure-portal-windows-vm.md).
+- Bir Azure sanal makine ölçek kümesinde MSI etkinleştirmek için bkz: [bir Azure sanal makine ölçek kümesi yönetilen hizmet kimliği (Azure portalını kullanarak MSI) yapılandırma](qs-configure-portal-windows-vmss.md)
 
 

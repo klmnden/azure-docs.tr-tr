@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 07/13/2018
 ms.author: babanisa
-ms.openlocfilehash: f3541fb3dbca6243f6c10611aa968603745f97a1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 41e7be80eb67deaf7a8189aa0d9f62c48b88799a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38314437"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036246"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid ile CloudEvents şeması kullanma
 
@@ -74,8 +74,6 @@ CloudEvents v0.1, aşağıdaki özelliklere sahiptir:
 Daha fazla bilgi için [CloudEvents spec](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Event Grid CloudEvents için yapılandırma
-
-Şu anda, Azure Event Grid desteklemek için CloudEvents JSON biçimi giriş ve çıkış Önizleme sahip **Batı Orta ABD**, **Orta ABD**, ve **Kuzey Avrupa**.
 
 Event Grid, hem giriş hem de çıkış olayların CloudEvents şeması için kullanabilirsiniz. Blob Depolama olaylarını ve IOT Hub olaylarını ve özel olaylar gibi sistem olaylarını CloudEvents kullanabilirsiniz. Ayrıca, bu olaylara kablo ve geriye de dönüştürebilirsiniz.
 

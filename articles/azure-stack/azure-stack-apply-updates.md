@@ -1,6 +1,6 @@
 ---
-title: Azure yığınında güncelleştirmeleri uygulamak | Microsoft Docs
-description: İçeri aktarma ve Azure tümleşik yığını sistemi için Microsoft güncelleştirme paketlerini yüklemek hakkında bilgi edinin.
+title: Azure stack'teki güncelleştirmeleri uygulamak | Microsoft Docs
+description: İçeri aktarma ve Azure Stack tümleşik sistemi için Microsoft güncelleştirme paketlerini yükleme hakkında bilgi edinin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: da8261d27ae7fad3c5ff30e4e1cce3f1bca2b70a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29802660"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035342"
 ---
-# <a name="apply-updates-in-azure-stack"></a>Azure yığınında güncelleştirmeleri uygulama
+# <a name="apply-updates-in-azure-stack"></a>Azure stack'teki güncelleştirmelerini uygulayın
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri*
 
-Bir Azure yığın operatör olarak, Microsoft update Yönetici portalı'nda güncelleştirme kullanarak Azure yığın paketleri döşeme uygulayabilirsiniz. Microsoft güncelleştirme paketini indirin, Azure yığınına paketi dosyalarını içe ve ardından güncelleştirme paketini yüklemek gerekir. 
+Azure Stack operatör olarak Microsoft uygulayabilir veya Yönetici portalı'nda Azure Stack için OEM güncelleştirme paketlerini güncelleştirmeyi kullanarak kutucuk. Güncelleştirme paketinin indirilebilmesi Azure Stack'e paket dosyalarını içeri ve ardından güncelleştirme paketini yüklemeniz gerekir. 
 
-## <a name="download-the-update-package"></a>Güncelleştirme paketini indirin
+## <a name="download-the-update-package"></a>Güncelleştirme paketini indirme
 
-Azure yığını için bir Microsoft güncelleştirme paketi kullanılabilir olduğunda, Azure yığınından erişilebilen bir konuma paketini indirin ve paket içeriğini gözden geçirin. Bir güncelleştirme paketi genellikle aşağıdaki dosyaları içerir:
+Azure Stack için bir Microsoft veya OEM güncelleştirme paketi kullanılabilir olduğunda, Azure yığını tarafından erişilebilen bir konuma paketi indirebilir ve paket içeriğini gözden geçirin. Bir güncelleştirme paketi genellikle aşağıdaki dosyalardan oluşur:
 
-- Kendi kendini ayıklayan *PackageName*.exe dosyası. Bu dosya güncelleştirmesi, örneğin son için toplu güncelleştirme Windows Server için yükü içerir.   
-- Karşılık gelen *PackageName*.bin dosyaları. Bu dosyaları ile ilişkili yük sıkıştırma sağlamak *PackageName*.exe dosyası. 
-- Metadata.xml dosyası. Bu dosya, örneğin Yayımcı adı, önkoşul, boyutu ve Destek yol URL'si güncelleştirme hakkında önemli bilgiler içerir.
+- Bir kendiliğinden *PackageName*.exe dosyası. Bu dosya, güncelleştirme, örneğin en son toplu güncelleştirmeyi için Windows Server için yükü içerir.   
+- Karşılık gelen *PackageName*.bin dosyaları. Bu dosyalar ilişkili olduğu yükü için sıkıştırma sağlar *PackageName*.exe dosyası. 
+- Metadata.xml dosyası. Bu dosya, güncelleştirme, örneğin Yayımcı adı, önkoşul, boyutu ve Destek yol URL'si hakkında gerekli bilgileri içerir.
 
 ## <a name="import-and-install-updates"></a>İçeri aktarmak ve güncelleştirmeleri yükleme
 
-Aşağıdaki yordam, içeri aktarma ve güncelleştirme paketlerini yüklemek için Yönetici portalı'nda gösterilmektedir.
+Aşağıdaki yordam, içeri aktarma ve Yönetici portalı'nda güncelleştirme paketlerini yükleme gösterir.
 
 > [!IMPORTANT]
-> Bakım işlemleri kullanıcılara bildirmek ve iş saatleri sırasında mümkün olduğunca normal bakım pencereleri zamanlama öneririz. Bakım işlemleri, kullanıcı iş yükleri ve portal işlemlerini etkileyebilir.
+> Herhangi bir bakım işlemi kullanıcılara bildirmek ve çalışma saatleri sırasında mümkün olduğunca normal bakım pencereleri zamanlamanızı öneririz. Bakım işlemleri, kullanıcı iş yükleri hem portal işlemlerini etkileyebilir.
 
-1. Yönetici portalı'nda seçin **daha fazla hizmet**. Ardından, altında **veri + depolama** kategorisi, select **depolama hesapları**. (Veya filtre kutusuna yazmaya başlayın **depolama hesapları**ve seçin.)
+1. Yönetici portalında **diğer hizmetler**. Ardından, altında **veri + depolama** kategorisi, select **depolama hesapları**. (Veya filtre kutusuna yazmaya başlayın **depolama hesapları**ve bu seçeneği belirleyin.)
 
-    ![Depolama hesapları portalda nerede bulacağını gösterir](media/azure-stack-apply-updates/ApplyUpdates1.png)
+    ![Depolama hesaplarını portalda nerede bulacağını gösterir](media/azure-stack-apply-updates/ApplyUpdates1.png)
 
 2. Filtre kutusuna **güncelleştirme**seçip **updateadminaccount** depolama hesabı.
 
-    ![Updateadminaccount için arama yapma gösterir](media/azure-stack-apply-updates/ApplyUpdates2.png)
+    ![Updateadminaccount için arama yapmak nasıl gösterir](media/azure-stack-apply-updates/ApplyUpdates2.png)
 
-3. Depolama hesabı ayrıntıları altında **Hizmetleri**seçin **BLOB'lar**.
+3. Depolama hesabı ayrıntıları altında **Hizmetleri**seçin **Blobları**.
  
-    ![Depolama hesabı için BLOB'larını alma gösterir](media/azure-stack-apply-updates/ApplyUpdates3.png) 
+    ![Depolama hesabı için BLOB'ları için nasıl gösterir](media/azure-stack-apply-updates/ApplyUpdates3.png) 
  
 4. Altında **Blob hizmeti**seçin **+ kapsayıcı** bir kapsayıcı oluşturmak için. Bir ad girin (örneğin *güncelleştirme 1709*) ve ardından **Tamam**.
  
-     ![Depolama hesabında bir kapsayıcı eklemeyi gösterir](media/azure-stack-apply-updates/ApplyUpdates4.png)
+     ![Depolama hesabında bir kapsayıcı ekleme işlemi açıklanır](media/azure-stack-apply-updates/ApplyUpdates4.png)
 
-5. Kapsayıcı oluşturulduktan sonra kapsayıcı adına tıklayın ve ardından **karşıya** kapsayıcıya paket dosyalarını karşıya yüklemek için.
+5. Kapsayıcı oluşturulduktan sonra kapsayıcı adına tıklayın ve ardından **karşıya** paket dosyalarını kapsayıcıya yüklemek için.
  
-    ![Paket dosyaları karşıya nasıl yükleneceğini gösterir](media/azure-stack-apply-updates/ApplyUpdates5.png)
+    ![Paket dosyaları karşıya yükleme işlemini gösterir](media/azure-stack-apply-updates/ApplyUpdates5.png)
 
-6. Altında **karşıya yükleme blob**klasör simgesine tıklayın, güncelleştirme paketin .exe dosyasına gözatın ve ardından **açık** dosya Gezgini penceresinde.
+6. Altında **blobu karşıya yükleme**klasör simgesine tıklayın, güncelleştirme paketi .exe dosyasına göz atın ve ardından **açık** dosya Gezgini penceresinde.
   
-7. Altında **karşıya yükleme blob**, tıklatın **karşıya**. 
+7. Altında **blobu karşıya yükleme**, tıklayın **karşıya**. 
  
-    ![Her bir paket dosyası karşıya yüklemek nereye gösterir](media/azure-stack-apply-updates/ApplyUpdates6.png)
+    ![Her bir paket dosyasını nerede gösterir](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. 6 ve 7. adımları tekrarlayarak *PackageName*.bin ve Metadata.xml dosyaları. Ek Notice.txt dosyası eklediyseniz almayın.
-9. İşiniz bittiğinde, (portalın sağ üst köşedeki zil simgesine) bildirimleri gözden geçirebilirsiniz. Bildirimler, karşıya yükleme tamamlandı belirtmeniz gerekir. 
-10. Geri panosundaki güncelleştirme bölümünden gidin. Döşeme bir güncelleştirme kullanıma hazır olduğunu gösterebilir. Yeni eklenen güncelleştirme paketi gözden geçirmek için kutucuğa tıklayın.
-11. Güncelleştirmeyi yüklemek için işaretlenmiş paketi seçin **hazır** ya da paketini sağ tıklatın ve seçin ve **şimdi güncelleştirmek**, veya **şimdi güncelleştirmek** ilk eylemi .
-12. Yüklenen güncelleştirme paketi tıklattığınızda durumu görüntüleyebilirsiniz **güncelleştirme çalışma ayrıntıları** alanı. Buradan, tıklatarak **karşıdan tam günlükleri** günlük dosyalarını indirmek için.
-13. Güncelleştirme tamamlandığında güncelleştirme döşeme güncelleştirilmiş Azure yığın sürümünü gösterir.
+8. 6 ve 7. adımları yineleyin *PackageName*.bin ve Metadata.xml dosyaları. Ek Notice.txt dosyası eklediyseniz içeri aktarılmaz.
+9. İşiniz bittiğinde, (zil simgesi, portalın sağ üst köşedeki) bildirimleri gözden geçirebilirsiniz. Bildirimler, karşıya yükleme tamamlandığını belirtmelidir. 
+10. Güncelleştirme kutucuğu panoya dönün. Kutucuk güncelleştirmesi kullanıma sunuldu belirtmeniz gerekir. Yeni eklenen güncelleştirme paketini gözden geçirmek için kutucuğa tıklayın.
+11. Güncelleştirmeyi yüklemek için olarak işaretlenmiş paketi seçin **hazır** ya da paketini sağ tıklatın ve seçin ve **Şimdi Güncelleştir**, veya **Şimdi Güncelleştir** üst eylemi .
+12. Güncelleştirme paketi yüklenirken tıkladığınızda, durumu görüntüleyin **güncelleştirme çalıştırması ayrıntıları** alan. Burada da tıklayabilirsiniz **tam günlükleri indirmek** günlük dosyaları indirilemedi.
+13. Güncelleştirme tamamlandığında, Azure Stack gireceği kutucuğu güncelleştir gösterir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure yığın genel bakış güncelleştirmelerini yönetme](azure-stack-updates.md)
-- [İlke bakım azure yığını](azure-stack-servicing-policy.md)
+- [Azure Stack genel bakış güncelleştirmelerini yönetme](azure-stack-updates.md)
+- [Azure Stack hizmet İlkesi](azure-stack-servicing-policy.md)

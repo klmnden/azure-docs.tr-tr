@@ -1,44 +1,61 @@
 ---
 title: Azure Resource Manager vCPU Kotayı artırmak istekleri | Microsoft Docs
-description: Azure Resource Manager vCPU kota artışı isteği
+description: Azure Resource Manager vCPU kota artışı istekleri
 author: ganganarayanan
 ms.author: gangan
-ms.date: 1/18/2017
+ms.date: 6/13/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7456785815dbefb2436713814965d90ba0e789ee
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037273"
 ---
-# <a name="resource-manager-vcpu-quota-increase-requests"></a>Resource Manager vCPU kota artışı isteği
+# <a name="resource-manager-vcpu-quota-increase-requests"></a>Kaynak Yöneticisi'ni vCPU kota artışı istekleri
 
-Resource Manager vCPU kotaları bölge düzeyi ve SKU ailesi düzeyinde uygulanır.
-Nasıl kotaları üzerinde uygulanır hakkında daha fazla bilgi [Azure aboneliği ve hizmet sınırları](http://aka.ms/quotalimits) sayfası.
-SKU ailesi hakkında daha fazla bilgi için maliyet ve performans üzerinde karşılaştırmak [sanal makineler fiyatlandırma](http://aka.ms/pricingcompute) sayfası.
+Kaynak Yöneticisi'ni vCPU kotaları bölge düzeyinde ve SKU ailesi düzeyinde uygulanır.
+Nasıl kotalar üzerinde zorlanır hakkında daha fazla bilgi [Azure aboneliği ve hizmet sınırlamaları](http://aka.ms/quotalimits) sayfası.
+SKU aileleri hakkında daha fazla bilgi için maliyet ve performans üzerinde karşılaştırmak [sanal makineler fiyatlandırma](http://aka.ms/pricingcompute) sayfası.
 
-Artırma isteğinde bulunmak için Azure portalında Vcpu'lar bir kota destek servis talebi oluşturma [ https://portal.azure.com ](https://portal.azure.com).
+Bir artış istemek için Azure'nın 'kullanımı + kota' aracılığıyla bir destek isteği oluşturmak için aşağıdaki yönergeleri izleyin. dikey penceresinde Azure Portalı'nda kullanılabilir. 
 
-> [!NOTE]
-> Bilgi edinmek için nasıl [bir destek isteği oluşturmak](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) Azure portalında
+## <a name="request-quota-increase-at-subscription-level"></a>Abonelik düzeyinde kota artışı isteği
 
-1. Sorun türü "Kota" olarak ve kota türü "Çekirdek" olarak yeni destek isteği sayfasındaki seçin.
+1. Gelen https://portal.azure.comseçin **abonelikleri**.
 
-    ![Kota temel bilgileri dikey penceresi](./media/resource-manager-core-quotas-request/Basics-blade.png)
+   ![Abonelikler](./media/resource-manager-core-quotas-request/subscriptions.png)
 
-2. "Kaynak Yöneticisi" olarak dağıtım modeli seçin ve bir konum seçin.
+2. Daha fazla kotaya gereksinim duyduğu aboneliği seçin.
+
+   ![Abonelik seçme](./media/resource-manager-core-quotas-request/select-subscription.png)
+
+3. Seçin **kullanım ve kotalar**
+
+   ![Kullanım ve kotalar seçin](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+
+4. Sağ üst köşedeki seçin **istek artışı**.
+
+   ![İstek artışı](./media/resource-manager-core-quotas-request/request-increase.png)
+
+5. : 1. adım - Select **çekirdek** Teklif türü. 
+
+   ![Formu doldurun](./media/resource-manager-core-quotas-request/forms.png)
+   
+6. : 2. adım - Select Deployment model "Kaynak Yöneticisi" ve bir konum seçin.
 
     ![Kota sorun dikey penceresi](./media/resource-manager-core-quotas-request/Problem-step.png)
 
-3. Artışı gerektiren SKU ailesi seçin.
+3. Bir artış gerektiren SKU aileleri seçin.
 
-    ![Seçili SKU serisi](./media/resource-manager-core-quotas-request/SKU-selected.png)
+    ![SKU serileri](./media/resource-manager-core-quotas-request/SKU-selected.png)
 
-4. İstediğiniz yeni sınırları abonelikte girin.
+4. İstediğiniz yeni sınırları, abonelik üzerinde girin.
 
     ![SKU yeni kota isteği](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
 
-- Bir satırı kaldırmak için SKU SKU ailesi açılan kutusunun işaretini kaldırın veya atma "x" simgesine tıklayın.
-Her SKU ailesi için istenen kota girdikten sonra destek isteği oluşturma işlemiyle devam etmek sorun adım sayfasında "İleri" yi tıklatın.
+- Bir satırı kaldırmak için SKU ailesi açılır listeden SKU'seçeneğinin işaretini kaldırın veya atma "x" simgesini tıklatın.
+Her SKU ailesi için istenen kotayı girdikten sonra sorun adım sayfasında ile destek isteği oluşturma devam etmek için "İleri" ye tıklayın.
+

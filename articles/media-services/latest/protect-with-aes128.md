@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/12/2018
 ms.author: juliako
-ms.openlocfilehash: da2df60e3111055729bbae2c6684ccbb9671272e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b62c528716d9386b9da6ddee260fd1ec382fb4a5
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007872"
+ms.locfileid: "39036794"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>AES-128 dinamik şifreleme ve anahtar teslim hizmetini kullanma
 
 HTTP canlı akışı (HLS), MPEG-DASH ve kesintisiz akış ile AES 128 bit şifreleme anahtarları kullanılarak şifrelenmiş sunmak için Media Services'ı kullanabilirsiniz. Media Services, şifreleme anahtarlarını yetkili kullanıcıların sunan anahtar dağıtımı hizmetiyle de sağlar. Media Services için bir varlık şifrelemek isterseniz, şifreleme anahtarını StreamingLocator ile ilişkilendirmek ve ayrıca içerik anahtar ilkeyi yapılandırın. Bir akışa bir oynatıcı tarafından istendiğinde Media Services dinamik olarak içeriğinizi AES şifreleme kullanarak şifrelemek için belirtilen anahtar kullanır. Akış şifresini çözmek için player anahtar anahtar teslim hizmetinden ister. Kullanıcı anahtarı almak için yetki verilip verilmediğini belirlemek için anahtar için belirtilen içerik anahtarı ilkesi hizmet tarafından değerlendirilir.
 
-Makale temel almaktadır [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) örnek. Örneği doğrudan bir dosya alır ve önceden yerleşik Uyarlamalı bit hızlı kodlama için kullandığı bir kodlama dönüştürme oluşturma işlemini gösterir bir [HTTPs kaynak URL](job-input-from-http-how-to.md). Çıktı varlığına (ClearKey) AES şifrelemesi kullanılarak yayımlanır. Örnekteki çıktı, DASH bildirimi hem AES belirtecin içeriği kayıttan yürütme için gerekli dahil olmak üzere Azure Media Player URL'dir. Örnek, JWT belirteci süre sonu 1 saate ayarlar. Bir tarayıcı açın ve URL'yi ve sizin için önceden doldurulan belirteci ile Azure Media Player tanıtım sayfasını başlatmak için elde edilen URL'yi yapıştırın (şu biçimde: ``` https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.)
+Makale temel almaktadır [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) örnek. Örneği doğrudan bir dosya alır ve önceden yerleşik Uyarlamalı bit hızlı kodlama için kullandığı bir kodlama dönüştürme oluşturma işlemini gösterir bir [HTTPs kaynak URL](job-input-from-http-how-to.md). Çıktı varlığına (ClearKey) AES şifrelemesi kullanılarak yayımlanır. Örnekteki çıktı, DASH bildirimi hem AES belirtecin içeriği kayıttan yürütme için gerekli dahil olmak üzere Azure Media Player URL'dir. Örnek, JWT belirteci süre sonu 1 saate ayarlar. Bir tarayıcı açın ve URL'yi ve sizin için zaten şu biçimde doldurulan belirteci ile Azure Media Player tanıtım sayfasını başlatmak için elde edilen URL'yi yapıştırın: ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.
 
 > [!NOTE]
 > Her varlık birden fazla şifreleme türü (AES-128, PlayReady, Widevine, FairPlay) ile şifreleyebilirsiniz. Bkz: [akış protokolleri ve şifreleme türlerini](content-protection-overview.md#streaming-protocols-and-encryption-types)ne birleştirmek mantıklıdır görmek için.

@@ -1,8 +1,8 @@
 ---
-title: İnsan etkileşimi ve zaman aşımlarına dayanıklı işlevlerinde - Azure
-description: İnsan etkileşimi ve zaman aşımlarına dayanıklı işlevleri uzantısı'nda Azure işlevleri için nasıl ele alınacağını öğrenin.
+title: İnsan etkileşimi ve zaman aşımları dayanıklı işlevler - Azure
+description: Azure işlevleri için insan etkileşimi ve dayanıklı işlevler uzantısını zaman aşımları nasıl ele alınacağını öğrenin.
 services: functions
-author: cgillum
+author: kashimiz
 manager: cfowler
 editor: ''
 tags: ''
@@ -12,87 +12,99 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 07/11/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a62baf64e35dfad55f76138e2f1aaef65dd434be
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30168410"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036314"
 ---
-# <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Dayanıklı işlevlerinde - telefon doğrulama örnek insan etkileşimi
+# <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Dayanıklı işlevler - telefon doğrulama örneği, insan etkileşimi
 
-Bu örnek nasıl oluşturulacağını gösteren bir [dayanıklı işlevleri](durable-functions-overview.md) insan etkileşimi içerir düzenleme. Gerçek bir insanın otomatik işlemde söz konusu olduğunda, işlem kişiye bildirimler göndermek ve yanıtları zaman uyumsuz olarak almak mümkün olması gerekir. Kişinin kullanılamıyor olasılığı için de izin vermelidir. (Bu son zaman aşımları burada önemli hale gelmiştir parçasıdır.)
+Bu örnek nasıl oluşturulacağını gösterir. bir [dayanıklı işlevler](durable-functions-overview.md) insan etkileşimi içeren düzenleme. Gerçek bir insanın otomatik bir işlemde katılan her işlem kişiye bildirimler göndermek ve yanıtları zaman uyumsuz olarak almak mümkün olması gerekir. Ayrıca kişi kullanılamaz olma olasılığını için izin vermelidir. (Bu son zaman aşımları burada önemli hale gelmiştir parçasıdır.)
 
-Bu örnek bir SMS telefonla doğrulama sistemi uygular. Bu tür akışları genellikle bir müşterinin telefon numarasını doğrulanırken veya çok faktörlü kimlik doğrulaması (MFA) için kullanılır. Tüm uygulama yapıldığından bu güçlü bir örnektir birkaç küçük işlevlerini kullanma. Bir veritabanı gibi bir dış veri depo gereklidir.
+Bu örnek, bir SMS telefonla doğrulama sistemini kullanır. Bu tür akışlar, genellikle bir müşterinin telefon numarasını doğrularken veya multi-Factor authentication (MFA) için kullanılır. Tüm uygulama yapıldığı için bu güçlü bir örnektir birkaç küçük işlevlerini kullanma. Bir veritabanı gibi herhangi bir dış veri deposuna gereklidir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Dayanıklı işlevleri yüklemek](durable-functions-install.md).
+* [Dayanıklı işlevler yükleme](durable-functions-install.md).
 * Tamamlamak [Hello dizisi](durable-functions-sequence.md) gözden geçirme.
 
 ## <a name="scenario-overview"></a>Senaryoya genel bakış
 
-Telefon doğrulama, son kullanıcılar, uygulamanızın istenmeyen posta gönderenlerin değildir ve kimlerin kendilerine olduklarından emin doğrulamak için kullanılır. Çok faktörlü kimlik doğrulama kullanıcı hesapları korsanların korumak için bir ortak kullanım durumdur. Kendi telefon doğrulama uygulama ile gerektirdiği iştir bir **durum bilgisi olan etkileşim** İnsan olma ile. Bir son kullanıcı biraz kod (örneğin, 4 basamaklı bir sayı) genellikle sağlanır ve yanıtlaması gerekir **makul bir sürede**.
+Telefon doğrulama, son kullanıcılar, uygulamanızın istenmeyen posta gönderenlere değildir ve bunların söyledikleri kim olduğunu doğrulamak için kullanılır. Multi-Factor authentication, kullanıcı hesaplarını korsanların korumaya yönelik yaygın bir kullanım örneği. Kendi telefon doğrulama uygulama ile onun gerektirdiği zorluktur bir **durum bilgisi olan etkileşimi** ile İnsan görüntülenir. Son kullanıcı, genellikle bazı kod (örneğin, 4 basamaklı bir sayı) sağlanır ve yanıt vermesi gereken **makul bir süre içinde**.
 
-(Diğer platformlarda diğer birçok bulut uç gibi) normal Azure işlevleri durum bilgisiz, açıkça yönetme bu tür etkileşimler içeren için bir veritabanı veya bazı diğer kalıcı durum dışarıdan depolamak. Ayrıca, etkileşim birlikte Eşgüdümlü olabilecek birden çok işlevlerini parçalanmış gerekir. Örneğin, bir kodu karar verme, herhangi bir yerde kalıcı yapma ve kullanıcının telefonuna göndermek için en az bir işlevi gerekir. Ayrıca, kullanıcıdan yanıt ve şekilde kod doğrulama yapmak için geri özgün işlev çağrısı için eşlemek için en az bir işlevi gerekir. Zaman aşımı güvenliğini sağlamak için önemli bir özelliği de olur. Bu hızlı bir şekilde oldukça karmaşık bir HAL alabilir.
+(Birçok diğer bulut uç noktaları diğer platformlarda olduğu gibi) normal Azure işlevleri durum bilgisiz olduğundan, açıkça yönetme bu tür etkileşimler içeren için bir veritabanı veya bazı diğer kalıcı durumu harici olarak depolamak. Ayrıca, etkileşim birlikte Eşgüdümlü olabileceğini birden çok işlevler bölünmesi gerekir. Örneğin, bir kod üzerinde karar, herhangi bir yerde kalıcı hale getirmeniz ve kullanıcının telefonuna göndermek için en az bir işlevi gerekir. Ayrıca, kullanıcıdan bir yanıt almak ve kod doğrulama yapmak için geri orijinal işlev çağrısı şekilde eşlemek için en az bir diğer işlevi gerekir. Bir zaman aşımı, ayrıca güvenliğini sağlamak için önemli bir yönü olur. Bu hızlı bir şekilde oldukça karmaşık bir HAL alabilir.
 
-Dayanıklı işlevler kullandığınızda bu senaryo karmaşıklığını önemli ölçüde azalır. Bu örnekte göreceğiniz gibi bir orchestrator işlevi kolayca ve tüm dış veri depoları içeren olmadan durum bilgisi olan etkileşim yönetebilirsiniz. Orchestrator işlevleri olduğundan *dayanıklı*, bu etkileşimli akışlar da yüksek oranda güvenilir.
+Dayanıklı işlevler kullandığınızda bu senaryonun karmaşıklığı önemli ölçüde azalır. Bu örnekte göreceğiniz gibi bir düzenleyici işlevi kolayca olmadan herhangi bir dış veri depoları içeren ve durum bilgisi olan etkileşimi yönetebilirsiniz. Orchestrator işlevleri olduğundan *dayanıklı*, bu etkileşimli akışlar da yüksek oranda güvenilir.
 
-## <a name="configuring-twilio-integration"></a>Twilio tümleştirmesini yapılandırma
+## <a name="configuring-twilio-integration"></a>Twilio tümleştirmesi yapılandırma
 
 [!INCLUDE [functions-twilio-integration](../../includes/functions-twilio-integration.md)]
 
-## <a name="the-functions"></a>İşlevler
+## <a name="the-functions"></a>İşlevleri
 
-Bu makalede örnek uygulamasında aşağıdaki işlevleri açıklanmaktadır:
+Bu makalede örnek uygulama aşağıdaki işlevler anlatılmaktadır:
 
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-Aşağıdaki bölümlerde kullanılan kod ve yapılandırma açıklanmaktadır C# kodlama için. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
+Aşağıdaki bölümlerde, betik C# ve JavaScript için kullanılan kod ve yapılandırma açıklanmaktadır. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
  
-## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS doğrulama düzenleme (Visual Studio Code ve Azure portal örnek kodu) 
+## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS doğrulama düzenleme (Visual Studio Code ve Azure portalı örnek kodu) 
 
-**E4_SmsPhoneVerification** işlevini kullanan standart *function.json* orchestrator işlevler için.
+**E4_SmsPhoneVerification** işlevini kullanan standart *function.json* orchestrator işlevleri için.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/function.json)]
 
-İşlev uygulayan kod aşağıdaki gibidir:
+İşlev uygulayan kod şu şekildedir:
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
-Başladıktan sonra bu orchestrator işlevi şunları yapar:
+### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
 
-1. Olur, bir telefon numarasını alır *Gönder* SMS bildirim.
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
+
+Başladıktan sonra bu Düzenleyici işlevi şunları yapar:
+
+1. Olacak, bir telefon numarasını alır *Gönder* SMS bildirimi.
 2. Çağrıları **E4_SendSmsChallenge** bir SMS iletisi göndermek için beklenen 4 basamaklı sınama kodu döndürür ve kullanıcı yedekleyin.
-3. Dayanıklı bir Zamanlayıcı bu Tetikleyicileri geçerli zamandan 90 saniye oluşturur.
+3. Dayanıklı bir Zamanlayıcı bu tetikleyiciler, geçerli zamandan 90 saniye oluşturur.
 4. Zamanlayıcı ile paralel olarak bekler bir **SmsChallengeResponse** kullanıcıdan olay.
 
-Kullanıcı dört rakamlı kodu içeren bir SMS mesajı alır. Bu aynı 4 basamaklı kodu doğrulama işlemini tamamlamak için yeniden orchestrator işlevi örneğine göndermek için 90 saniye sahiptirler. Yanlış kod gönderirseniz, bunlar sağa (aynı 90 saniyelik pencereye) almak için ek bir üç çalıştığında alın.
+Kullanıcı dört rakamlı bir kod içeren bir SMS iletisi alır. Doğrulama sürecini tamamlamanız için geri orchestrator işlevi örneğine, aynı 4 rakamlı bir kod gönderilecek 90 saniye sahiptirler. Bunlar yanlış kod gönderirseniz, bunlar sağ (aynı 90 saniyelik pencereye) almak için ek bir üç deneme alın.
 
 > [!NOTE]
-> İlk, ancak bu orchestrator belirgin olmayabilir işlev tamamen belirleyici değil. Bunun nedeni, `CurrentUtcDateTime` özelliği Zamanlayıcı zaman aşımı süresini hesaplamak için kullanılır ve bu özellik her yeniden yürütme bu noktada orchestrator kodda aynı değeri döndürür. Bu aynı emin olmak önemlidir `winner` sonuçları için yinelenen her çağrısından `Task.WhenAny`.
+> İlk, ancak bu orchestrator belirgin olmayabilir işlevi belirleyici tamamen. Bunun nedeni, `CurrentUtcDateTime` özelliği Zamanlayıcı sona erme zamanını hesaplamak için kullanılır ve bu özellik, her yeniden yürütme bu noktada orchestrator kod üzerinde aynı değeri döndürür. Bu aynı emin olmak önemlidir `winner` sonuçları yinelenen her çağrıdan `Task.WhenAny`.
 
 > [!WARNING]
-> Önemlidir [bir CancellationTokenSource kullanarak zamanlayıcılar iptal](durable-functions-timers.md) artık bunları ne zaman bir sınama yanıtı kabul yukarıdaki örnekte olduğu gibi süresi dolmak üzere ihtiyacınız varsa.
+> Önemlidir [zamanlayıcılar iptal](durable-functions-timers.md) artık bunları ne zaman bir sınama yanıtı kabul yukarıdaki örnekte olduğu gibi süresi dolacak şekilde ihtiyacınız varsa.
 
-## <a name="send-the-sms-message"></a>SMS mesajı gönderme
+## <a name="send-the-sms-message"></a>SMS mesajı gönderin
 
-**E4_SendSmsChallenge** işlevi, son kullanıcı için 4 basamaklı koduyla SMS mesajı göndermek için Twilio bağlama kullanır. *Function.json* şu şekilde tanımlanır:
+**E4_SendSmsChallenge** işlevi, son kullanıcıya 4 basamaklı koduyla SMS mesajı göndermek için Twilio bağlama kullanır. *Function.json* şu şekilde tanımlanır:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/function.json)]
 
-Ve 4 basamaklı sınama kodu oluşturur ve SMS mesajı gönderir. kod aşağıdaki gibidir:
+Ve 4 basamaklı sınama kodu oluşturur ve SMS mesajı gönderir kod aşağıdaki gibidir:
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-Bu **E4_SendSmsChallenge** işlevi yalnızca çağrıldığından bir kez işlem bozulsa veya yeniden. Birden çok SMS iletileri alma son kullanıcı istemediğiniz iyi olmasıdır. `challengeCode` Orchestrator işlevi her zaman doğru kodun ne olduğunu bilmesi için değer otomatik olarak kalıcı döndürür.
+### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
+
+Bu **E4_SendSmsChallenge** işlevi yalnızca çağrıldığından bir kez işlem çökse bile veya yeniden. Son kullanıcı birden çok SMS iletileri almak istemediğiniz için iyidir. `challengeCode` Değeri otomatik olarak kalıcı orchestrator işlevi her zaman doğru kod nedir bilmesi için döndürür.
 
 ## <a name="run-the-sample"></a>Örneği çalıştırma
 
-Aşağıdaki örnekte dahil HTTP tetiklemeli işlevleri kullanarak, aşağıdaki HTTP POST isteği göndererek orchestration başlatabilirsiniz:
+Örnekte bulunan bir HTTP tetiklemeli işlevleri'ni kullanarak, aşağıdaki HTTP POST isteği göndererek düzenleme başlayabilirsiniz:
 
 ```
 POST http://{host}/orchestrators/E4_SmsPhoneVerification
@@ -110,9 +122,12 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
-Orchestrator işlevi sağlanan telefon numarasını alır ve hemen rastgele oluşturulmuş 4 basamaklı doğrulama kodunu içeren bir SMS mesajı gönderir &mdash; Örneğin, *2168*. İşlev ardından yanıt 90 saniye bekler.
+   > [!NOTE]
+   > Şu anda, JavaScript düzenleme başlangıç işlevleri örnek Yönetimi URI'ler döndüremez. Bu özellik, bir sonraki sürümde eklenecek.
 
-Kodla yanıt vermek için kullanabileceğiniz `RaiseEventAsync` iç işlev veya çağırma **sendEventUrl** yukarıda değiştirme 202 yanıt başvurulan HTTP POST Web kancası `{eventName}` olayın adı ile `SmsChallengeResponse`:
+Orchestrator işlevi sağlanan telefon numarasını alır ve rastgele oluşturulmuş 4 basamaklı doğrulama kodunu içeren bir SMS iletisi gönderir hemen &mdash; gibi *2168*. İşlev yanıt 90 saniye bekler.
+
+Koduyla yanıt vermek için kullanabileceğiniz `RaiseEventAsync` iç işlev veya çağırma **sendEventUrl** yukarıda değiştirerek 202 yanıtının başvurulan bir HTTP POST Web kancası `{eventName}` olay adıyla `SmsChallengeResponse`:
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -122,7 +137,7 @@ Content-Type: application/json
 2168
 ```
 
-Süreölçer süresi dolmadan önce bu gönderirseniz, orchestration tamamlandıktan ve `output` alan ayarlanmış `true`, başarılı bir doğrulama belirten.
+Zamanlayıcı süresi dolmadan önce bu gönderirseniz, orchestration tamamlandıktan ve `output` ayarlanmış `true`, başarılı doğrulama belirten.
 
 ```
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -135,7 +150,7 @@ Content-Type: application/json; charset=utf-8
 {"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":true,"createdTime":"2017-06-29T19:10:49Z","lastUpdatedTime":"2017-06-29T19:12:23Z"}
 ```
 
-Sona Zamanlayıcı izin vermek veya dört kez yanlış kodu girerseniz, sorgu durumunu ve bkz bir `false` çıkışı, orchestration işlevi telefon doğrulama başarısız olduğunu gösteren.
+Zamanlayıcı sona izin veya dört kez yanlış kod girerseniz, sorgu durumu ve bkz bir `false` telefon doğrulama başarısız olduğunu gösteren çıkışı, orchestration işlevi.
 
 ```
 HTTP/1.1 200 OK
@@ -147,13 +162,13 @@ Content-Length: 145
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio örnek kod
 
-Tek bir C# dosyasında bir Visual Studio projesi olarak orchestration şöyledir:
+Tek bir C# dosyası olarak Visual Studio projesi içinde düzenleme şu şekildedir:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu örnek bazı dayanıklı İşlevler, gelişmiş özelliklerini özellikle gösterilmiştir `WaitForExternalEvent` ve `CreateTimer`. Bunlar birlikte birleştirilmesi gördünüz `Task.WaitAny` genellikle gerçek kişilerle etkileşim için yararlı bir güvenilir zaman aşımı sistem uygulamak için. Bir dizi kapsamlı kapsamını belirli konular teklif makaleleri okuyarak dayanıklı işlevleri kullanma hakkında daha fazla bilgi edinebilirsiniz.
+Bu örnekte bazı gelişmiş özelliklerini dayanıklı İşlevler, özellikle gösterilmiştir `WaitForExternalEvent` ve `CreateTimer`. Bunlar ile birleştirilmesi gördüğünüz `Task.WaitAny` genellikle gerçek kişilerle etkileşime geçmek için yararlı olan bir güvenilir bir zaman aşımı sistemi uygulamak için. Dayanıklı işlevler bir dizi belirli konular ayrıntılı kapsamını sunan makaleleri okuyarak kullanma hakkında daha fazla bilgi edinebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Serideki ilk makale gidin](durable-functions-bindings.md)
+> [Serideki ilk makaleye gidin](durable-functions-bindings.md)

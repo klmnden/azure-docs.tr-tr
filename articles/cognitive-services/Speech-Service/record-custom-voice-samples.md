@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ca25aaefee6c9746ff79bdca7668b510df9ac6c3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 11d96ce0c92916e1975e0cb403aabf057ab8b825
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002050"
+ms.locfileid: "39036838"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Nasıl yapılır özel sesli için ses kaydetme örnekleri
 
@@ -93,7 +93,7 @@ Temel betik biçimi üç sütunu içerir:
 ![Örnek betik](media/custom-voice/script.png)
 
 > [!NOTE]
-> Çoğu studios "yararlanırken," on-24 konuşma içeren her ttake ypically başvurulan segmenti kısa kaydedin. Yalnızca alma sayısı belirtmeye verilen utterance daha sonra bulmak yeterli olacaktır. Bazı studios uzun kayıtları tercih edebilirsiniz. Bu durumda saati uzaklığı unutmayın (zaman kodu) dosyasına isteyebilirsiniz. Studio belirgin süre görüntü olacaktır.
+> Çoğu studios, genellikle on-24 konuşma içeren her Al "alır," başvurulan segmenti kısa kaydedin. Yalnızca alma sayısı belirtmeye verilen utterance daha sonra bulmak yeterli olacaktır. Bazı studios uzun kayıtları yapmak isteyebilirsiniz. Bu durumda saati uzaklığı unutmayın (zaman kodu) dosyasına isteyebilirsiniz. Studio belirgin süre görüntü olacaktır.
 
 Her satır sonra notları yazmak için yeterli alan bırakın. Hiçbir utterance sayfalar arasında bölünür emin olun. Sayfa numarası ve kağıt bir tarafında kodunuzu yazdırın.
 
@@ -105,7 +105,7 @@ Telif hakkı yasaları altında bir aktörün okuma telif haklı metin iş yazar
 
 Neyse ki, bu sorunları tamamen önlemek mümkündür. Metin izni veya lisans kullanabileceğiniz birçok kaynak vardır.
 
-|||
+|Metin kaynak|Açıklama|
 |-|-|
 |[CMU kutup gövde](http://festvox.org/cmu_arctic/)|Yaklaşık 1100 cümleler çıkış, telif hakkı works konuşma sentezi projelerinde kullanılmak üzere özel olarak seçilir. Harika bir başlangıç noktası.|
 |Artık çalışır<br>Telif hakkı altında|Genellikle works önce 1923 yayımladı. İngilizce için proje Gutenberg on binlerce gibi çalışır sunar. Yeni çalışır, dil için modern İngilizce yakın olarak odaklanmak isteyebilirsiniz.|
@@ -129,7 +129,7 @@ Ses kaydetmek için hedeflenen yüksek kaliteli studio Kondansatör mikrofon ("M
 
 Bir analog mikrofon de kullanabilirsiniz. Birçok kiralama görev açısından kritik uygulamaları için kendi ses karakter ünlü "Hasat Yılı" mikrofonlar sunar. Profesyonel analog dişli dengeli XLR bağlayıcıları kullanan yerine 1/4" Tak tüketici ekipmanını kullanılan unutmayın. Aynı zamanda analog giderseniz, bir preamp ve bu bağlayıcıları olan bir bilgisayarda ses arabirimi gerekir.
 
-Bir yedek veya ok mikrofon yükleyin ve pop filtre mikrofonu frot içinde "plosive" benzer "p" ve "b" paraziti ortadan kaldırmak için kullanın. Bazı mikrofonlar bunları vibrations yararlıdır bağımsız olarak öğesinden ayırır bir askıya alma bağlama gelir.
+Bir yedek veya ok mikrofon yükleyin ve pop filtre mikrofon önüne "plosive" benzer "p" ve "b" paraziti ortadan kaldırmak için kullanın Bazı mikrofonlar bunları vibrations yararlıdır bağımsız olarak öğesinden ayırır bir askıya alma bağlama gelir.
 
 Ses beceri mikrofondan tutarlı bir uzaklıkta kalması gerekir. Bant katında olduğu göze işaretlemek için kullanın. Beceri tercih durumda kalmaya devam ediyorsa, MIC uzaklık izlemek ve sandalye gürültüsünü önlemek için özel dikkat edin.
 
@@ -144,7 +144,7 @@ Kayıt bir 80 db sinyal/gürültü oranına veya daha iyi bir hedef ile mümkün
 > [!TIP]
 > Bazı durumlarda, her zaman mümkün olduğunda kendi kaynakta durdurmak en iyi olsa, parazit, sonuçlarından kaldırılmasına yardımcı olması için bir dengeleyici veya gürültü azaltma yazılım eklentisini kullanmanız mümkün olabilir.
 
-Bu nedenle bozulma overdriving olmadan dijital kaydı kullanılabilir dinamik aralığının en çok kullanılan düzeyleri ayarlanması gerekir. Sesli ancak sesli değil kadar ses deforme eder anlamına gelir. İyi bir kayıt dalga örneği aşağıdadır.
+Bu nedenle overdriving olmadan dijital kaydı kullanılabilir dinamik aralığının en çok kullanılan düzeyleri ayarlanması gerekir. Sesli ancak sesli değil kadar ses deforme eder anlamına gelir. İyi bir kayıt dalga örneği aşağıdadır.
 
 ![iyi kayıt oluşturulan dalga biçiminin](media/custom-voice/good-recording.png)
 
@@ -172,13 +172,13 @@ Sözcükleri sonuçlanmaz telaffuz edilir beceri yönlendirir. Her sözcüğün 
 |hiçbir zaman size gidip|hiçbir zaman size gidip|
 |dört ışıklar vardır.|dört ışıkları üzeresiniz|
 |nasıl hava durumu hemen mi|th'nasıl olduğunu ' Bugün hava durumu|
-|My az pony|My lil' pony|
+|küçük arkadaşım Merhaba deyin|Örneğin Belgelerim lil hello' friend|
 
 Beceri gereken *değil* kelimeler arasındaki farklı duraklamaları ekleyin. Cümlenin hala doğal olarak, daha küçük bir resmi uyarabilir sırasında akışı. Bu iyi ayrım doğru hale getirmek için bazı uygulama alabilir.
 
 ### <a name="the-recording-session"></a>Kayıt oturumu
 
-Kaydı, bir başvuru veya *eşleşme dosyası* tipik bir utterance oturumunun başlangıcında. Bu satırı yinelenecek beceri her veya sayfası isteyin ve yarım ve karşılaştırma başvurmak için yeni kayıt. Bu birim, temposu, merkezi sıklık ve aralık yoğun ve vadisi tutarlı kalmasını beceri yardımcı olur. Bu arada, mühendislik eşleşme dosyasını bir başvuru olarak düzeyleri ve ses genel tutarlılık için kullanabilirsiniz. 
+Kaydı, bir başvuru veya *eşleşme dosyası* tipik bir utterance oturumunun başlangıcında. Bu satırı yinelenecek beceri her veya sayfası isteyin buçuk. Her zaman başvurmak için yeni kayıt karşılaştırın. Bu teknik birim, temposu, aralık ve tonlama tutarlı kalmasını beceri yardımcı olur. Bu arada, mühendislik eşleşme dosyasını bir başvuru olarak düzeyleri ve ses genel tutarlılık için kullanabilirsiniz.
 
 Eşleşen dosyanın sonra bir kesme veya başka bir günlük kaydı devam ettirme, özellikle önemlidir. Beceri için birkaç kez yürütmek ve bunları her zaman iyi eşleşen kadar yinelemek istersiniz.
 

@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dd436fb431351b41c61af5ef99f11fce470386a8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003605"
+ms.locfileid: "39036760"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>İsteğe bağlı bir talep Azure AD'de (Önizleme)
 
@@ -66,7 +66,7 @@ Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview
 | `enfpolids`                | Uygulanan ilkeyi kimlikleri. Geçerli kullanıcı için değerlendirilen kimlikleri ilke listesi.  | JWT |  |  |
 | `vnet`                     | VNET belirleyici bilgi.    | JWT        |           |      |
 | `fwd`                      | IP adresi.| JWT    |   | İstekte bulunan istemciye (bir sanal ağ içindeki olduğunda) özgün IPv4 adresini ekler |
-| `ctry`                     | Kullanıcının ülke | JWT |           | |
+| `ctry`                     | Kullanıcının ülke | JWT |           | Azure AD döndürür `ctry` varsa ve FR, JP, SZ ve benzeri gibi bir standart iki harfli ülke kodu talep değeri isteğe bağlı bir talep. |
 | `tenant_ctry`              | Kaynak kiracının ülke | JWT | | |
 | `xms_pdl`          | Tercih edilen veri konumu   | JWT | | Çoklu coğrafi kiracılar için bu yöntem, kullanıcının hangi coğrafi bölgede gösteren 3 harfli koddur.  Daha fazla ayrıntı için [tercih edilen veri konumu hakkında Azure AD Connect belgelerini](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> Örneğin: `APC` Asya Pasifik için. |
 | `xms_pl`                   | Kullanıcı tercih edilen dil  | JWT ||Kullanıcının, uygulamanın tercih edilen dil, ayarlayın.  Konuk erişimi senaryoları kendi giriş kiracısında kaynağı.  Tümünü CC biçimlendirilmiş ("en-us"). |

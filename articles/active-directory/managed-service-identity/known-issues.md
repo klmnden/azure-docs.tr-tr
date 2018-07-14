@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 05096050dfc29aebd2859b298eef884dcd9a1111
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c48d03b6e8a3d850d02d2c36c35915f8214b00e8
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908080"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035821"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>SSS ve bilinen sorunlar ile yönetilen hizmet kimliği (MSI) için Azure Active Directory
 
@@ -85,7 +85,7 @@ Konumlar:
 
 Bir VM'ye yönetilen hizmet kimliği etkinleştirildiğinde, VM veya kaynak grubu için "Otomasyon betiği" özelliğini kullanmaya çalışırken şu hata gösterilir:
 
-![MSI Otomasyon betiğini dışarı aktarma hatası](../media/msi-known-issues/automation-script-export-error.png)
+![MSI Otomasyon betiğini dışarı aktarma hatası](../managed-service-identity/media/msi-known-issues/automation-script-export-error.png)
 
 Yönetilen hizmet kimliği VM uzantısı, şu anda şeması için kaynak grubu şablonunu dışarı aktarma özelliğini desteklemiyor. Sonuç olarak oluşturulan şablon kaynağında yönetilen hizmet kimliği etkinleştirmek için yapılandırma parametreleri göstermez. Bu bölümlerde örneklerde izleyerek elle eklenebilir [bir şablonu kullanarak bir VM yönetilen hizmet kimliği yapılandırma](qs-configure-template-windows-vm.md).
 

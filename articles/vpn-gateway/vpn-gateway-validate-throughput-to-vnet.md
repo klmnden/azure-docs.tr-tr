@@ -1,6 +1,6 @@
 ---
-title: Bir Microsoft Azure sanal ağı için VPN verimlilik doğrulama | Microsoft Docs
-description: Bu belgenin amacı, bir kullanıcı, şirket içi kaynakları ağ akışından bir Azure sanal makinesi için doğrulama yardımcı olmaktır.
+title: Microsoft Azure sanal ağa VPN aktarım hızını doğrulama | Microsoft Docs
+description: Bu belgenin amacı, bir kullanıcının kendi şirket içi kaynaklardan gelen ağ aktarım hızını bir Azure sanal makinesi için doğrulama yardımcı olmaktır.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
@@ -15,67 +15,67 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 38ff1ee4c525d41e2a7446d5adc792c746504491
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 7e6b3e7496c4a063156ff3b8feae1f5096efe55f
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754573"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035627"
 ---
-# <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Nasıl bir sanal ağ VPN verimlilik doğrulamak için
+# <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Bir sanal ağa yönelik VPN aktarım hızını doğrulama
 
-Bir VPN gateway bağlantısı güvenli kurmanızı sağlar, sanal ağınızı Azure içinde ve şirket içi arasında bağlantı şirket içi BT altyapısı.
+Bir VPN ağ geçidi bağlantısı, güvenli bağlantı kurmanıza olanak sağlar, Azure içindeki sanal ağınız ile şirket içi arasında bağlantı şirket içi BT altyapısı.
 
-Bu makalede, bir Azure sanal makinesini (VM) için ağ verimini şirket içi kaynaklardan doğrulamak gösterilmiştir. Ayrıca, sorun giderme kılavuzu sağlar.
+Bu makalede, Azure sanal makine'de (VM) şirket içi kaynaklardan gelen ağ aktarım hızını doğrulama gösterilmektedir. Ayrıca, sorun giderme kılavuzu verilmiştir.
 
 >[!NOTE]
->Bu makale, tanılamanıza ve sık karşılaşılan sorunları gidermenize yardımcı olmak için tasarlanmıştır. Aşağıdaki bilgileri kullanarak sorunu çözmek yapamıyorsanız [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+>Bu makale ortak sorunları tanılayın ve giderin yardımcı olmak için hazırlanmıştır. Aşağıdaki bilgileri kullanarak sorunu çözmek zamanınız yoksa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 >
 >
 
 ## <a name="overview"></a>Genel Bakış
 
-VPN ağ geçidi bağlantısı aşağıdaki bileşenleri içerir:
+VPN ağ geçidi bağlantısı, aşağıdaki bileşenleri içerir:
 
-- Şirket içi VPN cihazı (bir listesini görüntülemek [doğrulanan VPN cihazları)](vpn-gateway-about-vpn-devices.md#devicetable).
+- Şirket içi VPN cihazı (bir listesini görüntülemek [doğrulanmış VPN cihazları)](vpn-gateway-about-vpn-devices.md#devicetable).
 - Genel Internet
 - Azure VPN ağ geçidi
 - Azure VM
 
-Aşağıdaki diyagramda bir şirket içi ağ VPN aracılığıyla Azure sanal ağını mantıksal bağlantısını gösterir.
+Aşağıdaki diyagramda bir Azure sanal ağa VPN aracılığıyla şirket ağının mantıksal bağlantı gösterir.
 
-![Mantıksal bağlantı, müşteri ağa MSFT VPN kullanarak ağ](./media/vpn-gateway-validate-throughput-to-vnet/VPNPerf.png)
+![Mantıksal bağlantı, müşteri ağı MSFT VPN kullanarak ağa](./media/vpn-gateway-validate-throughput-to-vnet/VPNPerf.png)
 
-## <a name="calculate-the-maximum-expected-ingressegress"></a>En fazla beklenen giriş/çıkış Hesapla
+## <a name="calculate-the-maximum-expected-ingressegress"></a>En fazla beklenen giriş/çıkış hesaplayın
 
-1.  Uygulamanızın temel üretilen iş gereksinimlerini belirleyin.
-2.  Azure VPN ağ geçidi işleme sınırları belirleyin. Yardım için "SKU ve VPN türüne göre toplam verimliliği" bölümüne bakın [planlama ve tasarım VPN ağ geçidi için](vpn-gateway-plan-design.md).
-3.  Belirlemek [Azure VM verimlilik Kılavuzu](../virtual-machines/virtual-machines-windows-sizes.md) VM boyutu.
-4.  Internet servis sağlayıcısı (ISS) bant genişliğiniz belirler.
-5.  Beklenen Verimlilik - en az bant genişliği (VM, ağ geçidi, ISS) hesaplamak * 0,8.
+1.  Uygulamanızın temel aktarım hızı gereksinimlerini belirleyin.
+2.  Azure VPN ağ geçidi aktarım hızı limitlerinizi belirleyin. Yardım için "SKU ve VPN türüne göre toplam üretilen iş" bölümüne bakın. [planlama ve tasarım VPN ağ geçidi için](vpn-gateway-plan-design.md).
+3.  Belirlemek [Azure VM işleme kılavuzuna](../virtual-machines/virtual-machines-windows-sizes.md) , VM boyutu için.
+4.  Internet servis sağlayıcınıza (ISS) bant genişliğiniz belirler.
+5.  Beklenen aktarım hızıyla - en az bant genişliği (ağ geçidi VM ISS) hesaplamak * 0.8.
 
-Hesaplanan verimlilik, uygulamanızın temel üretilen iş gereksinimlerini karşılamıyorsa, bant genişliği performans sorunu tanımlanan kaynağın artırmak gerekir. Bir Azure VPN ağ geçidi yeniden boyutlandırmak için bkz: [bir ağ geçidi SKU'su değiştirme](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Bir sanal makine yeniden boyutlandırmak için bkz: [bir VM'yi yeniden boyutlandırın](../virtual-machines/virtual-machines-windows-resize-vm.md). Beklenen Internet bant genişliği yaşıyorsanız değil, ISS'ye başvurun isteyebilirsiniz.
+Hesaplanan aktarım hızınızı uygulamanızın temel aktarım hızı gereksinimlerini karşılamıyorsa, performans sorunu tanımlanan kaynak bant genişliği artırmam gerekiyor. Bir Azure VPN ağ geçidini yeniden boyutlandırmak için bkz: [ağ geçidi SKU'sunu değiştirme](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Bir sanal makineyi yeniden boyutlandırmak için bkz: [VM'yi yeniden boyutlandırma](../virtual-machines/virtual-machines-windows-resize-vm.md). Beklenen Internet bant genişliği yaşamadığınızdan, ISS'nize başvurun isteyebilirsiniz.
 
-## <a name="validate-network-throughput-by-using-performance-tools"></a>Performans araçları kullanarak ağ verimliliği doğrulama
+## <a name="validate-network-throughput-by-using-performance-tools"></a>Performans araçları kullanarak ağ aktarım hızını doğrulama
 
-Test sırasında VPN tüneli verimlilik Doygunluk doğru sonuçlar vermez gibi bu doğrulama yoğun olmayan saatlerde gerçekleştirilmesi gerekir.
+VPN tüneli aktarım hızı doygunluğu test sırasında doğru sonuç vermez gibi yoğun olmayan saatlerde bu doğrulama gerçekleştirilmesi gerekir.
 
-Bu test için kullandığımız hem Windows hem de Linux üzerinde çalışır ve hem istemci hem de sunucu modları içeren iPerf aracıdır. 3 GB/sn için Windows VM için sınırlıdır.
+Bu test için kullanırız hem Windows hem de Linux üzerinde çalışır ve hem istemci hem de sunucu modları olan iPerf aracıdır. 3 GB/sn için Windows Vm'leri için sınırlıdır.
 
-Bu araç, disk okuma/yazma işlemleri gerçekleştirmez. Bu yalnızca bir ucu kendinden oluşturulmuş TCP trafiği diğer üretir. İstemci ve sunucu düğümler arasında kullanılabilir bant genişliğini ölçer deneme bağlı olarak istatistikleri oluşturulur. İki düğüm arasında test edilirken bir sunucunun ve diğer istemci olarak görür. Bu test tamamlandıktan sonra her iki karşıya yükleme test ve her iki düğüm üzerinde üretilen işi indirmek için rolleri ters öneririz.
+Bu araç, disk için okuma/yazma işlemleri gerçekleştirmez. Yalnızca, diğer bir uçtan diğerine kendinden oluşturulmuş TCP trafiği oluşturur. Bu, istemci ve sunucu düğümler arasında kullanılabilir bant genişliğini ölçer deneme temel istatistikleri oluşturulur. İki düğüm arasında test ederken bir sunucu ve diğer istemci olarak görür. Bu test tamamlandıktan sonra her iki yükleme testi ve aktarım hızı her iki düğümünde indirmek için rolleri ters öneririz.
 
 ### <a name="download-iperf"></a>İPerf indirin
-Karşıdan [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Ayrıntılar için bkz [iPerf belgelerine](https://iperf.fr/iperf-doc.php).
+İndirme [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Ayrıntılar için bkz [iPerf belgeleri](https://iperf.fr/iperf-doc.php).
 
  >[!NOTE]
- >Bu makalede ele alınan üçüncü taraf ürünler Microsoft'tan bağımsız şirketler tarafından üretilmektedir. Microsoft, zımni ya da aksi takdirde performans veya bu ürünlerin hakkında hiçbir garanti vermez.
+ >Bu makalede ele üçüncü taraf ürünler Microsoft'tan bağımsız şirketler tarafından üretilmektedir. Microsoft, zımni ya da aksi takdirde bu ürünlerin ve performans hakkında hiçbir garanti vermez.
  >
  >
 
-### <a name="run-iperf-iperf3exe"></a>Çalışma iPerf (iperf3.exe)
-1. (Azure VM sınama ortak IP adresi için) trafiğe izin bir NSG/ACL kuralını etkinleştirin.
+### <a name="run-iperf-iperf3exe"></a>İPerf (iperf3.exe) çalıştırın
+1. (Azure sanal makinesinde test genel IP adresi için) trafiğe izin veren bir NSG/ACL kuralı etkinleştirin.
 
-2. Her iki düğüm üzerinde 5001 bağlantı noktası için güvenlik duvarı özel durumunu etkinleştirin.
+2. Her iki düğümde 5001 bağlantı noktası için bir güvenlik duvarı özel durumu etkinleştirin.
 
     **Windows:** yönetici olarak aşağıdaki komutu çalıştırın:
 
@@ -83,13 +83,13 @@ Karşıdan [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). A
     netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
     ```
 
-    Test ederken kuralı kaldırmak için bu komutu çalıştırmak, tamamlanır:
+    Test ederken kuralı kaldırmak için şu komutu çalıştırın, tamamlanır:
 
     ```CMD
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
-    </br>
-    **Azure Linux:** Azure Linux görüntüleri olan izin veren güvenlik duvarları. Bir bağlantı noktasını dinleyen bir uygulama olduğunda trafiği aracılığıyla izin verilir. Güvenli hale getirilen özel resimler açıkça açılan bağlantı noktaları gerekebilir. Ortak Linux işletim sistemi katmanlı güvenlik duvarları içeren `iptables`, `ufw`, veya `firewalld`.
+     
+    **Azure Linux:** Azure Linux görüntüleri esnek güvenlik duvarları sahip. Bir bağlantı noktasını dinleyen bir uygulamanın varsa, trafiğe aracılığıyla izin verilir. Güvenli, özel görüntüleri açıkça açılan bağlantı noktaları gerekebilir. Yaygın Linux işletim sistemi katmanlı güvenlik duvarları içeren `iptables`, `ufw`, veya `firewalld`.
 
 3. Sunucu düğümünde iperf3.exe ayıkladığınız dizine geçin. Ardından iPerf sunucu modunda çalıştırın ve aşağıdaki komutları olarak 5001 bağlantı noktasında dinleyecek şekilde ayarlayın:
 
@@ -99,44 +99,44 @@ Karşıdan [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). A
      iperf3.exe -s -p 5001
      ```
 
-4. İstemci düğümde burada iperf aracı ayıkladığınız ve aşağıdaki komutu çalıştırın dizinine değiştirin:
+4. İstemci düğümde burada iperf aracı ayıklanır ve ardından aşağıdaki komutu çalıştırın dizinine değiştirin:
 
     ```CMD
     iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
     ```
 
-    İstemci sunucuya 5001 numaralı bağlantı noktasında trafik 30 saniye inducing. Bayrağı '-P ' belirten 32 eşzamanlı bağlantıların sunucu düğümünü kullanarak biz.
+    İstemci seçeneği, 30 saniye sunucuya 5001 numaralı bağlantı noktasında trafiği inducing. Bayrak '-P ' bildiren 32 eşzamanlı bağlantı sunucusu düğümüne kullanıyoruz.
 
-    Aşağıdaki ekran bu örneğin çıktısını gösterir:
+    Aşağıdaki ekranda, bu örnekteki Çıkışta gösterir:
 
     ![Çıktı](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
 
-5. (İSTEĞE BAĞLI) Test sonuçlarını korumak için bu komutu çalıştırın:
+5. (İSTEĞE BAĞLI) Test sonuçlarını korumak için şu komutu çalıştırın:
 
     ```CMD
     iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32  >> output.txt
     ```
 
-6. Sunucu düğümü şimdi istemci ve tam tersini olmayacaktır önceki adımları tamamladıktan sonra tersine, rolleri ile aynı adımları yürütün.
+6. Sunucu düğümünü artık istemciyi ve tersi olacak böylece önceki adımları tamamladıktan sonra tersine, rolleri ile aynı adımları yürütün.
 
-## <a name="address-slow-file-copy-issues"></a>Yavaş dosya kopyalama sorunlarını gidermek
-Windows Gezgini'ni kullanarak veya sürükleyip bir RDP oturumu aracılığıyla zaman kopyalamayı yavaş dosya karşılaşabilirsiniz. Bu sorun, normalde birini veya her ikisini aşağıdaki etmenlere nedeniyle oluşur:
+## <a name="address-slow-file-copy-issues"></a>Dosya kopyalama sorunlarını gidermek
+Windows Gezgini'ni kullanarak veya sürükleyip bir RDP oturumu zaman artıştan yavaş dosya karşılaşabilirsiniz. Bu sorun genellikle birini veya ikisini de aşağıdaki faktörler nedeniyle oluşur:
 
-- Dosya kopyalama uygulamaları, Windows Gezgini ve RDP, gibi birden çok iş parçacığı dosya kopyalarken kullanmayın. Çok iş parçacıklı dosya kopyalama uygulaması gibi daha iyi performans için kullandığınız [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) 16 veya 32 iş parçacığı kullanarak dosyaları kopyalamak için. Dosya kopyalama Richcopy içindeki iş parçacığı sayısını değiştirmek için tıklatın **eylem** > **kopyalama seçenekleri** > **dosya kopyalama**.<br><br>
+- Dosya kopyalama uygulamaları, Windows Gezgini ve RDP gibi birden çok iş parçacığı dosyaları kopyalarken kullanmayın. Daha iyi performans için çok iş parçacıklı dosya kopyalama uygulaması gibi kullanın [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) 16 veya 32 iş parçacığı kullanarak dosyaları kopyalamak için. Dosya kopyalama Richcopy içinde için iş parçacığı sayısını değiştirmek için tıklayın **eylem** > **kopyalama seçenekleri** > **dosya kopyalama**.<br><br>
 ![Yavaş dosya kopyalama sorunları](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
-- Yetersiz VM disk okuma/yazma hızı. Daha fazla bilgi için bkz: [Azure Storage sorunlarını giderme](../storage/common/storage-e2e-troubleshooting.md).
+- Yetersiz VM disk okuma/yazma hızı. Daha fazla bilgi için [Azure depolama sorunlarını giderme](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Şirket içi cihaz dış karşılıklı arabirimi
-Şirket içi VPN cihazı Internet'e yönelik IP adresini de dahil edilmişse [yerel ağ](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) Azure tanımında durumlarıyla VPN bağlantısını keser yukarı getirmek için bağlanamama ya da performans sorunları yaşayabilir.
+Şirket içi VPN cihazının Internet'e yönelik IP adresi de dahil edilmişse [yerel ağ](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) azure'da tanımı, ara sıra VPN bağlantısını keser getirir bağlanamama ya da performans sorunları karşılaşabilirsiniz.
 
-## <a name="checking-latency"></a>Gecikme olmadığı denetleniyor
-Microsoft Azure sınır cihazı izlemek için tracert atlama arasında 100 ms aşan gecikmeleri olup olmadığını belirlemek için kullanın.
+## <a name="checking-latency"></a>Gecikme süresi denetleniyor
+Microsoft Azure Edge cihazına izleme tracert herhangi gecikmeleri 100 ms atlama arasında aşan olup olmadığını belirlemek için kullanın.
 
-Şirket içi ağ üzerinden çalıştırılabilecek *tracert* Azure ağ geçidi veya VM VIP için. Yalnızca gördüğünüzde * döndürdü, Azure kenar ulaştı, biliyor. "Döndürülen MSN" içeren DNS adları gördüğünüzde Microsoft omurga ulaştınız bilirsiniz.<br><br>
-![Gecikme olmadığı denetleniyor](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
+Şirket içi ağdan çalışacak *tracert* VIP Azure ağ geçidi veya VM için. Yalnızca gördüğünüzde * döndürülen, Azure edge döşemedeki biliyor. "Döndürülen MSN" içeren DNS adları gördüğünüzde, Microsoft omurga ulaştınız bildirin.<br><br>
+![Gecikme süresi denetleniyor](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi veya Yardım için aşağıdaki bağlantıları kontrol edin:
 
-- [Azure sanal makineleri için ağ verimliliğini en iyi duruma getirme](../virtual-network/virtual-network-optimize-network-bandwidth.md)
-- [Microsoft Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+- [Azure sanal makineleri için ağ aktarım hızını iyileştirme](../virtual-network/virtual-network-optimize-network-bandwidth.md)
+- [Microsoft desteği](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)

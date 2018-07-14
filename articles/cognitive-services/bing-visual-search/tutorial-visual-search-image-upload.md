@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: a5ec7142fccb900a7095a0c67623d560d3bc00d7
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 90ea591137b306069c1a5c184aea07375c72ce5c
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009537"
+ms.locfileid: "39036549"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Öğretici: Bozucu Bing görsel arama karşıya yükleme
 
@@ -24,7 +24,7 @@ Bu öğreticide, bir görüntü Bing'e yüklemek ve öngörü geri alma işlemi 
 Bu öğreticide, Bing yanıtının içeriğini incelemek isteyen bir geliştirici için sağlanır. Değil tüm uygulanır ve gereksinimlerini görüntüleyin (örneğin, bir bağlantı Microsoft gizlilik ilkesi sağlamaz). Tüm kullanım gereksinimleri için bkz [Bing kullanım ve görüntü gereksinimleri](./use-and-display-requirements.md).
 
 
-### <a name="where-to-start"></a>Nereden başlayacağınızı?
+## <a name="where-to-start"></a>Nereden başlayacağınızı?
 
 Bing görüntü gönderir ve öngörüleri geri alır ve görüntüler bir HTML sayfası ile başlayalım. Sık kullandığınız düzenleyicinizde uploaddemo.html adlı bir dosya oluşturun. Aşağıdaki temel HTML yapısı dosyaya ekleyin.
 
@@ -50,7 +50,7 @@ Başlamak için şimdi sayfayı burada kullanıcının istekte bulunmak için ge
         <div id="responseSection"></div>
 ```
 
-### <a name="get-the-file-to-upload"></a>Karşıya yüklenecek dosyanın Al
+## <a name="get-the-file-to-upload"></a>Karşıya yüklenecek dosyanın Al
 
 Görüntünün karşıya yüklemek için seçmesine izin vermek için tanıtım kullanan \<giriş\> dosya türü özniteliği etiketi. Bunu yapmak kullanıcı arabirimini gerekiyor tanıtım Bing arama sonuçlarını almak için kullandığı temizleyin. 
 
@@ -126,7 +126,7 @@ Seçilen görüntü yakalar işleyici gösterir. İşleyici, boyutu 1 MB olduğu
 ```
 
 
-### <a name="what-else-is-needed-before-making-the-call-to-bing"></a>Başka ne Bing arama yapmadan önce gerekli?
+## <a name="what-else-is-needed-before-making-the-call-to-bing"></a>Başka ne Bing arama yapmadan önce gerekli?
 
 Tanıtım hala bir abonelik anahtarı gerekir. Uygulamada, büyük olasılıkla güvenli depolamadan abonelik anahtarını elde edersiniz ancak bu tanıtımda kolaylık olması için kullanıcı Arabiriminde sağlamanız gerekir. Aşağıdaki \<giriş\> etiketi (özniteliğiyle text olarak ayarlandığında türü) için \<gövdesi\> dosyanın hemen altındaki \<çıkış\> etiketi.
 
@@ -226,7 +226,7 @@ Tanıtım sorgu seçenekleri bağlantı tarafından denetlenen daraltılabilir b
 ```
 
 
-### <a name="making-the-call"></a>Çağrıyı yapan
+## <a name="making-the-call"></a>Çağrıyı yapan
 
 Aşağıdaki Get ınsights düğmesi seçenekleri div aşağıda gövdesinde ekleyin. Düğme, aramayı başlatmak kullanıcı sağlar. Kullanıcı düğmeye tıkladığında imleç dönen bekleme imleci değiştirilir ve onclick işleyicisinde çağrılır.
 
@@ -291,7 +291,7 @@ SendRequest işlevi uç nokta URL'sini biçimlendirir, abonelik anahtarı Ocp-Ap
         }
 ```
 
-### <a name="handling-the-response"></a>Yanıt işleme
+## <a name="handling-the-response"></a>Yanıt işleme
 
 Bing görsel arama çağrısından yanıt handleResponse işlevi işler. Çağrı başarılı olursa, JSON yanıtı öngörüleri içeren bireysel etiketleri ayrıştırır. Ardından, Bing internet arama sonuçları, dize verilerinin Bing'den geldiğini kullanıcıya sayfasına ekler.
 
@@ -676,7 +676,7 @@ En düşük düzeyde veri görüntülemeniz gerekir, geri kalan, en fazla olduğ
 
 
 
-### <a name="adding-styles-to-make-the-page-display-correctly"></a>Sayfanın düzgün görüntülenmesi yapmak için stil ekleme
+## <a name="adding-styles-to-make-the-page-display-correctly"></a>Sayfanın düzgün görüntülenmesi yapmak için stil ekleme
 
 Aşağıdaki \<stili\> bölümünü \<baş\> etiketi.
 
@@ -1328,3 +1328,7 @@ Tam HTML ve JavaScript örneği aşağıda verilmiştir.
     </body>
 </html>      
 ```
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Öngörüler alınıyor ve öngörüleri kullanarak belirteci, bkz: nasıl çalıştığını görmek için [Bing görsel arama SDK ImageInsightsToken öğretici](.\tutorial-visual-search-insights-token.md).

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: ed87b3c935fe4032460f8e524f963355fb3157d9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e7c6c8d017e4371919088ec414d3108939ca4a19
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970310"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036263"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış
 
@@ -35,11 +35,11 @@ Gri öğeler, *cihaz yönetimi* becerilerini uygulayan bileşenleri temsil eder.
 
 Azure portalda sağlanan kaynaklarınızı görüntülemek için seçtiğiniz çözüm adına sahip kaynak grubuna gidin.
 
-![][img-resource-group]
+![Hızlandırıcı kaynakları][img-resource-group]
 
-Çözüm hızlandırıcısını sağladığınızda, Machine Learning çalışma alanına bağlantısı da olan bir e-posta alırsınız. Machine Learning çalışma alanına gidebilirsiniz [azureiotsolutions.com] [ lnk-azureiotsuite] sağlanan çözümünüz için sayfa. Çözüm **Hazır** durumda olduğunda bu sayfada bir kutucuk kullanılabilir.
+Çözüm hızlandırıcısını sağladığınızda, Machine Learning çalışma alanına bağlantısı da olan bir e-posta alırsınız. Machine Learning çalışma alanına gidebilirsiniz [Microsoft Azure IOT Çözüm Hızlandırıcıları] [ lnk-azureiotsuite] sağlanan çözümünüz için sayfa. Çözüm **Hazır** durumda olduğunda bu sayfada bir kutucuk kullanılabilir.
 
-![][img-machine-learning]
+![Machine learning modeli][img-machine-learning]
 
 ## <a name="simulated-devices"></a>Sanal cihazlar
 

@@ -1,6 +1,6 @@
 ---
-title: Dayanıklı işlevleri - Azure izleyicileri
-description: Azure işlevleri için dayanıklı işlevleri uzantısı kullanılarak bir Durum İzleyicisi uygulamak öğrenin.
+title: Dayanıklı işlevler - Azure izleyicileri
+description: Bir Durum izleyicisini, Azure işlevleri için dayanıklı işlevler uzantısını kullanarak uygulamayı öğrenin.
 services: functions
 author: kashimiz
 manager: cfowler
@@ -12,109 +12,129 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 07/11/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9cb7a076ea922b9868bd439d160aec96f044e3b6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 02c068fc70748584583b2c71659b1a1abdc0a46d
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157484"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035780"
 ---
-# <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Dayanıklı işlevleri - hava durumu İzleyicisi örnek senaryoda izleme
+# <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Dayanıklı işlevler - hava durumu İzleyicisi örnek senaryoda izleyin
 
-İzleyici düzeni esnek bir başvuruyor *yinelenen* bir iş akışı - Örneğin, belirli koşulların karşılandığından kadar yoklama işleminde. Bu makalede kullanan bir örneğin açıklanmaktadır [dayanıklı işlevleri](durable-functions-overview.md) izleme uygulamak için.
+İzleyici deseni esnek bir başvuruyor *yinelenen* bir iş akışında - Örneğin, belirli koşulların karşılanması kadar yoklama işlemi. Bu makalede kullanan bir örnek açıklanmaktadır [dayanıklı işlevler](durable-functions-overview.md) izleme uygulamak için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Dayanıklı işlevleri yüklemek](durable-functions-install.md).
+* [Dayanıklı işlevler yükleme](durable-functions-install.md).
 * Tamamlamak [Hello dizisi](durable-functions-sequence.md) gözden geçirme.
 
 ## <a name="scenario-overview"></a>Senaryoya genel bakış
 
-Bu örnek bir konumun geçerli hava koşulları izler ve bir kullanıcı SMS tarafından skies açık olduğunda uyarır. Normal bir zamanlayıcı tetiklemeli işlevin hava denetleyin ve uyarıları göndermek için kullanabilirsiniz. Ancak, bu yaklaşım ile ilgili bir sorun olduğunu **yaşam süresi management**. Yalnızca bir uyarı gönderilmesi gerektiğini İzleyici kendisini Temizle sonra devre dışı bırakmak gerek duyduğu hava durumu algılandı. İzleme düzeni başka avantajları arasında kendi yürütme sona erdirilebilir:
+Bu örnek, bir konumun geçerli hava koşulları izler ve bir kullanıcı tarafından SMS skies açık olduğunda uyarır. Normal bir Zamanlayıcı ile tetiklenen işlev hava durumunu denetleyin ve uyarıları göndermek için kullanabilirsiniz. Ancak, bu yaklaşım ile ilgili bir sorun olduğunu **ömür Yönetimi**. Yalnızca bir uyarı gönderilmesi gereken kendisini Temizle sonra devre dışı bırakmak izleyicinin hava durumu algılandı. İzleme desen, diğer avantajlarının yanı sıra kendi yürütme sona erdirilebilir:
 
-* Aralıklarına göre çalıştır izleyiciler olmayan zamanlar: Zamanlayıcı tetikleyicisi *çalıştıran* her saat; bir izleme *bekler* eylemler arasında bir saat. Bir izleyicinin Eylemler belirtilmediği sürece, uzun süre çalışan görevler için önemli olabilir çakışmaması.
-* İzleyiciler dinamik aralıkları sahip olabilir: bekleme süresi dayalı bir koşulu olarak değiştirebilirsiniz.
-* Bazı koşul karşılanır veya başka bir işlem tarafından sona erdirilecek izleyiciler sonlandırabilir.
-* İzleyiciler parametre alabilir. Örnek, tüm istenen konumu ve telefon numarası aynı işlem hava durumu izleme nasıl uygulanabilir gösterir.
-* İzleyiciler ölçeklenebilir. Her bir izleyici orchestration örneği olduğundan, birden çok monitör yeni işlevler oluşturmak veya daha fazla kod tanımlamak zorunda kalmadan oluşturulabilir.
-* İzleyiciler kolayca büyük iş akışlarıyla birleştirilerek tümleştirin. Bir izleyici daha karmaşık bir orchestration işlevinin bir bölümü olabilir veya bir [alt orchestration](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
+* İzleyiciler, belirli aralıklarla çalıştırmak olmayan zamanlar: Zamanlayıcı tetikleyicisi *çalıştıran* saatte; bir izleyici *bekler* eylemler arasında bir saat. Bir izleyicinin eylemleri belirtilmediği sürece, uzun süre çalışan görevler için önemli olabilir çakışmaması.
+* İzleyicilerle dinamik aralıkları: bekleme süresine bağlı olarak bazı koşullar değiştirebilirsiniz.
+* Bazı koşullar karşılanması veya başka bir işlem tarafından sonlandırılacak izleyiciler sonlandırabilirsiniz.
+* İzleyiciler, parametre alabilir. Tüm istenen konumu ve telefon numarası aynı hava durumu izleme işlemini nasıl uygulanabileceğini örnek gösterir.
+* İzleyiciler ölçeklenebilir. Her bir izleyici bir düzenleme örneği olduğundan, birden çok monitör yeni işlevler oluşturun veya daha fazla kod tanımlamak zorunda kalmadan oluşturulabilir.
+* İzleyiciler, daha büyük iş akışlarınızla kolayca tümleştirin. Bir izleyici daha karmaşık bir düzenleme işlevinin bir bölümü olabilir veya [alt düzenleme](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
 
-## <a name="configuring-twilio-integration"></a>Twilio tümleştirmesini yapılandırma
+## <a name="configuring-twilio-integration"></a>Twilio tümleştirmesi yapılandırma
 
 [!INCLUDE [functions-twilio-integration](../../includes/functions-twilio-integration.md)]
 
 ## <a name="configuring-weather-underground-integration"></a>Hava durumu Yeraltı tümleştirmesini yapılandırma
 
-Bu örnek, bir konum geçerli hava durumu koşulu denetlemek için hava durumu Yeraltı API'yi kullanarak içerir.
+Bu örnek, bir konum için geçerli hava durumu koşullarını denetlemek için hava durumu Yeraltı API kullanmayı içerir.
 
-Size gereken ilk şey hava durumu Yeraltı bir hesaptır. Bir tane ücretsiz adresindeki oluşturabilirsiniz [ https://www.wunderground.com/signup ](https://www.wunderground.com/signup). Hesabınızı edindikten sonra bir API anahtarı edinmeye gerekir. Ziyaret ederek yapabilirsiniz [ https://www.wunderground.com/weather/api ](https://www.wunderground.com/weather/api), anahtar ayarlarını seçtikten sonra. Stratus Geliştirici planı ücretsiz ve bu örneği çalıştırmak yeterli.
+İhtiyacınız olan ilk şey bir hava durumu Yeraltı hesabıdır. Ücretsiz, oluşturabilirsiniz [ https://www.wunderground.com/signup ](https://www.wunderground.com/signup). Hesabınızı edindikten sonra bir API anahtarı alma gerekecektir. Ziyaret ederek bunu [ https://www.wunderground.com/weather/api ](https://www.wunderground.com/weather/api), anahtar ayarlarını seçildikten sonra. Stratus Geliştirici planı ücretsizdir ve bu örneği çalıştırmak yeterli kullanılabilir.
 
-Bir API anahtarı olduktan sonra aşağıdaki ekleyin **uygulama ayarı** işlevi uygulamanıza.
+Bir API anahtarı aldıktan sonra aşağıdaki ekleyin **uygulama ayarı** işlev uygulamanız için.
 
-| Uygulama ayarı adı | Değer açıklaması |
+| Uygulama ayarı adı | Değer Açıklama |
 | - | - |
-| **WeatherUndergroundApiKey**  | Hava durumu Yeraltı API anahtarınıza. |
+| **WeatherUndergroundApiKey**  | Hava durumu Yeraltı API anahtarınızı. |
 
-## <a name="the-functions"></a>İşlevler
+## <a name="the-functions"></a>İşlevleri
 
-Bu makalede örnek uygulamasında aşağıdaki işlevleri açıklanmaktadır:
+Bu makalede örnek uygulama aşağıdaki işlevler açıklanmaktadır:
 
-* `E3_Monitor`: Çağırır bir orchestrator işlevi `E3_GetIsClear` düzenli aralıklarla. Çağırır `E3_SendGoodWeatherAlert` varsa `E3_GetIsClear` true değerini döndürür.
-* `E3_GetIsClear`: Geçerli bir konum hava koşulları denetler bir etkinlik işlevi.
+* `E3_Monitor`: Çağıran bir düzenleyici işlevi `E3_GetIsClear` düzenli aralıklarla. Çağrı `E3_SendGoodWeatherAlert` varsa `E3_GetIsClear` true değerini döndürür.
+* `E3_GetIsClear`: Bir konum için geçerli hava koşulları denetler bir etkinlik işlevi.
 * `E3_SendGoodWeatherAlert`: Twilio aracılığıyla SMS iletisi gönderir bir etkinlik işlevi.
 
-Aşağıdaki bölümlerde kullanılan kod ve yapılandırma açıklanmaktadır C# kodlama için. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
+Aşağıdaki bölümlerde, betik C# ve JavaScript için kullanılan kod ve yapılandırma açıklanmaktadır. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
  
-## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Orchestration (Visual Studio Code ve Azure portal örnek kodu) izleme hava durumu
+## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Düzenleme (Visual Studio Code ve Azure portalı örnek kodu) izleme hava durumu
 
-**E3_Monitor** işlevini kullanan standart *function.json* orchestrator işlevler için.
+**E3_Monitor** işlevini kullanan standart *function.json* orchestrator işlevleri için.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Monitor/function.json)]
 
-İşlev uygulayan kod aşağıdaki gibidir:
+İşlev uygulayan kod şu şekildedir:
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
+### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
+
 Bu orchestrator işlevi aşağıdaki eylemleri gerçekleştirir:
 
-1. Alır **MonitorRequest** oluşan *konumu* izlemek için ve *telefon numarası* için hangi SMS bildirim gönderir.
-2. İzleyici sona erme süresini belirler. Örnek bir sabit kodlu değer okumanızdır kullanır.
-3. Çağrıları **E3_GetIsClear** istenen konumda Temizle skies olup olmadığını belirlemek için.
-4. Hava boş olduğunda, çağıran **E3_SendGoodWeatherAlert** istenen telefon numarasına SMS bildirim göndermek için.
-5. Sonraki yoklama aralığında orchestration sürdürmek için sağlam bir zamanlayıcı oluşturur. Örnek bir sabit kodlu değer okumanızdır kullanır.
-6. Kadar çalışmaya devam [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) geçişleri monitörün süre sonu zamanı ya da SMS uyarı gönderilir.
+1. Alır **MonitorRequest** oluşan *konumu* izlemek için ve *telefon numarası* için hangi SMS bildirimi gönderir.
+2. İzleyici zaman aşımı süresini belirler. Örnek, bir sabit kodlu değer konuyu uzatmamak amacıyla kullanır.
+3. Çağrıları **E3_GetIsClear** istenen konuma Temizle skies olup olmadığını belirlemek için.
+4. Hava durumu, boş olduğunda, çağıran **E3_SendGoodWeatherAlert** istenen telefon numarasına SMS bildirimi göndermek için.
+5. Sonraki yoklama aralığı sırasında orchestration sürdürmek için kalıcı bir zamanlayıcı oluşturur. Örnek, bir sabit kodlu değer konuyu uzatmamak amacıyla kullanır.
+6. Kadar çalışmaya devam eder [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) geçişleri izleyicinin sona erme saati veya SMS uyarı gönderilir.
 
-Birden çok orchestrator örnekleri, aynı anda birden çok göndererek çalışabilir **MonitorRequests**. İzlemek için konum ve bir SMS uyarı göndermek için telefon numarası belirtilebilir.
+Birden çok orchestrator örnekleri aynı anda birden çok göndererek çalışabilir **MonitorRequests**. İzlemek istediğiniz konumu ve telefon numarası için SMS uyarısı göndermek için belirtilebilir.
 
-## <a name="strongly-typed-data-transfer"></a>Kesin türü belirtilmiş veri aktarımı
+## <a name="strongly-typed-data-transfer-net-only"></a>Kesin türü belirtilmiş veri aktarımı (yalnızca .NET)
 
-Orchestrator birden çok veri parçaları, bu nedenle gerektirir [POCO nesneleri paylaşılan](functions-reference-csharp.md#reusing-csx-code) kesin türü belirtilmiş veri aktarımı için kullanılır: [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+Orchestrator bu nedenle, verilerin birden çok parça gerektirir [POCO nesneleri paylaşılan](functions-reference-csharp.md#reusing-csx-code) C# ve C# betiği kesin türü belirtilmiş veri aktarımı için kullanılır: [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
 
+JavaScript örnek normal JSON nesneleri parametreler olarak kullanır.
+
 ## <a name="helper-activity-functions"></a>Yardımcı etkinlik işlevleri
 
-Diğer örnekleri ile yardımcı etkinlik işlevleri kullanan normal işlevlerdir gibi `activityTrigger` tetiklemek bağlama. **E3_GetIsClear** işlevi hava durumu Yeraltı API'yi kullanarak geçerli hava koşulları alır ve sky açık olup olmadığını belirler. *Function.json* şu şekilde tanımlanır:
+Diğer örneklerle yardımcı etkinlik işlevleri kullanan normal işlevlerde olduğu gibi `activityTrigger` bağlama tetikleyin. **E3_GetIsClear** işlevi hava durumu Yeraltı API'sini kullanarak geçerli hava koşulları alır ve sky açık olup olmadığını belirler. *Function.json* şu şekilde tanımlanır:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/function.json)]
 
-Ve burada uygulamasıdır. Veri aktarımı için kullanılan POCOs gibi API işlemek için mantığı çağırın ve JSON paylaşılan sınıfına soyutlanır yanıtı ayrıştırılamadı. Bir parçası olarak Bul [Visual Studio örnek kod](#run-the-sample).
+Ve burada uygulamasıdır. Veri aktarımı için kullanılan POCOs gibi API işlemek için mantığı çağırın ve JSON paylaşılan bir sınıf C# içinde soyutlanır yanıtı ayrıştıramadı. Bir parçası olarak bulabilirsiniz [Visual Studio örnek kodu](#run-the-sample).
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-**E3_SendGoodWeatherAlert** işlevi, son kullanıcı bir ilerlemesi için iyi bir zamandır olduğunu bildiren bir SMS iletisi göndermek için Twilio bağlama kullanır. Kendi *function.json* basittir:
+### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
+
+**E3_SendGoodWeatherAlert** işlevi, son kullanıcının bir ilerlemesi için uygun bir zaman olduğunu bildiren bir SMS mesajı göndermek için Twilio bağlama kullanır. Kendi *function.json* basittir:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/function.json)]
 
 Ve SMS mesajı gönderir kod aşağıdaki gibidir:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
 ## <a name="run-the-sample"></a>Örneği çalıştırma
 
-Aşağıdaki örnekte dahil HTTP tetiklemeli işlevleri kullanarak, aşağıdaki HTTP POST isteği göndererek orchestration başlatabilirsiniz:
+Örnekte bulunan bir HTTP tetiklemeli işlevleri'ni kullanarak, aşağıdaki HTTP POST isteği göndererek düzenleme başlayabilirsiniz:
 
 ```
 POST https://{host}/orchestrators/E3_Monitor
@@ -132,9 +152,12 @@ RetryAfter: 10
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
 
-**E3_Monitor** örneği başlatır ve istenilen konuma geçerli hava koşulları sorgular. Hava boş olduğunda, bir uyarı göndermek için bir etkinlik işlevini çağırır; Aksi halde, bir süreölçer ayarlar. Süreölçer süresi dolduğunda, orchestration devam eder.
+   > [!NOTE]
+   > Şu anda, JavaScript düzenleme başlangıç işlevleri örnek Yönetimi URI'ler döndüremez. Bu özellik, bir sonraki sürümde eklenecek.
 
-Azure işlevleri Portalı'nda konumundaki işlev bakarak orchestration ait etkinlik günlükleri görebilirsiniz.
+**E3_Monitor** örneği başlatır ve istenilen konum için geçerli hava koşulları sorgular. Hava durumu boş olduğunda bir uyarı göndermek için bir etkinlik işlevi çağırır; Aksi takdirde, bir zamanlayıcı olarak ayarlar. Süreölçerdeki Süre dolduğunda düzenleme devam edecek.
+
+Azure işlevleri portalda konumundaki işlev bakarak düzenleme ait etkinlik günlükleri görebilirsiniz.
 
 ```
 2018-03-01T01:14:41.649 Function started (Id=2d5fcadf-275b-4226-a174-f9f943c90cd1)
@@ -152,7 +175,7 @@ Azure işlevleri Portalı'nda konumundaki işlev bakarak orchestration ait etkin
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-Orchestration olacak [sonlandırmak](durable-functions-instance-management.md#terminating-instances) , zaman aşımı ulaştı veya açık olduğunda skies algılanır. De kullanabilirsiniz `TerminateAsync` iç işlev veya çağırma **terminatePostUri** yukarıda değiştirme 202 yanıt başvurulan HTTP POST Web kancası `{text}` sonlandırma nedeni ile:
+Orchestration olacak [sonlandırmak](durable-functions-instance-management.md#terminating-instances) , zaman aşımı ulaşıldığında veya açık olduğunda skies algılanır. Ayrıca `TerminateAsync` iç işlev veya çağırma **terminatePostUri** yukarıda değiştirerek 202 yanıtının başvurulan bir HTTP POST Web kancası `{text}` sonlandırma nedenini ile:
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
@@ -160,13 +183,13 @@ POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf6
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio örnek kod
 
-Tek bir C# dosyasında bir Visual Studio projesi olarak orchestration şöyledir:
+Tek bir C# dosyası olarak Visual Studio projesi içinde düzenleme şu şekildedir:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu örnek dayanıklı işlevlerinin bir dış kaynağının durumunu izlemek için nasıl kullanılacağı gösterilmiştir kullanarak [dayanıklı zamanlayıcılar](durable-functions-timers.md) ve koşullu mantık. Sonraki örnek dış olayları kullanmayı gösterir ve [dayanıklı zamanlayıcılar](durable-functions-timers.md) insan etkileşimi işlemek için.
+Bu örnek, bir dış kaynağının durumunu izlemek için dayanıklı işlevler kullanmayı gösterilmiştir kullanarak [dayanıklı zamanlayıcılar](durable-functions-timers.md) ve koşul mantığı. Sonraki örnek, dış olayları kullanma işlemi gösterilmektedir ve [dayanıklı zamanlayıcılar](durable-functions-timers.md) insan etkileşimi işlemek için.
 
 > [!div class="nextstepaction"]
-> [İnsan etkileşimi örneğini çalıştırın](durable-functions-phone-verification.md)
+> [İnsan etkileşimi örneği çalıştırma](durable-functions-phone-verification.md)

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e01e4c397e0d0a19280a32fc1e8341b57b47e4eb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1af9770fa899a03e6e3514c539c511ba26fdced4
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610392"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036389"
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Azure şablonu kullanarak bir VM için bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI) yapılandırma
 
@@ -52,7 +52,7 @@ Belirlediğiniz seçeneğe bakılmaksızın, şablon söz dizimi ilk dağıtım�
    > Bu örnek gibi değişkenleri varsayar `vmName`, `storageAccountName`, ve `nicName` şablonda tanımlanmadı.
    >
 
-   ![VM şablonu - ekran görüntüsü bulun](~/articles/active-directory/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![VM şablonu - ekran görüntüsü bulun](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
 3. Ekleme `"identity"` özelliği aynı düzeyde `"type": "Microsoft.Compute/virtualMachines"` özelliği. Aşağıdaki sözdizimini kullanın:
 
@@ -92,7 +92,7 @@ Belirlediğiniz seçeneğe bakılmaksızın, şablon söz dizimi ilk dağıtım�
 
 5. İşiniz bittiğinde, şablonunuzu aşağıdakine benzer görünmelidir:
 
-   ![Güncelleştirmeden sonra şablon görüntüsü](~/articles/active-directory/media/msi-qs-configure-template-windows-vm/template-file-after.png) 
+   ![Güncelleştirmeden sonra şablon görüntüsü](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-after.png) 
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Bir Azure VM'den MSI Kaldır
 

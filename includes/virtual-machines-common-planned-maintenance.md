@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/05/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: abf10177f8ce86309043da92d1f2b690775b6d89
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-ms.translationtype: HT
+ms.openlocfilehash: f203e056df00fb1a9b1e7e43930955040dfce4aa
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37910040"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39029991"
 ---
 Azure sanal makine konak altyapısının güvenilirlik, performans ve güvenliğini iyileştirmek için düzenli olarak güncelleştirmeler yapar. Bu güncelleştirmeler barındırma ortamındaki yazılım bileşenlerine (işletim sistemi, hiper yönetici ve konak üzerinde dağıtılmış olan çeşitli aracılar) düzeltme eki uygulama, ağ bileşenlerini yükseltme ve donanımların kullanımdan çıkarılması gibi işlemler olabilir. Bu güncelleştirmelerin çoğu barındırılan sanal makinelere sunucuları etkilenmeden gerçekleştirilir. Ancak, güncelleştirmeleri bir etkiye sahip olduğu durumlar da vardır:
 
@@ -21,9 +21,9 @@ Azure sanal makine konak altyapısının güvenilirlik, performans ve güvenliğ
 
 - Bakım yeniden başlatma gerektirirse, ne zaman bunu planlı bakım, bir bildirim alın. Bu gibi durumlarda, aynı zamanda bakım kendiniz için en uygun zamanda başlayabileceğiniz bir zaman penceresi verilir.
 
-Bu sayfayı Microsoft Azure'nın bakım her iki tür nasıl gerçekleştirdiğini açıklar. Planlanmamış olaylar (kesintileri) hakkında daha fazla bilgi için sanal makinelerin kullanılabilirliğini yönetme [Windows] bakın (../articles/virtual-machines/windows/manage-availability.md) veya [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Bu sayfayı Microsoft Azure'nın bakım her iki tür nasıl gerçekleştirdiğini açıklar. Planlanmamış olaylar (kesinti) hakkında daha fazla bilgi için için sanal makinelerin kullanılabilirliğini yönetme [Windows](../articles/virtual-machines/windows/manage-availability.md) veya [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Bir sanal makinede çalışan uygulamalar için Azure meta veri hizmeti kullanarak gelecek güncelleştirmeleri hakkında bilgi toplayabilir [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) veya [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
+Bir sanal makinede çalışan uygulamalar, gelecek güncelleştirmelerde hakkında bilgiler için Azure meta veri hizmetini kullanarak toplayabilir [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) veya [Linux](../articles/virtual-machines/linux/instance-metadata-service.md).
 
 Planlı bakım yönetme "nasıl yapılır" için "İşleme planlı bakım bildirimlerini" için bilgi [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) veya [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 

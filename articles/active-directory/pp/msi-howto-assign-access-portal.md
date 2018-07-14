@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 83a56793d08632918a75f6580360a9dd148d7316
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2af83762fdcd3302f2af9b08585febab42387d79
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611077"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035991"
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Azure portalını kullanarak bir kaynak için bir yönetilen hizmet kimliği erişim atama
 
@@ -41,11 +41,11 @@ Bir Azure kaynağında MSI etkinleştirdikten sonra [Azure VM'deki gibi](msi-qs-
 
 3. Seçin **erişim denetimi (IAM)** seçin ve kaynak sayfasında **+ Ekle**. Ardından belirtin **rol**, **sanal makineye erişim atama**, karşılık gelen belirtin **abonelik** ve **kaynak grubu** kaynağın bulunduğu. Arama ölçütleri alanında kaynak görmeniz gerekir. Kaynak seçip **Kaydet**. 
 
-   ![Erişim denetimi (IAM) ekran görüntüsü](~/articles/active-directory/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   ![Erişim denetimi (IAM) ekran görüntüsü](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
 
 4. Ana döndürülür **erişim denetimi (IAM)** gördüğünüz yeni bir giriş için kaynağın MSI sayfası. Bu örnekte, "SimpleWinVM" tanıtım kaynak grubu VM'den sahip **katkıda bulunan** depolama hesabına erişim.
 
-   ![Erişim denetimi (IAM) ekran görüntüsü](~/articles/active-directory/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![Erişim denetimi (IAM) ekran görüntüsü](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

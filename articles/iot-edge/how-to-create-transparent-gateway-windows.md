@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96ca5a7ec8b0c87984ea2c76af446d7a8b5504a1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 96a0443a66bb826496c6af42fe6479c0a53ac964
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344309"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036093"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Saydam bir ağ geçidi olarak davranır bir Windows IOT Edge cihazı oluşturma
 
@@ -22,7 +22,7 @@ Bu makalede, saydam bir ağ geçidi olarak IOT Edge cihazı kullanmaya yönelik 
 >[!NOTE]
 >Şu anda:
 > * Ağ geçidi, IOT Hub'ından kesilirse, aşağı akış cihazların ağ geçidi ile kimlik doğrulaması yapamaz.
-> * IOT Edge cihazlarının IOT Edge ağ geçidi için bağlantı kurulamıyor.
+> * Edge özellikli cihazlar IOT Edge ağ geçidi için bağlantı kurulamıyor. 
 > * Aşağı Akış cihazları karşıya dosya yükleme kullanamazsınız.
 
 Saydam bir ağ geçidi oluşturma hakkında daha fazla sabit bölümü güvenli bir aşağı akış cihazları ağ geçidine bağlanıyor. Azure IOT Edge bu cihazları arasında güvenli TLS bağlantıları kurmak için PKI altyapısını kullanmanıza olanak tanır. Bu durumda, biz saydam bir ağ geçidi olarak görev yapan bir IOT Edge cihazına bağlamak için bir aşağı akış cihazı vermiş olursunuz.  Makul güvenliğini sağlamak için aşağı akış cihaz, ağ geçitleri ve değil kötü amaçlı olabilecek bir ağ geçidi'ne bağlama cihazlarınızı yalnızca istediğinden sınır cihazı kimliğini onaylamalıdır.
