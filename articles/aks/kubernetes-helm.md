@@ -1,36 +1,36 @@
 ---
-title: Azure üzerinde Kubernetes Helm ile kapsayıcıları dağıtın
-description: Kapsayıcıları AKS Kubernetes kümesinde dağıtmak için Helm paketleme Aracı'nı kullanın
+title: Azure'da kubernetes Helm ile kapsayıcıları dağıtın
+description: Azure Kubernetes Service (AKS) kümesini kapsayıcıları dağıtmak için Helm paketleme Aracı'nı kullanın
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 07/13/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 531e6d9368b2bf91c48fd41b1e9330879b0df49a
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: dd2deba25615373765dd3492d03c1ba547c8ba8c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102663"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055143"
 ---
-# <a name="use-helm-with-azure-kubernetes-service-aks"></a>Helm Azure Kubernetes hizmeti (AKS) kullanın
+# <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Helm ile uygulamaları yükleme
 
-[Helm] [ helm] yükleme ve kullanım ömrü boyunca Kubernetes uygulamaları yönetmenize yardımcı olan bir açık kaynak paketleme aracıdır. Linux paketi yöneticileri gibi benzer *APT* ve *Yum*, Helm önceden yapılandırılmış Kubernetes kaynakların paketleri Kubernetes grafikler, yönetmek için kullanılır.
+[Helm] [ helm] yükleyin ve Kubernetes uygulamaların yaşam döngüsünü yönetmenize yardımcı olan bir açık kaynak paketleme aracıdır. Linux paket yöneticileri gibi benzer *APT* ve *Yum*, Helm Kubernetes grafikleri, önceden yapılandırılmış Kubernetes kaynak paketleri yönetmek için kullanılır.
 
-Yapılandırma ve Helm AKS Kubernetes kümede kullanılarak aracılığıyla bu belge adımlar.
+Bu makalede yapılandırma ve bir Kubernetes kümesinde AKS üzerinde Helm kullanma gösterilmektedir.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve kümeyle bir kubectl bağlantısı kurduğunuz kabul edilmektedir. Bu öğeler gereksinim duyarsanız, bkz: [AKS quickstart][aks-quickstart].
+Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve belirledik varsayılır bir `kubectl` kümeyle bağlantı. Bu öğelere gereksiniminiz varsa, bkz: [AKS hızlı başlangıçları][aks-quickstart].
 
 ## <a name="install-helm-cli"></a>Helm CLI yükleme
 
-Helm CLI geliştirme sisteminizde çalıştıran ve başlatmak, durdurmak ve Helm uygulamalarla yönetmenize olanak sağlayan bir istemci olur.
+Helm CLI geliştirme sisteminizde çalışan ve başlatma, durdurma ve Helm ile uygulamaları yönetmenize olanak sağlayan bir istemcidir.
 
-Azure CloudShell kullanıyorsanız, Helm CLI zaten yüklü. Bir Mac üzerinde Helm CLI yüklemek için `brew`. İçin ek yükleme seçenekleri bkz [yükleme Helm][helm-install-options].
+Azure Cloud Shell'i kullanırsanız, Helm CLI zaten yüklüdür. Mac bilgisayarlarda Helm CLI'yı yüklemek için kullanın `brew`. Ek yükleme seçenekleri için bkz., [yükleme Helm][helm-install-options].
 
 ```console
 brew install kubernetes-helm
@@ -39,23 +39,23 @@ brew install kubernetes-helm
 Çıktı:
 
 ```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
+==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
 ######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
+==> Pouring kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
 ==> Caveats
 Bash completion has been installed to:
   /usr/local/etc/bash_completion.d
 ==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
+🍺  /usr/local/Cellar/kubernetes-helm/2.9.1: 50 files, 66.2MB
 ```
 
-## <a name="create-service-account"></a>Hizmet hesabı oluşturma
+## <a name="create-a-service-account"></a>Bir hizmet hesabı oluşturun
 
-Bir RBAC Helm yapılandırma küme etkinleştirilmeden önce bir hizmet hesabı ve rol Tiller hizmeti için bağlama gerekir. Helm güvenliğini sağlama konusunda daha fazla bilgi için / bir RBAC Tiller etkin küme bkz [Tiller, ad alanları ve RBAC][tiller-rbac]. Not kümenizi RBAC değil, etkin, bu adımı atlayın.
+Bir hizmet hesabı ve rol bağlama RBAC özellikli bir kümede Helm dağıtabilmeniz için önce Tiller hizmeti için gereklidir. Helm güvenliğini sağlama konusunda daha fazla bilgi için / Tiller bir RBAC, etkin küme, bkz: [Tiller, ad alanları ve RBAC][tiller-rbac]. Kümenizi RBAC etkin değilse, bu adımı atlayın.
 
-Adlı bir dosya oluşturun `helm-rbac.yaml` ve aşağıdaki YAML kopyalayın.
+Adlı bir dosya oluşturun `helm-rbac.yaml` aşağıdaki YAML'ye kopyalayın:
 
-```
+```yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -76,134 +76,162 @@ subjects:
     namespace: kube-system
 ```
 
-Hizmet hesabı oluşturup rol bağlama ile `kubectl create` komutu.
+Hizmet hesabı oluşturup rolü bağlamayla `kubectl create` komutu:
 
-```
+```console
 kubectl create -f helm-rbac.yaml
 ```
 
-Bir RBAC kullanarak küme etkinleştirildiğinde, Tiller kümeye sahip olduğu erişim düzeyine seçeneğiniz vardır. Bkz: [Helm: rol tabanlı erişim denetimlerini] [ helm-rbac] yapılandırma seçenekleri hakkında daha fazla bilgi için.
+## <a name="secure-tiller-and-helm"></a>Güvenli Tiller ve Helm
+
+Tiller hizmet ve Helm istemci kimliğini doğrulamak ve TLS/SSL aracılığıyla birbirleriyle iletişim kurar. Kubernetes kümenizin güvenliğini sağlamak için bu kimlik doğrulama yöntemini yardımcı olur ve hangi Hizmetleri dağıtılabilir. Güvenliği artırmak için kendi imzalanan sertifikalar oluşturabilir. Her bir Helm kullanıcı kendi istemci sertifikası alırsınız ve uygulanan sertifikalarla Tiller Kubernetes kümesinde başlatılması. Daha fazla bilgi için [TLS/SSL kullanarak Helm Tiller arasındaki][helm-ssl].
+
+Bir RBAC özellikli Kubernetes kümesiyle Tiller kümeye sahip erişim düzeyini denetleyebilirsiniz. Tiller dağıtıldığı Kubernetes ad alanı tanımlayabilir ve kısıtlama ad uzaylarını Tiller ardından kaynakları dağıtabilirsiniz. Bu yaklaşım, farklı bir ad alanları ve sınırı dağıtım sınırları Tiller örnekleri oluşturma ve kullanıcıları belirli ad alanlarına Helm istemci kapsamını sağlar. Daha fazla bilgi için [Helm rol tabanlı erişim denetimlerini][helm-rbac].
 
 ## <a name="configure-helm"></a>Helm yapılandırın
 
-Şimdi tiller kullanarak yüklemek [helm init] [ helm-init] komutu. Kümenizi RBAC etkin değilse, kaldırma `--service-account` bağımsız değişkeni ve değeri.
+Temel Tiller bir AKS kümesi dağıtmayı kullanın [helm init] [ helm-init] komutu. Kümenizi RBAC etkin değilse, kaldırma `--service-account` bağımsız değişkeni ve değer. TLS/SSL Tiller ve Helm için yapılandırdıysanız, bu temel başlatma adımı atlayın ve bunun yerine gerekli sağlamak `--tiller-tls-` sonraki örnekte gösterildiği gibi.
 
-```
+```console
 helm init --service-account tiller
+```
+
+TLS/SSL Helm Tiller arasındaki yapılandırılıp yapılandırılmadığını sağlamak `--tiller-tls-` parametreleri ve aşağıdaki örnekte gösterildiği gibi kendi sertifikalarınızı adları:
+
+```console
+helm init \
+    --tiller-tls \
+    --tiller-tls-cert tiller.cert.pem \
+    --tiller-tls-key tiller.key.pem \
+    --tiller-tls-verify \
+    --tls-ca-cert ca.cert.pem \
+    --service-account tiller
 ```
 
 ## <a name="find-helm-charts"></a>Helm grafikleri Bul
 
-Helm grafikler Kubernetes kümesine uygulamaları dağıtmak için kullanılır. Önceden oluşturulmuş Helm grafiklerde aramak için kullanın [helm arama] [ helm-search] komutu.
+Helm grafikleri, uygulamalarınızı bir Kubernetes kümesi dağıtmak için kullanılır. Önceden oluşturulmuş Helm grafikleri için aranacak kullanın [helm search] [ helm-search] komutu:
 
-```azurecli-interactive
+```console
 helm search
 ```
 
-Ancak, çoğu ile daha fazla grafikleri aşağıdakine benzer çıkış görünüyor.
+Aşağıdaki sıkıştırılmış örneğe çıktı Helm grafikleri kullanılabilir bazıları gösterilmektedir:
 
 ```
-NAME                            VERSION DESCRIPTION
-stable/acs-engine-autoscaler    2.0.0   Scales worker nodes within agent pools
-stable/artifactory              6.1.0   Universal Repository Manager supporting all maj...
-stable/aws-cluster-autoscaler   0.3.1   Scales worker nodes within autoscaling groups.
-stable/buildkite                0.2.0   Agent for Buildkite
-stable/centrifugo               2.0.0   Centrifugo is a real-time messaging server.
-stable/chaoskube                0.5.0   Chaoskube periodically kills random pods in you...
-stable/chronograf               0.3.0   Open-source web application written in Go and R...
-stable/cluster-autoscaler       0.2.0   Scales worker nodes within autoscaling groups.
-stable/cockroachdb              0.5.0   CockroachDB is a scalable, survivable, strongly...
-stable/concourse                0.7.0   Concourse is a simple and scalable CI system.
-stable/consul                   0.4.1   Highly available and distributed service discov...
-stable/coredns                  0.5.0   CoreDNS is a DNS server that chains middleware ...
-stable/coscale                  0.2.0   CoScale Agent
-stable/dask-distributed         2.0.0   Distributed computation in Python
-stable/datadog                  0.8.0   DataDog Agent
+$ helm search
+
+NAME                           CHART VERSION    APP VERSION  DESCRIPTION
+stable/acs-engine-autoscaler   2.2.0            2.1.1        Scales worker nodes within agent pools
+stable/aerospike               0.1.7            v3.14.1.2    A Helm chart for Aerospike in Kubernetes
+stable/anchore-engine          0.1.7            0.1.10       Anchore container analysis and policy evaluatio...
+stable/apm-server              0.1.0            6.2.4        The server receives data from the Elastic APM a...
+stable/ark                     1.0.1            0.8.2        A Helm chart for ark
+stable/artifactory             7.2.1            6.0.0        Universal Repository Manager supporting all maj...
+stable/artifactory-ha          0.2.1            6.0.0        Universal Repository Manager supporting all maj...
+stable/auditbeat               0.1.0            6.2.4        A lightweight shipper to audit the activities o...
+stable/aws-cluster-autoscaler  0.3.3                         Scales worker nodes within autoscaling groups.
+stable/bitcoind                0.1.3            0.15.1       Bitcoin is an innovative payment network and a ...
+stable/buildkite               0.2.3            3            Agent for Buildkite
+stable/burrow                  0.4.4            0.17.1       Burrow is a permissionable smart contract machine
+stable/centrifugo              2.0.1            1.7.3        Centrifugo is a real-time messaging server.
+stable/cerebro                 0.1.0            0.7.3        A Helm chart for Cerebro - a web admin tool tha...
+stable/cert-manager            v0.3.3           v0.3.1       A Helm chart for cert-manager
+stable/chaoskube               0.7.0            0.8.0        Chaoskube periodically kills random pods in you...
+stable/chartmuseum             1.5.0            0.7.0        Helm Chart Repository with support for Amazon S...
+stable/chronograf              0.4.5            1.3          Open-source web application written in Go and R...
+stable/cluster-autoscaler      0.6.4            1.2.2        Scales worker nodes within autoscaling groups.
+stable/cockroachdb             1.1.1            2.0.0        CockroachDB is a scalable, survivable, strongly...
+stable/concourse               1.10.1           3.14.1       Concourse is a simple and scalable CI system.
+stable/consul                  3.2.0            1.0.0        Highly available and distributed service discov...
+stable/coredns                 0.9.0            1.0.6        CoreDNS is a DNS server that chains plugins and...
+stable/coscale                 0.2.1            3.9.1        CoScale Agent
+stable/dask                    1.0.4            0.17.4       Distributed computation in Python with task sch...
+stable/dask-distributed        2.0.2                         DEPRECATED: Distributed computation in Python
+stable/datadog                 0.18.0           6.3.0        DataDog Agent
 ...
 ```
 
-Grafikler listesini güncelleştirmek için kullanmak [helm deposuna güncelleştirme] [ helm-repo-update] komutu.
+Grafikler listesini güncelleştirmek için [helm deposu güncelleştirme] [ helm-repo-update] komutu. Aşağıdaki örnek, bir başarılı depo güncelleştirme gösterir:
 
-```azurecli-interactive
-helm repo update
-```
+```console
+$ helm repo update
 
-Çıktı:
-
-```
 Hang tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
 Update Complete. ⎈ Happy Helming!⎈
 ```
 
-## <a name="run-helm-charts"></a>Çalışma Helm grafikleri
+## <a name="run-helm-charts"></a>Helm grafiklerini Çalıştır
 
-Wordpress Helm grafiğini kullanarak dağıtmak için kullandığınız [helm yükleme] [ helm-install] komutu.
+İle Helm grafikleri yüklemek için kullanın [helm yükleme] [ helm-install] komut ve yüklemek için grafik adını belirtin. Bu uygulamada görmek için bir Helm grafiği kullanarak basit bir Wordpress dağıtımı şimdi yükleyin. TLS/SSL yapılandırılmış eklemeniz `--tls` Helm istemci sertifikanızın kullanılacak parametre.
 
-```azurecli-interactive
+```console
 helm install stable/wordpress
 ```
 
-Çıktı aşağıdakine benzer, ancak Kubernetes dağıtım kullanma hakkında yönergeler gibi ek bilgileri içerir.
+Aşağıdaki sıkıştırılmış örneğe çıktı Helm grafiği tarafından oluşturulan Kubernetes kaynakları dağıtım durumunu gösterir:
 
 ```
-NAME:   bilging-ibex
-LAST DEPLOYED: Tue Jun  5 14:31:49 2018
+$ helm install stable/wordpress
+
+NAME:   wishful-mastiff
+LAST DEPLOYED: Thu Jul 12 15:53:56 2018
 NAMESPACE: default
 STATUS: DEPLOYED
 
 RESOURCES:
+==> v1beta1/Deployment
+NAME                       DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
+wishful-mastiff-wordpress  1        1        1           0          1s
+
+==> v1beta1/StatefulSet
+NAME                     DESIRED  CURRENT  AGE
+wishful-mastiff-mariadb  1        1        1s
+
 ==> v1/Pod(related)
-NAME                                     READY  STATUS   RESTARTS  AGE
-bilging-ibex-mariadb-7557b5474-dmdxn     0/1    Pending  0         1s
-bilging-ibex-wordpress-7494c545fb-tskhz  0/1    Pending  0         1s
+NAME                                        READY  STATUS   RESTARTS  AGE
+wishful-mastiff-wordpress-6f96f8fdf9-q84sz  0/1    Pending  0         1s
+wishful-mastiff-mariadb-0                   0/1    Pending  0         1s
 
 ==> v1/Secret
-NAME                    TYPE    DATA  AGE
-bilging-ibex-mariadb    Opaque  2     1s
-bilging-ibex-wordpress  Opaque  2     1s
+NAME                       TYPE    DATA  AGE
+wishful-mastiff-mariadb    Opaque  2     2s
+wishful-mastiff-wordpress  Opaque  2     2s
 
 ==> v1/ConfigMap
-NAME                        DATA  AGE
-bilging-ibex-mariadb        1     1s
-bilging-ibex-mariadb-tests  1     1s
+NAME                           DATA  AGE
+wishful-mastiff-mariadb        1     2s
+wishful-mastiff-mariadb-tests  1     2s
 
 ==> v1/PersistentVolumeClaim
-NAME                    STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
-bilging-ibex-mariadb    Pending  default  1s
-bilging-ibex-wordpress  Pending  default  1s
+NAME                       STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
+wishful-mastiff-wordpress  Pending  default  2s
 
 ==> v1/Service
-NAME                    TYPE          CLUSTER-IP    EXTERNAL-IP  PORT(S)                     AGE
-bilging-ibex-mariadb    ClusterIP     10.0.76.164   <none>       3306/TCP                    1s
-bilging-ibex-wordpress  LoadBalancer  10.0.215.250  <pending>    80:30934/TCP,443:31134/TCP  1s
-
-==> v1beta1/Deployment
-NAME                    DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-bilging-ibex-mariadb    1        1        1           0          1s
-bilging-ibex-wordpress  1        1        1           0          1s
+NAME                       TYPE          CLUSTER-IP   EXTERNAL-IP  PORT(S)                     AGE
+wishful-mastiff-mariadb    ClusterIP     10.1.116.54  <none>       3306/TCP                    2s
+wishful-mastiff-wordpress  LoadBalancer  10.1.217.64  <pending>    80:31751/TCP,443:31264/TCP  2s
 ...
 ```
 
-## <a name="list-helm-releases"></a>Liste Helm serbest bırakır
+Bir veya iki için dakika sürdüğünü *EXTERNAL-IP* adresi Wordpress hizmetin doldurulması ve bir web tarayıcısına erişmek izin verir.
 
-Kümenizde yüklü sürümlerden listesini görmek için [helm listesi] [ helm-list] komutu.
+## <a name="list-helm-releases"></a>Helm sürümler listesi
 
-```azurecli-interactive
-helm list
-```
+Kümenizde yüklenmiş sürümlerin listesini görmek için [helm list komutu] [ helm-list] komutu. Aşağıdaki örnek, önceki adımda dağıtılan Wordpress yayın gösterir. TLS/SSL yapılandırılmış eklemeniz `--tls` Helm istemci sertifikanızın kullanılacak parametre.
 
-Çıktı:
+```console
+$ helm list
 
-```
-NAME            REVISION    UPDATED                     STATUS      CHART           NAMESPACE
-bilging-ibex    1           Tue Jun  5 14:31:49 2018    DEPLOYED    wordpress-1.0.9 default
+NAME             REVISION    UPDATED                     STATUS      CHART              NAMESPACE
+wishful-mastiff  1           Thu Jul 12 15:53:56 2018    DEPLOYED    wordpress-2.1.3  default
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kubernetes grafikleri yönetme hakkında daha fazla bilgi için Helm belgelerine bakın.
+Helm ile Kubernetes uygulama dağıtımlarını yönetme hakkında daha fazla bilgi için Helm belgelerine bakın.
 
 > [!div class="nextstepaction"]
 > [Helm belgeleri][helm-documentation]
@@ -219,6 +247,7 @@ Kubernetes grafikleri yönetme hakkında daha fazla bilgi için Helm belgelerine
 [helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
 [helm-search]: https://docs.helm.sh/helm/#helm-search
 [tiller-rbac]: https://docs.helm.sh/using_helm/#tiller-namespaces-and-rbac
+[helm-ssl]: https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

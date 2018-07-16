@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 59e74ee586a28935b5fde4b5c1089264e98e5087
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ccf6b41edbd085abeb358cf4fe624956b54946b9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003104"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056132"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Azure depolama bir SAS kimlik bilgisi erişmek için bir Linux VM yönetilen hizmet Kimliği'ni kullanın
 
@@ -45,82 +45,82 @@ Hizmet SAS sınırlı bir süre ve bir hesap erişim anahtarına gösterme olmad
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Linux sanal makinesi oluşturma
+## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Linux sanal makinesi oluşturma
 
-Bu öğretici için yeni bir Linux VM'yi oluştururuz. Mevcut VM'yi MSI de etkinleştirebilirsiniz.
+Bu öğretici için, yeni bir Linux VM oluşturuyoruz. Ayrıca mevcut bir VM'de MSI'yi etkinleştirebilirsiniz.
 
-1. Tıklayın **+/ yeni hizmet oluşturma** düğmesi Azure portalının sol üst köşedeki üzerinde bulunamadı.
+1. Azure portalın sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
-3. Sanal makine bilgilerini girin. İçin **kimlik doğrulama türü**seçin **SSH ortak anahtarı** veya **parola**. Oluşturulan kimlik bilgilerini, VM'de oturum açmak izin verin.
+3. Sanal makine bilgilerini girin. **Kimlik doğrulama türü** olarak **SSH ortak anahtarı**'nı veya **Parola**'yı seçin. Oluşturulan kimlik bilgileri VM'de oturum açmanıza olanak tanır.
 
-    ![Alt resim metni](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alternatif resim metni](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Seçin bir **abonelik** sanal makinenin açılır.
 5. Yeni bir seçilecek **kaynak grubu** sanal makinenin oluşturulması, seçmek istediğiniz **Yeni Oluştur**. İşlem tamamlandığında **Tamam**’a tıklayın.
-6. Sanal makine için boyutu seçin. Daha fazla boyut görmek için seçin **tümünü görüntüle** veya desteklenen disk türü filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
+6. VM'nin boyutunu seçin. Daha fazla boyut görmek için seçin **tümünü görüntüle** veya desteklenen disk türü filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
 
-## <a name="enable-msi-on-your-vm"></a>Vm'nizde MSI etkinleştir
+## <a name="enable-msi-on-your-vm"></a>VM'nizde MSI'yi etkinleştirme
 
-Bir sanal makine MSI, kimlik bilgilerini kodunuza koyma gereksinimi olmadan Azure AD'den erişim belirteci alma olanak tanır. Perde MSI etkinleştirmesine iki şeyi yapar: VM'NİZDE MSI VM uzantısı yükler ve sanal makine için Yönetilen hizmet kimliği sağlar.  
+Sanal Makine MSI'si kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. Perde MSI etkinleştirmesine iki şeyi yapar: VM'NİZDE MSI VM uzantısı yükler ve sanal makine için Yönetilen hizmet kimliği sağlar.  
 
-1. Yeni sanal makinenize kaynak grubuna gidin ve önceki adımda oluşturduğunuz sanal makineyi seçin.
+1. Yeni sanal makinenizin kaynak grubuna gidin ve önceki adımda oluşturduğunuz sanal makineyi seçin.
 2. Sol taraftaki "ayarlar" VM altında tıklayın **yapılandırma**.
-3. Kaydolun ve MSI etkinleştirmek için **Evet**, devre dışı bırakmak istiyorsanız seçin No
-4. Tıkladığınız olun **Kaydet** yapılandırmayı kaydetmek için.
+3. MSI'yi kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin.
+4. Yapılandırmayı kaydetmek için **Kaydet**’e tıkladığınızdan emin olun.
 
-    ![Alt resim metni](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alternatif resim metni](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Hangi uzantıların denetlemek istiyorsanız, sanal makinede olan, tıklayın **uzantıları**. MSI etkin olduğunda **ManagedIdentityExtensionforLinux** listesinde görünür.
 
-    ![Alt resim metni](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+    ![Alternatif resim metni](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 
 Zaten yoksa, artık bir depolama hesabı oluşturur.  Ayrıca, bu adımı atlayıp mevcut bir depolama hesabı anahtarları, VM MSI erişimi verme. 
 
-1. Tıklayın **+/ yeni hizmet oluşturma** düğmesi Azure portalının sol üst köşedeki üzerinde bulunamadı.
+1. Azure portalın sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
 2. Tıklayın **depolama**, ardından **depolama hesabı**, ve "depolama hesabı oluştur" yeni bir panel görüntülenir.
 3. Girin bir **adı** daha sonra kullanacağınız depolama hesabı için.  
 4. **Dağıtım modeli** ve **hesap türü** sırasıyla "Resource manager" ve "Genel amaç" için ayarlanmalıdır. 
-5. Olun **abonelik** ve **kaynak grubu** VM'nizi oluşturduğunuzda önceki adımda belirttiğiniz olanlarla eşleşmesi.
+5. **Abonelik** ve **Kaynak Grubu** değerlerinin, önceki adımda VM'nizi oluştururken belirttiklerinizle eşleştiğinden emin olun.
 6. **Oluştur**’a tıklayın.
 
-    ![Yeni depolama hesabı oluştur](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Yeni depolama hesabı oluşturma](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Depolama hesabındaki bir blob kapsayıcısı oluşturma
 
 Daha sonra karşıya eder ve yeni depolama hesabı için bir dosya indirin. Dosyaları blob depolama gerektirdiğinden dosyasının depolanacağı bir blob kapsayıcısı oluşturmak gerekir.
 
-1. Yeni oluşturulan depolama hesabına geri gidin.
+1. Yeni oluşturulan depolama hesabınıza geri gidin.
 2. Tıklayın **kapsayıcıları** bağlantı sol bölmede, "Blob hizmeti."
 3. Tıklayın **+ kapsayıcı** sayfasına ve "yeni bir kapsayıcı" üst kısmındaki çıkış paneli slaytlar.
 4. Kapsayıcıya bir ad verin, bir erişim düzeyi seçin ve ardından tıklayın **Tamam**. Belirttiğiniz adı öğreticinin ilerleyen bölümlerinde kullanılacaktır. 
 
-    ![Depolama kapsayıcısı oluşturma](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Depolama kapsayıcısı oluşturma](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>Bir SAS depolama kullanmak için sanal makinenizin MSI erişimi verme 
 
 Azure depolama, yerel olarak Azure AD kimlik doğrulamasını desteklemez.  Ancak, Kaynak Yöneticisi'nden depolama SAS almak için bir MSI kullanma sonra depolamaya erişmek için SAS'ı kullanın.  Bu adımda, depolama hesabınıza SAS, VM MSI erişimi verme.   
 
 1. Yeni oluşturulan depolama hesabına geri git...   
-2. Tıklayın **erişim denetimi (IAM)** sol bölmede bağlantı.  
+2. Sol bölmedeki **Erişim denetimi (IAM)** bağlantısına tıklayın.  
 3. Tıklayın **+ Ekle** VM'niz için yeni bir rol ataması eklemek için sayfanın en üstünde
 4. Ayarlama **rol** "Depolama hesabı Katılımcısı", sayfanın sağ tarafındaki için. 
 5. Sonraki açılır menüden ayarlamak **erişim Ata** "Sanal makinesi" kaynak.  
 6. Ardından, uygun abonelik listelendiğinden emin olmak **abonelik** açılır listesinde, ardından ayarlayın **kaynak grubu** "Tüm kaynak gruplarına".  
 7. Son olarak, altında **seçin** açılır menüde Linux sanal makinenizi seçin, ardından tıklayın **Kaydet**.  
 
-    ![Alt resim metni](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
+    ![Alternatif resim metni](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Sanal makinenin kimliğini kullanarak bir erişim belirteci alma ve Azure Resource Manager'ı çağırmak için kullanın
 
 Bu öğreticinin geri kalanında için daha önce oluşturduğumuz VM'den çalışacağız.
 
-Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsanız, SSH İstemcisi'nde kullanabileceğiniz [Linux için Windows alt sistemi](https://msdn.microsoft.com/commandline/wsl/install_guide). SSH istemcinizin anahtarları yapılandırılıyor yardıma ihtiyacınız varsa bkz [azure'da Windows ile SSH kullanma anahtarları nasıl](~/articles/virtual-machines/linux/ssh-from-windows.md), veya [oluşturmak ve azure'da Linux VM'ler için SSH ortak ve özel anahtar çifti kullanmak nasıl](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
+Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsanız, [Linux için Windows Alt Sistemi](https://msdn.microsoft.com/commandline/wsl/install_guide)'ndeki SSH istemcisini kullanabilirsiniz. SSH istemcinizin anahtarlarını yapılandırmak için yardıma ihtiyacınız olursa, bkz. [Azure'da Windows ile SSH anahtarlarını kullanma](~/articles/virtual-machines/linux/ssh-from-windows.md) veya [Azure’da Linux VM’ler için SSH ortak ve özel anahtar çifti oluşturma](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. Azure portalında gidin **sanal makineler**gidin, Linux sanal makinesi, ardından **genel bakış** sayfasında **Connect** en üstünde. VM'nize bağlanmak için dizesini kopyalayın. 
-2. SSH istemciniz kullanarak VM'nize bağlanın.  
-3. Ardından, sizden girmek için istenir, **parola** oluştururken eklediğiniz **Linux VM**. Sonra başarıyla oturum açmanız.  
+1. Azure portalında **Sanal Makineler**'e gidin, Linux sanal makinenize gidin ve ardından **Genel Bakış** sayfasında üst kısımdaki **Bağlan**'a tıklayın. VM'nize bağlanma dizesini kopyalayın. 
+2. SSH istemcinizi kullanarak VM'nize bağlanın.  
+3. Ardından, sizden girmek için istenir, **parola** oluştururken eklediğiniz **Linux VM**. Bundan sonra başarıyla oturum açabilmeniz gerekir.  
 4. Azure Resource Manager için bir erişim belirteci almak için CURL kullanın.  
 
     CURL istek ve yanıt için erişim belirteci aşağıda verilmiştir:
@@ -130,8 +130,8 @@ Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsan
     ```
     
     > [!NOTE]
-    > Önceki istekte "kaynak" parametresinin değerini, Azure AD tarafından beklenen tam bir eşleşme olması gerekir. Azure Resource Manager kaynak kimliği kullanıldığında, URI üzerinde sonunda eğik çizgi içermelidir.
-    > Şu yanıtı, konuyu uzatmamak amacıyla kısalttık olarak access_token öğesi.
+    > Önceki istekte, "resource" parametresinin değeri Azure AD'nin beklediği değerle tam olarak eşleşmelidir. Azure Resource Manager kaynak kimliği kullanıldığında, URI'nin sonundaki eğik çizgiyi de eklemelisiniz.
+    > Aşağıdaki yanıtta, access_token öğesi kısaltılmıştır.
     
     ```bash
     {"access_token":"eyJ0eXAiOiJ...",

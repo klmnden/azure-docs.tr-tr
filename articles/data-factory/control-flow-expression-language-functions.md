@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d862cd0223609d80c511362edbcc0ed6dd512b1f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5cdaba2a280221fa5fa9274ebfa6cafa18e7690c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859156"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055024"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory de ifadeler ve İşlevler
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,14 +41,14 @@ Tanımındaki JSON değerlerinin değişmez değeri ya da çalışma zamanında 
 ```
 
 ## <a name="expressions"></a>İfadeler  
-İfadeler, herhangi bir yerde bir JSON dizesi değerinin görünür ve her zaman başka bir JSON değeri neden. Bir JSON değeri bir ifade ise, deyim gövdesi oturum sırasında kaldırarak ayıklanan (\@). Bir sabit dizesi ile başlayan gerekliyse, @, @ kullanarak kaçınılmalıdır@. Aşağıdaki örnekler, ifadelerin nasıl değerlendirilir gösterir.  
+İfadeler, herhangi bir yerde bir JSON dizesi değerinin görünür ve her zaman başka bir JSON değeri neden. Bir JSON değeri bir ifade ise, deyim gövdesi oturum sırasında kaldırarak ayıklanan (\@). Bir sabit dizesi ile başlayan gerekirse \@, kullanılarak atlanması gereken \@ \@. Aşağıdaki örnekler, ifadelerin nasıl değerlendirilir gösterir.  
   
 |JSON değeri|Sonuç|  
 |----------------|------------|  
 |"parametre"|'Parameters' karakterleri döndürülür.|  
 |"parametreleri [1]"|'Parameters [1]' karakterlerini döndürülür.|  
-|"\@@"|1 karakter içeren dize ' @' döndürülür.|  
-|" \@"|İçeren bir 2 karakter dizesi ' @' döndürülür.|  
+|"\@\@"|1 karakter içeren dize '\@' döndürülür.|  
+|" \@"|İçeren bir 2 karakter dizesi ' \@' döndürülür.|  
   
  İfadeleri de yer alabilir dizeler bir özelliği kullanılarak çağrılır *dize ilişkilendirme* nerede ifadeleri sarılır içinde `@{ ... }`. Örneğin, `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -62,7 +62,7 @@ Tanımındaki JSON değerlerinin değişmez değeri ya da çalışma zamanında 
 |"\@{().parameters.myNumber işlem hattı}"| Döndürür `42` olarak bir *dize*.|  
 |"Yanıt: @{().parameters.myNumber işlem hattı}"| Dizeyi döndürür `Answer is: 42`.|  
 |"\@concat (' yanıt: ', string(pipeline().parameters.myNumber))"| Bir dize döndürür `Answer is: 42`|  
-|"Yanıt: \@@{().parameters.myNumber işlem hattı}"| Dizeyi döndürür `Answer is: @{pipeline().parameters.myNumber}`.|  
+|"Yanıt: \@ \@{().parameters.myNumber işlem hattı}"| Dizeyi döndürür `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### <a name="examples"></a>Örnekler
 
@@ -168,7 +168,7 @@ Aşağıdaki örnekte, işlem hattı alır **inputPath** ve **outputPath** param
 |İşlev adı|Açıklama|  
 |-------------------|-----------------|  
 |içerir|Sözlük anahtarı, bir listesi içeriyorsa true döndürür değeri veya dize alt dizeyi içeren. Örneğin, aşağıdaki ifade döndürür. `true:``contains('abacaba','aca')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: koleksiyon içindeki<br /><br /> **Açıklama**: gerekli. İçinde arama yapılacak koleksiyon.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: nesne Bul<br /><br /> **Açıklama**: gerekli. İçinde bulunacak nesne **koleksiyonundaki**.|  
-|uzunluğu|Bir dizi veya dizedeki öğelerin sayısını döndürür. Örneğin, aşağıdaki ifade döndürür `3`:  `length('abc')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Koleksiyon<br /><br /> **Açıklama**: gerekli. Uzunluğu alma koleksiyonu.|  
+|Uzunluğu|Bir dizi veya dizedeki öğelerin sayısını döndürür. Örneğin, aşağıdaki ifade döndürür `3`:  `length('abc')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Koleksiyon<br /><br /> **Açıklama**: gerekli. Uzunluğu alma koleksiyonu.|  
 |boş|Nesne, dizi veya dize boşsa true döndürür. Örneğin, aşağıdaki ifade döndürür `true`:<br /><br /> `empty('')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Koleksiyon<br /><br /> **Açıklama**: gerekli. Boş olup olmadığı denetlenecek koleksiyon.|  
 |kesişimi|Tek bir dizi veya nesne ortak öğeleri olan diziler veya geçirilen nesneler arasında döndürür. Örneğin, bu işlevi döndürür `[1, 2]`:<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> İşlev parametrelerini ya da bir nesne veya dizi (ikisinin karışımı olamaz) kümesi olabilir. Aynı ada sahip iki nesne varsa, son nesnede bu ada sahip son nesne görünür.<br /><br /> **Parametre numarası**: 1... *n*<br /><br /> **Adı**: koleksiyon *n*<br /><br /> **Açıklama**: gerekli. Değerlendirilecek koleksiyonlar. Bir nesne, sonuçta görüntülenmek üzere geçirilen tüm koleksiyonlarda olmalıdır.|  
 |birleşim|Tek bir dizi veya nesne, dizi veya nesne kendisine geçirilen tüm öğeleri döndürür. Örneğin, bu işlev döndürür. `[1, 2, 3, 10, 101]:`<br /><br /> :  `union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> İşlev parametrelerini ya da bir nesne veya dizi (ikisinin karışımı olamaz) kümesi olabilir. Son Çıkışta aynı ada sahip iki nesne varsa, son nesnede bu ada sahip son nesne görünür.<br /><br /> **Parametre numarası**: 1... *n*<br /><br /> **Adı**: koleksiyon *n*<br /><br /> **Açıklama**: gerekli. Değerlendirilecek koleksiyonlar. Koleksiyonları hiçbirinde görünen bir nesne sonuçta da görüntülenir.|  
@@ -203,7 +203,7 @@ Aşağıdaki örnekte, işlem hattı alır **inputPath** ve **outputPath** param
   
 -   boole  
   
--   diziler  
+-   Diziler  
   
 -   sözlükler  
   
@@ -246,7 +246,7 @@ Aşağıdaki örnekte, işlem hattı alır **inputPath** ve **outputPath** param
 |mod|Sonra (mod) iki sayının bölümünün geri kalanı sonucu döndürür. Örneğin, aşağıdaki ifade döndürür `2`:<br /><br /> `mod(10,4)`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: kar payı<br /><br /> **Açıklama**: gerekli. Bölecek sayı **bölen**.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: bölen<br /><br /> **Açıklama**: gerekli. Bölünecek sayı **bölünen** tarafından. Bölme işleminden sonra kalan alınır.|  
 |dk|Bu işlevi çağırmak için iki farklı deseni vardır: `min([0,1,2])` burada en az bir dizi alır. Bu ifade döndürür `0`. Alternatif olarak, bu işlev değerleri virgülle ayrılmış bir listesini alabilir: `min(0,1,2)` bu işlev, aynı zamanda 0 değerini döndürür. Unutmayın, parametresinin bir dizi ise yalnızca sayılar bulunması sahip olması tüm değerleri sayılar olmalıdır.<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Koleksiyon ya da değer<br /><br /> **Açıklama**: gerekli. Ayrıca, en düşük değer veya bir kümenin ilk değeri bulunacak değerler dizisi ya da olabilir.<br /><br /> **Parametre numarası**: 2... *n*<br /><br /> **Adı**: değer *n*<br /><br /> **Açıklama**: isteğe bağlı. İlk parametre bir değer ise, ardından ek değerler geçirebilirsiniz ve geçirilen tüm değerlerin minimum döndürülür.|  
 |en çok|Bu işlevi çağırmak için iki farklı deseni vardır:  `max([0,1,2])`<br /><br /> Burada en fazla bir dizi alır. Bu ifade döndürür `2`. Alternatif olarak, bu işlev değerleri virgülle ayrılmış bir listesini alabilir: `max(0,1,2)` 2 Bu işlev döndürür. Unutmayın, parametresinin bir dizi ise yalnızca sayılar bulunması sahip olması tüm değerleri sayılar olmalıdır.<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Koleksiyon ya da değer<br /><br /> **Açıklama**: gerekli. Ayrıca, en yüksek değer veya bir kümenin ilk değeri bulunacak değerler dizisi ya da olabilir.<br /><br /> **Parametre numarası**: 2... *n*<br /><br /> **Adı**: değer *n*<br /><br /> **Açıklama**: isteğe bağlı. İlk parametre bir değer ise, ardından ek değerler geçirebilirsiniz ve geçirilen tüm değerlerin maksimum döndürülür.|  
-|aralığı| Belirli bir sayıdan başlayan bir tamsayı dizisi oluşturur ve döndürülen dizinin uzunluğu tanımlayın. Örneğin, bu işlevi döndürür `[3,4,5,6]`:<br /><br /> `range(3,4)`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Başlangıç dizini<br /><br /> **Açıklama**: gerekli. Dizideki ilk tamsayıdır.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: sayısı<br /><br /> **Açıklama**: gerekli. Dizideki tamsayıların sayısı.|  
+|Aralığı| Belirli bir sayıdan başlayan bir tamsayı dizisi oluşturur ve döndürülen dizinin uzunluğu tanımlayın. Örneğin, bu işlevi döndürür `[3,4,5,6]`:<br /><br /> `range(3,4)`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Başlangıç dizini<br /><br /> **Açıklama**: gerekli. Dizideki ilk tamsayıdır.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: sayısı<br /><br /> **Açıklama**: gerekli. Dizideki tamsayıların sayısı.|  
 |rand| (İki ucu da dahildir. belirtilen aralıkta rastgele bir tamsayı oluşturur Örneğin, döndürebilir `42`:<br /><br /> `rand(-1000,1000)`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: en az<br /><br /> **Açıklama**: gerekli. Döndürülebilen en küçük tamsayı.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: en fazla<br /><br /> **Açıklama**: gerekli. Döndürülebilecek en yüksek tamsayı.|  
   
 ## <a name="date-functions"></a>Tarih işlevleri  

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 240f5270d083fa5f4742f3ed2cd61feee2b635ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718966"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056768"
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
@@ -38,9 +38,9 @@ Yapılandırma sunucusu boyutlandırma gereksinimlerini olası veri değişikli�
 
 | **CPU** | **Bellek** | **Önbellek diski boyutu** | **Veri değişiklik oranı** | **Korumalı makineler** |
 | --- | --- | --- | --- | --- |
-| 8 Vcpu (2 yuva * @ 2.5 GHz 4 çekirdek) |16 GB |300 GB |500 GB veya daha az |100'den az makineleri çoğaltabilir. |
-| 12 Vcpu (2 yuva * @ 2.5 GHz 6 çekirdek) |18 GB |600 GB |500 GB ila 1 TB |100-150 makineleri çoğaltabilir. |
-| 16 Vcpu (2 yuva * @ 2.5 GHz 8 çekirdek) |32 GB |1 TB |1 TB ile 2 TB |150-200 makineleri çoğaltabilir. |
+| 8 Vcpu (2 yuva * 4 çekirdek \@ 2.5 GHz) |16 GB |300 GB |500 GB veya daha az |100'den az makineleri çoğaltabilir. |
+| 12 Vcpu (2 yuva * 6 çekirdek \@ 2.5 GHz) |18 GB |600 GB |500 GB ila 1 TB |100-150 makineleri çoğaltabilir. |
+| 16 Vcpu (2 yuva * 8 çekirdek \@ 2.5 GHz) |32 GB |1 TB |1 TB ile 2 TB |150-200 makineleri çoğaltabilir. |
 
 Birden fazla VMware VM çoğaltma yapıyorsanız okuma [kapasite planlaması konuları](/site-recovery-plan-capacity-vmware.md). Çalıştırma [dağıtım Planlayıcısı aracını](site-recovery-deployment-planner.md) VMWare çoğaltması için.
 

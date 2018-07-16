@@ -1,90 +1,93 @@
 ---
-title: Bir Azure Active Directory B2B işbirliği kullanıcının özelliklerini | Microsoft Docs
+title: Bir Azure Active Directory B2B işbirliği kullanıcısı özelliklerini | Microsoft Docs
 description: Azure Active Directory B2B işbirliği kullanıcı özellikleri yapılandırılabilir
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/25/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 65fd23ecf81aebdb1fe74f800d20df6414c18317
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 0cfd7888acf942e4af875c37c2472ff086f9119b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260250"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39059644"
 ---
-# <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Bir Azure Active Directory B2B işbirliği kullanıcının özelliklerini
+# <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Bir Azure Active Directory B2B işbirliği kullanıcısı özellikleri
 
-Bir Azure Active Directory (Azure AD) işletmeden işletmeye (B2B) işbirliği UserType sahip bir kullanıcı kullanıcıdır konuk =. Bu Konuk kullanıcı genellikle bir iş ortağı kuruluştan ve davet etme dizininde ayrıcalıkları varsayılan olarak sınırlıdır.
+UserType bir kullanıcıyla bir Azure Active Directory (Azure AD) işletmeler arası (B2B) işbirliği kullanıcısı olan konuk =. Bu Konuk kullanıcı genellikle bir iş ortağı kuruluştan ve davet etme dizinde ayrıcalıkları varsayılan olarak sınırlıdır.
 
-Davet kuruluşunuzun gereksinimlerine bağlı olarak, bir Azure AD B2B işbirliği kullanıcı aşağıdaki hesap durumlardan birinde olabilir:
+Davet eden bir kuruluşun gereksinimlerine bağlı olarak, bir Azure AD B2B işbirliği kullanıcısı hesabı şu durumlardan birinde olabilir:
 
-- Durum 1: Azure AD dış örneğinde bağlantılı ve davet kuruluşunuzdaki Konuk kullanıcı olarak gösterilir. Bu durumda, B2B davet edilen kiracısına ait bir Azure AD hesabı kullanarak oturum açtığında. İş ortağı kuruluş Azure AD kullanmıyorsa, Azure AD'de Konuk kullanıcı yine de oluşturulur. Kullanıcıların davet almak ve Azure AD, e-posta adreslerini doğrular gereksinimleri verilmiştir. Bu düzenlemenin, tam zamanında (JIT) Kiracı veya "viral" Kiracı olarak da bilinir.
+- Durum 1: Azure AD dış örneğinde bağlantılı ve Konuk kullanıcı davet eden kuruluştan olarak temsil edilir. Bu durumda, B2B kullanıcısı davet edilen kiracıya ait bir Azure AD hesabı kullanarak oturum açtığında. İş ortağı kuruluş Azure AD'ye kullanmıyorsa, Konuk kullanıcının Azure AD'de yine de oluşturulur. Bunlar, davetini ve Azure AD, e-posta adresi doğrular gereksinimleridir. Bu düzenleme, just-ın-time (JIT) kiralama veya "viral" Kiracı olarak da bilinir.
 
-- Durum 2: bir Microsoft hesabı bağlantılı ve konak kuruluşunuzdaki Konuk kullanıcı olarak gösterilir. Bu durumda, Konuk kullanıcı bir Microsoft hesabıyla oturum açar. Davet edilen kullanıcının sosyal kimliğini (google.com veya benzer), bir Microsoft hesabı olmayan oluşturulur bir Microsoft hesabı olarak teklif kullanım sırasında.
+- Durum 2: bağlantılı bir Microsoft hesabı ve konak kuruluşta Konuk kullanıcı olarak temsil edilir. Bu durumda, Konuk kullanıcı bir Microsoft hesabıyla oturum açar. Davet edilen kullanıcının sosyal kimlik (google.com veya benzer), bir Microsoft hesabı değil oluşturulur bir Microsoft hesabı olarak teklif kullanım sırasında.
 
-- Durum 3: konak kuruluşun şirket içi Active Directory'de bağlantılı ve ana bilgisayar kuruluşunuzun Azure ile eşitlenen AD. Bu yayın sırasında el ile bulutta tür kullanıcılar UserType değiştirmek için PowerShell kullanmanız gerekir.
+- Durum 3: konak kuruluşun şirket içi Active Directory'de bağlantılı ve konak kuruluşun Azure ile eşitlenen AD. Bu yayın sırasında el ile bulutta gibi kullanıcı UserType değiştirmek için PowerShell kullanmanız gerekir.
 
-- Durum 4: ana bilgisayar kuruluşunuzun Azure ana bilgisayara bağlı AD UserType ile = Konuk ve ana bilgisayar kuruluş yönetir kimlik bilgileri.
+- Durum 4: konak kuruluşun Azure'da bağlantılı AD ile UserType = Konuk ve konak kuruluş tarafından yönetilen kimlik bilgileri.
 
-  ![Davet eden'ın baş harflerini görüntüleme](media/user-properties/redemption-diagram.png)
+  ![Davet eden'ın baş görüntüleme](media/user-properties/redemption-diagram.png)
 
 
-Şimdi bir Azure AD B2B işbirliği kullanıcı durumu 1'de nasıl Azure AD'de göründüğünü görelim.
+Artık, bir Azure AD B2B işbirliği kullanıcısı durum 1'deki Azure AD'de nasıl göründüğüne bakalım.
 
-### <a name="before-invitation-redemption"></a>Davet kullanım önce
+### <a name="before-invitation-redemption"></a>Önce Davetiyesi kullanımı
 
 ![Teklif kullanım önce](media/user-properties/before-redemption.png)
 
-### <a name="after-invitation-redemption"></a>Sonra davet kullanım
+### <a name="after-invitation-redemption"></a>Sonra Davetiyesi kullanımı
 
 ![Teklif kullanım sonra](media/user-properties/after-redemption.png)
 
-## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Azure AD B2B işbirliği kullanıcı temel özellikleri
+## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Azure AD B2B işbirliği kullanıcısı anahtar özellikleri
 ### <a name="usertype"></a>UserType
-Bu özellik, konak kiralama kullanıcıya arasındaki ilişkiyi gösterir. Bu özellik, iki değerlere sahip olabilir:
-- Üye: Bu değer ana kuruluş ve kuruluşun Bordro bir kullanıcı bir çalışan gösterir. Örneğin, bu kullanıcı yalnızca iç sitelere erişimi olmasını bekler. Bu kullanıcı dış bir ortak çalışanı kabul edilir değil.
+Bu özellik için ana Kiracı Kullanıcı arasındaki ilişkiyi gösterir. Bu özellik, iki değerlere sahip olabilir:
+- Üye: Bu değer, bir çalışan konak kuruluş ve bir kullanıcı kuruluşun Bordro gösterir. Örneğin, bu kullanıcı yalnızca iç sitelere erişimine sahip olmasını bekliyor. Bu kullanıcı, bir dış ortak çalışan değerlendirilmeyecektir.
 
-- Konuk: Bu değer bir dış ortak çalışanı, iş ortağı, müşteri veya benzer kullanıcı gibi şirket için dahili olarak kabul olmayan bir kullanıcıyı gösterir. Böyle bir kullanıcı bir CEO'nun iç not almak veya şirket, örneğin avantajların yanı sıra beklenen olmayacaktır.
+- Konuk: Gibi bir dış ortak çalışan, iş ortağı, müşteri veya benzer bir kullanıcı şirket için dahili olarak kabul olmayan bir kullanıcı bu değeri gösterir. Böyle bir kullanıcı bir CEO'nun iç not alın veya şirket, örneğin avantajların beklenen mıydı.
 
   > [!NOTE]
-  > UserType nasıl kullanıcı oturum açtığında, kullanıcı vb. dizin rolü ilişki yok. Bu özellik yalnızca kullanıcının ilişki konak kuruluşa gösterir ve kuruluşunuzun bu özellikte bağımlı ilkeleri zorunlu tutmanıza olanak sağlar.
+  > UserType nasıl kullanıcı oturum açtığında, kullanıcı vb. dizin rolünü ilgisi yoktur. Bu özellik yalnızca kullanıcının ilişki konak kuruluşa gösterir ve kuruluş tuto vlastnost nelze upravovat bağımlı ilkeleri zorunlu tutmanıza olanak tanır.
 
 ### <a name="source"></a>Kaynak
-Bu özellik, kullanıcı nasıl oturum açtığında gösterir.
+Bu özellik, nasıl kullanıcı oturum açtığında gösterir.
 
-- Kullanıcı Davet: Bu kullanıcı davet edilen, ancak henüz bir davet kullanılan değil.
+- Kullanıcı Davet: Bu kullanıcı davet edildi, ancak henüz bir davet kuponları değil.
 
-- Dış Active Directory: Bu kullanıcı bir dış kuruluşta bağlantılı ve başka bir kuruluşa ait bir Azure AD hesabı kullanarak kimliğini doğrular. Bu tür bir oturum açma durumu 1'e karşılık gelir.
+- Dış Active Directory: Bu kullanıcı, dış bir kuruluşta bağlantılı ve başka bir kuruluşa ait bir Azure AD hesabını kullanarak kimliğini doğrular. Bu tür bir oturum açma durumu 1'e karşılık gelir.
 
-- Microsoft hesabı: Bu kullanıcı bir Microsoft hesabı bağlantılı ve bir Microsoft hesabı kullanarak kimliğini doğrular. Bu tür bir oturum açma durumu 2'ye karşılık gelir.
+- Microsoft hesabı: Bu kullanıcı bir Microsoft hesabı bağlantılı ve bir Microsoft hesabını kullanarak kimliğini doğrular. Bu tür bir oturum açma durumu 2'ye karşılık gelir.
 
-- Windows Server Active Directory: Bu kullanıcı bu kuruluşa ait şirket içi Active Directory'den oturum. Bu tür bir oturum açma durumu 3'e karşılık gelir.
+- Windows Server Active Directory: Bu kullanıcı bu kuruluşa ait şirket içi Active Directory'den açmıştır. Bu tür bir oturum açma durumu 3'e karşılık gelir.
 
-- Azure Active Directory: Bu bir kuruluşa ait bir Azure AD hesabı kullanarak bu kullanıcının kimliğini doğrular. Bu tür bir oturum açma durumu 4'e karşılık gelir.
+- Azure Active Directory: Bu kuruluşa ait bir Azure AD hesabını kullanarak bu kullanıcının kimliğini doğrular. Bu tür bir oturum açma durumu 4'e karşılık gelir.
   > [!NOTE]
-  > Kaynak ve UserType bağımsız özelliklerdir. Kaynak değerini belirli bir değeri için UserType göstermez.
+  > Kaynak ve UserType bağımsız özellikleridir. Kaynak değeri belirli bir değeri için UserType göstermez.
 
-## <a name="can-azure-ad-b2b-users-be-added-as-members-instead-of-guests"></a>Azure AD B2B kullanıcılar konuklar yerine üye olarak eklenebilir mi?
-Genellikle, bir Azure AD B2B kullanıcı ve Konuk kullanıcı eşanlamlıdır. Bu nedenle, bir Azure AD B2B işbirliği kullanıcı UserType olan bir kullanıcı olarak eklenen varsayılan olarak konuk =. Ancak, bazı durumlarda, ortağı kuruluştaki bir ana bilgisayar kuruluş aynı zamanda ait olduğu daha büyük bir kuruluşta üyesidir. Bu durumda, ana bilgisayar kuruluş konuklar yerine üye olarak ortağı kuruluştaki kullanıcılar kabul isteyebilirsiniz. Eklemek veya iş ortağı kuruluştan bir kullanıcı bir üye olarak ana bilgisayar kuruluşa davet için Azure AD B2B davet Manager API'leri kullanın.
+## <a name="can-azure-ad-b2b-users-be-added-as-members-instead-of-guests"></a>Azure AD B2B kullanıcıları Konukları yerine üye olarak eklenebilir?
+Genellikle, bir Azure AD B2B kullanıcısı ve Konuk kullanıcı eşanlamlıdır. Bu nedenle, bir Azure AD B2B işbirliği kullanıcısı UserType sahip bir kullanıcı olarak eklendiğinde varsayılan olarak konuk =. Ancak, bazı durumlarda, iş ortağı kuruluşun bir konak kuruluş ayrıca ait olduğu daha büyük bir kuruluş üyesidir. Bu durumda, konak kuruluş iş ortağı kuruluşta Konukları yerine üyeleri olarak kullanıcılar değerlendirilecek isteyebilirsiniz. Ekleme veya iş ortağı kuruluştan bir kullanıcı bir üye olarak konak kuruluşa davet etmek için Azure AD B2B davet Manager API'lerini kullanın.
 
-## <a name="filter-for-guest-users-in-the-directory"></a>Konuk kullanıcılar dizininde Filtrele
+## <a name="filter-for-guest-users-in-the-directory"></a>Dizinde Konuk kullanıcılar için filtre
 
-![Filtre Konuk kullanıcılar](media/user-properties/filter-guest-users.png)
+![Konuk kullanıcıları Filtrele](media/user-properties/filter-guest-users.png)
 
 ## <a name="convert-usertype"></a>UserType Dönüştür
-Şu anda UserType üyeden Konuk ve tam tersini PowerShell kullanarak dönüştürmek kullanıcıların mümkündür. Ancak, kuruluşa kullanıcının ilişkiyi göstermek için UserType özelliği gerekiyor. Yalnızca kuruluş kullanıcıya ilişkisi değişirse, bu nedenle, bu özelliğin değerini değiştirmeniz gerekir. Kullanıcı ilişkisi değişirse, kullanıcı asıl adı (UPN) değiştirmeniz gerekir gibi sorunlar, ilgilenilmesi gerekir? Kullanıcı aynı kaynaklara erişimi olacak şekilde devam etmelidir? Bir posta kutusu atanması gerekir? Bu nedenle, atomik aktivite olarak PowerShell kullanarak UserType değiştirilmesi önerilmez. PowerShell kullanarak bu özellik sabit hale gelmesi durumu, ayrıca, bu değeri bir bağımlılık alma önermiyoruz.
+Şu anda kullanıcı UserType üyeden Konuk tersi PowerShell kullanarak dönüştürmek mümkündür. Ancak, kullanıcının ilişki için kuruluşu temsil etmek için UserType özelliği gerekiyor. Kuruluşun kullanıcı arasındaki ilişki değişirse, bu nedenle, bu özelliğin değerini değiştirmeniz gerekir. Kullanıcı asıl adı (UPN) değiştirmeniz gerekir gibi sorunlar için kullanıcı arasındaki ilişki değişirse, ilgilenilmesi gerekir? Kullanıcı aynı kaynaklara erişmeye devam etmelidir? Bir posta kutusu atansın? Bu nedenle, atomik aktivite olarak PowerShell kullanarak UserType değiştirilmesi önerilmez. PowerShell kullanarak bu özellik sabit olur durumunda, ek olarak, bu değer üzerinde bir bağımlılık alma önermiyoruz.
 
-## <a name="remove-guest-user-limitations"></a>Konuk kullanıcı kısıtlama Kaldır
-Konuk kullanıcılar yüksek ayrıcalıkları vermek istediğiniz durumlar olabilir. Konuk kullanıcı hiçbir role ekleyin ve hatta dizininde bir kullanıcı üyeleri aynı ayrıcalıkları vermek için varsayılan Konuk kullanıcı kısıtlamaları kaldırın.
+## <a name="remove-guest-user-limitations"></a>Konuk kullanıcı kısıtlamaları Kaldır
+Daha yüksek ayrıcalıklar Konuk kullanıcılarınıza sunmak için istediğiniz durumlar olabilir. Herhangi bir role Konuk kullanıcı ekleme ve bile dizinde kullanıcı üyeleri aynı ayrıcalıkları vermek için varsayılan Konuk kullanıcı kısıtlamaları kaldırın.
 
-Şirket dizinde Konuk kullanıcı aynı izinlere sahip bir üye kullanıcı verilen için varsayılan Konuk kullanıcı kısıtlamaları devre dışı bırakmak mümkündür.
+Şirket dizinde Konuk kullanıcı üyesi kullanıcı olarak aynı izinleri verilir için varsayılan Konuk kullanıcı kısıtlamaları devre dışı bırakmak mümkündür.
 
-![Konuk kullanıcı kısıtlama Kaldır](media/user-properties/remove-guest-limitations.png)
+![Konuk kullanıcı kısıtlamaları Kaldır](media/user-properties/remove-guest-limitations.png)
+
+## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Konuk kullanıcılar Exchange Genel adres listesinde görünür yapmak?
+Evet. Varsayılan olarak, Konuk nesneleri kuruluşunuzun genel adres listesinde görünür değildir, ancak onları görünür yapmak için Azure Active Directory PowerShell kullanabilirsiniz. Ayrıntılar için bkz **Konuk nesneler genel adres listesinde görünür yapabilirsiniz?** içinde [Konuk erişimi Office 365 gruplarında](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

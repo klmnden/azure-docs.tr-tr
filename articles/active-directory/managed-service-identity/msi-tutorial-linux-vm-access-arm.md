@@ -1,6 +1,6 @@
 ---
-title: Azure Kaynak Yöneticisi'ne erişmek için kullanıcı tarafından atanan bir Linux VM MSI kullanın
-description: Azure Resource Manager erişmek için bir Linux VM üzerinde bir User-Assigned yönetilen hizmet kimliği (MSI) kullanarak sürecinde anlatan öğretici.
+title: Azure Resource Manager’a erişmek için Linux VM kullanıcı tarafından atanan MSI'sini kullanma
+description: Linux VM üzerinde bir Kullanıcı Tarafından Atanmış Yönetilen Hizmet Kimliği (MSI) kullanarak Azure Resource Manager'a erişme işleminde size yol gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,39 +9,40 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: arluca
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6d4f7378ccd24af4281793dbc93df40830a1b31a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: MT
+ms.openlocfilehash: 1195161a0c4045620447439bf9361b7c4c0189ae
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904399"
 ---
-# <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Öğretici: atanan kullanıcı kimliğini Azure Resource Manager erişmek için bir Linux VM kullanın
+# <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Öğretici: Azure Resource Manager’a erişmek için Linux VM’de kullanıcı tarafından atanan kimliği kullanma
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Bu öğretici, bir kullanıcı kimliği atanır oluşturmak, bir Linux sanal makine (VM) atayın ve Azure Kaynak Yöneticisi API'si erişmek için kimliğini kullanın açıklanmaktadır. Yönetilen hizmet kimliği, Azure tarafından otomatik olarak yönetilir. Bunlar Azure AD kimlik doğrulaması, kimlik bilgileri kodunuza katıştırmak gerek kalmadan destekleyen hizmetler için kimlik doğrulaması sağlar. 
+Bu öğreticide, kullanıcı tarafından atanan kimliği oluşturma, bunu Linux Sanal Makinesine (VM) atama ve bu kimliği Azure Resource Manager API’sine erişmek için kullanma işlemleri açıklanır. Yönetilen Hizmet Kimlikleri Azure tarafından otomatik olarak yönetilir. Bunlar, kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmaya olanak tanır. 
 
-Yönetilen hizmet kimliği, Azure tarafından otomatik olarak yönetilir. Bunlar Azure AD kimlik doğrulaması, kimlik bilgileri kodunuza katıştırmak gerek kalmadan destekleyen hizmetler için kimlik doğrulaması sağlar.
+Yönetilen Hizmet Kimlikleri Azure tarafından otomatik olarak yönetilir. Bunlar, kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmaya olanak tanır.
 
 Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Bir kullanıcı kimliği atanır oluşturun
-> * Bir Linux VM kimlik atanmış kullanıcı atama 
-> * Atanan kullanıcı kimliğini bir kaynak grubu Azure Kaynak Yöneticisi'nde erişim 
-> * Kullanıcı kimliği atanır kullanarak bir erişim belirteci alın ve Azure Resource Manager çağırmak için kullanın 
+> * Kullanıcı tarafından atanan kimliği oluşturma
+> * Linux VM’sine kullanıcı tarafından atanan kimliği atama 
+> * Azure Resource Manager’da Kaynak Grubuna kullanıcı tarafından atanan kimlik için erişim verme 
+> * Kullanıcı tarafından atanan kimliği kullanarak erişim belirteci alma ve Azure Resource Manager çağrısı yapmak için bunu kullanma 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-- Yönetilen hizmet kimliği ile tanınmayan olduğunuz kullanıma [genel bakış](overview.md) bölümü. **Gözden geçirmeyi unutmayın [sistem ve kullanıcı arasındaki farklar atanan kimlikleri](overview.md#how-does-it-work)**.
-- Bir Azure hesabınız yoksa [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.
-- Bu öğreticide gerekli kaynak oluşturulması ve rol yönetimi adımları gerçekleştirmek için hesabınızı (abonelik veya kaynak grubunuz) uygun kapsamda "Sahip" izinleri gerekiyor. Rol ataması yardıma ihtiyacınız varsa bkz [Azure aboneliği kaynaklarınıza erişimi yönetmek üzere Use Role-Based erişim denetimi](/azure/role-based-access-control/role-assignments-portal).
+- Yönetilen Hizmet Kimliği'ni bilmiyorsanız, [genel bakış](overview.md) bölümünü gözden geçirin. **[Sistem ve kullanıcı tarafından atanan kimlikler arasındaki farklılıkları](overview.md#how-does-it-work) gözden geçirmeyi unutmayın**.
+- Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
+- Bu öğreticideki gerekli kaynak oluşturma ve rol yönetimini adımlarını gerçekleştirmek için hesabınız uygun kapsamda (aboneliğiniz veya kaynak grubunuz) "Sahip" izinlerini gerektiriyor. Rol atamayla ilgili yardıma ihtiyacınız varsa bkz. [Azure abonelik kaynaklarınıza erişimi yönetmek için Rol Tabanlı Erişim Denetimi kullanma](/azure/role-based-access-control/role-assignments-portal).
 
 CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
@@ -49,75 +50,75 @@ CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç i�
 
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Linux sanal makine oluşturun
+## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir Kaynak Grubunda Linux Sanal Makinesi oluşturma
 
-Bu öğretici için öncelikle yeni bir Linux VM oluşturun. Mevcut bir VM'yi kullanmayı tercih.
+Bu öğretici için önce yeni bir Linux VM'si oluşturursunuz. Var olan bir VM'yi kullanmayı da tercih edebilirsiniz.
 
-1. Tıklatın **kaynak oluşturma** Azure portalının sol üst köşedeki üzerinde.
+1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
-3. Sanal makine bilgilerini girin. İçin **kimlik doğrulama türü**seçin **SSH ortak anahtarını** veya **parola**. Oluşturulan kimlik bilgileri, VM'ye oturum açmak izin verir.
+3. Sanal makine bilgilerini girin. **Kimlik doğrulama türü** olarak **SSH ortak anahtarı**'nı veya **Parola**'yı seçin. Oluşturulan kimlik bilgileri VM'de oturum açmanıza olanak tanır.
 
     ![Linux VM oluşturma](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
-4. Seçin bir **abonelik** sanal makine açılır.
-5. Yeni bir seçmek için **kaynak grubu** sanal makinenin oluşturulması, seçmek istediğiniz **Yeni Oluştur**. İşlem tamamlandığında **Tamam**’a tıklayın.
-6. VM boyutunu seçin. Daha fazla boyutları görmek için seçin **tüm görüntüle** veya desteklenen disk türü filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
+4. Açılan listede sanal makine için bir **Abonelik** seçin.
+5. İçinde sanal makinenin oluşturulmasını istediğiniz yeni bir **Kaynak Grubu** seçmek için, **Yeni Oluştur**'u seçin. İşlem tamamlandığında **Tamam**’a tıklayın.
+6. VM'nin boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya Desteklenen disk türü filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
 
-## <a name="create-a-user-assigned-identity"></a>Bir kullanıcı kimliği atanır oluşturun
+## <a name="create-a-user-assigned-identity"></a>Kullanıcı tarafından atanan kimliği oluşturma
 
-1. CLI konsol (yerine bir Azure bulut kabuk oturumu) kullanıyorsanız, Azure'da oturum açma tarafından başlatın. Altında yeni kullanıcı kimliği atanır oluşturmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
+1. CLI konsolu kullanıyorsanız (Azure Cloud Shell oturumu yerine) Azure’de oturum açarak başlayın. Kullanıcı tarafından atanan yeni kimliği oluşturmak istediğiniz Azure aboneliğiyle ilişkilendirilmiş bir hesap kullanın:
 
     ```azurecli
     az login
     ```
 
-2. Kullanarak bir kullanıcı tarafından atanan kimlik oluşturmak [az kimliği oluşturma](/cli/azure/identity#az_identity_create). `-g` Parametresi, burada MSI oluşturulur, kaynak grubu belirtir ve `-n` parametresi adını belirtir. Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<MSI NAME>` parametre değerlerini kendi değerlerinizi ile:
+2. Kullanıcı tarafından atanan kimliği oluşturmak için [az identity create](/cli/azure/identity#az_identity_create) kullanın. `-g` parametresi MSI’nin oluşturulduğu kaynak grubunu belirtirken, `-n` parametresi de bunun adını belirtir. `<RESOURCE GROUP>` ve `<MSI NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın:
     
-    > [!IMPORTANT]
-    > Atanan kullanıcı kimlikleri yalnızca destekler alfasayısal oluşturma ve tire (0-9 veya a-z veya A-Z veya -) karakter. Ayrıca, ad atama düzgün çalışması için VM/VMSS için 24 karakter uzunluğu sınırlı olmalıdır. Geri güncelleştirmeleri denetleyin. Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
-    ```azurecli-interactive
-    az identity create -g <RESOURCE GROUP> -n <MSI NAME>
-    ```
 
-    Yanıt kimlik oluşturulan, aşağıdaki örneğe benzer şekilde atanmış kullanıcı ayrıntılarını içerir. Not `id` sonraki adımda kullanılacak olan olarak atanan kullanıcı kimliğinizi için değer:
+```azurecli-interactive
+az identity create -g <RESOURCE GROUP> -n <MSI NAME>
+```
 
-    ```json
-    {
-    "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
-    "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=12344643-8088-4d70-9532-c3a0fdc190fz",
-    "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
-    "location": "westcentralus",
-    "name": "<MSI NAME>",
-    "principalId": "9012",
-    "resourceGroup": "<RESOURCE GROUP>",
-    "tags": {},
-    "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
-    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
-    }
-    ```
+Yanıt, aşağıdaki örneğe benzer biçimde, oluşturulmuş kullanıcı tarafından atanan kimliğin ayrıntılarını içerir. Kullanıcı tarafından atanan kimliğinizin `id` değerini not alın, çünkü bu değer sonraki adımda kullanılacaktır:
 
-## <a name="assign-a-user-assigned-identity-to-your-linux-vm"></a>Kimlik, Linux VM'ye atanan kullanıcı atama
+```json
+{
+"clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+"clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=12344643-8088-4d70-9532-c3a0fdc190fz",
+"id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
+"location": "westcentralus",
+"name": "<MSI NAME>",
+"principalId": "9012",
+"resourceGroup": "<RESOURCE GROUP>",
+"tags": {},
+"tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+"type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
 
-Bir kullanıcı kimliği atanır, birden çok Azure kaynaklarına istemciler tarafından kullanılabilir. Tek bir VM'ye atanan kullanıcı kimliğini atamak için aşağıdaki komutları kullanın. Kullanım `Id` özelliği döndürülen için önceki adımda `-IdentityID` parametresi.
+## <a name="assign-a-user-assigned-identity-to-your-linux-vm"></a>Kullanıcı tarafından atanan kimliği Linux VM’nize atama
 
-Kullanıcı tarafından atanan MSI kullanarak, Linux VM atamak [az vm Ata-identity](/cli/azure/vm#az_vm_assign_identity). Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlere sahip. Kullanım `id` özelliği döndürülen için önceki adımda `--identities` parametre değeri.
+Kullanıcı tarafından atanan kimlik, istemciler tarafından birden çok Azure kaynağında kullanılabilir. Aşağıdaki komutları kullanarak kullanıcı tarafından atanan kimliği tek bir VM'ye atayın. `-IdentityID` parametresi için önceki adımda döndürülen `Id` özelliğini kullanın.
+
+Kullanıcı tarafından atanan MSI'yi, [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity) komutunu kullanarak Linux VM'nize atayın. `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `--identities` parametre değeri için önceki adımda döndürülen `id` özelliğini kullanın.
 
 ```azurecli-interactive
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
 ```
 
-## <a name="grant-your-user-assigned-identity-access-to-a-resource-group-in-azure-resource-manager"></a>Bir kaynak grubu Azure Kaynak Yöneticisi'nde, atanan kullanıcı kimliğini erişim izni 
+## <a name="grant-your-user-assigned-identity-access-to-a-resource-group-in-azure-resource-manager"></a>Azure Resource Manager’da Kaynak Grubuna kullanıcı tarafından atanan kimliğiniz için erişim verme 
 
-Yönetilen hizmet kimliği (MSI) kodunuzu kaynak API'leri, destek Azure AD kimlik doğrulaması kimlik doğrulaması için erişim belirteci istemek için kullanabileceği kimlikleri sağlar. Bu öğreticide, Azure Resource Manager API kodunuzu erişir.  
+Yönetilen Hizmet Kimliği (MSI), kodunuzun Azure AD kimlik doğrulamasını destekleyen kaynak API'lerinde kimlik doğrulaması yapmak amacıyla erişim belirteçleri istemek için kullanabileceği kimlikleri sağlar. Bu öğreticide, kodunuz Azure Resource Manager API’sine erişir.  
 
-Kodunuzu API erişebilmeniz için önce bir kaynağa Azure Kaynak Yöneticisi'nde kimlik erişim vermeniz gerekir. Bu durumda, kaynak grubu VM yer alır. Değeri güncelleştirme `<SUBSCRIPTION ID>` ve `<RESOURCE GROUP>` ortamınız için uygun şekilde. Ayrıca, yerine `<MSI PRINCIPALID>` ile `principalId` özellik tarafından döndürülen `az identity create` komutunu [kullanıcı tarafından atanan bir MSI oluşturmak](#create-a-user-assigned-msi):
+Kodunuzun API'ye erişebilmesi için önce Azure Resource Manager'da kaynağa kimlik erişimi vermeniz gerekir. Bu durumda, içinde VM'nin yer aldığı Kaynak Grubudur. `<SUBSCRIPTION ID>` ve `<RESOURCE GROUP>` değerini ortamınıza uyacak şekilde güncelleştirin. Buna ek olarak, `<MSI PRINCIPALID>` özelliğini [Kullanıcı tarafından atanan MSI oluşturma](#create-a-user-assigned-msi) bölümünde `az identity create` komutuyla döndürülen `principalId` özelliğiyle değiştirin:
 
 ```azurecli-interactive
 az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
-Yanıt oluşturulan, aşağıdaki örneğe benzer şekilde rol ataması ayrıntılarını içerir:
+Yanıt, aşağıdaki örneğe benzer biçimde, oluşturulmuş atamasının ayrıntılarını içerir:
 
 ```json
 {
@@ -134,29 +135,29 @@ Yanıt oluşturulan, aşağıdaki örneğe benzer şekilde rol ataması ayrınt�
 
 ```
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>VM kimliğini kullanarak bir erişim belirteci alın ve Resource Manager çağırmak için kullanın 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>VM kimliğini kullanarak erişim belirteci alma ve Resource Manager çağrısı yapmak için bunu kullanma 
 
-Öğretici kalanı için size daha önce oluşturduğumuz sanal makineden çalışmaz.
+Bu öğreticinin kalan bölümünde, daha önce oluşturmuş olduğumuz VM'den çalışacağız.
 
-Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsanız, SSH İstemcisi'nde kullanabileceğiniz [Linux için Windows alt](https://msdn.microsoft.com/commandline/wsl/about). 
+Bu adımları tamamlamak bir SSH istemciniz olmalıdır. Windows kullanıyorsanız, [Linux için Windows Alt Sistemi](https://msdn.microsoft.com/commandline/wsl/about)'ndeki SSH istemcisini kullanabilirsiniz. 
 
-1. Azure'da oturum aç [portal](https://portal.azure.com).
-2. Portalı'nda gidin **sanal makineleri** ve Linux sanal makineye gidin ve buna **genel bakış**, tıklatın **Bağlan**. VM'nize bağlanmak için dizesini kopyalayın.
-3. Tercih ettiğiniz SSH istemcisi VM'ye bağlanın. Windows kullanıyorsanız, SSH İstemcisi'nde kullanabileceğiniz [Linux için Windows alt](https://msdn.microsoft.com/commandline/wsl/about). SSH istemcinin anahtarları yapılandırma yardıma gereksinim duyarsanız, bkz: [kullanmak SSH anahtarları nasıl Windows Azure üzerinde ile](~/articles/virtual-machines/linux/ssh-from-windows.md), veya [nasıl oluşturulacağı ve Linux VM'ler için Azure'da bir SSH ortak ve özel anahtar çifti kullanılmak](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
-4. Terminal penceresinde CURL, kullanarak Azure kaynak yöneticisi için bir erişim belirteci almak için Azure örneği meta veri hizmeti (IMDS) kimlik uç noktası için bir isteği oluşturun.  
+1. Azure [portalında](https://portal.azure.com) oturum açın.
+2. Portalda, **Sanal Makineler**'e ve Linux sanal makinesine gidin, ardından **Genel Bakış**'ta **Bağlan**'a tıklayın. VM'nize bağlanma dizesini kopyalayın.
+3. Tercih ettiğiniz SSH istemcisiyle VM'ye bağlanın. Windows kullanıyorsanız, [Linux için Windows Alt Sistemi](https://msdn.microsoft.com/commandline/wsl/about)'ndeki SSH istemcisini kullanabilirsiniz. SSH istemcinizin anahtarlarını yapılandırmak için yardıma ihtiyacınız olursa, bkz. [Azure'da Windows ile SSH anahtarlarını kullanma](~/articles/virtual-machines/linux/ssh-from-windows.md) veya [Azure’da Linux VM’ler için SSH ortak ve özel anahtar çifti oluşturma](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
+4. Terminal penceresinde, Azure Resource Manager erişim belirtecini almak için CURL'yi kullanarak Azure Instance Metadata Service (IMDS) kimlik uç noktasına bir istek gönderin.  
 
-   Bir erişim belirteci almak üzere CURL isteği aşağıdaki örnekte gösterilir. Değiştirdiğinizden emin olun `<CLIENT ID>` ile `clientId` özellik tarafından döndürülen `az identity create` komutunu [bir kullanıcı tarafından atanan kimliği oluşturma](#create-a-user-assigned-msi): 
+   Erişim belirtecini almaya yönelik CURL isteği aşağıdaki örnekte gösterilmektedir. `<CLIENT ID>` özelliğinin [Kullanıcı tarafında atanan MSI oluşturma](#create-a-user-assigned-msi) bölümünde `az identity create` komutuyla döndürülen `clientId` özelliğiyle değiştirildiğinden emin olun: 
     
    ```bash
    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>"   
    ```
     
     > [!NOTE]
-    > Değeri `resource` parametresi, Azure AD tarafından beklenen bir tam eşleşme olmalıdır. Resource Manager kaynak kimliği'ni kullanırken eğik URI üzerinde eklemeniz gerekir. 
+    > `resource` parametresinin değeri Azure AD'nin beklediği değerle tam olarak eşleşmelidir. Resource Manager kaynak kimliği kullanıldığında, URI'nin sonundaki eğik çizgiyi de eklemelisiniz. 
     
-    Yanıt, Azure Resource Manager erişim için gereken erişim belirteci içeriyor. 
+    Yanıtta, Azure Resource Manager’a erişmek için ihtiyacınız olan erişim belirteci vardır. 
     
-    Yanıt örnek:  
+    Yanıt örneği:  
 
     ```bash
     {
@@ -170,16 +171,16 @@ Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsan
     } 
     ```
 
-5. Azure Resource Manager erişmek için erişim belirtecini kullanır ve için daha önce atanan kullanıcı kimliğini erişim izni kaynak grubunun özelliklerini okur. Değiştirdiğinizden emin olun `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` daha önce belirttiğiniz değerleri içeren ve `<ACCESS TOKEN>` önceki adımda döndürülen belirteci ile.
+5. Azure Resource Manager’a erişmek için erişim belirtecini kullanın ve önceden kullanıcı tarafından atanan kimliğiniz için erişim verdiğiniz Kaynak Grubunun özelliklerini okuyun. `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` değerlerinin daha önce belirttiğiniz değerlerle ve `<ACCESS TOKEN>` öğesinin önceki adımda döndürülen belirteçle değiştirildiğinden emin olun.
 
     > [!NOTE]
-    > URL büyük/küçük harfe duyarlıdır, bu nedenle, kullanılması daha önce kaynak grubu ve büyük harf "G" adlı tam aynı durumda kullandığınızdan emin olun `resourceGroups`.  
+    > URL büyük/küçük harfe duyarlıdır; dolayısıyla daha önce Kaynak Grubunu adlandırırken kullandığınız büyük/küçük harf düzenini ve `resourceGroups` içindeki büyük "G" harfini kullanmaya dikkat edin.  
 
     ```bash 
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
 
-    Yanıt belirli kaynak grubu, aşağıdaki örneğe benzer bilgiler içerir: 
+    Yanıtta, aşağıdaki örneğe benzer belirli Kaynak Grubu bilgileri yer alır: 
 
     ```bash
     {
@@ -192,5 +193,8 @@ Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsan
     
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Yönetilen hizmet kimliği genel bakış için bkz: [genel bakış](overview.md).
+Bu öğreticide, kullanıcı tarafından atanan bir kimlik oluşturmayı ve Azure Resource Manager API'sine erişmek için bu kimliği bir Linux sanal makinesine eklemeyi öğrendiniz.  Azure Resource Manager hakkında daha fazla bilgi edinmek için bkz:
+
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
 

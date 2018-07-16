@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 76430fa5652e98cba86c41433f376e27dbb1639a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5c6a4ac68694c74f9a7ed99a2d7b4939b84dc33f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446869"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054888"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belgenin kapsamlı bir listesini sağlar.
@@ -112,7 +112,7 @@ Azure AD Connect, kullanılabilir [Azure Active Directory'nin tüm sürümlerind
 | Aşağıdaki türdeki kaynakları için koşullu erişimi etkinleştirme |[SaaS uygulamaları için koşullu erişim](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Office 365 Hizmetleri için koşullu erişim](active-directory-conditional-access-device-policies.md)<br /><br />[Şirket içi uygulamalar için koşullu erişim](active-directory-conditional-access-azure-portal.md)<br /><br />[Azure AD uygulama ara sunucusu üzerinden şirket içi uygulamalar için koşullu erişim yayımlandı](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Cihaz tabanlı koşullu erişim ilkelerini etkinleştirmek için Azure Active Directory ile cihazları kaydetme |[Azure Active Directory cihaz kaydına genel bakış](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Etki alanı için otomatik cihaz kaydını etkinleştirme katılmış Windows cihazlar](active-directory-conditional-access-automatic-device-registration.md)<br />— [Adımları için Windows 8.1 cihazları](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Adımları Windows 7 cihazları için](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
-| İki aşamalı doğrulama için Microsoft Authenticator uygulamasını kullanma | [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| İki aşamalı doğrulama için Microsoft Authenticator uygulamasını kullanma | [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
 
 Koşullu erişim bir [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) özelliği.
 
@@ -180,7 +180,7 @@ Azure AD erişim paneli, burada son kullanıcıların uygulamalarını başlatma
 | Makale Kılavuzu |  |
 |:---:| --- |
 | Kullanıcılara çoklu oturum açma uygulamaları dağıtmak için kullanılabilir farklı seçenekler karşılaştırması |[Dağıtma Azure AD tümleşik uygulamalarını kullanıcılara](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
-| Erişim paneli ve kendi mobil eşdeğer MyApps genel bakış |[Erişim paneli ve MyApps giriş](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
+| Erişim paneli ve kendi mobil eşdeğer MyApps genel bakış |[Erişim paneli ve MyApps giriş](user-help/active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Azure AD uygulamaları Office 365 Web sitesinden erişme |[Office 365 uygulama Başlatıcısı'nı kullanma](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Azure AD uygulamaları Intune Managed Browser mobil uygulamasından erişme |[Intune yönetilen tarayıcı](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | Çoklu oturum açma başlatmak için ayrıntılı Bağlantılar'ı kullanarak Azure AD uygulamalarına erişmek nasıl |[Oturum açma doğrudan bağlantılar uygulamalarınıza alma](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |

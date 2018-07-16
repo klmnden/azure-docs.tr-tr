@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 962f33a178048c459e8c6c2948eb17f0e78904ae
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b695783c6d68876d39482ed5abec24f45087603d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930999"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054871"
 ---
 # <a name="improve-app-with-batch-test"></a>Toplu test ile uygulama geliştirme
 
@@ -52,7 +52,7 @@ Toplu test etmek için gereksinimler:
 * İzin verilen varlık türleri: Basit ve bileşik.
 
 ## <a name="create-a-batch-file-with-utterances"></a>Konuşma ile bir toplu iş dosyası oluşturma
-1. Oluşturma `HumanResources-jobs-batch.json` gibi bir metin düzenleyicisinde [VSCode](https://code.visualstudio.com/). Veya indirme [dosya](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json) LUIS örnekleri Github deposundan.
+1. Oluşturma `HumanResources-jobs-batch.json` gibi bir metin düzenleyicisinde [VSCode](https://code.visualstudio.com/). 
 
 2. Konuşma ile JSON biçimli toplu iş dosyasında, ekleme **hedefi** testinde tahmin edilen istiyor. 
 
@@ -189,7 +189,7 @@ Toplu test konuşma doğru şekilde tahmin doğrulamak için batch testi yeniden
 Bu uygulama tahmin doğruluğunu toplu işlemde hataları bulma ve model doğru amacı ve eğitim için daha fazla örnek konuşma ekleyerek düzeltme arttı. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Seçin **uygulamalarım** üstteki soldaki menüde. Noktayı **...**  sağında bulunan uygulama listesinde uygulama adı, seçin **Sil**. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Noktayı **...**  sağında bulunan uygulama listesinde uygulama adı, seçin **Sil**. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

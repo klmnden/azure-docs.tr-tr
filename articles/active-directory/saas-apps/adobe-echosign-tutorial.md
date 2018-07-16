@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme Adobe işaretiyle | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ve Adobe oturum arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Adobe Sign | Microsoft Docs'
+description: Azure Active Directory ve Adobe Sign arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,105 +14,105 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 9a1a1f1a1866e5221775d583a9bafe86eef17131
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d5cdc2ec0c6cfcf52f84629485d0dd879fbf6fa2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221232"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054007"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Öğretici: Azure Active Directory Tümleştirme Adobe oturum
+# <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Öğretici: Azure Active Directory Adobe Sign ile'tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Adobe oturum tümleştirmek öğrenin.
+Bu öğreticide, Adobe Sign'ı Azure Active Directory (Azure AD) ile tümleştirme konusunda bilgi edinin.
 
-Adobe oturum Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Adobe Sign'ı Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Adobe oturum erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak (çoklu oturum açma) Adobe imzalamak için Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda--Azure portalında yönetebilir.
+- Adobe Sign erişimi, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak imzalanan için Adobe Sign (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda--Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı için bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Adobe işaretiyle yapılandırmak için gerekir:
+Azure AD Tümleştirmesi ile Adobe Sign yapılandırmak için gerekir:
 
-- Bir Azure AD aboneliği
-- Bir Adobe oturum çoklu oturum açma abonelik etkin
+- Azure AD aboneliğiniz
+- Bir Adobe Sign çoklu oturum açma abonelik etkin.
 
-Bu öğreticide adımları test etmek için aşağıdaki önerileri uygulayın:
+Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Adobe oturum Galeriden ekleniyor.
-2. Yapılandırma ve Azure AD sınama çoklu oturum açmayı.
+1. Adobe Sign Galeriden ekleniyor.
+2. Yapılandırma ve test Azure AD çoklu oturum açma.
 
-## <a name="add-adobe-sign-from-the-gallery"></a>Galeriden Adobe ekleme
-Azure AD Adobe oturum tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Adobe oturum eklemeniz gerekir.
+## <a name="add-adobe-sign-from-the-gallery"></a>Adobe Sign Galeriden Ekle
+Azure AD'de Adobe Sign tümleştirmesini yapılandırmak için Adobe Sign Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-1. İçinde [Azure portal](https://portal.azure.com), sol bölmede seçin **Azure Active Directory** simgesi. 
+1. İçinde [Azure portalında](https://portal.azure.com), sol bölmede seçin **Azure Active Directory** simgesi. 
 
-    ![Azure Active Directory simgesine ekran görüntüsü][1]
+    ![Azure Active Directory simgesinin görüntüsü][1]
 
 2. Gözat **kurumsal uygulamalar** > **tüm uygulamaları**.
 
-    ![Ekran görüntüsü, Azure Active Directory menülerle Kurumsal uygulamaları ve vurgulanan tüm uygulamalar][2]
+    ![Kurumsal uygulamaları ve tüm uygulamaların vurgulandığı ekran görüntüsü, Azure Active Directory menüleri][2]
     
-3. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üstündeki.
+3. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üst.
 
-    ![İletişim kutusunun üstündeki yeni ekran uygulama seçeneği][3]
+    ![İletişim kutusunun üst kısmındaki Yeni ekran uygulama seçeneği][3]
 
-4. Arama kutusuna **Adobe oturum**.
+4. Arama kutusuna **Adobe Sign**.
 
     ![Arama kutusunun ekran görüntüsü](./media/adobe-echosign-tutorial/tutorial_adobesign_search.png)
 
-5. Sonuçlar panelinde seçin **Adobe oturum**ve ardından **Ekle**.
+5. Sonuçlar panelinde seçin **Adobe Sign**ve ardından **Ekle**.
 
     ![Sonuçlar bölmesinin ekran görüntüsü](./media/adobe-echosign-tutorial/tutorial_adobesign_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Adobe "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı işaretiyle test etme
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." adlı bir test kullanıcı tabanlı Adobe Sign'ile test etme
 
-Tekli çalışmaya oturum için bir Azure AD kullanıcısının ve Adobe oturum ilgili kullanıcı arasında bağlı bir ilişki tanımak Azure AD gerekiyor.
+Tek çalışmak için oturum açma için Azure AD arasında bir Azure AD kullanıcısı ve Adobe Sign ilgili kullanıcı bağlı bir ilişki tanıması gerekir.
 
-Adobe oturum açma bağlantılı ilişkisi oluşturmak için değeri atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı**.
+Adobe oturum açma bağlı ilişki kurmak için değerini atayın **kullanıcı adı** değerini Azure AD'de **Username**.
 
-Yapılandırmak ve Azure AD çoklu oturum açma Adobe işaretiyle sınamak için aşağıdaki yapı taşları tamamlayın:
+Yapılandırma ve Azure AD çoklu oturum açma Adobe Sign ile'test etmek için aşağıdaki yapı taşlarını tamamlayın:
 
-1. [Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on) bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. [Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on) kullanıcılarınız bu özelliği kullanmak etkinleştirmek için.
 2. [Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user) Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. [Adobe oturum test kullanıcısı oluşturma](#creating-an-adobe-sign-test-user) Britta Simon, karşılık gelen kimin kullanıcı Azure AD gösterimini bağlı Adobe oturum sağlamak için.
-4. [Azure AD test kullanıcısı atayın](#assigning-the-azure-ad-test-user) Britta Azure AD çoklu oturum açma kullanmak Simon etkinleştirmek için.
-5. [Test çoklu oturum açma](#testing-single-sign-on) yapılandırma çalışıp çalışmadığını doğrulayın.
+3. [Bir Adobe Sign test kullanıcısı oluşturma](#creating-an-adobe-sign-test-user) Britta simon'un bir karşılığı olan kullanıcı Azure AD gösterimini bağlı bir Adobe Sign sağlamak için.
+4. [Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user) Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
+5. [Çoklu oturum açmayı test](#testing-single-sign-on) yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Adobe oturum uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Adobe Sign uygulamanızda çoklu oturum açmayı yapılandırın.
 
-1. Azure portalında üzerinde **Adobe oturum** uygulama tümleştirmesi sayfasında, **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Adobe Sign** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma vurgulanmış özelliğini ile Adobe oturum ekran uygulama tümleştirme sayfası][4]
+    ![Çoklu oturum vurgulanmış açma Adobe Sign ekran uygulama tümleştirme sayfası][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusu için **modu**seçin **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
 
-    ![Vurgulanan modu kutusuyla tek ekran oturum açma iletişim kutusu](./media/adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
+    ![Vurgulanan modu kutusu tek ekran oturum açma iletişim kutusu](./media/adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
 
-3. İçinde **Adobe oturum etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. İçinde **Adobe oturum etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Adobe oturum etki ekran ve URL'ler bölümü](./media/adobe-echosign-tutorial/tutorial_adobesign_url.png)
+    ![Ekran görüntüsü, Adobe oturum etki alanı ve URL'ler bölümü](./media/adobe-echosign-tutorial/tutorial_adobesign_url.png)
 
     a. İçinde **oturum açma URL'si** metin kutusunda, aşağıdaki desen kullanan bir URL yazın: `https://<companyname>.echosign.com/`
 
-    b. İçinde **tanımlayıcısı** metin kutusunda, aşağıdaki desen kullanan bir URL yazın: `https://<companyname>.echosign.com`
+    b. İçinde **tanımlayıcı** metin kutusunda, aşağıdaki desen kullanan bir URL yazın: `https://<companyname>.echosign.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerleri tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirin. Kişi [Adobe oturum istemci destek ekibi](https://helpx.adobe.com/in/contact/support.html) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerleri tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Adobe oturum istemci Destek ekibine](https://helpx.adobe.com/in/contact/support.html) bu değerleri almak için.
 
-4. İçinde **SAML imzalama sertifikası** bölümünde, select **Certificate(Base64)** ve ardından sertifika dosyayı bilgisayarınıza kaydedin.
+4. İçinde **SAML imzalama sertifikası** bölümünden **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Ekran görüntüsü, SAML imzalama sertifikası bölümü](./media/adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
 
@@ -120,75 +120,75 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Ekran Kaydet düğmesi](./media/adobe-echosign-tutorial/tutorial_general_400.png)
 
-6. İçinde **Adobe oturum yapılandırma** bölümünde, select **yapılandırma Adobe oturum** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL**, **SAML varlık kimliği**, ve **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru** bölümü.
+6. İçinde **Adobe oturum yapılandırma** bölümünden **Adobe Sign'ı yapılandırma** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si**, **SAML varlık kimliği**, ve **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru** bölümü.
 
-    ![Adobe oturum yapılandırması ekran bölümünde, Adobe vurgulanan oturum yapılandırma](./media/adobe-echosign-tutorial/tutorial_adobesign_configure.png)
+    ![Adobe oturum yapılandırması ekran görüntüsü bölümünde, Adobe vurgulanan oturum yapılandırma](./media/adobe-echosign-tutorial/tutorial_adobesign_configure.png)
 
-7. Yapılandırma önce başvurun [Adobe oturum istemci destek ekibi](https://helpx.adobe.com/in/contact/support.html) güvenilir listeye Adobe oturum etki alanınızda. Etki alanı ekleme şöyledir:
+7. Yapılandırma önce başvurun [Adobe oturum istemci Destek ekibine](https://helpx.adobe.com/in/contact/support.html) beyaz liste için Adobe Sign etki alanınızda. Etki alanı ekleme şöyledir:
 
-    a. [Adobe oturum istemci destek ekibi](https://helpx.adobe.com/in/contact/support.html) rastgele oluşturulmuş bir belirteç gönderir. Etki alanınız için belirteç şu şekilde olacaktır: **adobe oturum doğrulama xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx =**
+    a. [Adobe oturum istemci Destek ekibine](https://helpx.adobe.com/in/contact/support.html) rastgele oluşturulmuş bir belirteç gönderir. Etki alanınız için belirteci aşağıdaki gibi olacaktır: **adobe oturum doğrulama xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx =**
 
-    b. Doğrulama belirteci bir DNS metin kayıtta yayımlama ve bildirim [Adobe oturum istemci destek ekibi](https://helpx.adobe.com/in/contact/support.html).
+    b. Doğrulama belirteci DNS metin kaydı yayımlama ve bildirim [Adobe oturum istemci Destek ekibine](https://helpx.adobe.com/in/contact/support.html).
     
     > [!NOTE]
-    > Bu birkaç gün veya daha uzun sürebilir. Bir saat veya daha fazla bilgi için bir değer DNS'de yayımlanan DNS yayma gecikmeleri anlamına Not görünmeyebilir. BT yöneticiniz bu belirteci bir DNS metin kayıtta yayımlama hakkında bilgi sahibi olmalıdır.
+    > Bu birkaç gün veya daha uzun sürebilir. Bir saat veya daha fazla bilgi için bir değer DNS'de yayımlanan DNS yayma gecikmeleri anlamına Not görünmeyebilir. BT yöneticiniz bu belirteci DNS metin kaydı yayımlama hakkında bilgi sahibi olması gerekir.
     
-    c. Ne zaman sizi uyarır [Adobe oturum istemci destek ekibi](https://helpx.adobe.com/in/contact/support.html) destek bileti aracılığıyla belirteç yayımlandıktan sonra bunlar etki alanı doğrulanamıyor ve hesabınıza ekleme.
+    c. Ne zaman size bildirim [Adobe oturum istemci Destek ekibine](https://helpx.adobe.com/in/contact/support.html) üzerinden destek bileti belirteç yayımlandıktan sonra etki alanını doğrulama ve hesabınıza ekleyin.
     
     d. Genellikle, bir DNS kaydı belirteçte yayımlama şöyledir:
 
-    * Etki alanı hesabınızla oturum açın
-    * DNS kaydını güncelleştirmek için sayfasını bulun. Bu sayfayı DNS Yönetimi, ad sunucusu yönetimi veya Gelişmiş ayarları olarak da adlandırılabilir.
-    * TXT kayıtlarının etki alanınız için bulun.
-    * Adobe tarafından sağlanan tam belirteç değeri ile bir TXT kaydı ekleyin.
+    * Etki alanı hesabınızda oturum açın
+    * DNS kaydı güncelleştirmek için sayfayı bulun. Bu sayfada, DNS Yönetimi, ad sunucusu yönetimi veya Gelişmiş ayarları çağrılabilir.
+    * TXT kayıtlarının, etki alanınız için bulun.
+    * Adobe tarafından sağlanan tam belirteç değeri içeren bir TXT kaydı ekleyin.
     * Yaptığınız değişiklikleri kaydedin.
 
-8. Farklı web tarayıcısı penceresinde Adobe oturum şirket sitenize yönetici olarak oturum açın.
+8. Farklı bir web tarayıcı penceresinde bir Adobe Sign şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-9. SAML menüde seçin **hesap ayarlarını** > **SAML ayarları**.
+9. SAML menüde **hesap ayarları** > **SAML ayarlarını**.
    
     ![Ekran Adobe oturum SAML Ayarları sayfası](./media/adobe-echosign-tutorial/ic789520.png "hesabı")
 
-10. İçinde **SAML ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
+10. İçinde **SAML ayarlarını** bölümünde, aşağıdaki adımları gerçekleştirin:
   
-    ![SAML ayarlarının ekran görüntüsüne](./media/adobe-echosign-tutorial/ic789521.png "SAML ayarları")
+    ![SAML ayarlarını görüntüsü](./media/adobe-echosign-tutorial/ic789521.png "SAML ayarları")
    
     a. Altında **SAML modu**seçin **SAML zorunlu**.
    
-    b. Seçin **Echosign kimlik bilgilerini kullanarak oturum açması Echosign hesap yöneticileri izin**.
+    b. Seçin **izin Echosign hesap yöneticileri Echosign kimlik bilgilerini kullanarak oturum açması**.
    
-    c. Altında **kullanıcı oluşturma**seçin **otomatik olarak SAML kimliği doğrulanmış kullanıcılar eklemek**.
+    c. Altında **kullanıcı oluşturma**seçin **SAML ile kimliği doğrulanmış kullanıcılar otomatik olarak Ekle**.
 
-    d. Yapıştır **SAML varlık kimliği**, Azure portalından kopyalanan **varlık kimliği/sertifika veren URL** metin kutusu.
+    d. Yapıştırma **SAML varlık kimliği**, hangi Azure portaldan kopyaladığınız **varlık kimliği/veren URL'si** metin kutusu.
     
-    e. Yapıştır **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan **oturum açma URL'si/SSO Endpoint** metin kutusu.
+    e. Yapıştırma **SAML çoklu oturum açma hizmeti URL'si**, Azure portalından kopyalanan **oturum açma URL'si/SSO'ya uç noktası** metin kutusu.
    
-    f. Yapıştır **Sign-Out URL**, Azure portalından kopyalanan **oturum kapatma URL'si/SLO Endpoint** metin kutusu.
+    f. Yapıştırma **oturum kapatma URL'si**, hangi Azure portaldan kopyaladığınız **oturum kapatma URL'si/SLO uç noktasına** metin kutusu.
 
-    g. İndirilen açmak **Certificate(Base64)** dosyasını Not Defteri'nde. İçeriğini, panoya kopyalayın ve yapıştırın kendisine **IDP sertifika** metin kutusu.
+    g. İndirilen açın **Certificate(Base64)** dosyasını Not Defteri'nde. İçeriğini sizin panoya kopyalayın ve yapıştırın kendisine **IDP sertifika** metin kutusu.
 
     h. Seçin **değişiklikleri kaydetmek**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Azure portalında Britta Simon adlı bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Azure portalında Britta Simon adlı bir test kullanıcısı oluşturmaktır.
 
-![Azure portalında test kullanıcı adının ekran görüntüsü][100]
+![Test kullanıcı adının Azure portalının ekran görüntüsü][100]
 
-1. İçinde **Azure portal**, sol bölmede seçin **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol bölmede seçin **Azure Active Directory** simgesi.
 
-    ![Azure AD simgesinin ekran görüntüsü](./media/adobe-echosign-tutorial/create_aaduser_01.png) 
+    ![Azure AD simgesinin görüntüsü](./media/adobe-echosign-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**seçip **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**seçip **tüm kullanıcılar**.
     
-    ![Azure ekran AD menülerle kullanıcılarını, gruplarını ve vurgulanan tüm kullanıcılar](./media/adobe-echosign-tutorial/create_aaduser_02.png) 
+    ![Kullanıcılar, gruplar ve vurgulanmış tüm kullanıcılar Azure ekran AD menüleri](./media/adobe-echosign-tutorial/create_aaduser_02.png) 
 
 3. Açmak için **kullanıcı** iletişim kutusunda **Ekle**.
  
-    ![Vurgulanan Ekle seçeneği ile tüm kullanıcılar iletişim kutusunun üstündeki ekran görüntüsü](./media/adobe-echosign-tutorial/create_aaduser_03.png) 
+    ![Üst ekle seçeneğinin vurgulandığı ile tüm kullanıcılar iletişim kutusunun ekran görüntüsü](./media/adobe-echosign-tutorial/create_aaduser_03.png) 
 
 4. Üzerinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
  
-    ![Ekran görüntüsü, kullanıcı iletişim kutusu](./media/adobe-echosign-tutorial/create_aaduser_04.png) 
+    ![Ekran kullanıcı iletişim kutusu](./media/adobe-echosign-tutorial/create_aaduser_04.png) 
 
     a. İçinde **adı** metin kutusunda, **BrittaSimon**.
 
@@ -198,66 +198,66 @@ Bu bölümün amacı, Azure portalında Britta Simon adlı bir test kullanıcı 
 
     d. **Oluştur**’u seçin.
  
-### <a name="create-an-adobe-sign-test-user"></a>Adobe oturum test kullanıcısı oluşturma
+### <a name="create-an-adobe-sign-test-user"></a>Bir Adobe Sign test kullanıcısı oluşturma
 
-Azure AD Adobe imzalamak için oturum açmalarını etkinleştirmek için bunlar Adobe oturum açın sağlanmalıdır. Bu el ile bir görevdir.
-
->[!NOTE]
->Azure AD kullanıcı hesaplarını sağlamak için herhangi bir Adobe oturum kullanıcı hesabı oluşturma araçlarını veya Adobe oturum tarafından sağlanan API'leri kullanabilirsiniz. 
-
-1. Oturum açın, **Adobe oturum** yönetici olarak şirket site.
-
-2. Üstteki menüde seçin **hesap**. Sol bölmede, ardından **kullanıcıları ve grupları** > **yeni bir kullanıcı oluşturmak**.
-   
-    ![Adobe oturum ekran vurgulanmış yeni bir kullanıcı oluşturmak ve şirket hesabı, kullanıcılar ve gruplar ile site](./media/adobe-echosign-tutorial/ic789524.png "hesabı")
-   
-3. İçinde **yeni kullanıcı oluştur** bölümünde, aşağıdaki adımları gerçekleştirin:
-   
-    ![Ekran, yeni kullanıcı oluştur bölüm](./media/adobe-echosign-tutorial/ic789525.png "kullanıcı oluştur")
-   
-    a. Türü **e-posta adresi**, **ad**, ve **Soyadı** geçerli bir Azure AD hesabının istediğiniz ilgili metin kutularına sağlamak için.
-   
-    b. Seçin **kullanıcı oluşturma**.
+Adobe Sign'için oturum açmak Azure AD kullanıcılarının etkinleştirmek için Adobe oturum sağlanması gerekir. Bu el ile gerçekleştirilen bir görevdir.
 
 >[!NOTE]
->Azure Active Directory hesap sahibi etkin duruma gelmesi hesabı onaylamak için bir bağlantı içeren bir e-posta alır. 
+>Azure AD kullanıcı hesapları sağlamak için herhangi bir Adobe Sign kullanıcı hesabı oluşturma araçları veya Adobe Sign tarafından sağlanan API'leri kullanabilirsiniz. 
+
+1. Oturum açın, **Adobe Sign** yönetici olarak şirketin site.
+
+2. Üst menüde **hesabı**. Sol bölmede, ardından **kullanıcıları ve grupları** > **yeni kullanıcı oluşturma**.
+   
+    ![Adobe Sign ekran şirket hesabı, kullanıcıları ve grupları, site ve vurgulanmış yeni kullanıcı oluşturma](./media/adobe-echosign-tutorial/ic789524.png "hesabı")
+   
+3. İçinde **yeni kullanıcı oluşturma** bölümünde, aşağıdaki adımları gerçekleştirin:
+   
+    ![Ekran görüntüsü, oluşturma yeni kullanıcı bölümünün](./media/adobe-echosign-tutorial/ic789525.png "kullanıcı oluştur")
+   
+    a. Tür **e-posta adresi**, **ad**, ve **Soyadı** geçerli bir Azure AD hesabı ilgili metin kutularına sağlamak istediğiniz.
+   
+    b. Seçin **oluşturacağı**.
+
+>[!NOTE]
+>Azure Active Directory hesap sahibinin önce etkin hale gelir ve hesabı onaylamak için bir bağlantı içeren bir e-posta alır. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Adobe imzalamak için erişim vererek, Azure çoklu oturum açma, kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, Adobe Sign'için erişim izni verdiğinizde, Azure çoklu oturum açma, kullanılacak Britta Simon etkinleştirin.
 
 ![Ekran görüntüsü, Azure portal çoklu oturum açma][200] 
 
-1. Azure portalında uygulamaları görünümünü açın. Dizin görünümüne göz atın, Git **kurumsal uygulamalar**seçip **tüm uygulamaları**.
+1. Azure portalında uygulama görünümünü açın. Ardından dizin görünümüne gidin, Git **kurumsal uygulamalar**seçip **tüm uygulamaları**.
 
-    ![Kurumsal uygulamaları ve vurgulanan tüm uygulamaları ile ekran görüntüsü, Azure portal uygulamaları görüntüle][201] 
+    ![Kurumsal uygulamaları ve tüm uygulamaların vurgulandığı ekran görüntüsü, Azure portal uygulamaları görüntüle][201] 
 
-2. Uygulamalar listesinde **Adobe oturum**.
+2. Uygulamalar listesinde **Adobe Sign**.
 
-    ![Adobe vurgulanan oturum uygulamalar listesinin ekran görüntüsü](./media/adobe-echosign-tutorial/tutorial_adobesign_app.png) 
+    ![Adobe Sign'ın vurgulandığı ekran görüntüsü uygulamalar listesi](./media/adobe-echosign-tutorial/tutorial_adobesign_app.png) 
 
-3. Soldaki menüde seçin **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcılar ve gruplarla vurgulanmış menüsünün ekran görüntüsü][202] 
 
-4. **Add (Ekle)** seçeneğini belirleyin. Ardından **eklemek atama** bölümünde, select **kullanıcılar ve gruplar**.
+4. **Add (Ekle)** seçeneğini belirleyin. Ardından **atama Ekle** bölümünden **kullanıcılar ve gruplar**.
 
-    ![Ekran görüntüsü, kullanıcılar ve Gruplar sayfasında ve atama Bölüm Ekle][203]
+    ![Ekran görüntüsü, kullanıcılar ve Gruplar sayfasında ve atama bölümü ekleyin][203]
 
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda, kullanıcılar listesinde **Britta Simon**.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda, kullanıcılar listesinden **Britta Simon**.
 
-6. İçinde **kullanıcılar ve gruplar** iletişim kutusu, tıklatın **seçin**.
+6. İçinde **kullanıcılar ve gruplar** iletişim kutusu, tıklayın **seçin**.
 
-7. İçinde **eklemek atama** iletişim kutusunda **atamak**.
+7. İçinde **atama Ekle** iletişim kutusunda **atama**.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Erişim panelinde Adobe oturum döşeme seçtiğinizde, oturumunuz otomatik olarak Adobe oturum uygulamanıza. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Erişim Paneli'nde Adobe Sign kutucuğu seçtiğinizde, oturumunuz otomatik olarak Adobe Sign uygulamanıza. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

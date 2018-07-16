@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile vxMaintain | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile vxMaintain arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle vxMaintain | Microsoft Docs'
+description: Azure Active Directory ve vxMaintain arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,54 +14,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: fc8918ed2901d2f443b94bac8587e24c3f04eeec
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 6362bcb701b444c8cd71b270222ce4f87b4cc2e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308756"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055867"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Öğretici: Azure Active Directory Tümleştirme vxMaintain ile
+# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Öğretici: Azure Active Directory vxMaintain ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile vxMaintain tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile vxMaintain tümleştirme konusunda bilgi edinin.
 
-Bu tümleştirme birkaç önemli avantaj sağlar. Şunları yapabilirsiniz:
+Bu tümleştirme, birçok önemli avantaj sağlar. Şunları yapabilirsiniz:
 
 - VxMaintain erişimi, Azure AD'de denetler.
 - Otomatik olarak vxMaintain çoklu oturum açma (SSO) ile Azure AD hesaplarını kullanarak oturum açmak etkinleştirin.
-- Hesaplarınızı tek bir merkezi konumda yönetme: Azure portal.
+- Tek bir merkezi konumda hesaplarınızı yönetin: Azure portalı.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme vxMaintain ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile vxMaintain yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- VxMaintain abonelik SSO'su etkin
+- Azure AD aboneliğiniz
+- Bir vxMaintain SSO etkin aboneliği
 
 > [!NOTE]
-> Bu öğreticide adımları test ettiğinizde, bir üretim ortamında kullanmamanızı öneririz.
+> Bu öğreticideki adımları test ettiğinizde, bir üretim ortamında kullanmamanızı öneririz.
 
-Bu öğreticide adımları test etmek için aşağıdaki önerileri uygulayın:
+Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. 
 
-Bu öğretici özetlenmektedir senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide özetler senaryo iki temel yapı taşları oluşur:
 
 * Galeriden vxMaintain ekleme
-* Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+* Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="add-vxmaintain-from-the-gallery"></a>Galeriden vxMaintain Ekle
-Azure AD ile vxMaintain tümleştirmesini yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden vxMaintain eklemeniz gerekir.
+Azure AD ile vxMaintain tümleştirmesini yapılandırmak için vxMaintain Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 Galeriden vxMaintain eklemek için aşağıdakileri yapın:
 
-1. İçinde [Azure portal](https://portal.azure.com), sol bölmede seçin **Azure Active Directory** düğmesi. 
+1. İçinde [Azure portalında](https://portal.azure.com), sol bölmede seçin **Azure Active Directory** düğmesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -75,45 +75,45 @@ Galeriden vxMaintain eklemek için aşağıdakileri yapın:
 
 4. Arama kutusuna **vxMaintain**.
 
-    !["Modu tek oturum açma" açılan liste](./media/vxmaintain-tutorial/tutorial_vxmaintain_search.png)
+    !["Çoklu oturum açma modu" aşağı açılan listesi](./media/vxmaintain-tutorial/tutorial_vxmaintain_search.png)
 
-5. Sonuçlar listesinde **vxMaintain**ve ardından **Ekle**.
+5. Sonuç listesinden **vxMaintain**ve ardından **Ekle**.
 
     ![VxMaintain bağlantı](./media/vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
-Bu bölümde, yapılandırma ve Azure AD SSO "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı vxMaintain kullanarak test etme
+Bu bölümde, yapılandırma ve Azure AD SSO vxMaintain, "Britta Simon." adlı bir test kullanıcı tabanlı kullanarak test etme
 
-Çalışmak SSO için Azure AD Azure AD kullanıcı vxMaintain karşılık gelen bilmesi gerekir. Diğer bir deyişle, Azure AD kullanıcısının ve karşılık gelen vxMaintain kullanıcı arasında bir bağlantı ilişkisi oluşturmanız gerekir.
+Çalışmak SSO için Azure AD, Azure AD kullanıcı vxMaintain karşılık gelen bilmek ister. Diğer bir deyişle, Azure AD kullanıcısı ile ilgili vxMaintain kullanıcı arasında bir bağlantı ilişki oluşturmanız gerekir.
 
-Bağlantı ilişkisi oluşturmak için vxMaintain atamak **kullanıcı adı** değeri olarak Azure AD **kullanıcıadı** değeri.
+Bağlantı kurmak için vxMaintain atama **kullanıcı adı** değeri olarak Azure AD **kullanıcıadı** değeri.
 
-Yapılandırmak ve vxMaintain kullanarak Azure AD SSO sınamak için aşağıdaki yapı taşları tamamlayın.
+Yapılandırma ve Azure AD SSO vxMaintain kullanarak test etmek için aşağıdaki yapı taşlarını tamamlayın.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO yapılandırın
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO'yu yapılandırma
 
-Bu bölümde, Azure portalında Azure AD SSO'yu etkinleştirmek hem aşağıdakileri yaparak vxMaintain uygulamanızda SSO yapılandırın:
+Bu bölümde, Azure portalında Azure AD SSO etkinleştirme hem aşağıdakileri yaparak vxMaintain uygulamanıza SSO yapılandırın:
 
-1. Azure portalında üzerinde **vxMaintain** uygulama tümleştirmesi sayfasında, **çoklu oturum açma**.
+1. Azure portalında, üzerinde **vxMaintain** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    !["Çoklu oturum açmayı" komutu][4]
+    !["Çoklu oturum açma" komutu][4]
 
-2. SSO, etkinleştirmek için **tek oturum açma modu** aşağı açılan listesinden, **SAML tabanlı oturum açma**.
+2. SSO, etkinleştirmek için **çoklu oturum açma modunu** aşağı açılan listesinden **SAML tabanlı oturum açma**.
  
     !["SAML tabanlı oturum açma" komutu](./media/vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
 
-3. Altında **vxMaintain etki alanı ve URL'leri**, aşağıdakileri yapın:
+3. Altında **vxMaintain etki alanı ve URL'ler**, aşağıdakileri yapın:
 
     ![Etki alanı ve URL'ler bölüm vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
-    a. İçinde **tanımlayıcısı** kutusunda, aşağıdaki söz dizimini bir URL yazın: `https://<company name>.verisae.com`
+    a. İçinde **tanımlayıcı** aşağıdaki söz dizimine sahip bir URL yazın: `https://<company name>.verisae.com`
 
-    b. İçinde **yanıt URL'si** kutusunda, aşağıdaki söz dizimini bir URL yazın: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
+    b. İçinde **yanıt URL'si** aşağıdaki söz dizimine sahip bir URL yazın: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
     > [!NOTE] 
-    > Yukarıdaki değerleri gerçek değildir. Gerçek tanımlayıcısı ile güncelleştirin ve URL yanıt. Değerleri almak için başvurun [vxMaintain destek ekibi](https://www.hubspot.com/company/contact).
+    > Yukarıdaki değerleri gerçek değildir. Yanıt URL'si ve bunları gerçek tanımlayıcısıyla güncelleştirin. Değerlerini almak için iletişime geçin [vxMaintain Destek ekibine](https://www.hubspot.com/company/contact).
  
-4. Altında **SAML imzalama sertifikası**seçin **meta veri XML**ve meta veri dosyası bilgisayarınıza kaydedin.
+4. Altında **SAML imzalama sertifikası**seçin **meta veri XML**ve meta veri dosyası, bilgisayarınıza kaydedin.
 
     !["SAML imzalama sertifikası" bölümü](./media/vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
 
@@ -121,26 +121,26 @@ Bu bölümde, Azure portalında Azure AD SSO'yu etkinleştirmek hem aşağıdaki
 
     ![Kaydet düğmesi](./media/vxmaintain-tutorial/tutorial_general_400.png)
 
-6. Yapılandırmak için **vxMaintain** SSO, indirilen Gönder **meta veri XML** dosya [vxMaintain destek ekibi](https://www.hubspot.com/company/contact).
+6. Yapılandırmak için **vxMaintain** SSO, indirilen Gönder **meta veri XML** dosyasını [vxMaintain Destek ekibine](https://www.hubspot.com/company/contact).
 
 > [!TIP]
-> Uygulama ayarlama gibi önceki yönergeleri kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com). Uygulamadan ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünde, select **çoklu oturum açma** sekmesini tıklatın ve sonra katıştırılmış erişim belgelerinden **yapılandırma** bölümü. 
+> Uygulamasını ayarlama gibi önceki yönergeleri kısa bir sürümünü edinebilirsiniz [Azure portalında](https://portal.azure.com). Uygulamadan ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünden **çoklu oturum açma** sekmesini ve sonra katıştırılmış erişin belgelerden **yapılandırma** bölümü. 
 >
->Embedded belgeler özelliği hakkında daha fazla bilgi için bkz: [Kurumsal uygulamaları için çoklu oturum açmayı yönetme](https://go.microsoft.com/fwlink/?linkid=845985).
+>Ekli belge özelliği hakkında daha fazla bilgi edinmek için [kurumsal uygulamalar için çoklu oturum açmayı yönetme](https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde, aşağıdakileri yaparak Azure portalında test kullanıcısı Britta Simon oluşturun:
+Bu bölümde, aşağıdakileri yaparak Azure portalında, Britta Simon test kullanıcısı oluşturun:
 
 ![Azure AD test kullanıcısı][100]
 
-1. İçinde **Azure portal**, sol bölmede seçin **Azure Active Directory** düğmesi.
+1. İçinde **Azure portalında**, sol bölmede seçin **Azure Active Directory** düğmesi.
 
     !["Azure Active Directory" düğmesi](./media/vxmaintain-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların bir listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** > **tüm kullanıcılar**.
+2. Kullanıcıların bir listesini görüntülemek için Git **kullanıcılar ve gruplar** > **tüm kullanıcılar**.
     
-    !["Tüm kullanıcılar" bağlantı](./media/vxmaintain-tutorial/create_aaduser_02.png)  
+    !["Tüm kullanıcılar" bağlantısı](./media/vxmaintain-tutorial/create_aaduser_02.png)  
     **Tüm kullanıcılar** iletişim kutusu açılır. 
 
 3. Açmak için **kullanıcı** iletişim kutusunda **Ekle**.
@@ -155,52 +155,52 @@ Bu bölümde, aşağıdakileri yaparak Azure portalında test kullanıcısı Bri
 
     b. İçinde **kullanıcı adı** test kullanıcısı Britta Simon e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından oluşturulduğu değerini not edin **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından oluşturulduğu değeri Not **parola** kutusu.
 
     d. **Oluştur**’u seçin.
  
 ### <a name="create-a-vxmaintain-test-user"></a>VxMaintain test kullanıcısı oluşturma
 
-Bu bölümde, test kullanıcı Britta Simon vxMaintain oluşturun. VxMaintain platform kullanıcıları eklemek için çalışmak [vxMaintain destek ekibi](https://www.hubspot.com/company/contact). SSO kullanmadan önce oluşturma ve kullanıcıları etkinleştirin.
+Bu bölümde, test kullanıcı Britta Simon vxMaintain oluşturun. VxMaintain platform kullanıcılar eklemek için çalışmak [vxMaintain Destek ekibine](https://www.hubspot.com/company/contact). SSO kullanmadan önce oluşturma ve kullanıcıları etkinleştirin.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, test kullanıcısı Britta vxMaintain erişim vererek Azure SSO kullanılacak Simon etkinleştirin. Bunu yapmak için aşağıdakileri yapın:
+Bu bölümde, test kullanıcısı Britta Simon, Azure SSO vxMaintain erişim vererek kullanacak şekilde etkinleştirin. Bunu yapmak için aşağıdakileri yapın:
 
 ![Görünen ad listesinde test kullanıcısı][200] 
 
-1. Azure portalında **uygulamaları** görünümü, Git **Directory** Görünüm > **kurumsal uygulamalar** > **tüm uygulamaları**.
+1. Azure portalında **uygulamaları** görünümü, Git **dizin** Görüntüle > **kurumsal uygulamalar** > **tüm uygulamaları**.
 
-    !["Tüm uygulamaları" bağlantı][201] 
+    !["Tüm uygulamalar" bağlantısı][201] 
 
-2. İçinde **uygulamaları** listesinde **vxMaintain**.
+2. İçinde **uygulamaları** listesinden **vxMaintain**.
 
     ![VxMaintain bağlantı](./media/vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
 
 3. Sol bölmede seçin **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202] 
+    !["Kullanıcılar ve Gruplar" bağlantısı][202] 
 
-4. Seçin **Ekle** , daha sonra **eklemek atama** bölmesinde, **kullanıcılar ve gruplar**.
+4. Seçin **Ekle** ve daha sonra **atama Ekle** bölmesinde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][203]
+    !["Kullanıcılar ve Gruplar" bağlantısı][203]
 
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **kullanıcılar** listesinde **Britta Simon**ve ardından **seçin** düğmesi.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusundaki **kullanıcılar** listesinden **Britta Simon**ve ardından **seçin** düğmesi.
 
-7. İçinde **eklemek atama** iletişim kutusunda **atamak**.
+7. İçinde **atama Ekle** iletişim kutusunda **atama**.
     
-### <a name="test-your-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı test edin
+### <a name="test-your-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD SSO yapılandırmanızı sınayın.
+Bu bölümde, erişim paneli kullanarak Azure AD SSO yapılandırmanızı test.
 
-Seçme **vxMaintain** erişim paneli parçasında oturum size vxMaintain uygulamanızı otomatik olarak.
+Seçme **vxMaintain** kutucuk erişim Paneli'nde oturum size vxMaintain uygulamanızı otomatik olarak.
 
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme konusundaki öğreticilerin listesine](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

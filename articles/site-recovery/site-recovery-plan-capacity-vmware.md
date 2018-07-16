@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 905798acd5836c31953714d7984cfb19f16cecab
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b615ffa3571730ef9607893882f509b2fa490f35
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920806"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056350"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Kapasiteyi planlama ve Azure Site Recovery ile VMware çoğaltması için ölçeklendirme
 
@@ -34,9 +34,9 @@ Kapasite planlaması ve ölçeklendirme, şirket içi VMware Vm'leri ve fiziksel
 
 **CPU** | **Bellek** | **Önbellek diski boyutu** | **Veri değişiklik oranı** | **Korumalı makineler**
 --- | --- | --- | --- | ---
-8 Vcpu (2 yuva * @ 2,5 gigahertz [GHz] 4 çekirdek) | 16 GB | 300 GB | 500 GB veya daha az | 100 makineleri çoğaltabilir.
-12 Vcpu (2 yuva * @ 2.5 GHz 6 çekirdek) | 18 GB | 600 GB | 500 GB ila 1 TB | 100-150 makineler arasında çoğaltılır.
-16 Vcpu (2 yuva * @ 2.5 GHz 8 çekirdek) | 32 GB | 1 TB | 1 TB ile 2 TB | 150-200 makineler arasında çoğaltılır.
+8 Vcpu (2 yuva * 4 çekirdek \@ 2,5 gigahertz [GHz]) | 16 GB | 300 GB | 500 GB veya daha az | 100 makineleri çoğaltabilir.
+12 Vcpu (2 yuva * 6 çekirdek \@ 2.5 GHz) | 18 GB | 600 GB | 500 GB ila 1 TB | 100-150 makineler arasında çoğaltılır.
+16 Vcpu (2 yuva * 8 çekirdek \@ 2.5 GHz) | 32 GB | 1 TB | 1 TB ile 2 TB | 150-200 makineler arasında çoğaltılır.
 Başka bir işlem sunucusu dağıtma | | | &GT; 2 TB | Ek işlem sunucularının 200'den fazla makineler çoğaltma yapıyorsanız ya da günlük verilerini değiştirirseniz hızı 2 TB aştığında dağıtın.
 
 Konumlar:
@@ -60,9 +60,9 @@ Aşağıdaki tabloda, bir senaryoda açıklanmaktadır:
 
 **Yapılandırma sunucusu** | **Ek işlem sunucusu** | **Önbellek diski boyutu** | **Veri değişiklik oranı** | **Korumalı makineler**
 --- | --- | --- | --- | ---
-8 Vcpu (2 yuva * @ 2.5 GHz 4 çekirdek), 16 GB bellek | 4 Vcpu (2 yuva * 2.5 GHz @ 2 Çekirdek), 8 GB bellek | 300 GB | 250 GB veya daha az | 85 veya daha az makineleri çoğaltabilir.
-8 Vcpu (2 yuva * @ 2.5 GHz 4 çekirdek), 16 GB bellek | 8 Vcpu (2 yuva * @ 2.5 GHz 4 çekirdek), 12 GB bellek | 600 GB | 250 GB ila 1 TB | 85 150 makineler arasında çoğaltılır.
-12 Vcpu (2 yuva * @ 2.5 GHz 6 çekirdek), 18 GB bellek | 12 Vcpu (2 yuva * @ 2.5 GHz 6 çekirdek) 24 GB bellek | 1 TB | 1 TB ile 2 TB | 150-225 makineler arasında çoğaltılır.
+8 Vcpu (2 yuva * 4 çekirdek \@ 2.5 GHz), 16 GB bellek | 4 Vcpu (2 yuva * 2 Çekirdek \@ 2.5 GHz), 8 GB bellek | 300 GB | 250 GB veya daha az | 85 veya daha az makineleri çoğaltabilir.
+8 Vcpu (2 yuva * 4 çekirdek \@ 2.5 GHz), 16 GB bellek | 8 Vcpu (2 yuva * 4 çekirdek \@ 2.5 GHz), 12 GB bellek | 600 GB | 250 GB ila 1 TB | 85 150 makineler arasında çoğaltılır.
+12 Vcpu (2 yuva * 6 çekirdek \@ 2.5 GHz), 18 GB bellek | 12 Vcpu (2 yuva * 6 çekirdek \@ 2.5 GHz) 24 GB bellek | 1 TB | 1 TB ile 2 TB | 150-225 makineler arasında çoğaltılır.
 
 Bir ölçek büyütme veya ölçek genişletme modeli için tercihinizi sunucularınızın ölçeği şekilde bağlıdır.  Bazı gelişmiş yapılandırma ve işlem sunucusu dağıtarak ölçeği büyütün veya daha az kaynak ile daha fazla sunucu dağıtarak ölçeği genişletme. Örneğin, 220 makineleri korumak ihtiyacınız varsa, aşağıdakilerden birini yapabilirsiniz:
 

@@ -2,7 +2,7 @@
 
 Azure DNS’de, kayıtlar göreli adlar kullanılarak belirtilir. *Tam* etki alanı adında (FQDN) bölge adı varken *göreli* adda bu yoktur. Örneğin, "contoso.com" bölgesindeki "www" göreli kayıt adı "www.contoso.com" tam kayıt adını verir.
 
-*Tepe* kaydı, bir DNS bölgesinin kökündeki (veya *tepesindeki*) DNS kaydıdır. Örneğin "contoso.com" DNS bölgesinde tepe kaydı aynı zamanda "contoso.com" tam ada sahiptir (buna bazen *çıplak* etki alanı da denir).  Kural olarak tepe kayıtlarını göstermek için '@' göreli adı kullanılır.
+*Tepe* kaydı, bir DNS bölgesinin kökündeki (veya *tepesindeki*) DNS kaydıdır. Örneğin "contoso.com" DNS bölgesinde tepe kaydı aynı zamanda "contoso.com" tam ada sahiptir (buna bazen *çıplak* etki alanı da denir).  Kural, göreli adı olarak '\@' tepe kayıtlarını göstermek için kullanılır.
 
 ### <a name="record-types"></a>Kayıt türleri
 

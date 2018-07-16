@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: f6053c4ef1fe9ce7cc3f06804822afa98055a645
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 669966ce21c5c6c2d0653eb51c81fe78aa0b3a12
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967713"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057319"
 ---
 **Yapılandırma/işlem sunucusu gereksinimleri**
 
@@ -48,7 +48,7 @@ MYSQL | MySQL yüklü olması gerekir. El ile yükleyebilirsiniz veya Site Recov
 
 **CPU** | **Bellek** | **Önbellek diski** | **Veri değişiklik oranı** | **Çoğaltılan makineler**
 --- | --- | --- | --- | ---
-8 Vcpu<br/><br/> Yuva 2 * @ 2.5 GHz 4 çekirdek | 16GB | 300 GB | 500 GB veya daha az | < 100 makineler
-12 Vcpu<br/><br/> 2 socks * @ 2.5 GHz 6 çekirdek | 18 GB | 600 GB | 500 GB - 1 TB | 100-150 makineler
-16 Vcpu<br/><br/> 2 socks * @ 2.5 GHz 8 çekirdek | 32 GB | 1 TB | 1-2 TB | 150 -200 makineler
+8 Vcpu<br/><br/> Yuva 2 * 4 çekirdek \@ 2.5 GHz | 16GB | 300 GB | 500 GB veya daha az | < 100 makineler
+12 Vcpu<br/><br/> 2 socks * 6 çekirdek \@ 2.5 GHz | 18 GB | 600 GB | 500 GB - 1 TB | 100-150 makineler
+16 Vcpu<br/><br/> 2 socks * 8 çekirdek \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200 makineler
 

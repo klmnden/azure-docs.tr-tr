@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: ade47c59a8db673869ce8c60a062a2a6a6656ca2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6d3fe519729bd56dafd11720a3662eb00b916a98
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38689009"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056618"
 ---
 # <a name="set-up-additional-process-servers-for-scalability"></a>Ölçeklenebilirlik için ek işlem sunucularını ayarlama
 
@@ -31,9 +31,9 @@ Tabloda özetlenen boyutlandırma gereksinimlerini doğrulayın. Genel olarak, d
 
 | **Ek işlem sunucusu** | **Önbellek diski boyutu** | **Veri değişiklik oranı** | **Korumalı makineler** |
 | --- | --- | --- | --- |
-|4 Vcpu (2 yuva * 2.5 GHz @ 2 Çekirdek), 8 GB bellek |300 GB |250 GB veya daha az |85 ya da daha az makineleri çoğaltabilir. |
-|8 Vcpu (2 yuva * @ 2.5 GHz 4 çekirdek), 12 GB bellek |600 GB |250 GB ila 1 TB |85 150 makineler arasında çoğaltılır. |
-|12 Vcpu (2 yuva * @ 2.5 GHz 6 çekirdek) 24 GB bellek |1 TB |1 TB ile 2 TB |150-225 makineler arasında çoğaltılır. |
+|4 Vcpu (2 yuva * 2 Çekirdek \@ 2.5 GHz), 8 GB bellek |300 GB |250 GB veya daha az |85 ya da daha az makineleri çoğaltabilir. |
+|8 Vcpu (2 yuva * 4 çekirdek \@ 2.5 GHz), 12 GB bellek |600 GB |250 GB ila 1 TB |85 150 makineler arasında çoğaltılır. |
+|12 Vcpu (2 yuva * 6 çekirdek \@ 2.5 GHz) 24 GB bellek |1 TB |1 TB ile 2 TB |150-225 makineler arasında çoğaltılır. |
 
 ### <a name="prerequisites"></a>Önkoşullar
 

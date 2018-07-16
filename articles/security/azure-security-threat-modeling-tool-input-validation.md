@@ -1,6 +1,6 @@
 ---
-title: Doğrulama - Microsoft tehdit modelleme aracı - Azure giriş | Microsoft Docs
-description: Azaltıcı Etkenler tehdit modelleme Aracı kullanıma sunulan tehditleri
+title: Giriş doğrulama - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs
+description: Tehdit modelleme Aracı kullanıma sunulan tehdit azaltma
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: d26d869748283718375e35ae4183eef0e51a96ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d97388732f0b5cf4570026d5b23a64b2d689e5d4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778588"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056860"
 ---
-# <a name="security-frame-input-validation--mitigations"></a>Güvenlik çerçevesi: Giriş doğrulama | Azaltıcı Etkenler 
+# <a name="security-frame-input-validation--mitigations"></a>Güvenlik çerçevesi: Giriş doğrulama | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
-| **Web uygulaması** | <ul><li>[XSLT güvenilmeyen stil sayfalarını kullanarak tüm dönüşümler için komut dosyası devre dışı bırak](#disable-xslt)</li><li>[Kullanıcı denetlenebilir içeriği içerebilir her sayfanın MIME otomatik algılaması dışında çevrilir emin olun](#out-sniffing)</li><li>[Sağlamlaştırmak veya XML varlık çözümleme devre dışı bırakma](#xml-resolution)</li><li>[HTTP.sys kullanan uygulamalar URL Standartlaştırma doğrulama gerçekleştirme](#app-verification)</li><li>[Uygun denetimleri dosyaların kullanıcılardan kabul ederken karşılandığından emin olun](#controls-users)</li><li>[Tür kullanımı uyumlu parametreleri veri erişimi için Web uygulamasında kullanıldığından emin olun](#typesafe)</li><li>[Ayrı model bağlama sınıflarını kullanın veya MVC yığın atama güvenlik açığı önlemek için bağlama filtresi listeler](#binding-mvc)</li><li>[Güvenilmeyen web çıkış işleme önce kodlama](#rendering)</li><li>[Giriş doğrulaması ve tüm dize türünde Model özelliklerini filtrelemesine](#typemodel)</li><li>[Tüm karakterleri, örneğin, Zengin Metin Düzenleyicisi'ni kabul eden form alanlarını temizleme işlemi uygulanmalıdır](#richtext)</li><li>[DOM öğeleri yerleşik kodlama olmayan havuzlarını atamayın](#inbuilt-encode)</li><li>[Tüm doğrulama uygulama içinde yeniden yönlendirmeleri kapalı veya güvenli bir şekilde tamamlandı](#redirect-safe)</li><li>[Uygulama giriş doğrulaması denetleyicisi yöntemler tarafından kabul edilen tüm dize türü parametreleri](#string-method)</li><li>[Normal ifade DoS nedeniyle hatalı normal ifadeler önlemek için işleme için üst sınır zaman aşımını ayarlama](#dos-expression)</li><li>[Razor görünümleri Html.Raw kullanmaktan kaçının](#html-razor)</li></ul> | 
-| **Veritabanı** | <ul><li>[Dinamik sorgular saklı yordamlarda kullanmayın](#stored-proc)</li></ul> |
-| **Web API** | <ul><li>[Model doğrulama Web API yöntemlerini yapıldığından emin olun](#validation-api)</li><li>[Web API yöntemleri tarafından kabul edilen tüm dize tür parametrelerindeki giriş doğrulaması uygulama](#string-api)</li><li>[Tür kullanımı uyumlu parametreleri Web API'si veri erişimi için kullanıldığından emin olun](#typesafe-api)</li></ul> | 
-| **Azure belge DB** | <ul><li>[Parametreli SQL sorguları için Azure Cosmos DB kullanın](#sql-docdb)</li></ul> | 
+| **Web uygulaması** | <ul><li>[XSLT güvenilmeyen stil sayfaları kullanarak tüm dönüştürmeler için betik oluşturma devre dışı bırak](#disable-xslt)</li><li>[Kullanıcı denetlenebilir içerik içerebilen her sayfanın MIME otomatik algılaması dışında bölgedeyse emin olun.](#out-sniffing)</li><li>[Sağlamlaştırma veya XML varlık çözümleme devre dışı bırakma](#xml-resolution)</li><li>[HTTP.sys kullanan uygulamalar URL Standartlaştırma doğrulama gerçekleştirme](#app-verification)</li><li>[Kullanıcıların dosyaları kabul ederken uygun denetimleri yerinde olduğundan emin olun](#controls-users)</li><li>[Tür kullanımı uyumlu parametre veri erişimi için Web uygulamasında kullanıldığından emin olun](#typesafe)</li><li>[Ayrı model bağlama sınıfları kullanın veya MVC yığın atama güvenlik açığını önlemek için bağlama filtresi listeler](#binding-mvc)</li><li>[Güvenilmeyen web çıkış işleme önce kodlayın](#rendering)</li><li>[Giriş doğrulaması ve Model özellikleri tüm dize türü üzerinde filtreleme yapmak](#typemodel)</li><li>[Tüm karakterler, örn, Zengin Metin Düzenleyicisi'ni kabul edin. form alanlarını temizleme uygulanmalıdır](#richtext)</li><li>[DOM öğeleri yerleşik kodlama olmayan havuzlarından atamayın](#inbuilt-encode)</li><li>[Tüm doğrulama yeniden yönlendirmeleri uygulama içinde kapalı veya güvenli bir şekilde tamamlandı](#redirect-safe)</li><li>[Denetleyici yöntemleri tarafından kabul edilen tüm dize türü parametrelerinin giriş doğrulamalarındaki gerçekleştir](#string-method)</li><li>[Normal ifade hatalı normal ifadeler nedeniyle DoS önlemek için işleme için üst sınır zaman aşımını ayarlayın](#dos-expression)</li><li>[Razor görünümleri Html.Raw kullanmaktan kaçının](#html-razor)</li></ul> | 
+| **Veritabanı** | <ul><li>[Dinamik sorgular saklı yordamları kullanma](#stored-proc)</li></ul> |
+| **Web API** | <ul><li>[Model doğrulama Web API yöntemleri üzerinde yapıldığından emin olun](#validation-api)</li><li>[Web API yöntemleri tarafından kabul edilen tüm dize türü parametrelerinin giriş doğrulamalarındaki gerçekleştir](#string-api)</li><li>[Tür kullanımı uyumlu parametreleri Web API'si veri erişimi için kullanıldığından emin olun](#typesafe-api)</li></ul> | 
+| **Azure belge veritabanı** | <ul><li>[Azure Cosmos DB için parametreli SQL sorguları kullanın](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[Şema bağlama aracılığıyla WCF girişi doğrulama](#schema-binding)</li><li>[Parametre denetçiler aracılığıyla WCF girişi doğrulama](#parameters)</li></ul> |
 
-## <a id="disable-xslt"></a>XSLT güvenilmeyen stil sayfalarını kullanarak tüm dönüşümler için komut dosyası devre dışı bırak
+## <a id="disable-xslt"></a>XSLT güvenilmeyen stil sayfaları kullanarak tüm dönüştürmeler için betik oluşturma devre dışı bırak
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [XSLT güvenlik](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [XsltSettings.EnableScript özelliği](http://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
-| **Adımları** | XSLT destekleyen kullanarak stil sayfaları komut dosyası `<msxml:script>` öğesi. Bu, bir XSLT dönüşümü kullanılacak özel işlevler sağlar. Komut dosyası dönüştürme gerçekleştirme işlem bağlamı altında yürütülür. XSLT komut dosyası, güvenilmeyen kodun yürütülmesini engellemek için bir ortamda güvenilmeyen zaman devre dışı bırakılması gerekir. *.NET kullanıyorsanız:* varsayılan olarak XSLT komut dosyası devre dışı; ancak, bunu açıkça aracılığıyla etkinleştirilmemiş olduğundan emin olmalısınız `XsltSettings.EnableScript` özelliği.|
+| **Adımları** | XSLT destekleyen stil sayfaları kullanarak betik `<msxml:script>` öğesi. Bu, bir XSLT dönüşümünde kullanılacak özel işlevler sağlar. Komut dosyası, dönüşüm gerçekleştirme işlem bağlamı altında yürütülür. XSLT betik güvenilmeyen kodun yürütülmesini önlemek için bir ortamda güvenilmeyen zaman devre dışı bırakılmalıdır. *.NET kullanıyorsanız:* XSLT betik varsayılan olarak devre dışıdır; ancak bunu açıkça aracılığıyla nebyl povolen emin emin olmalısınız `XsltSettings.EnableScript` özelliği.|
 
 ### <a name="example"></a>Örnek 
 
@@ -49,34 +49,34 @@ settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### <a name="example"></a>Örnek
-XSLT komut dosyası, MSXML 6.0 kullanarak kullanıyorsanız, varsayılan olarak devre dışıdır; Ancak, bunu açıkça AllowXsltScript XML DOM nesnesi özelliği üzerinden etkinleştirilmemiş olduğundan emin olmalısınız. 
+XSLT betik, MSXML 6.0 kullanarak kullanıyorsanız, varsayılan olarak devre dışıdır; Ancak, bunu açıkça XML DOM nesne özelliği AllowXsltScript nebyl povolen emin emin olmanız gerekir. 
 
 ```csharp
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### <a name="example"></a>Örnek
-MSXML 5 kullanıyorsanız veya aşağıda XSLT komut dosyası varsayılan olarak etkindir ve açıkça gerekir devre dışı bırakın. XML DOM nesnesi özelliğini AllowXsltScript false olarak ayarlayın. 
+MSXML 5 kullanıyorsanız, aşağıdaki XSLT betik varsayılan olarak etkindir ve açıkça gerekir durumunda bunu devre dışı. AllowXsltScript XML DOM nesne özelliği false olarak ayarlayın. 
 
 ```csharp
 doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables XSLT scripting.
 ```
 
-## <a id="out-sniffing"></a>Kullanıcı denetlenebilir içeriği içerebilir her sayfanın MIME otomatik algılaması dışında çevrilir emin olun
+## <a id="out-sniffing"></a>Kullanıcı denetlenebilir içerik içerebilen her sayfanın MIME otomatik algılaması dışında bölgedeyse emin olun.
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [IE8 Güvenlik bölümü V - kapsamlı koruma](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)  |
-| **Adımları** | <p>Kullanıcı denetlenebilir içeriği içerebilir her bir sayfa için HTTP üstbilgisi kullanmalısınız `X-Content-Type-Options:nosniff`. Bu gereksinim ile uyum sağlamak için gereken üstbilgi kullanıcı denetlenebilir içerik içerebilecek sayfalar için sayfa tarafından ayarlayabilirsiniz veya genel uygulamadaki tüm sayfalar için ayarlayabilirsiniz.</p><p>Her bir web sunucusundan teslim dosya ilişkili bir türü [MIME türü](http://en.wikipedia.org/wiki/Mime_type) (olarak da adlandırılan bir *içerik türü*) (diğer bir deyişle, görüntü, metin, uygulama, vb.) içerik yapısını açıklar</p><p>Geliştiriciler kendi içerik MIME sniffed olmamalıdır belirtmek izin veren bir HTTP üstbilgisi içerik türü seçenekleri X başlığıdır. Bu üst MIME algılaması saldırıları azaltmak için tasarlanmıştır. Internet Explorer 8 (IE8) bu başlığı için destek eklendi</p><p>Yalnızca Internet Explorer 8 (IE8) kullanıcılarının X-içerik-tür-seçeneklerden yararlanabilir. Internet Explorer'ın önceki sürümlerini şu anda X-içerik-tür-Options üstbilgisi dikkate almaz</p><p>Bir MIME algılaması çevirin özelliği uygulamak için yalnızca ana tarayıcılar Internet Explorer 8 (ve üstü) var. Bu tarayıcılar da söz diziminin dahil etmek için diğer önemli tarayıcılar (Firefox, Safari, Chrome) benzer özellikleri varsa ve uyguladığınızda, bu öneri güncelleştirilir</p>|
+| **Adımları** | <p>Kullanıcı denetlenebilir içerik içerebilen her sayfa için HTTP üst bilgisi kullanmalısınız `X-Content-Type-Options:nosniff`. Bu gereksinimle birlikte uymak için gereken üst bilgi içeriği denetlenebilir kullanıcı içerebilecek sayfaları için sayfa tarafından ayarlayabilirsiniz veya genel olarak uygulamadaki tüm sayfalar için ayarlayabilirsiniz.</p><p>Her bir web sunucusundan teslim dosya türünün ilişkili bir sahip [MIME türü](http://en.wikipedia.org/wiki/Mime_type) (olarak da adlandırılan bir *içerik türü*), içeriği (diğer bir deyişle, resim, metin, uygulama, vb.) yapısını açıklar</p><p>X-içerik-türü-Options üstbilgisi içeriklerini MIME sızılmasını olmamalıdır belirtmek geliştiricilerinin sağlayan bir HTTP üstbilgisi ' dir. Bu üstbilginin MIME algılaması saldırıları azaltmak için tasarlanmıştır. Internet Explorer 8 (IE8) bu üst bilgisi için destek eklendi</p><p>Yalnızca Internet Explorer 8 (IE8) kullanıcıları, X-içerik-türü-seçeneklerinden faydalanır. Internet Explorer'ın önceki sürümleri şu anda X-içerik-türü-Options üstbilgisi dikkate almaz</p><p>Bir MIME algılaması çevirme özelliği uygulamak için yalnızca bilinen tarayıcılar olan Internet Explorer 8 (ve üzeri). Bu tarayıcılar da için söz dizimi dahil etmek için bilinen diğer tarayıcılar (Firefox, Safari, Chrome) benzer özellikleri uygulamak durumunda bu öneriyi güncelleştirilir</p>|
 
 ### <a name="example"></a>Örnek
-Uygulamadaki tüm sayfalar için genel gerekli üstbilgisi etkinleştirmek için aşağıdakilerden birini yapabilirsiniz: 
+Genel olarak, uygulamadaki tüm sayfalar için gereken üst bilgi etkinleştirmek için aşağıdakilerden birini yapın: 
 
-* Uygulama Internet Information Services (IIS) 7 tarafından barındırılıyorsa web.config dosyasında üstbilgisi Ekle 
+* Uygulama Internet Information Services (IIS) 7 tarafından barındırılıyorsa, web.config dosyasında üst bilgi Ekle 
 
 ```
 <system.webServer> 
@@ -88,7 +88,7 @@ Uygulamadaki tüm sayfalar için genel gerekli üstbilgisi etkinleştirmek için
 </system.webServer> 
 ```
 
-* Genel Uygulama aracılığıyla üstbilgisi eklemek\_BeginRequest 
+* Genel Uygulama üstbilgisi Ekle\_BeginRequest 
 
 ``` 
 void Application_BeginRequest(object sender, EventArgs e)
@@ -125,25 +125,25 @@ public class XContentTypeOptionsModule : IHttpModule
 
 ``` 
 
-* Yalnızca belirli sayfaları için gerekli üstbilgisi tek tek yanıtlarını ekleyerek etkinleştirebilirsiniz: 
+* Gerekli başlık yalnızca belirli bir sayfa için bireysel yanıtlarını ekleyerek etkinleştirebilirsiniz: 
 
 ```
 this.Response.Headers[""X-Content-Type-Options""] = ""nosniff""; 
 ``` 
 
-## <a id="xml-resolution"></a>Sağlamlaştırmak veya XML varlık çözümleme devre dışı bırakma
+## <a id="xml-resolution"></a>Sağlamlaştırma veya XML varlık çözümleme devre dışı bırakma
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [XML varlık genişletme](http://capec.mitre.org/data/definitions/197.html), [XML hizmet reddi saldırılarına ve savunma](http://msdn.microsoft.com/magazine/ee335713.aspx), [MSXML güvenliğine genel bakış](http://msdn.microsoft.com/library/ms754611(v=VS.85).aspx), [MSXML kod güvenliğini sağlamak için en iyi uygulamalar](http://msdn.microsoft.com/library/ms759188(VS.85).aspx), [ NSXMLParserDelegate Protokolü başvurusu](http://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html), [dış başvuruları çözme](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
-| **Adımları**| <p>Yaygın olarak kullanılmaz rağmen belge içinde veya dış kaynaklardan tanımlanan değerlerle makrosu varlıklar genişletmek XML Ayrıştırıcı sağlayan XML özelliği yoktur. Örneğin, belgeyi bir varlık "Şirket" adı "Microsoft" değeriyle şekilde tanımlayabilir, her zaman metin "&companyname;" belgede bunu otomatik olarak değiştirilir Microsoft metinle görüntülenir. Veya, belgeyi bir varlık "Microsoft hisse senedi geçerli değeri getirmek için bir dış web hizmeti başvuran MSFTStock" tanımlayabilirsiniz.</p><p>Sonra her zaman "&MSFTStock;", otomatik olarak değiştirilir geçerli stok fiyatıyla belgede görüntülenir. Ancak, bu işlev reddi (DoS) hizmet koşulları oluşturmak için kötüye. Bir saldırgan sistem üzerindeki tüm kullanılabilir bellek tüketir üstel genişletme XML Bomba oluşturmak için birden çok varlık yerleştirebilirsiniz. </p><p>Alternatif olarak, kendisinin geri akışları bir dış başvuru sonsuz bir veri miktarı oluşturabilir veya, yalnızca iş parçacığı askıda kalır. Sonuç olarak, tamamen kendi uygulama değil, kullanıyorsanız veya el ile bellek ve bu işlevselliği kesinlikle gerekli değilse, uygulama için varlık çözümlemesi tüketebileceği süre miktarını sınırlamak tüm takımlar iç ve/veya dış XML varlık çözümleme devre dışı bırakmalısınız. Varlık çözümleme, uygulamanız tarafından gerekli değildir, sonra da devre dışı bırakın. </p>|
+| **Başvuruları**              | [XML varlık genişletme](http://capec.mitre.org/data/definitions/197.html), [XML hizmet reddi saldırılarına ve savunma](http://msdn.microsoft.com/magazine/ee335713.aspx), [MSXML güvenliğine genel bakış](http://msdn.microsoft.com/library/ms754611(v=VS.85).aspx), [MSXML kod güvenliğini sağlamak için en iyi uygulamalar](http://msdn.microsoft.com/library/ms759188(VS.85).aspx), [ NSXMLParserDelegate Protokolü başvurusu](http://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html), [dış başvuruları çözümleme](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
+| **Adımları**| <p>Yaygın olarak kullanılmaz olsa da, XML ayrıştırıcının belge içinde veya dış kaynaklardan tanımlanan değerlerle makrosu varlıkları genişletme sağlayan XML özelliği yoktur. Örneğin, belgeyi bir varlık ile "Microsoft" değeri "companyname" şekilde tanımlayabilir, her seferinde metni "&companyname;" belgede bunu otomatik olarak değiştirilir Microsoft metinle görüntülenir. Veya belge varlık "Microsoft hisse senedi geçerli değerini almak için bir dış web hizmetini başvuran MSFTStock" tanımlayabilir.</p><p>Her zaman "&MSFTStock;" belgede bunu otomatik olarak değiştirilir geçerli hisse senedi fiyatı ile görünür. Ancak, bu işlev reddi (DoS) hizmet koşulları oluşturmak için kötüye kullanılabilecek. Bir saldırgan, sistemdeki tüm kullanılabilir bellek tüketen bir üstel genişletme XML bombasını oluşturmak için birden çok varlık yerleştirebilirsiniz. </p><p>Alternatif olarak, kendisinin geri akışı dış başvuru bir sonsuz veri miktarı oluşturabilir veya, yalnızca iş parçacığı askıda kalır. Tamamen uygulamasına değil kullanın veya el ile bellek ve bu işlev ise, uygulama varlık çözümlemesi için kullanabileceği süre miktarını sınırlamak sonuç olarak, tüm takımlar iç ve/veya dış varlık çözümleme XML devre dışı bırakmanız gerekir kesinlikle gerekli. Varlık çözümleme, uygulamanız tarafından gerekli değildir, devre dışı. </p>|
 
 ### <a name="example"></a>Örnek
-.NET Framework kodunu aşağıdaki yaklaşımlardan kullanabilirsiniz:
+.NET Framework kodu için aşağıdaki yaklaşımları kullanabilirsiniz:
 
 ```csharp
 XmlTextReader reader = new XmlTextReader(stream);
@@ -158,10 +158,10 @@ XmlReaderSettings settings = new XmlReaderSettings();
 settings.DtdProcessing = DtdProcessing.Prohibit;
 XmlReader reader = XmlReader.Create(stream, settings);
 ```
-Unutmayın varsayılan değerini `ProhibitDtd` içinde `XmlReaderSettings` ancak doğrudur `XmlTextReader` false olur. In kapsama kullanıyorsanız, ProhibitDtd açıkça true olarak ayarlanmış gerekmez, ancak güvenliği artırmak amacıyla için bunu yapmanız önerilir. Ayrıca XmlDocument sınıfı varsayılan varlık çözümleme izin verildiğini unutmayın. 
+Unutmayın varsayılan değeri `ProhibitDtd` içinde `XmlReaderSettings` ancak true ise `XmlTextReader` false olur. Değerine kullanıyorsanız ProhibitDtd açıkça true olarak ayarlanmış gerekmez, ancak için güvenliği artırmak amacıyla, yapmanız önerilir. Ayrıca XmlDocument sınıfı varsayılan olarak varlık çözümleme izin verdiğini unutmayın. 
 
 ### <a name="example"></a>Örnek
-Varlık çözümleme XML belgelerine uymasıdır için devre dışı bırakmak için `XmlDocument.Load(XmlReader)` aşırı yükleme yöntemi ve uygun özellikleri XmlReader bağımsız değişkeni çözümleme, devre dışı bırakmak için aşağıdaki kodda gösterildiği şekilde ayarlayın: 
+Varlık çözümleme için XML belgelerine uymasıdır devre dışı bırakma, `XmlDocument.Load(XmlReader)` aşırı yükleme yöntemi ve aşağıdaki kodda gösterildiği gibi XmlReader bağımsız değişkeninde çözünürlüğünü devre dışı bırakmak için uygun özellikleri ayarlayın: 
 
 ```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
@@ -172,7 +172,7 @@ doc.Load(reader);
 ```
 
 ### <a name="example"></a>Örnek
-Varlık çözümlemeyi devre dışı bırakma, uygulamanız için mümkün değilse, uygulamanızın gereksinimlerine göre uygun bir değere XmlReaderSettings.MaxCharactersFromEntities özelliğini ayarlayın. Bu olası üstel genişletme DoS saldırıları etkisini sınırlar. Aşağıdaki kod, bu yaklaşımın bir örnek sağlar: 
+Varlık çözümlemeyi devre dışı bırakma, uygulamanız için mümkün değilse, uygulamanızın ihtiyaçlarına göre farklı makul bir değer XmlReaderSettings.MaxCharactersFromEntities özelliğini ayarlayın. Bu, üstel genişletme DoS saldırıları olası etkisini sınırlar. Aşağıdaki kod, bu yaklaşımın bir örnek sağlar: 
 
 ```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
@@ -182,7 +182,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ```
 
 ### <a name="example"></a>Örnek
-Satır içi varlıkları çözmek ancak bunu gerekiyorsa dış varlıklar, çözümlemeye gerekmez XmlReaderSettings.XmlResolver özelliği null olarak ayarlayın. Örneğin: 
+Satır içi varlıkları çözmek ancak bunu yapmanız durumunda dış varlıklar, çözmek için gerekmez XmlReaderSettings.XmlResolver özelliği null olarak ayarlayın. Örneğin: 
 
 ```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
@@ -191,32 +191,32 @@ settings.MaxCharactersFromEntities = 1000;
 settings.XmlResolver = null;
 XmlReader reader = XmlReader.Create(stream, settings);
 ```
-Msxml6 içinde ProhibitDTD true (devre dışı bırakma DTD işleme) varsayılan olarak ayarlanır. Apple OSX/iOS kodu için kullanabileceğiniz iki XML ayrıştırıcıları vardır: NSXMLParser ve libXML2. 
+Msxml6 içinde varsayılan olarak true (devre dışı bırakma DTD işleme) ProhibitDTD ayarlandığına dikkat edin. Apple OSX/iOS kod için kullanabileceğiniz iki XML Çözümleyicileri vardır: NSXMLParser ve libXML2. 
 
 ## <a id="app-verification"></a>HTTP.sys kullanan uygulamalar URL Standartlaştırma doğrulama gerçekleştirme
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Http.sys kullanan herhangi bir uygulama bu yönergeleri izlemelidir:</p><ul><li>URL uzunluğu en fazla 16.384 karakter (ASCII veya Unicode) sınırlayın. Varsayılan Internet Information Services (IIS) 6 ayarına göre mutlak URL uzunluğu üst sınırı budur. Web siteleri bu değerden daha kısa bir süre için mümkünse çaba</li><li>Bunlar kurallı kullanım kuralları .NET FX yararlanır gibi standart .NET Framework dosyası g/ç sınıfları (örneğin, FILESTREAM) kullanın</li><li>Açıkça bilinen dosya adları, bir izin verilenler listesi oluşturma</li><li>Açıkça bilinen dosya türleri, değil hizmet UrlScan reddeder reddetme: exe bat, cmd, com, htw, IDA, IDQ, htr, IDC, shtm [l], stm, yazıcı, INI, pol, verilerinin dosyaları</li><li>Aşağıdaki özel durumları yakalamak:<ul><li>System.ArgumentException (için aygıt adları)</li><li>System.NotSupportedException (için veri akışları)</li><li>System.IO.FileNotFoundException (için geçersiz kaçış karakterli dosya adları)</li><li>System.IO.directorynotfoundexception (için geçersiz kaçış karakterli dizin)</li></ul></li><li>*Sağlamadığı* Win32 dosya g/ç API'leri duyurmak. Geçersiz bir URL, düzgün biçimde 400 hatası kullanıcıya geri götürmek ve gerçek hata oturum.</li></ul>|
+| **Adımları** | <p>Http.sys kullanan tüm uygulamaları bu yönergeleri izlemelidir:</p><ul><li>URL uzunluğu (ASCII veya Unicode) en fazla 16.384 karakterle sınırlayın. Varsayılan Internet Information Services (IIS) 6 ayarına göre mutlak URL uzunluğu üst sınırı budur. Web siteleri bu değerden daha kısa bir süre için mümkünse çaba göstermelisiniz</li><li>Bu avantajı Standartlaştırma kuralların içinde .NET FX olacağından (örneğin, FILESTREAM) standart .NET Framework dosyası g/ç sınıfları kullanın</li><li>Açıkça bilinen dosya adları içeren bir izin verilenler listesi oluşturun</li><li>Açıkça bilinen dosya türleri, olmayan hizmet edecektir UrlScan reddeder Reddet: exe, bat, cmd, com, htw, ida, idq, htr, IDC, shtm [m], stm, yazıcı, INI, pol, dat dosyaları</li><li>Aşağıdaki özel durumları yakalayabilirsiniz:<ul><li>System.ArgumentException (için cihaz adları)</li><li>(İçin veri akışları) System.NotSupportedException</li><li>(Geçersiz kaçış dosya adları için) System.IO.FileNotFoundException</li><li>System.IO.directorynotfoundexception (için geçersiz kaçış dizin)</li></ul></li><li>*Sağlamadığı* Win32 dosya g/ç API'leri için duyurmak. Geçersiz bir URL, düzgün bir şekilde 400 hatası kullanıcıya döndürür ve gerçek bir hata oturum.</li></ul>|
 
-## <a id="controls-users"></a>Uygun denetimleri dosyaların kullanıcılardan kabul ederken karşılandığından emin olun
+## <a id="controls-users"></a>Kullanıcıların dosyaları kabul ederken uygun denetimleri yerinde olduğundan emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Kısıtlanmamış karşıya dosya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload), [dosya imza tablosu](http://www.garykessler.net/library/file_sigs.html) |
-| **Adımları** | <p>Karşıya yüklenen dosyaların uygulamaları için önemli bir riski temsil eder.</p><p>İlk adımda saldırıların çoğu saldırıya için sisteme biraz kod almaktır. Ardından saldırı yürütülen kod almanın bir yolu bulmak yeterlidir. Bir dosyayı karşıya yükleme kullanarak ilk adımı gerçekleştirmek saldırgan yardımcı olur. Sınırsız dosya karşıya yükleme sonuçlarını tam sistem devralma, aşırı yüklenmiş dosya sistemi ya da veritabanı, arka uç sistemleri ve basit tahrifatı saldırılarına iletme de dahil olmak üzere değişebilir.</p><p>Yüklenen dosya ile uygulama yaptığı ve özellikle depolandığı bağlıdır. Sunucu tarafı dosya yüklemeleriyle doğrulanması eksik. Güvenlik denetimleri aşağıdaki dosyayı karşıya yüklemeyi işlevselliği için uygulanması gerekir:</p><ul><li>Dosya uzantısı onay (izin verilen dosya türü için geçerli bir kümesi kabul)</li><li>En büyük dosya boyutu sınırı</li><li>Dosya için webroot yüklenmelidir değil; konum, sistem dışı sürücü üzerinde bir dizin olmalıdır</li><li>Adlandırma kuralı izlenmesi gereken, karşıya yüklenen dosya adına sahip dosyanın önlemek amacıyla bazı rastgele, üzerine yazar</li><li>Dosyaları diske yazmadan önce virüsten koruma için taranmalıdır</li><li>Dosya adı ve diğer meta verileri (örneğin, dosya yolu) için kötü amaçlı karakter doğrulandığından emin olmak</li><li>Dosya biçimi imza işaretlenmelidir, bir kullanıcının masqueraded bir dosyayı karşıya yüklemeyi önlemek için (örneğin, bir exe dosyası için txt uzantısı değiştirerek karşıya yükleme)</li></ul>| 
+| **Başvuruları**              | [Karşıya dosya yükleme Kısıtlanmamış](https://www.owasp.org/index.php/Unrestricted_File_Upload), [dosya imza tablosu](http://www.garykessler.net/library/file_sigs.html) |
+| **Adımları** | <p>Karşıya yüklenen dosya, uygulamalar için önemli bir risk temsil eder.</p><p>İlk adımda sayıda saldırı Saldırıya uğrayan için sisteme biraz kod almaktır. Ardından saldırı yalnızca bir şekilde yürütülen kodu alma bulması gerekir. Dosyayı karşıya yükleme kullanarak ilk adımı gerçekleştirmek saldırgan yardımcı olur. Sınırsız dosya karşıya yükleme sonuçlarını tam sistem devralma, aşırı yüklenmiş bir dosya sistemi ya da veritabanı, arka uç sistemleri ve basit tahrifatı saldırıları iletme de dahil olmak üzere farklılık gösterebilir.</p><p>Bu uygulama ile karşıya yüklenen dosya yapar ve özellikle depolandığı bağlıdır. Dosya yüklemeleri, sunucu tarafı doğrulama eksik. Güvenlik denetimleri şu dosya karşıya yükleme işlevselliği için uygulanması gereken:</p><ul><li>Dosya uzantısı onay (izin verilen dosya türü için geçerli bir ayar kabul)</li><li>En büyük dosya boyutu sınırı</li><li>Dosya için webroot yüklenmelidir değil; konumun sistem dışı sürücü bir dizin olmalıdır</li><li>Adlandırma kuralını takip edilmelidir, karşıya yüklenen dosya adına sahip dosyanın engellemek için bazı doğrulukla, üzerine yazar</li><li>Dosyaları diske yazmadan önce virüsten koruma için taranmalıdır</li><li>Dosya adı ve diğer meta verileri (örneğin, dosya yolu) için kötü amaçlı karakter doğrulandığından emin olun.</li><li>Dosya biçimi imzası iade edilmelidir, bir kullanıcının masqueraded dosya karşıya yükleme önlemek için (örneğin, bir exe dosyası için txt uzantısı değiştirerek karşıya yükleme)</li></ul>| 
 
 ### <a name="example"></a>Örnek
-Dosya biçimi imza doğrulaması ilgili son noktası için Ayrıntılar sınıfına bakın: 
+Dosya biçimi imza doğrulaması ile ilgili son noktası için Ayrıntılar için sınıfına bakın: 
 
 ```csharp
         private static Dictionary<string, List<byte[]>> fileSignature = new Dictionary<string, List<byte[]>>
@@ -320,19 +320,19 @@ Dosya biçimi imza doğrulaması ilgili son noktası için Ayrıntılar sınıf�
         }
 ```
 
-## <a id="typesafe"></a>Tür kullanımı uyumlu parametreleri veri erişimi için Web uygulamasında kullanıldığından emin olun
+## <a id="typesafe"></a>Tür kullanımı uyumlu parametre veri erişimi için Web uygulamasında kullanıldığından emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Kullanırsanız parametreler koleksiyonu, SQL davranır yerine yürütülebilir kod olarak değişmez değer olarak bir giriş olabilir. Parametreler koleksiyonu giriş veri türü ve uzunluğu kısıtlamalar uygulamak için kullanılabilir. Değer aralığının dışında bir özel durum tetikler. Tür kullanımı uyumlu SQL parametre kullanılmazsa, saldırganlar filtrelenmemiş girişinde katıştırılmış ekleme saldırıları yürütmek olabilir.</p><p>Tür güvenli parametreleri SQL sorguları oluşturmak filtrelenmemiş girişle oluşabilecek olası SQL ekleme saldırıları önlemek için kullanın. Saklı yordamlar ve dinamik SQL deyimleri ile tür güvenli parametreleri kullanabilirsiniz. Parametreleri yürütülebilir kod değil de, veritabanı tarafından değişmez değerler olarak kabul edilir. Parametreler, türü ve uzunluğu için de denetlenir.</p>|
+| **Adımları** | <p>SQL değerlendirir, parametre koleksiyonunu kullanırsanız, yürütülebilir kod olarak yerine değişmez değer olarak bir giriş olabilir. Parametreler koleksiyonu, giriş veri türü ve uzunluğu kısıtlamaları uygulamak için kullanılabilir. Değerler aralığının dışında bir özel durum tetikleyin. Saldırganlar, tür kullanımı uyumlu SQL parametreler kullanılmazsa, filtrelenmemiş girişinde katıştırılmış ekleme saldırılarını yürütebilmek için olabilir.</p><p>Güvenli tür parametreleri, filtrelenmemiş giriş ile ortaya çıkabilecek olası SQL ekleme saldırıları önlemek için SQL sorguları oluştururken kullanın. Saklı yordamlar ve dinamik SQL deyimleri, tür güvenli parametreleri kullanabilirsiniz. Parametreleri yürütülebilir kodu değil de, veritabanı tarafından değişmez değerler olarak kabul edilir. Parametreler, türünü ve uzunluğu için de denetlenir.</p>|
 
 ### <a name="example"></a>Örnek 
-Aşağıdaki kod tür güvenli parametreleri ile SqlParameterCollection bir saklı yordamı çağrılırken kullanmayı gösterir. 
+Aşağıdaki kod bir saklı yordam çağrılırken güvenli tür parametreleri ile SqlParameterCollection kullanma işlemini gösterir. 
 
 ```csharp
 using System.Data;
@@ -348,29 +348,29 @@ myCommand.SelectCommand.Parameters["@au_id"].Value = SSN.Text;
 myCommand.Fill(userDataset);
 }  
 ```
-Önceki kod örneğinde giriş değeri 11 karakterden uzun olamaz. Veri türü veya parametresi tarafından tanımlanan uzunluk uyuşmadığı SqlParameter sınıfı bir özel durum oluşturur. 
+Önceki kod örneğinde, giriş değeri 11 karakterden uzun olamaz. Veri türü veya parametresi tarafından tanımlanan uzunluk uymayan SqlParameter sınıfı bir özel durum oluşturur. 
 
-## <a id="binding-mvc"></a>Ayrı model bağlama sınıflarını kullanın veya MVC yığın atama güvenlik açığı önlemek için bağlama filtresi listeler
+## <a id="binding-mvc"></a>Ayrı model bağlama sınıfları kullanın veya MVC yığın atama güvenlik açığını önlemek için bağlama filtresi listeler
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC5, MVC6 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Meta veri öznitelikleri](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [ortak anahtarı Güvenlik Açığı ve azaltma](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation), [tam kılavuzu için ASP.NET MVC yığın atamasını](http://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx), [MVC kullanarak EF ile çalışmaya başlama](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) |
-| **Adımları** | <ul><li>**Güvenlik açıkları aşırı gönderim için ne zaman görmeliyim? -** Güvenlik açıkları aşırı gönderim giriş kullanıcıdan modeli sınıfları bağlamak herhangi bir yeri oluşabilir. MVC gibi çerçeveleri düz eski CLR nesnelerini (POCOs) dahil olmak üzere özel .NET sınıfları kullanıcı verilerini temsil edebilir. MVC kullanıcı girişi ilgilenmek için kullanışlı bir temsilini sağlayarak bu modeli sınıfları isteği verilerle otomatik olarak doldurur. Bu sınıfların kullanıcı tarafından ayarlanmamalıdır özellikleri eklediğinizde, uygulamanın kullanıcı denetimi uygulama hiçbir zaman amaçlı veri sağlayan, aşırı gönderim saldırılarına için saldırılara açık olabilir. MVC model bağlama gibi veritabanına erişmek Entity Framework gibi nesne/ilişkisel mappers gibi teknolojileri genellikle ayrıca veritabanı verileri temsil etmek üzere POCO nesnelerini kullanma desteği. Bu veri modeli sınıflar kullanıcı girişi ile ilgili MVC yaptığı gibi veritabanı verileriyle ilgili olarak aynı kolaylık sağlar. MVC ve veritabanı POCO nesneleri gibi benzer modelleri desteklemediğinden kolayca hem amacıyla aynı sınıfları yeniden gibi görünüyor. Sorunları ayrılması korumak bu yöntem başarısız olur ve istenmeyen özellikleri atlayarak nakil saldırılarını etkinleştirme model bağlama için Burada sunulan tek bir ortak alan olduğunu.</li><li>**Neden ı my filtrelenmemiş veritabanı modeli sınıflarını parametre olarak my MVC Eylemler kullanmamanız gerekir? -** Çünkü MVC model bağlama bağlamak herhangi bir şey bu sınıfta. Verilerin görünümünüzde bile görünmüyorsa, kötü niyetli bir kullanıcının dahil bu verilerle bir HTTP isteği gönderebilir ve eyleminizi veritabanı sınıfı için kullanıcı girişi kabul etmelidir veri şekli olduğunu söylüyor çünkü MVC gladly onu bağlarsınız.</li><li>**Model bağlama için kullanılan şekli hakkında neden önemli? -** Kullanarak ASP.NET MVC model bağlama aşırı geniş kapsamlı modellerle aşırı gönderim saldırılarına uygulamayı gösterir. Atlayarak nakil hedeflenen, bir öğe için bir fiyat veya bir hesap için güvenlik ayrıcalıklarını geçersiz kılma gibi geliştirici ötesinde uygulama verileri değiştirmek saldırganlar sağlayabilir. Uygulamalar, hangi güvenilmeyen girişi model bağlama aracılığıyla izin vermek için eyleme özgü modelleri (veya belirli izin verilen özellik filtresi listeleri) açık bir sağlamak için bağlama sözleşme kullanmalıdır.</li><li>**Kod yalnızca çoğaltma ayrı bağlama modelleri sorun mu yaşıyorsunuz? -** Hayır, sağlasa da, sorunları ayrılması yöneliktir. Eylem yöntemleri veritabanı modellerinde yeniden kullanırsanız, sınıf bir HTTP isteğinin kullanıcı tarafından ayarlanmış herhangi bir özelliği (veya alt özellik) yorumlarını. MVC yapmak istediğinizi değil ise, bir filtre listesi veya hangi verileri, bunun yerine Giriş kullanıcıdan gelebilir MVC göstermek için ayrı sınıf şeklin gerekir.</li><li>**Kullanıcı girişi için ayrı bağlama modelleri varsa, my veri ek açıklaması öznitelikleri yinelenen var mı? -** Gerekmez. Model bağlama sınıfı meta bağlamak için veritabanı model sınıfını MetadataTypeAttribute kullanabilirsiniz. Yalnızca MetadataTypeAttribute tarafından başvurulan türü (daha az özellik ancak fazla sahip olabilir) başvuru türünde bir alt olması gerektiğini unutmayın.</li><li>**Verileri geri ve İleri kullanıcı giriş modelleri ve veritabanı modelleri arasında taşıma yorucu olabilir. Yansıma kullanarak tüm özellikleri kopyalayabilir yalnızca miyim? -** Evet. Bağlama modellerinde görünen yalnızca kullanıcı girişi için güvenli olarak belirlediğiniz olanları özelliklerdir. Bu iki modelleri arasında ortak mevcut tüm özellikleri üzerinden kopyalamak için yansıma kullanarak engelleyen güvenlik neden yoktur.</li><li>**Ne hakkında [bağlayın (dışarıda = "â €¦")]. Ayrı bağlama modelleri sahip olmak yerine kullanabilir miyim? -** Bu yaklaşım önerilmez. Kullanma [bağlayın (dışarıda = "â €¦")] herhangi bir yeni özellik, varsayılan olarak bağlanabilir anlamına gelir. Yeni bir özellik eklendiğinde şeyler güvenli tutmak için fazladan bir adım yoktur yerine varsayılan olarak güvenli olacak tasarım sahip. Geliştirici bağlı olarak bir özellik eklenir her zaman bu liste denetimi risklidir.</li><li>**Olduğundan [bağlayın (içerme = "â €¦")] düzenleme işlemleri için yararlı? -** No [Bağlayın (içerme = "â €¦")] yalnızca (yeni veriler toplayarak) stili ekleme işlemleri için uygundur. (Mevcut verileri düzeltilmesi) stilini güncelleştir işlemleri için ayrı bağlama modelleri olması veya açık bir izin verilen özellikleri listesi UpdateModel veya TryUpdateModel geçirme gibi başka bir yaklaşım kullanın. Ekleme bir [bağlayın (içerme = "â €¦")] düzenleme işlemi öznitelikte anlamına gelir MVC bir nesne örneğini oluşturmak ve diğerlerini varsayılan değerlerinde bırakın yalnızca listelenen özellikleri ayarlayın. Veri kalıcı olduğunda tamamen Atlanan tüm özelliklerinin değerlerini kendi varsayılanlarına sıfırlamak olan bir varlığı değiştirir. IsAdmin atlanırsa, örneğin, bir [bağlamak (içerme = "â €¦")] adı bu eylem düzenlenmiş herhangi bir kullanıcı bir Düzenle işlem özniteliği için IsAdmin sıfırlama = false (herhangi bir düzenlenen kullanıcı yönetici durumu kaybeder). Belirli özellikler için güncelleştirmeleri engellemek istiyorsanız, diğer yaklaşımlardan birini kullanın. MVC araç bazı sürümleri denetleyicisi sınıflarıyla oluşturmak Not [bağlamak (içerme = "â €¦")] düzenleme eylemleri ve bu listeden bir özellik kaldırma atlayarak nakil saldırılarını önlemeye kapsıyor. Ancak, yukarıda açıklandığı gibi bu yaklaşımı beklendiği gibi çalışmaz ve bunun yerine belirtilmemişse özelliklerinde herhangi bir veri varsayılan değerlerine sıfırlar.</li><li>**Oluşturma işlemleri için kullanarak uyarılar vardır [bağlayın (içerme = "â €¦")] ayrı bağlama modelleri yerine? -** Evet. Önce tüm atlayarak nakil güvenlik açıkları Azaltıcı için iki ayrı yaklaşım koruma gerektiren düzenleme senaryolar için bu yaklaşım çalışmaz. İkinci ve ayrı bağlama modelleri zorunlu kullanıcı girişi için kullanılan şekil kalıcılığı için kullanılan şekli arasındaki sorunları ayrılması bir şey [bağlayın (içerme = "â €¦")] yapın. Üçüncü unutmayın [bağlayın (içerme = "â €¦")] yalnızca üst düzey özellikleri; işleyebilir yalnızca alt özellikleri (örneğin, "Details.Name") bölümünü özniteliğinde izin veremez. Son olarak ve belki de en önemlisi, kullanarak [bağlayın (içerme = "â €¦")] sınıfı kurduğunda hatırlanan gerekir fazladan bir adım model bağlama için kullanılan ekler. Yeni bir eylem yöntemi doğrudan veri sınıfına bağlar ve dahil etmek unutması durumunda bir [bağlamak (içerme = "â €¦")] özniteliği olabilir, aşırı gönderim saldırılarına için güvenlik açığı böylece [bağlamak (içerme = "â €¦")] yaklaşımdır varsayılan biraz daha az güvenli. Kullanırsanız [bağlayın (içerme = "â €¦")], her zaman veri sınıfları eylem yöntemi parametrelerine görünen her zaman belirtmek için dikkatli olun.</li><li>**Oluşturma işlemleri için ne koyma [bağlayın (içerme = "â €¦")] modeli sınıfı özniteliği? Bu yaklaşım öznitelik her eylem yöntemi koyma hatırlama gereksinimini önlenir? -** Bazı durumlarda bu yaklaşım çalışır. Kullanma [bağlamak (INCLUDE = "â €¦")] model türündeki (yerine bu sınıfı kullanarak eylem parametrelerini), dahil etmeyi unutmayın gereksinimini ortadan kaldırmak [bağlamak (INCLUDE = "â €¦")] her eylem yöntemi özniteliği. Öznitelik doğrudan sınıf üzerinde etkili bir şekilde kullanarak model bağlama amacıyla bu sınıfın ayrı bir yüzey alanını oluşturur. Ancak, bu yaklaşım, model bağlama bir şeklin model sınıfı başına yalnızca sağlar. Model bağlama bir alanın (kullanıcı rollerini güncelleştiren Örneğin, yalnızca yönetici eylem) izin vermek için bir eylem yönteminin gerekir ve bu alan model bağlama önlemek başka eylemler ihtiyacınız varsa bu yaklaşımı çalışmaz. Her sınıf yalnızca bir model bağlama şeklin olabilir; farklı eylemler farklı model bağlama şekiller gerekiyorsa, her iki ayrı model bağlama sınıflarını kullanarak bu ayrı şekilleri temsil veya ayırmak ihtiyaç duydukları [bağlayın (içerme = "â €¦")] eylem yöntemlerini öznitelikleri.</li><li>**Ne modelleri bağlama? Görünüm model ile aynı şey oldukları? -** İki ilgili kavramları şunlardır. Bir eylemin parametre listesi (MVC model bağlamanın dışında eylem yöntemine geçirilen Şekil) kullanılan bir model sınıfı terim bağlama modelini başvuruyor. Terim görünüm modeli eylem yönteminden bir görünüme iletilen bir model sınıfı gösterir. Bir görünüm özgü modeli kullanarak bir eylem yönteminden bir görünüme veri geçirme için ortak bir yaklaşımdır. Genellikle, bu şeklin model bağlama için uygundur ve terim görünüm modeli kullanılan her iki yerde de aynı modelin başvurmak için kullanılabilir. Kesin olarak için bu yordamı ne yığın atama amaçlar için önemli olan eyleme geçirilen şekli odaklanan modeller, özellikle bağlama hakkında alınmaktadır.</li></ul>| 
+| **Başvuruları**              | [Meta veri öznitelikleri](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [ortak anahtarı Güvenlik Açığı ve risk azaltma](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation), [yığın atama ASP.NET mvc'de Kılavuzu](http://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx), [MVC kullanarak EF ile çalışmaya başlama](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) |
+| **Adımları** | <ul><li>**Güvenlik açıklarını göndermek için aşırı zaman görünmelidir? -** Fazladan güvenlik açıklarını yayınlayarak giriş kullanıcıdan model sınıfları bağlama herhangi bir yerde meydana gelebilir. MVC gibi çerçeveleri düz eski CLR nesnelerini (POCOs) dahil olmak üzere, .NET sınıf özel kullanıcı verilerini temsil edebilir. MVC kullanıcı girişi başa çıkmak için kullanışlı bir gösterim sağlayarak bu istek verileri ile model sınıfları otomatik olarak doldurur. Bu sınıfların kullanıcı tarafından ayarlanmamalıdır özellikleri eklerken, uygulamanın uygulama hiçbir zaman hedeflenen veri kullanıcı denetimi sağlayan saldırıları aşırı kayıtlarına savunmasız olabilir. MVC model bağlama gibi veritabanına erişim Entity Framework gibi nesne/ilişkisel azaltıcının gibi teknolojileri genellikle ayrıca veritabanı verileri temsil etmek için POCO nesnelerini kullanma desteği. Bu veri modeli sınıfları kullanıcı girişi ile ilgili MVC gibi veritabanı verilerle ilgili de aynı kolaylık sağlar. MVC hem veritabanı POCO nesneleri gibi benzer modelleri desteklediğinden kolayca iki amaçları için aynı sınıf yeniden gibi görünüyor. Görev ayrımı nettir korumak bu yöntem başarısız olur ve bu istenmeyen özellikleri fazla posta saldırılar yaşanabileceğini gösterir, model bağlama için Burada sunulan tek bir ortak alan.</li><li>**Neden benim filtrelenmemiş veritabanı modeli sınıfları parametreler my MVC eylemleri kullanabilir olmaması gerekir? -** Çünkü MVC model bağlama bağlama herhangi bir şey bu sınıfta. Eylem veritabanı sınıfı şekli için kullanıcı girişi kabul edeceği veri olduğunu söylüyor çünkü veri görünümü'nde görünmez, kötü niyetli bir kullanıcı bu verileri kullanarak bir HTTP isteği gönderebilir ve MVC gladly olacak olsa bile bağlayın.</li><li>**Model bağlama için kullanılan şekli hakkında neden dikkat etmelisiniz? -** Aşırı geniş kapsamlı modelleri kullanarak ASP.NET MVC model bağlamayla saldırıları aşırı yayınlayarak uygulamanın kullanıma sunar. Uygulama verileri bir öğe için fiyat ya da bir hesap için güvenlik ayrıcalıkları geçersiz kılma gibi yönelik Geliştirici ötesinde değiştirmek saldırganlar fazla posta sağlayabilir. Uygulamaların hangi güvenilir olmayan girişlere model bağlama aracılığıyla izin vermek için eyleme özgü modelleri (veya belirli bir izin verilen özellik filtresi listeleri) açık bir sağlamak için bağlama sözleşme kullanmanız gerekir.</li><li>**Yalnızca kod çoğaltma ayrı bir bağlama modelleri yaşıyor? -** Hayır, bu görev ayrımı nettir sağlasa da kullanılabilir. Eylem yöntemleri veritabanı modellerinde yeniden kullanırsanız, bir HTTP isteği kullanıcı tarafından sınıf ayarlanmış herhangi bir özelliği (veya alt özellik) dediğini. MVC yapmak için istediğinize değil ise, bir filtre listesi veya hangi verileri, bunun yerine Giriş kullanıcıdan gelebilir MVC göstermek için ayrı bir sınıf şeklinin gerekir.</li><li>**Kullanıcı girişi için ayrı bir bağlama modelleri sahipsem my veri ek açıklama öznitelikleri yinelenen sahip? -** Gerekmez. Meta model bağlama sınıfı bağlamak için veritabanı model sınıfını MetadataTypeAttribute kullanabilirsiniz. Yalnızca MetadataTypeAttribute tarafından başvurulan türü bir alt kümesini (daha az özellik ancak fazla sağlayabilirsiniz) başvuru türü olması gerektiğini unutmayın.</li><li>**Kullanıcı Giriş modelleri ve veritabanı modelleri arasında veri ve geriye taşıma yorucu olabilir. Yalnızca de yansıma kullanarak tüm özelliklerini kopyalayabilir miyim? -** Evet. Bağlama modellerinde görüntülenen özellikler yalnızca kullanıcı girişi için güvenli olarak belirlediğiniz olanlardır. Yaygın olarak kullanılan bu iki modeli arasında bulunan tüm özellikler üzerinde kopyalamak için yansıma kullanarak engelleyen güvenlik neden yoktur.</li><li>**Peki [bağlama (hariç = "â €¦")]. Ayrı bir bağlama modelleri yerine kullanabilir miyim? -** Bu yaklaşım önerilmez. Kullanma [bağlama (hariç = "â €¦")] herhangi bir yeni özelliği varsayılan olarak bağlanabilir olduğu anlamına gelir. Yeni bir özellik eklendiğinde, güvenli bir anlatım gözetildiği basitçe hatırlanan fazladan bir adım yoktur. yerine varsayılan olarak güvenli tasarım sahip. Geliştirici bağlı olarak, bir özelliği her eklendiğinde, bu liste denetimi risklidir.</li><li>**Olduğundan [bağlama (içerme = "â €¦")] düzenleme işlemleri için kullanışlı? -** No [Bağlama (içerme = "â €¦")] yalnızca ekleme stili işlemleri (yeni veriler ekleme) için uygundur. (Mevcut verilerin düzeltilmesi) güncelleştirme stili işlemleri için ayrı bir bağlama modelleri olması veya izin verilen özellikleri açık bir listesi için UpdateModel veya TryUpdateModel geçirme gibi başka bir yaklaşım kullanın. Ekleme bir [bağlama (içerme = "â €¦")] özniteliği bir düzenleme işlemi anlamına gelir MVC nesnesi örneği oluşturun ve diğer tüm varsayılan değerlerinde bırakın yalnızca listelenen özellikleri ayarlayın. Verileri kalıcı hale getirilir, tamamen belirtilmemiş tüm özellikler için değerleri varsayılan değerlerine sıfırlama var olan bir varlığa yerini alır. Örneğin IsAdmin ihmal edildiğini, bir [bağlama (içerme = "â €¦")] bir düzenleme işlemi, adı bu eylem düzenlenmiş herhangi bir kullanıcı özniteliği için IsAdmin sıfırlamak = false (düzenlenen herhangi bir kullanıcının yönetici durumu kaybeder). Belirli özellikleri için güncelleştirmeler engellemek istiyorsanız, diğer yaklaşımlardan birini kullanın. MVC araçları bazı sürümleri ile denetleyici sınıflarına oluşturmak, Not [bağlama (içerme = "â €¦")] eylemleri düzenlemek ve yaptığından bu listeden bir özelliğini kaldırmayı fazla posta saldırıları engeller. Ancak, yukarıda açıklandığı gibi bu yaklaşımı beklendiği gibi çalışmaz ve bunun yerine belirtilmemiş özelliklerinde herhangi bir veri varsayılan değerlerine sıfırlar.</li><li>**Kullanarak tüm uyarılar oluşturma işlemlerinde vardır [bağlama (içerme = "â €¦")] ayrı bağlama modelleri yerine? -** Evet. İlk iki ayrı yaklaşım tüm fazla posta güvenlik açıklarını azaltmaya koruma gerektiren, düzenleme senaryoları için bu yaklaşım çalışmaz. İkinci ve ayrı bir bağlama modelleri zorlamak için kullanıcı girişi kullanılan şeklini Kalıcılık için kullanılan şeklini arasındaki ayrımı bir şey [bağlama (içerme = "â €¦")] yapın. Üçüncü unutmayın [bağlama (içerme = "â €¦")] yalnızca üst düzey özellikler; işleyebilir öznitelik, yalnızca alt özellikler (örneğin, "Details.Name") bölümleri izin veremez. Son olarak ve belki de en önemlisi de kullanarak [bağlama (içerme = "â €¦")] sınıfı için istediğiniz zaman anımsanacak gerekir fazladan bir adım model bağlama için kullanılan ekler. Yeni bir eylem yöntemini doğrudan veri sınıfına bağlar ve dahil etmek unutması durumunda bir [bağlama (Ekle = "â €¦")] özniteliği olabilir saldırıları, aşırı gönderme için güvenlik açığı böylece [bağlama (Ekle = "â €¦")] yaklaşım varsayılan olarak biraz daha az güvenlidir. Kullanırsanız [bağlama (içerme = "â €¦")], her zaman, veri sınıfları eylem metodu parametreleriyle görünen her zaman belirtmeden hatırlamak için dikkatli olun.</li><li>**Oluşturma işlemleri için ne koyarak [bağlama (içerme = "â €¦")] model sınıfı özniteliği? Bu yaklaşım her eylem yöntemi hakkında öznitelik koyarak unutmayın gerek önlenir? -** Bu yaklaşım bazı durumlarda çalışır. Kullanarak [bağlama (içerme = "â €¦")] model türü (yerine bu sınıfı kullanarak eylem parametreleri), belirtilmesinin gerekmemesi dahil etmeyi unutmayın [bağlama (Ekle = "â €¦")] özniteliği her eylem yöntemi. Öznitelik doğrudan sınıf üzerinde etkili bir şekilde kullanarak, model bağlama amacıyla bu sınıfın ayrı bir yüzey oluşturur. Ancak, bu yaklaşım, model bağlama bir şeklin model sınıfı başına yalnızca sağlar. Model bağlama bir alanın (kullanıcı rolleri güncelleştiren Örneğin, yalnızca yönetici eylem) izin vermek bir eylem yöntemi gerekir ve bu alanın model bağlama önlemek diğer eylemler ihtiyacınız varsa, bu yaklaşım işe yaramaz. Her sınıf, yalnızca bir model bağlama şekil olabilir; farklı eylemler farklı model bağlama şekiller gerekiyorsa, iki ayrı model bağlama sınıfları kullanarak bu ayrı şekilleri gösterir veya ayırmak ihtiyaç duydukları [bağlama (içerme = "â €¦")] özniteliklerinde eylem yöntemleri.</li><li>**Model bağlama ne? Bunlar görünüm modeli olarak aynı şey midir? -** Bu iki ilişkili kavramlardır. (Şekil MVC model bağlamanın dışında eylem yöntemine geçirilen) bir eylemin parametre listesinde kullanılan bir model sınıfı terimi bağlama modelini ifade eder. Terim görünüm modeli eylem yönteminden bir görünüme iletilen bir model sınıfı ifade eder. Bir özel görünüm modeli kullanarak bir görünüm için bir eylem yöntemindeki verileri geçirmek için yaygın bir yaklaşımdır. Genellikle bu şeklin model bağlama için uygundur ve terimi görünüm modeli, her iki yerde de kullanılan aynı modelin başvurmak için kullanılabilir. Kesin olarak için bu yordamı yığın atama amacıyla şeylere olduğu eyleme geçirilen şekli odaklanan modelleri, özellikle bağlama hakkında konuşuyor.</li></ul>| 
 
-## <a id="rendering"></a>Güvenilmeyen web çıkış işleme önce kodlama
+## <a id="rendering"></a>Güvenilmeyen web çıkış işleme önce kodlayın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, Web Forms, MVC5, MVC6 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [ASP.NET siteler arası komut önlemek nasıl](http://msdn.microsoft.com/library/ms998274.aspx), [siteler arası komut dosyası](http://cwe.mitre.org/data/definitions/79.html), [XSS (siteler arası komut dosyası) önleme kopya sayfası](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) |
-| **Adımları** | Siteler arası komut dosyası (XSS yaygın olarak kısaltılır) Çevrimiçi hizmetler veya tüm uygulama / web girişten tüketen bileşen için saldırı vektörü olur. XSS güvenlik açıkları, bir saldırganın bir güvenlik açığı web uygulaması aracılığıyla başka bir kullanıcının makinesinde betik yürütmek. Kötü amaçlı komut dosyalarını, tanımlama bilgilerini çalabilir ve aksi halde bir kurbanın makine JavaScript aracılığıyla değiştirmesine için kullanılabilir. Kullanıcı girişini doğrulama, doğru biçimlendirildiğinden olduktan ve bir web sayfasında işlenmeden önce kodlama XSS engelledi. Giriş doğrulama ve çıktı kodlama Web koruma kitaplığı kullanılarak yapılabilir. Yönetilen kod için (C\#, VB.net, vb.), bir veya daha uygun kodlama yöntemlerini nerede kullanıcı girişini bildirilmiş bağlam bağlı olarak Web koruma (Anti-XSS) kitaplığı:| 
+| **Başvuruları**              | [ASP.NET'te siteler arası betik kullanmayı önleme nasıl](http://msdn.microsoft.com/library/ms998274.aspx), [siteler arası komut dosyası](http://cwe.mitre.org/data/definitions/79.html), [XSS (siteler arası komut dosyası) önleme kural sayfası](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) |
+| **Adımları** | Siteler arası komut dosyası (XSS yaygın olarak kısaltılır), bir saldırı vektörüdür çevrimiçi hizmetler veya tüm uygulama/Web giriş tüketen bileşeni olur. XSS güvenlik açıkları, bir saldırganın bir güvenlik açığı bulunan web uygulaması aracılığıyla başka bir kullanıcının makinede komut dosyası yürütme. Kötü amaçlı komut dosyalarını, tanımlama bilgilerini çalabilir ve JavaScript aracılığıyla bir kurbanın makine aksi değiştirmesine için kullanılabilir. Kullanıcı girişini doğrulama, iyi biçimlendirilmiş sağlamak ve bir web sayfasında işlenmeden önce kodlama XSS engelledi. Giriş doğrulama ve çıkış kodlama Web koruma kitaplığı kullanılarak yapılabilir. Yönetilen kod için (C\#, VB.net, vb.), bir veya daha uygun olduğu kullanıcı girişini bildirilen bağlama bağlı olarak Web koruma (Anti-XSS) Kitaplığı'ndan kodlama yöntemleri:| 
 
 ### <a name="example"></a>Örnek
 
@@ -386,41 +386,41 @@ myCommand.Fill(userDataset);
 * Encoder.LdapEncode 
 ```
 
-## <a id="typemodel"></a>Giriş doğrulaması ve tüm dize türünde Model özelliklerini filtrelemesine
+## <a id="typemodel"></a>Giriş doğrulaması ve Model özellikleri tüm dize türü üzerinde filtreleme yapmak
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, MVC5, MVC6 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Doğrulama ekleme](http://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [MVC uygulamasındaki Model verileri doğrulama](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [ilkeleri için ASP.NET MVC uygulamalarınızı yönlendirmede](http://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Adımları** | <p>Uygulama kötü amaçlı kullanıcı girişleri karşı korunması emin olmak için uygulamada kullanılmadan önce giriş parametrelerini doğrulanması gerekir. Sunucu tarafında bir beyaz liste doğrulama stratejisi ile normal ifade doğrulamaları kullanarak giriş değerleri doğrulayın. Kullanıcı girişleri unsanitized / yöntemlere iletilen parametreler yerleştirme güvenlik açıkları kodu neden olabilir.</p><p>Web uygulamaları için giriş noktaları form alanları, QueryStrings, tanımlama bilgileri, HTTP üst bilgilerine ve web hizmeti parametreleri de dahil edebilirsiniz.</p><p>Aşağıdaki giriş doğrulama denetimleri, model bağlama sırasında gerçekleştirilen gerekir:</p><ul><li>Yanıtta normal ifade ek açıklama, izin verilen karakterler ve izin verilen maksimum uzunluğu kabul etmek için model özellikleri açıklama</li><li>Denetleyici yöntemlerine ModelState geçerlilik gerçekleştirmeniz gerekir</li></ul>|
+| **Başvuruları**              | [Doğrulama ekleme](http://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [bir MVC uygulamasında Model verileri doğrulama](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [ilkeler, ASP.NET MVC uygulamaları için kılavuzluk](http://msdn.microsoft.com/magazine/dd942822.aspx) |
+| **Adımları** | <p>Uygulamayı kötü amaçlı kullanıcı girişleri karşı korunması emin olmak için uygulamada kullanılmadan önce tüm giriş parametrelerini doğrulanması gerekir. Sunucu tarafında bir beyaz liste doğrulama stratejisi ile normal ifade doğrulamaları kullanarak giriş değerleri doğrulayın. Kullanıcı girişleri unsanitized / yöntemlere geçilen parametreleri kod ekleme güvenlik açıklarına neden olabilir.</p><p>Web uygulamaları için giriş noktaları form alanlarını, QueryStrings, tanımlama bilgisi, HTTP üst bilgileri ve web hizmeti parametreleri de dahil edebilirsiniz.</p><p>Model bağlama sırasında aşağıdaki giriş doğrulama denetimleri gerçekleştirilmesi gerekir:</p><ul><li>Yanıtta normal ifade ek açıklama, izin verilen karakterler ve izin verilen maksimum uzunluğu kabul etmek için model özellikleri açıklanmalıdır.</li><li>Denetleyici yöntemlerinde ModelState geçerlilik gerçekleştirmeniz gerekir</li></ul>|
 
-## <a id="richtext"></a>Tüm karakterleri, örneğin, Zengin Metin Düzenleyicisi'ni kabul eden form alanlarını temizleme işlemi uygulanmalıdır
+## <a id="richtext"></a>Tüm karakterler, örn, Zengin Metin Düzenleyicisi'ni kabul edin. form alanlarını temizleme uygulanmalıdır
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Güvenli olmayan giriş kodlamak](https://msdn.microsoft.com/library/ff647397.aspx#paght000003_step3), [HTML temizleyici](https://github.com/mganss/HtmlSanitizer) |
-| **Adımları** | <p>Kullanmak istediğiniz tüm static işaretleme etiketlerini tanımlayın. Ortak bir uygulama gibi güvenli HTML öğelerine biçimlendirme kısıtlamaktır `<b>` (kalın) ve `<i>` (italik).</p><p>HTML kodlama verileri yazmadan önce onu. Bu kötü amaçlı bir komut dosyası yürütülebilir kod olarak değil metin olarak işlenecek neden tarafından güvenli hale getirir.</p><ol><li>ValidateRequest ekleyerek ASP.NET istek doğrulamayı devre dışı bırak = "false" özniteliği için @ Page yönergesi</li><li>Dize girişi HtmlEncode yöntemi ile kodlayın</li><li>Bir StringBuilder kullanın ve seçmeli olarak izin vermek istediğiniz HTML öğeleri kodlama kaldırmak için değiştirme yöntemini çağırın</li></ol><p>Sayfa bileşenini ayarlayarak başvuruları devre dışı bırakır ASP.NET istek doğrulama `ValidateRequest="false"`. Onu HTML olarak kodlar giriş ve seçmeli olarak tanır `<b>` ve `<i>` alternatif olarak, bir .NET kitaplığı HTML Temizleme için de kullanılabilir.</p><p>HtmlSanitizer HTML parçalarının ve XSS saldırılarını açabilir yapıları belgelerden Temizleme için bir .NET kitaplıktır. Ayrıştırma, işlemek ve HTML ve CSS işlemek için AngleSharp kullanır. Bir NuGet paketi olarak HtmlSanitizer yüklenebilir ve kullanıcı girişini ilgili HTML veya CSS temizleme yöntemi, sunucu tarafında geçerli aracılığıyla geçirilebilir. Lütfen unutmayın, güvenlik denetimi olarak temizleme yalnızca son seçeneği olarak düşünülmelidir.</p><p>Giriş doğrulama ve çıktı kodlama daha iyi güvenlik denetimleri olarak kabul edilir.</p> |
+| **Başvuruları**              | [Güvenli olmayan giriş kodlama](https://msdn.microsoft.com/library/ff647397.aspx#paght000003_step3), [HTML temizleyici](https://github.com/mganss/HtmlSanitizer) |
+| **Adımları** | <p>Kullanmak istediğiniz tüm static işaretleme etiketlerini tanımlayın. Güvenli HTML öğeleri için aşağıdakiler gibi biçimlendirme sınırlandırmak için ortak bir uygulama olan `<b>` (kalın) ve `<i>` (italik).</p><p>HTML kodlama verileri yazmadan önce. Bu kötü amaçlı bir komut dosyası yürütülebilir kod olarak değil bir metin olarak işlenmesi için neden tarafından güvenli hale getirir.</p><ol><li>ValidateRequest ekleyerek ASP.NET istek doğrulamayı devre dışı bırak = "false" özniteliği için \@ sayfa yönergesi</li><li>Bir dize girişi HtmlEncode yöntemi ile kodlayın</li><li>Bir StringBuilder kullanın ve izin vermek istediğiniz HTML öğelerinde kodlama seçmeli olarak kaldırmak için kendi Değiştir yöntemini çağırın</li></ol><p>Sayfa açma ayarlayarak başvuruları devre dışı bırakır ASP.NET istek doğrulamayı `ValidateRequest="false"`. Bu HTML olarak kodlar giriş ve seçmeli olarak tanır `<b>` ve `<i>` alternatif olarak, bir .NET kitaplığı HTML Temizleme için de kullanılabilir.</p><p>HtmlSanitizer HTML parçaları ve XSS saldırılarına yol açabilecek yapıları belgelerden temizlemek için bir .NET Kitaplığı ' dir. AngleSharp ayrıştırma, işlemek ve HTML ve CSS işlemek için kullanır. Bir NuGet paketi olarak HtmlSanitizer yüklenebilir ve kullanıcı girişi ile ilgili HTML veya CSS temizleme yöntemi, sunucu tarafında uygulanabilir olduğu durumlarda geçirilebilir. Lütfen unutmayın yalnızca son bir seçenek düşünülmesi gereken bir güvenlik denetimi olarak temizleme.</p><p>Giriş doğrulama ve çıkış kodlama daha iyi güvenlik denetimleri olarak kabul edilir.</p> |
 
-## <a id="inbuilt-encode"></a>DOM öğeleri yerleşik kodlama olmayan havuzlarını atamayın
+## <a id="inbuilt-encode"></a>DOM öğeleri yerleşik kodlama olmayan havuzlarından atamayın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | Varsayılan kodlama birçok javascript işlevleri desteklemez. Bu tür işlevler aracılığıyla DOM öğelerine güvenilmeyen giriş atarken site komut dosyası (XSS) yürütmeleri sonuçlanabilir.| 
+| **Adımları** | Çok sayıda javascript işlevleri varsayılan kodlamayı desteklemez. Bu tür işlevleri aracılığıyla DOM öğeleri için güvenilir olmayan girişlere atarken, site betik (XSS) yürütme sonuçlanabilir.| 
 
 ### <a name="example"></a>Örnek
-Güvensiz örnekleri şunlardır: 
+Güvensiz örnekleri aşağıda verilmiştir: 
 
 ```
 document.getElementByID("div1").innerHtml = value;
@@ -428,43 +428,43 @@ $("#userName").html(res.Name);
 return $('<div/>').html(value)
 $('body').append(resHTML);   
 ```
-Kullanmayan `innerHtml`; bunun yerine kullanın `innerText`. Benzer şekilde, yerine, `$("#elm").html()`, kullanın `$("#elm").text()` 
+Kullanmayın `innerHtml`; bunun yerine kullanın `innerText`. Benzer şekilde, yerine, `$("#elm").html()`, kullanın `$("#elm").text()` 
 
-## <a id="redirect-safe"></a>Tüm doğrulama uygulama içinde yeniden yönlendirmeleri kapalı veya güvenli bir şekilde tamamlandı
+## <a id="redirect-safe"></a>Tüm doğrulama yeniden yönlendirmeleri uygulama içinde kapalı veya güvenli bir şekilde tamamlandı
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [OAuth 2.0 yetkilendirme Framework - açık yeniden yönlendiricileri](http://tools.ietf.org/html/rfc6749#section-10.15) |
-| **Adımları** | <p>Kullanıcının sağladığı bir konuma yeniden yönlendirme gerektiren uygulama tasarımı önceden tanımlanmış bir "safe" listesi siteler veya etki alanları için olası yeniden yönlendirme hedefleri sınırlamak gerekir. Uygulamadaki tüm yeniden yönlendirmeleri kapalı güvenli olması gerekir.</p><p>Bunu yapmak için:</p><ul><li>Tüm yeniden yönlendirmeleri tanımlayın</li><li>Her yeniden yönlendirme için uygun bir hafifletme. Uygun Azaltıcı Etkenler yeniden yönlendirme beyaz liste veya kullanıcı onayı içerir. Bir web sitesi veya bir açık yeniden yönlendirme güvenlik açığı hizmetiyle Facebook/OAuth/Openıd kimlik sağlayıcıları kullanıyorsa, bir saldırganın bir kullanıcının oturum açma belirteci çalabilir ve o kullanıcının kimliğine bürün. Bu devralınan bir risk RFC 6749 "OAuth 2.0 yetkilendirme Framework" belgelenen OAuth kullanıldığında, 10.15 "açmak yönlendiren" bölümünde benzer şekilde, zıpkınla kimlik avı saldırıları tarafından açık yeniden yönlendirmeleri kullanarak kullanıcıların kimlik bilgilerini tehlikeye girebilir</li></ul>|
+| **Başvuruları**              | [OAuth 2.0 yetkilendirme Framework - yeniden Aç](http://tools.ietf.org/html/rfc6749#section-10.15) |
+| **Adımları** | <p>Kullanıcının sağladığı bir konuma yeniden yönlendirme gerektiren uygulama tasarımı, olası yeniden yönlendirme hedeflerini siteler veya etki alanları, önceden tanımlanmış "güvenli" listesini sınırlamak gerekir. Uygulamadaki tüm yeniden yönlendirmeleri kapalı güvenli olması gerekir.</p><p>Bunu yapmak için:</p><ul><li>Tüm yeniden yönlendirmeleri tanımlayın</li><li>Her bir yeniden yönlendirme için uygun bir risk azaltma uygular. Uygun bir risk azaltma işlemleri yeniden yönlendirme beyaz liste veya kullanıcı onayı içerir. Web sitesi veya bir açık yeniden yönlendirme güvenlik açığı hizmetiyle Facebook/OAuth/Openıd kimlik sağlayıcıları kullanıyorsa, bir saldırganın bir kullanıcının oturum açma belirtecinin çalabilir ve bu kullanıcının kimliğine bürün. Bu devralınan bir risk RFC 6749 "OAuth 2.0 yetkilendirme Framework" belgelenen OAuth, kullanıldığında, 10.15 "açın yönlendiren" bölümüne benzer şekilde, zıpkınla kimlik avı saldırıları tarafından açık yeniden yönlendirme kullanarak kullanıcıların kimlik bilgilerini tehlikeye</li></ul>|
 
-## <a id="string-method"></a>Uygulama giriş doğrulaması denetleyicisi yöntemler tarafından kabul edilen tüm dize türü parametreleri
+## <a id="string-method"></a>Denetleyici yöntemleri tarafından kabul edilen tüm dize türü parametrelerinin giriş doğrulamalarındaki gerçekleştir
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, MVC5, MVC6 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Model verileri MVC uygulamasındaki doğrulama](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [ilkeleri için ASP.NET MVC uygulamalarınızı yönlendirmede](http://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Adımları** | Yalnızca basit veri türü ve değil modelleri bağımsız değişken olarak kabul yöntemleri için normal ifade kullanarak giriş doğrulaması yapılmalıdır. Burada Regex.IsMatch geçerli regex desenle kullanılmalıdır. Giriş belirtilen normal ifadeyle eşleşmez, denetim daha fazla devam etmemelisiniz ve doğrulama hatası ile ilgili yeterli bir uyarı görüntülenmesi gerekir.| 
+| **Başvuruları**              | [Bir MVC uygulamasında model verileri doğrulama](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [ilkeler, ASP.NET MVC uygulamaları için kılavuzluk](http://msdn.microsoft.com/magazine/dd942822.aspx) |
+| **Adımları** | Bağımsız değişken olarak yalnızca ilkel veri türü ve değil modelleri kabul yöntemleri, normal ifade kullanılırken, giriş doğrulaması yapılmalıdır. Burada bir geçerli bir normal ifade deseniyle Regex.IsMatch kullanılmalıdır. Giriş, belirtilen normal ifadeyle eşleşmez, denetimi daha fazla devam etmemelisiniz ve doğrulama hatası ile ilgili yeterli bir uyarı görüntülenir.| 
 
-## <a id="dos-expression"></a>Normal ifade DoS nedeniyle hatalı normal ifadeler önlemek için işleme için üst sınır zaman aşımını ayarlama
+## <a id="dos-expression"></a>Normal ifade hatalı normal ifadeler nedeniyle DoS önlemek için işleme için üst sınır zaman aşımını ayarlayın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, Web Forms, MVC5, MVC6  |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [DefaultRegexMatchTimeout özelliği ](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
-| **Adımları** | Hizmet reddi saldırılarına karşı hatalı emin olmak için çok sayıda geri dönüş neden, oluşturulan normal ifadeler, genel varsayılan zaman aşımı ayarlayın. İşleme tanımlanmış üst sınırından daha uzun sürüyorsa, zaman aşımı özel durumu throw. Hiçbir şey yapılandırılmışsa, zaman aşımını sonsuz olacaktır.| 
+| **Adımları** | Hizmet reddi saldırılarına karşı hatalı emin olmak için genel varsayılan zaman aşımı geri izlemenin çok neden, oluşturulan normal ifadeler ayarlayın. İşlem süresi tanımlı üst sınırından daha uzun sürerse, zaman aşımı özel durumlar oluşturan. Hiçbir şey yapılandırılmışsa, zaman aşımı sonsuz olacaktır.| 
 
 ### <a name="example"></a>Örnek
-Örneğin, aşağıdaki yapılandırma işleme 5 saniyeden daha uzun sürerse bir RegexMatchTimeoutException atar: 
+Örneğin, aşağıdaki yapılandırmayı işleme 5 saniyeden daha uzun sürerse bir RegexMatchTimeoutException atar: 
 
 ```csharp
 <httpRuntime targetFramework="4.5" defaultRegexMatchTimeout="00:00:05" />
@@ -472,17 +472,17 @@ Kullanmayan `innerHtml`; bunun yerine kullanın `innerText`. Benzer şekilde, ye
 
 ## <a id="html-razor"></a>Razor görünümleri Html.Raw kullanmaktan kaçının
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC5, MVC6 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| Adım | ASP.Net Web sayfaları (Razor) gerçekleştirmek otomatik HTML kodlaması. Katıştırılmış kod nuggets (@ blokları) tarafından yazdırılan tüm otomatik olarak HTML ile kodlanmış dizelerdir. Ancak, ne zaman `HtmlHelper.Raw` yöntemi çağrıldığında, HTML kodlu olmayan biçimlendirme döndürür. Varsa `Html.Raw()` yardımcı yöntemi kullanıldığında, Razor sağladığı otomatik kodlama koruma atlar.|
+| Adım | ASP.Net Web sayfaları (Razor) gerçekleştirmek otomatik HTML kodlaması. Otomatik olarak HTML ile kodlanmış tüm dizeleri gömülü kod nuggets (@ blokları) tarafından yazdırılan. Ancak, `HtmlHelper.Raw` yöntemi çağrıldığında, HTML kodlu olmayan biçimlendirme döndürür. Varsa `Html.Raw()` yardımcı yöntemi kullanılır, Razor sağladığı otomatik kodlama koruma atlar.|
 
 ### <a name="example"></a>Örnek
-Güvenli olmayan bir örnek aşağıda verilmiştir: 
+Güvenli olmayan bir örneği verilmiştir: 
 
 ```csharp
 <div class="form-group">
@@ -493,18 +493,18 @@ Güvenli olmayan bir örnek aşağıda verilmiştir:
         </div>
 </div>
 ```
-Kullanmayın `Html.Raw()` biçimlendirme görüntülemek gerekli olmadıkça. Bu yöntem örtük olarak kodlama çıkış gerçekleştirmez. Örneğin diğer ASP.NET Yardımcıları kullanın, `@Html.DisplayFor()` 
+Kullanmayın `Html.Raw()` biçimlendirme görüntülenecek gerekmedikçe. Bu yöntem, dolaylı olarak kodlama çıkış gerçekleştirmez. Örneğin diğer ASP.NET Yardımcıları kullan `@Html.DisplayFor()` 
 
-## <a id="stored-proc"></a>Dinamik sorgular saklı yordamlarda kullanmayın
+## <a id="stored-proc"></a>Dinamik sorgular saklı yordamları kullanma
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Bir SQL ekleme saldırısı güvenlik açıklarını veritabanında rasgele komutları çalıştırmak için giriş doğrulamada kullanır. Uygulamanız veritabanına erişmek için dinamik SQL deyimlerini oluşturmak için giriş kullandığında oluşabilir. Kodunuzu ham kullanıcı girişi içeren dizeleri geçirilen saklı yordamlar kullanılıyorsa da oluşabilir. Saldırgan, SQL ekleme saldırısında kullanarak, veritabanında rasgele komutları çalıştırabilirsiniz. Tüm SQL deyimleri (SQL deyimlerini saklı yordamlarda dahil) parametreli gerekir. Parametreli SQL deyimlerini-SQL (tek tırnak gibi) özel bir anlamı sorunsuz kesin türü belirtilmiş olduğundan olan karakterleri kabul eder. |
+| **Adımları** | <p>SQL ekleme saldırısına veritabanında rasgele komutları çalıştırmak için giriş doğrulamasında güvenlik açıklarını. Uygulamanız veritabanına erişmek için dinamik SQL deyimlerini oluşturmak için giriş kullandığında oluşabilir. Kodunuzu ham kullanıcı girişi içeren dizelerle geçirilen saklı yordamlar kullanıyorsa da meydana gelebilir. Saldırgan, SQL ekleme saldırısına kullanarak veritabanına rasgele komutları yürütebilir. (Saklı yordamlarda SQL deyimleri dahil) tüm SQL deyimleri parametreli gerekir. Parametreli SQL deyimleri, türü kesin belirlenmiş olduğundan SQL (örneğin, tek tırnak işareti) özel bir anlamı sorunsuz sahip karakterleri kabul eder. |
 
 ### <a name="example"></a>Örnek
 Güvenli olmayan dinamik saklı yordam örneği aşağıdadır: 
@@ -555,19 +555,19 @@ AS
        END
 ```
 
-## <a id="validation-api"></a>Model doğrulama Web API yöntemlerini yapıldığından emin olun
+## <a id="validation-api"></a>Model doğrulama Web API yöntemleri üzerinde yapıldığından emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC5, MVC6 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [ASP.NET Web API'de model doğrulama ](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
-| **Adımları** | Bir istemci bir web API veri gönderdiğinde, herhangi bir işlem yapmadan önce verileri doğrulamak için zorunludur. ASP.NET Web modelleri girdi olarak kabul için API ' larını veri ek açıklamaları modellerinde doğrulama kuralları modelin özelliklerini ayarlamak için kullanın.|
+| **Adımları** | Bir istemci bir web API'sine veri gönderdiğinde, herhangi bir işlem gerçekleştirmeden önce verileri doğrulamak için zorunludur. ASP.NET Web API'leri için kabul modelleri, giriş olarak veri ek açıklamaları modeller üzerinde doğrulama kuralları modelin özellikleri ayarlamak için kullanın.|
 
 ### <a name="example"></a>Örnek
-Aşağıdaki kod, aynı gösterir: 
+Aşağıdaki kod aynı gösterir: 
 
 ```csharp
 using System.ComponentModel.DataAnnotations;
@@ -588,7 +588,7 @@ namespace MyApi.Models
 ```
 
 ### <a name="example"></a>Örnek
-API denetleyicilerinin eylem yöntemi modeli geçerliliğini aşağıda gösterildiği gibi açıkça denetlenmesini sahiptir: 
+API denetleyici eylem yöntemine, aşağıda gösterildiği gibi açıkça denetlenmesi modelinin geçerliliği vardır: 
 
 ```csharp
 namespace MyApi.Controllers
@@ -612,30 +612,30 @@ namespace MyApi.Controllers
 }
 ```
 
-## <a id="string-api"></a>Web API yöntemleri tarafından kabul edilen tüm dize tür parametrelerindeki giriş doğrulaması uygulama
+## <a id="string-api"></a>Web API yöntemleri tarafından kabul edilen tüm dize türü parametrelerinin giriş doğrulamalarındaki gerçekleştir
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, MVC 5, MVC 6 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Model verileri MVC uygulamasındaki doğrulama](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [ilkeleri için ASP.NET MVC uygulamalarınızı yönlendirmede](http://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Adımları** | Yalnızca basit veri türü ve değil modelleri bağımsız değişken olarak kabul yöntemleri için normal ifade kullanarak giriş doğrulaması yapılmalıdır. Burada Regex.IsMatch geçerli regex desenle kullanılmalıdır. Giriş belirtilen normal ifadeyle eşleşmez, denetim daha fazla devam etmemelisiniz ve doğrulama hatası ile ilgili yeterli bir uyarı görüntülenmesi gerekir.|
+| **Başvuruları**              | [Bir MVC uygulamasında model verileri doğrulama](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [ilkeler, ASP.NET MVC uygulamaları için kılavuzluk](http://msdn.microsoft.com/magazine/dd942822.aspx) |
+| **Adımları** | Bağımsız değişken olarak yalnızca ilkel veri türü ve değil modelleri kabul yöntemleri, normal ifade kullanılırken, giriş doğrulaması yapılmalıdır. Burada bir geçerli bir normal ifade deseniyle Regex.IsMatch kullanılmalıdır. Giriş, belirtilen normal ifadeyle eşleşmez, denetimi daha fazla devam etmemelisiniz ve doğrulama hatası ile ilgili yeterli bir uyarı görüntülenir.|
 
 ## <a id="typesafe-api"></a>Tür kullanımı uyumlu parametreleri Web API'si veri erişimi için kullanıldığından emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Kullanırsanız parametreler koleksiyonu, SQL davranır yerine yürütülebilir kod olarak değişmez değer olarak bir giriş olabilir. Parametreler koleksiyonu giriş veri türü ve uzunluğu kısıtlamalar uygulamak için kullanılabilir. Değer aralığının dışında bir özel durum tetikler. Tür kullanımı uyumlu SQL parametre kullanılmazsa, saldırganlar filtrelenmemiş girişinde katıştırılmış ekleme saldırıları yürütmek olabilir.</p><p>Tür güvenli parametreleri SQL sorguları oluşturmak filtrelenmemiş girişle oluşabilecek olası SQL ekleme saldırıları önlemek için kullanın. Saklı yordamlar ve dinamik SQL deyimleri ile tür güvenli parametreleri kullanabilirsiniz. Parametreleri yürütülebilir kod değil de, veritabanı tarafından değişmez değerler olarak kabul edilir. Parametreler, türü ve uzunluğu için de denetlenir.</p>|
+| **Adımları** | <p>SQL değerlendirir, parametre koleksiyonunu kullanırsanız, yürütülebilir kod olarak yerine değişmez değer olarak bir giriş olabilir. Parametreler koleksiyonu, giriş veri türü ve uzunluğu kısıtlamaları uygulamak için kullanılabilir. Değerler aralığının dışında bir özel durum tetikleyin. Saldırganlar, tür kullanımı uyumlu SQL parametreler kullanılmazsa, filtrelenmemiş girişinde katıştırılmış ekleme saldırılarını yürütebilmek için olabilir.</p><p>Güvenli tür parametreleri, filtrelenmemiş giriş ile ortaya çıkabilecek olası SQL ekleme saldırıları önlemek için SQL sorguları oluştururken kullanın. Saklı yordamlar ve dinamik SQL deyimleri, tür güvenli parametreleri kullanabilirsiniz. Parametreleri yürütülebilir kodu değil de, veritabanı tarafından değişmez değerler olarak kabul edilir. Parametreler, türünü ve uzunluğu için de denetlenir.</p>|
 
 ### <a name="example"></a>Örnek
-Aşağıdaki kod tür güvenli parametreleri ile SqlParameterCollection bir saklı yordamı çağrılırken kullanmayı gösterir. 
+Aşağıdaki kod bir saklı yordam çağrılırken güvenli tür parametreleri ile SqlParameterCollection kullanma işlemini gösterir. 
 
 ```csharp
 using System.Data;
@@ -651,37 +651,37 @@ myCommand.SelectCommand.Parameters["@au_id"].Value = SSN.Text;
 myCommand.Fill(userDataset);
 }  
 ```
-Önceki kod örneğinde giriş değeri 11 karakterden uzun olamaz. Veri türü veya parametresi tarafından tanımlanan uzunluk uyuşmadığı SqlParameter sınıfı bir özel durum oluşturur. 
+Önceki kod örneğinde, giriş değeri 11 karakterden uzun olamaz. Veri türü veya parametresi tarafından tanımlanan uzunluk uymayan SqlParameter sınıfı bir özel durum oluşturur. 
 
-## <a id="sql-docdb"></a>Cosmos DB için parametreli SQL sorgularını kullan
+## <a id="sql-docdb"></a>Cosmos DB için parametreli SQL sorguları kullanın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Azure belge DB | 
+| **Bileşen**               | Azure Belge Veritabanı | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Azure Cosmos DB içinde SQL parametrelemeyi Duyurusu](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
-| **Adımları** | Azure Cosmos DB yalnızca salt okunur sorguları destekler; ancak, SQL ekleme sorguları kullanıcı girişi ile birleştirerek oluşturulur, yine de mümkündür. Bunlar aynı koleksiyonunda kötü amaçlı SQL sorguları hazırlayın tarafından erişiyor döndürmemelidir verilere erişmek bir kullanıcı için mümkün olabilir. Sorguları oluşturulan parametreli SQL sorguları kullanıcı girişini temel alarak kullanın. |
+| **Başvuruları**              | [Azure cosmos DB SQL Parametreleştirme Duyurusu](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
+| **Adımları** | Azure Cosmos DB yalnızca salt okunur sorguların destekler; ancak, SQL ekleme sorguları kullanıcı girişi ile birleştirerek oluşturulur, yine de mümkündür. Bunlar aynı koleksiyon içinde kötü amaçlı SQL sorguları kaynaklı tarafından erişim olmamalıdır verilere erişim elde etmek bir kullanıcı için olası olabilir. Sorguları oluşturulur, kullanıcı girişini temel alarak parametrelenmiş SQL sorgularını kullanın. |
 
 ## <a id="schema-binding"></a>Şema bağlama aracılığıyla WCF girişi doğrulama
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, NET Framework 3 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff647820.aspx) |
-| **Adımları** | <p>Doğrulama eksikliği farklı türü ekleme saldırıları için yol gösterir.</p><p>İleti doğrulama bir savunma hattı oluşturan WCF uygulamanızın koruma temsil eder. Bu yaklaşımda, WCF Hizmeti işlemlerini kötü amaçlı bir istemci tarafından saldırılara karşı korumak için şemaları kullanarak iletileri doğrulayın. İstemci tarafından kötü amaçlı bir hizmete saldırılardan korumak için istemci tarafından alınan tüm iletileri doğrulayın. İleti doğrulama ileti işlemleri ileti sözleşmeleri veya yapılamaz veri sözleşmeleri kullandığında doğrulamak mümkün kılar parametre doğrulaması kullanarak. İleti doğrulama, böylece daha fazla esneklik sağlayan ve geliştirme süresini azaltarak şemalarını içinde doğrulama mantığını oluşturmanıza olanak sağlar. Şemalar veri temsili standartları oluşturma, kuruluş içindeki farklı uygulamalar arasında yeniden kullanılabilir. Ayrıca, ileti doğrulama özelliği iş mantığı temsil eden sözleşmeleri içeren daha karmaşık veri türleri kullandığında işlemleri korumanıza olanak sağlar.</p><p>İleti doğrulamayı gerçekleştirmek için önce işlemlerini hizmetiniz ve bu işlemler tarafından tüketilen veri türlerini temsil eden bir şema oluşturun. Özel istemci ileti denetçisi ve özel dağıtıcısı ileti denetçisi hizmet denetleyicisinden gönderilen/alınan iletileri doğrulamak için uygulayan bir .NET sınıf oluşturursunuz. Ardından, hem istemci hem de hizmet ileti doğrulamasını etkinleştirmek için bir özel uç noktası davranışı uygular. Son olarak, hizmet veya istemci yapılandırma dosyasında genişletilmiş özel uç noktası davranışı kullanıma sunmak izin veren sınıfındaki özel yapılandırma öğesi uygulamak"</p>|
+| **Adımları** | <p>Doğrulama eksikliği farklı tür enjeksiyon saldırılarına karşı yol açar.</p><p>İleti doğrulama WCF uygulamanızı korumasını savunma bir satırı temsil eder. Bu yaklaşımda, WCF Hizmeti işlemlerini kötü amaçlı bir istemci tarafından saldırılara karşı korumak için şemalar kullanarak iletileri doğrulayın. İstemci tarafından kötü amaçlı bir hizmete saldırılardan korumak için istemci tarafından alınan tüm iletileri doğrulayın. İleti doğrulama işlemleri ileti sözleşmeleri veya yapılamaz verileri sözleşmelerini tükettiğinizde iletileri doğrulamak mümkün kılar parametre doğrulaması kullanarak. İleti doğrulama şemaları, böylece daha fazla esneklik ve geliştirme süresini azaltmayı içinde Doğrulama mantığı oluşturmanızı sağlar. Şemaları veri temsilini standartları oluşturma kuruluşun içindeki farklı uygulamalar arasında yeniden kullanılabilir. Ayrıca, ileti doğrulama, bunlar iş mantığı temsil eden sözleşmeleri içeren daha karmaşık veri türleri tükettiğinizde işlemleri korumak sağlar.</p><p>İleti doğrulama gerçekleştirmek için önce hizmetiniz ve bu işlemler tarafından tüketilen veri türleri işlemlerini temsil eden bir şema oluşturun. Daha sonra bir özel istemci ileti denetçisi ve özel dağıtıcı ileti denetçisi hizmet içine/dışına gönderilen/alınan iletileri doğrulamak için uygulayan bir .NET sınıf oluşturursunuz. Ardından, hem istemci hem de hizmet ileti doğrulamasını etkinleştirmek için bir özel uç nokta davranışı uygular. Son olarak, hizmet veya istemci yapılandırma dosyasında genişletilmiş özel uç nokta davranışı kullanıma sunmanıza olanak tanıyan sınıfında özel bir yapılandırma öğesi uygulama"</p>|
 
 ## <a id="parameters"></a>Parametre denetçiler aracılığıyla WCF girişi doğrulama
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, NET Framework 3 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff647875.aspx) |
-| **Adımları** | <p>Giriş ve veri doğrulama derinlemesine koruma WCF uygulamanızın önemli bir satırı temsil eder. Hizmet saldırılardan korumak için WCF hizmeti işlemlerinde kötü amaçlı bir istemci tarafından kullanıma sunulan tüm parametreleri doğrulamalıdır. Buna karşılık, aynı zamanda istemci tarafından kötü amaçlı bir hizmete saldırılardan korumak için istemci tarafından alınan tüm dönüş değerleri doğrulamalıdır</p><p>WCF özel uzantılar oluşturarak WCF çalışma zamanı davranışını özelleştirmenizi farklı genişletilebilirlik noktaları sağlar. İleti denetçileri ve parametre denetçiler bir istemci ve hizmet arasında geçen verileri üzerinde daha fazla denetim kazanmak için kullanılan iki genişletilebilirlik mekanizmalardır. Giriş doğrulaması için parametre denetçiler kullanın ve yalnızca bir hizmet ve bu moddan akan tüm ileti incelemek gerektiğinde ileti denetçileri kullanmanız gerekir.</p><p>Giriş doğrulamayı gerçekleştirmek için bir .NET sınıfını oluşturmak ve parametreleri hizmetinizi işlemlerini doğrulamakta özel parametre denetçisi uygulamak. Ardından, hem istemci hem de hizmet doğrulamasını etkinleştirmek için bir özel uç noktası davranışı gerçekleştireceksiniz. Son olarak, hizmet veya istemci yapılandırma dosyasında genişletilmiş özel uç noktası davranışı kullanıma sunmak izin veren sınıfındaki özel yapılandırma öğesi gerçekleştireceksiniz</p>|
+| **Adımları** | <p>Giriş ve veri doğrulama WCF uygulamanızı korumasını savunma önemli bir satırı temsil eder. WCF hizmet işlemlerinde hizmet saldırılardan korumak için kötü amaçlı bir istemci tarafından kullanıma sunulan tüm parametreleri doğrulamalıdır. Buna karşılık, ayrıca istemcinin kötü amaçlı bir hizmet tarafından saldırılardan korumak için istemci tarafından alınan tüm dönüş değerleri doğrulamalıdır</p><p>WCF özel uzantıları oluşturarak WCF çalışma zamanı davranışını özelleştirmenizi farklı genişletilebilirlik noktaları sağlar. İleti denetçileri ve parametre denetçiler bir istemci ve hizmet arasında geçen verileri üzerinde daha fazla denetim elde etmek için kullanılan iki genişletilebilirlik mekanizmasıdır. Parametre denetçiler giriş doğrulama yapmak için kullanılan ve hizmet içine ve dışına akan tüm ileti incelemek yalnızca ihtiyacınız olduğunda ileti denetçileri kullanmalısınız.</p><p>Giriş doğrulamayı gerçekleştirmek için bir .NET sınıfı oluşturmak ve hizmet işlemleri üzerinde parametreleri doğrulamak için bir özel parametre denetçisi uygulamak. Ardından, hem istemci hem de hizmet doğrulamasını etkinleştirmek için bir özel uç nokta davranışı uygular. Son olarak, hizmet veya istemci yapılandırma dosyasında genişletilmiş özel uç nokta davranışı kullanıma sunmanıza olanak tanıyan sınıfında özel bir yapılandırma öğesi uygular</p>|

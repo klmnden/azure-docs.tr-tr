@@ -10,17 +10,17 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 85f8632aae8a70b1282155881dbca6b25734a6c5
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 2f2177b289ba9d13ba635bddcd61748e1e8ab0d1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37933213"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39063041"
 ---
 ### <a name="run-the-service"></a>Hizmeti çalıştırma
 
 1. Hizmeti çalıştırmak için F5'e basın (veya Terminal Penceresine `azds up` yazın). Hizmet, yeni seçtiğiniz alanda otomatik olarak çalıştırılır `default/scott`. 
-1. Hizmetin kendi alanında çalıştırıldığını onaylamak için `azds list` komutunu yeniden çalıştırabilirsiniz. İlk olarak, bir `mywebapi` örneğinin `default/scott` alanında çalıştırıldığını görürsünüz (`default` içinde çalıştırılan sürüm yine çalışmaktadır ama listelenmez). İkinci olarak, `webfrontend` için erişim noktası URL'sine önek olarak "scott.s." metni eklenir. Bu URL, `default/scott` alanına özeldir. Özel URL, "scott URL" konumuna gönderilen isteklerin önce `default/scott` alanındaki hizmetlere yönlendirileceğini, ama bu başarısız olursa `default` alanındaki hizmetlere geri döneceğini belirtir.
+1. Hizmetin kendi alanında çalıştırıldığını onaylamak için `azds list-up` komutunu yeniden çalıştırabilirsiniz. İlk olarak, bir `mywebapi` örneğinin `default/scott` alanında çalıştırıldığını görürsünüz (`default` içinde çalıştırılan sürüm yine çalışmaktadır ama listelenmez). İkinci olarak, `webfrontend` için erişim noktası URL'sine önek olarak "scott.s." metni eklenir. Bu URL, `default/scott` alanına özeldir. Özel URL, "scott URL" konumuna gönderilen isteklerin önce `default/scott` alanındaki hizmetlere yönlendirileceğini, ama bu başarısız olursa `default` alanındaki hizmetlere geri döneceğini belirtir.
 
 ```
 Name         Space          Chart              Ports   Updated     Access Points
