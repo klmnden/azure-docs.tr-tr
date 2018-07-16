@@ -9,25 +9,25 @@ ms.date: 02/20/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: b9484336add0719749e9f0af56bdd70fa3906ef5
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29532348"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38752668"
 ---
-Bir kaynak grubuna iki etiket eklemek için kullanın [az grup güncelleştirme](/cli/azure/group#az_group_update) komutu:
+Kaynak grubuna iki etiket eklemek için [az group update](/cli/azure/group#az_group_update) komutunu kullanın:
 
 ```azurecli-interactive
 az group update -n myResourceGroup --set tags.Environment=Test tags.Dept=IT
 ```
 
-Şimdi üçüncü bir etiket eklemek istediğinizi varsayalım. Komutu, yeni etiketle yeniden çalıştırın. Varolan etiketleri eklenir.
+Şimdi üçüncü bir etiket istediğinizi varsayalım. Komutu yeni etiketle bir kez daha çalıştırın. Bu, mevcut etiketlere eklenir.
 
 ```azurecli-interactive
 az group update -n myResourceGroup --set tags.Project=Documentation
 ```
 
-Kaynakları kaynak grubundan etiketleri almazlar. Şu anda kaynak grubunuz üç etiketlidir ancak kaynakları herhangi bir etiket yoktur. Tüm etiketleri bir kaynak grubundan kaynaklarını için uygulama ve kaynaklarına varolan etiketleri korumak için aşağıdaki komut dosyasını kullanın:
+Kaynaklar, kaynak grubundan etiketleri devralmaz. Şu anda, kaynak grubunuzun üç etiketi vardır ama kaynakların hiç etiketi yoktur. Kaynak grubundaki tüm etiketleri kaynaklarına uygulamak ve kaynaklardaki mevcut etiketleri korumak için aşağıdaki betiği kullanın:
 
 ```azurecli-interactive
 # Get the tags for the resource group
@@ -53,7 +53,7 @@ do
 done
 ```
 
-Alternatif olarak, etiketleri kaynak grubundan kaynakları varolan etiketleri tutmadan uygulayabilirsiniz:
+Alternatif olarak, mevcut etiketleri korumadan kaynak grubundaki etiketleri kaynaklara uygulayabilirsiniz:
 
 ```azurecli-interactive
 # Get the tags for the resource group
@@ -73,13 +73,13 @@ do
 done
 ```
 
-Tek bir etiket birkaç değerleri birleştirmek için bir JSON dizesi kullanın.
+Birkaç değeri tek etikette birleştirmek için bir JSON dizesi kullanın.
 
 ```azurecli-interactive
 az group update -n myResourceGroup --set tags.CostCenter='{"Dept":"IT","Environment":"Test"}'
 ```
 
-Bir kaynak grubu üzerinde tüm etiketleri kaldırmak için kullanın:
+Kaynak grubundaki tüm etiketleri kaldırmak için şunu kullanın:
 
 ```azurecli-interactive
 az group update -n myResourceGroup --remove tags

@@ -177,7 +177,7 @@
       items:
         - name: Temel sorgu oluşturma
           href: search-query-overview.md
-        - name: Arama Gezgini (portal)
+        - name: Arama gezgini (portal)
           href: search-explorer.md
         - name: Basit sorgu söz dizimi
           href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'

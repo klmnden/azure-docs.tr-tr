@@ -37,10 +37,12 @@
   items:
     - name: Yönetici
       items:
-        - name: Uygulama oluşturma
-          href: howto-create-application.md
+        - name: CSP olarak uygulama oluşturma ve yönetme
+          href: howto-create-and-manage-applications-as-CSP.md
         - name: Uygulamanızı yönetme
           href: howto-administer.md
+        - name: Verilerinizi dışa aktarma
+          href: howto-export-data.md
     - name: Oluşturucu
       items:
         - name: Cihaz şablonunu ayarlama
@@ -49,6 +51,10 @@
           href: howto-version-devicetemplate.md
         - name: Telemetri kuralı oluşturma
           href: howto-create-telemetry-rules.md
+        - name: Olay kuralı oluşturma
+          href: howto-create-event-rules.md
+        - name: Microsoft Flow'da iş akışları oluşturma
+          href: howto-add-microsoft-flow.md
         - name: Giriş sayfasını yapılandırma
           href: howto-configure-homepage.md
         - name: Görüntüleri karşıya hazırlama ve yükleme
