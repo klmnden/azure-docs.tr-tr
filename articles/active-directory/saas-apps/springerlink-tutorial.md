@@ -1,6 +1,6 @@
 ---
 title: 'Öğretici: Azure Active Directory Tümleştirme Springer bağlantıyla | Microsoft Docs'
-description: Çoklu oturum açma Springer bağlantı ile Azure Active Directory arasındaki yapılandırmayı öğrenin.
+description: Azure Active Directory ve Springer bağlantı arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 4d3e6d2a884a677a3a7368fc83bb639067df5ea0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 71f1f81ccc4885d1dc023c776497fab486e3d7e2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212783"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041067"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Öğretici: Azure Active Directory Tümleştirme Springer bağlantıyla
+# <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Öğretici: Azure Active Directory Springer bağlantı ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Springer bağlantı tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile Springer bağlantı tümleştirme konusunda bilgi edinin.
 
-Springer bağlantı Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile Springer bağlantı tümleştirme ile aşağıdaki avantajları sağlar:
 
 - Springer bağlantı erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak Springer bağlantı (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- Azure AD hesaplarına otomatik olarak imzalanan (çoklu oturum açma) Springer bağlantı açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD Tümleştirmesi ile Springer bağlantısını yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile Springer bağlantısını yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir Springer bağlantı çoklu oturum açma abonelik etkin
+- Azure AD aboneliğiniz
+- Abonelik Springer bağlantı çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Springer bağlantısı ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Galeriden Springer bağlantı ekleme
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="adding-springer-link-from-the-gallery"></a>Galeriden Springer bağlantısı ekleme
-Azure AD Springer bağlantı tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Springer bağlantı eklemeniz gerekir.
+## <a name="adding-springer-link-from-the-gallery"></a>Galeriden Springer bağlantı ekleme
+Azure AD'de Springer bağlantı tümleştirmesini yapılandırmak için Springer bağlantı Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Springer bağlantısı eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -68,36 +68,36 @@ Azure AD Springer bağlantı tümleştirilmesi yapılandırmak için yönetilen 
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Springer bağlantı**seçin **Springer bağlantı** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **Springer bağlantı**seçin **Springer bağlantı** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuçlar listesinde springer bağlantı](./media/springerlink-tutorial/tutorial_springerlink_addfromgallery.png)
+    ![Sonuç listesinde springer bağlantı](./media/springerlink-tutorial/tutorial_springerlink_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırmak ve Azure AD çoklu oturum açma Springer "Britta Simon" adlı bir test kullanıcı tabanlı bağlantıyı sınayın.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı Springer bağlantıyı sınayın.
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen Springer bağlantısında bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Springer bağlantı ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek çalışmak için oturum açma için Azure AD ne karşılık gelen kullanıcı Springer bağlantısında bir kullanıcının Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve ilgili kullanıcı Springer bağlantısında arasında bir bağlantı ilişki kurulması gerekir.
 
-Değeri Springer bağlantıdaki atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Değerini Springer bağlantıya atamak **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırmak ve Azure AD çoklu oturum açma Springer bağlantıyla sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma ile Springer bağlantısını sınamak için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-4. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Springer bağlantı uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Springer bağlantıyı uygulamanızda çoklu oturum açmayı yapılandırın.
 
-**Springer bağlantı ile Azure AD çoklu oturum açma'yı yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile Springer bağlantısını yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Springer bağlantı** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Springer bağlantı** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
@@ -105,47 +105,47 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açma iletişim kutusu](./media/springerlink-tutorial/tutorial_springerlink_samlbase.png)
 
-3. Üzerinde **Springer bağlantı etki alanı ve URL'leri** uygulamada yapılandırmak istiyorsanız, bölüm **IDP** modu tarafından başlatılan:
+3. Üzerinde **Springer bağlantı etki alanı ve URL'ler** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu:
 
-    ![Springer bağlantı etki alanı ve URL'leri tek oturum açma bilgileri](./media/springerlink-tutorial/tutorial_springerlink_url1.png)
+    ![Springer bağlantı etki alanı ve URL'ler tek oturum açma bilgileri](./media/springerlink-tutorial/tutorial_springerlink_url1.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın: `https://fsso.springer.com`
+    a. İçinde **tanımlayıcı** metin kutusuna URL'yi yazın: `https://fsso.springer.com`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL'yi yazın: `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
+    b. İçinde **yanıt URL'si** metin kutusuna URL'yi yazın: `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
 
-4. Denetleme **Göster Gelişmiş URL ayarları**. Uygulamada yapılandırmak istiyorsanız **SP** modu tarafından başlatılan:
+4. Denetleme **Gelişmiş URL ayarlarını göster**. Uygulamada yapılandırmak istiyorsanız **SP** başlatılan modu:
 
-    ![Springer bağlantı etki alanı ve URL'leri tek oturum açma bilgileri](./media/springerlink-tutorial/tutorial_springerlink_url.png)
+    ![Springer bağlantı etki alanı ve URL'ler tek oturum açma bilgileri](./media/springerlink-tutorial/tutorial_springerlink_url.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın: `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
+    İçinde **oturum açma URL'si** metin kutusuna URL'yi yazın: `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
 
-5. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesini tıklatın **uygulama Federasyon meta veri URL'sini** ve Not Defteri'ne yapıştırın. 
+5. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın. 
 
     ![Sertifika indirme bağlantısı](./media/springerlink-tutorial/tutorial_springerlink_certificate.png)    
 
-6. Tıklatın **kaydetmek** düğmesi.
+6. Tıklayın **Kaydet** düğmesi.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/springerlink-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/springerlink-tutorial/tutorial_general_400.png)
 
-7. Çoklu oturum açma yapılandırmak için **Springer bağlantı** yan, ihtiyacınız göndermek **uygulama Federasyon meta veri URL'sini** için [Springer bağlantı destek ekibi](mailto:identity@springernature.com).
+7. Çoklu oturum açmayı yapılandırma **Springer bağlantı** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta verileri URL'sini** için [Springer bağlantı Destek ekibine](mailto:identity@springernature.com).
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/springerlink-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/springerlink-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/springerlink-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/springerlink-tutorial/create_aaduser_03.png)
 
@@ -155,53 +155,53 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
  
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta Springer bağlantı erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, erişim Springer bağlantı vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
 **Britta Simon Springer bağlantıya atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **Springer bağlantı**.
 
-    ![Uygulamalar listesinde Springer bağlantıyı bağlantı](./media/springerlink-tutorial/tutorial_springerlink_app.png)  
+    ![Uygulamalar listesini Springer bağlantı bağlantıdaki](./media/springerlink-tutorial/tutorial_springerlink_app.png)  
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Springer bağlantı parçasında tıklattığınızda, otomatik olarak Springer bağlantı uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Erişim panelinde Springer bağlantı kutucuğa tıkladığınızda, otomatik olarak Springer bağlantı uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

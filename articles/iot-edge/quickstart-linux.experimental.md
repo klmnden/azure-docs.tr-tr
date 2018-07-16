@@ -4,17 +4,17 @@ description: Bu hızlı başlangıçta, önceden derlenmiş kodu uzaktan bir IoT
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 07/02/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0e0d22b3363b00c81be5091fd12773f9e486c09e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8ee43a1e3b448faae79a7e3086e2e1d639c341f2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099194"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611936"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Hızlı Başlangıç: Bir Linux x64 cihazına ilk IoT Edge modülünüzü dağıtma
 
@@ -32,6 +32,13 @@ Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 Bu hızlı başlangıç, Linux bilgisayarınızı veya sanal makinenizi bir IoT Edge cihazına dönüştürür. Bu işlemin ardından Azure portalından cihazınıza bir modül dağıtabilirsiniz. Bu hızlı başlangıçta oluşturduğunuz modül; sıcaklık, nem ve basınç verileri üreten bir sensör simülasyonudur. Diğer Azure IoT Edge öğreticileri, burada iş içgörüsü için simülasyon verilerini analiz eden modüller dağıtarak yaptığınız çalışmayı temel alır. 
 
 Etkin bir Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][lnk-account] oluşturun.
+
+## <a name="prerequisites"></a>Ön koşullar
+
+Bu hızlı başlangıçta bir Linux makinesi IoT Edge cihazı olarak kullanılır. Test etmek için kullanacağınız bir Linux makineniz yoksa, [Azure portalda bir Linux sanal makinesi oluşturma](../virtual-machines/linux/quick-create-portal.md) konusundaki yönergeleri izleyin. 
+* Web sunucusu yükleyip çalıştırma adımlarını izlemeniz gerekmez. Sanal makinenize bağlandıktan sonra durdurabilirsiniz.  
+* Sanal makinenizi, bu hızlı başlangıç için Azure kaynaklarının geri kalanını oluştururken kullanabileceğiniz yeni bir kaynak grubunda oluşturun. *IoTEdgeResources* gibi kolay tanınabilir bir ad verin. 
+* IoT Edge’i test etmek için çok büyük bir sanal makine gerekmez. **B1ms** gibi bir boyut yeterlidir. 
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
@@ -54,6 +61,8 @@ Azure IoT Edge çalışma zamanını cihazınıza yükleyin ve başlatın.
 ![Cihaz kaydetme][5]
 
 IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Üç bileşeni vardır. **IoT Edge güvenlik daemon'u** bir Edge cihazı her başladığında çalışır ve IoT Edge aracısını çalıştırarak cihazı önyükler. **IoT Edge aracısı**, IoT Edge hub'ı dahil olmak üzere IoT Edge cihazındaki modüllerin dağıtımını ve izlenmesini kolaylaştırır. **IoT Edge hub'ı** IoT Edge cihazındaki modüller ve cihaz ile IoT Hub'ı arasındaki iletişimi yönetir. 
+
+Aşağıdaki adımları, bu hızlı başlangıç için hazırladığınız Linux makinesinde veya VM’de izleyin. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Yazılım deposunu kullanmak için cihazınızı kaydetme
 
@@ -85,11 +94,16 @@ IoT Edge çalışma zamanı, kapsayıcılardan oluşan bir kümedir ve IoT Edge 
    sudo apt-get update
    ```
 
-Kapsayıcı çalışma zamanı olan Moby uygulamasını ve CLI komutlarını yükleyin. 
+Kapsayıcı çalışma zamanı olan **Moby**’i yükleyin.
 
    ```bash
    sudo apt-get install moby-engine
-   sudo apt-get install moby-cli   
+   ```
+
+Moby için CLI komutlarını yükleyin. 
+
+   ```bash
+   sudo apt-get install moby-cli
    ```
 
 ### <a name="install-and-configure-the-iot-edge-security-daemon"></a>IoT Edge güvenlik daemon'unu yükleme ve yapılandırma
@@ -109,15 +123,19 @@ Güvenlik daemon'u sistem hizmeti olarak yüklenir ve bu sayede IoT Edge çalı�
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3. Cihazınızı kaydederken kopyaladığınız IoT Edge cihazı bağlantı dizesini ekleyin. **device_connection_string** değişkeninin değerini bu hızlı başlangıcın önceki bölümlerinde kopyaladığınız değerle değiştirin.
+3. IoT Edge cihazı bağlantı dizesini ekleyin. **device_connection_string** değişkenini bulun ve cihazınızı kaydettikten sonra değerini kopyaladığınız dizeyle güncelleştirin.
 
-4. Edge Güvenlik Daemon'unu yeniden başlatın:
+4. Dosyayı kaydedin ve kapatın. 
+
+   `CTRL + X`, `Y`, `Enter`
+
+4. IoT Edge güvenlik daemon'unu yeniden başlatın.
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-5. Edge Güvenlik Daemon'unun sistem hizmeti olarak çalışıp çalışmadığını kontrol edin:
+5. Edge Güvenlik Daemon'unun sistem hizmeti olarak çalışıp çalışmadığını kontrol edin.
 
    ```bash
    sudo systemctl status iotedge
@@ -131,12 +149,14 @@ Güvenlik daemon'u sistem hizmeti olarak yüklenir ve bu sayede IoT Edge çalı�
    journalctl -u iotedge
    ```
 
-6. Cihazınızda çalışan modülleri görüntüleyin: 
+6. Cihazınızda çalışan modülleri görüntüleyin. 
+
+   >[!TIP]
+   >İlk olarak `iotedge` komutlarını çalıştırmak için *sudo* kullanmanız gerekir. Makinenizde oturumunuzu kapatıp tekrar açarak izinleri güncelleştirdikten sonra `iotedge` komutlarını yükseltilmiş ayrıcalıklar olmadan çalıştırabilirsiniz. 
 
    ```bash
    sudo iotedge list
    ```
-Oturum kapatma ve açma döngüsünden sonra yukarıdaki komut için *sudo* kullanılması gerekmez.
 
    ![Cihazınızda bir modülü görüntüleme](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -157,7 +177,6 @@ Benzetimli cihazınızı çalıştıran bilgisayarda yeniden komut istemini aç�
    ```bash
    sudo iotedge list
    ```
-Oturum kapatma ve açma döngüsünden sonra yukarıdaki komut için *sudo* kullanılması gerekmez.
 
    ![Cihazınızda üç modül görüntüleme](./media/quickstart-linux/iotedge-list-2.png)
 
@@ -177,7 +196,22 @@ Günlüğün son satırında `Using transport Mqtt_Tcp_Only` varsa sıcaklık se
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-IoT Edge öğreticilerine devam etmek istiyorsanız bu hızlı başlangıçta kaydettiğiniz ve ayarladığınız cihazı kullanabilirsiniz. Cihazınızdaki yüklemeleri kaldırmak istiyorsanız aşağıdaki komutları kullanın.  
+IoT Edge öğreticilerine devam etmek istiyorsanız bu hızlı başlangıçta kaydettiğiniz ve ayarladığınız cihazı kullanabilirsiniz. Aksi halde, oluşturduğunuz Azure kaynaklarını silebilir ve IoT Edge çalışma zamanını cihazınızdan kaldırabilirsiniz. 
+
+### <a name="delete-azure-resources"></a>Azure kaynaklarını silme
+
+Sanal makinenizi ve IoT hub’ınızı yeni bir kaynak grubunda oluşturduysanız, bu grubu ve ilişkili tüm kaynaklarını silebilirsiniz. İlgili kaynak grubunda bulunan saklamak istediğiniz bir şey varsa, temizlemek istediğiniz kaynakları silmeniz yeterlidir. 
+
+Bir kaynak grubunu kaldırmak için aşağıdaki adımları izleyin: 
+
+1. [Azure portalında](https://portal.azure.com) oturum açın ve **Kaynak grupları**’na tıklayın.
+2. **Ada göre filtrele...** metin kutusuna IoT Hub'ınızın bulunduğu kaynak grubunun adını girin. 
+3. Sonuç listesinde kaynak grubunuzun sağ tarafında **...** ve sonra **Kaynak grubunu sil**'e tıklayın.
+4. Kaynak grubunun silinmesini onaylamanız istenir. Onaylamak için kaynak grubunuzun adını tekrar yazın ve **Sil**'e tıklayın. Birkaç dakika sonra kaynak grubu ve içerdiği kaynakların tümü silinir.
+
+### <a name="remove-the-iot-edge-runtime"></a>IoT Edge çalışma zamanını kaldırma
+
+Cihazınızdaki yüklemeleri kaldırmak istiyorsanız aşağıdaki komutları kullanın.  
 
 IoT Edge çalışma zamanını kaldırın.
 
@@ -185,10 +219,18 @@ IoT Edge çalışma zamanını kaldırın.
    sudo apt-get remove --purge iotedge
    ```
 
-Cihazınızda oluşturulan kapsayıcıları silin. 
+IoT Edge çalışma zamanı kaldırıldığında, oluşturduğu kapsayıcılar durdurulur, ancak cihazınızda yer almaya devam eder. Tüm kapsayıcıları görüntüleyin.
 
    ```bash
-   sudo docker rm -f $(sudo docker ps -aq)
+   sudo docker ps -a
+   ```
+
+IoT Edge çalışma zamanı tarafından cihazınızda oluşturulan kapsayıcıları silin. Ona farklı bir ad verdiyseniz tempSensor kapsayıcısının adını değiştirin. 
+
+   ```bash
+   sudo docker rm -f tempSensor
+   sudo docker rm -f edgeHub
+   sudo docker rm -f edgeAgent
    ```
 
 Kapsayıcı çalışma zamanını kaldırın.
@@ -196,8 +238,6 @@ Kapsayıcı çalışma zamanını kaldırın.
    ```bash
    sudo apt-get remove --purge moby
    ```
-
-Bu hızlı başlangıçta oluşturduğunuz Azure IoT hub'ına veya IoT Edge cihazına ihtiyacınız kalmadığında Azure portalından silebilirsiniz. IoT hub'ınızın genel bakış sayfasına gidip **Sil**'i seçin. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -221,5 +261,6 @@ Bu hızlı başlangıç, tüm IoT Edge öğreticilerinin önkoşuludur. Azure Io
 [9]: ./media/tutorial-simulate-device-linux/sensor-data.png
 
 <!-- Links -->
+[lnk-account]: https://azure.microsoft.com/free
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

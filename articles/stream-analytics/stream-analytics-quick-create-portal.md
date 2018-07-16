@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1059a401382820b4e5d3fd4b010d400bb6113926
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031439"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902913"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Hızlı başlangıç: Azure portalını kullanarak Stream Analytics işi oluşturma
 
@@ -48,7 +48,7 @@ Stream Analytics işini tanımlamadan önce işe girdi olarak yapılandırılan 
 
 4. **Tüm kaynaklar** sayfasında, önceki adımda oluşturduğunuz depolama hesabını bulun. **Genel Bakış** sayfasını ve ardından **Bloblar** kutucuğunu açın.  
 
-5. **Blob Hizmeti** sayfasından **Kapsayıcı**’yı seçin, kapsayıcınız için *kapsayıcı1* gibi bir **Ad** sağlayın ve **Genel erişim düzeyi**’ni Blob olarak değiştirin (yalnızca bloblar için anonim okuma erişimi) > **Tamam**’ı seçin.  
+5. **Blob Hizmeti** sayfasından **Kapsayıcı**’yı seçin, kapsayıcınız için *kapsayıcı1* gibi bir **Ad** sağlayın ve **Genel erişim düzeyi**’ni Özel olarak değiştirin (anonim erişim yok) > **Tamam**’ı seçin.  
 
    ![Bir kapsayıcı oluşturma](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 

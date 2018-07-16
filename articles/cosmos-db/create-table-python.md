@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: f23d7441a2abc6b66e95e226ef0d17d29ed25c9d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 3bad2e8c8011f82ab4daf75e73b1c71c46436882
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796007"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38407029"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Hızlı Başlangıç: Python ve Azure Cosmos DB ile Tablo API’si uygulaması oluşturma
 
@@ -31,9 +31,8 @@ Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritaba
 
 Buna ek olarak:
 
-* Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
-* [GitHub](http://microsoft.github.io/PTVS/)'dan Visual Studio için Python Araçları. Bu öğreticide, VS 2015 için Python Araçları kullanır.
-* [python.org](https://www.python.org/downloads/release/python-2712/) adresinden Python 2.7
+* Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure geliştirme** ve **Python geliştirme** iş yüklerini seçtiğinizden emin olun.
+* Ayrıca **Python geliştirme** iş yükünde Python 2 seçeneğini belirleyin veya [python.org](https://www.python.org/downloads/release/python-2712/) adresinden Python 2.7’yi indirin.
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 

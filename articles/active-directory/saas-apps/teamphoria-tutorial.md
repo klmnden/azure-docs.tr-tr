@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile Teamphoria | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile Teamphoria arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle Teamphoria | Microsoft Docs'
+description: Azure Active Directory ve Teamphoria arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 0ff053b88a718c152d31b593a7759b034347f3ef
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 794945caeea113dc6f1cc2ab5e11a76c3e88c83e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293681"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041917"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Öğretici: Azure Active Directory Tümleştirme Teamphoria ile
+# <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Öğretici: Azure Active Directory Teamphoria ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Teamphoria tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile Teamphoria tümleştirme konusunda bilgi edinin.
 
-Teamphoria Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile Teamphoria tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Teamphoria erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için Teamphoria (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Teamphoria erişimi, Azure AD'de denetleyebilirsiniz
+- Otomatik olarak imzalanan için Teamphoria (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Teamphoria ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile Teamphoria yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir Teamphoria çoklu oturum açma etkin abonelik
+- Azure AD aboneliğiniz
+- Bir Teamphoria çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
-Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Teamphoria ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-teamphoria-from-the-gallery"></a>Galeriden Teamphoria ekleme
-Azure AD Teamphoria tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Teamphoria eklemeniz gerekir.
+Azure AD'de Teamphoria tümleştirmesini yapılandırmak için Teamphoria Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Teamphoria eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure Portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi.
+1. İçinde  **[Azure portalı](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Active Directory][1]
 
@@ -68,7 +68,7 @@ Azure AD Teamphoria tümleştirilmesi yapılandırmak için yönetilen SaaS uygu
 
     ![Uygulamalar][2]
     
-3. Tıklatın **Ekle** iletişim kutusunun üst kısmında düğmesi.
+3. Tıklayın **Ekle** iletişim kutusunun üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
@@ -76,30 +76,30 @@ Azure AD Teamphoria tümleştirilmesi yapılandırmak için yönetilen SaaS uygu
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/teamphoria-tutorial/tutorial_teamphoria_search.png)
 
-5. Sonuçlar panelinde seçin **Teamphoria**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Sonuçlar panelinde seçin **Teamphoria**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/teamphoria-tutorial/tutorial_teamphoria_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Teamphoria sınayın.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Teamphoria sınayın.
 
-Tekli çalışmaya oturum için Azure AD Teamphoria karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Teamphoria ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne Teamphoria karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Teamphoria ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma Teamphoria ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Teamphoria ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Teamphoria test kullanıcısı oluşturma](#creating-a-teamphoria-test-user)**  - Britta Simon, karşılık gelen her, Azure AD gösterimine bağlı Teamphoria sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Teamphoria test kullanıcısı oluşturma](#creating-a-teamphoria-test-user)**  - Azure AD gösterimini her için bağlı Teamphoria Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Teamphoria uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Teamphoria uygulamanızda çoklu oturum açmayı yapılandırın.
 
 **Azure AD çoklu oturum açma ile Teamphoria yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Teamphoria** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Teamphoria** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
@@ -107,67 +107,67 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/teamphoria-tutorial/tutorial_teamphoria_samlbase.png)
 
-3. Üzerinde **Teamphoria etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Teamphoria etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/teamphoria-tutorial/tutorial_teamphoria_url.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, şu biçimi kullanarak URL'yi yazın: `https://<sub-domain>.teamphoria.com/login`   
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak URL'yi yazın: `https://<sub-domain>.teamphoria.com/login`   
 
     > [!NOTE] 
-    > Oturum açma URL'si değeri gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirmeniz gerekir. Kişi [Teamphoria istemci destek ekibi](https://www.teamphoria.com/) oturum açma URL'si alınamadı.
+    > Oturum açma URL değeri, gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirmeniz gerekiyor. İlgili kişi [Teamphoria istemci Destek ekibine](https://www.teamphoria.com/) oturum açma URL'sini alabilirsiniz.
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifikayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve sertifika bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/teamphoria-tutorial/tutorial_teamphoria_certificate.png)
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/teamphoria-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Teamphoria yapılandırma** 'yi tıklatın **yapılandırma Teamphoria** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **Teamphoria yapılandırma** bölümünde **yapılandırma Teamphoria** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/teamphoria-tutorial/tutorial_teamphoria_configure.png)
 
-7. Çoklu oturum açma yapılandırmak için **Teamphoria** yan, Teamphoria uygulamanızı yönetici olarak oturum açın.
+7. Çoklu oturum açmayı yapılandırma **Teamphoria** tarafını Teamphoria uygulamanızı yönetici olarak oturum açın.
 
-8. Gidin **yönetim ayarlarını** sol araç çubuğunda ve yapılandırma sekmesi altında seçeneğini üzerinde **tek oturum açma** SSO yapılandırma penceresini açın.
+8. Git **yönetici ayarları** sol araç çubuğundaki ve yapılandırma sekmesi altındaki seçeneği tıklatın **çoklu oturum açma** SSO Yapılandırması penceresi açmak için.
 
     ![Çoklu oturum açmayı yapılandırın](./media/teamphoria-tutorial/admin_sso_configure.png)
 
-9. Tıklayın **yeni kimlik sağlayıcı Ekle** SSO ayarlarını ekleme formunu açmak için sağ üst köşedeki seçeneği.
+9. Tıklayarak **yeni kimlik SAĞLAYICISI Ekle** SSO ayarlarını ekleme formunu açmak için sağ üst köşedeki seçeneği.
 
     ![Çoklu oturum açmayı yapılandırın](./media/teamphoria-tutorial/add_new_identity_provider.png)
 
-10. Aşağıdaki - açıklandığı gibi alanlara ayrıntılarını girin
+10. Aşağıdaki - açıklandığı gibi alanlarda ayrıntıları girin
 
     ![Çoklu oturum açmayı yapılandırın](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
-    a. **GÖRÜNEN adı**: Yönetim sayfasında eklenti görünen adını girin.
+    a. **GÖRÜNEN ad**: yönetici sayfasına eklenti görünen adını girin.
 
-    b. **DÜĞME adı**: SSO oturum açma için oturum açma sayfasında görüntüler sekmesini adı.
+    b. **DÜĞME adı**: SSO ile oturum açma için oturum açma sayfasında görüntülenecek sekmenin adı.
 
-    c. **Sertifika**: sertifika indirilen daha önce Not Defteri'nde, Azure portalından Aç aynı içeriğini kopyalayın ve buraya kutusuna yapıştırın.
+    c. **Sertifika**: sertifika indirilen daha önce Not Defteri'nde, Azure portalından açık aynı içeriğini kopyalayın ve burada kutuya yapıştırın.
 
-    d. **Giriş noktası**: Yapıştır **SAML çoklu oturum açma hizmet URL'si** daha önce Azure portaldan kopyalanır.
+    d. **Giriş noktası**: yapıştırma **SAML çoklu oturum açma hizmeti URL'si** daha önce Azure portaldan kopyaladığınız.
 
-    e. Seçeneğini geçiş **ON** ve tıklayın **KAYDETMEK**.
+    e. Geçiş seçeneği **ON** tıklayın **Kaydet**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/teamphoria-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/teamphoria-tutorial/create_aaduser_02.png) 
 
-3. İletişim kutusunun üstündeki **Ekle** açmak için **kullanıcı** iletişim.
+3. İletişim kutusunun en üstünde tıklayın **Ekle** açmak için **kullanıcı** iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/teamphoria-tutorial/create_aaduser_03.png)
 
@@ -175,9 +175,9 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/teamphoria-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
@@ -185,17 +185,17 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
 ### <a name="creating-a-teamphoria-test-user"></a>Teamphoria test kullanıcısı oluşturma
 
-Azure AD kullanıcıların Teamphoria oturum etkinleştirmek için bunların Teamphoria sağlanmalıdır. Teamphoria söz konusu olduğunda, sağlama bir el ile bir görevdir.
+Teamphoria açarken Azure AD kullanıcılarının etkinleştirmek için bunların Teamphoria sağlanması gerekir. Teamphoria söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
 
 **Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Teamphoria şirket sitenize yönetici olarak oturum açın.
+1. Teamphoria şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-2. Tıklayın **yönetici** ayarları sol araç çubuğunda ve altında **Yönet** tıklatın sekmesi **kullanıcılar** kullanıcılar Yönetim sayfasını açmak için.
+2. Tıklayarak **yönetici** ayarları altında ve sol araç çubuğundaki **Yönet** sekmesine tıklatın **kullanıcılar** kullanıcılar için Yönetim sayfasını açın.
 
-    ![Çalışanı ekleyin](./media/teamphoria-tutorial/admin_manage_users.png)
+    ![Çalışan Ekle](./media/teamphoria-tutorial/admin_manage_users.png)
 
-3. Tıklayın **el ile davet** seçeneği.
+3. Tıklayarak **el ile davet** seçeneği.
 
     ![Kişileri davet edin](./media/teamphoria-tutorial/admin_manage_add_users.png)
 
@@ -203,54 +203,54 @@ Azure AD kullanıcıların Teamphoria oturum etkinleştirmek için bunların Tea
     
     ![Kişileri davet edin](./media/teamphoria-tutorial/manual_user_invite.png)
 
-    a. İçinde **e-posta adresi** metin kutusuna, **e-posta adresi** BrittaSimon biri.
+    a. İçinde **e-posta adresi** metin **e-posta adresi** BrittaSimon biri.
 
-    b. İçinde **ad** metin kutusuna, türü **Britta**.
+    b. İçinde **ad** metin kutusuna **Britta**.
 
-    c. İçinde **SOYADI** metin kutusuna, türü **Simon**.
+    c. İçinde **SOYADI** metin kutusuna **Simon**.
 
-    d. Tıklatın **davet 1 kullanıcı**. Kullanıcı sistemde oluşturulmasına daveti kabul etmesi gerekir.
+    d. Tıklayın **davet 1 kullanıcı**. Kullanıcı sistemde oluşturulmasına daveti kabul etmek gerekir.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Britta Teamphoria için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için Teamphoria erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200]
+![Kullanıcı Ata][200]
 
-**Teamphoria için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Teamphoria için atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201]
+    ![Kullanıcı Ata][201]
 
 2. Uygulamalar listesinde **Teamphoria**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/teamphoria-tutorial/tutorial_teamphoria_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202]
+    ![Kullanıcı Ata][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
 
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Çoklu oturum açma ayarlarınızı test etmek isterseniz, erişim paneli açın. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Çoklu oturum açma ayarları test etmek isterseniz, erişim Paneli'nde açın. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

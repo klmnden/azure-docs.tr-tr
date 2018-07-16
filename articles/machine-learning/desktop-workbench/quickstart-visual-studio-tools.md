@@ -7,22 +7,24 @@ ms.author: ahgyger
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: bbcb2ea5a7ceeb976f590393608cc29c67d9a49e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 735bfd911a738d4e71974f5cdcd94afa50acc502
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932991"
 ---
 # <a name="visual-studio-tools-for-ai"></a>AI için Visual Studio Araçları
 AI için Visual Studio Araçları, Derin Öğrenme / AI çözümlerinin derlenmesini, test edilmesini ve dağıtılmasını sağlayan bir geliştirme uzantısıdır. Başta bir çalıştırma geçmişi görünümü olmak üzere önceki eğitimlerin performans ve özel ölçüm ayrıntılarını vererek, Azure Machine Learning ile sorunsuz bir tümleştirme sağlar. [Microsoft Bilişsel Araç Seti (önceki adıyla CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) ve diğer derin öğrenme çerçeveleriyle yeni projeye göz atma ve projeyi önyükleme olanağı tanıyan bir örnek gezgini görünümü sağlar. Son olarak, Azure Sanal Makineler veya GPU ile Linux sunucuları gibi uzak ortamlarda modelleri denemek üzere işleri göndermenizi sağlayan işlem hedeflerine yönelik bir gezgin sağlar. Ayrıca [Azure Batch AI (Önizleme)](https://docs.microsoft.com/azure/batch-ai/) için kolaylaştırılmış erişim sağlar.
  
 ## <a name="getting-started"></a>Başlarken 
 Başlamak için öncelikle [Visual Studio](https://www.visualstudio.com/downloads/)’yu indirip yüklemeniz gerekir. Visual Studio’yu açtıktan sonra aşağıdaki adımları uygulayın:
-1. Visual Studio’da menü çubuğuna tıklayıp "Uzantılar ve Güncelleştirmeler…" öğesini seçin
+1. Visual Studio’da menü çubuğunda yer alan “Araçlar” seçeneğine tıklayıp "Uzantılar ve Güncelleştirmeler…" öğesini seçin
 2. "Çevrimiçi" sekmesine tıklayıp "Visual Studio Market’te Ara" öğesini seçin.
 3. “AI için Visual Studio” ifadesini arayın. 
 3. **İndir** düğmesine tıklayın. 

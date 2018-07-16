@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: c1277484d8f8b3073ac15534110b01903c265318
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795892"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453425"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Graph API’si kullanarak bir .NET Framework/Core uygulaması derleme
 
@@ -86,7 +86,7 @@ Aşağıdaki kod parçacıklarının tamamı, Program.cs dosyasından alınır.
     private static int port = 443;
     private static string authKey = "your-authentication-key";
     private static string database = "your-database";
-    private static string collection = "your-collection-or-graph";
+    private static string collection = "your-graph-container";
     ```
 
 * Yürütülecek Gremlin komutları bir Sözlük içinde listelenir (Satır 26):
@@ -175,7 +175,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
     `private static string database = "your-database";`
 
-5. Benzer şekilde, yukarıda oluşturulan koleksiyonun bilgilerini kullanarak, koleksiyonu (aynı zamanda grafik adı) satır 23’teki `collection` değişkeninin içinde yapıştırın. 
+5. Benzer şekilde, yukarıda oluşturulan kapsayıcının bilgilerini kullanarak, koleksiyonu (aynı zamanda grafik adı) satır 23’teki `collection` değişkeninin içinde yapıştırın. 
 
     `private static string collection = "your-collection-or-graph";`
 
@@ -193,7 +193,7 @@ Uygulamayı çalıştırmak için CTRL+F5 tuşlarına basın. Uygulama hem Greml
 
 Şimdi Azure portalındaki Veri Gezgini'ne dönerek yeni grafik verilerinize göz atıp sorgu gönderebilirsiniz.
 
-1. Yeni veritabanı, Veri Gezgini'nin Graflar bölmesinde görüntülenir. Veritabanını ve koleksiyon düğümlerini genişletip **Graf**’a tıklayın.
+1. Yeni veritabanı, Veri Gezgini'nin Graflar bölmesinde görüntülenir. Veritabanını ve kapsayıcı düğümlerini genişletip **Graf**’a tıklayın.
 
 2. Graftaki tüm köşeleri görüntülemek üzere varsayılan sorguyu kullanmak için **Filtre Uygula** düğmesine tıklayın. Örnek uygulama tarafından oluşturulan veriler Grafikler bölmesinde görüntülenir.
 

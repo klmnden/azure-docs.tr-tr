@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a7a4391b436af4ffa303741397f0be7abf0186fb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722856"
 ---
 # <a name="import-and-publish-your-first-api"></a>İlk API’nizi içeri aktarma ve yayımlama 
 
@@ -52,6 +53,8 @@ Bu bölümde, bir OpenAPI belirtimi arka uç API’sinin nasıl içeri aktarıla
 
     **Ayarlar** sekmesine giderek oluşturma sırasında veya sonrasında API değerlerini ayarlayabilirsiniz. Bir alanın yanındaki kırmızı yıldız, alanın zorunlu olduğunu belirtir.
 
+    İlk API'nizi oluşturmak için aşağıdaki tabloda yer alan değerleri kullanın.
+
     |Ayar|Değer|Açıklama|
     |---|---|---|
     |**OpenAPI Belirtimi**|http://conferenceapi.azurewebsites.net?format=json|API’yi uygulayan hizmete başvurur. API Management istekleri bu adrese iletir.|
@@ -74,19 +77,21 @@ Bu bölümde, bir OpenAPI belirtimi arka uç API’sinin nasıl içeri aktarıla
 1. Önceki adımda oluşturduğunuz API’yi seçin (**API’ler** sekmesinden).
 2. **Test** sekmesine basın.  ![API'yi test et](./media/api-management-get-started/test-api.png)
 3. **GetSpeakers** seçeneğine tıklayın.
-    Sayfa, sorgu parametreleri için alanları görüntüler, ancak bu durumda bir alan yok. Sayfa, üst bilgiler için de alanları görüntüler. Bu API ile ilişkilendirilmiş ürünün abonelik anahtarı için, üst bilgilerden biri "Ocp-Apim-Subscription-Key" üst bilgisidir. Anahtar otomatik olarak doldurulur.
+    Sayfa, sorgu parametreleri alanlarını ve üst bilgileri görüntüler, ancak bu durumda bir alan yok. Bu API ile ilişkilendirilmiş ürünün abonelik anahtarı için, üst bilgilerden biri "Ocp-Apim-Subscription-Key" üst bilgisidir. Anahtar otomatik olarak doldurulur.
 4. **Gönder**’e basın.
 
     Arka uç, **200 OK** ve bazı verilerle yanıt verir.
 
 ## <a name="call-operation"> </a>Geliştirici portalından işlem çağırma
 
-API’leri test etmek için **Geliştirici portalından** da işlemler çağrılabilir. 
+API’leri test etmek için **Geliştirici portalından** da işlemler çağrılabilir.
 
-1. **Tanıtım Konferansı API’si** seçeneğini belirleyin.
-2. **GetSpeakers**’a tıklayın.
+1. **Geliştirici portalına** gidin.
+![Geliştirici portalı](./media/api-management-get-started/developer-portal.png)
+
+2. **API'ler**’i seçip **Tanıtım Konferansı API'si**’ne ve ardından **GetSpeakers**’a tıklayın.
     
-    Sayfa, sorgu parametreleri için alanları görüntüler, ancak bu durumda bir alan yok. Sayfa, üst bilgiler için de alanları görüntüler. Bu API ile ilişkilendirilmiş ürünün abonelik anahtarı için, üst bilgilerden biri "Ocp-Apim-Subscription-Key" üst bilgisidir. APIM örneğini siz oluşturduysanız zaten bir yöneticisinizdir ve anahtar otomatik olarak doldurulur.
+    Sayfa, sorgu parametreleri alanlarını ve üst bilgileri görüntüler, ancak bu durumda bir alan yok. Bu API ile ilişkilendirilmiş ürünün abonelik anahtarı için, üst bilgilerden biri "Ocp-Apim-Subscription-Key" üst bilgisidir. APIM örneğini siz oluşturduysanız zaten bir yöneticisinizdir ve anahtar otomatik olarak doldurulur.
 3. **Deneyin**’e basın.
 4. **Gönder**’e basın.
     

@@ -1,6 +1,6 @@
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
-Örnek komut dosyasını çalıştırdıktan sonra kaynak grubu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu kullanılabilir.
+Örnek betik çalıştırıldıktan sonra, kaynak grubunu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komut kullanılabilir.
 
 ```azurecli
 az group delete --name myResourceGroup

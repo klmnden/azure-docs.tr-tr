@@ -6,14 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 11/07/2017
+ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 1837fc6511ac734766c55bd1c2a2a7a40219c31a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793030"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950691"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Portalda Azure Search hizmeti oluşturma
 
@@ -29,8 +29,8 @@ Alternatif olarak, [MSDN abone avantajlarınızı etkinleştirin](https://azure.
 
 ## <a name="find-azure-search"></a>Azure Search’ü bulma
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Sol üst köşedeki artı işaretine ("+") tıklayın.
-3. **Web ve Mobil** > **Azure Search** seçeneklerini belirleyin.
+2. Sol üst köşedeki artı işaretine ("+ Kaynak Oluştur") tıklayın.
+3. **Web** > **Azure Search**’ü seçin.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
@@ -77,12 +77,14 @@ Bir hizmetin oluşturulması birkaç dakika (katmana bağlı olarak 15 dakika ve
 
 ***Çoğaltmalar***, hizmetinizin daha yüksek arama sorgusu yükünü işlemesine olanak sağlar.
 
+Kaynak eklemek aylık faturanız artırır. [Fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/), fatura konusunda kaynak eklemenin getirdiği sonuçları anlamanıza yardımcı olabilir. Kaynakları yüke göre ayarlayabildiğinizi unutmayın. Örneğin, tam bir ilk dizin oluşturmak için kaynakları artırabilir ve ardından artımlı dizin oluşturmak için daha uygun bir düzeye indirebilirsiniz.
+
 > [!Important]
 > Bir hizmetin [salt okunur SLA için 2 çoğaltması ve okuma/yazma SLA’sı için 3 çoğaltması](https://azure.microsoft.com/support/legal/sla/search/v1_0/) olmalıdır.
 
 1. Azure portalında arama hizmeti sayfanıza gidin.
 2. Sol gezinti bölmesinde **Ayarlar** > **Ölçek** seçeneklerini belirleyin.
-3. Çoğaltmalar veya Bölümler eklemek için slayt çubuğunu kullanın.
+3. Her iki türdeki kaynakları eklemek için kaydırma çubuğunu kullanın.
 
 ![](./media/search-create-service-portal/settings-scale.png)
 

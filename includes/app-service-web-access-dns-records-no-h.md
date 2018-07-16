@@ -1,5 +1,5 @@
 > [!NOTE]
-> Azure DNS, Azure Web uygulamaları için özel bir DNS adı yapılandırmak için kullanabilirsiniz. Daha fazla bilgi için bkz: [bir Azure hizmetini özel etki alanı ayarları sağlamak için Azure DNS'yi](../articles/dns/dns-custom-domain.md#app-service-web-apps).
+> Azure Web Apps’inize yönelik bir özel DNS adını yapılandırmak için Azure DNS’yi kullanabilirsiniz. Daha fazla bilgi için bkz. [Bir Azure hizmeti için özel etki alanı ayarları sağlamak üzere Azure DNS'yi kullanma](../articles/dns/dns-custom-domain.md#app-service-web-apps).
 >
 >
 

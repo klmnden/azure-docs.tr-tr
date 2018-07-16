@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 03/16/2018
+ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1437916e62e7c2987c0a1d8c3a5ac4a5f332134d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 69db32698951519c2630a0a8697e4ebe74f69b04
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303564"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930486"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>İletileri teslim eden Azure hizmetleri arasında seçim yapın
 
@@ -60,6 +60,7 @@ Aşağıdaki özelliklere sahiptir:
 * dinamik olarak ölçeklenebilir
 * düşük maliyetli
 * sunucusuz
+* en az bir kere teslim
 
 ### <a name="event-hubs"></a>Event Hubs
 
@@ -69,6 +70,7 @@ Aşağıdaki özelliklere sahiptir:
 
 * düşük gecikme süresi
 * saniyede milyonlarca olay alma ve işleme özelliği
+* en az bir kere teslim
 
 ### <a name="service-bus"></a>Service Bus
 
@@ -80,6 +82,7 @@ Aşağıdaki özelliklere sahiptir:
 
 * yoklama gerektiren, güvenilir zaman uyumsuz ileti teslimi (hizmet olarak kurumsal mesajlaşma)
 * FIFO, toplu iş/oturumlar, işlemler, teslim edilemeyen iletiler, zamana bağlı denetim, yönlendirme ve filtreleme ile yinelenen algılama
+* tam olarak bir kere teslim
 
 ## <a name="use-the-services-together"></a>Hizmetleri birlikte kullanma
 

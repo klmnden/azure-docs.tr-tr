@@ -9,20 +9,20 @@ ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 7843410043b726526380b2a916d96f414a2decda
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29532327"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38740602"
 ---
-Kaynaklar için etiketler uyguladıktan sonra bu etiketlerin kaynaklarla maliyetlerini görüntüleyebilirsiniz. İşlem maliyetleri henüz göremeyebilirsiniz son kullanım görüntüleyecek şekilde maliyet analizi için biraz zaman alır. Maliyetleri kullanılabilir olduğunda, aboneliğinizde kaynak gruplarında kaynakları maliyetlerini görüntüleyebilirsiniz. Kullanıcılar [fatura bilgilerini abonelik düzeyinde erişime](../articles/billing/billing-manage-access.md) maliyetleri görmek üzere.
+Kaynaklara etiket uyguladıktan sonra, bu etiketlerle kaynakların maliyetlerini görüntüleyebilirsiniz. Maliyet analizinin en son kullanımları göstermesi biraz zaman aldığından maliyetleri henüz göremeyebilirsiniz. Maliyetler kullanılabilir olduğunda, aboneliğinizdeki kaynak gruplarında kaynakların maliyetlerini görüntüleyebilirsiniz. Kullanıcıların maliyetleri görmeleri için [fatura bilgilerine abonelik düzeyinde erişimlerinin](../articles/billing/billing-manage-access.md) olması gerekir.
 
-Portal etiketinde tarafından maliyetleri görüntülemek için aboneliğinizi seçin ve seçin **maliyet analizi**.
+Portalda maliyetleri etikete göre görüntülemek için aboneliğinizi ve sonra **Maliyet Analizi**’ni seçin.
 
 ![Maliyet analizi](./media/resource-manager-governance-tags-billing/select-cost-analysis.png)
 
-Sonra filtre tarafından etiket değeri ve seçin **Uygula**.
+Ardından etiket değerine göre filtreleyin ve **Uygula**’yı seçin.
 
-![Etiket görünüm maliyeti](./media/resource-manager-governance-tags-billing/view-costs-by-tag.png)
+![Etikete göre maliyeti görüntüleme](./media/resource-manager-governance-tags-billing/view-costs-by-tag.png)
 
-Aynı zamanda [Azure faturalama API'leri](../articles/billing/billing-usage-rate-card-overview.md) program aracılığıyla maliyetleri görüntülemek için.
+Ayrıca maliyetleri programlı olarak görüntülemek için [Azure Faturalama API'lerini](../articles/billing/billing-usage-rate-card-overview.md) kullanabilirsiniz.

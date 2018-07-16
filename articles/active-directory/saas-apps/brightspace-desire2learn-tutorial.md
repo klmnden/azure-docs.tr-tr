@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile Desire2Learn tarafından Brightspace | Microsoft Docs'
-description: Çoklu oturum açma Brightspace Desire2Learn tarafından Azure Active Directory arasındaki yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle Brightspace Desire2Learn tarafından | Microsoft Docs'
+description: Azure Active Directory ve Desire2Learn tarafından Brightspace arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b15012fae7ffacd63762c723f14cae62f9a0817d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2387cb6517675e59bc84c6283d31575c9a0aff60
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211154"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043596"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Öğretici: Azure Active Directory Tümleştirme Desire2Learn tarafından Brightspace ile
+# <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Öğretici: Azure Active Directory tarafından Desire2Learn Brightspace ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Brightspace Desire2Learn tarafından tümleştirmek öğrenin.
+Bu öğreticide, Brightspace Desire2Learn tarafından Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
 Brightspace Desire2Learn tarafından Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Brightspace Desire2Learn tarafından erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak Brightspace için Desire2Learn tarafından açan kullanıcılarınıza etkinleştirebilirsiniz (çoklu oturum açma) Azure AD hesaplarına sahip
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Brightspace Desire2Learn tarafından erişebilir, Azure AD'de denetleyebilirsiniz
+- Otomatik olarak imzalanan Brightspace için tarafından Desire2Learn açma, kullanıcılarınızın etkinleştirebilirsiniz (çoklu oturum açma) ile Azure AD hesaplarına
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Desire2Learn tarafından Brightspace yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirmesi Brightspace Desire2Learn tarafından ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Abonelik Brightspace Desire2Learn çoklu oturum açma tarafından etkin
+- Azure AD aboneliğiniz
+- Abonelik bir Brightspace tarafından Desire2Learn çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Desire2Learn tarafından Brightspace ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Galeriden Brightspace Desire2Learn tarafından ekleme
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="adding-brightspace-by-desire2learn-from-the-gallery"></a>Galeriden Desire2Learn tarafından Brightspace ekleme
-Azure AD tarafından Desire2Learn Brightspace tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Brightspace Desire2Learn tarafından eklemeniz gerekir.
+## <a name="adding-brightspace-by-desire2learn-from-the-gallery"></a>Galeriden Brightspace Desire2Learn tarafından ekleme
+Azure AD'de Desire2Learn tarafından Brightspace tümleştirmesini yapılandırmak için Desire2Learn tarafından Brightspace Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden Desire2Learn tarafından Brightspace eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden Brightspace Desire2Learn tarafından eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -67,40 +67,40 @@ Azure AD tarafından Desire2Learn Brightspace tümleştirilmesi yapılandırmak 
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Brightspace Desire2Learn tarafından**.
+4. Arama kutusuna **Desire2Learn tarafından Brightspace**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_search.png)
 
-5. Sonuçlar panelinde seçin **Desire2Learn tarafından Brightspace**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Sonuçlar panelinde seçin **Desire2Learn tarafından Brightspace**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Desire2Learn tarafından Brightspace ile test etme.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Desire2Learn tarafından Brightspace ile test edin.
 
-Tekli çalışmaya oturum için Azure AD Brightspace Desire2Learn tarafından karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Desire2Learn tarafından Brightspace ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne Brightspace Desire2Learn tarafından karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı tarafından Desire2Learn Brightspace ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Değeri Desire2Learn tarafından Brightspace içinde atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Desire2Learn tarafından Brightspace içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma Desire2Learn tarafından Brightspace ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Brightspace Desire2Learn tarafından ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Brightspace Desire2Learn test kullanıcısı tarafından oluşturma](#creating-a-brightspace-by-desire2learn-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Desire2Learn tarafından Brightspace sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Desire2Learn test kullanıcı tarafından bir Brightspace oluşturma](#creating-a-brightspace-by-desire2learn-test-user)**  - kullanıcı Azure AD gösterimini bağlı Desire2Learn tarafından Brightspace Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma, Brightspace Desire2Learn uygulama tarafından yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Desire2Learn uygulama tarafından Brightspace içinde yapılandırın.
 
-**Azure AD çoklu oturum açma Desire2Learn tarafından Brightspace yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma Brightspace Desire2Learn tarafından ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Brightspace Desire2Learn tarafından** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Brightspace Desire2Learn tarafından** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
@@ -108,53 +108,53 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açmayı yapılandırın](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_samlbase.png)
 
-3. Üzerinde **Brightspace Desire2Learn etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Desire2Learn etki alanı ve URL'ler tarafından Brightspace** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:
+    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
     | |
     |--|
     | `https://<companyname>.tenants.brightspace.com/samlLogin`|
     | `https://<companyname>.desire2learn.com/shibboleth-sp`|
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
+    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [Brightspace Desire2Learn destek ekibi tarafından](https://www.d2l.com/contact/) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Desire2Learn destek ekibi tarafından Brightspace](https://www.d2l.com/contact/) bu değerleri almak için.
  
 
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/brightspace-desire2learn-tutorial/tutorial_general_400.png)
 
-6. Çoklu oturum açma yapılandırmak için **Desire2Learn tarafından Brightspace** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [Brightspace Desire2Learn destek ekibi tarafından](https://www.d2l.com/contact/).
+6. Çoklu oturum açmayı yapılandırma **Desire2Learn tarafından Brightspace** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [Desire2Learn destek ekibi tarafından Brightspace](https://www.d2l.com/contact/).
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/brightspace-desire2learn-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/brightspace-desire2learn-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/brightspace-desire2learn-tutorial/create_aaduser_03.png) 
 
@@ -162,64 +162,64 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/brightspace-desire2learn-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**’a tıklayın.
  
-### <a name="creating-a-brightspace-by-desire2learn-test-user"></a>Brightspace tarafından Desire2Learn test kullanıcısı oluşturma
+### <a name="creating-a-brightspace-by-desire2learn-test-user"></a>Bir Brightspace tarafından Desire2Learn test kullanıcısı oluşturma
 
-Azure AD kullanıcıların Desire2Learn tarafından Brightspace içine oturum etkinleştirmek için bunların Brightspace Desire2Learn tarafından sağlanmalıdır.  
+Brightspace Desire2Learn tarafından oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların Brightspace Desire2Learn tarafından sağlanması gerekir.  
 
-Desire2Learn tarafından Brightspace söz konusu olduğunda, kullanıcı hesapları tarafından oluşturulması gerektiğini, [Brightspace Desire2Learn destek ekibi tarafından](https://www.d2l.com/contact/).
+Desire2Learn tarafından Brightspace söz konusu olduğunda, kullanıcı hesapları tarafından oluşturulması gerekir, [Desire2Learn destek ekibi tarafından Brightspace](https://www.d2l.com/contact/).
 
 >[!NOTE]
->API Brightspace Desire2Learn tarafından Azure Active Directory sağlamak için kullanıcı hesapları sağladığı veya diğer Brightspace Desire2Learn kullanıcı hesabı oluşturma araçları tarafından kullanabilirsiniz. 
+>Diğer bir Brightspace Desire2Learn kullanıcı hesabı oluşturma araçları tarafından kullanabilir veya API'leri tarafından Desire2Learn Brightspace tarafından sağlama için Azure Active Directory kullanıcı hesaplarını sağlanan. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Britta Desire2Learn tarafından Brightspace için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma için Brightspace Desire2Learn tarafından erişim vererek kullanmak Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı Ata][200] 
 
-**Brightspace Desire2Learn tarafından Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Brightspace Desire2Learn tarafından atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Brightspace Desire2Learn tarafından**.
+2. Uygulamalar listesinde **Desire2Learn tarafından Brightspace**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı Ata][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Desire2Learn parçasında tarafından Brightspace tıklattığınızda, otomatik olarak, Brightspace Desire2Learn uygulama tarafından açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Brightspace tarafından erişim panelinde Desire2Learn kutucuğa tıkladığınızda, size otomatik olarak, Brightspace için Desire2Learn uygulama tarafından açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

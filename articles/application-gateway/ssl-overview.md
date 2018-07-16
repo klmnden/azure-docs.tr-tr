@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: amsriva
-ms.openlocfilehash: b1b6cec8cfeee2253ccd62f764ce4da4cb1b459d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1c94bc7fb97902c9d44392d2eb9bf4ee29f72af6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160537"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949756"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Application Gateway ile uçtan uca SSL’ye genel bakış
 
@@ -42,7 +42,7 @@ Uygulama ağ geçidi, yalnızca sertifikalarını uygulama ağ geçidiyle güven
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uçtan uca SSL hakkında bilgi edindikten sonra uçtan uca SSL kullanan uygulama ağ geçidi oluşturmak için [Uygulama ağ geçidinde uçtan uca SSL'yi etkinleştirme](tutorial-ssl-powershell.md) bölümüne gidin.
+Uçtan uca SSL hakkında bilgi edindikten sonra uçtan uca SSL kullanarak uygulama ağ geçidi oluşturmak için [Azure portal kullanarak SSL sonlandırmayla uygulama ağ geçidi yapılandırma](create-ssl-portal.md) bölümüne gidin.
 
 <!--Image references-->
 

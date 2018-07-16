@@ -14,11 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1b51638754287d3359eaea7bd5da3f71bf15cc89
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f1388843f2c5d3ea607b876ece288db1370329a2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461546"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Öğretici: Yönetilen hizmet kimliği ile SQL Veritabanı bağlantısını güvenli hale getirme
 
@@ -31,6 +32,9 @@ Aşağıdakileri nasıl yapacağınızı öğreneceksiniz:
 > * Hizmet kimliğine SQL Veritabanı erişimi verme
 > * Uygulama kodunu Azure Active Directory kimlik doğrulaması kullanarak SQL Veritabanı ile kimlik doğrulaması yapacak şekilde yapılandırma
 > * SQL Veritabanında hizmet kimliğine en düşük ayrıcalıkları verme
+
+> [!NOTE]
+> Azure Active Directory kimlik doğrulaması, şirket içi Active Directory’deki (AD DS) [Tümleşik Windows kimlik doğrulamasından](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) _farklıdır_. AD DS ve Azure Active Directory tamamen farklı kimlik doğrulama protokolleri kullanır. Daha fazla bilgi için bkz. [Windows Server AD DS ile Azure AD arasındaki fark](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -64,7 +68,7 @@ Kimlik Azure Active Directory’de oluşturulduktan sonra elde edilen çıktın�
 `principalId` değerini sonraki adımda kullanacaksınız. Azure Active Directory'de yeni kimliğin ayrıntılarını görmek isterseniz aşağıdaki isteğe bağlı komutu `principalId` değeriyle çalıştırın:
 
 ```azurecli-interactive
-az ad sp show --id <principalid>`
+az ad sp show --id <principalid>
 ```
 
 ## <a name="grant-database-access-to-identity"></a>Kimliğe veritabanı erişimi verme
@@ -156,7 +160,7 @@ Cloud Shell’de uygulamanızın yönetilen hizmet kimliğini aşağıdaki dized
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
 msiobjectid=$(az webapp identity show --resource-group <group_name> --name <app_name> --query principalId --output tsv)
-az ad group member add --group $groupid --member-id $msiid
+az ad group member add --group $groupid --member-id $msiobjectid
 az ad group member list -g $groupid
 ```
 

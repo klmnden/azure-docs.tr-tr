@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme SAP bulut platformu kimlik doğrulama ile | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ve SAP bulut platformu kimlik doğrulama arasında yapılandırmayı öğrenin.
+title: 'Öğretici: SAP Cloud Platform kimlik doğrulaması ile Azure Active Directory Tümleştirme | Microsoft Docs'
+description: SAP Cloud Platform kimlik doğrulaması ile Azure Active Directory arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,72 +15,72 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: dc62d7a24a53ffa04026c0f1a40b05b18e6db71d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 97e77fdbb352e1fcf66044f48e17cb19a8aa2e1d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231398"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042155"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Öğretici: SAP bulut platformu kimlik doğrulama Azure Active Directory Tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Öğretici: SAP Cloud Platform kimlik doğrulaması ile Azure Active Directory Tümleştirme
 
-Bu öğreticide, SAP bulut platformu kimlik doğrulaması Azure Active Directory (Azure AD) ile tümleştirme öğrenin. SAP bulut platformu kimlik doğrulama proxy'si olarak IDP ana IDP Azure AD kullanan SAP uygulamaları erişmek için kullanılır.
+Bu öğreticide, SAP Cloud Platform kimlik doğrulaması Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin. SAP Cloud Platform kimlik doğrulaması, bir proxy olarak IDP ana Idp'si olarak Azure AD'yi kullanan SAP uygulamalara erişmek için kullanılır.
 
-SAP bulut platformu kimlik doğrulaması Azure AD ile tümleştirdiğinizde, aşağıdaki faydaları alın:
+SAP Cloud Platform kimlik doğrulaması, Azure AD ile tümleştirdiğinizde, aşağıdaki avantajlardan yararlanabilirsiniz:
 
-- SAP uygulamalara erişimi, Azure AD'de kontrol edebilirsiniz.
-- Kullanıcılarınızın Azure AD hesaplarına uygulamalarla SAP otomatik olarak oturum açmak etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda--Azure portalında yönetebilir.
+- SAP uygulama erişimi, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak SAP uygulamaları Azure AD'ye hesaplarıyla oturum açmak, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda--Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-SAP bulut platformu kimlik doğrulaması ile Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
+SAP Cloud Platform kimlik doğrulaması ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD abonelik.
-- Bir tek oturum üzerindeki etkin olmayan abonelik için SAP bulut platformu kimlik doğrulama.
+- Azure AD aboneliğiniz.
+- Tek bir oturum üzerinde etkin olmayan abonelik için SAP Cloud Platform kimlik doğrulaması.
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamında kullanmanızı öneririz yok.
+> Bu öğreticideki adımları test etmek için üretim ortamında kullanımı önerilmemektedir.
 
-Bu öğreticide adımları test etmek için aşağıdaki önerileri uygulayın:
+Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa [bir aylık ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Bir Azure AD deneme ortamı yoksa [bir aylık ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide açıklanan senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden SAP bulut platformu kimlik doğrulama ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Galeriden SAP Cloud Platform kimlik doğrulaması ekleme
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
-Teknik ayrıntılara hemen önce bakmak oluşturacağız kavramları anlamanız önemlidir. SAP bulut platformu kimlik doğrulama ve Active Directory Federasyon Hizmetleri, uygulamalar veya SAP uygulamalarla (bir IDP) olarak Azure AD tarafından korunan Hizmetleri ve SAP bulut tarafından korunan Hizmetleri üzerinden SSO uygulamanızı etkinleştirme Platform kimlik doğrulama.
+Teknik ayrıntılara girmeden önce bakmak için gideceğinizi kavramları anlamak için önemlidir. SAP Cloud Platform kimlik doğrulaması ve Active Directory Federasyon Hizmetleri, uygulamaları veya Hizmetleri (bir IDP) olarak Azure AD ile SAP uygulamaları tarafından korunan ve SAP bulut tarafından korunan hizmetleri arasında SSO uygulamanızı etkinleştirme Platform kimlik doğrulaması.
 
-Şu anda, SAP bulut platformu kimlik doğrulama SAP uygulamaları için bir Proxy Kimlik sağlayıcısı gibi davranır. Azure Active Directory sırayla bu kurulumunda başında kimlik sağlayıcısı gibi davranır. 
+Şu anda SAP Cloud Platform kimlik doğrulaması, SAP uygulamaları için bir ara sunucu kimlik sağlayıcısı olarak görev yapar. Azure Active Directory, modunu bu kurulumunda önde gelen kimlik sağlayıcısı olarak görev yapar. 
 
-Aşağıdaki diyagram bu ilişkiyi gösterir:
+Aşağıdaki diyagramda, bu ilişkiyi göstermektedir:
 
 ![Bir Azure AD test kullanıcısı oluşturma](./media/sap-hana-cloud-platform-identity-authentication-tutorial/architecture-01.png)
 
-Bu kurulum ile SAP bulut platformu kimlik doğrulama kiracınızı Azure Active Directory'de güvenilir bir uygulama olarak yapılandırılır. 
+Bu kurulum ile SAP Cloud Platform kimlik doğrulaması kiracınızın, Azure Active Directory'de güvenilen bir uygulama olarak yapılandırılır. 
 
-Daha sonra tüm SAP uygulamaları ve bu şekilde korumak istediğiniz hizmetleri SAP bulut platformu kimlik doğrulama Yönetimi konsolunda yapılandırılır.
+Daha sonra tüm SAP uygulamalarını ve bu şekilde korumak istediğiniz hizmetleri SAP Cloud Platform kimlik doğrulaması Yönetimi konsolunda yapılandırılır.
 
-Bu nedenle, SAP uygulamaları ve hizmetlerine erişim izni verme için yetkilendirme SAP bulut platformu kimlik doğrulama (aksine, Azure Active Directory) içinde gerçekleşmesi gerekir.
+Bu nedenle, SAP uygulama ve hizmetlere erişim izni verme için yetkilendirme SAP Cloud Platform kimlik doğrulaması (aksine, Azure Active Directory) içinde gerçekleşmesi gerekir.
 
-Azure Active Directory Marketi üzerinden bir uygulama olarak SAP bulut platformu kimlik doğrulama yapılandırarak, bireysel talepler veya SAML onaylar yapılandırmanız gerekmez.
+SAP Cloud Platform kimlik doğrulaması Azure Active Directory Marketi üzerinden bir uygulama olarak yapılandırarak, tek bir talep veya SAML onaylamalarını yapılandırmanız gerekmez.
 
 >[!NOTE] 
->Şu anda yalnızca Web SSO hem taraflar tarafından test edilmiştir. Uygulama API veya API API iletişimi için gerekli olan akışlar çalışması gereken ancak henüz test edilmemiştir. Bunlar bir sonraki etkinlik sırasında test edilir.
+>Şu anda yalnızca Web SSO her iki taraf tarafından test edilmiştir. Uygulama API veya API iletişim için gerekli olan akışların çalışması gerekir, ancak henüz test edilmemiştir. Sonraki etkinliklerin sırasında sınanır.
 >
 
-## <a name="add-sap-cloud-platform-identity-authentication-from-the-gallery"></a>Galeriden SAP bulut platformu kimlik doğrulama ekleme
-Azure AD'de SAP bulut platformu kimlik doğrulaması tümleştirmesini yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden SAP bulut platformu kimlik doğrulama eklemeniz gerekir.
+## <a name="add-sap-cloud-platform-identity-authentication-from-the-gallery"></a>SAP Cloud Platform kimlik doğrulaması Galeriden Ekle
+Azure AD'de SAP Cloud Platform kimlik doğrulaması tümleştirmesini yapılandırmak için SAP Cloud Platform kimlik doğrulaması Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**SAP bulut platformu kimlik doğrulama Galeriden eklemek için aşağıdaki adımları uygulayın:**
+**Galeriden SAP Cloud Platform kimlik doğrulaması eklemek için aşağıdaki adımları uygulayın:**
 
-1. İçinde [Azure portal](https://portal.azure.com), sol gezinti panelinde seçin **Azure Active Directory** simgesi. 
+1. İçinde [Azure portalında](https://portal.azure.com), sol gezinti panelinde seçin **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -92,73 +92,73 @@ Azure AD'de SAP bulut platformu kimlik doğrulaması tümleştirmesini yapıland
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **SAP bulut platformu kimlik doğrulama**. 
+4. Arama kutusuna **SAP Cloud Platform kimlik doğrulaması**. 
 
-5. Seçin **SAP bulut platformu kimlik doğrulama** sonuçlar paneli ve ardından **Ekle** düğmesi.
+5. Seçin **SAP Cloud Platform kimlik doğrulaması** sonuçlar paneli ve ardından **Ekle** düğmesi.
 
-    ![Sonuçlar listesinde SAP bulut platformu kimlik doğrulama](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_addfromgallery.png)
+    ![Sonuç listesinde SAP Cloud Platform kimlik doğrulaması](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma SAP bulut platformu kimlik doğrulama ile test etme. Yapılandırma ve "Britta Simon." olarak adlandırılan bir test kullanıcısı ile test etme
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma SAP Cloud Platform kimlik doğrulaması ile test edin. Yapılandırma ve "Britta Simon." adlı bir test kullanıcı ile test
 
-Tekli çalışmaya oturum için Azure AD SAP bulut platformu kimlik doğrulama karşılık gelen kullanıcının kim olduğunu bilmek ister. Diğer bir deyişle, SAP bulut platformu kimlik doğrulaması bir Azure AD kullanıcısının ve ilgili kullanıcı arasında bir bağlantı oluşturmanız gerekir.
+Tek iş için oturum açma için Azure AD, SAP Cloud Platform kimlik doğrulaması karşılığı kullanıcısının kim olduğunu bilmek ister. Diğer bir deyişle, SAP Cloud Platform kimlik doğrulaması bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir bağlantı kurmak gerekir.
 
-SAP bulut platformu kimlik doğrulama içinde değere vermek **kullanıcıadı** aynı değer olarak **kullanıcı adı** Azure AD'de. Şimdi iki kullanıcılar arasında bağlantı kurulduktan.
+SAP Cloud Platform kimlik doğrulaması değeri vermek **kullanıcıadı** aynı değer olarak **kullanıcı adı** Azure AD'de. Şimdi iki kullanıcı arasındaki bağlantı kurduğunuz.
 
-Yapılandırma ve Azure AD çoklu oturum açma SAP bulut platformu kimlik doğrulama ile test etmek için aşağıdaki yapı taşları tamamlayın:
+Yapılandırma ve Azure AD çoklu oturum açma SAP Cloud Platform kimlik doğrulaması ile test etmek için aşağıdaki yapı taşlarını tamamlayın:
 
-1. [Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on) bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. [Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on) kullanıcılarınız bu özelliği kullanmak etkinleştirmek için.
 2. [Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. [Bir SAP bulut platformu kimlik doğrulama test kullanıcısı oluşturma](#create-an-sap-cloud-platform-identity-authentication-test-user) Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı SAP bulut platformu kimlik doğrulama sağlamak için.
-4. [Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user) Britta Azure AD çoklu oturum açma kullanmak Simon etkinleştirmek için.
-5. [Test çoklu oturum açma](#test-single-sign-on) yapılandırma çalıştığını doğrulayın.
+3. [SAP Cloud Platform kimlik doğrulaması bir test kullanıcısı oluşturma](#create-an-sap-cloud-platform-identity-authentication-test-user) bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı SAP Cloud Platform kimlik doğrulaması sağlamak için.
+4. [Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user) Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
+5. [Çoklu oturum açmayı test](#test-single-sign-on) yapılandırma çalıştığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma SAP bulut platformu kimlik doğrulama uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve SAP Cloud Platform kimlik doğrulaması uygulamanızda çoklu oturum açmayı yapılandırın.
 
-**Azure AD çoklu oturum açma SAP bulut platformu kimlik doğrulama ile yapılandırmak için aşağıdaki adımları uygulayın:**
+**SAP Cloud Platform kimlik doğrulaması ile Azure AD çoklu oturum açmayı yapılandırmak için aşağıdaki adımları uygulayın:**
 
-1. Azure portalında üzerinde **SAP bulut platformu kimlik doğrulama** uygulama tümleştirmesi sayfasında, **çoklu oturum açma**.
+1. Azure portalında, üzerinde **SAP Cloud Platform kimlik doğrulaması** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. İçinde **çoklu oturum açma** iletişim kutusunda **SAML tabanlı oturum açma**seçin **modu** çoklu oturum açmayı etkinleştirmek için.
+2. İçinde **çoklu oturum açma** iletişim kutusunun **SAML tabanlı oturum açma**seçin **modu** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. Uygulamada yapılandırmak istiyorsanız, **IDP** modunda başlatılan **SAP bulut Platform kimliği kimlik doğrulaması etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:  
+3. Uygulamada yapılandırmak istiyorsanız **IDP** modunda başlatılan **SAP Cloud Platform kimlik kimlik doğrulaması etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:  
 
-    ![SAP bulut Platform kimliği kimlik doğrulama etki alanı ve URL'leri tek oturum açma bilgileri](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_url.png)
+    ![SAP Cloud Platform kimlik kimlik doğrulaması etki alanı ve URL'ler tek oturum açma bilgileri](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_url.png)
 
-    a. İçinde **tanımlayıcısı** kutusunda, aşağıdaki desende bir URL yazın: `<IAS-tenant-id>.accounts.ondemand.com`
+    a. İçinde **tanımlayıcı** kutusuna aşağıdaki desene sahip bir URL yazın: `<IAS-tenant-id>.accounts.ondemand.com`
 
-    b. İçinde **yanıt URL'si** kutusunda, aşağıdaki desende bir URL yazın: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
-
-    > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [SAP bulut Platform kimliği kimlik doğrulaması istemci destek ekibi](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) bu değerleri almak için. Tanımlayıcı değeri anlamadığınız, SAP bulut platformu kimlik doğrulama belgeleri hakkında okuyun [Kiracı SAML 2.0 yapılandırma](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
-
-4. Uygulamada yapılandırmak istiyorsanız, **SP** başlatılan modu, select **Göster Gelişmiş URL ayarları**.
-
-    ![SAP bulut Platform kimliği kimlik doğrulama etki alanı ve URL'leri tek oturum açma bilgileri](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_url1.png)
-
-    İçinde **oturum üzerinde URL'si** kutusunda, aşağıdaki desende bir URL yazın: `{YOUR BUSINESS APPLICATION URL}`.
+    b. İçinde **yanıt URL'si** kutusuna aşağıdaki desene sahip bir URL yazın: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
 
     > [!NOTE]
-    > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Oturum açma, belirli iş uygulama URL'sini kullanın. Kişi [SAP bulut Platform kimliği kimlik doğrulaması istemci destek ekibi](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) tüm şüpheli varsa.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [SAP Cloud Platform kimlik kimlik doğrulama istemcisi Destek ekibine](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) bu değerleri almak için. Tanımlayıcı değeri anlamıyorsanız, SAP Cloud Platform kimlik doğrulaması belgeleri hakkında okuyun [Kiracı SAML 2.0 Yapılandırması](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
 
-5. İçinde **SAML imzalama sertifikası** bölümünde, select **meta veri XML**. Ardından meta veri dosyası, bilgisayarınıza kaydedin.
+4. Uygulamada yapılandırmak istiyorsanız **SP** başlatılan modu, select **Gelişmiş URL ayarlarını göster**.
+
+    ![SAP Cloud Platform kimlik kimlik doğrulaması etki alanı ve URL'ler tek oturum açma bilgileri](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_url1.png)
+
+    İçinde **işareti bulunan URL'si** kutusuna aşağıdaki desene sahip bir URL yazın: `{YOUR BUSINESS APPLICATION URL}`.
+
+    > [!NOTE]
+    > Bu değer, gerçek değil. Bu değer, gerçek oturum açma URL'si ile güncelleştirin. Lütfen oturum açma, belirli iş uygulama URL'sini kullanın. İlgili kişi [SAP Cloud Platform kimlik kimlik doğrulama istemcisi Destek ekibine](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) herhangi bir konuda şüpheleriniz varsa.
+
+5. İçinde **SAML imzalama sertifikası** bölümünden **meta veri XML**. Bilgisayarınızda meta verileri dosyayı kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_certificate.png)
 
-6. SAP bulut platformu kimlik doğrulama uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu öznitelik değerleri yönetme **kullanıcı öznitelikleri** bölümü uygulama tümleştirmesi sayfasında. Aşağıdaki ekran görüntüsünde biçimi örneği gösterir. 
+6. SAP Cloud Platform kimlik doğrulaması uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu öznitelikleri değerlerini yönetmek **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsünde biçimi örneği gösterilmektedir. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/sap-hana-cloud-platform-identity-authentication-tutorial/attribute.png)
 
-7. SAP uygulamanız bir öznitelik gibi görüyorsa **firstName**, ekleme **firstName** özniteliğini **kullanıcı öznitelikleri** bölümü. Bu seçenek kullanılabilir **çoklu oturum açma** iletişim kutusunun **SAML belirteci öznitelikleri** iletişim kutusu...
+7. SAP uygulama gibi bir öznitelik bekliyorsa **firstName**, ekleme **firstName** özniteliğini **kullanıcı öznitelikleri** bölümü. Bu seçenek kullanılabilir **çoklu oturum açma** iletişim kutusunun **SAML belirteci öznitelikleri** iletişim kutusu...
 
-    a. Açmak için **özniteliği eklemek** iletişim kutusunda **Ekle özniteliği**. 
+    a. Açmak için **öznitelik Ekle** iletişim kutusunda **eklemek agentconfigutil**. 
     
     ![Çoklu oturum açmayı yapılandırın](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_attribute_04.png)
     
@@ -166,52 +166,52 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     b. İçinde **adı** öznitelik adı yazın **firstName**.
     
-    c. Gelen **değeri** listesinde, öznitelik değeri seçin **user.givenname**.
+    c. Gelen **değer** listesinde, öznitelik değeri seçin **user.givenname**.
     
-    d. Seçin **Tamam**.
+    d. **Tamam**’ı seçin.
 
 8. **Kaydet** düğmesini seçin.
 
-    ![Çoklu oturum açma düğmesi kaydetme yapılandırın](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_400.png)
+    ![Kaydet düğmesi çoklu oturum açmayı yapılandırın](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_400.png)
 
-9. İçinde **SAP bulut Platform kimliği kimlik doğrulama Yapılandırması** bölümünde, select **SAP bulut platformu kimlik doğrulama yapılandırma** açmak için **oturum açmaYapılandırma**penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+9. İçinde **SAP Cloud Platform kimlik kimlik doğrulaması Yapılandırması** bölümünden **SAP Cloud Platform kimlik doğrulaması yapılandırma** açmak için **oturum açmaYapılandırma**penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![SAP bulut Platform kimliği kimlik doğrulama yapılandırması](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_configure.png) 
+    ![SAP Cloud Platform kimlik kimlik doğrulaması yapılandırması](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_configure.png) 
 
-10. Uygulamanız için yapılandırılmış SSO almak için SAP bulut platformu kimlik doğrulama yönetim konsoluna gidin. URL aşağıdaki deseni vardır: `https://<tenant-id>.accounts.ondemand.com/admin`. SAP bulut platformu kimlik doğrulaması sırasında ilgili belgelere okuma [Microsoft Azure AD ile tümleştirme](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html). 
+10. Uygulamanız için yapılandırılmış SSO edinmek için SAP Cloud Platform kimlik doğrulaması yönetim konsoluna gidin. URL şu desene sahip: `https://<tenant-id>.accounts.ondemand.com/admin`. Ardından SAP Cloud Platform kimlik doğrulaması hakkında belgeleri okuyun [Microsoft Azure AD ile tümleştirme](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html). 
 
-11. Azure portalında seçin **kaydetmek** düğmesi.
+11. Azure portalında **Kaydet** düğmesi.
 
-12. Yalnızca ekleyin ve başka bir SAP uygulama için SSO'yu etkinleştirmek isterseniz, aşağıdaki ile devam edin. Bölümü altındaki adımları yineleyin **galerisinden SAP bulut platformu kimlik doğrulama ekleme**.
+12. Yalnızca ekleme ve başka bir SAP uygulama için SSO'yu etkinleştirmek isterseniz, aşağıdaki ile devam edin. Bölümünde adımları yineleyin **galerisinden SAP Cloud Platform kimlik doğrulaması ekleme**.
 
-13. Azure portalında üzerinde **SAP bulut platformu kimlik doğrulama** uygulama tümleştirmesi sayfasında, **bağlantılı oturum açma**.
+13. Azure portalında, üzerinde **SAP Cloud Platform kimlik doğrulaması** uygulama tümleştirme sayfasında **bağlantılı oturum açma**.
 
-    ![Bağlantılı oturum açma özelliğini yapılandırın](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked_sign_on.png)
+    ![Bağlantılı oturum açmayı yapılandırın](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked_sign_on.png)
 
 14. Yapılandırmayı kaydedin.
 
 >[!NOTE] 
->Yeni uygulama tek oturum açma yapılandırma önceki SAP uygulamanın yararlanır. SAP bulut platformu kimlik doğrulama yönetim konsolunda aynı Kurumsal kimlik sağlayıcıları kullandığınızdan emin olun.
+>Yeni uygulama, çoklu oturum açma yapılandırması önceki SAP uygulamasının yararlanır. SAP Cloud Platform kimlik doğrulaması yönetim konsolunda aynı Kurumsal kimlik sağlayıcıları kullandığınızdan emin olun.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com) uygulaması kuruluyor sırada!  Bu uygulamadan ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünde, select **çoklu oturum açma** sekmesinde ve katıştırılmış erişim belgeleri etraflıca **yapılandırma** alt bölüm. Daha fazla bilgiyi embedded belgeler özelliği hakkında [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985).
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com) uygulamasını ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünden **çoklu oturum açma** sekme ve katıştırılmış erişin belgelerin **yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında [Azure AD belgeleri katıştırılmış]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları uygulayın:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları uygulayın:**
 
-1. Azure portalında sol bölmede seçin **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede seçin **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_02.png)
 
 3. Açmak için **kullanıcı** iletişim kutusunda **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
@@ -223,64 +223,64 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’u seçin.
  
-### <a name="create-an-sap-cloud-platform-identity-authentication-test-user"></a>Bir SAP bulut platformu kimlik doğrulama test kullanıcısı oluşturma
+### <a name="create-an-sap-cloud-platform-identity-authentication-test-user"></a>SAP Cloud Platform kimlik doğrulaması bir test kullanıcısı oluşturma
 
-SAP bulut platformu kimlik doğrulaması bir kullanıcı oluşturmanız gerekmez. Azure AD kullanıcı deposunda kullanıcılar SSO işlevini kullanabilirsiniz.
+SAP Cloud Platform kimlik doğrulaması bir kullanıcı oluşturmanız gerekmez. Azure AD kullanıcı deposunda olan kullanıcılar, SSO işlevselliğini kullanabilirsiniz.
 
-SAP bulut platformu kimlik doğrulama Kimlik Federasyonu seçeneğini destekler. Bu seçenek, Kurumsal kimlik sağlayıcısı tarafından kimliği doğrulanmış kullanıcılar kullanıcı deposu, SAP bulut platformu kimlik doğrulama içinde olup olmadığını denetlemek için uygulamanın sağlar. 
+SAP Cloud Platform kimlik doğrulaması Kimlik Federasyonu seçeneğini destekler. Bu seçenek, Kurumsal kimlik sağlayıcısı tarafından doğrulanır kullanıcılar kullanıcı deposu, SAP Cloud Platform kimlik doğrulaması içinde olup olmadığını denetlemek için uygulamanın sağlar. 
 
-Kimlik Federasyonu seçeneği varsayılan olarak devre dışıdır. Kimlik Federasyonu etkinleştirilirse, SAP bulut platformu kimlik doğrulama alınan kullanıcı uygulamasına erişebilir. 
+Kimlik Federasyonu seçeneği varsayılan olarak devre dışıdır. Kimlik Federasyonu etkinleştirilirse, SAP Cloud Platform kimlik doğrulaması içeri aktarılan kullanıcılar uygulamaya erişebilir. 
 
-Etkinleştirmek veya SAP bulut platformu kimlik doğrulaması ile Kimlik Federasyonu devre dışı bırakma hakkında daha fazla bilgi için "Etkinleştirme kimlik Federasyon ile SAP bulut platformu kimlik doğrulama" bölümüne bakın. [ile Kimlik Federasyonu yapılandırma Kullanıcı deposu, SAP bulut platformu kimlik doğrulama](https://help.hana.ondemand.com/cloud_identity/frameset.htm?c029bbbaefbf4350af15115396ba14e2.html).
+Etkinleştirmek veya SAP Cloud Platform kimlik doğrulaması ile Kimlik Federasyonu devre dışı bırakma hakkında daha fazla bilgi için "Etkinleştirme kimlik Federasyon ile SAP Cloud Platform kimlik doğrulaması" bölümüne bakın. [ile Kimlik Federasyonu yapılandırma Kullanıcı Store, SAP Cloud Platform kimlik doğrulaması](https://help.hana.ondemand.com/cloud_identity/frameset.htm?c029bbbaefbf4350af15115396ba14e2.html).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, SAP bulut platformu kimlik doğrulaması için erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, SAP Cloud Platform kimlik doğrulaması için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
-**SAP bulut platformu kimlik doğrulama için Britta Simon atamak için aşağıdaki adımları uygulayın:**
+**SAP Cloud Platform kimlik doğrulaması için Britta Simon atamak için aşağıdaki adımları uygulayın:**
 
-1. Azure Portalı'ndaki uygulamaları görünümünü açın ve dizin görünümüne gidin. Ardından, Git **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açın ve ardından dizin görünümüne gidin. Ardından, Git **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **SAP bulut platformu kimlik doğrulama**.
+2. Uygulamalar listesinde **SAP Cloud Platform kimlik doğrulaması**.
 
-    ![Uygulamalar listesinde SAP bulut platformu kimlik doğrulama bağlantı](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_app.png)  
+    ![Uygulamalar listesinde SAP Cloud Platform kimlik doğrulaması bağlantı](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_app.png)  
 
-3. Soldaki menüde seçin **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Seçin **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** içinde **eklemek atama** iletişim kutusu.
+4. Seçin **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim kutusu.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
 5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim kutusu.
+6. Tıklayın **seçin** düğmesine **kullanıcılar ve gruplar** iletişim kutusu.
 
-7. Seçin **atamak** düğmesini **eklemek atama** iletişim kutusu.
+7. Seçin **atama** düğmesine **atama Ekle** iletişim kutusu.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
 
-SAP bulut platformu kimlik doğrulama döşeme erişim panelinde seçtiğinizde, SAP bulut platformu kimlik doğrulama uygulamanıza oturumunuz otomatik olarak.
+Erişim Paneli'nde SAP Cloud Platform kimlik doğrulaması kutucuğu seçtiğinizde, SAP Cloud Platform kimlik doğrulaması uygulamanıza oturumunuz otomatik olarak.
 
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD SSPR'yi veri gereksinimleri | Microsoft Docs
+title: Azure AD SSPR veri gereksinimleri | Microsoft Docs
 description: Veri gereksinimleri için Azure AD Self Servis parola sıfırlama ve bunları karşılamak nasıl
 services: active-directory
 ms.service: active-directory
@@ -10,79 +10,79 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ea6bf503eeba9e904c492a858139490b523a10cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257597"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044184"
 ---
-# <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Parola sıfırlama son kullanıcı kayıt gerektirmeden dağıtma
+# <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Son kullanıcı kaydı istemeden parola sıfırlamayı dağıtma
 
-Azure Active Directory (Azure AD) Self Servis parola sıfırlama (SSPR) dağıtmak için kimlik doğrulama verileri mevcut olması gerekir. Bazı kuruluşlar kendi kimlik doğrulama verileri girin, kullanıcılar sahiptir. Ancak, Active Directory'de zaten var. veri ile eşitlemek birçok kuruluş tercih eder. Azure AD ile eşitlenmiş veriler kullanılabilir hale getirilir ve SSPR ise kullanıcı etkileşimi gerektirmeden:
-   * Düzgün bir şekilde şirket içi dizininizdeki verileri biçimlendirin.
+Azure Active Directory (Azure AD) Self Servis parola sıfırlama (SSPR) dağıtmak için kimlik doğrulama verilerini mevcut olması gerekir. Bazı kuruluşların kullanıcıları kendi kimlik doğrulama verilerini girin vardır. Ancak birçok kuruluşun Active Directory'de zaten var. veri ile eşitlemek tercih edin. Azure AD'ye eşitlenmiş veriler kullanılabilir hale gelir ve SSPR, kullanıcı etkileşimi gerektirmeden:
+   * Şirket içi dizininizdeki verileri düzgün bir şekilde biçimlendirin.
    * Yapılandırma [hızlı ayarları kullanarak Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md).
 
 Düzgün çalışması için telefon numaraları biçiminde olmalıdır *+ CountryCode PhoneNumber*, örneğin, + 1 4255551234.
 
 > [!NOTE]
-> Var. ülke kodunu ve telefon numarası arasında bir boşluk olması gerekir.
+> Orada ülke kodunu ve telefon numarası arasına bir boşluk olması gerekir.
 >
-> Parola sıfırlama telefon uzantıları desteklemez. Kurulmadan önce bile + 1 4255551234 X 12345 biçiminde uzantıları kaldırılır.
+> Parola sıfırlama telefon dahili numaralarına desteklemez. Kurulmadan önce bile X + 1 4255551234 12345 biçiminde uzantılar kaldırılır.
 
 ## <a name="fields-populated"></a>Doldurulmuş alanları
 
-Azure AD Connect varsayılan ayarları kullanırsanız, aşağıdaki eşlemelerini oluşturulur:
+Azure AD Connect varsayılan ayarları kullanıyorsanız, aşağıdaki eşlemeler oluşturulur:
 
 | Şirket içi Active Directory | Azure AD |
 | --- | --- |
 | telephoneNumber | Ofis telefonu |
 | Mobil | Cep telefonu |
 
-Bir kullanıcı, cep telefonu numarası doğruladıktan sonra telefon alan Azure AD kimlik doğrulama kişi bilgilerini altında da numaralı doldurulur.
+Bir kullanıcı kullanıcıdan birincil telefonu numarasını doğruladıktan sonra Azure AD'de kimlik doğrulaması iletişim bilgileri altında telefon alan ayrıca numaralı doldurulur.
 
 ## <a name="authentication-contact-info"></a>Kimlik doğrulaması iletişim bilgileri
 
-Genel yönetici, aşağıdaki ekran görüntüsünde gösterildiği bir kullanıcı için kimlik doğrulama kişi bilgilerini el ile ayarlayabilirsiniz.
+Genel yönetici, aşağıdaki ekran görüntüsünde gösterilen şekilde bir kullanıcı için kimlik doğrulaması iletişim bilgileri el ile ayarlayabilirsiniz.
 
 ![lgili kişi][Contact]
 
-Telefon alanı doldurulur ve cep telefonu SSPR İlkesi'nde etkinleştirilirse kullanıcı numarası sırasında parola ve parola sıfırlama kayıt sayfasında iş akışı sıfırlama görürsünüz. 
+Telefon alan doldurulur ve cep telefonu SSPR ilkesinde etkin kullanıcı parola sıfırlama kayıt sayfasında ve sırasında parola sıfırlama iş akışı görürsünüz. 
 
-Diğer telefon alan parola sıfırlama için kullanılmaz.
+Alternatif telefon alan parola sıfırlama için kullanılmaz.
 
-E-posta alanı doldurulur ve e-posta SSPR İlkesi'nde etkinleştirilirse, kullanıcının e-posta sırasında parola ve parola sıfırlama kayıt sayfasında iş akışı sıfırlama görürsünüz.
+E-posta alanı doldurulur ve e-posta SSPR ilkesinde etkinleştirilirse, kullanıcının e-posta parola sıfırlama kayıt sayfasında ve sırasında parola sıfırlama iş akışı görürsünüz.
 
-Alternatif e-posta alanı doldurulur ve e-posta SSPR İlkesi'nde etkinleştirilirse kullanıcı olacak **değil** e-posta açma parolasını sıfırlama kayıt sayfası, ancak parola sıfırlama iş akışı görürler bakın. 
+Alternatif e-posta alanı doldurulur ve e-posta SSPR ilkesinde etkin ise kullanıcı olacak **değil** e-parola sıfırlama kayıt sayfasına, ancak bunu sırasında parola sıfırlama iş akışı görürler bakın. 
 
 
 ## <a name="security-questions-and-answers"></a>Güvenlik sorularını ve yanıtlarını
 
-Güvenlik sorularını ve yanıtlarını Azure AD kiracınızda güvenli bir şekilde depolanır ve yalnızca üzerinden kullanıcılara erişilebilir [SSPR kayıt portalı](https://aka.ms/ssprsetup). Yöneticiler bakın veya başka kullanıcıların sorularını ve yanıtlarını içeriğini değiştirin.
+Güvenlik sorularını ve yanıtlarını, Azure AD kiracınızda güvenli bir şekilde depolanır ve yalnızca kullanıcılara erişilebilir [SSPR kayıt portalı](https://aka.ms/ssprsetup). Yöneticiler göremez veya başka kullanıcıların sorularını ve yanıtlarını içeriğini değiştirin.
 
-### <a name="what-happens-when-a-user-registers"></a>Kullanıcı kayıtları ne olur
+### <a name="what-happens-when-a-user-registers"></a>Bir kullanıcı kayıt olurkenki ne olur
 
-Bir kullanıcı kaydettiğinde kayıt sayfası aşağıdaki alanları ayarlar:
+Bir kullanıcı kayıt olurkenki, aşağıdaki alanlar kayıt sayfasına ayarlar:
 
-* **Kimlik doğrulama telefon**
+* **Kimlik doğrulama telefonu**
 * **Kimlik doğrulama e-posta**
 * **Güvenlik sorularını ve yanıtlarını**
 
-İçin bir değer sağladıysanız **cep telefonu** veya **alternatif e-posta**, kullanıcıların hemen kullanabilir bu değerleri kendi parolalarını sıfırlamak için hizmet için kaydolmadıysanız bile. Ayrıca, kullanıcılar ilk kez kaydetmek ve etmek istiyorsanız, bunları değiştirebilir bu değerleri bakın. İçinde başarıyla kaydettikten sonra bu değerler kalıcıdır **kimlik doğrulama telefon** ve **kimlik doğrulama e-posta** alanlar, sırasıyla.
+İçin bir değer sağlanmışsa **cep telefonu** veya **alternatif e-posta**, kullanıcıların hemen kullanabilir bu değerleri kendi parolalarını sıfırlamak için bile için hizmet kayıtlı olmayabilirsiniz. Ayrıca, kullanıcılar ilk kez kaydetmek ve isterlerse bunlar değiştirebilmek bu değerleri kullanıcılar görür. Başarıyla kaydettikten sonra bu değerler, kalıcı **kimlik doğrulama telefonu** ve **kimlik doğrulama e-posta** alanlar, sırasıyla.
 
-## <a name="set-and-read-the-authentication-data-through-powershell"></a>Ayarlama ve PowerShell aracılığıyla kimlik doğrulama verileri okuma
+## <a name="set-and-read-the-authentication-data-through-powershell"></a>Ayarlayın ve PowerShell aracılığıyla kimlik doğrulama verilerini okuma
 
-Aşağıdaki alanları PowerShell aracılığıyla ayarlanabilir:
+Aşağıdaki alanlar, PowerShell aracılığıyla ayarlanabilir:
 
 * **Alternatif e-posta**
 * **Cep telefonu**
-* **Ofis telefonu**: yalnızca, bir şirket içi diziniyle değil eşitliyorsanız ayarlanabilir
+* **Ofis telefonu**:, bir şirket içi dizininizle eşitleme değil, yalnızca ayarlanabilir
 
-### <a name="use-powershell-version-1"></a>PowerShell sürüm 1 kullanma
+### <a name="use-powershell-version-1"></a>PowerShell sürüm 1'i kullanın
 
-Başlamak için yapmanız [Azure AD PowerShell modülü yükleyip](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Yüklemediyseniz sonra her bir alan yapılandırmak için izlediği adımları kullanabilirsiniz.
+Başlamak için yapmanız [Azure AD PowerShell modülünü indirip](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Yüklü sonra her bir alan yapılandırmak için aşağıdaki adımları kullanabilirsiniz.
 
-#### <a name="set-the-authentication-data-with-powershell-version-1"></a>PowerShell sürüm 1 ile kimlik doğrulaması veri kümesi
+#### <a name="set-the-authentication-data-with-powershell-version-1"></a>PowerShell sürüm 1 ile kimlik doğrulama verilerini ayarlama
 
 ```
 Connect-MsolService
@@ -94,7 +94,7 @@ Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com") -MobilePhone "+1 1234567890" -PhoneNumber "+1 1234567890"
 ```
 
-#### <a name="read-the-authentication-data-with-powershell-version-1"></a>PowerShell sürüm 1 ile kimlik doğrulama verileri okuma
+#### <a name="read-the-authentication-data-with-powershell-version-1"></a>PowerShell sürüm 1 ile kimlik doğrulama verilerini okuyun
 
 ```
 Connect-MsolService
@@ -106,9 +106,9 @@ Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
 Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,MobilePhone,PhoneNumber | Format-Table
 ```
 
-#### <a name="read-the-authentication-phone-and-authentication-email-options"></a>Kimlik doğrulama telefon ve kimlik doğrulama e-posta seçeneklerini okuyun
+#### <a name="read-the-authentication-phone-and-authentication-email-options"></a>Kimlik doğrulama telefon numarasını ve kimlik doğrulama e-posta seçeneklerini okuyun
 
-Okunacak **kimlik doğrulama telefon** ve **kimlik doğrulama e-posta** PowerShell sürüm 1 kullandığınızda, aşağıdaki komutları kullanın:
+Okunacak **kimlik doğrulama telefonu** ve **kimlik doğrulama e-posta** PowerShell sürüm 1'i kullandığınızda, aşağıdaki komutları kullanın:
 
 ```
 Connect-MsolService
@@ -118,9 +118,9 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>PowerShell sürüm 2 kullanın
 
-Başlamak için yapmanız [Azure AD sürüm 2 PowerShell modülünü yükleyip](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). Yüklemediyseniz sonra her bir alan yapılandırmak için izlediği adımları kullanabilirsiniz.
+Başlamak için yapmanız [Azure AD sürüm 2 PowerShell modülünü indirip](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). Yüklü sonra her bir alan yapılandırmak için aşağıdaki adımları kullanabilirsiniz.
 
-Install-Module destekleyen en son sürümlerinden PowerShell hızlı bir şekilde yüklemek için aşağıdaki komutları çalıştırın. (İlk satırı modül zaten yüklü olup olmadığını denetler.)
+Install-Module destekleyen yeni sürümlerinden PowerShell hızlı bir şekilde yüklemek için aşağıdaki komutları çalıştırın. (İlk satır modül zaten yüklü olup olmadığını denetler.)
 
 ```
 Get-Module AzureADPreview
@@ -128,7 +128,7 @@ Install-Module AzureADPreview
 Connect-AzureAD
 ```
 
-#### <a name="set-the-authentication-data-with-powershell-version-2"></a>PowerShell sürüm 2 ile kimlik doğrulaması veri kümesi
+#### <a name="set-the-authentication-data-with-powershell-version-2"></a>PowerShell sürüm 2 ile kimlik doğrulama verilerini ayarlama
 
 ```
 Connect-AzureAD
@@ -140,7 +140,7 @@ Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 1234567890"
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mobile "+1 1234567890" -TelephoneNumber "+1 1234567890"
 ```
 
-#### <a name="read-the-authentication-data-with-powershell-version-2"></a>PowerShell sürüm 2 ile kimlik doğrulama verileri okuma
+#### <a name="read-the-authentication-data-with-powershell-version-2"></a>PowerShell sürüm 2 ile kimlik doğrulama verilerini okuyun
 
 ```
 Connect-AzureAD
@@ -155,8 +155,8 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](howto-sspr-deployment.md)
-* [Parolanızı sıfırlama veya değiştirme](../active-directory-passwords-update-your-own-password.md)
-* [Self servis parola sıfırlama için kaydolma](../active-directory-passwords-reset-register.md)
+* [Parolanızı sıfırlama veya değiştirme](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Self servis parola sıfırlama için kaydolma](../user-help/active-directory-passwords-reset-register.md)
 * [Lisansla ilgili bir sorunuz mu var?](concept-sspr-licensing.md)
 * [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](concept-sspr-howitworks.md#authentication-methods)
 * [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](concept-sspr-policy.md)
@@ -166,4 +166,4 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Bir arıza olduğunu düşünüyorum. SSPR’de nasıl sorun giderebilirim?](active-directory-passwords-troubleshoot.md)
 * [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)
 
-[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Genel Yöneticiler bir kullanıcının kimlik doğrulaması kişi bilgilerini değiştirebilirsiniz"
+[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Genel Yöneticiler bir kullanıcının kimlik doğrulaması iletişim bilgileri değiştirebilirsiniz."

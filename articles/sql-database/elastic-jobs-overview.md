@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 06/14/2018
 ms.author: srinia
-ms.openlocfilehash: b2cbf7501b3c5006c7504c7af7d70c14035cfc74
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 65e920858b1c859dc9f8e911cdf59d4ab02da6d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113366"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972171"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Elastik Veritabanı İşleriyle veritabanı gruplarını yönetin
 
@@ -192,7 +192,7 @@ SQL Server Agent (şirket içi ve SQL Veritabanı Yönetilen Örneği kapsamınd
 
 |  |Elastik İşler  |SQL Server Agent |
 |---------|---------|---------|
-|Kapsam     |  İş aracısıyla aynı Azure bulutunda herhangi bir sayıda Azure SQL Veritabanı ve/veya veri ambarı. Hedefler farklı mantıksal sunucularda, aboneliklerde ve/veya bölgelerde olabilir. <br><br>Hedef gruplar tek veritabanı veya veri ambarlarının yanı sıra bir sunucu, havuz veya parça eşlemesi içindeki tüm veritabanları (iş zamanında dinamik olarak numaralandırılır) olabilir. | SQL aracısıyla aynı SQL Server örneğindeki tek bir veritabanı. |
+|Kapsam     |  İş aracısıyla aynı Azure bulutunda herhangi bir sayıda Azure SQL Veritabanı ve/veya veri ambarı. Hedefler farklı mantıksal sunucularda, aboneliklerde ve/veya bölgelerde olabilir. <br><br>Hedef gruplar tek veritabanı veya veri ambarlarının yanı sıra bir sunucu, havuz veya parça eşlemesi içindeki tüm veritabanlarından (iş zamanında dinamik olarak numaralandırılır) oluşabilir. | SQL aracısıyla aynı SQL Server örneğindeki tek bir veritabanı. |
 |Desteklenen API’ler ve Araçlar     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 

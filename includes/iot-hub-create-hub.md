@@ -9,40 +9,40 @@ ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 9a29406b92f7d2e2ce8171974efb5a264e112d1d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371159"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38724949"
 ---
 1. [Azure portalında][lnk-portal] oturum açın.
 1. **Kaynak oluştur** > **Nesnelerin İnterneti** > **Iot Hub** seçeneğini belirleyin.
    
-    ![IOT Hub'ına ekran görüntüsü, Azure portalında gezinme][1]
+    ![Azure portalın IoT Hub'ında gezinmesini gösteren ekran görüntüsü][1]
 
 1. **IoT hub** bölmesine IoT hub’ınızla ilgili aşağıdaki bilgileri girin:
 
-   * **Abonelik**: Bu IOT hub'ı oluşturmak için kullanmak istediğiniz aboneliği seçin.
+   * **Abonelik**: Bu IoT hub'ını oluşturmak için kullanmak istediğiniz aboneliği seçin.
 
-   * **Kaynak grubu**: IoT hub’ını barındıracak bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu kullanın. Daha fazla bilgi için bkz: [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma][lnk-resource-groups].
+   * **Kaynak grubu**: IoT hub’ını barındıracak bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu kullanın. Daha fazla bilgi için [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma][lnk-resource-groups] konusunu inceleyin.
 
-   * **Bölge**: size en yakın konumu seçin.
+   * **Bölge**: Size en yakın konumu seçin.
 
-   * **Ad**: IoT hub'ınız için bir ad oluşturun. Girdiğiniz ad kullanılabilir ise, yeşil bir onay işareti görünür.
+   * **Ad**: IoT hub'ınız için bir ad oluşturun. Girdiğiniz ad kullanılabilir durumdaysa yeşil bir onay işareti görünür.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![IOT hub'ı temel penceresi][2]
+   ![IoT Hub temel bilgileri penceresi][2]
 
-2. Seçin **sonraki: boyutunu ve ölçeğini** IOT hub'ınızı oluşturmaya devam etmek için. 
+2. IoT hub’ınızı oluşturmaya devam etmek için **Sıradaki: Boyut ve ölçek** öğesini seçin. 
 
-3. Seçin, **fiyatlandırma ve ölçek katmanı**. Bu makalede, seçin **F1 - boş** , aboneliğinizde hala kullanılabilir durumdaysa katmanı. Daha fazla bilgi için [Fiyatlandırma ve ölçek katmanı][lnk-pricing] konusunu inceleyin.
+3. **Fiyatlandırma ve ölçek katmanınızı** seçin. Bu makale için, aboneliğinizde hala mevcutsa **F1 - Ücretsiz** katmanını seçin. Daha fazla bilgi için [Fiyatlandırma ve ölçek katmanı][lnk-pricing] konusunu inceleyin.
 
-   ![IOT hub'ı boyutunu ve ölçeğini penceresi][3]
+   ![IoT Hub boyut ve ölçek penceresi][3]
 
-4. Seçin **gözden geçirme + oluşturma**.
+4. **İncele ve oluştur**’u seçin.
 
-1. IOT hub bilgilerinizi gözden geçirin ve ardından **oluşturma**. IoT hub’ınızın oluşturulması birkaç dakika sürebilir. İlerleme durumunu **Bildirimler** bölmesinden izleyebilirsiniz.
+1. IoT hub bilgilerinizi gözden geçirin, ardından **Oluştur**’a tıklayın. IoT hub’ınızın oluşturulması birkaç dakika sürebilir. İlerleme durumunu **Bildirimler** bölmesinden izleyebilirsiniz.
 <!-- Images -->
 [1]: ./media/iot-hub-create-hub/create-iot-hub1.png
 [2]: ./media/iot-hub-create-hub/create-iot-hub2.png

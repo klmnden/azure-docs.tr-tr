@@ -11,12 +11,12 @@ ms.topic: article
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: fdf195d96bb455334cb4e898e560813ee8709a50
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 4dee39b56cf0f6494f6e79c70b85bbf711d33d65
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035661"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044603"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -49,6 +49,19 @@ Hata, o azds.exe yol ortam değişkeninde değil VS Code'da görüldüğü anlam
 ### <a name="try"></a>Deneyin:
 
 VS Code, PATH ortam değişkenine düzgün olarak ayarlandığı bir komut isteminden başlatın.
+
+## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>Hata 'azds' iç ya da dış komut, çalıştırılabilir program veya toplu iş dosyası tanınmıyor
+ 
+Bu hata azds.exe yüklü değil veya doğru bir şekilde yapılandırıldığını görebilirsiniz.
+
+### <a name="try"></a>Deneyin:
+
+1. Azds.exe için konum %ProgramFiles%/Microsoft SDKs\Azure\Azure geliştirme alanları CLI (Önizleme) denetleyin. Yoktur, bu konuma PATH ortam değişkenine ekleyin.
+2. Azds.exe yüklü değilse aşağıdaki komutu çalıştırın:
+
+    ```cmd
+    az aks use-dev-spaces -n <cluster-name> -g <resource-group>
+    ```
 
 ## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>Hata 'yukarı bağlantı hatası veya üst bilgileri önce bağlantıyı kes/reset'
 Hizmetinizi erişmeye çalışırken bu hatayı görebilirsiniz. Örneğin, ne zaman, hizmetin URL'sini bir tarayıcıda gidin. 

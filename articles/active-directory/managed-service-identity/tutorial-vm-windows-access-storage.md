@@ -1,6 +1,6 @@
 ---
-title: Azure depolama alanına erişmek için bir Windows VM yönetilen kimliğini kullan
-description: Azure Storage erişmek için yönetilen bir Windows VM kimliği kullanma sürecinde anlatan öğretici.
+title: Azure Depolama’ya erişmek için Windows VM Yönetilen Kimliği kullanma
+description: Windows VM Yönetilen Kimliği kullanarak Azure Depolama’ya erişme işleminde size yol gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,35 +9,35 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: 9ccc94727a18fbcd77f00000531934be57b8e132
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
-ms.translationtype: MT
+ms.openlocfilehash: a9b0ddbd8d0a348d00e57526e6d248e59a8a1e79
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801373"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903970"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>Öğretici: Azure Storage erişmek için yönetilen bir Windows VM kimliğini kullanın.
+# <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>Öğretici: Azure Depolama’ya erişmek için Windows VM Yönetilen Kimliği kullanma
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bu öğretici yönetilen kimlik bir Windows sanal makine için etkinleştirme ve Azure Storage erişmek için kimliğini kullanma gösterilmektedir.  Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide, Windows Sanal Makinesi için Yönetilen Kimliği etkinleştirme ve ardından bu kimliği kullanarak Azure Depolama'ya erişme işlemleri gösterilir.  Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Yeni bir kaynak grubunda bir Windows sanal makine oluşturma 
-> * Bir Windows sanal makine (VM) üzerinde yönetilen kimlik etkinleştir
-> * Bir depolama hesabında blob kapsayıcı oluşturun
-> * Windows VM kimlik yönetilen bir depolama hesabı erişim 
-> * Bir erişmek ve Azure Storage çağırmak için kullanın 
+> * Yeni bir kaynak grubunda Windows sanal makinesi oluşturma 
+> * Windows Sanal Makinesinde (VM) Yönetilen Kimliği etkinleştirme
+> * Depolama hesabında bir blob kapsayıcı oluşturma
+> * Windows VM’nizin Yönetilen Kimliğine depolama hesabı için erişim izni verin 
+> * Erişim elde edin ve bu erişimi Azure Depolama’yı çağırmak için kullanın 
 
 > [!NOTE]
-> Azure depolama için Azure Active Directory kimlik doğrulaması genel önizlemede değil.
+> Azure Depolama için Azure Active Directory kimlik doğrulaması genel önizlemeye sunuldu.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -47,76 +47,76 @@ Bu öğretici yönetilen kimlik bir Windows sanal makine için etkinleştirme ve
 
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Windows sanal makine oluşturma
+## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Windows sanal makinesi oluşturma
 
-Bu bölümde daha sonra yönetilen bir kimlik verilir bir Windows VM oluşturun.
+Bu bölümde, daha sonra Yönetilen Kimlik verilen bir Windows VM oluşturursunuz.
 
-1.  Tıklatın **+/ yeni hizmet oluşturma** düğme Azure portalında sol üst köşesinde bulundu.
+1.  Azure portalın sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
 2.  **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
-3.  Sanal makine bilgilerini girin. **Kullanıcıadı** ve **parola** için kullandığınız kimlik bilgileri İşte oluşturulan sanal makineye oturum açma.
-4.  Uygun seçin **abonelik** sanal makine açılır.
-5.  Yeni bir seçmek için **kaynak grubu** oluşturulması, seçmek için sanal makine için istediğiniz **Yeni Oluştur**. İşlem tamamlandığında **Tamam**’a tıklayın.
-6.  VM boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
+3.  Sanal makine bilgilerini girin. Burada oluşturulan **Kullanıcı adı** ve **Parola**, sanal makinede oturum açmak için kullandığınız kimlik bilgileridir.
+4.  Açılan listede sanal makine için uygun **Aboneliği** seçin.
+5.  İçinde sanal makinenin oluşturulmasını istediğiniz yeni bir **Kaynak Grubu** seçmek için, **Yeni Oluştur**'u seçin. İşlem tamamlandığında **Tamam**’a tıklayın.
+6.  VM'nin boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
 
-    ![Alt görüntü metin](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alternatif resim metni](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-managed-identity-on-your-vm"></a>VM üzerinde yönetilen kimliğini etkinleştir
+## <a name="enable-managed-identity-on-your-vm"></a>VM’nizde Yönetilen Kimliği etkinleştirme
 
-Yönetilen bir sanal makine kimliğini, kodunuza kimlik bilgileri almaya gerek kalmadan Azure AD'den erişim belirteçleri almak sağlar. Perde arkasında yönetilen kimlik Azure portal aracılığıyla bir sanal makinede etkinleştirilmesi iki işlemi yapar: yönetilen bir kimlik oluşturmak üzere Azure AD ile VM kaydeder ve VM kimliğini yapılandırır. 
+Sanal Makine Yönetilen Kimliği kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. Azure portaldan bir Sanal Makinede Yönetilen Kimliği etkinleştirmek aslında şu iki şeyi gerçekleştirir: Bir yönetilen kimlik oluşturmak için VM’nizi Azure AD’ye kaydeder ve kimliği VM’de yapılandırır. 
 
-1. Yeni bir sanal makine kaynak grubuna gidin ve önceki adımda oluşturduğunuz sanal makineyi seçin.
-2. Altında **ayarları** kategorisini tıklatın **yapılandırma**.
-3. Yönetilen kimlik etkinleştirmek için seçin **Evet**.
-4. Tıklatın **kaydetmek** yapılandırmayı uygulamak için. 
+1. Yeni sanal makinenizin kaynak grubuna gidin ve önceki adımda oluşturduğunuz sanal makineyi seçin.
+2. **Ayarlar** kategorisinin altında, **Yapılandırma**’ya tıklayın.
+3. Yönetilen Kimliği etkinleştirmek için **Evet**’i seçin.
+4. Yapılandırmayı uygulamak için **Kaydet**’e tıklayın. 
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 
-Bu bölümde, bir depolama hesabı oluşturun. 
+Bu bölümde bir depolama hesabı oluşturursunuz. 
 
-1. Tıklatın **+ kaynak oluşturma** düğme Azure portalında sol üst köşesinde bulundu.
-2. Tıklatın **depolama**, ardından **depolama hesabı - blob, dosya, tablo, kuyruk**.
-3. Altında **adı**, depolama hesabı için bir ad girin.  
-4. **Dağıtım modeli** ve **tür hesap** ayarlanmalı **Resource manager** ve **depolama (genel amaçlı v1)**. 
-5. Olun **abonelik** ve **kaynak grubu** VM'nizi oluşturduğunuzda önceki adımda belirttiğiniz olanlarla eşleşmesi.
+1. Azure portalın sol üst köşesinde bulunan **+ Kaynak oluştur** düğmesine tıklayın.
+2. **Depolama**’ya ve sonra **Depolama hesabı - blob, dosya, tablo, kuyruk** öğesine tıklayın.
+3. **Ad**’ın altında, depolama hesabı için bir ad girin.  
+4. **Dağıtım modeli** ve **Hesap türü**, **Kaynak yöneticisi** ve **Depolama (genel amaçlı v1)** olarak ayarlanmalıdır. 
+5. **Abonelik** ve **Kaynak Grubu** değerlerinin, önceki adımda VM'nizi oluştururken belirttiklerinizle eşleştiğinden emin olun.
 6. **Oluştur**’a tıklayın.
 
-    ![Yeni depolama hesabı oluştur](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Yeni depolama hesabı oluşturma](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Bir blob kapsayıcı oluşturun ve depolama hesabına bir dosyayı karşıya yüklemek
+## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Bir blob kapsayıcı oluşturma ve depolama hesabına dosya yükleme
 
-Dosya blob depolama gerektirdiğinden dosyasının depolanacağı bir blob kapsayıcısı oluşturmanız gerekir. Yeni depolama hesabındaki blob kapsayıcısı için bir dosya yükleyin.
+Dosyalar blob depolama alanı gerektirdiğinden dosyasının depolanacağı bir blob kapsayıcısı oluşturmanız gerekir. Ardından yeni depolama hesabındaki blob kapsayıcısına bir dosya yükleyin.
 
 1. Yeni oluşturulan depolama hesabınıza geri gidin.
-2. Altında **Blob hizmeti**, tıklatın **kapsayıcıları**.
-3. Tıklatın **+ kapsayıcı** sayfanın üst kısmında.
-4. Altında **yeni kapsayıcı**, altında ve kapsayıcı için bir ad girin **genel erişim düzeyi** varsayılan değer tutun.
+2. **Blob Hizmeti**’nin altında, **Kapsayıcılar**’a tıklayın.
+3. Sayfanın üstündeki **+ Kapsayıcı** seçeneğine tıklayın.
+4. **Yeni kapsayıcı**’nın altında, kapsayıcı için bir ad girin ve **Genel erişim düzeyi**’nin altında varsayılan değeri değiştirmeyin.
 
     ![Depolama kapsayıcısı oluşturma](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-5. Tercih ettiğiniz bir Düzenleyicisi'ni kullanarak başlıklı bir dosya oluşturun *world.txt hello* yerel makinenizde.  Dosyasını açın ve "Hello world! (tırnak işaretleri olmadan) metin ekleme :) "ve kaydedin. 
-6. Kapsayıcı adına sonra tıklatarak yeni oluşturulan kapsayıcıya dosyayı karşıya yüklemeyi **karşıya yükle**
-7. İçinde **karşıya yükleme blob** bölmesi altında **dosyaları**, klasör simgesine tıklayın ve dosyaya göz atın **hello_world.txt** yerel makinenizde dosyayı seçin ve ardından **Karşıya**.
-    ![Metin dosyasını karşıya yükle](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+5. Tercih ettiğiniz bir düzenleyiciyi kullanarak yerel makinenizde *hello world.txt* başlıklı bir dosya oluşturun.  Dosyayı açıp (tırnak işaretleri olmadan) "Hello world! :)" metnini ekleyin ve sonra kaydedin. 
+6. Kapsayıcı adına ve ardından **Karşıya yükle**’ye tıklayarak dosyayı yeni oluşturulan kapsayıcıya yükleyin
+7. **Blobu karşıya yükle** bölmesinde **Dosyalar**’ın altında, klasör simgesine tıklayıp yerel makinenizde **hello_world.txt** dosyasına göz atın, dosyayı seçin ve ardından **Karşıya yükle**’ye tıklayın.
+    ![Metin dosyasını karşıya yükleme](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Bir Azure depolama kapsayıcısı, VM erişim 
+## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>VM'nize Azure Depolama kapsayıcısı için erişim izni verme 
 
-VM'ın yönetilen kimliği, Azure depolama blobunu verileri almak için kullanabilirsiniz.   
+Azure depolama blobundaki verileri almak için VM’nin yönetilen kimliğini kullanabilirsiniz.   
 
 1. Yeni oluşturulan depolama hesabınıza geri gidin.  
-2. Tıklatın **erişim denetimi (IAM)** sol panelinde bağlantı.  
-3. Tıklatın **+ Ekle** VM için yeni bir rol ataması eklemek için sayfanın en üstünde.
-4. Altında **rol**, açılan listeden seçin **depolama Blob veri Okuyucu (Önizleme)**. 
-5. Sonraki açılır altında **atamak için erişim**, seçin **sanal makine**.  
-6. Ardından, uygun abonelik listelenir olun **abonelik** açılır ve ardından **kaynak grubu** için **tüm kaynak gruplarının**.  
-7. Altında **seçin**, VM'yi seçin ve ardından **kaydetmek**. 
+2. Sol bölmedeki **Erişim denetimi (IAM)** bağlantısına tıklayın.  
+3. VM’nize yönelik yeni bir rol ataması eklemek için sayfanın üst kısmındaki **+ Ekle**’ye tıklayın.
+4. **Rol**’ün altında, açılan listeden **Depolama Blob Verileri Okuyucusu (Önizleme)** seçeneğini belirleyin. 
+5. Sonraki açılan listede **Erişimin atanacağı hedef** öğesinin altında **Sanal Makine**’yi seçin.  
+6. Ardından, uygun aboneliğin **Abonelik**’te listelendiğinden emin olun ve sonra **Kaynak Grubu**’nu **Tüm kaynak grupları** olarak ayarlayın.  
+7. **Seçin**’in altında, VM'nizi belirleyin ve ardından **Kaydet**’e tıklayın. 
 
-    ![İzin ata](~/articles/active-directory/managed-service-identity/media/tutorial-linux-vm-access-storage/access-storage-perms.png)
+    ![İzin atama](~/articles/active-directory/managed-service-identity/media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Erişim belirteci almak ve Azure Storage çağırmak için kullanın 
+## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Erişim belirteci alma ve bu belirteci Azure Depolama’yı çağırmak için kullanma 
 
-Azure depolama yönetilen kimliğini kullanarak doğrudan erişim belirteçleri kabul edebilir destekler Azure AD kimlik doğrulama, yerel olarak alınır. Bu Azure AD ile tümleştirme Azure Storage'nın parçası olan ve bağlantı dizesini kimlik bilgileri sağladığını farklıdır.
+Azure Depolama, Azure AD kimlik doğrulamasını yerel olarak desteklediğinden Yönetilen Kimlik kullanılarak alınan erişim belirteçlerini doğrudan kabul eder. Bu, Azure Depolama’nın Azure AD tümleştirmesi kapsamındadır ve bağlantı dizesinde kimlik bilgileri sağlama işleminden farklıdır.
 
-.Net kodu örneği, bir bağlantı açarak bir İşte Azure bir erişim belirteci kullanarak ve ardından daha önce oluşturduğunuz dosyasının içeriğini okuma depolama. Bu kod, VM'ın yönetilen kimlik uç noktasına erişmek için VM'de çalıştırması gerekir. .NET framework 4.6 veya daha yüksek erişim belirteci yöntemi kullanmak için gereklidir. Değerini `<URI to blob file>` uygun şekilde. Bu değer oluşturulur ve blob depolama ve kopyalama karşıya dosya giderek edinebilirsiniz **URL** altında **özellikleri** **genel bakış** sayfası.
+Bir erişim belirteci kullanarak Azure Depolama’ya bağlantı açma ve ardından daha önce oluşturduğunuz dosyanın içeriklerini okumaya yönelik .Net kod örneği aşağıda verilmiştir. Bu kodun, VM’nin Yönetilen Kimlik uç noktasına erişebilmesi için VM üzerinde çalıştırılması gerekir. Erişim belirteci yöntemini kullanmak için .Net Framework 4.6 veya üzeri bir sürüm gereklidir. `<URI to blob file>` değerini uygun şekilde değiştirin. Blob depolama alanına oluşturup yüklediğiniz dosyaya giderek ve **Özellikler**’in altındaki **URL**’yi **Genel bakış** sayfasına kopyalayarak bu değeri alabilirsiniz.
 
 ```csharp
 using System;
@@ -186,13 +186,13 @@ namespace StorageOAuthToken
 }
 ```
 
-Yanıt dosyasının içeriğini içerir:
+Yanıt, dosyanın içeriklerini kapsar:
 
 `Hello world! :)`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, öğrenilen nasıl Windows sanal makinesi Azure depolama alanına erişmek için yönetilen kimlik etkinleştirin.  Bilgi edinmek için Azure Storage hakkında daha fazla bakın:
+Bu öğreticide Azure Depolama’ya erişmek için Windows sanal makine Yönetilen Kimliğini etkinleştirmeyi öğrendiniz.  Azure Depolama hakkında daha fazla bilgi için bkz.:
 
 > [!div class="nextstepaction"]
 > [Azure Depolama](/azure/storage/common/storage-introduction)

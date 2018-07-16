@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: müzik şekilde ile Azure Active Directory Tümleştirme | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile Settling müzik arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory Tümleştirme ile müzik kapatma | Microsoft Docs'
+description: Azure Active Directory ve Settling müzik arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 07533670a188c7f50a2848e76ed9d83a96c54cf7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4a4d4fa704381ed9ab7c79c6ad0f6196a9ac37f2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211991"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040380"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Öğretici: müzik şekilde ile Azure Active Directory ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Öğretici: Azure Active Directory Tümleştirme ile müzik kapatma
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Settling müzik tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile Settling müzik tümleştirme konusunda bilgi edinin.
 
-Settling müzik Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile Settling müzik tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Müzik şekilde için erişimi olan Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak müzik (çoklu oturum açma) ile Azure AD hesaplarına şekilde için açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- Müzik sonlandırma erişimine sahiptir, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak imzalanan müzik (çoklu oturum açma) ile Azure AD hesaplarına sonlandırma için açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme müzik şekilde ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirmesi müzik kapatma ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir Settling müzik çoklu oturum açma abonelik etkin
+- Azure AD aboneliğiniz
+- Abonelik Settling müzik çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Settling müzik ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-settling-music-from-the-gallery"></a>Galeriden Settling müzik ekleme
-Azure AD Settling müzik tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Settling müzik eklemeniz gerekir.
+Azure AD'de Settling müzik tümleştirmesini yapılandırmak için Settling müzik Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Settling müzik eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -68,35 +68,35 @@ Azure AD Settling müzik tümleştirilmesi yapılandırmak için yönetilen SaaS
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **müzik şekilde**seçin **müzik şekilde** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **müzik sonlandırma**seçin **müzik sonlandırma** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuçlar listesinde müzik kapatma](./media/settlingmusic-tutorial/tutorial_settlingmusic_addfromgallery.png)
+    ![Sonuçlar listesinde müzik sonlandırma](./media/settlingmusic-tutorial/tutorial_settlingmusic_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı müzik şekilde ile özelliğini test etme.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum kapatma "Britta Simon" adlı bir test kullanıcı tabanlı müzik ile açmayı test edin.
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen Settling müzik bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının müzik şekilde ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne Settling müzik karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve müzik sonlandırma ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
-Yapılandırmak ve Azure AD çoklu oturum açma Settling müzik sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Settling müzik sınamak için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Settling müzik test kullanıcısı oluşturma](#create-a-settling-music-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı müzik şekilde sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Settling müzik test kullanıcısı oluşturma](#create-a-settling-music-test-user)**  - kullanıcı Azure AD gösterimini bağlı müzik sonlandırma bir karşılığı Britta simon'un sağlamak için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Settling müzik uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Settling müzik uygulamanızda çoklu oturum açmayı yapılandırın.
 
-**Azure AD çoklu oturum açma müzik şekilde ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma müzik kapatma ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **müzik şekilde** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **müzik sonlandırma** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
@@ -104,74 +104,74 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açma iletişim kutusu](./media/settlingmusic-tutorial/tutorial_settlingmusic_samlbase.png)
 
-3. Üzerinde **müzik etki alanı ve URL'leri şekilde** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **müzik etki alanı ve URL'ler sonlandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Müzik etki alanı ve URL'leri tek oturum açma bilgileri kapatma](./media/settlingmusic-tutorial/tutorial_settlingmusic_url.png)
+    ![Müzik etki alanı ve URL'ler tek oturum açma bilgileri sonlandırma](./media/settlingmusic-tutorial/tutorial_settlingmusic_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [müzik istemci destek ekibi şekilde](https://rakurakuseisan.jp/) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [müzik istemci Destek ekibine sonlandırma](https://rakurakuseisan.jp/) bu değerleri almak için. 
  
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/settlingmusic-tutorial/tutorial_settlingmusic_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/settlingmusic-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/settlingmusic-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **müzik yapılandırma şekilde** 'yi tıklatın **yapılandırma şekilde müzik** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **müzik yapılandırma sonlandırma** bölümünde **yapılandırma sonlandırma müzik** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![Müzik yapılandırma kapatma](./media/settlingmusic-tutorial/tutorial_settlingmusic_configure.png) 
+    ![Müzik yapılandırma sonlandırma](./media/settlingmusic-tutorial/tutorial_settlingmusic_configure.png) 
 
-7. Bir farklı web tarayıcısı penceresinde, müzik bir güvenlik yöneticisi olarak şekilde için oturum açın.
+7. Bir başka web tarayıcı penceresinde kapatma müzik bir güvenlik yöneticisi olarak oturum açma.
 
-8. Sayfanın en üstünde tıklatın **Yönetim** sekmesi.
+8. Sayfanın en üstünde tıklayın **Yönetim** sekmesi.
 
-    ![Müzik Adım1 kapatma](./media/settlingmusic-tutorial/tutorial_settlingmusic_step1.png)
+    ![Müzik Adım1 sonlandırma](./media/settlingmusic-tutorial/tutorial_settlingmusic_step1.png)
 
-9. Tıklayın **sistem ayarı** sekmesi.
+9. Tıklayarak **sistem ayarı** sekmesi.
 
-    ![Müzik Adım2 kapatma](./media/settlingmusic-tutorial/tutorial_settlingmusic_step2.png)
+    ![Müzik Adım2 sonlandırma](./media/settlingmusic-tutorial/tutorial_settlingmusic_step2.png)
 
 10. Geçiş **güvenlik** sekmesi.
 
-    ![Müzik adım 3 kapatma](./media/settlingmusic-tutorial/tutorial_settlingmusic_step3.png)
+    ![Müzik adım 3 sonlandırma](./media/settlingmusic-tutorial/tutorial_settlingmusic_step3.png)
 
-11. Üzerinde **tek oturum açma ayarı** bölümünde, aşağıdaki adımları gerçekleştirin:
+11. Üzerinde **çoklu oturum açma ayarı** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Müzik step5 kapatma](./media/settlingmusic-tutorial/tutorial_settlingmusic_step4.png)
+    ![Müzik step5 sonlandırma](./media/settlingmusic-tutorial/tutorial_settlingmusic_step4.png)
 
-    a. Tıklatın **etkinleştirmek için**.
+    a. Tıklayın **etkinleştirmek için**.
 
-    b. İçinde **kimlik sağlayıcısının oturum açma URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan.
+    b. İçinde **kimlik sağlayıcısı oturum açma URL'sini** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si** , Azure Portalı'ndan kopyaladığınız.
 
-    c. İçinde **kimlik sağlayıcısı oturum kapatma URL'si** metin değerini yapıştırın **Sign-Out URL** Azure portalından kopyalanan.
+    c. İçinde **kimlik sağlayıcısı oturum kapatma URL'si** metin değerini yapıştırın **oturum kapatma URL'si** , Azure Portalı'ndan kopyaladığınız.
 
-    d. Tıklatın **Dosya Seç** karşıya yüklemek için **sertifika (Base64)** indirilen Azure portalı form.
+    d. Tıklayın **Dosya Seç** yüklenecek **sertifika (Base64)** indirilen Azure portalı form.
 
     e. **Kaydet** düğmesine tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/settlingmusic-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/settlingmusic-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/settlingmusic-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/settlingmusic-tutorial/create_aaduser_03.png)
 
@@ -181,57 +181,57 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-settling-music-test-user"></a>Settling müzik test kullanıcısı oluşturma
 
-Bu bölümde, Settling müzik Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [müzik istemci destek ekibi şekilde](https://rakurakuseisan.jp/) Settling müzik platform kullanıcıları eklemek için. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir.
+Bu bölümde, Britta Simon Settling müzik adlı bir kullanıcı oluşturun. Çalışmak [müzik istemci Destek ekibine sonlandırma](https://rakurakuseisan.jp/) Settling müzik platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, müzik şekilde erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, müzik sonlandırma için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
-**Settling müzik Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Settling müzik atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **müzik şekilde**.
+2. Uygulamalar listesinde **müzik sonlandırma**.
 
     ![Uygulamalar listesinde Settling müzik bağlantı](./media/settlingmusic-tutorial/tutorial_settlingmusic_app.png)  
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Settling müzik parçasında tıklattığınızda, otomatik olarak Settling müzik uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim panelinde Settling müzik kutucuğa tıkladığınızda, otomatik olarak Settling müzik uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

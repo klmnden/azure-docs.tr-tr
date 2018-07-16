@@ -11,12 +11,12 @@ ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 62d34f82749900e161bebdb7a1a8d470b2e85bbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 4d62e8e4cb778e60b39e502f09ce0aafca9b5212
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34054700"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866826"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Ortamınızdaki değişikliklerle ilgili sorunları giderme
 
@@ -113,6 +113,7 @@ Toplanıp izlenecek dosyaları ve Kayıt defteri anahtarlarını belirlemek içi
 |Öğe Adı     | İzlenecek dosyanın kolay adı        |
 |Grup     | Dosyaları mantıksal bir biçimde gruplandırmaya yönelik grup adı        |
 |Yolu girin     | Dosyanın denetleneceği yol. Örneğin: “c:\temp\myfile.txt”       |
+|Dosya içeriğini tüm ayarlar için karşıya yükleme| İzlenen değişikliklerin dosya içeriği karşıya yükleme işlemini açar veya kapatır. Kullanılabilir seçenekler: **True** veya **False**.|
 
 ### <a name="add-a-linux-file"></a>Linux dosyası ekleme
 
@@ -130,6 +131,7 @@ Toplanıp izlenecek dosyaları ve Kayıt defteri anahtarlarını belirlemek içi
 |Özyineleme     | İzlenecek öğe aranırken özyinelemenin kullanılıp kullanılmadığını belirler.        |
 |Sudo Kullan     | Bu ayar, öğe denetlenirken sudonun kullanılıp kullanılmadığını belirler.         |
 |Bağlantılar     | Bu ayar, dizinleri dolaşırken sembolik bağlantıların nasıl ele alındığını belirler.<br> **Yoksay** - Sembolik bağlantıları yoksayar ve başvurulan dosyaları veya dizinleri içermez<br>**İzle** - Özyineleme sırasında sembolik bağlantıları izler ve başvurulan dosyaları veya dizinleri de içerir<br>**Yönet** - Sembolik bağlantıları izler ve döndürülen içeriğin işlenmesinde değişiklik yapılmasına olanak sağlar      |
+|Dosya içeriğini tüm ayarlar için karşıya yükleme| İzlenen değişikliklerin dosya içeriği karşıya yükleme işlemini açar veya kapatır. Kullanılabilir seçenekler: **True** veya **False**.|
 
    > [!NOTE]   
    > “Yönet” bağlantıları seçeneği önerilmez. Dosya içeriğini alma desteklenmiyor.

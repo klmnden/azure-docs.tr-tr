@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme SilkRoad yaşam Suite ile | Microsoft Docs'
-description: Çoklu oturum açma SilkRoad yaşam Suite ile Azure Active Directory arasındaki yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory Tümleştirme ile SilkRoad yaşam paketi | Microsoft Docs'
+description: Azure Active Directory ve SilkRoad yaşam Suite arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 0fb2bf12c239366f92e4f54d2afdd6400aa83dc6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 962b3f0e18c2dbedf80c0cfca6bc8275b394307b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225254"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046024"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Öğretici: Azure Active Directory Tümleştirme SilkRoad yaşam Suite ile
+# <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Öğretici: Azure Active Directory SilkRoad yaşam Suite ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile SilkRoad yaşam Suite tümleştirmek öğrenin.
+Bu öğreticide, SilkRoad yaşam Suite Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
-SilkRoad yaşam Suite Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile SilkRoad yaşam Suite tümleştirme ile aşağıdaki avantajları sağlar:
 
 - SilkRoad yaşam Suite erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak (çoklu oturum açma) SilkRoad yaşam paketine açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- Azure AD hesaplarına otomatik olarak imzalanan (çoklu oturum açma) SilkRoad yaşam paketine açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme SilkRoad yaşam paketiyle yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirmesi SilkRoad yaşam Suite ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir SilkRoad yaşam Suite çoklu oturum açma etkin abonelik
+- Azure AD aboneliğiniz
+- Bir SilkRoad yaşam Suite çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden SilkRoad yaşam paketi ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-silkroad-life-suite-from-the-gallery"></a>Galeriden SilkRoad yaşam paketi ekleme
-Azure AD SilkRoad yaşam Suite tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden SilkRoad yaşam paketi eklemeniz gerekir.
+Azure AD'ye SilkRoad yaşam Suite tümleştirmesini yapılandırmak için SilkRoad yaşam Suite Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden SilkRoad yaşam paketi eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -68,37 +68,37 @@ Azure AD SilkRoad yaşam Suite tümleştirilmesi yapılandırmak için yönetile
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna yazın **SilkRoad yaşam Suite**seçin **SilkRoad yaşam Suite** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **SilkRoad yaşam Suite**seçin **SilkRoad yaşam Suite** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuçlar listesinde SilkRoad yaşam paketi](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_addfromgallery.png)
+    ![Sonuç listesinde SilkRoad yaşam paketi](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma SilkRoad yaşam "Britta Simon" adlı bir test kullanıcı tabanlı Suite ile test etme.
+Bu bölümde, yapılandırın ve SilkRoad ömrü "Britta Simon" adlı bir test kullanıcı tabanlı Suite ile Azure AD çoklu oturum açma testi.
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen SilkRoad yaşam grubundaki bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının SilkRoad yaşam paketindeki ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne karşılık gelen kullanıcı SilkRoad yaşam grubundaki bir kullanıcı için Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının SilkRoad yaşam paketindeki ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Değeri SilkRoad yaşam paketindeki atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+SilkRoad yaşam paketindeki değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma SilkRoad yaşam Suite ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma SilkRoad yaşam Suite ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[SilkRoad yaşam Suite test kullanıcısı oluşturma](#create-a-silkroad-life-suite-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı SilkRoad yaşam Suite sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[SilkRoad yaşam Suite test kullanıcısı oluşturma](#create-a-silkroad-life-suite-test-user)**  - SilkRoad yaşam paketindeki, kullanıcının Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma SilkRoad yaşam Suite uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma SilkRoad yaşam Suite uygulamanızı yapılandırın.
 
-**Azure AD çoklu oturum açma SilkRoad yaşam paketiyle yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma SilkRoad yaşam Suite ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **SilkRoad yaşam Suite** uygulama tümleştirmesi sayfasında, tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **SilkRoad yaşam Suite** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
@@ -106,57 +106,57 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açma iletişim kutusu](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_samlbase.png)
 
-3. Üzerinde **SilkRoad yaşam Suite etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **SilkRoad yaşam Suite etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![SilkRoad yaşam Suite etki alanı ve URL'leri tek oturum açma bilgileri](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_url1.png)
+    ![SilkRoad yaşam Suite etki alanı ve URL'ler tek oturum açma bilgileri](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_url1.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.silkroad-eng.com/Authentication/`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.silkroad-eng.com/Authentication/`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: 
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: 
     | |
     |--|
     | `https://<subdomain>.silkroad-eng.com/Authentication/SP` |
     | `https://<subdomain>.silkroad.com/Authentication/SP` |
 
-    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: 
+    c. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: 
     | |
     |--|
     | `https://<subdomain>.silkroad-eng.com/Authentication/` |
     | `https://<subdomain>.silkroad.com/Authentication/` |
      
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler, gerçek tanımlayıcı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [SilkRoad yaşam Suite istemci destek ekibi](https://www.silkroad.com/locations/) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [SilkRoad yaşam Suite istemci Destek ekibine](https://www.silkroad.com/locations/) bu değerleri almak için. 
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/silkroad-life-suite-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/silkroad-life-suite-tutorial/tutorial_general_400.png)
     
-6. Üzerinde **SilkRoad yaşam paketi yapılandırma** 'yi tıklatın **SilkRoad yaşam paketi yapılandırma** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **SilkRoad yaşam paketi yapılandırması** bölümünde **SilkRoad yaşam paketini Yapılandır** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![SilkRoad yaşam paketi yapılandırma](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_configure.png) 
+    ![SilkRoad yaşam paketi yapılandırması](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_configure.png) 
 
-7. SilkRoad şirket sitenize yönetici olarak oturum. 
+7. SilkRoad şirketinizin sitesi için yönetici olarak oturum. 
  
     >[!NOTE] 
-    > Microsoft Azure AD ile Federasyon yapılandırma SilkRoad yaşam Suite kimlik doğrulaması uygulamaya erişim elde etmek için lütfen SilkRoad desteği veya SilkRoad Hizmetleri temsilcinize başvurun.
+    > Microsoft Azure AD ile Federasyonu yapılandırma için SilkRoad yaşam Suite kimlik doğrulaması uygulamaya erişim elde etmek için lütfen SilkRoad desteği veya SilkRoad Hizmetleri temsilcinize başvurun.
 
 8. Git **hizmet sağlayıcısı**ve ardından **Federasyon ayrıntıları**. 
    
     ![Azure AD çoklu oturum açma][10]
 
-9. Tıklatın **karşıdan Federasyon meta verileri**ve meta veri dosyası, bilgisayarınıza kaydedin.
+9. Tıklayın **Federasyon meta verileri indirme**ve bilgisayarınızda meta veri dosyasını kaydedin.
    
     ![Azure AD çoklu oturum açma][11] 
 
-10. İçinde **SilkRoad** uygulama tıklatın **kimlik doğrulaması kaynakları**.
+10. İçinde **SilkRoad** uygulama tıklayın **kimlik doğrulaması kaynakları**.
    
     ![Azure AD çoklu oturum açma][12] 
 
-11. Tıklatın **kimlik doğrulaması kaynağı Ekle**. 
+11. Tıklayın **kimlik doğrulaması kaynağı ekleme**. 
    
     ![Azure AD çoklu oturum açma][13] 
 
@@ -164,31 +164,31 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
    
     ![Azure AD çoklu oturum açma][14]
   
-    a. Altında **seçeneği 2 - meta veri dosyası**, tıklatın **Gözat** Azure Portalı'ndan indirilen meta veri dosyasını karşıya yüklemek için.
+    a. Altında **seçeneği 2 - meta veri dosyası**, tıklayın **Gözat** Azure portalından indirilen meta veri dosyası karşıya yüklemek için.
   
-    b. Tıklatın **kimlik dosya verilerini kullanarak sağlayıcısı oluşturma**.
+    b. Tıklayın **oluşturma kimlik sağlayıcısı kullanarak dosya verilerini**.
 
-13. İçinde **kimlik doğrulaması kaynakları** 'yi tıklatın **Düzenle**. 
+13. İçinde **kimlik doğrulaması kaynakları** bölümünde **Düzenle**. 
     
      ![Azure AD çoklu oturum açma][15] 
 
-14. Üzerinde **kimlik doğrulaması kaynağını Düzenle** iletişim kutusunda, aşağıdaki adımları gerçekleştirin: 
+14. Üzerinde **kimlik doğrulaması kaynağı Düzenle** iletişim kutusunda, aşağıdaki adımları gerçekleştirin: 
     
      ![Azure AD çoklu oturum açma][16] 
 
     a. Olarak **etkin**seçin **Evet**.
 
-    b. İçinde **Entityıd** metin değerini yapıştırın **SAML varlık kimliği** Azure portalından kopyalanan.
+    b. İçinde **Entityıd** metin değerini yapıştırın **SAML varlık kimliği** , Azure Portalı'ndan kopyaladığınız.
    
-    c. İçinde **IDP açıklama** metin kutusuna, yapılandırmanız için bir açıklama yazın (örneğin: *Azure AD SSO*).
+    c. İçinde **IDP açıklama** metin kutusuna bir açıklama yapılandırmanızı (örneğin: *Azure AD SSO*).
 
-    d. İçinde **meta veri dosyası** metin kutusuna, karşıya yükleme **meta veri** Azure Portalı'ndan indirilen dosya.
+    d. İçinde **meta veri dosyası** metin kutusuna, karşıya yükleme **meta verileri** Azure portalından indirdiğiniz dosyası.
   
-    e. İçinde **IDP adı** metin kutusuna, yapılandırmanızda özgü adını yazın (örneğin: *Azure SP*).
+    e. İçinde **IDP adı** metin kutusu, bir yapılandırma için belirli bir ad yazın (örneğin: *Azure SP*).
   
-    f. İçinde **oturum kapatma hizmeti URL'si** metin değerini yapıştırın **Sign-Out URL** Azure portalından kopyalanan.
+    f. İçinde **oturum kapatma hizmeti URL'si** metin değerini yapıştırın **oturum kapatma URL'si** , Azure Portalı'ndan kopyaladığınız.
 
-    g. İçinde **hizmeti URL'si oturum açma** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan.
+    g. İçinde **oturum açma hizmeti URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si** , Azure Portalı'ndan kopyaladığınız.
 
     h. **Kaydet**’e tıklayın.
 
@@ -197,25 +197,25 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
      ![Azure AD çoklu oturum açma][17]
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/silkroad-life-suite-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/silkroad-life-suite-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/silkroad-life-suite-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/silkroad-life-suite-tutorial/create_aaduser_03.png)
 
@@ -225,57 +225,57 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-silkroad-life-suite-test-user"></a>SilkRoad yaşam Suite test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon SilkRoad yaşam paketindeki adlı bir kullanıcı oluşturun. Çalışmak [SilkRoad yaşam Suite istemci destek ekibi](https://www.silkroad.com/locations/) SilkRoad yaşam Suite platform kullanıcıları eklemek için. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir. 
+Bu bölümde, Britta Simon SilkRoad yaşam paketindeki adlı bir kullanıcı oluşturun. Çalışmak [SilkRoad yaşam Suite istemci Destek ekibine](https://www.silkroad.com/locations/) SilkRoad yaşam Suite platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta SilkRoad yaşam paketine erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma SilkRoad yaşam paketine erişim vererek kullanmak Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
 **Britta Simon SilkRoad yaşam paketine atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **SilkRoad yaşam Suite**.
 
     ![Uygulamalar listesinde SilkRoad yaşam Suite bağlantısı](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_app.png)  
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli SilkRoad yaşam Suite parçasında tıklattığınızda, otomatik olarak SilkRoad yaşam Suite uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim panelinde SilkRoad yaşam Suite kutucuğa tıkladığınızda, otomatik olarak SilkRoad yaşam paketini uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

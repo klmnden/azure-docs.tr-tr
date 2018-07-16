@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: babd6bff3cec38318cacc0d55394a7563f8e69a4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cebb73fedffe3b5f0a11c919ff39d1d2acd462d3
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776881"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969536"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs kullanarak Xamarin.iOS uygulamalarına anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -84,34 +84,46 @@ Bildirim hub'ınız şimdi APNS ile birlikte çalışmak üzere yapılandırıld
 
     ![Visual Studio- iOS Uygulaması Yapılandırması][32]
 
-4. Azure Messaging paketini ekleyin. Çözüm görünümünde projeye sağ tıklayıp **Ekle** > **NuGet Paketleri Ekle**'yi seçin. **Xamarin.Azure.NotificationHubs.iOS** araması yapıp projeyi pakete ekleyin.
+4. Çözüm görünümünden *Entitlements.plist* dosyasına çift tıklayın ve "Anında İletme Bildirimlerini Etkinleştir" seçeneğinin işaretli olduğundan emin olun.
 
-5. Sınıfınıza yeni bir dosya ekleyin, **Constants.cs** olarak adlandırın ve aşağıdaki değişkenleri ekleyip dize sabiti yer tutucularını, daha önce not ettiğiniz *hub adınız* ve *DefaultListenSharedAccessSignature* ile değiştirin.
+    ![Visual Studio- iOS Destek Hakları Yapılandırması][33]
+
+5. Azure Messaging paketini ekleyin. Çözüm görünümünde projeye sağ tıklayıp **Ekle** > **NuGet Paketleri Ekle**'yi seçin. **Xamarin.Azure.NotificationHubs.iOS** araması yapıp projeyi pakete ekleyin.
+
+6. Sınıfınıza yeni bir dosya ekleyin, **Constants.cs** olarak adlandırın ve aşağıdaki değişkenleri ekleyip dize sabiti yer tutucularını, daha önce not ettiğiniz *hub adınız* ve *DefaultListenSharedAccessSignature* ile değiştirin.
    
     ```csharp
         // Azure app-specific connection string and hub path
-        public const string ConnectionString = "<Azure connection string>";
-        public const string NotificationHubPath = "<Azure hub path>";
+        public const string ListenConnectionString = "<Azure connection string>";
+        public const string NotificationHubName = "<Azure hub path>";
     ```
 
-6. **AppDelegate.cs**'ye aşağıdaki using deyimini ekleyin:
+7. **AppDelegate.cs**'ye aşağıdaki using deyimini ekleyin:
    
     ```csharp
         using WindowsAzure.Messaging;
     ```
 
-7. Bir **SBNotificationHub** örneği bildirin:
+8. Bir **SBNotificationHub** örneği bildirin:
    
     ```csharp
         private SBNotificationHub Hub { get; set; }
     ```
 
-8. **AppDelegate.cs**’de, **FinishedLaunching()** yöntemini aşağıdakiyle eşleşecek şekilde güncelleştirin:
-   
+9.  **AppDelegate.cs**’de, **FinishedLaunching()** yöntemini aşağıdakiyle eşleşecek şekilde güncelleştirin:
+  
     ```csharp
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
+            {
+                UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+                                                                      (granted, error) =>
+                {
+                    if (granted)
+                        InvokeOnMainThread(UIApplication.SharedApplication.RegisterForRemoteNotifications);
+                });
+            } else if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
                 var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
                        UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
                        new NSSet ());
@@ -127,12 +139,12 @@ Bildirim hub'ınız şimdi APNS ile birlikte çalışmak üzere yapılandırıld
         }
     ```
 
-9. **AppleDelegate.cs**'de **RegisteredForRemoteNotifications()** yöntemini geçersiz kılın:
+10. **AppleDelegate.cs**'de **RegisteredForRemoteNotifications()** yöntemini geçersiz kılın:
    
     ```csharp
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
-            Hub = new SBNotificationHub(Constants.ConnectionString, Constants.NotificationHubPath);
+            Hub = new SBNotificationHub(Constants.ListenConnectionString, Constants.NotificationHubName);
    
             Hub.UnregisterAllAsync (deviceToken, (error) => {
                 if (error != null)
@@ -150,7 +162,7 @@ Bildirim hub'ınız şimdi APNS ile birlikte çalışmak üzere yapılandırıld
         }
     ```
 
-10. **AppleDelegate.cs**'de **ReceivedRemoteNotification()** yöntemini geçersiz kılın:
+11. **AppleDelegate.cs**'de **ReceivedRemoteNotification()** yöntemini geçersiz kılın:
    
     ```csharp
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -159,7 +171,7 @@ Bildirim hub'ınız şimdi APNS ile birlikte çalışmak üzere yapılandırıld
         }
     ```
 
-11. **AppleDelegate.cs**'de aşağıdaki **ProcessNotification()** yöntemini oluşturun:
+12. **AppleDelegate.cs**'de aşağıdaki **ProcessNotification()** yöntemini oluşturun:
    
     ```csharp
         void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
@@ -200,10 +212,10 @@ Bildirim hub'ınız şimdi APNS ile birlikte çalışmak üzere yapılandırıld
    > Ağ bağlantısının olmaması gibi durumlarla başa çıkmak için **FailedToRegisterForRemoteNotifications()**'ı geçersiz kılmayı seçebilirsiniz. Bu seçim, kullanıcı uygulamanızı çevrimdışı modda (örneğin, Uçak) başlattığında ve uygulamanıza özgü anında iletme mesajlaşması senaryoları kullanmak istediğinizde özellikle önemlidir.
   
 
-12. Cihazınızda uygulamayı çalıştırın.
+13. Cihazınızda uygulamayı çalıştırın.
 
 ## <a name="send-test-push-notifications"></a>Test amaçlı anında iletme bildirimleri gönderme
-[Azure portalındaki] *Test Gönderimi* seçeneğini kullanarak uygulamanızda bildirim alma testi gerçekleştirebilirsiniz. Bu, cihazınıza test amaçlı anında iletme bildirimi gönderir.
+[Azure Portal] *Test Gönderimi* seçeneğini kullanarak uygulamanızda bildirim alma testi gerçekleştirebilirsiniz. Bu, cihazınıza test amaçlı anında iletme bildirimi gönderir.
 
 ![Azure portalı - Test Gönderimi][30]
 
@@ -226,6 +238,7 @@ Bu öğreticide, arka uca kayıtlı olan tüm iOS cihazlarınıza yayın bildiri
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [31]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-ios-app.png
 [32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-app-settings.png
+[33]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-entitlements-settings.png
 
 
 

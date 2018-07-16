@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 42be14569215af7ee98a540c2a86cef2b2a028e4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 808cfd1f4d47f49be60c3f45278d2334ba720c49
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034084"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865191"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -103,7 +103,7 @@ Bir arka uç uygulamasından bir cihaza durum bilgilerini göndermek için isten
 
 İstenen özellikleri alan simülasyon cihazı örnek kodunu görüntülemek için indirdiğiniz örnek Node.js projesinde **iot-hub/Tutorials/DeviceTwins** klasörüne gidin. Sonra SimulatedDevice.js dosyasını bir metin düzenleyicide açın.
 
-Arka uç uygulamasından gönderilen istenen durum değişikliklerine yanıt veren simülasyon cihazında çalışan kod aşağıdaki bölümlerde açıklanmıştır:
+Arka uç uygulamasından gönderilen istenen özellik değişikliklerine yanıt veren simülasyon cihazında çalışan kod aşağıdaki bölümlerde açıklanmıştır:
 
 ### <a name="retrieve-the-device-twin-object"></a>Cihaz ikizi nesnesini alma
 

@@ -15,11 +15,11 @@ ms.workload: mobile
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: c680de254c55adaad8cedde6cf4748efd0c2c858
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777585"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38700909"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -42,11 +42,11 @@ Bu öğretici için aşağıdakiler gereklidir:
 ## <a name="create-a-baidu-account"></a>Bir Baidu hesabı oluşturma
 Baidu kullanmak için bir Baidu hesabınızın olması gerekir. Zaten varsa [Baidu portalında] oturum açın ve sonraki adıma atlayın. Aksi halde, bir Baidu hesabının nasıl oluşturulacağı hakkında aşağıdaki yönergelere bakın.  
 
-1. [Baidu portalında] gidin ve **登录** (**Oturum Açma**) bağlantısına tıklayın. Hesap kayıt işlemini başlatmak için **立即注册** (**Şimdi Kaydol**) seçeneğine tıklayın.
+1. [Baidu portalında] gidin ve **登录** (**Oturum Aç**) bağlantısına tıklayın. Hesap kayıt işlemini başlatmak için **立即注册** (**Şimdi Kaydol**) seçeneğine tıklayın.
    
     ![Baidu Kaydı](./media/notification-hubs-baidu-get-started/BaiduRegistration.png)
 
-2. Gerekli ayrıntıları girin (telefon/e-posta adresi, parola ve doğrulama kodu) ve 注册 (**Kaydol**) öğesine tıklayın.
+2. Gerekli ayrıntıları girin (telefon/e-posta adresi, parola ve doğrulama kodu) ve 注册 (**Kaydol**) seçeneğine tıklayın.
    
     ![Baidu Kayıt Girişi](./media/notification-hubs-baidu-get-started/BaiduRegistrationInput.png)
 
@@ -63,27 +63,27 @@ Baidu hesabınızı etkinleştirdikten sonra, [Baidu portalında] oturum açın.
 ## <a name="create-a-baidu-cloud-push-project"></a>Bir Baidu bulut anında iletme projesi oluşturma
 Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi, API anahtarınızı ve gizli anahtarınızı alırsınız.
 
-1. [Baidu portalında] oturum açtıktan sonra, **更多>>** (**daha fazlası**) öğesine tıklayın.
+1. [Baidu portalında] oturum açtıktan sonra **更多 >>** (**diğer**) seçeneğine tıklayın.
    
     ![Kayıt - Devamı](./media/notification-hubs-baidu-get-started/BaiduRegistrationMore.png)
 
-2. **站长与开发者服务** (**Web Uzmanı ve Geliştirici Hizmetleri**) bölümünde aşağı kaydırın ve **百度云推送** (**Baidu Bulut Bildirimleri**) öğesine tıklayın.
+2. **站长与开发者服务** (**Web Uzmanı ve Geliştirici Hizmetleri**) bölümünde aşağı kaydırın ve **百度云推送** (**Baidu Bulut Anında İletme** ) seçeneğine tıklayın.
    
     ![Baidu Açık Bulut Platformu](./media/notification-hubs-baidu-get-started/BaiduOpenCloudPlatform.png)
 
-3. Sonraki sayfada sağ üst köşedeki **登录** (**Oturum aç**) öğesine tıklayın.
+3. Sonraki sayfada sağ üst köşedeki **登录** (**Oturum Aç**) seçeneğine tıklayın.
    
     ![Baidu Oturum Açma](./media/notification-hubs-baidu-get-started/BaiduLogin.png)
 
-4. Ardından bu sayfadaki **创建应用** (**Uygulama Oluştur**) öğesine tıklayın.
+4. Ardından bu sayfada **创建应用** (**Uygulama Oluştur**) seçeneğine tıklayın.
 
     ![Baidu Uygulama Oluşturma](./media/notification-hubs-baidu-get-started/BaiduCreateApplication.png)
 
-5. Sonraki sayfada 创建新应用 (**Yeni Uygulama Oluştur**) öğesine tıklayın.
+5. Sonraki sayfada 创建新应用 (**Yeni Uygulama Oluştur**) seçeneğine tıklayın.
    
     ![Baidu Yeni Uygulama Oluştur](./media/notification-hubs-baidu-get-started/BaiduCreateNewApplication.png)
 
-6. Bir uygulama adı girin ve 创建 (**Oluştur**) öğesine tıklayın.
+6. Bir uygulama adı girin ve 创建 (**Oluştur**) seçeneğine tıklayın.
    
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateApplicationDoCreate.png)
 
@@ -91,7 +91,7 @@ Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi
    
     ![Baidu Anında İletme Gizli Anahtarları](./media/notification-hubs-baidu-get-started/BaiduGetSecrets.png)
 
-8. Sol bölmedeki 创建通知 (**Bildirim Oluştur**) öğesine tıklayarak projeyi anında iletme bildirimleri için yapılandırın.
+8. Sol bölmedeki 创建通知 (**Bildirim Oluştur**) seçeneğine tıklayarak projeyi anında iletme bildirimleri için yapılandırın.
    
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateNotification.png)
 
@@ -117,7 +117,7 @@ Erişim bağlantı bilgileri penceresindeki `DefaultListenSharedAccessSignature`
 
     ![Azure Notification Hubs - Baidu Yeni Proje](./media/notification-hubs-baidu-get-started/AndroidNewProject.png)
 
-2.  Uygulama Adı girin ve Gereken Minimum SDK Sürümü değerinin API 16: Android 4.1 olarak belirlendiğinden emin olun. **Ayrıca lütfen paketinizin adının (应用包名) Baidu Bulut Anında İletim Portalındakiyle aynı olduğundan emin olun**
+2.  Uygulama Adı girin ve Gereken Minimum SDK Sürümü değerinin API 16: Android 4.1 olarak belirlendiğinden emin olun. **Ayrıca lütfen paketinizin adının (应用包名) Baidu Bulut Anında İletme Portalı’nda aynı olduğundan emin olun**
 
     ![Azure Notification Hubs - Baidu Min SDK1](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png)
     ![Azure Notification Hubs - Baidu Min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)

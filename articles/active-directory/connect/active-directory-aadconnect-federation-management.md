@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5597d75da50853e85d6e94f1a5c7b5114068f671
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4bba72e0761553c81acda7609898c1b032bdf28a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917005"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044428"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Azure AD Connect kullanarak Active Directory Federasyon Hizmetleri özelleştirme ve yönetme
 Bu makalede, Azure Active Directory (Azure AD) Connect kullanarak Active Directory Federasyon Hizmetleri (AD FS) özelleştirme ve yönetme işlemini açıklamaktadır. Ayrıca, bir AD FS grubu için bir tam yapılandırma yapmanız gerekebilecek diğer ortak bir AD FS görevler içerir.
@@ -189,7 +189,7 @@ Aşağıdaki bölümler, AD FS oturum açma sayfanız özelleştirdiğinizde ger
 Gösterilen şirketin logosunu değiştirmek için **oturum** sayfasında, aşağıdaki Windows PowerShell cmdlet'ini ve sözdizimini kullanın.
 
 > [!NOTE]
-> Önerilen boyutlar logosu, bir dosya boyutunun 10 KB'den büyük olmaması 96 dpi'de 260 x 35 vardır.
+> Önerilen logosu 260 x 35 boyutlardır \@ 96 DPI bir dosya boyutu 10 KB'den büyük olmaması.
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 

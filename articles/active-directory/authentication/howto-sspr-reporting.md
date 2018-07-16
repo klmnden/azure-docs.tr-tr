@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: df46a4de32482f9da46b81e6b0fbc55c2cc1af35
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: e2c4c59e52f277358027f5d228fdf43822822992
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37444251"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044537"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD parola yönetimi için raporlama seçenekleri
 
@@ -49,7 +49,7 @@ Azure portalı deneyiminde, parola sıfırlama görüntüleyebilir ve parola sı
 1. Gözat [Azure portalında](https://portal.azure.com).
 2. Seçin **tüm hizmetleri** sol bölmesinde.
 3. Arama **Azure Active Directory** Hizmetler listesinde ve bu seçeneği belirleyin.
-4. Seçin **kullanıcılar ve gruplar**.
+4. **Kullanıcı ve gruplar**'ı seçin.
 5. Seçin **denetim günlüklerini** gelen **kullanıcılar ve gruplar** menüsü. Bu, dizininizdeki tüm kullanıcılara karşı gerçekleşen denetim olayların tümünü gösterir. Bu görünüm tüm parola ile ilgili olayları görmek için filtre uygulayabilirsiniz.
 6. Bu görünüm yalnızca parola sıfırlama ilgili olayları görmek için filtre uygulamak için seçin **filtre** bölmenin üstünde düğme.
 7. Gelen **filtre** menüsünde **kategori** aşağı açılan liste ve şekilde değiştirin **Self Servis parola yönetimi** kategori türü.
@@ -173,8 +173,8 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](howto-sspr-deployment.md)
-* [Parolanızı sıfırlama veya değiştirme](../active-directory-passwords-update-your-own-password.md).
-* [Self servis parola sıfırlama için kaydolma](../active-directory-passwords-reset-register.md).
+* [Parolanızı sıfırlama veya değiştirme](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Self servis parola sıfırlama için kaydolma](../user-help/active-directory-passwords-reset-register.md).
 * [Lisansla ilgili bir sorunuz mu var?](concept-sspr-licensing.md)
 * [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](howto-sspr-authenticationdata.md)
 * [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](concept-sspr-howitworks.md#authentication-methods)

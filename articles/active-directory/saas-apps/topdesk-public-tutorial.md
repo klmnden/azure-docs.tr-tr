@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile TOPdesk - genel | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile TOPdesk - genel arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle TOPdesk - Public | Microsoft Docs'
+description: Azure Active Directory ve TOPdesk - genel arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: cb4c530f8fd58d95b75c23aae165bd826a698bb0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7f8bedda36e4008bdb9c3aeefc4d5acdf6ba253e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211494"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042138"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Öğretici: Azure Active Directory Tümleştirme ile TOPdesk - genel
+# <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Öğretici: Azure Active Directory tümleştirmesiyle TOPdesk - genel
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile ortak TOPdesk - tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile genel TOPdesk - tümleştirme konusunda bilgi edinin.
 
 TOPdesk - genel Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 - TOPdesk - genel erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak TOPdesk - Azure AD hesaplarına sahip (çoklu oturum açma) ortak için açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- Otomatik olarak imzalanan için TOPdesk - Azure AD hesaplarına (çoklu oturum açma) genel açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD Tümleştirmesi ile TOPdesk - yapılandırmak için genel, aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile TOPdesk - yapılandırmak için genel, aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- TOPdesk - genel çoklu oturum açma etkin abonelik
+- Azure AD aboneliğiniz
+- TOPdesk - genel çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Ortak galerisinden TOPdesk - ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Genel Galeriden TOPdesk - ekleme
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="adding-topdesk---public-from-the-gallery"></a>Ortak galerisinden TOPdesk - ekleme
-TOPdesk - Azure AD'ye ortak tümleştirmesini yapılandırmak için TOPdesk - galerisinden ortak yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+## <a name="adding-topdesk---public-from-the-gallery"></a>Genel Galeriden TOPdesk - ekleme
+TOPdesk - genel Azure AD'ye tümleştirmesini yapılandırmak için genel Galeriden listenize yönetilen SaaS uygulamaları - TOPdesk eklemeniz gerekir.
 
-**TOPdesk - Galerisi'nden ortak eklemek için aşağıdaki adımları gerçekleştirin:**
+**TOPdesk - genel Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -68,37 +68,37 @@ TOPdesk - Azure AD'ye ortak tümleştirmesini yapılandırmak için TOPdesk - ga
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **TOPdesk - genel**seçin **TOPdesk - genel** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **TOPdesk - genel**seçin **TOPdesk - genel** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![TOPdesk - Genel sonuçlar listesinde](./media/topdesk-public-tutorial/tutorial_topdesk-public_addfromgallery.png)
+    ![TOPdesk - genel sonuçları listesinde](./media/topdesk-public-tutorial/tutorial_topdesk-public_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma TOPdesk ile test etme - genel "Britta Simon" adlı bir test kullanıcı tabanlı.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma TOPdesk ile test etme - Public "Britta Simon" adlı bir test kullanıcı tabanlı.
 
-Çoklu oturum açma çalışmak özelliğini için Azure AD TOPdesk ne karşılık gelen kullanıcı bilmek ister - genel bir kullanıcıya Azure AD'de. Diğer bir deyişle, bir Azure AD kullanıcısının TOPdesk - ilgili kullanıcı arasında bir bağlantı ilişkisi ortak kurulması gerekir.
+Tek çalışmak, oturum için Azure AD'ye TOPdesk içinde karşılık gelen kullanıcının bilmesi gerekir - genel bir kullanıcının Azure AD'de. Diğer bir deyişle, bir Azure AD kullanıcısının TOPdesk - ilgili kullanıcı arasında bir bağlantı ilişki genel kurulması gerekir.
 
-TOPdesk içinde-ortak değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+TOPdesk içinde-ortak değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma TOPdesk ile-test etmek için genel, aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma TOPdesk ile-test etmek için genel, aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[TOPdesk - genel test kullanıcısı oluşturma](#create-a-topdesk---public-test-user)**  - Britta Simon, karşılık gelen TOPdesk - kullanıcı Azure AD gösterimini bağlantılı ortak sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[TOPdesk - genel bir test kullanıcısı oluşturma](#create-a-topdesk---public-test-user)**  - TOPdesk - kullanıcı Azure AD gösterimini bağlı olduğu ortak bir karşılığı Britta simon'un sağlamak için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma, TOPdesk - genel uygulama yapılandırın.
 
-**Azure AD çoklu oturum açma ile TOPdesk - yapılandırmak için genel, aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma - TOPdesk ile yapılandırmak için genel, aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **TOPdesk - genel** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **TOPdesk - genel** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
@@ -106,56 +106,56 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açma iletişim kutusu](./media/topdesk-public-tutorial/tutorial_topdesk-public_samlbase.png)
 
-3. Üzerinde **TOPdesk - ortak etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **TOPdesk - ortak etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![TOPdesk - ortak etki alanı ve URL'ler tek oturum açma bilgileri](./media/topdesk-public-tutorial/tutorial_topdesk-public_url.png)
+    ![Çoklu oturum açma bilgileri TOPdesk - ortak etki alanı ve URL'ler](./media/topdesk-public-tutorial/tutorial_topdesk-public_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.topdesk.net`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.topdesk.net`
     
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.topdesk.net/tas/public/login/verify`
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.topdesk.net/tas/public/login/verify`
 
-    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.topdesk.net/tas/public/login/saml`
+    c. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.topdesk.net/tas/public/login/saml`
      
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler, gerçek tanımlayıcı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Yanıt açıklaması daha sonra öğreticide URL'dir. Kişi [TOPdesk - ortak istemci destek ekibi](https://help.topdesk.com/saas/enterprise/user/) bu değerleri almak için.  
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Yanıt URL'si açıklaması öğreticinin sonraki bölümlerinde ' dir. İlgili kişi [TOPdesk - genel istemci Destek ekibine](https://help.topdesk.com/saas/enterprise/user/) bu değerleri almak için.  
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/topdesk-public-tutorial/tutorial_topdesk-public_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/topdesk-public-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/topdesk-public-tutorial/tutorial_general_400.png)
     
-6. Üzerinde **TOPdesk - genel yapılandırması** 'yi tıklatın **TOPdesk - ortak yapılandırma** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **TOPdesk - genel yapılandırması** bölümünde **TOPdesk - ortak yapılandırma** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![TOPdesk - genel yapılandırması](./media/topdesk-public-tutorial/tutorial_topdesk-public_configure.png) 
+    ![TOPdesk - genel yapılandırma](./media/topdesk-public-tutorial/tutorial_topdesk-public_configure.png) 
 
-7. Oturum, **TOPdesk - genel** yönetici olarak şirket site.
+7. Oturum açın, **TOPdesk - genel** yönetici olarak şirketin site.
 
-8. İçinde **TOPdesk** menüsünde tıklatın **ayarları**.
+8. İçinde **TOPdesk** menüsünü tıklatın **ayarları**.
    
     ![Ayarları](./media/topdesk-public-tutorial/ic790598.png "ayarları")
 
-9. Tıklatın **oturum açma ayarları**.
+9. Tıklayın **oturum açma ayarları**.
    
     ![Oturum açma ayarları](./media/topdesk-public-tutorial/ic790599.png "oturum açma ayarları")
 
-10. Genişletme **oturum açma ayarları** menüsüne ve ardından **genel**.
+10. Genişletin **oturum açma ayarları** menüsüne ve ardından **genel**.
    
     ![Genel](./media/topdesk-public-tutorial/ic790600.png "genel")
 
-11. İçinde **ortak** bölümünü **SAML oturum açma** yapılandırma bölümünde, aşağıdaki adımları gerçekleştirin:
+11. İçinde **genel** bölümünü **SAML oturum açma** yapılandırma bölümünde, aşağıdaki adımları gerçekleştirin:
    
-    ![Teknik ayarları](./media/topdesk-public-tutorial/ic790601.png "teknik ayarları")
+    ![Teknik ayarlarla](./media/topdesk-public-tutorial/ic790601.png "teknik ayarları")
    
-    a. Tıklatın **karşıdan** ortak meta veri dosyası indirip bilgisayarınıza yerel olarak kaydedin.
+    a. Tıklayın **indirme** ortak meta veri dosyası indirin ve bilgisayarınıza yerel olarak kaydedin.
    
-    b. İndirilen meta veri dosyasını açın ve ardından bulun **AssertionConsumerService** düğümü.
+    b. İndirilen meta veri dosyası açın ve ardından bulun **AssertionConsumerService** düğümü.
 
     ![AssertionConsumerService](./media/topdesk-public-tutorial/ic790619.png "AssertionConsumerService")
    
-    c. Kopya **AssertionConsumerService** değeri, bu değeri yapıştırın **yanıt URL'si** metin kutusuna **TOPdesk - ortak etki alanı ve URL'leri** bölümü.      
+    c. Kopyalama **AssertionConsumerService** değeri, bu değeri yapıştırın **yanıt URL'si** metin kutusunda **TOPdesk - ortak etki alanı ve URL'ler** bölümü.      
    
 12. Bir sertifika dosyası oluşturmak için aşağıdaki adımları gerçekleştirin:
     
@@ -163,52 +163,52 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     a. Azure Portalı'ndan indirilen meta veri dosyası açın.
     
-    b. Genişletme **RoleDescriptor** sahip düğümü bir **xsi: type** , **ssas'nin: ApplicationServiceType**.
+    b. Genişletin **verilerde Securitytokenservicetype** sahip düğüm bir **xsi: type** , **beslenir: ApplicationServiceType**.
     
     c. Değerini kopyalayın **X509Certificate** düğümü.
     
-    d. Kopyalanan Kaydet **X509Certificate** yerel olarak bilgisayarınızda bir dosyada değeri.
+    d. Kopyalanan Kaydet **X509Certificate** yerel olarak bilgisayarınızda bir dosyadaki değeri.
 
-13. İçinde **ortak** 'yi tıklatın **Ekle**.
+13. İçinde **genel** bölümünde **Ekle**.
     
     ![SAML oturum açma](./media/topdesk-public-tutorial/ic790625.png "SAML oturum açma")
 
-14. Üzerinde **SAML Yapılandırması Yardımcısı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+14. Üzerinde **SAML yapılandırma Yardımcısı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
     
-    ![SAML Yapılandırması Yardımcısı](./media/topdesk-public-tutorial/ic790608.png "SAML Yapılandırması Yardımcısı")
+    ![SAML yapılandırma Yardımcısı](./media/topdesk-public-tutorial/ic790608.png "SAML yapılandırma Yardımcısı")
     
-    a. Azure Portalı'ndan indirilen meta veri dosyanızı altında karşıya yüklemek için **Federasyon meta verileri**, tıklatın **Gözat**.
+    a. Azure portalından indirilen meta verileri dosyanızı altında karşıya yüklemek için **Federasyon meta verileri**, tıklayın **Gözat**.
 
-    b. Sertifika dosyanızın altında karşıya yüklemek için **sertifika (RSA)**, tıklatın **Gözat**.
+    b. Altında sertifika dosyası karşıya **sertifika (RSA)**, tıklayın **Gözat**.
 
-    c. Aldığınız TOPdesk destek ekibinden altında logosu dosyayı karşıya yüklemeyi **Logo simgesini**, tıklatın **Gözat**.
+    c. Aldığınız TOPdesk destek ekibinden altında logosu dosyayı karşıya yüklemeyi **logosu simgesi**, tıklayın **Gözat**.
 
-    d. İçinde **kullanıcı adı özniteliği** metin kutusuna, türü `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. İçinde **kullanıcı adı özniteliği** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    e. İçinde **görünen adı** metin kutusuna, yapılandırmanız için bir ad yazın.
+    e. İçinde **görünen adı** metin yapılandırmanız için bir ad yazın.
 
     f. **Kaydet**’e tıklayın.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/topdesk-public-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/topdesk-public-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/topdesk-public-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/topdesk-public-tutorial/create_aaduser_03.png)
 
@@ -218,80 +218,80 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
  
-### <a name="create-a-topdesk---public-test-user"></a>TOPdesk - genel test kullanıcısı oluşturma
+### <a name="create-a-topdesk---public-test-user"></a>TOPdesk - genel bir test kullanıcısı oluşturma
 
-Azure AD kullanıcıların TOPdesk - oturum etkinleştirmek için ortak, bunlar sağlanmalıdır TOPdesk - genel.  
-TOPdesk - söz konusu olduğunda ortak, sağlama olduğunu el ile bir görev.
+Azure AD TOPdesk - oturum açmasına olanak tanımak ortak, bunlar sağlanmalıdır TOPdesk - genel.  
+TOPdesk - söz konusu olduğunda genel, el ile bir görev olduğundan sağlama.
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Kullanıcı sağlamayı yapılandırmak için aşağıdaki adımları gerçekleştirin:
-1. Oturum, **TOPdesk - genel** yönetici olarak şirket site.
+1. Oturum açın, **TOPdesk - genel** şirketinizin sitesi yöneticisi olarak.
 
-2. Üstteki menüde tıklatın **TOPdesk \> yeni \> destek dosyalarını \> kişi**.
+2. Üstteki menüden **TOPdesk \> yeni \> destek dosyalarını \> kişi**.
    
     ![Kişi](./media/topdesk-public-tutorial/ic790628.png "kişi")
 
-3. Yeni bir kişiye iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+3. Yeni bir kişiye iletişim kutusunda aşağıdaki adımları gerçekleştirin:
    
-    ![Yeni bir kişiye](./media/topdesk-public-tutorial/ic790629.png "yeni bir kişiye")
+    ![Yeni bir kişiye](./media/topdesk-public-tutorial/ic790629.png "yeni kişi")
    
     a. Genel sekmesini tıklatın.
 
-    b. İçinde **Soyadı** metin kutusuna, Simon gibi kullanıcının soyadı yazın
+    b. İçinde **Soyadı** metin Simon gibi kullanıcının soyadı yazın
  
     c. Seçin bir **Site** hesabı.
  
     d. **Kaydet**’e tıklayın.
 
 > [!NOTE]
-> TOPdesk - Azure AD kullanıcı hesaplarını sağlamak için ortak API'ler sağlanan veya herhangi diğer TOPdesk - genel kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
+> Herhangi diğer TOPdesk - genel bir kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri TOPdesk - Azure AD kullanıcı hesapları sağlamak için ortak tarafından sağlanan.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta TOPdesk - genel erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma TOPdesk - genel erişim vererek kullanmak Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
-**TOPdesk için - Britta Simon atamak için ortak, aşağıdaki adımları gerçekleştirin:**
+**Britta Simon - TOPdesk için atanacak genel, aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **TOPdesk - genel**.
 
-    ![TOPdesk - ortak bağlantı uygulamalar listesinde](./media/topdesk-public-tutorial/tutorial_topdesk-public_app.png)  
+    ![Genel bağlantı TOPdesk - uygulamalar listesinde](./media/topdesk-public-tutorial/tutorial_topdesk-public_app.png)  
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-TOPdesk tıklatın - genel kutucuğu erişim panelinde olduğunda, otomatik olarak, TOPdesk - genel uygulama açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+TOPdesk tıklayın - genel erişim Paneli'nde döşeme sonra otomatik olarak, TOPdesk - genel uygulama açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

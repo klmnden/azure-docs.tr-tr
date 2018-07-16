@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 79b0aa9ae435defa980b4da0c8d376fdb69542f3
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 28576452ab982896614af5527a0237ca4ab275f0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866568"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Öğretici: Azure Active Directory Cisco bulut ile tümleştirme
 
@@ -228,7 +228,7 @@ Bu bölümde, Cisco buluta erişim vererek, Azure çoklu oturum açma kullanıla
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim panelinde Cisco bulut kutucuğa tıkladığınızda, otomatik olarak Cisco bulut uygulamanızın açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

@@ -9,23 +9,23 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: 4d08c4c7a76d7ed16ec57590ee0fd4ee978e5258
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263159"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918280"
 ---
 # <a name="archive-azure-monitoring-data"></a>Azure izleme verilerini arşivleme
 
-Azure ortamınızın birkaç katmanında, bir Azure Depolama Hesabında arşivlenebilen günlük ve ölçüm verileri oluşturulur. Verilerin Log Analytics veya Azure İzleyici’deki bekletme süresi geçtikten sonra zaman içinde verileri izleme geçmişini hesaplı, aranabilir olmayan bir depoda korumak için bu arşivlemeyi yapmak isteyebilirsiniz. Bu öğreticide, verileri bir depolama hesabında arşivlemek üzere Azure ortamınızı yapılandırma işlemi adım adım gösterilmektedir.
+Azure ortamınızın birkaç katmanında, bir Azure Depolama Hesabında arşivlenebilen günlük ve ölçüm verileri oluşturulur. Verileri Log Analytics veya Azure İzleyici’de saklama süresi geçtikten sonra zaman içinde verileri izleme geçmişini hesaplı, aranabilir olmayan bir depoda korumak için bu arşivlemeyi yapmak isteyebilirsiniz. Bu öğreticide, verileri bir depolama hesabında arşivlemek üzere Azure ortamınızı yapılandırma işlemi adım adım gösterilmektedir.
 
 > [!div class="checklist"]
 > * İzleme verilerini tutmak için depolama hesabı oluşturma
 > * Abonelik günlüklerini depolama hesabına yönlendirme
 > * Kaynak verilerini depolama hesabına yönlendirme
 > * Sanal makine (konuk işletim sistemi) verilerini depolama hesabına yönlendirme
-> * İçindeki izleme verilerini görüntüleme
+> * Depolama hesabındaki izleme verilerini görüntüleme
 > * Kaynaklarınızı temizleme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
@@ -40,7 +40,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Abonelik günlüklerini depolama hesabına yönlendirme
 
-Artık, verileri bir depolama hesabına yönlendirmek üzere Azure ortamınızı ayarlamaya başlamak için hazırsınız. İlk olarak, depolama hesabına yönlendirilecek abonelik düzeyinde verileri (Azure Etkinlik Günlüğünde yer alır) yapılandıracağız. [**Azure Etkinlik Günlüğü**](monitoring-overview-activity-logs.md), Azure'da abonelik düzeyindeki olayların geçmişini sağlar. *Hangi* kaynakları *kimin*, *zaman* oluşturduğunu, güncelleştirdiğini veya sildiğini belirlemek için Azure portalında bu geçmişe göz atabilirsiniz.
+Artık, verileri bir depolama hesabına yönlendirmek üzere Azure ortamınızı ayarlamaya başlamak için hazırsınız. İlk olarak, depolama hesabına yönlendirilecek abonelik düzeyinde verileri (Azure Etkinlik Günlüğünde yer alır) yapılandıracağız. [**Azure Etkinlik Günlüğü**](monitoring-overview-activity-logs.md), Azure'da abonelik düzeyindeki olayların geçmişini sağlar. *Hangi* kaynakları *kimin*, *ne zaman* oluşturduğunu, güncelleştirdiğini veya sildiğini belirlemek için Azure portalda bu geçmişe göz atabilirsiniz.
 
 1. Sol gezinti listesinde bulunan **İzleyici** düğmesine ve sonra **Etkinlik Günlüğü**’ne tıklayın.
 
@@ -52,7 +52,7 @@ Artık, verileri bir depolama hesabına yönlendirmek üzere Azure ortamınızı
 
    ![Etkinlik Günlüğünü dışarı aktarma](media/monitor-tutorial-archive-monitoring-data/activity-log-export.png)
 
-4. Görüntülenen bölümde **Depolama hesabı** açılır listesini kullanarak önceki **Depolama hesabı oluşturma** adımında oluşturduğunuz depolama hesabı adını seçin ve sora **Tamam**’a tıklayın.
+4. Görüntülenen bölümde **Depolama hesabı** açılır listesini kullanarak önceki **Depolama hesabı oluşturma** adımında oluşturduğunuz depolama hesabı adını seçin ve sonra **Tamam**’a tıklayın.
 
    ![Depolama hesabı seçme](media/monitor-tutorial-archive-monitoring-data/activity-log-storage.png)
 
@@ -137,6 +137,11 @@ Sanal makinelerinizdeki izleme verileri artık depolama hesabına akar.
 
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Depolama hesabındaki izleme verilerini görüntüleme
 
+> [!WARNING]
+> Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
+
 Yukarıdaki adımları izlediyseniz, veriler depolama hesabınıza akmaya başlamıştır.
 
 1. Bazı veri türleri için (örneğin, Etkinlik Günlüğü), depolama hesabında olay oluşturan bazı etkinliklerin olması gerekir. Etkinlik Günlüğünde etkinlik oluşturmak için [bu yönergeleri](./monitor-quick-audit-notify-action-in-subscription.md) takip edin. Olayın depolama hesabında görünmesi için beş dakikaya kadar beklemeniz gerekebilir.
@@ -147,13 +152,13 @@ Yukarıdaki adımları izlediyseniz, veriler depolama hesabınıza akmaya başla
 
 4. **Bloblar**’a tıklayın, ardından **insights-operational-logs** etiketli kapsayıcıya ve son olarak **name=default** etiketli kapsayıcıya tıklayın. Etkinlik Günlüğünüz bu kapsayıcının içindedir. İzleme verileri, kaynak kimliğine (yalnızca Etkinlik Günlüğünün abonelik kimliği) ve sonra tarih ve saate göre kapsayıcılara ayrılır. Bu blobların tam biçimi şöyledir:
 
-   insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+   insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{abonelik kimliği}/y={dört basamaklı sayı olarak yıl}/m={iki basamaklı sayı olarak ay}/d={iki basamaklı sayı olarak gün}/h={iki basamaklı 24 saat biçiminde saat}/m=00/PT1H.json
 
 5. Kaynak kimliği, tarih ve saat için kapsayıcılara tıklayarak PT1H.json dosyasına gidin. PT1H.json dosyasına ve **İndir**’e tıklayın. Her PT1H.json blobu, blob URL’sinde belirtilen saat (örneğin, h=12) içinde gerçekleşen bir JSON olay blobu içerir. Mevcut saat boyunca, olaylar meydana geldikçe PT1H.json dosyasına eklenir. Günlük olayları saat başına bloblara ayrıldığı için dakika değeri (m=00) her zaman 00’dır.
 
    Artık depolama hesabında depolanmış JSON olayını görüntüleyebilirsiniz. Kaynak tanılama günlükleri için blob biçimi şu şekildedir:
 
-   insights-logs-{log category name}/resourceId=/{resource ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+   insights-logs-{günlük kategorisi adı}/resourceId=/{kaynak kimliği}/y={dört basamaklı sayı olarak yıl}/m={iki basamaklı sayı olarak ay}/d={iki basamaklı sayı olarak gün}/h={iki basamaklı 24 saat biçiminde saat}/m=00/PT1H.json
 
 6. Konuk işletim sistemi izleme verileri tablolarda depolanır. Depolama hesabı giriş sayfasına geri dönüp **Tablolar**’a tıklayın. Ölçümler, performans sayaçları ve olay günlüklerine yönelik tablolar bulunur.
 
@@ -181,7 +186,7 @@ Bu öğreticide, Azure ortamınızdan bir depolama hesabında arşivlenecek izle
 > * Abonelik günlüklerini depolama hesabına yönlendirme
 > * Kaynak verilerini depolama hesabına yönlendirme
 > * Sanal makine (konuk işletim sistemi) verilerini depolama hesabına yönlendirme
-> * İçindeki izleme verilerini görüntüleme
+> * Depolama hesabındaki izleme verilerini görüntüleme
 > * Kaynaklarınızı temizleme
 
 Verilerinizden daha iyi şekilde yararlanmak ve ek bilgiler edinmek için verilerinizi Log Analytics’e de gönderin.

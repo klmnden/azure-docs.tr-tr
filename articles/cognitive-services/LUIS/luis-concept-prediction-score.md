@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 88d5eb22186248024a356610addab0d43f68a961
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: dd5bea791fed0c16195eadca03ba2f9a8c11da1b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887139"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044960"
 ---
 # <a name="prediction-score"></a>Tahmin puanı
 Tahmin puanı LUIS sahip tahmin sonuçlarını için güvenilirlik derecesi gösterir. 
@@ -57,6 +57,9 @@ Tahmin puanları, üstel gösterim kullanabilir *görünen* 0-1 yukarıda gibi a
 Eğitim doğrulukla öğesi olduğundan farklı bir uygulamada aynı modeli eğitmek ve puanlar bu aynı değildir, bu andır. İkincisi, birden fazla hedefi için bir utterance herhangi bir çakışma üst hedefi aynı utterance için eğitim göre değiştirebilirsiniz anlamına gelir.
 
 Bir güven göstermek için belirli bir LUIS puanı, sohbet botu gerektiriyorsa, bunun yerine üst iki amacı puanı birbirinden kullanmanız gerekir. Bu eğitim çeşitleri için esneklik sağlar. 
+
+## <a name="punctuation"></a>Noktalama işaretleri
+Noktalama, LUIS, ayrı bir belirteçtir. Daha önceden bir utterance ve sonunda nokta içeren bir utterance iki ayrı konuşma olan ve iki farklı Öngörüler elde edebilirsiniz. Model emin olun ya da noktalama işleme içinde [örnek konuşma](luis-concept-utterance.md) (sahip ve noktalama işaretleri olmaması) veya [patterns}(luis-concept-patterns.md) noktalama özel söz dizimi ile yok saymak daha kolay olduğu: `I am applying for the {Job} position[.]`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

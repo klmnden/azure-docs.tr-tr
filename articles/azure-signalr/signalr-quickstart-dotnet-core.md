@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: b742dc94b6f6bea76a0809114f300287633c2a67
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674861"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Hızlı Başlangıç: SignalR Hizmetiyle sohbet odası oluşturma
 
@@ -86,18 +87,18 @@ Bu bölümde, projenize [Gizli Dizi Yöneticisi aracını](https://docs.microsof
 
 1. Aşağıdaki komutu yürüterek `Microsoft.Azure.SignalR` NuGet paketine bir başvuru ekleyin:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview1-10009
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
 
 2. Projeniz için paketleri geri yüklemek üzere aşağıdaki komutu yürütün.
 
         dotnet restore
 
-3. Gizli Dizi Yöneticisi’ne *Azure:SignalR:ConnectionString* adlı bir gizli dizi ekleyin. Bu gizli dizi, SignalR Hizmetinizin kaynağına erişmeye yarayan bağlantı dizesini içerir. *Azure:SignalR:ConnectionString*, SignalR’nin bir bağlantı kurmak için aradığı varsayılan yapılandırma anahtarıdır. Aşağıdaki komutta yer alan değeri, SignalR Hizmetinizin kaynağına ait bağlantı dizesi ile değiştirin.
+3. Gizli Dizi Yöneticisi’ne *Azure__SignalR__ConnectionString* adlı bir gizli dizi ekleyin. Bu gizli dizi hiyerarşik bir yapılandırma değeridir ve iki nokta üst üste işareti (:) tüm platformlarda çalışmayabilir. Bu gizli dizi tarafından kullanılan çift alt çizgi (__) tüm platformlar tarafından desteklenir.  Bu gizli dizi, SignalR Hizmetinizin kaynağına erişmeye yarayan bağlantı dizesini içerir. *Azure__SignalR__ConnectionString*, SignalR’nin bir bağlantı kurmak için aradığı varsayılan yapılandırma anahtarıdır. Aşağıdaki komutta yer alan değeri, SignalR Hizmetinizin kaynağına ait bağlantı dizesi ile değiştirin.
 
     Bu komut, *.csproj* dosyası ile aynı dizinde yürütülmelidir.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     Gizli Dizi Yöneticisi yalnızca yerel olarak barındırıldığı sırada web uygulamasını test etmek için kullanılır. Sonraki bir öğreticide, sohbet uygulamasını Azure’a dağıtacaksınız. Web uygulaması dağıtıldıktan sonra bağlantı dizesini Gizli Dizi Yöneticisi ile depolamak yerine bir uygulama ayarını kullanacaksınız.
@@ -112,7 +113,7 @@ Bu bölümde, projenize [Gizli Dizi Yöneticisi aracını](https://docs.microsof
     }
     ```
 
-    `AddAzureSignalR()` konumuna bir parametre geçirmeyen bu kod, SignalR Hizmeti kaynak bağlantı dizesi için varsayılan *Azure:SignalR:ConnectionString* yapılandırma anahtarını kullanır.
+    `AddAzureSignalR()` konumuna bir parametre geçirmeyen bu kod, SignalR Hizmeti kaynak bağlantı dizesi için varsayılan *Azure__SignalR__ConnectionString* yapılandırma anahtarını kullanır.
 
 5. *Startup.cs* dosyasında da `app.UseStaticFiles()` çağrısını aşağıdaki kod ile değiştirerek `Configure` yöntemini güncelleştirin ve dosyayı kaydedin.
 

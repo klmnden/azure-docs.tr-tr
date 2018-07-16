@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 63b70e38f4c4f804c9be520480c7562834d42598
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 7b5dc6d892741f63596589a48ad5d45891b14c21
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872672"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040414"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Öğretici: Azure Active Directory Nimblex ile tümleştirme
 
@@ -228,7 +228,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Nimblex erişim vererek 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim panelinde Nimblex kutucuğa tıkladığınızda, otomatik olarak Nimblex uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

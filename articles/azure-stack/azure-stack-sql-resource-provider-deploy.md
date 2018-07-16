@@ -11,37 +11,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: b06f53b0169e3afd140be81d9d633844a5876c09
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f53b1e08da1cb2d0dc02381bf47c27e8f84cb1d0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38487656"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044841"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Azure Stack'te SQL Server Kaynak sağlayıcısı dağıtma
-
 SQL veritabanları Azure Stack hizmet olarak kullanıma sunmak için Azure Stack SQL Server Kaynak Sağlayıcısı'nı kullanın. SQL kaynak sağlayıcısı, bir hizmet olarak Windows Server 2016 Server Core sanal makinede (VM) çalışır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure Stack SQL kaynak sağlayıcısını dağıtmadan önce karşılanması gereken birkaç önkoşul vardır. Bu gereksinimleri karşılamak için VM ayrıcalıklı uç noktasına erişebildiğinden bir bilgisayarda aşağıdaki adımları tamamlayın:
 
-- Bunu zaten bunu yapmadıysanız [Azure Stack kayıt](.\azure-stack-registration.md) Azure Market öğeleri indirebilmesi Azure ile.
-- Azure ve Azure Stack PowerShell modülleri yüklemelisiniz. Bu yükleme sistem wher üzerinde çalışır. Bu sistem, .NET çalışma zamanının en son sürümünü içeren bir Windows 10 veya Windows Server 2016 görüntüsü olması gerekir. Bkz: [Azure Stack için PowerShell yükleme](.\azure-stack-powershell-install.md).
+- Bunu zaten bunu yapmadıysanız [Azure Stack kayıt](azure-stack-registration.md) Azure Market öğeleri indirebilmesi Azure ile.
+- Azure ve Azure Stack PowerShell modülleri bu yüklemeyi çalıştıracağınız sisteme yüklemeniz gerekir. Bu sistem, .NET çalışma zamanının en son sürümünü içeren bir Windows 10 veya Windows Server 2016 görüntüsü olması gerekir. Bkz: [Azure Stack için PowerShell yükleme](.\azure-stack-powershell-install.md).
 - Gerekli Windows Server core VM için Azure Stack marketini indirerek ekleme **Windows Server 2016 Datacenter - Sunucu Çekirdeği** görüntü. 
-
-  >[!NOTE]
-  >Bir güncelleştirme yüklemeniz gerekiyorsa, tek bir MSU paket yerel bağımlılık yolunda yerleştirebilirsiniz. Birden fazla MSU dosyası bulunamazsa SQL kaynak sağlayıcısı yüklemesi başarısız olur.
-
-- İkili SQL kaynak Sağlayıcısı'nı indirin ve geçici bir dizine içeriğini ayıklamak için ayıklayıcısı çalıştırın. Kaynak sağlayıcısı bir minimum karşılık gelen Azure yapı yığınına sahiptir. Kullanmakta olduğunuz Azure Stack sürümü için doğru ikili indirdiğinizden emin olun.
+- İkili SQL kaynak Sağlayıcısı'nı indirin ve geçici bir dizine içeriğini ayıklamak için ayıklayıcısı çalıştırın. Kaynak sağlayıcısı bir minimum karşılık gelen Azure yapı yığınına sahiptir. Kullanmakta olduğunuz Azure Stack sürümü için doğru ikili yüklediğinizden emin olun:
 
     |Azure Stack sürümü|SQL RP sürümü|
     |-----|-----|
     |Sürüm 1804 (1.0.180513.1)|[SQL RP 1.1.24.0 sürümü](https://aka.ms/azurestacksqlrp1804)
     |Sürüm 1802 (1.0.180302.1)|[SQL RP 1.1.18.0 sürümü](https://aka.ms/azurestacksqlrp1802)|
+    |     |     |
+
+- Veri Merkezi tümleştirmesi önkoşulların karşılandığından emin olun:
+
+    |Önkoşul|Başvuru|
+    |-----|-----|
+    |DNS koşullu iletme doğru şekilde ayarlanır.|[Azure Stack veri merkezi tümleştirmesi - DNS](azure-stack-integrate-dns.md)|
+    |Kaynak sağlayıcıları için gelen bağlantı noktaları açıktır.|[Azure Stack veri merkezi tümleştirmesi - uç noktalarını yayımlama](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |PKI sertifika konusu ve SAN doğru şekilde ayarlayın.|[Azure Stack dağıtım zorunlu PKI önkoşulları](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack dağıtım PaaS sertifika önkoşulları](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
 ### <a name="certificates"></a>Sertifikalar
 
@@ -51,7 +56,7 @@ _Tümleşik sistemler yüklemeleri_. İsteğe bağlı PaaS sertifikaları bölü
 
 Tümünde Önkoşullar kendinizi çalıştırılmak **DeploySqlProvider.ps1** SQL kaynak sağlayıcısı dağıtma için betiği. DeploySqlProvider.ps1 betiği, Azure Stack sürümünüz için indirdiğiniz SQL kaynak sağlayıcısı ikili bir parçası olarak ayıklanır.
 
-SQL kaynak sağlayıcısı dağıtmak için açık bir **yeni** yükseltilmiş bir PowerShell konsol penceresi ve SQL kaynak sağlayıcısı ikili dosyaları ayıkladığınız dizine geçin. Zaten yüklenmiş olan PowerShell modülleri tarafından kaynaklanan olası sorunları önlemek için yeni bir PowerShell penceresi kullanmanızı öneririz.
+SQL kaynak sağlayıcısı dağıtmak için açık bir **yeni** yükseltilmiş bir PowerShell penceresi (PowerShell ISE değil) ve SQL kaynak sağlayıcısı ikili dosyaları ayıkladığınız dizine. Zaten yüklenmiş olan PowerShell modülleri tarafından kaynaklanan olası sorunları önlemek için yeni bir PowerShell penceresi kullanmanızı öneririz.
 
 Aşağıdaki görevleri tamamlar DeploySqlProvider.ps1 betiği çalıştırın:
 
@@ -60,8 +65,7 @@ Aşağıdaki görevleri tamamlar DeploySqlProvider.ps1 betiği çalıştırın:
 - Barındırma sunucuları dağıtmak için bir galeri paketi yayımlar.
 - İndirilen ve SQL kaynak Sağlayıcısı'nı yükleyen Windows Server 2016 temel görüntüyü kullanarak bir VM dağıtır.
 - Kaynak sağlayıcınızı VM eşler yerel bir DNS kaydı kaydeder.
-- Kaynak sağlayıcınız ile yerel Azure Resource Manager operatörü ve kullanıcı hesapları için kaydeder.
-- İsteğe bağlı olarak, kaynak sağlayıcı yüklemesi sırasında tek bir Windows Server güncelleştirme yükler.
+- Kaynak sağlayıcınız ile yerel Azure Resource Manager işleci hesabı için kaydeder.
 
 > [!NOTE]
 > SQL kaynak sağlayıcısı dağıtım başladığında, **system.local.sqladapter** kaynak grubu oluşturulur. Bu, gerekli dağıtımlarda bu kaynak grubu için son 75 dakika kadar sürebilir.

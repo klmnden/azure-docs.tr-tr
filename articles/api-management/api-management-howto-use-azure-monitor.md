@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 658588b29e65c9b1cd2f9d82c1c4528929875b2f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935585"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38973007"
 ---
 # <a name="monitor-published-apis"></a>Yayımlanan API’leri izleme
 
@@ -58,10 +58,14 @@ API Management, dakika başı yaydığı ölçümlerle API’lerinizin durumu ha
 Ölçümlere erişmek için:
 
 1. Sayfanın alt kısmındaki menüden **Ölçümler**’i seçin.
-2. Açılan listeden, ilgilendiğiniz ölçümleri seçin (birden çok ölçüm ekleyebilirsiniz). 
 
+    ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+
+2. Açılan listeden, ilgilendiğiniz ölçümleri seçin (birden çok ölçüm ekleyebilirsiniz).  
     Örneğin, kullanılabilir ölçümler listesinden **Toplam Ağ Geçidi İsteği** ve **Başarısız Ağ Geçidi İstekleri**’ni seçin.
-3. Grafikte, API çağrılarının toplam sayısı gösterilmektedir. Ayrıca, başarısız olan API çağrılarının sayısı gösterilmiştir. 
+3. Grafikte, API çağrılarının toplam sayısı gösterilmektedir. Ayrıca, başarısız olan API çağrılarının sayısı gösterilmiştir.
+
+    ![ölçüm grafiği](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Yetkisiz istekler için uyarı kuralı ayarlama
 
@@ -73,7 +77,10 @@ API Management, dakika başı yaydığı ölçümlerle API’lerinizin durumu ha
 
 Uyarıları yapılandırmak için:
 
-1. Sayfanın alt kısmındaki menü çubuğundan **Uyarı kuralları**’nı seçin.
+1. Sayfanın alt kısmındaki menü çubuğundan **Uyarılar (klasik)** seçeneğini belirleyin.
+
+    ![alerts](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+
 2. **Ölçüm uyarısı ekle**’yi seçin.
 3. Bu uyarı için bir **Ad** girin.
 4. İzlenecek ölçüm için **Yetkisiz Ağ Geçidi İstekleri** seçeneğini belirleyin.
@@ -100,6 +107,12 @@ Etkinlik günlüklerini görüntülemek için:
 1. APIM hizmet örneğinizi seçin.
 2. **Etkinlik günlüğü**’ne tıklayın.
 
+    ![etkinlik günlüğü](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+
+3. İstenen filtre kapsamını seçin ve **Uygula**’ya tıklayın.
+
+    ![etkinlik günlükleri](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 ## <a name="diagnostic-logs"></a>Tanılama Günlükleri
 
 Tanılama günlükleri, denetim ve sorun giderme konularında önemli işlem ve hatalar hakkında zengin bilgiler sağlar. Tanılama günlükleri, etkinlik günlüklerinden farklıdır. Etkinlik günlükleri, Azure kaynaklarınız üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Tanılama günlükleri, kaynağınızın kendisi tarafından gerçekleştirilen işlemler hakkında bilgi sağlar.
@@ -107,7 +120,10 @@ Tanılama günlükleri, denetim ve sorun giderme konularında önemli işlem ve 
 Tanılama günlüklerini yapılandırmak için:
 
 1. APIM hizmet örneğinizi seçin.
-2. **Tanılama günlüğü**’ne tıklayın.
+2. **Tanılama günlükleri**’ne tıklayın.
+
+    ![tanılama günlükleri](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+
 3. **Tanılamayı aç**’a tıklayın. Tanılama günlüklerini, ölçümlerle birlikte bir depolama hesabına arşivleyebilir, bunları bir Olay Hub’ında akışa alabilir veya Log Analytics’e gönderebilirsiniz. 
 
 API Management şu anda her bir girdi aşağıdaki şemayı içerecek şekilde tek tek API isteğiyle ilgili tanılama günlükleri (saatlik olarak toplanır) sağlar:

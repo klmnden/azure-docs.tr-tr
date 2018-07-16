@@ -4,15 +4,15 @@ description: Azure’a geçiş için şirket içi VMware VM’lerinin Azure Geç
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/19/2018
+ms.date: 07/09/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 71d4bc0aa1ea2658c4cd40834a769eaaac649bc3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b1070e29c8dc9f088297622d16fb816a10a55c0
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228382"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970794"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -33,10 +33,6 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Ön koşullar
 
 - **VMware**: Geçirmeyi planladığınız sanal makineler, 5.5, 6.0 veya 6.5 sürümünü çalıştıran vCenter Server tarafından yönetilmelidir. Buna ek olarak, toplayıcı VM’yi dağıtmak için 5.0 veya daha sonraki sürüme sahip bir ESXi konağı gerekir.
-
-> [!NOTE]
-> Hyper-V desteği, yol haritasında yer almakta olup kısa süre sonra etkinleştirilecektir.
-
 - **vCenter Server hesabı**: vCenter Server’a erişmek için salt okunur bir hesabınız olması gerekir. Azure Geçişi, şirket içi VM’leri bulmak için bu hesabı kullanır.
 - **İzinler**: vCenter Server’da, bir dosyayı .OVA biçiminde içeri aktararak VM oluşturma iznine sahip olmanız gerekir.
 - **İstatistik ayarları**: vCenter Server için istatistik ayarları, dağıtım başlatılmadan önce düzey 3 olarak belirlenmelidir. Ayarlar düzey 3’ün altında olursa değerlendirme gerçekleştirilir, ancak depolama ve ağ için performans verileri toplanmaz. Bu durumda boyut önerileri, CPU ve belleğe ait performans verilerine ve diskin ve ağ bağdaştırıcılarının yapılandırma verilerine bağlı olarak yapılır.
@@ -49,6 +45,7 @@ Azure Geçişi’nin, değerlendirme amacıyla VM’leri otomatik olarak bulmas�
 - İzinler: Veri Merkezi nesnesi –> Alt Nesneye Yay, rol=Salt okunur
 - Ayrıntılar: Veri merkezi düzeyinde atanmış ve veri merkezindeki tüm nesnelere erişimi olan kullanıcı.
 - Erişimi kısıtlamak için Alt nesneye yay ile Erişim yok rolünü alt nesnelere (vSphere konakları, veri depoları, VM’ler ve ağlar) atayın.
+
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
@@ -85,6 +82,14 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Örnek kullanım: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Oluşturulan karma bu ayarlara uygun olmalıdır.
+
+  OVA sürüm 1.0.9.12 için
+
+    **Algoritma** | **Karma değeri**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
   OVA sürüm 1.0.9.8 için
 
@@ -143,7 +148,7 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
 5. Azure Geçişi Toplayıcısı’nda **Önkoşulları ayarla** seçeneğini açın.
     - Lisans koşullarını kabul edin ve üçüncü taraf bilgilerini okuyun.
     - Toplayıcı, VM’nin İnternet erişimine sahip olup olmadığını denetler.
-    - VM, proxy üzerinden İnternet erişimine sahipse **Proxy ayarları**’na tıklayın ve proxy adresini ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin. İnternet bağlantısı gereksinimleri ve toplayıcının eriştiği URL'lerin listesi hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#internet-connectivity).
+    - VM, proxy üzerinden İnternet erişimine sahipse **Proxy ayarları**’na tıklayın ve proxy adresini ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin. İnternet bağlantısı gereksinimleri ve toplayıcının eriştiği URL'lerin listesi hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
 
     > [!NOTE]
     > Proxy adresinin, http://ProxyIPAddress veya http://ProxyFQDN biçiminde girilmesi gerekir. Yalnızca HTTP proxy’si desteklenir.
@@ -157,10 +162,12 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
     - **Toplama kapsamı**’nda, VM bulma için bir kapsam seçin. Toplayıcı yalnızca belirtilen kapsam içindeki VM’leri bulabilir. Kapsam belirli bir klasör, veri merkezi veya küme olarak ayarlanabilir. Kapsam en fazla 1500 VM’yi içermelidir. Daha büyük bir ortamı nasıl bulabileceğiniz hakkında [daha fazla bilgi edinin](how-to-scale-assessment.md).
 
 7. **Geçişi projesini belirtin** bölümünde portaldan kopyaladığınız Azure Geçişi proje kimliğini ve anahtarını belirtin. Bu bilgileri kopyalamadıysanız toplayıcı VM’den Azure portalını açın. Projenin **Genel Bakış** sayfasında **Makineleri Bul**’a tıklayın ve değerleri kopyalayın.  
-8. **Toplama durumunu görüntüle** bölümünde bulma işlemini izleyin ve VM’lerden toplanan meta verilerin kapsam içinde olup olmadığını denetleyin. Toplayıcı, yaklaşık bir bulma süresi sağlar. Azure Geçişi toplayıcı tarafından toplanan veriler hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected).
+8. **Toplama durumunu görüntüle** bölümünde bulma işlemini izleyin ve VM’lerden toplanan meta verilerin kapsam içinde olup olmadığını denetleyin. Toplayıcı, yaklaşık bir bulma süresi sağlar. Azure Geçişi toplayıcı tarafından toplanan veriler hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected).
 
 > [!NOTE]
-> Toplayıcı, işletim sistemi dili ve toplayıcı arabirimi dili olarak yalnızca "İngilizce (ABD)"yi destekler. Yakında daha fazla dil desteği kullanıma sunulacaktır.
+> Toplayıcı, işletim sistemi dili ve toplayıcı arabirimi dili olarak yalnızca "İngilizce (ABD)"yi destekler.
+> Değerlendirmek istediğiniz bir makinenin ayarlarını değiştirirseniz, değerlendirmeyi çalıştırmadan önce yeniden keşfetmeyi tetikleyin. Toplayıcıda, bunu yapmak için **Koleksiyonu yeniden başlat** seçeneğini kullanın. Koleksiyon tamamlandıktan sonra, güncelleştirilmiş değerlendirme sonuçlarını almak için portalda değerlendirmeye yönelik **Yeniden hesapla** seçeneğini belirleyin.
+
 
 
 ### <a name="verify-vms-in-the-portal"></a>VM’lerin portalda olup olmadığını doğrulama

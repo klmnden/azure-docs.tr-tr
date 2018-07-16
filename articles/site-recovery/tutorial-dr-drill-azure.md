@@ -4,14 +4,14 @@ description: Azure Site Recovery ile şirket içinden Azure’a olağanüstü du
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: fa66e47715940584259e5cf555f3f6cd6f07e267
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: af8062fc0134975542c8a5ec420c790f33996154
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437221"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920180"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma
 
@@ -20,10 +20,10 @@ Bu makalede, Azure’da bir yük devretme testi kullanarak şirket içi makine i
 Bu, şirket içi VMware veya Hyper-V sanal makineleri için Azure’da olağanüstü durum kurtarmanın nasıl ayarlanacağını gösteren serideki dördüncü öğreticidir.
 
 Bu öğreticide, ilk üç öğreticiyi tamamladığınız varsayılır: 
-    - [Birinci öğreticide](tutorial-prepare-azure.md), [Azure bileşenlerini](tutorial-prepare-azure.md) VMware veya Hyper-V olağanüstü durum kurtarma için hazırladık.
-    - [İkinci öğreticide](vmware-azure-tutorial-prepare-on-premises.md), [şirket içi bileşenleri](hyper-v-prepare-on-premises-tutorial.md) VMware veya Hyper-V olağanüstü durum kurtarma için hazırladık.
-    - Üçüncü öğreticide şirket içi [VMware sanal makineleri](vmware-azure-tutorial.md), [System Center VMM ile Hyper-V sanal makineleri](hyper-v-vmm-azure-tutorial.md) veya [VMM olmadan Hyper-V sanal makineleri](hyper-v-azure-tutorial.md) için çoğaltmayı etkinleştirdik.
-- Öğreticiler, bir senaryo için en basit dağıtım yolunu size göstermek için tasarlanmıştır. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. Site Recovery tüm öğreticilerde en basit ayarlarla, mümkün olan yerlerde varsayılan ayarlarla kurulmuştur. Yük devretme testi adımları hakkında daha ayrıntılı bilgi edinmek istiyorsanız, [Nasıl Yapılır Kılavuzu](site-recovery-test-failover-to-azure.md)’nu okuyun.
+    - [Birinci öğreticide](tutorial-prepare-azure.md), VMware olağanüstü durum kurtarma için gerekli Azure bileşenlerini ayarladık.
+    - [İkinci öğreticide](vmware-azure-tutorial-prepare-on-premises.md), olağanüstü durum kurtarma için şirket içi bileşenleri hazırladık ve önkoşulları gözden geçirdik.
+    - [Üçüncü öğreticide](vmware-azure-tutorial.md), şirket içi VMware sanal makinemiz için çoğaltmayı ayarlayıp etkinleştirdik.
+    - Öğreticiler, **bir senaryo için en basit dağıtım yolunu** size göstermek için tasarlanmıştır. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. Yük devretme testi adımları hakkında daha ayrıntılı bilgi edinmek istiyorsanız, [Nasıl Yapılır Kılavuzu](site-recovery-test-failover-to-azure.md)’nu okuyun.
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 

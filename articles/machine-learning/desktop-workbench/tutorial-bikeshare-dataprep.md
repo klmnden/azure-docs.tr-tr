@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 951ce8947d113eaad2ea0e3b5df5e9714aa33dd8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723196"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Öğretici: Azure Machine Learning Workbench'i kullanarak gelişmiş veri hazırlığı (Bisiklet paylaşımı verileri)
 Azure Machine Learning (önizleme), uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür.
@@ -253,7 +255,7 @@ __REPORTTYPE__ sütunu artık gerekli değildir. Sütun üst bilgisine sağ tık
    ![Sütunu Kaldır seçeneği](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>Veri türlerini değiştirme ve hataları kaldırma
-1. Aynı anda birden çok sütunu seçmek için sütun üst bilgilerini seçerken Ctrl (Mac’te Command ⌘) tuşuna basın. Aşağıdaki sütun üst bilgilerini seçmek için bu tekniği kullanın:
+1. Aynı anda birden fazla sütun seçmek için sütun üst bilgilerini belirlerken Ctrl’yi (Mac’te ⌘ komutu) seçin. Aşağıdaki sütun üst bilgilerini seçmek için bu tekniği kullanın:
 
    * **HOURLYDRYBULBTEMPF**
 
@@ -452,7 +454,7 @@ Veri hazırlığı için, dize verileriyle sayısal ve coğrafi verilere yöneli
 1. **Start station latitude** ve **start station longitude** sütunlarını birlikte seçin. Sütunlardan birine sağ tıklayın ve sonra **Harita**’yı seçin.
 
     > [!TIP]
-    > Çoklu seçimi etkinleştirmek için Ctrl tuşunu (Mac’te Command ⌘) basılı tutarak her sütunun üst bilgisini seçin.
+    > Çoklu seçimi etkinleştirmek için Ctrl tuşunu (Mac’te ⌘ komutu) basılı tutun ve her sütuna ait üst bilgiyi seçin.
 
     ![Harita görselleştirme](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
@@ -635,7 +637,7 @@ Hava durumu verilerini seyahat verileriyle birleştirmek için aşağıdaki adı
 
     ![Dönem sütunu](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. **Date Hour Range** ve **r_Date Hour Range** sütunlarını kaldırmak için Ctrl (Mac’te Command ⌘) tuşuna seçin ve ardından her sütun üst bilgisini seçin. Sağ tıklayın ve **Sütunu Kaldır**’ı seçin.
+3. **Date Hour Range** ve **r_Date Hour Range** sütunlarını kaldırmak için Ctrl’yi (Mac’te ⌘ komutu) ve ardından her bir sütun üst bilgisini seçin. Sağ tıklayın ve **Sütunu Kaldır**’ı seçin.
 
 ## <a name="read-data-from-python"></a>Python'dan veri okuma
 

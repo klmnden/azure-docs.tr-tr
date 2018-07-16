@@ -3,18 +3,18 @@ title: Azure Hızlı Başlangıç - Depolama hesabı oluşturma | Microsoft Docs
 description: Azure portalı, Azure PowerShell veya Azure CLI kullanarak hızlı bir şekilde yeni bir depolama hesabı oluşturmayı öğrenin.
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 07/03/2018
 ms.author: tamram
-ms.openlocfilehash: 7f6357c5b0be12c18797e82b73bd05af42888aa0
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 92215c759cd51ce429708ec54b17722c486b7ca6
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752342"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856537"
 ---
 # <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
@@ -165,7 +165,7 @@ Azure portalında genel amaçlı v2 bir depolama hesabı oluşturmak için aşa�
 1. Azure portalında sol taraftaki menüyü genişleterek hizmet menüsünü açın ve **Tüm hizmetler**'i seçin. Ardından **Depolama** bölümüne inin ve **Depolama hesapları**'nı seçin. Açılan **Depolama Hesapları** penceresinde **Ekle**'yi seçin.
 2. Depolama hesabınız için bir ad girin.
 3. **Hesap türü** alanını, **StorageV2 (genel amaçlı v2)** olarak ayarlayın.
-4. **Çoğaltma** alanını, **Yerel Olarak Yedekli Depolama (LRS)** olarak bırakın. Alternatif olarak, **Bölgesel olarak yedekli depolama (ZRS) (önizleme)**, **Coğrafi olarak yedekli depolama (GRS)** veya **Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)** seçeneklerinden birini de belirleyebilirsiniz.
+4. **Çoğaltma** alanını, **Yerel Olarak Yedekli Depolama (LRS)** olarak bırakın. Alternatif olarak, **Bölgesel olarak yedekli depolama (ZRS)**, **Coğrafi olarak yedekli depolama (GRS)** veya **Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)** seçeneklerinden birini de belirleyebilirsiniz.
 5. Şu alanları varsayılan değerlerinde bırakın: **Dağıtım modeli**, **Performans**, **Güvenli aktarım gerekli**.
 6. Depolama hesabını oluşturmak istediğiniz aboneliği seçin.
 7. **Kaynak grubu** bölümünde **Var olanı kullan**’ı seçin, ardından önceki bölümde oluşturduğunuz kaynak grubunu seçin.

@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Müşteri için SAP bulut Azure Active Directory Tümleştirmesi | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ve SAP bulut arasında müşteri için yapılandırmayı öğrenin.
+title: 'Öğretici: Müşteri için SAP bulut Azure Active Directory Tümleştirme | Microsoft Docs'
+description: Çoklu oturum açma SAP bulut ile Azure Active Directory arasında müşteri için yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 661bb15f93c505ad069e826b1506f6e69c5339e0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8855a82c1490c916e040f61c07e1116d9125e7e6
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223357"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045871"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Öğretici: Müşteri için SAP bulut Azure Active Directory Tümleştirmesi
+# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Öğretici: Müşteri için SAP bulut Azure Active Directory Tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile müşteri için SAP bulut tümleştirme öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile müşteri için SAP bulut tümleştirme konusunda bilgi edinin.
 
 Azure AD ile müşteri için SAP bulut tümleştirme ile aşağıdaki avantajları sağlar:
 
-- SAP buluta müşteri için erişimi olan Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak SAP buluta müşteri için (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Müşteri için SAP Cloud erişebilir, Azure AD'de denetleyebilirsiniz
+- Otomatik olarak SAP Cloud (çoklu oturum açma) müşteriler için Azure AD hesaplarına açan, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirmesi için müşteri SAP bulut ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirmesi, müşteri için SAP bulut ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- SAP Bulutu müşteri çoklu oturum açma için abonelik etkin
+- Azure AD aboneliğiniz
+- Bir müşteri çoklu oturum açma için SAP Cloud abonelik etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, burada bir aylık deneme elde edebilirsiniz: [deneme teklifi](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, bir aylık deneme burada alabilirsiniz: [deneme teklifi](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. SAP bulut müşteri için Galeriden ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. SAP Cloud müşteri için Galeri ekleme
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="adding-sap-cloud-for-customer-from-the-gallery"></a>SAP bulut müşteri için Galeriden ekleme
-SAP bulut tümleştirme Azure AD'ye müşteri için yapılandırmak için SAP bulut müşteri için Galeriden yönetilen SaaS uygulamaları listenize eklemeniz gerekir.
+## <a name="adding-sap-cloud-for-customer-from-the-gallery"></a>SAP Cloud müşteri için Galeri ekleme
+Azure AD'de müşteri için SAP Cloud tümleştirmesini yapılandırmak için SAP Cloud müşteri için Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**SAP bulut müşteri için Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
+**SAP Cloud müşteri için Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -67,40 +67,40 @@ SAP bulut tümleştirme Azure AD'ye müşteri için yapılandırmak için SAP bu
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **müşteri için SAP bulut**.
+4. Arama kutusuna **müşteri için SAP Cloud**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_search.png)
 
-5. Sonuçlar panelinde seçin **müşteri için SAP bulut**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Sonuçlar panelinde seçin **müşteri için SAP Cloud**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma SAP bulut ile "Britta Simon" adlı bir test kullanıcıya bağlı müşteri için test etme.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma SAP bulut ile "Britta Simon" adlı bir test kullanıcısı üzerinde temel müşteri için test edin.
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen SAP bulutta müşteri için bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve SAP bulutta müşteri için ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne müşteri için SAP Cloud karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve müşteri için SAP Cloud ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
-Değeri müşteri SAP buluta atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Müşteri için SAP Cloud, değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırmak ve Azure AD çoklu oturum açma SAP Bulutu ile müşterinin sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma SAP bulut ile müşteri için test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Müşteri test kullanıcısı için bir SAP bulut oluşturma](#creating-a-sap-cloud-for-customer-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı müşteri için SAP buluta sahip.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Bir test kullanıcısı müşteri için SAP Cloud oluşturma](#creating-a-sap-cloud-for-customer-test-user)**  - kullanıcı Azure AD gösterimini bağlı müşteri için SAP bulutta Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve SAP bulut müşteri uygulaması için çoklu oturum açmayı yapılandırın.
 
-**Azure AD çoklu oturum açma için müşteri SAP bulut ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma müşteri için SAP bulut ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **SAP bulut müşteri için** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **müşteri için SAP Cloud** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
@@ -108,101 +108,101 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
  
     ![Çoklu oturum açmayı yapılandırın](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_samlbase.png)
 
-3. Üzerinde **müşteri etki alanı ve URL'ler için SAP bulut** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **müşteri etki alanı ve URL'ler için SAP Cloud** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<server name>.crm.ondemand.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<server name>.crm.ondemand.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<server name>.crm.ondemand.com`
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<server name>.crm.ondemand.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [müşteri istemci destek ekibi için SAP bulut](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [müşteri istemci destek ekibi için SAP Cloud](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) bu değerleri almak için. 
 
 4. Üzerinde **kullanıcı öznitelikleri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_attribute.png)
 
-    a. İçinde **kullanıcı tanımlayıcısı** listesinde **ExtractMailPrefix()** işlevi.
+    a. İçinde **kullanıcı tanımlayıcısı** listesinden **ExtractMailPrefix()** işlevi.
 
-    b. Gelen **posta** listesinde, uygulamanız için kullanmak istediğiniz kullanıcı özniteliği seçin.
-    Örneğin, EmployeeID benzersiz kullanıcı tanımlayıcısı olarak kullanmak istediğiniz ve öznitelik değeri ExtensionAttribute2 depoladığınız, ardından user.extensionattribute2 seçin.  
+    b. Gelen **posta** listesinde, uygulamanız için kullanmak istediğiniz kullanıcı özniteliğini seçin.
+    Örneğin, EmployeeID benzersiz kullanıcı tanımlayıcısı kullanmak istediğiniz ve öznitelik değeri içinde ExtensionAttribute2 depoladığınız seçerseniz, user.extensionattribute2 seçin.  
 
-5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+5. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_certificate.png) 
 
-6. Tıklatın **kaydetmek** düğmesi.
+6. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/sap-customer-cloud-tutorial/tutorial_general_400.png)
 
-7. Üzerinde **müşteri yapılandırması için SAP bulut** 'yi tıklatın **müşteri için SAP bulut yapılandırma** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+7. Üzerinde **müşteri yapılandırması için SAP Cloud** bölümünde **müşteri için SAP Cloud yapılandırma** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_configure.png) 
 
 8. Yapılandırılmış SSO almak için aşağıdaki adımları gerçekleştirin:
    
-    a. Müşteri portalı yönetici haklarıyla oturum açma SAP buluta.
+    a. Yönetici haklarıyla müşteri portalı için SAP Cloud oturum açın.
    
     b. Gidin **uygulama ve kullanıcı yönetimi görevinin** tıklatıp **kimlik sağlayıcısı** sekmesi.
    
-    c. Tıklatın **yeni kimlik sağlayıcısı** ve Azure portalından indirdiğiniz meta veri XML dosyasını seçin. Meta verileri içe aktararak sistem otomatik olarak gerekli imza sertifikası ve şifreleme sertifikası karşıya yükleme.
+    c. Tıklayın **yeni kimlik sağlayıcısı** ve Azure portalından indirilen meta veri XML dosyasını seçin. Meta verileri içeri aktararak, sistem otomatik olarak gerekli imza sertifikası ve şifreleme sertifikasını karşıya yükler.
    
     ![Çoklu oturum açmayı yapılandırın](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_54.png)
    
-    d. Azure Active Directory gerekir böylece select SAML isteği onaylama tüketici hizmeti URL'si öğesinde **onaylama tüketici hizmeti URL'si dahil** onay kutusu.
+    d. Azure Active Directory gerektiren ' % s'öğesi onay belgesi tüketici hizmeti URL'si seçin SAML isteğindeki **onay belgesi tüketici hizmeti URL'si dahil** onay kutusu.
    
-    e. Tıklatın **çoklu oturum açmayı etkinleştirme**.
+    e. Tıklayın **çoklu oturum açmayı etkinleştirme**.
    
     f. Yaptığınız değişiklikleri kaydedin.
    
-    g. Tıklatın **My sistem** sekmesi.
+    g. Tıklayın **My sistem** sekmesi.
    
     ![Çoklu oturum açmayı yapılandırın](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_52.png)
    
-    h. İçinde **Azure AD oturum açma URL'si** metin kutusuna, Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan.
+    h. İçinde **Azure AD oturum açma URL'si** metin kutusu, yapıştırma **SAML çoklu oturum açma hizmeti URL'si** , Azure Portalı'ndan kopyaladığınız.
    
     ![Çoklu oturum açmayı yapılandırın](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_53.png)
    
-    i. Kullanıcı kimliği ve parola veya SSO ile seçerek oturum açma arasında çalışan el ile seçip seçemeyeceğini belirtin **el ile kimlik sağlayıcısı seçimi**.
+    i. Kullanıcı kimliği ve parola veya SSO seçerek oturum açma arasında çalışan el ile seçip seçemeyeceğini belirtin **el ile kimlik sağlayıcısı seçim**.
    
-    j. İçinde **SSO URL** bölümünde, sisteme oturum açmaya çalışanlarınız tarafından kullanılan URL'yi belirtin. 
-    İçinde **URL gönderilen çalışana** listesinde, aşağıdaki seçenekler arasından seçim yapabilirsiniz:
+    j. İçinde **SSO URL** bölümünde, çalışanlarınız tarafından sisteme oturum açmak için kullanılması gereken URL'yi belirtin. 
+    İçinde **URL'ye gönderilen çalışana** listesinde, aşağıdaki seçenekler arasından seçim yapabilirsiniz:
    
-    **SSO olmayan URL'si**
+    **SSO URL**
    
-    Sistem, yalnızca normal sistem URL çalışana gönderir. Çalışan olamaz SSO kullanarak oturum açın ve parolayı kullanın veya gerekir bunun yerine sertifika.
+    Sistem, yalnızca normal sistem URL çalışana gönderir. Çalışan olamaz, SSO kullanarak oturum açın ve parolayı kullanın veya gerekir bunun yerine sertifika.
    
     **SSO URL'Sİ** 
    
-    Sistem yalnızca SSO URL çalışana gönderir. Çalışan SSO kullanarak oturum açabilir. Kimlik doğrulama isteği IDP yönlendirilir.
+    Sistem SSO URL çalışana gönderir. Çalışan SSO kullanarak oturum açabilir. Kimlik doğrulama isteği, IDP yönlendirilir.
    
     **Otomatik Seçim**
    
-    SSO etkin değilse, sistem çalışana normal sistem URL gönderir. SSO etkin değilse, sistem çalışan bir parolaya sahip olup olmadığını denetler. Bir parola kullanılabilir durumdaysa, SSO URL'si ve olmayan SSO URL'si çalışana gönderilir. Ancak, çalışan parolası yoksa, yalnızca SSO URL çalışana gönderilir.
+    SSO etkin değilse, sistemin normal sistem URL çalışana gönderir. SSO etkin olursa, sistem çalışan bir parolaya sahip olup olmadığını denetler. Bir parolası varsa, hem SSO URL hem de olmayan SSO URL çalışana gönderilir. Ancak, çalışan parolası yoksa, yalnızca SSO URL çalışana gönderilir.
    
     k. Yaptığınız değişiklikleri kaydedin.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/sap-customer-cloud-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/sap-customer-cloud-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/sap-customer-cloud-tutorial/create_aaduser_03.png) 
 
@@ -210,62 +210,62 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/sap-customer-cloud-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**’a tıklayın.
  
-### <a name="creating-a-sap-cloud-for-customer-test-user"></a>Müşteri test kullanıcısı için bir SAP bulut oluşturma
+### <a name="creating-a-sap-cloud-for-customer-test-user"></a>Test kullanıcısı müşteri için SAP bulut oluşturma
 
-Bu bölümde, Britta Simon SAP bulutta müşteri için adlı bir kullanıcı oluşturun. Lütfen çalışmak [müşteri destek ekibi için SAP bulut](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) müşteri platform için SAP bulutta kullanıcıları eklemek için. 
+Bu bölümde, Britta Simon müşteri için SAP bulutta adlı bir kullanıcı oluşturun. Lütfen birlikte çalışarak [müşteri destek ekibi için SAP Cloud](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) müşteri platform için SAP bulut kullanıcıları eklemek için. 
 
 > [!NOTE]
-> Lütfen NameID değeri SAP bulut müşteri platform için kullanıcı adı alanıyla eşleşmelidir emin olun.
+> Nameıd değer SAP Cloud platform müşteri için kullanıcı adı alanıyla eşleşmelidir emin olun.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, müşteri için SAP buluta erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, müşteri için SAP Cloud erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı Ata][200] 
 
-**Britta Simon müşteri için SAP buluta atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon müşteri için SAP Cloud atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **müşteri için SAP bulut**.
+2. Uygulamalar listesinde **müşteri için SAP Cloud**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı Ata][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Müşteri kutucuğu erişim Paneli'nde SAP bulut tıklattığınızda, otomatik olarak SAP Bulutunuzu müşteri uygulaması için açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Erişim panelinde kutucuk müşteri için SAP Cloud tıkladığınızda, otomatik olarak SAP Bulutunuza müşteri uygulaması için açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

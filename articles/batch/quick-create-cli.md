@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/16/2018
+ms.date: 07/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b885a08cb9d5c4f601c9d180d1d3997018b66fb2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f5790f57b66f1d73ff98d5f84276ec9a44568432
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607897"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857935"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Hızlı başlangıç: Azure CLI ile ilk Batch işinizi çalıştırma
 
@@ -170,29 +170,29 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-`stdout.txt` dosyasının içeriğini bir metin düzenleyicisinde görüntüleyebilirsiniz. İçerik, düğüm üzerinde ayarlanmış Azure Batch ortam değişkenlerini gösterir. Kendi Batch işlerinizi oluşturduğunuzda, görev komut satırlarında bu görev değişkenlerine ve komut satırları tarafından çalıştırılan uygulama ve betiklere başvurabilirsiniz.
+`stdout.txt` dosyasının içeriğini bir metin düzenleyicisinde görüntüleyebilirsiniz. İçerik, düğüm üzerinde ayarlanmış Azure Batch ortam değişkenlerini gösterir. Kendi Batch işlerinizi oluşturduğunuzda, görev komut satırlarında bu görev değişkenlerine ve komut satırları tarafından çalıştırılan uygulama ve betiklere başvurabilirsiniz. Örnek:
 
 ```
-AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3
+AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1
 AZ_BATCH_NODE_STARTUP_DIR=/mnt/batch/tasks/startup
-AZ_BATCH_CERTIFICATES_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3/certs
-AZ_BATCH_ACCOUNT_URL=https://mybatchaccount.eastus2batch.azure.com/
-AZ_BATCH_TASK_WORKING_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3/wd
+AZ_BATCH_CERTIFICATES_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1/certs
+AZ_BATCH_ACCOUNT_URL=https://mybatchaccount.eastus2.batch.azure.com/
+AZ_BATCH_TASK_WORKING_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1/wd
 AZ_BATCH_NODE_SHARED_DIR=/mnt/batch/tasks/shared
 AZ_BATCH_TASK_USER=_azbatch
 AZ_BATCH_NODE_ROOT_DIR=/mnt/batch/tasks
-AZ_BATCH_JOB_ID=myjob
+AZ_BATCH_JOB_ID=myjobl
 AZ_BATCH_NODE_IS_DEDICATED=true
-AZ_BATCH_NODE_ID=tvm-1392786932_2-20171026t223740z
-AZ_BATCH_POOL_ID=mypool-linux
-AZ_BATCH_TASK_ID=mytask3
+AZ_BATCH_NODE_ID=tvm-257509324_2-20180703t215033z
+AZ_BATCH_POOL_ID=mypool
+AZ_BATCH_TASK_ID=mytask1
 AZ_BATCH_ACCOUNT_NAME=mybatchaccount
 AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 ```
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 Batch öğreticileri ve örnekleri ile devam etmek istiyorsanız, bu hızlı başlangıçta kullanılan Batch hesabını ve bağlı depolama hesabını kullanın. Batch hesabının kendisi için herhangi bir ücret alınmaz.
 
-Zamanlanmış bir iş olmasa bile, düğümler çalışırken havuzlar için sizden ücret alınır. Havuza ihtiyacınız kalmadığında [az batch havuzu silmek](/cli/azure/batch/pool#az_batch_pool_delete) komut ile silebilirsiniz:
+Zamanlanmış bir iş olmasa bile, düğümler çalışırken havuzlar için sizden ücret alınır. Havuza ihtiyacınız kalmadığında [az batch pool delete](/cli/azure/batch/pool#az_batch_pool_delete) komutu ile havuzu silebilirsiniz. Havuzu sildiğinizde düğümler üzerindeki tüm görev çıkışları silinir. 
 
 ```azurecli-interactive
 az batch pool delete --pool-id mypool

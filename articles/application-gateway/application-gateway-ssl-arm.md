@@ -1,6 +1,6 @@
 ---
 title: SSL sonlandırma - Azure PowerShell ile bir uygulama ağ geçidi oluşturma | Microsoft Docs
-description: Bir uygulama ağ geçidi oluşturmak ve Azure PowerShell kullanarak SSL sonlandırma için bir sertifika eklemek öğrenin.
+description: Azure PowerShell kullanarak uygulama ağ geçidi oluşturma ve SSL sonlandırma sertifikası eklemeyi öğrenin.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -11,24 +11,24 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: victorh
-ms.openlocfilehash: 69010f6c057810af0f9bfcdadb6aeba1e498bf7f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 27f460150e0ab5fd78dc0fdfeb86d9fffff0821a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356163"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044909"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Bir uygulama ağ geçidi ile SSL sonlandırma Azure PowerShell kullanarak oluşturma
+# <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Azure PowerShell kullanarak SSL sonlandırma ile bir uygulama ağ geçidi oluşturma
 
-Azure PowerShell oluşturmak için kullanabileceğiniz bir [uygulama ağ geçidi](application-gateway-introduction.md) için bir sertifika ile [SSL sonlandırma](application-gateway-backend-ssl.md) kullanan bir [sanal makine ölçek kümesi](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) arka uç sunucuları için. Bu örnekte uygulama ağ geçidi varsayılan arka uç havuzuna eklenen iki sanal makine örnekleri ölçek kümesini içerir. 
+Azure PowerShell’i arka uç sunucuları için bir [sanal makine ölçek kümesi](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) kullanan bir [SSL sonlandırma](application-gateway-backend-ssl.md) sertifikası bulunan bir [uygulama ağ geçidi](application-gateway-introduction.md) oluşturmak için kullanabilirsiniz. Bu örnekte örnek kümesi, uygulama ağ geçidinin varsayılan arka uç havuzuna eklenen iki sanal makine örneğini içerir. 
 
 Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Otomatik olarak imzalanan sertifika oluşturma
-> * Ağ kurma
-> * Sertifika ile bir uygulama ağ geçidi oluşturma
-> * Bir sanal makineyi ölçeği varsayılan arka uç havuzuyla Ayarla oluşturma
+> * Ağ ayarlama
+> * Sertifikalı bir uygulama ağ geçidi oluşturma
+> * Varsayılan arka uç havuzuyla bir sanal makine ölçek kümesi oluşturma
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -36,7 +36,7 @@ Bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektir
 
 ## <a name="create-a-self-signed-certificate"></a>Otomatik olarak imzalanan sertifika oluşturma
 
-Üretim kullanımı için güvenilen bir sağlayıcı tarafından imzalanmış geçerli bir sertifika almanız gerekir. Bu öğretici için kullanarak otomatik olarak imzalanan sertifika oluşturma [yeni SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Kullanabileceğiniz [verme PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) bir pfx dosyası sertifikadan dışarı aktarmak için döndürülen parmak izine sahip.
+Üretim sırasında kullanım için, güvenilen bir sağlayıcı tarafından imzalanan geçerli bir sertifikayı içeri aktarmalısınız. Bu öğretici için [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) komutunu kullanarak otomatik olarak imzalanan bir sertifika oluşturursunuz. Sertifikadan pfx dosyası dışarı aktarmak için döndürülen Parmak izi ile [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) komutunu kullanabilirsiniz.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -44,7 +44,7 @@ New-SelfSignedCertificate `
   -dnsname www.contoso.com
 ```
 
-Bu sonuç gibi bir şey görmeniz gerekir:
+Bu sonuca benzer bir şey görmeniz gerekir:
 
 ```
 PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
@@ -54,7 +54,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Parmak izi pfx dosyasını oluşturmak için kullanın:
+pfx dosyasını oluşturmak için parmak izini kullanın:
 
 ```powershell
 $pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
@@ -66,7 +66,7 @@ Export-PfxCertificate `
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Adlı bir Azure kaynak grubu oluşturma *myResourceGroupAG* ile [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. *New-AzureRmResourceGroup* komutuyla [myResourceGroupAG](/powershell/module/azurerm.resources/new-azurermresourcegroup) adlı bir Azure kaynak grubu oluşturun. 
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
@@ -74,7 +74,7 @@ New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Ağ kaynakları oluşturma
 
-Adlı alt ağlar yapılandırabilir *myBackendSubnet* ve *myAGSubnet* kullanarak [yeni AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Adlı sanal ağ oluşturma *myVNet* kullanarak [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) alt ağ yapılandırmaları ile. Ve son olarak, adlı ortak IP adresi oluşturun *myAGPublicIPAddress* kullanarak [yeni AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Bu kaynaklar, uygulama ağ geçidi ve onun ilişkili kaynakları için ağ bağlantısı sağlamak için kullanılır.
+[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) komutunu kullanarak *myBackendSubnet* ve *myAGSubnet* adlı alt ağları yapılandırın. Alt ağ yapılandırmaları ile [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) komutunu kullanarak *myVNet* adlı sanal ağı oluşturun. Son olarak da [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun. Bu kaynaklar, uygulama ağ geçidi ve ilişkili kaynakları ile ağ bağlantısı sağlamak için kullanılır.
 
 ```powershell
 $backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -100,7 +100,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP yapılandırmaları ve ön uç bağlantı noktası oluşturma
 
-İlişkilendirme *myAGSubnet* daha önce oluşturduğunuz uygulama ağ geçidi kullanarak [yeni AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Ata *myAGPublicIPAddress* uygulama ağ geçidi kullanarak [yeni AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig).
+[New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) komutunu kullanarak, daha önce oluşturduğunuz *myAGSubnet* alt ağını uygulama ağ geçidiyle ilişkilendirin. [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) komutunu kullanarak *myAGPublicIPAddress* adresini uygulama ağ geçidiyle ilişkilendirin.
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork `
@@ -120,7 +120,7 @@ $frontendport = New-AzureRmApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>Arka uç havuzu ve ayarları oluşturma
 
-Adlı arka uç havuzu oluşturma *appGatewayBackendPool* kullanarak uygulama ağ geçidi için [yeni AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Kullanarak arka uç havuzu ayarlarını yapılandırmak [yeni AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
+[New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) komutunu kullanarak uygulama ağ geçidi için *appGatewayBackendPool* adlı arka uç havuzunu oluşturun. [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings) komutunu kullanarak arka uç havuzunun ayarlarını yapılandırın.
 
 ```powershell
 $defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
@@ -135,9 +135,9 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>Varsayılan dinleyici ve kural oluşturma
 
-Dinleyici için arka uç havuzu uygun şekilde trafiği yönlendirmek uygulama ağ geçidi etkinleştirmek için gereklidir. Bu örnekte, kök URL'sindeki HTTPS trafiğini dinleyen temel bir dinleyici oluşturun. 
+Uygulama ağ geçidinin trafiği arka uç havuzuna uygun şekilde yönlendirmesini sağlamak içn bir dinleyici gereklidir. Bu örnekte, kök URL’deki HTTPS trafiğini dinleyen temel bir dinleyici oluşturacaksınız. 
 
-Kullanarak bir sertifika nesnesi oluşturmak [yeni AzureRmApplicationGatewaySslCertificate](/powershell/module/azurerm.network/new-azurermapplicationgatewaysslcertificate) ve adlı bir dinleyici oluşturun *mydefaultListener* kullanarak [ AzureRmApplicationGatewayHttpListener yeni](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) ön uç yapılandırma, ön uç bağlantı noktası ve önceden oluşturduğunuz sertifika ile. Bir kural hangi arka uç havuzuna gelen trafiği için kullanılacak bilmeniz dinleyici için gereklidir. Adlı temel bir kural oluşturmak *kuralı 1* kullanarak [yeni AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
+[New-AzureRmApplicationGatewaySslCertificate](/powershell/module/azurerm.network/new-azurermapplicationgatewaysslcertificate) komutunu kullanarak bir sertifika nesnesi oluşturun ve ardından önceden oluşturduğunuz ön uç yapılandırması, ön uç bağlantı noktası ve sertifika ile [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) komutunu kullanarak *mydefaultListener* adlı bir dinleyici oluşturun. Dinleyicinin gelen trafik için kullanacağı arka uç havuzunu bilmesi için bir kural gerekir. [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) komutunu kullanarak *rule1* adlı temel bir kural oluşturun.
 
 ```powershell
 $pwd = ConvertTo-SecureString `
@@ -162,9 +162,9 @@ $frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
   -BackendHttpSettings $poolSettings
 ```
 
-### <a name="create-the-application-gateway-with-the-certificate"></a>Sertifika ile uygulama ağ geçidi oluşturma
+### <a name="create-the-application-gateway-with-the-certificate"></a>WAF ile uygulama ağ geçidi oluşturma
 
-Gerekli destekleyici kaynakları oluşturduğunuza göre adlı uygulama ağ geçidi için parametre belirtin *myAppGateway* kullanarak [yeni AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku)ve kullanarakoluşturma[ Yeni-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) sertifikasıyla.
+Gerekli destekleyici kaynakları oluşturduktan sonra, [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) komutunu kullanarak *myAppGateway* adlı uygulama ağ geçidinin parametrelerini belirtin ve sonra sertifikayla [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) komutunu kullanarak uygulama ağ geçidini oluşturun.
 
 ### <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
@@ -190,7 +190,7 @@ $appgw = New-AzureRmApplicationGateway `
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Sanal makine ölçek kümesi oluşturma
 
-Bu örnekte uygulama ağ geçidi arka uç havuzu için sunucuları sağlamak için ayarlanmış bir sanal makine ölçek oluşturun. Ölçeği IP ayarlarını yapılandırdığınızda arka uç havuzuna Ayarla atayın.
+Bu örnekte uygulama ağ geçidinde arka uç havuzu için sunucu sağlayan bir sanal makine ölçek kümesi oluşturacaksınız. IP ayarlarını yapılandırırken ölçek kümesini arka uç havuzuna atayın.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -234,7 +234,7 @@ New-AzureRmVmss `
 ### <a name="install-iis"></a>IIS yükleme
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
 Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
@@ -249,9 +249,9 @@ Update-AzureRmVmss `
   -VirtualMachineScaleSet $vmss
 ```
 
-## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
+## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
-Kullanabileceğiniz [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) uygulama ağ geçidi genel IP adresi alınamıyor. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
+Uygulama ağ geçidinin genel IP adresini almak için [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) komutunu kullanabilirsiniz. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -259,9 +259,9 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Güvenli uyarı](./media/application-gateway-ssl-arm/application-gateway-secure.png)
 
-Kendinden imzalı bir sertifika kullanıyorsa uyarı güvenlik kabul etmeyi seçin **ayrıntıları** ve ardından **Web sayfasına gidin**. Güvenli IIS siteniz, sonra aşağıdaki örnekte olduğu gibi görüntülenir:
+Otomatik olarak imzalanan sertifika kullandıysanız güvenlik uyarısını kabul etmek için, **Ayrıntılar**’ı seçin ve sonra **Web sayfasına gidin**: Güvenli IIS siteniz, sonra aşağıdaki örnekte olduğu gibi görüntülenir:
 
-![Temel uygulama ağ geçidi URL'de test](./media/application-gateway-ssl-arm/application-gateway-iistest.png)
+![Temel URL’yi uygulama ağ geçidinde test etme](./media/application-gateway-ssl-arm/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -269,8 +269,8 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * Otomatik olarak imzalanan sertifika oluşturma
-> * Ağ kurma
-> * Sertifika ile bir uygulama ağ geçidi oluşturma
-> * Bir sanal makineyi ölçeği varsayılan arka uç havuzuyla Ayarla oluşturma
+> * Ağ ayarlama
+> * Sertifikalı bir uygulama ağ geçidi oluşturma
+> * Varsayılan arka uç havuzuyla bir sanal makine ölçek kümesi oluşturma
 
-Uygulama ağ geçitleri ile ilişkili kaynakları hakkında daha fazla bilgi için nasıl yapılır makaleleri devam edin.
+Uygulama ağ geçitleri ve bunların ilişkili kaynakları hakkında daha fazla bilgi edinmek için nasıl yapılır makaleleriyle devam edin.

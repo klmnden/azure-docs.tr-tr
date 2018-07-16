@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme Tableau sunucusuyla | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ve Tableau sunucusu arasındaki yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory Tableau Server ile tümleştirme | Microsoft Docs'
+description: Tableau Server ile Azure Active Directory arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: be600fa6707e86e483e21f638d0d80515f9372b4
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 4c88d6a8b22e4c5c19112c30e15bc960bc8ed1b5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295001"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045232"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Öğretici: Azure Active Directory Tümleştirme Tableau sunucusuyla
+# <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Öğretici: Azure Active Directory Tableau Server ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Tableau Server Tümleştirme öğrenin.
+Bu öğreticide, Tableau Server, Azure Active Directory (Azure AD) ile tümleştirme konusunda bilgi edinin.
 
-Tableau Server Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Tableau Server, Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Tableau sunucu erişimi, Azure AD'de kontrol edebilirsiniz
-- Azure AD hesaplarına otomatik olarak (çoklu oturum açma) Tableau sunucuya açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Tableau Server erişimi, Azure AD'de denetleyebilirsiniz
+- Azure AD hesaplarına otomatik olarak imzalanan (çoklu oturum açma) için Tableau Server açma, kullanıcılarınızın etkinleştirebilirsiniz
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Tableau sunucusuyla yapılandırmak için aşağıdaki öğeleri gerekir:
+Tableau Server ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir Tableau Server Çoklu oturum açma abonelik etkin
+- Azure AD aboneliğiniz
+- Tableau Server Çoklu oturum açma abonelik etkin.
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Tableau sunucu ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Galeriden Tableau Server ekleme
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="adding-tableau-server-from-the-gallery"></a>Galeriden Tableau sunucu ekleme
-Azure AD Tableau sunucu tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Tableau sunucusu eklemeniz gerekir.
+## <a name="adding-tableau-server-from-the-gallery"></a>Galeriden Tableau Server ekleme
+Azure AD'de Tableau Server tümleştirmesini yapılandırmak için Tableau Server Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden Tableau sunucusu eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden Tableau Server eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -67,7 +67,7 @@ Azure AD Tableau sunucu tümleştirilmesi yapılandırmak için yönetilen SaaS 
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
@@ -75,32 +75,32 @@ Azure AD Tableau sunucu tümleştirilmesi yapılandırmak için yönetilen SaaS 
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tableauserver-tutorial/tutorial_tableauserver_search.png)
 
-5. Sonuçlar panelinde seçin **Tableau Server**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Sonuçlar panelinde seçin **Tableau Server**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tableauserver-tutorial/tutorial_tableauserver_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Tableau "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı sunucu ile test etme
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." adlı bir test kullanıcı tabanlı Tableau Server ile test etme
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen Tableau Server'daki bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve Tableau Server'daki ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne Tableau Server karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve Tableau Server ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
-Değeri Tableau Server'da atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Tableau Server, değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma Tableau sunucusu ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Tableau Server ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Tableau Server test kullanıcısı oluşturma](#creating-a-tableau-server-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Tableau sunucusu sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Tableau Server test kullanıcısı oluşturma](#creating-a-tableau-server-test-user)**  - kullanıcı Azure AD gösterimini bağlı Tableau Server Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Tableau Server uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Tableau Server uygulamanızda çoklu oturum açmayı yapılandırın.
 
-**Azure AD çoklu oturum açma Tableau sunucusuyla yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma Tableau Server ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Tableau sunucu** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Tableau Server** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
@@ -108,94 +108,94 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açmayı yapılandırın](./media/tableauserver-tutorial/tutorial_tableauserver_samlbase.png)
 
-3. Üzerinde **Tableau sunucu etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Tableau Server etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/tableauserver-tutorial/tutorial_tableauserver_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://azure.<domain name>.link`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://azure.<domain name>.link`
     
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://azure.<domain name>.link`
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://azure.<domain name>.link`
 
-    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
+    c. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
      
     > [!NOTE] 
-    > Yukarıdaki değerleri gerçek değerler değildir. Daha sonra gerçek URL ve Tableau sunucu yapılandırma sayfasından tanımlayıcı değerlerini güncelleştirin. 
+    > Yukarıdaki değerlerden gerçek değerlerin değil. Daha sonra gerçek URL ve tanımlayıcıdır Tableau Server yapılandırma sayfasından ile değerlerini güncelleştirin. 
 
-4. Tableau sunucu uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz **"Kullanıcı öznitelikleri"** uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bir örnek için aynı gösterir.
+4. Tableau Server uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **"Kullanıcı öznitelikleri"** uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsünde bir örnek için aynı gösterir.
     
     ![Çoklu oturum açmayı yapılandırın](./media/tableauserver-tutorial/3.png)
     
-5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, yukarıdaki resimde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
+5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     | Öznitelik Adı | Öznitelik Değeri |
     | ---------------| --------------- |    
     | kullanıcı adı | *user.mailnickname* |
 
-    a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
+    a. Tıklayın **eklemek agentconfigutil** açmak için **öznitelik Ekle** iletişim.
 
     ![Çoklu oturum açmayı yapılandırın](./media/tableauserver-tutorial/tutorial_officespace_04.png)
 
     ![Çoklu oturum açmayı yapılandırın](./media/tableauserver-tutorial/tutorial_officespace_05.png)
     
-    b. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
+    b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
     
-    c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+    c. Gelen **değer** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
     
-    d. Tıklatın **Tamam**
+    d. Tıklayın **Tamam**
 
 
-6. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+6. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/tableauserver-tutorial/tutorial_tableauserver_certificate.png) 
 
-7. Tıklatın **kaydetmek** düğmesi.
+7. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/tableauserver-tutorial/tutorial_general_400.png)
 <CS>
-8. Uygulamanız için yapılandırılmış SSO almak için Tableau sunucu kiracınız yönetici olarak oturum gerekir.
+8. Uygulamanız için yapılandırılmış SSO elde etmek için Tableau Server Kiracı yönetici olarak oturum açma gerekir.
    
-   a. Tableau sunucu yapılandırmasında tıklatın **SAML** sekmesi.
+   a. Tableau Server yapılandırmasında tıklayın **SAML** sekmesi.
   
     ![Çoklu oturum açmayı yapılandırın](./media/tableauserver-tutorial/tutorial_tableauserver_001.png) 
   
-   b. Onay kutusunu işaretleyin **kullanım SAML çoklu oturum açma için**.
+   b. Onay kutusunu işaretleyin, **kullanım SAML çoklu oturum açma için**.
    
-   c. Tableau sunucu dönüşü URL — Tableau Server kullanıcıları, gibi erişecek URL http://tableau_server. Kullanarak http://localhost önerilmez. URL eğik ile kullanarak (örneğin, http://tableau_server/) desteklenmiyor. Kopya **Tableau sunucu dönüşü URL** ve Azure AD ile yapıştırma **oturum üzerinde URL'si** metin kutusuna **Tableau sunucu etki alanı ve URL'leri** bölümü.
+   c. Tableau Server dönüş URL'si — Tableau Server kullanıcıları, gibi erişecek URL http://tableau_server. Kullanarak http://localhost önerilmez. Bir URL kullanarak bir eğik çizgiyle (örneğin, http://tableau_server/) desteklenmiyor. Kopyalama **Tableau Server dönüş URL'si** ve Azure AD'ye yapıştırın **işareti bulunan URL'si** metin kutusunda **Tableau Server etki alanı ve URL'ler** bölümü.
    
-   d. SAML varlık kimliği — varlık kimliği Tableau Server yüklemenize IDP benzersiz olarak tanımlar. Tableau sunucu URL'si yeniden burada isterseniz girebilirsiniz, ancak Tableau sunucu URL'si olması gerekmez. Kopya **SAML varlık kimliği** ve Azure AD ile yapıştırma **tanımlayıcısı** metin kutusuna **Tableau sunucu etki alanı ve URL'leri** bölümü.
+   d. SAML varlık kimliği — varlık kimliği için IDP Tableau Server yüklemenizin benzersiz olarak tanımlar. Tableau Server URL'nizi yeniden burada isterseniz girebilirsiniz, ancak Tableau Server URL'nizi olması gerekmez. Kopyalama **SAML varlık kimliği** ve Azure AD'ye yapıştırın **tanımlayıcı** metin kutusunda **Tableau Server etki alanı ve URL'ler** bölümü.
      
-   e. Tıklatın **meta veri dosyası ver** ve metin düzenleyici uygulamada açın. Onaylama işlemi tüketici hizmet URL'si Http Post ile bulup 0 dizin ve URL'yi kopyalayın. Artık Azure AD ile yapıştırma **yanıt URL'si** metin kutusuna **Tableau sunucu etki alanı ve URL'leri** bölümü.
+   e. Tıklayın **meta veri dosyası dışarı** ve metin düzenleyicisi uygulamayı açın. Onay belgesi tüketici hizmeti URL'si Http Post ile bulup 0 dizini ve URL'yi kopyalayın. Artık Azure AD'ye yapıştırın **yanıt URL'si** metin kutusunda **Tableau Server etki alanı ve URL'ler** bölümü.
    
-   f. Azure portalından indirdiğiniz, Federasyon meta veri dosyasını bulun ve bunu karşıya **SAML IDP meta veri dosyası**.
+   f. Azure portalından indirdiğiniz, Federasyon meta verileri dosyasını bulun ve bunu karşıya **IDP SAML meta veri dosyası**.
    
-   g. Tıklatın **Tamam** Tableau sunucu yapılandırması sayfasında düğmesini.
+   g. Tıklayın **Tamam** Tableau Server yapılandırma sayfasında düğme.
    
     >[!NOTE] 
-    >Müşteriniz Tableau Server SAML SSO yapılandırmasında herhangi bir sertifikayı karşıya yüklemek ve SSO akışında dikkate.
-    >SAML Tableau sunucuda yapılandırmaya yardımcı sonra lütfen bu makalesine başvurun [yapılandırma SAML](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+    >Müşteriniz varsa Tableau Server SAML SSO yapılandırma herhangi bir sertifikayı karşıya yüklemek ve SSO akışta dikkate.
+    >Tableau Server üzerinde SAML yapılandırmasına yardımcı olması sonra lütfen bu makaleyi okuyun [SAML yapılandırma](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
     >
 <CE>
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tableauserver-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tableauserver-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tableauserver-tutorial/create_aaduser_03.png) 
 
@@ -203,9 +203,9 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tableauserver-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
@@ -213,56 +213,56 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
 ### <a name="creating-a-tableau-server-test-user"></a>Tableau Server test kullanıcısı oluşturma
 
-Bu bölümün amacı Britta Simon Tableau Server'da adlı bir kullanıcı oluşturmaktır. Tableau sunucusundaki tüm kullanıcılar sağlamak gerekir. 
+Bu bölümün amacı, Tableau Server Britta Simon adlı bir kullanıcı oluşturmaktır. Tableau server içindeki tüm kullanıcılar sağlamanız gerekir. 
 
-Bu kullanıcı adını Azure AD özel özniteliğinde yapılandırdığınız değeri eşleşmelidir **kullanıcıadı**. Doğru eşlemesi ile tümleştirme çalışmalıdır [yapılandırma Azure AD çoklu oturum açma](#configuring-azure-ad-single-sign-on).
+Bu kullanıcının kullanıcı adı Azure AD'ye özel öznitelik içinde yapılandırılmış değer ile eşleşmelidir **username**. Doğru eşleme içeren tümleştirme çalışmalıdır [yapılandırma Azure AD çoklu oturum açma](#configuring-azure-ad-single-sign-on).
 
 >[!NOTE]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kuruluşunuzdaki Tableau sunucu yöneticisine başvurmanız gerekir.
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kuruluşunuzdaki Tableau Server yöneticinize başvurun gerekir.
 > 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Britta Tableau sunucuya erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Tableau Server için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı Ata][200] 
 
-**Britta Simon Tableau sunucusuna atamak için aşağıdaki adımları gerçekleştirin:**
+**Tableau Server Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **Tableau Server**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/tableauserver-tutorial/tutorial_tableauserver_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı Ata][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde Tableau sunucu bölmesi tıklattığınızda, otomatik olarak Tableau sunucu uygulamanızı açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim paneli Tableau Server kutucuğa tıkladığınızda, size otomatik olarak Tableau Server uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

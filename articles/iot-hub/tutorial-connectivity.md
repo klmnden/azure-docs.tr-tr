@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 47d52fa412adf3f8e7f0c3c4d4afaf9009b4783e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dc857760cf0d3fa2e146f22196b7bc36d119df5f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651598"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869615"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Öğretici: IoT hub’ınızla bağlantıyı test etmek için bir simülasyon cihazı kullanma
 
@@ -49,7 +49,7 @@ Aşağıdaki komutu kullanarak geliştirme makinenizde geçerli Node.js sürüm�
 node --version
 ```
 
-https://github.com/Azure-Samples/iot-hub-tutorials-node/archive/master.zip adresinden örnek cihaz simülatörü Node.js projesini indirin ve ZIP arşivini ayıklayın.
+https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip adresinden örnek cihaz simülatörü Node.js projesini indirin ve ZIP arşivini ayıklayın.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
@@ -123,6 +123,9 @@ Uygulama bağlanmaya çalıştığında bu kez, bir kimlik doğrulama hatası g�
 Cihazınız IoT Hub cihaz SDK'lerinden birini kullanıyorsa, SDK kitaplık kodu hub ile kimlik doğrulaması gerçekleştirmek için kullanılan SAS belirtecini oluşturur. SAS belirteci, hub'ınızın adı, cihazınızın adı ve cihaz anahtarı ile oluşturulur.
 
 Bazı senaryolarda, örneğin bir bulut protokol ağ geçidi veya bir özel kimlik doğrulama düzenin bir parçası olarak, SAS belirtecini kendiniz oluşturmanız gerekebilir. SAS oluşturma kodunuz ile ilgili sorunları gidermek için test sırasında kullanmak üzere geçerli olduğu bilinen bir SAS belirteci oluşturmak kullanışlıdır.
+
+> [!NOTE]
+> SimulatedDevice-2.js örneği, SDK’lı ve SDK’sız SAS belirteci oluşturma örnekleri içerir.
 
 CLI kullanarak, geçerli olduğu bilinen bir SAS belirteci oluşturmak için aşağıdaki komutu çalıştırın:
 

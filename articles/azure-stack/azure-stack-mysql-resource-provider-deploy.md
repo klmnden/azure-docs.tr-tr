@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e4af3dc8aa7a656fd0020285c3f73ce414ba039c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 645fa89bede1311215f1d67c64a2388e4de5c1b1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38305905"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044892"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Azure Stack'te MySQL kaynak sağlayıcısı dağıtma
 
@@ -30,23 +30,30 @@ MySQL veritabanları Azure Stack hizmet olarak kullanıma sunmak için MySQL Ser
 Azure Stack MySQL kaynak sağlayıcısını dağıtmadan önce karşılanması gereken birkaç önkoşul vardır. Bu gereksinimleri karşılamak için VM ayrıcalıklı uç noktasına erişebildiğinden bir bilgisayarda bu makaledeki adımları tamamlayın.
 
 * Bunu zaten bunu yapmadıysanız [Azure Stack kayıt](.\azure-stack-registration.md) Azure Market öğeleri indirebilmesi Azure ile.
-* Azure ve Azure Stack PowerShell modülleri yüklemelisiniz. Bu yükleme sistem wher üzerinde çalışır. Bu sistem, .NET çalışma zamanının en son sürümünü içeren bir Windows 10 veya Windows Server 2016 görüntüsü olması gerekir. Bkz: [Azure Stack için PowerShell yükleme](.\azure-stack-powershell-install.md).
+* Azure ve Azure Stack PowerShell modülleri bu yüklemeyi çalıştıracağınız sisteme yüklemeniz gerekir. Bu sistem, .NET çalışma zamanının en son sürümünü içeren bir Windows 10 veya Windows Server 2016 görüntüsü olması gerekir. Bkz: [Azure Stack için PowerShell yükleme](.\azure-stack-powershell-install.md).
 * Gerekli Windows Server core VM için Azure Stack marketini indirerek ekleme **Windows Server 2016 Datacenter - Sunucu Çekirdeği** görüntü.
-
-  >[!NOTE]
-  >Windows güncelleştirme yüklemeniz gerekiyorsa, tek bir yerleştirebilirsiniz. Yerel bağımlılık yolunu MSU pakette. Birden fazla ise. MSU dosya bulunamadı, MySQL kaynak sağlayıcısı yüklemesi başarısız olur.
 
 * İkili MySQL kaynak Sağlayıcısı'nı indirin ve geçici bir dizine içeriğini ayıklamak için ayıklayıcısı çalıştırın.
 
   >[!NOTE]
   >Internet erişimi olmayan bir sisteme MySQL sağlayıcısı dağıtmak için kopyalama [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) dosyasının yerel yolu. Yol adını kullanarak sağlamak **DependencyFilesLocalPath** parametresi.
 
-* Kaynak sağlayıcısı bir minimum karşılık gelen Azure yapı yığınına sahiptir. Kullanmakta olduğunuz Azure Stack sürümü için doğru ikili indirdiğinizden emin olun.
+* Kaynak sağlayıcısı bir minimum karşılık gelen Azure yapı yığınına sahiptir. Kullanmakta olduğunuz Azure Stack sürümü için doğru ikili yüklediğinizden emin olun:
 
     | Azure Stack sürümü | RP MySQL sürümü|
     | --- | --- |
     | Sürüm 1804 (1.0.180513.1)|[MySQL RP 1.1.24.0 sürümü](https://aka.ms/azurestackmysqlrp1804) |
-    | Sürüm 1802 (1.0.180302.1) | [MySQL RP 1.1.18.0 sürümü](https://aka.ms/azurestackmysqlrp1802) |
+    | Sürüm 1802 (1.0.180302.1) | [MySQL RP 1.1.18.0 sürümü](https://aka.ms/azurestackmysqlrp1802)|
+    |     |     |
+
+- Veri Merkezi tümleştirmesi önkoşulların karşılandığından emin olun:
+
+    |Önkoşul|Başvuru|
+    |-----|-----|
+    |DNS koşullu iletme doğru şekilde ayarlanır.|[Azure Stack veri merkezi tümleştirmesi - DNS](azure-stack-integrate-dns.md)|
+    |Kaynak sağlayıcıları için gelen bağlantı noktaları açıktır.|[Azure Stack veri merkezi tümleştirmesi - uç noktalarını yayımlama](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |PKI sertifika konusu ve SAN doğru şekilde ayarlayın.|[Azure Stack dağıtım zorunlu PKI önkoşulları](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack dağıtım PaaS sertifika önkoşulları](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
 ### <a name="certificates"></a>Sertifikalar
 
@@ -56,7 +63,7 @@ _Tümleşik sistemler yüklemeleri_. İsteğe bağlı PaaS sertifikaları bölü
 
 Tümünde Önkoşullar kendinizi çalıştırılmak **DeployMySqlProvider.ps1** MYSQL kaynak sağlayıcısı dağıtma için betiği. DeployMySqlProvider.ps1 betiği, Azure Stack sürümünüz için indirdiğiniz MySQL kaynak sağlayıcısı ikili bir parçası olarak ayıklanır.
 
-MySQL kaynak sağlayıcısı dağıtma için yeni yükseltilmiş bir PowerShell konsol penceresi açın ve MySQL kaynak sağlayıcısı ikili dosyaları ayıkladığınız dizine geçin. Zaten yüklenmiş olan PowerShell modülleri tarafından kaynaklanan olası sorunları önlemek için yeni bir PowerShell penceresi kullanmanızı öneririz.
+MySQL kaynak sağlayıcısı dağıtma için yeni yükseltilmiş bir PowerShell penceresi (PowerShell ISE değil) açın ve MySQL kaynak sağlayıcısı ikili dosyaları ayıkladığınız dizine geçin. Zaten yüklenmiş olan PowerShell modülleri tarafından kaynaklanan olası sorunları önlemek için yeni bir PowerShell penceresi kullanmanızı öneririz.
 
 Çalıştırma **DeployMySqlProvider.ps1** komut dosyası aşağıdaki görevleri tamamlar:
 
@@ -65,8 +72,7 @@ MySQL kaynak sağlayıcısı dağıtma için yeni yükseltilmiş bir PowerShell 
 * Barındırma sunucuları dağıtmak için bir galeri paketi yayımlar.
 * İndirilen ve MySQL kaynak Sağlayıcısı'nı yükleyen Windows Server 2016 temel görüntüyü kullanarak bir VM dağıtır.
 * Kaynak sağlayıcınızı VM eşler yerel bir DNS kaydı kaydeder.
-* Kaynak sağlayıcınız ile yerel Azure Resource Manager operatörü ve kullanıcı hesapları için kaydeder.
-* İsteğe bağlı olarak, kaynak sağlayıcı yüklemesi sırasında tek bir Windows Server güncelleştirme yükler.
+* Kaynak sağlayıcınız ile yerel Azure Resource Manager işleci hesabı için kaydeder.
 
 > [!NOTE]
 > MySQL kaynak sağlayıcısı dağıtım başladığında, **system.local.mysqladapter** kaynak grubu oluşturulur. Bu, bu kaynak grubuna gerekli dağıtımlar son 75 dakika kadar sürebilir.

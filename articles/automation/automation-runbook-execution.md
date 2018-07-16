@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4b9bfc0df01dd8fc8a6a1b7aed5ade466164a82f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 4c01a63867ca3df85b4e7203c93855b43e9cd04c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930061"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044858"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure automation'da Runbook yürütme
 
 Azure Automation'da bir runbook başlattığınızda bir iş oluşturulur. Bir iş, bir runbook'un tek bir yürütme örneğidir. Her bir iş çalıştırmak için bir Azure Otomasyonu çalışanı atanır. Çalışanları tarafından birden çok Azure hesabında paylaşılır, ancak başka Otomasyon hesaplarından işleri birbirinden yalıtılmış durumdadır. Değil sahip denetim işiniz için isteği hangi çalışan hizmetleri. Tek bir runbook, aynı anda çalışan birden çok iş bulunabilir. Yürütme Ortamı aynı Otomasyon hesabına ait işler için yeniden kullanılabilir. Runbook'ların listesini Azure portalında görüntülediğinizde, her runbook için başlatılan tüm işlerin durumunu listeler. Her durumunu izlemek için her runbook için iş listesini görüntüleyebilirsiniz. Farklı iş durumları açıklamasını [iş durumları](#job-statuses).
 
-[!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 Bir runbook işi için yaşam döngüsü Aşağıdaki diyagramda gösterilmiştir [grafik runbook'ları](automation-runbook-types.md#graphical-runbooks) ve [PowerShell iş akışı runbook'ları](automation-runbook-types.md#powershell-workflow-runbooks).
 

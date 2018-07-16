@@ -6,14 +6,15 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 976f61d99b88d241b39bfec9d95e16de272d9c14
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a302cdcf94baa869e55262c4cd380fc05bf64299
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461614"
 ---
 # <a name="tutorial-automate-image-builds-on-base-image-update-with-azure-container-registry-build"></a>Öğretici: Azure Container Registry Derlemesi ile temel görüntü güncelleştirmesinde görüntü derlemelerini otomatik hale getirme
 
@@ -28,12 +29,11 @@ Bu öğreticide, serinin son kısmı:
 > * Tetiklenen derlemeyi görüntüleme
 > * Güncelleştirilmiş uygulama görüntüsünü doğrulama
 
-> [!IMPORTANT]
-> ACR Build şu anda önizleme aşamasındadır ve yalnızca **Doğu ABD** (eastus) ve **Batı Avrupa** (westeurope) bölgelerindeki Azure kapsayıcı kayıt defterleri tarafından desteklenir. Önizlemeler, [ek kullanım koşullarını][terms-of-use] kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure CLI’yı yerel olarak kullanmak istiyorsanız Azure CLI **2.0.32** veya sonraki bir sürüm yüklü olmalıdır. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’yı yüklemeniz veya yükseltmeniz gerekiyorsa bkz. [Azure CLI 2.0’ı yükleme][azure-cli].
+Azure CLI’yı yerel olarak kullanmak istiyorsanız Azure CLI **2.0.32** veya sonraki bir sürüm yüklü olmalıdır. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’yı yüklemeniz veya yükseltmeniz gerekiyorsa bkz. [Azure CLI’yı yükleme][azure-cli].
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -129,7 +129,7 @@ Derleme görevini el ile tetiklemek ve uygulama görüntüsünü oluşturmak iç
 az acr build-task run --registry $ACR_NAME --name buildhelloworld
 ```
 
-Derleme tamamlandıktan sonra, aşağıdaki isteğe bağlı adımı tamamlamak istiyorsanız **Build ID** (örneğin, "eastus6") değerini not alın.
+Derleme tamamlandıktan sonra, aşağıdaki isteğe bağlı adımı tamamlamak istiyorsanız **Build ID** (örneğin, "aa6") değerini not alın.
 
 ### <a name="optional-run-application-container-locally"></a>İsteğe bağlı: Uygulama kapsayıcısını yerel olarak çalıştırma
 
@@ -141,7 +141,7 @@ Cloud Shell'de değil de yerel olarak çalışıyorsanız ve Docker'ı yüklediy
 az acr login --name $ACR_NAME
 ```
 
-Şimdi `docker run` ile kapsayıcıyı yerel olarak çalıştırın. **\<build-id\>** değerini önceki adımdaki çıkışta bulunan Build ID değeriyle (örneğin, "eastus5") değiştirin.
+Şimdi `docker run` ile kapsayıcıyı yerel olarak çalıştırın. **\<build-id\>** değerini önceki adımdaki çıktıda bulunan Build ID değeriyle (örneğin, "aa6") değiştirin.
 
 ```azurecli
 docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
@@ -163,14 +163,14 @@ az acr build-task list-builds --registry $ACR_NAME --output table
 
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
-BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
-----------  ---------------  ----------  ---------  ------------  --------------------  ----------
-eastus6     buildhelloworld  Linux       Succeeded  Manual        2018-04-22T00:03:46Z  00:00:40
-eastus5                                  Succeeded  Manual        2018-04-22T00:01:45Z  00:00:25
-eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-21T23:52:33Z  00:00:30
-eastus3     buildhelloworld  Linux       Succeeded  Manual        2018-04-21T23:50:10Z  00:00:35
-eastus2     buildhelloworld  Linux       Succeeded  Manual        2018-04-21T23:46:15Z  00:00:55
-eastus1                                  Succeeded  Manual        2018-04-21T23:24:05Z  00:00:35
+BUILD ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
+----------  ---------------  ----------  ---------  ----------  --------------------  ----------
+aa6         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T20:00:12Z  00:00:50
+aa5                          Linux       Succeeded  Manual      2018-05-10T19:57:35Z  00:00:55
+aa4         buildhelloworld  Linux       Succeeded  Git Commit  2018-05-10T19:49:40Z  00:00:45
+aa3         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:41:50Z  00:01:20
+aa2         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:37:11Z  00:00:50
+aa1                          Linux       Succeeded  Manual      2018-05-10T19:10:14Z  00:00:55
 ```
 
 ## <a name="update-base-image"></a>Temel görüntüyü güncelleştirme
@@ -202,18 +202,18 @@ az acr build-task list-builds --registry $ACR_NAME --output table
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
 BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
-----------  ---------------  ----------  ---------  ----------    --------------------  ----------
-eastus8     buildhelloworld  Linux       Succeeded  Image Update  2018-04-22T00:09:24Z  00:00:50
-eastus7                                  Succeeded  Manual        2018-04-22T00:08:49Z  00:00:40
-eastus6     buildhelloworld  Linux       Succeeded  Image Update  2018-04-20T00:15:30Z  00:00:43
-eastus5     buildhelloworld  Linux       Succeeded  Manual        2018-04-20T00:10:05Z  00:00:45
-eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-19T23:40:38Z  00:00:40
-eastus3     buildhelloworld  Linux       Succeeded  Manual        2018-04-19T23:36:37Z  00:00:40
-eastus2     buildhelloworld  Linux       Succeeded  Manual        2018-04-19T23:35:27Z  00:00:40
-eastus1                                  Succeeded  Manual        2018-04-19T22:51:13Z  00:00:30
+----------  ---------------  ----------  ---------  ------------  --------------------  ----------
+aa8         buildhelloworld  Linux       Succeeded  Image Update  2018-05-10T20:09:52Z  00:00:45
+aa7                          Linux       Succeeded  Manual        2018-05-10T20:09:17Z  00:00:40
+aa6         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T20:00:12Z  00:00:50
+aa5                          Linux       Succeeded  Manual        2018-05-10T19:57:35Z  00:00:55
+aa4         buildhelloworld  Linux       Succeeded  Git Commit    2018-05-10T19:49:40Z  00:00:45
+aa3         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T19:41:50Z  00:01:20
+aa2         buildhelloworld  Linux       Succeeded  Manual        2018-05-10T19:37:11Z  00:00:50
+aa1                          Linux       Succeeded  Manual        2018-05-10T19:10:14Z  00:00:55
 ```
 
-Yeni oluşturulan kapsayıcıyı çalıştırıp güncelleştirilmiş sürüm numarasını görmek için aşağıdaki isteğe bağlı adımı uygulamak isterseniz, Görüntü Güncelleştirmesi ile tetiklenen derlemenin **BUILD ID** değerini (önceki çıkışta "eastus6") not alın.
+Yeni oluşturulan kapsayıcıyı çalıştırıp güncelleştirilmiş sürüm numarasını görmek için aşağıdaki isteğe bağlı adımı uygulamak isterseniz, Görüntü Güncelleştirmesi ile tetiklenen derlemenin **BUILD ID** değerini (önceki çıktıda "aa8") not alın.
 
 ### <a name="optional-run-newly-built-image"></a>İsteğe bağlı: Yeni oluşturulan görüntüyü çalıştırma
 
@@ -253,7 +253,6 @@ Bu öğreticide, temel görüntü güncelleştirildiğinde kapsayıcı görünt�
 [code-sample]: https://github.com/Azure-Samples/acr-build-helloworld-node
 [dockerfile-app]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-app
 [dockerfile-base]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-base
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

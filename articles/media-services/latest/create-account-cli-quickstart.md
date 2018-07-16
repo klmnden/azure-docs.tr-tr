@@ -1,5 +1,5 @@
 ---
-title: Hızlı Başlangıç - CLI 2.0 ile Azure Media Services hesabı oluşturma | Microsoft Docs
+title: Hızlı Başlangıç - Azure CLI ile Azure Media Services hesabı oluşturma | Microsoft Docs
 description: Azure Media Services hesabı oluşturmak için bu hızlı başlangıç adımlarını izleyin.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: f7e5cb28f90466e9366c0a32e2a333e6823b9396
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779727"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767111"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Hızlı Başlangıç: Azure Media Services hesabı oluşturma
 
@@ -26,7 +26,7 @@ ms.locfileid: "33779727"
 
 İster geliştirici, isterse medya içeriği oluşturucusu olun, Azure’da medya içeriğini depolamak, şifrelemek, kodlamak, yönetmek ve akışa almak için bir Media Services hesabı oluşturmanız gerekir. Media Services hesabı oluştururken, bir Azure Depolama hesabı kaynağının kimliğini sağlamanız gerekir. Belirtilen depolama hesabı, Media Services hesabınıza eklenir. Bu depolama hesabı kaynağının, Media Services hesabıyla aynı coğrafi bölgede bulunması gerekir.  
 
-Bu hızlı başlangıçta, CLI 2.0 kullanılarak yeni bir Azure Media Services hesabı oluşturma adımları açıklanmaktadır.  
+Bu hızlı başlangıçta, Azure CLI kullanılarak yeni bir Azure Media Services hesabı oluşturma adımları açıklanmaktadır.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +36,7 @@ Bu hızlı başlangıçta, CLI 2.0 kullanılarak yeni bir Azure Media Services h
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="set-the-azure-subscription"></a>Azure aboneliğini ayarlama
 

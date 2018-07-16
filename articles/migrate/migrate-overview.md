@@ -4,15 +4,15 @@ description: Azure Geçişi hizmetine genel bir bakış sağlar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6c78554b78468329819726bfd95671a34f51b231
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 753a21638745870941ac77e340b5e6aa713c7ffe
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285806"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920731"
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -30,7 +30,11 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 
 - Şu anda Azure sanal makinelerine geçiş için yalnızca şirket içi VMware sanal makinelerini (VM) değerlendirebilirsiniz. VMware sanal makineleri, vCenter Server (sürüm 5.5, 6.0 veya 6.5) tarafından yönetilmelidir.
-- Yol haritamızda Hyper-V desteği bulunur. Bu arada, Hyper-V iş yüklerinin geçişini planlamak için [Azure Site Recovery Dağıtım Planlayıcısı](http://aka.ms/asr-dp-hyperv-doc)’nı kullanmanız önerilir.
+
+> [!NOTE]
+> Yol haritamızda Hyper-V ve fiziksel sunucular desteği vardır. Bu arada, Hyper-V iş yüklerinin geçişini planlamak için [Azure Site Recovery Dağıtım Planlayıcısı](http://aka.ms/asr-dp-hyperv-doc)’nı ve fiziksel iş yüklerinin geçişini planlamak için ise [iş ortağı araçlarımızı](https://azure.microsoft.com/migration/partners/) kullanmanız önerilir.
+
+
 - Tek keşifte en fazla 1500 sanal makine ve tek projede en fazla 1500 sanal makine bulabilirsiniz. Ayrıca tek değerlendirmede en fazla 1500 sanal makineyi değerlendirebilirsiniz. Daha büyük bir ortam keşfetmek istiyorsanız keşfi bölüp birden fazla proje oluşturabilirsiniz, [daha fazla bilgi edinin](how-to-scale-assessment.md). Azure Geçişi, abonelik başına 20’ye kadar projeyi destekler.
 - Azure Geçişi projesini yalnızca Batı Orta ABD veya Doğu ABD bölgesinde oluşturabilirsiniz. Ancak, bu kısıtlama farklı bir hedef Azure konumu için geçiş planlamanızı engellemez. Geçiş projesinin konumu yalnızca şirket içi ortamda bulunan meta verileri depolamak için kullanılır.
 - Azure Geçişi yalnızca yönetilen disklerin geçiş değerlendirmesini destekler.

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ffcce12800fae3a4d9e4930c918fcafb919b96ed
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6a113169cb3f8fea1012643efcb56e5cf6c7e908
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737213"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915978"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Şirket içi makinelerin çoğaltması için Azure kaynaklarını hazırlama
 
@@ -54,11 +54,12 @@ Bu görevleri tamamlamak için hesabınıza Sanal Makine Katkıda Bulunan yerle�
 1. [Azure portal](https://portal.azure.com) menüsünde **Kaynak oluştur** > **Depolama** > **Depolama hesabı - blob, dosya, tablo, sorgu**'yu seçin.
 2. **Depolama hesabı oluştur** bölümüne hesap için bir ad girin. Bu öğreticiler için **contosovmsacct1910171607** adını kullanıyoruz. Seçtiğiniz ad, Azure içinde benzersiz olmalı, 3 ila 24 karakter uzunluğunda olmalı ve yalnızca rakamlar ve küçük harfler içermelidir.
 3. **Dağıtım modeli** bölümünde **Kaynak Yöneticisi**’ni seçin.
-4. **Hesap türü** bölümünde **Depolama (genel amaçlı v1)** öğesini seçin. Blob depolamayı seçmeyin. **Performans** bölümünde **Standart**’ı seçin. 
+4. **Hesap türü** bölümünde **Depolama (genel amaçlı v1)** öğesini seçin. Blob depolamayı seçmeyin.
 5. **Çoğaltma** bölümünde depolama yedeklemesi için **Okuma Erişimli Coğrafi Olarak Yedekli depolama**’yı seçin. **Güvenli aktarım gereklidir** seçeneğini **Devre Dışı** olarak bırakıyoruz.
-6. **Abonelik** bölümünde yeni depolama hesabını oluşturmak istediğiniz aboneliği seçin. 
-2. **Kaynak grubu** bölümünde yeni bir kaynak grubu adı girin. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bu öğreticiler için **ContosoRG** kullanıyoruz.
-3. **Konum** bölümünde depolama hesabınız için coğrafi konumu seçin. 
+6. **Performans**’ta **Standart**’ı seçin ve **Erişim katmanı**’nda varsayılan **Sık erişim** seçeneğini belirleyin.
+7. **Abonelik** bölümünde yeni depolama hesabını oluşturmak istediğiniz aboneliği seçin.
+8. **Kaynak grubu** bölümünde yeni bir kaynak grubu adı girin. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bu öğreticiler için **ContosoRG** kullanıyoruz.
+9. **Konum** bölümünde depolama hesabınız için coğrafi konumu seçin. 
 
    ![Depolama hesabı oluşturma](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -98,7 +99,7 @@ Yük devretmeden sonra depolamadan Azure sanal makineleri oluşturulduğunda san
 
 - Azure ağları [hakkında bilgi edinin](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 - Azure depolama türleri [hakkında bilgi edinin](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts).
-- - Depolama yedekliği [hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) ve depolama için [güvenli aktarımı](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) öğrenin.
+- Depolama yedekliği [hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) ve depolama için [güvenli aktarımı](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) öğrenin.
 
 
 

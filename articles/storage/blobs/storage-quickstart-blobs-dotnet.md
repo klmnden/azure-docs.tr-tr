@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: tamram
-ms.openlocfilehash: 0074e0a66ae842d798d6fd8cd2f4392644d873fa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 157fd47861857fedbe4886407ba464f886ef1be3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650766"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767145"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Hızlı Başlangıç: .NET kullanarak blobları yükleme, indirme ve listeleme
 
@@ -63,7 +63,7 @@ Bu komut, depoyu yerel Git klasörünüze kopyalar. Visual Studio çözümünü 
 
 ## <a name="configure-your-storage-connection-string"></a>Depolama bağlantı dizelerinizi yapılandırma
 
-Uygulamayı çalıştırmak istiyorsanız, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Örnek uygulamada, ortam değişkenindeki bağlantı dizesi okunmakta ve Azure Depolama’ya yönelik isteklerin kimlik doğrulaması için bu dize kullanılmaktadır.
+Uygulamayı çalıştırmak istiyorsanız, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Örnek uygulama, bağlantı dizesini ortam değişkeninden okur ve Azure Depolama’ya yönelik istekleri yetkilendirmek için bu dizeyi kullanır.
 
 Bağlantı dizenizi kopyaladıktan sonra uygulamayı çalıştıran yerel makine üzerindeki yeni bir ortam değişkenine yazın. Ortam değişkenini ayarlamak için bir konsol penceresi açın ve işletim sisteminizin yönergelerini izleyin. `<yourconnectionstring>` değerini gerçek bağlantı dizenizle değiştirin:
 

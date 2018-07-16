@@ -1,4 +1,4 @@
-  Artık Azure Cosmos DB hesap sayfasına gidin ve'ı tıklatın **anahtarları**, bu değerler sonraki oluşturduğunuz web uygulamasında kullanılan gibi.
+  Bundan sonra oluşturacağınız web uygulamasında bu değerler kullanılacağı için şimdi Azure Cosmos DB hesabı sayfasına gidin ve **Anahtarlar**’a tıklayın.
 
-![Azure portalı Azure Cosmos DB hesap sayfasında anahtarlar düğmesi ile ekran görüntüsü](./media/cosmos-db-keys/keys.png)
+![Azure Cosmos DB hesabı sayfasında Anahtarlar düğmesinin vurgulandığı Azure portalın ekran görüntüsü](./media/cosmos-db-keys/keys.png)
 

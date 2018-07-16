@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile Riskware | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile Riskware arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle Riskware | Microsoft Docs'
+description: Azure Active Directory ve Riskware arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: d234b34f7583441f496fb96d37166c5472cadb4c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 7705baa0ba912f24d7859110c75d36703aeb4a77
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110836"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041968"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Öğretici: Azure Active Directory Tümleştirme Riskware ile
+# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Öğretici: Azure Active Directory Riskware ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Riskware tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile Riskware tümleştirme konusunda bilgi edinin.
 
-Riskware Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile Riskware tümleştirme ile aşağıdaki avantajları sağlar:
 
 - Riskware erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak için Riskware (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- Otomatik olarak imzalanan için Riskware (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Riskware ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile Riskware yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir Riskware çoklu oturum açma abonelik etkin
+- Azure AD aboneliğiniz
+- Abonelik Riskware çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Riskware ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-riskware-from-the-gallery"></a>Galeriden Riskware ekleme
-Azure AD Riskware tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Riskware eklemeniz gerekir.
+Azure AD'de Riskware tümleştirmesini yapılandırmak için Riskware Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Riskware eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -68,35 +68,35 @@ Azure AD Riskware tümleştirilmesi yapılandırmak için yönetilen SaaS uygula
 
     ![Kurumsal uygulamalar dikey penceresi][2]
 
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Riskware**seçin **Riskware** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **Riskware**seçin **Riskware** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuçlar listesinde Riskware](./media/riskware-tutorial/tutorial_riskware_addfromgallery.png)
+    ![Sonuç listesinde Riskware](./media/riskware-tutorial/tutorial_riskware_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Riskware sınayın.
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Riskware sınayın.
 
-Tekli çalışmaya oturum için Azure AD Riskware karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Riskware ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne Riskware karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Riskware ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma Riskware ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Riskware ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Riskware test kullanıcısı oluşturma](#create-a-riskware-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Riskware sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Riskware test kullanıcısı oluşturma](#create-a-riskware-test-user)**  - kullanıcı Azure AD gösterimini bağlı Riskware Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Riskware uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Riskware uygulamanızda çoklu oturum açmayı yapılandırın.
 
 **Azure AD çoklu oturum açma ile Riskware yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Riskware** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Riskware** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
@@ -104,48 +104,48 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açma iletişim kutusu](./media/riskware-tutorial/tutorial_riskware_samlbase.png)
 
-3. Üzerinde **Riskware etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Riskware etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Riskware etki alanı ve URL'leri tek oturum açma bilgileri](./media/riskware-tutorial/tutorial_riskware_url.png)
+    ![Riskware etki alanı ve URL'ler tek oturum açma bilgileri](./media/riskware-tutorial/tutorial_riskware_url.png)
 
-    a. İçinde **URL üzerinde oturum** metin kutusuna, URL şu biçimi kullanarak bir yazın:
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak:
     | Ortam| URL deseni|
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
-    | ÜRETİM| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
+    | ÜRÜN| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
     | TANITIMI| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
-    b. İçinde **tanımlayıcısı (varlık kimliği)** metin kutusuna, bir URL yazın:
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna bir URL:
     | Ortam| URL deseni|
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
-    | ÜRETİM| `https://riskcloud.net/prod` |
+    | ÜRÜN| `https://riskcloud.net/prod` |
     | TANITIMI| `https://riskcloud.net/demo` |
     |||
 
     > [!NOTE]
-    > URL değeri oturum gerçek değil. Değerin gerçek oturum açma URL'si ile güncelleştirin. Kişi [Riskware istemci destek ekibi](mailto:support@pansoftware.com.au) değeri alınamıyor.
+    > Oturum açma URL değeri, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Riskware istemci Destek ekibine](mailto:support@pansoftware.com.au) değeri alınamıyor.
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/riskware-tutorial/tutorial_riskware_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/riskware-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/riskware-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Riskware yapılandırma** 'yi tıklatın **yapılandırma Riskware** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **Riskware yapılandırma** bölümünde **yapılandırma Riskware** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Riskware yapılandırma](./media/riskware-tutorial/tutorial_riskware_configure.png)
 
-7. Farklı web tarayıcısı penceresinde Riskware şirket sitenize yönetici olarak oturum açın.
+7. Farklı bir web tarayıcı penceresinde Riskware şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-8. Sağ üstte tıklatın **Bakım** bakım sayfasını açın.
+8. Sağ üst kısımdaki tıklayın **Bakım** bakım sayfasını açın.
 
     ![Riskware yapılandırmaları tutmanız](./media/riskware-tutorial/tutorial_riskware_maintain.png)
 
-9. Bakım sayfasında tıklatın **kimlik doğrulama**.
+9. Bakım sayfasında tıklatın **kimlik doğrulaması**.
 
     ![Riskware yapılandırma authen](./media/riskware-tutorial/tutorial_riskware_authen.png)
 
@@ -155,50 +155,50 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. Seçin **türü** olarak **SAML** kimlik doğrulaması için.
 
-    b. İçinde **kod** metin kutusuna, kodunuzu AZURE_UAT gibi yazın.
+    b. İçinde **kod** metin AZURE_UAT gibi kod yazın.
 
-    c. İçinde **açıklama** metin kutusuna, SSO için AZURE yapılandırma gibi bir açıklama yazın.
+    c. İçinde **açıklama** metin SSO için AZURE yapılandırma gibi bir açıklama yazın.
 
-    d. İçinde **tek oturum açma sayfasına** metin kutusuna, Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyaladığınız değeri.
+    d. İçinde **tek oturum açma sayfasına** metin kutusu, yapıştırma **SAML çoklu oturum açma hizmeti URL'si** Azure Portalı'ndan kopyaladığınız değeri.
 
-    e. İçinde **sayfa oturum** metin kutusuna, Yapıştır **Sign-Out URL** Azure portalından kopyaladığınız değeri.
+    e. İçinde **sayfa oturum** metin kutusu, yapıştırma **oturum kapatma URL'si** Azure Portalı'ndan kopyaladığınız değeri.
 
-    f. İçinde **Post Form alanı** metin kutusuna, SAML SAMLResponse gibi içeren Post yanıt mevcut alan adını yazın
+    f. İçinde **Post Form alanı** metin SAMLResponse gibi SAML içeren bir gönderi yanıtı mevcut alan adını yazın
 
-    g. İçinde **XML kimlik etiket adı** metin kutusuna, SAML yanıt NameID gibi benzersiz tanımlayıcısını içeren türü özniteliği.
+    g. İçinde **XML kimlik etiket adı** metin Nameıd gibi SAML yanıtını benzersiz tanımlayıcı içeren tür özniteliği.
 
-    h. İndirilen açmak **meta veri Xml** meta veri dosyası sertifikadan Not Defteri'nde Azure Portal'dan kopyalayın ve yapıştırın **sertifika** metin kutusu
+    h. İndirilen açın **meta veri Xml** meta veri dosyası sertifikadan Defteri'nde Azure portalından kopyalayın ve yapıştırın **sertifika** metin kutusu
 
     i. İçinde **tüketici URL** metin değerini yapıştırın **yanıt URL'si**, hangi destek ekibinden alın.
 
-    j. İçinde **veren** metin değerini yapıştırın **tanımlayıcısı**, hangi destek ekibinden aldığınız.
+    j. İçinde **veren** metin değerini yapıştırın **tanımlayıcı**, hangi destek ekibinden alın.
 
     > [!Note]
-    > Kişi [Riskware istemci destek ekibi](mailto:support@pansoftware.com.au) bu değerleri almak için
+    > İlgili kişi [Riskware istemci Destek ekibine](mailto:support@pansoftware.com.au) bu değerleri almak için
 
     k. Seçin **kullanım POST** onay kutusu.
 
-    l. Seçin **kullanım isteği SAML** onay kutusu.
+    m. Seçin **kullanım SAML isteği** onay kutusu.
 
     m. **Kaydet**’e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/riskware-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/riskware-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/riskware-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/riskware-tutorial/create_aaduser_03.png)
 
@@ -208,21 +208,21 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
 
 ### <a name="create-a-riskware-test-user"></a>Riskware test kullanıcısı oluşturma
 
-Azure AD için Riskware oturum açmalarını etkinleştirmek için bunların Riskware sağlanmalıdır. Riskware içinde sağlama bir el ile bir görevdir.
+Riskware için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların Riskware sağlanması gerekir. Riskware içinde sağlama bir el ile gerçekleştirilen bir görevdir.
 
 **Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
 
 1. İçin Riskware bir güvenlik yöneticisi olarak oturum açın.
 
-2. Sağ üstte tıklatın **Bakım** bakım sayfasını açın. 
+2. Sağ üst kısımdaki tıklayın **Bakım** bakım sayfasını açın. 
 
     ![Riskware yapılandırma tutar](./media/riskware-tutorial/tutorial_riskware_maintain.png)
 
@@ -236,73 +236,73 @@ Azure AD için Riskware oturum açmalarını etkinleştirmek için bunların Ris
 
     a. Seçin **kişi türü** çalışana gibi.
 
-    b. İçinde **ad** metin gibi kullanıcının ilk adını girin **Britta**.
+    b. İçinde **ad** metin gibi kullanıcı adını girin **Britta**.
 
-    c. İçinde **Soyadı** metin kutusuna, son kullanıcı gibi adını **Simon**.
+    c. İçinde **Soyadı** metin gibi kullanıcının soyadını girin **Simon**.
 
 5. Üzerinde **güvenlik** sekmesinde, aşağıdaki adımları gerçekleştirin:
 
-    ![Riskware yapılandırma güvenlik](./media/riskware-tutorial/tutorial_riskware_security.png)
+    ![Güvenlik Riskware yapılandırma](./media/riskware-tutorial/tutorial_riskware_security.png)
 
-    a. Altında **kimlik doğrulaması** bölümünde, select **kimlik doğrulaması** sahip kurulum modu SSO için AZURE yapılandırma ister.
+    a. Altında **kimlik doğrulaması** bölümünden **kimlik doğrulaması** sahip Kurulum modunu SSO için AZURE yapılandırma ister.
 
-    b. Altında **oturum açma ayrıntıları** bölümünde **kullanıcı kimliği** metin kutusuna, bir kullanıcı gibi e-posta girin **brittasimon@contoso.com**.
+    b. Altında **oturum açma ayrıntıları** bölümünde **kullanıcı kimliği** metin gibi kullanıcının e-posta girin **brittasimon@contoso.com**.
 
-    c. İçinde **parola** metin kutusuna, kullanıcının parolasını girin.
+    c. İçinde **parola** metin kutusu, kullanıcının parolasını girin.
 
 6. Üzerinde **kuruluş** sekmesinde, aşağıdaki adımları gerçekleştirin:
 
-    ![Riskware yapılandırma kuruluş](./media/riskware-tutorial/tutorial_riskware_org.png)
+    ![Kuruluş Riskware yapılandırma](./media/riskware-tutorial/tutorial_riskware_org.png)
 
-    a. Seçeneğini olarak **Level1** kuruluş.
+    a. Olarak seçeneğini **Level1** kuruluş.
 
-    b. Altında **kişinin birincil çalışma alanına** bölümünde **konumu** metin kutusuna, konumunuz yazın.
+    b. Altında **kişinin birincil çalışma alanı** bölümünde **konumu** metin konumunuz yazın.
 
-    c. Altında **çalışan** bölümünde, select **çalışan durumu** normal ister.
+    c. Altında **çalışan** bölümünden **çalışan durumu** normal ister.
 
 7. **Kaydet**’e tıklayın.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta Riskware için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için Riskware erişim vererek Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200]
 
-**Riskware için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Riskware için atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **Riskware**.
 
     ![Uygulamalar listesinde Riskware bağlantı](./media/riskware-tutorial/tutorial_riskware_app.png)  
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Riskware parçasında tıklattığınızda, otomatik olarak Riskware uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim panelinde Riskware kutucuğa tıkladığınızda, otomatik olarak Riskware uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

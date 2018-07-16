@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile LearnUpon | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile LearnUpon arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle LearnUpon | Microsoft Docs'
+description: Azure Active Directory ve LearnUpon arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 7a50d1f17293bb86c69ece10e05af0017b1fabf9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3409545169208adc87eb63358082afc6c6d8d575
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219464"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042121"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Öğretici: Azure Active Directory Tümleştirme LearnUpon ile
+# <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Öğretici: Azure Active Directory LearnUpon ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile LearnUpon tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile LearnUpon tümleştirme konusunda bilgi edinin.
 
-LearnUpon Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile LearnUpon tümleştirme ile aşağıdaki avantajları sağlar:
 
-- LearnUpon erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için LearnUpon (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- LearnUpon erişimi, Azure AD'de denetleyebilirsiniz
+- Otomatik olarak imzalanan için LearnUpon (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme LearnUpon ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile LearnUpon yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir LearnUpon çoklu oturum açma abonelik etkin
+- Azure AD aboneliğiniz
+- Abonelik LearnUpon çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden LearnUpon ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-learnupon-from-the-gallery"></a>Galeriden LearnUpon ekleme
-Azure AD LearnUpon tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden LearnUpon eklemeniz gerekir.
+Azure AD'de LearnUpon tümleştirmesini yapılandırmak için LearnUpon Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden LearnUpon eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -67,7 +67,7 @@ Azure AD LearnUpon tümleştirilmesi yapılandırmak için yönetilen SaaS uygul
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
@@ -75,32 +75,32 @@ Azure AD LearnUpon tümleştirilmesi yapılandırmak için yönetilen SaaS uygul
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/learnupon-tutorial/tutorial_learnupon_search.png)
 
-5. Sonuçlar panelinde seçin **LearnUpon**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Sonuçlar panelinde seçin **LearnUpon**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/learnupon-tutorial/tutorial_learnupon_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı LearnUpon sınayın.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı LearnUpon sınayın.
 
-Tekli çalışmaya oturum için Azure AD LearnUpon karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının LearnUpon ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne LearnUpon karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının LearnUpon ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-LearnUpon içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+LearnUpon içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma LearnUpon ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma LearnUpon ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[LearnUpon test kullanıcısı oluşturma](#creating-a-learnupon-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı LearnUpon sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[LearnUpon test kullanıcısı oluşturma](#creating-a-learnupon-test-user)**  - kullanıcı Azure AD gösterimini bağlı LearnUpon Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma LearnUpon uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve LearnUpon uygulamanızda çoklu oturum açmayı yapılandırın.
 
 **Azure AD çoklu oturum açma ile LearnUpon yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **LearnUpon** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **LearnUpon** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
@@ -108,40 +108,40 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açmayı yapılandırın](./media/learnupon-tutorial/tutorial_learnupon_samlbase.png)
 
-3. Üzerinde **LearnUpon etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **LearnUpon etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/learnupon-tutorial/tutorial_learnupon_url.png)
 
-    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.learnupon.com/saml/consumer`
+    İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.learnupon.com/saml/consumer`
 
     > [!NOTE] 
-    > Lütfen bu gerçek değer olmadığını unutmayın. Bu değer ile gerçek yanıt URL'si güncelleştirmeniz gerekir. Bu değer kişi almak için [LearnUpon destek ekibi](https://www.learnupon.com/features/support/).
+    > Bu gerçek değer olmadığını unutmayın. Bu değer ile gerçek yanıt URL'sini güncelleştirmeniz gerekiyor. Bu kişi değerini almak için [LearnUpon Destek ekibine](https://www.learnupon.com/features/support/).
 
 
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde, bulun **parmak izi** -bu LearnUpon SAML ayarlarınızı eklenir.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde, bulun **parmak izi** -LearnUpon SAML ayarlarınızı eklenir.
 
     ![Çoklu oturum açmayı yapılandırın](./media/learnupon-tutorial/tutorial_learnupon_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/learnupon-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **LearnUpon yapılandırma** 'yi tıklatın **yapılandırma LearnUpon** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **LearnUpon yapılandırma** bölümünde **yapılandırma LearnUpon** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/learnupon-tutorial/tutorial_learnupon_configure.png) 
 
-7. Başka bir tarayıcı örneği ve oturum açma LearnUpon bir yönetici hesabıyla açın. 
+7. Başka bir tarayıcı örneğinde ve oturum açma LearnUpon bir yönetici hesabıyla açın. 
 
-8. Tıklatın **ayarları** sekmesi.
+8. Tıklayın **ayarları** sekmesi.
    
     ![Çoklu oturum açmayı yapılandırın](./media/learnupon-tutorial/tutorial_learnupon_06.png)
 
-9. Tıklatın **çoklu oturum açma - SAML**ve ardından **genel ayarları** SAML ayarlarını yapılandırmak için.
+9. Tıklayın **çoklu oturum açma - SAML**ve ardından **genel ayarlar** SAML ayarlarını yapılandırmak için.
    
     ![Çoklu oturum açmayı yapılandırın](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
 
-10. İçinde **genel ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
+10. İçinde **genel ayarlar** bölümünde, aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açmayı yapılandırın](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
   
@@ -149,46 +149,46 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     b. Seçin **sürüm** olarak **2.0**.
 
-    c. Seçin **Skip koşullar** olarak **Hayır**.
+    c. Seçin **Atla koşullar** olarak **Hayır**.
 
-    d. İçinde **SAML belirteci sonrası parametre adı** metin kutusuna, doğrulandı ve kimlik doğrulaması - örneğin SAML onayı içeren isteği SAML tüketici URL'ye post parametresinin adı belirtilen yukarıda türü **SAMLResponse** .
+    d. İçinde **SAML belirteci sonrası parametre adı** metin doğrulandı ve kimlik doğrulaması - örneğin için SAML onayı içeriyor SAML tüketici URL'sine istek post parametresinin adı belirtilen yukarıda kutusuna **SAMLResponse** .
 
-    e. İçinde **ad tanımlayıcısı biçimi** metin kutusuna, where, SAML onayı kullanıcı tanımlayıcısı (e-posta adresi) gösteren değeri bulunduğu - örneğin türü **urn: OASIS: adları: tc: SAML:1.1:nameid-biçimi: emailAddress**.
+    e. İçinde **ad tanımlayıcı biçimi** metin kutusuna, SAML onayı kullanıcılar tanımlayıcı (e-posta adresi) nerede belirten değeri bulunduğu - örneğin **urn: OASIS: adları: tc: SAML:1.1:nameid-biçimi: emailAddress**.
   
-    f. İçinde **tanımlamak sağlayıcı konumu** metin kutusuna, karşıya yüklenen simge, Azure portalı oturum açma ekranından tıklatırsanız kullanıcıları gönderildiği gösteren değeri yazın.
+    f. İçinde **sağlayıcı konumu belirlemek** metin, Azure portalı oturum açma ekranından, karşıya yüklenen simgesine tıklarsanız burada kullanıcıların yönlendirildiği belirten bir değer yazın.
   
-    g. İçinde **oturum kapatma URL'si** metin kutusuna, Yapıştır **Sign-Out URL** Azure portalından kopyalanan.
+    g. İçinde **oturum kapatma URL'si** metin kutusu, yapıştırma **oturum kapatma URL'si** hangi Azure portaldan kopyaladığınız.
     
-    h. Tıklatın **parmak baskı siparişi yönetmek**ve indirilen sertifikanızın parmak izi karşıya yükleyin.
+    h. Tıklayın **parmak yazdırır yönetme**ve ardından indirilen sertifikanızın parmak izi karşıya yükleyin.
 
-11. Tıklatın **kullanıcı ayarlarını**ve ardından aşağıdaki adımları gerçekleştirin:
+11. Tıklayın **kullanıcı ayarları**ve ardından aşağıdaki adımları gerçekleştirin:
    
      ![Çoklu oturum açmayı yapılandırın](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
  
-    a. İçinde **ilk ad tanımlayıcısı biçimi** metin kutusuna, bize, SAML onayı burada kullanıcılar firstname içinde söyler değerin bulunduğu - örneğin türü: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    a. İçinde **ad tanımlayıcı biçimi** metin kutusuna, SAML onaylama işlemi burada kullanıcılar firstname de bize bildiren değerin bulunduğu - örneğin: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
   
-    b. İçinde **son ad tanımlayıcısı biçimi** metin kutusuna, bize, SAML onayı burada kullanıcılar lastname içinde söyler değerin bulunduğu - örneğin türü: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    b. İçinde **son ad tanımlayıcı biçimi** metin kutusuna, SAML onaylama işlemi burada kullanıcılar lastname, bize bildiren değerin bulunduğu - örneğin: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/learnupon-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/learnupon-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/learnupon-tutorial/create_aaduser_03.png) 
 
@@ -196,9 +196,9 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/learnupon-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
@@ -206,54 +206,54 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
 ### <a name="creating-a-learnupon-test-user"></a>LearnUpon test kullanıcısı oluşturma
 
-Bu bölümün amacı Britta Simon içinde LearnUpon adlı bir kullanıcı oluşturmaktır. LearnUpon yalnızca zaman sağlama, varsayılan olarak etkin olduğu destekler.
+Bu bölümün amacı LearnUpon Britta Simon adlı bir kullanıcı oluşturmaktır. LearnUpon tam zamanında sağlama, varsayılan olarak etkin olan destekler.
 
-Bu bölümde, eylem öğe yok. Yeni bir kullanıcı henüz yoksa LearnUpon erişme denemesi sırasında oluşturulur. [Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-single-sign-on).
+Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı henüz mevcut değilse LearnUpon erişme denemesi sırasında oluşturulur. [Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-single-sign-on).
 
 >[!NOTE]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, başvurmanız gerekir [LearnUpon destek ekibi](https://www.learnupon.com/features/support/). 
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [LearnUpon Destek ekibine](https://www.learnupon.com/features/support/). 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Britta LearnUpon için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için LearnUpon erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı Ata][200] 
 
-**LearnUpon için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon LearnUpon için atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **LearnUpon**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/learnupon-tutorial/tutorial_learnupon_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı Ata][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli LearnUpon parçasında tıklattığınızda, otomatik olarak LearnUpon uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Erişim panelinde LearnUpon kutucuğa tıkladığınızda, otomatik olarak LearnUpon uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

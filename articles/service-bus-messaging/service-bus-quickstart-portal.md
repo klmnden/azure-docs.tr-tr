@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
 ms.author: sethm
-ms.openlocfilehash: b970fe1d9d705bd91e616f19a6ef133d6cfd7dd2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f8979687747453354f60eda15d73b20b2c745a0
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660631"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867214"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Hızlı başlangıç: Azure portalı ve .NET kullanarak iletileri gönderme ve alma
 
@@ -34,15 +34,15 @@ Bu öğreticiyi tamamlamak için şunları yüklediğinizden emin olun:
 - [Visual Studio 2017 Güncelleştirme 3 (sürüm 15.3, 26730.01)](http://www.visualstudio.com/vs) veya sonraki sürümler.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), sürüm 2.0 veya sonraki sürümler.
 
-## <a name="log-on-to-the-azure-portal"></a>Azure portalında oturum açma
+## <a name="log-on-to-the-azure-portal"></a>Azure portalda oturum açma
 
-Önce [Azure portalına][Azure portal] gidin ve Azure aboneliğinizi kullanarak oturum açın. İlk adım, **Mesajlaşma** türünde bir Service Bus ad alanı oluşturmaktır.
+Önce [Azure portala][Azure portal] gidin ve Azure aboneliğinizi kullanarak oturum açın. İlk adım, **Mesajlaşma** türünde bir Service Bus ad alanı oluşturmaktır.
 
 ## <a name="create-a-service-bus-namespace"></a>Service Bus ad alanı oluşturma
 
-Service Bus mesajlaşma ad alanı, [tam etki alanı adı][] ile başvurulan, içinde bir veya daha fazla kuyruk, konu başlığı ve abonelik oluşturduğunuz benzersiz bir kapsam kapsayıcısı sağlar. Aşağıdaki örnek, yeni veya var olan bir [kaynak grubunda](/azure/azure-resource-manager/resource-group-portal) bir Service Bus mesajlaşma ad alanı oluşturmaktadır:
+Service Bus mesajlaşma ad alanı, [tam etki alanı adının][] başvurduğu, içinde bir veya daha fazla kuyruk, konu başlığı ve abonelik oluşturduğunuz benzersiz bir kapsam kapsayıcısı sağlar. Aşağıdaki örnekte, yeni veya var olan bir [kaynak grubunda](/azure/azure-resource-manager/resource-group-portal) bir Service Bus mesajlaşma ad alanı oluşturulur:
 
-1. Portalın sol gezinti bölmesinde **+ Kaynak oluştur**'a tıklayın, ardından **Enterprise Integration**'a ve sonra **Service Bus**'a tıklayın.
+1. Portalın sol gezinti bölmesinde **+ Kaynak oluştur**'a tıklayın, ardından **Kurumsal Tümleştirme**'ye ve sonra **Service Bus**'a tıklayın.
 2. **Ad alanı oluştur** iletişim kutusunda bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
 3. Ad alanı adının kullanılabildiğinden emin olduktan sonra fiyatlandırma katmanını (Standart veya Premium) seçin.
 4. **Abonelik** alanında, ad alanı oluşturmak için kullanmak istediğiniz bir Azure aboneliği seçin.
@@ -57,9 +57,9 @@ Service Bus mesajlaşma ad alanı, [tam etki alanı adı][] ile başvurulan, iç
 Yeni bir ad alanı oluşturulduğunda, her biri ad alanının tüm yönleri üzerinde tam denetim veren ilişkili bir çift birincil ve ikincil anahtara sahip bir ilk Paylaşılan Erişim İmzası (SAS) kuralı otomatik olarak oluşturulur. İlk kuralı kopyalamak için aşağıdaki adımları takip edin: 
 
 1.  **Tüm kaynaklar**’a ve sonra yeni oluşturulan ad alanı adına tıklayın.
-2. Ad alanı penceresinde, **Paylaşılan erişim ilkeleri**'ne tıklayın.
-3. **Paylaşılan erişim ilkeleri** ekranında, **RootManageSharedAccessKey**'e tıklayın.
-4. **İlke: RootManageSharedAccessKey** penceresinde **Birincil Bağlantı Dizesi**'nin yanındaki **Kopyala** düğmesine tıklayın ve bağlantı dizesini, daha sonra kullanmak üzere panonuza kopyalayın. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın. 
+2. Ad alanı penceresinde **Paylaşılan erişim ilkeleri**'ne tıklayın.
+3. **Paylaşılan erişim ilkeleri** ekranında **RootManageSharedAccessKey** seçeneğine tıklayın.
+4. **İlke: RootManageSharedAccessKey** penceresinde **Birincil Bağlantı Dizesi**'nin yanındaki **Kopyala** düğmesine tıklayın ve bağlantı dizesini daha sonra kullanmak üzere panonuza kopyalayın. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın. 
 
     ![bağlantı dizesi][connection-string]
 5. **Birincil Anahtar** değerini daha sonra kullanmak üzere geçici bir konuma kopyalayarak önceki adımı tamamlayın.
@@ -99,7 +99,7 @@ Kodu çalıştırmak için aşağıdakileri yapın:
 
 6.  `bin\Debug\netcoreapp2.0` klasörüne gidin.
 
-7.  Programı çalıştırmak için aşağıdaki komutu yazın. `myConnectionString` yerine daha önce edindiğiniz değeri ve `myQueueName` yerine oluşturduğunuz kuyruğun adını koymayı unutmayın:
+7.  Programı çalıştırmak için aşağıdaki komutu yazın. `myConnectionString` yerine daha önce aldığınız değeri ve `myQueueName` yerine oluşturduğunuz kuyruğun adını koymayı unutmayın:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
@@ -107,7 +107,7 @@ Kodu çalıştırmak için aşağıdakileri yapın:
 
 8. Kuyruğa 10 ileti gönderildiğini ve ardından bunların kuyruktan alındığını gözlemleyin:
 
-   ![program çıkışı](./media/service-bus-quickstart-portal/dotnet.png)
+   ![program çıktısı](./media/service-bus-quickstart-portal/dotnet.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -115,11 +115,11 @@ Kaynak grubu, ad alanı ve kuyruğu kaldırmak için portalı kullanabilirsiniz.
 
 ## <a name="understand-the-sample-code"></a>Örnek kodu anlama
 
-Bu bölümde, örnek kodun yaptıkları hakkında daha fazla ayrıntı bulunmaktadır. 
+Bu bölümde örnek kodun işlevleri hakkında daha fazla ayrıntı bulunmaktadır. 
 
 ### <a name="get-connection-string-and-queue"></a>Bağlantı dizesini ve kuyruğu alma
 
-Bağlantı dizesi ve kuyruk adı, `Main()` yöntemine komut satırı bağımsız değişkenleri olarak iletilir. `Main()`, bu değerleri tutmak için iki dize değişkeni bildirir:
+Bağlantı dizesi ve kuyruk adı, `Main()` yöntemine komut satırı bağımsız değişkenleri olarak geçirilir. `Main()`, bu değerleri tutmak için iki dize değişkeni bildirir:
 
 ```csharp
 static void Main(string[] args)
@@ -255,7 +255,7 @@ Bu makalede, bir Service Bus alan adı ve bir kuyruktan ileti gönderip almak i�
 
 
 [ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[tam etki alanı adı]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[tam etki alanı adının]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
 [connection-string]: ./media/service-bus-quickstart-portal/connection-string.png

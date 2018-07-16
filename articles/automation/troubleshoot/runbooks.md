@@ -4,16 +4,16 @@ description: Azure Otomasyonu runbook'ları ile ilgili sorunları giderme hakkı
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b96d723f6c7ca423343c0586f59770abb55ada9f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 286a777e16dea72e38b316e86ba57e1811888eec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929358"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044875"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -94,6 +94,31 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 Azure Klasik dağıtım modeli cmdlet'leriyle bir sertifikayı kullanmak için başvurmak [oluşturma ve Azure hizmetlerini yönetmek için bir sertifika ekleme.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Bir hizmet sorumlusu ile Azure Resource Manager cmdlet'lerini kullanmak için başvurmak [hizmet sorumlusu Azure portalını kullanarak oluşturma](../../azure-resource-manager/resource-group-create-service-principal-portal.md) ve [Azure Resource Manager ile hizmet sorumlusu kimlik doğrulaması.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Runbook'larla çalışırken sık karşılaşılan hatalar
+
+### <a name="not-recognized-as-cmdlet"></a>Senaryo: Runbook nedeniyle eksik bir cmdlet başarısız olur.
+
+#### <a name="issue"></a>Sorun
+
+Runbook'unuzda, aşağıdaki örneğe benzer bir hata ile başarısız olur:
+
+```
+The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
+```
+
+#### <a name="cause"></a>Nedeni
+
+Bu hata, aşağıdaki nedenlerden kaynaklanabilir:
+
+1. Cmdlet içeren modülü Otomasyon hesabına içe aktarılmaz
+2. Cmdlet modülü containg alınır, ancak güncel değil
+
+#### <a name="resolution"></a>Çözüm
+
+Bu hata, aşağıdaki görevlerden birini tamamlayarak çözülebilir:
+
+Bir Azure modülü modülü ise bkz [Azure automation'da Azure PowerShell modüllerini güncelleştirme](../automation-update-azure-modules.md) modüllerinizi Otomasyon hesabınızdaki güncelleştirme hakkında bilgi edinmek için.
+
+Ayrı bir modül ise, Otomasyon hesabınızda içeri aktarılan modüldeki emin olun.
 
 ### <a name="job-attempted-3-times"></a>Senaryo: Runbook işi başlangıç üç kez denendi ancak her zaman başlatılamadı
 

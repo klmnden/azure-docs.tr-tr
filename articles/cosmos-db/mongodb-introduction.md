@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sngun
-ms.openlocfilehash: c10f1fdc7e373633298b083d1317f17cff3aa2b8
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 214dfe3e676d3b07cf688fa0f7dcaf11462edfe8
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796640"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930894"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB'ye giriş: MongoDB API'si
 
@@ -26,7 +26,7 @@ ms.locfileid: "34796640"
 
 Azure Cosmos DB veritabanları, [MongoDB](https://docs.mongodb.com/manual/introduction/) için yazılmış uygulamaların veri deposu olarak kullanılabilir. Bu işlevsellik, MongoDB için yazılmış uygulamanızın mevcut[sürücüleri](https://docs.mongodb.org/ecosystem/drivers/) kullanarak artık Azure Cosmos DB ile iletişim kurabileceği ve MongoDB veritabanları yerine Azure Cosmos DB veritabanlarını kullanabileceği anlamına gelir. Çoğu durumda, sadece bir bağlantı dizesini değiştirerek MongoDB'den Azure Cosmos DB'ye geçiş yapabilirsiniz. Bu işlevselliği kullanarak, MongoDB'nin tanıdık yöntem ve araçlarını kullanmaya devam ederken, Azure Cosmos DB ve [kapsamlı sektör lideri SLA'ları](https://azure.microsoft.com/support/legal/sla/cosmos-db) ile Azure bulutunda kolayca küresel olarak dağıtılmış MongoDB veritabanı uygulamaları geliştirebilir ve çalıştırabilirsiniz.
 
-**MongoDB uyumluluğu**: Azure Cosmos DB MongoDB 3.4 (sürüm 5) kablo protokolünü uyguladığı ve [MongoDB toplama ardışık düzenini](mongodb-feature-support.md#aggregation-pipeline) desteklediği için mevcut MongoDB uzmanlığınızı, uygulama kodunuzu ve araçlarınızı kullanabilirsiniz. MongoDB kullanarak uygulamalar geliştirebilir ve bunları tamamen yönetilen, küresel olarak dağıtılmış Azure Cosmos DB hizmetini kullanarak üretime dağıtabilirsiniz.
+**MongoDB uyumluluğu**: Azure Cosmos DB, MongoDB kablo protokolünü uyguladığı için mevcut MongoDB uzmanlığınızı, uygulama kodunuzu ve araçlarınızı kullanabilirsiniz. MongoDB kullanarak uygulamalar geliştirebilir ve bunları tamamen yönetilen, küresel olarak dağıtılmış Azure Cosmos DB hizmetini kullanarak üretime dağıtabilirsiniz. Desteklenen sürümler hakkında daha fazla bilgi için bkz. [MongoDB Protokol Desteği](mongodb-feature-support.md#mongodb-protocol-support).
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>MongoDB uygulamaları için Azure Cosmos DB kullanmanın avantajı nedir?
 
@@ -36,7 +36,7 @@ Azure Cosmos DB veritabanları, [MongoDB](https://docs.mongodb.com/manual/introd
 
 **Sunucu yönetimine son**: MongoDB veritabanlarınızı yönetmeniz ve ölçeklendirmeniz gerekmez. Azure Cosmos DB tamamen yönetilen bir hizmet olduğundan herhangi bir altyapıyı veya Sanal Makineyi yönetmeniz gerekmez. Azure Cosmos DB, 30+ [Azure Bölgesinde](https://azure.microsoft.com/regions/services/) kullanılabilir.
 
-**Ayarlanabilir tutarlılık düzeyleri:** Azure Cosmos DB, şu anda MongoDB'nin güçlü ve son olmak üzere iki tutarlılık düzeyi olan 3.4 sürümünü uygulamaktadır. Azure Cosmos DB birden çok API'li olduğundan tutarlılık ayarları hesap düzeyinde geçerlidir ve tutarlılığın uygulatılması her API tarafından denetlenmektedir. MongoDB'nin 3.6 sürümüne kadar oturum tutarlılığı kavramı yoktu, bu nedenle MongoDB API'si hesabını oturum tutarlılığı kullanacak şekilde ayarlarsanız, tutarlılık MongoDB API'leri kullanılırken son düzeyine düşürülür. Bir MongoDB API'si hesabı için "kendi yazmanı okuma" garantisine ihtiyacınız varsa, hesabın varsayılan tutarlılık düzeyi güçlü veya sınırlanmış eskime durumu olarak ayarlanmalıdır. Daha fazla bilgi için bkz. [Kullanılabilirlik ve performansı en üst düzeye çıkarmak için tutarlılık düzeylerini kullanma](consistency-levels.md).
+**Ayarlanabilir tutarlılık düzeyleri:** Azure Cosmos DB çok modelli API'leri desteklediğinden tutarlılık ayarları hesap düzeyinde geçerlidir ve tutarlılığın uygulatılması her API tarafından denetlenmektedir. MongoDB'nin 3.6 sürümüne kadar oturum tutarlılığı kavramı yoktu, bu nedenle MongoDB API'si hesabını oturum tutarlılığı kullanacak şekilde ayarlarsanız, tutarlılık MongoDB API'leri kullanılırken son düzeyine düşürülür. Bir MongoDB API'si hesabı için "kendi yazmanı okuma" garantisine ihtiyacınız varsa, hesabın varsayılan tutarlılık düzeyi güçlü veya sınırlanmış eskime durumu olarak ayarlanmalıdır. Daha fazla bilgi için bkz. [Kullanılabilirlik ve performansı en üst düzeye çıkarmak için tutarlılık düzeylerini kullanma](consistency-levels.md).
 
 | Azure Cosmos DB Varsayılan Tutarlılık Düzeyi |   Mongo API (3.4) |
 |---|---|

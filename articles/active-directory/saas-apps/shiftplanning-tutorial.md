@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile Humanity | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile Humanity arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle Humanity | Microsoft Docs'
+description: Azure Active Directory ve Humanity arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b0cd33370f5940e7f74fed0938320c96ae15a447
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a0f9a0a76f001d6126e5b0924d0e5a3aaefa528b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226903"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041383"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Öğretici: Azure Active Directory Tümleştirme Humanity ile
+# <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Öğretici: Azure Active Directory Humanity ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Humanity tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile Humanity tümleştirme konusunda bilgi edinin.
 
-Humanity Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile Humanity tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Humanity erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için Humanity (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Humanity erişimi, Azure AD'de denetleyebilirsiniz
+- Otomatik olarak imzalanan için Humanity (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Humanity ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile Humanity yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir Humanity çoklu oturum açma etkin abonelik
+- Azure AD aboneliğiniz
+- Bir Humanity çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Humanity ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-humanity-from-the-gallery"></a>Galeriden Humanity ekleme
-Azure AD'ye Humanity tümleştirmesini yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Humanity eklemeniz gerekir.
+Azure AD'de Humanity tümleştirmesini yapılandırmak için Humanity Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Humanity eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -67,7 +67,7 @@ Azure AD'ye Humanity tümleştirmesini yapılandırmak için yönetilen SaaS uyg
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
@@ -75,32 +75,32 @@ Azure AD'ye Humanity tümleştirmesini yapılandırmak için yönetilen SaaS uyg
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/shiftplanning-tutorial/tutorial_humanity_search.png)
 
-5. Sonuçlar panelinde seçin **Humanity**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Sonuçlar panelinde seçin **Humanity**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/shiftplanning-tutorial/tutorial_humanity_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı Humanity ile test etme
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." adlı bir test kullanıcı tabanlı Humanity ile test etme
 
-Tekli çalışmaya oturum için Azure AD Humanity karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Humanity ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne Humanity karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Humanity ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Humanity içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Humanity içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırmak ve Azure AD çoklu oturum açma ile Humanity sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Humanity ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Humanity test kullanıcısı oluşturma](#creating-a-humanity-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Humanity sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Humanity test kullanıcısı oluşturma](#creating-a-humanity-test-user)**  - kullanıcı Azure AD gösterimini bağlı Humanity Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Humanity uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Humanity uygulamanızda çoklu oturum açmayı yapılandırın.
 
 **Azure AD çoklu oturum açma ile Humanity yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Humanity** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Humanity** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
@@ -108,36 +108,36 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açmayı yapılandırın](./media/shiftplanning-tutorial/tutorial_humanity_samlbase.png)
 
-3. Üzerinde **Humanity etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Humanity etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/shiftplanning-tutorial/tutorial_humanity_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://company.humanity.com/includes/saml/`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://company.humanity.com/includes/saml/`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://company.humanity.com/app/`
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://company.humanity.com/app/`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Humanity istemci destek ekibi](https://www.humanity.com/support/) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Humanity istemci Destek ekibine](https://www.humanity.com/support/) bu değerleri almak için. 
  
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/shiftplanning-tutorial/tutorial_humanity_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/shiftplanning-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Humanity yapılandırma** 'yi tıklatın **yapılandırma Humanity** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si ve Sign-Out URL** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **Humanity yapılandırma** bölümünde **yapılandırma Humanity** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmet URL'si ve oturum kapatma URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/shiftplanning-tutorial/tutorial_humanity_configure.png) 
 
-7. Farklı web tarayıcısı penceresinde oturum açın, **Humanity** yönetici olarak şirket site.
+7. Farklı bir web tarayıcı penceresinde oturum açın, **Humanity** yönetici olarak şirketin site.
 
-8. Üstteki menüde tıklatın **yönetici**.
+8. Üstteki menüden **yönetici**.
    
     ![Yönetici](./media/shiftplanning-tutorial/iC786619.png "yönetici")
 
-9. Altında **tümleştirme**, tıklatın **çoklu oturum açma**.
+9. Altında **tümleştirme**, tıklayın **çoklu oturum açma**.
    
     ![Çoklu oturum açma](./media/shiftplanning-tutorial/iC786620.png "çoklu oturum açma")
 
@@ -149,34 +149,34 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     b. Seçin **parola oturum açma izin**.
 
-    c. Yapıştır **SAML çoklu oturum açma hizmet URL'si** içine değer **SAML veren URL'si** metin kutusu.
+    c. Yapıştırma **SAML çoklu oturum açma hizmeti URL'si** içine değer **SAML veren URL'si** metin.
 
-    d. Yapıştır **Sign-Out URL** içine değer **uzak oturum kapatma URL'si** metin kutusu.
+    d. Yapıştırma **oturum kapatma URL'si** içine değer **uzak oturum kapatma URL'si** metin.
    
-    e. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **X.509 sertifikası** metin kutusu.
+    e. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve ardından ona yapıştırın **X.509 sertifikası** metin.
 
-11. Tıklatın **ayarlarını kaydetmek**.
+11. Tıklayın **ayarlarını kaydetmek**.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/shiftplanning-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/shiftplanning-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/shiftplanning-tutorial/create_aaduser_03.png) 
 
@@ -184,9 +184,9 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/shiftplanning-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
@@ -194,76 +194,76 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
 ### <a name="creating-a-humanity-test-user"></a>Humanity test kullanıcısı oluşturma
 
-Azure AD kullanıcıları için Humanity oturum açmak etkinleştirmek için bunların Humanity sağlanmalıdır. Humanity söz konusu olduğunda, sağlama bir el ile bir görevdir.
+Humanity için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların Humanity sağlanması gerekir. Humanity söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
 
 **Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Oturum, **Humanity** yönetici olarak şirket site.
+1. Oturum açın, **Humanity** yönetici olarak şirketin site.
 
-2. Tıklatın **yönetici**.
+2. Tıklayın **yönetici**.
    
     ![Yönetici](./media/shiftplanning-tutorial/iC786619.png "yönetici")
 
-3. Tıklatın **personel**.
+3. Tıklayın **personeli**.
    
-    ![Personel](./media/shiftplanning-tutorial/ic786623.png "personel")
+    ![Personel](./media/shiftplanning-tutorial/ic786623.png "ekibi")
 
-4. Altında **Eylemler**, tıklatın **eklemek çalışanlar**.
+4. Altında **eylemleri**, tıklayın **ekleme çalışanlar**.
    
-    ![Çalışanlar eklemek](./media/shiftplanning-tutorial/iC786624.png "çalışanları ekleme")
+    ![Çalışanların ekleme](./media/shiftplanning-tutorial/iC786624.png "çalışanları ekleme")
 
-5. İçinde **eklemek çalışanlar** bölümünde, aşağıdaki adımları gerçekleştirin:
+5. İçinde **ekleme çalışanlar** bölümünde, aşağıdaki adımları gerçekleştirin:
    
-    ![Çalışanlar Kaydet](./media/shiftplanning-tutorial/iC786625.png "çalışanlar Kaydet")
+    ![Çalışanların Kaydet](./media/shiftplanning-tutorial/iC786625.png "çalışanlar Kaydet")
    
-    a. Tür **ad**, **Soyadı**, ve **e-posta** istediğiniz ilgili metin kutularına sağlamayı geçerli bir AAD hesabının.
+    a. Tür **ad**, **Soyadı**, ve **e-posta** istediğiniz ilgili metin kutularına zbilgisayarlar geçerli bir AAD hesabı.
 
-    b. Tıklatın **çalışanlar kaydetmek**.
+    b. Tıklayın **çalışanlar Kaydet**.
 
 >[!NOTE]
->API sağlama AAD kullanıcı hesaplarına Humanity tarafından sağlanan veya herhangi diğer Humanity kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
+>Herhangi diğer Humanity kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için AAD kullanıcı hesapları sağlamak Humanity tarafından sağlanan.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Britta Humanity için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için Humanity erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı Ata][200] 
 
-**Humanity için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Humanity için atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **Humanity**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/shiftplanning-tutorial/tutorial_humanity_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı Ata][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Humanity parçasında tıklattığınızda, otomatik olarak Humanity uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Erişim panelinde Humanity kutucuğa tıkladığınızda, otomatik olarak Humanity uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

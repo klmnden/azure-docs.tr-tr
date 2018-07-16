@@ -1,3 +1,3 @@
 > [!NOTE]
-> Uygulama hizmeti ücretsiz ve paylaşılan barındırma planları (Önizleme) gibi diğer App Service uygulamalarının aynı Azure VM'de çalıştırılan temel katmanlarıdır. Bazı uygulamalar diğer müşterilere ait olabilir. Bu katmanlar, yalnızca geliştirme ve test amacıyla kullanıma yöneliktir.
+> Ücretsiz App Service ve Paylaşılan (önizleme) barındırma planları, diğer App Service uygulamalarıyla aynı Azure VM’leri üzerinde çalışan temel katmanlardır. Bazı uygulamalar diğer müşterilere ait olabilir. Bu katmanlar, yalnızca geliştirme ve test amacıyla kullanıma yöneliktir.
 >

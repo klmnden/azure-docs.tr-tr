@@ -12,20 +12,18 @@ ms.workload: na
 ms.date: 06/21/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 515c9917add27663e8d145fee3e1effc89291bc0
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 0c8734bec1ce14a3a9692efa3a1fcf975067953a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034111"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968911"
 ---
-<!-- **TODO** Update publish config with repo paths before publishing! -->
-
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Öğretici: Cihaz yazılımı güncelleştirme işlemi gerçekleştirme
 
 IoT hub'ınıza bağlı cihazların üretici yazılımını güncelleştirmeniz gerekebilir. Örneğin üretici yazılımına yeni özellik eklemek veya güvenlik yaması uygulamak isteyebilirsiniz. Birçok IoT senaryosunda fiziksel cihazlarınızı ziyaret edip cihaz yazılımı güncelleştirmelerini el ile uygulamak zordur. Bu öğreticide hub'ınıza bağlı bir arka uç uygulaması üzerinden cihaz yazılımı güncelleştirme işlemini uzaktan başlatma ve izleme adımları anlatılmaktadır.
 
-Cihaz yazılımı güncelleştirme işlemini oluşturmak ve izlemek için bu öğreticideki arka uç uygulamasında IoT hub'ınızda bir _yapılandırma_ oluşturulur. IoT Hub otomatik cihaz yönetimi bu yapılandırmayı kullanarak tüm soğutucu cihazlarınızdaki _cihaz ikizi istenen özellikler_ kümesini güncelleştirir. İstenen özellikler, gerekli olan cihaz yazılımı güncelleştirmesinin ayrıntılarını belirtir. Soğutucu cihazlar yazılım güncelleştirme işlemini çalıştırırken _cihaz ikizi bildirilen özelliklerini_ kullanarak durumlarını arka uç uygulamasına bildirir. Arka uç uygulaması bu yapılandırmayı kullanarak cihazdan gönderilen bildirilen özellikleri izleyebilir ve cihaz yazılımı güncelleştirme işlemini tamamlanıncaya kadar izleyebilir:
+Cihaz yazılımı güncelleştirme işlemini oluşturmak ve izlemek için bu öğreticideki arka uç uygulamasında IoT hub'ınızda bir _yapılandırma_ oluşturulur. IoT Hub [otomatik cihaz yönetimi](iot-hub-auto-device-config.md) bu yapılandırmayı kullanarak tüm soğutucu cihazlarınızdaki _cihaz ikizi istenen özellikler_ kümesini güncelleştirir. İstenen özellikler, gerekli olan cihaz yazılımı güncelleştirmesinin ayrıntılarını belirtir. Soğutucu cihazlar yazılım güncelleştirme işlemini çalıştırırken _cihaz ikizi bildirilen özelliklerini_ kullanarak durumlarını arka uç uygulamasına bildirir. Arka uç uygulaması bu yapılandırmayı kullanarak cihazdan gönderilen bildirilen özellikleri izleyebilir ve cihaz yazılımı güncelleştirme işlemini tamamlanıncaya kadar izleyebilir:
 
 ![Cihaz yazılımı güncelleştirme işlemi](media/tutorial-firmware-update/Process.png)
 
@@ -101,7 +99,7 @@ Bu komutları bir Windows komut isteminde veya Powershell isteminde çalıştır
 
 ## <a name="start-the-firmware-update"></a>Cihaz yazılımı güncelleştirmesini başlatma
 
-**devicetype** etiketine sahip tüm soğutucularda cihaz yazılımı güncelleştirme işlemini başlatmak için arka uç uygulamasında bir otomatik cihaz yönetimi yapılandırması oluşturursunuz. Bu bölümde şunları nasıl yapabileceğinizi öğrenirsiniz:
+**devicetype** etiketine sahip tüm soğutucularda cihaz yazılımı güncelleştirme işlemini başlatmak için arka uç uygulamasında bir [otomatik cihaz yönetimi yapılandırması](iot-hub-auto-device-config.md#create-a-configuration) oluşturursunuz. Bu bölümde şunları nasıl yapabileceğinizi öğrenirsiniz:
 
 * Arka uç uygulamasından yapılandırma oluşturma.
 * İşi tamamlanana kadar izleme.

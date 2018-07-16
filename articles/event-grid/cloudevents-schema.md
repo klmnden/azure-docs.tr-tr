@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: babanisa
-ms.openlocfilehash: 41e7be80eb67deaf7a8189aa0d9f62c48b88799a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 4f1f0e95ae74ef41ed91be55f4c964671e8f723b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036246"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044558"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid ile CloudEvents şeması kullanma
 
@@ -73,6 +73,8 @@ CloudEvents v0.1, aşağıdaki özelliklere sahiptir:
 
 Daha fazla bilgi için [CloudEvents spec](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
+CloudEvents şeması ve Event Grid şema teslim edilen olaylara üstbilgi değerlerini dışında aynıdır `content-type`. CloudEvents şeması için bu üst bilgi değeri: `"content-type":"application/cloudevents+json; charset=utf-8"`. Event Grid şeması için bu üst bilgi değeri: `"content-type":"application/json; charset=utf-8"`.
+
 ## <a name="configure-event-grid-for-cloudevents"></a>Event Grid CloudEvents için yapılandırma
 
 Event Grid, hem giriş hem de çıkış olayların CloudEvents şeması için kullanabilirsiniz. Blob Depolama olaylarını ve IOT Hub olaylarını ve özel olaylar gibi sistem olaylarını CloudEvents kullanabilirsiniz. Ayrıca, bu olaylara kablo ve geriye de dönüştürebilirsiniz.
@@ -89,7 +91,7 @@ Tüm olay şemaları için Event Grid için event grid konusu yayımlarken ve bi
 
 ### <a name="input-schema"></a>Giriş şeması
 
-Konunuzu oluşturduğunuzda giriş şemasını CloudEvents için özel bir konuya ayarlamak için aşağıdaki parametreyi Azure CLI'yi kullanın `--input-schema cloudeventv01schema`. Özel konuya gelen olayları CloudEvents v0.1 biçiminde artık bekliyor.
+Özel Konunuzu oluşturduğunuzda giriş şemasını CloudEvents için özel bir konuya ayarlamak için aşağıdaki parametreyi Azure CLI'yi kullanın `--input-schema cloudeventv01schema`. Özel konuya gelen olayları CloudEvents v0.1 biçiminde artık bekliyor.
 
 Event grid konusu oluşturmak için kullanın:
 

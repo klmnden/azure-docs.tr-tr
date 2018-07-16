@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 6869698f2e6dca321d371bb22ded316f32cdeb51
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 368caa063ea0487923af8a29f67aa73cae7ed75e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824103"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952901"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve test için Azure Cosmos DB Öykünücüsünü kullanma
 
@@ -59,9 +59,10 @@ Kirill Gavrylyuk’un Azure Cosmos DB Öykünücüsü ile çalışmaya başlama 
 > 
 
 ## <a name="how-the-emulator-works"></a>Öykünücü nasıl çalışır?
+
 Azure Cosmos DB Öykünücüsü, Azure Cosmos DB hizmetinin aslına çok uygun bir öykünmesini sağlar. JSON belgeleri oluşturma ve sorgulama, koleksiyonlar sağlama ve ölçeklendirme ve saklı yordamları ve tetikleyicileri yürütme desteği de dahil olmak üzere, Azure Cosmos DB ile aynı işlevleri destekler. Azure Cosmos DB Öykünücüsü’nü kullanarak uygulamalar geliştirebilir ve test edebilir, Azure Cosmos DB için bağlantı uç noktası üzerinde tek bir yapılandırma değişikliği yaparak küresel ölçekte bunları Azure’da dağıtabilirsiniz.
 
-Gerçek Azure Cosmos DB hizmetinin aslına çok uygun yerel bir öykünmesini oluşturduğumuzda, Azure Cosmos DB Öykünücüsü’nün uygulaması, hizmetten farklıdır. Örneğin, Azure Cosmos DB Öykünücüsü, kalıcılık için yerel dosya sistemi gibi standart işletim sistemi bileşenlerini ve bağlantı için HTTPS protokolü yığınını kullanır. Başka bir deyişle, genel çoğaltma, okuma/yazma için tek basamaklı milisaniyelik gecikme süresi ve ayarlanabilir tutarlılık düzeyleri gibi Azure altyapısına dayalı olan bazı işlevler, Azure Cosmos DB Öykünücüsü aracılığıyla kullanılamaz.
+Azure Cosmos DB hizmetinin öykünmesi aslına sadık olsa da, Öykünücü’nün uygulaması hizmetten farklıdır. Örneğin, Öykünücü, kalıcılık için yerel dosya sistemi gibi standart işletim sistemi bileşenlerini ve bağlantı için HTTPS protokolü yığınını kullanır. Genel çoğaltma, okuma/yazma için tek basamaklı milisaniyelik gecikme süresi ve ayarlanabilir tutarlılık düzeyleri gibi Azure altyapısına dayalı olan bazı işlevler kullanılamaz.
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Öykünücü ile hizmet arasındaki farklar 
 Azure Cosmos DB Öykünücüsü, yerel geliştirici iş istasyonunda çalıştırılan öykünmüş bir ortam sağladığından, öykünücü ile buluttaki bir Azure Cosmos DB hesabı arasında bazı işlev farkları vardır:
@@ -72,7 +73,7 @@ Azure Cosmos DB Öykünücüsü, yerel geliştirici iş istasyonunda çalıştı
 * Azure Cosmos DB Öykünücüsü, farklı [Azure Cosmos DB tutarlılık düzeyinin](consistency-levels.md) benzetimini yapmaz.
 * Azure Cosmos DB Öykünücüsü, [çok bölgeli çoğaltma](distribute-data-globally.md) benzetimini yapmaz.
 * Azure Cosmos DB Öykünücüsü, Azure Cosmos DB hizmetinde kullanılabilir olan hizmet kotası geçersiz kılmalarını (örneğin, belge boyutu sınırları, artan bölümlenmiş koleksiyon depolama alanı) desteklemez.
-* Azure Cosmos DB Öykünücüsü kopyanızın, Azure Cosmos DB hizmetindeki en son değişikliklerle güncelleştirilmemiş olabileceğinden, uygulamanızın üretim aktarım hızını (RU) doğru şekilde tahmin etmek için lütfen [Azure Cosmos DB kapasite planlayıcısını](https://www.documentdb.com/capacityplanner) kullanın.
+* Azure Cosmos DB Öykünücüsü kopyanızın, Azure Cosmos DB hizmetindeki en son değişikliklerle güncelleştirilmemiş olabileceğinden, uygulamanızın üretim aktarım hızı (RU) gereksinimlerini doğru şekilde tahmin etmek için [Azure Cosmos DB kapasite planlayıcısını](https://www.documentdb.com/capacityplanner) kullanmalısınız.
 
 ## <a name="system-requirements"></a>Sistem gereksinimleri
 Azure Cosmos DB Öykünücüsü aşağıdaki donanım ve yazılım gereksinimlerine sahiptir:
@@ -125,7 +126,7 @@ Bulutta Azure Cosmos DB ile olduğu gibi, Azure Cosmos DB Öykünücüsü’ne k
 > [!NOTE] 
 > Öykünücüyü /Key seçeneğiyle başlattıysanız, "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==" yerine oluşturulan anahtarı kullanın
 
-Ayrıca tıpkı Azure Cosmos DB hizmeti gibi Azure Cosmos DB Öykünücüsü de yalnızca SSL aracılığıyla güvenli iletişimi destekler.
+Tıpkı Azure Cosmos DB hizmeti gibi Azure Cosmos DB Öykünücüsü de yalnızca SSL aracılığıyla güvenli iletişimi destekler.
 
 ## <a name="running-on-a-local-network"></a>Yerel ağ üzerinde çalışma
 
@@ -395,13 +396,13 @@ Görüntüyü başlatmak için aşağıdaki komutları çalıştırın.
 Komut satırından:
 ```cmd 
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 PowerShell’den:
 ```powershell
 md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
-docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 Yanıt şuna benzer:

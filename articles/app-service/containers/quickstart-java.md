@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 2018f5b7051f2b6906372dad3319c763974b93b1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 49702349b1c2476f5743122b33cb3375e54df191
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355194"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930105"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Hızlı Başlangıç: Linux üzerindeki App Service’te Java web uygulaması oluşturma
 
@@ -76,7 +76,7 @@ Maven’dan dağıtmak için *pom.xml* dosyasındaki `<build>` öğesinin içind
       <plugin>
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-webapp-maven-plugin</artifactId> 
-        <version>1.1.0</version>
+        <version>1.2.0</version>
         <configuration> 
           <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
           <appName>YOUR_WEB_APP</appName> 
@@ -106,7 +106,39 @@ Eklenti yapılandırmasında aşağıdaki yer tutucuları güncelleştirin:
 | `YOUR_RESOURCE_GROUP` | Web uygulamanızın oluşturulacağı yeni kaynak grubunun adı. Uygulamanın tüm kaynaklarını bir gruba koyarak birlikte yönetebilirsiniz. Örneğin, kaynak grubunu sildiğinizde uygulamayla ilişkili tüm kaynaklar da silinir. Bu değeri *TestResources* gibi benzersiz bir yeni kaynak grubu adı ile güncelleştirin. Bu kaynak grubunu daha sonraki bir bölümde tüm Azure kaynaklarını temizlemek için kullanacaksınız. |
 | `YOUR_WEB_APP` | Uygulama adı, Azure’a dağıtıldığında web uygulamasının ana bilgisayar adının bir parçası olacaktır (YOUR_WEB_APP.azurewebsites.net). Bu değeri, Java uygulamanızı barındıracak yeni Azure web uygulamanızın benzersiz adıyla (*contoso* gibi) değiştirin. |
 
-Yapılandırmanın `linuxRuntime` öğesi, uygulamanızla birlikte hangi yerleşik Linux görüntüsünün kullanıldığını denetler.
+Yapılandırmanın `linuxRuntime` öğesi, uygulamanızla birlikte hangi yerleşik Linux görüntüsünün kullanıldığını denetler. Desteklenen tüm çalışma zamanı yığınlarına [bu bağlantıdan](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin#runtime-stacks) ulaşabilirsiniz. 
+
+
+> [!NOTE] 
+> Bu makalede yalnızca WAR dosyalarıyla çalışıyoruz. Ancak eklenti, bir *pom.xml* dosyasının `<build>` öğesi içindeki aşağıdaki eklentiyi kullanarak JAR web uygulamalarını destekler:
+>
+>```xml
+>    <plugins>
+>      <plugin>
+>        <groupId>com.microsoft.azure</groupId> 
+>        <artifactId>azure-webapp-maven-plugin</artifactId> 
+>        <version>1.2.0</version>
+>        <configuration> 
+>          <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
+>          <appName>YOUR_WEB_APP</appName> 
+>          <linuxRuntime>jre8</linuxRuntime>   
+>          <!-- This is to make sure the jar file will not be occupied during the deployment -->
+>          <stopAppDuringDeployment>true</stopAppDuringDeployment>
+>          <deploymentType>ftp</deploymentType> 
+>          <resources> 
+>              <resource> 
+>                  <directory>${project.basedir}/target</directory> 
+>                  <targetPath>webapps</targetPath> 
+>                  <includes> 
+>                      <!-- Currently it is required to set as app.jar -->
+>                      <include>app.jar</include> 
+>                  </includes>  
+>              </resource> 
+>          </resources> 
+>        </configuration>
+>      </plugin>
+>    </plugins>
+>```    
 
 Azure CLI ile kimlik doğrulaması yapmak için aşağıdaki komutu yürütün ve tüm yönergeleri izleyin:
 

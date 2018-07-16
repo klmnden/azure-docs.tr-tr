@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 0e484a6cae1b56983c4854664088ada8aa504568
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a51fcc9c0729c18428b51cbdbdf0b6ff13ca1372
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918824"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040012"
 ---
 # <a name="batch-testing-in-luis"></a>Batch LUIS test etme
 
@@ -26,7 +26,7 @@ Toplu test etmek için kullanılan konuşma LUIS için yeni önemlidir. Bir veri
 ## <a name="a-dataset-of-utterances"></a>Konuşma bir veri kümesi
 Bir toplu iş dosyası olarak bilinen, konuşma, gönderme bir *veri kümesi*, batch test etmek için. Veri kümesi en fazla 1.000 etiketli içeren JSON biçimli bir dosya olan **yinelenmeyen** konuşma. 10 adede kadar veri kümeleri, bir uygulamada test edebilirsiniz. Daha fazla test etmek gerekiyorsa, bir veri kümesini silin ve ardından yeni bir tane ekleyin.
 
-|**Kuralları**|
+|**kuralları**|
 |--|
 |* Hiçbir yinelenen konuşma|
 |Hiyerarşik varlık alt öğesi yok|
@@ -43,9 +43,90 @@ Basit, hiyerarşik bir üst öğeye ve kompozit varlıkları içerir. Toplu iş 
 ## <a name="batch-file-format"></a>Toplu dosya biçimi
 Toplu iş dosyası konuşma oluşur. Her utterance yanı sıra herhangi bir beklenen hedefi tahmin olmalıdır [makine öğrenilen varlıklar](luis-concept-entity-types.md#types-of-entities) algılanamayacak kadar bekler. 
 
-Bir toplu iş dosyası örneği aşağıdadır:
+Doğru sözdizimi ile bir toplu iş dosyası örneği verilmiştir:
 
-   [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
+```JSON
+[
+  {
+    "text": "Are there any janitorial jobs currently open?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  },
+  {
+    "text": "I would like a fullstack typescript programming with azure job",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 15,
+            "endPos": 46
+        }
+    ]
+  },
+  {
+    "text": "Is there a database position open in Los Colinas?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 11,
+            "endPos": 18
+        }
+    ]
+  },
+  {
+    "text": "Please find database jobs open today in Seattle",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 12,
+            "endPos": 19
+        }
+    ]
+  }
+]
+```
+
+## <a name="batch-syntax-template"></a>Toplu iş söz dizimini şablonu
+
+Toplu iş dosyasında başlatmak için aşağıdaki şablonu kullanın:
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": 
+    [
+        {
+            "entity": "entity name 1 goes here",
+            "startPos": 14,
+            "endPos": 23
+        },
+        {
+            "entity": "entity name 2 goes here",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  }
+]
+```
+
+Toplu iş dosyasını kullanan **startPos** ve **endPos** özellikleri başlangıcını ve bitişini bir varlığın unutmayın. Değerleri sıfır tabanlı olduklarını ve başlamamalı veya boşluk ile bitemez. 
+
+Bu, startIndex ve endIndex özelliklerini kullanma sorgu günlüklerinden farklıdır. 
 
 
 ## <a name="common-errors-importing-a-batch"></a>Sık karşılaşılan toplu içeri aktarma

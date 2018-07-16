@@ -1,6 +1,6 @@
 ---
-title: Azure MFA NPS uzantısı Hata kodlarında sorun giderme | Microsoft Docs
-description: Azure çok faktörlü kimlik doğrulaması için NPS uzantılı sorunlarını çözme hakkında yardım alın
+title: Azure MFA NPS uzantısı ile ilgili hata kodlarında sorun giderme | Microsoft Docs
+description: Azure multi-Factor Authentication için NPS uzantısı ile ilgili sorunları giderme konusunda yardım alın
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
@@ -10,84 +10,84 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 5f25213d8d1fbc95aa419c86ca5b780f345952ed
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: fcfabde7236f0fd6ef7b965b816bc5b79a96d503
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130208"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044647"
 ---
-# <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure çok faktörlü kimlik doğrulaması için hata iletileri NPS uzantı çözümleyin
+# <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication için NPS uzantısından alınan hata iletilerini çözme
 
-Azure çok faktörlü kimlik doğrulaması için NPS uzantısı hatalarla karşılaşırsanız, daha hızlı bir çözüm ulaşmak için bu makaleyi kullanın. 
+Azure multi-Factor Authentication için NPS uzantısı ile hatalarla karşılaşırsanız, daha hızlı bir çözüm ulaşmak için bu makaleyi kullanın. 
 
-## <a name="troubleshooting-steps-for-common-errors"></a>Sık karşılaşılan hataları için sorun giderme adımları
+## <a name="troubleshooting-steps-for-common-errors"></a>Sık karşılaşılan hatalar için sorun giderme adımları
 
 | Hata kodu | Sorun giderme adımları |
 | ---------- | --------------------- |
-| **CONTACT_SUPPORT** | [Desteğe başvurun](#contact-microsoft-support)ve günlüklerinin toplanması için adımlar listesi Bahsediyor. Kiracı kimliği ve kullanıcı asıl adı (UPN) dahil olmak üzere hata önce ne hakkında mümkün olduğu kadar bilgi sağlayın. |
-| **CLIENT_CERT_INSTALL_ERROR** | İstemci sertifikası yüklü veya Kiracı ile ilişkilendirilen nasıl bir sorun olabilir. ' Ndaki yönergeleri izleyin [MFA NPS uzantı sorunlarını giderme](howto-mfa-nps-extension.md#troubleshooting) istemci sertifika sorunları araştırmak için. |
-| **ESTS_TOKEN_ERROR** | ' Ndaki yönergeleri izleyin [MFA NPS uzantı sorunlarını giderme](howto-mfa-nps-extension.md#troubleshooting) araştırmak için istemci sertifikası ve ADAL sorunları belirteci. |
-| **HTTPS_COMMUNICATION_ERROR** | Azure MFA yanıtları almak NPS sunucusunu alamıyor. Güvenlik duvarlarında ve bu sunucudan giden trafiği için açık çift yönlü olduğunu doğrulayın https://adnotifications.windowsazure.com |
-| **HTTP_CONNECT_ERROR** | NPS uzantısı çalıştıran sunucuda, size ulaşabildiğimizden doğrula https://adnotifications.windowsazure.com ve https://login.microsoftonline.com/. Bu siteleri yükleme, bu sunucu üzerinde bağlantı sorunlarını giderme. |
-| **REGISTRY_CONFIG_ERROR** | Kayıt defteri olabilir uygulama için bir anahtarı eksik [PowerShell Betiği](howto-mfa-nps-extension.md#install-the-nps-extension) yüklendikten sonra Çalıştır değildi. Hata iletisi eksik anahtar içermelidir. Anahtarın HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa altında olduğundan emin olun. |
-| **REQUEST_FORMAT_ERROR** <br> RADIUS isteği zorunlu RADIUS userName\Identifier özniteliği eksik. NPS RADIUS isteklerini aldığını doğrulayın | Bu hata genellikle bir yükleme sorunu yansıtır. NPS uzantısı RADIUS isteklerini alacak NPS sunucularda yüklü olması gerekir. RDG ve RRAS gibi hizmetler için bağımlılık yüklü NPS sunucularını RADIUS isteklerini alacak yok. NPS uzantısı, bu tür yüklemeleri ve hataları üzerinden kimlik doğrulama isteğini ayrıntıları okuyamıyor beri yüklendiğinde çalışmaz. |
-| **REQUEST_MISSING_CODE** | NPS ve NAS sunucuları arasında parola şifreleme Protokolü'nü kullanmakta olduğunuz ikincil kimlik doğrulama yöntemini desteklediğinden emin olun. **PAP** bulutta Azure mfa tüm kimlik doğrulama yöntemlerini destekler: telefon araması, tek yönlü SMS mesajı, mobil uygulama bildirimi ve mobil uygulama doğrulama kodu. **CHAPV2** ve **EAP** telefon araması ve mobil uygulama bildirimi destekler. |
-| **USERNAME_CANONICALIZATION_ERROR** | Kullanıcı, şirket içi Active Directory örneğinde var olduğunu ve NPS hizmetini dizine erişim izni olduğunu doğrulayın. Ormanlar arası güven kullanıyorsanız [desteğine başvurun](#contact-microsoft-support) daha fazla yardım için. |
+| **CONTACT_SUPPORT** | [Destek ekibiyle iletişime geçin](#contact-microsoft-support)ve günlüklerinin toplanması için adımlar listesi bahsedebilirsiniz. Kiracı kimliği ve kullanıcı asıl adı (UPN) dahil olmak üzere önce hata ne hakkında mümkün olduğunca fazla bilgi sağlar. |
+| **CLIENT_CERT_INSTALL_ERROR** | İstemci sertifikası yüklü veya kiracınız ile ilişkili nasıl bir sorun olabilir. Bölümündeki yönergeleri [MFA NPS uzantısı sorun giderme](howto-mfa-nps-extension.md#troubleshooting) istemci sertifikası sorunları araştırmak için. |
+| **ESTS_TOKEN_ERROR** | Bölümündeki yönergeleri [MFA NPS uzantısı sorun giderme](howto-mfa-nps-extension.md#troubleshooting) araştırmaya sorun istemci sertifikası ve ADAL belirteç. |
+| **HTTPS_COMMUNICATION_ERROR** | Azure mfa'yı yanıtları almak NPS sunucusunu değiştiremiyor. Güvenlik duvarlarınızdan ve ondan trafik için açık çift yönlü olduğunu doğrulayın https://adnotifications.windowsazure.com |
+| **HTTP_CONNECT_ERROR** | NPS uzantısını çalıştıran sunucuda, size ulaşabildiğimizden doğrulayın https://adnotifications.windowsazure.com ve https://login.microsoftonline.com/. Bu siteler yükleme, o sunucudaki bağlantı sorunlarını giderme. |
+| **REGISTRY_CONFIG_ERROR** | Kayıt defteri kaynaklanıyor olabilir uygulamanın bir anahtar eksik [PowerShell Betiği](howto-mfa-nps-extension.md#install-the-nps-extension) yüklendikten sonra Çalıştır değildi. Hata iletisi, eksik bir anahtar içermelidir. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa anahtarında olduğundan emin olun. |
+| **REQUEST_FORMAT_ERROR** <br> RADIUS isteğini zorunlu RADIUS userName\Identifier özniteliği eksik. NPS RADIUS isteklerini aldığını doğrulayın. | Bu hata genellikle bir yükleme sorunu yansıtır. RADIUS isteklerini alabileceğini NPS sunucuları NPS uzantısı'nın yüklü olması gerekir. RDG ve RRAS gibi hizmetler için bağımlılık olarak yüklenen NPS sunucuları, RADIUS isteklerini alacak yok. NPS uzantısı, kimlik doğrulama isteğini ayrıntıları okunamıyor olduğundan bu tür yüklemeleri ve hataları üzerinden yüklendiğinde çalışmaz. |
+| **REQUEST_MISSING_CODE** | Parola şifreleme protokolünü NPS ve NAS sunucuları arasında kullanmakta olduğunuz ikincil kimlik doğrulama yöntemini desteklediğinden emin olun. **PAP** bulutta Azure MFA'ın tüm kimlik doğrulama yöntemleri destekler: telefon araması, tek yönlü SMS mesajı, mobil uygulama bildirimi ve mobil uygulama doğrulama kodu. **CHAPV2** ve **EAP** telefon araması ve mobil uygulama bildirimi destekler. |
+| **USERNAME_CANONICALIZATION_ERROR** | Kullanıcının şirket içi Active Directory Örneğinizde mevcut olduğunu ve NPS hizmetini dizine erişim izni olduğunu doğrulayın. Ormanlar arası güven kullanıyorsanız [desteğe](#contact-microsoft-support) daha fazla yardım için. |
 
 
    
 
-### <a name="alternate-login-id-errors"></a>Alternatif oturum açma kimliği hataları
+### <a name="alternate-login-id-errors"></a>Alternatif bir oturum açma kimliği hataları
 
 | Hata kodu | Hata iletisi | Sorun giderme adımları |
 | ---------- | ------------- | --------------------- |
-| **ALTERNATE_LOGIN_ID_ERROR** | Hata: userObjectSid arama başarısız oldu | Kullanıcı, şirket içi Active Directory örneğinde var olduğunu doğrulayın. Ormanlar arası güven kullanıyorsanız [desteğine başvurun](#contact-microsoft-support) daha fazla yardım için. |
-| **ALTERNATE_LOGIN_ID_ERROR** | Hata: Alternatif LoginId arama başarısız oldu | LDAP_ALTERNATE_LOGINID_ATTRIBUTE değerine ayarlandığını doğrulayın bir [geçerli bir active directory öznitelik](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> LDAP_FORCE_GLOBAL_CATALOG True olarak ayarlandığında veya LDAP_LOOKUP_FORESTS bir boş değer ile yapılandırılmışsa, bir genel katalog yapılandırdıysanız ve AlternateLoginId öznitelik kendisine eklenir doğrulayın. <br><br> LDAP_LOOKUP_FORESTS bir boş değer ile yapılandırılmışsa, değerin doğru olduğundan emin olun. Birden çok orman adı varsa, adları noktalı virgülle, boşluk ile ayrılmış olması gerekir. <br><br> Bu adımlar sorunu gidermeyi yok ediyorsanız [desteğine başvurun](#contact-microsoft-support) daha fazla yardım için. |
-| **ALTERNATE_LOGIN_ID_ERROR** | Hata: Alternatif LoginId değeri boş. | AlternateLoginId öznitelik kullanıcı için yapılandırıldığından emin olun. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Hata: userObjectSid arama başarısız oldu | Kullanıcının şirket içi Active Directory Örneğinizde var olduğunu doğrulayın. Ormanlar arası güven kullanıyorsanız [desteğe](#contact-microsoft-support) daha fazla yardım için. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Hata: Diğer Loginıd araması başarısız oldu | LDAP_ALTERNATE_LOGINID_ATTRIBUTE değerine ayarlandığını doğrulayın bir [geçerli active directory özniteliğini](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> LDAP_FORCE_GLOBAL_CATALOG True olarak ayarlandığında veya LDAP_LOOKUP_FORESTS boş olmayan bir değer ile yapılandırılmışsa, bir genel katalog yapılandırdıktan ve AlternateLoginId öznitelik kendisine eklenir doğrulayın. <br><br> LDAP_LOOKUP_FORESTS boş olmayan bir değer ile yapılandırılmışsa, değerin doğru olduğunu doğrulayın. Birden fazla orman adı varsa, adları noktalı virgül, boşluk ile ayrılması gerekir. <br><br> Bu adımları, sorunu yoksa, [desteğe](#contact-microsoft-support) daha fazla yardım için. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Hata: Diğer Loginıd değeri boştur | AlternateLoginId öznitelik kullanıcı için yapılandırılmış olduğunu doğrulayın. |
 
 
 ## <a name="errors-your-users-may-encounter"></a>Kullanıcılarınızın hatalarla karşılaşabilirsiniz
 
 | Hata kodu | Hata iletisi | Sorun giderme adımları |
 | ---------- | ------------- | --------------------- |
-| **Erişim engellendi** | Arayan Kiracı Kullanıcı için kimlik doğrulaması yapmak için erişim izinleri yok | Kiracı etki alanı ve etki alanı kullanıcı asıl adı (UPN) aynı olup olmadığını denetleyin. Örneğin, olduğundan emin olun user@contoso.com Contoso Kiracı kimlik doğrulaması çalışıyor. UPN Azure Kiracı için geçerli bir kullanıcı temsil eder. |
-| **AuthenticationMethodNotConfigured** | Belirtilen kimlik doğrulama yöntemi kullanıcı için yapılandırılmadı | Ekleme veya kendi doğrulama yöntemlerini yönergelerine göre doğrulamak için kullanıcının sahip [iki aşamalı doğrulama için ayarlarınızı yönetme](end-user/current/multi-factor-authentication-end-user-manage-settings.md). |
-| **AuthenticationMethodNotSupported** | Belirtilen kimlik doğrulama yöntemi desteklenmiyor. | Bu hataya dahil etmek, günlükleri toplamak ve [desteğine başvurun](#contact-microsoft-support). Desteğe başvurduğunuzda, kullanıcı adı ve hatayı tetikleyen ikincil doğrulama yöntemi sağlar. |
-| **BecAccessDenied** | MSODS Bec çağrısı erişim reddedildi döndürdü, büyük olasılıkla kullanıcıadı Kiracı içinde tanımlı değil | Kullanıcı Active Directory şirket içi var, ancak Azure AD tarafından AD Connect eşitlenmedi. Veya kullanıcı için Kiracı yok. Azure AD ile kullanıcı ekleyin ve bunları kendi doğrulama yöntemlerini yönergelerine göre eklemek [iki aşamalı doğrulama için ayarlarınızı yönetme](end-user/current/multi-factor-authentication-end-user-manage-settings.md). |
-| **InvalidFormat** veya **StrongAuthenticationServiceInvalidParameter** | Telefon numarası tanınmayan biçimindedir | Doğrulama telefon numaralarına düzeltmek kullanıcı sahip. |
-| **InvalidSession** | Belirtilen oturum geçersiz veya süresi sona ermiş olabilir | Oturum üç tamamlamak için dakikadan uzun sürdü. Kullanıcı doğrulama kodunu girerek, veya kimlik doğrulama isteğini başlatarak, üç dakika içinde uygulama bildirimine yanıt verme doğrulayın. Bu sorunu çözmezse, istemci, NAS sunucusu, NPS sunucusu ve Azure MFA uç noktası arasında hiçbir ağ gecikmeleri olup olmadığını denetleyin.  |
-| **NoDefaultAuthenticationMethodIsConfigured** | Varsayılan kimlik doğrulama yöntemi kullanıcı için yapılandırılan | Ekleme veya kendi doğrulama yöntemlerini yönergelerine göre doğrulamak için kullanıcının sahip [iki aşamalı doğrulama için ayarlarınızı yönetme](end-user/current/multi-factor-authentication-end-user-manage-settings.md). Kullanıcı bir varsayılan kimlik doğrulama yöntemini seçmiş ve bu yöntem, hesap için yapılandırıldığını doğrulayın. |
-| **OathCodePinIncorrect** | Yanlış kod ve PIN girildi. | Bu hata, NPS uzantısı'nda beklenmiyor. Bu, kullanıcı karşılaşırsa [desteğine başvurun](#contact-microsoft-support) sorun giderme Yardımı. |
-| **ProofDataNotFound** | Sağlama verileri belirtilen kimlik doğrulama yöntemi için yapılandırılmadı. | Farklı bir doğrulama yöntemi deneyin veya yeni bir doğrulama yöntemi yönergelerine göre eklemek kullanıcının [iki aşamalı doğrulama için ayarlarınızı yönetme](end-user/current/multi-factor-authentication-end-user-manage-settings.md). Kullanıcı kendi doğrulama yöntemini doğru şekilde kurulduğundan emin onaylandıktan sonra bu hatayı görmeye devam ederse [desteğine başvurun](#contact-microsoft-support). |
-| **SMSAuthFailedWrongCodePinEntered** | Yanlış kod ve PIN girildi. (OneWaySMS) | Bu hata, NPS uzantısı'nda beklenmiyor. Bu, kullanıcı karşılaşırsa [desteğine başvurun](#contact-microsoft-support) sorun giderme Yardımı. |
-| **TenantIsBlocked** | Kiracı engellendi | [Desteğe başvurun](#contact-microsoft-support) Azure portalında Azure AD özellikler sayfasından dizin kimliği. |
-| **UserNotFound** | Belirtilen kullanıcı bulunamadı. | Kiracı artık Azure AD'de etkin olarak görünür olur. Aboneliğinizin etkin olduğunu ve gerekli olan denetleme uygulamaları'birinci taraf. Ayrıca sertifika konusu kiracısında beklendiği gibi değil ve sertifika hala geçerli ve hizmet sorumlusu altında kayıtlı olduğundan emin olun. |
+| **Erişim engellendi** | Çağırana Kiracı Kullanıcı için kimlik doğrulaması yapmak için erişim izni yok | Kiracı etki alanı ve etki alanı kullanıcı asıl adı (UPN) aynı olup olmadığını denetleyin. Örneğin, emin user@contoso.com Contoso Kiracı kimlik doğrulaması çalışıyor. UPN, geçerli bir kullanıcı Azure kiracısı için temsil eder. |
+| **AuthenticationMethodNotConfigured** | Belirtilen kimlik doğrulama yöntemi kullanıcı için yapılandırılmamış | Kullanıcı ekleme veya yönergelere göre kendi doğrulama yöntemlerini doğrulama sahip [iki adımlı doğrulama ayarlarınızı yönetme](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
+| **AuthenticationMethodNotSupported** | Belirtilen kimlik doğrulama yöntemi desteklenmiyor. | Bu hataya dahil etmek, günlük toplama ve [desteğe](#contact-microsoft-support). Destek ekibiyle iletişime geçtiğinizde, kullanıcı adı ve hatayı tetikleyen ikincil doğrulama yöntemini belirtin. |
+| **BecAccessDenied** | MSODS'un Bec çağrısı erişim reddedildi döndürdü, büyük olasılıkla kullanıcı kiracıda tanımlı değil | Kullanıcının şirket içinde Active Directory var, ancak Azure AD tarafından AD Connect ile eşitlenmedi. Veya kullanıcının kiracısı için eksik. Azure AD'ye kullanıcı ekleme ve bunların yönergelere göre kendi doğrulama yöntemlerini ekleyin [iki adımlı doğrulama ayarlarınızı yönetme](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
+| **InvalidFormat** veya **StrongAuthenticationServiceInvalidParameter** | Telefon numarası tanınmayan bir biçimde ' dir. | Kullanıcı doğrulama telefon numaralarına düzeltmek sahip. |
+| **InvalidSession** | Belirtilen oturum geçersiz veya süresi dolmuş olabilir | Oturum üç tamamlanması dakikadan uzun sürdü. Kullanıcı doğrulama kodunu girerek veya uygulama bildirimi, kimlik doğrulama isteğini başlatmak, üç dakika içinde yanıt olduğunu doğrulayın. Bu sorunu çözmezse, istemci, NAS sunucu, NPS sunucusunu ve Azure mfa'yı uç nokta arasında hiçbir ağ gecikme süresi olup olmadığını denetleyin.  |
+| **Nodefaultauthenticationmethodısconfigured** | Kullanıcı için yapılandırılmış hiçbir varsayılan kimlik doğrulama yöntemi | Kullanıcı ekleme veya yönergelere göre kendi doğrulama yöntemlerini doğrulama sahip [iki adımlı doğrulama ayarlarınızı yönetme](../user-help/multi-factor-authentication-end-user-manage-settings.md). Kullanıcının varsayılan kimlik doğrulama yöntemini seçmiş ve bu yöntem, hesap için yapılandırılmış olduğunu doğrulayın. |
+| **OathCodePinIncorrect** | Yanlış kod ve PIN girildi. | Bu hata, NPS uzantısı'nda beklenmiyor. Bu, kullanıcınızın karşılaşırsa, [desteğe](#contact-microsoft-support) sorun giderme Yardımı. |
+| **ProofDataNotFound** | Kavram veri belirtilen kimlik doğrulama yöntemi için yapılandırılmadı. | Farklı bir doğrulama yöntemi deneyin veya yeni bir doğrulama yöntemlerini yönergeleri göre ekleyin kullanıcının [iki adımlı doğrulama ayarlarınızı yönetme](../user-help/multi-factor-authentication-end-user-manage-settings.md). Kullanıcı, kendi doğrulama yöntemini doğru şekilde ayarlandığını onaylandıktan sonra bu hatayı görmeye devam ederse [desteğe](#contact-microsoft-support). |
+| **SMSAuthFailedWrongCodePinEntered** | Yanlış kod ve PIN girildi. (OneWaySMS) | Bu hata, NPS uzantısı'nda beklenmiyor. Bu, kullanıcınızın karşılaşırsa, [desteğe](#contact-microsoft-support) sorun giderme Yardımı. |
+| **TenantIsBlocked** | Kiracı engelleniyor | [Destek ekibiyle iletişime geçin](#contact-microsoft-support) Azure portalında Azure AD özellikler sayfasından Directory Kimliğine sahip. |
+| **UserNotFound** | Belirtilen kullanıcı bulunamadı | Kiracı, artık Azure AD'de etkin olarak görülebilir. Aboneliğinizin etkin olduğunu ve gerekli olan uygulamalar'birinci taraf. Ayrıca, sertifika konusu kiracıda beklendiği gibi sertifikası hala geçerli ve hizmet sorumlusu altında kayıtlı olduğundan emin olun. |
 
-## <a name="messages-your-users-may-encounter-that-arent-errors"></a>Hata iletileri, kullanıcılarınızın, karşılaşabileceğiniz değil
+## <a name="messages-your-users-may-encounter-that-arent-errors"></a>Kullanıcılarınızın, karşılaşabileceğiniz iletileri olmayan hataları
 
-Bazı durumlarda, kendi kimlik doğrulama isteği başarısız olduğundan, kullanıcılarınızın çok faktörlü kimlik doğrulamasını iletileri alabilirsiniz. Bu yapılandırma ürün hataları değildir, ancak neden bir kimlik doğrulama isteği reddedildi kasıtlı uyarıları açıklayan.
+Bazı durumlarda, kendi kimlik doğrulama isteği başarısız olduğundan, kullanıcılarınızın çok faktörlü kimlik doğrulamasını iletileri alabilirsiniz. Bu ürünün yapılandırma hataları değildir, ancak neden bir kimlik doğrulama isteği reddedildi kasıtlı uyarıları açıklayan.
 
 | Hata kodu | Hata iletisi | Önerilen adımlar | 
 | ---------- | ------------- | ----------------- |
-| **OathCodeIncorrect** | Yanlış kod entered\OATH kodu yanlış | Bir hata kullanıcı yanlış kod girmiştir. | Kullanıcı yanlış kod girildi. Yeni bir kod isteme veya tekrar oturum açmayı tekrar denemelerini sağlayın. | 
-| **SMSAuthFailedMaxAllowedCodeRetryReached** | İzin verilen en fazla kod yeniden deneme üst sınırına | Kullanıcı, çok fazla kez doğrulama sınaması başarısız oldu. Ayarlarınıza bağlı olarak, bunlar bir yönetici tarafından şimdi engeli kaldırılmış gerekebilir.  |
-| **SMSAuthFailedWrongCodeEntered** | Yanlış kod girildi/metin iletisi OTP yanlış | Kullanıcı yanlış kod girildi. Yeni bir kod isteme veya tekrar oturum açmayı tekrar denemelerini sağlayın. |
+| **OathCodeIncorrect** | Yanlış kod entered\OATH kodu yanlış | Bir hata kullanıcı hatalı kod girdi. | Kullanıcı yanlış kod girildi. Yeni bir kod istiyor ya da yeniden oturum açmayı yeniden deneyin sağlayın. | 
+| **SMSAuthFailedMaxAllowedCodeRetryReached** | İzin verilen maksimum kod yeniden deneme üst sınırına | Kullanıcı doğrulama sınaması, çok fazla kez başarısız oldu. Ayarlarınıza bağlı olarak, bunlar bir yönetici tarafından artık engeli kaldırılmış gerekebilir.  |
+| **SMSAuthFailedWrongCodeEntered** | Girilen/metin iletisi OTP yanlış yanlış kod | Kullanıcı yanlış kod girildi. Yeni bir kod istiyor ya da yeniden oturum açmayı yeniden deneyin sağlayın. |
 
-## <a name="errors-that-require-support"></a>Desteği gerektiren hataları
+## <a name="errors-that-require-support"></a>Destek gerektiren hataları
 
-Bu hatalardan biri karşılaşırsanız öneririz, [desteğine başvurun](#contact-microsoft-support) tanılama Yardım. Bu hataları gidermek adımları standard ayarlanmış yok. Desteğe başvurduğunuzda mümkün olduğu kadar bilgi bir hataya neden adımlar hakkında ve Kiracı bilgilerinizi eklediğinizden emin olun.
+Şu hatalardan biriyle karşılaşırsanız olmasını öneririz, [desteğe](#contact-microsoft-support) tanılama konusunda yardım almak için. Standart ayarlanmış bu hataları gidermek adımları yok. Destek ekibiyle iletişime geçtiğinizde, bir hataya götüren adımlar hakkında mümkün olduğunca fazla bilgi ve Kiracı bilgilerinizi eklediğinizden emin olun.
 
 | Hata kodu | Hata iletisi |
 | ---------- | ------------- |
-| **InvalidParameter** | İstek null olmamalıdır |
-| **InvalidParameter** | Null veya boş ReplicationScope için objectID olmamalıdır:{0} |
-| **InvalidParameter** | Şirket adı uzunluğu \{0} \ uzunluğu izin verilenden daha uzun {1} |
+| **InvalidParameter** | İsteği null olmamalıdır |
+| **InvalidParameter** | Nesne kimliği null veya boş ReplicationScope olmamalıdır:{0} |
+| **InvalidParameter** | Şirket adı uzunluğunu \{0} \ olan izin verilen uzunluk üst sınırı aşıyor {1} |
 | **InvalidParameter** | UserPrincipalName null veya boş olmamalıdır |
 | **InvalidParameter** | Sağlanan Tenantıd doğru biçimde değil. |
-| **InvalidParameter** | SessionID null veya boş olmamalıdır |
-| **InvalidParameter** | İstek herhangi ProofData veya Msods çözümlenemedi. ProofData bilinmiyor |
-| **InternalError** |  |
+| **InvalidParameter** | Oturum kimliği null veya boş olmamalıdır |
+| **InvalidParameter** | İstek herhangi ProofData veya Msods'un çözümlenemedi. ProofData bilinmiyor |
+| **Internalerror** |  |
 | **OathCodePinIncorrect** |  |
 | **VersionNotSupported** |  |
 | **MFAPinNotSetup** |  |
@@ -96,13 +96,13 @@ Bu hatalardan biri karşılaşırsanız öneririz, [desteğine başvurun](#conta
 
 ### <a name="troubleshoot-user-accounts"></a>Kullanıcı hesaplarıyla ilgili sorunları giderme
 
-Kullanıcılarınız varsa [iki aşamalı doğrulamayı sorununuz](end-user/current/multi-factor-authentication-end-user-troubleshoot.md), bunları otomatik olarak tanılamak sorunları yardımcı olur. 
+Kullanıcılarınız varsa [iki aşamalı doğrulama konusunda sorun mu yaşıyorsunuz](../user-help/multi-factor-authentication-end-user-troubleshoot.md), bunları kendi kendine tanılama sorunlarını yardımcı olur. 
 
 ### <a name="contact-microsoft-support"></a>Microsoft desteğine başvurun
 
-Ek Yardım gerekirse, aracılığıyla destek uzmanına başvurun [Azure çok faktörlü kimlik doğrulama sunucusu desteği](https://support.microsoft.com/oas/default.aspx?prid=14947). Sorununuzu mümkün olduğunca hakkında kadar bilgi dahil ederseniz bize kurulurken yardımcı olur. Sağladığınız bilgiler içerir, özel hata kodu hatanın nerede gördüğünüzü sayfa belirli bir oturum kimliği, gördüğünüz hata ve hata ayıklama günlüklerini kullanıcının kimliği.
+Ek yardıma ihtiyacınız olursa aracılığıyla destek uzmanına başvurun [Azure multi-Factor Authentication sunucusu desteği](https://support.microsoft.com/oas/default.aspx?prid=14947). Mümkün olduğunca sorununuzla ilgili kadar bilgi dahil ederseniz bizimle iletişime geçtiğiniz yararlı olur. Belirtebilirsiniz bilgiler içeren hata, özel hata kodu nerede gördüğünüzü sayfasında belirli bir oturum kimliği, gördüğünüz hata ve hata ayıklama günlüklerini kullanıcının kimliği.
 
-Destek Tanılama için hata ayıklama günlüklerini toplamak için NPS sunucusunda aşağıdaki adımları kullanın:
+Hata ayıklama Desteği Tanılama günlüklerini toplamak için NPS sunucusunda aşağıdaki adımları kullanın:
 
 1. Kayıt Defteri Düzenleyicisi'ni açın ve Gözat HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa kümesine **VERBOSE_LOG** için **TRUE**
 2. Bir yönetici komut istemi açın ve şu komutları çalıştırın:
@@ -117,7 +117,7 @@ Destek Tanılama için hata ayıklama günlüklerini toplamak için NPS sunucusu
 
 3. Sorunu yeniden oluşturun
 
-4. Bu komutlar İzlemeyi Durdur:
+4. Şu komutlarla izlemeyi durdurun:
 
    ```
    logman stop "NPSExtension" -ets
@@ -129,6 +129,6 @@ Destek Tanılama için hata ayıklama günlüklerini toplamak için NPS sunucusu
    ```
 
 5. Kayıt Defteri Düzenleyicisi'ni açın ve Gözat HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa kümesine **VERBOSE_LOG** için **FALSE**
-6. C:\NPS klasörünün içeriğini zip ve sıkıştırılmış dosya için destek talebi ekleyin.
+6. Zip C:\NPS klasörünün içeriğini ve sıkıştırılmış dosya için destek talebi ekleyin.
 
 

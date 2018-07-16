@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3b767da394f6337a1110ad171f19ad789fa044d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867502"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972990"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -28,7 +28,7 @@ Kullanıcıların Windows 10 oturum açma ekranından Azure AD parolalarını s�
 * Windows 10 Nisan 2018 Güncelleştirmesi veya [Azure AD’ye katılmış](../device-management-azure-portal.md) veya [karma Azure AD’ye katılmış](../device-management-hybrid-azuread-joined-devices-setup.md) daha yeni istemci.
 * Azure AD self servis parola sıfırlama etkinleştirilmelidir.
 * Parolayı sıfırla bağlantısını etkinleştirmek için aşağıdaki yöntemlerden birini kullanarak ayarı yapılandırın ve dağıtın:
-   * [Intune cihaz yapılandırma profili](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
+   * [Intune cihaz yapılandırma profili](tutorial-sspr-windows.md#configure-reset-password-link-using-intune). Bu yöntem, cihazın Intune kaydını gerektirir.
    * [Kayıt defteri anahtarı](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune'u kullanarak Parolayı sıfırla bağlantısını yapılandırma
@@ -66,7 +66,7 @@ Kullanıcıların Windows 10 oturum açma ekranından Azure AD parolalarını s�
    * **Seç**'e tıklayın
 4. **Oluştur**'a tıklayın
 
-[Azure Active Directory grupları ile kaynaklara erişimi yönetme](../active-directory-manage-groups.md) makalesinde, grup oluşturma hakkında daha fazla bilgi bulabilirsiniz.
+[Azure Active Directory grupları ile kaynaklara erişimi yönetme](../fundamentals/active-directory-manage-groups.md) makalesinde, grup oluşturma hakkında daha fazla bilgi bulabilirsiniz.
 
 #### <a name="assign-device-configuration-policy-to-device-group"></a>Cihaz grubuna cihaz yapılandırma ilkesi atama
 

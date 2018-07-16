@@ -1,35 +1,36 @@
 ---
-title: Azure Blob Depolama olayları özel web uç noktasına rota | Microsoft Docs
+title: Azure Blob depolama olaylarını bir özel web uç noktasına yönlendirme | Microsoft Docs
 description: Blob depolama olaylarına abone olmak için Azure Event Grid’i kullanın.
 services: storage,event-grid
 keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 01/30/2018
-ms.topic: article
+ms.date: 07/05/2018
+ms.topic: quickstart
 ms.service: storage
-ms.openlocfilehash: f0764ebc423cfb5323f2b634ce5a5ecbe075135c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: e2f6f2cbf843c6c3b0202a2ef59f6b8e16291f54
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869267"
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Azure CLI ile bir özel web uç noktası için rota Blob Depolama olayları
+# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Azure CLI ile Blob depolama olaylarını bir özel web uç noktasına yönlendirme
 
-Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure CLI aracını kullanarak Blob depolama olaylarına abone olur ve sonucu görüntülemek için olayı tetiklersiniz. 
+Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure CLI aracını kullanarak Blob depolama olaylarına abone olur ve sonucu görüntülemek için olayı tetiklersiniz.
 
-Normalde olayları olaya yanıt veren bir uç noktaya (web kancası veya Azure İşlevi gibi) gönderirsiniz. Bu makalede yer alan örneği basitleştirmek amacıyla olayları yalnızca iletileri toplayan bir URL’ye göndereceğiz. [Hookbin](https://hookbin.com/)’den bir üçüncü taraf araç kullanarak bu URL’yi oluşturursunuz.
+Normalde olayları, olay verilerini işleyen ve eylemler gerçekleştiren bir uç noktaya gönderirsiniz. Bununla birlikte, bu makaleyi basitleştirmek için olayları iletilerin toplandığı ve görüntülendiği bir web uygulamasına gönderirsiniz.
 
-> [!NOTE]
-> **Hookbin** yüksek verimlilik kullanım için tasarlanmamıştır. Bu aracın kullanımı tamamen gösterim amaçlıdır. Aynı anda birden fazla olay gönderirseniz araçta tüm olaylarınızı göremeyebilirsiniz.
+Bu makalede açıklanan adımları tamamladıktan sonra olay verilerinin web uygulamasına gönderildiğini görürsünüz.
 
-Bu makalede açıklanan adımları tamamladıktan sonra olay verilerinin bir uç noktaya gönderildiğini görürsünüz.
+![Abonelik olayını görüntüleme](./media/storage-blob-event-quickstart/view-results.png)
+
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI’nın en son sürümünü (2.0.24 veya sonraki) kullanıyor olmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI’nın en son sürümünü (2.0.24 veya sonraki) kullanıyor olmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
 Cloud Shell kullanmıyorsanız önce `az login` kullanarak oturum açmanız gerekir.
 
@@ -47,10 +48,10 @@ az group create --name <resource_group_name> --location westcentralus
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-BLOB Depolama olayları kullanmak için ya da gereken bir [Blob storage hesabı](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) veya [genel amaçlı v2 depolama hesabı](../common/storage-account-options.md#general-purpose-v2). **Genel amaçlı v2 (GPv2)** BLOB'lar, dosyalar, kuyruklar ve tablolar dahil olmak üzere tüm depolama hizmetleri için tüm özellikleri destekleyen depolama hesaplarıdır. A **Blob storage hesabı** , yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage depolamak için bir özel depolama hesabı. BLOB storage hesapları, genel amaçlı depolama hesapları gibi ve % 100 API tutarlığı dahil günümüzde blok bloblar için kullanılır ve ilave blobları tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır. Yalnızca blok veya engelleme blobunun gerektiği uygulamalar için Blob Storage hesaplarının kullanılmasını öneririz. 
+Blob depolama olaylarını kullanmak için [Blob depolama hesabına](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) veya [Genel Amaçlı v2 depolama hesabına](../common/storage-account-options.md#general-purpose-v2) sahip olmanız gerekir. **Genel Amaçlı v2 (GPv2)** hesapları Bloblar, Dosyalar, Kuyruklar ve Tablolar dahil olmak üzere depolama hizmetlerinin tamamına yönelik tüm özellikleri destekleyen depolama hesaplarıdır. **Blob depolama hesabı**, yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage’da depolamanıza yönelik özel depolama hesabıdır. Blob Storage hesapları, genel amaçlı depolama hesaplarınıza benzer ve blok blobları ve ilave blobları için %100 API tutarlığı dahil günümüzde kullandığınız tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır. Yalnızca blok veya engelleme blobunun gerektiği uygulamalar için Blob Storage hesaplarının kullanılmasını öneririz. 
 
 > [!NOTE]
-> Kullanılabilirlik depolama olayları için olay kılavuza bağlı [kullanılabilirlik](../../event-grid/overview.md) ve olay kılavuz yaptığı gibi diğer bölgelerde kullanılabilir hale gelecektir.
+> Depolama olaylarının kullanılabilirliği Event Grid'in [kullanılabilirliğine](../../event-grid/overview.md) bağlıdır ve Event Grid gibi diğer bölgelerde kullanıma sunulacaktır.
 
 `<storage_account_name>` değerini depolama hesabınız için benzersiz bir ad ile ve `<resource_group_name>` değerini daha önce oluşturduğunuz kaynak grubu ile değiştirin.
 
@@ -66,24 +67,48 @@ az storage account create \
 
 ## <a name="create-a-message-endpoint"></a>İleti uç noktası oluşturma
 
-Konuya abone olmadan önce olay iletisi için uç noktayı oluşturalım. Konuya yanıt vermek için kod yazmak yerine, görüntüleyebilmeniz için iletileri toplayan bir uç nokta oluşturalım. Hookbin, bir uç nokta oluşturmanıza ve buna gönderilen istekleri görüntülemenize imkan tanıyan üçüncü taraf bir araçtır. [Hookbin](https://hookbin.com/)’e gidin ve **Yeni Uç Nokta Oluştur**’a tıklayın.  Daha sonra konuya abone olurken gerekecek kutu URL’sini kopyalayın.
+Konuya abone olmadan önce olay iletisi için uç noktayı oluşturalım. Normalde, olay verileri temelinde uç nokta eylemleri gerçekleştirir. Bu hızlı başlangıcı basitleştirmek için, olay iletilerini görüntüleyin bir [önceden oluşturulmuş web uygulaması](https://github.com/dbarkol/azure-event-grid-viewer) dağıtırsınız. Dağıtılan çözüm bir App Service planı, App Service web uygulaması ve GitHub'dan kaynak kod içerir.
+
+`<your-site-name>` değerini web uygulamanız için benzersiz bir adla değiştirin. Web uygulaması adı bir DNS girdisinin parçası olduğundan benzersiz olmalıdır.
+
+```azurecli-interactive
+sitename=<your-site-name>
+
+az group deployment create \
+  --resource-group <resource_group_name> \
+  --template-uri "https://raw.githubusercontent.com/dbarkol/azure-event-grid-viewer/master/azuredeploy.json" \
+  --parameters siteName=$sitename hostingPlanName=viewerhost
+```
+
+Dağıtımın tamamlanması birkaç dakika sürebilir. Dağıtım başarıyla gerçekleştirildikten sonra, web uygulamanızı görüntüleyip çalıştığından emin olun. Web tarayıcısında şu adrese gidin: `https://<your-site-name>.azurewebsites.net`
+
+Şu anda iletilerin görüntülenmediği siteyi görüyor olmalısınız.
+
+[!INCLUDE [event-grid-register-provider-cli.md](../../../includes/event-grid-register-provider-cli.md)]
 
 ## <a name="subscribe-to-your-storage-account"></a>Depolama hesabınıza abone olma
 
-Event Grid’e hangi olayları izlemek istediğinizi bildirmek için bir konuya abone olursunuz. Aşağıdaki örnek, depolama hesabı oluşturulur ve olay bildirimi için uç noktaya olarak Hookbin URL geçirir abone olur. `<event_subscription_name>` değerini olay aboneliğiniz için benzersiz bir adla, `<endpoint_URL>` değerini ise önceki bölümden bir değerle değiştirin. Abone olurken bir uç nokta belirttiğinizde, Event Grid olayların bu uç noktaya yönlendirilmesini sağlar. `<resource_group_name>` ve `<storage_account_name>` için daha önce oluşturduğunuz değerleri kullanın.  
+Event Grid’e hangi olayları izlemek istediğinizi ve bu olayların nereye gönderileceğini bildirmek için bir konuya abone olursunuz. Aşağıdaki örnek, oluşturduğunuz depolama hesabına abone olur ve web uygulamanızın URL’sini olay bildirimi için uç nokta olarak geçirir. Olay aboneliğiniz için `<event_subscription_name>` öğesini bir ad ile değiştirin. `<resource_group_name>` ve `<storage_account_name>` için daha önce oluşturduğunuz değerleri kullanın.
+
+Web uygulamanızın uç noktası `/api/updates/` sonekini içermelidir.
 
 ```azurecli-interactive
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
   --resource-id $storageid \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint $endpoint
 ```
+
+Web uygulamanızı yeniden görüntüleyin ve buna bir abonelik doğrulama olayının gönderildiğine dikkat edin. Göz simgesini seçerek olay verilerini genişletin. Uç noktanın olay verilerini almak istediğini doğrulayabilmesi için Event Grid doğrulama olayını gönderir. Web uygulaması aboneliği doğrulamak için kod içerir.
+
+![Abonelik olayını görüntüleme](./media/storage-blob-event-quickstart/view-subscription-event.png)
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Blob depolama biriminden bir olay tetikler
 
-Şimdi, Event Grid’in iletiyi uç noktanıza nasıl dağıttığını görmek için bir olay tetikleyelim. İlk olarak, şimdi biz bir kapsayıcı oluşturur sonra bir dosyayı karşıya yüklemeyi daha sonra depolama hesabı için anahtarı ve adını yapılandırın. `<storage_account_name>` ve `<resource_group_name>` için yine daha önce oluşturduğunuz değerleri kullanın.
+Şimdi, Event Grid’in iletiyi uç noktanıza nasıl dağıttığını görmek için bir olay tetikleyelim. İlk olarak, depolama hesabı için adı ve anahtarı yapılandıralım, ardından bir kapsayıcı oluşturacağız ve bir dosyayı oluşturup karşıya yükleyeceğiz. `<storage_account_name>` ve `<resource_group_name>` için yine daha önce oluşturduğunuz değerleri kullanın.
 
 ```azurecli-interactive
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>
@@ -95,7 +120,8 @@ touch testfile.txt
 az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
 ```
 
-Olayı tetiklediniz ve Event Grid iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Daha önce oluşturduğunuz uç nokta URL’sine gidin. Veya açık olan tarayıcınızda Yenile’ye tıklayın. Az önce gönderdiğiniz olayı görürsünüz. 
+Olayı tetiklediniz ve Event Grid iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Az önce gönderdiğiniz olayı görmek için web uygulamanızı görüntüleyin.
+
 
 ```json
 [{

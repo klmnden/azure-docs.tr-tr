@@ -1,6 +1,6 @@
 ---
 title: 'Öğretici: Azure Active Directory Tümleştirme ile Aha! | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile Aha arasında yapılandırmayı öğrenin!.
+description: Azure Active Directory ve Aha arasında çoklu oturum açmayı yapılandırmayı öğrenin!
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a6c709944262e321997fe2d32e57726ee9f1242
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 30f0f316727cfcf20daa58c35d0ba11c25311898
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219882"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044127"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aha"></a>Öğretici: Azure Active Directory Tümleştirme ile Aha!
 
-Bu öğreticide, Aha tümleştirmek öğrenin! Azure ile Active Directory (Azure AD).
+Bu öğreticide, Aha tümleştirmeyi öğrenin! Azure Active Directory (Azure AD).
 
 AHA tümleştirme! Azure AD ile aşağıdaki faydaları sağlar:
 
 - Aha erişimi, Azure AD'de kontrol edebilirsiniz!
-- Otomatik olarak Aha için açan kullanıcılarınıza etkinleştirebilirsiniz! (Çoklu oturum açma) Azure AD hesaplarına sahip
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Otomatik olarak imzalanan Aha için açma, kullanıcılarınızın etkinleştirebilirsiniz! (Çoklu oturum açma) ile Azure AD hesaplarına
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Aha ile yapılandırmak için!, aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile Aha yapılandırılamadı!, aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir Aha! Çoklu oturum açma etkin abonelik
+- Azure AD aboneliğiniz
+- Bir Aha! Çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. AHA ekleme! Galeriden
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-aha-from-the-gallery"></a>AHA ekleme! Galeriden
-Aha tümleştirmesini yapılandırmak için! Azure AD ile Aha eklemeniz gerekir! Yönetilen SaaS uygulamaları listenize Galeriden.
+Aha tümleştirmesini yapılandırmak için! Azure AD ile Aha eklemeniz gerekir! Galeriden listenizi yönetilen SaaS uygulamaları için.
 
 **AHA eklemek için! Galeriden, aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -67,7 +67,7 @@ Aha tümleştirmesini yapılandırmak için! Azure AD ile Aha eklemeniz gerekir!
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
@@ -75,32 +75,32 @@ Aha tümleştirmesini yapılandırmak için! Azure AD ile Aha eklemeniz gerekir!
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/aha-tutorial/tutorial_aha_search.png)
 
-5. Sonuçlar panelinde seçin **Aha!** ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Sonuçlar panelinde seçin **Aha!** ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/aha-tutorial/tutorial_aha_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Aha ile test etme! "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Aha ile test etme! "Britta Simon." adlı bir test kullanıcı tabanlı
 
-Tekli çalışmaya oturum için Azure AD Aha ne karşılık gelen kullanıcı bilmesi gerekir! bir kullanıcı için Azure AD içinde değil. Diğer bir deyişle, bir bağlantı arasındaki ilişki bir Azure AD kullanıcısının Aha ilgili kullanıcı! kurulması gerekir.
+Tek iş için oturum açma için Azure AD içinde Aha karşılığı kullanıcının bilmesi gerekir! bir kullanıcının Azure AD'de ' dir. Diğer bir deyişle, bir Azure AD kullanıcısı ve Aha ilgili kullanıcı arasında bağlantı ilişki! kurulması gerekir.
 
-Aha,!, değeri atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Aha içinde!, değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma Aha ile test!, aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Aha ile test etmek için!, şu yapı taşları tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Oluşturma bir Aha! test kullanıcısı](#creating-an-aha-test-user)**  - Aha içinde karşılık gelen Britta Simon biri için! Bu kullanıcı Azure AD gösterimini bağlanır.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Oluşturma bir Aha! Kullanıcı test](#creating-an-aha-test-user)**  - Aha içinde bir karşılığı Britta simon'un sağlamak için! Bu kullanıcı Azure AD gösterimini bağlıdır.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirme ve çoklu oturum açma, Aha yapılandırma! Uygulama.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma, Aha içinde yapılandırma! uygulama.
 
 **Azure AD çoklu oturum açma ile Aha yapılandırmak için!, aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Aha!** Uygulama Tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Aha!** Uygulama Tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
@@ -108,36 +108,36 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirme ve �
  
     ![Çoklu oturum açmayı yapılandırın](./media/aha-tutorial/tutorial_aha_samlbase.png)
 
-3. Üzerinde **Aha! Etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Aha! Etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/aha-tutorial/tutorial_aha_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.aha.io/session/new`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.aha.io/session/new`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.aha.io`
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.aha.io`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Aha! İstemci destek ekibi](https://www.aha.io/company/contact) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Aha! İstemci Destek ekibine](https://www.aha.io/company/contact) bu değerleri almak için. 
  
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/aha-tutorial/tutorial_aha_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/aha-tutorial/tutorial_general_400.png)
 
-6. Farklı web tarayıcısı penceresinde, Aha oturum! Yönetici olarak şirket sitesi.
+6. Farklı bir web tarayıcı penceresinde, Aha için oturum açın! Yönetici olarak şirketin sitesi.
 
-7. Üstteki menüde tıklatın **ayarları**.
+7. Üstteki menüden **ayarları**.
 
     ![Ayarları](./media/aha-tutorial/IC798950.png "ayarları")
 
-8. Tıklatın **hesap**.
+8. Tıklayın **hesabı**.
    
-    ![Profil](./media/aha-tutorial/IC798951.png "profili")
+    ![Profili](./media/aha-tutorial/IC798951.png "profili")
 
-9. Tıklatın **güvenlik ve çoklu oturum açma**.
+9. Tıklayın **güvenlik ve çoklu oturum açma**.
    
     ![Güvenlik ve çoklu oturum açma](./media/aha-tutorial/IC798952.png "güvenlik ve çoklu oturum açma")
 
@@ -149,34 +149,34 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirme ve �
     
     ![Çoklu oturum açma](./media/aha-tutorial/IC798954.png "çoklu oturum açma")
     
-       a. İçinde **adı** metin kutusuna, yapılandırmanız için bir ad yazın.
+       a. İçinde **adı** metin yapılandırmanız için bir ad yazın.
 
        b. İçin **kullanarak yapılandırma**seçin **meta veri dosyası**.
    
-       c. İndirilen meta veri dosyanızı karşıya yüklemek için tıklayın **Gözat**.
+       c. İndirilen meta verileri dosyanızı karşıya yüklemek için tıklayın **Gözat**.
    
-       d. Tıklatın **güncelleştirme**.
+       d. Tıklayın **güncelleştirme**.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/aha-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/aha-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/aha-tutorial/create_aaduser_03.png) 
 
@@ -184,9 +184,9 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/aha-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
@@ -194,53 +194,53 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
 ### <a name="creating-an-aha-test-user"></a>Oluşturma bir Aha! Test kullanıcısı
 
-Azure AD kullanıcıların AHA için oturum açma!, Aha sağlanmalıdır!.  
+Azure AD kullanıcıların oturum açmak için AHA sağlamak için!, Aha sağlanması gerekir!  
 
-Aha durumunda!, otomatik bir görev olduğundan sağlama. Sizin için eylem öğe yok.
+Aha söz konusu olduğunda!, sağlama, otomatik bir görev olduğundan. Sizin için hiçbir eylem öğesini yoktur.
 
-Kullanıcıları otomatik olarak ilk tek oturum açma girişimi sırasında gerekirse oluşturulur.
+Kullanıcıları otomatik olarak ilk çoklu oturum açma girişimi sırasında gerekirse oluşturulur.
 
 >[!NOTE]
->Diğer bir Aha kullanabilirsiniz! kullanıcı hesabı oluşturma araçlarını veya Aha tarafından sağlanan API'leri! AAD kullanıcı hesaplarını sağlamak için.
+>Diğer bir Aha kullanabilirsiniz! kullanıcı hesabı oluşturma araçları veya Aha tarafından sağlanan API'leri! AAD kullanıcı hesapları sağlamak için.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Britta Aha için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirmek!.
+Bu bölümde, Azure çoklu oturum açma kullanmak için Aha erişim vererek Britta Simon etkinleştirin!.
 
-![Kullanıcı atama][200] 
+![Kullanıcı Ata][200] 
 
-**İçin Aha Britta Simon atamak!, aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Aha için atanacak!, aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **Aha!**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/aha-tutorial/tutorial_aha_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı Ata][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Çoklu oturum açma ayarlarınızı test etmek isterseniz, erişim paneli açın. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Çoklu oturum açma ayarları test etmek isterseniz, erişim Paneli'nde açın. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

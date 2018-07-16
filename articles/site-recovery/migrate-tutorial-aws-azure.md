@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b0474ce532831e15738ec882dfdf451bc35d09cf
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ee38fe542ca6e2e4e1f8e09b54717d4390b453d0
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737621"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922666"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Amazon Web Services (AWS) sanal makinelerini Azure’a geçirme
 
@@ -34,10 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Ön koşullar
 - Geçirmek istediğiniz VM’lerin desteklenen bir işletim sistemi sürümünü çalıştırdığından emin olun. Desteklenen sürümlere şunlar dahildir: 
     - Windows Server 2016
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - 64 bit Windows Server 2008 R2 SP1 veya sonrası
-    - Bir Citrix Paravirtual sürücüsü veya bir AWS Paravirtual sürücüsü ile Red Hat Enterprise Linux 6.7 (yalnızca HVM sanallaştırılmış örnekleri). Red Hat Paravirtual sürücüleri çalıştıran örnekler *desteklenmez*.
+    - Red Hat Enterprise Linux 6.7 (yalnızca HVM sanallaştırılmış örnekleri) yalnızca Citrix PV veya AWS PV sürücülerine sahip olmalıdır. Red Hat PV sürücülerini çalıştıran örnekler **desteklenmez**.
 
 - Çoğaltmak istediğiniz her sanal makinede Mobility hizmeti yüklü olmalıdır. 
 

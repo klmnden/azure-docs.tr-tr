@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: f75671e2e5511054f3db550a8c24e62d031492c3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4c537b06c4ff50d90d9fd5a847b378038f252790
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776721"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972283"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs kullanarak Xamarin.Android uygulamalarına anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -58,7 +58,7 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
 Bildirim hub'ınız FCM ile birlikte çalışmak üzere yapılandırıldı. Ayrıca, uygulamanızı anında iletme bildirimleri alması ve anında iletme bildirimlerini göndermesi amacıyla kaydetmenizi sağlayan bağlantı dizelerine sahipsiniz.
 
-## <a name="create-xamainandroid-app-and-connect-it-to-notification-hub"></a>Xamain.Android uygulaması oluşturma ve bildirim hub’ına bağlama
+## <a name="create-xamarinandroid-app-and-connect-it-to-notification-hub"></a>Xamain.Android uygulaması oluşturma ve bildirim hub’ına bağlama
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>Visual Studio projesi oluşturma ve NuGet paketleri ekleme
 1. Visual Studio’da imleci **Dosya**’nın üzerine getirin, **Yeni**’yi seçin ve sonra **Proje** seçeneğini belirleyin. 
@@ -100,8 +100,8 @@ Bildirim hub'ınız FCM ile birlikte çalışmak üzere yapılandırıldı. Ayr�
 
 1. Android uygulamanız ve bildirim hub'ınız için aşağıdaki bilgileri toplayın:
    
-   * **Dinleme bağlantı dizesi**: [Azure portalındaki] panoda **Bağlantı dizelerini görüntüle**'yi seçin. Bu değer için *DefaultListenSharedAccessSignature* bağlantı dizesini kopyalayın.
-   * **Hub adı**: [Azure portalındaki] hub’ınızın adı. Örneğin, *mynotificationhub2*.
+   * **Dinleme bağlantı dizesi**: [Azure Portal] panoda **Bağlantı dizelerini görüntüle**'yi seçin. Bu değer için *DefaultListenSharedAccessSignature* bağlantı dizesini kopyalayın.
+   * **Hub adı**: [Azure Portal] hub’ınızın adı. Örneğin, *mynotificationhub2*.
      
 2. **Çözüm Gezgini** penceresinde **projenize** sağ tıklayın, **Ekle**’nin üzerine gelip **Sınıf**’ı seçin. 
 4. Xamarin projeniz için bir **Constants.cs** sınıfı oluşturun ve bu sınıfta aşağıdaki sabit değerleri tanımlayın. Yer tutucuları değerleriniz ile değiştirin.
@@ -142,6 +142,7 @@ Bildirim hub'ınız FCM ile birlikte çalışmak üzere yapılandırıldı. Ayr�
 8. **MyFirebaseIIDService.cs** içine aşağıdaki deyimleri ekleyin:
    
     ```csharp
+    using Android.App;
     using Android.Util;
     using WindowsAzure.Messaging;
     using Firebase.Iid;
@@ -183,6 +184,7 @@ Bildirim hub'ınız FCM ile birlikte çalışmak üzere yapılandırıldı. Ayr�
 12. Aşağıdaki deyimleri **MyFirebaseMessagingService.cs** içine ekleyin.
     
     ```csharp
+        using Android.App;
         using Android.Util;
         using Firebase.Messaging;
     ```
@@ -237,7 +239,7 @@ Bildirim hub'ınız FCM ile birlikte çalışmak üzere yapılandırıldı. Ayr�
 16. Uygulamayı cihazınızda veya yüklü öykünücüde **çalıştırma**
 
 ## <a name="send-test-notification-from-the-azure-portal"></a>Azure portalından test bildirimi gönderme
-[Azure portalındaki] *Test Gönderimi* seçeneğini kullanarak uygulamanızda bildirim alma testi gerçekleştirebilirsiniz. Bu, cihazınıza test amaçlı anında iletme bildirimi gönderir.
+[Azure Portal] *Test Gönderimi* seçeneğini kullanarak uygulamanızda bildirim alma testi gerçekleştirebilirsiniz. Bu, cihazınıza test amaçlı anında iletme bildirimi gönderir.
 
 ![Azure portalı - Test Gönderimi](media/partner-xamarin-notification-hubs-android-get-started/send-test-notification.png)
 
@@ -287,7 +289,7 @@ Bu öğreticide, arka uca kayıtlı olan tüm Android cihazlarınıza yayın bil
 [Xamarin ile Visual Studio]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Mac için Visual Studio]: https://www.visualstudio.com/vs/visual-studio-mac/
 
-[Azure portalındaki]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Android]: http://msdn.microsoft.com/library/dn282661.aspx

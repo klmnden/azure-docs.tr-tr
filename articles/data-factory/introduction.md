@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: e4e90082f483720699fb029db33bc8110173c0aa
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: bc53d245dd814b6f9bb4edab89ddcbf841f16a8f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082963"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38579186"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory'ye giriş 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -120,6 +120,10 @@ Azure Data Factory’nin kendisi verileri depolamaz. Veri taşımayı desteklene
 Data Factory yalnızca belirli bölgelerde kullanılabilir olsa da, Data Factory'de veri taşımayı destekleyen hizmet birçok bölgede küresel olarak kullanılabilmektedir. Bir veri deposunun güvenlik duvarı ardında kaldığı durumlarda şirket içi ortamınızda yüklü bir Şirket İçinde Barındırılan Integration Runtime bunun yerine verileri taşır.
 
 Örneğin, Azure HDInsight kümesi ve Azure Machine Learning gibi işlem ortamlarınızın Batı Avrupa bölgesinde çalıştığını varsayalım. Doğu ABD veya Doğu ABD 2’de bir Azure Data Factory örneği oluşturup geliştirebilir ve bunu Batı Avrupa’daki işlem ortamlarınızda iş zamanlamak için kullanabilirsiniz. Data Factory'nin işlem ortamınızda işi tetiklemesi birkaç milisaniye alsa da, bilgi işlem ortamınızda işin çalıştırılma süresi değişmez.
+
+## <a name="accessibility"></a>Erişilebilirlik
+
+Azure Portal'da Data Factory kullanıcı deneyimi erişilebilirdir.
 
 ## <a name="compare-with-version-1"></a>Sürüm 1 ile karşılaştırma
 Data Factory geçerli sürümü ile 1 numaralı sürümleri arasındaki farkların listesi için bkz. [Sürüm 1 ile karşılaştırma](compare-versions.md). 

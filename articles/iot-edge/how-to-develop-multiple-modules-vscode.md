@@ -1,6 +1,6 @@
 ---
-title: VS code'da birden çok Azure IOT kenar modüllerle çalışma | Microsoft Docs
-description: Azure IOT köşesi aynı anda birden çok modülleri geliştirmek için Visual Studio Code IOT uzantısı kullanın
+title: VS code'da birden çok Azure IOT Edge modülleri ile çalışma | Microsoft Docs
+description: Birden çok modül Azure IOT Edge için tek seferde geliştirme için Visual Studio Code için IOT uzantısı kullanma
 services: iot-edge
 keywords: ''
 author: shizn
@@ -9,14 +9,14 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 4e9aac5f19fa75613dee2aba3853a0243d7d966b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 31fe210b87a052438956d813db0d104e0f2cdb6e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048269"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041269"
 ---
-# <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code"></a>Visual Studio Code birden çok modülleri IOT kenar çözümüyle geliştirin
+# <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code"></a>Visual Studio code'da birden çok modül ile bir IOT Edge çözüm geliştirin
 
 Birden çok modül ile Azure IoT Edge çözümünüzü geliştirmek için Visual Studio Code kullanabilirsiniz. Bu makadele, VS Code içinde simülasyonu yapılan bir IoT Edge cihazındaki sensör verilerini gönderen bir IoT Edge çözümünü oluşturma, güncelleştirme ve dağıtma gösterilmektedir. 
 
@@ -33,15 +33,15 @@ Bu makaledeki adımları tamamlayabilmeniz için şu önkoşullar gereklidir:
 
 Görüntüleri ve kapsayıcıları yönetmek için Azure IoT Hub Device Explorer tümleştirmesi ile [VS Code için Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) da gereklidir.
 
-## <a name="create-your-iot-edge-solution"></a>IOT kenar çözümünüzü oluşturun
+## <a name="create-your-iot-edge-solution"></a>IOT Edge çözümünüzü oluşturun
 
-1. Visual Studio kodda seçerek tümleşik Terminali açın **Görünüm** > **tümleşik terminal**. 
+1. Visual Studio code'da tümleşik Terminalini açmak **görünümü** > **tümleşik Terminalini**. 
 
-1. VS code'da **komutu palet**komutunu çalıştırın ve girin **Azure IOT kenar: yeni IOT uç çözümünün**. Çalışma alanı klasörünüzü seçin ve çözüm adını sağlayın (varsayılan değer EdgeSolution). Bir C# modül oluşturun (adıyla **PipeModule**) Bu çözümdeki ilk kullanıcı modülü olarak. C# modülünün varsayılan şablonu doğrudan iletileri için Yukarı Akış aşağı kanallar kanal modülüdür. İlk modülünüz için Docker görüntü deposunu da belirtmeniz gerekir. Varsayılan görüntü deposu yerel bir Docker kayıt defterini temel alır (**localhost:5000/<first module name>**). Azure Container Registry veya Docker Hub olarak değiştirebilirsiniz. 
+1. VS code'da **komut paleti**girin ve şu komutu çalıştırın **Azure IOT Edge: IOT Edge yeni çözüm**. Çalışma alanı klasörünüzü seçin ve çözüm adını sağlayın (varsayılan değer EdgeSolution). Bir C# modülü oluşturma (adıyla **PipeModule**) Bu çözümdeki ilk kullanıcı modülü olarak. C# modülü varsayılan şablonunu doğrudan iletileri için Yukarı Akış aşağı yönde kanallar kanal modülüdür. İlk modülünüz için Docker görüntü deposunu da belirtmeniz gerekir. Varsayılan görüntü deposu yerel bir Docker kayıt defterini temel alır (**localhost:5000/<first module name>**). Azure Container Registry veya Docker Hub olarak değiştirebilirsiniz. 
 
 2. VS Code penceresi IoT Edge çözümü çalışma alanınızı yükler. Kök klasör bir **modules** klasörü, bir **.vscode** klasörü ve bir dağıtım bildirimi şablon dosyası içerir. Hata ayıklama yapılandırmaları .vscode klasöründe bulunur. Tüm kullanıcı modül kodları modüller klasörünün alt klasörleridir. Deployment.template.json dosyası dağıtım bildirim şablonudur. Bu dosyadaki bazı parametreler her modül klasöründe bulunan module.json dosyasından ayrıştırılmıştır.
 
-3. İkinci modülünüzü bu çözüm projesine ekleyin. Geçerli çözüme yeni bir modül eklemek için birkaç yolu vardır. Girin ve şu komutu çalıştırın **Azure IOT kenar: eklemek IOT kenar Modülü**. Güncelleştirilecek dağıtım şablonu dosyasını seçin. Veya modüller klasörüne sağ tıklayın veya deployment.template.json dosyasını sağ tıklatın ve seçin **IOT kenar Modül Ekle**. Ardından modül türü seçmek için açılır liste olacaktır. Seçin bir **Azure işlevleri - C#** adında modül **PipeFunction** ve kendi Docker görüntü deposu. C# işlevleri modülünün varsayılan şablonu doğrudan iletileri için Yukarı Akış aşağı kanallar kanal modülüdür.
+3. İkinci modülünüzü bu çözüm projesine ekleyin. Geçerli çözüme yeni bir modül eklemek için çeşitli yollar vardır. Girin ve şu komutu çalıştırın **Azure IOT Edge: IOT Edge Modülü Ekle**. Güncelleştirilecek dağıtım şablonu dosyasını seçin. Veya modülleri klasörü sağ tıklatın veya deployment.template.json dosyasını sağ tıklatın ve seçin **IOT Edge Modülü Ekle**. Ardından modül türü seçmek için bir açılan listedeki olacaktır. Seçin bir **- Azure işlevleri C#** adlı modülün **PipeFunction** ve kendi Docker görüntü deposu. C# işlevleri modülünün varsayılan şablonu doğrudan iletileri için Yukarı Akış aşağı yönde kanallar kanal modülüdür.
 
 4. Deployment.template.json dosyasını açın. Dosyanın üç modülü ve çalışma zamanını bildirdiğinden emin olun. İleti tempSensor modülünden oluşturulur. İleti SampleModule ve SampleFunction modülleri ile doğrudan gönderilir ve daha sonra IoT hub’ınıza gönderilir. 
 
@@ -59,11 +59,11 @@ Görüntüleri ve kapsayıcıları yönetmek için Azure IoT Hub Device Explorer
 
 ## <a name="build-and-deploy-your-iot-edge-solution"></a>IoT Edge çözümünüzü oluşturma ve dağıtma
 
-1. VS code'da **komutu palet**komutunu çalıştırın ve girin **Azure IOT kenar: derleme IOT uç çözümünün**. Her modül klasöründeki module.json dosyası temel alınarak, komut her modül Docker görüntüsünü oluşturmaya, kapsayıcılı hale getirmeye ve göndermeye başlar. Komut daha sonra gerekli değeri deployment.template.json dosyasına geçirir ve yapılandırma klasöründen bilgilerle deployment.json dosyasını oluşturur. VS Code içindeki tümleşik terminal derleme ilerlemesini gösterir. 
+1. VS code'da **komut paleti**girin ve şu komutu çalıştırın **Azure IOT Edge: IOT Edge çözüm**. Her modül klasöründeki module.json dosyası temel alınarak, komut her modül Docker görüntüsünü oluşturmaya, kapsayıcılı hale getirmeye ve göndermeye başlar. Komut daha sonra gerekli değeri deployment.template.json dosyasına geçirir ve yapılandırma klasöründen bilgilerle deployment.json dosyasını oluşturur. VS Code içindeki tümleşik terminal derleme ilerlemesini gösterir. 
 
 2. Azure IoT Hub **Device Explorer**’da, bir IoT Edge cihaz kimliğine sağ tıklayın ve ardından **Edge cihazı için dağıtım oluştur** komutunu seçin. Yapılandırma klasöründe deployment.json dosyasını seçin. VS Code içindeki tümleştirilmiş terminal bir dağıtım kimliği içinde dağıtımın başarıyla oluşturulduğunu gösterir.
 
-3. Geliştirme makinenizde bir IOT sınır cihazının benzetimini varsa, tüm modül görüntü kapsayıcıların birkaç dakika içinde Başlat görmek izleyebilirsiniz.
+3. Geliştirme makinenizde bir IOT Edge cihazını benzetme, tüm modül görüntüsü kapsayıcılar birkaç dakika içinde başlayacağını izleyebilirsiniz.
 
 ## <a name="view-the-generated-data"></a>Oluşturulan verileri görüntüleme
 
@@ -74,5 +74,7 @@ Görüntüleri ve kapsayıcıları yönetmek için Azure IoT Hub Device Explorer
 
 Visual Studio Code’da Azure IoT Edge ile geliştirme için diğer senaryolar hakkında bilgi edinin:
 
-* [Bir C# modül VS code'da geliştirin](how-to-develop-csharp-module.md)
-* [VS code'da C# işlevi geliştirin](how-to-develop-csharp-function.md)
+* VS Code ile modülleri geliştirme [C#](how-to-develop-csharp-module.md) veya [Node.js](how-to-develop-node-module.md).
+* Azure işlevleri ile VS code'da geliştirme [C#](how-to-develop-csharp-function.md).
+
+Cihazlarınızı IOT Edge modülleri geliştirmek için [kavrama ve kullanma Azure IOT Hub SDK'ları](../iot-hub/iot-hub-devguide-sdks.md).
