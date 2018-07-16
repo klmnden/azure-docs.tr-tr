@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile Temizle gözden geçirme | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory Temizle gözden geçirme arasındaki yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle Temizle gözden geçirme | Microsoft Docs'
+description: Azure Active Directory ve NET gözden arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: jeedes
-ms.openlocfilehash: aa3514d348b812a96b55c4d47950cd064d391dc1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6ce6661bf6d3841f7ade78a74d50a1d6eeefbdaf
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231551"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048003"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Öğretici: Azure Active Directory Tümleştirme ile Temizle gözden geçirme
+# <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Öğretici: Azure Active Directory tümleştirmesiyle Temizle gözden geçirme
 
-Bu öğreticide, Temizle gözden geçirme Azure Active Directory (Azure AD) ile tümleştirme öğrenin.
+Bu öğreticide, NET gözden geçirme Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
-Clear gözden geçirme Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+NET gözden geçirme, Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Clear gözden geçirme erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak Temizle incelemeye (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- NET gözden geçirme erişimi, Azure AD'de kontrol edebilirsiniz.
+- Azure AD hesaplarına otomatik olarak imzalanan Temizle gözden geçirme (çoklu oturum açma) açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Temizle gözden geçirme ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile NET gözden geçirme yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir açık gözden geçirme çoklu oturum açma abonelik etkin
+- Azure AD aboneliğiniz
+- Abonelik Temizle gözden geçirme çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Temizle gözden geçirme ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Galeriden Temizle incelemesi ekleniyor
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="adding-clear-review-from-the-gallery"></a>Galeriden Temizle gözden geçirme ekleme
-Azure AD Temizle gözden geçirme tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Temizle gözden geçirme eklemeniz gerekir.
+## <a name="adding-clear-review-from-the-gallery"></a>Galeriden Temizle incelemesi ekleniyor
+Azure AD'de Temizle gözden geçirme tümleştirmesini yapılandırmak için NET gözden geçirme Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden Temizle yorum eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden Temizle gözden geçirme eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -68,37 +68,37 @@ Azure AD Temizle gözden geçirme tümleştirilmesi yapılandırmak için yönet
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Temizle gözden geçirme**seçin **Temizle gözden geçirme** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **Temizle gözden geçirme**seçin **Temizle gözden geçirme** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuçlar listesinde Temizle gözden geçirme](./media/clearreview-tutorial/tutorial_clearreview_addfromgallery.png)
+    ![Sonuç listesinde NET gözden geçirme](./media/clearreview-tutorial/tutorial_clearreview_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Temizle "Britta Simon" adlı bir test kullanıcı tabanlı gözden geçirme ile test etme.
+Bu bölümde, yapılandırma ve gözden geçirmeyle Temizle "Britta Simon" adlı bir test kullanıcı tabanlı Azure AD çoklu oturum açmayı test.
 
-Tekli çalışmaya oturum için Azure AD Temizle gözden geçirme karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Temizle gözden geçirme ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD düz incelemesindeki karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmesi gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve ilgili kullanıcı Temizle incelemesindeki arasında bir bağlantı ilişki kurulması gerekir.
 
-Değerini Temizle incelemede atamak **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Değeri Temizle incelemesindeki atayın **kullanıcı adı** değerini Azure AD'de **kullanıcı adı** bağlantı kurmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma Temizle gözden geçirme ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Temizle gözden geçirme ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Clear gözden geçirme test kullanıcısı oluşturma](#create-a-clear-review-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Temizle gözden geçirme sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[NET gözden geçirin test kullanıcısı oluşturma](#create-a-clear-review-test-user)**  - kullanıcı Azure AD gösterimini bağlı Temizle incelemesindeki Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Temizle gözden geçirme uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Temizle gözden geçirme uygulamanızı yapılandırın.
 
 **Azure AD çoklu oturum açma Temizle gözden geçirme ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Temizle gözden geçirme** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Temizle gözden geçirme** uygulama tümleştirme sayfası, tıklayın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
@@ -106,84 +106,84 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açma iletişim kutusu](./media/clearreview-tutorial/tutorial_clearreview_samlbase.png)
 
-3. Üzerinde **Temizle gözden geçirme etki alanı ve URL'leri** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **başlatılan IDP** modu:
+3. Üzerinde **Temizle gözden geçirme etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP tarafından başlatılan** modu:
 
-    ![NET gözden geçirme etki alanı ve URL'leri tek oturum açma bilgileri](./media/clearreview-tutorial/tutorial_clearreview_url.png)
+    ![Çoklu oturum açma bilgileri Temizle gözden geçirme etki alanı ve URL'leri](./media/clearreview-tutorial/tutorial_clearreview_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<customer name>.clearreview.com/sso/metadata/`
+    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<customer name>.clearreview.com/sso/metadata/`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<customer name>.clearreview.com/sso/acs/`
+    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<customer name>.clearreview.com/sso/acs/`
 
-4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
+4. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
-    ![NET gözden geçirme etki alanı ve URL'leri tek oturum açma bilgileri](./media/clearreview-tutorial/tutorial_clearreview_url_sp.png)
+    ![Çoklu oturum açma bilgileri Temizle gözden geçirme etki alanı ve URL'leri](./media/clearreview-tutorial/tutorial_clearreview_url_sp.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<customer name>.clearreview.com`
+    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak:`https://<customer name>.clearreview.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler, gerçek oturum açma URL'si, tanımlayıcı ve yanıt URL'si ile güncelleştirin. Kişi [Temizle gözden geçirme destek ekibi](https://clearreview.com/contact/) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si, tanımlayıcıya ve yanıt URL'si ile güncelleştirin. İlgili kişi [Temizle gözden geçirme Destek ekibine](https://clearreview.com/contact/) bu değerleri almak için.
 
-5. Clear gözden geçirme uygulama adı tanımlayıcısı talep kümesinde benzersiz kullanıcı kimliği değeri bekler. Kullanıcı tanımlayıcısı değerine eşlemelisiniz **user.mail**.
+5. Temizle gözden geçirme uygulama adı tanımlayıcısı talebi benzersiz kullanıcı tanıtıcı değeri bekler. Kullanıcı tanımlayıcısı değeri eşlemelisiniz **user.mail**.
 
     ![Öznitelik bölümü](./media/clearreview-tutorial/attribute.png)
 
 
-6. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+6. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/clearreview-tutorial/tutorial_clearreview_certificate.png)
 
-7. Tıklatın **kaydetmek** düğmesi.
+7. Tıklayın **Kaydet** düğmesi.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/clearreview-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/clearreview-tutorial/tutorial_general_400.png)
 
-8. Üzerinde **gözden geçirme yapılandırmayı Temizle** 'yi tıklatın **yapılandırma Temizle gözden** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+8. Üzerinde **gözden geçirme yapılandırmayı Temizle** bölümünde **yapılandırma Temizle gözden geçirme** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![Yapılandırmayı Temizle gözden geçir](./media/clearreview-tutorial/tutorial_clearreview_configure.png) 
+    ![Gözden geçirme yapılandırmasını Temizle](./media/clearreview-tutorial/tutorial_clearreview_configure.png) 
 
-9. Çoklu oturum açma yapılandırmak için **Temizle gözden geçirme** yan, açık **Temizle gözden geçirme** yönetici kimlik bilgileriyle portal.
+9. Çoklu oturum açmayı yapılandırmak için **Temizle gözden geçirme** yanı, açık **Temizle gözden geçirme** yönetici kimlik bilgileriyle portal.
 
-10. Seçin **yönetici** sol gezinti gelen.
+10. Seçin **yönetici** sol gezinti bölmesinden.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-11. Seçin **değişiklik** sayfanın sonundaki.
+11. Seçin **değişiklik** sayfanın alt kısmındaki.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
-12. Şu adımları gerçekleştirin **çoklu oturum açma ayarları** sayfası
+12. Aşağıdaki adımları uygulayın **çoklu oturum açma ayarları** sayfası
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
-    a. İçinde **veren URL'si** metin değerini yapıştırın **SAML varlık kimliği** Azure portalından kopyalanan.
+    a. İçinde **veren URL'si** metin değerini yapıştırın **SAML varlık kimliği** , Azure Portalı'ndan kopyaladığınız.
 
-    b. İçinde **SAML Endpoint** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan.    
+    b. İçinde **SAML uç noktası** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si** , Azure Portalı'ndan kopyaladığınız.    
 
-    c. İçinde **SLO Endpoint** metin değerini yapıştırın **oturum açma hizmet URL'si** Azure portalından kopyalanan. 
+    c. İçinde **SLO uç nokta** metin değerini yapıştırın **oturum açma hizmeti URL'si** , Azure Portalı'ndan kopyaladığınız. 
 
-    d. İndirilen sertifika Not Defteri'nde açın ve içeriği yapıştırmak **X.509 sertifikası** metin kutusu.   
+    d. İndirilen sertifikanın Not Defteri'nde açın ve içeriği yapıştırın **X.509 sertifikası** metin.   
 
 13. **Kaydet**’e tıklayın.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/clearreview-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/clearreview-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/clearreview-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/clearreview-tutorial/create_aaduser_03.png)
 
@@ -193,57 +193,57 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
   
-### <a name="create-a-clear-review-test-user"></a>Clear gözden geçirme test kullanıcısı oluşturma
+### <a name="create-a-clear-review-test-user"></a>NET gözden geçirin test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Temizle incelemede adlı bir kullanıcı oluşturun. Lütfen çalışmak [Temizle gözden geçirme destek ekibi](https://clearreview.com/contact/) Temizle gözden geçirme platform kullanıcıları eklemek için.
+Bu bölümde, Britta Simon Temizle incelemesindeki adlı bir kullanıcı oluşturun. Lütfen birlikte çalışarak [Temizle gözden geçirme Destek ekibine](https://clearreview.com/contact/) Temizle gözden geçirme platform kullanıcıları eklemek için.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta Temizle gözden geçirme için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, NET gözden geçirme için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
-**Temizle incelemeye Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Temizle gözden geçirmeye atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Temizle gözden**.
+2. Uygulamalar listesinde **Temizle gözden geçirme**.
 
-    ![Uygulamalar listesinde Temizle gözden geçirme bağlantı](./media/clearreview-tutorial/tutorial_clearreview_app.png)  
+    ![Uygulamalar listesinde NET gözden geçirme bağlantısı](./media/clearreview-tutorial/tutorial_clearreview_app.png)  
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Temizle gözden geçirme parçasında tıklattığınızda, otomatik olarak Temizle gözden geçirme uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim paneli Temizle gözden geçirme kutucuğa tıkladığınızda, size otomatik olarak Temizle gözden geçirme uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

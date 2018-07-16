@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: c1bf5ba68d8242a0ef0831987ac6fd041c62ace9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eafd7998e5bc21a539b6709794fe3cd70d9e3179
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969376"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054327"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Öğretici: Azure Active Directory Tümleştirme ile yayımlama yay - SSO
 
@@ -239,7 +239,7 @@ Bu bölümde, Azure çoklu oturum açma yay yayımlama için - SSO erişimi vere
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Yay yayımlama - SSO kutucuk erişim Paneli'nde tıkladığınızda, otomatik olarak imzalanmış, yay yayımlama için - SSO uygulama açma.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD uygulama proxy'si aracılığıyla yayımlanan uygulamalar için özel bir ana sayfa ayarlama | Microsoft Docs
-description: Azure AD uygulama proxy'si bağlayıcılar hakkında temel bilgiler yer almaktadır
+title: Azure AD uygulama proxy'si kullanarak yayımlanmış uygulamalar için özel bir ana sayfa ayarlama | Microsoft Docs
+description: Azure AD uygulama ara sunucusu bağlayıcıları hakkında temel kavramları kapsar
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -15,86 +15,86 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a1801af582e9e4bfa82dab4b5916c164fcf3bb76
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3ea8b74eb6ef5b6bcab2935236e2ee3551117b12
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161990"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054378"
 ---
-# <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si kullanarak yayımlanan uygulamalar için özel bir ana sayfa ayarlayın
+# <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si kullanarak yayımlanmış uygulamalar için özel bir ana sayfa ayarlayın
 
-Bu makalede, özel bir ana sayfa kullanıcıları yönlendirmek için uygulamaları yapılandırma anlatılmaktadır. Uygulama proxy'si ile bir uygulama yayımladığınızda, kullanıcılarınız ilk görmelisiniz sayfa olmayan bir iç URL ancak bazen ayarlayın. Özel bir ana sayfa uygulamaları eriştiklerinde, kullanıcılarınızın sağ sayfasına gidin şekilde ayarlayın. Uygulama Azure Active Directory erişim paneli veya Office 365 uygulama Başlatıcı erişim olup olmadığını kullanıcılarınızın, ayarlayabileceğiniz özel giriş sayfasını görürsünüz.
+Bu makalede, özel bir ana sayfa kullanıcılara yönlendirmek için uygulamaları yapılandırma anlatılmaktadır. Uygulama Ara sunucusu ile bir uygulama yayımladığınızda, kullanıcılarınız ilk görmelisiniz sayfası yer almayan bir iç URL ancak bazen ayarlayın. Böylece uygulamaları eriştiklerinde, kullanıcılarınızın doğru sayfasına gidin. özel bir ana sayfa ayarlayın. Azure Active Directory erişim paneli veya Office 365 uygulama başlatıcısında uygulamaya erişmek olup olmadığını, kullanıcılarınızın sizin ayarladığınız özel giriş sayfasını görürsünüz.
 
-Kullanıcıların uygulama başlattığında, varsayılan olarak yayımlanan uygulama kök etki alanı URL'si yönlendirilirsiniz. Giriş sayfası genellikle giriş sayfası URL'si olarak ayarlanır. Azure AD PowerShell modülü, uygulama kullanıcılarınızın uygulama içinde belirli bir sayfada güden istediğinizde özel giriş sayfası URL'leri tanımlamak için kullanın. 
+Kullanıcı uygulamayı başlattığında, varsayılan olarak yayımlanan uygulama için kök etki alanı URL'si yönlendirilirsiniz. Giriş sayfası, genellikle giriş sayfası URL'si ayarlanır. Uygulama kullanıcıları uygulama içinde belirli bir sayfada yerleşmesi istediğinizde özel ana sayfa URL'lerini tanımlamak için Azure AD PowerShell modülünü kullanın. 
 
-Burada, şirket özel bir ana sayfa ayarlayacaktır neden bir örneği verilmiştir:
-- Kullanıcıların gidin, şirket ağı içinde *https://ExpenseApp/login/login.aspx* oturum açın ve uygulamanıza erişmek için.
-- Uygulama proxy'si klasör yapısını en üst düzeyde erişmesi görüntüleri gibi diğer varlıklar olduğundan ile uygulama yayımlama *https://ExpenseApp* İç URL olarak.
-- Varsayılan dış URL *https://ExpenseApp-contoso.msappproxy.net*, değil almakta kullanıcılarınıza oturum açma sayfası.  
-- Ayarlama *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* giriş sayfası URL'si olarak. 
+Bir şirket özel bir ana sayfa ayarlamalı neden bir örneği aşağıdadır:
+- Kurumsal ağınızda kullanıcılar Git *https://ExpenseApp/login/login.aspx* oturum açmak ve uygulamanıza erişmek için.
+- Uygulama proxy'si Klasör yapısındaki en üst düzeyinde erişmesi gereken görüntüleri gibi diğer varlıklar olduğundan ile uygulamayı yayımlama *https://ExpenseApp* İç URL.
+- Varsayılan dış URL *https://ExpenseApp-contoso.msappproxy.net*, hangi kullanıcılarınıza oturum açma sayfası olması değil.  
+- Ayarlama *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* olarak giriş sayfası URL'si. 
 
 >[!NOTE]
->Kullanıcıların yayımlanan uygulamalara erişim vermek, uygulamaları görüntülenen [Azure AD erişim paneli](../active-directory-saas-access-panel-introduction.md) ve [Office 365 uygulama Başlatıcı](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
+>Kullanıcıların yayımlanan uygulamalara erişmesini sağlamak, uygulamalar görüntülenecek [Azure AD erişim paneli](../user-help/active-directory-saas-access-panel-introduction.md) ve [Office 365 uygulama başlatıcısında](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
 Giriş sayfası URL'si ayarlamadan önce aşağıdaki gereksinimleri göz önünde bulundurun:
 
-* Belirttiğiniz yolda kök etki alanı URL'si bir alt etki alanı yolu olduğundan emin olun.
+* Belirttiğiniz yolun kök etki alanı URL bir alt etki alanı yolu olduğundan emin olun.
 
   Kök etki alanı URL'si, örneğin, ise https://apps.contoso.com/app1/, yapılandırdığınız giriş sayfası URL'si ile başlamalıdır https://apps.contoso.com/app1/.
 
-* Yayımlanan uygulama bir değişiklik yaparsanız, değişiklik giriş sayfası URL'si değerini sıfırlayabilir. Giriş sayfası URL'si, uygulama gelecekte yeniden denetle güncelleştirdiğinizde ve gerekirse güncelleştirin.
+* Yayımlanan uygulama için bir değişiklik yaparsanız, değişiklik giriş sayfası URL'si değerini sıfırlayabilir. Giriş sayfası URL'si güncelleştirdiğinizde, bağlantı uygulama gelecekte yeniden denetlemek ve gerekirse güncelleştirin.
 
 ## <a name="change-the-home-page-in-the-azure-portal"></a>Azure portalında giriş sayfasını değiştirme
 
 1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
-2. Gidin **Azure Active Directory** > **uygulama kayıtlar** ve uygulamanızı listeden seçin. 
+2. Gidin **Azure Active Directory** > **uygulama kayıtları** ve uygulamanızı listeden seçin. 
 3. Seçin **özellikleri** ayarlarından.
-4. Güncelleştirme **giriş sayfası URL'si** yeni yol ile alan. 
+4. Güncelleştirme **giriş sayfası URL'si** yeni yolunuzla alan. 
 
-   ![Yeni giriş sayfası URL'si belirtin](./media/application-proxy-configure-custom-home-page/homepage.png)
+   ![Yeni giriş sayfası URL'sini girin](./media/application-proxy-configure-custom-home-page/homepage.png)
 
 5. Seçin **Kaydet**
 
 ## <a name="change-the-home-page-with-powershell"></a>PowerShell ile giriş sayfasını değiştirme
 
-### <a name="install-the-azure-ad-powershell-module"></a>Azure AD PowerShell modülünü yükleyin
+### <a name="install-the-azure-ad-powershell-module"></a>Azure AD PowerShell modülünü yükleme
 
-PowerShell kullanarak özel giriş sayfası URL'si tanımlamadan önce Azure AD PowerShell modülünü yükleyin. Paketten indirebilirsiniz [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), Graph API uç noktası kullanır. 
+PowerShell kullanarak bir özel giriş sayfası URL'si tanımlamadan önce Azure AD PowerShell modülünü yükleyin. Paketten indirebileceğiniz [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), Graph API uç noktası kullanır. 
 
 Paketi yüklemek için aşağıdaki adımları izleyin:
 
-1. Standart bir PowerShell penceresi açın ve aşağıdaki komutu çalıştırın:
+1. Standart bir PowerShell penceresi açın ve ardından aşağıdaki komutu çalıştırın:
 
     ```
      Install-Module -Name AzureAD
     ```
-    Bir yönetici olmayan komutu çalıştırıyorsanız kullanmak `-scope currentuser` seçeneği.
-2. Yükleme sırasında seçin **Y** Nuget.org iki paketleri yüklemek için. Her iki paketin de gereklidir. 
+    Komutu yönetici olmayan çalıştırıyorsanız, kullanın `-scope currentuser` seçeneği.
+2. Yükleme sırasında seçin **Y** iki paketlerini Nuget.org adresinden yükleyin. Her iki paketi de gereklidir. 
 
-### <a name="find-the-objectid-of-the-app"></a>Uygulama objectID Bul
+### <a name="find-the-objectid-of-the-app"></a>ObjectID uygulamanın Bul
 
-Uygulama objectID alın ve sonra uygulama için kendi giriş sayfasına göre arayın.
+ObjectID uygulamanın alın ve ardından uygulamayı giriş sayfası arayın.
 
-1. Aynı PowerShell penceresinde Azure AD modülünü içeri aktarın.
+1. Aynı PowerShell penceresinde, Azure AD modülünü içeri aktarın.
 
     ```
     Import-Module AzureAD
     ```
 
-2. Azure AD modülünü Kiracı yönetici olarak oturum açın.
+2. Azure AD modülünü için Kiracı Yöneticisi olarak oturum açın.
 
     ```
     Connect-AzureAD
     ```
-3. Giriş sayfası URL'sini tabanlı uygulamayı bulun. Giderek URL portalında bulabilirsiniz **Azure Active Directory** > **kurumsal uygulamalar** > **tüm uygulamaları**. Bu örnekte *sharepoint iddemo*.
+3. Kendi giriş sayfası URL'sini temel alarak uygulamayı bulun. URL giderek portalda bulabilirsiniz **Azure Active Directory** > **kurumsal uygulamalar** > **tüm uygulamaları**. Bu örnekte *sharepoint iddemo*.
 
     ```
     Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
     ```
-4. Burada gösterilen benzer bir sonuç almak. Sonraki bölümde kullanmak için objectID GUID kopyalayın.
+4. Aşağıda gösterildiği gibi bir sonuç almanız gerekir. Sonraki bölümde kullanmak için objectID GUID kopyalayın.
 
     ```
     DisplayName : SharePoint
@@ -102,17 +102,17 @@ Uygulama objectID alın ve sonra uygulama için kendi giriş sayfasına göre ar
     ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
-### <a name="update-the-home-page-url"></a>Giriş sayfası URL'si güncelleştir
+### <a name="update-the-home-page-url"></a>Giriş sayfası URL'sini güncelleştirme
 
-Giriş sayfası URL'si oluşturun ve bu değeri ile uygulamanızı güncelleştirin. Bu komutları çalıştırmak üzere aynı PowerShell penceresini kullanarak devam edin. Veya yeni bir PowerShell penceresi kullanıyorsanız, Azure AD modülü kullanarak yeniden oturum açma `Connect-AzureAD`. 
+Giriş sayfası URL'si oluşturun ve bu değeri ile uygulamanızı güncelleştirin. Bu komutları çalıştırmak için aynı PowerShell penceresi kullanmaya devam edin. Veya yeni bir PowerShell penceresi kullanıyorsanız, Azure AD modülünü kullanarak tekrar oturum açma `Connect-AzureAD`. 
 
-1. Doğru uygulamanız ve Değiştir onaylayın *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* önceki bölümünde kopyaladığınız objectID ile.
+1. Doğru uygulamanız ve yerine onaylayın *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* ve önceki bölümde kopyaladığınız objectID ile.
 
     ```
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
- Uygulama Onaylandı, giriş sayfası aşağıdaki gibi güncelleştirmek hazırsınız.
+ Uygulama onayladıktan sonra giriş sayfası, şu şekilde güncelleştirmek hazırsınız.
 
 2. Yapmak istediğiniz değişiklikleri tutmak için bir boş uygulama nesnesi oluşturun. Bu değişken, güncelleştirmek istediğiniz değerleri tutar. Hiçbir şey bu adımda oluşturulur.
 
@@ -120,26 +120,26 @@ Giriş sayfası URL'si oluşturun ve bu değeri ile uygulamanızı güncelleşti
     $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
     ```
 
-3. Giriş sayfası URL'si istediğiniz değerine ayarlayın. Değer yayımlanan uygulama bir alt yolu olması gerekir. Örneğin, giriş sayfası URL'den değiştirirseniz *https://sharepoint-iddemo.msappproxy.net/* için *https://sharepoint-iddemo.msappproxy.net/hybrid/*, uygulama kullanıcılarınızın doğrudan özel giriş sayfasına gidin.
+3. Giriş sayfası URL'si istediğiniz değere ayarlayın. Değer yayımlanan bir uygulamanın bir alt etki alanı yolu olmalıdır. Örneğin, giriş sayfası URL değiştirirseniz *https://sharepoint-iddemo.msappproxy.net/* için *https://sharepoint-iddemo.msappproxy.net/hybrid/*, uygulama kullanıcılarının doğrudan özel giriş sayfasına gidin.
 
     ```
     $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
     ```
-4. İçinde kopyaladığınız GUID (objectID) kullanarak güncelleştirme yapmak "1. adım: uygulama objectID bulunamıyor."
+4. İçinde kopyaladığınız GUID (objectID) kullanılarak güncelleştirme olun "1. adım: objectID uygulamanın bulun."
 
     ```
     Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
     ```
-5. Değiştirme başarılı olduğunu doğrulamak için uygulamayı yeniden başlatın.
+5. Değişiklik başarılı olduğunu doğrulamak için uygulamayı yeniden başlatın.
 
     ```
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
 >[!NOTE]
->Uygulama için yaptığınız tüm değişiklikler, giriş sayfası URL'si sıfırlayabilir. Giriş sayfası URL'nizi sıfırlar, geri ayarlamak için bu bölümdeki adımları yineleyin.
+>Giriş sayfası URL'si uygulamaya yaptığınız tüm değişiklikler sıfırlayabilir. Giriş sayfası URL'nizi sıfırlarsa, geri ayarlamak için bu bölümdeki adımları yineleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [SharePoint Azure AD uygulama proxy'si ile uzaktan erişimi etkinleştir](application-proxy-integrate-with-sharepoint-server.md)
+- [Azure AD uygulama ara sunucusu ile SharePoint uzaktan erişimi etkinleştirme](application-proxy-integrate-with-sharepoint-server.md)
 - [Azure portalında uygulama ara sunucusunu etkinleştirme](application-proxy-enable.md)

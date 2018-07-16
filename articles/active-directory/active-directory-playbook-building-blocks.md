@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38451708"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049478"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook prova: yapı taşları
 
@@ -157,7 +157,7 @@ Yaklaşık bir saat tamamlamaya: 60 dakika
 | ServiceNow'ı yapılandırmak için yönergeleri izleyin |  |
 | ServiceNow uygulama "Hazırlama" dikey penceresinde "Otomatik" sağlamayı etkinleştir | [Yeni Azure portalında Kurumsal uygulamaları için sağlama kullanıcı hesabı yönetme](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Sağlama tamamlanırken birkaç dakika bekleyin.  Bu arada, sağlama raporlarda denetleyebilirsiniz. |  |
-| Oturum https://myapps.microsoft.com/ erişimi olan bir test kullanıcısı olarak | [Erişim paneli nedir?](active-directory-saas-access-panel-introduction.md) |
+| Oturum https://myapps.microsoft.com/ erişimi olan bir test kullanıcısı olarak | [Erişim paneli nedir?](user-help/active-directory-saas-access-panel-introduction.md) |
 | Az önce oluşturulan uygulama kutucuğuna tıklayın. Erişimi onaylama |  |
 | İsteğe bağlı olarak, uygulama kullanım raporlarını kontrol edebilirsiniz. Bu nedenle raporlarında trafiği görmek için bir süre beklemeniz gerekir biraz gecikme süresi olduğuna dikkat edin. | [Azure Active Directory portalındaki oturum açma etkinlik raporları: yönetilen uygulamaların kullanımı](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory rapor bekletme ilkeleri](active-directory-reporting-retention.md) |
 
@@ -188,8 +188,8 @@ Yaklaşık tamamlama süresi: 15 dakika
 | Parola SSO yapılandırma | [Yeni Azure portalında kurumsal uygulamalar için çoklu oturum açmayı yönetme: parola tabanlı oturum açma](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | Uygulama grubu Önkoşullarda atayın | [Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atama](manage-apps/assign-user-or-group-access-portal.md) |
 | Oturum https://myapps.microsoft.com/ erişimi olan bir test kullanıcısı olarak |  |
-| Az önce oluşturulan uygulama kutucuğuna tıklayın. | [Erişim paneli nedir?: parola tabanlı SSO kimlik sağlama olmadan](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
-| Uygulama kimlik bilgileri sağlayın | [Erişim paneli nedir?: parola tabanlı SSO kimlik sağlama olmadan](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Az önce oluşturulan uygulama kutucuğuna tıklayın. | [Erişim paneli nedir?: parola tabanlı SSO kimlik sağlama olmadan](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Uygulama kimlik bilgileri sağlayın | [Erişim paneli nedir?: parola tabanlı SSO kimlik sağlama olmadan](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Tarayıcıyı kapatın ve oturum açma yineleyin. Bu sefer orada kullanıcı uygulamaya sorunsuz erişim görmeniz gerekir. |  |
 | İsteğe bağlı olarak, uygulama kullanım raporlarını kontrol edebilirsiniz. Bu nedenle raporlarında trafiği görmek için bir süre beklemeniz gerekir biraz gecikme süresi olduğuna dikkat edin. | [Azure Active Directory portalındaki oturum açma etkinlik raporları: yönetilen uygulamaların kullanımı](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory rapor bekletme ilkeleri](active-directory-reporting-retention.md) |
 
@@ -308,7 +308,7 @@ Yaklaşık tamamlama süresi: 10 dakika
 | SaaS uygulaması (Federasyon SSO veya parola SSO) zaten yapılandırıldı | Yapı Taşı: [SaaS Federasyon SSO yapılandırma](#saas-federated-sso-configuration) |
 | Bulut uygulaması #1'na erişim atanan Grup tanımlanır | Yapı Taşı: [SaaS Federasyon SSO yapılandırma](#saas-federated-sso-configuration) <br/>[Bir grup oluşturun ve Azure Active Directory'de üye ekleme](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Grup sahibi için kimlik bilgileri kullanılabilir | [Azure Active Directory grupları ile kaynaklara erişimi yönetme](fundamentals/active-directory-manage-groups.md) |
-| Kimlik bilgilerini kullanarak uygulamalara bilgi çalışanı için tanımlanan | [Erişim paneli nedir?](active-directory-saas-access-panel-introduction.md) |
+| Kimlik bilgilerini kullanarak uygulamalara bilgi çalışanı için tanımlanan | [Erişim paneli nedir?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>Adımlar
@@ -318,7 +318,7 @@ Yaklaşık tamamlama süresi: 10 dakika
 | Uygulamaya erişim izni verilen grubu tanımlayın ve verilen sahibi yapılandırma grubu| [Azure Active Directory'de bir grubun ayarlarını yönetme ](fundamentals/active-directory-groups-settings-azure-portal.md) |
 | Grup sahibi olarak oturum açın, grup üyeliği gruplar sekmesinde erişim paneli içinde bakın | [Azure Active Directory grupları Yönetimi sayfası](https://account.activedirectory.windowsazure.com/r#/groups) |
 | Test etmek istediğiniz bilgi çalışanı Ekle |  |
-| Bilgi çalışanı olarak oturum açın, kutucuk kullanılabilir onaylayın | [Erişim paneli nedir?](active-directory-saas-access-panel-introduction.md) |
+| Bilgi çalışanı olarak oturum açın, kutucuk kullanılabilir onaylayın | [Erişim paneli nedir?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
@@ -332,7 +332,7 @@ Uygulama sağlamayı etkinleştirilmiş sahipse, sağlama uygulaması bilgi çal
 | --- | --- |
 | SaaS uygulaması (Federasyon SSO veya parola SSO) zaten yapılandırıldı | Yapı Taşı: [SaaS Federasyon SSO yapılandırma](#saas-federated-sso-configuration) |
 | Bulut uygulaması #1'na erişim atanan Grup tanımlanır | Yapı Taşı: [SaaS Federasyon SSO yapılandırma](#saas-federated-sso-configuration) <br/>[Bir grup oluşturun ve Azure Active Directory'de üye ekleme](fundamentals/active-directory-groups-create-azure-portal.md) |
-| Kimlik bilgilerini kullanarak uygulamalara bilgi çalışanı için tanımlanan | [Erişim paneli nedir?](active-directory-saas-access-panel-introduction.md) |
+| Kimlik bilgilerini kullanarak uygulamalara bilgi çalışanı için tanımlanan | [Erişim paneli nedir?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>Adımlar
@@ -380,7 +380,7 @@ Yaklaşık tamamlama süresi: 15 dakika
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
-| Kiracınızda parola Self Servis yönetimini etkinleştirin. | [Azure Active Directory parola sıfırlama için BT yöneticileri](active-directory-passwords-update-your-own-password.md) |
+| Kiracınızda parola Self Servis yönetimini etkinleştirin. | [Azure Active Directory parola sıfırlama için BT yöneticileri](user-help/active-directory-passwords-update-your-own-password.md) |
 | Parola geri yazma özelliğini şirket içi parolaları yönetmek etkinleştirin. Bunu gerektiren belirli Azure AD Not sürümleri bağlanma | [Parola Geri Yazma önkoşulları](authentication/howto-sspr-writeback.md) |
 | Bu işlevselliği kullanmak ve bunların güvenlik grubunun üyesi olduğundan emin olun PoC kullanıcıları belirleyin. Kullanıcılar Yönetici olmayanlar özelliği tam olarak göstermek için olmalıdır | [Özelleştirme: Azure AD parola yönetimi: parola sıfırlama için erişimi kısıtla](authentication/howto-sspr-writeback.md) |
 
@@ -395,7 +395,7 @@ Yaklaşık tamamlama süresi: 15 dakika
 | 2. adım yapılandırıldığı gibi Self Servis parola sıfırlama verileri sağlayın | https://aka.ms/ssprsetup |
 | Tarayıcıyı kapatın |  |
 | 4. adımda kullanılan bilgi çalışanı olarak oturum açma işlemini Başlat |  |
-| Parola sıfırlama | [Kendi parolanızı güncelleştirme: parolamı sıfırlama](active-directory-passwords-update-your-own-password.md) |
+| Parola sıfırlama | [Kendi parolanızı güncelleştirme: parolamı sıfırlama](user-help/active-directory-passwords-update-your-own-password.md) |
 | Yeni parolanızı şirket içi kaynaklar için de Azure ad oturum deneyin |  |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
@@ -428,7 +428,7 @@ Yaklaşık tamamlama süresi: 10 dakika
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
 1. Bu yapı taşı açık olarak bir kullanıcı için mfa'yı tüm oturum açma bilgilerini ayarlama PoC adımları. MFA hakkında daha fazla etkileşim kurun. koşullu erişim ve kimlik koruması gibi diğer araçları vardır hedeflenen senaryoları. Bu POC üretime taşırken dikkate alınması gereken bir şey olacaktır.
-2. Bu yapı taşı PoC adımlarda, telefon aramaları expedience için mfa'yı yöntemi olarak açıkça kullanıyor. POC üretim ortamına geçiş gibi uygulamalar gibi kullanılması önerilir [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) , mümkün olduğunda ikinci öğe olarak.
+2. Bu yapı taşı PoC adımlarda, telefon aramaları expedience için mfa'yı yöntemi olarak açıkça kullanıyor. POC üretim ortamına geçiş gibi uygulamalar gibi kullanılması önerilir [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) , mümkün olduğunda ikinci öğe olarak.
 Daha fazla bilgi edinin: [taslak NIST özel yayını 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>MFA SaaS uygulamaları için koşullu erişim
@@ -553,7 +553,7 @@ Yaklaşık tamamlanma süresi: 20 dakika
 | --- | --- |
 | Sağlanan kullanıcı sertifikadan (Windows, iOS veya Android) Kuruluş PKI ile cihaz | [Kullanıcı sertifikalarını dağıtma](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Azure AD etki alanı AD FS ile Federasyon | [Azure AD Connect ve federasyon](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory Sertifika Hizmetleri'ne Genel Bakış](https://technet.microsoft.com/library/hh831740.aspx)|
-| İOS cihazları için Microsoft Authenticator uygulamasının yüklü olması | [Microsoft Authenticator uygulaması ile çalışmaya başlama](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| İOS cihazları için Microsoft Authenticator uygulamasının yüklü olması | [Microsoft Authenticator uygulaması ile çalışmaya başlama](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme Bambu Sprout sosyal tarafından ile | Microsoft Docs'
-description: Çoklu oturum açma Bambu Sprout sosyal tarafından Azure Active Directory arasındaki yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tarafından Sprout sosyal Bambu ile tümleştirme | Microsoft Docs'
+description: Azure Active Directory ve Sprout sosyal tarafından Bambu arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 12859384ce79a34dbdb437aa402189fbf039c44c
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: eba6f2a22de42ce65996dbe0f9b75533d2a4dacc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285348"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047901"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Öğretici: Azure Active Directory Tümleştirme Bambu Sprout sosyal tarafından ile
+# <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Öğretici: Azure Active Directory tarafından Sprout sosyal Bambu ile tümleştirme
 
-Bu öğreticide, Bambu Sprout sosyal tarafından Azure Active Directory (Azure AD) ile tümleştirme öğrenin.
+Bu öğreticide, Bambu Sprout sosyal tarafından Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
-Sprout sosyal tarafından Bambu Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile Bambu tarafından Sprout sosyal tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Bambu Sprout sosyal tarafından erişimi, Azure AD'de kontrol edebilirsiniz
-- Azure AD hesaplarına otomatik olarak için Bambu Sprout sosyal tarafından (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Bambu Sprout sosyal tarafından erişebilir, Azure AD'de denetleyebilirsiniz
+- Azure AD hesaplarına otomatik olarak imzalanan Bambu için Sprout sosyal tarafından (çoklu oturum açma) açma, kullanıcılarınızın etkinleştirebilirsiniz
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Bambu Sprout sosyal tarafından ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirmesi Sprout sosyal tarafından Bambu ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bambu Sprout sosyal çoklu oturum açma etkin abonelik tarafından
+- Azure AD aboneliğiniz
+- Bir Bambu Sprout sosyal çoklu oturum açma etkin abonelik tarafından
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Bu gerekli olmadığı sürece, üretim ortamınızın kullanmamanız gerekir.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Bu gerekli olmadığı sürece üretim ortamınızı kullanmamanız gerekir.
+- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Bambu Sprout sosyal tarafından ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Galeriden Sprout sosyal tarafından Bambu ekleme
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="adding-bambu-by-sprout-social-from-the-gallery"></a>Galeriden Bambu Sprout sosyal tarafından ekleme
-Azure AD tarafından Sprout sosyal Bambu tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Bambu Sprout sosyal tarafından eklemeniz gerekir.
+## <a name="adding-bambu-by-sprout-social-from-the-gallery"></a>Galeriden Sprout sosyal tarafından Bambu ekleme
+Azure AD tarafından Sprout sosyal Bambu tümleştirilmesi yapılandırmak için Sprout sosyal tarafından Bambu Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden Bambu Sprout sosyal tarafından eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden Sprout sosyal tarafından Bambu eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure Portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalı](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -67,67 +67,67 @@ Azure AD tarafından Sprout sosyal Bambu tümleştirilmesi yapılandırmak için
 
     ![Uygulamalar][2]
     
-3. Tıklatın **yeni uygulama** yeni bir uygulama eklemek için iletişim kutusunun üst kısmında düğmesi.
+3. Tıklayın **yeni uygulama** yeni bir uygulama eklemek için iletişim kutusunun üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Sprout sosyal tarafından Bambu**.
+4. Arama kutusuna **Bambu Sprout sosyal tarafından**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_search.png)
 
-5. Sonuçlar panelinde seçin **Sprout sosyal tarafından Bambu**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Sonuçlar panelinde seçin **Bambu Sprout sosyal tarafından**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı sosyal Sprout tarafından Bambu ile test etme.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı sosyal Sprout tarafından Bambu ile test edin.
 
-Tekli çalışmaya oturum için Azure AD Bambu Sprout sosyal tarafından karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Sprout sosyal tarafından Bambu ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne Bambu Sprout sosyal tarafından karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı tarafından Sprout sosyal Bambu ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** Bambu Sprout sosyal tarafından içinde.
+Değerini atayarak bu bağlantı ilişki kurulduktan **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** Sprout sosyal tarafından Bambu içinde.
 
-Yapılandırma ve Azure AD çoklu oturum açma Sprout sosyal tarafından Bambu ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Bambu Sprout sosyal tarafından ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Bambu Sprout sosyal test kullanıcısı tarafından oluşturma](#creating-a-bambu-by-sprout-social-test-user)**  - Britta Simon, karşılık gelen Sprout Azure AD gösterimini her için bağlantılı sosyal tarafından Bambu sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Sprout sosyal test kullanıcı tarafından bir Bambu oluşturma](#creating-a-bambu-by-sprout-social-test-user)**  - Bambu Sprout Azure AD'ye gösterimini her için bağlı olan sosyal tarafından Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma, Bambu Sprout sosyal uygulama tarafından yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Sprout sosyal uygulama tarafından Bambu içinde yapılandırın.
 
-**Azure AD çoklu oturum açma Bambu Sprout sosyal tarafından yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma Bambu Sprout sosyal tarafından ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Bambu Sprout sosyal tarafından** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Bambu Sprout sosyal tarafından** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda, olarak **modu** seçin **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda olarak **modu** seçin **SAML tabanlı oturum açma** için çoklu oturum açmayı etkinleştirme.
  
     ![Çoklu oturum açmayı yapılandırın](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_samlbase.png)
 
-3. Üzerinde **Sprout sosyal etki alanı ve URL'leri Bambu** bölümü, kullanıcı gerekmez uygulama zaten Azure ile önceden tümleştirilmiş gibi tüm adımları gerçekleştirin. 
+3. Üzerinde **Bambu Sprout sosyal etki alanı ve URL'ler tarafından** bölümü, kullanıcı gerekmez uygulama zaten Azure ile önceden tümleştirilmiştir gibi tüm adımları gerçekleştirin. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_url.png)
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve XML dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda XML dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/bambubysproutsocial-tutorial/tutorial_general_400.png)
     
-6. Üzerinde **Sprout sosyal yapılandırma tarafından Bambu** 'yi tıklatın **yapılandırma Bambu Sprout sosyal tarafından** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **Bambu Sprout sosyal yapılandırması tarafından** bölümünde **yapılandırma Bambu Sprout sosyal tarafından** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_configure.png) 
 
-7. Çoklu oturum açma yapılandırmak için **Sprout sosyal tarafından Bambu** yan, indirilen göndermek için ihtiyacınız **meta veri XML** ve **SAML çoklu oturum açma hizmet URL'si** için [Sprout sosyal desteği tarafından Bambu](mailto:support@getbambu.com). Bunlar bu iki tarafta da ayarlamanızı SAML SSO bağlantınız için kurar.
+7. Çoklu oturum açmayı yapılandırma **Bambu Sprout sosyal tarafından** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** ve **SAML çoklu oturum açma hizmeti URL'si** için [ Sprout sosyal desteğini Bambu](mailto:support@getbambu.com). Bunlar bu için her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı kurar.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, yalnızca tıklayın **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklatmanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 <!--### Next steps
@@ -144,21 +144,21 @@ To ensure users can sign-in to Bambu by Sprout Social after it has been configur
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/bambubysproutsocial-tutorial/create_aaduser_01.png) 
 
-2. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcıların listesini görüntülemek için.
+2. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcılar listesini görüntüleyin.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/bambubysproutsocial-tutorial/create_aaduser_02.png) 
 
-3. İletişim kutusunun üstündeki **Ekle** açmak için **kullanıcı** iletişim.
+3. İletişim kutusunun en üstünde tıklayın **Ekle** açmak için **kullanıcı** iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/bambubysproutsocial-tutorial/create_aaduser_03.png) 
 
@@ -166,58 +166,58 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/bambubysproutsocial-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **Britta Simon**.
+    a. İçinde **adı** metin kutusuna **Britta Simon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** Britta Simon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** Britta simon'un.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**’a tıklayın.
  
-### <a name="creating-a-bambu-by-sprout-social-test-user"></a>Bambu tarafından Sprout sosyal test kullanıcısı oluşturma
+### <a name="creating-a-bambu-by-sprout-social-test-user"></a>Bir Bambu tarafından Sprout sosyal test kullanıcısı oluşturma
 
-Uygulama, süresi kullanıcı sağlama ve kimlik doğrulama kullanıcılar uygulamada otomatik olarak oluşturulacak sonra hemen destekler.
+Uygulama, zaman kullanıcı sağlamayı ve kimlik doğrulaması kullanıcılar uygulamaya otomatik olarak oluşturulacak sonra sadece destekler.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Britta Sprout sosyal tarafından Bambu için kendi erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma için Bambu Sprout sosyal tarafından erişim vererek kullanmak Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı Ata][200] 
 
-**Sprout sosyal tarafından Bambu Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Bambu Sprout sosyal tarafından atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Sprout sosyal tarafından Bambu**.
+2. Uygulamalar listesinde **Bambu Sprout sosyal tarafından**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı Ata][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Sprout sosyal parçasında tarafından Bambu tıklattığınızda, otomatik olarak, Bambu Sprout sosyal uygulama tarafından açan. Erişim paneli hakkında daha fazla ayrıntı için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Bambu tarafından erişim panelinde Sprout sosyal kutucuğa tıkladığınızda, size otomatik olarak, Bambu için Sprout sosyal uygulama tarafından açan. Erişim paneli hakkında daha fazla ayrıntı için bkz. [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

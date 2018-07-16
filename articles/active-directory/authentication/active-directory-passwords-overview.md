@@ -1,6 +1,6 @@
 ---
 title: Azure AD Self Servis parola sıfırlama genel bakış | Microsoft Docs
-description: Kuruluşunuz için hangi can Azure AD Self Servis parola sıfırlama musunuz?
+description: Hangi Azure AD Self Servis parola sıfırlama yapabilir, kuruluşunuz için?
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,60 +10,60 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 77d26d860462b1a82315bf1385bccf62047e3da3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e28918fe9e26221738fe234ad41923c58a6ac260
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866677"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049030"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Azure AD Self Servis parola sıfırlama için BT Uzmanı
 
-Azure Active Directory (Azure AD) Self Servis parola sıfırlama (SSPR) ile kullanıcılar kendi zaman ve nerede için gereksinim duydukları parolalarını sıfırlayın. Aynı zamanda, nasıl bir kullanıcının parolasını sıfırlamak Yöneticiler kontrol edebilirsiniz. Kullanıcılar artık yalnızca parolasını sıfırlamak için bir Yardım Masası çağırmanız gerekir. Azure AD SSPR'yi içerir:
+Azure Active Directory (Azure AD) Self Servis parola sıfırlama (SSPR) ile kullanıcılar, kendi ve gerekli konumlara kendi parolalarını sıfırlayabilir. Aynı anda yöneticileri bir kullanıcının parolasını sıfırlama denetleyebilir. Kullanıcılar artık yalnızca kullanıcının parolasını sıfırlamak için Yardım Masasını arayın gerekmez. Azure AD SSPR içerir:
 
-* **Self Servis parola değişikliği**: kullanıcı parolasını bilir, ancak yeni bir şey için değiştirmek istiyor.
-* **Self Servis parola sıfırlama**: kullanıcı oturum açamıyor ve bir veya daha fazla aşağıdaki doğrulanan kimlik doğrulama yöntemlerini kullanarak parolalarını sıfırlamak istiyor:
-   * Doğrulanmış cep telefonuna SMS mesajı gönderecek.
-   * Doğrulanmış bir cep telefonu numarası veya office telefon bir telefon araması yapın.
-   * Doğrulanmış ikincil e-posta hesabı için bir e-posta gönderin.
+* **Self Servis parola değişimi**: kullanıcı parolasını bilir, ancak yeni bir şeyle değiştirmek istiyor.
+* **Self Servis parola sıfırlama**: kullanıcı oturum açamıyor ve bir veya daha fazla aşağıdaki doğrulanmış kimlik doğrulama yöntemlerini kullanarak kullanıcının parolasını sıfırlamak istiyor:
+   * Doğrulanmış bir cep telefonuna bir kısa mesaj gönderin.
+   * Doğrulanmış bir cep telefonu numarası veya office telefona bir telefon araması yapın.
+   * Bir ikincil doğrulanmış e-posta hesabı için bir e-posta gönderin.
    * Güvenlik sorularını yanıtlayın.
-* **Self Servis hesabının kilidini**: kullanıcı kendi parolasıyla oturum açmanız ve görüntüleyemedi kilitlendi. Kullanıcı kendi kimlik doğrulama yöntemlerini kullanarak yönetici müdahalesi olmadan hesaplarının kilidini istiyor.
+* **Self Servis hesap kilidini açma**: kullanıcı, bir parolayla oturum açmasını belirleyemez ve kilitlendi. Kullanıcı kendi kimlik doğrulama yöntemlerini kullanarak yönetici müdahalesi olmadan hesaplarının kilidini istiyor.
 
 > [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
 
-## <a name="why-choose-azure-ad-sspr"></a>Neden Azure AD SSPR'yi seçin
+## <a name="why-choose-azure-ad-sspr"></a>Neden Azure AD SSPR'ı seçin
 
-Azure AD SSPR'yi size yardımcı olur:
+Azure AD SSPR size yardımcı olur:
 
-* **Maliyetleri azaltmak** Yardım Masası Yardımlı parola hesabı % 20'sini BT kuruluşun destek aramaları için sıfırlar. 
-* **Son kullanıcı deneyimleri geliştirmek** ve **yardım masasına miktarının azaltılmasını** son kullanıcıların kendi parola sorunlarını gidermek için güç vererek. Yardım Masasını arayın veya bir destek isteği açın gerek yoktur.
-* **Mobility sürücü** kullanıcılar oldukları yerlerde gelen parolalarını sıfırlayabilir gibi.
-* **Denetimi korumak** güvenlik ilkesinin. Yöneticiler, bugün sahip oldukları ilkelerini zorlamak devam edebilirsiniz.
+* **Maliyetleri azaltmak** Yardım Masası Yardımlı parola hesabı için bir BT kuruluşunun destek çağrılarının %20 sıfırlar. 
+* **Son kullanıcı deneyimlerini iyileştirmenin** ve **Yardım Masası miktarının azaltılmasını** tarafından son kullanıcılar kendi parola sorunları gidermek için gücüne sahip olmanızı sağlar. Yardım Masasını arayın veya bir destek isteği açmak için gerek yoktur.
+* **Mobility sürücü** gibi kullanıcılar parolalarını istedikleri yerden sıfırlayabilir.
+* **Denetimi elinizde** güvenlik ilkesi. Yöneticiler, bugün sahip oldukları ilkelerini zorlamak devam edebilirsiniz.
 
-Hazır olduğunuzda, Azure AD SSPR'yi ile kullanarak başlayabiliriz bizim [Hızlı Başlangıç Kılavuzu](quickstart-sspr.md). Kullanıcılarınızın kendi parolalarını sıfırlama olanağı için hızlı bir şekilde verebilirsiniz.
+Hazır olduğunuzda, Azure AD SSPR ile kullanarak oluşturabileceğinize dair bizim [hızlı başlangıç kılavuzunu](quickstart-sspr.md). Hızlı bir şekilde, kullanıcılarınıza kendi parolalarını sıfırlama olanağı verebilirsiniz.
 
-## <a name="azure-ad-sspr-availability"></a>Azure AD SSPR'yi kullanılabilirliği
+## <a name="azure-ad-sspr-availability"></a>Azure AD SSPR kullanılabilirlik
 
-Azure AD SSPR'yi aboneliğinize bağlı olarak üç katmanı bulunur:
+Azure AD SSPR, aboneliğinize bağlı olarak üç katmanda kullanılabilir:
 
-* **Azure AD serbest**: yalnızca bulut yöneticiler kendi parolalarını sıfırlayın.
-* **Azure AD temel** veya tüm **Ücretli Office 365 aboneliği**: yalnızca bulut kullanıcıların kendi parolalarını sıfırlayın.
-* **Azure AD Premium**: herhangi bir kullanıcı veya yönetici, yalnızca bulut, Federasyon, geçiş kimlik doğrulaması veya parola karma eşitlenen kullanıcılar dahil olmak üzere kendi parolalarını sıfırlayabilir. Şirket içi parolaları parola geri yazma etkin olmasını gerektirir.
+* **Azure AD ücretsiz**: yalnızca bulut yöneticileri kendi parolalarını sıfırlama.
+* **Azure AD temel** veya tüm **Ücretli Office 365 aboneliği**: sadece bulutta yer alan kullanıcılar kendi parolalarını sıfırlama.
+* **Azure AD Premium**: herhangi bir kullanıcı veya yönetici, yalnızca bulutta yer alan Federasyon, geçişli kimlik doğrulaması veya parola karması eşitlenmiş kullanıcılar dahil olmak üzere kendi parolalarını sıfırlayabilir. Şirket içi parolaları etkinleştirilmesi için parola geri yazma özelliğini gerektirir.
 
-## <a name="azure-ad-pricing-sla-updates-and-roadmap"></a>Azure AD fiyatlandırma, SLA, güncelleştirmeleri ve yol haritası
+## <a name="azure-ad-pricing-sla-updates-and-roadmap"></a>Azure AD fiyatlandırma ve SLA'sı, güncelleştirmeleri ve yol haritası
 
-Aşağıdaki sitelerde lisans, fiyatlandırma ve gelecekteki planları hakkında daha fazla ayrıntı bulunabilir:
+Lisans, fiyatlandırma ve gelecekteki planları hakkında daha fazla ayrıntı için aşağıdaki sitelerde bulunabilir:
 
 * [Azure AD fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/active-directory/)
-* [Office 365 fiyatlandırma](https://products.office.com/compare-all-microsoft-office-products?tab=2)
+* [Office 365 fiyatlandırması](https://products.office.com/compare-all-microsoft-office-products?tab=2)
 * [Azure hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/)
-* [Microsoft Çevrimiçi Hizmetler için hizmet düzeyi sözleşmesi](http://go.microsoft.com/fwlink/?LinkID=272026&clcid=0x409)
+* [Microsoft Online Hizmetleri için hizmet düzeyi sözleşmesi](http://go.microsoft.com/fwlink/?LinkID=272026&clcid=0x409)
 * [Azure güncelleştirmeleri](https://azure.microsoft.com/updates/)
 * [Azure yol haritası](https://www.microsoft.com/cloud-platform/roadmap-recently-available)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* SSPR ile çalışmaya başlamak hazır mısınız? [Self Servis Azure AD parolasını ayarla Sıfırla](quickstart-sspr.md).
-* Bulunan yönergeleri kullanarak kullanıcılarınıza başarılı bir SSPR dağıtım planlama bizim [sunum Kılavuzu](howto-sspr-deployment.md).
-* [Parolanızı sıfırlama veya değiştirme](../active-directory-passwords-update-your-own-password.md).
-* [Self servis parola sıfırlama için kaydolma](../active-directory-passwords-reset-register.md).
+* SSPR ile başlamaya hazır mısınız? [Azure AD Self Servis parolasını ayarla sıfırlama](quickstart-sspr.md).
+* Bulunan yönergeleri kullanarak kullanıcılarınıza başarılı bir SSPR dağıtım planlama bizim [Dağıtım Kılavuzu](howto-sspr-deployment.md).
+* [Parolanızı sıfırlama veya değiştirme](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Self servis parola sıfırlama için kaydolma](../user-help/active-directory-passwords-reset-register.md).

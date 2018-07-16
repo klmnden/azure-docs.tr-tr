@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme Öngörüyor CX Suite ile | Microsoft Docs'
-description: Çoklu oturum açma Öngörüyor CX Suite ile Azure Active Directory arasındaki yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Öngörüyor CX paketi | Microsoft Docs'
+description: Azure Active Directory ve Öngörüyor CX Suite arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
-ms.openlocfilehash: e27bc853db6236165d77f2fb3418bab1170400b2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4c126b3bf08174886b3668cd54c76b72d113ba76
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227712"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047119"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Öğretici: Azure Active Directory Tümleştirme Öngörüyor CX Suite ile
+# <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Öğretici: Azure Active Directory Öngörüyor CX Suite ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Öngörüyor CX Suite tümleştirmek öğrenin.
+Bu öğreticide, CX Suite Öngörüyor Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
-Öngörüyor CX Suite Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+CX Suite Öngörüyor Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Öngörüyor CX Suite erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak Öngörüyor CX paketine (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- CX Suite Öngörüyor erişimi, Azure AD'de kontrol edebilirsiniz.
+- Azure AD hesaplarına otomatik olarak imzalanan Öngörüyor CX paketine (çoklu oturum açma) açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Öngörüyor CX paketiyle yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirmesi Öngörüyor CX Suite ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir Öngörüyor CX Suite çoklu oturum açma abonelik etkin
+- Azure AD aboneliğiniz
+- Abonelik Öngörüyor CX Suite çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
-Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Öngörüyor CX paketi ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-foresee-cx-suite-from-the-gallery"></a>Galeriden Öngörüyor CX paketi ekleme
-Azure AD Öngörüyor CX Suite tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Öngörüyor CX paketi eklemeniz gerekir.
+Azure AD'de Öngörüyor CX takımının tümleştirmesini yapılandırmak için CX Suite Öngörüyor Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Öngörüyor CX paketi eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi.
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi][1]
 
@@ -69,35 +69,35 @@ Azure AD Öngörüyor CX Suite tümleştirilmesi yapılandırmak için yönetile
 
     ![Kurumsal uygulamalar dikey penceresi][2]
 
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna yazın **Öngörüyor CX Suite**seçin **Öngörüyor CX Suite** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **Öngörüyor CX Suite**seçin **Öngörüyor CX Suite** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuçlar listesinde CX Suite Öngörüyor](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Öngörüyor CX "Britta Simon" adlı bir test kullanıcı tabanlı Suite ile test etme.
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma Öngörüyor CX "Britta Simon" adlı bir test kullanıcı tabanlı Suite ile test edin.
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen Öngörüyor CX grubundaki bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Öngörüyor CX paketindeki ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek çalışmak için oturum açma için Azure AD ne karşılık gelen kullanıcı Öngörüyor CX grubundaki bir kullanıcı için Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Öngörüyor CX paketindeki ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma Öngörüyor CX Suite ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Öngörüyor CX Suite ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Öngörüyor CX Suite test kullanıcısı oluşturma](#create-a-foresee-cx-suite-test-user)**  - Britta Simon, karşılık gelen Öngörüyor CX kullanıcı Azure AD gösterimini bağlantılı Suite sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[CX Suite Öngörüyor test kullanıcısı oluşturma](#create-a-foresee-cx-suite-test-user)**  - paketindeki Öngörüyor CX kullanıcı Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Öngörüyor CX Suite uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Öngörüyor CX Suite uygulamanızı yapılandırın.
 
-**Azure AD çoklu oturum açma Öngörüyor CX paketiyle yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma Öngörüyor CX Suite ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Öngörüyor CX Suite** uygulama tümleştirmesi sayfasında, tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Öngörüyor CX Suite** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
@@ -105,58 +105,58 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açma iletişim kutusu](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_samlbase.png)
 
-3. Üzerinde **Öngörüyor CX Suite etki alanı ve URL'leri** varsa, bölüm **hizmet sağlayıcısı meta veri dosyası**, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Öngörüyor CX Suite etki alanı ve URL'ler** varsa, bölüm **hizmet sağlayıcısı meta veri dosyası**, aşağıdaki adımları gerçekleştirin:
 
-    ![CX Suite etki alanı ve URL'leri tek oturum açma bilgilerini Öngörüyor](./media/foreseecxsuite-tutorial/upload.png)
+    ![CX Suite etki alanı ve URL'ler tek oturum açma bilgileri Öngörüyor.](./media/foreseecxsuite-tutorial/upload.png)
 
-    a. Tıklatın **karşıya yükleme meta veri dosyası**.
+    a. Tıklayın **meta veri dosyasını karşıya yükleme**.
 
-    ![CX Suite etki alanı ve URL'leri tek oturum açma bilgilerini Öngörüyor](./media/foreseecxsuite-tutorial/tutorial_foreseen_uploadconfig.png)
+    ![CX Suite etki alanı ve URL'ler tek oturum açma bilgileri Öngörüyor.](./media/foreseecxsuite-tutorial/tutorial_foreseen_uploadconfig.png)
 
-    b. Tıklayın **klasörü logosu** meta veri dosyası seçin ve **karşıya**.
+    b. Tıklayarak **klasör logosu** meta veri dosyası seçin ve **karşıya**.
 
-    c. Karşıya başarıyla tamamlandıktan sonra **hizmet sağlayıcısı meta veri dosyası** **tanımlayıcısı** değeri get otomatik doldurulmuş **Öngörüyor CX Suite etki alanı ve URL'leri** bölümü Aşağıda gösterildiği gibi metin:
+    c. Karşıya yükleme işlemin başarıyla tamamlanmasından sonra **hizmet sağlayıcısı meta veri dosyası** **tanımlayıcı** değeri get otomatik doldurulur **Öngörüyor CX Suite etki alanı ve URL'ler** bölümü Aşağıda gösterildiği gibi metin:
 
-    ![CX Suite etki alanı ve URL'leri tek oturum açma bilgilerini Öngörüyor](./media/foreseecxsuite-tutorial/urlupload.png)
+    ![CX Suite etki alanı ve URL'ler tek oturum açma bilgileri Öngörüyor.](./media/foreseecxsuite-tutorial/urlupload.png)
 
-4. Sahip değilseniz **hizmet sağlayıcısı meta veri dosyası**, aşağıdaki adımları gerçekleştirin:
+4. Öğeniz yoksa **hizmet sağlayıcısı meta veri dosyası**, aşağıdaki adımları gerçekleştirin:
 
-    ![CX Suite etki alanı ve URL'leri tek oturum açma bilgilerini Öngörüyor](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_url.png)
+    ![CX Suite etki alanı ve URL'ler tek oturum açma bilgileri Öngörüyor.](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın: `https://cxsuite.foresee.com/`
+    a. İçinde **oturum açma URL'si** metin kutusuna URL'yi yazın: `https://cxsuite.foresee.com/`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://www.okta.com/saml2/service-provider/<UniqueID>`
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://www.okta.com/saml2/service-provider/<UniqueID>`
 
     > [!NOTE]
-    > Tanımlayıcı değeri gerçek değil. Bu değer gerçek tanımlayıcısı ile güncelleştirin. Kişi [Öngörüyor CX Suite istemci destek ekibi](mailto:support@foresee.com) bu değeri alınamıyor.
+    > Tanımlayıcı değerini gerçek değil. Bu değer, gerçek tanımlayıcısıyla güncelleştirin. İlgili kişi [Öngörüyor CX Suite istemci Destek ekibine](mailto:support@foresee.com) bu değeri alınamıyor.
 
-5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+5. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_certificate.png)
 
-6. Tıklatın **kaydetmek** düğmesi.
+6. Tıklayın **Kaydet** düğmesi.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/foreseecxsuite-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/foreseecxsuite-tutorial/tutorial_general_400.png)
 
-7. Çoklu oturum açma yapılandırmak için **Öngörüyor CX Suite** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [Öngörüyor CX Suite Destek Ekibi](mailto:support@foresee.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+7. Çoklu oturum açmayı yapılandırma **Öngörüyor CX Suite** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [Öngörüyor CX Suite Destek ekibine](mailto:support@foresee.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/foreseecxsuite-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/foreseecxsuite-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/foreseecxsuite-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/foreseecxsuite-tutorial/create_aaduser_03.png)
 
@@ -166,57 +166,57 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
 
-### <a name="create-a-foresee-cx-suite-test-user"></a>Öngörüyor CX Suite test kullanıcısı oluşturma
+### <a name="create-a-foresee-cx-suite-test-user"></a>CX Suite Öngörüyor test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Öngörüyor CX paketindeki adlı bir kullanıcı oluşturun. Çalışmak [Öngörüyor CX Suite Destek Ekibi](mailto:support@foresee.com) kullanıcıları veya Öngörüyor CX Suite Platform güvenilir listesinde olması için gerekli olan etki alanı eklemek için. Etki alanı ekibi tarafından eklediyseniz, kullanıcıların otomatik olarak Öngörüyor CX Suite platform için sağlanan. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir.
+Bu bölümde, Britta Simon Öngörüyor CX paketindeki adlı bir kullanıcı oluşturun. Çalışmak [Öngörüyor CX Suite Destek ekibine](mailto:support@foresee.com) kullanıcı veya Öngörüyor CX Suite platformunda Güvenilenler listesine eklenmek için gerekli olan etki alanı eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak Öngörüyor CX Suite platforma sağlandı. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta Öngörüyor CX paketine erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma Öngörüyor CX paketine erişim vererek kullanmak Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200]
 
 **Britta Simon Öngörüyor CX paketine atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201]
+    ![Kullanıcı Ata][201]
 
 2. Uygulamalar listesinde **Öngörüyor CX Suite**.
 
     ![Uygulamalar listesinde Öngörüyor CX Suite bağlantısı](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_app.png)
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Öngörüyor CX Suite parçasında tıklattığınızda, otomatik olarak Öngörüyor CX Suite uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Erişim panelinde Öngörüyor CX Suite kutucuğa tıkladığınızda, otomatik olarak Öngörüyor CX paketini uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

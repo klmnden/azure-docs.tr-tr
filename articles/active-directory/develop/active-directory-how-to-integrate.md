@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory ile tümleştirme | Microsoft Docs
-description: Bir kılavuz avantajları ve Azure Active Directory ile tümleştirme için kaynaklar.
+description: Avantajları ve kaynakları Azure Active Directory ile tümleştirme için bir kılavuz.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -17,71 +17,71 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6de3094e903c3584aa4a57e7792e4b07711f74a
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 79721c2ad0ae83e3c8bd103aee94916f1e2995aa
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937147"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054646"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory ile tümleştirme
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory, bulut uygulamaları için kurumsal düzeyde kimlik yönetimi kuruluşlarla sağlar. Azure AD tümleştirme kullanıcılarınızın kolaylaştırılmış bir oturum açma deneyimi sağlar ve BT ilkesine uygun uygulamanızı yardımcı olur.
+Azure Active Directory, bulut uygulamalarınız için kurumsal düzeyde kimlik yönetimi ile kuruluşlar sağlar. Azure AD tümleştirmesi, kullanıcılarınızın kolaylaştırılmış bir oturum açma deneyimi sağlar ve uygulamanızın BT ilkesine uygun yardımcı olur.
 
 ## <a name="how-to-integrate"></a>Tümleştirme
-Azure AD ile tümleştirmek, uygulamanız için birkaç yolu vardır. Birçok veya uygulamanız için uygun olduğu şekilde bu senaryoların az sayıda olarak yararlanın.
+Uygulamanızın Azure AD ile tümleştirmek birkaç yol vardır. Birçok veya uygulamanız için uygun olduğu gibi Bu senaryolardan birkaç olarak avantajlarından yararlanın.
 
-### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Uygulamanız için oturum açma için bir yol olarak Azure AD desteği
-**Oturum açma uyuşmazlık ve destek maliyetlerini azaltmak.** Uygulamanıza oturum açmak için Azure AD kullanarak, kullanıcılarınızın daha fazla bir ada sahip olmaz ve parolayı unutmayın. Bir geliştirici olarak depolamak ve korumak için daha az bir parola gerekir. Unutulmuş parola sıfırlama işlemek olmaması önemli tasarruf tek başına olabilir. Azure AD oturum açma bazı Office 365 ve Microsoft Azure gibi dünyanın en popüler bulut uygulamaları için çalıştırır. Milyonlarca yüzlerce kuruluşlar milyonlarca kullanıcılardan, olasılığı olan kullanıcınız zaten oturum için Azure AD. Daha fazla bilgi edinmek [Azure AD oturum açma için destek ekleyen](active-directory-authentication-scenarios.md).
+### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Azure AD oturum açma, uygulamanız için bir yol olarak desteği
+**Oturum açma uyuşmazlıkları azaltın ve destek maliyetlerini azaltır.** Uygulamanıza oturum açmak için Azure AD'yi kullanarak, kullanıcılarınızın bir daha fazla ad olmaz ve parolayı unutmayın. Bir geliştirici olarak depolamak ve korumak için daha az bir parola gerekir. Unutulmuş parola sıfırlama işlemlerini işlemek zorunda değil, tek başına bir önemli ölçüde tasarruf olabilir. Azure AD oturum açma bazı Office 365 ve Microsoft Azure dahil olmak üzere dünyanın en popüler bulut uygulamaları için güçlendirir. Yüz milyonlarca ile kullanıcılara kuruluşları milyonlarca olasılığı olan kullanıcı zaten işaretli Azure AD'ye. Daha fazla bilgi edinin [Azure AD oturum açma desteği eklendi](active-directory-authentication-scenarios.md).
 
-**Oturum, uygulamanız için yukarı basitleştirin.**  Böylece form kaydolma önceden doldurun veya tamamen ortadan kaydolma sırasında uygulamanız için Azure AD kullanıcı hakkındaki temel bilgileri gönderebilirsiniz. Kullanıcılar kendi Azure AD hesabının sosyal medya ve mobil uygulamaları bulunan benzer bir bilinen onayı deneyimi aracılığıyla kullanarak uygulamanız için kaydolabilirsiniz. Herhangi bir kullanıcı, kaydolma ve BT katılımı gerek kalmadan Azure AD ile tümleşik bir uygulama için oturum açın. Daha fazla bilgi edinmek [uygulamanızı Azure AD hesabının oturum açma için kaydolduğunuz](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+**Oturum, uygulamanız için yedekleme basitleştirin.**  Böylece form kaydolma önceden doldurun veya tamamen ortadan kaydolma sırasında uygulamanız için Azure AD kullanıcı hakkındaki temel bilgileri gönderebilirsiniz. Kullanıcıların uygulamanızı sosyal medya ve mobil uygulamalarda bulunan benzer bir tanıdık onayı deneyimi aracılığıyla kendi Azure AD hesabını kullanarak kaydolabilirsiniz. Herhangi bir kullanıcı, kaydolma ve BT'ye gerek kalmadan Azure AD ile tümleştirilmiş bir uygulama için oturum açın. Daha fazla bilgi edinin [uygulamanız Azure AD hesap oturum açma için imzalama-yukarı](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
-### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Kullanıcılar için Gözat, kullanıcı sağlama yönetmek ve uygulamanıza erişimi denetleme
-**Dizindeki kullanıcıları için göz atın.**  Arayın ve diğerleri davet zaman kendi kuruluşunuzdaki diğer kişilerin göz kullanıcılara yardımcı olmak için grafik API'sini kullanın veya bunları e-posta türü için gerektirmek yerine erişim verilmesi giderir. Kullanıcıların Kurumsal hiyerarşiye ayrıntılarını görüntüleme dahil olmak üzere bir bilinen adres defteri stili arabirimini kullanarak göz atabilirsiniz. Daha fazla bilgi edinmek [grafik API'si](active-directory-graph-api.md).
+### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Kullanıcılar için göz, kullanıcı sağlamayı yönetme ve uygulamanıza erişimi denetleme
+**Dizininde yer alan kullanıcılar için göz atın.**  Arama ve diğer davet ettiğinizde kuruluşlarındaki diğer kişiler için Gözat kullanıcılara yardımcı olmak için Graph API'sini kullanın veya e-posta türü için gerek yerine erişim verme yöneliktir. Kullanıcılar, kuruluş hiyerarşisini ayrıntılarını görüntüleme dahil olmak üzere bir tanıdık adres defteri stili arabirimini kullanarak göz atabilirsiniz. Daha fazla bilgi edinin [Graph API'si](active-directory-graph-api.md).
 
-**Active Directory grupları ve dağıtım listeleri müşteri zaten yönetme yeniden kullanır.**  Azure AD müşteri zaten e-posta dağıtım için kullanarak ve erişim yönetimi gruplarını içerir. Grafik API'sini kullanarak, bu grupları oluşturmak ve uygulamanızı gruplarında ayrı bir dizi yönetmek müşteri gerektirmek yerine yeniden kullanın. Grup bilgileri, uygulamanıza oturum açma belirteçleri da gönderilebilir. Daha fazla bilgi edinmek [grafik API'si](active-directory-graph-api.md).
+**Active Directory grupları ve dağıtım listeleri müşteri zaten yönetiyor yeniden kullanın.**  Azure AD, müşteri zaten e-posta dağıtım için kullanarak ve erişim yönetimi grupları içerir. Graph API'sini kullanarak, bu grupları oluşturmak ve uygulamanızı gruplarında ayrı bir dizi yönetmek, müşteri göstermek zorunda kalmadan yeniden kullanın. Grup bilgileri uygulamanıza oturum açma belirteçleri de da gönderilebilir. Daha fazla bilgi edinin [Graph API'si](active-directory-graph-api.md).
 
-**Azure AD, uygulamanıza erişimi denetlemek için kullanın.**  Yöneticiler ve uygulama sahipleri Azure AD'de uygulamalar belirli kullanıcılar ve gruplar için erişimi atayabilirsiniz. Grafik API'sini kullanarak, bu liste okuyun ve sağlama ve kaynakları sağlamayı kaldırma özelliklerini denetlemek ve uygulamanızdaki erişmek için kullanın.
+**Azure AD uygulama erişimi denetlemek için kullanın.**  Yöneticileri ve Azure AD'de uygulama sahipleri erişimi belirli kullanıcılara ve gruplara uygulamaları atayabilirsiniz. Graph API'sini kullanarak, bu liste okuyun ve hazırlama ve sağlamayı kaynakları denetlemek ve uygulamanızın içinden erişmek için kullanın.
 
-**Tabanlı erişim denetimi rolleri için Azure AD kullanın.**  Yöneticiler ve uygulama sahipleri kullanıcıların ve grupların Azure AD içinde uygulamanızı kaydederken tanımladığınız roller atayabilirsiniz. Rol bilgilerini oturum belirteçlerinde uygulamanızda gönderilir ve ayrıca grafik API'sini kullanarak okunabilir. Daha fazla bilgi edinmek [yetkilendirme için Azure AD kullanarak](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
+**Tabanlı erişim denetimi rolleri için Azure AD kullanın.**  Yöneticiler ve uygulama sahipleri kullanıcıları ve grupları Azure AD'de uygulamanızı kaydettiğinizde, tanımladığınız rolleri atayabilirsiniz. Rol bilgilerini uygulamanıza oturum açma belirteçleri de gönderilir ve Graph API'si kullanılarak da okunabilir. Daha fazla bilgi edinin [yetkilendirme için Azure AD kullanarak](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
-### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Kullanıcı profili, takvim, e-posta, kişiler, dosyaları ve daha fazla erişmek
-**Azure AD, Office 365 ve diğer Microsoft iş Hizmetleri için yetkilendirme sunucusudur.**  Uygulamanızı veya OAuth 2.0 kullanan Azure AD kullanıcı hesapları için geçerli kullanıcı hesaplarınızı bağlama desteği için oturum açma için Azure AD destekliyorsa, okuma ve yazma erişimi bir kullanıcının profilini, takvim, e-posta, kişiler, dosyalara ve diğer bilgileri isteyebilir. Sorunsuz bir şekilde kullanıcının takvime yazma olayları ve da okumak veya kendi OneDrive dosyalarını yazabilirsiniz. Daha fazla bilgi edinmek [Office 365 API'leri erişme](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
+### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Kullanıcının profilini, takvim, e-posta, kişiler, dosyalar ve daha fazla erişin
+**Azure AD Office 365 ve diğer Microsoft hizmetlerini yetkilendirme sunucusudur.**  Azure AD uygulamanız veya OAuth 2.0 kullanarak Azure AD kullanıcı hesapları için geçerli kullanıcı hesaplarınızı bağlama desteği için oturum açma desteği, okuma ve yazma erişimi için bir kullanıcının profilini, takvim, e-posta, kişiler, dosyalar ve diğer bilgileri isteyebilir. Sorunsuz bir şekilde kullanıcının takvime olayları yazma ve da okuma veya kendi OneDrive dosyalarını yazma. Daha fazla bilgi edinin [Office 365 API'lerine erişme](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
 
-### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Uygulamanızı Azure ve Office 365 Pazar Yükselt
-**Uygulamanızı Azure AD zaten kullanan kuruluşlar milyonlarca yükseltin.**  Arama ve bu Pazar Gözat kullanıcılar bir zaten kullanıyor veya Bulut hizmeti müşteriler bunları yaparak daha fazla bulut hizmeti yetkili. Uygulamanızda yükseltme hakkında daha fazla bilgi [Azure Marketi](https://azure.microsoft.com/marketplace/partner-program/).
+### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Azure ve Office 365 Marketlerden uygulamanızda Yükselt
+**Zaten Azure AD kullanan kuruluşlar milyonlarca uygulamanızı tanıtın.**  Arama ve bu marketlerden Gözat kullanıcılar zaten kullanıyorsanız veya yönetilmelerini daha fazla bulut Hizmetleri, bulut hizmet müşterileri tam ad. Uygulamanızı yükseltme hakkında daha fazla bilgi [Azure Marketi'nde](https://azure.microsoft.com/marketplace/partner-program/).
 
-**Kullanıcılar, uygulamanız için kaydolduğunuzda, kendi Azure AD erişim paneli ve Office 365 uygulama Başlatıcı görünür.**  Kullanıcıların kullanıcı etkileşimini geliştirme hızla ve kolayca daha sonra uygulamanızı iade etme olanağınız olur. Daha fazla bilgi edinmek [Azure AD erişim paneli](../active-directory-saas-access-panel-introduction.md).
+**Uygulamanız için kullanıcıların oturum açarken Azure AD erişim panelinde ve Office 365 uygulama Başlatıcısı içinde görünür.**  Kullanıcı etkileşimini iyileştirme kullanıcılar daha sonra uygulamanızı hızlı ve kolay bir şekilde geri dönmek mümkün olacaktır. Daha fazla bilgi edinin [Azure AD erişim paneli](../user-help/active-directory-saas-access-panel-introduction.md).
 
-### <a name="secure-device-to-service-and-service-to-service-communication"></a>Aygıt hizmeti ve hizmet iletişimin güvenliğini sağlama
-**Azure AD Kimlik Yönetimi Hizmetleri ve cihazların yazmanız gereken kod azaltır için kullanarak ve BT'nin sağlar erişimi yönetmek üzere.**  Hizmetler ve cihazlar, OAuth kullanan Azure AD'den belirteçleri almak ve web API'leri erişmek için bu simgeleri kullanın. Azure AD kullanarak karmaşık kimlik doğrulama kodu yazma önleyebilirsiniz. Azure AD içinde cihazları ve Hizmetleri kimlikleri depolandığından BT anahtarları ve bunu ayrı olarak uygulamanızda yapmak zorunda kalmak yerine tek bir yerde iptal yönetebilirsiniz.
+### <a name="secure-device-to-service-and-service-to-service-communication"></a>Cihazın hizmete ve hizmetten hizmete iletişimi güvenli hale getirme
+**Azure AD Kimlik Yönetimi, hizmet ve cihazları yazmanız gereken kodu azaltır için kullanarak ve BT'nin erişimi yönetmek için.**  Hizmetler ve cihazlar, Azure AD kullanarak OAuth belirteçlerini almak ve web API'lerine erişmek için bu belirteçleri kullanın. Azure AD kullanarak karmaşık kimlik doğrulama kodu yazarken önleyebilirsiniz. Azure AD'de cihazları ve Hizmetleri kimliklerini depolandığından BT anahtarları ve iptal bunu ayrı olarak uygulamanızda yapmak zorunda kalmak yerine tek bir yerden yönetebilirsiniz.
 
-## <a name="benefits-of-integration"></a>Tümleştirme yararları
-Azure AD ile tümleştirme ek kod yazmanız gerekmez yararları ile birlikte gelir.
+## <a name="benefits-of-integration"></a>Tümleştirmesinin avantajları
+Azure AD ile tümleştirme, ek kod yazmayı gerektirmeyen avantaj sunar.
 
 ### <a name="integration-with-enterprise-identity-management"></a>Kurumsal kimlik yönetimi ile tümleştirme
-**BT ilkelerine uygun uygulamanızı yardımcı olur.**  Kuruluşlar, Kurumsal kimlik yönetimi sistemlerini Azure AD ile tümleştirmek bir kişi bir kuruluş ayrıldığında, otomatik olarak erişim uygulamanıza kaybederler için ek adımlar gerek BT. BT, uygulamanızın erişebilecek ve hangi erişim ilkeleri - örnek çok faktörlü kimlik doğrulama - karmaşık şirket ilkeleriyle uyumlu için kod yazma, gereksinimini azaltır gerektiğini belirlemek yönetebilirsiniz. Azure AD uygulamanıza nedenle açtığınız için kimin, ayrıntılı denetim günlüğü yöneticilerine sağlar BT kullanımını izleyebilirsiniz.
+**Uygulamanızı BT ilkeleriyle uyumlu yardımcı olur.**  Kuruluşlar, Azure AD ile Kurumsal kimlik yönetimi sistemlerini tümleştirin bir kişi bir kuruluş ayrıldığında, otomatik olarak uygulamanıza kaybederler için ek adımlar uygulaması gerek kalmadan BT. BT, uygulamanızın erişebilecek ve hangi erişim ilkeleri - örnek çok faktörlü kimlik doğrulaması - karmaşık şirket ilkeleriyle uyumlu için kod yazma gereksiniminizi azaltır gerektiğini belirlemek yönetebilirsiniz. Azure AD ile uygulamanıza şekilde açan için olan, bir ayrıntılı denetim günlüğü yöneticilere BT kullanımını izleyebilirsiniz.
 
-**Böylece uygulamanız AD ile tümleştirebilirsiniz azure AD bulut için Active Directory genişletir.**  Birçok kuruluş dünyanın kendi asıl oturum açma ve kimlik yönetimi sistemi Active Directory'yi kullanmak ve AD ile çalışmak üzere uygulamalarını gerektirir. Azure AD ile tümleştirme, uygulamanızın Active Directory ile tümleştirir.
+**Uygulamanızı AD ile tümleştirilebilir. böylece azure AD Active Directory buluta genişletir.**  Dünyanın birçok kuruluşun kendi asıl oturum açma ve kimlik yönetimi sistemi Active Directory kullanın ve AD ile çalışmaya uygulamalarının gerektirdiği. Uygulamanızı Azure AD ile tümleştirme Active Directory ile tümleşir.
 
 ### <a name="advanced-security-features"></a>Gelişmiş güvenlik özellikleri
-**Çok faktörlü kimlik doğrulaması.**  Azure AD yerel çok faktörlü kimlik doğrulaması sağlar. Bu destek kendiniz kod gerekmez böylece BT yöneticileri, uygulamanızın erişmek için çok faktörlü kimlik doğrulaması gerektirebilir. Daha fazla bilgi edinmek [çok faktörlü kimlik doğrulaması](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Çok faktörlü kimlik doğrulaması.**  Azure AD yerel çok faktörlü kimlik doğrulaması sağlar. Böylece bu desteğin kodunu kendiniz gerekmez, BT yöneticileri uygulamanıza erişim için multi-Factor authentication isteyebilir. Daha fazla bilgi edinin [multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
-**Anormal oturum açma algılama.**  Azure AD bir milyardan fazla oturum açma işlemleri şüpheli etkinlikleri algılamak ve BT yöneticileri olası sorunları bildirmek için machine learning algoritmaları kullanılırken günde işler. Azure AD oturum açma destekleyerek, uygulamanız bu koruma yararı alır. Daha fazla bilgi edinmek [Azure Active Directory erişimi raporu görüntüleme](../active-directory-view-access-usage-reports.md).
+**Anormal oturum açma algılama.**  Azure AD, şüpheli etkinlikleri algılamak ve BT yöneticileri olası sorunları bildirmek için makine öğrenimi algoritmaları kullanırken, günde bir milyardan fazla oturum açma işlemlerini işler. Azure AD oturum açma destekleyerek, uygulamanız bu koruma avantajı alır. Daha fazla bilgi edinin [Azure Active Directory erişim raporu görüntüleyen](../active-directory-view-access-usage-reports.md).
 
-**Koşullu erişim.**  Çok faktörlü kimlik doğrulaması ek olarak, yöneticiler gerektirebilir belirli koşullar kullanıcılar oturum uygulamanıza açma önce. Ayarlanabilir koşullar istemci aygıtları, belirtilen gruplarının üyeliği ve erişim için kullanılan aygıt durumunu IP adres aralığı içerir. Daha fazla bilgi edinmek [Azure Active Directory koşullu erişim](../active-directory-conditional-access-azure-portal.md).
+**Koşullu erişim.**  Çok faktörlü kimlik doğrulamasına ek olarak, yöneticiler gerektirebilir belirli koşullar onlara kullanıcıların uygulamanıza oturum önce. Ayarlanabilir koşullar istemci cihazlar, belirtilen grup üyeliği ve erişim için kullanılan cihaz durumu IP adres aralığı içerir. Daha fazla bilgi edinin [Azure Active Directory koşullu erişim](../active-directory-conditional-access-azure-portal.md).
 
 ### <a name="easy-development"></a>Kolay geliştirme
-**Endüstri standardı protokoller.**  Microsoft destek endüstri standartları taahhüt eder. Azure AD SAML 2.0, Openıd Connect 1.0, OAuth 2.0 ve WS-Federasyon 1.2 kimlik doğrulama protokollerini destekler. Grafik API'si OData 4.0 uyumlu değil. Uygulama zaten federe oturum açma için SAML 2.0 veya Openıd Connect 1.0 protokollerini destekliyorsa, Azure AD için destek eklenmesi basit olabilir. Daha fazla bilgi edinmek [Azure AD kimlik doğrulama protokolleri desteklenen](active-directory-authentication-protocols.md).
+**Endüstri standardı protokoller.**  Microsoft, sektör standartları desteklemekte kararlıdır. Azure AD, SAML 2.0, Openıd Connect 1.0, OAuth 2.0 ve WS-Federasyon 1.2 kimlik doğrulama protokollerini destekler. Graph API, OData 4.0 uyumlu ' dir. Uygulamanız zaten Federasyon oturum açma için SAML 2.0 veya Openıd Connect 1.0 protokollerini destekliyorsa, Azure AD için destek eklemeyi basit olabilir. Daha fazla bilgi edinin [Azure AD kimlik doğrulama protokolleri desteklenen](active-directory-authentication-protocols.md).
 
-**Açık kaynak kitaplıkları.**  Microsoft, popüler diller ve platformlar için hızlı geliştirme için tam olarak desteklenen açık kaynak kitaplıkları sağlar. Kaynak kodu Apache 2.0 altında lisanslanmıştır ve çatallaştırma ve geri projelerine katkıda ücretsizdir. Daha fazla bilgi edinmek [Azure AD kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md).
+**Açık kaynak kitaplıkları.**  Microsoft, popüler diller ve platformlar için geliştirme sürecini hızlandırın için tam olarak desteklenen açık kaynak kitaplıkları sağlar. Kaynak kodu Apache 2.0 altında lisanslanmıştır ve çatalını oluşturmanız ve projelere katkıda bulunmak ücretsizdir. Daha fazla bilgi edinin [Azure AD kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md).
 
-### <a name="worldwide-presence-and-high-availability"></a>Dünya çapında varlığı ve yüksek kullanılabilirlik
-**Azure AD dünyanın veri merkezlerinde dağıtılır ve yönetilmesi ve aralıksız izlenen.**  Azure AD Microsoft Azure ve Office 365 için Kimlik Yönetimi sistemidir ve dünyanın 28 veri merkezlerinde dağıtılır. Dizin verilerini en az üç veri merkezlerini çoğaltılacak garanti edilmez. Genel yük dengeleyicileri en yakın kopyalanması verilerini içeren Azure AD ile kullanıcılara erişim sağlamak ve bir sorun algılandığında, otomatik olarak diğer veri merkezleri isteklerini yeniden yönlendirmek.
+### <a name="worldwide-presence-and-high-availability"></a>Dünya çapında varlık ve yüksek kullanılabilirlik
+**Azure AD dünyanın dört bir yanındaki veri merkezlerinde dağıtılır ve yönetilir ve sistemlerimizdeki izlenir.**  Azure AD, Microsoft Azure ve Office 365 için Kimlik Yönetimi sistemidir ve dünyanın dört bir yanındaki 28 veri merkezlerinde dağıtılır. Dizin verilerini en az üç veri merkezlerine çoğaltılması garanti edilir. Genel load balancer'ları en yakın kopyasını verilerini içeren Azure AD kullanıcıların erişim sağlamak ve bir sorun algılandığında, otomatik olarak diğer veri merkezlerine istekleri yeniden yönlendirme.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-[Kod yazmaya başlamak](active-directory-developers-guide.md#get-started).
+[Kod yazmaya başlama](active-directory-developers-guide.md#get-started).
 
 [Azure AD kullanarak kullanıcıların oturumunu](active-directory-authentication-scenarios.md)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile Sansan | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile Sansan arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle Sansan | Microsoft Docs'
+description: Azure Active Directory ve Sansan arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: c8b5a84c853a974ede77e716b77f0a5007775ef7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: cc070f7c4cb201e68c93b0b1337982325df74663
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231221"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051270"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Öğretici: Azure Active Directory Tümleştirme Sansan ile
+# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Öğretici: Azure Active Directory Sansan ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Sansan tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile Sansan tümleştirme konusunda bilgi edinin.
 
-Sansan Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile Sansan tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Sansan erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için Sansan (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Sansan erişimi, Azure AD'de denetleyebilirsiniz
+- Otomatik olarak imzalanan için Sansan (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Sansan ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile Sansan yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir Sansan çoklu oturum açma abonelik etkin
+- Azure AD aboneliğiniz
+- Abonelik Sansan çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Sansan ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-sansan-from-the-gallery"></a>Galeriden Sansan ekleme
-Azure AD Sansan tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Sansan eklemeniz gerekir.
+Azure AD'de Sansan tümleştirmesini yapılandırmak için Sansan Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Sansan eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -67,7 +67,7 @@ Azure AD Sansan tümleştirilmesi yapılandırmak için yönetilen SaaS uygulama
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
@@ -75,32 +75,32 @@ Azure AD Sansan tümleştirilmesi yapılandırmak için yönetilen SaaS uygulama
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/sansan-tutorial/tutorial_sansan_search.png)
 
-5. Sonuçlar panelinde seçin **Sansan**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Sonuçlar panelinde seçin **Sansan**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/sansan-tutorial/tutorial_sansan_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Sansan sınayın.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Sansan sınayın.
 
-Tekli çalışmaya oturum için Azure AD Sansan karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Sansan ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne Sansan karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Sansan ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Sansan içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Sansan içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma Sansan ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Sansan ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Sansan test kullanıcısı oluşturma](#creating-a-sansan-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Sansan sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Sansan test kullanıcısı oluşturma](#creating-a-sansan-test-user)**  - kullanıcı Azure AD gösterimini bağlı Sansan Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Sansan uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Sansan uygulamanızda çoklu oturum açmayı yapılandırın.
 
 **Azure AD çoklu oturum açma ile Sansan yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Sansan** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Sansan** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
@@ -108,47 +108,47 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açmayı yapılandırın](./media/sansan-tutorial/tutorial_sansan_samlbase.png)
 
-3. Üzerinde **Sansan etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Sansan etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/sansan-tutorial/tutorial_sansan_url.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, aşağıdaki desenleri kullanarak URL'sini yazın: 
+    İçinde **oturum açma URL'si** metin kutusuna bir URL kullanarak aşağıdaki düzenler: 
     
     | Ortam | URL'si |
     |:--- |:--- |
-    | Koruyun web |`https://ap.sansan.com/v/saml2/<company name>/acs` |
+    | PC web |`https://ap.sansan.com/v/saml2/<company name>/acs` |
     | Yerel mobil uygulama |`https://internal.api.sansan.com/saml2/<company name>/acs` |
     | Mobil tarayıcı ayarları |`https://ap.sansan.com/s/saml2/<company name>/acs` |  
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerleri gerçek oturum açma URL'si ile güncelleştirin. Kişi [Sansan istemci destek ekibi](https://www.sansan.com/form/contact) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Sansan istemci Destek ekibine](https://www.sansan.com/form/contact) bu değerleri almak için. 
      
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/sansan-tutorial/tutorial_sansan_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/sansan-tutorial/tutorial_general_400.png)
 
-6. Sansan uygulama bekler birden çok **tanımlayıcıları** ve **yanıt URL'leri** PowerShell kullanarak yapılandırılmış birden çok ortamlarını (PC web, yerel mobil uygulama, mobil tarayıcı ayarlarını) desteklemek için komut dosyası. Ayrıntılı adımlar aşağıda açıklanmıştır.
+6. Birden çok Sansan uygulama bekliyor **tanımlayıcıları** ve **yanıt URL'leri** PowerShell kullanarak yapılandırılabilecek birden çok ortama (PC web, yerel mobil uygulaması, mobil tarayıcı ayarlarını) desteklemek için komut dosyası. Ayrıntılı adımlar aşağıda açıklanmıştır.
 
-7. Birden çok yapılandırmak için **tanımlayıcıları** ve **yanıt URL'leri** PowerShell Betiği kullanılarak Sansan uygulaması için şu adımları gerçekleştirin:
+7. Birden çok yapılandırma **tanımlayıcıları** ve **yanıt URL'leri** PowerShell betiğini kullanarak Sansan uygulama için aşağıdaki adımları uygulayın:
 
-    ![Çoklu oturum açma obj yapılandırın](./media/sansan-tutorial/tutorial_sansan_objid.png)  
+    ![Obj çoklu oturum açmayı yapılandırın](./media/sansan-tutorial/tutorial_sansan_objid.png)  
 
-    a. Git **özellikleri** sayfasında **Sansan** uygulama ve kopyalama **nesne kimliği** kullanarak **kopyalama** düğmesine tıklayın ve Not Defteri'ne yapıştırın.
+    a. Git **özellikleri** sayfasının **Sansan** uygulama ve kopyalama **nesne kimliği** kullanarak **kopyalama** düğmesi ve Not Defteri'ne yapıştırın.
 
-    b. **Nesne kimliği**, Azure portalından kopyalanan olarak kullanılacak **ServicePrincipalObjectId** daha sonra öğreticide kullanılan PowerShell komut dosyası. 
+    b. **Nesne kimliği**, hangi Azure Portalı'ndan kopyaladığınız olarak kullanılacak **ServicePrincipalObjectId** PowerShell betiğinde öğreticinin ilerleyen bölümlerinde kullanılır. 
 
-    c. Şimdi yükseltilmiş bir Windows PowerShell komut istemi açın.
+    c. Artık yükseltilmiş bir Windows PowerShell komut istemi açın.
     
     >[!NOTE] 
-    > Azuread'i modülü yüklemeniz gerekir (komutunu `Install-Module -Name AzureAD`). NuGet modülü veya yeni Azure Active Directory V2 PowerShell modülü yüklemek isteyip istemediğiniz sorulduğunda Y yazın ve ENTER tuşuna basın.
+    > AzureAD modülüne yüklemeniz gerekir (komutunu `Install-Module -Name AzureAD`). Bir NuGet modül veya yeni Azure Active Directory V2 PowerShell modülünü yüklemeniz istenirse, Y yazın ve ENTER tuşuna basın.
 
     d. Çalıştırma `Connect-AzureAD` ve bir genel yönetici kullanıcı hesabıyla oturum açın.
 
-    e. Birden fazla URL bir uygulamayı güncelleştirmek için aşağıdaki komut dosyasını kullanın:
+    e. Birden fazla URL bir uygulamayı güncelleştirmek için aşağıdaki betiği kullanın:
 
     ```poweshell
      Param(
@@ -186,37 +186,37 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     }
     ```
 
-8. PowerShell Betiği başarılı tamamlanmasıyla sonra aşağıda gösterildiği gibi komut dosyası sonucu şu şekilde olacaktır ve URL değerleri güncelleştirilmesi ancak bunlar Azure portalında yansıtılan olmaz. 
+8. Başarılı tamamlama PowerShell betiğinin sonra aşağıda gösterildiği gibi komut dosyası sonucu şöyle olacaktır ve URL değerlerin güncelleştirilmesi ancak bunlar Azure Portalı'nda yansıtılmış olmaz. 
 
-    ![Çoklu oturum açma komut dosyası yapılandırın](./media/sansan-tutorial/tutorial_sansan_powershell.png)
+    ![Çoklu oturum açma betiğini Yapılandır](./media/sansan-tutorial/tutorial_sansan_powershell.png)
 
 
-9. Üzerinde **Sansan yapılandırma** 'yi tıklatın **yapılandırma Sansan** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+9. Üzerinde **Sansan yapılandırma** bölümünde **yapılandırma Sansan** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/sansan-tutorial/tutorial_sansan_configure.png) 
 
-10. Çoklu oturum açma yapılandırmak için **Sansan** yan, indirilen göndermek için ihtiyacınız **sertifika**, **Sign-Out URL**, **SAML varlık kimliği**, ve **SAML çoklu oturum açma hizmet URL'si** için [Sansan destek ekibi](https://www.sansan.com/form/contact). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+10. Çoklu oturum açmayı yapılandırma **Sansan** tarafı, indirilen göndermek için ihtiyacınız **sertifika**, **oturum kapatma URL'si**, **SAML varlık kimliği**, ve **SAML çoklu oturum açma hizmeti URL'si** için [Sansan Destek ekibine](https://www.sansan.com/form/contact). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 >[!NOTE]
->Bilgisayar Tarayıcı ayarını da iş mobil uygulama ve PC web birlikte mobil tarayıcı için. 
+>Bilgisayar Tarayıcı ayarlarınızı da iş için mobil uygulama ve PC web yanı sıra mobil tarayıcı. 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/sansan-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/sansan-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/sansan-tutorial/create_aaduser_03.png) 
 
@@ -224,9 +224,9 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/sansan-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
@@ -234,52 +234,52 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
 ### <a name="creating-a-sansan-test-user"></a>Sansan test kullanıcısı oluşturma
 
-Bu bölümde, Sansan içinde Britta Simon adlı bir kullanıcı oluşturun. Sansan uygulama kullanıcının SSO yapmadan önce uygulamayı sağlanması gerekir. 
+Bu bölümde, Britta Simon Sansan içinde adlı bir kullanıcı oluşturun. Sansan uygulamanın kullanıcının uygulamada SSO yapmadan önce sağlanması gerekir. 
 
 >[!NOTE]
->Bir kullanıcı el ile oluşturabilir veya toplu gerekiyorsa kullanıcıları, başvurmanız gerekir. [Sansan destek ekibi](https://www.sansan.com/form/contact). 
+>Bir kullanıcı el ile oluşturabilir veya toplu gerekiyorsa kullanıcılar, iletişime geçmeniz [Sansan Destek ekibine](https://www.sansan.com/form/contact). 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Britta Sansan için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için Sansan erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı Ata][200] 
 
-**Sansan için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Sansan için atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **Sansan**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/sansan-tutorial/tutorial_sansan_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı Ata][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Sansan parçasında tıklattığınızda, otomatik olarak Sansan uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Erişim panelinde Sansan kutucuğa tıkladığınızda, otomatik olarak Sansan uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

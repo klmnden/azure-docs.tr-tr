@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme Merkezi Masaüstü ile | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ve Merkezi Masaüstü arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Merkezi Masaüstü | Microsoft Docs'
+description: Azure Active Directory ve Merkezi Masaüstü arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 4f49d841cc9d6d799b1cd047454acaa2c618af73
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2c571ebc45875167373b592abc720b045d1835bd
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211324"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Öğretici: Azure Active Directory Tümleştirme ile Merkezi Masaüstü
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Merkezi Masaüstü tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile Merkezi Masaüstü tümleştirme konusunda bilgi edinin.
 
 Merkezi Masaüstü Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 - Merkezi Masaüstü erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak Merkezi Masaüstü kendi Azure AD hesaplarıyla oturum, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda--Azure portalında yönetebilir.
+- Otomatik olarak Merkezi Masaüstü için kendi Azure AD hesapları ile oturum, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda--Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı için bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Merkezi Masaüstü ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Merkezi Masaüstü ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Merkezi Masaüstü tek oturum üzerindeki etkin olmayan abonelik
+- Azure AD aboneliğiniz
+- Merkezi Masaüstü tek oturum üzerinde etkin olmayan abonelik
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamında kullanmanızı öneririz yok.
+> Bu öğreticideki adımları test etmek için üretim ortamında kullanımı önerilmemektedir.
 
-Bu öğreticide adımları test etmek için aşağıdaki önerileri uygulayın:
+Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam zaten yoksa [bir aylık ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Bir Azure AD deneme ortamı yoksa [bir aylık ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide açıklanan senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Merkezi Masaüstü ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Merkezi Masaüstü galeri ekleme
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="add-central-desktop-from-the-gallery"></a>Merkezi Masaüstü Galerisi'nden ekleme
-Azure AD Merkezi Masaüstü tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Merkezi Masaüstü eklemeniz gerekir.
+## <a name="add-central-desktop-from-the-gallery"></a>Merkezi Masaüstü Galeriden Ekle
+Azure AD'de Merkezi Masaüstü tümleştirmesini yapılandırmak için Merkezi Masaüstü Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Merkezi Masaüstü Galeriden eklemek için aşağıdaki adımları uygulayın:**
 
-1. İçinde [Azure portal](https://portal.azure.com), sol bölmede seçin **Azure Active Directory** simgesi. 
+1. İçinde [Azure portalında](https://portal.azure.com), sol bölmede seçin **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -68,62 +68,62 @@ Azure AD Merkezi Masaüstü tümleştirilmesi yapılandırmak için yönetilen S
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üst kısmında düğmesi.
+3. Yeni uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Merkezi Masaüstü**. Seçin **Merkezi Masaüstü** sonuçlar paneli ve ardından **Ekle** uygulama eklemek için düğmesi.
+4. Arama kutusuna **Merkezi Masaüstü**. Seçin **Merkezi Masaüstü** sonuçlar paneli ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuçlar listesinde Merkezi Masaüstü](./media/central-desktop-tutorial/tutorial_centraldesktop_addfromgallery.png)
+    ![Sonuç listesinde Merkezi Masaüstü](./media/central-desktop-tutorial/tutorial_centraldesktop_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Merkezi "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı masaüstü ile test etme
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Merkezi "Britta Simon." adlı bir test kullanıcı tabanlı masaüstü ile test etme
 
-Tekli çalışmaya oturum için Azure AD için bir kullanıcı Azure AD'de Merkezi Masaüstü karşılık gelen kullanıcı olan bilmek ister. Diğer bir deyişle, Merkezi Masaüstü bir Azure AD kullanıcısının ve ilgili kullanıcı arasında bir bağlantı oluşturmanız gerekir.
+Tek iş için oturum açma için Azure AD Merkezi Masaüstü karşılığı kullanıcının Azure AD'de bir kullanıcı için olan bilmesi gerekir. Diğer bir deyişle, Merkezi Masaüstü bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir bağlantı kurmak gerekir.
 
-Merkezi Masaüstü vermek **kullanıcıadı** aynı değer olarak **kullanıcı adı** Azure AD'de. Şimdi iki kullanıcılar arasında bağlantı kurulduktan.
+Merkezi Masaüstü vermek **kullanıcıadı** aynı değer olarak **kullanıcı adı** Azure AD'de. Şimdi iki kullanıcı arasındaki bağlantı kurduğunuz.
 
-Yapılandırma ve Azure AD çoklu oturum açma Merkezi Masaüstü ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Merkezi Masaüstü ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. [Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on) bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. [Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on) kullanıcılarınız bu özelliği kullanmak etkinleştirmek için.
 2. [Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. [Merkezi Masaüstü test kullanıcısı oluşturma](#create-a-central-desktop-test-user) Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı olduğu Merkezi Masaüstü sağlamak için.
-4. [Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user) Britta Azure AD çoklu oturum açma kullanmak Simon etkinleştirmek için.
-5. [Test çoklu oturum açma](#test-single-sign-on) yapılandırma çalıştığını doğrulayın.
+3. [Merkezi Masaüstü test kullanıcısı oluşturma](#create-a-central-desktop-test-user) kullanıcı Azure AD gösterimini bağlı olduğu Merkezi Masaüstü bir karşılığı Britta simon'un sağlamak için.
+4. [Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user) Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
+5. [Çoklu oturum açmayı test](#test-single-sign-on) yapılandırma çalıştığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Merkezi Masaüstü uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Merkezi Masaüstü uygulamanızı yapılandırın.
 
 **Azure AD çoklu oturum açma Merkezi Masaüstü ile yapılandırmak için aşağıdaki adımları uygulayın:**
 
-1. Azure portalında üzerinde **Merkezi Masaüstü** uygulama tümleştirmesi sayfasında, **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Merkezi Masaüstü** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Çoklu oturum açma, etkinleştirmek için **çoklu oturum açma** iletişim kutusunda **modu** aşağı açılan listesinden, **SAML tabanlı oturum açma**.
+2. Çoklu oturum açma, etkinleştirmek için **çoklu oturum açma** iletişim kutusundaki **modu** aşağı açılan listesinden **SAML tabanlı oturum açma**.
  
     ![Çoklu oturum açma iletişim kutusu](./media/central-desktop-tutorial/tutorial_centraldesktop_samlbase.png)
 
-3. İçinde **Merkezi Masaüstü etki alanı ve URL'leri** bölümünde, aşağıdaki adımları uygulayın:
+3. İçinde **Merkezi Masaüstü etki alanı ve URL'ler** bölümünde, aşağıdaki adımları uygulayın:
 
-    ![Oturum açma bilgileri tek bir merkezi Masaüstü etki alanı ve URL'leri](./media/central-desktop-tutorial/tutorial_centraldesktop_url.png)
+    ![Oturum açma bilgileri tek bir merkezi Masaüstü etki alanı ve URL'ler](./media/central-desktop-tutorial/tutorial_centraldesktop_url.png)
 
-    a. İçinde **oturum açma URL'si** kutusunda, aşağıdaki desende bir URL yazın: `https://<companyname>.centraldesktop.com`
+    a. İçinde **oturum açma URL'si** kutusuna aşağıdaki desene sahip bir URL yazın: `https://<companyname>.centraldesktop.com`
 
-    b. İçinde **tanımlayıcısı** kutusunda, aşağıdaki desende bir URL yazın:
+    b. İçinde **tanımlayıcı** kutusuna aşağıdaki desene sahip bir URL yazın:
     | |
     |--|
     | `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
     | `https://<companyname>.imeetcentral.com/saml2-metadata.php`|
 
-    c. İçinde **yanıt URL'si** kutusunda, aşağıdaki desende bir URL yazın: `https://<companyname>.centraldesktop.com/saml2-assertion.php`    
+    c. İçinde **yanıt URL'si** kutusuna aşağıdaki desene sahip bir URL yazın: `https://<companyname>.centraldesktop.com/saml2-assertion.php`    
      
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Gerçek tanımlayıcısı ile bu değerleri güncelleştirmek URL'si ve oturum açma URL'si yanıtlayın. Kişi [Merkezi Masaüstü istemci destek ekibi](https://imeetcentral.com/contact-us) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısıyla güncelleştirme, yanıt URL'si ve oturum açma URL'si. İlgili kişi [Merkezi Masaüstü istemci Destek ekibine](https://imeetcentral.com/contact-us) bu değerleri almak için. 
 
-4. İçinde **SAML imzalama sertifikası** bölümünde, select **sertifika**. Ardından, bilgisayarınızdaki sertifika dosyasını kaydedin.
+4. İçinde **SAML imzalama sertifikası** bölümünden **sertifika**. Ardından, bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/central-desktop-tutorial/tutorial_centraldesktop_certificate.png) 
 
@@ -131,7 +131,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açma düğmesi kaydetme yapılandırın](./media/central-desktop-tutorial/tutorial_general_400.png)
     
-6. İçinde **merkezi masaüstü yapılandırması** bölümünde, select **yapılandırma Merkezi Masaüstü** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru** bölümü.
+6. İçinde **Merkezi Masaüstü yapılandırmasını** bölümünden **yapılandırma Merkezi Masaüstü** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru** bölümü.
 
     ![Merkezi masaüstü yapılandırması](./media/central-desktop-tutorial/tutorial_centraldesktop_configure.png) 
 
@@ -147,42 +147,42 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     a. Seçin **etkinleştir SAML v2 çoklu oturum açma**.
     
-    b. İçinde **SSO URL** kutusunda, yapıştırma **SAML varlık kimliği** Azure portalından kopyaladığınız değeri.
+    b. İçinde **SSO URL** kutusu, yapıştırma **SAML varlık kimliği** Azure portaldan kopyaladığınız değeri.
     
-    c. İçinde **SSO oturum açma URL'si** kutusunda, yapıştırma **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyaladığınız değeri.
+    c. İçinde **SSO oturum açma URL'si** kutusu, yapıştırma **SAML çoklu oturum açma hizmeti URL'si** Azure portaldan kopyaladığınız değeri.
     
-    d. İçinde **SSO oturum kapatma URL'si** kutusunda, yapıştırma **Sign-Out URL** Azure portalından kopyaladığınız değeri.
+    d. İçinde **SSO oturum kapatma URL'si** kutusu, yapıştırma **oturum kapatma URL'si** Azure portaldan kopyaladığınız değeri.
 
 10. İçinde **ileti imzası doğrulama yöntemi** bölümünde, aşağıdaki adımları uygulayın:
 
     ![İleti imzası doğrulama yöntemi](./media/central-desktop-tutorial/ic769565.png "ileti imzası doğrulama yöntemi") bir. **Sertifika**’yı seçin.
     
-    b. İçinde **SSO sertifika** listesinde **RSH SHA256**.
+    b. İçinde **SSO sertifikası** listesinden **RSH SHA256**.
     
-    c. İndirilen sertifikanızı Not Defteri'nde açın. Sonra sertifika içeriğini kopyalayın ve yapıştırın **SSO sertifika** alan.
+    c. İndirilen sertifikanızı Not Defteri'nde açın. Ardından, sertifika içeriğini kopyalayın ve yapıştırın **SSO sertifikası** alan.
         
     d. Seçin **SAMLv2 oturum açma sayfanız bir bağlantı görüntüler**.
     
     e. Seçin **güncelleştirme**.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com) uygulaması kuruluyor sırada. Bu uygulamadan ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünde, select **çoklu oturum açma** sekmesini tıklatın ve sonra katıştırılmış erişim belgeleri etraflıca **yapılandırma** alt bölüm. Daha fazla bilgiyi embedded belgeler özelliği hakkında [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985).
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com) uygulamasını ayarladığınız sırada. Bu uygulamadan ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünden **çoklu oturum açma** sekmesini ve sonra katıştırılmış erişin belgelerin **yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında [Azure AD belgeleri katıştırılmış]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları uygulayın:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları uygulayın:**
 
-1. Azure portalında sol bölmede seçin **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede seçin **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/central-desktop-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**. Ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**. Ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/central-desktop-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/central-desktop-tutorial/create_aaduser_02.png)
 
 3. Açmak için **kullanıcı** iletişim kutusunda **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
@@ -194,83 +194,83 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’u seçin.
  
 ### <a name="create-a-central-desktop-test-user"></a>Merkezi Masaüstü test kullanıcısı oluşturma
 
-Azure AD kullanıcıların oturum açabilmesi için bunların merkezi masaüstü uygulamasında sağlanmalıdır. Bu bölümde Azure AD kullanıcı hesaplarının Merkezi Masaüstü nasıl oluşturulacağı açıklanmaktadır.
+Merkezi masaüstü uygulamasında Azure AD kullanıcılarının oturum açabilmesi bunlar sağlanmalıdır. Bu bölümde merkezi Desktop uygulamasında Azure AD kullanıcı hesapları oluşturma işlemini açıklar.
 
 > [!NOTE]
-> Azure AD kullanıcı hesaplarını sağlamak için herhangi bir merkezi Masaüstü kullanıcı hesabı oluşturma araçlarını veya Merkezi Masaüstü tarafından sağlanan API'ları kullanabilirsiniz.
+> Azure AD kullanıcı hesapları sağlamak için herhangi bir merkezi Masaüstü kullanıcı hesabı oluşturma araçları veya Merkezi Masaüstü tarafından sağlanan API'leri kullanabilirsiniz.
 
-**Merkezi Masaüstü kullanıcı hesaplarına sağlamak için:**
+**Merkezi Masaüstü kullanıcı hesapları sağlamak için:**
 
-1. Merkezi Masaüstü kiracınız için oturum açın.
+1. Merkezi Masaüstü kiracınızda oturum açın.
 
 2. Git **kişiler** > **iç üyeleri**.
 
-3. Seçin **iç üye eklemek**.
+3. Seçin **iç üyeleri ekleme**.
 
     ![Kişiler](./media/central-desktop-tutorial/ic781051.png "kişiler")
     
-4. İçinde **yeni üyeler e-posta adresi** sağlamak ve ardından istediğiniz bir Azure AD hesabının yazın **sonraki**.
+4. İçinde **yeni üyeler e-posta adresi** sağlayın ve ardından istediğiniz bir Azure AD hesabı yazın **sonraki**.
 
-    ![E-posta adreslerini yeni üyeler](./media/central-desktop-tutorial/ic781052.png "e-posta adreslerini yeni üyeler")
+    ![E-posta adreslerini yeni üyelerin](./media/central-desktop-tutorial/ic781052.png "e-posta adreslerini yeni üye")
 
 5. Seçin **Ekle iç üyeleri**.
 
     ![İç Üye Ekle](./media/central-desktop-tutorial/ic781053.png "iç Üye Ekle")
    
    >[!NOTE]
-   >Eklediğiniz kullanıcı hesaplarını etkinleştirmek için onay bağlantısı içeren bir e-posta alırsınız.
+   >Eklediğiniz kullanıcı hesaplarını etkinleştirmek için onay bağlantısını içeren bir e-posta alırsınız.
    
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, kullanıcı Britta merkezi masaüstüne erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, kullanıcı erişimi Merkezi Masaüstü vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
-**Merkezi Masaüstü Britta Simon atamak için aşağıdaki adımları uygulayın:**
+**Britta Simon merkezi masaüstüne atamak için aşağıdaki adımları uygulayın:**
 
-1. Azure portalında uygulamaları görünümünü açın. Dizin görünümüne gidin ve gidin **kurumsal uygulamalar**.
+1. Azure portalında uygulama görünümünü açın. Dizin görünümüne gidin ve ardından Git **kurumsal uygulamalar**.
 
 2. Seçin **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **Merkezi Masaüstü**.
 
     ![Uygulamalar listesinde Merkezi Masaüstü Bağlantısı](./media/central-desktop-tutorial/tutorial_centraldesktop_app.png)  
 
-3. Soldaki menüde seçin **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Seçin **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** içinde **eklemek atama** iletişim kutusu.
+4. Seçin **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim kutusu.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
 5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** içinde **kullanıcılar** listesi.
 
-6. İçinde **kullanıcılar ve gruplar** iletişim kutusu, tıklatın **seçin** düğmesi.
+6. İçinde **kullanıcılar ve gruplar** iletişim kutusu, tıklayın **seçin** düğmesi.
 
-7. İçinde **eklemek atama** iletişim kutusunda **atamak** düğmesi.
+7. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, Azure AD çoklu oturum açma yapılandırmanızı erişim paneli kullanarak sınayın.
+Bu bölümde, Azure AD çoklu oturum açma yapılandırmanızı erişim panelini kullanarak test edin.
 
-Erişim panelinde Merkezi Masaüstü döşeme seçtiğinizde, otomatik olarak Merkezi Masaüstü uygulamanıza oturum.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim Paneli'nde Merkezi Masaüstü kutucuğu seçtiğinizde, otomatik olarak Merkezi Masaüstü uygulamanızın oturum açmış.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

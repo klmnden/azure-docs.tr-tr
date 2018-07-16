@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 5be27723e6dfea9ce0d720baab2b650cff9c0f64
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 33b92ebf91b07c15b25f48b54da1ed6fcc89c5ff
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866296"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Öğretici: Azure Active Directory Jostle ile tümleştirme
 
@@ -210,7 +210,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Jostle erişim vererek B
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim paneli Jostle kutucuğa tıkladığınızda, otomatik olarak Jostle uygulamanın oturum açma sayfası almanız gerekir.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

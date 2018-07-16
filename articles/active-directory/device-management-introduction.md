@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5d5ddd83a2335e7a08bac587aa627f1dcae9738c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 1a2b32e7e0e86608f879941485395ebe379a5c1e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970909"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048870"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory'de cihaz yönetimine giriş
 
@@ -181,8 +181,8 @@ Genel bir kural olarak, kullanmanız gerekir:
 - Cihaz tabanlı koşullu erişim hakkında daha fazla bilgi için bkz: [Azure Active Directory cihaz tabanlı koşullu erişim ilkelerini yapılandırma](active-directory-conditional-access-policy-connected-applications.md).
 
 - Kurulum için:
-    - Azure Active Directory kayıtlı Windows 10 cihazları için bkz: [kayıtlı Windows 10 cihazlarını Azure Active Directory'yi yapılandırma](device-management-azuread-registered-devices-windows10-setup.md)
-    - Azure Active Directory'ye katılmış cihazlar için bkz: [alanına katılmış cihazlar Azure Active Directory'yi yapılandırma](device-management-azuread-joined-devices-setup.md)
+    - Azure Active Directory kayıtlı Windows 10 cihazları için bkz: [kayıtlı Windows 10 cihazlarını Azure Active Directory'yi yapılandırma](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+    - Azure Active Directory'ye katılmış cihazlar için bkz: [alanına katılmış cihazlar Azure Active Directory'yi yapılandırma](user-help/device-management-azuread-joined-devices-setup.md)
     - Hibrit Azure AD'ye katılmış cihazlar için bkz [karma yapılandırmak için Azure Active Directory'ye katılmış cihazlarda nasıl](device-management-hybrid-azuread-joined-devices-setup.md).
 
 

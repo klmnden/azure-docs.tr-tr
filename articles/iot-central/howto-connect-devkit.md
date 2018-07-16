@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c2a7278f4ee6861a1e47610c06fdc6ffcec52247
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 99d69c7e49179a7849e274c830d539833da33786
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931091"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049461"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -34,7 +34,7 @@ Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **MXChip*
 
 | Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamak sayısı |
 | -------------- | ------ | ------- | ------- | -------------- |
-| nem oranı       | %      | 0       | 100     | 0              |
+| Nem oranı       | %      | 0       | 100     | 0              |
 | Temp           | ° C     | -40     | 120     | 0              |
 | basınç       | hPa    | 260     | 1260    | 0              |
 | magnetometerX  | mgauss | -1000   | 1000    | 0              |
@@ -128,7 +128,7 @@ DevKit cihazı hazırlamak için:
     - Wi-Fi ağ parolanızı 
     - PIN LCD cihazda gösterilen kodu 
     - cihazınızın bağlantı dizesi. 
-      Bağlantı dizesi @ bulabilirsiniz `https://apps.iotcentral.com`  ->  `Device Explorer`  ->  `Device`  ->  `Select or Create a new Real Device`  ->  `Connect this device` (sağ üst kısımdaki) 
+      Bağlantı dizesi bulabilirsiniz \@ `https://apps.iotcentral.com`  ->  `Device Explorer`  ->  `Device`  ->  `Select or Create a new Real Device`  ->  `Connect this device` (sağ üst kısımdaki) 
     - Tüm mevcut telemetri ölçümleri seçin! 
 
 1. Seçtiğiniz sonra **cihazı yapılandırma**, bu sayfayı görürsünüz:

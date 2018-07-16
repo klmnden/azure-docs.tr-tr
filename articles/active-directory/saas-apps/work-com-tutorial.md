@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile Work.com | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile Work.com arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle Work.com | Microsoft Docs'
+description: Azure Active Directory ve Work.com arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 143cf41f597050cb27b97ff2584860a6c22aae74
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f51f9eff7a2ab0dd7ca466931f9de78355b917c0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213544"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050733"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Öğretici: Azure Active Directory Tümleştirme Work.com ile
+# <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Öğretici: Azure Active Directory Work.com ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Work.com tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile Work.com tümleştirme konusunda bilgi edinin.
 
-Work.com Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile Work.com tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Work.com erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için Work.com (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Work.com erişimi, Azure AD'de denetleyebilirsiniz
+- Otomatik olarak imzalanan için Work.com (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Work.com ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile Work.com yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir Work.com çoklu oturum açma abonelik etkin
+- Azure AD aboneliğiniz
+- Abonelik Work.com çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Work.com Ekle
 2. Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 ## <a name="add-workcom-from-the-gallery"></a>Galeriden Work.com Ekle
-Azure AD Work.com tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Work.com eklemeniz gerekir.
+Azure AD'de Work.com tümleştirmesini yapılandırmak için Work.com Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Work.com eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -68,39 +68,39 @@ Azure AD Work.com tümleştirilmesi yapılandırmak için yönetilen SaaS uygula
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Work.com**seçin **Work.com** sonuçları panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **Work.com**seçin **Work.com** Sonuçlar panelinde ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Galerisi'nden ekleme](./media/work-com-tutorial/tutorial_work-com_addfromgallery.png)
+    ![Galeriden Ekle](./media/work-com-tutorial/tutorial_work-com_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Work.com sınayın.
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Work.com sınayın.
 
-Tekli çalışmaya oturum için Azure AD Work.com karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Work.com ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne Work.com karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Work.com ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Work.com içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Work.com içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma Work.com ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Work.com ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Work.com test kullanıcısı oluşturma](#create-a-workcom-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Work.com sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Work.com test kullanıcısı oluşturma](#create-a-workcom-test-user)**  - kullanıcı Azure AD gösterimini bağlı Work.com Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Work.com uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Work.com uygulamanızda çoklu oturum açmayı yapılandırın.
 
 >[!NOTE]
->Çoklu oturum açma yapılandırmak için özel bir Work.com etki alanı adı henüz Kurulum gerekir. En az bir etki alanı adı tanımlayın, etki alanı adınızı sınamak ve kuruluşunuzun tümüne dağıtmak gerekir.
+>Çoklu oturum açmayı yapılandırmak için bir özel Work.com etki alanı adı henüz Kurulum gerekir. En az bir etki alanı adı tanımlayın, etki alanı adınızı test etmek ve tüm kuruluşunuza dağıtmanız gerekir.
 
 **Azure AD çoklu oturum açma ile Work.com yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Work.com** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Work.com** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
@@ -108,24 +108,24 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![SAML Tabanlı Oturum Açma](./media/work-com-tutorial/tutorial_work-com_samlbase.png)
 
-3. Üzerinde **Work.com etki alanı ve URL'leri** bölümünde, aşağıdaki işlemi gerçekleştirin:
+3. Üzerinde **Work.com etki alanı ve URL'ler** bölümünde, aşağıdaki işlemi gerçekleştirin:
 
     ![Work.com etki alanı ve URL'ler bölümü](./media/work-com-tutorial/tutorial_work-com_url.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `http://<companyname>.my.salesforce.com`
+    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `http://<companyname>.my.salesforce.com`
 
     > [!NOTE] 
-    > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [Work.com istemci destek ekibi](https://help.salesforce.com/articleView?id=000159855&type=3) bu değeri alınamıyor. 
+    > Bu değer, gerçek değil. Bu değer, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Work.com istemci Destek ekibine](https://help.salesforce.com/articleView?id=000159855&type=3) bu değeri alınamıyor. 
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![SAML imzalama sertifikası bölümü](./media/work-com-tutorial/tutorial_work-com_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
     ![Kaydet Düğmesi](./media/work-com-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Work.com yapılandırma** 'yi tıklatın **yapılandırma Work.com** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **Work.com yapılandırma** bölümünde **yapılandırma Work.com** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Work.com yapılandırma bölümü](./media/work-com-tutorial/tutorial_work-com_configure.png) 
 7. Work.com Kiracı yönetici olarak oturum açın.
@@ -134,23 +134,23 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
    
     ![Kurulum](./media/work-com-tutorial/ic794108.png "Kurulumu")
 
-9. Sol gezinti bölmesinde, içinde **Yönet** 'yi tıklatın **etki alanı yönetimi** ilgili bölümü genişletin ve ardından **My etki alanı** açmak için **My etki alanı** sayfası. 
+9. Sol gezinti bölmesinde, içinde **Yönet** bölümünde **etki alanı yönetimi** ilgili bölümü genişletin ve ardından **My Domain** açmakiçin**My Domain** sayfası. 
    
     ![Etki alanım](./media/work-com-tutorial/ic767825.png "etki alanım")
 
-10. Etki alanınızın doğru şekilde ayarlanmış olması gerektiğini doğrulamak için içinde olduğundan emin olun "**adım 4 dağıtılan kullanıcılara**" ve gözden geçirin, "**My etki alanı ayarları**".
+10. Etki alanınızı doğru şekilde ayarlandığını gösterdiğinde olduğunu doğrulamak için içinde olduğundan emin olun "**4 adım dağıtılan kullanıcılara**" gözden geçirin, "**etki alanı ayarlarım**".
    
     ![Etki alanı kullanıcıya dağıtılan](./media/work-com-tutorial/ic784377.png "kullanıcıya dağıtılan etki alanı")
 
-11. Work.com kiracınız için oturum açın.
+11. Work.com kiracınızda oturum açın.
 
 12. Git **Kurulum**.
     
     ![Kurulum](./media/work-com-tutorial/ic794108.png "Kurulumu")
 
-13. Genişletme **güvenlik denetimleri** menüsüne ve ardından **çoklu oturum açma ayarları**.
+13. Genişletin **güvenlik denetimleri** menüsüne ve ardından **çoklu oturum açma ayarları**.
     
-    ![Çoklu oturum açma ayarları](./media/work-com-tutorial/ic794113.png "tek oturum açma ayarları")
+    ![Çoklu oturum açma ayarları](./media/work-com-tutorial/ic794113.png "çoklu oturum açma ayarları")
 
 14. Üzerinde **çoklu oturum açma ayarları** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
     
@@ -164,159 +164,159 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     ![Oturum açma SAML tek ayar](./media/work-com-tutorial/ic794114.png "oturum açma SAML tek ayar")
     
-    a. İçinde **adı** metin kutusuna, yapılandırmanız için bir ad yazın.  
+    a. İçinde **adı** metin yapılandırmanız için bir ad yazın.  
        
     > [!NOTE]
-    > İçin bir değer sağlama **adı** otomatik olarak doldurulması **API adı** metin kutusu.
+    > İçin bir değer sağlanması **adı** Otomatik Doldur **API adı** metin.
     
-    b. İçinde **veren** metin değerini yapıştırın **SAML varlık kimliği** Azure portalından kopyalanan.
+    b. İçinde **veren** metin değerini yapıştırın **SAML varlık kimliği** , Azure Portalı'ndan kopyaladığınız.
     
-    c. Azure Portalı'ndan indirilen sertifikayı karşıya yüklemek için tıklayın **Gözat**.
+    c. Azure portalından indirilen sertifikayı karşıya yüklemek için tıklayın **Gözat**.
     
-    d. İçinde **varlık kimliği** metin kutusuna, türü `https://salesforce-work.com`.
+    d. İçinde **varlık kimliği** metin kutusuna `https://salesforce-work.com`.
     
     e. Olarak **SAML kimlik türü**seçin **onaylamayı içeren kullanıcı nesnesinden Federasyon kimliği**.
     
-    f. Olarak **SAML kimlik konumu**seçin **kimliktir konu deyimi NameIdentfier öğesinde**.
+    f. Olarak **SAML kimlik konumu**seçin **kimliğidir konu deyiminin NameIdentfier öğesinde**.
     
-    g. İçinde **kimlik sağlayıcısı oturum açma URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan.
+    g. İçinde **kimlik sağlayıcısı oturum açma URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si** , Azure Portalı'ndan kopyaladığınız.
 
-    h. İçinde **kimlik sağlayıcısı oturum kapatma URL'si** metin değerini yapıştırın **Sign-Out URL** Azure portalından kopyalanan.
+    h. İçinde **kimlik sağlayıcısı oturum kapatma URL'si** metin değerini yapıştırın **oturum kapatma URL'si** , Azure Portalı'ndan kopyaladığınız.
     
     i. Olarak **hizmet sağlayıcısı tarafından başlatılan bağlama isteği**seçin **HTTP Post**.
     
     j. **Kaydet**’e tıklayın.
 
-16. Sol gezinti bölmesinde, Work.com Klasik Portalı'nda tıklatın **etki alanı yönetimi** ilgili bölümü genişletin ve ardından **My etki alanı** açmak için **My etki alanı** Sayfa. 
+16. Sol gezinti bölmesinde, Work.com Klasik Portalı'nda tıklatın **etki alanı yönetimi** ilgili bölümü genişletin ve ardından **My Domain** açmak için **My Domain** Sayfa. 
     
     ![Etki alanım](./media/work-com-tutorial/ic794115.png "etki alanım")
 
-17. Üzerinde **My etki alanı** sayfasında **oturum açma sayfası markalama** 'yi tıklatın **Düzenle**.
+17. Üzerinde **My Domain** sayfasında **oturum açma sayfasında bulunan marka** bölümünde **Düzenle**.
     
     ![Oturum açma sayfası markalama](./media/work-com-tutorial/ic767826.png "oturum açma sayfası markalama")
 
-14. Üzerinde **oturum açma sayfası markalama** sayfasında **kimlik doğrulama hizmeti** bölümünde, adını, **SAML SSO ayarları** görüntülenir. Seçin ve ardından **kaydetmek**.
+14. Üzerinde **oturum açma sayfasında bulunan marka** sayfasında **kimlik doğrulama hizmeti** bölümü adı, **SAML SSO ayarlarını** görüntülenir. Seçin ve ardından **Kaydet**.
     
     ![Oturum açma sayfası markalama](./media/work-com-tutorial/ic784366.png "oturum açma sayfası markalama")
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/work-com-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
-    ![Kullanıcıların ve grupların tüm kullanıcılar ->](./media/work-com-tutorial/create_aaduser_02.png) 
+    ![Tüm kullanıcılar, kullanıcılar ve Gruplar ->](./media/work-com-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Ekle](./media/work-com-tutorial/create_aaduser_03.png) 
 
 4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
-    ![Kullanıcı iletişim sayfası](./media/work-com-tutorial/create_aaduser_04.png) 
+    ![Kullanıcı iletişim kutusu sayfası](./media/work-com-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-workcom-test-user"></a>Work.com test kullanıcısı oluşturma
-Azure Active Directory kullanıcıların oturum açabilmesi için bunlar için Work.com sağlanmalıdır. Work.com söz konusu olduğunda, sağlama bir el ile bir görevdir.
+Azure Active Directory Kullanıcıları oturum açabilmesi, bunlar için Work.com sağlanmalıdır. Work.com söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Kullanıcı sağlamayı yapılandırmak için aşağıdaki adımları gerçekleştirin:
-1. Work.com şirket sitenize yönetici olarak oturum açma.
+1. Work.com şirketinizin sitesi için bir yönetici olarak oturum açın.
 
 2. Git **Kurulum**.
    
     ![Kurulum](./media/work-com-tutorial/IC794108.png "Kurulumu")
 3. Git **kullanıcıları yönetme \> kullanıcılar**.
    
-    ![Kullanıcıları yönetme](./media/work-com-tutorial/IC784369.png "kullanıcıları yönetme")
+    ![Kullanıcıları Yönet](./media/work-com-tutorial/IC784369.png "kullanıcıları yönetme")
 
-4. Tıklatın **yeni kullanıcı**.
+4. Tıklayın **yeni kullanıcı**.
    
     ![Tüm kullanıcılar](./media/work-com-tutorial/IC794117.png "tüm kullanıcılar")
 
-5. Kullanıcı düzenleme bölümünde, aşağıdaki adımlarda, geçerli bir Azure özniteliklerini gerçekleştirmek istediğiniz ilgili metin kutularına sağlamayı AD hesabı:
+5. Kullanıcı düzenleme bölümünde, aşağıdaki adımlarda, geçerli bir Azure özniteliklerini gerçekleştirmek istediğiniz ilgili metin kutularına zbilgisayarlar AD hesabı:
    
     ![Kullanıcı düzenleme](./media/work-com-tutorial/ic794118.png "kullanıcı düzenleme")
    
-    a. İçinde **ad** metin kutusuna, türü **ad** kullanıcının **Britta**.
+    a. İçinde **ad** metin kutusuna **ad** kullanıcının **Britta**.
     
-    b. İçinde **Soyadı** metin kutusuna, türü **Soyadı** kullanıcının **Simon**.
+    b. İçinde **Soyadı** metin kutusuna **Soyadı** kullanıcının **Simon**.
     
-    c. İçinde **diğer** metin kutusuna, türü **adı** kullanıcının **BrittaS**.
+    c. İçinde **diğer** metin kutusuna **adı** kullanıcının **BrittaS**.
     
-    d. İçinde **e-posta** metin kutusuna, türü **e-posta adresi** kullanıcının **Brittasimon@contoso.com**.
+    d. İçinde **e-posta** metin kutusuna **e-posta adresi** kullanıcının **Brittasimon@contoso.com**.
     
-    e. İçinde **kullanıcı adı** metin kutusuna, türü kullanıcının kullanıcı adını ister **Brittasimon@contoso.com**.
+    e. İçinde **kullanıcı adı** metin kutusu, türü, bir kullanıcının kullanıcı adını ister **Brittasimon@contoso.com**.
     
-    f. İçinde **takma ad** metin kutusuna, bir **takma ad** kullanıcının **Simon**.
+    f. İçinde **takma ad** metin bir **takma ad** kullanıcının **Simon**.
     
-    g. Seçin **rol**, **kullanıcı lisansı**, ve **profil**.
+    g. Seçin **rol**, **kullanıcı lisansı**, ve **profili**.
     
     h. **Kaydet**’e tıklayın.  
       
     > [!NOTE]
-    > Azure AD hesap sahibi etkin duruma gelmesi hesabı onaylamak için bir bağlantı içeren bir e-posta alırsınız.
+    > Azure AD hesap sahibinin etkin hale gelir önce hesabı onaylamak için bir bağlantı içeren bir e-posta alırsınız.
     > 
     > 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta Work.com için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için Work.com erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı Ata][200] 
 
-**Work.com için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Work.com için atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **Work.com**.
 
-    ![Uygulamanın listesinde Work.com](./media/work-com-tutorial/tutorial_work-com_app.png) 
+    ![Uygulama listesinde Work.com](./media/work-com-tutorial/tutorial_work-com_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı Ata][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Work.com parçasında tıklattığınızda, otomatik olarak Work.com uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Erişim panelinde Work.com kutucuğa tıkladığınızda, otomatik olarak Work.com uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 5f469269d88320a41551fc86168debcd8fe43f7f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 56f88af5d1ec8adb44d5f5c7f539925e26459e19
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865463"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047952"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Öğretici: Azure Active Directory bulut güvenlik yapısı tümleştirmesiyle
 
@@ -203,7 +203,7 @@ Bu bölümde, bulut güvenliği yapısı için erişim izni verdiğinizde, Azure
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim paneli bulut güvenlik yapısı kutucuğa tıkladığınızda, size otomatik olarak bulut güvenlik Fabric uygulamanızı açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

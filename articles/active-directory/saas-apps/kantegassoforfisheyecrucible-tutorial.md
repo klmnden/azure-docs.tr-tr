@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme FishEye/Crucible Kantega SSO | Microsoft Docs'
-description: Çoklu oturum açma Kantega SSO FishEye/Crucible için Azure Active Directory arasındaki yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory için FishEye/Crucible Kantega SSO ile tümleştirme | Microsoft Docs'
+description: Azure Active Directory ve Kantega SSO için FishEye/Crucible arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: bf262a42751e02c939696e4c8554fc19f5a4f4bd
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 200330421233ed9fb3735a9f68d856efc99c1216
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111210"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052338"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Öğretici: Azure Active Directory Tümleştirme FishEye/Crucible Kantega SSO
+# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Öğretici: Azure Active Directory için FishEye/Crucible Kantega SSO ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Kantega SSO FishEye/Crucible için tümleştirme öğrenin.
+Bu öğreticide, Kantega SSO FishEye/Crucible için Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
 Kantega SSO FishEye/Crucible için Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- FishEye/Crucible Kantega SSO erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak Kantega SSO (çoklu oturum açma) FishEye/Crucible için için Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- FishEye/Crucible Kantega SSO erişimi, Azure AD'de denetleyebilirsiniz
+- Otomatik olarak imzalanan için Kantega SSO (çoklu oturum açma) FishEye/Crucible için Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme FishEye/Crucible Kantega SSO ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirmesi için FishEye/Crucible Kantega SSO ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Abonelik Kantega SSO FishEye/Crucible çoklu oturum açma için etkin
+- Azure AD aboneliğiniz
+- Abonelik bir Kantega SSO FishEye/Crucible çoklu oturum açma için etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Kantega SSO FishEye/Crucible için ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Galeriden FishEye/Crucible için Kantega SSO ekleme
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="adding-kantega-sso-for-fisheyecrucible-from-the-gallery"></a>Galeriden Kantega SSO FishEye/Crucible için ekleme
-Azure AD FishEye/Crucible Kantega SSO tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden FishEye/Crucible Kantega SSO eklemeniz gerekir.
+## <a name="adding-kantega-sso-for-fisheyecrucible-from-the-gallery"></a>Galeriden FishEye/Crucible için Kantega SSO ekleme
+Azure AD'de Kantega SSO için FishEye/Crucible tümleştirmesini yapılandırmak için Kantega SSO için FishEye/Crucible Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden FishEye/Crucible Kantega SSO eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden Kantega SSO için FishEye/Crucible eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -67,40 +67,40 @@ Azure AD FishEye/Crucible Kantega SSO tümleştirilmesi yapılandırmak için y�
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Kantega SSO FishEye/Crucible için**.
+4. Arama kutusuna **Kantega SSO için FishEye/Crucible**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/kantegassoforfisheyecrucible-tutorial/tutorial_kantegassoforfisheyecrucible_search.png)
 
-5. Sonuçlar panelinde seçin **Kantega SSO FishEye/Crucible için**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Sonuçlar panelinde seçin **Kantega SSO için FishEye/Crucible**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/kantegassoforfisheyecrucible-tutorial/tutorial_kantegassoforfisheyecrucible_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma FishEye/Crucible "Britta Simon" adlı bir test kullanıcı tabanlı Kantega SSO ile test etme.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma için "Britta Simon" adlı bir test kullanıcı tabanlı FishEye/Crucible Kantega SSO ile test edin.
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen Kantega SSO FishEye/Crucible için bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Kantega SSO FishEye/Crucible için ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne Kantega SSO FishEye/Crucible için karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Kantega SSO FishEye/Crucible için ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Değeri FishEye/Crucible için Kantega SSO içinde atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Değerini FishEye/Crucible Kantega SSO, Ata **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırmak ve Azure AD çoklu oturum açma FishEye/Crucible Kantega SSO sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma için FishEye/Crucible Kantega SSO ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Kantega SSO FishEye/Crucible test kullanıcısı için oluşturma](#creating-a-kantega-sso-for-fisheyecrucible-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı FishEye/Crucible Kantega SSO sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Kantega SSO için FishEye/Crucible test kullanıcısı oluşturma](#creating-a-kantega-sso-for-fisheyecrucible-test-user)**  - Kantega SSO için kullanıcı Azure AD gösterimini bağlı FishEye/Crucible Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, Kantega SSO FishEye/Crucible uygulama için çoklu oturum açmayı yapılandırın.
 
-**Azure AD çoklu oturum açma Kantega SSO FishEye/Crucible için yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma için FishEye/Crucible Kantega SSO ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Kantega SSO FishEye/Crucible için** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Kantega SSO FishEye/Crucible için** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
@@ -108,46 +108,46 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
  
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/tutorial_kantegassoforfisheyecrucible_samlbase.png)
 
-3. İçinde **IDP** üzerinde modunda başlatılan **Kantega SSO FishEye/Crucible etki alanı ve URL'ler için** bölümü aşağıdaki adımı gerçekleştirin:
+3. İçinde **IDP** modunda başlatıldı **FishEye/Crucible etki alanı ve URL'ler için Kantega SSO** bölümü aşağıdaki adımı uygulayın:
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/tutorial_kantegassoforfisheyecrucible_url1.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
-4. İçinde **SP** başlatılan modu, onay **Göster Gelişmiş URL ayarları** ve aşağıdaki adımı gerçekleştirin:
+4. İçinde **SP** başlatılan modu, onay **Gelişmiş URL ayarlarını göster** ve aşağıdaki adımı uygulayın:
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/tutorial_kantegassoforfisheyecrucible_url2.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
      
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler, gerçek tanımlayıcı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Öğreticide daha sonra açıklanan FishEye/Crucible eklentisi yapılandırma sırasında bu değerleri alma.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Bu değerler, öğreticinin ilerleyen bölümlerinde açıklanan FishEye/Crucible eklentisi yapılandırma sırasında alınır.
 
-5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+5. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/tutorial_kantegassoforfisheyecrucible_certificate.png) 
 
-6. Tıklatın **kaydetmek** düğmesi.
+6. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/tutorial_general_400.png)
     
-7. Farklı web tarayıcısı penceresinde FishEye/Crucible şirket içi sunucunuza yönetici olarak oturum açın.
+7. Farklı bir web tarayıcı penceresinde FishEye/Crucible şirket içi sunucunuza yönetici olarak oturum açın.
 
-8. Dişlisine üzerine gelin ve tıklatın **eklentileri**.
+8. Dişlisine gelin ve tıklayın **eklentileri**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
 
-9. Sistem ayarları bölümü altında tıklatın **Bul yeni eklentileri**. 
+9. Sistem ayarları bölümü altında **yeni eklentileri bulma**. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/add-on2.png)
 
-10. Arama **Kantega SSO Crucible için** tıklatıp **yükleme** yeni SAML eklentisini yüklemek için düğmeyi.
+10. Arama **Kantega SSO için Crucible** tıklatıp **yükleme** yeni SAML eklentisini yüklemek için düğme.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/addon2.png)
 
-11. Eklentisi yüklemeyi başlatır. 
+11. Eklenti yükleme başlar. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
 
@@ -159,7 +159,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/addon35.png)
 
-14. Tıklatın **yapılandırma** yeni eklenti yapılandırmak için.    
+14. Tıklayın **yapılandırma** yeni eklentiyi yapılandırmak için.    
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/addon3.png)
 
@@ -171,39 +171,39 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/addon5.png)
 
-17. Üzerinde **uygulama özellikleri** bölümünde, şu adımları gerçekleştirin:
+17. Üzerinde **uygulama özellikleri** bölümünde, aşağıdaki adımları uygulayın:
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
 
-    a. Kopya **uygulama kimliği URI'si** değer ve olarak kullanmak **tanımlayıcısı, yanıt URL'si ve oturum açma URL'si** üzerinde **Kantega SSO FishEye/Crucible etki alanı ve URL'ler için** Azure portalı bölümünde.
+    a. Kopyalama **uygulama kimliği URI'si** olarak kullanın ve değerini **tanımlayıcısı, yanıt URL'si ve oturum açma URL'si** üzerinde **FishEye/Crucible etki alanı ve URL'ler için Kantega SSO** bölümü Azure Portalı'nda.
 
     b. **İleri**’ye tıklayın.
 
-18. Üzerinde **meta veri içeri aktarma** bölümünde, şu adımları gerçekleştirin:
+18. Üzerinde **meta veri içeri aktarma** bölümünde, aşağıdaki adımları uygulayın:
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
 
-    a. Seçin **meta veri dosyası bilgisayarımda**ve Azure portalından karşıdan yükleme meta veri dosyası.
+    a. Seçin **meta veri dosyası bilgisayarımda**ve Azure portalından indirdiğiniz meta veri dosyası karşıya yükleme.
 
     b. **İleri**’ye tıklayın.
 
-19. Üzerinde **adı ve SSO konumunu** bölümünde, şu adımları gerçekleştirin:
+19. Üzerinde **adı ve SSO konumunu** bölümünde, aşağıdaki adımları uygulayın:
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
 
-    a. Kimlik sağlayıcı adını eklemek **kimlik sağlayıcı adı** textbox (örneğin Azure AD).
+    a. Kimlik sağlayıcısı adını eklemek **kimlik sağlayıcı adı** metin (ör. Azure AD).
 
     b. **İleri**’ye tıklayın.
 
-20. İmzalama sertifikası doğrulayın ve tıklatın **sonraki**.  
+20. İmzalama sertifikası doğrulayın ve tıklayın **sonraki**.  
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/addon9.png)
 
-21. Üzerinde **balık gözü kullanıcı hesapları** bölümünde, şu adımları gerçekleştirin:
+21. Üzerinde **balık kullanıcı hesaplarını** bölümünde, aşağıdaki adımları uygulayın:
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
 
-    a. Seçin **gerekirse FishEye'nın iç dizinde kullanıcılar oluşturma** ve kullanıcılar uygun Grup adını girin (olabilir birden çok yok. virgülle ayrılmış grupları).
+    a. Seçin **kullanıcılar FishEye'nın iç dizinde gerekirse oluşturun** ve kullanıcılar için uygun Grup adını girin (olabilir birden çok yok. virgülle ayırarak grupları).
 
     b. **İleri**’ye tıklayın.
 
@@ -211,35 +211,35 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
 
-23. Üzerinde **için Azure AD etki alanları bilinen** bölümünde, şu adımları gerçekleştirin: 
+23. Üzerinde **etki alanları için Azure AD bilinen** bölümünde, aşağıdaki adımları uygulayın: 
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
 
-    a. Seçin **etki alanları bilinen** sayfanın sol panelindeki.
+    a. Seçin **etki alanları** sayfasının sol panelden.
 
-    b. Etki alanı adı girin **etki alanları bilinen** metin kutusu.
+    b. Etki alanı adını girin **etki alanları** metin.
 
     c. **Kaydet**’e tıklayın.  
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir  **Yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/kantegassoforfisheyecrucible-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/kantegassoforfisheyecrucible-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/kantegassoforfisheyecrucible-tutorial/create_aaduser_03.png) 
 
@@ -247,87 +247,87 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/kantegassoforfisheyecrucible-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**’a tıklayın.
  
-### <a name="creating-a-kantega-sso-for-fisheyecrucible-test-user"></a>Kantega SSO FishEye/Crucible test kullanıcısı için oluşturma
+### <a name="creating-a-kantega-sso-for-fisheyecrucible-test-user"></a>Kantega SSO için FishEye/Crucible test kullanıcısı oluşturma
 
-Azure AD kullanıcılarının FishEye/Crucible oturum açmayı etkinleştirmek için bunlar FishEye/Crucible sağlanmalıdır. SSO Kantega içinde FishEye/Crucible için sağlama bir el ile bir görevdir.
+Azure AD kullanıcılarının FishEye/Crucible oturum açmayı etkinleştirmek için bunlar FishEye/Crucible sağlanması gerekir. FishEye/Crucible Kantega SSO, sağlama bir el ile gerçekleştirilen bir görevdir.
 
 **Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
 
 1. Crucible şirket içi sunucunuza yönetici olarak oturum açın.
 
-2. Dişlisine üzerine gelin ve tıklatın **kullanıcılar**.
+2. Dişlisine gelin ve tıklayın **kullanıcılar**.
 
-    ![Çalışanı ekleyin](./media/kantegassoforfisheyecrucible-tutorial/user1.png) 
+    ![Çalışan Ekle](./media/kantegassoforfisheyecrucible-tutorial/user1.png) 
 
-3. Altında **kullanıcılar** bölüm sekmesini tıklatın, **Kullanıcı Ekle**.
+3. Altında **kullanıcılar** sekmesinde bölüm **Kullanıcı Ekle**.
 
-    ![Çalışanı ekleyin](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
+    ![Çalışan Ekle](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
 
 4. Üzerinde **yeni kullanıcı Ekle** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    ![Çalışanı ekleyin](./media/kantegassoforfisheyecrucible-tutorial/user3.png) 
+    ![Çalışan Ekle](./media/kantegassoforfisheyecrucible-tutorial/user3.png) 
 
-    a. İçinde **kullanıcıadı** metin kutusu, kullanıcı e-posta türünü ister Brittasimon@contoso.com.
+    a. İçinde **kullanıcıadı** metin kutusuna kullanıcı e-posta türünü ister Brittasimon@contoso.com.
     
-    b. İçinde **görünen adı** metin kutusuna, kullanıcının Britta Simon gibi türü görünen adı.
+    b. İçinde **görünen adı** metin türü Britta Simon gibi kullanıcının görünen adı.
     
-    c. İçinde **e-posta adresi** metin kutusuna, kullanıcının e-posta adresi türü ister Brittasimon@contoso.com.
+    c. İçinde **e-posta adresi** metin kutusuna kullanıcı e-posta adresi türünü ister Brittasimon@contoso.com.
 
-    d. İçinde **parola** metin kutusuna, kullanıcının parolasını yazın.  
+    d. İçinde **parola** metin kutusu, kullanıcı parolasını yazın.  
 
     e. İçinde **parolayı onayla** metin kutusu, kullanıcı parolasını yeniden girin.
 
     f. **Ekle**'ye tıklayın.   
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Britta FishEye/Crucible Kantega SSO için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için FishEye/Crucible Kantega SSO için erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı Ata][200] 
 
-**Kantega SSO FishEye/Crucible için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Kantega SSO için FishEye/Crucible atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Kantega SSO FishEye/Crucible için**.
+2. Uygulamalar listesinde **Kantega SSO için FishEye/Crucible**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforfisheyecrucible-tutorial/tutorial_kantegassoforfisheyecrucible_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı Ata][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli FishEye/Crucible parçasında Kantega SSO tıklattığınızda, otomatik olarak, Kantega SSO FishEye/Crucible uygulama için açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Kantega SSO erişim Paneli'nde FishEye/Crucible kutucuğa tıkladığınızda, otomatik olarak, Kantega SSO için FishEye/Crucible uygulamayı açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

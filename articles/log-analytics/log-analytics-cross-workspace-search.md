@@ -1,6 +1,6 @@
 ---
-title: Azure günlük analizi ile kaynakları genelinde arama yapma | Microsoft Docs
-description: Bu makalede nasıl birden çok çalışma alanları ve App Insights uygulama kaynaklara karşı aboneliğinizde Sorgulayabileceğiniz açıklanmaktadır.
+title: Azure Log Analytics ile kaynakları genelinde arama yapma | Microsoft Docs
+description: Bu makalede nasıl birden çok çalışma alanları ve App Insights uygulama kaynaklarda aboneliğinizde Sorgulayabileceğiniz açıklanır.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,81 +15,92 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a8d5465a2a9aaf9cf686a8e135a1f537cc60c6b5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e7ca3bcb3c3322c0eba12d7f9eb2ee2bc7b7600c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129260"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049856"
 ---
-# <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Günlük analizi arası kaynak günlük aramalar gerçekleştirmek  
+# <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Log Analytics'te kaynaklar arası günlük aramaları gerçekleştirme  
 
-Daha önce Azure günlük analizi ile yalnızca geçerli çalışma alanı içindeki verileri çözümleyebilir ve aboneliğinizde tanımlanan birden çok çalışma alanları arasında becerinizi sorgu sınırlıdır.  Ayrıca, yalnızca Application Insights'ta doğrudan Application Insights ile web tabanlı uygulamanız veya Visual Studio'dan toplanan telemetri öğeleri araması yapabilirsiniz.  Bu da yerel olarak işletimsel çözümlemek için sınama ve uygulama verileri birlikte yapılan.   
+Daha önce Azure Log Analytics ile yalnızca geçerli çalışma alanındaki verileri çözümleyebilir ve aboneliğinizde tanımlanmış birden çok çalışma alanında sorgu yapabilmenizi sınırlıdır.  Ayrıca, Application ınsights'ta doğrudan Application Insights ile web tabanlı uygulamanızın içinden veya Visual Studio'dan toplanan telemetri öğelerinin yalnızca arama yapabilirsiniz.  Bu ayrıca yerel olarak operasyonel analiz etmek için sınama ve uygulama verileri birlikte hale.   
 
-Artık yalnızca birden çok günlük analizi çalışma alanı, aynı zamanda belirli bir Application Insights uygulamayı aynı kaynak grubu, başka bir kaynak grubu veya başka bir abonelik verileri arasında sorgulayabilirsiniz. Bu, verilerinizi bir sistem genelinde görünümünü sağlar.  Bu tür sorgularında yalnızca gerçekleştirebilirsiniz [Gelişmiş portal](log-analytics-log-search-portals.md#advanced-analytics-portal), Azure portalında değil. Tek bir sorgu içeren kaynak sayısı (günlük analizi çalışma alanları ve Application Insights uygulama) 100 sınırlıdır. 
+Artık yalnızca birden fazla Log Analytics çalışma alanları, aynı zamanda aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından verileriniz üzerinde sorgulama yapabilirsiniz. İle verilerinizin sistem genelinde bir görünüm sağlar.  Yalnızca bu tür bir sorgu gerçekleştirebileceğiniz [Gelişmiş portal](log-analytics-log-search-portals.md#advanced-analytics-portal), Azure Portalı'nda. 100'e (Log Analytics çalışma alanları ve Application Insights uygulaması), tek bir sorguda dahil edebileceğiniz kaynak sayısı sınırlıdır. 
 
-## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Günlük analizi çalışma alanları arasında ve Application Insights sorgulama
-Sorgunuzdaki başka bir çalışma alanı başvurmak için [ *çalışma* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) tanımlayıcısı ve bir uygulamadan için Application Insights, [ *uygulama* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())tanımlayıcısı.  
+## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Application ınsights ve Log Analytics çalışma alanları arasında sorgulama
+Sorgunuzu başka bir çalışma alanı başvurmak için kullanma [ *çalışma* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) tanımlayıcısı ve Application ınsights'tan bir uygulama için [ *uygulama* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())tanımlayıcısı.  
 
 ### <a name="identifying-workspace-resources"></a>Çalışma alanı kaynakları tanımlama
-Aşağıdaki örnekler, güncelleştirmelerinin özetlenen sayıları güncelleştirme tablosundan adlı bir çalışma alanında döndürmek için günlük analizi çalışma alanları arasında sorguları gösterir. *contosoretail BT*. 
+Aşağıdaki örnekler, günlükleri özetlenen sayısını güncelleştirme tablosundan adlı bir çalışma alanına dönmek için Log Analytics çalışma alanları arasında sorguları gösterir. *contosoretail BT*. 
 
-Bir çalışma alanı tanımlayan başarılı çeşitli yollardan biri olabilir:
+Bir çalışma alanı tanımlama yollarından biri kullanılarak gerçekleştirilebilir olabilir:
 
-* Kaynak adı - adıdır bir okunabilir bazen denir çalışma alanında, *bileşen adı*. 
+* Kaynak adı - bazen denir, çalışma alanının okunabilir bir ad olduğu *bileşen adı*. 
 
     `workspace("contosoretail").Update | count`
  
     >[!NOTE]
-    >Bir çalışma alanı adına göre tanımlayan benzersizlik erişilebilir abonelikler varsayar. Belirtilen ada sahip birden çok uygulamalarınız varsa, sorgu belirsizlik nedeniyle başarısız olur. Bu durumda, diğer tanımlayıcıları birini kullanmanız gerekir.
+    >Bir çalışma alanı adına göre tanımlayan benzersizlik tüm erişilebilir aboneliklerindeki varsayar. Belirtilen ada sahip birden çok uygulamalarınız varsa, sorgu belirsizlik nedeniyle başarısız olur. Bu durumda, diğer tanımlayıcılarla birini kullanmanız gerekir.
 
-* Koşullu - adıdır abonelik adı, kaynak grubu ve bileşen adı bu biçimde oluşan çalışma alanında, "tam adı": *resourceGroup/varlığıyla subscriptionName/componentName*. 
+* Tam adı - abonelik adı, kaynak grubu ve bileşen adı şu biçimde oluşan çalışma alanında, "tam adı" olduğunu: *resourceGroup/subscriptionName/componentName*. 
 
-    `workspace('contoso/contosoretail/development').requests | count `
+    `workspace('contoso/contosoretail/contosoretail-it').Update | count `
 
     >[!NOTE]
-    >Azure aboneliği adlarının benzersiz olduğundan bu tanımlayıcısı belirsiz olabilir. 
+    >Azure aboneliği adları benzersiz olmuyor çünkü bu tanımlayıcısı belirsiz olabilir. 
     >
 
-* Çalışma alanı kimliği - çalışma alanı kimliği için bir genel benzersiz tanımlayıcı (GUID) olarak gösterilen her çalışma alanına atanan benzersiz, sabit, tanımlayıcısıdır.
+* Çalışma alanı kimliği - atanan genel benzersiz tanıtıcısı (GUID) temsil edilen her bir çalışma alanı için benzersiz, sabit, tanımlayıcı bir çalışma alanı kimliğidir.
 
     `workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update | count`
 
-* Azure kaynak kimliği – çalışma alanının Azure tarafından tanımlanan benzersiz kimlik. Kaynak adı belirsiz olduğunda kaynak kimliği kullanın.  Çalışma alanları için biçimi şöyledir: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft. Çalışma alanları/OperationalInsights/componentName*.  
+* Azure Resource ID: çalışma alanının Azure tanımlı benzersiz kimliği. Kaynak adı belirsiz olduğunda kaynak Kimliğini kullanın.  Çalışma alanları için biçimi şu şekildedir: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft. Çalışma alanları/Operationalınsights/componentName*.  
 
     Örneğin:
     ``` 
-    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
+    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Update | count
     ```
 
 ### <a name="identifying-an-application"></a>Bir uygulama tanımlama
-Aşağıdaki örnekler adlı bir uygulama karşı yapılan istekleri özetlenen sayısını Döndür *fabrikamapp* Application ınsights'ta. 
+Aşağıdaki örnekte adlı bir uygulama karşı yapılan istekleri özetlenmiş bir sayısını döndürmek *fabrikamapp* Application ınsights. 
 
-İle Application Insights uygulamada tanımlayan gerçekleştirilebilir *app(Identifier)* ifade.  *Tanımlayıcısı* bağımsız değişkeni şunlardan birini kullanarak uygulamayı belirtir:
+İle bir Application Insights uygulamasında tanımlama gerçekleştirilebilir *app(Identifier)* ifade.  *Tanımlayıcı* bağımsız değişkeni, aşağıdakilerden birini kullanarak uygulamayı belirtir:
 
-* Kaynak adı - adıdır bir insan okunabilir bazen denir uygulama *bileşen adı*.  
+* -Kaynak adı olduğundan bazen denir, app insan tarafından okunabilir adını *bileşen adı*.  
 
     `app("fabrikamapp")`
 
-* Koşullu - adıdır uygulamasının abonelik adı, kaynak grubu ve bileşen adı bu biçimde oluşan "tam adı": *resourceGroup/varlığıyla subscriptionName/componentName*. 
+* Tam adı - addır "tam" uygulamasının abonelik adı, kaynak grubu ve bileşen adı şu biçimde oluşur: *resourceGroup/subscriptionName/componentName*. 
 
     `app("AI-Prototype/Fabrikam/fabrikamapp").requests | count`
 
      >[!NOTE]
-    >Azure aboneliği adlarının benzersiz olduğundan bu tanımlayıcısı belirsiz olabilir. 
+    >Azure aboneliği adları benzersiz olmuyor çünkü bu tanımlayıcısı belirsiz olabilir. 
     >
 
-* Kimliği - uygulama uygulamanın GUID'si.
+* Kimliği - uygulama uygulamasının GUID.
 
     `app("b459b4f6-912x-46d5-9cb1-b43069212ab4").requests | count`
 
-* Azure kaynak kimliği - uygulamanın Azure tarafından tanımlanan benzersiz kimlik. Kaynak adı belirsiz olduğunda kaynak kimliği kullanın. Biçim: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft. Bileşenleri/OperationalInsights/componentName*.  
+* Azure kaynak kimliği - uygulamayı Azure tanımlı benzersiz kimliği. Kaynak adı belirsiz olduğunda kaynak Kimliğini kullanın. Biçim: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft. Operationalınsights/bileşenleri/componentName*.  
 
     Örneğin:
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
 
+### <a name="performing-a-query-across-multiple-resources"></a>Birden fazla kaynak arasında sorgu gerçekleştirme
+Birden çok kaynak kaynak örnekleriniz hiçbirini sorgulayabilir, bunlar çalışma alanları ve uygulamaları olabilir birleştirilmiş.
+    
+Örneğin, iki çalışma alanları arasında sorgu:    
+    ```
+    union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
+    | where TimeGenerated >= ago(1h)
+    | where UpdateState == "Needed"
+    | summarize dcount(Computer) by Classification
+    ```
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Gözden geçirme [günlük analizi oturum Arama başvurusu](https://docs.loganalytics.io/docs/Language-Reference) sorgu sözdizimi seçenekleri günlük analizi görüntülemek için.    
+Gözden geçirme [Log Analytics günlük araması başvuru](https://docs.loganalytics.io/docs/Language-Reference) tüm kullanılabilir Log Analytics'te sorgu söz dizimi seçeneklerini görüntüleyin.    

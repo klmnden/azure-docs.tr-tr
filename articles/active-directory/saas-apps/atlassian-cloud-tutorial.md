@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme Atlassian bulut ile | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory Atlassian bulut arasındaki yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory Atlassian bulut ile tümleştirme | Microsoft Docs'
+description: Azure Active Directory ve Atlassian bulut arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,114 +15,114 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 7609cea0d16a52a927f87ee9ab6d4445bfc2eb20
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f0ad879bb084a8d3a50a0934557eae64621c0160
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228933"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054271"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Öğretici: Azure Active Directory Tümleştirme Atlassian bulut ile
+# <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Öğretici: Azure Active Directory Atlassian bulut ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Atlassian bulut tümleştirme öğrenin.
+Bu öğreticide, Atlassian bulut Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
 Atlassian bulut Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Atlassian bulut erişimi olan Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak imzalanmış kullanıcılarınıza etkinleştirebilirsiniz (çoklu oturum açma) Azure AD hesaplarına olan Atlassian buluta.
-- Hesaplarınızı bir merkezi konumda, Azure portalında yönetebilir.
+- Atlassian Bulutuna erişimi olan Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak imzalanmış kullanıcılarınızın etkinleştirebilirsiniz (çoklu oturum açma) ile Azure AD hesaplarına Atlassian buluta.
+- Hesaplarınız bir merkezi konumda, Azure portalında yönetebilir.
 
-Azure AD ile hizmet (SaaS) uygulaması tümleştirme olarak yazılım hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md).
+Azure AD ile bir hizmet (SaaS) uygulamasını tümleştirme olarak yazılım hakkında daha fazla bilgi için bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Atlassian bulut ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirmesi Atlassian Bulutla yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD abonelik.
-- Güvenlik onaylama işlemi biçimlendirme dili (SAML) çoklu oturum açma Atlassian bulut ürünleri için etkinleştirmek için Identity Manager ayarlamanız gerekir. Daha fazla bilgi edinmek [Identity Manager]( https://www.atlassian.com/enterprise/cloud/identity-manager).
+- Azure AD aboneliğiniz.
+- Güvenlik onaylama işlemi biçimlendirme dili (SAML) çoklu oturum açma için Atlassian bulut ürünleri etkinleştirmek için Identity Manager'ı ayarlamak gerekir. Daha fazla bilgi edinin [Identity Manager]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 > [!NOTE]
-> Bu öğreticide adımları test ettiğinizde, bir üretim ortamında kullanmanızı öneririz.
+> Bu öğreticideki adımları test ettiğinizde, bir üretim ortamında kullanmanızı öneririz.
 
-Bu öğreticide adımları test etmek için aşağıdaki önerileri uygulayın:
+Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
-Öğreticide verilen senaryoda iki ana yapı taşlarını oluşur:
+Öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-* Galeriden Atlassian bulut ekleme
-* Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+* Atlassian bulut galeri ekleme
+* Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="add-atlassian-cloud-from-the-gallery"></a>Galeriden Atlassian bulut ekleme
-Azure AD ile tümleştirme Atlassian bulutun yapılandırmak için Atlassian bulut aşağıdakileri yaparak Galeriden yönetilen SaaS uygulamaları listenize ekleyin:
+## <a name="add-atlassian-cloud-from-the-gallery"></a>Atlassian bulut Galeriden Ekle
+Azure AD ile Atlassian bulut tümleştirmesini yapılandırmak için Atlassian bulut aşağıdakileri yaparak Galeriden yönetilen SaaS uygulamaları listenize ekleyin:
 
-1. İçinde [Azure portal](https://portal.azure.com), sol bölmede seçin **Azure Active Directory** düğmesi.
+1. İçinde [Azure portalında](https://portal.azure.com), sol bölmede seçin **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi][1]
 
 2. Seçin **kurumsal uygulamalar** > **tüm uygulamaları**.
 
-    ![Kuruluş uygulamaları bölmesi][2]
+    ![Kurumsal uygulamalar bölmesi][2]
     
 3. Bir uygulama eklemek için seçin **yeni uygulama**.
 
     !["Yeni uygulama" düğmesi][3]
 
-4. Arama kutusuna **Atlassian bulut**, sonuçlar listesinde **Atlassian bulut**ve ardından **Ekle**.
+4. Arama kutusuna **Atlassian bulut**, sonuç listesinden **Atlassian bulut**ve ardından **Ekle**.
 
-    ![Sonuçlar listesinde Atlassian bulut](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_addfromgallery.png)
+    ![Sonuç listesinde Atlassian bulut](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Atlassian bulut, adlandırılmış bir test kullanıcı tabanlı ile test etme *Britta Simon*.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Atlassian adlı bir test kullanıcı tabanlı bulutla test *Britta Simon*.
 
-Tekli çalışmaya oturum için Azure AD'de Atlassian bulut kullanıcı ve kendisine karşılık gelen tanımlamak Azure AD gerekiyor. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı arasındaki bağlantıyı ilişki Atlassian bulutta oluşturmanız gerekir.
+Tek iş için oturum açma için Azure AD'de Atlassian bulut kullanıcısı ve kendisine karşılık gelen tanımlamak Azure AD'nin gerekiyor. Diğer bir deyişle, Atlassian buluttaki bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir bağlantı ilişki oluşturmanız gerekir.
 
-Bağlantı ilişkisi oluşturmak için Atlassian bulut olarak atamak *kullanıcıadı* Azure AD ile atanan aynı değere *kullanıcı adı*.
+Bağlantı kurmak için Atlassian bulut olarak atama *kullanıcıadı* Azure AD'ye atanan değerin *kullanıcı adı*.
 
-Yapılandırma ve Azure AD çoklu oturum açma Atlassian bulut ile test etmek için aşağıdaki bölümlerdeki yapı taşları tamamlamanız gerekir.
+Yapılandırma ve Azure AD çoklu oturum açma Atlassian Bulutu ile test etmek için aşağıdaki bölümlerde yapı taşlarını tamamlanması gerekir.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Atlassian bulut uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Atlassian bulut uygulamanızı yapılandırın.
 
-Azure AD çoklu oturum açma Atlassian bulut ile yapılandırmak için aşağıdakileri yapın:
+Azure AD çoklu oturum açma Atlassian Bulutla yapılandırmak için aşağıdakileri yapın:
 
-1. Azure portalında içinde **Atlassian bulut** uygulama tümleştirmesi bölmesinde, **çoklu oturum açma**.
+1. Azure portalında, **Atlassian bulut** uygulama tümleştirme bölmesinde **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. İçinde **çoklu oturum açma** penceresi, **tek oturum açma modu** kutusunda **SAML tabanlı oturum açma**.
+2. İçinde **çoklu oturum açma** penceresi içinde **çoklu oturum açma modunu** kutusunda **SAML tabanlı oturum açma**.
 
     ![Çoklu oturum açma penceresi](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_samlbase.png)
 
-3. Uygulama IDP başlatılan modda altında yapılandırmak için **Atlassian bulut etki alanı ve URL'leri**, aşağıdakileri yapın:
+3. IDP tarafından başlatılan modunda altında uygulamayı yapılandırmak için **Atlassian bulut etki alanı ve URL'ler**, aşağıdakileri yapın:
 
-    ![Atlassian bulut etki alanı ve oturum açma URL'leri tek bilgi](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url.png)
+    ![Oturum açma bilgileri çoklu Atlassian bulut etki alanı ve URL'ler](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url.png)
     
-    a. İçinde **tanımlayıcısı** kutusuna **`https://auth.atlassian.com/saml/<unique ID>`**.
+    a. İçinde **tanımlayıcı** kutusuna **`https://auth.atlassian.com/saml/<unique ID>`**.
     
     b. İçinde **yanıt URL'si** kutusuna **`https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`**.
 
-    c. İçinde **geçiş durumunu** kutusunda, aşağıdaki sözdizimini kullanarak URL'yi yazın: **`https://<instancename>.atlassian.net`**.
+    c. İçinde **geçiş durumu** kutusunda, aşağıdaki sözdizimini kullanarak bir URL yazın: **`https://<instancename>.atlassian.net`**.
 
-4. SP tarafından başlatılan modunda uygulama yapılandırmak için seçin **Göster Gelişmiş URL ayarları** , daha sonra **URL üzerinde oturum** kutusunda, aşağıdaki sözdizimini kullanarak URL'yi yazın: **`https://<instancename>.atlassian.net`** .
+4. SP tarafından başlatılan modunda uygulamayı yapılandırmak için seçin **Gelişmiş URL ayarlarını göster** ve daha sonra **oturum açma URL'si** kutusunda, aşağıdaki sözdizimini kullanarak bir URL yazın: **`https://<instancename>.atlassian.net`** .
 
-    ![Atlassian bulut etki alanı ve oturum açma URL'leri tek bilgi](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
+    ![Oturum açma bilgileri çoklu Atlassian bulut etki alanı ve URL'ler](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
 
     > [!NOTE]
-    > Yukarıdaki değerleri gerçek değildir. Bunları, gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si değerlerini güncelleştirin. Gerçek değerlerin Atlassian bulut SAML Yapılandırma ekranından alabilirsiniz. Biz, daha sonra öğreticide değerleri açıklanmaktadır.
+    > Yukarıdaki değerleri gerçek değildir. Bunları, gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si değeri ile güncelleştirin. Atlassian bulut SAML yapılandırma ekranında, gerçek değerleri alabilirsiniz. Biz, öğreticinin ilerleyen bölümlerinde değerleri açıklanmaktadır.
 
-5. Altında **SAML imzalama sertifikası**seçin **Certificate(Base64)** ve ardından sertifika dosyayı bilgisayarınıza kaydedin.
+5. Altında **SAML imzalama sertifikası**seçin **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_certificate.png)
 
-6. SAML belirteci öznitelikleri yapılandırmanızı özel öznitelik eşlemelerini eklemenizi gerektirir belirli bir biçimde SAML onaylar bulmak Atlassian bulut uygulamanızı bekliyor. 
+6. Özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bulmak Atlassian bulut uygulamanızın bekliyor. 
 
-    Varsayılan olarak, **kullanıcı tanımlayıcısı** değeri user.userprincipalname için eşlenmedi. Bu değer için User.Mail eşleştirmek için değiştirin. Diğer uygun değeri, kuruluşunuzun Kurulum göre de seçebilirsiniz, ancak bir e-posta taleplerini çoğunda çalışması gerekir.
+    Varsayılan olarak, **kullanıcı tanımlayıcısı** değeri için user.userprincipalname eşlenir. İçin User.Mail eşlemek için bu değeri değiştirin. Diğer uygun değere göre kuruluşunuzun Kurulum de seçebilirsiniz, ancak bir e-posta taleplerini çoğunda çalışması gerekir.
 
     ![Sertifika indirme bağlantısı](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_attribute.png)
 
@@ -130,62 +130,62 @@ Azure AD çoklu oturum açma Atlassian bulut ile yapılandırmak için aşağıd
 
     ![Yapılandırma çoklu oturum açma düğmesi Kaydet](./media/atlassian-cloud-tutorial/tutorial_general_400.png)
 
-8. Açmak için **yapılandırma oturum açma** penceresi, **Atlassian bulut Yapılandırması** bölümünde, select **Atlassian bulut yapılandırma**.
+8. Açmak için **yapılandırma oturum açma** penceresi içinde **Atlassian bulut Yapılandırması** bölümünden **Atlassian bulut yapılandırma**.
 
-9. İçinde **hızlı başvuru** bölümünde, kopyalama **SAML varlık kimliği** ve **SAML çoklu oturum açma hizmet URL'si**.
+9. İçinde **hızlı başvuru** bölümünde, kopya **SAML varlık kimliği** ve **SAML çoklu oturum açma hizmeti URL'si**.
 
     ![Atlassian bulut yapılandırması](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_configure.png)
 
-10. Uygulamanız için yapılandırılmış SSO almak için Atlassian portal yönetici kimlik bilgileriyle oturum açın.
+10. Uygulamanız için yapılandırılmış SSO almak için Atlassian portalına yönetici kimlik bilgileriyle oturum açın.
 
-11. Çoklu oturum açma yapılandırmak için geçmeden önce etki alanınızı doğrulamanız gerekir. Daha fazla bilgi için bkz: [Atlassian etki alanı doğrulama](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) belge.
+11. Çoklu oturum açmayı yapılandırmak için geçmeden önce etki alanınızı doğrulayın gerekir. Daha fazla bilgi için [Atlassian etki alanı doğrulaması](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) belge.
 
-12. Sol bölmede seçin **SAML çoklu oturum açma**. Zaten yapmadıysanız, Atlassian Identity Manager abone olun.
+12. Sol bölmede seçin **SAML çoklu oturum açma**. Zaten yapmadıysanız, Atlassian Identity Manager'a abone olun.
 
     ![Çoklu oturum açmayı yapılandırın](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
 
-13. İçinde **eklemek SAML Yapılandırması** penceresinde aşağıdakileri yapın:
+13. İçinde **ekleme SAML yapılandırma** penceresinde aşağıdakileri yapın:
 
     ![Çoklu oturum açmayı yapılandırın](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
 
-    a. İçinde **kimlik sağlayıcısı varlık kimliği** kutusunda, Azure portalından kopyalandığından SAML varlık kimliği yapıştırın.
+    a. İçinde **kimlik sağlayıcısı varlık kimliği** kutusuna, Azure Portalı'ndan kopyaladığınız SAML varlık kimliği yapıştırın.
 
-    b. İçinde **kimlik sağlayıcısı SSO URL** kutusunda, Azure portalından kopyalandığından SAML çoklu oturum açma hizmeti URL'sini yapıştırın.
+    b. İçinde **kimlik sağlayıcısı SSO URL** kutusunda, SAML çoklu oturum açma hizmeti Azure portaldan kopyaladığınız URL'yi yapıştırın.
 
-    c. Açık bir .txt dosyasında Azure Portalı'ndan indirilen Sertifikayı kopyalamak değeri (olmadan *başlamak sertifika* ve *son sertifikayı* satırları) ve ardından yapıştırın **ortak X509 Sertifika** kutusu.
+    c. Açık bir .txt dosyasında Azure portalından indirilen sertifikayı kopyalamanız değeri (olmadan *başlamak sertifika* ve *End Certıfıcate* satırları), ardından yapıştırın **genel X509 Sertifika** kutusu.
     
-    d. Seçin **yapılandırmasını kaydetmek**.
+    d. Seçin **yapılandırmayı kaydetmek**.
      
-14. Doğru URL'leri ayarladığınızdan emin olmak için aşağıdakileri yaparak Azure AD ayarları güncelleştirin:
+14. Doğru URL'leri ayarladığınızdan emin olmak için aşağıdakileri yaparak Azure AD ayarlarını güncelleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 
-    a. SAML penceresindeki kopyalamak **SP kimlik kimliği** ve daha sonra Azure portalında, Atlassian bulut altında **etki alanı ve URL'leri**, yapıştırın **tanımlayıcısı** kutusu.
+    a. SAML penceresindeki kopyalamak **SP kimliği** ve ardından Azure portalında, Atlassian Bulut'un altında **etki alanı ve URL'ler**, yapıştırın **tanımlayıcı** kutusu.
     
-    b. SAML penceresindeki kopyalamak **SP onaylama tüketici hizmeti URL'si** ve daha sonra Azure portalında, Atlassian bulut altında **etki alanı ve URL'leri**, yapıştırın **yanıt URL'si** kutusu. Oturum açma URL'si Atlassian bulut Kiracı URL'sidir.
+    b. SAML penceresindeki kopyalamak **SP onay belgesi tüketici hizmeti URL'si** ve ardından Azure portalında, Atlassian Bulut'un altında **etki alanı ve URL'ler**, yapıştırın **yanıt URL'si** kutusu. Oturum açma URL'si Atlassian bulut Kiracı URL'sidir.
 
     > [!NOTE]
-    > Güncelleştirdikten sonra varolan bir müşteri olup olmadığınızı **SP kimlik kimliği** ve **SP onaylama tüketici hizmeti URL'si** Azure portalında değerleri seçin **Evet, yapılandırmayıgüncelleştirme**. Yeni bir müşteri değilseniz, bu adımı atlayabilirsiniz.
+    > Güncelleştirdikten sonra varolan bir müşteri olmadığınızı **SP kimliği** ve **SP onay belgesi tüketici hizmeti URL'si** Azure portalında, değerler **Evet, yapılandırmayıgüncelleştirme**. Yeni bir müşteri iseniz, bu adımı atlayabilirsiniz.
     
-15. Azure portalında seçin **kaydetmek**.
+15. Azure portalında **Kaydet**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/atlassian-cloud-tutorial/tutorial_general_400.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümde, aşağıdakileri yaparak Azure portalında test kullanıcısı Britta Simon oluşturun:
+Bu bölümde, aşağıdakileri yaparak Azure portalında, Britta Simon test kullanıcısı oluşturun:
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-1. Azure portalında sol bölmede seçin **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede seçin **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/atlassian-cloud-tutorial/create_aaduser_01.png)
 
 2. Kullanıcıların listesini görüntülemek için seçin **kullanıcılar ve gruplar** > **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/atlassian-cloud-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/atlassian-cloud-tutorial/create_aaduser_02.png)
 
-3. İçinde **tüm kullanıcılar** penceresinde, seçin **Ekle**.
+3. İçinde **tüm kullanıcılar** penceresinde **Ekle**.
 
     ![Ekle düğmesi](./media/atlassian-cloud-tutorial/create_aaduser_03.png)
 
@@ -195,72 +195,72 @@ Bu bölümde, aşağıdakileri yaparak Azure portalında test kullanıcısı Bri
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’u seçin.
 
 ### <a name="create-an-atlassian-cloud-test-user"></a>Bir Atlassian bulut test kullanıcısı oluşturma
 
-Azure AD Atlassian buluta oturum açmalarını etkinleştirmek için aşağıdakileri yaparak Atlassian bulutta el ile kullanıcı hesapları sağlama:
+Atlassian buluta oturum açın, aşağıdakileri yaparak Atlassian bulutta el ile kullanıcı hesapları sağlamak Azure AD kullanıcılarının etkinleştirmek için:
 
-1. İçinde **Yönetim** bölmesinde, **kullanıcılar**.
+1. İçinde **Yönetim** bölmesinde **kullanıcılar**.
 
     ![Atlassian bulut kullanıcıları bağlantısı](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_14.png)
 
-2. Bir kullanıcı Atlassian bulutta oluşturmak için seçin **davet kullanıcı**.
+2. Bir kullanıcı Atlassian bulutta oluşturmak için Seç **davet kullanıcı**.
 
-    ![Bir Atlassian bulut kullanıcı oluşturun](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_15.png)
+    ![Atlassian bulut kullanıcısı oluşturun](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_15.png)
 
-3. İçinde **e-posta adresi** kutusuna kullanıcının e-posta adresi girin ve ardından uygulama erişimi atayın.
+3. İçinde **e-posta adresi** kutusuna kullanıcının e-posta adresini girin ve ardından uygulama erişimi atayın.
 
-    ![Bir Atlassian bulut kullanıcı oluşturun](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_16.png)
+    ![Atlassian bulut kullanıcısı oluşturun](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_16.png)
 
-4. Kullanıcıya bir e-posta göndermek için seçin **kullanıcıları davet**. Kullanıcıya bir e-posta davet gönderilir ve daveti kabul ettikten sonra kullanıcı sistemde etkindir.
+4. Kullanıcıya bir e-posta davetiyesi göndermek için seçin **kullanıcıları davet**. Kullanıcıya bir davet e-postası gönderilir ve kullanıcı daveti kabul ettikten sonra sistemde etkin.
 
 >[!NOTE]
->Ayrıca toplu-seçerek kullanıcıları oluşturun **Toplu oluşturma** düğmesini **kullanıcılar** bölümü.
+>Ayrıca toplu-seçerek kullanıcılar oluşturma **Toplu oluşturma** düğmesine **kullanıcılar** bölümü.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, kullanıcı Britta Atlassian buluta erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin. Bunu yapmak için aşağıdakileri yapın:
+Bu bölümde, kullanıcı Britta Simon, Atlassian buluta erişim vererek Azure çoklu oturum açmayı kullanmak için etkinleştirin. Bunu yapmak için aşağıdakileri yapın:
 
 ![Kullanıcı rolü atayın][200]
 
-1. Azure portalında açmak **uygulamaları** görüntülemek, dizin görünümüne gidin ve ardından **kurumsal uygulamalar** > **tüm uygulamaları**.
+1. Azure portalında açın **uygulamaları** görüntüleme, dizin görünümüne gidin ve ardından **kurumsal uygulamalar** > **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201]
+    ![Kullanıcı Ata][201]
 
-2. İçinde **uygulamaları** listesinde **Atlassian bulut**.
+2. İçinde **uygulamaları** listesinden **Atlassian bulut**.
 
-    ![Uygulamalar listesinde Atlassian bulut bağlantı](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_app.png)
+    ![Uygulamalar listesinde Atlassian bulut bağlantısı](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_app.png)
 
 3. Sol bölmede seçin **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Seçin **Ekle** , daha sonra **eklemek atama** bölmesinde, **kullanıcılar ve gruplar**.
+4. Seçin **Ekle** ve daha sonra **atama Ekle** bölmesinde **kullanıcılar ve gruplar**.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
-5. İçinde **kullanıcılar ve gruplar** penceresi, **kullanıcılar** listesinde **Britta Simon**.
+5. İçinde **kullanıcılar ve gruplar** penceresi içinde **kullanıcılar** listesinden **Britta Simon**.
 
-6. İçinde **kullanıcılar ve gruplar** penceresinde, seçin **seçin**.
+6. İçinde **kullanıcılar ve gruplar** penceresinde **seçin**.
 
-7. İçinde **eklemek atama** penceresinde, seçin **atamak**.
+7. İçinde **atama Ekle** penceresinde **atama**.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
 
-Seçtiğinizde, **Atlassian bulut** döşeme erişim panelinde oturumunuz otomatik olarak Atlassian bulut uygulamanız.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Seçtiğinizde, **Atlassian bulut** kutucuğuna erişim panelinde Atlassian bulut uygulamanız için otomatik olarak imzalanıp imzalanmayacağını.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

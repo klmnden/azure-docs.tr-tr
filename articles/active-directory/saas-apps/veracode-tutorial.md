@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile Veracode | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile Veracode arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle Veracode | Microsoft Docs'
+description: Azure Active Directory ve Veracode arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: fe96581428b8a41219a4aff46ecc0316d97884ae
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2dd273a1a0b5a5af65c4c40337975cb6f3f858ae
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228678"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049839"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-veracode"></a>Öğretici: Azure Active Directory Tümleştirme Veracode ile
+# <a name="tutorial-azure-active-directory-integration-with-veracode"></a>Öğretici: Azure Active Directory Veracode ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Veracode tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile Veracode tümleştirme konusunda bilgi edinin.
 
-Veracode Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile Veracode tümleştirme ile aşağıdaki avantajları sağlar:
 
 - Veracode erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak için Veracode (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- Otomatik olarak imzalanan için Veracode (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Veracode ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile Veracode yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir Veracode çoklu oturum açma abonelik etkin
+- Azure AD aboneliğiniz
+- Abonelik Veracode çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Veracode Ekle
 2. Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 ## <a name="add-veracode-from-the-gallery"></a>Galeriden Veracode Ekle
-Azure AD Veracode tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Veracode eklemeniz gerekir.
+Azure AD'de Veracode tümleştirmesini yapılandırmak için Veracode Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Veracode eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -68,37 +68,37 @@ Azure AD Veracode tümleştirilmesi yapılandırmak için yönetilen SaaS uygula
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Veracode**seçin **Veracode** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **Veracode**seçin **Veracode** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuçlar listesinde Veracode](./media/veracode-tutorial/tutorial_veracode_addfromgallery.png)
+    ![Sonuç listesinde Veracode](./media/veracode-tutorial/tutorial_veracode_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Veracode sınayın.
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Veracode sınayın.
 
-Tekli çalışmaya oturum için Azure AD Veracode karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Veracode ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne Veracode karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Veracode ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Veracode içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Veracode içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma Veracode ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Veracode ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Veracode test kullanıcısı oluşturma](#create-a-veracode-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Veracode sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Veracode test kullanıcısı oluşturma](#create-a-veracode-test-user)**  - kullanıcı Azure AD gösterimini bağlı Veracode Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Veracode uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Veracode uygulamanızda çoklu oturum açmayı yapılandırın.
 
 **Azure AD çoklu oturum açma ile Veracode yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Veracode** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Veracode** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
@@ -106,17 +106,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açma iletişim kutusu](./media/veracode-tutorial/tutorial_veracode_samlbase.png)
 
-3. Üzerinde **Veracode etki alanı ve URL'leri** bölümü, kullanıcı gerekmez uygulama zaten Azure ile önceden tümleştirilmiş gibi tüm adımları gerçekleştirin. 
+3. Üzerinde **Veracode etki alanı ve URL'ler** bölümü, kullanıcı gerekmez uygulama zaten Azure ile önceden tümleştirilmiştir gibi tüm adımları gerçekleştirin. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/veracode-tutorial/tutorial_veracode_url.png)
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/veracode-tutorial/tutorial_veracode_certificate.png) 
 
-5. Bu bölümün amacı kullanıcıların Veracode için kendi hesabıyla SAML protokolünü temel Federasyon kullanarak Azure AD kimlik doğrulaması sağlamak nasıl anahat sağlamaktır.
+5. Bu bölümün amacı, kullanıcıların Azure AD'de SAML protokolü temel alarak Federasyon kullanarak Veracode için kendi hesabıyla kimlik doğrulaması sağlamak nasıl anahat sağlamaktır.
 
-    Özel öznitelik eşlemelerini eklemenizi gerektirir belirli bir biçimde SAML onaylar Veracode uygulamanızı bekler, **saml belirteci öznitelikleri** yapılandırma. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
+    Özel öznitelik eşlemeleri eklemek gerektiren belirli bir biçimde SAML onaylamalarını Veracode uygulamanızı bekliyor, **saml belirteci öznitelikleri** yapılandırma. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
     
     ![Öznitelikleri](./media/veracode-tutorial/tutorial_veracode_attr.png "öznitelikleri")
 
@@ -124,89 +124,89 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     | Öznitelik Adı | Öznitelik Değeri |
     |--- |--- |
-    | FirstName |User.givenName |
+    | firstName |User.givenName |
     | Soyadı |User.surname |
     | e-posta |User.Mail |
     
-    a. Her veri satırının için yukarıdaki tabloda **kullanıcı özniteliği eklemek**.
+    a. Yukarıdaki tablodaki her veri satırı için tıklatın **kullanıcı özniteliğini eklemek**.
     
     ![Öznitelikleri](./media/veracode-tutorial/tutorial_veracode_addattr.png "öznitelikleri")
     
     ![Öznitelikleri](./media/veracode-tutorial/tutorial_veracode_addattr1.png "öznitelikleri")
     
-    b. İçinde **öznitelik adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
+    b. İçinde **öznitelik adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
     
-    c. İçinde **öznitelik değeri** metin kutusuna, ilgili satır için gösterilen öznitelik değerini seçin.
+    c. İçinde **öznitelik değeri** metin kutusuna, bu satır için gösterilen öznitelik değerini seçin.
     
     d. **Tamam**’a tıklayın.
 
-7. Tıklatın **kaydetmek** düğmesi.
+7. Tıklayın **Kaydet** düğmesi.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/veracode-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/veracode-tutorial/tutorial_general_400.png)
 
-8. Üzerinde **Veracode yapılandırma** 'yi tıklatın **yapılandırma Veracode** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML varlık kimliği** gelen **hızlı başvuru bölümü.**
+8. Üzerinde **Veracode yapılandırma** bölümünde **yapılandırma Veracode** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği** gelen **hızlı başvuru bölümü.**
 
     ![Veracode yapılandırma](./media/veracode-tutorial/tutorial_veracode_configure.png) 
 
-9. Farklı web tarayıcısı penceresinde Veracode şirket sitenize yönetici olarak oturum açın.
+9. Farklı bir web tarayıcı penceresinde Veracode şirket sitenize yönetici olarak oturum.
 
-10. Üstteki menüde tıklatın **ayarları**ve ardından **yönetici**.
+10. Üstteki menüden **ayarları**ve ardından **yönetici**.
    
     ![Yönetim](./media/veracode-tutorial/ic802911.png "Yönetim")
 
-11. Tıklatın **SAML** sekmesi.
+11. Tıklayın **SAML** sekmesi.
 
-12. İçinde **kuruluş SAML ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
+12. İçinde **kuruluş SAML ayarlarını** bölümünde, aşağıdaki adımları gerçekleştirin:
    
     ![Yönetim](./media/veracode-tutorial/ic802912.png "Yönetim")
    
-    a.  İçinde **veren** metin değerini yapıştırın **SAML varlık kimliği** Azure portalından kopyalanan.
+    a.  İçinde **veren** metin değerini yapıştırın **SAML varlık kimliği** , Azure Portalı'ndan kopyaladığınız.
     
-    b. Azure Portalı'ndan indirilen sertifikanızı karşıya yüklemek için tıklayın **Dosya Seç**.
+    b. Azure portalından indirilen sertifikanızı karşıya yüklemek için tıklayın **Dosya Seç**.
    
-    c. Seçin **etkinleştirmek kendi kendine kayıt**.
+    c. Seçin **etkinleştirme kendi kendine kayıt**.
 
-13. İçinde **kendi kendine kayıt ayarları** bölümünde, aşağıdaki adımları uygulayın ve ardından **kaydetmek**:
+13. İçinde **kendi kendine kayıt ayarları** bölümünde aşağıdaki adımları uygulayın ve ardından **Kaydet**:
    
     ![Yönetim](./media/veracode-tutorial/ic802913.png "Yönetim")
    
     a. Olarak **yeni kullanıcı etkinleştirme**seçin **Hayır etkinleştirmesinin**.
    
-    b. Olarak **kullanıcı veri güncelleştirmeleri**seçin **tercih Veracode kullanıcı verilerini**.
+    b. Olarak **kullanıcı veri güncelleştirmelerini**seçin **tercih Veracode kullanıcı verilerini**.
    
     c. İçin **SAML özniteliği ayrıntılarını**, aşağıdakileri seçin:
       * **Kullanıcı rolleri**
       * **İlke Yöneticisi**
       * **Gözden Geçiren**
-      * **Güvenlik sağlama**
-      * **Executive**
+      * **Güvenliği sağlama**
+      * **Üst düzey**
       * **Gönderen**
       * **Oluşturan**
       * **Tüm taraması türleri**
-      * **Takım üyelikleri**
+      * **Takım üyeliklerinizi**
       * **Varsayılan takım**
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/veracode-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/veracode-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/veracode-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/veracode-tutorial/create_aaduser_03.png)
 
@@ -216,60 +216,60 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-veracode-test-user"></a>Veracode test kullanıcısı oluşturma
-Azure AD kullanıcıların Veracode oturum etkinleştirmek için bunların Veracode sağlanmalıdır. Veracode söz konusu olduğunda, sağlama otomatik bir görev haline gelmektedir. Sizin için eylem öğe yok. Kullanıcıları otomatik olarak ilk tek oturum açma girişimi sırasında gerekirse oluşturulur.
+Veracode açarken Azure AD kullanıcılarının etkinleştirmek için bunların Veracode sağlanması gerekir. Veracode söz konusu olduğunda, sağlama, otomatik bir görev olur. Sizin için hiçbir eylem öğesini yoktur. Kullanıcıları otomatik olarak ilk çoklu oturum açma girişimi sırasında gerekirse oluşturulur.
 
 > [!NOTE]
-> API Azure AD kullanıcı hesaplarını sağlamak için Veracode tarafından sağlanan veya herhangi diğer Veracode kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
+> Herhangi diğer Veracode kullanıcı hesabı oluşturma araçları kullanabilir veya API Azure AD'ye kullanıcı hesapları sağlamak için Veracode tarafından sağlanan.
 > 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta Veracode için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için Veracode erişim vererek Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
-**Veracode için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Veracode için atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **Veracode**.
 
     ![Uygulamalar listesinde Veracode bağlantı](./media/veracode-tutorial/tutorial_veracode_app.png)  
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Veracode parçasında tıklattığınızda, otomatik olarak Veracode uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim panelinde Veracode kutucuğa tıkladığınızda, otomatik olarak Veracode uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

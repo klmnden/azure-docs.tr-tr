@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme E satış yöneticisi Remix ile | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory arasındaki E satış yöneticisi Remix yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle E Sales Manager Remix | Microsoft Docs'
+description: Azure Active Directory arasında E Sales Manager Remix çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 07cbc047179c3de19d6f648d0342d47970c81dbc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 235ba5fd1365ed8b400edce3db22420369540cce
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231381"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052678"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Azure Active Directory E satış yöneticisi Remix ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) E satış yöneticisi Remix ile tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile satış yöneticisi Remix E tümleştirme konusunda bilgi edinin.
 
-Azure AD, E satış yöneticisi Remix ile tümleştirerek, aşağıdaki faydaları alın:
+Azure AD, E Sales Manager Remix ile tümleştirerek, aşağıdaki avantajlardan yararlanabilirsiniz:
 
-- E satış yöneticisi Remix erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak E satış yöneticisi Remix için (çoklu oturum açma veya SSO) ile Azure AD hesaplarına oturum, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda, Azure portalında yönetebilir.
+- E Sales Manager Remix erişimi, Azure AD'de kontrol edebilirsiniz.
+- Oturumunuz otomatik olarak E Sales Manager Remix için (çoklu oturum açma veya SSO) ile Azure AD hesaplarına kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda, Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme E satış yöneticisi Remix ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile satış yöneticisi Remix E yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir E satış yöneticisi Remix SSO etkin abonelik
+- Azure AD aboneliğiniz
+- Bir E Sales Manager Remix SSO etkin aboneliği
 
 > [!NOTE]
-> Bu öğreticide adımları test ettiğinizde, bunu yapmanızı öneririz *değil* bir üretim ortamında kullanın.
+> Bu öğreticideki adımları test ettiğinizde, bunu yapmanızı öneririz *değil* bir üretim ortamı kullanın.
 
-Bu öğreticide adımları test etmek için aşağıdaki önerileri uygulayın:
+Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. 
 
-Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-* Galeriden E satış yöneticisi Remix ekleme
-* Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+* Galeriden E Sales Manager Remix ekleme
+* Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="add-e-sales-manager-remix-from-the-gallery"></a>Galeriden E satış yöneticisi Remix Ekle
-Azure ad tümleştirme E satış yöneticisi Remix ile yapılandırmak için E satış yöneticisi Remix Galeriden yönetilen SaaS uygulamaları listenize aşağıdakileri yaparak ekleyin:
+## <a name="add-e-sales-manager-remix-from-the-gallery"></a>E Sales Manager Remix Galeriden Ekle
+Satış Yöneticisi E Remix ile Azure AD'nin tümleştirmesini yapılandırmak için E Sales Manager Remix Galeriden yönetilen SaaS uygulamaları listenize aşağıdakileri yaparak ekleyin:
 
-1. İçinde [Azure portal](https://portal.azure.com), sol bölmede seçin **Azure Active Directory**. 
+1. İçinde [Azure portalında](https://portal.azure.com), sol bölmede seçin **Azure Active Directory**. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -68,126 +68,126 @@ Azure ad tümleştirme E satış yöneticisi Remix ile yapılandırmak için E s
 
     !["Kurumsal uygulamalar" penceresi][2]
     
-3. Yeni bir uygulama eklemek için seçin **yeni uygulama** pencerenin üstündeki.
+3. Yeni bir uygulama eklemek için seçin **yeni uygulama** pencerenin üst kısmındaki.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **E satış yöneticisi Remix**seçin **E satış yöneticisi Remix** sonuçları listesi ve ardından **Ekle**.
+4. Arama kutusuna **E Sales Manager Remix**seçin **E Sales Manager Remix** sonuç listesini ve ardından **Ekle**.
 
-    ![Sonuçlar listesinde Satış Yöneticisi Remix E](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
+    ![Sonuç listesinde Sales Manager Remix E](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma E "Britta Simon." olarak adlandırılan bir test kullanıcı dayalı satış yöneticisi Remix ile test etme
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma E, satış yöneticisi "Britta Simon." adlı bir test kullanıcı tabanlı Remix ile test etme
 
-Tekli çalışmaya oturum için Azure AD'de E satış yöneticisi Remix kullanıcı ve kendisine karşılık gelen tanımlamak Azure AD gerekiyor. Diğer bir deyişle, bir Azure AD kullanıcısının E satış yöneticisi Remix de aynı kullanıcı arasında bir bağlantı ilişkisi kurulmalıdır.
+Tek iş için oturum açma için Azure AD E Sales Manager Remix kullanıcı ve kendisine karşılık gelen Azure AD'de tanımlaması gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının E Sales Manager Remix de aynı kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma E satış yöneticisi Remix ile test etmek için sonraki beş bölümlerde yapı taşları tamamlayın:
+Yapılandırma ve Azure AD çoklu oturum açma E Sales Manager Remix ile test, yapı taşlarını sonraki beş bölümlerde tamamlamak için:
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma E satış yöneticisi Remix uygulamanızda aşağıdakileri yaparak yapılandırın:
+Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma E Sales Manager Remix uygulamanızda aşağıdakileri yaparak yapılandırın:
 
-1. Azure portalında üzerinde **E satış yöneticisi Remix** uygulama tümleştirmesi sayfasında, **çoklu oturum açma**.
+1. Azure portalında, üzerinde **E Sales Manager Remix** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    !["Çoklu oturum açmayı" bağlantı][4]
+    !["Çoklu oturum açma" bağlantısı][4]
 
-2. İçinde **çoklu oturum açma** penceresi, **tek oturum açma modu** kutusunda **SAML tabanlı oturum açma**.
+2. İçinde **çoklu oturum açma** penceresi içinde **çoklu oturum açma modunu** kutusunda **SAML tabanlı oturum açma**.
  
-    !["Çoklu oturum açmayı" penceresi](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
+    !["Çoklu oturum açma" penceresi](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
 
-3. Altında **E satış yöneticisi Remix etki ve URL'leri**, aşağıdakileri yapın:
+3. Altında **E Sales Manager Remix etki ve URL'leri**, aşağıdakileri yapın:
 
-    ![E satış yöneticisi Remix etki alanı ve URL'leri tek oturum açma bilgilerini](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
+    ![E Sales Manager Remix etki ve URL'leri tek oturum açma bilgileri](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. İçinde **oturum açma URL'si** kutusuna bir URL aşağıdaki biçimde yazın: *https://\<Server temel URL > /\<alt etki alanı > / esales pc*.
+    a. İçinde **oturum açma URL'si** kutusuna bir URL aşağıdaki biçimde yazın: *https://\<sunucu temel URL'si > /\<alt etki alanı > / esales-pc*.
 
-    b. İçinde **tanımlayıcısı** kutusuna bir URL aşağıdaki biçimde yazın: *https://\<Server temel URL > /\<alt etki alanı > /*.
+    b. İçinde **tanımlayıcı** kutusuna bir URL aşağıdaki biçimde yazın: *https://\<sunucu temel URL'si > /\<alt etki alanı > /*.
 
-    c. Not **tanımlayıcısı** Bu öğreticide daha sonra kullanmak için değer.
+    c. Not **tanımlayıcı** Bu öğreticide daha sonra kullanmak için değer.
     
     > [!NOTE] 
-    > Yukarıdaki değerleri gerçek değildir. Bunları tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirin. Değerleri almak için başvurun [E satış yöneticisi Remix istemci destek ekibi](mailto:esupport@softbrain.co.jp).
+    > Yukarıdaki değerleri gerçek değildir. Bunları tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirin. Değerlerini almak için iletişime geçin [E Sales Manager Remix istemci Destek ekibine](mailto:esupport@softbrain.co.jp).
 
-4. Altında **SAML imzalama sertifikası**seçin **sertifika (Base64)** ve ardından sertifika dosyayı bilgisayarınıza kaydedin.
+4. Altında **SAML imzalama sertifikası**seçin **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika (Base64) indirme bağlantısı](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
-5. Seçin **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** onay kutusunu işaretleyin ve ardından **emailaddress** özniteliği.
+5. Seçin **görünümü ve diğer tüm kullanıcı özniteliklerini düzenleyin** onay kutusunu işaretleyin ve ardından **emailaddress** özniteliği.
     
     ![Kullanıcı öznitelikleri penceresi](./media/esalesmanagerremix-tutorial/configure1.png)
 
-    **Öznitelik Düzenle** penceresi açılır.
+    **Özniteliğini Düzenle** penceresi açılır.
 
-6. Kopya **Namespace** ve **adı** değerleri. Düzende değeri üretmek  *\<Namespace > /\<adı >* ve Bu öğreticide daha sonra kullanmak için kaydedin.
+6. Kopyalama **Namespace** ve **adı** değerleri. Desen değeri üretmek  *\<Namespace > /\<adı >* ve Bu öğreticide daha sonra kullanmak için kaydedin.
 
-    ![Öznitelik Düzenle penceresi](./media/esalesmanagerremix-tutorial/configure2.png)
+    ![Özniteliği düzenleme penceresi](./media/esalesmanagerremix-tutorial/configure2.png)
 
-7. Altında **E satış yöneticisi Remix Yapılandırması**seçin **yapılandırma E satış yöneticisi Remix**.
+7. Altında **E Sales Manager yapılandırması Remix**seçin **yapılandırma E Sales Manager Remix**.
 
     ![E satış yöneticisi Remix yapılandırma](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     **Yapılandırma oturum açma** penceresi açılır.
 
-8. İçinde **hızlı başvuru** bölümünde, oturum kapatma URL'sini ve SAML çoklu oturum açma hizmeti URL'sini kopyalayın.
+8. İçinde **hızlı başvuru** bölümünde, oturum kapatma URL'si ve SAML çoklu oturum açma hizmeti URL'sini kopyalayın.
 
 9. **Kaydet**’i seçin.
 
     ![Kaydet düğmesi](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 
-10. Uygulamanıza E satış yöneticisi Remix yönetici olarak oturum açın.
+10. E Sales Manager Remix uygulamanıza yönetici olarak oturum açın.
 
-11. Sağ üst kısmında, seçin **yönetici menüsüne**.
+11. Sağ üst kısımdaki seçin **yönetici menüsüne**.
 
-    !["Yönetici menü" komutu](./media/esalesmanagerremix-tutorial/configure4.png)
+    !["Yönetici menüsü" komutu](./media/esalesmanagerremix-tutorial/configure4.png)
 
-12. Sol bölmede seçin **sistem ayarlarını** > **Dış Sistem işbirliği**.
+12. Sol bölmede seçin **sistem ayarlarını** > **dış sistem ile işbirliği yaparak**.
 
-    !["Sistem ayarları" ve "Dış Sistem işbirliği" bağlantılar](./media/esalesmanagerremix-tutorial/configure5.png)
+    !["Sistem" ve "Dış Sistem işbirliği" Bağlantılarım](./media/esalesmanagerremix-tutorial/configure5.png)
     
-13. İçinde **Dış Sistem işbirliği** penceresinde, seçin **SAML**.
+13. İçinde **dış sistem ile işbirliği yaparak** penceresinde **SAML**.
 
     !["Dış Sistem işbirliği" penceresi](./media/esalesmanagerremix-tutorial/configure6.png)
 
-14. Altında **SAML kimlik doğrulama ayarını**, aşağıdakileri yapın:
+14. Altında **SAML kimlik doğrulaması ayarı**, aşağıdakileri yapın:
 
-    !["SAML kimlik doğrulama ayarını" bölümü](./media/esalesmanagerremix-tutorial/configure3.png)
+    !["SAML kimlik doğrulaması ayarlama" bölümüne](./media/esalesmanagerremix-tutorial/configure3.png)
     
     a. Seçin **PC Sürüm** onay kutusu.
     
     b. İçinde **işbirliği öğesi** bölümünde aşağı açılan listesinde seçin **e-posta**.
 
-    c. İçinde **işbirliği öğesi** kutusunda, Azure portalından önceden kopyaladığınız talep değerini yapıştırın (diğer bir deyişle, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. İçinde **işbirliği öğesi** kutusunda, daha önce Azure portaldan kopyaladığınız talep değerini yapıştırın (diğer bir deyişle, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
-    d. İçinde **veren (varlık kimliği)** kutusunda, daha önce kopyalanan tanımlayıcı değeri yapıştırın **E satış yöneticisi Remix etki ve URL'leri** Azure portalının bölümü.
+    d. İçinde **veren (varlık kimliği)** kutusunda, daha önce kopyaladığınız öğesinden tanımlayıcı değerini yapıştırın **E Sales Manager Remix etki ve URL'leri** Azure portal'ın bölümü.
 
-    e. Azure Portalı'ndan indirilen sertifikanızı karşıya yüklemek için seçin **dosya seçimi**.
+    e. Azure portalından indirilen sertifikanızı karşıya yüklemek için seçin **dosya seçimi**.
 
-    f. İçinde **kimlik sağlayıcısı oturum açma URL'si** kutusunda, Azure portalda daha önce kopyaladığınız SAML çoklu oturum açma hizmeti URL'sini yapıştırın.
+    f. İçinde **kimlik sağlayıcısı oturum açma URL'si** kutusuna, Azure portalda daha önce kopyaladığınız SAML çoklu oturum açma hizmeti URL'sini yapıştırın.
 
-    g. İçinde **kimlik sağlayıcısı oturum kapatma URL'si** kutusunda, Azure portalda daha önce kopyaladığınız oturum kapatma URL'si değeri yapıştırabilirsiniz.
+    g. İçinde **kimlik sağlayıcısı oturum kapatma URL'si** kutusuna, Azure portalda daha önce kopyaladığınız oturum kapatma URL'si değerini yapıştırın.
 
     h. Seçin **tam ayarını**.
 
 > [!TIP]
-> Uygulaması kuruluyor gibi önceki yönergeleri kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com). Uygulamada ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünde, select **çoklu oturum açma** sekmesini tıklatın ve ardından erişim belgelerde katıştırılmış **yapılandırma** alt bölüm. Embedded belgeler özelliği hakkında daha fazla bilgi için bkz: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Uygulamayı hazırlama tutunun gibi önceki yönergeleri kısa bir sürümünü edinebilirsiniz [Azure portalında](https://portal.azure.com). Uygulamayı ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünden **çoklu oturum açma** sekmesine ve ardından erişim belgelerinde katıştırılmış **yapılandırma** alttaki bölümü. Ekli belge özelliği hakkında daha fazla bilgi için bkz. [Azure AD belgeleri katıştırılmış]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümde, aşağıdakileri yaparak Azure portalında test kullanıcısı Britta Simon oluşturun:
+Bu bölümde, aşağıdakileri yaparak Azure portalında, Britta Simon test kullanıcısı oluşturun:
 
 ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-1. Azure portalında sol bölmede seçin **Azure Active Directory**.
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**.
 
     ![Azure Active Directory bağlantısı](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
 2. Geçerli kullanıcıların bir listesini görüntülemek için seçin **kullanıcılar ve gruplar** > **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
-3. Üstündeki **tüm kullanıcılar** penceresinde, seçin **Ekle**.
+3. Üst kısmındaki **tüm kullanıcılar** penceresinde **Ekle**.
 
     ![Ekle düğmesi](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
     
@@ -199,80 +199,80 @@ Bu bölümde, aşağıdakileri yaparak Azure portalında test kullanıcısı Bri
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri not edin **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri Not **parola** kutusu.
 
     d. **Oluştur**’u seçin.
  
-### <a name="create-an-e-sales-manager-remix-test-user"></a>Bir E satış yöneticisi Remix test kullanıcısı oluşturma
+### <a name="create-an-e-sales-manager-remix-test-user"></a>Bir E Sales Manager Remix test kullanıcısı oluşturma
 
-1. Uygulamanıza E satış yöneticisi Remix yönetici olarak oturum açma.
+1. E Sales Manager Remix uygulamanıza yönetici olarak oturum açın.
 
-2. Seçin **yönetici menüsünde** sağ üst menüsünde.
+2. Seçin **yönetici menüsüne** sağ üst köşedeki menüden.
 
     ![E satış yöneticisi Remix yapılandırma](./media/esalesmanagerremix-tutorial/configure4.png)
 
-3. Seçin **şirketinizin ayarları** > **bakım Departmanlar ve çalışan**ve ardından **kaydedilmiş çalışanlar**.
+3. Seçin **şirketinizin ayarları** > **Departmanlar ve çalışan Bakımı**ve ardından **kaydedilmiş çalışanlar**.
 
-    !["Çalışanlar kayıtlı" sekmesi](./media/esalesmanagerremix-tutorial/user1.png)
+    !["Çalışanlar registered" sekmesi](./media/esalesmanagerremix-tutorial/user1.png)
 
-4. İçinde **yeni çalışan kayıt** bölümünde, aşağıdakileri yapın:
+4. İçinde **yeni çalışan kaydı** bölümünde, aşağıdakileri yapın:
     
-    !["Yeni çalışan kayıt" bölümü](./media/esalesmanagerremix-tutorial/user2.png)
+    !["Yeni çalışan kaydı" bölümü](./media/esalesmanagerremix-tutorial/user2.png)
 
     a. İçinde **çalışan adı** kullanıcının adını yazın (örneğin, **Britta**).
 
     b. Kalan gerekli alanları doldurun.
     
-    c. SAML etkinleştirirseniz, yönetici oturum açma sayfasından oturum açamaz. Oturum açma GRANT yönetici ayrıcalıkları seçerek kullanıcıya **yönetici oturum açma** onay kutusu.
+    c. SAML etkinleştirirseniz, yönetici oturum açma sayfasında oturum açamazsınız. Oturum açma izni yönetici ayrıcalıkları seçerek kullanıcı **yönetici oturum açma** onay kutusu.
 
     d. Seçin **kayıt**.
 
-5. Gelecekte, yönetici olarak oturum açmak için oturum yönetici izinlerine sahip ve sağ üst kısmında, ardından kullanıcı olarak **yönetici menüsüne**.
+5. Gelecekte, yönetici olarak oturum açmak için sonra sağ üst kısımdaki'i seçin ve yönetici izinlerine sahip kullanıcı olarak oturum açma **yönetici menüsüne**.
 
-    !["Yönetici menü" komutu](./media/esalesmanagerremix-tutorial/configure4.png)
+    !["Yönetici menüsü" komutu](./media/esalesmanagerremix-tutorial/configure4.png)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, kullanıcı Britta E satış yöneticisi Remix için erişim izni verme, Azure çoklu oturum açma kullanılacak Simon etkinleştirin. Bunu yapmak için aşağıdakileri yapın: 
+Bu bölümde, kullanıcı için satış yöneticisi Remix E erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin. Bunu yapmak için aşağıdakileri yapın: 
 
 ![Kullanıcı rolü atayın][200] 
 
-1. Azure portalında açmak **uygulamaları** görünümü, Git **dizin** görüntülemek ve ardından **kurumsal uygulamalar** > **tüm uygulamaları**.
+1. Azure portalında açın **uygulamaları** görünümü, Git **dizin** görüntüleyin ve ardından **kurumsal uygulamalar** > **tüm uygulamaları**.
 
-    !["Kurumsal uygulamalar" ve "Tüm uygulamaları" bağlantılar][201] 
+    !["Kurumsal uygulamalar" ve "Tüm uygulamalar" bağlantıları][201] 
 
-2. İçinde **uygulamaları** listesinde **E satış yöneticisi Remix**.
+2. İçinde **uygulamaları** listesinden **E Sales Manager Remix**.
 
-    ![E satış yöneticisi Remix bağlantı](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
+    ![E Sales Manager Remix bağlantı](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
 3. Sol bölmede seçin **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Seçin **Ekle** , daha sonra **eklemek atama** bölmesinde, **kullanıcılar ve gruplar**.
+4. Seçin **Ekle** ve daha sonra **atama Ekle** bölmesinde **kullanıcılar ve gruplar**.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
-5. İçinde **kullanıcılar ve gruplar** penceresi, **kullanıcılar** listesinde **Britta Simon**.
+5. İçinde **kullanıcılar ve gruplar** penceresi içinde **kullanıcılar** listesinden **Britta Simon**.
 
 6. Seçin **seçin** düğmesi.
 
-7. İçinde **eklemek atama** penceresinde, seçin **atamak**.
+7. İçinde **atama Ekle** penceresinde **atama**.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
 
-Erişim panelinde E satış yöneticisi Remix döşeme seçtiğinizde, otomatik olarak E satış yöneticisi Remix uygulamanıza oturum açmanız.
+Erişim Paneli'nde E Sales Manager Remix kutucuğu seçtiğinizde, otomatik olarak E Sales Manager Remix uygulamanıza oturum açmanız.
 
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

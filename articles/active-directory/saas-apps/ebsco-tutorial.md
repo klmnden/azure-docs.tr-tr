@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile EBSCO | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile EBSCO arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle EBSCO | Microsoft Docs'
+description: Azure Active Directory ve EBSCO arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,52 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 993d03e05c7d97634b7ed12c50d248643ce9e51d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 50e9a65f881981964270e0a8bbc7af46a9dfd27a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221293"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047734"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Öğretici: Azure Active Directory Tümleştirme EBSCO ile
+# <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Öğretici: Azure Active Directory EBSCO ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile EBSCO tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile EBSCO tümleştirme konusunda bilgi edinin.
 
-EBSCO Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile EBSCO tümleştirme ile aşağıdaki avantajları sağlar:
 
 - EBSCO erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak için EBSCO (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- Otomatik olarak imzalanan için EBSCO (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme EBSCO ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile EBSCO yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir EBSCO çoklu oturum açma etkin abonelik
+- Azure AD aboneliğiniz
+- Bir EBSCO çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden EBSCO ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-ebsco-from-the-gallery"></a>Galeriden EBSCO ekleme
-Azure AD EBSCO tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden EBSCO eklemeniz gerekir.
+Azure AD'de EBSCO tümleştirmesini yapılandırmak için EBSCO Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden EBSCO eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -68,35 +68,35 @@ Azure AD EBSCO tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamal
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **EBSCO**seçin **EBSCO** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **EBSCO**seçin **EBSCO** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuçlar listesinde EBSCO](./media/ebsco-tutorial/tutorial_ebsco_addfromgallery.png)
+    ![Sonuç listesinde EBSCO](./media/ebsco-tutorial/tutorial_ebsco_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı EBSCO sınayın.
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı EBSCO sınayın.
 
-Tekli çalışmaya oturum için Azure AD EBSCO karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının EBSCO ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne EBSCO karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının EBSCO ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma EBSCO ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma EBSCO ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Bir EBSCO test kullanıcısı oluşturma](#create-an-ebsco-test-user)**  -sağlama EBSCOhost kullanıcı/kişiselleştirme otomatik hale getirebilirsiniz. EBSCO destekleyen zaman içinde sadece kullanıcı hazırlama.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Bir EBSCO test kullanıcısı oluşturma](#create-an-ebsco-test-user)**  -sağlama EBSCOhost kullanıcı/kişiselleştirme otomatik hale getirebilirsiniz. Just-ın-Time EBSCO destekleyen kullanıcı sağlama.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma EBSCO uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve EBSCO uygulamanızda çoklu oturum açmayı yapılandırın.
 
 **Azure AD çoklu oturum açma ile EBSCO yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **EBSCO** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **EBSCO** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
@@ -104,84 +104,84 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açma iletişim kutusu](./media/ebsco-tutorial/tutorial_ebsco_samlbase.png)
 
-3. Üzerinde **EBSCO etki alanı ve URL'leri** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** modu tarafından başlatılan:
+3. Üzerinde **EBSCO etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
 
-    ![EBSCO etki alanı ve URL'leri tek oturum açma bilgileri](./media/ebsco-tutorial/tutorial_ebsco_url.png)
+    ![EBSCO etki alanı ve URL'ler tek oturum açma bilgileri](./media/ebsco-tutorial/tutorial_ebsco_url.png)
 
-    İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın: `pingsso.ebscohost.com`
+    İçinde **tanımlayıcı** metin kutusuna bir URL: `pingsso.ebscohost.com`
 
-4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
+4. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
-    ![EBSCO etki alanı ve URL'leri tek oturum açma bilgileri](./media/ebsco-tutorial/tutorial_ebsco_url1.png)
+    ![EBSCO etki alanı ve URL'ler tek oturum açma bilgileri](./media/ebsco-tutorial/tutorial_ebsco_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
+    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
      
     > [!NOTE] 
-    > Oturum açma URL'si değeri gerçek değil. Değerin gerçek oturum açma URL'si ile güncelleştirin. Kişi [EBSCO istemci destek ekibi](mailto:sso@ebsco.com) değeri alınamıyor. 
+    > Oturum açma URL değeri, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [EBSCO istemci Destek ekibine](mailto:sso@ebsco.com) değeri alınamıyor. 
 
     o **benzersiz öğeleri:**  
 
     o **CustId** Enter benzersiz EBSCO Müşteri Kimliği = 
 
-    o **profil** = istemcileri (ne EBSCO satın alma göre) belirli bir profil kullanıcıları yönlendirmek için bağlantıyı uyarlama. Bir özel profil kimliği girebilirsiniz. Ana eds (EBSCO bulma hizmeti) ve ehost (EBSOCOhost veritabanları) Kimlikleridir. Yönergeler için aynı anda [burada](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
+    o **profili** = istemciler (bağlı olarak hangi EBSCO ' satın alma) belirli bir profil kullanıcılara yönlendirmek üzere bağlantıyı uyarlama. Bunlar, bir özel profil kimliğini girebilirsiniz. Ana eds (EBSCO bulma hizmeti) ve ehost (EBSOCOhost veritabanları) Kimlikleridir. Yönergeler için aynı anda [burada](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
-5. EBSCO uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
+5. EBSCO uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
     
     ![Çoklu oturum açmayı yapılandırın](./media/ebsco-tutorial/tutorial_ebsco_attribute.png)
 
     > [!Note]
-    > **Adı** özniteliği zorunludur ve ile eşlenmiş **kullanıcı tanımlayıcısı** EBSCO uygulamada. Bu el ile eklemeniz gerekmez bu varsayılan olarak eklenir.
+    > **Adı** özniteliği zorunludur ve ile eşlenmiş **kullanıcı tanımlayıcısı** EBSCO uygulamada. Bu el ile eklemek zorunda kalmazsınız bu varsayılan olarak eklenir.
     
-6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, yukarıdaki resimde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
+6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     | Öznitelik Adı | Öznitelik Değeri |
     | ---------------| --------------- |    
     | FirstName   | User.givenName |
-    | Soyadı   | User.surname |
+    | LastName   | User.surname |
     | Email   | User.Mail |
 
-    a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
+    a. Tıklayın **eklemek agentconfigutil** açmak için **öznitelik Ekle** iletişim.
 
     ![Çoklu oturum açmayı yapılandırın](./media/ebsco-tutorial/tutorial_officespace_04.png)
 
     ![Çoklu oturum açmayı yapılandırın](./media/ebsco-tutorial/tutorial_attribute_05.png)
     
-    b. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
+    b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
     
-    c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+    c. Gelen **değer** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
     
-    d. Tıklatın **Tamam**
+    d. Tıklayın **Tamam**
 
-7. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+7. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/ebsco-tutorial/tutorial_ebsco_certificate.png) 
 
-8. Tıklatın **kaydetmek** düğmesi.
+8. Tıklayın **Kaydet** düğmesi.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/ebsco-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/ebsco-tutorial/tutorial_general_400.png)
     
-9. Çoklu oturum açma yapılandırmak için **EBSCO** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [EBSCO destek ekibi](mailto:sso@ebsco.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+9. Çoklu oturum açmayı yapılandırma **EBSCO** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [EBSCO Destek ekibine](mailto:sso@ebsco.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/ebsco-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/ebsco-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/ebsco-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/ebsco-tutorial/create_aaduser_03.png)
 
@@ -191,74 +191,74 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
  
 ### <a name="create-an-ebsco-test-user"></a>Bir EBSCO test kullanıcısı oluşturma
 
-EBSCO söz konusu olduğunda, kullanıcı sağlama otomatik olarak yapılır.
+EBSCO söz konusu olduğunda kullanıcı sağlamayı otomatik olarak gerçekleşir.
 
 **Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
 
-Azure AD gerekli verileri EBSCO uygulamaya geçirir. EBSCO'ın kullanıcı hazırlama, otomatik olarak veya bir kerelik form gerektirir. Bu, istemcinin çok sayıda EBSCOhost hesapları kaydedilen kişisel ayarlar ile önceden varolan olup bağlıdır. Aynı ile açıklanan [EBSCO destek ekibi](mailto:sso@ebsco.com) uygulanması sırasında. Her iki durumda da, sınama önce herhangi bir EBSCOhost hesabı oluşturmak istemci sahip değil.
+Azure AD, gerekli verileri EBSCO uygulamaya geçirir. EBSCO'ın kullanıcı hazırlama, otomatik olarak veya tek seferlik bir form gerektirir. Bu, istemci EBSCOhost hesapları kaydedilen kişisel ayarlarla önceden var olan çok fazla olup bağlıdır. Aynı ile açıklanan [EBSCO Destek ekibine](mailto:sso@ebsco.com) sırasında uygulama. Her iki durumda da, istemci testi önce herhangi bir EBSCOhost hesabı oluşturmak zorunda değildir.
 
    >[!Note]
-   >Sağlama EBSCOhost kullanıcı/kişiselleştirme otomatik hale getirebilirsiniz. Kişi [EBSCO destek ekibi](mailto:sso@ebsco.com) zaman içinde sadece hakkında kullanıcı hazırlama. 
+   >Sağlama EBSCOhost kullanıcı/kişiselleştirme otomatik hale getirebilirsiniz. İlgili kişi [EBSCO Destek ekibine](mailto:sso@ebsco.com) Just-ın-Time hakkında kullanıcı sağlama. 
  
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta EBSCO için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için EBSCO erişim vererek Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
-**EBSCO için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon EBSCO için atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **EBSCO**.
 
     ![Uygulamalar listesinde EBSCO bağlantı](./media/ebsco-tutorial/tutorial_ebsco_app.png)  
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-1. Erişim paneli EBSCO parçasında tıklattığınızda, otomatik olarak EBSCO uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+1. Erişim panelinde EBSCO kutucuğa tıkladığınızda, otomatik olarak EBSCO uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
-2. Uygulamaya oturum sonra tıklayın **oturum** sağ üst köşedeki düğmesini.
+2. Uygulamada oturum açtıktan sonra tıklayarak **oturum** sağ üst köşedeki düğmesi.
 
-    ![Uygulamalar listesinde EBSCO oturum açma](./media/ebsco-tutorial/tutorial_ebsco_signin.png)
+    ![Uygulamalar listesinde EBSCO signın](./media/ebsco-tutorial/tutorial_ebsco_signin.png)
  
-3. Kurumsal/SAML oturum açma ile eşleştirin için tek seferlik bir ileti alacaksınız bir **varolan MyEBSCOhost hesabınızı şimdi kurum hesabınıza bağlamak** veya **yeni MyEBSCOhost hesabı oluşturun ve ona bağlayın, Kurum hesap**. Hesap EBSCOhost uygulama kişiselleştirmesini için kullanılır. Seçeneğini **yeni bir hesap oluşturma** ve aşağıdaki ekran görüntüsünde gösterildiği gibi form kişiselleştirme için saml yanıtını değerlerle önceden tamamlanmış olduğunu göreceksiniz. Tıklatın **'Devam'** bu seçimi kaydetmek için.
+3. Kurumsal/SAML oturum açma ile eşleşmesine izin tek seferlik bir istem alırsınız bir **mevcut MyEBSCOhost hesabınız artık kurum hesabınıza bağlayın** veya **yeni MyEBSCOhost hesabı oluşturmak ve bağlantının, Kuruluş hesabı**. Hesap EBSCOhost uygulamasında kişiselleştirme için kullanılır. Seçeneğini **yeni bir hesap oluşturun** ve aşağıdaki ekran görüntüsünde gösterildiği gibi formun kişiselleştirme için saml yanıtını değerlerle önceden tamamlanmış olduğunu görürsünüz. Tıklayın **'Devam'** bu seçimini kaydetmek için.
     
      ![Uygulamalar listesinde EBSCO kullanıcı](./media/ebsco-tutorial/tutorial_ebsco_user.png)
 
-4. Yukarıdaki Kurulum tamamlandıktan sonra tanımlama bilgisi/önbellek ve oturum açma yeniden temizleyin. Oturum açma el ile yeniden olmaz ve kişiselleştirme ayarlarını hatırlanan
+4. Yukarıdaki Kurulum tamamlandıktan sonra tanımlama/önbellek ve oturum açma yeniden temizleyin. Signın ile el ile yeniden olmaz ve kişiselleştirme ayarlarını Anımsanmaz
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

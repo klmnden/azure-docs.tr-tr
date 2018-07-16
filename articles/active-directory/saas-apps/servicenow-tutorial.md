@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile ServiceNow | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ve ServiceNow arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory ServiceNow ile tümleştirme | Microsoft Docs'
+description: Azure Active Directory hem de Servicenow'a arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,55 +15,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: fa11e2c527f870821565315de7a9e7e8a680e841
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8aebe6bef536840722d9b07c846687eaf6d195db
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214296"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051078"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Öğretici: ServiceNow Azure Active Directory Tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Öğretici: Azure Active Directory ServiceNow ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile ServiceNow tümleştirmek öğrenin.
+Bu öğreticide, ServiceNow, Azure Active Directory (Azure AD) ile tümleştirme konusunda bilgi edinin.
 
-ServiceNow Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+ServiceNow'ı Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 - ServiceNow erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak ServiceNow (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- Otomatik olarak imzalanan ServiceNow'ın (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme ServiceNow yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirmesi ServiceNow ile yapılandırma için aşağıdakiler gerekir:
 
-- Bir Azure AD aboneliği
-- ServiceNow, örneği veya ServiceNow, Calgary sürüm Kiracı için veya üzeri
-- ServiceNow Express, ServiceNow Express, Helsinki sürüm örneği için veya üzeri
-- ServiceNow kiracısına sahip olmanız gerekir [birden çok sağlayıcı tek oturum üzerinde eklentisi](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) etkin. Bu yapılabilir [hizmet isteği göndererek](https://hi.service-now.com).
-- Otomatik yapılandırma, birden çok sağlayıcı eklentisi için ServiceNow etkinleştirin.
+- Azure AD aboneliğiniz
+- Servicenow'ı, bir örnek veya Kiracı, ServiceNow, Calgary sürümü veya üzeri
+- Servicenow'ı hızlı, ServiceNow Express, Helsinki sürümü örneğini veya üzeri
+- ServiceNow kiracısına sahip olmanız gerekir [birden çok sağlayıcı tek oturum üzerinde eklentisi](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) etkin. Bunu aşağıdaki yöntemlerle yapabilirsiniz [hizmet isteği göndererek](https://hi.service-now.com).
+- Otomatik yapılandırma için için ServiceNow Çoklu Sağlayıcı eklentisini etkinleştirin.
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden ServiceNow ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. ServiceNow galeri ekleme
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="adding-servicenow-from-the-gallery"></a>Galeriden ServiceNow ekleme
-Azure AD ServiceNow tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden ServiceNow eklemeniz gerekir.
+## <a name="adding-servicenow-from-the-gallery"></a>ServiceNow galeri ekleme
+Servicenow'ı Azure AD'ye tümleştirmesini yapılandırmak için ServiceNow Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **ServiceNow Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -71,38 +71,38 @@ Azure AD ServiceNow tümleştirilmesi yapılandırmak için yönetilen SaaS uygu
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **ServiceNow**seçin **ServiceNow** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **ServiceNow**seçin **ServiceNow** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuçlar listesinde ServiceNow](./media/servicenow-tutorial/tutorial_servicenow_addfromgallery.png)
+    ![Sonuç listesinde ServiceNow](./media/servicenow-tutorial/tutorial_servicenow_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı ServiceNow sınayın.
+Bu bölümde, yapılandırın ve "Britta Simon" adlı bir test kullanıcı tabanlı servicenow'ı Azure AD çoklu oturum açmayı sınayın.
 
-Tekli çalışmaya oturum için Azure AD ServiceNow karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ServiceNow ilgili kullanıcı arasındaki bağlantıyı ilişki kurulması gerekir.
+Tek çalışmak için oturum açma için Azure AD ne ServiceNow karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ile ilgili ServiceNow kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
-Servicenow'ı içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+ServiceNow'ın değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma ServiceNow ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma ServiceNow ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma için ServiceNow yapılandırma](#configure-azure-ad-single-sign-on-for-servicenow)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açma için servicenow'ı yapılandırma](#configure-azure-ad-single-sign-on-for-servicenow)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Azure AD çoklu oturum açma için ServiceNow Express yapılandırma](#configure-azure-ad-single-sign-on-for-servicenow-express)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[ServiceNow test kullanıcısı oluşturma](#create-a-servicenow-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı ServiceNow sağlamak için.
-5. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-6. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+4. **[Servicenow'ı test kullanıcısı oluşturma](#create-a-servicenow-test-user)**  - kullanıcı Azure AD gösterimini bağlı ServiceNow Britta simon'un bir karşılığı vardır.
+5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configure-azure-ad-single-sign-on-for-servicenow"></a>Azure AD çoklu oturum açma ServiceNow için yapılandırma
+### <a name="configure-azure-ad-single-sign-on-for-servicenow"></a>Azure AD çoklu oturum açma için servicenow'ı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma ServiceNow uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma ServiceNow uygulamanızı yapılandırın.
 
-**Azure AD çoklu oturum açma ServiceNow yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ServiceNow ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **ServiceNow** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **ServiceNow** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
@@ -110,220 +110,220 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açma iletişim kutusu](./media/servicenow-tutorial/tutorial_servicenow_samlbase.png)
 
-3. Üzerinde **ServiceNow etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **ServiceNow etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![ServiceNow etki alanı ve URL'leri tek oturum açma bilgileri](./media/servicenow-tutorial/tutorial_servicenow_url.png)
+    ![ServiceNow etki alanı ve URL'ler tek oturum açma bilgileri](./media/servicenow-tutorial/tutorial_servicenow_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<instance-name>.service-now.com/navpage.do`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<instance-name>.service-now.com/navpage.do`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<instance-name>.service-now.com`
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<instance-name>.service-now.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve daha sonra öğreticide açıklandığı tanımlayıcısı güncelleştirmeniz gerekir.
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve öğreticinin sonraki bölümlerinde açıklanan tanımlayıcısı güncelleştirmeniz gerekir.
 
 4. Üzerinde **SAML imzalama sertifikası** bölümünde, aşağıdaki adımları gerçekleştirin: 
 
     ![Sertifika indirme bağlantısı](./media/servicenow-tutorial/tutorial_servicenow_certificate.png)
 
-    a. Kopyalamak için Kopyala düğmesini tıklatın **uygulama Federasyon meta veri URL'sini** ve bu uygulama Federasyon meta verileri URL'yi öğreticide daha sonra kullanılacak şekilde Not Defteri'ne yapıştırın.
+    a. Kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** bu uygulama Federasyon meta veri URL'si, öğreticinin ilerleyen bölümlerinde kullanılacak şekilde kopyalayıp Not Defteri'ne yapıştırın.
 
-    b. Tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+    b. Tıklayın **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/servicenow-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/servicenow-tutorial/tutorial_general_400.png)
 
-6. ServiceNow uygulamanızı yönetici olarak oturum açma.
+6. ServiceNow uygulamanızı yönetici olarak oturum açın.
 
 7. Etkinleştirme **tümleştirmesi - birden çok sağlayıcı tek oturum açma yükleyicisini** sonraki adımları izleyerek Eklentisi:
 
-    a. Sol taraftaki gezinti bölmesinde, arama **sistem tanımı** bölümünde arama çubuğunda ve ardından **eklentileri**.
+    a. Sol taraftaki gezinti bölmesinde, arama **sistem tanımı** arama bölümüne ve ardından **eklentileri**.
 
-    ![Eklentisini etkinleştirmek](./media/servicenow-tutorial/tutorial_servicenow_03.png "eklentisini etkinleştirme")
+    ![Eklenti etkinleştirme](./media/servicenow-tutorial/tutorial_servicenow_03.png "eklentisini etkinleştirme")
 
      b. Arama **tümleştirmesi - birden çok sağlayıcı tek oturum açma yükleyicisini**.
 
-     ![Eklentisini etkinleştirmek](./media/servicenow-tutorial/tutorial_servicenow_04.png "eklentisini etkinleştirme")
+     ![Eklenti etkinleştirme](./media/servicenow-tutorial/tutorial_servicenow_04.png "eklentisini etkinleştirme")
 
-    c. Eklentiyi seçin. Sağ tıklayın ve **etkinleştir/yükseltme**.
+    c. Eklentiyi seçin. Sağ tıklatın ve seçin **etkinleştir/yükseltme**.
 
-    d. Tıklatın **etkinleştirme** düğmesi.
+    d. Tıklayın **etkinleştirme** düğmesi.
 
-8. İki yolla **ServiceNow** yapılandırılmış otomatik ve el ile olabilir.
+8. Burada iki yolla **ServiceNow** yapılandırılmış otomatik ve el ile olabilir.
 
-9. Yapılandırma **ServiceNow** otomatik olarak izleyin aşağıdaki adımları
+9. Yapılandırma **ServiceNow** izleyin otomatik olarak aşağıdaki adımları
 
     a. Geri dönüp **ServiceNow** Signle-oturum açma sayfası Azure portalında.
 
-    b. Tek bir tıklatmayla hizmeti yapılandırmak için SAML tabanlı kimlik doğrulaması ServiceNow ServiceNow için diğer bir deyişle, Azure için AD otomatik olarak yapılandırın sağlanır. Bu hizmeti etkinleştirmek için Git **ServiceNow yapılandırma** 'yi tıklatın **yapılandırma ServiceNow** yapılandırma oturum açma penceresini açın.
+    b. Tek bir tıklamayla hizmeti yapılandırmak için ServiceNow diğer bir deyişle, Azure için AD otomatik olarak yapılandırma ServiceNow SAML tabanlı kimlik doğrulaması için sağlanır. Bu hizmet etkinleştirmek için Git **servicenow'ı yapılandırma** bölümünde **yapılandırma ServiceNow** yapılandırma oturum açmak için.
 
     ![Çoklu oturum açmayı yapılandırın](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
 
-    c. ServiceNow örneği adı, yönetici kullanıcı adı ve yönetici parolası girin **yapılandırma oturum açma** form ve tıklayın **Şimdi Yapılandır**. Belirtilen yönetici kullanıcı adı olmalıdır Not **security_admin** çalışması için bu ServiceNow atanan rolü. Aksi takdirde, Azure AD SAML kimlik sağlayıcısı kullanmak için ServiceNow el ile yapılandırmak için tıklatın **çoklu oturum açma el ile yapılandırmanız** ve kopyalama **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** hızlı başvuru bölümünden.
+    c. ServiceNow örnek adı, yönetici kullanıcı adı ve yönetici parola girin **yapılandırma oturum açma** tıklayın ve form **Şimdi Yapılandır**. Belirtilen yönetici kullanıcı adı olmalıdır Not **security_admin** çalışması için bu ServiceNow atanmış rol. Aksi takdirde, SAML kimlik sağlayıcısı Azure AD'yi kullanacak şekilde servicenow'ı el ile yapılandırmak için tıklayın **çoklu oturum açmayı el ile yapılandırmanız** ve kopyalama **SAML çoklu oturum açma hizmeti URL'sioturumkapatmaURL'siveSAMLvarlıkkimliği** hızlı başvuru bölümünden.
 
     ![Uygulama URL'sini Yapılandır](./media/servicenow-tutorial/configure.png "uygulama URL'sini yapılandırın")
 
-    d. ServiceNow uygulamanızı yönetici olarak oturum açma.
+    d. ServiceNow uygulamanızı yönetici olarak oturum açın.
 
-    e. Gerekli tüm ayarları yapılandırılmış otomatik yapılandırmasında **ServiceNow** yan ancak **X.509 sertifikası** varsayılan olarak etkin değildir. El ile kimlik sağlayıcınız ServiceNow için eşleme gerekir. izleyin aşağıdaki adımları aynı için:
+    e. Gerekli tüm ayarları yapılandırılır otomatik yapılandırmayı **ServiceNow** yan ancak **X.509 sertifikası** varsayılan olarak etkin değildir. El ile kimlik sağlayıcınızda ServiceNow için eşlemeniz gerekir. izleyin aynı için aşağıdaki adımları:
     
-    * Sol taraftaki gezinti bölmesinde tıklayın **kimlik sağlayıcıları** altında **çok sağlayıcı SSO**.
+    * Sol taraftaki gezinti bölmesinde **kimlik sağlayıcıları** altında **Çoklu Sağlayıcı SSO**.
 
-      ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/tutorial_servicenow_07.png "çoklu oturum açmayı yapılandırın")
+      ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/tutorial_servicenow_07.png "çoklu oturum açmayı yapılandırın")
 
-    * Üzerinde otomatik olarak oluşturulan kimlik sağlayıcısı'na tıklayın
+    * Otomatik olarak oluşturulan kimlik sağlayıcısına tıklayın
 
-      ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/tutorial_servicenow_08.png "çoklu oturum açmayı yapılandırın")
+      ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/tutorial_servicenow_08.png "çoklu oturum açmayı yapılandırın")
 
     * Ekranı aşağı kaydırarak **X.509 sertifikası** bölümü. **Düzenle**’yi seçin.
 
-      ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/tutorial_servicenow_09.png "çoklu oturum açmayı yapılandırın")
+      ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/tutorial_servicenow_09.png "çoklu oturum açmayı yapılandırın")
     
     * Sertifikayı seçin ve sertifika eklemek için sağ ok simgesine tıklayın
 
-      ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/tutorial_servicenow_11.png "çoklu oturum açmayı yapılandırın")
+      ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/tutorial_servicenow_11.png "çoklu oturum açmayı yapılandırın")
 
     * **Kaydet**’e tıklayın.
 
-    * Tıklayın **etkinleştirme** sayfanın sağ üst köşesinde adresindeki.
+    * Tıklayarak **etkinleştirme** sayfanın üst sağ köşesindeki.
 
-10. Yapılandırma **ServiceNow** el ile izleyin aşağıdaki adımları
+10. Yapılandırma **ServiceNow** el ile izleyerek aşağıdaki adımları
 
-11. ServiceNow uygulamanızı yönetici olarak oturum açma.
+11. ServiceNow uygulamanızı yönetici olarak oturum açın.
 
-12. Sol taraftaki gezinti bölmesinde, arama **çok sağlayıcı SSO** bölümünde arama çubuğunda ve ardından **özellikleri**.
+12. Sol taraftaki gezinti bölmesinde, arama **Çoklu Sağlayıcı SSO** arama bölümüne ve ardından **özellikleri**.
 
     ![Uygulama URL'sini Yapılandır](./media/servicenow-tutorial/tutorial_servicenow_06.png "uygulama URL'sini yapılandırın")
 
-13. Üzerinde **birden çok sağlayıcı SSO özelliklerini** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+13. Üzerinde **Çoklu Sağlayıcı SSO özelliklerini** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Uygulama URL'sini Yapılandır](./media/servicenow-tutorial/ic7694981.png "uygulama URL'sini yapılandırın")
 
-    a. Olarak **birden çok sağlayıcı SSO etkinleştirme**seçin **Evet**.
+    a. Olarak **Çoklu Sağlayıcı SSO etkinleştirme**seçin **Evet**.
 
-    b. Olarak **kullanıcı tabloya tüm kimlik sağlayıcılardan gelen kullanıcıların otomatik içeri aktarma**seçin **Evet**.
+    b. Olarak **kullanıcıların ve kullanıcı tabloya tüm kimlik sağlayıcılardan gelen otomatik içeri aktarma**seçin **Evet**.
 
-    c. Olarak **etkinleştir hata ayıklama için birden çok sağlayıcı SSO tümleştirme günlüğü**seçin **Evet**.
+    c. Olarak **etkin hata ayıklama için birden çok sağlayıcı SSO tümleştirme günlüğü**seçin **Evet**.
 
-    d. İçinde **kullanıcı alanı tablo...**  metin kutusuna, türü **user_name**.
+    d. İçinde **kullanıcı alanı tablo...**  metin kutusuna **user_name**.
 
     e. **Kaydet**’e tıklayın.
 
-14. Sol taraftaki gezinti bölmesinde, arama **çok sağlayıcı SSO** bölümünde arama çubuğunda ve ardından **x509 sertifikaları**.
+14. Sol taraftaki gezinti bölmesinde, arama **Çoklu Sağlayıcı SSO** arama bölümüne ve ardından **x509 sertifikaları**.
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/tutorial_servicenow_05.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/tutorial_servicenow_05.png "çoklu oturum açmayı yapılandırın")
 
-15. Üzerinde **X.509 sertifikalarını** iletişim kutusunda, tıklatın **yeni**.
+15. Üzerinde **X.509 sertifikaları** iletişim kutusunda, tıklayın **yeni**.
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694974.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694974.png "çoklu oturum açmayı yapılandırın")
 
-16. Üzerinde **X.509 sertifikalarını** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+16. Üzerinde **X.509 sertifikaları** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694975.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694975.png "çoklu oturum açmayı yapılandırın")
 
-    a. İçinde **adı** metin kutusuna, yapılandırmanız için bir ad yazın (örneğin: **TestSAML2.0**).
+    a. İçinde **adı** metin yapılandırmanız için bir ad yazın (örneğin: **TestSAML2.0**).
 
     b. Seçin **etkin**.
 
     c. Olarak **biçimi**seçin **PEM**.
 
-    d. Olarak **türü**seçin **deposu sertifika güven**.
+    d. Olarak **türü**seçin **Store sertifika güven**.
 
-    e. Not Defteri'nde Azure'dan indirilen Base64 ile kodlanmış sertifikanızı açın, içeriğini, panoya kopyalayın ve ardından yapıştırın **PEM sertifika** metin kutusu.
+    e. Not Defteri'nde Azure'dan indirilen, Base64 kodlu sertifika açın, içeriğini, panoya kopyalayın ve ardından yapıştırın **PEM sertifikası** metin.
 
-     f. Tıklatın **gönderme**.
+     f. Tıklayın **gönderme**.
 
-17. Sol taraftaki gezinti bölmesinde tıklayın **kimlik sağlayıcıları**.
+17. Sol taraftaki gezinti bölmesinde **kimlik sağlayıcıları**.
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/tutorial_servicenow_07.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/tutorial_servicenow_07.png "çoklu oturum açmayı yapılandırın")
 
-18. Üzerinde **kimlik sağlayıcıları** iletişim kutusunda, tıklatın **yeni**.
+18. Üzerinde **kimlik sağlayıcıları** iletişim kutusunda, tıklayın **yeni**.
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694977.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694977.png "çoklu oturum açmayı yapılandırın")
 
-19. Üzerinde **kimlik sağlayıcıları** iletişim kutusunda, tıklatın **SAML2 Update1?**.
+19. Üzerinde **kimlik sağlayıcıları** iletişim kutusunda, tıklayın **SAML2 güncelleştirme 1?**.
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694978.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694978.png "çoklu oturum açmayı yapılandırın")
 
-20. SAML2 Update1 Özellikler iletişim kutusunda aşağıdaki adımları gerçekleştirin:
+20. SAML2 güncelleştirme 1 Özellikler iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/idp.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/idp.png "çoklu oturum açmayı yapılandırın")
 
     a. Seçin **URL** seçeneğini **kimlik sağlayıcısı meta verileri içeri aktarma** iletişim kutusu.
 
-    b. Girin **uygulama Federasyon meta veri URL'sini** Azure portalından kopyalanan.
+    b. Girin **uygulama Federasyon meta verileri URL'sini** , Azure Portalı'ndan kopyaladığınız.
 
     c. **İçeri Aktar**’a tıklayın.
 
 21. IDP meta veri URL'sini okur ve tüm alanları bilgileri doldurur.
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694982.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694982.png "çoklu oturum açmayı yapılandırın")
 
-    a. İçinde **adı** metin kutusuna, yapılandırmanız için bir ad yazın (örneğin, **SAML 2.0**).
+    a. İçinde **adı** metin yapılandırmanız için bir ad yazın (örneğin, **SAML 2.0**).
     
-    b. Kopya **ServiceNow giriş sayfası** değeri, yapıştırın **oturum açma URL'si** metin kutusuna **ServiceNow etki alanı ve URL'leri** Azure Portal'daki bölümü.
+    b. Kopyalama **ServiceNow giriş sayfası** değeri, yapıştırın **oturum açma URL'si** metin kutusunda **ServiceNow etki alanı ve URL'ler** bölümü Azure portalı.
 
     > [!NOTE]
-    > ServiceNow örneği giriş sayfası, bir yapıdır, **ServieNow Kiracı URL** ve **/navpage.do** (örneğin:`https://fabrikam.service-now.com/navpage.do`).
+    > ServiceNow örneği giriş sayfası, bir yapıdır, **ServieNow Kiracı URL'si** ve **/navpage.do** (örneğin:`https://fabrikam.service-now.com/navpage.do`).
 
-    c. Kopya **varlık kimliği / veren** değeri, yapıştırın **tanımlayıcısı** metin kutusuna **ServiceNow etki alanı ve URL'leri** Azure Portal'daki bölüm.
+    c. Kopyalama **varlık kimliği / veren** değeri, yapıştırın **tanımlayıcı** metin kutusunda **ServiceNow etki alanı ve URL'ler** bölümü Azure portalı.
 
-    d. Tıklatın **Gelişmiş**. İçinde **kullanıcı alanı** metin kutusuna, türü **e-posta** veya **user_name**bağlı olarak hangi alan kullanıcılar ServiceNow dağıtımınızdaki benzersiz şekilde tanımlamak için kullanılır.
+    d. Tıklayın **Gelişmiş**. İçinde **kullanıcı alanı** metin kutusuna **e-posta** veya **user_name**bağlı olarak, hangi alanın ServiceNow Dağıtımınızdaki kullanıcıları benzersiz olarak tanımlanabilmesi için kullanılır.
 
     > [!NOTE]
-    > Azure AD kullanıcı kimliği (kullanıcı asıl adı) ya da e-posta adresini SAML belirtecinde benzersiz tanımlayıcısı olarak giderek yaymak üzere Azure AD yapılandırabilirsiniz **ServiceNow > öznitelikler > çoklu oturum açma** Azure portalının bölümü ve istenen alan eşleme **NameIdentifier** özniteliği. Seçili öznitelik için Azure AD (örneğin, kullanıcı asıl adı) depolanan değer alanına girilen için (örneğin, user_name) ServiceNow içinde depolanan değerle eşleşmelidir
+    > Azure AD kullanıcı kimlik (kullanıcı asıl adı) veya e-posta adresi SAML belirtecindeki benzersiz tanımlayıcı olarak giderek yaymak için Azure AD'yi yapılandırabilirsiniz **ServiceNow > öznitelikleri > çoklu oturum açma** Azure portal'ın bölümü ve istenen alan için eşleme **NameIdentifier** özniteliği. Seçili öznitelik için (örneğin, kullanıcı asıl adı) Azure AD'de depolanan değer alanına girilen için (örneğin, user_name) ServiceNow içinde depolanan değeri eşleşmelidir
 
     e. Altında **x509 sertifika**, önceki adımda oluşturduğunuz sertifika listeler.
 
     > [!NOTE]
-    > ServiceNow izin vermiyor IDP etkinleştirme test bağlantısı düğmesini tıklatarak olmadan, aynı geçersiz kılmak için lütfen izleyin aşağıdaki adımları.
+    > ServiceNow izin vermiyor ıdp'nin etkinleştirme ve test bağlantısı düğmesine tıklayarak olmadan, aynı geçersiz kılmak için lütfen izleyin aşağıdaki adımları.
 
-22. Listesinde öğesini seçin ve yapılandırmasının bir parçası oluşturulan yeni kimlik sağlayıcınızı önbellekten menüsü simgesini tıklatın **sys_id kopyalama**
+22. Yapılandırmanın bir parçası olarak oluşturulan, yeni bir kimlik sağlayıcısından gelen ve liste seçin menü simgesine tıklayın **sys_id kopyalayın**
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694992.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694992.png "çoklu oturum açmayı yapılandırın")
 
-23. Üst sol arama kutusuna arama **sys_properties.list** ve ENTER tuşuna basın.
+23. Sol üst arama kutusuna arama **sys_properties.list** ve enter tuşuna basın.
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694993.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694993.png "çoklu oturum açmayı yapılandırın")
 
 24. **Yeni**’ye tıklayın.
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694994.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694994.png "çoklu oturum açmayı yapılandırın")
 
 25. İçinde **sistem özelliği** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694995.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694995.png "çoklu oturum açmayı yapılandırın")
 
-    a. Girin `glide.authenticate.sso.redirect.idp` adı metin kutusuna değeri.
+    a. Girin `glide.authenticate.sso.redirect.idp` adı metin kutusuna bir değer.
 
-    b. İçinde **değeri** metin kutusuna, kopya sys_id değerini, önceki adımda kopyaladığınız Yapıştır.
+    b. İçinde **değer** metin Kopyala sys_id değerini, önceki adımlarda kopyaladığınız yapıştırın.
 
     c. Seçin **özel**.
 
-    d. Tıklatın **gönderme**.
+    d. Tıklayın **gönderme**.
 
 26. **Yeni**’ye tıklayın.
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694994.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694994.png "çoklu oturum açmayı yapılandırın")
 
 27. İçinde **sistem özelliği** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694996.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694996.png "çoklu oturum açmayı yapılandırın")
 
-    a. Girin `glide.authenticate.multisso.test.connection.mandatory` adı metin kutusuna değeri.
+    a. Girin `glide.authenticate.multisso.test.connection.mandatory` adı metin kutusuna bir değer.
 
-    b. İçinde **değeri** metin girin **false**.
+    b. İçinde **değer** metin girin **false**.
 
-    c. Tıklatın **gönderme**.
+    c. Tıklayın **gönderme**.
 
-28. Bunu yaptığınızda Yukarıdaki adımı sonra artık yeni kimlik sağlayıcınızı etkinleştirmeniz mümkün olacaktır ve, SSO çalışması gerekir
+28. Bunun yapılması Yukarıdaki adımı sonra artık yeni kimlik sağlayıcınız etkinleştirmeniz mümkün olacaktır ve, SSO çalışması gerekir
 
 > [!NOTE]
-> Ayrıca Lütfen yeni bir incognito penceresi yeni IDP yapılandırmanızı test, sahip unutmayın
+> Ayrıca, yeni bir gizli pencerede yeni IDP yapılandırmanızı test etme olduğunu, unutmayın
 
-### <a name="configure-azure-ad-single-sign-on-for-servicenow-express"></a>Azure AD çoklu oturum açma ServiceNow Express için yapılandırma
+### <a name="configure-azure-ad-single-sign-on-for-servicenow-express"></a>Azure AD çoklu oturum açma için ServiceNow Express yapılandırın.
 
-1. Azure portalında üzerinde **ServiceNow** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **ServiceNow** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
@@ -331,94 +331,94 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/servicenow-tutorial/tutorial_servicenow_samlbase.png)
 
-3. Üzerinde **ServiceNow etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **ServiceNow etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/servicenow-tutorial/tutorial_servicenow_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, şu biçimi kullanarak değeri yazın: `https://<instance-name>.service-now.com/navpage.do`
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak değeri yazın: `https://<instance-name>.service-now.com/navpage.do`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<instance-name>.service-now.com`
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<instance-name>.service-now.com`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerleri tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirin. Kişi [ServiceNow istemci destek ekibi](https://www.servicenow.com/support/contact-support.html) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerleri tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [ServiceNow istemci Destek ekibine](https://www.servicenow.com/support/contact-support.html) bu değerleri almak için.
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/servicenow-tutorial/tutorial_servicenow_certificates.png)
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/servicenow-tutorial/tutorial_general_400.png)
 
-6. Tek bir tıklatmayla hizmeti yapılandırmak için SAML tabanlı kimlik doğrulaması ServiceNow ServiceNow için diğer bir deyişle, Azure için AD otomatik olarak yapılandırın sağlanır. Bu hizmeti etkinleştirmek için Git **ServiceNow yapılandırma** 'yi tıklatın **yapılandırma ServiceNow** yapılandırma oturum açma penceresini açın.
+6. Tek bir tıklamayla hizmeti yapılandırmak için ServiceNow diğer bir deyişle, Azure için AD otomatik olarak yapılandırma ServiceNow SAML tabanlı kimlik doğrulaması için sağlanır. Bu hizmet etkinleştirmek için Git **servicenow'ı yapılandırma** bölümünde **yapılandırma ServiceNow** yapılandırma oturum açmak için.
 
     ![Çoklu oturum açmayı yapılandırın](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
 
-7. ServiceNow örneği adı, yönetici kullanıcı adı ve yönetici parolası girin **yapılandırma oturum açma** form ve tıklayın **Şimdi Yapılandır**. Belirtilen yönetici kullanıcı adı olmalıdır Not **security_admin** çalışması için bu ServiceNow atanan rolü. Aksi takdirde, Azure AD SAML kimlik sağlayıcısı kullanmak için ServiceNow el ile yapılandırmak için tıklatın **çoklu oturum açma el ile yapılandırmanız** ve kopyalama **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** hızlı başvuru bölümünden.
+7. ServiceNow örnek adı, yönetici kullanıcı adı ve yönetici parola girin **yapılandırma oturum açma** tıklayın ve form **Şimdi Yapılandır**. Belirtilen yönetici kullanıcı adı olmalıdır Not **security_admin** çalışması için bu ServiceNow atanmış rol. Aksi takdirde, SAML kimlik sağlayıcısı Azure AD'yi kullanacak şekilde servicenow'ı el ile yapılandırmak için tıklayın **çoklu oturum açmayı el ile yapılandırmanız** ve kopyalama **SAML çoklu oturum açma hizmeti URL'sioturumkapatmaURL'siveSAMLvarlıkkimliği** hızlı başvuru bölümünden.
 
     ![Uygulama URL'sini Yapılandır](./media/servicenow-tutorial/configure.png "uygulama URL'sini yapılandırın")
 
-8. ServiceNow Express uygulamanızı yönetici olarak oturum açma.
+8. ServiceNow Express uygulamanıza yönetici olarak oturum açın.
 
-9. Sol taraftaki gezinti bölmesinde tıklayın **çoklu oturum açma**.
+9. Sol taraftaki gezinti bölmesinde **çoklu oturum açma**.
 
     ![Uygulama URL'sini Yapılandır](./media/servicenow-tutorial/ic7694980ex.png "uygulama URL'sini yapılandırın")
 
-10. Üzerinde **çoklu oturum açma** iletişim kutusunda, sağ üst yapılandırma simgesine tıklayın ve aşağıdaki özellikleri ayarlayın:
+10. Üzerinde **çoklu oturum açma** iletişim kutusunda sağ üst köşedeki yapılandırma simgesine tıklayın ve aşağıdaki özellikleri ayarlayın:
 
     ![Uygulama URL'sini Yapılandır](./media/servicenow-tutorial/ic7694981ex.png "uygulama URL'sini yapılandırın")
 
-    a. İki durumlu **birden çok sağlayıcı SSO etkinleştirme** sağındaki.
+    a. İki durumlu **Çoklu Sağlayıcı SSO etkinleştirme** sağ.
     
-    b. İki durumlu **etkinleştir hata ayıklama için birden çok sağlayıcı SSO tümleştirme günlüğü** sağındaki.
+    b. İki durumlu **etkin hata ayıklama için birden çok sağlayıcı SSO tümleştirme günlüğü** sağ.
     
-    c. İçinde **kullanıcı alanı tablo...**  metin kutusuna, türü **user_name**.
+    c. İçinde **kullanıcı alanı tablo...**  metin kutusuna **user_name**.
 
-11. Üzerinde **çoklu oturum açma** iletişim kutusunda, tıklatın **yeni sertifika Ekle**.
+11. Üzerinde **çoklu oturum açma** iletişim kutusunda, tıklayın **yeni sertifika Ekle**.
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694973ex.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694973ex.png "çoklu oturum açmayı yapılandırın")
 
-12. Üzerinde **X.509 sertifikalarını** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+12. Üzerinde **X.509 sertifikaları** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694975.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694975.png "çoklu oturum açmayı yapılandırın")
 
-    a. İçinde **adı** metin kutusuna, yapılandırmanız için bir ad yazın (örneğin: **TestSAML2.0**).
+    a. İçinde **adı** metin yapılandırmanız için bir ad yazın (örneğin: **TestSAML2.0**).
 
     b. Seçin **etkin**.
 
     c. Olarak **biçimi**seçin **PEM**.
 
-    d. Olarak **türü**seçin **deposu sertifika güven**.
+    d. Olarak **türü**seçin **Store sertifika güven**.
 
-    e. Not Defteri'nde Azure portalından indirdiğiniz Base64 ile kodlanmış sertifikanızı açın, içeriğini, panoya kopyalayın ve ardından yapıştırın **PEM sertifika** metin kutusu.
+    e. Not Defteri'nde Azure portalından indirilen, Base64 olarak kodlanmış sertifika açın, içeriğini, panoya kopyalayın ve yapıştırın için **PEM sertifikası** metin.
 
-    f. Tıklatın **güncelleştirme**
+    f. Tıklayın **güncelleştirme**
 
-13. Üzerinde **çoklu oturum açma** iletişim kutusunda, tıklatın **ekleme yeni IDP**.
+13. Üzerinde **çoklu oturum açma** iletişim kutusunda, tıklayın **ekleme yeni IDP**.
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694976ex.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694976ex.png "çoklu oturum açmayı yapılandırın")
 
-14. Üzerinde **yeni kimlik sağlayıcı Ekle** iletişim altında **yapılandırma kimlik sağlayıcısı**, aşağıdaki adımları gerçekleştirin:
+14. Üzerinde **yeni kimlik sağlayıcısı Ekle** iletişim altında **kimlik sağlayıcısı yapılandırmak**, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694982ex.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694982ex.png "çoklu oturum açmayı yapılandırın")
 
-    a. İçinde **adı** metin kutusuna, yapılandırmanız için bir ad yazın (örneğin: **SAML 2.0**).
+    a. İçinde **adı** metin yapılandırmanız için bir ad yazın (örneğin: **SAML 2.0**).
 
-    b. İçinde **kimlik sağlayıcısı URL'si** alan, değerini yapıştırın **kimlik sağlayıcı kimliği**, Azure portalından kopyalanan.
+    b. İçinde **kimlik sağlayıcısı URL'si** alan, değerini yapıştırın **kimlik sağlayıcı kimliği**, hangi Azure Portalı'ndan kopyaladığınız.
     
-    c. İçinde **kimlik sağlayıcısının AuthnRequest** alan, değerini yapıştırın **kimlik doğrulaması istek URL'si**, hangi Azure portalından kopyalanır.
+    c. İçinde **kimlik sağlayıcısının AuthnRequest** alan, değerini yapıştırın **kimlik doğrulaması istek URL**, hangi Azure Portalı'ndan kopyaladığınız.
 
-    d. İçinde **kimlik sağlayıcısının SingleLogoutRequest** alan, değerini yapıştırın **tek Sign-Out hizmeti URL'si**, Azure portalından kopyalanan
+    d. İçinde **kimlik sağlayıcısının SingleLogoutRequest** alan, değerini yapıştırın **çoklu oturum kapatma hizmeti URL'si**, hangi Azure Portalı'ndan kopyaladığınız
 
     e. Olarak **kimlik sağlayıcısı sertifikası**, önceki adımda oluşturduğunuz sertifikayı seçin.
 
-15. Tıklatın **Gelişmiş ayarları**ve altında **ek kimlik sağlayıcısı özellikleri**, aşağıdaki adımları gerçekleştirin:
+15. Tıklayın **Gelişmiş ayarlar**, altında **ek bir kimlik sağlayıcısı özellikleri**, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694983ex.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694983ex.png "çoklu oturum açmayı yapılandırın")
 
-    a. İçinde **Protokolü bağlama IDP'ın SingleLogoutRequest için** metin kutusuna, türü **urn: OASIS: adları: tc: SAML:2.0:bindings:HTTP-yeniden yönlendirme**.
+    a. İçinde **Protokolü bağlama IDP'nin SingleLogoutRequest için** metin kutusuna **urn: OASIS: adları: tc: SAML:2.0:bindings:HTTP-yeniden yönlendirme**.
 
-    b. İçinde **NameID İlkesi** metin kutusuna, türü **urn: OASIS: adları: tc: SAML:1.1:nameid-biçimi: belirtilmeyen**.
+    b. İçinde **Nameıd ilke** metin kutusuna **urn: OASIS: adları: tc: SAML:1.1:nameid-biçimi: belirtilmeyen**.
 
     c. İçinde **AuthnContextClassRef yöntemi**, türü `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`.
 
@@ -426,43 +426,43 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 16. Altında **ek hizmet sağlayıcısı özellikleri**, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açma yapılandırma](./media/servicenow-tutorial/ic7694984ex.png "çoklu oturum açmayı yapılandırın")
+    ![Çoklu oturum açmayı yapılandırma](./media/servicenow-tutorial/ic7694984ex.png "çoklu oturum açmayı yapılandırın")
 
-    a. İçinde **ServiceNow giriş sayfası** metin kutusuna, ServiceNow örneği giriş sayfanız URL'sini yazın.
-
-    > [!NOTE]
-    > ServiceNow örneği giriş sayfası, bir yapıdır, **ServieNow Kiracı URL** ve **/navpage.do** (örneğin: `https://fabrikam.service-now.com/navpage.do`).
-
-    b. İçinde **varlık kimliği / veren** metin kutusuna, ServiceNow kiracınız URL'sini yazın.
-
-    c. İçinde **İzleyici URI'si** metin kutusuna, ServiceNow kiracınız URL'sini yazın.
-
-    d. İçinde **saat eğriltme** metin kutusuna, türü **60**.
-
-    e. İçinde **kullanıcı alanı** metin kutusuna, türü **e-posta** veya **user_name**bağlı olarak hangi alan kullanıcılar ServiceNow dağıtımınızdaki benzersiz şekilde tanımlamak için kullanılır.
+    a. İçinde **ServiceNow giriş sayfası** metin, ServiceNow örneği giriş sayfası URL'sini yazın.
 
     > [!NOTE]
-    > Azure AD kullanıcı kimliği (kullanıcı asıl adı) ya da e-posta adresini SAML belirtecinde benzersiz tanımlayıcısı olarak giderek yaymak üzere Azure AD yapılandırabilirsiniz **ServiceNow > öznitelikler > çoklu oturum açma** Azure portalının bölümü ve istenen alan eşleme **NameIdentifier** özniteliği. Seçili öznitelik için Azure AD (örneğin, kullanıcı asıl adı) depolanan değer alanına girilen için (örneğin, user_name) ServiceNow içinde depolanan değerle eşleşmelidir
+    > ServiceNow örneği giriş sayfası, bir yapıdır, **ServieNow Kiracı URL'si** ve **/navpage.do** (örneğin: `https://fabrikam.service-now.com/navpage.do`).
+
+    b. İçinde **varlık kimliği / veren** metin ServiceNow kiracınızın URL'sini yazın.
+
+    c. İçinde **hedef kitle URİ'si** metin ServiceNow kiracınızın URL'sini yazın.
+
+    d. İçinde **saat eğriltme** metin kutusuna **60**.
+
+    e. İçinde **kullanıcı alanı** metin kutusuna **e-posta** veya **user_name**bağlı olarak, hangi alanın ServiceNow Dağıtımınızdaki kullanıcıları benzersiz olarak tanımlanabilmesi için kullanılır.
+
+    > [!NOTE]
+    > Azure AD kullanıcı kimlik (kullanıcı asıl adı) veya e-posta adresi SAML belirtecindeki benzersiz tanımlayıcı olarak giderek yaymak için Azure AD'yi yapılandırabilirsiniz **ServiceNow > öznitelikleri > çoklu oturum açma** Azure portal'ın bölümü ve istenen alan için eşleme **NameIdentifier** özniteliği. Seçili öznitelik için (örneğin, kullanıcı asıl adı) Azure AD'de depolanan değer alanına girilen için (örneğin, user_name) ServiceNow içinde depolanan değeri eşleşmelidir
 
     f. **Kaydet**’e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/servicenow-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/servicenow-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/servicenow-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/servicenow-tutorial/create_aaduser_03.png)
 
@@ -472,61 +472,61 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
 
-### <a name="create-a-servicenow-test-user"></a>ServiceNow test kullanıcısı oluşturma
+### <a name="create-a-servicenow-test-user"></a>Servicenow'ı test kullanıcısı oluşturma
 
-Bu bölümün amacı Britta Simon içinde ServiceNow adlı bir kullanıcı oluşturmaktır. ServiceNow otomatik kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Daha fazla ayrıntı bulabilirsiniz [burada](servicenow-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
+Bu bölümün amacı, ServiceNow Britta Simon adlı bir kullanıcı oluşturmaktır. ServiceNow otomatik kullanıcı hazırlama, varsayılan olarak etkin olan destekler. Daha fazla ayrıntı bulabilirsiniz [burada](servicenow-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
 
 > [!NOTE]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, başvurmanız gerekir [ServiceNow istemci destek ekibi](https://www.servicenow.com/support/contact-support.html)
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [ServiceNow istemci destek ekibi](https://www.servicenow.com/support/contact-support.html)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta ServiceNow erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için ServiceNow erişim vererek Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
-**ServiceNow Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon ServiceNow atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **ServiceNow**.
 
-    ![Uygulamalar listesinde ServiceNow bağlantı](./media/servicenow-tutorial/tutorial_servicenow_app.png)  
+    ![Uygulamalar listesinde ServiceNow bağlantısı](./media/servicenow-tutorial/tutorial_servicenow_app.png)  
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli ServiceNow parçasında tıklattığınızda, otomatik olarak ServiceNow uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim panelinde ServiceNow kutucuğa tıkladığınızda, otomatik olarak ServiceNow uygulamanızı açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
-* [Kullanıcı sağlamayı Yapılandır](servicenow-provisioning-tutorial.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Kullanıcı sağlamayı yapılandırma](servicenow-provisioning-tutorial.md)
 
 
 <!--Image references-->
