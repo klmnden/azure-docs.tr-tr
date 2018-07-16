@@ -1,6 +1,6 @@
 ---
-title: Ağ trafiğini filtreleme - öğretici - Azure PowerShell | Microsoft Docs
-description: Bu öğreticide, PowerShell kullanarak bir ağ güvenlik grubu ile ağ trafiğini alt ağa filtrelemeyi öğreneceksiniz.
+title: Ağ trafiğini filtreleme - öğretici - Azure Portalı | Microsoft Docs
+description: Bu öğreticide, Azure Portalını kullanarak bir ağ güvenlik grubu ile ağ trafiğini alt ağa filtrelemeyi öğreneceksiniz.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/30/2018
+ms.date: 06/20/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: 165bd6770109348bd19ebb4fa1735bedf83004b1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.custom: ''
+ms.openlocfilehash: a731c1e0617fe0ccf9d571dd2b7d0c2ad107bc9e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261326"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901407"
 ---
-# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>Öğretici: PowerShell kullanarak bir ağ güvenlik grubu ile ağ trafiğini filtreleme
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Öğretici: Azure Portalını kullanarak bir ağ güvenlik grubu ile ağ trafiğini filtreleme
 
 Bir sanal ağ alt ağına gelen ve sanal ağ alt ağından giden ağ trafiğini, bir ağ güvenlik grubu ile filtreleyebilirsiniz. Ağ güvenlik grupları, ağ trafiğini IP adresi, bağlantı noktası ve protokole göre filtreleyen güvenlik kuralları içerir. Güvenlik kuralları bir alt ağda dağıtılmış kaynaklara uygulanır. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -34,272 +34,191 @@ Bir sanal ağ alt ağına gelen ve sanal ağ alt ağından giden ağ trafiğini,
 > * Sanal makineleri (VM) bir alt ağa dağıtma
 > * Trafik filtrelerini test etme
 
-Tercih ederseniz, [Azure CLI](tutorial-filter-network-traffic-cli.md) kullanarak bu öğreticiyi tamamlayabilirsiniz.
+Tercih ederseniz, bu öğreticiyi [Azure CLI](tutorial-filter-network-traffic-cli.md) veya [PowerShell](tutorial-filter-network-traffic-powershell.md) kullanarak tamamlayabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.4.1 veya sonraki bir sürümünü gerektirir. Yüklü sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
-
-## <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
-
-Bir ağ güvenlik grubu, güvenlik kuralları içerir. Güvenlik kuralları, bir kaynak ve hedefi belirtir. Kaynaklar ve hedefler, uygulama güvenlik grupları olabilir.
-
-### <a name="create-application-security-groups"></a>Uygulama güvenlik grupları oluşturma
-
-İlk olarak [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) ile bu öğreticide oluşturulan tüm kaynaklar için bir kaynak grubu oluşturun. Aşağıdaki örnekte *eastus* konumunda bir kaynak grubu oluşturulmaktadır: 
-
-
-```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
-```
-
-[New-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup) ile bir uygulama güvenlik grubu oluşturun. Uygulama güvenlik grubu, benzer bağlantı noktası filtreleme gereksinimlerine sahip sunucuları gruplandırmanızı sağlar. Aşağıdaki örnek iki uygulama güvenlik grubu oluşturur.
-
-```azurepowershell-interactive
-$webAsg = New-AzureRmApplicationSecurityGroup `
-  -ResourceGroupName myResourceGroup `
-  -Name myAsgWebServers `
-  -Location eastus
-
-$mgmtAsg = New-AzureRmApplicationSecurityGroup `
-  -ResourceGroupName myResourceGroup `
-  -Name myAsgMgmtServers `
-  -Location eastus
-```
-
-### <a name="create-security-rules"></a>Güvenlik kuralları oluşturma
-
-[New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) ile bir güvenlik kuralı oluşturun. Aşağıdaki örnek, internetten gelen trafiğin 80 ve 443 numaralı bağlantı noktaları üzerinden *myWebServers* uygulama güvenlik grubuna gitmesine izin veren bir kural oluşturur:
-
-```azurepowershell-interactive
-$webRule = New-AzureRmNetworkSecurityRuleConfig `
-  -Name "Allow-Web-All" `
-  -Access Allow `
-  -Protocol Tcp `
-  -Direction Inbound `
-  -Priority 100 `
-  -SourceAddressPrefix Internet `
-  -SourcePortRange * `
-  -DestinationApplicationSecurityGroupId $webAsg.id `
-  -DestinationPortRange 80,443
-
-The following example creates a rule that allows traffic inbound from the internet to the *myMgmtServers* application security group over port 3389:
-
-$mgmtRule = New-AzureRmNetworkSecurityRuleConfig `
-  -Name "Allow-RDP-All" `
-  -Access Allow `
-  -Protocol Tcp `
-  -Direction Inbound `
-  -Priority 110 `
-  -SourceAddressPrefix Internet `
-  -SourcePortRange * `
-  -DestinationApplicationSecurityGroupId $mgmtAsg.id `
-  -DestinationPortRange 3389
-```
-
-Bu öğreticide RDP (bağlantı noktası 3389), *myAsgMgmtServers* sanal makinesi için İnternet’te kullanıma sunulmuştur. Üretim ortamlarında 3389 numaralı bağlantı noktasını internette kullanıma sunmak yerine [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [özel](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ağ bağlantısı kullanarak yönetmek istediğiniz Azure kaynaklarına bağlamanız önerilir.
-
-### <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
-
-[New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) ile bir ağ güvenlik grubu oluşturun. Aşağıdaki örnek *myNsg* adlı bir ağ güvenlik grubu oluşturur: 
-
-```powershell-interactive
-$nsg = New-AzureRmNetworkSecurityGroup `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -Name myNsg `
-  -SecurityRules $webRule,$mgmtRule
-```
+https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) ile sanal ağ oluşturun. Aşağıdaki örnek *myVirtualNetwork* adlı bir sanal ağ oluşturur:
+1. Azure portalının sol üst köşesinde bulunan **+ Kaynak oluştur** seçeneğini belirleyin.
+2. **Ağ**’ı ve sonra **Sanal ağ**’ı seçin.
+3. Aşağıdaki bilgileri girin veya seçin, kalan ayarlar için varsayılan değerleri kabul edin ve sonra **Oluştur**’u seçin:
 
-```azurepowershell-interactive
-$virtualNetwork = New-AzureRmVirtualNetwork `
-  -ResourceGroupName myResourceGroup `
-  -Location EastUS `
-  -Name myVirtualNetwork `
-  -AddressPrefix 10.0.0.0/16
-```
+    | Ayar                 | Değer                                              |
+    | ---                     | ---                                                |
+    | Adı                    | myVirtualNetwork                                   |
+    | Adres alanı           | 10.0.0.0/16                                        |
+    | Abonelik            | Aboneliğinizi seçin.                          |
+    | Kaynak grubu          | **Yeni oluştur**’u seçin ve *myResourceGroup* değerini girin. |
+    | Konum                | **Doğu ABD**’yi seçin.                                |
+    | Alt Ağ - Ad            | mySubnet                                           |
+    | Alt Ağ - Adres aralığı  | 10.0.0.0/24                                        |
 
-[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) ile bir alt ağ yapılandırması oluşturun ve sonra alt ağ yapılandırmasını [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) ile sanal ağa yazın. Aşağıdaki örnek, sanal ağa *mySubnet* adlı bir alt ağ ekler ve *myNsg* ağ güvenlik grubunu onunla ilişkilendirir:
+## <a name="create-application-security-groups"></a>Uygulama güvenlik grupları oluşturma
 
-```azurepowershell-interactive
-Add-AzureRmVirtualNetworkSubnetConfig `
-  -Name mySubnet `
-  -VirtualNetwork $virtualNetwork `
-  -AddressPrefix "10.0.2.0/24" `
-  -NetworkSecurityGroup $nsg
-$virtualNetwork | Set-AzureRmVirtualNetwork
-```
+Uygulama güvenlik grubu, web sunucuları gibi benzer işlevlere sahip sunucuları birlikte gruplandırmanızı sağlar.
+
+1. Azure portalının sol üst köşesinde bulunan **+ Kaynak oluştur** seçeneğini belirleyin.
+2. **Market içinde ara** kutusuna *Uygulama güvenlik grubu* girin. Arama sonuçlarında **Uygulama güvenlik grubu** gösterildiğinde bunu seçin, **Her şey**'in altında yeniden **Uygulama güvenlik grubu**'nu seçin ve sonra da **Oluştur**'u seçin.
+3. Aşağıdaki bilgileri girin veya seçin ve sonra **Oluştur**’u seçin:
+
+    | Ayar        | Değer                                                         |
+    | ---            | ---                                                           |
+    | Adı           | myAsgWebServers                                               |
+    | Abonelik   | Aboneliğinizi seçin.                                     |
+    | Kaynak grubu | **Var olanı kullan**’ı seçin ve sonra **myResourceGroup** öğesini seçin. |
+    | Konum       | Doğu ABD                                                       |
+
+4. 3. adımı yeniden tamamlayın ve aşağıdaki değerleri belirtin:
+
+    | Ayar        | Değer                                                         |
+    | ---            | ---                                                           |
+    | Adı           | myAsgMgmtServers                                              |
+    | Abonelik   | Aboneliğinizi seçin.                                     |
+    | Kaynak grubu | **Var olanı kullan**’ı seçin ve sonra **myResourceGroup** öğesini seçin. |
+    | Konum       | Doğu ABD                                                       |
+
+## <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
+
+1. Azure portalının sol üst köşesinde bulunan **+ Kaynak oluştur** seçeneğini belirleyin.
+2. **Ağ**'ı ve sonra **Ağ güvenlik grubu**’nu seçin.
+3. Aşağıdaki bilgileri girin veya seçin ve sonra **Oluştur**’u seçin:
+
+    |Ayar|Değer|
+    |---|---|
+    |Adı|myNsg|
+    |Abonelik| Aboneliğinizi seçin.|
+    |Kaynak grubu | **Mevcut olanı kullan**’ı seçin ve *myResourceGroup* seçeneğini belirleyin.|
+    |Konum|Doğu ABD|
+
+## <a name="associate-network-security-group-to-subnet"></a>Ağ güvenlik grubunu alt ağ ile ilişkilendirme
+
+1. Portalın üst kısmındaki *Kaynak, hizmet ve belgeleri arayın* kutusuna *myNsg* yazmaya başlayın. Arama sonuçlarında **myNsg** görüntülendiğinde bunu seçin.
+2. **AYARLAR**'ın altında **Alt Ağlar**’ı ve sonra aşağıdaki resimde gösterildiği gibi **+ İlişkilendir**’i seçin:
+
+    ![NSG'yi alt ağ ile ilişkilendirme](./media/tutorial-filter-network-traffic/associate-nsg-subnet.png)
+
+3. **Alt ağı ilişkilendir**'in altında **Sanal ağ**’ı seçin ve sonra da **myVirtualNetwork** öğesini seçin. **Alt ağ**'ı seçin, **mySubnet** öğesini ve sonra da **Tamam**'ı seçin.
+
+## <a name="create-security-rules"></a>Güvenlik kuralları oluşturma
+
+1. Aşağıdaki resimde gösterildiği gibi, **AYARLAR**'ın altında **Gelen güvenlik kuralları**’nı ve sonra da **+ Ekle**’yi seçin:
+
+    ![Gelen güvenlik kuralı ekleme](./media/tutorial-filter-network-traffic/add-inbound-rule.png)
+
+2. 80 ve 443 numaralı bağlantı noktalarına **myAsgWebServers** uygulama güvenlik grubu için izin veren bir güvenlik kuralı oluşturun. **Gelen güvenlik kuralı ekle**'nin altında, aşağıdaki değerleri girin veya seçin, kalan varsayılan değerleri kabul edin ve ardından **Ekle**'yi seçin:
+
+    | Ayar                 | Değer                                                                                                           |
+    | ---------               | ---------                                                                                                       |
+    | Hedef             | **Uygulama güvenlik grubu**'nu seçin ve sonra da **Uygulama güvenlik grubu** olarak **myAsgWebServers** öğesini seçin.  |
+    | Hedef bağlantı noktası aralıkları | 80, 443 girin                                                                                                    |
+    | Protokol                | TCP seçin                                                                                                      |
+    | Adı                    | Allow-Web-All                                                                                                   |
+
+3. Aşağıdaki değerleri kullanarak 2. adımı yeniden tamamlayın:
+
+    | Ayar                 | Değer                                                                                                           |
+    | ---------               | ---------                                                                                                       |
+    | Hedef             | **Uygulama güvenlik grubu**'nu seçin ve sonra da **Uygulama güvenlik grubu** olarak **myAsgMgmtServers** öğesini seçin. |
+    | Hedef bağlantı noktası aralıkları | 3389 girin                                                                                                      |
+    | Protokol                | TCP seçin                                                                                                      |
+    | Öncelik                | 110 girin                                                                                                       |
+    | Adı                    | İzin Ver-RDP-Tümü                                                                                                   |
+
+    Bu öğreticide, RDP (3389 numaralı bağlantı noktası) *myAsgMgmtServers* uygulama güvenlik grubuna atanmış olan VM için İnternet'te kullanıma sunulur. Üretim ortamlarında 3389 numaralı bağlantı noktasını İnternette kullanıma sunmak yerine VPN veya özel ağ bağlantısı kullanarak yönetmek istediğiniz Azure kaynaklarına bağlamanız önerilir.
+
+1 ile 3 arası adımları tamamladıktan sonra, oluşturduğunuz kuralları gözden geçirin. Listeniz aşağıdaki resimde gösterilen listeye benzer olmalıdır:
+
+![Güvenlik kuralları](./media/tutorial-filter-network-traffic/security-rules.png)
 
 ## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
-VM’leri oluşturmadan önce [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork) ile alt ağı içeren sanal ağ nesnesini alın:
+Sanal ağ üzerinde iki sanal makine oluşturun.
 
-```powershell-interactive
-$virtualNetwork = Get-AzureRmVirtualNetwork `
- -Name myVirtualNetwork `
- -Resourcegroupname myResourceGroup
-```
-[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) ile her VM için bir genel IP adresi oluşturun:
+### <a name="create-the-first-vm"></a>Birinci sanal makineyi oluşturma
 
-```powershell-interactive
-$publicIpWeb = New-AzureRmPublicIpAddress `
-  -AllocationMethod Dynamic `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -Name myVmWeb
+1. Azure portalının sol üst köşesinde bulunan **+ Kaynak oluştur** seçeneğini belirleyin.
+2. **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin.
+3. Aşağıdaki bilgileri girin veya seçin, kalan ayarlar için varsayılan değerleri kabul edin ve sonra **Tamam**’ı seçin:
 
-$publicIpMgmt = New-AzureRmPublicIpAddress `
-  -AllocationMethod Dynamic `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -Name myVmMgmt
-```
+    |Ayar|Değer|
+    |---|---|
+    |Adı|myVmWeb|
+    |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
+    |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
+    |Abonelik| Aboneliğinizi seçin.|
+    |Kaynak grubu| **Mevcut olanı kullan**’ı seçin ve **myResourceGroup** seçeneğini belirleyin.|
+    |Konum| **Doğu ABD**’yi seçin|
 
-[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) ile iki ağ arabirimi oluşturun ve ağ arabirimine bir genel IP adresi atayın. Aşağıdaki örnek bir ağ arabirimi oluşturur, *myVmWeb* genel IP adresini onunla ilişkilendirir ve *myAsgWebServers* uygulama güvenlik grubunun bir üyesi yapar:
+4. Sanal makine için bir boyut seçin ve **Seç** seçeneğini belirleyin.
+5. **Ayarlar**'ın altında aşağıdaki değerleri seçin, kalan varsayılan değerleri kabul edin ve sonra **Tamam**’ı seçin:
 
-```powershell-interactive
-$webNic = New-AzureRmNetworkInterface `
-  -Location eastus `
-  -Name myVmWeb `
-  -ResourceGroupName myResourceGroup `
-  -SubnetId $virtualNetwork.Subnets[0].Id `
-  -ApplicationSecurityGroupId $webAsg.Id `
-  -PublicIpAddressId $publicIpWeb.Id
-```
+    |Ayar|Değer|
+    |---|---|
+    |Sanal ağ |**myVirtualNetwork** öğesini seçin|
+    |Ağ Güvenliği Grubu | **Gelişmiş**'i seçin.|
+    |Ağ güvenlik grubu (güvenlik duvarı)| **(Yeni) myVmWeb-nsg** öğesini seçin ve ardından **Ağ güvenlik grubu seç**'in altında **Hiçbiri**'ni seçin. |
 
-Aşağıdaki örnek bir ağ arabirimi oluşturur, *myVmMgmt* genel IP adresini onunla ilişkilendirir ve *myAsgMgmtServers* uygulama güvenlik grubunun bir üyesi yapar:
+6. **Özet**’in **Oluştur** bölümünde **Oluştur**’u seçerek sanal makine dağıtımını başlatın.
 
-```powershell-interactive
-$mgmtNic = New-AzureRmNetworkInterface `
-  -Location eastus `
-  -Name myVmMgmt `
-  -ResourceGroupName myResourceGroup `
-  -SubnetId $virtualNetwork.Subnets[0].Id `
-  -ApplicationSecurityGroupId $mgmtAsg.Id `
-  -PublicIpAddressId $publicIpMgmt.Id
-```
+### <a name="create-the-second-vm"></a>İkinci sanal makineyi oluşturma
 
-Daha sonraki bir adımda trafik filtrelemesini doğrulayabilmek için sanal ağda iki VM oluşturun. 
+1 ile 6 arası adımları yeniden tamamlayın, ama 3. adımda VM'yi *myVmMgmt* olarak adlandırın. Sanal makinenin dağıtılması birkaç dakika sürer. VM dağıtılana kadar sonraki adıma geçmeyin.
 
-[New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) ile bir VM yapılandırması oluşturun, ardından [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) ile sanal makineyi oluşturun. Aşağıdaki örnek, web sunucusu olarak görev yapacak bir VM oluşturur. `-AsJob` seçeneği, sonraki adıma devam edebilmeniz için arka planda sanal makineyi oluşturur: 
+## <a name="associate-network-interfaces-to-an-asg"></a>Ağ arabirimlerini ASG ile ilişkilendirme
 
-```azurepowershell-interactive
-# Create user object
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+Portal VM'leri oluştururken, her VM için bir ağ arabirimi oluşturur ve ağ arabirimini VM'ye bağlar. Her VM'nin ağ arabirimini daha önce oluşturduğunuz uygulama güvenlik gruplarından birine ekleyin:
 
-$webVmConfig = New-AzureRmVMConfig `
-  -VMName myVmWeb `
-  -VMSize Standard_DS1_V2 | `
-Set-AzureRmVMOperatingSystem -Windows `
-  -ComputerName myVmWeb `
-  -Credential $cred | `
-Set-AzureRmVMSourceImage `
-  -PublisherName MicrosoftWindowsServer `
-  -Offer WindowsServer `
-  -Skus 2016-Datacenter `
-  -Version latest | `
-Add-AzureRmVMNetworkInterface `
-  -Id $webNic.Id
-New-AzureRmVM `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -VM $webVmConfig `
-  -AsJob
-```
+1. Portalın üst kısmındaki *Kaynak, hizmet ve belgeleri arayın* kutusuna *myVmWeb* yazmaya başlayın. Arama sonuçlarında **myVmWeb** VM'si göründüğünde bunu seçin.
+2. **AYARLAR**'ın altında **Ağ İletişimi**’ni seçin.  Aşağıdaki resimde gösterildiği gibi **Uygulama güvenlik gruplarını yapılandır**'ı seçin, **Uygulama güvenlik grupları** için **myAsgWebServers** değerini seçin ve sonra da **Kaydet**'i seçin:
 
-Yönetim sunucusu olarak görev yapacak bir VM oluşturun:
+    ![ASG ile ilişkilendirme](./media/tutorial-filter-network-traffic/associate-to-asg.png)
 
-```azurepowershell-interactive
-# Create user object
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-# Create the web server virtual machine configuration and virtual machine.
-$mgmtVmConfig = New-AzureRmVMConfig `
-  -VMName myVmMgmt `
-  -VMSize Standard_DS1_V2 | `
-Set-AzureRmVMOperatingSystem -Windows `
-  -ComputerName myVmMgmt `
-  -Credential $cred | `
-Set-AzureRmVMSourceImage `
-  -PublisherName MicrosoftWindowsServer `
-  -Offer WindowsServer `
-  -Skus 2016-Datacenter `
-  -Version latest | `
-Add-AzureRmVMNetworkInterface `
-  -Id $mgmtNic.Id
-New-AzureRmVM `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -VM $mgmtVmConfig
-```
-
-Sanal makinenin oluşturulması birkaç dakika sürer. Azure VM oluşturma işlemini tamamlayana kadar sonraki adıma geçmeyin.
+3. 1. ve 2. adımları yeniden tamamlayın; **myVmMgmt** VM'si için arama yapın ve **myAsgMgmtServers** ASG'sini seçin.
 
 ## <a name="test-traffic-filters"></a>Trafik filtrelerini test etme
 
-Bir sanal makinenin genel IP adresini döndürmek için [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) komutunu kullanın. Aşağıdaki örnek,*myVmMgmt* sanal makinesinin genel IP adresini döndürür:
+1. *myVmMgmt* VM'sine bağlanın. Portalın üst kısmındaki arama kutusuna *myVmMgmt* yazın. Arama sonuçlarında **myVmMgmt** görüntülendiğinde bunu seçin. **Bağlan** düğmesini seçin.
+2. **RDP dosyasını indir**'i seçin.
+3. İndirilen rdp dosyasını açın ve **Bağlan**'ı seçin. Sanal makine oluştururken belirttiğiniz kullanıcı adını ve parolayı girin. Sanal makineyi oluştururken girdiğiniz kimlik bilgilerini belirtmek için **Diğer seçenekler**’i ve sonra **Farklı bir hesap kullan** seçeneğini belirlemeniz gerekebilir.
+4. **Tamam**’ı seçin.
+5. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Uyarı alırsanız, bağlantıya devam etmek için **Evet**’i veya **Bağlan**’ı seçin.
 
-```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
-  -Name myVmMgmt `
-  -ResourceGroupName myResourceGroup `
-  | Select IpAddress
-```
+    *myVmMgmt* sanal makinesine bağlı ağ arabiriminin içinde bulunduğu *myAsgMgmtServers* uygulama güvenlik grubuna 3389 numaralı bağlantı noktasının internetten gelmesine izin verildiği için bağlantı başarılı olur.
 
-Yerel bilgisayarınızdan *myVmMgmt* ile bir uzak masaüstü oturumu oluşturmak için aşağıdaki komutu kullanın. `<publicIpAddress>` değerini önceki komutta döndürülen IP adresi ile değiştirin.
+6. PowerShell oturumunda aşağıdaki komutu girerek *myVmMgmt* VM'sinden *myVmWeb* VM'sine bağlanın:
 
-```
-mstsc /v:<publicIpAddress>
-```
+    ``` 
+    mstsc /v:myVmWeb
+    ```
 
-İndirilen RDP dosyasını açın. İstendiğinde **Bağlan**’ı seçin.
+    myVmMgmt VM'sinden myVmWeb VM'sine bağlanabilirsiniz çünkü aynı sanal ağ içindeki VM'ler varsayılan olarak herhangi bir bağlantı noktası üzerinden birbiriyle iletişim kurabilir. Öte yandan *myAsgWebServers* güvenlik kuralı internetten 3389 numaralı gelen bağlantı noktasına izin vermediği için *myVmWeb* sanal makinesi ile bir uzak masaüstü bağlantısı oluşturamazsınız ve İnternet'ten tüm kaynaklara gelen trafik varsayılan olarak reddedilir.
 
-Sanal makineyi oluştururken belirttiğiniz kullanıcı adını ve parolayı girin (sanal makineyi oluştururken girdiğiniz kimlik bilgilerini belirtmek için **Diğer seçenekler**’i ve sonra **Farklı bir hesap kullan**’ı seçmeniz gerekebilir), ardından **Tamam**’ı seçin. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Bağlantıya devam etmek için **Evet**’i seçin. 
-   
-*myVmMgmt* sanal makinesine bağlı ağ arabiriminin içinde bulunduğu *myAsgMgmtServers* uygulama güvenlik grubuna 3389 numaralı bağlantı noktasının internetten gelmesine izin verildiği için bağlantı başarılı olur.
+7. *myVmWeb* VM'sinde Microsoft IIS'yi yüklemek için, *myVmWeb* VM'sinde PowerShell oturumundan aşağıdaki komutu girin:
 
-PowerShell üzerinden *myVmWeb* sanal makinesi ile *myVmMgmt* sanal makinesi arasında bir uzak masaüstü bağlantısı oluşturmak için aşağıdaki komutu kullanın:
+    ```powershell
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    ```
 
-``` 
-mstsc /v:myvmWeb
-```
+8. IIS yüklemesi tamamlandıktan sonra *myVmWeb* sanal makinesinin bağlantısını kesmeniz durumunda *myVmMgmt* VM uzak masaüstü bağlantısında kalırsınız.
+9. *myVmMgmt* sanal makinesiyle bağlantıyı kesin.
+10. Bilgisayarınızdan Azure portalının üst kısmındaki *Kaynak, hizmet ve belgeleri arayın* kutusuna *myVmWeb* yazmaya başlayın. Arama sonuçlarında **myVmWeb** görüntülendiğinde bunu seçin. VM'nizin **Genel IP adresini** not alın. Aşağıdaki resimde adres olarak 137.135.84.74 gösterilir ama sizin adresiniz farklıdır:
 
-Her bir ağ güvenlik grubu içindeki varsayılan güvenlik kuralı bir sanal ağ içindeki tüm IP adresleri arasında tüm bağlantı noktaları üzerinden trafiğe izin verdiği için bağlantı başarılı olur. *myAsgWebServers* güvenlik kuralı internetten 3389 numaralı gelen bağlantı noktasına izin vermediği için *myVmWeb* sanal makinesi ile bir uzak masaüstü bağlantısı oluşturamazsınız.
-
-PowerShell’den *myVmWeb* sanal makinesine Microsoft IIS yüklemek için aşağıdaki komutu kullanın:
-
-```powershell
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
-```
-
-IIS yüklemesi tamamlandıktan sonra *myVmWeb* sanal makinesinin bağlantısını kesmeniz durumunda *myVmMgmt* VM uzak masaüstü bağlantısında kalırsınız. IIS giriş ekranını görüntülemek için bir internet tarayıcısı açın ve http://myVmWeb sayfasına göz atın.
-
-*myVmMgmt* sanal makinesiyle bağlantıyı kesin.
-
-Bilgisayarınızda *myVmWeb* sunucusundan genel IP adresini almak için Powershell'den aşağıdaki komutu girin:
-
-```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
-  -Name myVmWeb `
-  -ResourceGroupName myResourceGroup `
-  | Select IpAddress
-```
-
-*myVmWeb* web sunucusuna Azure dışından erişebildiğinizi onaylamak için bilgisayarınızda bir internet tarayıcısı açın ve `http://<public-ip-address-from-previous-step>` sayfasına göz atın. *myVmWeb* sanal makinesine bağlı ağ arabiriminin içinde bulunduğu *myAsgWebServers* uygulama güvenlik grubuna 80 numaralı bağlantı noktasının internetten gelmesine izin verildiği için bağlantı başarılı olur.
+    ![Genel IP adresi](./media/tutorial-filter-network-traffic/public-ip-address.png)
+  
+11. *myVmWeb* web sunucusuna İnternet'ten erişebildiğinizi onaylamak için bilgisayarınızda bir İnternet tarayıcısı açın ve `http://<public-ip-address-from-previous-step>` sayfasına göz atın. *myVmWeb* sanal makinesine bağlı ağ arabiriminin içinde bulunduğu *myAsgWebServers* uygulama güvenlik grubuna 80 numaralı bağlantı noktasının internetten gelmesine izin verildiği için IIS hoş geldiniz ekranını görürsünüz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli değilse, [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanarak kaynak grubunu ve içerdiği tüm kaynakları kaldırabilirsiniz:
+Artık gerekli olmadığında kaynak grubunu ve içerdiği tüm kaynakları silin:
 
-```azurepowershell-interactive 
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
-```
+1. Portalın üst kısmındaki **Ara** kutusuna *myResourceGroup* değerini girin. Arama sonuçlarında **myResourceGroup** seçeneğini gördüğünüzde bunu seçin.
+2. **Kaynak grubunu sil**'i seçin.
+3. **KAYNAK GRUBU ADINI YAZIN:** için *myResourceGroup* girin ve **Sil**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

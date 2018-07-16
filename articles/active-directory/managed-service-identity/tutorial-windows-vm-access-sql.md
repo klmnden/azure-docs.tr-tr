@@ -1,6 +1,6 @@
 ---
-title: Azure SQL erişmek için bir Windows VM MSI kullanın
-description: Azure SQL erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanma sürecinde anlatan öğretici.
+title: Azure SQL'e erişmek için Windows VM MSI kullanma
+description: Windows VM Yönetilen Hizmet Kimliği (MSI) kullanarak Azure SQL'e işleminde size yol gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,30 +9,30 @@ editor: bryanla
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 5805dbc0a4831f14a4f9a98943a7611fa49961eb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: c2c93b8f6b4f8c4d888f7105f09e96dd9df7b574
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594960"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902631"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Öğretici: Azure SQL erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanın.
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Öğretici: Azure SQL'e erişmek için Windows VM Yönetilen Hizmet Kimliği (MSI) kullanma
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bu öğretici, bir yönetilen hizmet Kimliği'ni (MSI) bir Windows sanal makine (VM) için bir Azure SQL sunucusuna erişmek için nasıl kullanılacağını gösterir. Yönetilen hizmet kimliği Azure tarafından otomatik olarak yönetilir ve Azure AD kimlik doğrulaması, kimlik bilgileri kodunuza eklemek zorunda kalmadan destekleyen hizmetler için kimlik doğrulaması sağlar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide, Azure SQL sunucusuna erişmek için Windows sanal makinesi (VM) için Yönetilen Hizmet Kimliği'ni (MSI) nasıl kullanacağınız gösterilir. Yönetilen Hizmet Kimlikleri Azure tarafından otomatik olarak yönetilir kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmanıza olanak tanır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Bir Windows VM MSI etkinleştir 
-> * Bir Azure SQL server, VM erişim
-> * VM kimliğini kullanarak bir erişim belirteci almak ve bir Azure SQL server'ı sorgulamak için kullanın
+> * Windows VM'sinde MSI'yi etkinleştirme 
+> * VM'nize Azure SQL sunucusu için erişim verme
+> * VM kimliğini kullanarak erişim belirteci alma ve Azure SQL sunucusunu sorgulamak için bunu kullanma
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -42,53 +42,53 @@ Bu öğretici, bir yönetilen hizmet Kimliği'ni (MSI) bir Windows sanal makine 
 
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Windows sanal makine oluşturma
+## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Windows sanal makinesi oluşturma
 
-Bu öğretici için yeni bir Windows VM oluşturun.  Mevcut bir VM'yi üzerinde MSI de etkinleştirebilirsiniz.
+Bu öğretici için, yeni bir Windows VM oluşturuyoruz.  Ayrıca mevcut bir VM'de MSI'yi etkinleştirebilirsiniz.
 
 1.  Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** düğmesine tıklayın.
 2.  **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
-3.  Sanal makine bilgilerini girin. **Kullanıcıadı** ve **parola** için kullandığınız kimlik bilgileri İşte oluşturulan sanal makineye oturum açma.
-4.  Uygun seçin **abonelik** sanal makine açılır.
-5.  Yeni bir seçmek için **kaynak grubu** içinde sanal makine oluşturmak, seçim **Yeni Oluştur**. İşlem tamamlandığında **Tamam**’a tıklayın.
-6.  VM boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar sayfasında, Varsayılanları tutun ve tıklatın **Tamam**.
+3.  Sanal makine bilgilerini girin. Burada oluşturulan **Kullanıcı adı** ve **Parola**, sanal makinede oturum açmak için kullandığınız kimlik bilgileridir.
+4.  Açılan listede sanal makine için uygun **Aboneliği** seçin.
+5.  İçinde sanal makinenizi oluşturacağınız yeni bir **Kaynak Grubu** seçmek için **Yeni Oluştur**'u seçin. İşlem tamamlandığında **Tamam**’a tıklayın.
+6.  VM'nin boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
 
-    ![Alt görüntü metin](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alternatif resim metni](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>MSI VM üzerinde etkinleştir 
+## <a name="enable-msi-on-your-vm"></a>VM'nizde MSI'yi etkinleştirme 
 
-Bir VM MSI erişim belirteçleri, kimlik bilgileri kodunuza koyma gereksinimi olmadan Azure AD'den almanızı sağlar. MSI etkinleştirme, VM için yönetilen bir kimlik oluşturmak üzere Azure söyler. Perde arkasında MSI etkinleştirme iki işlemi yapar: yazmaçlar yönetilen kimliğini ve oluşturmak için Azure Active Directory ile VM VM kimliğini yapılandırır.
+VM MSI'si kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. MSI'nin etkinleştirilmesi Azure'a VM'niz için bir yönetilen kimlik oluşturmasını bildirir. MSI'nin etkinleştirilmesi arka planda iki işlem yapar: yönetilen kimliğini oluşturmak için VM'nizi Azure Active Directory'ye kaydeder ve kimliği VM'de yapılandırır.
 
-1.  Seçin **sanal makine** MSI etkinleştirmek istediğiniz.  
-2.  Sol gezinti çubuğunda **yapılandırma**. 
-3.  Gördüğünüz **yönetilen hizmet kimliği**. Kaydolun ve MSI etkinleştirmek için seçin **Evet**, devre dışı bırakmak istiyorsanız seçin No 
-4.  Tıklattığınız olun **kaydetmek** yapılandırmayı kaydetmek için.  
-    ![Alt görüntü metin](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+1.  MSI'yi etkinleştirmek istediğiniz **Sanal Makine**'yi seçin.  
+2.  Sol gezinti çubuğunda **Yapılandırma**'ya tıklayın. 
+3.  **Yönetilen Hizmet Kimliği**'ni görürsünüz. MSI'yi kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin. 
+4.  Yapılandırmayı kaydetmek için **Kaydet**’e tıkladığınızdan emin olun.  
+    ![Alternatif resim metni](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Bir Azure SQL server veritabanında, VM erişim
+## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>VM'nize Azure SQL sunucusundaki bir veritabanı için erişim verme
 
-Şimdi bir Azure SQL server veritabanında, VM erişim izni verebilir.  Bu adım için mevcut bir SQL server kullanın veya yeni bir tane oluşturun.  Yeni bir sunucu oluşturmak ve Azure portalını kullanarak veritabanı için bu izleyin [Azure SQL quickstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Ayrıca Azure CLI ve Azure PowerShell'de kullanın quickstarts olan [Azure SQL belgelerine](https://docs.microsoft.com/azure/sql-database/).
+Şimdi VM'nize Azure SQL sunucusundaki bir veritabanı için erişim verebilirsiniz.  Bu adımda, mevcut SQL sunucusunu kullanabilir veya yeni bir sunucu oluşturabilirsiniz.  Azure portalını kullanarak yeni sunucu ve veritabanı oluşturmak için bu [Azure SQL hızlı başlangıcını](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) izleyin. [Azure SQL belgeleri](https://docs.microsoft.com/azure/sql-database/) arasında Azure CLI'nin ve Azure PowerShell'in kullanıldığı hızlı başlangıçlar da vardır.
 
-Bir veritabanı, VM erişim verilmesi için üç adım vardır:
-1.  Azure AD'de bir grup oluşturun ve VM MSI grubunun bir üyesi yapın.
-2.  SQL server için Azure AD kimlik doğrulamasını etkinleştirin.
-3.  Oluşturma bir **içerilen kullanıcı** veritabanında Azure AD grubunu temsil eder.
+VM'nize veritabanı erişimi verme işleminin üç adımı vardır:
+1.  Azure AD'de grup oluşturma ve VM MSI'sini gruba üye yapma.
+2.  SQL sunucusu için Azure AD kimlik doğrulamasını etkinleştirme.
+3.  Azure AD grubunu temsil eden veritabanında bir **içerilen kullanıcı** oluşturun.
 
 > [!NOTE]
-> Normalde doğrudan VM MSI eşleyen içerilen kullanıcı oluşturursunuz.  Şu anda, Azure SQL kapsanan bir kullanıcıya eşlenmesi VM MSI temsil eden Azure AD hizmet sorumlusu izin vermiyor.  Desteklenen bir geçici çözüm olarak VM MSI bir Azure AD grubunun bir üyesi yapın sonra içerilen kullanıcı grubu temsil eden veritabanında oluşturun.
+> Normalde doğrudan VM'nin MSI'sine eşlenen bir içerilen kullanıcı oluşturabilirsiniz.  Şu anda Azure SQL, VM MSI'sini temsil eden Azure AD Hizmet Sorumlusunun içerilen kullanıcıyla eşlenmesine izin vermemektedir.  Desteklenen bir geçici çözüm olarak, VM MSI'sini Azure AD grubuna üye yapın ve ardından grubu temsil eden veritabanında bir içerilen kullanıcı oluşturun.
 
 
-### <a name="create-a-group-in-azure-ad-and-make-the-vm-msi-a-member-of-the-group"></a>Azure AD'de bir grup oluşturun ve VM MSI grubunun bir üyesi yapın
+### <a name="create-a-group-in-azure-ad-and-make-the-vm-msi-a-member-of-the-group"></a>Azure AD'de grup oluşturma ve VM MSI'sini gruba üye yapma
 
-Varolan bir Azure AD grubunu kullanın veya Azure AD PowerShell kullanarak yeni bir tane oluşturun.  
+Mevcut Azure AD grubunu kullanabilir veya Azure AD PowerShell kullanarak yeni bir grup oluşturabilirsiniz.  
 
-İlk olarak, yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modülü. Kullanarak oturum `Connect-AzureAD`, grubu oluşturmak için aşağıdaki komutu çalıştırın ve bir değişkene kaydedin:
+İlk olarak [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modülünü yükleyin. Ardından `Connect-AzureAD` kullanarak oturum açın ve aşağıdaki komutu çalıştırarak grubu oluşturup bir değişkene kaydedin:
 
 ```powershell
 $Group = New-AzureADGroup -DisplayName "VM MSI access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
 ```
 
-Çıktı ayrıca değişkenin değerini inceler aşağıdaki gibi görünür:
+Çıkış aşağıdaki gibi görünür ve değişkenin değeri de incelenir:
 
 ```powershell
 $Group = New-AzureADGroup -DisplayName "VM MSI access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
@@ -98,10 +98,10 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Ardından, VM'nin MSI grubuna ekleyin.  MSI gereksinim **objectID**, hangi Azure PowerShell kullanarak elde.  İlk olarak, indirme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Kullanarak oturum `Connect-AzureRmAccount`, ve aşağıdaki komutları çalıştırın:
-- Birden çok olanları varsa, oturum bağlamı istediğiniz Azure aboneliği için ayarlandığından emin olun.
-- Azure aboneliğinizde kullanılabilir kaynaklar listesinde, VM adları ve doğru kaynak grubu içinde doğrulayın.
-- İçin uygun değerleri kullanarak MSI sanal makinenin özelliklerini al `<RESOURCE-GROUP>` ve `<VM-NAME>`.
+Ardından, VM'nin MSI'sini gruba ekleyin.  MSI'nin **ObjectId** değerine ihtiyacınız olacaktır. Bunu, Azure PowerShell'i kullanarak alabilirsiniz.  İlk olarak [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)'i indirin. Sonra `Connect-AzureRmAccount` kullanarak oturum açın ve aşağıdaki komutları çalıştırarak şunları yapın:
+- Birden çok Azure aboneliğiniz varsa, oturum bağlamının doğru Azure aboneliğine ayarlandığından emin olun.
+- Azure aboneliğinizdeki kullanılabilir kaynakları listeleyerek kaynak grubu ve VM adlarının doğruluğundan emin olun.
+- `<RESOURCE-GROUP>` ve `<VM-NAME>` için uygun değerleri kullanarak MSI VM'sinin özelliklerini alın.
 
 ```powershell
 Set-AzureRMContext -subscription "bdc79274-6bb9-48a8-bfd8-00c140fxxxx"
@@ -109,19 +109,19 @@ Get-AzureRmResource
 $VM = Get-AzureRmVm -ResourceGroup <RESOURCE-GROUP> -Name <VM-NAME>
 ```
 
-Çıktı ayrıca VM MSI hizmet asıl nesne kimliği inceler aşağıdaki gibi görünür:
+Çıkış aşağıdaki gibi görünür ve VM MSI'sinin hizmet sorumlusu Object ID değeri de incelenir:
 ```powershell
 $VM = Get-AzureRmVm -ResourceGroup DevTestGroup -Name DevTestWinVM
 $VM.Identity.PrincipalId
 b83305de-f496-49ca-9427-e77512f6cc64
 ```
 
-Şimdi VM MSI grubuna ekleyin.  Bu gibi durumlarda, bir hizmet sorumlusu yalnızca Azure AD PowerShell kullanarak bir gruba ekleyebilirsiniz.  Şu komutu çalıştırın:
+Şimdi VM MSI'sini gruba ekleyin.  Yalnızca Azure AD PowerShell kullanarak gruba hizmet sorumlusu ekleyebilirsiniz.  Şu komutu çalıştırın:
 ```powershell
 Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
 ```
 
-Ayrıca Grup üyeliği daha sonra incelerseniz, çıktı şu şekilde görünür:
+Daha sonra grup üyeliğini de incelerseniz, çıkış şöyle görünür:
 
 ```powershell
 Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
@@ -132,55 +132,55 @@ ObjectId                             AppId                                Displa
 b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTestWinVM
 ```
 
-### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>SQL server için Azure AD kimlik doğrulamasını etkinleştir
+### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>SQL sunucusu için Azure AD kimlik doğrulamasını etkinleştirme
 
-Grup oluşturulur ve üyelik VM MSI eklenir, yapabilecekleriniz [SQL server için Azure AD kimlik doğrulamasını yapılandırma](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) aşağıdaki adımları kullanarak:
+Artık grubu oluşturduğunuza ve VM MSI'sini üyeliğe eklediğinize göre, aşağıdaki adımları kullanarak [SQL sunucusu için Azure AD kimlik doğrulamasını yapılandırabilirsiniz](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server):
 
-1.  Azure portalında seçin **SQL sunucuları** sol gezinti gelen.
-2.  Azure AD kimlik doğrulaması için etkin için SQL server'ı tıklatın.
-3.  İçinde **ayarları** bölüm için dikey pencerenin tıklatın **Active Directory Yöneticisi**.
-4.  Komut çubuğunda, **ayarlamak yönetici**.
-5.  Sunucu Yöneticisi yapılması ve bir Azure AD kullanıcı hesabını seçin **seçin.**
-6.  Komut çubuğunda, **kaydedin.**
+1.  Azure portalında, sol gezintiden **SQL sunucuları**'nı seçin.
+2.  Azure AD kimlik doğrulaması için etkinleştirilecek SQL sunucusuna tıklayın.
+3.  Dikey pencerenin **Ayarlar** bölümünde **Active Directory yöneticisi**'ne tıklayın.
+4.  Komut çubuğunda **Yönetici ayarla**'ya tıklayın.
+5.  Sunucunun yöneticisi olacak bir Azure AD kullanıcı hesabı seçin ve **Seç**'e tıklayın.
+6.  Komut çubuğunda **Kaydet**'e tıklayın.
 
-### <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Azure AD grubu temsil eden veritabanında içerilen kullanıcı oluşturmak
+### <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Azure AD grubunu temsil eden veritabanında bir içerilen kullanıcı oluşturma
 
-Bu sonraki adım için size gereken [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Başlamadan önce ayrıca Azure AD tümleştirme hakkında arka plan bilgileri için aşağıdaki makalelere gözden geçirmek yararlı olabilir:
+Bu sonraki adım için, [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)'ya (SSMS) ihtiyacınız vardır. Başlamadan önce, Azure Ad tümleştirmesiyle ilgili arka plan bilgileri için aşağıdaki makaleleri gözden geçirmeniz yararlı olabilir:
 
-- [SQL Database ve SQL Data Warehouse (MFA desteği SSMS) ile Evrensel kimlik doğrulaması](/azure/sql-database/sql-database-ssms-mfa-authentication.md)
-- [Yapılandırma ve SQL Database veya SQL Data Warehouse ile Azure Active Directory kimlik doğrulaması yönetme](/azure/sql-database/sql-database-aad-authentication-configure.md)
+- [SQL Veritabanı ve SQL Veri Ambarı ile Evrensel Kimlik Doğrulaması (MFA için SSMS desteği)](/azure/sql-database/sql-database-ssms-mfa-authentication.md)
+- [SQL Veritabanı veya SQL Veri Ambarı ile Azure Active Directory kimlik doğrulamasını yapılandırma ve yönetme](/azure/sql-database/sql-database-aad-authentication-configure.md)
 
 1.  SQL Server Management Studio’yu başlatın.
-2.  İçinde **sunucuya Bağlan** iletişim kutusunda, SQL server'ınızın adını Enter **sunucu adı** alan.
-3.  İçinde **kimlik doğrulaması** alan, select **Active Directory - Evrensel MFA desteğiyle**.
-4.  İçinde **kullanıcı adı** alanında, sunucu yöneticisi olarak, örneğin, ayarladığınız Azure AD hesabının adını girin helen@woodgroveonline.com
+2.  **Sunucuya Bağlan** iletişim kutusunda, **Sunucu adı** alanına SQL sunucu adınızı girin.
+3.  **Kimlik Doğrulaması** alanında, **Active Directory - MFA ile Evrensel desteği**'ni seçin.
+4.  **Kullanıcı adı** alanında, sunucu yöneticisi olarak ayarladığınız Azure AD hesabının adını girin (örneğin, helen@woodgroveonline.com)
 5.  **Seçenekler**’e tıklayın.
-6.  İçinde **veritabanına bağlan** alanında, yapılandırmak istediğiniz sistem dışı veritabanının adını girin.
+6.  **Veritabanına bağlan** alanında, yapılandırmak istediğiniz sistem dışı veritabanının adını girin.
 7.  **Bağlan**'a tıklayın.  Oturum açma işlemini tamamlayın.
-8.  İçinde **Object Explorer**, genişletin **veritabanları** klasör.
-9.  Bir kullanıcı veritabanı üzerinde sağ tıklatın ve **yeni sorgu**.
-10.  Sorgu penceresinde, aşağıdaki satırı girin ve **yürütme** araç çubuğunda:
+8.  **Nesne Gezgini**'nde **Veritabanları** klasörünü genişletin.
+9.  Kullanıcı veritabanına sağ tıklayın ve **Yeni sorgu**'ya tıklayın.
+10.  Sorgu penceresinde, aşağıdaki satırı girin ve araç çubuğunda **Yürüt**'e tıklayın:
     
      ```
      CREATE USER [VM MSI access to SQL] FROM EXTERNAL PROVIDER
      ```
     
-     Komut grubu için kapsanan kullanıcı oluşturma başarıyla tamamlanmalıdır.
-11.  Sorgu penceresi temizleyin, aşağıdaki satırı girin ve tıklatın **yürütme** araç çubuğunda:
+     Komutun başarıyla tamamlanması ve grup için içerilen kullanıcıyı oluşturması gerekir.
+11.  Sorgu penceresini temizleyin, aşağıdaki satırı girin ve araç çubuğunda **Yürüt**'e tıklayın:
      
      ```
      ALTER ROLE db_datareader ADD MEMBER [VM MSI access to SQL]
      ```
 
-     Komut, başarıyla, kapsanan kullanıcı tüm veritabanını okuma özelliği verme tamamlamanız gerekir.
+     Komutun başarıyla tamamlanması ve içerilen kullanıcıya veritabanının tamamını okuma erişimi vermesi gerekir.
 
-VM içinde çalışan kod artık MSI bir belirteç almak ve SQL sunucusunda kimlik doğrulamak için belirteci kullanın.
+VM'de çalıştırılan kod şimdi MSI'den belirteç alabilir ve belirteci kullanarak SQL Server'da kimlik doğrulaması yapabilir.
 
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-sql"></a>VM kimliğini kullanarak bir erişim belirteci alın ve Azure SQL çağırmak için kullanın 
+## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-sql"></a>VM kimliğini kullanarak erişim belirteci alma ve Azure SQL çağrısı yapmak için bunu kullanma 
 
-Azure SQL MSI kullanarak doğrudan erişim belirteçleri kabul edebilir destekler Azure AD kimlik doğrulama, yerel olarak alınır.  Kullandığınız **erişim belirteci** SQL bağlantısı oluşturma yöntemi.  Bu Azure AD ile tümleştirme Azure SQL'ın bir parçasıdır ve bağlantı dizesini kimlik bilgileri sağladığını farklıdır.
+Azure SQL, Azure AD kimlik doğrulamasını yerel olarak desteklediğinden MSI kullanılarak alınan erişim belirteçlerini doğrudan kabul eder.  SQL bağlantısı oluştururken **erişim belirteci** yöntemini kullanırsınız.  Bu, Azure SQL’in Azure AD tümleştirmesi kapsamındadır ve bağlantı dizesinde kimlik bilgileri sağlama işleminden farklıdır.
 
-Aşağıda, bir erişim belirteci kullanarak SQL bağlantı açma .net kod örneği verilmiştir.  Bu kod, VM'de VM MSI uç noktasına erişmek için çalıştırmanız gerekir.  **.NET framework 4.6** ya da daha yüksek erişim belirteci yöntemi kullanmak için gereklidir.  AZURE SQL SERVERNAME ve veritabanı değerlerini değiştirmek uygun şekilde.  Azure SQL için kaynak kimliği Not "https://database.windows.net/".
+Burada, erişim belirteci kullanarak SQL'e bağlantı açan bir .Net kod örneği verilmiştir.  Bu kodun, VM MSI'si uç noktasına erişebilmesi için VM üzerinde çalıştırılması gerekir.  Erişim belirteci yöntemini kullanmak için **.Net Framework 4.6** veya üzeri bir sürüm gereklidir.  AZURE-SQL-SERVERNAME ve DATABASE değerlerini uygun şekilde değiştirin.  Azure SQL için kaynak kimliğinin "https://database.windows.net/" olduğuna dikkat edin.
 
 ```csharp
 using System.Net;
@@ -224,30 +224,30 @@ if (accessToken != null) {
 }
 ```
 
-Alternatif olarak, yazma ve VM üzerinde bir uygulama dağıtmak zorunda kalmadan uçtan uca Kurulum test etmek için hızlı bir şekilde PowerShell kullanıyor.
+Alternatif olarak, uygulama yazmak ve VM'de dağıtmak zorunda kalmadan uçtan uca kurulumu test etmenin hızlı bir yöntemi PowerShell kullanmaktır.
 
-1.  Portalı'nda gidin **sanal makineleri** ve Windows sanal makinenizi gidin ve buna **genel bakış**, tıklatın **Bağlan**. 
-2.  Girin, **kullanıcıadı** ve **parola** Windows VM oluşturduğunuzda, eklediğiniz için. 
-3.  Oluşturduğunuza göre bir **Uzak Masaüstü Bağlantısı** sanal makineyle açmak **PowerShell** uzak oturumda. 
-4.  PowerShell'in kullanarak `Invoke-WebRequest`, Azure SQL için bir erişim belirteci almak üzere yerel MSI uç nokta için bir istek olun.
+1.  Portalda, **Sanal Makineler**'e ve Windows sanal makinenize gidin, ardından **Genel Bakış**'ta **Bağlan**'a tıklayın. 
+2.  Windows VM'sini oluştururken eklendiğiniz hesabın **Kullanıcı adı** ve **Parola** değerlerini girin. 
+3.  Artık sanal makineyle **Uzak Masaüstü Bağlantısı**'nı oluşturduğunuza göre, uzak oturumda **PowerShell**'i açın. 
+4.  PowerShell’in `Invoke-WebRequest` komutunu kullanarak, yerel MSI uç noktasına Azure SQL için erişim belirteci alma isteğinde bulunun.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
-    Yanıt için bir PowerShell nesnesi bir JSON nesnesinde dönüştürün. 
+    Yanıtı JSON nesnesinden PowerShell nesnesine dönüştürün. 
     
     ```powershell
     $content = $response.Content | ConvertFrom-Json
     ```
 
-    Erişim belirteci yanıttan ayıklayın.
+    Yanıttan erişim belirtecini ayıklayın.
     
     ```powershell
     $AccessToken = $content.access_token
     ```
 
-5.  SQL server bağlantı açın. AZURE SQL SERVERNAME ve veritabanı için değerleri değiştirmek unutmayın.
+5.  SQL Server'a bir bağlantı açın. AZURE-SQL-SERVERNAME ve DATABASE değerlerini değiştirmeyi unutmayın.
     
     ```powershell
     $SqlConnection = New-Object System.Data.SqlClient.SqlConnection
@@ -256,7 +256,7 @@ Alternatif olarak, yazma ve VM üzerinde bir uygulama dağıtmak zorunda kalmada
     $SqlConnection.Open()
     ```
 
-    Ardından, oluşturun ve bir sorgu sunucuya gönderin.  Tablo için değeri değiştirmek unutmayın.
+    Ardından bir sorgu oluşturup sunucuya gönderin.  TABLE değerini değiştirmeyi unutmayın.
 
     ```powershell
     $SqlCmd = New-Object System.Data.SqlClient.SqlCommand
@@ -268,11 +268,11 @@ Alternatif olarak, yazma ve VM üzerinde bir uygulama dağıtmak zorunda kalmada
     $SqlAdapter.Fill($DataSet)
     ```
 
-Değerini inceleyin `$DataSet.Tables[0]` sorgu sonuçlarını görüntülemek için.  Tebrikler, bir VM MSI kullanarak veritabanını sorgulama ve kimlik bilgilerini sağlamak için gerek kalmadan!
+Sorgunun sonuçlarını görüntülemek için `$DataSet.Tables[0]` değerini inceleyin.  Tebrikler, VM MSI'sini kullanarak ve kimlik bilgileri sağlamak zorunda kalmadan veritabanını sorguladınız!
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure SQL sunucusuna erişmek için bir yönetilen hizmet kimliği oluşturma öğrendiniz.  Azure SQL Server bakın hakkında daha fazla bilgi için:
+Bu öğreticide, Azure SQL Server'a erişmek için Yönetilen Hizmet Kimliği oluşturmayı öğrendiniz.  Azure SQL Server hakkında daha fazla bilgi için bkz:
 
 > [!div class="nextstepaction"]
->[Azure SQL veritabanı hizmeti](/azure/sql-database/sql-database-technical-overview)
+>[Azure SQL Veritabanı hizmeti](/azure/sql-database/sql-database-technical-overview)
