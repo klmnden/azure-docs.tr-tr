@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB erişmek için bir Windows VM MSI kullanın
-description: Azure Cosmos DB erişmek için bir Windows VM üzerinde bir System-Assigned yönetilen hizmet kimliği (MSI) kullanarak sürecinde anlatan öğretici.
+title: Azure Cosmos DB’ye erişmek için Windows VM MSI kullanma
+description: Windows VM üzerinde bir Sistem Tarafından Atanmış Yönetilen Hizmet Kimliği (MSI) kullanarak Azure Cosmos DB'ye erişme işleminde size yol gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,32 +9,32 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: arluca
-ms.openlocfilehash: ed225206e512ff64835d4d90b35bd44800e0a559
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: ed1aff411ae5446688fe717ddc4570ea756c4c1e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595385"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904280"
 ---
-# <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Öğretici: Azure Cosmos DB erişmek için bir Windows VM MSI kullanın.
+# <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Öğretici: Azure Cosmos DB’ye erişmek için Windows VM MSI kullanma
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bu öğretici nasıl oluşturulacağı ve bir Windows VM MSI Cosmos DB erişmek için kullandığınız gösterir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide Cosmos DB’ye erişmek için Windows VM MSI oluşturma ve kullanma işlemi gösterilir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Oluşturma Windows VM bir MSI etkin 
+> * MSI etkin Windows VM oluşturma 
 > * Cosmos DB hesabı oluşturma
-> * Cosmos DB hesabı erişim anahtarlarını GRANT Windows VM MSI erişimi
-> * Azure Resource Manager çağırmak için Windows VM MSI kullanarak bir erişim belirteci alın
-> * Cosmos DB çağrı yapmak için Azure Resource Manager gelen erişim anahtarı alma
+> * Windows VM MSI'sine Cosmos DB hesabı erişim anahtarları için erişim verme
+> * Windows VM MSI'sini kullanarak Azure Resource Manager çağrısı yapmak için erişim belirteci alma
+> * Cosmos DB çağrıları yapmak için Azure Resource Manager'dan erişim anahtarları alma
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -45,110 +45,110 @@ Bu öğretici nasıl oluşturulacağı ve bir Windows VM MSI Cosmos DB erişmek 
 
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Windows sanal makine oluşturma
+## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Windows sanal makinesi oluşturma
 
-Bu öğretici için yeni bir Windows VM oluşturun.  Mevcut bir VM'yi üzerinde MSI de etkinleştirebilirsiniz.
+Bu öğretici için, yeni bir Windows VM oluşturuyoruz.  Ayrıca mevcut bir VM'de MSI'yi etkinleştirebilirsiniz.
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** düğmesine tıklayın.
 2. **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
-3. Sanal makine bilgilerini girin. **Kullanıcıadı** ve **parola** için kullandığınız kimlik bilgileri İşte oluşturulan sanal makineye oturum açma.
-4. Uygun seçin **abonelik** sanal makine açılır.
-5. Yeni bir seçmek için **kaynak grubu** içinde sanal makine oluşturmak, seçim **Yeni Oluştur**. İşlem tamamlandığında **Tamam**’a tıklayın.
-6. VM boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar sayfasında, Varsayılanları tutun ve tıklatın **Tamam**.
+3. Sanal makine bilgilerini girin. Burada oluşturulan **Kullanıcı adı** ve **Parola**, sanal makinede oturum açmak için kullandığınız kimlik bilgileridir.
+4. Açılan listede sanal makine için uygun **Aboneliği** seçin.
+5. İçinde sanal makinenizi oluşturacağınız yeni bir **Kaynak Grubu** seçmek için **Yeni Oluştur**'u seçin. İşlem tamamlandığında **Tamam**’a tıklayın.
+6. VM'nin boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
 
-   ![Alt görüntü metin](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Alternatif resim metni](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>MSI VM üzerinde etkinleştir 
+## <a name="enable-msi-on-your-vm"></a>VM'nizde MSI'yi etkinleştirme 
 
-Bir sanal makine MSI kodunuza kimlik bilgileri almaya gerek kalmadan Azure AD'den erişim belirteçleri almak etkinleştirir. Perde arkasında MSI Azure portal aracılığıyla bir sanal makinede etkinleştirilmesi iki işlemi yapar: yönetilen bir kimlik oluşturmak üzere Azure AD ile VM kaydeder ve VM kimliğini yapılandırır.
+Sanal Makine MSI'si kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. Azure portalından bir Sanal Makinede MSI'yi etkinleştirmek aslında şu iki şeyi gerçekleştirir: Bir yönetilen kimlik oluşturmak için VM’nizi Azure AD’ye kaydeder ve kimliği VM’de yapılandırır.
 
-1. Seçin **sanal makine** MSI etkinleştirmek istediğiniz.  
-2. Sol gezinti çubuğunda **yapılandırma**. 
-3. Gördüğünüz **yönetilen hizmet kimliği**. Kaydolun ve MSI etkinleştirmek için seçin **Evet**, devre dışı bırakmak istiyorsanız seçin No 
-4. Tıklattığınız olun **kaydetmek** yapılandırmayı kaydetmek için.  
-   ![Alt görüntü metin](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+1. MSI'yi etkinleştirmek istediğiniz **Sanal Makine**'yi seçin.  
+2. Sol gezinti çubuğunda **Yapılandırma**'ya tıklayın. 
+3. **Yönetilen Hizmet Kimliği**'ni görürsünüz. MSI'yi kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin. 
+4. Yapılandırmayı kaydetmek için **Kaydet**’e tıkladığınızdan emin olun.  
+   ![Alternatif resim metni](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-cosmos-db-account"></a>Cosmos DB hesabı oluşturma 
 
-Zaten yoksa, bir Cosmos DB hesabı oluşturun. Bu adımı atlayın ve var olan bir Cosmos DB hesabını kullanın. 
+Henüz Cosmos DB hesabınız yoksa, bir hesap oluşturun. Bu adımı atlayabilir ve varolan bir Cosmos DB hesabını kullanabilirsiniz. 
 
-1. Tıklatın **+/ yeni hizmet oluşturma** düğme Azure portalında sol üst köşesinde bulundu.
-2. Tıklatın **veritabanları**, ardından **Azure Cosmos DB**ve yeni bir "yeni hesabı" panel görüntüler.
-3. Girin bir **kimliği** daha sonra kullanmak Cosmos DB hesabı.  
-4. **API** "SQL" olarak ayarlanmalıdır. Bu öğreticide açıklanan yaklaşım diğer kullanılabilir API türleriyle kullanılabilir, ancak bu öğreticideki adımlar SQL API'yi yer almaktadır.
-5. Olun **abonelik** ve **kaynak grubu** VM'nizi oluşturduğunuzda önceki adımda belirttiğiniz olanlarla eşleşmesi.  Seçin bir **konumu** Cosmos DB burada kullanılabilir.
+1. Azure portalının sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
+2. **Veritabanları**'na ve sonra da **Azure Cosmos DB**'ye tıklayın; yeni bir "Yeni hesap" paneli görüntülenir.
+3. Cosmos DB hesabı için daha sonra kullanacağınız bir **Kimlik** girin.  
+4. **API** olarak "SQL" ayarlanmalıdır. Bu öğreticide açıklanan yaklaşım varolan diğer API türleriyle kullanılabilir, ama bu öğreticideki adımlar SQL API'ye yöneliktir.
+5. **Abonelik** ve **Kaynak Grubu** değerlerinin, önceki adımda VM'nizi oluştururken belirttiklerinizle eşleştiğinden emin olun.  Cosmos DB'nin kullanılabileceği **Konum**'u seçin.
 6. **Oluştur**’a tıklayın.
 
-## <a name="create-a-collection-in-the-cosmos-db-account"></a>Cosmos DB hesabında bir koleksiyon oluşturma
+## <a name="create-a-collection-in-the-cosmos-db-account"></a>Cosmos DB hesabında koleksiyon oluşturma
 
-Ardından, sonraki adımlarda sorgulayabilirsiniz Cosmos DB hesabındaki bir veri toplama ekleyin.
+Ardından, Cosmos DB hesabına sonraki adımlarda sorgulayabileceğiniz bir veri koleksiyonu ekleyin.
 
-1. Yeni oluşturulan Cosmos DB hesabınıza gidin.
-2. Üzerinde **genel bakış** sekmesini tıklatın **+/ topluluk Ekle** düğmesi ve bir "çıkışı slayt panel topluluk Ekle".
-3. Koleksiyon veritabanı kimliği, koleksiyon kimliği, select depolama kapasitesi sağlar, bölüm anahtarı girin, verimlilik değeri girin ve ardından **Tamam**.  Bu öğretici için "Test" koleksiyon kimliği ve veritabanı kimliği seçin olarak sabit depolama kapasitesi ve en düşük işlemesi (400 RU/s) kullanmak yeterli olur.  
+1. Yeni oluşturduğunuz Cosmos DB hesabınıza gidin.
+2. **Genel Bakış** sekmesinde **+/Koleksiyon Ekle** düğmesine tıklayın; "Koleksiyon Ekle" paneli belirir.
+3. Koleksiyona bir veritabanı kimliği ve koleksiyon kimliği girin, depolama kapasitesini seçin, bölüm anahtarı girin, aktarım hızı değeri girin ve sonra da **Tamam**'a tıklayın.  Bu öğretici için, veritabanı kimliği ve koleksiyon kimliği olarak "Test" kullanmak, sabit bir depolama kapasitesi ve en düşük aktarım hızı (400 RU/s) seçmek yeterlidir.  
 
-## <a name="grant-windows-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Cosmos DB hesabı erişim anahtarlarını GRANT Windows VM MSI erişimi
+## <a name="grant-windows-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Windows VM MSI'sine Cosmos DB hesabı erişim anahtarları için erişim verme
 
-Cosmos DB yerel olarak Azure AD kimlik doğrulamasını desteklemez. Ancak, bir MSI Kaynak Yöneticisi'nden Cosmos DB erişim tuşunu kullanın ve anahtar Cosmos DB erişmek için kullanılır. Bu adımda, Cosmos DB hesabı anahtarları, MSI erişim izni.
+Cosmos DB Azure AD kimlik doğrulamayı yerel olarak desteklemez. Bununla birlikte, Kaynak Yöneticisi'nden Cosmos DB erişim anahtarını almak için bir MSI kullanabilir ve ardından anahtarı kullanarak Cosmos DB'ye erişebilirsiniz. Bu adımda, MSI'nize Cosmos DB hesabının anahtarları için erişim verirsiniz.
 
-Cosmos DB hesabı Azure kaynağı PowerShell kullanarak Yöneticisi'nde MSI kimlik erişim vermek için değerleri güncelleştirmek `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, ve `<COSMOS DB ACCOUNT NAME>` ortamınız için. Değiştir `<MSI PRINCIPALID>` ile `principalId` özellik tarafından döndürülen `az resource show` komutunu [Linux VM MSI Principalıd almak](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB erişim tuşlarını kullanırken iki düzeyde ayrıntı düzeyi destekler: okuma/yazma erişimi hesabı ve salt okunur erişim hesabı.  Ata `DocumentDB Account Contributor` hesabının okuma/yazma anahtarlarını almak ya da atamak istiyorsanız, rol `Cosmos DB Account Reader Role` hesabı için salt okunur anahtarlarını almak istiyorsanız, rol:
+PowerShell kullanarak Azure Resource Manager'da Cosmos DB hesabına MSI kimliği erişimi vermek için, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` ve `<COSMOS DB ACCOUNT NAME>` değerlerini ortamınıza uygun olarak güncelleştirin. `<MSI PRINCIPALID>` değerini, [Linux VM MSI'sinin principalID değerini alma](#retrieve-the-principalID-of-the-linux-VM's-MSI) bölümünde `az resource show` komutu tarafından döndürülen `principalId` özelliğiyle değiştirin.  Cosmos DB, erişim anahtarları kullanılırken iki ayrıntı düzeyini destekler: hesaba okuma/yazma erişimi ve hesaba salt okuma erişimi.  Hesap için okuma/yazma anahtarları almak istiyorsanız `DocumentDB Account Contributor` rolünü veya hesap için salt okuma anahtarları almak istiyorsanız `Cosmos DB Account Reader Role` rolünü atayın:
 
 ```azurepowershell
 $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
 ```
 
-## <a name="get-an-access-token-using-the-windows-vms-msi-to-call-azure-resource-manager"></a>Azure Resource Manager çağırmak için Windows VM MSI kullanarak bir erişim belirteci alın
+## <a name="get-an-access-token-using-the-windows-vms-msi-to-call-azure-resource-manager"></a>Windows VM MSI'sini kullanarak Azure Resource Manager çağrısı yapmak için erişim belirteci alma
 
-Öğretici kalanı için size daha önce oluşturduğumuz sanal makineden çalışmaz. 
+Bu öğreticinin kalan bölümünde, daha önce oluşturmuş olduğunuz VM'den çalışacağız. 
 
-Bu bölümünde Azure Resource Manager PowerShell cmdlet'lerini kullanmanız gerekecektir.  Yüklü, yoksa [en son sürümü karşıdan](https://docs.microsoft.com/powershell/azure/overview) devam etmeden önce.
+Bu bölümde Azure Resource Manager PowerShell cmdlet’lerini kullanmanız gerekir.  Makinenizde yüklü değilse, devam etmeden önce [en son sürümü indirin](https://docs.microsoft.com/powershell/azure/overview).
 
-Ayrıca en son sürümünü yüklemeniz gerekir [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) Windows VM üzerinde.
+Ayrıca Windows VM’inize [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)’ın en son sürümünü yüklemeniz gerekir.
 
-1. Azure portalında gidin **sanal makineleri**gidin Windows sanal makinenizi, ardından **genel bakış** sayfasında **Bağlan** üstünde. 
-2. Girin, **kullanıcıadı** ve **parola** Windows VM oluşturduğunuzda, eklediğiniz için. 
-3. Oluşturduğunuza göre bir **Uzak Masaüstü Bağlantısı** sanal makineyle PowerShell uzak oturum açın.
-4. PowerShell'in Invoke-WebRequest kullanarak, Azure kaynak yöneticisi için bir erişim belirteci almak üzere yerel MSI uç nokta için bir isteği oluşturun.
+1. Azure portalında **Sanal Makineler**'e gidin, Windows sanal makinenize gidin ve ardından **Genel Bakış** sayfasında üst kısımdaki **Bağlan**'a tıklayın. 
+2. Windows VM'sini oluştururken eklendiğiniz hesabın **Kullanıcı adı** ve **Parola** değerlerini girin. 
+3. Artık sanal makineyle **Uzak Masaüstü Bağlantısı**'nı oluşturduğunuza göre, uzak oturumda PowerShell'i açın.
+4. PowerShell’in Invoke-WebRequest komutunu kullanarak, yerel MSI uç noktasına Azure Resource Manager için erişim belirteci alma isteğinde bulunun.
 
     ```powershell
         $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
 
     > [!NOTE]
-    > "Kaynak" parametresinin değeri, Azure AD tarafından beklenen bir tam eşleşme olmalıdır. Azure Resource Manager kaynak kimliği'ni kullanırken eğik URI üzerinde eklemeniz gerekir.
+    > "Resource" parametre değeri Azure AD'nin beklediği değerle tam olarak eşleşmelidir. Azure Resource Manager kaynak kimliği kullanıldığında, URI'nin sonundaki eğik çizgiyi de eklemelisiniz.
     
-    Ardından, bir JavaScript nesne gösterimi (JSON) biçimlendirilmiş dize $response nesnesi olarak depolanan "İçerik" öğesi ayıklayın. 
+    Ardından, $response nesnesinde JavaScript Nesne Gösterimi (JSON) biçimlendirilmiş dizesi olarak depolanan “Content” öğesini ayıklayın. 
     
     ```powershell
     $content = $response.Content | ConvertFrom-Json
     ```
-    Ardından, erişim belirteci yanıttan ayıklayın.
+    Ardından, yanıttan erişim belirtecini ayıklayın.
     
     ```powershell
     $ArmToken = $content.access_token
     ```
 
-## <a name="get-access-keys-from-azure-resource-manager-to-make-cosmos-db-calls"></a>Cosmos DB çağrı yapmak için Azure Resource Manager gelen erişim anahtarı alma
+## <a name="get-access-keys-from-azure-resource-manager-to-make-cosmos-db-calls"></a>Cosmos DB çağrıları yapmak için Azure Resource Manager'dan erişim anahtarları alma
 
-Artık Kaynak Yöneticisi'ni Cosmos DB hesap erişim anahtarı almak için önceki bölümde alınan erişim belirteci kullanarak çağırmak için PowerShell kullanın. Biz erişim tuşu sahip olduğunda, biz Cosmos DB sorgulayabilirsiniz. Değiştirdiğinizden emin olun `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, ve `<COSMOS DB ACCOUNT NAME>` parametre değerlerini kendi değerlere sahip. Değiştir `<ACCESS TOKEN>` daha önce erişim belirteci ile değer.  Okuma/yazma anahtarları almak istiyorsanız, anahtar işlem türü kullanın `listKeys`.  Salt okunur anahtarları almak istiyorsanız, anahtar işlem türü kullanın `readonlykeys`:
+Şimdi Cosmos DB hesabı erişim anahtarını almak için önceki bölümde alınan erişim belirtecini kullanarak Resource Manager'ı çağırmak için PowerShell kullanın. Erişim anahtarını aldıktan sonra Cosmos DB'yi sorgulayabiliriz. `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` ve `<COSMOS DB ACCOUNT NAME>` parametre değerlerini kendi değerlerinizden değiştirmeyi unutmayın. `<ACCESS TOKEN>` değerini daha önce aldığınız erişim belirteciyle değiştirin.  Okuma/yazma anahtarlarını almak istiyorsanız, `listKeys` anahtar işlem türünü kullanın.  Salt okuma anahtarlarını almak istiyorsanız, `readonlykeys` anahtar işlem türünü kullanın:
 
 ```powershell
 Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>/listKeys/?api-version=2016-12-01 -Method POST -Headers @{Authorization="Bearer $ARMToken"}
 ```
-Yanıt size anahtarlarının listesi.  Örneğin, salt okunur anahtarları alırsanız:
+Yanıt Anahtarların listesini verir.  Örneğin, salt okuma anahtarlarını alıyorsanız:
 
 ```powershell
 {"primaryReadonlyMasterKey":"bWpDxS...dzQ==",
 "secondaryReadonlyMasterKey":"38v5ns...7bA=="}
 ```
-Cosmos DB hesabı için erişim anahtarı sahip olduğunuza göre geçirmek için Cosmos DB SDK ve hesabınıza erişmeniz için çağrıları yapma.  Hızlı bir örnek için Azure CLI için erişim anahtarı geçirebilirsiniz.  Alma <COSMOS DB CONNECTION URL> gelen **genel bakış** Cosmos DB hesabı dikey Azure portalında sekmesinde.  Değiştir <ACCESS KEY> yukarıda elde ettiğiniz değere sahip:
+Artık Cosmos DB hesabı için erişim anahtarınız olduğundan, bunu Cosmos DB SDK'sına geçirebilir ve hesaba erişmek için çağrılar yapabilirsiniz.  Hızlı bir örnek olarak, erişim anahtarını Azure CLI'ye geçirebilirsiniz.  Azure portalındaki Cosmos DB hesabı dikey penceresinin **Genel Bakış** sekmesinden <COSMOS DB CONNECTION URL> değerini alabilirsiniz.  <ACCESS KEY> değerini yukarıda elde ettiğiniz değerle değiştirin:
 
 ```bash
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>
 ```
 
-Bu CLI komut toplama ile ilgili ayrıntıları verir:
+Bu CLI komutu koleksiyon hakkındaki ayrıntıları döndürür:
 
 ```bash
 {
@@ -210,9 +210,9 @@ Bu CLI komut toplama ile ilgili ayrıntıları verir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir Windows yönetilen hizmet Cosmos DB erişmek için kimlik oluşturmak üzere nasıl öğrendiniz.  Cosmos DB bakın hakkında daha fazla bilgi için:
+Bu öğreticide, Cosmos DB'ye erişmek için Windows Yönetilen Hizmet Kimliği oluşturmayı öğrendiniz.  Cosmos DB hakkında daha fazla bilgi edinmek için bkz:
 
 > [!div class="nextstepaction"]
->[Azure Cosmos DB genel bakış](/azure/cosmos-db/introduction)
+>[Azure Cosmos DB'ye genel bakış](/azure/cosmos-db/introduction)
 
 

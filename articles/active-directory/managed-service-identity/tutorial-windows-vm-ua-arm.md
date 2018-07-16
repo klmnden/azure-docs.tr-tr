@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager erişmek için bir Windows VM kullanıcıya MSI atanan kullanın
-description: Azure Resource Manager erişmek için bir Windows VM üzerinde bir kullanıcı atanan yönetilen hizmet kimliği (MSI) kullanarak sürecinde anlatan öğretici.
+title: Azure Resource Manager’a erişmek için Windows VM kullanıcı tarafından atanan MSI'sini kullanma
+description: Windows VM üzerinde bir Kullanıcı Tarafından Atanmış Yönetilen Hizmet Kimliği (MSI) kullanarak Azure Resource Manager'a erişme işleminde size yol gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,44 +9,45 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: arluca
-ms.openlocfilehash: a2225409e4cb50d91c09207ee70b76df12925192
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: 67bb45f7bd27a142b978bedb48925cc41e8d1287
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904382"
 ---
-# <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>Öğretici: bir kullanıcı atanan yönetilen hizmet kimliği (MSI) Azure Resource Manager erişmek için bir Windows VM kullanın
+# <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>Öğretici: Azure Resource Manager’a erişmek için Windows VM üzerinde Kullanıcı Tarafından Atanmış Yönetilen Hizmet Kimliği (MSI) kullanma
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Bu öğretici, bir kullanıcı kimliği atanır oluşturmak, bir Windows sanal makine (VM) atayın ve Azure Kaynak Yöneticisi API'si erişmek için kimliğini kullanın açıklanmaktadır. Yönetilen hizmet kimliği, Azure tarafından otomatik olarak yönetilir. Bunlar Azure AD kimlik doğrulaması, kimlik bilgileri kodunuza katıştırmak gerek kalmadan destekleyen hizmetler için kimlik doğrulaması sağlar. 
+Bu öğreticide, kullanıcı tarafından atanan kimliği oluşturma, bunu Windows Sanal Makinesine (VM) atama ve bu kimliği Azure Resource Manager API’sine erişmek için kullanma işlemleri açıklanır. Yönetilen Hizmet Kimlikleri Azure tarafından otomatik olarak yönetilir. Bunlar, kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmaya olanak tanır. 
 
 Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Windows VM oluşturma 
-> * Bir kullanıcı kimliği atanır oluşturun
-> * Windows VM'nizi kimliği atanır, kullanıcı atama
-> * Atanan kullanıcı kimliğini bir kaynak grubu Azure Kaynak Yöneticisi'nde erişim 
-> * Kullanıcı kimliği atanır kullanarak bir erişim belirteci alın ve Azure Resource Manager çağırmak için kullanın 
-> * Bir kaynak grubunun özelliklerini okuma
+> * Kullanıcı tarafından atanan kimliği oluşturma
+> * Kullanıcı tarafından atanan kimliğinizi Windows VM’nize atama
+> * Azure Resource Manager’da Kaynak Grubuna kullanıcı tarafından atanan kimlik için erişim verme 
+> * Kullanıcı tarafından atanan kimliği kullanarak erişim belirteci alma ve Azure Resource Manager çağrısı yapmak için bunu kullanma 
+> * Kaynak Grubunun özelliklerini okuma
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-- Yönetilen hizmet kimliği ile tanınmayan olduğunuz kullanıma [genel bakış](overview.md) bölümü. **Gözden geçirmeyi unutmayın [sistem ve kullanıcı arasındaki farklar atanan kimlikleri](overview.md#how-does-it-work)**.
-- Bir Azure hesabınız yoksa [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.
-- Bu öğreticide gerekli kaynak oluşturulması ve rol yönetimi adımları gerçekleştirmek için hesabınızı (abonelik veya kaynak grubunuz) uygun kapsamda "Sahip" izinleri gerekiyor. Rol ataması yardıma ihtiyacınız varsa bkz [Azure aboneliği kaynaklarınıza erişimi yönetmek üzere Use Role-Based erişim denetimi](/azure/role-based-access-control/role-assignments-portal).
+- Yönetilen Hizmet Kimliği'ni bilmiyorsanız, [genel bakış](overview.md) bölümünü gözden geçirin. **[Sistem ve kullanıcı tarafından atanan kimlikler arasındaki farklılıkları](overview.md#how-does-it-work) gözden geçirmeyi unutmayın**.
+- Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
+- Bu öğreticideki gerekli kaynak oluşturma ve rol yönetimini adımlarını gerçekleştirmek için hesabınız uygun kapsamda (aboneliğiniz veya kaynak grubunuz) "Sahip" izinlerini gerektiriyor. Rol atamayla ilgili yardıma ihtiyacınız varsa bkz. [Azure abonelik kaynaklarınıza erişimi yönetmek için Rol Tabanlı Erişim Denetimi kullanma](/azure/role-based-access-control/role-assignments-portal).
 
-Yükleme ve yerel olarak PowerShell kullanma seçerseniz, bu öğreticide Azure PowerShell modülü sürümü 5.7 veya üstünün gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.7 veya sonraki bir sürümünü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-Aşağıdaki örnekte, bir kaynak grubu adında, *myResourceGroupVM* oluşturulan *EastUS* bölge.
+Bu örnekte, *EastUS* bölgesinde *myResourceGroupVM* adlı bir kaynak grubu oluşturulur.
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastUS"
@@ -54,7 +55,7 @@ New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastU
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
-Kaynak grubu oluşturulduktan sonra bir Windows VM oluşturun.
+Kaynak grubu oluşturulduktan sonra Windows VM'sini oluşturun.
 
 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) ile sanal makinede yönetici hesabı için gereken kullanıcı adı ve parolasını ayarlayın:
 
@@ -75,18 +76,17 @@ New-AzureRmVm `
     -Credential $cred
 ```
 
-## <a name="create-a-user-assigned-identity"></a>Bir kullanıcı kimliği atanır oluşturun
+## <a name="create-a-user-assigned-identity"></a>Kullanıcı tarafından atanan kimliği oluşturma
 
-Bir kullanıcı kimliği atanır tek başına Azure kaynak olarak oluşturulur. Kullanarak [yeni AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity), Azure, Azure AD kiracınızda bir veya daha fazla Azure hizmet örneklerine atanabilir bir kimlik oluşturur.
+Kullanıcı tarafından atanan kimlik tek başına bir Azure kaynağı olarak oluşturulur. [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity) kullanarak, Azure AD kiracınızda Azure bir veya daha fazla Azure hizmeti örneğine atanabilen bir kimlik oluşturur.
 
-> [!IMPORTANT]
-> Atanan kullanıcı kimlikleri yalnızca destekler alfasayısal oluşturma ve tire (0-9 veya a-z veya A-Z veya -) karakter. Ayrıca, ad atama düzgün çalışması için VM/VMSS için 24 karakter uzunluğu sınırlı olmalıdır. Geri güncelleştirmeleri denetleyin. Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```azurepowershell-interactive
 Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
 ```
 
-Yanıt kimlik oluşturulan, aşağıdaki örneğe benzer şekilde atanmış kullanıcı ayrıntılarını içerir. Not `Id` sonraki adımda kullanılacak olan olarak atanan kullanıcı kimliğinizi için değer:
+Yanıt, aşağıdaki örneğe benzer biçimde, oluşturulmuş kullanıcı tarafından atanan kimliğin ayrıntılarını içerir. Kullanıcı tarafından atanan kimliğinizin `Id` değerini not alın, çünkü bu değer sonraki adımda kullanılacaktır:
 
 ```azurepowershell
 {
@@ -102,27 +102,27 @@ Type: Microsoft.ManagedIdentity/userAssignedIdentities
 }
 ```
 
-## <a name="assign-the-user-assigned-identity-to-a-windows-vm"></a>Kimlik bir Windows VM'ye atanan kullanıcı atama
+## <a name="assign-the-user-assigned-identity-to-a-windows-vm"></a>Windows VM’sine kullanıcı tarafından atanan kimliği atama
 
-Bir kullanıcı kimliği atanır, birden çok Azure kaynaklarına istemciler tarafından kullanılabilir. Tek bir VM'ye atanan kullanıcı kimliğini atamak için aşağıdaki komutları kullanın. Kullanım `Id` özelliği döndürülen için önceki adımda `-IdentityID` parametresi.
+Kullanıcı tarafından atanan kimlik, istemciler tarafından birden çok Azure kaynağında kullanılabilir. Aşağıdaki komutları kullanarak kullanıcı tarafından atanan kimliği tek bir VM'ye atayın. `-IdentityID` parametresi için önceki adımda döndürülen `Id` özelliğini kullanın.
 
 ```azurepowershell-interactive
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzureRmVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
 ```
 
-## <a name="grant-your-user-assigned-msi-access-to-a-resource-group-in-azure-resource-manager"></a>Kullanıcı bir kaynak grubu Azure Kaynak Yöneticisi'nde MSI erişim atanmış verin 
+## <a name="grant-your-user-assigned-msi-access-to-a-resource-group-in-azure-resource-manager"></a>Azure Resource Manager’da Kaynak Grubu’na kullanıcı tarafından atanmış MSI erişiminizi verme 
 
-Yönetilen hizmet kimliği (MSI) kodunuzu kaynak API'leri, destek Azure AD kimlik doğrulaması kimlik doğrulaması için erişim belirteci istemek için kullanabileceği kimlikleri sağlar. Bu öğreticide, Azure Resource Manager API kodunuzu erişir. 
+Yönetilen Hizmet Kimliği (MSI), kodunuzun Azure AD kimlik doğrulamasını destekleyen kaynak API'lerinde kimlik doğrulaması yapmak amacıyla erişim belirteçleri istemek için kullanabileceği kimlikleri sağlar. Bu öğreticide, kodunuz Azure Resource Manager API’sine erişir. 
 
-Kodunuzu API erişebilmeniz için önce bir kaynağa Azure Kaynak Yöneticisi'nde kimlik erişim vermeniz gerekir. Bu durumda, kaynak grubu VM yer alır. Değeri güncelleştirme `<SUBSCRIPTION ID>` ortamınız için uygun şekilde.
+Kodunuzun API'ye erişebilmesi için önce Azure Resource Manager'da kaynağa kimlik erişimi vermeniz gerekir. Bu durumda, içinde VM'nin yer aldığı Kaynak Grubudur. `<SUBSCRIPTION ID>` değerini ortamınıza uyacak şekilde güncelleştirin.
 
 ```azurepowershell-interactive
 $spID = (Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1).principalid
 New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/"
 ```
 
-Yanıt oluşturulan, aşağıdaki örneğe benzer şekilde rol ataması ayrıntılarını içerir:
+Yanıt, aşağıdaki örneğe benzer biçimde, oluşturulan rol atamasının ayrıntılarını içerir:
 
 ```azurepowershell
 RoleAssignmentId: /subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/myResourceGroupVM/providers/Microsoft.Authorization/roleAssignments/f9cc753d-265e-4434-ae19-0c3e2ead62ac
@@ -136,19 +136,19 @@ ObjectType: ServicePrincipal
 CanDelegate: False
 ```
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>VM kimliğini kullanarak bir erişim belirteci alın ve Resource Manager çağırmak için kullanın 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>VM kimliğini kullanarak erişim belirteci alma ve Resource Manager çağrısı yapmak için bunu kullanma 
 
-Öğretici kalanı için daha önce oluşturduğumuz sanal makineden çalışmaz.
+Bu öğreticinin kalan bölümünde, daha önce oluşturmuş olduğumuz VM'den çalışacaksınız.
 
-1. Azure portalında oturum açın [https://portal.azure.com](https://portal.azure.com)
+1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
-2. Portalı'nda gidin **sanal makineleri** ve Windows sanal makineye gidin ve buna **genel bakış**, tıklatın **Bağlan**.
+2. Portalda, **Sanal Makineler**'e ve Windows sanal makinesine gidin, ardından **Genel Bakış**'ta **Bağlan**'a tıklayın.
 
-3. Girin **kullanıcıadı** ve **parola** Windows VM oluştururken kullandığınız.
+3. Windows VM'sini oluştururken kullandığınız **Kullanıcı adı** ve **Parola**’yı girin.
 
-4. Oluşturduğunuza göre bir **Uzak Masaüstü Bağlantısı** sanal makineyle açmak **PowerShell** uzak oturumda.
+4. Artık sanal makineyle **Uzak Masaüstü Bağlantısı**'nı oluşturduğunuza göre, uzak oturumda **PowerShell**'i açın.
 
-5. PowerShell'in kullanarak `Invoke-WebRequest`, Azure kaynak yöneticisi için bir erişim belirteci almak üzere yerel MSI uç nokta için bir istek olun.
+5. PowerShell’in `Invoke-WebRequest` komutunu kullanarak, yerel MSI uç noktasına Azure Resource Manager için erişim belirteci alma isteğinde bulunun.
 
     ```azurepowershell
     $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=73444643-8088-4d70-9532-c3a0fdc190fz&resource=https://management.azure.com' -Method GET -Headers @{Metadata="true"}
@@ -156,14 +156,14 @@ CanDelegate: False
     $ArmToken = $content.access_token
     ```
 
-## <a name="read-the-properties-of-a-resource-group"></a>Bir kaynak grubunun özelliklerini okuma
+## <a name="read-the-properties-of-a-resource-group"></a>Kaynak Grubunun özelliklerini okuma
 
-Erişim belirteci Azure Resource Manager erişmek ve kaynak özelliklerini okumak için önceki adımda alınan kullanım grubunu verilen atanan kullanıcı kimliğini erişim. Değiştir <SUBSCRIPTION ID> ortamınızı abonelik kimliği.
+Azure Resource Manager’a erişmek için önceki adımda alınan erişim belirtecini kullanın ve kullanıcı tarafından atanan kimliğiniz için erişim verdiğiniz Kaynak Grubunun özelliklerini okuyun. <SUBSCRIPTION ID> öğesini ortamınızın abonelik kimliğiyle değiştirin.
 
 ```azurepowershell
 (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/myResourceGroupVM?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{Authorization ="Bearer $ArmToken"}).content
 ```
-Yanıt belirli kaynak grubu, aşağıdaki örneğe benzer bilgiler içerir:
+Yanıtta, aşağıdaki örneğe benzer belirli Kaynak Grubu bilgileri yer alır:
 
 ```json
 {"id":"/subscriptions/<SUBSCRIPTIONID>/resourceGroups/TestRG","name":"myResourceGroupVM","location":"eastus","properties":{"provisioningState":"Succeeded"}}
@@ -171,4 +171,7 @@ Yanıt belirli kaynak grubu, aşağıdaki örneğe benzer bilgiler içerir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](overview.md).
+Bu öğreticide, kullanıcı tarafından atanan bir kimlik oluşturmayı ve Azure Resource Manager API'sine erişmek için bu kimliği bir Azure Sanal Makinesine eklemeyi öğrendiniz.  Azure Resource Manager hakkında daha fazla bilgi edinmek için bkz:
+
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
