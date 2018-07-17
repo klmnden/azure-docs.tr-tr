@@ -1,6 +1,6 @@
 ---
-title: Giden bağlantılar Azure (Klasik) | Microsoft Docs
-description: Bu makale, Azure nasıl sağladığını açıklar bulut hizmetlerinin ortak Internet hizmetleriyle iletişim kurmasını.
+title: (Klasik) azure'da giden bağlantıları | Microsoft Docs
+description: Bu makalede Azure nasıl sağladığını açıklar. bulut Hizmetleri, genel internet Hizmetleri ile iletişim kurmak için.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -12,173 +12,175 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: f6452d8f88b91fe0cbf144ce951b84ba4cec0047
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bd446923f84d22537b7a49a8ef6124f343141d73
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939830"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069919"
 ---
 # <a name="outbound-connections-classic"></a>Giden bağlantılar (Klasik)
 
-Azure müşteri dağıtımları için giden bağlantı birkaç farklı yollarla sağlar. Bu makalede senaryolar nelerdir, bunlar uygulandığında, nasıl çalıştığını ve bunların nasıl yönetileceğini açıklar.
+Azure, birçok farklı mekanizmalar aracılığıyla müşteri dağıtımları için giden bağlantı sağlar. Bu makalede, senaryolar nelerdir, bunlar uygulandığında, nasıl çalıştıklarını ve bunların nasıl yönetileceğini açıklar.
 
 >[!NOTE]
->Bu makalede yalnızca klasik dağıtımlarda yer almaktadır.  Gözden geçirme [giden bağlantılar](load-balancer-outbound-connections.md) azure'da tüm Resource Manager dağıtım senaryoları için.
+>Bu makale yalnızca klasik dağıtımlar kapsar.  Gözden geçirme [giden bağlantılar](load-balancer-outbound-connections.md) azure'a tüm Resource Manager dağıtım senaryoları için.
 
-Bir dağıtımda Azure dışında Azure ortak IP adres alanındaki uç noktalar ile iletişim kurabilir. Bir örneği ortak IP adresi alanı içindeki bir hedefe giden bir akışı başlattığında, Azure özel IP adresi genel bir IP adresi dinamik olarak eşler. Bu eşleme oluşturulduktan sonra bu giden kaynaklı akışı dönüş trafiği de özel IP adresi akış geldiği ulaşabilir.
+Azure'da bir dağıtımı dışında Azure genel IP adres alanındaki uç noktalar ile iletişim kurabilir. Genel IP adresi alanı içindeki bir hedefe giden bir akış örneği başlatır, Azure genel bir IP adresi için özel IP adresini dinamik olarak eşler. Bu eşleme oluşturulduktan sonra dönüş trafiği giden bu kaynaklı akış için Ayrıca özel IP adresini akışı geldiği ulaşabilirsiniz.
 
-Azure kaynak ağ adresi çevirisi (SNAT) bu işlemi gerçekleştirmek için kullanır. Birden çok özel IP adresleri, tek bir ortak IP adresi maskelemeyi Azure kullanır [adresi çevirisi (PAT) bağlantı noktası](#pat) özel IP adresleri geçici için. Kısa ömürlü bağlantı noktaları PAT için kullanılır ve [önceden ayrılmış](#preallocatedports) havuzu boyutuna göre.
+Azure, bu işlevi gerçekleştirmek için kaynak ağ adresi çevirisi (SNAT) kullanır. Birden çok özel IP adresleri, tek bir genel IP adresi gösteren, Azure kullanan [adres çevirisini (PAT)'bağlantı noktası](#pat) özel IP adresleri gizlemeye. Kısa ömürlü bağlantı noktaları için PAT kullanıldığında ve [önceden ayrılmış](#preallocatedports) havuz boyutunu temel alan.
 
-Vardır birden çok [giden senaryoları](#scenarios). Bu senaryolar, gerektiğinde birleştirebilirsiniz. Dağıtım modeli için uygulamak gibi özellikleri, kısıtlamalar ve desenler dikkatle anlamak için bunları gözden geçirin ve uygulama senaryosu. Gözden geçirmek için yönergeler [bu senaryoları yönetme](#snatexhaust).
+Vardır birden çok [giden senaryoları](#scenarios). Bu senaryolar, gerektiği şekilde birleştirebilirsiniz. Bunlar, dağıtım modeli için geçerli olan özellikler, kısıtlamalar ve desenleri dikkatli bir şekilde anlamak için bunları gözden geçirin ve uygulama senaryosu. Gözden geçirme Kılavuzu [bu senaryoları yönetme](#snatexhaust).
 
 ## <a name="scenarios"></a>Senaryoya genel bakış
 
-Azure giden bağlantı Klasik dağıtımlar ulaşmak için üç farklı yöntem sağlar.  Tüm Klasik dağıtımlar için kullanılabilir tüm üç senaryo vardır:
+Azure, giden bağlantı Klasik dağıtımlar elde etmek için üç farklı yöntem sağlar.  Tüm Klasik dağıtımlar için kullanılabilir tüm üç senaryo vardır:
 
 | Senaryo | Yöntem | IP protokolleri | Açıklama | Web çalışanı rolü | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1. Örnek düzeyinde ortak IP adresi olan VM](#ilpip) | SNAT, bağlantı noktası maskelemeyi kullanılmıyor | TCP, UDP, ICMP, ESP | Azure sanal makine atanan genel IP kullanır. Örneğinin tüm kısa ömürlü bağlantı noktaları kullanılabilir vardır. | Hayır | Evet |
-| [2. ortak yük dengeli uç nokta](#publiclbendpoint) | Bağlantı noktası (PAT) için genel bir uç nokta maskelemeyi ile SNAT | TCP VE UDP | Azure genel IP adresi ortak uç birden çok özel uç ile paylaşır. Azure PAT için genel bir uç nokta kısa ömürlü bağlantı noktalarını kullanır. | Evet | Evet |
-| [3. Tek başına VM ](#defaultsnat) | Bağlantı noktası (PAT) maskelemeyi ile SNAT | TCP VE UDP | Azure otomatik olarak snat Uygulamanız için bir ortak IP adresi belirler, bu ortak IP adresi ile tüm dağıtım paylaşımları ve PAT için ortak uç noktası IP adresi kısa ömürlü bağlantı noktalarını kullanır. Bu, önceki senaryoları için geri dönüş bir senaryodur. Görünürlük ve denetim gerekiyorsa bunu yapmanız önerilmez. | Evet | Evet |
+| [1. Örnek düzeyinde ortak IP adresine sahip VM](#ilpip) | SNAT, bağlantı noktası maskelemeyi kullanılmıyor | TCP, UDP VE ICMP, ESP | Azure, sanal makinenin atanmış genel IP kullanır. Örneğinin tüm kısa ömürlü bağlantı noktaları kullanılabilir vardır. | Hayır | Evet |
+| [2. ortak yük dengeli uç nokta](#publiclbendpoint) | Bağlantı noktası (PAT) genel uç noktaya maskelemeyi ile SNAT | TCP, UDP | Azure genel IP adresi genel uç noktası, birden çok özel uç noktaları ile paylaşır. Azure, genel bir uç nokta, kısa ömürlü bağlantı noktaları için PAT kullanır. | Evet | Evet |
+| [3. Tek başına VM ](#defaultsnat) | Bağlantı noktası (PAT) maskelemeyi ile SNAT | TCP, UDP | Azure otomatik olarak genel bir IP adresi için SNAT belirler, bu genel IP adresi olan tüm dağıtım paylaşımları ve kısa ömürlü bağlantı noktaları genel uç noktası IP adresinin PAT için kullanır. Bu, önceki senaryolar için geri dönüş bir senaryodur. Görünürlük ve denetim gerekiyorsa bunu önermiyoruz. | Evet | Evet |
 
-Bu Azure Resource Manager dağıtımları için kullanılabilen giden bağlantı işlevlerinin bir alt kümesidir.  
+Bu, Azure Resource Manager dağıtımları için kullanılabilen giden bağlantı işlevlerinin bir alt kümesidir.  
 
-Klasik farklı dağıtımlarında farklı işlevselliğe sahiptir:
+Klasik dağıtımlarda farklı farklı işlevselliğe sahiptir:
 
-| Klasik dağıtım | İşlevi kullanılabilir | 
+| Klasik dağıtım | Kullanılabilen İşlevler | 
 | --- | --- |
 | Sanal Makine | Senaryo [1](#ilpip), [2](#publiclbendpoint), veya [3](#defaultsnat) |
 | Web çalışanı rolü | yalnızca senaryo [2](#publiclbendpoint), [3](#defaultsnat) | 
 
-[Hafifletme stratejileri](#snatexhaust) de aynı farklar vardır.
+[Risk azaltma stratejisi](#snatexhaust) aynı farklılıkları da vardır.
 
-[Kısa ömürlü bağlantı noktaları ön tahsis için kullanılan algoritma](#ephemeralports) için PAT Klasik dağıtımlar için Azure Resource Manager kaynak dağıtımları ile aynıdır.
+[Ön tahsis kısa ömürlü bağlantı noktaları için kullanılan algoritma](#ephemeralports) için PAT Klasik dağıtımlar için Azure Resource Manager kaynak dağıtımları ile aynıdır.
 
-### <a name="ilpip"></a>Senaryo 1: VM bir örnek düzeyinde ortak IP adresi ile
+### <a name="ilpip"></a>Senaryo 1: Bir örnek düzeyinde ortak IP adresine sahip VM
 
-Bu senaryoda, VM bir örnek düzeyinde ortak IP (atanmış ILPIP) sahiptir. Giden bağlantılar kaygı kadar VM yük dengeli uç noktası olup olmadığını önemli değildir. Bu senaryo başkalarının önceliklidir. Bir ILPIP kullanıldığında, VM için tüm giden trafik akışları ILPIP kullanır.  
+Bu senaryoda, sanal makine bir örnek düzeyi genel IP (atanmış ILPIP) içeriyor. Giden bağlantılar endişe kadar VM yük dengeli uç noktası olup olmadığını önemi yoktur. Bu senaryo diğer önceliklidir. Bir ILPIP kullanıldığında, VM ILPIP tüm giden akışlar için kullanır.  
 
-Bir ortak bir VM'ye atanan IP bir 1:1 ilişki (yerine 1:many) olduğu ve durum bilgisiz 1:1 NAT uygulanan  Bağlantı noktası maskelenmiş (PAT) kullanılmaz ve tüm kısa ömürlü bağlantı noktaları kullanılabilir VM sahiptir.
+Genel bir VM'ye atanan IP bir 1:1 ilişki (yerine 1:many) ve bir durum bilgisi olmayan 1:1 NAT uygulanan  Kendini gizleyen bağlantı noktası (PAT) kullanılmaz ve tüm kısa ömürlü bağlantı noktaları kullanılabilir sanal makine içeriyor.
 
-Uygulamanız çok sayıda giden trafik akışları başlatır ve SNAT bağlantı noktası Tükenme deneyimi, atama göz önünde bulundurun bir [SNAT kısıtlamaları azaltmak için ILPIP](#assignilpip). Gözden geçirme [yönetme SNAT Tükenme](#snatexhaust) okumalıdır.
+Uygulamanız çok sayıda giden akışlar başlatır ve SNAT bağlantı noktası tükenmesi deneyimi, atamayı göz önünde bulundurun bir [SNAT kısıtlamalarını azaltmak için ILPIP](#assignilpip). Gözden geçirme [yönetme SNAT tükenmesi](#snatexhaust) oluşmaz.
 
-### <a name="publiclbendpoint"></a>Senaryo 2: Ortak yük dengeli uç nokta
+### <a name="publiclbendpoint"></a>Senaryo 2: Genel yük dengeli uç nokta
 
-Bu senaryoda, VM veya Web çalışanı rolü yük dengeli uç nokta aracılığıyla ortak bir IP adresi ile ilişkilidir. VM, kendisine atanmış bir ortak IP adresi yok. 
+Bu senaryoda, VM veya Web çalışanı rolü yük dengeli uç nokta aracılığıyla genel bir IP adresi ile ilişkilidir. VM, kendisine atanmış bir genel IP adresi yok. 
 
-Yük dengeli VM giden akış oluşturduğunda, Azure ortak yük dengeli uç nokta ortak IP adresine giden akış özel kaynak IP adresi çevirir. Azure SNAT bu işlemi gerçekleştirmek için kullanır. Ayrıca Azure kullanır [PAT](#pat) geçici bir ortak IP adresi arkasında birden çok özel IP adresleri için. 
+Yük dengeli sanal Makineyi bir giden akış oluşturduğunda, Azure genel yük dengeli uç nokta genel IP adresine giden akış özel kaynak IP adresini çevirir. Azure, bu işlevi gerçekleştirmek için SNAT kullanır. Ayrıca, Azure kullanan [PAT](#pat) gizlemeye genel bir IP adresi arkasında birden çok özel IP adresi. 
 
-Yük dengeleyicinin genel IP adresi ön uç kısa ömürlü bağlantı noktaları, tek tek akışları VM tarafından kaynaklanan ayırt etmek için kullanılır. SNAT dinamik olarak kullanan [kısa ömürlü bağlantı noktaları önceden ayrılmış](#preallocatedports) giden trafik akışları oluşturduğunuzda. Bu bağlamda snat Uygulamanız için kullanılan kısa ömürlü bağlantı noktaları SNAT bağlantı noktaları denir.
+Kısa ömürlü bağlantı noktaları yük dengeleyicinin genel IP adresi ön uç, tek tek akış sanal makine tarafından oluşturulan ayırt etmek için kullanılır. Dinamik olarak SNAT kullanan [kısa ömürlü bağlantı noktaları önceden ayrılmış](#preallocatedports) giden akışlar oluşturduğunuzda. Bu bağlamda SNAT için kullanılan kısa ömürlü bağlantı noktaları SNAT bağlantı noktaları denir.
 
-Bölümünde açıklandığı gibi SNAT bağlantı noktalarını önceden ayrılmış [anlama SNAT ve PAT](#snat) bölümü. Bitti sınırlı bir kaynak olup olmadıklarını. Ne olduğunu anlamak önemlidir [tüketilen](#pat). Bu tüketimi için tasarımı ve gerektiğinde etkisini anlamak için gözden [yönetme SNAT Tükenme](#snatexhaust).
+Bölümünde anlatıldığı gibi SNAT bağlantı noktaları önceden ayrılmış [anlama SNAT ve PAT](#snat) bölümü. Bunlar tükenmiş olabilir sınırlı bir kaynak hedeflenmiştir. Nasıl olduğunu anlama açısından önemlidir [tüketilen](#pat). Bu tüketimi için tasarımı ve gerektiği şekilde etkisini anlamak için gözden [yönetme SNAT tükenmesi](#snatexhaust).
 
-Zaman [birden çok ortak yük dengeli uç nokta](load-balancer-multivip.md) var, bu ortak IP adresleri olan bir [giden trafik akışları için aday](#multivipsnat), ve bir rastgele seçili.  
+Zaman [birden çok genel yük dengeli uç nokta](load-balancer-multivip.md) mevcut, bu genel IP adresleri olan bir [giden akışlar için aday](#multivipsnat), ve bir rastgele seçili.  
 
-### <a name="defaultsnat"></a>Senaryo 3: ilişkili ortak IP adresi yok
+### <a name="defaultsnat"></a>Senaryo 3: ilişkili genel IP adresi yok
 
-Bu senaryoda, VM veya Web çalışanı rolü ortak bir yük dengeli uç nokta bir parçası değil.  Ve VM söz konusu olduğunda, kendisine atanmış bir ILPIP adresi yok. VM giden akış oluşturduğunda, Azure ortak kaynak IP adresine giden akış özel kaynak IP adresi çevirir. Bu giden akış için kullanılan ortak IP adresi yapılandırılabilir değildir ve aboneliğin ortak IP kaynak sınırınızı sayılmaz.  Azure otomatik olarak bu adresi ayırır.
+Bu senaryoda, VM veya Web çalışanı rolü genel bir yük dengeli uç noktasının bir parçası değil.  Ve VM söz konusu olduğunda, kendisine atanmış bir ILPIP adresi yok. Azure, VM'ye giden bir akış oluşturduğunda, özel kaynak IP adresini bir genel kaynak IP adresine giden akış çevirir. Giden Bu akış için kullanılan genel IP adresini yapılandırılabilir değildir ve bu aboneliğe ait genel IP kaynağı limite karşı sayılmaz.  Azure, otomatik olarak bu adresi ayırır.
 
-Azure bağlantı noktası maskelemeyi ile SNAT kullanır ([PAT](#pat)) bu işlemi gerçekleştirmek için. Bu senaryo benzer [Senaryo 2](#lb), var. dışında kullanılan IP adresi üzerinde denetimi yoktur. Bu, ne zaman 1 ve 2 senaryoları mevcut için geri dönüş bir senaryodur. Giden adres üzerinde denetim isterseniz, bu senaryo öneririz yok. Giden bağlantılar, uygulamanızın önemli bir parçası ise, seçtiğiniz başka bir senaryo.
+Azure, bağlantı noktası maskelemeyi ile SNAT kullanır ([PAT](#pat)) bu işlevi gerçekleştirmek için. Bu senaryo benzer [Senaryo 2](#lb)yoktur dışında kullanılan IP adresi üzerinde denetimi yoktur. Bu senaryo 1 ve 2 mevcut olduğunda için geri dönüş bir senaryodur. Giden adresi üzerinde denetim istiyorsanız bu senaryo önerilmemektedir. Giden bağlantılar, uygulamanız önemli bir parçası ise, seçtiğiniz başka bir senaryo.
 
-Bölümünde açıklandığı gibi SNAT bağlantı noktalarını önceden ayrılmış [anlama SNAT ve PAT](#snat) bölümü.  Sanal makineleri veya genel IP adresi paylaşımı Web çalışanı rollerinin sayısını ön tahsis kısa ömürlü bağlantı noktası sayısını belirler.   Ne olduğunu anlamak önemlidir [tüketilen](#pat). Bu tüketimi için tasarımı ve gerektiğinde etkisini anlamak için gözden [yönetme SNAT Tükenme](#snatexhaust).
+Bölümünde anlatıldığı gibi SNAT bağlantı noktaları önceden ayrılmış [anlama SNAT ve PAT](#snat) bölümü.  Vm'leri veya Web çalışanı rolü genel IP adresini paylaşım sayısı ön tahsis kısa ömürlü bağlantı noktası sayısını belirler.   Nasıl olduğunu anlama açısından önemlidir [tüketilen](#pat). Bu tüketimi için tasarımı ve gerektiği şekilde etkisini anlamak için gözden [yönetme SNAT tükenmesi](#snatexhaust).
 
 ## <a name="snat"></a>SNAT ve PAT anlama
 
-### <a name="pat"></a>Bağlantı noktası maskelenmiş SNAT (PAT)
+### <a name="pat"></a>Bağlantı noktası kendini gizleyen SNAT (PAT)
 
-Bir dağıtım giden bir bağlantıyı yaptığında, her giden bağlantı kaynağı yeniden yazılmıştır. Kaynak (yukarıda açıklanan senaryoları bağlı olarak) dağıtım ile ilgili genel IP için özel IP adres alanından yeniden. Ortak IP adres alanı, 5-tanımlama grubu (kaynak IP adresi, kaynak bağlantı noktası, IP Aktarım Protokolü, hedef IP adresi, hedef bağlantı noktası) akışının benzersiz olması gerekir.  
+Bir dağıtım bir giden bağlantı yaptığında, her bir giden bağlantı kaynağı yeniden. Kaynak (yukarıda açıklanan senaryoları göre) dağıtımla ilişkili genel IP için özel IP adres alanından yeniden. Genel IP adres alanı, 5 demet (kaynak IP adresi, kaynak bağlantı noktası, IP Aktarım Protokolü, hedef IP adresi, hedef bağlantı noktası) akış benzersiz olması gerekir.  
 
-Kısa ömürlü bağlantı noktaları (SNAT) tek bir ortak IP adresini birden çok akış kaynaklı olduğundan bu özel kaynak IP adresini yeniden yazma işlemi sonra elde etmek için kullanılır. 
+Kısa ömürlü bağlantı noktaları (SNAT), tek bir genel IP adresi birden çok akış kaynaklı olduğundan bu özel kaynak IP adresini yeniden yazma sonra elde etmek için kullanılır. 
 
-Akış tek hedef IP adresi, bağlantı noktası ve protokol başına bir SNAT bağlantı noktası kullanılır. Aynı hedef IP adresi, bağlantı noktası ve protokol birden çok akışlar için her bir akışa tek bir SNAT bağlantı noktasını kullanır. Bu, aynı ortak IP adresinden kaynaklanan ve aynı hedef IP adresi, bağlantı noktası ve protokol Git akışları benzersiz olmasını sağlar. 
+Akışa tek bir hedef IP adresi, bağlantı noktası ve protokol başına bir SNAT bağlantı noktası kullanılır. Aynı hedef IP adresi, bağlantı noktası ve protokol birden çok akışlar için her bir akışın tek bir SNAT bağlantı noktasını kullanır. Bu, aynı genel IP adresinden kaynaklanan ve aynı hedef IP adresi, bağlantı noktası ve protokol gidin, Akışlar benzersiz olmasını sağlar. 
 
-Her farklı bir hedef IP adresi, bağlantı noktası ve protokolü, birden çok akış tek bir SNAT bağlantı noktası paylaşır. Hedef IP adresi, bağlantı noktası ve protokol akışları ortak IP adresi alanı akışlarında ayırt etmek için bağlantı noktalarını ek kaynak gerek kalmadan benzersiz olun.
+Birden çok akış her farklı bir hedef IP adresi, bağlantı noktası ve protokol, tek bir SNAT bağlantı noktası paylaşın. Hedef IP adresi, bağlantı noktası ve protokol akışları genel IP adresi alanını akışları ayırt etmek için bağlantı noktaları ek kaynak gerek kalmadan benzersiz olun.
 
-SNAT bağlantı noktası kaynakları tükendi, varolan akışları SNAT bağlantı noktalarını bırakana kadar giden trafik akışları başarısız. Yük Dengeleyici akışı kapatır ve kullandığında SNAT bağlantı noktalarını geri kazanır bir [4 dakikalık boşta kalma zaman aşımı](#idletimeout) boşta akışları SNAT noktalarından geri kazanma için.
+SNAT bağlantı noktası kaynaklarını tüketmiş, mevcut akışları SNAT bağlantı noktalarını serbest bırakılana kadar giden akışlar başarısız. Yük Dengeleyici geri kazanır SNAT bağlantı noktaları akışı kapatır ve kullandığında bir [4 dakikalık boşta kalma zaman aşımı](#idletimeout) boşta akışlar SNAT noktalarından tekrar kullanılabilir hale getirme için.
 
-Yaygın olarak SNAT bağlantı noktası tükenmesine yol koşulları azaltmak desenler için gözden [yönetme SNAT](#snatexhaust) bölümü.
+Yaygın olarak SNAT bağlantı noktası tükenmesi için yol koşulları düzenlerini için gözden [yönetme SNAT](#snatexhaust) bölümü.
 
-### <a name="preallocatedports"></a>Kısa ömürlü bağlantı noktası ön tahsisi SNAT (PAT) maskelemeyi bağlantı noktası
+### <a name="preallocatedports"></a>Kısa ömürlü bağlantı noktası ön tahsis maskelemeyi SNAT (PAT) bağlantı noktası
 
-Sayısı, önceden ayrılmış SNAT kullanılabilir bağlantı noktası sayısını belirlemek için bir algoritma kullanırken arka uç havuzu boyutuna göre azure kullandığı bağlantı noktası maskelenmiş SNAT ([PAT](#pat)). Belirli bir ortak IP kaynak adresi için kullanılabilir kısa ömürlü bağlantı noktaları SNAT bağlantı noktalarıdır.
+Kendini gizleyen SNAT bağlantı noktasını sayısı önceden ayrılmış SNAT kullanılabilir bağlantı noktası sayısını belirlemek için bir algoritma kullanırken arka uç havuzu boyutuna göre azure kullanır ([PAT](#pat)). Kısa ömürlü bağlantı noktaları için belirli genel IP kaynak adresi kullanılabilir SNAT bağlantı noktalarıdır.
 
-Belirli bir ortak IP adresi kaç VM veya Web çalışanı rolü örnekleri paylaşımında dayalı bir örneği dağıtıldığında azure SNAT bağlantı noktalarını preallocates.  Giden trafik akışları oluşturduğunuzda, [PAT](#pat) dinamik olarak (önceden ayrılmış sınıra kadar) kullanır ve akış kapandığında Bu bağlantı noktaları serbest veya [boş durma zaman aşımlarını](#ideltimeout) gerçekleşir.
+Belirli bir genel IP adresinin kaç VM veya Web çalışanı rolü örneği paylaşımında temel örneği dağıtıldığında azure bağlantı noktalarını SNAT preallocates.  Giden akışlar oluşturulduğunda [PAT](#pat) dinamik olarak (önceden ayrılmış sınıra kadar) kullanır ve akış kapandığında Bu bağlantı noktalarını serbest veya [boşta kalma zaman aşımı](#ideltimeout) gerçekleşir.
 
-Aşağıdaki tabloda SNAT bağlantı noktası preallocations arka uç havuzu boyutlarda katmanları gösterilmektedir:
+Aşağıdaki tabloda, arka uç havuz boyutları katmanları için SNAT bağlantı noktası preallocations gösterilmektedir:
 
-| Örnekler | Örneği başına ön tahsis SNAT bağlantı noktaları |
+| Örnekler | Örnek başına ön tahsis SNAT bağlantı noktaları |
 | --- | --- |
 | 1-50 | 1,024 |
 | 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |
 
-Kullanılabilir SNAT bağlantı noktası sayısını doğrudan akışları sayıya tercüme etmez unutmayın. Tek bir SNAT bağlantı noktası benzersiz birden çok varış yeri için yeniden kullanılabilir. Yalnızca akış benzersiz hale getirmek için gerekli olduğunda bağlantı noktaları kullanılır. Tasarım ve azaltma kılavuzu için ilgili bölümüne bakın. [exhaustible bu kaynak yönetme](#snatexhaust) ve açıklayan bölümü [PAT](#pat).
+Kullanılabilir SNAT bağlantı noktasına doğrudan akışlar sayıya çevirmez unutmayın. Tek bir SNAT bağlantı noktası için birden fazla benzersiz hedefler yeniden kullanılabilir. Yalnızca akış benzersiz hale getirmek gerekli değilse, bağlantı noktaları tüketilir. Tasarım ve risk azaltma kılavuzu için ilgili bölümüne bakın. [exhaustible bu kaynağı yönetmek nasıl](#snatexhaust) ve açıklayan bölümüne [PAT](#pat).
 
-Dağıtımınızın boyutunu değiştirme bazı yerleşik akışlarının etkileyebilir. Arka uç havuzu boyutunu artırır ve sonraki katmanla geçişleri, ön tahsis SNAT bağlantı noktalarını yarısı sonraki daha büyük arka uç havuzu katmanına geçiş sırasında geri kazanılır. Reclaimed SNAT bağlantı noktasıyla ilişkili akışlar zaman aşımına uğrar ve kurulmaları gerekir. Yeni bir akış bulamazsa, ön tahsis bağlantı noktaları kullanılabilir olduğu sürece, akış hemen başarılı olur.
+Dağıtımınızın boyutunu değiştirmek, bazı oluşturulmuş akışlarınızı etkileyebilir. Arka uç havuz boyutunu artırır ve sonraki katmana geçiş, ön tahsis SNAT bağlantı noktaları yarısını sonraki daha büyük arka uç havuzu katmana geçiş sırasında geri kazanılır. Geri kazanılan SNAT bağlantı noktası ile ilişkili akışlar zaman aşımına uğrar ve yeniden oluşturulmaları gerekir. Yeni bir akış girişiminde bulunulursa, ön tahsis bağlantı noktaları kullanılabilir olduğu sürece, akış hemen başarılı olur.
 
-Varsa dağıtım boyutunu azaltır ve daha düşük bir katman geçişleri, kullanılabilir SNAT bağlantı noktalarının sayısını artırır. Bu durumda, varolan SNAT bağlantı noktalarını ayrılmış ve bunların ilgili akışları etkilenmez.
+Dağıtım boyutunu azaltır ve daha düşük bir katmana geçiş, kullanılabilir SNAT bağlantı noktalarının sayısını artırır. Bu durumda, var olan bağlantı noktaları SNAT ayrılan ve ilgili kendi akışlarını etkilenmez.
 
-SNAT bağlantı noktalarını ayırmaları olan belirli IP Aktarım Protokolü (TCP ve UDP korunur ayrı ayrı) ve aşağıdaki koşullar altında serbest bırakılır:
+Bir bulut hizmeti imzalanmasını veya değiştirilen, altyapı, arka uç havuzunun kadar büyük olarak iki kez gerçek olarak olması için geçici olarak bildirebilir ve Azure sırayla daha az SNAT örnek başına bağlantı noktaları beklenenden erişinceye.  Bu, geçici olarak SNAT bağlantı noktası tükenmesi olasılığını artırabilir. Sonuçta gerçek boyuta havuz boyutunu geçer ve Azure, yukarıdaki tabloda göre beklenen sayı ön tahsis SNAT bağlantı noktaları otomatik olarak artırır.  Bu davranış tasarım gereğidir ve yapılandırılabilir değildir.
 
-### <a name="tcp-snat-port-release"></a>TCP SNAT bağlantı noktası sürüm
+SNAT bağlantı noktaları ayırmaları olan belirli IP Aktarım Protokolü (TCP ve UDP korunur ayrı olarak) ve aşağıdaki koşullarda barındırılır:
+
+### <a name="tcp-snat-port-release"></a>SNAT TCP bağlantı noktası sürüm
 
 - Her iki sunucu/istemci FIN/ACK gönderirse SNAT bağlantı noktası 240 saniye sonra kullanıma sunulacaktır.
-- Bir RST görülen, SNAT bağlantı noktası 15 saniye sonra kullanıma sunulacaktır.
+- Bir lk görülür, SNAT bağlantı noktası 15 saniye sonra kullanıma sunulacaktır.
 - boşta kalma zaman aşımı ulaşıldı
 
-### <a name="udp-snat-port-release"></a>UDP SNAT bağlantı noktası sürüm
+### <a name="udp-snat-port-release"></a>SNAT UDP bağlantı noktası sürüm
 
 - boşta kalma zaman aşımı ulaşıldı
 
 ## <a name="problemsolving"></a> Sorun giderme 
 
-Bu bölümde, SNAT Tükenme ve azure'da giden bağlantılar ile oluşabilecek diğer senaryolar azaltmaya yardımcı olmak için tasarlanmıştır.
+Bu bölümde SNAT tükenmesi ve azure'da giden bağlantıları ortaya çıkabilir diğer senaryolarının azaltmaya yardımcı olmak için tasarlanmıştır.
 
-### <a name="snatexhaust"></a> SNAT (PAT) bağlantı noktası Tükenme yönetme
-[Kısa ömürlü bağlantı noktaları](#preallocatedports) için kullanılan [PAT](#pat) açıklandığı gibi bir exhaustible kaynağı olan [ilişkili hiçbir genel IP](#defaultsnat) ve [ortak yük dengeli uç nokta](#publiclbendpoint).
+### <a name="snatexhaust"></a> SNAT (PAT) bağlantı noktası tükenmesi yönetme
+[Kısa ömürlü bağlantı noktaları](#preallocatedports) için kullanılan [PAT](#pat) açıklandığı bir exhaustible kaynağı olan [ilişkili hiçbir genel IP](#defaultsnat) ve [genel yük dengeli uç nokta](#publiclbendpoint).
 
-Aynı hedef IP adresi ve bağlantı noktası fazla giden TCP veya UDP bağlantı başlatma, ve giden bağlantılar başarısız izleyebilmenizi veya destek tarafından tükettiğini SNAT bağlantı noktalarını olduğunuz önerilir biliyorsanız (önceden ayrılmış [kısa ömürlü bağlantı noktaları](#preallocatedports) tarafından kullanılan [PAT](#pat)), birkaç genel azaltma seçeneğiniz vardır. Bu seçenekleri gözden geçirin ve ne kullanılabilir ve senaryonuz için en iyisi olduğuna karar verin. Bu senaryo yönetmek bir veya daha fazla yardımcı olabilir.
+Aynı hedef IP adresine ve bağlantı noktası birçok giden TCP veya UDP bağlantılarının başlatma, ve giden bağlantılar başarısız inceleyin veya destek birimi tarafından tükettiğini SNAT bağlantı noktaları işiniz kopyaladınız biliyorsanız (önceden ayrılmış [kısa ömürlü bağlantı noktaları](#preallocatedports) tarafından kullanılan [PAT](#pat)), genel risk azaltma birkaç seçeneğiniz vardır. Bu seçenekleri gözden geçirin ve hangi kullanılabilir ve senaryonuz için en iyi olduğuna karar verin. Bu senaryo yönetme bir veya daha fazla yardımcı olabilir.
 
-Giden bağlantı davranışını anlama ile ilgili sorunlar yaşıyorsanız, IP yığını istatistikleri (netstat) kullanabilirsiniz. Veya paket yakalamaları kullanarak bağlantı davranışlarla için faydalı olabilir.
+Giden bağlantı davranışını anlama ile ilgili sorunlar yaşıyorsanız, IP yığın istatistikleri (netstat) kullanabilirsiniz. Veya paket yakalamaları kullanarak bağlantı davranışlarla yardımcı olabilir.
 
-#### <a name="connectionreuse"></a>Bağlantılarını yeniden uygulamaya değiştirme 
-Uygulamanızdaki bağlantıları yeniden kullanarak snat Uygulamanız için kullanılan kısa ömürlü bağlantı noktaları için isteğe bağlı azaltabilir. Bu, özellikle HTTP/1.1, bağlantı yeniden varsayılan olduğu gibi protokoller için geçerlidir. Ve taşıma (örneğin, REST) HTTP kullanan diğer protokolleri sırayla yararlı olabilir. 
+#### <a name="connectionreuse"></a>Uygulama bağlantılarını yeniden değiştirme 
+Uygulamanızdaki bağlantıları yeniden kullanarak SNAT için kullanılan kısa ömürlü bağlantı noktaları için isteğe bağlı azaltabilir. Bu, özellikle de HTTP/1.1, bağlantı yeniden varsayılan olduğu gibi protokolleri için geçerlidir. Ve HTTP Aktarım (örneğin, REST) olarak kullanan diğer protokolleri sırayla yararlı olabilir. 
 
-Yeniden her zaman tek tek, atomik TCP bağlantıları her istek için daha iyi olur. Daha fazla kullanıcı, çok verimli TCP işlemleri sonuçlarında yeniden kullanabilirsiniz.
+Yeniden her zaman tek tek, atomik TCP bağlantıları her istek için daha iyidir. Daha fazla yüksek performanslı, çok da verimli TCP işlem sonuçları yeniden kullanın.
 
 #### <a name="connection pooling"></a>Bağlantı havuzu kullanmak için uygulamayı değiştirme
-Bir bağlantı, uygulamanızda sabit kümesi (her mümkün olduğunca yeniden) bağlantıları istekleri dahili olarak dağıtıldığı düzeni havuzu tercih edebilirsiniz. Bu düzen kullanımda kısa ömürlü bağlantı noktası sayısını kısıtlar ve daha tahmin edilebilir bir ortam oluşturur. Bu düzen, tek bir bağlantı üzerinde bir işlemi cevap engelleme zaman birden çok eşzamanlı operasyonlar sağlayarak isteklerin verimini de artırabilirsiniz.  
+Bir bağlantı, uygulamanızda bir sabit bağlantılar (her mümkün olduğunda yeniden) kümesi arasında istekleri dahili olarak dağıtıldığı düzeni havuzu kullanabilirsiniz. Bu düzen, kısa ömürlü bağlantı noktalarına sayısını kısıtlar ve daha öngörülebilir bir ortam oluşturur. Bu düzen, aynı anda birden çok işlem tek bir bağlantı üzerinde bir işlemin cevap engellediğinde sağlayarak isteklerin aktarım hızı da artırabilirsiniz.  
 
-Bağlantı havuzu zaten uygulamanızı veya uygulamanız için yapılandırma ayarlarını geliştirmek için kullanmakta olduğunuz framework içinde mevcut olabilir. Bağlantı yeniden ile bağlantı havuzu birleştirebilirsiniz. Birden çok istek daha sonra aynı hedef IP adresi ve bağlantı noktası için bağlantı noktaları, sabit, tahmin edilebilir birtakım tüketir. İstek gecikme süresi ve kaynak kullanımını azaltarak TCP işlemleri verimli kullanımdan da yararlanır. UDP akışlarının sayısı yönetilmesi sırayla Egzoz koşullar önlemek ve SNAT bağlantı noktası kullanımı yönetmek için UDP işlemleri de yararlanabilir.
+Bağlantı havuzu uygulamanızı veya uygulamanız için yapılandırma ayarlarını geliştirmek için kullanmakta olduğunuz framework içinde zaten olabilir. Bağlantı havuzu ile bağlantı yeniden birleştirebilirsiniz. Birden çok isteklerinizi sonra sabit, öngörülebilir birkaç bağlantı noktalarının aynı hedef IP adresine ve bağlantı noktası kullanır. İstek gecikme süresi ve kaynak kullanımı azaltma TCP işlemlerin verimli kullanımdan avantaj sağlıyor. UDP akışlarının sayısı yönetilmesi sırayla Egzozu koşullar önlemek ve SNAT bağlantı noktası kullanımı yönetmek için UDP işlemleri de yararlanabilir.
 
-#### <a name="retry logic"></a>Uygulamayı daha az agresif yeniden deneme mantığı kullanacak şekilde değiştirin
-Zaman [kısa ömürlü bağlantı noktaları önceden ayrılmış](#preallocatedports) için kullanılan [PAT](#pat) olan tükendi veya uygulama hataları, agresif ya da kaba kuvvet decay ve geri Çekilme mantığı neden olmadan Tükenme oluşur veya kalıcı hale getirmek yeniden deneme sayısı. Daha az agresif bir yeniden deneme mantığı kullanarak kısa ömürlü bağlantı noktaları için isteğe bağlı azaltabilir. 
+#### <a name="retry logic"></a>Daha az agresiftir yeniden deneme mantığı kullanmak için uygulamayı değiştirme
+Zaman [kısa ömürlü bağlantı noktaları önceden ayrılmış](#preallocatedports) için kullanılan [PAT](#pat) olan tükendi veya uygulama hataları, agresif veya deneme yanılma decay ve geri alma mantığını neden olmadan tükenmesi oluşur ya da kalıcı hale getirmek yeniden deneme sayısı. Kısa ömürlü bağlantı noktaları için isteğe bağlı daha agresif bir yeniden deneme mantığı kullanarak azaltabilir. 
 
-Kısa ömürlü bağlantı noktaları 4 dakikalık boşta kalma zaman aşımı (ayarlanamıyor) vardır. Yeniden deneme çok agresif Tükenme, kendi temizlenir fırsatı yoktur. Bu nedenle, uygulamanızı nasıl--ve hangi sıklıkta--işlemleri yeniden deneme dikkate bir kritik tasarım parçasıdır.
+Kısa ömürlü bağlantı noktaları, bir 4 dakikalık boşta kalma zaman aşımı (ayarlanamıyor) sahip. Çok agresif yeniden deneme işlemleri, kendi kendine temizlenir fırsatı tükenmesi vardır. Bu nedenle, dikkate nasıl--ve ne sıklıkta--uygulamanız yeniden deneme işlemleri bir kritik tasarım parçasıdır.
 
-#### <a name="assignilpip"></a>Her VM için bir örnek düzeyinde ortak IP atayın
-Bir ILPIP atama değişiklikleri senaryonuz için [örnek düzeyinde ortak IP bir VM](#ilpip). Her VM için kullanılan tüm kısa ömürlü bağlantı noktaları genel IP, VM'ye kullanılabilir. (Burada ilgili dağıtımla ilişkili tüm sanal makineler ile bir genel IP kısa ömürlü bağlantı noktaları paylaşılan senaryolarında aksine.) Olası etkisini uygulamaları güvenilir listeye almayı çok sayıda tek tek IP adresleri gibi düşünmek dengelemeler vardır.
+#### <a name="assignilpip"></a>Her VM için bir örnek düzeyinde genel IP atayın
+Senaryonuz için değişiklikleri bir ILPIP atama [örnek düzeyinde ortak IP, bir VM'ye](#ilpip). VM'ye her VM için kullanılan tüm kısa ömürlü bağlantı noktaları genel IP'nin kullanılabilir. (Burada ilgili dağıtımla ilişkili tüm sanal makinelerin genel IP, kısa ömürlü bağlantı noktaları paylaşılan senaryolarında aksine.) Çok sayıda özel IP adreslerini beyaz listeye ekleme gibi olası etkisini göz önünde bulundurmanız eksileri vardır.
 
 >[!NOTE] 
->Bu seçenek, web çalışanı rolleri için kullanılamaz.
+>Bu seçenek, web çalışanı rolü için kullanılamaz.
 
-### <a name="idletimeout"></a>Giden boşta kalma zaman aşımı sıfırlamak için ayarlandığında Canlı tutmalar kullanın
+### <a name="idletimeout"></a>Giden boşta kalma zaman aşımı sıfırlamak için canlı tutma kullanın
 
-Giden bağlantılar 4 dakikalık boşta kalma zaman aşımı vardır. Bu zaman aşımı ayarlanabilir değil. Ancak, boş bir akış yenileyin ve gerekirse bu boşta kalma zaman aşımı sıfırlamak için Aktarım (örneğin, TCP ayarlandığında Canlı tutmalar) veya uygulama katmanı ayarlandığında Canlı tutmalar kullanabilirsiniz.  Paketlenmiş yazılımları olup destekleniyorsa veya nasıl etkinleştirileceği konusunda sağlayıcısına başvurun.  Genellikle yalnızca bir yan boşta kalma zaman aşımı sıfırlamak için ayarlandığında Canlı tutmalar oluşturması gerekiyorsa. 
+Giden bağlantılar 4 dakikalık boşta kalma zaman aşımı vardır. Bu zaman aşımı ayarlanabilir değildir. Ancak, boş bir akış yenileyin ve gerekirse bu boşta kalma zaman aşımı sıfırlamak için Aktarım (örneğin, canlı tutma TCP) veya uygulama katmanı canlı tutma kullanabilirsiniz.  Tüm paketlenmiş yazılımlarda olup bu destekleniyor mu veya nasıl etkinleştirileceğini sağlayıcısına başvurun.  Genellikle yalnızca bir tarafına boşta kalma zaman aşımı sıfırlamak için canlı tutma oluşturması gerekiyorsa. 
 
-## <a name="discoveroutbound"></a>Bir VM kullandığı genel IP bulma
-Giden bir bağlantıyı ortak kaynak IP adresi belirlemek için birçok yolu vardır. OpenDNS VM ortak IP adresini gösteren bir hizmet sunar. 
+## <a name="discoveroutbound"></a>Bir VM kullanan genel IP bulma
+Bir giden bağlantı genel kaynak IP adresini belirlemek için birçok yolu vardır. OpenDNS, sanal makinenizin genel IP adresini göstermek bir hizmet sunar. 
 
-Nslookup komutunu kullanarak, ad myip.opendns.com için bir DNS sorgusu OpenDNS çözümleyici gönderebilirsiniz. Hizmet sorguyu göndermek için kullanılan kaynak IP adresini döndürür. Sanal makineden aşağıdaki sorguyu çalıştırın yanıt o VM için kullanılan genel IP olur:
+Nslookup komutunu kullanarak bir DNS sorgusu adı myip.opendns.com için OpenDNS çözümleyiciye gönderebilirsiniz. Hizmet, sorgu göndermek için kullanılan kaynak IP adresini döndürür. Aşağıdaki sorgu, VM'den çalıştırdığınızda, o sanal makine için kullanılan genel IP yanıt verilmiştir:
 
     nslookup myip.opendns.com resolver1.opendns.com
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinmek [yük dengeleyici](load-balancer-overview.md) Resource Manager dağıtımları kullanılır.
-- Modu hakkında bilgi edinin [giden bağlantı](load-balancer-outbound-connections.md) senaryoları Resource Manager dağıtımları içinde kullanılabilir.
+- Daha fazla bilgi edinin [yük dengeleyici](load-balancer-overview.md) Resource Manager dağıtımında kullanılır.
+- Modu hakkında bilgi edinin [giden bağlantı](load-balancer-outbound-connections.md) senaryoları Resource Manager dağıtımlarında kullanılabilir.

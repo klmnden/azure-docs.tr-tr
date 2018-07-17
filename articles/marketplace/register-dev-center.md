@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 43fadadc92e9562e1e9abe6d971f85d37a9825c2
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3eca9e416a18e7389a6ce45cccd3cc99707e9806
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437091"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070443"
 ---
 # <a name="register-in-dev-center"></a>Geliştirme Merkezi'ne kaydolun  
 Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımcı olmak için yeni bir InPrivate Internet Explorer veya Chrome gizli gözatma oturumu açın.  
@@ -84,7 +84,7 @@ Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımc�
 
 ---  
 
-## <a name="issue-dev-center-registration"></a>Sorun: Geliştirme Merkezi kayıt  
+## <a name="get-help-with-dev-center-registration"></a>Geliştirme Merkezi kayıt ile ilgili yardım alın  
 Ardından, Geliştirme Merkezi kayıt ile ilgili sorunlar varsa, bir destek bileti göndermeye aşağıdaki adımları izleyin.  
 1.  Geliştirme Merkezi Destek birimine gidin.  
     *   Destek erişmek, geliştirici destek sayfasında bulunan Windows ziyaret [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support).  
@@ -151,6 +151,41 @@ Ardından, Geliştirme Merkezi kayıt ile ilgili sorunlar varsa, bir destek bile
 *   **Destek ile Geliştirme Merkezi kayıt ile ilgili sorunlar nereye başvurmam gerekir?**
 Destek erişmek, geliştirici destek sayfasında bulunan Windows ziyaret [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
 
+## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Sorun: Yayımcı ödemeler banka ve vergi bilgilerini ekleyin  
+Banka ve vergi bilgilerini liste türünü transact kullanarak tüm ticari teklifleri için gereklidir.  
+*   Ticari teklifleri satın alma için yayımlıyorsanız, ardından, ödeme ve vergi bilgilerini ve istek doğrulamayı geliştirme Merkezi'ne eklemeniz gerekir.  
+    >[!IMPORTANT]
+    >Ticari teklifleri (transact), tekliflerinizi üretime göndermeye yönetmeden önce banka ve vergi bilgilerini tamamlamanız gerekir.  
+
+*   Eğer yayımlama yalnızca ücretsiz veya KLG sunar ve bilgilerini eklemek gerekmez. Daha sonra bilgiler ekleyebilir, ancak doğrulama vergi bilgileri biraz zaman alabilir. Ticari teklifleri satın almak için teklif planlıyorsanız, mümkün olan en kısa sürede bilgi eklemeniz gerekir.  
+
+## <a name="add-bank-information"></a>Banka bilgilerini ekleyin  
+1.  Microsoft ID. kullanarak Geliştirme Merkezi ile oturum açın  
+    *   Geliştirme Merkezi ile oturum açmak için Windows Geliştirme Merkezi sayfası bulunan ziyaret [dev.windows.com](https://dev.windows.com).  
+2.  Soldaki menünün ödeme hesabı seçin.
+3.  Üzerinde `Choose payment method` sayfasında `Bank account` veya `PayPal`.  
+    >[!IMPORTANT]
+    >Müşteriler satın ticari teklifleri Market'te varsa, satın alma işlemleri için ödeme aldığınız ödeme hesabınız bulunuyor.  
+
+4.  Ödeme bilgilerini girin. Bilgilerin doğru olduğunu doğruladıktan sonra Kaydet düğmesine tıklayın.  
+    >[!IMPORTANT]
+    >Ödeme hesabınızı güncelleştirmek veya değiştirirseniz, geçerli bilgilerini yeni bilgilerle değiştirerek aynı adımları izlemelisiniz. Değişiklikleri ödeme hesabınızda bir ödeme dönemi kadar ödeme gecikmeye neden olabilir. Microsoft hesap değişikliğini doğrulamanız gerekir çünkü bu bir gecikme olur, bu ne zaman aynı olur, ilk kurulum ödeme hesabınızı. Hesabınız doğrulandı sonra tam miktar Ücretli. Son ödeme geçerli ödeme döngüsünün bir sonraki döngüyü eklenir.  
+
+4.  İleri düğmesine tıklayın. 
+
+---   
+
+## <a name="add-tax-information"></a>Vergi bilgilerini ekleyin  
+1.  Microsoft ID. kullanarak Geliştirme Merkezi ile oturum açın  
+    *   Geliştirme Merkezi ile oturum açmak için Windows Geliştirme Merkezi sayfası bulunan ziyaret [dev.windows.com](https://dev.windows.com).  
+2.  Soldaki menünün vergi profili seçin. 
+3.  Üzerinde `Set up your tax form` sayfasında, ülke veya kalıcı yerleşimi bulunduğu bölgeyi seçin.  
+    
+    Ülke veya bölge birincil Vatandaşlık tutun yeri seçin.  
+    
+    İleri düğmesine tıklayın. 
+4.  Vergi ayrıntılarınızı girin.  
+5.  İleri düğmesine tıklayın.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 *   Ziyaret [Azure Market ve AppSource yayımcı Kılavuzu](./marketplace-publishers-guide.md) sayfası.  

@@ -1,7 +1,7 @@
 ---
-title: Bing Visual arama API için Python hızlı başlangıç | Microsoft Docs
+title: Bing görsel arama API'si için Python hızlı başlangıç | Microsoft Docs
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Bing Visual arama API görüntüyü karşıya yükleme ve görüntü ile ilgili Öngörüler ulaşırsınız gösterilmektedir.
+description: Bing görsel arama API'sine bir görüntüyü karşıya yükleme ve görüntü ile ilgili Öngörüler geri alma işlemi gösterilmektedir.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -10,18 +10,18 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: a520466825eb429e45e0500b52bd7af502c0a38c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 96bd94e37c75d10726245fbcea7044d4ae2ed07e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355073"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070384"
 ---
-# <a name="your-first-bing-visual-search-query-in-python"></a>İlk Python Bing Visual arama sorgusu
+# <a name="your-first-bing-visual-search-query-in-python"></a>İlk Bing görsel arama sorgunuzda Python
 
-Bing Visual arama API sağlayan bir görüntü ile ilgili bilgileri döndürür. Belirteç, ya da görüntüyü karşıya yükleyerek bir Öngörüler resmin URL'sini kullanarak görüntü sağlayabilir. Bu seçenekler hakkında daha fazla bilgi için bkz: [Bing Visual arama API nedir?](../overview.md) Bu makalede, görüntüyü karşıya gösterilmektedir. Görüntüyü karşıya burada iyi bilinen bir yer işareti resmini alın ve ilgili bilgileri dönmek mobil senaryolarda yararlı olabilir. Örneğin, Öngörüler yer işareti hakkında trivia içerebilir. 
+Bing görsel arama API'sine sağlayan bir görüntü ile ilgili bilgi döndürür. Belirteç, ya da bir görüntü yükleyerek bir ınsights görüntünün URL'sini kullanarak görüntü sağlayabilir. Bu seçenekler hakkında daha fazla bilgi için bkz: [Bing görsel arama API'si nedir?](../overview.md) Bu makalede, bir resim karşıya gösterilmektedir. Görüntüyü karşıya yükleme, iyi bilinen bir yer işareti resmini Al ve geri hakkında bilgi alın mobil senaryolarda yararlı olabilir. Örneğin, öngörüleri, yer işareti hakkında bilgi dahil olabilir. 
 
-Yerel görüntü yüklerseniz, aşağıdaki form verilerini POST gövdesinde içermelidir gösterir. Form verileri içerik düzeni üstbilgisini eklemeniz gerekir. Kendi `name` parametresini ayarlayın, görüntü"için" ve `filename` parametresi için herhangi bir dize ayarlanmış olabilir. Form içeriğini ikili görüntünün olur. Karşıya yükleme en büyük görüntü boyutu 1 MB'tır. 
+Yerel bir görüntüyü karşıya yükleme, aşağıdaki form verilerini POST gövdesinde içermelidir gösterir. Form verileri içerik düzeni üstbilgisini içermelidir. Kendi `name` parametresi ayarlanması gerekir "Görüntü" ve `filename` parametreyi bir dizeye ayarlayın. Form içeriğini ikili görüntünün olur. Karşıya yükleyebilirsiniz en yüksek görüntü boyutu 1 MB'dir. 
 
 ```
 --boundary_1234-abcd
@@ -32,27 +32,27 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Bu makalede bir Bing Visual arama API isteği gönderir ve JSON arama sonuçlarını görüntüleyen basit bir konsol uygulaması içerir. Bu uygulama, Python içinde yazılmış olsa da, HTTP isteği yapmak ve JSON ayrıştırma programlama dili ile uyumlu bir RESTful Web hizmeti API'dir. 
+Bu makale, Bing görsel arama API'sine bir istek gönderir ve JSON arama sonuçlarını görüntüleyen basit bir konsol uygulaması içerir. Bu uygulama Python'da yazılmıştır, ancak HTTP istekleri ve JSON Ayrıştır programlama dili ile uyumlu bir RESTful Web hizmeti API'dir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Gereksinim duyduğunuz [Python 3](https://www.python.org/) bu kodu çalıştırmak için.
 
-Bu Hızlı Başlangıç için kullandığınız bir [ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonelik anahtar veya Ücretli abonelik anahtarı.
+Bu hızlı başlangıçta, kullanabileceğiniz bir [ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonelik anahtarı veya Ücretli abonelik anahtarı.
 
 ## <a name="running-the-walkthrough"></a>İzlenecek yol çalıştırma
 
 Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin:
 
-1. Sık kullanılan IDE veya Düzenleyicisi içinde yeni bir Python projesi oluşturun.
-2. Visualsearch.PY adlı bir dosya oluşturun ve bu hızlı başlangıcı gösterilen kodu ekleyin.
-3. Değiştir `SUBSCRIPTION_KEY` abonelik anahtarınızı değerle.
-3. Değiştir `imagePath` karşıya yüklemek için resminin yolunu içeren değer.
-4. Programını çalıştırın.
+1. Yeni Python projesi, sık kullandığınız IDE veya düzenleyici oluşturun.
+2. Visualsearch.PY adlı bir dosya oluşturun ve bu hızlı başlangıçta gösterilen kodu ekleyin.
+3. Değiştirin `SUBSCRIPTION_KEY` abonelik anahtarınız ile değeri.
+3. Değiştirin `imagePath` görüntünün karşıya yükleme yolunu içeren değer.
+4. Programı çalıştırın.
 
 
 
-Çok bölümlü form verilerinin Python içinde kullanarak ileti göndermek nasıl gösterir.
+Çok bölümlü form verilerinin Python kullanarak ileti gönderme işlemini gösterir.
 
 ```python
 """Bing Visual Search upload image example"""
@@ -99,9 +99,10 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Öngörüler belirteci kullanarak bir görüntü ile ilgili Öngörüler alın](../use-insights-token.md)  
-[Bing Visual arama tek sayfa uygulaması Öğreticisi](../tutorial-bing-visual-search-single-page-app.md)  
-[Bing Visual arama genel bakış](../overview.md)  
+[Insights belirteci kullanarak bir görüntü ile ilgili Öngörüler elde edin](../use-insights-token.md)  
+[Bing görsel arama görüntüsünü karşıya yükleme Öğreticisi](../tutorial-visual-search-image-upload.md)
+[Bing görsel arama tek sayfalı uygulama Öğreticisi](../tutorial-bing-visual-search-single-page-app.md)  
+[Bing görsel arama genel bakış](../overview.md)  
 [Deneyin](https://aka.ms/bingvisualsearchtryforfree)  
-[Ücretsiz deneme erişim anahtarı alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual arama API Başvurusu](https://aka.ms/bingvisualsearchreferencedoc)
+[Ücretsiz deneme erişim anahtarını alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Bing görsel arama API'si başvurusu](https://aka.ms/bingvisualsearchreferencedoc)

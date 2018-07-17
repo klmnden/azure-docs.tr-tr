@@ -10,18 +10,18 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 90ea591137b306069c1a5c184aea07375c72ce5c
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 1352ccbcda35c693c5ac0b36156af199ae46bee9
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036549"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068677"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Öğretici: Bozucu Bing görsel arama karşıya yükleme
 
 Bu öğreticide, bir görüntü Bing'e yüklemek ve öngörü geri alma işlemi keser. Ayrıca, erişmek ve JSON yanıtta öngörüleri görüntüleme işlemini gösterir. Tam HTML ve JavaScript bir örnek için bkz. [tamamlamak kod](#complete-code).
 
-Bu öğreticide, Bing yanıtının içeriğini incelemek isteyen bir geliştirici için sağlanır. Değil tüm uygulanır ve gereksinimlerini görüntüleyin (örneğin, bir bağlantı Microsoft gizlilik ilkesi sağlamaz). Tüm kullanım gereksinimleri için bkz [Bing kullanım ve görüntü gereksinimleri](./use-and-display-requirements.md).
+Bu öğreticide, Bing görsel arama yanıtının içeriğini incelemek isteyen bir geliştirici için sağlanır. Değil tüm uygulanır ve gereksinimlerini görüntüleyin (örneğin, bir bağlantı Microsoft gizlilik ilkesi sağlamaz). Tüm kullanım gereksinimleri için bkz [Bing kullanım ve görüntü gereksinimleri](./use-and-display-requirements.md).
 
 
 ## <a name="where-to-start"></a>Nereden başlayacağınızı?

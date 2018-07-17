@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
-ms.date: 05/07/2018
-ms.openlocfilehash: 44093dfde926b92d1617b85d27e362a8e40e5c56
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.date: 07/13/2018
+ms.openlocfilehash: 60eecf134f067d68326fc23ade8ed2a5a7ae7ac4
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888679"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070356"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Azure Machine Learning ile tahmin modellerini Derleme ve dağıtma
 
@@ -36,7 +36,7 @@ Başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/forecasting)
    - Bir Azure Machine Learning Model Yönetimi hesabı
    - Azure Machine Learning Workbench'in yüklü olması 
 
-    Bu üç henüz oluşturduysanız veya yüklü izleyin [Azure Machine Learning hızlı ve Workbench'i yükleme](../service/quickstart-installation.md) makalesi.
+ Bu üç henüz oluşturduysanız veya yüklü izleyin [Azure Machine Learning hızlı ve Workbench'i yükleme](../service/quickstart-installation.md) makalesi.
 
 1. Tahmin için Azure Machine Learning paketi yüklü olmalıdır. Bilgi edinmek için nasıl [burada bu paketi yüklemek](https://aka.ms/aml-packages/forecasting).
 
@@ -77,6 +77,7 @@ import pkg_resources
 from datetime import timedelta
 import matplotlib
 matplotlib.use('agg')
+%matplotlib inline
 from matplotlib import pyplot as plt
 
 from sklearn.linear_model import Lasso, ElasticNet
@@ -84,12 +85,12 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.neighbors import KNeighborsRegressor
 
 from ftk import TimeSeriesDataFrame, ForecastDataFrame, AzureMLForecastPipeline
-from ftk.tsutils import last_n_periods_split
+from ftk.ts_utils import last_n_periods_split
 
 from ftk.transforms import TimeSeriesImputer, TimeIndexFeaturizer, DropColumns
 from ftk.transforms.grain_index_featurizer import GrainIndexFeaturizer
-from ftk.models import Arima, SeasonalNaive, Naive, RegressionForecaster, ETS
-from ftk.models.forecasterunion import ForecasterUnion
+from ftk.models import Arima, SeasonalNaive, Naive, RegressionForecaster, ETS, BestOfForecaster
+from ftk.models.forecaster_union import ForecasterUnion
 from ftk.model_selection import TSGridSearchCV, RollingOriginValidator
 
 from azuremltkbase.deployment import AMLSettings
@@ -502,12 +503,11 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 ```python
-%matplotlib inline
 whole_tsdf.ts_report()
 ```
 
     --------------------------------  Data Overview  ---------------------------------
-    <class 'ftk.dataframets.TimeSeriesDataFrame'>
+    <class 'ftk.time_series_data_frame.TimeSeriesDataFrame'>
     MultiIndex: 28947 entries, (1990-06-20 23:59:59, 2, dominicks) to (1992-10-07 23:59:59, 137, tropicana)
     Data columns (total 17 columns):
     week            28947 non-null int64
@@ -662,12 +662,6 @@ whole_tsdf.ts_report()
 
 
 ![PNG](./media/how-to-build-deploy-forecast-models/output_15_6.png)
-
-![PNG](./media/how-to-build-deploy-forecast-models/output_59_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_61_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_63_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_63_1.png)
- 
 
 
 ## <a name="integrate-with-external-data"></a>Dış veri ile tümleştirin
@@ -892,7 +886,7 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Verileri önceden işleme ve eksik değerleri impute
 
-Başlangıç Eğitim kümesi ve bir sınama kümesi verileri bölerek [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) yardımcı program işlevi. Sonuç kümesi testi her zaman serisinin son 40 gözlemler içerir. 
+Başlangıç Eğitim kümesi ve bir sınama kümesi verileri bölerek [last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) yardımcı program işlevi. Sonuç kümesi testi her zaman serisinin son 40 gözlemler içerir. 
 
 
 ```python
@@ -974,7 +968,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-Seri (213 tanesi 249) çoğunu düzensiz görebilirsiniz. Bir [imputation dönüştürme](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) satış miktarı değerleri eksik doldurmak için gereklidir. Aşağıdaki örnek kod, birçok imputation seçenek olsa da, doğrusal enterpolasyon kullanır.
+Seri (213 tanesi 249) çoğunu düzensiz görebilirsiniz. Bir [imputation dönüştürme](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) satış miktarı değerleri eksik doldurmak için gereklidir. Aşağıdaki örnek kod, birçok imputation seçenek olsa da, doğrusal enterpolasyon kullanır.
 
 
 ```python
@@ -1040,7 +1034,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Birden çok modeli birleştirin
 
-[ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) estimator birden çok estimators birleştirmek ve bunlara bir kod satırı kullanarak uygun/tahmin olanak tanır.
+[ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) estimator birden çok estimators birleştirmek ve bunlara bir kod satırı kullanarak uygun/tahmin olanak tanır.
 
 
 ```python
@@ -1205,10 +1199,10 @@ test_feature_tsdf = pipeline_ml.transform(test_tsdf)
 print(train_feature_tsdf.head())
 ```
 
-    F1 2018-05-04 11:00:54,308 INFO azureml.timeseries - pipeline fit_transform started. 
-    F1 2018-05-04 11:01:02,545 INFO azureml.timeseries - pipeline fit_transform finished. Time elapsed 0:00:08.237301
-    F1 2018-05-04 11:01:02,576 INFO azureml.timeseries - pipeline transforms started. 
-    F1 2018-05-04 11:01:19,048 INFO azureml.timeseries - pipeline transforms finished. Time elapsed 0:00:16.471961
+    F1 2018-06-14 23:10:03,472 INFO azureml.timeseries - pipeline fit_transform started. 
+    F1 2018-06-14 23:10:07,317 INFO azureml.timeseries - pipeline fit_transform finished. Time elapsed 0:00:03.845078
+    F1 2018-06-14 23:10:07,317 INFO azureml.timeseries - pipeline transforms started. 
+    F1 2018-06-14 23:10:16,499 INFO azureml.timeseries - pipeline transforms finished. Time elapsed 0:00:09.182314
                                            feat  price  AGE60  EDUC  ETHNIC  \
     WeekLastDay         store brand                                           
     1990-06-20 23:59:59 2     dominicks    1.00   1.59   0.23  0.25    0.11   
@@ -1370,13 +1364,16 @@ all_errors.sort_values('MedianAPE')
 
 Bazı makine öğrenimi modelleri eklenen özellikler ve daha iyi tahmin doğruluğunu almak için seri arasındaki benzerlikler avantajlarından faydalanabilir.
 
-**Çapraz doğrulama ve parametre Süpürme**    
+### <a name="cross-validation-parameter-and-model-sweeping"></a>Çapraz doğrulama, parametre ve Model Süpürme    
 
-Paket işlevleri tahmin bir uygulama için bazı geleneksel makine uyum sağlar.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator) ne olduğu ve tahmin bir çerçeve bilinmiyor uyarak zamansal olarak, çapraz doğrulama yapar. 
+Paket işlevleri tahmin bir uygulama için bazı geleneksel makine uyum sağlar.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator?view=azure-ml-py-latest) ne olduğu ve tahmin bir çerçeve bilinmiyor uyarak zamansal olarak, çapraz doğrulama yapar. 
 
 Aşağıdaki çizimde, her kare bir zaman noktasından verileri temsil eder. Mavi kareler eğitim temsil eder ve her kat test turuncu kareler temsil eder. Test verilerinin zaman noktalarından en büyük eğitim zaman noktasından sonra gelmelidir. Aksi halde gelecekteki verilerle eğitim verilerini model değerlendirme geçersiz olmasına neden sızmış. 
-
 ![PNG](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
+
+**Parametre Süpürme**  
+[TSGridSearchCV](https://docs.microsoft.com/en-us/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) sınıfı ayrıntısına arar belirtilen parametre değerleri ve kullandığı `RollingOriginValidator` en iyi parametreleri bulmak için parametre performansını değerlendirmek için.
+
 
 ```python
 # Set up the `RollingOriginValidator` to do 2 folds of rolling origin cross-validation
@@ -1395,6 +1392,102 @@ print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
 
     Best paramter: {'estimator__n_estimators': 100}
     
+
+**Model Süpürme**  
+`BestOfForecaster` Sınıfı en iyi performansa sahip modelin listesinden seçer modelleri verilir. Benzer şekilde `TSGridSearchCV`, doğrulama ve performansı değerlendirme RollingOriginValidator için de kullanır.  
+Biz burada kullanımını göstermek için iki modeli listesini geçirin `BestOfForecaster`
+
+
+```python
+best_of_forecaster = BestOfForecaster(forecaster_list=[('naive', naive_model), 
+                                                       ('random_forest', random_forest_model)])
+best_of_forecaster_fitted = best_of_forecaster.fit(train_feature_tsdf,
+                                                   validator=RollingOriginValidator(n_step=20, max_horizon=40))
+best_of_forecaster_prediction = best_of_forecaster_fitted.predict(test_feature_tsdf)
+best_of_forecaster_prediction.head()
+```
+
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>PointForecast</th>
+      <th>DistributionForecast</th>
+      <th>Miktar</th>
+    </tr>
+    <tr>
+      <th>WeekLastDay</th>
+      <th>Depolama</th>
+      <th>marka</th>
+      <th>ForecastOriginTime</th>
+      <th>ModelName</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1992-01-08 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01: 23:59:59</th>
+      <th>random_forest</th>
+      <td>9299.20</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>11712.00</td>
+    </tr>
+    <tr>
+      <th>1992-01-15 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01: 23:59:59</th>
+      <th>random_forest</th>
+      <td>10259.20</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>4032.00</td>
+    </tr>
+    <tr>
+      <th>1992-01-22 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01: 23:59:59</th>
+      <th>random_forest</th>
+      <td>6828.80</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>6336.00</td>
+    </tr>
+    <tr>
+      <th>1992-01-29 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01: 23:59:59</th>
+      <th>random_forest</th>
+      <td>16633.60</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>13632.00</td>
+    </tr>
+    <tr>
+      <th>1992-02-05 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01: 23:59:59</th>
+      <th>random_forest</th>
+      <td>12774.40</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>45120.00</td>
+    </tr>
+  </tbody>
+</table>
+
+
 
 **Son işlem hattı oluşturma**   
 En iyi modeli tanımladığınıza göre derleme ve tüm dönüştürücüler ve en iyi modeli ile son ardışık düzeninize uyacak. 
@@ -1416,9 +1509,62 @@ print('Median of APE of final pipeline: {0}'.format(final_median_ape))
     Median of APE of final pipeline: 42.54336821266968
     
 
-## <a name="operationalization-deploy-and-consume"></a>Kullanıma hazır hale getirme:, dağıtma ve kullanma
+## <a name="visualization"></a>Görselleştirme
+`ForecastDataFrame` Sınıfı tahmin sonuçlarını çözümleme ve görselleştirme için çizim işlevler sağlar. Yaygın olarak kullanılan grafikler, verilerinizle kullanın. Lütfen aşağıda örnek not defterini tüm işlevler için çizim işlevleri bakın. 
 
-Bu bölümde, bir işlem hattı bir Azure Machine Learning web hizmeti olarak dağıtma ve eğitim ve puanlama için kullanma. Dağıtılan web hizmeti Puanlama modeli retrains ve yeni veri tahminlerin oluşturur.
+`show_error` İşlevi rastgele bir sütun tarafından toplanan performans ölçümlerinin çizer. Varsayılan olarak, `show_error` işlevi toplayan tarafından `grain_colnames` , `ForecastDataFrame`. Genellikle, özellikle çok sayıda zaman serisi olduğunda en iyi veya kötü performans ile grains/grupları tanımlamak yararlıdır. `performance_percent` Bağımsız değişkeni `show_error` performans aralığı belirtin ve grains/gruplarının bir alt kümesi, hata çizim olanak tanır.
+
+Alt %5 performansından memnun grains çizim, yani %5 üst MedianAPE
+
+
+```python
+fig, ax = best_of_forecaster_prediction.show_error(err_name='MedianAPE', err_fun=calc_median_ape, performance_percent=(0.95, 1))
+```
+
+![PNG](./media/how-to-build-deploy-forecast-models/output_59_0.png)
+
+
+Performans üst %5 grains çizim, yani %5 alt MedianAPE.
+
+
+```python
+fig, ax = best_of_forecaster_prediction.show_error(err_name='MedianAPE', err_fun=calc_median_ape, performance_percent=(0, 0.05))
+```
+
+
+![PNG](./media/how-to-build-deploy-forecast-models/output_61_0.png)
+
+
+Genel performansı hakkında bir fikir aldıktan sonra özellikle kötü gerçekleştirilen tek grains keşfetmek isteyebilirsiniz. `plot_forecast_by_grain` Yöntemi çizer ve tahmin, belirtilen grains gerçek. Burada, biz dilimi performansı en iyi çizim ve en kötü performans dilimi içinde bulunan `show_error` çizimi.
+
+
+```python
+fig_ax = best_of_forecaster_prediction.plot_forecast_by_grain(grains=[(33, 'tropicana'), (128, 'minute.maid')])
+```
+
+
+![PNG](./media/how-to-build-deploy-forecast-models/output_63_0.png)
+
+
+
+![PNG](./media/how-to-build-deploy-forecast-models/output_63_1.png)
+
+
+
+## <a name="additional-notebooks"></a>Ek Not Defterleri
+AMLPF başlıca özellikler üzerinde daha ayrıntılı bilgi edinmek için lütfen aşağıdaki Not Defterleri ile daha fazla ayrıntı ve her bir özellik örnekleri bakın:  
+[TimeSeriesDataFrame not defteri](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Introduction_to_TimeSeriesDataFrames.ipynb)  
+[Veri denetimi üzerinde not defteri](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Data_Wrangling_Sample.ipynb)  
+[Not Defteri dönüştürücüler](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Forecast_Package_Transforms.ipynb)  
+[Not Defteri modelleri](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/AMLPF_models_sample_notebook.ipynb)  
+[Çapraz doğrulama not defteri](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Time_Series_Cross_Validation.ipynb)  
+[Lag dönüştürücü ve OriginTime not defteri](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Constructing_Lags_and_Explaining_Origin_Times.ipynb)  
+[İşlevleri çizim üzerinde not defteri](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Plotting_Functions_in_AMLPF.ipynb)
+
+## <a name="operationalization"></a>Kullanıma hazır hale getirme
+
+Bu bölümde, bir işlem hattı bir Azure Machine Learning web hizmeti olarak dağıtma ve eğitim ve puanlama için kullanma.
+Şu anda, yalnızca işlem hatları var. değil donatılmıştır dağıtımı için desteklenir. Dağıtılan web hizmeti Puanlama modeli retrains ve yeni veri tahminlerin oluşturur.
 
 ### <a name="set-model-deployment-parameters"></a>Model dağıtım parametrelerini ayarla
 
@@ -1485,7 +1631,7 @@ aml_deployment = ForecastWebserviceFactory(deployment_name=deployment_name,
                                            aml_settings=aml_settings, 
                                            pipeline=pipeline_deploy,
                                            deployment_working_directory=deployment_working_directory,
-                                           ftk_wheel_loc='https://azuremlpackages.blob.core.windows.net/forecasting/azuremlftk-0.1.18055.3a1-py3-none-any.whl')
+                                           ftk_wheel_loc='https://azuremlftkrelease.blob.core.windows.net/dailyrelease/azuremlftk-0.1.18165.29a1-py3-none-any.whl')
 ```
 
 ### <a name="create-the-web-service"></a>Web hizmeti oluşturma

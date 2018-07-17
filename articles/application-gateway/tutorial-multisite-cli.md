@@ -1,6 +1,6 @@
 ---
-title: Birden çok siteyi barındıran ile - bir uygulama ağ geçidi oluşturma Azure CLI | Microsoft Docs
-description: Azure CLI kullanarak birden çok site barındıran bir uygulama ağ geçidi oluşturmayı öğrenin.
+title: Birden çok site barındırma ile - application gateway oluşturma Azure CLI | Microsoft Docs
+description: Azure CLI kullanarak birden çok siteye barındıran bir uygulama ağ geçidi oluşturmayı öğrenin.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,27 +10,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 7728ade5f84cd97f3ff0cebd0d5545d68d0ebd79
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2f78cfc9918222fd22c2894b5e920a5c07efe522
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355211"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069902"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Birden çok site Azure CLI kullanarak barındırma ile bir uygulama ağ geçidi oluşturma
 
-Azure CLI yapılandırmak için kullanabileceğiniz [birden çok web sitesi barındırma](application-gateway-multi-site-overview.md) oluştururken bir [uygulama ağ geçidi](application-gateway-introduction.md). Bu öğreticide, sanal makine ölçekleme kümeleri kullanarak arka uç havuzları oluşturun. Daha sonra dinleyicileri ve uygun sunucuları havuzlarındaki web trafiği ulaştığında emin olmak için kendi etki alanlarını temel alan kurallar yapılandırın. Bu öğretici birden çok etki alanları ve kullanım örnekleri sahibi olduğunu varsayar *www.contoso.com* ve *www.fabrikam.com*.
+Azure CLI'yı yapılandırmak için kullanabileceğiniz [birden çok web sitesi barındırma](application-gateway-multi-site-overview.md) oluşturduğunuzda bir [uygulama ağ geçidi](application-gateway-introduction.md). Bu öğreticide, sanal makine ölçek kümeleri kullanarak arka uç havuzları oluşturun. Ardından sahip olduğunuz dinleyicileri ve kuralları, web trafiğinin havuzlardaki uygun sunuculara ulaşması için yapılandırırsınız. Bu öğreticide birden çok etki alanına sahip olduğunuz varsayılır ve *www.contoso.com* ve *www.fabrikam.com* örnekleri kullanılır.
 
 Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Ağ kurma
+> * Ağı ayarlama
 > * Uygulama ağ geçidi oluşturma
-> * Dinleyicileri ve yönlendirme kuralları oluşturma
-> * Sanal makine ölçek kümeleri ile arka uç havuzları oluşturma
-> * Etki alanınızda bir CNAME kaydı oluşturun
+> * Dinleyici ve yönlendirme kuralları oluşturma
+> * Arka uç havuzları ile sanal makine ölçek kümeleri oluşturma
+> * Etki alanınızda bir CNAME kaydı oluşturma
 
 ![Çok siteli yönlendirme örneği](./media/tutorial-multisite-cli/scenario.png)
 
@@ -42,9 +42,9 @@ CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç i�
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Kullanarak bir kaynak grubu oluşturmak [az grubu oluşturma](/cli/azure/group#create).
+Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. [az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun.
 
-Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupAG* içinde *eastus* konumu.
+Aşağıdaki örnek *eastus* konumunda *myResourceGroupAG* adlı bir kaynak grubu oluşturur.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -52,7 +52,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Ağ kaynakları oluşturma 
 
-Adlı sanal ağ oluşturma *myVNet* ve adlı alt ağın *myAGSubnet* kullanarak [az ağ vnet oluşturma](/cli/azure/network/vnet#az_net). Daha sonra adlı alt ağ ekleyebilirsiniz *myBackendSubnet* kullanarak arka uç sunucuları tarafından gerekli [az ağ sanal alt oluşturma](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Adlı ortak IP adresi oluşturma *myAGPublicIPAddress* kullanarak [az ağ genel IP oluşturun](/cli/azure/public-ip#az_network_public_ip_create).
+[az network vnet create](/cli/azure/network/vnet#az_net) komutunu kullanarak *myVNet* adlı sanal ağı ve *myAGSubnet* adlı alt ağı oluşturun. Daha sonra [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) kullanan arka uç sunucularının gerek duyduğu *myBackendSubnet* adlı alt ağı ekleyebilirsiniz. [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun.
 
 ```azurecli-interactive
 az network vnet create \
@@ -74,7 +74,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Kullanabileceğiniz [az ağ uygulama-ağ geçidi oluşturma](/cli/azure/application-gateway#create) adlı uygulama ağ geçidi oluşturmak için *myAppGateway*. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtin. Uygulama ağ geçidi atandığı *myAGSubnet* ve *myAGPublicIPAddress* daha önce oluşturduğunuz. 
+*myAppGateway* adlı uygulama ağ geçidini oluşturmak için [az network application-gateway create](/cli/azure/application-gateway#create) komutunu kullanabilirsiniz. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtirsiniz. Uygulama ağ geçidi, *myAGSubnet*’e ve daha önce oluşturduğunuz *myAGPublicIPAddress*’e atanır. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -92,15 +92,15 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
-Oluşturulacak uygulama ağ geçidi için birkaç dakika sürebilir. Uygulama ağ geçidi oluşturulduktan sonra bu yeni özellikleri bunu görebilirsiniz:
+Uygulama ağ geçidinin oluşturulması birkaç dakika sürebilir. Uygulama ağ geçidi oluşturulduktan sonra şu yeni özellikleri görürsünüz:
 
-- *appGatewayBackendPool* -bir uygulama ağ geçidi en az bir arka uç adres havuzu olmalıdır.
-- *appGatewayBackendHttpSettings* -80 numaralı bağlantı noktasını ve HTTP protokolü kullanılır, iletişim için belirtir.
-- *appGatewayHttpListener* -ilişkili varsayılan dinleyici *appGatewayBackendPool*.
-- *appGatewayFrontendIP* -atar *myAGPublicIPAddress* için *appGatewayHttpListener*.
-- *Kuralı 1* - ilişkilendirilen kural yönlendirme varsayılan *appGatewayHttpListener*.
+- *appGatewayBackendPool* -bir uygulama ağ geçidi en az bir arka uç adres havuzuna sahip olmalıdır.
+- *appGatewayBackendHttpSettings*: İletişim için 80 numaralı bağlantı noktasının ve HTTP protokolünün kullanıldığını belirtir.
+- *appGatewayHttpListener*: *appGatewayBackendPool* ile ilişkili varsayılan dinleyicidir.
+- *appGatewayFrontendIP*: *appGatewayHttpListener*’a *myAGPublicIPAddress*’i atar.
+- *kural 1* - *appGatewayHttpListener* ile ilişkili varsayılan yönlendirme kuralıdır.
 
-### <a name="add-the-backend-pools"></a>Arka uç havuzları ekleme
+### <a name="add-the-backend-pools"></a>Arka uç havuzlarını ekleme
 
 Adlı arka uç havuzları ekleme *contosoPool* ve *fabrikamPool* kullanarak arka uç sunucuları içerecek şekilde gerekli [az ağ uygulama ağ geçidi adres havuzu oluşturma](/cli/azure/application-gateway#az_network_application_gateway_address_pool_create).
 
@@ -115,11 +115,11 @@ az network application-gateway address-pool create \
   --name fabrikamPool
 ```
 
-### <a name="add-listeners"></a>Dinleyicileri ekleme
+### <a name="add-listeners"></a>Dinleyiciler ekleme
 
-Dinleyici için arka uç havuzu uygun şekilde trafiği yönlendirmek uygulama ağ geçidi etkinleştirmek için gereklidir. Bu öğreticide, iki etki alanları için iki dinleyici oluşturun. Bu örnekte, etki alanları için dinleyicileri oluşturulan *www.contoso.com* ve *www.fabrikam.com*. 
+Uygulama ağ geçidinin trafiği arka uç havuzuna uygun şekilde yönlendirmesini sağlamak için bir dinleyici gereklidir. Bu öğreticide iki etki alanınız için iki dinleyici oluşturacaksınız. Bu örnekte, dinleyiciler *www.contoso.com* ve *www.fabrikam.com* etki alanları için oluşturulur. 
 
-Adlı dinleyicileri eklemek *contosoListener* ve *fabrikamListener* kullanarak trafiği yönlendirmek için gereken [az ağ uygulama ağ geçidi http dinleyicisi oluşturmak](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
+Adlı dinleyiciler eklemek *contosoListener* ve *fabrikamListener* kullanarak trafiği yönlendirmek için gereken [az ağ application-gateway http-listener oluşturma](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -140,9 +140,9 @@ az network application-gateway http-listener create \
 
 ### <a name="add-routing-rules"></a>Yönlendirme kuralları ekleme
 
-Kurallar, oluşturuldukları sırada işlenir ve URL ile eşleşen ilk kural kullanarak uygulama ağ geçidi için gönderilen trafik yönlendirilir. Temel bir dinleyici ve çok siteli dinleyicisi hem aynı bağlantı noktasında kullanan bir kural kullanarak bir kuralı varsa, örneğin, çok siteli dinleyicisi kuralla beklendiği şekilde çalışması için temel dinleyicisi çok siteli kuralı için sırada olan kural önce listelenmiş olması gerekir. 
+Kuralları içinde oluşturuldukları sırada işlenir ve URL ile eşleşen ilk kural kullanarak uygulama ağ geçidine gönderilen trafik yönlendirilir. Örneğin, aynı bağlantı noktasında temel bir dinleyici kullanan bir kuralınız ve çok siteli dinleyici kullanan bir kuralınız varsa çok siteli kuralın beklendiği gibi çalışması için çok siteli dinleyicinin kuralı temel dinleyici kuralından önce listelenmelidir. 
 
-Bu örnekte, iki yeni kural oluşturma ve uygulama ağ geçidi oluşturduğunuzda, oluşturulan varsayılan kuralı silin. Kural kullanarak ekleyebilirsiniz [az ağ uygulama ağ geçidi kuralını](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
+Bu örnekte, iki yeni kural oluşturursunuz ve uygulama ağ geçidini oluştururken oluşturduğunuz varsayılan kuralı silersiniz. Kuralı [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create) komutunu kullanarak ekleyebilirsiniz.
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -165,9 +165,9 @@ az network application-gateway rule delete \
   --resource-group myResourceGroupAG
 ```
 
-## <a name="create-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri oluşturma
+## <a name="create-virtual-machine-scale-sets"></a>Sanal makine ölçek kümesi oluşturma
 
-Bu örnekte, üç arka uç havuzu uygulama ağ geçidi destek üç sanal makine ölçek kümeleri oluşturun. Oluşturduğunuz ölçek kümeleri adlı *myvmss1*, *myvmss2*, ve *myvmss3*. Her bir ölçek kümesi NGINX yüklemek iki sanal makine örneklerini içerir.
+Bu örnekte uygulama ağ geçidinde üç arka uç havuzunu destekleyen üç sanal makine ölçek kümesi oluşturursunuz. Oluşturduğunuz ölçek kümeleri *myvmss1*, *myvmss2* ve *myvmss3* olarak adlandırılır. Her bir ölçek kümesi NGINX yükleyeceğiniz iki sanal makine örneği içerir.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -206,14 +206,14 @@ for i in `seq 1 2`; do
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
     --settings '{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 
-## <a name="create-a-cname-record-in-your-domain"></a>Etki alanınızda bir CNAME kaydı oluşturun
+## <a name="create-a-cname-record-in-your-domain"></a>Etki alanınızda bir CNAME kaydı oluşturma
 
-Uygulama ağ geçidi genel IP adresiyle oluşturulduktan sonra DNS adresi alın ve etki alanınızdaki bir CNAME kaydı oluşturmak için kullanın. Kullanabileceğiniz [az ağ ortak IP Göster](/cli/azure/network/public-ip#az_network_public_ip_show) uygulama ağ geçidi DNS adresi alınamıyor. Kopya *fqdn* DNSSettings değerini ve oluşturduğunuz CNAME kaydı değeri olarak kullanın. 
+Uygulama ağ geçidi genel IP adresiyle oluşturulduktan sonra DNS adresini alabilir ve etki alanınızda bir CNAME kaydı oluşturmak için kullanabilirsiniz. Uygulama ağ geçidinin DNS adresini almak için [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) komutunu kullanabilirsiniz. DNSSetting için *fqdn* değerini kopyalayın ve bu değeri oluşturduğunuz CNAME kaydının değeri olarak kullanın. 
 
 ```azurecli-interactive
 az network public-ip show \
@@ -223,28 +223,28 @@ az network public-ip show \
   --output tsv
 ```
 
-Uygulama ağ geçidi yeniden başlatıldığında VIP değişebilir çünkü A kayıtlarını kullanılması önerilmez.
+Uygulama ağ geçidi yeniden başlatıldığında VIP değişebileceğinden A kayıtlarının kullanımı önerilmez.
 
-## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
+## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
-Tarayıcınızın adres çubuğuna, etki alanı adınızı girin. Gibi http://www.contoso.com.
+Tarayıcınızın adres çubuğuna, etki alanı adınızı girin. Örneğin http://www.contoso.com.
 
-![Uygulama ağ geçidi test contoso sitede](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
+![Uygulama ağ geçidinde contoso test etme](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 
-Diğer etki alanınıza adresini değiştirin ve aşağıdaki örneğe benzer bir şey görmeniz gerekir:
+Adresi diğer etki alanınızla değiştirin, aşağıdaki örneğe benzer bir şey görmeniz gerekir:
 
-![Uygulama ağ geçidi test fabrikam sitede](./media/tutorial-multisite-cli/application-gateway-nginxtest2.png)
+![Uygulama ağ geçidinde fabrikam sitesini test etme](./media/tutorial-multisite-cli/application-gateway-nginxtest2.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Ağ kurma
+> * Ağı ayarlama
 > * Uygulama ağ geçidi oluşturma
-> * Dinleyicileri ve yönlendirme kuralları oluşturma
-> * Sanal makine ölçek kümeleri ile arka uç havuzları oluşturma
-> * Etki alanınızda bir CNAME kaydı oluşturun
+> * Dinleyici ve yönlendirme kuralları oluşturma
+> * Arka uç havuzları ile sanal makine ölçek kümeleri oluşturma
+> * Etki alanınızda bir CNAME kaydı oluşturma
 
 > [!div class="nextstepaction"]
 > [Uygulama ağ geçidi ile neler yapabileceğiniz hakkında daha fazla bilgi edinin](application-gateway-introduction.md)

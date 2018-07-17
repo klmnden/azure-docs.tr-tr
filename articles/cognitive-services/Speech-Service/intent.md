@@ -1,74 +1,67 @@
 ---
-title: Örnek hedefi tanıma için | Microsoft Docs
+title: Amaç tanıma için örnek | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Burada amaç tanıma için bir örnek verilmiştir.
+description: Amaç tanıma için bir örnek aşağıda verilmiştir.
 services: cognitive-services
 author: wolfma61
 manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 1c9c1e2d54ccb200ef009be3566f6da9ced01175
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 4cf3bbfa24e102c544b0e3215a20b73d323f15df
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111176"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070969"
 ---
-# <a name="sample-for-intent-recognition"></a>Örnek hedefi tanıma
+# <a name="sample-for-intent-recognition"></a>Örnek amaç tanıma
 
-> [!NOTE]
-> Bu örnek ve diğerleri karşıdan yüklemek yönergeleri için bkz: [konuşma SDK'sı için örnek](samples.md).
+Lütfen bir abonelik anahtarı edinin. Amaç tanıma Hizmetleri Bilişsel hizmet konuşma SDK'sı tarafından desteklenen diğer hizmetleri aksine, belirli bir abonelik anahtarı gerektirir. [Burada](https://www.luis.ai) niyeti tanıma teknolojisi hakkında ek bilgi yanı sıra, bir abonelik anahtarı alma hakkında bilgi bulabilirsiniz. Kendi dil anlama abonelik anahtarını değiştirin [aboneliğinizin bölgesi](regions.md)ve hedefi modelinizin örneklerdeki uygun yerlerde AppID.
 
-> [!NOTE]
-> Lütfen abonelik anahtarı edinin. Bilişsel hizmeti konuşma SDK'sı tarafından desteklenen diğer hizmetler aksine hedefi tanıma hizmetlerinin belirli abonelik anahtarı gerektirir. [Burada](https://www.luis.ai) hedefi tanıma teknolojisi hakkında ek bilgi gibi bir abonelik anahtarı alma hakkında bilgi bulabilirsiniz. Kendi abonelik anahtarı değiştirmek [aboneliğinizin bölge](regions.md)ve hedefi örnekleri uygun yerlerde modelinizde AppID.
+## <a name="top-level-declarations"></a>Üst düzey bildirimleri
 
-> [!NOTE]
-> Aşağıdaki tüm örnekler için aşağıdaki üst düzey bildirimleri yerinde olmalıdır:
->
-> [!code-cpp[](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#toplevel)]
->
-> - - -
+Aşağıdaki tüm örnekler için aşağıdaki üst düzey bildirimleri koşulların karşılanması:
 
-## <a name="intent-recognition-using-microphone"></a>Mikrofon kullanarak hedefi tanıma
+[!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-Aşağıdaki kod parçacığında mikrofon girişi varsayılan dilde amaçtan tanımak nasıl gösterir (`en-US`).
+[!code-cpp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#toplevel)]
 
-[!code-cpp[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithMicrophone)]
+[!code-java[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#toplevel)]
 
-- - -
+## <a name="intent-recognition-using-microphone"></a>Mikrofon üzerinden niyeti tanıma
 
-## <a name="intent-recognition-using-microphone-in-a-specified-language"></a>Belirtilen bir dilde mikrofon kullanarak hedefi tanıma
+Aşağıdaki kod parçacığında mikrofon girişinin varsayılan dilde amacı tanımayı gösterilmektedir (`en-US`).
 
-Aşağıdaki kod parçacığında, belirli bir dilde mikrofon girişi amaçtan bu durumda Almanca tanımak gösterilmektedir (`de-de`).
+[!code-csharp[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithMicrophone)]
 
-[!code-cpp[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithLanguage)]
+[!code-cpp[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#IntentRecognitionWithMicrophone)]
 
-- - -
+[!code-java[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#IntentRecognitionWithMicrophone)]
 
-## <a name="intent-recognition-from-a-file"></a>Bir dosyadan hedefi tanıma
+## <a name="intent-recognition-using-microphone-in-a-specified-language"></a>Mikrofon belirtilen dillerden niyeti tanıma
 
-Aşağıdaki kod parçacığını bir ses dosyası varsayılan dilde amaçtan tanıdığı (`en-US`), tek kanallı (mono) WAV desteklenen biçimidir / 16 KHz örnekleme oranını ile PCM.
+Aşağıdaki kod parçacığında, belirtilen bir dile mikrofon girişinde amacından Almanca bu durumda tanımaya gösterilmektedir (`de-de`).
 
-[!include[Sample Audio](includes/sample-audio.md)]
+[!code-csharp[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithLanguage)]
 
-[!code-cpp[Intent Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithFile)]
+[!code-cpp[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#IntentRecognitionWithLanguage)]
 
-- - -
+[!code-java[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#IntentRecognitionWithLanguage)]
 
-## <a name="intent-recognition-using-events"></a>Hedefi tanıma olaylarını kullanma
+## <a name="intent-recognition-from-a-file-using-events"></a>Olayları kullanarak bir dosyadan niyeti tanıma
 
-Kod parçacığında, sürekli bir biçimde hedefi tanımak gösterilmiştir. Bu kod Ara sonuçların gibi ek bilgilere erişim sağlar. 
+Kod parçacığının varsayılan dilde amacı tanımayı gösterilmektedir (`en-US`) sürekli bir şekilde. Bu kod, Ara sonuçlar gibi ek bilgilere erişim sağlar. Giriş bir ses dosyasından alınır, desteklenen bir biçim tek kanallı (tekli) WAV / 16 KHz örnekleme oranını ile PCM.
 
-[!code-cpp[Intent Recognition Using Events](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentContinuousRecognitionUsingEvents)]
+[!code-csharp[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 
-- - -
+[!code-cpp[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#IntentContinuousRecognitionWithFile)]
 
-## <a name="sample-source-code"></a>Örnek kaynak kodu
+[!code-java[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#IntentContinuousRecognitionWithFile)]
 
-En son örnekleri için bkz [Bilişsel hizmetler konuşma SDK örnek GitHub deposunu](https://aka.ms/csspeech/samples).
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

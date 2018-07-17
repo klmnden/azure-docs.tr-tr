@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: b9218600db8bd3e20528e61e411bb64c10dd9c84
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 011358e223db419f31e0181b05ce6f89479dba81
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917644"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070952"
 ---
 # <a name="creating-custom-voice-fonts"></a>Özel ses tipi olarak oluşturma
 
@@ -63,12 +63,12 @@ Ses dosyaları gibi hazırlıklı olmalıdır. Diğer biçimlere desteklenmez ve
 
 | **Özellik** | **Değer** |
 | ------------ | --------- |
-| Dosya biçimi  | RIFF (WAV)|
-| Örnekleme hızı| en az 16. 000 Hz |
-| Örnek Biçim| PCM, 16-bit |
+| Dosya Biçimi  | RIFF (WAV)|
+| Örnekleme Oranı| en az 16. 000 Hz |
+| Örnek Biçimi| PCM, 16-bit |
 | Dosya Adı    | Sayısal ile `.wav` uzantısı |
-| Arşiv biçimi| Zip      |
-| En uzun arşiv boyutu|200 MB|
+| Arşiv Biçimi| Zip      |
+| Maksimum Arşiv Boyutu|200 MB|
 
 Ses dosyaları kümesini alt dizinler olmadan tek bir klasöre yerleştirin ve tek bir ZIP dosyası arşivi ayarlamak tüm paket.
 
@@ -235,5 +235,5 @@ Tıklayın **Play** içinde özel ses tipi konuşulan metnin duymak.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Konuşma deneme aboneliğinizi Al](https://azure.microsoft.com/try/cognitive-services/)
-- [C# ' de Konuşma tanıma](quickstart-csharp-windows.md)
+- [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
+- [C# ' de Konuşma tanıma](quickstart-csharp-dotnet-windows.md)

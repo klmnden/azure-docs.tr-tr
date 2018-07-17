@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 07/13/2018
 ms.author: sedusch
-ms.openlocfilehash: cac2f91a25907be824e3fd3517736d921c3fde64
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1fa69cc09772b9f90e6de05820c823f0409d926e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921510"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070357"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama
 
@@ -38,6 +38,11 @@ Bir ek sanal SBD cihaz sağlar ve bir iSCSI hedef sunucusu olarak davranan makin
 Bir ek sanal makine yatırımını yapmak istemiyorsanız, Azure sınır Aracısı'nı kullanabilirsiniz. Dezavantajı, bir yük devretme kaynak durdurma başarısız olursa veya küme düğümleri, birbirine artık iletişim kuramıyor 10-15 dakika arasında sürebilir ' dir.
 
 ![SLES genel SLES üzerinde pacemaker](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+
+>[!IMPORTANT]
+> SBD cihaz Pacemaker kümeniz için kullanarak, bu gibi diğer cihazları ile ilgili sanal makineleri ve SBD onları barındıran VM arasında yönlendirme geçmiyor tam küme genel güvenilirliği için önemlidir [nva'ları](https://azure.microsoft.com/solutions/network-appliances/). Aksi takdirde, NVA ile ilgili sorunlar genel küme yapılandırması, güvenilirlik ve kararlılık üzerinde olumsuz bir etkiye sahip olabilir. Tür engelleri önlemek için yönlendirme kuralları nva araştırmak ve [kullanıcı tanımlı yönlendirme kuralları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) planlayıp SBD aygıtlar dağıtma.
+>
+
 
 ## <a name="sbd-fencing"></a>SBD çitlemek
 

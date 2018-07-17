@@ -6,14 +6,14 @@ author: MichaelHauss
 manager: vamshik
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/15/2018
 ms.author: mihauss
-ms.openlocfilehash: fa933000ee08f16774c821e40d9a3c6fe5dbf353
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: a1c07350859d70b3ce6260b336419ddb2bd4aa66
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "35650877"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069361"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure depolama BLOB'ları için geçici silme
 Azure Storage şimdi blob nesneler için geçici silme sunar, böylece, yanlışlıkla değişiklik veya bir uygulama veya başka bir depolama hesabı kullanıcı tarafından silinmiş verilerinizi daha kolay geri yükleyebilirsiniz.
@@ -176,6 +176,11 @@ Geçici silme etkinleştirmek için bir blob istemcinin hizmet özellikleri gün
 Set-AzureRmContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
+```
+Aşağıdaki komutu kullanarak bu geçici silme açıldı doğrulayabilirsiniz:
+
+```powershell
+$MatchingAccounts | Get-AzureStorageServiceProperty -ServiceType Blob
 ```
 
 Yanlışlıkla silinen blobları kurtarmak için bu bloblarda silmeyi geri al'ı çağırın. Çağırmanın unutmayın **Blob silme işlemi geri**, hem de etkin ve geçici silinen blobları etkin olarak ilişkili tüm geçici silinen anlık geri. Aşağıdaki örnek bir kapsayıcıdaki tüm geçici silinen ve etkin blobları silme işlemini geri alma çağırır:

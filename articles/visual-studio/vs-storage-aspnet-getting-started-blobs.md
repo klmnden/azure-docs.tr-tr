@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 55b083ac5384e749098338d2f3b7b24bfe16fe8f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fd13dc94e0199aac04ae86aaf003ea9a70fa50d5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696574"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070564"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Azure Blob ile çalışmaya başlama depolama ve Visual Studio bağlı hizmetler (ASP.NET)
 
@@ -135,11 +135,11 @@ Aşağıdaki adımlar, bir blob kapsayıcısı oluşturma işlemini göstermekte
 
 1. İçinde **Çözüm Gezgini**, sağ **görünümleri** klasör.
 
-2. Bağlam menüsünden seçin **Ekle** > **yeni klasör**. Yeni klasör adı *Blobları*. 
+1. Mevcut değilse bir **Blobları** klasörü oluşturun. Bağlam menüsünden seçin **Ekle** > **yeni klasör**. Yeni klasör adı *Blobları*. 
  
 1. İçinde **Çözüm Gezgini**, genişletme **görünümleri** klasörünü açın ve sağ **Blobları**.
 
-4. Bağlam menüsünden seçin **Ekle** > **görünümü**.
+1. Bağlam menüsünden seçin **Ekle** > **görünümü**.
 
 1. İçinde **Görünüm Ekle** iletişim kutusuna **CreateBlobContainer** görünüm adını ve seçin için **Ekle**.
 

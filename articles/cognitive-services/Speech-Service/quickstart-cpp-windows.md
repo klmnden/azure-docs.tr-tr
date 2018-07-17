@@ -1,107 +1,97 @@
 ---
-title: C++ ve Windows için konuşma SDK Quickstart | Microsoft Docs
+title: "Hızlı Başlangıç: Bilişsel hizmetler konuşma SDK'sını kullanarak Windows masaüstünde c++ konuşma tanıma | Microsoft Docs"
 titleSuffix: Microsoft Cognitive Services
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get konuşma SDK'sı Windows ve Bilişsel hizmetler C++ kullanmaya başlayın.
+description: Bilişsel hizmetler konuşma SDK'sını kullanarak Windows masaüstünde c++ Konuşma tanımayı öğrenmesine
 services: cognitive-services
 author: wolfma61
 manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 4dea1209548fb3bb4f846cdf7eaf82751f938bea
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 4a8c5f7053c1976233bf9de6a0c142885b73c8aa
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37108853"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071207"
 ---
-# <a name="quickstart-for-c-and-windows"></a>C++ ve Windows için hızlı başlangıç
+# <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Hızlı Başlangıç: c++ konuşma Speech SDK'sı kullanarak Windows masaüstünde tanıması
 
-Bilişsel hizmetler konuşma SDK'ın geçerli sürümü `0.4.0`.
+Biz Windows Masaüstü için konuşma SDK'sının kullanır tabanlı C++ konsol uygulaması oluşturma işlemini açıklar.
+Uygulama dayanır [Microsoft Bilişsel hizmetler konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017.
 
-Biz Windows Masaüstü için konuşma SDK'sına yararlanır C++ tabanlı bir konsol uygulaması oluşturmak nasıl açıklar.
-Uygulama dayanır [Microsoft Bilişsel Services SDK'sı NuGet paketi](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) ve Microsoft Visual Studio 2017.
+## <a name="prerequisites"></a>Önkoşullar
+
+* Konuşma hizmeti için bir abonelik anahtarı. Bkz: [konuşma hizmeti ücretsiz olarak deneyin](get-started.md).
+* Bir çalışma mikrofon içeren bir Windows bilgisayar.
+* [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community sürümü veya üzeri.
+* **C++ ile masaüstü geliştirme** Visual Studio'da iş yükü ve **NuGet Paket Yöneticisi** Visual Studio'daki bileşen.
+  Her ikisini de etkinleştirebilirsiniz **Araçları** \> **araçları ve özellikleri Al**altında **iş yükleri** ve **tek tek bileşenler** sekmeleri , sırasıyla:
+
+  ![C++ iş yükünde ile masaüstü geliştirme etkinleştir](media/sdk/vs-enable-cpp-workload.png)
+
+  ![Visual Studio'da NuGet Paket Yöneticisi'ni etkinleştir ](media/sdk/vs-enable-nuget-package-manager.png)
+
+## <a name="create-a-visual-studio-project"></a>Visual Studio projesi oluşturma
+
+Visual Studio 2017'de yeni bir Visual C++ Windows Masaüstü Windows konsol uygulaması oluşturun. İçinde **yeni proje** iletişim kutusunda, sol bölmeden genişletin **yüklü** \> **Visual C++** \> **WindowsMasaüstü** seçip **Windows konsol uygulaması**. Proje adı olarak *helloworld*.
+
+![Visual C++ Windows Masaüstü Windows konsol uygulaması oluşturun](media/sdk/qs-cpp-windows-01-new-console-app.png)
+
+Bir 64 bit Windows yüklemesinde çalıştırıyorsanız, yapı platformunuz için isteğe bağlı olarak geçiş `x64`:
+
+![Yapı platformunu x64 geçiş](media/sdk/qs-cpp-windows-02-switch-to-x64.png)
+
+## <a name="install-and-reference-the-speech-sdk-nuget-package"></a>Yükleme ve konuşma SDK'sı NuGet paketi başvurusu
+
+Çözüm Gezgini'nde çözüme sağ tıklayın ve tıklayarak **çözüm için NuGet paketlerini Yönet**.
+
+![Sağ tıklatın, çözüm için NuGet paketlerini Yönet](media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
+
+Sağ üst köşede, içinde **paket kaynağı** alanında, "Nuget.org" seçin.
+Gelen **Gözat** sekmesinde, "Microsoft.CognitiveServices.Speech" paketini arayın, seçin ve denetleme **proje** ve **helloworld** sağ ve seçim kutuları **Yükleme** helloworld projeye yüklemek için.
 
 > [!NOTE]
-> C++ ve Linux için hızlı başlangıç için arıyorsanız, Git [burada](quickstart-cpp-linux.md).<br>
-> C# ve Windows için hızlı başlangıç için arıyorsanız, Git [burada](quickstart-csharp-windows.md).
+> Bilişsel hizmetler konuşma SDK'ın geçerli sürümü `0.5.0`.
 
-> [!NOTE]
-> Bu hızlı başlangıç çalışma mikrofon ile bir bilgisayar gerektirir.<br>
-> Belirli bir ses giriş dosyasından konuşma tanıdığı bir örnek için bkz: [örnek](speech-to-text-sample.md#speech-recognition-from-a-file).
+![Microsoft.CognitiveServices.Speech NuGet paketini yükle](media/sdk/qs-cpp-windows-04-nuget-install-0.5.0.png)
 
-> [!NOTE]
-> Visual Studio yüklemenizin içerdiğinden emin olmak **C++ ile masaüstü geliştirme** iş yükü.
-> Emin değilseniz, denetlemek ve düzeltmek için bu adımları kullanın: içinde Visual Studio 2017, select **Araçları** \> **alma araçları ve özelliklerinin** ve seçerekkullanıcıhesabıdenetimikomutistemionaylamak**Evet**.
-> İçinde **iş yükleri** sekmesinde, varsa **C++ ile masaüstü geliştirme** değil kümesi onay kutusunun yanında varsa, ayarlayın ve tıklayın **Değiştir** değişiklikleri kaydetmek için.
+Açılır lisans ekranda lisansı kabul edin:
 
-[!include[Get a Subscription Key](includes/get-subscription-key.md)]
+![Lisansı kabul edin](media/sdk/qs-cpp-windows-05-nuget-license.png)
 
-## <a name="creating-an-empty-console-application-project"></a>Bir boş konsol uygulama projesi oluşturma
+## <a name="add-the-sample-code"></a>Örnek kod ekleyin
 
-Visual Studio 2017 ' "CppHelloSpeech" adlı yeni bir Visual C++ Windows Masaüstü Windows konsol uygulaması oluşturun:
+1. Varsayılan başlangıç kodunuzu aşağıdaki biriyle değiştirin:
 
-![Visual C++ Windows Masaüstü Windows konsol uygulaması oluşturun](media/sdk/speechsdk-05-vs-cpp-new-console-app.png)
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-windows/helloworld/helloworld.cpp#code)]
 
-İsteğe bağlı olarak 64-bit Windows yüklemesinde çalıştırıyorsanız, yapı platformunuz geçiş `x64`:
+1. Dize değiştirin `YourSubscriptionKey` abonelik.
 
-![Anahtar x64 yapı platformu](media/sdk/speechsdk-07-vs-cpp-switch-to-x64.png)
+1. Dize değiştirin `YourServiceRegion` ile [bölge](regions.md) aboneliğinizle ilişkili (örneğin, `westus` ücretsiz deneme aboneliği için).
 
-## <a name="install-and-reference-the-speech-sdk-nuget-package"></a>Yükleme ve konuşma SDK NuGet paketi başvurusu
-
-> [!NOTE]
-> NuGet Paket Yöneticisi için Visual Studio 2017 yüklemenizi etkinleştirildiğinden emin olun.
-> Visual Studio 2017 içinde seçin **Araçları** \> **alma araçları ve özelliklerinin** ve seçerek kullanıcı hesabı denetimi komut istemi onaylamak **Evet**. Ardından **bileşenleri tek tek** sekmesini tıklatın ve Ara **NuGet Paket Yöneticisi** altında **kod Araçları**.
-> Onay kutusunun solunda ayarlanmamışsa ayarlayın ve tıklayın emin olun **Değiştir** değişiklikler kaydedilemiyor.
->
-> ![Visual Studio'da NuGet paket Yöneticisini Etkinleştir ](media/sdk/speechsdk-05-vs-enable-nuget-package-manager.png)
-
-Çözüm Gezgini'nde çözüme sağ tıklayın ve tıklayın **çözüm için NuGet paketlerini Yönet**.
-
-![Sağ tıklatın, çözüm için NuGet paketlerini Yönet](media/sdk/speechsdk-09-vs-cpp-manage-nuget-packages.png)
-
-Sağ üst köşedeki içinde **paket kaynağı** alan, "Nuget.org"'ı seçin.
-Gelen **Gözat** sekmesinde, aramak için "Microsoft.CognitiveServices.Speech" paketi, onu seçin ve denetleme **proje** ve **CppHelloSpeech** sağdaki kutuları ve seçin **yükleme** CppHelloSpeech projeye yüklemeye.
-
-![Microsoft.CognitiveServices.Speech NuGet paketini yükleyin](media/sdk/speechsdk-11-vs-cpp-manage-nuget-install.png)
-
-Açılır lisans ekranında lisans kabul edin:
-
-![Lisans kabul et](media/sdk/speechsdk-12-vs-cpp-manage-nuget-license.png)
-
-## <a name="add-the-sample-code"></a>Örnek kod ekleme
-
-Varsayılan başlangıç kodunuzu aşağıdaki biriyle değiştirin:
-
-[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-cpp/CppHelloSpeech.cpp#code)]
-
-> [!IMPORTANT]
-> Abonelik anahtarı aldığınız adla değiştirin. <br>
-> Değiştir [bölge](regions.md) yerine Örneğin, abonelikle ilişkili biriyle `westus` ücretsiz deneme aboneliği için.
-
-![Abonelik anahtarınızı ekleme](media/sdk/sub-key-recognize-speech-cpp.png)
+1. Değişiklikleri projeye kaydedin.
 
 ## <a name="build-and-run-the-sample"></a>Örneği derleme ve çalıştırma
 
-Kodu hatasız şimdi derlemek:
+1. Uygulamayı oluşturun. Menü çubuğundan seçin **derleme** > **Çözümü Derle**. Kod hatasız artık derlemeniz gerekir:
 
-![Başarılı derleme](media/sdk/speechsdk-16-vs-cpp-build.png)
+   ![Başarılı derleme](media/sdk/qs-cpp-windows-06-build.png)
 
-Başlat düğmesi veya F5 klavye kısayolunu kullanarak hata ayıklayıcı altında programı başlatın:
+1. Uygulamayı başlatın. Menü çubuğundan seçin **hata ayıklama** > **hata ayıklamayı Başlat**, veya basın **F5**.
 
-![Hata ayıklama içine uygulamayı başlatın](media/sdk/speechsdk-17-vs-cpp-f5.png)
+   ![INTO hata ayıklaması uygulamayı başlatın](media/sdk/qs-cpp-windows-07-start-debugging.png)
 
-Bir konsol penceresi, şeyin (İngilizce) deyin isteyen pop.
-Tanıma sonucunu ekranında görüntülenir.
+1. Bir şeyin (İngilizce) söyleyin isteyip istemediğinizi soran bir konsol penceresi açılır.
+   Tanıma sonucunu ekranında görüntülenir.
 
-![Başarılı tanıma sonra konsol çıkışı](media/sdk/speechsdk-18-vs-cpp-console-output-release.png)
+   ![Başarılı tanıma sonra konsol çıktısı](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
-## <a name="downloading-the-sample"></a>Örnek indirme
-
-En son örnekleri için bkz [Bilişsel hizmetler konuşma SDK örnek GitHub deposunu](https://aka.ms/csspeech/samples).
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Bu örnekte arayın `quickstart/cpp-windows` klasör.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Ziyaret [örnekleri sayfa](samples.md) ek örnekler için.
+* Ziyaret [örnekleri sayfası](samples.md) ek örnekler için.

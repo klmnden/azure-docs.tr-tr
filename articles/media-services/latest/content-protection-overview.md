@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: 5ed98bb4c4f40b23988a4f73778e715bfbea2505
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fb8730e9074624ba1b0f0162ebf9156b758b59c2
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004954"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068793"
 ---
 # <a name="content-protection-overview"></a>Content protection genel bakış
 
@@ -54,9 +54,9 @@ Bu makalede, kavramlar ve terminoloji content protection ile Media Services anla
   
     Bir oynatıcı kullanarak oluşturabileceğiniz [Azure Media Player API'sine](http://amp.azure.net/libs/amp/latest/docs/). Kullanma [Azure Media Player ProtectionInfo API'sine](http://amp.azure.net/libs/amp/latest/docs/) farklı DRM platformlarda kullanılacak DRM teknolojileri belirtmek için.
 
-    Test AES veya şifrelenmiş CENC (Widevine + PlayReady) için içerik, kullanabileceğiniz [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). "Gelişmiş Seçenekler" seçeneğini tıklatın ve AES denetleyin ve sonra bir belirteç sağlayın emin olun.
+    Test AES veya şifrelenmiş CENC (Widevine ve/veya PlayReady) için içerik, kullanabileceğiniz [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). "Gelişmiş Seçenekler" seçeneğini tıklatın ve denetimi, şifreleme seçenekleri emin olun.
 
-    FairPlay şifreli içeriği test etmek istediğiniz kullanırsanız [bu test yürütücünün](http://aka.ms/amtest). Player, Widevine, PlayReady, destekler ve benzeri FairPlay DRM ve bunun yanı sıra AES-128 şifresiz anahtar şifrelemesiyle koruyun. Farklı benzeri DRM test etmek için doğru tarayıcı seçmeniz gerekebilir: Opera/Chrome/Firefox Widevine, MS Edge/ıe11 PlayReady için FairPlay için maOS üzerinde Safari için.
+    FairPlay şifreli içeriği test etmek istediğiniz kullanırsanız [bu test yürütücünün](http://aka.ms/amtest). Player, Widevine, PlayReady, destekler ve benzeri FairPlay DRM ve bunun yanı sıra AES-128 şifresiz anahtar şifrelemesiyle koruyun. Farklı benzeri DRM test etmek için doğru tarayıcı seçmeniz gerekebilir: Chrome/Opera/Firefox'ta Widevine, MS Edge/ıe11 PlayReady için Safari macOS FairPlay için.
 
 3. Belirteç Hizmeti (JSON Web Token (JWT) olarak arka uç kaynağına erişim için erişim belirteci verir STS), güvenli hale getirin. AMS lisans teslim hizmetleri arka uç kaynağı olarak kullanabilirsiniz. STS sahip aşağıdaki tanımlamak:
 
@@ -122,18 +122,6 @@ Bir belirteç kısıtlamalı içerik anahtar ilkesiyle, içerik anahtarı, anaht
 
 Belirteç kısıtlamalı ilkenin yapılandırdığınızda, birincil doğrulama anahtarı, veren ve İzleyici parametrelerini belirtmeniz gerekir. Birincil doğrulama anahtarı belirteç birlikte imzalandığı anahtarını içerir. Verici belirteci veren güvenli belirteç hizmetidir. Belirtecin amacı kapsam olarak da adlandırılan, hedef kitle açıklayan veya kaynak belirteci erişimini yetkilendirir. Media Services anahtar dağıtımı hizmetiyle belirtecindeki bu değerleri şablon değerleri eşleştiğini doğrular.
 
-## <a name="streaming-urls"></a>Akış URL'leri
-
-Varlığınız birden çok DRM ile şifrelenmiş, şifreleme etiketi akış URL'SİNDE kullanın: (format = 'm3u8-aapl' şifreleme = 'xxx').
-
-Aşağıdaki maddeler geçerlidir:
-
-* Şifreleme türü yalnızca varlık için bir şifreleme uygulandı URL'nin belirtilmesi gerekmez.
-* Şifreleme türü büyük/küçük harfe duyarlıdır.
-* Aşağıdaki şifreleme türlerini belirtilebilir:
-  * **cenc**: için PlayReady veya Widevine (ortak şifreleme)
-  * **cbcs-aapl**: için FairPlay (AES-CBC şifreleme)
-  * **CBC**: için AES zarfı şifreleme
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

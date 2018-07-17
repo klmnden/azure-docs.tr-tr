@@ -1,6 +1,6 @@
 ---
-title: Bir uygulama ağ geçidi sertifikası - Azure CLI oluşturma | Microsoft Docs
-description: Bir uygulama ağ geçidi oluşturmak ve Azure CLI kullanarak SSL sonlandırma için bir sertifika eklemek öğrenin.
+title: Sertifika - Azure CLI ile bir uygulama ağ geçidi oluşturma | Microsoft Docs
+description: Azure CLI kullanarak uygulama ağ geçidi oluşturma ve SSL sonlandırma sertifikası eklemeyi öğrenin.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -8,27 +8,27 @@ editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/23/2018
+ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 2e72417b51e60f404f89b92a64678ce67b56a5e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2fda86d072d441a55f99cf6ebc47740f3b9744fa
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355891"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070401"
 ---
-# <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Bir uygulama ağ geçidi HTTP ile Azure CLI kullanarak HTTPS yeniden yönlendirmesi için oluşturma
+# <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Azure CLI kullanarak HTTPS yeniden yönlendirmesi için HTTP ile application gateway oluşturma
 
-Azure CLI oluşturmak için kullanabileceğiniz bir [uygulama ağ geçidi](application-gateway-introduction.md) SSL sonlandırma için bir sertifika ile. Yönlendirme kuralı HTTPS bağlantı noktası uygulama ağ geçidiniz için HTTP trafiği yönlendirmek için kullanılır. Bu örnekte, ayrıca oluşturduğunuz bir [sanal makine ölçek kümesi](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) iki sanal makine örneklerini içeren uygulama ağ geçidi arka uç havuzu için.
+Azure CLI'yı oluşturmak için kullanabileceğiniz bir [uygulama ağ geçidi](application-gateway-introduction.md) ile SSL sonlandırma için bir sertifika. Yönlendirme kuralı, application gateway'iniz HTTPS bağlantı noktasına HTTP trafiğini yönlendirmek için kullanılır. Ayrıca, bu örnekte, oluşturduğunuz bir [sanal makine ölçek kümesi](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) iki sanal makine örnekleri içeren application Gateway arka uç havuzu için.
 
 Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Otomatik olarak imzalanan sertifika oluşturma
-> * Ağ kurma
-> * Sertifika ile bir uygulama ağ geçidi oluşturma
+> * Ağ ayarlama
+> * Sertifikalı bir uygulama ağ geçidi oluşturma
 > * Dinleyici ve yeniden yönlendirme kuralı Ekle
-> * Bir sanal makineyi ölçeği varsayılan arka uç havuzuyla Ayarla oluşturma
+> * Varsayılan arka uç havuzuyla bir sanal makine ölçek kümesi oluşturma
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -38,25 +38,25 @@ CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç i�
 
 ## <a name="create-a-self-signed-certificate"></a>Otomatik olarak imzalanan sertifika oluşturma
 
-Üretim kullanımı için güvenilen bir sağlayıcı tarafından imzalanmış geçerli bir sertifika almanız gerekir. Bu öğreticide, bir kendinden imzalı bir sertifika ve pfx dosyası openssl komutunu kullanarak oluşturun.
+Üretim kullanımı için güvenilen bir sağlayıcı tarafından imzalanan geçerli bir sertifikayı içeri aktarmalısınız. Bu öğretici için openssl komutunu kullanarak otomatik olarak imzalanan bir sertifika ve pfx dosyası oluşturursunuz.
 
 ```azurecli-interactive
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
-Sertifikanızı için anlamlı değerleri girin. Varsayılan değerleri kabul edebilir.
+Sertifikanız için anlamlı olan değerler girin. Varsayılan değerleri kabul edebilirsiniz.
 
 ```azurecli-interactive
 openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
 ```
 
-Sertifika için parola girin. Bu örnekte, *Azure123456!* kullanılıyor.
+Sertifika için parola belirtin. Bu örnekte *Azure123456!* kullanılmaktadır.
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Kullanarak bir kaynak grubu oluşturmak [az grubu oluşturma](/cli/azure/group#create).
+Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. [az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun.
 
-Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupAG* içinde *eastus* konumu.
+Aşağıdaki örnek *eastus* konumunda *myResourceGroupAG* adlı bir kaynak grubu oluşturur.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -64,7 +64,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Ağ kaynakları oluşturma
 
-Adlı sanal ağ oluşturma *myVNet* ve adlı alt ağın *myAGSubnet* kullanarak [az ağ vnet oluşturma](/cli/azure/network/vnet#az_net). Daha sonra adlı alt ağ ekleyebilirsiniz *myBackendSubnet* kullanarak arka uç sunucuları tarafından gerekli [az ağ sanal alt oluşturma](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Adlı ortak IP adresi oluşturma *myAGPublicIPAddress* kullanarak [az ağ genel IP oluşturun](/cli/azure/public-ip#az_network_public_ip_create).
+[az network vnet create](/cli/azure/network/vnet#az_net) komutunu kullanarak *myVNet* adlı sanal ağı ve *myAGSubnet* adlı alt ağı oluşturun. Daha sonra [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) kullanan arka uç sunucularının gerek duyduğu *myBackendSubnet* adlı alt ağı ekleyebilirsiniz. [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun.
 
 ```azurecli-interactive
 az network vnet create \
@@ -86,9 +86,9 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Kullanabileceğiniz [az ağ uygulama-ağ geçidi oluşturma](/cli/azure/network/application-gateway#az_network_application_gateway_create) adlı uygulama ağ geçidi oluşturmak için *myAppGateway*. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtin. 
+*myAppGateway* adlı uygulama ağ geçidini oluşturmak için [az network application-gateway create](/cli/azure/network/application-gateway#az_network_application_gateway_create) komutunu kullanabilirsiniz. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtirsiniz. 
 
-Uygulama ağ geçidi atandığı *myAGSubnet* ve *myAGPublicIPAddress* daha önce oluşturduğunuz. Uygulama ağ geçidi oluşturduğunuzda, bu örnekte, oluşturduğunuz sertifikayı ve parolasını ilişkilendirin. 
+Uygulama ağ geçidi, *myAGSubnet*’e ve daha önce oluşturduğunuz *myAGPublicIPAddress*’e atanır. Bu örnekte olluşturduğunuz sertifika ve uygulama ağ geçidini oluşturduğunuz zamanki parolasını ilişkilendiirirsiniz. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -109,19 +109,19 @@ az network application-gateway create \
 
 ```
 
- Oluşturulacak uygulama ağ geçidi için birkaç dakika sürebilir. Uygulama ağ geçidi oluşturulduktan sonra bu yeni özellikleri bunu görebilirsiniz:
+ Uygulama ağ geçidinin oluşturulması birkaç dakika sürebilir. Uygulama ağ geçidi oluşturulduktan sonra şu yeni özellikleri görürsünüz:
 
-- *appGatewayBackendPool* -bir uygulama ağ geçidi en az bir arka uç adres havuzu olmalıdır.
-- *appGatewayBackendHttpSettings* -80 numaralı bağlantı noktasını ve HTTP protokolü kullanılır, iletişim için belirtir.
-- *appGatewayHttpListener* -ilişkili varsayılan dinleyici *appGatewayBackendPool*.
-- *appGatewayFrontendIP* -atar *myAGPublicIPAddress* için *appGatewayHttpListener*.
-- *Kuralı 1* - ilişkilendirilen kural yönlendirme varsayılan *appGatewayHttpListener*.
+- *appGatewayBackendPool* -bir uygulama ağ geçidi en az bir arka uç adres havuzuna sahip olmalıdır.
+- *appGatewayBackendHttpSettings*: İletişim için 80 numaralı bağlantı noktasının ve HTTP protokolünün kullanıldığını belirtir.
+- *appGatewayHttpListener*: *appGatewayBackendPool* ile ilişkili varsayılan dinleyicidir.
+- *appGatewayFrontendIP*: *appGatewayHttpListener*’a *myAGPublicIPAddress*’i atar.
+- *kural 1*: *appGatewayHttpListener* ile ilişkili varsayılan yönlendirme kuralıdır.
 
 ## <a name="add-a-listener-and-redirection-rule"></a>Dinleyici ve yeniden yönlendirme kuralı Ekle
 
-### <a name="add-the-http-port"></a>HTTP bağlantı noktası ekleme
+### <a name="add-the-http-port"></a>HTTP bağlantı noktası Ekle
 
-Kullanabileceğiniz [az ağ uygulama ağ geçidi ön uç-port oluşturmak](/cli/azure/network/application-gateway/frontend-port#az_network_application_gateway_frontend_port_create) HTTP bağlantı noktası uygulama ağ geçidi eklemek için.
+Kullanabileceğiniz [az ağ application-gateway frontend-port oluşturma](/cli/azure/network/application-gateway/frontend-port#az_network_application_gateway_frontend_port_create) HTTP bağlantı noktası uygulama ağ geçidine eklemek için.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -131,9 +131,9 @@ az network application-gateway frontend-port create \
   --name httpPort
 ```
 
-### <a name="add-the-http-listener"></a>HTTP dinleyicisi ekleme
+### <a name="add-the-http-listener"></a>HTTP dinleyicisi Ekle
 
-Kullanabileceğiniz [az ağ uygulama ağ geçidi http dinleyicisi oluşturmak](/cli/azure/network/application-gateway/http-listener#az_network_application_gateway_http_listener_create) adlı dinleyicisi eklemek için *myListener* uygulama ağ geçidi için.
+Kullanabileceğiniz [az ağ application-gateway http-listener oluşturma](/cli/azure/network/application-gateway/http-listener#az_network_application_gateway_http_listener_create) adlı dinleyiciyi eklemek için *myListener* application gateway'e.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Yeniden yönlendirme yapılandırması Ekle
 
-Uygulama ağ geçidi kullanarak HTTPS yeniden yönlendirme yapılandırması HTTP eklemek [az ağ uygulama ağ geçidi yeniden yönlendirme-config oluşturma](/cli/azure/network/application-gateway/redirect-config#az_network_application_gateway_redirect_config_create).
+HTTP, HTTPS yeniden yönlendirmesi yapılandırma kullanarak uygulama ağ geçidi eklemek [az ağ uygulama ağ geçidini yeniden yönlendirme yapılandırması oluşturma](/cli/azure/network/application-gateway/redirect-config#az_network_application_gateway_redirect_config_create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -161,7 +161,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-the-routing-rule"></a>Yönlendirme kuralı Ekle
 
-Adlı yönlendirme kuralı Ekle *Kural 2* kullanarak uygulama ağ geçidi için yeniden yönlendirme yapılandırması ile [az ağ uygulama ağ geçidi kuralını](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create).
+Adlı yönlendirme kuralı Ekle *bağlanma2* uygulama ağ geçidi kullanarak yönlendirme yapılandırması ile [az ağ uygulama ağ geçidi kuralı oluşturma](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -175,7 +175,7 @@ az network application-gateway rule create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Sanal makine ölçek kümesi oluşturma
 
-Bu örnekte, oluşturduğunuz adlandırılmış kümesi bir sanal makine ölçek *myvmss* uygulama ağ geçidi arka uç havuzu için sunucuları sağlar. Ölçek kümesindeki sanal makineler ilişkili *myBackendSubnet* ve *appGatewayBackendPool*. Ölçek oluşturmak için kullanabileceğiniz [az vmss oluşturma](/cli/azure/vmss#az_vmss_create).
+Bu örnekte, adlı bir sanal makine ölçek kümesi oluşturma *myvmss* uygulama ağ geçidi arka uç havuzu için sunucular sağlar. Ölçek kümesindeki sanal makineler *myBackendSubnet* ve *appGatewayBackendPool* ile ilişkilidir. Ölçek kümesini oluşturmak için [az vmss create](/cli/azure/vmss#az_vmss_create) komutunu kullanabilirsiniz.
 
 ```azurecli-interactive
 az vmss create \
@@ -195,7 +195,7 @@ az vmss create \
 
 ### <a name="install-nginx"></a>NGINX yükleme
 
-Bu komut kabuğu penceresinde çalıştırın:
+Shell penceresine şu komutu çalıştırın:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -204,13 +204,13 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
-## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
+## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
-Uygulama ağ geçidi genel IP adresi almak için kullanabileceğiniz [az ağ ortak IP Göster](/cli/azure/network/public-ip#az_network_public_ip_show). Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
+Uygulama ağ geçidinin genel IP adresini almak için [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) komutunu kullanın. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -222,9 +222,9 @@ az network public-ip show \
 
 ![Güvenli uyarı](./media/tutorial-http-redirect-cli/application-gateway-secure.png)
 
-Kendinden imzalı bir sertifika kullanıyorsa uyarı güvenlik kabul etmeyi seçin **ayrıntıları** ve ardından **Web sayfasına gidin**. Güvenli NGINX siteniz, sonra aşağıdaki örnekte olduğu gibi görüntülenir:
+Otomatik olarak imzalanan sertifika kullandıysanız güvenlik uyarısını kabul etmek için, **Ayrıntılar**’ı seçin ve sonra **Web sayfasına gidin**: Güvenli NGINX siteniz, sonra aşağıdaki örnekte olduğu gibi görüntülenir:
 
-![Temel uygulama ağ geçidi URL'de test](./media/tutorial-http-redirect-cli/application-gateway-nginxtest.png)
+![Temel URL’yi uygulama ağ geçidinde test etme](./media/tutorial-http-redirect-cli/application-gateway-nginxtest.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -232,10 +232,10 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * Otomatik olarak imzalanan sertifika oluşturma
-> * Ağ kurma
-> * Sertifika ile bir uygulama ağ geçidi oluşturma
+> * Ağ ayarlama
+> * Sertifikalı bir uygulama ağ geçidi oluşturma
 > * Dinleyici ve yeniden yönlendirme kuralı Ekle
-> * Bir sanal makineyi ölçeği varsayılan arka uç havuzuyla Ayarla oluşturma
+> * Varsayılan arka uç havuzuyla bir sanal makine ölçek kümesi oluşturma
 
 > [!div class="nextstepaction"]
 > [Uygulama ağ geçidi ile neler yapabileceğiniz hakkında daha fazla bilgi edinin](application-gateway-introduction.md)

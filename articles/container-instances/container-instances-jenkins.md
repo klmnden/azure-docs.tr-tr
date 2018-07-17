@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 07/13/2018
 ms.author: marsma
-ms.openlocfilehash: ff94a250ca40aa546ebb07faa96563f49dea974a
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: d8ac5850a61c1dec9daa508236ef56836876c3fe
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887700"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072084"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Kullanım Azure Container Instances olarak bir Jenkins derleme aracısı
 
@@ -92,31 +92,21 @@ Jenkins yapılandırılmıştır ve yapı ve kod dağıtmak için hazır. Bu ör
 
 ## <a name="create-a-build-job"></a>Bir derleme işi oluşturma
 
-Kullanırken bir kapsayıcı görüntüsü olarak bir Jenkins derleme hedef, tüm başarılı bir derleme için gerekli araçları içeren bir görüntü belirtmeniz gerekir. Görüntüyü belirtmek için:
+Artık, bir Azure kapsayıcı örneğinde Jenkins derlemeleri göstermek için bir Jenkins derleme işi oluşturulur.
 
-1. Seçin **Jenkins'i Yönet** > **yapılandırma sistemi** ekranı aşağı kaydırarak **bulut** bölümü. Bu örnekte, Docker görüntüsünü değerine güncelleştirme **microsoft/java-üzerinde-azure-jenkins-bağımlı**.
-
-   İşiniz bittiğinde **Kaydet** Jenkins panosuna dönün.
-
-   ![Jenkins bulut yapılandırması](./media/container-instances-jenkins/jenkins-aci-image.png)
-
-2. Şimdi bir Jenkins derleme işi oluşturun. Seçin **yeni öğe**, derleme proje gibi bir ad verin **aci-java-demo**seçin **Serbest tarzda proje**seçip **Tamam**.
+1. Seçin **yeni öğe**, derleme proje gibi bir ad verin **aci-demo**seçin **Serbest tarzda proje**seçip **Tamam**.
 
    ![Derleme işi ve proje türleri listesinden kutusu adı](./media/container-instances-jenkins/jenkins-new-job.png)
 
-3. Altında **genel**, emin **burada bu proje çalıştırılabilir kısıtlama** seçilir. Girin **linux** etiket ifadesi için. Bu yapılandırma, bu derleme işi ACI bulutta çalıştırmasını sağlar.
+2. Altında **genel**, emin **burada bu proje çalıştırılabilir kısıtlama** seçilir. Girin **linux** etiket ifadesi için. Bu yapılandırma, bu derleme işi ACI bulutta çalıştırmasını sağlar.
 
    ![Yapılandırma Ayrıntıları "Genel" sekmesi](./media/container-instances-jenkins/jenkins-job-01.png)
 
-4. Altında **kaynak kodu Yönetimi**seçin **Git** girin **https://github.com/spring-projects/spring-petclinic.git** için depo URL'si. Bu GitHub deposundan örnek uygulama kodu içerir.
+3. Altında **derleme**seçin **derleme adımı Ekle** seçip **Kabuğu Yürüt**. Girin `echo "aci-demo"` komutu.
 
-   ![Kaynak kod bilgisi "Kaynak kodu Yönetimi" sekmesi](./media/container-instances-jenkins/jenkins-job-02.png)
+   ![Derleme adımı için seçimleri "Derleme" sekmesi](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. Altında **derleme**seçin **derleme adımı Ekle** seçip **en üst düzey Maven hedefleri çağırma**. Girin **paket** derleme adımı hedefi olarak.
-
-   ![Derleme adımı için seçimleri "Derleme" sekmesi](./media/container-instances-jenkins/jenkins-job-03.png)
-
-6. **Kaydet**’i seçin.
+5. **Kaydet**’i seçin.
 
 ## <a name="run-the-build-job"></a>Derleme işi çalıştırma
 

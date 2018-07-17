@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 0ace89e04baf81776f82edd002b93b944c752051
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5eb0839cb973ba2f8bc56dc240fc60817b24b3b6
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860141"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068871"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>"Metin okuma" konuşma hizmeti kullanın
 
@@ -95,5 +95,7 @@ Metni konuşma REST API'si hakkında daha fazla bilgi için bkz. [REST API'leri]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Konuşma deneme aboneliğinizi Al](https://azure.microsoft.com/try/cognitive-services/)
-- [C# ' de Konuşma tanıma](quickstart-csharp-windows.md)
+- [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
+- [C++'ta konuşma tanıma](quickstart-cpp-windows.md)
+- [C# ' de Konuşma tanıma](quickstart-csharp-dotnet-windows.md)
+- [Java'da konuşma tanıma](quickstart-java-android.md)

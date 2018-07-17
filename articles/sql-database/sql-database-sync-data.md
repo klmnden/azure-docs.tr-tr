@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 07/01/2018
+ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 56117953c6cd11b952a312e15cd4515895021e10
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342666"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069395"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL Data Sync ile birden fazla Bulut ve şirket içi veritabanı arasında veri eşitleme
 
@@ -24,6 +24,16 @@ SQL Data Sync, birden çok SQL veritabanları ve SQL Server örnekleri arasında
 ## <a name="architecture-of-sql-data-sync"></a>SQL Data Sync'i mimarisi
 
 Veri eşitleme, bir eşitleme grubu kavramını temel alır. Bir eşitleme grubu, eşitlemek istediğiniz veritabanlarını grubudur.
+
+Veri eşitleme, verileri eşitlemek için bir hub ve bağlı bileşen topolojisi kullanır. Veritabanlarından birini eşitleme grubunda Hub veritabanı tanımlarsınız. Veritabanlarını geri kalanını olan üye veritabanları. Yalnızca Hub ve tek tek üyeleri arasında eşitleme gerçekleşir.
+-   **Hub veritabanı** Azure SQL veritabanı olmalıdır.
+-   **Üye veritabanları** SQL veritabanları, şirket içi SQL Server veritabanları veya Azure sanal makineler'de SQL Server örnekleri olabilir.
+-   **Eşitleme veritabanı** Data Sync için meta verileri ve günlük içerir. Eşitleme veritabanı Hub veritabanı olarak Azure SQL veritabanı aynı bölgede olması gerekir. Eşitleme müşteri oluşturuldu ve müşterinin sahip olduğu bir veritabanıdır.
+
+> [!NOTE]
+> İçin yüklü bir şirket içi veritabanı bir üye veritabanı kullanıyorsanız, [yükleyip yerel bir eşitleme Aracısı yapılandırın](sql-database-get-started-sql-data-sync.md#add-on-prem).
+
+![Veritabanları arasında verileri eşitleme](media/sql-database-sync-data/sync-data-overview.png)
 
 Bir eşitleme grubu, aşağıdaki özelliklere sahiptir:
 
@@ -35,16 +45,6 @@ Bir eşitleme grubu, aşağıdaki özelliklere sahiptir:
 
 -   **Çakışma çözüm İlkesi** olabilir bir grubu düzeyi ilkesi *Hub WINS* veya *üye WINS*.
 
-Veri eşitleme, verileri eşitlemek için bir hub ve bağlı bileşen topolojisi kullanır. Veritabanlarından birini grubunda Hub veritabanı tanımlarsınız. Veritabanlarını geri kalanını olan üye veritabanları. Yalnızca Hub ve tek tek üyeleri arasında eşitleme gerçekleşir.
--   **Hub veritabanı** Azure SQL veritabanı olmalıdır.
--   **Üye veritabanları** SQL veritabanları, şirket içi SQL Server veritabanları veya Azure sanal makineler'de SQL Server örnekleri olabilir.
--   **Eşitleme veritabanı** Data Sync için meta verileri ve günlük içerir. Eşitleme veritabanı Hub veritabanı olarak Azure SQL veritabanı aynı bölgede olması gerekir. Eşitleme müşteri oluşturuldu ve müşterinin sahip olduğu bir veritabanıdır.
-
-> [!NOTE]
-> İçin yüklü bir şirket içi veritabanı bir üye veritabanı kullanıyorsanız, [yükleyip yerel bir eşitleme Aracısı yapılandırın](sql-database-get-started-sql-data-sync.md#add-on-prem).
-
-![Veritabanları arasında verileri eşitleme](media/sql-database-sync-data/sync-data-overview.png)
-
 ## <a name="when-to-use-data-sync"></a>Veri Eşitleme kullanıldığı durumlar
 
 Veri eşitleme veri burada birkaç Azure SQL veritabanları veya SQL Server veritabanlarını güncel tutulması gereken durumlarda yararlıdır. Veri eşitleme için ana kullanım örnekleri şunlardır:
@@ -55,7 +55,7 @@ Veri eşitleme veri burada birkaç Azure SQL veritabanları veya SQL Server veri
 
 -   **Global olarak dağıtılmış uygulamalar:** çok sayıda işletme, çeşitli bölgeleri ve hatta bazı ülkelerde span. Ağ gecikmesini en aza indirmek için size yakın bir bölgede verilerinizin sağlamak en iyisidir. Data Sync ile eşitlenmiş dünyanın dört bir yanındaki bölgelerdeki veritabanlarına kolayca tutabilirsiniz.
 
-Veri eşitleme, aşağıdaki senaryolar için en iyi çözüm değil:
+Veri eşitleme, aşağıdaki senaryolar için tercih edilen bir çözüm değil:
 
 | Senaryo | Bazı önerilen çözümler |
 |----------|----------------------------|

@@ -1,7 +1,7 @@
 ---
-title: Konuşma metin için örnek | Microsoft Docs
+title: Örnek konuşma metin | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Burada, konuşma metin için bir örnek verilmiştir.
+description: Konuşma metni için bir örnek aşağıda verilmiştir.
 services: cognitive-services
 author: wolfma61
 manager: onano
@@ -10,72 +10,60 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 2a1850e6a4f3c8eebd1b947aabe1374bdaab3fc8
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5740586eca902fa63ca7b8590b07f4b276d21e4d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030259"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071377"
 ---
-# <a name="sample-for-speech-to-text"></a>Konuşma metin için örnek
+# <a name="sample-for-speech-to-text"></a>Örnek konuşma metin
 
-> [!NOTE]
-> Bu örnek ve diğerleri karşıdan yüklemek yönergeleri için bkz: [konuşma SDK'sı için örnek](samples.md).
+[!include[Get a Subscription Key](../../../includes/cognitive-services-speech-service-get-subscription-key.md)]
 
-[!include[Get a Subscription Key](includes/get-subscription-key.md)]
+## <a name="top-level-declarations"></a>Üst düzey bildirimleri
 
-> [!NOTE]
-> Aşağıdaki tüm örnekler için aşağıdaki üst düzey bildirimleri yerinde olmalıdır:
->
-> [!code-csharp[](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#toplevel)]
->
-> [!code-cpp[](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#toplevel)]
->
-> - - -
+Aşağıdaki tüm örnekler için aşağıdaki üst düzey bildirimleri koşulların karşılanması:
 
-## <a name="speech-recognition-using-the-microphone"></a>Konuşma tanıma mikrofon kullanma
+[!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#toplevel)]
 
-Aşağıdaki kod parçacığında, varsayılan dilde Mikrofon konuşma girişten tanımak gösterilmektedir (`en-US`).
+[!code-cpp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#toplevel)]
 
-[!code-csharp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionWithMicrophone)]
+[!code-java[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#toplevel)]
 
-[!code-cpp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechRecognitionWithMicrophone)]
+## <a name="speech-recognition-using-the-microphone"></a>Mikrofon kullanarak konuşma tanıma
 
-- - -
+Aşağıdaki kod parçacığında, mikrofon varsayılan dilde konuşma girişten tanımak gösterilmektedir (`en-US`).
 
-## <a name="speech-recognition-from-a-file"></a>Bir dosyadan konuşma tanıma
+[!code-csharp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#recognitionWithMicrophone)]
 
-Aşağıdaki kod parçacığını bir ses dosyası varsayılan dilde konuşma girişten tanıdığı (`en-US`), tek kanallı (mono) WAV desteklenen biçimidir / 16 KHz örnekleme oranını ile PCM.
+[!code-cpp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#SpeechRecognitionWithMicrophone)]
+
+[!code-java[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#recognitionWithMicrophone)]
+
+## <a name="speech-recognition-using-a-customized-model"></a>Özelleştirilmiş bir modeli kullanarak konuşma tanıma
+
+[Özel konuşma hizmeti (CRI)](https://www.cris.ai/) uygulamanız için Microsoft'un Konuşmayı metne altyapısı özelleştirmesini sağlar. Aşağıdaki kod parçacığında, bir mikrofondan CRI modelinizi kullanarak konuşma tanıma gösterilmektedir; CRI abonelik anahtarınız ve çalıştırmadan önce dağıtım kimlik bilgileriniz kendi doldurun.
+
+[!code-csharp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#recognitionCustomized)]
+
+[!code-cpp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#SpeechRecognitionUsingCustomizedModel)]
+
+[!code-java[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#recognitionCustomized)]
+
+## <a name="continuous-speech-recognition-from-a-file"></a>Bir dosyadan sürekli konuşma tanıma
+
+Aşağıdaki kod parçacığı bir ses dosyası varsayılan dilde konuşma girişten sürekli olarak tanır (`en-US`), tek kanallı (tekli) WAV desteklenen biçimidir / 16 KHz örnekleme oranını ile PCM.
 
 [!include[Sample Audio](includes/sample-audio.md)]
 
-[!code-csharp[Speech Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs?name=recognitionFromFile)]
+[!code-csharp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#recognitionContinuousWithFile)]
 
-[!code-cpp[Speech Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp?name=SpeechRecognitionWithFile)]
+[!code-cpp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#SpeechContinuousRecognitionWithFile)]
 
-- - -
+[!code-java[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#recognitionContinuousWithFile)]
 
-## <a name="speech-recognition-using-a-customized-model"></a>Özelleştirilmiş bir modeli kullanılarak konuşma tanıma
-
-[Özel konuşma hizmet (CRI)](https://www.cris.ai/) Microsoft'un konuşma metin altyapısı, uygulamanız için özelleştirmesini sağlar. Aşağıdaki kod parçacığında CRI model kullanarak mikrofon gelen Konuşma tanıması gösterilmektedir; CRI abonelik anahtarınızı ve çalıştırmadan önce dağıtım kimlik bilgileriniz kendi doldurun.
-
-[!code-csharp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionCustomized)]
-
-[!code-cpp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechRecognitionUsingCustomizedModel)]
-
-- - -
-
-## <a name="continuous-speech-recognition"></a>Sürekli konuşma tanıma
-
-[!code-csharp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionContinuous)]
-
-[!code-cpp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechContinuousRecognitionUsingEvents)]
-
-- - -
-
-## <a name="sample-source-code"></a>Örnek kaynak kodu
-
-En son sürümünü örnekleri ve hatta daha gelişmiş örnekleri olan ayrılmış bir [GitHub deposunu](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

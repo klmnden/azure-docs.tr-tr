@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: acca6f4cd2f4e7b452f5a70457d3d034e4d4aa7e
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 6043d01e26d9f28f90e45c2cc194863b3a9cd017
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345194"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072291"
 ---
 # <a name="transcription-guidelines-for-using-speech-service"></a>Konuşma hizmeti kullanarak transkripsiyonu yönergeleri
 
@@ -170,5 +170,5 @@ Bazı örnekler aşağıda verilmiştir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Konuşma deneme aboneliğinizi Al](https://azure.microsoft.com/try/cognitive-services/)
-- [C# ' de Konuşma tanıma](quickstart-csharp-windows.md)
+- [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
+- [C# ' de Konuşma tanıma](quickstart-csharp-dotnet-windows.md)

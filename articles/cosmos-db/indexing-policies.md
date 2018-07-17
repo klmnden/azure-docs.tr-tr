@@ -1,7 +1,7 @@
 ---
-title: Azure Cosmos ilkeleri dizin DB | Microsoft Docs
-description: Dizin oluşturma Azure Cosmos DB'de nasıl çalıştığını anlayın. Yapılandırma ve otomatik dizin oluşturma ve daha yüksek performans için dizin oluşturma ilkesini değiştirme hakkında bilgi edinin.
-keywords: Dizin oluşturma, otomatik işleyişi dizin oluşturma, veritabanının dizin oluşturma
+title: Azure Cosmos DB dizinleme ilkeleri | Microsoft Docs
+description: Azure Cosmos DB'de dizinleme nasıl çalıştığını anlayın. Yapılandırma ve otomatik dizin oluşturma ve daha yüksek performans için dizin oluşturma ilkesini değiştirme hakkında bilgi edinin.
+keywords: Dizin oluşturma, otomatik işleyişi dizin oluşturma, veritabanı dizini oluşturma
 services: cosmos-db
 author: rafats
 manager: kfile
@@ -10,41 +10,41 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: d867079b9a5546dc9555697a9066472e4e470977
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 240c0e1f39833e4dc4c4ad410f50ff03df0b5734
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298306"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072172"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB dizin verileri nasıl yapar?
 
-Varsayılan olarak, tüm Azure Cosmos DB veri dizin. Birçok müşteri Azure Cosmos otomatik olarak tüm yönlerini dizin işler DB olanak mutluluk olsa da, özel bir belirtebilirsiniz *dizin oluşturma ilkesi* Azure Cosmos veritabanı oluşturma sırasında koleksiyonlar için. Daha esnek ve diğer veritabanı platformlarının ikincil dizinler daha güçlü Azure Cosmos veritabanı dizin oluşturma ilkelerdir. Azure Cosmos DB'de tasarlayın ve şema esnekliği ödün vermeden dizini şeklini özelleştirebilirsiniz. 
+Varsayılan olarak, tüm Azure Cosmos DB veri tarihine. Birçok müşteri Azure Cosmos DB, otomatik olarak dizinleme tüm yönlerini işleme izin mutluluk olsa da, özel bir belirtebilirsiniz *dizin oluşturma ilkesi* Azure Cosmos DB'de oluşturma sırasında koleksiyonlar için. Azure Cosmos DB'de dizinleme ilkeleri, daha esnek ve diğer veritabanı platformlarda sunulan ikincil dizinler daha güçlü. Azure Cosmos DB'de tasarlayın ve şema esnekliği ödün vermeden dizini şeklini özelleştirebilirsiniz. 
 
-Azure Cosmos veritabanı nasıl dizin works öğrenmek için dizin oluşturma ilkesini yönetirken, hassas dengelemeler dizin depolama yükü, yazma ve sorgu işleme ve sorgu tutarlılık arasında yapabilirsiniz anlamak önemlidir.  
+Azure Cosmos DB'de dizin oluşturmanın nasıl çalıştığını öğrenmek için dizin oluşturma ilkesini yönetirken, ayrıntılı gereksinimlerimi karşılamama dizin depolama yükü, yazma ve sorgu aktarım hızı ve tutarlılık sorgu yapabilirsiniz anlamak önemlidir.  
 
-Aşağıdaki videoda Azure Cosmos DB Program Yöneticisi Barış Liu yetenekleri ve ayarlamak ve dizin oluşturma ilkesini, Azure Cosmos DB kapsayıcısında yapılandırma dizin otomatik Azure Cosmos DB gösterir. 
+Aşağıdaki videoda, Azure Cosmos DB Program Yöneticisi Manager Andrew Liu Azure Cosmos DB özelliklerini ve ayarlama ve Azure Cosmos DB kapsayıcınız dizin oluşturma ilkesini yapılandırma dizin otomatik gösterir. 
 
 >[!VIDEO https://www.youtube.com/embed/uFu2D-GscG0]
 
-Bu makalede, biz Kapat Azure Cosmos DB ilkeleri, dizin oluşturma ilkesini ve ilişkili dengelemeler nasıl özelleştirileceği dizin göz atın. 
+Bu makalede, biz Kapat Azure Cosmos DB dizinleme ilkeleri, dizin oluşturma ilkesini ve ilişkili dezavantajlarına özelleştirmek nasıl göz atın. 
 
-Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacaktır:
+Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlamak mümkün olacaktır:
 
-* Dahil etmek veya hariç dizine almasını özellikleri nasıl geçersiz kılabilirsiniz?
-* Son güncelleştirmeleri dizini nasıl yapılandırabilir miyim?
-* ORDER BY veya aralık sorguları gerçekleştirmek için dizin oluşturma nasıl yapılandırabilirsiniz?
-* Bir koleksiyona ait dizin oluşturma ilkesi nasıl değişiklik yapıyor?
-* Nasıl t depolama ve performans farklı dizin ilkelerinin karşılaştırması nedir?
+* Özelliklerini dahil etmek veya dizine elmadan hariç tutmak için nasıl geçersiz?
+* Dizin son güncelleştirmeler için nasıl yapılandırabilirim?
+* ORDER BY veya aralık sorguları gerçekleştirmek üzere nasıl yapılandırabilirim?
+* Bir koleksiyonun dizin oluşturma ilkesini için nasıl bir değişiklik yapıyor?
+* Nasıl miyim depolama ve farklı bir dizin oluşturma ilkeleri performansını karşılaştırmak?
 
-## Bir dizin oluşturma ilkesini özelleştirme <a id="CustomizingIndexingPolicy"></a>  
-Dizin oluşturma ilkesi Azure Cosmos DB koleksiyonunda varsayılan kılarak dengelemeler depolama, yazma ve sorgu performansı ve sorgu tutarlılık arasında özelleştirebilirsiniz. Aşağıdaki durumlar yapılandırabilirsiniz:
+## Bir koleksiyonun dizin oluşturma ilkesini özelleştirme <a id="CustomizingIndexingPolicy"></a>  
+Varsayılan dizinleme ilkesinin bir Azure Cosmos DB koleksiyonu geçersiz kılarak, depolama, yazma ve sorgu performansı ve sorgu tutarlılık arasındaki dengelemeler özelleştirebilirsiniz. Aşağıdaki durumlara yapılandırabilirsiniz:
 
-* **Dahil etmek veya belgeler ve dizin gelen ve yolları hariç tut**. Hariç tutma veya eklediğinizde veya koleksiyonundaki belgelere yerine belirli belgeleri dizine ekle. Da ekleyebilir ya da bilinen belirli JSON özellikleri hariç *yolları*, bir dizinde bulunan belgeler arasında dizine. Yollar joker karakter düzenleri içerir.
-* **Dizin çeşitli yapılandırma**. Dahil edilen her yolu için dizin yolu bir koleksiyon için gerektirir türünü belirtebilirsiniz. Yolun veri, beklenen sorgu iş yükü ve sayısal/dizesi "duyarlık." göre dizin türünü belirtebilirsiniz
-* **Dizin güncelleştirme modlarını yapılandırma**. Azure Cosmos DB üç dizin oluşturma modu destekler: tutarlı, yavaş ve yok. Bir Azure Cosmos DB koleksiyonunda dizin oluşturma ilkesi aracılığıyla dizin oluşturma modları yapılandırabilirsiniz. 
+* **Dahil etmek veya belgeler ve dizin gelen ve yolları hariç tut**. Hariç tutma veya eklediğinizde veya koleksiyondaki belgeleri değiştirin belirli belgelere dizin içerir. Da ekleyebilir ya da bilinen belirli JSON özellikleri hariç *yolları*, arasında bir dizine dahil belgeler listelenecek. Yollar joker karakter düzenleri içerir.
+* **Dizin çeşitli yapılandırma**. Dahil edilen her yol için dizin yolu bir koleksiyon için gerektirir türünü belirtebilirsiniz. Yolun veri, beklenen sorgu iş yükü ve sayısal/dizesi "duyarlık." bağlı dizin türünü belirtebilirsiniz.
+* **Dizin güncelleştirme modlarını yapılandırma**. Azure Cosmos DB, üç dizin oluşturma modu destekler: tutarlı, yavaş ve yok. Bir Azure Cosmos DB koleksiyonunda dizin oluşturma ilkesi aracılığıyla dizin oluşturma modları yapılandırabilirsiniz. 
 
-Aşağıdaki Microsoft .NET kod parçacığını bir koleksiyon oluşturduğunuzda, özel bir dizin oluşturma ilkesini ayarlamak nasıl gösterir. Bu örnekte en yüksek duyarlık dizeler ve sayılar için bir aralığı dizin ilkesiyle ayarlarız. Dizeleri ORDER BY sorguları yürütmek için bu ilkeyi kullanabilirsiniz.
+Aşağıdaki Microsoft .NET kod parçacığı, bir koleksiyon oluşturduğunuzda özel bir dizin oluşturma ilkesini ayarlama işlemi gösterilmektedir. Bu örnekte en yüksek duyarlık dizeleri ve sayılar için bir aralık diziniyle ilke ayarladık. Bu ilke, dizeleri ORDER BY sorguları yürütmek için kullanabilirsiniz.
 
     DocumentCollection collection = new DocumentCollection { Id = "myCollection" };
 
@@ -55,59 +55,59 @@ Aşağıdaki Microsoft .NET kod parçacığını bir koleksiyon oluşturduğunuz
 
 
 > [!NOTE]
-> JSON şema için dizin oluşturma ilkesi REST API sürümü 2015-06-03 sürümü değişti. Bu sürümle birlikte, ilke dizin oluşturma için JSON şeması aralığı dizinlerini dizeleri destekler. .NET SDK'sı 1.2.0 ve Java, Python ve Node.js SDK'ları 1.1.0 yeni ilke şeması destekler. SDK'ın önceki sürümleri, REST API sürümü 2015-04-08 kullanın. Bunlar, önceki şema İlkesi dizin oluşturma işlemi için destekler.
+> REST API sürümü 2015-06-03 sürümle birlikte değişen dizin oluşturma ilkesini için JSON şeması. Bu sürümle birlikte, dizin oluşturma ilkesi için JSON şemasını aralığı dizinlerini dizeleri destekler. .NET SDK'sı 1.2.0 ve Java, Python ve Node.js SDK'ları 1.1.0 yeni ilke şemayı destekler. REST API sürümü 2015-04-08 SDK'ın önceki sürümlerini kullanın. Bunlar, önceki şemanın dizin oluşturma ilkesi destekler.
 > 
-> Varsayılan olarak, Azure Cosmos DB belgelerde tüm dize özellikleri bir karma dizinine ile tutarlı olarak dizinler. Bu belge içindeki tüm sayısal özellikleri tutarlı bir şekilde aralık dizinine dizinler.  
+> Varsayılan olarak, Azure Cosmos DB belge içindeki tüm dize özellikleri tutarlı bir karma dizine ile dizinler. Bu belge içindeki tüm sayısal özellik tutarlı bir şekilde bir aralık diziniyle dizinler.  
 > 
 > 
 
-### <a name="customize-the-indexing-policy-in-the-portal"></a>Dizin oluşturma ilkesini portalında özelleştirme
+### <a name="customize-the-indexing-policy-in-the-portal"></a>Portalda dizin oluşturma ilkesini özelleştirme
 
-Dizin oluşturma ilkesini Azure portalında bir koleksiyonun değiştirebilirsiniz: 
+Azure portalında bir koleksiyonun dizin oluşturma ilkesini değiştirebilirsiniz: 
 
-1. Portalda, Azure Cosmos DB hesabınıza gidin ve ardından koleksiyonunuzu seçin. 
+1. Portalında, Azure Cosmos DB hesabınıza gidin ve ardından, koleksiyonu seçin. 
 2. Sol gezinti menüsünde seçin **ayarları**ve ardından **dizin oluşturma ilkesi**. 
-3. Altında **dizin oluşturma ilkesi**dizin oluşturma ilkenizi değiştirin ve ardından **Tamam**. 
+3. Altında **dizin oluşturma ilkesi**, dizin oluşturma ilkenizi değiştirin ve ardından **Tamam**. 
 
-### Veritabanı dizin oluşturma modları <a id="indexing-modes"></a>  
-Azure Cosmos DB destekleyen bir Azure Cosmos DB koleksiyonunda dizin oluşturma İlkesi yoluyla yapılandırabileceğiniz üç dizin oluşturma modu: tutarlı, yavaş ve yok.
+### Veritabanı dizini oluşturma modları <a id="indexing-modes"></a>  
+Azure Cosmos DB, Azure Cosmos DB koleksiyonunda dizin oluşturma ilkesi aracılığıyla yapılandırabileceğiniz üç dizin oluşturma modu destekler: tutarlı, yavaş ve yok.
 
-**Tutarlı**: bir Azure Cosmos DB koleksiyonunun İlkesi CONSISTENT ise, belirli bir Azure Cosmos DB koleksiyon sorgulamaları noktası okuma için belirtildiği gibi aynı tutarlılık düzeyi izleyin (güçlü, sınırlanmış eskime durumu, oturum veya son). Dizin belge güncelleştirme (ekleme, değiştirme, update ve delete bir belge bir Azure Cosmos DB koleksiyonunda) bir parçası olarak eşzamanlı olarak güncelleştirilir.
+**Tutarlı**: bir Azure Cosmos DB koleksiyonunun ilke Consistent, belirli bir Azure Cosmos DB koleksiyonunda sorguları noktası okuma için belirtildiği gibi aynı tutarlılık düzeyi izleyin (güçlü, bağımlı eskime, oturum veya son). Dizin belge Güncelleştirmesi (ekleme, değiştirme, update ve delete belgeye bir Azure Cosmos DB koleksiyonu) bir parçası olarak zaman uyumlu olarak güncelleştirilir.
 
-Tutarlı dizin oluşturma olası azaltma, tutarlı sorguları yazma performansı destekler. Bu azaltma işlevi sıralanması gerekir benzersiz yol "tutarlılık düzeyi." ise Tutarlı dizin oluşturma modu "hızlı bir şekilde, hemen sorgu yazma" iş yükleri için tasarlanmıştır.
+Tutarlı dizin olası bir azalma, tutarlı sorguları yazma iş çıkarma yeteneğini destekler. Hacmin sıralanması gereken benzersiz yollara işlevi "tutarlılık düzeyi." ise Tutarlı bir dizin oluşturma modu "hızlı bir şekilde hemen sorgu yazma" iş yükleri için tasarlanmıştır.
 
-**Yavaş**: Azure Cosmos DB koleksiyon diğer bir deyişle, kullanıcı isteklere yanıt koleksiyonunun işleme kapasitesi tam olarak kullanılmaz, sessiz, olduğunda dizini zaman uyumsuz olarak güncelleştirilir.  Unutmayın, çünkü veri alınan ve yavaş dizine tutarsız sonuçlar alabilirsiniz. Başka bir deyişle, COUNT sorgular veya belirli sorgu sonuçları tutarlı veya belirli bir zaman adresindeki yinelenebilir olmayabilir. 
+**Yavaş**: dizini bir Azure Cosmos DB koleksiyonu diğer bir deyişle koleksiyonun aktarım hızı kapasitesine kullanıcı isteklerine hizmet vermek için tam olarak kullanılmaz, deneniyor, olduğunda zaman uyumsuz olarak güncelleştirilir.  Unutmayın, çünkü veri alınan ve yavaş dizini tutarsız sonuçlar alabilirsiniz. Başka bir deyişle, sayısı sorguları veya belirli bir sorgu sonuçları tutarlı veya belirli bir zaman, tekrarlanabilir olmayabilir. 
 
-Genellikle alınan verilerle yakalama modunda dizinidir. Dizin oluşturma Lazy ile yaşam süresi (TTL) bırakılmalı ve yeniden oluşturulmalıdır dizin sonucunda değişir. Bu sayı ve sorgu sonuçları tutarsız bir süre sağlar. Çoğu Azure Cosmos DB hesapları tutarlı dizin oluşturma modunu kullanmalıdır.
+Genel olarak alınan verilerle oldukça modunda dizinidir. Dizin oluşturma Lazy ile bırakılmalı ve yeniden oluşturulmalıdır dizindeki sonucu yaşam süresi (TTL) değiştirir. Bu sayı ve sorgu sonuçları tutarsız bir süre sağlar. Çoğu Azure Cosmos DB hesapları tutarlı dizin oluşturma modunu kullanmanız gerekir.
 
-**Hiçbiri**: bir dizin moduna sahip kendisiyle ilişkilendirilmiş herhangi bir dizin yok bir koleksiyon. Bu, Azure Cosmos DB anahtar-değer deposu olarak kullanılıyorsa ve belgeleri yalnızca kimliği özelliği tarafından erişilen yaygın olarak kullanılır. 
+**Hiçbiri**: None dizin modu olan ilişkili hiçbir dizin içeren bir koleksiyon. Bu, Azure Cosmos DB anahtar-değer depolama olarak kullanılan ve belgelerin yalnızca kimliği özelliği tarafından erişilen yaygın olarak kullanılır. 
 
 > [!NOTE]
-> Dizin oluşturma İlkesi'yle hiçbiri yapılandırma varolan bir dizini bırakma yan etkisi vardır. Erişim alışkanlıklarınıza yalnızca kimliği gerektiren ya da kendi bağlantı varsa bunu kullanın.
+> Dizin oluşturma İlkesi'yle hiçbiri yapılandırma, varolan bir dizini bırakma yan etkisi vardır. Erişim desenleri yalnızca ID gerektir ya da kendi bağlantı varsa bunu kullanın.
 > 
 > 
 
-Aşağıdaki tabloda koleksiyon için yapılandırılan dizin oluşturma modunu (CONSISTENT ve Lazy) ve sorgu isteği için belirtilen tutarlılık düzeyi temel alan sorgular için tutarlılık gösterir. Bu, herhangi bir arabirim kullanılarak yapılan sorguları için geçerlidir: REST API, SDK'ları, ya da içinden yordamları ve Tetikleyicileri depolanabilir. 
+Aşağıdaki tabloda, koleksiyon için yapılandırılan dizin oluşturma modunun (Consistent ve Lazy) ve sorgu isteği için belirtilen tutarlılık düzeyini temel alan sorgular için tutarlılık gösterilmektedir. Bu herhangi bir arabirim kullanarak yapılan sorgular için geçerlidir: REST API, SDK'ları, veya içinden saklı yordamlar ve tetikleyiciler. 
 
-|Tutarlılık|Dizin oluşturma modu: tutarlı|Dizin oluşturma modu: geç|
+|Tutarlılık|Dizin oluşturma modu: tutarlı|Dizin oluşturma modu: yavaş|
 |---|---|---|
 |Güçlü|Güçlü|Nihai|
 |Sınırlanmış eskime durumu|Sınırlanmış eskime durumu|Nihai|
 |Oturum|Oturum|Nihai|
 |Nihai|Nihai|Nihai|
 
-Azure Cosmos DB None modu dizin olan koleksiyonları üzerinde yapılan sorgular için bir hata döndürür. Sorguları hala yürütülebilir taramaları aracılığıyla açık olarak **x-ms-documentdb-enable-tarama** REST API üstbilgisinde veya **EnableScanInQuery** isteği seçeneği .NET SDK kullanarak. ORDER BY gibi bazı sorgu özellikleri ile taramaları olarak desteklenmez **EnableScanInQuery**.
+Azure Cosmos DB dizinleme modu None olan koleksiyonlarda yapılan sorgular için bir hata döndürür. Sorguları hala çalıştırılabilir taramalar aracılığıyla açık olarak **x-ms-documentdb-enable-tarama** üst bilgisinde REST API veya **EnableScanInQuery** seçeneği .NET SDK kullanarak istek. ORDER BY gibi bazı sorgu özellikleri ile taramalar olarak desteklenmez **EnableScanInQuery**.
 
-Aşağıdaki tabloda, dizin oluşturma modunu (CONSISTENT Lazy ve hiçbiri) temel alan sorgular için tutarlılık gösterilmektedir, **EnableScanInQuery** belirtilir.
+Tutarlılık dizin oluşturma modunu (Consistent, Lazy ve hiçbiri) temel alan sorguları için aşağıdaki tabloda gösterilmektedir, **EnableScanInQuery** belirtilir.
 
-|Tutarlılık|Dizin oluşturma modu: tutarlı|Dizin oluşturma modu: geç|Dizin oluşturma modu: yok|
+|Tutarlılık|Dizin oluşturma modu: tutarlı|Dizin oluşturma modu: yavaş|Dizin oluşturma modu: yok|
 |---|---|---|---|
 |Güçlü|Güçlü|Nihai|Güçlü|
 |Sınırlanmış eskime durumu|Sınırlanmış eskime durumu|Nihai|Sınırlanmış eskime durumu|
 |Oturum|Oturum|Nihai|Oturum|
 |Nihai|Nihai|Nihai|Nihai|
 
-Aşağıdaki kod örnek Göster nasıl oluşturacağınız bir Azure Cosmos DB koleksiyonu tutarlı tüm belge eklemeleri üzerinde dizin ile .NET SDK kullanarak.
+Aşağıdaki kod örneği Göster nasıl oluşturacağınız bir Azure Cosmos DB koleksiyonu üzerinde tüm belgeyi eklemeler tutarlı dizin oluşturma ile .NET SDK kullanarak.
 
      // Default collection creates a Hash index for all string fields and a Range index for all numeric    
      // fields. Hash indexes are compact and offer efficient performance for equality queries.
@@ -120,30 +120,31 @@ Aşağıdaki kod örnek Göster nasıl oluşturacağınız bir Azure Cosmos DB k
 
 
 ### <a name="index-paths"></a>Dizin yolları
-Azure Cosmos DB JSON belgeleri ve dizin ağaçları modeller. Ağaçtaki yollar için ilkeleri ayarlayabilirsiniz. Belgeler içinde dahil etmek veya hariç dizine almasını yolları seçebilirsiniz. Geliştirilmiş yazma performansı ve sorgu desenlerine önceden bilinir senaryoları için alt dizini Depolama olanağı sunabilirsiniz.
+Azure Cosmos DB, JSON belgelerinin ve dizin ağaçları modeller. Ağaçtaki yolları için ilkeleri ayarlayabilirsiniz. İçindeki belgeler, dahil etmek veya dizine elmadan hariç tutmak için yollar seçebilirsiniz. Bu geliştirilmiş yazma performansını ve sorgu desenleri önceden bilinmektedir senaryoları için daha düşük dizin depolaması sunabilir.
 
-Dizin yolları (/) kök ile başlamalı ve genellikle ile bitmelidir? joker karakter işleci. Bu, birden fazla olası değerler önek olduğunu gösterir. Örneğin, SELECT hizmet için * aileleri F NEREYE F.familyName = "Andersen" /familyName/ için bir dizin yolu içermelidir? koleksiyonun dizini ilkesinde.
+Dizin yolları (/) kök ile başlayın ve genellikle ile biter? joker karakter işleci. Bu, birden çok olası değerler önek olduğunu gösterir. Örneğin, SELECT hizmet için * aileleri F nerede F.familyName = "Andersen" /familyName/ için farklı bir dizin yolu içermesi gerekir? koleksiyonun dizini ilkesinde.
 
-Dizin yolları de kullanabilir \* yolları özyinelemeli ön ek altındaki davranışını belirtmek için joker karakter işleci. Örneğin, / yükü / * yükü özellik altında her şeyin dizine almasını dışlamak için kullanılır.
+Dizin yolları da kullanabilirsiniz \* yolları yinelemeli olarak ön ek altındaki davranışını belirtmek için joker karakter işleci. Örneğin, / yükünün / * yükü özelliği altında her şeyi dizine elmadan hariç tutmak için kullanılabilir.
 
 Dizin yolları belirtmek için ortak desenler şunlardır:
 
 | Yol                | Açıklama/kullanım örneği                                                                                                                                                                                                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | /                   | Koleksiyon için varsayılan yolu. Özyinelemeli ve tüm belgeyi ağaca uygular.                                                                                                                                                                                                                                   |
-| / prop /?             | Dizin yolu aşağıdaki gibi sorguları sunmak için gerekli (türleriyle, karma veya aralık sırasıyla):<br><br>SELECT FROM koleksiyonu c WHERE c.prop = "değeri"<br><br>SELECT FROM koleksiyonu c WHERE c.prop > 5<br><br>SELECT FROM koleksiyonu c ORDER BY c.prop                                                                       |
-| / prop / *             | Belirtilen etiket altındaki tüm yolları için dizin yolu. Aşağıdaki sorgularda ile çalışır<br><br>SELECT FROM koleksiyonu c WHERE c.prop = "değeri"<br><br>SELECT FROM koleksiyonu c WHERE c.prop.subprop > 5<br><br>SELECT FROM koleksiyonu c WHERE c.prop.subprop.nextprop = "değeri"<br><br>SELECT FROM koleksiyonu c ORDER BY c.prop         |
-| / özellik / [] /?         | Dizin yolu gerekli yineleme hizmet ve skalerler ["a", "b", "c"] gibi bir dizi sorguları katılmak için:<br><br>SEÇİN etiket etiket IN collection.props WHERE etiketi = "değeri"<br><br>Koleksiyon c birleştirme etiketi IN c.props SELECT etiketinden burada > 5 etiketi                                                                         |
-| /props/ [] /subprop/? | Nesne dizileri birleşim sorguları gibi ve dizin yolu gerekli yineleme sunmak için [{subprop: "a"}, {subprop: "b"}]:<br><br>SEÇİN etiket etiket IN collection.props WHERE tag.subprop = "değeri"<br><br>SEÇİN etiket koleksiyonu c birleştirme etiketi IN c.props WHERE tag.subprop = "değeri"                                  |
-| / prop/subprop /?     | Dizin yolu sorguları sunmak için gerekli (türleriyle, karma veya aralık sırasıyla):<br><br>SELECT FROM koleksiyonu c WHERE c.prop.subprop = "değeri"<br><br>SELECT FROM koleksiyonu c WHERE c.prop.subprop > 5                                                                                                                    |
+| / prop /?             | Dizin yolu sorguları aşağıdaki gibi gerekli (türleriyle, karma veya aralığı sırasıyla):<br><br>SELECT FROM koleksiyon c WHERE c.prop = "değer"<br><br>SELECT FROM koleksiyon c WHERE c.prop > 5<br><br>Koleksiyon c ORDER BY c.prop seçin                                                                       |
+| / prop / *             | Belirtilen etiket altında tüm yolları için dizin yolu. Aşağıdaki sorgular ile çalışır<br><br>SELECT FROM koleksiyon c WHERE c.prop = "değer"<br><br>SELECT FROM koleksiyon c WHERE c.prop.subprop > 5<br><br>SELECT FROM koleksiyon c WHERE c.prop.subprop.nextprop = "değer"<br><br>Koleksiyon c ORDER BY c.prop seçin         |
+| / Özellikler / [] /?         | Dizin yolu, yineleme sunmak ve skalerler ["a", "b", "c"] gibi bir dizi sorguları katılmak için gerekli:<br><br>WHERE etiketi seçin etiketi etiketi IN collection.props = "değer"<br><br>Koleksiyon c birleşim etiketi IN c.props etiketini seçin > 5 burada etiketi                                                                         |
+| [] /subprop/ /props/? | Dizin yolu gerekli yineleme yapacak ve nesne dizileri sorguları birleştirme gibi [{subprop: "a"}, {subprop: "b"}]:<br><br>WHERE tag.subprop seçin etiketi etiketi IN collection.props = "değer"<br><br>WHERE tag.subprop seçin etiketi koleksiyon c birleşim etiketi IN c.props = "değer"                                  |
+| / prop/subprop /?     | Dizin yolu sorguları gerekli (türleriyle, karma veya aralığı sırasıyla):<br><br>SELECT FROM koleksiyon c WHERE c.prop.subprop = "değer"<br><br>SELECT FROM koleksiyon c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
-> Özel dizin yolları ayarladığınızda, özel yol tarafından gösterilen tüm belge ağacı için varsayılan dizin oluşturma kuralı belirtmek için gerekli olan "/ *". 
+> Özel dizin yolları ayarladığınızda, özel yolu tarafından belirtilen tüm belge ağacı için varsayılan dizin oluşturma kuralı belirtmeniz gerekli "/ *". 
 > 
 > 
 
-Aşağıdaki örnekte, aralık dizinine ve özel duyarlılık değeri 20 bayt ile belirli bir yola yapılandırır:
+Aşağıdaki örnek, bir özel duyarlık değeri 20 bayt aralığı dizin ile belirli bir yol yapılandırır:
 
+```
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 
     collection.IndexingPolicy.IncludedPaths.Add(
@@ -164,52 +165,119 @@ Aşağıdaki örnekte, aralık dizinine ve özel duyarlılık değeri 20 bayt il
         });
 
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
+```
 
+Dizin oluşturma işlemi için bir yol eklendiğinde, rakam ve bu yolların içinde dizeleri dizine eklenir. Bu nedenle yalnızca dize dizin oluşturma tanımladığınız olsa da, Azure Cosmos DB de sayılar için varsayılan tanımı ekler. Diğer bir deyişle, Azure Cosmos DB için dizin oluşturma ilkesini yolu çıkarma özelliğine sahiptir, ancak belirli bir yoldan dışlama türünde değil. Her iki yol için belirtilen bir dizin örneği, yalnızca not verilmiştir (yolu = "/ *" ve yol = "/\"attr1\"/?") ancak sayı veri türü sonucu de eklenir.
+
+```
+var indices = new[]{
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 }// <- note: only 1 index specified
+                    },
+                    Path =  "/*"
+                },
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 } // <- note: only 1 index specified
+                    },
+                    Path =  "/\"attr1\"/?"
+                }
+            };...
+
+            foreach (var index in indices)
+            {
+                documentCollection.IndexingPolicy.IncludedPaths.Add(index);
+            }
+```
+
+Dizin oluşturma sonucu:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        },
+        {
+            "path": "/\"attr\"/?",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        }
+    ],
+}
+```
 
 ### <a name="index-data-types-kinds-and-precisions"></a>Dizin veri türleri, tür ve Precision bilgisayarlar
-Yolu için dizin oluşturma ilkesi yapılandırdığınızda birden fazla seçeneği vardır. Her yol için bir veya daha fazla dizin tanımları belirtebilirsiniz:
+Yolu için dizin oluşturma ilkesini yapılandırırken birçok seçeneğiniz vardır. Her yol için bir veya daha fazla dizin tanımları belirtebilirsiniz:
 
-* **Veri türü**: dize, sayı, nokta, çokgen veya LineString (yalnızca bir giriş veri türü yolu başına başına içerebilir).
-* **Dizin türü**: karma (eşitlik sorguları), aralığı (eşitlik, aralığı veya ORDER BY sorguları) veya Spatial (uzamsal sorguları).
-* **Duyarlık**: için bir karma dizinine 8 dizeler ve sayı 1'den değişir bu. Varsayılan değer 3'tür. İçin bir aralığı dizin, bu değer -1 (en yüksek duyarlık) olabilir. 1 ile 100 (en yüksek duyarlık) dize veya sayı değerlerini arasındaki farklılık gösterebilir.
+* **Veri türü**: dize, sayı, nokta, çokgen veya LineString (yol başına veri türü başına yalnızca bir girdi içerebilir).
+* **Dizin türü**: karma (eşitlik sorguları), aralığı (eşitlik, aralığı veya ORDER BY sorguları) veya uzamsal (uzamsal sorgular).
+* **Duyarlık**: için bir karma dizine, 8 hem dize hem de sayı 1'den değişir bu. Varsayılan değer 3'tür. Aralık dizin için bu değer -1 (en yüksek duyarlık) olabilir. 1 ile 100 (en yüksek duyarlık) dize veya sayı değerlerini arasındaki farklılık gösterebilir.
 
 #### <a name="index-kind"></a>Dizin türü
-Azure Cosmos DB karma dizin ve aralığı dizin tür dize veya sayı veri türleri için yapılandırılmış her yol veya her ikisi için destekler.
+Azure Cosmos DB, dize veya sayı veri türleri için yapılandırılmış her bir yol veya her ikisi için karma dizine ve aralık dizini türlerini destekler.
 
-* **Karma** verimli eşitlik ve JOIN sorguları destekler. Çoğu kullanım durumları için varsayılan değer olan 3 bayt daha yüksek duyarlık karma dizinleri gerekmez. Veri türü dize veya sayı olabilir.
-* **Aralık** verimli eşitlik sorguları, aralık sorguları destekler (kullanarak >, <>, =, < =,! =) ve ORDER BY sorgular. ORDER By sorguları varsayılan olarak, ayrıca dizin üst sınırından duyarlık (-1) gerektirir. Veri türü dize veya sayı olabilir.
+* **Karma** verimli eşitlik ve JOIN sorgularını destekler. Kullanım örnekleri için varsayılan değer 3 bayt daha yüksek bir duyarlık karma dizinler gerekmez. Veri türü dize veya sayı olabilir.
+* **Aralık** verimli eşitlik sorguları, aralık sorguları destekler (kullanarak >, <>, =, < =,! =) ve ORDER BY sorgular. ORDER By sorguları varsayılan olarak, ayrıca maksimum dizin duyarlık (-1) gerektirir. Veri türü dize veya sayı olabilir.
 
-Azure Cosmos DB uzamsal dizin türü noktası, çokgen veya LineString veri türleri için belirtilebilir her yolu için de destekler. Değer belirtilen yolda gibi geçerli bir GeoJSON parçası olmalıdır `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+Azure Cosmos DB, nokta, çokgen veya LineString veri türleri için belirtilebilir her yol için uzamsal dizin türü de destekler. Değer belirtilen yolda gibi geçerli bir GeoJSON parçası olmalıdır `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 * **Uzamsal** destekler verimli uzamsal (içinde ve uzaklık) sorgular. Veri türü, nokta, çokgen veya LineString olabilir.
 
 > [!NOTE]
-> Azure Cosmos DB otomatik dizin oluşturma noktası, Çokgen ve LineString veri türlerini destekler.
+> Azure Cosmos DB, otomatik dizin oluşturma noktası Çokgen ve LineString veri türlerini destekler.
 > 
 > 
 
-Desteklenen dizin türleri ve olabilirler sorguları örnekleri aşağıda verilmiştir sunmak için kullanılır:
+Desteklenen dizin türleri ve örnekleri olabilirler sorgular şunlardır sunmak için kullanılır:
 
 | Dizin türü | Açıklama/kullanım örneği                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Karma       | / Prop / karma? (veya /) aşağıdaki sorguları etkili bir şekilde hizmet için kullanılabilir:<br><br>SELECT FROM koleksiyonu c WHERE c.prop = "değeri"<br><br>Karma/özellik / [] üzerinden /? (veya / veya/özellik /) aşağıdaki sorguları etkili bir şekilde hizmet için kullanılabilir:<br><br>WHERE etiketi seçin etiket koleksiyonu c birleştirme etiketi IN c.props = 5                                                                                                                       |
-| Aralık      | / Prop / aralığı? (veya /) aşağıdaki sorguları etkili bir şekilde hizmet için kullanılabilir:<br><br>SELECT FROM koleksiyonu c WHERE c.prop = "değeri"<br><br>SELECT FROM koleksiyonu c WHERE c.prop > 5<br><br>SELECT FROM koleksiyonu c ORDER BY c.prop                                                                                                                                                                                                              |
-| Uzamsal     | / Prop / aralığı? (veya /) aşağıdaki sorguları etkili bir şekilde hizmet için kullanılabilir:<br><br>SELECT FROM koleksiyonu c<br><br>WHERE st_dıstance (c.prop, {"tür": "Noktası", "coordinates": [0.0, 10.0]}) < 40<br><br>Etkin noktalarında dizin ile SELECT FROM koleksiyonu c nerede ST_WITHIN(c.prop, {"type": "Polygon",...})--<br><br>Etkin çokgenler üzerinde dizin ile SELECT FROM koleksiyonu c nerede ST_WITHIN({"type": "Point",...}, c.prop)--              |
+| Karma       | / Prop / karma? (veya /) aşağıdaki sorguları verimli bir şekilde sunmak için kullanılabilir:<br><br>SELECT FROM koleksiyon c WHERE c.prop = "değer"<br><br>Karma üzerinden/özellikler / [] /? (veya / veya/Özellikler /) aşağıdaki sorguları verimli bir şekilde sunmak için kullanılabilir:<br><br>WHERE etiketi seçin etiketi koleksiyon c birleşim etiketi IN c.props = 5                                                                                                                       |
+| Aralık      | / Prop / aralığı? (veya /) aşağıdaki sorguları verimli bir şekilde sunmak için kullanılabilir:<br><br>SELECT FROM koleksiyon c WHERE c.prop = "değer"<br><br>SELECT FROM koleksiyon c WHERE c.prop > 5<br><br>Koleksiyon c ORDER BY c.prop seçin                                                                                                                                                                                                              |
+| Uzamsal     | / Prop / aralığı? (veya /) aşağıdaki sorguları verimli bir şekilde sunmak için kullanılabilir:<br><br>SELECT FROM c koleksiyonu<br><br>WHERE ST_DISTANCE (c.prop, {"type": "Nokta", "koordinatları": [0.0, 10.0]}) < 40<br><br>Etkin noktalarında dizin ile SELECT FROM koleksiyon c burada ST_WITHIN(c.prop, {"type": "Polygon",...})--<br><br>Etkin çokgenler üzerinde dizin ile SELECT FROM koleksiyon c burada ST_WITHIN({"type": "Point",...}, c.prop)--              |
 
-Sorgularla işleçleri gibi aralığı için varsayılan olarak, bir hata döndürülür > = tarama sorgu hizmet gerekebilir göstermek için hiçbir aralık dizini (tüm duyarlık) olduğunda. Aralık sorguları yapılabilir bir aralık dizin olmadan kullanarak **x-ms-documentdb-enable-tarama** REST API üstbilgisinde veya **EnableScanInQuery** isteği seçeneği .NET SDK kullanarak. Azure Cosmos DB dizini göre filtre uygulamak için kullanabileceğiniz sorgu herhangi bir filtre varsa herhangi bir hata döndürülür.
+Sorgu işleçleri gibi aralığı için varsayılan olarak, hata döndürülür > = tarama sorgu sunmak gerekli olabilir sinyal yok aralık dizini (herhangi bir hassasiyet) olduğunda. Aralık sorguları gerçekleştirilebilir olmadan bir aralık dizini kullanarak **x-ms-documentdb-enable-tarama** üst bilgisinde REST API veya **EnableScanInQuery** seçeneği .NET SDK kullanarak istek. Azure Cosmos DB dizine göre filtrelemek için kullanabileceğiniz sorgusunda herhangi bir filtre varsa, hata döndürülür.
 
-Aynı kuralları uzamsal sorguları için geçerlidir. Varsayılan olarak, uzamsal dizin yok ve dizinden sunulabilecek hiçbir bir filtre uzamsal sorguları için bir hata döndürülür. Bir tarama bunlar gerçekleştirilebilir kullanarak **x-ms-documentdb-enable-tarama** veya **EnableScanInQuery**.
+Aynı kurallara uzamsal sorgular için geçerlidir. Varsayılan olarak, uzamsal dizin yok ve dizinden sunulabilen diğer filtre varsa, uzamsal sorgular için bir hata döndürülür. Bir tarama bunlar gerçekleştirilebilir kullanarak **x-ms-documentdb-enable-tarama** veya **EnableScanInQuery**.
 
 #### <a name="index-precision"></a>Dizin duyarlık
-Dizin duyarlık dengelemeler dizin depolama ek yükü ve sorgu performansı arasında yapmak için kullanabilirsiniz. Numaraları için -1 (en çok) varsayılan duyarlık yapılandırmasını kullanmanızı öneririz. Sayı JSON 8 bayt olduğundan, bu 8 bayt bir yapılandırmaya eşdeğerdir. Kesinlik, 1 ile 7 arasında gibi daha düşük bir değer seçmesini bazı aralıklarında değerleri aynı eşleyin anlamına gelir giriş dizini. Bu nedenle, dizin depolama alanını azaltmak, ancak daha fazla belgeleri işlemek üzere sorgu yürütme olabilir. Sonuç olarak, daha fazla verimlilik isteği birimlerindeki tüketir.
+Gereksinimlerimi karşılamama dizin depolama yükü ve sorgu performansını sağlamak için dizin duyarlık kullanabilirsiniz. Sayılar için varsayılan duyarlık yapılandırma-1 (maksimum) kullanmanızı öneririz. Sayı 8 baytlık JSON olduğundan, bu 8 baytlık bir yapılandırmaya eşdeğerdir. Bazı aralıklar dahilinde değerleri aynı eşleyin anlamına gelir, duyarlığı, 1 ile 7 arasında gibi daha düşük bir değer seçme giriş dizini. Bu nedenle, dizin depolama alanını azaltmak, ancak sorgu yürütme daha fazla belgeleri işlemek zorunda kalabilirsiniz. Sonuç olarak, daha fazla üretilen iş istek birimi kullanıyor.
 
-Dizin duyarlık yapılandırma dizesi aralıklarıyla daha pratik uygulama vardır. Dizeleri herhangi bir rastgele uzunlukta olabileceğinden, dizin duyarlık seçimi dize aralığı sorguların performansını etkileyebilir. Ayrıca, gerekli olan dizin depolama alanı miktarı da etkileyebilir. Dizinleri dizesi aralık 1 ile 100 veya -1 (en çok) ile yapılandırılabilir. Dize özellikleri ORDER BY sorguları gerçekleştirmek istiyorsanız, karşılık gelen yollar için -1 kesinliğini belirtmeniz gerekir.
+Dizini duyarlılık yapılandırmasını dize aralıklarıyla daha pratik uygulama vardır. Dizeleri herhangi bir rastgele uzunluktaki olabileceğinden, dizin duyarlık seçimi dize aralığı sorguların performansını etkileyebilir. Ayrıca, gerekli olan dizin depolama alanı miktarı da etkileyebilir. Dizinleri dizesi aralık 1 ile 100 veya -1 (maksimum) ile yapılandırılabilir. Dize özellikleri ORDER BY sorguları gerçekleştirmek istiyorsanız, bir duyarlık karşılık gelen yollarla için-1 belirtmeniz gerekir.
 
-Uzamsal dizinler, her zaman varsayılan dizin duyarlık tüm türleri için (Point, LineString ve Çokgen) kullanın. Uzamsal dizinler için varsayılan dizin Duyarlığı geçersiz kılınamaz. 
+Uzaysal dizinler, her zaman varsayılan dizini duyarlık tüm türleri için (Point, LineString ve Çokgen) kullanın. Uzaysal dizinler için varsayılan dizin duyarlık geçersiz kılınamaz. 
 
-Aşağıdaki örnek, .NET SDK kullanarak bir koleksiyondaki aralığı dizinler için duyarlık artırmak gösterilmektedir. 
+Aşağıdaki örnek, .NET SDK'sını kullanarak bir koleksiyon aralığı dizinlerde Duyarlığı artırmak gösterilmektedir. 
 
-**Özel dizin duyarlık ile bir koleksiyon oluşturma**
+**Özel dizin kesinliği ile bir koleksiyon oluşturun**
 
     var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
 
@@ -220,11 +288,11 @@ Aşağıdaki örnek, .NET SDK kullanarak bir koleksiyondaki aralığı dizinler 
 
 
 > [!NOTE]
-> Azure Cosmos DB bir sorgu ORDER BY kullanıyor, ancak en yüksek duyarlık sorgulanan yolu karşı aralık dizinine sahip olmayan bir hata döndürür. 
+> Bir sorgu ORDER BY kullanır ancak karşı en yüksek duyarlık sorgulanan yoluyla bir aralık dizini yok, azure Cosmos DB, bir hata döndürür. 
 > 
 > 
 
-Benzer şekilde, dizin oluşturma gelen yollar tamamen dışlayabilirsiniz. Sonraki örnek belgeleri bölümünün tamamını dışlama gösterir (bir *alt ağacı*) kullanarak dizin gelen \* joker işleci.
+Benzer şekilde, tamamen yolları dizine elmadan hariç tutabilirsiniz. Sonraki örnek, belgelerin tamamını bir bölümü hariç tutmak gösterilmektedir (bir *alt ağacı*) kullanarak dizin gelen \* joker karakter işleci.
 
     var excluded = new DocumentCollection { Id = "excludedPathCollection" };
     excluded.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
@@ -234,12 +302,12 @@ Benzer şekilde, dizin oluşturma gelen yollar tamamen dışlayabilirsiniz. Sonr
 
 
 
-## <a name="opt-in-and-opt-out-of-indexing"></a>Kabul ve dizin oluşturma dışında iptal et
-Otomatik olarak tüm belge dizini için koleksiyon isteyip istemediğinizi seçebilirsiniz. Varsayılan olarak, tüm belgeler otomatik olarak dizine alınır, ancak otomatik dizin oluşturma devre dışı bırakabilir. Dizin oluşturma devre dışı bırakıldığında, belgeleri yalnızca aracılığıyla erişilebilen kendi kendine bağlantılar veya belge kullanarak sorgular tarafından kimliği
+## <a name="opt-in-and-opt-out-of-indexing"></a>Kabul et ve dışında dizin oluşturma işlemi
+Tüm belgelerin otomatik olarak dizinini koleksiyonu isteyip istemediğinizi seçebilirsiniz. Varsayılan olarak, tüm belgelerin otomatik olarak dizine alınır, ancak otomatik dizin oluşturma devre dışı kapatabilirsiniz. Dizin oluşturmayı devre dışı bırakıldığında, belgelerin yalnızca aracılığıyla erişilebilen kendi kendine bağlantılar veya belge kullanarak sorgular tarafından kimliği
 
-Otomatik kapalı ile dizin oluşturma, yalnızca belirli belgeler için dizin hala seçmeli olarak ekleyebilirsiniz. Buna karşılık, üzerinde dizin otomatik bırakabilir ve belirli belgeleri dışlamak seçmeli olarak seçin. Açık/kapalı yapılandırmaları dizin yararlı sorgulanması gereken belgeleri yalnızca bir kısmı sahip olduğunuzda.
+Otomatik kapalı dizin oluşturma ile yalnızca belirli belgeler dizine seçmeli olarak yine de ekleyebilirsiniz. Buna karşılık, dizin oluşturmayı otomatik bırakın ve belirli belgelere dışlanacak seçerek. Açık/kapalı yapılandırmaları dizin yararlı belgelerin sorgulanmasını gereken yalnızca bir alt sahip olduğunuzda.
 
-Aşağıdaki örnek bir belge açık kullanarak içerecek şekilde gösterilmektedir [SQL API .NET SDK'sını](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) ve [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) özelliği.
+Aşağıdaki örnek bir belge kullanarak açıkça içerecek şekilde gösterilmektedir [SQL API .NET SDK'sı](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) ve [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) özelliği.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a document in indexing,
@@ -248,29 +316,29 @@ Aşağıdaki örnek bir belge açık kullanarak içerecek şekilde gösterilmekt
         new { id = "AndersenFamily", isRegistered = true },
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
 
-## <a name="modify-the-indexing-policy-of-a-collection"></a>Bir dizin oluşturma ilkesini değiştirme
-Azure Cosmos DB'de anında koleksiyonunun dizin oluşturma ilkesi değişiklikleri yapabilirsiniz. Dizin oluşturma ilkesi Azure Cosmos DB koleksiyonunda bir değişikliğin dizini şeklinde bir değişiklik neden olabilir. Değişiklik sıralanabilir yolları, kendi duyarlık ve dizin tutarlılık modelinin etkiler. İlke etkili bir şekilde dizin oluşturma bir değişikliğin eski dizin dönüştürme içine yeni bir dizin gerektirir. 
+## <a name="modify-the-indexing-policy-of-a-collection"></a>Bir koleksiyonun dizin oluşturma ilkesini değiştirme
+Azure Cosmos DB'de hareket halindeyken koleksiyonunun dizin oluşturma ilkesi değişiklik yapabilirsiniz. Dizin oluşturma ilkesi bir Azure Cosmos DB koleksiyonu üzerinde bir değişikliğin dizini şeklinde bir değişiklik neden olabilir. Değişiklik sıralanabilir yolları, kendi duyarlık ve dizin tutarlılık modelini etkiler. Dizin oluşturma ilkesi etkili bir şekilde bir değişiklik bir dönüşümünü eski dizinin yeni bir dizin gerektirir. 
 
 **Çevrimiçi dizin dönüşümleri**
 
-![Dizin oluşturma şeklini – Azure Cosmos DB çevrimiçi dizin dönüşümleri](./media/indexing-policies/index-transformations.png)
+![Dizin oluşturmanın nasıl çalıştığını – Azure Cosmos DB çevrimiçi dizin dönüşümleri](./media/indexing-policies/index-transformations.png)
 
-Dizin dönüşümleri çevrimiçi hale getirilir. Bu eski İlkesi dizine belgeleri yeni ilke verimli bir şekilde dönüştürülmeden anlamına gelir *yazma kullanılabilirlik veya sağlanan işleme etkilemeden* koleksiyonu. Tutarlılığını okuma ve yazma işlemlerini SDK'ları, REST API kullanarak yapılan veya içinden saklı yordamları ve Tetikleyicileri etkilenmez dizin dönüştürme sırasında. Performans düşüşünü veya yoktur, uygulamalarınız için kapalı kalma süresi bir dizin oluşturma ilkesi değişiklik yaptığınızda.
+Dizin dönüşümleri çevrimiçi hale getirilir. Yani her yeni ilke eski ilkeyi dizine belgeleri verimli bir şekilde dönüştürülür *yazma kullanılabilirliği veya sağlanan aktarım hızı etkilemeden* koleksiyon. Tutarlılığını okuma ve yazma işlemleri, SDK, REST API kullanarak yapılan veya içinden saklı yordamları ve Tetikleyicileri etkilenmez dizin dönüştürme sırasında. Performans düşüşü veya yoktur uygulamalarınıza kapalı kalma süresi bir dizin oluşturma ilkesini değişiklik yaptığınızda.
 
-Ancak, dizin dönüştürme ilerleme olduğu süre boyunca, sorguları dizin oluşturma modu yapılandırma bağımsız olarak (CONSISTENT veya Lazy) sonunda tutarlı değil. Bu aynı zamanda sorguları tüm arabirimlerinden geçerlidir: REST API, SDK'ları ve yordamları ve Tetikleyicileri içinden depolanır. Gibi dizin oluşturma, Lazy ile dizin dönüştürme zaman uyumsuz olarak arka planda çoğaltmalar üzerinde belirli bir çoğaltma için kullanılabilir yedek kaynakları kullanılarak gerçekleştirilir. 
+Ancak, sorgular dizini dönüşümdür ilerleme süre boyunca, dizin oluşturma modu yapılandırma bağımsız olarak (Consistent veya Lazy) son tutarlılık sağlar. Bu da sorgular için tüm arabirimlerden geçerlidir: REST API, SDK ve içinde saklı yordamlar ve tetikleyiciler. Gibi dizin oluşturma, Lazy ile dizin dönüştürme zaman uyumsuz olarak arka planda çoğaltmalarındaki belirli bir yineleme için kullanılabilir yedek kaynakları kullanarak gerçekleştirilir. 
 
-Dizin dönüşümleri yerinde da yapılır. Azure Cosmos DB dizin ve eski dizin çıkışı takas iki kopyasını yeni bir bilgisini korumaz. Bu, hiçbir ek disk alanı gerekli veya dizin dönüşümleri meydana gelirken, koleksiyonlarda tüketilen anlamına gelir.
+Dizin dönüşümleri yerinde da yapılır. Azure Cosmos DB, dizin ve eski dizinin kullanıma takas iki kopyasını yeni bir tane ile korumak değil. Bu, hiçbir ek disk alanı gerekli veya dizin dönüşümleri meydana gelirken, koleksiyonlarında tüketilen anlamına gelir.
 
-Dizin oluşturma ilkesini değiştirdiğinizde, değişiklikleri birincil dizin oluşturma modu yapılandırmalarını temel alan yeni eski dizinden taşımak için uygulanır. Dizin oluşturma modu yapılandırmaları dahil ve Dışlanan yollar, dizin türleri ve Precision bilgisayarlar gibi diğer değerleri daha büyük bir rol oynar. 
+Dizin oluşturma ilkesini değiştirdiğinizde, değişiklikler yeni birincil dizin oluşturma modu yapılandırmalarına göre eski dizinden taşımak için uygulanır. Dizin oluşturma modu yapılandırmaları, diğer değerler dahil edilen/Dışlanan yollar ve dizin tür Precision bilgisayarlar gibi daha büyük bir rol oynar. 
 
-Eski ve yeni ilkelerinizi hem tutarlı dizin kullanırsanız, bir çevrimiçi dizin dönüşümü Azure Cosmos DB gerçekleştirir. Dönüştürme işlemi devam ederken tutarlı dizin oluşturma modu olan başka bir dizin oluşturma ilkesi değişikliği uygulanamıyor. Ancak, Lazy veya hiçbiri dönüştürme sırasında dizin oluşturma modu sürüyor geçebilirsiniz: 
+Azure Cosmos DB, eski ve yeni ilkelerinizi hem tutarlı dizin kullanırsanız, bir çevrimiçi dizin dönüşümü gerçekleştirir. Dönüştürme işlemi devam ederken, tutarlı bir dizin oluşturma moduna sahip başka bir dizin oluşturma ilkesi değişikliği uygulanamıyor. Ancak, Lazy veya yok ediyor dizin oluşturma modu bir dönüştürme sırasında taşıyabilirsiniz: 
 
-* Lazy için taşıdığınızda, dizin ilke değişikliği hemen etkili olur. Azure Cosmos DB dizin oluşturma zaman uyumsuz olarak yeniden başlatır. 
-* None taşıdığınızda, dizin hemen bırakılır. None taşıma sürüyor dönüştürme iptal edin ve farklı bir dizin oluşturma ilkesi ile yeni başlatmak istediğinizde kullanışlıdır. 
+* Lazy için taşıdığınızda, dizin ilke değişikliği hemen etkili olur. Azure Cosmos DB, dizin oluşturma zaman uyumsuz olarak yeniden başlatılır. 
+* Hiçbiri taşıdığınızda, dizin hemen bırakıldı. Hiçbiri taşıma, devam eden dönüştürme iptal edin ve farklı bir dizin oluşturma ilkesi ile yeni başlangıç istediğinizde yararlıdır. 
 
-Aşağıdaki kod parçacığını bir koleksiyona ait yavaş dizin oluşturma moduna tutarlı dizin modundan dizin oluşturma ilkesini değiştirmek nasıl gösterir. .NET SDK'sı kullanıyorsanız, yeni kullanarak bir dizin oluşturma ilkesi değişikliği kazandırın **ReplaceDocumentCollectionAsync** yöntemi.
+Aşağıdaki kod parçacığı, bir koleksiyonun yavaş dizin oluşturma modu için tutarlı bir dizin oluşturma modundan dizin oluşturma ilkesini değiştirme işlemi gösterilmektedir. .NET SDK'sı kullanıyorsanız, yeni kullanarak bir dizin oluşturma ilkesi değişiklik başlatabilir **ReplaceDocumentCollectionAsync** yöntemi.
 
-**Dizin oluşturma CONSISTENT ilkesinden Lazy değiştirme**
+**Lazy Consistent gelen dizin oluşturma ilkesini değiştirme**
 
     // Switch to Lazy indexing mode.
     Console.WriteLine("Changing from Default to Lazy IndexingMode.");
@@ -279,9 +347,9 @@ Aşağıdaki kod parçacığını bir koleksiyona ait yavaş dizin oluşturma mo
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-**Dizin dönüştürme ilerlemesini izlemek**
+**Dizin dönüşümünün ilerlemesini İzle**
 
-Kullanarak tutarlı bir dizin için dizin dönüştürme yüzdesi ilerlemesini izleyebilirsiniz **IndexTransformationProgress** yanıt özelliğinden bir **ReadDocumentCollectionAsync** çağırın. Diğer SDK ve REST API dizin oluşturma ilkesi değişiklikleri yapmak için eşdeğer özellikleri ve yöntemleri destekler. Tutarlı bir dizin için bir dizin dönüşümü ilerlemesini çağırarak denetleyebilirsiniz **ReadDocumentCollectionAsync**: 
+Kullanarak, tutarlı bir dizin için dizin dönüşümü yüzdesi ilerlemesini izleyebilirsiniz **IndexTransformationProgress** yanıt özelliğinden bir **ReadDocumentCollectionAsync** çağırın. Diğer SDK'lar ve REST API, dizin oluşturma ilkesi değişiklikler yapmak için eşdeğer özellikleri ve yöntemleri destekler. Tutarlı bir dizine bir dizin dönüşümü ilerlemesini çağırarak denetleyebilirsiniz **ReadDocumentCollectionAsync**: 
 
     long smallWaitTimeMilliseconds = 1000;
     long progress = 0;
@@ -297,11 +365,11 @@ Kullanarak tutarlı bir dizin için dizin dönüştürme yüzdesi ilerlemesini i
     }
 
 > [!NOTE]
-> * **IndexTransformationProgress** tutarlı bir dizine dönüştürülürken özelliği uygulanabilir. Kullanım **ResourceResponse.LazyIndexingProgress** yavaş bir dizin dönüştürmeleri izleme özelliği.
-> * **IndexTransformationProgress** ve **LazyIndexingProgress** özellikleri yalnızca bölümlenmemiş koleksiyonu, diğer bir deyişle, bir bölüm anahtarı oluşturulan bir koleksiyon için doldurulur.
+> * **IndexTransformationProgress** tutarlı bir dizine dönüştürürken özelliği uygulanabilir. Kullanım **ResourceResponse.LazyIndexingProgress** yavaş bir dizine dönüştürmeleri izleme özelliği.
+> * **IndexTransformationProgress** ve **LazyIndexingProgress** özellikleri yalnızca koleksiyon bölümlenmemiş, diğer bir deyişle, bir bölüm anahtarı oluşturulan bir koleksiyon için doldurulur.
 >
 
-Bir koleksiyon için dizin hiçbiri modu dizin taşıyarak düşürebilir. Devam eden dönüştürmeyi iptal etmek ve yeni bir tane hemen başlatmak istiyorsanız bu yararlı bir işlemsel aracı olabilir.
+Bir koleksiyon için dizin yok modu dizin taşıyarak bırakabilirsiniz. Devam eden dönüştürme iptal edin ve yeni bir tane hemen başlatmak istiyorsanız, bu yararlı bir işletimsel aracı olabilir.
 
 **Bir koleksiyonun dizini bırakın**
 
@@ -312,24 +380,24 @@ Bir koleksiyon için dizin hiçbiri modu dizin taşıyarak düşürebilir. Devam
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-Dizin oluşturma ilkesi değişiklikleri Azure Cosmos DB koleksiyonlarınızı yaptığınızda? En yaygın kullanım örnekleri şunlardır:
+Dizin oluşturma ilkesi değişiklikleri, Azure Cosmos DB koleksiyonlarına yaptığınızda? En yaygın kullanım örnekleri şunlardır:
 
-* Normal işlem sırasında tutarlı sonuçlar sunar, ancak toplu veri içeri aktarmaları sırasında yavaş dizin oluşturma moduna geri döner.
-* Yeni dizin oluşturma özellikleri geçerli Azure Cosmos DB koleksiyonlarınızı kullanmaya başlayın. Örneğin, Jeo-uzamsal sorgulama, uzamsal dizin türü gerektiren kullanın / dize aralığı dizin türü gerektiren aralığı sorguları dize BY sipariş.
-* Elle-dizine özellikleri seçin ve zamanla değiştirin.
-* Sorgu performansını artırmak için veya kapladığı depolama alanını azaltmak için dizin oluşturma duyarlık ayarlayın.
+* Normal işlem sırasında tutarlı sonuçlar hizmet, ancak dizin oluşturma moduna geç toplu veri içeri aktarımlarını sırasında geri döner.
+* Geçerli Azure Cosmos DB koleksiyonunda yeni bir dizin oluşturma özellikleri kullanmaya başlayın. Örneğin, Jeo-uzamsal sorgulama, uzamsal dizin türü gerektiren kullanma / aralığı dizin türü dize gerektiren aralık sorguları dize ORDER BY.
+* Sıralanacak özelliklerini el-seçin ve bunları zamanla değişir.
+* Sorgu performansını artırmak için veya depolama miktarı azaltmak için dizin oluşturma duyarlık ayarlayın.
 
 > [!NOTE]
-> Dizin oluşturma ilkesini kullanarak değiştirmek için **ReplaceDocumentCollectionAsync**, sürüm 1.3.0 veya .NET SDK'sı daha sonraki bir sürümünü kullanmanız gerekir.
+> Dizin oluşturma ilkesini kullanarak değiştirmek için **ReplaceDocumentCollectionAsync**, 1.3.0 veya .NET SDK'sı daha sonraki bir sürümü kullanmanız gerekir.
 > 
-> Dizin dönüştürme başarıyla tamamlamak yeterli boş depolama alanı kullanılabilir olduğunu koleksiyonda emin olun. Toplama, depolama kotasını ulaşırsa, dizin dönüştürme duraklatıldı. Örneğin, depolama alanı kullanılabilir olduğunda bazı belgeleri silerseniz dizin dönüştürme otomatik olarak devam ettirir.
+> Dizin dönüştürme başarıyla tamamlamak yeterli boş depolama alanı kullanılabilir olduğunu koleksiyonunda emin olun. Toplama, depolama kotasını ulaşırsa, dizin dönüşümü duraklatıldı. Örneğin, depolama alanı kullanılabilir olduğunda bazı belgeler silerseniz dizin dönüştürme otomatik olarak sürdürür.
 > 
 > 
 
 ## <a name="performance-tuning"></a>Performans ayarı
-SQL API'leri kullanılan dizin depolama alanı ve her işlem için işleme maliyeti (istek birimleri) gibi performans ölçümleri hakkında bilgi sağlar. Çeşitli dizin oluşturma ilkeleri karşılaştırmak için bu bilgileri kullanın ve performans ayarlama.
+SQL API'leri, kullanılan dizin depolaması ve her işlem için aktarım hızı maliyeti (istek birimleri) gibi performans ölçümlerini hakkında bilgi sağlar. Çeşitli dizin oluşturma ilkeleri karşılaştırmak için bu bilgileri kullanın ve performans ayarlama.
 
-Depolama kotası ve bir koleksiyon kullanımını denetlemek için çalıştırın bir **HEAD** veya **almak** koleksiyon kaynağı isteği. Ardından, inceleme **x-ms-istek-quota** ve **x-ms-istek kullanım** üstbilgileri. .NET SDK'sındaki [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) ve [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) özelliklerinde [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) bu karşılık gelen değerler içeriyor.
+Çalıştırma depolama kotası ve bir koleksiyon kullanımını denetlemek için bir **baş** veya **alma** koleksiyonu kaynağı isteği. Daha sonra incelemek **x-ms-isteği-quota** ve **x-ms-istek kullanım** üstbilgileri. .NET SDK'sındaki [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) ve [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) özelliklerinde [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) bu karşılık gelen değerleri içerir.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.
@@ -337,7 +405,7 @@ Depolama kotası ve bir koleksiyon kullanımını denetlemek için çalıştır�
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-Her yazma işlemi dizin yükünü ölçmek için (oluşturma, güncelleştirme veya silme) incelemek **x-ms-istek-ücret** üstbilgi (veya eşdeğer [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) özelliğinde [ ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) .NET SDK'sındaki) bu işlemler tarafından tüketilen isteği birim sayısını ölçmek için.
+Her yazma işlemi dizin oluşturma ek yükü ölçmek için (oluşturma, güncelleştirme veya silme) İnceleme **x-ms-istek-ücretsiz olarak** üst bilgisi (veya eşdeğer [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) özelliğinde [ ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) .NET SDK'sındaki) bu işlemleri tarafından kullanılan istek birimleri sayısını ölçmek için.
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              
@@ -356,22 +424,22 @@ Her yazma işlemi dizin yükünü ölçmek için (oluşturma, güncelleştirme v
 
      Console.WriteLine("Query consumed {0} request units in total", totalRequestCharge);
 
-## <a name="changes-to-the-indexing-policy-specification"></a>Dizin oluşturma ilkesi belirtimi yapılan değişiklikler
-İlke dizin oluşturma için şema değişikliği 7 Temmuz 2015 REST API sürümü 2015-06-03 ile sunulmuştur. SDK sürümlerinde karşılık gelen sınıfları şemayla eşleşecek şekilde yeni uygulamalar vardır. 
+## <a name="changes-to-the-indexing-policy-specification"></a>Dizin oluşturma ilkesi belirtimi değişiklikler
+Dizin oluşturma ilkesi için bir şema değişikliği 7 Temmuz 2015 sürümü 2015-06-03 REST API ile kullanıma sunulmuştur. SDK sürümlerinde karşılık gelen sınıflar şemasıyla eşleşmesi için yeni uygulamalara sahip. 
 
-Aşağıdaki değişiklikleri JSON belirtiminde uygulanan:
+JSON belirtiminde uygulanan aşağıdaki değişiklikler:
 
 * Dizin oluşturma ilkesi aralığı dizinler için dizeleri destekler.
-* Her yol, birden fazla dizin tanımı olabilir. Her bir veri türü için bir tane sağlayabilirsiniz.
-* Duyarlık dizin oluşturma, 1 ile 8 numaraları için 1 ile 100 dizeleri ve -1 (en yüksek duyarlık) destekler.
-* Yol kesimleri her yol kaçınmak için çift tırnak gerekmez. Örneğin, bir yolu ekleyebilirsiniz   **/başlık /?** yerine **/ "title" /?**.
-* "Tüm yolları" temsil eden kök yolu olarak temsil edilebilir **/ \*** (ek olarak **/**).
+* Her yol, birden çok dizin tanımı olabilir. Her veri türü için bir tane olabilir.
+* Duyarlık dizin oluşturma, 1 ile 8 sayılar için 1 ile 100 dizeleri ve -1 (en yüksek duyarlık) destekler.
+* Yol kesimleri, her bir yol atlamak için bir çift tırnak gerekmez. Örneğin, bir yolunu ekleyebilirsiniz   **/başlık /?** yerine **/ "title" /?**.
+* "Tüm yolları" temsil eden kök yol olarak gösterilen **/ \*** (ek olarak **/**).
 
-SDK'sı sürüm 1.2.0, taşımak için .NET SDK'sı 1.1.0 sürümü veya önceki bir sürümü ile yazılmış özel bir dizin oluşturma ilkesi ile bu hükümleri koleksiyonları kodu varsa, bu değişiklikler işlenecek uygulama kodunuz değiştirmeniz gerekir. SDK'ın önceki bir sürümünü kullanmaya devam etmeyi planlıyorsanız, değişiklik gerekmez veya kodu yoksa, dizin oluşturma ilkesini yapılandırır.
+SDK sürümü 1.2.0 olarak güncelleştirilir, taşımak için .NET SDK sürüm 1.1.0 veya önceki bir sürümü ile yazılmış özel bir dizin oluşturma ilkesi ile bu hükümleri koleksiyonları kodunuz varsa, bu değişiklikleri işlemek için uygulama kodunuzu değiştirmeniz gerekir. SDK'ın önceki bir sürümünü kullanmaya devam etmeyi planlıyorsanız, değişiklik gerekmez veya kodunuz yoksa, dizin oluşturma ilkesini yapılandırır.
 
-Pratik karşılaştırması için önceki REST API sürümü 2015-04-08 kullanılarak yazılan aynı dizin oluşturma ilkesini arkasından REST API sürümü 2015-06-03 kullanılarak yazılan özel bir dizin oluşturma ilkesini bir örneği burada verilmiştir.
+Pratik bir karşılaştırması için REST API sürümü 2015-06-03, önceki REST API sürümü 2015-04-08 kullanılarak yazılan aynı dizin oluşturma ilkesini ardından kullanılarak yazılan özel bir dizin oluşturma ilkesini örneği aşağıda verilmiştir.
 
-**Geçerli JSON (REST API sürümü 2015-06-03) ilkesi dizin oluşturma**
+**Geçerli dizin oluşturma ilkesi JSON (REST API sürümü 2015-06-03)**
 
     {
        "automatic":true,
@@ -401,7 +469,7 @@ Pratik karşılaştırması için önceki REST API sürümü 2015-04-08 kullanı
     }
 
 
-**Daha önce ilke JSON (REST API sürümü 2015-04-08) dizin oluşturma**
+**Daha önce dizin oluşturma ilkesi JSON (REST API sürümü 2015-04-08)**
 
     {
        "automatic":true,
@@ -421,9 +489,9 @@ Pratik karşılaştırması için önceki REST API sürümü 2015-04-08 kullanı
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Dizin ilke yönetimi örnekleri ve Azure Cosmos DB sorgu dili hakkında daha fazla bilgi için aşağıdaki bağlantılara bakın:
+Dizin ilke yönetimi örnekleri ve Azure Cosmos DB sorgu dili hakkında daha fazla bilgi edinmek için aşağıdaki bağlantılara bakın:
 
 * [SQL API .NET dizin yönetimi kod örnekleri](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 * [SQL API REST toplama işlemleri](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-* [SQL sorgusu](sql-api-sql-query.md)
+* [SQL ile sorgulama](sql-api-sql-query.md)
 

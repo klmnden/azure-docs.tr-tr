@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: db57e0bd0f7afcfa836ef6446cdfd74e5d61c440
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ad4b31fa7b4f4b062f01935c34f7cacf82f99106
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345269"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072135"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>Özel konuşma hizmeti hakkında sık sorulan sorular
 
@@ -57,7 +57,7 @@ Bu SSS'de sorularınızın yanıtlarını bulamazsanız, üzerinde özel konuşm
 
 Dil veriler ise eski ve yeni veri kümeleri (Akustik verilerini ise) tek bir .zip veya bir .txt dosyasına birleştirilmelidir. Yeni bir uç noktası almak için XML'deki dağıtılmış olması için yeni güncelleştirilmiş model gereksinimlerine uyarlama bir kez gerçekleştirilir
 
-**Soru**: ihtiyacım olursa ne yapabilirim daha yüksek Eş zamanlılık Portalı'nda sunulan daha my deloyed modeli. 
+**Soru**: ihtiyacım olursa ne yapabilirim daha yüksek Eş zamanlılık Portalı'nda sunulan daha my dağıtılan modeli. 
 
 **Yanıt**: 20 eş zamanlı istek artışlarla modelinizde ölçekleme yapabilirsiniz. 
 
@@ -90,7 +90,7 @@ Konuşma akustik veya dil verilerde büyük çoğunluğu ayarlarsanız (örneği
 
 **Soru**: akustik ne kadar veri yapmam gerekir mi?
 
-**Yanıt**: akustik verilerin bir saat 30 dakika ile başlamanızı öneririz
+**Yanıt**: akustik verilerin bir saat 30 dakika ile başlamanızı öneririz.
 
 **Soru**: Ben hangi verileri toplamanız gerekir?
 
@@ -116,18 +116,18 @@ Ses verilerini günlüğe kaydeder ve kullanan uygulamanızın sürümünü de o
 
 **Yanıt**: Evet, çevrimdışı test ayarladığınızda özel akustik model açılan menüde seçmeniz yeterlidir.
 
-**Soru**: sözcük hata oranı nedir ve nasıl bunu hesaplanır?
+**Soru**: sözcük hata oranı (WER) nedir ve nasıl bunu hesaplanır?
 
-**Yanıt**: sözcük hata oranı, konuşma tanıma için değerlendirme ölçüm olur. Eklemeler, silme ve değişimler, bölü başvuru transkripsiyonu sözcükleri toplam sayısı içeren hatalarının toplam sayısını, olarak sayılır. Mod ayrıntılarını [burada](https://en.wikipedia.org/wiki/Word_error_rate)
+**Yanıt**: sözcük hata oranı (WER) olan değerlendirme ölçüm konuşma tanıma. Eklemeler, silme ve değişimler, bölü başvuru transkripsiyonu sözcükleri toplam sayısı içeren hatalarının toplam sayısını, olarak sayılır. Diğer ayrıntıları [burada](https://en.wikipedia.org/wiki/Word_error_rate) bulabilirsiniz.
 
 **Soru**: bir doğruluk testi sonuçlarını iyi olup olmadığını nasıl belirleyebilirim?
 
 **Yanıt**: temel model ve, özelleştirilmiş bir arasında bir karşılaştırma sonuçlarını göster.
-Özelleştirmenin faydalı hale getirmek için temel model beat hedeflemeyi
+Özelleştirmenin faydalı hale getirmek için temel model beat için indirmeyi amaçlamanız gerekir.
 
-**Soru**: nasıl miyim şekil temel modellerin WER geliştirme olup olmadığını görebilmeniz için? 
+**Soru**: nasıl miyim şekil temel modelleri Word hata oranı geliştirme olup olmadığını görebilmeniz için? 
 
-**Yanıt**: Çevrimdışı test sonuçlarını temel doğruluğunu özel model ve geliştirme doğruluğunu taban çizgisi Göster
+**Yanıt**: Çevrimdışı test sonuçlarını temel doğruluğunu özel model ve geliştirme doğruluğunu taban çizgisi göster.
 
 ## <a name="creating-lm"></a>LM oluşturma
 

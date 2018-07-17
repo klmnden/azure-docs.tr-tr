@@ -1,6 +1,6 @@
 ---
-title: Azure Storage kesinti durumunda yapmanız gerekenler | Microsoft Docs
-description: Azure Storage kesinti durumunda yapmanız gerekenler
+title: Azure depolama kesintisi olması durumunda yapmanız gerekenler | Microsoft Docs
+description: Azure depolama kesintisi olması durumunda yapmanız gerekenler
 services: storage
 documentationcenter: .net
 author: tamram
@@ -12,62 +12,61 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/19/2017
+ms.date: 07/15/2018
 ms.author: tamram
-ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 160fe756458e067125b9d696fd0cdb929774446e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323160"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072044"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Bir Azure depolama kesinti oluşursa yapmanız gerekenler
-Microsoft, biz sabit hizmetlerimizle her zaman kullanılabilir olduğundan emin olmak için çalışır. Bazen bizim denetim etkisi bize bir veya daha fazla bölgelerde planlanmayan hizmet kesintileri neden yolla zorlar. Bu nadir örnekleri işlemenize yardımcı olmak için Azure depolama hizmetleri için aşağıdaki üst düzey Kılavuzu sunuyoruz.
+Microsoft'ta, sabit hizmetlerimizin her zaman kullanılabilir olduğundan emin olmak için çalışıyoruz. Bazen bizim denetim etkisi bize bir veya daha fazla bölgede plansız bir hizmet kesintisi neden yollarla zorlar. Bu ender örnekleri işlemek yardımcı olmak için Azure depolama hizmetleri için aşağıdaki ileri düzey rehberlik sağlarız.
 
-## <a name="how-to-prepare"></a>Hazırlama
-Her müşterinin kendi olağanüstü durum kurtarma planını hazırlaması kritik öneme sahiptir. Genellikle bir depolama kesintisinden kurtarma çaba çalışır duruma uygulamalarınızda yeniden etkinleştirmek için işlem personeli ve otomatik yordamları içerir. Lütfen kendi olağanüstü durum kurtarma planınızı oluşturmak için aşağıdaki Azure belgelerine bakın:
+## <a name="how-to-prepare"></a>Hazırlamayı öğrenin
+Her müşterinin kendi olağanüstü durum kurtarma planını hazırlaması kritik öneme sahiptir. Bir depolama kesintisi genellikle kurtarmak için gereken çabayı uygulamalarınızı çalışır duruma yeniden etkinleştirmek için hem operasyon personeli hem de otomatik yordamları içerir. Lütfen kendi olağanüstü durum kurtarma planınızı oluşturmak için aşağıdaki Azure belgelerine bakın:
 
 * [Kullanılabilirlik denetim listesi](https://docs.microsoft.com/azure/architecture/checklist/availability)
 * [Azure için dayanıklı uygulamalar tasarlama](https://docs.microsoft.com/azure/architecture/resiliency/)
 * [Azure Site Recovery hizmeti](https://azure.microsoft.com/services/site-recovery/)
 * [Azure Depolama çoğaltması](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
-* [Azure yedekleme hizmeti](https://azure.microsoft.com/services/backup/)
+* [Azure Backup hizmeti](https://azure.microsoft.com/services/backup/)
 
-## <a name="how-to-detect"></a>Nasıl algılanacağını
-Abone olmak için Azure hizmet durumunu belirlemek için önerilen yöntem olduğu [Azure hizmet sağlığı panosunu](https://azure.microsoft.com/status/).
+## <a name="how-to-detect"></a>Tespit etme
+Abone olmak için Azure hizmet durumunu belirlemek için önerilen yöntem olduğu [Azure hizmet durumu Panosu](https://azure.microsoft.com/status/).
 
-## <a name="what-to-do-if-a-storage-outage-occurs"></a>Bir depolama kesinti oluşursa yapmanız gerekenler
-Bir veya daha fazla depolama hizmetleri bir veya daha fazla bölgelerinde aynı geçici olarak kullanılamıyor, dikkate almanız gereken iki seçenek vardır. Lütfen verilerinizi anında erişim üzerinde isterse seçeneği 2 göz önünde bulundurun.
+## <a name="what-to-do-if-a-storage-outage-occurs"></a>Bir depolama kesintisi oluşursa yapmanız gerekenler
+Bir veya daha fazla depolama hizmetleri bir veya daha fazla bölge geçici olarak kullanılamıyorsa, dikkate almanız için iki seçenek vardır. Lütfen verilerinize hemen erişim isterse, seçenek 2 göz önünde bulundurun.
 
-### <a name="option-1-wait-for-recovery"></a>Seçenek 1: Kurtarma için bekleyin
-Bu durumda, herhangi bir eyleminiz gereklidir. Titizlikle Azure hizmeti kullanılabilirlik geri yüklemek için çalışıyoruz. Hizmet durumunu izleyebilirsiniz [Azure hizmet sağlığı panosunu](https://azure.microsoft.com/status/).
+### <a name="option-1-wait-for-recovery"></a>1. seçenek: Kurtarma için bekleyin.
+Bu durumda, sizin herhangi bir eylemi gerekli değildir. Yapıyorduk Azure hizmet kullanılabilirliğini geri yüklemeye çalışıyoruz. Hizmet durumunu izleyebilirsiniz [Azure hizmet durumu Panosu](https://azure.microsoft.com/status/).
 
-### <a name="option-2-copy-data-from-secondary"></a>Seçenek 2: ikincil veri kopyalama
-Seçerseniz [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (depolama hesapları için önerilir), okuma erişimi verilerinizi ikincil bölgesinden gerekir. Araçları gibi kullanabilir [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)ve [Azure veri hareketi Kitaplığı](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) veri unimpacted bir bölgede başka bir depolama hesabı ikincil bölgesinden kopyalayın ve hem okuma hem kullanılabilirlik için bu depolama hesabı, uygulamalarınızı noktası.
+### <a name="option-2-copy-data-from-secondary"></a>2. seçenek: verileri ikincil bölgeden kopyalayın.
+Seçerseniz, [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (depolama hesaplarınız için önerilir), okuma, verileri ikincil bölgeden erişebilirsiniz. Gibi araçları kullanın [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)ve [Azure veri taşıma Kitaplığı](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) başka bir depolama hesabında halinde ikincil bölgeden verileri kopyalamak için bir unimpacted bölge ve ardından noktası her ikisi için uygulamalarınızı bu depolama hesabı okuma ve yazma kullanılabilirliğini.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Bir depolama yük devretme oluşursa beklenmesi gerekenler
-Seçerseniz [coğrafi olarak yedekli depolama (GRS)](storage-redundancy-grs.md) veya [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (önerilen), Azure Storage verilerinizin iki bölgelerde (birincil ve ikincil) dayanıklı tutar. Her iki bölgelerde, Azure Storage verilerinizin birden çok çoğaltma sürekli tutar.
+Seçerseniz, [coğrafi olarak yedekli depolama (GRS)](storage-redundancy-grs.md) veya [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (önerilen), Azure depolama, verilerinizi iki bölgeleri (birincil ve ikincil) dayanıklı tutar. Her iki bölgede de Azure depolama, sürekli verilerinizi birden çok kopyasını tutar.
 
-Bölgesel bir olağanüstü durumda birincil bölge etkilediğinde, biz öncelikle bu bölgede hizmeti geri yüklemeye çalışır. Olağanüstü durum ve bazı nadir durumlarda, kendi etkileri doğasına bağlı biz birincil bölge geri yükleme mümkün olmayabilir. Bu noktada, biz bir coğrafi yük devretme işlemini gerçekleştirecek. Bölgeler arası veri çoğaltma ikincil bölge'ye henüz çoğaltılmamış değişiklikler kaybolabilir mümkün olacak şekilde, bir gecikme içerebileceği zaman uyumsuz bir işlemdir. Sorgulayabileceğiniz ["Son eşitleme zamanı" değerini depolama hesabınızın](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) çoğaltma durumu hakkında bilgi almak için.
+Bölgesel bir olağanüstü durum, birincil bölge etkilediğinde, önce bu bölgede hizmetini geri yüklemek deneyeceğiz. Olağanüstü durum ve bazı nadir durumlarda, kendi etkileri yapısını bağımlı biz birincil bölgeye geri yüklemeniz mümkün olmayabilir. Bu noktada, biz bir coğrafi olarak yük devretme gerçekleştirir. Bölgeler arası veri çoğaltma olası ikincil bölgeye henüz çoğaltılmamış değişiklikler kaybolabilir, bu nedenle, bir gecikme ekleyebileceği bir zaman uyumsuz bir işlemdir. Sorgulayabilirsiniz ["Son eşitleme zamanı" depolama hesabınızın](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) çoğaltma durumu ayrıntıları alınamıyor.
 
-Depolama yük devretme coğrafi deneyimi ilgili noktaları birkaç:
+Birkaç depolama coğrafi olarak yük devretme deneyimi ilgili noktaları:
 
-* Depolama coğrafi yük devretme Azure depolama ekibi tarafından yalnızca tetiklenecek – gerekli müşteri eylemi yok.
-* Var olan Depolama Hizmeti uç noktalarınızı BLOB'lar, tablolar, kuyruklar ve dosya için aynı yük devretme sonrasında kalır; Microsoft tarafından sağlanan DNS girişini birincil bölgesinden ikincil bölge'ye geçiş yapmak için güncelleştirilmesi gerekir.  Microsoft, bu güncelleştirme coğrafi yük devretme işleminin bir parçası olarak otomatik olarak gerçekleştirir.
-* Önce ve coğrafi-yük devretme sırasında depolama hesabınıza etkisi, olağanüstü durum nedeniyle yazma erişimine sahip olmaz ancak depolama hesabınız RA-GRS yapılandırılmışsa, ikincil hala okuyabilirsiniz.
-* Yük devretme coğrafi tamamlandı ve DNS değişiklikleri yayılan, okuma ve yazma erişimi, depolama hesabınıza sürdürülecek; başka bir işaret ne ikincil uç noktanız olması için kullanılır. 
-* GRS veya RA-GRS depolama hesabı için yapılandırılmış varsa yazma erişimi gerekir unutmayın. 
-* Sorgulayabileceğiniz ["Son coğrafi yük devretme zaman" değerini depolama hesabınızın](https://msdn.microsoft.com/library/azure/ee460802.aspx) daha fazla bilgi almak için.
-* Yük devretme sonrasında depolama hesabınız tam olarak çalışan ancak bir "bozuk" durumunda olarak gerçekte hiçbir coğrafi çoğaltma olası sahip bir tek başına bölge barındırılır. Bu riski azaltmak için özgün birincil bölge geri ve özgün durumuna geri yüklemek için bir coğrafi yeniden yapmak. Özgün birincil bölge kurtarılamaz ise, biz başka bir ikincil bölge ayırır.
-  Azure Storage coğrafi çoğaltma'nın altyapısı hakkında daha fazla ayrıntı için depolama ekibi blogu makale hakkında lütfen [artıklık seçenekleri ve RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+* Depolama coğrafi olarak yük devretme yalnızca Azure depolama ekibi tarafından tetiklenir: Müşteri Eylem gerekmiyor.
+* Var olan depolama hizmet uç noktalarınıza blobları, tablolar, kuyruklar ve dosyalar için aynı yük devretme sonrasında kalır; Microsoft tarafından sağlanan DNS girişini birincil bölgeden ikincil bölgeye geçiş yapmak için güncelleştirilmesi gerekir.  Microsoft, bu güncelleştirme coğrafi olarak yük devretme işleminin parçası olarak otomatik olarak gerçekleştirir.
+* Önce ve coğrafi olarak yük devretme sırasında olağanüstü durum etkisi nedeniyle, depolama hesabına yazma erişimi olmaz ancak yine de, depolama hesabı RA-GRS yapılandırılmış olması halinde ikincil okuyabilirsiniz.
+* Coğrafi olarak yük devretme tamamlandı ve DNS değişiklikleri yayılır, okuma ve yazma erişimi depolama hesabınıza devam edecek; başka bir işaret ne ikincil uç noktanız olması için kullanılır. 
+* Yazma erişimi, GRS veya RA-GRS depolama hesabı için yapılandırılmış olacağını unutmayın. 
+* Sorgulayabilirsiniz ["Son coğrafi yük devretme zamanı" depolama hesabınızın](https://msdn.microsoft.com/library/azure/ee460802.aspx) daha ayrıntılı bilgi edinmek için.
+* Yük devretmeden sonra depolama hesabınızın tam olarak çalışmıyor olabilir, ancak "düşürülmüş" durumu olarak aslında hiçbir coğrafi çoğaltma olası bir tek başına bölgeyle barındırılır. Bu riski azaltmak için biz özgün birincil bölgeye geri yükleyecek ve ardından bir coğrafi-özgün durumunu geri yüklemek için yeniden çalışma yapın. Özgün birincil bölgeye kurtarılamaz ise, biz başka bir ikincil bölgeye ayırır.
+  Azure depolama coğrafi çoğaltma'nın altyapısı hakkında daha fazla ayrıntı için lütfen depolama ekibi blogu makaleye hakkında bakın [Yedeklilik seçenekleri ve RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ## <a name="best-practices-for-protecting-your-data"></a>Verilerinizi korumak için en iyi uygulamalar
-Düzenli olarak depolama verileri yedeklemek için bazı önerilen yaklaşım vardır.
+Düzenli olarak, depolama verileri yedeklemek için bazı önerilen yaklaşım vardır.
 
-* VM diskleri – [Azure Backup hizmeti](https://azure.microsoft.com/services/backup/) , Azure sanal makineler tarafından kullanılan VM diskleri yedeklenir.
-* Blok blobları – Oluştur bir [anlık görüntü](https://msdn.microsoft.com/library/azure/hh488361.aspx) her bir blok blobunda veya başka bir bölge kullanarak başka bir depolama hesabı BLOB kopyalama [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), veya [Azure veri hareketi Kitaplığı](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-* Tabloları – kullanın [AzCopy](storage-use-azcopy.md) tablo verileri başka bir bölgede başka bir depolama hesabı verilecek.
-* Dosyalar – kullanmak [AzCopy](storage-use-azcopy.md) veya [Azure PowerShell](storage-powershell-guide-full.md) başka bir bölgede başka bir depolama hesabı dosyalarınızı kopyalamak için.
+* VM diskleri – [Azure Backup hizmeti](https://azure.microsoft.com/services/backup/) , Azure sanal makineler tarafından kullanılan VM disklerini yedekleme için.
+* Blok blobları – açma [geçici silme](../blobs/storage-blob-soft-delete.md) nesne düzeyinde silme karşı korumak ve üzerine yazar veya başka bir depolama hesabına başka bir bölge kullanarak blobları kopyalama [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), veya [Azure veri taşıma Kitaplığı](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+* Tabloları – kullanın [AzCopy](storage-use-azcopy.md) başka bir bölgede başka bir depolama hesabına tablo verilerini dışarı aktarmak için.
+* Dosyalar – kullanın [AzCopy](storage-use-azcopy.md) veya [Azure PowerShell](storage-powershell-guide-full.md) dosyalarınızı başka bir bölgede başka bir depolama hesabına kopyalamak için.
 
-RA-GRS özelliğini tam olarak yararlanmasını uygulamaları oluşturma hakkında daha fazla bilgi için lütfen kullanıma [tasarlama yüksek oranda kullanılabilir RA-GRS depolama kullanan uygulamalar](../storage-designing-ha-apps-with-ragrs.md)
-
+RA-GRS özelliği tam olarak yararlanan uygulamalar oluşturma hakkında daha fazla bilgi için lütfen kullanıma [tasarlama yüksek oranda kullanılabilir RA-GRS depolama kullanan uygulamalar](../storage-designing-ha-apps-with-ragrs.md)

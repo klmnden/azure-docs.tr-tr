@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76b2b1983cc5a6cedfcff204871e0b0f985fef95
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 897681cda31b2f187fca64e77621b7dc5ed4dfae
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900793"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072118"
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Azure Otomasyonu DSC yapılandırmaları derleme
 
@@ -235,7 +235,7 @@ Varlık başvuruları Azure Automation DSC yapılandırmaları ve runbook'ları 
 
 ### <a name="credential-assets"></a>Kimlik bilgisi varlıkları
 
-DSC yapılandırmaları Azure Automation kimlik bilgisi varlıkları kullanarak başvurabilirsiniz ancak **Get-AutomationPSCredential**, kimlik bilgisi varlıkları de geçirilebilir içindeki parametreler aracılığıyla isterseniz. Bir yapılandırma, bir parametre alırsa **PSCredential** yazın sonra bir PSCredential nesnesi yerine bu parametrenin değeri olarak bir Azure Otomasyonu kimlik bilgisi varlığı dize adını geçmeniz gerekir. Arka planda bu ada sahip bir Azure Otomasyonu kimlik bilgisi varlığı alınır ve yapılandırmaya geçirildi.
+DSC yapılandırmaları Azure Automation Otomasyon kimlik bilgisi varlıkları kullanarak başvurabilir `Get-AutomationPSCredential`. Bir yapılandırması olan bir parametreye sahipse bir **PSCredential** yazın, sonra da kullanabilirsiniz `Get-AutomationPSCredential` cmdlet'i cmdlet'e kimlik bilgisi almak için bir Azure Otomasyonu kimlik bilgisi varlığı dize adını geçirerek. Kullanın sonra gerektiren parametresi için bu nesneyi kullanırsınız **PSCredential** nesne. Arka planda bu ada sahip bir Azure Otomasyonu kimlik bilgisi varlığı alınır ve yapılandırmaya geçirildi. Aşağıdaki örnekte, bu eylemi gösterilmektedir.
 
 Kimlik bilgilerini tutma düğüm yapılandırmaları (MOF yapılandırma belge), güvenli düğümü yapılandırma MOF dosyasının kimlik bilgilerini şifrelenmesini gerektirir. Ancak, şu anda PowerShell DSC PowerShell DSC kastettiğinizi bilemez Azure Otomasyonu tüm MOF dosyasını sonra neslini şifreleme, çünkü kimlik bilgilerini düz metin olarak düğüm yapılandırma MOF oluşturma sırasında verilecek sorunsuz bildirmeniz gerekir derleme işi.
 

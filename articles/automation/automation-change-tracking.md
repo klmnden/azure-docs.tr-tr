@@ -10,18 +10,37 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 891206e88173d72a0bacf6694a331c4ad8cc9acc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867962"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069456"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
 
 Bu makalede değişiklik izleme çözümü ortamınızdaki değişikliklerini kolayca belirlemenize yardımcı olur. Çözüm, Windows ve Linux yazılım, Windows ve Linux dosyaları, Windows kayıt defteri anahtarlarını, Windows Hizmetleri ve Linux Daemon'ları için değişiklikleri izler. Yapılandırma değişikliklerini belirlemek işletimsel sorunları belirlemenize yardımcı olabilir.
 
 Yüklü yazılım, Windows Hizmetleri, Windows kayıt defteri ve dosya ve izlenen sunucularda Linux Daemon'ları için değişiklikler, işleme için buluttaki Log Analytics hizmetine gönderilir. Mantıksal alınan verilere uygulanır ve bulut hizmeti olan verileri kaydeder. Değişiklik izleme Panoda bilgileri kullanarak, sunucu altyapınızda yapılan değişiklikleri kolayca görebilirsiniz.
+
+## <a name="supported-windows-operating-systems"></a>Desteklenen Windows işletim sistemleri
+
+Aşağıdaki Windows işletim sistemi sürümleri Windows aracısı için resmi olarak desteklenir:
+
+* Windows Server 2008 Service Pack 1 (SP1) veya üzeri
+* Windows 7 SP1 ve üzeri.
+
+## <a name="supported-linux-operating-systems"></a>Desteklenen Linux işletim sistemleri
+
+Resmi olarak desteklenen aşağıdaki Linux dağıtımları. Ancak, Linux Aracısı listelenmeyen diğer dağıtımlarında da çalışabilir. Aksi belirtilmediği sürece, listelenen her ana sürümünün tüm ikincil sürümleri desteklenir.  
+
+* Amazon Linux için 2015.09 2012.09 (x86/x64)
+* CentOS Linux 5, 6 ve 7 (x86/x64)  
+* Oracle Linux 5, 6 ve 7 (x86/x64)
+* Red Hat Enterprise Linux Server 5, 6 ve 7 (x86/x64)
+* Debian GNU/Linux 6, 7 ve 8 (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
+* SUSE Linux Enterprise Server 11 ve 12 (x86/x64)
 
 ## <a name="enable-change-tracking-and-inventory"></a>Değişiklik İzlemeyi ve Sayımı Etkinleştirme
 
@@ -57,7 +76,7 @@ Linux Bilgisayarları'nda dosyaları izlemeyi yapılandırmak için aşağıdaki
 |Özyineleme     | İzlenecek öğe aranırken özyinelemenin kullanılıp kullanılmadığını belirler.        |
 |Sudo Kullan     | Bu ayar, öğe denetlenirken sudonun kullanılıp kullanılmadığını belirler.         |
 |Bağlantılar     | Bu ayar, dizinleri dolaşırken sembolik bağlantıların nasıl ele alındığını belirler.<br> **Yoksay** - sembolik bağlantıları yoksayar ve başvurulan dosyaları veya dizinleri içermez.<br>**İzleyin** - özyineleme sırasında sembolik bağlantıları izler ve başvurulan dosyaları veya dizinleri de içerir.<br>**Yönetme** - sembolik bağlantıları izler ve döndürülen içeriğin değiştirilmesine izin verir.     |
-|Tüm ayarları için dosya içeriği karşıya yükleme| Açar veya kapatır izlenen değişiklikleri dosya içeriği karşıya yükleme. Mevcut seçenekler: **True** veya **False**.|
+|Dosya içeriğini tüm ayarlar için karşıya yükleme| İzlenen değişikliklerin dosya içeriği karşıya yükleme işlemini açar veya kapatır. Kullanılabilir seçenekler: **True** veya **False**.|
 
 > [!NOTE]
 > “Yönet” bağlantıları seçeneği önerilmez. Dosya içeriğini alma desteklenmiyor.
@@ -76,7 +95,7 @@ Windows bilgisayarlarda izlemeye dosyaları yapılandırmak için aşağıdaki a
 |Öğe Adı     | İzlenecek dosyanın kolay adı.        |
 |Grup     | Dosyaları mantıksal olarak gruplamak için bir grup adı.        |
 |Yolu Gir     | Dosyanın denetleneceği yol. Örneğin: “c:\temp\myfile.txt”       |
-|Tüm ayarları için dosya içeriği karşıya yükleme| Açar veya kapatır izlenen değişiklikleri dosya içeriği karşıya yükleme. Mevcut seçenekler: **True** veya **False**.|
+|Dosya içeriğini tüm ayarlar için karşıya yükleme| İzlenen değişikliklerin dosya içeriği karşıya yükleme işlemini açar veya kapatır. Kullanılabilir seçenekler: **True** veya **False**.|
 
 ## <a name="configure-file-content-tracking"></a>Dosya içeriği izlemeyi yapılandırma
 

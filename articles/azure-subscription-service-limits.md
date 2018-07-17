@@ -1,26 +1,21 @@
 ---
-title: Azure abonelik limitleri ve kotaları | Microsoft Docs
+title: Azure abonelik limitleri ve kotaları
 description: Yaygın Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar listesini sağlar. Bu, en yüksek değerleri birlikte sınırları artırmak nasıl hakkındaki bilgileri içerir.
-services: ''
-documentationcenter: ''
+services: multiple
 author: rothja
 manager: jeffreyg
-editor: ''
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 07/13/2018
 ms.author: byvinyal
-ms.openlocfilehash: aecb687ea2352b482a97226219e9a075070c50a6
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 8b023540f57cb69fc1d2773ef533364f64820359
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990684"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069548"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -52,6 +47,8 @@ Aşağıdaki sınırlar yeni bir tablo, Azure Resource Manager kullanırken fark
 * [Application Insights](#application-insights-limits)
 * [Otomasyon](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [MySQL için Azure Veritabanı](#azure-database-for-mysql)
+* [PostgreSQL için Azure Veritabanı](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Haritalar](#azure-maps-limits)
 * [Azure Redis Önbelleği](#azure-redis-cache-limits)
@@ -219,6 +216,12 @@ Aşağıdaki tabloda, Azure Biztalk Hizmetleri için sınırlar gösterilmektedi
 
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB sınırları
 Azure Cosmos DB, aktarım hızını ve depolamayı ne olursa olsun uygulamanızın gerektirdiği işlemek için ölçeklendirilebilir bir küresel ölçek veritabanıdır. Azure Cosmos DB sağlar ölçek hakkında sorularınız varsa lütfen e-posta gönderin askcosmosdb@microsoft.com.
+
+### <a name="azure-database-for-mysql"></a>MySQL için Azure Veritabanı
+Sınırları MySQL için Azure veritabanı için bkz: [MySQL için Azure veritabanı'nda sınırlamaları](mysql/concepts-limits.md).
+
+### <a name="azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı
+Sınırları PostgreSQL için Azure veritabanı için bkz: [PostgreSQL için Azure veritabanı'nda sınırlamaları](postgresql/concepts-limits.md).
 
 ### <a name="mobile-engagement-limits"></a>Mobile Engagement sınırları
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]

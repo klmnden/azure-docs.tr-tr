@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.author: ghogen
-ms.openlocfilehash: c97f75e0a41a4bf314963dc26c6424a0b773822b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: eb9730f785b01a620e36a265216488c401eac63a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38665237"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068497"
 ---
 # <a name="connect-to-the-text-analytics-service-by-using-connected-services-in-visual-studio"></a>Visual Studio bağlı Hizmetler'i kullanarak metin analizi hizmete bağlanın
 
@@ -193,7 +193,7 @@ Bu makalede ve yardımcı makaleleri için metin analiz hizmeti Visual Studio ba
     }
     ```
 
-1. Çözümlenmiş metin ve belirlenen dil analizi güvenirlik düzeyini temsil eden puanı gösteren görünüm ekleyin.
+1. Çözümlenmiş metin ve belirlenen dil analizi güvenirlik düzeyini temsil eden puanı göstermek için bir görünüm ekleyin. Bunu yapmak için sağ **görünümleri** klasörü seçin **Ekle**, ardından **görünümü**. Görüntülenen iletişim kutusunda bir ad sağlayın _TextAnalyzeResult_, adlı yeni bir dosya eklemek için varsayılan değerleri kabul _TextAnalyzeResult.cshtml_ içinde **görünümleri** klasörü ve Aşağıdaki içeriği dosyaya kopyalayın:
     
     ```cshtml
     @using System

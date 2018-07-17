@@ -1,6 +1,6 @@
 ---
-title: Konuşma hizmetlerini kullanarak konuşma Çevir | Microsoft Docs
-description: Konuşma çeviri konuşma hizmetinde kullanmayı öğrenin.
+title: Konuşma Hizmetleri kullanarak konuşma Çevir | Microsoft Docs
+description: Konuşma çevirisi, konuşma tanıma hizmeti kullanmayı öğrenin.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -8,32 +8,32 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7f39f284998489574049d82c44b3d3a0a3797adb
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 6acfcf0ae8ab4c63e6cc943f93da6b947f3d118c
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356285"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071105"
 ---
-# <a name="translate-speech-using-speech-service"></a>Konuşma hizmetini kullanarak konuşma Çevir
+# <a name="translate-speech-using-speech-service"></a>Konuşma hizmeti kullanarak konuşma Çevir
 
-[Konuşma SDK](speech-sdk.md) konuşma çevirisi, uygulamanızda kullanmak için en basit yolu. SDK hizmetinin tam işlevsellik sağlar. Konuşma çeviri gerçekleştirmek için temel işlem aşağıdaki adımları içerir:
+[Speech SDK'sı](speech-sdk.md) konuşma çevirisi, uygulamanızda kullanmak için en basit yoludur. SDK hizmetinin tam işlevsellik sağlar. Konuşma çevirisi gerçekleştirmek için temel işlemi aşağıdaki adımları içerir:
 
-1. Bir konuşma fabrikası oluşturun ve bir konuşma hizmeti abonelik anahtar veya bir yetki belirteci sağlayın. Kaynak ve hedef çeviri dillerini bu noktada, metin veya konuşma çıktı isteyip istemediğinizi belirtme yanı sıra yapılandırmanız da.
+1. Bir konuşma fabrikası oluşturun ve bir konuşma hizmeti abonelik anahtarı sağlayın ve [bölge](regions.md) veya bir yetkilendirme belirteci. Kaynak ve hedef çeviri dilleri bu noktada, metin ve konuşma çıkış isteyip istemediğinizi belirten yanı sıra yapılandırmanız da.
 
-2. Bir tanıyıcı fabrikası'ndan alın. Çeviri için çeviri tanıyıcı seçin. (Diğer tanıyıcıları içindir *metin konuşma*.) Kullanmakta olduğunuz ses kaynağına göre çeviri tanıyıcı çeşitli özellikleri vardır.
+2. Bir tanıyıcı fabrikasından alın. Çeviri, çeviri tanıyıcı seçin. (Diğer tanıyıcıları içindir *Konuşmayı metne dönüştürme*.) Çeşitli kaynak ses kullandığınız temel çeviri tanıyıcı türü vardır.
 
-4. Zaman uyumsuz işlemi için olayları isterseniz bağlayın. Ara ve nihai sonuçları sahip olduğunda, olay işleyicileri tanıyıcı çağırır. Aksi durumda, uygulamanızın son çeviri sonucu alır.
+4. Olayları zaman uyumsuz işlem için'kurmak isterseniz birbirine bağlayın. Geçici ve Nihai sonuç olduğunda tanıyıcı, olay işleyicilerini çağırır. Aksi takdirde, uygulamanızın bir çeviri Nihai sonuç alır.
 
 5. Tanıma ve çeviri başlatın.
 
 # <a name="sdk-samples"></a>SDK örnekleri
 
-En son örnekleri için bkz [Bilişsel hizmetler konuşma SDK örnek GitHub deposunu](https://aka.ms/csspeech/samples).
+En son örnekleri için bkz [Bilişsel hizmetler konuşma SDK örnek GitHub deposunda](https://aka.ms/csspeech/samples).
 
 # <a name="next-steps"></a>Sonraki adımlar
 
-- [Konuşma deneme aboneliğinizi Al](https://azure.microsoft.com/try/cognitive-services/)
-- [C# Konuşma tanıması](quickstart-csharp-windows.md)
+- [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
+- [C# ' de Konuşma tanıma](quickstart-csharp-dotnet-windows.md)

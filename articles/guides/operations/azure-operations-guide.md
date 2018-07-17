@@ -3,7 +3,7 @@ title: Kılavuzu Azure BT operatörleri için Başlarken | Microsoft Docs
 description: Azure BT operatörleri için başlangıç kılavuzu
 services: ''
 documentationcenter: ''
-author: neilpeterson
+author: themichaelbender-ms
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: nepeters
-ms.openlocfilehash: c57107c1ddb0cfd5740f87e0162ab97355732025
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.author: mibender
+ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003989"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072343"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Bulut bilgi işleme giriş ve Microsoft Azure
 

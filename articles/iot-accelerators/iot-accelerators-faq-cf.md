@@ -1,6 +1,6 @@
 ---
-title: Fabrika çözüm SSS - Azure bağlı | Microsoft Docs
-description: Bağlı Fabrika Çözüm Hızlandırıcısı için sık sorulan sorular
+title: Bağlı Fabrika çözümü SSS - Azure | Microsoft Docs
+description: Bağlı Fabrika çözüm Hızlandırıcı için sık sorulan sorular
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,75 +8,75 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: dbdd9c70fc135561eb0e60e5932e446bcfa3759b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6d1002fd5131ca97f7bc1b9d081ae1471191a6cf
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627510"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39076578"
 ---
-# <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Bağlı Fabrika Çözüm Hızlandırıcısı için sık sorulan sorular
+# <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Bağlı Fabrika çözüm Hızlandırıcı için sık sorulan sorular
 
-Ayrıca bkz.: Genel [SSS](iot-accelerators-faq.md) IOT Çözüm Hızlandırıcıları için.
+Ayrıca bkz. genel [SSS](iot-accelerators-faq.md) IOT Çözüm Hızlandırıcıları için.
 
-### <a name="where-can-i-find-the-source-code-for-the-solution-accelerator"></a>Çözüm Hızlandırıcısı için kaynak kodunu nereden bulabilirim?
+### <a name="where-can-i-find-the-source-code-for-the-solution-accelerator"></a>Çözüm Hızlandırıcısını için kaynak kodu nerede bulabilirim?
 
-Kaynak kodu aşağıdaki GitHub deposunda depolanır:
+Kaynak kodu, aşağıdaki GitHub deposunda depolanır:
 
 * [Bağlı Fabrika Çözüm Hızlandırıcısı](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="what-is-opc-ua"></a>OPC UA nedir?
 
-OPC birleşik mimarisi (2008'de serbest UA), bir platformdan bağımsız, hizmet odaklı birlikte çalışabilirlik standart ' dir. OPC UA çeşitli endüstriyel sistemleri ve cihazların endüstri PC'ler, PLC ve algılayıcılar gibi tarafından kullanılır. OPC UA OPC Klasik belirtimleri işlevselliğini bir Genişletilebilir Framework'e yerleşik güvenlik ile tümleşir. OPC Foundation tarafından yönetilen bir standarttır. [OPC Foundation](http://opcfoundation.org/) kar için not kuruluşunuzun birden fazla 440 üyelere sahip. Kuruluş amacı çok satıcı, çok platformlu, güvenli ve güvenilir birlikte çalışabilirliği aracılığıyla kolaylaştırmak için OPC belirtimleri kullanmaktır:
+OPC birleşik mimarisi (2008'de yayımlanan UA), bir platformdan bağımsız, hizmet odaklı birlikte çalışabilirlik standart ' dir. OPC UA çeşitli endüstriyel sistemleri ve cihazların sektör bilgisayarları PLC ve algılayıcılar gibi tarafından kullanılır. OPC UA OPC Klasik belirtimleri işlevselliğinin bir Genişletilebilir Framework'e yerleşik güvenlik ile tümleştirir. OPC Fundation tarafından yönetilen bir standarttır. [OPC Fundation](http://opcfoundation.org/) 440'den fazla üyelere sahip olmayan yetkilendirilip kâr kuruluştur. Hedef kuruluşun aracılığıyla çok satıcılı, çok platformlu, güvenli ve güvenilir birlikte çalışabilirlik kolaylaştırmak için OPC belirtimleri kullanmaktır:
 
 * Altyapı
 * Belirtimler
 * Teknoloji
 * İşlemler
 
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-solution-accelerator"></a>Neden Microsoft OPC UA seçebilir ve bu da için Fabrika bağlı Çözüm Hızlandırıcısı?
+### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-solution-accelerator"></a>Neden Microsoft bağlı Fabrika çözüm Hızlandırıcı için OPC UA tercih ettiniz?
 
-Bir açık, olmayan-özel, platform bağımsız, endüstri tanınan ve kanıtlanmış standart olduğu için Microsoft OPC UA seçtiniz. Geniş bir üretim işlemleri kümesi ile donanım arasında birlikte çalışabilirlik sağlama Industrie 4.0 (RAMI4.0) başvuru mimarisi çözümleri için gerekli değildir. Microsoft, müşterilerinin Industrie 4.0 çözümleri oluşturmak üzere talep görür. OPC UA desteği engel müşterilerin hedeflerine ulaşması alt yardımcı olur ve onları hemen iş değerine sağlar.
+Microsoft, açık, özel olmayan, platform bağımsız, sektörde tanınmış ve kendini kanıtlamış standart olduğu için OPC UA seçtiniz. Çok sayıda üretim süreçleri ve ekipmanı arasında birlikte çalışabilirlik sağlayarak Industrie 4.0 (RAMI4.0) başvuru mimarisi çözümleri için bir gereksinimdir. Microsoft, müşterilerinin Industrie 4.0 çözümler oluşturmak için talep görüyor. OPC UA desteği, müşterilerin hedeflerine ulaşması engel düşürmenize yardımcı olur ve bunlara anında iş değeri sağlar.
 
-### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>VM benzetimi için nasıl bir ortak IP adresi eklensin mi?
+### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>Genel bir IP adresi VM benzetimi nasıl ekleyebilirim?
 
 IP adresi eklemek için iki seçeneğiniz vardır:
 
-* PowerShell Betiği kullanmak `Simulation/Factory/Add-SimulationPublicIp.ps1` içinde [depo](https://github.com/Azure/azure-iot-connected-factory). Dağıtım adınızı parametre olarak geçirin. Yerel bir dağıtım için kullanmak `<your username>ConnFactoryLocal`. Komut dosyası VM IP adresini yazdırır.
+* PowerShell betiğini kullanın `Simulation/Factory/Add-SimulationPublicIp.ps1` içinde [depo](https://github.com/Azure/azure-iot-connected-factory). Dağıtım adınız bir parametre olarak geçiriyoruz. Yerel bir dağıtım için kullanmak `<your username>ConnFactoryLocal`. Betiği sanal makinenin IP adresini yazdırır.
 
-* Azure portalında, dağıtımınızın kaynak grubunu bulun. Yerel bir dağıtımı dışında kaynak grubu çözümü olarak belirtilen adı veya dağıtım adı var. Yapı komut dosyasını kullanarak yerel bir dağıtımı için kaynak grubunun adıdır `<your username>ConnFactoryLocal`. Şimdi yeni bir ekleyin **genel IP adresi** kaynak grubuna kaynak.
+* Azure portalında, dağıtımınızın kaynak grubunu bulun. Yerel bir dağıtımı dışında kaynak grubunu çözümü olarak belirttiğiniz adı veya dağıtım adı var. Yapı komut dosyası kullanarak bir yerel dağıtımı için kaynak grubunun adıdır. `<your username>ConnFactoryLocal`. Şimdi yeni bir ekleme **genel IP adresi** kaynak kaynak grubu.
 
 > [!NOTE]
-> Yönergeleri izleyerek en son düzeltme eklerini yüklediğiniz her iki durumda da olun [Ubuntu Web sitesi](https://wiki.ubuntu.com/Security/Upgrades). VM'yi bir ortak IP adresi üzerinden erişilebilir olduğu müddetçe yükleme için güncel tutun.
+> Her iki durumda da, yönergeleri izleyerek en son düzeltme eklerinin yüklediğiniz olun [Ubuntu Web sitesi](https://wiki.ubuntu.com/Security/Upgrades). Sanal makinenizin genel IP adresi erişilebilir olduğu sürece yükleme için güncel kalmasını sağlayın.
 
-### <a name="how-do-i-remove-the-public-ip-address-to-the-simulation-vm"></a>Genel IP adresi VM benzetimi için nasıl kaldırılsın mı?
+### <a name="how-do-i-remove-the-public-ip-address-to-the-simulation-vm"></a>Benzetim VM için genel IP adresini nasıl kaldırabilirim?
 
-IP adresini kaldırmak için iki seçeneğiniz vardır:
+IP adresi kaldırmak için iki seçeneğiniz vardır:
 
-* PowerShell komut dosyası, Simulation/Factory/Remove-SimulationPublicIp.ps1 kullanım [depo](https://github.com/Azure/azure-iot-connected-factory). Dağıtım adınızı parametre olarak geçirin. Yerel bir dağıtım için kullanmak `<your username>ConnFactoryLocal`. Komut dosyası VM IP adresini yazdırır.
+* PowerShell komut dosyası, Simulation/Factory/Remove-SimulationPublicIp.ps1 kullanım [depo](https://github.com/Azure/azure-iot-connected-factory). Dağıtım adınız bir parametre olarak geçiriyoruz. Yerel bir dağıtım için kullanmak `<your username>ConnFactoryLocal`. Betiği sanal makinenin IP adresini yazdırır.
 
-* Azure portalında, dağıtımınızın kaynak grubunu bulun. Yerel bir dağıtımı dışında kaynak grubu çözümü olarak belirtilen adı veya dağıtım adı var. Yapı komut dosyasını kullanarak yerel bir dağıtımı için kaynak grubunun adıdır `<your username>ConnFactoryLocal`. Şimdi kaldırmak **genel IP adresi** kaynak kaynak grubu.
+* Azure portalında, dağıtımınızın kaynak grubunu bulun. Yerel bir dağıtımı dışında kaynak grubunu çözümü olarak belirttiğiniz adı veya dağıtım adı var. Yapı komut dosyası kullanarak bir yerel dağıtımı için kaynak grubunun adıdır. `<your username>ConnFactoryLocal`. Şimdi kaldırmak **genel IP adresi** kaynak grubundan kaynak.
 
-### <a name="how-do-i-sign-in-to-the-simulation-vm"></a>VM benzetimi nasıl oturum?
+### <a name="how-do-i-sign-in-to-the-simulation-vm"></a>Nasıl miyim VM benzetimine nasıl oturum açabilirim?
 
-VM benzetimi için oturum açma yalnızca desteklenen PowerShell Betiği kullanılarak çözümünüzü dağıttıysanız, `build.ps1` içinde [depo](https://github.com/Azure/azure-iot-connected-factory).
+VM benzetimi oturum açarken yalnızca desteklenen PowerShell betiğini kullanarak çözümünüzü dağıttıysanız `build.ps1` içinde [depo](https://github.com/Azure/azure-iot-connected-factory).
 
-Www.azureiotsolutions.com çözümden dağıttıysanız VM oturum açamaz. ' De, çünkü parolayı rastgele oluşturulan ve onu sıfırlayamazsınız oturum.
+Www.azureiotsolutions.com çözümden dağıttıysanız, sanal Makineye oturum açamazsınız. ' De, parolayı rastgele oluşturulan ve size sıfırlayamazsınız olduğundan oturum açamazsınız.
 
-1. Bir ortak IP adresi VM'ye ekleyin. Bkz: [VM benzetimi için bir ortak IP adresi nasıl ekleyebilirim?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
-1. VM IP adresini kullanarak, VM için bir SSH oturumu oluşturun.
+1. VM'ye bir genel IP adresi ekleyin. Bkz: [benzetimi VM'nin genel IP adresi nasıl eklerim?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
+1. Sanal makinenin IP adresini kullanarak sanal makinenize yönelik SSH oturumu oluşturun.
 1. Kullanılacak kullanıcı adı: `docker`.
-1. Kullanılacak parolayı dağıtmak için kullanılan sürümüne bağlıdır:
-    * 1 Haziran 2017 önce build.ps1 komut dosyası kullanılarak dağıtılan çözümleri için bir paroladır: `Passw0rd`.
-    * 1 Haziran 2017 sonra build.ps1 komut dosyası kullanılarak dağıtılan çözümleri için parolayı bulabilirsiniz `<name of your deployment>.config.user` dosya. Parola depolanan **VmAdminPassword** ayarı. Kullanarak belirtmediğiniz sürece parolayı rastgele dağıtım sırasında oluşturulan `build.ps1` parametresi komut dosyası `-VmAdminPassword`
+1. Şifreyi dağıtmak için kullanılan sürümüne bağlıdır:
+    * 1 Haziran 2017'den önce build.ps1 betiği kullanılarak dağıtılan çözümler için paroladır: `Passw0rd`.
+    * 1 Haziran 2017'den sonra build.ps1 betiği kullanılarak dağıtılan çözümler için parolayı bulabilirsiniz `<name of your deployment>.config.user` dosya. Parola depolanır **VmAdminPassword** ayarı. Kullanarak belirtmediğiniz sürece parolayı rastgele dağıtım sırasında oluşturulan `build.ps1` komut parametresi `-VmAdminPassword`
 
-### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Nasıl durdurun ve tüm docker işlemleri benzetimi VM başlatma?
+### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Nasıl durdurmak ve tüm docker işlemleri benzetim VM başlatma?
 
-1. VM benzetimi için oturum açın. Bkz: [nasıl oturum benzetimi VM?](#how-do-i-sign-in-to-the-simulation-vm)
-1. Hangi kapsayıcıları etkin denetlemek için çalıştırın: `docker ps`.
-1. Tüm benzetimi kapsayıcıları durdurmak için çalıştırın: `./stopsimulation`.
-1. Tüm benzetimi kapsayıcıları başlatmak için:
-    * Ada sahip bir kabuk değişken verme **IOTHUB_CONNECTIONSTRING**. Değerini kullanmak **IotHubOwnerConnectionString** ayarı `<name of your deployment>.config.user` dosya. Örneğin:
+1. VM benzetimi için oturum açın. Bkz: [nasıl oturum açabilirim benzetimi VM?](#how-do-i-sign-in-to-the-simulation-vm)
+1. Kapsayıcıları etkin olan denetlemek için çalıştırın: `docker ps`.
+1. Tüm benzetim kapsayıcıları durdurmak için şunu çalıştırın: `./stopsimulation`.
+1. Tüm benzetim kapsayıcıları başlatmak için:
+    * Bir kabuk değişkeni adı ile dışarı aktarma **IOTHUB_CONNECTIONSTRING**. Değerini kullanmak **IotHubOwnerConnectionString** ayarı `<name of your deployment>.config.user` dosya. Örneğin:
 
         ```
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -84,19 +84,19 @@ Www.azureiotsolutions.com çözümden dağıttıysanız VM oturum açamaz. ' De,
 
     * `./startsimulation` öğesini çalıştırın.
 
-### <a name="how-do-i-update-the-simulation-in-the-vm"></a>VM'deki benzetimi nasıl güncelleştiririm?
+### <a name="how-do-i-update-the-simulation-in-the-vm"></a>VM benzetime nasıl güncelleştirebilirim?
 
-Benzetimi herhangi bir değişiklik yaptıysanız, PowerShell Betiği kullanabilirsiniz `build.ps1` içinde [deposu](https://github.com/Azure/azure-iot-connected-factory) kullanarak `updatedimulation` komutu. Bu komut tüm benzetimi bileşenleri oluşturur, VM'deki benzetimi durdurur, yükler, yükler ve bunları başlatır.
+Benzetimi herhangi bir değişiklik yaptıysanız, PowerShell betiğini kullanabilirsiniz `build.ps1` içinde [depo](https://github.com/Azure/azure-iot-connected-factory) kullanarak `updatedimulation` komutu. Bu betik tüm benzetim bileşenleri oluşturur, VM'yi benzetime durdurur, yükler, yükler ve bunları başlatır.
 
-### <a name="how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution"></a>IOT hub'ı my çözümü tarafından kullanılan bağlantı dizesi kullanıma nasıl bulabilirim?
+### <a name="how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution"></a>Çözümüm tarafından kullanılan IOT hub bağlantı dizesini dışarı nasıl bulabilirim?
 
-Çözümünüzle birlikte dağıttıysanız `build.ps1` içindeki komut dosyası [deposu](https://github.com/Azure/azure-iot-connected-factory), bağlantı dizesi değeri **IotHubOwnerConnectionString** içinde `<name of your deployment>.config.user` dosya.
+Çözümünüzü ile dağıttıysanız `build.ps1` betiğini [depo](https://github.com/Azure/azure-iot-connected-factory), bağlantı dizesi değeri **IotHubOwnerConnectionString** içinde `<name of your deployment>.config.user` dosya.
 
-Azure Portalı'nı kullanarak bağlantı dizesini de bulabilirsiniz. Kaynak grubu, dağıtımınızın IOT Hub'kaynağında bağlantı dizesi ayarlarının bulun.
+Bağlantı dizesini Azure portalını kullanarak da bulabilirsiniz. IOT hub'ı dağıtımınızın kaynak grubundaki kaynak bağlantı dizesi ayarlarını bulun.
 
-### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>Hangi IOT Hub cihazları bağlı Fabrika benzetimi kullanıyor mu?
+### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>Hangi IOT Hub cihazları Connected Factory benzetim kullanıyor mu?
 
-Benzetim self aşağıdaki cihazları kaydeder:
+Benzetim kendinden aşağıdaki cihazları kaydeder:
 
 * Proxy.Beijing.corp.contoso
 * Proxy.capetown.corp.contoso
@@ -111,23 +111,23 @@ Benzetim self aşağıdaki cihazları kaydeder:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Kullanarak [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) veya [IOT uzantısı için Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) aracı, hangi aygıtların çözümünüzü kullanarak IOT hub ile kaydedilen kontrol edebilirsiniz. Cihaz Gezgini'ni kullanmak için bağlantı dizesi için IOT hub, dağıtımınızdaki gerekiyor. Azure CLI 2.0 için IOT uzantısını kullanmak için IOT Hub adınızı gerekir.
+Kullanarak [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) veya [Azure CLI 2.0 için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension) aracı hangi cihazların çözümünüzü kullanarak IOT hub'la kayıtlı kontrol edebilirsiniz. Cihaz Gezgini kullanmak için bağlantı dizesi için IOT hub, dağıtımınızdaki gerekir. Azure CLI 2.0 için IOT uzantısını kullanmak için IOT hub'ı adı gerekir.
 
-### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Günlük verileri benzetimi bileşenlerini nasıl alabilirim?
+### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Benzetim bileşenleri günlük verilerini nasıl alabilirim?
 
-Tüm bileşenleri benzetimde bilgileri günlük dosyalarına oturum açın. Bu dosyalar VM'yi klasöründe bulunabilir `home/docker/Logs`. Günlükleri almak için PowerShell betiğini kullanabilirsiniz `Simulation/Factory/Get-SimulationLogs.ps1` içinde [depo](https://github.com/Azure/azure-iot-connected-factory).
+Tüm benzetim bileşenleri bilgileri günlük dosyalarına oturum açın. Bu dosyaları sanal Makineye klasöründe bulunabilir. `home/docker/Logs`. Günlükleri almak için PowerShell betiğini kullanabilirsiniz `Simulation/Factory/Get-SimulationLogs.ps1` içinde [depo](https://github.com/Azure/azure-iot-connected-factory).
 
-Bu komut VM oturum açması gerekiyor. Oturum açma için kimlik bilgilerini sağlamanız gerekebilir. Bkz: [nasıl oturum benzetimi VM?](#how-do-i-sign-in-to-the-simulation-vm) kimlik bilgileri bulunamadı.
+Bu betik, sanal Makineye oturum açması gerekiyor. Oturum açmak için kimlik bilgilerini sağlamanız gerekebilir. Bkz: [nasıl oturum açabilirim benzetimi VM?](#how-do-i-sign-in-to-the-simulation-vm) kimlik bilgileri bulunamıyor.
 
-Komut dosyası ekler veya bir ortak IP adresi VM henüz bir sahip değil ve kaldırır kaldırır. Betik tüm günlük dosyalarını bir arşiv koyar ve Arşiv geliştirme istasyonunuza indirir.
+Betik ekler / VM'ye genel bir IP adresi henüz bir sahip değil ve kaldırır kaldırır. Betik, tüm günlük dosyalarını bir arşivde koyar ve Arşiv geliştirme istasyonunuza indirir.
 
-Alternatif olarak VM SSH aracılığıyla oturum açın ve çalışma zamanında günlük dosyalarını inceleyin.
+Alternatif olarak sanal makineye SSH aracılığıyla oturum açın ve çalışma zamanında günlük dosyalarını inceleyin.
 
-### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Benzetim buluta veri gönderme, nasıl kontrol edebilirsiniz?
+### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Benzetim bulutuna veri gönderen, nasıl kontrol edebilirim?
 
-İle [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) veya [iothub-explorer](https://github.com/azure/iothub-explorer) aracı, belirli aygıtlardan IOT Hub'ına gönderilen verileri incelemek. Bu araçları kullanmak için dağıtımınızdaki IOT hub'ına yönelik bağlantı dizesini bilmeniz gerekir. Bkz: [nasıl bulabilirim my çözümü tarafından kullanılan IOT hub bağlantı dizesi kullanıma?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+İle [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) veya [iothub-explorer](https://github.com/azure/iothub-explorer) aracı, belirli cihazlardan IOT Hub'ına gönderilen veriler İnceleme. Bu araçları kullanmak için dağıtımınızdaki IOT hub bağlantı dizesini bilmeniz gerekir. Bkz: [nasıl öğrenebilirim çözümüm tarafından kullanılan IOT hub bağlantı dizesini?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
-Yayımcı aygıtlardan biri tarafından gönderilen verileri inceleyin:
+Bir yayımcı cihazlar tarafından gönderilen verilerin inceleyin:
 
 * Publisher.Beijing.corp.contoso
 * Publisher.capetown.corp.contoso
@@ -136,53 +136,53 @@ Yayımcı aygıtlardan biri tarafından gönderilen verileri inceleyin:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-IOT Hub'ına gönderilen veri görürseniz, benzetimi ile ilgili bir sorun yoktur. İlk çözümleme adım olarak günlük dosyaları benzetimi bileşenlerinin çözümlemeniz gerekir. Bkz: [benzetimi bileşenlerini günlük verilerini nasıl alabilirim?](#how-can-i-get-log-data-from-the-simulation-components) Ardından, durdurmak ve benzetimi başlatmak ve hala gönderilen veri yoksa benzetimi tamamen güncelleştirmek deneyin. Bkz: [VM'deki benzetimi nasıl güncelleştirebilirim?](#how-do-i-update-the-simulation-in-the-vm)
+IOT Hub'ına gönderilen veri görürseniz, benzetim ile ilgili bir sorun yoktur. İlk analysis adım olarak benzetim bileşenleri günlük dosyalarını çözümlemeniz gerekir. Bkz: [benzetimi bileşenlerden günlük verilerini nasıl alabilirim?](#how-can-i-get-log-data-from-the-simulation-components) Ardından, durdurmak, benzetimi başlatmak ve gönderilen veri hala yoksa benzetim tamamen güncelleştirme deneyin. Bkz: [VM benzetime nasıl güncelleştirebilirim?](#how-do-i-update-the-simulation-in-the-vm)
 
-### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Bağlı Fabrika çözümümde nasıl etkileşimli bir harita etkinleştirilsin mi?
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Etkileşimli bir harita bağlı Fabrika çözümünün nasıl etkinleştirebilirim?
 
-Etkileşimli bir harita bağlı Fabrika çözümünüzdeki etkinleştirmek için Kurumsal planı için varolan bir Bing haritaları API'si olması gerekir.
+Bağlı Fabrika çözümünüzü etkileşimli bir harita etkinleştirmek için Kurumsal plan için mevcut bir Bing Haritalar API'si olması gerekir.
 
-Gelen dağıtırken [www.azureiotsolutions.com](http://www.azureiotsolutions.com), dağıtım işlemi aboneliğiniz Kurumsal planı için etkinleştirilmiş bir Bing haritaları API'si sahiptir ve etkileşimli bir harita bağlı Fabrika otomatik olarak dağıtan doğrular. Bu durumda değilse, hala etkileşimli bir harita dağıtımınızda şu şekilde etkinleştirebilirsiniz:
+Gelen dağıtırken [www.azureiotsolutions.com](http://www.azureiotsolutions.com), dağıtım işlemi doğrular, aboneliğinizin Kurumsal plan için etkin bir Bing Haritalar API'si sahip, etkileşimli bir harita bağlı Fabrika otomatik olarak dağıtır. Durum bu değilse, yine de etkileşimli bir harita dağıtımınızı şu şekilde etkinleştirebilirsiniz:
 
-Dağıttığınızda kullanarak `build.ps1` betik bağlı Fabrika github depo ve kurumsal planı için Bing haritaları API'si sahip, ortam değişkeni `$env:MapApiQueryKey` sorgu anahtarı planınız için derleme penceresinde. Etkileşimli harita otomatik olarak etkinleştirilir.
+Kullanarak dağıtırken `build.ps1` betik bağlı Fabrika github deposu ve kurumsal plan için Bing haritaları API'si sahip, ortam değişkenini ayarlamak `$env:MapApiQueryKey` planınızın sorgu anahtarı derleme penceresinde. Etkileşimli harita otomatik olarak etkinleştirilir.
 
-Kurumsal planı için Bing haritaları API'si yoksa, bağlı Fabrika çözümden dağıtmak [www.azureiotsolutions.com](http://www.azureiotsolutions.com) veya kullanarak `build.ps1` komut dosyası. Daha sonra kurumsal planı için Bing haritaları API'si açıklandığı gibi aboneliğinize eklediğiniz [kuruluş hesabı için Bing haritaları API'si nasıl oluşturabilirim?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Açıklandığı gibi bu hesabın sorgu anahtarını arayın [Kurumsal QueryKey için Bing haritaları API'nizi edinme](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) ve bu anahtar kaydedin. Azure Portalı'na gidin ve bağlı Fabrika dağıtımınızdaki uygulama hizmeti kaynağa erişim. Gidin **uygulama ayarları**, bir bölümü nerede **uygulama ayarları**. Ayarlama **MapApiQueryKey** aldığınız sorgu anahtarı. Ayarları kaydetmek ve ardından gidin **genel bakış** ve uygulama hizmetini yeniden başlatın.
+Kurumsal plan için Bing haritaları API'si yoksa, bağlı Fabrika çözümü dağıtma [www.azureiotsolutions.com](http://www.azureiotsolutions.com) veya bu adı kullanıyor `build.ps1` betiği. Ardından Bing Haritalar API'si Kurumsal plan için açıklandığı gibi aboneliğinize eklemek [kuruluş hesabı için Bing haritaları API'si nasıl oluşturabilirim?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Bu hesabın sorgu anahtarını açıklandığı gibi Ara [Kurumsal QueryKey için Bing haritaları API'NİZİN edinme](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) ve bu anahtarı kaydedin. Azure portalına gidin ve bağlı Fabrika dağıtımınızdaki App Service kaynak erişebilirsiniz. Gidin **uygulama ayarları**, bölüm nerede **uygulama ayarları**. Ayarlama **MapApiQueryKey** edindiğiniz sorgu anahtarı. Ayarları kaydedin ve ardından gidin **genel bakış** ve App Service'ı yeniden başlatın.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Bing Haritalar API'si kuruluş hesabı için nasıl oluşturulur
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Bing Haritalar API'si için Enterprise hesabı nasıl oluşturulur
 
-Ücretsiz elde edebilirsiniz *iç işlemleri düzey 1 Bing Haritalar kuruluş için* planı. Ancak, yalnızca iki bu planlarını bir Azure aboneliğine ekleyebilirsiniz. Kurumsal hesap için Bing haritaları API'si yoksa, Azure portalında tıklayarak oluşturmak **+ kaynak oluşturma**. İçin arama **Kurumsal için Bing haritaları API'si** ve onu oluşturmak için istemleri izleyin.
+Ücretsiz alabilirsiniz *iç işlemler düzey 1 Bing Haritalar Kurumsal* planı. Ancak, yalnızca iki bu planları bir Azure aboneliğine ekleyebilirsiniz. Kuruluş hesabı için Bing haritaları API'si yoksa, Azure Portalı'nda tıklayarak oluşturun **+ kaynak Oluştur**. Ardından aramak **Kurumsal için Bing Haritalar API'si** ve bunu oluşturmak için istemleri izleyin.
 
 ![Bing anahtarı](./media/iot-accelerators-faq-cf/bing.png)
 
-### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Kurumsal QueryKey için Bing haritaları API'nizi edinme
+### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Kurumsal QueryKey için Bing haritaları API'NİZİN edinme
 
-Kurumsal planı için Bing haritaları API'nizi oluşturduktan sonra kurumsal kaynak için Bing Haritalar bağlı Fabrika çözümünüzün Azure portalındaki kaynak grubuna ekleyin.
+Kurumsal plan için Bing haritaları API'nizi oluşturulduktan sonra bir Bing Haritalar kurumsal kaynak için bağlı Fabrika çözümünüzü Azure portalında kaynak grubu ekleyin.
 
-1. Azure portalında Kurumsal planı için Bing haritaları API'nizi içeren kaynak grubuna gidin.
+1. Azure portalında Kurumsal plan için Bing haritaları API'nizi içeren kaynak grubuna gidin.
 
-1. Tıklatın **tüm ayarları**, ardından **anahtar yönetimi**.
+1. Tıklayın **tüm ayarlar**, ardından **anahtar yönetimi**.
 
-1. İki anahtar vardır: **MasterKey** ve **QueryKey**. Kopya **QueryKey** değeri.
+1. İki anahtar vardır: **MasterKey** ve **QueryKey**. Kopyalama **QueryKey** değeri.
 
-1. Tarafından toplanma anahtar `build.ps1` komut dosyası, ortam değişkeni `$env:MapApiQueryKey` PowerShell ortamınızda **QueryKey** planınızın. Derleme betiğinin sonra otomatik olarak değeri uygulama hizmeti ayarlarına ekler.
+1. Tarafından toplanma anahtarının `build.ps1` komut dosyası, ortam değişkenini ayarlamak `$env:MapApiQueryKey` PowerShell ortamınızda **QueryKey** planınızın. Derleme betiği sonra otomatik olarak değer için App Service ayarlarını ekler.
 
-1. Yerel çalıştırma veya dağıtım kullanarak bulut `build.ps1` komut dosyası.
+1. Yerel çalıştırma veya dağıtım kullanarak bulut `build.ps1` betiği.
 
 ### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Etkileşimli harita yerel olarak hata ayıklama sırasında nasıl etkinleştirebilirim?
 
-Yerel olarak hata ayıklarken etkileşimli harita etkinleştirmek için ayarın değerini ayarlamak `MapApiQueryKey` dosyalarında `local.user.config` ve `<yourdeploymentname>.user.config` dağıtımınızı değerine kök **QueryKey** , kopyalanan daha önce.
+Yerel olarak hata ayıklarken etkileşimli harita etkinleştirmek için ayarın değerini ayarlamak `MapApiQueryKey` dosyalarında `local.user.config` ve `<yourdeploymentname>.user.config` dağıtımınıza değerini kökünde **QueryKey** , kopyalanan daha önce.
 
-### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Benim Panom giriş sayfanın nasıl farklı bir resim kullanıyor?
+### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Farklı bir görüntü Panom ana sayfanın nasıl kullanabilirim?
 
-Pano giriş sayfası GÇ gösterilen statik görüntü değiştirmek için görüntünün yerini `WebApp\Content\img\world.jpg`. Daha sonra yeniden oluşturun ve WebApp yeniden dağıtın.
+Pano giriş sayfası GÇ gösterilen statik resmi değiştirmek için görüntüyü değiştirin `WebApp\Content\img\world.jpg`. Daha sonra yeniden oluşturun ve WebApp yeniden dağıtın.
 
-### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Bağlı Fabrika ile nasıl olmayan OPC UA cihazlar kullanıyor?
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Bağlı Fabrika ile olmayan OPC UA cihazları nasıl kullanabilirim?
 
-Telemetri verileri olmayan OPC UA aygıtları bağlı Fabrika göndermek için:
+Telemetri verilerini olmayan OPC UA cihazları bağlı Fabrika için göndermek için:
 
-1. [Yeni istasyona bağlı Fabrika topolojisinde yapılandırma](iot-accelerators-connected-factory-configure.md) içinde `ContosoTopologyDescription.json` dosya.
+1. [Yeni istasyona Connected Factory topolojisini yapılandırma](iot-accelerators-connected-factory-configure.md) içinde `ContosoTopologyDescription.json` dosya.
 
-1. Telemetri verileri bağlı Fabrika uyumlu JSON biçiminde alın:
+1. Bağlı Fabrika uyumlu JSON biçiminde telemetri verilerini alma:
 
     ```json
     [
@@ -198,14 +198,14 @@ Telemetri verileri olmayan OPC UA aygıtları bağlı Fabrika göndermek için:
     ]
     ```
 
-1. Biçimi `<timestamp>` değil: `2017-12-08T19:24:51.886753Z`
+1. Biçimi `<timestamp>` olan: `2017-12-08T19:24:51.886753Z`
 
-1. Bağlı Fabrika uygulama hizmetini yeniden başlatın.
+1. Bağlı Fabrika uygulaması hizmetini yeniden başlatın.
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
 IoT çözüm hızlandırıcılarının diğer özellik ve yeteneklerinden bazılarını da keşfedebilirsiniz:
 
 * [Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış](iot-accelerators-predictive-overview.md)
-* [Bağlı Fabrika Çözüm Hızlandırıcısı genel bakış](iot-accelerators-connected-factory-overview.md)
-* [IOT güvenlik sıfırdan](securing-iot-ground-up.md)
+* [Bağlı Fabrika çözüm Hızlandırıcısını dağıtma](quickstart-connected-factory-deploy.md)
+* [Baştan sona IOT güvenliği](/azure/iot-fundamentals/iot-security-ground-up)

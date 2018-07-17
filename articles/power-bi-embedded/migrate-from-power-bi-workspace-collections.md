@@ -1,6 +1,6 @@
 ---
-title: Power BI çalışma alanı koleksiyonu içerik Power BI Embedded geçirme | Microsoft Docs
-description: Power BI çalışma koleksiyonlarından Power BI Embedded geçirmeyi öğrenme ve uygulamalardaki katıştırma Dengeleme ilerletir.
+title: Power BI çalışma alanı koleksiyonu içeriğini Power BI Embedded geçirme | Microsoft Docs
+description: Power BI Embedded için Power BI çalışma alanı koleksiyonları geçirmeyi öğrenin ve uygulamalara içerik faydalanmayı.
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
@@ -14,184 +14,184 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: maghan
-ms.openlocfilehash: d138b0c26ffc0a44947f79811fd586dda7df4509
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: de20d532112ca73f34f7cb603d043579c28179d6
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419113"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071241"
 ---
-# <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>Power BI çalışma alanı koleksiyonu içerik Power BI Embedded geçirme
+# <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>Power BI çalışma alanı koleksiyonu içeriğini Power BI Embedded geçirme
 
-Power BI çalışma koleksiyonlarından Power BI Embedded geçirmek öğrenin. Bu makalede Azure Power BI çalışma koleksiyonlarından Power BI Embedded geçirilmesine yönelik rehberlik sağlar. Biz de için uygulama değişiklikleri beklenmesi gerekenler bakın.
+Power BI Embedded için Power BI çalışma alanı koleksiyonları geçirmeyi öğrenin. Bu makalede, Azure Power BI çalışma alanı koleksiyonları ' Power BI Embedded geçişine ilişkin yönergeler sağlar. Ayrıca, uygulama değişiklikleri için beklenmesi gerekenler bakacağız.
 
-Power BI çalışma koleksiyonları kaynak, Power BI Premium genel kullanılabilirliğini yayımlandıktan sonra sınırlı bir süre için kullanılabilir olmaya devam eder. Bir kurumsal anlaşma altında müşteriler kendi varolan anlaşmaları sona erme tarihi kendi mevcut çalışma koleksiyonlarına erişimi. Power BI çalışma koleksiyonlar doğrudan ya da CSP kanalları edinilen müşteriler Premium'a genel kullanılabilirlik, Power BI bir yıl için erişim keyfini çıkarın.
+Power BI çalışma alanı koleksiyonları kaynak Power BI Premium'un genel kullanılabilirlik sürümü sonra sınırlı bir süre için kullanılabilir olmaya devam eder. Kurumsal Anlaşma kapsamındaki müşteriler mevcut anlaşmalarının sonuna kendi mevcut çalışma alanı koleksiyonları erişebilir. Power BI çalışma alanı koleksiyonları doğrudan ya da CSP kanalları edinilen müşteriler, Power BI Premium'un genel kullanıma bir yıl için erişim keyfini çıkarın.
 
 > [!IMPORTANT]
-> Geçiş bir bağımlılık Power BI hizmetini alır, ancak yok. bir bağımlılık Power BI, uygulamanızın kullanıcılar için kullanılırken bir **belirteci katıştırmak**. Power BI'ın katıştırılmış içerik uygulamanızda görüntülemek için kaydolmak gerekmez. Bu yaklaşım katıştırma, müşterileriniz için Power BI ekleme.
+> Geçiş Power BI hizmetinde bir bağımlılık çekerken, yok bir bağımlılık Power BI uygulamanızın kullanıcıları için kullanılırken bir **ekleme belirteci**. Power BI'ı uygulamanıza eklenmiş içeriği görüntülemek kaydolun gerekmez. Bu yaklaşım ekleme, müşterileriniz için Power BI ekleme.
 
-![Power BI Embedded akışı](media/migrate-from-power-bi-workspace-collections/powerbi-embed-flow.png)
+![Power BI Embedded akış](media/migrate-from-power-bi-workspace-collections/powerbi-embed-flow.png)
 
 ## <a name="prepare-for-the-migration"></a>Geçiş için hazırlama
 
-Power BI çalışma koleksiyonları hizmetinden üzerinden Power BI Embedded geçirmek için hazırlanmak için gerçekleştirmeniz gereken birkaç nokta vardır. Power BI Pro lisansına sahip bir kullanıcı ile birlikte kullanılabilen bir kiracı gerekir.
+Power BI çalışma alanı koleksiyonu hizmetinden üzerinden Power BI Embedded için geçişe hazırlanmak için yapmanız gereken birkaç nokta vardır. Bir kiracı kullanılabilir bir Power BI Pro lisansı olan bir kullanıcıya ihtiyacınız vardır.
 
-1. Bir Azure Active Directory (Azure AD) Kiracı erişimi olduğundan emin olun.
+1. Bir Azure Active Directory (Azure AD) kiracısına erişiminiz olduğundan emin olun.
 
-    Kullanmak için Kiracı?
+    Kullanmak için hangi Kiracı?
 
-    * Mevcut Kurumsal Power BI kiracınızın kullanılsın mı?
-    * Ayrı bir kiracı, uygulamanız için kullanılsın mı?
-    * Ayrı bir kiracı her müşteri için kullanılsın mı?
+    * Var olan Kurumsal Power BI kiracınızın kullanılsın mı?
+    * Uygulamanız için ayrı bir kiracı kullanılsın mı?
+    * Her müşteri için ayrı bir kiracı kullanılsın mı?
 
-    Uygulamanızı ya da her müşteri için yeni bir kiracı oluşturmaya karar verirseniz, aşağıdakilerden birini bakın:
+    Uygulamanız veya her müşteri için yeni bir kiracı oluşturmaya karar verdiğinizde, şunlardan birini bakın:
 
     * [Azure Active Directory kiracısı oluşturma](https://powerbi.microsoft.com/documentation/powerbi-developer-create-an-azure-active-directory-tenant/)
-    * [Azure Active Directory kiracısı alma](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant).
+    * [Bir Azure Active Directory kiracısı edinme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant).
 
-2. Uygulama "ana" hesabı olarak işlem görür bu yeni Kiracı içinde bir kullanıcı oluşturun. Hesap Power BI'a kaydolmanız gerekir ve kendisine atanmış bir Power BI Pro lisansına sahip olması gerektiğini.
+2. Bu yeni kiracıda uygulama "ana" hesabı olarak davranan bir kullanıcı oluşturun. Hesap Power BI'a kaydolması ve kendisine atanmış bir Power BI Pro lisansına sahip olması gerekir.
 
-## <a name="accounts-within-azure-ad"></a>Azure AD içinde hesapları
+## <a name="accounts-within-azure-ad"></a>Azure AD içindeki hesaplar
 
-Aşağıdaki hesapları Kiracı içinde bulunması gerekir.
+Aşağıdaki hesapları kiracınızda bulunması gerekir.
 
 > [!NOTE]
-> Bu hesaplar, uygulama çalışma alanları kullanmak için Power BI Pro lisansına sahip olmanız gerekir.
+> Bu hesapların uygulama çalışma alanlarını kullanabilmesi için Power BI Pro lisansı olması gerekir.
 
 1. Bir kiracı yönetici kullanıcı.
 
-    Katıştırma uygulama çalışma alanının bir üyesi olarak listelenen Kiracı yönetici olduğuna önerilir.
+    Katıştırma uygulama çalışma alanının bir üyesi olarak listelenen Kiracı Yöneticisi olduğunu önerilir.
 
-2. İçerik oluşturma analistleri hesapları.
+2. İçerik oluşturma analistlerin hesapları.
 
-    Bu kullanıcılar, gerektiğinde uygulama çalışma alanlarına atanmalıdır.
+    Bu kullanıcıların gerektiğinde uygulama çalışma alanlarında atanmalıdır.
 
-3. Bir uygulama *ana* kullanıcı hesabı ya da hizmet hesabı.
+3. Bir uygulama *ana* kullanıcı hesabı veya hizmet hesabı.
 
-    Uygulamaları arka uç bu hesabın kimlik bilgilerini depolar. Kullanmak *ana* hesabınızı Power BI REST API'leri ile kullanmak için bir Azure AD belirtecini alma için. Bu hesap, uygulama için ekleme belirteci üretmek için kullanılır. *Ana* hesabı katıştırmak için oluşturulan uygulama çalışma alanlarının bir yönetici olması gerekir.
+    Uygulama arka ucu, bu hesabın kimlik bilgilerini depolar. Kullanma *ana* hesabı ile Power BI REST API'lerini kullanmak için Azure AD belirteçlerini almak için. Bu hesap, uygulamanın ekleme belirtecini oluşturmak için kullanılır. *Ana* hesabı eklemek için oluşturulan uygulama çalışma alanının yöneticisi olması gerekir.
 
-    **Yalnızca normal bir kullanıcı hesabı kuruluşunuzdaki katıştırma amacıyla kullanılan hesaptır.**
+    **Yalnızca normal bir kullanıcı hesabı ekleme amacıyla kullanılır, kuruluşunuzdaki hesabıdır.**
 
-## <a name="app-registration-and-permissions"></a>Uygulama kaydı ve izinleri
+## <a name="app-registration-and-permissions"></a>Uygulama kaydı ve izinler
 
-REST API çağrıları yapmak için bir uygulamayı Azure AD ile kaydedin. Ek yapılandırma Power BI uygulaması kayıt sayfası yanı sıra Microsoft Azure portalındaki uygulanır. Daha fazla bilgi için bkz: [Power BI içeriğini katıştırmak için Azure AD uygulama kaydetmeyi](https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/).
+REST API çağrıları gerçekleştirmek için bir uygulamayı Azure AD'ye kaydedin. Ek yapılandırma, Microsoft Azure Portal'ın Power BI uygulama kayıt sayfasına ek olarak uygulanır. Daha fazla bilgi için [Power BI içeriği eklemek üzere bir Azure AD uygulamasını kaydetme](https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/).
 
-Uygulama kullanarak uygulamayı kaydetmeniz önerilir **ana** hesabı.
+Uygulamayı kullanarak uygulamayı kaydetmeniz önerilir **ana** hesabı.
 
-## <a name="create-app-workspaces-required"></a>(Gerekli) uygulama çalışma alanları oluşturma
+## <a name="create-app-workspaces-required"></a>Uygulama çalışma alanları (gerekli) oluşturma
 
-Uygulamanız birden çok müşteri bakım, daha iyi yalıtımı sağlamak için uygulama çalışma alanlarının yararlanabilir. Panolar ve raporlar müşterileriniz yalıtılmış olacaktır. Daha sonra Power BI hesabınız uygulama çalışma daha fazla uygulama deneyimleri müşterileriniz yalıtmak için kullanabilirsiniz, ancak basit tutmak için yalnızca bir hesap kullanabilirsiniz.
+Uygulamanızı birden çok müşteriye hizmet, daha iyi yalıtım sağlamak için uygulama çalışma alanları yararlanabilir. Panolarınızı ve raporlarınızı müşterileriniz diğerlerinden ayrılır. Daha sonra Power BI hesabınız uygulama çalışma alanı daha fazla uygulama deneyimleri müşterilerinizin arasında ayırmak için kullanabilirsiniz, ancak basit tutmak için yalnızca bir hesap kullanabilirsiniz.
 
 > [!IMPORTANT]
-> Kişisel bir çalışma alanı kullanamaz (bir "Çalışma Alanım"), müşterilerinize katıştırma avantajlarından yararlanmak için.
+> Kişisel çalışma alanlarını kullanamazsınız (bir "Çalışma Alanım") müşterileriniz için içerik ekleme avantajlarından yararlanmak için.
 
-Power BI içindeki bir uygulama çalışma alanı oluşturmak için bir Pro lisansa sahip bir kullanıcı gerekir. Uygulama çalışma alanı oluşturur Power BI kullanıcı varsayılan olarak, çalışma alanının bir yöneticidir. **Uygulama *ana* hesap çalışma alanının yönetici olması gerekir.**
+Power bı'da uygulama çalışma alanı oluşturmak için Pro sürüm lisansı bulunan bir kullanıcı ihtiyacınız vardır. Uygulama çalışma alanını oluşturan Power BI kullanıcı varsayılan olarak, çalışma alanının yöneticisi değil. **Uygulama *ana* hesabının çalışma alanının yöneticisi olması gerekir.**
 
 ## <a name="content-migration"></a>İçerik Geçişi
 
-İçeriğinizi çalışma koleksiyonlarından Power BI Embedded geçirme geçerli çözümünüz için paralel yapılabilir ve kapalı kalma süresi gerektirmez.
+Çalışma alanı koleksiyonlarınızı içeriğinizi Power BI Embedded geçiş için mevcut çözümünüzle paralel yapılabilir ve kapalı kalma süresi gerektirmez.
 
-A **geçiş aracı** içeriği Power BI çalışma koleksiyonlarından Power BI Embedded kopyalama ile yardımcı olmak için kullanmanız için kullanılabilir. Özellikle birçok rapor varsa. Daha fazla bilgi için bkz: [Power BI Embedded geçiş aracı](migrate-tool.md).
+A **geçiş aracı** , içeriğinizi Power BI çalışma alanı koleksiyonları ' Power BI Embedded kopyalama konusunda yardımcı olmak için kullanılabilir. Özellikle çok sayıda rapor varsa. Daha fazla bilgi için [Power BI Embedded geçiş aracı](migrate-tool.md).
 
-İçerik Geçişi çoğunlukla iki API'leri kullanır.
+İçerik Geçişi temelde iki API kullanır.
 
-1. İndirme PBIX - bu API için Power BI Ekim 2016 sonrasında yüklenen PBIX dosyalarını indirebilirsiniz.
-2. İçeri aktarma PBIX - bu API için Power BI herhangi PBIX yükler.
+1. İndirme PBIX: Bu API, Ekim 2016'dan sonra Power BI'a yüklenmiş PBIX dosyalarını indirebilirsiniz.
+2. Import PBIX: Bu API, pbıx dosyalarını Power BI'a yükler.
 
-Kod parçacıkları ilgili bazı için bkz: [kod geçirmek için Power BI Embedded içerik parçacıkları](migrate-code-snippets.md).
+İlgili kod parçacıkları için bkz: [geçişi için kod parçacıkları Power BI Embedded içerik](migrate-code-snippets.md).
 
 ### <a name="report-types"></a>Rapor türleri
 
-Rapor, her farklı geçiş akış gerektiren çeşitli türleri vardır.
+Her farklı geçiş akış gerektiren raporlar, birkaç türü vardır.
 
-#### <a name="cached-dataset-and-report"></a>Önbelleğe alınmış veri kümesini ve raporu
+#### <a name="cached-dataset-and-report"></a>Önbellekteki veri kümesini ve raporu
 
-Önbelleğe alınan veri kümelerini bir canlı veya DirectQuery bağlantısı aksine veriler içe PBIX dosyaları bakın.
+Veriler bir canlı bağlantı veya DirectQuery bağlantısının aksine içeri PBIX dosyaları önbelleğe alınmış veri kümeleri bakın.
 
 **Akış**
 
-1. Karşıdan PBIX API Power BI çalışma alanı koleksiyonu alanınızdan çağırın.
-2. PBIX kaydedin.
-3. İçeri aktarma PBIX için Power BI Embedded çalışma alanınızda çağırın.
+1. Power BI çalışma alanı koleksiyonu çalışma alanınızdan download PBIX API çağrısı.
+2. Pbıx dosyasını kaydedin.
+3. Power BI Embedded çalışma alanınız için Import PBIX çağrısı.
 
 #### <a name="directquery-dataset-and-report"></a>DirectQuery veri kümesini ve raporu
 
 **Akış**
 
-1. GET çağrı https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources ve alınan bağlantı dizesini kaydedin.
-2. Karşıdan PBIX API Power BI çalışma alanı koleksiyonu alanınızdan çağırın.
-3. PBIX kaydedin.
-4. İçeri aktarma PBIX için Power BI Embedded çalışma alanınızda çağırın.
-5. Bağlantı dizesi tarafından arama - POST güncelleştir  https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections
-6. Çağırarak GW kimliği ve veri kaynağı kimliği get - Al https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources
-7. Kullanıcı kimlik bilgilerini çağırarak güncelleştirmesi - düzeltme eki https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}
+1. GET çağrı `https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources` ve alınan bağlantı dizesini kaydedin.
+2. Power BI çalışma alanı koleksiyonu çalışma alanınızdan download PBIX API çağrısı.
+3. Pbıx dosyasını kaydedin.
+4. Power BI Embedded çalışma alanınız için Import PBIX çağrısı.
+5. Bağlantı dizesi çağrısı yaparak - POST güncelleştir  `https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections`
+6. Çağrısı yaparak GW Kimliğini ve veri kaynağı Kimliğini alın: alma `https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources`
+7. Kullanıcı kimlik bilgilerini güncelleştirin - düzeltme eki `https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}`
 
-#### <a name="old-dataset-and-reports"></a>Eski veri kümesinin ve raporlar
+#### <a name="old-dataset-and-reports"></a>Eski veri kümeleri ve raporlar
 
-Ekim 2016 desteklemez önce karşıdan PBIX özelliği karşıya raporlar.
-
-**Akış**
-
-1. PBIX geliştirme ortamı (iç kaynak denetimi) alın.
-2. İçeri aktarma PBIX için Power BI Embedded çalışma alanınızda çağırın.
-
-#### <a name="push-dataset-and-report"></a>Veri kümesini ve raporu gönderme
-
-Karşıdan PBIX desteklemiyor *anında API* veri kümeleri. Veri bağlantı noktalı API dataset Power BI çalışma koleksiyonlarından Power BI Embedded iletin.
+Ekim 2016'dan desteklemez önce PBIX indirme özelliği karşıya yüklenen raporlar. 
 
 **Akış**
 
-1. "Veri kümesi oluşturma" API'si veri kümesi için Power BI Embedded çalışma alanınızı oluşturmak için Json veri kümesi ile çağırın.
+1. Geliştirme ortamınızdan (iç kaynak denetiminizden) pbıx dosyasını alın.
+2. Power BI Embedded çalışma alanınız için Import PBIX çağrısı.
+
+#### <a name="push-dataset-and-report"></a>Gönderim veri kümesini ve raporu
+
+İndirme PBIX desteklemiyor *Push API* veri kümeleri. Push API veri kümesi Power BI çalışma alanı koleksiyonları ' Power BI Embedded taşınamaz.
+
+**Akış**
+
+1. Power BI Embedded çalışma alanınız için veri kümesini oluşturmak için Json veri kümesi ile "Create dataset" API çağrısı.
 2. Rapor için oluşturulan veri kümesi * yeniden oluşturun.
 
-Anında iletme geçirmek için bazı geçici çözümler kullanarak mümkündür Power BI Embedded için Power BI çalışma koleksiyonlardan API rapor aşağıdaki deneyerek:
+Anında iletme geçirmek için bazı geçici çözümleri kullanarak mümkündür aşağıdaki API rapordan Power BI çalışma alanı koleksiyonları Power BI Embedded için:
 
-1. Bazı kukla PBIX Power BI çalışma alanı koleksiyonu çalışma alanınızı karşıya yükleniyor.
-2. Anında iletme kopyalama API rapor ve adım 1'den kukla PBIX bağlayın.
-3. Anında iletme kukla PBIX API raporla indirin.
-4. Sahte PBIX Power BI Embedded alanınıza karşıya yükleyin.
-5. Power BI Embedded çalışma alanınızda anında veri kümesi oluşturun.
-6. API dataset göndermek için raporu yeniden bağlayın.
+1. İşlevsiz pbıx dosyaları, Power BI çalışma alanı koleksiyonu çalışma alanınıza karşıya yükleniyor.
+2. Anında iletme kopyalama API'si rapor ve 1. adımdan işlevsiz PBIX dosyasına bağlayın.
+3. Push API raporunu işlevsiz PBIX ile indirin.
+4. İşlevsiz PBIX Power BI Embedded çalışma alanınıza yükleyin.
+5. Gönderim veri kümesini Power BI Embedded çalışma alanınızda oluşturun.
+6. Raporu push API veri kümesi için yeniden bağlayın.
 
-## <a name="create-and-upload-new-reports"></a>Oluşturun ve yeni raporları karşıya yükleme
+## <a name="create-and-upload-new-reports"></a>Oluşturma ve yeni raporlar karşıya yükleme
 
-Power BI çalışma koleksiyonlarından geçirilen içeriğin yanı sıra, raporlarınızı ve Power BI Desktop kullanarak veri kümeleri oluşturma ve ardından bu raporları bir uygulama çalışma alanına yayımlayın. Raporları Yayımlama son kullanıcı bir uygulama çalışma alanı'na yayımlamak için Power BI Pro bir lisansı olması gerekir.
+Power BI çalışma alanı koleksiyonları ' geçirdiğiniz içeriğe ek olarak, rapor ve veri kümelerini Power BI Desktop kullanarak oluşturabilir ve ardından bu raporları bir uygulama çalışma alanında yayımlayabilirsiniz. Raporları yayımlayan son kullanıcı, bir uygulama çalışma alanına yayımlamak için Power BI Pro lisansı olması gerekir.
 
-## <a name="rebuild-your-application"></a>Uygulamanızı yeniden
+## <a name="rebuild-your-application"></a>Uygulamanızı yeniden oluşturma
 
-1. Uygulamanızı Power BI REST API'leri ve powerbi.com içinde rapor konumu kullanacak şekilde değiştirin.
+1. Uygulamanızı Power BI REST API'lerini ve powerbi.com içindeki rapor konumunu kullanacak şekilde değiştirin.
 
-2. AuthN/AuthZ kimlik doğrulaması kullanarak yeniden *ana* hesap uygulamanız için. Kullanmanın yararlanabilir bir [belirteci katıştırmak](https://msdn.microsoft.com/library/mt784614.aspx) bu kullanıcının diğer kullanıcılar adına hareket izin vermek için.
+2. AuthN/AuthZ kimlik doğrulaması kullanarak yeniden *ana* uygulamanız için hesap. Kullanmanın avantajı uygulayabileceğiniz bir [ekleme belirteci](https://msdn.microsoft.com/library/mt784614.aspx) bu kullanıcının diğer kullanıcıların adına hareket etmesine izin vermek için.
 
-3. Power BI Embedded gelen raporlarınızı uygulamanıza ekleyin. Daha fazla bilgi için bkz: [, Power BI panoları, raporları ve döşeme katıştırma](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/).
+3. Power BI Embedded gelen raporlarınızı uygulamanıza ekleyin. Daha fazla bilgi için [Power BI panolarınızı, raporlar ve kutucuklar ekleme](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/).
 
-## <a name="map-your-users-to-a-power-bi-user"></a>Kullanıcılarınızın Power BI kullanıcısıyla
+## <a name="map-your-users-to-a-power-bi-user"></a>Kullanıcılarınızı bir Power BI kullanıcısıyla eşleme
 
-Uygulamanızdaki, uygulama içinde yönetmek kullanıcıları eşlemek bir *ana* uygulamanızı amaçları için Power BI kimlik bilgisi. Bu Power BI için kimlik bilgilerini *ana* hesabı uygulamanızdaki depolanır ve oluşturmak için kullanılan simgeleri ekleme.
+Uygulamanızın içinde uygulamaya içinde yönettiğiniz kullanıcıları eşlemek bir *ana* , uygulamanızın amaçları için Power BI kimlik bilgisi. Bu Power BI için kimlik bilgilerini *ana* hesabı uygulamanızın içinde depolanır ve oluşturmak için kullanılan ekleme belirteçleri.
 
 ## <a name="what-to-do-when-you-are-ready-for-production"></a>Üretim için hazır olduğunuzda yapmanız gerekenler
 
-Üretime taşımak hazır olduğunuzda aşağıdakileri yapmanız gerekir:
+Üretim aşamasına geçmeye hazır olduğunuzda, aşağıdakileri yapmanız gerekir:
 
-- Geliştirme için ayrı bir kiracı kullanıyorsanız, panolar ve raporlar, birlikte uygulama alanlarınızı üretim ortamınızda kullanılabilir olduğundan emin olmak gerekir. Uygulamayı üretim kiracınız için Azure AD'de oluşturulan ve adım 1'de gösterildiği gibi doğru uygulama izinlerine emin olun.
+- Geliştirme için ayrı bir kiracı kullanıyorsanız uygulama çalışma alanlarınızın, panolarınızın ve raporlarınızın üretim ortamınızda kullanılabilir durumda olduğundan emin olmak gerekir. Uygulamayı üretim kiracınızın Azure AD'de oluşturulan ve 1. adımda belirtilen gerekli uygulama izinlerini atadığınızdan emin olun.
 
-- Gereksinimlerinize uyan bir kapasite satın alın. Kullanabileceğiniz [katıştırılmış analytics kapasite teknik incelemesi planlama](https://aka.ms/pbiewhitepaper) gereksinim duyabileceğiniz anlamanıza yardımcı olması için. Satın almak hazır olduğunuzda, Azure portalı içinde Power BI Embedded kaynak satın alabilirsiniz.
+- İhtiyaçlarınıza uygun bir kapasite satın alın. Kullanabileceğiniz [katıştırılmış analiz kapasite planlama teknik incelemesi](https://aka.ms/pbiewhitepaper) ihtiyacınız anlamanıza yardımcı olacak. Satın almaya hazır olduğunuzda, bir Power BI Embedded kaynağı Azure portalında satın alabilirsiniz.
 
-- Uygulama çalışma düzenleyin ve Gelişmiş altında bir kapasite atayın.
+- Uygulama çalışma alanını düzenleyin ve Gelişmiş Ayarlar bölümünden bir kapasiteye atayın.
 
-    ![Uygulama çalışma powerbi.com kapasitesiyle atayın](media/migrate-from-power-bi-workspace-collections/embedded-capacity.png)
+    ![Powerbi.com içindeki bir kapasiteye uygulama çalışma alanı atama](media/migrate-from-power-bi-workspace-collections/embedded-capacity.png)
 
-- Güncelleştirilmiş uygulamanızı üretime dağıtmak ve Power BI Embedded raporlardan katıştırma başlayın.
+- Güncelleştirilen uygulamanızı üretim ortamında dağıtın ve Power BI Embedded raporları eklemeye başlayın.
 
 ## <a name="after-migration"></a>Geçişten sonra
 
-Bazı temizleme Power BI çalışma alanı koleksiyonu içinde gereklidir.
+Bazı temizleme işlemleri, Power BI çalışma alanı koleksiyonları içinde gereklidir.
 
-- Azure hizmet Power BI çalışma alanı koleksiyonu içinde dağıtılan çözümü dışına tüm çalışma alanlarını kaldırın.
-- Azure içinde mevcut herhangi bir çalışma alanı koleksiyonu silin.
+- Power BI çalışma alanı koleksiyonları Azure hizmetindeki dağıtılan çözümün tüm çalışma alanlarını kaldırın.
+- Azure'daki mevcut herhangi bir çalışma alanı koleksiyonlarını silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Tebrikler. Uygulamanız artık Power BI Embedded geçirilir. Power BI panoları, raporları ve veri kümelerini ekleme hakkında daha fazla bilgi için bkz: [, Power BI panoları, raporları ve döşeme katıştırma](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/).
+Tebrikler. Uygulamanız artık Power BI Embedded geçirilir. Power BI panolarınızı, raporlarınızı ve veri ekleme hakkında daha fazla bilgi için bkz. [Power BI panolarınızı, raporlar ve kutucuklar ekleme](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/).
 
-Başka sorunuz mu var? [Power BI topluluk isteyen deneyin](http://community.powerbi.com/)
+Başka sorunuz mu var? [Power BI Topluluğu'na sorun](http://community.powerbi.com/)

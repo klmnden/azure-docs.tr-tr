@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 17d84718c6adab8b2bd4f130f380edc12498102b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 06350decd9d9f15db7226b6f2c3580feb49a59d1
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346051"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069583"
 ---
 # <a name="supported-languages-for-speech-service"></a>Konuşma hizmeti için desteklenen diller
 
@@ -28,7 +28,7 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir.
   Kod | Dil | Akustik Uyarlama | Dil uyarlama | Söyleniş uyarlama
  ------|----------|---------------------|---------------------|-------------------------
  ar EG | Arapça (Mısır) modern standart | Hayır | Evet | Hayır
- İt-IT | İtalyanca (İtalya) | Hayır | Evet | Hayır 
+ it-IT | İtalyanca (İtalya) | Hayır | Evet | Hayır 
  de-DE | Almanca (Almanya) | Hayır | Evet | Evet
  ja-JP | Japonca (Japonya) | Hayır | Evet | Hayır
  tr-TR | İngilizce (ABD) | Evet | Evet | Evet
@@ -222,5 +222,5 @@ Dillerin listesini ya da programlı bir şekilde alabilirsiniz veya REST API'nin
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Konuşma deneme aboneliğinizi Al](https://azure.microsoft.com/try/cognitive-services/)
-* [C# ' de Konuşma tanıma öğrenin](quickstart-csharp-windows.md)
+* [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
+* [C# ' de Konuşma tanıma öğrenin](quickstart-csharp-dotnet-windows.md)

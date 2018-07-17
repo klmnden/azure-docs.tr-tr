@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 69991a0b805b5502fc96fab4ce902b3d8bc77baf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 741b32f394ca2ce447826f7207f7fd9cbede9c51
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056367"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070896"
 ---
 # <a name="understand-load-balancer-probes"></a>Yük Dengeleyici araştırmalarını anlama
 
@@ -28,7 +28,7 @@ Azure Load Balancer, hangi arka uç havuzu örneğine yeni akışlar alması ger
 
 Yeni akışlar sağlam bir arka uç örneklerine oluşturulmuş olup olmadığını sistem durumu araştırmaları yönetir. Durum araştırması başarısız olduğunda, yük dengeleyici sağlıksız ilgili örneğine yeni akışlar gönderme durdurur.  Yerleşik TCP bağlantıları sistem durumu araştırma hatasından sonra devam edin.  Mevcut UDP akışları taşınır arka uç havuzundaki başka bir örneğine sağlıksız örneğinden.
 
-Arka uç havuzu için tüm araştırmaları başarısız olursa, standart yük dengeleyici devam etmek için yerleşik TCP akışları izin verir ancak temel yük dengeleyici arka uç havuzu için tüm mevcut TCP akışları sona erer; Yeni akış arka uç havuzuna gönderilir.
+Arka uç havuzu için tüm araştırmaları başarısız olursa, standart yük dengeleyici devam etmek için yerleşik TCP akışları izin verir ancak temel yük dengeleyici arka uç havuzu için tüm mevcut TCP akışları sona erer; Yeni akış arka uç havuzuna gönderilir.  Başarısız tüm araştırmaları için bir arka uç havuzunun tüm mevcut UDP akışları temel ve standart Load Balancer için sona erer.
 
 Bulut hizmeti rolleri (çalışan rolleri ve web rolleri), Konuk Aracısı izleme yoklaması için kullanın. Yük dengeleyicinin arkasına Iaas Vm'leri ile bulut hizmetlerini kullandığınızda, TCP veya HTTP özel sistem durumu araştırmaları yapılandırılmalıdır.
 
