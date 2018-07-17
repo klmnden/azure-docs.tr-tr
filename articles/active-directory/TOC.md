@@ -143,9 +143,9 @@
 ## Parolaları yönetme
 ### [Parolalara genel bakış](authentication/active-directory-passwords-overview.md)
 ### Kullanıcı belgeleri
-#### [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md)
+#### [Parolanızı sıfırlama veya değiştirme](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Parolalarla ilgili en iyi yöntemler](active-directory-secure-passwords.md)
-#### [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md)
+#### [Self servis parola sıfırlama için kaydolma](user-help/active-directory-passwords-reset-register.md)
 ### [SSPR Nasıl çalışır?](authentication/concept-sspr-howitworks.md)
 ### [SSPR Dağıtım kılavuzu](authentication/howto-sspr-deployment.md)
 ### [SSPR ve Windows 10](authentication/tutorial-sspr-windows.md)
@@ -174,8 +174,8 @@
 ### [Azure AD'ye Katılım’ı Planlama](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [SSS](device-management-faq.md)
 ### Görevler
-#### [Azure AD alanında kayıtlı Windows 10 cihazlarını ayarlama](device-management-azuread-registered-devices-windows10-setup.md)
-#### [Azure AD alanına katılmış cihazları ayarlama](device-management-azuread-joined-devices-setup.md)
+#### [Azure AD alanında kayıtlı Windows 10 cihazlarını ayarlama](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+#### [Azure AD alanına katılmış cihazları ayarlama](user-help/device-management-azuread-joined-devices-setup.md)
 #### [Karma Azure AD alanına katılmış cihazları ayarlama](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Şirket içi dağıtma](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD katılımı sırasında Windows 10’u ilk kez çalıştırma deneyimi](device-management-azuread-joined-devices-frx.md)
